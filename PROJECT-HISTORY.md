@@ -10,6 +10,9 @@ Codex is the implementation agent for code changes. Other LLMs may generate or r
 
 Current implementation facts that override older prose:
 
+- Project coordinates as of 2026-06-06:
+  - Git repo: `https://github.com/cai-Luke/nclex-bilingual-prep.git`
+  - Published page: `https://cai-Luke.github.io/nclex-bilingual-prep/`
 - The app uses plain CSS in `src/styles.css`; Tailwind is not installed.
 - Runtime remains a static offline Vite app. No live Gemini/API path is implemented.
 - Bundled banks are only top-level `banks/*.json` files loaded by `src/banks.ts`; nested files such as `banks/Pending cases/...` are not bundled or scanned by the default coverage script.
@@ -47,6 +50,17 @@ Out of scope until a future schema bump:
 - `bowtie`
 
 ## Milestones
+
+### Home UX And Builder Simplification (Jun 06)
+
+Completed:
+
+- Reframed the Home screen so a fixed-length test is the default, recommended action: a dedicated test launcher with a 10/25/50 count toggle (default 25) and a single prominent "Start test" button, then straight into the existing review summary.
+- Fixed a bug where Home "Test mode" started a session over the entire bundled bank instead of a fixed count; the launcher now passes the chosen count to `startSession`.
+- Demoted the session builder and "Study all questions" from primary to secondary actions, and corrected the misleading "Study a saved set" label (it always studied all questions).
+- Simplified the session builder topic picker: replaced the ~150 granular topic chips with the 8 umbrella NCLEX client-needs categories. `BuilderFilters.topics` became `BuilderFilters.categories`, and `applyBuilderFilters` now filters on `question.category`.
+- Updated the dashboard weak-area drill-down to open the builder by that topic's category (`onPracticeCategory`) instead of a single granular topic.
+- Granular topic browsing remains available in the Library view's topic dropdown.
 
 ### Pass 1 MVP
 

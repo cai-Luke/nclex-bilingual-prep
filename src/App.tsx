@@ -97,13 +97,13 @@ const blankFilters: Filters = {
 };
 
 type BuilderFilters = {
-  topics: string[];
+  categories: string[];
   status: SessionStatusFilter;
   mode: SessionMode;
 };
 
 const blankBuilderFilters: BuilderFilters = {
-  topics: [],
+  categories: [],
   status: "all",
   mode: "study",
 };
@@ -440,7 +440,7 @@ export default function App() {
             activeSession={activeSession}
             onResume={() => setView("session")}
             onStudy={() => startSession(allRecords, "study", "Study all questions")}
-            onTest={() => startSession(allRecords, "test", "Test mode")}
+            onTest={(count) => startSession(allRecords, "test", `Test · ${count} questions`, { count })}
             onMistakes={() => startSession(missedRecords, "study", "Review mistakes")}
             onAnswered={() => startSession(answeredRecords, "study", "Review answered questions")}
             onDue={() => startSession(dueRecords, "study", "Spaced review")}
@@ -455,7 +455,6 @@ export default function App() {
         {view === "builder" && (
           <SessionBuilderView
             records={builderRecords}
-            allRecords={allRecords}
             filters={builderFilters}
             setFilters={setBuilderFilters}
             onStart={() => {
@@ -476,7 +475,7 @@ export default function App() {
             progress={progress}
             flags={flags}
             answerEvents={answerEvents}
-            onPracticeTopic={(topic) => openBuilder({ topics: [topic], status: "incorrect", mode: "study" })}
+            onPracticeCategory={(category) => openBuilder({ categories: [category], status: "incorrect", mode: "study" })}
             onPracticeUnseen={() => openBuilder({ status: "unseen", mode: "study" })}
             onPracticeFlagged={() => openBuilder({ status: "flagged", mode: "study" })}
           />
@@ -586,7 +585,7 @@ function HomeView({
   activeSession: SessionState | null;
   onResume: () => void;
   onStudy: () => void;
-  onTest: () => void;
+  onTest: (count: number) => void;
   onMistakes: () => void;
   onAnswered: () => void;
   onDue: () => void;
@@ -596,6 +595,8 @@ function HomeView({
   onImport: () => void;
   onLibrary: () => void;
 }) {
+  const [testCount, setTestCount] = useState(DEFAULT_SESSION_COUNT);
+  const testCounts = [10, 25, 50];
   return (
     <section className="home-grid">
       <div className="hero-panel">
@@ -609,28 +610,48 @@ function HomeView({
           <Metric label="Flagged" value={flagged} />
           <Metric label="Vocab terms" value={vocab} />
         </div>
-        <div className="action-row">
-          {activeSession && (
-            <button className="primary-action" type="button" onClick={onResume}>
-              <Play aria-hidden="true" />
-              <span>Resume session</span>
-            </button>
-          )}
-          <button className={activeSession ? "secondary-action" : "primary-action"} type="button" onClick={onCustom} disabled={total === 0}>
+
+        {activeSession && (
+          <button className="primary-action resume-action" type="button" onClick={onResume}>
+            <Play aria-hidden="true" />
+            <span>Resume session</span>
+          </button>
+        )}
+
+        <div className="test-launcher">
+          <div className="test-launcher-head">
+            <div>
+              <p className="eyebrow">Recommended</p>
+              <strong>Answer {testCount}, then review</strong>
+            </div>
+            <div className="segmented count-toggle" role="group" aria-label="Number of questions">
+              {testCounts.map((count) => (
+                <button
+                  key={count}
+                  type="button"
+                  className={testCount === count ? "active" : ""}
+                  aria-pressed={testCount === count}
+                  onClick={() => setTestCount(count)}
+                >
+                  {count}
+                </button>
+              ))}
+            </div>
+          </div>
+          <button className="primary-action test-start" type="button" onClick={() => onTest(testCount)} disabled={total === 0}>
+            <CheckCircle2 aria-hidden="true" />
+            <span>Start test · {testCount} questions</span>
+          </button>
+        </div>
+
+        <div className="action-row secondary-actions">
+          <button className="secondary-action" type="button" onClick={onStudy} disabled={total === 0}>
+            <BookOpen aria-hidden="true" />
+            <span>Study all questions</span>
+          </button>
+          <button className="secondary-action" type="button" onClick={onCustom} disabled={total === 0}>
             <SlidersHorizontal aria-hidden="true" />
             <span>Custom session</span>
-          </button>
-          <button className="primary-action" type="button" onClick={onStudy} disabled={total === 0}>
-            <BookOpen aria-hidden="true" />
-            <span>Study a saved set</span>
-          </button>
-          <button className="secondary-action" type="button" onClick={onTest} disabled={total === 0}>
-            <CheckCircle2 aria-hidden="true" />
-            <span>Test mode</span>
-          </button>
-          <button className="secondary-action" type="button" onClick={onAnswered} disabled={answered === 0}>
-            <ListChecks aria-hidden="true" />
-            <span>Review answered</span>
           </button>
           <button className="secondary-action" type="button" onClick={onDue} disabled={due === 0}>
             <RotateCcw aria-hidden="true" />
@@ -639,6 +660,10 @@ function HomeView({
           <button className="secondary-action" type="button" onClick={onMistakes} disabled={missed === 0}>
             <RotateCcw aria-hidden="true" />
             <span>Review mistakes</span>
+          </button>
+          <button className="secondary-action" type="button" onClick={onAnswered} disabled={answered === 0}>
+            <ListChecks aria-hidden="true" />
+            <span>Review answered</span>
           </button>
         </div>
       </div>
@@ -676,24 +701,21 @@ function Metric({ label, value }: { label: string; value: number }) {
 
 function SessionBuilderView({
   records,
-  allRecords,
   filters,
   setFilters,
   onStart,
 }: {
   records: QuestionRecord[];
-  allRecords: QuestionRecord[];
   filters: BuilderFilters;
   setFilters: (filters: BuilderFilters) => void;
   onStart: () => void;
 }) {
-  const topics = uniqueSorted(allRecords.map((record) => record.question.topic));
-  const selectedTopicCount = filters.topics.length;
-  const toggleTopic = (topic: string) => {
-    const selected = filters.topics.includes(topic);
+  const selectedCategoryCount = filters.categories.length;
+  const toggleCategory = (category: string) => {
+    const selected = filters.categories.includes(category);
     setFilters({
       ...filters,
-      topics: selected ? filters.topics.filter((item) => item !== topic) : [...filters.topics, topic],
+      categories: selected ? filters.categories.filter((item) => item !== category) : [...filters.categories, category],
     });
   };
 
@@ -729,25 +751,25 @@ function SessionBuilderView({
           <div className="topic-picker">
             <div className="topic-picker-header">
               <div>
-                <span>Topics</span>
-                <strong>{selectedTopicCount === 0 ? "All topics" : `${selectedTopicCount} selected`}</strong>
+                <span>Categories</span>
+                <strong>{selectedCategoryCount === 0 ? "All categories" : `${selectedCategoryCount} selected`}</strong>
               </div>
-              <button type="button" className={selectedTopicCount === 0 ? "active" : ""} onClick={() => setFilters({ ...filters, topics: [] })}>
-                All topics
+              <button type="button" className={selectedCategoryCount === 0 ? "active" : ""} onClick={() => setFilters({ ...filters, categories: [] })}>
+                All categories
               </button>
             </div>
-            <div className="topic-chip-grid" aria-label="Topics">
-              {topics.map((topic) => {
-                const selected = filters.topics.includes(topic);
+            <div className="topic-chip-grid" aria-label="Categories">
+              {categories.map((category) => {
+                const selected = filters.categories.includes(category);
                 return (
                   <button
                     className={selected ? "topic-chip selected" : "topic-chip"}
                     type="button"
-                    key={topic}
+                    key={category}
                     aria-pressed={selected}
-                    onClick={() => toggleTopic(topic)}
+                    onClick={() => toggleCategory(category)}
                   >
-                    {topic}
+                    {category}
                   </button>
                 );
               })}
@@ -914,7 +936,7 @@ function DashboardView({
   progress,
   flags,
   answerEvents,
-  onPracticeTopic,
+  onPracticeCategory,
   onPracticeUnseen,
   onPracticeFlagged,
 }: {
@@ -922,7 +944,7 @@ function DashboardView({
   progress: Record<string, QuestionProgress>;
   flags: Record<string, QuestionFlag>;
   answerEvents: AnswerEvent[];
-  onPracticeTopic: (topic: string) => void;
+  onPracticeCategory: (category: string) => void;
   onPracticeUnseen: () => void;
   onPracticeFlagged: () => void;
 }) {
@@ -940,6 +962,7 @@ function DashboardView({
     .sort((left, right) => left.accuracy - right.accuracy)
     .slice(0, 6);
   const recordsById = new Map(records.map((record) => [record.question.id, record]));
+  const topicCategory = new Map(records.map((record) => [record.question.topic, record.question.category] as const));
   const recentEvents = answerEvents.filter((event) => recordsById.has(event.questionId)).slice(-20);
 
   return (
@@ -982,7 +1005,14 @@ function DashboardView({
         ) : (
           <div className="weak-topic-list">
             {weakTopics.map((topic) => (
-              <button type="button" key={topic.label} onClick={() => onPracticeTopic(topic.label)}>
+              <button
+                type="button"
+                key={topic.label}
+                onClick={() => {
+                  const category = topicCategory.get(topic.label);
+                  if (category) onPracticeCategory(category);
+                }}
+              >
                 <span>{topic.label}</span>
                 <strong>{Math.round(topic.accuracy * 100)}%</strong>
               </button>
@@ -2242,7 +2272,7 @@ const applyBuilderFilters = (
   flags: Record<string, QuestionFlag>,
 ) =>
   records.filter((record) => {
-    if (filters.topics.length > 0 && !filters.topics.includes(record.question.topic)) return false;
+    if (filters.categories.length > 0 && !filters.categories.includes(record.question.category)) return false;
     const itemProgress = progress[record.question.id];
     if (filters.status === "unseen") return (itemProgress?.seen ?? 0) === 0;
     if (filters.status === "answered") return (itemProgress?.seen ?? 0) > 0;
