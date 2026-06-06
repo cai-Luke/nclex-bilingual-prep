@@ -28,6 +28,7 @@ Current canonical banks:
 - `banks/claude-canonical.json` (45 bilingual Claude-source questions after GPT/Claude redundancy prune)
 - `banks/gemini-canonical.json` (570 bilingual Gemini-source questions; includes original + pending batches + traditional batches A-D minus 18 redundant/flawed questions)
 - `banks/hard-cases-canonical.json` (29 hard/NGN top-level items, including 19 unfolding case studies with 93 embedded case-study parts; 10-case `cs_ngn_*` delta reviewed and cleaned up)
+- `banks/gap-fill-50.json` (50 bilingual gap-filling questions targeting low-covered categories and item types)
 - Schema version `1.1` current; `1.0` standalone banks remain supported
 
 Current schema item types:
@@ -221,7 +222,7 @@ Completed:
 
 ## Verification baseline
 
-Last verified on 2026-06-05:
+Last verified on 2026-06-06:
 
 - `npm run validate-bank -- banks/*.json`
 - `npm run coverage-report`
@@ -229,25 +230,25 @@ Last verified on 2026-06-05:
 
 Latest coverage snapshot:
 
-- Total questions: 766
-- Unique normalized topics: 44
+- Total questions: 895
+- Unique normalized topics: 156
 - Category counts:
   - Physiological Adaptation: 128
-  - Pharmacological and Parenteral Therapies: 98
-  - Management of Care: 96
-  - Health Promotion and Maintenance: 94
-  - Psychosocial Integrity: 94
-  - Reduction of Risk Potential: 90
-  - Safety and Infection Control: 84
-  - Basic Care and Comfort: 82
+  - Psychosocial Integrity: 111
+  - Safety and Infection Control: 111
+  - Health Promotion and Maintenance: 110
+  - Basic Care and Comfort: 110
+  - Pharmacological and Parenteral Therapies: 110
+  - Management of Care: 109
+  - Reduction of Risk Potential: 106
 - Item type counts:
-  - multiple_choice: 262
-  - select_all: 154
-  - matrix: 102
-  - dropdown_cloze: 91
-  - ordered_response: 69
-  - fill_in_blank: 69
-  - case_study: 19
+  - multiple_choice: 289
+  - select_all: 169
+  - matrix: 123
+  - dropdown_cloze: 115
+  - ordered_response: 90
+  - fill_in_blank: 88
+  - case_study: 21
 
 Known verification gap:
 

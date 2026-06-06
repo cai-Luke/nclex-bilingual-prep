@@ -43,7 +43,7 @@ import {
   saveQuestionFlag,
   saveUploadedRecords,
 } from "./storage";
-import { categories, difficulties, itemTypes } from "./schema";
+import { categories, difficulties } from "./schema";
 import type {
   AdaptiveSessionSnapshot,
   AnswerEvent,
@@ -96,20 +96,15 @@ const blankFilters: Filters = {
   source: "all",
 };
 
-type BuilderFilters = Filters & {
-  itemType: string;
+type BuilderFilters = {
+  topics: string[];
   status: SessionStatusFilter;
-  count: number;
-  order: SessionOrder;
   mode: SessionMode;
 };
 
 const blankBuilderFilters: BuilderFilters = {
-  ...blankFilters,
-  itemType: "all",
+  topics: [],
   status: "all",
-  count: 20,
-  order: "random",
   mode: "study",
 };
 
@@ -119,6 +114,8 @@ type FlashcardTerm = GlossaryTerm & {
   topics: string[];
   questionIds: string[];
 };
+
+const DEFAULT_SESSION_COUNT = 25;
 
 const shuffle = <T,>(items: T[]) => {
   const copy = [...items];
@@ -140,6 +137,7 @@ export default function App() {
   const [settings, setSettings] = useState<Settings>(() => loadSettings());
   const [view, setView] = useState<View>("home");
   const [session, setSession] = useState<SessionState | null>(null);
+  const [sessionReturnView, setSessionReturnView] = useState<View>("home");
   const [filters, setFilters] = useState<Filters>(blankFilters);
   const [builderFilters, setBuilderFilters] = useState<BuilderFilters>(blankBuilderFilters);
   const [sessionHydrated, setSessionHydrated] = useState(false);
@@ -218,9 +216,10 @@ export default function App() {
     records: QuestionRecord[],
     mode: SessionMode,
     title: string,
-    options: { count?: number; order?: SessionOrder } = {},
+    options: { count?: number; order?: SessionOrder; returnView?: View } = {},
   ) => {
     if (records.length === 0) return;
+    setSessionReturnView(options.returnView ?? "home");
     if (mode === "adaptive") {
       startAdaptiveSession(records, title, Math.max(1, options.count ?? 75));
       return;
@@ -369,11 +368,20 @@ export default function App() {
     setView("builder");
   };
 
+  const practiceOne = (record: QuestionRecord) => {
+    startSession([record], "study", record.question.stem.en, {
+      order: "sequential",
+      returnView: "library",
+    });
+  };
+
   const existingIds = useMemo(() => new Set(allRecords.map((record) => record.question.id)), [allRecords]);
   const activeSession = session && !session.completed ? session : null;
+  const relatedPracticePool = useMemo(() => buildRelatedPracticePool(session, allRecords, progress), [session, allRecords, progress]);
+  const sessionReturnLabel = sessionReturnView === "library" ? "Library" : "Home";
 
   return (
-    <div className="app-shell">
+    <div className={`app-shell ${view === "session" ? "session-active" : ""}`}>
       <header className="app-header">
         <button className="brand" type="button" onClick={() => setView("home")}>
           <FlaskConical aria-hidden="true" />
@@ -452,10 +460,12 @@ export default function App() {
             setFilters={setBuilderFilters}
             onStart={() => {
               const label = builderFilters.mode === "adaptive" ? "Adaptive exam practice" : "Custom session";
-              startSession(builderRecords, builderFilters.mode, label, {
-                count: builderFilters.count,
-                order: builderFilters.order,
-              });
+              startSession(
+                builderRecords,
+                builderFilters.mode,
+                label,
+                builderFilters.mode === "adaptive" ? {} : { count: DEFAULT_SESSION_COUNT },
+              );
             }}
           />
         )}
@@ -466,9 +476,9 @@ export default function App() {
             progress={progress}
             flags={flags}
             answerEvents={answerEvents}
-            onPracticeTopic={(topic) => openBuilder({ topic, status: "incorrect", mode: "study", count: 20 })}
-            onPracticeUnseen={() => openBuilder({ status: "unseen", mode: "study", count: 20 })}
-            onPracticeFlagged={() => openBuilder({ status: "flagged", mode: "study", count: 20 })}
+            onPracticeTopic={(topic) => openBuilder({ topics: [topic], status: "incorrect", mode: "study" })}
+            onPracticeUnseen={() => openBuilder({ status: "unseen", mode: "study" })}
+            onPracticeFlagged={() => openBuilder({ status: "flagged", mode: "study" })}
           />
         )}
 
@@ -492,6 +502,7 @@ export default function App() {
             onStudy={() => startSession(filteredRecords, "study", "Filtered study set")}
             onTest={() => startSession(filteredRecords, "test", "Filtered test set")}
             onToggleFlag={toggleFlag}
+            onPracticeOne={practiceOne}
           />
         )}
 
@@ -521,15 +532,23 @@ export default function App() {
             onFinish={finishSession}
             onLanguageModeChange={(languageMode) => setSession((current) => (current ? { ...current, languageMode } : current))}
             onToggleFlag={toggleFlag}
-            onExit={() => setView("home")}
+            onExit={() => setView(sessionReturnView)}
+            exitLabel={sessionReturnLabel}
           />
         )}
 
         {view === "summary" && session && (
           <SummaryView
             session={session}
-            onHome={() => setView("home")}
-            onReviewMisses={() => startSession(missedRecords, "study", "Review mistakes")}
+            onHome={() => setView(sessionReturnView)}
+            homeLabel={sessionReturnView === "library" ? "Back to Library" : "Home"}
+            relatedCount={relatedPracticePool.length}
+            onPracticeRelated={() =>
+              startSession(relatedPracticePool, "study", "Practice related", {
+                count: DEFAULT_SESSION_COUNT,
+                order: "sequential",
+              })
+            }
           />
         )}
       </main>
@@ -669,7 +688,14 @@ function SessionBuilderView({
   onStart: () => void;
 }) {
   const topics = uniqueSorted(allRecords.map((record) => record.question.topic));
-  const sources = uniqueSorted(allRecords.map((record) => record.sourceLabel));
+  const selectedTopicCount = filters.topics.length;
+  const toggleTopic = (topic: string) => {
+    const selected = filters.topics.includes(topic);
+    setFilters({
+      ...filters,
+      topics: selected ? filters.topics.filter((item) => item !== topic) : [...filters.topics, topic],
+    });
+  };
 
   return (
     <section className="stack">
@@ -691,7 +717,7 @@ function SessionBuilderView({
               className={filters.mode === mode ? "active" : ""}
               type="button"
               key={mode}
-              onClick={() => setFilters({ ...filters, mode, count: mode === "adaptive" ? Math.max(filters.count, 75) : filters.count })}
+              onClick={() => setFilters({ ...filters, mode })}
             >
               {mode === "study" ? <BookOpen aria-hidden="true" /> : mode === "test" ? <CheckCircle2 aria-hidden="true" /> : <BarChart3 aria-hidden="true" />}
               <span>{mode === "study" ? "Study" : mode === "test" ? "Test" : "Adaptive"}</span>
@@ -700,71 +726,45 @@ function SessionBuilderView({
         </div>
 
         <div className="filters builder-filters">
-          <SelectFilter
-            label="Category"
-            value={filters.category}
-            values={["all", ...categories]}
-            onChange={(category) => setFilters({ ...filters, category })}
-          />
-          <SelectFilter
-            label="Topic"
-            value={filters.topic}
-            values={["all", ...topics]}
-            onChange={(topic) => setFilters({ ...filters, topic })}
-          />
-          <SelectFilter
-            label="Difficulty"
-            value={filters.difficulty}
-            values={["all", ...difficulties]}
-            onChange={(difficulty) => setFilters({ ...filters, difficulty })}
-          />
-          <SelectFilter
-            label="Item type"
-            value={filters.itemType}
-            values={["all", ...itemTypes]}
-            onChange={(itemType) => setFilters({ ...filters, itemType })}
-          />
+          <div className="topic-picker">
+            <div className="topic-picker-header">
+              <div>
+                <span>Topics</span>
+                <strong>{selectedTopicCount === 0 ? "All topics" : `${selectedTopicCount} selected`}</strong>
+              </div>
+              <button type="button" className={selectedTopicCount === 0 ? "active" : ""} onClick={() => setFilters({ ...filters, topics: [] })}>
+                All topics
+              </button>
+            </div>
+            <div className="topic-chip-grid" aria-label="Topics">
+              {topics.map((topic) => {
+                const selected = filters.topics.includes(topic);
+                return (
+                  <button
+                    className={selected ? "topic-chip selected" : "topic-chip"}
+                    type="button"
+                    key={topic}
+                    aria-pressed={selected}
+                    onClick={() => toggleTopic(topic)}
+                  >
+                    {topic}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
           <SelectFilter
             label="Status pool"
             value={filters.status}
             values={["all", "unseen", "answered", "incorrect", "flagged", "due"]}
             onChange={(status) => setFilters({ ...filters, status: status as SessionStatusFilter })}
           />
-          <SelectFilter
-            label="Source"
-            value={filters.source}
-            values={["all", ...sources]}
-            onChange={(source) => setFilters({ ...filters, source })}
-          />
-          <label>
-            <span>Count</span>
-            <input
-              type="number"
-              min={1}
-              max={145}
-              value={filters.count}
-              onChange={(event) =>
-                setFilters({
-                  ...filters,
-                  count: Math.max(1, Math.min(145, Number.parseInt(event.target.value, 10) || 1)),
-                })
-              }
-            />
-          </label>
-          <label>
-            <span>Order</span>
-            <select value={filters.order} onChange={(event) => setFilters({ ...filters, order: event.target.value as SessionOrder })}>
-              <option value="random">Random</option>
-              <option value="sequential">Sequential</option>
-            </select>
-          </label>
         </div>
 
         <div className="builder-summary">
           <span className="type-pill">{filters.mode === "adaptive" ? "Exam-condition practice" : "Custom practice"}</span>
-          <span>{Math.min(filters.count, records.length)} will be served</span>
+          <span>{records.length} questions in pool</span>
           {filters.mode === "adaptive" && <span>No pass/fail estimate; difficulty changes by rolling performance.</span>}
-          {records.length > 0 && filters.count > records.length && <span>The current pool is smaller than the requested count.</span>}
         </div>
       </div>
 
@@ -795,6 +795,7 @@ function LibraryView({
   onStudy,
   onTest,
   onToggleFlag,
+  onPracticeOne,
 }: {
   records: QuestionRecord[];
   allRecords: QuestionRecord[];
@@ -805,6 +806,7 @@ function LibraryView({
   onStudy: () => void;
   onTest: () => void;
   onToggleFlag: (questionId: string) => void;
+  onPracticeOne: (record: QuestionRecord) => void;
 }) {
   const topics = uniqueSorted(allRecords.map((record) => record.question.topic));
   const sources = uniqueSorted(allRecords.map((record) => record.sourceLabel));
@@ -860,7 +862,19 @@ function LibraryView({
           const itemProgress = progress[record.question.id];
           const flagged = flags[record.question.id]?.flagged;
           return (
-            <article className="question-row" key={record.question.id}>
+            <article
+              className="question-row interactive-row"
+              key={record.question.id}
+              role="button"
+              tabIndex={0}
+              onClick={() => onPracticeOne(record)}
+              onKeyDown={(event) => {
+                if (event.key === "Enter" || event.key === " ") {
+                  event.preventDefault();
+                  onPracticeOne(record);
+                }
+              }}
+            >
               <div>
                 <span className="type-pill">{record.question.itemType.replace(/_/g, " ")}</span>
                 <h3>{record.question.stem.en}</h3>
@@ -874,7 +888,11 @@ function LibraryView({
                   type="button"
                   aria-label={flagged ? "Remove flag" : "Flag for review"}
                   title={flagged ? "Remove flag" : "Flag for review"}
-                  onClick={() => onToggleFlag(record.question.id)}
+                  onClick={(event) => {
+                    event.stopPropagation();
+                    onToggleFlag(record.question.id);
+                  }}
+                  onKeyDown={(event) => event.stopPropagation()}
                 >
                   <Flag aria-hidden="true" />
                 </button>
@@ -1026,23 +1044,25 @@ function FlashcardsView({
 }) {
   const [category, setCategory] = useState("all");
   const [topic, setTopic] = useState("all");
-  const [dueOnly, setDueOnly] = useState(true);
+  const [readyNow, setReadyNow] = useState(true);
+  const [sessionDeck, setSessionDeck] = useState<FlashcardTerm[]>([]);
   const [index, setIndex] = useState(0);
   const [revealed, setRevealed] = useState(false);
   const categoriesInDeck = uniqueSorted(deck.flatMap((term) => term.categories));
   const topicsInDeck = uniqueSorted(deck.flatMap((term) => term.topics));
-  const filteredDeck = deck.filter((term) => {
-    if (category !== "all" && !term.categories.includes(category)) return false;
-    if (topic !== "all" && !term.topics.includes(topic)) return false;
-    if (dueOnly && progress[term.id] && !isDueForReview(progress[term.id])) return false;
-    return true;
-  });
-  const card = filteredDeck[index % Math.max(1, filteredDeck.length)];
+  const card = sessionDeck[index % Math.max(1, sessionDeck.length)];
 
   useEffect(() => {
+    const filteredDeck = deck.filter((term) => {
+      if (category !== "all" && !term.categories.includes(category)) return false;
+      if (topic !== "all" && !term.topics.includes(topic)) return false;
+      if (readyNow && progress[term.id] && !isDueForReview(progress[term.id])) return false;
+      return true;
+    });
+    setSessionDeck(shuffle(filteredDeck));
     setIndex(0);
     setRevealed(false);
-  }, [category, topic, dueOnly, deck.length]);
+  }, [category, topic, readyNow, deck]);
 
   const gradeCard = async (remembered: boolean) => {
     if (!card) return;
@@ -1056,17 +1076,19 @@ function FlashcardsView({
       <div className="section-heading">
         <div>
           <p className="eyebrow">Vocabulary flashcards</p>
-          <h2>{filteredDeck.length} cards ready</h2>
+          <h2>{sessionDeck.length} cards ready</h2>
         </div>
         <label className="toggle-row compact-toggle">
-          <input type="checkbox" checked={dueOnly} onChange={(event) => setDueOnly(event.target.checked)} />
-          <span>Due only</span>
+          <input type="checkbox" checked={readyNow} onChange={(event) => setReadyNow(event.target.checked)} />
+          <span>Ready now</span>
         </label>
       </div>
 
       <div className="filters flashcard-filters">
+        <div className="flashcard-topic-filter">
+          <SelectFilter label="Topic" value={topic} values={["all", ...topicsInDeck]} onChange={setTopic} />
+        </div>
         <SelectFilter label="Category" value={category} values={["all", ...categoriesInDeck]} onChange={setCategory} />
-        <SelectFilter label="Topic" value={topic} values={["all", ...topicsInDeck]} onChange={setTopic} />
       </div>
 
       {!card ? (
@@ -1289,6 +1311,7 @@ function SessionView({
   onLanguageModeChange,
   onToggleFlag,
   onExit,
+  exitLabel,
 }: {
   session: SessionState;
   progress: Record<string, QuestionProgress>;
@@ -1301,6 +1324,7 @@ function SessionView({
   onLanguageModeChange: (mode: LanguageMode) => void;
   onToggleFlag: (questionId: string) => void;
   onExit: () => void;
+  exitLabel: string;
 }) {
   const question = session.questions[session.index];
   const answer = session.answers[question.id] ?? getInitialAnswer(question);
@@ -1317,7 +1341,7 @@ function SessionView({
       <div className="session-topbar">
         <button type="button" onClick={onExit}>
           <ChevronLeft aria-hidden="true" />
-          <span>Home</span>
+          <span>{exitLabel}</span>
         </button>
         <div>
           <strong>{session.title}</strong>
@@ -2095,11 +2119,15 @@ function RationalePanel({ question, title = "Rationale" }: { question: Question;
 function SummaryView({
   session,
   onHome,
-  onReviewMisses,
+  homeLabel,
+  relatedCount,
+  onPracticeRelated,
 }: {
   session: SessionState;
   onHome: () => void;
-  onReviewMisses: () => void;
+  homeLabel: string;
+  relatedCount: number;
+  onPracticeRelated: () => void;
 }) {
   const answered = Object.keys(session.results).length;
   const correct = Object.values(session.results).filter(Boolean).length;
@@ -2135,11 +2163,11 @@ function SummaryView({
         <div className="action-row">
           <button className="primary-action" type="button" onClick={onHome}>
             <Home aria-hidden="true" />
-            <span>Home</span>
+            <span>{homeLabel}</span>
           </button>
-          <button type="button" onClick={onReviewMisses} disabled={missed.length === 0}>
+          <button type="button" onClick={onPracticeRelated} disabled={relatedCount === 0}>
             <RotateCcw aria-hidden="true" />
-            <span>Review missed</span>
+            <span>Practice related</span>
           </button>
         </div>
       </div>
@@ -2213,8 +2241,8 @@ const applyBuilderFilters = (
   progress: Record<string, QuestionProgress>,
   flags: Record<string, QuestionFlag>,
 ) =>
-  applyFilters(records, filters).filter((record) => {
-    if (filters.itemType !== "all" && record.question.itemType !== filters.itemType) return false;
+  records.filter((record) => {
+    if (filters.topics.length > 0 && !filters.topics.includes(record.question.topic)) return false;
     const itemProgress = progress[record.question.id];
     if (filters.status === "unseen") return (itemProgress?.seen ?? 0) === 0;
     if (filters.status === "answered") return (itemProgress?.seen ?? 0) > 0;
@@ -2223,6 +2251,25 @@ const applyBuilderFilters = (
     if (filters.status === "due") return isDueForReview(itemProgress);
     return true;
   });
+
+const buildRelatedPracticePool = (
+  session: SessionState | null,
+  records: QuestionRecord[],
+  progress: Record<string, QuestionProgress>,
+) => {
+  if (!session) return [];
+  const missedTopics = uniqueSorted(
+    session.questions.filter((question) => session.results[question.id] === false).map((question) => question.topic),
+  );
+  if (missedTopics.length === 0) return [];
+  const servedIds = new Set(session.questions.map((question) => question.id));
+  const candidates = records.filter(
+    (record) => missedTopics.includes(record.question.topic) && !servedIds.has(record.question.id),
+  );
+  const unseen = candidates.filter((record) => (progress[record.question.id]?.seen ?? 0) === 0);
+  const seen = candidates.filter((record) => (progress[record.question.id]?.seen ?? 0) > 0);
+  return [...shuffle(unseen), ...shuffle(seen)].slice(0, DEFAULT_SESSION_COUNT);
+};
 
 type AggregateRow = {
   label: string;

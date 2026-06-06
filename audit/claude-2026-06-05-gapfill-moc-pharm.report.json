@@ -1,0 +1,71 @@
+[
+  {
+    "questionId": "claude_jun05_moc_case_mgmt_01",
+    "sourceFile": "banks/banks-raw/claude-2026-06-05-gapfill-moc-pharm.json",
+    "verdict": "pass",
+    "severity": "none",
+    "confidence": "high",
+    "needsHumanReview": false,
+    "issues": [],
+    "proposedFix": null
+  },
+  {
+    "questionId": "claude_jun05_moc_referral_slp_02",
+    "sourceFile": "banks/banks-raw/claude-2026-06-05-gapfill-moc-pharm.json",
+    "verdict": "pass",
+    "severity": "none",
+    "confidence": "high",
+    "needsHumanReview": false,
+    "issues": [],
+    "proposedFix": null
+  },
+  {
+    "questionId": "claude_jun05_moc_quality_improvement_03",
+    "sourceFile": "banks/banks-raw/claude-2026-06-05-gapfill-moc-pharm.json",
+    "verdict": "pass",
+    "severity": "none",
+    "confidence": "high",
+    "needsHumanReview": false,
+    "issues": [],
+    "proposedFix": null
+  },
+  {
+    "questionId": "claude_jun05_pharm_pca_opioid_safety_04",
+    "sourceFile": "banks/banks-raw/claude-2026-06-05-gapfill-moc-pharm.json",
+    "verdict": "pass",
+    "severity": "none",
+    "confidence": "high",
+    "needsHumanReview": false,
+    "issues": [],
+    "proposedFix": null
+  },
+  {
+    "questionId": "claude_jun05_pharm_clozapine_teaching_05",
+    "sourceFile": "banks/banks-raw/claude-2026-06-05-gapfill-moc-pharm.json",
+    "verdict": "pass",
+    "severity": "none",
+    "confidence": "high",
+    "needsHumanReview": false,
+    "issues": [],
+    "proposedFix": null
+  },
+  {
+    "questionId": "claude_jun05_pharm_insulin_mixing_06",
+    "sourceFile": "banks/banks-raw/claude-2026-06-05-gapfill-moc-pharm.json",
+    "verdict": "discard",
+    "severity": "minor",
+    "confidence": "high",
+    "needsHumanReview": false,
+    "issues": [
+      {
+        "type": "other",
+        "detail": "Clinically correct and schema-valid, but redundant with bundled item gemini_d2_insulin_01, which already tests the same regular/NPH insulin mixing sequence and same correct order: air into cloudy, air into clear, draw clear, draw cloudy.",
+        "sources": [
+          "banks/gemini-canonical.json#gemini_d2_insulin_01",
+          "https://dmz2.www.healthlinkbc.ca/healthwise/how-prepare-mixed-dose-insulin"
+        ]
+      }
+    ],
+    "proposedFix": null
+  }
+]
