@@ -1,6 +1,6 @@
 # NCLEX Bank — Canonical Question Schema
 
-**schemaVersion: `1.1` — current.** This is the single source of truth. The app's TS type, the validator, and the generation prompt all implement this verbatim. `1.0` standalone-question banks remain supported. Do not change shapes without bumping `schemaVersion` and writing a migration.
+**schemaVersion: `1.2` — current.** This is the single source of truth. The app's TS type, the validator, and the generation prompt all implement this verbatim. `1.0` standalone-question banks remain supported. `1.1` case-study banks remain supported. Do not change shapes without bumping `schemaVersion` and writing a migration.
 
 ---
 
@@ -11,7 +11,7 @@ A generated bank is one JSON object:
 ```json
 {
   "meta": {
-    "schemaVersion": "1.1",
+    "schemaVersion": "1.2",
     "exam": "NCLEX-RN",
     "topic": "echo of the requested topic",
     "category": "echo of the requested category, or 'mixed'",
@@ -22,7 +22,7 @@ A generated bank is one JSON object:
 }
 ```
 
-The importer also accepts a bare `[ ... ]` array of Question objects (no envelope). When present, `meta.schemaVersion` must be `"1.0"` or `"1.1"`. `case_study` requires `"1.1"`.
+The importer also accepts a bare `[ ... ]` array of Question objects (no envelope). When present, `meta.schemaVersion` must be `"1.0"`, `"1.1"`, or `"1.2"`. `case_study` requires `"1.1"` or later. `visual` requires `"1.2"` when a bank envelope declares a schema version.
 
 ---
 
@@ -40,6 +40,7 @@ The importer also accepts a bare `[ ... ]` array of Question objects (no envelop
 | `rationale` | object | yes | see below |
 | `testTakingStrategy` | `{ en, zh }` | yes | short strategy note, both languages |
 | `glossary` | `[ { termEn, termZh, defZh } ]` | yes | key terms in the item; may be empty `[]` but prefer 2–5 |
+| `visual` | object | optional | schema `1.2`; supported on `multiple_choice`, `select_all`, and `matrix` only; renders above the stem |
 
 **`category` controlled vocabulary (use these exact strings):**
 `Management of Care`, `Safety and Infection Control`, `Health Promotion and Maintenance`, `Psychosocial Integrity`, `Basic Care and Comfort`, `Pharmacological and Parenteral Therapies`, `Reduction of Risk Potential`, `Physiological Adaptation`.
@@ -62,6 +63,56 @@ The importer also accepts a bare `[ ... ]` array of Question objects (no envelop
 `byChoice` is **required for option types** (one entry per option). For other types it's encouraged (one per row / dropdown / blank) but may be omitted if `rationale.correct` fully explains it.
 
 All `{ en, zh }` pairs require both languages non-empty. `zh` is natural Simplified Chinese, not literal word-for-word.
+
+---
+
+## Optional visual stimulus — schema `1.2`
+
+Visuals are deterministic data, not image files. A question or case-study exhibit may carry an optional `visual` object. The app renders the visual locally as SVG from the stored parameters, with no raster assets, runtime API calls, or external files.
+
+Supported locations:
+- Top-level or embedded `multiple_choice`, `select_all`, and `matrix` questions.
+- `case_study.caseStudy.exhibits[]` and `caseStudy.stages[].exhibits[]`.
+
+Unsupported locations:
+- `ordered_response`, `fill_in_blank`, `dropdown_cloze`, and the `case_study` parent object itself.
+
+Current visual variant:
+
+```json
+{
+  "visual": {
+    "kind": "rhythm_strip",
+    "rhythm": "sinus",
+    "rateBpm": 75,
+    "durationSec": 6,
+    "seed": 42,
+    "calibrationPulse": true,
+    "prSec": 0.16,
+    "qrsSec": 0.08,
+    "qtSec": 0.36,
+    "caption": { "en": "Lead II rhythm strip" }
+  }
+}
+```
+
+`rhythm` controlled vocabulary:
+`sinus`, `sinus_brady`, `sinus_tach`, `afib`, `aflutter`, `svt`, `avb_1`, `avb_2_mobitz1`, `avb_2_mobitz2`, `avb_3`, `pvc`, `vtach`, `vfib`, `asystole`.
+
+Validation rules:
+- `kind` must be `"rhythm_strip"`.
+- `rateBpm` is required. It must be 20–300, except `vfib` and `asystole` may use 0–300 because the renderer treats rate as nominal for those rhythms.
+- `durationSec`, if present, must be 3–12. Default is 6.
+- `seed`, if present, must be a non-negative integer. Default is 0.
+- `calibrationPulse`, if present, must be boolean. Default is true.
+- `atrialRateBpm`, if present, must be 20–400.
+- `conductionRatio`, if present, must be an integer from 1–8.
+- `prSec`, if present, must be 0.06–0.40 seconds.
+- `qrsSec`, if present, must be 0.04–0.24 seconds.
+- `qtSec`, if present, must be 0.16–0.70 seconds.
+- `caption.en`, if caption is present, is required. `caption.zh` is optional but must be non-empty if present.
+
+The `caption` must never reveal the answer. For example, do not caption a strip `"Atrial fibrillation"` on an item asking the learner to identify atrial fibrillation.
 
 ---
 
@@ -90,7 +141,7 @@ All `{ en, zh }` pairs require both languages non-empty. `zh` is natural Simplif
 
 ### 2. `select_all` — SATA / multiple response
 Same shape as `multiple_choice` but:
-- `options`: typically 5–6.
+- `options`: 5–6.
 - `correct`: array of **one or more** optionIds (no fixed count).
 
 ### 3. `ordered_response` — prioritization / drag-to-order
@@ -157,7 +208,7 @@ Rows are statements/findings; columns are categories. Each row gets a selection.
 - Each dropdown's `correct` is one of its own option ids. No top-level `correct`.
 
 ### 7. `case_study` — unfolding NGN case container
-`case_study` is a top-level `1.1` item type for harder NGN practice. It presents shared chart/exhibit data once, then asks 2–6 embedded standalone questions that reuse the existing six item types.
+`case_study` is a top-level `1.1+` item type for harder NGN practice. It presents shared chart/exhibit data once, then asks 2–6 embedded standalone questions that reuse the existing six item types.
 
 ```json
 {
@@ -174,7 +225,8 @@ Rows are statements/findings; columns are categories. Each row gets a selection.
       {
         "id": "triage",
         "title": { "en": "0730 triage note", "zh": "..." },
-        "content": { "en": "Vital signs, history, labs, etc.", "zh": "..." }
+        "content": { "en": "Vital signs, history, labs, etc.", "zh": "..." },
+        "visual": { "kind": "rhythm_strip", "rhythm": "sinus", "rateBpm": 75 }
       }
     ],
     "stages": [
@@ -202,6 +254,7 @@ Rows are statements/findings; columns are categories. Each row gets a selection.
 ```
 
 - `caseStudy.exhibits`: required, at least one exhibit. Use concise chart-like content; newline-separated vitals/labs are allowed.
+- `caseStudy.exhibits[].visual`: optional schema `1.2` visual stimulus. Exhibit `title` and `content` remain required even when a visual is present.
 - `caseStudy.stages`: optional unfolding updates, each with at least one exhibit.
 - `caseStudy.questions`: 2–6 embedded standalone questions. Embedded questions must be one of the six v1.0 item types and must include their own full common fields, rationale, strategy, and glossary.
 - Embedded question ids must be unique within the case and differ from the parent case id.
@@ -220,6 +273,7 @@ An item is **invalid → skipped and reported** (never partially rendered) if an
 - **matrix:** missing `matrix.rows`/`matrix.columns`/`correct`; a `rowId`/`columnId` not found; `single_per_row` with a `columnIds` length ≠ 1.
 - **dropdown_cloze:** a `{{id}}` in `clozeStem` with no matching dropdown (or vice versa); a dropdown `correct` not among its options; placeholders missing from `zh`.
 - **case_study:** `meta.schemaVersion` is `"1.0"`; missing `caseStudy.exhibits`; fewer than 2 or more than 6 embedded questions; an embedded question is another `case_study`; embedded ids are duplicated.
+- **visual:** present in a versioned bank below schema `"1.2"`; placed on an unsupported item type; unknown visual `kind`; invalid rhythm class; out-of-range rate, duration, interval, seed, atrial rate, or conduction ratio.
 
 Report format: `"imported N of M; skipped K (reasons...)"`.
 
@@ -239,7 +293,7 @@ Report format: `"imported N of M; skipped K (reasons...)"`.
 
 ## Notes
 
-- `highlight` / enhanced hot-spot and `bowtie` are still intentionally not in v1.1. Adding them later = a `1.x` bump with new type blocks.
+- `highlight` / enhanced hot-spot and `bowtie` are still intentionally not in v1.2. Adding them later = a `1.x` bump with new type blocks.
 - `case_study` is the v1.1 hard-mode container for multi-part unfolding practice. It deliberately reuses v1.0 embedded item types instead of introducing new grading rules.
 - IDs: any unique string is fine. A readable convention like `<type>_<topicslug>_<n>` helps debugging but isn't required.
 - Keep `topic` strings consistent across batches (e.g., always `"heart failure"`, not sometimes `"CHF"`) so the coverage tool tallies cleanly. Minor variants can be fuzzy-grouped by the tool.

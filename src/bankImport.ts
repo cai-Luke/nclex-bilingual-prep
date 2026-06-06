@@ -118,9 +118,19 @@ const regenerateId = (id: string, existingIds: Set<string>) => {
   return next;
 };
 
+const hasVisual = (question: Question) => {
+  if (question.visual !== undefined) return true;
+  if (question.itemType !== "case_study") return false;
+  return (
+    question.caseStudy.exhibits.some((exhibit) => exhibit.visual !== undefined) ||
+    question.caseStudy.stages?.some((stage) => stage.exhibits.some((exhibit) => exhibit.visual !== undefined)) ||
+    question.caseStudy.questions.some((caseQuestion) => caseQuestion.visual !== undefined)
+  );
+};
+
 export const toExportEnvelope = (questions: Question[]): BankEnvelope => ({
   meta: {
-    schemaVersion: questions.some((question) => question.itemType === "case_study") ? "1.1" : "1.0",
+    schemaVersion: questions.some(hasVisual) ? "1.2" : questions.some((question) => question.itemType === "case_study") ? "1.1" : "1.0",
     exam: "NCLEX-RN",
     topic: "exported library",
     category: "mixed",

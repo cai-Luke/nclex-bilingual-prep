@@ -15,6 +15,7 @@ import {
   Import,
   Library,
   ListChecks,
+  Image,
   MoveDown,
   MoveUp,
   Play,
@@ -45,9 +46,11 @@ import {
   saveUploadedRecords,
 } from "./storage";
 import { categories, difficulties } from "./schema";
+import { RhythmStrip } from "./visuals/RhythmStripView";
 import type {
   AdaptiveSessionSnapshot,
   AnswerEvent,
+  CaseStudyExhibit,
   Difficulty,
   FlashcardProgress,
   GlossaryTerm,
@@ -102,12 +105,14 @@ type BuilderFilters = {
   categories: string[];
   status: SessionStatusFilter;
   mode: SessionMode;
+  withVisuals: boolean;
 };
 
 const blankBuilderFilters: BuilderFilters = {
   categories: [],
   status: "all",
   mode: "study",
+  withVisuals: false,
 };
 
 type FlashcardTerm = GlossaryTerm & {
@@ -712,7 +717,7 @@ function SessionBuilderView({
   setFilters: (filters: BuilderFilters) => void;
   onStart: () => void;
 }) {
-  const selectedCategoryCount = filters.categories.length;
+  const selectedCategoryCount = filters.categories.length + (filters.withVisuals ? 1 : 0);
   const toggleCategory = (category: string) => {
     const selected = filters.categories.includes(category);
     setFilters({
@@ -756,11 +761,24 @@ function SessionBuilderView({
                 <span>Categories</span>
                 <strong>{selectedCategoryCount === 0 ? "All categories" : `${selectedCategoryCount} selected`}</strong>
               </div>
-              <button type="button" className={selectedCategoryCount === 0 ? "active" : ""} onClick={() => setFilters({ ...filters, categories: [] })}>
+              <button
+                type="button"
+                className={selectedCategoryCount === 0 ? "active" : ""}
+                onClick={() => setFilters({ ...filters, categories: [], withVisuals: false })}
+              >
                 All categories
               </button>
             </div>
             <div className="topic-chip-grid" aria-label="Categories">
+              <button
+                className={filters.withVisuals ? "topic-chip selected image-chip" : "topic-chip image-chip"}
+                type="button"
+                aria-pressed={filters.withVisuals}
+                onClick={() => setFilters({ ...filters, withVisuals: !filters.withVisuals })}
+              >
+                <Image aria-hidden="true" />
+                <span>Questions with images</span>
+              </button>
               {categories.map((category) => {
                 const selected = filters.categories.includes(category);
                 return (
@@ -800,6 +818,7 @@ function SessionBuilderView({
               <h3>{record.question.stem.en}</h3>
               <p>
                 {record.question.category} · {record.question.topic} · {record.question.difficulty}
+                {hasVisualStimulus(record.question) ? " · Image question" : ""}
               </p>
             </div>
           </article>
@@ -1478,6 +1497,8 @@ function QuestionCard({
         </button>
       </div>
 
+      {question.visual?.kind === "rhythm_strip" && <RhythmStrip visual={question.visual} languageMode={languageMode} />}
+
       <div className="stem-row">
         <BilingualText
           pair={question.stem}
@@ -1989,6 +2010,7 @@ function CaseStudyControl({
                   <span className={caseResult ? "type-pill" : "missed-pill"}>{caseResult ? "Correct" : "Review"}</span>
                 )}
               </div>
+              {caseQuestion.visual?.kind === "rhythm_strip" && <RhythmStrip visual={caseQuestion.visual} languageMode={languageMode} />}
               <div className="stem-row">
                 <BilingualText
                   pair={caseQuestion.stem}
@@ -2024,7 +2046,7 @@ function CaseExhibit({
   glossary,
   onTerm,
 }: {
-  exhibit: { title: { en: string; zh: string }; content: { en: string; zh: string } };
+  exhibit: CaseStudyExhibit;
   languageMode: LanguageMode;
   glossary: GlossaryTerm[];
   onTerm: (term: GlossaryTerm) => void;
@@ -2032,6 +2054,7 @@ function CaseExhibit({
   return (
     <section className="case-exhibit">
       <BilingualText pair={exhibit.title} mode={languageMode} className="case-exhibit-title" glossary={glossary} onTerm={onTerm} />
+      {exhibit.visual?.kind === "rhythm_strip" && <RhythmStrip visual={exhibit.visual} languageMode={languageMode} />}
       <BilingualText pair={exhibit.content} mode={languageMode} className="case-exhibit-content" glossary={glossary} onTerm={onTerm} />
     </section>
   );
@@ -2313,6 +2336,16 @@ const applyFilters = (records: QuestionRecord[], filters: Filters) =>
     return true;
   });
 
+const hasVisualStimulus = (question: Question): boolean => {
+  if (question.visual !== undefined) return true;
+  if (question.itemType !== "case_study") return false;
+  return (
+    question.caseStudy.exhibits.some((exhibit) => exhibit.visual !== undefined) ||
+    (question.caseStudy.stages?.some((stage) => stage.exhibits.some((exhibit) => exhibit.visual !== undefined)) ?? false) ||
+    question.caseStudy.questions.some((caseQuestion) => hasVisualStimulus(caseQuestion))
+  );
+};
+
 const applyBuilderFilters = (
   records: QuestionRecord[],
   filters: BuilderFilters,
@@ -2321,6 +2354,7 @@ const applyBuilderFilters = (
 ) =>
   records.filter((record) => {
     if (filters.categories.length > 0 && !filters.categories.includes(record.question.category)) return false;
+    if (filters.withVisuals && !hasVisualStimulus(record.question)) return false;
     const itemProgress = progress[record.question.id];
     if (filters.status === "unseen") return (itemProgress?.seen ?? 0) === 0;
     if (filters.status === "answered") return (itemProgress?.seen ?? 0) > 0;

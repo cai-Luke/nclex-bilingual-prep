@@ -3,7 +3,7 @@ export type TextPair = {
   zh: string;
 };
 
-export type SchemaVersion = "1.0" | "1.1";
+export type SchemaVersion = "1.0" | "1.1" | "1.2";
 
 export type StandaloneItemType =
   | "multiple_choice"
@@ -52,6 +52,42 @@ export type Rationale = {
   byChoice?: RationaleChoice[];
 };
 
+export type RhythmClass =
+  | "sinus"
+  | "sinus_brady"
+  | "sinus_tach"
+  | "afib"
+  | "aflutter"
+  | "svt"
+  | "avb_1"
+  | "avb_2_mobitz1"
+  | "avb_2_mobitz2"
+  | "avb_3"
+  | "pvc"
+  | "vtach"
+  | "vfib"
+  | "asystole";
+
+export type RhythmStripVisual = {
+  kind: "rhythm_strip";
+  rhythm: RhythmClass;
+  rateBpm: number;
+  durationSec?: number;
+  seed?: number;
+  calibrationPulse?: boolean;
+  atrialRateBpm?: number;
+  conductionRatio?: number;
+  prSec?: number;
+  qrsSec?: number;
+  qtSec?: number;
+  caption?: {
+    en: string;
+    zh?: string;
+  };
+};
+
+export type QuestionVisual = RhythmStripVisual;
+
 export type CommonQuestion = {
   id: string;
   itemType: ItemType;
@@ -63,6 +99,7 @@ export type CommonQuestion = {
   rationale: Rationale;
   testTakingStrategy: TextPair;
   glossary: GlossaryTerm[];
+  visual?: QuestionVisual;
 };
 
 export type Option = {
@@ -138,6 +175,7 @@ export type CaseStudyExhibit = {
   id: string;
   title: TextPair;
   content: TextPair;
+  visual?: QuestionVisual;
 };
 
 export type CaseStudyStage = {

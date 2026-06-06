@@ -28,11 +28,11 @@ Core learning features are implemented: all schema item types render and grade, 
 Current canonical banks:
 
 - `banks/gpt-canonical.json` (122 bilingual GPT-source questions; ledgered content review complete)
-- `banks/claude-canonical.json` (45 bilingual Claude-source questions after GPT/Claude redundancy prune)
-- `banks/gemini-canonical.json` (570 bilingual Gemini-source questions; includes original + pending batches + traditional batches A-D minus 18 redundant/flawed questions)
-- `banks/hard-cases-canonical.json` (29 hard/NGN top-level items, including 19 unfolding case studies with 93 embedded case-study parts; 10-case `cs_ngn_*` delta reviewed and cleaned up)
-- `banks/gap-fill-50.json` (50 bilingual gap-filling questions targeting low-covered categories and item types)
-- Schema version `1.1` current; `1.0` standalone banks remain supported
+- `banks/claude-canonical.json` (50 bilingual Claude-source questions; ledgered content review complete)
+- `banks/gemini-canonical.json` (749 bilingual Gemini-source questions; includes original + pending batches + traditional/easy/gap-fill consolidations minus redundant/flawed questions)
+- `banks/hard-cases-canonical.json` (42 hard/NGN top-level items, including 33 unfolding case studies with 135 embedded case-study parts)
+- `banks/rhythm-canonical.json` (3 reviewed schema v1.2 rhythm-strip visual items)
+- Schema version `1.2` current; `1.0` standalone banks and `1.1` case-study banks remain supported
 
 Current schema item types:
 
@@ -50,6 +50,48 @@ Out of scope until a future schema bump:
 - `bowtie`
 
 ## Milestones
+
+### Rhythm-Strip Smoke Promotion (Jun 06)
+
+Completed:
+
+- Content-reviewed and promoted the first 3 schema v1.2 rhythm-strip visual items into new top-level `banks/rhythm-canonical.json`.
+- Added a custom session builder chip labeled "Questions with images" so the reviewed visual items can be directly targeted from the learner-facing UI.
+- Promoted items cover sinus bradycardia identification (`multiple_choice`), pulseless VT immediate interventions (`select_all`), and new-onset atrial fibrillation finding triage (`matrix`).
+- Source-checked sinus bradycardia criteria, pulseless VT ACLS actions, and atrial fibrillation findings/complications against NCBI/StatPearls, American Heart Association 2025 ALS guidance, and Merck Manual Professional.
+- Applied one clinical wording fix in the promoted copy: corrected the pulseless VT synchronized-cardioversion rationale so it teaches pulse-present cardioversion versus pulseless cardiac-arrest defibrillation, rather than implying no R wave exists.
+- Added `audit/rhythm-smoke-2026-06-06.report.md`, updated `BANK-REVIEW-LEDGER.md`, and deleted raw source `banks/banks-raw/rhythm-smoke-2026-06-06.json` after validation.
+
+### Schema 1.2 Rhythm-Strip Visual Infra (Jun 06)
+
+Completed:
+
+- Added optional schema `1.2` `visual` support for deterministic data-derived rhythm-strip SVG stimuli on `multiple_choice`, `select_all`, `matrix`, and case-study exhibits.
+- Kept visuals as inspectable JSON data rendered locally at runtime; no raster assets, external image files, live model calls, or runtime APIs are involved.
+- Added `src/visuals/rhythmStrip.ts` as a pure deterministic renderer with ECG paper scaling derived from 25 mm/s and 10 mm/mV, plus a thin React wrapper for app rendering.
+- Wired visual rendering above supported question stems and inside case-study exhibits while preserving required exhibit text.
+- Extended validation and coverage reporting for rhythm-strip visuals, including rhythm-class counts.
+- Added `npm run test-visuals` for renderer determinism, ECG scale checks, snapshot hash, and all-rhythm smoke coverage.
+- ECG visual items still need the raw generation, validation, source-checking, audit reporting, promotion, and ledger workflow before being treated as reviewed study material.
+
+### Schema 1.1 Redundancy Prune (Jun 06)
+
+Completed:
+
+- Analyzed the 35 schema 1.1 case studies across the project for redundancy.
+- Found the Gemini THA case studies (`gen_rrp_batch1_10` and `gen_rrp_batch2_10`) repetitive with the comprehensive `cs_hip_01` THA case. Re-contextualized the Gemini cases to Open Cholecystectomy and Total Knee Arthroplasty to preserve the questions but diversify scenarios.
+- Pruned `sa_serotonin_syndrome_01` from `banks/hard-cases-canonical.json` (43→42) because it was fully redundant with the comprehensive `cs_ngn_009_serotonin` case study.
+
+
+### Claude Underserved Hard Case Review (Jun 06)
+
+Completed:
+
+- Content-reviewed `banks/banks-raw/claude-2026-06-06-underserved-case-studies.json`: 5 schema v1.1 hard case studies with 20 embedded graded parts.
+- Source-checked the cases against current chest-tube management, C. difficile infection-prevention/hand-hygiene, pressure-injury staging, adult immunization, colorectal screening, vaccine contraindication, and IPV screening guidance.
+- Promoted all 5 case studies into `banks/hard-cases-canonical.json` (38→43); raw Claude output was deleted after merge.
+- Applied light cleanup to the promoted copy only: clarified a chest-tube matrix stem, softened over-absolute chest-tube tidaling wording, tightened C. difficile soap-and-water/PPE doffing wording, and updated pneumococcal rationale to the current adult age threshold.
+- Added `audit/claude-2026-06-06-underserved-case-studies.report.md` and updated `BANK-REVIEW-LEDGER.md`.
 
 ### Home UX And Builder Simplification (Jun 06)
 
@@ -110,7 +152,7 @@ Completed:
 - Updated pacemaker/MRI teaching to avoid an over-absolute MRI contraindication and require device-specific clearance/protocol.
 - Fixed small Gemini bank copy issues: `routing` -> `routine`, delirium wording, potassium typo, and McBurney point wording.
 - Recorded in `BANK-REVIEW-LEDGER.md` that future Gemini output should be generated as a standalone batch file and reviewed before consolidation into `banks/gemini-canonical.json`.
-- Later hard-case review found Gemini can still produce placeholder distractors, generic per-choice rationales, broad/wrong topic labels, and loose schema behavior when guard rails are weak. Treat Gemini as a raw-draft source only: small batches, `banks-raw/` provenance, no direct canonical edits, and cross-model review before promotion.
+- Later hard-case review found Gemini can still produce placeholder distractors, generic per-choice rationales, broad/wrong topic labels, and loose schema behavior when guard rails are weak. Treat Gemini as a raw-draft source only: small batches, `banks-raw/` staging, no direct canonical edits, cross-model review before promotion, and raw-file deletion after successful merge/validation.
 
 ### Gemini Pending Batch Content QA (Jun05)
 
@@ -239,30 +281,33 @@ Completed:
 Last verified on 2026-06-06:
 
 - `npm run validate-bank -- banks/*.json`
+- `npm run test-visuals`
 - `npm run coverage-report`
 - `npm run build`
 
 Latest coverage snapshot:
 
-- Total questions: 895
-- Unique normalized topics: 156
+- Total questions: 966
+- Unique normalized topics: 76
 - Category counts:
-  - Physiological Adaptation: 128
-  - Psychosocial Integrity: 111
-  - Safety and Infection Control: 111
-  - Health Promotion and Maintenance: 110
-  - Basic Care and Comfort: 110
-  - Pharmacological and Parenteral Therapies: 110
-  - Management of Care: 109
-  - Reduction of Risk Potential: 106
+  - Physiological Adaptation: 151
+  - Management of Care: 123
+  - Pharmacological and Parenteral Therapies: 121
+  - Psychosocial Integrity: 117
+  - Safety and Infection Control: 115
+  - Basic Care and Comfort: 114
+  - Health Promotion and Maintenance: 112
+  - Reduction of Risk Potential: 113
 - Item type counts:
-  - multiple_choice: 289
-  - select_all: 169
-  - matrix: 123
+  - multiple_choice: 343
+  - select_all: 171
+  - matrix: 124
   - dropdown_cloze: 115
   - ordered_response: 90
   - fill_in_blank: 88
-  - case_study: 21
+  - case_study: 35
+- Visual counts:
+  - rhythm_strip: 3 (`sinus_brady`, `vtach`, `afib`)
 
 Known verification gap:
 
@@ -271,7 +316,7 @@ Known verification gap:
 ## Authoritative references
 
 - `NCLEX-Question-Schema.md` is the schema source of truth.
-- `src/types.ts` mirrors schema v1.1.
+- `src/types.ts` mirrors schema v1.2.
 - `src/schema.ts` validates committed and imported question data.
 - `scripts/validate-bank.ts` reuses the app validation path for bank files.
 - `BANK-REVIEW-LEDGER.md` tracks per-bank review status and should be updated before any generated bank is treated as reviewed testing material.

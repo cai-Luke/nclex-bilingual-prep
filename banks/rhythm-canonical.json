@@ -1,0 +1,381 @@
+{
+  "meta": {
+    "schemaVersion": "1.2",
+    "exam": "NCLEX-RN",
+    "topic": "dysrhythmia recognition and response",
+    "category": "mixed",
+    "difficulty": "medium",
+    "count": 3
+  },
+  "questions": [
+    {
+      "id": "rhy_sinus_brady_001",
+      "itemType": "multiple_choice",
+      "category": "Physiological Adaptation",
+      "topic": "sinus bradycardia",
+      "difficulty": "medium",
+      "ngnSkill": "recognize_cues",
+      "visual": {
+        "kind": "rhythm_strip",
+        "rhythm": "sinus_brady",
+        "rateBpm": 44,
+        "durationSec": 6,
+        "seed": 11,
+        "calibrationPulse": true,
+        "prSec": 0.16,
+        "qrsSec": 0.08,
+        "qtSec": 0.44,
+        "caption": {
+          "en": "Lead II rhythm strip, paper speed 25 mm/s",
+          "zh": "II导联心律条，走纸速度25毫米/秒"
+        }
+      },
+      "stem": {
+        "en": "A nurse reviews the cardiac monitor for a client on a medical unit. The strip shows a regular rhythm with an upright P wave before every QRS complex, a constant PR interval of 0.16 s, a narrow QRS, and a ventricular rate of about 44/min. Which rhythm does the nurse document?",
+        "zh": "护士查看内科病房一名患者的心电监护。心律条显示节律规则，每个QRS波群前均有直立P波，PR间期恒定为0.16秒，QRS波群窄，心室率约44次/分。护士应记录为何种心律？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "en": "Sinus bradycardia",
+          "zh": "窦性心动过缓"
+        },
+        {
+          "id": "B",
+          "en": "Normal sinus rhythm",
+          "zh": "正常窦性心律"
+        },
+        {
+          "id": "C",
+          "en": "First-degree atrioventricular block",
+          "zh": "一度房室传导阻滞"
+        },
+        {
+          "id": "D",
+          "en": "Junctional escape rhythm",
+          "zh": "交界性逸搏心律"
+        }
+      ],
+      "correct": ["A"],
+      "rationale": {
+        "correct": {
+          "en": "Sinus bradycardia is a sinus rhythm with all the normal features of sinus origin - an upright P wave before every QRS, 1:1 conduction, a normal constant PR interval (0.12-0.20 s), and a narrow QRS - but at a rate under 60/min. A rate of about 44/min with otherwise normal sinus morphology meets that definition.",
+          "zh": "窦性心动过缓是一种窦性心律，具备窦性起源的所有正常特征——每个QRS前有直立P波、1:1传导、PR间期正常且恒定（0.12-0.20秒）、QRS波群窄——但心率低于60次/分。心率约44次/分而其余形态正常的窦性心律即符合此定义。"
+        },
+        "byChoice": [
+          {
+            "refId": "A",
+            "en": "Correct. Normal sinus features (upright P, 1:1, PR 0.16 s, narrow QRS) with a rate below 60/min define sinus bradycardia.",
+            "zh": "正确。具备正常窦性特征（直立P波、1:1传导、PR 0.16秒、窄QRS）且心率低于60次/分，即为窦性心动过缓。"
+          },
+          {
+            "refId": "B",
+            "en": "Incorrect. Normal sinus rhythm requires a rate of 60-100/min; 44/min is too slow to be called normal sinus.",
+            "zh": "错误。正常窦性心律要求心率为60-100次/分；44次/分过慢，不能称为正常窦性心律。"
+          },
+          {
+            "refId": "C",
+            "en": "Incorrect. First-degree AV block requires a prolonged PR interval greater than 0.20 s; here the PR is a normal 0.16 s.",
+            "zh": "错误。一度房室传导阻滞要求PR间期延长，大于0.20秒；此处PR为正常的0.16秒。"
+          },
+          {
+            "refId": "D",
+            "en": "Incorrect. A junctional rhythm typically lacks normal upright preceding P waves (P waves are absent, inverted, or after the QRS); here a normal upright P precedes every QRS, indicating sinus origin.",
+            "zh": "错误。交界性心律通常没有正常的前置直立P波（P波缺失、倒置或位于QRS之后）；此处每个QRS前均有正常直立P波，提示窦性起源。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Read the strip systematically: rate, rhythm regularity, P-wave presence/shape, PR interval, QRS width. The only abnormal feature here is rate, so the answer is the rhythm that differs from normal sinus only by being slow.",
+        "zh": "系统判读心律条：心率、节律是否规则、P波是否存在及形态、PR间期、QRS宽度。此处唯一异常的是心率，因此答案是仅以心率偏慢区别于正常窦性的那种心律。"
+      },
+      "glossary": [
+        {
+          "termEn": "sinus bradycardia",
+          "termZh": "窦性心动过缓",
+          "defZh": "起源于窦房结、节律规则但心率低于60次/分的心律"
+        },
+        {
+          "termEn": "PR interval",
+          "termZh": "PR间期",
+          "defZh": "从P波起点到QRS波群起点的时间，反映房室传导，正常0.12-0.20秒"
+        },
+        {
+          "termEn": "QRS complex",
+          "termZh": "QRS波群",
+          "defZh": "代表心室除极的心电波群，正常时限小于0.12秒"
+        }
+      ]
+    },
+    {
+      "id": "rhy_vtach_001",
+      "itemType": "select_all",
+      "category": "Physiological Adaptation",
+      "topic": "pulseless ventricular tachycardia",
+      "difficulty": "hard",
+      "ngnSkill": "take_action",
+      "visual": {
+        "kind": "rhythm_strip",
+        "rhythm": "vtach",
+        "rateBpm": 168,
+        "durationSec": 6,
+        "seed": 27,
+        "calibrationPulse": true,
+        "qrsSec": 0.16,
+        "caption": {
+          "en": "Lead II monitored rhythm at the moment of collapse",
+          "zh": "患者倒地时II导联监护心律"
+        }
+      },
+      "stem": {
+        "en": "A monitored client suddenly becomes unresponsive. The nurse confirms apnea and no palpable carotid pulse while the monitor displays the rhythm shown (wide-complex, regular, rate about 168/min). Which actions are appropriate immediate interventions? Select all that apply.",
+        "zh": "一名心电监护中的患者突然无反应。护士确认其呼吸停止、颈动脉搏动不可触及，同时监护仪显示如图所示的心律（宽QRS、规则、心率约168次/分）。哪些是恰当的即时干预措施？请选择所有适用项。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "en": "Begin high-quality chest compressions immediately",
+          "zh": "立即开始高质量胸外按压"
+        },
+        {
+          "id": "B",
+          "en": "Deliver an unsynchronized shock (defibrillation) as soon as the defibrillator is ready",
+          "zh": "在除颤仪准备就绪后立即给予非同步电击（除颤）"
+        },
+        {
+          "id": "C",
+          "en": "Administer epinephrine 1 mg IV/IO and repeat every 3-5 minutes",
+          "zh": "静脉/骨内注射肾上腺素1毫克，每3-5分钟重复一次"
+        },
+        {
+          "id": "D",
+          "en": "Perform synchronized cardioversion at 100 J",
+          "zh": "以100焦耳进行同步电复律"
+        },
+        {
+          "id": "E",
+          "en": "Administer adenosine 6 mg rapid IV push",
+          "zh": "快速静脉推注腺苷6毫克"
+        },
+        {
+          "id": "F",
+          "en": "Open the airway and provide ventilations with high-flow oxygen",
+          "zh": "开放气道并以高流量氧气给予通气"
+        }
+      ],
+      "correct": ["A", "B", "C", "F"],
+      "rationale": {
+        "correct": {
+          "en": "A wide-complex regular tachycardia in a pulseless, apneic client is pulseless ventricular tachycardia - a shockable cardiac arrest rhythm. ACLS care is immediate high-quality CPR, early defibrillation (an unsynchronized shock), epinephrine 1 mg every 3-5 minutes, and airway management with oxygenation/ventilation. Synchronized cardioversion and adenosine are treatments for selected pulse-present tachycardias, not for cardiac arrest.",
+          "zh": "无脉、无呼吸患者出现宽QRS规则性心动过速即为无脉性室性心动过速——一种可电击的心脏骤停心律。ACLS处理为立即高质量心肺复苏、尽早除颤（非同步电击）、每3-5分钟给予肾上腺素1毫克，以及气道管理与给氧通气。同步电复律和腺苷用于部分有脉搏的心动过速，而不是用于心脏骤停。"
+        },
+        "byChoice": [
+          {
+            "refId": "A",
+            "en": "Correct. The client is pulseless, so cardiac arrest care begins with immediate high-quality chest compressions.",
+            "zh": "正确。患者无脉搏，因此心脏骤停处理应从立即高质量胸外按压开始。"
+          },
+          {
+            "refId": "B",
+            "en": "Correct. Pulseless VT is a shockable rhythm; an unsynchronized shock (defibrillation) is delivered as soon as the device is available.",
+            "zh": "正确。无脉性室速为可电击心律；一旦设备就绪即给予非同步电击（除颤）。"
+          },
+          {
+            "refId": "C",
+            "en": "Correct. Epinephrine 1 mg IV/IO every 3-5 minutes is the standard ACLS vasopressor in shockable and non-shockable arrest.",
+            "zh": "正确。每3-5分钟静脉/骨内注射肾上腺素1毫克是ACLS中可电击和不可电击骤停的标准血管加压药。"
+          },
+          {
+            "refId": "D",
+            "en": "Incorrect. Synchronized cardioversion is used for selected unstable tachycardias when a pulse is present. This client is pulseless and apneic, so the cardiac-arrest algorithm calls for CPR and unsynchronized defibrillation.",
+            "zh": "错误。同步电复律用于部分有脉搏的不稳定性心动过速。该患者无脉且无呼吸，因此心脏骤停流程要求心肺复苏和非同步除颤。"
+          },
+          {
+            "refId": "E",
+            "en": "Incorrect. Adenosine may be used for selected pulse-present regular tachycardias, especially narrow-complex SVT; it has no role in pulseless cardiac arrest.",
+            "zh": "错误。腺苷可用于部分有脉搏的规则性心动过速，尤其是窄QRS室上速；在无脉性心脏骤停中无作用。"
+          },
+          {
+            "refId": "F",
+            "en": "Correct. Airway opening with oxygenation and ventilation supports the apneic arrest client alongside compressions and defibrillation.",
+            "zh": "正确。开放气道并给氧通气，与按压和除颤一起，为呼吸停止的骤停患者提供支持。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "First decide pulse vs no pulse. 'Pulseless' moves you out of the stable/unstable-tachycardia algorithms (cardioversion, adenosine) and into cardiac-arrest care: CPR, defibrillation for shockable rhythms, epinephrine, and oxygenation.",
+        "zh": "首先判断有无脉搏。‘无脉’意味着脱离稳定/不稳定心动过速流程（电复律、腺苷），进入心脏骤停处理：心肺复苏、对可电击心律除颤、肾上腺素及给氧。"
+      },
+      "glossary": [
+        {
+          "termEn": "pulseless ventricular tachycardia",
+          "termZh": "无脉性室性心动过速",
+          "defZh": "宽QRS规则性快速心律且无可触及脉搏的可电击心脏骤停心律"
+        },
+        {
+          "termEn": "defibrillation",
+          "termZh": "除颤",
+          "defZh": "对无脉性室速或室颤给予的非同步电击"
+        },
+        {
+          "termEn": "synchronized cardioversion",
+          "termZh": "同步电复律",
+          "defZh": "与R波同步的电击，用于有脉搏的不稳定性心动过速"
+        },
+        {
+          "termEn": "epinephrine",
+          "termZh": "肾上腺素",
+          "defZh": "心脏骤停中使用的血管加压药，每3-5分钟1毫克"
+        }
+      ]
+    },
+    {
+      "id": "rhy_afib_001",
+      "itemType": "matrix",
+      "category": "Reduction of Risk Potential",
+      "topic": "new-onset atrial fibrillation",
+      "difficulty": "medium",
+      "ngnSkill": "analyze_cues",
+      "visual": {
+        "kind": "rhythm_strip",
+        "rhythm": "afib",
+        "rateBpm": 134,
+        "durationSec": 6,
+        "seed": 33,
+        "calibrationPulse": true,
+        "qrsSec": 0.08,
+        "caption": {
+          "en": "Lead II rhythm strip on admission",
+          "zh": "入院时II导联心律条"
+        }
+      },
+      "stem": {
+        "en": "A client is admitted with the rhythm shown (no organized P waves, an irregularly irregular ventricular response at about 134/min, narrow QRS). For each assessment finding, indicate whether it is an anticipated finding for this rhythm or one that requires immediate provider notification.",
+        "zh": "一名患者入院时呈现如图所示的心律（无规整P波、心室反应绝对不规则、心率约134次/分、QRS窄）。请针对每一项评估结果，判断它属于该心律的预期表现，还是需要立即通知医生的表现。"
+      },
+      "matrix": {
+        "rows": [
+          {
+            "id": "r1",
+            "en": "Irregularly irregular radial pulse",
+            "zh": "桡动脉搏动绝对不规则"
+          },
+          {
+            "id": "r2",
+            "en": "New facial droop with right-arm weakness and slurred speech",
+            "zh": "新发面部下垂伴右上肢无力及言语含糊"
+          },
+          {
+            "id": "r3",
+            "en": "Apical-radial pulse deficit of 12 beats/min",
+            "zh": "心尖-桡动脉脉搏短绌12次/分"
+          },
+          {
+            "id": "r4",
+            "en": "Blood pressure 84/52 mm Hg with lightheadedness and diaphoresis",
+            "zh": "血压84/52毫米汞柱，伴头晕和出汗"
+          },
+          {
+            "id": "r5",
+            "en": "Client reports a sensation of fluttering palpitations",
+            "zh": "患者诉有心悸扑动感"
+          }
+        ],
+        "columns": [
+          {
+            "id": "c1",
+            "en": "Anticipated finding",
+            "zh": "预期表现"
+          },
+          {
+            "id": "c2",
+            "en": "Requires immediate provider notification",
+            "zh": "需立即通知医生"
+          }
+        ],
+        "selectionMode": "single_per_row"
+      },
+      "correct": [
+        {
+          "rowId": "r1",
+          "columnIds": ["c1"]
+        },
+        {
+          "rowId": "r2",
+          "columnIds": ["c2"]
+        },
+        {
+          "rowId": "r3",
+          "columnIds": ["c1"]
+        },
+        {
+          "rowId": "r4",
+          "columnIds": ["c2"]
+        },
+        {
+          "rowId": "r5",
+          "columnIds": ["c1"]
+        }
+      ],
+      "rationale": {
+        "correct": {
+          "en": "Atrial fibrillation produces a chaotic atrial baseline with no organized P waves and an irregularly irregular ventricular response, so an irregularly irregular pulse, a pulse deficit (not every ventricular contraction perfuses to the radial artery), and palpitations are all anticipated. Findings that signal a complication demand urgent notification: focal neurologic deficits suggest an embolic stroke (a fibrillating atrium can throw a clot), and hypotension with lightheadedness and diaphoresis indicates hemodynamic instability from the rapid ventricular rate.",
+          "zh": "心房颤动产生杂乱的心房基线、无规整P波、心室反应绝对不规则，因此脉搏绝对不规则、脉搏短绌（并非每次心室收缩都能灌注到桡动脉）和心悸都属于预期表现。提示并发症的表现需要紧急通知：局灶性神经功能缺损提示栓塞性卒中（颤动的心房可形成血栓脱落），而低血压伴头晕、出汗提示快速心室率导致的血流动力学不稳定。"
+        },
+        "byChoice": [
+          {
+            "refId": "r1",
+            "en": "Anticipated. The hallmark of atrial fibrillation at the bedside is an irregularly irregular pulse mirroring the irregular ventricular response.",
+            "zh": "预期表现。床旁心房颤动的标志即为脉搏绝对不规则，反映不规则的心室反应。"
+          },
+          {
+            "refId": "r2",
+            "en": "Requires immediate notification. New unilateral weakness, facial droop, and slurred speech are signs of an acute embolic stroke, a major thromboembolic complication of atrial fibrillation, and are time-critical.",
+            "zh": "需立即通知。新发单侧肢体无力、面部下垂和言语含糊是急性栓塞性卒中的体征，是心房颤动的重大血栓栓塞并发症，具有时间紧迫性。"
+          },
+          {
+            "refId": "r3",
+            "en": "Anticipated. A pulse deficit (apical rate exceeding radial rate) is expected in atrial fibrillation because some weak ventricular contractions do not generate a peripheral pulse.",
+            "zh": "预期表现。脉搏短绌（心尖率高于桡动脉率）在心房颤动中属预期，因为部分微弱的心室收缩不能产生外周脉搏。"
+          },
+          {
+            "refId": "r4",
+            "en": "Requires immediate notification. Hypotension with lightheadedness and diaphoresis signals hemodynamic instability from the rapid ventricular response and needs prompt intervention.",
+            "zh": "需立即通知。低血压伴头晕和出汗提示快速心室率引起的血流动力学不稳定，需要及时干预。"
+          },
+          {
+            "refId": "r5",
+            "en": "Anticipated. Palpitations are a common, expected subjective symptom of the irregular, often rapid rhythm and are not by themselves an emergency.",
+            "zh": "预期表现。心悸是这种不规则、常伴心率增快心律常见的预期主观症状，本身并非急症。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Separate the defining features of the rhythm itself (irregular pulse, pulse deficit, palpitations) from signs of its complications (stroke, hemodynamic instability). Expected rhythm features are documented; complication signs get the provider called.",
+        "zh": "把心律本身的特征（脉搏不规则、脉搏短绌、心悸）与其并发症的体征（卒中、血流动力学不稳定）区分开来。心律的预期特征只需记录，而并发症体征则需通知医生。"
+      },
+      "glossary": [
+        {
+          "termEn": "atrial fibrillation",
+          "termZh": "心房颤动",
+          "defZh": "心房电活动紊乱、无规整P波、心室反应绝对不规则的心律失常"
+        },
+        {
+          "termEn": "pulse deficit",
+          "termZh": "脉搏短绌",
+          "defZh": "心尖搏动率高于桡动脉脉率的差值，因部分心室收缩未能产生外周脉搏"
+        },
+        {
+          "termEn": "embolic stroke",
+          "termZh": "栓塞性卒中",
+          "defZh": "心房内血栓脱落阻塞脑血管所致的卒中，是心房颤动的重要并发症"
+        },
+        {
+          "termEn": "hemodynamic instability",
+          "termZh": "血流动力学不稳定",
+          "defZh": "血压及组织灌注不足以维持器官功能的状态"
+        }
+      ]
+    }
+  ]
+}

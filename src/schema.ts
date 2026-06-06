@@ -9,15 +9,17 @@ import type {
   NgnSkill,
   OptionQuestion,
   Question,
+  RhythmClass,
+  RhythmStripVisual,
   SchemaVersion,
   StandaloneQuestion,
   StandaloneItemType,
   TextPair,
 } from "./types";
 
-export const SCHEMA_VERSION = "1.1";
+export const SCHEMA_VERSION = "1.2";
 
-export const supportedSchemaVersions = ["1.0", "1.1"] as const satisfies readonly SchemaVersion[];
+export const supportedSchemaVersions = ["1.0", "1.1", "1.2"] as const satisfies readonly SchemaVersion[];
 
 export const categories = [
   "Management of Care",
@@ -55,6 +57,23 @@ export const ngnSkills = [
   "evaluate_outcomes",
 ] as const satisfies readonly NgnSkill[];
 
+export const rhythmClasses = [
+  "sinus",
+  "sinus_brady",
+  "sinus_tach",
+  "afib",
+  "aflutter",
+  "svt",
+  "avb_1",
+  "avb_2_mobitz1",
+  "avb_2_mobitz2",
+  "avb_3",
+  "pvc",
+  "vtach",
+  "vfib",
+  "asystole",
+] as const satisfies readonly RhythmClass[];
+
 export type ValidationResult<T> =
   | { ok: true; value: T }
   | { ok: false; reasons: string[] };
@@ -90,6 +109,58 @@ const extractPlaceholders = (value: string) => {
   return Array.from(matches, (match) => match[1].trim());
 };
 
+const addBoundedNumberError = (
+  value: unknown,
+  path: string,
+  min: number,
+  max: number,
+  reasons: string[],
+  options: { integer?: boolean } = {},
+) => {
+  if (value === undefined) return;
+  if (typeof value !== "number" || !Number.isFinite(value)) {
+    reasons.push(`${path} must be a number`);
+    return;
+  }
+  if (options.integer && !Number.isInteger(value)) reasons.push(`${path} must be an integer`);
+  if (value < min || value > max) reasons.push(`${path} must be between ${min} and ${max}`);
+};
+
+const validateVisual = (value: unknown, path: string, reasons: string[]) => {
+  if (!isRecord(value)) {
+    reasons.push(`${path} must be an object`);
+    return;
+  }
+  if (value.kind !== "rhythm_strip") {
+    reasons.push(`${path}.kind is invalid`);
+    return;
+  }
+  if (!enumIncludes(rhythmClasses, value.rhythm)) reasons.push(`${path}.rhythm is invalid`);
+
+  const rhythm = value.rhythm as RhythmClass | undefined;
+  const minRate = rhythm === "vfib" || rhythm === "asystole" ? 0 : 20;
+  addBoundedNumberError(value.rateBpm, `${path}.rateBpm`, minRate, 300, reasons);
+  if (value.rateBpm === undefined) reasons.push(`${path}.rateBpm is required`);
+  addBoundedNumberError(value.durationSec, `${path}.durationSec`, 3, 12, reasons);
+  addBoundedNumberError(value.seed, `${path}.seed`, 0, Number.MAX_SAFE_INTEGER, reasons, { integer: true });
+  addBoundedNumberError(value.atrialRateBpm, `${path}.atrialRateBpm`, 20, 400, reasons);
+  addBoundedNumberError(value.conductionRatio, `${path}.conductionRatio`, 1, 8, reasons, { integer: true });
+  addBoundedNumberError(value.prSec, `${path}.prSec`, 0.06, 0.4, reasons);
+  addBoundedNumberError(value.qrsSec, `${path}.qrsSec`, 0.04, 0.24, reasons);
+  addBoundedNumberError(value.qtSec, `${path}.qtSec`, 0.16, 0.7, reasons);
+
+  if (value.calibrationPulse !== undefined && typeof value.calibrationPulse !== "boolean") {
+    reasons.push(`${path}.calibrationPulse must be a boolean`);
+  }
+  if (value.caption !== undefined) {
+    if (!isRecord(value.caption) || !nonEmptyString(value.caption.en)) {
+      reasons.push(`${path}.caption.en is required when caption is present`);
+    } else if (value.caption.zh !== undefined && !nonEmptyString(value.caption.zh)) {
+      reasons.push(`${path}.caption.zh must be non-empty when present`);
+    }
+  }
+};
+
 export const validateQuestion = (raw: unknown, options: { allowCaseStudy?: boolean } = {}): ValidationResult<Question> => {
   const allowCaseStudy = options.allowCaseStudy ?? true;
   const reasons: string[] = [];
@@ -109,6 +180,13 @@ export const validateQuestion = (raw: unknown, options: { allowCaseStudy?: boole
   if (raw.ngnSkill !== undefined && !enumIncludes(ngnSkills, raw.ngnSkill)) reasons.push("invalid ngnSkill");
   addTextPairError(raw.stem, "stem", reasons);
   addTextPairError(raw.testTakingStrategy, "testTakingStrategy", reasons);
+  if (raw.visual !== undefined) {
+    if (raw.itemType === "multiple_choice" || raw.itemType === "select_all" || raw.itemType === "matrix") {
+      validateVisual(raw.visual, "visual", reasons);
+    } else {
+      reasons.push("visual is only supported on multiple_choice, select_all, matrix, and case-study exhibits");
+    }
+  }
 
   if (!isRecord(raw.rationale)) {
     reasons.push("missing rationale");
@@ -344,6 +422,7 @@ const validateCaseStudyExhibit = (value: unknown, path: string, seenIds: Set<str
   }
   addTextPairError(value.title, `${path}.title`, reasons);
   addTextPairError(value.content, `${path}.content`, reasons);
+  if (value.visual !== undefined) validateVisual(value.visual, `${path}.visual`, reasons);
 };
 
 const validateCaseStudy = (question: CaseStudyQuestion, reasons: string[]) => {
@@ -460,6 +539,16 @@ export const validateBankObject = (raw: unknown): ValidationResult<BankEnvelope>
     }
     if (schemaVersion === "1.0" && result.value.itemType === "case_study") {
       reasons.push(`questions[${index}]: case_study requires meta.schemaVersion 1.1`);
+      return;
+    }
+    if (
+      (schemaVersion === "1.0" || schemaVersion === "1.1") &&
+      (result.value.visual !== undefined ||
+        (result.value.itemType === "case_study" &&
+          (result.value.caseStudy.exhibits.some((exhibit) => exhibit.visual !== undefined) ||
+            result.value.caseStudy.stages?.some((stage) => stage.exhibits.some((exhibit) => exhibit.visual !== undefined)))))
+    ) {
+      reasons.push(`questions[${index}]: visual requires meta.schemaVersion 1.2`);
       return;
     }
     if (seen.has(result.value.id)) {
