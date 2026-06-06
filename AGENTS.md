@@ -39,6 +39,7 @@ Guidance for coding and content agents working on Project Shrimp / NCLEX Bilingu
 - Raw generated questions are not trusted study material by default.
 - Put raw model output under `banks/banks-raw/` or another explicit raw/staging area, not directly into bundled top-level banks.
 - Validate, audit, and source-check generated content before promoting it into `banks/*.json`.
+- After reviewed content is merged into a canonical top-level bank and validation passes, delete the raw/staging file to keep housekeeping simple. Record the deleted source file in `BANK-REVIEW-LEDGER.md`.
 - Record review status in `BANK-REVIEW-LEDGER.md`.
 - For clinical claims, prefer authoritative sources such as professional guidelines, government health agencies, drug labels, or established clinical references.
 - Be especially strict with medication, lab, dosage, prioritization, and delegation items.
