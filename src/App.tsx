@@ -4,6 +4,7 @@ import {
   BookOpen,
   Brain,
   CheckCircle2,
+  AudioLines,
   ChevronLeft,
   ChevronRight,
   Download,
@@ -53,6 +54,7 @@ import type {
   ImportSummary,
   LanguageMode,
   Option,
+  OptionQuestion,
   Question,
   QuestionFlag,
   QuestionProgress,
@@ -1485,6 +1487,7 @@ function QuestionCard({
           onTerm={setActiveTerm}
         />
         <SpeakButton text={question.stem.en} enabled={voiceEnabled} label="Read stem" />
+        <ReadAllButton question={question} enabled={voiceEnabled} />
       </div>
 
       {activeTerm && (
@@ -1523,7 +1526,7 @@ function QuestionCard({
         </div>
       )}
 
-      {submitted && <RationalePanel question={question} />}
+      {submitted && <RationalePanel question={question} voiceEnabled={voiceEnabled} />}
     </article>
   );
 }
@@ -1995,6 +1998,7 @@ function CaseStudyControl({
                   onTerm={onTerm}
                 />
                 <SpeakButton text={caseQuestion.stem.en} enabled={voiceEnabled} label={`Read case part ${index + 1}`} />
+                <ReadAllButton question={caseQuestion} enabled={voiceEnabled} />
               </div>
               <QuestionAnswerControl
                 question={caseQuestion}
@@ -2005,7 +2009,7 @@ function CaseStudyControl({
                 onTerm={onTerm}
                 onAnswer={(nextAnswer) => updateCaseAnswer(caseQuestion.id, nextAnswer)}
               />
-              {submitted && <RationalePanel question={caseQuestion} title="Part rationale" />}
+              {submitted && <RationalePanel question={caseQuestion} title="Part rationale" voiceEnabled={voiceEnabled} />}
             </section>
           );
         })}
@@ -2107,11 +2111,52 @@ function SpeakButton({ text, enabled, label }: { text: string; enabled: boolean;
   );
 }
 
-function RationalePanel({ question, title = "Rationale" }: { question: Question; title?: string }) {
+// Collects the English text to read aloud for a "read all" pass: the stem,
+// followed by each answer option (when the item type has them).
+function collectReadableEnglish(question: Question): string[] {
+  const parts: string[] = [question.stem.en];
+  const options = (question as Partial<OptionQuestion>).options;
+  if (Array.isArray(options)) {
+    for (const option of options) {
+      parts.push(`${option.id}. ${option.en}`);
+    }
+  }
+  return parts;
+}
+
+function ReadAllButton({ question, enabled }: { question: Question; enabled: boolean }) {
+  if (!enabled || typeof window === "undefined" || !("speechSynthesis" in window)) return null;
+  const label = "Read stem and options";
+  return (
+    <button
+      className="speak-button read-all-button"
+      type="button"
+      aria-label={label}
+      title={label}
+      onClick={() => speakEnglishSequence(collectReadableEnglish(question))}
+    >
+      <AudioLines aria-hidden="true" />
+      <span>All</span>
+    </button>
+  );
+}
+
+function RationalePanel({
+  question,
+  title = "Rationale",
+  voiceEnabled = false,
+}: {
+  question: Question;
+  title?: string;
+  voiceEnabled?: boolean;
+}) {
   const choiceRationales = question.rationale.byChoice ?? [];
   return (
     <section className="rationale-panel">
-      <h3>{title}</h3>
+      <div className="rationale-heading">
+        <h3>{title}</h3>
+        <SpeakButton text={question.rationale.correct.en} enabled={voiceEnabled} label="Read rationale" />
+      </div>
       <div className="dual-copy">
         <p>{question.rationale.correct.en}</p>
         <p lang="zh-Hans">{question.rationale.correct.zh}</p>
@@ -2130,7 +2175,10 @@ function RationalePanel({ question, title = "Rationale" }: { question: Question;
           </div>
         </>
       )}
-      <h4>Strategy</h4>
+      <div className="rationale-heading">
+        <h4>Strategy</h4>
+        <SpeakButton text={question.testTakingStrategy.en} enabled={voiceEnabled} label="Read strategy" />
+      </div>
       <div className="dual-copy">
         <p>{question.testTakingStrategy.en}</p>
         <p lang="zh-Hans">{question.testTakingStrategy.zh}</p>
@@ -2511,12 +2559,46 @@ const formatItemType = (itemType: Question["itemType"]) =>
         ? "Case study"
         : itemType.replace(/_/g, " ");
 
-const speakEnglish = (text: string) => {
-  if (typeof window === "undefined" || !("speechSynthesis" in window)) return;
-  window.speechSynthesis.cancel();
+// Tracks the last single-tap utterance so that re-tapping the *same* text
+// alternates the playback rate (normal -> 0.8x -> normal ...). Playing any new
+// text, or using the sequential reader, resets this back to normal.
+let lastSpokenText: string | null = null;
+let lastPlayWasSlow = false;
+
+const SLOW_RATE = 0.8;
+
+const speakUtterance = (text: string, rate: number) => {
   const utterance = new SpeechSynthesisUtterance(text);
   utterance.lang = "en-US";
+  utterance.rate = rate;
   const voice = window.speechSynthesis.getVoices().find((candidate) => candidate.lang.toLowerCase().startsWith("en-us"));
   if (voice) utterance.voice = voice;
   window.speechSynthesis.speak(utterance);
+};
+
+const speakEnglish = (text: string) => {
+  if (typeof window === "undefined" || !("speechSynthesis" in window)) return;
+  window.speechSynthesis.cancel();
+  let rate = 1;
+  if (text === lastSpokenText) {
+    // Same element re-tapped: "I didn't catch that" -> alternate the rate.
+    lastPlayWasSlow = !lastPlayWasSlow;
+    rate = lastPlayWasSlow ? SLOW_RATE : 1;
+  } else {
+    lastSpokenText = text;
+    lastPlayWasSlow = false;
+  }
+  speakUtterance(text, rate);
+};
+
+// Reads several pieces of text in order (e.g. stem then each option). Always
+// plays at normal rate and clears the single-tap alternation state.
+const speakEnglishSequence = (texts: string[]) => {
+  if (typeof window === "undefined" || !("speechSynthesis" in window)) return;
+  window.speechSynthesis.cancel();
+  const parts = texts.map((text) => text.trim()).filter((text) => text.length > 0);
+  if (parts.length === 0) return;
+  lastSpokenText = null;
+  lastPlayWasSlow = false;
+  parts.forEach((part) => speakUtterance(part, 1));
 };
