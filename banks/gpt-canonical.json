@@ -9641,8 +9641,8 @@
       "difficulty": "medium",
       "ngnSkill": "take_action",
       "stem": {
-        "en": "The nurse is leaving the room of a client on contact precautions while wearing gloves, gown, face shield, and mask. Place the PPE-removal steps in order.",
-        "zh": "护士离开一位接触隔离患者房间，身穿手套、隔离衣、面屏和口罩。请按顺序排列个人防护装备脱除步骤。"
+        "en": "The nurse is leaving the room of a client on contact precautions while wearing gloves, gown, goggles, and mask. Place the PPE-removal steps in the correct order.",
+        "zh": "护士离开一位接触隔离患者病房，身穿手套、隔离衣、护目镜和口罩。请按正确顺序排列个人防护装备脱卸步骤。"
       },
       "options": [
         {
@@ -9652,57 +9652,68 @@
         },
         {
           "id": "B",
+          "en": "Remove goggles.",
+          "zh": "脱护目镜。"
+        },
+        {
+          "id": "C",
           "en": "Remove gown.",
           "zh": "脱隔离衣。"
         },
         {
-          "id": "C",
-          "en": "Perform hand hygiene.",
-          "zh": "进行手卫生。"
+          "id": "D",
+          "en": "Remove mask.",
+          "zh": "脱口罩。"
         },
         {
-          "id": "D",
-          "en": "Remove face shield and mask by handling straps or ties.",
-          "zh": "通过带子或系带脱下面屏和口罩。"
+          "id": "E",
+          "en": "Perform hand hygiene.",
+          "zh": "进行手卫生。"
         }
       ],
       "correct": [
         "A",
         "B",
         "C",
-        "D"
+        "D",
+        "E"
       ],
       "rationale": {
         "correct": {
-          "en": "The most contaminated items, gloves and gown, are removed first. Hand hygiene follows removal of contaminated PPE. Face and respiratory protection are removed last by straps or ties to avoid touching contaminated fronts.",
-          "zh": "污染最重的手套和隔离衣先脱。脱除污染防护用品后进行手卫生。面部和呼吸防护最后通过带子或系带脱下，避免接触污染的正面。"
+          "en": "The CDC recommended standard sequence for doffing is: Gloves (A) are removed first as they are the most contaminated. Goggles (B) are removed next, followed by the gown (C) and the mask (D). Hand hygiene (E) is performed as the final step immediately after removing all PPE.",
+          "zh": "CDC 推荐的标准脱卸顺序是：手套 (A) 污染最严重，最先脱掉。接着脱掉护目镜 (B)，随后脱掉隔离衣 (C) 和口罩 (D)。脱掉所有个人防护装备后，立即进行手卫生 (E) 作为最后一步。"
         },
         "byChoice": [
           {
             "refId": "A",
             "en": "Gloves are highly contaminated and are removed first.",
-            "zh": "手套污染最重，应先脱。"
+            "zh": "手套污染最重，应最先脱掉。"
           },
           {
             "refId": "B",
-            "en": "The gown is removed after gloves, turning the contaminated surface inward.",
-            "zh": "手套后脱隔离衣，并将污染面卷向内。"
+            "en": "Goggles are removed next by handling only the clean headband or ear pieces.",
+            "zh": "接着脱掉护目镜，只能接触较干净的头部带子或镜腿部位。"
           },
           {
             "refId": "C",
-            "en": "Hand hygiene reduces contamination before touching face protection.",
-            "zh": "接触面部防护用品前进行手卫生可减少污染。"
+            "en": "The gown is removed after goggles, peeling it away and folding the contaminated side inward.",
+            "zh": "隔离衣在护目镜之后脱掉，将其剥离并将污染面卷向内侧。"
           },
           {
             "refId": "D",
-            "en": "Face protection is removed last using clean straps or ties.",
-            "zh": "面部防护最后通过较清洁的带子或系带脱下。"
+            "en": "The mask is removed after the gown by handling the ties or ear loops to avoid touching the front.",
+            "zh": "口罩在隔离衣之后脱掉，通过拿取系带或挂耳绳脱下，避免触碰正面。"
+          },
+          {
+            "refId": "E",
+            "en": "Hand hygiene is performed immediately after removing all PPE to prevent self-contamination.",
+            "zh": "在脱掉所有个人防护装备后，立即进行手卫生以防止自我污染。"
           }
         ]
       },
       "testTakingStrategy": {
-        "en": "When removing PPE, take off contaminated body PPE first, clean hands, and avoid touching the front of face protection.",
-        "zh": "脱防护用品时，先脱身体部位污染用品，清洁双手，并避免触碰面部防护正面。"
+        "en": "Remember the standard alphabetical doffing sequence: G-G-G-M (Gloves, Goggles, Gown, Mask), followed by hand hygiene.",
+        "zh": "记住标准的按字母顺序脱卸：G-G-G-M（手套 Gloves、护目镜 Goggles、隔离衣 Gown、口罩 Mask），然后进行手卫生。"
       },
       "glossary": [
         {

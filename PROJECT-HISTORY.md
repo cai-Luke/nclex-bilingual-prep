@@ -51,6 +51,26 @@ Out of scope until a future schema bump:
 
 ## Milestones
 
+### Duplicate & Redundancy Audit (Jun 06)
+
+Completed:
+
+- Conducted a comprehensive audit of the entire NCLEX question base (966 total questions) to identify duplicates, redundancies, and clinical conflicts.
+- Discovered 5 key findings including an Answer Key Conflict in the chest tube disconnection sequence, multiple answer leaks inside the `clozeStem` of gap-fill items (for heparin monitoring and single-ended cane use), and close mathematical/logical redundancies in PPE doffing and Parkland formula calculation items.
+- Generated `audit/redundancy-duplicate-audit-2026-06-06.report.md` matching the open adversarial audit specification.
+- Validated all canonical banks and verified the clean build status.
+
+### Clinical Content Alignment & Audit (Jun 06)
+
+Completed:
+
+- Conducted a clinical audit of the NCLEX question banks to resolve conflicting and outdated nursing guidelines.
+- Updated `trad_batchD_18` to require the removal of gold wedding bands during MRI pre-screening, addressing heating risk and burn hazards.
+- Standardized the PPE doffing sequence in `gpt_canonical_or_ppe_doffing_104` to follow standard CDC Sequence 1 (Gloves $\rightarrow$ Goggles $\rightarrow$ Gown $\rightarrow$ Mask $\rightarrow$ Hand hygiene).
+- Corrected the shingles (Herpes Zoster) precaution strategy in `gap_50_sic_03` to align with the CDC standard (standard precautions if covered, contact precautions if uncovered).
+- Adjusted the DKA potassium holding threshold in `gemini_p8_07` from 3.5 mEq/L to the ADA guideline of 3.3 mEq/L to align with the active insulin infusion scenario in `gemini_c10_03`.
+- Validated all banks and built the production bundles successfully.
+
 ### Rhythm-Strip Smoke Promotion (Jun 06)
 
 Completed:

@@ -405,6 +405,15 @@ const validateDropdownCloze = (question: Question, reasons: string[]) => {
     if (!nonEmptyString(dropdown.correct) || !ids.has(dropdown.correct)) {
       reasons.push(`dropdown ${dropdown.id} correct id is not in options`);
     }
+    const correctOption = dropdown.options.find((option) => isRecord(option) && option.id === dropdown.correct);
+    if (isRecord(correctOption)) {
+      (["en", "zh"] as const).forEach((locale) => {
+        const answer = correctOption[locale];
+        if (nonEmptyString(answer) && question.clozeStem[locale].includes(answer)) {
+          reasons.push(`dropdown ${dropdown.id} leaks its correct answer in clozeStem.${locale}`);
+        }
+      });
+    }
   });
 };
 
