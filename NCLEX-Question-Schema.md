@@ -70,6 +70,50 @@ All `{ en, zh }` pairs require both languages non-empty. `zh` is natural Simplif
 
 Visuals are deterministic data, not image files. A question or case-study exhibit may carry an optional `visual` object. The app renders the visual locally as SVG from the stored parameters, with no raster assets, runtime API calls, or external files.
 
+### Visual determinacy principle
+
+A visual item is only valid if the answer is only resolvable through the **combination** of stem + visual + answer choices. If removing the visual leaves the answer unchanged, the visual is decorative and the item is invalid. Every visual must contribute information required to answer the question.
+
+### Visual kind taxonomy
+
+Committed visual lanes (append-only):
+
+| `kind` | Description |
+|---|---|
+| `rhythm_strip` | ECG waveform |
+| `capnography` | End-tidal CO₂ capnogram |
+| `vitals_trend` | Multi-vital time-series chart |
+
+### Visual contract metadata
+
+Some visual kinds carry optional `meta` fields that exist **for validation and audit only** — they must never be displayed to learners:
+
+```json
+{
+  "visual": { "kind": "vitals_trend", "..." : "..." },
+  "meta": {
+    "pattern_keyed": "deteriorating hemodynamics",
+    "expected_trend": [
+      { "vital": "map", "direction": "decreasing" }
+    ],
+    "derived_values_keyed": ["map"]
+  }
+}
+```
+
+These fields give validators, `selfCheck`, and auditors a shared contract to verify the rendered artifact matches intent. They are stripped or ignored by the app's display layer.
+
+### selfCheck responsibilities
+
+`selfCheck` (when implemented for a kind) is responsible for:
+
+- Verifying rendered artifact matches source data (no silent data/render divergence)
+- Verifying derived values (e.g. MAP = Math.round(DBP + (SBP − DBP) / 3))
+- Verifying `expectedTrend` metadata accurately reflects the data array
+- Verifying pattern assertions where applicable (e.g. capnography plateau/phase assertions)
+
+`selfCheck` errors are non-fatal at import (items are not skipped) but must be resolved before visual items are treated as reviewed study material.
+
 Supported locations:
 - Top-level or embedded `multiple_choice`, `select_all`, and `matrix` questions.
 - `case_study.caseStudy.exhibits[]` and `caseStudy.stages[].exhibits[]`.

@@ -43,7 +43,25 @@ Guidance for coding and content agents working on Project Shrimp / NCLEX Bilingu
 - Record review status in `BANK-REVIEW-LEDGER.md`.
 - For clinical claims, prefer authoritative sources such as professional guidelines, government health agencies, drug labels, or established clinical references.
 - Be especially strict with medication, lab, dosage, prioritization, and delegation items.
-- Do not AI-generate medical images. If image-dependent items are ever added, use curated licensed real images or deterministic data-derived visuals with human verification.
+- Do not AI-generate medical images. Visual stimuli must be either deterministic data-derived visuals or curated licensed images. The visual must contribute information required to answer the item — if the answer is unchanged when the visual is removed, the visual is decorative and the item is invalid. Decorative visuals are prohibited.
+
+## Visual Question Workflow
+
+Committed visual lanes (first-class content types):
+
+- `rhythm_strip` — ECG waveform
+- `capnography` — end-tidal CO₂ waveform
+- `vitals_trend` — multi-vital time-series chart
+
+Visual items must pass all of the following before being treated as reviewed study material:
+
+1. `npm run validate-bank` (schema + structural validation)
+2. `selfCheck` assertions pass (cross-consistency: derived values, trends, pattern assertions)
+3. Visual audit — verify the rendered artifact matches source data and the visual is educationally necessary
+4. Human content review — clinical accuracy, caption rule, answer is only resolvable with the visual
+5. Promotion into `banks/visual-canonical.json` and ledger update
+
+Visual items must be deterministic, locally rendered, and inspectable from structured data. A visual item is only promotable when all five stages are satisfied.
 
 ## Commands
 

@@ -79,6 +79,14 @@ export interface VitalsTrendSpec {
   }[];
   /** Optional °C vs °F flag for temp formatting/banding. Default 'C'. */
   tempUnit?: 'C' | 'F';
+  /**
+   * Selects the age-appropriate reference-band table. REQUIRED whenever any
+   * series shows a reference band, because normal ranges are age-dependent
+   * (HR 130 is normal in an infant, tachycardic in an adult). One of:
+   * 'adult' | 'peds_neonate' | 'peds_infant' | 'peds_child' | 'peds_adolescent'
+   * (final buckets per the reviewed reference table in the schema doc).
+   */
+  population?: PopulationBand;
 }
 ```
 
@@ -94,6 +102,7 @@ Notes:
 - Every `series[i].values.length === timepointsHr.length`.
 - At least one series; no duplicate `vital` in `series`.
 - Per-vital sanity ranges (reject, don't clamp): e.g., `hr 10–300`, `sbp 40–300`, `dbp 20–200`, `rr 2–80`, `spo2 50–100`, `temp` 30–43 °C (convert if `tempUnit==='F'`). MAP, if supplied directly, must satisfy `dbp ≤ map ≤ sbp` — but prefer computing it (see §5).
+- `population` **required** if any series has a reference band shown; reject an unknown band key. The per-vital normal band is then read from the age-appropriate row of the reviewed table.
 - All values finite numbers.
 - Clear reason strings per the `validate-bank` convention.
 
@@ -114,7 +123,7 @@ Define the trend assertions against a small, explicit contract in the item (e.g.
 ## 6. Accuracy watch-items
 
 - Plotted points must equal the data array (gated by `selfCheck` #1).
-- Reference bands must use **current, correct** normal ranges and the unit shown; an item keying on "SpO2 below normal" needs the band to actually start at the right threshold. Keep ranges in one reviewed table; cite the source in the schema doc.
+- Reference bands must use **current, correct, age-appropriate** normal ranges and the unit shown; an item keying on "SpO2 below normal" needs the band to actually start at the right threshold, and a pediatric item needs the pediatric band, not the adult one (same silent-corruption hazard the roadmap flags for `burn_map` adult/pediatric proportions). Keep ranges in one reviewed table keyed by `population`; cite the source in the schema doc.
 - Any derived value (MAP, or later in U3 anion gap etc.) is computed, never asserted (`selfCheck` #2).
 - Don't let a flat/uninformative series carry a chart — that's the decorative trap; the content lane must declare the load-bearing trend.
 

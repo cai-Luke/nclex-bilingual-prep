@@ -119,7 +119,7 @@ Completed:
 - Applied one clinical wording fix in the promoted copy: corrected the pulseless VT synchronized-cardioversion rationale so it teaches pulse-present cardioversion versus pulseless cardiac-arrest defibrillation, rather than implying no R wave exists.
 - Added `audit/rhythm-smoke-2026-06-06.report.md`, updated `BANK-REVIEW-LEDGER.md`, and deleted raw source `banks/banks-raw/rhythm-smoke-2026-06-06.json` after validation.
 
-### Schema 1.2 Rhythm-Strip Visual Infra (Jun 06)
+### Schema 1.2 Visual Infrastructure — Rhythm Strip (Jun 06)
 
 Completed:
 
