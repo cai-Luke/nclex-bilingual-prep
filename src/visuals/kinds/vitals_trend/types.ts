@@ -2,8 +2,13 @@ export type VitalKey = "hr" | "sbp" | "dbp" | "map" | "rr" | "spo2" | "temp";
 
 export interface VitalsTrendSpec {
   kind: "vitals_trend";
-  /** Hour offsets for each reading; shared x-axis across series. */
-  timepointsHr: number[];
+  /** @deprecated use `time` instead. Hour offsets for each reading. */
+  timepointsHr?: number[];
+  /** Time specification allowing hours or minutes */
+  time?: {
+    unit: "hr" | "min";
+    values: number[];
+  };
   series: {
     vital: VitalKey;
     /** Same length as timepointsHr; one value per timepoint. */

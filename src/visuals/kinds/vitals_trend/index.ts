@@ -22,18 +22,28 @@ export const validateVitalsTrend = (spec: VitalsTrendSpec): VisualError[] => {
   const errs: VisualError[] = [];
   const value = spec as unknown as Record<string, unknown>;
 
-  if (!Array.isArray(value.timepointsHr) || value.timepointsHr.length === 0) {
-    errs.push({ path: "timepointsHr", code: "timepoints_invalid", message: "must be a non-empty array" });
+  let times: number[] = [];
+  
+  if (isRecord(value.time) && Array.isArray(value.time.values)) {
+    times = value.time.values as number[];
+    if (value.time.unit !== "hr" && value.time.unit !== "min") {
+      errs.push({ path: "time.unit", code: "invalid_time_unit", message: "must be 'hr' or 'min'" });
+    }
+  } else if (Array.isArray(value.timepointsHr)) {
+    times = value.timepointsHr as number[];
+  }
+
+  if (times.length === 0) {
+    errs.push({ path: "time", code: "timepoints_invalid", message: "must provide time.values or timepointsHr as a non-empty array" });
     return errs;
   }
   
-  const times = value.timepointsHr as number[];
   for (let i = 0; i < times.length; i++) {
     if (typeof times[i] !== "number" || !Number.isFinite(times[i])) {
-      errs.push({ path: `timepointsHr[${i}]`, code: "timepoint_not_number", message: "must be a finite number" });
+      errs.push({ path: `time.values[${i}]`, code: "timepoint_not_number", message: "must be a finite number" });
     }
     if (i > 0 && times[i] <= times[i - 1]) {
-      errs.push({ path: `timepointsHr[${i}]`, code: "timepoints_not_increasing", message: "must be strictly increasing" });
+      errs.push({ path: `time.values[${i}]`, code: "timepoints_not_increasing", message: "must be strictly increasing" });
     }
   }
 
@@ -127,7 +137,8 @@ export const validateVitalsTrend = (spec: VitalsTrendSpec): VisualError[] => {
 export const selfCheckVitalsTrend = (spec: VitalsTrendSpec, _question: any): VisualError[] => {
   const errs: VisualError[] = [];
 
-  if (!Array.isArray(spec.timepointsHr) || !Array.isArray(spec.series)) {
+  const times = spec.time?.values ?? spec.timepointsHr;
+  if (!Array.isArray(times) || !Array.isArray(spec.series)) {
     return errs;
   }
 
@@ -136,7 +147,7 @@ export const selfCheckVitalsTrend = (spec: VitalsTrendSpec, _question: any): Vis
   const sbpSeries = spec.series.find(s => isRecord(s) && s.vital === "sbp" && Array.isArray(s.values));
 
   if (mapSeries && sbpSeries && dbpSeries) {
-    for (let i = 0; i < spec.timepointsHr.length; i++) {
+    for (let i = 0; i < times.length; i++) {
       const dbp = dbpSeries.values[i];
       const sbp = sbpSeries.values[i];
       const providedMap = mapSeries.values[i];
@@ -155,8 +166,8 @@ export const selfCheckVitalsTrend = (spec: VitalsTrendSpec, _question: any): Vis
     if (typeof trend.vital === "string" && Array.isArray(trend.window) && trend.window.length === 2) {
       const tSeries = spec.series.find(s => isRecord(s) && s.vital === trend.vital && Array.isArray(s.values));
       if (tSeries) {
-        const idxStart = spec.timepointsHr.indexOf(trend.window[0] as number);
-        const idxEnd = spec.timepointsHr.indexOf(trend.window[1] as number);
+        const idxStart = times.indexOf(trend.window[0] as number);
+        const idxEnd = times.indexOf(trend.window[1] as number);
         if (idxStart !== -1 && idxEnd !== -1 && idxEnd > idxStart) {
           const valStart = tSeries.values[idxStart];
           const valEnd = tSeries.values[idxEnd];
@@ -177,6 +188,9 @@ export const selfCheckVitalsTrend = (spec: VitalsTrendSpec, _question: any): Vis
 };
 
 export const renderVitalsTrendSvg = (spec: VitalsTrendSpec): string => {
+  const times = spec.time?.values ?? spec.timepointsHr ?? [];
+  const timeUnit = spec.time?.unit ?? "hr";
+
   const chartSeries: ChartSeries[] = spec.series.map(s => {
     const def = VITAL_DEFS[s.vital];
     const unit = s.vital === "temp" && spec.tempUnit === "F" ? "°F" : def.unit;
@@ -185,13 +199,13 @@ export const renderVitalsTrendSvg = (spec: VitalsTrendSpec): string => {
       unit: unit,
       axis: def.axis,
       styleRole: def.styleRole,
-      points: s.values.map((v, i) => ({ x: spec.timepointsHr[i], y: v })),
+      points: s.values.map((v, i) => ({ x: times[i], y: v })),
       referenceBand: s.showReferenceBand !== false ? def.normal(spec.tempUnit) : undefined,
     };
   });
 
-  const xMin = Math.min(...spec.timepointsHr);
-  const xMax = Math.max(...spec.timepointsHr);
+  const xMin = Math.min(...times);
+  const xMax = Math.max(...times);
   
   // Calculate y-axis bounds
   let leftMin = 9999;
@@ -240,10 +254,10 @@ export const renderVitalsTrendSvg = (spec: VitalsTrendSpec): string => {
   const input: LineChartInput = {
     series: chartSeries,
     xAxis: {
-      label: "Time (Hours)",
+      label: timeUnit === "min" ? "Time (Minutes)" : "Time (Hours)",
       min: xMin,
       max: xMax,
-      ticks: spec.timepointsHr,
+      ticks: times,
     },
     yAxisLeft: {
       label: "",

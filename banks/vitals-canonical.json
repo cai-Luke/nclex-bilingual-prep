@@ -1,0 +1,1467 @@
+{
+  "meta": {
+    "schemaVersion": "1.2",
+    "exam": "NCLEX-RN",
+    "topic": "vitals trend integration",
+    "category": "mixed",
+    "difficulty": "medium",
+    "count": 10
+  },
+  "questions": [
+    {
+      "id": "vit_01",
+      "itemType": "multiple_choice",
+      "category": "Physiological Adaptation",
+      "topic": "compensated shock",
+      "difficulty": "hard",
+      "stem": {
+        "en": "A client is admitted following a motor vehicle collision. The nurse monitors the client's vital signs over the first 4 hours, as shown in the trend chart below. Based on these trends, which physiological state is the client most likely experiencing?",
+        "zh": "一名患者在机动车碰撞后入院。护士在最初的4小时内监测患者的生命体征，如下面的趋势图所示。根据这些趋势，患者最可能经历哪种生理状态？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "en": "Compensated hypovolemic shock",
+          "zh": "代偿性低血容量休克"
+        },
+        {
+          "id": "B",
+          "en": "Decompensated hypovolemic shock",
+          "zh": "失代偿性低血容量休克"
+        },
+        {
+          "id": "C",
+          "en": "Increased intracranial pressure",
+          "zh": "颅内压增高"
+        },
+        {
+          "id": "D",
+          "en": "Neurogenic shock",
+          "zh": "神经源性休克"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "rationale": {
+        "correct": {
+          "en": "The vitals trend demonstrates a classic compensated shock pattern: the heart rate (HR) is steadily rising to maintain cardiac output, while the systolic blood pressure (SBP) remains relatively stable but the diastolic blood pressure (DBP) rises due to peripheral vasoconstriction, resulting in a narrowing pulse pressure. The mean arterial pressure (MAP) is still maintained above 65 mmHg.",
+          "zh": "生命体征趋势展示了经典的代偿性休克模式：心率（HR）稳步上升以维持心输出量，同时收缩压（SBP）保持相对稳定，但由于外周血管收缩导致舒张压（DBP）上升，从而导致脉压变窄。平均动脉压（MAP）仍维持在65 mmHg以上。"
+        },
+        "byChoice": [
+          {
+            "refId": "A",
+            "en": "Rising HR with narrowing pulse pressure and maintained MAP is the hallmark of the compensated phase of shock.",
+            "zh": "心率上升伴随脉压变窄且维持MAP是休克代偿期的标志。"
+          },
+          {
+            "refId": "B",
+            "en": "Decompensated shock would show a plummeting MAP and SBP.",
+            "zh": "失代偿性休克将表现为MAP and SBP的暴跌。"
+          },
+          {
+            "refId": "C",
+            "en": "Increased ICP (Cushing's triad) presents with bradycardia and widening pulse pressure.",
+            "zh": "颅内压增高（库欣三联征）表现为心动过缓和脉压增宽。"
+          },
+          {
+            "refId": "D",
+            "en": "Neurogenic shock presents with hypotension and bradycardia, not tachycardia.",
+            "zh": "神经源性休克表现为低血压和心动过缓，而不是心动过速。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Look at the distance between SBP and DBP (pulse pressure). If it is narrowing while the heart rate is rising, think 'early shock' (compensated).",
+        "zh": "观察SBP和DBP之间的距离（脉压）。如果它正在变窄而心率在上升，请考虑“休克早期”（代偿性）。"
+      },
+      "glossary": [
+        {
+          "termEn": "narrowing pulse pressure",
+          "termZh": "脉压变窄",
+          "defZh": "收缩压和舒张压之间的差值减小"
+        }
+      ],
+      "visual": {
+        "kind": "vitals_trend",
+        "series": [
+          {
+            "vital": "hr",
+            "values": [
+              88,
+              98,
+              108,
+              118,
+              125
+            ]
+          },
+          {
+            "vital": "sbp",
+            "values": [
+              118,
+              116,
+              114,
+              110,
+              106
+            ]
+          },
+          {
+            "vital": "dbp",
+            "values": [
+              70,
+              74,
+              78,
+              80,
+              82
+            ]
+          }
+        ],
+        "population": "adult",
+        "caption": {
+          "en": "Visual signs flow sheet",
+          "zh": "生命体征流程单"
+        },
+        "time": {
+          "unit": "hr",
+          "values": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ]
+        }
+      },
+      "meta": {
+        "visual_justification": "The narrowing pulse pressure and concurrent tachycardia are the exact cues required to identify compensated shock; a text summary would give away the diagnosis.",
+        "source": "ATLS Guidelines",
+        "tier": "strictest",
+        "skill_signature": "vit:narrowing-pulse-pressure/compensated-shock",
+        "expected_trend": [
+          {
+            "vital": "hr",
+            "direction": "up",
+            "window": [
+              0,
+              4
+            ]
+          }
+        ],
+        "derived_values_keyed": [
+          "map"
+        ],
+        "reference_bands": "adult",
+        "stem_disambiguators": [
+          "motor vehicle collision"
+        ]
+      }
+    },
+    {
+      "id": "vit_02",
+      "itemType": "multiple_choice",
+      "category": "Physiological Adaptation",
+      "topic": "sepsis",
+      "difficulty": "medium",
+      "stem": {
+        "en": "A client is admitted with community-acquired pneumonia. The nurse reviews the client's vital signs over the past 8 hours. Based on the trend chart below, which intervention should the nurse anticipate next?",
+        "zh": "一名患者因社区获得性肺炎入院。护士回顾了患者过去8小时的生命体征。基于下面的趋势图，护士应预料到接下来会采取哪项干预措施？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "en": "Administration of a rapid IV fluid bolus",
+          "zh": "快速静脉推注补液"
+        },
+        {
+          "id": "B",
+          "en": "Administration of an antihypertensive medication",
+          "zh": "给予降压药"
+        },
+        {
+          "id": "C",
+          "en": "Applying a warming blanket",
+          "zh": "使用加温毯"
+        },
+        {
+          "id": "D",
+          "en": "Administering a beta-blocker to control heart rate",
+          "zh": "给予β受体阻滞剂以控制心率"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "rationale": {
+        "correct": {
+          "en": "The vital signs show a concerning trend consistent with developing sepsis/septic shock: persistent tachycardia, rising temperature, and a newly falling mean arterial pressure (MAP) dropping below the critical perfusion threshold of 65 mmHg. The priority intervention for septic shock is rapid fluid resuscitation.",
+          "zh": "生命体征显示出与败血症/感染性休克发展相一致的令人担忧的趋势：持续心动过速、体温升高，以及新出现的平均动脉压（MAP）下降，跌破65 mmHg的临界灌注阈值。感染性休克的首要干预措施是快速液体复苏。"
+        },
+        "byChoice": [
+          {
+            "refId": "A",
+            "en": "A MAP falling below 65 mmHg in the setting of infection requires immediate IV fluid resuscitation.",
+            "zh": "在感染的情况下，MAP降至65 mmHg以下需要立即进行静脉液体复苏。"
+          },
+          {
+            "refId": "B",
+            "en": "The client is hypotensive (MAP < 65), so antihypertensives are strictly contraindicated.",
+            "zh": "患者处于低血压状态（MAP < 65），因此绝对禁忌使用降压药。"
+          },
+          {
+            "refId": "C",
+            "en": "The client has a rising fever (temp > 38.5 C), so a warming blanket would worsen hyperthermia.",
+            "zh": "患者发热加剧（体温 > 38.5 C），因此加温毯会使高热恶化。"
+          },
+          {
+            "refId": "D",
+            "en": "Tachycardia is a compensatory mechanism for the falling blood pressure; blocking it could cause cardiovascular collapse.",
+            "zh": "心动过速是血压下降的代偿机制；阻断它可能导致心血管萎陷。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Identify the MAP dropping below the critical line of 65 mmHg. Hypotension + infection (pneumonia) = sepsis. First step: give fluids.",
+        "zh": "识别降至65 mmHg临界线以下的MAP。低血压+感染（肺炎）=败血症。第一步：补液。"
+      },
+      "glossary": [
+        {
+          "termEn": "fluid bolus",
+          "termZh": "快速推注补液",
+          "defZh": "在短时间内快速静脉输注大量液体"
+        }
+      ],
+      "visual": {
+        "kind": "vitals_trend",
+        "tempUnit": "C",
+        "series": [
+          {
+            "vital": "hr",
+            "values": [
+              95,
+              105,
+              112,
+              118,
+              124
+            ]
+          },
+          {
+            "vital": "map",
+            "values": [
+              82,
+              78,
+              70,
+              64,
+              58
+            ]
+          },
+          {
+            "vital": "temp",
+            "values": [
+              37.8,
+              38.1,
+              38.5,
+              38.8,
+              39
+            ]
+          }
+        ],
+        "population": "adult",
+        "caption": {
+          "en": "8-hour vital signs trend",
+          "zh": "8小时生命体征趋势"
+        },
+        "time": {
+          "unit": "hr",
+          "values": [
+            0,
+            2,
+            4,
+            6,
+            8
+          ]
+        }
+      },
+      "meta": {
+        "visual_justification": "The chart illustrates the progressive decline in MAP below 65 alongside rising HR/Temp, driving the clinical decision for fluid bolus.",
+        "source": "Surviving Sepsis Campaign",
+        "tier": "strictest",
+        "skill_signature": "vit:falling-map/sepsis-fluids",
+        "expected_trend": [
+          {
+            "vital": "map",
+            "direction": "down",
+            "window": [
+              4,
+              8
+            ]
+          }
+        ],
+        "derived_values_keyed": [
+          "map"
+        ],
+        "reference_bands": "adult",
+        "stem_disambiguators": [
+          "community-acquired pneumonia"
+        ]
+      }
+    },
+    {
+      "id": "vit_03",
+      "itemType": "multiple_choice",
+      "category": "Physiological Adaptation",
+      "topic": "postoperative hemorrhage",
+      "difficulty": "medium",
+      "stem": {
+        "en": "A client is 6 hours postoperative following an open cholecystectomy. The nurse notes the following vital sign trends. The client's surgical dressing is dry and intact. What is the nurse's priority action?",
+        "zh": "一名患者在开放性胆囊切除术后6小时。护士注意到以下生命体征趋势。患者的手术敷料干燥且完好无损。护士的首要行动是什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "en": "Notify the healthcare provider immediately.",
+          "zh": "立即通知医疗服务提供者。"
+        },
+        {
+          "id": "B",
+          "en": "Administer the PRN dose of intravenous morphine.",
+          "zh": "给予按需（PRN）剂量的静脉注射吗啡。"
+        },
+        {
+          "id": "C",
+          "en": "Document the findings as normal postoperative changes.",
+          "zh": "将这些发现记录为正常的术后变化。"
+        },
+        {
+          "id": "D",
+          "en": "Encourage the client to use the incentive spirometer.",
+          "zh": "鼓励患者使用诱发性肺量计。"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "rationale": {
+        "correct": {
+          "en": "The chart shows a classic pattern of internal bleeding/hemorrhage: the heart rate is steadily rising while the blood pressure (SBP and MAP) is progressively falling. Even with a dry dressing, these trends strongly suggest internal postoperative hemorrhage, which is a medical emergency requiring immediate provider notification.",
+          "zh": "图表显示了内出血/出血的经典模式：心率稳步上升，而血压（SBP和MAP）逐渐下降。即使敷料干燥，这些趋势也强烈提示术后内出血，这是一种需要立即通知医生的医疗紧急情况。"
+        },
+        "byChoice": [
+          {
+            "refId": "A",
+            "en": "Rising HR + falling BP post-op = internal bleeding until proven otherwise. The provider must be notified to intervene.",
+            "zh": "术后HR上升+血压下降=除非另有证明，否则即为内出血。必须通知医生进行干预。"
+          },
+          {
+            "refId": "B",
+            "en": "Morphine causes vasodilation and could worsen the severe hypotension shown in the trend.",
+            "zh": "吗啡引起血管扩张，可能会加重趋势中显示的严重低血压。"
+          },
+          {
+            "refId": "C",
+            "en": "A MAP dropping to 60 mmHg is never a normal postoperative change.",
+            "zh": "MAP降至60 mmHg绝不是正常的术后变化。"
+          },
+          {
+            "refId": "D",
+            "en": "While incentive spirometry is good for lung expansion, it ignores the critical hemodynamic instability.",
+            "zh": "虽然诱发性肺量计有助于肺扩张，但它忽视了严重的血流动力学不稳定。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "A dry dressing does not mean there is no bleeding; blood could be pooling internally. Rely on the vital signs: rising pulse and falling BP always demand immediate action.",
+        "zh": "敷料干燥并不意味着没有出血；血液可能在内部积聚。依靠生命体征：脉搏上升和血压下降始终需要立即采取行动。"
+      },
+      "glossary": [
+        {
+          "termEn": "internal hemorrhage",
+          "termZh": "内出血",
+          "defZh": "体腔内部署的血管破裂引起的出血"
+        }
+      ],
+      "visual": {
+        "kind": "vitals_trend",
+        "series": [
+          {
+            "vital": "hr",
+            "values": [
+              80,
+              95,
+              110,
+              128
+            ]
+          },
+          {
+            "vital": "map",
+            "values": [
+              85,
+              78,
+              68,
+              60
+            ]
+          }
+        ],
+        "population": "adult",
+        "caption": {
+          "en": "Postoperative vitals",
+          "zh": "术后生命体征"
+        },
+        "time": {
+          "unit": "hr",
+          "values": [
+            0,
+            2,
+            4,
+            6
+          ]
+        }
+      },
+      "meta": {
+        "visual_justification": "The crossing lines of rising HR and falling MAP visually identify the deterioration typical of hemorrhage.",
+        "source": "ATLS Guidelines",
+        "tier": "strictest",
+        "skill_signature": "vit:shock-trend/internal-hemorrhage",
+        "expected_trend": [
+          {
+            "vital": "hr",
+            "direction": "up",
+            "window": [
+              0,
+              6
+            ]
+          },
+          {
+            "vital": "map",
+            "direction": "down",
+            "window": [
+              0,
+              6
+            ]
+          }
+        ],
+        "derived_values_keyed": [
+          "map"
+        ],
+        "reference_bands": "adult",
+        "stem_disambiguators": [
+          "surgical dressing is dry and intact",
+          "open cholecystectomy"
+        ]
+      }
+    },
+    {
+      "id": "vit_04",
+      "itemType": "multiple_choice",
+      "category": "Pharmacological and Parenteral Therapies",
+      "topic": "fluid resuscitation",
+      "difficulty": "easy",
+      "stem": {
+        "en": "A client is admitted with severe dehydration and receives 2 liters of 0.9% normal saline over 4 hours. The nurse evaluates the client's vital signs as shown. Which conclusion is most accurate based on these data?",
+        "zh": "一名严重脱水的患者入院，并在4小时内接受了2升0.9%生理盐水的输注。护士评估了患者的生命体征如图所示。根据这些数据，哪项结论最准确？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "en": "The fluid resuscitation is effective.",
+          "zh": "液体复苏有效。"
+        },
+        {
+          "id": "B",
+          "en": "The client is developing fluid volume overload.",
+          "zh": "患者正在发生液体负荷过重。"
+        },
+        {
+          "id": "C",
+          "en": "The client requires a vasopressor infusion.",
+          "zh": "患者需要输注血管加压药。"
+        },
+        {
+          "id": "D",
+          "en": "The client is experiencing an allergic reaction to the fluid.",
+          "zh": "患者对液体出现了过敏反应。"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "rationale": {
+        "correct": {
+          "en": "The chart shows a positive response to fluid resuscitation. As intravascular volume is restored, the initially elevated heart rate (compensatory tachycardia) steadily decreases back into the normal range, while the initially low mean arterial pressure (MAP) steadily rises into the normal range.",
+          "zh": "图表显示了对液体复苏的积极反应。随着血管内容量的恢复，最初升高的心率（代偿性心动过速）稳步下降回正常范围，而最初较低的平均动脉压（MAP）稳步上升至正常范围。"
+        },
+        "byChoice": [
+          {
+            "refId": "A",
+            "en": "HR decreasing and MAP increasing towards normal indicate effective fluid replacement.",
+            "zh": "HR下降和MAP向正常上升表明液体补充有效。"
+          },
+          {
+            "refId": "B",
+            "en": "Fluid overload would typically present with crackles, bounding pulses, and very high BP, not just a normalizing MAP.",
+            "zh": "液体负荷过重通常表现为啰音、洪脉和非常高的血压，而不仅仅是MAP恢复正常。"
+          },
+          {
+            "refId": "C",
+            "en": "Vasopressors are not needed because the MAP is naturally increasing with fluids alone.",
+            "zh": "不需要血管加压药，因为仅靠液体输注MAP就在自然上升。"
+          },
+          {
+            "refId": "D",
+            "en": "An allergic reaction would cause the HR to rise and the MAP to fall (anaphylaxis).",
+            "zh": "过敏反应会导致HR上升和MAP下降（过敏性休克）。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Normalizing vitals (HR going down to baseline, BP going up to baseline) means your intervention is working.",
+        "zh": "生命体征恢复正常（HR降至基线，BP升至基线）意味着你的干预措施正在起效。"
+      },
+      "glossary": [
+        {
+          "termEn": "fluid resuscitation",
+          "termZh": "液体复苏",
+          "defZh": "通过静脉输注大量液体来恢复血管容量"
+        }
+      ],
+      "visual": {
+        "kind": "vitals_trend",
+        "series": [
+          {
+            "vital": "hr",
+            "values": [
+              125,
+              115,
+              105,
+              95,
+              88
+            ]
+          },
+          {
+            "vital": "map",
+            "values": [
+              58,
+              65,
+              72,
+              78,
+              85
+            ]
+          }
+        ],
+        "population": "adult",
+        "caption": {
+          "en": "Response to IV fluids",
+          "zh": "对静脉输液的反应"
+        },
+        "time": {
+          "unit": "hr",
+          "values": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ]
+        }
+      },
+      "meta": {
+        "visual_justification": "The chart proves the normalization of HR and MAP over time, confirming the efficacy of the intervention.",
+        "source": "Fundamentals of Nursing",
+        "tier": "strictest",
+        "skill_signature": "vit:normalizing/fluid-response",
+        "expected_trend": [
+          {
+            "vital": "hr",
+            "direction": "down",
+            "window": [
+              0,
+              4
+            ]
+          },
+          {
+            "vital": "map",
+            "direction": "up",
+            "window": [
+              0,
+              4
+            ]
+          }
+        ],
+        "derived_values_keyed": [
+          "map"
+        ],
+        "reference_bands": "adult",
+        "stem_disambiguators": [
+          "severe dehydration",
+          "receives 2 liters of 0.9% normal saline"
+        ]
+      }
+    },
+    {
+      "id": "vit_05",
+      "itemType": "multiple_choice",
+      "category": "Reduction of Risk Potential",
+      "topic": "increased intracranial pressure",
+      "difficulty": "hard",
+      "stem": {
+        "en": "A client is being monitored in the neuro-ICU following a severe traumatic brain injury. The nurse observes the following vital sign trends over the last 2 hours. Based on these findings, what is the nurse's most immediate concern?",
+        "zh": "一名严重创伤性脑损伤后的患者正在神经重症监护室接受监测。护士观察到过去2小时内的以下生命体征趋势。基于这些发现，护士最直接的担忧是什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "en": "Brainstem herniation",
+          "zh": "脑干疝"
+        },
+        {
+          "id": "B",
+          "en": "Hypovolemic shock",
+          "zh": "低血容量休克"
+        },
+        {
+          "id": "C",
+          "en": "Systemic inflammatory response syndrome (SIRS)",
+          "zh": "全身炎症反应综合征（SIRS）"
+        },
+        {
+          "id": "D",
+          "en": "Spinal shock",
+          "zh": "脊髓休克"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "rationale": {
+        "correct": {
+          "en": "The vital signs show Cushing's triad: a progressively widening pulse pressure (systolic BP is rising significantly while diastolic BP remains stable or drops), combined with a plummeting heart rate (bradycardia) and an erratic or dropping respiratory rate. This indicates a life-threatening increase in intracranial pressure with concern for possible impending brainstem herniation.",
+          "zh": "生命体征显示了库欣三联征：脉压逐渐增宽（收缩压显著上升，而舒张压保持稳定或下降），伴随心率骤降（心动过缓）以及呼吸频率不稳定或下降。这表明颅内压出现了危及生命的升高，存在可能发生脑干疝的担忧。"
+        },
+        "byChoice": [
+          {
+            "refId": "A",
+            "en": "Cushing's triad (widening pulse pressure, bradycardia, irregular respirations) is a late and ominous sign of brainstem herniation.",
+            "zh": "库欣三联征（脉压增宽、心动过缓、呼吸不规则）是脑干疝晚期且不祥的征兆。"
+          },
+          {
+            "refId": "B",
+            "en": "Hypovolemic shock presents with tachycardia and narrowing pulse pressure, the exact opposite of this chart.",
+            "zh": "低血容量休克表现为心动过速和脉压变窄，与此图表完全相反。"
+          },
+          {
+            "refId": "C",
+            "en": "SIRS would present with tachycardia, fever, and tachypnea.",
+            "zh": "SIRS会表现为心动过速、发热和呼吸急促。"
+          },
+          {
+            "refId": "D",
+            "en": "Spinal shock causes hypotension, not the severe systolic hypertension seen here.",
+            "zh": "脊髓休克引起低血压，而不是这里看到的严重收缩期高血压。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Opposite arrows: If the blood pressure is going drastically UP (especially systolic) and the heart rate is going drastically DOWN, think brain problem (Cushing's triad).",
+        "zh": "相反的箭头：如果血压急剧上升（特别是收缩压），而心率急剧下降，请考虑脑部问题（库欣三联征）。"
+      },
+      "glossary": [
+        {
+          "termEn": "widening pulse pressure",
+          "termZh": "脉压增宽",
+          "defZh": "收缩压和舒张压之间的差值异常增大"
+        }
+      ],
+      "visual": {
+        "kind": "vitals_trend",
+        "series": [
+          {
+            "vital": "hr",
+            "values": [
+              75,
+              65,
+              55,
+              45,
+              38
+            ]
+          },
+          {
+            "vital": "sbp",
+            "values": [
+              120,
+              140,
+              160,
+              180,
+              195
+            ]
+          },
+          {
+            "vital": "dbp",
+            "values": [
+              80,
+              82,
+              85,
+              80,
+              75
+            ]
+          },
+          {
+            "vital": "rr",
+            "values": [
+              16,
+              14,
+              12,
+              10,
+              8
+            ]
+          }
+        ],
+        "population": "adult",
+        "caption": {
+          "en": "Neuro-ICU vitals",
+          "zh": "神经重症监护室生命体征"
+        },
+        "time": {
+          "unit": "hr",
+          "values": [
+            0,
+            0.5,
+            1,
+            1.5,
+            2
+          ]
+        }
+      },
+      "meta": {
+        "visual_justification": "The chart visually displays Cushing's triad (diverging BP and HR), which uniquely identifies the impending herniation.",
+        "source": "ATLS Guidelines - Head Trauma",
+        "tier": "strictest",
+        "skill_signature": "vit:cushings-triad/brain-herniation",
+        "expected_trend": [
+          {
+            "vital": "hr",
+            "direction": "down",
+            "window": [
+              0,
+              2
+            ]
+          },
+          {
+            "vital": "sbp",
+            "direction": "up",
+            "window": [
+              0,
+              2
+            ]
+          }
+        ],
+        "derived_values_keyed": [],
+        "reference_bands": "adult",
+        "stem_disambiguators": [
+          "severe traumatic brain injury"
+        ]
+      }
+    },
+    {
+      "id": "vit_06",
+      "itemType": "multiple_choice",
+      "category": "Physiological Adaptation",
+      "topic": "decompensated shock",
+      "difficulty": "medium",
+      "stem": {
+        "en": "A client is admitted with massive gastrointestinal bleeding. After 2 hours of observation, the nurse notes the following vital signs trend. Which statement best describes the client's current status?",
+        "zh": "一名发生大面积消化道出血的患者入院。观察2小时后，护士注意到以下生命体征趋势。哪句话最能描述患者目前的状态？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "en": "The client has entered the decompensated phase of shock.",
+          "zh": "患者已进入休克的失代偿期。"
+        },
+        {
+          "id": "B",
+          "en": "The client's compensatory mechanisms are effectively maintaining perfusion.",
+          "zh": "患者的代偿机制正在有效地维持灌注。"
+        },
+        {
+          "id": "C",
+          "en": "The client is experiencing a vasovagal response.",
+          "zh": "患者正在经历血管迷走神经反应。"
+        },
+        {
+          "id": "D",
+          "en": "The bleeding has spontaneously resolved.",
+          "zh": "出血已自发消退。"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "rationale": {
+        "correct": {
+          "en": "The chart shows decompensated shock. While the heart rate remains extremely high, the mean arterial pressure (MAP) and systolic blood pressure (SBP) have precipitously dropped below critical thresholds (MAP < 65). The body's compensatory mechanisms have failed to maintain blood pressure.",
+          "zh": "图表显示了失代偿性休克。虽然心率仍然极高，但平均动脉压（MAP）和收缩压（SBP）已急剧降至临界阈值以下（MAP < 65）。身体的代偿机制未能维持血压。"
+        },
+        "byChoice": [
+          {
+            "refId": "A",
+            "en": "Falling MAP alongside extreme tachycardia indicates failed compensation.",
+            "zh": "MAP下降伴随极度心动过速表明代偿失败。"
+          },
+          {
+            "refId": "B",
+            "en": "Effective compensation would maintain the MAP above 65 mmHg.",
+            "zh": "有效的代偿将维持MAP在65 mmHg以上。"
+          },
+          {
+            "refId": "C",
+            "en": "A vasovagal response causes bradycardia, not extreme tachycardia.",
+            "zh": "血管迷走神经反应引起心动过缓，而不是极度心动过速。"
+          },
+          {
+            "refId": "D",
+            "en": "If bleeding resolved, the HR would normalize and BP would stabilize.",
+            "zh": "如果出血停止，HR将恢复正常，血压将稳定。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "When the MAP suddenly plummets below 65 despite a high heart rate, the patient has transitioned from compensated to decompensated shock.",
+        "zh": "尽管心率很高，但当MAP突然骤降至65以下时，患者已从代偿期转为失代偿期休克。"
+      },
+      "glossary": [
+        {
+          "termEn": "decompensated shock",
+          "termZh": "失代偿性休克",
+          "defZh": "低血容量休克的晚期阶段，代偿机制失效，血压下降"
+        }
+      ],
+      "visual": {
+        "kind": "vitals_trend",
+        "series": [
+          {
+            "vital": "hr",
+            "values": [
+              110,
+              115,
+              125,
+              135,
+              140
+            ]
+          },
+          {
+            "vital": "map",
+            "values": [
+              75,
+              72,
+              68,
+              55,
+              45
+            ]
+          }
+        ],
+        "population": "adult",
+        "caption": {
+          "en": "ICU vital signs",
+          "zh": "重症监护室生命体征"
+        },
+        "time": {
+          "unit": "hr",
+          "values": [
+            0,
+            0.5,
+            1,
+            1.5,
+            2
+          ]
+        }
+      },
+      "meta": {
+        "visual_justification": "The precipitous drop in MAP in the last hour distinguishes this from compensated shock.",
+        "source": "ATLS Guidelines",
+        "tier": "strictest",
+        "skill_signature": "vit:plummeting-map/decompensated-shock",
+        "expected_trend": [
+          {
+            "vital": "map",
+            "direction": "down",
+            "window": [
+              1,
+              2
+            ]
+          }
+        ],
+        "derived_values_keyed": [
+          "map"
+        ],
+        "reference_bands": "adult",
+        "stem_disambiguators": [
+          "massive gastrointestinal bleeding"
+        ]
+      }
+    },
+    {
+      "id": "vit_07",
+      "itemType": "multiple_choice",
+      "category": "Physiological Adaptation",
+      "topic": "neurogenic shock",
+      "difficulty": "medium",
+      "stem": {
+        "en": "A client is admitted to the emergency department following a high cervical spine injury. The nurse monitors the client's vital signs as shown. Which condition is most consistent with these findings?",
+        "zh": "一名患有高位颈椎损伤的患者被送入急诊室。护士监测患者的生命体征如图所示。哪种情况与这些发现最一致？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "en": "Neurogenic shock",
+          "zh": "神经源性休克"
+        },
+        {
+          "id": "B",
+          "en": "Cardiogenic shock",
+          "zh": "心源性休克"
+        },
+        {
+          "id": "C",
+          "en": "Hypovolemic shock",
+          "zh": "低血容量休克"
+        },
+        {
+          "id": "D",
+          "en": "Autonomic dysreflexia",
+          "zh": "自主神经反射异常"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "rationale": {
+        "correct": {
+          "en": "The chart reveals profound hypotension (low MAP) accompanied by bradycardia (low HR). In the setting of a cervical spine injury, this unique combination—loss of sympathetic tone causing vasodilation (hypotension) and unopposed vagal tone (bradycardia)—is the hallmark of neurogenic shock.",
+          "zh": "图表显示严重的低血压（低MAP）伴心动过缓（低HR）。在颈椎损伤的情况下，这种独特的组合——交感神经张力丧失导致血管扩张（低血压）和无拮抗的迷走神经张力（心动过缓）——是神经源性休克的标志。"
+        },
+        "byChoice": [
+          {
+            "refId": "A",
+            "en": "Neurogenic shock is unique among shock states because it presents with bradycardia rather than tachycardia.",
+            "zh": "神经源性休克在休克状态中是独一无二的，因为它表现为心动过缓而不是心动过速。"
+          },
+          {
+            "refId": "B",
+            "en": "Cardiogenic shock typically presents with tachycardia.",
+            "zh": "心源性休克通常表现为心动过速。"
+          },
+          {
+            "refId": "C",
+            "en": "Hypovolemic shock presents with compensatory tachycardia.",
+            "zh": "低血容量休克表现为代偿性心动过速。"
+          },
+          {
+            "refId": "D",
+            "en": "Autonomic dysreflexia causes extreme, sudden hypertension, not hypotension.",
+            "zh": "自主神经反射异常引起极度、突然的高血压，而不是低血压。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Any type of shock involves low blood pressure. If the heart rate is ALSO low, it is neurogenic shock.",
+        "zh": "任何类型的休克都涉及低血压。如果心率也很低，那就是神经源性休克。"
+      },
+      "glossary": [
+        {
+          "termEn": "neurogenic shock",
+          "termZh": "神经源性休克",
+          "defZh": "由于脊髓损伤导致交感神经张力丧失引起的分布性休克"
+        }
+      ],
+      "visual": {
+        "kind": "vitals_trend",
+        "series": [
+          {
+            "vital": "hr",
+            "values": [
+              65,
+              58,
+              52,
+              48
+            ]
+          },
+          {
+            "vital": "map",
+            "values": [
+              70,
+              62,
+              55,
+              50
+            ]
+          }
+        ],
+        "population": "adult",
+        "caption": {
+          "en": "Post-trauma vital signs",
+          "zh": "创伤后生命体征"
+        },
+        "time": {
+          "unit": "hr",
+          "values": [
+            0,
+            1,
+            2,
+            3
+          ]
+        }
+      },
+      "meta": {
+        "visual_justification": "The visual establishes the concurrent presence of bradycardia and hypotension, which uniquely identifies neurogenic shock vs other shock types.",
+        "source": "ATLS Guidelines",
+        "tier": "strictest",
+        "skill_signature": "vit:bradycardia-hypotension/neurogenic-shock",
+        "expected_trend": [
+          {
+            "vital": "hr",
+            "direction": "down",
+            "window": [
+              0,
+              3
+            ]
+          },
+          {
+            "vital": "map",
+            "direction": "down",
+            "window": [
+              0,
+              3
+            ]
+          }
+        ],
+        "derived_values_keyed": [
+          "map"
+        ],
+        "reference_bands": "adult",
+        "stem_disambiguators": [
+          "cervical spine injury"
+        ]
+      }
+    },
+    {
+      "id": "vit_08",
+      "itemType": "multiple_choice",
+      "category": "Pharmacological and Parenteral Therapies",
+      "topic": "antipyretic therapy",
+      "difficulty": "easy",
+      "stem": {
+        "en": "A pediatric client is admitted with a high fever. The nurse administers oral acetaminophen at Hour 0. Based on the vitals trend chart, what is the most appropriate evaluation of the therapy?",
+        "zh": "一名儿科患者因高热入院。护士在第0小时给予口服对乙酰氨基酚。基于生命体征趋势图，对该治疗最合适的评估是什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "en": "The therapy is effective; both temperature and heart rate are normalizing.",
+          "zh": "治疗有效；体温和心率都在恢复正常。"
+        },
+        {
+          "id": "B",
+          "en": "The therapy is ineffective; an alternative antipyretic is needed immediately.",
+          "zh": "治疗无效；需要立即使用其他退热药。"
+        },
+        {
+          "id": "C",
+          "en": "The client is experiencing a severe adverse drug reaction.",
+          "zh": "患者正在经历严重的药物不良反应。"
+        },
+        {
+          "id": "D",
+          "en": "The client has developed sepsis.",
+          "zh": "患者已发展为败血症。"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "rationale": {
+        "correct": {
+          "en": "The trend shows the client's temperature decreasing toward the normal range following the administration of the antipyretic. Additionally, the heart rate (which was elevated due to the fever) is concurrently decreasing toward normal. This demonstrates a successful response to therapy.",
+          "zh": "趋势显示在服用退热药后，患者体温向正常范围下降。此外，由于发烧而升高的心率也同时向正常范围下降。这证明了对治疗的成功反应。"
+        },
+        "byChoice": [
+          {
+            "refId": "A",
+            "en": "Fever causes compensatory tachycardia. As the fever breaks, the heart rate naturally falls.",
+            "zh": "发烧引起代偿性心动过速。随着退烧，心率自然下降。"
+          },
+          {
+            "refId": "B",
+            "en": "The chart clearly shows the temperature trending downwards.",
+            "zh": "图表清楚地显示了体温呈下降趋势。"
+          },
+          {
+            "refId": "C",
+            "en": "Normalizing vitals are not an adverse reaction.",
+            "zh": "生命体征恢复正常不是不良反应。"
+          },
+          {
+            "refId": "D",
+            "en": "Sepsis would present with worsening tachycardia, fever, and dropping blood pressure.",
+            "zh": "败血症会表现为心动过速恶化、发烧和血压下降。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Remember the physiological link: fever increases metabolic demand, which increases heart rate. Curing the fever cures the tachycardia.",
+        "zh": "记住生理联系：发烧增加代谢需求，从而增加心率。治愈发烧即可治愈心动过速。"
+      },
+      "glossary": [
+        {
+          "termEn": "antipyretic",
+          "termZh": "退热药",
+          "defZh": "用于降低发烧体温 of 药物"
+        }
+      ],
+      "visual": {
+        "kind": "vitals_trend",
+        "tempUnit": "C",
+        "series": [
+          {
+            "vital": "temp",
+            "values": [
+              39.5,
+              38.8,
+              37.9,
+              37.2
+            ]
+          },
+          {
+            "vital": "hr",
+            "values": [
+              145,
+              130,
+              115,
+              100
+            ]
+          }
+        ],
+        "population": "peds_child",
+        "caption": {
+          "en": "Post-medication vital signs",
+          "zh": "用药后生命体征"
+        },
+        "time": {
+          "unit": "hr",
+          "values": [
+            0,
+            1,
+            2,
+            3
+          ]
+        }
+      },
+      "meta": {
+        "visual_justification": "The chart visualizes the expected concurrent downward trend in HR and temperature.",
+        "source": "Fundamentals of Nursing",
+        "tier": "routine",
+        "skill_signature": "vit:normalizing/antipyretic-response",
+        "expected_trend": [
+          {
+            "vital": "temp",
+            "direction": "down",
+            "window": [
+              0,
+              3
+            ]
+          },
+          {
+            "vital": "hr",
+            "direction": "down",
+            "window": [
+              0,
+              3
+            ]
+          }
+        ],
+        "derived_values_keyed": [],
+        "reference_bands": "peds_child",
+        "stem_disambiguators": [
+          "pediatric client",
+          "oral acetaminophen at Hour 0"
+        ]
+      }
+    },
+    {
+      "id": "vit_09",
+      "itemType": "multiple_choice",
+      "category": "Physiological Adaptation",
+      "topic": "cardiogenic shock",
+      "difficulty": "medium",
+      "stem": {
+        "en": "A client is recovering from an acute myocardial infarction. The nurse notes new crackles in the lung bases and observes the following vital signs trend over the last 3 hours. Which complication should the nurse suspect?",
+        "zh": "一名患者正在从急性心肌梗死中恢复。护士注意到双肺底出现新的湿啰音，并观察到过去3小时内的生命体征趋势。护士应怀疑发生哪种并发症？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "en": "Cardiogenic shock",
+          "zh": "心源性休克"
+        },
+        {
+          "id": "B",
+          "en": "Pulmonary embolism",
+          "zh": "肺栓塞"
+        },
+        {
+          "id": "C",
+          "en": "Pericardial tamponade",
+          "zh": "心包填塞"
+        },
+        {
+          "id": "D",
+          "en": "Aortic aneurysm rupture",
+          "zh": "主动脉瘤破裂"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "rationale": {
+        "correct": {
+          "en": "The chart shows a progressive fall in MAP despite a compensatory increase in heart rate and respiratory rate. Combined with the history of myocardial infarction and the new onset of lung crackles (pulmonary edema due to left-sided heart failure), this points to pump failure, resulting in cardiogenic shock.",
+          "zh": "图表显示尽管心率和呼吸频率出现代偿性增加，但MAP仍在逐渐下降。结合心肌梗死病史和新出现的肺部湿啰音（左心衰竭导致的肺水肿），这指向泵衰竭，导致心源性休克。"
+        },
+        "byChoice": [
+          {
+            "refId": "A",
+            "en": "Failing heart muscle cannot maintain cardiac output, causing hypotension, tachycardia, and back-up of fluid into the lungs (crackles).",
+            "zh": "衰竭的心肌无法维持心输出量，导致低血压、心动过速和液体倒流入肺（湿啰音）。"
+          },
+          {
+            "refId": "B",
+            "en": "PE causes right-sided failure and clear lungs initially, not left-sided crackles.",
+            "zh": "肺栓塞最初引起右心衰竭 and 肺部清晰，而不是左侧湿啰音。"
+          },
+          {
+            "refId": "C",
+            "en": "Tamponade presents with muffled heart sounds and clear lungs.",
+            "zh": "心包填塞表现为心音遥远和双肺清晰。"
+          },
+          {
+            "refId": "D",
+            "en": "Rupture causes sudden profound hypovolemic shock, not gradual left-sided failure with crackles.",
+            "zh": "破裂导致突然严重的低血容量休克，而不是逐渐发生伴有啰音的左心衰竭。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Shock (low BP, high HR) + Crackles (fluid in lungs) = Cardiogenic shock.",
+        "zh": "休克（低BP，高HR）+ 湿啰音（肺内积液）= 心源性休克。"
+      },
+      "glossary": [
+        {
+          "termEn": "cardiogenic shock",
+          "termZh": "心源性休克",
+          "defZh": "由于心脏泵血功能严重受损导致的灌注不足"
+        }
+      ],
+      "visual": {
+        "kind": "vitals_trend",
+        "series": [
+          {
+            "vital": "hr",
+            "values": [
+              90,
+              105,
+              115,
+              128
+            ]
+          },
+          {
+            "vital": "map",
+            "values": [
+              80,
+              72,
+              65,
+              58
+            ]
+          },
+          {
+            "vital": "rr",
+            "values": [
+              18,
+              22,
+              26,
+              30
+            ]
+          }
+        ],
+        "population": "adult",
+        "caption": {
+          "en": "Post-MI vitals",
+          "zh": "心梗后生命体征"
+        },
+        "time": {
+          "unit": "hr",
+          "values": [
+            0,
+            1,
+            2,
+            3
+          ]
+        }
+      },
+      "meta": {
+        "visual_justification": "The trend demonstrates the shock physiology (falling MAP, rising HR) that pairs with the stem's crackles to confirm the cardiogenic cause.",
+        "source": "AHA Advanced Cardiovascular Life Support",
+        "tier": "strictest",
+        "skill_signature": "vit:shock-trend/cardiogenic-shock",
+        "expected_trend": [
+          {
+            "vital": "map",
+            "direction": "down",
+            "window": [
+              0,
+              3
+            ]
+          }
+        ],
+        "derived_values_keyed": [
+          "map"
+        ],
+        "reference_bands": "adult",
+        "stem_disambiguators": [
+          "recovering from an acute myocardial infarction",
+          "new crackles in the lung bases"
+        ]
+      }
+    },
+    {
+      "id": "vit_10",
+      "itemType": "multiple_choice",
+      "category": "Safety and Infection Control",
+      "topic": "malignant hyperthermia",
+      "difficulty": "hard",
+      "stem": {
+        "en": "A client is undergoing general anesthesia using volatile inhaled anesthetics. Ten minutes into the procedure, the nurse notes the following rapid vital sign changes. Which complication is most likely occurring?",
+        "zh": "一名患者正在使用挥发性吸入麻醉剂进行全身麻醉。在手术开始10分钟后，护士注意到以下快速的生命体征变化。最有可能发生哪种并发症？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "en": "Malignant hyperthermia",
+          "zh": "恶性高热"
+        },
+        {
+          "id": "B",
+          "en": "Anaphylactic reaction",
+          "zh": "过敏反应"
+        },
+        {
+          "id": "C",
+          "en": "Sepsis",
+          "zh": "败血症"
+        },
+        {
+          "id": "D",
+          "en": "Hemorrhagic shock",
+          "zh": "失血性休克"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "rationale": {
+        "correct": {
+          "en": "The chart shows a dangerously rapid increase in both body temperature and heart rate shortly after the induction of general anesthesia. Combined with the exposure to inhaled anesthetics, this rapid hypermetabolic state is highly indicative of malignant hyperthermia, a rare but life-threatening complication requiring immediate administration of dantrolene.",
+          "zh": "图表显示在全身麻醉诱导后不久，体温和心率呈危险的快速上升。结合暴露于吸入麻醉剂的情况，这种快速的高代谢状态高度提示恶性高热，这是一种罕见但危及生命的并发症，需要立即给予丹曲林。"
+        },
+        "byChoice": [
+          {
+            "refId": "A",
+            "en": "Volatile anesthetics trigger malignant hyperthermia, characterized by rapid tachycardia and a soaring body temperature.",
+            "zh": "挥发性麻醉剂引发恶性高热，其特征为快速的心动过速和体温飙升。"
+          },
+          {
+            "refId": "B",
+            "en": "Anaphylaxis causes hypotension and tachycardia, not extreme hyperthermia.",
+            "zh": "过敏反应引起低血压和心动过速，而不是极度高热。"
+          },
+          {
+            "refId": "C",
+            "en": "Sepsis develops over hours to days, not 10 minutes into surgery.",
+            "zh": "败血症的发展需要数小时至数天，而不是在手术的10分钟内。"
+          },
+          {
+            "refId": "D",
+            "en": "Hemorrhage does not cause a sudden fever.",
+            "zh": "出血不会导致突然发烧。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "General anesthesia + extreme fever/tachycardia = Malignant Hyperthermia.",
+        "zh": "全身麻醉 + 极度发烧/心动过速 = 恶性高热。"
+      },
+      "glossary": [
+        {
+          "termEn": "malignant hyperthermia",
+          "termZh": "恶性高热",
+          "defZh": "由某些麻醉药引发的严重遗传性疾病，导致肌肉强直和极度高热"
+        }
+      ],
+      "visual": {
+        "kind": "vitals_trend",
+        "tempUnit": "C",
+        "series": [
+          {
+            "vital": "hr",
+            "values": [
+              80,
+              110,
+              140,
+              160
+            ]
+          },
+          {
+            "vital": "temp",
+            "values": [
+              37,
+              38.2,
+              39.5,
+              40.8
+            ]
+          }
+        ],
+        "population": "adult",
+        "caption": {
+          "en": "Intraoperative vitals (minutes)",
+          "zh": "术中生命体征（分钟）"
+        },
+        "time": {
+          "unit": "min",
+          "values": [
+            0,
+            6,
+            12,
+            18
+          ]
+        }
+      },
+      "meta": {
+        "visual_justification": "The extremely rapid timeline (18 minutes) of the temperature and HR spikes is critical to distinguish this from post-op infection.",
+        "source": "Malignant Hyperthermia Association of the United States",
+        "tier": "strictest",
+        "skill_signature": "vit:rapid-hyperthermia/malignant-hyperthermia",
+        "expected_trend": [
+          {
+            "vital": "temp",
+            "direction": "up",
+            "window": [
+              0,
+              18
+            ]
+          }
+        ],
+        "derived_values_keyed": [],
+        "reference_bands": "adult",
+        "stem_disambiguators": [
+          "general anesthesia using volatile inhaled anesthetics"
+        ]
+      }
+    }
+  ]
+}

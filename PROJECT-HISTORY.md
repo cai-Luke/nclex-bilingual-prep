@@ -31,7 +31,8 @@ Current canonical banks:
 - `banks/claude-canonical.json` (50 bilingual Claude-source questions; ledgered content review complete)
 - `banks/gemini-canonical.json` (749 bilingual Gemini-source questions; includes original + pending batches + traditional/easy/gap-fill consolidations minus redundant/flawed questions)
 - `banks/hard-cases-canonical.json` (42 hard/NGN top-level items, including 33 unfolding case studies with 135 embedded case-study parts)
-- `banks/visual-canonical.json` (3 reviewed schema v1.2 rhythm-strip visual items; the dedicated home for all visual kinds, formerly `banks/rhythm-canonical.json`)
+- `banks/visual-canonical.json` (53 reviewed schema v1.2 visual items; the dedicated home for all visual kinds, formerly `banks/rhythm-canonical.json`)
+- `banks/vitals-canonical.json` (10 reviewed schema v1.2 visual items; vitals trend integration)
 - Schema version `1.2` current; `1.0` standalone banks and `1.1` case-study banks remain supported
 
 Current schema item types:
@@ -68,6 +69,14 @@ Completed:
 - Updated temperature limits to strict physiological values: [30, 43] for C and [86, 109] for F.
 - Integrated `escapeXml` directly into `lineChart.ts` for all labels, axis ticks, and units, blocking XSS `<script>` injections.
 - Added boolean validation for `showReferenceBand`.
+
+### U2 Vitals Trend Bank Promotion (Jun 08)
+
+Completed:
+- Patched `u2-vit-raw.json` with requested feedback: softened the herniation certainty in `vit_05` and updated `vit_10`'s timeline to use `min` instead of `hr`.
+- Updated schema `vitals_trend` type and validation logic to support `visual.time` (`{ unit: "hr" | "min", values: number[] }`) while maintaining backward compatibility with `timepointsHr`.
+- Migrated all `vitals_trend` items in the U2 bank to use the new `time` field.
+- Promoted 10 reviewed items to `banks/vitals-canonical.json` and deleted raw source file.
 
 ### U1 Capnography Renderer (Jun 08)
 
@@ -344,27 +353,29 @@ Last verified on 2026-06-06:
 
 Latest coverage snapshot:
 
-- Total questions: 966
-- Unique normalized topics: 76
-- Category counts:
-  - Physiological Adaptation: 151
-  - Management of Care: 123
-  - Pharmacological and Parenteral Therapies: 121
-  - Psychosocial Integrity: 117
-  - Safety and Infection Control: 115
+- Total questions: 1033
+- Unique normalized topics: 141
+- Category Counts:
+  - Health Promotion and Maintenance: 113
   - Basic Care and Comfort: 114
-  - Health Promotion and Maintenance: 112
-  - Reduction of Risk Potential: 113
-- Item type counts:
-  - multiple_choice: 343
-  - select_all: 171
-  - matrix: 124
-  - dropdown_cloze: 115
-  - ordered_response: 90
-  - fill_in_blank: 88
+  - Reduction of Risk Potential: 116
+  - Psychosocial Integrity: 117
+  - Safety and Infection Control: 117
+  - Management of Care: 123
+  - Pharmacological and Parenteral Therapies: 134
+  - Physiological Adaptation: 199
+- Item Type Counts:
   - case_study: 35
+  - fill_in_blank: 88
+  - ordered_response: 90
+  - dropdown_cloze: 115
+  - matrix: 129
+  - select_all: 180
+  - multiple_choice: 396
 - Visual counts:
-  - rhythm_strip: 3 (`sinus_brady`, `vtach`, `afib`)
+  - capnography: 7
+  - rhythm_strip: 44
+  - vitals_trend: 10
 
 Known verification gap:
 
