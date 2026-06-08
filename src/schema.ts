@@ -142,8 +142,9 @@ export const validateVisual = (
   if (options.schemaVersion !== undefined && cmpSchema(options.schemaVersion, mod.requiredSchemaVersion ?? "1.2") < 0) {
     reasons.push(`${basePath} requires schema ${mod.requiredSchemaVersion ?? "1.2"}`);
   }
+  const initialReasonsLen = reasons.length;
   for (const err of mod.validate(value as never)) reasons.push(formatVisualError(basePath, err));
-  if (mod.selfCheck && options.question) {
+  if (mod.selfCheck && options.question && reasons.length === initialReasonsLen) {
     for (const err of mod.selfCheck(value as never, options.question)) reasons.push(formatVisualError(basePath, err));
   }
 };

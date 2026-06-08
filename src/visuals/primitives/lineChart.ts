@@ -1,4 +1,5 @@
 import { fmt } from "./graphPaper";
+import { escapeXml } from "./escapeXml";
 
 export interface ChartSeries {
   label: string;            // "HR", "SBP", …
@@ -104,7 +105,7 @@ export function renderLineChart(input: LineChartInput): string {
   xTicks.forEach(tick => {
     const x = mapX(tick);
     elements.push(`<line x1="${fmt(x)}" y1="${fmt(marginTop)}" x2="${fmt(x)}" y2="${fmt(height - marginBottom)}" stroke="#e2e8f0" stroke-width="1"/>`);
-    elements.push(`<text x="${fmt(x)}" y="${fmt(height - marginBottom + 16)}" font-family="sans-serif" font-size="12" fill="#64748b" text-anchor="middle">${fmt(tick)}</text>`);
+    elements.push(`<text x="${fmt(x)}" y="${fmt(height - marginBottom + 16)}" font-family="sans-serif" font-size="12" fill="#64748b" text-anchor="middle">${escapeXml(fmt(tick))}</text>`);
   });
   
   // Axis lines
@@ -116,11 +117,11 @@ export function renderLineChart(input: LineChartInput): string {
   }
   
   // Labels
-  elements.push(`<text x="${fmt(marginLeft + plotWidth / 2)}" y="${fmt(height - marginBottom + 36)}" font-family="sans-serif" font-size="14" font-weight="500" fill="#334155" text-anchor="middle">${input.xAxis.label}</text>`);
-  elements.push(`<text x="${fmt(marginLeft - 40)}" y="${fmt(marginTop - 10)}" font-family="sans-serif" font-size="12" font-weight="500" fill="#334155" text-anchor="start">${input.yAxisLeft.label}</text>`);
+  elements.push(`<text x="${fmt(marginLeft + plotWidth / 2)}" y="${fmt(height - marginBottom + 36)}" font-family="sans-serif" font-size="14" font-weight="500" fill="#334155" text-anchor="middle">${escapeXml(input.xAxis.label)}</text>`);
+  elements.push(`<text x="${fmt(marginLeft - 40)}" y="${fmt(marginTop - 10)}" font-family="sans-serif" font-size="12" font-weight="500" fill="#334155" text-anchor="start">${escapeXml(input.yAxisLeft.label)}</text>`);
   
   if (input.yAxisRight) {
-    elements.push(`<text x="${fmt(width - marginRight + 40)}" y="${fmt(marginTop - 10)}" font-family="sans-serif" font-size="12" font-weight="500" fill="#334155" text-anchor="end">${input.yAxisRight.label}</text>`);
+    elements.push(`<text x="${fmt(width - marginRight + 40)}" y="${fmt(marginTop - 10)}" font-family="sans-serif" font-size="12" font-weight="500" fill="#334155" text-anchor="end">${escapeXml(input.yAxisRight.label)}</text>`);
   }
 
   // 3. Draw Series Polylines and Points
@@ -144,7 +145,7 @@ export function renderLineChart(input: LineChartInput): string {
     const color = colorForRole(s.styleRole);
     elements.push(`<line x1="${fmt(legendX)}" y1="${fmt(legendY - 4)}" x2="${fmt(legendX + 16)}" y2="${fmt(legendY - 4)}" stroke="${color}" stroke-width="2"/>`);
     elements.push(`<circle cx="${fmt(legendX + 8)}" cy="${fmt(legendY - 4)}" r="3" fill="#ffffff" stroke="${color}" stroke-width="2"/>`);
-    elements.push(`<text x="${fmt(legendX + 22)}" y="${fmt(legendY)}" font-family="sans-serif" font-size="12" fill="#334155" text-anchor="start">${s.label} (${s.unit})</text>`);
+    elements.push(`<text x="${fmt(legendX + 22)}" y="${fmt(legendY)}" font-family="sans-serif" font-size="12" fill="#334155" text-anchor="start">${escapeXml(s.label)} (${escapeXml(s.unit)})</text>`);
     legendX += 100; // rough spacing
   });
   

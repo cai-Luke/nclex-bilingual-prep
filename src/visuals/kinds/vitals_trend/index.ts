@@ -68,9 +68,14 @@ export const validateVitalsTrend = (spec: VitalsTrendSpec): VisualError[] => {
     const def = VITAL_DEFS[s.vital as VitalKey];
     let min = def.range.min;
     let max = def.range.max;
-    if (s.vital === "temp" && spec.tempUnit === "F") {
-      min = 86;
-      max = 109;
+    if (s.vital === "temp") {
+      const u = spec.tempUnit ?? "C";
+      min = u === "F" ? 86 : 30;
+      max = u === "F" ? 109 : 43;
+    }
+
+    if (s.showReferenceBand !== undefined && typeof s.showReferenceBand !== "boolean") {
+      errs.push({ path: `series[${idx}].showReferenceBand`, code: "invalid_show_reference_band", message: "must be a boolean" });
     }
 
     s.values.forEach((v, vidx) => {
@@ -117,37 +122,47 @@ export const validateVitalsTrend = (spec: VitalsTrendSpec): VisualError[] => {
 export const selfCheckVitalsTrend = (spec: VitalsTrendSpec, _question: any): VisualError[] => {
   const errs: VisualError[] = [];
 
-  const dbpSeries = spec.series.find(s => s.vital === "dbp");
-  const mapSeries = spec.series.find(s => s.vital === "map");
-  const sbpSeries = spec.series.find(s => s.vital === "sbp");
+  if (!Array.isArray(spec.timepointsHr) || !Array.isArray(spec.series)) {
+    return errs;
+  }
+
+  const dbpSeries = spec.series.find(s => isRecord(s) && s.vital === "dbp" && Array.isArray(s.values));
+  const mapSeries = spec.series.find(s => isRecord(s) && s.vital === "map" && Array.isArray(s.values));
+  const sbpSeries = spec.series.find(s => isRecord(s) && s.vital === "sbp" && Array.isArray(s.values));
 
   if (mapSeries && sbpSeries && dbpSeries) {
     for (let i = 0; i < spec.timepointsHr.length; i++) {
       const dbp = dbpSeries.values[i];
       const sbp = sbpSeries.values[i];
       const providedMap = mapSeries.values[i];
-      const computedMap = Math.round(dbp + (sbp - dbp) / 3);
-      if (providedMap !== computedMap) {
-        errs.push({ path: `series.map.values[${i}]`, code: "self_check_map_failed", message: `provided MAP ${providedMap} does not match computed MAP ${computedMap}` });
+      if (typeof dbp === "number" && typeof sbp === "number" && typeof providedMap === "number") {
+        const computedMap = Math.round(dbp + (sbp - dbp) / 3);
+        if (providedMap !== computedMap) {
+          errs.push({ path: `series.map.values[${i}]`, code: "self_check_map_failed", message: `provided MAP ${providedMap} does not match computed MAP ${computedMap}` });
+        }
       }
     }
   }
   
   // Also check if question has an expectedTrend metadata block
-  if (_question?.metadata?.expectedTrend) {
-    const trend = _question.metadata.expectedTrend; // e.g. { vital: 'map', direction: 'down', window: [0, 6] }
-    const tSeries = spec.series.find(s => s.vital === trend.vital);
-    if (tSeries) {
-      const idxStart = spec.timepointsHr.indexOf(trend.window[0]);
-      const idxEnd = spec.timepointsHr.indexOf(trend.window[1]);
-      if (idxStart !== -1 && idxEnd !== -1 && idxEnd > idxStart) {
-        const valStart = tSeries.values[idxStart];
-        const valEnd = tSeries.values[idxEnd];
-        if (trend.direction === "down" && valEnd >= valStart) {
-          errs.push({ path: `series.${trend.vital}`, code: "self_check_trend_failed", message: `expected trend ${trend.direction} but values did not match` });
-        }
-        if (trend.direction === "up" && valEnd <= valStart) {
-          errs.push({ path: `series.${trend.vital}`, code: "self_check_trend_failed", message: `expected trend ${trend.direction} but values did not match` });
+  if (_question && isRecord(_question) && isRecord(_question.metadata) && isRecord(_question.metadata.expectedTrend)) {
+    const trend = _question.metadata.expectedTrend;
+    if (typeof trend.vital === "string" && Array.isArray(trend.window) && trend.window.length === 2) {
+      const tSeries = spec.series.find(s => isRecord(s) && s.vital === trend.vital && Array.isArray(s.values));
+      if (tSeries) {
+        const idxStart = spec.timepointsHr.indexOf(trend.window[0] as number);
+        const idxEnd = spec.timepointsHr.indexOf(trend.window[1] as number);
+        if (idxStart !== -1 && idxEnd !== -1 && idxEnd > idxStart) {
+          const valStart = tSeries.values[idxStart];
+          const valEnd = tSeries.values[idxEnd];
+          if (typeof valStart === "number" && typeof valEnd === "number") {
+            if (trend.direction === "down" && valEnd >= valStart) {
+              errs.push({ path: `series.${trend.vital}`, code: "self_check_trend_failed", message: `expected trend ${trend.direction} but values did not match` });
+            }
+            if (trend.direction === "up" && valEnd <= valStart) {
+              errs.push({ path: `series.${trend.vital}`, code: "self_check_trend_failed", message: `expected trend ${trend.direction} but values did not match` });
+            }
+          }
         }
       }
     }

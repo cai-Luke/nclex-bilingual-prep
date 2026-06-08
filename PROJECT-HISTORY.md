@@ -62,6 +62,13 @@ Completed:
 - Implemented `selfCheck` to verify MAP computational consistency (`MAP = Math.round(DBP + (SBP - DBP) / 3)`) and to test explicit declarative trends via metadata `expectedTrend`.
 - Registered `vitals_trend` to the `src/visuals/registry` with full validation tests across boundaries and self-checks.
 
+**U2 Fix Pass (Jun 08):**
+- Hardened `schema.ts` to skip `selfCheck` automatically if `validate` fails structurally.
+- Made `selfCheckVitalsTrend` fully defensive, ensuring no throws even if `spec.series` or `expectedTrend` are deeply malformed or missing.
+- Updated temperature limits to strict physiological values: [30, 43] for C and [86, 109] for F.
+- Integrated `escapeXml` directly into `lineChart.ts` for all labels, axis ticks, and units, blocking XSS `<script>` injections.
+- Added boolean validation for `showReferenceBand`.
+
 ### U1 Capnography Renderer (Jun 08)
 
 Completed:
