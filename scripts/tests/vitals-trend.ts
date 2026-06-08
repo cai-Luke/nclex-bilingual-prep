@@ -1,12 +1,10 @@
-import { createHash } from "node:crypto";
 import { renderVitalsTrendSvg, validateVitalsTrend, selfCheckVitalsTrend } from "../../src/visuals/kinds/vitals_trend";
+import { renderLineChart } from "../../src/visuals/primitives/lineChart";
 import type { VitalsTrendSpec } from "../../src/visuals/kinds/vitals_trend/types";
 
 const assert = (condition: unknown, message: string) => {
   if (!condition) throw new Error(message);
 };
-
-const hash = (value: string) => createHash("sha256").update(value).digest("hex");
 
 // --- Determinism ----------------------------------------------
 const canonical: VitalsTrendSpec = {
@@ -126,7 +124,6 @@ const refBandErrs = validateVitalsTrend({
 assert(refBandErrs.some(e => e.code === "invalid_show_reference_band"), "should reject non-boolean showReferenceBand");
 
 // --- XSS Escaping -------------------------------
-import { renderLineChart } from "../../src/visuals/primitives/lineChart";
 const xssSvg = renderLineChart({
   xAxis: { label: "<script>alert(1)</script>", min: 0, max: 10 },
   yAxisLeft: { label: "", min: 0, max: 10 },
