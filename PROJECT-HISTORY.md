@@ -51,6 +51,17 @@ Out of scope until a future schema bump:
 
 ## Milestones
 
+### U2 Vitals Trend Renderer & Chart Primitive (Jun 08)
+
+Completed:
+- Moved U1 `U1-CAPNOGRAPHY-SPEC.md` to `Archive/`.
+- Implemented `vitals_trend` visual renderer, which charts physiological values across a shared time-axis.
+- Built reusable `lineChart.ts` primitive inside `src/visuals/primitives` (ready for U3 lab_trend).
+- Supported mapping of standard vitals (HR, SBP, DBP, MAP, RR, SpO2, Temp) to proper dual-axis domains with normal reference bands.
+- Enforced deterministic rendering without interpolation/resampling: points drawn accurately match provided `timepointsHr` data arrays.
+- Implemented `selfCheck` to verify MAP computational consistency (`MAP = Math.round(DBP + (SBP - DBP) / 3)`) and to test explicit declarative trends via metadata `expectedTrend`.
+- Registered `vitals_trend` to the `src/visuals/registry` with full validation tests across boundaries and self-checks.
+
 ### U1 Capnography Renderer (Jun 08)
 
 Completed:

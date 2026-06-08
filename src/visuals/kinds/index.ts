@@ -4,3 +4,4 @@
 // React dispatcher on top. Append-only as kinds land.
 import "./rhythmStrip";
 import "./capnography";
+import "./vitals_trend";

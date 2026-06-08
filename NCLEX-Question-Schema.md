@@ -169,6 +169,37 @@ Validation rules:
 - `baselineEtco2` is required for `rebreathing`, strictly `0 < baselineEtco2 < etco2`, and disallowed for other patterns.
 - `rosc` object is required for `rosc` (with `lowEtco2`, `highEtco2`, `stepAtSec` properties), and disallowed for other patterns.
 - `caption.en`, if caption is present, is required. `caption.zh` is optional but must be non-empty if present.
+
+### Kind: `vitals_trend`
+
+```json
+{
+  "visual": {
+    "kind": "vitals_trend",
+    "timepointsHr": [0, 4, 8],
+    "series": [
+      { "vital": "hr", "values": [85, 100, 120] },
+      { "vital": "map", "values": [90, 75, 60] }
+    ],
+    "caption": { "en": "Vital signs flow sheet over 8 hours" }
+  }
+}
+```
+
+`VitalKey` controlled vocabulary:
+`hr`, `sbp`, `dbp`, `map`, `rr`, `spo2`, `temp`.
+
+Validation rules:
+- `kind` must be `"vitals_trend"`.
+- `timepointsHr` is required, must be a strictly increasing array of finite numbers.
+- `series` is required, must contain at least one series. No duplicate `vital` keys allowed.
+- Each `series.values` array must have the exact same length as `timepointsHr`.
+- Values must be within sensible physiologic ranges per vital.
+- If `map`, `sbp`, and `dbp` are all provided, `map` must be strictly between `dbp` and `sbp` across all points.
+- `tempUnit`, if present, must be `"C"` or `"F"`.
+- `selfCheck` verifies that provided `map` values exactly match the computed `MAP = Math.round(DBP + (SBP - DBP) / 3)`.
+- `selfCheck` verifies any `expectedTrend` metadata provided in the question accurately reflects the data array.
+- `caption.en`, if caption is present, is required. `caption.zh` is optional but must be non-empty if present.
 ---
 
 ## Per-type structure
