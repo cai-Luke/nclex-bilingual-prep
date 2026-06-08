@@ -1,0 +1,704 @@
+{
+  "meta": {
+    "schemaVersion": "1.2",
+    "exam": "NCLEX-RN",
+    "topic": "capnography integration",
+    "category": "mixed",
+    "difficulty": "medium",
+    "count": 7
+  },
+  "questions": [
+    {
+      "id": "cap_01",
+      "itemType": "multiple_choice",
+      "category": "Physiological Adaptation",
+      "topic": "asthma exacerbation",
+      "difficulty": "easy",
+      "stem": {
+        "en": "A nurse is caring for a client who presents with severe shortness of breath. The continuous end-tidal CO2 (EtCO2) monitor displays the following capnogram. Which of the following conditions is most consistent with this finding?",
+        "zh": "护士正在照顾一名表现为严重呼吸短促的患者。持续呼气末二氧化碳（EtCO2）监护仪显示以下二氧化碳波形图。下列哪种情况与此发现最相符？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "en": "Acute asthma exacerbation",
+          "zh": "急性哮喘发作"
+        },
+        {
+          "id": "B",
+          "en": "Pulmonary edema",
+          "zh": "肺水肿"
+        },
+        {
+          "id": "C",
+          "en": "Hyperventilation syndrome",
+          "zh": "过度换气综合征"
+        },
+        {
+          "id": "D",
+          "en": "Pneumothorax",
+          "zh": "气胸"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "rationale": {
+        "correct": {
+          "en": "The capnogram shows a 'shark-fin' morphology, characterized by a sloped Phase II upstroke and loss of the flat Phase III alveolar plateau. This indicates delayed emptying of alveoli due to bronchospasm, which is a hallmark of an acute asthma exacerbation. Other conditions like pulmonary edema typically produce a crisp, upright rectangular waveform.",
+          "zh": "二氧化碳波形图显示了“鲨鱼鳍”形态，其特征是倾斜的第二阶段上升支和缺失平坦的第三阶段肺泡平台。这表明由于支气管痉挛导致肺泡排空延迟，这是急性哮喘发作的标志。其他情况（如肺水肿）通常会产生清晰、直立的矩形波形。"
+        },
+        "byChoice": [
+          {
+            "refId": "A",
+            "en": "Asthma causes bronchospasm leading to an obstructive 'shark-fin' capnogram.",
+            "zh": "哮喘引起支气管痉挛，导致梗阻性“鲨鱼鳍”波形。"
+          },
+          {
+            "refId": "B",
+            "en": "Pulmonary edema does not cause bronchospasm and would retain a crisp, upright waveform.",
+            "zh": "肺水肿不会引起支气管痉挛，波形将保持清晰、直立。"
+          },
+          {
+            "refId": "C",
+            "en": "Hyperventilation lowers EtCO2 but the waveform remains a crisp rectangle.",
+            "zh": "过度换气会降低EtCO2，但波形仍保持清晰的矩形。"
+          },
+          {
+            "refId": "D",
+            "en": "Pneumothorax might change EtCO2 values but does not classically produce a shark-fin obstructive pattern.",
+            "zh": "气胸可能改变EtCO2值，但典型情况下不产生鲨鱼鳍梗阻形态。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Associate a 'shark-fin' capnogram with obstructive airway diseases like asthma or COPD.",
+        "zh": "将“鲨鱼鳍”二氧化碳波形与阻塞性气道疾病（如哮喘或慢性阻塞性肺疾病）联系起来。"
+      },
+      "glossary": [
+        {
+          "termEn": "bronchospasm",
+          "termZh": "支气管痉挛",
+          "defZh": "由于支气管平滑肌收缩导致气道变窄"
+        }
+      ],
+      "visual": {
+        "kind": "capnography",
+        "pattern": "shark_fin",
+        "etco2": 50,
+        "respiratoryRate": 24,
+        "durationSec": 15,
+        "severity": 0.8,
+        "caption": {
+          "en": "Continuous capnography tracing",
+          "zh": "持续二氧化碳波形图"
+        }
+      },
+      "meta": {
+        "visual_justification": "Without the visual, the stem only provides 'severe shortness of breath' which cannot distinguish between asthma, pulmonary edema, or pneumothorax.",
+        "source": "LITFL - Capnography",
+        "tier": "strictest",
+        "skill_signature": "cap:shark_fin/obstruction-vs-crisp",
+        "pattern_keyed": "shark_fin",
+        "stem_disambiguators": [
+          "severe shortness of breath"
+        ]
+      }
+    },
+    {
+      "id": "cap_02",
+      "itemType": "multiple_choice",
+      "category": "Reduction of Risk Potential",
+      "topic": "endotracheal intubation",
+      "difficulty": "hard",
+      "stem": {
+        "en": "Immediately after endotracheal intubation of a client with absent spontaneous respirations, the nurse connects the capnography sensor. The monitor displays the following waveform. The nurse auscultates gurgling over the epigastrium and observes no chest rise. Which action should the nurse take next?",
+        "zh": "在对无自主呼吸的患者进行气管插管后，护士立即连接二氧化碳监测传感器。监护仪显示以下波形。护士听诊上腹部有咕噜声，且未观察到胸廓起伏。护士下一步应采取什么行动？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "en": "Administer an additional dose of a paralytic agent.",
+          "zh": "给予额外剂量的肌肉松弛剂。"
+        },
+        {
+          "id": "B",
+          "en": "Remove the endotracheal tube and ventilate with a bag-valve-mask.",
+          "zh": "拔除气管插管并使用球囊面罩通气。"
+        },
+        {
+          "id": "C",
+          "en": "Secure the endotracheal tube and request a chest x-ray.",
+          "zh": "固定气管插管并要求进行胸部X线检查。"
+        },
+        {
+          "id": "D",
+          "en": "Suction the endotracheal tube to clear secretions.",
+          "zh": "通过气管插管吸痰以清除分泌物。"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "rationale": {
+        "correct": {
+          "en": "The capnogram shows a completely flat waveform (EtCO2 = 0) immediately after intubation. Combined with the clinical signs of epigastric gurgling and absent chest rise, this indicates esophageal intubation. The tube must be removed immediately, and the client must be oxygenated with a bag-valve-mask before reattempting intubation.",
+          "zh": "插管后二氧化碳波形图立即显示完全平坦的波形（EtCO2 = 0）。结合上腹部咕噜声和无胸廓起伏的临床体征，这表明插管进入了食管。必须立即拔除插管，并在再次尝试插管前使用球囊面罩为患者供氧。"
+        },
+        "byChoice": [
+          {
+            "refId": "A",
+            "en": "Paralytics will not fix a misplaced tube.",
+            "zh": "肌肉松弛剂无法解决插管位置错误的问题。"
+          },
+          {
+            "refId": "B",
+            "en": "A flat capnogram with epigastric sounds confirms esophageal placement; immediate removal is required.",
+            "zh": "平坦的波形 and 上腹部杂音证实了食管内插管；需立即拔除。"
+          },
+          {
+            "refId": "C",
+            "en": "Securing a tube placed in the esophagus is dangerous and delays oxygenation.",
+            "zh": "固定插在食管内的导管是危险的，会延误氧合。"
+          },
+          {
+            "refId": "D",
+            "en": "Suctioning will not address an esophageal intubation.",
+            "zh": "吸痰无法解决食管插管问题。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "A flat capnogram immediately post-intubation indicates the tube is not in the trachea.",
+        "zh": "插管后立即出现平坦的二氧化碳波形表明导管不在气管内。"
+      },
+      "glossary": [
+        {
+          "termEn": "epigastrium",
+          "termZh": "上腹部",
+          "defZh": "位于腹部正中偏上区域"
+        },
+        {
+          "termEn": "esophageal intubation",
+          "termZh": "食管插管",
+          "defZh": "错误地将气管导管插入食管而非气管"
+        }
+      ],
+      "visual": {
+        "kind": "capnography",
+        "pattern": "flat",
+        "etco2": 0,
+        "respiratoryRate": 12,
+        "durationSec": 15,
+        "caption": {
+          "en": "Capnography waveform post-intubation",
+          "zh": "插管后二氧化碳波形"
+        }
+      },
+      "meta": {
+        "visual_justification": "The flat capnogram provides the objective confirmation of no CO2 return, making it esophageal intubation instead of a right-mainstem intubation or pneumothorax.",
+        "source": "AHA CPR Guidelines",
+        "tier": "strictest",
+        "skill_signature": "cap:flat/esophageal-intubation",
+        "pattern_keyed": "flat",
+        "stem_disambiguators": [
+          "immediately after endotracheal intubation",
+          "gurgling over the epigastrium",
+          "no chest rise"
+        ]
+      }
+    },
+    {
+      "id": "cap_03",
+      "itemType": "multiple_choice",
+      "category": "Physiological Adaptation",
+      "topic": "cardiopulmonary resuscitation",
+      "difficulty": "medium",
+      "stem": {
+        "en": "A nurse is participating in the resuscitation of a client in cardiac arrest. The client is intubated, and high-quality chest compressions are ongoing. The nurse observes the following change on the continuous capnography monitor. Which interpretation of this finding is most accurate?",
+        "zh": "一名护士正在参与心脏骤停患者的复苏。患者已气管插管，正在进行高质量的胸外按压。护士在持续二氧化碳监护仪上观察到以下变化。对这一发现最准确的解释是什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "en": "The client has developed a tension pneumothorax.",
+          "zh": "患者发生了张力性气胸。"
+        },
+        {
+          "id": "B",
+          "en": "The endotracheal tube has become disconnected.",
+          "zh": "气管插管已断开连接。"
+        },
+        {
+          "id": "C",
+          "en": "The client has achieved return of spontaneous circulation (ROSC).",
+          "zh": "患者已实现自主循环恢复（ROSC）。"
+        },
+        {
+          "id": "D",
+          "en": "Chest compression depth has become inadequate.",
+          "zh": "胸外按压深度变得不足。"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "rationale": {
+        "correct": {
+          "en": "An abrupt, sustained increase in EtCO2 (typically > 40 mmHg) during CPR is a primary indicator of Return of Spontaneous Circulation (ROSC). The capnogram shows a 'step-up' from a low-amplitude trace generated by compressions to a much higher amplitude, signifying the heart is pumping CO2-rich blood to the lungs.",
+          "zh": "心肺复苏期间EtCO2突然持续增加（通常> 40 mmHg）是自主循环恢复（ROSC）的主要指标。波形图显示从按压产生的低振幅轨迹“跃升”到高得多的振幅，表明心脏正在将富含二氧化碳的血液泵入肺部。"
+        },
+        "byChoice": [
+          {
+            "refId": "A",
+            "en": "Pneumothorax would typically cause a decrease, not a sharp increase, in EtCO2.",
+            "zh": "气胸通常会导致EtCO2下降，而不是急剧上升。"
+          },
+          {
+            "refId": "B",
+            "en": "A disconnected tube would result in a flat capnogram (EtCO2 = 0).",
+            "zh": "管道断开将导致二氧化碳波形平坦（EtCO2 = 0）。"
+          },
+          {
+            "refId": "C",
+            "en": "The sudden step-up in EtCO2 amplitude is the classic capnographic sign of ROSC.",
+            "zh": "EtCO2振幅的突然跃升是ROSC的经典二氧化碳波形标志。"
+          },
+          {
+            "refId": "D",
+            "en": "Inadequate compressions would cause the low-amplitude EtCO2 trace to fall further, not rise sharply.",
+            "zh": "按压不足将导致低振幅的EtCO2轨迹进一步下降，而不是急剧上升。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "During CPR, a sudden spike in EtCO2 means blood flow has suddenly improved, indicating ROSC.",
+        "zh": "在心肺复苏期间，EtCO2的突然飙升意味着血流突然改善，表明自主循环恢复。"
+      },
+      "glossary": [
+        {
+          "termEn": "ROSC",
+          "termZh": "自主循环恢复",
+          "defZh": "心脏骤停后恢复持续的有脉搏的血液循环"
+        }
+      ],
+      "visual": {
+        "kind": "capnography",
+        "pattern": "rosc",
+        "etco2": 45,
+        "respiratoryRate": 10,
+        "durationSec": 20,
+        "rosc": {
+          "lowEtco2": 15,
+          "highEtco2": 45,
+          "stepAtSec": 10
+        },
+        "caption": {
+          "en": "Capnography tracing during CPR",
+          "zh": "CPR期间的二氧化碳波形图"
+        }
+      },
+      "meta": {
+        "visual_justification": "The capnogram shows the classic ROSC step-up. The stem asks to interpret the sudden change shown ONLY in the visual.",
+        "source": "AHA CPR Guidelines",
+        "tier": "strictest",
+        "skill_signature": "cap:rosc/cpr-step-up",
+        "pattern_keyed": "rosc",
+        "stem_disambiguators": [
+          "cardiac arrest",
+          "high-quality chest compressions are ongoing"
+        ]
+      }
+    },
+    {
+      "id": "cap_04",
+      "itemType": "multiple_choice",
+      "category": "Safety and Infection Control",
+      "topic": "anesthesia equipment",
+      "difficulty": "medium",
+      "stem": {
+        "en": "A client is under general anesthesia. The nurse anesthetist notes the following capnography tracing. Which of the following is the most likely cause of this abnormal finding?",
+        "zh": "一名患者正在接受全身麻醉。麻醉护士注意到以下的二氧化碳波形图。下列哪项是这一异常发现最可能的原因？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "en": "Exhausted soda lime in the anesthesia circuit",
+          "zh": "麻醉回路中的钠石灰已耗尽"
+        },
+        {
+          "id": "B",
+          "en": "Complete airway obstruction",
+          "zh": "完全性气道梗阻"
+        },
+        {
+          "id": "C",
+          "en": "Esophageal intubation",
+          "zh": "食管插管"
+        },
+        {
+          "id": "D",
+          "en": "Accidental extubation",
+          "zh": "意外拔管"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "rationale": {
+        "correct": {
+          "en": "The capnogram shows a 'rebreathing' pattern, where the inspiratory baseline fails to return to zero. This indicates the client is rebreathing exhaled carbon dioxide. Common causes in a closed anesthesia circuit include exhausted soda lime (CO2 absorbent) or a faulty expiratory valve.",
+          "zh": "波形图显示了“重复呼吸”模式，其吸气基线未能回落至零。这表明患者正在重复吸入呼出的二氧化碳。在闭合麻醉回路中，常见原因包括钠石灰（二氧化碳吸收剂）耗尽或呼气阀发生故障。"
+        },
+        "byChoice": [
+          {
+            "refId": "A",
+            "en": "Exhausted soda lime fails to absorb CO2, causing the inspiratory baseline to rise above 0 mmHg.",
+            "zh": "耗尽的钠石灰无法吸收CO2，导致吸气基线升至0 mmHg以上。"
+          },
+          {
+            "refId": "B",
+            "en": "Complete airway obstruction would result in a flat capnogram, not an elevated baseline.",
+            "zh": "完全性气道梗阻将导致波形平坦，而不是基线升高。"
+          },
+          {
+            "refId": "C",
+            "en": "Esophageal intubation results in a flat trace after initial washout.",
+            "zh": "食管插管在最初的冲洗后会导致波形平坦。"
+          },
+          {
+            "refId": "D",
+            "en": "Extubation would lead to a loss of the waveform (flat trace), not an elevated baseline.",
+            "zh": "拔管会导致波形消失（平坦轨迹），而不是基线升高。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Notice that the lowest point of the waveform (the baseline) does not touch the bottom zero line. This means CO2 is present during inspiration.",
+        "zh": "注意波形的最低点（基线）没有接触底部的零线。这意味着吸气时存在CO2。"
+      },
+      "glossary": [
+        {
+          "termEn": "soda lime",
+          "termZh": "钠石灰",
+          "defZh": "麻醉机回路中用于吸收患者呼出的二氧化碳的物质"
+        }
+      ],
+      "visual": {
+        "kind": "capnography",
+        "pattern": "rebreathing",
+        "etco2": 45,
+        "respiratoryRate": 14,
+        "durationSec": 15,
+        "baselineEtco2": 15,
+        "caption": {
+          "en": "Intraoperative capnography",
+          "zh": "术中二氧化碳波形图"
+        }
+      },
+      "meta": {
+        "visual_justification": "The elevated baseline shown in the visual is the only cue to identify the rebreathing complication.",
+        "source": "LITFL - Capnography",
+        "tier": "strictest",
+        "skill_signature": "cap:rebreathing/exhausted-absorbent",
+        "pattern_keyed": "rebreathing",
+        "stem_disambiguators": [
+          "general anesthesia"
+        ]
+      }
+    },
+    {
+      "id": "cap_05",
+      "itemType": "multiple_choice",
+      "category": "Physiological Adaptation",
+      "topic": "respiratory distress",
+      "difficulty": "medium",
+      "stem": {
+        "en": "A client presents to the emergency department with severe dyspnea, orthopnea, and pink frothy sputum. The nurse obtains the following capnogram. Based on the client's presentation and the capnogram, what is the most appropriate interpretation?",
+        "zh": "一名患者因严重呼吸困难、端坐呼吸和咳粉红色泡沫痰来到急诊室。护士获得了以下的二氧化碳波形图。基于患者的临床表现和二氧化碳波形图，最合适的解释是什么？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "en": "The crisp rectangular waveform confirms an absence of severe lower airway bronchospasm.",
+          "zh": "清晰的矩形波形证实不存在严重的下气道支气管痉挛。"
+        },
+        {
+          "id": "B",
+          "en": "The waveform shape suggests the primary issue is a severe asthma exacerbation.",
+          "zh": "波形形状提示主要问题是严重的哮喘发作。"
+        },
+        {
+          "id": "C",
+          "en": "The capnogram indicates the endotracheal tube is misplaced in the esophagus.",
+          "zh": "二氧化碳波形图表明气管插管错位在食管中。"
+        },
+        {
+          "id": "D",
+          "en": "The patient is experiencing acute hyperventilation syndrome.",
+          "zh": "患者正在经历急性过度换气综合征。"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "rationale": {
+        "correct": {
+          "en": "The capnogram displays a 'normal' morphology (crisp upright waveform with a flat alveolar plateau), despite the patient's severe respiratory distress from pulmonary edema (indicated by orthopnea and pink frothy sputum). A crisp waveform means there is no significant bronchospasm. Asthma or COPD would cause a sloped 'shark-fin' waveform.",
+          "zh": "尽管患者因肺水肿（以端坐呼吸和粉红色泡沫痰为标志）而出现严重的呼吸窘迫，但二氧化碳波形图显示了“正常”的形态（清晰直立的波形，带有平坦的肺泡平台）。清晰的波形意味着不存在明显的支气管痉挛。哮喘或慢性阻塞性肺疾病会导致倾斜的“鲨鱼鳍”波形。"
+        },
+        "byChoice": [
+          {
+            "refId": "A",
+            "en": "A crisp, rectangular waveform signifies normal alveolar emptying and excludes severe bronchospasm.",
+            "zh": "清晰的矩形波形标志着肺泡排空正常，排除了严重的支气管痉挛。"
+          },
+          {
+            "refId": "B",
+            "en": "Asthma causes a sloped 'shark-fin' waveform, not a crisp rectangular one.",
+            "zh": "哮喘导致倾斜的“鲨鱼鳍”波形，而不是清晰的矩形波形。"
+          },
+          {
+            "refId": "C",
+            "en": "Esophageal placement produces a flat trace (EtCO2 = 0).",
+            "zh": "食管内插管会产生平坦的轨迹（EtCO2 = 0）。"
+          },
+          {
+            "refId": "D",
+            "en": "The stem indicates pulmonary edema. Hyperventilation would not cause pink frothy sputum.",
+            "zh": "题干提示肺水肿。过度换气不会引起粉红色泡沫痰。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Recognize that a normal rectangular capnogram rules out bronchospasm (like asthma). The patient's symptoms point to heart failure/pulmonary edema.",
+        "zh": "认识到正常的矩形二氧化碳波形排除了支气管痉挛（如哮喘）。患者的症状指向心力衰竭/肺水肿。"
+      },
+      "glossary": [
+        {
+          "termEn": "orthopnea",
+          "termZh": "端坐呼吸",
+          "defZh": "平卧时呼吸困难加重，必须坐起才能呼吸的症状"
+        }
+      ],
+      "visual": {
+        "kind": "capnography",
+        "pattern": "normal",
+        "etco2": 38,
+        "respiratoryRate": 28,
+        "durationSec": 10,
+        "caption": {
+          "en": "Emergency department capnography",
+          "zh": "急诊室二氧化碳波形图"
+        }
+      },
+      "meta": {
+        "visual_justification": "The visual is required to confirm the absence of bronchospasm (crisp waveform vs shark-fin), distinguishing it from mixed obstructive/restrictive pathologies.",
+        "source": "NUEM - Capnography in the ED",
+        "tier": "strictest",
+        "skill_signature": "cap:normal/rule-out-bronchospasm",
+        "pattern_keyed": "normal",
+        "stem_disambiguators": [
+          "severe dyspnea",
+          "orthopnea",
+          "pink frothy sputum"
+        ]
+      }
+    },
+    {
+      "id": "cap_08",
+      "itemType": "multiple_choice",
+      "category": "Physiological Adaptation",
+      "topic": "hyperventilation",
+      "difficulty": "easy",
+      "stem": {
+        "en": "A young adult client presents with acute anxiety, numbness in the fingers, and rapid breathing. The nurse connects an EtCO2 monitor and observes the following waveform. Which of the following conditions is most consistent with this presentation?",
+        "zh": "一名年轻成年患者出现急性焦虑、手指麻木和呼吸急促。护士连接了EtCO2监护仪并观察到以下波形。下列哪种情况与此表现最一致？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "en": "Hyperventilation syndrome",
+          "zh": "过度换气综合征"
+        },
+        {
+          "id": "B",
+          "en": "Acute severe asthma",
+          "zh": "急性重症哮喘"
+        },
+        {
+          "id": "C",
+          "en": "Pulmonary embolism",
+          "zh": "肺栓塞"
+        },
+        {
+          "id": "D",
+          "en": "Opiate overdose",
+          "zh": "阿片类药物过量"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "rationale": {
+        "correct": {
+          "en": "The capnogram shows a fast respiratory rate with a crisp, rectangular morphology and a low EtCO2 value. This lack of bronchospasm (crisp waveform) combined with the low EtCO2 (blowing off carbon dioxide) is classic for hyperventilation syndrome.",
+          "zh": "二氧化碳波形图显示呼吸频率快，具有清晰的矩形形态且EtCO2值低。缺乏支气管痉挛（波形清晰）加上低EtCO2（排出过多的二氧化碳），这是过度换气综合征的经典表现。"
+        },
+        "byChoice": [
+          {
+            "refId": "A",
+            "en": "Rapid breathing lowers EtCO2, but the alveolar plateau remains flat and the upstroke sharp.",
+            "zh": "快速呼吸会降低EtCO2，但肺泡平台保持平坦，上升支尖锐。"
+          },
+          {
+            "refId": "B",
+            "en": "Asthma would present with a 'shark-fin' sloped upstroke.",
+            "zh": "哮喘会表现为“鲨鱼鳍”状倾斜上升支。"
+          },
+          {
+            "refId": "C",
+            "en": "While a PE can lower EtCO2, the primary symptoms described (anxiety, numbness) without hypoxia strongly suggest hyperventilation.",
+            "zh": "虽然肺栓塞可降低EtCO2，但所描述的主要症状（焦虑、麻木）而无缺氧，强烈提示过度换气。"
+          },
+          {
+            "refId": "D",
+            "en": "Opiate overdose causes hypoventilation (slow rate, high EtCO2), not a fast rate.",
+            "zh": "阿片类药物过量引起通气不足（呼吸慢，EtCO2高），而不是呼吸快。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Look at the shape first. It is rectangular, meaning no airway obstruction. Then look at the rate (fast) and EtCO2 number (low). This equals hyperventilation.",
+        "zh": "首先看形状。它是矩形的，意味着没有气道梗阻。然后看频率（快）和EtCO2数值（低）。这等于过度换气。"
+      },
+      "glossary": [
+        {
+          "termEn": "hyperventilation",
+          "termZh": "过度换气",
+          "defZh": "呼吸过快过深，导致二氧化碳排出过多"
+        }
+      ],
+      "visual": {
+        "kind": "capnography",
+        "pattern": "normal",
+        "etco2": 22,
+        "respiratoryRate": 32,
+        "durationSec": 15,
+        "caption": {
+          "en": "Emergency department capnography",
+          "zh": "急诊室二氧化碳波形图"
+        }
+      },
+      "meta": {
+        "visual_justification": "The visual confirms a fast rate, low EtCO2, and crucially a lack of airway obstruction (normal crisp morphology).",
+        "source": "NUEM - Capnography",
+        "tier": "strictest",
+        "skill_signature": "cap:normal/hyperventilation",
+        "pattern_keyed": "normal",
+        "stem_disambiguators": [
+          "numbness in the fingers",
+          "rapid breathing"
+        ]
+      }
+    },
+    {
+      "id": "cap_10",
+      "itemType": "multiple_choice",
+      "category": "Pharmacological and Parenteral Therapies",
+      "topic": "anaphylaxis",
+      "difficulty": "easy",
+      "stem": {
+        "en": "A client receiving an intravenous antibiotic suddenly develops facial swelling, tachycardia, and respiratory distress. The continuous capnogram changes to the pattern shown. Which medication should the nurse administer first?",
+        "zh": "一名正在接受静脉抗生素治疗的患者突然出现面部肿胀、心动过速和呼吸窘迫。持续的二氧化碳波形图变为所示模式。护士应首先给予哪种药物？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "en": "Epinephrine intramuscularly",
+          "zh": "肌内注射肾上腺素"
+        },
+        {
+          "id": "B",
+          "en": "Diphenhydramine intravenously",
+          "zh": "静脉注射苯海拉明"
+        },
+        {
+          "id": "C",
+          "en": "Albuterol via nebulizer",
+          "zh": "通过雾化器吸入沙丁胺醇"
+        },
+        {
+          "id": "D",
+          "en": "Methylprednisolone intravenously",
+          "zh": "静脉注射甲泼尼龙"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "rationale": {
+        "correct": {
+          "en": "The patient is experiencing anaphylaxis (facial swelling, tachycardia). The capnogram shows a 'shark-fin' pattern, confirming severe bronchospasm. The first-line and life-saving medication for anaphylaxis with airway compromise is intramuscular epinephrine.",
+          "zh": "患者正在经历过敏性休克（面部肿胀、心动过速）。波形图显示了“鲨鱼鳍”模式，证实了严重的支气管痉挛。治疗伴有气道受损的过敏性休克的一线抢救药物是肌内注射肾上腺素。"
+        },
+        "byChoice": [
+          {
+            "refId": "A",
+            "en": "Epinephrine is the absolute first-line drug for anaphylaxis, reversing bronchospasm and hypotension.",
+            "zh": "肾上腺素是过敏性休克的绝对一线药物，可逆转支气管痉挛和低血压。"
+          },
+          {
+            "refId": "B",
+            "en": "Antihistamines are adjunct therapies and do not rapidly reverse life-threatening bronchospasm.",
+            "zh": "抗组胺药是辅助治疗，不能迅速逆转危及生命的支气管痉挛。"
+          },
+          {
+            "refId": "C",
+            "en": "Albuterol treats bronchospasm but does not address the systemic vascular collapse of anaphylaxis.",
+            "zh": "沙丁胺醇治疗支气管痉挛，但不解决过敏引起的全身血管衰竭。"
+          },
+          {
+            "refId": "D",
+            "en": "Corticosteroids take hours to work and are used to prevent late-phase reactions, not for immediate rescue.",
+            "zh": "皮质类固醇需要数小时才能起效，用于预防晚期反应，不能用于立即抢救。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "The combination of allergen exposure, facial swelling, and bronchospasm (shark-fin capnogram) equals anaphylaxis. Always give epinephrine first.",
+        "zh": "接触过敏原、面部肿胀和支气管痉挛（鲨鱼鳍波形图）的组合等于过敏性休克。始终首先给予肾上腺素。"
+      },
+      "glossary": [
+        {
+          "termEn": "anaphylaxis",
+          "termZh": "过敏性休克",
+          "defZh": "严重的、可能危及生命的全身性过敏反应"
+        }
+      ],
+      "visual": {
+        "kind": "capnography",
+        "pattern": "shark_fin",
+        "etco2": 50,
+        "respiratoryRate": 26,
+        "durationSec": 15,
+        "severity": 0.85,
+        "caption": {
+          "en": "Onset of respiratory distress",
+          "zh": "呼吸窘迫发作时的波形"
+        }
+      },
+      "meta": {
+        "visual_justification": "The capnogram confirms objective severe lower airway obstruction (bronchospasm) accompanying the anaphylactic reaction.",
+        "source": "Resuscitation Council UK Anaphylaxis Guidelines",
+        "tier": "strictest",
+        "skill_signature": "cap:shark_fin/anaphylaxis",
+        "pattern_keyed": "shark_fin",
+        "stem_disambiguators": [
+          "facial swelling",
+          "intravenous antibiotic suddenly"
+        ]
+      }
+    }
+  ]
+}
