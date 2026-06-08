@@ -52,41 +52,13 @@ export type Rationale = {
   byChoice?: RationaleChoice[];
 };
 
-export type RhythmClass =
-  | "sinus"
-  | "sinus_brady"
-  | "sinus_tach"
-  | "afib"
-  | "aflutter"
-  | "svt"
-  | "avb_1"
-  | "avb_2_mobitz1"
-  | "avb_2_mobitz2"
-  | "avb_3"
-  | "pvc"
-  | "vtach"
-  | "vfib"
-  | "asystole";
+// Visual types now live with their kind module (see src/visuals/). Re-exported
+// here so existing importers keep working; the union is assembled in
+// src/visuals/types.ts (the single append-only touch-point for new kinds).
+export type { QuestionVisual } from "./visuals/types";
+export type { RhythmClass, RhythmStripVisual } from "./visuals/kinds/rhythmStrip";
 
-export type RhythmStripVisual = {
-  kind: "rhythm_strip";
-  rhythm: RhythmClass;
-  rateBpm: number;
-  durationSec?: number;
-  seed?: number;
-  calibrationPulse?: boolean;
-  atrialRateBpm?: number;
-  conductionRatio?: number;
-  prSec?: number;
-  qrsSec?: number;
-  qtSec?: number;
-  caption?: {
-    en: string;
-    zh?: string;
-  };
-};
-
-export type QuestionVisual = RhythmStripVisual;
+import type { QuestionVisual } from "./visuals/types";
 
 export type CommonQuestion = {
   id: string;

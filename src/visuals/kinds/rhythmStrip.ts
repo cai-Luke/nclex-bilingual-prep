@@ -1,17 +1,65 @@
-import type { RhythmClass, RhythmStripVisual } from "../types";
+import { mulberry32, type Rng } from "../primitives/prng";
+import { fmt, mvToPx, pxPerMv, pxPerSec, renderGrid, secondsToPx } from "../primitives/graphPaper";
+import { registerVisual, type VisualError, type VisualKindModule } from "../registry";
 
-export const ECG_SCALE = {
-  paperSpeedMmPerSec: 25,
-  gainMmPerMv: 10,
-  smallBoxMm: 1,
-  largeBoxMm: 5,
-  pxPerMm: 6,
-} as const;
+// ---------------------------------------------------------------------------
+// Spec type (declared here so the union in ../types.ts is the only shared edit)
+// ---------------------------------------------------------------------------
 
-export const pxPerSec = ECG_SCALE.pxPerMm * ECG_SCALE.paperSpeedMmPerSec;
-export const pxPerMv = ECG_SCALE.pxPerMm * ECG_SCALE.gainMmPerMv;
-export const smallBoxSec = ECG_SCALE.smallBoxMm / ECG_SCALE.paperSpeedMmPerSec;
-export const largeBoxSec = ECG_SCALE.largeBoxMm / ECG_SCALE.paperSpeedMmPerSec;
+export type RhythmClass =
+  | "sinus"
+  | "sinus_brady"
+  | "sinus_tach"
+  | "afib"
+  | "aflutter"
+  | "svt"
+  | "avb_1"
+  | "avb_2_mobitz1"
+  | "avb_2_mobitz2"
+  | "avb_3"
+  | "pvc"
+  | "vtach"
+  | "vfib"
+  | "asystole";
+
+export type RhythmStripVisual = {
+  kind: "rhythm_strip";
+  rhythm: RhythmClass;
+  rateBpm: number;
+  durationSec?: number;
+  seed?: number;
+  calibrationPulse?: boolean;
+  atrialRateBpm?: number;
+  conductionRatio?: number;
+  prSec?: number;
+  qrsSec?: number;
+  qtSec?: number;
+  caption?: {
+    en: string;
+    zh?: string;
+  };
+};
+
+export const rhythmClasses = [
+  "sinus",
+  "sinus_brady",
+  "sinus_tach",
+  "afib",
+  "aflutter",
+  "svt",
+  "avb_1",
+  "avb_2_mobitz1",
+  "avb_2_mobitz2",
+  "avb_3",
+  "pvc",
+  "vtach",
+  "vfib",
+  "asystole",
+] as const satisfies readonly RhythmClass[];
+
+// ---------------------------------------------------------------------------
+// Deterministic ECG renderer (relocated verbatim; math/scaling unchanged)
+// ---------------------------------------------------------------------------
 
 type NormalizedRhythmStripVisual = Required<
   Pick<RhythmStripVisual, "kind" | "rhythm" | "rateBpm" | "durationSec" | "seed" | "calibrationPulse">
@@ -28,28 +76,7 @@ type Beat = {
   wide?: boolean;
 };
 
-type Rng = () => number;
-
-const fmt = (value: number) => {
-  const fixed = value.toFixed(2);
-  return fixed.endsWith(".00") ? fixed.slice(0, -3) : fixed.replace(/0$/, "");
-};
-
-const mulberry32 = (seed: number): Rng => {
-  let state = seed >>> 0;
-  return () => {
-    state += 0x6d2b79f5;
-    let t = state;
-    t = Math.imul(t ^ (t >>> 15), t | 1);
-    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
-    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
-  };
-};
-
 const clamp = (value: number, min: number, max: number) => Math.max(min, Math.min(max, value));
-
-export const secondsToPx = (seconds: number) => seconds * pxPerSec;
-export const mvToPx = (mv: number) => mv * pxPerMv;
 
 const normalizeSpec = (spec: RhythmStripVisual): NormalizedRhythmStripVisual => ({
   ...spec,
@@ -235,25 +262,6 @@ const beatMvAt = (timeSec: number, beat: Beat) => {
   return value;
 };
 
-const renderGrid = (width: number, height: number) => {
-  const minorStep = ECG_SCALE.pxPerMm;
-  const majorStep = ECG_SCALE.pxPerMm * ECG_SCALE.largeBoxMm;
-  const lines: string[] = [];
-  for (let x = 0; x <= width; x += minorStep) {
-    const major = Math.round(x / minorStep) % ECG_SCALE.largeBoxMm === 0;
-    lines.push(
-      `<line x1="${fmt(x)}" y1="0" x2="${fmt(x)}" y2="${fmt(height)}" stroke="${major ? "#e9a0ad" : "#f7cbd3"}" stroke-width="${major ? "1" : "0.5"}"/>`,
-    );
-  }
-  for (let y = 0; y <= height; y += minorStep) {
-    const major = Math.round(y / minorStep) % ECG_SCALE.largeBoxMm === 0;
-    lines.push(
-      `<line x1="0" y1="${fmt(y)}" x2="${fmt(width)}" y2="${fmt(y)}" stroke="${major ? "#e9a0ad" : "#f7cbd3"}" stroke-width="${major ? "1" : "0.5"}"/>`,
-    );
-  }
-  return lines.join("");
-};
-
 const renderCalibrationPulse = (x: number, baselineY: number) => {
   const topY = baselineY - mvToPx(1);
   const width = secondsToPx(0.2);
@@ -292,3 +300,101 @@ export const renderRhythmStripSvg = (input: RhythmStripVisual): string => {
 
   return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${fmt(width)} ${fmt(height)}" role="img" aria-label="ECG rhythm strip" data-kind="rhythm_strip" data-rhythm="${spec.rhythm}" data-duration-sec="${fmt(spec.durationSec)}" data-px-per-sec="${fmt(pxPerSec)}" data-px-per-mv="${fmt(pxPerMv)}">${grid}${calibration}${trace}</svg>`;
 };
+
+// ---------------------------------------------------------------------------
+// Validation (reproduces the schema doc's rhythm-strip rules verbatim)
+// ---------------------------------------------------------------------------
+
+const isRecord = (value: unknown): value is Record<string, unknown> =>
+  typeof value === "object" && value !== null && !Array.isArray(value);
+
+const nonEmptyString = (value: unknown): value is string => typeof value === "string" && value.trim().length > 0;
+
+const bounded = (
+  value: unknown,
+  path: string,
+  min: number,
+  max: number,
+  code: string,
+  errs: VisualError[],
+  options: { integer?: boolean } = {},
+) => {
+  if (value === undefined) return;
+  if (typeof value !== "number" || !Number.isFinite(value)) {
+    errs.push({ path, code: `${code}_not_number`, message: "must be a number" });
+    return;
+  }
+  if (options.integer && !Number.isInteger(value)) errs.push({ path, code: `${code}_not_integer`, message: "must be an integer" });
+  if (value < min || value > max) errs.push({ path, code, message: `must be between ${min} and ${max}` });
+};
+
+const validateRhythmStrip = (spec: RhythmStripVisual): VisualError[] => {
+  const errs: VisualError[] = [];
+  const value = spec as Record<string, unknown>;
+
+  if (!rhythmClasses.includes(value.rhythm as RhythmClass)) {
+    errs.push({ path: "rhythm", code: "bad_rhythm_class", message: "is invalid" });
+  }
+
+  const rhythm = value.rhythm as RhythmClass | undefined;
+  const minRate = rhythm === "vfib" || rhythm === "asystole" ? 0 : 20;
+  bounded(value.rateBpm, "rateBpm", minRate, 300, "rate_out_of_range", errs);
+  if (value.rateBpm === undefined) errs.push({ path: "rateBpm", code: "rate_required", message: "is required" });
+  bounded(value.durationSec, "durationSec", 3, 12, "duration_out_of_range", errs);
+  bounded(value.seed, "seed", 0, Number.MAX_SAFE_INTEGER, "seed_out_of_range", errs, { integer: true });
+  bounded(value.atrialRateBpm, "atrialRateBpm", 20, 400, "atrial_rate_out_of_range", errs);
+  bounded(value.conductionRatio, "conductionRatio", 1, 8, "conduction_ratio_out_of_range", errs, { integer: true });
+  bounded(value.prSec, "prSec", 0.06, 0.4, "pr_out_of_range", errs);
+  bounded(value.qrsSec, "qrsSec", 0.04, 0.24, "qrs_out_of_range", errs);
+  bounded(value.qtSec, "qtSec", 0.16, 0.7, "qt_out_of_range", errs);
+
+  if (value.calibrationPulse !== undefined && typeof value.calibrationPulse !== "boolean") {
+    errs.push({ path: "calibrationPulse", code: "calibration_not_boolean", message: "must be a boolean" });
+  }
+  if (value.caption !== undefined) {
+    if (!isRecord(value.caption) || !nonEmptyString(value.caption.en)) {
+      errs.push({ path: "caption.en", code: "caption_en_required", message: "is required when caption is present" });
+    } else if (value.caption.zh !== undefined && !nonEmptyString(value.caption.zh)) {
+      errs.push({ path: "caption.zh", code: "caption_zh_empty", message: "must be non-empty when present" });
+    }
+  }
+
+  return errs;
+};
+
+// ---------------------------------------------------------------------------
+// Fixtures (the conformance harness runs these automatically)
+// ---------------------------------------------------------------------------
+
+const fixtures: VisualKindModule<RhythmStripVisual>["fixtures"] = {
+  valid: [
+    { kind: "rhythm_strip", rhythm: "sinus", rateBpm: 75, durationSec: 6, seed: 42, prSec: 0.16, qrsSec: 0.08, qtSec: 0.36 },
+    { kind: "rhythm_strip", rhythm: "afib", rateBpm: 134, seed: 33, qrsSec: 0.08, caption: { en: "Lead II rhythm strip" } },
+    { kind: "rhythm_strip", rhythm: "vfib", rateBpm: 0, seed: 5 },
+    { kind: "rhythm_strip", rhythm: "asystole", rateBpm: 0 },
+    { kind: "rhythm_strip", rhythm: "aflutter", rateBpm: 75, atrialRateBpm: 300, conductionRatio: 4, caption: { en: "On admission", zh: "入院时" } },
+  ],
+  invalid: [
+    { spec: { kind: "rhythm_strip", rhythm: "nope", rateBpm: 75 }, expectCode: "bad_rhythm_class" },
+    { spec: { kind: "rhythm_strip", rhythm: "sinus", rateBpm: 9999 }, expectCode: "rate_out_of_range" },
+    { spec: { kind: "rhythm_strip", rhythm: "sinus" }, expectCode: "rate_required" },
+    { spec: { kind: "rhythm_strip", rhythm: "sinus", rateBpm: 75, durationSec: 99 }, expectCode: "duration_out_of_range" },
+    { spec: { kind: "rhythm_strip", rhythm: "sinus", rateBpm: 75, seed: 1.5 }, expectCode: "seed_out_of_range_not_integer" },
+    { spec: { kind: "rhythm_strip", rhythm: "aflutter", rateBpm: 75, conductionRatio: 0 }, expectCode: "conduction_ratio_out_of_range" },
+    { spec: { kind: "rhythm_strip", rhythm: "sinus", rateBpm: 75, prSec: 9 }, expectCode: "pr_out_of_range" },
+    { spec: { kind: "rhythm_strip", rhythm: "sinus", rateBpm: 75, calibrationPulse: "yes" }, expectCode: "calibration_not_boolean" },
+    { spec: { kind: "rhythm_strip", rhythm: "sinus", rateBpm: 75, caption: { en: "" } }, expectCode: "caption_en_required" },
+    { spec: { kind: "rhythm_strip", rhythm: "sinus", rateBpm: 75, caption: { en: "ok", zh: "" } }, expectCode: "caption_zh_empty" },
+  ],
+};
+
+export const rhythmStripModule: VisualKindModule<RhythmStripVisual> = {
+  kind: "rhythm_strip",
+  validate: validateRhythmStrip,
+  renderSvg: renderRhythmStripSvg,
+  fixtures,
+};
+
+// `allowedItemTypes` / `requiredSchemaVersion` omitted → registry defaults
+// (multiple_choice, select_all, matrix; schema "1.2"), matching current behavior.
+registerVisual(rhythmStripModule as VisualKindModule);

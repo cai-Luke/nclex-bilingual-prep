@@ -46,7 +46,7 @@ import {
   saveUploadedRecords,
 } from "./storage";
 import { categories, difficulties } from "./schema";
-import { RhythmStrip } from "./visuals/RhythmStripView";
+import { VisualStimulus } from "./visuals";
 import type {
   AdaptiveSessionSnapshot,
   AnswerEvent,
@@ -1497,7 +1497,7 @@ function QuestionCard({
         </button>
       </div>
 
-      {question.visual?.kind === "rhythm_strip" && <RhythmStrip visual={question.visual} languageMode={languageMode} />}
+      <VisualStimulus visual={question.visual} languageMode={languageMode} />
 
       <div className="stem-row">
         <BilingualText
@@ -2010,7 +2010,7 @@ function CaseStudyControl({
                   <span className={caseResult ? "type-pill" : "missed-pill"}>{caseResult ? "Correct" : "Review"}</span>
                 )}
               </div>
-              {caseQuestion.visual?.kind === "rhythm_strip" && <RhythmStrip visual={caseQuestion.visual} languageMode={languageMode} />}
+              <VisualStimulus visual={caseQuestion.visual} languageMode={languageMode} />
               <div className="stem-row">
                 <BilingualText
                   pair={caseQuestion.stem}
@@ -2054,7 +2054,7 @@ function CaseExhibit({
   return (
     <section className="case-exhibit">
       <BilingualText pair={exhibit.title} mode={languageMode} className="case-exhibit-title" glossary={glossary} onTerm={onTerm} />
-      {exhibit.visual?.kind === "rhythm_strip" && <RhythmStrip visual={exhibit.visual} languageMode={languageMode} />}
+      <VisualStimulus visual={exhibit.visual} languageMode={languageMode} />
       <BilingualText pair={exhibit.content} mode={languageMode} className="case-exhibit-content" glossary={glossary} onTerm={onTerm} />
     </section>
   );

@@ -77,7 +77,33 @@ Supported locations:
 Unsupported locations:
 - `ordered_response`, `fill_in_blank`, `dropdown_cloze`, and the `case_study` parent object itself.
 
-Current visual variant:
+  (Placement is per-kind. The set above is the global default; a future kind may opt into a different `allowedItemTypes`.)
+
+### Visual framework (kind-agnostic)
+
+Every visual `kind` is a self-contained module under `src/visuals/kinds/<kind>.ts` registered in a shared registry. The kind-agnostic files — `src/App.tsx` (renders through one `VisualStimulus` dispatcher), `src/schema.ts` (validates through the registry), `scripts/validate-bank.ts`, and `scripts/coverage-report.ts` — iterate the registry and never special-case a kind. A kind module exposes a contract:
+
+- `validate(spec) → VisualError[]` — structural + range validation of the spec **alone**; this is what the per-kind "Validation rules" below enumerate.
+- `selfCheck?(spec, question) → VisualError[]` — optional cross-consistency check of render-vs-answer (arithmetic gates: I&O totals, label dose, Parkland volume). Waveforms generally have none; `rhythm_strip` has none.
+- `renderSvg(spec) → string` — pure, deterministic, XML-escaped SVG. No `Math.random` (seed the shared PRNG from `spec.seed ?? 0`), no `Date`/`performance`, no DOM, no network, no module-level mutable state. Route all coordinate numbers through the shared fixed-decimal formatter so float formatting can't drift; XML-escape any free text (only `caption` today).
+- `requiredSchemaVersion?` / `allowedItemTypes?` — default to `"1.2"` and the global placement set above; a kind overrides only if it differs.
+- `fixtures` — colocated valid + invalid examples the generic conformance harness runs automatically.
+
+The compile-time spec union (`QuestionVisual`) is assembled in one barrel (`src/visuals/types.ts`) with **append-only** single-line additions; that union line is the only shared compile-time touch-point.
+
+### Adding a new visual kind (checklist)
+
+1. Create `src/visuals/kinds/<kind>.ts`: declare `interface <Kind>Visual { kind: "<kind>"; ... }`, implement `validate` / `renderSvg` / optional `selfCheck`, define `fixtures`, and call `registerVisual(<kind>Module)`.
+2. Reuse `src/visuals/primitives/` (`prng`, `graphPaper`, `escapeXml`, and later `chart`/`table`) — do not re-implement scaling or PRNG.
+3. Add `| <Kind>Visual` to the union in `src/visuals/types.ts` (append-only).
+4. Add `import "./<kind>";` to `src/visuals/kinds/index.ts` (append-only registration barrel).
+5. Add a per-kind subsection here (params, vocab, validation rules, caption rule).
+6. Run `npm run test-visuals` + `npm run validate-bank -- banks/*.json` + `npm run coverage-report` + `npm run build`.
+7. (Then, separately) generate questions via the kind's content lane → review → promote → ledger.
+
+If a step requires editing `App.tsx`, `schema.ts`, `validate-bank.ts`, or `coverage-report.ts`, the framework was under-generalized — fix the framework, not the kind.
+
+### Kind: `rhythm_strip`
 
 ```json
 {

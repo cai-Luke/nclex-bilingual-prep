@@ -2,7 +2,8 @@ import { readFile, readdir } from "node:fs/promises";
 import { basename, join, resolve } from "node:path";
 import { parseBankText } from "../src/bankImport";
 import { categories, difficulties, itemTypes, rhythmClasses, validateBankObject } from "../src/schema";
-import type { Question, RhythmStripVisual } from "../src/types";
+import { listVisualKinds } from "../src/visuals/registry";
+import type { Question, QuestionVisual, RhythmStripVisual } from "../src/types";
 
 type TopicBucket = {
   label: string;
@@ -60,20 +61,22 @@ const topics = new Map<string, TopicBucket>();
 const visualCounts = new Map<string, number>();
 const rhythmVisualCounts = new Map<RhythmStripVisual["rhythm"], number>();
 
-const collectRhythmVisuals = (question: Question) => {
-  const visuals: RhythmStripVisual[] = [];
-  if (question.visual?.kind === "rhythm_strip") visuals.push(question.visual);
+// Kind-agnostic: collect every visual on a question, wherever it can sit, so
+// new kinds are tallied automatically without editing this script.
+const collectVisuals = (question: Question) => {
+  const visuals: QuestionVisual[] = [];
+  if (question.visual) visuals.push(question.visual);
   if (question.itemType === "case_study") {
     question.caseStudy.exhibits.forEach((exhibit) => {
-      if (exhibit.visual?.kind === "rhythm_strip") visuals.push(exhibit.visual);
+      if (exhibit.visual) visuals.push(exhibit.visual);
     });
     question.caseStudy.stages?.forEach((stage) => {
       stage.exhibits.forEach((exhibit) => {
-        if (exhibit.visual?.kind === "rhythm_strip") visuals.push(exhibit.visual);
+        if (exhibit.visual) visuals.push(exhibit.visual);
       });
     });
     question.caseStudy.questions.forEach((caseQuestion) => {
-      if (caseQuestion.visual?.kind === "rhythm_strip") visuals.push(caseQuestion.visual);
+      if (caseQuestion.visual) visuals.push(caseQuestion.visual);
     });
   }
   return visuals;
@@ -83,9 +86,9 @@ for (const question of questions) {
   increment(categoryCounts, question.category);
   increment(itemTypeCounts, question.itemType);
   increment(difficultyCounts, question.difficulty);
-  collectRhythmVisuals(question).forEach((visual) => {
+  collectVisuals(question).forEach((visual) => {
     increment(visualCounts, visual.kind);
-    increment(rhythmVisualCounts, visual.rhythm);
+    if (visual.kind === "rhythm_strip") increment(rhythmVisualCounts, (visual as RhythmStripVisual).rhythm);
   });
 
   const normalized = normalizeTopic(question.topic);
@@ -127,7 +130,10 @@ console.log("");
 console.log("## Visual Counts");
 const totalVisuals = Array.from(visualCounts.values()).reduce((sum, count) => sum + count, 0);
 console.log(`Total visuals: ${totalVisuals}`);
-console.log(formatCountRows([["rhythm_strip", visualCounts.get("rhythm_strip") ?? 0]]));
+const visualKindRows = [...listVisualKinds()]
+  .sort()
+  .map((kind) => [kind, visualCounts.get(kind) ?? 0] as const);
+console.log(formatCountRows(visualKindRows));
 console.log("");
 console.log("## Rhythm Strip Counts");
 console.log(formatCountRows(sortedCounts(rhythmClasses, rhythmVisualCounts)));

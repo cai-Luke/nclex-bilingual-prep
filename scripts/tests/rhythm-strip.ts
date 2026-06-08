@@ -1,13 +1,7 @@
 import { createHash } from "node:crypto";
 import { rhythmClasses } from "../../src/schema";
-import {
-  ECG_SCALE,
-  largeBoxSec,
-  pxPerSec,
-  renderRhythmStripSvg,
-  secondsToPx,
-  smallBoxSec,
-} from "../../src/visuals/rhythmStrip";
+import { ECG_SCALE, largeBoxSec, pxPerSec, secondsToPx, smallBoxSec } from "../../src/visuals/primitives/graphPaper";
+import { renderRhythmStripSvg } from "../../src/visuals/kinds/rhythmStrip";
 import type { RhythmClass, RhythmStripVisual } from "../../src/types";
 
 const assert = (condition: unknown, message: string) => {

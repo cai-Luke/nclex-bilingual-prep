@@ -56,15 +56,15 @@ Suggested split once U0 is in: hand U1 to one agent and U2 to the other to run i
 
 ## Phase 0 — Foundation (serial)
 
-### U0 · Renderer registry refactor
+### U0 · Renderer registry refactor — ✅ DONE (2026-06-07)
 **Type:** refactor (code). **Depends on:** nothing. **Run alone.**
 
-- Extract the existing `rhythm_strip` renderer behind the registry contract `{ validate, renderSvg, selfCheck? }`.
-- Make `scripts/validate-bank.ts` and `scripts/coverage-report.ts` iterate the registry; coverage-report breaks visual counts down by `kind`.
-- Assemble the spec union in one barrel; document the append-only rule.
-- Reshape and migrate the 3 existing visual items to the final artifact shape; update `NCLEX-Question-Schema.md`.
-- Tests: registry resolves all registered kinds; rhythm-strip determinism/scaling tests still pass.
-- Done: `validate-bank`, `coverage-report`, `build` all green; history + schema doc updated.
+- ✅ Extracted the `rhythm_strip` renderer behind the registry contract `{ validate, renderSvg, selfCheck? }` under `src/visuals/` (`registry.ts`, `types.ts` union, `kinds/`, `primitives/`, `VisualStimulus.tsx`, `kinds/index.ts` registration barrel).
+- ✅ `scripts/validate-bank.ts` (via schema) and `scripts/coverage-report.ts` iterate the registry; coverage-report breaks visual counts down by `kind`.
+- ✅ Spec union assembled in one barrel (`src/visuals/types.ts`); append-only rule documented in `NCLEX-Question-Schema.md` ("Adding a new visual kind" checklist).
+- ✅ Migrated the 3 existing items to `banks/visual-canonical.json` (kept the on-disk shape and `schemaVersion 1.2` — behavior-preserving; shape was *free* to change but there was no functional need); updated `NCLEX-Question-Schema.md`.
+- ✅ Tests: generic conformance harness over all registered kinds, registry-mechanics test, byte-identical SVG + reason parity for the 3 live items; rhythm-strip determinism/scaling tests still pass.
+- ✅ Done: `validate-bank`, `coverage-report`, `build`, `test-visuals` all green; history + schema doc + ledger updated.
 
 ---
 

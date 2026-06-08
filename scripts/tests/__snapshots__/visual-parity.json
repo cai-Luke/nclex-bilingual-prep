@@ -1,0 +1,21 @@
+{
+  "note": "Pre-refactor parity baseline for U0 (renderer registry). Captured from the schema-1.2 inline rhythm-strip implementation before the registry refactor. The registry path MUST reproduce these byte-for-byte (SVG sha256) and reason-for-reason (validation strings). Do not regenerate casually: a diff here means behavior changed.",
+  "svgHashes": [
+    { "id": "rhy_sinus_brady_001", "rhythm": "sinus_brady", "svgHash": "c6d7580602c34bf39a6d8472a02d7d55d5f5c646666d0530fda7261d95597acb" },
+    { "id": "rhy_vtach_001", "rhythm": "vtach", "svgHash": "ef4067e5f1f1cc9afb0df5adc4d5eb0b66a29fc7e025fcf9967515b05ca55617" },
+    { "id": "rhy_afib_001", "rhythm": "afib", "svgHash": "e55cbbf97b8865bc5a848831e4a8c24db60d655553ad578ef035bab9098cae91" }
+  ],
+  "validationReasons": [
+    { "name": "rate9999", "itemType": "multiple_choice", "visual": { "kind": "rhythm_strip", "rhythm": "sinus", "rateBpm": 9999 }, "reasons": ["questions[0]: visual.rateBpm must be between 20 and 300"] },
+    { "name": "duration99", "itemType": "multiple_choice", "visual": { "kind": "rhythm_strip", "rhythm": "sinus", "rateBpm": 75, "durationSec": 99 }, "reasons": ["questions[0]: visual.durationSec must be between 3 and 12"] },
+    { "name": "conduction0", "itemType": "multiple_choice", "visual": { "kind": "rhythm_strip", "rhythm": "aflutter", "rateBpm": 75, "conductionRatio": 0 }, "reasons": ["questions[0]: visual.conductionRatio must be between 1 and 8"] },
+    { "name": "badRhythm", "itemType": "multiple_choice", "visual": { "kind": "rhythm_strip", "rhythm": "nope", "rateBpm": 75 }, "reasons": ["questions[0]: visual.rhythm is invalid"] },
+    { "name": "badKind", "itemType": "multiple_choice", "visual": { "kind": "nope", "rateBpm": 75 }, "reasons": ["questions[0]: visual.kind is invalid"] },
+    { "name": "notObject", "itemType": "multiple_choice", "visual": "string", "reasons": ["questions[0]: visual must be an object"] },
+    { "name": "badPlacement", "itemType": "ordered_response", "visual": { "kind": "rhythm_strip", "rhythm": "sinus", "rateBpm": 75 }, "reasons": ["questions[0]: visual is only supported on multiple_choice, select_all, matrix, and case-study exhibits"] },
+    { "name": "missingRate", "itemType": "multiple_choice", "visual": { "kind": "rhythm_strip", "rhythm": "sinus" }, "reasons": ["questions[0]: visual.rateBpm is required"] },
+    { "name": "badCaption", "itemType": "multiple_choice", "visual": { "kind": "rhythm_strip", "rhythm": "sinus", "rateBpm": 75, "caption": { "en": "" } }, "reasons": ["questions[0]: visual.caption.en is required when caption is present"] },
+    { "name": "badCaptionZh", "itemType": "multiple_choice", "visual": { "kind": "rhythm_strip", "rhythm": "sinus", "rateBpm": 75, "caption": { "en": "ok", "zh": "" } }, "reasons": ["questions[0]: visual.caption.zh must be non-empty when present"] },
+    { "name": "allRanges", "itemType": "multiple_choice", "visual": { "kind": "rhythm_strip", "rhythm": "sinus", "rateBpm": 10, "durationSec": 1, "seed": -1, "atrialRateBpm": 10, "conductionRatio": 9, "prSec": 0.01, "qrsSec": 0.01, "qtSec": 0.01, "calibrationPulse": "yes" }, "reasons": ["questions[0]: visual.rateBpm must be between 20 and 300; visual.durationSec must be between 3 and 12; visual.seed must be between 0 and 9007199254740991; visual.atrialRateBpm must be between 20 and 400; visual.conductionRatio must be between 1 and 8; visual.prSec must be between 0.06 and 0.4; visual.qrsSec must be between 0.04 and 0.24; visual.qtSec must be between 0.16 and 0.7; visual.calibrationPulse must be a boolean"] }
+  ]
+}

@@ -9,13 +9,14 @@ import type {
   NgnSkill,
   OptionQuestion,
   Question,
-  RhythmClass,
-  RhythmStripVisual,
   SchemaVersion,
   StandaloneQuestion,
   StandaloneItemType,
   TextPair,
 } from "./types";
+import { getVisual, VISUAL_ITEM_TYPES, type VisualError } from "./visuals/registry";
+import "./visuals/kinds"; // register every visual kind for validation (React-free)
+export { rhythmClasses } from "./visuals/kinds/rhythmStrip";
 
 export const SCHEMA_VERSION = "1.2";
 
@@ -57,23 +58,6 @@ export const ngnSkills = [
   "evaluate_outcomes",
 ] as const satisfies readonly NgnSkill[];
 
-export const rhythmClasses = [
-  "sinus",
-  "sinus_brady",
-  "sinus_tach",
-  "afib",
-  "aflutter",
-  "svt",
-  "avb_1",
-  "avb_2_mobitz1",
-  "avb_2_mobitz2",
-  "avb_3",
-  "pvc",
-  "vtach",
-  "vfib",
-  "asystole",
-] as const satisfies readonly RhythmClass[];
-
 export type ValidationResult<T> =
   | { ok: true; value: T }
   | { ok: false; reasons: string[] };
@@ -109,55 +93,58 @@ const extractPlaceholders = (value: string) => {
   return Array.from(matches, (match) => match[1].trim());
 };
 
-const addBoundedNumberError = (
+const schemaOrder = ["1.0", "1.1", "1.2"];
+const cmpSchema = (a: string, b: string) => schemaOrder.indexOf(a) - schemaOrder.indexOf(b);
+
+const formatVisualError = (basePath: string, err: VisualError) =>
+  err.path ? `${basePath}.${err.path} ${err.message}` : `${basePath} ${err.message}`;
+
+/**
+ * Registry-driven visual validation. Resolves the kind module and delegates
+ * structural/range checks (validate), placement (allowedItemTypes), schema-floor
+ * (requiredSchemaVersion), and render-vs-answer gates (selfCheck) to it. Adding a
+ * kind requires no edit here — the kind module owns its rules.
+ *
+ * Behavior-preserving: the composed report strings match the previous inline
+ * rhythm-strip checks byte-for-byte (see scripts/tests/__snapshots__/visual-parity.json).
+ *
+ * `itemType` is supplied for standalone questions (enables placement check) and
+ * omitted for case-study exhibits (which carry no item type). `schemaVersion` is
+ * accepted for the registry-mechanics test; production schema-floor enforcement
+ * stays at the bank level in validateBankObject.
+ */
+export const validateVisual = (
   value: unknown,
-  path: string,
-  min: number,
-  max: number,
+  basePath: string,
   reasons: string[],
-  options: { integer?: boolean } = {},
+  options: { itemType?: ItemType; schemaVersion?: string; question?: Question } = {},
 ) => {
-  if (value === undefined) return;
-  if (typeof value !== "number" || !Number.isFinite(value)) {
-    reasons.push(`${path} must be a number`);
-    return;
-  }
-  if (options.integer && !Number.isInteger(value)) reasons.push(`${path} must be an integer`);
-  if (value < min || value > max) reasons.push(`${path} must be between ${min} and ${max}`);
-};
-
-const validateVisual = (value: unknown, path: string, reasons: string[]) => {
   if (!isRecord(value)) {
-    reasons.push(`${path} must be an object`);
+    reasons.push(`${basePath} must be an object`);
     return;
   }
-  if (value.kind !== "rhythm_strip") {
-    reasons.push(`${path}.kind is invalid`);
+  const mod = typeof value.kind === "string" ? getVisual(value.kind) : undefined;
+  if (!mod) {
+    reasons.push(`${basePath}.kind is invalid`);
     return;
   }
-  if (!enumIncludes(rhythmClasses, value.rhythm)) reasons.push(`${path}.rhythm is invalid`);
-
-  const rhythm = value.rhythm as RhythmClass | undefined;
-  const minRate = rhythm === "vfib" || rhythm === "asystole" ? 0 : 20;
-  addBoundedNumberError(value.rateBpm, `${path}.rateBpm`, minRate, 300, reasons);
-  if (value.rateBpm === undefined) reasons.push(`${path}.rateBpm is required`);
-  addBoundedNumberError(value.durationSec, `${path}.durationSec`, 3, 12, reasons);
-  addBoundedNumberError(value.seed, `${path}.seed`, 0, Number.MAX_SAFE_INTEGER, reasons, { integer: true });
-  addBoundedNumberError(value.atrialRateBpm, `${path}.atrialRateBpm`, 20, 400, reasons);
-  addBoundedNumberError(value.conductionRatio, `${path}.conductionRatio`, 1, 8, reasons, { integer: true });
-  addBoundedNumberError(value.prSec, `${path}.prSec`, 0.06, 0.4, reasons);
-  addBoundedNumberError(value.qrsSec, `${path}.qrsSec`, 0.04, 0.24, reasons);
-  addBoundedNumberError(value.qtSec, `${path}.qtSec`, 0.16, 0.7, reasons);
-
-  if (value.calibrationPulse !== undefined && typeof value.calibrationPulse !== "boolean") {
-    reasons.push(`${path}.calibrationPulse must be a boolean`);
-  }
-  if (value.caption !== undefined) {
-    if (!isRecord(value.caption) || !nonEmptyString(value.caption.en)) {
-      reasons.push(`${path}.caption.en is required when caption is present`);
-    } else if (value.caption.zh !== undefined && !nonEmptyString(value.caption.zh)) {
-      reasons.push(`${path}.caption.zh must be non-empty when present`);
+  if (options.itemType !== undefined) {
+    const allowed = mod.allowedItemTypes ?? VISUAL_ITEM_TYPES;
+    if (!allowed.includes(options.itemType)) {
+      reasons.push(
+        mod.allowedItemTypes
+          ? `visual of kind ${mod.kind} is not allowed on ${options.itemType}`
+          : "visual is only supported on multiple_choice, select_all, matrix, and case-study exhibits",
+      );
+      return;
     }
+  }
+  if (options.schemaVersion !== undefined && cmpSchema(options.schemaVersion, mod.requiredSchemaVersion ?? "1.2") < 0) {
+    reasons.push(`${basePath} requires schema ${mod.requiredSchemaVersion ?? "1.2"}`);
+  }
+  for (const err of mod.validate(value as never)) reasons.push(formatVisualError(basePath, err));
+  if (mod.selfCheck && options.question) {
+    for (const err of mod.selfCheck(value as never, options.question)) reasons.push(formatVisualError(basePath, err));
   }
 };
 
@@ -181,11 +168,10 @@ export const validateQuestion = (raw: unknown, options: { allowCaseStudy?: boole
   addTextPairError(raw.stem, "stem", reasons);
   addTextPairError(raw.testTakingStrategy, "testTakingStrategy", reasons);
   if (raw.visual !== undefined) {
-    if (raw.itemType === "multiple_choice" || raw.itemType === "select_all" || raw.itemType === "matrix") {
-      validateVisual(raw.visual, "visual", reasons);
-    } else {
-      reasons.push("visual is only supported on multiple_choice, select_all, matrix, and case-study exhibits");
-    }
+    validateVisual(raw.visual, "visual", reasons, {
+      itemType: raw.itemType as ItemType,
+      question: raw as unknown as Question,
+    });
   }
 
   if (!isRecord(raw.rationale)) {

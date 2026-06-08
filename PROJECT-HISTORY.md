@@ -31,7 +31,7 @@ Current canonical banks:
 - `banks/claude-canonical.json` (50 bilingual Claude-source questions; ledgered content review complete)
 - `banks/gemini-canonical.json` (749 bilingual Gemini-source questions; includes original + pending batches + traditional/easy/gap-fill consolidations minus redundant/flawed questions)
 - `banks/hard-cases-canonical.json` (42 hard/NGN top-level items, including 33 unfolding case studies with 135 embedded case-study parts)
-- `banks/rhythm-canonical.json` (3 reviewed schema v1.2 rhythm-strip visual items)
+- `banks/visual-canonical.json` (3 reviewed schema v1.2 rhythm-strip visual items; the dedicated home for all visual kinds, formerly `banks/rhythm-canonical.json`)
 - Schema version `1.2` current; `1.0` standalone banks and `1.1` case-study banks remain supported
 
 Current schema item types:
@@ -50,6 +50,16 @@ Out of scope until a future schema bump:
 - `bowtie`
 
 ## Milestones
+
+### Visual Renderer Registry Refactor — U0 (Jun 07)
+
+Completed (behavior-preserving refactor; no `schemaVersion` bump, no on-disk shape change, no grading change):
+
+- Restructured the schema-1.2 visual system behind a kind registry so adding the ~9 planned future visual kinds is cheap and collision-free. The four kind-agnostic files now route through the registry and need no edit per new kind: `src/App.tsx` (renders via one `VisualStimulus` dispatcher), `src/schema.ts` (validates via `getVisual`/`allowedItemTypes`/`requiredSchemaVersion`/`selfCheck`), `scripts/validate-bank.ts` (inherits via schema), `scripts/coverage-report.ts` (iterates `listVisualKinds()` for a per-kind breakdown).
+- New layout under `src/visuals/`: `registry.ts` (contract + register/get/list), `types.ts` (the append-only `QuestionVisual` union — the only shared compile-time touch-point), `VisualStimulus.tsx` (dispatcher, preserves the existing figure/caption DOM so rendered output is unchanged), `primitives/` (`prng`, `graphPaper`, `escapeXml` extracted from the rhythm renderer), `kinds/rhythmStrip.ts` (spec type + validator + deterministic renderer + colocated fixtures, self-registering), and `kinds/index.ts` (React-free registration barrel). The ECG math, scaling, thresholds, and validation rules were relocated verbatim, not rewritten.
+- Parity proven: the 3 live items render byte-identical SVG (sha256 snapshots) and validate reason-for-reason, captured in `scripts/tests/__snapshots__/visual-parity.json`. Tests added: a generic conformance harness over `allVisualModules()` (fixtures + determinism), a registry-mechanics test using a throwaway `__test_only` kind (unknown-kind/placement/schema-version/selfCheck), and the parity test. `npm run test-visuals` now runs all four.
+- Relocated the 3 items from `banks/rhythm-canonical.json` to the dedicated `banks/visual-canonical.json` (ids and content byte-identical; review status carries over). Reorganized `NCLEX-Question-Schema.md` into a generic visual-framework section + a per-kind `rhythm_strip` subsection + an "add a kind" checklist, with no version bump.
+- Verified: `npm run test-visuals`, `npm run validate-bank -- banks/*.json`, `npm run coverage-report`, and `npm run build` all green; coverage output shows a per-kind visual breakdown.
 
 ### Duplicate & Redundancy Audit (Jun 06)
 
