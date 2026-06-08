@@ -57,7 +57,7 @@
           {
             "refId": "B",
             "en": "Decompensated shock would show a plummeting MAP and SBP.",
-            "zh": "失代偿性休克将表现为MAP and SBP的暴跌。"
+            "zh": "失代偿性休克将表现为MAP和SBP的暴跌。"
           },
           {
             "refId": "C",
@@ -118,7 +118,7 @@
         ],
         "population": "adult",
         "caption": {
-          "en": "Visual signs flow sheet",
+          "en": "Vital signs flow sheet",
           "zh": "生命体征流程单"
         },
         "time": {
@@ -639,8 +639,8 @@
         "byChoice": [
           {
             "refId": "A",
-            "en": "Cushing's triad (widening pulse pressure, bradycardia, irregular respirations) is a late and ominous sign of brainstem herniation.",
-            "zh": "库欣三联征（脉压增宽、心动过缓、呼吸不规则）是脑干疝晚期且不祥的征兆。"
+            "en": "Cushing's triad (widening pulse pressure, bradycardia, irregular respirations) is a late and ominous sign of impending brainstem herniation.",
+            "zh": "库欣三联征（脉压增宽、心动过缓、呼吸不规则）是即将发生脑干疝的晚期且不祥的征兆。"
           },
           {
             "refId": "B",
@@ -1233,7 +1233,7 @@
           {
             "refId": "B",
             "en": "PE causes right-sided failure and clear lungs initially, not left-sided crackles.",
-            "zh": "肺栓塞最初引起右心衰竭 and 肺部清晰，而不是左侧湿啰音。"
+            "zh": "肺栓塞最初引起右心衰竭和肺部清晰，而不是左侧湿啰音。"
           },
           {
             "refId": "C",
@@ -1287,6 +1287,15 @@
               26,
               30
             ]
+          },
+          {
+            "vital": "spo2",
+            "values": [
+              98,
+              94,
+              90,
+              86
+            ]
           }
         ],
         "population": "adult",
@@ -1312,6 +1321,14 @@
         "expected_trend": [
           {
             "vital": "map",
+            "direction": "down",
+            "window": [
+              0,
+              3
+            ]
+          },
+          {
+            "vital": "spo2",
             "direction": "down",
             "window": [
               0,
