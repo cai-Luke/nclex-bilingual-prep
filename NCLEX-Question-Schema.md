@@ -195,7 +195,7 @@ Validation rules:
 - `series` is required, must contain at least one series. No duplicate `vital` keys allowed.
 - Each `series.values` array must have the exact same length as `timepointsHr`.
 - Values must be within sensible physiologic ranges per vital.
-- If `map`, `sbp`, and `dbp` are all provided, `map` must be strictly between `dbp` and `sbp` across all points.
+- If `map`, `sbp`, and `dbp` are all provided, `map` must satisfy `dbp <= map <= sbp` across all points.
 - `tempUnit`, if present, must be `"C"` or `"F"`.
 - `selfCheck` verifies that provided `map` values exactly match the computed `MAP = Math.round(DBP + (SBP - DBP) / 3)`.
 - `selfCheck` verifies any `expectedTrend` metadata provided in the question accurately reflects the data array.

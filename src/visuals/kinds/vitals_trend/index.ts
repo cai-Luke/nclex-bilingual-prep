@@ -46,6 +46,11 @@ export const validateVitalsTrend = (spec: VitalsTrendSpec): VisualError[] => {
   const series = value.series as Record<string, unknown>[];
 
   series.forEach((s, idx) => {
+    if (!isRecord(s)) {
+      errs.push({ path: `series[${idx}]`, code: "series_entry_invalid", message: "must be an object" });
+      return;
+    }
+
     if (typeof s.vital !== "string" || !Object.keys(VITAL_DEFS).includes(s.vital)) {
       errs.push({ path: `series[${idx}].vital`, code: "invalid_vital_key", message: "is not a recognized vital key" });
       return;
@@ -93,9 +98,9 @@ export const validateVitalsTrend = (spec: VitalsTrendSpec): VisualError[] => {
   }
 
   // Cross-series bounds logic
-  const dbpSeries = (spec.series || []).find(s => s.vital === "dbp");
-  const mapSeries = (spec.series || []).find(s => s.vital === "map");
-  const sbpSeries = (spec.series || []).find(s => s.vital === "sbp");
+  const dbpSeries = (spec.series || []).find(s => isRecord(s) && s.vital === "dbp" && Array.isArray(s.values));
+  const mapSeries = (spec.series || []).find(s => isRecord(s) && s.vital === "map" && Array.isArray(s.values));
+  const sbpSeries = (spec.series || []).find(s => isRecord(s) && s.vital === "sbp" && Array.isArray(s.values));
 
   if (mapSeries && sbpSeries && dbpSeries && mapSeries.values.length === times.length && sbpSeries.values.length === times.length && dbpSeries.values.length === times.length) {
     for (let i = 0; i < times.length; i++) {

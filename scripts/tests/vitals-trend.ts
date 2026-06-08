@@ -40,6 +40,21 @@ const errsLength = validateVitalsTrend({
 });
 assert(errsLength.length > 0 && errsLength[0].code === "values_length_mismatch", "should catch length mismatches");
 
+const badSeriesNull = validateVitalsTrend({
+  kind: "vitals_trend", timepointsHr: [0], series: [null] as any
+});
+assert(badSeriesNull.some(e => e.code === "series_entry_invalid"), "should reject null series entry");
+
+const badSeriesStr = validateVitalsTrend({
+  kind: "vitals_trend", timepointsHr: [0], series: ["bad"] as any
+});
+assert(badSeriesStr.some(e => e.code === "series_entry_invalid"), "should reject string series entry");
+
+const badSeriesObj = validateVitalsTrend({
+  kind: "vitals_trend", timepointsHr: [0], series: [{}] as any
+});
+assert(badSeriesObj.some(e => e.code === "invalid_vital_key"), "should catch missing vital key gracefully");
+
 // --- selfCheck MAP calculation -------------------------------
 const goodMap: VitalsTrendSpec = {
   kind: "vitals_trend",
@@ -120,5 +135,35 @@ const xssSvg = renderLineChart({
 assert(!xssSvg.includes("<script>"), "script tags must be escaped");
 assert(xssSvg.includes("&lt;script&gt;"), "escaped script tags should be present");
 assert(xssSvg.includes("&lt;svg"), "svg tags in labels must be escaped");
+
+// --- Primitive: reference band geometry -------------------------------
+// Single left series, band low=60/high=100 on a 0..100 axis at default 600x300.
+// margins: top=30 bottom=50 left=60 right=30 (no right axis) -> plotHeight=220, plotWidth=510.
+// mapY(100)=30, mapY(60)=118 -> rect y=30, height=88; x=60, width=510.
+const bandSvg = renderLineChart({
+  xAxis: { label: "t", min: 0, max: 10 },
+  yAxisLeft: { label: "", min: 0, max: 100 },
+  series: [{ label: "HR", unit: "bpm", points: [{ x: 0, y: 80 }], referenceBand: { low: 60, high: 100 } }],
+});
+assert(
+  bandSvg.includes(`<rect x="60" y="30" width="510" height="88" fill="#f1f5f9" opacity="0.6"/>`),
+  "reference band rect geometry must match the given low/high",
+);
+
+// --- Primitive: dual-axis placement -------------------------------
+// Identical data value (y=50) must land at different pixel-y on left vs right axis.
+// With both axes present margins right=60 -> plotWidth=480, plotHeight=220.
+// left axis 0..100: mapY(50)=140 ; right axis 0..200: mapY(50)=195.
+const dualSvg = renderLineChart({
+  xAxis: { label: "t", min: 0, max: 10 },
+  yAxisLeft: { label: "", min: 0, max: 100 },
+  yAxisRight: { label: "", min: 0, max: 200 },
+  series: [
+    { label: "L", unit: "a", axis: "left", points: [{ x: 2, y: 50 }] },
+    { label: "R", unit: "b", axis: "right", points: [{ x: 8, y: 50 }] },
+  ],
+});
+assert(dualSvg.includes(`cx="156" cy="140"`), "left-axis point must map on the left scale");
+assert(dualSvg.includes(`cx="444" cy="195"`), "right-axis point must map on the right scale");
 
 console.log("vitals-trend tests passed");
