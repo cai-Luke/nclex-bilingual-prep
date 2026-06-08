@@ -51,6 +51,15 @@ Out of scope until a future schema bump:
 
 ## Milestones
 
+### U1 Capnography Renderer (Jun 08)
+
+Completed:
+- Added deterministic `capnography` visual renderer.
+- Supported 5 clinical morphologies: `normal`, `shark_fin`, `flat`, `rosc`, and `rebreathing`.
+- Built validation mapping to physiological ranges and self-checks for EtCO2 plateau values.
+- Shared grid math and scaling infrastructure with `rhythm_strip`.
+- Updated schema and documentation to cover `capnography` specifics.
+
 ### Visual Renderer Registry Refactor — U0 (Jun 07)
 
 Completed (behavior-preserving refactor; no `schemaVersion` bump, no on-disk shape change, no grading change):

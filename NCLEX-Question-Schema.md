@@ -140,6 +140,35 @@ Validation rules:
 
 The `caption` must never reveal the answer. For example, do not caption a strip `"Atrial fibrillation"` on an item asking the learner to identify atrial fibrillation.
 
+### Kind: `capnography`
+
+```json
+{
+  "visual": {
+    "kind": "capnography",
+    "pattern": "shark_fin",
+    "etco2": 45,
+    "respiratoryRate": 20,
+    "durationSec": 15,
+    "severity": 0.8,
+    "caption": { "en": "Capnogram" }
+  }
+}
+```
+
+`pattern` controlled vocabulary:
+`normal`, `shark_fin`, `flat`, `rosc`, `rebreathing`.
+
+Validation rules:
+- `kind` must be `"capnography"`.
+- `pattern` must be one of the 5 allowed patterns.
+- `etco2` is required, must be 0–150. If `pattern` is `flat`, must be exactly 0.
+- `respiratoryRate` is required, must be 4–60.
+- `durationSec`, if present, must be 5–60. Default is 15.
+- `severity` is required for `shark_fin`, strictly `0 < severity <= 1`, and disallowed for other patterns.
+- `baselineEtco2` is required for `rebreathing`, strictly `0 < baselineEtco2 < etco2`, and disallowed for other patterns.
+- `rosc` object is required for `rosc` (with `lowEtco2`, `highEtco2`, `stepAtSec` properties), and disallowed for other patterns.
+- `caption.en`, if caption is present, is required. `caption.zh` is optional but must be non-empty if present.
 ---
 
 ## Per-type structure
