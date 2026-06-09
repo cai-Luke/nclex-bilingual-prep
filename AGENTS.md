@@ -65,6 +65,15 @@ Visual items must be deterministic, locally rendered, and inspectable from struc
 
 ## Commands
 
+**Promotion pipeline** — when moving content from `banks/banks-raw/` into a canonical bank:
+
+```sh
+npm run promote        # applies deterministic shuffle; writes to banks/<same-filename>
+npm run audit          # Tier 0 validate-bank + Tier 1 references/positions/integrity
+```
+
+`audit:integrity` requires the draft to still exist in `banks-raw/` — delete drafts only *after* the shuffled output has been merged into the canonical bank and the audit passes. If content is merged directly into a canonical bank (bypassing the promote script), apply `shuffle()` manually to all MC/SATA/OR items and run `npm run audit:references` to confirm no positional-language hazards were introduced.
+
 Run these before calling a code/content pass complete when relevant:
 
 ```sh
