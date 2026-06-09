@@ -25,14 +25,15 @@ The app is a static offline Vite + React + TypeScript NCLEX-RN practice tool. It
 
 Core learning features are implemented: all schema item types render and grade, case studies are supported, sessions are resumable, custom sessions can be built from filters, the dashboard summarizes performance, flags feed review pools, glossary flashcards have their own SRS progress, and adaptive exam-condition practice is available without any pass/fail readiness claim.
 
-Current canonical banks:
+Current canonical banks (census 2026-06-09; 1 037 total top-level questions):
 
-- `banks/gpt-canonical.json` (122 bilingual GPT-source questions; ledgered content review complete)
+- `banks/capnography-canonical.json` (7 schema v1.2 capnography visual items; dedicated home for capnography kind)
 - `banks/claude-canonical.json` (50 bilingual Claude-source questions; ledgered content review complete)
 - `banks/gemini-canonical.json` (749 bilingual Gemini-source questions; includes original + pending batches + traditional/easy/gap-fill consolidations minus redundant/flawed questions)
-- `banks/hard-cases-canonical.json` (42 hard/NGN top-level items, including 33 unfolding case studies with 135 embedded case-study parts)
-- `banks/visual-canonical.json` (53 reviewed schema v1.2 visual items; the dedicated home for all visual kinds, formerly `banks/rhythm-canonical.json`)
-- `banks/vitals-canonical.json` (10 reviewed schema v1.2 visual items; vitals trend integration)
+- `banks/gpt-canonical.json` (122 bilingual GPT-source questions; ledgered content review complete)
+- `banks/hard-cases-canonical.json` (46 top-level items: 37 unfolding case studies + 9 hard standalones; 155 embedded case-study parts)
+- `banks/visual-canonical.json` (53 reviewed schema v1.2 rhythm-strip visual items; the dedicated home for rhythm_strip kind, formerly `banks/rhythm-canonical.json`)
+- `banks/vitals-canonical.json` (10 reviewed schema v1.2 vitals-trend visual items; dedicated home for vitals_trend kind)
 - Schema version `1.2` current; `1.0` standalone banks and `1.1` case-study banks remain supported
 
 Current schema item types:
@@ -383,17 +384,17 @@ Completed:
 
 ## Verification baseline
 
-Last verified on 2026-06-06:
+Last verified on 2026-06-09:
 
-- `npm run validate-bank -- banks/*.json`
-- `npm run test-visuals`
+- `npm run validate-bank -- banks/*.json` — all 7 banks pass
+- `npm run test-visuals` — 5 kinds, 6 test suites green
 - `npm run coverage-report`
 - `npm run build`
 
 Latest coverage snapshot:
 
-- Total questions: 1033
-- Unique normalized topics: 141
+- Total questions: 1037
+- Unique normalized topics: 145
 - Category Counts:
   - Health Promotion and Maintenance: 113
   - Basic Care and Comfort: 114
@@ -402,16 +403,16 @@ Latest coverage snapshot:
   - Safety and Infection Control: 117
   - Management of Care: 123
   - Pharmacological and Parenteral Therapies: 134
-  - Physiological Adaptation: 199
+  - Physiological Adaptation: 203
 - Item Type Counts:
-  - case_study: 35
+  - case_study: 39
   - fill_in_blank: 88
   - ordered_response: 90
   - dropdown_cloze: 115
   - matrix: 129
   - select_all: 180
   - multiple_choice: 396
-- Visual counts:
+- Visual counts (total 62 including 1 case-study stage exhibit):
   - capnography: 7
   - lab_trend: 0 (renderer done; content lane pending)
   - mar: 0 (renderer done; content lane pending)
