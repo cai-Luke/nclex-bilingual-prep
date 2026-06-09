@@ -52,6 +52,15 @@ Out of scope until a future schema bump:
 
 ## Milestones
 
+### Positional-Language Reference Backlog Cleared (Jun 09)
+
+Completed:
+- Repaired 63 `audit:references` positional-language hazards across four canonical banks (`claude-canonical.json`, `gemini-canonical.json`, `gpt-canonical.json`, `hard-cases-canonical.json`).
+- All fixes were rationale wording changes only: parenthetical option-letter labels (`(A)`, `(Option B)`, `（选项 C）`, etc.) replaced with content-based or label-free phrasing. No answer keys, option IDs, or clinical meaning changed.
+- Five items required targeted sentence rewrites where an option letter was the grammatical subject: `gemini_jun05_a_sata_pacemaker_41` (EN+ZH), `trad_ppt_04` (ZH), `trad_pa_25` (ZH), `trad_batchC_24` (ZH).
+- `audit:references` now passes at zero hazards; `audit:positions`, `validate-bank`, and `build` all continue to pass.
+- The promotion gate can now treat positional-language hazards as a true zero-tolerance check with no pre-existing backlog.
+
 ### Visual Sweep Spec v3 (Jun 08)
 
 Completed:
