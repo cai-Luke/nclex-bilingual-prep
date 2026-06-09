@@ -52,7 +52,15 @@ Out of scope until a future schema bump:
 
 ## Milestones
 
+### Visual Sweep Spec v3 (Jun 08)
+
+Completed:
+- Created `shrimp-visual-sweep-spec-v3.md` to establish the new schema, evidence guidelines, and quality gates for visual item conversion analysis.
+- Archived the obsolete v2 spec by moving `shrimp-visual-sweep-spec-v2.md` to `Archive/`.
+- Archived `shrimp-dev-review-console-spec.md` (superseded by v2 spec) to `Archive/`.
+
 ### U2 Vitals Trend Renderer & Chart Primitive (Jun 08)
+
 
 Completed:
 - Moved U1 `U1-CAPNOGRAPHY-SPEC.md` to `Archive/`.

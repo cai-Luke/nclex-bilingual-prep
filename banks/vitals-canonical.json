@@ -21,13 +21,13 @@
       "options": [
         {
           "id": "A",
-          "en": "Compensated hypovolemic shock",
-          "zh": "代偿性低血容量休克"
+          "en": "Decompensated hypovolemic shock",
+          "zh": "失代偿性低血容量休克"
         },
         {
           "id": "B",
-          "en": "Decompensated hypovolemic shock",
-          "zh": "失代偿性低血容量休克"
+          "en": "Compensated hypovolemic shock",
+          "zh": "代偿性低血容量休克"
         },
         {
           "id": "C",
@@ -41,7 +41,7 @@
         }
       ],
       "correct": [
-        "A"
+        "B"
       ],
       "rationale": {
         "correct": {
@@ -50,12 +50,12 @@
         },
         "byChoice": [
           {
-            "refId": "A",
+            "refId": "B",
             "en": "Rising HR with narrowing pulse pressure and maintained MAP is the hallmark of the compensated phase of shock.",
             "zh": "心率上升伴随脉压变窄且维持MAP是休克代偿期的标志。"
           },
           {
-            "refId": "B",
+            "refId": "A",
             "en": "Decompensated shock would show a plummeting MAP and SBP.",
             "zh": "失代偿性休克将表现为MAP和SBP的暴跌。"
           },
@@ -169,27 +169,27 @@
       "options": [
         {
           "id": "A",
-          "en": "Administration of a rapid IV fluid bolus",
-          "zh": "快速静脉推注补液"
-        },
-        {
-          "id": "B",
           "en": "Administration of an antihypertensive medication",
           "zh": "给予降压药"
         },
         {
+          "id": "B",
+          "en": "Administering a beta-blocker to control heart rate",
+          "zh": "给予β受体阻滞剂以控制心率"
+        },
+        {
           "id": "C",
-          "en": "Applying a warming blanket",
-          "zh": "使用加温毯"
+          "en": "Administration of a rapid IV fluid bolus",
+          "zh": "快速静脉推注补液"
         },
         {
           "id": "D",
-          "en": "Administering a beta-blocker to control heart rate",
-          "zh": "给予β受体阻滞剂以控制心率"
+          "en": "Applying a warming blanket",
+          "zh": "使用加温毯"
         }
       ],
       "correct": [
-        "A"
+        "C"
       ],
       "rationale": {
         "correct": {
@@ -198,22 +198,22 @@
         },
         "byChoice": [
           {
-            "refId": "A",
+            "refId": "C",
             "en": "A MAP falling below 65 mmHg in the setting of infection requires immediate IV fluid resuscitation.",
             "zh": "在感染的情况下，MAP降至65 mmHg以下需要立即进行静脉液体复苏。"
           },
           {
-            "refId": "B",
+            "refId": "A",
             "en": "The client is hypotensive (MAP < 65), so antihypertensives are strictly contraindicated.",
             "zh": "患者处于低血压状态（MAP < 65），因此绝对禁忌使用降压药。"
           },
           {
-            "refId": "C",
+            "refId": "D",
             "en": "The client has a rising fever (temp > 38.5 C), so a warming blanket would worsen hyperthermia.",
             "zh": "患者发热加剧（体温 > 38.5 C），因此加温毯会使高热恶化。"
           },
           {
-            "refId": "D",
+            "refId": "B",
             "en": "Tachycardia is a compensatory mechanism for the falling blood pressure; blocking it could cause cardiovascular collapse.",
             "zh": "心动过速是血压下降的代偿机制；阻断它可能导致心血管萎陷。"
           }
@@ -323,13 +323,13 @@
         },
         {
           "id": "B",
-          "en": "Administer the PRN dose of intravenous morphine.",
-          "zh": "给予按需（PRN）剂量的静脉注射吗啡。"
+          "en": "Document the findings as normal postoperative changes.",
+          "zh": "将这些发现记录为正常的术后变化。"
         },
         {
           "id": "C",
-          "en": "Document the findings as normal postoperative changes.",
-          "zh": "将这些发现记录为正常的术后变化。"
+          "en": "Administer the PRN dose of intravenous morphine.",
+          "zh": "给予按需（PRN）剂量的静脉注射吗啡。"
         },
         {
           "id": "D",
@@ -352,12 +352,12 @@
             "zh": "术后HR上升+血压下降=除非另有证明，否则即为内出血。必须通知医生进行干预。"
           },
           {
-            "refId": "B",
+            "refId": "C",
             "en": "Morphine causes vasodilation and could worsen the severe hypotension shown in the trend.",
             "zh": "吗啡引起血管扩张，可能会加重趋势中显示的严重低血压。"
           },
           {
-            "refId": "C",
+            "refId": "B",
             "en": "A MAP dropping to 60 mmHg is never a normal postoperative change.",
             "zh": "MAP降至60 mmHg绝不是正常的术后变化。"
           },
@@ -462,27 +462,27 @@
       "options": [
         {
           "id": "A",
-          "en": "The fluid resuscitation is effective.",
-          "zh": "液体复苏有效。"
-        },
-        {
-          "id": "B",
-          "en": "The client is developing fluid volume overload.",
-          "zh": "患者正在发生液体负荷过重。"
-        },
-        {
-          "id": "C",
           "en": "The client requires a vasopressor infusion.",
           "zh": "患者需要输注血管加压药。"
         },
         {
-          "id": "D",
+          "id": "B",
           "en": "The client is experiencing an allergic reaction to the fluid.",
           "zh": "患者对液体出现了过敏反应。"
+        },
+        {
+          "id": "C",
+          "en": "The client is developing fluid volume overload.",
+          "zh": "患者正在发生液体负荷过重。"
+        },
+        {
+          "id": "D",
+          "en": "The fluid resuscitation is effective.",
+          "zh": "液体复苏有效。"
         }
       ],
       "correct": [
-        "A"
+        "D"
       ],
       "rationale": {
         "correct": {
@@ -491,22 +491,22 @@
         },
         "byChoice": [
           {
-            "refId": "A",
+            "refId": "D",
             "en": "HR decreasing and MAP increasing towards normal indicate effective fluid replacement.",
             "zh": "HR下降和MAP向正常上升表明液体补充有效。"
           },
           {
-            "refId": "B",
+            "refId": "C",
             "en": "Fluid overload would typically present with crackles, bounding pulses, and very high BP, not just a normalizing MAP.",
             "zh": "液体负荷过重通常表现为啰音、洪脉和非常高的血压，而不仅仅是MAP恢复正常。"
           },
           {
-            "refId": "C",
+            "refId": "A",
             "en": "Vasopressors are not needed because the MAP is naturally increasing with fluids alone.",
             "zh": "不需要血管加压药，因为仅靠液体输注MAP就在自然上升。"
           },
           {
-            "refId": "D",
+            "refId": "B",
             "en": "An allergic reaction would cause the HR to rise and the MAP to fall (anaphylaxis).",
             "zh": "过敏反应会导致HR上升和MAP下降（过敏性休克）。"
           }
@@ -609,27 +609,27 @@
       "options": [
         {
           "id": "A",
-          "en": "Brainstem herniation",
-          "zh": "脑干疝"
-        },
-        {
-          "id": "B",
           "en": "Hypovolemic shock",
           "zh": "低血容量休克"
         },
         {
-          "id": "C",
+          "id": "B",
           "en": "Systemic inflammatory response syndrome (SIRS)",
           "zh": "全身炎症反应综合征（SIRS）"
         },
         {
-          "id": "D",
+          "id": "C",
           "en": "Spinal shock",
           "zh": "脊髓休克"
+        },
+        {
+          "id": "D",
+          "en": "Brainstem herniation",
+          "zh": "脑干疝"
         }
       ],
       "correct": [
-        "A"
+        "D"
       ],
       "rationale": {
         "correct": {
@@ -638,22 +638,22 @@
         },
         "byChoice": [
           {
-            "refId": "A",
+            "refId": "D",
             "en": "Cushing's triad (widening pulse pressure, bradycardia, irregular respirations) is a late and ominous sign of impending brainstem herniation.",
             "zh": "库欣三联征（脉压增宽、心动过缓、呼吸不规则）是即将发生脑干疝的晚期且不祥的征兆。"
           },
           {
-            "refId": "B",
+            "refId": "A",
             "en": "Hypovolemic shock presents with tachycardia and narrowing pulse pressure, the exact opposite of this chart.",
             "zh": "低血容量休克表现为心动过速和脉压变窄，与此图表完全相反。"
           },
           {
-            "refId": "C",
+            "refId": "B",
             "en": "SIRS would present with tachycardia, fever, and tachypnea.",
             "zh": "SIRS会表现为心动过速、发热和呼吸急促。"
           },
           {
-            "refId": "D",
+            "refId": "C",
             "en": "Spinal shock causes hypotension, not the severe systolic hypertension seen here.",
             "zh": "脊髓休克引起低血压，而不是这里看到的严重收缩期高血压。"
           }
@@ -778,18 +778,18 @@
         },
         {
           "id": "B",
+          "en": "The bleeding has spontaneously resolved.",
+          "zh": "出血已自发消退。"
+        },
+        {
+          "id": "C",
           "en": "The client's compensatory mechanisms are effectively maintaining perfusion.",
           "zh": "患者的代偿机制正在有效地维持灌注。"
         },
         {
-          "id": "C",
+          "id": "D",
           "en": "The client is experiencing a vasovagal response.",
           "zh": "患者正在经历血管迷走神经反应。"
-        },
-        {
-          "id": "D",
-          "en": "The bleeding has spontaneously resolved.",
-          "zh": "出血已自发消退。"
         }
       ],
       "correct": [
@@ -807,17 +807,17 @@
             "zh": "MAP下降伴随极度心动过速表明代偿失败。"
           },
           {
-            "refId": "B",
+            "refId": "C",
             "en": "Effective compensation would maintain the MAP above 65 mmHg.",
             "zh": "有效的代偿将维持MAP在65 mmHg以上。"
           },
           {
-            "refId": "C",
+            "refId": "D",
             "en": "A vasovagal response causes bradycardia, not extreme tachycardia.",
             "zh": "血管迷走神经反应引起心动过缓，而不是极度心动过速。"
           },
           {
-            "refId": "D",
+            "refId": "B",
             "en": "If bleeding resolved, the HR would normalize and BP would stabilize.",
             "zh": "如果出血停止，HR将恢复正常，血压将稳定。"
           }
@@ -911,27 +911,27 @@
       "options": [
         {
           "id": "A",
-          "en": "Neurogenic shock",
-          "zh": "神经源性休克"
-        },
-        {
-          "id": "B",
           "en": "Cardiogenic shock",
           "zh": "心源性休克"
         },
         {
+          "id": "B",
+          "en": "Autonomic dysreflexia",
+          "zh": "自主神经反射异常"
+        },
+        {
           "id": "C",
-          "en": "Hypovolemic shock",
-          "zh": "低血容量休克"
+          "en": "Neurogenic shock",
+          "zh": "神经源性休克"
         },
         {
           "id": "D",
-          "en": "Autonomic dysreflexia",
-          "zh": "自主神经反射异常"
+          "en": "Hypovolemic shock",
+          "zh": "低血容量休克"
         }
       ],
       "correct": [
-        "A"
+        "C"
       ],
       "rationale": {
         "correct": {
@@ -940,22 +940,22 @@
         },
         "byChoice": [
           {
-            "refId": "A",
+            "refId": "C",
             "en": "Neurogenic shock is unique among shock states because it presents with bradycardia rather than tachycardia.",
             "zh": "神经源性休克在休克状态中是独一无二的，因为它表现为心动过缓而不是心动过速。"
           },
           {
-            "refId": "B",
+            "refId": "A",
             "en": "Cardiogenic shock typically presents with tachycardia.",
             "zh": "心源性休克通常表现为心动过速。"
           },
           {
-            "refId": "C",
+            "refId": "D",
             "en": "Hypovolemic shock presents with compensatory tachycardia.",
             "zh": "低血容量休克表现为代偿性心动过速。"
           },
           {
-            "refId": "D",
+            "refId": "B",
             "en": "Autonomic dysreflexia causes extreme, sudden hypertension, not hypotension.",
             "zh": "自主神经反射异常引起极度、突然的高血压，而不是低血压。"
           }
@@ -1059,18 +1059,18 @@
         },
         {
           "id": "B",
+          "en": "The client has developed sepsis.",
+          "zh": "患者已发展为败血症。"
+        },
+        {
+          "id": "C",
           "en": "The therapy is ineffective; an alternative antipyretic is needed immediately.",
           "zh": "治疗无效；需要立即使用其他退热药。"
         },
         {
-          "id": "C",
+          "id": "D",
           "en": "The client is experiencing a severe adverse drug reaction.",
           "zh": "患者正在经历严重的药物不良反应。"
-        },
-        {
-          "id": "D",
-          "en": "The client has developed sepsis.",
-          "zh": "患者已发展为败血症。"
         }
       ],
       "correct": [
@@ -1088,17 +1088,17 @@
             "zh": "发烧引起代偿性心动过速。随着退烧，心率自然下降。"
           },
           {
-            "refId": "B",
+            "refId": "C",
             "en": "The chart clearly shows the temperature trending downwards.",
             "zh": "图表清楚地显示了体温呈下降趋势。"
           },
           {
-            "refId": "C",
+            "refId": "D",
             "en": "Normalizing vitals are not an adverse reaction.",
             "zh": "生命体征恢复正常不是不良反应。"
           },
           {
-            "refId": "D",
+            "refId": "B",
             "en": "Sepsis would present with worsening tachycardia, fever, and dropping blood pressure.",
             "zh": "败血症会表现为心动过速恶化、发烧和血压下降。"
           }
@@ -1197,13 +1197,13 @@
       "options": [
         {
           "id": "A",
-          "en": "Cardiogenic shock",
-          "zh": "心源性休克"
+          "en": "Pulmonary embolism",
+          "zh": "肺栓塞"
         },
         {
           "id": "B",
-          "en": "Pulmonary embolism",
-          "zh": "肺栓塞"
+          "en": "Cardiogenic shock",
+          "zh": "心源性休克"
         },
         {
           "id": "C",
@@ -1217,7 +1217,7 @@
         }
       ],
       "correct": [
-        "A"
+        "B"
       ],
       "rationale": {
         "correct": {
@@ -1226,12 +1226,12 @@
         },
         "byChoice": [
           {
-            "refId": "A",
+            "refId": "B",
             "en": "Failing heart muscle cannot maintain cardiac output, causing hypotension, tachycardia, and back-up of fluid into the lungs (crackles).",
             "zh": "衰竭的心肌无法维持心输出量，导致低血压、心动过速和液体倒流入肺（湿啰音）。"
           },
           {
-            "refId": "B",
+            "refId": "A",
             "en": "PE causes right-sided failure and clear lungs initially, not left-sided crackles.",
             "zh": "肺栓塞最初引起右心衰竭和肺部清晰，而不是左侧湿啰音。"
           },
@@ -1359,8 +1359,8 @@
       "options": [
         {
           "id": "A",
-          "en": "Malignant hyperthermia",
-          "zh": "恶性高热"
+          "en": "Hemorrhagic shock",
+          "zh": "失血性休克"
         },
         {
           "id": "B",
@@ -1369,17 +1369,17 @@
         },
         {
           "id": "C",
-          "en": "Sepsis",
-          "zh": "败血症"
+          "en": "Malignant hyperthermia",
+          "zh": "恶性高热"
         },
         {
           "id": "D",
-          "en": "Hemorrhagic shock",
-          "zh": "失血性休克"
+          "en": "Sepsis",
+          "zh": "败血症"
         }
       ],
       "correct": [
-        "A"
+        "C"
       ],
       "rationale": {
         "correct": {
@@ -1388,7 +1388,7 @@
         },
         "byChoice": [
           {
-            "refId": "A",
+            "refId": "C",
             "en": "Volatile anesthetics trigger malignant hyperthermia, characterized by rapid tachycardia and a soaring body temperature.",
             "zh": "挥发性麻醉剂引发恶性高热，其特征为快速的心动过速和体温飙升。"
           },
@@ -1398,12 +1398,12 @@
             "zh": "过敏反应引起低血压和心动过速，而不是极度高热。"
           },
           {
-            "refId": "C",
+            "refId": "D",
             "en": "Sepsis develops over hours to days, not 10 minutes into surgery.",
             "zh": "败血症的发展需要数小时至数天，而不是在手术的10分钟内。"
           },
           {
-            "refId": "D",
+            "refId": "A",
             "en": "Hemorrhage does not cause a sudden fever.",
             "zh": "出血不会导致突然发烧。"
           }

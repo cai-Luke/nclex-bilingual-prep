@@ -42,8 +42,8 @@
         },
         {
           "id": "B",
-          "en": "Normal sinus rhythm",
-          "zh": "正常窦性心律"
+          "en": "Junctional escape rhythm",
+          "zh": "交界性逸搏心律"
         },
         {
           "id": "C",
@@ -52,8 +52,8 @@
         },
         {
           "id": "D",
-          "en": "Junctional escape rhythm",
-          "zh": "交界性逸搏心律"
+          "en": "Normal sinus rhythm",
+          "zh": "正常窦性心律"
         }
       ],
       "correct": [
@@ -71,7 +71,7 @@
             "zh": "正确。具备正常窦性特征（直立P波、1:1传导、PR 0.16秒、窄QRS）且心率低于60次/分，即为窦性心动过缓。"
           },
           {
-            "refId": "B",
+            "refId": "D",
             "en": "Incorrect. Normal sinus rhythm requires a rate of 60-100/min; 44/min is too slow to be called normal sinus.",
             "zh": "错误。正常窦性心律要求心率为60-100次/分；44次/分过慢，不能称为正常窦性心律。"
           },
@@ -81,7 +81,7 @@
             "zh": "错误。一度房室传导阻滞要求PR间期延长，大于0.20秒；此处PR为正常的0.16秒。"
           },
           {
-            "refId": "D",
+            "refId": "B",
             "en": "Incorrect. A junctional rhythm typically lacks normal upright preceding P waves (P waves are absent, inverted, or after the QRS); here a normal upright P precedes every QRS, indicating sinus origin.",
             "zh": "错误。交界性心律通常没有正常的前置直立P波（P波缺失、倒置或位于QRS之后）；此处每个QRS前均有正常直立P波，提示窦性起源。"
           }
@@ -422,27 +422,27 @@
       "options": [
         {
           "id": "A",
-          "en": "A heart rate between 50 and 90 beats per minute",
-          "zh": "心率在每分钟50至90次之间"
-        },
-        {
-          "id": "B",
           "en": "A PR interval between 0.12 and 0.20 seconds",
           "zh": "PR间期在0.12至0.20秒之间"
         },
         {
-          "id": "C",
+          "id": "B",
           "en": "A QRS duration greater than 0.12 seconds",
           "zh": "QRS波群时限大于0.12秒"
         },
         {
-          "id": "D",
+          "id": "C",
           "en": "An upright P wave following each QRS complex",
           "zh": "每个QRS波群后都有一个直立的P波"
+        },
+        {
+          "id": "D",
+          "en": "A heart rate between 50 and 90 beats per minute",
+          "zh": "心率在每分钟50至90次之间"
         }
       ],
       "correct": [
-        "B"
+        "A"
       ],
       "rationale": {
         "correct": {
@@ -451,22 +451,22 @@
         },
         "byChoice": [
           {
-            "refId": "A",
+            "refId": "D",
             "en": "Normal sinus rhythm rate is defined as 60-100 beats per minute, not 50-90.",
             "zh": "窦性心律的正常范围定义为每分钟60-100次，而非50-90次。"
           },
           {
-            "refId": "B",
+            "refId": "A",
             "en": "Correct. A PR interval of 0.12 to 0.20 seconds is a classic criterion for normal sinus rhythm.",
             "zh": "正确。PR间期在0.12至0.20秒之间是窦性心律的经典诊断标准。"
           },
           {
-            "refId": "C",
+            "refId": "B",
             "en": "A normal QRS duration should be narrow, typically 0.04 to 0.10 or 0.12 seconds. A QRS > 0.12 seconds indicates intraventricular conduction delay.",
             "zh": "正常的QRS波时限应较窄，通常为0.04至0.10或0.12秒。QRS波 > 0.12秒表示心室内传导延迟。"
           },
           {
-            "refId": "D",
+            "refId": "C",
             "en": "P waves must precede each QRS complex, not follow them.",
             "zh": "P波必须在每个QRS波群之前，而不是在之后。"
           }
@@ -514,27 +514,27 @@
       "options": [
         {
           "id": "A",
-          "en": "Administer atropine 1 mg intravenously",
-          "zh": "静脉注射阿托品 1 mg"
-        },
-        {
-          "id": "B",
-          "en": "Document the finding and continue to monitor",
-          "zh": "记录该发现并继续监测"
-        },
-        {
-          "id": "C",
           "en": "Prepare the client for transcutaneous pacing",
           "zh": "为患者准备经皮起搏"
         },
         {
-          "id": "D",
+          "id": "B",
           "en": "Request an emergent 12-lead electrocardiogram (ECG)",
           "zh": "申请紧急12导联心电图（ECG）"
+        },
+        {
+          "id": "C",
+          "en": "Administer atropine 1 mg intravenously",
+          "zh": "静脉注射阿托品 1 mg"
+        },
+        {
+          "id": "D",
+          "en": "Document the finding and continue to monitor",
+          "zh": "记录该发现并继续监测"
         }
       ],
       "correct": [
-        "B"
+        "D"
       ],
       "rationale": {
         "correct": {
@@ -543,22 +543,22 @@
         },
         "byChoice": [
           {
-            "refId": "A",
+            "refId": "C",
             "en": "Atropine is indicated for symptomatic bradycardia (e.g., hypotension, altered mental status, chest pain). It is contraindicated and unnecessary for an asymptomatic client.",
             "zh": "阿托品适用于有症状的心动过缓（如低血压、意识改变、胸痛）。对于无症状患者，该药物是禁忌且不必要的。"
           },
           {
-            "refId": "B",
+            "refId": "D",
             "en": "Correct. In an asymptomatic, hemodynamically stable athlete, sinus bradycardia is normal, and simple documentation/monitoring is appropriate.",
             "zh": "正确。在无症状、血流动力学稳定的运动员中，窦性心动过缓是正常的，仅需进行记录和监测即可。"
           },
           {
-            "refId": "C",
+            "refId": "A",
             "en": "Transcutaneous pacing is an invasive intervention reserved for severe, symptomatic, drug-resistant bradycardia. It is inappropriate here.",
             "zh": "经皮起搏是一种侵入性干预措施，保留给严重的、有症状的、药物治疗无效的心动过缓。此处不适用。"
           },
           {
-            "refId": "D",
+            "refId": "B",
             "en": "An emergent 12-lead ECG is not necessary as the monitor strip clearly shows sinus bradycardia and the client is asymptomatic.",
             "zh": "不需要紧急进行12导联心电图，因为监护仪心电图条已清晰显示窦性心动过缓且患者无症状。"
           }
@@ -721,27 +721,27 @@
       "options": [
         {
           "id": "A",
-          "en": "Atropine 0.5 mg IV push",
-          "zh": "阿托品 0.5 mg 静脉注射"
-        },
-        {
-          "id": "B",
-          "en": "Atropine 1 mg IV push",
-          "zh": "阿托品 1 mg 静脉注射"
-        },
-        {
-          "id": "C",
           "en": "Atropine 3 mg IV push",
           "zh": "阿托品 3 mg 静脉注射"
         },
         {
-          "id": "D",
+          "id": "B",
+          "en": "Atropine 0.5 mg IV push",
+          "zh": "阿托品 0.5 mg 静脉注射"
+        },
+        {
+          "id": "C",
           "en": "Atropine 0.1 mg IV push",
           "zh": "阿托品 0.1 mg 静脉注射"
+        },
+        {
+          "id": "D",
+          "en": "Atropine 1 mg IV push",
+          "zh": "阿托品 1 mg 静脉注射"
         }
       ],
       "correct": [
-        "B"
+        "D"
       ],
       "rationale": {
         "correct": {
@@ -750,22 +750,22 @@
         },
         "byChoice": [
           {
-            "refId": "A",
+            "refId": "B",
             "en": "Atropine 0.5 mg was the historical first-line dose, but current guidelines recommend starting with 1 mg.",
             "zh": "阿托品 0.5 mg 是历史上的首选剂量，但目前的指南建议首剂使用 1 mg。"
           },
           {
-            "refId": "B",
+            "refId": "D",
             "en": "Correct. 1 mg is the standard initial dose of atropine for symptomatic bradycardia according to current advanced cardiac life support (ACLS) guidelines.",
             "zh": "正确。根据最新的高级心脏生命支持（ACLS）指南，1 mg是有症状心动过缓的阿托品标准初始剂量。"
           },
           {
-            "refId": "C",
+            "refId": "A",
             "en": "Atropine 3 mg is the maximum cumulative dose recommended, not the initial dose.",
             "zh": "阿托品 3 mg是推荐的最大累积剂量，而非初始剂量。"
           },
           {
-            "refId": "D",
+            "refId": "C",
             "en": "Atropine 0.1 mg is too low. Low doses (typically less than 0.5 mg) can produce a paradoxical bradycardic effect.",
             "zh": "阿托品 0.1 mg剂量过低。低剂量（通常小于0.5 mg）可能会产生矛盾的心动过缓效应。"
           }
@@ -813,27 +813,27 @@
       "options": [
         {
           "id": "A",
-          "en": "Glucagon intravenously",
-          "zh": "静脉注射胰高血糖素"
+          "en": "Digoxin immune Fab intravenously",
+          "zh": "静脉注射地高辛免疫Fab"
         },
         {
           "id": "B",
-          "en": "Naloxone intravenously",
-          "zh": "静脉注射纳洛酮"
-        },
-        {
-          "id": "C",
           "en": "Calcium gluconate intravenously",
           "zh": "静脉注射葡萄糖酸钙"
         },
         {
+          "id": "C",
+          "en": "Naloxone intravenously",
+          "zh": "静脉注射纳洛酮"
+        },
+        {
           "id": "D",
-          "en": "Digoxin immune Fab intravenously",
-          "zh": "静脉注射地高辛免疫Fab"
+          "en": "Glucagon intravenously",
+          "zh": "静脉注射胰高血糖素"
         }
       ],
       "correct": [
-        "A"
+        "D"
       ],
       "rationale": {
         "correct": {
@@ -842,22 +842,22 @@
         },
         "byChoice": [
           {
-            "refId": "A",
+            "refId": "D",
             "en": "Correct. Glucagon is the antidote for beta-blocker toxicity because it stimulates cAMP production via non-beta-receptor pathways.",
             "zh": "正确。胰高血糖素是β受体阻滞剂中毒的解毒剂，因为它能通过非β受体通路刺激cAMP的产生。"
           },
           {
-            "refId": "B",
+            "refId": "C",
             "en": "Naloxone is the antidote for opioid overdose and does not reverse beta-blocker-induced bradycardia.",
             "zh": "纳洛酮是阿片类药物过量的解毒剂，不能逆转β受体阻滞剂引起的心动过缓。"
           },
           {
-            "refId": "C",
+            "refId": "B",
             "en": "Calcium gluconate is used to stabilize the myocardium in hyperkalemia or reverse calcium channel blocker toxicity. It is not the primary antidote for beta-blocker toxicity.",
             "zh": "葡萄糖酸钙用于在高钾血症中稳定心肌或逆转钙通道阻滞剂中毒。它不是β受体阻滞剂中毒的首选解毒剂。"
           },
           {
-            "refId": "D",
+            "refId": "A",
             "en": "Digoxin immune Fab (Digibind) is the antidote for digoxin toxicity, not beta-blockers.",
             "zh": "地高辛免疫Fab（Digibind）是地高辛中毒的解毒剂，而非β受体阻滞剂。"
           }
@@ -910,8 +910,8 @@
         },
         {
           "id": "B",
-          "en": "Dehydration or fever",
-          "zh": "脱水或发热"
+          "en": "Hypokalemia",
+          "zh": "低钾血症"
         },
         {
           "id": "C",
@@ -920,12 +920,12 @@
         },
         {
           "id": "D",
-          "en": "Hypokalemia",
-          "zh": "低钾血症"
+          "en": "Dehydration or fever",
+          "zh": "脱水或发热"
         }
       ],
       "correct": [
-        "B"
+        "D"
       ],
       "rationale": {
         "correct": {
@@ -939,7 +939,7 @@
             "zh": "甲状腺功能减退症导致代谢降低，与心动过缓而非心动过速相关。"
           },
           {
-            "refId": "B",
+            "refId": "D",
             "en": "Correct. Dehydration (decreased intravascular volume) and fever (increased metabolic rate) are classic triggers of sinus tachycardia.",
             "zh": "正确。脱水（血管内容量减少）和发热（代谢率增加）是窦性心动过速的经典诱因。"
           },
@@ -949,7 +949,7 @@
             "zh": "迷走神经刺激会减慢心率，可能引起心动过缓。"
           },
           {
-            "refId": "D",
+            "refId": "B",
             "en": "Hypokalemia causes ventricular irritability, ECG changes like U waves, and potential arrhythmias, but is not the primary direct physiological cause of sinus tachycardia.",
             "zh": "低钾血症会引起心室易激惹、如U波的心电图改变和潜在的心律失常，但它不是窦性心动过速的首要直接生理原因。"
           }
@@ -1112,13 +1112,13 @@
       "options": [
         {
           "id": "A",
-          "en": "Administer metoprolol 5 mg intravenously",
-          "zh": "静脉注射美托洛尔 5 mg"
+          "en": "Perform carotid sinus massage",
+          "zh": "进行颈动脉窦按摩"
         },
         {
           "id": "B",
-          "en": "Infuse 0.9% normal saline at 250 mL/hour",
-          "zh": "以每小时 250 mL 的速度输注 0.9% 生理盐水"
+          "en": "Administer metoprolol 5 mg intravenously",
+          "zh": "静脉注射美托洛尔 5 mg"
         },
         {
           "id": "C",
@@ -1127,12 +1127,12 @@
         },
         {
           "id": "D",
-          "en": "Perform carotid sinus massage",
-          "zh": "进行颈动脉窦按摩"
+          "en": "Infuse 0.9% normal saline at 250 mL/hour",
+          "zh": "以每小时 250 mL 的速度输注 0.9% 生理盐水"
         }
       ],
       "correct": [
-        "B"
+        "D"
       ],
       "rationale": {
         "correct": {
@@ -1141,12 +1141,12 @@
         },
         "byChoice": [
           {
-            "refId": "A",
+            "refId": "B",
             "en": "Administering a beta-blocker like metoprolol would block the compensatory tachycardia, leading to severe hypotension and hypoperfusion in a hypovolemic client.",
             "zh": "静脉注射像美托洛尔这样的β受体阻滞剂会阻断代偿性心动过速，导致低血容量患者出现严重的低血压和灌注不足。"
           },
           {
-            "refId": "B",
+            "refId": "D",
             "en": "Correct. The primary treatment for sinus tachycardia secondary to hypovolemia is fluid resuscitation to restore vascular volume.",
             "zh": "正确。继发于低血容量的窦性心动过速的首要治疗是进行液体复苏以恢复血管内容量。"
           },
@@ -1156,7 +1156,7 @@
             "zh": "同步电复律是窦性心动过速的禁忌证，因为该心律是一种代偿性反应，而非电生理折返问题。"
           },
           {
-            "refId": "D",
+            "refId": "A",
             "en": "Carotid sinus massage is a vagal maneuver used to slow supraventricular tachycardia (SVT); it is not indicated or effective for compensatory sinus tachycardia.",
             "zh": "颈动脉窦按摩是用于减慢室上性心动过速（SVT）的迷走神经反射法；它对于代偿性窦性心动过速无效且无指征。"
           }
@@ -1318,27 +1318,27 @@
       "options": [
         {
           "id": "A",
-          "en": "Hold the next dose of albuterol and notify the healthcare provider immediately",
-          "zh": "暂停下一次沙丁胺醇给药并立即通知医生"
-        },
-        {
-          "id": "B",
           "en": "Reassure the client that this is an expected medication effect and monitor",
           "zh": "向患者解释这是预期的药物作用并进行监测"
         },
         {
-          "id": "C",
+          "id": "B",
           "en": "Request an emergent cardiology consultation",
           "zh": "申请紧急心血管科会诊"
         },
         {
-          "id": "D",
+          "id": "C",
           "en": "Prepare to administer a dose of intravenous beta-blocker",
           "zh": "准备使用一剂静脉β受体阻滞剂"
+        },
+        {
+          "id": "D",
+          "en": "Hold the next dose of albuterol and notify the healthcare provider immediately",
+          "zh": "暂停下一次沙丁胺醇给药并立即通知医生"
         }
       ],
       "correct": [
-        "B"
+        "A"
       ],
       "rationale": {
         "correct": {
@@ -1347,22 +1347,22 @@
         },
         "byChoice": [
           {
-            "refId": "A",
+            "refId": "D",
             "en": "Holding the albuterol treatment could lead to worsening bronchospasm, which is a life-threatening airway concern. The tachycardia is expected and does not warrant withholding the drug in this stable client.",
             "zh": "暂停沙丁胺醇治疗可能会导致支气管痉挛恶化，这属于危及气道的生命危险。对于该稳定的患者，心动过速是预期反应，不需暂停用药。"
           },
           {
-            "refId": "B",
+            "refId": "A",
             "en": "Correct. Tachycardia is a well-known, transient side effect of albuterol that does not require stopping therapy or medical intervention in stable clients.",
             "zh": "正确。心动过速是沙丁胺醇熟知的、一过性副作用，对于稳定患者不需要停止治疗或进行医疗干预。"
           },
           {
-            "refId": "C",
+            "refId": "B",
             "en": "A cardiology consult is inappropriate and unnecessary for a transient, drug-induced sinus tachycardia.",
             "zh": "对于药物引起的短暂窦性心动过速，进行心脏科会诊是不合适且不必要的。"
           },
           {
-            "refId": "D",
+            "refId": "C",
             "en": "Administering a beta-blocker would cause bronchoconstriction and reverse the therapeutic bronchodilator effects of albuterol, potentially triggering a severe, life-threatening asthma attack.",
             "zh": "给药β受体阻滞剂会导致支气管收缩，逆转沙丁胺醇的支气管扩张治疗作用，可能诱发严重且危及生命的哮喘发作。"
           }
@@ -1410,27 +1410,27 @@
       "options": [
         {
           "id": "A",
-          "en": "Atrial Flutter",
-          "zh": "心房扑动"
-        },
-        {
-          "id": "B",
-          "en": "Atrial Fibrillation",
-          "zh": "心房颤动"
-        },
-        {
-          "id": "C",
           "en": "Sinus Arrhythmia",
           "zh": "窦性心律不齐"
         },
         {
-          "id": "D",
+          "id": "B",
           "en": "Supraventricular Tachycardia (SVT)",
           "zh": "室上性心动过速"
+        },
+        {
+          "id": "C",
+          "en": "Atrial Fibrillation",
+          "zh": "心房颤动"
+        },
+        {
+          "id": "D",
+          "en": "Atrial Flutter",
+          "zh": "心房扑动"
         }
       ],
       "correct": [
-        "B"
+        "C"
       ],
       "rationale": {
         "correct": {
@@ -1439,22 +1439,22 @@
         },
         "byChoice": [
           {
-            "refId": "A",
+            "refId": "D",
             "en": "Atrial flutter presents with a regular or irregular rate but is characterized by regular, saw-tooth shaped 'F' waves, not wavy baseline.",
             "zh": "心房扑动表现为规则或不规则的心率，但其特征是规则的、呈锯齿状的“F”波，而非波浪状基线。"
           },
           {
-            "refId": "B",
+            "refId": "C",
             "en": "Correct. The strip shows no P waves and a highly irregular rhythm, diagnostic of atrial fibrillation.",
             "zh": "正确。心电图显示没有P波且心律高度不规则，是心房颤动的诊断特征。"
           },
           {
-            "refId": "C",
+            "refId": "A",
             "en": "Sinus arrhythmia is irregular but contains normal, uniform P waves before every narrow QRS complex, and is associated with respiratory cycles.",
             "zh": "窦性心律不齐是不规则的，但在每个窄QRS波群前都有正常、一致的P波，且与呼吸周期相关。"
           },
           {
-            "refId": "D",
+            "refId": "B",
             "en": "SVT presents as a fast, regular rhythm (usually >150 bpm) with narrow QRS complexes and typically hidden or abnormal P waves, not irregular wavy baseline.",
             "zh": "SVT表现为快速、规则的心律（通常 >150 次/分），伴有窄QRS波群，且P波通常隐藏或异常，而非不规则的波浪状基线。"
           }
@@ -1594,27 +1594,27 @@
       "options": [
         {
           "id": "A",
-          "en": "Ventricular Tachycardia",
-          "zh": "室性心动过速"
+          "en": "Atrial Fibrillation",
+          "zh": "心房颤动"
         },
         {
           "id": "B",
-          "en": "Supraventricular Tachycardia (SVT)",
-          "zh": "室上性心动过速"
-        },
-        {
-          "id": "C",
           "en": "Sinus Tachycardia",
           "zh": "窦性心动过速"
         },
         {
+          "id": "C",
+          "en": "Supraventricular Tachycardia (SVT)",
+          "zh": "室上性心动过速"
+        },
+        {
           "id": "D",
-          "en": "Atrial Fibrillation",
-          "zh": "心房颤动"
+          "en": "Ventricular Tachycardia",
+          "zh": "室性心动过速"
         }
       ],
       "correct": [
-        "B"
+        "C"
       ],
       "rationale": {
         "correct": {
@@ -1623,22 +1623,22 @@
         },
         "byChoice": [
           {
-            "refId": "A",
+            "refId": "D",
             "en": "Ventricular tachycardia is characterized by wide QRS complexes (usually >0.12 seconds), not narrow QRS complexes.",
             "zh": "室性心动过速的特征是宽QRS波群（通常 >0.12秒），而非窄QRS波群。"
           },
           {
-            "refId": "B",
+            "refId": "C",
             "en": "Correct. The strip demonstrates a rapid, regular, narrow-QRS rhythm with buried P waves, characteristic of SVT.",
             "zh": "正确。心电图条显示快速、规整、窄QRS波心律伴有埋入的P波，这是SVT的特征。"
           },
           {
-            "refId": "C",
+            "refId": "B",
             "en": "Sinus tachycardia is a gradual acceleration (not sudden jump) and usually features distinct, upright P waves preceding each QRS complex.",
             "zh": "窦性心动过速是逐渐加速的（而不是突然跳跃），且通常每个QRS波群前都有明显的直立P波。"
           },
           {
-            "refId": "D",
+            "refId": "A",
             "en": "Atrial fibrillation is characterized by an irregularly irregular rhythm, not a highly regular rhythm.",
             "zh": "心房颤动的特征是绝对不规则的心律，而非高度规整的心律。"
           }
@@ -1686,27 +1686,27 @@
       "options": [
         {
           "id": "A",
-          "en": "Instruct the client to cough forcefully or bear down",
-          "zh": "指示患者用力咳嗽或屏气向下用力"
-        },
-        {
-          "id": "B",
           "en": "Administer metoprolol 5 mg intravenously",
           "zh": "静脉注射美托洛尔 5 mg"
         },
         {
+          "id": "B",
+          "en": "Instruct the client to cough forcefully or bear down",
+          "zh": "指示患者用力咳嗽或屏气向下用力"
+        },
+        {
           "id": "C",
-          "en": "Administer adenosine 6 mg rapid IV push",
-          "zh": "快速静脉注射腺苷 6 mg"
+          "en": "Prepare the client for emergent synchronized cardioversion",
+          "zh": "为患者进行紧急同步电复律做准备"
         },
         {
           "id": "D",
-          "en": "Prepare the client for emergent synchronized cardioversion",
-          "zh": "为患者进行紧急同步电复律做准备"
+          "en": "Administer adenosine 6 mg rapid IV push",
+          "zh": "快速静脉注射腺苷 6 mg"
         }
       ],
       "correct": [
-        "A"
+        "B"
       ],
       "rationale": {
         "correct": {
@@ -1715,22 +1715,22 @@
         },
         "byChoice": [
           {
-            "refId": "A",
+            "refId": "B",
             "en": "Correct. Standard vagal maneuvers (bearing down/Valsalva, coughing) are the first-line, least invasive intervention for stable SVT.",
             "zh": "正确。标准的迷走神经动作（向下用力/瓦氏动作、咳嗽）是稳定型SVT的首选、微创干预措施。"
           },
           {
-            "refId": "B",
+            "refId": "A",
             "en": "Metoprolol (beta-blocker) can be used to control rate/rhythm but is considered a second-line therapy after vagal maneuvers and adenosine have failed.",
             "zh": "美托洛尔（β受体阻滞剂）可用于控制频率/心律，但它被认为是在迷走神经反射和腺苷失败后的二线治疗方法。"
           },
           {
-            "refId": "C",
+            "refId": "D",
             "en": "Adenosine 6 mg IV push is the first-line pharmacological agent for SVT, but it is implemented *after* non-pharmacological vagal maneuvers fail.",
             "zh": "快速静脉注射腺苷 6 mg是SVT的首选药物，但在非药物性迷走神经动作失败*之后*执行。"
           },
           {
-            "refId": "D",
+            "refId": "C",
             "en": "Synchronized cardioversion is reserved for hemodynamically unstable SVT (e.g., severe hypotension, acute heart failure, altered mental status). This client is stable (BP 112/74).",
             "zh": "同步电复律保留给血流动力学不稳定的SVT（如严重低血压、急性心力衰竭、意识改变）。该患者目前稳定（血压 112/74）。"
           }
@@ -1783,22 +1783,22 @@
         },
         {
           "id": "B",
-          "en": "Administer as a rapid intravenous push over 1 to 2 seconds followed immediately by a saline flush",
-          "zh": "在1至2秒内快速静脉推注，并立即用生理盐水冲管"
-        },
-        {
-          "id": "C",
           "en": "Administer through a peripheral IV in the hand or foot over 1 minute",
           "zh": "在1分钟内通过手部或足部的外周静脉给药"
         },
         {
-          "id": "D",
+          "id": "C",
           "en": "Dilute the drug in 50 mL of 5% dextrose in water and administer slowly",
           "zh": "将药物稀释在 50 mL 5% 葡萄糖注射液中并缓慢推注"
+        },
+        {
+          "id": "D",
+          "en": "Administer as a rapid intravenous push over 1 to 2 seconds followed immediately by a saline flush",
+          "zh": "在1至2秒内快速静脉推注，并立即用生理盐水冲管"
         }
       ],
       "correct": [
-        "B"
+        "D"
       ],
       "rationale": {
         "correct": {
@@ -1812,17 +1812,17 @@
             "zh": "缓慢输注会导致药物在体循环中被完全代谢，然后才能到达靶心肌组织，从而使其无效。"
           },
           {
-            "refId": "B",
+            "refId": "D",
             "en": "Correct. A rapid IV push over 1 to 2 seconds followed by an immediate flush is the mandatory administration method for adenosine due to its short half-life.",
             "zh": "正确。由于腺苷半衰期短，在1-2秒内快速静脉推注并立即冲洗是必须要采用的给药方法。"
           },
           {
-            "refId": "C",
+            "refId": "B",
             "en": "Hand or foot veins are too distal, allowing too much time for drug metabolism. An antecubital vein or central line is required. Giving it over 1 minute is also too slow.",
             "zh": "手部或足部静脉过远，这为药物代谢提供了太多时间。需要肘正中静脉或深静脉。在1分钟内给药也太慢了。"
           },
           {
-            "refId": "D",
+            "refId": "C",
             "en": "Adenosine should not be diluted in large volumes of fluid or administered slowly as it inactivates rapidly.",
             "zh": "腺苷不应在大体积液体中稀释或缓慢给药，因为它会迅速失活。"
           }
@@ -1987,18 +1987,18 @@
       "options": [
         {
           "id": "A",
+          "en": "Second-Degree Heart Block Mobitz I",
+          "zh": "二度房室传导阻滞莫氏I型"
+        },
+        {
+          "id": "B",
           "en": "Atrial Fibrillation",
           "zh": "心房颤动"
         },
         {
-          "id": "B",
+          "id": "C",
           "en": "Atrial Flutter with 4:1 conduction",
           "zh": "伴 4:1 传导的心房扑动"
-        },
-        {
-          "id": "C",
-          "en": "Second-Degree Heart Block Mobitz I",
-          "zh": "二度房室传导阻滞莫氏I型"
         },
         {
           "id": "D",
@@ -2007,7 +2007,7 @@
         }
       ],
       "correct": [
-        "B"
+        "C"
       ],
       "rationale": {
         "correct": {
@@ -2016,17 +2016,17 @@
         },
         "byChoice": [
           {
-            "refId": "A",
+            "refId": "B",
             "en": "Atrial fibrillation is highly irregular and has a wavy, irregular baseline without a structured saw-tooth pattern.",
             "zh": "心房颤动是高度不规则的，且基线波浪起伏、不规则，没有结构性的锯齿状模式。"
           },
           {
-            "refId": "B",
+            "refId": "C",
             "en": "Correct. The saw-tooth appearance of the baseline and the regular 4:1 relationship (atrial rate 300 / ventricular rate 75) is diagnostic of atrial flutter.",
             "zh": "正确。基线的锯齿状外观和规则的 4:1 关系（心房率300/心室率75）是心房扑动的诊断特征。"
           },
           {
-            "refId": "C",
+            "refId": "A",
             "en": "Second-degree heart block Mobitz I shows progressive PR interval prolongation leading to a dropped QRS, not a regular saw-tooth flutter pattern.",
             "zh": "二度房室传导阻滞莫氏I型显示PR间期进行性延长直到一个QRS波脱落，而不是规则的锯齿状扑动模式。"
           },
@@ -2079,27 +2079,27 @@
       "options": [
         {
           "id": "A",
-          "en": "Beta-blocker or calcium channel blocker",
-          "zh": "β受体阻滞剂或钙通道阻滞剂"
-        },
-        {
-          "id": "B",
           "en": "Intravenous epinephrine",
           "zh": "静脉注射肾上腺素"
         },
         {
+          "id": "B",
+          "en": "Beta-blocker or calcium channel blocker",
+          "zh": "β受体阻滞剂或钙通道阻滞剂"
+        },
+        {
           "id": "C",
-          "en": "Platelet aggregation inhibitors",
-          "zh": "血小板聚集抑制剂"
+          "en": "Intravenous atropine",
+          "zh": "静脉注射阿托品"
         },
         {
           "id": "D",
-          "en": "Intravenous atropine",
-          "zh": "静脉注射阿托品"
+          "en": "Platelet aggregation inhibitors",
+          "zh": "血小板聚集抑制剂"
         }
       ],
       "correct": [
-        "A"
+        "B"
       ],
       "rationale": {
         "correct": {
@@ -2108,22 +2108,22 @@
         },
         "byChoice": [
           {
-            "refId": "A",
+            "refId": "B",
             "en": "Correct. Beta-blockers and non-dihydropyridine calcium channel blockers are the standard first-line drugs used for rate control in acute AFib.",
             "zh": "正确。β受体阻滞剂和非二氢吡啶类钙通道阻滞剂是急性房颤率控制的标准一线药物。"
           },
           {
-            "refId": "B",
+            "refId": "A",
             "en": "Epinephrine is a sympathetic stimulant that increases heart rate and contractility; it would dangerously accelerate the ventricular rate.",
             "zh": "肾上腺素是交感神经兴奋剂，可增加心率和收缩力；这会危险地加速心室率。"
           },
           {
-            "refId": "C",
+            "refId": "D",
             "en": "Platelet inhibitors (like aspirin) or anticoagulants are important for stroke prevention, but they do not actively reduce the heart rate.",
             "zh": "血小板抑制剂（如阿司匹林）或抗凝剂对于防脑卒中很重要，但它们不能主动减慢心率。"
           },
           {
-            "refId": "D",
+            "refId": "C",
             "en": "Atropine is an anticholinergic used to speed up the heart in bradycardia. It is contraindicated in tachycardia.",
             "zh": "阿托品是一种抗胆碱能药物，用于在心动过缓时加快心率。在心动过速中属禁忌。"
           }
@@ -2403,27 +2403,27 @@
       "options": [
         {
           "id": "A",
-          "en": "First-Degree Atrioventricular (AV) Block",
-          "zh": "一度房室（AV）传导阻滞"
-        },
-        {
-          "id": "B",
           "en": "Second-Degree AV Block Mobitz I",
           "zh": "二度AV传导阻滞莫氏I型"
         },
         {
+          "id": "B",
+          "en": "First-Degree Atrioventricular (AV) Block",
+          "zh": "一度房室（AV）传导阻滞"
+        },
+        {
           "id": "C",
-          "en": "Second-Degree AV Block Mobitz II",
-          "zh": "二度AV传导阻滞莫氏II型"
+          "en": "Third-Degree (Complete) AV Block",
+          "zh": "三度（完全性）房室传导阻滞"
         },
         {
           "id": "D",
-          "en": "Third-Degree (Complete) AV Block",
-          "zh": "三度（完全性）房室传导阻滞"
+          "en": "Second-Degree AV Block Mobitz II",
+          "zh": "二度AV传导阻滞莫氏II型"
         }
       ],
       "correct": [
-        "A"
+        "B"
       ],
       "rationale": {
         "correct": {
@@ -2432,22 +2432,22 @@
         },
         "byChoice": [
           {
-            "refId": "A",
+            "refId": "B",
             "en": "Correct. A PR interval constant at 0.26 seconds (exceeding the normal 0.20-second limit) with no dropped complexes defines a first-degree AV block.",
             "zh": "正确。PR间期恒定在0.26秒（超过正常的0.20秒限制）且无QRS波群脱落定义为一度房室传导阻滞。"
           },
           {
-            "refId": "B",
+            "refId": "A",
             "en": "Second-degree Mobitz I (Wenckebach) features a PR interval that progressively lengthens until a QRS complex is completely dropped.",
             "zh": "二度莫氏I型（文氏）的特征是PR间期进行性延长，直到一个QRS波群完全脱落。"
           },
           {
-            "refId": "C",
+            "refId": "D",
             "en": "Second-degree Mobitz II features constant PR intervals but intermittent, sudden dropped QRS complexes.",
             "zh": "二度莫氏II型的特征是PR间期恒定，但有间歇性、突然脱落的QRS波群。"
           },
           {
-            "refId": "D",
+            "refId": "C",
             "en": "Third-degree heart block is characterized by complete AV dissociation; there is no relationship between P waves and QRS complexes, and the PR interval varies randomly.",
             "zh": "三度房室传导阻滞以完全性房室分离为特征；P波与QRS波群之间没有关系，且PR间期随机变化。"
           }
@@ -2501,13 +2501,13 @@
         },
         {
           "id": "B",
-          "en": "Hold the metoprolol and notify the healthcare provider",
-          "zh": "暂停使用美托洛尔并通知医生"
+          "en": "Prepare for transcutaneous pacemaker insertion",
+          "zh": "准备经皮起搏器植入"
         },
         {
           "id": "C",
-          "en": "Prepare for transcutaneous pacemaker insertion",
-          "zh": "准备经皮起搏器植入"
+          "en": "Hold the metoprolol and notify the healthcare provider",
+          "zh": "暂停使用美托洛尔并通知医生"
         },
         {
           "id": "D",
@@ -2516,7 +2516,7 @@
         }
       ],
       "correct": [
-        "B"
+        "C"
       ],
       "rationale": {
         "correct": {
@@ -2530,12 +2530,12 @@
             "zh": "在已经存在传导阻滞时给予β受体阻滞剂会加重传导延迟，导致有症状的心动过缓或完全性阻滞。"
           },
           {
-            "refId": "B",
+            "refId": "C",
             "en": "Correct. The nurse should withhold metoprolol because it is an AV node blocking agent that can cause progression of the heart block.",
             "zh": "正确。护士应暂停美托洛尔，因为它是房室结阻滞剂，可导致房室传导阻滞进行性加重。"
           },
           {
-            "refId": "C",
+            "refId": "B",
             "en": "Pacing is not needed for a stable, asymptomatic first-degree AV block.",
             "zh": "对于稳定的、无症状的一度房室传导阻滞，不需要起搏治疗。"
           },
@@ -2583,13 +2583,13 @@
       "options": [
         {
           "id": "A",
-          "en": "Second-Degree AV Block Mobitz I (Wenckebach)",
-          "zh": "二度房室传导阻滞莫氏I型（文氏）"
+          "en": "Second-Degree AV Block Mobitz II",
+          "zh": "二度房室传导阻滞莫氏II型"
         },
         {
           "id": "B",
-          "en": "Second-Degree AV Block Mobitz II",
-          "zh": "二度房室传导阻滞莫氏II型"
+          "en": "Third-Degree (Complete) AV Block",
+          "zh": "三度（完全性）房室传导阻滞"
         },
         {
           "id": "C",
@@ -2598,12 +2598,12 @@
         },
         {
           "id": "D",
-          "en": "Third-Degree (Complete) AV Block",
-          "zh": "三度（完全性）房室传导阻滞"
+          "en": "Second-Degree AV Block Mobitz I (Wenckebach)",
+          "zh": "二度房室传导阻滞莫氏I型（文氏）"
         }
       ],
       "correct": [
-        "A"
+        "D"
       ],
       "rationale": {
         "correct": {
@@ -2612,12 +2612,12 @@
         },
         "byChoice": [
           {
-            "refId": "A",
+            "refId": "D",
             "en": "Correct. The progressive lengthening of the PR interval followed by a dropped QRS complex is the hallmark of Second-Degree Mobitz I (Wenckebach).",
             "zh": "正确。PR间期进行性延长随后紧跟QRS波群脱落是二度莫氏I型（文氏）的标志性特征。"
           },
           {
-            "refId": "B",
+            "refId": "A",
             "en": "Mobitz II features constant PR intervals prior to dropped QRS complexes; it does not show progressive lengthening.",
             "zh": "莫氏II型在QRS波群脱落前具有恒定的PR间期；它不显示进行性延长。"
           },
@@ -2627,7 +2627,7 @@
             "zh": "一度房室传导阻滞显示延长但恒定的PR间期，没有波群脱落。"
           },
           {
-            "refId": "D",
+            "refId": "B",
             "en": "Third-degree AV block shows complete AV dissociation with randomly varying PR-like intervals; there is no repeating cycle of progressive prolongation.",
             "zh": "三度房室传导阻滞显示完全性房室分离，伴有随机变化的类PR间期；没有进行性延长的重复周期。"
           }
@@ -2675,13 +2675,13 @@
         },
         {
           "id": "B",
-          "en": "Apply external pacing pads and initiate pacing at 60 mA",
-          "zh": "贴上体外起搏电极板并以 60 mA 开始起搏"
+          "en": "Administer atropine 1 mg intravenously immediately",
+          "zh": "立即静脉注射阿托品 1 mg"
         },
         {
           "id": "C",
-          "en": "Administer atropine 1 mg intravenously immediately",
-          "zh": "立即静脉注射阿托品 1 mg"
+          "en": "Apply external pacing pads and initiate pacing at 60 mA",
+          "zh": "贴上体外起搏电极板并以 60 mA 开始起搏"
         },
         {
           "id": "D",
@@ -2704,12 +2704,12 @@
             "zh": "正确。稳定的莫氏I型患者不需要立即进行紧急干预；监测和记录是正确的。"
           },
           {
-            "refId": "B",
+            "refId": "C",
             "en": "Transcutaneous pacing is highly painful and invasive, and is only indicated for severe, symptomatic, drug-resistant bradycardia.",
             "zh": "经皮起搏非常疼痛且具有侵入性，仅适用于严重的、有症状的、药物耐药的心动过缓。"
           },
           {
-            "refId": "C",
+            "refId": "B",
             "en": "Atropine is indicated only for symptomatic bradycardia (e.g. hypotensive, altered consciousness). It is not given to stable clients.",
             "zh": "阿托品仅适用于有症状的心动过缓（例如低血压、意识改变）。不给予稳定的患者。"
           },
@@ -2721,7 +2721,7 @@
         ]
       },
       "testTakingStrategy": {
-        "en": "Determine if the client is stable: BP 114/70, warm extremities, awake, and alert. For stable heart blocks (first-degree and Mobitz I), the standard action is monitoring and documentation rather than immediate invasive therapies. Eliminate options B, C, and D.",
+        "en": "Determine if the client is stable: BP 114/70, warm extremities, awake, and alert. For stable heart blocks (first-degree and Mobitz I), the standard action is monitoring and documentation rather than immediate invasive therapies. Eliminate options A, B, and D.",
         "zh": "确定患者是否稳定：血压114/70，四肢温暖，清醒且警觉。对于稳定的房室传导阻滞（一度和莫氏I型），标准措施是监测和记录，而不是立即进行侵入性治疗。排除选项B、C和D。"
       },
       "glossary": [
@@ -2757,27 +2757,27 @@
       "options": [
         {
           "id": "A",
-          "en": "Second-Degree AV Block Mobitz II",
-          "zh": "二度房室传导阻滞莫氏II型"
-        },
-        {
-          "id": "B",
-          "en": "Second-Degree AV Block Mobitz I",
-          "zh": "二度房室传导阻滞莫氏I型"
-        },
-        {
-          "id": "C",
           "en": "Third-Degree AV Block",
           "zh": "三度房室传导阻滞"
         },
         {
-          "id": "D",
+          "id": "B",
           "en": "Premature Atrial Contractions (PACs) with block",
           "zh": "房性期前收缩伴阻滞"
+        },
+        {
+          "id": "C",
+          "en": "Second-Degree AV Block Mobitz II",
+          "zh": "二度房室传导阻滞莫氏II型"
+        },
+        {
+          "id": "D",
+          "en": "Second-Degree AV Block Mobitz I",
+          "zh": "二度房室传导阻滞莫氏I型"
         }
       ],
       "correct": [
-        "A"
+        "C"
       ],
       "rationale": {
         "correct": {
@@ -2786,22 +2786,22 @@
         },
         "byChoice": [
           {
-            "refId": "A",
+            "refId": "C",
             "en": "Correct. Constant PR intervals prior to a sudden blocked/dropped QRS complex is diagnostic of Second-Degree Mobitz II.",
             "zh": "正确。突然阻塞/脱落QRS波群前PR间期恒定是二度莫氏II型的诊断特征。"
           },
           {
-            "refId": "B",
+            "refId": "D",
             "en": "Mobitz I shows progressive elongation of the PR interval before a QRS is dropped, which is not present in this constant PR rhythm.",
             "zh": "莫氏I型显示QRS波脱落前PR间期进行性延长，这在此恒定PR间期心律中不存在。"
           },
           {
-            "refId": "C",
+            "refId": "A",
             "en": "Third-degree block shows complete dissociation (P waves and QRS complexes have no relationship and variable PR-like intervals). In Mobitz II, conducted beats have constant, fixed PR relationships.",
             "zh": "三度传导阻滞显示完全性分离（P波与QRS波群无关系，且类PR间期变化多端）。在莫氏II型中，下传搏动具有恒定、固定的PR关系。"
           },
           {
-            "refId": "D",
+            "refId": "B",
             "en": "Non-conducted PACs feature premature, abnormally shaped P waves that occur early in the cycle, whereas Mobitz II features regular, sinus-origin P waves occurring on time.",
             "zh": "未下传的房早以在周期中提早出现、形态异常的P波为特征，而莫氏II型则以按时出现的规则、窦性P波为特征。"
           }
@@ -2849,13 +2849,13 @@
       "options": [
         {
           "id": "A",
-          "en": "Administer atropine 1 mg IV push",
-          "zh": "静脉注射阿托品 1 mg"
+          "en": "Apply transcutaneous pacing pads and prepare to initiate pacing",
+          "zh": "贴上经皮起搏电极板并准备开始起搏"
         },
         {
           "id": "B",
-          "en": "Apply transcutaneous pacing pads and prepare to initiate pacing",
-          "zh": "贴上经皮起搏电极板并准备开始起搏"
+          "en": "Instruct the client to perform a Valsalva maneuver",
+          "zh": "指导患者进行瓦萨瓦动作"
         },
         {
           "id": "C",
@@ -2864,12 +2864,12 @@
         },
         {
           "id": "D",
-          "en": "Instruct the client to perform a Valsalva maneuver",
-          "zh": "指导患者进行瓦萨瓦动作"
+          "en": "Administer atropine 1 mg IV push",
+          "zh": "静脉注射阿托品 1 mg"
         }
       ],
       "correct": [
-        "B"
+        "A"
       ],
       "rationale": {
         "correct": {
@@ -2878,12 +2878,12 @@
         },
         "byChoice": [
           {
-            "refId": "A",
+            "refId": "D",
             "en": "Atropine is usually ineffective for blocks below the AV node (like Mobitz II) and is not the primary treatment choice over direct electrical pacing in an unstable client.",
             "zh": "阿托品对于房室结下方阻滞（如莫氏II型）通常无效，在不稳定患者中不是优于直接电学起搏的首选治疗。"
           },
           {
-            "refId": "B",
+            "refId": "A",
             "en": "Correct. Immediate transcutaneous pacing is the treatment of choice for symptomatic Mobitz II, as it bypassing the sub-nodal block to restore output.",
             "zh": "正确。对于有症状的莫氏II型，立即进行经皮起搏是首选的治疗方法，因为它可以绕过结下阻滞以恢复输出。"
           },
@@ -2893,7 +2893,7 @@
             "zh": "CABG是一种大型外科血管重建手术，不是急性心脏传导阻滞的一线紧急干预措施。"
           },
           {
-            "refId": "D",
+            "refId": "B",
             "en": "A Valsalva maneuver is a vagal maneuver that slows conduction; it would worsen bradycardia and hypotension in this client.",
             "zh": "瓦萨瓦动作是减慢传导的迷走神经动作；这会加重该患者的心动过缓和低血压。"
           }
@@ -2941,13 +2941,13 @@
       "options": [
         {
           "id": "A",
-          "en": "Second-Degree AV Block Mobitz II",
-          "zh": "二度房室传导阻滞莫氏II型"
+          "en": "Third-Degree (Complete) AV Block",
+          "zh": "三度（完全性）房室传导阻滞"
         },
         {
           "id": "B",
-          "en": "Third-Degree (Complete) AV Block",
-          "zh": "三度（完全性）房室传导阻滞"
+          "en": "Second-Degree AV Block Mobitz II",
+          "zh": "二度房室传导阻滞莫氏II型"
         },
         {
           "id": "C",
@@ -2961,7 +2961,7 @@
         }
       ],
       "correct": [
-        "B"
+        "A"
       ],
       "rationale": {
         "correct": {
@@ -2970,12 +2970,12 @@
         },
         "byChoice": [
           {
-            "refId": "A",
+            "refId": "B",
             "en": "Mobitz II features constant, fixed PR intervals for all conducted beats; there is no complete dissociation of P waves.",
             "zh": "莫氏II型在所有下传的搏动中具有恒定、固定的PR间期；不存在P波与QRS波的完全分离。"
           },
           {
-            "refId": "B",
+            "refId": "A",
             "en": "Correct. Complete dissociation between P waves (rate 80) and QRS complexes (rate 35) is the hallmark of a third-degree AV block.",
             "zh": "正确。P波（心率80）与QRS波群（心率35）的完全分离是三度房室传导阻滞的标志。"
           },
@@ -2992,7 +2992,7 @@
         ]
       },
       "testTakingStrategy": {
-        "en": "Identify the key phrase 'no temporal relationship to each other' (or 'AV dissociation'). Complete dissociation of atria and ventricles always indicates a Third-Degree (Complete) AV Block. Select option B.",
+        "en": "Identify the key phrase 'no temporal relationship to each other' (or 'AV dissociation'). Complete dissociation of atria and ventricles always indicates a Third-Degree (Complete) AV Block. Select Option D.",
         "zh": "识别关键短语“彼此之间没有时间关系”（或“房室分离”）。心房和心室的完全分离总是提示三度（完全性）房室传导阻滞。选择选项B。"
       },
       "glossary": [
@@ -3143,18 +3143,18 @@
       "options": [
         {
           "id": "A",
-          "en": "Permanent pacemaker insertion",
-          "zh": "永久性起搏器植入"
-        },
-        {
-          "id": "B",
           "en": "Long-term oral atropine therapy",
           "zh": "长期口服阿托品治疗"
         },
         {
-          "id": "C",
+          "id": "B",
           "en": "Coronary angioplasty with stent placement",
           "zh": "伴支架置入的冠状动脉血管成形术"
+        },
+        {
+          "id": "C",
+          "en": "Permanent pacemaker insertion",
+          "zh": "永久性起搏器植入"
         },
         {
           "id": "D",
@@ -3163,7 +3163,7 @@
         }
       ],
       "correct": [
-        "A"
+        "C"
       ],
       "rationale": {
         "correct": {
@@ -3172,17 +3172,17 @@
         },
         "byChoice": [
           {
-            "refId": "A",
+            "refId": "C",
             "en": "Correct. Permanent pacemaker insertion is the definitive treatment for complete heart block to restore cardiac pacing.",
             "zh": "正确。植入永久性起搏器是完全性心脏传导阻滞以恢复心脏起搏的确定性治疗。"
           },
           {
-            "refId": "B",
+            "refId": "A",
             "en": "Atropine is not available as an oral medication for long-term cardiac pacing and is ineffective for complete blocks.",
             "zh": "阿托品没有口服剂型可用于长期心脏起搏，且对完全性阻滞无效。"
           },
           {
-            "refId": "C",
+            "refId": "B",
             "en": "While CAD can cause blocks, angioplasty is not the immediate, direct treatment to restore cardiac conduction in complete heart block.",
             "zh": "虽然冠心病可引起传导阻滞，但在完全性心脏传导阻滞中，血管成形术不是恢复心脏传导的直接、首选治疗。"
           },
@@ -3442,22 +3442,22 @@
         },
         {
           "id": "B",
-          "en": "Serum potassium level",
-          "zh": "血清钾水平"
-        },
-        {
-          "id": "C",
           "en": "Serum creatinine level",
           "zh": "血清肌酐水平"
         },
         {
-          "id": "D",
+          "id": "C",
           "en": "Hemoglobin level",
           "zh": "血红蛋白水平"
+        },
+        {
+          "id": "D",
+          "en": "Serum potassium level",
+          "zh": "血清钾水平"
         }
       ],
       "correct": [
-        "B"
+        "D"
       ],
       "rationale": {
         "correct": {
@@ -3471,17 +3471,17 @@
             "zh": "钠失衡主要引起中枢神经系统症状（如抽搐、意识模糊）而非急性心室易激惹。"
           },
           {
-            "refId": "B",
+            "refId": "D",
             "en": "Correct. Potassium levels directly affect myocardial membrane potential; hypokalemia/hyperkalemia are major triggers of ventricular ectopy.",
             "zh": "正确。钾水平直接影响心肌细胞膜电位；低钾血症/高钾血症是室性异位搏动的主要诱因。"
           },
           {
-            "refId": "C",
+            "refId": "B",
             "en": "Creatinine reflects renal function; while renal failure can lead to hyperkalemia, potassium is the direct electrolyte trigger to check.",
             "zh": "肌酐反映肾功能；虽然肾衰竭会导致高钾血症，但钾才是需要直接查看的电解质诱因。"
           },
           {
-            "refId": "D",
+            "refId": "C",
             "en": "Hemoglobin reflects oxygen-carrying capacity; while severe anemia/hypoxia can cause tachycardia, electrolyte imbalance (potassium) is the direct trigger for PVCs.",
             "zh": "血红蛋白反映携氧能力；虽然严重的贫血/缺氧会引起心动过速，但电解质失衡（钾）才是室早的直接诱因。"
           }
@@ -3530,18 +3530,18 @@
       "options": [
         {
           "id": "A",
-          "en": "Supraventricular Tachycardia (SVT)",
-          "zh": "室上性心动过速"
-        },
-        {
-          "id": "B",
           "en": "Ventricular Fibrillation (VFib)",
           "zh": "心室颤动"
         },
         {
-          "id": "C",
+          "id": "B",
           "en": "Monomorphic Ventricular Tachycardia",
           "zh": "单形性室性心动过速"
+        },
+        {
+          "id": "C",
+          "en": "Supraventricular Tachycardia (SVT)",
+          "zh": "室上性心动过速"
         },
         {
           "id": "D",
@@ -3550,7 +3550,7 @@
         }
       ],
       "correct": [
-        "C"
+        "B"
       ],
       "rationale": {
         "correct": {
@@ -3559,17 +3559,17 @@
         },
         "byChoice": [
           {
-            "refId": "A",
+            "refId": "C",
             "en": "SVT features narrow QRS complexes (<0.12 seconds) because the pathway is supraventricular, using the normal conduction system.",
             "zh": "SVT以窄QRS波群（<0.12秒）为特征，因为传导通路在心室以上，使用的是正常的传导系统。"
           },
           {
-            "refId": "B",
+            "refId": "A",
             "en": "Ventricular fibrillation is chaotic and completely irregular with no distinct QRS complexes or organization.",
             "zh": "心室颤动是混乱且完全不规则的，没有清晰的QRS波群或组织结构。"
           },
           {
-            "refId": "C",
+            "refId": "B",
             "en": "Correct. A rapid, regular, wide-QRS rhythm with uniform complexes defines monomorphic ventricular tachycardia.",
             "zh": "正确。快速、规整、伴有一致波群的宽QRS波群心律定义了单形性室性心动过速。"
           },
@@ -3628,13 +3628,13 @@
         },
         {
           "id": "B",
-          "en": "Deliver an unsynchronized defibrillation shock",
-          "zh": "进行非同步电除颤"
+          "en": "Administer amiodarone 150 mg intravenously over 10 minutes",
+          "zh": "10分钟内静脉输注胺碘酮 150 mg"
         },
         {
           "id": "C",
-          "en": "Administer amiodarone 150 mg intravenously over 10 minutes",
-          "zh": "10分钟内静脉输注胺碘酮 150 mg"
+          "en": "Deliver an unsynchronized defibrillation shock",
+          "zh": "进行非同步电除颤"
         },
         {
           "id": "D",
@@ -3643,7 +3643,7 @@
         }
       ],
       "correct": [
-        "B"
+        "C"
       ],
       "rationale": {
         "correct": {
@@ -3657,12 +3657,12 @@
             "zh": "同步电复律需要有脉搏，用于有脉搏的稳定或不稳定型心动过速。在心脏骤停（无脉搏）时，需要进行非同步除颤。"
           },
           {
-            "refId": "B",
+            "refId": "C",
             "en": "Correct. Pulseless VT is a shockable cardiac arrest rhythm requiring immediate unsynchronized defibrillation.",
             "zh": "正确。无脉性室房速是一种可除颤的心脏骤停心律，需要立即进行非同步电除颤。"
           },
           {
-            "refId": "C",
+            "refId": "B",
             "en": "Amiodarone is used in cardiac arrest only after CPR, defibrillation, and vasopressor (epinephrine) administration have occurred. The dose in arrest is 300 mg rapid IV push, not 150 mg over 10 minutes (which is the dose for stable VT with pulse).",
             "zh": "只有在进行CPR、除颤和使用血管收缩剂（肾上腺素）后，才在心脏骤停中使用胺碘酮。骤停中的剂量为 300 mg 静脉推注，而非 150 mg 输注10分钟（这是有脉搏稳定型室速的剂量）。"
           },
@@ -3721,18 +3721,18 @@
         },
         {
           "id": "B",
+          "en": "Adenosine 6 mg rapid IV push",
+          "zh": "静脉快速推注腺苷 6 mg"
+        },
+        {
+          "id": "C",
           "en": "Amiodarone 300 mg rapid IV push",
           "zh": "静脉快速注射胺碘酮 300 mg"
         },
         {
-          "id": "C",
+          "id": "D",
           "en": "Atropine 1 mg IV push",
           "zh": "静脉推注阿托品 1 mg"
-        },
-        {
-          "id": "D",
-          "en": "Adenosine 6 mg rapid IV push",
-          "zh": "静脉快速推注腺苷 6 mg"
         }
       ],
       "correct": [
@@ -3750,17 +3750,17 @@
             "zh": "正确。静脉输注胺碘酮 150 mg（10分钟内）是有脉搏稳定型室性心动过速的标准初始抗心律失常治疗。"
           },
           {
-            "refId": "B",
+            "refId": "C",
             "en": "Amiodarone 300 mg IV push is the cardiac arrest dose (pulseless VT/VFib). Giving this rapid bolus to a stable client with a pulse can cause severe hypotension.",
             "zh": "静脉注射胺碘酮 300 mg是心脏骤停剂量（无脉室速/室颤）。向有脉搏的稳定患者快速推注此剂量可引起严重低血压。"
           },
           {
-            "refId": "C",
+            "refId": "D",
             "en": "Atropine speeds up the heart and is contraindicated in ventricular tachycardia.",
             "zh": "阿托品会加快心率，在室性心动过速中属禁忌。"
           },
           {
-            "refId": "D",
+            "refId": "B",
             "en": "Adenosine is the drug of choice for supraventricular tachycardia (SVT), not monomorphic ventricular tachycardia.",
             "zh": "腺苷是室上性心动过速（SVT）的首选药物，而非单形性室性心动过速。"
           }
@@ -3803,18 +3803,18 @@
       "options": [
         {
           "id": "A",
+          "en": "Atrial Fibrillation (AFib)",
+          "zh": "心房颤动（房颤）"
+        },
+        {
+          "id": "B",
           "en": "Asystole",
           "zh": "心室停搏（平线）"
         },
         {
-          "id": "B",
+          "id": "C",
           "en": "Ventricular Fibrillation (VFib)",
           "zh": "心室颤动（室颤）"
-        },
-        {
-          "id": "C",
-          "en": "Atrial Fibrillation (AFib)",
-          "zh": "心房颤动（房颤）"
         },
         {
           "id": "D",
@@ -3823,7 +3823,7 @@
         }
       ],
       "correct": [
-        "B"
+        "C"
       ],
       "rationale": {
         "correct": {
@@ -3832,17 +3832,17 @@
         },
         "byChoice": [
           {
-            "refId": "A",
+            "refId": "B",
             "en": "Asystole displays a flat (or nearly flat) line, representing total absence of cardiac electrical activity.",
             "zh": "心室停搏（平线）显示一条直线（或几近直线），代表心脏电活动完全丧失。"
           },
           {
-            "refId": "B",
+            "refId": "C",
             "en": "Correct. A completely chaotic, irregular, wavy ECG baseline with no identifiable QRS complexes is diagnostic of ventricular fibrillation.",
             "zh": "正确。心电图基线完全混乱、不规则且呈波浪状，没有任何可辨认的QRS波群，这是心室颤动的诊断特征。"
           },
           {
-            "refId": "C",
+            "refId": "A",
             "en": "Atrial fibrillation is irregular but features clearly visible, narrow QRS complexes, which are completely absent in VFib.",
             "zh": "心房颤动是不规则的，但其具有清晰可见的窄QRS波群，而这在室颤中完全不存在。"
           },
@@ -4000,18 +4000,18 @@
       "options": [
         {
           "id": "A",
-          "en": "Ventricular Fibrillation (VFib)",
-          "zh": "心室颤动（室颤）"
-        },
-        {
-          "id": "B",
           "en": "Asystole",
           "zh": "心室停搏（平线）"
         },
         {
-          "id": "C",
+          "id": "B",
           "en": "Third-Degree AV Block",
           "zh": "三度房室传导阻滞"
+        },
+        {
+          "id": "C",
+          "en": "Ventricular Fibrillation (VFib)",
+          "zh": "心室颤动（室颤）"
         },
         {
           "id": "D",
@@ -4020,7 +4020,7 @@
         }
       ],
       "correct": [
-        "B"
+        "A"
       ],
       "rationale": {
         "correct": {
@@ -4029,17 +4029,17 @@
         },
         "byChoice": [
           {
-            "refId": "A",
+            "refId": "C",
             "en": "Ventricular fibrillation displays a chaotic, irregular baseline with wavy movement, not a flat line.",
             "zh": "心室颤动显示混乱、不规则的基线伴波浪状运动，而不是一条直线。"
           },
           {
-            "refId": "B",
+            "refId": "A",
             "en": "Correct. A flatline on the monitor with confirmed pulselessness and lead integrity is diagnostic of asystole.",
             "zh": "正确。监护仪上的直线，伴已证实的无脉搏和导联完好是心室停搏的诊断依据。"
           },
           {
-            "refId": "C",
+            "refId": "B",
             "en": "Third-degree heart block displays regular P waves and slow QRS complexes, which are completely absent in asystole.",
             "zh": "三度心脏传导阻滞显示规则的P波和缓慢的QRS波群，而这在心室停搏中完全不存在。"
           },
@@ -4320,8 +4320,8 @@
         },
         {
           "id": "B",
-          "en": "Tall, peaked T waves",
-          "zh": "高尖的T波"
+          "en": "Prolonged QT interval",
+          "zh": "QT间期延长"
         },
         {
           "id": "C",
@@ -4330,12 +4330,12 @@
         },
         {
           "id": "D",
-          "en": "Prolonged QT interval",
-          "zh": "QT间期延长"
+          "en": "Tall, peaked T waves",
+          "zh": "高尖的T波"
         }
       ],
       "correct": [
-        "B"
+        "D"
       ],
       "rationale": {
         "correct": {
@@ -4349,7 +4349,7 @@
             "zh": "明显的U波是低钾血症（低钾）的经典体征，而非高钾血症。"
           },
           {
-            "refId": "B",
+            "refId": "D",
             "en": "Correct. Tall, peaked T waves are the earliest and most common ECG manifestation of hyperkalemia.",
             "zh": "正确。高尖的T波是高钾血症最早且最常见的心电图表现。"
           },
@@ -4359,7 +4359,7 @@
             "zh": "ST段抬高提示急性心肌梗死（STEMI）或心包炎，主要并非钾失衡引起。"
           },
           {
-            "refId": "D",
+            "refId": "B",
             "en": "Prolonged QT interval is caused by hypocalcemia, hypokalemia, or certain drugs, not hyperkalemia (which may shorten the QT).",
             "zh": "QT间期延长由低钙血症、低钾血症或某些药物引起，而非高钾血症（高钾可能会缩短QT间期）。"
           }
@@ -4407,27 +4407,27 @@
       "options": [
         {
           "id": "A",
-          "en": "Administer the next scheduled dose of digoxin",
-          "zh": "使用下一次按计划服用的地高辛"
-        },
-        {
-          "id": "B",
-          "en": "Hold the digoxin dose and notify the healthcare provider",
-          "zh": "暂停地高辛给药并通知医生"
-        },
-        {
-          "id": "C",
           "en": "Prepare for immediate cardioversion",
           "zh": "准备立即进行电复律"
         },
         {
-          "id": "D",
+          "id": "B",
           "en": "Increase the dietary intake of potassium rich foods",
           "zh": "增加膳食中富含钾的食物摄入量"
+        },
+        {
+          "id": "C",
+          "en": "Administer the next scheduled dose of digoxin",
+          "zh": "使用下一次按计划服用的地高辛"
+        },
+        {
+          "id": "D",
+          "en": "Hold the digoxin dose and notify the healthcare provider",
+          "zh": "暂停地高辛给药并通知医生"
         }
       ],
       "correct": [
-        "B"
+        "D"
       ],
       "rationale": {
         "correct": {
@@ -4436,22 +4436,22 @@
         },
         "byChoice": [
           {
-            "refId": "A",
+            "refId": "C",
             "en": "Giving more digoxin in the presence of toxicity can cause fatal arrhythmias like ventricular fibrillation.",
             "zh": "在存在中毒的情况下继续给予地高辛可引起致命性心律失常，如室颤。"
           },
           {
-            "refId": "B",
+            "refId": "D",
             "en": "Correct. Holding the medication and notifying the provider is the standard initial nursing action for suspected drug toxicity.",
             "zh": "正确。暂停给药并通知医生是怀疑药物中毒时的标准初始护理措施。"
           },
           {
-            "refId": "C",
+            "refId": "A",
             "en": "Cardioversion is contraindicated for digoxin-induced arrhythmias because it can precipitate ventricular fibrillation.",
             "zh": "地高辛引起的心律失常禁用电复律，因为它可能会诱发心室颤动。"
           },
           {
-            "refId": "D",
+            "refId": "B",
             "en": "While hypokalemia increases digoxin toxicity risk, dietary potassium changes are too slow. The immediate action is withholding the drug; potassium level must be checked via lab draw.",
             "zh": "虽然低钾血症会增加地高辛中毒风险，但饮食补钾速度太慢。眼前的措施是停药；且必须通过抽血化验检查钾水平。"
           }
@@ -4487,8 +4487,8 @@
       "options": [
         {
           "id": "A",
-          "en": "Atrial Fibrillation",
-          "zh": "心房颤动"
+          "en": "Asystole",
+          "zh": "心室停搏（平线）"
         },
         {
           "id": "B",
@@ -4497,13 +4497,13 @@
         },
         {
           "id": "C",
-          "en": "First-Degree AV Block",
-          "zh": "一度房室传导阻滞"
+          "en": "Atrial Fibrillation",
+          "zh": "心房颤动"
         },
         {
           "id": "D",
-          "en": "Asystole",
-          "zh": "心室停搏（平线）"
+          "en": "First-Degree AV Block",
+          "zh": "一度房室传导阻滞"
         }
       ],
       "correct": [
@@ -4516,7 +4516,7 @@
         },
         "byChoice": [
           {
-            "refId": "A",
+            "refId": "C",
             "en": "Atrial fibrillation is not directly caused by QT prolongation; it is an atrial reentry rhythm.",
             "zh": "心房颤动不由QT间期延长直接引起；它属于房性折返心律。"
           },
@@ -4526,12 +4526,12 @@
             "zh": "正确。QT间期延长是发生尖端扭转型室速（一种多形性室速）的关键先兆。"
           },
           {
-            "refId": "C",
+            "refId": "D",
             "en": "First-degree AV block is a conduction delay in the AV node (prolonged PR interval), not related to delayed ventricular repolarization (QT interval).",
             "zh": "一度房室阻滞是房室结传导延迟（PR间期延长），与心室复极延迟（QT间期）无关。"
           },
           {
-            "refId": "D",
+            "refId": "A",
             "en": "While any ventricular tachycardia can degenerate into cardiac arrest, Torsades de Pointes is the direct, classic arrhythmia associated with prolonged QT.",
             "zh": "虽然任何室速都可以退化为心脏骤停，但尖端扭转型室速是与QT延长直接相关的经典心律失常。"
           }
@@ -4567,27 +4567,27 @@
       "options": [
         {
           "id": "A",
-          "en": "Failure to Pace",
-          "zh": "未起搏（起搏失效）"
+          "en": "Oversensing",
+          "zh": "感知过度"
         },
         {
           "id": "B",
-          "en": "Failure to Capture",
-          "zh": "未夺获（夺获失效）"
-        },
-        {
-          "id": "C",
           "en": "Failure to Sense",
           "zh": "未感知（感知失效）"
         },
         {
+          "id": "C",
+          "en": "Failure to Pace",
+          "zh": "未起搏（起搏失效）"
+        },
+        {
           "id": "D",
-          "en": "Oversensing",
-          "zh": "感知过度"
+          "en": "Failure to Capture",
+          "zh": "未夺获（夺获失效）"
         }
       ],
       "correct": [
-        "B"
+        "D"
       ],
       "rationale": {
         "correct": {
@@ -4652,18 +4652,18 @@
         },
         {
           "id": "B",
-          "en": "Failure to capture, causing severe asystole",
-          "zh": "未夺获（夺获失效），导致严重的心室停搏"
-        },
-        {
-          "id": "C",
           "en": "Oversensing, causing rapid supraventricular tachycardia",
           "zh": "感知过度，导致快速室上性心动过速"
         },
         {
-          "id": "D",
+          "id": "C",
           "en": "Failure to pace, causing bradycardia and cardiogenic shock",
           "zh": "未起搏（起搏失效），导致心动过缓和心源性休克"
+        },
+        {
+          "id": "D",
+          "en": "Failure to capture, causing severe asystole",
+          "zh": "未夺获（夺获失效），导致严重的心室停搏"
         }
       ],
       "correct": [
@@ -4830,27 +4830,27 @@
       "options": [
         {
           "id": "A",
-          "en": "Acute anterior myocardial injury/infarction (STEMI)",
-          "zh": "急性前壁心肌损伤/梗死（STEMI）"
-        },
-        {
-          "id": "B",
           "en": "Chronic stable angina",
           "zh": "慢性稳定性心绞痛"
         },
         {
+          "id": "B",
+          "en": "Digoxin-induced cardiac changes",
+          "zh": "地高辛引起的心脏改变"
+        },
+        {
           "id": "C",
-          "en": "Acute pericarditis",
-          "zh": "急性心包炎"
+          "en": "Acute anterior myocardial injury/infarction (STEMI)",
+          "zh": "急性前壁心肌损伤/梗死（STEMI）"
         },
         {
           "id": "D",
-          "en": "Digoxin-induced cardiac changes",
-          "zh": "地高辛引起的心脏改变"
+          "en": "Acute pericarditis",
+          "zh": "急性心包炎"
         }
       ],
       "correct": [
-        "A"
+        "C"
       ],
       "rationale": {
         "correct": {
@@ -4859,22 +4859,22 @@
         },
         "byChoice": [
           {
-            "refId": "A",
+            "refId": "C",
             "en": "Correct. ST-segment elevation in leads V2-V4 indicates acute myocardial injury of the anterior ventricular wall.",
             "zh": "正确。V2-V4导联ST段抬高提示左室前壁急性心肌损伤。"
           },
           {
-            "refId": "B",
+            "refId": "A",
             "en": "Stable angina does not cause persistent ST elevation; ECG during stable angina is typically normal at rest or shows transient ST depression.",
             "zh": "稳定性心绞痛不会引起持续的ST段抬高；其静息心电图通常正常，或在发作时表现为一过性ST段压低。"
           },
           {
-            "refId": "C",
+            "refId": "D",
             "en": "Pericarditis causes diffuse, widespread ST elevation across almost all leads, accompanied by PR segment depression, not localized elevation in V2-V4.",
             "zh": "心包炎在几乎所有导联中引起弥漫性、广泛的ST段抬高，伴有PR段压低，而不是在V2-V4的局限性抬高。"
           },
           {
-            "refId": "D",
+            "refId": "B",
             "en": "Digoxin causes a classic downsloping ST-segment depression ('scooped' ST segment), not ST elevation.",
             "zh": "地高辛引起经典的下斜型ST段压低（“鱼钩样”ST段改变），而非ST段抬高。"
           }
@@ -5013,27 +5013,27 @@
       "options": [
         {
           "id": "A",
-          "en": "Hypokalemia",
-          "zh": "低钾血症"
-        },
-        {
-          "id": "B",
-          "en": "Hyperkalemia",
-          "zh": "高钾血症"
-        },
-        {
-          "id": "C",
           "en": "Hypocalcemia",
           "zh": "低钙血症"
         },
         {
-          "id": "D",
+          "id": "B",
           "en": "Hypercalcemia",
           "zh": "高钙血症"
+        },
+        {
+          "id": "C",
+          "en": "Hyperkalemia",
+          "zh": "高钾血症"
+        },
+        {
+          "id": "D",
+          "en": "Hypokalemia",
+          "zh": "低钾血症"
         }
       ],
       "correct": [
-        "A"
+        "D"
       ],
       "rationale": {
         "correct": {
@@ -5042,22 +5042,22 @@
         },
         "byChoice": [
           {
-            "refId": "A",
+            "refId": "D",
             "en": "Correct. Flattening T waves and prominent U waves are classic ECG findings of hypokalemia.",
             "zh": "正确。T波低平及出现明显的U波是低钾血症的经典心电图表现。"
           },
           {
-            "refId": "B",
+            "refId": "C",
             "en": "Hyperkalemia causes tall peaked T waves and QRS widening, not U waves.",
             "zh": "高钾血症引起高尖T波和QRS波增宽，而非U波。"
           },
           {
-            "refId": "C",
+            "refId": "A",
             "en": "Hypocalcemia primarily causes prolongation of the ST segment and QT interval, not U waves.",
             "zh": "低钙血症主要引起ST段和QT间期延长，而非U波。"
           },
           {
-            "refId": "D",
+            "refId": "B",
             "en": "Hypercalcemia shortens the ST segment and QT interval, not causing U waves.",
             "zh": "高钙血症缩短ST段和QT间期，不引起U波。"
           }

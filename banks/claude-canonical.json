@@ -27,8 +27,8 @@
         },
         {
           "id": "B",
-          "en": "Assist the client to walk to the cardiac monitoring unit.",
-          "zh": "协助患者步行前往心脏监护室。"
+          "en": "Administer nitroglycerin 0.4 mg sublingually without further assessment.",
+          "zh": "不做进一步评估，直接舌下含服硝酸甘油0.4毫克。"
         },
         {
           "id": "C",
@@ -37,8 +37,8 @@
         },
         {
           "id": "D",
-          "en": "Administer nitroglycerin 0.4 mg sublingually without further assessment.",
-          "zh": "不做进一步评估，直接舌下含服硝酸甘油0.4毫克。"
+          "en": "Assist the client to walk to the cardiac monitoring unit.",
+          "zh": "协助患者步行前往心脏监护室。"
         }
       ],
       "correct": [
@@ -56,7 +56,7 @@
             "zh": "除非血氧饱和度低于90%，否则不推荐常规补充给氧；证据表明对血氧正常患者常规给氧可能有害。"
           },
           {
-            "refId": "B",
+            "refId": "D",
             "en": "Exertion during an acute cardiac event increases oxygen demand and can worsen ischemia; the client must remain at rest.",
             "zh": "急性心脏事件期间活动会增加氧耗并加重缺血；患者必须保持休息。"
           },
@@ -66,7 +66,7 @@
             "zh": "12导联心电图指导诊断并确定是否适合再灌注治疗，是立即的诊断优先项。"
           },
           {
-            "refId": "D",
+            "refId": "B",
             "en": "Nitroglycerin requires a provider order and a blood pressure check before administration to prevent hypotension.",
             "zh": "硝酸甘油需要医嘱，且给药前须检查血压以防低血压。"
           }
@@ -507,27 +507,27 @@
       "options": [
         {
           "id": "A",
-          "en": "Nonrebreather mask",
-          "zh": "非重复呼吸面罩"
+          "en": "Nasal cannula at 6 L/min",
+          "zh": "6升/分钟鼻导管"
         },
         {
           "id": "B",
-          "en": "Venturi mask",
-          "zh": "文丘里面罩"
-        },
-        {
-          "id": "C",
           "en": "Simple face mask",
           "zh": "简单面罩"
         },
         {
+          "id": "C",
+          "en": "Venturi mask",
+          "zh": "文丘里面罩"
+        },
+        {
           "id": "D",
-          "en": "Nasal cannula at 6 L/min",
-          "zh": "6升/分钟鼻导管"
+          "en": "Nonrebreather mask",
+          "zh": "非重复呼吸面罩"
         }
       ],
       "correct": [
-        "B"
+        "C"
       ],
       "rationale": {
         "correct": {
@@ -536,22 +536,22 @@
         },
         "byChoice": [
           {
-            "refId": "A",
+            "refId": "D",
             "en": "A nonrebreather mask delivers 60–80% O2, which is far too high for a COPD client needing 28%.",
             "zh": "非重复呼吸面罩输送60-80%的氧气，对于需要28%的COPD患者过高。"
           },
           {
-            "refId": "B",
+            "refId": "C",
             "en": "The Venturi mask is the only device that reliably delivers a precise, low concentration of oxygen.",
             "zh": "文丘里面罩是唯一能可靠输送精确低浓度氧气的装置。"
           },
           {
-            "refId": "C",
+            "refId": "B",
             "en": "A simple face mask delivers an imprecise 35–50% O2 and cannot be set to 28%.",
             "zh": "简单面罩输送不精确的35-50%氧气，无法设定为28%。"
           },
           {
-            "refId": "D",
+            "refId": "A",
             "en": "Nasal cannula at 6 L/min delivers approximately 44% O2, which exceeds the prescribed 28%.",
             "zh": "6升/分钟鼻导管输送约44%氧气，超过医嘱的28%。"
           }
@@ -702,13 +702,13 @@
       "options": [
         {
           "id": "A",
-          "en": "Measure the apical pulse for one full minute.",
-          "zh": "测量心尖脉搏整整一分钟。"
+          "en": "Assess the client's pain level on a 0–10 scale.",
+          "zh": "使用0-10量表评估患者疼痛程度。"
         },
         {
           "id": "B",
-          "en": "Assess the client's pain level on a 0–10 scale.",
-          "zh": "使用0-10量表评估患者疼痛程度。"
+          "en": "Measure the client's oxygen saturation.",
+          "zh": "测量患者血氧饱和度。"
         },
         {
           "id": "C",
@@ -717,12 +717,12 @@
         },
         {
           "id": "D",
-          "en": "Measure the client's oxygen saturation.",
-          "zh": "测量患者血氧饱和度。"
+          "en": "Measure the apical pulse for one full minute.",
+          "zh": "测量心尖脉搏整整一分钟。"
         }
       ],
       "correct": [
-        "A"
+        "D"
       ],
       "rationale": {
         "correct": {
@@ -731,12 +731,12 @@
         },
         "byChoice": [
           {
-            "refId": "A",
+            "refId": "D",
             "en": "Metoprolol can cause bradycardia; an apical pulse below 60/min is a standard hold parameter.",
             "zh": "美托洛尔可引起心动过缓；心尖脉搏低于60次/分是标准的暂停给药参数。"
           },
           {
-            "refId": "B",
+            "refId": "A",
             "en": "Pain assessment is important for comfort but is not the priority safety check before a beta blocker.",
             "zh": "疼痛评估对舒适护理重要，但不是β受体阻滞剂给药前的优先安全检查。"
           },
@@ -746,7 +746,7 @@
             "zh": "胆固醇不是美托洛尔给药参数。"
           },
           {
-            "refId": "D",
+            "refId": "B",
             "en": "Oxygen saturation is not the primary concern before administering a beta blocker.",
             "zh": "血氧饱和度不是给予β受体阻滞剂前的主要关注点。"
           }
@@ -788,13 +788,13 @@
       "options": [
         {
           "id": "A",
-          "en": "\"A dry cough is a common side effect of lisinopril. You should report it to your provider, who may consider switching your medication.\"",
-          "zh": "\"干咳是赖诺普利的常见副作用。您应该向医护提供者报告，他们可能会考虑换药。\""
+          "en": "\"That cough means the medication is not working. Stop taking it right away.\"",
+          "zh": "\"这种咳嗽意味着药物没有效果。请立即停药。\""
         },
         {
           "id": "B",
-          "en": "\"That cough means the medication is not working. Stop taking it right away.\"",
-          "zh": "\"这种咳嗽意味着药物没有效果。请立即停药。\""
+          "en": "\"A dry cough is a common side effect of lisinopril. You should report it to your provider, who may consider switching your medication.\"",
+          "zh": "\"干咳是赖诺普利的常见副作用。您应该向医护提供者报告，他们可能会考虑换药。\""
         },
         {
           "id": "C",
@@ -808,7 +808,7 @@
         }
       ],
       "correct": [
-        "A"
+        "B"
       ],
       "rationale": {
         "correct": {
@@ -817,12 +817,12 @@
         },
         "byChoice": [
           {
-            "refId": "A",
+            "refId": "B",
             "en": "Acknowledging the common side effect and directing the client to report it reflects accurate patient education and safety.",
             "zh": "承认常见副作用并指导患者报告，体现了准确的患者教育和安全性。"
           },
           {
-            "refId": "B",
+            "refId": "A",
             "en": "The cough does not indicate the medication is ineffective; it is a pharmacological side effect, not a sign of treatment failure.",
             "zh": "咳嗽并不表明药物无效；这是药理副作用，不是治疗失败的信号。"
           },
@@ -988,18 +988,18 @@
         },
         {
           "id": "B",
-          "en": "Double the metformin dose the day of the procedure to compensate for potential glucose elevation.",
-          "zh": "检查当天将二甲双胍剂量加倍，以补偿潜在血糖升高。"
-        },
-        {
-          "id": "C",
           "en": "Administer the metformin with a large glass of water 1 hour before the scan.",
           "zh": "检查前1小时用大量水服用二甲双胍。"
         },
         {
-          "id": "D",
+          "id": "C",
           "en": "Switch the client to insulin permanently before CT scanning.",
           "zh": "CT扫描前将患者永久改为胰岛素治疗。"
+        },
+        {
+          "id": "D",
+          "en": "Double the metformin dose the day of the procedure to compensate for potential glucose elevation.",
+          "zh": "检查当天将二甲双胍剂量加倍，以补偿潜在血糖升高。"
         }
       ],
       "correct": [
@@ -1017,17 +1017,17 @@
             "zh": "这遵循既定方案，预防对比剂相关肾病和随后的二甲双胍相关乳酸酸中毒。"
           },
           {
-            "refId": "B",
+            "refId": "D",
             "en": "Doubling metformin has no rationale and increases risk of hypoglycemia and adverse effects.",
             "zh": "加倍二甲双胍没有理论依据，增加低血糖和不良反应风险。"
           },
           {
-            "refId": "C",
+            "refId": "B",
             "en": "Continuing metformin before contrast dye is unsafe due to lactic acidosis risk.",
             "zh": "对比剂检查前继续服用二甲双胍不安全，存在乳酸酸中毒风险。"
           },
           {
-            "refId": "D",
+            "refId": "C",
             "en": "Permanent insulin transition is not necessary; metformin is resumed after renal function is confirmed adequate.",
             "zh": "永久改为胰岛素是不必要的；肾功能确认充足后可恢复二甲双胍。"
           }
@@ -1357,8 +1357,8 @@
       "options": [
         {
           "id": "A",
-          "en": "Apply cooling measures and notify the provider immediately.",
-          "zh": "立即采取降温措施并通知医护提供者。"
+          "en": "Restrict fluids and encourage the client to rest quietly.",
+          "zh": "限制液体并鼓励患者安静休息。"
         },
         {
           "id": "B",
@@ -1367,8 +1367,8 @@
         },
         {
           "id": "C",
-          "en": "Restrict fluids and encourage the client to rest quietly.",
-          "zh": "限制液体并鼓励患者安静休息。"
+          "en": "Apply cooling measures and notify the provider immediately.",
+          "zh": "立即采取降温措施并通知医护提供者。"
         },
         {
           "id": "D",
@@ -1377,7 +1377,7 @@
         }
       ],
       "correct": [
-        "A"
+        "C"
       ],
       "rationale": {
         "correct": {
@@ -1386,7 +1386,7 @@
         },
         "byChoice": [
           {
-            "refId": "A",
+            "refId": "C",
             "en": "Cooling reduces hyperthermia-related metabolic demand, and immediate provider notification enables rapid pharmacological intervention.",
             "zh": "降温减少高热相关代谢需求，立即通知医护提供者使快速药物干预成为可能。"
           },
@@ -1396,7 +1396,7 @@
             "zh": "左甲状腺素补充甲状腺激素，在甲状腺危象中禁用；危象是由过多而非缺乏引起的。"
           },
           {
-            "refId": "C",
+            "refId": "A",
             "en": "Fluid restriction worsens dehydration from fever and diaphoresis; IV fluids are needed, not restriction.",
             "zh": "限制液体会加重发热和出汗引起的脱水；需要静脉补液而非限制。"
           },
@@ -1443,18 +1443,18 @@
       "options": [
         {
           "id": "A",
+          "en": "Hypotonic 0.45% sodium chloride only",
+          "zh": "单纯低渗0.45%氯化钠"
+        },
+        {
+          "id": "B",
           "en": "0.9% sodium chloride with dextrose (D5NS)",
           "zh": "0.9%氯化钠加葡萄糖（D5NS）"
         },
         {
-          "id": "B",
+          "id": "C",
           "en": "Potassium chloride in 0.45% sodium chloride",
           "zh": "0.45%氯化钠中含氯化钾"
-        },
-        {
-          "id": "C",
-          "en": "Hypotonic 0.45% sodium chloride only",
-          "zh": "单纯低渗0.45%氯化钠"
         },
         {
           "id": "D",
@@ -1463,7 +1463,7 @@
         }
       ],
       "correct": [
-        "A"
+        "B"
       ],
       "rationale": {
         "correct": {
@@ -1472,17 +1472,17 @@
         },
         "byChoice": [
           {
-            "refId": "A",
+            "refId": "B",
             "en": "D5NS addresses the triple deficit of sodium, fluid volume, and glucose that characterizes Addisonian crisis.",
             "zh": "D5NS解决艾迪生危象特有的钠、液体容量和葡萄糖三重缺乏。"
           },
           {
-            "refId": "B",
+            "refId": "C",
             "en": "Additional potassium is contraindicated because Addisonian crisis causes hyperkalemia from aldosterone deficiency.",
             "zh": "额外补钾禁忌，因为艾迪生危象由于醛固酮缺乏引起高钾血症。"
           },
           {
-            "refId": "C",
+            "refId": "A",
             "en": "Hypotonic saline does not adequately replace the sodium deficit or the volume loss.",
             "zh": "低渗盐水不能充分补充钠缺乏或容量丢失。"
           },
@@ -1762,13 +1762,13 @@
       "options": [
         {
           "id": "A",
-          "en": "Hip flexion greater than 90 degrees.",
-          "zh": "髋关节屈曲超过90度。"
+          "en": "Supine position with the head of bed elevated 30 degrees.",
+          "zh": "仰卧位，床头抬高30度。"
         },
         {
           "id": "B",
-          "en": "Supine position with the head of bed elevated 30 degrees.",
-          "zh": "仰卧位，床头抬高30度。"
+          "en": "Hip flexion greater than 90 degrees.",
+          "zh": "髋关节屈曲超过90度。"
         },
         {
           "id": "C",
@@ -1782,7 +1782,7 @@
         }
       ],
       "correct": [
-        "A"
+        "B"
       ],
       "rationale": {
         "correct": {
@@ -1791,12 +1791,12 @@
         },
         "byChoice": [
           {
-            "refId": "A",
+            "refId": "B",
             "en": "Hip flexion >90° places the femoral head in a position where it can dislocate from the posterior capsule.",
             "zh": "髋关节屈曲>90°使股骨头处于可能从后关节囊脱位的位置。"
           },
           {
-            "refId": "B",
+            "refId": "A",
             "en": "Supine with a slight head elevation is safe and does not approach the danger zone.",
             "zh": "轻度抬高床头的仰卧位是安全的，不会接近危险区域。"
           },
@@ -1848,13 +1848,13 @@
       "options": [
         {
           "id": "A",
-          "en": "Auscultating the epigastrium while injecting 10 mL of air.",
-          "zh": "注射10毫升空气时听诊上腹部。"
+          "en": "Confirming placement with a radiograph of the chest or abdomen.",
+          "zh": "通过胸部或腹部X线平片确认管路位置。"
         },
         {
           "id": "B",
-          "en": "Observing whether the tube produces bubbles when submerged in water.",
-          "zh": "将管路浸入水中观察是否产生气泡。"
+          "en": "Auscultating the epigastrium while injecting 10 mL of air.",
+          "zh": "注射10毫升空气时听诊上腹部。"
         },
         {
           "id": "C",
@@ -1863,12 +1863,12 @@
         },
         {
           "id": "D",
-          "en": "Confirming placement with a radiograph of the chest or abdomen.",
-          "zh": "通过胸部或腹部X线平片确认管路位置。"
+          "en": "Observing whether the tube produces bubbles when submerged in water.",
+          "zh": "将管路浸入水中观察是否产生气泡。"
         }
       ],
       "correct": [
-        "D"
+        "A"
       ],
       "rationale": {
         "correct": {
@@ -1877,12 +1877,12 @@
         },
         "byChoice": [
           {
-            "refId": "A",
+            "refId": "B",
             "en": "Auscultation of air insufflation is unreliable and no longer recommended as a sole method; air sounds can be transmitted from respiratory placement.",
             "zh": "听诊注气法不可靠，不再推荐作为唯一方法；呼吸道置入也可能传导气音。"
           },
           {
-            "refId": "B",
+            "refId": "D",
             "en": "The water bubble test is not a validated method for confirming tube placement and is not endorsed by clinical guidelines.",
             "zh": "水泡试验不是经过验证的确认管路位置方法，临床指南不支持。"
           },
@@ -1892,7 +1892,7 @@
             "zh": "吸出物pH测量有用且广泛使用（pH<5提示胃内置入），但不是确定性方法；使用质子泵抑制剂或食管置入可能导致不可靠结果。"
           },
           {
-            "refId": "D",
+            "refId": "A",
             "en": "Radiograph provides definitive anatomical confirmation of tube tip location before initiating feeding.",
             "zh": "X线平片提供开始管饲前管路尖端位置的确定性解剖确认。"
           }
@@ -2239,18 +2239,18 @@
       "options": [
         {
           "id": "A",
-          "en": "Irrigate the catheter with normal saline every 8 hours.",
-          "zh": "每8小时用生理盐水冲洗导尿管。"
-        },
-        {
-          "id": "B",
           "en": "Maintain a closed drainage system and keep the collection bag below bladder level at all times.",
           "zh": "维持密闭引流系统，并始终将集尿袋保持在膀胱水平以下。"
         },
         {
-          "id": "C",
+          "id": "B",
           "en": "Clamp the catheter for 4 hours between drainage intervals to train the bladder.",
           "zh": "引流间隔期间夹闭导尿管4小时以训练膀胱。"
+        },
+        {
+          "id": "C",
+          "en": "Irrigate the catheter with normal saline every 8 hours.",
+          "zh": "每8小时用生理盐水冲洗导尿管。"
         },
         {
           "id": "D",
@@ -2259,7 +2259,7 @@
         }
       ],
       "correct": [
-        "B"
+        "A"
       ],
       "rationale": {
         "correct": {
@@ -2268,17 +2268,17 @@
         },
         "byChoice": [
           {
-            "refId": "A",
+            "refId": "C",
             "en": "Routine catheter irrigation is not recommended for CAUTI prevention and risks introducing organisms.",
             "zh": "常规冲洗不推荐用于CAUTI预防，有引入病原菌的风险。"
           },
           {
-            "refId": "B",
+            "refId": "A",
             "en": "A closed system and dependent drainage are the most evidence-based actions to prevent retrograde contamination.",
             "zh": "密闭系统和重力引流是预防逆行污染最具证据基础的措施。"
           },
           {
-            "refId": "C",
+            "refId": "B",
             "en": "Clamping a urinary catheter can cause retention and increase infection risk.",
             "zh": "夹闭导尿管可导致尿潴留并增加感染风险。"
           },
@@ -2434,13 +2434,13 @@
       "options": [
         {
           "id": "A",
-          "en": "Offer the acetaminophen first, as opioids are reserved for moderate to severe pain.",
-          "zh": "先给予对乙酰氨基酚，因为阿片类药物用于中至重度疼痛。"
+          "en": "Administer the oxycodone because it acts faster.",
+          "zh": "给予羟考酮，因为起效更快。"
         },
         {
           "id": "B",
-          "en": "Administer the oxycodone because it acts faster.",
-          "zh": "给予羟考酮，因为起效更快。"
+          "en": "Apply ice to the site and reassess in 2 hours before giving any medication.",
+          "zh": "在部位冰敷并2小时后重新评估，再给予任何药物。"
         },
         {
           "id": "C",
@@ -2449,12 +2449,12 @@
         },
         {
           "id": "D",
-          "en": "Apply ice to the site and reassess in 2 hours before giving any medication.",
-          "zh": "在部位冰敷并2小时后重新评估，再给予任何药物。"
+          "en": "Offer the acetaminophen first, as opioids are reserved for moderate to severe pain.",
+          "zh": "先给予对乙酰氨基酚，因为阿片类药物用于中至重度疼痛。"
         }
       ],
       "correct": [
-        "A"
+        "D"
       ],
       "rationale": {
         "correct": {
@@ -2463,12 +2463,12 @@
         },
         "byChoice": [
           {
-            "refId": "A",
+            "refId": "D",
             "en": "Acetaminophen is appropriate for mild pain and avoids unnecessary opioid exposure.",
             "zh": "对乙酰氨基酚适用于轻度疼痛，避免不必要的阿片类药物暴露。"
           },
           {
-            "refId": "B",
+            "refId": "A",
             "en": "Opioids are not first-line for mild pain; unnecessary use carries risks of sedation, respiratory depression, and dependence.",
             "zh": "阿片类药物不是轻度疼痛的一线用药；不必要使用有镇静、呼吸抑制和依赖风险。"
           },
@@ -2478,7 +2478,7 @@
             "zh": "疼痛应在报告时处理，而不是等到达到高阈值。"
           },
           {
-            "refId": "D",
+            "refId": "B",
             "en": "Withholding prescribed medication to apply ice first delays appropriate treatment.",
             "zh": "先冰敷而不给予处方药物会延误适当治疗。"
           }
@@ -2759,8 +2759,8 @@
         },
         {
           "id": "B",
-          "en": "Body mass index of 15.8 kg/m².",
-          "zh": "体重指数为15.8 kg/m²。"
+          "en": "Refusal to discuss meal plans with the dietitian.",
+          "zh": "拒绝与营养师讨论饮食计划。"
         },
         {
           "id": "C",
@@ -2769,8 +2769,8 @@
         },
         {
           "id": "D",
-          "en": "Refusal to discuss meal plans with the dietitian.",
-          "zh": "拒绝与营养师讨论饮食计划。"
+          "en": "Body mass index of 15.8 kg/m².",
+          "zh": "体重指数为15.8 kg/m²。"
         }
       ],
       "correct": [
@@ -2788,7 +2788,7 @@
             "zh": "严重心动过缓和低血压表明心血管功能受损，有致命性心律失常风险；这是立即的优先事项。"
           },
           {
-            "refId": "B",
+            "refId": "D",
             "en": "A very low BMI is concerning but does not represent an acute life threat compared to hemodynamic instability.",
             "zh": "极低BMI令人担忧，但与血流动力学不稳定相比，不代表急性生命威胁。"
           },
@@ -2798,7 +2798,7 @@
             "zh": "身体形象扭曲是核心心理特征，但不是立即的安全关注。"
           },
           {
-            "refId": "D",
+            "refId": "B",
             "en": "Resistance to treatment is expected and important to address but is not the physiological priority.",
             "zh": "对治疗的抵制是预期的且需要处理，但不是生理优先事项。"
           }
@@ -2940,27 +2940,27 @@
       "options": [
         {
           "id": "A",
-          "en": "Confirm that the client is a patient and provide general status information only.",
-          "zh": "确认患者在院，仅提供一般状态信息。"
-        },
-        {
-          "id": "B",
           "en": "Provide discharge information only, since that is public record.",
           "zh": "仅提供出院信息，因为这是公共记录。"
         },
         {
+          "id": "B",
+          "en": "Confirm that the client is a patient and provide general status information only.",
+          "zh": "确认患者在院，仅提供一般状态信息。"
+        },
+        {
           "id": "C",
-          "en": "Decline to confirm or deny any patient information without written authorization.",
-          "zh": "在没有书面授权的情况下，拒绝确认或否认任何患者信息。"
+          "en": "Transfer the call to the charge nurse to handle the request.",
+          "zh": "将电话转给护士长处理该请求。"
         },
         {
           "id": "D",
-          "en": "Transfer the call to the charge nurse to handle the request.",
-          "zh": "将电话转给护士长处理该请求。"
+          "en": "Decline to confirm or deny any patient information without written authorization.",
+          "zh": "在没有书面授权的情况下，拒绝确认或否认任何患者信息。"
         }
       ],
       "correct": [
-        "C"
+        "D"
       ],
       "rationale": {
         "correct": {
@@ -2969,22 +2969,22 @@
         },
         "byChoice": [
           {
-            "refId": "A",
+            "refId": "B",
             "en": "Confirming the patient's presence violates HIPAA; even hospitalization itself is protected information.",
             "zh": "确认患者在院违反HIPAA；即使住院本身也是受保护信息。"
           },
           {
-            "refId": "B",
+            "refId": "A",
             "en": "Discharge information is not public record; it remains protected health information under HIPAA.",
             "zh": "出院信息不是公共记录；根据HIPAA仍是受保护的健康信息。"
           },
           {
-            "refId": "C",
+            "refId": "D",
             "en": "Declining to confirm or deny protects the client's privacy rights and complies with HIPAA.",
             "zh": "拒绝确认或否认保护了患者的隐私权，符合HIPAA法规。"
           },
           {
-            "refId": "D",
+            "refId": "C",
             "en": "Transferring the call does not resolve the HIPAA issue; the charge nurse would give the same answer.",
             "zh": "转接电话不能解决HIPAA问题；护士长会给出相同的答复。"
           }
@@ -3166,27 +3166,27 @@
       "options": [
         {
           "id": "A",
+          "en": "Place the client in a private room with minimal stimulation.",
+          "zh": "将患者单独置于刺激最少的私人房间。"
+        },
+        {
+          "id": "B",
           "en": "Apply soft wrist restraints to both arms to prevent access to the IV site.",
           "zh": "对双臂使用软性腕部约束，防止接触静脉穿刺部位。"
         },
         {
-          "id": "B",
+          "id": "C",
           "en": "Offer a familiar comfort object or hand activity to redirect the client's attention.",
           "zh": "提供熟悉的安慰物或手部活动，以转移患者注意力。"
         },
         {
-          "id": "C",
+          "id": "D",
           "en": "Request an immediate provider order for sedation to decrease the behavior.",
           "zh": "申请立即镇静的医嘱以减少该行为。"
-        },
-        {
-          "id": "D",
-          "en": "Place the client in a private room with minimal stimulation.",
-          "zh": "将患者单独置于刺激最少的私人房间。"
         }
       ],
       "correct": [
-        "B"
+        "C"
       ],
       "rationale": {
         "correct": {
@@ -3195,22 +3195,22 @@
         },
         "byChoice": [
           {
-            "refId": "A",
+            "refId": "B",
             "en": "Physical restraints are a last resort after all less-restrictive alternatives have been tried.",
             "zh": "身体约束是在尝试所有较少限制替代措施后的最后手段。"
           },
           {
-            "refId": "B",
+            "refId": "C",
             "en": "Redirection with familiar objects is a least-restrictive, non-pharmacological intervention appropriate for dementia-related behaviors.",
             "zh": "用熟悉物品转移注意力是适用于痴呆相关行为的最少限制非药物干预。"
           },
           {
-            "refId": "C",
+            "refId": "D",
             "en": "Sedation as a first intervention for behavioral redirection is inappropriate and carries risks of oversedation.",
             "zh": "镇静作为行为转移的首选干预是不适当的，有过度镇静的风险。"
           },
           {
-            "refId": "D",
+            "refId": "A",
             "en": "Isolation can increase confusion and agitation in dementia; social engagement is often more therapeutic.",
             "zh": "隔离可能加重痴呆患者的混乱和激越；社交参与通常更具治疗性。"
           }
@@ -3361,27 +3361,27 @@
       "options": [
         {
           "id": "A",
-          "en": "Provide a structured, low-stimulation environment and promote rest.",
-          "zh": "提供有结构、低刺激的环境并促进休息。"
-        },
-        {
-          "id": "B",
           "en": "Encourage the client to join a group therapy session with other patients.",
           "zh": "鼓励患者与其他患者参加团体治疗。"
         },
         {
+          "id": "B",
+          "en": "Present a detailed written schedule of all planned daily activities.",
+          "zh": "提供所有计划的每日活动的详细书面时间表。"
+        },
+        {
           "id": "C",
-          "en": "Allow the client to pace freely in the milieu to expend excess energy safely.",
-          "zh": "允许患者在环境中自由踱步以安全消耗多余能量。"
+          "en": "Provide a structured, low-stimulation environment and promote rest.",
+          "zh": "提供有结构、低刺激的环境并促进休息。"
         },
         {
           "id": "D",
-          "en": "Present a detailed written schedule of all planned daily activities.",
-          "zh": "提供所有计划的每日活动的详细书面时间表。"
+          "en": "Allow the client to pace freely in the milieu to expend excess energy safely.",
+          "zh": "允许患者在环境中自由踱步以安全消耗多余能量。"
         }
       ],
       "correct": [
-        "A"
+        "C"
       ],
       "rationale": {
         "correct": {
@@ -3390,22 +3390,22 @@
         },
         "byChoice": [
           {
-            "refId": "A",
+            "refId": "C",
             "en": "A low-stimulation structured environment reduces mania escalation and supports the biological need for rest after 3 days without sleep.",
             "zh": "低刺激有结构的环境减少躁狂升级，并支持3天未眠后的生物性休息需求。"
           },
           {
-            "refId": "B",
+            "refId": "A",
             "en": "Group settings increase stimulation and can escalate manic symptoms; they are contraindicated during acute mania.",
             "zh": "团体环境增加刺激，可能加重躁狂症状；在急性躁狂期间禁忌。"
           },
           {
-            "refId": "C",
+            "refId": "D",
             "en": "Unrestricted pacing maintains hyperactivation and does not address the critical need for rest.",
             "zh": "不受限制的踱步维持过度激活，无法解决关键的休息需求。"
           },
           {
-            "refId": "D",
+            "refId": "B",
             "en": "A detailed activity schedule adds cognitive load and stimulation, worsening the manic state.",
             "zh": "详细活动时间表增加认知负荷和刺激，加重躁狂状态。"
           }
@@ -3577,8 +3577,8 @@
         },
         {
           "id": "B",
-          "en": "Administer oxytocin as prescribed for uterine atony.",
-          "zh": "按医嘱给予催产素治疗子宫收缩乏力。"
+          "en": "Notify the provider of a suspected uterine inversion.",
+          "zh": "通知医护提供者疑似子宫翻转。"
         },
         {
           "id": "C",
@@ -3587,8 +3587,8 @@
         },
         {
           "id": "D",
-          "en": "Notify the provider of a suspected uterine inversion.",
-          "zh": "通知医护提供者疑似子宫翻转。"
+          "en": "Administer oxytocin as prescribed for uterine atony.",
+          "zh": "按医嘱给予催产素治疗子宫收缩乏力。"
         }
       ],
       "correct": [
@@ -3606,7 +3606,7 @@
             "zh": "充盈的膀胱使子宫移位并阻止其收缩；先排尿解决最可能的原因。"
           },
           {
-            "refId": "B",
+            "refId": "D",
             "en": "Oxytocin is indicated for uterine atony unresponsive to first-line interventions, not as the initial action when bladder distension is likely.",
             "zh": "催产素适用于对一线干预无效的子宫收缩乏力，而不是膀胱膨胀可能时的初始行动。"
           },
@@ -3616,7 +3616,7 @@
             "zh": "在膀胱充盈时用力按摩子宫底无效且可能造成不适；必须先排空膀胱。"
           },
           {
-            "refId": "D",
+            "refId": "B",
             "en": "Uterine inversion is rare, presents with fundal disappearance or protrusion, and is not consistent with the described displacement pattern.",
             "zh": "子宫翻转罕见，表现为子宫底消失或脱出，与所描述的移位模式不符。"
           }
@@ -3756,27 +3756,27 @@
       "options": [
         {
           "id": "A",
-          "en": "Aspirin is safe and effective for fever control in children with viral illnesses.",
-          "zh": "阿司匹林对病毒性疾病儿童的退热安全有效。"
-        },
-        {
-          "id": "B",
-          "en": "Ibuprofen or acetaminophen are the recommended options for fever management in children.",
-          "zh": "布洛芬或对乙酰氨基酚是儿童退热的推荐选择。"
-        },
-        {
-          "id": "C",
           "en": "No fever medication should be given; only lukewarm sponge baths are safe for children.",
           "zh": "不应给予任何退热药物；只有温水擦浴对儿童是安全的。"
         },
         {
-          "id": "D",
+          "id": "B",
           "en": "Antibiotics should be started immediately to prevent secondary bacterial infections.",
           "zh": "应立即开始抗生素治疗以预防继发性细菌感染。"
+        },
+        {
+          "id": "C",
+          "en": "Aspirin is safe and effective for fever control in children with viral illnesses.",
+          "zh": "阿司匹林对病毒性疾病儿童的退热安全有效。"
+        },
+        {
+          "id": "D",
+          "en": "Ibuprofen or acetaminophen are the recommended options for fever management in children.",
+          "zh": "布洛芬或对乙酰氨基酚是儿童退热的推荐选择。"
         }
       ],
       "correct": [
-        "B"
+        "D"
       ],
       "rationale": {
         "correct": {
@@ -3785,22 +3785,22 @@
         },
         "byChoice": [
           {
-            "refId": "A",
+            "refId": "C",
             "en": "Aspirin is contraindicated in children with viral illness due to the risk of Reye syndrome.",
             "zh": "阿司匹林因瑞氏综合征风险而禁用于病毒性疾病儿童。"
           },
           {
-            "refId": "B",
+            "refId": "D",
             "en": "Ibuprofen and acetaminophen are the evidence-based, age-appropriate choices for pediatric fever management and do not carry the Reye syndrome risk.",
             "zh": "布洛芬和对乙酰氨基酚是儿科退热管理的循证、适龄选择，不存在瑞氏综合征风险。"
           },
           {
-            "refId": "C",
+            "refId": "A",
             "en": "Fever medications are appropriate and effective; while sponge baths may offer comfort, withholding all medication is not recommended.",
             "zh": "退热药物适当且有效；虽然擦浴可提供舒适，但不推荐不给任何药物。"
           },
           {
-            "refId": "D",
+            "refId": "B",
             "en": "Influenza is viral; antibiotics are ineffective against viruses and are not indicated prophylactically for uncomplicated influenza.",
             "zh": "流感是病毒性的；抗生素对病毒无效，不适用于无并发症的流感预防性治疗。"
           }
@@ -4042,7 +4042,7 @@
       "difficulty": "easy",
       "ngnSkill": "evaluate_outcomes",
       "stem": {
-        "en": "A postpartum nurse is observing a new mother breastfeed for the first time. Which finding indicates a correct latch?",
+        "en": "A postpartum nurse is observing a new mother breastfeed for the first time. Which finding indicates D correct latch?",
         "zh": "一位产后护士正在观察一位新妈妈第一次哺乳。哪项发现表明含接正确？"
       },
       "options": [
@@ -4053,13 +4053,13 @@
         },
         {
           "id": "B",
-          "en": "The infant's mouth covers most of the areola with lips flanged outward.",
-          "zh": "婴儿嘴巴覆盖大部分乳晕，嘴唇向外翻出。"
+          "en": "The mother reports a sharp pinching pain with each suck.",
+          "zh": "母亲报告每次吸吮时有剧烈刺痛。"
         },
         {
           "id": "C",
-          "en": "The mother reports a sharp pinching pain with each suck.",
-          "zh": "母亲报告每次吸吮时有剧烈刺痛。"
+          "en": "The infant's mouth covers most of the areola with lips flanged outward.",
+          "zh": "婴儿嘴巴覆盖大部分乳晕，嘴唇向外翻出。"
         },
         {
           "id": "D",
@@ -4068,7 +4068,7 @@
         }
       ],
       "correct": [
-        "B"
+        "C"
       ],
       "rationale": {
         "correct": {
@@ -4082,12 +4082,12 @@
             "zh": "仅含住乳头会导致乳头疼痛、损伤和乳汁转移不良。"
           },
           {
-            "refId": "B",
-            "en": "A wide open mouth covering the areola with outward-flanged lips is the hallmark of a correct latch.",
+            "refId": "C",
+            "en": "A wide open mouth covering the areola with outward-flanged lips is the hallmark of D correct latch.",
             "zh": "大张嘴覆盖乳晕、嘴唇向外翻出是正确含接的标志。"
           },
           {
-            "refId": "C",
+            "refId": "B",
             "en": "Sharp pinching pain indicates an incorrect latch; initial mild discomfort is normal but significant pain warrants repositioning.",
             "zh": "剧烈刺痛表明含接不正确；初始轻度不适是正常的，但明显疼痛需要重新定位。"
           },
@@ -4243,27 +4243,27 @@
       "options": [
         {
           "id": "A",
+          "en": "Crush the tablet and sprinkle it on soft food if swallowing is difficult.",
+          "zh": "如果吞咽困难，将药片压碎撒在软食上服用。"
+        },
+        {
+          "id": "B",
           "en": "Take the tablet with a full glass of orange juice to enhance calcium absorption.",
           "zh": "用一整杯橙汁送服药片以促进钙的吸收。"
         },
         {
-          "id": "B",
+          "id": "C",
           "en": "Lie down for 30 minutes after taking the medication to prevent dizziness.",
           "zh": "服药后躺下30分钟以防头晕。"
         },
         {
-          "id": "C",
+          "id": "D",
           "en": "Take the tablet first thing in the morning with a full glass of plain water and remain upright for at least 30 minutes.",
           "zh": "早晨起床后立即用一整杯白开水服药，并保持直立至少30分钟。"
-        },
-        {
-          "id": "D",
-          "en": "Crush the tablet and sprinkle it on soft food if swallowing is difficult.",
-          "zh": "如果吞咽困难，将药片压碎撒在软食上服用。"
         }
       ],
       "correct": [
-        "C"
+        "D"
       ],
       "rationale": {
         "correct": {
@@ -4272,22 +4272,22 @@
         },
         "byChoice": [
           {
-            "refId": "A",
+            "refId": "B",
             "en": "Acidic juices and food reduce bisphosphonate absorption; only plain water should be used.",
             "zh": "酸性果汁和食物会降低双膦酸盐的吸收；只应使用白开水。"
           },
           {
-            "refId": "B",
+            "refId": "C",
             "en": "Lying down after taking alendronate increases the risk of esophageal ulceration from medication reflux; the client must remain upright.",
             "zh": "服用阿仑膦酸钠后躺下会因药物反流增加食管溃疡风险；患者必须保持直立。"
           },
           {
-            "refId": "C",
+            "refId": "D",
             "en": "First thing in the morning on an empty stomach with plain water and upright posture for 30 minutes is the correct and essential administration technique.",
             "zh": "早晨第一件事，空腹，用白开水，服药后保持直立30分钟，是正确且必要的给药技术。"
           },
           {
-            "refId": "D",
+            "refId": "A",
             "en": "Bisphosphonate tablets must not be crushed; crushing changes absorption and increases esophageal irritation risk.",
             "zh": "双膦酸盐药片不得压碎；压碎会改变吸收并增加食管刺激风险。"
           }
@@ -4334,22 +4334,22 @@
         },
         {
           "id": "B",
-          "en": "Verifying the correct patient identity, the correct surgical site, and the correct procedure.",
-          "zh": "核实正确的患者身份、正确的手术部位和正确的手术操作。"
-        },
-        {
-          "id": "C",
           "en": "Reviewing the postoperative care plan and discharge instructions with the anesthesiologist.",
           "zh": "与麻醉科医生共同审查术后护理计划和出院指导。"
         },
         {
-          "id": "D",
+          "id": "C",
           "en": "Confirming that the facility has received insurance authorization for the scheduled procedure.",
           "zh": "确认医疗机构已获得计划手术的保险授权。"
+        },
+        {
+          "id": "D",
+          "en": "Verifying the correct patient identity, the correct surgical site, and the correct procedure.",
+          "zh": "核实正确的患者身份、正确的手术部位和正确的手术操作。"
         }
       ],
       "correct": [
-        "B"
+        "D"
       ],
       "rationale": {
         "correct": {
@@ -4363,17 +4363,17 @@
             "zh": "器械清点会进行，但不是暂停的关注点；它们在手术过程中和结束时的多个时间点进行。"
           },
           {
-            "refId": "B",
+            "refId": "D",
             "en": "The three-part check — right patient, right site, right procedure — is the core purpose of the surgical time-out as required by the Universal Protocol.",
             "zh": "三部分核查——正确患者、正确部位、正确手术——是通用协议要求的手术暂停的核心目的。"
           },
           {
-            "refId": "C",
+            "refId": "B",
             "en": "Postoperative planning is important but is not the purpose of the pre-incision time-out.",
             "zh": "术后计划很重要，但不是切开前暂停的目的。"
           },
           {
-            "refId": "D",
+            "refId": "C",
             "en": "Insurance authorization is an administrative process unrelated to the clinical safety time-out.",
             "zh": "保险授权是行政流程，与临床安全暂停无关。"
           }
@@ -4420,18 +4420,18 @@
         },
         {
           "id": "B",
+          "en": "Delegate coordination of the home services to the unlicensed assistive personnel before discharge.",
+          "zh": "在出院前将家庭服务的协调工作委派给无执照的辅助人员。"
+        },
+        {
+          "id": "C",
           "en": "Instruct the client to telephone the surgeon's office if any problems develop after returning home.",
           "zh": "指导患者在回家后如出现任何问题时致电外科医生办公室。"
         },
         {
-          "id": "C",
+          "id": "D",
           "en": "Provide the client with written discharge instructions and verify that a family member can drive the client home.",
           "zh": "向患者提供书面出院指导，并确认有家属可以开车送患者回家。"
-        },
-        {
-          "id": "D",
-          "en": "Delegate coordination of the home services to the unlicensed assistive personnel before discharge.",
-          "zh": "在出院前将家庭服务的协调工作委派给无执照的辅助人员。"
         }
       ],
       "correct": [
@@ -4449,17 +4449,17 @@
             "zh": "在出院前协调并确认家庭输液和物理治疗，能够闭环管理患者的持续需求，是有效个案管理的标志。"
           },
           {
-            "refId": "B",
+            "refId": "C",
             "en": "Telling the client to call only if problems arise is reactive and does not arrange the services the client is known to require.",
             "zh": "仅告知患者出现问题时再打电话是一种被动应对，并未安排患者明确需要的服务。"
           },
           {
-            "refId": "C",
+            "refId": "D",
             "en": "Written instructions and a ride home are part of discharge teaching but do not establish the ongoing IV antibiotic and therapy services this client needs.",
             "zh": "书面指导和回家的交通安排是出院宣教的一部分，但并未落实该患者所需的持续静脉抗生素和治疗服务。"
           },
           {
-            "refId": "D",
+            "refId": "B",
             "en": "Coordinating community services and referrals is a professional nursing responsibility and cannot be delegated to unlicensed assistive personnel.",
             "zh": "协调社区服务和转介是专业护理职责，不能委派给无执照的辅助人员。"
           }
@@ -4506,8 +4506,8 @@
         },
         {
           "id": "B",
-          "en": "Physical therapist",
-          "zh": "物理治疗师"
+          "en": "Registered dietitian",
+          "zh": "注册营养师"
         },
         {
           "id": "C",
@@ -4516,8 +4516,8 @@
         },
         {
           "id": "D",
-          "en": "Registered dietitian",
-          "zh": "注册营养师"
+          "en": "Physical therapist",
+          "zh": "物理治疗师"
         }
       ],
       "correct": [
@@ -4535,7 +4535,7 @@
             "zh": "言语-语言病理治疗师评估吞咽功能并推荐预防误吸的干预措施，可直接解决该患者的问题。"
           },
           {
-            "refId": "B",
+            "refId": "D",
             "en": "A physical therapist addresses mobility, strength, and gait, not swallowing function.",
             "zh": "物理治疗师处理活动能力、肌力和步态，而非吞咽功能。"
           },
@@ -4545,7 +4545,7 @@
             "zh": "呼吸治疗师负责气道和通气管理；该患者需要的是吞咽评估，而非呼吸支持。"
           },
           {
-            "refId": "D",
+            "refId": "B",
             "en": "A registered dietitian plans nutrition once safe diet textures are known, but the swallowing evaluation that determines those textures is the speech-language pathologist's role.",
             "zh": "在确定安全的食物质地后，注册营养师负责制定营养计划，但决定这些质地的吞咽评估属于言语-语言病理治疗师的职责。"
           }
@@ -4587,13 +4587,13 @@
       "options": [
         {
           "id": "A",
-          "en": "Collect and analyze data on current catheter insertion and maintenance practices and compare them with evidence-based guidelines.",
-          "zh": "收集并分析当前导尿管置入和维护操作的数据，并将其与循证指南进行比较。"
+          "en": "Issue a memo informing all staff that the current infection rate is unacceptable and must improve immediately.",
+          "zh": "下发通知，告知所有员工当前的感染率不可接受，必须立即改善。"
         },
         {
           "id": "B",
-          "en": "Issue a memo informing all staff that the current infection rate is unacceptable and must improve immediately.",
-          "zh": "下发通知，告知所有员工当前的感染率不可接受，必须立即改善。"
+          "en": "Schedule disciplinary meetings with the nurses who cared for the clients who developed infections.",
+          "zh": "安排与曾照护发生感染患者的护士进行纪律处分会谈。"
         },
         {
           "id": "C",
@@ -4602,12 +4602,12 @@
         },
         {
           "id": "D",
-          "en": "Schedule disciplinary meetings with the nurses who cared for the clients who developed infections.",
-          "zh": "安排与曾照护发生感染患者的护士进行纪律处分会谈。"
+          "en": "Collect and analyze data on current catheter insertion and maintenance practices and compare them with evidence-based guidelines.",
+          "zh": "收集并分析当前导尿管置入和维护操作的数据，并将其与循证指南进行比较。"
         }
       ],
       "correct": [
-        "A"
+        "D"
       ],
       "rationale": {
         "correct": {
@@ -4616,12 +4616,12 @@
         },
         "byChoice": [
           {
-            "refId": "A",
+            "refId": "D",
             "en": "Measuring current practice against evidence-based guidelines identifies the source of the problem and is the correct first step in quality improvement.",
             "zh": "将当前操作与循证指南进行比较，可以确定问题的根源，是质量改进正确的第一步。"
           },
           {
-            "refId": "B",
+            "refId": "A",
             "en": "Announcing that rates are unacceptable applies pressure without analyzing the underlying process and does not begin true quality improvement.",
             "zh": "宣布感染率不可接受只是施加压力，并未分析潜在流程，不能真正开启质量改进。"
           },
@@ -4631,7 +4631,7 @@
             "zh": "在尚未明确原因之前就更换用品，是一种过早的解决方案，可能浪费资源却未解决真正的问题。"
           },
           {
-            "refId": "D",
+            "refId": "B",
             "en": "Disciplinary action is punitive and contrary to the systems-focused, blame-free philosophy of quality improvement.",
             "zh": "纪律处分具有惩罚性，与质量改进以系统为导向、不归咎个人的理念相违背。"
           }
@@ -4673,8 +4673,8 @@
       "options": [
         {
           "id": "A",
-          "en": "Naloxone",
-          "zh": "纳洛酮"
+          "en": "Protamine sulfate",
+          "zh": "硫酸鱼精蛋白"
         },
         {
           "id": "B",
@@ -4683,17 +4683,17 @@
         },
         {
           "id": "C",
-          "en": "Acetylcysteine",
-          "zh": "乙酰半胱氨酸"
+          "en": "Naloxone",
+          "zh": "纳洛酮"
         },
         {
           "id": "D",
-          "en": "Protamine sulfate",
-          "zh": "硫酸鱼精蛋白"
+          "en": "Acetylcysteine",
+          "zh": "乙酰半胱氨酸"
         }
       ],
       "correct": [
-        "A"
+        "C"
       ],
       "rationale": {
         "correct": {
@@ -4702,7 +4702,7 @@
         },
         "byChoice": [
           {
-            "refId": "A",
+            "refId": "C",
             "en": "Naloxone is an opioid antagonist that reverses morphine-induced respiratory depression and sedation, making it the appropriate medication here.",
             "zh": "纳洛酮是一种阿片类拮抗剂，可逆转吗啡引起的呼吸抑制和镇静，因此是此处适当的药物。"
           },
@@ -4712,12 +4712,12 @@
             "zh": "氟马西尼用于逆转苯二氮䓬类药物，而非阿片类药物，因此不能治疗吗啡引起的呼吸抑制。"
           },
           {
-            "refId": "C",
+            "refId": "D",
             "en": "Acetylcysteine is the antidote for acetaminophen toxicity and has no role in reversing opioid effects.",
             "zh": "乙酰半胱氨酸是对乙酰氨基酚中毒的解毒剂，对逆转阿片类药物作用没有作用。"
           },
           {
-            "refId": "D",
+            "refId": "A",
             "en": "Protamine sulfate reverses heparin, not opioids, and would not address respiratory depression from morphine.",
             "zh": "硫酸鱼精蛋白用于逆转肝素，而非阿片类药物，无法处理吗啡引起的呼吸抑制。"
           }
