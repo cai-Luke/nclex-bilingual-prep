@@ -6,3 +6,4 @@ import "./rhythmStrip";
 import "./capnography";
 import "./vitals_trend";
 import "./lab_trend";
+import "./mar";

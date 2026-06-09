@@ -80,7 +80,7 @@ Reject (don't clamp) anything that could render a clinically misleading strip:
 - `etco2` finite, `0 ≤ etco2 ≤ 150`. For `pattern: 'flat'`, require `etco2 === 0`.
 - `respiratoryRate` finite, `4 ≤ rr ≤ 60`.
 - `durationSec` (if present) `5 ≤ d ≤ 60`.
-- `severity` present **iff** `pattern === 'shark_fin'`; range `0 < severity ≤ 1`.
+- `severity` present **iff** `pattern === 'shark_fin'`; range `0.15 ≤ severity ≤ 1`. The floor guarantees a visibly sloped fin; a `severity` below it would render near-normal and defeat the morphology. (Borderline-but-valid severities are still the audit's call per §5.)
 - `baselineEtco2` present **iff** `pattern === 'rebreathing'`; `0 < baselineEtco2 < etco2`.
 - `rosc` object present **iff** `pattern === 'rosc'`; `0 < lowEtco2 < highEtco2 ≤ 150`, `0 < stepAtSec < durationSec`.
 - No pattern-specific field set for the wrong pattern (this is the main misuse vector). Surface a clear reason string per the existing `validate-bank` convention.
@@ -103,15 +103,23 @@ Render the EtCO2 numeric value as a label on the strip (consistent with how rhyt
 
 ---
 
-## 5. `selfCheck(spec, question)` — light render-vs-label fidelity gate
+## 5. `selfCheck(spec, question)` — render-vs-label fidelity **and morphology fidelity**
 
-Waveforms generally skip `selfCheck`, but a cheap, non-arithmetic consistency gate is worth it here because the *number* and the *shape* must agree:
+Waveforms usually skip `selfCheck`, but capnography earns one because two things must hold mechanically: the *number* must match the *shape*, and **the shape must actually be the pattern it claims to be**. Morphology fidelity is geometrically computable, so it belongs here as a machine gate — not in a per-item eyeball pass. Sample the rendered series and assert:
 
-- The plateau height sampled from the rendered series at end-expiration must equal `spec.etco2` (within sampling tolerance) — for `flat`, assert the series is identically 0.
-- For `rosc`, assert the post-step plateau equals `highEtco2` and pre-step equals `lowEtco2`.
-- For `rebreathing`, assert the inspiratory minimum equals `baselineEtco2`, not 0.
+**Number↔shape (level/amplitude):**
+- The plateau height sampled at end-expiration equals `spec.etco2` within sampling tolerance — for `flat`, the series is identically 0.
+- `rosc`: post-step plateau equals `highEtco2`, pre-step equals `lowEtco2`.
+- `rebreathing`: inspiratory minimum equals `baselineEtco2`, not 0.
 
-This catches a rendered/keyed number drift. It does **not** validate morphology→meaning — that is a human-review + fixture-test responsibility (§6).
+**Morphology discriminators (each pattern has a geometric signature; assert the keyed pattern's and assert the *absence* of the others' where they'd conflict):**
+- `normal`: a contiguous **flat plateau run** at ≈`etco2` of at least a defined fraction of expiration (e.g., ≥40% of the cycle's expiratory phase, within tolerance) **and** a sharp Phase II upstroke (rise to plateau within a short upstroke window). Sharp alpha angle.
+- `shark_fin`: **no** flat plateau run meeting the `normal` threshold — Phase II/III is a continuous up-slope to `etco2` — **and** a sloped (non-vertical) upstroke. This is the discriminator that fails a degraded "half-shark-fin": a strip that has *both* a sloped upstroke and a flat plateau satisfies neither pattern and is a build failure.
+- `flat`: series ≡ 0 (already covered above).
+- `rosc`: a single amplitude step is present at `stepAtSec` (pre/post amplitudes differ as keyed).
+- `rebreathing`: every inspiratory trough sits at `baselineEtco2` > 0.
+
+A degraded renderer (drift toward an intermediate shape) now fails `selfCheck` at build time across the whole bank at once, rather than relying on a reviewer to eyeball each strip. What `selfCheck` still cannot judge is whether the *params chosen* instantiate the pattern unambiguously (e.g., a `shark_fin` with `severity: 0.02` passes the "no flat plateau" test yet renders near-normal); that narrow residual is the only morphology concern left to the audit (see audit spec, cap-battery). Morphology→**meaning** (clinical truth) remains a human-review + fixture responsibility (§6).
 
 ---
 
@@ -134,7 +142,7 @@ The morphology→clinical-meaning mapping is what keys answers, and a subtly wro
 - Add `capnography` to the **generic conformance harness** U0 built (it should pick the kind up from the registry automatically once registered).
 - **Determinism:** byte-identical SVG for a fixed spec across runs (mirror rhythm_strip's determinism test).
 - **Scaling:** EtCO2 and RR changes move the rendered plateau/period as expected.
-- **Per-pattern fixtures:** one locked fixture per pattern asserting the diagnostic feature (e.g., `shark_fin` has no flat Phase III segment; `rebreathing` baseline > 0; `flat` series ≡ 0; `rosc` pre/post-step amplitudes).
+- **Per-pattern fixtures:** one locked fixture per pattern asserting the diagnostic feature (e.g., `shark_fin` has no flat Phase III segment; `rebreathing` baseline > 0; `flat` series ≡ 0; `rosc` pre/post-step amplitudes). Fixtures lock the *canonical* shape; `selfCheck`'s discriminators (§5) guard every *instance*, so a drifted renderer fails build-wide, not just on the fixtures.
 - **`validate` rejection cases:** wrong pattern-specific field set, `flat` with nonzero etco2, out-of-range RR/etco2.
 - `selfCheck` pass/fail cases.
 - `validate-bank`, `coverage-report` (must now break out a `capnography` count), `build`, `test-visuals` all green.
