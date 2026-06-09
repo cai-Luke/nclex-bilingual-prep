@@ -9,6 +9,8 @@ export interface VitalsTrendSpec {
     unit: "hr" | "min";
     values: number[];
   };
+  /** Reference-range population. Default "adult". */
+  population?: "adult" | "peds_child" | "peds_infant";
   series: {
     vital: VitalKey;
     /** Same length as timepointsHr; one value per timepoint. */

@@ -78,8 +78,7 @@ const badMap: VitalsTrendSpec = {
 const badCheck = selfCheckVitalsTrend(badMap, {});
 assert(badCheck.length > 0 && badCheck[0].code === "self_check_map_failed", "incorrect MAP should fail selfCheck");
 
-// --- selfCheck trend verification -------------------------------
-const expectedTrend = { vital: "map", direction: "down", window: [0, 4] };
+// --- selfCheck trend verification (canonical: question.meta.expected_trend array) ------
 const badTrendSpec: VitalsTrendSpec = {
   kind: "vitals_trend",
   timepointsHr: [0, 2, 4],
@@ -87,16 +86,24 @@ const badTrendSpec: VitalsTrendSpec = {
     { vital: "map", values: [90, 90, 95] } // supposed to go down but goes up
   ]
 };
-const trendCheck = selfCheckVitalsTrend(badTrendSpec, { metadata: { expectedTrend } });
+const trendCheck = selfCheckVitalsTrend(badTrendSpec, {
+  meta: { expected_trend: [{ series: "map", direction: "down", window: [0, 4] }] }
+});
 assert(trendCheck.length > 0 && trendCheck[0].code === "self_check_trend_failed", "should fail trend check if not matching");
+
+// legacy "vital" key should also be accepted during migration period
+const trendCheckLegacy = selfCheckVitalsTrend(badTrendSpec, {
+  meta: { expected_trend: [{ vital: "map", direction: "down", window: [0, 4] }] }
+});
+assert(trendCheckLegacy.length > 0 && trendCheckLegacy[0].code === "self_check_trend_failed", "legacy vital key should still trigger trend check");
 
 // --- Defensive selfCheck -------------------------------
 const defensiveCheck = selfCheckVitalsTrend({} as VitalsTrendSpec, {});
 assert(defensiveCheck.length === 0, "malformed spec should not throw in selfCheck");
 const defensiveTrendCheck = selfCheckVitalsTrend({
   kind: "vitals_trend", timepointsHr: [0], series: []
-} as VitalsTrendSpec, { metadata: { expectedTrend: "bad" } });
-assert(defensiveTrendCheck.length === 0, "malformed expectedTrend should not throw in selfCheck");
+} as VitalsTrendSpec, { meta: { expected_trend: "bad" } });
+assert(defensiveTrendCheck.length === 0, "malformed expected_trend should not throw in selfCheck");
 
 // --- Temperature bounds -------------------------------
 const tempCErrs = validateVitalsTrend({

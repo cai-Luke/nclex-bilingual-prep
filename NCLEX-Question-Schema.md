@@ -83,25 +83,41 @@ Committed visual lanes (append-only):
 | `rhythm_strip` | ECG waveform |
 | `capnography` | End-tidal CO₂ capnogram |
 | `vitals_trend` | Multi-vital time-series chart |
+| `lab_trend` | Serial laboratory values (1–2 analytes, ≥3 timepoints) |
 
 ### Visual contract metadata
 
-Some visual kinds carry optional `meta` fields that exist **for validation and audit only** — they must never be displayed to learners:
+Some visual kinds require a question-level `meta` block that exists **for validation and audit only** — it must never be displayed to learners. This is distinct from the bank-envelope `meta` (schemaVersion, topic, etc.).
 
-```json
+```jsonc
+// Sibling of `visual`, at the QUESTION level. Audit-only. Never displayed.
 {
-  "visual": { "kind": "vitals_trend", "..." : "..." },
+  "visual": { "kind": "vitals_trend" /* or "lab_trend" */, "...": "..." },
   "meta": {
-    "pattern_keyed": "deteriorating hemodynamics",
+    "visual_justification": "REQUIRED, non-empty. Why the visual is load-bearing.",
+    "source": "Clinical source for ranges/pattern (strictest tier).",
+    "tier": "strictest",
+    "skill_signature": "stable skill tag, e.g. 'vit:narrowing-pulse-pressure/shock'",
     "expected_trend": [
-      { "vital": "map", "direction": "decreasing" }
+      { "series": "creatinine", "direction": "up", "window": [0, 72] }
     ],
-    "derived_values_keyed": ["map"]
+    "expected_flags": [
+      { "series": "potassium", "at": 48, "flag": "H" }
+    ],
+    "derived_values_keyed": ["map"],
+    "reference_bands": "adult",
+    "stem_disambiguators": ["acute kidney injury"]
   }
 }
 ```
 
-These fields give validators, `selfCheck`, and auditors a shared contract to verify the rendered artifact matches intent. They are stripped or ignored by the app's display layer.
+- `series` — the kind-specific series identifier (`analyte` key for `lab_trend`, `vital` key for `vitals_trend`).
+- `direction` — `"up"` | `"down"` | `"stable"`. `"stable"` passes when `|valEnd − valStart| ≤ stableEps × (refBand.high − refBand.low)` (default 10% per analyte).
+- `expected_flags` — `H`/`L` assertions verified against the registry reference band for the declared `population`.
+- `window` — `[t0, t1]` values matched by equality against `time.values`; must span more than one timepoint.
+- `at` — single timepoint for flag assertions, matched by equality against `time.values`.
+
+These fields give validators, `selfCheck`, and auditors a shared contract to verify the rendered artifact matches intent. `selfCheck` reads `question.meta.expected_trend` and `question.meta.expected_flags` (snake_case, arrays, under `meta`).
 
 ### selfCheck responsibilities
 
@@ -109,8 +125,10 @@ These fields give validators, `selfCheck`, and auditors a shared contract to ver
 
 - Verifying rendered artifact matches source data (no silent data/render divergence)
 - Verifying derived values (e.g. MAP = Math.round(DBP + (SBP − DBP) / 3))
-- Verifying `expectedTrend` metadata accurately reflects the data array
+- Verifying `expected_trend` entries in `question.meta` accurately reflect the data array
+- Verifying `expected_flags` entries (H/L) recomputed from the registry band match declared values
 - Verifying pattern assertions where applicable (e.g. capnography plateau/phase assertions)
+- Verifying necessity assertions (`visual_justification` present; at least one keyed cue declared)
 
 `selfCheck` errors are non-fatal at import (items are not skipped) but must be resolved before visual items are treated as reviewed study material.
 
@@ -220,7 +238,8 @@ Validation rules:
 {
   "visual": {
     "kind": "vitals_trend",
-    "timepointsHr": [0, 4, 8],
+    "time": { "unit": "hr", "values": [0, 4, 8] },
+    "population": "adult",
     "series": [
       { "vital": "hr", "values": [85, 100, 120] },
       { "vital": "map", "values": [90, 75, 60] }
@@ -230,20 +249,73 @@ Validation rules:
 }
 ```
 
-`VitalKey` controlled vocabulary:
-`hr`, `sbp`, `dbp`, `map`, `rr`, `spo2`, `temp`.
+`VitalKey` controlled vocabulary: `hr`, `sbp`, `dbp`, `map`, `rr`, `spo2`, `temp`.
 
 Validation rules:
 - `kind` must be `"vitals_trend"`.
-- `timepointsHr` is required, must be a strictly increasing array of finite numbers.
+- `time.values` (preferred) or deprecated `timepointsHr` must be a strictly increasing array of finite numbers.
+- `time.unit`, if `time` is used, must be `"hr"` or `"min"`.
+- `population`, if present, must be `"adult"`, `"peds_child"`, or `"peds_infant"`. Default `"adult"`.
 - `series` is required, must contain at least one series. No duplicate `vital` keys allowed.
-- Each `series.values` array must have the exact same length as `timepointsHr`.
+- Each `series.values` array must have the exact same length as the time array.
 - Values must be within sensible physiologic ranges per vital.
 - If `map`, `sbp`, and `dbp` are all provided, `map` must satisfy `dbp <= map <= sbp` across all points.
 - `tempUnit`, if present, must be `"C"` or `"F"`.
 - `selfCheck` verifies that provided `map` values exactly match the computed `MAP = Math.round(DBP + (SBP - DBP) / 3)`.
-- `selfCheck` verifies any `expectedTrend` metadata provided in the question accurately reflects the data array.
+- `selfCheck` reads `question.meta.expected_trend` (snake_case array) and verifies each entry's direction holds over its declared window.
 - `caption.en`, if caption is present, is required. `caption.zh` is optional but must be non-empty if present.
+
+### Kind: `lab_trend`
+
+Renders serial laboratory values for 1–2 analytes across ≥3 timepoints, reusing the `lineChart` primitive with per-analyte reference bands. Load-bearing only when the answer turns on the *trajectory over time*, not a single snapshot value. Items that can be answered from a single final value are invalid.
+
+```json
+{
+  "visual": {
+    "kind": "lab_trend",
+    "time": { "unit": "hr", "values": [0, 24, 48, 72] },
+    "population": "adult",
+    "series": [
+      { "analyte": "creatinine", "values": [1.1, 1.8, 2.6, 3.5] }
+    ],
+    "caption": { "en": "Serum creatinine trend", "zh": "血肌酐变化趋势" }
+  },
+  "meta": {
+    "visual_justification": "Rising creatinine trajectory is required to identify AKI progression vs. isolated acute elevation.",
+    "source": "KDIGO AKI Guidelines 2012",
+    "tier": "strictest",
+    "skill_signature": "lab:rising-creatinine/aki-worsening",
+    "expected_trend": [
+      { "series": "creatinine", "direction": "up", "window": [0, 72] }
+    ],
+    "expected_flags": [
+      { "series": "creatinine", "at": 72, "flag": "H" }
+    ],
+    "derived_values_keyed": [],
+    "reference_bands": "adult",
+    "stem_disambiguators": ["acute kidney injury", "rising creatinine"]
+  }
+}
+```
+
+`LabAnalyteKey` controlled vocabulary:
+`sodium`, `potassium`, `chloride`, `bicarbonate`, `anion_gap`, `bun`, `creatinine`, `glucose`, `calcium`, `ionized_calcium`, `magnesium`, `phosphate`, `lactate`, `troponin_t`, `bnp`, `wbc`, `hemoglobin`, `hematocrit`, `platelets`, `inr`, `ptt`, `ph`, `paco2`, `pao2`, `hco3_abg`, `ast`, `alt`, `total_bilirubin`, `ammonia`.
+
+Validation rules:
+- `kind` must be `"lab_trend"`.
+- `time` is required. `time.unit` must be `"hr"`, `"min"`, or `"day"`. `time.values` must be a strictly increasing array of finite numbers with length ≥ 3.
+- `population`, if present, must be `"adult"`, `"peds_child"`, or `"peds_infant"`. Default `"adult"`.
+- `series` must have 1–2 entries. No duplicate `analyte` keys.
+- Each `analyte` must be in the `LabAnalyteKey` vocabulary above.
+- Each `series.values` length must equal `time.values` length.
+- Each value must be a finite number within the analyte's absolute physiologic sanity bounds (wide; these are not the reference band).
+- `series.unit`, if given, must be one of the recognized units for that analyte (canonical or accepted alternate).
+- `series.showReferenceBand`, if given, must be boolean.
+- `selfCheck` verifies render fidelity (plotted values equal `series.values`), flag correctness (`expected_flags` H/L recomputed from registry band for the active `population`), trend correctness (`expected_trend` direction over declared window, including `"stable"`), and necessity assertions (`visual_justification` present; at least one `expected_trend` or `expected_flags` entry; every window spans more than one timepoint).
+- `caption.en`, if caption is present, is required. `caption.zh` is optional but must be non-empty if present.
+
+> **STRICTEST-TIER accuracy requirement.** All reference ranges and units are placeholders pending source-verification against authoritative clinical references before the content lane opens. Record the source per analyte in the U3 audit report.
+
 ---
 
 ## Per-type structure

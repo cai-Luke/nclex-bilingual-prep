@@ -160,27 +160,28 @@ export const selfCheckVitalsTrend = (spec: VitalsTrendSpec, _question: any): Vis
     }
   }
   
-  // Also check if question has an expectedTrend metadata block
-  if (_question && isRecord(_question) && isRecord(_question.metadata) && isRecord(_question.metadata.expectedTrend)) {
-    const trend = _question.metadata.expectedTrend;
-    if (typeof trend.vital === "string" && Array.isArray(trend.window) && trend.window.length === 2) {
-      const tSeries = spec.series.find(s => isRecord(s) && s.vital === trend.vital && Array.isArray(s.values));
-      if (tSeries) {
-        const idxStart = times.indexOf(trend.window[0] as number);
-        const idxEnd = times.indexOf(trend.window[1] as number);
-        if (idxStart !== -1 && idxEnd !== -1 && idxEnd > idxStart) {
-          const valStart = tSeries.values[idxStart];
-          const valEnd = tSeries.values[idxEnd];
-          if (typeof valStart === "number" && typeof valEnd === "number") {
-            if (trend.direction === "down" && valEnd >= valStart) {
-              errs.push({ path: `series.${trend.vital}`, code: "self_check_trend_failed", message: `expected trend ${trend.direction} but values did not match` });
-            }
-            if (trend.direction === "up" && valEnd <= valStart) {
-              errs.push({ path: `series.${trend.vital}`, code: "self_check_trend_failed", message: `expected trend ${trend.direction} but values did not match` });
-            }
-          }
-        }
-      }
+  // Check question.meta.expected_trend (canonical snake_case array; accepts legacy "vital" or "series" key)
+  const meta = isRecord(_question) && isRecord((_question as Record<string, unknown>).meta)
+    ? (_question as Record<string, unknown>).meta as Record<string, unknown>
+    : null;
+  const expectedTrends = meta && Array.isArray(meta.expected_trend) ? meta.expected_trend as unknown[] : [];
+  for (const entry of expectedTrends) {
+    if (!isRecord(entry)) continue;
+    const vitalKey = typeof entry.series === "string" ? entry.series : typeof entry.vital === "string" ? entry.vital : null;
+    if (!vitalKey || !Array.isArray(entry.window) || entry.window.length !== 2) continue;
+    const tSeries = spec.series.find(s => isRecord(s) && s.vital === vitalKey && Array.isArray(s.values));
+    if (!tSeries) continue;
+    const idxStart = times.indexOf(entry.window[0] as number);
+    const idxEnd = times.indexOf(entry.window[1] as number);
+    if (idxStart === -1 || idxEnd === -1 || idxEnd <= idxStart) continue;
+    const valStart = tSeries.values[idxStart];
+    const valEnd = tSeries.values[idxEnd];
+    if (typeof valStart !== "number" || typeof valEnd !== "number") continue;
+    if (entry.direction === "down" && valEnd >= valStart) {
+      errs.push({ path: `series.${vitalKey}`, code: "self_check_trend_failed", message: `expected trend ${entry.direction} but values did not match` });
+    }
+    if (entry.direction === "up" && valEnd <= valStart) {
+      errs.push({ path: `series.${vitalKey}`, code: "self_check_trend_failed", message: `expected trend ${entry.direction} but values did not match` });
     }
   }
 

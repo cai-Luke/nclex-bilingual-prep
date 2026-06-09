@@ -139,12 +139,12 @@
         "skill_signature": "vit:narrowing-pulse-pressure/compensated-shock",
         "expected_trend": [
           {
-            "vital": "hr",
             "direction": "up",
             "window": [
               0,
               4
-            ]
+            ],
+            "series": "hr"
           }
         ],
         "derived_values_keyed": [
@@ -288,12 +288,12 @@
         "skill_signature": "vit:falling-map/sepsis-fluids",
         "expected_trend": [
           {
-            "vital": "map",
             "direction": "down",
             "window": [
               4,
               8
-            ]
+            ],
+            "series": "map"
           }
         ],
         "derived_values_keyed": [
@@ -423,20 +423,20 @@
         "skill_signature": "vit:shock-trend/internal-hemorrhage",
         "expected_trend": [
           {
-            "vital": "hr",
             "direction": "up",
             "window": [
               0,
               6
-            ]
+            ],
+            "series": "hr"
           },
           {
-            "vital": "map",
             "direction": "down",
             "window": [
               0,
               6
-            ]
+            ],
+            "series": "map"
           }
         ],
         "derived_values_keyed": [
@@ -570,20 +570,20 @@
         "skill_signature": "vit:normalizing/fluid-response",
         "expected_trend": [
           {
-            "vital": "hr",
             "direction": "down",
             "window": [
               0,
               4
-            ]
+            ],
+            "series": "hr"
           },
           {
-            "vital": "map",
             "direction": "up",
             "window": [
               0,
               4
-            ]
+            ],
+            "series": "map"
           }
         ],
         "derived_values_keyed": [
@@ -737,20 +737,20 @@
         "skill_signature": "vit:cushings-triad/brain-herniation",
         "expected_trend": [
           {
-            "vital": "hr",
             "direction": "down",
             "window": [
               0,
               2
-            ]
+            ],
+            "series": "hr"
           },
           {
-            "vital": "sbp",
             "direction": "up",
             "window": [
               0,
               2
-            ]
+            ],
+            "series": "sbp"
           }
         ],
         "derived_values_keyed": [],
@@ -881,12 +881,12 @@
         "skill_signature": "vit:plummeting-map/decompensated-shock",
         "expected_trend": [
           {
-            "vital": "map",
             "direction": "down",
             "window": [
               1,
               2
-            ]
+            ],
+            "series": "map"
           }
         ],
         "derived_values_keyed": [
@@ -1016,20 +1016,20 @@
         "skill_signature": "vit:bradycardia-hypotension/neurogenic-shock",
         "expected_trend": [
           {
-            "vital": "hr",
             "direction": "down",
             "window": [
               0,
               3
-            ]
+            ],
+            "series": "hr"
           },
           {
-            "vital": "map",
             "direction": "down",
             "window": [
               0,
               3
-            ]
+            ],
+            "series": "map"
           }
         ],
         "derived_values_keyed": [
@@ -1160,20 +1160,20 @@
         "skill_signature": "vit:normalizing/antipyretic-response",
         "expected_trend": [
           {
-            "vital": "temp",
             "direction": "down",
             "window": [
               0,
               3
-            ]
+            ],
+            "series": "temp"
           },
           {
-            "vital": "hr",
             "direction": "down",
             "window": [
               0,
               3
-            ]
+            ],
+            "series": "hr"
           }
         ],
         "derived_values_keyed": [],
@@ -1320,20 +1320,20 @@
         "skill_signature": "vit:shock-trend/cardiogenic-shock",
         "expected_trend": [
           {
-            "vital": "map",
             "direction": "down",
             "window": [
               0,
               3
-            ]
+            ],
+            "series": "map"
           },
           {
-            "vital": "spo2",
             "direction": "down",
             "window": [
               0,
               3
-            ]
+            ],
+            "series": "spo2"
           }
         ],
         "derived_values_keyed": [
@@ -1465,12 +1465,12 @@
         "skill_signature": "vit:rapid-hyperthermia/malignant-hyperthermia",
         "expected_trend": [
           {
-            "vital": "temp",
             "direction": "up",
             "window": [
               0,
               18
-            ]
+            ],
+            "series": "temp"
           }
         ],
         "derived_values_keyed": [],

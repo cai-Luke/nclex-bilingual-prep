@@ -1,0 +1,144 @@
+{
+  "totals": {
+    "candidates_surfaced": 373,
+    "after_cull": 179
+  },
+  "value_by_disposition": {
+    "helpful_add_parallel": 176,
+    "essential_replace": 3
+  },
+  "by_category": {
+    "Physiological Adaptation": 59,
+    "Health Promotion and Maintenance": 20,
+    "Pharmacological and Parenteral Therapies": 41,
+    "Reduction of Risk Potential": 34,
+    "Basic Care and Comfort": 25
+  },
+  "by_renderer": {
+    "ecg_rhythm_strip": 23,
+    "intake_output_chart": 59,
+    "device_settings_screen": 18,
+    "lab_panel": 19,
+    "wound_stage_diagram": 22,
+    "fetal_monitor_tracing": 10,
+    "chest_tube_drainage": 5,
+    "vitals_trend": 13,
+    "burn_body_map": 9,
+    "mar": 1
+  },
+  "redundancy_clusters": [
+    {
+      "cluster_id": "cluster_intake_output_chart",
+      "qids": [
+        "claude_a_sata_hf_discharge_02",
+        "gemini_jun05_a_sata_diabetes_sick_day_24",
+        "gemini_b2_02",
+        "gemini_b2_08",
+        "gemini_b2_10",
+        "trad_ppt_04",
+        "trad_ppt_10",
+        "trad_ppt_24",
+        "trad_batchD_05",
+        "gen_bcc_batch1_2"
+      ],
+      "note": "near-dup on intake_output_chart"
+    },
+    {
+      "cluster_id": "cluster_null",
+      "qids": [
+        "gemini_b2_05",
+        "gemini_d2_doac_02",
+        "trad_ppt_08",
+        "trad_pa_15",
+        "trad_pa_25",
+        "trad_batchD_12",
+        "gpt_canonical_sata_warfarin_teaching_061"
+      ],
+      "note": "near-dup on null"
+    },
+    {
+      "cluster_id": "cluster_wound_stage_diagram",
+      "qids": [
+        "trad_batchC_18",
+        "gen_psi_batch1_8",
+        "gpt_canonical_matrix_wound_assessment_077"
+      ],
+      "note": "near-dup on wound_stage_diagram"
+    },
+    {
+      "cluster_id": "cluster_device_settings_screen",
+      "qids": [
+        "gap_50_ppt_04",
+        "gap_50_ppt_05",
+        "gpt_canonical_fib_heparin_rate_033"
+      ],
+      "note": "near-dup on device_settings_screen"
+    },
+    {
+      "cluster_id": "cluster_vitals_trend",
+      "qids": [
+        "trad_batchB_01",
+        "mc_delegation_uap_vitals_001"
+      ],
+      "note": "near-dup on vitals_trend"
+    },
+    {
+      "cluster_id": "cluster_fetal_monitor_tracing",
+      "qids": [
+        "gpt_canonical_sata_preeclampsia_031",
+        "gpt_canonical_sata_pregnancy_warning_signs_053"
+      ],
+      "note": "near-dup on fetal_monitor_tracing"
+    },
+    {
+      "cluster_id": "cluster_lab_panel",
+      "qids": [
+        "case_dka_01",
+        "cs_aki_01"
+      ],
+      "note": "near-dup on lab_panel"
+    }
+  ],
+  "top_review_flags": [
+    {
+      "qid": "claude_a_mc_acute_mi_01",
+      "why": "Borderline helpful vs essential for ecg_rhythm_strip"
+    },
+    {
+      "qid": "claude_a_matrix_neonatal_assessment_46",
+      "why": "Borderline helpful vs essential for ecg_rhythm_strip"
+    },
+    {
+      "qid": "gemini_p4_01",
+      "why": "Borderline helpful vs essential for ecg_rhythm_strip"
+    },
+    {
+      "qid": "gemini_p4_06",
+      "why": "Borderline helpful vs essential for ecg_rhythm_strip"
+    },
+    {
+      "qid": "gemini_b1_10",
+      "why": "Borderline helpful vs essential for ecg_rhythm_strip"
+    },
+    {
+      "qid": "gemini_c1_01",
+      "why": "Borderline helpful vs essential for ecg_rhythm_strip"
+    },
+    {
+      "qid": "gemini_c10_07",
+      "why": "Borderline helpful vs essential for ecg_rhythm_strip"
+    },
+    {
+      "qid": "gemini_c10_10",
+      "why": "Borderline helpful vs essential for ecg_rhythm_strip"
+    },
+    {
+      "qid": "gemini_d1_04_cloze_hypomagnesemia",
+      "why": "Borderline helpful vs essential for ecg_rhythm_strip"
+    },
+    {
+      "qid": "gemini_d1_05_matrix_hypermagnesemia",
+      "why": "Borderline helpful vs essential for ecg_rhythm_strip"
+    }
+  ]
+}

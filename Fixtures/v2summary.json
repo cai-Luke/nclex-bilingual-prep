@@ -1,0 +1,109 @@
+{
+  "totals": {
+    "items_read": 1033,
+    "candidates": 316
+  },
+  "gates": {
+    "disposition_independent": true,
+    "trust_variance": true,
+    "tell_coverage_ok": true,
+    "renderer_integrity": true,
+    "cluster_integrity": true
+  },
+  "value_by_disposition": {
+    "none_leave": 246,
+    "helpful_add_parallel": 60,
+    "helpful_leave": 8,
+    "essential_replace": 2
+  },
+  "by_category": {
+    "Physiological Adaptation": 79,
+    "Health Promotion and Maintenance": 26,
+    "Pharmacological and Parenteral Therapies": 61,
+    "Reduction of Risk Potential": 48,
+    "Safety and Infection Control": 19,
+    "Psychosocial Integrity": 21,
+    "Basic Care and Comfort": 35,
+    "Management of Care": 27
+  },
+  "by_renderer": {
+    "device_settings_screen": 11,
+    "wound_stage_diagram": 17,
+    "intake_output_chart": 13,
+    "chest_tube_drainage": 4,
+    "ecg_rhythm_strip": 12,
+    "burn_body_map": 3,
+    "lab_panel": 7,
+    "vitals_trend": 1,
+    "fetal_monitor_tracing": 2
+  },
+  "redundancy_clusters": [
+    {
+      "cluster_id": "cluster_sim_1",
+      "qids": [
+        "claude_a_matrix_wound_assessment_26",
+        "matrix_postop_findings_028",
+        "gpt_canonical_matrix_wound_assessment_077"
+      ],
+      "shared_concept": "Near-duplicate stem logic based on text similarity"
+    },
+    {
+      "cluster_id": "cluster_sim_2",
+      "qids": [
+        "gemini_jun05_a_sata_pacemaker_41",
+        "ekg_b5_sata_06"
+      ],
+      "shared_concept": "Near-duplicate stem logic based on text similarity"
+    },
+    {
+      "cluster_id": "cluster_sim_3",
+      "qids": [
+        "gemini_p8_01",
+        "easy_prioritization_01"
+      ],
+      "shared_concept": "Near-duplicate stem logic based on text similarity"
+    },
+    {
+      "cluster_id": "cluster_sim_4",
+      "qids": [
+        "gemini_p8_02",
+        "trad_batchB_01",
+        "mc_delegation_uap_vitals_001"
+      ],
+      "shared_concept": "Near-duplicate stem logic based on text similarity"
+    },
+    {
+      "cluster_id": "cluster_sim_5",
+      "qids": [
+        "cloze_hyperkalemia_ecg_029",
+        "gpt_canonical_cloze_sepsis_035"
+      ],
+      "shared_concept": "Near-duplicate stem logic based on text similarity"
+    },
+    {
+      "cluster_id": "cluster_sim_6",
+      "qids": [
+        "cs_schiz_01",
+        "case_dka_01",
+        "cs_aki_01",
+        "case_gbs_01",
+        "claude_cs_jun06_chest_tube_rrp_01"
+      ],
+      "shared_concept": "Near-duplicate stem logic based on text similarity"
+    }
+  ],
+  "top_review_flags": [
+    {
+      "qid": "claude_a_mc_acute_mi_01",
+      "why": "Random sample for review"
+    },
+    {
+      "qid": "claude_a_sata_hf_discharge_02",
+      "why": "Random sample for review"
+    },
+    {
+      "qid": "claude_a_mc_dabigatran_teaching_03",
+      "why": "Random sample for review"
+    }
+  ]
+}
