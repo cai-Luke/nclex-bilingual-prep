@@ -231,7 +231,14 @@ export default function App() {
       startAdaptiveSession(records, title, Math.max(1, options.count ?? 75));
       return;
     }
-    const orderedRecords = options.order === "sequential" ? [...records] : shuffle(records);
+    let orderedRecords: QuestionRecord[];
+    if (options.order === "sequential") {
+      orderedRecords = [...records];
+    } else {
+      const unseen = shuffle(records.filter((r) => (progress[r.question.id]?.seen ?? 0) === 0));
+      const seen = shuffle(records.filter((r) => (progress[r.question.id]?.seen ?? 0) > 0));
+      orderedRecords = [...unseen, ...seen];
+    }
     const selectedRecords = orderedRecords.slice(0, Math.max(1, Math.min(options.count ?? orderedRecords.length, orderedRecords.length)));
     setSession({
       id: createSessionId(),

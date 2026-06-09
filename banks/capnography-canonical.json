@@ -21,13 +21,13 @@
       "options": [
         {
           "id": "A",
-          "en": "Acute asthma exacerbation",
-          "zh": "急性哮喘发作"
+          "en": "Pneumothorax",
+          "zh": "气胸"
         },
         {
           "id": "B",
-          "en": "Pulmonary edema",
-          "zh": "肺水肿"
+          "en": "Acute asthma exacerbation",
+          "zh": "急性哮喘发作"
         },
         {
           "id": "C",
@@ -36,12 +36,12 @@
         },
         {
           "id": "D",
-          "en": "Pneumothorax",
-          "zh": "气胸"
+          "en": "Pulmonary edema",
+          "zh": "肺水肿"
         }
       ],
       "correct": [
-        "A"
+        "B"
       ],
       "rationale": {
         "correct": {
@@ -50,12 +50,12 @@
         },
         "byChoice": [
           {
-            "refId": "A",
+            "refId": "B",
             "en": "Asthma causes bronchospasm leading to an obstructive 'shark-fin' capnogram.",
             "zh": "哮喘引起支气管痉挛，导致梗阻性“鲨鱼鳍”波形。"
           },
           {
-            "refId": "B",
+            "refId": "D",
             "en": "Pulmonary edema does not cause bronchospasm and would retain a crisp, upright waveform.",
             "zh": "肺水肿不会引起支气管痉挛，波形将保持清晰、直立。"
           },
@@ -65,7 +65,7 @@
             "zh": "过度换气会降低EtCO2，但波形仍保持清晰的矩形。"
           },
           {
-            "refId": "D",
+            "refId": "A",
             "en": "Pneumothorax might change EtCO2 values but does not classically produce a shark-fin obstructive pattern.",
             "zh": "气胸可能改变EtCO2值，但典型情况下不产生鲨鱼鳍梗阻形态。"
           }
@@ -118,27 +118,27 @@
       "options": [
         {
           "id": "A",
-          "en": "Administer an additional dose of a paralytic agent.",
-          "zh": "给予额外剂量的肌肉松弛剂。"
-        },
-        {
-          "id": "B",
           "en": "Remove the endotracheal tube and ventilate with a bag-valve-mask.",
           "zh": "拔除气管插管并使用球囊面罩通气。"
         },
         {
+          "id": "B",
+          "en": "Suction the endotracheal tube to clear secretions.",
+          "zh": "通过气管插管吸痰以清除分泌物。"
+        },
+        {
           "id": "C",
-          "en": "Secure the endotracheal tube and request a chest x-ray.",
-          "zh": "固定气管插管并要求进行胸部X线检查。"
+          "en": "Administer an additional dose of a paralytic agent.",
+          "zh": "给予额外剂量的肌肉松弛剂。"
         },
         {
           "id": "D",
-          "en": "Suction the endotracheal tube to clear secretions.",
-          "zh": "通过气管插管吸痰以清除分泌物。"
+          "en": "Secure the endotracheal tube and request a chest x-ray.",
+          "zh": "固定气管插管并要求进行胸部X线检查。"
         }
       ],
       "correct": [
-        "B"
+        "A"
       ],
       "rationale": {
         "correct": {
@@ -147,22 +147,22 @@
         },
         "byChoice": [
           {
-            "refId": "A",
+            "refId": "C",
             "en": "Paralytics will not fix a misplaced tube.",
             "zh": "肌肉松弛剂无法解决插管位置错误的问题。"
           },
           {
-            "refId": "B",
+            "refId": "A",
             "en": "A flat capnogram with epigastric sounds confirms esophageal placement; immediate removal is required.",
             "zh": "平坦的波形 and 上腹部杂音证实了食管内插管；需立即拔除。"
           },
           {
-            "refId": "C",
+            "refId": "D",
             "en": "Securing a tube placed in the esophagus is dangerous and delays oxygenation.",
             "zh": "固定插在食管内的导管是危险的，会延误氧合。"
           },
           {
-            "refId": "D",
+            "refId": "B",
             "en": "Suctioning will not address an esophageal intubation.",
             "zh": "吸痰无法解决食管插管问题。"
           }
@@ -221,27 +221,27 @@
       "options": [
         {
           "id": "A",
-          "en": "The client has developed a tension pneumothorax.",
-          "zh": "患者发生了张力性气胸。"
+          "en": "Chest compression depth has become inadequate.",
+          "zh": "胸外按压深度变得不足。"
         },
         {
           "id": "B",
-          "en": "The endotracheal tube has become disconnected.",
-          "zh": "气管插管已断开连接。"
-        },
-        {
-          "id": "C",
           "en": "The client has achieved return of spontaneous circulation (ROSC).",
           "zh": "患者已实现自主循环恢复（ROSC）。"
         },
         {
+          "id": "C",
+          "en": "The client has developed a tension pneumothorax.",
+          "zh": "患者发生了张力性气胸。"
+        },
+        {
           "id": "D",
-          "en": "Chest compression depth has become inadequate.",
-          "zh": "胸外按压深度变得不足。"
+          "en": "The endotracheal tube has become disconnected.",
+          "zh": "气管插管已断开连接。"
         }
       ],
       "correct": [
-        "C"
+        "B"
       ],
       "rationale": {
         "correct": {
@@ -250,22 +250,22 @@
         },
         "byChoice": [
           {
-            "refId": "A",
+            "refId": "C",
             "en": "Pneumothorax would typically cause a decrease, not a sharp increase, in EtCO2.",
             "zh": "气胸通常会导致EtCO2下降，而不是急剧上升。"
           },
           {
-            "refId": "B",
+            "refId": "D",
             "en": "A disconnected tube would result in a flat capnogram (EtCO2 = 0).",
             "zh": "管道断开将导致二氧化碳波形平坦（EtCO2 = 0）。"
           },
           {
-            "refId": "C",
+            "refId": "B",
             "en": "The sudden step-up in EtCO2 amplitude is the classic capnographic sign of ROSC.",
             "zh": "EtCO2振幅的突然跃升是ROSC的经典二氧化碳波形标志。"
           },
           {
-            "refId": "D",
+            "refId": "A",
             "en": "Inadequate compressions would cause the low-amplitude EtCO2 trace to fall further, not rise sharply.",
             "zh": "按压不足将导致低振幅的EtCO2轨迹进一步下降，而不是急剧上升。"
           }
@@ -323,13 +323,13 @@
       "options": [
         {
           "id": "A",
-          "en": "Exhausted soda lime in the anesthesia circuit",
-          "zh": "麻醉回路中的钠石灰已耗尽"
+          "en": "Complete airway obstruction",
+          "zh": "完全性气道梗阻"
         },
         {
           "id": "B",
-          "en": "Complete airway obstruction",
-          "zh": "完全性气道梗阻"
+          "en": "Exhausted soda lime in the anesthesia circuit",
+          "zh": "麻醉回路中的钠石灰已耗尽"
         },
         {
           "id": "C",
@@ -343,7 +343,7 @@
         }
       ],
       "correct": [
-        "A"
+        "B"
       ],
       "rationale": {
         "correct": {
@@ -352,12 +352,12 @@
         },
         "byChoice": [
           {
-            "refId": "A",
+            "refId": "B",
             "en": "Exhausted soda lime fails to absorb CO2, causing the inspiratory baseline to rise above 0 mmHg.",
             "zh": "耗尽的钠石灰无法吸收CO2，导致吸气基线升至0 mmHg以上。"
           },
           {
-            "refId": "B",
+            "refId": "A",
             "en": "Complete airway obstruction would result in a flat capnogram, not an elevated baseline.",
             "zh": "完全性气道梗阻将导致波形平坦，而不是基线升高。"
           },
@@ -420,13 +420,13 @@
       "options": [
         {
           "id": "A",
-          "en": "The crisp rectangular waveform confirms an absence of severe lower airway bronchospasm.",
-          "zh": "清晰的矩形波形证实不存在严重的下气道支气管痉挛。"
+          "en": "The waveform shape suggests the primary issue is a severe asthma exacerbation.",
+          "zh": "波形形状提示主要问题是严重的哮喘发作。"
         },
         {
           "id": "B",
-          "en": "The waveform shape suggests the primary issue is a severe asthma exacerbation.",
-          "zh": "波形形状提示主要问题是严重的哮喘发作。"
+          "en": "The crisp rectangular waveform confirms an absence of severe lower airway bronchospasm.",
+          "zh": "清晰的矩形波形证实不存在严重的下气道支气管痉挛。"
         },
         {
           "id": "C",
@@ -440,7 +440,7 @@
         }
       ],
       "correct": [
-        "A"
+        "B"
       ],
       "rationale": {
         "correct": {
@@ -449,12 +449,12 @@
         },
         "byChoice": [
           {
-            "refId": "A",
+            "refId": "B",
             "en": "A crisp, rectangular waveform signifies normal alveolar emptying and excludes severe bronchospasm.",
             "zh": "清晰的矩形波形标志着肺泡排空正常，排除了严重的支气管痉挛。"
           },
           {
-            "refId": "B",
+            "refId": "A",
             "en": "Asthma causes a sloped 'shark-fin' waveform, not a crisp rectangular one.",
             "zh": "哮喘导致倾斜的“鲨鱼鳍”波形，而不是清晰的矩形波形。"
           },
@@ -518,27 +518,27 @@
       "options": [
         {
           "id": "A",
+          "en": "Opiate overdose",
+          "zh": "阿片类药物过量"
+        },
+        {
+          "id": "B",
           "en": "Hyperventilation syndrome",
           "zh": "过度换气综合征"
         },
         {
-          "id": "B",
+          "id": "C",
           "en": "Acute severe asthma",
           "zh": "急性重症哮喘"
         },
         {
-          "id": "C",
+          "id": "D",
           "en": "Pulmonary embolism",
           "zh": "肺栓塞"
-        },
-        {
-          "id": "D",
-          "en": "Opiate overdose",
-          "zh": "阿片类药物过量"
         }
       ],
       "correct": [
-        "A"
+        "B"
       ],
       "rationale": {
         "correct": {
@@ -547,22 +547,22 @@
         },
         "byChoice": [
           {
-            "refId": "A",
+            "refId": "B",
             "en": "Rapid breathing lowers EtCO2, but the alveolar plateau remains flat and the upstroke sharp.",
             "zh": "快速呼吸会降低EtCO2，但肺泡平台保持平坦，上升支尖锐。"
           },
           {
-            "refId": "B",
+            "refId": "C",
             "en": "Asthma would present with a 'shark-fin' sloped upstroke.",
             "zh": "哮喘会表现为“鲨鱼鳍”状倾斜上升支。"
           },
           {
-            "refId": "C",
+            "refId": "D",
             "en": "While a PE can lower EtCO2, the primary symptoms described (anxiety, numbness) without hypoxia strongly suggest hyperventilation.",
             "zh": "虽然肺栓塞可降低EtCO2，但所描述的主要症状（焦虑、麻木）而无缺氧，强烈提示过度换气。"
           },
           {
-            "refId": "D",
+            "refId": "A",
             "en": "Opiate overdose causes hypoventilation (slow rate, high EtCO2), not a fast rate.",
             "zh": "阿片类药物过量引起通气不足（呼吸慢，EtCO2高），而不是呼吸快。"
           }
@@ -615,27 +615,27 @@
       "options": [
         {
           "id": "A",
-          "en": "Epinephrine intramuscularly",
-          "zh": "肌内注射肾上腺素"
-        },
-        {
-          "id": "B",
-          "en": "Diphenhydramine intravenously",
-          "zh": "静脉注射苯海拉明"
-        },
-        {
-          "id": "C",
           "en": "Albuterol via nebulizer",
           "zh": "通过雾化器吸入沙丁胺醇"
         },
         {
-          "id": "D",
+          "id": "B",
           "en": "Methylprednisolone intravenously",
           "zh": "静脉注射甲泼尼龙"
+        },
+        {
+          "id": "C",
+          "en": "Epinephrine intramuscularly",
+          "zh": "肌内注射肾上腺素"
+        },
+        {
+          "id": "D",
+          "en": "Diphenhydramine intravenously",
+          "zh": "静脉注射苯海拉明"
         }
       ],
       "correct": [
-        "A"
+        "C"
       ],
       "rationale": {
         "correct": {
@@ -644,22 +644,22 @@
         },
         "byChoice": [
           {
-            "refId": "A",
+            "refId": "C",
             "en": "Epinephrine is the absolute first-line drug for anaphylaxis, reversing bronchospasm and hypotension.",
             "zh": "肾上腺素是过敏性休克的绝对一线药物，可逆转支气管痉挛和低血压。"
           },
           {
-            "refId": "B",
+            "refId": "D",
             "en": "Antihistamines are adjunct therapies and do not rapidly reverse life-threatening bronchospasm.",
             "zh": "抗组胺药是辅助治疗，不能迅速逆转危及生命的支气管痉挛。"
           },
           {
-            "refId": "C",
+            "refId": "A",
             "en": "Albuterol treats bronchospasm but does not address the systemic vascular collapse of anaphylaxis.",
             "zh": "沙丁胺醇治疗支气管痉挛，但不解决过敏引起的全身血管衰竭。"
           },
           {
-            "refId": "D",
+            "refId": "B",
             "en": "Corticosteroids take hours to work and are used to prevent late-phase reactions, not for immediate rescue.",
             "zh": "皮质类固醇需要数小时才能起效，用于预防晚期反应，不能用于立即抢救。"
           }

@@ -93,6 +93,7 @@ Only top-level `banks/*.json` files are bundled by the app. `banks/Pending cases
 | Bank file | Source | Questions | Schema validation | Content review | Status | Notes |
 |---|---:|---:|---|---|---|---|
 | `banks/Pending cases/gemini-ngn-gap-fill-2026-06-05.json` | Gemini | 5 raw case studies | 2026-06-05: invalid (`questions must be an array`) | 2026-06-05 schema-shape review only | `rejected` | File declares `schemaVersion: "1.1"` but uses a noncanonical `caseStudies`/`type`/`answer` shape rather than the app's `meta.questions` schema. Not merged into `hard-cases-canonical.json`; would need a deliberate conversion and full content review before use. |
+| `banks/banks-raw/high-acuity-case-studies-raw.json` | Gemini | 4 case studies | 2026-06-08: schema-valid | Pending (unreviewed) | `schema-valid` | Merged raw cases from `new-cases-raw.json` and `new-cases-raw-2.json` into this single file for easier external LLM content-review. Contains: `cs_sepsis_shock_01`, `cs_adhf_pulm_edema_01`, `cs_pancreatitis_shock_03`, and `cs_stemi_vfib_04`. |
 
 ## Next Planned Review
 
