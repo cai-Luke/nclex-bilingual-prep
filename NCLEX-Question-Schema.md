@@ -316,6 +316,71 @@ Validation rules:
 
 > **STRICTEST-TIER accuracy requirement.** All reference ranges and units are placeholders pending source-verification against authoritative clinical references before the content lane opens. Record the source per analyte in the U3 audit report.
 
+### Kind: `mar`
+
+Renders a nursing Medication Administration Record: medications (name, dose, route, frequency) against a time grid of administration events. Load-bearing only when the answer turns on a **relationship across the grid** — timing collision, held/missed dose, duplicate therapy across rows, or PRN given outside its interval. If the answer is "is this one drug appropriate for this diagnosis," no MAR is needed and the item is a text question.
+
+```json
+{
+  "visual": {
+    "kind": "mar",
+    "timeGrid": ["0600", "1200", "1800", "2400"],
+    "medications": [
+      {
+        "name": "enoxaparin",
+        "dose": "40 mg",
+        "route": "SubQ",
+        "frequency": "daily",
+        "administrations": [
+          { "time": "0600", "status": "given" },
+          { "time": "1800", "status": "held" }
+        ],
+        "isHighAlert": true
+      }
+    ],
+    "caption": { "en": "Medication Administration Record", "zh": "药物给药记录" }
+  },
+  "meta": {
+    "visual_justification": "Held dose at 1800 is the load-bearing cue; its timing relative to labs is required to identify the clinical danger.",
+    "tier": "strictest",
+    "source": "...",
+    "skill_signature": "mar:held-dose/anticoagulant-withhold",
+    "stem_disambiguators": ["anticoagulant", "enoxaparin"],
+    "keyed_cells": [
+      { "medication": "enoxaparin", "time": "1800", "reason": "held_dose" }
+    ],
+    "keyed_relationship": null
+  }
+}
+```
+
+`MarRoute` vocabulary: `PO`, `IV`, `IVPB`, `IM`, `SubQ`, `SL`, `PR`, `topical`, `inhaled`, `ophthalmic`, `NG`.
+
+`MarStatus` vocabulary and rendered glyphs (always English; stem carries Chinese context):
+
+| Status | Glyph | `emphasis` |
+|---|---|---|
+| `given` | ✓ | — |
+| `held` | H | flag (yellow) |
+| `due` | — | — |
+| `missed` | × | flag (yellow) |
+| `late` | L | flag (yellow) |
+| `not_given` | NG | — |
+
+Empty slots (no administration entry for that time) render as a blank cell.
+
+Validation rules:
+- `kind` must be `"mar"`.
+- `timeGrid` must be a non-empty array of non-empty, unique strings.
+- `medications` must have ≥1 entry. Medication `name` values must be unique across rows.
+- Each medication: non-empty `name`, `dose`, `frequency`; `route` in `MarRoute`; `administrations` as an array.
+- Each administration: `time` must be in `timeGrid`; `status` in `MarStatus`. No duplicate `(medication, time)` pair.
+- `isHighAlert`, if present, must be boolean.
+- `caption.en` required when `caption` is present. `caption.zh` optional but non-empty if present.
+- **Caption rule:** caption must never reveal the answer (e.g., do not caption "Duplicate anticoagulant therapy" on an item asking the learner to identify the duplication).
+- `selfCheck` verifies: `visual_justification` present and non-empty; at least one `keyed_cells` entry or a non-null `keyed_relationship`; every `keyed_cells` entry resolves to an actual `(medication, time)` administration present in the spec.
+- **STRICTEST tier.** `selfCheck` enforces structure and necessity only. Stage-4 human review must verify that drug/dose/route/frequency are clinically valid and that nothing other than the keyed element is accidentally unsafe.
+
 ---
 
 ## Per-type structure

@@ -70,7 +70,7 @@ Suggested split once U0 is in: hand U1 to one agent and U2 to the other to run i
 
 ## Phase 1 — Waveform that fits directly
 
-### U1 · Capnography
+### U1 · Capnography — ✅ DONE (2026-06-08)
 **Type:** renderer (code) + later content lane. **Depends on:** U0. **Concurrent with:** U2.
 
 - Analytic EtCO2 morphology, reusing rhythm-strip's grid/sampling approach.
@@ -84,7 +84,7 @@ Suggested split once U0 is in: hand U1 to one agent and U2 to the other to run i
 
 Two reusable primitives unlock this whole tier. Build each primitive *reusably* inside its first consumer; later consumers are then small.
 
-### U2 · Chart primitive + `vitals_trend`
+### U2 · Chart primitive + `vitals_trend` — ✅ DONE (2026-06-08)
 **Type:** renderer (code). **Depends on:** U0. **Concurrent with:** U1.
 
 - Reusable line/trend chart primitive (axes, gridlines, multiple series, optional reference bands).
@@ -92,14 +92,14 @@ Two reusable primitives unlock this whole tier. Build each primitive *reusably* 
 - Question targets: sepsis recognition, shock progression, postoperative deterioration, response to intervention.
 - **Accuracy watch-item:** plotted points must equal the data array, and any trend the answer turns on (e.g., MAP trending down) must be real in the rendered series. `selfCheck` asserts series→render fidelity.
 
-### U3 · `lab_trend`
+### U3 · `lab_trend` — ✅ DONE (2026-06-09)
 **Type:** renderer (code). **Depends on:** U2 (chart primitive). **Concurrent with:** U4, U5.
 
 - Reuses the chart primitive plus a small table view for serial labs.
 - Targets: DKA, SIADH, AKI, electrolyte disorders, tumor lysis.
 - **Accuracy watch-item:** reference ranges and units shown must be current and correct; flags (H/L) must match the values rendered.
 
-### U4 · Table/form primitive + `mar`
+### U4 · Table/form primitive + `mar` — ✅ DONE (2026-06-09)
 **Type:** renderer (code). **Depends on:** U0. **Concurrent with:** U3, U2.
 
 - Reusable table/form primitive (rows, columns, header, time grid) styled as nursing documentation.

@@ -61,6 +61,28 @@ Completed:
 - `audit:references` now passes at zero hazards; `audit:positions`, `validate-bank`, and `build` all continue to pass.
 - The promotion gate can now treat positional-language hazards as a true zero-tolerance check with no pre-existing backlog.
 
+### U4 Table/Form Primitive + `mar` Renderer (Jun 09)
+
+Completed:
+- Patched `U4-TABLE-MAR-SPEC.md`: added `duplicate_medication_name` validation row, canonical status-to-glyph table (6 `MarStatus` values), full `meta` example with inherited §6.1 fields (`skill_signature`, `stem_disambiguators`), `renderFieldPanel` forward-reference interface sketch for U6/U9, and updated sequencing note to reflect U3 landed.
+- Implemented `src/visuals/primitives/table.ts`: `renderDocTable` pure-SVG primitive with `widthFr` column layout, zebra-striped body rows, `emphasis:"flag"` (yellow highlight) and `emphasis:"bold"` cell styling, `escapeXml` on all text, `fmt` on all coordinates. `renderFieldPanel` forward-reference comment included for U6/U9.
+- Implemented `src/visuals/kinds/mar/types.ts`: `MarRoute`, `MarStatus`, `MarMedication`, `MarSpec` types.
+- Implemented `src/visuals/kinds/mar/index.ts`: `validateMar` (13 validation checks including `duplicate_medication_name`), `selfCheckMar` (necessity + keyed-cell resolution + internal consistency echo), `renderMarSvg` (status glyph table, `isHighAlert` bold on medication name cell only, deterministic SVG), fixtures (2 valid, 7 invalid), self-registration.
+- Appended `| MarSpec` to `src/visuals/types.ts` union and `import "./mar"` to `src/visuals/kinds/index.ts`.
+- Archived `U1-CAPNOGRAPHY-SPEC.md`, `U2-CHART-VITALS-TREND-SPEC.md`, `U3-LAB-TREND-SPEC.md` to `Archive/`.
+- Added `mar` per-kind subsection to `NCLEX-Question-Schema.md`; marked U1–U4 DONE in `VISUAL-STIMULI-ROADMAP.md`.
+- Verified: `npm run test-visuals` (5 kinds: rhythm_strip, capnography, vitals_trend, lab_trend, mar), `npm run validate-bank -- banks/*.json`, `npm run coverage-report` (mar appears in per-kind breakdown), `npm run build` — all green.
+
+### U3 `lab_trend` Renderer (Jun 09)
+
+Completed:
+- Implemented `src/visuals/kinds/lab_trend/` renderer reusing the `lineChart` primitive with per-analyte reference bands.
+- Supported 28 `LabAnalyteKey` analytes (BMP, CBC, coags, LFTs, ABG, lactate, troponin, BNP) with canonical units, alternate units, adult/peds_child/peds_infant reference bands, sanity bounds, and `stableEps` per analyte.
+- Implemented full `validateLabTrend` (kind, time unit/values, population, series analyte/unit/values/length/range checks, caption rules) and `selfCheckLabTrend` (render fidelity, flag correctness recomputed from registry band, trend direction over declared windows, necessity assertions).
+- Reconciled the question-level `meta` contract (§6.1): adopted the richest on-disk vitals convention (`expected_trend` as array of `{series, direction, window}`, `expected_flags`, `visual_justification`, `source`, `tier`, `skill_signature`, `derived_values_keyed`, `reference_bands`, `stem_disambiguators`) and migrated `selfCheckVitalsTrend` to the same snake_case contract.
+- Updated `NCLEX-Question-Schema.md` with the `lab_trend` per-kind subsection and the reconciled §6.1 meta shape.
+- Verified: all visual tests green; 5 kinds registered.
+
 ### Visual Sweep Spec v3 (Jun 08)
 
 Completed:
@@ -391,8 +413,10 @@ Latest coverage snapshot:
   - multiple_choice: 396
 - Visual counts:
   - capnography: 7
+  - lab_trend: 0 (renderer done; content lane pending)
+  - mar: 0 (renderer done; content lane pending)
   - rhythm_strip: 44
-  - vitals_trend: 10
+  - vitals_trend: 11
 
 Known verification gap:
 
