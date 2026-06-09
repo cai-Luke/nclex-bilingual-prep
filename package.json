@@ -9,7 +9,13 @@
     "preview": "vite preview --host 0.0.0.0",
     "coverage-report": "tsx scripts/coverage-report.ts",
     "test-visuals": "tsx scripts/tests/rhythm-strip.ts && tsx scripts/tests/capnography.ts && tsx scripts/tests/vitals-trend.ts && tsx scripts/tests/visuals-conformance.ts && tsx scripts/tests/registry-mechanics.ts && tsx scripts/tests/visual-parity.ts",
-    "validate-bank": "tsx scripts/validate-bank.ts"
+    "validate-bank": "tsx scripts/validate-bank.ts",
+    "promote": "tsx scripts/promote.ts",
+    "validate:bank": "tsx scripts/audit/validate-bank.ts",
+    "audit:references": "tsx scripts/audit/audit-references.ts",
+    "audit:positions": "tsx scripts/audit/audit-positions.ts",
+    "audit:integrity": "tsx scripts/audit/audit-integrity.ts",
+    "audit": "tsx scripts/audit.ts"
   },
   "dependencies": {
     "@vitejs/plugin-react": "^5.1.1",
