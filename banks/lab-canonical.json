@@ -1,0 +1,3245 @@
+{
+  "meta": {
+    "schemaVersion": "1.2",
+    "exam": "NCLEX-RN",
+    "topic": "lab_trend visual questions",
+    "category": "mixed",
+    "difficulty": "mixed",
+    "count": 20
+  },
+  "questions": [
+    {
+      "id": "gpt_u3_labtrend_2026_06_09_mc_potassium_furosemide_01",
+      "itemType": "multiple_choice",
+      "category": "Pharmacological and Parenteral Therapies",
+      "topic": "potassium trend and loop diuretic safety",
+      "difficulty": "medium",
+      "ngnSkill": "take_action",
+      "stem": {
+        "en": "A client with heart failure is scheduled to receive furosemide 40 mg IV now. The nurse reviews the trend shown in the visual before administering the medication. Which action should the nurse take?",
+        "zh": "一名心力衰竭患者现在准备接受呋塞米 40 mg 静脉给药。护士在给药前查看图中实验室趋势。护士应采取哪项行动？"
+      },
+      "visual": {
+        "kind": "lab_trend",
+        "time": {
+          "unit": "hr",
+          "values": [
+            0,
+            12,
+            24
+          ]
+        },
+        "population": "adult",
+        "series": [
+          {
+            "analyte": "potassium",
+            "values": [
+              3.7,
+              3.2,
+              2.9
+            ],
+            "showReferenceBand": true
+          }
+        ],
+        "caption": {
+          "en": "Serum potassium trend",
+          "zh": "血清钾变化趋势"
+        }
+      },
+      "meta": {
+        "visual_justification": "The falling potassium trend before a scheduled loop diuretic dose is required to determine that giving furosemide now may worsen hypokalemia.",
+        "source": "Adult laboratory reference ranges and loop diuretic safety monitoring; review before promotion.",
+        "tier": "strictest",
+        "skill_signature": "lab:falling-potassium/loop-diuretic-hold",
+        "expected_trend": [
+          {
+            "series": "potassium",
+            "direction": "down",
+            "window": [
+              0,
+              24
+            ]
+          }
+        ],
+        "expected_flags": [
+          {
+            "series": "potassium",
+            "at": 24,
+            "flag": "L"
+          }
+        ],
+        "derived_values_keyed": [],
+        "reference_bands": "adult",
+        "stem_disambiguators": [
+          "furosemide",
+          "falling potassium"
+        ]
+      },
+      "options": [
+        {
+          "id": "D",
+          "en": "Request a sodium-restricted diet order before giving the medication.",
+          "zh": "给药前请求开立限钠饮食医嘱。"
+        },
+        {
+          "id": "B",
+          "en": "Hold the dose temporarily and notify the provider of the potassium trend.",
+          "zh": "暂缓该剂量，并将血钾趋势通知医嘱开立者。"
+        },
+        {
+          "id": "C",
+          "en": "Give the dose with a full glass of orange juice.",
+          "zh": "给药时让患者喝一大杯橙汁。"
+        },
+        {
+          "id": "A",
+          "en": "Administer the furosemide as scheduled and recheck potassium tomorrow.",
+          "zh": "按计划给予呋塞米，并明天复查血钾。"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "rationale": {
+        "correct": {
+          "en": "Potassium has fallen from low-normal to clearly low. A loop diuretic can further lower potassium, so the nurse should pause administration and notify the provider for replacement or revised orders.",
+          "zh": "血钾已从低正常值下降到明显偏低。袢利尿剂可进一步降低血钾，因此护士应暂缓给药并通知医嘱开立者，以便补钾或调整医嘱。"
+        },
+        "byChoice": [
+          {
+            "refId": "D",
+            "en": "Sodium restriction may be part of heart failure care, but it does not address the immediate medication-safety issue shown by the trend.",
+            "zh": "限钠可能属于心衰护理的一部分，但不能处理趋势图显示的即时用药安全问题。"
+          },
+          {
+            "refId": "B",
+            "en": "This is the safest action because the visual shows a clinically important decline before a potassium-wasting diuretic.",
+            "zh": "这是最安全的做法，因为图中显示在使用排钾利尿剂前血钾已有临床意义的下降。"
+          },
+          {
+            "refId": "C",
+            "en": "Dietary potassium is not a reliable immediate correction for a potassium of 2.9 mEq/L when an IV loop diuretic is due.",
+            "zh": "当血钾为 2.9 mEq/L 且即将静脉使用袢利尿剂时，单靠饮食补钾不能作为可靠的即时处理。"
+          },
+          {
+            "refId": "A",
+            "en": "Administering the dose ignores the downward potassium trend and could worsen hypokalemia.",
+            "zh": "直接给药忽视了血钾下降趋势，可能加重低钾血症。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Before giving a medication that changes an electrolyte, compare the current value with the direction of the trend.",
+        "zh": "给予会影响电解质的药物前，要同时看当前数值和变化方向。"
+      },
+      "glossary": [
+        {
+          "termEn": "Furosemide",
+          "termZh": "呋塞米",
+          "defZh": "一种袢利尿剂，可增加尿量，也可能导致低钾。"
+        },
+        {
+          "termEn": "Hypokalemia",
+          "termZh": "低钾血症",
+          "defZh": "血清钾低于正常范围，可引起肌无力和心律失常。"
+        },
+        {
+          "termEn": "Loop diuretic",
+          "termZh": "袢利尿剂",
+          "defZh": "作用于肾脏亨利袢的利尿药，常用于水肿或心衰。"
+        }
+      ]
+    },
+    {
+      "id": "gpt_u3_labtrend_2026_06_09_mc_sodium_decline_02",
+      "itemType": "multiple_choice",
+      "category": "Physiological Adaptation",
+      "topic": "worsening hyponatremia trend",
+      "difficulty": "medium",
+      "ngnSkill": "prioritize_hypotheses",
+      "stem": {
+        "en": "A client admitted with pneumonia becomes increasingly confused. The nurse reviews the serum sodium trend in the visual. Which provider prescription should the nurse question?",
+        "zh": "一名因肺炎入院的患者意识越来越混乱。护士查看图中的血钠趋势。护士应质疑哪一项医嘱？"
+      },
+      "visual": {
+        "kind": "lab_trend",
+        "time": {
+          "unit": "hr",
+          "values": [
+            0,
+            6,
+            12
+          ]
+        },
+        "population": "adult",
+        "series": [
+          {
+            "analyte": "sodium",
+            "values": [
+              131,
+              126,
+              120
+            ],
+            "showReferenceBand": true
+          }
+        ],
+        "caption": {
+          "en": "Serum sodium trend",
+          "zh": "血清钠变化趋势"
+        }
+      },
+      "meta": {
+        "visual_justification": "The rapid downward sodium trajectory is required to recognize worsening hyponatremia and identify an order that could make it worse.",
+        "source": "Adult laboratory reference ranges and hyponatremia safety principles; review before promotion.",
+        "tier": "strictest",
+        "skill_signature": "lab:falling-sodium/hyponatremia-worsening",
+        "expected_trend": [
+          {
+            "series": "sodium",
+            "direction": "down",
+            "window": [
+              0,
+              12
+            ]
+          }
+        ],
+        "expected_flags": [
+          {
+            "series": "sodium",
+            "at": 12,
+            "flag": "L"
+          }
+        ],
+        "derived_values_keyed": [],
+        "reference_bands": "adult",
+        "stem_disambiguators": [
+          "confusion",
+          "falling sodium"
+        ]
+      },
+      "options": [
+        {
+          "id": "C",
+          "en": "Recheck the serum sodium level in 2 hours.",
+          "zh": "2 小时后复查血钠。"
+        },
+        {
+          "id": "D",
+          "en": "Notify the provider of the change in mental status.",
+          "zh": "将意识状态改变通知医嘱开立者。"
+        },
+        {
+          "id": "A",
+          "en": "Place the client on seizure precautions.",
+          "zh": "为患者实施癫痫发作防护措施。"
+        },
+        {
+          "id": "B",
+          "en": "Start 0.45% sodium chloride at 125 mL/hr.",
+          "zh": "以 125 mL/小时开始输注 0.45% 氯化钠。"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "rationale": {
+        "correct": {
+          "en": "The sodium is falling rapidly and the client has neurologic changes. Hypotonic IV fluid can worsen hyponatremia, so the nurse should question that prescription.",
+          "zh": "血钠快速下降，且患者出现神经系统改变。低渗静脉液可能加重低钠血症，因此护士应质疑该医嘱。"
+        },
+        "byChoice": [
+          {
+            "refId": "C",
+            "en": "Frequent reassessment is appropriate because the trend is changing quickly.",
+            "zh": "由于趋势变化很快，频繁复查是合适的。"
+          },
+          {
+            "refId": "D",
+            "en": "Notifying the provider is appropriate because confusion with falling sodium is a concerning acute change.",
+            "zh": "意识混乱伴血钠下降属于令人担忧的急性变化，通知医嘱开立者是合适的。"
+          },
+          {
+            "refId": "A",
+            "en": "Seizure precautions are appropriate because severe or rapidly worsening hyponatremia can cause seizures.",
+            "zh": "癫痫防护是合适的，因为严重或快速恶化的低钠血症可导致癫痫发作。"
+          },
+          {
+            "refId": "B",
+            "en": "This is the order to question because hypotonic fluid may further dilute serum sodium.",
+            "zh": "这是应质疑的医嘱，因为低渗液可能进一步稀释血钠。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "When a neurologic symptom appears with a sodium trend, avoid interventions that dilute sodium further.",
+        "zh": "当神经系统症状伴随血钠趋势变化时，应避免会进一步稀释血钠的干预。"
+      },
+      "glossary": [
+        {
+          "termEn": "Hyponatremia",
+          "termZh": "低钠血症",
+          "defZh": "血清钠低于正常范围，可引起头痛、意识混乱、癫痫等。"
+        },
+        {
+          "termEn": "Hypotonic fluid",
+          "termZh": "低渗液",
+          "defZh": "渗透压低于血浆的液体，可使血清钠被稀释。"
+        },
+        {
+          "termEn": "Seizure precautions",
+          "termZh": "癫痫发作防护",
+          "defZh": "降低癫痫发作时受伤风险的安全措施。"
+        }
+      ]
+    },
+    {
+      "id": "gpt_u3_labtrend_2026_06_09_mc_creatinine_gentamicin_03",
+      "itemType": "multiple_choice",
+      "category": "Pharmacological and Parenteral Therapies",
+      "topic": "rising creatinine and nephrotoxic medication",
+      "difficulty": "medium",
+      "ngnSkill": "take_action",
+      "stem": {
+        "en": "A client receiving gentamicin for a complicated urinary tract infection has the next dose due now. The nurse reviews the renal laboratory trend in the visual. What is the nurse's best action?",
+        "zh": "一名因复杂性尿路感染正在使用庆大霉素的患者，现在应给予下一剂。护士查看图中的肾功能实验室趋势。护士最应采取哪项行动？"
+      },
+      "visual": {
+        "kind": "lab_trend",
+        "time": {
+          "unit": "hr",
+          "values": [
+            0,
+            24,
+            48
+          ]
+        },
+        "population": "adult",
+        "series": [
+          {
+            "analyte": "creatinine",
+            "values": [
+              0.9,
+              1.5,
+              2.3
+            ],
+            "showReferenceBand": true
+          },
+          {
+            "analyte": "bun",
+            "values": [
+              16,
+              28,
+              42
+            ],
+            "showReferenceBand": true
+          }
+        ],
+        "caption": {
+          "en": "Renal laboratory trend",
+          "zh": "肾功能实验室趋势"
+        }
+      },
+      "meta": {
+        "visual_justification": "The rising creatinine and BUN trend is required to recognize worsening renal function before administering a nephrotoxic medication.",
+        "source": "Adult renal laboratory ranges and aminoglycoside safety monitoring; review before promotion.",
+        "tier": "strictest",
+        "skill_signature": "lab:rising-creatinine/nephrotoxic-medication-hold",
+        "expected_trend": [
+          {
+            "series": "creatinine",
+            "direction": "up",
+            "window": [
+              0,
+              48
+            ]
+          },
+          {
+            "series": "bun",
+            "direction": "up",
+            "window": [
+              0,
+              48
+            ]
+          }
+        ],
+        "expected_flags": [
+          {
+            "series": "creatinine",
+            "at": 48,
+            "flag": "H"
+          },
+          {
+            "series": "bun",
+            "at": 48,
+            "flag": "H"
+          }
+        ],
+        "derived_values_keyed": [],
+        "reference_bands": "adult",
+        "stem_disambiguators": [
+          "gentamicin",
+          "rising creatinine"
+        ]
+      },
+      "options": [
+        {
+          "id": "C",
+          "en": "Give the dose and encourage the client to drink cranberry juice.",
+          "zh": "给予该剂量，并鼓励患者喝蔓越莓汁。"
+        },
+        {
+          "id": "A",
+          "en": "Administer the gentamicin because the infection is complicated.",
+          "zh": "因感染复杂，按时给予庆大霉素。"
+        },
+        {
+          "id": "B",
+          "en": "Hold the dose and notify the provider of the worsening renal trend.",
+          "zh": "暂缓给药，并将肾功能恶化趋势通知医嘱开立者。"
+        },
+        {
+          "id": "D",
+          "en": "Request a stool culture before administering the medication.",
+          "zh": "给药前请求进行粪便培养。"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "rationale": {
+        "correct": {
+          "en": "Gentamicin is nephrotoxic and requires renal monitoring. The visual shows a clear rise in creatinine and BUN, so the nurse should hold the dose until the provider evaluates the regimen.",
+          "zh": "庆大霉素具有肾毒性，需要监测肾功能。图中显示肌酐和尿素氮明显上升，因此护士应暂缓给药，等待医嘱开立者评估用药方案。"
+        },
+        "byChoice": [
+          {
+            "refId": "C",
+            "en": "Cranberry juice does not address aminoglycoside nephrotoxicity or the rising renal values.",
+            "zh": "蔓越莓汁不能处理氨基糖苷类药物的肾毒性，也不能解决肾功能数值上升。"
+          },
+          {
+            "refId": "A",
+            "en": "The seriousness of infection does not override medication-safety concerns when renal function is worsening.",
+            "zh": "感染严重并不意味着可以忽视肾功能恶化时的用药安全问题。"
+          },
+          {
+            "refId": "B",
+            "en": "This action responds directly to the trend and prevents potential worsening nephrotoxicity.",
+            "zh": "该行动直接针对趋势，防止潜在肾毒性加重。"
+          },
+          {
+            "refId": "D",
+            "en": "A stool culture is unrelated to the renal trend and the immediate medication decision.",
+            "zh": "粪便培养与肾功能趋势和当前给药决定无关。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "For nephrotoxic drugs, a worsening creatinine trend usually matters more than the scheduled administration time.",
+        "zh": "对于有肾毒性的药物，肌酐恶化趋势通常比按时给药更重要。"
+      },
+      "glossary": [
+        {
+          "termEn": "Gentamicin",
+          "termZh": "庆大霉素",
+          "defZh": "一种氨基糖苷类抗生素，可损害肾脏和听力。"
+        },
+        {
+          "termEn": "Creatinine",
+          "termZh": "肌酐",
+          "defZh": "反映肾脏滤过功能的血液指标。"
+        },
+        {
+          "termEn": "Nephrotoxic",
+          "termZh": "肾毒性",
+          "defZh": "可能损害肾脏功能的。"
+        }
+      ]
+    },
+    {
+      "id": "gpt_u3_labtrend_2026_06_09_matrix_sepsis_lactate_wbc_04",
+      "itemType": "matrix",
+      "category": "Physiological Adaptation",
+      "topic": "sepsis response to treatment trend",
+      "difficulty": "medium",
+      "ngnSkill": "evaluate_outcomes",
+      "stem": {
+        "en": "A client with sepsis received IV fluids and broad-spectrum antibiotics. Use the laboratory trend in the visual to classify each interpretation.",
+        "zh": "一名脓毒症患者已接受静脉补液和广谱抗生素。根据图中的实验室趋势，对每项解读进行分类。"
+      },
+      "visual": {
+        "kind": "lab_trend",
+        "time": {
+          "unit": "hr",
+          "values": [
+            0,
+            3,
+            6
+          ]
+        },
+        "population": "adult",
+        "series": [
+          {
+            "analyte": "lactate",
+            "values": [
+              4.8,
+              3.2,
+              1.9
+            ],
+            "showReferenceBand": true
+          },
+          {
+            "analyte": "wbc",
+            "values": [
+              19,
+              15.2,
+              11.4
+            ],
+            "showReferenceBand": true
+          }
+        ],
+        "caption": {
+          "en": "Sepsis laboratory response trend",
+          "zh": "脓毒症实验室反应趋势"
+        }
+      },
+      "meta": {
+        "visual_justification": "The answer requires comparing lactate and WBC trajectories after treatment rather than reacting to a single value.",
+        "source": "Adult laboratory ranges and sepsis response monitoring principles; review before promotion.",
+        "tier": "strictest",
+        "skill_signature": "lab:falling-lactate-wbc/sepsis-treatment-response",
+        "expected_trend": [
+          {
+            "series": "lactate",
+            "direction": "down",
+            "window": [
+              0,
+              6
+            ]
+          },
+          {
+            "series": "wbc",
+            "direction": "down",
+            "window": [
+              0,
+              6
+            ]
+          }
+        ],
+        "expected_flags": [
+          {
+            "series": "lactate",
+            "at": 0,
+            "flag": "H"
+          },
+          {
+            "series": "wbc",
+            "at": 0,
+            "flag": "H"
+          }
+        ],
+        "derived_values_keyed": [],
+        "reference_bands": "adult",
+        "stem_disambiguators": [
+          "sepsis",
+          "after fluids and antibiotics"
+        ]
+      },
+      "matrix": {
+        "rows": [
+          {
+            "id": "r1",
+            "en": "The lactate pattern supports improving tissue perfusion.",
+            "zh": "乳酸变化支持组织灌注正在改善。"
+          },
+          {
+            "id": "r2",
+            "en": "The WBC pattern supports movement toward the reference range.",
+            "zh": "白细胞变化支持正在向参考范围靠近。"
+          },
+          {
+            "id": "r3",
+            "en": "The combined trend shows worsening sepsis that requires immediate escalation based on labs alone.",
+            "zh": "仅根据实验室趋势，综合变化显示脓毒症恶化，需要立即升级处理。"
+          },
+          {
+            "id": "r4",
+            "en": "Ongoing monitoring is still needed because improvement is judged over time.",
+            "zh": "仍需持续监测，因为改善需要结合时间趋势判断。"
+          }
+        ],
+        "columns": [
+          {
+            "id": "c1",
+            "en": "Supported by the trend",
+            "zh": "趋势支持"
+          },
+          {
+            "id": "c2",
+            "en": "Not supported by the trend",
+            "zh": "趋势不支持"
+          }
+        ],
+        "selectionMode": "single_per_row"
+      },
+      "correct": [
+        {
+          "rowId": "r1",
+          "columnIds": [
+            "c1"
+          ]
+        },
+        {
+          "rowId": "r2",
+          "columnIds": [
+            "c1"
+          ]
+        },
+        {
+          "rowId": "r3",
+          "columnIds": [
+            "c2"
+          ]
+        },
+        {
+          "rowId": "r4",
+          "columnIds": [
+            "c1"
+          ]
+        }
+      ],
+      "rationale": {
+        "correct": {
+          "en": "Both lactate and WBC are moving downward after treatment, which supports improvement while still requiring reassessment and monitoring.",
+          "zh": "治疗后乳酸和白细胞均下降，支持病情改善，但仍需继续复评和监测。"
+        },
+        "byChoice": [
+          {
+            "refId": "r1",
+            "en": "A falling lactate trend after fluids and antibiotics suggests improving perfusion or reduced anaerobic metabolism.",
+            "zh": "补液和抗生素后乳酸下降，提示灌注改善或无氧代谢减少。"
+          },
+          {
+            "refId": "r2",
+            "en": "The WBC remains high but is decreasing toward the reference range, which supports response to treatment.",
+            "zh": "白细胞仍偏高，但正向参考范围下降，支持治疗有反应。"
+          },
+          {
+            "refId": "r3",
+            "en": "The labs do not show worsening; both plotted values are improving over the time window.",
+            "zh": "实验室结果并未显示恶化；两个绘制的指标在该时间段内均在改善。"
+          },
+          {
+            "refId": "r4",
+            "en": "Trend improvement does not eliminate the need to monitor vital signs, urine output, mentation, and repeat labs.",
+            "zh": "趋势改善并不代表可以停止监测生命体征、尿量、意识状态和复查实验室指标。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "For sepsis, falling lactate over time is a stronger outcome cue than one isolated lactate value.",
+        "zh": "在脓毒症中，乳酸随时间下降比单个乳酸值更能提示治疗反应。"
+      },
+      "glossary": [
+        {
+          "termEn": "Lactate",
+          "termZh": "乳酸",
+          "defZh": "组织缺氧或灌注不足时可能升高的代谢指标。"
+        },
+        {
+          "termEn": "Sepsis",
+          "termZh": "脓毒症",
+          "defZh": "感染引起的危及生命的全身反应和器官功能障碍。"
+        },
+        {
+          "termEn": "White blood cell count",
+          "termZh": "白细胞计数",
+          "defZh": "反映感染、炎症或骨髓反应的血液指标。"
+        }
+      ]
+    },
+    {
+      "id": "gpt_u3_labtrend_2026_06_09_matrix_inr_platelets_warfarin_05",
+      "itemType": "matrix",
+      "category": "Pharmacological and Parenteral Therapies",
+      "topic": "INR trend and anticoagulant safety",
+      "difficulty": "medium",
+      "ngnSkill": "take_action",
+      "stem": {
+        "en": "A client with deep vein thrombosis is taking warfarin. The evening dose is due. Use the lab trend in the visual to determine whether each nursing action is appropriate now.",
+        "zh": "一名深静脉血栓患者正在服用华法林，晚间剂量即将给药。根据图中的实验室趋势，判断每项护理行动此刻是否合适。"
+      },
+      "visual": {
+        "kind": "lab_trend",
+        "time": {
+          "unit": "day",
+          "values": [
+            1,
+            2,
+            3
+          ]
+        },
+        "population": "adult",
+        "series": [
+          {
+            "analyte": "inr",
+            "values": [
+              1.3,
+              2.6,
+              4.4
+            ],
+            "showReferenceBand": true
+          },
+          {
+            "analyte": "platelets",
+            "values": [
+              248,
+              232,
+              218
+            ],
+            "showReferenceBand": true
+          }
+        ],
+        "caption": {
+          "en": "Anticoagulation laboratory trend",
+          "zh": "抗凝相关实验室趋势"
+        }
+      },
+      "meta": {
+        "visual_justification": "The rising INR with stable platelets is required to identify bleeding-risk actions and the warfarin administration decision.",
+        "source": "Adult INR/platelet ranges and warfarin monitoring principles; review before promotion.",
+        "tier": "strictest",
+        "skill_signature": "lab:rising-inr/warfarin-hold-assess-bleeding",
+        "expected_trend": [
+          {
+            "series": "inr",
+            "direction": "up",
+            "window": [
+              1,
+              3
+            ]
+          },
+          {
+            "series": "platelets",
+            "direction": "down",
+            "window": [
+              1,
+              3
+            ]
+          }
+        ],
+        "expected_flags": [
+          {
+            "series": "inr",
+            "at": 3,
+            "flag": "H"
+          }
+        ],
+        "derived_values_keyed": [],
+        "reference_bands": "adult",
+        "stem_disambiguators": [
+          "warfarin",
+          "rising INR"
+        ]
+      },
+      "matrix": {
+        "rows": [
+          {
+            "id": "r1",
+            "en": "Give the scheduled warfarin dose now.",
+            "zh": "现在给予计划中的华法林剂量。"
+          },
+          {
+            "id": "r2",
+            "en": "Assess gums, urine, stool, and skin for bleeding.",
+            "zh": "评估牙龈、尿液、粪便和皮肤是否有出血。"
+          },
+          {
+            "id": "r3",
+            "en": "Administer an IM ketorolac injection for pain.",
+            "zh": "肌内注射酮咯酸止痛。"
+          },
+          {
+            "id": "r4",
+            "en": "Notify the provider of the supratherapeutic INR trend before giving warfarin.",
+            "zh": "在给予华法林前，将 INR 超治疗范围的上升趋势通知医嘱开立者。"
+          }
+        ],
+        "columns": [
+          {
+            "id": "c1",
+            "en": "Appropriate now",
+            "zh": "此刻合适"
+          },
+          {
+            "id": "c2",
+            "en": "Not appropriate now",
+            "zh": "此刻不合适"
+          }
+        ],
+        "selectionMode": "single_per_row"
+      },
+      "correct": [
+        {
+          "rowId": "r1",
+          "columnIds": [
+            "c2"
+          ]
+        },
+        {
+          "rowId": "r2",
+          "columnIds": [
+            "c1"
+          ]
+        },
+        {
+          "rowId": "r3",
+          "columnIds": [
+            "c2"
+          ]
+        },
+        {
+          "rowId": "r4",
+          "columnIds": [
+            "c1"
+          ]
+        }
+      ],
+      "rationale": {
+        "correct": {
+          "en": "The INR trend is rising above the usual therapeutic range, increasing bleeding risk. The nurse should assess for bleeding and notify the provider before administering more warfarin; IM NSAID injection is unsafe.",
+          "zh": "INR 趋势升至通常治疗范围以上，出血风险增加。护士应评估出血并在继续给予华法林前通知医嘱开立者；肌内注射 NSAID 不安全。"
+        },
+        "byChoice": [
+          {
+            "refId": "r1",
+            "en": "Giving warfarin without follow-up is not appropriate because the INR is rising to a supratherapeutic level.",
+            "zh": "INR 正升至超治疗范围，未跟进就给予华法林不合适。"
+          },
+          {
+            "refId": "r2",
+            "en": "Bleeding assessment is appropriate because the visual indicates increasing anticoagulation effect.",
+            "zh": "图中显示抗凝作用增强，因此评估出血是合适的。"
+          },
+          {
+            "refId": "r3",
+            "en": "An IM NSAID injection increases bleeding risk and should be avoided with a high INR.",
+            "zh": "肌内注射 NSAID 会增加出血风险，在 INR 偏高时应避免。"
+          },
+          {
+            "refId": "r4",
+            "en": "Provider notification is appropriate before the next dose because the trend changes the medication-safety decision.",
+            "zh": "趋势改变了用药安全判断，因此在下一剂前通知医嘱开立者是合适的。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "For anticoagulants, connect the lab trend to bleeding risk before deciding whether to give the next dose.",
+        "zh": "处理抗凝药时，先把实验室趋势与出血风险联系起来，再决定是否给下一剂。"
+      },
+      "glossary": [
+        {
+          "termEn": "INR",
+          "termZh": "国际标准化比值",
+          "defZh": "用于监测华法林抗凝效果的凝血指标。"
+        },
+        {
+          "termEn": "Warfarin",
+          "termZh": "华法林",
+          "defZh": "口服抗凝药，剂量需根据 INR 和出血风险调整。"
+        },
+        {
+          "termEn": "Platelets",
+          "termZh": "血小板",
+          "defZh": "参与凝血的血细胞，过低会增加出血风险。"
+        }
+      ]
+    },
+    {
+      "id": "gpt_u3_labtrend_2026_06_09_or_hyperkalemia_progression_06",
+      "itemType": "ordered_response",
+      "category": "Physiological Adaptation",
+      "topic": "worsening hyperkalemia emergency actions",
+      "difficulty": "hard",
+      "ngnSkill": "take_action",
+      "stem": {
+        "en": "A client with acute kidney injury has a potassium chloride-containing IV fluid infusing. The nurse reviews the potassium trend in the visual and notes new peaked T waves on telemetry. Place the nursing actions in the order they should be performed.",
+        "zh": "一名急性肾损伤患者正在输注含氯化钾的静脉液。护士查看图中的血钾趋势，并在心电监护上发现新的高尖 T 波。请按应执行的顺序排列护理行动。"
+      },
+      "visual": {
+        "kind": "lab_trend",
+        "time": {
+          "unit": "hr",
+          "values": [
+            0,
+            4,
+            8
+          ]
+        },
+        "population": "adult",
+        "series": [
+          {
+            "analyte": "potassium",
+            "values": [
+              5.2,
+              5.8,
+              6.4
+            ],
+            "showReferenceBand": true
+          }
+        ],
+        "caption": {
+          "en": "Serum potassium trend",
+          "zh": "血清钾变化趋势"
+        }
+      },
+      "meta": {
+        "visual_justification": "The upward potassium trend plus ECG change is required to prioritize stopping potassium exposure and initiating hyperkalemia emergency actions.",
+        "source": "Adult potassium ranges and hyperkalemia emergency nursing priorities; review before promotion.",
+        "tier": "strictest",
+        "skill_signature": "lab:rising-potassium/hyperkalemia-emergency-sequence",
+        "expected_trend": [
+          {
+            "series": "potassium",
+            "direction": "up",
+            "window": [
+              0,
+              8
+            ]
+          }
+        ],
+        "expected_flags": [
+          {
+            "series": "potassium",
+            "at": 8,
+            "flag": "H"
+          }
+        ],
+        "derived_values_keyed": [],
+        "reference_bands": "adult",
+        "stem_disambiguators": [
+          "acute kidney injury",
+          "potassium chloride infusion",
+          "peaked T waves"
+        ]
+      },
+      "options": [
+        {
+          "id": "A",
+          "en": "Place the client on continuous cardiac monitoring and assess rhythm.",
+          "zh": "为患者连接连续心电监护并评估心律。"
+        },
+        {
+          "id": "B",
+          "en": "Stop the potassium-containing IV fluid.",
+          "zh": "停止含钾静脉液。"
+        },
+        {
+          "id": "C",
+          "en": "Notify the provider or rapid response team of worsening hyperkalemia with ECG changes.",
+          "zh": "将伴心电图改变的高钾血症恶化情况通知医嘱开立者或快速反应团队。"
+        },
+        {
+          "id": "E",
+          "en": "Prepare to administer prescribed insulin with dextrose to shift potassium intracellularly.",
+          "zh": "准备按医嘱给予胰岛素加葡萄糖，使钾转移入细胞内。"
+        },
+        {
+          "id": "D",
+          "en": "Prepare to administer prescribed IV calcium gluconate.",
+          "zh": "准备按医嘱给予静脉葡萄糖酸钙。"
+        }
+      ],
+      "correct": [
+        "B",
+        "A",
+        "C",
+        "D",
+        "E"
+      ],
+      "rationale": {
+        "correct": {
+          "en": "The harmful potassium source should be stopped first. Continuous monitoring follows because ECG changes are present. The provider or emergency team must be notified, and prescribed calcium protects the myocardium before therapies that shift potassium into cells.",
+          "zh": "首先应停止正在输入的含钾来源。因已出现心电图改变，应立即持续监测。随后通知医嘱开立者或急救团队；按医嘱先用钙剂保护心肌，再使用促使钾进入细胞内的治疗。"
+        },
+        "byChoice": [
+          {
+            "refId": "A",
+            "en": "Monitoring is urgent after stopping the potassium source because rising potassium can cause lethal dysrhythmias.",
+            "zh": "停止钾来源后，因血钾升高可导致致命心律失常，应立即监测。"
+          },
+          {
+            "refId": "B",
+            "en": "Stopping the potassium-containing infusion removes the ongoing contributor to the worsening trend and should be first.",
+            "zh": "停止含钾输液可去除导致趋势恶化的持续因素，应最先执行。"
+          },
+          {
+            "refId": "C",
+            "en": "Notification is needed after immediate removal of the potassium source and rhythm assessment, because emergency orders are required.",
+            "zh": "在立即去除钾来源并评估心律后，需要通知相关人员，因为需要紧急医嘱。"
+          },
+          {
+            "refId": "E",
+            "en": "Insulin with dextrose shifts potassium into cells but does not stabilize the myocardium as quickly as calcium.",
+            "zh": "胰岛素加葡萄糖可使钾进入细胞，但不像钙剂那样快速稳定心肌。"
+          },
+          {
+            "refId": "D",
+            "en": "IV calcium is prepared before potassium-shifting therapy because ECG changes indicate myocardial irritability.",
+            "zh": "因心电图改变提示心肌易激惹，应先准备静脉钙剂，再进行促钾转移治疗。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "When a trend shows a dangerous exposure is continuing, stop the source first, then monitor, notify, and implement ordered rescue therapy.",
+        "zh": "当趋势显示危险因素仍在持续输入时，先停止来源，再监测、通知并执行医嘱抢救治疗。"
+      },
+      "glossary": [
+        {
+          "termEn": "Hyperkalemia",
+          "termZh": "高钾血症",
+          "defZh": "血清钾升高，可导致危险心律失常。"
+        },
+        {
+          "termEn": "Peaked T waves",
+          "termZh": "高尖 T 波",
+          "defZh": "高钾血症时可能出现的心电图改变。"
+        },
+        {
+          "termEn": "Calcium gluconate",
+          "termZh": "葡萄糖酸钙",
+          "defZh": "高钾伴心电改变时用于稳定心肌的药物。"
+        }
+      ]
+    },
+    {
+      "id": "gpt_u3_labtrend_2026_06_09_or_aki_fluid_response_07",
+      "itemType": "ordered_response",
+      "category": "Reduction of Risk Potential",
+      "topic": "renal laboratory response to fluid therapy",
+      "difficulty": "medium",
+      "ngnSkill": "evaluate_outcomes",
+      "stem": {
+        "en": "A client admitted with dehydration and prerenal acute kidney injury has been receiving isotonic IV fluids. The current assessment shows clear lung sounds and urine output 45 mL/hr. Use the renal lab trend in the visual. Place the nurse's actions in order.",
+        "zh": "一名因脱水和肾前性急性肾损伤入院的患者一直在接受等渗静脉补液。目前评估显示肺音清晰，尿量 45 mL/小时。根据图中的肾功能实验室趋势，按顺序排列护士行动。"
+      },
+      "visual": {
+        "kind": "lab_trend",
+        "time": {
+          "unit": "hr",
+          "values": [
+            0,
+            12,
+            24
+          ]
+        },
+        "population": "adult",
+        "series": [
+          {
+            "analyte": "bun",
+            "values": [
+              48,
+              34,
+              22
+            ],
+            "showReferenceBand": true
+          },
+          {
+            "analyte": "creatinine",
+            "values": [
+              1.9,
+              1.3,
+              0.9
+            ],
+            "showReferenceBand": true
+          }
+        ],
+        "caption": {
+          "en": "Renal response after fluid therapy",
+          "zh": "补液治疗后的肾功能反应"
+        }
+      },
+      "meta": {
+        "visual_justification": "The downward BUN and creatinine trend is required to evaluate response to fluid therapy rather than assume AKI is still worsening.",
+        "source": "Adult renal laboratory ranges and prerenal AKI fluid-response monitoring; review before promotion.",
+        "tier": "strictest",
+        "skill_signature": "lab:falling-bun-creatinine/prerenal-aki-fluid-response",
+        "expected_trend": [
+          {
+            "series": "bun",
+            "direction": "down",
+            "window": [
+              0,
+              24
+            ]
+          },
+          {
+            "series": "creatinine",
+            "direction": "down",
+            "window": [
+              0,
+              24
+            ]
+          }
+        ],
+        "expected_flags": [
+          {
+            "series": "bun",
+            "at": 0,
+            "flag": "H"
+          },
+          {
+            "series": "creatinine",
+            "at": 0,
+            "flag": "H"
+          }
+        ],
+        "derived_values_keyed": [],
+        "reference_bands": "adult",
+        "stem_disambiguators": [
+          "dehydration",
+          "prerenal AKI",
+          "after isotonic fluids"
+        ]
+      },
+      "options": [
+        {
+          "id": "D",
+          "en": "Update the provider and ask whether the plan should transition toward oral hydration or maintenance fluids.",
+          "zh": "向医嘱开立者汇报，并询问计划是否应转向口服补液或维持液。"
+        },
+        {
+          "id": "B",
+          "en": "Interpret and document that renal perfusion is improving.",
+          "zh": "解读并记录肾脏灌注正在改善。"
+        },
+        {
+          "id": "A",
+          "en": "Assess for fluid overload and confirm current urine output.",
+          "zh": "评估是否有液体过负荷，并确认当前尿量。"
+        },
+        {
+          "id": "C",
+          "en": "Continue the prescribed fluid therapy while monitoring intake and output.",
+          "zh": "继续按医嘱补液，同时监测出入量。"
+        }
+      ],
+      "correct": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "rationale": {
+        "correct": {
+          "en": "The nurse first reassesses safety and urine output, then interprets the improving BUN/creatinine trend, continues ordered therapy with monitoring, and collaborates about the next plan.",
+          "zh": "护士先复评安全状况和尿量，再解读 BUN/肌酐改善趋势，随后在监测下继续执行医嘱，并与医嘱开立者协作调整下一步计划。"
+        },
+        "byChoice": [
+          {
+            "refId": "D",
+            "en": "Provider collaboration occurs after the nurse has assessment data and trend interpretation to report.",
+            "zh": "护士已有评估资料和趋势解读后，再与医嘱开立者沟通更合适。"
+          },
+          {
+            "refId": "B",
+            "en": "The visual shows BUN and creatinine falling, which supports improving renal perfusion.",
+            "zh": "图中 BUN 和肌酐下降，支持肾脏灌注改善。"
+          },
+          {
+            "refId": "A",
+            "en": "Assessment comes first, especially during fluid therapy, to make sure improving renal labs are not occurring with fluid overload.",
+            "zh": "评估应先进行，尤其在补液治疗中，要确认肾功能改善的同时没有液体过负荷。"
+          },
+          {
+            "refId": "C",
+            "en": "Continuing the prescribed therapy with I&O monitoring is reasonable after safety assessment and trend interpretation.",
+            "zh": "在安全评估和趋势解读后，继续按医嘱治疗并监测出入量是合理的。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Use the nursing process: assess first, interpret the trend, continue safe ordered care, then communicate next-step recommendations.",
+        "zh": "运用护理程序：先评估，再解读趋势，继续安全执行医嘱，最后沟通下一步建议。"
+      },
+      "glossary": [
+        {
+          "termEn": "Prerenal AKI",
+          "termZh": "肾前性急性肾损伤",
+          "defZh": "因肾脏灌注不足导致的急性肾功能下降。"
+        },
+        {
+          "termEn": "BUN",
+          "termZh": "血尿素氮",
+          "defZh": "可随脱水、肾功能变化或蛋白分解而升高的指标。"
+        },
+        {
+          "termEn": "Fluid overload",
+          "termZh": "液体过负荷",
+          "defZh": "体内液体过多，可出现肺部湿啰音、水肿或呼吸困难。"
+        }
+      ]
+    },
+    {
+      "id": "gpt_u3_labtrend_2026_06_09_cloze_magnesium_decline_08",
+      "itemType": "dropdown_cloze",
+      "category": "Reduction of Risk Potential",
+      "topic": "falling magnesium trend",
+      "difficulty": "medium",
+      "ngnSkill": "prioritize_hypotheses",
+      "stem": {
+        "en": "A client with prolonged diarrhea reports tremors and palpitations. Complete the statement using the magnesium trend in the visual.",
+        "zh": "一名长期腹泻患者诉震颤和心悸。请根据图中的镁趋势完成句子。"
+      },
+      "visual": {
+        "kind": "lab_trend",
+        "time": {
+          "unit": "hr",
+          "values": [
+            0,
+            8,
+            16
+          ]
+        },
+        "population": "adult",
+        "series": [
+          {
+            "analyte": "magnesium",
+            "values": [
+              1.8,
+              1.4,
+              1
+            ],
+            "showReferenceBand": true
+          }
+        ],
+        "caption": {
+          "en": "Serum magnesium trend",
+          "zh": "血清镁变化趋势"
+        }
+      },
+      "meta": {
+        "visual_justification": "The falling magnesium trajectory is required to identify the current risk and anticipated replacement therapy.",
+        "source": "Adult magnesium reference range and hypomagnesemia safety monitoring; review before promotion.",
+        "tier": "strictest",
+        "skill_signature": "lab:falling-magnesium/hypomagnesemia-risk",
+        "expected_trend": [
+          {
+            "series": "magnesium",
+            "direction": "down",
+            "window": [
+              0,
+              16
+            ]
+          }
+        ],
+        "expected_flags": [
+          {
+            "series": "magnesium",
+            "at": 16,
+            "flag": "L"
+          }
+        ],
+        "derived_values_keyed": [],
+        "reference_bands": "adult",
+        "stem_disambiguators": [
+          "prolonged diarrhea",
+          "tremors",
+          "palpitations"
+        ]
+      },
+      "clozeStem": {
+        "en": "The client is at greatest risk for {{1}}; the nurse should anticipate {{2}}.",
+        "zh": "该患者最主要的风险是 {{1}}；护士应预期 {{2}}。"
+      },
+      "dropdowns": [
+        {
+          "id": "1",
+          "options": [
+            {
+              "id": "o1",
+              "en": "dysrhythmias related to worsening hypomagnesemia",
+              "zh": "与低镁血症恶化相关的心律失常"
+            },
+            {
+              "id": "o2",
+              "en": "fluid overload related to hypermagnesemia",
+              "zh": "与高镁血症相关的液体过负荷"
+            },
+            {
+              "id": "o3",
+              "en": "bleeding related to thrombocytopenia",
+              "zh": "与血小板减少相关的出血"
+            }
+          ],
+          "correct": "o1"
+        },
+        {
+          "id": "2",
+          "options": [
+            {
+              "id": "o1",
+              "en": "prescribed magnesium replacement and cardiac monitoring",
+              "zh": "按医嘱补镁并进行心电监测"
+            },
+            {
+              "id": "o2",
+              "en": "restriction of all oral and IV fluids",
+              "zh": "限制所有口服和静脉液体"
+            },
+            {
+              "id": "o3",
+              "en": "administration of vitamin K",
+              "zh": "给予维生素 K"
+            }
+          ],
+          "correct": "o1"
+        }
+      ],
+      "rationale": {
+        "correct": {
+          "en": "The magnesium is trending downward to a low level. Hypomagnesemia can contribute to tremors, neuromuscular irritability, and dysrhythmias, so replacement and monitoring are expected.",
+          "zh": "血镁持续下降至偏低水平。低镁血症可导致震颤、神经肌肉兴奋性增加和心律失常，因此应预期补镁和监测。"
+        },
+        "byChoice": [
+          {
+            "refId": "1",
+            "en": "Dropdown 1 should identify dysrhythmia risk because the visual shows worsening hypomagnesemia, not high magnesium or platelet loss.",
+            "zh": "第 1 个下拉框应选择心律失常风险，因为图中显示低镁血症恶化，而不是高镁或血小板减少。"
+          },
+          {
+            "refId": "2",
+            "en": "Dropdown 2 should identify magnesium replacement with monitoring because the trend is low and symptomatic.",
+            "zh": "第 2 个下拉框应选择补镁并监测，因为趋势显示血镁偏低且已有症状。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Match the symptom cluster to the direction of the electrolyte trend, then choose the intervention that corrects the deficit.",
+        "zh": "将症状群与电解质趋势方向对应，再选择纠正缺乏的干预。"
+      },
+      "glossary": [
+        {
+          "termEn": "Hypomagnesemia",
+          "termZh": "低镁血症",
+          "defZh": "血清镁低于正常范围，可引起震颤、抽搐或心律失常。"
+        },
+        {
+          "termEn": "Dysrhythmia",
+          "termZh": "心律失常",
+          "defZh": "心脏电活动异常导致的心跳节律问题。"
+        },
+        {
+          "termEn": "Replacement therapy",
+          "termZh": "补充治疗",
+          "defZh": "通过口服或静脉方式补充缺乏的电解质或营养物质。"
+        }
+      ]
+    },
+    {
+      "id": "gpt_u3_labtrend_2026_06_09_cloze_calcium_thyroidectomy_09",
+      "itemType": "dropdown_cloze",
+      "category": "Physiological Adaptation",
+      "topic": "falling calcium after thyroidectomy",
+      "difficulty": "medium",
+      "ngnSkill": "analyze_cues",
+      "stem": {
+        "en": "A client 18 hours after thyroidectomy reports tingling around the mouth and muscle cramps. Complete the statement using the calcium trend in the visual.",
+        "zh": "一名甲状腺切除术后 18 小时的患者诉口周麻木和肌肉痉挛。请根据图中的钙趋势完成句子。"
+      },
+      "visual": {
+        "kind": "lab_trend",
+        "time": {
+          "unit": "hr",
+          "values": [
+            0,
+            8,
+            18
+          ]
+        },
+        "population": "adult",
+        "series": [
+          {
+            "analyte": "calcium",
+            "values": [
+              8.6,
+              7.8,
+              6.9
+            ],
+            "showReferenceBand": true
+          }
+        ],
+        "caption": {
+          "en": "Serum calcium trend",
+          "zh": "血清钙变化趋势"
+        }
+      },
+      "meta": {
+        "visual_justification": "The falling calcium trend after thyroidectomy is required to identify hypocalcemia risk and the priority assessment.",
+        "source": "Adult calcium reference range and post-thyroidectomy hypocalcemia monitoring; review before promotion.",
+        "tier": "strictest",
+        "skill_signature": "lab:falling-calcium/post-thyroidectomy-hypocalcemia",
+        "expected_trend": [
+          {
+            "series": "calcium",
+            "direction": "down",
+            "window": [
+              0,
+              18
+            ]
+          }
+        ],
+        "expected_flags": [
+          {
+            "series": "calcium",
+            "at": 18,
+            "flag": "L"
+          }
+        ],
+        "derived_values_keyed": [],
+        "reference_bands": "adult",
+        "stem_disambiguators": [
+          "thyroidectomy",
+          "tingling",
+          "muscle cramps"
+        ]
+      },
+      "clozeStem": {
+        "en": "The trend is most consistent with {{1}}, so the priority assessment is {{2}}.",
+        "zh": "该趋势最符合 {{1}}，因此优先评估 {{2}}。"
+      },
+      "dropdowns": [
+        {
+          "id": "1",
+          "options": [
+            {
+              "id": "o1",
+              "en": "hypocalcemia from possible parathyroid injury",
+              "zh": "可能因甲状旁腺受损导致的低钙血症"
+            },
+            {
+              "id": "o2",
+              "en": "hypercalcemia from dehydration",
+              "zh": "脱水导致的高钙血症"
+            },
+            {
+              "id": "o3",
+              "en": "normal postoperative variation without risk",
+              "zh": "无风险的术后正常波动"
+            }
+          ],
+          "correct": "o1"
+        },
+        {
+          "id": "2",
+          "options": [
+            {
+              "id": "o1",
+              "en": "airway patency and signs of laryngospasm",
+              "zh": "气道通畅情况和喉痉挛迹象"
+            },
+            {
+              "id": "o2",
+              "en": "capillary refill in the operative-side hand",
+              "zh": "手术侧手部毛细血管再充盈"
+            },
+            {
+              "id": "o3",
+              "en": "bowel sounds before oral calcium intake",
+              "zh": "口服钙前的肠鸣音"
+            }
+          ],
+          "correct": "o1"
+        }
+      ],
+      "rationale": {
+        "correct": {
+          "en": "After thyroidectomy, falling calcium with tingling and cramps suggests hypocalcemia, which can progress to tetany and laryngospasm. Airway assessment is the priority.",
+          "zh": "甲状腺切除术后，血钙下降并伴口周麻木和痉挛，提示低钙血症，可能进展为手足搐搦和喉痉挛。优先评估气道。"
+        },
+        "byChoice": [
+          {
+            "refId": "1",
+            "en": "Dropdown 1 should identify hypocalcemia because calcium is decreasing below the reference range after thyroid surgery.",
+            "zh": "第 1 个下拉框应选择低钙血症，因为甲状腺术后血钙下降到参考范围以下。"
+          },
+          {
+            "refId": "2",
+            "en": "Dropdown 2 should prioritize airway because severe hypocalcemia can cause laryngospasm.",
+            "zh": "第 2 个下拉框应优先选择气道，因为严重低钙血症可导致喉痉挛。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "After thyroid surgery, connect tingling or cramps with falling calcium and then prioritize airway risk.",
+        "zh": "甲状腺术后出现麻木或痉挛时，要联想到血钙下降，并优先考虑气道风险。"
+      },
+      "glossary": [
+        {
+          "termEn": "Hypocalcemia",
+          "termZh": "低钙血症",
+          "defZh": "血清钙低于正常范围，可导致麻木、抽搐和喉痉挛。"
+        },
+        {
+          "termEn": "Thyroidectomy",
+          "termZh": "甲状腺切除术",
+          "defZh": "切除全部或部分甲状腺的手术。"
+        },
+        {
+          "termEn": "Laryngospasm",
+          "termZh": "喉痉挛",
+          "defZh": "喉部肌肉突然收缩，可阻塞气道。"
+        }
+      ]
+    },
+    {
+      "id": "gpt_u3_labtrend_2026_06_09_fib_hemoglobin_drop_10",
+      "itemType": "fill_in_blank",
+      "category": "Reduction of Risk Potential",
+      "topic": "postoperative hemoglobin trend calculation",
+      "difficulty": "easy",
+      "ngnSkill": "analyze_cues",
+      "stem": {
+        "en": "A postoperative client has increasing dizziness when standing. Use the CBC trend in the visual. How many g/dL did the hemoglobin decrease from 0 hr to 12 hr? Enter the numeric value to one decimal place.",
+        "zh": "一名术后患者站立时头晕加重。请根据图中的全血细胞计数趋势回答：从 0 小时到 12 小时，血红蛋白下降了多少 g/dL？请输入保留一位小数的数字。"
+      },
+      "visual": {
+        "kind": "lab_trend",
+        "time": {
+          "unit": "hr",
+          "values": [
+            0,
+            6,
+            12
+          ]
+        },
+        "population": "adult",
+        "series": [
+          {
+            "analyte": "hemoglobin",
+            "values": [
+              11.8,
+              10.6,
+              9.4
+            ],
+            "showReferenceBand": true
+          },
+          {
+            "analyte": "hematocrit",
+            "values": [
+              35,
+              32,
+              28
+            ],
+            "showReferenceBand": true
+          }
+        ],
+        "caption": {
+          "en": "Postoperative CBC trend",
+          "zh": "术后全血细胞计数趋势"
+        }
+      },
+      "meta": {
+        "visual_justification": "The learner must read two timepoints from the hemoglobin trend and calculate the decrease; the stem alone provides no values.",
+        "source": "Adult hemoglobin/hematocrit reference ranges and postoperative bleeding surveillance; review before promotion.",
+        "tier": "strictest",
+        "skill_signature": "lab:falling-hemoglobin/postoperative-drop-calculation",
+        "expected_trend": [
+          {
+            "series": "hemoglobin",
+            "direction": "down",
+            "window": [
+              0,
+              12
+            ]
+          },
+          {
+            "series": "hematocrit",
+            "direction": "down",
+            "window": [
+              0,
+              12
+            ]
+          }
+        ],
+        "expected_flags": [
+          {
+            "series": "hemoglobin",
+            "at": 12,
+            "flag": "L"
+          },
+          {
+            "series": "hematocrit",
+            "at": 12,
+            "flag": "L"
+          }
+        ],
+        "derived_values_keyed": [
+          "hemoglobin_drop_0_to_12"
+        ],
+        "reference_bands": "adult",
+        "stem_disambiguators": [
+          "postoperative",
+          "dizziness",
+          "hemoglobin decrease"
+        ]
+      },
+      "blanks": [
+        {
+          "id": "b1",
+          "prompt": {
+            "en": "g/dL decrease",
+            "zh": "g/dL 下降值"
+          },
+          "acceptable": [
+            "2.4",
+            "2.4 g/dL"
+          ],
+          "numeric": {
+            "value": 2.4,
+            "tolerance": 0.05,
+            "unit": "g/dL"
+          }
+        }
+      ],
+      "rationale": {
+        "correct": {
+          "en": "The hemoglobin at 0 hr is 11.8 g/dL and at 12 hr is 9.4 g/dL. The decrease is 11.8 - 9.4 = 2.4 g/dL.",
+          "zh": "0 小时时血红蛋白为 11.8 g/dL，12 小时时为 9.4 g/dL。下降值为 11.8 - 9.4 = 2.4 g/dL。"
+        },
+        "byChoice": [
+          {
+            "refId": "b1",
+            "en": "Use the hemoglobin values, not the hematocrit values: subtract the 12-hour hemoglobin from the 0-hour hemoglobin.",
+            "zh": "应使用血红蛋白值，而不是血细胞比容值：用 0 小时血红蛋白减去 12 小时血红蛋白。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "For trend calculations, identify the requested analyte first, then subtract the later value from the earlier value when asked for a decrease.",
+        "zh": "做趋势计算时，先确认题目要求的分析物；若问下降值，用较早数值减去较晚数值。"
+      },
+      "glossary": [
+        {
+          "termEn": "Hemoglobin",
+          "termZh": "血红蛋白",
+          "defZh": "红细胞中携带氧气的蛋白质，下降可能提示失血或贫血。"
+        },
+        {
+          "termEn": "Hematocrit",
+          "termZh": "血细胞比容",
+          "defZh": "血液中红细胞所占比例，常与血红蛋白一起评估。"
+        },
+        {
+          "termEn": "CBC",
+          "termZh": "全血细胞计数",
+          "defZh": "包括红细胞、白细胞、血小板等的常规血液检查。"
+        }
+      ]
+    },
+    {
+      "id": "gpt_u3_labtrend_2026_06_09_b_mc_platelets_heparin_01",
+      "itemType": "multiple_choice",
+      "category": "Pharmacological and Parenteral Therapies",
+      "topic": "platelet trend and heparin safety",
+      "difficulty": "medium",
+      "ngnSkill": "take_action",
+      "stem": {
+        "en": "A client has been receiving unfractionated heparin for a pulmonary embolism. The next dose is due now. The nurse reviews the platelet trend in the visual. What action should the nurse take first?",
+        "zh": "一名肺栓塞患者一直在接受普通肝素治疗，现在应给予下一剂。护士查看图中的血小板趋势。护士首先应采取哪项行动？"
+      },
+      "visual": {
+        "kind": "lab_trend",
+        "time": {
+          "unit": "day",
+          "values": [
+            1,
+            3,
+            5
+          ]
+        },
+        "population": "adult",
+        "series": [
+          {
+            "analyte": "platelets",
+            "values": [
+              236,
+              148,
+              82
+            ],
+            "showReferenceBand": true
+          }
+        ],
+        "caption": {
+          "en": "Platelet trend during heparin therapy",
+          "zh": "肝素治疗期间血小板变化趋势"
+        }
+      },
+      "meta": {
+        "visual_justification": "The falling platelet trajectory during heparin therapy is required to identify possible heparin-induced thrombocytopenia and withhold further heparin pending provider evaluation.",
+        "source": "Adult platelet reference ranges and heparin-induced thrombocytopenia safety monitoring; review before promotion.",
+        "tier": "strictest",
+        "skill_signature": "lab:falling-platelets/heparin-hit-risk",
+        "expected_trend": [
+          {
+            "series": "platelets",
+            "direction": "down",
+            "window": [
+              1,
+              5
+            ]
+          }
+        ],
+        "expected_flags": [
+          {
+            "series": "platelets",
+            "at": 5,
+            "flag": "L"
+          }
+        ],
+        "derived_values_keyed": [],
+        "reference_bands": "adult",
+        "stem_disambiguators": [
+          "unfractionated heparin",
+          "falling platelets"
+        ]
+      },
+      "options": [
+        {
+          "id": "D",
+          "en": "Request a dietary consult for foods high in vitamin K.",
+          "zh": "请求营养会诊，指导富含维生素 K 的食物。"
+        },
+        {
+          "id": "A",
+          "en": "Administer the dose because the client has a pulmonary embolism.",
+          "zh": "因患者有肺栓塞，按时给予该剂量。"
+        },
+        {
+          "id": "B",
+          "en": "Hold the heparin and notify the provider of the platelet trend.",
+          "zh": "暂缓肝素，并将血小板趋势通知医嘱开立者。"
+        },
+        {
+          "id": "C",
+          "en": "Give the heparin and apply prolonged pressure to injection sites.",
+          "zh": "给予肝素，并在注射部位延长按压时间。"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "rationale": {
+        "correct": {
+          "en": "The platelet count has dropped substantially during heparin therapy, which raises concern for heparin-induced thrombocytopenia. The nurse should hold further heparin and notify the provider.",
+          "zh": "在肝素治疗期间，血小板明显下降，提示可能发生肝素诱导性血小板减少。护士应暂缓继续给予肝素并通知医嘱开立者。"
+        },
+        "byChoice": [
+          {
+            "refId": "D",
+            "en": "Vitamin K teaching is relevant to warfarin, not the immediate platelet decline during heparin therapy.",
+            "zh": "维生素 K 教育与华法林相关，而不是肝素治疗期间血小板立即下降的问题。"
+          },
+          {
+            "refId": "A",
+            "en": "The pulmonary embolism is important, but the visual shows a new medication-safety concern that must be addressed before more heparin is given.",
+            "zh": "肺栓塞很重要，但图中显示新的用药安全问题，必须在继续给肝素前处理。"
+          },
+          {
+            "refId": "B",
+            "en": "This is correct because a large platelet decline on heparin may indicate HIT, which can cause serious thrombosis.",
+            "zh": "这是正确的，因为使用肝素期间血小板大幅下降可能提示 HIT，而 HIT 可导致严重血栓。"
+          },
+          {
+            "refId": "C",
+            "en": "Bleeding precautions do not address the possible HIT pattern, and giving another heparin dose may be unsafe.",
+            "zh": "出血预防不能处理可能的 HIT 模式，继续给予肝素可能不安全。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "When a high-alert medication is due, compare the current lab with its trend before focusing only on the diagnosis being treated.",
+        "zh": "高警示药物给药前，要比较当前实验室值和趋势，不要只关注正在治疗的诊断。"
+      },
+      "glossary": [
+        {
+          "termEn": "Heparin-induced thrombocytopenia",
+          "termZh": "肝素诱导性血小板减少症",
+          "defZh": "肝素相关免疫反应，可导致血小板下降并增加血栓风险。"
+        },
+        {
+          "termEn": "Platelets",
+          "termZh": "血小板",
+          "defZh": "参与止血和凝血的血细胞。"
+        },
+        {
+          "termEn": "Pulmonary embolism",
+          "termZh": "肺栓塞",
+          "defZh": "血栓阻塞肺动脉或其分支。"
+        }
+      ]
+    },
+    {
+      "id": "gpt_u3_labtrend_2026_06_09_b_mc_ptt_heparin_infusion_02",
+      "itemType": "multiple_choice",
+      "category": "Pharmacological and Parenteral Therapies",
+      "topic": "aPTT trend and heparin infusion safety",
+      "difficulty": "medium",
+      "ngnSkill": "take_action",
+      "stem": {
+        "en": "A client is receiving a continuous IV unfractionated heparin infusion. The nurse reviews the coagulation trend in the visual. Which provider prescription should the nurse question?",
+        "zh": "一名患者正在持续静脉输注普通肝素。护士查看图中的凝血趋势。护士应质疑哪一项医嘱？"
+      },
+      "visual": {
+        "kind": "lab_trend",
+        "time": {
+          "unit": "hr",
+          "values": [
+            0,
+            6,
+            12
+          ]
+        },
+        "population": "adult",
+        "series": [
+          {
+            "analyte": "ptt",
+            "values": [
+              48,
+              82,
+              118
+            ],
+            "showReferenceBand": true
+          }
+        ],
+        "caption": {
+          "en": "aPTT trend during IV heparin therapy",
+          "zh": "静脉肝素治疗期间 aPTT 变化趋势"
+        }
+      },
+      "meta": {
+        "visual_justification": "The progressively rising aPTT is required to identify that increasing the heparin infusion would worsen anticoagulation risk.",
+        "source": "Adult coagulation monitoring and IV unfractionated heparin safety principles; review before promotion.",
+        "tier": "strictest",
+        "skill_signature": "lab:rising-ptt/heparin-infusion-question-order",
+        "expected_trend": [
+          {
+            "series": "ptt",
+            "direction": "up",
+            "window": [
+              0,
+              12
+            ]
+          }
+        ],
+        "expected_flags": [
+          {
+            "series": "ptt",
+            "at": 12,
+            "flag": "H"
+          }
+        ],
+        "derived_values_keyed": [],
+        "reference_bands": "adult",
+        "stem_disambiguators": [
+          "continuous IV heparin",
+          "rising aPTT"
+        ]
+      },
+      "options": [
+        {
+          "id": "C",
+          "en": "Recheck the aPTT as prescribed after a rate change or hold.",
+          "zh": "在调整或暂停输注后按医嘱复查 aPTT。"
+        },
+        {
+          "id": "D",
+          "en": "Keep the client on bleeding precautions.",
+          "zh": "继续为患者实施出血预防措施。"
+        },
+        {
+          "id": "B",
+          "en": "Increase the heparin infusion rate by 200 units/hr.",
+          "zh": "将肝素输注速度增加 200 单位/小时。"
+        },
+        {
+          "id": "A",
+          "en": "Assess the client for bleeding from gums, urine, stool, and IV sites.",
+          "zh": "评估患者牙龈、尿液、粪便和静脉穿刺处是否出血。"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "rationale": {
+        "correct": {
+          "en": "The aPTT is rising and is already markedly elevated. Increasing the heparin infusion would increase bleeding risk and should be questioned.",
+          "zh": "aPTT 正在上升且已明显升高。增加肝素输注速度会增加出血风险，应予以质疑。"
+        },
+        "byChoice": [
+          {
+            "refId": "C",
+            "en": "Repeat monitoring is appropriate after any clinically indicated heparin adjustment.",
+            "zh": "在任何临床需要的肝素调整后复查是合适的。"
+          },
+          {
+            "refId": "D",
+            "en": "Bleeding precautions are appropriate when anticoagulation effect is excessive.",
+            "zh": "当抗凝作用过强时，出血预防是合适的。"
+          },
+          {
+            "refId": "B",
+            "en": "This prescription conflicts with the lab trend because the aPTT is already high and rising.",
+            "zh": "该医嘱与实验室趋势相矛盾，因为 aPTT 已偏高且仍在上升。"
+          },
+          {
+            "refId": "A",
+            "en": "Bleeding assessment is appropriate because the trend shows increasing anticoagulation effect.",
+            "zh": "出血评估是合适的，因为趋势显示抗凝作用增强。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "For titratable anticoagulants, the direction of the coagulation trend tells you whether increasing or decreasing the dose makes sense.",
+        "zh": "对于可调整剂量的抗凝药，凝血指标的趋势方向能帮助判断应增加还是减少剂量。"
+      },
+      "glossary": [
+        {
+          "termEn": "aPTT",
+          "termZh": "活化部分凝血活酶时间",
+          "defZh": "常用于监测普通肝素抗凝效果的凝血检查。"
+        },
+        {
+          "termEn": "Unfractionated heparin",
+          "termZh": "普通肝素",
+          "defZh": "一种抗凝药，静脉使用时通常需要监测 aPTT。"
+        },
+        {
+          "termEn": "Bleeding precautions",
+          "termZh": "出血预防措施",
+          "defZh": "降低出血风险的护理措施，如避免 IM 注射和观察出血迹象。"
+        }
+      ]
+    },
+    {
+      "id": "gpt_u3_labtrend_2026_06_09_b_mc_lactate_worsening_03",
+      "itemType": "multiple_choice",
+      "category": "Physiological Adaptation",
+      "topic": "worsening lactate trend in sepsis",
+      "difficulty": "medium",
+      "ngnSkill": "evaluate_outcomes",
+      "stem": {
+        "en": "A client with suspected sepsis received IV fluids and the first dose of antibiotics 6 hours ago. The nurse reviews the trend in the visual. Which action is the priority?",
+        "zh": "一名疑似脓毒症患者 6 小时前已接受静脉补液和第一剂抗生素。护士查看图中的趋势。哪项行动最优先？"
+      },
+      "visual": {
+        "kind": "lab_trend",
+        "time": {
+          "unit": "hr",
+          "values": [
+            0,
+            3,
+            6
+          ]
+        },
+        "population": "adult",
+        "series": [
+          {
+            "analyte": "lactate",
+            "values": [
+              2.4,
+              3.5,
+              5.1
+            ],
+            "showReferenceBand": true
+          },
+          {
+            "analyte": "wbc",
+            "values": [
+              14.2,
+              17.6,
+              21.1
+            ],
+            "showReferenceBand": true
+          }
+        ],
+        "caption": {
+          "en": "Infection response laboratory trend",
+          "zh": "感染反应实验室趋势"
+        }
+      },
+      "meta": {
+        "visual_justification": "The rising lactate and WBC trend after treatment is required to recognize nonresponse or worsening perfusion and escalate care.",
+        "source": "Adult sepsis response monitoring and lactate interpretation principles; review before promotion.",
+        "tier": "strictest",
+        "skill_signature": "lab:rising-lactate-wbc/sepsis-escalation",
+        "expected_trend": [
+          {
+            "series": "lactate",
+            "direction": "up",
+            "window": [
+              0,
+              6
+            ]
+          },
+          {
+            "series": "wbc",
+            "direction": "up",
+            "window": [
+              0,
+              6
+            ]
+          }
+        ],
+        "expected_flags": [
+          {
+            "series": "lactate",
+            "at": 6,
+            "flag": "H"
+          },
+          {
+            "series": "wbc",
+            "at": 6,
+            "flag": "H"
+          }
+        ],
+        "derived_values_keyed": [],
+        "reference_bands": "adult",
+        "stem_disambiguators": [
+          "after fluids",
+          "after antibiotics",
+          "rising lactate"
+        ]
+      },
+      "options": [
+        {
+          "id": "C",
+          "en": "Delay reassessment until the next scheduled morning laboratory draw.",
+          "zh": "等到下次计划的早晨抽血再复评。"
+        },
+        {
+          "id": "B",
+          "en": "Notify the provider or rapid response team of worsening markers despite treatment.",
+          "zh": "将治疗后指标仍恶化的情况通知医嘱开立者或快速反应团队。"
+        },
+        {
+          "id": "D",
+          "en": "Encourage oral fluids and continue routine vital signs every 8 hours.",
+          "zh": "鼓励口服液体，并继续每 8 小时常规测量生命体征。"
+        },
+        {
+          "id": "A",
+          "en": "Document expected improvement after antibiotics.",
+          "zh": "记录抗生素后出现预期改善。"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "rationale": {
+        "correct": {
+          "en": "Lactate and WBC are rising despite initial treatment, suggesting worsening sepsis or inadequate tissue perfusion. Escalation is the priority.",
+          "zh": "尽管已开始治疗，乳酸和白细胞仍上升，提示脓毒症恶化或组织灌注不足。优先行动是升级处理。"
+        },
+        "byChoice": [
+          {
+            "refId": "C",
+            "en": "Waiting for routine labs is unsafe when lactate is rising over serial measurements.",
+            "zh": "当连续测量显示乳酸上升时，等待常规抽血不安全。"
+          },
+          {
+            "refId": "B",
+            "en": "This is correct because the trend indicates treatment nonresponse and possible worsening perfusion.",
+            "zh": "这是正确的，因为趋势提示治疗无反应，并可能存在灌注恶化。"
+          },
+          {
+            "refId": "D",
+            "en": "Routine monitoring is inadequate for a worsening sepsis trend.",
+            "zh": "对于脓毒症恶化趋势，仅常规监测是不够的。"
+          },
+          {
+            "refId": "A",
+            "en": "The visual does not show improvement; both plotted values are worsening.",
+            "zh": "图中并未显示改善；两个指标都在恶化。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "After treatment begins, worsening trends are outcome cues that require escalation, not reassurance.",
+        "zh": "治疗开始后，恶化趋势是需要升级处理的结果线索，而不是令人放心的表现。"
+      },
+      "glossary": [
+        {
+          "termEn": "Lactate",
+          "termZh": "乳酸",
+          "defZh": "组织灌注不足或无氧代谢增加时可能升高的指标。"
+        },
+        {
+          "termEn": "Sepsis",
+          "termZh": "脓毒症",
+          "defZh": "感染引起的危及生命的全身反应和器官功能障碍。"
+        },
+        {
+          "termEn": "Rapid response team",
+          "termZh": "快速反应团队",
+          "defZh": "在患者病情急剧恶化时协助评估和处理的团队。"
+        }
+      ]
+    },
+    {
+      "id": "gpt_u3_labtrend_2026_06_09_b_matrix_dka_potassium_glucose_04",
+      "itemType": "matrix",
+      "category": "Physiological Adaptation",
+      "topic": "DKA treatment response and potassium shift",
+      "difficulty": "hard",
+      "ngnSkill": "analyze_cues",
+      "stem": {
+        "en": "A client with diabetic ketoacidosis has been receiving IV regular insulin and fluids. Use the lab trend in the visual to classify each interpretation.",
+        "zh": "一名糖尿病酮症酸中毒患者正在接受静脉普通胰岛素和补液治疗。根据图中的实验室趋势，对每项解读进行分类。"
+      },
+      "visual": {
+        "kind": "lab_trend",
+        "time": {
+          "unit": "hr",
+          "values": [
+            0,
+            2,
+            4
+          ]
+        },
+        "population": "adult",
+        "series": [
+          {
+            "analyte": "glucose",
+            "values": [
+              520,
+              338,
+              214
+            ],
+            "showReferenceBand": true
+          },
+          {
+            "analyte": "potassium",
+            "values": [
+              4.6,
+              3.7,
+              3.1
+            ],
+            "showReferenceBand": true
+          }
+        ],
+        "caption": {
+          "en": "DKA treatment laboratory trend",
+          "zh": "DKA 治疗实验室趋势"
+        }
+      },
+      "meta": {
+        "visual_justification": "The answer requires interpreting opposite-direction trends: glucose is improving while potassium is falling toward unsafe levels during insulin therapy.",
+        "source": "Adult DKA monitoring and potassium safety principles; review before promotion.",
+        "tier": "strictest",
+        "skill_signature": "lab:falling-glucose-falling-potassium/dka-insulin-monitoring",
+        "expected_trend": [
+          {
+            "series": "glucose",
+            "direction": "down",
+            "window": [
+              0,
+              4
+            ]
+          },
+          {
+            "series": "potassium",
+            "direction": "down",
+            "window": [
+              0,
+              4
+            ]
+          }
+        ],
+        "expected_flags": [
+          {
+            "series": "glucose",
+            "at": 0,
+            "flag": "H"
+          },
+          {
+            "series": "potassium",
+            "at": 4,
+            "flag": "L"
+          }
+        ],
+        "derived_values_keyed": [],
+        "reference_bands": "adult",
+        "stem_disambiguators": [
+          "DKA",
+          "IV insulin",
+          "falling potassium"
+        ]
+      },
+      "matrix": {
+        "rows": [
+          {
+            "id": "r1",
+            "en": "The glucose trend suggests the insulin is lowering serum glucose.",
+            "zh": "血糖趋势提示胰岛素正在降低血糖。"
+          },
+          {
+            "id": "r2",
+            "en": "The potassium trend requires prompt follow-up before continuing insulin unchanged.",
+            "zh": "血钾趋势需要立即跟进，不能不加改变地继续胰岛素。"
+          },
+          {
+            "id": "r3",
+            "en": "The falling potassium is expected and can be ignored because glucose is improving.",
+            "zh": "血钾下降是预期现象，因为血糖改善，所以可以忽略。"
+          },
+          {
+            "id": "r4",
+            "en": "The client may need potassium replacement according to provider orders and ongoing monitoring.",
+            "zh": "患者可能需要按医嘱补钾并持续监测。"
+          }
+        ],
+        "columns": [
+          {
+            "id": "c1",
+            "en": "Supported by the trend",
+            "zh": "趋势支持"
+          },
+          {
+            "id": "c2",
+            "en": "Not supported by the trend",
+            "zh": "趋势不支持"
+          }
+        ],
+        "selectionMode": "single_per_row"
+      },
+      "correct": [
+        {
+          "rowId": "r1",
+          "columnIds": [
+            "c1"
+          ]
+        },
+        {
+          "rowId": "r2",
+          "columnIds": [
+            "c1"
+          ]
+        },
+        {
+          "rowId": "r3",
+          "columnIds": [
+            "c2"
+          ]
+        },
+        {
+          "rowId": "r4",
+          "columnIds": [
+            "c1"
+          ]
+        }
+      ],
+      "rationale": {
+        "correct": {
+          "en": "Glucose is improving, but potassium is falling to a low level during insulin therapy. This requires prompt potassium-focused follow-up rather than simply continuing therapy unchanged.",
+          "zh": "血糖在改善，但胰岛素治疗期间血钾降至偏低水平。这需要立即针对血钾进行跟进，而不是简单地不变继续治疗。"
+        },
+        "byChoice": [
+          {
+            "refId": "r1",
+            "en": "The glucose is steadily decreasing, which supports therapeutic response.",
+            "zh": "血糖持续下降，支持治疗有反应。"
+          },
+          {
+            "refId": "r2",
+            "en": "Potassium is falling during insulin therapy and has reached a low value, requiring follow-up.",
+            "zh": "胰岛素治疗期间血钾下降并已达到低值，需要跟进。"
+          },
+          {
+            "refId": "r3",
+            "en": "Falling potassium cannot be ignored; hypokalemia can cause life-threatening dysrhythmias.",
+            "zh": "血钾下降不能忽视；低钾可导致危及生命的心律失常。"
+          },
+          {
+            "refId": "r4",
+            "en": "Potassium replacement and monitoring are expected considerations when potassium falls during DKA therapy.",
+            "zh": "DKA 治疗期间血钾下降时，补钾和监测是预期需要考虑的措施。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "In DKA, improving glucose does not mean the client is safe; always check potassium movement during insulin therapy.",
+        "zh": "在 DKA 中，血糖改善不代表患者已经安全；胰岛素治疗期间必须查看血钾变化。"
+      },
+      "glossary": [
+        {
+          "termEn": "Diabetic ketoacidosis",
+          "termZh": "糖尿病酮症酸中毒",
+          "defZh": "胰岛素不足导致高血糖、酮体增加和酸中毒的急症。"
+        },
+        {
+          "termEn": "Regular insulin",
+          "termZh": "普通胰岛素",
+          "defZh": "可静脉用于 DKA 治疗的短效胰岛素。"
+        },
+        {
+          "termEn": "Potassium shift",
+          "termZh": "钾转移",
+          "defZh": "钾在细胞内外移动，胰岛素会促进钾进入细胞内。"
+        }
+      ]
+    },
+    {
+      "id": "gpt_u3_labtrend_2026_06_09_b_matrix_neutropenia_wbc_05",
+      "itemType": "matrix",
+      "category": "Reduction of Risk Potential",
+      "topic": "falling WBC trend and infection precautions",
+      "difficulty": "medium",
+      "ngnSkill": "generate_solutions",
+      "stem": {
+        "en": "A client taking an immunosuppressant reports a sore throat. The nurse reviews the WBC trend in the visual. Classify each nursing action.",
+        "zh": "一名正在服用免疫抑制剂的患者诉咽痛。护士查看图中的白细胞趋势。请对每项护理行动进行分类。"
+      },
+      "visual": {
+        "kind": "lab_trend",
+        "time": {
+          "unit": "day",
+          "values": [
+            1,
+            7,
+            14
+          ]
+        },
+        "population": "adult",
+        "series": [
+          {
+            "analyte": "wbc",
+            "values": [
+              6.8,
+              3.1,
+              1.6
+            ],
+            "showReferenceBand": true
+          }
+        ],
+        "caption": {
+          "en": "WBC trend while taking an immunosuppressant",
+          "zh": "服用免疫抑制剂期间白细胞变化趋势"
+        }
+      },
+      "meta": {
+        "visual_justification": "The falling WBC trend is required to recognize infection risk and select protective actions.",
+        "source": "Adult WBC reference ranges and neutropenia infection-prevention principles; review before promotion.",
+        "tier": "strictest",
+        "skill_signature": "lab:falling-wbc/neutropenia-infection-risk",
+        "expected_trend": [
+          {
+            "series": "wbc",
+            "direction": "down",
+            "window": [
+              1,
+              14
+            ]
+          }
+        ],
+        "expected_flags": [
+          {
+            "series": "wbc",
+            "at": 14,
+            "flag": "L"
+          }
+        ],
+        "derived_values_keyed": [],
+        "reference_bands": "adult",
+        "stem_disambiguators": [
+          "immunosuppressant",
+          "sore throat",
+          "falling WBC"
+        ]
+      },
+      "matrix": {
+        "rows": [
+          {
+            "id": "r1",
+            "en": "Place the client in a private room if available and reinforce hand hygiene.",
+            "zh": "如有条件将患者安排在单人间，并加强手卫生。"
+          },
+          {
+            "id": "r2",
+            "en": "Notify the provider of sore throat with a falling WBC trend.",
+            "zh": "将咽痛伴白细胞下降趋势通知医嘱开立者。"
+          },
+          {
+            "id": "r3",
+            "en": "Encourage fresh flowers and raw fruits from visitors to improve intake.",
+            "zh": "鼓励访客带鲜花和生水果，以改善摄入。"
+          },
+          {
+            "id": "r4",
+            "en": "Monitor temperature and assess for subtle infection signs.",
+            "zh": "监测体温并评估隐匿感染迹象。"
+          }
+        ],
+        "columns": [
+          {
+            "id": "c1",
+            "en": "Appropriate now",
+            "zh": "此刻合适"
+          },
+          {
+            "id": "c2",
+            "en": "Not appropriate now",
+            "zh": "此刻不合适"
+          }
+        ],
+        "selectionMode": "single_per_row"
+      },
+      "correct": [
+        {
+          "rowId": "r1",
+          "columnIds": [
+            "c1"
+          ]
+        },
+        {
+          "rowId": "r2",
+          "columnIds": [
+            "c1"
+          ]
+        },
+        {
+          "rowId": "r3",
+          "columnIds": [
+            "c2"
+          ]
+        },
+        {
+          "rowId": "r4",
+          "columnIds": [
+            "c1"
+          ]
+        }
+      ],
+      "rationale": {
+        "correct": {
+          "en": "The WBC trend is falling to a low level while the client reports possible infection symptoms. Protective infection-prevention actions, monitoring, and provider notification are appropriate.",
+          "zh": "白细胞趋势下降至低值，同时患者报告可能的感染症状。保护性感染预防措施、监测和通知医嘱开立者均合适。"
+        },
+        "byChoice": [
+          {
+            "refId": "r1",
+            "en": "Reducing exposure and reinforcing hand hygiene are appropriate for a client with a falling WBC count.",
+            "zh": "对于白细胞下降的患者，减少暴露并加强手卫生是合适的。"
+          },
+          {
+            "refId": "r2",
+            "en": "Sore throat with worsening leukopenia may represent infection and should be reported.",
+            "zh": "咽痛伴白细胞减少恶化可能代表感染，应报告。"
+          },
+          {
+            "refId": "r3",
+            "en": "Fresh flowers and raw produce may increase exposure to organisms and are not appropriate with significant leukopenia.",
+            "zh": "鲜花和生食可能增加接触病原体的机会，明显白细胞减少时不合适。"
+          },
+          {
+            "refId": "r4",
+            "en": "Temperature and subtle infection signs should be monitored because the inflammatory response may be blunted.",
+            "zh": "应监测体温和隐匿感染迹象，因为炎症反应可能不明显。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "When immune labs trend downward, choose actions that reduce organism exposure and detect infection early.",
+        "zh": "当免疫相关指标下降时，选择减少病原体暴露并早期发现感染的措施。"
+      },
+      "glossary": [
+        {
+          "termEn": "Leukopenia",
+          "termZh": "白细胞减少",
+          "defZh": "白细胞数量低于正常范围，感染风险增加。"
+        },
+        {
+          "termEn": "Immunosuppressant",
+          "termZh": "免疫抑制剂",
+          "defZh": "降低免疫反应的药物，可增加感染风险。"
+        },
+        {
+          "termEn": "Hand hygiene",
+          "termZh": "手卫生",
+          "defZh": "通过洗手或手消毒减少病原体传播。"
+        }
+      ]
+    },
+    {
+      "id": "gpt_u3_labtrend_2026_06_09_b_or_gi_bleed_hgb_06",
+      "itemType": "ordered_response",
+      "category": "Reduction of Risk Potential",
+      "topic": "falling hemoglobin trend and suspected bleeding",
+      "difficulty": "medium",
+      "ngnSkill": "take_action",
+      "stem": {
+        "en": "A client admitted for a gastrointestinal bleed becomes lightheaded when sitting up. The nurse reviews the CBC trend in the visual. Place the nursing actions in order.",
+        "zh": "一名因胃肠道出血入院的患者坐起时感到头晕。护士查看图中的全血细胞计数趋势。请按顺序排列护理行动。"
+      },
+      "visual": {
+        "kind": "lab_trend",
+        "time": {
+          "unit": "hr",
+          "values": [
+            0,
+            4,
+            8
+          ]
+        },
+        "population": "adult",
+        "series": [
+          {
+            "analyte": "hemoglobin",
+            "values": [
+              10.2,
+              8.9,
+              7.6
+            ],
+            "showReferenceBand": true
+          },
+          {
+            "analyte": "hematocrit",
+            "values": [
+              31,
+              27,
+              23
+            ],
+            "showReferenceBand": true
+          }
+        ],
+        "caption": {
+          "en": "CBC trend with suspected ongoing blood loss",
+          "zh": "疑似持续失血时的 CBC 趋势"
+        }
+      },
+      "meta": {
+        "visual_justification": "The downward hemoglobin and hematocrit trend is required to recognize ongoing blood loss and prioritize assessment, escalation, and preparation for ordered therapy.",
+        "source": "Adult CBC interpretation and GI bleeding nursing priorities; review before promotion.",
+        "tier": "strictest",
+        "skill_signature": "lab:falling-hgb-hct/gi-bleed-sequence",
+        "expected_trend": [
+          {
+            "series": "hemoglobin",
+            "direction": "down",
+            "window": [
+              0,
+              8
+            ]
+          },
+          {
+            "series": "hematocrit",
+            "direction": "down",
+            "window": [
+              0,
+              8
+            ]
+          }
+        ],
+        "expected_flags": [
+          {
+            "series": "hemoglobin",
+            "at": 8,
+            "flag": "L"
+          },
+          {
+            "series": "hematocrit",
+            "at": 8,
+            "flag": "L"
+          }
+        ],
+        "derived_values_keyed": [],
+        "reference_bands": "adult",
+        "stem_disambiguators": [
+          "GI bleed",
+          "lightheaded",
+          "falling hemoglobin"
+        ]
+      },
+      "options": [
+        {
+          "id": "D",
+          "en": "Maintain IV access and prepare for prescribed fluid or blood product administration.",
+          "zh": "维持静脉通路，并准备按医嘱给予液体或血制品。"
+        },
+        {
+          "id": "A",
+          "en": "Assess airway, breathing, circulation, vital signs, and level of consciousness.",
+          "zh": "评估气道、呼吸、循环、生命体征和意识水平。"
+        },
+        {
+          "id": "B",
+          "en": "Notify the provider of symptomatic decline with falling hemoglobin and hematocrit.",
+          "zh": "将有症状恶化并伴血红蛋白和血细胞比容下降的情况通知医嘱开立者。"
+        },
+        {
+          "id": "C",
+          "en": "Prepare to obtain type and screen or type and crossmatch as prescribed.",
+          "zh": "准备按医嘱采集血型筛查或交叉配血标本。"
+        }
+      ],
+      "correct": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "rationale": {
+        "correct": {
+          "en": "Assessment comes first because the client is symptomatic. The nurse then escalates the falling CBC trend, obtains ordered blood bank testing, and maintains access for ordered resuscitation or transfusion.",
+          "zh": "患者已有症状，首先应评估。随后护士应报告 CBC 下降趋势，按医嘱进行血库相关检测，并维持静脉通路以便按医嘱复苏或输血。"
+        },
+        "byChoice": [
+          {
+            "refId": "D",
+            "en": "IV access and preparation for ordered fluids or blood products support treatment once orders are obtained.",
+            "zh": "维持静脉通路并准备按医嘱给予液体或血制品，可支持后续治疗。"
+          },
+          {
+            "refId": "A",
+            "en": "Immediate assessment establishes stability before other actions.",
+            "zh": "立即评估可先确定患者是否稳定。"
+          },
+          {
+            "refId": "B",
+            "en": "Provider notification follows because the trend and symptoms suggest ongoing blood loss.",
+            "zh": "随后通知医嘱开立者，因为趋势和症状提示持续失血。"
+          },
+          {
+            "refId": "C",
+            "en": "Blood bank testing is prepared after escalation because transfusion may be needed.",
+            "zh": "报告后准备血库检测，因为可能需要输血。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "For bleeding trends, assess stability first, then escalate and prepare for ordered replacement therapy.",
+        "zh": "遇到出血趋势时，先评估稳定性，再升级报告并准备按医嘱补充治疗。"
+      },
+      "glossary": [
+        {
+          "termEn": "Gastrointestinal bleed",
+          "termZh": "胃肠道出血",
+          "defZh": "消化道内出血，可导致黑便、呕血、低血压或贫血。"
+        },
+        {
+          "termEn": "Type and crossmatch",
+          "termZh": "血型鉴定和交叉配血",
+          "defZh": "输血前确认血液相容性的检测。"
+        },
+        {
+          "termEn": "Hemoglobin",
+          "termZh": "血红蛋白",
+          "defZh": "红细胞中携带氧气的蛋白质，下降可提示失血或贫血。"
+        }
+      ]
+    },
+    {
+      "id": "gpt_u3_labtrend_2026_06_09_b_or_hypercalcemia_progression_07",
+      "itemType": "ordered_response",
+      "category": "Physiological Adaptation",
+      "topic": "worsening hypercalcemia trend",
+      "difficulty": "hard",
+      "ngnSkill": "take_action",
+      "stem": {
+        "en": "An older adult taking calcium carbonate and vitamin D supplements reports constipation, thirst, and increasing confusion. The nurse reviews the calcium trend in the visual. Place the actions in order.",
+        "zh": "一名正在服用碳酸钙和维生素 D 补充剂的老年患者报告便秘、口渴和意识越来越混乱。护士查看图中的血钙趋势。请按顺序排列行动。"
+      },
+      "visual": {
+        "kind": "lab_trend",
+        "time": {
+          "unit": "hr",
+          "values": [
+            0,
+            12,
+            24
+          ]
+        },
+        "population": "adult",
+        "series": [
+          {
+            "analyte": "calcium",
+            "values": [
+              10.6,
+              11.8,
+              12.9
+            ],
+            "showReferenceBand": true
+          }
+        ],
+        "caption": {
+          "en": "Serum calcium trend",
+          "zh": "血清钙变化趋势"
+        }
+      },
+      "meta": {
+        "visual_justification": "The rising calcium trajectory plus symptoms is required to prioritize assessment, medication safety, provider notification, and preparation for ordered treatment.",
+        "source": "Adult calcium reference range and hypercalcemia nursing priorities; review before promotion.",
+        "tier": "strictest",
+        "skill_signature": "lab:rising-calcium/hypercalcemia-sequence",
+        "expected_trend": [
+          {
+            "series": "calcium",
+            "direction": "up",
+            "window": [
+              0,
+              24
+            ]
+          }
+        ],
+        "expected_flags": [
+          {
+            "series": "calcium",
+            "at": 24,
+            "flag": "H"
+          }
+        ],
+        "derived_values_keyed": [],
+        "reference_bands": "adult",
+        "stem_disambiguators": [
+          "calcium carbonate",
+          "vitamin D",
+          "confusion",
+          "rising calcium"
+        ]
+      },
+      "options": [
+        {
+          "id": "C",
+          "en": "Notify the provider of symptomatic worsening hypercalcemia.",
+          "zh": "将有症状且恶化的高钙血症通知医嘱开立者。"
+        },
+        {
+          "id": "B",
+          "en": "Hold calcium and vitamin D supplements pending provider direction.",
+          "zh": "在医嘱开立者进一步指示前暂缓钙剂和维生素 D 补充剂。"
+        },
+        {
+          "id": "D",
+          "en": "Prepare to administer prescribed isotonic IV fluids if not contraindicated.",
+          "zh": "若无禁忌，准备按医嘱给予等渗静脉液体。"
+        },
+        {
+          "id": "A",
+          "en": "Assess neurologic status, cardiac rhythm, hydration status, and fall risk.",
+          "zh": "评估神经状态、心律、水合状态和跌倒风险。"
+        }
+      ],
+      "correct": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "rationale": {
+        "correct": {
+          "en": "Assessment comes first because the client is symptomatic. The nurse should stop ongoing calcium exposure pending direction, notify the provider, and prepare for ordered therapy such as isotonic fluids if appropriate.",
+          "zh": "患者已有症状，首先应评估。护士应在进一步指示前停止持续钙摄入，通知医嘱开立者，并准备按医嘱实施治疗，例如在合适时给予等渗液。"
+        },
+        "byChoice": [
+          {
+            "refId": "C",
+            "en": "Provider notification is needed because the calcium is rising and the client has neurologic symptoms.",
+            "zh": "血钙上升且患者有神经系统症状，需要通知医嘱开立者。"
+          },
+          {
+            "refId": "B",
+            "en": "Holding calcium and vitamin D reduces ongoing contributors to the rising calcium while awaiting provider direction.",
+            "zh": "暂缓钙剂和维生素 D 可减少导致血钙上升的持续因素，并等待医嘱开立者指示。"
+          },
+          {
+            "refId": "D",
+            "en": "Isotonic fluids may be prescribed to support calcium excretion, but preparation follows assessment and notification.",
+            "zh": "等渗液可能被医嘱用于促进钙排泄，但准备应在评估和通知之后。"
+          },
+          {
+            "refId": "A",
+            "en": "Initial assessment identifies instability, dysrhythmia risk, dehydration, and injury risk from confusion.",
+            "zh": "初始评估可识别不稳定、心律失常风险、脱水以及意识混乱导致的受伤风险。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "When a lab trend worsens because of a possible intake source, assess first, stop the source if safe to hold, notify, then prepare ordered treatment.",
+        "zh": "当实验室趋势可能因摄入来源而恶化时，先评估；若可安全暂缓则停止来源；再通知并准备医嘱治疗。"
+      },
+      "glossary": [
+        {
+          "termEn": "Hypercalcemia",
+          "termZh": "高钙血症",
+          "defZh": "血清钙高于正常范围，可引起便秘、口渴、意识改变和心律问题。"
+        },
+        {
+          "termEn": "Calcium carbonate",
+          "termZh": "碳酸钙",
+          "defZh": "常用于补钙或作为抗酸药的钙盐。"
+        },
+        {
+          "termEn": "Isotonic fluids",
+          "termZh": "等渗液",
+          "defZh": "渗透压接近血浆的静脉液体，如 0.9% 氯化钠。"
+        }
+      ]
+    },
+    {
+      "id": "gpt_u3_labtrend_2026_06_09_b_cloze_sodium_overcorrection_08",
+      "itemType": "dropdown_cloze",
+      "category": "Reduction of Risk Potential",
+      "topic": "rapid sodium correction trend",
+      "difficulty": "hard",
+      "ngnSkill": "evaluate_outcomes",
+      "stem": {
+        "en": "A client admitted with severe hyponatremia is receiving prescribed hypertonic saline. The nurse reviews the sodium trend in the visual. Complete the statement.",
+        "zh": "一名因严重低钠血症入院的患者正在按医嘱接受高渗盐水。护士查看图中的血钠趋势。请完成句子。"
+      },
+      "visual": {
+        "kind": "lab_trend",
+        "time": {
+          "unit": "hr",
+          "values": [
+            0,
+            6,
+            12
+          ]
+        },
+        "population": "adult",
+        "series": [
+          {
+            "analyte": "sodium",
+            "values": [
+              118,
+              126,
+              134
+            ],
+            "showReferenceBand": true
+          }
+        ],
+        "caption": {
+          "en": "Serum sodium trend during hypertonic saline therapy",
+          "zh": "高渗盐水治疗期间血清钠变化趋势"
+        }
+      },
+      "meta": {
+        "visual_justification": "The answer requires comparing the rate of sodium change over serial timepoints, not identifying one sodium value.",
+        "source": "Adult hyponatremia correction safety principles; review before promotion.",
+        "tier": "strictest",
+        "skill_signature": "lab:rapidly-rising-sodium/overcorrection-risk",
+        "expected_trend": [
+          {
+            "series": "sodium",
+            "direction": "up",
+            "window": [
+              0,
+              12
+            ]
+          }
+        ],
+        "expected_flags": [
+          {
+            "series": "sodium",
+            "at": 0,
+            "flag": "L"
+          }
+        ],
+        "derived_values_keyed": [],
+        "reference_bands": "adult",
+        "stem_disambiguators": [
+          "hypertonic saline",
+          "rapid sodium correction"
+        ]
+      },
+      "clozeStem": {
+        "en": "The trend suggests {{1}}, so the nurse should {{2}}.",
+        "zh": "该趋势提示 {{1}}，因此护士应 {{2}}。"
+      },
+      "dropdowns": [
+        {
+          "id": "1",
+          "options": [
+            {
+              "id": "o1",
+              "en": "possible overly rapid sodium correction",
+              "zh": "可能存在血钠纠正过快"
+            },
+            {
+              "id": "o2",
+              "en": "expected slow correction without concern",
+              "zh": "无须担心的预期缓慢纠正"
+            },
+            {
+              "id": "o3",
+              "en": "worsening dilutional hyponatremia",
+              "zh": "稀释性低钠血症恶化"
+            }
+          ],
+          "correct": "o1"
+        },
+        {
+          "id": "2",
+          "options": [
+            {
+              "id": "o1",
+              "en": "notify the provider and anticipate reassessment of the infusion plan",
+              "zh": "通知医嘱开立者，并预期重新评估输注方案"
+            },
+            {
+              "id": "o2",
+              "en": "increase the hypertonic saline rate to normalize sodium faster",
+              "zh": "增加高渗盐水速度，使血钠更快正常化"
+            },
+            {
+              "id": "o3",
+              "en": "stop all neurologic checks because the final sodium is near normal",
+              "zh": "因最终血钠接近正常，停止所有神经系统检查"
+            }
+          ],
+          "correct": "o1"
+        }
+      ],
+      "rationale": {
+        "correct": {
+          "en": "The sodium rises from 118 to 134 mEq/L over 12 hours, a large rapid increase. The nurse should notify the provider because overly rapid correction can cause neurologic harm.",
+          "zh": "血钠在 12 小时内从 118 升至 134 mEq/L，升幅大且快速。护士应通知医嘱开立者，因为纠正过快可能造成神经系统损害。"
+        },
+        "byChoice": [
+          {
+            "refId": "1",
+            "en": "Dropdown 1 should focus on the rate of sodium rise, which is rapid over the displayed time window.",
+            "zh": "第 1 个下拉框应关注血钠上升速度；图示时间窗内上升很快。"
+          },
+          {
+            "refId": "2",
+            "en": "Dropdown 2 should choose notification and reassessment rather than making sodium rise even faster.",
+            "zh": "第 2 个下拉框应选择通知和重新评估，而不是让血钠升得更快。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "With sodium correction, do not judge safety only by whether the final value looks normal; evaluate how fast it changed.",
+        "zh": "判断血钠纠正是否安全时，不要只看最终值是否接近正常，还要看变化速度。"
+      },
+      "glossary": [
+        {
+          "termEn": "Hypertonic saline",
+          "termZh": "高渗盐水",
+          "defZh": "钠浓度高于普通生理盐水的静脉液体，用于特定严重低钠情况。"
+        },
+        {
+          "termEn": "Osmotic demyelination",
+          "termZh": "渗透性脱髓鞘",
+          "defZh": "血钠纠正过快可能导致的严重神经系统损伤。"
+        },
+        {
+          "termEn": "Hyponatremia",
+          "termZh": "低钠血症",
+          "defZh": "血清钠低于正常范围，可导致神经系统症状。"
+        }
+      ]
+    },
+    {
+      "id": "gpt_u3_labtrend_2026_06_09_b_cloze_inr_amiodarone_09",
+      "itemType": "dropdown_cloze",
+      "category": "Pharmacological and Parenteral Therapies",
+      "topic": "INR trend after medication interaction",
+      "difficulty": "medium",
+      "ngnSkill": "analyze_cues",
+      "stem": {
+        "en": "A client taking warfarin started amiodarone 1 week ago. The nurse reviews the INR trend in the visual. Complete the statement.",
+        "zh": "一名正在服用华法林的患者 1 周前开始使用胺碘酮。护士查看图中的 INR 趋势。请完成句子。"
+      },
+      "visual": {
+        "kind": "lab_trend",
+        "time": {
+          "unit": "day",
+          "values": [
+            1,
+            4,
+            7
+          ]
+        },
+        "population": "adult",
+        "series": [
+          {
+            "analyte": "inr",
+            "values": [
+              2.1,
+              3.2,
+              4.8
+            ],
+            "showReferenceBand": true
+          }
+        ],
+        "caption": {
+          "en": "INR trend after adding amiodarone",
+          "zh": "加用胺碘酮后 INR 变化趋势"
+        }
+      },
+      "meta": {
+        "visual_justification": "The rising INR trend after adding a medication is required to identify increased anticoagulant effect and bleeding-focused nursing follow-up.",
+        "source": "Warfarin monitoring and medication interaction safety principles; review before promotion.",
+        "tier": "strictest",
+        "skill_signature": "lab:rising-inr/warfarin-interaction-bleeding-risk",
+        "expected_trend": [
+          {
+            "series": "inr",
+            "direction": "up",
+            "window": [
+              1,
+              7
+            ]
+          }
+        ],
+        "expected_flags": [
+          {
+            "series": "inr",
+            "at": 7,
+            "flag": "H"
+          }
+        ],
+        "derived_values_keyed": [],
+        "reference_bands": "adult",
+        "stem_disambiguators": [
+          "warfarin",
+          "amiodarone",
+          "rising INR"
+        ]
+      },
+      "clozeStem": {
+        "en": "The trend indicates increased risk for {{1}}; the nurse should prioritize {{2}}.",
+        "zh": "该趋势提示 {{1}} 风险增加；护士应优先 {{2}}。"
+      },
+      "dropdowns": [
+        {
+          "id": "1",
+          "options": [
+            {
+              "id": "o1",
+              "en": "bleeding from excessive anticoagulation",
+              "zh": "抗凝过强导致的出血"
+            },
+            {
+              "id": "o2",
+              "en": "thrombosis from subtherapeutic anticoagulation",
+              "zh": "抗凝不足导致的血栓形成"
+            },
+            {
+              "id": "o3",
+              "en": "hypoglycemia from insulin excess",
+              "zh": "胰岛素过量导致的低血糖"
+            }
+          ],
+          "correct": "o1"
+        },
+        {
+          "id": "2",
+          "options": [
+            {
+              "id": "o1",
+              "en": "assessing for bleeding and notifying the provider before the next warfarin dose",
+              "zh": "评估出血，并在下一剂华法林前通知医嘱开立者"
+            },
+            {
+              "id": "o2",
+              "en": "teaching the client to increase leafy green vegetables immediately",
+              "zh": "指导患者立即大量增加绿叶蔬菜"
+            },
+            {
+              "id": "o3",
+              "en": "administering the next warfarin dose early",
+              "zh": "提前给予下一剂华法林"
+            }
+          ],
+          "correct": "o1"
+        }
+      ],
+      "rationale": {
+        "correct": {
+          "en": "The INR is rising after a new medication was added and is now supratherapeutic. The nurse should assess for bleeding and notify the provider before giving more warfarin.",
+          "zh": "加用新药后 INR 持续上升，目前已超治疗范围。护士应评估出血，并在继续给予华法林前通知医嘱开立者。"
+        },
+        "byChoice": [
+          {
+            "refId": "1",
+            "en": "Dropdown 1 should identify bleeding risk because a rising INR means increasing anticoagulant effect.",
+            "zh": "第 1 个下拉框应选择出血风险，因为 INR 上升表示抗凝作用增强。"
+          },
+          {
+            "refId": "2",
+            "en": "Dropdown 2 should prioritize assessment and provider notification because the next warfarin dose may need adjustment.",
+            "zh": "第 2 个下拉框应优先选择评估和通知医嘱开立者，因为下一剂华法林可能需要调整。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "When a new medication is added to warfarin, trend the INR and connect a rising value to bleeding risk.",
+        "zh": "华法林治疗中加用新药时，要追踪 INR 趋势，并将上升值与出血风险联系起来。"
+      },
+      "glossary": [
+        {
+          "termEn": "Warfarin",
+          "termZh": "华法林",
+          "defZh": "口服抗凝药，需要通过 INR 监测疗效和安全性。"
+        },
+        {
+          "termEn": "Amiodarone",
+          "termZh": "胺碘酮",
+          "defZh": "抗心律失常药，可与多种药物相互作用。"
+        },
+        {
+          "termEn": "Supratherapeutic",
+          "termZh": "超治疗范围",
+          "defZh": "药物作用或监测数值高于期望治疗范围。"
+        }
+      ]
+    },
+    {
+      "id": "gpt_u3_labtrend_2026_06_09_b_fib_creatinine_increase_10",
+      "itemType": "fill_in_blank",
+      "category": "Reduction of Risk Potential",
+      "topic": "creatinine trend calculation in AKI",
+      "difficulty": "easy",
+      "ngnSkill": "analyze_cues",
+      "stem": {
+        "en": "A client receiving IV contrast yesterday has decreasing urine output. Use the renal lab trend in the visual. By how many mg/dL did the creatinine increase from 0 hr to 24 hr? Enter the numeric value to one decimal place.",
+        "zh": "一名昨天接受静脉造影剂的患者尿量减少。请根据图中的肾功能实验室趋势回答：从 0 小时到 24 小时，肌酐升高了多少 mg/dL？请输入保留一位小数的数字。"
+      },
+      "visual": {
+        "kind": "lab_trend",
+        "time": {
+          "unit": "hr",
+          "values": [
+            0,
+            12,
+            24
+          ]
+        },
+        "population": "adult",
+        "series": [
+          {
+            "analyte": "creatinine",
+            "values": [
+              0.8,
+              1.2,
+              1.7
+            ],
+            "showReferenceBand": true
+          },
+          {
+            "analyte": "bun",
+            "values": [
+              15,
+              24,
+              36
+            ],
+            "showReferenceBand": true
+          }
+        ],
+        "caption": {
+          "en": "Renal laboratory trend after IV contrast",
+          "zh": "静脉造影剂后肾功能实验室趋势"
+        }
+      },
+      "meta": {
+        "visual_justification": "The learner must read serial creatinine values from the visual and calculate the increase; the stem alone does not provide the values.",
+        "source": "Adult renal laboratory ranges and AKI surveillance after contrast exposure; review before promotion.",
+        "tier": "strictest",
+        "skill_signature": "lab:rising-creatinine/aki-increase-calculation",
+        "expected_trend": [
+          {
+            "series": "creatinine",
+            "direction": "up",
+            "window": [
+              0,
+              24
+            ]
+          },
+          {
+            "series": "bun",
+            "direction": "up",
+            "window": [
+              0,
+              24
+            ]
+          }
+        ],
+        "expected_flags": [
+          {
+            "series": "creatinine",
+            "at": 24,
+            "flag": "H"
+          },
+          {
+            "series": "bun",
+            "at": 24,
+            "flag": "H"
+          }
+        ],
+        "derived_values_keyed": [
+          "creatinine_increase_0_to_24"
+        ],
+        "reference_bands": "adult",
+        "stem_disambiguators": [
+          "IV contrast",
+          "decreasing urine output",
+          "creatinine increase"
+        ]
+      },
+      "blanks": [
+        {
+          "id": "b1",
+          "prompt": {
+            "en": "mg/dL increase",
+            "zh": "mg/dL 升高值"
+          },
+          "acceptable": [
+            "0.9",
+            "0.9 mg/dL"
+          ],
+          "numeric": {
+            "value": 0.9,
+            "tolerance": 0.05,
+            "unit": "mg/dL"
+          }
+        }
+      ],
+      "rationale": {
+        "correct": {
+          "en": "The creatinine is 0.8 mg/dL at 0 hr and 1.7 mg/dL at 24 hr. The increase is 1.7 - 0.8 = 0.9 mg/dL.",
+          "zh": "0 小时肌酐为 0.8 mg/dL，24 小时为 1.7 mg/dL。升高值为 1.7 - 0.8 = 0.9 mg/dL。"
+        },
+        "byChoice": [
+          {
+            "refId": "b1",
+            "en": "Use the creatinine values, not BUN: subtract the 0-hour creatinine from the 24-hour creatinine.",
+            "zh": "应使用肌酐值，而不是 BUN：用 24 小时肌酐减去 0 小时肌酐。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "For lab-change questions, identify the requested analyte first, then subtract the starting value from the ending value when asked for an increase.",
+        "zh": "做实验室变化题时，先确认题目要求的指标；若问升高值，用结束值减去起始值。"
+      },
+      "glossary": [
+        {
+          "termEn": "Creatinine",
+          "termZh": "肌酐",
+          "defZh": "反映肾脏滤过功能的血液指标。"
+        },
+        {
+          "termEn": "IV contrast",
+          "termZh": "静脉造影剂",
+          "defZh": "影像检查中经静脉给予的造影物质，部分患者需监测肾功能。"
+        },
+        {
+          "termEn": "Acute kidney injury",
+          "termZh": "急性肾损伤",
+          "defZh": "短时间内肾功能下降，可能表现为肌酐升高或尿量减少。"
+        }
+      ]
+    }
+  ]
+}

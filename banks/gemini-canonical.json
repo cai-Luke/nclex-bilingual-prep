@@ -5,7 +5,7 @@
     "topic": "assorted NCLEX-RN",
     "category": "mixed",
     "difficulty": "mixed",
-    "count": 749
+    "count": 760
   },
   "questions": [
     {
@@ -62256,6 +62256,826 @@
           "termEn": "heparin infusion",
           "termZh": "肝素输注",
           "defZh": "通过静脉持续输入抗凝血药物肝素以预防或治疗血栓形成"
+        }
+      ]
+    },
+    {
+      "id": "gemini_u5_fib_or_2026_06_09_fib_gcs_01",
+      "itemType": "fill_in_blank",
+      "category": "Reduction of Risk Potential",
+      "topic": "Neurological Assessment",
+      "difficulty": "medium",
+      "ngnSkill": "analyze_cues",
+      "stem": {
+        "en": "The nurse is assessing a client's neurological status using the Glasgow Coma Scale (GCS). The client opens their eyes in response to speech, is confused but able to converse, and localizes to a painful stimulus. Calculate the client's total GCS score.",
+        "zh": "护士正在使用格拉斯哥昏迷量表（GCS）评估患者的神经系统状态。患者在听到呼唤时睁眼，虽然意识模糊但能进行交谈，并且对疼痛刺激有定位反应。请计算该患者的GCS总分。"
+      },
+      "blanks": [
+        {
+          "id": "b1",
+          "prompt": {
+            "en": "Total GCS Score",
+            "zh": "GCS总分"
+          },
+          "acceptable": [
+            "12"
+          ],
+          "numeric": {
+            "value": 12,
+            "tolerance": 0
+          }
+        }
+      ],
+      "rationale": {
+        "correct": {
+          "en": "The Glasgow Coma Scale evaluates three parameters: eye opening, verbal response, and motor response. Opening eyes to speech scores 3 points. Confused conversation scores 4 points. Localizing to pain scores 5 points. Total score = 3 + 4 + 5 = 12.",
+          "zh": "格拉斯哥昏迷量表评估三个参数：睁眼反应、言语反应和运动反应。对呼唤睁眼得3分。言语模糊、能交谈得4分。对疼痛有定位反应得5分。总分 = 3 + 4 + 5 = 12分。"
+        },
+        "byChoice": [
+          {
+            "refId": "b1",
+            "en": "A score of 12 indicates a moderate level of impairment. Calculation: Eye (3) + Verbal (4) + Motor (5) = 12.",
+            "zh": "12分表示中度意识障碍。计算过程：睁眼（3）+ 言语（4）+ 运动（5）= 12。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Memorize the individual scoring criteria for the GCS: Eye (4 points max), Verbal (5 points max), and Motor (6 points max). Add them carefully.",
+        "zh": "牢记GCS各项评分标准：睁眼（最高4分）、言语（最高5分）和运动（最高6分）。仔细将它们相加。"
+      },
+      "glossary": [
+        {
+          "termEn": "Glasgow Coma Scale (GCS)",
+          "termZh": "格拉斯哥昏迷量表",
+          "defZh": "一种用于客观评估脑损伤后意识状态受损程度的神经系统量表。"
+        },
+        {
+          "termEn": "Localize to pain",
+          "termZh": "对疼痛定位",
+          "defZh": "一种运动反应，患者试图定位并移除导致疼痛的刺激物。"
+        },
+        {
+          "termEn": "Motor response",
+          "termZh": "运动反应",
+          "defZh": "患者对外界刺激（如疼痛或指令）所做出的身体活动反应。"
+        }
+      ]
+    },
+    {
+      "id": "gemini_u5_fib_or_2026_06_09_fib_enteral_02",
+      "itemType": "fill_in_blank",
+      "category": "Basic Care and Comfort",
+      "topic": "Enteral Nutrition",
+      "difficulty": "medium",
+      "ngnSkill": "take_action",
+      "stem": {
+        "en": "A provider prescribes 250 mL of enteral nutrition formula to be infused via a gastrostomy tube over 30 minutes. The nurse should set the enteral feeding pump to deliver how many mL/hr?",
+        "zh": "医生开具医嘱，要求在30分钟内通过胃造瘘管输注250 mL肠内营养液。护士应将肠内营养输注泵的流速设置为多少 mL/hr？"
+      },
+      "blanks": [
+        {
+          "id": "b1",
+          "prompt": {
+            "en": "mL/hr",
+            "zh": "毫升/小时 (mL/hr)"
+          },
+          "acceptable": [
+            "500",
+            "500 mL/hr"
+          ],
+          "numeric": {
+            "value": 500,
+            "tolerance": 0,
+            "unit": "mL/hr"
+          }
+        }
+      ],
+      "rationale": {
+        "correct": {
+          "en": "To calculate the hourly rate, divide the total volume by the time in hours. The volume is 250 mL. The time is 30 minutes, which is 0.5 hours. 250 mL / 0.5 hr = 500 mL/hr.",
+          "zh": "要计算每小时的流速，用总体积除以以小时为单位的时间。体积为250 mL。时间为30分钟，即0.5小时。250 mL / 0.5 hr = 500 mL/hr。"
+        },
+        "byChoice": [
+          {
+            "refId": "b1",
+            "en": "The pump is set in mL/hr. 250 mL infused over 0.5 hours equals a rate of 500 mL/hr.",
+            "zh": "输液泵以 mL/hr 为单位设置。在0.5小时内输注250 mL相当于500 mL/hr的流速。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Ensure time is converted to hours before calculating mL/hr. Divide minutes by 60 to get the fraction of an hour.",
+        "zh": "在计算 mL/hr 之前，确保将时间转换为小时。将分钟数除以60即可得到小时的分数。"
+      },
+      "glossary": [
+        {
+          "termEn": "Enteral nutrition",
+          "termZh": "肠内营养",
+          "defZh": "通过胃肠道提供营养液的方法，通常使用饲管。"
+        },
+        {
+          "termEn": "Gastrostomy tube",
+          "termZh": "胃造瘘管",
+          "defZh": "通过腹壁直接插入胃部用于提供营养的管道。"
+        }
+      ]
+    },
+    {
+      "id": "gemini_u5_fib_or_2026_06_09_fib_anc_03",
+      "itemType": "fill_in_blank",
+      "category": "Reduction of Risk Potential",
+      "topic": "Lab Interpretation",
+      "difficulty": "hard",
+      "ngnSkill": "analyze_cues",
+      "stem": {
+        "en": "The nurse is reviewing laboratory results for a client with a severe respiratory infection. The white blood cell (WBC) count is 4,000/mm³. The differential shows 50% segmented neutrophils and 10% banded neutrophils. Calculate the client's Absolute Neutrophil Count (ANC).",
+        "zh": "护士正在查看一名患有严重呼吸道感染患者的实验室检查结果。白细胞（WBC）计数为 4,000/mm³。白细胞分类计数显示分叶核中性粒细胞占50%，杆状核中性粒细胞占10%。请计算该患者的绝对中性粒细胞计数（ANC）。"
+      },
+      "blanks": [
+        {
+          "id": "b1",
+          "prompt": {
+            "en": "ANC (/mm³)",
+            "zh": "ANC (/mm³)"
+          },
+          "acceptable": [
+            "2400"
+          ],
+          "numeric": {
+            "value": 2400,
+            "tolerance": 0
+          }
+        }
+      ],
+      "rationale": {
+        "correct": {
+          "en": "The Absolute Neutrophil Count (ANC) is calculated by multiplying the total WBC count by the percentage of total neutrophils (segmented neutrophils + banded neutrophils). Neutrophil percentage = 50% + 10% = 60% (or 0.60). ANC = 4,000 × 0.60 = 2,400/mm³.",
+          "zh": "绝对中性粒细胞计数（ANC）的计算方法是将总WBC计数乘以总中性粒细胞的百分比（分叶核中性粒细胞 + 杆状核中性粒细胞）。中性粒细胞百分比 = 50% + 10% = 60%（或0.60）。ANC = 4,000 × 0.60 = 2,400/mm³。"
+        },
+        "byChoice": [
+          {
+            "refId": "b1",
+            "en": "An ANC of 2400 is within the normal range, indicating adequate immune defense against infection, despite a low-normal overall WBC count.",
+            "zh": "2400的ANC在正常范围内，表明尽管总体白细胞计数偏低正常，但对感染有足够的免疫防御能力。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Remember the formula for ANC: Total WBC × (% Segs + % Bands). Always convert the percentage to a decimal before multiplying.",
+        "zh": "记住ANC的公式：总WBC ×（分叶核百分比 + 杆状核百分比）。相乘之前，务必将百分比转换为小数。"
+      },
+      "glossary": [
+        {
+          "termEn": "Absolute Neutrophil Count (ANC)",
+          "termZh": "绝对中性粒细胞计数",
+          "defZh": "血液中能够对抗感染的中性粒细胞的实际数量。"
+        },
+        {
+          "termEn": "Segmented neutrophils",
+          "termZh": "分叶核中性粒细胞",
+          "defZh": "成熟的白细胞，是抵御细菌感染的主要防御力量。"
+        },
+        {
+          "termEn": "Banded neutrophils",
+          "termZh": "杆状核中性粒细胞",
+          "defZh": "未成熟的白细胞，其水平升高通常表明正在发生急性感染。"
+        },
+        {
+          "termEn": "Neutropenia",
+          "termZh": "中性粒细胞减少症",
+          "defZh": "血液中中性粒细胞数量异常减少，会增加感染的风险。"
+        }
+      ]
+    },
+    {
+      "id": "gemini_u5_fib_or_2026_06_09_fib_tbsa_04",
+      "itemType": "fill_in_blank",
+      "category": "Safety and Infection Control",
+      "topic": "Burn Assessment",
+      "difficulty": "medium",
+      "ngnSkill": "recognize_cues",
+      "stem": {
+        "en": "An adult client is admitted to the emergency department with partial-thickness burns. The burns cover the entire anterior trunk and the entire right arm. Using the Rule of Nines, calculate the estimated total body surface area (TBSA) affected.",
+        "zh": "一名成年患者因部分皮层烧伤/二度烧伤被送入急诊科。烧伤面积覆盖整个躯干前部和整个右臂。请使用九分法计算受累的总体表面积（TBSA）估值。"
+      },
+      "blanks": [
+        {
+          "id": "b1",
+          "prompt": {
+            "en": "% TBSA",
+            "zh": "% TBSA"
+          },
+          "acceptable": [
+            "27",
+            "27%"
+          ],
+          "numeric": {
+            "value": 27,
+            "tolerance": 0
+          }
+        }
+      ],
+      "rationale": {
+        "correct": {
+          "en": "According to the Rule of Nines for an adult: the anterior trunk is 18%, and the entire right arm (front and back) is 9%. Total estimated TBSA = 18% + 9% = 27%.",
+          "zh": "根据成人九分法：躯干前部占18%，整个右臂（前后）占9%。估计的TBSA总值 = 18% + 9% = 27%。"
+        },
+        "byChoice": [
+          {
+            "refId": "b1",
+            "en": "Calculation: 18 (anterior trunk) + 9 (entire right arm) = 27 percent.",
+            "zh": "计算：18（躯干前部）+ 9（整个右臂）= 27%。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Memorize the Rule of Nines: Head=9%, Arms=9% each, Legs=18% each, Anterior trunk=18%, Posterior trunk=18%, Groin=1%.",
+        "zh": "熟记九分法：头部=9%，双臂各9%，双腿各18%，躯干前部=18%，躯干后部=18%，腹股沟=1%。"
+      },
+      "glossary": [
+        {
+          "termEn": "Rule of Nines",
+          "termZh": "九分法",
+          "defZh": "一种快速评估成年烧伤患者体表面积（TBSA）受累百分比的方法。"
+        },
+        {
+          "termEn": "Partial-thickness burn",
+          "termZh": "部分皮层烧伤/二度烧伤",
+          "defZh": "累及表皮和部分真皮的烧伤，表现为水疱和剧痛。"
+        },
+        {
+          "termEn": "Anterior trunk",
+          "termZh": "躯干前部",
+          "defZh": "身体躯干的前表面，在九分法中占18%的体表面积。"
+        }
+      ]
+    },
+    {
+      "id": "gemini_u5_fib_or_2026_06_09_fib_bmi_05",
+      "itemType": "fill_in_blank",
+      "category": "Health Promotion and Maintenance",
+      "topic": "Health Screening",
+      "difficulty": "medium",
+      "ngnSkill": "analyze_cues",
+      "stem": {
+        "en": "The nurse is conducting a health screening for an adult client. The client weighs 72 kilograms and is 1.5 meters tall. Calculate the client's Body Mass Index (BMI).",
+        "zh": "护士正在为一名成年患者进行健康筛查。该患者体重72公斤，身高1.5米。请计算该患者的身体质量指数（BMI）。"
+      },
+      "blanks": [
+        {
+          "id": "b1",
+          "prompt": {
+            "en": "BMI",
+            "zh": "BMI"
+          },
+          "acceptable": [
+            "32"
+          ],
+          "numeric": {
+            "value": 32,
+            "tolerance": 0
+          }
+        }
+      ],
+      "rationale": {
+        "correct": {
+          "en": "BMI is calculated by dividing weight in kilograms by the square of height in meters. Calculation: Height squared = 1.5 × 1.5 = 2.25. BMI = 72 / 2.25 = 32.",
+          "zh": "BMI 的计算方法是用体重（公斤）除以身高（米）的平方。计算：身高的平方 = 1.5 × 1.5 = 2.25。BMI = 72 / 2.25 = 32。"
+        },
+        "byChoice": [
+          {
+            "refId": "b1",
+            "en": "A BMI of 32 places the client in the obesity class I category, indicating a need for health promotion teaching regarding nutrition and activity.",
+            "zh": "BMI为32表明该患者处于一级肥胖类别，提示需要针对营养和运动进行健康促进宣教。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "The BMI formula is weight (kg) / [height (m)]². Make sure to square the height before dividing the weight.",
+        "zh": "BMI公式为 体重(kg) / [身高(m)]²。在除以体重之前，务必先将身高进行平方计算。"
+      },
+      "glossary": [
+        {
+          "termEn": "Body Mass Index (BMI)",
+          "termZh": "身体质量指数",
+          "defZh": "一种基于身高和体重的体脂衡量标准，用于筛查体重类别（如体重不足、正常体重、超重和肥胖）。"
+        },
+        {
+          "termEn": "Obesity",
+          "termZh": "肥胖",
+          "defZh": "体内脂肪过度积累的状态，通常定义为BMI在30.0或以上。"
+        }
+      ]
+    },
+    {
+      "id": "gemini_u5_fib_or_2026_06_09_fib_iando_06",
+      "itemType": "fill_in_blank",
+      "category": "Basic Care and Comfort",
+      "topic": "Fluid Intake and Output",
+      "difficulty": "easy",
+      "ngnSkill": "take_action",
+      "stem": {
+        "en": "A client on a clear liquid diet consumes 4 oz of apple juice, 8 oz of black coffee, and 6 oz of chicken broth during the shift. Calculate the client's total oral fluid intake in milliliters (mL).",
+        "zh": "一名进食清流质饮食的患者在值班期间饮用了4盎司苹果汁、8盎司黑咖啡和6盎司鸡汤。请计算该患者的经口液体总摄入量（以毫升为单位）。"
+      },
+      "blanks": [
+        {
+          "id": "b1",
+          "prompt": {
+            "en": "Total intake (mL)",
+            "zh": "总摄入量 (毫升/mL)"
+          },
+          "acceptable": [
+            "540",
+            "540 mL"
+          ],
+          "numeric": {
+            "value": 540,
+            "tolerance": 0,
+            "unit": "mL"
+          }
+        }
+      ],
+      "rationale": {
+        "correct": {
+          "en": "To calculate total intake in milliliters, first convert ounces (oz) to milliliters (mL). One fluid ounce is equal to 30 mL. Total ounces = 4 + 8 + 6 = 18 oz. Total mL = 18 oz × 30 mL/oz = 540 mL.",
+          "zh": "要计算以毫升为单位的总摄入量，首先将盎司（oz）转换为毫升（mL）。1液量盎司等于30毫升。总盎司数 = 4 + 8 + 6 = 18 oz。总毫升数 = 18 oz × 30 mL/oz = 540 mL。"
+        },
+        "byChoice": [
+          {
+            "refId": "b1",
+            "en": "The total volume consumed is 540 mL, which must be accurately documented in the client's intake and output (I&O) record.",
+            "zh": "摄入的总量为540毫升，必须准确记录在患者的液体出入量（I&O）记录单中。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Remember the conversion factor: 1 oz = 30 mL. Add all the ounces together before multiplying by 30 to save time and reduce calculation errors.",
+        "zh": "记住换算系数：1 oz = 30 mL。为了节省时间并减少计算错误，请先将所有盎司数相加，然后再乘以30。"
+      },
+      "glossary": [
+        {
+          "termEn": "Clear liquid diet",
+          "termZh": "清流质饮食",
+          "defZh": "一种只包含在室温下呈透明液体的食物或流质（如肉汤、果汁、明胶）的饮食。"
+        },
+        {
+          "termEn": "Intake and output (I&O)",
+          "termZh": "出入量",
+          "defZh": "对患者摄入和排出的液体进行的测量和记录，用于评估体液平衡。"
+        }
+      ]
+    },
+    {
+      "id": "gemini_u5_fib_or_2026_06_09_or_ngmeds_08",
+      "itemType": "ordered_response",
+      "category": "Basic Care and Comfort",
+      "topic": "Enteral Nutrition",
+      "difficulty": "medium",
+      "ngnSkill": "take_action",
+      "stem": {
+        "en": "The nurse is preparing to administer crushed medications via a nasogastric (NG) tube to a client receiving continuous enteral feedings. Order the steps of the procedure.",
+        "zh": "护士准备通过鼻胃管（NG管）为正在接受持续肠内营养的患者管饲研碎的药物。请对该操作步骤进行排序。"
+      },
+      "options": [
+        {
+          "id": "B",
+          "en": "Verify correct tube placement and check gastric residual volume if indicated by facility policy.",
+          "zh": "确认胃管位置正确，并根据机构政策指示检查胃内残留量。"
+        },
+        {
+          "id": "A",
+          "en": "Stop the continuous enteral feeding.",
+          "zh": "停止持续肠内营养输注。"
+        },
+        {
+          "id": "C",
+          "en": "Flush the tube with 15 to 30 mL of sterile water.",
+          "zh": "用15至30毫升无菌水冲洗胃管。"
+        },
+        {
+          "id": "D",
+          "en": "Administer the diluted crushed medication.",
+          "zh": "注入稀释后的研碎药物。"
+        },
+        {
+          "id": "E",
+          "en": "Flush the tube again with 15 to 30 mL of sterile water.",
+          "zh": "再次用15至30毫升无菌水冲洗胃管。"
+        }
+      ],
+      "correct": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ],
+      "rationale": {
+        "correct": {
+          "en": "When administering medications via an NG tube during continuous feeds: 1. Stop the feed to prevent mixing incompatible drugs with the formula. 2. Verify tube placement and residual to ensure safety. 3. Flush the tube with water to clear formula. 4. Administer the medication. 5. Flush the tube again to ensure the drug reaches the stomach and the tube remains patent.",
+          "zh": "在持续管饲期间通过鼻胃管给药时：1. 停止管饲以防药物与配方奶混合产生不相容。2. 确认导管位置和残留量以确保安全。3. 用水冲管以清除营养液。4. 注入药物。5. 再次冲管以确保药物到达胃部并保持导管通畅。"
+        },
+        "byChoice": [
+          {
+            "refId": "B",
+            "en": "Verifying placement prevents accidental administration of fluids into the lungs, and checking residual assesses gastric emptying.",
+            "zh": "确认位置可防止将液体意外注入肺部，检查残留量可评估胃排空情况。"
+          },
+          {
+            "refId": "A",
+            "en": "Stopping the feed is the first action to prevent physical and chemical incompatibilities between the medication and the nutritional formula.",
+            "zh": "停止输注是首要步骤，可防止药物与营养液之间发生物理和化学不相容反应。"
+          },
+          {
+            "refId": "C",
+            "en": "A pre-flush clears the tube of any remaining enteral formula, preventing clogging and drug-nutrient interactions.",
+            "zh": "预冲洗可清除管内残留的肠内营养液，防止堵塞和药物-营养素相互作用。"
+          },
+          {
+            "refId": "D",
+            "en": "The properly diluted medication is then administered by gravity.",
+            "zh": "然后利用重力缓慢注入适当稀释的药物。"
+          },
+          {
+            "refId": "E",
+            "en": "A final flush ensures the entire dose of medication is delivered into the stomach and clears the tube to maintain patency.",
+            "zh": "最后进行冲管可确保全部剂量的药物进入胃部，并清理导管以保持通畅。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Visualize the procedure: Stop feed -> Check safety (placement/residual) -> Flush -> Med -> Flush. Never mix medications directly into the enteral feeding formula.",
+        "zh": "在脑海中模拟操作过程：停止管饲 -> 检查安全性（位置/残留量） -> 冲洗 -> 给药 -> 冲洗。切勿将药物直接混入肠内营养液中。"
+      },
+      "glossary": [
+        {
+          "termEn": "Gastric residual volume",
+          "termZh": "胃内残留量",
+          "defZh": "管饲前或持续管饲期间抽吸出的残留在胃中的液体量。"
+        },
+        {
+          "termEn": "Enteral feeding",
+          "termZh": "肠内营养输注",
+          "defZh": "直接向胃肠道内提供流质营养液的过程。"
+        },
+        {
+          "termEn": "Nasogastric (NG) tube",
+          "termZh": "鼻胃管 (NG管)",
+          "defZh": "经鼻孔插入，经咽部、食管到达胃部的管道，用于管饲或胃肠减压。"
+        }
+      ]
+    },
+    {
+      "id": "gemini_u5_fib_or_2026_06_09_or_paracentesis_09",
+      "itemType": "ordered_response",
+      "category": "Reduction of Risk Potential",
+      "topic": "Post-procedure Care",
+      "difficulty": "hard",
+      "ngnSkill": "take_action",
+      "stem": {
+        "en": "The nurse is caring for a client with ascites who is scheduled for a bedside paracentesis. In what order should the nurse perform the following actions?",
+        "zh": "护士正在护理一名患有腹水并计划在床旁进行腹腔穿刺的患者。护士应按什么顺序执行以下操作？"
+      },
+      "options": [
+        {
+          "id": "B",
+          "en": "Measure the client's baseline vital signs and weight.",
+          "zh": "测量患者的基础生命体征和体重。"
+        },
+        {
+          "id": "E",
+          "en": "Apply a sterile dressing and monitor the puncture site for leakage.",
+          "zh": "贴上无菌敷料并监测穿刺部位有无渗液。"
+        },
+        {
+          "id": "A",
+          "en": "Instruct the client to empty the bladder.",
+          "zh": "指导患者排空膀胱。"
+        },
+        {
+          "id": "D",
+          "en": "Assist the healthcare provider during the fluid drainage.",
+          "zh": "在引流积液过程中协助医疗服务提供者。"
+        },
+        {
+          "id": "C",
+          "en": "Position the client sitting upright on the edge of the bed.",
+          "zh": "协助患者在床沿端坐。"
+        }
+      ],
+      "correct": [
+        "B",
+        "A",
+        "C",
+        "D",
+        "E"
+      ],
+      "rationale": {
+        "correct": {
+          "en": "For a paracentesis: 1. Obtain baseline vitals/weight. 2. Have the client empty their bladder (critical safety step). 3. Position the client upright. 4. Assist the provider during the procedure. 5. Apply a dressing and monitor post-procedure.",
+          "zh": "进行腹腔穿刺时：1. 获取基础生命体征/体重。2. 让患者排空膀胱（关键安全步骤）。3. 协助患者端坐。4. 在操作期间协助医疗服务提供者。5. 穿刺后贴上敷料并进行监测。"
+        },
+        "byChoice": [
+          {
+            "refId": "B",
+            "en": "Establishing baseline vital signs and weight provides essential data to compare against post-procedure measurements to evaluate fluid loss and detect hypovolemia.",
+            "zh": "建立基础生命体征和体重数据，为穿刺后测量提供对比依据，以评估体液流失情况并及早发现低血容量。"
+          },
+          {
+            "refId": "E",
+            "en": "After needle removal, applying a dressing protects the site, and monitoring for leakage or bleeding is critical for post-procedure safety.",
+            "zh": "拔针后，应用敷料保护穿刺部位，并监测有无渗液或出血对操作后的安全至关重要。"
+          },
+          {
+            "refId": "A",
+            "en": "Emptying the bladder immediately before positioning minimizes the risk of accidental bladder puncture when the trocar is inserted into the lower abdomen.",
+            "zh": "在摆放体位前立即排空膀胱，可最大限度地降低套管针插入下腹部时意外刺破膀胱的风险。"
+          },
+          {
+            "refId": "D",
+            "en": "During the procedure, the nurse assists by monitoring the client's tolerance, checking vital signs, and supporting the provider.",
+            "zh": "在操作过程中，护士通过监测患者的耐受性、检查生命体征和支持医疗服务提供者来提供协助。"
+          },
+          {
+            "refId": "C",
+            "en": "Positioning the client upright allows peritoneal fluid to accumulate dependently in the lower abdomen, making it easier and safer to drain.",
+            "zh": "协助患者端坐可使腹腔积液由于重力作用聚集在下腹部，使引流更容易也更安全。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Think chronologically: Assessment (baseline) -> Pre-op safety (empty bladder) -> Positioning -> Intra-op assist -> Post-op care (dressing).",
+        "zh": "按时间顺序思考：评估（基线数据） -> 术前安全（排空膀胱） -> 体位摆放 -> 术中协助 -> 术后护理（敷料）。"
+      },
+      "glossary": [
+        {
+          "termEn": "Paracentesis",
+          "termZh": "腹腔穿刺术",
+          "defZh": "一种医疗操作，用针头或导管穿透腹壁，以引出腹腔内的异常积液（腹水）。"
+        },
+        {
+          "termEn": "Ascites",
+          "termZh": "腹水",
+          "defZh": "腹腔内液体的异常积聚，常见于肝硬化患者。"
+        }
+      ]
+    },
+    {
+      "id": "gemini_u5_fib_or_2026_06_09_or_fire_10",
+      "itemType": "ordered_response",
+      "category": "Safety and Infection Control",
+      "topic": "Facility Safety",
+      "difficulty": "easy",
+      "ngnSkill": "take_action",
+      "stem": {
+        "en": "The nurse responds to a small trash can fire in the client dayroom and retrieves a fire extinguisher. Sequence the steps for using the fire extinguisher according to the PASS mnemonic.",
+        "zh": "护士发现患者活动室的垃圾桶发生小火灾，并拿来灭火器。请根据“PASS”口诀对使用灭火器的步骤进行排序。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "en": "Pull the pin on the extinguisher.",
+          "zh": "拔出灭火器的保险销。"
+        },
+        {
+          "id": "B",
+          "en": "Aim the nozzle at the base of the fire.",
+          "zh": "将喷嘴对准火源根部。"
+        },
+        {
+          "id": "C",
+          "en": "Squeeze the handle to release the extinguishing agent.",
+          "zh": "握紧压把以释放灭火剂。"
+        },
+        {
+          "id": "D",
+          "en": "Sweep the nozzle from side to side.",
+          "zh": "左右扫射喷嘴。"
+        }
+      ],
+      "correct": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "rationale": {
+        "correct": {
+          "en": "The PASS mnemonic for fire extinguisher use stands for: P - Pull the pin. A - Aim at the base of the fire. S - Squeeze the handle. S - Sweep from side to side.",
+          "zh": "灭火器使用的 PASS 口诀代表：P - 拔出保险销 (Pull)。A - 瞄准火源根部 (Aim)。S - 握紧把手 (Squeeze)。S - 左右扫射 (Sweep)。"
+        },
+        "byChoice": [
+          {
+            "refId": "A",
+            "en": "The first step is to Pull the pin, which unlocks the operating lever.",
+            "zh": "第一步是拔出保险销，这样可以解锁操作压把。"
+          },
+          {
+            "refId": "B",
+            "en": "The second step is to Aim the nozzle low, pointing at the base of the fire where the fuel source is.",
+            "zh": "第二步是将喷嘴对准低处，指向火源燃料所在的根部。"
+          },
+          {
+            "refId": "C",
+            "en": "The third step is to Squeeze the lever above the handle to discharge the extinguishing agent.",
+            "zh": "第三步是握紧手柄上方的压把以喷射出灭火剂。"
+          },
+          {
+            "refId": "D",
+            "en": "The final step is to Sweep the nozzle from side to side across the base of the fire until it is fully extinguished.",
+            "zh": "最后一步是在火源根部左右扫射喷嘴，直到火完全熄灭。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "PASS is an acronym where each letter directly corresponds to the order of operations. P=Pull, A=Aim, S=Squeeze, S=Sweep.",
+        "zh": "PASS 是一个首字母缩略词，每个字母直接对应操作顺序。P=拔出，A=瞄准，S=握紧，S=扫射。"
+      },
+      "glossary": [
+        {
+          "termEn": "PASS mnemonic",
+          "termZh": "PASS口诀",
+          "defZh": "一种用于记忆正确使用灭火器步骤的标准缩略语（Pull, Aim, Squeeze, Sweep）。"
+        }
+      ]
+    },
+    {
+      "id": "gemini_u5_fib_or_2026_06_09_or_abdo_11",
+      "itemType": "ordered_response",
+      "category": "Health Promotion and Maintenance",
+      "topic": "Physical Assessment",
+      "difficulty": "medium",
+      "ngnSkill": "take_action",
+      "stem": {
+        "en": "The nurse is performing a routine screening physical examination of an adult client's abdomen. In what order should the nurse perform the assessment techniques?",
+        "zh": "护士正在对一名成年患者进行常规腹部体格筛查。护士应按什么顺序执行这些评估技术？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "en": "Inspect the abdominal contour and skin integrity.",
+          "zh": "视诊腹部轮廓和皮肤完整性。"
+        },
+        {
+          "id": "C",
+          "en": "Percuss the abdomen to assess for tympany and dullness.",
+          "zh": "叩诊腹部以评估鼓音和浊音。"
+        },
+        {
+          "id": "B",
+          "en": "Auscultate for bowel sounds in all four quadrants.",
+          "zh": "听诊四个象限的肠鸣音。"
+        },
+        {
+          "id": "D",
+          "en": "Palpate the abdomen lightly to detect tenderness.",
+          "zh": "轻触诊腹部以检查有无压痛。"
+        }
+      ],
+      "correct": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "rationale": {
+        "correct": {
+          "en": "For an abdominal assessment, the correct sequence is Inspection, Auscultation, Percussion, and Palpation. Auscultation is performed before percussion and palpation because manipulating the abdomen can alter bowel sounds and cause false findings.",
+          "zh": "对于腹部评估，正确的顺序是视诊、听诊、叩诊和触诊。在叩诊和触诊之前进行听诊是因为操作腹部可能会改变肠鸣音，从而导致虚假的发现。"
+        },
+        "byChoice": [
+          {
+            "refId": "A",
+            "en": "Inspection is always the first step of any physical assessment to visually observe contour, symmetry, and skin.",
+            "zh": "视诊始终是任何体格评估的第一步，以直观地观察轮廓、对称性和皮肤状况。"
+          },
+          {
+            "refId": "C",
+            "en": "Percussion is performed after auscultation to estimate the size of solid organs and map fluid/air distribution.",
+            "zh": "在听诊之后进行叩诊，以估计实质器官的大小并描绘液体/气体的分布范围。"
+          },
+          {
+            "refId": "B",
+            "en": "Auscultation is done second in abdominal assessment. Pressing on the bowel via percussion or palpation can artificially stimulate bowel motility.",
+            "zh": "在腹部评估中，听诊排在第二位。通过叩诊或触诊按压肠道可能会人为地刺激肠蠕动。"
+          },
+          {
+            "refId": "D",
+            "en": "Palpation is performed last because it is the most invasive and can cause pain or muscle guarding, disrupting the rest of the assessment.",
+            "zh": "触诊排在最后，因为它的侵入性最强，可能会引起疼痛或肌肉防御性收缩，从而破坏评估的其余部分。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Normal assessment order is Inspect, Palpate, Percuss, Auscultate (IPPA). However, the abdomen is the major exception: Inspect, Auscultate, Percuss, Palpate (IAPP) to avoid altering bowel sounds.",
+        "zh": "通常的评估顺序是视、触、叩、听（IPPA）。然而，腹部是主要的例外：视、听、叩、触（IAPP），以避免改变肠鸣音。"
+      },
+      "glossary": [
+        {
+          "termEn": "Auscultation",
+          "termZh": "听诊",
+          "defZh": "使用听诊器倾听身体内部发出的声音（如肠鸣音）的评估技术。"
+        },
+        {
+          "termEn": "Percussion",
+          "termZh": "叩诊",
+          "defZh": "用手指轻叩身体表面以产生声波，帮助确定内部器官位置和密度的评估方法。"
+        }
+      ]
+    },
+    {
+      "id": "gemini_u5_fib_or_2026_06_09_or_trach_12",
+      "itemType": "ordered_response",
+      "category": "Reduction of Risk Potential",
+      "topic": "Airway Management",
+      "difficulty": "medium",
+      "ngnSkill": "take_action",
+      "stem": {
+        "en": "The nurse is preparing to perform open endotracheal suctioning for a client with a new tracheostomy. Order the steps of the procedure.",
+        "zh": "护士正准备为一名新行气管切开术的患者进行开放式气管内吸痰。请对该操作步骤进行排序。"
+      },
+      "options": [
+        {
+          "id": "D",
+          "en": "Reassess the client's respiratory status and oxygen saturation.",
+          "zh": "重新评估患者的呼吸状态和血氧饱和度。"
+        },
+        {
+          "id": "B",
+          "en": "Insert the suction catheter without applying negative pressure.",
+          "zh": "插入吸痰管，插入时不要施加负压。"
+        },
+        {
+          "id": "A",
+          "en": "Pre-oxygenate the client with 100% oxygen.",
+          "zh": "用100%浓度的氧气为患者进行预充氧。"
+        },
+        {
+          "id": "C",
+          "en": "Apply intermittent suction while rotating and withdrawing the catheter.",
+          "zh": "在旋转并拔出吸痰管的同时施加间歇性负压。"
+        },
+        {
+          "id": "E",
+          "en": "Document the amount, color, and consistency of the secretions.",
+          "zh": "记录分泌物的量、颜色和性状。"
+        }
+      ],
+      "correct": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ],
+      "rationale": {
+        "correct": {
+          "en": "The correct suctioning sequence is: 1. Pre-oxygenate (hyperoxygenate) to prevent hypoxia. 2. Insert catheter without suction to prevent mucosal trauma. 3. Apply suction intermittently while withdrawing to clear secretions safely. 4. Assess tolerance and oxygenation. 5. Document findings.",
+          "zh": "正确的吸痰顺序是：1. 预充氧（过度给氧）以防止缺氧。2. 在无负压状态下插入吸痰管，防止黏膜损伤。3. 边退管边旋转间歇吸引，安全清除分泌物。4. 评估患者的耐受性和氧合情况。5. 记录观察结果。"
+        },
+        "byChoice": [
+          {
+            "refId": "D",
+            "en": "Immediately following suctioning, the nurse reassesses lung sounds, respiratory effort, and SpO2 to determine the effectiveness of the intervention.",
+            "zh": "吸痰后，护士立即重新评估肺部呼吸音、呼吸费力程度和SpO2，以确定干预的有效性。"
+          },
+          {
+            "refId": "B",
+            "en": "The catheter is advanced down the airway without applying suction to prevent the catheter from adhering to and stripping the delicate tracheal mucosa.",
+            "zh": "在不施加负压的情况下将吸痰管向下推进气道，以防止导管粘附并剥脱脆弱的气管黏膜。"
+          },
+          {
+            "refId": "A",
+            "en": "Pre-oxygenation with 100% oxygen before the procedure is critical to establish a reserve and prevent dangerous suction-induced hypoxemia.",
+            "zh": "操作前用100%的氧气进行预充氧至关重要，它可以建立氧气储备并防止发生危险的吸痰引起的低氧血症。"
+          },
+          {
+            "refId": "C",
+            "en": "Intermittent suction is applied for no more than 10-15 seconds while rotating and withdrawing the catheter to effectively remove mucus while minimizing tissue damage.",
+            "zh": "在旋转和拔出吸痰管的同时，施加间歇性负压，时间不超过10-15秒，这样既能有效清除黏液，又能将组织损伤降至最低。"
+          },
+          {
+            "refId": "E",
+            "en": "Documentation of secretion characteristics and client response is the final administrative step of the procedure.",
+            "zh": "记录分泌物特征和患者反应是该操作的最后一个文书步骤。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Always pre-oxygenate before suctioning to prevent hypoxia. Never apply suction going in; only apply suction while coming out.",
+        "zh": "吸痰前务必进行预充氧以防缺氧。插入吸痰管时切勿施加负压；只在拔出吸痰管时施加负压。"
+      },
+      "glossary": [
+        {
+          "termEn": "Endotracheal suctioning",
+          "termZh": "气管内吸痰",
+          "defZh": "通过人工气道清除下呼吸道分泌物的操作。"
+        },
+        {
+          "termEn": "Pre-oxygenation",
+          "termZh": "预充氧",
+          "defZh": "在可能引起缺氧的操作（如吸痰）之前，为患者提供高浓度氧气的做法。"
         }
       ]
     }

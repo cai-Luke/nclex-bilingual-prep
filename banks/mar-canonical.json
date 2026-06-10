@@ -1,0 +1,563 @@
+{
+  "meta": {
+    "schemaVersion": "1.2",
+    "exam": "NCLEX-RN",
+    "topic": "MAR interpretation and medication safety",
+    "category": "Pharmacological and Parenteral Therapies",
+    "difficulty": "mixed",
+    "count": 5
+  },
+  "questions": [
+    {
+      "id": "mar_mc_digoxin_01",
+      "itemType": "multiple_choice",
+      "category": "Pharmacological and Parenteral Therapies",
+      "topic": "digoxin administration and hold parameters",
+      "difficulty": "medium",
+      "ngnSkill": "analyze_cues",
+      "stem": {
+        "en": "The nurse is reviewing the client's vital signs and Medication Administration Record (MAR). The client's apical pulse is 56 beats/min and serum potassium level is 4.2 mEq/L (4.2 mmol/L). Which action is most appropriate?",
+        "zh": "护士正在查阅患者的生命体征和药物给药记录（MAR）。患者的心尖搏动为56次/分，血清钾水平为4.2 mEq/L (4.2 mmol/L)。哪项操作最合适？"
+      },
+      "visual": {
+        "kind": "mar",
+        "timeGrid": ["0900", "2100"],
+        "medications": [
+          {
+            "name": "digoxin",
+            "dose": "0.125 mg",
+            "route": "PO",
+            "frequency": "daily",
+            "administrations": [
+              { "time": "0900", "status": "due" }
+            ],
+            "isHighAlert": true
+          },
+          {
+            "name": "furosemide",
+            "dose": "40 mg",
+            "route": "PO",
+            "frequency": "daily",
+            "administrations": [
+              { "time": "0900", "status": "due" }
+            ],
+            "isHighAlert": false
+          }
+        ],
+        "caption": {
+          "en": "Morning Medication Administration Record",
+          "zh": "晨间药物给药记录"
+        }
+      },
+      "meta": {
+        "visual_justification": "Requires reading the MAR to identify digoxin and furosemide are scheduled and synthesizing with vital signs to hold digoxin.",
+        "tier": "strictest",
+        "source": "Standard Nursing Pharmacology Guidelines",
+        "skill_signature": "mar:hold-parameter/bradycardia",
+        "stem_disambiguators": ["digoxin", "apical"],
+        "keyed_cells": [
+          { "medication": "digoxin", "time": "0900", "reason": "hold_dose" }
+        ],
+        "expected_trend": [],
+        "expected_flags": [],
+        "derived_values_keyed": [],
+        "reference_bands": "adult"
+      },
+      "options": [
+        { "id": "A", "en": "Administer both digoxin and furosemide as prescribed.", "zh": "按医嘱给予地高辛和呋塞米。" },
+        { "id": "B", "en": "Hold both digoxin and furosemide and notify the healthcare provider.", "zh": "暂停给予地高辛和呋塞米，并通知医疗服务提供者。" },
+        { "id": "C", "en": "Hold the digoxin, administer the furosemide, and notify the healthcare provider.", "zh": "暂停给予地高辛，给予呋塞米，并通知医疗服务提供者。" },
+        { "id": "D", "en": "Administer the digoxin, hold the furosemide, and notify the healthcare provider.", "zh": "给予地高辛，暂停给予呋塞米，并通知医疗服务提供者。" }
+      ],
+      "correct": ["C"],
+      "rationale": {
+        "correct": {
+          "en": "Digoxin is a cardiac glycoside that decreases heart rate. It should be held if the adult client's apical pulse is less than 60 beats/min. Furosemide is a loop diuretic; because the client's potassium level is normal (3.5–5.0 mEq/L), there is no indication to hold the furosemide.",
+          "zh": "地高辛是一种可减慢心率的强心苷类药物。如果成年患者的心尖搏动低于60次/分，则应暂停给药。呋塞米是一种袢利尿剂；由于患者的钾水平正常（3.5–5.0 mEq/L），因此没有暂停给予呋塞米的指征。"
+        },
+        "byChoice": [
+          {
+            "refId": "A",
+            "en": "Administering digoxin to a client with an apical pulse of 56 beats/min is unsafe and can cause severe symptomatic bradycardia.",
+            "zh": "向心尖搏动为56次/分的患者给予地高辛是不安全的，可能导致严重的症状性心动过缓。"
+          },
+          {
+            "refId": "B",
+            "en": "There is no clinical indication to hold furosemide, as the potassium level is within normal limits.",
+            "zh": "由于钾水平在正常范围内，因此没有暂停呋塞米的临床指征。"
+          },
+          {
+            "refId": "C",
+            "en": "Holding the digoxin due to bradycardia and administering the furosemide because potassium is stable is the correct, safe nursing action.",
+            "zh": "因心动过缓暂停地高辛，并因血钾稳定给予呋塞米是正确且安全的护理操作。"
+          },
+          {
+            "refId": "D",
+            "en": "This is the opposite of the correct action. Digoxin must be held, and furosemide should be given.",
+            "zh": "这与正确操作完全相反。必须暂停地高辛，而应给予呋塞米。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Evaluate the safety parameters for each medication independently. Digoxin requires an apical pulse ≥ 60; furosemide requires normal potassium.",
+        "zh": "独立评估每种药物的安全参数。地高辛要求心尖搏动 ≥ 60；呋塞米要求钾水平正常。"
+      },
+      "glossary": [
+        {
+          "termEn": "Apical pulse",
+          "termZh": "心尖搏动",
+          "defZh": "在心脏心尖部听诊或触诊到的心跳，用以评估给药前的心率。"
+        },
+        {
+          "termEn": "Bradycardia",
+          "termZh": "心动过缓",
+          "defZh": "成人的心率低于60次/分钟。"
+        }
+      ]
+    },
+    {
+      "id": "mar_mc_warfarin_02",
+      "itemType": "multiple_choice",
+      "category": "Pharmacological and Parenteral Therapies",
+      "topic": "warfarin administration and lab monitoring",
+      "difficulty": "medium",
+      "ngnSkill": "take_action",
+      "stem": {
+        "en": "The nurse reviews the client's MAR and morning laboratory results. The client's International Normalized Ratio (INR) is 4.8. What is the priority nursing action?",
+        "zh": "护士查看了患者的MAR和晨间实验室检查结果。患者的国际标准化比值（INR）为4.8。护士的首要操作是什么？"
+      },
+      "visual": {
+        "kind": "mar",
+        "timeGrid": ["1800"],
+        "medications": [
+          {
+            "name": "warfarin",
+            "dose": "5 mg",
+            "route": "PO",
+            "frequency": "daily",
+            "administrations": [
+              { "time": "1800", "status": "due" }
+            ],
+            "isHighAlert": true
+          }
+        ],
+        "caption": {
+          "en": "Evening MAR",
+          "zh": "晚间给药记录"
+        }
+      },
+      "meta": {
+        "visual_justification": "Requires recognizing that warfarin is scheduled and synthesizing this with a critically high INR.",
+        "tier": "strictest",
+        "source": "Standard Anticoagulant Guidelines",
+        "skill_signature": "mar:hold-parameter/high-inr",
+        "stem_disambiguators": ["warfarin", "INR"],
+        "keyed_cells": [
+          { "medication": "warfarin", "time": "1800", "reason": "hold_dose" }
+        ],
+        "expected_trend": [],
+        "expected_flags": [],
+        "derived_values_keyed": [],
+        "reference_bands": "adult"
+      },
+      "options": [
+        { "id": "A", "en": "Administer the warfarin as scheduled.", "zh": "按计划给予华法林。" },
+        { "id": "B", "en": "Hold the warfarin and notify the healthcare provider.", "zh": "暂停给予华法林并通知医疗服务提供者。" },
+        { "id": "C", "en": "Administer a half dose of warfarin.", "zh": "给予一半剂量的华法林。" },
+        { "id": "D", "en": "Hold the warfarin and prepare to administer protamine sulfate.", "zh": "暂停华法林并准备给予硫酸鱼精蛋白。" }
+      ],
+      "correct": ["B"],
+      "rationale": {
+        "correct": {
+          "en": "The therapeutic INR range for a client on warfarin is typically 2.0 to 3.0. An INR of 4.8 is critically elevated, placing the client at high risk for bleeding. The nurse must hold the scheduled dose and notify the healthcare provider.",
+          "zh": "服用华法林患者的治疗性INR范围通常为2.0至3.0。INR为4.8属于严重升高，使患者面临极高的出血风险。护士必须暂停按计划给药并通知医疗服务提供者。"
+        },
+        "byChoice": [
+          {
+            "refId": "A",
+            "en": "Administering warfarin with an INR of 4.8 could lead to life-threatening hemorrhage.",
+            "zh": "在INR为4.8的情况下给予华法林可能导致危及生命的出血。"
+          },
+          {
+            "refId": "B",
+            "en": "Holding the dose and notifying the provider is the safest and most appropriate action.",
+            "zh": "暂停给药并通知医生是最安全和最合适的操作。"
+          },
+          {
+            "refId": "C",
+            "en": "The nurse cannot independently alter medication dosages. This is outside the nursing scope of practice.",
+            "zh": "护士不能独立更改药物剂量。这超出了护理执业范围。"
+          },
+          {
+            "refId": "D",
+            "en": "Protamine sulfate is the antidote for heparin, not warfarin. Vitamin K is the antidote for warfarin.",
+            "zh": "硫酸鱼精蛋白是肝素的解毒剂，而不是华法林的解毒剂。华法林的解毒剂是维生素K。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Identify the relationship between the medication (warfarin) and the lab test (INR). Recognize that 4.8 is above the therapeutic range.",
+        "zh": "确定药物（华法林）与化验（INR）之间的关系。需认识到4.8高于治疗范围。"
+      },
+      "glossary": [
+        {
+          "termEn": "International Normalized Ratio (INR)",
+          "termZh": "国际标准化比值",
+          "defZh": "用于监测口服抗凝血药（如华法林）疗效的凝血指标。"
+        },
+        {
+          "termEn": "Hemorrhage",
+          "termZh": "出血",
+          "defZh": "大量失血，是过度抗凝的严重并发症。"
+        }
+      ]
+    },
+    {
+      "id": "mar_mc_vanco_03",
+      "itemType": "multiple_choice",
+      "category": "Pharmacological and Parenteral Therapies",
+      "topic": "missed antibiotic dose in sepsis",
+      "difficulty": "medium",
+      "ngnSkill": "take_action",
+      "stem": {
+        "en": "The nurse assumes care of a client with sepsis at 1000 and reviews the MAR. The client's peripheral IV infiltrated earlier in the shift, and a new IV was just established. What is the priority nursing action regarding the vancomycin dose?",
+        "zh": "护士在1000时接手一位脓毒症患者的护理工作并查阅MAR。患者的外周静脉留置针在早些时候发生渗出，刚刚建立了新的静脉通路。关于万古霉素的给药，护士的首要操作是什么？"
+      },
+      "visual": {
+        "kind": "mar",
+        "timeGrid": ["0800", "2000"],
+        "medications": [
+          {
+            "name": "vancomycin",
+            "dose": "1000 mg",
+            "route": "IVPB",
+            "frequency": "q12h",
+            "administrations": [
+              { "time": "0800", "status": "missed" },
+              { "time": "2000", "status": "due" }
+            ],
+            "isHighAlert": true
+          }
+        ],
+        "caption": {
+          "en": "Current MAR",
+          "zh": "当前给药记录"
+        }
+      },
+      "meta": {
+        "visual_justification": "Requires recognizing the missed antibiotic status and synthesizing it with the sepsis diagnosis to prioritize immediate administration.",
+        "tier": "strictest",
+        "source": "Surviving Sepsis Campaign Guidelines",
+        "skill_signature": "mar:missed-dose/sepsis-antibiotic",
+        "stem_disambiguators": ["sepsis", "vancomycin"],
+        "keyed_cells": [
+          { "medication": "vancomycin", "time": "0800", "reason": "missed" }
+        ],
+        "expected_trend": [],
+        "expected_flags": [],
+        "derived_values_keyed": [],
+        "reference_bands": "adult"
+      },
+      "options": [
+        { "id": "A", "en": "Administer the missed vancomycin dose immediately.", "zh": "立即给予漏服的万古霉素剂量。" },
+        { "id": "B", "en": "Wait and administer the next dose at the next scheduled time.", "zh": "等待并在下一次预定时间给药。" },
+        { "id": "C", "en": "Notify the pharmacy to change the administration frequency to daily.", "zh": "通知药房将给药频率更改为每日一次。" },
+        { "id": "D", "en": "Document the medication as not given due to lack of IV access.", "zh": "记录因无静脉通路未给予该药物。" }
+      ],
+      "correct": ["A"],
+      "rationale": {
+        "correct": {
+          "en": "In a client with sepsis, timely administration of antibiotics is critical to survival. Since a new IV has been established, the delayed 0800 dose should be administered immediately. The schedule for subsequent doses can be adjusted by pharmacy later.",
+          "zh": "对于脓毒症患者，及时给予抗生素对生存至关重要。既然已建立新的静脉通路，应立即给予延迟的0800剂量。后续剂量的计划可由药房随后进行调整。"
+        },
+        "byChoice": [
+          {
+            "refId": "A",
+            "en": "Immediate administration treats the underlying severe infection and prevents clinical deterioration.",
+            "zh": "立即给药可治疗潜在的严重感染并防止临床恶化。"
+          },
+          {
+            "refId": "B",
+            "en": "Waiting until 2000 would leave the septic client without antibiotic coverage for approximately 24 hours (since the previous q12h dose at 2000 the night before), increasing the risk of mortality.",
+            "zh": "等待到2000将导致这位脓毒症患者在约24小时内（自前一夜2000的q12h给药起）没有抗生素覆盖，从而增加死亡风险。"
+          },
+          {
+            "refId": "C",
+            "en": "The nurse cannot independently alter the frequency of the medication, nor is daily frequency appropriate for standard q12h vancomycin dosing without specific trough level guidance.",
+            "zh": "护士不能独立更改药物的给药频率，并且在没有具体谷浓度指导的情况下，对于标准的q12h万古霉素，每日一次的频率也是不合适的。"
+          },
+          {
+            "refId": "D",
+            "en": "Documenting is required, but it does not address the client's urgent physiological need for the antibiotic now that access is restored.",
+            "zh": "记录是必要的，但这并不能解决患者在静脉通路恢复后对抗生素的紧急生理需求。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Prioritize actions based on the client's acute condition (sepsis) and the 'missed' status on the MAR. Surviving Sepsis Campaign guidelines support antibiotic administration within one hour of sepsis recognition.",
+        "zh": "根据患者的急性病情（脓毒症）和MAR上的「missed（漏服）」状态对操作进行优先排序。脓毒症存活运动指南支持在脓毒症识别后一小时内给予抗生素。"
+      },
+      "glossary": [
+        {
+          "termEn": "Sepsis",
+          "termZh": "脓毒症",
+          "defZh": "由感染引起的全身性炎症反应，是一种危及生命的医疗紧急情况。"
+        },
+        {
+          "termEn": "Infiltration",
+          "termZh": "渗出",
+          "defZh": "静脉注射液漏入周围组织，导致局部肿胀和输液中断。"
+        }
+      ]
+    },
+    {
+      "id": "mar_matrix_cardiac_04",
+      "itemType": "matrix",
+      "category": "Pharmacological and Parenteral Therapies",
+      "topic": "cardiac medication hold parameters",
+      "difficulty": "medium",
+      "ngnSkill": "analyze_cues",
+      "stem": {
+        "en": "The nurse is preparing 0900 medications for a client. The client's blood pressure is 138/86 mm Hg and heart rate is 52 beats/min. Based on the MAR, indicate whether the nurse should administer or hold each medication.",
+        "zh": "护士正在为患者准备0900的药物。患者的血压为138/86 mm Hg，心率为52次/分。根据MAR，指出护士应给予还是暂停每种药物。"
+      },
+      "visual": {
+        "kind": "mar",
+        "timeGrid": ["0900"],
+        "medications": [
+          {
+            "name": "metoprolol",
+            "dose": "50 mg",
+            "route": "PO",
+            "frequency": "daily",
+            "administrations": [
+              { "time": "0900", "status": "due" }
+            ],
+            "isHighAlert": true
+          },
+          {
+            "name": "lisinopril",
+            "dose": "10 mg",
+            "route": "PO",
+            "frequency": "daily",
+            "administrations": [
+              { "time": "0900", "status": "due" }
+            ],
+            "isHighAlert": false
+          },
+          {
+            "name": "pantoprazole",
+            "dose": "40 mg",
+            "route": "PO",
+            "frequency": "daily",
+            "administrations": [
+              { "time": "0900", "status": "due" }
+            ],
+            "isHighAlert": false
+          }
+        ],
+        "caption": {
+          "en": "0900 MAR",
+          "zh": "0900 给药记录"
+        }
+      },
+      "meta": {
+        "visual_justification": "Requires interpreting the MAR to determine which medications are scheduled and linking them to vital signs.",
+        "tier": "strictest",
+        "source": "Standard Nursing Pharmacology",
+        "skill_signature": "mar:hold-parameter/multiple-meds",
+        "stem_disambiguators": ["metoprolol", "lisinopril", "pantoprazole"],
+        "keyed_cells": [
+          { "medication": "metoprolol", "time": "0900", "reason": "due" },
+          { "medication": "lisinopril", "time": "0900", "reason": "due" },
+          { "medication": "pantoprazole", "time": "0900", "reason": "due" }
+        ],
+        "expected_trend": [],
+        "expected_flags": [],
+        "derived_values_keyed": [],
+        "reference_bands": "adult"
+      },
+      "matrix": {
+        "rows": [
+          { "id": "r1", "en": "Metoprolol", "zh": "美托洛尔" },
+          { "id": "r2", "en": "Lisinopril", "zh": "赖诺普利" },
+          { "id": "r3", "en": "Pantoprazole", "zh": "泮托拉唑" }
+        ],
+        "columns": [
+          { "id": "c1", "en": "Administer", "zh": "给予" },
+          { "id": "c2", "en": "Hold", "zh": "暂停" }
+        ],
+        "selectionMode": "single_per_row"
+      },
+      "correct": [
+        { "rowId": "r1", "columnIds": ["c2"] },
+        { "rowId": "r2", "columnIds": ["c1"] },
+        { "rowId": "r3", "columnIds": ["c1"] }
+      ],
+      "rationale": {
+        "correct": {
+          "en": "Metoprolol is a beta-blocker that decreases heart rate; it should be held for a heart rate less than 60 beats/min. Lisinopril is an ACE inhibitor that lowers blood pressure; because the BP is 138/86, it is safe to administer. Pantoprazole is a proton pump inhibitor with no cardiac hold parameters and should be administered.",
+          "zh": "美托洛尔是一种降低心率的β受体阻滞剂；当心率低于60次/分时应暂停给药。赖诺普利是一种降低血压的ACE抑制剂；由于血压为138/86，因此给药是安全的。泮托拉唑是质子泵抑制剂，没有心脏相关的暂停参数，应予以给药。"
+        },
+        "byChoice": [
+          {
+            "refId": "r1",
+            "en": "Hold metoprolol. Beta-blockers can worsen bradycardia. The client's heart rate is 52.",
+            "zh": "暂停美托洛尔。β受体阻滞剂可能加重心动过缓。患者的心率为52。"
+          },
+          {
+            "refId": "r2",
+            "en": "Administer lisinopril. The blood pressure is safely elevated (138/86) and requires the scheduled antihypertensive.",
+            "zh": "给予赖诺普利。血压安全升高（138/86），需要按计划给予降压药。"
+          },
+          {
+            "refId": "r3",
+            "en": "Administer pantoprazole. Vital signs do not affect the administration of a proton pump inhibitor.",
+            "zh": "给予泮托拉唑。生命体征不影响质子泵抑制剂的给药。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Evaluate each medication individually against the provided vital signs. Do not assume all cardiac medications must be held simply because one vital sign is abnormal.",
+        "zh": "根据提供的生命体征独立评估每种药物。不要因为一个生命体征异常就假设必须暂停所有心脏药物。"
+      },
+      "glossary": [
+        {
+          "termEn": "Beta-blocker",
+          "termZh": "β受体阻滞剂",
+          "defZh": "一类可减慢心率和降低血压的药物（例如美托洛尔）。"
+        },
+        {
+          "termEn": "ACE inhibitor",
+          "termZh": "ACE抑制剂",
+          "defZh": "血管紧张素转换酶抑制剂，主要用于降低血压。"
+        }
+      ]
+    },
+    {
+      "id": "mar_matrix_assess_05",
+      "itemType": "matrix",
+      "category": "Pharmacological and Parenteral Therapies",
+      "topic": "pre-administration nursing assessment",
+      "difficulty": "medium",
+      "ngnSkill": "analyze_cues",
+      "stem": {
+        "en": "The nurse is reviewing the MAR to plan morning care. Match each scheduled medication to the priority pre-administration laboratory or assessment data.",
+        "zh": "护士正在查阅MAR以计划晨间护理。将每种预定的药物与给药前首要的实验室或评估数据相匹配。"
+      },
+      "visual": {
+        "kind": "mar",
+        "timeGrid": ["0800"],
+        "medications": [
+          {
+            "name": "furosemide",
+            "dose": "40 mg",
+            "route": "PO",
+            "frequency": "daily",
+            "administrations": [
+              { "time": "0800", "status": "due" }
+            ],
+            "isHighAlert": false
+          },
+          {
+            "name": "digoxin",
+            "dose": "0.125 mg",
+            "route": "PO",
+            "frequency": "daily",
+            "administrations": [
+              { "time": "0800", "status": "due" }
+            ],
+            "isHighAlert": true
+          },
+          {
+            "name": "insulin regular",
+            "dose": "4 units",
+            "route": "SubQ",
+            "frequency": "AC breakfast",
+            "administrations": [
+              { "time": "0800", "status": "due" }
+            ],
+            "isHighAlert": true
+          }
+        ],
+        "caption": {
+          "en": "0800 Scheduled Medications",
+          "zh": "0800 预定药物"
+        }
+      },
+      "meta": {
+        "visual_justification": "Requires mapping the medications listed on the MAR to their specific clinical hold parameters.",
+        "tier": "strictest",
+        "source": "Standard Nursing Pharmacology",
+        "skill_signature": "mar:pre-admin-assessment/matching",
+        "stem_disambiguators": ["furosemide", "digoxin", "insulin"],
+        "keyed_cells": [
+          { "medication": "furosemide", "time": "0800", "reason": "due" },
+          { "medication": "digoxin", "time": "0800", "reason": "due" },
+          { "medication": "insulin regular", "time": "0800", "reason": "due" }
+        ],
+        "expected_trend": [],
+        "expected_flags": [],
+        "derived_values_keyed": [],
+        "reference_bands": "adult"
+      },
+      "matrix": {
+        "rows": [
+          { "id": "r1", "en": "Furosemide", "zh": "呋塞米" },
+          { "id": "r2", "en": "Digoxin", "zh": "地高辛" },
+          { "id": "r3", "en": "Insulin regular", "zh": "常规胰岛素" }
+        ],
+        "columns": [
+          { "id": "c1", "en": "Serum potassium level", "zh": "血清钾水平" },
+          { "id": "c2", "en": "Apical pulse rate", "zh": "心尖搏动率" },
+          { "id": "c3", "en": "Blood glucose level", "zh": "血糖水平" }
+        ],
+        "selectionMode": "single_per_row"
+      },
+      "correct": [
+        { "rowId": "r1", "columnIds": ["c1"] },
+        { "rowId": "r2", "columnIds": ["c2"] },
+        { "rowId": "r3", "columnIds": ["c3"] }
+      ],
+      "rationale": {
+        "correct": {
+          "en": "Furosemide is a potassium-wasting diuretic, so serum potassium must be monitored. Digoxin lowers the heart rate, requiring an apical pulse check before administration. Regular insulin lowers blood sugar, requiring a current blood glucose level before giving.",
+          "zh": "呋塞米是一种排钾利尿剂，因此必须监测血清钾。地高辛会降低心率，在给药前需要检查心尖搏动。常规胰岛素会降低血糖，在给药前需要测量当前的血糖水平。"
+        },
+        "byChoice": [
+          {
+            "refId": "r1",
+            "en": "Furosemide can cause hypokalemia, making the serum potassium level the priority assessment.",
+            "zh": "呋塞米可引起低钾血症，因此血清钾水平是首要评估指标。"
+          },
+          {
+            "refId": "r2",
+            "en": "Digoxin toxicity and its therapeutic effect directly impact heart rate, requiring a full 1-minute apical pulse.",
+            "zh": "地高辛的毒性及其治疗作用直接影响心率，需要测量整整1分钟的心尖搏动。"
+          },
+          {
+            "refId": "r3",
+            "en": "Insulin requires checking the blood glucose level to prevent life-threatening hypoglycemia.",
+            "zh": "胰岛素要求检查血糖水平以防止危及生命的低血糖。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Connect each drug to its primary adverse effect or mechanism of action to determine the priority assessment.",
+        "zh": "将每种药物与其主要不良反应或作用机制联系起来，以确定首要的评估项目。"
+      },
+      "glossary": [
+        {
+          "termEn": "Hypokalemia",
+          "termZh": "低钾血症",
+          "defZh": "血液中钾离子水平过低的状态。"
+        },
+        {
+          "termEn": "Hypoglycemia",
+          "termZh": "低血糖",
+          "defZh": "血液中葡萄糖水平过低，需紧急处理的状态。"
+        }
+      ]
+    }
+  ]
+}

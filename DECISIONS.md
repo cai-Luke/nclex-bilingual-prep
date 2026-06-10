@@ -32,13 +32,14 @@ The D-correct-at-3% MCQ finding is the canonical example of why this apparatus e
 ## Other standing invariants
 
 - Bilingual EN / zh-CN parity on all displayed text.
+- `question.topic` is English-only — it is a navigational label, not study content (the target user's working English covers the topic; the translation does its real work in the stem, options, and rationale, where the medical terminology lives). Enforced in `validateBankObject` (Tier 0): CJK in `topic` fails loudly and is never silently stripped.
 - Question IDs globally unique across bundled top-level banks (progress, flags, sessions, and answer history key by `question.id`).
 - Runtime stays static, offline, and `file://`-compatible. No server or live model call after build.
 - Schema changes are rare and deliberate.
 
 ## Open threads / live state (as of this planning session)
 
-**Promotion gate** — *fully implemented.* `lib/shuffle.ts` (FNV-1a seed + Fisher-Yates) owns all option ordering; `scripts/promote.ts` applies it to every draft in `banks/banks-raw/`; `.github/workflows/promotion-gate.yml` runs `npm run audit` (Tier 0 `validate:bank` + Tier 1 `audit:references` / `audit:positions` / `audit:integrity`) on every PR to main. The correct promotion flow is: stage raw in `banks/banks-raw/` → `npm run promote` (shuffle + validate) → `npm run audit` → merge shuffled output into the canonical bank → delete raw draft → ledger update. Merging directly into a canonical bank without running `npm run promote` first is a gate bypass: the shuffle step must be applied manually before or after if the draft path is not used. The 63 pre-existing `audit:references` hazards in `gemini-canonical.json`, `claude-canonical.json`, `gpt-canonical.json`, and `hard-cases-canonical.json` are a known backlog — new content must not add to this count.
+**Promotion gate** — *fully implemented.* `lib/shuffle.ts` (FNV-1a seed + Fisher-Yates) owns all option ordering; `scripts/promote.ts` applies it to every draft in `banks/banks-raw/`; `.github/workflows/promotion-gate.yml` runs `npm run audit` (Tier 0 `validate:bank` + Tier 1 `audit:references` / `audit:positions` / `audit:integrity`) on every PR to main. The correct promotion flow is: stage raw in `banks/banks-raw/` → `npm run promote` (shuffle + validate) → `npm run audit` → merge shuffled output into the canonical bank → delete raw draft → ledger update. Merging directly into a canonical bank without running `npm run promote` first is a gate bypass: the shuffle step must be applied manually before or after if the draft path is not used. The 63 pre-existing `audit:references` positional-language hazards across `gemini-canonical.json`, `claude-canonical.json`, `gpt-canonical.json`, and `hard-cases-canonical.json` were cleared on Jun 09 (rationale-wording fixes only — no answer keys, option IDs, or clinical meaning changed). `audit:references` now passes at zero, so the gate enforces true zero-tolerance with no carried backlog; new content simply must not introduce any.
 
 **Current shuffle batch** — completed. The initial Gemini MCQ shuffle and rationale repair was verified by Claude Code (Sonnet) against the pre-shuffle git state and merged to main (PR #1).
 
@@ -48,10 +49,13 @@ The D-correct-at-3% MCQ finding is the canonical example of why this apparatus e
 
 **Dormant audit checks.** The non-MCQ bias and adversarial audit specs reference `bowtie` and `highlight`/hotspot item types that are out of scope until a schema bump. Those checks stay dormant until those types ship — do not read their silence as a pass.
 
+**Documentation drift / running census — specced this session.** `PROJECT-HISTORY.md` and `BANK-REVIEW-LEDGER.md` snapshot counts drift from the banks on disk: the 2026-06-09 census had to be hand-run by Sonnet because the prose had gone stale, and it surfaced that `capnography-canonical.json` was bundled but missing from the canonical list. Per principle 3 this is deterministic work that should never cost model tokens. Fix: a `scripts/census.ts` that reuses `coverage-report.ts`'s counters and topic normalizer, emits a structured `census.json` (source of truth) plus a generated `BANK-CENSUS.md`, and is wired into `npm run audit` / `promotion-gate.yml` so a stale committed census fails CI — converting "census" from a thing-someone-remembers-to-run into an invariant. Spec: `census-spec.md`. Two deterministic-layer bugs surfaced while speccing it: (a) `coverage.json` is an empty capture — `coverage-report.ts` has no `--json` branch, so a `--json` arg is silently treated as a bank-file path and ignored; (b) `normalizeTopic` strips all non-ASCII, which would silently erase any Simplified-Chinese text that leaked into `topic` — now closed by the English-only-`topic` invariant above, enforced in `validateBankObject` (Tier 0, fail loud on CJK).
+
 ## Session artifacts (planning outputs, not yet in repo)
 
 - `promotion-gate-spec.md` — the standing gate; principles 1–4 made operational.
 - `shuffle-verification-spec.md` — one-time verification of the current shuffle batch.
 - `non-mcq-bias-audit-spec.md` — forward-looking structural-bias audit across non-MCQ types.
+- `census-spec.md` — deterministic bank-census script (`census.json` + generated `BANK-CENSUS.md`) and docs-drift CI check; principle 3 applied to documentation.
 
 Governing specs already in the repo/workflow: the adversarial audit spec, the portable bank-generation prompt, and `shrimp-visual-sweep-spec-v3.md`.

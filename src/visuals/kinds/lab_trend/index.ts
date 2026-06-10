@@ -553,6 +553,7 @@ const fixtures: VisualKindModule<LabTrendSpec>["fixtures"] = {
 
 export const labTrendModule: VisualKindModule<LabTrendSpec> = {
   kind: "lab_trend",
+  allowedItemTypes: ["multiple_choice", "select_all", "matrix", "ordered_response", "dropdown_cloze", "fill_in_blank"],
   validate: validateLabTrend,
   selfCheck: selfCheckLabTrend,
   renderSvg: renderLabTrendSvg,

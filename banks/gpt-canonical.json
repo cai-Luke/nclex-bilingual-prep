@@ -5,7 +5,7 @@
     "topic": "assorted NCLEX-RN GPT canonical bank",
     "category": "mixed",
     "difficulty": "mixed",
-    "count": 122
+    "count": 142
   },
   "questions": [
     {
@@ -11398,6 +11398,2740 @@
           "termEn": "kcal",
           "termZh": "千卡",
           "defZh": "食物能量的常用单位。"
+        }
+      ]
+    },
+    {
+      "id": "gpt_u6_matrix_cloze_2026_06_09_matrix_vancomycin_monitoring_01",
+      "itemType": "matrix",
+      "category": "Pharmacological and Parenteral Therapies",
+      "topic": "Vancomycin toxicity monitoring",
+      "difficulty": "medium",
+      "ngnSkill": "recognize_cues",
+      "stem": {
+        "en": "A client is receiving IV vancomycin for methicillin-resistant Staphylococcus aureus pneumonia. The next dose is due now. For each finding, select whether the nurse should continue routine monitoring or hold the dose and notify the provider/pharmacist.",
+        "zh": "一名患者因耐甲氧西林金黄色葡萄球菌肺炎正在接受静脉万古霉素治疗。下一剂现在应给药。请判断每项发现是继续常规监测，还是应暂缓给药并通知医嘱者/药师。"
+      },
+      "matrix": {
+        "rows": [
+          {
+            "id": "r1",
+            "en": "Vancomycin trough concentration is 28 mcg/mL.",
+            "zh": "万古霉素谷浓度为 28 mcg/mL。"
+          },
+          {
+            "id": "r2",
+            "en": "Serum creatinine increased from 0.8 mg/dL to 1.7 mg/dL in 48 hours.",
+            "zh": "血清肌酐在 48 小时内从 0.8 mg/dL 升至 1.7 mg/dL。"
+          },
+          {
+            "id": "r3",
+            "en": "The client reports new ringing in the ears and dizziness.",
+            "zh": "患者新出现耳鸣和头晕。"
+          },
+          {
+            "id": "r4",
+            "en": "The client reports mild nausea after the previous dose but is drinking fluids.",
+            "zh": "患者上一次给药后有轻微恶心，但仍能饮水。"
+          },
+          {
+            "id": "r5",
+            "en": "Infusion site is soft, dry, and without redness or swelling.",
+            "zh": "输液部位柔软、干燥，无发红或肿胀。"
+          }
+        ],
+        "columns": [
+          {
+            "id": "c1",
+            "en": "Continue routine monitoring",
+            "zh": "继续常规监测"
+          },
+          {
+            "id": "c2",
+            "en": "Hold dose and notify provider/pharmacist",
+            "zh": "暂缓给药并通知医嘱者/药师"
+          }
+        ],
+        "selectionMode": "single_per_row"
+      },
+      "correct": [
+        {
+          "rowId": "r1",
+          "columnIds": [
+            "c2"
+          ]
+        },
+        {
+          "rowId": "r2",
+          "columnIds": [
+            "c2"
+          ]
+        },
+        {
+          "rowId": "r3",
+          "columnIds": [
+            "c2"
+          ]
+        },
+        {
+          "rowId": "r4",
+          "columnIds": [
+            "c1"
+          ]
+        },
+        {
+          "rowId": "r5",
+          "columnIds": [
+            "c1"
+          ]
+        }
+      ],
+      "rationale": {
+        "correct": {
+          "en": "High vancomycin concentrations, acute kidney injury, and new ototoxic symptoms require follow-up before another dose. Mild nausea and a normal IV site do not by themselves require holding the medication.",
+          "zh": "万古霉素浓度过高、急性肾损伤以及新的耳毒性症状都需要在下一剂前跟进。轻微恶心和正常的静脉输液部位本身并不需要暂停用药。"
+        },
+        "byChoice": [
+          {
+            "refId": "r1",
+            "en": "A trough of 28 mcg/mL is above usual therapeutic targets and increases toxicity risk; the dose should be held until the prescriber or pharmacist evaluates dosing.",
+            "zh": "谷浓度 28 mcg/mL 高于常用治疗目标，会增加毒性风险；应暂缓给药，待医嘱者或药师评估剂量。"
+          },
+          {
+            "refId": "r2",
+            "en": "A rapid creatinine rise suggests acute kidney injury. Vancomycin can worsen nephrotoxicity, so giving the next dose without follow-up is unsafe.",
+            "zh": "肌酐快速升高提示急性肾损伤。万古霉素可能加重肾毒性，因此未经跟进就给下一剂不安全。"
+          },
+          {
+            "refId": "r3",
+            "en": "New tinnitus and dizziness are concerning for ototoxicity and should be reported before continuing therapy.",
+            "zh": "新发耳鸣和头晕提示可能发生耳毒性，应在继续治疗前报告。"
+          },
+          {
+            "refId": "r4",
+            "en": "Mild nausea can occur with many IV antibiotics and is not a toxicity signal when hydration and overall status are stable.",
+            "zh": "轻微恶心可见于多种静脉抗生素；在水分摄入和整体状况稳定时，并不是特异性毒性信号。"
+          },
+          {
+            "refId": "r5",
+            "en": "A soft, dry IV site without redness or swelling indicates no current evidence of infiltration or phlebitis.",
+            "zh": "输液部位柔软、干燥且无红肿，说明目前没有外渗或静脉炎证据。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "For medication-monitoring matrices, separate expected side effects from findings that indicate organ toxicity or unsafe drug levels.",
+        "zh": "做药物监测类矩阵题时，要区分一般可预期副作用与提示器官毒性或药物浓度不安全的发现。"
+      },
+      "glossary": [
+        {
+          "termEn": "Vancomycin trough",
+          "termZh": "万古霉素谷浓度",
+          "defZh": "下一剂给药前测得的最低药物浓度，用于评估剂量安全性。"
+        },
+        {
+          "termEn": "Nephrotoxicity",
+          "termZh": "肾毒性",
+          "defZh": "药物或毒素导致肾功能受损。"
+        },
+        {
+          "termEn": "Ototoxicity",
+          "termZh": "耳毒性",
+          "defZh": "药物损害听觉或前庭功能，可表现为耳鸣、听力下降或眩晕。"
+        }
+      ]
+    },
+    {
+      "id": "gpt_u6_matrix_cloze_2026_06_09_matrix_infection_precautions_02",
+      "itemType": "matrix",
+      "category": "Safety and Infection Control",
+      "topic": "Transmission-based precautions selection",
+      "difficulty": "medium",
+      "ngnSkill": "generate_solutions",
+      "stem": {
+        "en": "The charge nurse is assigning rooms for newly admitted clients. For each client, select the most appropriate infection-control precaution category.",
+        "zh": "主管护士正在为新入院患者安排病房。请为每位患者选择最合适的感染控制隔离类别。"
+      },
+      "matrix": {
+        "rows": [
+          {
+            "id": "r1",
+            "en": "Client with disseminated varicella-zoster lesions",
+            "zh": "有播散性水痘-带状疱疹皮损的患者"
+          },
+          {
+            "id": "r2",
+            "en": "Client with suspected pertussis and severe coughing spells",
+            "zh": "疑似百日咳并有严重阵发性咳嗽的患者"
+          },
+          {
+            "id": "r3",
+            "en": "Client with Clostridioides difficile diarrhea",
+            "zh": "艰难梭菌感染导致腹泻的患者"
+          },
+          {
+            "id": "r4",
+            "en": "Client receiving induction chemotherapy with severe neutropenia",
+            "zh": "正在接受诱导化疗且严重中性粒细胞减少的患者"
+          }
+        ],
+        "columns": [
+          {
+            "id": "c1",
+            "en": "Airborne and Contact precautions",
+            "zh": "空气传播隔离和接触隔离"
+          },
+          {
+            "id": "c2",
+            "en": "Droplet precautions",
+            "zh": "飞沫隔离"
+          },
+          {
+            "id": "c3",
+            "en": "Contact precautions",
+            "zh": "接触隔离"
+          },
+          {
+            "id": "c4",
+            "en": "Protective/neutropenic precautions",
+            "zh": "保护性/中性粒细胞减少隔离"
+          }
+        ],
+        "selectionMode": "single_per_row"
+      },
+      "correct": [
+        {
+          "rowId": "r1",
+          "columnIds": [
+            "c1"
+          ]
+        },
+        {
+          "rowId": "r2",
+          "columnIds": [
+            "c2"
+          ]
+        },
+        {
+          "rowId": "r3",
+          "columnIds": [
+            "c3"
+          ]
+        },
+        {
+          "rowId": "r4",
+          "columnIds": [
+            "c4"
+          ]
+        }
+      ],
+      "rationale": {
+        "correct": {
+          "en": "Precautions are selected by transmission route and host vulnerability: disseminated varicella requires airborne and contact precautions, pertussis requires droplet precautions, C. difficile requires contact precautions, and severe neutropenia requires protective measures.",
+          "zh": "隔离方式取决于传播途径和宿主易感性：播散性水痘-带状疱疹需空气传播和接触隔离；百日咳需飞沫隔离；艰难梭菌需接触隔离；严重中性粒细胞减少需保护性措施。"
+        },
+        "byChoice": [
+          {
+            "refId": "r1",
+            "en": "Disseminated varicella-zoster can spread through airborne particles and direct contact with lesions, so both Airborne and Contact precautions are needed.",
+            "zh": "播散性水痘-带状疱疹可通过空气颗粒和直接接触皮损传播，因此需要空气传播隔离和接触隔离。"
+          },
+          {
+            "refId": "r2",
+            "en": "Pertussis is transmitted by respiratory droplets during coughing, making Droplet precautions the best fit.",
+            "zh": "百日咳主要通过咳嗽产生的呼吸道飞沫传播，因此最适合飞沫隔离。"
+          },
+          {
+            "refId": "r3",
+            "en": "C. difficile spores contaminate hands and surfaces; Contact precautions and sporicidal environmental cleaning are required.",
+            "zh": "艰难梭菌芽孢会污染手和环境表面；需要接触隔离和杀芽孢的环境清洁。"
+          },
+          {
+            "refId": "r4",
+            "en": "Severe neutropenia does not mean the client is spreading an organism; the priority is protecting the client from infection exposure.",
+            "zh": "严重中性粒细胞减少并不表示患者正在传播病原体；重点是保护患者避免感染暴露。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Ask whether the nurse is protecting others from the client's organism or protecting the client from the environment.",
+        "zh": "先判断护理目标是保护他人免受患者病原体影响，还是保护患者免受环境中的病原体影响。"
+      },
+      "glossary": [
+        {
+          "termEn": "Airborne precautions",
+          "termZh": "空气传播隔离",
+          "defZh": "用于可经空气中微小颗粒传播的感染，通常需要负压病房和合适呼吸防护。"
+        },
+        {
+          "termEn": "Droplet precautions",
+          "termZh": "飞沫隔离",
+          "defZh": "用于较大呼吸道飞沫传播的感染，近距离护理时需外科口罩等防护。"
+        },
+        {
+          "termEn": "Protective precautions",
+          "termZh": "保护性隔离",
+          "defZh": "用于免疫功能严重低下者，以减少其接触感染源。"
+        },
+        {
+          "termEn": "Clostridioides difficile",
+          "termZh": "艰难梭菌",
+          "defZh": "可导致抗生素相关腹泻和结肠炎的产芽孢细菌。"
+        }
+      ]
+    },
+    {
+      "id": "gpt_u6_matrix_cloze_2026_06_09_matrix_post_thyroidectomy_complications_03",
+      "itemType": "matrix",
+      "category": "Reduction of Risk Potential",
+      "topic": "Post-thyroidectomy complication recognition",
+      "difficulty": "medium",
+      "ngnSkill": "analyze_cues",
+      "stem": {
+        "en": "A client is 6 hours postoperative after a thyroidectomy. For each finding, select whether it is an expected postoperative finding or a potential complication requiring prompt action.",
+        "zh": "一名患者甲状腺切除术后 6 小时。请判断每项发现是预期的术后表现，还是需要迅速处理的潜在并发症。"
+      },
+      "matrix": {
+        "rows": [
+          {
+            "id": "r1",
+            "en": "Mild sore throat after endotracheal intubation",
+            "zh": "气管插管后轻微咽喉痛"
+          },
+          {
+            "id": "r2",
+            "en": "Inspiratory stridor with increasing work of breathing",
+            "zh": "吸气性喉鸣并呼吸费力加重"
+          },
+          {
+            "id": "r3",
+            "en": "Perioral tingling and hand spasms",
+            "zh": "口周麻刺感和手部痉挛"
+          },
+          {
+            "id": "r4",
+            "en": "Small amount of dry serosanguineous drainage on the dressing",
+            "zh": "敷料上有少量干燥的浆液血性渗液"
+          },
+          {
+            "id": "r5",
+            "en": "Neck swelling with a feeling of tightness at the incision",
+            "zh": "颈部肿胀并感觉切口处紧绷"
+          }
+        ],
+        "columns": [
+          {
+            "id": "c1",
+            "en": "Expected postoperative finding",
+            "zh": "预期术后表现"
+          },
+          {
+            "id": "c2",
+            "en": "Potential complication requiring prompt action",
+            "zh": "需迅速处理的潜在并发症"
+          }
+        ],
+        "selectionMode": "single_per_row"
+      },
+      "correct": [
+        {
+          "rowId": "r1",
+          "columnIds": [
+            "c1"
+          ]
+        },
+        {
+          "rowId": "r2",
+          "columnIds": [
+            "c2"
+          ]
+        },
+        {
+          "rowId": "r3",
+          "columnIds": [
+            "c2"
+          ]
+        },
+        {
+          "rowId": "r4",
+          "columnIds": [
+            "c1"
+          ]
+        },
+        {
+          "rowId": "r5",
+          "columnIds": [
+            "c2"
+          ]
+        }
+      ],
+      "rationale": {
+        "correct": {
+          "en": "Airway compromise, hypocalcemia, and neck hematoma are priority complications after thyroidectomy. Mild throat discomfort and scant dry drainage can be expected early postoperative findings.",
+          "zh": "甲状腺切除术后优先关注气道受压、低钙血症和颈部血肿。轻微咽喉不适和少量干燥渗液可为术后早期预期表现。"
+        },
+        "byChoice": [
+          {
+            "refId": "r1",
+            "en": "A mild sore throat is common after intubation and does not by itself indicate thyroidectomy-specific deterioration.",
+            "zh": "气管插管后轻微咽喉痛很常见，单独出现并不提示甲状腺手术特异性恶化。"
+          },
+          {
+            "refId": "r2",
+            "en": "Stridor and increasing work of breathing indicate possible laryngeal edema, bleeding, or airway obstruction and require immediate intervention.",
+            "zh": "喉鸣和呼吸费力加重提示可能有喉水肿、出血或气道阻塞，需要立即处理。"
+          },
+          {
+            "refId": "r3",
+            "en": "Perioral tingling and spasms suggest hypocalcemia from parathyroid disruption and require prompt assessment and treatment.",
+            "zh": "口周麻刺感和痉挛提示甲状旁腺受影响导致低钙血症，需要迅速评估和处理。"
+          },
+          {
+            "refId": "r4",
+            "en": "A small amount of dry serosanguineous drainage is common after surgery if it is not increasing and vital signs are stable.",
+            "zh": "若渗液没有增加且生命体征稳定，少量干燥的浆液血性渗液是术后常见表现。"
+          },
+          {
+            "refId": "r5",
+            "en": "Neck swelling and tightness may signal a developing hematoma that can compress the airway.",
+            "zh": "颈部肿胀和紧绷感可能提示血肿形成，可能压迫气道。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "After neck surgery, treat airway symptoms and expanding swelling as unstable until proven otherwise.",
+        "zh": "颈部手术后，凡有气道症状或进行性肿胀，都应先视为不稳定情况。"
+      },
+      "glossary": [
+        {
+          "termEn": "Thyroidectomy",
+          "termZh": "甲状腺切除术",
+          "defZh": "部分或全部切除甲状腺的手术。"
+        },
+        {
+          "termEn": "Stridor",
+          "termZh": "喉鸣",
+          "defZh": "上气道狭窄或阻塞时出现的高调呼吸音。"
+        },
+        {
+          "termEn": "Hypocalcemia",
+          "termZh": "低钙血症",
+          "defZh": "血钙降低，可导致麻刺感、肌肉痉挛或抽搐。"
+        },
+        {
+          "termEn": "Hematoma",
+          "termZh": "血肿",
+          "defZh": "血液在组织内聚集，颈部血肿可压迫气道。"
+        }
+      ]
+    },
+    {
+      "id": "gpt_u6_matrix_cloze_2026_06_09_matrix_delegation_scope_04",
+      "itemType": "matrix",
+      "category": "Management of Care",
+      "topic": "Delegation and scope of practice",
+      "difficulty": "medium",
+      "ngnSkill": "take_action",
+      "stem": {
+        "en": "The RN is coordinating care on a medical-surgical unit. For each task, select the most appropriate team member assignment.",
+        "zh": "注册护士正在内外科病区协调护理。请为每项任务选择最合适的团队成员。"
+      },
+      "matrix": {
+        "rows": [
+          {
+            "id": "r1",
+            "en": "Ambulate a stable postoperative client who walked twice yesterday.",
+            "zh": "协助一名稳定的术后患者下床行走，该患者昨天已行走两次。"
+          },
+          {
+            "id": "r2",
+            "en": "Administer a scheduled oral antibiotic to a stable client.",
+            "zh": "给一名稳定患者按时服用口服抗生素。"
+          },
+          {
+            "id": "r3",
+            "en": "Perform the initial assessment of a client reporting new chest pressure.",
+            "zh": "对报告新发胸部压迫感的患者进行首次评估。"
+          },
+          {
+            "id": "r4",
+            "en": "Reinforce already-taught crutch-walking instructions for a stable client.",
+            "zh": "对已接受过教学的稳定患者强化拐杖行走指导。"
+          },
+          {
+            "id": "r5",
+            "en": "Develop the discharge teaching plan for a new heart failure diagnosis.",
+            "zh": "为新诊断心力衰竭的患者制定出院教学计划。"
+          }
+        ],
+        "columns": [
+          {
+            "id": "c1",
+            "en": "Delegate to UAP",
+            "zh": "委派给无证辅助人员"
+          },
+          {
+            "id": "c2",
+            "en": "Assign to LPN/VN",
+            "zh": "分配给执照实践/职业护士"
+          },
+          {
+            "id": "c3",
+            "en": "RN responsibility",
+            "zh": "注册护士职责"
+          }
+        ],
+        "selectionMode": "single_per_row"
+      },
+      "correct": [
+        {
+          "rowId": "r1",
+          "columnIds": [
+            "c1"
+          ]
+        },
+        {
+          "rowId": "r2",
+          "columnIds": [
+            "c2"
+          ]
+        },
+        {
+          "rowId": "r3",
+          "columnIds": [
+            "c3"
+          ]
+        },
+        {
+          "rowId": "r4",
+          "columnIds": [
+            "c2"
+          ]
+        },
+        {
+          "rowId": "r5",
+          "columnIds": [
+            "c3"
+          ]
+        }
+      ],
+      "rationale": {
+        "correct": {
+          "en": "UAPs can perform routine tasks for stable clients. LPN/VNs can provide medications and reinforce teaching for stable clients, while the RN retains initial assessment, clinical judgment, and care-planning responsibilities.",
+          "zh": "无证辅助人员可为稳定患者执行常规任务。执照实践/职业护士可为稳定患者给药并强化教学；首次评估、临床判断和护理计划制定仍属于注册护士职责。"
+        },
+        "byChoice": [
+          {
+            "refId": "r1",
+            "en": "Ambulation of a stable client with an established tolerance is a predictable task appropriate for UAP delegation.",
+            "zh": "稳定患者且已证明能耐受行走时，协助行走属于可预测任务，适合委派给无证辅助人员。"
+          },
+          {
+            "refId": "r2",
+            "en": "Administering a scheduled oral medication to a stable client is within typical LPN/VN scope, depending on state policy and facility rules.",
+            "zh": "按时给稳定患者口服用药通常属于 LPN/VN 职责范围，但仍取决于当地法规和机构政策。"
+          },
+          {
+            "refId": "r3",
+            "en": "New chest pressure is an acute change requiring RN assessment and clinical judgment before tasks are delegated.",
+            "zh": "新发胸部压迫感是急性变化，需要注册护士先评估并作出临床判断，之后才可分配任务。"
+          },
+          {
+            "refId": "r4",
+            "en": "Reinforcing teaching that the RN has already initiated is appropriate for an LPN/VN when the client is stable.",
+            "zh": "在患者稳定时，对注册护士已完成的初始教学进行强化，适合由 LPN/VN 执行。"
+          },
+          {
+            "refId": "r5",
+            "en": "Creating a new discharge teaching plan requires assessment, planning, and evaluation, which are RN responsibilities.",
+            "zh": "制定新的出院教学计划需要评估、计划和评价，属于注册护士职责。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Delegate predictable tasks for stable clients; keep assessment, new teaching, evaluation, and unstable changes with the RN.",
+        "zh": "稳定患者的可预测任务可以委派；评估、新教学、评价和不稳定变化应由注册护士负责。"
+      },
+      "glossary": [
+        {
+          "termEn": "UAP",
+          "termZh": "无证辅助人员",
+          "defZh": "在护士监督下执行基本护理任务的非执照人员。"
+        },
+        {
+          "termEn": "LPN/VN",
+          "termZh": "执照实践/职业护士",
+          "defZh": "在规定范围内提供护理和给药的执照护理人员。"
+        },
+        {
+          "termEn": "Initial assessment",
+          "termZh": "首次评估",
+          "defZh": "对新问题或新入院患者进行的初始专业判断，通常由注册护士负责。"
+        },
+        {
+          "termEn": "Reinforce teaching",
+          "termZh": "强化教学",
+          "defZh": "在初始教学后重复和巩固已讲授内容。"
+        }
+      ]
+    },
+    {
+      "id": "gpt_u6_matrix_cloze_2026_06_09_matrix_respiratory_deterioration_05",
+      "itemType": "matrix",
+      "category": "Physiological Adaptation",
+      "topic": "Respiratory deterioration recognition",
+      "difficulty": "hard",
+      "ngnSkill": "analyze_cues",
+      "stem": {
+        "en": "A client with a COPD exacerbation is receiving bronchodilators and controlled oxygen therapy. For each assessment finding, select whether it indicates concerning respiratory deterioration or can be monitored as less urgent in this context.",
+        "zh": "一名慢性阻塞性肺疾病急性加重患者正在接受支气管扩张剂和控制性氧疗。请判断每项评估发现是提示呼吸状况恶化，还是在此情境下可作为较不紧急情况继续监测。"
+      },
+      "matrix": {
+        "rows": [
+          {
+            "id": "r1",
+            "en": "New confusion and increasing restlessness",
+            "zh": "新发意识混乱并越来越躁动"
+          },
+          {
+            "id": "r2",
+            "en": "Oxygen saturation 90% on prescribed low-flow oxygen, with the client speaking in full sentences",
+            "zh": "按医嘱低流量吸氧时血氧饱和度 90%，患者能完整说句子"
+          },
+          {
+            "id": "r3",
+            "en": "Arterial blood gas shows pH 7.25 and PaCO2 68 mm Hg, worse than baseline",
+            "zh": "动脉血气显示 pH 7.25、PaCO2 68 mm Hg，较基线恶化"
+          },
+          {
+            "id": "r4",
+            "en": "Productive cough with scattered expiratory wheezes",
+            "zh": "有痰咳嗽并散在呼气性哮鸣音"
+          },
+          {
+            "id": "r5",
+            "en": "Marked accessory muscle use with minimal breath sounds",
+            "zh": "明显使用辅助呼吸肌且呼吸音很弱"
+          }
+        ],
+        "columns": [
+          {
+            "id": "c1",
+            "en": "Concerning respiratory deterioration",
+            "zh": "提示呼吸状况恶化"
+          },
+          {
+            "id": "c2",
+            "en": "Less urgent; continue monitoring",
+            "zh": "较不紧急；继续监测"
+          }
+        ],
+        "selectionMode": "single_per_row"
+      },
+      "correct": [
+        {
+          "rowId": "r1",
+          "columnIds": [
+            "c1"
+          ]
+        },
+        {
+          "rowId": "r2",
+          "columnIds": [
+            "c2"
+          ]
+        },
+        {
+          "rowId": "r3",
+          "columnIds": [
+            "c1"
+          ]
+        },
+        {
+          "rowId": "r4",
+          "columnIds": [
+            "c2"
+          ]
+        },
+        {
+          "rowId": "r5",
+          "columnIds": [
+            "c1"
+          ]
+        }
+      ],
+      "rationale": {
+        "correct": {
+          "en": "Mental status change, worsening respiratory acidosis, and signs of exhaustion or poor air movement suggest impending respiratory failure. A saturation near the ordered COPD target with full sentences and a productive wheezy cough can be monitored while treatment continues.",
+          "zh": "意识状态改变、呼吸性酸中毒加重以及疲劳或空气流动差的表现提示可能发生呼吸衰竭。若血氧接近 COPD 医嘱目标、能完整说话，或有痰咳嗽伴哮鸣音，可在治疗继续进行时监测。"
+        },
+        "byChoice": [
+          {
+            "refId": "r1",
+            "en": "New confusion and restlessness can be early signs of hypoxemia or hypercapnia and require prompt reassessment.",
+            "zh": "新发意识混乱和躁动可能是低氧血症或高碳酸血症的早期表现，需要迅速重新评估。"
+          },
+          {
+            "refId": "r2",
+            "en": "For many COPD exacerbations, an oxygen saturation around 88% to 92% may be the prescribed target; speaking in full sentences suggests the client is not in immediate distress.",
+            "zh": "许多 COPD 急性加重患者的医嘱目标血氧饱和度可能为约 88% 至 92%；能完整说句子提示暂无立即窘迫。"
+          },
+          {
+            "refId": "r3",
+            "en": "A low pH with rising PaCO2 indicates worsening ventilatory failure and respiratory acidosis.",
+            "zh": "pH 降低且 PaCO2 升高提示通气衰竭和呼吸性酸中毒加重。"
+          },
+          {
+            "refId": "r4",
+            "en": "A productive cough and expiratory wheezes are common in COPD exacerbation and are less urgent if oxygenation and work of breathing are stable.",
+            "zh": "有痰咳嗽和呼气性哮鸣音常见于 COPD 急性加重；若氧合和呼吸做功稳定，则相对不紧急。"
+          },
+          {
+            "refId": "r5",
+            "en": "Accessory muscle use with minimal breath sounds suggests severe obstruction, fatigue, or poor ventilation and requires urgent action.",
+            "zh": "明显使用辅助呼吸肌且呼吸音很弱，提示严重气道阻塞、疲劳或通气不足，需要紧急处理。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Do not rank a single oxygen number alone; pair it with mental status, work of breathing, air movement, and blood gas trends.",
+        "zh": "不要只凭一个血氧数值排序；要结合意识状态、呼吸做功、空气流动和血气趋势。"
+      },
+      "glossary": [
+        {
+          "termEn": "Hypercapnia",
+          "termZh": "高碳酸血症",
+          "defZh": "血液中二氧化碳水平升高，常提示通气不足。"
+        },
+        {
+          "termEn": "Respiratory acidosis",
+          "termZh": "呼吸性酸中毒",
+          "defZh": "因二氧化碳潴留导致血液 pH 降低。"
+        },
+        {
+          "termEn": "Accessory muscles",
+          "termZh": "辅助呼吸肌",
+          "defZh": "呼吸困难时用于帮助呼吸的颈部、胸壁等肌肉。"
+        },
+        {
+          "termEn": "PaCO2",
+          "termZh": "动脉二氧化碳分压",
+          "defZh": "动脉血中二氧化碳压力，反映通气状况。"
+        }
+      ]
+    },
+    {
+      "id": "gpt_u6_matrix_cloze_2026_06_09_cloze_lithium_toxicity_06",
+      "itemType": "dropdown_cloze",
+      "category": "Pharmacological and Parenteral Therapies",
+      "topic": "Lithium toxicity and therapeutic monitoring",
+      "difficulty": "medium",
+      "ngnSkill": "take_action",
+      "stem": {
+        "en": "A client taking lithium for bipolar disorder reports vomiting, diarrhea, coarse hand tremor, unsteady gait, and slurred speech. Complete the nursing statement.",
+        "zh": "一名因双相障碍服用锂盐的患者报告呕吐、腹泻、手部粗大震颤、步态不稳和言语含糊。请完成护理判断。"
+      },
+      "clozeStem": {
+        "en": "The nurse should first {{1}} and anticipate obtaining a {{2}} because {{3}} can increase lithium concentration.",
+        "zh": "护士应首先 {{1}}，并预计需要检查 {{2}}，因为 {{3}} 可使锂盐浓度升高。"
+      },
+      "dropdowns": [
+        {
+          "id": "1",
+          "options": [
+            {
+              "id": "o1",
+              "en": "hold the lithium and notify the provider",
+              "zh": "暂缓锂盐并通知医嘱者"
+            },
+            {
+              "id": "o2",
+              "en": "give the next dose with food",
+              "zh": "将下一剂与食物同服"
+            },
+            {
+              "id": "o3",
+              "en": "encourage the client to take an extra dose after vomiting",
+              "zh": "鼓励患者呕吐后补服一剂"
+            }
+          ],
+          "correct": "o1"
+        },
+        {
+          "id": "2",
+          "options": [
+            {
+              "id": "o1",
+              "en": "serum lithium level",
+              "zh": "血清锂浓度"
+            },
+            {
+              "id": "o2",
+              "en": "serum digoxin level",
+              "zh": "血清地高辛浓度"
+            },
+            {
+              "id": "o3",
+              "en": "prothrombin time",
+              "zh": "凝血酶原时间"
+            }
+          ],
+          "correct": "o1"
+        },
+        {
+          "id": "3",
+          "options": [
+            {
+              "id": "o1",
+              "en": "sodium and fluid loss",
+              "zh": "钠和水分丢失"
+            },
+            {
+              "id": "o2",
+              "en": "a high-protein meal",
+              "zh": "高蛋白饮食"
+            },
+            {
+              "id": "o3",
+              "en": "use of an inhaled bronchodilator",
+              "zh": "使用吸入性支气管扩张剂"
+            }
+          ],
+          "correct": "o1"
+        }
+      ],
+      "rationale": {
+        "correct": {
+          "en": "Vomiting, diarrhea, coarse tremor, ataxia, and slurred speech are concerning for lithium toxicity. The nurse should hold lithium, notify the provider, and anticipate a serum lithium level because dehydration and sodium loss increase lithium reabsorption.",
+          "zh": "呕吐、腹泻、粗大震颤、共济失调和言语含糊提示锂中毒。护士应暂缓锂盐、通知医嘱者，并预计检查血清锂浓度，因为脱水和钠丢失会增加锂的重吸收。"
+        },
+        "byChoice": [
+          {
+            "refId": "1",
+            "en": "Holding lithium is the safest first action when toxicity is suspected; giving or replacing doses can worsen neurologic toxicity.",
+            "zh": "怀疑锂中毒时，首先暂缓锂盐最安全；继续给药或补服可能加重神经毒性。"
+          },
+          {
+            "refId": "2",
+            "en": "A serum lithium level directly evaluates whether symptoms are related to an elevated lithium concentration.",
+            "zh": "血清锂浓度可直接判断症状是否与锂浓度升高有关。"
+          },
+          {
+            "refId": "3",
+            "en": "Sodium and fluid loss from vomiting or diarrhea causes the kidneys to retain more lithium, increasing toxicity risk.",
+            "zh": "呕吐或腹泻造成钠和水分丢失，会使肾脏保留更多锂，增加中毒风险。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "When a narrow-therapeutic-index medication has neurologic symptoms plus dehydration, think toxicity and hold the medication before more doses are given.",
+        "zh": "窄治疗指数药物若出现神经症状并伴脱水，要想到中毒，并在继续给药前先暂缓药物。"
+      },
+      "glossary": [
+        {
+          "termEn": "Lithium",
+          "termZh": "锂盐",
+          "defZh": "用于治疗双相障碍的情绪稳定剂，需要监测血药浓度。"
+        },
+        {
+          "termEn": "Narrow therapeutic index",
+          "termZh": "窄治疗指数",
+          "defZh": "有效剂量与中毒剂量相近，需谨慎监测的药物特性。"
+        },
+        {
+          "termEn": "Ataxia",
+          "termZh": "共济失调",
+          "defZh": "协调能力下降，可表现为步态不稳。"
+        }
+      ]
+    },
+    {
+      "id": "gpt_u6_matrix_cloze_2026_06_09_cloze_adrenal_crisis_07",
+      "itemType": "dropdown_cloze",
+      "category": "Physiological Adaptation",
+      "topic": "Adrenal crisis recognition and treatment",
+      "difficulty": "hard",
+      "ngnSkill": "prioritize_hypotheses",
+      "stem": {
+        "en": "A client who stopped long-term prednisone abruptly is brought to the emergency department with severe weakness, vomiting, blood pressure 82/46 mm Hg, sodium 128 mEq/L, and potassium 5.8 mEq/L. Complete the nursing statement.",
+        "zh": "一名长期服用泼尼松后突然停药的患者因严重乏力、呕吐被送至急诊，血压 82/46 mm Hg，钠 128 mEq/L，钾 5.8 mEq/L。请完成护理判断。"
+      },
+      "clozeStem": {
+        "en": "The client is most likely experiencing {{1}}; the nurse should anticipate administering {{2}} and closely monitor for {{3}}.",
+        "zh": "该患者最可能正在发生 {{1}}；护士应预计给予 {{2}}，并密切监测 {{3}}。"
+      },
+      "dropdowns": [
+        {
+          "id": "1",
+          "options": [
+            {
+              "id": "o1",
+              "en": "adrenal crisis",
+              "zh": "肾上腺危象"
+            },
+            {
+              "id": "o2",
+              "en": "thyroid storm",
+              "zh": "甲状腺危象"
+            },
+            {
+              "id": "o3",
+              "en": "syndrome of inappropriate antidiuretic hormone secretion",
+              "zh": "抗利尿激素分泌不当综合征"
+            }
+          ],
+          "correct": "o1"
+        },
+        {
+          "id": "2",
+          "options": [
+            {
+              "id": "o1",
+              "en": "IV hydrocortisone and isotonic fluids as prescribed",
+              "zh": "按医嘱给予静脉氢化可的松和等渗液"
+            },
+            {
+              "id": "o2",
+              "en": "levothyroxine and cooling measures",
+              "zh": "左甲状腺素和降温措施"
+            },
+            {
+              "id": "o3",
+              "en": "fluid restriction and demeclocycline",
+              "zh": "限制液体和地美环素"
+            }
+          ],
+          "correct": "o1"
+        },
+        {
+          "id": "3",
+          "options": [
+            {
+              "id": "o1",
+              "en": "dysrhythmias related to hyperkalemia",
+              "zh": "与高钾血症相关的心律失常"
+            },
+            {
+              "id": "o2",
+              "en": "hypocalcemic tetany",
+              "zh": "低钙性手足搐搦"
+            },
+            {
+              "id": "o3",
+              "en": "respiratory alkalosis from hyperventilation",
+              "zh": "过度通气导致的呼吸性碱中毒"
+            }
+          ],
+          "correct": "o1"
+        }
+      ],
+      "rationale": {
+        "correct": {
+          "en": "Abrupt withdrawal of long-term corticosteroids can precipitate adrenal crisis with hypotension, vomiting, hyponatremia, and hyperkalemia. Treatment includes corticosteroid replacement and volume support; hyperkalemia can cause dangerous dysrhythmias.",
+          "zh": "长期糖皮质激素突然停用可诱发肾上腺危象，表现为低血压、呕吐、低钠和高钾。治疗包括补充糖皮质激素和容量支持；高钾可导致危险心律失常。"
+        },
+        "byChoice": [
+          {
+            "refId": "1",
+            "en": "The history of abrupt steroid withdrawal plus shock-like hypotension and electrolyte changes points to adrenal crisis rather than thyroid storm or isolated SIADH.",
+            "zh": "突然停用长期激素，加上休克样低血压和电解质改变，指向肾上腺危象，而不是甲状腺危象或单纯 SIADH。"
+          },
+          {
+            "refId": "2",
+            "en": "Hydrocortisone replaces deficient cortisol, and isotonic fluids support circulation in adrenal crisis.",
+            "zh": "氢化可的松补充缺乏的皮质醇，等渗液在肾上腺危象中支持循环。"
+          },
+          {
+            "refId": "3",
+            "en": "Potassium 5.8 mEq/L can alter cardiac conduction, so ECG changes and dysrhythmias require close monitoring.",
+            "zh": "钾 5.8 mEq/L 可影响心脏传导，因此需密切监测心电图变化和心律失常。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Link endocrine emergencies to the missing hormone: cortisol deficiency causes vascular collapse, sodium loss, and potassium retention.",
+        "zh": "将内分泌急症与缺乏的激素联系起来：皮质醇缺乏会导致血管性循环崩溃、钠丢失和钾潴留。"
+      },
+      "glossary": [
+        {
+          "termEn": "Adrenal crisis",
+          "termZh": "肾上腺危象",
+          "defZh": "急性皮质醇不足导致低血压、休克和电解质紊乱的危急状态。"
+        },
+        {
+          "termEn": "Hydrocortisone",
+          "termZh": "氢化可的松",
+          "defZh": "具有糖皮质激素作用的药物，可用于肾上腺危象。"
+        },
+        {
+          "termEn": "Hyponatremia",
+          "termZh": "低钠血症",
+          "defZh": "血钠低于正常范围。"
+        },
+        {
+          "termEn": "Hyperkalemia",
+          "termZh": "高钾血症",
+          "defZh": "血钾高于正常范围，可引起心律失常。"
+        }
+      ]
+    },
+    {
+      "id": "gpt_u6_matrix_cloze_2026_06_09_cloze_rhabdomyolysis_aki_08",
+      "itemType": "dropdown_cloze",
+      "category": "Reduction of Risk Potential",
+      "topic": "Rhabdomyolysis and acute kidney injury prevention",
+      "difficulty": "medium",
+      "ngnSkill": "analyze_cues",
+      "stem": {
+        "en": "A client with a crush injury has severe muscle pain, tea-colored urine, creatine kinase 18,000 U/L, and rising serum creatinine. Complete the nursing statement.",
+        "zh": "一名挤压伤患者出现严重肌肉疼痛、茶色尿、肌酸激酶 18,000 U/L，并且血清肌酐升高。请完成护理判断。"
+      },
+      "clozeStem": {
+        "en": "The client is at risk for {{1}}; the nurse should anticipate {{2}} and report {{3}} immediately.",
+        "zh": "该患者有发生 {{1}} 的风险；护士应预计 {{2}}，并立即报告 {{3}}。"
+      },
+      "dropdowns": [
+        {
+          "id": "1",
+          "options": [
+            {
+              "id": "o1",
+              "en": "acute kidney injury from myoglobin release",
+              "zh": "肌红蛋白释放导致的急性肾损伤"
+            },
+            {
+              "id": "o2",
+              "en": "fluid overload from low aldosterone",
+              "zh": "醛固酮降低导致的液体过多"
+            },
+            {
+              "id": "o3",
+              "en": "metabolic alkalosis from prolonged vomiting",
+              "zh": "长期呕吐导致的代谢性碱中毒"
+            }
+          ],
+          "correct": "o1"
+        },
+        {
+          "id": "2",
+          "options": [
+            {
+              "id": "o1",
+              "en": "aggressive isotonic IV fluids as prescribed",
+              "zh": "按医嘱积极给予等渗静脉液体"
+            },
+            {
+              "id": "o2",
+              "en": "strict fluid restriction",
+              "zh": "严格限制液体"
+            },
+            {
+              "id": "o3",
+              "en": "withholding all urine output measurements",
+              "zh": "停止所有尿量测量"
+            }
+          ],
+          "correct": "o1"
+        },
+        {
+          "id": "3",
+          "options": [
+            {
+              "id": "o1",
+              "en": "a rising potassium level",
+              "zh": "血钾升高"
+            },
+            {
+              "id": "o2",
+              "en": "mild bruising at the injury site",
+              "zh": "受伤部位轻微瘀斑"
+            },
+            {
+              "id": "o3",
+              "en": "a urine specific gravity within reference range",
+              "zh": "尿比重在参考范围内"
+            }
+          ],
+          "correct": "o1"
+        }
+      ],
+      "rationale": {
+        "correct": {
+          "en": "Rhabdomyolysis releases myoglobin that can obstruct and injure renal tubules. Isotonic IV fluids help maintain renal perfusion and urine flow, and hyperkalemia from muscle breakdown can cause life-threatening dysrhythmias.",
+          "zh": "横纹肌溶解会释放肌红蛋白，可能堵塞并损伤肾小管。等渗静脉液体有助于维持肾灌注和尿流；肌肉分解导致的高钾可引起危及生命的心律失常。"
+        },
+        "byChoice": [
+          {
+            "refId": "1",
+            "en": "Tea-colored urine, very high creatine kinase, and rising creatinine are classic cues for rhabdomyolysis-related acute kidney injury.",
+            "zh": "茶色尿、肌酸激酶极高和肌酐升高，是横纹肌溶解相关急性肾损伤的典型线索。"
+          },
+          {
+            "refId": "2",
+            "en": "Prescribed aggressive isotonic fluids dilute nephrotoxic pigments and support renal clearance; fluid restriction would worsen renal risk unless a provider identifies a separate contraindication.",
+            "zh": "按医嘱积极给予等渗液可稀释肾毒性色素并支持肾清除；除非医嘱者发现其他禁忌，否则限制液体会加重肾损伤风险。"
+          },
+          {
+            "refId": "3",
+            "en": "A rising potassium level is urgent because damaged muscle cells release potassium into the bloodstream.",
+            "zh": "血钾升高很紧急，因为受损肌细胞会将钾释放入血。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "In crush injury questions, connect muscle breakdown to kidney injury and potassium release.",
+        "zh": "遇到挤压伤题，要把肌肉分解与肾损伤和钾释放联系起来。"
+      },
+      "glossary": [
+        {
+          "termEn": "Rhabdomyolysis",
+          "termZh": "横纹肌溶解",
+          "defZh": "骨骼肌损伤后内容物释放入血，可导致肾损伤和电解质紊乱。"
+        },
+        {
+          "termEn": "Myoglobin",
+          "termZh": "肌红蛋白",
+          "defZh": "肌肉中的含氧蛋白，释放过多可损伤肾小管。"
+        },
+        {
+          "termEn": "Creatine kinase",
+          "termZh": "肌酸激酶",
+          "defZh": "肌肉损伤时明显升高的酶。"
+        },
+        {
+          "termEn": "Acute kidney injury",
+          "termZh": "急性肾损伤",
+          "defZh": "短时间内肾功能突然下降。"
+        }
+      ]
+    },
+    {
+      "id": "gpt_u6_matrix_cloze_2026_06_09_cloze_transfusion_trali_09",
+      "itemType": "dropdown_cloze",
+      "category": "Reduction of Risk Potential",
+      "topic": "Transfusion-related acute lung injury response",
+      "difficulty": "hard",
+      "ngnSkill": "take_action",
+      "stem": {
+        "en": "Twenty minutes after a packed red blood cell transfusion begins, a client develops acute dyspnea, oxygen saturation 84%, fever, hypotension, and bilateral crackles. There is no jugular venous distention. Complete the nursing statement.",
+        "zh": "浓缩红细胞输注开始 20 分钟后，患者出现急性呼吸困难、血氧饱和度 84%、发热、低血压和双侧湿啰音。未见颈静脉怒张。请完成护理判断。"
+      },
+      "clozeStem": {
+        "en": "The nurse should suspect {{1}}, first {{2}}, and keep the IV line open with {{3}}.",
+        "zh": "护士应怀疑 {{1}}，首先 {{2}}，并用 {{3}} 保持静脉通路开放。"
+      },
+      "dropdowns": [
+        {
+          "id": "1",
+          "options": [
+            {
+              "id": "o1",
+              "en": "transfusion-related acute lung injury",
+              "zh": "输血相关急性肺损伤"
+            },
+            {
+              "id": "o2",
+              "en": "mild allergic transfusion reaction",
+              "zh": "轻度过敏性输血反应"
+            },
+            {
+              "id": "o3",
+              "en": "hypoglycemia from missed meals",
+              "zh": "漏餐导致的低血糖"
+            }
+          ],
+          "correct": "o1"
+        },
+        {
+          "id": "2",
+          "options": [
+            {
+              "id": "o1",
+              "en": "stop the transfusion",
+              "zh": "停止输血"
+            },
+            {
+              "id": "o2",
+              "en": "slow the transfusion rate and reassess in 30 minutes",
+              "zh": "减慢输血速度并 30 分钟后重新评估"
+            },
+            {
+              "id": "o3",
+              "en": "raise the head of bed only and continue the transfusion",
+              "zh": "仅抬高床头并继续输血"
+            }
+          ],
+          "correct": "o1"
+        },
+        {
+          "id": "3",
+          "options": [
+            {
+              "id": "o1",
+              "en": "0.9% sodium chloride using new tubing",
+              "zh": "使用新输液管给予 0.9% 氯化钠"
+            },
+            {
+              "id": "o2",
+              "en": "dextrose 5% in water through the blood tubing",
+              "zh": "通过输血管给予 5% 葡萄糖水"
+            },
+            {
+              "id": "o3",
+              "en": "lactated Ringer solution through the blood tubing",
+              "zh": "通过输血管给予乳酸林格液"
+            }
+          ],
+          "correct": "o1"
+        }
+      ],
+      "rationale": {
+        "correct": {
+          "en": "Acute hypoxemia, dyspnea, fever, hypotension, and noncardiogenic pulmonary edema during transfusion are concerning for transfusion-related acute lung injury. The nurse stops the transfusion and maintains IV access with normal saline through new tubing.",
+          "zh": "输血过程中出现急性低氧、呼吸困难、发热、低血压和非心源性肺水肿，提示输血相关急性肺损伤。护士应停止输血，并用新输液管输入生理盐水维持静脉通路。"
+        },
+        "byChoice": [
+          {
+            "refId": "1",
+            "en": "The severe respiratory findings with hypotension and no clear fluid-overload signs fit transfusion-related acute lung injury more than a mild allergic reaction.",
+            "zh": "严重呼吸表现、低血压且无明显容量过负荷体征，更符合输血相关急性肺损伤，而不是轻度过敏反应。"
+          },
+          {
+            "refId": "2",
+            "en": "Any suspected serious transfusion reaction requires stopping the transfusion immediately; slowing or continuing exposes the client to more donor product.",
+            "zh": "任何疑似严重输血反应都需立即停止输血；减慢或继续输血会让患者继续接触供血制品。"
+          },
+          {
+            "refId": "3",
+            "en": "Normal saline with new tubing maintains venous access without infusing more blood product or incompatible fluid through the blood tubing.",
+            "zh": "使用新输液管输入生理盐水可维持静脉通路，同时避免继续输入血制品或通过原输血管输入不相容液体。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "For any acute transfusion reaction, the first safety move is to stop the transfusion, then maintain access with normal saline and notify the provider/blood bank.",
+        "zh": "任何急性输血反应的第一安全措施都是停止输血，然后用生理盐水维持通路并通知医嘱者/血库。"
+      },
+      "glossary": [
+        {
+          "termEn": "TRALI",
+          "termZh": "输血相关急性肺损伤",
+          "defZh": "输血后急性发生的非心源性肺水肿和低氧血症。"
+        },
+        {
+          "termEn": "Packed red blood cells",
+          "termZh": "浓缩红细胞",
+          "defZh": "用于提高携氧能力的血液制品。"
+        },
+        {
+          "termEn": "Jugular venous distention",
+          "termZh": "颈静脉怒张",
+          "defZh": "颈静脉明显充盈，可提示容量过负荷或右心压力升高。"
+        }
+      ]
+    },
+    {
+      "id": "gpt_u6_matrix_cloze_2026_06_09_cloze_febrile_neutropenia_10",
+      "itemType": "dropdown_cloze",
+      "category": "Safety and Infection Control",
+      "topic": "Febrile neutropenia priority care",
+      "difficulty": "medium",
+      "ngnSkill": "prioritize_hypotheses",
+      "stem": {
+        "en": "A client receiving chemotherapy has an absolute neutrophil count of 300/mm3, temperature 38.6 C (101.5 F), chills, and a tunneled central venous catheter. Complete the nursing statement.",
+        "zh": "一名正在接受化疗的患者中性粒细胞绝对计数为 300/mm3，体温 38.6 C（101.5 F），寒战，并有隧道式中心静脉导管。请完成护理判断。"
+      },
+      "clozeStem": {
+        "en": "This client is at highest immediate risk for {{1}}; the nurse should anticipate {{2}} if it does not delay treatment and implement {{3}}.",
+        "zh": "该患者当前最高风险是 {{1}}；若不会延误治疗，护士应预计 {{2}}，并实施 {{3}}。"
+      },
+      "dropdowns": [
+        {
+          "id": "1",
+          "options": [
+            {
+              "id": "o1",
+              "en": "life-threatening infection or sepsis",
+              "zh": "危及生命的感染或脓毒症"
+            },
+            {
+              "id": "o2",
+              "en": "chronic iron-deficiency anemia",
+              "zh": "慢性缺铁性贫血"
+            },
+            {
+              "id": "o3",
+              "en": "fluid volume excess from chemotherapy",
+              "zh": "化疗导致的液体容量过多"
+            }
+          ],
+          "correct": "o1"
+        },
+        {
+          "id": "2",
+          "options": [
+            {
+              "id": "o1",
+              "en": "blood cultures from appropriate sites before broad-spectrum antibiotics",
+              "zh": "在广谱抗生素前从适当部位采集血培养"
+            },
+            {
+              "id": "o2",
+              "en": "routine stool occult blood testing before notifying the provider",
+              "zh": "通知医嘱者前先常规检查粪便隐血"
+            },
+            {
+              "id": "o3",
+              "en": "delaying antibiotics until all chemotherapy side effects resolve",
+              "zh": "推迟抗生素直至所有化疗副作用消失"
+            }
+          ],
+          "correct": "o1"
+        },
+        {
+          "id": "3",
+          "options": [
+            {
+              "id": "o1",
+              "en": "protective/neutropenic precautions with strict hand hygiene",
+              "zh": "保护性/中性粒细胞减少隔离并严格手卫生"
+            },
+            {
+              "id": "o2",
+              "en": "airborne precautions for all visitors",
+              "zh": "对所有访客实施空气传播隔离"
+            },
+            {
+              "id": "o3",
+              "en": "no precautions because fever is expected after chemotherapy",
+              "zh": "无需隔离，因为化疗后发热是预期表现"
+            }
+          ],
+          "correct": "o1"
+        }
+      ],
+      "rationale": {
+        "correct": {
+          "en": "Fever in severe neutropenia is an emergency because infection can progress rapidly to sepsis. Cultures are obtained before broad-spectrum antibiotics when this does not delay treatment, and protective precautions reduce exposure to organisms.",
+          "zh": "严重中性粒细胞减少时发热属于急症，因为感染可迅速进展为脓毒症。若不延误治疗，应在广谱抗生素前采集培养；保护性隔离可减少病原体暴露。"
+        },
+        "byChoice": [
+          {
+            "refId": "1",
+            "en": "The fever and chills in a severely neutropenic client with a central line make infection or sepsis the immediate priority.",
+            "zh": "严重中性粒细胞减少且有中心静脉导管的患者出现发热和寒战，使感染或脓毒症成为当前优先问题。"
+          },
+          {
+            "refId": "2",
+            "en": "Blood cultures help identify the source and organism, but they should not create a prolonged delay in starting empiric broad-spectrum antibiotics.",
+            "zh": "血培养有助于确定感染来源和病原体，但不应造成经验性广谱抗生素的长时间延迟。"
+          },
+          {
+            "refId": "3",
+            "en": "Protective/neutropenic precautions and hand hygiene reduce exposure for a client who cannot mount a normal neutrophil response.",
+            "zh": "保护性/中性粒细胞减少隔离和手卫生可减少患者接触病原体，因为其无法产生正常中性粒细胞反应。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "In immunocompromised clients, fever is not routine; treat it as possible sepsis until evaluated.",
+        "zh": "免疫功能低下患者发热不是常规现象；在评估前应视为可能脓毒症。"
+      },
+      "glossary": [
+        {
+          "termEn": "Febrile neutropenia",
+          "termZh": "发热性中性粒细胞减少",
+          "defZh": "中性粒细胞明显减少时出现发热，提示严重感染风险。"
+        },
+        {
+          "termEn": "Broad-spectrum antibiotics",
+          "termZh": "广谱抗生素",
+          "defZh": "覆盖多种可能细菌的抗生素，常用于感染来源未明时。"
+        },
+        {
+          "termEn": "Blood culture",
+          "termZh": "血培养",
+          "defZh": "检测血液中是否存在细菌或真菌的实验室检查。"
+        },
+        {
+          "termEn": "Central venous catheter",
+          "termZh": "中心静脉导管",
+          "defZh": "置入大静脉用于输液、化疗或抽血的导管，也可能成为感染来源。"
+        }
+      ]
+    },
+    {
+      "id": "gpt_u6_matrix_cloze_2026_06_09_matrix_heparin_safety_11",
+      "itemType": "matrix",
+      "category": "Pharmacological and Parenteral Therapies",
+      "topic": "Heparin infusion adverse effects and monitoring",
+      "difficulty": "medium",
+      "ngnSkill": "analyze_cues",
+      "stem": {
+        "en": "A client is receiving a continuous unfractionated heparin infusion for a pulmonary embolism. For each finding, select whether the nurse should continue routine monitoring or stop the infusion and notify the provider.",
+        "zh": "一名肺栓塞患者正在接受普通肝素持续静脉输注。请判断每项发现是继续常规监测，还是应停止输注并通知医嘱者。"
+      },
+      "matrix": {
+        "rows": [
+          {
+            "id": "r1",
+            "en": "Activated partial thromboplastin time is within the facility's therapeutic range.",
+            "zh": "活化部分凝血活酶时间在本机构治疗范围内。"
+          },
+          {
+            "id": "r2",
+            "en": "Platelet count decreased from 240,000/mm3 to 92,000/mm3 after 5 days of therapy.",
+            "zh": "治疗 5 天后血小板从 240,000/mm3 降至 92,000/mm3。"
+          },
+          {
+            "id": "r3",
+            "en": "New hematuria is present in the urinary catheter bag.",
+            "zh": "导尿袋中出现新发血尿。"
+          },
+          {
+            "id": "r4",
+            "en": "Small ecchymosis is noted at an old venipuncture site and is not expanding.",
+            "zh": "旧静脉穿刺处有小片瘀斑，未扩大。"
+          },
+          {
+            "id": "r5",
+            "en": "The client reports sudden severe headache and blurred vision.",
+            "zh": "患者报告突发严重头痛和视物模糊。"
+          }
+        ],
+        "columns": [
+          {
+            "id": "c1",
+            "en": "Continue routine monitoring",
+            "zh": "继续常规监测"
+          },
+          {
+            "id": "c2",
+            "en": "Stop infusion and notify provider",
+            "zh": "停止输注并通知医嘱者"
+          }
+        ],
+        "selectionMode": "single_per_row"
+      },
+      "correct": [
+        {
+          "rowId": "r1",
+          "columnIds": [
+            "c1"
+          ]
+        },
+        {
+          "rowId": "r2",
+          "columnIds": [
+            "c2"
+          ]
+        },
+        {
+          "rowId": "r3",
+          "columnIds": [
+            "c2"
+          ]
+        },
+        {
+          "rowId": "r4",
+          "columnIds": [
+            "c1"
+          ]
+        },
+        {
+          "rowId": "r5",
+          "columnIds": [
+            "c2"
+          ]
+        }
+      ],
+      "rationale": {
+        "correct": {
+          "en": "Therapeutic aPTT and a small stable bruise can be monitored. A large platelet drop after several days suggests heparin-induced thrombocytopenia, hematuria suggests bleeding, and sudden severe neurologic symptoms may indicate intracranial bleeding.",
+          "zh": "治疗范围内的 aPTT 和小而稳定的瘀斑可继续监测。用药数天后血小板大幅下降提示肝素诱导性血小板减少；血尿提示出血；突发严重神经症状可能提示颅内出血。"
+        },
+        "byChoice": [
+          {
+            "refId": "r1",
+            "en": "A therapeutic aPTT indicates the infusion is achieving the intended anticoagulant effect without this finding alone requiring interruption.",
+            "zh": "aPTT 处于治疗范围说明抗凝效果达到目标；单凭此发现不需要中断输注。"
+          },
+          {
+            "refId": "r2",
+            "en": "A platelet drop greater than 50% after several days of heparin is concerning for heparin-induced thrombocytopenia, a prothrombotic emergency.",
+            "zh": "肝素治疗数天后血小板下降超过 50%，提示可能发生肝素诱导性血小板减少，这是一种促血栓形成的急症。"
+          },
+          {
+            "refId": "r3",
+            "en": "New hematuria is active bleeding and requires stopping the heparin until the provider evaluates the client.",
+            "zh": "新发血尿属于活动性出血，在医嘱者评估前应停止肝素。"
+          },
+          {
+            "refId": "r4",
+            "en": "A small nonexpanding bruise at an old puncture site is a minor bleeding sign that should be monitored but does not automatically require stopping a therapeutic infusion.",
+            "zh": "旧穿刺处小而未扩大的瘀斑属于轻微出血迹象，应监测，但不必自动停止治疗性输注。"
+          },
+          {
+            "refId": "r5",
+            "en": "Sudden severe headache with visual changes suggests possible intracranial hemorrhage in an anticoagulated client and requires immediate action.",
+            "zh": "抗凝患者突发严重头痛伴视觉改变提示可能颅内出血，需要立即处理。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "With anticoagulants, treat active bleeding, sudden neurologic changes, and large platelet drops as unsafe findings.",
+        "zh": "遇到抗凝药题，活动性出血、突发神经变化和血小板大幅下降都应视为不安全发现。"
+      },
+      "glossary": [
+        {
+          "termEn": "Unfractionated heparin",
+          "termZh": "普通肝素",
+          "defZh": "常需用 aPTT 监测的静脉抗凝药。"
+        },
+        {
+          "termEn": "aPTT",
+          "termZh": "活化部分凝血活酶时间",
+          "defZh": "评估内源性凝血途径和普通肝素抗凝效果的实验室指标。"
+        },
+        {
+          "termEn": "Heparin-induced thrombocytopenia",
+          "termZh": "肝素诱导性血小板减少",
+          "defZh": "肝素相关免疫反应，可导致血小板下降并增加血栓风险。"
+        },
+        {
+          "termEn": "Hematuria",
+          "termZh": "血尿",
+          "defZh": "尿液中有血，可能提示泌尿道出血或全身性出血风险。"
+        }
+      ]
+    },
+    {
+      "id": "gpt_u6_matrix_cloze_2026_06_09_matrix_compartment_syndrome_12",
+      "itemType": "matrix",
+      "category": "Reduction of Risk Potential",
+      "topic": "Compartment syndrome after extremity injury",
+      "difficulty": "medium",
+      "ngnSkill": "recognize_cues",
+      "stem": {
+        "en": "A client has a long-leg cast after repair of a tibial fracture. For each finding, select whether it is expected after casting or concerning for neurovascular compromise.",
+        "zh": "一名胫骨骨折修复术后患者使用长腿石膏固定。请判断每项发现是石膏固定后的预期表现，还是提示神经血管受损的危险发现。"
+      },
+      "matrix": {
+        "rows": [
+          {
+            "id": "r1",
+            "en": "Severe pain unrelieved by prescribed opioid analgesia and elevation",
+            "zh": "严重疼痛，按医嘱使用阿片类止痛药并抬高患肢后仍不缓解"
+          },
+          {
+            "id": "r2",
+            "en": "Toes are warm with capillary refill less than 3 seconds.",
+            "zh": "足趾温暖，毛细血管再充盈时间少于 3 秒。"
+          },
+          {
+            "id": "r3",
+            "en": "Numbness and tingling in the affected foot",
+            "zh": "患侧足部麻木和刺痛"
+          },
+          {
+            "id": "r4",
+            "en": "Slight itching under the dry cast",
+            "zh": "干燥石膏下轻微瘙痒"
+          },
+          {
+            "id": "r5",
+            "en": "Pain increases when the nurse passively extends the toes.",
+            "zh": "护士被动伸展足趾时疼痛加重。"
+          }
+        ],
+        "columns": [
+          {
+            "id": "c1",
+            "en": "Expected after casting",
+            "zh": "石膏固定后预期表现"
+          },
+          {
+            "id": "c2",
+            "en": "Concerning for neurovascular compromise",
+            "zh": "提示神经血管受损"
+          }
+        ],
+        "selectionMode": "single_per_row"
+      },
+      "correct": [
+        {
+          "rowId": "r1",
+          "columnIds": [
+            "c2"
+          ]
+        },
+        {
+          "rowId": "r2",
+          "columnIds": [
+            "c1"
+          ]
+        },
+        {
+          "rowId": "r3",
+          "columnIds": [
+            "c2"
+          ]
+        },
+        {
+          "rowId": "r4",
+          "columnIds": [
+            "c1"
+          ]
+        },
+        {
+          "rowId": "r5",
+          "columnIds": [
+            "c2"
+          ]
+        }
+      ],
+      "rationale": {
+        "correct": {
+          "en": "Severe unrelieved pain, paresthesia, and pain with passive stretch are classic warning signs of compartment syndrome or neurovascular compromise. Warm toes with brisk refill and mild itching under a dry cast are expected findings.",
+          "zh": "严重且不缓解的疼痛、感觉异常以及被动牵拉时疼痛，是筋膜室综合征或神经血管受损的典型警讯。足趾温暖且再充盈迅速、干石膏下轻微瘙痒属于预期表现。"
+        },
+        "byChoice": [
+          {
+            "refId": "r1",
+            "en": "Pain out of proportion and unrelieved by analgesia is an early sign of compartment syndrome.",
+            "zh": "疼痛程度异常且止痛药不能缓解，是筋膜室综合征的早期信号。"
+          },
+          {
+            "refId": "r2",
+            "en": "Warm toes and capillary refill less than 3 seconds suggest distal perfusion is currently adequate.",
+            "zh": "足趾温暖、毛细血管再充盈少于 3 秒提示远端灌注目前尚可。"
+          },
+          {
+            "refId": "r3",
+            "en": "Numbness and tingling indicate sensory nerve compromise and require prompt assessment.",
+            "zh": "麻木和刺痛提示感觉神经受压或受损，需要迅速评估。"
+          },
+          {
+            "refId": "r4",
+            "en": "Mild itching can occur as the cast dries and the skin adjusts; the client should not insert objects into the cast.",
+            "zh": "石膏干燥和皮肤适应过程中可有轻微瘙痒；患者不应把物品伸入石膏内。"
+          },
+          {
+            "refId": "r5",
+            "en": "Pain with passive stretch is a high-risk finding for compartment syndrome because stretching increases pressure within the affected compartment.",
+            "zh": "被动牵拉时疼痛是筋膜室综合征的高危表现，因为牵拉会增加受累筋膜室压力。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "After casts or fractures, prioritize the neurovascular findings: pain, pallor, paresthesia, paralysis, pulselessness, and pressure.",
+        "zh": "石膏或骨折后，优先关注神经血管表现：疼痛、苍白、感觉异常、瘫痪、无脉和压力感。"
+      },
+      "glossary": [
+        {
+          "termEn": "Compartment syndrome",
+          "termZh": "筋膜室综合征",
+          "defZh": "筋膜室内压力升高导致血流和神经功能受损的急症。"
+        },
+        {
+          "termEn": "Paresthesia",
+          "termZh": "感觉异常",
+          "defZh": "麻木、刺痛或蚁走感等异常感觉。"
+        },
+        {
+          "termEn": "Capillary refill",
+          "termZh": "毛细血管再充盈",
+          "defZh": "按压后皮肤恢复颜色所需时间，用于粗略评估末梢灌注。"
+        },
+        {
+          "termEn": "Passive stretch",
+          "termZh": "被动牵拉",
+          "defZh": "由他人移动关节或肌肉，而不是患者主动用力。"
+        }
+      ]
+    },
+    {
+      "id": "gpt_u6_matrix_cloze_2026_06_09_matrix_central_line_care_13",
+      "itemType": "matrix",
+      "category": "Safety and Infection Control",
+      "topic": "Central line infection prevention",
+      "difficulty": "medium",
+      "ngnSkill": "evaluate_outcomes",
+      "stem": {
+        "en": "The nurse is observing central venous catheter care on the unit. For each action, select whether it is appropriate practice or requires correction.",
+        "zh": "护士正在观察病区中心静脉导管护理。请判断每项操作是合适做法，还是需要纠正。"
+      },
+      "matrix": {
+        "rows": [
+          {
+            "id": "r1",
+            "en": "Scrubs the catheter hub before accessing the line.",
+            "zh": "接入管路前擦拭消毒导管接口。"
+          },
+          {
+            "id": "r2",
+            "en": "Uses clean gloves to replace a soiled transparent dressing without hand hygiene first.",
+            "zh": "未先进行手卫生，只戴清洁手套更换污染的透明敷料。"
+          },
+          {
+            "id": "r3",
+            "en": "Changes a damp, loose dressing as soon as it is noticed.",
+            "zh": "发现敷料潮湿、松动后立即更换。"
+          },
+          {
+            "id": "r4",
+            "en": "Disconnects the line briefly and lays the uncapped end on the bed while gathering supplies.",
+            "zh": "短暂断开管路，并在取用品时把未盖帽的管端放在床上。"
+          },
+          {
+            "id": "r5",
+            "en": "Assesses the continued need for the central line during daily rounds.",
+            "zh": "每日查房时评估是否仍需要中心静脉导管。"
+          }
+        ],
+        "columns": [
+          {
+            "id": "c1",
+            "en": "Appropriate practice",
+            "zh": "合适做法"
+          },
+          {
+            "id": "c2",
+            "en": "Requires correction",
+            "zh": "需要纠正"
+          }
+        ],
+        "selectionMode": "single_per_row"
+      },
+      "correct": [
+        {
+          "rowId": "r1",
+          "columnIds": [
+            "c1"
+          ]
+        },
+        {
+          "rowId": "r2",
+          "columnIds": [
+            "c2"
+          ]
+        },
+        {
+          "rowId": "r3",
+          "columnIds": [
+            "c1"
+          ]
+        },
+        {
+          "rowId": "r4",
+          "columnIds": [
+            "c2"
+          ]
+        },
+        {
+          "rowId": "r5",
+          "columnIds": [
+            "c1"
+          ]
+        }
+      ],
+      "rationale": {
+        "correct": {
+          "en": "Central line infection prevention includes hand hygiene, hub disinfection, maintaining a closed and clean system, changing compromised dressings, and removing unnecessary lines. Skipping hand hygiene or placing an uncapped line end on bedding contaminates the system.",
+          "zh": "预防中心静脉导管感染包括手卫生、接口消毒、保持系统封闭清洁、更换受损敷料以及移除不再需要的导管。跳过手卫生或把未盖帽管端放在床上会污染系统。"
+        },
+        "byChoice": [
+          {
+            "refId": "r1",
+            "en": "Disinfecting the hub before access reduces intraluminal contamination and bloodstream infection risk.",
+            "zh": "接入前消毒接口可减少管腔内污染和血流感染风险。"
+          },
+          {
+            "refId": "r2",
+            "en": "Gloves do not replace hand hygiene; hands must be cleaned before dressing care.",
+            "zh": "手套不能代替手卫生；进行敷料护理前必须清洁双手。"
+          },
+          {
+            "refId": "r3",
+            "en": "A damp or loose dressing can harbor organisms and should be changed promptly using proper technique.",
+            "zh": "潮湿或松动的敷料可滋生病原体，应使用正确技术及时更换。"
+          },
+          {
+            "refId": "r4",
+            "en": "An uncapped catheter end on bedding is contaminated and can introduce organisms directly into the bloodstream.",
+            "zh": "未盖帽的导管端放在床上会被污染，可能把病原体直接带入血流。"
+          },
+          {
+            "refId": "r5",
+            "en": "Daily review of line necessity supports prompt removal, which reduces central line-associated bloodstream infection risk.",
+            "zh": "每日评估导管必要性有助于及时拔除，从而降低中心静脉导管相关血流感染风险。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "For invasive-line questions, choose actions that keep the system clean, closed, necessary, and assessed.",
+        "zh": "侵入性管路题要选择能保持系统清洁、封闭、必要且持续评估的操作。"
+      },
+      "glossary": [
+        {
+          "termEn": "Central venous catheter",
+          "termZh": "中心静脉导管",
+          "defZh": "置入大静脉用于给药、输液、监测或抽血的导管。"
+        },
+        {
+          "termEn": "Catheter hub",
+          "termZh": "导管接口",
+          "defZh": "连接输液管或注射器的导管端口，是污染风险点。"
+        },
+        {
+          "termEn": "CLABSI",
+          "termZh": "中心静脉导管相关血流感染",
+          "defZh": "与中心静脉导管相关的血流感染。"
+        },
+        {
+          "termEn": "Transparent dressing",
+          "termZh": "透明敷料",
+          "defZh": "覆盖导管出口处且便于观察的薄膜敷料。"
+        }
+      ]
+    },
+    {
+      "id": "gpt_u6_matrix_cloze_2026_06_09_matrix_shift_report_priority_14",
+      "itemType": "matrix",
+      "category": "Management of Care",
+      "topic": "Prioritization of unstable findings during shift report",
+      "difficulty": "hard",
+      "ngnSkill": "prioritize_hypotheses",
+      "stem": {
+        "en": "The nurse receives shift report for four clients. For each finding, select whether the nurse should assess the client immediately or whether the finding can be addressed after immediate priorities.",
+        "zh": "护士接班时收到四名患者的交班信息。请判断每项发现是需要立即评估，还是可在处理紧急优先事项后再处理。"
+      },
+      "matrix": {
+        "rows": [
+          {
+            "id": "r1",
+            "en": "Client with pneumonia has new confusion and respiratory rate 32/min.",
+            "zh": "肺炎患者新发意识混乱，呼吸频率 32 次/分。"
+          },
+          {
+            "id": "r2",
+            "en": "Client scheduled for discharge requests a printed medication list.",
+            "zh": "计划出院的患者要求打印用药清单。"
+          },
+          {
+            "id": "r3",
+            "en": "Client 1 day after abdominal surgery reports incisional pain 4/10 after coughing.",
+            "zh": "腹部手术后第 1 天患者咳嗽后报告切口痛 4/10。"
+          },
+          {
+            "id": "r4",
+            "en": "Client with pancreatitis has restlessness, cool clammy skin, and blood pressure 86/52 mm Hg.",
+            "zh": "胰腺炎患者躁动、皮肤湿冷，血压 86/52 mm Hg。"
+          },
+          {
+            "id": "r5",
+            "en": "Client with a new tracheostomy has gurgling respirations and oxygen saturation 88%.",
+            "zh": "新气管造口患者呼吸有咕噜声，血氧饱和度 88%。"
+          }
+        ],
+        "columns": [
+          {
+            "id": "c1",
+            "en": "Assess immediately",
+            "zh": "立即评估"
+          },
+          {
+            "id": "c2",
+            "en": "Address after immediate priorities",
+            "zh": "处理紧急优先事项后再处理"
+          }
+        ],
+        "selectionMode": "single_per_row"
+      },
+      "correct": [
+        {
+          "rowId": "r1",
+          "columnIds": [
+            "c1"
+          ]
+        },
+        {
+          "rowId": "r2",
+          "columnIds": [
+            "c2"
+          ]
+        },
+        {
+          "rowId": "r3",
+          "columnIds": [
+            "c2"
+          ]
+        },
+        {
+          "rowId": "r4",
+          "columnIds": [
+            "c1"
+          ]
+        },
+        {
+          "rowId": "r5",
+          "columnIds": [
+            "c1"
+          ]
+        }
+      ],
+      "rationale": {
+        "correct": {
+          "en": "Immediate assessment is needed for acute respiratory deterioration, shock, or airway compromise. Discharge paperwork and expected mild postoperative pain are lower priority when other clients are unstable.",
+          "zh": "急性呼吸恶化、休克或气道受损需要立即评估。与不稳定患者相比，出院文件和预期的轻中度术后疼痛优先级较低。"
+        },
+        "byChoice": [
+          {
+            "refId": "r1",
+            "en": "New confusion with tachypnea in pneumonia can signal hypoxemia, sepsis, or impending respiratory failure.",
+            "zh": "肺炎患者出现新发意识混乱和呼吸急促，可能提示低氧、脓毒症或即将发生呼吸衰竭。"
+          },
+          {
+            "refId": "r2",
+            "en": "A medication list is important for discharge safety but is not more urgent than airway, breathing, or circulation instability.",
+            "zh": "用药清单对出院安全很重要，但不比气道、呼吸或循环不稳定更紧急。"
+          },
+          {
+            "refId": "r3",
+            "en": "Moderate incisional pain after coughing on postoperative day 1 is expected and can be managed after unstable findings are addressed.",
+            "zh": "术后第 1 天咳嗽后中等程度切口痛属于预期情况，可在处理不稳定情况后再处理。"
+          },
+          {
+            "refId": "r4",
+            "en": "Hypotension, cool clammy skin, and restlessness suggest shock or severe volume loss and require immediate assessment.",
+            "zh": "低血压、皮肤湿冷和躁动提示休克或严重容量不足，需要立即评估。"
+          },
+          {
+            "refId": "r5",
+            "en": "A new tracheostomy with gurgling respirations and low oxygen saturation suggests secretion obstruction and airway compromise.",
+            "zh": "新气管造口患者呼吸咕噜声并血氧低，提示分泌物阻塞和气道受损。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "When prioritizing, acute changes in airway, breathing, circulation, or mental status outrank scheduled tasks and expected discomfort.",
+        "zh": "排序时，气道、呼吸、循环或意识状态的急性变化优先于计划性任务和预期不适。"
+      },
+      "glossary": [
+        {
+          "termEn": "Tachypnea",
+          "termZh": "呼吸急促",
+          "defZh": "呼吸频率异常增快。"
+        },
+        {
+          "termEn": "Shock",
+          "termZh": "休克",
+          "defZh": "组织灌注不足，可能表现为低血压、湿冷皮肤和意识改变。"
+        },
+        {
+          "termEn": "Tracheostomy",
+          "termZh": "气管造口",
+          "defZh": "通过颈部开口建立的人工气道。"
+        },
+        {
+          "termEn": "Immediate priority",
+          "termZh": "立即优先事项",
+          "defZh": "若延迟处理可能迅速危及生命或安全的问题。"
+        }
+      ]
+    },
+    {
+      "id": "gpt_u6_matrix_cloze_2026_06_09_matrix_potassium_shift_insulin_15",
+      "itemType": "matrix",
+      "category": "Physiological Adaptation",
+      "topic": "Potassium shifts during insulin therapy",
+      "difficulty": "hard",
+      "ngnSkill": "evaluate_outcomes",
+      "stem": {
+        "en": "A client is receiving IV insulin for severe hyperglycemia with frequent electrolyte monitoring. For each finding, select whether it is expected with insulin therapy or requires prompt follow-up.",
+        "zh": "一名严重高血糖患者正在接受静脉胰岛素治疗，并频繁监测电解质。请判断每项发现是胰岛素治疗中的预期变化，还是需要迅速跟进。"
+      },
+      "matrix": {
+        "rows": [
+          {
+            "id": "r1",
+            "en": "Serum potassium decreases from 4.8 mEq/L to 3.1 mEq/L.",
+            "zh": "血钾从 4.8 mEq/L 降至 3.1 mEq/L。"
+          },
+          {
+            "id": "r2",
+            "en": "Blood glucose decreases from 520 mg/dL to 360 mg/dL over the first 2 hours.",
+            "zh": "前 2 小时血糖从 520 mg/dL 降至 360 mg/dL。"
+          },
+          {
+            "id": "r3",
+            "en": "The cardiac monitor shows new frequent premature ventricular contractions.",
+            "zh": "心电监护显示新发频繁室性早搏。"
+          },
+          {
+            "id": "r4",
+            "en": "The client reports feeling less thirsty as fluids are administered.",
+            "zh": "补液过程中患者表示口渴减轻。"
+          },
+          {
+            "id": "r5",
+            "en": "Serum potassium is 2.9 mEq/L before the next insulin-rate increase.",
+            "zh": "下一次增加胰岛素速率前血钾为 2.9 mEq/L。"
+          }
+        ],
+        "columns": [
+          {
+            "id": "c1",
+            "en": "Expected; continue prescribed monitoring",
+            "zh": "预期变化；继续按医嘱监测"
+          },
+          {
+            "id": "c2",
+            "en": "Requires prompt follow-up",
+            "zh": "需要迅速跟进"
+          }
+        ],
+        "selectionMode": "single_per_row"
+      },
+      "correct": [
+        {
+          "rowId": "r1",
+          "columnIds": [
+            "c2"
+          ]
+        },
+        {
+          "rowId": "r2",
+          "columnIds": [
+            "c1"
+          ]
+        },
+        {
+          "rowId": "r3",
+          "columnIds": [
+            "c2"
+          ]
+        },
+        {
+          "rowId": "r4",
+          "columnIds": [
+            "c1"
+          ]
+        },
+        {
+          "rowId": "r5",
+          "columnIds": [
+            "c2"
+          ]
+        }
+      ],
+      "rationale": {
+        "correct": {
+          "en": "Insulin lowers glucose and shifts potassium into cells. Falling potassium to hypokalemic levels or dysrhythmias requires prompt follow-up before continuing or increasing insulin, while improving glucose and thirst are expected treatment responses.",
+          "zh": "胰岛素降低血糖，并使钾转移入细胞。血钾降至低钾范围或出现心律失常，需要在继续或增加胰岛素前迅速跟进；血糖和口渴改善属于预期治疗反应。"
+        },
+        "byChoice": [
+          {
+            "refId": "r1",
+            "en": "A potassium of 3.1 mEq/L is hypokalemic and can worsen with insulin, increasing dysrhythmia risk.",
+            "zh": "血钾 3.1 mEq/L 属于低钾，继续胰岛素可进一步降低血钾并增加心律失常风险。"
+          },
+          {
+            "refId": "r2",
+            "en": "A gradual decrease in very high glucose is an intended response to IV insulin when the client remains monitored.",
+            "zh": "在持续监测下，极高血糖逐渐下降是静脉胰岛素的预期效果。"
+          },
+          {
+            "refId": "r3",
+            "en": "New frequent ventricular ectopy can indicate clinically significant electrolyte disturbance and requires immediate assessment.",
+            "zh": "新发频繁室性异位搏动可能提示有临床意义的电解质紊乱，需要立即评估。"
+          },
+          {
+            "refId": "r4",
+            "en": "Less thirst suggests improving dehydration and hyperglycemia; this is a favorable response if vital signs and labs are stable.",
+            "zh": "口渴减轻提示脱水和高血糖改善；若生命体征和实验室指标稳定，这是良好反应。"
+          },
+          {
+            "refId": "r5",
+            "en": "A potassium of 2.9 mEq/L is dangerously low; insulin can worsen hypokalemia and should not be intensified without follow-up and replacement orders.",
+            "zh": "血钾 2.9 mEq/L 危险偏低；胰岛素会加重低钾，未经跟进和补钾医嘱不应增加剂量。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Remember that insulin moves potassium into cells; low or falling potassium becomes a priority even while hyperglycemia is being treated.",
+        "zh": "记住胰岛素会把钾移入细胞；治疗高血糖时，低钾或钾持续下降会成为优先问题。"
+      },
+      "glossary": [
+        {
+          "termEn": "Hypokalemia",
+          "termZh": "低钾血症",
+          "defZh": "血钾低于正常范围，可导致肌无力和心律失常。"
+        },
+        {
+          "termEn": "Premature ventricular contraction",
+          "termZh": "室性早搏",
+          "defZh": "起源于心室的提前心搏，可与电解质紊乱有关。"
+        },
+        {
+          "termEn": "IV insulin",
+          "termZh": "静脉胰岛素",
+          "defZh": "通过静脉持续给药的胰岛素，常用于严重高血糖并需密切监测。"
+        },
+        {
+          "termEn": "Electrolyte shift",
+          "termZh": "电解质转移",
+          "defZh": "电解质在血液和细胞内外空间之间移动。"
+        }
+      ]
+    },
+    {
+      "id": "gpt_u6_matrix_cloze_2026_06_09_cloze_theophylline_toxicity_16",
+      "itemType": "dropdown_cloze",
+      "category": "Pharmacological and Parenteral Therapies",
+      "topic": "Theophylline therapeutic drug monitoring",
+      "difficulty": "medium",
+      "ngnSkill": "recognize_cues",
+      "stem": {
+        "en": "A client with chronic lung disease takes theophylline. The client reports nausea, insomnia, palpitations, and tremor after starting a new antibiotic. Complete the nursing statement.",
+        "zh": "一名慢性肺病患者服用茶碱。开始一种新抗生素后，患者报告恶心、失眠、心悸和震颤。请完成护理判断。"
+      },
+      "clozeStem": {
+        "en": "The nurse should suspect {{1}}, anticipate checking a {{2}}, and prioritize monitoring for {{3}}.",
+        "zh": "护士应怀疑 {{1}}，预计检查 {{2}}，并优先监测 {{3}}。"
+      },
+      "dropdowns": [
+        {
+          "id": "1",
+          "options": [
+            {
+              "id": "o1",
+              "en": "theophylline toxicity",
+              "zh": "茶碱中毒"
+            },
+            {
+              "id": "o2",
+              "en": "opioid withdrawal",
+              "zh": "阿片类戒断"
+            },
+            {
+              "id": "o3",
+              "en": "iron-deficiency anemia",
+              "zh": "缺铁性贫血"
+            }
+          ],
+          "correct": "o1"
+        },
+        {
+          "id": "2",
+          "options": [
+            {
+              "id": "o1",
+              "en": "serum theophylline concentration",
+              "zh": "血清茶碱浓度"
+            },
+            {
+              "id": "o2",
+              "en": "hemoglobin A1c",
+              "zh": "糖化血红蛋白"
+            },
+            {
+              "id": "o3",
+              "en": "serum amylase level",
+              "zh": "血清淀粉酶"
+            }
+          ],
+          "correct": "o1"
+        },
+        {
+          "id": "3",
+          "options": [
+            {
+              "id": "o1",
+              "en": "dysrhythmias and seizures",
+              "zh": "心律失常和癫痫发作"
+            },
+            {
+              "id": "o2",
+              "en": "urinary retention only",
+              "zh": "仅尿潴留"
+            },
+            {
+              "id": "o3",
+              "en": "painless jaundice",
+              "zh": "无痛性黄疸"
+            }
+          ],
+          "correct": "o1"
+        }
+      ],
+      "rationale": {
+        "correct": {
+          "en": "Theophylline has a narrow therapeutic index, and interacting medications can raise levels. Gastrointestinal upset, insomnia, tremor, and palpitations are toxicity cues; severe toxicity can cause dysrhythmias and seizures.",
+          "zh": "茶碱治疗指数窄，药物相互作用可升高血药浓度。胃肠不适、失眠、震颤和心悸是中毒线索；严重中毒可导致心律失常和癫痫发作。"
+        },
+        "byChoice": [
+          {
+            "refId": "1",
+            "en": "The symptom cluster after a medication change is consistent with theophylline toxicity rather than an unrelated chronic condition.",
+            "zh": "用药改变后出现这一组症状，符合茶碱中毒，而不是无关的慢性问题。"
+          },
+          {
+            "refId": "2",
+            "en": "A serum theophylline concentration confirms whether the drug level is elevated and guides dose adjustment.",
+            "zh": "血清茶碱浓度可确认药物水平是否升高，并指导剂量调整。"
+          },
+          {
+            "refId": "3",
+            "en": "Theophylline toxicity can stimulate the heart and central nervous system, so dysrhythmias and seizures are priority complications.",
+            "zh": "茶碱中毒可刺激心脏和中枢神经系统，因此心律失常和癫痫发作是优先关注的并发症。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "When a drug has a narrow therapeutic index, new symptoms after an interacting medication should trigger toxicity monitoring.",
+        "zh": "窄治疗指数药物在加入可能相互作用的药物后出现新症状时，应想到中毒监测。"
+      },
+      "glossary": [
+        {
+          "termEn": "Theophylline",
+          "termZh": "茶碱",
+          "defZh": "用于部分慢性呼吸疾病的支气管扩张药，需要监测血药浓度。"
+        },
+        {
+          "termEn": "Therapeutic drug monitoring",
+          "termZh": "治疗药物监测",
+          "defZh": "测量药物血中浓度以指导安全有效用药。"
+        },
+        {
+          "termEn": "Dysrhythmia",
+          "termZh": "心律失常",
+          "defZh": "心脏节律异常，可能导致灌注不足或危及生命。"
+        },
+        {
+          "termEn": "Tremor",
+          "termZh": "震颤",
+          "defZh": "不自主、有节律的肌肉抖动。"
+        }
+      ]
+    },
+    {
+      "id": "gpt_u6_matrix_cloze_2026_06_09_cloze_myasthenic_crisis_17",
+      "itemType": "dropdown_cloze",
+      "category": "Physiological Adaptation",
+      "topic": "Myasthenic crisis respiratory deterioration",
+      "difficulty": "hard",
+      "ngnSkill": "prioritize_hypotheses",
+      "stem": {
+        "en": "A client with myasthenia gravis reports increasing difficulty swallowing and speaking. Assessment shows weak cough, shallow respirations, and oxygen saturation 89%. Complete the nursing statement.",
+        "zh": "一名重症肌无力患者报告吞咽和说话越来越困难。评估发现咳嗽无力、呼吸浅、血氧饱和度 89%。请完成护理判断。"
+      },
+      "clozeStem": {
+        "en": "The nurse should first prioritize {{1}}, anticipate measuring {{2}}, and prepare for {{3}} if respiratory effort worsens.",
+        "zh": "护士应首先优先处理 {{1}}，预计测量 {{2}}，并在呼吸做功恶化时准备 {{3}}。"
+      },
+      "dropdowns": [
+        {
+          "id": "1",
+          "options": [
+            {
+              "id": "o1",
+              "en": "airway and ventilation support",
+              "zh": "气道和通气支持"
+            },
+            {
+              "id": "o2",
+              "en": "diet teaching for weight gain",
+              "zh": "增重饮食教学"
+            },
+            {
+              "id": "o3",
+              "en": "routine morning medication reconciliation",
+              "zh": "常规晨间用药核对"
+            }
+          ],
+          "correct": "o1"
+        },
+        {
+          "id": "2",
+          "options": [
+            {
+              "id": "o1",
+              "en": "vital capacity or negative inspiratory force",
+              "zh": "肺活量或负吸气力"
+            },
+            {
+              "id": "o2",
+              "en": "ankle-brachial index",
+              "zh": "踝肱指数"
+            },
+            {
+              "id": "o3",
+              "en": "postvoid residual volume",
+              "zh": "排尿后残余尿量"
+            }
+          ],
+          "correct": "o1"
+        },
+        {
+          "id": "3",
+          "options": [
+            {
+              "id": "o1",
+              "en": "possible intubation and mechanical ventilation",
+              "zh": "可能气管插管和机械通气"
+            },
+            {
+              "id": "o2",
+              "en": "placing the client flat for rest",
+              "zh": "让患者平卧休息"
+            },
+            {
+              "id": "o3",
+              "en": "withholding all respiratory assessment to reduce fatigue",
+              "zh": "停止所有呼吸评估以减少疲劳"
+            }
+          ],
+          "correct": "o1"
+        }
+      ],
+      "rationale": {
+        "correct": {
+          "en": "Bulbar weakness, weak cough, shallow respirations, and hypoxemia indicate possible myasthenic crisis with impending respiratory failure. Respiratory mechanics such as vital capacity guide escalation, and ventilatory support may be needed.",
+          "zh": "延髓肌无力、咳嗽无力、呼吸浅和低氧提示可能发生肌无力危象并即将呼吸衰竭。肺活量等呼吸力学指标可指导升级处理，可能需要通气支持。"
+        },
+        "byChoice": [
+          {
+            "refId": "1",
+            "en": "Airway and ventilation are the priority because respiratory muscle weakness can progress rapidly to failure.",
+            "zh": "气道和通气是优先事项，因为呼吸肌无力可迅速进展为呼吸衰竭。"
+          },
+          {
+            "refId": "2",
+            "en": "Vital capacity or negative inspiratory force measures respiratory muscle strength and helps determine need for higher-level support.",
+            "zh": "肺活量或负吸气力可衡量呼吸肌力量，并帮助判断是否需要更高级别支持。"
+          },
+          {
+            "refId": "3",
+            "en": "If respiratory effort worsens, intubation and mechanical ventilation may be required to maintain oxygenation and ventilation.",
+            "zh": "若呼吸做功恶化，可能需要气管插管和机械通气以维持氧合和通气。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "In neuromuscular disease, swallowing changes plus weak cough point to airway protection and ventilatory failure risk.",
+        "zh": "神经肌肉疾病中，吞咽改变加咳嗽无力提示气道保护和通气衰竭风险。"
+      },
+      "glossary": [
+        {
+          "termEn": "Myasthenia gravis",
+          "termZh": "重症肌无力",
+          "defZh": "神经肌肉接头疾病，可导致波动性肌无力。"
+        },
+        {
+          "termEn": "Myasthenic crisis",
+          "termZh": "肌无力危象",
+          "defZh": "重症肌无力急性加重导致呼吸肌无力和呼吸衰竭风险。"
+        },
+        {
+          "termEn": "Vital capacity",
+          "termZh": "肺活量",
+          "defZh": "最大吸气后能呼出的最大气量，可反映呼吸肌功能。"
+        },
+        {
+          "termEn": "Mechanical ventilation",
+          "termZh": "机械通气",
+          "defZh": "用呼吸机辅助或替代呼吸。"
+        }
+      ]
+    },
+    {
+      "id": "gpt_u6_matrix_cloze_2026_06_09_cloze_hhs_18",
+      "itemType": "dropdown_cloze",
+      "category": "Physiological Adaptation",
+      "topic": "Hyperosmolar hyperglycemic state priority care",
+      "difficulty": "medium",
+      "ngnSkill": "prioritize_hypotheses",
+      "stem": {
+        "en": "An older adult with type 2 diabetes is admitted with lethargy, dry mucous membranes, blood glucose 720 mg/dL, serum osmolality 335 mOsm/kg, and negative urine ketones. Complete the nursing statement.",
+        "zh": "一名 2 型糖尿病老年患者因嗜睡、黏膜干燥入院，血糖 720 mg/dL，血清渗透压 335 mOsm/kg，尿酮阴性。请完成护理判断。"
+      },
+      "clozeStem": {
+        "en": "The client is most likely experiencing {{1}}; the nurse should prioritize {{2}} and closely monitor {{3}}.",
+        "zh": "该患者最可能发生 {{1}}；护士应优先 {{2}}，并密切监测 {{3}}。"
+      },
+      "dropdowns": [
+        {
+          "id": "1",
+          "options": [
+            {
+              "id": "o1",
+              "en": "hyperosmolar hyperglycemic state",
+              "zh": "高渗高血糖状态"
+            },
+            {
+              "id": "o2",
+              "en": "thyroid storm",
+              "zh": "甲状腺危象"
+            },
+            {
+              "id": "o3",
+              "en": "acute hypoglycemia",
+              "zh": "急性低血糖"
+            }
+          ],
+          "correct": "o1"
+        },
+        {
+          "id": "2",
+          "options": [
+            {
+              "id": "o1",
+              "en": "restoring circulating volume with IV isotonic fluids as prescribed",
+              "zh": "按医嘱用等渗静脉液体恢复循环容量"
+            },
+            {
+              "id": "o2",
+              "en": "restricting oral and IV fluids until glucose normalizes",
+              "zh": "在血糖恢复正常前限制口服和静脉液体"
+            },
+            {
+              "id": "o3",
+              "en": "administering oral glucose tablets",
+              "zh": "给予口服葡萄糖片"
+            }
+          ],
+          "correct": "o1"
+        },
+        {
+          "id": "3",
+          "options": [
+            {
+              "id": "o1",
+              "en": "mental status, urine output, and electrolytes",
+              "zh": "意识状态、尿量和电解质"
+            },
+            {
+              "id": "o2",
+              "en": "pupil color and ear drainage",
+              "zh": "瞳孔颜色和耳部分泌物"
+            },
+            {
+              "id": "o3",
+              "en": "only daily weight after discharge",
+              "zh": "仅出院后每日体重"
+            }
+          ],
+          "correct": "o1"
+        }
+      ],
+      "rationale": {
+        "correct": {
+          "en": "Very high glucose, hyperosmolality, dehydration, altered mental status, and minimal ketones support hyperosmolar hyperglycemic state. Initial care focuses on volume resuscitation, followed by insulin and electrolyte management as prescribed.",
+          "zh": "极高血糖、高渗、脱水、意识改变和酮体少，支持高渗高血糖状态。初始护理重点是容量复苏，随后按医嘱进行胰岛素和电解质管理。"
+        },
+        "byChoice": [
+          {
+            "refId": "1",
+            "en": "The pattern of severe hyperglycemia and hyperosmolality without significant ketones is characteristic of hyperosmolar hyperglycemic state.",
+            "zh": "严重高血糖和高渗而无明显酮体，是高渗高血糖状态的特征。"
+          },
+          {
+            "refId": "2",
+            "en": "Profound dehydration drives poor perfusion in HHS, so prescribed isotonic fluids are an early priority.",
+            "zh": "严重脱水会导致 HHS 中灌注不良，因此按医嘱给予等渗液是早期优先事项。"
+          },
+          {
+            "refId": "3",
+            "en": "Mental status reflects osmolality and perfusion, urine output reflects renal perfusion, and electrolytes can shift during treatment.",
+            "zh": "意识状态反映渗透压和灌注，尿量反映肾灌注，电解质在治疗过程中可能变化。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "For extreme hyperglycemia with dehydration and little ketosis, think HHS and prioritize perfusion before fine-tuning glucose.",
+        "zh": "极高血糖伴脱水且酮体少时，要想到 HHS，并在精细调整血糖前优先恢复灌注。"
+      },
+      "glossary": [
+        {
+          "termEn": "Hyperosmolar hyperglycemic state",
+          "termZh": "高渗高血糖状态",
+          "defZh": "严重高血糖和高渗导致脱水及意识改变的糖尿病急症。"
+        },
+        {
+          "termEn": "Serum osmolality",
+          "termZh": "血清渗透压",
+          "defZh": "血液中溶质浓度的指标，升高可影响意识状态。"
+        },
+        {
+          "termEn": "Ketones",
+          "termZh": "酮体",
+          "defZh": "脂肪分解产生的酸性物质，DKA 中通常明显升高。"
+        },
+        {
+          "termEn": "Volume resuscitation",
+          "termZh": "容量复苏",
+          "defZh": "通过补液恢复循环血容量和组织灌注。"
+        }
+      ]
+    },
+    {
+      "id": "gpt_u6_matrix_cloze_2026_06_09_cloze_acute_pancreatitis_19",
+      "itemType": "dropdown_cloze",
+      "category": "Physiological Adaptation",
+      "topic": "Acute pancreatitis complications",
+      "difficulty": "medium",
+      "ngnSkill": "analyze_cues",
+      "stem": {
+        "en": "A client admitted with acute pancreatitis has severe epigastric pain radiating to the back, persistent vomiting, calcium 7.4 mg/dL, and oxygen saturation 90% on room air. Complete the nursing statement.",
+        "zh": "一名急性胰腺炎患者出现严重上腹痛并放射至背部、持续呕吐、血钙 7.4 mg/dL，室内空气下血氧饱和度 90%。请完成护理判断。"
+      },
+      "clozeStem": {
+        "en": "The nurse should recognize risk for {{1}}, monitor for {{2}}, and anticipate {{3}} as prescribed.",
+        "zh": "护士应识别该患者有 {{1}} 的风险，监测 {{2}}，并预计按医嘱 {{3}}。"
+      },
+      "dropdowns": [
+        {
+          "id": "1",
+          "options": [
+            {
+              "id": "o1",
+              "en": "hypocalcemia and respiratory compromise",
+              "zh": "低钙血症和呼吸受损"
+            },
+            {
+              "id": "o2",
+              "en": "hyperthyroidism and heat stroke",
+              "zh": "甲状腺功能亢进和热射病"
+            },
+            {
+              "id": "o3",
+              "en": "urinary retention from spinal anesthesia",
+              "zh": "脊麻导致的尿潴留"
+            }
+          ],
+          "correct": "o1"
+        },
+        {
+          "id": "2",
+          "options": [
+            {
+              "id": "o1",
+              "en": "tetany, tingling, worsening oxygenation, and lung sounds",
+              "zh": "手足搐搦、麻刺感、氧合恶化和肺部听诊"
+            },
+            {
+              "id": "o2",
+              "en": "visual acuity only",
+              "zh": "仅视力"
+            },
+            {
+              "id": "o3",
+              "en": "weekly hearing screening",
+              "zh": "每周听力筛查"
+            }
+          ],
+          "correct": "o1"
+        },
+        {
+          "id": "3",
+          "options": [
+            {
+              "id": "o1",
+              "en": "IV fluids, analgesia, and oxygen support",
+              "zh": "静脉补液、镇痛和氧气支持"
+            },
+            {
+              "id": "o2",
+              "en": "high-fat meals to stimulate pancreatic enzymes",
+              "zh": "高脂饮食以刺激胰酶分泌"
+            },
+            {
+              "id": "o3",
+              "en": "withholding pain medication until diagnosis is reconfirmed",
+              "zh": "在重新确认诊断前暂停止痛药"
+            }
+          ],
+          "correct": "o1"
+        }
+      ],
+      "rationale": {
+        "correct": {
+          "en": "Acute pancreatitis can cause third spacing, severe pain, hypocalcemia, and respiratory complications. Nursing care includes monitoring calcium-related neuromuscular signs, oxygenation, lung status, fluid balance, and pain control.",
+          "zh": "急性胰腺炎可导致第三间隙液体转移、严重疼痛、低钙血症和呼吸并发症。护理包括监测低钙相关神经肌肉表现、氧合、肺部情况、液体平衡和疼痛控制。"
+        },
+        "byChoice": [
+          {
+            "refId": "1",
+            "en": "Low calcium and low oxygen saturation are clinically important complications in acute pancreatitis.",
+            "zh": "低钙和低氧饱和度是急性胰腺炎中需要重视的并发症。"
+          },
+          {
+            "refId": "2",
+            "en": "Tetany and tingling suggest symptomatic hypocalcemia, while worsening oxygenation or abnormal lung sounds suggest respiratory involvement.",
+            "zh": "手足搐搦和麻刺感提示有症状低钙；氧合恶化或异常肺音提示呼吸系统受累。"
+          },
+          {
+            "refId": "3",
+            "en": "Prescribed fluids support perfusion, analgesia treats severe pain, and oxygen supports impaired gas exchange.",
+            "zh": "按医嘱补液支持灌注，镇痛处理严重疼痛，氧气支持受损气体交换。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "In pancreatitis, look beyond abdominal pain for systemic complications: fluid shifts, calcium changes, shock, and respiratory decline.",
+        "zh": "胰腺炎题不要只看腹痛，还要寻找全身并发症：液体转移、血钙变化、休克和呼吸恶化。"
+      },
+      "glossary": [
+        {
+          "termEn": "Acute pancreatitis",
+          "termZh": "急性胰腺炎",
+          "defZh": "胰腺急性炎症，可引起严重腹痛和全身并发症。"
+        },
+        {
+          "termEn": "Third spacing",
+          "termZh": "第三间隙液体转移",
+          "defZh": "液体从血管内转移到组织或腔隙，导致有效循环容量下降。"
+        },
+        {
+          "termEn": "Tetany",
+          "termZh": "手足搐搦",
+          "defZh": "低钙等原因导致的肌肉痉挛或抽搐。"
+        },
+        {
+          "termEn": "Epigastric pain",
+          "termZh": "上腹痛",
+          "defZh": "位于上腹部的疼痛，急性胰腺炎常见。"
+        }
+      ]
+    },
+    {
+      "id": "gpt_u6_matrix_cloze_2026_06_09_cloze_preeclampsia_magnesium_20",
+      "itemType": "dropdown_cloze",
+      "category": "Reduction of Risk Potential",
+      "topic": "Magnesium sulfate toxicity in preeclampsia",
+      "difficulty": "medium",
+      "ngnSkill": "take_action",
+      "stem": {
+        "en": "A client with preeclampsia is receiving magnesium sulfate. The nurse notes respiratory rate 10/min, absent deep tendon reflexes, and urine output 20 mL/hr. Complete the nursing statement.",
+        "zh": "一名子痫前期患者正在接受硫酸镁治疗。护士发现呼吸频率 10 次/分、深腱反射消失、尿量 20 mL/小时。请完成护理判断。"
+      },
+      "clozeStem": {
+        "en": "The nurse should suspect {{1}}, first {{2}}, and anticipate administering {{3}} as prescribed.",
+        "zh": "护士应怀疑 {{1}}，首先 {{2}}，并预计按医嘱给予 {{3}}。"
+      },
+      "dropdowns": [
+        {
+          "id": "1",
+          "options": [
+            {
+              "id": "o1",
+              "en": "magnesium sulfate toxicity",
+              "zh": "硫酸镁中毒"
+            },
+            {
+              "id": "o2",
+              "en": "expected therapeutic sedation",
+              "zh": "预期的治疗性镇静"
+            },
+            {
+              "id": "o3",
+              "en": "normal postpartum diuresis",
+              "zh": "正常产后利尿"
+            }
+          ],
+          "correct": "o1"
+        },
+        {
+          "id": "2",
+          "options": [
+            {
+              "id": "o1",
+              "en": "stop the magnesium infusion and notify the provider",
+              "zh": "停止硫酸镁输注并通知医嘱者"
+            },
+            {
+              "id": "o2",
+              "en": "increase the infusion rate to prevent seizure",
+              "zh": "增加输注速率以预防癫痫发作"
+            },
+            {
+              "id": "o3",
+              "en": "place the client in a dark room and reassess in 2 hours",
+              "zh": "让患者待在暗室中并 2 小时后重新评估"
+            }
+          ],
+          "correct": "o1"
+        },
+        {
+          "id": "3",
+          "options": [
+            {
+              "id": "o1",
+              "en": "calcium gluconate",
+              "zh": "葡萄糖酸钙"
+            },
+            {
+              "id": "o2",
+              "en": "protamine sulfate",
+              "zh": "鱼精蛋白硫酸盐"
+            },
+            {
+              "id": "o3",
+              "en": "vitamin K",
+              "zh": "维生素 K"
+            }
+          ],
+          "correct": "o1"
+        }
+      ],
+      "rationale": {
+        "correct": {
+          "en": "Respiratory depression, absent deep tendon reflexes, and low urine output indicate magnesium toxicity. The infusion should be stopped, the provider notified, and calcium gluconate prepared as the antidote.",
+          "zh": "呼吸抑制、深腱反射消失和尿量低提示硫酸镁中毒。应停止输注、通知医嘱者，并准备葡萄糖酸钙作为解毒剂。"
+        },
+        "byChoice": [
+          {
+            "refId": "1",
+            "en": "Absent reflexes and respiratory depression are not expected therapeutic effects; they are toxicity findings.",
+            "zh": "反射消失和呼吸抑制不是预期治疗效果，而是中毒表现。"
+          },
+          {
+            "refId": "2",
+            "en": "Stopping the infusion prevents additional magnesium exposure while the client is assessed and treated.",
+            "zh": "停止输注可避免患者继续暴露于镁，同时进行评估和处理。"
+          },
+          {
+            "refId": "3",
+            "en": "Calcium gluconate reverses serious magnesium effects and is the antidote kept available during magnesium therapy.",
+            "zh": "葡萄糖酸钙可逆转严重镁作用，是硫酸镁治疗期间应备有的解毒剂。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "For magnesium sulfate, the danger cues are respiratory depression, absent reflexes, and reduced urine output because magnesium is renally cleared.",
+        "zh": "硫酸镁题的危险线索是呼吸抑制、反射消失和尿量减少，因为镁经肾脏清除。"
+      },
+      "glossary": [
+        {
+          "termEn": "Preeclampsia",
+          "termZh": "子痫前期",
+          "defZh": "妊娠期高血压相关疾病，可伴蛋白尿或器官功能受损。"
+        },
+        {
+          "termEn": "Magnesium sulfate",
+          "termZh": "硫酸镁",
+          "defZh": "用于预防或治疗子痫发作的药物，需要密切监测毒性。"
+        },
+        {
+          "termEn": "Deep tendon reflexes",
+          "termZh": "深腱反射",
+          "defZh": "敲击肌腱引出的反射，硫酸镁过量时可减弱或消失。"
+        },
+        {
+          "termEn": "Calcium gluconate",
+          "termZh": "葡萄糖酸钙",
+          "defZh": "用于处理严重硫酸镁中毒的解毒药。"
         }
       ]
     }
