@@ -163,7 +163,11 @@ export const validateQuestion = (raw: unknown, options: { allowCaseStudy?: boole
     reasons.push("nested case_study items are not supported");
   }
   if (!enumIncludes(categories, raw.category)) reasons.push("invalid category");
-  if (!nonEmptyString(raw.topic)) reasons.push("missing topic");
+  if (!nonEmptyString(raw.topic)) {
+    reasons.push("missing topic");
+  } else if (/[　-〿぀-ゟ゠-ヿ㐀-䶿一-鿿豈-﫿＀-￯]/.test(raw.topic as string)) {
+    reasons.push("topic must be English-only (no CJK characters)");
+  }
   if (!enumIncludes(difficulties, raw.difficulty)) reasons.push("invalid difficulty");
   if (raw.ngnSkill !== undefined && !enumIncludes(ngnSkills, raw.ngnSkill)) reasons.push("invalid ngnSkill");
   addTextPairError(raw.stem, "stem", reasons);

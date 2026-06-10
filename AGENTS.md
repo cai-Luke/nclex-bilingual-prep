@@ -52,6 +52,8 @@ Committed visual lanes (first-class content types):
 - `rhythm_strip` — ECG waveform
 - `capnography` — end-tidal CO₂ waveform
 - `vitals_trend` — multi-vital time-series chart
+- `lab_trend` — laboratory analyte time-series chart
+- `mar` — medication administration record
 
 Visual items must pass all of the following before being treated as reviewed study material:
 
@@ -78,9 +80,12 @@ Run these before calling a code/content pass complete when relevant:
 
 ```sh
 npm run validate-bank -- banks/*.json
-npm run coverage-report
+npm run coverage-report        # Markdown prompt parameters (PRIORITIZE/AVOID topics)
+npm run census                 # regenerate census.json + BANK-CENSUS.md after any bank change
 npm run build
 ```
+
+After regenerating the census, commit both `census.json` and `BANK-CENSUS.md` alongside the bank change — `npm run census:check` in CI will fail the PR if they are stale.
 
 Useful development commands:
 

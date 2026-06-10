@@ -1,11 +1,11 @@
 {
   "meta": {
-    "schemaVersion": "1.0",
+    "schemaVersion": "1.2",
     "exam": "NCLEX-RN",
     "topic": "assorted NCLEX-RN GPT canonical bank",
     "category": "mixed",
     "difficulty": "mixed",
-    "count": 142
+    "count": 147
   },
   "questions": [
     {
@@ -14134,6 +14134,2923 @@
           "defZh": "用于处理严重硫酸镁中毒的解毒药。"
         }
       ]
+    },
+    {
+      "id": "gpt_case_premium_2026_06_10_case01_preventive_screening",
+      "itemType": "case_study",
+      "category": "Health Promotion and Maintenance",
+      "topic": "adult preventive screening",
+      "difficulty": "hard",
+      "ngnSkill": "analyze_cues",
+      "stem": {
+        "en": "Review the unfolding preventive screening case and answer the embedded questions.",
+        "zh": "阅读这个进展性病例，并回答嵌入的问题。"
+      },
+      "rationale": {
+        "correct": {
+          "en": "The embedded questions evaluate clinical judgment across the unfolding case.",
+          "zh": "嵌入问题用于评估在病例进展中的临床判断。"
+        }
+      },
+      "testTakingStrategy": {
+        "en": "Track what changed over time and connect each cue to the safest nursing action.",
+        "zh": "追踪随时间变化的线索，并把每个线索与最安全的护理措施联系起来。"
+      },
+      "glossary": [
+        {
+          "termEn": "unfolding case",
+          "termZh": "进展性病例",
+          "defZh": "随着时间提供更多资料、要求持续重新判断的病例。"
+        },
+        {
+          "termEn": "screening",
+          "termZh": "筛查",
+          "defZh": "在无症状人群中寻找可能需要进一步评估的风险或疾病。"
+        }
+      ],
+      "caseStudy": {
+        "title": {
+          "en": "Adult preventive screening with language and follow-up barriers",
+          "zh": "成人预防筛查伴语言和随访障碍"
+        },
+        "summary": {
+          "en": "A stable adult with overdue preventive screenings needs a feasible, language-accessible plan and follow-up after an abnormal screening result.",
+          "zh": "一名病情稳定但多项预防筛查逾期的成人，需要可行、语言可及的计划，并在筛查异常后完成随访。"
+        },
+        "exhibits": [
+          {
+            "id": "initial_visit",
+            "title": {
+              "en": "Initial clinic visit",
+              "zh": "初次门诊就诊"
+            },
+            "content": {
+              "en": "A 47-year-old client assigned female at birth comes to a community clinic for the first visit in 9 years. The client has no acute symptoms and says, 'I feel fine, so I do not think I need tests.' Cervix is intact. No personal history of cancer, inflammatory bowel disease, or immunocompromise. No first-degree relative with colorectal cancer. Last cervical cancer screening was 9 years ago. The client has never had colorectal cancer screening or a mammogram. Primary language is Mandarin; the client answers short English questions but hesitates with medical words.",
+              "zh": "一名出生时指定为女性的47岁来访者到社区门诊就诊，这是9年来首次就诊。来访者无急性症状，并说：“我感觉很好，所以我不觉得需要检查。”宫颈完整。无癌症、炎症性肠病或免疫功能低下个人史。一级亲属无结直肠癌史。上次宫颈癌筛查为9年前。从未做过结直肠癌筛查或乳腺X线检查。主要语言为普通话；能回答简短英语问题，但遇到医学词汇会犹豫。"
+            }
+          }
+        ],
+        "stages": [
+          {
+            "id": "follow_up",
+            "title": {
+              "en": "Two weeks later",
+              "zh": "两周后"
+            },
+            "exhibits": [
+              {
+                "id": "screening_choices",
+                "title": {
+                  "en": "Client response after counseling",
+                  "zh": "咨询后的来访者反应"
+                },
+                "content": {
+                  "en": "After interpreter-supported counseling, the client says, 'I can do a stool test at home, but I cannot miss work for many appointments. I am afraid a test will find cancer.' The client chooses a fecal immunochemical test (FIT). One week later, the FIT result is positive.",
+                  "zh": "在口译支持下完成咨询后，来访者说：“我可以在家做粪便检查，但不能为了很多预约请假。我害怕检查会发现癌症。”来访者选择粪便免疫化学试验（FIT）。一周后，FIT结果为阳性。"
+                }
+              }
+            ]
+          }
+        ],
+        "questions": [
+          {
+            "id": "gpt_case_premium_2026_06_10_case01_matrix_screening_01",
+            "itemType": "matrix",
+            "category": "Health Promotion and Maintenance",
+            "topic": "adult preventive screening",
+            "difficulty": "hard",
+            "ngnSkill": "analyze_cues",
+            "stem": {
+              "en": "For each finding in the initial visit, indicate whether it supports screening now or does not require action during this visit.",
+              "zh": "根据初次就诊资料，判断每项发现是支持现在筛查，还是本次就诊不需要处理。"
+            },
+            "matrix": {
+              "rows": [
+                {
+                  "id": "r1",
+                  "en": "Age 47 with no prior colorectal cancer screening",
+                  "zh": "47岁且从未进行结直肠癌筛查"
+                },
+                {
+                  "id": "r2",
+                  "en": "Cervix intact and last cervical cancer screening 9 years ago",
+                  "zh": "宫颈完整且上次宫颈癌筛查为9年前"
+                },
+                {
+                  "id": "r3",
+                  "en": "Never had a mammogram",
+                  "zh": "从未做过乳腺X线检查"
+                },
+                {
+                  "id": "r4",
+                  "en": "No first-degree relative with colorectal cancer",
+                  "zh": "一级亲属无结直肠癌史"
+                },
+                {
+                  "id": "r5",
+                  "en": "No acute symptoms today",
+                  "zh": "今天无急性症状"
+                }
+              ],
+              "columns": [
+                {
+                  "id": "c1",
+                  "en": "Screening indicated now",
+                  "zh": "现在需要筛查"
+                },
+                {
+                  "id": "c2",
+                  "en": "No screening action from this cue alone",
+                  "zh": "仅凭此线索不需要筛查措施"
+                }
+              ],
+              "selectionMode": "single_per_row"
+            },
+            "correct": [
+              {
+                "rowId": "r1",
+                "columnIds": [
+                  "c1"
+                ]
+              },
+              {
+                "rowId": "r2",
+                "columnIds": [
+                  "c1"
+                ]
+              },
+              {
+                "rowId": "r3",
+                "columnIds": [
+                  "c1"
+                ]
+              },
+              {
+                "rowId": "r4",
+                "columnIds": [
+                  "c2"
+                ]
+              },
+              {
+                "rowId": "r5",
+                "columnIds": [
+                  "c2"
+                ]
+              }
+            ],
+            "rationale": {
+              "correct": {
+                "en": "The age and overdue screening history support offering colorectal, cervical, and breast cancer screening. Lack of symptoms does not remove the need for preventive screening.",
+                "zh": "年龄和逾期筛查史支持提供结直肠癌、宫颈癌和乳腺癌筛查。没有症状并不取消预防性筛查的需要。"
+              },
+              "byChoice": [
+                {
+                  "refId": "r1",
+                  "en": "Average-risk colorectal cancer screening begins before this client's age, so no prior screening is a gap.",
+                  "zh": "一般风险结直肠癌筛查在该年龄之前就应开始，因此从未筛查是缺口。"
+                },
+                {
+                  "refId": "r2",
+                  "en": "A cervix-intact adult who is overdue for cervical cancer screening needs screening rather than reassurance only.",
+                  "zh": "宫颈完整且宫颈癌筛查逾期的成人需要筛查，而不是仅仅安慰。"
+                },
+                {
+                  "refId": "r3",
+                  "en": "At age 47, breast cancer screening should be discussed/offered according to current preventive screening practice.",
+                  "zh": "47岁时应按照当前预防筛查做法讨论或提供乳腺癌筛查。"
+                },
+                {
+                  "refId": "r4",
+                  "en": "No first-degree family history supports average-risk screening; it does not create an additional urgent action by itself.",
+                  "zh": "无一级亲属家族史支持按一般风险筛查；它本身不产生额外紧急措施。"
+                },
+                {
+                  "refId": "r5",
+                  "en": "Preventive screening is designed for asymptomatic clients, so absence of symptoms is not a reason to skip indicated screening.",
+                  "zh": "预防性筛查本来就是针对无症状者，因此没有症状不是跳过应做筛查的理由。"
+                }
+              ]
+            },
+            "testTakingStrategy": {
+              "en": "Separate screening indications from diagnostic workups. A client can need screening even when stable and symptom-free.",
+              "zh": "区分筛查适应证和诊断性检查。即使患者稳定且无症状，也可能需要筛查。"
+            },
+            "glossary": [
+              {
+                "termEn": "FIT",
+                "termZh": "粪便免疫化学试验",
+                "defZh": "检测粪便中隐血的结直肠癌筛查方法。"
+              },
+              {
+                "termEn": "average risk",
+                "termZh": "一般风险",
+                "defZh": "没有使筛查提前或加强的高危因素。"
+              }
+            ]
+          },
+          {
+            "id": "gpt_case_premium_2026_06_10_case01_cloze_counseling_02",
+            "itemType": "dropdown_cloze",
+            "category": "Health Promotion and Maintenance",
+            "topic": "adult preventive screening",
+            "difficulty": "hard",
+            "ngnSkill": "generate_solutions",
+            "stem": {
+              "en": "Complete the nurse's counseling plan.",
+              "zh": "完成护士的咨询计划。"
+            },
+            "clozeStem": {
+              "en": "The nurse should first use {{1}} and then offer {{2}} so the client can choose a feasible screening plan.",
+              "zh": "护士应首先使用 {{1}}，然后提供 {{2}}，使来访者能选择可行的筛查计划。"
+            },
+            "dropdowns": [
+              {
+                "id": "1",
+                "options": [
+                  {
+                    "id": "o1",
+                    "en": "a qualified medical interpreter",
+                    "zh": "合格的医疗口译员"
+                  },
+                  {
+                    "id": "o2",
+                    "en": "the client's adult relative as the default interpreter",
+                    "zh": "默认让来访者的成年亲属担任口译"
+                  },
+                  {
+                    "id": "o3",
+                    "en": "English-only printed instructions",
+                    "zh": "仅英文书面说明"
+                  }
+                ],
+                "correct": "o1"
+              },
+              {
+                "id": "2",
+                "options": [
+                  {
+                    "id": "o1",
+                    "en": "plain-language options with follow-up steps",
+                    "zh": "通俗语言说明的选择和后续步骤"
+                  },
+                  {
+                    "id": "o2",
+                    "en": "a warning that refusal means cancer is likely",
+                    "zh": "警告拒绝就表示很可能有癌症"
+                  },
+                  {
+                    "id": "o3",
+                    "en": "all possible guidelines without checking understanding",
+                    "zh": "列出所有可能指南但不确认理解"
+                  }
+                ],
+                "correct": "o1"
+              }
+            ],
+            "rationale": {
+              "correct": {
+                "en": "A qualified interpreter and plain-language options support informed, feasible participation without coercion or jargon.",
+                "zh": "合格口译员和通俗语言的选择能支持来访者在不被胁迫、不被术语阻碍的情况下做出可行决定。"
+              },
+              "byChoice": [
+                {
+                  "refId": "1",
+                  "en": "The language cue makes interpreter use the safest way to reduce misunderstanding and preserve client participation.",
+                  "zh": "语言线索提示使用口译员最能减少误解并保护来访者参与。"
+                },
+                {
+                  "refId": "2",
+                  "en": "Plain-language choices with concrete follow-up steps address fear, schedule barriers, and health literacy.",
+                  "zh": "用通俗语言说明选择和具体后续步骤，可处理恐惧、时间障碍和健康素养问题。"
+                }
+              ]
+            },
+            "testTakingStrategy": {
+              "en": "When a language barrier is present, fix communication before judging refusal or knowledge.",
+              "zh": "存在语言障碍时，先解决沟通问题，再判断拒绝或知识水平。"
+            },
+            "glossary": [
+              {
+                "termEn": "qualified interpreter",
+                "termZh": "合格口译员",
+                "defZh": "接受过医疗口译训练、能准确传达医学信息的人员。"
+              },
+              {
+                "termEn": "plain language",
+                "termZh": "通俗语言",
+                "defZh": "用患者容易理解的词语解释健康信息。"
+              }
+            ]
+          },
+          {
+            "id": "gpt_case_premium_2026_06_10_case01_mc_positive_fit_03",
+            "itemType": "multiple_choice",
+            "category": "Health Promotion and Maintenance",
+            "topic": "adult preventive screening",
+            "difficulty": "hard",
+            "ngnSkill": "take_action",
+            "stem": {
+              "en": "The client's FIT result is positive. Which instruction is most appropriate?",
+              "zh": "来访者的FIT结果为阳性。哪项指导最合适？"
+            },
+            "options": [
+              {
+                "id": "A",
+                "en": "Repeat the FIT in 1 year because the client has no symptoms.",
+                "zh": "因来访者无症状，1年后重复FIT。"
+              },
+              {
+                "id": "D",
+                "en": "Cancel the cervical cancer screening until the colon evaluation is finished.",
+                "zh": "取消宫颈癌筛查，直到肠道评估完成。"
+              },
+              {
+                "id": "C",
+                "en": "Tell the client that the result confirms colorectal cancer.",
+                "zh": "告诉来访者该结果确认结直肠癌。"
+              },
+              {
+                "id": "B",
+                "en": "Schedule follow-up colonoscopy and explain that a positive screening test needs diagnostic evaluation.",
+                "zh": "安排后续结肠镜检查，并说明筛查阳性需要诊断性评估。"
+              }
+            ],
+            "correct": [
+              "B"
+            ],
+            "rationale": {
+              "correct": {
+                "en": "A positive FIT is a screening result that requires diagnostic follow-up, usually colonoscopy; it does not diagnose cancer by itself.",
+                "zh": "FIT阳性是需要诊断性随访（通常为结肠镜）的筛查结果；它本身并不能诊断癌症。"
+              },
+              "byChoice": [
+                {
+                  "refId": "A",
+                  "en": "Repeating annual screening after a positive result delays the needed diagnostic evaluation.",
+                  "zh": "筛查阳性后只等到一年后重复检查，会延误所需诊断评估。"
+                },
+                {
+                  "refId": "D",
+                  "en": "Other overdue preventive screening should not be automatically canceled unless scheduling or clinical reasons require it.",
+                  "zh": "除非有排程或临床原因，否则不应自动取消其他逾期的预防筛查。"
+                },
+                {
+                  "refId": "C",
+                  "en": "FIT is not diagnostic for cancer; saying it confirms cancer increases fear and is inaccurate.",
+                  "zh": "FIT不能诊断癌症；说它确认癌症会增加恐惧且不准确。"
+                },
+                {
+                  "refId": "B",
+                  "en": "This gives the next appropriate step and frames the result accurately without overstating it.",
+                  "zh": "这说明了下一步恰当措施，并准确解释结果而不过度夸大。"
+                }
+              ]
+            },
+            "testTakingStrategy": {
+              "en": "Screening tests sort risk; abnormal screening results usually need diagnostic follow-up.",
+              "zh": "筛查用于风险分层；异常筛查结果通常需要诊断性随访。"
+            },
+            "glossary": [
+              {
+                "termEn": "positive screening test",
+                "termZh": "筛查阳性",
+                "defZh": "提示需要进一步评估的结果，但不等同于确诊。"
+              },
+              {
+                "termEn": "colonoscopy",
+                "termZh": "结肠镜检查",
+                "defZh": "用内镜检查结肠并可取活检或切除息肉的诊断检查。"
+              }
+            ]
+          },
+          {
+            "id": "gpt_case_premium_2026_06_10_case01_sata_followup_04",
+            "itemType": "select_all",
+            "category": "Health Promotion and Maintenance",
+            "topic": "screening follow-up adherence",
+            "difficulty": "hard",
+            "ngnSkill": "generate_solutions",
+            "stem": {
+              "en": "Which nursing actions best support the client's completion of the follow-up plan? Select all that apply.",
+              "zh": "哪些护理措施最能支持来访者完成后续计划？选择所有适用项。"
+            },
+            "options": [
+              {
+                "id": "C",
+                "en": "Provide Mandarin written instructions with the clinic phone number.",
+                "zh": "提供中文书面说明和诊所电话号码。"
+              },
+              {
+                "id": "F",
+                "en": "Ask the client's relative to decide which screening the client should complete first.",
+                "zh": "请来访者亲属决定来访者应先完成哪项筛查。"
+              },
+              {
+                "id": "A",
+                "en": "Ask what days and times the client can attend appointments.",
+                "zh": "询问来访者哪些日期和时间可以赴约。"
+              },
+              {
+                "id": "E",
+                "en": "Offer assistance scheduling the colonoscopy before the client leaves.",
+                "zh": "在来访者离开前协助预约结肠镜。"
+              },
+              {
+                "id": "B",
+                "en": "Use teach-back to confirm the client understands what a positive FIT means.",
+                "zh": "使用回授法确认来访者理解FIT阳性的含义。"
+              },
+              {
+                "id": "D",
+                "en": "Tell the client that anxiety is not a valid reason to delay care.",
+                "zh": "告诉来访者焦虑不是延迟就医的合理理由。"
+              }
+            ],
+            "correct": [
+              "A",
+              "B",
+              "C",
+              "E"
+            ],
+            "rationale": {
+              "correct": {
+                "en": "Scheduling around work, teach-back, language-concordant instructions, and warm handoff scheduling address the identified barriers.",
+                "zh": "围绕工作安排预约、回授法、语言一致的说明以及离开前协助预约，能针对已发现的障碍。"
+              },
+              "byChoice": [
+                {
+                  "refId": "C",
+                  "en": "Written instructions in the preferred language reduce reliance on memory and English proficiency.",
+                  "zh": "使用偏好语言的书面说明能减少对记忆和英语能力的依赖。"
+                },
+                {
+                  "refId": "F",
+                  "en": "Family may support the client if the client chooses, but the client should remain the decision-maker.",
+                  "zh": "如果来访者愿意，家人可提供支持，但决定者应仍是来访者本人。"
+                },
+                {
+                  "refId": "A",
+                  "en": "The client has work barriers, so appointment feasibility must be assessed.",
+                  "zh": "来访者有工作障碍，因此必须评估预约可行性。"
+                },
+                {
+                  "refId": "E",
+                  "en": "Assisted scheduling reduces loss to follow-up after an abnormal screening result.",
+                  "zh": "协助预约能减少筛查异常后失访。"
+                },
+                {
+                  "refId": "B",
+                  "en": "Teach-back checks understanding without shaming the client.",
+                  "zh": "回授法能在不羞辱来访者的情况下确认理解。"
+                },
+                {
+                  "refId": "D",
+                  "en": "This dismisses fear and may reduce trust; anxiety should be acknowledged and addressed.",
+                  "zh": "这会否定恐惧并可能降低信任；应承认并处理焦虑。"
+                }
+              ]
+            },
+            "testTakingStrategy": {
+              "en": "Choose interventions that remove barriers instead of blaming the client for the barriers.",
+              "zh": "选择能移除障碍的措施，而不是因障碍责备患者。"
+            },
+            "glossary": [
+              {
+                "termEn": "teach-back",
+                "termZh": "回授法",
+                "defZh": "请患者用自己的话说明计划，以确认理解。"
+              },
+              {
+                "termEn": "loss to follow-up",
+                "termZh": "失访",
+                "defZh": "需要后续照护时未完成预约或评估。"
+              }
+            ]
+          },
+          {
+            "id": "gpt_case_premium_2026_06_10_case01_or_screening_plan_05",
+            "itemType": "ordered_response",
+            "category": "Health Promotion and Maintenance",
+            "topic": "preventive screening counseling",
+            "difficulty": "hard",
+            "ngnSkill": "take_action",
+            "stem": {
+              "en": "Place the nurse's actions in the best order when developing the preventive screening plan.",
+              "zh": "为制定预防筛查计划，将护士措施按最佳顺序排列。"
+            },
+            "options": [
+              {
+                "id": "C",
+                "en": "Use teach-back to confirm the client can describe the chosen plan.",
+                "zh": "使用回授法确认来访者能说明所选计划。"
+              },
+              {
+                "id": "B",
+                "en": "Explain the indicated screenings using short, plain-language statements.",
+                "zh": "用简短通俗语言解释应做的筛查。"
+              },
+              {
+                "id": "E",
+                "en": "Document the plan, barriers addressed, and follow-up needs.",
+                "zh": "记录计划、已处理的障碍和后续需求。"
+              },
+              {
+                "id": "D",
+                "en": "Assist with scheduling and provide written instructions in the preferred language.",
+                "zh": "协助预约并提供偏好语言的书面说明。"
+              },
+              {
+                "id": "A",
+                "en": "Ask the client about priorities, fears, transportation, and work schedule.",
+                "zh": "询问来访者的优先事项、恐惧、交通和工作时间。"
+              }
+            ],
+            "correct": [
+              "A",
+              "B",
+              "C",
+              "D",
+              "E"
+            ],
+            "rationale": {
+              "correct": {
+                "en": "Assessment of barriers comes before teaching; understanding should be verified before scheduling and documentation.",
+                "zh": "在教学前先评估障碍；在预约和记录前应确认理解。"
+              },
+              "byChoice": [
+                {
+                  "refId": "C",
+                  "en": "Teach-back verifies that the teaching was effective before moving to logistics.",
+                  "zh": "回授法在进入具体安排前确认教学有效。"
+                },
+                {
+                  "refId": "B",
+                  "en": "Teaching follows assessment and should match the client's health literacy needs.",
+                  "zh": "教学在评估之后进行，并应符合来访者健康素养需要。"
+                },
+                {
+                  "refId": "E",
+                  "en": "Documentation is last after the plan and follow-up needs are known.",
+                  "zh": "在计划和后续需求明确后最后记录。"
+                },
+                {
+                  "refId": "D",
+                  "en": "Scheduling after agreement and understanding makes the plan actionable.",
+                  "zh": "在达成共识并理解后预约，使计划可执行。"
+                },
+                {
+                  "refId": "A",
+                  "en": "The nurse first identifies what may prevent completion so counseling can be individualized.",
+                  "zh": "护士首先识别可能阻碍完成筛查的因素，以便个体化咨询。"
+                }
+              ]
+            },
+            "testTakingStrategy": {
+              "en": "In counseling sequences, assess first, teach second, verify third, then implement and document.",
+              "zh": "咨询排序通常是先评估、再教学、再确认理解，然后执行并记录。"
+            },
+            "glossary": [
+              {
+                "termEn": "barrier assessment",
+                "termZh": "障碍评估",
+                "defZh": "识别影响患者完成照护计划的实际或认知因素。"
+              },
+              {
+                "termEn": "documentation",
+                "termZh": "记录",
+                "defZh": "在病历中记录评估、措施和后续计划。"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "gpt_case_premium_2026_06_10_case02_caregiver_burden",
+      "itemType": "case_study",
+      "category": "Psychosocial Integrity",
+      "topic": "caregiver burden and family adaptation",
+      "difficulty": "hard",
+      "ngnSkill": "analyze_cues",
+      "stem": {
+        "en": "Review the unfolding caregiver-burden case and answer the embedded questions.",
+        "zh": "阅读这个进展性病例，并回答嵌入的问题。"
+      },
+      "rationale": {
+        "correct": {
+          "en": "The embedded questions evaluate clinical judgment across the unfolding case.",
+          "zh": "嵌入问题用于评估在病例进展中的临床判断。"
+        }
+      },
+      "testTakingStrategy": {
+        "en": "Track what changed over time and connect each cue to the safest nursing action.",
+        "zh": "追踪随时间变化的线索，并把每个线索与最安全的护理措施联系起来。"
+      },
+      "glossary": [
+        {
+          "termEn": "unfolding case",
+          "termZh": "进展性病例",
+          "defZh": "随着时间提供更多资料、要求持续重新判断的病例。"
+        }
+      ],
+      "caseStudy": {
+        "title": {
+          "en": "Caregiver burden and family adaptation in chronic neurologic illness",
+          "zh": "慢性神经系统疾病中的照护者负担与家庭适应"
+        },
+        "summary": {
+          "en": "A spouse caregiver shows escalating strain. The nurse must assess safety, preserve the client's abilities, and connect the family with acceptable supports.",
+          "zh": "配偶照护者出现压力升级。护士必须评估安全、维持患者能力，并把家庭与可接受的支持连接起来。"
+        },
+        "exhibits": [
+          {
+            "id": "home_visit",
+            "title": {
+              "en": "Home health visit",
+              "zh": "居家护理访视"
+            },
+            "content": {
+              "en": "A 68-year-old client with Parkinson disease lives with a spouse who provides most daily care. The client needs help bathing, dressing, and transferring but can feed self slowly. During a home visit, the spouse says, 'I am awake most nights. I have not seen my friends in months. Yesterday I yelled when he froze in the doorway. I hate that I did that.' The spouse denies wanting to harm the client but says, 'I am afraid I will lose control if nothing changes.'",
+              "zh": "一名68岁帕金森病患者与配偶同住，配偶承担大部分日常照护。患者洗澡、穿衣和转移需要帮助，但能缓慢自行进食。居家访视时，配偶说：“我大多数夜晚都醒着。几个月没见朋友了。昨天他在门口僵住不动时，我吼了他。我很讨厌自己那样。”配偶否认想伤害患者，但说：“如果没有改变，我担心自己会失控。”"
+            }
+          }
+        ],
+        "stages": [
+          {
+            "id": "one_month",
+            "title": {
+              "en": "One month later",
+              "zh": "一个月后"
+            },
+            "exhibits": [
+              {
+                "id": "family_update",
+                "title": {
+                  "en": "Family update",
+                  "zh": "家庭更新"
+                },
+                "content": {
+                  "en": "The adult daughter can visit on Saturdays but is unsure how to help. The spouse says, 'I do not want strangers in the home, but I cannot keep doing this alone.' The client says, 'I feel like a burden.' The nurse has information about respite care, adult day programs, caregiver support groups, and home safety evaluation.",
+                  "zh": "成年女儿周六可以探访，但不确定如何帮忙。配偶说：“我不想让陌生人进家里，但我不能继续一个人这样做。”患者说：“我觉得自己是负担。”护士掌握了喘息服务、成人日间项目、照护者支持小组和居家安全评估的信息。"
+                }
+              }
+            ]
+          }
+        ],
+        "questions": [
+          {
+            "id": "gpt_case_premium_2026_06_10_case02_mc_caregiver_priority_01",
+            "itemType": "multiple_choice",
+            "category": "Psychosocial Integrity",
+            "topic": "caregiver burden and family adaptation",
+            "difficulty": "hard",
+            "ngnSkill": "prioritize_hypotheses",
+            "stem": {
+              "en": "Which cue requires the nurse's most immediate follow-up?",
+              "zh": "哪项线索最需要护士立即跟进？"
+            },
+            "options": [
+              {
+                "id": "A",
+                "en": "The spouse has not seen friends in months.",
+                "zh": "配偶几个月没见朋友。"
+              },
+              {
+                "id": "C",
+                "en": "The client can feed self slowly.",
+                "zh": "患者能缓慢自行进食。"
+              },
+              {
+                "id": "D",
+                "en": "The daughter is unsure how to help.",
+                "zh": "女儿不确定如何帮忙。"
+              },
+              {
+                "id": "B",
+                "en": "The spouse says, 'I am afraid I will lose control if nothing changes.'",
+                "zh": "配偶说：“如果没有改变，我担心自己会失控。”"
+              }
+            ],
+            "correct": [
+              "B"
+            ],
+            "rationale": {
+              "correct": {
+                "en": "Fear of losing control signals escalating caregiver strain and possible safety risk, requiring immediate assessment and support.",
+                "zh": "担心失控提示照护者压力升级并可能存在安全风险，需要立即评估和支持。"
+              },
+              "byChoice": [
+                {
+                  "refId": "A",
+                  "en": "Social isolation is important but is less immediate than a stated fear of losing control.",
+                  "zh": "社交隔离很重要，但不如明确表示担心失控来得紧迫。"
+                },
+                {
+                  "refId": "C",
+                  "en": "Slow self-feeding is a functional cue, not the most urgent psychosocial safety cue.",
+                  "zh": "缓慢自行进食是功能线索，不是最紧急的心理社会安全线索。"
+                },
+                {
+                  "refId": "D",
+                  "en": "The daughter's uncertainty is a planning need but not the first priority over potential loss of control.",
+                  "zh": "女儿不确定如何帮忙是计划需求，但优先级低于潜在失控风险。"
+                },
+                {
+                  "refId": "B",
+                  "en": "This statement requires immediate follow-up to assess safety, coping, and need for urgent respite or backup support.",
+                  "zh": "这句话需要立即跟进，以评估安全、应对能力以及是否需要紧急喘息或备用支持。"
+                }
+              ]
+            },
+            "testTakingStrategy": {
+              "en": "When several psychosocial cues are present, prioritize statements that hint at immediate safety risk.",
+              "zh": "有多个心理社会线索时，优先处理暗示即时安全风险的陈述。"
+            },
+            "glossary": [
+              {
+                "termEn": "caregiver strain",
+                "termZh": "照护者压力",
+                "defZh": "照护责任超过个人资源时产生的身体、情绪或社会负担。"
+              },
+              {
+                "termEn": "respite care",
+                "termZh": "喘息服务",
+                "defZh": "让主要照护者短暂休息的临时照护支持。"
+              }
+            ]
+          },
+          {
+            "id": "gpt_case_premium_2026_06_10_case02_matrix_cues_02",
+            "itemType": "matrix",
+            "category": "Psychosocial Integrity",
+            "topic": "caregiver burden and family adaptation",
+            "difficulty": "hard",
+            "ngnSkill": "analyze_cues",
+            "stem": {
+              "en": "Classify each cue from the home visit.",
+              "zh": "对居家访视中的每项线索进行分类。"
+            },
+            "matrix": {
+              "rows": [
+                {
+                  "id": "r1",
+                  "en": "Spouse reports being awake most nights",
+                  "zh": "配偶报告大多数夜晚都醒着"
+                },
+                {
+                  "id": "r2",
+                  "en": "Spouse yelled during a freezing episode and feels guilty",
+                  "zh": "配偶在患者冻结步态时吼叫并感到内疚"
+                },
+                {
+                  "id": "r3",
+                  "en": "Client can feed self slowly",
+                  "zh": "患者能缓慢自行进食"
+                },
+                {
+                  "id": "r4",
+                  "en": "Spouse has not seen friends in months",
+                  "zh": "配偶几个月没见朋友"
+                },
+                {
+                  "id": "r5",
+                  "en": "Spouse denies intent to harm the client",
+                  "zh": "配偶否认有伤害患者的意图"
+                }
+              ],
+              "columns": [
+                {
+                  "id": "c1",
+                  "en": "Caregiver strain cue",
+                  "zh": "照护者压力线索"
+                },
+                {
+                  "id": "c2",
+                  "en": "Preserved client ability or protective cue",
+                  "zh": "患者保留能力或保护性线索"
+                }
+              ],
+              "selectionMode": "single_per_row"
+            },
+            "correct": [
+              {
+                "rowId": "r1",
+                "columnIds": [
+                  "c1"
+                ]
+              },
+              {
+                "rowId": "r2",
+                "columnIds": [
+                  "c1"
+                ]
+              },
+              {
+                "rowId": "r3",
+                "columnIds": [
+                  "c2"
+                ]
+              },
+              {
+                "rowId": "r4",
+                "columnIds": [
+                  "c1"
+                ]
+              },
+              {
+                "rowId": "r5",
+                "columnIds": [
+                  "c2"
+                ]
+              }
+            ],
+            "rationale": {
+              "correct": {
+                "en": "Sleep loss, guilt after yelling, and social isolation are caregiver strain cues. Self-feeding and denial of intent to harm are protective but do not eliminate strain.",
+                "zh": "睡眠不足、吼叫后的内疚和社交隔离是照护者压力线索。自行进食和否认伤害意图是保护性线索，但不能消除压力。"
+              },
+              "byChoice": [
+                {
+                  "refId": "r1",
+                  "en": "Chronic sleep disruption decreases coping capacity and supports caregiver strain.",
+                  "zh": "长期睡眠受扰会降低应对能力，支持照护者压力判断。"
+                },
+                {
+                  "refId": "r2",
+                  "en": "Yelling with guilt suggests the caregiver is exceeding coping capacity and needs support, not blame.",
+                  "zh": "吼叫并内疚提示照护者应对能力已超负荷，需要支持而不是责备。"
+                },
+                {
+                  "refId": "r3",
+                  "en": "The client's remaining ability can be built into the care plan to preserve independence.",
+                  "zh": "患者保留的能力可纳入照护计划，以维持独立性。"
+                },
+                {
+                  "refId": "r4",
+                  "en": "Loss of social contact is a strain cue and can worsen isolation.",
+                  "zh": "失去社交接触是压力线索，并会加重孤立。"
+                },
+                {
+                  "refId": "r5",
+                  "en": "Denial of intent to harm is protective, though the nurse still must assess risk because other cues are concerning.",
+                  "zh": "否认伤害意图是保护性线索，但因其他线索令人担忧，护士仍需评估风险。"
+                }
+              ]
+            },
+            "testTakingStrategy": {
+              "en": "Do not label every cue as a problem. Identify both risks and strengths for the care plan.",
+              "zh": "不要把每个线索都当成问题。要同时识别风险和优势，用于制定照护计划。"
+            },
+            "glossary": [
+              {
+                "termEn": "protective cue",
+                "termZh": "保护性线索",
+                "defZh": "能降低风险或支持照护计划的资料。"
+              },
+              {
+                "termEn": "freezing episode",
+                "termZh": "冻结步态发作",
+                "defZh": "帕金森病患者短暂难以启动或继续步行的情况。"
+              }
+            ]
+          },
+          {
+            "id": "gpt_case_premium_2026_06_10_case02_cloze_response_03",
+            "itemType": "dropdown_cloze",
+            "category": "Psychosocial Integrity",
+            "topic": "caregiver support communication",
+            "difficulty": "hard",
+            "ngnSkill": "take_action",
+            "stem": {
+              "en": "Complete the nurse's therapeutic response.",
+              "zh": "完成护士的治疗性回应。"
+            },
+            "clozeStem": {
+              "en": "The nurse's best response is to {{1}} and then {{2}}.",
+              "zh": "护士最佳回应是 {{1}}，然后 {{2}}。"
+            },
+            "dropdowns": [
+              {
+                "id": "1",
+                "options": [
+                  {
+                    "id": "o1",
+                    "en": "acknowledge the spouse's exhaustion without judgment",
+                    "zh": "不带评判地承认配偶的疲惫"
+                  },
+                  {
+                    "id": "o2",
+                    "en": "tell the spouse that yelling is unacceptable and move on",
+                    "zh": "告诉配偶吼叫不可接受，然后继续下一话题"
+                  },
+                  {
+                    "id": "o3",
+                    "en": "focus only on the client's motor symptoms",
+                    "zh": "只关注患者的运动症状"
+                  }
+                ],
+                "correct": "o1"
+              },
+              {
+                "id": "2",
+                "options": [
+                  {
+                    "id": "o1",
+                    "en": "assess immediate safety and arrange concrete support options",
+                    "zh": "评估即时安全并安排具体支持选项"
+                  },
+                  {
+                    "id": "o2",
+                    "en": "advise the spouse to wait until the next routine visit",
+                    "zh": "建议配偶等到下次常规访视"
+                  },
+                  {
+                    "id": "o3",
+                    "en": "ask the daughter to take over all care immediately",
+                    "zh": "要求女儿立即接管所有照护"
+                  }
+                ],
+                "correct": "o1"
+              }
+            ],
+            "rationale": {
+              "correct": {
+                "en": "The response should validate distress, assess safety, and move toward specific supports such as respite or shared care.",
+                "zh": "回应应确认痛苦、评估安全，并转向喘息服务或分担照护等具体支持。"
+              },
+              "byChoice": [
+                {
+                  "refId": "1",
+                  "en": "Nonjudgmental acknowledgment keeps the caregiver engaged and reduces shame.",
+                  "zh": "不评判地承认感受能让照护者继续参与，并减少羞耻感。"
+                },
+                {
+                  "refId": "2",
+                  "en": "Safety assessment and concrete supports address the stated fear of losing control.",
+                  "zh": "安全评估和具体支持能处理其明确表达的担心失控。"
+                }
+              ]
+            },
+            "testTakingStrategy": {
+              "en": "Therapeutic communication does not stop at empathy when safety cues are present; pair empathy with action.",
+              "zh": "有安全线索时，治疗性沟通不能止于共情；要把共情与行动结合。"
+            },
+            "glossary": [
+              {
+                "termEn": "therapeutic communication",
+                "termZh": "治疗性沟通",
+                "defZh": "促进信任、表达和安全计划的沟通方式。"
+              },
+              {
+                "termEn": "safety assessment",
+                "termZh": "安全评估",
+                "defZh": "评估是否存在伤害自己或他人的即时风险。"
+              }
+            ]
+          },
+          {
+            "id": "gpt_case_premium_2026_06_10_case02_sata_resources_04",
+            "itemType": "select_all",
+            "category": "Psychosocial Integrity",
+            "topic": "caregiver burden interventions",
+            "difficulty": "hard",
+            "ngnSkill": "generate_solutions",
+            "stem": {
+              "en": "Which interventions should the nurse include in the family adaptation plan? Select all that apply.",
+              "zh": "护士应在家庭适应计划中包括哪些干预？选择所有适用项。"
+            },
+            "options": [
+              {
+                "id": "C",
+                "en": "Encourage the spouse to stop all social activities until the client improves.",
+                "zh": "鼓励配偶在患者好转前停止所有社交活动。"
+              },
+              {
+                "id": "D",
+                "en": "Offer a caregiver support group or education program.",
+                "zh": "提供照护者支持小组或教育项目。"
+              },
+              {
+                "id": "E",
+                "en": "Plan ways for the client to keep doing safe tasks independently.",
+                "zh": "计划让患者继续独立完成安全任务的方法。"
+              },
+              {
+                "id": "A",
+                "en": "Discuss respite care options that can start with a short trial.",
+                "zh": "讨论可从短期试用开始的喘息服务选项。"
+              },
+              {
+                "id": "B",
+                "en": "Ask the daughter which tasks she can reliably do on Saturdays.",
+                "zh": "询问女儿周六能可靠承担哪些任务。"
+              },
+              {
+                "id": "F",
+                "en": "Explain that refusing outside help means the spouse is choosing exhaustion.",
+                "zh": "说明拒绝外部帮助就表示配偶选择疲惫。"
+              }
+            ],
+            "correct": [
+              "A",
+              "B",
+              "D",
+              "E"
+            ],
+            "rationale": {
+              "correct": {
+                "en": "Effective family adaptation uses respite, realistic task-sharing, education/support, and preservation of the client's abilities.",
+                "zh": "有效的家庭适应包括喘息服务、现实的任务分担、教育/支持以及维持患者能力。"
+              },
+              "byChoice": [
+                {
+                  "refId": "C",
+                  "en": "Social isolation worsens caregiver strain rather than solving it.",
+                  "zh": "社交隔离会加重照护者压力，而不是解决问题。"
+                },
+                {
+                  "refId": "D",
+                  "en": "Support groups and education normalize challenges and teach coping strategies.",
+                  "zh": "支持小组和教育能使困难正常化，并教授应对策略。"
+                },
+                {
+                  "refId": "E",
+                  "en": "Preserving independence reduces burden and supports client dignity.",
+                  "zh": "维持独立性可减轻负担并支持患者尊严。"
+                },
+                {
+                  "refId": "A",
+                  "en": "A short trial respects reluctance while creating relief.",
+                  "zh": "短期试用既尊重其犹豫，也能提供缓解。"
+                },
+                {
+                  "refId": "B",
+                  "en": "Reliable, specific tasks are more useful than vague offers to help.",
+                  "zh": "可靠、具体的任务比分散的“帮忙”承诺更有用。"
+                },
+                {
+                  "refId": "F",
+                  "en": "Blaming language increases shame and may reduce acceptance of help.",
+                  "zh": "责备性语言会增加羞耻感，并可能降低接受帮助的意愿。"
+                }
+              ]
+            },
+            "testTakingStrategy": {
+              "en": "For caregiver burden, pick interventions that distribute care and preserve relationships.",
+              "zh": "处理照护者负担时，选择能分担照护并维护关系的措施。"
+            },
+            "glossary": [
+              {
+                "termEn": "task-sharing",
+                "termZh": "任务分担",
+                "defZh": "把照护任务按能力和可行性分配给多人。"
+              },
+              {
+                "termEn": "adult day program",
+                "termZh": "成人日间项目",
+                "defZh": "白天提供监督、活动和部分照护的社区服务。"
+              }
+            ]
+          },
+          {
+            "id": "gpt_case_premium_2026_06_10_case02_or_family_plan_05",
+            "itemType": "ordered_response",
+            "category": "Psychosocial Integrity",
+            "topic": "family adaptation planning",
+            "difficulty": "hard",
+            "ngnSkill": "take_action",
+            "stem": {
+              "en": "Place the nurse's actions in the best order for the follow-up family meeting.",
+              "zh": "为后续家庭会议，将护士措施按最佳顺序排列。"
+            },
+            "options": [
+              {
+                "id": "A",
+                "en": "Ask each person what help is acceptable and realistic.",
+                "zh": "询问每个人可接受且现实的帮助。"
+              },
+              {
+                "id": "B",
+                "en": "Identify immediate safety concerns and a backup plan for crisis moments.",
+                "zh": "识别即时安全问题，并制定危机时备用计划。"
+              },
+              {
+                "id": "E",
+                "en": "Invite the client to describe which activities they want to continue doing.",
+                "zh": "请患者说明希望继续完成哪些活动。"
+              },
+              {
+                "id": "D",
+                "en": "Confirm who will do each task and when follow-up will occur.",
+                "zh": "确认每项任务由谁完成，以及何时随访。"
+              },
+              {
+                "id": "C",
+                "en": "Match agreed needs with respite, day program, support group, or home safety resources.",
+                "zh": "将达成一致的需求与喘息服务、日间项目、支持小组或居家安全资源匹配。"
+              }
+            ],
+            "correct": [
+              "B",
+              "E",
+              "A",
+              "C",
+              "D"
+            ],
+            "rationale": {
+              "correct": {
+                "en": "Safety planning comes first, followed by client-centered goals, realistic family input, resource matching, and clear follow-up assignments.",
+                "zh": "安全计划排第一，其后是以患者为中心的目标、现实的家庭意见、资源匹配和明确的后续任务分配。"
+              },
+              "byChoice": [
+                {
+                  "refId": "A",
+                  "en": "Family preferences should be assessed after immediate safety and client goals are addressed.",
+                  "zh": "在处理即时安全和患者目标后，应评估家庭偏好。"
+                },
+                {
+                  "refId": "B",
+                  "en": "A stated fear of losing control makes safety and backup planning the first step.",
+                  "zh": "明确担心失控使安全和备用计划成为第一步。"
+                },
+                {
+                  "refId": "E",
+                  "en": "Including the client preserves autonomy and prevents a plan focused only on caregiver convenience.",
+                  "zh": "纳入患者可保持自主性，避免计划只关注照护者便利。"
+                },
+                {
+                  "refId": "D",
+                  "en": "Assignments and follow-up are last so the plan becomes specific and accountable.",
+                  "zh": "任务分配和随访放在最后，使计划具体且可落实。"
+                },
+                {
+                  "refId": "C",
+                  "en": "Resources should be matched after needs and acceptable help are clarified.",
+                  "zh": "在明确需求和可接受帮助后，再匹配资源。"
+                }
+              ]
+            },
+            "testTakingStrategy": {
+              "en": "Order family meetings by urgency: safety, client voice, family capacity, resources, accountability.",
+              "zh": "家庭会议按紧急程度排序：安全、患者声音、家庭能力、资源、责任落实。"
+            },
+            "glossary": [
+              {
+                "termEn": "backup plan",
+                "termZh": "备用计划",
+                "defZh": "主要照护者无法安全继续照护时可立即使用的替代安排。"
+              },
+              {
+                "termEn": "client-centered",
+                "termZh": "以患者为中心",
+                "defZh": "把患者的目标、尊严和偏好纳入计划。"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "gpt_case_premium_2026_06_10_case03_chronic_self_management",
+      "itemType": "case_study",
+      "category": "Health Promotion and Maintenance",
+      "topic": "chronic illness self-management",
+      "difficulty": "hard",
+      "ngnSkill": "analyze_cues",
+      "stem": {
+        "en": "Review the unfolding chronic illness self-management case and answer the embedded questions.",
+        "zh": "阅读这个进展性病例，并回答嵌入的问题。"
+      },
+      "rationale": {
+        "correct": {
+          "en": "The embedded questions evaluate clinical judgment across the unfolding case.",
+          "zh": "嵌入问题用于评估在病例进展中的临床判断。"
+        }
+      },
+      "testTakingStrategy": {
+        "en": "Track what changed over time and connect each cue to the safest nursing action.",
+        "zh": "追踪随时间变化的线索，并把每个线索与最安全的护理措施联系起来。"
+      },
+      "glossary": [
+        {
+          "termEn": "unfolding case",
+          "termZh": "进展性病例",
+          "defZh": "随着时间提供更多资料、要求持续重新判断的病例。"
+        }
+      ],
+      "caseStudy": {
+        "title": {
+          "en": "Type 2 diabetes self-management around night-shift barriers",
+          "zh": "围绕夜班障碍的2型糖尿病自我管理"
+        },
+        "summary": {
+          "en": "A client with type 2 diabetes needs a realistic self-management plan that protects foot health and fits night-shift routines.",
+          "zh": "一名2型糖尿病患者需要现实可行的自我管理计划，以保护足部健康并适应夜班生活。"
+        },
+        "exhibits": [
+          {
+            "id": "initial_diabetes_visit",
+            "title": {
+              "en": "Diabetes self-management visit",
+              "zh": "糖尿病自我管理就诊"
+            },
+            "content": {
+              "en": "A 59-year-old client with type 2 diabetes attends a nurse-led self-management visit. A1c is 8.8%. The client works nights, eats one large meal after the shift, and says, 'I know what I should do, but the plan never fits my life.' The client checks blood glucose irregularly, has decreased sensation in both feet, and has no open wounds. The client asks whether a daughter can join education sessions by video.",
+              "zh": "一名59岁2型糖尿病患者参加护士主导的自我管理就诊。A1c为8.8%。患者上夜班，下班后吃一顿大餐，并说：“我知道应该怎么做，但计划从来不适合我的生活。”患者不规律监测血糖，双足感觉减退，无开放性伤口。患者询问女儿是否可以通过视频参加教育。"
+            }
+          }
+        ],
+        "stages": [
+          {
+            "id": "three_weeks",
+            "title": {
+              "en": "Three weeks later",
+              "zh": "三周后"
+            },
+            "exhibits": [
+              {
+                "id": "followup_log",
+                "title": {
+                  "en": "Follow-up log",
+                  "zh": "随访记录"
+                },
+                "content": {
+                  "en": "The client brings a phone photo log: walking 10 minutes after work on 4 days each week, checking feet after showering on most days, and packing a small meal before night shift twice weekly. The client says, 'I skipped checking my feet when I was tired because they looked fine last week.' No foot redness or open areas are seen today.",
+                  "zh": "患者带来手机照片记录：每周4天在下班后步行10分钟，大多数天洗澡后检查足部，每周2次在夜班前准备小餐。患者说：“累的时候我就没检查脚，因为上周看起来还好。”今天未见足部发红或开放区域。"
+                }
+              }
+            ]
+          }
+        ],
+        "questions": [
+          {
+            "id": "gpt_case_premium_2026_06_10_case03_matrix_selfmgmt_01",
+            "itemType": "matrix",
+            "category": "Health Promotion and Maintenance",
+            "topic": "chronic illness self-management",
+            "difficulty": "hard",
+            "ngnSkill": "analyze_cues",
+            "stem": {
+              "en": "For each cue, identify whether it is a self-management barrier or a self-management strength.",
+              "zh": "判断每项线索是自我管理障碍还是自我管理优势。"
+            },
+            "matrix": {
+              "rows": [
+                {
+                  "id": "r1",
+                  "en": "Works night shift and eats one large meal after work",
+                  "zh": "上夜班并在下班后吃一顿大餐"
+                },
+                {
+                  "id": "r2",
+                  "en": "Says the plan never fits daily life",
+                  "zh": "表示计划从来不适合日常生活"
+                },
+                {
+                  "id": "r3",
+                  "en": "Asks to include daughter in education by video",
+                  "zh": "要求女儿通过视频参加教育"
+                },
+                {
+                  "id": "r4",
+                  "en": "Has decreased sensation in both feet",
+                  "zh": "双足感觉减退"
+                },
+                {
+                  "id": "r5",
+                  "en": "Has no open foot wounds today",
+                  "zh": "今天足部无开放性伤口"
+                }
+              ],
+              "columns": [
+                {
+                  "id": "c1",
+                  "en": "Barrier or risk needing planning",
+                  "zh": "需要计划处理的障碍或风险"
+                },
+                {
+                  "id": "c2",
+                  "en": "Strength to build on",
+                  "zh": "可利用的优势"
+                }
+              ],
+              "selectionMode": "single_per_row"
+            },
+            "correct": [
+              {
+                "rowId": "r1",
+                "columnIds": [
+                  "c1"
+                ]
+              },
+              {
+                "rowId": "r2",
+                "columnIds": [
+                  "c1"
+                ]
+              },
+              {
+                "rowId": "r3",
+                "columnIds": [
+                  "c2"
+                ]
+              },
+              {
+                "rowId": "r4",
+                "columnIds": [
+                  "c1"
+                ]
+              },
+              {
+                "rowId": "r5",
+                "columnIds": [
+                  "c2"
+                ]
+              }
+            ],
+            "rationale": {
+              "correct": {
+                "en": "Work schedule, poor fit, and decreased sensation create barriers or risks. Family involvement and intact skin are strengths for planning.",
+                "zh": "工作时间、计划不适配和感觉减退构成障碍或风险。家庭参与和皮肤完整是可用于计划的优势。"
+              },
+              "byChoice": [
+                {
+                  "refId": "r1",
+                  "en": "Night shift and meal timing affect realistic glucose and meal-planning routines.",
+                  "zh": "夜班和进餐时间会影响现实可行的血糖与饮食计划。"
+                },
+                {
+                  "refId": "r2",
+                  "en": "A plan that does not fit life is unlikely to be sustained and needs redesign.",
+                  "zh": "不适合生活的计划难以持续，需要重新设计。"
+                },
+                {
+                  "refId": "r3",
+                  "en": "A chosen support person can reinforce learning and problem-solving.",
+                  "zh": "患者选择的支持者可强化学习和问题解决。"
+                },
+                {
+                  "refId": "r4",
+                  "en": "Loss of protective sensation increases foot-injury risk and requires daily prevention routines.",
+                  "zh": "保护性感觉下降会增加足部损伤风险，需要每日预防。"
+                },
+                {
+                  "refId": "r5",
+                  "en": "No open wounds is a current strength but does not remove the need for prevention.",
+                  "zh": "目前无开放伤口是优势，但不取消预防需要。"
+                }
+              ]
+            },
+            "testTakingStrategy": {
+              "en": "In chronic illness questions, look for modifiable barriers and existing strengths; both guide the plan.",
+              "zh": "慢性病题目中，要寻找可改变的障碍和已有优势；两者都指导计划。"
+            },
+            "glossary": [
+              {
+                "termEn": "A1c",
+                "termZh": "糖化血红蛋白",
+                "defZh": "反映约过去2到3个月平均血糖水平的指标。"
+              },
+              {
+                "termEn": "protective sensation",
+                "termZh": "保护性感觉",
+                "defZh": "感觉到压力、疼痛或损伤的能力，可帮助预防足部伤害。"
+              }
+            ]
+          },
+          {
+            "id": "gpt_case_premium_2026_06_10_case03_cloze_goal_02",
+            "itemType": "dropdown_cloze",
+            "category": "Health Promotion and Maintenance",
+            "topic": "diabetes self-management planning",
+            "difficulty": "hard",
+            "ngnSkill": "generate_solutions",
+            "stem": {
+              "en": "Complete the individualized teaching plan.",
+              "zh": "完成个体化教学计划。"
+            },
+            "clozeStem": {
+              "en": "The best initial plan is to create {{1}} that connects glucose checks, meals, activity, and foot care to {{2}}.",
+              "zh": "最佳初始计划是制定 {{1}}，并把血糖监测、进餐、活动和足部护理连接到 {{2}}。"
+            },
+            "dropdowns": [
+              {
+                "id": "1",
+                "options": [
+                  {
+                    "id": "o1",
+                    "en": "one or two realistic behavior goals",
+                    "zh": "一到两个现实可行的行为目标"
+                  },
+                  {
+                    "id": "o2",
+                    "en": "a perfect daily schedule starting tomorrow",
+                    "zh": "从明天开始的完美每日时间表"
+                  },
+                  {
+                    "id": "o3",
+                    "en": "a list of complications to scare the client",
+                    "zh": "用于吓唬患者的并发症清单"
+                  }
+                ],
+                "correct": "o1"
+              },
+              {
+                "id": "2",
+                "options": [
+                  {
+                    "id": "o1",
+                    "en": "the client's night-shift routine",
+                    "zh": "患者的夜班生活规律"
+                  },
+                  {
+                    "id": "o2",
+                    "en": "a standard daytime routine",
+                    "zh": "标准白班生活规律"
+                  },
+                  {
+                    "id": "o3",
+                    "en": "the daughter's preferred routine",
+                    "zh": "女儿偏好的生活规律"
+                  }
+                ],
+                "correct": "o1"
+              }
+            ],
+            "rationale": {
+              "correct": {
+                "en": "Self-management plans are more effective when goals are realistic and linked to the client's actual routine.",
+                "zh": "自我管理计划在目标现实且与患者实际生活规律相连时更有效。"
+              },
+              "byChoice": [
+                {
+                  "refId": "1",
+                  "en": "Starting with one or two achievable goals improves confidence and adherence.",
+                  "zh": "从一到两个可达到的目标开始，有助于提高信心和依从性。"
+                },
+                {
+                  "refId": "2",
+                  "en": "The client identified night-shift scheduling as the main barrier, so the plan must fit that routine.",
+                  "zh": "患者已指出夜班安排是主要障碍，因此计划必须适应该规律。"
+                }
+              ]
+            },
+            "testTakingStrategy": {
+              "en": "Avoid ideal plans that ignore the client's life; sustainable beats perfect.",
+              "zh": "避免忽视患者生活的理想化计划；可持续比完美更重要。"
+            },
+            "glossary": [
+              {
+                "termEn": "SMART goal",
+                "termZh": "SMART目标",
+                "defZh": "具体、可衡量、可达到、相关且有时间限制的目标。"
+              },
+              {
+                "termEn": "adherence",
+                "termZh": "依从性",
+                "defZh": "患者按可行计划持续执行健康行为或治疗的程度。"
+              }
+            ]
+          },
+          {
+            "id": "gpt_case_premium_2026_06_10_case03_sata_plan_03",
+            "itemType": "select_all",
+            "category": "Health Promotion and Maintenance",
+            "topic": "chronic illness self-management",
+            "difficulty": "hard",
+            "ngnSkill": "generate_solutions",
+            "stem": {
+              "en": "Which actions should the nurse include in the self-management plan? Select all that apply.",
+              "zh": "护士应在自我管理计划中包括哪些措施？选择所有适用项。"
+            },
+            "options": [
+              {
+                "id": "D",
+                "en": "Invite the daughter to join education if the client wants her included.",
+                "zh": "如果患者希望女儿参与，则邀请女儿参加教育。"
+              },
+              {
+                "id": "B",
+                "en": "Teach daily foot inspection even when the feet looked normal the previous week.",
+                "zh": "指导即使上周足部看起来正常，也要每天检查足部。"
+              },
+              {
+                "id": "F",
+                "en": "Tell the client that missed checks mean the client is not motivated.",
+                "zh": "告诉患者漏查表示患者没有动力。"
+              },
+              {
+                "id": "A",
+                "en": "Ask the client to choose one meal-planning change that can be done before night shift.",
+                "zh": "请患者选择一项夜班前可完成的饮食计划改变。"
+              },
+              {
+                "id": "E",
+                "en": "Use the client's phone photo log to reinforce progress and identify patterns.",
+                "zh": "使用患者手机照片记录来强化进展并识别规律。"
+              },
+              {
+                "id": "C",
+                "en": "Encourage the client to stop all activity until the A1c is at goal.",
+                "zh": "鼓励患者在A1c达标前停止所有活动。"
+              }
+            ],
+            "correct": [
+              "A",
+              "B",
+              "D",
+              "E"
+            ],
+            "rationale": {
+              "correct": {
+                "en": "The best plan fits the work schedule, protects feet, uses chosen support, and reinforces data the client already collects.",
+                "zh": "最佳计划适合工作时间、保护足部、使用患者选择的支持者，并强化患者已收集的数据。"
+              },
+              "byChoice": [
+                {
+                  "refId": "D",
+                  "en": "Client-approved family support can improve follow-through.",
+                  "zh": "经患者同意的家庭支持可提高执行度。"
+                },
+                {
+                  "refId": "B",
+                  "en": "Decreased sensation makes daily foot inspection important even when prior checks were normal.",
+                  "zh": "感觉减退使每日足部检查很重要，即使之前检查正常。"
+                },
+                {
+                  "refId": "F",
+                  "en": "Blaming missed checks ignores barriers and reduces collaboration.",
+                  "zh": "责备漏查会忽视障碍并降低合作。"
+                },
+                {
+                  "refId": "A",
+                  "en": "A small meal-planning change is more realistic than a full lifestyle overhaul.",
+                  "zh": "小的饮食计划改变比全面改变生活方式更现实。"
+                },
+                {
+                  "refId": "E",
+                  "en": "Using the client's own log supports evaluation and shared problem-solving.",
+                  "zh": "使用患者自己的记录可支持评估和共同解决问题。"
+                },
+                {
+                  "refId": "C",
+                  "en": "Activity usually supports diabetes self-management unless contraindicated; stopping all activity is not appropriate here.",
+                  "zh": "除非有禁忌，活动通常支持糖尿病自我管理；此处停止所有活动不合适。"
+                }
+              ]
+            },
+            "testTakingStrategy": {
+              "en": "Choose collaborative, behavior-specific interventions rather than shame-based advice.",
+              "zh": "选择合作性、具体行为的干预，而不是基于羞耻的建议。"
+            },
+            "glossary": [
+              {
+                "termEn": "foot inspection",
+                "termZh": "足部检查",
+                "defZh": "每天查看足底、趾间和受压部位是否有破损、红肿或水疱。"
+              },
+              {
+                "termEn": "pattern management",
+                "termZh": "规律管理",
+                "defZh": "利用记录发现健康行为和结果之间的关系。"
+              }
+            ]
+          },
+          {
+            "id": "gpt_case_premium_2026_06_10_case03_mc_understanding_04",
+            "itemType": "multiple_choice",
+            "category": "Health Promotion and Maintenance",
+            "topic": "diabetes foot care self-management",
+            "difficulty": "hard",
+            "ngnSkill": "evaluate_outcomes",
+            "stem": {
+              "en": "Which client statement best indicates effective teaching?",
+              "zh": "哪句患者陈述最能说明教学有效？"
+            },
+            "options": [
+              {
+                "id": "C",
+                "en": "I should walk only on days when my blood glucose is exactly normal.",
+                "zh": "只有血糖完全正常的日子我才应该走路。"
+              },
+              {
+                "id": "A",
+                "en": "If my feet looked fine last week, I can skip checks when I am tired.",
+                "zh": "如果上周脚看起来没问题，我累的时候可以跳过检查。"
+              },
+              {
+                "id": "D",
+                "en": "My daughter should decide which goals I follow because she is helping me.",
+                "zh": "因为女儿在帮我，所以她应该决定我遵循哪些目标。"
+              },
+              {
+                "id": "B",
+                "en": "I will inspect my feet every day and report any open area, blister, or redness that does not go away.",
+                "zh": "我会每天检查双脚，并报告任何开放区域、水疱或不消退的发红。"
+              }
+            ],
+            "correct": [
+              "B"
+            ],
+            "rationale": {
+              "correct": {
+                "en": "Daily inspection with reporting of skin changes shows understanding of foot protection with decreased sensation.",
+                "zh": "每天检查并报告皮肤变化，表明理解感觉减退时的足部保护。"
+              },
+              "byChoice": [
+                {
+                  "refId": "C",
+                  "en": "This creates an unnecessary barrier to activity; glucose-specific precautions should be individualized, not all-or-nothing.",
+                  "zh": "这会给活动造成不必要障碍；血糖相关注意事项应个体化，而不是非黑即白。"
+                },
+                {
+                  "refId": "A",
+                  "en": "Normal findings last week do not protect against new unnoticed injury.",
+                  "zh": "上周正常并不能防止新的未察觉损伤。"
+                },
+                {
+                  "refId": "D",
+                  "en": "Support people can help, but the client's goals should remain client-centered.",
+                  "zh": "支持者可以帮助，但目标应仍以患者为中心。"
+                },
+                {
+                  "refId": "B",
+                  "en": "This statement combines daily prevention with appropriate follow-up for concerning findings.",
+                  "zh": "这句话结合了每日预防和对可疑发现的适当随访。"
+                }
+              ]
+            },
+            "testTakingStrategy": {
+              "en": "Evaluation questions ask for the statement that proves the client can act safely after teaching.",
+              "zh": "评价类题目要求选择能证明患者教学后可安全行动的陈述。"
+            },
+            "glossary": [
+              {
+                "termEn": "blister",
+                "termZh": "水疱",
+                "defZh": "皮肤摩擦或压力后形成的含液体小疱。"
+              },
+              {
+                "termEn": "redness",
+                "termZh": "发红",
+                "defZh": "可能提示压力、摩擦、感染或炎症的皮肤改变。"
+              }
+            ]
+          },
+          {
+            "id": "gpt_case_premium_2026_06_10_case03_or_followup_05",
+            "itemType": "ordered_response",
+            "category": "Health Promotion and Maintenance",
+            "topic": "chronic illness self-management follow-up",
+            "difficulty": "hard",
+            "ngnSkill": "evaluate_outcomes",
+            "stem": {
+              "en": "Place the nurse's follow-up actions in the best order at the three-week visit.",
+              "zh": "在三周随访时，将护士措施按最佳顺序排列。"
+            },
+            "options": [
+              {
+                "id": "B",
+                "en": "Ask what made foot checks difficult on tired days.",
+                "zh": "询问疲惫日进行足部检查困难的原因。"
+              },
+              {
+                "id": "E",
+                "en": "Arrange the next follow-up and reinforce progress.",
+                "zh": "安排下次随访并强化进展。"
+              },
+              {
+                "id": "A",
+                "en": "Review the phone log with the client and identify what is working.",
+                "zh": "与患者一起查看手机记录，并识别有效做法。"
+              },
+              {
+                "id": "D",
+                "en": "Confirm the revised plan using teach-back.",
+                "zh": "使用回授法确认修改后的计划。"
+              },
+              {
+                "id": "C",
+                "en": "Revise the goal so foot inspection is linked to an existing daily routine.",
+                "zh": "修改目标，使足部检查与已有每日习惯相连接。"
+              }
+            ],
+            "correct": [
+              "A",
+              "B",
+              "C",
+              "D",
+              "E"
+            ],
+            "rationale": {
+              "correct": {
+                "en": "Start with the client's data and strengths, assess the barrier, revise the plan, verify understanding, and arrange follow-up.",
+                "zh": "先从患者的数据和优势开始，评估障碍，修改计划，确认理解，再安排随访。"
+              },
+              "byChoice": [
+                {
+                  "refId": "B",
+                  "en": "Barrier assessment should occur before revising the plan.",
+                  "zh": "在修改计划前应先评估障碍。"
+                },
+                {
+                  "refId": "E",
+                  "en": "Follow-up is last after the revised plan is clear.",
+                  "zh": "在修改后的计划明确后，最后安排随访。"
+                },
+                {
+                  "refId": "A",
+                  "en": "Reviewing the log recognizes effort and provides objective information.",
+                  "zh": "查看记录能认可努力并提供客观信息。"
+                },
+                {
+                  "refId": "D",
+                  "en": "Teach-back confirms the revised plan is understood.",
+                  "zh": "回授法确认患者理解修改后的计划。"
+                },
+                {
+                  "refId": "C",
+                  "en": "Linking a behavior to an existing routine improves sustainability.",
+                  "zh": "把行为与已有习惯相连能提高可持续性。"
+                }
+              ]
+            },
+            "testTakingStrategy": {
+              "en": "For evaluate-outcomes items, compare the plan with real follow-up data before changing it.",
+              "zh": "评价结果类题目中，改变计划前先用真实随访数据与计划对照。"
+            },
+            "glossary": [
+              {
+                "termEn": "follow-up",
+                "termZh": "随访",
+                "defZh": "在初次计划后再次评估进展和问题。"
+              },
+              {
+                "termEn": "routine linkage",
+                "termZh": "习惯连接",
+                "defZh": "把新健康行为安排在已有日常活动前后。"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "gpt_case_premium_2026_06_10_case04_pressure_injury_rehab",
+      "itemType": "case_study",
+      "category": "Basic Care and Comfort",
+      "topic": "pressure injury prevention in rehabilitation",
+      "difficulty": "hard",
+      "ngnSkill": "analyze_cues",
+      "stem": {
+        "en": "Review the unfolding rehabilitation pressure-injury prevention case and answer the embedded questions.",
+        "zh": "阅读这个进展性病例，并回答嵌入的问题。"
+      },
+      "rationale": {
+        "correct": {
+          "en": "The embedded questions evaluate clinical judgment across the unfolding case.",
+          "zh": "嵌入问题用于评估在病例进展中的临床判断。"
+        }
+      },
+      "testTakingStrategy": {
+        "en": "Track what changed over time and connect each cue to the safest nursing action.",
+        "zh": "追踪随时间变化的线索，并把每个线索与最安全的护理措施联系起来。"
+      },
+      "glossary": [
+        {
+          "termEn": "unfolding case",
+          "termZh": "进展性病例",
+          "defZh": "随着时间提供更多资料、要求持续重新判断的病例。"
+        }
+      ],
+      "caseStudy": {
+        "title": {
+          "en": "Pressure injury prevention during inpatient rehabilitation",
+          "zh": "住院康复期间压力性损伤预防"
+        },
+        "summary": {
+          "en": "A rehabilitation client with decreased sensation develops early pressure injury cues. Nursing care must protect skin while supporting mobility and rehabilitation goals.",
+          "zh": "一名感觉减退的康复患者出现早期压力性损伤线索。护理需在保护皮肤的同时支持活动和康复目标。"
+        },
+        "exhibits": [
+          {
+            "id": "rehab_admission",
+            "title": {
+              "en": "Rehabilitation admission",
+              "zh": "康复入院"
+            },
+            "content": {
+              "en": "A 54-year-old client is admitted to inpatient rehabilitation after an incomplete spinal cord injury. The client uses a wheelchair for most mobility and reports decreased sensation over the sacrum and heels. Braden score is 13. Skin is intact on admission except for blanchable redness on the coccyx after sitting for 3 hours. The client says, 'I do not feel pain there, so I thought it was fine.' Appetite is fair, and occasional urinary leakage is reported.",
+              "zh": "一名54岁不完全性脊髓损伤患者入住住院康复。患者大部分移动依靠轮椅，并报告骶尾部和足跟感觉减退。Braden评分13分。入院时皮肤完整，但坐轮椅3小时后尾骨处出现可压白发红。患者说：“那里不痛，所以我以为没事。”食欲一般，并报告偶尔尿失禁。"
+            }
+          }
+        ],
+        "stages": [
+          {
+            "id": "day_three",
+            "title": {
+              "en": "Rehabilitation day 3",
+              "zh": "康复第3天"
+            },
+            "exhibits": [
+              {
+                "id": "skin_rounds",
+                "title": {
+                  "en": "Skin rounds note",
+                  "zh": "皮肤查房记录"
+                },
+                "content": {
+                  "en": "On day 3, the nurse finds a 3 cm area of nonblanchable redness over the sacrum. The skin is intact and warm. Heels are boggy but intact. The client has been sitting for long therapy sessions and says, 'The donut cushion my neighbor gave me feels comfortable.'",
+                  "zh": "第3天，护士发现骶骨处有3厘米不可压白发红区域。皮肤完整且温热。足跟触感松软但完整。患者最近因治疗课程长时间坐位，并说：“邻居给我的甜甜圈垫坐着挺舒服。”"
+                }
+              }
+            ]
+          }
+        ],
+        "questions": [
+          {
+            "id": "gpt_case_premium_2026_06_10_case04_matrix_risk_01",
+            "itemType": "matrix",
+            "category": "Basic Care and Comfort",
+            "topic": "pressure injury prevention in rehabilitation",
+            "difficulty": "hard",
+            "ngnSkill": "analyze_cues",
+            "stem": {
+              "en": "Classify each rehabilitation admission cue.",
+              "zh": "对康复入院时每项线索进行分类。"
+            },
+            "matrix": {
+              "rows": [
+                {
+                  "id": "r1",
+                  "en": "Decreased sensation over sacrum and heels",
+                  "zh": "骶尾部和足跟感觉减退"
+                },
+                {
+                  "id": "r2",
+                  "en": "Braden score of 13",
+                  "zh": "Braden评分13分"
+                },
+                {
+                  "id": "r3",
+                  "en": "Blanchable coccyx redness after prolonged sitting",
+                  "zh": "长时间坐位后尾骨处可压白发红"
+                },
+                {
+                  "id": "r4",
+                  "en": "Skin intact with no open areas on admission",
+                  "zh": "入院时皮肤完整，无开放区域"
+                },
+                {
+                  "id": "r5",
+                  "en": "Occasional urinary leakage",
+                  "zh": "偶尔尿失禁"
+                }
+              ],
+              "columns": [
+                {
+                  "id": "c1",
+                  "en": "Increases pressure injury risk",
+                  "zh": "增加压力性损伤风险"
+                },
+                {
+                  "id": "c2",
+                  "en": "Current protective or reassuring cue",
+                  "zh": "当前保护性或较安心线索"
+                }
+              ],
+              "selectionMode": "single_per_row"
+            },
+            "correct": [
+              {
+                "rowId": "r1",
+                "columnIds": [
+                  "c1"
+                ]
+              },
+              {
+                "rowId": "r2",
+                "columnIds": [
+                  "c1"
+                ]
+              },
+              {
+                "rowId": "r3",
+                "columnIds": [
+                  "c1"
+                ]
+              },
+              {
+                "rowId": "r4",
+                "columnIds": [
+                  "c2"
+                ]
+              },
+              {
+                "rowId": "r5",
+                "columnIds": [
+                  "c1"
+                ]
+              }
+            ],
+            "rationale": {
+              "correct": {
+                "en": "Decreased sensation, moderate risk score, redness after sitting, and moisture exposure increase risk; intact skin is reassuring but does not remove risk.",
+                "zh": "感觉减退、中等风险评分、坐位后发红和潮湿暴露会增加风险；皮肤完整较安心，但不消除风险。"
+              },
+              "byChoice": [
+                {
+                  "refId": "r1",
+                  "en": "Reduced sensation prevents pain from warning the client to shift weight.",
+                  "zh": "感觉减退会使患者无法通过疼痛意识到需要减压。"
+                },
+                {
+                  "refId": "r2",
+                  "en": "A Braden score of 13 indicates increased risk requiring prevention measures.",
+                  "zh": "Braden评分13分提示风险增加，需要预防措施。"
+                },
+                {
+                  "refId": "r3",
+                  "en": "Redness after pressure shows tissue stress even when it blanches.",
+                  "zh": "受压后发红即使可压白，也提示组织受压。"
+                },
+                {
+                  "refId": "r4",
+                  "en": "Intact skin is a current positive finding but is not enough to classify the client as low risk.",
+                  "zh": "皮肤完整是当前积极发现，但不足以把患者归为低风险。"
+                },
+                {
+                  "refId": "r5",
+                  "en": "Moisture from leakage contributes to skin breakdown risk.",
+                  "zh": "尿液潮湿会增加皮肤破损风险。"
+                }
+              ]
+            },
+            "testTakingStrategy": {
+              "en": "Pressure injury prevention starts before skin opens. Risk cues matter even when the skin is intact.",
+              "zh": "压力性损伤预防应在皮肤破损前开始。即使皮肤完整，风险线索也重要。"
+            },
+            "glossary": [
+              {
+                "termEn": "Braden score",
+                "termZh": "Braden评分",
+                "defZh": "用于评估压力性损伤风险的量表。"
+              },
+              {
+                "termEn": "blanchable redness",
+                "termZh": "可压白发红",
+                "defZh": "按压后颜色暂时变白的发红，提示受压但尚可恢复。"
+              }
+            ]
+          },
+          {
+            "id": "gpt_case_premium_2026_06_10_case04_cloze_stage1_02",
+            "itemType": "dropdown_cloze",
+            "category": "Basic Care and Comfort",
+            "topic": "pressure injury prevention in rehabilitation",
+            "difficulty": "hard",
+            "ngnSkill": "prioritize_hypotheses",
+            "stem": {
+              "en": "Complete the nurse's interpretation of the day-3 finding.",
+              "zh": "完成护士对第3天发现的解读。"
+            },
+            "clozeStem": {
+              "en": "The sacral finding is most consistent with {{1}}, so the nurse should first {{2}}.",
+              "zh": "骶骨处发现最符合 {{1}}，因此护士应首先 {{2}}。"
+            },
+            "dropdowns": [
+              {
+                "id": "1",
+                "options": [
+                  {
+                    "id": "o1",
+                    "en": "a stage 1 pressure injury",
+                    "zh": "1期压力性损伤"
+                  },
+                  {
+                    "id": "o2",
+                    "en": "normal skin color variation",
+                    "zh": "正常肤色差异"
+                  },
+                  {
+                    "id": "o3",
+                    "en": "a full-thickness pressure injury",
+                    "zh": "全层压力性损伤"
+                  }
+                ],
+                "correct": "o1"
+              },
+              {
+                "id": "2",
+                "options": [
+                  {
+                    "id": "o1",
+                    "en": "offload pressure and update the prevention plan",
+                    "zh": "减压并更新预防计划"
+                  },
+                  {
+                    "id": "o2",
+                    "en": "massage the reddened area to improve circulation",
+                    "zh": "按摩发红区域以促进循环"
+                  },
+                  {
+                    "id": "o3",
+                    "en": "continue the same sitting schedule because the skin is intact",
+                    "zh": "因皮肤完整而继续相同坐位安排"
+                  }
+                ],
+                "correct": "o1"
+              }
+            ],
+            "rationale": {
+              "correct": {
+                "en": "Intact, nonblanchable redness over a pressure point is consistent with stage 1 pressure injury and requires pressure relief, not massage.",
+                "zh": "受压点上皮肤完整但不可压白发红，符合1期压力性损伤，需要减压而不是按摩。"
+              },
+              "byChoice": [
+                {
+                  "refId": "1",
+                  "en": "Nonblanchable redness with intact skin at the sacrum is a stage 1 pressure injury cue.",
+                  "zh": "骶骨处皮肤完整但不可压白发红，是1期压力性损伤线索。"
+                },
+                {
+                  "refId": "2",
+                  "en": "Removing pressure addresses the cause and prevents progression.",
+                  "zh": "解除压力能处理原因并防止进展。"
+                }
+              ]
+            },
+            "testTakingStrategy": {
+              "en": "For skin findings, match the depth and blanching response to the action; do not massage pressure injuries.",
+              "zh": "皮肤题要把深度和压白反应与措施对应；不要按摩压力性损伤。"
+            },
+            "glossary": [
+              {
+                "termEn": "nonblanchable redness",
+                "termZh": "不可压白发红",
+                "defZh": "按压后不变白的发红，提示组织损伤。"
+              },
+              {
+                "termEn": "offload",
+                "termZh": "减压",
+                "defZh": "把压力从受压部位移开。"
+              }
+            ]
+          },
+          {
+            "id": "gpt_case_premium_2026_06_10_case04_mc_first_action_03",
+            "itemType": "multiple_choice",
+            "category": "Basic Care and Comfort",
+            "topic": "pressure injury prevention in rehabilitation",
+            "difficulty": "hard",
+            "ngnSkill": "take_action",
+            "stem": {
+              "en": "Which nursing action is the priority after finding the nonblanchable sacral redness?",
+              "zh": "发现骶骨不可压白发红后，哪项护理措施优先？"
+            },
+            "options": [
+              {
+                "id": "B",
+                "en": "Keep the client on bedrest for the rest of the rehabilitation stay.",
+                "zh": "让患者在康复余下期间一直卧床休息。"
+              },
+              {
+                "id": "C",
+                "en": "Relieve pressure from the sacrum and request an appropriate pressure-redistribution surface.",
+                "zh": "解除骶骨压力，并申请合适的减压/压力再分布支撑面。"
+              },
+              {
+                "id": "D",
+                "en": "Rub lotion firmly over the sacrum every shift.",
+                "zh": "每班用力在骶骨处涂抹乳液。"
+              },
+              {
+                "id": "A",
+                "en": "Place the client back on the donut cushion because it feels comfortable.",
+                "zh": "因甜甜圈垫感觉舒适，让患者继续使用。"
+              }
+            ],
+            "correct": [
+              "C"
+            ],
+            "rationale": {
+              "correct": {
+                "en": "The priority is to remove pressure and use pressure redistribution; donut cushions and massage can worsen tissue injury.",
+                "zh": "优先措施是解除压力并使用压力再分布支撑；甜甜圈垫和按摩可能加重组织损伤。"
+              },
+              "byChoice": [
+                {
+                  "refId": "B",
+                  "en": "Total bedrest undermines rehabilitation and is unnecessary; the plan should balance mobility with pressure relief.",
+                  "zh": "完全卧床会妨碍康复且无必要；计划应平衡活动和减压。"
+                },
+                {
+                  "refId": "C",
+                  "en": "This directly addresses the cause of the injury and prevents worsening.",
+                  "zh": "这直接处理损伤原因并防止恶化。"
+                },
+                {
+                  "refId": "D",
+                  "en": "Firm rubbing or massage over a pressure injury can damage tissue.",
+                  "zh": "在压力性损伤处用力揉擦或按摩可能损伤组织。"
+                },
+                {
+                  "refId": "A",
+                  "en": "Donut cushions concentrate pressure around the opening and are not appropriate for prevention or treatment.",
+                  "zh": "甜甜圈垫会把压力集中在开口周围，不适合预防或处理。"
+                }
+              ]
+            },
+            "testTakingStrategy": {
+              "en": "When an intervention feels comfortable but increases pressure, choose tissue protection over preference.",
+              "zh": "当某措施感觉舒适但增加压力时，选择保护组织而不是迎合偏好。"
+            },
+            "glossary": [
+              {
+                "termEn": "pressure redistribution",
+                "termZh": "压力再分布",
+                "defZh": "通过床垫、坐垫或姿势改变分散压力。"
+              },
+              {
+                "termEn": "donut cushion",
+                "termZh": "甜甜圈垫",
+                "defZh": "环形垫，可能使压力集中在边缘。"
+              }
+            ]
+          },
+          {
+            "id": "gpt_case_premium_2026_06_10_case04_sata_prevention_04",
+            "itemType": "select_all",
+            "category": "Basic Care and Comfort",
+            "topic": "pressure injury prevention in rehabilitation",
+            "difficulty": "hard",
+            "ngnSkill": "generate_solutions",
+            "stem": {
+              "en": "Which interventions should be included in the revised prevention plan? Select all that apply.",
+              "zh": "修订后的预防计划应包括哪些干预？选择所有适用项。"
+            },
+            "options": [
+              {
+                "id": "D",
+                "en": "Keep moist skin clean and dry and use a moisture barrier as needed.",
+                "zh": "保持潮湿皮肤清洁干燥，并按需使用防潮屏障。"
+              },
+              {
+                "id": "F",
+                "en": "Teach the client that absence of pain does not mean absence of injury.",
+                "zh": "教育患者没有疼痛不代表没有损伤。"
+              },
+              {
+                "id": "B",
+                "en": "Use a pressure-redistribution wheelchair cushion instead of a donut cushion.",
+                "zh": "使用压力再分布轮椅坐垫，而不是甜甜圈垫。"
+              },
+              {
+                "id": "E",
+                "en": "Limit protein and fluids to prevent urinary leakage.",
+                "zh": "限制蛋白质和液体以防尿失禁。"
+              },
+              {
+                "id": "A",
+                "en": "Schedule pressure relief while in the wheelchair and repositioning while in bed.",
+                "zh": "安排轮椅上减压和卧床时翻身。"
+              },
+              {
+                "id": "C",
+                "en": "Inspect sacrum, heels, and other pressure points at least daily.",
+                "zh": "至少每日检查骶骨、足跟和其他受压部位。"
+              }
+            ],
+            "correct": [
+              "A",
+              "B",
+              "C",
+              "D",
+              "F"
+            ],
+            "rationale": {
+              "correct": {
+                "en": "The plan should reduce pressure, manage moisture, inspect high-risk areas, and teach around decreased sensation.",
+                "zh": "计划应减少压力、管理潮湿、检查高风险部位，并围绕感觉减退进行教学。"
+              },
+              "byChoice": [
+                {
+                  "refId": "D",
+                  "en": "Moisture control reduces skin breakdown risk from leakage.",
+                  "zh": "控制潮湿可降低尿液渗漏导致的皮肤破损风险。"
+                },
+                {
+                  "refId": "F",
+                  "en": "Teaching must address the client's mistaken reliance on pain as a warning sign.",
+                  "zh": "教学必须处理患者错误依赖疼痛作为警讯的问题。"
+                },
+                {
+                  "refId": "B",
+                  "en": "A proper cushion redistributes pressure; a donut cushion is unsafe here.",
+                  "zh": "合适坐垫能再分布压力；此处甜甜圈垫不安全。"
+                },
+                {
+                  "refId": "E",
+                  "en": "Restricting nutrition and fluids can impair skin integrity and is not the solution to leakage.",
+                  "zh": "限制营养和液体可能损害皮肤完整性，不是解决渗漏的方法。"
+                },
+                {
+                  "refId": "A",
+                  "en": "Regular pressure relief addresses prolonged sitting and bed pressure.",
+                  "zh": "规律减压能处理长时间坐位和卧床压力。"
+                },
+                {
+                  "refId": "C",
+                  "en": "Daily inspection detects early changes before wounds deepen.",
+                  "zh": "每日检查可在伤口加深前发现早期变化。"
+                }
+              ]
+            },
+            "testTakingStrategy": {
+              "en": "A good pressure-injury plan combines surface, schedule, skin, moisture, nutrition, and teaching.",
+              "zh": "良好的压力性损伤计划结合支撑面、时间表、皮肤、潮湿、营养和教学。"
+            },
+            "glossary": [
+              {
+                "termEn": "moisture barrier",
+                "termZh": "防潮屏障",
+                "defZh": "保护皮肤免受尿液、粪便或汗液刺激的产品。"
+              },
+              {
+                "termEn": "pressure point",
+                "termZh": "受压点",
+                "defZh": "骨突或长期受压容易受伤的部位。"
+              }
+            ]
+          },
+          {
+            "id": "gpt_case_premium_2026_06_10_case04_or_heel_action_05",
+            "itemType": "ordered_response",
+            "category": "Basic Care and Comfort",
+            "topic": "pressure injury prevention in rehabilitation",
+            "difficulty": "hard",
+            "ngnSkill": "take_action",
+            "stem": {
+              "en": "The client's heels are boggy but intact. Place the nurse's actions in the best order.",
+              "zh": "患者足跟触感松软但完整。将护士措施按最佳顺序排列。"
+            },
+            "options": [
+              {
+                "id": "C",
+                "en": "Update the care plan and communicate the finding to the rehabilitation team.",
+                "zh": "更新照护计划并把发现告知康复团队。"
+              },
+              {
+                "id": "E",
+                "en": "Teach the client and family to avoid resting heels directly on the bed surface.",
+                "zh": "教育患者和家属避免让足跟直接压在床面。"
+              },
+              {
+                "id": "D",
+                "en": "Document the assessment and the pressure-relief intervention.",
+                "zh": "记录评估和减压干预。"
+              },
+              {
+                "id": "A",
+                "en": "Float the heels or use ordered heel offloading boots.",
+                "zh": "悬空足跟或使用医嘱/机构流程允许的足跟减压靴。"
+              },
+              {
+                "id": "B",
+                "en": "Assess heel color, temperature, blanching response, and surrounding skin.",
+                "zh": "评估足跟颜色、温度、压白反应和周围皮肤。"
+              }
+            ],
+            "correct": [
+              "B",
+              "A",
+              "C",
+              "E",
+              "D"
+            ],
+            "rationale": {
+              "correct": {
+                "en": "Assess first, immediately offload pressure, update the team plan, teach prevention, and document what was found and done.",
+                "zh": "先评估，立即减压，更新团队计划，进行预防教学，并记录发现和措施。"
+              },
+              "byChoice": [
+                {
+                  "refId": "C",
+                  "en": "Team communication is needed because therapy schedules and positioning affect pressure.",
+                  "zh": "需要团队沟通，因为治疗安排和体位会影响压力。"
+                },
+                {
+                  "refId": "E",
+                  "en": "Teaching helps sustain prevention beyond the nurse's immediate intervention.",
+                  "zh": "教学有助于在护士即时干预之外持续预防。"
+                },
+                {
+                  "refId": "D",
+                  "en": "Documentation follows assessment, intervention, communication, and teaching.",
+                  "zh": "记录应在评估、干预、沟通和教学后进行。"
+                },
+                {
+                  "refId": "A",
+                  "en": "Offloading is urgent after assessment because bogginess suggests tissue risk.",
+                  "zh": "因触感松软提示组织风险，评估后应立即减压。"
+                },
+                {
+                  "refId": "B",
+                  "en": "Assessment comes first to characterize the finding and detect additional skin changes.",
+                  "zh": "首先评估以描述发现并发现其他皮肤变化。"
+                }
+              ]
+            },
+            "testTakingStrategy": {
+              "en": "For new skin-risk findings, assess, relieve pressure, coordinate, teach, document.",
+              "zh": "对新的皮肤风险发现，顺序是评估、减压、协作、教学、记录。"
+            },
+            "glossary": [
+              {
+                "termEn": "boggy",
+                "termZh": "松软/海绵样",
+                "defZh": "触摸时软而不结实，可能提示深部组织受压风险。"
+              },
+              {
+                "termEn": "heel offloading",
+                "termZh": "足跟减压",
+                "defZh": "让足跟不直接承受床面压力的措施。"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "gpt_case_premium_2026_06_10_case05_health_literacy_adherence",
+      "itemType": "case_study",
+      "category": "Psychosocial Integrity",
+      "topic": "health literacy and medication adherence",
+      "difficulty": "hard",
+      "ngnSkill": "analyze_cues",
+      "stem": {
+        "en": "Review the unfolding health-literacy and adherence case and answer the embedded questions.",
+        "zh": "阅读这个进展性病例，并回答嵌入的问题。"
+      },
+      "rationale": {
+        "correct": {
+          "en": "The embedded questions evaluate clinical judgment across the unfolding case.",
+          "zh": "嵌入问题用于评估在病例进展中的临床判断。"
+        }
+      },
+      "testTakingStrategy": {
+        "en": "Track what changed over time and connect each cue to the safest nursing action.",
+        "zh": "追踪随时间变化的线索，并把每个线索与最安全的护理措施联系起来。"
+      },
+      "glossary": [
+        {
+          "termEn": "unfolding case",
+          "termZh": "进展性病例",
+          "defZh": "随着时间提供更多资料、要求持续重新判断的病例。"
+        }
+      ],
+      "caseStudy": {
+        "title": {
+          "en": "Health literacy and adherence support for hypothyroidism self-management",
+          "zh": "甲状腺功能减退自我管理中的健康素养与依从性支持"
+        },
+        "summary": {
+          "en": "A client with low health literacy and inconsistent medication adherence needs accessible teaching, teach-back, refill planning, and client-directed support involvement.",
+          "zh": "一名健康素养较低且用药不规律的患者，需要可理解教学、回授法、续药计划以及由患者主导的支持者参与。"
+        },
+        "exhibits": [
+          {
+            "id": "new_primary_care",
+            "title": {
+              "en": "Primary care follow-up",
+              "zh": "初级保健随访"
+            },
+            "content": {
+              "en": "A 62-year-old client with newly diagnosed hypothyroidism returns for follow-up after 6 weeks of treatment. The client brings three medicine bottles in a plastic bag and says, 'I take the thyroid pill when I remember. The label has too many words.' The client reads at an elementary level, uses a basic cell phone, and prefers Spanish but understands some English. The client says breakfast is at 6 AM before work and asks, 'Can you just tell my nephew what to do?'",
+              "zh": "一名62岁新诊断甲状腺功能减退患者治疗6周后复诊。患者用塑料袋带来三瓶药，并说：“我想起来就吃甲状腺药。标签字太多了。”患者阅读水平约小学程度，使用基础手机，偏好西班牙语但能理解一些英语。患者说早上6点上班前吃早餐，并问：“你能不能直接告诉我侄子该怎么做？”"
+            }
+          }
+        ],
+        "stages": [
+          {
+            "id": "lab_and_call",
+            "title": {
+              "en": "Follow-up update",
+              "zh": "随访更新"
+            },
+            "exhibits": [
+              {
+                "id": "adherence_update",
+                "title": {
+                  "en": "Nurse call and lab note",
+                  "zh": "护士电话与化验记录"
+                },
+                "content": {
+                  "en": "At a nurse call 4 weeks later, the client says, 'The picture schedule helped. I take the thyroid pill on the table when I wake up, then I eat later at work. I missed two doses when the refill ran out.' TSH is improved but still above goal. The client gives permission for the nephew to help set up refills but wants to speak directly with the nurse about health decisions.",
+                  "zh": "4周后护士电话随访时，患者说：“图片时间表有帮助。我醒来时在桌边吃甲状腺药，然后到工作后再吃东西。药用完没续上时漏了两次。”TSH有所改善但仍高于目标。患者同意侄子帮助安排续药，但希望由自己直接与护士讨论健康决定。"
+                }
+              }
+            ]
+          }
+        ],
+        "questions": [
+          {
+            "id": "gpt_case_premium_2026_06_10_case05_mc_assessment_01",
+            "itemType": "multiple_choice",
+            "category": "Psychosocial Integrity",
+            "topic": "health literacy and medication adherence",
+            "difficulty": "hard",
+            "ngnSkill": "recognize_cues",
+            "stem": {
+              "en": "Which nurse response best assesses health literacy without shaming the client?",
+              "zh": "哪项护士回应最能在不羞辱患者的情况下评估健康素养？"
+            },
+            "options": [
+              {
+                "id": "A",
+                "en": "Can you read the label, or do you need someone else to read it for you?",
+                "zh": "你能读标签吗，还是需要别人帮你读？"
+              },
+              {
+                "id": "B",
+                "en": "Many medicine labels are confusing. How do you usually like health instructions explained?",
+                "zh": "很多药品标签都让人困惑。你通常希望健康说明怎样解释？"
+              },
+              {
+                "id": "C",
+                "en": "You must learn English medical words so you can take the medicine correctly.",
+                "zh": "你必须学习英文医学词汇，才能正确服药。"
+              },
+              {
+                "id": "D",
+                "en": "I will explain the medicine to your nephew instead of to you.",
+                "zh": "我会把药物解释给你侄子听，而不是给你听。"
+              }
+            ],
+            "correct": [
+              "B"
+            ],
+            "rationale": {
+              "correct": {
+                "en": "Normalizing label difficulty and asking about preferred learning style assesses needs while preserving dignity.",
+                "zh": "把标签难懂正常化，并询问偏好的学习方式，能在维护尊严的同时评估需求。"
+              },
+              "byChoice": [
+                {
+                  "refId": "A",
+                  "en": "This may feel like a literacy test and can shame the client.",
+                  "zh": "这可能让患者感觉像被测试识字能力，并造成羞辱。"
+                },
+                {
+                  "refId": "B",
+                  "en": "This uses a universal precautions approach to health literacy and invites the client to state preferences.",
+                  "zh": "这采用健康素养的普遍预防方法，并邀请患者说明偏好。"
+                },
+                {
+                  "refId": "C",
+                  "en": "This blames the client and ignores language access responsibilities.",
+                  "zh": "这责备患者，并忽视提供语言可及性的责任。"
+                },
+                {
+                  "refId": "D",
+                  "en": "The nephew can support if the client permits, but teaching should still include the client directly.",
+                  "zh": "如患者允许，侄子可支持；但教学仍应直接包括患者本人。"
+                }
+              ]
+            },
+            "testTakingStrategy": {
+              "en": "Use universal health-literacy precautions: assume instructions can be confusing and make them clearer.",
+              "zh": "采用健康素养普遍预防：假定说明可能令人困惑，并让说明更清楚。"
+            },
+            "glossary": [
+              {
+                "termEn": "health literacy",
+                "termZh": "健康素养",
+                "defZh": "获得、理解并使用健康信息作出决定的能力。"
+              },
+              {
+                "termEn": "dignity",
+                "termZh": "尊严",
+                "defZh": "在照护中维护患者的价值感和自主性。"
+              }
+            ]
+          },
+          {
+            "id": "gpt_case_premium_2026_06_10_case05_matrix_understanding_02",
+            "itemType": "matrix",
+            "category": "Psychosocial Integrity",
+            "topic": "health literacy and medication adherence",
+            "difficulty": "hard",
+            "ngnSkill": "analyze_cues",
+            "stem": {
+              "en": "Classify each cue in the medication-adherence assessment.",
+              "zh": "对用药依从性评估中的每项线索进行分类。"
+            },
+            "matrix": {
+              "rows": [
+                {
+                  "id": "r1",
+                  "en": "'I take the thyroid pill when I remember.'",
+                  "zh": "“我想起来就吃甲状腺药。”"
+                },
+                {
+                  "id": "r2",
+                  "en": "'The label has too many words.'",
+                  "zh": "“标签字太多了。”"
+                },
+                {
+                  "id": "r3",
+                  "en": "Prefers Spanish but understands some English",
+                  "zh": "偏好西班牙语但能理解一些英语"
+                },
+                {
+                  "id": "r4",
+                  "en": "Asks for nephew involvement",
+                  "zh": "要求侄子参与"
+                },
+                {
+                  "id": "r5",
+                  "en": "Uses a basic cell phone",
+                  "zh": "使用基础手机"
+                }
+              ],
+              "columns": [
+                {
+                  "id": "c1",
+                  "en": "Barrier to adherence or understanding",
+                  "zh": "依从性或理解障碍"
+                },
+                {
+                  "id": "c2",
+                  "en": "Potential support for the plan",
+                  "zh": "计划中的潜在支持"
+                }
+              ],
+              "selectionMode": "single_per_row"
+            },
+            "correct": [
+              {
+                "rowId": "r1",
+                "columnIds": [
+                  "c1"
+                ]
+              },
+              {
+                "rowId": "r2",
+                "columnIds": [
+                  "c1"
+                ]
+              },
+              {
+                "rowId": "r3",
+                "columnIds": [
+                  "c1"
+                ]
+              },
+              {
+                "rowId": "r4",
+                "columnIds": [
+                  "c2"
+                ]
+              },
+              {
+                "rowId": "r5",
+                "columnIds": [
+                  "c2"
+                ]
+              }
+            ],
+            "rationale": {
+              "correct": {
+                "en": "Irregular timing, dense labels, and language mismatch are barriers. A chosen helper and available phone can support reminders and refills.",
+                "zh": "不规律服药、标签文字密集和语言不匹配是障碍。患者选择的帮助者和可用电话可支持提醒与续药。"
+              },
+              "byChoice": [
+                {
+                  "refId": "r1",
+                  "en": "Taking medication only when remembered shows the routine is not yet reliable.",
+                  "zh": "只在想起来时服药说明服药习惯尚不可靠。"
+                },
+                {
+                  "refId": "r2",
+                  "en": "Dense label text is a health-literacy barrier.",
+                  "zh": "标签文字过多是健康素养障碍。"
+                },
+                {
+                  "refId": "r3",
+                  "en": "Preferred language matters even when the client understands some English.",
+                  "zh": "即使患者懂一些英语，偏好语言仍很重要。"
+                },
+                {
+                  "refId": "r4",
+                  "en": "A helper chosen by the client can support refills or reminders.",
+                  "zh": "患者选择的帮助者可支持续药或提醒。"
+                },
+                {
+                  "refId": "r5",
+                  "en": "A basic phone may still support calls or simple reminders.",
+                  "zh": "基础手机仍可支持电话或简单提醒。"
+                }
+              ]
+            },
+            "testTakingStrategy": {
+              "en": "Classify cues by how they affect the plan: barrier, support, or both.",
+              "zh": "按线索如何影响计划来分类：障碍、支持，或两者皆有。"
+            },
+            "glossary": [
+              {
+                "termEn": "adherence barrier",
+                "termZh": "依从性障碍",
+                "defZh": "妨碍患者持续执行治疗计划的因素。"
+              },
+              {
+                "termEn": "preferred language",
+                "termZh": "偏好语言",
+                "defZh": "患者最能理解健康信息的语言。"
+              }
+            ]
+          },
+          {
+            "id": "gpt_case_premium_2026_06_10_case05_cloze_teaching_03",
+            "itemType": "dropdown_cloze",
+            "category": "Psychosocial Integrity",
+            "topic": "health literacy teaching plan",
+            "difficulty": "hard",
+            "ngnSkill": "generate_solutions",
+            "stem": {
+              "en": "Complete the nurse's teaching strategy.",
+              "zh": "完成护士的教学策略。"
+            },
+            "clozeStem": {
+              "en": "The nurse should teach using {{1}} and confirm understanding with {{2}}.",
+              "zh": "护士应使用 {{1}} 进行教学，并通过 {{2}} 确认理解。"
+            },
+            "dropdowns": [
+              {
+                "id": "1",
+                "options": [
+                  {
+                    "id": "o1",
+                    "en": "a plain-language picture schedule in the client's preferred language",
+                    "zh": "患者偏好语言的通俗图片时间表"
+                  },
+                  {
+                    "id": "o2",
+                    "en": "the full pharmacy label read aloud once in English",
+                    "zh": "用英语朗读完整药房标签一次"
+                  },
+                  {
+                    "id": "o3",
+                    "en": "a complex chart of thyroid physiology",
+                    "zh": "复杂的甲状腺生理图表"
+                  }
+                ],
+                "correct": "o1"
+              },
+              {
+                "id": "2",
+                "options": [
+                  {
+                    "id": "o1",
+                    "en": "teach-back using the client's own words",
+                    "zh": "让患者用自己的话回授"
+                  },
+                  {
+                    "id": "o2",
+                    "en": "asking, 'Do you understand?'",
+                    "zh": "询问“你明白吗？”"
+                  },
+                  {
+                    "id": "o3",
+                    "en": "a written quiz before leaving",
+                    "zh": "离开前书面测验"
+                  }
+                ],
+                "correct": "o1"
+              }
+            ],
+            "rationale": {
+              "correct": {
+                "en": "Plain-language, language-concordant visual teaching plus teach-back addresses health literacy and confirms practical understanding.",
+                "zh": "通俗、语言一致的视觉教学加回授法，能处理健康素养问题并确认实际理解。"
+              },
+              "byChoice": [
+                {
+                  "refId": "1",
+                  "en": "The client identified label complexity and language preference; a picture schedule directly addresses both.",
+                  "zh": "患者指出标签复杂和语言偏好；图片时间表直接处理两者。"
+                },
+                {
+                  "refId": "2",
+                  "en": "Teach-back demonstrates whether the client can explain the plan, not just agree politely.",
+                  "zh": "回授法能显示患者是否能解释计划，而不只是礼貌地表示同意。"
+                }
+              ]
+            },
+            "testTakingStrategy": {
+              "en": "For low health literacy, simplify the message and verify the client's explanation of the action.",
+              "zh": "面对低健康素养，简化信息并确认患者能说明要做的行动。"
+            },
+            "glossary": [
+              {
+                "termEn": "picture schedule",
+                "termZh": "图片时间表",
+                "defZh": "用图像和简短词语显示何时做某项健康行为。"
+              },
+              {
+                "termEn": "teach-back",
+                "termZh": "回授法",
+                "defZh": "请患者用自己的话说明计划以确认理解。"
+              }
+            ]
+          },
+          {
+            "id": "gpt_case_premium_2026_06_10_case05_sata_adherence_04",
+            "itemType": "select_all",
+            "category": "Psychosocial Integrity",
+            "topic": "medication adherence support",
+            "difficulty": "hard",
+            "ngnSkill": "generate_solutions",
+            "stem": {
+              "en": "Which strategies should the nurse include to improve adherence? Select all that apply.",
+              "zh": "护士应包括哪些策略以改善依从性？选择所有适用项。"
+            },
+            "options": [
+              {
+                "id": "D",
+                "en": "Use shame to emphasize that missed doses caused the abnormal lab result.",
+                "zh": "用羞辱方式强调漏服导致化验异常。"
+              },
+              {
+                "id": "A",
+                "en": "Help the client link the medication to a consistent waking routine.",
+                "zh": "帮助患者把服药与固定起床习惯相连接。"
+              },
+              {
+                "id": "C",
+                "en": "Coordinate refill planning so the client does not run out of medication.",
+                "zh": "协调续药计划，避免患者药物用完。"
+              },
+              {
+                "id": "F",
+                "en": "Assume a basic cell phone cannot support any adherence plan.",
+                "zh": "假设基础手机无法支持任何依从性计划。"
+              },
+              {
+                "id": "E",
+                "en": "Provide instructions in the client's preferred language using short sentences.",
+                "zh": "用患者偏好语言和短句提供说明。"
+              },
+              {
+                "id": "B",
+                "en": "Ask permission before involving the nephew in refill reminders.",
+                "zh": "让侄子参与续药提醒前先征得患者同意。"
+              }
+            ],
+            "correct": [
+              "A",
+              "B",
+              "C",
+              "E"
+            ],
+            "rationale": {
+              "correct": {
+                "en": "Adherence improves when the plan is tied to routines, respects permission, prevents refill gaps, and uses accessible language.",
+                "zh": "把计划与习惯相连、尊重同意、避免续药中断并使用可理解语言，可改善依从性。"
+              },
+              "byChoice": [
+                {
+                  "refId": "D",
+                  "en": "Shame reduces trust and does not solve the refill or comprehension problem.",
+                  "zh": "羞辱会降低信任，不能解决续药或理解问题。"
+                },
+                {
+                  "refId": "A",
+                  "en": "Routine linkage makes the behavior easier to remember.",
+                  "zh": "习惯连接能让行为更容易记住。"
+                },
+                {
+                  "refId": "C",
+                  "en": "The update shows missed doses occurred when the refill ran out, so refill planning targets the actual barrier.",
+                  "zh": "更新资料显示药用完时出现漏服，因此续药计划针对真实障碍。"
+                },
+                {
+                  "refId": "F",
+                  "en": "Even basic phones may support calls, alarms, or family reminder systems.",
+                  "zh": "即使是基础手机，也可支持电话、闹铃或家人提醒系统。"
+                },
+                {
+                  "refId": "E",
+                  "en": "Preferred-language, short instructions match health-literacy needs.",
+                  "zh": "偏好语言和短句符合健康素养需求。"
+                },
+                {
+                  "refId": "B",
+                  "en": "The client may choose support, but permission and client control are essential.",
+                  "zh": "患者可以选择支持者，但同意和患者掌控很重要。"
+                }
+              ]
+            },
+            "testTakingStrategy": {
+              "en": "Adherence interventions should target the reason for missed doses, not simply repeat the instruction louder.",
+              "zh": "依从性干预应针对漏服原因，而不是只是更大声重复指令。"
+            },
+            "glossary": [
+              {
+                "termEn": "refill planning",
+                "termZh": "续药计划",
+                "defZh": "安排药物补充时间，避免药物用完。"
+              },
+              {
+                "termEn": "routine linkage",
+                "termZh": "习惯连接",
+                "defZh": "把健康行为连接到每天固定发生的活动。"
+              }
+            ]
+          },
+          {
+            "id": "gpt_case_premium_2026_06_10_case05_mc_evaluate_05",
+            "itemType": "multiple_choice",
+            "category": "Psychosocial Integrity",
+            "topic": "health literacy and adherence evaluation",
+            "difficulty": "hard",
+            "ngnSkill": "evaluate_outcomes",
+            "stem": {
+              "en": "Which follow-up finding best shows that the teaching plan is working?",
+              "zh": "哪项随访发现最能说明教学计划有效？"
+            },
+            "options": [
+              {
+                "id": "B",
+                "en": "The nephew answers all questions while the client remains silent.",
+                "zh": "侄子回答所有问题，而患者保持沉默。"
+              },
+              {
+                "id": "C",
+                "en": "The client says, 'I still take the pill whenever I remember.'",
+                "zh": "患者说：“我还是想起来才吃药。”"
+              },
+              {
+                "id": "A",
+                "en": "The client says the picture schedule helped and describes a consistent waking routine for the thyroid pill.",
+                "zh": "患者说图片时间表有帮助，并能描述起床后固定服用甲状腺药的习惯。"
+              },
+              {
+                "id": "D",
+                "en": "The client throws away all written instructions because the nurse explained them once.",
+                "zh": "患者因为护士解释过一次，就丢掉所有书面说明。"
+              }
+            ],
+            "correct": [
+              "A"
+            ],
+            "rationale": {
+              "correct": {
+                "en": "The client can describe a consistent routine using the tailored tool, showing practical understanding and improved adherence behavior.",
+                "zh": "患者能使用个体化工具描述固定习惯，显示实际理解和依从行为改善。"
+              },
+              "byChoice": [
+                {
+                  "refId": "B",
+                  "en": "Support person involvement should not replace the client's own understanding and participation.",
+                  "zh": "支持者参与不应取代患者自己的理解和参与。"
+                },
+                {
+                  "refId": "C",
+                  "en": "This indicates the main adherence barrier remains unresolved.",
+                  "zh": "这说明主要依从性障碍仍未解决。"
+                },
+                {
+                  "refId": "A",
+                  "en": "This shows the teaching tool matched the client's needs and changed the routine.",
+                  "zh": "这显示教学工具符合患者需要并改变了习惯。"
+                },
+                {
+                  "refId": "D",
+                  "en": "Discarding accessible instructions removes a memory support and does not prove understanding.",
+                  "zh": "丢掉可理解说明会失去记忆支持，并不能证明理解。"
+                }
+              ]
+            },
+            "testTakingStrategy": {
+              "en": "Outcome evaluation looks for the client's ability to carry out the plan in real life.",
+              "zh": "结果评价要寻找患者在现实生活中执行计划的能力。"
+            },
+            "glossary": [
+              {
+                "termEn": "TSH",
+                "termZh": "促甲状腺激素",
+                "defZh": "用于监测甲状腺功能和甲状腺替代治疗反应的血液指标。"
+              },
+              {
+                "termEn": "tailored teaching",
+                "termZh": "个体化教学",
+                "defZh": "根据患者语言、读写能力、习惯和支持系统调整教学。"
+              }
+            ]
+          }
+        ]
+      }
     }
   ]
 }

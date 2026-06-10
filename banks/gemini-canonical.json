@@ -5,7 +5,7 @@
     "topic": "assorted NCLEX-RN",
     "category": "mixed",
     "difficulty": "mixed",
-    "count": 760
+    "count": 770
   },
   "questions": [
     {
@@ -63078,6 +63078,3816 @@
           "defZh": "在可能引起缺氧的操作（如吸痰）之前，为患者提供高浓度氧气的做法。"
         }
       ]
+    },
+    {
+      "id": "gemini_gapfill_case_2026_06_10_case_imm_01",
+      "itemType": "case_study",
+      "category": "Health Promotion and Maintenance",
+      "topic": "adult immunization",
+      "difficulty": "medium",
+      "stem": {
+        "en": "Review the client record and answer the case-study items.",
+        "zh": "查阅患者病历并回答病例分析题。"
+      },
+      "caseStudy": {
+        "title": {
+          "en": "Primary Care Visit",
+          "zh": "初级保健随访"
+        },
+        "summary": {
+          "en": "A 68-year-old male presents to the clinic for a routine checkup.",
+          "zh": "一名68岁男性来到诊所进行常规体检。"
+        },
+        "exhibits": [
+          {
+            "id": "history",
+            "title": {
+              "en": "Health History",
+              "zh": "健康病史"
+            },
+            "content": {
+              "en": "Medical history includes COPD and hypertension. Has not seen a healthcare provider in 4 years. He lives independently. Reports a mild chronic cough. Asks, 'What shots do I need at my age?'",
+              "zh": "既往病史包括慢阻肺（COPD）和高血压。已有4年未就医。独立生活。自述有轻度慢性咳嗽。询问：“我这个年纪需要打什么疫苗？”"
+            }
+          }
+        ],
+        "stages": [],
+        "questions": [
+          {
+            "id": "gemini_gapfill_case_2026_06_10_case_imm_01_q1",
+            "itemType": "matrix",
+            "category": "Health Promotion and Maintenance",
+            "topic": "adult immunization",
+            "difficulty": "medium",
+            "ngnSkill": "analyze_cues",
+            "stem": {
+              "en": "Click to specify if each finding increases the client's risk for vaccine-preventable complications.",
+              "zh": "点击指出以下各项发现是否增加了该患者发生疫苗可预防并发症的风险。"
+            },
+            "matrix": {
+              "rows": [
+                {
+                  "id": "r1",
+                  "en": "Age of 68",
+                  "zh": "年龄68岁"
+                },
+                {
+                  "id": "r2",
+                  "en": "COPD history",
+                  "zh": "慢阻肺病史"
+                },
+                {
+                  "id": "r3",
+                  "en": "Independent living",
+                  "zh": "独立生活"
+                }
+              ],
+              "columns": [
+                {
+                  "id": "c1",
+                  "en": "Increases Risk",
+                  "zh": "增加风险"
+                },
+                {
+                  "id": "c2",
+                  "en": "Does Not Increase Risk",
+                  "zh": "不增加风险"
+                }
+              ],
+              "selectionMode": "single_per_row"
+            },
+            "correct": [
+              {
+                "rowId": "r1",
+                "columnIds": [
+                  "c1"
+                ]
+              },
+              {
+                "rowId": "r2",
+                "columnIds": [
+                  "c1"
+                ]
+              },
+              {
+                "rowId": "r3",
+                "columnIds": [
+                  "c2"
+                ]
+              }
+            ],
+            "rationale": {
+              "correct": {
+                "en": "Advanced age (≥65) and chronic lung diseases like COPD increase the risk of severe complications from influenza and pneumococcal infections.",
+                "zh": "高龄（≥65岁）和慢性肺部疾病（如COPD）会增加流感和肺炎球菌感染引起严重并发症的风险。"
+              },
+              "byChoice": [
+                {
+                  "refId": "r1",
+                  "en": "Age ≥65 is a risk factor requiring pneumococcal and high-dose influenza vaccines.",
+                  "zh": "年龄≥65岁是一个危险因素，需要接种肺炎球菌和高剂量流感疫苗。"
+                },
+                {
+                  "refId": "r2",
+                  "en": "COPD impairs respiratory defense, increasing susceptibility to pneumonia.",
+                  "zh": "COPD损害呼吸道防御功能，增加对肺炎的易感性。"
+                },
+                {
+                  "refId": "r3",
+                  "en": "Living independently is a functional status, not an infection risk factor.",
+                  "zh": "独立生活是一种功能状态，并非感染危险因素。"
+                }
+              ]
+            },
+            "testTakingStrategy": {
+              "en": "Identify factors that compromise immunity or respiratory function.",
+              "zh": "识别损害免疫力或呼吸功能的因素。"
+            },
+            "glossary": [
+              {
+                "termEn": "COPD",
+                "termZh": "慢性阻塞性肺疾病(慢阻肺)",
+                "defZh": "一种引起气流受限的慢性肺部疾病"
+              }
+            ]
+          },
+          {
+            "id": "gemini_gapfill_case_2026_06_10_case_imm_01_q2",
+            "itemType": "select_all",
+            "category": "Health Promotion and Maintenance",
+            "topic": "adult immunization",
+            "difficulty": "medium",
+            "ngnSkill": "take_action",
+            "stem": {
+              "en": "Which vaccines should the nurse anticipate administering to this client? Select all that apply.",
+              "zh": "护士应预计为该患者接种哪些疫苗？请选择所有适用项。"
+            },
+            "options": [
+              {
+                "id": "o4",
+                "en": "HPV vaccine",
+                "zh": "人乳头瘤病毒(HPV)疫苗"
+              },
+              {
+                "id": "o5",
+                "en": "Tdap or Td booster (if due or immunization history unknown)",
+                "zh": "百白破(Tdap)或破伤风-白喉(Td)加强针（如已到期或免疫接种史不明）"
+              },
+              {
+                "id": "o1",
+                "en": "Influenza vaccine (high-dose)",
+                "zh": "流感疫苗（高剂量）"
+              },
+              {
+                "id": "o3",
+                "en": "Recombinant zoster vaccine",
+                "zh": "重组带状疱疹疫苗"
+              },
+              {
+                "id": "o2",
+                "en": "Pneumococcal vaccine",
+                "zh": "肺炎球菌疫苗"
+              }
+            ],
+            "correct": [
+              "o1",
+              "o2",
+              "o3",
+              "o5"
+            ],
+            "rationale": {
+              "correct": {
+                "en": "Adults ≥65 need high-dose influenza, pneumococcal, zoster, and Tdap (if due) vaccines. HPV is not indicated for this age group.",
+                "zh": "≥65岁的成人需要接种高剂量流感、肺炎球菌、带状疱疹和Tdap（如果到期）疫苗。HPV疫苗不适用于该年龄段。"
+              },
+              "byChoice": [
+                {
+                  "refId": "o4",
+                  "en": "Not routinely recommended for adults over 26 without shared decision-making, and not for over 45.",
+                  "zh": "通常不建议26岁以上成人常规接种，也不适用于45岁以上人群。"
+                },
+                {
+                  "refId": "o5",
+                  "en": "Tdap or Td is recommended every 10 years; without a documented immunization history, the nurse should anticipate administration if the client is due or status is unknown.",
+                  "zh": "Tdap或Td建议每10年接种一次；在缺乏免疫接种记录的情况下，若患者已到接种时间或接种史不明，护士应预计需要接种。"
+                },
+                {
+                  "refId": "o1",
+                  "en": "Recommended annually for all adults, high-dose preferred for ≥65.",
+                  "zh": "建议所有成人每年接种，≥65岁首选高剂量。"
+                },
+                {
+                  "refId": "o3",
+                  "en": "Recommended for adults ≥50 to prevent shingles.",
+                  "zh": "建议≥50岁成人接种以预防带状疱疹。"
+                },
+                {
+                  "refId": "o2",
+                  "en": "Recommended for adults ≥65 and those with chronic lung disease.",
+                  "zh": "建议≥65岁成人及患有慢性肺部疾病的人群接种。"
+                }
+              ]
+            },
+            "testTakingStrategy": {
+              "en": "Recall CDC adult immunization guidelines for clients over 65.",
+              "zh": "回想CDC针对65岁以上成人的免疫接种指南。"
+            },
+            "glossary": []
+          },
+          {
+            "id": "gemini_gapfill_case_2026_06_10_case_imm_01_q3",
+            "itemType": "multiple_choice",
+            "category": "Health Promotion and Maintenance",
+            "topic": "adult immunization",
+            "difficulty": "medium",
+            "ngnSkill": "generate_solutions",
+            "stem": {
+              "en": "The client states, 'I don't want the flu shot because it gave me the flu last time.' What is the nurse's best response?",
+              "zh": "患者说：“我不想打流感疫苗，因为上次打完我就得流感了。”护士的最佳回答是什么？"
+            },
+            "options": [
+              {
+                "id": "o4",
+                "en": "'You should take acetaminophen before the injection to prevent getting sick.'",
+                "zh": "“您应该在注射前服用对乙酰氨基酚，以防生病。”"
+              },
+              {
+                "id": "o3",
+                "en": "'We can skip the flu shot this year since you had a bad reaction.'",
+                "zh": "“既然您有不良反应，我们今年可以不打流感疫苗。”"
+              },
+              {
+                "id": "o1",
+                "en": "'The flu shot contains a live virus, so mild symptoms are normal.'",
+                "zh": "“流感疫苗含有活病毒，所以出现轻微症状是正常的。”"
+              },
+              {
+                "id": "o2",
+                "en": "'The injected flu vaccine is inactivated and cannot cause the flu. You may have experienced a mild immune response or a cold.'",
+                "zh": "“注射的流感疫苗是灭活的，不会引起流感。您可能经历了轻微的免疫反应或感冒。”"
+              }
+            ],
+            "correct": [
+              "o2"
+            ],
+            "rationale": {
+              "correct": {
+                "en": "The injected influenza vaccine contains inactivated virus and cannot cause influenza. Mild systemic reactions (muscle aches, low fever) are a normal immune response.",
+                "zh": "注射的流感疫苗含有灭活病毒，不会引起流感。轻微的全身反应（肌肉酸痛、低热）是正常的免疫反应。"
+              },
+              "byChoice": [
+                {
+                  "refId": "o4",
+                  "en": "Pre-medicating with antipyretics is not routinely recommended as it may blunt the immune response.",
+                  "zh": "通常不建议预防性使用退烧药，因为这可能会减弱免疫反应。"
+                },
+                {
+                  "refId": "o3",
+                  "en": "Skipping the vaccine puts the client at risk, especially with COPD.",
+                  "zh": "不打疫苗会使患者面临风险，尤其是有COPD病史。"
+                },
+                {
+                  "refId": "o1",
+                  "en": "Injected flu vaccines for adults are inactivated, not live.",
+                  "zh": "成人的注射流感疫苗是灭活的，并非减毒活疫苗。"
+                },
+                {
+                  "refId": "o2",
+                  "en": "This accurately educates the client and addresses the misconception.",
+                  "zh": "这准确地教育了患者，并纠正了误解。"
+                }
+              ]
+            },
+            "testTakingStrategy": {
+              "en": "Address misconceptions with factual education.",
+              "zh": "用事实教育来纠正误解。"
+            },
+            "glossary": []
+          },
+          {
+            "id": "gemini_gapfill_case_2026_06_10_case_imm_01_q4",
+            "itemType": "dropdown_cloze",
+            "category": "Health Promotion and Maintenance",
+            "topic": "adult immunization",
+            "difficulty": "medium",
+            "ngnSkill": "evaluate_outcomes",
+            "stem": {
+              "en": "The nurse is completing discharge teaching.",
+              "zh": "护士正在完成出院宣教。"
+            },
+            "clozeStem": {
+              "en": "The nurse should evaluate that teaching was effective if the client states they will {{1}} and will return to the clinic for a follow-up in {{2}}.",
+              "zh": "如果患者表示他们将 {{1}} 并将在 {{2}} 后返回诊所复诊，护士应评估宣教有效。"
+            },
+            "dropdowns": [
+              {
+                "id": "1",
+                "options": [
+                  {
+                    "id": "o1",
+                    "en": "monitor for redness at the injection site",
+                    "zh": "观察注射部位是否发红"
+                  },
+                  {
+                    "id": "o2",
+                    "en": "avoid crowds for 2 weeks",
+                    "zh": "避免去人群密集的场所2周"
+                  }
+                ],
+                "correct": "o1"
+              },
+              {
+                "id": "2",
+                "options": [
+                  {
+                    "id": "o1",
+                    "en": "1 year",
+                    "zh": "1年"
+                  },
+                  {
+                    "id": "o2",
+                    "en": "3 years",
+                    "zh": "3年"
+                  }
+                ],
+                "correct": "o1"
+              }
+            ],
+            "rationale": {
+              "correct": {
+                "en": "Mild local reactions are expected. Annual checkups are recommended for older adults with chronic conditions.",
+                "zh": "轻微的局部反应是预期的。建议患有慢性病的老年人每年进行体检。"
+              },
+              "byChoice": [
+                {
+                  "refId": "1",
+                  "en": "Monitoring for local reactions is appropriate post-vaccination.",
+                  "zh": "接种疫苗后观察局部反应是合适的。"
+                },
+                {
+                  "refId": "2",
+                  "en": "An annual visit is necessary for medication management and the next flu shot.",
+                  "zh": "每年的就诊对于药物管理和下一次流感疫苗接种是必要的。"
+                }
+              ]
+            },
+            "testTakingStrategy": {
+              "en": "Select the standard expected outcome for a routine adult vaccination visit.",
+              "zh": "选择成人常规疫苗接种就诊的标准预期结果。"
+            },
+            "glossary": []
+          }
+        ]
+      },
+      "rationale": {
+        "correct": {
+          "en": "Adults over 65 require specific immunizations, including high-dose influenza, pneumococcal, and zoster vaccines. Addressing misconceptions is key to health promotion.",
+          "zh": "65岁以上的成人需要特定的免疫接种，包括高剂量流感、肺炎球菌和带状疱疹疫苗。纠正误解是健康促进的关键。"
+        }
+      },
+      "testTakingStrategy": {
+        "en": "Focus on age-related primary prevention.",
+        "zh": "关注与年龄相关的初级预防。"
+      },
+      "glossary": []
+    },
+    {
+      "id": "gemini_gapfill_case_2026_06_10_case_osteo_02",
+      "itemType": "case_study",
+      "category": "Health Promotion and Maintenance",
+      "topic": "osteoporosis prevention",
+      "difficulty": "medium",
+      "stem": {
+        "en": "Review the client record and answer the case-study items.",
+        "zh": "查阅患者病历并回答病例分析题。"
+      },
+      "caseStudy": {
+        "title": {
+          "en": "Ambulatory Care Visit",
+          "zh": "门诊随访"
+        },
+        "summary": {
+          "en": "A 68-year-old female presents for a routine wellness exam.",
+          "zh": "一名68岁女性来到诊所进行常规体检。"
+        },
+        "exhibits": [
+          {
+            "id": "history",
+            "title": {
+              "en": "Health History",
+              "zh": "健康病史"
+            },
+            "content": {
+              "en": "Postmenopausal for 15 years. Reports leading a mostly sedentary lifestyle. Smokes 0.5 packs of cigarettes daily. BMI is 18.5. Family history of hip fracture (mother).",
+              "zh": "绝经15年。自述主要过着久坐的生活方式。每天吸烟半包。BMI为18.5。有髋部骨折家族史（母亲）。"
+            }
+          },
+          {
+            "id": "labs",
+            "title": {
+              "en": "Diagnostic Results",
+              "zh": "诊断结果"
+            },
+            "content": {
+              "en": "Recent DEXA scan T-score is -1.8 at the femoral neck.",
+              "zh": "最近的DEXA扫描显示股骨颈T值为-1.8。"
+            }
+          }
+        ],
+        "stages": [],
+        "questions": [
+          {
+            "id": "gemini_gapfill_case_2026_06_10_case_osteo_02_q1",
+            "itemType": "select_all",
+            "category": "Health Promotion and Maintenance",
+            "topic": "osteoporosis prevention",
+            "difficulty": "medium",
+            "ngnSkill": "recognize_cues",
+            "stem": {
+              "en": "Which findings in the client's history are risk factors for osteoporosis? Select all that apply.",
+              "zh": "该患者病史中的哪些发现是骨质疏松症的危险因素？请选择所有适用项。"
+            },
+            "options": [
+              {
+                "id": "o5",
+                "en": "Family history of hip fracture",
+                "zh": "髋部骨折家族史"
+              },
+              {
+                "id": "o4",
+                "en": "Low body mass index (BMI)",
+                "zh": "低体重指数 (BMI)"
+              },
+              {
+                "id": "o1",
+                "en": "Postmenopausal status",
+                "zh": "绝经后状态"
+              },
+              {
+                "id": "o3",
+                "en": "Smoking history",
+                "zh": "吸烟史"
+              },
+              {
+                "id": "o2",
+                "en": "Sedentary lifestyle",
+                "zh": "久坐的生活方式"
+              }
+            ],
+            "correct": [
+              "o1",
+              "o2",
+              "o3",
+              "o4",
+              "o5"
+            ],
+            "rationale": {
+              "correct": {
+                "en": "All of these are well-established risk factors for osteoporosis and bone loss.",
+                "zh": "所有这些都是公认的骨质疏松症和骨质流失的危险因素。"
+              },
+              "byChoice": [
+                {
+                  "refId": "o5",
+                  "en": "Genetics play a strong role in peak bone mass.",
+                  "zh": "遗传在峰值骨量中起着重要作用。"
+                },
+                {
+                  "refId": "o4",
+                  "en": "A lower BMI means less mechanical loading on bones and less estrogen production in adipose tissue.",
+                  "zh": "较低的BMI意味着骨骼承受的机械负荷较小，且脂肪组织产生的雌激素较少。"
+                },
+                {
+                  "refId": "o1",
+                  "en": "Estrogen deficiency accelerates bone loss.",
+                  "zh": "雌激素缺乏会加速骨质流失。"
+                },
+                {
+                  "refId": "o3",
+                  "en": "Smoking decreases calcium absorption and affects hormone levels.",
+                  "zh": "吸烟会减少钙吸收并影响激素水平。"
+                },
+                {
+                  "refId": "o2",
+                  "en": "Lack of weight-bearing exercise weakens bone density.",
+                  "zh": "缺乏负重运动会降低骨密度。"
+                }
+              ]
+            },
+            "testTakingStrategy": {
+              "en": "Identify modifiable and non-modifiable factors that decrease bone density.",
+              "zh": "识别降低骨密度的可改变和不可改变的因素。"
+            },
+            "glossary": []
+          },
+          {
+            "id": "gemini_gapfill_case_2026_06_10_case_osteo_02_q2",
+            "itemType": "multiple_choice",
+            "category": "Health Promotion and Maintenance",
+            "topic": "osteoporosis prevention",
+            "difficulty": "medium",
+            "ngnSkill": "analyze_cues",
+            "stem": {
+              "en": "The client asks what the T-score of -1.8 means. What is the nurse's best response?",
+              "zh": "患者询问T值-1.8是什么意思。护士的最佳回答是什么？"
+            },
+            "options": [
+              {
+                "id": "o2",
+                "en": "'It means you have osteopenia, which is low bone mass, but not yet osteoporosis.'",
+                "zh": "“这意味着您患有骨质减少，即骨量偏低，但还不是骨质疏松症。”"
+              },
+              {
+                "id": "o1",
+                "en": "'It means you have normal bone density for your age.'",
+                "zh": "“这意味着您的骨密度在您这个年龄段是正常的。”"
+              },
+              {
+                "id": "o3",
+                "en": "'It indicates severe osteoporosis and a high immediate risk of fracture.'",
+                "zh": "“这表明您患有严重的骨质疏松症，且有很高的近期骨折风险。”"
+              },
+              {
+                "id": "o4",
+                "en": "'It shows you are losing calcium from your blood very quickly.'",
+                "zh": "“这表明您血液中的钙流失非常快。”"
+              }
+            ],
+            "correct": [
+              "o2"
+            ],
+            "rationale": {
+              "correct": {
+                "en": "A T-score between -1.0 and -2.5 indicates osteopenia (low bone mass). A score of -2.5 or lower indicates osteoporosis.",
+                "zh": "T值在-1.0到-2.5之间表示骨质减少（骨量偏低）。T值小于或等于-2.5表示骨质疏松症。"
+              },
+              "byChoice": [
+                {
+                  "refId": "o2",
+                  "en": "This is accurate and helps the client understand the risk.",
+                  "zh": "这很准确，有助于患者了解风险。"
+                },
+                {
+                  "refId": "o1",
+                  "en": "Normal is -1.0 or higher.",
+                  "zh": "正常值是-1.0或更高。"
+                },
+                {
+                  "refId": "o3",
+                  "en": "Severe osteoporosis would be a score of -2.5 or worse with a fragility fracture.",
+                  "zh": "严重骨质疏松症是指T值小于或等于-2.5并伴有脆性骨折。"
+                },
+                {
+                  "refId": "o4",
+                  "en": "DEXA measures bone mineral density, not blood calcium loss.",
+                  "zh": "DEXA测量的是骨矿物质密度，而不是血钙流失。"
+                }
+              ]
+            },
+            "testTakingStrategy": {
+              "en": "Recall the World Health Organization (WHO) T-score classifications.",
+              "zh": "回想世界卫生组织(WHO)的T值分类。"
+            },
+            "glossary": []
+          },
+          {
+            "id": "gemini_gapfill_case_2026_06_10_case_osteo_02_q3",
+            "itemType": "matrix",
+            "category": "Health Promotion and Maintenance",
+            "topic": "osteoporosis prevention",
+            "difficulty": "medium",
+            "ngnSkill": "take_action",
+            "stem": {
+              "en": "Click to specify whether each activity is recommended or not recommended for this client's bone health.",
+              "zh": "点击指出以下各项活动是否推荐用于该患者的骨骼健康。"
+            },
+            "matrix": {
+              "rows": [
+                {
+                  "id": "r1",
+                  "en": "Walking 30 minutes daily",
+                  "zh": "每天步行30分钟"
+                },
+                {
+                  "id": "r2",
+                  "en": "High-impact aerobics",
+                  "zh": "高冲击力有氧运动"
+                },
+                {
+                  "id": "r3",
+                  "en": "Swimming",
+                  "zh": "游泳"
+                },
+                {
+                  "id": "r4",
+                  "en": "Light weight training",
+                  "zh": "轻量级举重训练"
+                }
+              ],
+              "columns": [
+                {
+                  "id": "c1",
+                  "en": "Primarily bone-building (recommended for bone health)",
+                  "zh": "主要有助于骨骼建造（推荐用于骨骼健康）"
+                },
+                {
+                  "id": "c2",
+                  "en": "Does not directly build bone density",
+                  "zh": "不能直接增加骨密度"
+                }
+              ],
+              "selectionMode": "single_per_row"
+            },
+            "correct": [
+              {
+                "rowId": "r1",
+                "columnIds": [
+                  "c1"
+                ]
+              },
+              {
+                "rowId": "r2",
+                "columnIds": [
+                  "c2"
+                ]
+              },
+              {
+                "rowId": "r3",
+                "columnIds": [
+                  "c2"
+                ]
+              },
+              {
+                "rowId": "r4",
+                "columnIds": [
+                  "c1"
+                ]
+              }
+            ],
+            "rationale": {
+              "correct": {
+                "en": "Weight-bearing and resistance exercises (walking, light weights) stimulate bone remodeling and directly build bone density. Swimming provides cardiovascular benefit but is non-weight-bearing and does not build bone. High-impact aerobics are not recommended for bone health in this client due to fracture risk with osteopenia.",
+                "zh": "负重和抗阻运动（步行、轻量级举重）能刺激骨骼重塑并直接提高骨密度。游泳有益于心血管健康，但属于非负重运动，不能增加骨量。对于有骨质减少的患者，高冲击力有氧运动因存在骨折风险而不推荐用于骨骼健康。"
+              },
+              "byChoice": [
+                {
+                  "refId": "r1",
+                  "en": "Walking is a safe, weight-bearing exercise that stimulates bone density.",
+                  "zh": "步行是一项安全的负重运动，有助于刺激骨密度增加。"
+                },
+                {
+                  "refId": "r2",
+                  "en": "High-impact movements can cause spinal compression fractures in a client with osteopenia.",
+                  "zh": "高冲击力动作可能导致骨质减少患者发生脊柱压缩性骨折。"
+                },
+                {
+                  "refId": "r3",
+                  "en": "Swimming is beneficial for cardiovascular health and overall fitness, but it is non-weight-bearing and does not directly stimulate bone density gains.",
+                  "zh": "游泳有益于心血管健康和整体体能，但属于非负重运动，不能直接促进骨密度增加。"
+                },
+                {
+                  "refId": "r4",
+                  "en": "Resistance training strengthens both muscle and bone through mechanical loading.",
+                  "zh": "阻力训练通过机械负荷能同时增强肌肉和骨骼。"
+                }
+              ]
+            },
+            "testTakingStrategy": {
+              "en": "Distinguish exercises that directly build bone density (weight-bearing, resistance) from those that do not; non-weight-bearing activities like swimming still support overall health.",
+              "zh": "区分能直接增加骨密度的运动（负重、抗阻）与不能增加骨密度的运动；游泳等非负重运动仍对整体健康有益。"
+            },
+            "glossary": []
+          },
+          {
+            "id": "gemini_gapfill_case_2026_06_10_case_osteo_02_q4",
+            "itemType": "dropdown_cloze",
+            "category": "Health Promotion and Maintenance",
+            "topic": "osteoporosis prevention",
+            "difficulty": "medium",
+            "ngnSkill": "evaluate_outcomes",
+            "stem": {
+              "en": "The nurse is evaluating the client's understanding of dietary modifications.",
+              "zh": "护士正在评估患者对饮食调整的理解。"
+            },
+            "clozeStem": {
+              "en": "The client demonstrates correct understanding by stating they will increase intake of {{1}} and ensure adequate exposure to {{2}}.",
+              "zh": "如果患者表示他们将增加摄入 {{1}} 并确保充分暴露在 {{2}} 下，则表明其理解正确。"
+            },
+            "dropdowns": [
+              {
+                "id": "1",
+                "options": [
+                  {
+                    "id": "o1",
+                    "en": "dark leafy greens and dairy",
+                    "zh": "深色绿叶蔬菜和乳制品"
+                  },
+                  {
+                    "id": "o2",
+                    "en": "lean meats and citrus fruits",
+                    "zh": "瘦肉和柑橘类水果"
+                  }
+                ],
+                "correct": "o1"
+              },
+              {
+                "id": "2",
+                "options": [
+                  {
+                    "id": "o1",
+                    "en": "sunlight",
+                    "zh": "阳光"
+                  },
+                  {
+                    "id": "o2",
+                    "en": "indoor fluorescent lighting",
+                    "zh": "室内荧光灯"
+                  }
+                ],
+                "correct": "o1"
+              }
+            ],
+            "rationale": {
+              "correct": {
+                "en": "Calcium is found in dairy and dark leafy greens. Vitamin D, necessary for calcium absorption, is synthesized in the skin via sunlight.",
+                "zh": "乳制品和深色绿叶蔬菜中含有钙。维生素D（钙吸收所必需的）在阳光照射下于皮肤中合成。"
+              },
+              "byChoice": [
+                {
+                  "refId": "1",
+                  "en": "These are excellent sources of calcium.",
+                  "zh": "这些是钙的极佳来源。"
+                },
+                {
+                  "refId": "2",
+                  "en": "Sunlight exposure supports cutaneous synthesis of vitamin D, which is then metabolized to its active form and promotes calcium absorption.",
+                  "zh": "阳光照射有助于皮肤合成维生素D，维生素D经代谢转化为活性形式后可促进钙的吸收。"
+                }
+              ]
+            },
+            "testTakingStrategy": {
+              "en": "Select the optimal natural sources of calcium and Vitamin D.",
+              "zh": "选择钙和维生素D的最佳天然来源。"
+            },
+            "glossary": []
+          }
+        ]
+      },
+      "rationale": {
+        "correct": {
+          "en": "Osteopenia requires lifestyle modifications to prevent progression to osteoporosis, including smoking cessation, weight-bearing exercise, and calcium/Vitamin D intake.",
+          "zh": "骨质减少需要改变生活方式以防止发展为骨质疏松症，包括戒烟、负重运动以及补充钙和维生素D。"
+        }
+      },
+      "testTakingStrategy": {
+        "en": "Focus on primary and secondary prevention of bone loss.",
+        "zh": "关注骨质流失的初级和二级预防。"
+      },
+      "glossary": []
+    },
+    {
+      "id": "gemini_gapfill_case_2026_06_10_case_wellness_03",
+      "itemType": "case_study",
+      "category": "Health Promotion and Maintenance",
+      "topic": "wellness counseling",
+      "difficulty": "medium",
+      "stem": {
+        "en": "Review the client record and answer the case-study items.",
+        "zh": "查阅患者病历并回答病例分析题。"
+      },
+      "caseStudy": {
+        "title": {
+          "en": "Community Health Center",
+          "zh": "社区健康中心"
+        },
+        "summary": {
+          "en": "A 55-year-old male presents for a follow-up after a recent diagnosis of type 2 diabetes mellitus.",
+          "zh": "一名55岁男性在最近确诊为2型糖尿病后来进行复诊。"
+        },
+        "exhibits": [
+          {
+            "id": "history",
+            "title": {
+              "en": "Health History",
+              "zh": "健康病史"
+            },
+            "content": {
+              "en": "Newly diagnosed type 2 diabetes. Body mass index (BMI) is 32. He works as a truck driver, sitting for 10-12 hours a day. He eats mostly fast food while on the road.",
+              "zh": "新诊断的2型糖尿病。体重指数(BMI)为32。他是一名卡车司机，每天坐10-12小时。他在路上主要吃快餐。"
+            }
+          },
+          {
+            "id": "labs",
+            "title": {
+              "en": "Diagnostic Results",
+              "zh": "诊断结果"
+            },
+            "content": {
+              "en": "Hemoglobin A1C: 7.6%. Fasting blood glucose: 145 mg/dL.",
+              "zh": "糖化血红蛋白(HbA1C)：7.6%。空腹血糖：145 mg/dL。"
+            }
+          }
+        ],
+        "stages": [],
+        "questions": [
+          {
+            "id": "gemini_gapfill_case_2026_06_10_case_wellness_03_q1",
+            "itemType": "multiple_choice",
+            "category": "Health Promotion and Maintenance",
+            "topic": "wellness counseling",
+            "difficulty": "medium",
+            "ngnSkill": "analyze_cues",
+            "stem": {
+              "en": "Based on the client's history, what is the most significant barrier to managing his diabetes?",
+              "zh": "根据患者的病史，管理其糖尿病最显著的障碍是什么？"
+            },
+            "options": [
+              {
+                "id": "o1",
+                "en": "Lack of understanding of the disease process",
+                "zh": "对疾病过程缺乏了解"
+              },
+              {
+                "id": "o4",
+                "en": "High fasting blood glucose level",
+                "zh": "空腹血糖水平高"
+              },
+              {
+                "id": "o3",
+                "en": "Inadequate social support system",
+                "zh": "社会支持系统不足"
+              },
+              {
+                "id": "o2",
+                "en": "Occupational lifestyle constraints",
+                "zh": "职业生活方式的限制"
+              }
+            ],
+            "correct": [
+              "o2"
+            ],
+            "rationale": {
+              "correct": {
+                "en": "His occupation as a truck driver inherently involves prolonged sitting and limited food choices, directly impeding weight loss and dietary control.",
+                "zh": "他作为卡车司机的职业本身就涉及长时间坐着和食物选择受限，直接阻碍了减肥和饮食控制。"
+              },
+              "byChoice": [
+                {
+                  "refId": "o1",
+                  "en": "There is no evidence yet that he lacks understanding, but his job is a clear physical barrier.",
+                  "zh": "目前没有证据表明他缺乏了解，但他的工作是一个明显的物理障碍。"
+                },
+                {
+                  "refId": "o4",
+                  "en": "This is a result of his lifestyle, not a barrier to changing it.",
+                  "zh": "这是他生活方式的结果，而不是改变它的障碍。"
+                },
+                {
+                  "refId": "o3",
+                  "en": "Social support is not mentioned in the exhibit.",
+                  "zh": "病历中未提及社会支持。"
+                },
+                {
+                  "refId": "o2",
+                  "en": "This directly limits physical activity and promotes fast food consumption.",
+                  "zh": "这直接限制了身体活动并促使快餐消费。"
+                }
+              ]
+            },
+            "testTakingStrategy": {
+              "en": "Identify the root cause of the client's modifiable risk factors.",
+              "zh": "找出导致患者可改变危险因素的根本原因。"
+            },
+            "glossary": []
+          },
+          {
+            "id": "gemini_gapfill_case_2026_06_10_case_wellness_03_q2",
+            "itemType": "select_all",
+            "category": "Health Promotion and Maintenance",
+            "topic": "wellness counseling",
+            "difficulty": "medium",
+            "ngnSkill": "generate_solutions",
+            "stem": {
+              "en": "Which dietary strategies should the nurse suggest that are practical for the client's occupation? Select all that apply.",
+              "zh": "护士应建议哪些适合该患者职业的实用饮食策略？请选择所有适用项。"
+            },
+            "options": [
+              {
+                "id": "o5",
+                "en": "Eat only one large meal at the end of the driving shift.",
+                "zh": "只在驾驶班次结束时吃一顿大餐。"
+              },
+              {
+                "id": "o1",
+                "en": "Pack a cooler with fresh vegetables and lean protein sandwiches.",
+                "zh": "带一个装有新鲜蔬菜和瘦肉三明治的冷藏箱。"
+              },
+              {
+                "id": "o3",
+                "en": "Fast completely during 12-hour shifts to rapidly lower blood sugar.",
+                "zh": "在12小时的轮班期间完全禁食，以快速降低血糖。"
+              },
+              {
+                "id": "o2",
+                "en": "Choose salads with grilled chicken at fast food stops.",
+                "zh": "在快餐店选择搭配烤鸡肉的沙拉。"
+              },
+              {
+                "id": "o4",
+                "en": "Drink water or unsweetened tea instead of regular soda.",
+                "zh": "喝水或无糖茶代替普通汽水。"
+              }
+            ],
+            "correct": [
+              "o1",
+              "o2",
+              "o4"
+            ],
+            "rationale": {
+              "correct": {
+                "en": "Practical strategies must fit his environment. Packing a cooler, making better choices at fast food places, and eliminating sugary drinks are realistic and effective.",
+                "zh": "实用的策略必须适应他的环境。准备冷藏箱、在快餐店做出更好的选择以及戒除含糖饮料是现实且有效的。"
+              },
+              "byChoice": [
+                {
+                  "refId": "o5",
+                  "en": "One large meal causes extreme glucose spikes; small, frequent meals are better.",
+                  "zh": "一顿大餐会导致血糖急剧升高；少食多餐更好。"
+                },
+                {
+                  "refId": "o1",
+                  "en": "This provides control over ingredients and portion sizes.",
+                  "zh": "这可以控制食材和分量。"
+                },
+                {
+                  "refId": "o3",
+                  "en": "Fasting can lead to dangerous hypoglycemia or rebound overeating.",
+                  "zh": "禁食可能导致危险的低血糖或反弹性暴饮暴食。"
+                },
+                {
+                  "refId": "o2",
+                  "en": "This is a realistic modification when eating on the road.",
+                  "zh": "这是在路上吃饭时一个切合实际的改变。"
+                },
+                {
+                  "refId": "o4",
+                  "en": "Eliminating liquid calories is highly effective for weight management.",
+                  "zh": "消除液体热量对体重管理非常有效。"
+                }
+              ]
+            },
+            "testTakingStrategy": {
+              "en": "Select interventions that are both medically appropriate and realistic for the client's constraints.",
+              "zh": "选择既符合医学要求又适合患者限制条件的干预措施。"
+            },
+            "glossary": []
+          },
+          {
+            "id": "gemini_gapfill_case_2026_06_10_case_wellness_03_q3",
+            "itemType": "ordered_response",
+            "category": "Health Promotion and Maintenance",
+            "topic": "wellness counseling",
+            "difficulty": "medium",
+            "ngnSkill": "take_action",
+            "stem": {
+              "en": "The nurse is teaching the client how to perform a self-assessment of his feet. Place the steps in the correct order.",
+              "zh": "护士正在教导患者如何进行足部自我检查。请将步骤按正确的顺序排列。"
+            },
+            "options": [
+              {
+                "id": "o1",
+                "en": "Wash hands thoroughly.",
+                "zh": "彻底洗手。"
+              },
+              {
+                "id": "o4",
+                "en": "Check between the toes for maceration or cracking.",
+                "zh": "检查脚趾间是否有浸渍或皲裂。"
+              },
+              {
+                "id": "o5",
+                "en": "Document any cuts, blisters, or redness and notify the provider.",
+                "zh": "记录任何割伤、水泡或发红，并通知医生。"
+              },
+              {
+                "id": "o2",
+                "en": "Remove shoes and socks in a well-lit area.",
+                "zh": "在光线充足的地方脱下鞋袜。"
+              },
+              {
+                "id": "o3",
+                "en": "Inspect the tops and bottoms of the feet, using a mirror if necessary.",
+                "zh": "检查足部上方和足底，必要时使用镜子。"
+              }
+            ],
+            "correct": [
+              "o1",
+              "o2",
+              "o3",
+              "o4",
+              "o5"
+            ],
+            "rationale": {
+              "correct": {
+                "en": "Proper foot care requires hand hygiene first, exposing the feet in good light, inspecting broad areas, inspecting hidden areas (between toes), and finally documenting/reporting findings.",
+                "zh": "正确的足部护理需要先进行手部卫生，在光线良好的情况下露出双脚，检查大面积区域，检查隐蔽区域（脚趾间），最后记录/报告发现。"
+              },
+              "byChoice": [
+                {
+                  "refId": "o1",
+                  "en": "Always begin with hand hygiene.",
+                  "zh": "始终以手部卫生开始。"
+                },
+                {
+                  "refId": "o4",
+                  "en": "Detailed inspection of high-risk hidden areas.",
+                  "zh": "对高危隐蔽区域的详细检查。"
+                },
+                {
+                  "refId": "o5",
+                  "en": "The final step is action and documentation based on the assessment.",
+                  "zh": "最后一步是根据检查结果采取行动和记录。"
+                },
+                {
+                  "refId": "o2",
+                  "en": "Preparation and lighting are necessary for a good assessment.",
+                  "zh": "良好的检查需要准备和光线。"
+                },
+                {
+                  "refId": "o3",
+                  "en": "Gross inspection of the main surfaces.",
+                  "zh": "对主要表面的初步检查。"
+                }
+              ]
+            },
+            "testTakingStrategy": {
+              "en": "Follow the nursing process: prepare, general assessment, specific assessment, then act/document.",
+              "zh": "遵循护理程序：准备、一般评估、具体评估，然后行动/记录。"
+            },
+            "glossary": []
+          },
+          {
+            "id": "gemini_gapfill_case_2026_06_10_case_wellness_03_q4",
+            "itemType": "matrix",
+            "category": "Health Promotion and Maintenance",
+            "topic": "wellness counseling",
+            "difficulty": "medium",
+            "ngnSkill": "evaluate_outcomes",
+            "stem": {
+              "en": "Three months later, the client returns. Click to specify whether each finding indicates the teaching was effective or ineffective.",
+              "zh": "三个月后，患者复诊。点击指出以下各项发现表明宣教有效还是无效。"
+            },
+            "matrix": {
+              "rows": [
+                {
+                  "id": "r1",
+                  "en": "Hemoglobin A1C is 6.8%",
+                  "zh": "糖化血红蛋白为6.8%"
+                },
+                {
+                  "id": "r2",
+                  "en": "Client reports walking for 15 minutes at rest stops",
+                  "zh": "患者自述在休息站步行15分钟"
+                },
+                {
+                  "id": "r3",
+                  "en": "BMI remains 32",
+                  "zh": "BMI仍为32"
+                }
+              ],
+              "columns": [
+                {
+                  "id": "c1",
+                  "en": "Effective",
+                  "zh": "有效"
+                },
+                {
+                  "id": "c2",
+                  "en": "Ineffective",
+                  "zh": "无效"
+                }
+              ],
+              "selectionMode": "single_per_row"
+            },
+            "correct": [
+              {
+                "rowId": "r1",
+                "columnIds": [
+                  "c1"
+                ]
+              },
+              {
+                "rowId": "r2",
+                "columnIds": [
+                  "c1"
+                ]
+              },
+              {
+                "rowId": "r3",
+                "columnIds": [
+                  "c2"
+                ]
+              }
+            ],
+            "rationale": {
+              "correct": {
+                "en": "An A1C drop to 6.8% shows improved glycemic control. Adding physical activity at rest stops shows behavioral change. However, a stagnant BMI indicates weight management strategies need further adjustment.",
+                "zh": "A1C降至6.8%表明血糖控制得到改善。在休息站增加体育锻炼表明了行为的改变。然而，停滞的BMI表明体重管理策略需要进一步调整。"
+              },
+              "byChoice": [
+                {
+                  "refId": "r1",
+                  "en": "Target A1C for most adults is < 7.0%.",
+                  "zh": "大多数成人的目标A1C应< 7.0%。"
+                },
+                {
+                  "refId": "r2",
+                  "en": "This is a creative and effective way to overcome his occupational barrier.",
+                  "zh": "这是一种克服职业障碍的创造性且有效的方法。"
+                },
+                {
+                  "refId": "r3",
+                  "en": "Unchanged BMI suggests the weight-management component of the plan needs adjustment, though the improved A1C and added physical activity show other teaching goals were met.",
+                  "zh": "BMI未变表明体重管理部分的计划需要调整，但A1C的改善和增加的体力活动表明其他宣教目标已经实现。"
+                }
+              ]
+            },
+            "testTakingStrategy": {
+              "en": "Evaluate objective data against standard clinical goals for diabetes and obesity.",
+              "zh": "根据糖尿病和肥胖症的标准临床目标评估客观数据。"
+            },
+            "glossary": []
+          }
+        ]
+      },
+      "rationale": {
+        "correct": {
+          "en": "Lifestyle modifications for type 2 diabetes must be tailored to the client's occupational and environmental constraints to be successful.",
+          "zh": "2型糖尿病的生活方式调整必须根据患者的职业和环境限制量身定制，才能取得成功。"
+        }
+      },
+      "testTakingStrategy": {
+        "en": "Focus on realistic behavioral changes and chronic disease outcomes.",
+        "zh": "关注现实的行为改变和慢性病结果。"
+      },
+      "glossary": []
+    },
+    {
+      "id": "gemini_gapfill_case_2026_06_10_case_smoking_04",
+      "itemType": "case_study",
+      "category": "Health Promotion and Maintenance",
+      "topic": "smoking cessation",
+      "difficulty": "medium",
+      "stem": {
+        "en": "Review the client record and answer the case-study items.",
+        "zh": "查阅患者病历并回答病例分析题。"
+      },
+      "caseStudy": {
+        "title": {
+          "en": "Primary Care Visit",
+          "zh": "初级保健随访"
+        },
+        "summary": {
+          "en": "A 45-year-old female presents to the clinic stating, 'I want to stop smoking.'",
+          "zh": "一名45岁女性来到诊所，表示：“我想戒烟。”"
+        },
+        "exhibits": [
+          {
+            "id": "history",
+            "title": {
+              "en": "Health History",
+              "zh": "健康病史"
+            },
+            "content": {
+              "en": "Smokes 1 pack per day for 25 years. Has tried quitting twice before using nicotine patches, but relapsed when feeling stressed at work. Currently taking an oral contraceptive.",
+              "zh": "每天吸烟1包，已有25年。之前曾两次尝试使用尼古丁贴片戒烟，但在工作压力大时复吸。目前正在服用口服避孕药。"
+            }
+          }
+        ],
+        "stages": [],
+        "questions": [
+          {
+            "id": "gemini_gapfill_case_2026_06_10_case_smoking_04_q1",
+            "itemType": "multiple_choice",
+            "category": "Health Promotion and Maintenance",
+            "topic": "smoking cessation",
+            "difficulty": "medium",
+            "ngnSkill": "recognize_cues",
+            "stem": {
+              "en": "Which statement by the client best indicates readiness for change in the transtheoretical model?",
+              "zh": "患者的哪句话最能表明在跨理论模型中已做好改变的准备？"
+            },
+            "options": [
+              {
+                "id": "o3",
+                "en": "'I might try to cut down next year when my work calms down.'",
+                "zh": "“如果明年工作没那么忙了，我可能会尝试减少吸烟量。”"
+              },
+              {
+                "id": "o4",
+                "en": "'My doctor told me I have to quit because of my birth control pills.'",
+                "zh": "“我的医生告诉我，因为我吃避孕药所以必须戒烟。”"
+              },
+              {
+                "id": "o2",
+                "en": "'I am planning to throw away my cigarettes this Sunday and start using the gum.'",
+                "zh": "“我打算这个星期天把烟扔掉，开始嚼口香糖。”"
+              },
+              {
+                "id": "o1",
+                "en": "'I know smoking is bad, but it's the only way I handle stress.'",
+                "zh": "“我知道吸烟不好，但这是我应对压力的唯一方法。”"
+              }
+            ],
+            "correct": [
+              "o2"
+            ],
+            "rationale": {
+              "correct": {
+                "en": "Setting a specific quit date and having a concrete plan indicates the 'Preparation' stage, showing true readiness to act.",
+                "zh": "设定具体的戒烟日期并有具体的计划，表明处于“准备”阶段，显示出真正准备好采取行动。"
+              },
+              "byChoice": [
+                {
+                  "refId": "o3",
+                  "en": "This is Contemplation (thinking about it in the distant future).",
+                  "zh": "这是沉思期（在遥远的未来考虑这件事）。"
+                },
+                {
+                  "refId": "o4",
+                  "en": "This is external motivation, not internal readiness.",
+                  "zh": "这是外部动机，而非内部准备。"
+                },
+                {
+                  "refId": "o2",
+                  "en": "Specific planning is the hallmark of the Preparation stage.",
+                  "zh": "具体的计划是准备阶段的标志。"
+                },
+                {
+                  "refId": "o1",
+                  "en": "This indicates Contemplation (aware of the problem but ambivalence remains).",
+                  "zh": "这表明处于沉思期（意识到问题但仍有矛盾心理）。"
+                }
+              ]
+            },
+            "testTakingStrategy": {
+              "en": "Look for action-oriented planning, which indicates a higher level of readiness.",
+              "zh": "寻找以行动为导向的计划，这表明准备程度较高。"
+            },
+            "glossary": []
+          },
+          {
+            "id": "gemini_gapfill_case_2026_06_10_case_smoking_04_q2",
+            "itemType": "matrix",
+            "category": "Health Promotion and Maintenance",
+            "topic": "smoking cessation",
+            "difficulty": "medium",
+            "ngnSkill": "analyze_cues",
+            "stem": {
+              "en": "Click to specify whether each factor increases or decreases the client's risk for smoking relapse.",
+              "zh": "点击指出以下各个因素是增加还是降低了该患者复吸的风险。"
+            },
+            "matrix": {
+              "rows": [
+                {
+                  "id": "r1",
+                  "en": "High stress work environment",
+                  "zh": "高压力的工作环境"
+                },
+                {
+                  "id": "r2",
+                  "en": "Has identified specific triggers and developed coping strategies",
+                  "zh": "已识别出具体诱因并制定了应对策略"
+                },
+                {
+                  "id": "r3",
+                  "en": "Dependence on nicotine as a coping mechanism",
+                  "zh": "依赖尼古丁作为应对机制"
+                }
+              ],
+              "columns": [
+                {
+                  "id": "c1",
+                  "en": "Increases Risk",
+                  "zh": "增加风险"
+                },
+                {
+                  "id": "c2",
+                  "en": "Decreases Risk",
+                  "zh": "降低风险"
+                }
+              ],
+              "selectionMode": "single_per_row"
+            },
+            "correct": [
+              {
+                "rowId": "r1",
+                "columnIds": [
+                  "c1"
+                ]
+              },
+              {
+                "rowId": "r2",
+                "columnIds": [
+                  "c2"
+                ]
+              },
+              {
+                "rowId": "r3",
+                "columnIds": [
+                  "c1"
+                ]
+              }
+            ],
+            "rationale": {
+              "correct": {
+                "en": "Stress and poor coping mechanisms increase relapse risk. This client has already identified stress as her trigger and sought help, which directly reduces the circumstances that led to prior relapses.",
+                "zh": "压力和不良的应对机制会增加复吸风险。该患者已明确压力为诱因并主动寻求帮助，这直接降低了以往导致复吸的诱发情境。"
+              },
+              "byChoice": [
+                {
+                  "refId": "r1",
+                  "en": "Stress is her identified trigger for relapse.",
+                  "zh": "压力是她明确指出的复吸诱因。"
+                },
+                {
+                  "refId": "r2",
+                  "en": "Identifying specific triggers and having a plan to manage them directly reduces the risk of relapse in those situations.",
+                  "zh": "识别出具体诱因并制定应对计划，能直接降低在这些情境下复吸的风险。"
+                },
+                {
+                  "refId": "r3",
+                  "en": "Lacking alternative coping strategies leads straight back to smoking.",
+                  "zh": "缺乏替代的应对策略会直接导致重新吸烟。"
+                }
+              ]
+            },
+            "testTakingStrategy": {
+              "en": "Identify which factors in the exhibit directly support or undermine this client's quit plan; concrete coping strategies are protective, while identified triggers without a plan are risks.",
+              "zh": "从病历中识别哪些因素直接支持或削弱该患者的戒烟计划；有具体应对策略是保护性因素，而有诱因却无应对计划则是风险。"
+            },
+            "glossary": []
+          },
+          {
+            "id": "gemini_gapfill_case_2026_06_10_case_smoking_04_q3",
+            "itemType": "select_all",
+            "category": "Health Promotion and Maintenance",
+            "topic": "smoking cessation",
+            "difficulty": "medium",
+            "ngnSkill": "generate_solutions",
+            "stem": {
+              "en": "The nurse is discussing pharmacological options with the client. Which options should the nurse include in the discussion? Select all that apply.",
+              "zh": "护士正在与患者讨论药物选择。护士应在讨论中包括哪些选项？请选择所有适用项。"
+            },
+            "options": [
+              {
+                "id": "o2",
+                "en": "Varenicline",
+                "zh": "伐尼克兰 (Varenicline)"
+              },
+              {
+                "id": "o1",
+                "en": "Nicotine replacement gum",
+                "zh": "尼古丁替代口香糖"
+              },
+              {
+                "id": "o4",
+                "en": "E-cigarettes (vaping)",
+                "zh": "电子烟"
+              },
+              {
+                "id": "o3",
+                "en": "Bupropion",
+                "zh": "安非他酮 (Bupropion)"
+              },
+              {
+                "id": "o5",
+                "en": "Nicotine replacement lozenges",
+                "zh": "尼古丁替代含片"
+              }
+            ],
+            "correct": [
+              "o1",
+              "o2",
+              "o3",
+              "o5"
+            ],
+            "rationale": {
+              "correct": {
+                "en": "FDA-approved medications for smoking cessation include NRT (gum, lozenges, patches), varenicline, and bupropion. E-cigarettes are not approved or recommended for cessation.",
+                "zh": "FDA批准的戒烟药物包括尼古丁替代疗法(NRT)（口香糖、含片、贴片）、伐尼克兰和安非他酮。电子烟未被批准也不被推荐用于戒烟。"
+              },
+              "byChoice": [
+                {
+                  "refId": "o2",
+                  "en": "A prescription medication that blocks nicotine receptors.",
+                  "zh": "一种阻断尼古丁受体的处方药。"
+                },
+                {
+                  "refId": "o1",
+                  "en": "Provides short-acting relief for cravings.",
+                  "zh": "可缓解对吸烟的渴望，起效快。"
+                },
+                {
+                  "refId": "o4",
+                  "en": "Not an evidence-based cessation tool and carries pulmonary risks.",
+                  "zh": "不是一种循证的戒烟工具，并且带有肺部风险。"
+                },
+                {
+                  "refId": "o3",
+                  "en": "An antidepressant that helps reduce cravings and withdrawal.",
+                  "zh": "一种有助于减少渴望和戒断症状的抗抑郁药。"
+                },
+                {
+                  "refId": "o5",
+                  "en": "Another valid form of nicotine replacement.",
+                  "zh": "尼古丁替代疗法的另一种有效形式。"
+                }
+              ]
+            },
+            "testTakingStrategy": {
+              "en": "Differentiate evidence-based medical therapies from unapproved consumer products.",
+              "zh": "区分循证医学疗法和未经批准的消费产品。"
+            },
+            "glossary": []
+          },
+          {
+            "id": "gemini_gapfill_case_2026_06_10_case_smoking_04_q4",
+            "itemType": "multiple_choice",
+            "category": "Health Promotion and Maintenance",
+            "topic": "smoking cessation",
+            "difficulty": "hard",
+            "ngnSkill": "take_action",
+            "stem": {
+              "en": "The client expresses concern that if she quits smoking, she will gain weight. What is the nurse's most appropriate intervention?",
+              "zh": "患者担心如果戒烟体重会增加。护士最恰当的干预措施是什么？"
+            },
+            "options": [
+              {
+                "id": "o4",
+                "en": "Tell her to delay quitting until she has lost 10 pounds.",
+                "zh": "告诉她推迟戒烟，直到她减掉10磅。"
+              },
+              {
+                "id": "o2",
+                "en": "Advise her to start a strict low-calorie diet on the same day she quits smoking.",
+                "zh": "建议她在戒烟的同一天开始严格的低热量饮食。"
+              },
+              {
+                "id": "o3",
+                "en": "Acknowledge that mild weight gain is common and focus the plan on keeping her hands and mouth busy with healthy snacks.",
+                "zh": "承认轻微的体重增加很常见，并将计划的重点放在用健康的零食让她的手和嘴保持忙碌。"
+              },
+              {
+                "id": "o1",
+                "en": "Reassure her that weight gain is a myth and will not happen.",
+                "zh": "向她保证体重增加是一种迷思，并不会发生。"
+              }
+            ],
+            "correct": [
+              "o3"
+            ],
+            "rationale": {
+              "correct": {
+                "en": "Weight gain is a common reality due to metabolic changes and substituting food for cigarettes. Acknowledging this and providing healthy alternatives is the best approach. Too many strict changes at once (like a strict diet) can lead to failure.",
+                "zh": "由于代谢变化和用食物代替香烟，体重增加是一个普遍的现实。承认这一点并提供健康的替代品是最好的方法。同时进行太多严格的改变（如严格节食）可能会导致失败。"
+              },
+              "byChoice": [
+                {
+                  "refId": "o4",
+                  "en": "Quitting smoking is the immediate priority for cardiovascular health.",
+                  "zh": "戒烟是心血管健康的首要任务。"
+                },
+                {
+                  "refId": "o2",
+                  "en": "Attempting too many difficult behavioral changes at once increases the risk of relapse.",
+                  "zh": "一次尝试太多困难的行为改变会增加复吸的风险。"
+                },
+                {
+                  "refId": "o3",
+                  "en": "This validates her concern and provides a proactive coping strategy.",
+                  "zh": "这肯定了她的担忧，并提供了一种积极主动的应对策略。"
+                },
+                {
+                  "refId": "o1",
+                  "en": "This is false reassurance; weight gain is common.",
+                  "zh": "这是虚假的安慰；体重增加很常见。"
+                }
+              ]
+            },
+            "testTakingStrategy": {
+              "en": "Prioritize interventions that are honest, realistic, and support the primary goal without overwhelming the client.",
+              "zh": "优先考虑诚实、现实并在不压垮患者的情况下支持主要目标的干预措施。"
+            },
+            "glossary": []
+          }
+        ]
+      },
+      "rationale": {
+        "correct": {
+          "en": "Effective smoking cessation requires assessing readiness, understanding triggers, utilizing evidence-based pharmacotherapy, and planning for barriers like weight gain.",
+          "zh": "有效的戒烟需要评估准备情况、了解诱因、利用循证药物治疗以及制定应对体重增加等障碍的计划。"
+        }
+      },
+      "testTakingStrategy": {
+        "en": "Focus on the transtheoretical model of change and holistic support.",
+        "zh": "关注改变的跨理论模型和整体支持。"
+      },
+      "glossary": []
+    },
+    {
+      "id": "gemini_gapfill_case_2026_06_10_case_sleep_05",
+      "itemType": "case_study",
+      "category": "Basic Care and Comfort",
+      "topic": "sleep promotion",
+      "difficulty": "medium",
+      "stem": {
+        "en": "Review the client record and answer the case-study items.",
+        "zh": "查阅患者病历并回答病例分析题。"
+      },
+      "caseStudy": {
+        "title": {
+          "en": "Long-Term Care Facility",
+          "zh": "长期护理机构"
+        },
+        "summary": {
+          "en": "A 78-year-old male resident reports difficulty sleeping at night.",
+          "zh": "一名78岁男性养老院居民自述夜间睡眠困难。"
+        },
+        "exhibits": [
+          {
+            "id": "history",
+            "title": {
+              "en": "Nursing Assessment",
+              "zh": "护理评估"
+            },
+            "content": {
+              "en": "Client states, 'I toss and turn all night and feel exhausted during the day.' He takes a 2-hour nap every afternoon. He drinks a cup of coffee with dinner at 1700. He watches television in bed until midnight. His room is located near the busy nurse's station.",
+              "zh": "患者表示：“我整晚翻来覆去，白天感到精疲力竭。”他每天下午睡2小时午觉。他在下午5点吃晚餐时喝一杯咖啡。他在床上看电视直到半夜。他的房间靠近繁忙的护士站。"
+            }
+          }
+        ],
+        "stages": [],
+        "questions": [
+          {
+            "id": "gemini_gapfill_case_2026_06_10_case_sleep_05_q1",
+            "itemType": "select_all",
+            "category": "Basic Care and Comfort",
+            "topic": "sleep promotion",
+            "difficulty": "medium",
+            "ngnSkill": "analyze_cues",
+            "stem": {
+              "en": "Which factors are contributing to the client's insomnia? Select all that apply.",
+              "zh": "哪些因素导致了患者的失眠？请选择所有适用项。"
+            },
+            "options": [
+              {
+                "id": "o2",
+                "en": "Caffeine intake at dinner",
+                "zh": "晚餐时摄入咖啡因"
+              },
+              {
+                "id": "o3",
+                "en": "Watching television in bed",
+                "zh": "在床上看电视"
+              },
+              {
+                "id": "o5",
+                "en": "Age of 78 years",
+                "zh": "年龄78岁"
+              },
+              {
+                "id": "o1",
+                "en": "Afternoon naps",
+                "zh": "下午午睡"
+              },
+              {
+                "id": "o4",
+                "en": "Proximity to the nurse's station",
+                "zh": "靠近护士站"
+              }
+            ],
+            "correct": [
+              "o1",
+              "o2",
+              "o3",
+              "o4"
+            ],
+            "rationale": {
+              "correct": {
+                "en": "Long naps, late caffeine intake, using the bed for activities other than sleep/sex, and environmental noise all contribute to poor sleep hygiene.",
+                "zh": "长时间午睡、晚间摄入咖啡因、在床上进行睡眠/性生活以外的活动以及环境噪音，都会导致睡眠卫生不良。"
+              },
+              "byChoice": [
+                {
+                  "refId": "o2",
+                  "en": "Caffeine is a stimulant that interferes with sleep onset.",
+                  "zh": "咖啡因是一种兴奋剂，会干扰入睡。"
+                },
+                {
+                  "refId": "o3",
+                  "en": "Screen time before bed disrupts melatonin, and the bed should be associated only with sleep.",
+                  "zh": "睡前看屏幕会干扰褪黑素的分泌，床应仅与睡眠相关联。"
+                },
+                {
+                  "refId": "o5",
+                  "en": "While sleep architecture changes with age, age itself is not a direct cause of insomnia requiring intervention; the lifestyle factors are.",
+                  "zh": "虽然睡眠结构会随年龄发生变化，但年龄本身并非需要干预的失眠直接原因，生活方式因素才是。"
+                },
+                {
+                  "refId": "o1",
+                  "en": "Long daytime naps decrease sleep drive at night.",
+                  "zh": "白天长时间午睡会降低夜间的睡眠驱动力。"
+                },
+                {
+                  "refId": "o4",
+                  "en": "Environmental noise disrupts sleep continuity.",
+                  "zh": "环境噪音会破坏睡眠的连续性。"
+                }
+              ]
+            },
+            "testTakingStrategy": {
+              "en": "Identify modifiable behaviors and environmental factors affecting sleep.",
+              "zh": "识别影响睡眠的可改变行为和环境因素。"
+            },
+            "glossary": []
+          },
+          {
+            "id": "gemini_gapfill_case_2026_06_10_case_sleep_05_q2",
+            "itemType": "matrix",
+            "category": "Basic Care and Comfort",
+            "topic": "sleep promotion",
+            "difficulty": "medium",
+            "ngnSkill": "generate_solutions",
+            "stem": {
+              "en": "The nurse is developing a care plan. Click to specify if each intervention is appropriate or inappropriate.",
+              "zh": "护士正在制定护理计划。点击指出以下各项干预措施是否合适。"
+            },
+            "matrix": {
+              "rows": [
+                {
+                  "id": "r1",
+                  "en": "Limit afternoon nap to 30 minutes.",
+                  "zh": "将下午午睡限制在30分钟以内。"
+                },
+                {
+                  "id": "r2",
+                  "en": "Offer decaffeinated tea at dinner instead of coffee.",
+                  "zh": "晚餐时提供无咖啡因茶代替咖啡。"
+                },
+                {
+                  "id": "r3",
+                  "en": "Request an order for a strong sedative-hypnotic.",
+                  "zh": "要求开具强效镇静催眠药。"
+                },
+                {
+                  "id": "r4",
+                  "en": "Keep the television on a low volume all night for background noise.",
+                  "zh": "让电视整晚开着小音量作为背景噪音。"
+                }
+              ],
+              "columns": [
+                {
+                  "id": "c1",
+                  "en": "Appropriate",
+                  "zh": "合适"
+                },
+                {
+                  "id": "c2",
+                  "en": "Inappropriate",
+                  "zh": "不合适"
+                }
+              ],
+              "selectionMode": "single_per_row"
+            },
+            "correct": [
+              {
+                "rowId": "r1",
+                "columnIds": [
+                  "c1"
+                ]
+              },
+              {
+                "rowId": "r2",
+                "columnIds": [
+                  "c1"
+                ]
+              },
+              {
+                "rowId": "r3",
+                "columnIds": [
+                  "c2"
+                ]
+              },
+              {
+                "rowId": "r4",
+                "columnIds": [
+                  "c2"
+                ]
+              }
+            ],
+            "rationale": {
+              "correct": {
+                "en": "Non-pharmacological sleep hygiene is the first-line treatment. Sedative-hypnotics increase fall risk in older adults. Screens should be turned off.",
+                "zh": "非药物的睡眠卫生干预是一线治疗方案。镇静催眠药会增加老年人的跌倒风险。应关闭屏幕。"
+              },
+              "byChoice": [
+                {
+                  "refId": "r1",
+                  "en": "Short power naps avoid disrupting nighttime sleep drive.",
+                  "zh": "短暂的午休可以避免破坏夜间的睡眠驱动力。"
+                },
+                {
+                  "refId": "r2",
+                  "en": "Removing stimulants before bedtime is essential.",
+                  "zh": "睡前避免使用兴奋剂至关重要。"
+                },
+                {
+                  "refId": "r3",
+                  "en": "Medications are a last resort due to risks of confusion and falls in the elderly.",
+                  "zh": "由于老年人有意识模糊和跌倒的风险，药物是最后的手段。"
+                },
+                {
+                  "refId": "r4",
+                  "en": "Light and changing sounds from TV disrupt sleep. A white noise machine would be better.",
+                  "zh": "电视的光线和变化的声音会扰乱睡眠。白噪音机器会更好。"
+                }
+              ]
+            },
+            "testTakingStrategy": {
+              "en": "Prioritize safe, non-pharmacologic sleep hygiene interventions for older adults.",
+              "zh": "优先考虑对老年人安全、非药物的睡眠卫生干预措施。"
+            },
+            "glossary": []
+          },
+          {
+            "id": "gemini_gapfill_case_2026_06_10_case_sleep_05_q3",
+            "itemType": "multiple_choice",
+            "category": "Basic Care and Comfort",
+            "topic": "sleep promotion",
+            "difficulty": "medium",
+            "ngnSkill": "take_action",
+            "stem": {
+              "en": "What action should the nurse take to address the environmental noise from the nurse's station?",
+              "zh": "为了解决护士站的环境噪音问题，护士应该采取什么措施？"
+            },
+            "options": [
+              {
+                "id": "o3",
+                "en": "Tell the staff to stop talking at the station.",
+                "zh": "告诉工作人员停止在护士站交谈。"
+              },
+              {
+                "id": "o2",
+                "en": "Close the client's door completely and turn off all lights.",
+                "zh": "完全关上患者的房门并关掉所有灯。"
+              },
+              {
+                "id": "o4",
+                "en": "Offer to move the client to a quieter room further down the hall, if available.",
+                "zh": "如果可能的话，主动提出将患者转移到走廊深处更安静的房间。"
+              },
+              {
+                "id": "o1",
+                "en": "Provide the client with earplugs.",
+                "zh": "为患者提供耳塞。"
+              }
+            ],
+            "correct": [
+              "o4"
+            ],
+            "rationale": {
+              "correct": {
+                "en": "Relocating the client away from the source of unavoidable operational noise is the most effective environmental modification.",
+                "zh": "将患者转移到远离不可避免的运营噪音源的地方是最有效的环境改变。"
+              },
+              "byChoice": [
+                {
+                  "refId": "o3",
+                  "en": "Staff communication is necessary; it cannot be completely stopped.",
+                  "zh": "工作人员的交流是必要的；不能完全停止。"
+                },
+                {
+                  "refId": "o2",
+                  "en": "A completely dark, closed room increases fall risk for an elderly client who might need to use the bathroom.",
+                  "zh": "对于可能需要使用洗手间的老年患者来说，完全黑暗且封闭的房间会增加跌倒的风险。"
+                },
+                {
+                  "refId": "o4",
+                  "en": "This directly addresses the environmental factor safely.",
+                  "zh": "这直接而安全地解决了环境因素。"
+                },
+                {
+                  "refId": "o1",
+                  "en": "Earplugs may limit the client's ability to hear staff calls, and they address a symptom rather than the source of noise; a room change is more effective.",
+                  "zh": "耳塞可能会限制患者听到工作人员呼叫的能力，且只能缓解症状而非消除噪音来源；调换到更安静的房间更为有效。"
+                }
+              ]
+            },
+            "testTakingStrategy": {
+              "en": "Choose the most practical and safe environmental control measure.",
+              "zh": "选择最实用、最安全的环境控制措施。"
+            },
+            "glossary": []
+          },
+          {
+            "id": "gemini_gapfill_case_2026_06_10_case_sleep_05_q4",
+            "itemType": "dropdown_cloze",
+            "category": "Basic Care and Comfort",
+            "topic": "sleep promotion",
+            "difficulty": "medium",
+            "ngnSkill": "evaluate_outcomes",
+            "stem": {
+              "en": "One week later, the nurse evaluates the care plan.",
+              "zh": "一周后，护士评估护理计划。"
+            },
+            "clozeStem": {
+              "en": "The plan is effective if the client states he {{1}} and is observed {{2}}.",
+              "zh": "如果患者表示他 {{1}} 并且被观察到 {{2}}，则该计划有效。"
+            },
+            "dropdowns": [
+              {
+                "id": "1",
+                "options": [
+                  {
+                    "id": "o1",
+                    "en": "feels rested upon waking",
+                    "zh": "醒来时感觉精神饱满"
+                  },
+                  {
+                    "id": "o2",
+                    "en": "sleeps for 12 hours straight",
+                    "zh": "连续睡12个小时"
+                  }
+                ],
+                "correct": "o1"
+              },
+              {
+                "id": "2",
+                "options": [
+                  {
+                    "id": "o1",
+                    "en": "reading a book in a chair before bed",
+                    "zh": "睡前坐在椅子上看书"
+                  },
+                  {
+                    "id": "o2",
+                    "en": "drinking warm coffee at 2000",
+                    "zh": "在晚上8点喝热咖啡"
+                  }
+                ],
+                "correct": "o1"
+              }
+            ],
+            "rationale": {
+              "correct": {
+                "en": "Subjective feeling of rest and adopting positive sleep hygiene (like reading outside of bed) indicate success.",
+                "zh": "主观上感觉休息良好以及采取积极的睡眠卫生习惯（如在床外看书）表明计划成功。"
+              },
+              "byChoice": [
+                {
+                  "refId": "1",
+                  "en": "Feeling rested is the primary subjective goal of sleep promotion.",
+                  "zh": "感觉精神饱满是促进睡眠的主要主观目标。"
+                },
+                {
+                  "refId": "2",
+                  "en": "Reading in a chair separates wakeful activities from the bed.",
+                  "zh": "在椅子上看书将清醒时的活动与床分离开来。"
+                }
+              ]
+            },
+            "testTakingStrategy": {
+              "en": "Identify subjective and objective indicators of improved sleep quality and hygiene.",
+              "zh": "识别睡眠质量和卫生得到改善的主观和客观指标。"
+            },
+            "glossary": []
+          }
+        ]
+      },
+      "rationale": {
+        "correct": {
+          "en": "Sleep promotion in the elderly relies on establishing healthy sleep hygiene, modifying the environment, and avoiding stimulating substances or activities near bedtime.",
+          "zh": "老年人的睡眠促进依赖于建立健康的睡眠卫生习惯、改善环境以及避免在睡前进行刺激性的物质摄入或活动。"
+        }
+      },
+      "testTakingStrategy": {
+        "en": "Focus on non-pharmacologic interventions for sleep hygiene.",
+        "zh": "关注针对睡眠卫生的非药物干预措施。"
+      },
+      "glossary": []
+    },
+    {
+      "id": "gemini_gapfill_case_2026_06_10_case_bowel_06",
+      "itemType": "case_study",
+      "category": "Basic Care and Comfort",
+      "topic": "bowel management",
+      "difficulty": "medium",
+      "stem": {
+        "en": "Review the client record and answer the case-study items.",
+        "zh": "查阅患者病历并回答病例分析题。"
+      },
+      "caseStudy": {
+        "title": {
+          "en": "Rehabilitation Unit",
+          "zh": "康复科"
+        },
+        "summary": {
+          "en": "A 70-year-old female is admitted for rehabilitation 3 days after a total right hip arthroplasty.",
+          "zh": "一名70岁女性在右全髋关节置换术后3天入院接受康复治疗。"
+        },
+        "exhibits": [
+          {
+            "id": "history",
+            "title": {
+              "en": "Nursing Assessment",
+              "zh": "护理评估"
+            },
+            "content": {
+              "en": "Client reports abdominal fullness and no bowel movement for 4 days. Bowel sounds are hypoactive in all quadrants. She is taking oral hydrocodone-acetaminophen for pain. She is on strict bed rest except for physical therapy. Fluid intake is 800 mL/day.",
+              "zh": "患者自述腹部饱胀，已有4天未排便。所有象限肠鸣音减弱。她正在口服氢可酮-对乙酰氨基酚止痛。除物理治疗外，她需严格卧床休息。液体摄入量为800毫升/天。"
+            }
+          }
+        ],
+        "stages": [],
+        "questions": [
+          {
+            "id": "gemini_gapfill_case_2026_06_10_case_bowel_06_q1",
+            "itemType": "select_all",
+            "category": "Basic Care and Comfort",
+            "topic": "bowel management",
+            "difficulty": "medium",
+            "ngnSkill": "recognize_cues",
+            "stem": {
+              "en": "Which findings increase this client's risk for constipation? Select all that apply.",
+              "zh": "哪些发现增加了该患者便秘的风险？请选择所有适用项。"
+            },
+            "options": [
+              {
+                "id": "o2",
+                "en": "Decreased mobility",
+                "zh": "活动能力下降"
+              },
+              {
+                "id": "o4",
+                "en": "Age of 70",
+                "zh": "年龄70岁"
+              },
+              {
+                "id": "o3",
+                "en": "Low fluid intake",
+                "zh": "液体摄入量低"
+              },
+              {
+                "id": "o5",
+                "en": "Recent surgery and anesthesia",
+                "zh": "近期手术和麻醉"
+              },
+              {
+                "id": "o1",
+                "en": "Opioid analgesic use",
+                "zh": "使用阿片类镇痛药"
+              }
+            ],
+            "correct": [
+              "o1",
+              "o2",
+              "o3",
+              "o4",
+              "o5"
+            ],
+            "rationale": {
+              "correct": {
+                "en": "All listed factors contribute to slowed gastrointestinal motility and constipation.",
+                "zh": "列出的所有因素都会导致胃肠道蠕动减慢和便秘。"
+              },
+              "byChoice": [
+                {
+                  "refId": "o2",
+                  "en": "Lack of physical activity reduces peristalsis.",
+                  "zh": "缺乏身体活动会减少肠道蠕动。"
+                },
+                {
+                  "refId": "o4",
+                  "en": "Aging is associated with decreased GI motility.",
+                  "zh": "衰老与胃肠道蠕动减弱有关。"
+                },
+                {
+                  "refId": "o3",
+                  "en": "Inadequate hydration leads to hard, dry stool.",
+                  "zh": "水分补充不足会导致粪便干硬。"
+                },
+                {
+                  "refId": "o5",
+                  "en": "Surgical stress and anesthesia slow the bowel.",
+                  "zh": "手术压力和麻醉会减缓肠道蠕动。"
+                },
+                {
+                  "refId": "o1",
+                  "en": "Opioids directly slow GI transit time.",
+                  "zh": "阿片类药物直接减慢胃肠道传输时间。"
+                }
+              ]
+            },
+            "testTakingStrategy": {
+              "en": "Identify factors that decrease peristalsis or dry out stool.",
+              "zh": "识别减少肠道蠕动或使粪便变干的因素。"
+            },
+            "glossary": []
+          },
+          {
+            "id": "gemini_gapfill_case_2026_06_10_case_bowel_06_q2",
+            "itemType": "matrix",
+            "category": "Basic Care and Comfort",
+            "topic": "bowel management",
+            "difficulty": "medium",
+            "ngnSkill": "take_action",
+            "stem": {
+              "en": "Click to specify whether the nurse should implement or question each intervention.",
+              "zh": "点击指出护士应执行还是对以下各项干预措施提出质疑。"
+            },
+            "matrix": {
+              "rows": [
+                {
+                  "id": "r1",
+                  "en": "Encourage fluid intake of 2000-3000 mL/day (if not contraindicated).",
+                  "zh": "鼓励每天摄入2000-3000毫升液体（如无禁忌）。"
+                },
+                {
+                  "id": "r2",
+                  "en": "Administer a prescribed daily stimulant laxative long-term.",
+                  "zh": "长期给予处方的每日刺激性泻药。"
+                },
+                {
+                  "id": "r3",
+                  "en": "Provide high-fiber snacks like prunes or bran.",
+                  "zh": "提供高纤维零食，如西梅干或麸皮。"
+                },
+                {
+                  "id": "r4",
+                  "en": "Administer docusate sodium daily as prescribed.",
+                  "zh": "按医嘱每天给予多库酯钠(docusate sodium)。"
+                }
+              ],
+              "columns": [
+                {
+                  "id": "c1",
+                  "en": "Implement",
+                  "zh": "执行"
+                },
+                {
+                  "id": "c2",
+                  "en": "Question",
+                  "zh": "质疑"
+                }
+              ],
+              "selectionMode": "single_per_row"
+            },
+            "correct": [
+              {
+                "rowId": "r1",
+                "columnIds": [
+                  "c1"
+                ]
+              },
+              {
+                "rowId": "r2",
+                "columnIds": [
+                  "c2"
+                ]
+              },
+              {
+                "rowId": "r3",
+                "columnIds": [
+                  "c1"
+                ]
+              },
+              {
+                "rowId": "r4",
+                "columnIds": [
+                  "c1"
+                ]
+              }
+            ],
+            "rationale": {
+              "correct": {
+                "en": "Hydration, fiber, and stool softeners (docusate) are first-line treatments. Long-term use of stimulant laxatives causes bowel dependence and should be questioned.",
+                "zh": "补水、纤维和粪便软化剂（多库酯钠）是一线治疗方案。长期使用刺激性泻药会导致肠道依赖，应该提出质疑。"
+              },
+              "byChoice": [
+                {
+                  "refId": "r1",
+                  "en": "Adequate fluids keep stool soft.",
+                  "zh": "充足的液体能保持粪便柔软。"
+                },
+                {
+                  "refId": "r2",
+                  "en": "Stimulant laxatives should be used short-term to avoid dependence.",
+                  "zh": "刺激性泻药应短期使用以避免产生依赖性。"
+                },
+                {
+                  "refId": "r3",
+                  "en": "Fiber adds bulk, stimulating peristalsis.",
+                  "zh": "纤维增加体积，刺激肠道蠕动。"
+                },
+                {
+                  "refId": "r4",
+                  "en": "Docusate is a safe, routine stool softener to counteract opioid effects.",
+                  "zh": "多库酯钠是一种安全、常规的粪便软化剂，可抵消阿片类药物的影响。"
+                }
+              ]
+            },
+            "testTakingStrategy": {
+              "en": "Distinguish between safe, routine bowel regimens and those with long-term risks.",
+              "zh": "区分安全、常规的排便方案和具有长期风险的排便方案。"
+            },
+            "glossary": []
+          },
+          {
+            "id": "gemini_gapfill_case_2026_06_10_case_bowel_06_q3",
+            "itemType": "multiple_choice",
+            "category": "Basic Care and Comfort",
+            "topic": "bowel management",
+            "difficulty": "medium",
+            "ngnSkill": "take_action",
+            "stem": {
+              "en": "The client states, 'I feel like I need to go, but I can't.' What is the nurse's first action?",
+              "zh": "患者说：“我觉得我想排便，但是排不出来。”护士的首要行动是什么？"
+            },
+            "options": [
+              {
+                "id": "o3",
+                "en": "Provide privacy and assist the client to the bedside commode.",
+                "zh": "提供隐私保护，并协助患者到床边便桶排便。"
+              },
+              {
+                "id": "o1",
+                "en": "Administer an enema immediately.",
+                "zh": "立即灌肠。"
+              },
+              {
+                "id": "o4",
+                "en": "Tell the client to strain harder.",
+                "zh": "告诉患者更用力地屏气排便。"
+              },
+              {
+                "id": "o2",
+                "en": "Perform a digital rectal examination to check for impaction.",
+                "zh": "进行直肠指检以检查是否有粪便嵌塞。"
+              }
+            ],
+            "correct": [
+              "o3"
+            ],
+            "rationale": {
+              "correct": {
+                "en": "Positioning and privacy are critical. A commode allows for a natural sitting position which uses gravity to aid defecation, unlike a bedpan.",
+                "zh": "体位和隐私至关重要。与便盆不同，便桶允许患者采取自然的坐姿，利用重力帮助排便。"
+              },
+              "byChoice": [
+                {
+                  "refId": "o3",
+                  "en": "This is the safest, least invasive first action.",
+                  "zh": "这是最安全、侵入性最小的首要行动。"
+                },
+                {
+                  "refId": "o1",
+                  "en": "An enema requires a prescription and is not the first nursing step.",
+                  "zh": "灌肠需要医嘱，不是首要的护理步骤。"
+                },
+                {
+                  "refId": "o4",
+                  "en": "Straining (Valsalva maneuver) is dangerous and can cause arrhythmias or wound dehiscence.",
+                  "zh": "屏气排便（瓦尔萨尔瓦动作）是危险的，可能导致心律失常或伤口裂开。"
+                },
+                {
+                  "refId": "o2",
+                  "en": "Digital exams can stimulate the vagus nerve and should be done only if impaction is suspected after positioning fails.",
+                  "zh": "直肠指检可能会刺激迷走神经，只有在调整体位失败且怀疑有粪便嵌塞时才应进行。"
+                }
+              ]
+            },
+            "testTakingStrategy": {
+              "en": "Select the least invasive, most physiological nursing intervention first.",
+              "zh": "首先选择侵入性最小、最符合生理规律的护理干预措施。"
+            },
+            "glossary": []
+          },
+          {
+            "id": "gemini_gapfill_case_2026_06_10_case_bowel_06_q4",
+            "itemType": "dropdown_cloze",
+            "category": "Basic Care and Comfort",
+            "topic": "bowel management",
+            "difficulty": "medium",
+            "ngnSkill": "evaluate_outcomes",
+            "stem": {
+              "en": "The nurse evaluates the client the next day.",
+              "zh": "第二天，护士对患者进行评估。"
+            },
+            "clozeStem": {
+              "en": "The bowel regimen is successful if the client has a {{1}} bowel movement and their abdomen is {{2}}.",
+              "zh": "如果患者排出 {{1}} 的大便并且其腹部 {{2}}，则排便方案是成功的。"
+            },
+            "dropdowns": [
+              {
+                "id": "1",
+                "options": [
+                  {
+                    "id": "o1",
+                    "en": "soft, formed",
+                    "zh": "柔软、成形的"
+                  },
+                  {
+                    "id": "o2",
+                    "en": "liquid",
+                    "zh": "液体状的"
+                  }
+                ],
+                "correct": "o1"
+              },
+              {
+                "id": "2",
+                "options": [
+                  {
+                    "id": "o1",
+                    "en": "soft and non-distended",
+                    "zh": "柔软且无膨隆"
+                  },
+                  {
+                    "id": "o2",
+                    "en": "firm and distended",
+                    "zh": "坚硬且膨隆"
+                  }
+                ],
+                "correct": "o1"
+              }
+            ],
+            "rationale": {
+              "correct": {
+                "en": "A normal bowel outcome is a soft, formed stool with a soft, non-tender abdomen.",
+                "zh": "正常的排便结果是排出柔软、成形的粪便，且腹部柔软、无压痛。"
+              },
+              "byChoice": [
+                {
+                  "refId": "1",
+                  "en": "Liquid stool may indicate diarrhea or impaction with seepage.",
+                  "zh": "液体大便可能表明腹泻或嵌塞伴有渗漏。"
+                },
+                {
+                  "refId": "2",
+                  "en": "A non-distended abdomen shows relief of gas and stool buildup.",
+                  "zh": "无膨隆的腹部表明气体和粪便堆积得到缓解。"
+                }
+              ]
+            },
+            "testTakingStrategy": {
+              "en": "Identify the standard clinical definition of normal bowel function.",
+              "zh": "识别正常肠道功能的标准临床定义。"
+            },
+            "glossary": []
+          }
+        ]
+      },
+      "rationale": {
+        "correct": {
+          "en": "Postoperative patients on opioids are at high risk for constipation. Management focuses on hydration, fiber, mobility, and appropriate pharmacologic support.",
+          "zh": "使用阿片类药物的术后患者有很高的便秘风险。管理重点在于补水、纤维、活动和适当的药物支持。"
+        }
+      },
+      "testTakingStrategy": {
+        "en": "Address the triad of bowel management: fluids, fiber, and activity.",
+        "zh": "解决肠道管理的三个关键：液体、纤维和活动。"
+      },
+      "glossary": []
+    },
+    {
+      "id": "gemini_gapfill_case_2026_06_10_case_mobility_07",
+      "itemType": "case_study",
+      "category": "Basic Care and Comfort",
+      "topic": "mobility assistance",
+      "difficulty": "medium",
+      "stem": {
+        "en": "Review the client record and answer the case-study items.",
+        "zh": "查阅患者病历并回答病例分析题。"
+      },
+      "caseStudy": {
+        "title": {
+          "en": "Medical-Surgical Unit",
+          "zh": "内外科病房"
+        },
+        "summary": {
+          "en": "An 82-year-old male is recovering from a severe respiratory infection and generalized weakness.",
+          "zh": "一名82岁男性正在从严重的呼吸道感染和全身无力中康复。"
+        },
+        "exhibits": [
+          {
+            "id": "history",
+            "title": {
+              "en": "Nursing Assessment",
+              "zh": "护理评估"
+            },
+            "content": {
+              "en": "Client has been on bed rest for 5 days. Provider orders: 'Out of bed to chair twice daily.' Client is alert and cooperative but states, 'My legs feel like jelly.' Physical therapy has recommended the use of a standard walker.",
+              "zh": "患者已卧床休息5天。医生医嘱：“每天两次下床坐椅子”。患者意识清醒，配合度高，但表示：“我的腿感觉像果冻一样没力气。”物理治疗建议使用标准的助行器。"
+            }
+          }
+        ],
+        "stages": [],
+        "questions": [
+          {
+            "id": "gemini_gapfill_case_2026_06_10_case_mobility_07_q1",
+            "itemType": "select_all",
+            "category": "Basic Care and Comfort",
+            "topic": "mobility assistance",
+            "difficulty": "medium",
+            "ngnSkill": "analyze_cues",
+            "stem": {
+              "en": "Which factors place this client at a high risk for falls? Select all that apply.",
+              "zh": "哪些因素使该患者处于跌倒的高风险中？请选择所有适用项。"
+            },
+            "options": [
+              {
+                "id": "o5",
+                "en": "First time out of bed after illness",
+                "zh": "生病后首次下床"
+              },
+              {
+                "id": "o1",
+                "en": "Advanced age (82 years)",
+                "zh": "高龄（82岁）"
+              },
+              {
+                "id": "o3",
+                "en": "Alert and cooperative cognitive status",
+                "zh": "意识清醒且配合的认知状态"
+              },
+              {
+                "id": "o2",
+                "en": "Prolonged bed rest",
+                "zh": "长期卧床"
+              },
+              {
+                "id": "o4",
+                "en": "Self-reported leg weakness",
+                "zh": "自述腿部无力"
+              }
+            ],
+            "correct": [
+              "o1",
+              "o2",
+              "o4",
+              "o5"
+            ],
+            "rationale": {
+              "correct": {
+                "en": "Age, deconditioning from bed rest, muscle weakness, and orthostatic hypotension risk (first time up) are major fall hazards.",
+                "zh": "年龄、卧床休息导致的体能下降、肌肉无力以及体位性低血压风险（首次起床）是主要的跌倒隐患。"
+              },
+              "byChoice": [
+                {
+                  "refId": "o5",
+                  "en": "The transition from bed to standing is dangerous due to blood pressure drops.",
+                  "zh": "由于血压下降，从床上到站立的过渡是危险的。"
+                },
+                {
+                  "refId": "o1",
+                  "en": "Age >65 increases baseline fall risk.",
+                  "zh": "年龄>65岁会增加跌倒的基线风险。"
+                },
+                {
+                  "refId": "o3",
+                  "en": "Being alert and cooperative decreases risk.",
+                  "zh": "清醒和配合会降低风险。"
+                },
+                {
+                  "refId": "o2",
+                  "en": "Bed rest causes rapid muscle deconditioning and orthostatic changes.",
+                  "zh": "卧床休息会导致肌肉体能迅速下降和体位改变。"
+                },
+                {
+                  "refId": "o4",
+                  "en": "Weakness directly impairs balance and weight-bearing.",
+                  "zh": "无力直接损害平衡和承重能力。"
+                }
+              ]
+            },
+            "testTakingStrategy": {
+              "en": "Identify physiologic changes associated with immobility.",
+              "zh": "识别与缺乏活动相关的生理变化。"
+            },
+            "glossary": []
+          },
+          {
+            "id": "gemini_gapfill_case_2026_06_10_case_mobility_07_q2",
+            "itemType": "ordered_response",
+            "category": "Basic Care and Comfort",
+            "topic": "mobility assistance",
+            "difficulty": "medium",
+            "ngnSkill": "take_action",
+            "stem": {
+              "en": "The nurse is preparing to transfer the client from the bed to the chair. Order the steps of the transfer.",
+              "zh": "护士正准备将患者从床上转移到椅子上。请排列转移步骤。"
+            },
+            "options": [
+              {
+                "id": "o2",
+                "en": "Assist the client to dangle legs on the side of the bed for 1-2 minutes.",
+                "zh": "协助患者在床边双腿下垂坐立1-2分钟。"
+              },
+              {
+                "id": "o5",
+                "en": "Instruct the client to pivot and grasp the chair armrests.",
+                "zh": "指导患者转体并抓住椅子扶手。"
+              },
+              {
+                "id": "o4",
+                "en": "Position the chair parallel to the bed and lock the wheels.",
+                "zh": "将椅子平行放置在床边并锁定轮子。"
+              },
+              {
+                "id": "o1",
+                "en": "Apply a gait belt around the client's waist.",
+                "zh": "将步态带（约束带）系在患者腰部。"
+              },
+              {
+                "id": "o3",
+                "en": "Ensure non-slip footwear is on the client.",
+                "zh": "确保患者穿上防滑鞋。"
+              }
+            ],
+            "correct": [
+              "o4",
+              "o3",
+              "o2",
+              "o1",
+              "o5"
+            ],
+            "rationale": {
+              "correct": {
+                "en": "Safety requires preparing the environment first (lock chair), preparing the client (footwear, dangling to prevent orthostatic hypotension), applying safety equipment (gait belt), and executing the transfer safely.",
+                "zh": "为了安全起见，需要先准备环境（锁定椅子），准备患者（穿鞋、床边坐立以防体位性低血压），使用安全设备（步态带），然后安全地执行转移。"
+              },
+              "byChoice": [
+                {
+                  "refId": "o2",
+                  "en": "Dangling equalizes blood pressure.",
+                  "zh": "床边坐立可平衡血压。"
+                },
+                {
+                  "refId": "o5",
+                  "en": "Pivoting is the actual transfer movement.",
+                  "zh": "转体是实际的转移运动。"
+                },
+                {
+                  "refId": "o4",
+                  "en": "Preparation and locking wheels prevents the chair from sliding.",
+                  "zh": "准备和锁定轮子可防止椅子滑动。"
+                },
+                {
+                  "refId": "o1",
+                  "en": "The gait belt is applied before standing.",
+                  "zh": "在站立前系上步态带。"
+                },
+                {
+                  "refId": "o3",
+                  "en": "Footwear prevents slipping.",
+                  "zh": "穿鞋可防止滑倒。"
+                }
+              ]
+            },
+            "testTakingStrategy": {
+              "en": "Visualize the procedure safely: Environment -> Client prep -> Safety gear -> Movement.",
+              "zh": "在脑海中安全地模拟操作过程：环境 -> 患者准备 -> 安全装备 -> 移动。"
+            },
+            "glossary": []
+          },
+          {
+            "id": "gemini_gapfill_case_2026_06_10_case_mobility_07_q3",
+            "itemType": "matrix",
+            "category": "Basic Care and Comfort",
+            "topic": "mobility assistance",
+            "difficulty": "medium",
+            "ngnSkill": "take_action",
+            "stem": {
+              "en": "The nurse is teaching the client how to use the standard walker. Click to specify whether each instruction is correct or incorrect.",
+              "zh": "护士正在教患者如何使用标准助行器。点击指出以下各项指导是否正确。"
+            },
+            "matrix": {
+              "rows": [
+                {
+                  "id": "r1",
+                  "en": "Adjust the walker height so the handgrips are at the level of the wrist crease.",
+                  "zh": "调整助行器高度，使握把位于手腕横纹水平。"
+                },
+                {
+                  "id": "r2",
+                  "en": "Move the walker forward 6-8 inches, then step forward into it.",
+                  "zh": "将助行器向前移动6-8英寸，然后向前迈入其中。"
+                },
+                {
+                  "id": "r3",
+                  "en": "Look down at your feet while walking to ensure placement.",
+                  "zh": "走路时低头看脚以确保位置正确。"
+                },
+                {
+                  "id": "r4",
+                  "en": "When rising from a chair, pull yourself up using the walker handles.",
+                  "zh": "从椅子上站起时，利用助行器的把手把自己拉起来。"
+                }
+              ],
+              "columns": [
+                {
+                  "id": "c1",
+                  "en": "Correct",
+                  "zh": "正确"
+                },
+                {
+                  "id": "c2",
+                  "en": "Incorrect",
+                  "zh": "不正确"
+                }
+              ],
+              "selectionMode": "single_per_row"
+            },
+            "correct": [
+              {
+                "rowId": "r1",
+                "columnIds": [
+                  "c1"
+                ]
+              },
+              {
+                "rowId": "r2",
+                "columnIds": [
+                  "c1"
+                ]
+              },
+              {
+                "rowId": "r3",
+                "columnIds": [
+                  "c2"
+                ]
+              },
+              {
+                "rowId": "r4",
+                "columnIds": [
+                  "c2"
+                ]
+              }
+            ],
+            "rationale": {
+              "correct": {
+                "en": "Walker height should allow a slight elbow bend (wrist crease level). The walker moves first, then the client steps in. Looking down alters balance. Pulling up on a walker can tip it over.",
+                "zh": "助行器的高度应允许肘部轻微弯曲（手腕横纹水平）。助行器先移动，然后患者迈入。低头会改变平衡。拉住助行器站起可能会导致其翻倒。"
+              },
+              "byChoice": [
+                {
+                  "refId": "r1",
+                  "en": "This ensures a 15-30 degree elbow flexion.",
+                  "zh": "这确保了15-30度的肘部屈曲。"
+                },
+                {
+                  "refId": "r2",
+                  "en": "This is the correct standard sequence for walker use.",
+                  "zh": "这是使用助行器的正确标准顺序。"
+                },
+                {
+                  "refId": "r3",
+                  "en": "Clients should look straight ahead to maintain center of gravity.",
+                  "zh": "患者应直视前方以保持重心。"
+                },
+                {
+                  "refId": "r4",
+                  "en": "Clients should push up from the chair armrests, not pull on the walker.",
+                  "zh": "患者应撑着椅子扶手站起，而不是拉拽助行器。"
+                }
+              ]
+            },
+            "testTakingStrategy": {
+              "en": "Recall safety principles for assistive devices: fit, sequence, and stability.",
+              "zh": "回想辅助设备的安全原则：尺寸、顺序和稳定性。"
+            },
+            "glossary": []
+          },
+          {
+            "id": "gemini_gapfill_case_2026_06_10_case_mobility_07_q4",
+            "itemType": "dropdown_cloze",
+            "category": "Basic Care and Comfort",
+            "topic": "mobility assistance",
+            "difficulty": "medium",
+            "ngnSkill": "evaluate_outcomes",
+            "stem": {
+              "en": "The client successfully ambulates with the walker to the door and back.",
+              "zh": "患者成功使用助行器走到门口并返回。"
+            },
+            "clozeStem": {
+              "en": "The nurse evaluates that the client is demonstrating a safe gait if the client advances the walker first, then steps with the {{1}} leg into it, and maintains a {{2}} posture.",
+              "zh": "如果患者先向前移动助行器，然后迈出 {{1}} 跟进，并保持 {{2}} 姿势，护士可评估患者步态安全。"
+            },
+            "dropdowns": [
+              {
+                "id": "1",
+                "options": [
+                  {
+                    "id": "o1",
+                    "en": "weaker",
+                    "zh": "较弱的腿"
+                  },
+                  {
+                    "id": "o2",
+                    "en": "stronger",
+                    "zh": "较强的腿"
+                  }
+                ],
+                "correct": "o1"
+              },
+              {
+                "id": "2",
+                "options": [
+                  {
+                    "id": "o1",
+                    "en": "upright",
+                    "zh": "直立"
+                  },
+                  {
+                    "id": "o2",
+                    "en": "hunched",
+                    "zh": "弯腰"
+                  }
+                ],
+                "correct": "o1"
+              }
+            ],
+            "rationale": {
+              "correct": {
+                "en": "The standard walker sequence is: advance the walker 6–8 inches, step the weaker leg into it, then bring the stronger leg forward. This allows the arms to bear weight through the device during the weaker leg's step. An upright posture maintains the center of gravity over the base of support.",
+                "zh": "标准助行器使用顺序为：先将助行器向前移动15–20厘米，再迈出较弱的腿跟进，最后迈出较强的腿。这样在较弱腿迈步时，手臂可通过助行器承担体重。保持直立姿势有助于维持重心在支撑面上方。"
+              },
+              "byChoice": [
+                {
+                  "refId": "1",
+                  "en": "Stepping the weak leg into the walker after advancing it lets the arms bear the load through the device during the vulnerable step.",
+                  "zh": "助行器先移位后，再迈入较弱的腿，使手臂在最易失衡的步态阶段通过助行器承担体重。"
+                },
+                {
+                  "refId": "2",
+                  "en": "Hunching shifts the center of gravity dangerously forward.",
+                  "zh": "弯腰会使重心危险地向前偏移。"
+                }
+              ]
+            },
+            "testTakingStrategy": {
+              "en": "Remember the standard walker sequence: advance walker → step weak leg in → follow with strong leg.",
+              "zh": "记住标准助行器使用顺序：先移助行器→弱腿迈入→强腿跟进。"
+            },
+            "glossary": []
+          }
+        ]
+      },
+      "rationale": {
+        "correct": {
+          "en": "Safe mobility requires assessing fall risks, preventing orthostatic hypotension, and teaching correct usage of assistive devices.",
+          "zh": "安全的活动需要评估跌倒风险、预防体位性低血压，并指导正确使用辅助设备。"
+        }
+      },
+      "testTakingStrategy": {
+        "en": "Focus on the mechanics of safety and fall prevention.",
+        "zh": "关注安全和预防跌倒的机制。"
+      },
+      "glossary": []
+    },
+    {
+      "id": "gemini_gapfill_case_2026_06_10_case_caregiver_08",
+      "itemType": "case_study",
+      "category": "Psychosocial Integrity",
+      "topic": "caregiver strain",
+      "difficulty": "medium",
+      "stem": {
+        "en": "Review the client record and answer the case-study items.",
+        "zh": "查阅患者病历并回答病例分析题。"
+      },
+      "caseStudy": {
+        "title": {
+          "en": "Home Health Visit",
+          "zh": "家庭健康随访"
+        },
+        "summary": {
+          "en": "A home health nurse is visiting a 65-year-old male with early-stage Alzheimer's disease. His 60-year-old wife is the primary caregiver.",
+          "zh": "一名家庭保健护士正在探访一名患有早期阿尔茨海默病的65岁男性。他60岁的妻子是主要的照顾者。"
+        },
+        "exhibits": [
+          {
+            "id": "history",
+            "title": {
+              "en": "Nursing Assessment",
+              "zh": "护理评估"
+            },
+            "content": {
+              "en": "The wife states, 'I am just so tired all the time. He wanders at night so I can't sleep. I haven't been to my own doctor in a year, and I sometimes forget to take my own blood pressure medicine.' The wife begins to cry during the interview.",
+              "zh": "妻子表示：“我就是一直觉得很累。他晚上会四处游荡，所以我没法睡觉。我已经一年没去看过自己的医生了，有时候还会忘记吃自己的降压药。”在交谈中，妻子开始哭泣。"
+            }
+          }
+        ],
+        "stages": [],
+        "questions": [
+          {
+            "id": "gemini_gapfill_case_2026_06_10_case_caregiver_08_q1",
+            "itemType": "select_all",
+            "category": "Psychosocial Integrity",
+            "topic": "caregiver strain",
+            "difficulty": "medium",
+            "ngnSkill": "analyze_cues",
+            "stem": {
+              "en": "Which cues indicate the wife is experiencing caregiver role strain? Select all that apply.",
+              "zh": "哪些线索表明妻子正在经历照顾者角色紧张？请选择所有适用项。"
+            },
+            "options": [
+              {
+                "id": "o5",
+                "en": "Living in the same home as the client",
+                "zh": "与患者住在同一个家中"
+              },
+              {
+                "id": "o4",
+                "en": "Emotional lability (crying)",
+                "zh": "情绪不稳定（哭泣）"
+              },
+              {
+                "id": "o1",
+                "en": "Constant fatigue",
+                "zh": "持续的疲劳"
+              },
+              {
+                "id": "o3",
+                "en": "Neglect of personal health needs",
+                "zh": "忽视个人健康需求"
+              },
+              {
+                "id": "o2",
+                "en": "Sleep deprivation",
+                "zh": "睡眠被剥夺"
+              }
+            ],
+            "correct": [
+              "o1",
+              "o2",
+              "o3",
+              "o4"
+            ],
+            "rationale": {
+              "correct": {
+                "en": "Caregiver strain manifests as physical (fatigue, sleep loss), emotional (crying), and behavioral (neglecting own meds/appointments) changes.",
+                "zh": "照顾者紧张表现为身体上（疲劳、睡眠不足）、情感上（哭泣）和行为上（忽视自己的药物/预约）的改变。"
+              },
+              "byChoice": [
+                {
+                  "refId": "o5",
+                  "en": "While living together is a factor, it is a living situation, not a symptom of strain itself.",
+                  "zh": "虽然住在一起是一个因素，但这是居住情况，本身并非紧张的症状。"
+                },
+                {
+                  "refId": "o4",
+                  "en": "Crying indicates emotional overwhelm.",
+                  "zh": "哭泣表明情感上的不堪重负。"
+                },
+                {
+                  "refId": "o1",
+                  "en": "Fatigue is a classic physical symptom of burnout.",
+                  "zh": "疲劳是倦怠的典型身体症状。"
+                },
+                {
+                  "refId": "o3",
+                  "en": "Skipping medication and doctors' visits shows role engulfment.",
+                  "zh": "漏服药物和取消看医生表明已被该角色吞噬。"
+                },
+                {
+                  "refId": "o2",
+                  "en": "Interrupted sleep prevents physical recovery.",
+                  "zh": "睡眠中断会阻碍身体恢复。"
+                }
+              ]
+            },
+            "testTakingStrategy": {
+              "en": "Differentiate between symptoms of a problem and the baseline living situation.",
+              "zh": "区分问题的症状和基线生活状况。"
+            },
+            "glossary": []
+          },
+          {
+            "id": "gemini_gapfill_case_2026_06_10_case_caregiver_08_q2",
+            "itemType": "matrix",
+            "category": "Psychosocial Integrity",
+            "topic": "caregiver strain",
+            "difficulty": "medium",
+            "ngnSkill": "generate_solutions",
+            "stem": {
+              "en": "Click to specify if each intervention is an appropriate or inappropriate recommendation for the caregiver.",
+              "zh": "点击指出以下各项干预措施对照顾者是否是合适的建议。"
+            },
+            "matrix": {
+              "rows": [
+                {
+                  "id": "r1",
+                  "en": "Suggesting the wife ask adult children to sit with the husband one afternoon a week.",
+                  "zh": "建议妻子请成年子女每周抽一个下午来陪伴丈夫。"
+                },
+                {
+                  "id": "r2",
+                  "en": "Advising the wife to focus harder on the husband's needs to prevent his wandering.",
+                  "zh": "建议妻子更专注于丈夫的需求，以防止他游荡。"
+                },
+                {
+                  "id": "r3",
+                  "en": "Recommending an adult day care program for the husband.",
+                  "zh": "建议为丈夫报名成人日间照料项目。"
+                },
+                {
+                  "id": "r4",
+                  "en": "Providing information on Alzheimer's caregiver support groups.",
+                  "zh": "提供关于阿尔茨海默病照顾者支持小组的信息。"
+                }
+              ],
+              "columns": [
+                {
+                  "id": "c1",
+                  "en": "Appropriate",
+                  "zh": "合适"
+                },
+                {
+                  "id": "c2",
+                  "en": "Inappropriate",
+                  "zh": "不合适"
+                }
+              ],
+              "selectionMode": "single_per_row"
+            },
+            "correct": [
+              {
+                "rowId": "r1",
+                "columnIds": [
+                  "c1"
+                ]
+              },
+              {
+                "rowId": "r2",
+                "columnIds": [
+                  "c2"
+                ]
+              },
+              {
+                "rowId": "r3",
+                "columnIds": [
+                  "c1"
+                ]
+              },
+              {
+                "rowId": "r4",
+                "columnIds": [
+                  "c1"
+                ]
+              }
+            ],
+            "rationale": {
+              "correct": {
+                "en": "Interventions must focus on respite (relief) for the caregiver and peer support. Telling her to try harder exacerbates the guilt and burnout.",
+                "zh": "干预措施必须侧重于为照顾者提供喘息（缓解）机会和同伴支持。告诉她要更努力只会加重内疚感和倦怠感。"
+              },
+              "byChoice": [
+                {
+                  "refId": "r1",
+                  "en": "Informal respite care allows the caregiver time to rest or run errands.",
+                  "zh": "非正式的喘息照护让照顾者有时间休息或处理琐事。"
+                },
+                {
+                  "refId": "r2",
+                  "en": "She is already overwhelmed; this places more burden on her.",
+                  "zh": "她已经不堪重负；这会给她增加更多的负担。"
+                },
+                {
+                  "refId": "r3",
+                  "en": "Formal respite care provides safe supervision while the caregiver rests.",
+                  "zh": "正式的喘息照护在照顾者休息时提供安全的监护。"
+                },
+                {
+                  "refId": "r4",
+                  "en": "Support groups provide emotional validation and practical coping strategies.",
+                  "zh": "支持小组提供情感上的肯定和实用的应对策略。"
+                }
+              ]
+            },
+            "testTakingStrategy": {
+              "en": "Prioritize interventions that provide 'respite' (temporary relief) for the burned-out caregiver.",
+              "zh": "优先考虑为筋疲力尽的照顾者提供“喘息”（暂时缓解）机会的干预措施。"
+            },
+            "glossary": []
+          },
+          {
+            "id": "gemini_gapfill_case_2026_06_10_case_caregiver_08_q3",
+            "itemType": "multiple_choice",
+            "category": "Psychosocial Integrity",
+            "topic": "caregiver strain",
+            "difficulty": "medium",
+            "ngnSkill": "take_action",
+            "stem": {
+              "en": "What is the nurse's priority action regarding the wife's health?",
+              "zh": "关于妻子的健康，护士的首要行动是什么？"
+            },
+            "options": [
+              {
+                "id": "o2",
+                "en": "Assess her current blood pressure.",
+                "zh": "评估她当前的血压。"
+              },
+              {
+                "id": "o4",
+                "en": "Discuss long-term nursing home placement for her husband.",
+                "zh": "讨论将她丈夫长期安置在养老院的事宜。"
+              },
+              {
+                "id": "o3",
+                "en": "Educate her on the pathophysiology of Alzheimer's disease.",
+                "zh": "对她进行有关阿尔茨海默病病理生理学的教育。"
+              },
+              {
+                "id": "o1",
+                "en": "Tell her to immediately schedule a doctor's appointment.",
+                "zh": "告诉她立即预约看医生。"
+              }
+            ],
+            "correct": [
+              "o2"
+            ],
+            "rationale": {
+              "correct": {
+                "en": "Because she admitted to missing her blood pressure medication, the nurse must assess her current physiological status (blood pressure) first before taking other actions.",
+                "zh": "因为她承认漏服了降压药，护士必须在采取其他行动之前，首先评估她当前的生理状态（血压）。"
+              },
+              "byChoice": [
+                {
+                  "refId": "o2",
+                  "en": "This is the immediate physiological safety priority.",
+                  "zh": "这是当前生理安全的首要任务。"
+                },
+                {
+                  "refId": "o4",
+                  "en": "This is a long-term discussion, not the immediate priority.",
+                  "zh": "这是一个长期的讨论议题，不是目前的当务之急。"
+                },
+                {
+                  "refId": "o3",
+                  "en": "Education is not the immediate priority for a potential hypertensive crisis.",
+                  "zh": "对于潜在的高血压危象，教育不是当务之急。"
+                },
+                {
+                  "refId": "o1",
+                  "en": "Assessment must precede intervention.",
+                  "zh": "评估必须在干预之前进行。"
+                }
+              ]
+            },
+            "testTakingStrategy": {
+              "en": "Use the nursing process: Assessment comes before Implementation. Address physiological needs first.",
+              "zh": "运用护理程序：评估先于实施。首先解决生理需求。"
+            },
+            "glossary": []
+          },
+          {
+            "id": "gemini_gapfill_case_2026_06_10_case_caregiver_08_q4",
+            "itemType": "dropdown_cloze",
+            "category": "Psychosocial Integrity",
+            "topic": "caregiver strain",
+            "difficulty": "medium",
+            "ngnSkill": "evaluate_outcomes",
+            "stem": {
+              "en": "The nurse returns two weeks later for a follow-up visit.",
+              "zh": "两周后，护士再次进行家庭随访。"
+            },
+            "clozeStem": {
+              "en": "The nurse evaluates that the caregiver's coping has improved if she states she has attended a {{1}} and has scheduled a {{2}}.",
+              "zh": "如果照顾者表示她已经参加了 {{1}} 并已预约了 {{2}}，护士可评估照顾者的应对能力有所改善。"
+            },
+            "dropdowns": [
+              {
+                "id": "1",
+                "options": [
+                  {
+                    "id": "o1",
+                    "en": "support group meeting",
+                    "zh": "支持小组会议"
+                  },
+                  {
+                    "id": "o2",
+                    "en": "financial planning seminar",
+                    "zh": "财务规划研讨会"
+                  }
+                ],
+                "correct": "o1"
+              },
+              {
+                "id": "2",
+                "options": [
+                  {
+                    "id": "o1",
+                    "en": "routine checkup with her own doctor",
+                    "zh": "她自己的医生的常规体检"
+                  },
+                  {
+                    "id": "o2",
+                    "en": "meeting to sell their house",
+                    "zh": "卖房的会议"
+                  }
+                ],
+                "correct": "o1"
+              }
+            ],
+            "rationale": {
+              "correct": {
+                "en": "Attending a support group indicates active coping and seeking emotional help. Seeing her own doctor addresses her neglected physical health.",
+                "zh": "参加支持小组表明积极应对和寻求情感帮助。看她自己的医生解决了她被忽视的身体健康问题。"
+              },
+              "byChoice": [
+                {
+                  "refId": "1",
+                  "en": "Support groups directly address caregiver isolation and strain.",
+                  "zh": "支持小组直接解决照顾者的孤立无援和紧张问题。"
+                },
+                {
+                  "refId": "2",
+                  "en": "Addressing her own health needs shows a return to self-care.",
+                  "zh": "关注她自己的健康需求表明恢复了自我护理。"
+                }
+              ]
+            },
+            "testTakingStrategy": {
+              "en": "Match the evaluation criteria directly to the previously identified problems (isolation, neglected health).",
+              "zh": "将评估标准直接与之前发现的问题（孤立、忽视健康）相匹配。"
+            },
+            "glossary": []
+          }
+        ]
+      },
+      "rationale": {
+        "correct": {
+          "en": "Caregiver role strain is a serious risk. Nurses must assess the caregiver's health, provide respite options, and facilitate support group involvement.",
+          "zh": "照顾者角色紧张是一种严重的风险。护士必须评估照顾者的健康状况，提供喘息的选项，并促进其参与支持小组。"
+        }
+      },
+      "testTakingStrategy": {
+        "en": "Treat the caregiver as a secondary patient needing holistic care.",
+        "zh": "将照顾者视为需要整体护理的第二类患者。"
+      },
+      "glossary": []
+    },
+    {
+      "id": "gemini_gapfill_case_2026_06_10_case_grief_09",
+      "itemType": "case_study",
+      "category": "Psychosocial Integrity",
+      "topic": "grief and bereavement",
+      "difficulty": "medium",
+      "stem": {
+        "en": "Review the client record and answer the case-study items.",
+        "zh": "查阅患者病历并回答病例分析题。"
+      },
+      "caseStudy": {
+        "title": {
+          "en": "Primary Care Clinic",
+          "zh": "初级保健诊所"
+        },
+        "summary": {
+          "en": "A 75-year-old male presents for a routine checkup. His wife of 50 years passed away 2 months ago.",
+          "zh": "一名75岁男性前来常规体检。与他结婚50年的妻子在2个月前去世。"
+        },
+        "exhibits": [
+          {
+            "id": "history",
+            "title": {
+              "en": "Nursing Interview",
+              "zh": "护理访谈"
+            },
+            "content": {
+              "en": "Client reports a 5 lb (2.3 kg) weight loss since his wife died. He states, 'I miss her terribly, and the house feels so empty. I haven't felt like going to my weekly card game.' He also states, 'I know she is in a better place and no longer suffering.'",
+              "zh": "患者自述自从妻子去世后，体重减轻了5磅（2.3公斤）。他说：“我非常想念她，房子感觉空荡荡的。我没有心情去参加每周的纸牌游戏。”他还说：“我知道她在更好的地方，不再受苦了。”"
+            }
+          }
+        ],
+        "stages": [],
+        "questions": [
+          {
+            "id": "gemini_gapfill_case_2026_06_10_case_grief_09_q1",
+            "itemType": "multiple_choice",
+            "category": "Psychosocial Integrity",
+            "topic": "grief and bereavement",
+            "difficulty": "medium",
+            "ngnSkill": "recognize_cues",
+            "stem": {
+              "en": "How should the nurse interpret the client's presentation?",
+              "zh": "护士应如何理解患者的表现？"
+            },
+            "options": [
+              {
+                "id": "o4",
+                "en": "He is in the denial stage of grief.",
+                "zh": "他正处于悲伤的否认阶段。"
+              },
+              {
+                "id": "o2",
+                "en": "He is experiencing complicated grief requiring psychiatric intervention.",
+                "zh": "他正在经历需要精神科干预的复杂性悲伤。"
+              },
+              {
+                "id": "o1",
+                "en": "He is experiencing normal, uncomplicated grief.",
+                "zh": "他正在经历正常的、非复杂性的悲伤。"
+              },
+              {
+                "id": "o3",
+                "en": "He is experiencing disenfranchised grief.",
+                "zh": "他正在经历被剥夺权利的悲伤 (disenfranchised grief)。"
+              }
+            ],
+            "correct": [
+              "o1"
+            ],
+            "rationale": {
+              "correct": {
+                "en": "At 2 months post-loss, sadness, mild weight loss, and temporary social withdrawal are normal grieving behaviors. His ability to find meaning ('she is in a better place') indicates healthy processing.",
+                "zh": "在失去亲人2个月后，悲伤、轻微的体重减轻和暂时的社交退缩都是正常的悲伤行为。他能找到意义（“她在更好的地方”）表明他正在健康地处理情绪。"
+              },
+              "byChoice": [
+                {
+                  "refId": "o4",
+                  "en": "He clearly acknowledges her death; he is not in denial.",
+                  "zh": "他清楚地承认了她的死亡；他并没有否认。"
+                },
+                {
+                  "refId": "o2",
+                  "en": "Complicated grief usually involves severe, prolonged impairment (e.g., beyond 6-12 months) without any signs of acceptance.",
+                  "zh": "复杂性悲伤通常涉及严重、长期的损害（例如，超过6-12个月），且没有任何接受的迹象。"
+                },
+                {
+                  "refId": "o1",
+                  "en": "These symptoms are expected early in the bereavement period.",
+                  "zh": "这些症状在丧亲期早期是预料之中的。"
+                },
+                {
+                  "refId": "o3",
+                  "en": "Disenfranchised grief occurs when a loss cannot be openly acknowledged (e.g., an affair).",
+                  "zh": "当失去无法被公开承认时（例如，婚外情），就会出现被剥夺权利的悲伤。"
+                }
+              ]
+            },
+            "testTakingStrategy": {
+              "en": "Distinguish between normal timeline grieving and pathological/complicated grief.",
+              "zh": "区分正常时间线的悲伤和病态/复杂性悲伤。"
+            },
+            "glossary": []
+          },
+          {
+            "id": "gemini_gapfill_case_2026_06_10_case_grief_09_q2",
+            "itemType": "matrix",
+            "category": "Psychosocial Integrity",
+            "topic": "grief and bereavement",
+            "difficulty": "medium",
+            "ngnSkill": "analyze_cues",
+            "stem": {
+              "en": "Which findings would indicate a transition from normal grief to clinical depression? Click to specify if each finding is expected in normal grief or indicates potential depression.",
+              "zh": "哪些发现表明从正常的悲伤过渡到了临床抑郁症？点击指出以下各项发现是正常悲伤的预期表现，还是表明潜在的抑郁症。"
+            },
+            "matrix": {
+              "rows": [
+                {
+                  "id": "r1",
+                  "en": "Expressing feelings of worthlessness",
+                  "zh": "表达出毫无价值的感觉"
+                },
+                {
+                  "id": "r2",
+                  "en": "Crying when looking at old photos",
+                  "zh": "看旧照片时哭泣"
+                },
+                {
+                  "id": "r3",
+                  "en": "Active suicidal ideation",
+                  "zh": "活跃的自杀意念"
+                },
+                {
+                  "id": "r4",
+                  "en": "Occasional difficulty falling asleep",
+                  "zh": "偶尔难以入睡"
+                }
+              ],
+              "columns": [
+                {
+                  "id": "c1",
+                  "en": "Normal Grief",
+                  "zh": "正常悲伤"
+                },
+                {
+                  "id": "c2",
+                  "en": "Potential Depression",
+                  "zh": "潜在抑郁症"
+                }
+              ],
+              "selectionMode": "single_per_row"
+            },
+            "correct": [
+              {
+                "rowId": "r1",
+                "columnIds": [
+                  "c2"
+                ]
+              },
+              {
+                "rowId": "r2",
+                "columnIds": [
+                  "c1"
+                ]
+              },
+              {
+                "rowId": "r3",
+                "columnIds": [
+                  "c2"
+                ]
+              },
+              {
+                "rowId": "r4",
+                "columnIds": [
+                  "c1"
+                ]
+              }
+            ],
+            "rationale": {
+              "correct": {
+                "en": "Grief involves waves of sadness, but self-esteem usually remains intact. Feelings of profound worthlessness and suicidal ideation cross the line into clinical depression.",
+                "zh": "悲伤包含一阵阵的难过，但自尊通常保持完好。极度缺乏价值感和自杀意念则越界进入了临床抑郁症的范畴。"
+              },
+              "byChoice": [
+                {
+                  "refId": "r1",
+                  "en": "Pervasive worthlessness is a hallmark of major depressive disorder.",
+                  "zh": "普遍的无价值感是重度抑郁症的标志。"
+                },
+                {
+                  "refId": "r2",
+                  "en": "Triggers causing tearfulness are completely normal.",
+                  "zh": "由诱因引起的流泪是完全正常的。"
+                },
+                {
+                  "refId": "r3",
+                  "en": "Suicidal ideation is a psychiatric emergency requiring immediate intervention.",
+                  "zh": "自杀意念是精神科急症，需要立即干预。"
+                },
+                {
+                  "refId": "r4",
+                  "en": "Mild sleep disturbances are common in acute grief.",
+                  "zh": "轻微的睡眠障碍在急性悲伤中很常见。"
+                }
+              ]
+            },
+            "testTakingStrategy": {
+              "en": "Identify red flags that distinguish depression (worthlessness, suicide) from grief (sadness, missing the deceased).",
+              "zh": "识别区分抑郁症（无价值感、自杀）与悲伤（难过、思念死者）的危险信号。"
+            },
+            "glossary": []
+          },
+          {
+            "id": "gemini_gapfill_case_2026_06_10_case_grief_09_q3",
+            "itemType": "multiple_choice",
+            "category": "Psychosocial Integrity",
+            "topic": "grief and bereavement",
+            "difficulty": "medium",
+            "ngnSkill": "take_action",
+            "stem": {
+              "en": "What is the nurse's most therapeutic response to the client's statement, 'The house feels so empty'?",
+              "zh": "针对患者所说的“房子感觉空荡荡的”，护士最具治疗意义的回应是什么？"
+            },
+            "options": [
+              {
+                "id": "o3",
+                "en": "'It sounds like you are feeling very lonely without her here.'",
+                "zh": "“听起来没有她在这里，您感到非常孤独。”"
+              },
+              {
+                "id": "o1",
+                "en": "'It will get easier as time passes; you just need to stay busy.'",
+                "zh": "“随着时间的推移，情况会好转的；您只需要让自己忙碌起来。”"
+              },
+              {
+                "id": "o2",
+                "en": "'Perhaps you should consider downsizing to a smaller apartment.'",
+                "zh": "“也许您应该考虑换一个更小一点的公寓。”"
+              },
+              {
+                "id": "o4",
+                "en": "'You should force yourself to go to your card game to take your mind off it.'",
+                "zh": "“您应该强迫自己去参加纸牌游戏，以分散您的注意力。”"
+              }
+            ],
+            "correct": [
+              "o3"
+            ],
+            "rationale": {
+              "correct": {
+                "en": "Reflecting feelings (validating) encourages the client to explore their emotions. Giving advice or offering false reassurance shuts down communication.",
+                "zh": "反映情感（肯定）鼓励患者探索自己的情绪。提出建议或提供虚假的安慰会阻断沟通。"
+              },
+              "byChoice": [
+                {
+                  "refId": "o3",
+                  "en": "This uses active listening and reflection of feelings to validate his experience.",
+                  "zh": "这使用了积极倾听和情感反映来肯定他的经历。"
+                },
+                {
+                  "refId": "o1",
+                  "en": "This uses cliches and false reassurance.",
+                  "zh": "这使用了陈词滥调和虚假的安慰。"
+                },
+                {
+                  "refId": "o2",
+                  "en": "Major life decisions should be avoided immediately after a loss.",
+                  "zh": "在失去亲人后，应立即避免做出重大生活决定。"
+                },
+                {
+                  "refId": "o4",
+                  "en": "Giving advice is non-therapeutic and dismissive of his current emotional state.",
+                  "zh": "提出建议是非治疗性的，并且无视了他当前的情绪状态。"
+                }
+              ]
+            },
+            "testTakingStrategy": {
+              "en": "Choose the communication technique that validates the client's feelings and invites further sharing.",
+              "zh": "选择能够肯定患者感受并邀请其进一步分享的沟通技巧。"
+            },
+            "glossary": []
+          },
+          {
+            "id": "gemini_gapfill_case_2026_06_10_case_grief_09_q4",
+            "itemType": "dropdown_cloze",
+            "category": "Psychosocial Integrity",
+            "topic": "grief and bereavement",
+            "difficulty": "medium",
+            "ngnSkill": "evaluate_outcomes",
+            "stem": {
+              "en": "Six months later, the client returns.",
+              "zh": "六个月后，患者复诊。"
+            },
+            "clozeStem": {
+              "en": "The nurse evaluates that the client is adapting well to the loss if he states he has {{1}} and his weight has {{2}}.",
+              "zh": "如果患者表示他已经 {{1}} 并且他的体重已经 {{2}}，护士可评估该患者对失去亲人的适应情况良好。"
+            },
+            "dropdowns": [
+              {
+                "id": "1",
+                "options": [
+                  {
+                    "id": "o1",
+                    "en": "returned to his weekly card game",
+                    "zh": "恢复了每周的纸牌游戏"
+                  },
+                  {
+                    "id": "o2",
+                    "en": "removed all photos of his wife",
+                    "zh": "移除了所有他妻子的照片"
+                  }
+                ],
+                "correct": "o1"
+              },
+              {
+                "id": "2",
+                "options": [
+                  {
+                    "id": "o1",
+                    "en": "stabilized",
+                    "zh": "稳定"
+                  },
+                  {
+                    "id": "o2",
+                    "en": "continued to drop steadily",
+                    "zh": "继续稳步下降"
+                  }
+                ],
+                "correct": "o1"
+              }
+            ],
+            "rationale": {
+              "correct": {
+                "en": "Reintegration into social activities and stabilization of physical health (weight) are key indicators of grief resolution and adaptation.",
+                "zh": "重新融入社交活动和身体健康（体重）的稳定是悲伤化解和适应的关键指标。"
+              },
+              "byChoice": [
+                {
+                  "refId": "1",
+                  "en": "Re-engaging with friends shows emotional recovery.",
+                  "zh": "重新与朋友交往表明情感正在恢复。"
+                },
+                {
+                  "refId": "2",
+                  "en": "Weight stabilization indicates adequate nutrition and self-care have resumed.",
+                  "zh": "体重稳定表明已恢复了充足的营养和自我护理。"
+                }
+              ]
+            },
+            "testTakingStrategy": {
+              "en": "Look for signs of functional recovery and reinvestment in life.",
+              "zh": "寻找功能恢复和重新投入生活的迹象。"
+            },
+            "glossary": []
+          }
+        ]
+      },
+      "rationale": {
+        "correct": {
+          "en": "Normal grief involves somatic and emotional symptoms that gradually resolve. The nurse's role is to facilitate the grieving process, validate feelings, and monitor for complicated grief or depression.",
+          "zh": "正常的悲伤包括躯体和情感症状，这些症状会逐渐缓解。护士的作用是促进悲伤过程、肯定感受，并监测是否有复杂性悲伤或抑郁症。"
+        }
+      },
+      "testTakingStrategy": {
+        "en": "Use therapeutic communication techniques focused on exploring feelings.",
+        "zh": "使用侧重于探索感受的治疗性沟通技巧。"
+      },
+      "glossary": []
+    },
+    {
+      "id": "gemini_gapfill_case_2026_06_10_case_adapt_10",
+      "itemType": "case_study",
+      "category": "Psychosocial Integrity",
+      "topic": "chronic illness adaptation",
+      "difficulty": "medium",
+      "stem": {
+        "en": "Review the client record and answer the case-study items.",
+        "zh": "查阅患者病历并回答病例分析题。"
+      },
+      "caseStudy": {
+        "title": {
+          "en": "Rheumatology Clinic",
+          "zh": "风湿病诊所"
+        },
+        "summary": {
+          "en": "A 40-year-old female was diagnosed with rheumatoid arthritis (RA) 3 months ago.",
+          "zh": "一名40岁女性在3个月前被诊断出患有类风湿关节炎 (RA)。"
+        },
+        "exhibits": [
+          {
+            "id": "history",
+            "title": {
+              "en": "Nursing Interview",
+              "zh": "护理访谈"
+            },
+            "content": {
+              "en": "Client states, 'I am terrified my hands are going to become deformed. I work as a graphic designer, and I need my hands. Sometimes I just pretend I don't have this disease, but then my joints ache so badly in the morning.'",
+              "zh": "患者说：“我非常害怕我的手会变形。我是一名平面设计师，我需要我的手。有时候我就假装我没有这个病，但到了早上，我的关节会疼得非常厉害。”"
+            }
+          }
+        ],
+        "stages": [],
+        "questions": [
+          {
+            "id": "gemini_gapfill_case_2026_06_10_case_adapt_10_q1",
+            "itemType": "select_all",
+            "category": "Psychosocial Integrity",
+            "topic": "chronic illness adaptation",
+            "difficulty": "medium",
+            "ngnSkill": "analyze_cues",
+            "stem": {
+              "en": "Which statements accurately describe the psychosocial challenges this client is facing? Select all that apply.",
+              "zh": "哪些描述准确地反映了该患者面临的社会心理挑战？请选择所有适用项。"
+            },
+            "options": [
+              {
+                "id": "o2",
+                "en": "Threat to occupational role",
+                "zh": "职业角色受到威胁"
+              },
+              {
+                "id": "o3",
+                "en": "Use of denial as a coping mechanism",
+                "zh": "使用否认作为应对机制"
+              },
+              {
+                "id": "o1",
+                "en": "Fear of altered body image",
+                "zh": "害怕身体形象改变"
+              },
+              {
+                "id": "o4",
+                "en": "Acceptance of the chronic illness",
+                "zh": "接受了慢性疾病"
+              },
+              {
+                "id": "o5",
+                "en": "Anxiety regarding future disability",
+                "zh": "对未来残疾感到焦虑"
+              }
+            ],
+            "correct": [
+              "o1",
+              "o2",
+              "o3",
+              "o5"
+            ],
+            "rationale": {
+              "correct": {
+                "en": "The client expresses fear of deformity (body image), fear of losing her job (role), anxiety about the future, and explicitly states she sometimes 'pretends' it isn't real (denial).",
+                "zh": "患者表达了对畸形的恐惧（身体形象）、对失业的恐惧（角色）、对未来的焦虑，并明确表示她有时“假装”这不是真的（否认）。"
+              },
+              "byChoice": [
+                {
+                  "refId": "o2",
+                  "en": "Her career relies on fine motor skills.",
+                  "zh": "她的职业依赖于精细运动技能。"
+                },
+                {
+                  "refId": "o3",
+                  "en": "'Pretending I don't have it' is classic denial.",
+                  "zh": "“假装我没有”是典型的否认。"
+                },
+                {
+                  "refId": "o1",
+                  "en": "Fear of deformed hands is a body image concern.",
+                  "zh": "害怕手部畸形是对身体形象的担忧。"
+                },
+                {
+                  "refId": "o4",
+                  "en": "She has not yet accepted the diagnosis.",
+                  "zh": "她尚未接受该诊断。"
+                },
+                {
+                  "refId": "o5",
+                  "en": "Anticipatory anxiety about losing function is clear.",
+                  "zh": "对丧失功能的预期性焦虑很明显。"
+                }
+              ]
+            },
+            "testTakingStrategy": {
+              "en": "Link the client's quotes to formal psychosocial concepts.",
+              "zh": "将患者的话语与正式的社会心理学概念联系起来。"
+            },
+            "glossary": []
+          },
+          {
+            "id": "gemini_gapfill_case_2026_06_10_case_adapt_10_q2",
+            "itemType": "matrix",
+            "category": "Psychosocial Integrity",
+            "topic": "chronic illness adaptation",
+            "difficulty": "medium",
+            "ngnSkill": "generate_solutions",
+            "stem": {
+              "en": "Click to specify whether each nursing action is appropriate or inappropriate to facilitate adaptation.",
+              "zh": "点击指出以下各项护理措施对于促进适应是否合适。"
+            },
+            "matrix": {
+              "rows": [
+                {
+                  "id": "r1",
+                  "en": "Tell the client that new medications prevent all deformities now.",
+                  "zh": "告诉患者现在的新药可以防止所有畸形。"
+                },
+                {
+                  "id": "r2",
+                  "en": "Provide a referral to an occupational therapist.",
+                  "zh": "提供转介给职业治疗师。"
+                },
+                {
+                  "id": "r3",
+                  "en": "Encourage the client to express her fears about her career.",
+                  "zh": "鼓励患者表达她对职业的恐惧。"
+                },
+                {
+                  "id": "r4",
+                  "en": "Teach joint protection techniques.",
+                  "zh": "教授关节保护技术。"
+                }
+              ],
+              "columns": [
+                {
+                  "id": "c1",
+                  "en": "Appropriate",
+                  "zh": "合适"
+                },
+                {
+                  "id": "c2",
+                  "en": "Inappropriate",
+                  "zh": "不合适"
+                }
+              ],
+              "selectionMode": "single_per_row"
+            },
+            "correct": [
+              {
+                "rowId": "r1",
+                "columnIds": [
+                  "c2"
+                ]
+              },
+              {
+                "rowId": "r2",
+                "columnIds": [
+                  "c1"
+                ]
+              },
+              {
+                "rowId": "r3",
+                "columnIds": [
+                  "c1"
+                ]
+              },
+              {
+                "rowId": "r4",
+                "columnIds": [
+                  "c1"
+                ]
+              }
+            ],
+            "rationale": {
+              "correct": {
+                "en": "Validating fears, providing practical tools (joint protection), and involving specialists (occupational therapy) empower the client. False reassurance about medications preventing *all* deformities is inappropriate.",
+                "zh": "肯定恐惧、提供实用工具（关节保护）和邀请专家（职业治疗）能赋予患者力量。关于药物能防止*所有*畸形的虚假安慰是不合适的。"
+              },
+              "byChoice": [
+                {
+                  "refId": "r1",
+                  "en": "This is false reassurance. While medications are much better today, joint damage can still occur.",
+                  "zh": "这是虚假的安慰。虽然如今的药物好得多，但关节损伤仍可能发生。"
+                },
+                {
+                  "refId": "r2",
+                  "en": "Occupational therapists specialize in maintaining hand function and work adaptations.",
+                  "zh": "职业治疗师专门从事保持手部功能和工作适应的治疗。"
+                },
+                {
+                  "refId": "r3",
+                  "en": "Verbalizing fears reduces anxiety.",
+                  "zh": "说出恐惧有助于减轻焦虑。"
+                },
+                {
+                  "refId": "r4",
+                  "en": "Knowledge provides a sense of control over the disease.",
+                  "zh": "知识能带来对疾病的控制感。"
+                }
+              ]
+            },
+            "testTakingStrategy": {
+              "en": "Focus on empowerment and realistic goal setting rather than false hope.",
+              "zh": "专注于赋权和设定现实的目标，而不是虚假的希望。"
+            },
+            "glossary": []
+          },
+          {
+            "id": "gemini_gapfill_case_2026_06_10_case_adapt_10_q3",
+            "itemType": "multiple_choice",
+            "category": "Psychosocial Integrity",
+            "topic": "chronic illness adaptation",
+            "difficulty": "medium",
+            "ngnSkill": "take_action",
+            "stem": {
+              "en": "Which statement by the nurse best addresses the client's use of denial?",
+              "zh": "护士的哪句话能最好地应对患者对否认机制的使用？"
+            },
+            "options": [
+              {
+                "id": "o4",
+                "en": "'You have a mild case, so there is no need to worry right now.'",
+                "zh": "“您的病情很轻微，所以现在没有必要担心。”"
+              },
+              {
+                "id": "o1",
+                "en": "'If you keep pretending you don't have RA, your joints will get worse.'",
+                "zh": "“如果您继续假装没有RA，您的关节会变得更糟。”"
+              },
+              {
+                "id": "o3",
+                "en": "'It is common to want to ignore a new diagnosis. Let's talk about what makes it hardest to accept.'",
+                "zh": "“想要忽视一个新的诊断是很常见的。我们来谈谈是什么让它最难被接受。”"
+              },
+              {
+                "id": "o2",
+                "en": "'Denial is a normal first step, but you need to move past it now.'",
+                "zh": "“否认是一个正常的第一步，但您现在需要克服它。”"
+              }
+            ],
+            "correct": [
+              "o3"
+            ],
+            "rationale": {
+              "correct": {
+                "en": "This response normalizes the feeling (validates) while gently inviting the client to explore the underlying fears preventing acceptance.",
+                "zh": "这种回应将感受正常化（肯定），同时温和地邀请患者探索阻碍其接受的深层恐惧。"
+              },
+              "byChoice": [
+                {
+                  "refId": "o4",
+                  "en": "This is false reassurance and minimizes her valid concerns.",
+                  "zh": "这是虚假的安慰，淡化了她合理的担忧。"
+                },
+                {
+                  "refId": "o1",
+                  "en": "This is threatening and argumentative.",
+                  "zh": "这具有威胁性和争论性。"
+                },
+                {
+                  "refId": "o3",
+                  "en": "This is a therapeutic, open-ended invitation to explore feelings.",
+                  "zh": "这是一种治疗性的、开放式的邀请，以探索内心的感受。"
+                },
+                {
+                  "refId": "o2",
+                  "en": "This is judgmental and dictatorial.",
+                  "zh": "这带有评判性和独裁色彩。"
+                }
+              ]
+            },
+            "testTakingStrategy": {
+              "en": "Select therapeutic communication that neither confronts denial aggressively nor supports it, but explores it.",
+              "zh": "选择不激进对抗也不支持否认，而是去探索否认的治疗性沟通方式。"
+            },
+            "glossary": []
+          },
+          {
+            "id": "gemini_gapfill_case_2026_06_10_case_adapt_10_q4",
+            "itemType": "dropdown_cloze",
+            "category": "Psychosocial Integrity",
+            "topic": "chronic illness adaptation",
+            "difficulty": "medium",
+            "ngnSkill": "evaluate_outcomes",
+            "stem": {
+              "en": "The client attends follow-up appointments.",
+              "zh": "患者按时复诊。"
+            },
+            "clozeStem": {
+              "en": "The nurse evaluates successful adaptation to the illness if the client is observed {{1}} and states she has {{2}}.",
+              "zh": "如果观察到患者 {{1}} 并表示她已经 {{2}}，护士可评估其成功适应了疾病。"
+            },
+            "dropdowns": [
+              {
+                "id": "1",
+                "options": [
+                  {
+                    "id": "o1",
+                    "en": "using adaptive computer equipment for work",
+                    "zh": "在工作中使用自适应电脑设备"
+                  },
+                  {
+                    "id": "o2",
+                    "en": "wearing gloves to hide her hands",
+                    "zh": "戴着手套以隐藏她的手"
+                  }
+                ],
+                "correct": "o1"
+              },
+              {
+                "id": "2",
+                "options": [
+                  {
+                    "id": "o1",
+                    "en": "taken her prescribed medications every day",
+                    "zh": "每天按时服用处方药"
+                  },
+                  {
+                    "id": "o2",
+                    "en": "decided to quit her job as a designer",
+                    "zh": "决定辞去设计师的工作"
+                  }
+                ],
+                "correct": "o1"
+              }
+            ],
+            "rationale": {
+              "correct": {
+                "en": "Adaptation means integrating the illness into life (taking meds) and modifying routines to maintain function (using adaptive equipment).",
+                "zh": "适应意味着将疾病融入生活（服药）并改变日常习惯以保持功能（使用辅助设备）。"
+              },
+              "byChoice": [
+                {
+                  "refId": "1",
+                  "en": "Using adaptive equipment shows proactive problem-solving to maintain her occupational role.",
+                  "zh": "使用辅助设备表明她主动解决问题以维持她的职业角色。"
+                },
+                {
+                  "refId": "2",
+                  "en": "Adherence to the medical regimen shows acceptance of the diagnosis.",
+                  "zh": "遵守治疗方案表明接受了诊断。"
+                }
+              ]
+            },
+            "testTakingStrategy": {
+              "en": "Look for behaviors that indicate proactive coping, problem-solving, and adherence to treatment.",
+              "zh": "寻找表明积极应对、解决问题和遵守治疗的行为。"
+            },
+            "glossary": []
+          }
+        ]
+      },
+      "rationale": {
+        "correct": {
+          "en": "Adapting to a chronic illness requires moving past denial to acceptance, often requiring grief work for the loss of a prior healthy self-image. Providing resources empowers the client.",
+          "zh": "适应慢性疾病需要克服否认走向接受，通常需要对失去以前健康的自我形象进行悲伤处理。提供资源能赋予患者力量。"
+        }
+      },
+      "testTakingStrategy": {
+        "en": "Focus on empowerment and integration of the illness into the client's self-concept.",
+        "zh": "专注于赋权以及将疾病融入患者的自我概念中。"
+      },
+      "glossary": []
     }
   ]
 }

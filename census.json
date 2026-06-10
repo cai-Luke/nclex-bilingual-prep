@@ -1,0 +1,601 @@
+{
+  "generatedAt": "2026-06-10T21:15:14.609Z",
+  "gitSha": "193edd234a463c048a8e00c1a5928ecfbf89b91d",
+  "perFile": [
+    {
+      "file": "capnography-canonical.json",
+      "schemaVersion": "1.2",
+      "metaCount": 7,
+      "questionsLength": 7,
+      "mismatch": false
+    },
+    {
+      "file": "claude-canonical.json",
+      "schemaVersion": "1.0",
+      "metaCount": 50,
+      "questionsLength": 50,
+      "mismatch": false
+    },
+    {
+      "file": "gemini-canonical.json",
+      "schemaVersion": "1.1",
+      "metaCount": 760,
+      "questionsLength": 760,
+      "mismatch": false
+    },
+    {
+      "file": "gpt-canonical.json",
+      "schemaVersion": "1.0",
+      "metaCount": 142,
+      "questionsLength": 142,
+      "mismatch": false
+    },
+    {
+      "file": "hard-cases-canonical.json",
+      "schemaVersion": "1.2",
+      "metaCount": 46,
+      "questionsLength": 46,
+      "mismatch": false
+    },
+    {
+      "file": "lab-canonical.json",
+      "schemaVersion": "1.2",
+      "metaCount": 20,
+      "questionsLength": 20,
+      "mismatch": false
+    },
+    {
+      "file": "mar-canonical.json",
+      "schemaVersion": "1.2",
+      "metaCount": 5,
+      "questionsLength": 5,
+      "mismatch": false
+    },
+    {
+      "file": "visual-canonical.json",
+      "schemaVersion": "1.2",
+      "metaCount": 53,
+      "questionsLength": 53,
+      "mismatch": false
+    },
+    {
+      "file": "vitals-canonical.json",
+      "schemaVersion": "1.2",
+      "metaCount": 10,
+      "questionsLength": 10,
+      "mismatch": false
+    }
+  ],
+  "totals": {
+    "topLevel": 1093,
+    "caseStudyTopLevel": 39,
+    "embeddedParts": 155,
+    "gradedTotal": 1248
+  },
+  "byItemType": {
+    "case_study": 39,
+    "fill_in_blank": 96,
+    "ordered_response": 99,
+    "dropdown_cloze": 129,
+    "matrix": 145,
+    "select_all": 180,
+    "multiple_choice": 405
+  },
+  "byCategory": {
+    "Health Promotion and Maintenance": 115,
+    "Basic Care and Comfort": 117,
+    "Psychosocial Integrity": 117,
+    "Safety and Infection Control": 122,
+    "Management of Care": 125,
+    "Reduction of Risk Potential": 132,
+    "Pharmacological and Parenteral Therapies": 149,
+    "Physiological Adaptation": 216
+  },
+  "byDifficulty": {
+    "easy": 138,
+    "hard": 399,
+    "medium": 556
+  },
+  "bySchemaVersion": {
+    "1.2": {
+      "questions": 141,
+      "files": [
+        "capnography-canonical.json",
+        "hard-cases-canonical.json",
+        "lab-canonical.json",
+        "mar-canonical.json",
+        "visual-canonical.json",
+        "vitals-canonical.json"
+      ]
+    },
+    "1.0": {
+      "questions": 192,
+      "files": [
+        "claude-canonical.json",
+        "gpt-canonical.json"
+      ]
+    },
+    "1.1": {
+      "questions": 760,
+      "files": [
+        "gemini-canonical.json"
+      ]
+    }
+  },
+  "bySourceFile": {
+    "capnography-canonical.json": 7,
+    "claude-canonical.json": 50,
+    "gemini-canonical.json": 760,
+    "gpt-canonical.json": 142,
+    "hard-cases-canonical.json": 46,
+    "lab-canonical.json": 20,
+    "mar-canonical.json": 5,
+    "visual-canonical.json": 53,
+    "vitals-canonical.json": 10
+  },
+  "visuals": {
+    "total": 87,
+    "byKind": {
+      "capnography": 7,
+      "lab_trend": 20,
+      "mar": 5,
+      "rhythm_strip": 44,
+      "vitals_trend": 11
+    },
+    "rhythmSubtypes": {
+      "afib": 5,
+      "aflutter": 2,
+      "asystole": 2,
+      "avb_1": 3,
+      "avb_2_mobitz1": 2,
+      "avb_2_mobitz2": 2,
+      "avb_3": 3,
+      "pvc": 2,
+      "sinus": 2,
+      "sinus_brady": 6,
+      "sinus_tach": 4,
+      "svt": 4,
+      "vfib": 3,
+      "vtach": 4
+    },
+    "idsByKind": {
+      "capnography": [
+        "cap_01",
+        "cap_02",
+        "cap_03",
+        "cap_04",
+        "cap_05",
+        "cap_08",
+        "cap_10"
+      ],
+      "lab_trend": [
+        "gpt_u3_labtrend_2026_06_09_b_cloze_inr_amiodarone_09",
+        "gpt_u3_labtrend_2026_06_09_b_cloze_sodium_overcorrection_08",
+        "gpt_u3_labtrend_2026_06_09_b_fib_creatinine_increase_10",
+        "gpt_u3_labtrend_2026_06_09_b_matrix_dka_potassium_glucose_04",
+        "gpt_u3_labtrend_2026_06_09_b_matrix_neutropenia_wbc_05",
+        "gpt_u3_labtrend_2026_06_09_b_mc_lactate_worsening_03",
+        "gpt_u3_labtrend_2026_06_09_b_mc_platelets_heparin_01",
+        "gpt_u3_labtrend_2026_06_09_b_mc_ptt_heparin_infusion_02",
+        "gpt_u3_labtrend_2026_06_09_b_or_gi_bleed_hgb_06",
+        "gpt_u3_labtrend_2026_06_09_b_or_hypercalcemia_progression_07",
+        "gpt_u3_labtrend_2026_06_09_cloze_calcium_thyroidectomy_09",
+        "gpt_u3_labtrend_2026_06_09_cloze_magnesium_decline_08",
+        "gpt_u3_labtrend_2026_06_09_fib_hemoglobin_drop_10",
+        "gpt_u3_labtrend_2026_06_09_matrix_inr_platelets_warfarin_05",
+        "gpt_u3_labtrend_2026_06_09_matrix_sepsis_lactate_wbc_04",
+        "gpt_u3_labtrend_2026_06_09_mc_creatinine_gentamicin_03",
+        "gpt_u3_labtrend_2026_06_09_mc_potassium_furosemide_01",
+        "gpt_u3_labtrend_2026_06_09_mc_sodium_decline_02",
+        "gpt_u3_labtrend_2026_06_09_or_aki_fluid_response_07",
+        "gpt_u3_labtrend_2026_06_09_or_hyperkalemia_progression_06"
+      ],
+      "mar": [
+        "mar_matrix_assess_05",
+        "mar_matrix_cardiac_04",
+        "mar_mc_digoxin_01",
+        "mar_mc_vanco_03",
+        "mar_mc_warfarin_02"
+      ],
+      "rhythm_strip": [
+        "ekg_b1_matrix_09",
+        "ekg_b1_mc_01",
+        "ekg_b1_mc_02",
+        "ekg_b1_mc_04",
+        "ekg_b1_mc_05",
+        "ekg_b1_mc_06",
+        "ekg_b1_mc_08",
+        "ekg_b1_mc_10",
+        "ekg_b1_sata_03",
+        "ekg_b1_sata_07",
+        "ekg_b2_matrix_10",
+        "ekg_b2_mc_01",
+        "ekg_b2_mc_02",
+        "ekg_b2_mc_03",
+        "ekg_b2_mc_04",
+        "ekg_b2_mc_05",
+        "ekg_b2_mc_07",
+        "ekg_b2_mc_08",
+        "ekg_b2_sata_06",
+        "ekg_b2_sata_09",
+        "ekg_b3_matrix_10",
+        "ekg_b3_mc_01",
+        "ekg_b3_mc_02",
+        "ekg_b3_mc_03",
+        "ekg_b3_mc_04",
+        "ekg_b3_mc_05",
+        "ekg_b3_mc_06",
+        "ekg_b3_mc_07",
+        "ekg_b3_mc_09",
+        "ekg_b3_sata_08",
+        "ekg_b4_matrix_10",
+        "ekg_b4_mc_01",
+        "ekg_b4_mc_02",
+        "ekg_b4_mc_03",
+        "ekg_b4_mc_04",
+        "ekg_b4_mc_05",
+        "ekg_b4_mc_06",
+        "ekg_b4_mc_08",
+        "ekg_b4_sata_07",
+        "ekg_b4_sata_09",
+        "ekg_b5_mc_02",
+        "rhy_afib_001",
+        "rhy_sinus_brady_001",
+        "rhy_vtach_001"
+      ],
+      "vitals_trend": [
+        "cs_thyroid_storm_main",
+        "vit_01",
+        "vit_02",
+        "vit_03",
+        "vit_04",
+        "vit_05",
+        "vit_06",
+        "vit_07",
+        "vit_08",
+        "vit_09",
+        "vit_10"
+      ]
+    }
+  },
+  "caseStudies": [
+    {
+      "id": "gen_rrp_batch1_10",
+      "topic": "Respiratory & Infectious Disorders",
+      "parts": 2,
+      "bank": "gemini-canonical.json"
+    },
+    {
+      "id": "gen_rrp_batch2_10",
+      "topic": "Perioperative Care",
+      "parts": 2,
+      "bank": "gemini-canonical.json"
+    },
+    {
+      "id": "case_sepsis_pneumonia_01",
+      "topic": "Sepsis & Septic Shock",
+      "parts": 4,
+      "bank": "hard-cases-canonical.json"
+    },
+    {
+      "id": "case_preeclampsia_magnesium_01",
+      "topic": "Maternal-Newborn Care & Teaching",
+      "parts": 4,
+      "bank": "hard-cases-canonical.json"
+    },
+    {
+      "id": "cs_copd_01",
+      "topic": "Respiratory & Infectious Disorders",
+      "parts": 5,
+      "bank": "hard-cases-canonical.json"
+    },
+    {
+      "id": "cs_ckd_01",
+      "topic": "Procedural Complications & Dialysis",
+      "parts": 5,
+      "bank": "hard-cases-canonical.json"
+    },
+    {
+      "id": "cs_asthma_01",
+      "topic": "Pediatric & Adolescent Health",
+      "parts": 5,
+      "bank": "hard-cases-canonical.json"
+    },
+    {
+      "id": "cs_schiz_01",
+      "topic": "Mental Health Disorders",
+      "parts": 5,
+      "bank": "hard-cases-canonical.json"
+    },
+    {
+      "id": "cs_hip_01",
+      "topic": "Perioperative Care",
+      "parts": 5,
+      "bank": "hard-cases-canonical.json"
+    },
+    {
+      "id": "case_dka_01",
+      "topic": "Diabetic Ketoacidosis (DKA)",
+      "parts": 5,
+      "bank": "hard-cases-canonical.json"
+    },
+    {
+      "id": "case_ami_01",
+      "topic": "Cardiovascular Disorders",
+      "parts": 5,
+      "bank": "hard-cases-canonical.json"
+    },
+    {
+      "id": "cs_ngn_001_anorexia",
+      "topic": "Anorexia Nervosa / Refeeding Syndrome",
+      "parts": 5,
+      "bank": "hard-cases-canonical.json"
+    },
+    {
+      "id": "cs_ngn_002_disaster",
+      "topic": "Disaster Triage / Chemical Exposure",
+      "parts": 5,
+      "bank": "hard-cases-canonical.json"
+    },
+    {
+      "id": "cs_ngn_003_child_abuse",
+      "topic": "Child Abuse / Non-Accidental Trauma",
+      "parts": 5,
+      "bank": "hard-cases-canonical.json"
+    },
+    {
+      "id": "cs_ngn_004_blood",
+      "topic": "Blood Transfusion Reaction (Hemolytic/TRALI)",
+      "parts": 5,
+      "bank": "hard-cases-canonical.json"
+    },
+    {
+      "id": "cs_ngn_005_bipolar",
+      "topic": "Bipolar I - Acute Manic Episode",
+      "parts": 5,
+      "bank": "hard-cases-canonical.json"
+    },
+    {
+      "id": "cs_ngn_006_tbi",
+      "topic": "Traumatic Brain Injury (TBI) / Cushing's Triad",
+      "parts": 5,
+      "bank": "hard-cases-canonical.json"
+    },
+    {
+      "id": "cs_ngn_007_dic",
+      "topic": "Disseminated Intravascular Coagulation (DIC)",
+      "parts": 5,
+      "bank": "hard-cases-canonical.json"
+    },
+    {
+      "id": "cs_ngn_008_peds",
+      "topic": "Pyloric Stenosis vs. Intussusception",
+      "parts": 5,
+      "bank": "hard-cases-canonical.json"
+    },
+    {
+      "id": "cs_ngn_009_serotonin",
+      "topic": "Serotonin Syndrome vs. NMS",
+      "parts": 5,
+      "bank": "hard-cases-canonical.json"
+    },
+    {
+      "id": "cs_ngn_010_ad",
+      "topic": "Autonomic Dysreflexia",
+      "parts": 5,
+      "bank": "hard-cases-canonical.json"
+    },
+    {
+      "id": "case_stroke_01",
+      "topic": "Ischemic Stroke",
+      "parts": 3,
+      "bank": "hard-cases-canonical.json"
+    },
+    {
+      "id": "cs_aki_01",
+      "topic": "Acute Kidney Injury",
+      "parts": 3,
+      "bank": "hard-cases-canonical.json"
+    },
+    {
+      "id": "cs_panc_01",
+      "topic": "Acute Pancreatitis",
+      "parts": 2,
+      "bank": "hard-cases-canonical.json"
+    },
+    {
+      "id": "case_burns_01",
+      "topic": "Severe Burns",
+      "parts": 2,
+      "bank": "hard-cases-canonical.json"
+    },
+    {
+      "id": "case_pph_01",
+      "topic": "Postpartum Hemorrhage",
+      "parts": 2,
+      "bank": "hard-cases-canonical.json"
+    },
+    {
+      "id": "case_pe_01",
+      "topic": "Pulmonary Embolism",
+      "parts": 3,
+      "bank": "hard-cases-canonical.json"
+    },
+    {
+      "id": "case_cirrhosis_01",
+      "topic": "Cirrhosis With Esophageal Varices",
+      "parts": 3,
+      "bank": "hard-cases-canonical.json"
+    },
+    {
+      "id": "case_gbs_01",
+      "topic": "Guillain-Barré Syndrome",
+      "parts": 2,
+      "bank": "hard-cases-canonical.json"
+    },
+    {
+      "id": "case_celiac_01",
+      "topic": "Celiac Disease",
+      "parts": 2,
+      "bank": "hard-cases-canonical.json"
+    },
+    {
+      "id": "claude_cs_jun06_chest_tube_rrp_01",
+      "topic": "Chest Tube Management",
+      "parts": 4,
+      "bank": "hard-cases-canonical.json"
+    },
+    {
+      "id": "claude_cs_jun06_pressure_injury_bcc_01",
+      "topic": "Pressure Injury Staging and Prevention",
+      "parts": 4,
+      "bank": "hard-cases-canonical.json"
+    },
+    {
+      "id": "claude_cs_jun06_cdiff_sic_01",
+      "topic": "Clostridioides difficile and Contact Precautions",
+      "parts": 4,
+      "bank": "hard-cases-canonical.json"
+    },
+    {
+      "id": "claude_cs_jun06_adult_immunization_hpm_01",
+      "topic": "Adult Immunization and Preventive Screening",
+      "parts": 4,
+      "bank": "hard-cases-canonical.json"
+    },
+    {
+      "id": "claude_cs_jun06_ipv_screening_psi_01",
+      "topic": "Intimate Partner Violence Screening and Support",
+      "parts": 4,
+      "bank": "hard-cases-canonical.json"
+    },
+    {
+      "id": "cs_thyroid_storm_main",
+      "topic": "Thyroid Storm",
+      "parts": 4,
+      "bank": "hard-cases-canonical.json"
+    },
+    {
+      "id": "cs_adhf_pulm_edema_01",
+      "topic": "Acute Decompensated Heart Failure (ADHF)",
+      "parts": 4,
+      "bank": "hard-cases-canonical.json"
+    },
+    {
+      "id": "cs_stemi_vfib_04",
+      "topic": "Acute Myocardial Infarction and Ventricular Fibrillation",
+      "parts": 4,
+      "bank": "hard-cases-canonical.json"
+    },
+    {
+      "id": "cs_sepsis_shock_01",
+      "topic": "Septic Shock from Urosepsis",
+      "parts": 4,
+      "bank": "hard-cases-canonical.json"
+    }
+  ],
+  "idUniqueness": {
+    "duplicates": []
+  },
+  "targets": {
+    "categoryAvg": 136.625,
+    "itemTypeAvg": 156.14285714285714,
+    "underCategories": [
+      [
+        "Health Promotion and Maintenance",
+        115
+      ],
+      [
+        "Basic Care and Comfort",
+        117
+      ],
+      [
+        "Psychosocial Integrity",
+        117
+      ],
+      [
+        "Safety and Infection Control",
+        122
+      ],
+      [
+        "Management of Care",
+        125
+      ],
+      [
+        "Reduction of Risk Potential",
+        132
+      ]
+    ],
+    "overCategories": [
+      [
+        "Physiological Adaptation",
+        216
+      ],
+      [
+        "Pharmacological and Parenteral Therapies",
+        149
+      ]
+    ],
+    "underItemTypes": [
+      [
+        "case_study",
+        39
+      ],
+      [
+        "fill_in_blank",
+        96
+      ],
+      [
+        "ordered_response",
+        99
+      ],
+      [
+        "dropdown_cloze",
+        129
+      ],
+      [
+        "matrix",
+        145
+      ]
+    ]
+  },
+  "prioritizeTopics": [
+    "Health Promotion and Maintenance (115 vs target 136.6)",
+    "Basic Care and Comfort (117 vs target 136.6)",
+    "Psychosocial Integrity (117 vs target 136.6)",
+    "Safety and Infection Control (122 vs target 136.6)",
+    "Management of Care (125 vs target 136.6)",
+    "Reduction of Risk Potential (132 vs target 136.6)",
+    "case_study (39 vs target 156.1)",
+    "fill_in_blank (96 vs target 156.1)",
+    "ordered_response (99 vs target 156.1)",
+    "dropdown_cloze (129 vs target 156.1)",
+    "matrix (145 vs target 156.1)",
+    "Acute Decompensated Heart Failure (ADHF)",
+    "Acute Kidney Injury",
+    "Acute Myocardial Infarction and Ventricular Fibrillation",
+    "Acute Pancreatitis",
+    "Acute pancreatitis complications",
+    "Adenosine Administration Technique",
+    "Adenosine Side Effects",
+    "Adrenal crisis recognition and treatment",
+    "Adult Immunization and Preventive Screening",
+    "Airway Management",
+    "Albuterol Side Effects",
+    "anaphylaxis"
+  ],
+  "avoidTopics": [
+    "Mental Health Disorders (61)",
+    "Prioritization & Delegation (47)",
+    "Legal & Ethical Principles (45)",
+    "Maternal-Newborn Care & Teaching (43)",
+    "Cardiovascular Disorders (43)",
+    "Dosage Calculations (41)",
+    "Medication Safety & Admin (40)",
+    "Patient & Environment Safety (39)"
+  ],
+  "docsDrift": {
+    "ok": true,
+    "findings": []
+  }
+}

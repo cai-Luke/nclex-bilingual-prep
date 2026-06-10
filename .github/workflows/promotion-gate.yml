@@ -21,3 +21,6 @@ jobs:
 
       - name: Run promotion gate
         run: npm run audit
+
+      - name: Check census drift
+        run: npm run census:check

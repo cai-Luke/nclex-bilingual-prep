@@ -25,14 +25,16 @@ The app is a static offline Vite + React + TypeScript NCLEX-RN practice tool. It
 
 Core learning features are implemented: all schema item types render and grade, case studies are supported, sessions are resumable, custom sessions can be built from filters, the dashboard summarizes performance, flags feed review pools, glossary flashcards have their own SRS progress, and adaptive exam-condition practice is available without any pass/fail readiness claim.
 
-Current canonical banks (census 2026-06-09; 1 037 total top-level questions):
+Current canonical banks (see [BANK-CENSUS.md](BANK-CENSUS.md); 1 093 top-level, 155 embedded parts as of 2026-06-10):
 
 - `banks/capnography-canonical.json` (7 schema v1.2 capnography visual items; dedicated home for capnography kind)
 - `banks/claude-canonical.json` (50 bilingual Claude-source questions; ledgered content review complete)
-- `banks/gemini-canonical.json` (749 bilingual Gemini-source questions; includes original + pending batches + traditional/easy/gap-fill consolidations minus redundant/flawed questions)
-- `banks/gpt-canonical.json` (122 bilingual GPT-source questions; ledgered content review complete)
+- `banks/gemini-canonical.json` (760 bilingual Gemini-source questions; includes original + pending batches + traditional/easy/gap-fill consolidations minus redundant/flawed questions)
+- `banks/gpt-canonical.json` (142 bilingual GPT-source questions; ledgered content review complete)
 - `banks/hard-cases-canonical.json` (46 top-level items: 37 unfolding case studies + 9 hard standalones; 155 embedded case-study parts)
-- `banks/visual-canonical.json` (53 reviewed schema v1.2 rhythm-strip visual items; the dedicated home for rhythm_strip kind, formerly `banks/rhythm-canonical.json`)
+- `banks/lab-canonical.json` (20 schema v1.2 lab_trend visual items; dedicated home for lab_trend kind)
+- `banks/mar-canonical.json` (5 schema v1.2 mar visual items; dedicated home for mar kind)
+- `banks/visual-canonical.json` (53 reviewed schema v1.2 rhythm-strip visual items; the dedicated home for rhythm_strip kind, formerly `banks/rhythm-canonical`)
 - `banks/vitals-canonical.json` (10 reviewed schema v1.2 vitals-trend visual items; dedicated home for vitals_trend kind)
 - Schema version `1.2` current; `1.0` standalone banks and `1.1` case-study banks remain supported
 
@@ -52,6 +54,17 @@ Out of scope until a future schema bump:
 - `bowtie`
 
 ## Milestones
+
+### Bank Census Tool (Jun 10)
+
+Completed:
+- Refactored `scripts/coverage-report.ts` to export `computeCoverage(questions): CoverageData`, `collectVisuals`, and `normalizeTopic`; CLI entry point guarded with `import.meta.url` check so the file is safe to import. Fixed `getBankFiles` to filter out `--*` flags (was treating `--json` as a bank-file path). Added deterministic `.sort()` to `readdir` output for cross-platform consistency.
+- Added `scripts/census.ts`: loads every `banks/*.json` individually (preserving per-file metadata), reuses `computeCoverage`, and adds cuts coverage-report omits — `meta.count` vs `questions.length` mismatch, per-schema-version and per-source-file breakdowns, top-level vs embedded split, cross-bank ID uniqueness, and visual ID enumeration by kind. Emits `census.json` (machine-readable source of truth) and `BANK-CENSUS.md` (generated artifact, header-stamped). `--check` mode regenerates in memory, diffs excluding `generatedAt`/`gitSha`, exits non-zero on any staleness.
+- Added docs-drift advisory layer: parses `PROJECT-HISTORY.md` and `BANK-REVIEW-LEDGER.md` for `*-canonical.json` references and warns on any not in `banks/`; immediately surfaced the stale `rhythm-canonical` reference that had persisted since the Jun 07 rename.
+- Added Tier-0 CJK validation to `validateBankObject` in `src/schema.ts`: `question.topic` must be English-only; CJK characters fail loudly instead of being silently stripped by `normalizeTopic`.
+- Wired `npm run census:check` into `.github/workflows/promotion-gate.yml` as a new step after the promotion gate; every PR touching a bank file must commit a regenerated census or CI fails.
+- Deleted stale `coverage.json` (was npm's captured preamble; the `--json` flag was silently treated as a bank-file path).
+- Verified: `npm run census` → `npm run census:check` exits 0; deliberate hand-edit to `census.json` causes `census:check` to exit 1 with a line diff; `npm run coverage-report` output unchanged; all selfCheck invariants pass (`gradedTotal = topLevel + embeddedParts`, zero ID duplicates).
 
 ### Positional-Language Reference Backlog Cleared (Jun 09)
 
@@ -134,7 +147,7 @@ Completed (behavior-preserving refactor; no `schemaVersion` bump, no on-disk sha
 - Restructured the schema-1.2 visual system behind a kind registry so adding the ~9 planned future visual kinds is cheap and collision-free. The four kind-agnostic files now route through the registry and need no edit per new kind: `src/App.tsx` (renders via one `VisualStimulus` dispatcher), `src/schema.ts` (validates via `getVisual`/`allowedItemTypes`/`requiredSchemaVersion`/`selfCheck`), `scripts/validate-bank.ts` (inherits via schema), `scripts/coverage-report.ts` (iterates `listVisualKinds()` for a per-kind breakdown).
 - New layout under `src/visuals/`: `registry.ts` (contract + register/get/list), `types.ts` (the append-only `QuestionVisual` union — the only shared compile-time touch-point), `VisualStimulus.tsx` (dispatcher, preserves the existing figure/caption DOM so rendered output is unchanged), `primitives/` (`prng`, `graphPaper`, `escapeXml` extracted from the rhythm renderer), `kinds/rhythmStrip.ts` (spec type + validator + deterministic renderer + colocated fixtures, self-registering), and `kinds/index.ts` (React-free registration barrel). The ECG math, scaling, thresholds, and validation rules were relocated verbatim, not rewritten.
 - Parity proven: the 3 live items render byte-identical SVG (sha256 snapshots) and validate reason-for-reason, captured in `scripts/tests/__snapshots__/visual-parity.json`. Tests added: a generic conformance harness over `allVisualModules()` (fixtures + determinism), a registry-mechanics test using a throwaway `__test_only` kind (unknown-kind/placement/schema-version/selfCheck), and the parity test. `npm run test-visuals` now runs all four.
-- Relocated the 3 items from `banks/rhythm-canonical.json` to the dedicated `banks/visual-canonical.json` (ids and content byte-identical; review status carries over). Reorganized `NCLEX-Question-Schema.md` into a generic visual-framework section + a per-kind `rhythm_strip` subsection + an "add a kind" checklist, with no version bump.
+- Relocated the 3 items from `banks/rhythm-canonical` to the dedicated `banks/visual-canonical.json` (ids and content byte-identical; review status carries over). Reorganized `NCLEX-Question-Schema.md` into a generic visual-framework section + a per-kind `rhythm_strip` subsection + an "add a kind" checklist, with no version bump.
 - Verified: `npm run test-visuals`, `npm run validate-bank -- banks/*.json`, `npm run coverage-report`, and `npm run build` all green; coverage output shows a per-kind visual breakdown.
 
 ### Duplicate & Redundancy Audit (Jun 06)
@@ -161,7 +174,7 @@ Completed:
 
 Completed:
 
-- Content-reviewed and promoted the first 3 schema v1.2 rhythm-strip visual items into new top-level `banks/rhythm-canonical.json`.
+- Content-reviewed and promoted the first 3 schema v1.2 rhythm-strip visual items into new top-level `banks/rhythm-canonical` (later renamed `banks/visual-canonical.json`).
 - Added a custom session builder chip labeled "Questions with images" so the reviewed visual items can be directly targeted from the learner-facing UI.
 - Promoted items cover sinus bradycardia identification (`multiple_choice`), pulseless VT immediate interventions (`select_all`), and new-onset atrial fibrillation finding triage (`matrix`).
 - Source-checked sinus bradycardia criteria, pulseless VT ACLS actions, and atrial fibrillation findings/complications against NCBI/StatPearls, American Heart Association 2025 ALS guidance, and Merck Manual Professional.
@@ -384,40 +397,13 @@ Completed:
 
 ## Verification baseline
 
-Last verified on 2026-06-09:
+Last verified on 2026-06-10:
 
-- `npm run validate-bank -- banks/*.json` — all 7 banks pass
+- `npm run validate-bank -- banks/*.json` — all 9 banks pass
 - `npm run test-visuals` — 5 kinds, 6 test suites green
 - `npm run coverage-report`
+- `npm run census` — see [BANK-CENSUS.md](BANK-CENSUS.md) for the current generated snapshot (1 093 top-level, 155 embedded, 87 visuals)
 - `npm run build`
-
-Latest coverage snapshot:
-
-- Total questions: 1037
-- Unique normalized topics: 145
-- Category Counts:
-  - Health Promotion and Maintenance: 113
-  - Basic Care and Comfort: 114
-  - Reduction of Risk Potential: 116
-  - Psychosocial Integrity: 117
-  - Safety and Infection Control: 117
-  - Management of Care: 123
-  - Pharmacological and Parenteral Therapies: 134
-  - Physiological Adaptation: 203
-- Item Type Counts:
-  - case_study: 39
-  - fill_in_blank: 88
-  - ordered_response: 90
-  - dropdown_cloze: 115
-  - matrix: 129
-  - select_all: 180
-  - multiple_choice: 396
-- Visual counts (total 62 including 1 case-study stage exhibit):
-  - capnography: 7
-  - lab_trend: 0 (renderer done; content lane pending)
-  - mar: 0 (renderer done; content lane pending)
-  - rhythm_strip: 44
-  - vitals_trend: 11
 
 Known verification gap:
 
@@ -446,6 +432,6 @@ Known verification gap:
 
 - Add browser automation to the verification baseline when Playwright or the in-app browser tool is available.
 - Add focused regression tests around shared grading, especially imported-answer edge cases.
-- Continue bank expansion guided by `npm run coverage-report`.
+- Continue bank expansion guided by `npm run census` (structured) and `npm run coverage-report` (Markdown prompt parameters).
 - Consider optional live Gemini generation only if still wanted.
 - Consider optional remote bank update flow if manual bundled-bank updates become annoying.
