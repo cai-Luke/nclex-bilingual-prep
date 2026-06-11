@@ -2,7 +2,7 @@
 
 **Status:** Ready for GPT  
 **Target raw file:** `banks-raw/gpt-gap-jun11-safety-mgmt.json` → merge into `gpt-canonical.json`  
-**Schema version:** 1.0 (standalone questions, not `case_study`)  
+**Schema version:** 1.2  
 **Count:** 10  
 **BANK_ID_PREFIX:** `gpt_gap_jun11`
 
@@ -32,7 +32,7 @@ Item type counts vs target 166 each:
 
 | Category | Count | Suggested item types |
 |---|---:|---|
-| Safety and Infection Control | 3 | 1 OR, 1 FIB, 1 MC |
+| Safety and Infection Control | 3 | 1 OR, 1 FIB, 1 SATA |
 | Management of Care | 2 | 1 OR, 1 dropdown_cloze |
 | Psychosocial Integrity | 2 | 1 dropdown_cloze, 1 MC |
 | Health Promotion and Maintenance | 2 | 1 FIB, 1 matrix |
@@ -43,11 +43,11 @@ Item type counts vs target 166 each:
 ### Safety and Infection Control
 - **Restraint monitoring protocol** (`ordered_response`, hard): Sequence for safely managing a vest restraint — least-restrictive alternatives attempted first, provider order obtained, explanation to patient/family, assessments every 2 hours, ROM exercises, documentation, reassessment for continued need.
 - **CAUTI prevention bundle** (`fill_in_blank`, medium): Nurse calculates appropriate daily reassessment timing; one blank for evidence-based bundle element (e.g., daily catheter necessity review), one blank for minimum catheter-removal timing per IDSA guidance.
-- **Airborne-precaution placement** (`multiple_choice`, medium): Patient admitted with suspected active pulmonary TB — nurse correctly identifies the priority placement action (negative-pressure room, N-95 respirator, notification of infection control) vs distractors (standard precautions, surgical mask, droplet room).
+- **Active TB airborne precautions** (`select_all`, medium): Patient admitted with suspected active pulmonary TB — select all nursing actions that are correct. Five defensible correct answers: place in a negative-pressure/AII room; staff wear fit-tested N-95 or higher respirator; patient wears surgical mask during transport out of the room; keep room door closed; notify infection control. Distractors: standard precautions alone; surgical mask sufficient for staff; droplet precautions room.
 
 ### Management of Care
 - **SBAR handoff sequence** (`ordered_response`, easy): Arrange the four SBAR elements in correct order when handing off a deteriorating patient, with each step containing realistic clinical language.
-- **Advance directive conflict** (`dropdown_cloze`, hard): Adult patient with documented DNR; adult daughter arrives and demands full resuscitation. Cloze tests: correct nurse action {{1}} because {{2}}; nurse's next communication step {{3}} because {{4}}.
+- **Teach-back for discharge readiness** (`dropdown_cloze`, hard): Nurse completes discharge education with a patient newly diagnosed with heart failure on a sodium-restricted diet and daily weights. Four-slot cloze: method nurse uses to evaluate understanding {{1}} because it {{2}}; if the patient cannot demonstrate the skill, the nurse should {{3}} because {{4}}. (Management of Care framing — patient education effectiveness, not Legal & Ethical.)
 
 ### Psychosocial Integrity
 - **Anticipatory grief — therapeutic response** (`dropdown_cloze`, medium): 71-year-old with terminal COPD says, "I've lived a full life but I'm scared I'll be in pain at the end." Cloze tests best nursing response {{1}} because the response demonstrates {{2}}; the nurse correctly avoids {{3}} because {{4}}.
@@ -64,6 +64,8 @@ Item type counts vs target 166 each:
 
 **Avoid these over-represented topics** (already saturated):
 - Mental Health Disorders (n=61), Prioritization & Delegation (47), Legal & Ethical Principles (45), Maternal-Newborn Care (43), Cardiovascular Disorders (43), Dosage Calculations (41), Medication Safety & Admin (40), Patient & Environment Safety (39)
+
+The Management of Care items in this batch (SBAR, teach-back) are framed as care coordination and patient education effectiveness — not as legal/ethical scenarios — so they do not conflict with the above.
 
 Do NOT generate near-duplicates of existing items with those topics.
 
@@ -101,9 +103,9 @@ Write one item per topic below. Use the suggested item type unless a different t
 
 1. **Restraint monitoring protocol** (Safety and Infection Control, ordered_response, hard) — Sequence for managing a vest/limb restraint correctly: least-restrictive alternatives, provider order, patient/family explanation, 2-hour assessments including ROM exercises, documentation, and reassessment for continued need.
 2. **CAUTI prevention bundle** (Safety and Infection Control, fill_in_blank, medium) — Nurse reinforces evidence-based catheter-associated UTI prevention. Use 2 blanks: one for the single most effective prevention measure (removing unnecessary catheters), one for maximum acceptable assessment interval per evidence-based bundle (daily).
-3. **Active pulmonary TB — airborne precautions** (Safety and Infection Control, multiple_choice, medium) — Patient admitted with suspected active pulmonary TB. Nurse's priority placement action: negative-pressure room + N-95 for staff vs distractors (standard precautions, surgical mask only, droplet room).
+3. **Active pulmonary TB — airborne precautions** (Safety and Infection Control, select_all, medium) — Patient admitted with suspected active pulmonary TB. Select all correct nursing actions. Five correct answers: place in a negative-pressure/AII room; staff wear fit-tested N-95 or higher respirator; patient wears surgical mask when leaving the room; keep room door closed at all times; notify infection control. Include 2–3 plausible distractors (e.g., surgical mask alone adequate for staff; droplet precaution room; contact precautions sufficient).
 4. **SBAR handoff** (Management of Care, ordered_response, easy) — Four SBAR elements in correct order when handing off a deteriorating patient. Each step contains realistic clinical content.
-5. **Advance directive conflict** (Management of Care, dropdown_cloze, hard) — Adult patient has documented DNR/DNAR; adult daughter arrives and insists on full resuscitation. Four-slot cloze: correct nurse action {{1}}, legal/ethical reason {{2}}, correct communication step {{3}}, reason for that step {{4}}.
+5. **Teach-back for discharge readiness** (Management of Care, dropdown_cloze, hard) — Nurse completing discharge education with a heart failure patient on sodium restriction and daily weights. Four-slot cloze: method to evaluate understanding {{1}} because it {{2}}; if patient cannot demonstrate, nurse should {{3}} because {{4}}.
 6. **Anticipatory grief — therapeutic response** (Psychosocial Integrity, dropdown_cloze, medium) — 71-year-old with terminal COPD: "I'm scared I'll be in pain at the end." Four-slot cloze: best initial response {{1}}, communication principle demonstrated {{2}}, response to avoid {{3}}, reason to avoid it {{4}}.
 7. **Body image disturbance — post-colostomy** (Psychosocial Integrity, multiple_choice, medium) — Two weeks post-op patient states "I can never go back to normal." Priority nursing action among 4 plausible options.
 8. **Colorectal cancer screening — average risk** (Health Promotion and Maintenance, fill_in_blank, easy) — USPSTF recommends initiating screening at age {{1}} for average-risk adults; the recommended interval for a normal screening colonoscopy result is {{2}} years.
@@ -113,6 +115,8 @@ Write one item per topic below. Use the suggested item type unless a different t
 ## AVOID TOPICS
 
 Do not write about: Mental Health Disorders, Prioritization & Delegation, Legal & Ethical Principles, Maternal-Newborn Care, Cardiovascular Disorders, Dosage Calculations, Medication Safety & Administration, Patient & Environment Safety.
+
+The Management of Care items in this batch (SBAR handoff, teach-back) are framed as care coordination and patient education effectiveness — keep that framing. Do not drift them toward legal/ethical scenarios.
 
 Do not produce near-duplicates: same disease + same nursing action, same scenario with only demographics changed, same correct-answer logic with different wording, same medication point with same distractor pattern.
 
