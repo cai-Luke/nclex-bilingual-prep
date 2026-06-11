@@ -2,7 +2,7 @@
 
 **Implementer:** Codex
 **Author:** Claude (planning)
-**Status:** ready for implementation
+**Status:** implemented and archived
 **Depends on:** none (no schema change; `question.category` already exists and is typed to the eight Client Needs categories)
 **Concurrent-safe with:** U5 io_record spec (no shared surface)
 

@@ -3,6 +3,7 @@ import { readFile, readdir, writeFile } from "node:fs/promises";
 import { basename, join, resolve } from "node:path";
 import { parseBankText } from "../src/bankImport";
 import { validateBankObject } from "../src/schema";
+import { categories } from "../src/schema";
 import { listVisualKinds } from "../src/visuals/registry";
 import type { Question, QuestionVisual, RhythmStripVisual } from "../src/types";
 import { computeCoverage } from "./coverage-report";
@@ -29,6 +30,10 @@ type CensusData = {
   };
   byItemType: Record<string, number>;
   byCategory: Record<string, number>;
+  withinCategory: Record<string, {
+    topTopics: Array<{ topic: string; count: number }>;
+    visualKinds: Record<string, number>;
+  }>;
   byDifficulty: Record<string, number>;
   bySchemaVersion: Record<string, { questions: number; files: string[] }>;
   bySourceFile: Record<string, number>;
@@ -159,6 +164,29 @@ const computeCensus = async (): Promise<CensusData> => {
   // Flat question list
   const allQuestions: Question[] = banks.flatMap(({ envelope }) => envelope.questions);
 
+  const withinCategory: CensusData["withinCategory"] = {};
+  for (const category of categories) {
+    const questions = allQuestions.filter((question) => question.category === category);
+    const topicCounts = new Map<string, number>();
+    const visualCounts = new Map<string, number>();
+    for (const question of questions) {
+      topicCounts.set(question.topic, (topicCounts.get(question.topic) ?? 0) + 1);
+      for (const { visual } of collectVisualsWithOwner(question)) {
+        visualCounts.set(visual.kind, (visualCounts.get(visual.kind) ?? 0) + 1);
+      }
+    }
+    withinCategory[category] = {
+      topTopics: [...topicCounts.entries()]
+        .sort(([leftTopic, leftCount], [rightTopic, rightCount]) =>
+          rightCount - leftCount || leftTopic.localeCompare(rightTopic))
+        .slice(0, 10)
+        .map(([topic, count]) => ({ topic, count })),
+      visualKinds: Object.fromEntries(
+        [...visualCounts.entries()].sort(([left], [right]) => left.localeCompare(right)),
+      ),
+    };
+  }
+
   // Top-level vs embedded split
   let topLevel = 0;
   let caseStudyTopLevel = 0;
@@ -263,6 +291,7 @@ const computeCensus = async (): Promise<CensusData> => {
     totals: { topLevel, caseStudyTopLevel, embeddedParts, gradedTotal: topLevel + embeddedParts },
     byItemType: Object.fromEntries(coverage.byItemType),
     byCategory: Object.fromEntries(coverage.byCategory),
+    withinCategory,
     byDifficulty: Object.fromEntries(coverage.byDifficulty),
     bySchemaVersion,
     bySourceFile,
@@ -290,7 +319,7 @@ const renderCensus = (census: CensusData): string => {
   lines.push("");
   lines.push("# NCLEX Bank Census");
   lines.push("");
-  lines.push(`Generated: ${census.generatedAt}  `);
+  lines.push(`Generated: ${census.generatedAt}`);
   lines.push(`Git SHA: ${census.gitSha}`);
   lines.push("");
 
@@ -318,6 +347,17 @@ const renderCensus = (census: CensusData): string => {
     lines.push(`- ${cat}: ${cnt}`);
   }
   lines.push("");
+
+  lines.push("## Within-Category Concentration");
+  lines.push("");
+  for (const [category, detail] of Object.entries(census.withinCategory)) {
+    lines.push(`### ${category}`);
+    lines.push("");
+    lines.push(`Top topics: ${detail.topTopics.map(({ topic, count }) => `${topic} (${count})`).join(", ") || "none"}`);
+    const visuals = Object.entries(detail.visualKinds);
+    lines.push(`Visual kinds: ${visuals.map(([kind, count]) => `${kind} (${count})`).join(", ") || "none"}`);
+    lines.push("");
+  }
 
   lines.push("## By Item Type");
   lines.push("");

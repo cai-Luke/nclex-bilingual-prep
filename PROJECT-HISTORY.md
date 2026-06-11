@@ -55,6 +55,15 @@ Out of scope until a future schema bump:
 
 ## Milestones
 
+### NCLEX-Weighted Study Sessions (Jun 11)
+
+Completed:
+- Added a pure, RNG-injected session sampler that excludes case studies, apportions the eight Client Needs categories to the 2026 NCLEX-RN weights, redistributes category shortages, prefers unseen/reviewable questions, and applies topic/visual-kind diversity weighting.
+- Added runtime-derived visual floors for well-stocked standalone visual kinds in sessions of at least 40 questions.
+- Changed the recommended Home test default to 50 questions and limited weighted selection to that launcher; Builder, Library, review, related-practice, and adaptive paths retain their prior behavior.
+- Extended the generated census with within-category topic and visual-kind concentration.
+- Archived the completed implementation spec at `Archive/study-session-weighting-spec.md`.
+
 ### U5 `io_record` Renderer (Jun 11)
 
 Completed:

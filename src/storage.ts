@@ -8,6 +8,7 @@ import type {
   Settings,
   StoredSessionSnapshot,
 } from "./types";
+export { isDueForReview } from "./reviewSchedule";
 
 const DB_NAME = "nclex-bilingual-prep";
 const DB_VERSION = 2;
@@ -151,9 +152,6 @@ export const recordAnswer = async (questionId: string, wasCorrect: boolean) => {
   }
   return next;
 };
-
-export const isDueForReview = (progress: { srsDueAt?: string } | undefined, now = new Date()) =>
-  Boolean(progress?.srsDueAt && new Date(progress.srsDueAt).getTime() <= now.getTime());
 
 type SchedulableProgress = {
   correctStreak?: number;

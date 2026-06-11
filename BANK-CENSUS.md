@@ -2,8 +2,8 @@
 
 # NCLEX Bank Census
 
-Generated: 2026-06-11T20:56:58.858Z  
-Git SHA: 5c20e2f7e5b5fcc54fa38966a1c9678a8e7738f6
+Generated: 2026-06-11T21:17:48.019Z
+Git SHA: 3837387d8b53adee8ac1ce01e5a0d5d18055e56a
 
 ## Per-File Summary
 
@@ -36,6 +36,48 @@ Git SHA: 5c20e2f7e5b5fcc54fa38966a1c9678a8e7738f6
 - Reduction of Risk Potential: 139
 - Pharmacological and Parenteral Therapies: 150
 - Physiological Adaptation: 220
+
+## Within-Category Concentration
+
+### Management of Care
+
+Top topics: Prioritization & Delegation (41), Legal & Ethical Principles (40), Confidentiality & HIPAA (9), Client Advocacy (5), Discharge Planning & Handoff (5), legal & ethical principles (5), prioritization & delegation (5), Conflict Resolution (3), Disaster & Emergency Preparedness (2), Medication Safety & Admin (2)
+Visual kinds: none
+
+### Safety and Infection Control
+
+Top topics: Patient & Environment Safety (37), Transmission-Based Precautions (31), Standard Precautions & Hygiene (17), PPE & Sterile Technique (13), Disaster & Emergency Preparedness (4), Endocrine & Neurological Disorders (2), Active Pulmonary TB Airborne Precautions (1), anesthesia equipment (1), Burn Assessment (1), burn management (1)
+Visual kinds: capnography (1), vitals_trend (1)
+
+### Health Promotion and Maintenance
+
+Top topics: Maternal-Newborn Care & Teaching (32), Pediatric & Adolescent Health (30), Adult Health & Wellness (23), Reproductive & Endocrine Health (9), Pediatric & Toddler Safety (7), Chronic Disease Management & Lifestyle (6), adult immunization (1), Adult Immunization and Preventive Screening (1), Adult Physical Activity Counseling (1), adult preventive screening (1)
+Visual kinds: none
+
+### Psychosocial Integrity
+
+Top topics: Mental Health Disorders (57), Suicide & Crisis Intervention (19), Therapeutic Communication (17), Substance Use & Withdrawal (12), Electroconvulsive Therapy (ECT) (4), caregiver burden and family adaptation (3), mental health disorders (3), substance use & withdrawal (2), Anticipatory Grief Therapeutic Response (1), Bipolar I - Acute Manic Episode (1)
+Visual kinds: none
+
+### Basic Care and Comfort
+
+Top topics: Elimination & Comfort (26), Nutritional & Fluid Support (25), Mobility & Immobility (20), Palliative & Supportive Care (11), Sleep & Rest (11), Dosage Calculations (10), Transmission-Based Precautions (3), adult health & wellness (2), Enteral Nutrition (2), Perioperative Care (2)
+Visual kinds: none
+
+### Pharmacological and Parenteral Therapies
+
+Top topics: Medication Safety & Admin (33), Dosage Calculations (29), Cardiovascular & Endocrine Medications (18), Anticoagulant Therapy (15), medication safety & admin (5), Psychotropic Medications (5), anticoagulant therapy (3), Nutritional & Fluid Support (3), Adenosine Administration Technique (1), Adenosine Side Effects (1)
+Visual kinds: capnography (1), lab_trend (6), mar (5), rhythm_strip (10), vitals_trend (2)
+
+### Reduction of Risk Potential
+
+Top topics: Procedural Complications & Dialysis (34), Laboratory & Diagnostic Tests (19), Perioperative Care (15), Burn Management (8), Maternal-Newborn Care & Teaching (7), ABG & Acid-Base Interpretation (4), perioperative care (4), PPE & Sterile Technique (4), Endocrine & Neurological Disorders (3), Mobility & Immobility (3)
+Visual kinds: capnography (1), lab_trend (7), rhythm_strip (2), vitals_trend (1)
+
+### Physiological Adaptation
+
+Top topics: Cardiovascular Disorders (38), Endocrine & Neurological Disorders (27), Renal & Gastrointestinal Disorders (17), Diabetic Ketoacidosis (DKA) (9), Respiratory & Infectious Disorders (8), Burn Management (6), Electrolyte Imbalances (5), diabetic ketoacidosis (dka) (3), renal & gastrointestinal disorders (3), Sepsis & Septic Shock (3)
+Visual kinds: capnography (4), lab_trend (7), rhythm_strip (32), vitals_trend (7)
 
 ## By Item Type
 

@@ -46,7 +46,9 @@ import {
   saveUploadedRecords,
 } from "./storage";
 import { categories, difficulties } from "./schema";
+import { buildWeightedSession } from "./sessionSampler";
 import { VisualStimulus } from "./visuals";
+import { mulberry32 } from "./visuals/primitives/prng";
 import type {
   AdaptiveSessionSnapshot,
   AnswerEvent,
@@ -122,7 +124,7 @@ type FlashcardTerm = GlossaryTerm & {
   questionIds: string[];
 };
 
-const DEFAULT_SESSION_COUNT = 25;
+const DEFAULT_SESSION_COUNT = 50;
 
 const shuffle = <T,>(items: T[]) => {
   const copy = [...items];
@@ -223,7 +225,7 @@ export default function App() {
     records: QuestionRecord[],
     mode: SessionMode,
     title: string,
-    options: { count?: number; order?: SessionOrder; returnView?: View } = {},
+    options: { count?: number; order?: SessionOrder; returnView?: View; weighting?: "nclex" } = {},
   ) => {
     if (records.length === 0) return;
     setSessionReturnView(options.returnView ?? "home");
@@ -232,14 +234,20 @@ export default function App() {
       return;
     }
     let orderedRecords: QuestionRecord[];
+    const requestedCount = Math.max(1, Math.min(options.count ?? records.length, records.length));
     if (options.order === "sequential") {
       orderedRecords = [...records];
+    } else if (options.weighting === "nclex") {
+      const seed = (Date.now() ^ Math.floor(Math.random() * 0xffffffff)) >>> 0;
+      orderedRecords = buildWeightedSession(records, requestedCount, progress, mulberry32(seed), {
+        now: new Date(),
+      });
     } else {
       const unseen = shuffle(records.filter((r) => (progress[r.question.id]?.seen ?? 0) === 0));
       const seen = shuffle(records.filter((r) => (progress[r.question.id]?.seen ?? 0) > 0));
       orderedRecords = [...unseen, ...seen];
     }
-    const selectedRecords = orderedRecords.slice(0, Math.max(1, Math.min(options.count ?? orderedRecords.length, orderedRecords.length)));
+    const selectedRecords = orderedRecords.slice(0, requestedCount);
     setSession({
       id: createSessionId(),
       mode,
@@ -454,7 +462,9 @@ export default function App() {
             activeSession={activeSession}
             onResume={() => setView("session")}
             onStudy={() => startSession(allRecords, "study", "Study all questions")}
-            onTest={(count) => startSession(allRecords, "test", `Test · ${count} questions`, { count })}
+            onTest={(count) =>
+              startSession(allRecords, "test", `Test · ${count} questions`, { count, weighting: "nclex" })
+            }
             onMistakes={() => startSession(missedRecords, "study", "Review mistakes")}
             onAnswered={() => startSession(answeredRecords, "study", "Review answered questions")}
             onDue={() => startSession(dueRecords, "study", "Spaced review")}
