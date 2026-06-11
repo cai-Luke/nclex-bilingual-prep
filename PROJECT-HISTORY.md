@@ -25,12 +25,12 @@ The app is a static offline Vite + React + TypeScript NCLEX-RN practice tool. It
 
 Core learning features are implemented: all schema item types render and grade, case studies are supported, sessions are resumable, custom sessions can be built from filters, the dashboard summarizes performance, flags feed review pools, glossary flashcards have their own SRS progress, and adaptive exam-condition practice is available without any pass/fail readiness claim.
 
-Current canonical banks (see [BANK-CENSUS.md](BANK-CENSUS.md); 1 093 top-level, 155 embedded parts as of 2026-06-10):
+Current canonical banks (see [BANK-CENSUS.md](BANK-CENSUS.md); 1 194 top-level, 360 embedded parts as of 2026-06-11):
 
 - `banks/capnography-canonical.json` (7 schema v1.2 capnography visual items; dedicated home for capnography kind)
 - `banks/claude-canonical.json` (50 bilingual Claude-source questions; ledgered content review complete)
 - `banks/gemini-canonical.json` (760 bilingual Gemini-source questions; includes original + pending batches + traditional/easy/gap-fill consolidations minus redundant/flawed questions)
-- `banks/gpt-canonical.json` (142 bilingual GPT-source questions; ledgered content review complete)
+- `banks/gpt-canonical.json` (220 bilingual GPT-source questions; ledgered content review complete)
 - `banks/hard-cases-canonical.json` (46 top-level items: 37 unfolding case studies + 9 hard standalones; 155 embedded case-study parts)
 - `banks/lab-canonical.json` (20 schema v1.2 lab_trend visual items; dedicated home for lab_trend kind)
 - `banks/mar-canonical.json` (5 schema v1.2 mar visual items; dedicated home for mar kind)

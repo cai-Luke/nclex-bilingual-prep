@@ -2,18 +2,18 @@
 
 # NCLEX Bank Census
 
-Generated: 2026-06-10T21:15:14.609Z  
-Git SHA: 193edd234a463c048a8e00c1a5928ecfbf89b91d
+Generated: 2026-06-11T16:13:14.951Z  
+Git SHA: 63dd0216dfc4af5d3b7e918f59ab97fdd5f3cf7a
 
 ## Per-File Summary
 
 | File | Schema | meta.count | questions | Mismatch |
 |------|--------|-----------|-----------|---------|
 | capnography-canonical.json | 1.2 | 7 | 7 | — |
-| claude-canonical.json | 1.0 | 50 | 50 | — |
-| gemini-canonical.json | 1.1 | 760 | 760 | — |
-| gpt-canonical.json | 1.0 | 142 | 142 | — |
-| hard-cases-canonical.json | 1.2 | 46 | 46 | — |
+| claude-canonical.json | 1.2 | 57 | 57 | — |
+| gemini-canonical.json | 1.2 | 771 | 771 | — |
+| gpt-canonical.json | 1.2 | 220 | 220 | — |
+| hard-cases-canonical.json | 1.2 | 46 | 51 | YES |
 | lab-canonical.json | 1.2 | 20 | 20 | — |
 | mar-canonical.json | 1.2 | 5 | 5 | — |
 | visual-canonical.json | 1.2 | 53 | 53 | — |
@@ -21,51 +21,49 @@ Git SHA: 193edd234a463c048a8e00c1a5928ecfbf89b91d
 
 ## Totals
 
-- Top-level questions: 1093
-- Case study top-level: 39
-- Embedded parts: 155
-- Graded total: 1248
+- Top-level questions: 1194
+- Case study top-level: 84
+- Embedded parts: 360
+- Graded total: 1554
 
 ## By Category
 
-- Health Promotion and Maintenance: 115
-- Basic Care and Comfort: 117
-- Psychosocial Integrity: 117
-- Safety and Infection Control: 122
-- Management of Care: 125
-- Reduction of Risk Potential: 132
-- Pharmacological and Parenteral Therapies: 149
-- Physiological Adaptation: 216
+- Management of Care: 136
+- Safety and Infection Control: 136
+- Psychosocial Integrity: 137
+- Basic Care and Comfort: 138
+- Health Promotion and Maintenance: 138
+- Reduction of Risk Potential: 139
+- Pharmacological and Parenteral Therapies: 150
+- Physiological Adaptation: 220
 
 ## By Item Type
 
-- case_study: 39
-- fill_in_blank: 96
-- ordered_response: 99
-- dropdown_cloze: 129
-- matrix: 145
-- select_all: 180
-- multiple_choice: 405
+- case_study: 84
+- fill_in_blank: 113
+- ordered_response: 120
+- dropdown_cloze: 136
+- matrix: 150
+- select_all: 183
+- multiple_choice: 408
 
 ## By Difficulty
 
-- easy: 138
-- hard: 399
-- medium: 556
+- easy: 152
+- hard: 442
+- medium: 600
 
 ## By Schema Version
 
-- v1.2: 141 questions (capnography-canonical.json, hard-cases-canonical.json, lab-canonical.json, mar-canonical.json, visual-canonical.json, vitals-canonical.json)
-- v1.0: 192 questions (claude-canonical.json, gpt-canonical.json)
-- v1.1: 760 questions (gemini-canonical.json)
+- v1.2: 1194 questions (capnography-canonical.json, claude-canonical.json, gemini-canonical.json, gpt-canonical.json, hard-cases-canonical.json, lab-canonical.json, mar-canonical.json, visual-canonical.json, vitals-canonical.json)
 
 ## By Source File
 
 - capnography-canonical.json: 7
-- claude-canonical.json: 50
-- gemini-canonical.json: 760
-- gpt-canonical.json: 142
-- hard-cases-canonical.json: 46
+- claude-canonical.json: 57
+- gemini-canonical.json: 771
+- gpt-canonical.json: 220
+- hard-cases-canonical.json: 51
 - lab-canonical.json: 20
 - mar-canonical.json: 5
 - visual-canonical.json: 53
@@ -104,8 +102,48 @@ Total visuals: 87
 
 | ID | Topic | Parts | Bank |
 |----|-------|-------|------|
+| opus_psi_caregiver_2026_06_10_01 | caregiver burden and family adaptation | 6 | claude-canonical.json |
 | gen_rrp_batch1_10 | Respiratory & Infectious Disorders | 2 | gemini-canonical.json |
 | gen_rrp_batch2_10 | Perioperative Care | 2 | gemini-canonical.json |
+| gemini_gapfill_case_2026_06_10_case_imm_01 | adult immunization | 4 | gemini-canonical.json |
+| gemini_gapfill_case_2026_06_10_case_osteo_02 | osteoporosis prevention | 4 | gemini-canonical.json |
+| gemini_gapfill_case_2026_06_10_case_wellness_03 | wellness counseling | 4 | gemini-canonical.json |
+| gemini_gapfill_case_2026_06_10_case_smoking_04 | smoking cessation | 4 | gemini-canonical.json |
+| gemini_gapfill_case_2026_06_10_case_sleep_05 | sleep promotion | 4 | gemini-canonical.json |
+| gemini_gapfill_case_2026_06_10_case_bowel_06 | bowel management | 4 | gemini-canonical.json |
+| gemini_gapfill_case_2026_06_10_case_mobility_07 | mobility assistance | 4 | gemini-canonical.json |
+| gemini_gapfill_case_2026_06_10_case_caregiver_08 | caregiver strain | 4 | gemini-canonical.json |
+| gemini_gapfill_case_2026_06_10_case_grief_09 | grief and bereavement | 4 | gemini-canonical.json |
+| gemini_gapfill_case_2026_06_10_case_adapt_10 | chronic illness adaptation | 4 | gemini-canonical.json |
+| opus_agvd_case_agvhd_01 | Acute Graft-Versus-Host Disease | 6 | gemini-canonical.json |
+| gpt_case_premium_2026_06_10_case01_preventive_screening | adult preventive screening | 5 | gpt-canonical.json |
+| gpt_case_premium_2026_06_10_case02_caregiver_burden | caregiver burden and family adaptation | 5 | gpt-canonical.json |
+| gpt_case_premium_2026_06_10_case03_chronic_self_management | chronic illness self-management | 5 | gpt-canonical.json |
+| gpt_case_premium_2026_06_10_case04_pressure_injury_rehab | pressure injury prevention in rehabilitation | 5 | gpt-canonical.json |
+| gpt_case_premium_2026_06_10_case05_health_literacy_adherence | health literacy and medication adherence | 5 | gpt-canonical.json |
+| gpt_case_gap_2026_06_11_case_post_stroke_outpatient_rehab_09 | Post-stroke outpatient rehabilitation and safe feeding | 4 | gpt-canonical.json |
+| gpt_case_gap_2026_06_11_case_grief_depression_safety_10 | Depression and grief safety screening | 4 | gpt-canonical.json |
+| gpt_case_gap_2026_06_11_case_chronic_self_management_07 | Chronic illness self-management with symptom tracking | 4 | gpt-canonical.json |
+| gpt_case_gap_2026_06_11_case_family_coping_chronic_diagnosis_08 | Family coping after new chronic illness diagnosis | 4 | gpt-canonical.json |
+| gpt_case_gap_2026_06_11_case_community_resource_discharge_05 | Community resource planning for safe discharge | 4 | gpt-canonical.json |
+| gpt_case_gap_2026_06_11_case_preventive_screening_navigation_06 | Adult preventive screening follow-up navigation | 4 | gpt-canonical.json |
+| gpt_case_gap_2026_06_11_case_rehab_mobility_falls_03 | Rehabilitation mobility progression and fall prevention | 4 | gpt-canonical.json |
+| gpt_case_gap_2026_06_11_case_pressure_injury_ltc_04 | Pressure injury prevention in long-term care | 4 | gpt-canonical.json |
+| gpt_case_gap_2026_06_11_case_dementia_caregiver_burden_01 | Caregiver burden after dementia discharge | 4 | gpt-canonical.json |
+| gpt_case_gap_2026_06_11_case_ostomy_health_literacy_02 | New ostomy discharge teaching with health literacy barriers | 4 | gpt-canonical.json |
+| gpt_case_premium_next_case_health_literacy_diabetes_01 | chronic illness self-management and health literacy | 5 | gpt-canonical.json |
+| gpt_case_premium_next_case_rehab_pressure_bowel_02 | rehabilitation pressure injury prevention and bowel management | 5 | gpt-canonical.json |
+| gpt_case_premium_next_case_caregiver_adaptation_dementia_03 | caregiver burden and family adaptation | 5 | gpt-canonical.json |
+| gpt_case_premium_next_case_occupational_exposure_vaccine_04 | occupational exposure and sharps safety | 5 | gpt-canonical.json |
+| gpt_case_premium_next_case_preventive_screening_vaccine_05 | adult preventive screening and vaccination counseling | 5 | gpt-canonical.json |
+| gpt_case_premium_next_case_ipv_safety_planning_06 | intimate partner violence screening and safety planning | 5 | gpt-canonical.json |
+| gpt_case_gap_2026_06_11_case_tls_01 | tumor lysis syndrome | 5 | gpt-canonical.json |
+| gpt_case_gap_2026_06_11_case_adhf_01 | Acute decompensated heart failure | 4 | gpt-canonical.json |
+| gpt_case_gap_2026_06_11_case_aki_02 | Acute kidney injury | 4 | gpt-canonical.json |
+| gpt_case_gap_2026_06_11_case_pancreatitis_03 | Acute pancreatitis complications | 4 | gpt-canonical.json |
+| gpt_case_gap_2026_06_11_case_adrenal_crisis_04 | Adrenal crisis | 4 | gpt-canonical.json |
+| gpt_case_gap_2026_06_11_case_urosepsis_05 | Sepsis from obstructed urinary source | 4 | gpt-canonical.json |
+| gpt_case_gap_2026_06_11_case_anticoag_bleeding_06 | Anticoagulation monitoring complication | 4 | gpt-canonical.json |
 | case_sepsis_pneumonia_01 | Sepsis & Septic Shock | 4 | hard-cases-canonical.json |
 | case_preeclampsia_magnesium_01 | Maternal-Newborn Care & Teaching | 4 | hard-cases-canonical.json |
 | cs_copd_01 | Respiratory & Infectious Disorders | 5 | hard-cases-canonical.json |
@@ -143,6 +181,11 @@ Total visuals: 87
 | cs_adhf_pulm_edema_01 | Acute Decompensated Heart Failure (ADHF) | 4 | hard-cases-canonical.json |
 | cs_stemi_vfib_04 | Acute Myocardial Infarction and Ventricular Fibrillation | 4 | hard-cases-canonical.json |
 | cs_sepsis_shock_01 | Septic Shock from Urosepsis | 4 | hard-cases-canonical.json |
+| opus_scc_case_01 | Malignant Spinal Cord Compression | 6 | hard-cases-canonical.json |
+| opus_car_t_crs_2026_06_11_case_01 | CAR-T cytokine release syndrome and ICANS monitoring | 5 | hard-cases-canonical.json |
+| opus_icit_case_01 | Immune Checkpoint Inhibitor Myocarditis | 6 | hard-cases-canonical.json |
+| opus_tpn_case_mucositis_01 | Mucositis TPN and CRBSI | 6 | hard-cases-canonical.json |
+| opus_case_se_01 | status epilepticus | 6 | hard-cases-canonical.json |
 
 ## ID Uniqueness
 
@@ -150,54 +193,54 @@ No duplicates detected.
 
 ## Targets
 
-Category average: 136.6
-Item type average: 156.1
+Category average: 149.3
+Item type average: 170.6
 
 Under-served categories:
-- Health Promotion and Maintenance: 115
-- Basic Care and Comfort: 117
-- Psychosocial Integrity: 117
-- Safety and Infection Control: 122
-- Management of Care: 125
-- Reduction of Risk Potential: 132
+- Management of Care: 136
+- Safety and Infection Control: 136
+- Psychosocial Integrity: 137
+- Basic Care and Comfort: 138
+- Health Promotion and Maintenance: 138
+- Reduction of Risk Potential: 139
 
 Over-served categories:
-- Physiological Adaptation: 216
-- Pharmacological and Parenteral Therapies: 149
+- Physiological Adaptation: 220
+- Pharmacological and Parenteral Therapies: 150
 
 Under-served item types:
-- case_study: 39
-- fill_in_blank: 96
-- ordered_response: 99
-- dropdown_cloze: 129
-- matrix: 145
+- case_study: 84
+- fill_in_blank: 113
+- ordered_response: 120
+- dropdown_cloze: 136
+- matrix: 150
 
 ## Prompt Parameters
 
 PRIORITIZE_TOPICS:
-- Health Promotion and Maintenance (115 vs target 136.6)
-- Basic Care and Comfort (117 vs target 136.6)
-- Psychosocial Integrity (117 vs target 136.6)
-- Safety and Infection Control (122 vs target 136.6)
-- Management of Care (125 vs target 136.6)
-- Reduction of Risk Potential (132 vs target 136.6)
-- case_study (39 vs target 156.1)
-- fill_in_blank (96 vs target 156.1)
-- ordered_response (99 vs target 156.1)
-- dropdown_cloze (129 vs target 156.1)
-- matrix (145 vs target 156.1)
+- Management of Care (136 vs target 149.3)
+- Safety and Infection Control (136 vs target 149.3)
+- Psychosocial Integrity (137 vs target 149.3)
+- Basic Care and Comfort (138 vs target 149.3)
+- Health Promotion and Maintenance (138 vs target 149.3)
+- Reduction of Risk Potential (139 vs target 149.3)
+- case_study (84 vs target 170.6)
+- fill_in_blank (113 vs target 170.6)
+- ordered_response (120 vs target 170.6)
+- dropdown_cloze (136 vs target 170.6)
+- matrix (150 vs target 170.6)
+- Active Pulmonary TB Airborne Precautions
+- Acute decompensated heart failure
 - Acute Decompensated Heart Failure (ADHF)
-- Acute Kidney Injury
+- Acute Graft-Versus-Host Disease
 - Acute Myocardial Infarction and Ventricular Fibrillation
 - Acute Pancreatitis
-- Acute pancreatitis complications
 - Adenosine Administration Technique
 - Adenosine Side Effects
+- Adrenal crisis
 - Adrenal crisis recognition and treatment
+- adult immunization
 - Adult Immunization and Preventive Screening
-- Airway Management
-- Albuterol Side Effects
-- anaphylaxis
 
 AVOID_TOPICS:
 - Mental Health Disorders (61)
