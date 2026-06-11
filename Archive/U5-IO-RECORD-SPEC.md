@@ -3,7 +3,7 @@
 **Type:** renderer (code) + later content lane.
 **Depends on:** U4 (table/form primitive — `renderDocTable`, already merged).
 **Concurrent-safe with:** U6/U9; U3 and U4 already landed. Shared touch-points are the append-only union line and registration line only.
-**Status:** specced, not implemented.
+**Status:** implemented 2026-06-11.
 
 Read `AGENTS.md`, `DECISIONS.md`, `VISUAL-STIMULI-ROADMAP.md`, and `NCLEX-Question-Schema.md` first; on any conflict they win. This spec covers the U5 row of the roadmap: the **`io_record`** (intake & output flowsheet) kind. It reuses the U4 table primitive directly and adds no new primitive — `renderFieldPanel` (the U6/U9 panel primitive) is **not** needed here.
 

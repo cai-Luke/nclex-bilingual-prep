@@ -107,12 +107,14 @@ Two reusable primitives unlock this whole tier. Build each primitive *reusably* 
 - Targets: unsafe orders, missed doses, adverse-effect timing, prioritization.
 - **Accuracy watch-item:** strictest tier per AGENTS.md (medication/dose/prioritization). Drug, dose, route, frequency must be internally consistent and clinically valid; the unsafe element must be the one the answer flags, with nothing accidentally unsafe elsewhere.
 
-### U5 · `io_record`
+### U5 · `io_record` — ✅ DONE (2026-06-11)
 **Type:** renderer (code). **Depends on:** U4 (table primitive). **Concurrent with:** U3.
 
-- Reuses table/form primitive.
-- Targets: fluid overload, dehydration, AKI, treatment evaluation.
-- **Accuracy watch-item:** `selfCheck` must compute intake/output totals and net balance and assert they equal what the answer relies on. Never hand-key a total.
+- ✅ Reuses the table/form primitive for intake/output sections, derived subtotal rows, and signed net balance.
+- ✅ Supports `multiple_choice`, `select_all`, `matrix`, and numeric `fill_in_blank`.
+- ✅ `selfCheck` recomputes intake/output totals and net balance from integer entry volumes and requires exact equality with question-level `meta.derived_values_keyed`.
+- ✅ Totals are structurally absent from the visual spec, so they cannot drift from entries.
+- Targets for the later content lane: fluid overload, dehydration, AKI, treatment evaluation.
 
 ### U6 · `medication_label`
 **Type:** renderer (code). **Depends on:** U4 (table primitive). **Concurrent with:** U3, U5.

@@ -2,8 +2,8 @@
 
 # NCLEX Bank Census
 
-Generated: 2026-06-11T16:13:14.951Z  
-Git SHA: 63dd0216dfc4af5d3b7e918f59ab97fdd5f3cf7a
+Generated: 2026-06-11T20:56:58.858Z  
+Git SHA: 5c20e2f7e5b5fcc54fa38966a1c9678a8e7738f6
 
 ## Per-File Summary
 
@@ -76,6 +76,7 @@ Total visuals: 87
 ### By Kind
 
 - capnography: 7 (cap_01, cap_02, cap_03, cap_04, cap_05, …+2)
+- io_record: 0
 - lab_trend: 20 (gpt_u3_labtrend_2026_06_09_b_cloze_inr_amiodarone_09, gpt_u3_labtrend_2026_06_09_b_cloze_sodium_overcorrection_08, gpt_u3_labtrend_2026_06_09_b_fib_creatinine_increase_10, gpt_u3_labtrend_2026_06_09_b_matrix_dka_potassium_glucose_04, gpt_u3_labtrend_2026_06_09_b_matrix_neutropenia_wbc_05, …+15)
 - mar: 5 (mar_matrix_assess_05, mar_matrix_cardiac_04, mar_mc_digoxin_01, mar_mc_vanco_03, mar_mc_warfarin_02)
 - rhythm_strip: 44 (ekg_b1_matrix_09, ekg_b1_mc_01, ekg_b1_mc_02, ekg_b1_mc_04, ekg_b1_mc_05, …+39)

@@ -55,6 +55,16 @@ Out of scope until a future schema bump:
 
 ## Milestones
 
+### U5 `io_record` Renderer (Jun 11)
+
+Completed:
+- Added `src/visuals/kinds/io_record/` with typed intake/output entries, defensive validation, exact-integer arithmetic `selfCheck`, deterministic table rendering, and colocated valid/invalid fixtures.
+- Reused U4's `renderDocTable`; intake total, output total, and signed net balance are derived from entries and have no independent fields in the visual spec.
+- Registered `io_record` for `multiple_choice`, `select_all`, `matrix`, and `fill_in_blank`.
+- Added `scripts/tests/io-record.ts` covering validation, deterministic rendering, correct and mismatched keyed totals, missing keyed values, invalid self-check volumes, and malformed-input no-throw behavior.
+- Updated `NCLEX-Question-Schema.md` and marked U5 done in `VISUAL-STIMULI-ROADMAP.md`. No content generation or bank promotion was performed.
+- Verified: `npm run test-visuals` (6 kinds), `npm run validate-bank -- banks/*.json`, `npm run census`, `npm run census:check`, and `npm run build` all pass.
+
 ### Bank Census Tool (Jun 10)
 
 Completed:

@@ -84,6 +84,8 @@ Committed visual lanes (append-only):
 | `capnography` | End-tidal CO₂ capnogram |
 | `vitals_trend` | Multi-vital time-series chart |
 | `lab_trend` | Serial laboratory values (1–2 analytes, ≥3 timepoints) |
+| `mar` | Medication Administration Record |
+| `io_record` | Intake and output flowsheet with derived totals and net balance |
 
 ### Visual contract metadata
 
@@ -380,6 +382,54 @@ Validation rules:
 - **Caption rule:** caption must never reveal the answer (e.g., do not caption "Duplicate anticoagulant therapy" on an item asking the learner to identify the duplication).
 - `selfCheck` verifies: `visual_justification` present and non-empty; at least one `keyed_cells` entry or a non-null `keyed_relationship`; every `keyed_cells` entry resolves to an actual `(medication, time)` administration present in the spec.
 - **STRICTEST tier.** `selfCheck` enforces structure and necessity only. Stage-4 human review must verify that drug/dose/route/frequency are clinically valid and that nothing other than the keyed element is accidentally unsafe.
+
+### Kind: `io_record`
+
+Renders a nursing intake and output flowsheet. The visual is load-bearing only when the learner must compute an intake total, output total, or net balance from the individual entries. Totals are never stored in the visual spec; the renderer and `selfCheck` derive them independently.
+
+Unlike the global visual default, `io_record` is allowed on `multiple_choice`, `select_all`, `matrix`, and `fill_in_blank`.
+
+```json
+{
+  "visual": {
+    "kind": "io_record",
+    "periodLabel": { "en": "0700-1500 shift", "zh": "0700-1500 班次" },
+    "intake": [
+      { "label": "PO water", "volumeMl": 480 },
+      { "label": "0.9% NaCl IV", "volumeMl": 1000 },
+      { "label": "IV piggyback antibiotic", "volumeMl": 100 }
+    ],
+    "output": [
+      { "label": "Foley urine", "volumeMl": 600 },
+      { "label": "Emesis", "volumeMl": 150 }
+    ],
+    "caption": { "en": "Intake and output flowsheet", "zh": "出入量记录单" }
+  },
+  "meta": {
+    "visual_justification": "The learner must derive the net balance from the charted entries.",
+    "tier": "standard",
+    "source": "...",
+    "skill_signature": "io_record:net-balance/positive-overload",
+    "stem_disambiguators": ["intake and output", "net balance"],
+    "derived_values_keyed": {
+      "intake_total_ml": 1580,
+      "output_total_ml": 750,
+      "net_balance_ml": 830
+    }
+  }
+}
+```
+
+Validation rules:
+- `kind` must be `"io_record"`.
+- `intake` and `output` must be arrays, with at least one entry across both arrays.
+- Every entry requires a non-empty `label`.
+- Every `volumeMl` must be a finite positive integer no greater than 10,000 mL. This maximum is a misplaced-digit sanity bound, not a clinical threshold.
+- `periodLabel.en` and `caption.en` are required when their objects are present. Their optional `zh` values must be non-empty when present.
+- `selfCheck` requires `visual_justification` and at least one declared value in `derived_values_keyed`.
+- Supported keyed values are `intake_total_ml`, `output_total_ml`, and signed `net_balance_ml`. Each declared value must exactly equal the integer total recomputed from entries.
+- **Caption rule:** `caption` and `periodLabel` must not reveal the answer or clinical interpretation.
+- Human review must verify that deriving the value is genuinely required and that the rationale interprets it correctly.
 
 ---
 

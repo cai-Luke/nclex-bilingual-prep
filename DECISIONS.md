@@ -31,6 +31,26 @@ In the case-skeleton pipeline (Opus hub authors an English prose case → Gemini
 **9. The case-skeleton is English-only; bilingual generation is concentrated in the compiler.**
 The hub harness drifts to Spanish and mangles schema, so the authored skeleton is English prose only — no JSON, no second language. All zh is therefore generated downstream by the compiler, which makes compiler zh-fidelity the single point of failure. Gate it: a deterministic CJK-presence check on every must-be-bilingual field — the inverse of the topic-CJK Tier-0 gate (which fails when CJK *is* present). A missing zh, or English left sitting in a zh field, fails loud before review. (The aGVHD cure pass cleared this by hand — every English edit carried a matching zh edit — but the check should be mechanical, not trusted.)
 
+**10. Study sessions mirror the exam's content distribution; difficulty is exam-sim-only.**
+A study session is a representative slice of the NCLEX-RN, not a flat random draw over whatever was generated. The default test draws 50 questions (≈ the 52 scored content items of a minimum-length real exam, where the distribution actually resolves) weighted to the 2026 test-plan Client Needs distribution, with a within-category diversity penalty so no narrow topic or visual kind (the EKG-glut case) fills its category's slots, and a per-kind floor guaranteeing ≥1 of each well-stocked visual kind. Difficulty adaptivity is a *separate axis* — the real exam is CAT-adaptive on difficulty — and is deliberately deferred to a future exam-simulation mode; study mode never adjusts on difficulty. Case studies are excluded from the weighted draw (on the real exam they are a fixed allotment counted independently of the content-area percentages). Spec: `study-session-weighting-spec.md`.
+
+## Study-session distribution (2026 NCLEX-RN Test Plan, effective April 2026)
+
+Category weights for the weighted study draw, keyed by the `Category` literals in `src/types.ts`. Midpoint targets from the published test plan; sum to 1.00. NCSBN permits ±3% per category, so these are targets, not constraints. ("Safety and Infection Control" is the schema label for the 2026 plan's "Safety and Infection Prevention and Control," 13%.)
+
+| Category | Weight |
+|----------|:------:|
+| Management of Care | 0.18 |
+| Pharmacological and Parenteral Therapies | 0.16 |
+| Physiological Adaptation | 0.14 |
+| Safety and Infection Control | 0.13 |
+| Reduction of Risk Potential | 0.12 |
+| Health Promotion and Maintenance | 0.09 |
+| Psychosocial Integrity | 0.09 |
+| Basic Care and Comfort | 0.09 |
+
+Sampler rules (full detail in the spec): largest-remainder rounding to the target count; floor set = visual kinds with ≥10 items in the bank (currently rhythm_strip, lab_trend, vitals_trend), derived at runtime so it self-corrects as content grows, active only at N≥40, reserved from within the distribution, silently dropped when a kind's pool is exhausted; soft diversity penalty on repeated `topic`/visual `kind` (α=β=1). The floor threshold and penalty constants are tuned against the within-category concentration the census reports (spec §5).
+
 ## Origin anchor
 
 The D-correct-at-3% MCQ finding is the canonical example of why this apparatus exists. Keep it as the regression case: any new positional-integrity tooling should be able to detect it.
@@ -53,6 +73,8 @@ The D-correct-at-3% MCQ finding is the canonical example of why this apparatus e
 
 **`max_cell_deviation_pp = 8` — placeholder.** The effect-size floor on positional uniformity checks is a guess; calibrate against the real bank once the audit runs.
 
+**Sampler floor/penalty constants — placeholders.** `floorThreshold = 10` and `alpha = beta = 1` in the study-session sampler are first guesses. Calibrate against the within-category topic/visual-kind concentration once `census.ts` emits it (study-session-weighting-spec.md §5). The rhythm-strip share of its home category is the number to watch.
+
 **Dormant audit checks.** The non-MCQ bias and adversarial audit specs reference `bowtie` and `highlight`/hotspot item types that are out of scope until a schema bump. Those checks stay dormant until those types ship — do not read their silence as a pass.
 
 **Documentation drift / running census — specced this session.** `PROJECT-HISTORY.md` and `BANK-REVIEW-LEDGER.md` snapshot counts drift from the banks on disk: the 2026-06-09 census had to be hand-run by Sonnet because the prose had gone stale, and it surfaced that `capnography-canonical.json` was bundled but missing from the canonical list. Per principle 3 this is deterministic work that should never cost model tokens. Fix: a `scripts/census.ts` that reuses `coverage-report.ts`'s counters and topic normalizer, emits a structured `census.json` (source of truth) plus a generated `BANK-CENSUS.md`, and is wired into `npm run audit` / `promotion-gate.yml` so a stale committed census fails CI — converting "census" from a thing-someone-remembers-to-run into an invariant. Spec: `census-spec.md`. Two deterministic-layer bugs surfaced while speccing it: (a) `coverage.json` is an empty capture — `coverage-report.ts` has no `--json` branch, so a `--json` arg is silently treated as a bank-file path and ignored; (b) `normalizeTopic` strips all non-ASCII, which would silently erase any Simplified-Chinese text that leaked into `topic` — now closed by the English-only-`topic` invariant above, enforced in `validateBankObject` (Tier 0, fail loud on CJK).
@@ -66,5 +88,6 @@ The D-correct-at-3% MCQ finding is the canonical example of why this apparatus e
 - `shuffle-verification-spec.md` — one-time verification of the current shuffle batch.
 - `non-mcq-bias-audit-spec.md` — forward-looking structural-bias audit across non-MCQ types.
 - `census-spec.md` — deterministic bank-census script (`census.json` + generated `BANK-CENSUS.md`) and docs-drift CI check; principle 3 applied to documentation.
+- `study-session-weighting-spec.md` — NCLEX-distribution-weighted study-session sampler (50-question default, category weighting + diversity floor, difficulty deferred to exam-sim) and a `census.ts` within-category-breakdown extension. → Codex.
 
 Governing specs already in the repo/workflow: the adversarial audit spec, the portable bank-generation prompt, and `shrimp-visual-sweep-spec-v3.md`.
