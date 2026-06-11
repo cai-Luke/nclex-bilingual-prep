@@ -25,6 +25,12 @@ Every visual renders locally from inspectable structured data — no raster asse
 **7. Precision over volume.**
 In any audit, five fully-evidenced findings beat thirty probable ones. Verbatim evidence, an honest reconciliation attempt, and explicit confidence/dismiss discipline are the standard (see the adversarial audit spec).
 
+**8. Clinical truth is authored once, upstream, and read-only downstream.**
+In the case-skeleton pipeline (Opus hub authors an English prose case → Gemini compiles to schema → GPT pass → Claude review), the author model owns the fact pattern, the correct actions, and the rationale. The compiler translates and shapes into schema but never decides or alters which action is correct, and never introduces clinical claims absent from the skeleton; distractors are drawn from the skeleton's enumerated nursing errors. This keeps the weaker-supervised compile step out of adjudicating medicine and preserves producer≠checker (principle 2) across the chain — author, compiler, and reviewer are three different models. A decision point too underspecified to yield an unambiguous item is dropped, not guessed. Validated end-to-end on the aGVHD case (2026-06-11).
+
+**9. The case-skeleton is English-only; bilingual generation is concentrated in the compiler.**
+The hub harness drifts to Spanish and mangles schema, so the authored skeleton is English prose only — no JSON, no second language. All zh is therefore generated downstream by the compiler, which makes compiler zh-fidelity the single point of failure. Gate it: a deterministic CJK-presence check on every must-be-bilingual field — the inverse of the topic-CJK Tier-0 gate (which fails when CJK *is* present). A missing zh, or English left sitting in a zh field, fails loud before review. (The aGVHD cure pass cleared this by hand — every English edit carried a matching zh edit — but the check should be mechanical, not trusted.)
+
 ## Origin anchor
 
 The D-correct-at-3% MCQ finding is the canonical example of why this apparatus exists. Keep it as the regression case: any new positional-integrity tooling should be able to detect it.

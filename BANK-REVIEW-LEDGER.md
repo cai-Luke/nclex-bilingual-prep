@@ -108,6 +108,9 @@ Only top-level `banks/*.json` files are bundled by the app. `banks/Pending cases
 
 | `banks/banks-raw/opus-fixed.json` | Opus 4.6 + GPT 5.5 | 6 | 2026-06-10: valid after fix | 2026-06-10: promoted to `banks/opus-fixed.json` | `merged-and-deleted` | Raw file deleted after promotion. See Reviewed Banks. |
 | `banks/banks-raw/opus-psi-caregiver-fixed-2026-06-10.json` | Opus 4.6 + GPT 5.5 | 1 | 2026-06-10: valid | 2026-06-10: promoted to `banks/opus-psi-caregiver-fixed-2026-06-10.json` | `merged-and-deleted` | Raw file deleted after promotion. See Reviewed Banks. |
+| `banks/banks-raw/gemini-cured-opus-agvd-2026-06-11.json` | Opus 4.6 + Gemini cure + GPT patch | 1 | 2026-06-11: valid | 2026-06-11: Claude final review (see 2026-06-11 log above) | `merged-and-deleted` | Merged into `banks/gemini-canonical.json` (770→771); `meta.schemaVersion` bumped 1.1→1.2. All audit tiers passed. Raw deleted. |
+| `banks/banks-raw/gpt-tls-case-2026-06-11.json` | GPT-4o | 1 | 2026-06-11: valid | 2026-06-11: Claude content review — all keys verified, OR sequence clinically sound, no fixes required | `merged-and-deleted` | Merged into `banks/gpt-canonical.json` (183→184); 1 hard case_study: Tumor lysis syndrome (Burkitt lymphoma, Reduction of Risk Potential). All audit tiers passed. Raw deleted. |
+| `banks/banks-raw/gpt-case-gap-2026-06-11-merged.json` | GPT-4o | 6 | 2026-06-11: valid | 2026-06-11: Claude content review — all arithmetic verified, OR sequences clinically defensible, no fixes required | `merged-and-deleted` | Merged into `banks/gpt-canonical.json` (184→190); 6 hard case_study items: ADHF, AKI, acute pancreatitis, adrenal crisis, urosepsis, anticoagulation bleeding (retroperitoneal/HIT). All audit tiers passed. Raw deleted. |
 
 ## Unreviewed / Pending Banks
 
@@ -118,6 +121,14 @@ Only top-level `banks/*.json` files are bundled by the app. `banks/Pending cases
 | `banks/banks-raw/gem-merged.json` | Gemini | 3 case studies | 2026-06-09: schema-valid | 2026-06-09: reviewed and partially promoted | `merged-and-deleted` | Promoted 1 of 3 cases on 2026-06-09 (`cs_thyroid_storm_main`). Rejected `cs_ad_01` (redundant) and `cs_pe_2026_01` (duplicate + schema irregularity). Raw file deleted after promotion. See Merged Source Batches. |
 
 | `banks/banks-raw/gpt-all-raw-merged.json` | GPT-4o | 36 top-level / 106 total | 2026-06-10: valid (validate-bank OK) | 2026-06-10: full review — all en/zh pairs present, no ID collisions vs 1341 canonical, all FIB blanks populated, all OR orderings clinically verified (mobility, PI prevention, wheelchair transfer, IPV protocol), matrix selectionMode conformant, math checks passed (mammography USPSTF 2024: age 40 biennial; lung screening USPSTF 2021: age 50/20 pack-yr/15 yr; all arithmetic FIBs exact), IPV therapeutic communication and safety sequencing clinically sound. No fixes required. | `merged-and-deleted` | Promoted to `banks/gpt-all-raw-merged.json` on 2026-06-10, then consolidated into `banks/gpt-canonical.json` on 2026-06-11 (183 total top-level items). 36 top-level items (10 OR, 10 FIB, 16 case_study) + 70 embedded questions. Categories: Health Promotion (11), Psychosocial Integrity (8), Basic Care and Comfort (8), Management of Care (5), Safety and Infection Control (4). Topics target under-served non-clinical content lanes: caregiver burden, health literacy, mobility/rehab, pressure injury prevention, preventive screening, community resources, IPV safety, occupational exposure/vaccine, ostomy. Cross-model review: GPT-generated, Claude-reviewed. |
+
+### 2026-06-11 — Acute GVHD unfolding case (case_study)
+- Bank item: opus_agvd_case_agvhd_01 — 1 case_study, 6 embedded (5 multiple_choice + 1 matrix)
+- Topic: Acute Graft-Versus-Host Disease | category: Physiological Adaptation | difficulty: hard | schema 1.2
+- Chain (generator≠reviewer satisfied): Opus hub skeleton → Gemini compile → GPT review/patch → Claude final review
+- Final review: schema valid; bilingual parity intact (9 EN cure-edits each carried a matching zh; no stale/empty/non-CJK zh); answer keys unchanged through the cure; zero positional language (EN + zh); topic English-only; no visuals (text exhibits — necessity gate N/A)
+- Clinical fixes at cure (GPT patch): Stage 1 staging made coherent (skin 2 / GI 1 / liver 1 → grade II; baseline stool 620→280 mL/8h, Stage 1 1,480→900 mL/24h); Stage 2 relabeled grade III (was III–IV); ruxolitinib/steroid-refractory language nuanced; Q4 tacrolimus rationale made multifactorial (incl. fluconazole CYP3A4); Q2 softened "urgent"→"promptly"
+- Merged 2026-06-11 → `banks/gemini-canonical.json` (770→771); `meta.schemaVersion` bumped 1.1→1.2; shuffle applied via promote.ts; all audit tiers passed (validate:bank / references / positions / integrity). Raw deleted.
 
 ## Next Planned Review
 

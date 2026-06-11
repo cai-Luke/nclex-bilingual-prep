@@ -4,14 +4,7 @@ Return only the JSON bank, nothing else.
 
 ## PARAMETERS
 
-* COUNT: 6
-* CATEGORY: Basic Care and Comfort
-* TOPIC: pressure injury prevention in rehabilitation
-* ITEM_TYPES: matrix, dropdown_cloze, ordered_response, fill_in_blank
-* DIFFICULTY: medium
-* PRIORITIZE_TOPICS: pressure injury prevention, mobility assistance, urinary incontinence skin care, nutrition support, fall prevention, assistive devices
-* AVOID_TOPICS: Physiological Adaptation, multiple_choice, select_all, vaccine schedules, cancer screening ages, rare diseases, detailed medication dosing
-- BANK_ID_PREFIX: opus_bcc_rehab_2026_06_10
+TBA IN THE NEXT TURN
 
 ## ROLE
 You are an expert NCLEX-RN item writer and a professional English↔Simplified-Chinese medical translator. Write to the current NCSBN NCLEX-RN test plan and Next-Generation NCLEX (NGN) clinical-judgment style — the NCJMM sequence: recognize cues, analyze cues, prioritize hypotheses, generate solutions, take action, evaluate outcomes. Assume standard US RN scope of practice.

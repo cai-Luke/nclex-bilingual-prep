@@ -2,7 +2,7 @@
 
 **Type:** renderer (code) + later content lane.
 **Depends on:** U4 (table/form primitive — `renderDocTable`, already merged).
-**Concurrent-safe with:** U3 (`lab_trend`), U6, U9. Shared touch-points are the append-only union line and registration line only.
+**Concurrent-safe with:** U6/U9; U3 and U4 already landed. Shared touch-points are the append-only union line and registration line only.
 **Status:** specced, not implemented.
 
 Read `AGENTS.md`, `DECISIONS.md`, `VISUAL-STIMULI-ROADMAP.md`, and `NCLEX-Question-Schema.md` first; on any conflict they win. This spec covers the U5 row of the roadmap: the **`io_record`** (intake & output flowsheet) kind. It reuses the U4 table primitive directly and adds no new primitive — `renderFieldPanel` (the U6/U9 panel primitive) is **not** needed here.
@@ -39,7 +39,31 @@ No edits to `App.tsx` / `schema.ts` / `validate-bank.ts` / `coverage-report.ts` 
 
 ---
 
-## 3. Spec type (`kinds/io_record/types.ts`)
+## 3. Placement
+
+```md
+allowedItemTypes:
+[
+  "multiple_choice",
+  "select_all",
+  "matrix",
+  "fill_in_blank"
+]
+```
+
+Rationale:
+
+io_record is one of the few visual kinds where direct calculation is often
+the learning objective.
+
+Numeric fill_in_blank items are explicitly supported.
+
+Visual rendering already occurs at the QuestionCard layer independent of
+answer-control type, so no additional UI wiring is required.
+
+---
+
+## 4. Spec type (`kinds/io_record/types.ts`)
 
 ```ts
 export interface IoEntry {
@@ -68,7 +92,7 @@ Design notes:
 
 ---
 
-## 4. `validate(spec): VisualError[]`
+## 5. `validate(spec): VisualError[]`
 
 Follow `validateMar` / `validateLabTrend` defensive style — never throw; guard every access.
 
@@ -90,7 +114,7 @@ No duplicate-label check: two `0.9% NaCl IV` intake rows are legitimate, and bec
 
 ---
 
-## 5. Question-level `meta` + `selfCheck(spec, question)`
+## 6. Question-level `meta` + `selfCheck(spec, question)`
 
 `io_record` uses the canonical question-level `meta` block (§6.1 of `NCLEX-Question-Schema.md`) and adds one kind-specific keyed-cue field, `derived_values_keyed`. Full shape:
 
@@ -122,13 +146,25 @@ No duplicate-label check: two `0.9% NaCl IV` intake rows are legitimate, and bec
    For each key **present** in `derived_values_keyed`, assert exact integer equality with the recomputed value. Any mismatch → `self_check_total_mismatch`. **Per the roadmap this is a build failure, not a content note** — a keyed total that disagrees with the entries is a broken item.
 4. **Internal consistency echo.** Re-assert each `volumeMl` is a finite positive integer (cheap, independent of `validate`) → `self_check_invalid_volume`.
 
-As with every kind, the `meta`-dependent checks (1–3) only fire when `question.meta` is present, so the conformance harness's `dummyQuestion` (no `meta`) runs `selfCheck` clean and without throwing.
+Conformance-harness behavior:
+
+selfCheck({} as IoRecordSpec, {} as Question)
+returns [] and never throws.
+
+Promotion-gate behavior:
+
+When question.meta exists, the following become mandatory:
+
+- visual_justification
+- derived_values_keyed
+
+Missing required fields generate self-check errors.
 
 `selfCheck` does **not** judge clinical interpretation (whether +830 mL means overload in *this* client). That is stage-4 human review.
 
 ---
 
-## 6. `renderSvg(spec): string`
+## 7. `renderSvg(spec): string`
 
 Single stacked documentation table via `renderDocTable`. The renderer **computes** the subtotal/total/net rows by summing entries — it never reads a total from the spec (there are none).
 
@@ -151,19 +187,19 @@ Single stacked documentation table via `renderDocTable`. The renderer **computes
 
 ---
 
-## 7. Fixtures
+## 8. Fixtures
 
 `valid` (≥2):
 1. **Net-positive shift.** intake `PO 480`, `0.9% NaCl IV 1000`, `IV piggyback antibiotic 100` (= 1580); output `Foley urine 600`, `Emesis 150` (= 750); net `+830`. With `caption` + `periodLabel` (en/zh).
 2. **Output-heavy / net-negative.** intake `PO 240`, `0.9% NaCl IV 500` (= 740); output `Urine 1400`, `NG drainage 300` (= 1700); net `−960`.
 
-`invalid` (assert each `code`): `no_entries` (both arrays empty); `invalid_volume` (a negative or non-integer `volumeMl`); `volume_out_of_range` (e.g. `volumeMl: 50000`); `entry_label_missing` (empty label); `invalid_kind` (`kind: "mar"`); `intake_invalid` (`intake` not an array); `caption_en_required` (`caption: { en: "" }`); `caption_zh_empty` (`caption: { en: "x", zh: "" }`).
+`invalid` (assert each `code`): `no_entries` (both arrays empty); `invalid_volume` (a negative or non-integer `volumeMl`); `volume_out_of_range` (e.g. `volumeMl: 50000`); `entry_label_missing` (empty label); `invalid_kind` (`kind: "mar"`); `intake_invalid` (`intake` not an array); `caption_en_required` (`caption: { en: "" }`); `caption_zh_empty` (`caption: { en: "x", zh: "" }`); `period_label_en_required` (`periodLabel: { en: "" }`); `period_label_zh_empty` (`periodLabel: { en: "x", zh: "" }`).
 
 The conformance harness runs these automatically (valid → 0 validate errors, well-formed `<svg>…</svg>`, no `NaN`/`undefined`, deterministic ×2, `selfCheck` no-throw).
 
 ---
 
-## 8. Tests
+## 9. Tests
 
 - **Conformance (automatic):** fixtures + determinism over all kinds (`visuals-conformance.ts`).
 - **Kind-specific** (`scripts/tests/io-record.ts`, register in the `test-visuals` script): assert representative validation codes (`invalid_volume`, `no_entries`, `volume_out_of_range`, `entry_label_missing`), render determinism, and — the important one — the **arithmetic `selfCheck`**:
@@ -172,16 +208,17 @@ The conformance harness runs these automatically (valid → 0 validate errors, w
   - `meta` with `visual_justification` but no `derived_values_keyed` → `self_check_no_keyed_values`;
   - `selfCheck({} as IoRecordSpec, {})` → no throw, `[]` (defensive).
   This is also the dedicated-test pattern `lab_trend`/`mar` currently lack; U5 ships with it from the start.
-- **Parity:** add the `io_record` valid fixtures to `scripts/tests/__snapshots__/visual-parity.json` (byte-identical SVG hashes), consistent with how `mar` was added.
+- **Parity:** update parity snapshots if this repo expects checked-in visual hashes.
 
 ---
 
-## 9. Acceptance / verification
+## 10. Acceptance / verification
 
 ```sh
-npm run test-visuals        # io-record kind-specific + conformance green; harness lists io_record
+npm run test-visuals
 npm run validate-bank -- banks/*.json
-npm run coverage-report     # io_record appears in the per-kind visual breakdown (0 until content lands)
+npm run census
+npm run census:check
 npm run build
 ```
 
@@ -189,21 +226,77 @@ All green. `NCLEX-Question-Schema.md` gains an `io_record` per-kind subsection (
 
 ---
 
-## 10. Content lane (after the renderer lands — separate pass)
+## 11. Content lane (after the renderer lands — separate pass)
 
 - ID prefix `io_*`, disjoint from other kinds.
-- Generate → `banks/banks-raw/` → cross-model review (generator never reviews its own) → source-check → visual audit (artifact matches spec; the derivation is genuinely required, not restated in the stem) → human content review → `npm run promote` → merge into `banks/visual-canonical.json` → `npm run audit` → ledger entry → delete raw.
+- Generate → `banks/banks-raw/` → cross-model review (generator never reviews its own) → source-check → visual audit (artifact matches spec; the derivation is genuinely required, not restated in the stem) → human content review → `npm run promote` → merge into `banks/io-canonical.json` → `npm run audit` → ledger entry → delete raw.
 - The arithmetic is machine-checked by `selfCheck`, so human review concentrates on: are these realistic charted volumes? is the keyed total the load-bearing cue (not restated in the stem)? does the rationale interpret the balance correctly and position-agnostically (per `DECISIONS.md` principle 4)?
 - Targets (roadmap): fluid overload, dehydration, AKI/oliguria, evaluation of treatment effect.
 
 ---
 
-## 11. Open decision for Luke — item-type placement
+## 12. Error Codes
 
-Every existing visual kind uses the default placement set `VISUAL_ITEM_TYPES = ["multiple_choice", "select_all", "matrix"]`. The most natural I&O question form, though, is a **numeric `fill_in_blank`** ("Calculate the net fluid balance in mL: ___"), which is **not** in the default set.
+Validation codes
 
-Two paths:
-- **(a) v1 as specced** — default placement; I&O items are `multiple_choice` with numeric options. Zero new wiring; matches every existing kind. Risk: numeric MCQ invites answer-elimination over real calculation.
-- **(b) Extend** — set `allowedItemTypes: ["multiple_choice", "select_all", "matrix", "fill_in_blank"]` on the `io_record` module. Cleaner test of the calculation, **but** requires confirming `App.tsx` actually renders the visual above a `fill_in_blank` stem (schema 1.2 visual rendering was wired for mc/sata/matrix + case-study exhibits; `fill_in_blank` may not be wired) and that grading is unaffected. That verification is a small but real extra task.
+```text
+invalid_kind
+intake_invalid
+output_invalid
+no_entries
+entry_label_missing
+invalid_volume
+volume_out_of_range
+period_label_en_required
+period_label_zh_empty
+caption_en_required
+caption_zh_empty
+```
 
-This spec defaults to **(a)** to keep U5 the cheap unit, and flags (b) as a follow-up because it also affects the content lane (whether the `io_*` generators may write numeric fill-ins). **Decide before the content lane opens.**
+Self-check codes
+
+```text
+self_check_missing_justification
+self_check_no_keyed_values
+self_check_total_mismatch
+self_check_invalid_volume
+```
+
+---
+
+## 13. Canonical SVG Example
+
+```text
+Intake
+PO water                     480
+0.9% NaCl IV                1000
+IV piggyback antibiotic      100
+Intake total                1580
+
+Output
+Foley urine                  600
+Emesis                       150
+Output total                 750
+
+Net balance                 +830
+```
+
+---
+
+## 14. Do Not Touch
+
+Do not modify:
+
+```text
+src/schema.ts
+src/App.tsx
+scripts/validate-bank.ts
+scripts/coverage-report.ts
+scripts/census.ts
+```
+
+unless a failing test demonstrates a required change.
+
+---
+
+> Implement U5 io_record exactly as specified. Follow existing mar and lab_trend patterns. Prefer copying established visual-kind structure over inventing new abstractions. Registry architecture already exists. Fill-in-blank support is approved. Census integration already exists. Do not perform content generation or promotion work.
