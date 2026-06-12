@@ -2,8 +2,9 @@
  * Tier 1 — shuffle-integrity equality check.
  *
  * For every JSON file that exists in both banks/banks-raw/ (draft) and banks/
- * (promoted, same filename), this check recomputes shuffle(draft_question) and
- * asserts deep equality with the committed promoted version.
+ * (promoted, same filename), this check recomputes the promotion shuffle plus
+ * canonical presentation normalization and asserts deep equality with the
+ * committed promoted version.
  *
  * Catches:
  *   - Manual post-promotion edits to the promoted bank
@@ -21,6 +22,7 @@ import { join } from "node:path";
 import { parseBankText } from "../../src/bankImport";
 import { validateBankObject } from "../../src/schema";
 import { shuffle } from "../../lib/shuffle";
+import { normalizeBankPresentations } from "../../lib/presentation-normalization";
 import type { AuditResult } from "./types";
 import type { Question } from "../../src/types";
 
@@ -42,8 +44,12 @@ function questionIds(q: Question): string[] {
 
 type IntegrityFailure = { id: string; reason: string };
 
+function expectedQuestion(draft: Question): Question {
+  return normalizeBankPresentations({ questions: [shuffle(draft)] }).bank.questions[0];
+}
+
 function checkQuestion(draft: Question, promoted: Question): IntegrityFailure[] {
-  const expected = shuffle(draft);
+  const expected = expectedQuestion(draft);
   if (deepEqual(expected, promoted)) return [];
 
   // Recurse into case studies for finer-grained failure reporting
@@ -62,24 +68,24 @@ function checkQuestion(draft: Question, promoted: Question): IntegrityFailure[] 
 
     // If nested check is clean but parent still differs, report at the parent level
     if (nestedFailures.length === 0) {
-      return [{ id: draft.id, reason: "case study differs from expected shuffle output (non-option fields)" }];
+      return [{ id: draft.id, reason: "case study differs from expected normalized promotion output (non-option fields)" }];
     }
     return nestedFailures;
   }
 
   // For option-type items, report what specifically differs
   if ("options" in draft && "options" in promoted) {
-    const expectedShuffle = shuffle(draft) as typeof draft & { options: Array<{ id: string }> };
+    const expectedShuffle = expected as typeof draft & { options: Array<{ id: string }> };
     const promotedWithOptions = promoted as typeof promoted & { options: Array<{ id: string }> };
     if (JSON.stringify(expectedShuffle.options.map((o) => o.id)) !== JSON.stringify(promotedWithOptions.options.map((o) => o.id))) {
       const expOrder = (expectedShuffle.options as Array<{ id: string }>).map((o) => o.id).join("");
       const gotOrder = (promotedWithOptions.options as Array<{ id: string }>).map((o) => o.id).join("");
       return [{ id: draft.id, reason: `options order mismatch: expected [${expOrder}] got [${gotOrder}]` }];
     }
-    return [{ id: draft.id, reason: "differs from expected shuffle output (non-option fields changed post-promotion)" }];
+    return [{ id: draft.id, reason: "differs from expected normalized promotion output (non-option fields changed post-promotion)" }];
   }
 
-  return [{ id: draft.id, reason: "differs from expected shuffle output" }];
+  return [{ id: draft.id, reason: "differs from expected normalized promotion output" }];
 }
 
 export async function runAuditIntegrity(): Promise<AuditResult> {
