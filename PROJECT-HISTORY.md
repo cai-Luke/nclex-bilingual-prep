@@ -25,13 +25,13 @@ The app is a static offline Vite + React + TypeScript NCLEX-RN practice tool. It
 
 Core learning features are implemented: all schema item types render and grade, case studies are supported, sessions are resumable, custom sessions can be built from filters, the dashboard summarizes performance, flags feed review pools, glossary flashcards have their own SRS progress, and adaptive exam-condition practice is available without any pass/fail readiness claim.
 
-Current canonical banks (see [BANK-CENSUS.md](BANK-CENSUS.md); 1 194 top-level, 360 embedded parts as of 2026-06-11):
+Current canonical banks (see [BANK-CENSUS.md](BANK-CENSUS.md); 1 194 top-level, 360 embedded parts as of 2026-06-12):
 
 - `banks/capnography-canonical.json` (7 schema v1.2 capnography visual items; dedicated home for capnography kind)
-- `banks/claude-canonical.json` (50 bilingual Claude-source questions; ledgered content review complete)
-- `banks/gemini-canonical.json` (760 bilingual Gemini-source questions; includes original + pending batches + traditional/easy/gap-fill consolidations minus redundant/flawed questions)
+- `banks/claude-canonical.json` (57 bilingual Claude-source questions; ledgered content review complete)
+- `banks/gemini-canonical.json` (771 bilingual Gemini-source questions; includes original + pending batches + traditional/easy/gap-fill consolidations minus redundant/flawed questions)
 - `banks/gpt-canonical.json` (220 bilingual GPT-source questions; ledgered content review complete)
-- `banks/hard-cases-canonical.json` (46 top-level items: 37 unfolding case studies + 9 hard standalones; 155 embedded case-study parts)
+- `banks/hard-cases-canonical.json` (51 top-level items: 42 unfolding case studies + 9 hard standalones; 180 embedded case-study parts)
 - `banks/lab-canonical.json` (20 schema v1.2 lab_trend visual items; dedicated home for lab_trend kind)
 - `banks/mar-canonical.json` (5 schema v1.2 mar visual items; dedicated home for mar kind)
 - `banks/visual-canonical.json` (53 reviewed schema v1.2 rhythm-strip visual items; the dedicated home for rhythm_strip kind, formerly `banks/rhythm-canonical`)
@@ -54,6 +54,38 @@ Out of scope until a future schema bump:
 - `bowtie`
 
 ## Milestones
+
+### U7 `fetal_monitoring` Renderer Finalized (Jun 12)
+
+Completed:
+- Finalized the three-window renderer with deterministic synchronized FHR/UA panels, seeded variability, gaussian contractions, accelerations, and early/late/variable/prolonged deceleration synthesis.
+- Source-verified renderer terminology and morphology thresholds against the 2008 NICHD workshop report and AWHONN's current sixth-edition resource statement.
+- Corrected the provisional abrupt boundary from 15 seconds to onset-to-nadir under 30 seconds; added ≥15 bpm gates for variable/prolonged decelerations and the v1 term 15-by-15 acceleration gate.
+- Documented renderer-only early/late phase tolerances separately from clinical definitions in `audit/u7-fetal-monitoring-source-verification-2026-06-12.md`.
+- Added the complete schema subsection and taxonomy entry, marked U7 done in the roadmap, and lifted the renderer-completion content freeze while preserving the raw→review→source-check→visual-audit→promote→ledger workflow.
+- No fetal-monitoring content was generated or promoted.
+
+### U7 `fetal_monitoring` Window 2 Phase Gate (Jun 12)
+
+Completed:
+- Added analytic acceleration bumps plus gradual early/late, abrupt variable, and flat-bottomed prolonged deceleration synthesis on the shared FHR/UA time axis.
+- Added named provisional phase constants in `features.ts`; the final Window 3 pass subsequently source-verified and corrected them before opening the content lane.
+- Added defensive `selfCheck` enforcement for visual justification, keyed `expected_pattern`, early/late contraction phase, variable abruptness, prolonged duration, declared-vs-actual pattern, variability, and acceleration presence.
+- Added the full wrong-phase regression matrix, including early decelerations shifted into late phase and late decelerations centered at the contraction peak.
+- Expanded fixtures across acceleration and all four deceleration categories while keeping verdict/category text out of visible SVG labels.
+- Browser-inspected all five representative fixture classes and rotated channel labels into the left gutter after the visual pass exposed y-axis-label overlap.
+- Verified: `npm run test-visuals` passes with 10 registered kinds and `npm run build` passes.
+- No fetal-monitoring content was generated or promoted.
+
+### U7 `fetal_monitoring` Window 1 Foundation (Jun 12)
+
+Completed:
+- Added the complete `FetalMonitoringSpec` type and defensive U7 validation contract, including future acceleration/deceleration fields without implementing their rendering or phase logic.
+- Added deterministic dual stacked FHR/UA panels on one schematic time axis, seeded variability for all four categories, and gaussian uterine contractions centered at declared peak times.
+- Added baseline/variability/contraction-only fixtures plus focused tests for validation codes, deterministic output, panel presence, finite output, variability separation, and shared-axis contraction alignment.
+- Registered `fetal_monitoring` append-only in the visual union and production kind barrel.
+- Window 2 remains gated as one atomic pass: acceleration/deceleration rendering, phase constants, phase-offset `selfCheck`, expected-pattern checks, and wrong-phase regression tests must land together.
+- No fetal-monitoring content was generated or promoted, and no NICHD/AWHONN source verification was claimed in this window.
 
 ### U8 `burn_map` Renderer (Jun 12)
 
@@ -448,17 +480,14 @@ Completed:
 
 ## Verification baseline
 
-Last verified on 2026-06-10:
+Last verified on 2026-06-12:
 
 - `npm run validate-bank -- banks/*.json` — all 9 banks pass
-- `npm run test-visuals` — 5 kinds, 6 test suites green
-- `npm run coverage-report`
-- `npm run census` — see [BANK-CENSUS.md](BANK-CENSUS.md) for the current generated snapshot (1 093 top-level, 155 embedded, 87 visuals)
+- `npm run test-visuals` — 10 registered visual kinds green
+- `npm run census && npm run census:check`
 - `npm run build`
 
-Known verification gap:
-
-- Playwright is not installed in this workspace, so the latest run did not include automated browser-click smoke tests.
+Representative fetal-monitoring fixtures were also inspected through the in-app browser; the visual pass found and corrected channel-label overlap.
 
 ## Authoritative references
 

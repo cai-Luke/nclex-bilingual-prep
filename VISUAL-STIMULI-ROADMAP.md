@@ -144,13 +144,17 @@ Partially renderable: fluid level/output, chamber identification, and suction-co
 
 ## Phase 3 — Fetal monitoring (multi-window project)
 
-### U7 · `fetal_monitoring` (dual-channel)
+### U7 · `fetal_monitoring` (dual-channel) — ✅ DONE (2026-06-12)
 **Type:** renderer (code), large. **Depends on:** U0. **Concurrent with:** anything (own files).
 
-- Two synchronized channels: FHR and uterine activity, drawn in correct temporal phase.
-- Must convey: baseline FHR, variability category (absent / minimal / moderate / marked), accelerations, and deceleration type **by its phase relationship to the contraction** — early (mirrors), late (offset after peak), variable (abrupt, uncoupled), prolonged.
-- Budget 2–3 windows. Split sensibly: window 1 = dual-channel grid + contraction curve + baseline FHR with variability rendering; window 2 = deceleration phase logic + accelerations; window 3 = polish, tests, example items.
-- **Accuracy watch-item:** the phase relationship is the entire diagnostic point — a late decel rendered in the wrong phase teaches the wrong category. Test phase offsets explicitly against the contraction timing. This is the highest-yield OB content and the easiest to render subtly wrong.
+- ✅ Added synchronized FHR and uterine-activity channels on one deterministic time axis.
+- ✅ Added seeded absent/minimal/moderate/marked variability, accelerations, gaussian contractions, and early/late/variable/prolonged deceleration synthesis.
+- ✅ Added the defining phase-offset `selfCheck`: wrong early/late phase, non-abrupt variable morphology, and invalid prolonged duration fail mechanically.
+- ✅ Added `expected_pattern` necessity and declared-vs-rendered checks.
+- ✅ Source-verified terminology and morphology thresholds against the 2008 NICHD workshop report; AWHONN's current sixth-edition resource continues to use those definitions.
+- ✅ Browser-inspected representative fixtures and corrected channel-label overlap.
+- ✅ No content was generated or promoted during renderer work.
+- **Accuracy watch-item:** remains strictest tier for the future content lane. Item-level interpretation and management require source review even though renderer morphology is mechanically checked.
 
 ---
 
