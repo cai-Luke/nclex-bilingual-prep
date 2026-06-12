@@ -2,6 +2,18 @@
 
 Revised future-work roadmap for deterministic, data-derived clinical visuals. Supersedes the earlier draft of the same name. Read `AGENTS.md`, `PROJECT-HISTORY.md`, and `NCLEX-Question-Schema.md` first; those win on any conflict.
 
+## Roadmap Status
+
+**The visual renderer roadmap is now COMPLETE.** All planned renderer phases (U0 through U9) have successfully landed.
+
+### Content-Lane Status Notes
+- **adult `burn_map`:** Content lane is OPEN.
+- **pediatric `burn_map`:** Content lane is BLOCKED.
+- **`fetal_monitoring`:** Content lane is OPEN under strict NICHD/AWHONN/ACOG wording constraints.
+- **Oxygen caveat:** Oxygen administration is NOT routine for normoxic patients.
+
+*(Note: No visual smoke content has been promoted for these newly opened lanes yet. Content generation can resume through the standard raw → review → promotion workflow.)*
+
 ## Guiding principle
 
 Adopt the original draft's core rule — *if clinical info can be structured data, render it deterministically instead of sourcing an asset* — with one sharpening filter applied to every candidate:

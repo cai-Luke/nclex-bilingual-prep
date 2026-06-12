@@ -55,6 +55,18 @@ Out of scope until a future schema bump:
 
 ## Milestones
 
+### Visual Stimulus Pipeline Completion and Source Verification (Jun 12)
+
+Completed:
+- The visual renderer roadmap (U0–U9) is complete. Renderers for U6 (`medication_label`), U7 (`fetal_monitoring`), U8 (`burn_map`), and U9 (`device_screen`) have successfully landed.
+- Recorded authoritative clinical source-verification decisions for `burn_map` and `fetal_monitoring` in `NCLEX-Question-Schema.md` and `VISUAL-STIMULI-ROADMAP.md`.
+- Adult `burn_map` content is verified and open.
+- Pediatric `burn_map` content is blocked pending age-banded Lund-Browder support.
+- `burn_map` traditional Parkland wording rule established (explicit wording required for the 4 mL/kg/%TBSA constant).
+- `fetal_monitoring` constants verified against NICHD 2008 nomenclature.
+- `fetal_monitoring` intrauterine resuscitation rule established: routine oxygen administration is restricted for normoxic patients.
+- Content generation for these visual lanes can now resume through the standard raw → review → promotion workflow.
+
 ### U7 `fetal_monitoring` Renderer Finalized (Jun 12)
 
 Completed:

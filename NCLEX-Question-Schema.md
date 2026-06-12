@@ -613,10 +613,24 @@ Validation and phase rules:
 - Variable decelerations require abrupt onset-to-nadir under 30 seconds, depth ≥15 bpm, total duration ≥15 seconds and <2 minutes.
 - Prolonged decelerations require depth ≥15 bpm and duration ≥2 minutes and <10 minutes; ≥10 minutes is a baseline change.
 - Variability peak-to-trough bands are: absent = undetectable, minimal = detectable through 5 bpm, moderate = 6–25 bpm, marked = >25 bpm. The renderer uses deterministic representative amplitudes of 0, 4, 14, and 32 bpm.
+- **NICHD 2008 Verified Constants:**
+  - **Baseline normal:** 110–160 bpm.
+  - **Variability:** absent = undetectable, minimal = detectable but ≤5 bpm, moderate = 6–25 bpm, marked = >25 bpm.
+  - **Accelerations (Term/≥32 week):** abrupt increase, ≥15 bpm above baseline for ≥15 seconds and <2 minutes. (For <32 weeks, 10×10 criteria apply; content must specify term/gestational age when using 15×15).
+  - **Decelerations:** 
+    - Early: gradual onset, nadir mirrors contraction peak.
+    - Late: gradual onset, nadir after contraction peak.
+    - Variable: abrupt onset, ≥15 bpm drop lasting ≥15 seconds and <2 minutes, not necessarily time-locked.
+    - Prolonged: ≥15 bpm drop lasting ≥2 minutes but <10 minutes.
+- **Oxygen/Management Rule:** Do not key routine oxygen administration for Category II/III fetal tracings unless maternal hypoxia is explicitly present. Avoid oxygen as a distractor if it creates ambiguity with older teaching. Prefer maternal repositioning, stopping oxytocin if infusing, IV fluid bolus, provider notification, and preparation for expedited birth if unresolved.
 - `selfCheck` requires non-empty `visual_justification` and at least one supported cue in `meta.expected_pattern`.
 - Declared deceleration types, variability, and acceleration presence must match the visual spec. Every deceleration must pass its morphology/phase rule; every acceleration must pass the v1 term morphology rule.
 - **Caption rule:** captions and visible SVG text must remain neutral. Never print a variability category, deceleration type, phase arrow, or clinical verdict.
-- **STRICTEST tier.** Definitions were checked against the 2008 NICHD workshop report and AWHONN's current statement that its sixth-edition FHM text continues to use those definitions. See `audit/u7-fetal-monitoring-source-verification-2026-06-12.md`. Clinical management and item-level realism still require source review and human content review.
+- **Content rules:**
+  - The stem must not name the deceleration type if the learner is expected to identify it.
+  - The item must require reading the phase relationship between FHR nadir and contraction peak.
+  - Rationales must be position-agnostic and not rely on option order.
+- **STRICTEST tier.** Definitions were checked against the 2008 NICHD workshop report and AWHONN's current statement. See `audit/visual-source-verification-2026-06-12.md`.
 - Future content uses globally unique `fhr_*` IDs and remains subject to raw → cross-model review → visual audit → promote → ledger.
 
 ### Kind: `burn_map`
@@ -655,13 +669,17 @@ Validation and arithmetic rules:
 - `population` is `adult` or `pediatric` and defaults to `adult`.
 - `burns` must contain one or more unique supported whole-region keys. Fractional burns and Lund-Browder interpolation are out of v1 scope.
 - The fixed table covers anterior/posterior head, trunk, left/right arms, left/right legs, plus genitalia. Each population table sums to exactly 100.
+- **Adult content:** Adult Rule of Nines is verified and adult `burn_map` content may proceed. Constants: Head/neck 9% (4.5% ant/post); Trunk 36% (18% ant/post); Each arm 9% (4.5% ant/post); Each leg 18% (9% ant/post); Genitalia/perineum 1%.
+- **Pediatric content:** Pediatric `burn_map` content remains **BLOCKED**. Do not use a single modified pediatric Rule of Nines table for generated content. Pediatric content requires age-banded Lund-Browder support or a future deliberate scope decision.
+- **Parkland wording rule:** Arithmetic keys use the traditional Parkland formula: `4 mL × body weight kg × %TBSA burned`. Half is given in the first 8 hours and half over the next 16 hours. Timing begins from time of burn injury, not time of arrival. %TBSA includes partial-thickness and full-thickness burns only, not superficial/first-degree. Because modern guidance may use lower starting volumes (e.g., 2 mL), any item keyed to the 4 mL calculation must explicitly say "Using the traditional Parkland formula..." or provide the 4 mL/kg/%TBSA constant in the stem/exhibit.
 - `selfCheck` requires `visual_justification` and at least one recognized `derived_values_keyed` value.
 - Supported keyed values are `tbsa_pct`, `parkland_total_ml`, `parkland_first8h_ml`, and `parkland_rate_first8h_ml_hr`.
 - Parkland derivations require finite positive `meta.weight_kg`. `meta.round` may be `0`, `1`, or `2` and defaults to `0`.
 - `selfCheck` recomputes %TBSA from the selected population table and shaded regions, derives Parkland values, applies shared deterministic rounding, and requires exact equality.
 - For `fill_in_blank`, every numeric blank answer must exactly match at least one present recomputed derived value after that derivation is rounded. A mismatch reports `self_check_answer_value_mismatch`.
 - **Answer-reveal rule:** the SVG may show only `Anterior`, `Posterior`, and the population label. It must not show region percentages, %TBSA, Parkland totals, or rates.
-- **STRICTEST tier.** Adult rendering and arithmetic are available. Pediatric rendering support ships, but pediatric content remains blocked until the pediatric table is verified against an authoritative source and that verification is recorded. Clinical review must also confirm the visual is necessary and the burn distribution and weight are plausible.
+- **Content rule:** the stem must not state the %TBSA if the map is used.
+- **STRICTEST tier.** Clinical review must also confirm the visual is necessary and the burn distribution and weight are plausible.
 
 ---
 
