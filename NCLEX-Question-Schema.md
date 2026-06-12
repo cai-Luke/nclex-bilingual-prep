@@ -40,7 +40,7 @@ The importer also accepts a bare `[ ... ]` array of Question objects (no envelop
 | `rationale` | object | yes | see below |
 | `testTakingStrategy` | `{ en, zh }` | yes | short strategy note, both languages |
 | `glossary` | `[ { termEn, termZh, defZh } ]` | yes | key terms in the item; may be empty `[]` but prefer 2–5 |
-| `visual` | object | optional | schema `1.2`; supported on `multiple_choice`, `select_all`, and `matrix` only; renders above the stem |
+| `visual` | object | optional | schema `1.2`; placement is per visual kind; renders above the stem |
 
 **`category` controlled vocabulary (use these exact strings):**
 `Management of Care`, `Safety and Infection Control`, `Health Promotion and Maintenance`, `Psychosocial Integrity`, `Basic Care and Comfort`, `Pharmacological and Parenteral Therapies`, `Reduction of Risk Potential`, `Physiological Adaptation`.
@@ -88,6 +88,7 @@ Committed visual lanes (append-only):
 | `io_record` | Intake and output flowsheet with derived totals and net balance |
 | `medication_label` | Synthetic medication product label with structured strength |
 | `device_screen` | PCA, infusion, or enteral pump settings display |
+| `burn_map` | Anterior/posterior whole-region burn diagram for Rule-of-Nines and Parkland arithmetic |
 
 ### Visual contract metadata
 
@@ -136,14 +137,16 @@ These fields give validators, `selfCheck`, and auditors a shared contract to ver
 
 `selfCheck` errors are non-fatal at import (items are not skipped) but must be resolved before visual items are treated as reviewed study material.
 
-Supported locations:
+Default supported locations:
 - Top-level or embedded `multiple_choice`, `select_all`, and `matrix` questions.
 - `case_study.caseStudy.exhibits[]` and `caseStudy.stages[].exhibits[]`.
 
-Unsupported locations:
+Some arithmetic kinds, including `io_record`, `medication_label`, `device_screen`, and `burn_map`, also opt into top-level or embedded `fill_in_blank`.
+
+Unsupported unless a kind explicitly opts in:
 - `ordered_response`, `fill_in_blank`, `dropdown_cloze`, and the `case_study` parent object itself.
 
-  (Placement is per-kind. The set above is the global default; a future kind may opt into a different `allowedItemTypes`.)
+Placement is per-kind; the set above is the global default.
 
 ### Visual framework (kind-agnostic)
 
@@ -551,6 +554,50 @@ Validation and arithmetic rules:
 - `meta.round` may be `0`, `1`, or `2` and defaults to `0`. `selfCheck` recomputes each declared value, applies the shared deterministic rounding helper, and requires exact equality.
 - **Caption/title rule:** captions, titles, and settings must not state a verdict or display a computed answer.
 - **STRICTEST tier.** Human review must source-check device and drug settings, confirm the keyed cue is not restated in the stem, and verify that nothing other than the intended keyed element is accidentally unsafe.
+
+### Kind: `burn_map`
+
+Renders fixed anterior and posterior body schematics with whole burned regions shaded in solid translucent red. The visual is load-bearing only when the learner must identify the shaded regions and derive %TBSA or a Parkland value; the stem must not restate %TBSA.
+
+Unlike the global visual default, `burn_map` is allowed on `multiple_choice`, `select_all`, `matrix`, and `fill_in_blank`.
+
+```json
+{
+  "visual": {
+    "kind": "burn_map",
+    "population": "adult",
+    "burns": ["trunk_anterior", "leg_l_anterior", "leg_r_anterior"],
+    "caption": { "en": "Burn diagram", "zh": "烧伤示意图" }
+  },
+  "meta": {
+    "visual_justification": "The learner must sum the shaded regions and use the result in Parkland arithmetic.",
+    "tier": "strictest",
+    "source": "Rule of Nines and Parkland references",
+    "skill_signature": "burn:rule-of-nines-parkland/adult-major-burn",
+    "stem_disambiguators": ["Rule of Nines", "Parkland"],
+    "weight_kg": 70,
+    "round": 0,
+    "derived_values_keyed": {
+      "tbsa_pct": 36,
+      "parkland_total_ml": 10080,
+      "parkland_first8h_ml": 5040,
+      "parkland_rate_first8h_ml_hr": 630
+    }
+  }
+}
+```
+
+Validation and arithmetic rules:
+- `population` is `adult` or `pediatric` and defaults to `adult`.
+- `burns` must contain one or more unique supported whole-region keys. Fractional burns and Lund-Browder interpolation are out of v1 scope.
+- The fixed table covers anterior/posterior head, trunk, left/right arms, left/right legs, plus genitalia. Each population table sums to exactly 100.
+- `selfCheck` requires `visual_justification` and at least one recognized `derived_values_keyed` value.
+- Supported keyed values are `tbsa_pct`, `parkland_total_ml`, `parkland_first8h_ml`, and `parkland_rate_first8h_ml_hr`.
+- Parkland derivations require finite positive `meta.weight_kg`. `meta.round` may be `0`, `1`, or `2` and defaults to `0`.
+- `selfCheck` recomputes %TBSA from the selected population table and shaded regions, derives Parkland values, applies shared deterministic rounding, and requires exact equality.
+- For `fill_in_blank`, every numeric blank answer must exactly match at least one present recomputed derived value after that derivation is rounded. A mismatch reports `self_check_answer_value_mismatch`.
+- **Answer-reveal rule:** the SVG may show only `Anterior`, `Posterior`, and the population label. It must not show region percentages, %TBSA, Parkland totals, or rates.
+- **STRICTEST tier.** Adult rendering and arithmetic are available. Pediatric rendering support ships, but pediatric content remains blocked until the pediatric table is verified against an authoritative source and that verification is recorded. Clinical review must also confirm the visual is necessary and the burn distribution and weight are plausible.
 
 ---
 

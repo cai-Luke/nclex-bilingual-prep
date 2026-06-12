@@ -10,3 +10,4 @@ import "./mar";
 import "./io_record";
 import "./medication_label";
 import "./device_screen";
+import "./burn_map";
