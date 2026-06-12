@@ -19,7 +19,7 @@ You can reach the repo working tree directly through the configured filesystem M
 - `src/schema.ts`, `src/types.ts`, `src/grading.ts` — validation, the visual union, grading.
 - `scripts/validate-bank.ts`, `scripts/coverage-report.ts` — the verification path.
 - `banks/*.json` — canonical banks (read-only; never hand-edit).
-- Existing specs (e.g. `shrimp-visual-sweep-spec-v3.md`) and `Archive/` for superseded ones.
+- Visual-stimuli unit specs and superseded drafts in `Archive/` (the `U*-*-SPEC.md` per-kind specs).
 
 If a file isn't where you expect, list the directory rather than guessing.
 
@@ -41,14 +41,14 @@ Work spec-first: plan and specify here, hand implementation to Codex or Claude C
 - **Precision over volume.** A short, fully-evidenced output beats a long speculative one — this is the explicit grading standard in the adversarial audit spec.
 - **Bilingual is an invariant.** Every rule, check, and renderer that touches text covers English *and* Simplified Chinese, or it is incomplete.
 
-## Current task surface: the visual stimuli roadmap
+## Current task surface: visual renderers complete → content lanes
 
-The visual system is a kind registry under `src/visuals/` (the U0 refactor). Committed kinds: `rhythm_strip`, `capnography` (U1), `vitals_trend` (U2), `lab_trend` (U3), `mar` (U4). Reusable primitives in place: `lineChart` (charts) and `table.ts`'s `renderDocTable` (documentation tables); `renderFieldPanel` is still only a forward-reference stub. Roughly nine kinds are planned; `highlight` and `bowtie` are out of scope until a schema bump.
+The visual system is a kind registry under `src/visuals/` (the U0 refactor). **The renderer surface is complete** — all ten roadmap kinds have landed: `rhythm_strip` (pre-existing, migrated in U0), `capnography` (U1), `vitals_trend` (U2), `lab_trend` (U3), `mar` (U4), `io_record` (U5), `medication_label` (U6), `device_screen` (U9), `burn_map` (U8), and `fetal_monitoring` (U7). Reusable primitives in place: `lineChart` (charts), `table.ts`'s `renderDocTable` (documentation tables) and `renderFieldPanel` / `measureFieldPanel` (key→value label/screen panels, landed in U6). The shared numeric helpers `fmt` / `fmtNum` / `roundTo` have a **single definition** in `primitives/graphPaper.ts` — every arithmetic kind imports them and none redefines (a correctness invariant, `DECISIONS.md` principle 11). `highlight` and `bowtie` remain out of scope until a schema bump.
 
-Per `VISUAL-STIMULI-ROADMAP.md`, the next renderers are U5 `io_record`, U6 `medication_label`, and U9 `device_screen` — all unblocked by U4 and mutually concurrent. U5 io_record is specced (U5-IO-RECORD-SPEC.md) and ready for Codex — reuses renderDocTable, arithmetic-totals selfCheck, one open placement decision in §11. U6 and U9 still require implementing renderFieldPanel first. Standing gap to weigh against building more renderers: `lab_trend` and `mar` shipped with **zero content** (coverage shows 0 items each), so their content lanes are independent of — and arguably ahead of — the next renderer.
+Per `VISUAL-STIMULI-ROADMAP.md`, **no renderers remain** — the per-unit specs now live in `Archive/` (`U0`–`U9`). The next phase is **content**: the per-kind generation lanes (disjoint ID prefixes `cap_*`, `vit_*`, `lab_*`, `mar_*`, `io_*`, `medlbl_*`, `dev_*`, `burn_*`, `fhr_*`) run through the existing raw→review→promote→ledger pipeline. The content-generation freeze in `DECISIONS.md` was gated on exactly this renderer surface completing, so that freeze's lift condition is now satisfied — read that thread, and check `PROJECT-HISTORY.md` / `npm run coverage-report` for current per-kind counts before generating, since several kinds shipped with little or no content and are the highest-leverage lanes to open first.
 
-Before specifying a new kind:
+If a new kind is ever proposed (the renderer surface is complete, so this is now the exception, not the workflow) — or when opening a content lane:
 
-- Read the current `shrimp-visual-sweep-spec-v3.md` and the "add a kind" checklist in `NCLEX-Question-Schema.md`.
+- Consult the "add a kind" checklist in `NCLEX-Question-Schema.md` and the per-kind visual specs in `Archive/` (`U*-*-SPEC.md`).
 - Honor the five-stage visual promotion gate in `AGENTS.md` and the non-negotiables: deterministic, locally rendered, inspectable from structured data, and **educationally necessary** — a visual whose removal leaves the answer unchanged is decorative and therefore invalid — and never an AI-generated medical image.
 - Every kind ships with `selfCheck` assertions and passes registry conformance + determinism + parity tests (`npm run test-visuals`).

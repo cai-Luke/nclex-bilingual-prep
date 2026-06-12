@@ -146,6 +146,65 @@ Only top-level `banks/*.json` files are bundled by the app. `banks/Pending cases
 - Final review: all 5 schema-valid; bilingual parity intact; answer keys clinically verified (MSCC dexamethasone as first pharmacologic priority, enoxaparin hold pre-spinal surgery; CRS grading, toci before dexa for ICANS; ICI myocarditis hold + permanent discontinue for grade 3-4; TPN cannot be stopped independently, PICC removal after alternative access secured; SE motor cessation ≠ EEG termination, aggressive hydration for rhabdomyolysis); zero positional language; no visuals (text exhibits — necessity gate N/A). No fixes required.
 - Merged 2026-06-11 → `banks/hard-cases-canonical.json` (46→51); shuffle applied via promote.ts; all audit tiers passed. Raw + intermediate files deleted.
 
+### 2026-06-12 — GPT CDI case study
+
+- Bank item: `gpt_case_opus5_cdi_immunocompromised_01` — 1 case_study, 6 embedded (2 MC, 1 SATA, 1 dropdown_cloze, 1 matrix, 1 ordered_response)
+- Topic: Clostridioides difficile colitis after broad-spectrum antibiotics | category: Safety and Infection Control | difficulty: hard | schema 1.2
+- Chain: GPT-4o generation; Claude final review
+- Final review: schema valid; bilingual parity intact; no positional language; no visuals (text exhibits). Clinical accuracy verified: antimotility contraindication in CDI, soap-and-water vs ABHR hand hygiene, oral vancomycin luminal mechanism, toxic megacolon monitoring, test-of-cure not recommended when symptoms resolve. No fixes required.
+- Promoted 2026-06-12 → `banks/gpt-case-opus5-cdi-2026-06-11.json`; all audit tiers passed.
+
+### 2026-06-12 — GPT warfarin/MVR case study
+
+- Bank item: `gpt_case_warfarin_mvr_2026_06_11_01` — 1 case_study, 6 embedded (3 MC, 1 SATA, 1 dropdown_cloze, 1 matrix)
+- Topic: Supratherapeutic warfarin after mechanical mitral valve replacement | category: Pharmacological and Parenteral Therapies | difficulty: hard | schema 1.2
+- Chain: GPT-4o generation; Claude final review
+- Final review: schema valid; bilingual parity intact; no positional language; no visuals. Clinical accuracy verified: hold-and-clarify for INR 5.2 with active bleeding, NSAID/warfarin interaction teaching (platelet inhibition + GI mucosal injury), oral vitamin K partial reversal strategy for stable mucocutaneous bleeding with competing valve thrombosis risk, IV vitamin K slow infusion + PCC for major hemorrhage, simultaneous rebleeding vs. thrombosis monitoring at handoff. No fixes required.
+- Promoted 2026-06-12 → `banks/gpt-case-warfarin-mvr-2026-06-11-patched.json`; all audit tiers passed.
+
+### 2026-06-12 — GPT Reduction of Risk / Basic Care gap fill (10 questions)
+
+- Bank items: 10 standalone (3 ordered_response, 3 fill_in_blank, 2 matrix, 2 dropdown_cloze)
+- Categories: Reduction of Risk Potential (5), Basic Care and Comfort (4), Management of Care (1)
+- Topics: blood transfusion reaction response, postoperative drain monitoring, pressure injury staging, VTE prophylaxis, post-thoracentesis assessment, enteral feeding tolerance, hospital-acquired constipation management, IV phlebitis response, postoperative urinary retention, near-miss medication error reporting
+- Chain: GPT-4o generation; Claude final review
+- Schema fix: `ordered_response` max options extended from 5 → 6 in `src/schema.ts` to accommodate the clinically correct 6-step transfusion reaction sequence (A–F). Real NCLEX allows this; `select_all` already used 6.
+- Final review: all 10 schema valid after schema fix; bilingual parity intact; no positional language; no visuals. Clinical content sound. No content fixes required.
+- Promoted 2026-06-12 → `banks/gpt-gap-jun12-rrp-bcc.json`; all audit tiers passed.
+
+### 2026-06-12 — GPT visual smoke test (10 visual questions)
+
+- Bank items: 10 standalone visual questions (4 fill_in_blank, 3 matrix, 3 multiple_choice) across burn_map (3), io_record (3), medication_label (2), device_screen (2)
+- Categories: Reduction of Risk Potential (3), Basic Care and Comfort (3), Pharmacological and Parenteral Therapies (1), Safety and Infection Control (2), Management of Care (1)
+- Chain: GPT-4o generation; Claude final review
+- Content fix: Q1 (Parkland burn rate) stem removed "1 hour after sustaining" timing detail — original wording created an ambiguity where the clinically correct answer (720 mL/hr for remaining 7 hours) differed from the textbook formula answer (630 mL/hr for 8 hours). Stem now reads "arrives immediately after" so 630 mL/hr is unambiguous.
+- Arithmetic verified: TBSA 13.5% (head_ant 4.5 + arm_l_ant 4.5 + arm_l_post 4.5 ✓); IO balance +640 mL ✓; IO output 795 mL ✓; heparin 25,000U/250mL=100U/mL → 10 mL/hr ✓; enteral 240÷60=4hr ✓; Parkland 4×70×36=10,080, 5,040÷8=630 mL/hr ✓. All visual data answer-determinative (visual necessity gate passed).
+- Promoted 2026-06-12 → `banks/gpt-visual-smoke-2026-06-12-a.json`; all audit tiers passed.
+
+### 2026-06-12 — Opus code status / advance directive case study
+
+- Bank item: `opus2_case_code_status_01` — 1 case_study, 5 embedded (4 MC, 1 SATA)
+- Topic: Advance directive clarification and code status escalation in metastatic lung cancer with acute respiratory decline | category: Management of Care | difficulty: medium → hard | schema 1.2
+- Chain: Opus 4.6 generation; Claude final review
+- Final review: schema valid; bilingual parity intact; no positional language; no visuals. Clinical/legal accuracy verified: nurses cannot unilaterally enter DNAR/DNI; documentation of capacity and verbatim statements is the immediate priority; proportional escalation based on stability; RRT handoff must proactively communicate active refusal; morphine indicated for dyspnea by principle of double effect; incident report for system-level provider delay is correct closure step. No fixes required.
+- Promoted 2026-06-12 → `banks/opus-code-status-escalation-opus2.json`; all audit tiers passed.
+
+### 2026-06-12 — Opus vancomycin case study
+
+- Bank item: `opus_vanco_case_01` — 1 case_study, 6 embedded (3 MC, 1 dropdown_cloze, 1 ordered_response, 1 matrix)
+- Topic: Vancomycin infusion reaction and nephrotoxicity | category: Pharmacological and Parenteral Therapies | difficulty: hard | schema 1.2
+- Chain: Opus 4.6 generation; Claude final review
+- Final review: schema valid; bilingual parity intact; no positional language; no visuals. Clinical accuracy verified: vancomycin flushing syndrome vs. anaphylaxis differential (regional upper-body vs. generalized, no airway involvement); document as infusion-related ADR not allergy; hold-then-clarify for supratherapeutic trough in CKD; individualized ototoxicity baseline (patient has pre-existing SNHL); trough within range ≠ safe when AKI + tinnitus present; ACE inhibitor hold-and-clarify with AKI + hyperkalemia. No fixes required.
+- Promoted 2026-06-12 → `banks/opus-vanco-case-2026-06-11.json`; all audit tiers passed.
+
+### 2026-06-12 — Opus THA discharge / limited English proficiency case study
+
+- Bank item: `opus1_case_tha_discharge_lep_01` — 1 case_study, 6 embedded (3 MC, 1 SATA, 1 ordered_response, 1 fill_in_blank)
+- Topic: Discharge coordination after right total hip arthroplasty in a Mandarin-speaking client | category: Management of Care | difficulty: hard | schema 1.2
+- Chain: Opus 4.6 generation; Claude final review
+- Final review: schema valid; bilingual parity intact; no positional language; no visuals (text exhibits). Clinical accuracy verified: immediate qualified interpreter activation (not family, not delay); teach-back failure as clinical barrier not documentation task; interdisciplinary SATA: notify charge nurse, social work referral, home health initiation, stair assessment, rivaroxaban/renal trending, language-appropriate materials; renal trend with renally-cleared anticoagulant requires provider notification; SBAR handoff to home health must include language needs and interpreter requirement; 7-day pill organizer labeled in Mandarin as discharge enabler. No fixes required.
+- Promoted 2026-06-12 → `banks/opus1-tha-discharge-case-study-patched.json`; all audit tiers passed.
+
 ## Next Planned Review
 
 - Next GPT/Gemini batch: prioritize Physiological Adaptation singleton topics (ADHF, AKI, acute pancreatitis, Reduction of Risk Potential) using case_study format to close the 93-item case_study gap (71 vs 164 target).

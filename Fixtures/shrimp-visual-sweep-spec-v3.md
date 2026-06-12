@@ -1,8 +1,9 @@
 # Project Shrimp — Visual Conversion & Human Review Sweep Spec v3
 
 **For:** Gemini large-context / Gemini CLI
-**Pass type:** Read-only audit and triage
-**No rewriting. No generation. No canonical edits.**
+**Pass type:** Read-only content-mining and triage
+**Task Ownership:** This is suitable as a Gemini/CLI read-only sweep. Gemini may identify and rank candidates, but must not edit canonical bank files, generate final replacement items, or make final clinical-review decisions. Codex is not needed unless a tooling gap is discovered. Claude/GPT/human review should handle final acceptance, clinical judgment, and promotion decisions.
+**No rewriting. No generation. No canonical edits. Do not propose new renderer kinds. Do not request schema changes. Do not promote content.**
 
 ## 0. Purpose
 
@@ -79,21 +80,21 @@ Do not let later batches change earlier batch decisions unless you are doing a s
 
 ## 4. Renderer enum
 
-Use only this renderer enum:
+The visual renderer roadmap is complete. Use only the currently supported visual kinds:
 
 ```json
 [
-  "ecg_rhythm_strip",
-  "fetal_monitor_tracing",
-  "chest_tube_drainage",
-  "burn_body_map",
-  "wound_stage_diagram",
-  "lab_panel",
+  "rhythm_strip",
+  "capnography",
   "vitals_trend",
-  "intake_output_chart",
+  "lab_trend",
   "mar",
-  "device_settings_screen",
-  null
+  "io_record",
+  "medication_label",
+  "device_screen",
+  "fetal_monitoring",
+  "burn_map",
+  "null"
 ]
 ```
 
@@ -104,14 +105,28 @@ Do not assign a renderer unless a specific present datum could be displayed by t
 Bad:
 
 ```json
-"renderer_justification": "Wound characteristics mentioned"
+"visual_necessity_claim": "Wound characteristics mentioned"
 ```
 
 Good:
 
 ```json
-"renderer_justification": "The row text says \"yellow slough covering the wound bed,\" which a wound-stage diagram could replace with visual wound-bed findings."
+"visual_necessity_claim": "The row text says \"yellow slough covering the wound bed,\" which a wound-stage diagram could replace with visual wound-bed findings."
 ```
+
+## 4b. Visual Necessity & Current Lane Rules
+
+For each reviewed question, determine whether a visual would be educationally necessary, not merely decorative.
+
+A visual is **necessary** only if removing it would make the item unanswerable or materially change the clinical reasoning. If the stem already contains all information needed to answer, mark the visual kind as `null` unless the item could support a genuinely new parallel visual-dependent question.
+
+### Current Lane Rules
+
+* Adult `burn_map` content is open.
+* Pediatric `burn_map` content is blocked unless an explicit later spec says otherwise.
+* `fetal_monitoring` content is open only under strict NICHD/AWHONN/ACOG wording constraints.
+* Do not recommend routine oxygen administration as a default correct action for normoxic fetal-monitoring patients.
+* Medication label, device screen, MAR, I/O, and dosage/infusion items are high-risk and require human review after triage.
 
 ## 5. Output philosophy
 
@@ -135,62 +150,37 @@ Each emitted JSONL row must be one JSON object with this exact shape:
 
 ```json
 {
-  "qid": "string",
-  "source_file_or_bank": "string",
-  "item_type": "multiple_choice | select_all | ordered_response | fill_in_blank | matrix | dropdown_cloze | case_study | case_study_part",
-  "parent_qid": "string or null",
+  "question_id": "string",
+  "current_item_type": "multiple_choice | select_all | ordered_response | fill_in_blank | matrix | dropdown_cloze | case_study | case_study_part",
+  "current_topic": "string",
 
-  "category": "string",
-  "topic": "string",
-  "difficulty": "easy | medium | hard | null",
+  "candidate_visual_kind": "rhythm_strip | capnography | vitals_trend | lab_trend | mar | io_record | medication_label | device_screen | fetal_monitoring | burn_map | null",
+  "recommendation": "convert_existing_item | create_parallel_visual_item | reject_visual_decorative | reject_visual_out_of_scope | needs_human_review",
 
-  "flag_type": "visual_replace_candidate | visual_parallel_candidate | human_review | redundancy_candidate",
-  "priority": "high | medium | low",
-
-  "target_renderer": "ecg_rhythm_strip | fetal_monitor_tracing | chest_tube_drainage | burn_body_map | wound_stage_diagram | lab_panel | vitals_trend | intake_output_chart | mar | device_settings_screen | null",
-  "visual_value": "essential | helpful | none",
-
-  "quoted_evidence": [
-    {
-      "location": "stem | option | row | column | dropdown | blank | exhibit | rationale.correct | rationale.byChoice",
-      "quote": "exact verbatim text"
-    }
-  ],
-
-  "the_tell": "exact quoted descriptor(s), or null",
-  "renderer_justification": "specific present datum the renderer would display, or why renderer is null",
-
-  "answer_key_trust": "high | medium | low | not_assessed",
-  "trust_evidence": "specific note referencing the key and rationale; must not be generic",
-
-  "ambiguity_risk": "low | medium | high",
-  "ambiguity_evidence": "specific reason; must not be generic",
-
-  "recommended_action": "replace_text_item_with_visual | add_parallel_visual_item | human_review_before_action | possible_duplicate_review | leave_after_review",
-  "action_rationale": "one specific sentence grounded in quoted evidence",
-
-  "possible_duplicate_qids": ["qid"],
-  "duplicate_claim": "string or null",
-
-  "needs_human_review": true
+  "visual_necessity_claim": "one sentence explaining why the visual would be load-bearing",
+  "quoted_evidence": "exact quoted text from the stem/options/rationale supporting the recommendation",
+  
+  "risk_tier": "low | medium | high",
+  "content_lane_status": "open | blocked | unknown",
+  "reasoning_notes": "concise explanation, no rewriting",
+  "do_not_generate": true
 }
 ```
 
 Every emitted row must have:
 
-* `needs_human_review: true`
-* at least one `quoted_evidence` entry
-* a non-generic `action_rationale`
-* a correct `item_type` copied from the actual item shape
-* `parent_qid` for case-study embedded parts
+* `do_not_generate: true`
+* at least one exact quote in `quoted_evidence`
+* a non-generic `visual_necessity_claim` or `reasoning_notes`
+* a correct `current_item_type` copied from the actual item shape
 
 If any of these are missing, the run is invalid.
 
-## 7. Visual value rules
+## 7. Recommendation rules
 
-### `essential`
+### `convert_existing_item`
 
-Use `essential` only when:
+Use only when:
 
 * the item contains a textual descriptor that gives away a clinical interpretation, and
 * the core task is identifying that finding, and
@@ -201,11 +191,10 @@ Example logic:
 * Text says “irregularly irregular rhythm” and asks what rhythm or complication is present.
 * Text says “peaked T waves” and asks what electrolyte problem is likely.
 * Text says “variable decelerations” and asks what fetal-monitoring pattern is present.
-* Text says “yellow slough” or “nonblanchable erythema” and asks for wound/pressure-injury staging.
 
-### `helpful`
+### `create_parallel_visual_item`
 
-Use `helpful` when:
+Use when:
 
 * a visual would add realism or NGN-style interpretation, but
 * the existing text item still independently tests useful reasoning.
@@ -216,15 +205,13 @@ Example logic:
 * Text tests whether an IV pump setting is safe; device screen could make the item more realistic.
 * Text tests I&O interpretation; chart could make the item more authentic but not necessary.
 
-### `none`
+### `reject_visual_decorative` & `reject_visual_out_of_scope`
 
-Use `none` only for an emitted row when the reason for emitting is human review or redundancy rather than visual conversion.
-
-Do not emit ordinary `none_leave` rows.
+Use only for an emitted row when the reason for emitting is human review rather than visual conversion, but you still need to log the rejection of the visual idea.
 
 ## 8. Human-review triggers
 
-Emit `human_review` rows when a question looks suspicious even if it is not a visual candidate.
+Emit rows with `recommendation: needs_human_review` when a question looks suspicious even if it is not a visual candidate.
 
 Use this for:
 
@@ -242,35 +229,7 @@ Every human-review row must quote the exact text that caused concern.
 
 ## 9. Redundancy rules
 
-Only emit `redundancy_candidate` when two or more specific question IDs have:
-
-* same clinical concept, and
-* same answer logic, and
-* substantially overlapping correct-answer reasoning.
-
-Sharing a renderer is not redundancy.
-
-Sharing a category is not redundancy.
-
-Sharing a disease topic is not redundancy.
-
-Text similarity alone is not redundancy.
-
-A cluster is invalid if it groups unrelated case studies or only says “near-duplicate stem logic based on text similarity.”
-
-For each redundancy candidate, write a concrete duplicate claim:
-
-Good:
-
-```text
-Both items ask the nurse to recognize a transfusion reaction and stop the transfusion first before notifying the provider.
-```
-
-Bad:
-
-```text
-Near-duplicate stem logic based on text similarity.
-```
+*(If tracking redundancy, add specific reasoning_notes detailing the redundancy. Sharing a concept is not redundancy unless answer logic overlaps heavily.)*
 
 ## 10. Per-batch summary schema
 
@@ -281,33 +240,30 @@ Each batch must output:
   "batch_id": "string",
   "items_read": 0,
   "rows_emitted": 0,
-  "counts_by_flag_type": {
-    "visual_replace_candidate": 0,
-    "visual_parallel_candidate": 0,
-    "human_review": 0,
-    "redundancy_candidate": 0
+  "counts_by_recommendation": {
+    "convert_existing_item": 0,
+    "create_parallel_visual_item": 0,
+    "reject_visual_decorative": 0,
+    "reject_visual_out_of_scope": 0,
+    "needs_human_review": 0
   },
   "counts_by_renderer": {
-    "ecg_rhythm_strip": 0,
-    "fetal_monitor_tracing": 0,
-    "chest_tube_drainage": 0,
-    "burn_body_map": 0,
-    "wound_stage_diagram": 0,
-    "lab_panel": 0,
+    "rhythm_strip": 0,
+    "capnography": 0,
     "vitals_trend": 0,
-    "intake_output_chart": 0,
+    "lab_trend": 0,
     "mar": 0,
-    "device_settings_screen": 0,
+    "io_record": 0,
+    "medication_label": 0,
+    "device_screen": 0,
+    "fetal_monitoring": 0,
+    "burn_map": 0,
     "null": 0
   },
   "gate_results": {
     "all_rows_have_quotes": true,
-    "all_rows_need_human_review_true": true,
-    "item_type_not_constant": true,
-    "ambiguity_risk_not_constant_unless_explained": true,
-    "no_generic_renderer_justifications": true,
-    "no_random_review_flags": true,
-    "no_text_similarity_only_clusters": true
+    "all_rows_do_not_generate_true": true,
+    "no_generic_justifications": true
   },
   "gate_notes": [
     "string"
@@ -324,35 +280,36 @@ After all batches:
   "status": "usable | rejected",
   "items_read": 0,
   "rows_emitted": 0,
-  "counts_by_flag_type": {
-    "visual_replace_candidate": 0,
-    "visual_parallel_candidate": 0,
-    "human_review": 0,
-    "redundancy_candidate": 0
+  "counts_by_recommendation": {
+    "convert_existing_item": 0,
+    "create_parallel_visual_item": 0,
+    "reject_visual_decorative": 0,
+    "reject_visual_out_of_scope": 0,
+    "needs_human_review": 0
   },
-  "counts_by_priority": {
+  "counts_by_risk_tier": {
     "high": 0,
     "medium": 0,
     "low": 0
   },
   "counts_by_renderer": {
-    "ecg_rhythm_strip": 0,
-    "fetal_monitor_tracing": 0,
-    "chest_tube_drainage": 0,
-    "burn_body_map": 0,
-    "wound_stage_diagram": 0,
-    "lab_panel": 0,
+    "rhythm_strip": 0,
+    "capnography": 0,
     "vitals_trend": 0,
-    "intake_output_chart": 0,
+    "lab_trend": 0,
     "mar": 0,
-    "device_settings_screen": 0,
+    "io_record": 0,
+    "medication_label": 0,
+    "device_screen": 0,
+    "fetal_monitoring": 0,
+    "burn_map": 0,
     "null": 0
   },
   "top_review_queue": [
     {
-      "qid": "string",
-      "flag_type": "string",
-      "priority": "high | medium | low",
+      "question_id": "string",
+      "recommendation": "string",
+      "risk_tier": "high | medium | low",
       "why": "specific quoted reason, not random sample"
     }
   ],
@@ -360,13 +317,6 @@ After all batches:
     "jsonl_valid": true,
     "all_required_fields_present": true,
     "all_rows_have_quotes": true,
-    "no_missing_needs_human_review": true,
-    "item_type_not_constant": true,
-    "ambiguity_risk_not_constant_unless_explained": true,
-    "no_generic_trust_notes": true,
-    "no_generic_renderer_justifications": true,
-    "no_random_review_flags": true,
-    "no_text_similarity_only_clusters": true,
     "counts_reconcile": true
   },
   "rejection_reasons": []
@@ -403,15 +353,11 @@ You may express those ideas only if you attach specific quoted evidence.
 Before emitting final files, verify:
 
 * JSONL parses.
-* Every row has `needs_human_review: true`.
+* Every row has `do_not_generate: true`.
 * Every row has at least one exact quote.
-* `item_type` reflects the actual item.
-* Case-study parts include `parent_qid`.
-* No ordinary `none_leave` rows are emitted.
-* No random review flags exist.
+* `current_item_type` reflects the actual item.
 * No duplicate cluster is based only on text similarity.
-* Renderer justification names the exact displayed datum.
-* Trust evidence references the key/rationale specifically.
+* Visual necessity claim names the exact displayed datum.
 * The top review queue is evidence-based.
 * Counts reconcile.
 

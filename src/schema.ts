@@ -232,7 +232,7 @@ const validateOptionQuestion = (question: OptionQuestion, reasons: string[]) => 
     return;
   }
   const minOptions = question.itemType === "select_all" ? 5 : 3;
-  const maxOptions = question.itemType === "select_all" ? 6 : 5;
+  const maxOptions = question.itemType === "select_all" || question.itemType === "ordered_response" ? 6 : 5;
   if (question.options.length < minOptions || question.options.length > maxOptions) {
     reasons.push(`${question.itemType} requires ${minOptions}-${maxOptions} options`);
   }
