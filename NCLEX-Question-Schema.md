@@ -88,6 +88,7 @@ Committed visual lanes (append-only):
 | `io_record` | Intake and output flowsheet with derived totals and net balance |
 | `medication_label` | Synthetic medication product label with structured strength |
 | `device_screen` | PCA, infusion, or enteral pump settings display |
+| `fetal_monitoring` | Synchronized fetal heart rate and uterine activity tracing |
 | `burn_map` | Anterior/posterior whole-region burn diagram for Rule-of-Nines and Parkland arithmetic |
 
 ### Visual contract metadata
@@ -153,7 +154,7 @@ Placement is per-kind; the set above is the global default.
 Every visual `kind` is a self-contained module under `src/visuals/kinds/<kind>.ts` registered in a shared registry. The kind-agnostic files — `src/App.tsx` (renders through one `VisualStimulus` dispatcher), `src/schema.ts` (validates through the registry), `scripts/validate-bank.ts`, and `scripts/coverage-report.ts` — iterate the registry and never special-case a kind. A kind module exposes a contract:
 
 - `validate(spec) → VisualError[]` — structural + range validation of the spec **alone**; this is what the per-kind "Validation rules" below enumerate.
-- `selfCheck?(spec, question) → VisualError[]` — optional cross-consistency check of render-vs-answer (arithmetic gates: I&O totals, label dose, Parkland volume). Waveforms generally have none; `rhythm_strip` has none.
+- `selfCheck?(spec, question) → VisualError[]` — optional cross-consistency check of render-vs-answer. This includes arithmetic gates (I&O totals, label dose, Parkland volume) and waveform phase gates (`fetal_monitoring`); `rhythm_strip` has none.
 - `renderSvg(spec) → string` — pure, deterministic, XML-escaped SVG. No `Math.random` (seed the shared PRNG from `spec.seed ?? 0`), no `Date`/`performance`, no DOM, no network, no module-level mutable state. Route all coordinate numbers through the shared fixed-decimal formatter so float formatting can't drift; XML-escape any free text (only `caption` today).
 - `requiredSchemaVersion?` / `allowedItemTypes?` — default to `"1.2"` and the global placement set above; a kind overrides only if it differs.
 - `fixtures` — colocated valid + invalid examples the generic conformance harness runs automatically.
@@ -554,6 +555,69 @@ Validation and arithmetic rules:
 - `meta.round` may be `0`, `1`, or `2` and defaults to `0`. `selfCheck` recomputes each declared value, applies the shared deterministic rounding helper, and requires exact equality.
 - **Caption/title rule:** captions, titles, and settings must not state a verdict or display a computed answer.
 - **STRICTEST tier.** Human review must source-check device and drug settings, confirm the keyed cue is not restated in the stem, and verify that nothing other than the intended keyed element is accidentally unsafe.
+
+### Kind: `fetal_monitoring`
+
+Renders a synchronized cardiotocograph with fetal heart rate (FHR) above uterine activity (UA) on one time axis. The visual is load-bearing only when the learner must infer variability, acceleration presence, or deceleration type from the tracing. The stem must not name the keyed pattern.
+
+```json
+{
+  "visual": {
+    "kind": "fetal_monitoring",
+    "durationSec": 300,
+    "baselineFhr": 135,
+    "variability": "minimal",
+    "seed": 17,
+    "contractions": [
+      { "peakSec": 90, "amplitudeMmHg": 50, "durationSec": 60 },
+      { "peakSec": 210, "amplitudeMmHg": 50, "durationSec": 60 }
+    ],
+    "decelerations": [
+      {
+        "type": "late",
+        "nadirSec": 110,
+        "depthBpm": 30,
+        "durationSec": 70,
+        "contractionIndex": 0
+      }
+    ],
+    "caption": { "en": "Fetal monitoring tracing", "zh": "胎儿监护图" }
+  },
+  "meta": {
+    "visual_justification": "The learner must infer the deceleration phase and variability from the synchronized tracing.",
+    "tier": "strictest",
+    "source": "NICHD 2008 workshop definitions; AWHONN FHM Principles and Practices, 6th ed.",
+    "skill_signature": "fhr:late-deceleration/minimal-variability",
+    "stem_disambiguators": ["fetal heart rate", "contractions"],
+    "expected_pattern": {
+      "decelerations": ["late"],
+      "variability": "minimal",
+      "accelerations_present": false
+    }
+  }
+}
+```
+
+Controlled vocabularies:
+- `variability`: `absent`, `minimal`, `moderate`, `marked`
+- `decelerations[].type`: `early`, `late`, `variable`, `prolonged`
+
+Validation and phase rules:
+- `baselineFhr` is required and must be finite from 50 through 220 bpm.
+- `durationSec` defaults to 600 and must be 120–1200. `seed` defaults to 0 and must be a non-negative integer.
+- Contraction `peakSec` must lie on the strip. Optional amplitude is 5–100 mmHg and duration is 20–180 seconds.
+- Acceleration `peakSec` must lie on the strip; structural bounds are rise 1–60 bpm and duration 5–120 seconds. The v1 `selfCheck` gate models the ≥32-week definition: rise ≥15 bpm, duration ≥15 seconds, and abrupt onset-to-peak under 30 seconds. Pre-32-week 10-by-10 and prolonged accelerations are out of v1 scope because gestational age and asymmetric onset are not modeled.
+- Deceleration `nadirSec` must lie on the strip; structural bounds are depth 1–120 bpm and duration 5–600 seconds.
+- `early` and `late` require a valid `contractionIndex`. `variable` omits it because variable decelerations have no fixed contraction-phase relationship; this does not mean they cannot occur near contractions.
+- Gradual onset means onset-to-nadir ≥30 seconds. Early nadir is approximately simultaneous with the contraction peak; late nadir occurs after the contraction peak. The renderer uses a 5-second early tolerance and a 10–90-second late offset to keep synthetic fixtures visually unambiguous; those offsets are renderer guardrails, not NICHD clinical thresholds.
+- Variable decelerations require abrupt onset-to-nadir under 30 seconds, depth ≥15 bpm, total duration ≥15 seconds and <2 minutes.
+- Prolonged decelerations require depth ≥15 bpm and duration ≥2 minutes and <10 minutes; ≥10 minutes is a baseline change.
+- Variability peak-to-trough bands are: absent = undetectable, minimal = detectable through 5 bpm, moderate = 6–25 bpm, marked = >25 bpm. The renderer uses deterministic representative amplitudes of 0, 4, 14, and 32 bpm.
+- `selfCheck` requires non-empty `visual_justification` and at least one supported cue in `meta.expected_pattern`.
+- Declared deceleration types, variability, and acceleration presence must match the visual spec. Every deceleration must pass its morphology/phase rule; every acceleration must pass the v1 term morphology rule.
+- **Caption rule:** captions and visible SVG text must remain neutral. Never print a variability category, deceleration type, phase arrow, or clinical verdict.
+- **STRICTEST tier.** Definitions were checked against the 2008 NICHD workshop report and AWHONN's current statement that its sixth-edition FHM text continues to use those definitions. See `audit/u7-fetal-monitoring-source-verification-2026-06-12.md`. Clinical management and item-level realism still require source review and human content review.
+- Future content uses globally unique `fhr_*` IDs and remains subject to raw → cross-model review → visual audit → promote → ledger.
 
 ### Kind: `burn_map`
 
