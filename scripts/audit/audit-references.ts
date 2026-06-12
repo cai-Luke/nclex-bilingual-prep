@@ -55,6 +55,8 @@ const EN_HAZARD_PATTERNS = [
   /\b(?:the\s+)?(?:above|below)\s+(?:option|answer|choice)\b/gi,
   /\boption(?:s)?\s+(?:listed\s+)?(?:above|below)\b/gi,
   /\blisted\s+(?:above|below)\b/gi,
+  /\b(?:top|bottom)\s+(?:option|answer|choice)\b/gi,
+  /\b(?:option|answer|choice)\s+(?:at|on)\s+the\s+(?:top|bottom)\b/gi,
 ];
 
 // Chinese: explicit correctness assertions
@@ -158,13 +160,13 @@ function correctSet(q: Question): Set<string> {
 // Core check
 // ---------------------------------------------------------------------------
 
-type ItemFailure = {
+export type ItemFailure = {
   id: string;
   staleKeys: string[];   // "field: asserted=X live=Y"
   hazards: string[];     // "field (en|zh)"
 };
 
-function checkQuestion(q: Question): ItemFailure | null {
+export function checkQuestionReferences(q: Question): ItemFailure | null {
   const live = correctSet(q);
   const staleKeys: string[] = [];
   const hazards: string[] = [];
@@ -172,7 +174,7 @@ function checkQuestion(q: Question): ItemFailure | null {
   // For case_study, recurse and collect from nested questions
   if (q.itemType === "case_study") {
     const nested = q.caseStudy.questions.flatMap((nq) => {
-      const r = checkQuestion(nq);
+      const r = checkQuestionReferences(nq);
       return r ? [r] : [];
     });
     if (nested.length === 0) return null;
@@ -221,7 +223,7 @@ export async function runAuditReferences(): Promise<AuditResult> {
       if (!result.ok) continue; // structural failures handled by Tier 0
 
       for (const q of result.value.questions) {
-        const f = checkQuestion(q);
+        const f = checkQuestionReferences(q);
         if (f) itemFailures.push(f);
       }
     } catch {

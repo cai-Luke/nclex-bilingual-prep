@@ -55,6 +55,20 @@ Out of scope until a future schema bump:
 
 ## Milestones
 
+### Non-MCQ Structural Bias Audit — Layer A + Offline Layer B Handoff (Jun 12)
+
+Completed:
+- Added `npm run audit:non-mcq-bias` with deterministic per-bank and global analysis for SATA count/position bias, ordered-response scramble depth/template repetition, dropdown correct-index distribution, matrix row/column/repeated-column structure, and bilingual rationale shuffle hazards.
+- Pinned the v2 thresholds in one hashed config, added chi-square p-values plus the 8pp effect-size floor, emitted explicit `INSUFFICIENT` records for underpowered or absent shapes, and propagated any per-bank failure into the matching global verdict.
+- Reused the standing rationale-reference detector and expanded it to cover top/bottom option language.
+- Added `npm run test:non-mcq-bias` regressions for biased, balanced, underpowered, absent-shape, rationale-hazard, per-bank/global, and byte-stability behavior.
+- Added deterministic Layer B queue/prompt artifacts for all case-study inferability variants plus Layer-A-flagged semantic review targets. No Gemini/API client or network dependency was added.
+- Added `npm run audit:non-mcq-bias:merge` with strict JSONL schema, queue membership, completeness, duplicate, evidence-grounding, and fix-class validation. Final JSON/Markdown reports keep deterministic Layer A findings separate and authoritative.
+- Added Layer B regressions for deterministic queue generation, redaction, malformed/unknown/missing/ungrounded results, partial imports, low-confidence downgrade, and successful complete merge; wired the fixture suite into CI.
+- Kept the statistical audit standalone; it is not wired into `npm run audit` pending baseline acceptance. The current bank baseline produces actionable failures, as expected for a new non-gating audit, and generates 823 Layer B queue rows.
+- Completed the external Gemini Flash review through the CLI harness: all 823 queued rows returned and passed strict import validation (572 PASS, 251 FAIL; 815 high-confidence, 8 medium-confidence). The merged final JSON/Markdown reports are committed audit artifacts for follow-up review.
+- Verified the focused suite, Node TypeScript check, existing rationale audit, sweep-validator suite, deterministic full-bank artifacts, complete 823-row Layer B merge, and production build.
+
 ### Developer Question Review Console (Jun 12)
 
 Completed:
@@ -63,6 +77,15 @@ Completed:
 - Added v3 sweep-manifest JSONL parsing with malformed/invalid-row reporting, all eight reconciled filters, harm-first and visual-work sorting, prominent quoted evidence, audit rationale fields, and duplicate navigation.
 - Added local-only review statuses/notes under `shrimpDevReviewNotesByQuestionId` plus JSON export; the console never calls answer-submission, progress, flag, or active-session persistence paths.
 - Verified the three spec example IDs, an embedded case-study part, a v3 manifest row, and a production rhythm-strip preview in the browser. Bank validation, coverage reporting, and production build pass.
+
+### Sweep Manifest Validator (Jun 12)
+
+Completed:
+- Added `npm run validate-sweep -- <manifest.jsonl> <summary.json> [--bank banks/*.json] [--strict]`, a zero-runtime-dependency TypeScript gate that independently validates untrusted sweep output and writes `validator_report.json`.
+- Enforced JSONL parsing, required fields, enums, mandatory human review, quoted evidence, banned prose, cross-field rules, count reconciliation, visual-necessity claims, blocked-lane replacement rejection, and pediatric burn-map handling when source banks are supplied.
+- Added warning heuristics for templating concentration, `not_assessed` overuse, thin quotes, boilerplate duplicate claims, dangling bank IDs, summary self-report divergence, decorative language, suspicious risk tiers, blocked-lane actions, and possible pediatric burn-map candidates.
+- Added a clean canonical fixture, isolated F1-F9 regressions, stale-dialect and stale-renderer checks, historical v1/v2 assertions, strict-mode coverage, bank lookup coverage, and pediatric burn-map coverage under `npm run test:validate-sweep`.
+- Wired the sweep-validator regression suite into `.github/workflows/promotion-gate.yml`. CI tests fixtures only; it does not require a live sweep manifest.
 
 ### Visual Stimulus Pipeline Completion and Source Verification (Jun 12)
 

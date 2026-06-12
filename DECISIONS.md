@@ -13,6 +13,8 @@ The program that generates or shuffles content cannot be the program that verifi
 **3. Deterministic core; LLM only for the irreducible semantic residual, capped.**
 Counting, distributions, permutation integrity, template repetition — all have known nulls and belong in scripts that return identical verdicts every run. Reserve model judgment for what genuinely needs semantics (clinical inferability, distractor plausibility), run it only on items the deterministic layer flags, and cap the batch. Keeps verdicts reproducible and token spend bounded.
 
+For the non-MCQ bias audit, this means an offline handoff rather than an integration: the repo emits a deterministic Gemini queue and prompt, validates returned JSONL, and merges semantic findings without allowing them to modify Layer A. No API key, live model call, or network dependency belongs in the repository.
+
 **4. Rationales are position-agnostic — bilingual.**
 A rationale references option *content* ("furosemide is contraindicated because…"), never a letter or ordinal/spatial position ("Option D", "the first choice"). A rationale that never names a position cannot carry a stale answer-key reference after a shuffle — so this invariant makes a whole bug class structurally impossible rather than something to catch each run. Enforced across English and Simplified Chinese (选项A, 第一个, 以上 …).
 
@@ -73,7 +75,7 @@ The D-correct-at-3% MCQ finding is the canonical example of why this apparatus e
 
 **Current shuffle batch** — completed. The initial Gemini MCQ shuffle and rationale repair was verified by Claude Code (Sonnet) against the pre-shuffle git state and merged to main (PR #1).
 
-**SATA count null — open.** The non-MCQ bias audit has no natural null for "number correct." Decide between supplying a reference NGN count distribution (cleaner test) or falling back to degeneracy detection. Spec: `non-mcq-bias-audit-spec.md`.
+**SATA count null — resolved for Layer A.** The non-MCQ bias audit does not pretend the number-correct distribution is uniform. It uses the v2 spec's deterministic degeneracy rule instead: fail when one count covers more than 70% of SATA items or when a plausible count is absent. A future sourced NGN reference distribution may replace this fallback, but the current audit makes no unsupported statistical claim.
 
 **`max_cell_deviation_pp = 8` — placeholder.** The effect-size floor on positional uniformity checks is a guess; calibrate against the real bank once the audit runs.
 

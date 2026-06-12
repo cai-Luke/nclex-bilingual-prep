@@ -1,6 +1,6 @@
 # Non-MCQ Structural Bias Audit — Specification v2
 
-**Status:** Medium-priority quality audit. Implement Layer A first. Layer B is deferred unless Layer A produces actionable flags that need semantic review.
+**Status:** Layer A and the offline Layer B handoff were implemented 2026-06-12. Layer B remains a manual external-model step; no live Gemini/API integration exists. The statistical audit is not yet integrated into the promotion gate, but its fixture suite runs in CI.
 
 ## Current repo assumptions
 * Project Shrimp is now schemaVersion `1.2`.
@@ -33,8 +33,8 @@ The audit is split into two layers. Do not merge them.
 **Layer A — Deterministic statistical core (NO LLM).**
 A script. Handles every check whose null distribution is known: positional/index distributions, count distributions, permutation depth, template repetition, spatial distribution. Same input → byte-identical output. This is checks 1–5, 7, 8-structural, plus the cross-cutting rationale scan.
 
-**Layer B — LLM judgment layer (Gemini), narrow.**
-Runs **only on items Layer A flags** plus the inherently-semantic check (#6, case-study inferability) and distractor *plausibility*. Never asked to count, distribute, or detect repetition — those are Layer A's job. This keeps token spend bounded and keeps the statistical verdicts reproducible.
+**Layer B — external LLM judgment layer (Gemini), narrow.**
+Runs **only on items Layer A flags** plus the inherently-semantic check (#6, case-study inferability) and distractor *plausibility*. Never asked to count, distribute, or detect repetition — those are Layer A's job. The repository generates a deterministic JSONL queue and prompt, then validates manually returned JSONL. It contains no API client, key, or network dependency.
 
 **Determinism requirements (both layers):**
 - All thresholds live in a pinned `CONFIG` block (below). No magic numbers in code.
@@ -58,7 +58,7 @@ Runs **only on items Layer A flags** plus the inherently-semantic check (#6, cas
   - `dropdown_cloze`: per-dropdown correct-index distribution
   - `matrix`: correct-column distribution, repeated all-rows-same-column pattern
   - cross-cutting rationale shuffle hazard: may call or reuse the existing rationale-reference audit if already present
-- Defer: case-study inferability, distractor plausibility, visual-kind structural audit, Gemini Layer B.
+- Defer: visual-kind structural audit. Case-study inferability and distractor plausibility are queued for manual Layer B review; the repo does not execute the model.
 
 ---
 
@@ -181,9 +181,22 @@ Prefer a TypeScript/Node implementation integrated with package scripts:
 ```sh
 npm run audit:non-mcq-bias
 npm run audit:non-mcq-bias -- --json
+npm run audit:non-mcq-bias:merge -- --layer-a audit/non-mcq-bias-report.json --layer-b audit/non-mcq-bias-layer-b-results.jsonl
 ```
 
-Do not require Gemini for the first implementation. Output deterministic JSON plus a human-readable rollup.
+The audit writes:
+
+- `audit/non-mcq-bias-report.json`
+- `audit/non-mcq-bias-report.md`
+- `audit/non-mcq-bias-layer-b-queue.jsonl`
+- `audit/non-mcq-bias-layer-b-prompt.md`
+
+The merge validates every result against the queue embedded in the Layer A report, rejects malformed/duplicate/extra/ungrounded rows, rejects missing rows unless `--allow-partial` is supplied, and writes:
+
+- `audit/non-mcq-bias-final-report.json`
+- `audit/non-mcq-bias-final-report.md`
+
+Do not require Gemini in CI. CI runs `npm run test:non-mcq-bias`.
 
 ---
 
@@ -198,3 +211,7 @@ First implementation passes if:
 * It integrates into `npm run audit` only after the team accepts the baseline output.
 * Layer A is a standalone deterministic script; same bank → identical JSON.
 * Every record carries a `fix_class`; no finding is left unclassified.
+* Layer B queue and prompt generation are deterministic.
+* Layer B cannot alter Layer A statistical verdicts.
+* Low-confidence Layer B failures are downgraded to `REVIEW`.
+* No API keys, live model calls, or network dependencies are added.

@@ -22,5 +22,11 @@ jobs:
       - name: Run promotion gate
         run: npm run audit
 
+      - name: Test sweep validator
+        run: npm run test:validate-sweep
+
+      - name: Test non-MCQ bias audit and Layer B handoff
+        run: npm run test:non-mcq-bias
+
       - name: Check census drift
         run: npm run census:check
