@@ -1,0 +1,1297 @@
+{
+  "meta": {
+    "schemaVersion": "1.2",
+    "exam": "NCLEX-RN",
+    "topic": "visual smoke content",
+    "category": "mixed",
+    "difficulty": "mixed",
+    "count": 10
+  },
+  "questions": [
+    {
+      "id": "gpt_visual_smoke_2026_06_12_fib_burn_parkland_rate_01",
+      "itemType": "fill_in_blank",
+      "category": "Reduction of Risk Potential",
+      "topic": "adult burn resuscitation Parkland calculation",
+      "difficulty": "medium",
+      "ngnSkill": "analyze_cues",
+      "stem": {
+        "en": "An adult client weighing 70 kg arrives immediately after sustaining partial-thickness burns shown on the diagram. Using the traditional Parkland formula (4 mL lactated Ringer's × kg × %TBSA), how many mL/hr should the nurse set for the first 8 hours after the burn injury? Round to the nearest whole number.",
+        "zh": "一名体重 70 kg 的成年患者在发生图中所示的二度烧伤后立即到达。使用传统 Parkland 公式（乳酸林格液 4 mL × kg × %TBSA），护士应将烧伤后前 8 小时的输液速度设置为多少 mL/hr？四舍五入到整数。"
+      },
+      "visual": {
+        "kind": "burn_map",
+        "population": "adult",
+        "burns": [
+          "trunk_anterior",
+          "leg_l_anterior",
+          "leg_r_anterior"
+        ],
+        "caption": {
+          "en": "Burn diagram",
+          "zh": "烧伤示意图"
+        }
+      },
+      "meta": {
+        "visual_justification": "The learner must identify and sum the shaded adult Rule-of-Nines regions before calculating the traditional Parkland first-8-hour rate.",
+        "tier": "strictest",
+        "source": "Adult Rule of Nines; traditional Parkland formula 4 mL/kg/%TBSA with half in first 8 hours from time of burn.",
+        "skill_signature": "burn:rule-of-nines-parkland/adult-first8h-rate",
+        "stem_disambiguators": [
+          "traditional Parkland formula",
+          "first 8 hours",
+          "Rule of Nines"
+        ],
+        "weight_kg": 70,
+        "round": 0,
+        "derived_values_keyed": {
+          "tbsa_pct": 36,
+          "parkland_total_ml": 10080,
+          "parkland_first8h_ml": 5040,
+          "parkland_rate_first8h_ml_hr": 630
+        }
+      },
+      "blanks": [
+        {
+          "id": "b1",
+          "prompt": {
+            "en": "mL/hr",
+            "zh": "mL/hr"
+          },
+          "acceptable": [
+            "630",
+            "630 mL/hr"
+          ],
+          "numeric": {
+            "value": 630,
+            "tolerance": 0,
+            "unit": "mL/hr"
+          }
+        }
+      ],
+      "rationale": {
+        "correct": {
+          "en": "The shaded regions are the anterior trunk (18%) plus the anterior left leg (9%) plus the anterior right leg (9%), for 36% TBSA. Traditional Parkland volume is 4 × 70 × 36 = 10,080 mL in the first 24 hours; half is 5,040 mL in the first 8 hours from the time of burn. 5,040 ÷ 8 = 630 mL/hr.",
+          "zh": "阴影区域为前躯干 18% 加左腿前面 9% 加右腿前面 9%，共 36% TBSA。传统 Parkland 总量为 4 × 70 × 36 = 10,080 mL（前 24 小时）；其中一半 5,040 mL 应在烧伤后前 8 小时给入。5,040 ÷ 8 = 630 mL/hr。"
+        },
+        "byChoice": [
+          {
+            "refId": "b1",
+            "en": "The numeric blank is the first-8-hour rate, not the total 24-hour volume or the first-8-hour volume.",
+            "zh": "该数字空格要求填写前 8 小时的输液速度，而不是 24 小时总量或前 8 小时总液量。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "When a burn diagram is used, first convert only the shaded partial- or full-thickness areas into %TBSA, then apply the formula named in the stem.",
+        "zh": "遇到烧伤图时，先把图中阴影的二度或三度烧伤面积换算为 %TBSA，再使用题干指定的公式。"
+      },
+      "glossary": [
+        {
+          "termEn": "TBSA",
+          "termZh": "体表面积百分比",
+          "defZh": "用于估算烧伤面积占全身体表面积的百分比。"
+        },
+        {
+          "termEn": "Parkland formula",
+          "termZh": "Parkland 公式",
+          "defZh": "传统公式为 4 mL × 体重kg × %TBSA，用于估算烧伤后前 24 小时液体量。"
+        },
+        {
+          "termEn": "partial-thickness burn",
+          "termZh": "二度烧伤",
+          "defZh": "累及表皮和部分真皮的烧伤，应计入烧伤补液面积。"
+        }
+      ]
+    },
+    {
+      "id": "gpt_visual_smoke_2026_06_12_mc_burn_tbsa_02",
+      "itemType": "multiple_choice",
+      "category": "Basic Care and Comfort",
+      "topic": "adult Rule of Nines TBSA estimation",
+      "difficulty": "medium",
+      "ngnSkill": "analyze_cues",
+      "stem": {
+        "en": "An adult client has partial-thickness burns shaded on the diagram. Using the adult Rule of Nines, what is the estimated %TBSA burned?",
+        "zh": "一名成年患者有图中阴影所示的二度烧伤。使用成人九分法，估计烧伤面积为多少 %TBSA？"
+      },
+      "visual": {
+        "kind": "burn_map",
+        "population": "adult",
+        "burns": [
+          "head_anterior",
+          "arm_l_anterior",
+          "arm_l_posterior"
+        ],
+        "caption": {
+          "en": "Burn diagram",
+          "zh": "烧伤示意图"
+        }
+      },
+      "meta": {
+        "visual_justification": "The %TBSA is not stated; the learner must read the shaded head and arm regions and sum their Rule-of-Nines values.",
+        "tier": "strictest",
+        "source": "Adult Rule of Nines.",
+        "skill_signature": "burn:rule-of-nines/adult-tbsa",
+        "stem_disambiguators": [
+          "adult Rule of Nines",
+          "%TBSA"
+        ],
+        "round": 1,
+        "derived_values_keyed": {
+          "tbsa_pct": 13.5
+        }
+      },
+      "options": [
+        {
+          "id": "C",
+          "en": "18%",
+          "zh": "18%"
+        },
+        {
+          "id": "D",
+          "en": "22.5%",
+          "zh": "22.5%"
+        },
+        {
+          "id": "A",
+          "en": "9%",
+          "zh": "9%"
+        },
+        {
+          "id": "B",
+          "en": "13.5%",
+          "zh": "13.5%"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "rationale": {
+        "correct": {
+          "en": "The shaded regions are the anterior head (4.5%) and the entire left arm (4.5% anterior + 4.5% posterior = 9%). Total TBSA is 4.5% + 9% = 13.5%.",
+          "zh": "阴影区域为头部前面 4.5% 和整个左上肢（前面 4.5% + 后面 4.5% = 9%）。总面积为 4.5% + 9% = 13.5%。"
+        },
+        "byChoice": [
+          {
+            "refId": "C",
+            "en": "18% would overcount this pattern as if an additional large region were burned.",
+            "zh": "18% 会高估，像是多算了一个较大的区域。"
+          },
+          {
+            "refId": "D",
+            "en": "22.5% would include unshaded areas and is too high for the map shown.",
+            "zh": "22.5% 包含了未阴影区域，过高。"
+          },
+          {
+            "refId": "A",
+            "en": "9% counts the full left arm only and omits the anterior head.",
+            "zh": "9% 只计算了整个左上肢，漏算了头部前面。"
+          },
+          {
+            "refId": "B",
+            "en": "This correctly adds anterior head 4.5% plus full left arm 9%.",
+            "zh": "此项正确相加：头部前面 4.5% 加整个左上肢 9%。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Separate anterior and posterior surfaces before adding. A full adult arm is 9%, but one side of the arm is 4.5%.",
+        "zh": "先区分身体前面和后面再相加。成人一整只手臂是 9%，单侧面是 4.5%。"
+      },
+      "glossary": [
+        {
+          "termEn": "Rule of Nines",
+          "termZh": "九分法",
+          "defZh": "把成人身体区域按 9% 或其倍数估算烧伤面积的方法。"
+        },
+        {
+          "termEn": "anterior",
+          "termZh": "前面",
+          "defZh": "身体的正面或前侧。"
+        }
+      ]
+    },
+    {
+      "id": "gpt_visual_smoke_2026_06_12_matrix_burn_regions_03",
+      "itemType": "matrix",
+      "category": "Reduction of Risk Potential",
+      "topic": "adult Rule of Nines region recognition",
+      "difficulty": "easy",
+      "ngnSkill": "recognize_cues",
+      "stem": {
+        "en": "An adult client has partial-thickness burns shaded on the diagram. For each region, indicate whether it is included in the shaded burn area.",
+        "zh": "一名成年患者有图中阴影所示的二度烧伤。请判断每个区域是否包含在阴影烧伤面积内。"
+      },
+      "visual": {
+        "kind": "burn_map",
+        "population": "adult",
+        "burns": [
+          "trunk_posterior",
+          "arm_r_anterior",
+          "arm_r_posterior"
+        ],
+        "caption": {
+          "en": "Burn diagram",
+          "zh": "烧伤示意图"
+        }
+      },
+      "meta": {
+        "visual_justification": "The learner must inspect the shaded anterior/posterior map to identify which regions contribute to the burn estimate.",
+        "tier": "strictest",
+        "source": "Adult Rule of Nines.",
+        "skill_signature": "burn:map-reading/adult-shaded-regions",
+        "stem_disambiguators": [
+          "shaded burn area",
+          "adult Rule of Nines"
+        ],
+        "round": 0,
+        "derived_values_keyed": {
+          "tbsa_pct": 27
+        }
+      },
+      "matrix": {
+        "rows": [
+          {
+            "id": "r1",
+            "en": "Posterior trunk",
+            "zh": "躯干后面"
+          },
+          {
+            "id": "r2",
+            "en": "Right arm, anterior and posterior",
+            "zh": "右上肢前面和后面"
+          },
+          {
+            "id": "r3",
+            "en": "Anterior trunk",
+            "zh": "躯干前面"
+          },
+          {
+            "id": "r4",
+            "en": "Left arm, anterior and posterior",
+            "zh": "左上肢前面和后面"
+          }
+        ],
+        "columns": [
+          {
+            "id": "included",
+            "en": "Included in shaded burn area",
+            "zh": "包含在阴影烧伤面积内"
+          },
+          {
+            "id": "not_included",
+            "en": "Not included",
+            "zh": "不包含"
+          }
+        ],
+        "selectionMode": "single_per_row"
+      },
+      "correct": [
+        {
+          "rowId": "r1",
+          "columnIds": [
+            "included"
+          ]
+        },
+        {
+          "rowId": "r2",
+          "columnIds": [
+            "included"
+          ]
+        },
+        {
+          "rowId": "r3",
+          "columnIds": [
+            "not_included"
+          ]
+        },
+        {
+          "rowId": "r4",
+          "columnIds": [
+            "not_included"
+          ]
+        }
+      ],
+      "rationale": {
+        "correct": {
+          "en": "The map shades the posterior trunk and the full right arm. The anterior trunk and the left arm are not shaded.",
+          "zh": "图中阴影包括躯干后面和整个右上肢。躯干前面和左上肢未被阴影标出。"
+        },
+        "byChoice": [
+          {
+            "refId": "r1",
+            "en": "The posterior trunk is shaded and contributes 18% in the adult Rule of Nines.",
+            "zh": "躯干后面有阴影，在成人九分法中占 18%。"
+          },
+          {
+            "refId": "r2",
+            "en": "Both sides of the right arm are shaded, so the full right arm is included.",
+            "zh": "右上肢前后两面均有阴影，因此整个右上肢计入。"
+          },
+          {
+            "refId": "r3",
+            "en": "The anterior trunk is not shaded and should not be counted.",
+            "zh": "躯干前面没有阴影，不应计入。"
+          },
+          {
+            "refId": "r4",
+            "en": "The left arm is not shaded and should not be counted.",
+            "zh": "左上肢没有阴影，不应计入。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Do not assume symmetry. Check the anterior and posterior views separately and count only shaded regions.",
+        "zh": "不要假设左右或前后对称。分别查看前面和后面，只计算阴影区域。"
+      },
+      "glossary": [
+        {
+          "termEn": "posterior",
+          "termZh": "后面",
+          "defZh": "身体背面或后侧。"
+        },
+        {
+          "termEn": "burn mapping",
+          "termZh": "烧伤面积标图",
+          "defZh": "通过身体示意图识别烧伤部位并估算面积。"
+        }
+      ]
+    },
+    {
+      "id": "gpt_visual_smoke_2026_06_12_fib_io_net_balance_04",
+      "itemType": "fill_in_blank",
+      "category": "Basic Care and Comfort",
+      "topic": "intake and output net balance",
+      "difficulty": "easy",
+      "ngnSkill": "analyze_cues",
+      "stem": {
+        "en": "Review the intake and output flowsheet for the 0700-1500 shift. What is the client's net fluid balance in mL? Enter a positive number if intake exceeds output.",
+        "zh": "查看 0700-1500 班次的出入量记录。如果摄入量大于排出量，请输入正数。该患者净液体平衡为多少 mL？"
+      },
+      "visual": {
+        "kind": "io_record",
+        "periodLabel": {
+          "en": "0700-1500 shift",
+          "zh": "0700-1500 班次"
+        },
+        "intake": [
+          {
+            "label": "PO water",
+            "volumeMl": 360
+          },
+          {
+            "label": "0.9% NaCl IV",
+            "volumeMl": 750
+          },
+          {
+            "label": "IV antibiotic",
+            "volumeMl": 100
+          }
+        ],
+        "output": [
+          {
+            "label": "Foley urine",
+            "volumeMl": 420
+          },
+          {
+            "label": "Emesis",
+            "volumeMl": 150
+          }
+        ],
+        "caption": {
+          "en": "Intake and output flowsheet",
+          "zh": "出入量记录单"
+        }
+      },
+      "meta": {
+        "visual_justification": "The learner must total individual intake and output entries from the flowsheet to derive the signed net balance.",
+        "tier": "standard",
+        "source": "Nursing intake/output documentation arithmetic.",
+        "skill_signature": "io_record:net-balance/shift-total",
+        "stem_disambiguators": [
+          "intake and output",
+          "net fluid balance"
+        ],
+        "derived_values_keyed": {
+          "intake_total_ml": 1210,
+          "output_total_ml": 570,
+          "net_balance_ml": 640
+        }
+      },
+      "blanks": [
+        {
+          "id": "b1",
+          "prompt": {
+            "en": "mL",
+            "zh": "mL"
+          },
+          "acceptable": [
+            "640",
+            "+640",
+            "640 mL"
+          ],
+          "numeric": {
+            "value": 640,
+            "tolerance": 0,
+            "unit": "mL"
+          }
+        }
+      ],
+      "rationale": {
+        "correct": {
+          "en": "Intake is 360 + 750 + 100 = 1,210 mL. Output is 420 + 150 = 570 mL. Net balance is 1,210 − 570 = +640 mL.",
+          "zh": "摄入量为 360 + 750 + 100 = 1,210 mL。排出量为 420 + 150 = 570 mL。净平衡为 1,210 − 570 = +640 mL。"
+        },
+        "byChoice": [
+          {
+            "refId": "b1",
+            "en": "A positive result means intake exceeded output during the shift.",
+            "zh": "正数表示该班次摄入量大于排出量。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "For I&O questions, calculate intake and output separately before subtracting; do not combine all numbers in one step.",
+        "zh": "出入量题先分别计算摄入量和排出量，再相减；不要把所有数字混在一步计算。"
+      },
+      "glossary": [
+        {
+          "termEn": "intake",
+          "termZh": "摄入量",
+          "defZh": "进入体内的液体量，如口服液体、静脉液体等。"
+        },
+        {
+          "termEn": "output",
+          "termZh": "排出量",
+          "defZh": "从体内排出的液体量，如尿液、呕吐物、引流液等。"
+        },
+        {
+          "termEn": "net balance",
+          "termZh": "净平衡",
+          "defZh": "摄入量减去排出量的结果。"
+        }
+      ]
+    },
+    {
+      "id": "gpt_visual_smoke_2026_06_12_mc_io_output_total_05",
+      "itemType": "multiple_choice",
+      "category": "Reduction of Risk Potential",
+      "topic": "intake and output output total",
+      "difficulty": "easy",
+      "ngnSkill": "analyze_cues",
+      "stem": {
+        "en": "Review the flowsheet. Which value should the nurse document as the total output for this shift?",
+        "zh": "查看出入量记录单。护士应记录该班次总排出量为多少？"
+      },
+      "visual": {
+        "kind": "io_record",
+        "periodLabel": {
+          "en": "1500-2300 shift",
+          "zh": "1500-2300 班次"
+        },
+        "intake": [
+          {
+            "label": "Tube feeding",
+            "volumeMl": 480
+          },
+          {
+            "label": "Free-water flushes",
+            "volumeMl": 180
+          }
+        ],
+        "output": [
+          {
+            "label": "Urine",
+            "volumeMl": 525
+          },
+          {
+            "label": "JP drain",
+            "volumeMl": 70
+          },
+          {
+            "label": "Loose stool",
+            "volumeMl": 200
+          }
+        ],
+        "caption": {
+          "en": "Intake and output flowsheet",
+          "zh": "出入量记录单"
+        }
+      },
+      "meta": {
+        "visual_justification": "The learner must identify and sum only the output rows shown in the flowsheet.",
+        "tier": "standard",
+        "source": "Nursing intake/output documentation arithmetic.",
+        "skill_signature": "io_record:output-total/drains-stool-urine",
+        "stem_disambiguators": [
+          "total output",
+          "shift"
+        ],
+        "derived_values_keyed": {
+          "intake_total_ml": 660,
+          "output_total_ml": 795,
+          "net_balance_ml": -135
+        }
+      },
+      "options": [
+        {
+          "id": "B",
+          "en": "725 mL",
+          "zh": "725 mL"
+        },
+        {
+          "id": "C",
+          "en": "795 mL",
+          "zh": "795 mL"
+        },
+        {
+          "id": "A",
+          "en": "660 mL",
+          "zh": "660 mL"
+        },
+        {
+          "id": "D",
+          "en": "1,455 mL",
+          "zh": "1,455 mL"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "rationale": {
+        "correct": {
+          "en": "Output includes urine 525 mL, JP drain 70 mL, and loose stool 200 mL. Total output is 525 + 70 + 200 = 795 mL.",
+          "zh": "排出量包括尿液 525 mL、JP 引流 70 mL 和稀便 200 mL。总排出量为 525 + 70 + 200 = 795 mL。"
+        },
+        "byChoice": [
+          {
+            "refId": "B",
+            "en": "725 mL omits one output entry.",
+            "zh": "725 mL 漏算了一个排出项目。"
+          },
+          {
+            "refId": "C",
+            "en": "This correctly sums urine, JP drainage, and stool.",
+            "zh": "此项正确相加尿液、JP 引流液和粪便。"
+          },
+          {
+            "refId": "A",
+            "en": "660 mL is the intake total, not the output total.",
+            "zh": "660 mL 是摄入量总和，不是排出量总和。"
+          },
+          {
+            "refId": "D",
+            "en": "1,455 mL combines intake and output instead of reporting output only.",
+            "zh": "1,455 mL 把摄入和排出都加在一起，而题目只问排出量。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Look at the requested total. Output totals include fluid leaving the body, not tube feeding or flushes.",
+        "zh": "看清题目要求的总量。排出量是离开身体的液体，不包括管饲或冲管液。"
+      },
+      "glossary": [
+        {
+          "termEn": "JP drain",
+          "termZh": "JP 引流管",
+          "defZh": "一种负压引流装置，用于收集术后或伤口引流液。"
+        },
+        {
+          "termEn": "tube feeding",
+          "termZh": "管饲",
+          "defZh": "通过胃管或肠管给予营养液，属于摄入量。"
+        }
+      ]
+    },
+    {
+      "id": "gpt_visual_smoke_2026_06_12_matrix_io_totals_06",
+      "itemType": "matrix",
+      "category": "Basic Care and Comfort",
+      "topic": "intake and output total verification",
+      "difficulty": "medium",
+      "ngnSkill": "evaluate_outcomes",
+      "stem": {
+        "en": "Review the intake and output flowsheet. For each proposed documentation value, select whether it is accurate.",
+        "zh": "查看出入量记录单。请判断每个拟记录的数值是否正确。"
+      },
+      "visual": {
+        "kind": "io_record",
+        "periodLabel": {
+          "en": "2300-0700 shift",
+          "zh": "2300-0700 班次"
+        },
+        "intake": [
+          {
+            "label": "D5W IV",
+            "volumeMl": 600
+          },
+          {
+            "label": "PO ice chips",
+            "volumeMl": 120
+          }
+        ],
+        "output": [
+          {
+            "label": "Urine",
+            "volumeMl": 350
+          },
+          {
+            "label": "Nasogastric drainage",
+            "volumeMl": 225
+          }
+        ],
+        "caption": {
+          "en": "Intake and output flowsheet",
+          "zh": "出入量记录单"
+        }
+      },
+      "meta": {
+        "visual_justification": "The learner must recompute intake, output, and net balance from the visual entries to judge the proposed documentation values.",
+        "tier": "standard",
+        "source": "Nursing intake/output documentation arithmetic.",
+        "skill_signature": "io_record:verify-totals/night-shift",
+        "stem_disambiguators": [
+          "documentation value",
+          "net balance"
+        ],
+        "derived_values_keyed": {
+          "intake_total_ml": 720,
+          "output_total_ml": 575,
+          "net_balance_ml": 145
+        }
+      },
+      "matrix": {
+        "rows": [
+          {
+            "id": "r1",
+            "en": "Intake total: 720 mL",
+            "zh": "摄入量总计：720 mL"
+          },
+          {
+            "id": "r2",
+            "en": "Output total: 575 mL",
+            "zh": "排出量总计：575 mL"
+          },
+          {
+            "id": "r3",
+            "en": "Net balance: −145 mL",
+            "zh": "净平衡：−145 mL"
+          },
+          {
+            "id": "r4",
+            "en": "Net balance: +145 mL",
+            "zh": "净平衡：+145 mL"
+          }
+        ],
+        "columns": [
+          {
+            "id": "accurate",
+            "en": "Accurate",
+            "zh": "正确"
+          },
+          {
+            "id": "inaccurate",
+            "en": "Inaccurate",
+            "zh": "不正确"
+          }
+        ],
+        "selectionMode": "single_per_row"
+      },
+      "correct": [
+        {
+          "rowId": "r1",
+          "columnIds": [
+            "accurate"
+          ]
+        },
+        {
+          "rowId": "r2",
+          "columnIds": [
+            "accurate"
+          ]
+        },
+        {
+          "rowId": "r3",
+          "columnIds": [
+            "inaccurate"
+          ]
+        },
+        {
+          "rowId": "r4",
+          "columnIds": [
+            "accurate"
+          ]
+        }
+      ],
+      "rationale": {
+        "correct": {
+          "en": "Intake is 600 + 120 = 720 mL. Output is 350 + 225 = 575 mL. Net balance is 720 − 575 = +145 mL, not −145 mL.",
+          "zh": "摄入量为 600 + 120 = 720 mL。排出量为 350 + 225 = 575 mL。净平衡为 720 − 575 = +145 mL，而不是 −145 mL。"
+        },
+        "byChoice": [
+          {
+            "refId": "r1",
+            "en": "This intake total correctly adds the IV fluid and ice chips.",
+            "zh": "此摄入量正确相加静脉液和冰屑。"
+          },
+          {
+            "refId": "r2",
+            "en": "This output total correctly adds urine and nasogastric drainage.",
+            "zh": "此排出量正确相加尿液和胃管引流液。"
+          },
+          {
+            "refId": "r3",
+            "en": "The sign is wrong because intake exceeds output.",
+            "zh": "符号错误，因为摄入量大于排出量。"
+          },
+          {
+            "refId": "r4",
+            "en": "This is the correct signed net balance.",
+            "zh": "这是正确带正负号的净平衡。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "A positive net balance means retained fluid; a negative net balance means more output than intake.",
+        "zh": "净平衡为正表示液体潴留；净平衡为负表示排出量多于摄入量。"
+      },
+      "glossary": [
+        {
+          "termEn": "nasogastric drainage",
+          "termZh": "胃管引流液",
+          "defZh": "经鼻胃管排出的胃内容物，属于排出量。"
+        },
+        {
+          "termEn": "D5W",
+          "termZh": "5% 葡萄糖水",
+          "defZh": "含 5% 葡萄糖的静脉液体，属于摄入量。"
+        }
+      ]
+    },
+    {
+      "id": "gpt_visual_smoke_2026_06_12_fib_medlabel_heparin_rate_07",
+      "itemType": "fill_in_blank",
+      "category": "Pharmacological and Parenteral Therapies",
+      "topic": "heparin infusion rate calculation from label",
+      "difficulty": "medium",
+      "ngnSkill": "analyze_cues",
+      "stem": {
+        "en": "The provider prescribes heparin at 1,000 units/hr. Using the medication label, at how many mL/hr should the nurse program the infusion pump? Round to the nearest whole number.",
+        "zh": "医嘱为肝素 1,000 units/hr。根据药品标签，护士应将输液泵设置为多少 mL/hr？四舍五入到整数。"
+      },
+      "visual": {
+        "kind": "medication_label",
+        "drugName": "Heparin Sodium",
+        "amount": 25000,
+        "amountUnit": "units",
+        "perQty": 250,
+        "perUnit": "mL",
+        "showDerivedConcentration": false,
+        "fields": [
+          {
+            "label": "Diluent",
+            "value": "D5W"
+          },
+          {
+            "label": "Route",
+            "value": "IV infusion"
+          }
+        ],
+        "caption": {
+          "en": "Heparin premix label",
+          "zh": "肝素预混液标签"
+        }
+      },
+      "meta": {
+        "visual_justification": "The heparin concentration appears only on the label; the learner must use it with the ordered units per hour to compute mL/hr.",
+        "tier": "strictest",
+        "source": "Medication-label concentration arithmetic; institutional heparin protocols vary and require order verification.",
+        "skill_signature": "medlbl:concentration-to-rate/heparin-infusion",
+        "stem_disambiguators": [
+          "heparin",
+          "units/hr",
+          "infusion pump"
+        ],
+        "order": {
+          "kind": "dose_rate",
+          "value": 1000,
+          "unit": "units",
+          "round": 0
+        },
+        "derived_values_keyed": {
+          "concentration_per_ml": 100,
+          "rate_ml_per_hr": 10
+        }
+      },
+      "blanks": [
+        {
+          "id": "b1",
+          "prompt": {
+            "en": "mL/hr",
+            "zh": "mL/hr"
+          },
+          "acceptable": [
+            "10",
+            "10 mL/hr"
+          ],
+          "numeric": {
+            "value": 10,
+            "tolerance": 0,
+            "unit": "mL/hr"
+          }
+        }
+      ],
+      "rationale": {
+        "correct": {
+          "en": "The label shows 25,000 units in 250 mL, so the concentration is 100 units/mL. The ordered rate is 1,000 units/hr. 1,000 ÷ 100 = 10 mL/hr.",
+          "zh": "标签显示 25,000 units 溶于 250 mL，因此浓度为 100 units/mL。医嘱为 1,000 units/hr。1,000 ÷ 100 = 10 mL/hr。"
+        },
+        "byChoice": [
+          {
+            "refId": "b1",
+            "en": "The pump is programmed in mL/hr, so convert units/hr using the label concentration.",
+            "zh": "输液泵以 mL/hr 设置，因此要用标签浓度把 units/hr 换算为 mL/hr。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "For infusion labels, compute concentration first, then divide the ordered dose rate by that concentration.",
+        "zh": "输液标签题先算浓度，再用医嘱剂量速度除以浓度。"
+      },
+      "glossary": [
+        {
+          "termEn": "concentration",
+          "termZh": "浓度",
+          "defZh": "单位体积中所含药物剂量。"
+        },
+        {
+          "termEn": "heparin",
+          "termZh": "肝素",
+          "defZh": "一种抗凝药，给药和监测需严格核对。"
+        }
+      ]
+    },
+    {
+      "id": "gpt_visual_smoke_2026_06_12_mc_medlabel_tablet_quantity_08",
+      "itemType": "multiple_choice",
+      "category": "Safety and Infection Control",
+      "topic": "medication label dose verification",
+      "difficulty": "easy",
+      "ngnSkill": "take_action",
+      "stem": {
+        "en": "The medication order is acetaminophen 650 mg by mouth now. Based on the label, how many tablets should the nurse administer?",
+        "zh": "医嘱为立即口服对乙酰氨基酚 650 mg。根据标签，护士应给多少片？"
+      },
+      "visual": {
+        "kind": "medication_label",
+        "drugName": "Acetaminophen",
+        "amount": 325,
+        "amountUnit": "mg",
+        "perQty": 1,
+        "perUnit": "tablet",
+        "fields": [
+          {
+            "label": "Form",
+            "value": "tablet"
+          }
+        ],
+        "caption": {
+          "en": "Medication label",
+          "zh": "药品标签"
+        }
+      },
+      "meta": {
+        "visual_justification": "The tablet strength appears only on the label; the learner must use it to determine the number of tablets.",
+        "tier": "standard",
+        "source": "Medication-label dose arithmetic.",
+        "skill_signature": "medlbl:tablet-strength/quantity-to-administer",
+        "stem_disambiguators": [
+          "acetaminophen",
+          "650 mg",
+          "tablets"
+        ],
+        "order": {
+          "kind": "dose",
+          "value": 650,
+          "unit": "mg",
+          "round": 0
+        },
+        "derived_values_keyed": {
+          "quantity_to_administer_tablets": 2
+        }
+      },
+      "options": [
+        {
+          "id": "D",
+          "en": "4 tablets",
+          "zh": "4 片"
+        },
+        {
+          "id": "A",
+          "en": "1 tablet",
+          "zh": "1 片"
+        },
+        {
+          "id": "C",
+          "en": "3 tablets",
+          "zh": "3 片"
+        },
+        {
+          "id": "B",
+          "en": "2 tablets",
+          "zh": "2 片"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "rationale": {
+        "correct": {
+          "en": "Each tablet contains 325 mg. The ordered dose is 650 mg. 650 ÷ 325 = 2 tablets.",
+          "zh": "每片含 325 mg。医嘱剂量为 650 mg。650 ÷ 325 = 2 片。"
+        },
+        "byChoice": [
+          {
+            "refId": "D",
+            "en": "Four tablets would provide 1,300 mg and exceed the order.",
+            "zh": "4 片为 1,300 mg，超过医嘱。"
+          },
+          {
+            "refId": "A",
+            "en": "One tablet provides only 325 mg, which is half the ordered dose.",
+            "zh": "1 片只有 325 mg，是医嘱剂量的一半。"
+          },
+          {
+            "refId": "C",
+            "en": "Three tablets would provide 975 mg and exceed the order.",
+            "zh": "3 片为 975 mg，超过医嘱。"
+          },
+          {
+            "refId": "B",
+            "en": "Two tablets provide 650 mg and match the order.",
+            "zh": "2 片共 650 mg，符合医嘱。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Use the label strength as the denominator: ordered dose divided by dose per tablet.",
+        "zh": "把标签剂量作为分母：医嘱剂量除以每片剂量。"
+      },
+      "glossary": [
+        {
+          "termEn": "acetaminophen",
+          "termZh": "对乙酰氨基酚",
+          "defZh": "常用解热镇痛药，需注意总日剂量。"
+        },
+        {
+          "termEn": "dose verification",
+          "termZh": "剂量核对",
+          "defZh": "给药前确认医嘱剂量与可用剂型相符。"
+        }
+      ]
+    },
+    {
+      "id": "gpt_visual_smoke_2026_06_12_matrix_device_pca_basal_09",
+      "itemType": "matrix",
+      "category": "Safety and Infection Control",
+      "topic": "PCA pump safety settings",
+      "difficulty": "medium",
+      "ngnSkill": "recognize_cues",
+      "stem": {
+        "en": "A postoperative adult client who is opioid-naive is receiving morphine by patient-controlled analgesia (PCA). Review the pump screen. For each finding, indicate whether the nurse should follow up before continuing the infusion.",
+        "zh": "一名术后成年患者既往未使用阿片类药物，正在通过患者自控镇痛（PCA）泵接受吗啡。查看泵屏幕。请判断每项发现是否需要护士在继续输注前跟进。"
+      },
+      "visual": {
+        "kind": "device_screen",
+        "device": "pca",
+        "title": {
+          "en": "PCA Pump - morphine",
+          "zh": "PCA 泵 - 吗啡"
+        },
+        "settings": [
+          {
+            "key": "drug",
+            "text": "morphine"
+          },
+          {
+            "key": "concentration",
+            "text": "1 mg/mL"
+          },
+          {
+            "key": "mode",
+            "text": "PCA+basal"
+          },
+          {
+            "key": "demand_dose",
+            "value": 1,
+            "unit": "mg"
+          },
+          {
+            "key": "lockout_min",
+            "value": 10,
+            "unit": "min"
+          },
+          {
+            "key": "basal_rate",
+            "value": 1,
+            "unit": "mg/hr",
+            "flag": true
+          }
+        ],
+        "caption": {
+          "en": "PCA pump settings",
+          "zh": "PCA 泵设置"
+        }
+      },
+      "meta": {
+        "visual_justification": "The basal infusion setting appears only on the pump screen and is the cue requiring follow-up in an opioid-naive client.",
+        "tier": "strictest",
+        "source": "PCA opioid safety principles; basal infusions increase respiratory-depression risk in opioid-naive clients and require order/policy verification.",
+        "skill_signature": "device:pca-basal/opioid-naive-safety",
+        "stem_disambiguators": [
+          "PCA",
+          "opioid-naive",
+          "basal"
+        ],
+        "keyed_settings": [
+          {
+            "key": "basal_rate",
+            "reason": "basal_infusion_in_opioid_naive_client"
+          }
+        ],
+        "derived_values_keyed": {
+          "max_demands_1h": 6,
+          "max_dose_1h_mg": 7
+        },
+        "round": 0
+      },
+      "matrix": {
+        "rows": [
+          {
+            "id": "r1",
+            "en": "PCA mode includes a basal infusion.",
+            "zh": "PCA 模式包含基础持续输注。"
+          },
+          {
+            "id": "r2",
+            "en": "Demand dose is 1 mg.",
+            "zh": "按需剂量为 1 mg。"
+          },
+          {
+            "id": "r3",
+            "en": "Lockout interval is 10 minutes.",
+            "zh": "锁定间隔为 10 分钟。"
+          },
+          {
+            "id": "r4",
+            "en": "Medication displayed is morphine.",
+            "zh": "屏幕显示药物为吗啡。"
+          }
+        ],
+        "columns": [
+          {
+            "id": "follow_up",
+            "en": "Follow up before continuing",
+            "zh": "继续前需要跟进"
+          },
+          {
+            "id": "expected_setting",
+            "en": "Expected/verify routinely",
+            "zh": "预期设置/常规核对"
+          }
+        ],
+        "selectionMode": "single_per_row"
+      },
+      "correct": [
+        {
+          "rowId": "r1",
+          "columnIds": [
+            "follow_up"
+          ]
+        },
+        {
+          "rowId": "r2",
+          "columnIds": [
+            "expected_setting"
+          ]
+        },
+        {
+          "rowId": "r3",
+          "columnIds": [
+            "expected_setting"
+          ]
+        },
+        {
+          "rowId": "r4",
+          "columnIds": [
+            "expected_setting"
+          ]
+        }
+      ],
+      "rationale": {
+        "correct": {
+          "en": "The load-bearing cue is the basal infusion in an opioid-naive client. Basal opioid delivery can increase the risk for oversedation and respiratory depression and should be verified against the order and policy before continuing. The drug, demand dose, and lockout interval require routine verification but are not the specific unsafe cue in this stem.",
+          "zh": "关键线索是既往未使用阿片类药物的患者设置了基础持续输注。基础阿片输注会增加过度镇静和呼吸抑制风险，继续前应按医嘱和政策核对。药物、按需剂量和锁定间隔也需常规核对，但不是本题特定的不安全线索。"
+        },
+        "byChoice": [
+          {
+            "refId": "r1",
+            "en": "A basal infusion is the setting requiring follow-up for an opioid-naive client.",
+            "zh": "对于阿片类未耐受患者，基础持续输注是需要跟进的设置。"
+          },
+          {
+            "refId": "r2",
+            "en": "The demand dose should be verified, but its presence alone is expected for PCA.",
+            "zh": "按需剂量应核对，但按需剂量本身是 PCA 的预期设置。"
+          },
+          {
+            "refId": "r3",
+            "en": "The lockout interval should be verified, but the screen cue requiring follow-up is the basal rate.",
+            "zh": "锁定间隔应核对，但屏幕上需要跟进的关键线索是基础速率。"
+          },
+          {
+            "refId": "r4",
+            "en": "The drug name must be verified with the order, but morphine itself is not the unsafe screen finding described.",
+            "zh": "药名必须与医嘱核对，但吗啡本身不是题干所指的屏幕不安全发现。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "With device screens, identify the setting that changes the nursing risk in this client, not just any number that appears on the display.",
+        "zh": "设备屏幕题要找出会改变该患者护理风险的设置，而不是只看到屏幕上任意数字。"
+      },
+      "glossary": [
+        {
+          "termEn": "PCA",
+          "termZh": "患者自控镇痛",
+          "defZh": "患者可按设定剂量和锁定间隔自行给药的镇痛泵。"
+        },
+        {
+          "termEn": "basal infusion",
+          "termZh": "基础持续输注",
+          "defZh": "即使患者未按按钮也持续输注的剂量。"
+        },
+        {
+          "termEn": "opioid-naive",
+          "termZh": "阿片类未耐受",
+          "defZh": "近期未持续使用阿片类药物，发生镇静和呼吸抑制风险较高。"
+        }
+      ]
+    },
+    {
+      "id": "gpt_visual_smoke_2026_06_12_fib_device_enteral_duration_10",
+      "itemType": "fill_in_blank",
+      "category": "Management of Care",
+      "topic": "enteral pump duration calculation",
+      "difficulty": "easy",
+      "ngnSkill": "analyze_cues",
+      "stem": {
+        "en": "Review the enteral feeding pump screen. If the displayed settings continue unchanged, over how many hours will the volume to be infused run? Round to the nearest whole number.",
+        "zh": "查看肠内营养泵屏幕。如果屏幕设置保持不变，待输注容量将运行多少小时？四舍五入到整数。"
+      },
+      "visual": {
+        "kind": "device_screen",
+        "device": "enteral",
+        "title": {
+          "en": "Enteral feeding pump",
+          "zh": "肠内营养泵"
+        },
+        "settings": [
+          {
+            "key": "rate_ml_hr",
+            "value": 60,
+            "unit": "mL/hr"
+          },
+          {
+            "key": "vtbi_ml",
+            "value": 240,
+            "unit": "mL"
+          },
+          {
+            "key": "volume_infused_ml",
+            "value": 0,
+            "unit": "mL"
+          }
+        ],
+        "caption": {
+          "en": "Enteral pump settings",
+          "zh": "肠内营养泵设置"
+        }
+      },
+      "meta": {
+        "visual_justification": "The learner must read rate and volume-to-be-infused from the pump screen to compute the infusion duration.",
+        "tier": "standard",
+        "source": "Pump rate-duration arithmetic.",
+        "skill_signature": "device:enteral-vtbi-duration/rate-calculation",
+        "stem_disambiguators": [
+          "enteral feeding pump",
+          "volume to be infused",
+          "hours"
+        ],
+        "keyed_settings": [
+          {
+            "key": "rate_ml_hr",
+            "reason": "duration_calculation_input"
+          },
+          {
+            "key": "vtbi_ml",
+            "reason": "duration_calculation_input"
+          }
+        ],
+        "derived_values_keyed": {
+          "infusion_duration_min": 240
+        },
+        "round": 0
+      },
+      "blanks": [
+        {
+          "id": "b1",
+          "prompt": {
+            "en": "hours",
+            "zh": "小时"
+          },
+          "acceptable": [
+            "4",
+            "4 hr",
+            "4 hours"
+          ],
+          "numeric": {
+            "value": 4,
+            "tolerance": 0,
+            "unit": "hr"
+          }
+        }
+      ],
+      "rationale": {
+        "correct": {
+          "en": "The pump shows a rate of 60 mL/hr and a volume to be infused of 240 mL. Duration is 240 ÷ 60 = 4 hours.",
+          "zh": "泵屏幕显示速率为 60 mL/hr，待输注容量为 240 mL。运行时间为 240 ÷ 60 = 4 小时。"
+        },
+        "byChoice": [
+          {
+            "refId": "b1",
+            "en": "The answer is requested in hours; the derived screen value is 240 minutes, which equals 4 hours.",
+            "zh": "题目要求以小时回答；屏幕推导值为 240 分钟，即 4 小时。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "For pump duration, divide VTBI by the rate, then convert minutes and hours if needed.",
+        "zh": "计算泵运行时间时，用待输注容量除以速率，必要时再换算分钟和小时。"
+      },
+      "glossary": [
+        {
+          "termEn": "VTBI",
+          "termZh": "待输注容量",
+          "defZh": "泵上设置的还需输注的液体量。"
+        },
+        {
+          "termEn": "enteral feeding",
+          "termZh": "肠内营养",
+          "defZh": "通过胃肠道管路给予营养液。"
+        }
+      ]
+    }
+  ]
+}
