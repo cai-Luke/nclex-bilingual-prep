@@ -2,8 +2,8 @@
 
 # NCLEX Bank Census
 
-Generated: 2026-06-12T04:50:52.886Z
-Git SHA: c60dc33a0b96e0ab075560a605c37cff9637e6a7
+Generated: 2026-06-12T05:18:31.117Z
+Git SHA: 8975a97be368f1256db5d6e4bb14412061749af8
 
 ## Per-File Summary
 
@@ -117,6 +117,7 @@ Total visuals: 87
 
 ### By Kind
 
+- burn_map: 0
 - capnography: 7 (cap_01, cap_02, cap_03, cap_04, cap_05, …+2)
 - device_screen: 0
 - io_record: 0

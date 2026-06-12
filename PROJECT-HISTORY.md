@@ -55,6 +55,17 @@ Out of scope until a future schema bump:
 
 ## Milestones
 
+### U8 `burn_map` Renderer (Jun 12)
+
+Completed:
+- Added `src/visuals/kinds/burn_map/` with adult and pediatric Rule-of-Nines tables, whole-region geometry, defensive validation, deterministic anterior/posterior SVG rendering, and colocated fixtures.
+- Used solid translucent red shading for burned regions and kept v1 strictly whole-region-only; fractional burns and Lund-Browder interpolation were not added.
+- Added strict `selfCheck` arithmetic for %TBSA, Parkland 24-hour volume, first-8-hour volume, and first-8-hour rate using shared deterministic rounding.
+- Added a `fill_in_blank` answer-control guard: each numeric blank must match a present recomputed derived value after derivation rounding or report `self_check_answer_value_mismatch`.
+- Added focused tests for table integrity, validation, population selection, Parkland arithmetic, answer consistency, deterministic rendering, and answer-reveal checks over visible SVG text labels rather than raw coordinate strings.
+- Registered `burn_map` for `multiple_choice`, `select_all`, `matrix`, and `fill_in_blank`; updated the schema and roadmap. Pediatric rendering support ships, but pediatric content remains blocked until authoritative source verification is recorded.
+- No content generation or bank promotion was performed.
+
 ### U9 `device_screen` Renderer (Jun 12)
 
 Completed:

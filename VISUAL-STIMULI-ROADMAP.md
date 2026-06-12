@@ -156,11 +156,15 @@ Partially renderable: fluid level/output, chamber identification, and suction-co
 
 ## Phase 4 — Stylized diagram (the one survivor)
 
-### U8 · `burn_map`
+### U8 · `burn_map` — ✅ DONE (2026-06-12)
 **Type:** renderer (code). **Depends on:** U0. **Concurrent with:** anything.
 
-- Schematic body with shaded regions; fixed Rule-of-Nines percentages; Parkland arithmetic.
-- Make **adult vs pediatric** proportions an explicit parameter — they differ, and getting the wrong chart silently corrupts the %TBSA.
+- ✅ Added deterministic anterior/posterior schematics with whole-region solid translucent red shading.
+- ✅ Added fixed adult and pediatric Rule-of-Nines tables, each guarded by a sum-to-100 test.
+- ✅ Added strict %TBSA and four-step Parkland arithmetic checks using the shared rounding helper.
+- ✅ Added numeric `fill_in_blank` answer-control consistency checking against recomputed keyed values.
+- ✅ Adult and pediatric rendering support ships; pediatric content remains blocked until authoritative source verification is recorded.
+- ✅ Fractional burns and Lund-Browder interpolation remain explicitly out of v1 scope.
 - Targets: Rule of Nines, Parkland formula, severity classification.
 - **Accuracy watch-item:** `selfCheck` computes %TBSA from shaded regions and Parkland volume from %TBSA + weight, asserting both match the keyed answer.
 
