@@ -129,13 +129,111 @@ export function renderDocTable(input: DocTableInput): string {
   return `<g class="doc-table">\n${els.join("\n")}\n</g>`;
 }
 
-// renderFieldPanel — forward-reference for U6 (medication_label) / U9 (device_screen).
-// Implement when U6 lands; keep colocated with renderDocTable in this module.
-//
-// export interface FieldPanelInput {
-//   title?: string;
-//   fields: { label: string; value: string; emphasis?: "normal" | "bold" | "flag" }[];
-//   width?: number;     // default 600
-//   rowHeight?: number; // default 28
-// }
-// export function renderFieldPanel(input: FieldPanelInput): string; // returns <g class="field-panel">…</g>
+export interface FieldPanelField {
+  label: string;
+  value: string;
+  emphasis?: "normal" | "bold" | "flag";
+}
+export interface FieldPanelSection {
+  heading?: string;
+  fields: FieldPanelField[];
+}
+export interface FieldPanelInput {
+  title?: string;
+  sections: FieldPanelSection[];
+  variant?: "label" | "screen";
+  width?: number;
+  rowHeight?: number;
+  bannerHeight?: number;
+  headingHeight?: number;
+}
+
+const fieldPanelMetrics = (input: FieldPanelInput) => ({
+  width: input.width ?? 360,
+  rowHeight: input.rowHeight ?? 26,
+  bannerHeight: input.bannerHeight ?? 34,
+  headingHeight: input.headingHeight ?? 24,
+});
+
+export function measureFieldPanel(input: FieldPanelInput): number {
+  const { rowHeight, bannerHeight, headingHeight } = fieldPanelMetrics(input);
+  const hasTitle = typeof input.title === "string" && input.title.length > 0;
+  return (hasTitle ? bannerHeight : 0) + input.sections.reduce(
+    (height, section) =>
+      height +
+      (typeof section.heading === "string" && section.heading.length > 0 ? headingHeight : 0) +
+      section.fields.length * rowHeight,
+    0,
+  );
+}
+
+export function renderFieldPanel(input: FieldPanelInput): string {
+  const { width, rowHeight, bannerHeight, headingHeight } = fieldPanelMetrics(input);
+  const variant = input.variant ?? "label";
+  const isScreen = variant === "screen";
+  const totalHeight = measureFieldPanel(input);
+  const pad = 12;
+  const els: string[] = [];
+
+  const panelFill = isScreen ? "#0f172a" : "#ffffff";
+  const panelStroke = isScreen ? "#1e293b" : "#94a3b8";
+  const bannerFill = isScreen ? "#1e293b" : "#e2e8f0";
+  const titleFill = isScreen ? "#e2e8f0" : "#1e293b";
+  const labelFill = isScreen ? "#94a3b8" : "#475569";
+  const valueFill = isScreen ? "#bef264" : "#0f172a";
+  const dividerStroke = isScreen ? "#334155" : "#e2e8f0";
+
+  els.push(
+    `<rect x="0" y="0" width="${fmt(width)}" height="${fmt(totalHeight)}" fill="${panelFill}" stroke="${panelStroke}" stroke-width="1" rx="4"/>`,
+  );
+
+  let yOff = 0;
+  if (typeof input.title === "string" && input.title.length > 0) {
+    els.push(
+      `<rect x="0" y="0" width="${fmt(width)}" height="${fmt(bannerHeight)}" fill="${bannerFill}" rx="4"/>`,
+    );
+    els.push(
+      `<text x="${fmt(pad)}" y="${fmt(bannerHeight * 0.65)}" font-family="sans-serif" font-size="13" font-weight="600" fill="${titleFill}" text-anchor="start">${escapeXml(input.title)}</text>`,
+    );
+    els.push(
+      `<line x1="0" y1="${fmt(bannerHeight)}" x2="${fmt(width)}" y2="${fmt(bannerHeight)}" stroke="${panelStroke}" stroke-width="1"/>`,
+    );
+    yOff += bannerHeight;
+  }
+
+  for (const section of input.sections) {
+    if (typeof section.heading === "string" && section.heading.length > 0) {
+      els.push(
+        `<rect x="0" y="${fmt(yOff)}" width="${fmt(width)}" height="${fmt(headingHeight)}" fill="${isScreen ? "#172033" : "#f8fafc"}"/>`,
+      );
+      els.push(
+        `<text x="${fmt(pad)}" y="${fmt(yOff + headingHeight * 0.66)}" font-family="sans-serif" font-size="11" font-weight="600" fill="${labelFill}" text-anchor="start">${escapeXml(section.heading)}</text>`,
+      );
+      yOff += headingHeight;
+    }
+
+    for (const field of section.fields) {
+      if (field.emphasis === "flag" && !isScreen) {
+        els.push(
+          `<rect x="1" y="${fmt(yOff + 1)}" width="${fmt(width - 2)}" height="${fmt(rowHeight - 2)}" fill="#fef9c3"/>`,
+        );
+      }
+      els.push(
+        `<line x1="0" y1="${fmt(yOff + rowHeight)}" x2="${fmt(width)}" y2="${fmt(yOff + rowHeight)}" stroke="${dividerStroke}" stroke-width="1"/>`,
+      );
+      els.push(
+        `<text x="${fmt(pad)}" y="${fmt(yOff + rowHeight * 0.65)}" font-family="sans-serif" font-size="12" font-weight="400" fill="${labelFill}" text-anchor="start">${escapeXml(field.label)}</text>`,
+      );
+      const fontWeight = field.emphasis === "bold" ? "600" : "400";
+      const emphasizedValueFill =
+        field.emphasis === "flag" && isScreen ? "#f59e0b" : valueFill;
+      const fontFamily = isScreen ? "ui-monospace, monospace" : "sans-serif";
+      els.push(
+        `<text x="${fmt(width - pad)}" y="${fmt(yOff + rowHeight * 0.65)}" font-family="${fontFamily}" font-size="12" font-weight="${fontWeight}" fill="${emphasizedValueFill}" text-anchor="end">${escapeXml(field.value)}</text>`,
+      );
+      yOff += rowHeight;
+    }
+  }
+
+  return `<g class="field-panel">\n${els.join("\n")}\n</g>`;
+}

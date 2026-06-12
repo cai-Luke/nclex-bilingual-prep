@@ -28,6 +28,29 @@ export const fmt = (value: number) => {
   return fixed.endsWith(".00") ? fixed.slice(0, -3) : fixed.replace(/0$/, "");
 };
 
+/**
+ * Deterministic display formatter for clinical numeric values. Avoids
+ * locale-dependent formatting while keeping large counts readable.
+ */
+export const fmtNum = (value: number) => {
+  if (!Number.isFinite(value)) return String(value);
+
+  const raw = Number.isInteger(value)
+    ? String(value)
+    : value.toFixed(12).replace(/0+$/, "").replace(/\.$/, "");
+  const [integer, decimal] = raw.split(".");
+  const sign = integer.startsWith("-") ? "-" : "";
+  const digits = sign ? integer.slice(1) : integer;
+  const grouped = digits.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  return `${sign}${grouped}${decimal === undefined ? "" : `.${decimal}`}`;
+};
+
+/** Standard positive-dose rounding to a declared number of decimal places. */
+export const roundTo = (value: number, places: number) => {
+  const factor = 10 ** places;
+  return Math.round((value + Number.EPSILON) * factor) / factor;
+};
+
 export const renderGrid = (width: number, height: number) => {
   const minorStep = ECG_SCALE.pxPerMm;
   const lines: string[] = [];

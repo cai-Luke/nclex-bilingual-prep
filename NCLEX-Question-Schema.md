@@ -86,6 +86,7 @@ Committed visual lanes (append-only):
 | `lab_trend` | Serial laboratory values (1–2 analytes, ≥3 timepoints) |
 | `mar` | Medication Administration Record |
 | `io_record` | Intake and output flowsheet with derived totals and net balance |
+| `medication_label` | Synthetic medication product label with structured strength |
 
 ### Visual contract metadata
 
@@ -430,6 +431,67 @@ Validation rules:
 - Supported keyed values are `intake_total_ml`, `output_total_ml`, and signed `net_balance_ml`. Each declared value must exactly equal the integer total recomputed from entries.
 - **Caption rule:** `caption` and `periodLabel` must not reveal the answer or clinical interpretation.
 - Human review must verify that deriving the value is genuinely required and that the rationale interprets it correctly.
+
+### Kind: `medication_label`
+
+Renders a synthetic medication product label for a vial, bag, premix, tablet, or capsule. The visual is load-bearing only when the product strength appears solely on the label and the learner must combine it with an order in the stem to compute a concentration, volume, quantity, or rate.
+
+Unlike the global visual default, `medication_label` is allowed on `multiple_choice`, `select_all`, `matrix`, and `fill_in_blank`.
+
+```json
+{
+  "visual": {
+    "kind": "medication_label",
+    "drugName": "Heparin Sodium",
+    "amount": 25000,
+    "amountUnit": "units",
+    "perQty": 250,
+    "perUnit": "mL",
+    "showDerivedConcentration": false,
+    "fields": [
+      { "label": "Diluent", "value": "D5W" }
+    ],
+    "caption": { "en": "Heparin premix label", "zh": "肝素预混液标签" }
+  },
+  "meta": {
+    "visual_justification": "The learner must read the product strength from the label to compute the infusion rate.",
+    "tier": "strictest",
+    "source": "...",
+    "skill_signature": "medlbl:concentration-to-rate/heparin-infusion",
+    "stem_disambiguators": ["heparin", "units per hour"],
+    "order": {
+      "kind": "dose_rate",
+      "value": 1000,
+      "unit": "units",
+      "round": 0
+    },
+    "derived_values_keyed": {
+      "rate_ml_per_hr": 10
+    }
+  }
+}
+```
+
+Controlled vocabularies:
+- `amountUnit`: `mg`, `mcg`, `g`, `units`, `mEq`, `mmol`
+- `perUnit`: `mL`, `tablet`, `capsule`
+- `meta.order.kind`: `dose`, `dose_rate`, or `none` when only `concentration_per_ml` is keyed
+- `meta.order.round`: `0`, `1`, or `2`; defaults to `1`
+
+Validation and arithmetic rules:
+- `kind` must be `"medication_label"`.
+- `drugName` must be a non-empty string.
+- `amount` and `perQty` must be finite positive numbers. Sanity maxima are 1,000,000 and 5,000 respectively; these catch misplaced digits and are not clinical thresholds.
+- `showDerivedConcentration`, if present, must be boolean and may be true only when `perUnit` is `"mL"`.
+- Every optional ancillary `fields` entry requires non-empty `label` and `value` strings. Ancillary fields are display-only and must never be load-bearing.
+- `caption.en` is required when `caption` is present. Optional `caption.zh` must be non-empty.
+- `selfCheck` requires `visual_justification` and at least one recognized `derived_values_keyed` value.
+- Supported keyed values are `concentration_per_ml`, `volume_to_administer_ml`, `quantity_to_administer_tablets`, `quantity_to_administer_capsules`, and `rate_ml_per_hr`.
+- All dose, quantity, and rate derivations require `meta.order.unit === visual.amountUnit`. Cross-unit conversion, weight-based dosing, and free-text dose parsing are out of scope.
+- `selfCheck` recomputes each declared value from `amount / perQty`, rounds to the declared precision, and requires exact equality.
+- `showDerivedConcentration` must be false when the item keys on `concentration_per_ml`, because displaying that row would reveal the answer.
+- **Caption rule:** captions and ancillary fields must not reveal the answer or clinical interpretation.
+- **STRICTEST tier.** Human review must source-check the product strength, verify the order is clinically plausible, confirm the strength is not restated in the stem, and ensure nothing else on the item is accidentally unsafe.
 
 ---
 

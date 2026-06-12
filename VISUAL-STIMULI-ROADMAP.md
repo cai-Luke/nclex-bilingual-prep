@@ -116,15 +116,18 @@ Two reusable primitives unlock this whole tier. Build each primitive *reusably* 
 - ✅ Totals are structurally absent from the visual spec, so they cannot drift from entries.
 - Targets for the later content lane: fluid overload, dehydration, AKI, treatment evaluation.
 
-### U6 · `medication_label`
+### U6 · `medication_label` — ✅ DONE (2026-06-12)
 **Type:** renderer (code). **Depends on:** U4 (table primitive). **Concurrent with:** U3, U5.
 
-- Synthetic vial / IV bag / infusion labels.
-- Targets: dosage and infusion calculations, verification, high-alert safety.
-- **Accuracy watch-item:** `selfCheck` must verify concentration × volume / rate arithmetic resolves to the keyed answer exactly. This is a pure-math correctness gate; treat a mismatch as a build failure, not a content note.
+- ✅ Added the reusable `renderFieldPanel` / `measureFieldPanel` primitive with label and screen variants for U6/U9.
+- ✅ Added shared deterministic `fmtNum` and `roundTo` numeric helpers.
+- ✅ Renders structured vial, bag, premix, tablet, and capsule labels without a free-text concentration field.
+- ✅ Supports `multiple_choice`, `select_all`, `matrix`, and numeric `fill_in_blank`.
+- ✅ `selfCheck` verifies the five enumerated same-unit concentration, volume, quantity, and rate derivations exactly after declared rounding.
+- Targets for the later content lane: dosage and infusion calculations, verification, high-alert safety.
 
 ### U9 · `device_screen`
-**Type:** renderer (code). **Depends on:** U4 (table primitive). **Concurrent with:** U3, U5, U6.
+**Type:** renderer (code). **Depends on:** U6 (`renderFieldPanel` + shared numeric helpers). **Concurrent with:** U3, U5.
 
 - Renders a device **settings display**, not a picture of a device: PCA pumps, infusion pumps, enteral feeding pumps. Covers dose, lockout interval, basal rate, 1-/4-hour limits, attempts vs delivered, mL/hr, volume infused.
 - Targets: unsafe pump settings, PCA-by-proxy / family-controlled analgesia danger, lockout/limit appropriateness, rate verification.
