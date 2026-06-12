@@ -55,6 +55,17 @@ Out of scope until a future schema bump:
 
 ## Milestones
 
+### Idempotent Presentation Normalization and Bias Rebaseline (Jun 12)
+
+Completed:
+- Added `npm run normalize-presentations`, a dry-run-by-default canonical-bank maintenance command; writes require explicit `--write`.
+- Normalization canonicalizes each display array by stable ID before applying the shared deterministic seeded permutation. Seeds use question identity, item type, component kind, and dropdown ID where applicable; bank filenames and current array order are excluded.
+- Covered MC, SATA, ordered-response option pools, dropdown options, and matrix columns while preserving answer IDs, ordered-response correct sequences, matrix rows/mappings, rationale references, bilingual text, metadata, question IDs, item types, and counts.
+- Included embedded `caseStudy.questions` parts and added focused tests for idempotency, byte-stability, nested normalization, no-op unsupported shapes, reference preservation, and invariant failures.
+- Applied the normalizer to all 16 bundled top-level banks (1,411 display components). A second full run reported zero changes.
+- Rebaselined deterministic Layer A artifacts without rerunning or overwriting the prior merged Layer B final report. Layer A failures fell from 31 to 19 and the Layer B queue from 823 to 806 rows.
+- Cleared the major Gemini/GPT/hard-case dropdown-index and matrix-column failures plus their global findings. Remaining SATA correct-count and ordered-response template findings are content-design backlog; the three-item `gpt-gap-jun12-rrp-bcc` scramble-depth finding is an accepted small-sample deterministic-permutation residual and propagates to the global verdict.
+
 ### Non-MCQ Structural Bias Audit — Layer A + Offline Layer B Handoff (Jun 12)
 
 Completed:

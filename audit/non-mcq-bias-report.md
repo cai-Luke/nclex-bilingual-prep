@@ -54,14 +54,14 @@ gemini-canonical / select_all / correct_option_position_n5 PASS          398  NO
 gemini-canonical / select_all / correct_option_position_n6 PASS          138  NONE
 gemini-canonical / select_all / rationale_shuffle_hazard PASS          150  NONE
 gemini-canonical / ordered_response / rationale_shuffle_hazard PASS           74  NONE
-gemini-canonical / ordered_response / scramble_depth FAIL           74  SHUFFLE_AT_PROMOTION
-gemini-canonical / ordered_response / template_repetition FAIL           74  REGENERATE
-gemini-canonical / dropdown_cloze / correct_index_n2 FAIL           68  SHUFFLE_AT_PROMOTION
-gemini-canonical / dropdown_cloze / correct_index_n3 FAIL          136  SHUFFLE_AT_PROMOTION
+gemini-canonical / ordered_response / scramble_depth PASS           74  NONE
+gemini-canonical / ordered_response / template_repetition PASS           74  NONE
+gemini-canonical / dropdown_cloze / correct_index_n2 PASS           68  NONE
+gemini-canonical / dropdown_cloze / correct_index_n3 PASS          136  NONE
 gemini-canonical / dropdown_cloze / correct_index_n4 INSUFFICIENT    0  NONE
 gemini-canonical / dropdown_cloze / rationale_shuffle_hazard PASS           97  NONE
 gemini-canonical / matrix / all_rows_same_column    PASS          105  NONE
-gemini-canonical / matrix / correct_column_n2       FAIL          297  SHUFFLE_AT_PROMOTION
+gemini-canonical / matrix / correct_column_n2       PASS          297  NONE
 gemini-canonical / matrix / correct_column_n3       PASS           73  NONE
 gemini-canonical / matrix / correct_column_n4       PASS           51  NONE
 gemini-canonical / matrix / correct_column_n5       INSUFFICIENT    5  NONE
@@ -78,13 +78,13 @@ gpt-canonical / select_all / correct_option_position_n6 PASS          122  NONE
 gpt-canonical / select_all / rationale_shuffle_hazard PASS           41  NONE
 gpt-canonical / ordered_response / rationale_shuffle_hazard PASS           59  NONE
 gpt-canonical / ordered_response / scramble_depth   PASS           59  NONE
-gpt-canonical / ordered_response / template_repetition FAIL           59  REGENERATE
+gpt-canonical / ordered_response / template_repetition PASS           59  NONE
 gpt-canonical / dropdown_cloze / correct_index_n2   INSUFFICIENT    0  NONE
-gpt-canonical / dropdown_cloze / correct_index_n3   FAIL          151  SHUFFLE_AT_PROMOTION
+gpt-canonical / dropdown_cloze / correct_index_n3   PASS          151  NONE
 gpt-canonical / dropdown_cloze / correct_index_n4   INSUFFICIENT    3  NONE
 gpt-canonical / dropdown_cloze / rationale_shuffle_hazard PASS           62  NONE
 gpt-canonical / matrix / all_rows_same_column       PASS           59  NONE
-gpt-canonical / matrix / correct_column_n2          FAIL          200  SHUFFLE_AT_PROMOTION
+gpt-canonical / matrix / correct_column_n2          PASS          200  NONE
 gpt-canonical / matrix / correct_column_n3          PASS           85  NONE
 gpt-canonical / matrix / correct_column_n4          PASS           22  NONE
 gpt-canonical / matrix / correct_column_n5          INSUFFICIENT    0  NONE
@@ -146,7 +146,7 @@ gpt-gap-jun12-rrp-bcc / select_all / correct_option_position_n5 INSUFFICIENT    
 gpt-gap-jun12-rrp-bcc / select_all / correct_option_position_n6 INSUFFICIENT    0  NONE
 gpt-gap-jun12-rrp-bcc / select_all / rationale_shuffle_hazard INSUFFICIENT    0  NONE
 gpt-gap-jun12-rrp-bcc / ordered_response / rationale_shuffle_hazard PASS            3  NONE
-gpt-gap-jun12-rrp-bcc / ordered_response / scramble_depth PASS            3  NONE
+gpt-gap-jun12-rrp-bcc / ordered_response / scramble_depth FAIL            3  SHUFFLE_AT_PROMOTION
 gpt-gap-jun12-rrp-bcc / ordered_response / template_repetition FAIL            3  REGENERATE
 gpt-gap-jun12-rrp-bcc / dropdown_cloze / correct_index_n2 INSUFFICIENT    0  NONE
 gpt-gap-jun12-rrp-bcc / dropdown_cloze / correct_index_n3 INSUFFICIENT    8  NONE
@@ -192,10 +192,10 @@ hard-cases-canonical / select_all / correct_option_position_n5 PASS           88
 hard-cases-canonical / select_all / correct_option_position_n6 PASS           47  NONE
 hard-cases-canonical / select_all / rationale_shuffle_hazard PASS           36  NONE
 hard-cases-canonical / ordered_response / rationale_shuffle_hazard PASS           16  NONE
-hard-cases-canonical / ordered_response / scramble_depth FAIL           16  SHUFFLE_AT_PROMOTION
+hard-cases-canonical / ordered_response / scramble_depth PASS           16  NONE
 hard-cases-canonical / ordered_response / template_repetition PASS           16  NONE
 hard-cases-canonical / dropdown_cloze / correct_index_n2 PASS           10  NONE
-hard-cases-canonical / dropdown_cloze / correct_index_n3 FAIL           26  SHUFFLE_AT_PROMOTION
+hard-cases-canonical / dropdown_cloze / correct_index_n3 PASS           26  NONE
 hard-cases-canonical / dropdown_cloze / correct_index_n4 INSUFFICIENT    0  NONE
 hard-cases-canonical / dropdown_cloze / rationale_shuffle_hazard PASS           17  NONE
 hard-cases-canonical / matrix / all_rows_same_column PASS           27  NONE
@@ -378,11 +378,11 @@ global / select_all / rationale_shuffle_hazard      PASS          255  NONE
 global / ordered_response / scramble_depth          FAIL          164  SHUFFLE_AT_PROMOTION
 global / ordered_response / template_repetition     FAIL          164  REGENERATE
 global / ordered_response / rationale_shuffle_hazard PASS          164  NONE
-global / dropdown_cloze / correct_index_n2          FAIL           78  SHUFFLE_AT_PROMOTION
-global / dropdown_cloze / correct_index_n3          FAIL          346  SHUFFLE_AT_PROMOTION
+global / dropdown_cloze / correct_index_n2          PASS           78  NONE
+global / dropdown_cloze / correct_index_n3          PASS          346  NONE
 global / dropdown_cloze / correct_index_n4          INSUFFICIENT   11  NONE
 global / dropdown_cloze / rationale_shuffle_hazard  PASS          191  NONE
-global / matrix / correct_column_n2                 FAIL          698  SHUFFLE_AT_PROMOTION
+global / matrix / correct_column_n2                 PASS          698  NONE
 global / matrix / correct_column_n3                 PASS          205  NONE
 global / matrix / correct_column_n4                 PASS           77  NONE
 global / matrix / correct_column_n5                 INSUFFICIENT    5  NONE
@@ -395,33 +395,21 @@ global / matrix / correct_row_n8                    INSUFFICIENT    8  NONE
 global / matrix / all_rows_same_column              PASS          222  NONE
 global / matrix / rationale_shuffle_hazard          PASS          230  NONE
 
-Findings: 31 FAIL, 259 INSUFFICIENT
+Findings: 19 FAIL, 259 INSUFFICIENT
 
 SHUFFLE_AT_PROMOTION:
-  gemini-canonical / ordered_response / scramble_depth [gap_50_bcc_01, gap_50_bcc_03, gap_50_bcc_09]
-  gemini-canonical / dropdown_cloze / correct_index_n2 [gap_50_bcc_02, gap_50_bcc_02, gap_50_bcc_04]
-  gemini-canonical / dropdown_cloze / correct_index_n3 [gemini_b8_03, gemini_b8_03, gemini_b8_05]
-  gemini-canonical / matrix / correct_column_n2 [gap_50_bcc_06, gap_50_bcc_06, gap_50_bcc_06]
-  gpt-canonical / dropdown_cloze / correct_index_n3 [cloze_hyperkalemia_ecg_029, cloze_hyperkalemia_ecg_029, cloze_hyperkalemia_ecg_029]
-  gpt-canonical / matrix / correct_column_n2 [gpt_canonical_matrix_asthma_exacerbation_065, gpt_canonical_matrix_asthma_exacerbation_065, gpt_canonical_matrix_asthma_exacerbation_065]
-  hard-cases-canonical / ordered_response / scramble_depth [case_gbs_01_q2, preeclampsia_mag_toxicity_order, sa_post_mortem_01]
-  hard-cases-canonical / dropdown_cloze / correct_index_n3 [case_pe_01_q3, case_pph_01_part_1, case_pph_01_part_1]
-  global / ordered_response / scramble_depth [case_gbs_01_q2, gap_50_bcc_01, gap_50_bcc_03]
-  global / dropdown_cloze / correct_index_n2 [case_ami_01_q2, case_ami_01_q2, case_dka_01_q2]
-  global / dropdown_cloze / correct_index_n3 [case_pe_01_q3, case_pph_01_part_1, case_pph_01_part_1]
-  global / matrix / correct_column_n2 [case_ami_01_q5, case_celiac_01_q2, case_celiac_01_q2]
+  gpt-gap-jun12-rrp-bcc / ordered_response / scramble_depth [gpt_gap_jun12_or_near_miss_medication_error_01, gpt_gap_jun12_or_transfusion_reaction_01, gpt_gap_jun12_or_constipation_management_01]
+  global / ordered_response / scramble_depth [gpt_gap_jun12_or_constipation_management_01, gpt_gap_jun12_or_near_miss_medication_error_01, gpt_gap_jun12_or_transfusion_reaction_01]
 
 REGENERATE:
   claude-canonical / select_all / correct_count_distribution [claude_a_sata_cultural_eol_38, claude_a_sata_delirium_features_32, claude_a_sata_eps_haloperidol_12]
   claude-canonical / ordered_response / template_repetition [opus_bcc_rehab_2026_06_10_06]
   gemini-canonical / select_all / correct_count_distribution [gemini_b1_04, gemini_b1_06, gemini_b2_05]
-  gemini-canonical / ordered_response / template_repetition [gap_50_bcc_01, gap_50_bcc_03, gap_50_bcc_10]
   gpt-canonical / select_all / correct_count_distribution [gpt_canonical_sata_alcohol_withdrawal_047, gpt_canonical_sata_breastfeeding_085, gpt_canonical_sata_clabsi_prevention_067]
-  gpt-canonical / ordered_response / template_repetition [gpt_canonical_or_anaphylaxis_066, gpt_canonical_or_chest_tube_disconnect_052, gpt_canonical_or_colonoscopy_prep_101]
   gpt-case-opus5-cdi-2026-06-11 / select_all / correct_count_distribution [gpt_case_opus5_cdi_immunocompromised_01_q2]
   gpt-case-opus5-cdi-2026-06-11 / ordered_response / template_repetition [gpt_case_opus5_cdi_immunocompromised_01_q5]
   gpt-case-warfarin-mvr-2026-06-11-patched / select_all / correct_count_distribution [gpt_case_warfarin_mvr_2026_06_11_01_q2]
-  gpt-gap-jun12-rrp-bcc / ordered_response / template_repetition [gpt_gap_jun12_or_transfusion_reaction_01]
+  gpt-gap-jun12-rrp-bcc / ordered_response / template_repetition [gpt_gap_jun12_or_near_miss_medication_error_01]
   hard-cases-canonical / select_all / correct_count_distribution [case_ami_01_q3, case_cirrhosis_01_q2, case_dka_01_q4]
   lab-canonical / ordered_response / template_repetition [gpt_u3_labtrend_2026_06_09_or_hyperkalemia_progression_06]
   opus-code-status-escalation-opus2 / select_all / correct_count_distribution [opus2_case_code_status_q5]
@@ -430,4 +418,4 @@ REGENERATE:
   opus1-tha-discharge-case-study-patched / select_all / correct_count_distribution [opus1_case_tha_discharge_lep_01_q3, opus1_case_tha_discharge_lep_01_q6]
   visual-canonical / select_all / correct_count_distribution [ekg_b1_sata_03, ekg_b1_sata_07, ekg_b2_sata_06]
   global / select_all / correct_count_distribution [case_ami_01_q3, case_cirrhosis_01_q2, case_dka_01_q4]
-  global / ordered_response / template_repetition [case_gbs_01_q2, gap_50_bcc_01, gap_50_bcc_03]
+  global / ordered_response / template_repetition [gpt_case_opus5_cdi_immunocompromised_01_q5, gpt_gap_jun12_or_near_miss_medication_error_01, gpt_u3_labtrend_2026_06_09_or_hyperkalemia_progression_06]

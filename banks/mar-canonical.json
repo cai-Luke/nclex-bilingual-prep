@@ -21,7 +21,10 @@
       },
       "visual": {
         "kind": "mar",
-        "timeGrid": ["0900", "2100"],
+        "timeGrid": [
+          "0900",
+          "2100"
+        ],
         "medications": [
           {
             "name": "digoxin",
@@ -29,7 +32,10 @@
             "route": "PO",
             "frequency": "daily",
             "administrations": [
-              { "time": "0900", "status": "due" }
+              {
+                "time": "0900",
+                "status": "due"
+              }
             ],
             "isHighAlert": true
           },
@@ -39,7 +45,10 @@
             "route": "PO",
             "frequency": "daily",
             "administrations": [
-              { "time": "0900", "status": "due" }
+              {
+                "time": "0900",
+                "status": "due"
+              }
             ],
             "isHighAlert": false
           }
@@ -54,9 +63,16 @@
         "tier": "strictest",
         "source": "Standard Nursing Pharmacology Guidelines",
         "skill_signature": "mar:hold-parameter/bradycardia",
-        "stem_disambiguators": ["digoxin", "apical"],
+        "stem_disambiguators": [
+          "digoxin",
+          "apical"
+        ],
         "keyed_cells": [
-          { "medication": "digoxin", "time": "0900", "reason": "hold_dose" }
+          {
+            "medication": "digoxin",
+            "time": "0900",
+            "reason": "hold_dose"
+          }
         ],
         "expected_trend": [],
         "expected_flags": [],
@@ -64,12 +80,30 @@
         "reference_bands": "adult"
       },
       "options": [
-        { "id": "A", "en": "Administer both digoxin and furosemide as prescribed.", "zh": "按医嘱给予地高辛和呋塞米。" },
-        { "id": "B", "en": "Hold both digoxin and furosemide and notify the healthcare provider.", "zh": "暂停给予地高辛和呋塞米，并通知医疗服务提供者。" },
-        { "id": "C", "en": "Hold the digoxin, administer the furosemide, and notify the healthcare provider.", "zh": "暂停给予地高辛，给予呋塞米，并通知医疗服务提供者。" },
-        { "id": "D", "en": "Administer the digoxin, hold the furosemide, and notify the healthcare provider.", "zh": "给予地高辛，暂停给予呋塞米，并通知医疗服务提供者。" }
+        {
+          "id": "C",
+          "en": "Hold the digoxin, administer the furosemide, and notify the healthcare provider.",
+          "zh": "暂停给予地高辛，给予呋塞米，并通知医疗服务提供者。"
+        },
+        {
+          "id": "D",
+          "en": "Administer the digoxin, hold the furosemide, and notify the healthcare provider.",
+          "zh": "给予地高辛，暂停给予呋塞米，并通知医疗服务提供者。"
+        },
+        {
+          "id": "B",
+          "en": "Hold both digoxin and furosemide and notify the healthcare provider.",
+          "zh": "暂停给予地高辛和呋塞米，并通知医疗服务提供者。"
+        },
+        {
+          "id": "A",
+          "en": "Administer both digoxin and furosemide as prescribed.",
+          "zh": "按医嘱给予地高辛和呋塞米。"
+        }
       ],
-      "correct": ["C"],
+      "correct": [
+        "C"
+      ],
       "rationale": {
         "correct": {
           "en": "Digoxin is a cardiac glycoside that decreases heart rate. It should be held if the adult client's apical pulse is less than 60 beats/min. Furosemide is a loop diuretic; because the client's potassium level is normal (3.5–5.0 mEq/L), there is no indication to hold the furosemide.",
@@ -128,7 +162,9 @@
       },
       "visual": {
         "kind": "mar",
-        "timeGrid": ["1800"],
+        "timeGrid": [
+          "1800"
+        ],
         "medications": [
           {
             "name": "warfarin",
@@ -136,7 +172,10 @@
             "route": "PO",
             "frequency": "daily",
             "administrations": [
-              { "time": "1800", "status": "due" }
+              {
+                "time": "1800",
+                "status": "due"
+              }
             ],
             "isHighAlert": true
           }
@@ -151,9 +190,16 @@
         "tier": "strictest",
         "source": "Standard Anticoagulant Guidelines",
         "skill_signature": "mar:hold-parameter/high-inr",
-        "stem_disambiguators": ["warfarin", "INR"],
+        "stem_disambiguators": [
+          "warfarin",
+          "INR"
+        ],
         "keyed_cells": [
-          { "medication": "warfarin", "time": "1800", "reason": "hold_dose" }
+          {
+            "medication": "warfarin",
+            "time": "1800",
+            "reason": "hold_dose"
+          }
         ],
         "expected_trend": [],
         "expected_flags": [],
@@ -161,12 +207,30 @@
         "reference_bands": "adult"
       },
       "options": [
-        { "id": "A", "en": "Administer the warfarin as scheduled.", "zh": "按计划给予华法林。" },
-        { "id": "B", "en": "Hold the warfarin and notify the healthcare provider.", "zh": "暂停给予华法林并通知医疗服务提供者。" },
-        { "id": "C", "en": "Administer a half dose of warfarin.", "zh": "给予一半剂量的华法林。" },
-        { "id": "D", "en": "Hold the warfarin and prepare to administer protamine sulfate.", "zh": "暂停华法林并准备给予硫酸鱼精蛋白。" }
+        {
+          "id": "C",
+          "en": "Administer a half dose of warfarin.",
+          "zh": "给予一半剂量的华法林。"
+        },
+        {
+          "id": "D",
+          "en": "Hold the warfarin and prepare to administer protamine sulfate.",
+          "zh": "暂停华法林并准备给予硫酸鱼精蛋白。"
+        },
+        {
+          "id": "B",
+          "en": "Hold the warfarin and notify the healthcare provider.",
+          "zh": "暂停给予华法林并通知医疗服务提供者。"
+        },
+        {
+          "id": "A",
+          "en": "Administer the warfarin as scheduled.",
+          "zh": "按计划给予华法林。"
+        }
       ],
-      "correct": ["B"],
+      "correct": [
+        "B"
+      ],
       "rationale": {
         "correct": {
           "en": "The therapeutic INR range for a client on warfarin is typically 2.0 to 3.0. An INR of 4.8 is critically elevated, placing the client at high risk for bleeding. The nurse must hold the scheduled dose and notify the healthcare provider.",
@@ -225,7 +289,10 @@
       },
       "visual": {
         "kind": "mar",
-        "timeGrid": ["0800", "2000"],
+        "timeGrid": [
+          "0800",
+          "2000"
+        ],
         "medications": [
           {
             "name": "vancomycin",
@@ -233,8 +300,14 @@
             "route": "IVPB",
             "frequency": "q12h",
             "administrations": [
-              { "time": "0800", "status": "missed" },
-              { "time": "2000", "status": "due" }
+              {
+                "time": "0800",
+                "status": "missed"
+              },
+              {
+                "time": "2000",
+                "status": "due"
+              }
             ],
             "isHighAlert": true
           }
@@ -249,9 +322,16 @@
         "tier": "strictest",
         "source": "Surviving Sepsis Campaign Guidelines",
         "skill_signature": "mar:missed-dose/sepsis-antibiotic",
-        "stem_disambiguators": ["sepsis", "vancomycin"],
+        "stem_disambiguators": [
+          "sepsis",
+          "vancomycin"
+        ],
         "keyed_cells": [
-          { "medication": "vancomycin", "time": "0800", "reason": "missed" }
+          {
+            "medication": "vancomycin",
+            "time": "0800",
+            "reason": "missed"
+          }
         ],
         "expected_trend": [],
         "expected_flags": [],
@@ -259,12 +339,30 @@
         "reference_bands": "adult"
       },
       "options": [
-        { "id": "A", "en": "Administer the missed vancomycin dose immediately.", "zh": "立即给予漏服的万古霉素剂量。" },
-        { "id": "B", "en": "Wait and administer the next dose at the next scheduled time.", "zh": "等待并在下一次预定时间给药。" },
-        { "id": "C", "en": "Notify the pharmacy to change the administration frequency to daily.", "zh": "通知药房将给药频率更改为每日一次。" },
-        { "id": "D", "en": "Document the medication as not given due to lack of IV access.", "zh": "记录因无静脉通路未给予该药物。" }
+        {
+          "id": "B",
+          "en": "Wait and administer the next dose at the next scheduled time.",
+          "zh": "等待并在下一次预定时间给药。"
+        },
+        {
+          "id": "C",
+          "en": "Notify the pharmacy to change the administration frequency to daily.",
+          "zh": "通知药房将给药频率更改为每日一次。"
+        },
+        {
+          "id": "A",
+          "en": "Administer the missed vancomycin dose immediately.",
+          "zh": "立即给予漏服的万古霉素剂量。"
+        },
+        {
+          "id": "D",
+          "en": "Document the medication as not given due to lack of IV access.",
+          "zh": "记录因无静脉通路未给予该药物。"
+        }
       ],
-      "correct": ["A"],
+      "correct": [
+        "A"
+      ],
       "rationale": {
         "correct": {
           "en": "In a client with sepsis, timely administration of antibiotics is critical to survival. Since a new IV has been established, the delayed 0800 dose should be administered immediately. The schedule for subsequent doses can be adjusted by pharmacy later.",
@@ -323,7 +421,9 @@
       },
       "visual": {
         "kind": "mar",
-        "timeGrid": ["0900"],
+        "timeGrid": [
+          "0900"
+        ],
         "medications": [
           {
             "name": "metoprolol",
@@ -331,7 +431,10 @@
             "route": "PO",
             "frequency": "daily",
             "administrations": [
-              { "time": "0900", "status": "due" }
+              {
+                "time": "0900",
+                "status": "due"
+              }
             ],
             "isHighAlert": true
           },
@@ -341,7 +444,10 @@
             "route": "PO",
             "frequency": "daily",
             "administrations": [
-              { "time": "0900", "status": "due" }
+              {
+                "time": "0900",
+                "status": "due"
+              }
             ],
             "isHighAlert": false
           },
@@ -351,7 +457,10 @@
             "route": "PO",
             "frequency": "daily",
             "administrations": [
-              { "time": "0900", "status": "due" }
+              {
+                "time": "0900",
+                "status": "due"
+              }
             ],
             "isHighAlert": false
           }
@@ -366,11 +475,27 @@
         "tier": "strictest",
         "source": "Standard Nursing Pharmacology",
         "skill_signature": "mar:hold-parameter/multiple-meds",
-        "stem_disambiguators": ["metoprolol", "lisinopril", "pantoprazole"],
+        "stem_disambiguators": [
+          "metoprolol",
+          "lisinopril",
+          "pantoprazole"
+        ],
         "keyed_cells": [
-          { "medication": "metoprolol", "time": "0900", "reason": "due" },
-          { "medication": "lisinopril", "time": "0900", "reason": "due" },
-          { "medication": "pantoprazole", "time": "0900", "reason": "due" }
+          {
+            "medication": "metoprolol",
+            "time": "0900",
+            "reason": "due"
+          },
+          {
+            "medication": "lisinopril",
+            "time": "0900",
+            "reason": "due"
+          },
+          {
+            "medication": "pantoprazole",
+            "time": "0900",
+            "reason": "due"
+          }
         ],
         "expected_trend": [],
         "expected_flags": [],
@@ -379,20 +504,55 @@
       },
       "matrix": {
         "rows": [
-          { "id": "r1", "en": "Metoprolol", "zh": "美托洛尔" },
-          { "id": "r2", "en": "Lisinopril", "zh": "赖诺普利" },
-          { "id": "r3", "en": "Pantoprazole", "zh": "泮托拉唑" }
+          {
+            "id": "r1",
+            "en": "Metoprolol",
+            "zh": "美托洛尔"
+          },
+          {
+            "id": "r2",
+            "en": "Lisinopril",
+            "zh": "赖诺普利"
+          },
+          {
+            "id": "r3",
+            "en": "Pantoprazole",
+            "zh": "泮托拉唑"
+          }
         ],
         "columns": [
-          { "id": "c1", "en": "Administer", "zh": "给予" },
-          { "id": "c2", "en": "Hold", "zh": "暂停" }
+          {
+            "id": "c2",
+            "en": "Hold",
+            "zh": "暂停"
+          },
+          {
+            "id": "c1",
+            "en": "Administer",
+            "zh": "给予"
+          }
         ],
         "selectionMode": "single_per_row"
       },
       "correct": [
-        { "rowId": "r1", "columnIds": ["c2"] },
-        { "rowId": "r2", "columnIds": ["c1"] },
-        { "rowId": "r3", "columnIds": ["c1"] }
+        {
+          "rowId": "r1",
+          "columnIds": [
+            "c2"
+          ]
+        },
+        {
+          "rowId": "r2",
+          "columnIds": [
+            "c1"
+          ]
+        },
+        {
+          "rowId": "r3",
+          "columnIds": [
+            "c1"
+          ]
+        }
       ],
       "rationale": {
         "correct": {
@@ -447,7 +607,9 @@
       },
       "visual": {
         "kind": "mar",
-        "timeGrid": ["0800"],
+        "timeGrid": [
+          "0800"
+        ],
         "medications": [
           {
             "name": "furosemide",
@@ -455,7 +617,10 @@
             "route": "PO",
             "frequency": "daily",
             "administrations": [
-              { "time": "0800", "status": "due" }
+              {
+                "time": "0800",
+                "status": "due"
+              }
             ],
             "isHighAlert": false
           },
@@ -465,7 +630,10 @@
             "route": "PO",
             "frequency": "daily",
             "administrations": [
-              { "time": "0800", "status": "due" }
+              {
+                "time": "0800",
+                "status": "due"
+              }
             ],
             "isHighAlert": true
           },
@@ -475,7 +643,10 @@
             "route": "SubQ",
             "frequency": "AC breakfast",
             "administrations": [
-              { "time": "0800", "status": "due" }
+              {
+                "time": "0800",
+                "status": "due"
+              }
             ],
             "isHighAlert": true
           }
@@ -490,11 +661,27 @@
         "tier": "strictest",
         "source": "Standard Nursing Pharmacology",
         "skill_signature": "mar:pre-admin-assessment/matching",
-        "stem_disambiguators": ["furosemide", "digoxin", "insulin"],
+        "stem_disambiguators": [
+          "furosemide",
+          "digoxin",
+          "insulin"
+        ],
         "keyed_cells": [
-          { "medication": "furosemide", "time": "0800", "reason": "due" },
-          { "medication": "digoxin", "time": "0800", "reason": "due" },
-          { "medication": "insulin regular", "time": "0800", "reason": "due" }
+          {
+            "medication": "furosemide",
+            "time": "0800",
+            "reason": "due"
+          },
+          {
+            "medication": "digoxin",
+            "time": "0800",
+            "reason": "due"
+          },
+          {
+            "medication": "insulin regular",
+            "time": "0800",
+            "reason": "due"
+          }
         ],
         "expected_trend": [],
         "expected_flags": [],
@@ -503,21 +690,60 @@
       },
       "matrix": {
         "rows": [
-          { "id": "r1", "en": "Furosemide", "zh": "呋塞米" },
-          { "id": "r2", "en": "Digoxin", "zh": "地高辛" },
-          { "id": "r3", "en": "Insulin regular", "zh": "常规胰岛素" }
+          {
+            "id": "r1",
+            "en": "Furosemide",
+            "zh": "呋塞米"
+          },
+          {
+            "id": "r2",
+            "en": "Digoxin",
+            "zh": "地高辛"
+          },
+          {
+            "id": "r3",
+            "en": "Insulin regular",
+            "zh": "常规胰岛素"
+          }
         ],
         "columns": [
-          { "id": "c1", "en": "Serum potassium level", "zh": "血清钾水平" },
-          { "id": "c2", "en": "Apical pulse rate", "zh": "心尖搏动率" },
-          { "id": "c3", "en": "Blood glucose level", "zh": "血糖水平" }
+          {
+            "id": "c2",
+            "en": "Apical pulse rate",
+            "zh": "心尖搏动率"
+          },
+          {
+            "id": "c3",
+            "en": "Blood glucose level",
+            "zh": "血糖水平"
+          },
+          {
+            "id": "c1",
+            "en": "Serum potassium level",
+            "zh": "血清钾水平"
+          }
         ],
         "selectionMode": "single_per_row"
       },
       "correct": [
-        { "rowId": "r1", "columnIds": ["c1"] },
-        { "rowId": "r2", "columnIds": ["c2"] },
-        { "rowId": "r3", "columnIds": ["c3"] }
+        {
+          "rowId": "r1",
+          "columnIds": [
+            "c1"
+          ]
+        },
+        {
+          "rowId": "r2",
+          "columnIds": [
+            "c2"
+          ]
+        },
+        {
+          "rowId": "r3",
+          "columnIds": [
+            "c3"
+          ]
+        }
       ],
       "rationale": {
         "correct": {

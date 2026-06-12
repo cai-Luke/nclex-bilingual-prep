@@ -150,19 +150,9 @@
             },
             "options": [
               {
-                "id": "B",
-                "en": "Stop the infusion, keep the IV patent with normal saline, place the client supine with legs slightly elevated, obtain vital signs, and notify the provider.",
-                "zh": "停止输注，用生理盐水保持静脉通路通畅，使患者仰卧并轻度抬高双腿，测量生命体征并通知医嘱者。"
-              },
-              {
-                "id": "A",
-                "en": "Administer intramuscular epinephrine and document a vancomycin allergy.",
-                "zh": "肌内注射肾上腺素，并记录为万古霉素过敏。"
-              },
-              {
-                "id": "D",
-                "en": "Slow the infusion rate without stopping it, then reassess when the dose is complete.",
-                "zh": "不停止输注，仅降低输注速度，待本次剂量完成后再评估。"
+                "id": "C",
+                "en": "Continue the infusion at the same rate because flushing is an expected effect during the first dose.",
+                "zh": "按原速度继续输注，因为首次给药时潮红是预期反应。"
               },
               {
                 "id": "E",
@@ -170,9 +160,19 @@
                 "zh": "拔除外周静脉导管，并立即请求改用另一种抗生素。"
               },
               {
-                "id": "C",
-                "en": "Continue the infusion at the same rate because flushing is an expected effect during the first dose.",
-                "zh": "按原速度继续输注，因为首次给药时潮红是预期反应。"
+                "id": "A",
+                "en": "Administer intramuscular epinephrine and document a vancomycin allergy.",
+                "zh": "肌内注射肾上腺素，并记录为万古霉素过敏。"
+              },
+              {
+                "id": "B",
+                "en": "Stop the infusion, keep the IV patent with normal saline, place the client supine with legs slightly elevated, obtain vital signs, and notify the provider.",
+                "zh": "停止输注，用生理盐水保持静脉通路通畅，使患者仰卧并轻度抬高双腿，测量生命体征并通知医嘱者。"
+              },
+              {
+                "id": "D",
+                "en": "Slow the infusion rate without stopping it, then reassess when the dose is complete.",
+                "zh": "不停止输注，仅降低输注速度，待本次剂量完成后再评估。"
               }
             ],
             "correct": [
@@ -253,11 +253,6 @@
                 "id": "1",
                 "options": [
                   {
-                    "id": "o1",
-                    "en": "an infusion-related adverse drug reaction",
-                    "zh": "输注相关不良药物反应"
-                  },
-                  {
                     "id": "o2",
                     "en": "a true vancomycin allergy",
                     "zh": "真正的万古霉素过敏"
@@ -266,6 +261,11 @@
                     "id": "o3",
                     "en": "vancomycin-induced anaphylaxis",
                     "zh": "万古霉素诱发的过敏性休克"
+                  },
+                  {
+                    "id": "o1",
+                    "en": "an infusion-related adverse drug reaction",
+                    "zh": "输注相关不良药物反应"
                   }
                 ],
                 "correct": "o1"
@@ -274,9 +274,9 @@
                 "id": "2",
                 "options": [
                   {
-                    "id": "o1",
-                    "en": "premedication as ordered and an infusion rate no faster than 10 mg/min",
-                    "zh": "按医嘱预处理，并以不快于 10 mg/分钟的速度输注"
+                    "id": "o3",
+                    "en": "routine epinephrine before each dose",
+                    "zh": "每次给药前常规给予肾上腺素"
                   },
                   {
                     "id": "o2",
@@ -284,9 +284,9 @@
                     "zh": "永久避免所有糖肽类抗生素"
                   },
                   {
-                    "id": "o3",
-                    "en": "routine epinephrine before each dose",
-                    "zh": "每次给药前常规给予肾上腺素"
+                    "id": "o1",
+                    "en": "premedication as ordered and an infusion rate no faster than 10 mg/min",
+                    "zh": "按医嘱预处理，并以不快于 10 mg/分钟的速度输注"
                   }
                 ],
                 "correct": "o1"
@@ -345,9 +345,9 @@
             },
             "options": [
               {
-                "id": "D",
-                "en": "Administer the revised dose using the ordered premedication and slower infusion precautions.",
-                "zh": "按已下达的预处理和较慢输注预防措施，给予修订后的剂量。"
+                "id": "E",
+                "en": "Document the trough, held dose, notifications, verified new order, and monitoring plan.",
+                "zh": "记录谷浓度、暂缓给药、通知情况、已核实的新医嘱以及监测计划。"
               },
               {
                 "id": "A",
@@ -355,19 +355,19 @@
                 "zh": "在澄清医嘱期间，暂缓预定的 1,250 mg 万古霉素剂量。"
               },
               {
-                "id": "C",
-                "en": "Verify that the new 1,000 mg vancomycin order is active in the medication administration record.",
-                "zh": "核实新的 1,000 mg 万古霉素医嘱已在给药记录中生效。"
-              },
-              {
                 "id": "B",
                 "en": "Contact the prescriber to confirm the revised dosing order recommended by pharmacy.",
                 "zh": "联系医嘱者，确认药师建议的修订剂量医嘱。"
               },
               {
-                "id": "E",
-                "en": "Document the trough, held dose, notifications, verified new order, and monitoring plan.",
-                "zh": "记录谷浓度、暂缓给药、通知情况、已核实的新医嘱以及监测计划。"
+                "id": "D",
+                "en": "Administer the revised dose using the ordered premedication and slower infusion precautions.",
+                "zh": "按已下达的预处理和较慢输注预防措施，给予修订后的剂量。"
+              },
+              {
+                "id": "C",
+                "en": "Verify that the new 1,000 mg vancomycin order is active in the medication administration record.",
+                "zh": "核实新的 1,000 mg 万古霉素医嘱已在给药记录中生效。"
               }
             ],
             "correct": [
@@ -450,11 +450,6 @@
                 "zh": "请患者取下助听器，并进行可重复的床旁听力筛查，例如分别测试每只耳朵的耳语测试。"
               },
               {
-                "id": "C",
-                "en": "Document a dated patient-specific baseline and compare future assessments with that baseline.",
-                "zh": "记录有日期的、针对该患者的基线，并将后续评估与该基线比较。"
-              },
-              {
                 "id": "D",
                 "en": "Chart hearing as within normal limits because the client can converse while wearing hearing aids.",
                 "zh": "因患者佩戴助听器时可交流，记录听力在正常范围内。"
@@ -463,6 +458,11 @@
                 "id": "B",
                 "en": "Ask specifically about new tinnitus, dizziness, vertigo, or subjective hearing change.",
                 "zh": "具体询问是否有新的耳鸣、头晕、眩晕或主观听力变化。"
+              },
+              {
+                "id": "C",
+                "en": "Document a dated patient-specific baseline and compare future assessments with that baseline.",
+                "zh": "记录有日期的、针对该患者的基线，并将后续评估与该基线比较。"
               },
               {
                 "id": "E",
@@ -703,6 +703,11 @@
                 "zh": "给予赖诺普利，并在次日晨间抽血时复查钾。"
               },
               {
+                "id": "D",
+                "en": "Discontinue lisinopril permanently in the medication administration record without contacting the provider.",
+                "zh": "不联系医嘱者，直接在给药记录中永久停用赖诺普利。"
+              },
+              {
                 "id": "B",
                 "en": "Administer lisinopril because it is a home medication and the blood pressure is 148/88 mm Hg.",
                 "zh": "给予赖诺普利，因为这是家庭用药且血压为 148/88 mm Hg。"
@@ -711,11 +716,6 @@
                 "id": "A",
                 "en": "Hold the lisinopril dose and notify the provider to clarify whether it should be temporarily discontinued.",
                 "zh": "暂缓赖诺普利剂量，并通知医嘱者澄清是否应暂时停用。"
-              },
-              {
-                "id": "D",
-                "en": "Discontinue lisinopril permanently in the medication administration record without contacting the provider.",
-                "zh": "不联系医嘱者，直接在给药记录中永久停用赖诺普利。"
               }
             ],
             "correct": [

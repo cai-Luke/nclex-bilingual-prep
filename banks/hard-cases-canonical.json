@@ -174,6 +174,11 @@
               ],
               "columns": [
                 {
+                  "id": "c3",
+                  "en": "Background finding",
+                  "zh": "背景资料"
+                },
+                {
                   "id": "c1",
                   "en": "Infection cue",
                   "zh": "感染线索"
@@ -182,11 +187,6 @@
                   "id": "c2",
                   "en": "Hypoperfusion cue",
                   "zh": "低灌注线索"
-                },
-                {
-                  "id": "c3",
-                  "en": "Background finding",
-                  "zh": "背景资料"
                 }
               ],
               "selectionMode": "single_per_row"
@@ -275,19 +275,14 @@
             },
             "options": [
               {
-                "id": "A",
-                "en": "Activate the sepsis response and notify the provider of hypotension and elevated lactate.",
-                "zh": "启动脓毒症反应，并通知医护团队患者低血压和乳酸升高。"
-              },
-              {
                 "id": "B",
                 "en": "Obtain ordered blood cultures and repeat lactate without delaying treatment.",
                 "zh": "按医嘱采集血培养并复查乳酸，同时不延误治疗。"
               },
               {
-                "id": "C",
-                "en": "Start prescribed broad-spectrum antibiotics.",
-                "zh": "开始执行医嘱给予广谱抗生素。"
+                "id": "E",
+                "en": "Reassess perfusion and prepare vasopressor support if MAP remains low after fluids.",
+                "zh": "重新评估灌注；若补液后平均动脉压仍低，准备血管加压药支持。"
               },
               {
                 "id": "D",
@@ -295,9 +290,14 @@
                 "zh": "给予医嘱的初始晶体液快速补液。"
               },
               {
-                "id": "E",
-                "en": "Reassess perfusion and prepare vasopressor support if MAP remains low after fluids.",
-                "zh": "重新评估灌注；若补液后平均动脉压仍低，准备血管加压药支持。"
+                "id": "A",
+                "en": "Activate the sepsis response and notify the provider of hypotension and elevated lactate.",
+                "zh": "启动脓毒症反应，并通知医护团队患者低血压和乳酸升高。"
+              },
+              {
+                "id": "C",
+                "en": "Start prescribed broad-spectrum antibiotics.",
+                "zh": "开始执行医嘱给予广谱抗生素。"
               }
             ],
             "correct": [
@@ -431,14 +431,14 @@
                 "id": "1",
                 "options": [
                   {
-                    "id": "o1",
-                    "en": "lactate decreased from 4.6 to 3.1 mmol/L",
-                    "zh": "乳酸从4.6降至3.1 mmol/L"
-                  },
-                  {
                     "id": "o2",
                     "en": "blood cultures are pending",
                     "zh": "血培养结果待回报"
+                  },
+                  {
+                    "id": "o1",
+                    "en": "lactate decreased from 4.6 to 3.1 mmol/L",
+                    "zh": "乳酸从4.6降至3.1 mmol/L"
                   },
                   {
                     "id": "o3",
@@ -452,14 +452,14 @@
                 "id": "2",
                 "options": [
                   {
-                    "id": "o1",
-                    "en": "urine output of 20 mL in the past hour",
-                    "zh": "过去1小时尿量20 mL"
-                  },
-                  {
                     "id": "o2",
                     "en": "MAP 69 mm Hg on norepinephrine",
                     "zh": "使用去甲肾上腺素时平均动脉压69 mm Hg"
+                  },
+                  {
+                    "id": "o1",
+                    "en": "urine output of 20 mL in the past hour",
+                    "zh": "过去1小时尿量20 mL"
                   },
                   {
                     "id": "o3",
@@ -645,24 +645,24 @@
                 "zh": "严重头痛，对乙酰氨基酚后不缓解"
               },
               {
-                "id": "C",
-                "en": "Platelet count 92,000/mm3",
-                "zh": "血小板92,000/mm3"
-              },
-              {
                 "id": "D",
                 "en": "Right upper-quadrant pain with elevated AST and ALT",
                 "zh": "右上腹痛并伴AST和ALT升高"
               },
               {
-                "id": "E",
-                "en": "Fetal heart rate baseline 140/min with moderate variability",
-                "zh": "胎心基线140次/分且变异度中等"
-              },
-              {
                 "id": "F",
                 "en": "Urine protein 2+",
                 "zh": "尿蛋白2+"
+              },
+              {
+                "id": "C",
+                "en": "Platelet count 92,000/mm3",
+                "zh": "血小板92,000/mm3"
+              },
+              {
+                "id": "E",
+                "en": "Fetal heart rate baseline 140/min with moderate variability",
+                "zh": "胎心基线140次/分且变异度中等"
               }
             ],
             "correct": [
@@ -739,14 +739,14 @@
             },
             "options": [
               {
+                "id": "D",
+                "en": "Place the client on seizure precautions and prepare to administer magnesium sulfate as prescribed.",
+                "zh": "为患者实施防惊厥措施，并准备按医嘱给予硫酸镁。"
+              },
+              {
                 "id": "A",
                 "en": "Reassure the client that delivery can wait until 40 weeks if the fetal tracing is reassuring.",
                 "zh": "告知患者若胎心监护正常，分娩可等到40周。"
-              },
-              {
-                "id": "B",
-                "en": "Delay medication until the 24-hour urine protein collection is complete.",
-                "zh": "等待24小时尿蛋白收集完成后再给药。"
               },
               {
                 "id": "C",
@@ -754,9 +754,9 @@
                 "zh": "鼓励口服液体以改善尿量。"
               },
               {
-                "id": "D",
-                "en": "Place the client on seizure precautions and prepare to administer magnesium sulfate as prescribed.",
-                "zh": "为患者实施防惊厥措施，并准备按医嘱给予硫酸镁。"
+                "id": "B",
+                "en": "Delay medication until the 24-hour urine protein collection is complete.",
+                "zh": "等待24小时尿蛋白收集完成后再给药。"
               }
             ],
             "correct": [
@@ -934,6 +934,21 @@
             },
             "options": [
               {
+                "id": "E",
+                "en": "Continue seizure precautions and frequent maternal-fetal monitoring.",
+                "zh": "继续防惊厥措施并密切监测母体和胎儿状况。"
+              },
+              {
+                "id": "D",
+                "en": "Prepare to administer calcium gluconate as prescribed or per protocol.",
+                "zh": "准备按医嘱或方案给予葡萄糖酸钙。"
+              },
+              {
+                "id": "C",
+                "en": "Notify the provider and rapid response team per facility policy.",
+                "zh": "按机构流程通知医护人员和快速反应团队。"
+              },
+              {
                 "id": "A",
                 "en": "Stop the magnesium sulfate infusion.",
                 "zh": "停止硫酸镁输注。"
@@ -942,21 +957,6 @@
                 "id": "B",
                 "en": "Assess airway and breathing, apply oxygen, and stay with the client.",
                 "zh": "评估气道和呼吸，给予氧气，并留在患者身边。"
-              },
-              {
-                "id": "C",
-                "en": "Notify the provider and rapid response team per facility policy.",
-                "zh": "按机构流程通知医护人员和快速反应团队。"
-              },
-              {
-                "id": "D",
-                "en": "Prepare to administer calcium gluconate as prescribed or per protocol.",
-                "zh": "准备按医嘱或方案给予葡萄糖酸钙。"
-              },
-              {
-                "id": "E",
-                "en": "Continue seizure precautions and frequent maternal-fetal monitoring.",
-                "zh": "继续防惊厥措施并密切监测母体和胎儿状况。"
               }
             ],
             "correct": [
@@ -1087,14 +1087,19 @@
             },
             "options": [
               {
-                "id": "A",
-                "en": "SpO2 of 86% on room air",
-                "zh": "室内空气下血氧饱和度为 86%"
-              },
-              {
                 "id": "B",
                 "en": "Use of accessory muscles for breathing",
                 "zh": "使用辅助呼吸肌呼吸"
+              },
+              {
+                "id": "E",
+                "en": "History of hypertension",
+                "zh": "高血压病史"
+              },
+              {
+                "id": "F",
+                "en": "Respiratory rate of 28/min",
+                "zh": "呼吸频率为 28次/分"
               },
               {
                 "id": "C",
@@ -1107,14 +1112,9 @@
                 "zh": "PaCO2 为 58 mmHg"
               },
               {
-                "id": "E",
-                "en": "History of hypertension",
-                "zh": "高血压病史"
-              },
-              {
-                "id": "F",
-                "en": "Respiratory rate of 28/min",
-                "zh": "呼吸频率为 28次/分"
+                "id": "A",
+                "en": "SpO2 of 86% on room air",
+                "zh": "室内空气下血氧饱和度为 86%"
               }
             ],
             "correct": [
@@ -1295,11 +1295,6 @@
                 "id": "2",
                 "options": [
                   {
-                    "id": "o1",
-                    "en": "hypoventilation and air trapping",
-                    "zh": "肺泡通气不足和空气滞留"
-                  },
-                  {
                     "id": "o2",
                     "en": "systemic vasodilation",
                     "zh": "全身血管舒张"
@@ -1308,6 +1303,11 @@
                     "id": "o3",
                     "en": "coronary artery occlusion",
                     "zh": "冠状动脉闭塞"
+                  },
+                  {
+                    "id": "o1",
+                    "en": "hypoventilation and air trapping",
+                    "zh": "肺泡通气不足和空气滞留"
                   }
                 ],
                 "correct": "o1"
@@ -1338,9 +1338,19 @@
             },
             "options": [
               {
+                "id": "D",
+                "en": "Administer IV methylprednisolone",
+                "zh": "静脉注射甲泼尼龙"
+              },
+              {
                 "id": "A",
                 "en": "Administer oxygen via nasal cannula to maintain SpO2 88-92%",
                 "zh": "通过鼻导管给氧，维持血氧饱和度在 88-92%"
+              },
+              {
+                "id": "E",
+                "en": "Initiate IV antibiotics",
+                "zh": "开始静脉注射抗生素"
               },
               {
                 "id": "B",
@@ -1351,16 +1361,6 @@
                 "id": "C",
                 "en": "Collect sputum for culture and sensitivity",
                 "zh": "采集痰标本进行培养和药敏试验"
-              },
-              {
-                "id": "D",
-                "en": "Administer IV methylprednisolone",
-                "zh": "静脉注射甲泼尼龙"
-              },
-              {
-                "id": "E",
-                "en": "Initiate IV antibiotics",
-                "zh": "开始静脉注射抗生素"
               }
             ],
             "correct": [
@@ -1422,6 +1422,11 @@
             },
             "options": [
               {
+                "id": "C",
+                "en": "Breath sounds are absent in the bases",
+                "zh": "肺底呼吸音消失"
+              },
+              {
                 "id": "A",
                 "en": "HR increased to 125 bpm",
                 "zh": "心率增至 125 次/分"
@@ -1430,11 +1435,6 @@
                 "id": "B",
                 "en": "PaCO2 decreased to 48 mmHg",
                 "zh": "PaCO2 降至 48 mmHg"
-              },
-              {
-                "id": "C",
-                "en": "Breath sounds are absent in the bases",
-                "zh": "肺底呼吸音消失"
               },
               {
                 "id": "D",
@@ -1632,9 +1632,9 @@
                 "id": "1",
                 "options": [
                   {
-                    "id": "o1",
-                    "en": "tall peaked T waves",
-                    "zh": "高尖T波"
+                    "id": "o3",
+                    "en": "ST segment depression",
+                    "zh": "ST段压低"
                   },
                   {
                     "id": "o2",
@@ -1642,9 +1642,9 @@
                     "zh": "明显的U波"
                   },
                   {
-                    "id": "o3",
-                    "en": "ST segment depression",
-                    "zh": "ST段压低"
+                    "id": "o1",
+                    "en": "tall peaked T waves",
+                    "zh": "高尖T波"
                   }
                 ],
                 "correct": "o1"
@@ -1653,9 +1653,9 @@
                 "id": "2",
                 "options": [
                   {
-                    "id": "o1",
-                    "en": "positive Trousseau's sign",
-                    "zh": "Trousseau征阳性"
+                    "id": "o3",
+                    "en": "constipation",
+                    "zh": "便秘"
                   },
                   {
                     "id": "o2",
@@ -1663,9 +1663,9 @@
                     "zh": "深反射减弱"
                   },
                   {
-                    "id": "o3",
-                    "en": "constipation",
-                    "zh": "便秘"
+                    "id": "o1",
+                    "en": "positive Trousseau's sign",
+                    "zh": "Trousseau征阳性"
                   }
                 ],
                 "correct": "o1"
@@ -1696,9 +1696,14 @@
             },
             "options": [
               {
-                "id": "A",
-                "en": "Avoid carrying a heavy bag with the left arm.",
-                "zh": "避免用左臂提重物。"
+                "id": "F",
+                "en": "Avoid blood pressure readings on the left arm.",
+                "zh": "避免在左臂测量血压。"
+              },
+              {
+                "id": "D",
+                "en": "Increase intake of dark green leafy vegetables.",
+                "zh": "增加深绿色叶菜的摄入。"
               },
               {
                 "id": "B",
@@ -1711,19 +1716,14 @@
                 "zh": "睡觉时让左臂处于下垂位置。"
               },
               {
-                "id": "D",
-                "en": "Increase intake of dark green leafy vegetables.",
-                "zh": "增加深绿色叶菜的摄入。"
+                "id": "A",
+                "en": "Avoid carrying a heavy bag with the left arm.",
+                "zh": "避免用左臂提重物。"
               },
               {
                 "id": "E",
                 "en": "Take phosphate binders with every meal.",
                 "zh": "每餐随餐服用磷酸盐结合剂。"
-              },
-              {
-                "id": "F",
-                "en": "Avoid blood pressure readings on the left arm.",
-                "zh": "避免在左臂测量血压。"
               }
             ],
             "correct": [
@@ -1789,11 +1789,6 @@
             },
             "options": [
               {
-                "id": "A",
-                "en": "Place the client in a supine position with legs elevated and slow the ultrafiltration rate.",
-                "zh": "将患者置于仰卧位且抬高双腿，并减慢超滤速度。"
-              },
-              {
                 "id": "B",
                 "en": "Check the AV fistula for a bruit.",
                 "zh": "检查 AVF 的血管杂音。"
@@ -1807,6 +1802,11 @@
                 "id": "D",
                 "en": "Administer an IV bolus of 500 mL normal saline.",
                 "zh": "静脉滴注 500 mL 生理盐水。"
+              },
+              {
+                "id": "A",
+                "en": "Place the client in a supine position with legs elevated and slow the ultrafiltration rate.",
+                "zh": "将患者置于仰卧位且抬高双腿，并减慢超滤速度。"
               }
             ],
             "correct": [
@@ -1869,14 +1869,14 @@
                 "zh": "BUN 60 mg/dL"
               },
               {
-                "id": "C",
-                "en": "BP of 158/90 mmHg",
-                "zh": "血压 158/90 mmHg"
-              },
-              {
                 "id": "D",
                 "en": "Potassium of 5.2 mEq/L",
                 "zh": "钾 5.2 mEq/L"
+              },
+              {
+                "id": "C",
+                "en": "BP of 158/90 mmHg",
+                "zh": "血压 158/90 mmHg"
               }
             ],
             "correct": [
@@ -1992,11 +1992,6 @@
                 "zh": "紧急区域"
               },
               {
-                "id": "B",
-                "en": "Yellow Zone",
-                "zh": "黄色区域"
-              },
-              {
                 "id": "C",
                 "en": "Green Zone",
                 "zh": "绿色区域"
@@ -2005,6 +2000,11 @@
                 "id": "D",
                 "en": "Red Zone",
                 "zh": "红色区域"
+              },
+              {
+                "id": "B",
+                "en": "Yellow Zone",
+                "zh": "黄色区域"
               }
             ],
             "correct": [
@@ -2057,24 +2057,9 @@
             },
             "options": [
               {
-                "id": "A",
-                "en": "Wall-to-wall carpeting in the bedroom",
-                "zh": "卧室铺满地毯"
-              },
-              {
-                "id": "B",
-                "en": "A HEPA filter in the living room",
-                "zh": "客厅装有 HEPA 过滤器"
-              },
-              {
                 "id": "C",
                 "en": "A pet cat that sleeps in the child's bed",
                 "zh": "一只睡在孩子床上的宠物猫"
-              },
-              {
-                "id": "D",
-                "en": "Use of unscented cleaning products",
-                "zh": "使用无香型清洁用品"
               },
               {
                 "id": "E",
@@ -2085,6 +2070,21 @@
                 "id": "F",
                 "en": "Parents smoke outside on the balcony",
                 "zh": "父母在阳台外吸烟"
+              },
+              {
+                "id": "A",
+                "en": "Wall-to-wall carpeting in the bedroom",
+                "zh": "卧室铺满地毯"
+              },
+              {
+                "id": "D",
+                "en": "Use of unscented cleaning products",
+                "zh": "使用无香型清洁用品"
+              },
+              {
+                "id": "B",
+                "en": "A HEPA filter in the living room",
+                "zh": "客厅装有 HEPA 过滤器"
               }
             ],
             "correct": [
@@ -2162,14 +2162,14 @@
                     "zh": "控制良好"
                   },
                   {
-                    "id": "o2",
-                    "en": "not well-controlled",
-                    "zh": "控制不佳"
-                  },
-                  {
                     "id": "o3",
                     "en": "very poorly controlled",
                     "zh": "控制非常差"
+                  },
+                  {
+                    "id": "o2",
+                    "en": "not well-controlled",
+                    "zh": "控制不佳"
                   }
                 ],
                 "correct": "o2"
@@ -2239,14 +2239,14 @@
               ],
               "columns": [
                 {
-                  "id": "c1",
-                  "en": "Albuterol (Rescue)",
-                  "zh": "沙丁胺醇（急救）"
-                },
-                {
                   "id": "c2",
                   "en": "Fluticasone (Controller)",
                   "zh": "氟替卡松（控制）"
+                },
+                {
+                  "id": "c1",
+                  "en": "Albuterol (Rescue)",
+                  "zh": "沙丁胺醇（急救）"
                 }
               ],
               "selectionMode": "single_per_row"
@@ -2296,9 +2296,9 @@
             },
             "options": [
               {
-                "id": "A",
-                "en": "Takes a quick, shallow breath during inhalation.",
-                "zh": "吸入时进行快速、表浅的呼吸。"
+                "id": "C",
+                "en": "Rinses their mouth with water before using the inhaler.",
+                "zh": "使用吸入器前用水漱口。"
               },
               {
                 "id": "B",
@@ -2306,9 +2306,9 @@
                 "zh": "吸入后屏气 10 秒。"
               },
               {
-                "id": "C",
-                "en": "Rinses their mouth with water before using the inhaler.",
-                "zh": "使用吸入器前用水漱口。"
+                "id": "A",
+                "en": "Takes a quick, shallow breath during inhalation.",
+                "zh": "吸入时进行快速、表浅的呼吸。"
               },
               {
                 "id": "D",
@@ -2413,19 +2413,9 @@
             },
             "options": [
               {
-                "id": "A",
-                "en": "Delusions of persecution",
-                "zh": "被害妄想"
-              },
-              {
                 "id": "B",
                 "en": "Auditory hallucinations",
                 "zh": "听幻觉"
-              },
-              {
-                "id": "C",
-                "en": "Flat affect",
-                "zh": "情感淡漠"
               },
               {
                 "id": "D",
@@ -2433,14 +2423,24 @@
                 "zh": "社交退缩"
               },
               {
-                "id": "E",
-                "en": "Pacing and agitated behavior",
-                "zh": "踱步和焦虑行为"
+                "id": "A",
+                "en": "Delusions of persecution",
+                "zh": "被害妄想"
               },
               {
                 "id": "F",
                 "en": "Anhedonia",
                 "zh": "快感缺失"
+              },
+              {
+                "id": "C",
+                "en": "Flat affect",
+                "zh": "情感淡漠"
+              },
+              {
+                "id": "E",
+                "en": "Pacing and agitated behavior",
+                "zh": "踱步和焦虑行为"
               }
             ],
             "correct": [
@@ -2510,9 +2510,9 @@
                 "zh": "是否存在命令性幻觉"
               },
               {
-                "id": "B",
-                "en": "Sleep patterns and circadian rhythm",
-                "zh": "睡眠模式和昼夜节律"
+                "id": "D",
+                "en": "Compliance with outpatient medications",
+                "zh": "门诊用药的依从性"
               },
               {
                 "id": "C",
@@ -2520,9 +2520,9 @@
                 "zh": "营养摄入和饮水状态"
               },
               {
-                "id": "D",
-                "en": "Compliance with outpatient medications",
-                "zh": "门诊用药的依从性"
+                "id": "B",
+                "en": "Sleep patterns and circadian rhythm",
+                "zh": "睡眠模式和昼夜节律"
               }
             ],
             "correct": [
@@ -2582,9 +2582,9 @@
                 "id": "1",
                 "options": [
                   {
-                    "id": "o1",
-                    "en": "paranoid delusions",
-                    "zh": "偏执妄想"
+                    "id": "o3",
+                    "en": "loss of appetite",
+                    "zh": "食欲不振"
                   },
                   {
                     "id": "o2",
@@ -2592,9 +2592,9 @@
                     "zh": "胃部不适"
                   },
                   {
-                    "id": "o3",
-                    "en": "loss of appetite",
-                    "zh": "食欲不振"
+                    "id": "o1",
+                    "en": "paranoid delusions",
+                    "zh": "偏执妄想"
                   }
                 ],
                 "correct": "o1"
@@ -2608,14 +2608,14 @@
                     "zh": "营养失衡"
                   },
                   {
-                    "id": "o2",
-                    "en": "abdominal pain",
-                    "zh": "腹痛"
-                  },
-                  {
                     "id": "o3",
                     "en": "allergic reaction",
                     "zh": "过敏反应"
+                  },
+                  {
+                    "id": "o2",
+                    "en": "abdominal pain",
+                    "zh": "腹痛"
                   }
                 ],
                 "correct": "o1"
@@ -2646,11 +2646,6 @@
             },
             "options": [
               {
-                "id": "A",
-                "en": "Let's go look in the vent together so I can prove you are safe.",
-                "zh": "我们一起去看看通风口吧，这样我可以证明你是安全的。"
-              },
-              {
                 "id": "B",
                 "en": "There are no spies in the vent; you are imagining things.",
                 "zh": "通风口里没有间谍，那是你的幻觉。"
@@ -2664,6 +2659,11 @@
                 "id": "D",
                 "en": "Why do you think the government wants to watch you specifically?",
                 "zh": "你为什么认为政府特别想监视你？"
+              },
+              {
+                "id": "A",
+                "en": "Let's go look in the vent together so I can prove you are safe.",
+                "zh": "我们一起去看看通风口吧，这样我可以证明你是安全的。"
               }
             ],
             "correct": [
@@ -2838,14 +2838,14 @@
             },
             "options": [
               {
-                "id": "A",
-                "en": "Sudden onset of severe pain",
-                "zh": "突然发作的剧烈疼痛"
-              },
-              {
                 "id": "B",
                 "en": "Shortening of the right leg",
                 "zh": "右腿缩短"
+              },
+              {
+                "id": "E",
+                "en": "Inability to move the right toes",
+                "zh": "右脚趾无法活动"
               },
               {
                 "id": "C",
@@ -2853,14 +2853,14 @@
                 "zh": "右腿内旋"
               },
               {
+                "id": "A",
+                "en": "Sudden onset of severe pain",
+                "zh": "突然发作的剧烈疼痛"
+              },
+              {
                 "id": "D",
                 "en": "External rotation of the right leg",
                 "zh": "右腿外旋"
-              },
-              {
-                "id": "E",
-                "en": "Inability to move the right toes",
-                "zh": "右脚趾无法活动"
               },
               {
                 "id": "F",
@@ -3021,11 +3021,6 @@
                 "zh": "在膝盖下放一个枕头。"
               },
               {
-                "id": "B",
-                "en": "Encourage early ambulation and ankle pumps.",
-                "zh": "鼓励尽早下床活动和进行踝泵运动。"
-              },
-              {
                 "id": "C",
                 "en": "Restrict fluid intake to prevent edema.",
                 "zh": "限制液体摄入以预防水肿。"
@@ -3034,6 +3029,11 @@
                 "id": "D",
                 "en": "Massage the calves twice daily.",
                 "zh": "每天按摩两次小腿。"
+              },
+              {
+                "id": "B",
+                "en": "Encourage early ambulation and ankle pumps.",
+                "zh": "鼓励尽早下床活动和进行踝泵运动。"
               }
             ],
             "correct": [
@@ -3098,14 +3098,14 @@
                     "zh": "移除所有小地毯"
                   },
                   {
-                    "id": "o2",
-                    "en": "wax the floors to reduce friction",
-                    "zh": "给地板打蜡以减少摩擦"
-                  },
-                  {
                     "id": "o3",
                     "en": "keep the house dim to rest eyes",
                     "zh": "保持室内光线昏暗以休息眼睛"
+                  },
+                  {
+                    "id": "o2",
+                    "en": "wax the floors to reduce friction",
+                    "zh": "给地板打蜡以减少摩擦"
                   }
                 ],
                 "correct": "o1"
@@ -3113,11 +3113,6 @@
               {
                 "id": "2",
                 "options": [
-                  {
-                    "id": "o1",
-                    "en": "install grab bars in the shower",
-                    "zh": "在淋浴间安装抓杆"
-                  },
                   {
                     "id": "o2",
                     "en": "store frequently used items on the floor",
@@ -3127,6 +3122,11 @@
                     "id": "o3",
                     "en": "use a standard height toilet",
                     "zh": "使用标准高度的马桶"
+                  },
+                  {
+                    "id": "o1",
+                    "en": "install grab bars in the shower",
+                    "zh": "在淋浴间安装抓杆"
                   }
                 ],
                 "correct": "o1"
@@ -3346,14 +3346,14 @@
                 "id": "1",
                 "options": [
                   {
-                    "id": "o1",
-                    "en": "Potassium supplementation",
-                    "zh": "补钾"
-                  },
-                  {
                     "id": "o2",
                     "en": "Intravenous insulin infusion",
                     "zh": "静脉胰岛素输注"
+                  },
+                  {
+                    "id": "o1",
+                    "en": "Potassium supplementation",
+                    "zh": "补钾"
                   }
                 ],
                 "correct": "o1"
@@ -3362,14 +3362,14 @@
                 "id": "2",
                 "options": [
                   {
-                    "id": "o1",
-                    "en": "Insulin therapy",
-                    "zh": "胰岛素治疗"
-                  },
-                  {
                     "id": "o2",
                     "en": "Normal saline bolus",
                     "zh": "生理盐水快速补液"
+                  },
+                  {
+                    "id": "o1",
+                    "en": "Insulin therapy",
+                    "zh": "胰岛素治疗"
                   }
                 ],
                 "correct": "o1"
@@ -3410,6 +3410,11 @@
                 "zh": "3% 氯化钠"
               },
               {
+                "id": "D",
+                "en": "0.45% Sodium Chloride",
+                "zh": "0.45% 氯化钠"
+              },
+              {
                 "id": "B",
                 "en": "Dextrose 5% in Water",
                 "zh": "5% 葡萄糖注射液"
@@ -3418,11 +3423,6 @@
                 "id": "C",
                 "en": "0.9% Sodium Chloride",
                 "zh": "0.9% 氯化钠"
-              },
-              {
-                "id": "D",
-                "en": "0.45% Sodium Chloride",
-                "zh": "0.45% 氯化钠"
               }
             ],
             "correct": [
@@ -3485,6 +3485,16 @@
                 "zh": "每小时监测一次毛细血管血糖"
               },
               {
+                "id": "E",
+                "en": "Encouraging high-potassium fruit juices",
+                "zh": "鼓励饮用高钾果汁"
+              },
+              {
+                "id": "D",
+                "en": "Assessing neurological status every 1-2 hours",
+                "zh": "每 1-2 小时评估一次神经系统状态"
+              },
+              {
                 "id": "B",
                 "en": "Strict intake and output monitoring",
                 "zh": "严格的出入量监测"
@@ -3493,16 +3503,6 @@
                 "id": "C",
                 "en": "Continuous cardiac monitoring",
                 "zh": "持续心电监测"
-              },
-              {
-                "id": "D",
-                "en": "Assessing neurological status every 1-2 hours",
-                "zh": "每 1-2 小时评估一次神经系统状态"
-              },
-              {
-                "id": "E",
-                "en": "Encouraging high-potassium fruit juices",
-                "zh": "鼓励饮用高钾果汁"
               }
             ],
             "correct": [
@@ -3688,9 +3688,9 @@
             },
             "options": [
               {
-                "id": "A",
-                "en": "Lateral wall",
-                "zh": "侧壁"
+                "id": "C",
+                "en": "Anterior wall",
+                "zh": "前壁"
               },
               {
                 "id": "B",
@@ -3698,9 +3698,9 @@
                 "zh": "室间隔"
               },
               {
-                "id": "C",
-                "en": "Anterior wall",
-                "zh": "前壁"
+                "id": "A",
+                "en": "Lateral wall",
+                "zh": "侧壁"
               },
               {
                 "id": "D",
@@ -3770,14 +3770,14 @@
                 "id": "1",
                 "options": [
                   {
-                    "id": "o1",
-                    "en": "Cardiogenic shock",
-                    "zh": "心源性休克"
-                  },
-                  {
                     "id": "o2",
                     "en": "Septic shock",
                     "zh": "感染性休克"
+                  },
+                  {
+                    "id": "o1",
+                    "en": "Cardiogenic shock",
+                    "zh": "心源性休克"
                   }
                 ],
                 "correct": "o1"
@@ -3834,9 +3834,9 @@
             },
             "options": [
               {
-                "id": "A",
-                "en": "Aspirin",
-                "zh": "阿司匹林"
+                "id": "C",
+                "en": "Morphine",
+                "zh": "吗啡"
               },
               {
                 "id": "B",
@@ -3844,9 +3844,9 @@
                 "zh": "氯吡格雷"
               },
               {
-                "id": "C",
-                "en": "Morphine",
-                "zh": "吗啡"
+                "id": "E",
+                "en": "Warfarin",
+                "zh": "华法林"
               },
               {
                 "id": "D",
@@ -3854,9 +3854,9 @@
                 "zh": "硝酸甘油"
               },
               {
-                "id": "E",
-                "en": "Warfarin",
-                "zh": "华法林"
+                "id": "A",
+                "en": "Aspirin",
+                "zh": "阿司匹林"
               }
             ],
             "correct": [
@@ -3922,6 +3922,11 @@
             },
             "options": [
               {
+                "id": "C",
+                "en": "Monitor continuous ECG for rhythm changes",
+                "zh": "持续监测心电图以观察心律变化"
+              },
+              {
                 "id": "A",
                 "en": "Check pedal pulses and site for bleeding",
                 "zh": "检查足背动脉搏动和伤口出血情况"
@@ -3930,11 +3935,6 @@
                 "id": "B",
                 "en": "Ensure bedrest with affected leg straight",
                 "zh": "确保卧床，患肢伸直"
-              },
-              {
-                "id": "C",
-                "en": "Monitor continuous ECG for rhythm changes",
-                "zh": "持续监测心电图以观察心律变化"
               },
               {
                 "id": "D",
@@ -4023,14 +4023,14 @@
               ],
               "columns": [
                 {
-                  "id": "c1",
-                  "en": "Left-Sided",
-                  "zh": "左侧"
-                },
-                {
                   "id": "c2",
                   "en": "Right-Sided",
                   "zh": "右侧"
+                },
+                {
+                  "id": "c1",
+                  "en": "Left-Sided",
+                  "zh": "左侧"
                 }
               ],
               "selectionMode": "single_per_row"
@@ -4133,11 +4133,6 @@
         ],
         "columns": [
           {
-            "id": "c1",
-            "en": "Mild Dehydration",
-            "zh": "轻度脱水"
-          },
-          {
             "id": "c2",
             "en": "Moderate Dehydration",
             "zh": "中度脱水"
@@ -4146,6 +4141,11 @@
             "id": "c3",
             "en": "Severe Dehydration",
             "zh": "重度脱水"
+          },
+          {
+            "id": "c1",
+            "en": "Mild Dehydration",
+            "zh": "轻度脱水"
           }
         ],
         "selectionMode": "single_per_row"
@@ -4223,14 +4223,14 @@
           "id": "2",
           "options": [
             {
-              "id": "o1",
-              "en": "toothbrushing-based oral care",
-              "zh": "以刷牙为主的口腔护理"
-            },
-            {
               "id": "o2",
               "en": "Lemon glycerin swabs",
               "zh": "柠檬甘油棉签"
+            },
+            {
+              "id": "o1",
+              "en": "toothbrushing-based oral care",
+              "zh": "以刷牙为主的口腔护理"
             }
           ],
           "correct": "o1"
@@ -4396,14 +4396,14 @@
         ],
         "columns": [
           {
-            "id": "c1",
-            "en": "Rheumatoid Arthritis",
-            "zh": "类风湿性关节炎"
-          },
-          {
             "id": "c2",
             "en": "Osteoarthritis",
             "zh": "骨关节炎"
+          },
+          {
+            "id": "c1",
+            "en": "Rheumatoid Arthritis",
+            "zh": "类风湿性关节炎"
           }
         ],
         "selectionMode": "single_per_row"
@@ -4475,14 +4475,14 @@
           "id": "2",
           "options": [
             {
-              "id": "o1",
-              "en": "Renal retention of bicarbonate",
-              "zh": "肾脏保留重碳酸盐"
-            },
-            {
               "id": "o2",
               "en": "Hyperventilation",
               "zh": "过度通气"
+            },
+            {
+              "id": "o1",
+              "en": "Renal retention of bicarbonate",
+              "zh": "肾脏保留重碳酸盐"
             }
           ],
           "correct": "o1"
@@ -4512,11 +4512,6 @@
       },
       "options": [
         {
-          "id": "A",
-          "en": "Hyperpyrexia",
-          "zh": "超高热"
-        },
-        {
           "id": "B",
           "en": "Severe tachycardia",
           "zh": "严重心动过速"
@@ -4530,6 +4525,11 @@
           "id": "D",
           "en": "Agitation and delirium",
           "zh": "焦虑不安和谵妄"
+        },
+        {
+          "id": "A",
+          "en": "Hyperpyrexia",
+          "zh": "超高热"
         },
         {
           "id": "E",
@@ -4593,14 +4593,14 @@
       },
       "options": [
         {
-          "id": "A",
-          "en": "Close the eyes and position the head on a pillow",
-          "zh": "闭合双眼并将头部置于枕头上"
-        },
-        {
           "id": "B",
           "en": "Remove tubes and dressings (unless autopsy is required)",
           "zh": "移除导管和敷料（除非需要尸检）"
+        },
+        {
+          "id": "D",
+          "en": "Allow family privacy with the deceased",
+          "zh": "允许家属与死者单独相处"
         },
         {
           "id": "C",
@@ -4608,9 +4608,9 @@
           "zh": "清洗尸体并穿上干净的衣服"
         },
         {
-          "id": "D",
-          "en": "Allow family privacy with the deceased",
-          "zh": "允许家属与死者单独相处"
+          "id": "A",
+          "en": "Close the eyes and position the head on a pillow",
+          "zh": "闭合双眼并将头部置于枕头上"
         }
       ],
       "correct": [
@@ -4745,19 +4745,9 @@
             },
             "options": [
               {
-                "id": "A",
-                "en": "BMI of 13.8",
-                "zh": "BMI 为 13.8"
-              },
-              {
                 "id": "B",
                 "en": "Potassium 3.1 mEq/L",
                 "zh": "钾 3.1 mEq/L"
-              },
-              {
-                "id": "C",
-                "en": "Phosphorus 2.2 mg/dL",
-                "zh": "磷 2.2 mg/dL"
               },
               {
                 "id": "D",
@@ -4768,6 +4758,16 @@
                 "id": "K",
                 "en": "Normal sodium level of 136 mEq/L",
                 "zh": "钠 136 mEq/L（正常范围）"
+              },
+              {
+                "id": "A",
+                "en": "BMI of 13.8",
+                "zh": "BMI 为 13.8"
+              },
+              {
+                "id": "C",
+                "en": "Phosphorus 2.2 mg/dL",
+                "zh": "磷 2.2 mg/dL"
               }
             ],
             "correct": [
@@ -4828,11 +4828,6 @@
             },
             "options": [
               {
-                "id": "A",
-                "en": "Insulin surge causing intracellular shift of electrolytes",
-                "zh": "胰岛素激增导致电解质向细胞内转移"
-              },
-              {
                 "id": "B",
                 "en": "Rapid fat metabolism causing ketoacidosis",
                 "zh": "快速脂肪代谢引起酮症酸中毒"
@@ -4841,6 +4836,11 @@
                 "id": "C",
                 "en": "Excessive glucagon causing hyperkalemia",
                 "zh": "过量的胰高血糖素引起高钾血症"
+              },
+              {
+                "id": "A",
+                "en": "Insulin surge causing intracellular shift of electrolytes",
+                "zh": "胰岛素激增导致电解质向细胞内转移"
               }
             ],
             "correct": [
@@ -4888,14 +4888,14 @@
             },
             "options": [
               {
-                "id": "A",
-                "en": "Cardiac arrhythmias from hypophosphatemia",
-                "zh": "低磷血症导致的心律失常"
-              },
-              {
                 "id": "B",
                 "en": "Wernicke encephalopathy from thiamine excess",
                 "zh": "硫胺素过量导致的 Wernicke 脑病"
+              },
+              {
+                "id": "A",
+                "en": "Cardiac arrhythmias from hypophosphatemia",
+                "zh": "低磷血症导致的心律失常"
               },
               {
                 "id": "C",
@@ -4948,14 +4948,9 @@
             },
             "options": [
               {
-                "id": "A",
-                "en": "Continuous cardiac monitoring",
-                "zh": "持续心电监护"
-              },
-              {
-                "id": "B",
-                "en": "Daily electrolyte monitoring",
-                "zh": "每日监测电解质"
+                "id": "D",
+                "en": "Monitor intake, output, daily weight, and edema",
+                "zh": "监测出入量、每日体重和水肿情况"
               },
               {
                 "id": "C",
@@ -4963,14 +4958,19 @@
                 "zh": "缓慢重新引入热量"
               },
               {
-                "id": "D",
-                "en": "Monitor intake, output, daily weight, and edema",
-                "zh": "监测出入量、每日体重和水肿情况"
+                "id": "A",
+                "en": "Continuous cardiac monitoring",
+                "zh": "持续心电监护"
               },
               {
                 "id": "K",
                 "en": "Advance immediately to full-calorie meals",
                 "zh": "立即增加到全热量膳食"
+              },
+              {
+                "id": "B",
+                "en": "Daily electrolyte monitoring",
+                "zh": "每日监测电解质"
               }
             ],
             "correct": [
@@ -5031,11 +5031,6 @@
             },
             "options": [
               {
-                "id": "A",
-                "en": "Stable phosphorus and potassium levels",
-                "zh": "磷和钾水平稳定"
-              },
-              {
                 "id": "B",
                 "en": "Increased thirst and urination",
                 "zh": "口渴和排尿增加"
@@ -5044,6 +5039,11 @@
                 "id": "C",
                 "en": "Rapid weight gain of 2kg in 24 hours",
                 "zh": "24小时内体重快速增加2kg"
+              },
+              {
+                "id": "A",
+                "en": "Stable phosphorus and potassium levels",
+                "zh": "磷和钾水平稳定"
               }
             ],
             "correct": [
@@ -5138,11 +5138,6 @@
             },
             "options": [
               {
-                "id": "A",
-                "en": "Immediate intubation in the ER",
-                "zh": "在急诊室立即插管"
-              },
-              {
                 "id": "B",
                 "en": "Administration of Atropine immediately",
                 "zh": "立即给予阿托品"
@@ -5151,6 +5146,11 @@
                 "id": "C",
                 "en": "Decontamination outside the main facility",
                 "zh": "在主设施外进行洗消"
+              },
+              {
+                "id": "A",
+                "en": "Immediate intubation in the ER",
+                "zh": "在急诊室立即插管"
               }
             ],
             "correct": [
@@ -5203,14 +5203,14 @@
                 "zh": "黄色（延迟）"
               },
               {
-                "id": "B",
-                "en": "Red (Immediate)",
-                "zh": "红色（立即）"
-              },
-              {
                 "id": "C",
                 "en": "Black (Expectant)",
                 "zh": "黑色（预期）"
+              },
+              {
+                "id": "B",
+                "en": "Red (Immediate)",
+                "zh": "红色（立即）"
               }
             ],
             "correct": [
@@ -5258,6 +5258,11 @@
             },
             "options": [
               {
+                "id": "C",
+                "en": "Cholinergic crisis (Nerve agent)",
+                "zh": "胆碱能危象（神经毒剂）"
+              },
+              {
                 "id": "A",
                 "en": "Cyanide poisoning",
                 "zh": "氰化物中毒"
@@ -5266,11 +5271,6 @@
                 "id": "B",
                 "en": "Chlorine gas inhalation",
                 "zh": "氯气吸入"
-              },
-              {
-                "id": "C",
-                "en": "Cholinergic crisis (Nerve agent)",
-                "zh": "胆碱能危象（神经毒剂）"
               }
             ],
             "correct": [
@@ -5318,9 +5318,9 @@
             },
             "options": [
               {
-                "id": "A",
-                "en": "Atropine",
-                "zh": "阿托品"
+                "id": "K",
+                "en": "Naloxone",
+                "zh": "纳洛酮"
               },
               {
                 "id": "B",
@@ -5328,19 +5328,19 @@
                 "zh": "氯磷定 (2-PAM)"
               },
               {
-                "id": "C",
-                "en": "Diazepam",
-                "zh": "地西泮"
-              },
-              {
                 "id": "D",
                 "en": "Activated charcoal",
                 "zh": "活性炭"
               },
               {
-                "id": "K",
-                "en": "Naloxone",
-                "zh": "纳洛酮"
+                "id": "C",
+                "en": "Diazepam",
+                "zh": "地西泮"
+              },
+              {
+                "id": "A",
+                "en": "Atropine",
+                "zh": "阿托品"
               }
             ],
             "correct": [
@@ -5405,14 +5405,14 @@
                 "zh": "心率降低"
               },
               {
-                "id": "B",
-                "en": "Drying of bronchial secretions",
-                "zh": "支气管分泌物变干"
-              },
-              {
                 "id": "C",
                 "en": "Constricted pupils",
                 "zh": "瞳孔缩小"
+              },
+              {
+                "id": "B",
+                "en": "Drying of bronchial secretions",
+                "zh": "支气管分泌物变干"
               }
             ],
             "correct": [
@@ -5572,14 +5572,14 @@
                 "zh": "从沙发上摔下来很少会导致婴儿硬膜下血肿"
               },
               {
-                "id": "B",
-                "en": "Carpeted floors prevent all head injuries",
-                "zh": "铺有地毯的地板可以预防所有头部受伤"
-              },
-              {
                 "id": "C",
                 "en": "Infants at 4 months cannot roll off surfaces",
                 "zh": "4个月大的婴儿无法从平面上翻滚下来"
+              },
+              {
+                "id": "B",
+                "en": "Carpeted floors prevent all head injuries",
+                "zh": "铺有地毯的地板可以预防所有头部受伤"
               }
             ],
             "correct": [
@@ -5687,9 +5687,9 @@
             },
             "options": [
               {
-                "id": "A",
-                "en": "Perform a full body skin assessment for bruises",
-                "zh": "进行全身皮肤评估以检查瘀伤"
+                "id": "K",
+                "en": "Confront the father before reporting the concern",
+                "zh": "在报告前先质问父亲"
               },
               {
                 "id": "B",
@@ -5697,19 +5697,19 @@
                 "zh": "保持头部处于中立位"
               },
               {
-                "id": "C",
-                "en": "Monitor for seizures",
-                "zh": "监测抽搐情况"
-              },
-              {
                 "id": "D",
                 "en": "Anticipate a skeletal survey to evaluate for occult fractures",
                 "zh": "预期进行骨骼系列检查以评估隐匿性骨折"
               },
               {
-                "id": "K",
-                "en": "Confront the father before reporting the concern",
-                "zh": "在报告前先质问父亲"
+                "id": "A",
+                "en": "Perform a full body skin assessment for bruises",
+                "zh": "进行全身皮肤评估以检查瘀伤"
+              },
+              {
+                "id": "C",
+                "en": "Monitor for seizures",
+                "zh": "监测抽搐情况"
               }
             ],
             "correct": [
@@ -5770,11 +5770,6 @@
             },
             "options": [
               {
-                "id": "A",
-                "en": "Decreased fontanel tension",
-                "zh": "前囟张力降低"
-              },
-              {
                 "id": "B",
                 "en": "High-pitched cry",
                 "zh": "尖锐的哭声"
@@ -5783,6 +5778,11 @@
                 "id": "C",
                 "en": "Increased appetite",
                 "zh": "食欲增加"
+              },
+              {
+                "id": "A",
+                "en": "Decreased fontanel tension",
+                "zh": "前囟张力降低"
               }
             ],
             "correct": [
@@ -5877,14 +5877,14 @@
             },
             "options": [
               {
-                "id": "A",
-                "en": "Administer Diphenhydramine",
-                "zh": "给予苯海拉明"
-              },
-              {
                 "id": "B",
                 "en": "Slow the rate of infusion",
                 "zh": "减慢输血速度"
+              },
+              {
+                "id": "A",
+                "en": "Administer Diphenhydramine",
+                "zh": "给予苯海拉明"
               },
               {
                 "id": "C",
@@ -5942,14 +5942,14 @@
                 "zh": "过敏反应"
               },
               {
-                "id": "B",
-                "en": "Transfusion-related acute lung injury (TRALI)",
-                "zh": "输血相关急性肺损伤 (TRALI)"
-              },
-              {
                 "id": "C",
                 "en": "Acute hemolytic reaction",
                 "zh": "急性溶血反应"
+              },
+              {
+                "id": "B",
+                "en": "Transfusion-related acute lung injury (TRALI)",
+                "zh": "输血相关急性肺损伤 (TRALI)"
               }
             ],
             "correct": [
@@ -5997,6 +5997,11 @@
             },
             "options": [
               {
+                "id": "C",
+                "en": "Acute Renal Failure",
+                "zh": "急性肾衰竭"
+              },
+              {
                 "id": "A",
                 "en": "Hypocalcemia",
                 "zh": "低钙血症"
@@ -6005,11 +6010,6 @@
                 "id": "B",
                 "en": "Iron overload",
                 "zh": "铁过载"
-              },
-              {
-                "id": "C",
-                "en": "Acute Renal Failure",
-                "zh": "急性肾衰竭"
               }
             ],
             "correct": [
@@ -6057,21 +6057,6 @@
             },
             "options": [
               {
-                "id": "A",
-                "en": "Maintain IV access with Normal Saline via a new tubing",
-                "zh": "通过新输液管使用生理盐水保持静脉通路"
-              },
-              {
-                "id": "B",
-                "en": "Notify the Blood Bank and Healthcare Provider",
-                "zh": "通知血库和医疗保健提供者"
-              },
-              {
-                "id": "C",
-                "en": "Send the blood bag and tubing to the lab",
-                "zh": "将血袋和输血管送到实验室"
-              },
-              {
                 "id": "D",
                 "en": "Collect a urine sample for hemoglobin testing",
                 "zh": "收集尿样进行血红蛋白检测"
@@ -6080,6 +6065,21 @@
                 "id": "K",
                 "en": "Restart the transfusion once the fever decreases",
                 "zh": "体温下降后重新开始输血"
+              },
+              {
+                "id": "C",
+                "en": "Send the blood bag and tubing to the lab",
+                "zh": "将血袋和输血管送到实验室"
+              },
+              {
+                "id": "A",
+                "en": "Maintain IV access with Normal Saline via a new tubing",
+                "zh": "通过新输液管使用生理盐水保持静脉通路"
+              },
+              {
+                "id": "B",
+                "en": "Notify the Blood Bank and Healthcare Provider",
+                "zh": "通知血库和医疗保健提供者"
               }
             ],
             "correct": [
@@ -6140,11 +6140,6 @@
             },
             "options": [
               {
-                "id": "A",
-                "en": "Decreased serum bilirubin",
-                "zh": "血清胆红素降低"
-              },
-              {
                 "id": "B",
                 "en": "Positive Direct Coombs test",
                 "zh": "直接库姆斯试验阳性"
@@ -6153,6 +6148,11 @@
                 "id": "C",
                 "en": "Elevated Hgb and Hct",
                 "zh": "血红蛋白和红细胞压积升高"
+              },
+              {
+                "id": "A",
+                "en": "Decreased serum bilirubin",
+                "zh": "血清胆红素降低"
               }
             ],
             "correct": [
@@ -6247,11 +6247,6 @@
             },
             "options": [
               {
-                "id": "A",
-                "en": "Risk for injury related to hyperactivity",
-                "zh": "与过度活跃相关的受伤风险"
-              },
-              {
                 "id": "B",
                 "en": "Imbalanced nutrition: less than body requirements",
                 "zh": "营养失衡：低于身体需要量"
@@ -6260,6 +6255,11 @@
                 "id": "C",
                 "en": "Disturbed sleep pattern",
                 "zh": "睡眠模式紊乱"
+              },
+              {
+                "id": "A",
+                "en": "Risk for injury related to hyperactivity",
+                "zh": "与过度活跃相关的受伤风险"
               }
             ],
             "correct": [
@@ -6307,9 +6307,9 @@
             },
             "options": [
               {
-                "id": "A",
-                "en": "Encourage participation in group therapy",
-                "zh": "鼓励参加小组治疗"
+                "id": "C",
+                "en": "Allow the client to choose their own activities",
+                "zh": "允许患者选择自己的活动"
               },
               {
                 "id": "B",
@@ -6317,9 +6317,9 @@
                 "zh": "提供低刺激环境"
               },
               {
-                "id": "C",
-                "en": "Allow the client to choose their own activities",
-                "zh": "允许患者选择自己的活动"
+                "id": "A",
+                "en": "Encourage participation in group therapy",
+                "zh": "鼓励参加小组治疗"
               }
             ],
             "correct": [
@@ -6367,9 +6367,9 @@
             },
             "options": [
               {
-                "id": "A",
-                "en": "Three large meals in the dining room",
-                "zh": "在食堂吃三顿大餐"
+                "id": "C",
+                "en": "High-calorie finger foods",
+                "zh": "高热量的手指食物"
               },
               {
                 "id": "B",
@@ -6377,9 +6377,9 @@
                 "zh": "严格禁食 (NPO) 状态"
               },
               {
-                "id": "C",
-                "en": "High-calorie finger foods",
-                "zh": "高热量的手指食物"
+                "id": "A",
+                "en": "Three large meals in the dining room",
+                "zh": "在食堂吃三顿大餐"
               }
             ],
             "correct": [
@@ -6427,9 +6427,14 @@
             },
             "options": [
               {
-                "id": "A",
-                "en": "Lithium carbonate",
-                "zh": "碳酸锂"
+                "id": "C",
+                "en": "Olanzapine",
+                "zh": "奥氮平"
+              },
+              {
+                "id": "K",
+                "en": "Methylphenidate",
+                "zh": "哌甲酯"
               },
               {
                 "id": "B",
@@ -6437,19 +6442,14 @@
                 "zh": "丙戊酸盐 (Depakote)"
               },
               {
-                "id": "C",
-                "en": "Olanzapine",
-                "zh": "奥氮平"
+                "id": "A",
+                "en": "Lithium carbonate",
+                "zh": "碳酸锂"
               },
               {
                 "id": "D",
                 "en": "Sertraline",
                 "zh": "舍曲林"
-              },
-              {
-                "id": "K",
-                "en": "Methylphenidate",
-                "zh": "哌甲酯"
               }
             ],
             "correct": [
@@ -6514,14 +6514,14 @@
                 "zh": "说话速度更快以表达想法"
               },
               {
-                "id": "B",
-                "en": "Sleeping for 6 hours per night",
-                "zh": "每晚睡眠 6 小时"
-              },
-              {
                 "id": "C",
                 "en": "Giving away all personal belongings",
                 "zh": "赠送所有个人物品"
+              },
+              {
+                "id": "B",
+                "en": "Sleeping for 6 hours per night",
+                "zh": "每晚睡眠 6 小时"
               }
             ],
             "correct": [
@@ -6676,14 +6676,14 @@
             },
             "options": [
               {
-                "id": "A",
-                "en": "Successful compensation for ICP",
-                "zh": "成功代偿颅内压"
-              },
-              {
                 "id": "B",
                 "en": "Impending brain herniation",
                 "zh": "即将发生脑疝"
+              },
+              {
+                "id": "A",
+                "en": "Successful compensation for ICP",
+                "zh": "成功代偿颅内压"
               },
               {
                 "id": "C",
@@ -6736,9 +6736,9 @@
             },
             "options": [
               {
-                "id": "A",
-                "en": "Administration of Mannitol as ordered",
-                "zh": "按医嘱给予甘露醇"
+                "id": "C",
+                "en": "Encouraging coughing and deep breathing",
+                "zh": "鼓励咳嗽和深呼吸"
               },
               {
                 "id": "B",
@@ -6746,9 +6746,9 @@
                 "zh": "每2小时为患者翻身一次"
               },
               {
-                "id": "C",
-                "en": "Encouraging coughing and deep breathing",
-                "zh": "鼓励咳嗽和深呼吸"
+                "id": "A",
+                "en": "Administration of Mannitol as ordered",
+                "zh": "按医嘱给予甘露醇"
               }
             ],
             "correct": [
@@ -6796,14 +6796,9 @@
             },
             "options": [
               {
-                "id": "A",
-                "en": "Elevate head of bed to 30 degrees",
-                "zh": "将床头抬高 30 度"
-              },
-              {
-                "id": "B",
-                "en": "Avoid hip flexion",
-                "zh": "避免髋部屈曲"
+                "id": "D",
+                "en": "Suction the client frequently",
+                "zh": "频繁为患者吸痰"
               },
               {
                 "id": "C",
@@ -6811,14 +6806,19 @@
                 "zh": "保持头部处于中立位"
               },
               {
-                "id": "D",
-                "en": "Suction the client frequently",
-                "zh": "频繁为患者吸痰"
+                "id": "B",
+                "en": "Avoid hip flexion",
+                "zh": "避免髋部屈曲"
               },
               {
                 "id": "K",
                 "en": "Place the client in Trendelenburg position",
                 "zh": "将患者置于特伦德伦堡卧位"
+              },
+              {
+                "id": "A",
+                "en": "Elevate head of bed to 30 degrees",
+                "zh": "将床头抬高 30 度"
               }
             ],
             "correct": [
@@ -6878,14 +6878,14 @@
             },
             "options": [
               {
-                "id": "A",
-                "en": "Pupils becoming fixed and dilated",
-                "zh": "瞳孔变得固定且散大"
-              },
-              {
                 "id": "B",
                 "en": "Increase in GCS score",
                 "zh": "GCS 评分增加"
+              },
+              {
+                "id": "A",
+                "en": "Pupils becoming fixed and dilated",
+                "zh": "瞳孔变得固定且散大"
               },
               {
                 "id": "C",
@@ -6990,14 +6990,14 @@
                 "zh": "脓毒症引起的全身炎症反应"
               },
               {
-                "id": "B",
-                "en": "Bone marrow failure",
-                "zh": "骨髓衰竭"
-              },
-              {
                 "id": "C",
                 "en": "Vitamin K deficiency",
                 "zh": "维生素 K 缺乏"
+              },
+              {
+                "id": "B",
+                "en": "Bone marrow failure",
+                "zh": "骨髓衰竭"
               }
             ],
             "correct": [
@@ -7045,9 +7045,9 @@
             },
             "options": [
               {
-                "id": "A",
-                "en": "Excessive clotting followed by anemia",
-                "zh": "过度凝血后继发贫血"
+                "id": "C",
+                "en": "Hypervolemia and hypotension",
+                "zh": "高血容量和低血压"
               },
               {
                 "id": "B",
@@ -7055,9 +7055,9 @@
                 "zh": "同时发生过度凝血和出血"
               },
               {
-                "id": "C",
-                "en": "Hypervolemia and hypotension",
-                "zh": "高血容量和低血压"
+                "id": "A",
+                "en": "Excessive clotting followed by anemia",
+                "zh": "过度凝血后继发贫血"
               }
             ],
             "correct": [
@@ -7105,9 +7105,9 @@
             },
             "options": [
               {
-                "id": "A",
-                "en": "Fresh Frozen Plasma (FFP)",
-                "zh": "新鲜冰冻血浆 (FFP)"
+                "id": "C",
+                "en": "Cryoprecipitate",
+                "zh": "冷沉淀"
               },
               {
                 "id": "B",
@@ -7115,9 +7115,9 @@
                 "zh": "红细胞悬液"
               },
               {
-                "id": "C",
-                "en": "Cryoprecipitate",
-                "zh": "冷沉淀"
+                "id": "A",
+                "en": "Fresh Frozen Plasma (FFP)",
+                "zh": "新鲜冰冻血浆 (FFP)"
               }
             ],
             "correct": [
@@ -7165,19 +7165,19 @@
             },
             "options": [
               {
-                "id": "A",
-                "en": "Avoid intramuscular injections",
-                "zh": "避免肌肉注射"
-              },
-              {
                 "id": "B",
                 "en": "Use a soft toothbrush for oral care",
                 "zh": "使用软毛牙刷进行口腔护理"
               },
               {
-                "id": "C",
-                "en": "Apply pressure to venipuncture sites for at least 10 minutes",
-                "zh": "对静脉穿刺点按压至少 10 分钟"
+                "id": "A",
+                "en": "Avoid intramuscular injections",
+                "zh": "避免肌肉注射"
+              },
+              {
+                "id": "K",
+                "en": "Insert a rectal temperature probe",
+                "zh": "插入直肠体温探头"
               },
               {
                 "id": "D",
@@ -7185,9 +7185,9 @@
                 "zh": "给予华法林以预防进一步血栓"
               },
               {
-                "id": "K",
-                "en": "Insert a rectal temperature probe",
-                "zh": "插入直肠体温探头"
+                "id": "C",
+                "en": "Apply pressure to venipuncture sites for at least 10 minutes",
+                "zh": "对静脉穿刺点按压至少 10 分钟"
               }
             ],
             "correct": [
@@ -7247,9 +7247,9 @@
             },
             "options": [
               {
-                "id": "A",
-                "en": "Increasing PT and PTT",
-                "zh": "PT 和 PTT 延长"
+                "id": "C",
+                "en": "Decreasing platelet count",
+                "zh": "血小板计数降低"
               },
               {
                 "id": "B",
@@ -7257,9 +7257,9 @@
                 "zh": "D-二聚体水平降低"
               },
               {
-                "id": "C",
-                "en": "Decreasing platelet count",
-                "zh": "血小板计数降低"
+                "id": "A",
+                "en": "Increasing PT and PTT",
+                "zh": "PT 和 PTT 延长"
               }
             ],
             "correct": [
@@ -7354,11 +7354,6 @@
             },
             "options": [
               {
-                "id": "A",
-                "en": "Hirschsprung Disease",
-                "zh": "先天性巨结肠"
-              },
-              {
                 "id": "B",
                 "en": "Intussusception",
                 "zh": "肠套叠"
@@ -7367,6 +7362,11 @@
                 "id": "C",
                 "en": "Pyloric Stenosis",
                 "zh": "幽门狭窄"
+              },
+              {
+                "id": "A",
+                "en": "Hirschsprung Disease",
+                "zh": "先天性巨结肠"
               }
             ],
             "correct": [
@@ -7474,9 +7474,9 @@
             },
             "options": [
               {
-                "id": "A",
-                "en": "Metabolic acidosis",
-                "zh": "代谢性酸中毒"
+                "id": "C",
+                "en": "Metabolic alkalosis",
+                "zh": "代谢性碱中毒"
               },
               {
                 "id": "B",
@@ -7484,9 +7484,9 @@
                 "zh": "呼吸性酸中毒"
               },
               {
-                "id": "C",
-                "en": "Metabolic alkalosis",
-                "zh": "代谢性碱中毒"
+                "id": "A",
+                "en": "Metabolic acidosis",
+                "zh": "代谢性酸中毒"
               }
             ],
             "correct": [
@@ -7534,14 +7534,14 @@
             },
             "options": [
               {
-                "id": "A",
-                "en": "Prepare for an air or saline enema",
-                "zh": "准备进行空气或盐水灌肠"
-              },
-              {
                 "id": "B",
                 "en": "Maintain NPO status",
                 "zh": "保持禁食 (NPO) 状态"
+              },
+              {
+                "id": "K",
+                "en": "Offer oral feedings to assess tolerance",
+                "zh": "给予口服喂养以评估耐受性"
               },
               {
                 "id": "C",
@@ -7554,9 +7554,9 @@
                 "zh": "立即进行幽门肌切开术"
               },
               {
-                "id": "K",
-                "en": "Offer oral feedings to assess tolerance",
-                "zh": "给予口服喂养以评估耐受性"
+                "id": "A",
+                "en": "Prepare for an air or saline enema",
+                "zh": "准备进行空气或盐水灌肠"
               }
             ],
             "correct": [
@@ -7616,11 +7616,6 @@
             },
             "options": [
               {
-                "id": "A",
-                "en": "Bowel perforation has occurred",
-                "zh": "发生了肠穿孔"
-              },
-              {
                 "id": "B",
                 "en": "The condition is worsening",
                 "zh": "情况正在恶化"
@@ -7629,6 +7624,11 @@
                 "id": "C",
                 "en": "The intussusception has resolved",
                 "zh": "肠套叠已缓解"
+              },
+              {
+                "id": "A",
+                "en": "Bowel perforation has occurred",
+                "zh": "发生了肠穿孔"
               }
             ],
             "correct": [
@@ -7723,14 +7723,14 @@
             },
             "options": [
               {
-                "id": "A",
-                "en": "Anticholinergic Toxicity",
-                "zh": "抗胆碱能中毒"
-              },
-              {
                 "id": "B",
                 "en": "Neuroleptic Malignant Syndrome (NMS)",
                 "zh": "恶性综合征 (NMS)"
+              },
+              {
+                "id": "A",
+                "en": "Anticholinergic Toxicity",
+                "zh": "抗胆碱能中毒"
               },
               {
                 "id": "C",
@@ -7843,9 +7843,9 @@
             },
             "options": [
               {
-                "id": "A",
-                "en": "Cyproheptadine",
-                "zh": "赛庚啶"
+                "id": "C",
+                "en": "Dantrolene",
+                "zh": "丹曲林"
               },
               {
                 "id": "B",
@@ -7853,9 +7853,9 @@
                 "zh": "纳洛酮"
               },
               {
-                "id": "C",
-                "en": "Dantrolene",
-                "zh": "丹曲林"
+                "id": "A",
+                "en": "Cyproheptadine",
+                "zh": "赛庚啶"
               }
             ],
             "correct": [
@@ -7903,14 +7903,9 @@
             },
             "options": [
               {
-                "id": "A",
-                "en": "Discontinue the offending agents immediately",
-                "zh": "立即停用致病药物"
-              },
-              {
-                "id": "B",
-                "en": "Initiate cooling measures",
-                "zh": "启动降温措施"
+                "id": "K",
+                "en": "Restart the medication once the fever improves",
+                "zh": "发热改善后重新开始该药物"
               },
               {
                 "id": "C",
@@ -7918,14 +7913,19 @@
                 "zh": "监测横纹肌溶解症"
               },
               {
+                "id": "B",
+                "en": "Initiate cooling measures",
+                "zh": "启动降温措施"
+              },
+              {
                 "id": "D",
                 "en": "Encourage increased oral intake of the drug",
                 "zh": "鼓励增加该药物的口服摄入量"
               },
               {
-                "id": "K",
-                "en": "Restart the medication once the fever improves",
-                "zh": "发热改善后重新开始该药物"
+                "id": "A",
+                "en": "Discontinue the offending agents immediately",
+                "zh": "立即停用致病药物"
               }
             ],
             "correct": [
@@ -7985,9 +7985,9 @@
             },
             "options": [
               {
-                "id": "A",
-                "en": "Elevated Serum Albumin",
-                "zh": "血清白蛋白升高"
+                "id": "C",
+                "en": "Significantly elevated Creatine Kinase (CK)",
+                "zh": "肌酸激酶 (CK) 显著升高"
               },
               {
                 "id": "B",
@@ -7995,9 +7995,9 @@
                 "zh": "白细胞计数降低"
               },
               {
-                "id": "C",
-                "en": "Significantly elevated Creatine Kinase (CK)",
-                "zh": "肌酸激酶 (CK) 显著升高"
+                "id": "A",
+                "en": "Elevated Serum Albumin",
+                "zh": "血清白蛋白升高"
               }
             ],
             "correct": [
@@ -8092,9 +8092,9 @@
             },
             "options": [
               {
-                "id": "A",
-                "en": "Orthostatic hypotension",
-                "zh": "体位性低血压"
+                "id": "C",
+                "en": "Hypoglycemia",
+                "zh": "低血糖"
               },
               {
                 "id": "B",
@@ -8102,9 +8102,9 @@
                 "zh": "膀胱过度充盈"
               },
               {
-                "id": "C",
-                "en": "Hypoglycemia",
-                "zh": "低血糖"
+                "id": "A",
+                "en": "Orthostatic hypotension",
+                "zh": "体位性低血压"
               }
             ],
             "correct": [
@@ -8157,14 +8157,14 @@
                 "zh": "检查是否有粪便嵌塞"
               },
               {
-                "id": "B",
-                "en": "Raise the head of the bed to 90 degrees",
-                "zh": "将床头抬高至 90 度"
-              },
-              {
                 "id": "C",
                 "en": "Administer an antihypertensive",
                 "zh": "给予抗高血压药"
+              },
+              {
+                "id": "B",
+                "en": "Raise the head of the bed to 90 degrees",
+                "zh": "将床头抬高至 90 度"
               }
             ],
             "correct": [
@@ -8217,14 +8217,14 @@
                 "zh": "患者处于心源性休克"
               },
               {
-                "id": "B",
-                "en": "Parasympathetic compensation above the level of injury",
-                "zh": "损伤水平以上的副交感神经代偿"
-              },
-              {
                 "id": "C",
                 "en": "Damage to the SA node",
                 "zh": "窦房结受损"
+              },
+              {
+                "id": "B",
+                "en": "Parasympathetic compensation above the level of injury",
+                "zh": "损伤水平以上的副交感神经代偿"
               }
             ],
             "correct": [
@@ -8272,24 +8272,24 @@
             },
             "options": [
               {
-                "id": "A",
-                "en": "Check the urinary catheter for kinks",
-                "zh": "检查导尿管是否扭结"
-              },
-              {
                 "id": "B",
                 "en": "Palpate the bladder for distension",
                 "zh": "触诊膀胱是否扩张"
               },
               {
-                "id": "C",
-                "en": "Assess for fecal impaction per protocol after bladder causes are addressed",
-                "zh": "处理膀胱相关原因后按规程评估粪便嵌塞"
+                "id": "A",
+                "en": "Check the urinary catheter for kinks",
+                "zh": "检查导尿管是否扭结"
               },
               {
                 "id": "D",
                 "en": "Assess skin for pressure sores or tight clothing",
                 "zh": "评估皮肤是否有压疮或衣服过紧"
+              },
+              {
+                "id": "C",
+                "en": "Assess for fecal impaction per protocol after bladder causes are addressed",
+                "zh": "处理膀胱相关原因后按规程评估粪便嵌塞"
               },
               {
                 "id": "K",
@@ -8355,9 +8355,9 @@
             },
             "options": [
               {
-                "id": "A",
-                "en": "Blood pressure returns to baseline",
-                "zh": "血压恢复到基础值"
+                "id": "C",
+                "en": "Headache intensifies",
+                "zh": "头痛加剧"
               },
               {
                 "id": "B",
@@ -8365,9 +8365,9 @@
                 "zh": "损伤水平以下的出汗增加"
               },
               {
-                "id": "C",
-                "en": "Headache intensifies",
-                "zh": "头痛加剧"
+                "id": "A",
+                "en": "Blood pressure returns to baseline",
+                "zh": "血压恢复到基础值"
               }
             ],
             "correct": [
@@ -8488,16 +8488,6 @@
                 "zh": "协助进行紧急非平扫头颅CT扫描"
               },
               {
-                "id": "B",
-                "en": "Assess capillary blood glucose",
-                "zh": "评估毛细血管血糖"
-              },
-              {
-                "id": "C",
-                "en": "Perform a baseline neurologic assessment (e.g., NIHSS)",
-                "zh": "进行基线神经系统评估（如NIHSS）"
-              },
-              {
                 "id": "D",
                 "en": "Administer enteric-coated aspirin 325 mg immediately",
                 "zh": "立即给予肠溶阿司匹林325 mg"
@@ -8506,6 +8496,16 @@
                 "id": "E",
                 "en": "Establish at least two large-bore IV lines",
                 "zh": "建立至少两条大孔径静脉通道"
+              },
+              {
+                "id": "C",
+                "en": "Perform a baseline neurologic assessment (e.g., NIHSS)",
+                "zh": "进行基线神经系统评估（如NIHSS）"
+              },
+              {
+                "id": "B",
+                "en": "Assess capillary blood glucose",
+                "zh": "评估毛细血管血糖"
               }
             ],
             "correct": [
@@ -8687,9 +8687,9 @@
                 "zh": "按需给予对乙酰氨基酚缓解头痛"
               },
               {
-                "id": "B",
-                "en": "Prepare to administer labetalol IV push",
-                "zh": "准备静脉推注拉贝洛尔"
+                "id": "D",
+                "en": "Reassure the client that headache is a common side effect",
+                "zh": "安抚患者头痛是常见的副作用"
               },
               {
                 "id": "C",
@@ -8697,9 +8697,9 @@
                 "zh": "立即停止阿替普酶输注"
               },
               {
-                "id": "D",
-                "en": "Reassure the client that headache is a common side effect",
-                "zh": "安抚患者头痛是常见的副作用"
+                "id": "B",
+                "en": "Prepare to administer labetalol IV push",
+                "zh": "准备静脉推注拉贝洛尔"
               }
             ],
             "correct": [
@@ -8843,9 +8843,9 @@
             },
             "options": [
               {
-                "id": "A",
-                "en": "Prerenal",
-                "zh": "肾前性"
+                "id": "C",
+                "en": "Postrenal",
+                "zh": "肾后性"
               },
               {
                 "id": "B",
@@ -8853,14 +8853,14 @@
                 "zh": "慢性"
               },
               {
-                "id": "C",
-                "en": "Postrenal",
-                "zh": "肾后性"
-              },
-              {
                 "id": "D",
                 "en": "Intrarenal",
                 "zh": "肾实质性"
+              },
+              {
+                "id": "A",
+                "en": "Prerenal",
+                "zh": "肾前性"
               }
             ],
             "correct": [
@@ -8913,24 +8913,24 @@
             },
             "options": [
               {
-                "id": "A",
-                "en": "Urine output of 120 mL in 12 hours",
-                "zh": "12小时尿量为120 mL"
-              },
-              {
                 "id": "B",
                 "en": "Peaked T waves on telemetry",
                 "zh": "遥测心电图显示T波高尖"
               },
               {
-                "id": "C",
-                "en": "Serum potassium of 5.8 mEq/L",
-                "zh": "血清钾 5.8 mEq/L"
+                "id": "A",
+                "en": "Urine output of 120 mL in 12 hours",
+                "zh": "12小时尿量为120 mL"
               },
               {
                 "id": "D",
                 "en": "BUN 68 mg/dL",
                 "zh": "血尿素氮 68 mg/dL"
+              },
+              {
+                "id": "C",
+                "en": "Serum potassium of 5.8 mEq/L",
+                "zh": "血清钾 5.8 mEq/L"
               },
               {
                 "id": "E",
@@ -9003,9 +9003,9 @@
                 "id": "1",
                 "options": [
                   {
-                    "id": "o1",
-                    "en": "stabilize the myocardial cell membrane",
-                    "zh": "稳定心肌细胞膜"
+                    "id": "o3",
+                    "en": "bind potassium in the gastrointestinal tract",
+                    "zh": "在胃肠道内结合钾"
                   },
                   {
                     "id": "o2",
@@ -9013,9 +9013,9 @@
                     "zh": "增加肾脏排钾"
                   },
                   {
-                    "id": "o3",
-                    "en": "bind potassium in the gastrointestinal tract",
-                    "zh": "在胃肠道内结合钾"
+                    "id": "o1",
+                    "en": "stabilize the myocardial cell membrane",
+                    "zh": "稳定心肌细胞膜"
                   }
                 ],
                 "correct": "o1"
@@ -9024,14 +9024,14 @@
                 "id": "2",
                 "options": [
                   {
-                    "id": "o1",
-                    "en": "promote cellular uptake of potassium",
-                    "zh": "促进钾的细胞内摄取"
-                  },
-                  {
                     "id": "o2",
                     "en": "dilute serum potassium concentration",
                     "zh": "稀释血清钾浓度"
+                  },
+                  {
+                    "id": "o1",
+                    "en": "promote cellular uptake of potassium",
+                    "zh": "促进钾的细胞内摄取"
                   },
                   {
                     "id": "o3",
@@ -9193,14 +9193,14 @@
               ],
               "columns": [
                 {
-                  "id": "c1",
-                  "en": "Indicated",
-                  "zh": "有指征"
-                },
-                {
                   "id": "c2",
                   "en": "Contraindicated",
                   "zh": "禁忌"
+                },
+                {
+                  "id": "c1",
+                  "en": "Indicated",
+                  "zh": "有指征"
                 }
               ],
               "selectionMode": "single_per_row"
@@ -9256,9 +9256,9 @@
             },
             "options": [
               {
-                "id": "A",
-                "en": "Hypomagnesemia",
-                "zh": "低镁血症"
+                "id": "D",
+                "en": "Hypocalcemia",
+                "zh": "低钙血症"
               },
               {
                 "id": "B",
@@ -9266,14 +9266,14 @@
                 "zh": "高钠血症"
               },
               {
+                "id": "A",
+                "en": "Hypomagnesemia",
+                "zh": "低镁血症"
+              },
+              {
                 "id": "C",
                 "en": "Hyperkalemia",
                 "zh": "高钾血症"
-              },
-              {
-                "id": "D",
-                "en": "Hypocalcemia",
-                "zh": "低钙血症"
               }
             ],
             "correct": [
@@ -9400,9 +9400,14 @@
             },
             "options": [
               {
-                "id": "A",
-                "en": "Prepare for immediate endotracheal intubation",
-                "zh": "准备立即进行气管插管"
+                "id": "C",
+                "en": "Apply ice packs to the burn wounds",
+                "zh": "在烧伤创面上敷冰袋"
+              },
+              {
+                "id": "E",
+                "en": "Administer prophylactic IV antibiotics",
+                "zh": "静脉注射预防性抗生素"
               },
               {
                 "id": "B",
@@ -9410,19 +9415,14 @@
                 "zh": "通过非重复呼吸面罩给予100%氧气"
               },
               {
-                "id": "C",
-                "en": "Apply ice packs to the burn wounds",
-                "zh": "在烧伤创面上敷冰袋"
+                "id": "A",
+                "en": "Prepare for immediate endotracheal intubation",
+                "zh": "准备立即进行气管插管"
               },
               {
                 "id": "D",
                 "en": "Initiate continuous electrocardiogram (ECG) monitoring",
                 "zh": "启动持续心电图（ECG）监测"
-              },
-              {
-                "id": "E",
-                "en": "Administer prophylactic IV antibiotics",
-                "zh": "静脉注射预防性抗生素"
               }
             ],
             "correct": [
@@ -9608,14 +9608,14 @@
                     "zh": "子宫收缩乏力"
                   },
                   {
-                    "id": "o2",
-                    "en": "vaginal laceration",
-                    "zh": "阴道裂伤"
-                  },
-                  {
                     "id": "o3",
                     "en": "retained placenta",
                     "zh": "胎盘残留"
+                  },
+                  {
+                    "id": "o2",
+                    "en": "vaginal laceration",
+                    "zh": "阴道裂伤"
                   }
                 ],
                 "correct": "o1"
@@ -9629,14 +9629,14 @@
                     "zh": "进行宫底按摩"
                   },
                   {
-                    "id": "o5",
-                    "en": "assist the client to empty her bladder",
-                    "zh": "协助患者排空膀胱"
-                  },
-                  {
                     "id": "o6",
                     "en": "administer uterotonic medications",
                     "zh": "给予促子宫收缩药物"
+                  },
+                  {
+                    "id": "o5",
+                    "en": "assist the client to empty her bladder",
+                    "zh": "协助患者排空膀胱"
                   }
                 ],
                 "correct": "o4"
@@ -9678,9 +9678,9 @@
             },
             "options": [
               {
-                "id": "A",
-                "en": "Carboprost tromethamine 250 mcg IM",
-                "zh": "卡前列素氨丁三醇 250 mcg 肌肉注射"
+                "id": "C",
+                "en": "Methylergonovine 0.2 mg IM",
+                "zh": "甲基麦角新碱 0.2 mg 肌肉注射"
               },
               {
                 "id": "B",
@@ -9688,9 +9688,9 @@
                 "zh": "催产素 20 单位加入 1000 mL 生理盐水静脉滴注"
               },
               {
-                "id": "C",
-                "en": "Methylergonovine 0.2 mg IM",
-                "zh": "甲基麦角新碱 0.2 mg 肌肉注射"
+                "id": "A",
+                "en": "Carboprost tromethamine 250 mcg IM",
+                "zh": "卡前列素氨丁三醇 250 mcg 肌肉注射"
               },
               {
                 "id": "D",
@@ -9805,16 +9805,6 @@
             },
             "options": [
               {
-                "id": "A",
-                "en": "Apply oxygen to maintain SpO2 > 92%.",
-                "zh": "给予吸氧以维持血氧饱和度 > 92%。"
-              },
-              {
-                "id": "B",
-                "en": "Obtain an immediate 12-lead ECG.",
-                "zh": "立即获取12导联心电图。"
-              },
-              {
                 "id": "C",
                 "en": "Administer prescribed IV morphine.",
                 "zh": "给予处方的静脉注射吗啡。"
@@ -9823,6 +9813,16 @@
                 "id": "D",
                 "en": "Notify the healthcare provider.",
                 "zh": "通知医疗服务提供者。"
+              },
+              {
+                "id": "B",
+                "en": "Obtain an immediate 12-lead ECG.",
+                "zh": "立即获取12导联心电图。"
+              },
+              {
+                "id": "A",
+                "en": "Apply oxygen to maintain SpO2 > 92%.",
+                "zh": "给予吸氧以维持血氧饱和度 > 92%。"
               }
             ],
             "correct": [
@@ -9897,14 +9897,14 @@
               ],
               "columns": [
                 {
-                  "id": "c1",
-                  "en": "Expected",
-                  "zh": "预期"
-                },
-                {
                   "id": "c2",
                   "en": "Unexpected",
                   "zh": "非预期"
+                },
+                {
+                  "id": "c1",
+                  "en": "Expected",
+                  "zh": "预期"
                 }
               ],
               "selectionMode": "single_per_row"
@@ -9966,14 +9966,14 @@
                 "id": "1",
                 "options": [
                   {
-                    "id": "o1",
-                    "en": "myocardial infarction",
-                    "zh": "心肌梗死"
-                  },
-                  {
                     "id": "o2",
                     "en": "pulmonary embolism",
                     "zh": "肺栓塞"
+                  },
+                  {
+                    "id": "o1",
+                    "en": "myocardial infarction",
+                    "zh": "心肌梗死"
                   },
                   {
                     "id": "o3",
@@ -9987,6 +9987,11 @@
                 "id": "2",
                 "options": [
                   {
+                    "id": "o3",
+                    "en": "coronary artery occlusion",
+                    "zh": "冠状动脉闭塞"
+                  },
+                  {
                     "id": "o1",
                     "en": "deep vein thrombosis",
                     "zh": "深静脉血栓形成"
@@ -9995,11 +10000,6 @@
                     "id": "o2",
                     "en": "fat embolism",
                     "zh": "脂肪栓塞"
-                  },
-                  {
-                    "id": "o3",
-                    "en": "coronary artery occlusion",
-                    "zh": "冠状动脉闭塞"
                   }
                 ],
                 "correct": "o1"
@@ -10170,6 +10170,16 @@
             },
             "options": [
               {
+                "id": "E",
+                "en": "SpO2 of 94% on room air",
+                "zh": "室内空气下血氧饱和度 94%"
+              },
+              {
+                "id": "D",
+                "en": "Capillary refill of 4 seconds",
+                "zh": "毛细血管充盈时间 4 秒"
+              },
+              {
                 "id": "A",
                 "en": "Heart rate of 125 bpm",
                 "zh": "心率 125 次/分"
@@ -10183,16 +10193,6 @@
                 "id": "C",
                 "en": "Lethargy",
                 "zh": "嗜睡"
-              },
-              {
-                "id": "D",
-                "en": "Capillary refill of 4 seconds",
-                "zh": "毛细血管充盈时间 4 秒"
-              },
-              {
-                "id": "E",
-                "en": "SpO2 of 94% on room air",
-                "zh": "室内空气下血氧饱和度 94%"
               }
             ],
             "correct": [
@@ -10252,14 +10252,9 @@
             },
             "options": [
               {
-                "id": "A",
-                "en": "To reverse the effects of alcohol intoxication.",
-                "zh": "逆转酒精中毒的影响。"
-              },
-              {
-                "id": "B",
-                "en": "To decrease portal venous pressure.",
-                "zh": "降低门静脉压力。"
+                "id": "D",
+                "en": "To correct coagulation abnormalities.",
+                "zh": "纠正凝血异常。"
               },
               {
                 "id": "C",
@@ -10267,9 +10262,14 @@
                 "zh": "预防肝性脑病。"
               },
               {
-                "id": "D",
-                "en": "To correct coagulation abnormalities.",
-                "zh": "纠正凝血异常。"
+                "id": "B",
+                "en": "To decrease portal venous pressure.",
+                "zh": "降低门静脉压力。"
+              },
+              {
+                "id": "A",
+                "en": "To reverse the effects of alcohol intoxication.",
+                "zh": "逆转酒精中毒的影响。"
               }
             ],
             "correct": [
@@ -10484,6 +10484,11 @@
                 "zh": "将床头抬高 45 度"
               },
               {
+                "id": "D",
+                "en": "Provide emotional support and explain the need for possible intubation",
+                "zh": "提供情感支持并解释可能需要插管的原因"
+              },
+              {
                 "id": "B",
                 "en": "Notify the Rapid Response Team and healthcare provider",
                 "zh": "通知快速反应小组和医疗服务提供者"
@@ -10492,11 +10497,6 @@
                 "id": "C",
                 "en": "Prepare intubation and mechanical ventilation equipment",
                 "zh": "准备气管插管和机械通气设备"
-              },
-              {
-                "id": "D",
-                "en": "Provide emotional support and explain the need for possible intubation",
-                "zh": "提供情感支持并解释可能需要插管的原因"
               }
             ],
             "correct": [
@@ -10934,14 +10934,14 @@
               ],
               "columns": [
                 {
-                  "id": "c1",
-                  "en": "Expected",
-                  "zh": "预期"
-                },
-                {
                   "id": "c2",
                   "en": "Requires immediate follow-up",
                   "zh": "需立即跟进"
+                },
+                {
+                  "id": "c1",
+                  "en": "Expected",
+                  "zh": "预期"
                 }
               ],
               "selectionMode": "single_per_row"
@@ -11030,6 +11030,11 @@
             },
             "options": [
               {
+                "id": "C",
+                "en": "The suction pressure is set too low",
+                "zh": "吸引压力设置过低"
+              },
+              {
                 "id": "A",
                 "en": "An air leak in the system or at the insertion site",
                 "zh": "系统或置管处存在漏气"
@@ -11038,11 +11043,6 @@
                 "id": "B",
                 "en": "Re-expansion of the lung is complete",
                 "zh": "肺已完全复张"
-              },
-              {
-                "id": "C",
-                "en": "The suction pressure is set too low",
-                "zh": "吸引压力设置过低"
               },
               {
                 "id": "D",
@@ -11111,9 +11111,9 @@
                 "zh": "用带衬垫的钳子在置管处附近夹闭胸腔引流管"
               },
               {
-                "id": "B",
-                "en": "Reconnect the tubing after wiping both ends with an alcohol swab",
-                "zh": "用酒精棉片擦拭两端后重新连接管路"
+                "id": "D",
+                "en": "Submerge the end of the chest tube in a bottle of sterile water to re-establish a water seal",
+                "zh": "将胸腔引流管末端浸入一瓶无菌水中,重新建立水封"
               },
               {
                 "id": "C",
@@ -11121,9 +11121,9 @@
                 "zh": "让患者平卧并呼叫快速反应小组"
               },
               {
-                "id": "D",
-                "en": "Submerge the end of the chest tube in a bottle of sterile water to re-establish a water seal",
-                "zh": "将胸腔引流管末端浸入一瓶无菌水中,重新建立水封"
+                "id": "B",
+                "en": "Reconnect the tubing after wiping both ends with an alcohol swab",
+                "zh": "用酒精棉片擦拭两端后重新连接管路"
               }
             ],
             "correct": [
@@ -11182,9 +11182,9 @@
             },
             "options": [
               {
-                "id": "A",
-                "en": "Tidaling stops and water-seal bubbling ceases, with improved breath sounds and a re-expanded lung on x-ray",
-                "zh": "潮汐样波动停止、水封腔不再冒泡,呼吸音改善,X线示肺复张"
+                "id": "D",
+                "en": "Continuous bubbling returns in the water-seal chamber",
+                "zh": "水封腔再次出现持续冒泡"
               },
               {
                 "id": "B",
@@ -11192,14 +11192,14 @@
                 "zh": "置管处周围出现皮下捻发感"
               },
               {
+                "id": "A",
+                "en": "Tidaling stops and water-seal bubbling ceases, with improved breath sounds and a re-expanded lung on x-ray",
+                "zh": "潮汐样波动停止、水封腔不再冒泡,呼吸音改善,X线示肺复张"
+              },
+              {
                 "id": "C",
                 "en": "The collection chamber fills rapidly with bright red fluid",
                 "zh": "收集腔迅速被鲜红色液体充满"
-              },
-              {
-                "id": "D",
-                "en": "Continuous bubbling returns in the water-seal chamber",
-                "zh": "水封腔再次出现持续冒泡"
               }
             ],
             "correct": [
@@ -11346,11 +11346,6 @@
               ],
               "columns": [
                 {
-                  "id": "c1",
-                  "en": "Stage 1",
-                  "zh": "1期"
-                },
-                {
                   "id": "c2",
                   "en": "Stage 2",
                   "zh": "2期"
@@ -11359,6 +11354,11 @@
                   "id": "c3",
                   "en": "Stage 3",
                   "zh": "3期"
+                },
+                {
+                  "id": "c1",
+                  "en": "Stage 1",
+                  "zh": "1期"
                 }
               ],
               "selectionMode": "single_per_row"
@@ -11436,24 +11436,19 @@
             },
             "options": [
               {
-                "id": "A",
-                "en": "Reposition the client at least every 2 hours",
-                "zh": "至少每2小时为患者翻身一次"
-              },
-              {
                 "id": "B",
                 "en": "Float the heels off the bed using a pillow under the calves",
                 "zh": "用枕头垫于小腿下使足跟悬空"
               },
               {
-                "id": "C",
-                "en": "Vigorously massage the reddened heel to improve circulation",
-                "zh": "用力按摩发红的足跟以促进血液循环"
-              },
-              {
                 "id": "D",
                 "en": "Keep the head of the bed elevated above 45 degrees at all times",
                 "zh": "始终将床头抬高至45度以上"
+              },
+              {
+                "id": "C",
+                "en": "Vigorously massage the reddened heel to improve circulation",
+                "zh": "用力按摩发红的足跟以促进血液循环"
               },
               {
                 "id": "E",
@@ -11464,6 +11459,11 @@
                 "id": "F",
                 "en": "Keep skin clean and dry and manage incontinence promptly",
                 "zh": "保持皮肤清洁干燥,及时处理失禁"
+              },
+              {
+                "id": "A",
+                "en": "Reposition the client at least every 2 hours",
+                "zh": "至少每2小时为患者翻身一次"
               }
             ],
             "correct": [
@@ -11540,11 +11540,6 @@
             },
             "options": [
               {
-                "id": "A",
-                "en": "Increase dietary protein intake",
-                "zh": "增加膳食蛋白质摄入"
-              },
-              {
                 "id": "B",
                 "en": "Ensure adequate vitamin C and zinc",
                 "zh": "确保充足的维生素C和锌"
@@ -11555,14 +11550,19 @@
                 "zh": "提供充足的热量和水分"
               },
               {
-                "id": "D",
-                "en": "Restrict all dietary fat and protein to reduce metabolic demand",
-                "zh": "限制所有膳食脂肪和蛋白质以降低代谢需求"
+                "id": "A",
+                "en": "Increase dietary protein intake",
+                "zh": "增加膳食蛋白质摄入"
               },
               {
                 "id": "E",
                 "en": "Offer oral nutritional supplements between meals",
                 "zh": "在两餐之间提供口服营养补充剂"
+              },
+              {
+                "id": "D",
+                "en": "Restrict all dietary fat and protein to reduce metabolic demand",
+                "zh": "限制所有膳食脂肪和蛋白质以降低代谢需求"
               }
             ],
             "correct": [
@@ -11639,6 +11639,11 @@
                 "zh": "2期压力性损伤"
               },
               {
+                "id": "D",
+                "en": "Unstageable pressure injury",
+                "zh": "无法分期的压力性损伤"
+              },
+              {
                 "id": "B",
                 "en": "Deep tissue pressure injury",
                 "zh": "深部组织压力性损伤"
@@ -11647,11 +11652,6 @@
                 "id": "C",
                 "en": "Stage 4 pressure injury",
                 "zh": "4期压力性损伤"
-              },
-              {
-                "id": "D",
-                "en": "Unstageable pressure injury",
-                "zh": "无法分期的压力性损伤"
               }
             ],
             "correct": [
@@ -11801,9 +11801,9 @@
                 "zh": "飞沫隔离"
               },
               {
-                "id": "B",
-                "en": "Airborne precautions",
-                "zh": "空气隔离"
+                "id": "D",
+                "en": "Protective (reverse) isolation",
+                "zh": "保护性(反向)隔离"
               },
               {
                 "id": "C",
@@ -11811,9 +11811,9 @@
                 "zh": "接触隔离"
               },
               {
-                "id": "D",
-                "en": "Protective (reverse) isolation",
-                "zh": "保护性(反向)隔离"
+                "id": "B",
+                "en": "Airborne precautions",
+                "zh": "空气隔离"
               }
             ],
             "correct": [
@@ -11872,14 +11872,14 @@
             },
             "options": [
               {
+                "id": "D",
+                "en": "Use an alcohol-based hand rub only",
+                "zh": "仅使用含酒精的快速手消毒剂"
+              },
+              {
                 "id": "A",
                 "en": "Rinse hands with water alone",
                 "zh": "仅用清水冲洗双手"
-              },
-              {
-                "id": "B",
-                "en": "Wash hands with soap and water",
-                "zh": "用肥皂和流动水洗手"
               },
               {
                 "id": "C",
@@ -11887,9 +11887,9 @@
                 "zh": "先使用含酒精手消毒剂,再戴干净手套"
               },
               {
-                "id": "D",
-                "en": "Use an alcohol-based hand rub only",
-                "zh": "仅使用含酒精的快速手消毒剂"
+                "id": "B",
+                "en": "Wash hands with soap and water",
+                "zh": "用肥皂和流动水洗手"
               }
             ],
             "correct": [
@@ -11971,14 +11971,14 @@
               ],
               "columns": [
                 {
-                  "id": "c1",
-                  "en": "Correct",
-                  "zh": "正确"
-                },
-                {
                   "id": "c2",
                   "en": "Requires correction",
                   "zh": "需纠正"
+                },
+                {
+                  "id": "c1",
+                  "en": "Correct",
+                  "zh": "正确"
                 }
               ],
               "selectionMode": "single_per_row"
@@ -12067,6 +12067,11 @@
             },
             "options": [
               {
+                "id": "C",
+                "en": "Perform hand hygiene with soap and water after removing PPE",
+                "zh": "脱去PPE后用肥皂和流动水进行手卫生"
+              },
+              {
                 "id": "A",
                 "en": "Remove gloves",
                 "zh": "脱手套"
@@ -12075,11 +12080,6 @@
                 "id": "B",
                 "en": "Remove gown",
                 "zh": "脱隔离衣"
-              },
-              {
-                "id": "C",
-                "en": "Perform hand hygiene with soap and water after removing PPE",
-                "zh": "脱去PPE后用肥皂和流动水进行手卫生"
               },
               {
                 "id": "D",
@@ -12324,9 +12324,9 @@
             },
             "options": [
               {
-                "id": "A",
-                "en": "Serum carcinoembryonic antigen (CEA) as a screening test",
-                "zh": "以血清癌胚抗原(CEA)作为筛查方法"
+                "id": "D",
+                "en": "Abdominal ultrasound",
+                "zh": "腹部超声检查"
               },
               {
                 "id": "B",
@@ -12339,9 +12339,9 @@
                 "zh": "结肠镜检查(或其他获批的结直肠筛查方法)"
               },
               {
-                "id": "D",
-                "en": "Abdominal ultrasound",
-                "zh": "腹部超声检查"
+                "id": "A",
+                "en": "Serum carcinoembryonic antigen (CEA) as a screening test",
+                "zh": "以血清癌胚抗原(CEA)作为筛查方法"
               }
             ],
             "correct": [
@@ -12405,24 +12405,24 @@
             },
             "options": [
               {
-                "id": "A",
-                "en": "The inactivated influenza vaccine should be avoided",
-                "zh": "应避免接种灭活流感疫苗"
-              },
-              {
                 "id": "B",
                 "en": "Live attenuated vaccines (such as MMR or varicella) should be avoided",
                 "zh": "应避免接种减毒活疫苗(如麻腮风疫苗或水痘疫苗)"
               },
               {
-                "id": "C",
-                "en": "All vaccines are safe and none should be avoided",
-                "zh": "所有疫苗都安全,不需要避免任何疫苗"
+                "id": "A",
+                "en": "The inactivated influenza vaccine should be avoided",
+                "zh": "应避免接种灭活流感疫苗"
               },
               {
                 "id": "D",
                 "en": "The tetanus (Tdap) vaccine should be avoided",
                 "zh": "应避免接种破伤风(Tdap)疫苗"
+              },
+              {
+                "id": "C",
+                "en": "All vaccines are safe and none should be avoided",
+                "zh": "所有疫苗都安全,不需要避免任何疫苗"
               }
             ],
             "correct": [
@@ -12486,14 +12486,9 @@
             },
             "options": [
               {
-                "id": "A",
-                "en": "\"I should get a flu shot every year.\"",
-                "zh": "\"我每年都应该打流感疫苗。\""
-              },
-              {
-                "id": "B",
-                "en": "\"Because my last tetanus shot was over 10 years ago, I'm due for a booster.\"",
-                "zh": "\"因为我上次破伤风疫苗已超过10年,我该打加强针了。\""
+                "id": "D",
+                "en": "\"Keeping my blood sugar controlled lowers my risk of complications.\"",
+                "zh": "\"控制好血糖能降低我并发症的风险。\""
               },
               {
                 "id": "C",
@@ -12501,14 +12496,19 @@
                 "zh": "\"既然我感觉健康,就可以不做结直肠癌筛查。\""
               },
               {
-                "id": "D",
-                "en": "\"Keeping my blood sugar controlled lowers my risk of complications.\"",
-                "zh": "\"控制好血糖能降低我并发症的风险。\""
+                "id": "A",
+                "en": "\"I should get a flu shot every year.\"",
+                "zh": "\"我每年都应该打流感疫苗。\""
               },
               {
                 "id": "E",
                 "en": "\"The shingles vaccine can help prevent a painful rash and nerve pain.\"",
                 "zh": "\"带状疱疹疫苗有助于预防疼痛性皮疹和神经痛。\""
+              },
+              {
+                "id": "B",
+                "en": "\"Because my last tetanus shot was over 10 years ago, I'm due for a booster.\"",
+                "zh": "\"因为我上次破伤风疫苗已超过10年,我该打加强针了。\""
               }
             ],
             "correct": [
@@ -12639,19 +12639,14 @@
             },
             "options": [
               {
+                "id": "E",
+                "en": "The client requesting a written list of her discharge medications",
+                "zh": "患者要求一份书面的出院用药清单"
+              },
+              {
                 "id": "A",
                 "en": "Injuries in various stages of healing",
                 "zh": "处于不同愈合阶段的损伤"
-              },
-              {
-                "id": "B",
-                "en": "A delay of two days before seeking care",
-                "zh": "受伤后延迟两天才就医"
-              },
-              {
-                "id": "C",
-                "en": "An explanation of injury that is inconsistent with the findings",
-                "zh": "受伤解释与体征不相符"
               },
               {
                 "id": "D",
@@ -12659,9 +12654,14 @@
                 "zh": "伴侣代患者回答且不愿离开"
               },
               {
-                "id": "E",
-                "en": "The client requesting a written list of her discharge medications",
-                "zh": "患者要求一份书面的出院用药清单"
+                "id": "C",
+                "en": "An explanation of injury that is inconsistent with the findings",
+                "zh": "受伤解释与体征不相符"
+              },
+              {
+                "id": "B",
+                "en": "A delay of two days before seeking care",
+                "zh": "受伤后延迟两天才就医"
               }
             ],
             "correct": [
@@ -12728,9 +12728,9 @@
             },
             "options": [
               {
-                "id": "A",
-                "en": "Ask the client about abuse directly in front of the partner",
-                "zh": "当着伴侣的面直接询问患者是否遭受虐待"
+                "id": "C",
+                "en": "Avoid raising the topic unless the client brings it up first",
+                "zh": "除非患者主动提起,否则避免谈及该话题"
               },
               {
                 "id": "B",
@@ -12738,9 +12738,9 @@
                 "zh": "找一个私密时机,在伴侣不在场时单独询问患者"
               },
               {
-                "id": "C",
-                "en": "Avoid raising the topic unless the client brings it up first",
-                "zh": "除非患者主动提起,否则避免谈及该话题"
+                "id": "A",
+                "en": "Ask the client about abuse directly in front of the partner",
+                "zh": "当着伴侣的面直接询问患者是否遭受虐待"
               },
               {
                 "id": "D",
@@ -12804,6 +12804,16 @@
             },
             "options": [
               {
+                "id": "D",
+                "en": "Insist that she leave the partner immediately before discharge",
+                "zh": "坚持要求她在出院前立即离开伴侣"
+              },
+              {
+                "id": "C",
+                "en": "Tell her she must press charges against her partner today",
+                "zh": "告诉她今天必须对伴侣提起诉讼"
+              },
+              {
                 "id": "A",
                 "en": "Assess her immediate safety and help develop a safety plan, including resources she can use",
                 "zh": "评估她当前的安全状况,并协助制定安全计划,包括可使用的求助资源"
@@ -12812,16 +12822,6 @@
                 "id": "B",
                 "en": "Reassure her that the situation will likely improve on its own",
                 "zh": "安慰她说情况很可能会自行好转"
-              },
-              {
-                "id": "C",
-                "en": "Tell her she must press charges against her partner today",
-                "zh": "告诉她今天必须对伴侣提起诉讼"
-              },
-              {
-                "id": "D",
-                "en": "Insist that she leave the partner immediately before discharge",
-                "zh": "坚持要求她在出院前立即离开伴侣"
               }
             ],
             "correct": [
@@ -12908,14 +12908,14 @@
               ],
               "columns": [
                 {
-                  "id": "c1",
-                  "en": "Therapeutic / appropriate",
-                  "zh": "治疗性/恰当"
-                },
-                {
                   "id": "c2",
                   "en": "Non-therapeutic / inappropriate",
                   "zh": "非治疗性/不恰当"
+                },
+                {
+                  "id": "c1",
+                  "en": "Therapeutic / appropriate",
+                  "zh": "治疗性/恰当"
                 }
               ],
               "selectionMode": "single_per_row"
@@ -13270,11 +13270,6 @@
             },
             "options": [
               {
-                "id": "opt_ptu",
-                "en": "Administer propylthiouracil (PTU)",
-                "zh": "给予丙硫氧嘧啶 (PTU)"
-              },
-              {
                 "id": "opt_bb",
                 "en": "Administer IV propranolol",
                 "zh": "静脉注射普萘洛尔"
@@ -13288,6 +13283,11 @@
                 "id": "opt_iodine",
                 "en": "Administer Lugol's iodine solution",
                 "zh": "给予复方碘溶液 (Lugol液)"
+              },
+              {
+                "id": "opt_ptu",
+                "en": "Administer propylthiouracil (PTU)",
+                "zh": "给予丙硫氧嘧啶 (PTU)"
               }
             ],
             "correct": [
@@ -13359,11 +13359,6 @@
                 "zh": "遵医嘱给予阿司匹林以退热。"
               },
               {
-                "id": "opt_seizure",
-                "en": "Initiate seizure precautions.",
-                "zh": "启动癫痫预防措施。"
-              },
-              {
                 "id": "opt_cooling",
                 "en": "Apply a cooling blanket and ice packs to axillae and groin.",
                 "zh": "使用冰毯并将冰袋置于腋下和腹股沟。"
@@ -13374,14 +13369,19 @@
                 "zh": "维持凉爽、昏暗且安静的病房环境。"
               },
               {
+                "id": "opt_acetaminophen",
+                "en": "Administer prescribed acetaminophen for hyperthermia.",
+                "zh": "遵医嘱给予对乙酰氨基酚以治疗高热。"
+              },
+              {
                 "id": "opt_fluids",
                 "en": "Restrict intravenous fluids to prevent pulmonary edema.",
                 "zh": "限制静脉输液以防止肺水肿。"
               },
               {
-                "id": "opt_acetaminophen",
-                "en": "Administer prescribed acetaminophen for hyperthermia.",
-                "zh": "遵医嘱给予对乙酰氨基酚以治疗高热。"
+                "id": "opt_seizure",
+                "en": "Initiate seizure precautions.",
+                "zh": "启动癫痫预防措施。"
               }
             ],
             "correct": [
@@ -13468,14 +13468,14 @@
                 "zh": "血清钾 3.8 mEq/L (3.8 mmol/L)"
               },
               {
-                "id": "opt_t4",
-                "en": "Free T4 of 4.2 ng/dL",
-                "zh": "游离T4 4.2 ng/dL"
-              },
-              {
                 "id": "opt_wbc",
                 "en": "White blood cell count of 2,800/mm³ (2.8 × 10^9/L)",
                 "zh": "白细胞计数 2,800/mm³ (2.8 × 10^9/L)"
+              },
+              {
+                "id": "opt_t4",
+                "en": "Free T4 of 4.2 ng/dL",
+                "zh": "游离T4 4.2 ng/dL"
               }
             ],
             "correct": [
@@ -13603,19 +13603,14 @@
             },
             "options": [
               {
-                "id": "C",
-                "en": "Blood pressure of 188/102 mmHg",
-                "zh": "血压188/102 mmHg"
-              },
-              {
                 "id": "F",
                 "en": "Tripod positioning",
                 "zh": "三脚架体位"
               },
               {
-                "id": "D",
-                "en": "History of atrial fibrillation",
-                "zh": "心房颤动病史"
+                "id": "A",
+                "en": "SpO2 of 85% on room air",
+                "zh": "室内空气下血氧饱和度为85%"
               },
               {
                 "id": "E",
@@ -13628,9 +13623,14 @@
                 "zh": "双侧湿啰音"
               },
               {
-                "id": "A",
-                "en": "SpO2 of 85% on room air",
-                "zh": "室内空气下血氧饱和度为85%"
+                "id": "C",
+                "en": "Blood pressure of 188/102 mmHg",
+                "zh": "血压188/102 mmHg"
+              },
+              {
+                "id": "D",
+                "en": "History of atrial fibrillation",
+                "zh": "心房颤动病史"
               }
             ],
             "correct": [
@@ -13707,9 +13707,9 @@
             },
             "options": [
               {
-                "id": "D",
-                "en": "Establish intravenous access.",
-                "zh": "建立静脉通路。"
+                "id": "B",
+                "en": "Place the client in a high-Fowler's position.",
+                "zh": "将客户置于高福勒卧位。"
               },
               {
                 "id": "C",
@@ -13717,14 +13717,14 @@
                 "zh": "通过非再呼吸面罩给予补充氧气。"
               },
               {
-                "id": "B",
-                "en": "Place the client in a high-Fowler's position.",
-                "zh": "将客户置于高福勒卧位。"
-              },
-              {
                 "id": "A",
                 "en": "Administer intravenous furosemide.",
                 "zh": "静脉注射呋塞米。"
+              },
+              {
+                "id": "D",
+                "en": "Establish intravenous access.",
+                "zh": "建立静脉通路。"
               }
             ],
             "correct": [
@@ -13798,6 +13798,11 @@
                 "id": "1",
                 "options": [
                   {
+                    "id": "o3",
+                    "en": "a pulmonary embolism",
+                    "zh": "肺栓塞"
+                  },
+                  {
                     "id": "o1",
                     "en": "cardiogenic pulmonary edema",
                     "zh": "心源性肺水肿"
@@ -13806,11 +13811,6 @@
                     "id": "o2",
                     "en": "an acute asthma exacerbation",
                     "zh": "急性哮喘发作"
-                  },
-                  {
-                    "id": "o3",
-                    "en": "a pulmonary embolism",
-                    "zh": "肺栓塞"
                   }
                 ],
                 "correct": "o1"
@@ -13818,6 +13818,11 @@
               {
                 "id": "2",
                 "options": [
+                  {
+                    "id": "o3",
+                    "en": "an allergic reaction",
+                    "zh": "过敏反应"
+                  },
                   {
                     "id": "o1",
                     "en": "medication non-adherence",
@@ -13827,11 +13832,6 @@
                     "id": "o2",
                     "en": "a primary respiratory infection",
                     "zh": "原发性呼吸道感染"
-                  },
-                  {
-                    "id": "o3",
-                    "en": "an allergic reaction",
-                    "zh": "过敏反应"
                   }
                 ],
                 "correct": "o1"
@@ -13885,14 +13885,14 @@
             },
             "options": [
               {
-                "id": "B",
-                "en": "The client reports a decrease in anxiety.",
-                "zh": "客户报告焦虑减轻。"
-              },
-              {
                 "id": "D",
                 "en": "The client's heart rate decreases to 110 beats/minute.",
                 "zh": "客户的心率降至110次/分钟。"
+              },
+              {
+                "id": "C",
+                "en": "The client has a urine output of 400 mL in the first hour.",
+                "zh": "客户在第一个小时内的尿量为400毫升。"
               },
               {
                 "id": "A",
@@ -13900,9 +13900,9 @@
                 "zh": "客户的血压降至150/88 mmHg。"
               },
               {
-                "id": "C",
-                "en": "The client has a urine output of 400 mL in the first hour.",
-                "zh": "客户在第一个小时内的尿量为400毫升。"
+                "id": "B",
+                "en": "The client reports a decrease in anxiety.",
+                "zh": "客户报告焦虑减轻。"
               }
             ],
             "correct": [
@@ -14040,14 +14040,14 @@
                 "zh": "静息心率为 110 次/分钟。"
               },
               {
+                "id": "C",
+                "en": "ST-segment elevation in leads V1 through V4.",
+                "zh": "导联 V1 至 V4 的 ST 段抬高。"
+              },
+              {
                 "id": "B",
                 "en": "Visible, profuse diaphoresis.",
                 "zh": "可见的、大量的大汗淋漓。"
-              },
-              {
-                "id": "A",
-                "en": "Crushing substernal chest pain radiating to the jaw.",
-                "zh": "压榨性胸骨后疼痛放射至下颌。"
               },
               {
                 "id": "E",
@@ -14055,9 +14055,9 @@
                 "zh": "室内空气下血氧饱和度为 92%。"
               },
               {
-                "id": "C",
-                "en": "ST-segment elevation in leads V1 through V4.",
-                "zh": "导联 V1 至 V4 的 ST 段抬高。"
+                "id": "A",
+                "en": "Crushing substernal chest pain radiating to the jaw.",
+                "zh": "压榨性胸骨后疼痛放射至下颌。"
               }
             ],
             "correct": [
@@ -14129,9 +14129,9 @@
             },
             "options": [
               {
-                "id": "B",
-                "en": "Initiate high-quality cardiopulmonary resuscitation (CPR) starting with chest compressions.",
-                "zh": "开始高质量的心肺复苏 (CPR)，从胸外按压开始。"
+                "id": "D",
+                "en": "Prepare to administer intravenous epinephrine 1 mg.",
+                "zh": "准备静脉注射 1 mg 肾上腺素。"
               },
               {
                 "id": "A",
@@ -14139,14 +14139,14 @@
                 "zh": "呼叫复苏团队并要求提供除颤器。"
               },
               {
-                "id": "D",
-                "en": "Prepare to administer intravenous epinephrine 1 mg.",
-                "zh": "准备静脉注射 1 mg 肾上腺素。"
-              },
-              {
                 "id": "C",
                 "en": "Deliver an unsynchronized electrical shock (defibrillation).",
                 "zh": "进行非同步电击（除颤）。"
+              },
+              {
+                "id": "B",
+                "en": "Initiate high-quality cardiopulmonary resuscitation (CPR) starting with chest compressions.",
+                "zh": "开始高质量的心肺复苏 (CPR)，从胸外按压开始。"
               }
             ],
             "correct": [
@@ -14236,24 +14236,24 @@
               ],
               "columns": [
                 {
-                  "id": "c1",
-                  "en": "Antiplatelet Agent",
-                  "zh": "抗血小板药"
-                },
-                {
                   "id": "c2",
                   "en": "Vasodilator",
                   "zh": "血管扩张剂"
                 },
                 {
-                  "id": "c3",
-                  "en": "Vasopressor",
-                  "zh": "血管加压药"
-                },
-                {
                   "id": "c4",
                   "en": "Antiarrhythmic",
                   "zh": "抗心律失常药"
+                },
+                {
+                  "id": "c1",
+                  "en": "Antiplatelet Agent",
+                  "zh": "抗血小板药"
+                },
+                {
+                  "id": "c3",
+                  "en": "Vasopressor",
+                  "zh": "血管加压药"
                 }
               ],
               "selectionMode": "single_per_row"
@@ -14342,14 +14342,14 @@
             },
             "options": [
               {
-                "id": "C",
-                "en": "Bilateral pupillary dilation and unresponsiveness to light.",
-                "zh": "双侧瞳孔散大且对光无反应。"
-              },
-              {
                 "id": "B",
                 "en": "The appearance of an organized sinus rhythm on the cardiac monitor without a palpable pulse.",
                 "zh": "心电监护仪上出现有组织的窦性心律，但无触及脉搏。"
+              },
+              {
+                "id": "C",
+                "en": "Bilateral pupillary dilation and unresponsiveness to light.",
+                "zh": "双侧瞳孔散大且对光无反应。"
               },
               {
                 "id": "D",
@@ -14531,14 +14531,14 @@
               ],
               "columns": [
                 {
-                  "id": "c1",
-                  "en": "Consistent with Classic SIRS Criteria",
-                  "zh": "符合经典SIRS标准"
-                },
-                {
                   "id": "c2",
                   "en": "Consistent with Organ Dysfunction",
                   "zh": "符合器官功能障碍"
+                },
+                {
+                  "id": "c1",
+                  "en": "Consistent with Classic SIRS Criteria",
+                  "zh": "符合经典SIRS标准"
                 },
                 {
                   "id": "c3",
@@ -14643,9 +14643,9 @@
             },
             "options": [
               {
-                "id": "D",
-                "en": "Prepare to administer a vasopressor infusion (e.g., norepinephrine).",
-                "zh": "准备给予血管加压药输注（如去甲肾上腺素）。"
+                "id": "A",
+                "en": "Administer broad-spectrum antibiotics intravenously.",
+                "zh": "静脉注射广谱抗生素。"
               },
               {
                 "id": "C",
@@ -14653,9 +14653,9 @@
                 "zh": "开始快速静脉输注30 mL/kg的液体。"
               },
               {
-                "id": "A",
-                "en": "Administer broad-spectrum antibiotics intravenously.",
-                "zh": "静脉注射广谱抗生素。"
+                "id": "D",
+                "en": "Prepare to administer a vasopressor infusion (e.g., norepinephrine).",
+                "zh": "准备给予血管加压药输注（如去甲肾上腺素）。"
               },
               {
                 "id": "B",
@@ -14732,11 +14732,6 @@
                 "zh": "乳酸水平已降至2.0 mmol/L。"
               },
               {
-                "id": "C",
-                "en": "Client is now oriented to person and place.",
-                "zh": "客户现在对人和地点有定向力。"
-              },
-              {
                 "id": "E",
                 "en": "Skin is cool and clammy.",
                 "zh": "皮肤湿冷。"
@@ -14755,6 +14750,11 @@
                 "id": "A",
                 "en": "Mean arterial pressure (MAP) is 70 mmHg.",
                 "zh": "平均动脉压（MAP）为70 mmHg。"
+              },
+              {
+                "id": "C",
+                "en": "Client is now oriented to person and place.",
+                "zh": "客户现在对人和地点有定向力。"
               }
             ],
             "correct": [
@@ -14831,11 +14831,6 @@
             },
             "options": [
               {
-                "id": "C",
-                "en": "To directly stimulate beta-1 receptors and increase the heart rate.",
-                "zh": "直接刺激β-1受体，增加心率。"
-              },
-              {
                 "id": "D",
                 "en": "To replace the body's depleted endogenous stores in a shock state.",
                 "zh": "补充休克状态下身体耗尽的内源性储备。"
@@ -14844,6 +14839,11 @@
                 "id": "B",
                 "en": "To allow for a lower dose of norepinephrine, reducing the risk of peripheral ischemia.",
                 "zh": "允许使用较低剂量的去甲肾上腺素，从而降低外周缺血的风险。"
+              },
+              {
+                "id": "C",
+                "en": "To directly stimulate beta-1 receptors and increase the heart rate.",
+                "zh": "直接刺激β-1受体，增加心率。"
               },
               {
                 "id": "A",
@@ -15032,14 +15032,9 @@
             },
             "options": [
               {
-                "id": "opt_b",
-                "en": "Hypercalcemia of malignancy",
-                "zh": "恶性高钙血症"
-              },
-              {
-                "id": "opt_d",
-                "en": "Paraneoplastic cerebellar degeneration",
-                "zh": "副肿瘤性小脑变性"
+                "id": "opt_c",
+                "en": "Opioid-induced neurotoxicity",
+                "zh": "阿片类药物引起的神经毒性"
               },
               {
                 "id": "opt_a",
@@ -15047,9 +15042,14 @@
                 "zh": "恶性脊髓压迫"
               },
               {
-                "id": "opt_c",
-                "en": "Opioid-induced neurotoxicity",
-                "zh": "阿片类药物引起的神经毒性"
+                "id": "opt_d",
+                "en": "Paraneoplastic cerebellar degeneration",
+                "zh": "副肿瘤性小脑变性"
+              },
+              {
+                "id": "opt_b",
+                "en": "Hypercalcemia of malignancy",
+                "zh": "恶性高钙血症"
               }
             ],
             "correct": [
@@ -15118,6 +15118,11 @@
                 "zh": "就瘫痪的风险提供情感支持和安抚"
               },
               {
+                "id": "opt_a",
+                "en": "Administer the IV dexamethasone bolus as prescribed",
+                "zh": "按医嘱给予静脉地塞米松推注"
+              },
+              {
                 "id": "opt_b",
                 "en": "Perform a complete head-to-toe nursing assessment",
                 "zh": "进行全面的从头到脚护理评估"
@@ -15126,11 +15131,6 @@
                 "id": "opt_c",
                 "en": "Prepare the patient for the insertion of an indwelling urinary catheter",
                 "zh": "准备为患者插入留置导尿管"
-              },
-              {
-                "id": "opt_a",
-                "en": "Administer the IV dexamethasone bolus as prescribed",
-                "zh": "按医嘱给予静脉地塞米松推注"
               }
             ],
             "correct": [
@@ -15183,11 +15183,6 @@
             },
             "options": [
               {
-                "id": "opt_d",
-                "en": "Dehydration requiring an increase in her IV fluid rate",
-                "zh": "脱水，需要增加其静脉输液速度"
-              },
-              {
                 "id": "opt_a",
                 "en": "A localized urinary tract infection secondary to impaired mobility",
                 "zh": "继发于活动能力受损的局部尿路感染"
@@ -15196,6 +15191,11 @@
                 "id": "opt_b",
                 "en": "An expected adverse effect of her recent oxycodone administration",
                 "zh": "她近期服用羟考酮的预期不良反应"
+              },
+              {
+                "id": "opt_d",
+                "en": "Dehydration requiring an increase in her IV fluid rate",
+                "zh": "脱水，需要增加其静脉输液速度"
               },
               {
                 "id": "opt_c",
@@ -15346,14 +15346,9 @@
             },
             "options": [
               {
-                "id": "opt_d",
-                "en": "\"I am not allowed to discuss her prognosis with you. You must wait until the surgeon comes out of the operating room.\"",
-                "zh": "“我不能和你讨论她的预后。你必须等到外科医生从手术室出来。”"
-              },
-              {
-                "id": "opt_b",
-                "en": "\"Don't worry, the neurosurgeon is highly skilled. The surgery will fix the compression and she will be able to walk again after rehabilitation.\"",
-                "zh": "“别担心，神经外科医生医术高超。手术将解决压迫问题，她在康复后将能再次行走。”"
+                "id": "opt_a",
+                "en": "\"I understand how frightening this is. The goal of surgery is to take pressure off the spinal cord and prevent further neurologic loss. Some patients regain function, and the fact that your mother still has some leg movement is encouraging, but the neurosurgeon is the best person to discuss expected recovery.\"",
+                "zh": "“我理解这有多令人害怕。手术的目的是减轻对脊髓的压迫，防止神经功能进一步丧失。有些患者会恢复功能，你母亲的腿还有一些活动能力这是令人鼓舞的，但神经外科医生是讨论预期恢复情况的最佳人选。”"
               },
               {
                 "id": "opt_c",
@@ -15361,9 +15356,14 @@
                 "zh": "“肿瘤造成的损伤通常是永久性的。手术只是一种减轻疼痛的姑息性措施，所以她很可能需要轮椅。”"
               },
               {
-                "id": "opt_a",
-                "en": "\"I understand how frightening this is. The goal of surgery is to take pressure off the spinal cord and prevent further neurologic loss. Some patients regain function, and the fact that your mother still has some leg movement is encouraging, but the neurosurgeon is the best person to discuss expected recovery.\"",
-                "zh": "“我理解这有多令人害怕。手术的目的是减轻对脊髓的压迫，防止神经功能进一步丧失。有些患者会恢复功能，你母亲的腿还有一些活动能力这是令人鼓舞的，但神经外科医生是讨论预期恢复情况的最佳人选。”"
+                "id": "opt_b",
+                "en": "\"Don't worry, the neurosurgeon is highly skilled. The surgery will fix the compression and she will be able to walk again after rehabilitation.\"",
+                "zh": "“别担心，神经外科医生医术高超。手术将解决压迫问题，她在康复后将能再次行走。”"
+              },
+              {
+                "id": "opt_d",
+                "en": "\"I am not allowed to discuss her prognosis with you. You must wait until the surgeon comes out of the operating room.\"",
+                "zh": "“我不能和你讨论她的预后。你必须等到外科医生从手术室出来。”"
               }
             ],
             "correct": [
@@ -15439,14 +15439,14 @@
               ],
               "columns": [
                 {
-                  "id": "opt_imp",
-                  "en": "Improvement from Stage 2 Preoperative Status",
-                  "zh": "较阶段2术前状态改善"
-                },
-                {
                   "id": "opt_per",
                   "en": "Persistent Dysfunction",
                   "zh": "持续的功能障碍"
+                },
+                {
+                  "id": "opt_imp",
+                  "en": "Improvement from Stage 2 Preoperative Status",
+                  "zh": "较阶段2术前状态改善"
                 }
               ],
               "selectionMode": "single_per_row"
@@ -15784,6 +15784,11 @@
             "ngnSkill": "generate_solutions",
             "options": [
               {
+                "id": "o7",
+                "en": "Assume the fever is solely expected CRS and defer infection workup.",
+                "zh": "假设发热仅仅是预期的 CRS 并推迟感染检查。"
+              },
+              {
                 "id": "o3",
                 "en": "Anticipate initiating empiric broad-spectrum antibiotics per neutropenic fever protocol.",
                 "zh": "预期按中性粒细胞减少性发热方案开始使用经验性广谱抗生素。"
@@ -15794,9 +15799,9 @@
                 "zh": "通知医疗服务提供者并启动机构的 CRS 临床路径。"
               },
               {
-                "id": "o5",
-                "en": "Increase the frequency of vital signs monitoring and continue ICE scoring.",
-                "zh": "增加生命体征监测的频率并继续 ICE 评分。"
+                "id": "o4",
+                "en": "Administer acetaminophen as ordered for symptom management.",
+                "zh": "按医嘱给予对乙酰氨基酚以控制症状。"
               },
               {
                 "id": "o2",
@@ -15804,14 +15809,9 @@
                 "zh": "按方案抽取血培养，包括中心静脉导管腔。"
               },
               {
-                "id": "o7",
-                "en": "Assume the fever is solely expected CRS and defer infection workup.",
-                "zh": "假设发热仅仅是预期的 CRS 并推迟感染检查。"
-              },
-              {
-                "id": "o4",
-                "en": "Administer acetaminophen as ordered for symptom management.",
-                "zh": "按医嘱给予对乙酰氨基酚以控制症状。"
+                "id": "o5",
+                "en": "Increase the frequency of vital signs monitoring and continue ICE scoring.",
+                "zh": "增加生命体征监测的频率并继续 ICE 评分。"
               }
             ],
             "correct": [
@@ -15894,19 +15894,19 @@
             "ngnSkill": "take_action",
             "options": [
               {
-                "id": "s5",
-                "en": "Prepare for possible ICU transfer while continuing frequent monitoring.",
-                "zh": "在继续频繁监测的同时，为可能转入 ICU 做好准备。"
-              },
-              {
-                "id": "s3",
-                "en": "Administer tocilizumab IV as ordered for CRS Grade 2.",
-                "zh": "按 CRS 2 级医嘱静脉给予托珠单抗。"
-              },
-              {
                 "id": "s4",
                 "en": "Administer dexamethasone IV as ordered for concurrent probable ICANS.",
                 "zh": "按并发疑似 ICANS 医嘱静脉给予地塞米松。"
+              },
+              {
+                "id": "s2",
+                "en": "Begin the ordered normal saline IV fluid bolus.",
+                "zh": "开始静脉推注医嘱的 0.9% 氯化钠注射液。"
+              },
+              {
+                "id": "s5",
+                "en": "Prepare for possible ICU transfer while continuing frequent monitoring.",
+                "zh": "在继续频繁监测的同时，为可能转入 ICU 做好准备。"
               },
               {
                 "id": "s1",
@@ -15914,9 +15914,9 @@
                 "zh": "通过鼻导管给予低流量吸氧并抬高床头。"
               },
               {
-                "id": "s2",
-                "en": "Begin the ordered normal saline IV fluid bolus.",
-                "zh": "开始静脉推注医嘱的 0.9% 氯化钠注射液。"
+                "id": "s3",
+                "en": "Administer tocilizumab IV as ordered for CRS Grade 2.",
+                "zh": "按 CRS 2 级医嘱静脉给予托珠单抗。"
               }
             ],
             "correct": [
@@ -16138,14 +16138,14 @@
                 "id": "1",
                 "options": [
                   {
-                    "id": "o1",
-                    "en": "a resolving fever and improved blood pressure without vasopressors",
-                    "zh": "发热消退且不使用血管加压药的情况下血压改善"
-                  },
-                  {
                     "id": "o2",
                     "en": "an increased need for oxygen support",
                     "zh": "需要增加氧气支持"
+                  },
+                  {
+                    "id": "o1",
+                    "en": "a resolving fever and improved blood pressure without vasopressors",
+                    "zh": "发热消退且不使用血管加压药的情况下血压改善"
                   },
                   {
                     "id": "o3",
@@ -16185,14 +16185,14 @@
                     "zh": "证实炎症过程已完全消退"
                   },
                   {
-                    "id": "o2",
-                    "en": "is an unreliable marker alone because tocilizumab suppresses CRP production",
-                    "zh": "单独作为一个不可靠的标志物，因为托珠单抗抑制 CRP 的产生"
-                  },
-                  {
                     "id": "o3",
                     "en": "indicates that neurotoxicity is fully reversed",
                     "zh": "表明神经毒性已完全逆转"
+                  },
+                  {
+                    "id": "o2",
+                    "en": "is an unreliable marker alone because tocilizumab suppresses CRP production",
+                    "zh": "单独作为一个不可靠的标志物，因为托珠单抗抑制 CRP 的产生"
                   }
                 ],
                 "correct": "o2"
@@ -16391,14 +16391,14 @@
                 "zh": "在开始输液前，给予必要时的昂丹司琼以缓解患者的恶心。"
               },
               {
-                "id": "opt_proceed",
-                "en": "Proceed with the infusion and monitor the patient's vital signs every 15 minutes.",
-                "zh": "继续输液，并每15分钟监测一次患者的生命体征。"
-              },
-              {
                 "id": "opt_hold",
                 "en": "Hold the infusion and immediately notify the oncologist of the laboratory results and patient symptoms.",
                 "zh": "暂停输液，并立即将实验室结果和患者症状通知肿瘤科医生。"
+              },
+              {
+                "id": "opt_proceed",
+                "en": "Proceed with the infusion and monitor the patient's vital signs every 15 minutes.",
+                "zh": "继续输液，并每15分钟监测一次患者的生命体征。"
               },
               {
                 "id": "opt_rounds",
@@ -16461,9 +16461,9 @@
                 "zh": "向心肺系统转移的转移性疾病进展。"
               },
               {
-                "id": "opt_acs",
-                "en": "Acute coronary syndrome resulting from atherosclerotic plaque rupture.",
-                "zh": "动脉粥样硬化斑块破裂导致的急性冠状动脉综合征。"
+                "id": "opt_ici_myocarditis",
+                "en": "Immune checkpoint inhibitor–induced myocarditis with concurrent immune-mediated hepatitis.",
+                "zh": "免疫检查点抑制剂诱发的心肌炎并发免疫介导性肝炎。"
               },
               {
                 "id": "opt_viral",
@@ -16471,9 +16471,9 @@
                 "zh": "表现为孤立性感染过程的病毒性心肌炎。"
               },
               {
-                "id": "opt_ici_myocarditis",
-                "en": "Immune checkpoint inhibitor–induced myocarditis with concurrent immune-mediated hepatitis.",
-                "zh": "免疫检查点抑制剂诱发的心肌炎并发免疫介导性肝炎。"
+                "id": "opt_acs",
+                "en": "Acute coronary syndrome resulting from atherosclerotic plaque rupture.",
+                "zh": "动脉粥样硬化斑块破裂导致的急性冠状动脉综合征。"
               }
             ],
             "correct": [
@@ -16531,14 +16531,14 @@
                 "zh": "确保持续心电监护和可靠的静脉通路。"
               },
               {
-                "id": "ord_oxygen",
-                "en": "Apply supplemental oxygen to maintain SpO₂ ≥ 94%.",
-                "zh": "提供补充氧气以维持SpO₂ ≥ 94%。"
-              },
-              {
                 "id": "ord_steroids",
                 "en": "Administer the high-dose intravenous methylprednisolone.",
                 "zh": "静脉注射高剂量甲泼尼龙。"
+              },
+              {
+                "id": "ord_oxygen",
+                "en": "Apply supplemental oxygen to maintain SpO₂ ≥ 94%.",
+                "zh": "提供补充氧气以维持SpO₂ ≥ 94%。"
               },
               {
                 "id": "ord_transfer",
@@ -16599,16 +16599,6 @@
             },
             "options": [
               {
-                "id": "opt_discontinue_tele",
-                "en": "Discontinuation of cardiac monitoring once the patient's PR interval normalizes.",
-                "zh": "一旦患者的PR间期恢复正常，即停止心电监护。"
-              },
-              {
-                "id": "opt_myositis",
-                "en": "Assessment for overlapping myositis or myasthenia-like symptoms.",
-                "zh": "评估是否重叠出现肌炎或重症肌无力样症状。"
-              },
-              {
                 "id": "opt_biomarkers",
                 "en": "Serial troponin and liver-enzyme monitoring every 6 to 12 hours.",
                 "zh": "每6至12小时连续监测肌钙蛋白和肝酶。"
@@ -16617,6 +16607,16 @@
                 "id": "opt_glucose",
                 "en": "Blood glucose monitoring every 4 to 6 hours.",
                 "zh": "每4至6小时监测一次血糖。"
+              },
+              {
+                "id": "opt_discontinue_tele",
+                "en": "Discontinuation of cardiac monitoring once the patient's PR interval normalizes.",
+                "zh": "一旦患者的PR间期恢复正常，即停止心电监护。"
+              },
+              {
+                "id": "opt_myositis",
+                "en": "Assessment for overlapping myositis or myasthenia-like symptoms.",
+                "zh": "评估是否重叠出现肌炎或重症肌无力样症状。"
               },
               {
                 "id": "opt_arrhythmias",
@@ -16682,9 +16682,9 @@
             },
             "options": [
               {
-                "id": "opt_transition",
-                "en": "Request an order to transition the patient from combination therapy to single-agent immunotherapy.",
-                "zh": "请求医嘱将患者从联合治疗过渡到单药免疫治疗。"
+                "id": "opt_temporary",
+                "en": "Document the ICI discontinuation as a temporary hold and inform the patient that therapy will resume after cardiac recovery.",
+                "zh": "将ICI停药记录为临时暂停，并告知患者在心脏康复后将恢复治疗。"
               },
               {
                 "id": "opt_verify",
@@ -16697,9 +16697,9 @@
                 "zh": "独立从患者的有效药物清单中删除ICI医嘱，以防止另一名护士意外给药。"
               },
               {
-                "id": "opt_temporary",
-                "en": "Document the ICI discontinuation as a temporary hold and inform the patient that therapy will resume after cardiac recovery.",
-                "zh": "将ICI停药记录为临时暂停，并告知患者在心脏康复后将恢复治疗。"
+                "id": "opt_transition",
+                "en": "Request an order to transition the patient from combination therapy to single-agent immunotherapy.",
+                "zh": "请求医嘱将患者从联合治疗过渡到单药免疫治疗。"
               }
             ],
             "correct": [
@@ -16753,14 +16753,14 @@
             "matrix": {
               "columns": [
                 {
-                  "id": "col_positive",
-                  "en": "Positive Response to Treatment",
-                  "zh": "对治疗的积极反应"
-                },
-                {
                   "id": "col_adverse",
                   "en": "Treatment-Related Adverse Effect",
                   "zh": "与治疗相关的不良反应"
+                },
+                {
+                  "id": "col_positive",
+                  "en": "Positive Response to Treatment",
+                  "zh": "对治疗的积极反应"
                 }
               ],
               "rows": [
@@ -16937,11 +16937,6 @@
             },
             "options": [
               {
-                "id": "opt_D",
-                "en": "Medication-induced anaphylaxis; the onset of shivering with rigors after antibiotic and electrolyte administration.",
-                "zh": "药物引起的过敏反应；在给予抗生素和电解质后出现寒战。"
-              },
-              {
                 "id": "opt_C",
                 "en": "Localized PICC insertion site infection; new erythema extending 2 cm without purulent drainage.",
                 "zh": "局部PICC穿刺部位感染；新发延伸 2 cm 的红斑，无脓性引流物。"
@@ -16955,6 +16950,11 @@
                 "id": "opt_A",
                 "en": "Sepsis likely originating from a catheter-related bloodstream infection; worsening hypotension despite the fluid bolus.",
                 "zh": "可能源自导管相关血流感染的脓毒症；尽管推注液体血压仍持续恶化。"
+              },
+              {
+                "id": "opt_D",
+                "en": "Medication-induced anaphylaxis; the onset of shivering with rigors after antibiotic and electrolyte administration.",
+                "zh": "药物引起的过敏反应；在给予抗生素和电解质后出现寒战。"
               }
             ],
             "correct": [
@@ -17023,6 +17023,11 @@
                 "zh": "暂停TPN 1小时，给予滑动标尺法胰岛素，并在血糖降至 200 mg/dL 以下后重新开始TPN输注。"
               },
               {
+                "id": "opt_B",
+                "en": "Independently stop the TPN infusion immediately to prevent severe hyperglycemia from the continuous dextrose load.",
+                "zh": "为防止持续输入葡萄糖负荷导致严重高血糖，立即自行停止TPN输注。"
+              },
+              {
                 "id": "opt_A",
                 "en": "Notify the provider of the worsening trend and anticipate an order for a continuous insulin infusion and a possible reduction in the TPN rate.",
                 "zh": "向医生报告恶化的血糖趋势，预期医生会开具持续胰岛素静脉泵入医嘱，并可能降低TPN输注速率。"
@@ -17031,11 +17036,6 @@
                 "id": "opt_C",
                 "en": "Continue monitoring the blood glucose every 6 hours and administer the sliding-scale insulin as ordered.",
                 "zh": "继续每6小时监测一次血糖，并遵医嘱给予滑动标尺法胰岛素。"
-              },
-              {
-                "id": "opt_B",
-                "en": "Independently stop the TPN infusion immediately to prevent severe hyperglycemia from the continuous dextrose load.",
-                "zh": "为防止持续输入葡萄糖负荷导致严重高血糖，立即自行停止TPN输注。"
               }
             ],
             "correct": [
@@ -17099,24 +17099,24 @@
             },
             "options": [
               {
-                "id": "opt_A",
-                "en": "Communicate the early flagging of the PICC culture to the provider.",
-                "zh": "向医生报告PICC培养提早报阳的情况。"
-              },
-              {
-                "id": "opt_C",
-                "en": "Coordinate with the provider for an alternative central access and glycemic management plan.",
-                "zh": "与医生协调替代中心静脉通路及血糖管理方案。"
-              },
-              {
                 "id": "opt_B",
                 "en": "Verify that empiric antibiotic coverage (vancomycin) is actively infusing.",
                 "zh": "确认经验性抗生素（万古霉素）正在积极输注。"
               },
               {
+                "id": "opt_A",
+                "en": "Communicate the early flagging of the PICC culture to the provider.",
+                "zh": "向医生报告PICC培养提早报阳的情况。"
+              },
+              {
                 "id": "opt_D",
                 "en": "Remove the infected PICC line under provider orders.",
                 "zh": "在医生医嘱下拔除受感染的PICC导管。"
+              },
+              {
+                "id": "opt_C",
+                "en": "Coordinate with the provider for an alternative central access and glycemic management plan.",
+                "zh": "与医生协调替代中心静脉通路及血糖管理方案。"
               }
             ],
             "correct": [
@@ -17179,14 +17179,14 @@
             },
             "options": [
               {
-                "id": "opt_A",
-                "en": "Coordinate analgesia (PCA bolus or topical analgesic) 15 to 20 minutes before assisting the patient with atraumatic sodium bicarbonate rinses.",
-                "zh": "在协助患者使用无创性碳酸氢钠漱口前15至20分钟，先协调使用镇痛药（PCA单次推注或局部镇痛药）。"
-              },
-              {
                 "id": "opt_B",
                 "en": "Use a standard soft-bristle toothbrush to thoroughly clean the oral cavity, as skipping oral care increases the risk of secondary infection.",
                 "zh": "使用标准软毛牙刷彻底清洁口腔，因为跳过口腔护理会增加继发感染的风险。"
+              },
+              {
+                "id": "opt_A",
+                "en": "Coordinate analgesia (PCA bolus or topical analgesic) 15 to 20 minutes before assisting the patient with atraumatic sodium bicarbonate rinses.",
+                "zh": "在协助患者使用无创性碳酸氢钠漱口前15至20分钟，先协调使用镇痛药（PCA单次推注或局部镇痛药）。"
               },
               {
                 "id": "opt_D",
@@ -17354,14 +17354,14 @@
               ],
               "columns": [
                 {
-                  "id": "col_1",
-                  "en": "Clinical Improvement",
-                  "zh": "临床改善"
-                },
-                {
                   "id": "col_2",
                   "en": "Ongoing Monitoring/Intervention",
                   "zh": "持续监测/干预"
+                },
+                {
+                  "id": "col_1",
+                  "en": "Clinical Improvement",
+                  "zh": "临床改善"
                 }
               ],
               "selectionMode": "single_per_row"
@@ -17379,9 +17379,9 @@
             },
             "options": [
               {
-                "id": "opt_B",
-                "en": "Yes, because the patient's ability to tolerate sodium bicarbonate rinses indicates sufficient mucosal recovery to safely swallow clear liquids.",
-                "zh": "合适，因为患者能耐受碳酸氢钠漱口表明黏膜已充分恢复，可以安全吞咽清流质。"
+                "id": "opt_C",
+                "en": "No, because a newly placed PICC line must be used for TPN for at least 72 hours to ensure catheter patency before any enteral trials can begin.",
+                "zh": "不合适，因为新放置的PICC导管必须至少用于TPN输注72小时以确保导管通畅，之后才能开始肠内营养试验。"
               },
               {
                 "id": "opt_A",
@@ -17389,14 +17389,14 @@
                 "zh": "不合适，因为患者患有IV级黏膜炎伴重度全身炎症，能耐受漱口不等于能耐受营养摄入。"
               },
               {
+                "id": "opt_B",
+                "en": "Yes, because the patient's ability to tolerate sodium bicarbonate rinses indicates sufficient mucosal recovery to safely swallow clear liquids.",
+                "zh": "合适，因为患者能耐受碳酸氢钠漱口表明黏膜已充分恢复，可以安全吞咽清流质。"
+              },
+              {
                 "id": "opt_D",
                 "en": "Yes, because prolonged TPN dependence significantly increases the risk of another central line infection, making enteral nutrition the safer immediate option.",
                 "zh": "合适，因为长期依赖TPN会显著增加再次发生中心静脉导管感染的风险，使肠内营养成为当前更安全的直接选择。"
-              },
-              {
-                "id": "opt_C",
-                "en": "No, because a newly placed PICC line must be used for TPN for at least 72 hours to ensure catheter patency before any enteral trials can begin.",
-                "zh": "不合适，因为新放置的PICC导管必须至少用于TPN输注72小时以确保导管通畅，之后才能开始肠内营养试验。"
               }
             ],
             "correct": [
@@ -17564,14 +17564,14 @@
             },
             "options": [
               {
-                "id": "A",
-                "en": "The patient is experiencing an expected postictal phase after prehospital treatment.",
-                "zh": "患者在接受院前治疗后正经历预期的发作后状态。"
-              },
-              {
                 "id": "C",
                 "en": "The patient requires a third dose of intravenous lorazepam in the ED before progressing to second-line agents.",
                 "zh": "患者在急诊科需要注射第三剂静脉劳拉西泮，然后再进展到使用二线药物。"
+              },
+              {
+                "id": "A",
+                "en": "The patient is experiencing an expected postictal phase after prehospital treatment.",
+                "zh": "患者在接受院前治疗后正经历预期的发作后状态。"
               },
               {
                 "id": "D",
@@ -17668,14 +17668,14 @@
               ],
               "columns": [
                 {
-                  "id": "c1",
-                  "en": "Likely Precipitating Factor / Major Contributor",
-                  "zh": "可能的诱发因素 / 主要促成因素"
-                },
-                {
                   "id": "c2",
                   "en": "Secondary Consequence",
                   "zh": "继发后果"
+                },
+                {
+                  "id": "c1",
+                  "en": "Likely Precipitating Factor / Major Contributor",
+                  "zh": "可能的诱发因素 / 主要促成因素"
                 }
               ],
               "selectionMode": "single_per_row"
@@ -17764,11 +17764,6 @@
             },
             "options": [
               {
-                "id": "A",
-                "en": "Maintain continuous cardiac monitoring.",
-                "zh": "保持连续心电监护。"
-              },
-              {
                 "id": "D",
                 "en": "Administer the infusion as an IV push over 1-2 minutes.",
                 "zh": "在 1-2 分钟内静脉推注该药液。"
@@ -17779,14 +17774,19 @@
                 "zh": "每 5 分钟监测一次血压。"
               },
               {
-                "id": "E",
-                "en": "Ensure the infusion rate does not exceed 150 mg PE/min.",
-                "zh": "确保输注速度不超过 150 mg PE/min。"
-              },
-              {
                 "id": "C",
                 "en": "Observe for cessation of seizure activity.",
                 "zh": "观察癫痫发作活动是否停止。"
+              },
+              {
+                "id": "A",
+                "en": "Maintain continuous cardiac monitoring.",
+                "zh": "保持连续心电监护。"
+              },
+              {
+                "id": "E",
+                "en": "Ensure the infusion rate does not exceed 150 mg PE/min.",
+                "zh": "确保输注速度不超过 150 mg PE/min。"
               }
             ],
             "correct": [
@@ -17858,14 +17858,14 @@
             },
             "options": [
               {
-                "id": "B",
-                "en": "Developing rhabdomyolysis",
-                "zh": "发展中的横纹肌溶解"
-              },
-              {
                 "id": "D",
                 "en": "Refractory seizure activity requiring additional antiepileptics",
                 "zh": "难治性癫痫发作活动，需要额外的抗癫痫药物"
+              },
+              {
+                "id": "B",
+                "en": "Developing rhabdomyolysis",
+                "zh": "发展中的横纹肌溶解"
               },
               {
                 "id": "C",
@@ -17946,6 +17946,11 @@
                 "id": "1",
                 "options": [
                   {
+                    "id": "o3",
+                    "en": "will resume within 5 minutes",
+                    "zh": "将在 5 分钟内恢复"
+                  },
+                  {
                     "id": "o1",
                     "en": "has been fully terminated",
                     "zh": "已被完全终止"
@@ -17954,11 +17959,6 @@
                     "id": "o2",
                     "en": "may be continuing electrographically",
                     "zh": "可能仍在脑电水平上继续"
-                  },
-                  {
-                    "id": "o3",
-                    "en": "will resume within 5 minutes",
-                    "zh": "将在 5 分钟内恢复"
                   }
                 ],
                 "correct": "o2"
@@ -18043,14 +18043,14 @@
                 "zh": "按医嘱将静脉等渗液体滴定至接近 300 mL/hr，以处理横纹肌溶解。"
               },
               {
-                "id": "A",
-                "en": "Administer an IV fluid bolus of dextrose 5% in water to correct metabolic acidosis.",
-                "zh": "静脉推注 5% 葡萄糖水溶液以纠正代谢性酸中毒。"
-              },
-              {
                 "id": "D",
                 "en": "Remove the indwelling urinary catheter to reduce the risk of catheter-associated infection.",
                 "zh": "拔除留置导尿管以降低导管相关感染的风险。"
+              },
+              {
+                "id": "A",
+                "en": "Administer an IV fluid bolus of dextrose 5% in water to correct metabolic acidosis.",
+                "zh": "静脉推注 5% 葡萄糖水溶液以纠正代谢性酸中毒。"
               }
             ],
             "correct": [
