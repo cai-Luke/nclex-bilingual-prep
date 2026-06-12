@@ -104,3 +104,38 @@ export const getInitialAnswer = (question: Question): AnswerState => {
   }
   return {};
 };
+
+export const getCorrectAnswer = (question: Question): AnswerState => {
+  if (
+    question.itemType === "multiple_choice" ||
+    question.itemType === "select_all" ||
+    question.itemType === "ordered_response"
+  ) {
+    return { optionIds: [...question.correct] };
+  }
+  if (question.itemType === "fill_in_blank") {
+    return {
+      blanks: Object.fromEntries(
+        question.blanks.map((blank) => [
+          blank.id,
+          blank.numeric ? String(blank.numeric.value) : (blank.acceptable?.[0] ?? ""),
+        ]),
+      ),
+    };
+  }
+  if (question.itemType === "matrix") {
+    return {
+      matrix: Object.fromEntries(question.correct.map((entry) => [entry.rowId, [...entry.columnIds]])),
+    };
+  }
+  if (question.itemType === "case_study") {
+    return {
+      caseStudy: Object.fromEntries(
+        question.caseStudy.questions.map((caseQuestion) => [caseQuestion.id, getCorrectAnswer(caseQuestion)]),
+      ),
+    };
+  }
+  return {
+    dropdowns: Object.fromEntries(question.dropdowns.map((dropdown) => [dropdown.id, dropdown.correct])),
+  };
+};

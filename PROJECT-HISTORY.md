@@ -55,6 +55,15 @@ Out of scope until a future schema bump:
 
 ## Milestones
 
+### Developer Question Review Console (Jun 12)
+
+Completed:
+- Added a developer-only Review Console enabled by `?dev=1` or `localStorage.shrimpDevTools`, with direct `qid`/`qids` URLs and no learner-facing navigation change when dev mode is off.
+- Added ordered batch lookup across top-level questions and embedded case-study parts, with source/path metadata, full parent-case context, focused embedded parts, bilingual controls, correct-answer reveal, rationales, glossary, and production visual rendering.
+- Added v3 sweep-manifest JSONL parsing with malformed/invalid-row reporting, all eight reconciled filters, harm-first and visual-work sorting, prominent quoted evidence, audit rationale fields, and duplicate navigation.
+- Added local-only review statuses/notes under `shrimpDevReviewNotesByQuestionId` plus JSON export; the console never calls answer-submission, progress, flag, or active-session persistence paths.
+- Verified the three spec example IDs, an embedded case-study part, a v3 manifest row, and a production rhythm-strip preview in the browser. Bank validation, coverage reporting, and production build pass.
+
 ### Visual Stimulus Pipeline Completion and Source Verification (Jun 12)
 
 Completed:

@@ -19,15 +19,31 @@ import {
   MoveDown,
   MoveUp,
   Play,
+  Search,
   RotateCcw,
   Settings as SettingsIcon,
   SlidersHorizontal,
   Volume2,
+  Wrench,
   XCircle,
 } from "lucide-react";
 import { loadBundledRecords } from "./banks";
 import { importQuestionsFromText, toExportEnvelope } from "./bankImport";
-import { type AnswerState, getAnswerCompleteness, getInitialAnswer, gradeQuestion } from "./grading";
+import {
+  type AnswerState,
+  getAnswerCompleteness,
+  getCorrectAnswer,
+  getInitialAnswer,
+  gradeQuestion,
+} from "./grading";
+import {
+  buildQuestionReviewIndex,
+  lookupQuestionIds,
+  parseQuestionIds,
+  parseSweepManifest,
+  sortSweepRows,
+  type SweepManifestRow,
+} from "./devReview";
 import {
   clearActiveSession,
   isDueForReview,
@@ -72,7 +88,17 @@ import type {
   StoredSessionSnapshot,
 } from "./types";
 
-type View = "home" | "builder" | "dashboard" | "flashcards" | "library" | "import" | "settings" | "session" | "summary";
+type View =
+  | "home"
+  | "builder"
+  | "dashboard"
+  | "flashcards"
+  | "library"
+  | "import"
+  | "settings"
+  | "review"
+  | "session"
+  | "summary";
 
 type SessionState = {
   id: string;
@@ -125,6 +151,24 @@ type FlashcardTerm = GlossaryTerm & {
 };
 
 const DEFAULT_SESSION_COUNT = 50;
+const DEV_TOOLS_KEY = "shrimpDevTools";
+
+const readDevStartup = () => {
+  try {
+    const params = new URLSearchParams(window.location.search);
+    const requestedIds = parseQuestionIds(params.get("qids") ?? params.get("qid") ?? "");
+    const queryEnabled = params.get("dev") === "1";
+    const storedEnabled = window.localStorage.getItem(DEV_TOOLS_KEY) === "true";
+    if (queryEnabled) window.localStorage.setItem(DEV_TOOLS_KEY, "true");
+    return {
+      enabled: queryEnabled || storedEnabled,
+      requestedIds,
+      openConsole: queryEnabled || (storedEnabled && requestedIds.length > 0),
+    };
+  } catch {
+    return { enabled: false, requestedIds: [], openConsole: false };
+  }
+};
 
 const shuffle = <T,>(items: T[]) => {
   const copy = [...items];
@@ -136,6 +180,7 @@ const shuffle = <T,>(items: T[]) => {
 };
 
 export default function App() {
+  const devStartup = useMemo(readDevStartup, []);
   const bundled = useMemo(() => loadBundledRecords(), []);
   const [uploadedRecords, setUploadedRecords] = useState<QuestionRecord[]>([]);
   const [uploadedLoaded, setUploadedLoaded] = useState(false);
@@ -144,7 +189,7 @@ export default function App() {
   const [answerEvents, setAnswerEvents] = useState<AnswerEvent[]>([]);
   const [flashcardProgress, setFlashcardProgress] = useState<Record<string, FlashcardProgress>>({});
   const [settings, setSettings] = useState<Settings>(() => loadSettings());
-  const [view, setView] = useState<View>("home");
+  const [view, setView] = useState<View>(devStartup.openConsole ? "review" : "home");
   const [session, setSession] = useState<SessionState | null>(null);
   const [sessionReturnView, setSessionReturnView] = useState<View>("home");
   const [filters, setFilters] = useState<Filters>(blankFilters);
@@ -438,6 +483,12 @@ export default function App() {
             <SettingsIcon aria-hidden="true" />
             <span>Settings</span>
           </button>
+          {devStartup.enabled && (
+            <button className={view === "review" ? "active" : ""} type="button" onClick={() => setView("review")}>
+              <Wrench aria-hidden="true" />
+              <span>Developer</span>
+            </button>
+          )}
         </nav>
       </header>
 
@@ -542,6 +593,14 @@ export default function App() {
         )}
 
         {view === "settings" && <SettingsView settings={settings} updateSettings={updateSettings} />}
+
+        {view === "review" && devStartup.enabled && (
+          <DeveloperReviewConsole
+            records={allRecords}
+            initialIds={devStartup.requestedIds}
+            initialLanguageMode={settings.languageMode}
+          />
+        )}
 
         {view === "session" && session && (
           <SessionView
@@ -1367,6 +1426,423 @@ function SettingsView({ settings, updateSettings }: { settings: Settings; update
   );
 }
 
+type DevReviewStatus =
+  | "unreviewed"
+  | "looks_ok"
+  | "needs_fix"
+  | "duplicate_or_redundant"
+  | "visual_candidate"
+  | "reject_audit_flag";
+
+type DevReviewNote = {
+  status: DevReviewStatus;
+  note: string;
+  updatedAt: string;
+};
+
+const DEV_REVIEW_NOTES_KEY = "shrimpDevReviewNotesByQuestionId";
+const manifestFilterFields = [
+  "flag_type",
+  "recommended_action",
+  "visual_value",
+  "target_renderer",
+  "answer_key_trust",
+  "priority",
+  "risk_tier",
+  "content_lane_status",
+] as const;
+
+type ManifestFilterField = (typeof manifestFilterFields)[number];
+type ManifestFilters = Record<ManifestFilterField, string>;
+
+const blankManifestFilters = Object.fromEntries(
+  manifestFilterFields.map((field) => [field, "all"]),
+) as ManifestFilters;
+
+const loadDevReviewNotes = (): Record<string, DevReviewNote> => {
+  try {
+    const parsed = JSON.parse(window.localStorage.getItem(DEV_REVIEW_NOTES_KEY) ?? "{}") as unknown;
+    return typeof parsed === "object" && parsed !== null && !Array.isArray(parsed)
+      ? parsed as Record<string, DevReviewNote>
+      : {};
+  } catch {
+    return {};
+  }
+};
+
+function DeveloperReviewConsole({
+  records,
+  initialIds,
+  initialLanguageMode,
+}: {
+  records: QuestionRecord[];
+  initialIds: string[];
+  initialLanguageMode: LanguageMode;
+}) {
+  const reviewIndex = useMemo(() => buildQuestionReviewIndex(records), [records]);
+  const [idInput, setIdInput] = useState(initialIds.join("\n"));
+  const [openedIds, setOpenedIds] = useState(initialIds);
+  const [selectedId, setSelectedId] = useState(initialIds[0] ?? "");
+  const [languageMode, setLanguageMode] = useState<LanguageMode>(initialLanguageMode);
+  const [manifestText, setManifestText] = useState("");
+  const [manifestRows, setManifestRows] = useState<SweepManifestRow[]>([]);
+  const [manifestErrors, setManifestErrors] = useState<string[]>([]);
+  const [manifestWarnings, setManifestWarnings] = useState<string[]>([]);
+  const [manifestFilters, setManifestFilters] = useState<ManifestFilters>(blankManifestFilters);
+  const [visualWorkMode, setVisualWorkMode] = useState(false);
+  const [notes, setNotes] = useState<Record<string, DevReviewNote>>(loadDevReviewNotes);
+
+  const results = useMemo(() => lookupQuestionIds(openedIds, reviewIndex), [openedIds, reviewIndex]);
+  const selectedEntry = selectedId ? reviewIndex.get(selectedId) : undefined;
+  const selectedManifestRow = manifestRows.find((row) => row.qid === selectedId);
+  const selectedQuestion = selectedEntry?.embeddedPart ?? selectedEntry?.question;
+
+  const manifestFilterOptions = useMemo(
+    () =>
+      Object.fromEntries(
+        manifestFilterFields.map((field) => [
+          field,
+          [...new Set(manifestRows.map((row) => String(row[field] ?? "null")))].sort(),
+        ]),
+      ) as Record<ManifestFilterField, string[]>,
+    [manifestRows],
+  );
+  const visibleManifestRows = useMemo(
+    () =>
+      sortSweepRows(
+        manifestRows.filter((row) =>
+          manifestFilterFields.every((field) => {
+            const filter = manifestFilters[field];
+            return filter === "all" || String(row[field] ?? "null") === filter;
+          }),
+        ),
+        visualWorkMode,
+      ),
+    [manifestFilters, manifestRows, visualWorkMode],
+  );
+
+  useEffect(() => {
+    if (!selectedEntry?.embeddedPart) return;
+    requestAnimationFrame(() => {
+      document.querySelector(`[data-case-part-id="${CSS.escape(selectedEntry.embeddedPart?.id ?? "")}"]`)
+        ?.scrollIntoView({ block: "center" });
+    });
+  }, [selectedEntry]);
+
+  const openIds = (ids: string[]) => {
+    setOpenedIds(ids);
+    setSelectedId(ids[0] ?? "");
+    try {
+      const url = new URL(window.location.href);
+      url.searchParams.set("dev", "1");
+      url.searchParams.delete("qid");
+      if (ids.length > 0) url.searchParams.set("qids", ids.join(","));
+      else url.searchParams.delete("qids");
+      window.history.replaceState(null, "", url);
+    } catch {
+      // URL synchronization is optional in restricted browser contexts.
+    }
+  };
+
+  const selectQuestion = (qid: string) => {
+    setSelectedId(qid);
+    if (!openedIds.includes(qid)) setOpenedIds((current) => [...current, qid]);
+  };
+
+  const parseManifest = () => {
+    const parsed = parseSweepManifest(manifestText);
+    setManifestRows(parsed.rows);
+    setManifestErrors(parsed.errors);
+    setManifestWarnings(parsed.warnings);
+    setManifestFilters(blankManifestFilters);
+    if (parsed.rows.length > 0) selectQuestion(sortSweepRows(parsed.rows, false)[0].qid);
+  };
+
+  const updateNote = (patch: Partial<Pick<DevReviewNote, "status" | "note">>) => {
+    if (!selectedId) return;
+    setNotes((current) => {
+      const existing = current[selectedId] ?? { status: "unreviewed", note: "", updatedAt: "" };
+      const next = {
+        ...current,
+        [selectedId]: { ...existing, ...patch, updatedAt: new Date().toISOString() },
+      };
+      try {
+        window.localStorage.setItem(DEV_REVIEW_NOTES_KEY, JSON.stringify(next));
+      } catch {
+        // Keep the in-memory note when storage is unavailable.
+      }
+      return next;
+    });
+  };
+
+  const exportNotes = () => {
+    const blob = new Blob(
+      [JSON.stringify({ exportedAt: new Date().toISOString(), notes }, null, 2)],
+      { type: "application/json" },
+    );
+    const url = URL.createObjectURL(blob);
+    const anchor = document.createElement("a");
+    anchor.href = url;
+    anchor.download = "shrimp-dev-review-notes.json";
+    anchor.click();
+    URL.revokeObjectURL(url);
+  };
+
+  const activeNote = notes[selectedId] ?? { status: "unreviewed", note: "", updatedAt: "" };
+
+  return (
+    <section className="dev-review-console">
+      <div className="section-heading">
+        <div>
+          <p className="eyebrow">Developer only</p>
+          <h2>Question Review Console</h2>
+          <p>Read-only bank rendering for sweep and audit triage. No learner progress is written here.</p>
+        </div>
+        <div className="dev-review-heading-actions">
+          <LanguageTabs value={languageMode} onChange={setLanguageMode} />
+          <button type="button" onClick={exportNotes}>
+            <Download aria-hidden="true" />
+            <span>Export review notes</span>
+          </button>
+        </div>
+      </div>
+
+      <div className="dev-review-layout">
+        <aside className="dev-review-sidebar">
+          <section className="dev-review-panel">
+            <label>
+              <span>Question IDs (comma, space, or newline separated)</span>
+              <textarea
+                className="dev-id-input"
+                value={idInput}
+                onChange={(event) => setIdInput(event.target.value)}
+                spellCheck={false}
+              />
+            </label>
+            <button className="primary-action" type="button" onClick={() => openIds(parseQuestionIds(idInput))}>
+              <Search aria-hidden="true" />
+              <span>Open IDs</span>
+            </button>
+            <div className="dev-result-list">
+              {results.map((result) => {
+                const displayQuestion = result.entry?.embeddedPart ?? result.entry?.question;
+                return (
+                  <button
+                    className={selectedId === result.requestedId ? "active" : ""}
+                    type="button"
+                    key={result.requestedId}
+                    onClick={() => result.found && selectQuestion(result.requestedId)}
+                    disabled={!result.found}
+                  >
+                    <strong>{result.requestedId}</strong>
+                    <span>{result.found ? "Found" : "Not found"}</span>
+                    {result.entry && displayQuestion && (
+                      <small>
+                        {result.entry.sourceLabel} · {formatItemType(displayQuestion.itemType)} · {result.entry.pathLabel}
+                      </small>
+                    )}
+                  </button>
+                );
+              })}
+            </div>
+          </section>
+
+          <section className="dev-review-panel">
+            <label>
+              <span>Paste v3 sweep manifest JSONL</span>
+              <textarea
+                className="dev-manifest-input"
+                value={manifestText}
+                onChange={(event) => setManifestText(event.target.value)}
+                spellCheck={false}
+              />
+            </label>
+            <button type="button" onClick={parseManifest} disabled={!manifestText.trim()}>
+              Parse manifest
+            </button>
+            {manifestErrors.length > 0 && (
+              <div className="dev-validation-errors">
+                <strong>Rejected rows / validation errors</strong>
+                {manifestErrors.map((error, index) => <p key={`${error}-${index}`}>{error}</p>)}
+              </div>
+            )}
+            {manifestWarnings.map((warning) => (
+              <p className="dev-untrusted-note" key={warning}>{warning}</p>
+            ))}
+            {manifestRows.length > 0 && (
+              <>
+                <label className="toggle-row">
+                  <input
+                    type="checkbox"
+                    checked={visualWorkMode}
+                    onChange={(event) => setVisualWorkMode(event.target.checked)}
+                  />
+                  <span>Visual work mode</span>
+                </label>
+                <div className="dev-manifest-filters">
+                  {manifestFilterFields.map((field) => (
+                    <label key={field}>
+                      <span>{field}</span>
+                      <select
+                        value={manifestFilters[field]}
+                        onChange={(event) =>
+                          setManifestFilters((current) => ({ ...current, [field]: event.target.value }))
+                        }
+                      >
+                        <option value="all">All</option>
+                        {manifestFilterOptions[field].map((value) => (
+                          <option value={value} key={value}>{value}</option>
+                        ))}
+                      </select>
+                    </label>
+                  ))}
+                </div>
+                <div className="dev-manifest-list">
+                  {visibleManifestRows.map((row) => (
+                    <button
+                      className={selectedId === row.qid ? "active" : ""}
+                      type="button"
+                      key={`${row.qid}-${row.flag_type}`}
+                      onClick={() => selectQuestion(row.qid)}
+                    >
+                      <strong>{row.qid}</strong>
+                      <span>{row.priority} · {row.flag_type}</span>
+                      <small>{row.answer_key_trust} trust · {row.risk_tier} risk</small>
+                    </button>
+                  ))}
+                </div>
+              </>
+            )}
+          </section>
+        </aside>
+
+        <div className="dev-review-main">
+          {!selectedEntry && (
+            <section className="dev-review-empty">
+              <h3>Select a found question</h3>
+              <p>Use ID lookup or a parsed manifest row to open the production question renderer.</p>
+            </section>
+          )}
+
+          {selectedEntry && selectedQuestion && (
+            <>
+              <section className="dev-review-summary">
+                <div>
+                  <strong>{selectedId}</strong>
+                  <span>{selectedEntry.sourceLabel}</span>
+                </div>
+                <div className="question-meta">
+                  <span className="type-pill">{formatItemType(selectedQuestion.itemType)}</span>
+                  <span>{selectedQuestion.category}</span>
+                  <span>{selectedQuestion.topic}</span>
+                  <span>{selectedQuestion.difficulty}</span>
+                  <span>{hasVisualStimulus(selectedEntry.question) ? "Has visual" : "No visual"}</span>
+                  <span>{selectedEntry.pathLabel}</span>
+                </div>
+              </section>
+
+              {selectedManifestRow && (
+                <ManifestEvidencePanel row={selectedManifestRow} onOpenQid={selectQuestion} />
+              )}
+
+              <QuestionCard
+                key={`${selectedEntry.question.id}-${selectedId}`}
+                question={selectedEntry.question}
+                answer={getCorrectAnswer(selectedEntry.question)}
+                submitted
+                result
+                languageMode={languageMode}
+                flagged={false}
+                voiceEnabled={false}
+                onAnswer={() => undefined}
+                onSubmit={() => undefined}
+                onToggleFlag={() => undefined}
+                reviewMode
+                focusedPartId={selectedEntry.embeddedPart?.id}
+              />
+
+              <section className="dev-review-notes">
+                <label>
+                  <span>Review status</span>
+                  <select
+                    value={activeNote.status}
+                    onChange={(event) => updateNote({ status: event.target.value as DevReviewStatus })}
+                  >
+                    <option value="unreviewed">Unreviewed</option>
+                    <option value="looks_ok">Looks OK</option>
+                    <option value="needs_fix">Needs fix</option>
+                    <option value="duplicate_or_redundant">Duplicate or redundant</option>
+                    <option value="visual_candidate">Visual candidate</option>
+                    <option value="reject_audit_flag">Reject audit flag</option>
+                  </select>
+                </label>
+                <label>
+                  <span>Local note</span>
+                  <textarea
+                    value={activeNote.note}
+                    onChange={(event) => updateNote({ note: event.target.value })}
+                  />
+                </label>
+              </section>
+            </>
+          )}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function ManifestEvidencePanel({
+  row,
+  onOpenQid,
+}: {
+  row: SweepManifestRow;
+  onOpenQid: (qid: string) => void;
+}) {
+  const detailRows = [
+    ["The tell", row.the_tell],
+    ["Renderer justification", row.renderer_justification],
+    ["Ambiguity evidence", row.ambiguity_evidence],
+    ["Trust evidence", row.trust_evidence],
+    ["Action rationale", row.action_rationale],
+    ["Duplicate claim", row.duplicate_claim],
+  ].filter((entry): entry is [string, string] => typeof entry[1] === "string" && entry[1].trim().length > 0);
+
+  return (
+    <section className="dev-evidence-panel">
+      <div className="dev-evidence-heading">
+        <div>
+          <span className="missed-pill">Untrusted audit output</span>
+          <h3>Quoted evidence beside live question</h3>
+        </div>
+        <span>{row.priority} priority · {row.answer_key_trust} answer-key trust · {row.risk_tier} risk</span>
+      </div>
+      <div className="dev-quoted-evidence">
+        {row.quoted_evidence.map((evidence, index) => (
+          <blockquote key={`${evidence.location}-${index}`}>
+            <strong>{evidence.location}</strong>
+            <p>{evidence.quote}</p>
+          </blockquote>
+        ))}
+      </div>
+      {detailRows.map(([label, value]) => (
+        <div className="dev-evidence-detail" key={label}>
+          <strong>{label}</strong>
+          <p>{value}</p>
+        </div>
+      ))}
+      {row.possible_duplicate_qids && row.possible_duplicate_qids.length > 0 && (
+        <div className="dev-duplicate-links">
+          <strong>Possible duplicates</strong>
+          {row.possible_duplicate_qids.map((qid) => (
+            <button type="button" key={qid} onClick={() => onOpenQid(qid)}>{qid}</button>
+          ))}
+        </div>
+      )}
+    </section>
+  );
+}
+
 function SessionView({
   session,
   progress,
@@ -1477,6 +1953,8 @@ function QuestionCard({
   onAnswer,
   onSubmit,
   onToggleFlag,
+  reviewMode = false,
+  focusedPartId,
 }: {
   question: Question;
   answer: AnswerState;
@@ -1489,6 +1967,8 @@ function QuestionCard({
   onAnswer: (answer: AnswerState) => void;
   onSubmit: () => void;
   onToggleFlag: () => void;
+  reviewMode?: boolean;
+  focusedPartId?: string;
 }) {
   const [activeTerm, setActiveTerm] = useState<GlossaryTerm | null>(null);
   const readyToSubmit = getAnswerCompleteness(question, answer);
@@ -1503,15 +1983,17 @@ function QuestionCard({
         {flagged && <span className="type-pill">Flagged</span>}
         {progress?.missed && <span className="missed-pill">Review</span>}
         {isDueForReview(progress) && <span className="type-pill">Due</span>}
-        <button
-          className={`icon-action flag-action ${flagged ? "flagged" : ""}`}
-          type="button"
-          aria-label={flagged ? "Remove flag" : "Flag for review"}
-          title={flagged ? "Remove flag" : "Flag for review"}
-          onClick={onToggleFlag}
-        >
-          <Flag aria-hidden="true" />
-        </button>
+        {!reviewMode && (
+          <button
+            className={`icon-action flag-action ${flagged ? "flagged" : ""}`}
+            type="button"
+            aria-label={flagged ? "Remove flag" : "Flag for review"}
+            title={flagged ? "Remove flag" : "Flag for review"}
+            onClick={onToggleFlag}
+          >
+            <Flag aria-hidden="true" />
+          </button>
+        )}
       </div>
 
       <VisualStimulus visual={question.visual} languageMode={languageMode} />
@@ -1548,9 +2030,10 @@ function QuestionCard({
         voiceEnabled={voiceEnabled}
         onTerm={setActiveTerm}
         onAnswer={onAnswer}
+        focusedPartId={focusedPartId}
       />
 
-      {!submitted && (
+      {!submitted && !reviewMode && (
         <button className="primary-action submit-button" type="button" disabled={!readyToSubmit} onClick={onSubmit}>
           <CheckCircle2 aria-hidden="true" />
           <span>Submit answer</span>
@@ -1558,9 +2041,9 @@ function QuestionCard({
       )}
 
       {submitted && (
-        <div className={`answer-banner ${result ? "correct" : "incorrect"}`}>
-          {result ? <CheckCircle2 aria-hidden="true" /> : <XCircle aria-hidden="true" />}
-          <strong>{result ? "Correct" : "Review this one"}</strong>
+        <div className={`answer-banner ${reviewMode || result ? "correct" : "incorrect"}`}>
+          {reviewMode || result ? <CheckCircle2 aria-hidden="true" /> : <XCircle aria-hidden="true" />}
+          <strong>{reviewMode ? "Correct answer shown" : result ? "Correct" : "Review this one"}</strong>
         </div>
       )}
 
@@ -1577,6 +2060,7 @@ function QuestionAnswerControl({
   voiceEnabled,
   onTerm,
   onAnswer,
+  focusedPartId,
 }: {
   question: Question;
   answer: AnswerState;
@@ -1585,6 +2069,7 @@ function QuestionAnswerControl({
   voiceEnabled: boolean;
   onTerm: (term: GlossaryTerm) => void;
   onAnswer: (answer: AnswerState) => void;
+  focusedPartId?: string;
 }) {
   if (
     question.itemType === "multiple_choice" ||
@@ -1636,6 +2121,7 @@ function QuestionAnswerControl({
         voiceEnabled={voiceEnabled}
         onTerm={onTerm}
         onAnswer={onAnswer}
+        focusedPartId={focusedPartId}
       />
     );
   }
@@ -1973,6 +2459,7 @@ function CaseStudyControl({
   voiceEnabled,
   onTerm,
   onAnswer,
+  focusedPartId,
 }: {
   question: Extract<Question, { itemType: "case_study" }>;
   answer: AnswerState;
@@ -1981,6 +2468,7 @@ function CaseStudyControl({
   voiceEnabled: boolean;
   onTerm: (term: GlossaryTerm) => void;
   onAnswer: (answer: AnswerState) => void;
+  focusedPartId?: string;
 }) {
   const caseAnswers = answer.caseStudy ?? {};
   const updateCaseAnswer = (questionId: string, nextAnswer: AnswerState) => {
@@ -2019,7 +2507,11 @@ function CaseStudyControl({
           const caseResult = submitted ? gradeQuestion(caseQuestion, caseAnswer) : undefined;
           const statusClass = submitted ? (caseResult ? "correct" : "incorrect") : "";
           return (
-            <section className={`case-question ${statusClass}`} key={caseQuestion.id}>
+            <section
+              className={`case-question ${statusClass} ${focusedPartId === caseQuestion.id ? "focused" : ""}`}
+              key={caseQuestion.id}
+              data-case-part-id={caseQuestion.id}
+            >
               <div className="case-question-heading">
                 <span className="type-pill">Part {index + 1}</span>
                 <span className="type-pill">{formatItemType(caseQuestion.itemType)}</span>
