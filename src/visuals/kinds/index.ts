@@ -8,3 +8,4 @@ import "./vitals_trend";
 import "./lab_trend";
 import "./mar";
 import "./io_record";
+import "./medication_label";

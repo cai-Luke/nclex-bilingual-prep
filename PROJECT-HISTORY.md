@@ -55,6 +55,17 @@ Out of scope until a future schema bump:
 
 ## Milestones
 
+### U6 `medication_label` Renderer (Jun 12)
+
+Completed:
+- Added reusable `renderFieldPanel` and `measureFieldPanel` primitives with deterministic label/screen variants, escaped text, section headings, and bold/flag emphasis.
+- Added shared deterministic `fmtNum` and `roundTo` numeric helpers for visual renderers.
+- Added `src/visuals/kinds/medication_label/` with typed liquid/solid product strengths, defensive validation, deterministic rendering, and colocated fixtures.
+- Added a strict `selfCheck` arithmetic gate for five enumerated same-unit derivations: concentration, draw-up volume, tablet quantity, capsule quantity, and mL/hr rate.
+- Registered `medication_label` for `multiple_choice`, `select_all`, `matrix`, and `fill_in_blank`; added focused validation, panel, render, and arithmetic tests.
+- Updated `NCLEX-Question-Schema.md` and marked U6 done in `VISUAL-STIMULI-ROADMAP.md`. No content generation or bank promotion was performed.
+- Verified: `npm run test-visuals` passes with 7 registered kinds; TypeScript build check passes.
+
 ### NCLEX-Weighted Study Sessions (Jun 11)
 
 Completed:
