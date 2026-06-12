@@ -1,11 +1,37 @@
 # Shuffle & Rationale-Repair Verification — Spec for Claude Code (Sonnet)
 
+**Status:** Forensic helper / mostly superseded by promotion-gate audits. Do not implement as active roadmap unless auditing an old shuffle event with a known BEFORE and AFTER bank.
+
+## Current repo assumptions
+* Project Shrimp is now schemaVersion `1.2`.
+* The visual renderer registry has landed.
+* Supported visual kinds are exactly:
+  * `rhythm_strip`
+  * `capnography`
+  * `vitals_trend`
+  * `lab_trend`
+  * `mar`
+  * `io_record`
+  * `medication_label`
+  * `device_screen`
+  * `fetal_monitoring`
+  * `burn_map`
+  * `null`
+* Do not use legacy renderer names: `ecg_rhythm_strip`, `fetal_monitor_tracing`, `chest_tube_drainage`, `wound_stage_diagram`, `lab_panel`, `intake_output_chart`
+* `highlight` and `bowtie` remain out of scope unless a future schema bump adds them.
+* Codex owns implementation. Gemini may run read-only sweeps or do text cleanup, but Gemini must not edit canonical banks or make final clinical-review decisions.
+
 **Project:** Shrimp (bilingual NCLEX-RN bank)
 **Goal:** Verify that Gemini's MCQ answer randomization and rationale repair are correct, at minimal token cost.
 
 ---
 
 ## 0. Your job (read first)
+
+The current promotion workflow already owns ordinary shuffle verification. This spec is only for retroactive investigations where:
+* a bank was shuffled outside the current promotion pipeline,
+* the original raw draft or parent commit is available,
+* and we need content-hash comparison between BEFORE and AFTER.
 
 Do **not** read or reason about questions one at a time. Your job is to **write a single deterministic Python verifier, run it, and report its output.** All per-item decisions are made by the script. The only LLM reasoning permitted is a small, capped escalation pass at the very end (§5), and only on items the script cannot resolve.
 
@@ -82,9 +108,24 @@ OVERALL: PASS / FAIL
 
 ---
 
-## 7. Acceptance
+## 7. Implementation & Integration
+
+If implemented, make it a one-off script, not a default CI gate:
+
+```sh
+npm run verify-shuffle -- --before path/to/before.json --after path/to/after.json
+```
+
+Do not add it to `npm run audit` unless a recurring need appears.
+
+---
+
+## 8. Acceptance
 
 - The verifier is deterministic: same inputs → identical report (fixed seed, sorted iteration).
 - Zero per-item LLM calls except the capped §5 batch.
 - Bilingual: C5/C6 patterns cover English and Simplified Chinese.
 - The report names actual failing item IDs so repair is targeted, not blind.
+- C1/C2 are the main value of this forensic script.
+- C4/C5/C6 overlap with the current promotion-gate audits and should not duplicate CI behavior.
+- If BEFORE is unavailable, the report must prominently say assurance is reduced.

@@ -1,5 +1,26 @@
 # Project Shrimp Dev Feature Spec — Question ID Lookup & Review Console (v2)
 
+**Status:** Still useful. Implement after or alongside `validate-sweep`. Must use the post-roadmap manifest schema and current renderer registry.
+
+## Current repo assumptions
+* Project Shrimp is now schemaVersion `1.2`.
+* The visual renderer registry has landed.
+* Supported visual kinds are exactly:
+  * `rhythm_strip`
+  * `capnography`
+  * `vitals_trend`
+  * `lab_trend`
+  * `mar`
+  * `io_record`
+  * `medication_label`
+  * `device_screen`
+  * `fetal_monitoring`
+  * `burn_map`
+  * `null`
+* Do not use legacy renderer names: `ecg_rhythm_strip`, `fetal_monitor_tracing`, `chest_tube_drainage`, `wound_stage_diagram`, `lab_panel`, `intake_output_chart`
+* `highlight` and `bowtie` remain out of scope unless a future schema bump adds them.
+* Codex owns implementation. Gemini may run read-only sweeps or do text cleanup, but Gemini must not edit canonical banks or make final clinical-review decisions.
+
 ## Purpose
 
 A developer-only way to open specific question IDs from the app UI so sweep/audit outputs can be reviewed by a human without reading raw JSONL. Review/debugging only. Must not change the learner study flow, grading, production bank schema, or canonical content.
@@ -33,17 +54,22 @@ No canonical content edits. No new question schema fields. No grading changes. N
 
 ## Build phasing
 
-**Phase 1 (MVP — build this first, unblocks review next week)**
-- Dev entry point (§1)
-- Question ID lookup, single + batch (§2, §3)
-- Read-only question preview, **text path only** (§4). Stub the visual-stimulus render with a placeholder ("visual renders post-U0") rather than wiring it to the current registry.
+**Phase 1 MVP**
 
-**Phase 2 (add when the manual version starts hurting)**
-- Manifest-paste helper (§6)
-- Local review notes + export (§7)
-- Visual-stimulus preview — wire only **after** the U0 renderer registry refactor lands, then reuse the production renderer.
+* Dev entry point.
+* Single and batch question ID lookup.
+* Read-only question preview.
+* Production visual preview using the existing visual renderer registry.
+* Direct URL support for `?dev=1&qid=...` and `?dev=1&qids=...`.
+* Must not write progress, answer history, missed status, or active session state.
 
-Rationale: most flagged items are text questions with no visual yet, so lookup + text preview is the working tool. The visual path built now would be rework once U0 changes the registry contract.
+**Phase 2**
+
+* Paste validated sweep manifest.
+* Reject or warn on manifests that do not pass `validate-sweep`.
+* Display `quoted_evidence[]` prominently beside the rendered question.
+* Local review notes and export.
+* Duplicate/redundancy navigation.
 
 ## 1. Developer entry point
 
@@ -63,7 +89,7 @@ Render the question using existing session components. Show: stem; options/rows/
 
 **The preview must never alter learner progress, answer history, missed status, or active sessions.**
 
-Visual stimulus: Phase 1 shows a placeholder; Phase 2 reuses the post-U0 production renderer.
+Visual stimulus: Phase 1 uses the post-roadmap production renderer.
 
 ## 5. Case-study handling
 
@@ -73,9 +99,21 @@ Top-level case-study ID → show full case + all parts, allow jump to a selected
 
 A "Paste sweep manifest" box accepting v3 `manifest.jsonl` rows. Behavior:
 
-- Parse JSONL; tolerate and report malformed lines rather than failing the whole paste.
-- **Default sort: `priority` desc, then `answer_key_trust` worst-first** (`low` → `medium` → `not_assessed` → `high`), so the highest-risk items surface first (see §8 risk ordering).
-- Filter by: `flag_type`, `recommended_action`, `visual_value`, `target_renderer`, `answer_key_trust`, `priority`.
+- Parse JSONL; tolerate and report malformed lines rather than failing the whole paste. Reject or warn on manifests that do not pass `validate-sweep`.
+- **Default sort:**
+  1. `priority` high → medium → low
+  2. `answer_key_trust` low → medium → not_assessed → high
+  3. `risk_tier` high → medium → low
+  4. visual candidates below human-review/redundancy rows unless user toggles “visual work mode”
+- Filter by:
+  - `flag_type`
+  - `recommended_action`
+  - `visual_value`
+  - `target_renderer`
+  - `answer_key_trust`
+  - `priority`
+  - `risk_tier`
+  - `content_lane_status`
 - Clicking a row opens the matching question preview.
 - Alongside the question, render the v3 evidence fields:
   - `quoted_evidence[]` — **render each `{location, quote}` prominently, labeled by location**, ideally visually anchored to where it appears in the rendered question. This is the core review affordance: the flagged phrase and what the question actually asks, side by side.
@@ -107,7 +145,7 @@ Never auto-write notes back into bank files. (These exports double as a calibrat
 
 A wrong answer key actively teaches a learner the wrong thing; a missed visual conversion is only unrealized upside. The console must make harm-first review the path of least resistance:
 
-- Default the manifest view to show `flag_type: human_review` and `answer_key_trust: low/medium` rows first.
+- Default the manifest view to sort high-risk rows first (see Default sort in §6).
 - Visual-conversion candidates are lower-stakes; they sort below review/redundancy rows by default.
 - A quick toggle can re-sort to visual work when the reviewer chooses.
 
@@ -131,7 +169,7 @@ type QuestionLookupResult = {
 };
 ```
 
-Manual/auto checks: standalone lookup; case-study parent lookup; embedded part lookup; multiple pasted IDs; missing ID; dev-off shows no learner change; preview writes no progress/session state; v3 manifest paste binds all six filters (regression guard against the v2-field mismatch this revision fixes).
+Manual/auto checks: standalone lookup; case-study parent lookup; embedded part lookup; multiple pasted IDs; missing ID; dev-off shows no learner change; preview writes no progress/session state; v3 manifest paste binds all eight filters (regression guard against the v2-field mismatch this revision fixes).
 
 ## Acceptance criteria
 
@@ -142,7 +180,12 @@ Manual/auto checks: standalone lookup; case-study parent lookup; embedded part l
 5. Case-study parent and embedded-part IDs handled.
 6. No canonical bank files modified.
 7. (Phase 2) A pasted **v3** manifest binds every filter in §6 and renders `quoted_evidence` next to the question.
-8. These pass:
+8. Opening a question in the console never calls the answer-submission or progress-writing paths.
+9. Console rendering must work for top-level questions, case-study parents, and embedded case-study parts.
+10. Console must render visual stimuli when present, using the production `VisualStimulus` path.
+11. Console must clearly label manifest rows as untrusted audit output until reviewed.
+12. Console must not import manifest rows into any canonical bank.
+13. These pass:
 
 ```sh
 npm run validate-bank -- banks/*.json
@@ -150,7 +193,7 @@ npm run coverage-report
 npm run build
 ```
 
-Run `npm run test-visuals` only if visual-renderer code was touched (Phase 2).
+Run `npm run test-visuals` only if visual-renderer code was touched.
 
 ## Project history update
 

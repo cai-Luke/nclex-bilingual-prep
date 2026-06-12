@@ -1,7 +1,27 @@
 # Non-MCQ Structural Bias Audit — Specification v2
 
+**Status:** Medium-priority quality audit. Implement Layer A first. Layer B is deferred unless Layer A produces actionable flags that need semantic review.
+
+## Current repo assumptions
+* Project Shrimp is now schemaVersion `1.2`.
+* The visual renderer registry has landed.
+* Supported visual kinds are exactly:
+  * `rhythm_strip`
+  * `capnography`
+  * `vitals_trend`
+  * `lab_trend`
+  * `mar`
+  * `io_record`
+  * `medication_label`
+  * `device_screen`
+  * `fetal_monitoring`
+  * `burn_map`
+  * `null`
+* Do not use legacy renderer names: `ecg_rhythm_strip`, `fetal_monitor_tracing`, `chest_tube_drainage`, `wound_stage_diagram`, `lab_panel`, `intake_output_chart`
+* `highlight` and `bowtie` remain out of scope unless a future schema bump adds them.
+* Codex owns implementation. Gemini may run read-only sweeps or do text cleanup, but Gemini must not edit canonical banks or make final clinical-review decisions.
+
 **Project:** Shrimp (bilingual NCLEX-RN question bank)
-**Status:** Implementer-ready. Supersedes the lightweight v1 draft.
 **Design principle:** Precision over volume. Deterministic where the question is statistical; LLM only where the question is semantic.
 
 ---
@@ -29,6 +49,16 @@ Runs **only on items Layer A flags** plus the inherently-semantic check (#6, cas
 - Compute every check **per canonical bank**, then **globally**.
 - A type's global verdict = **FAIL if ANY bank fails** for that type. A global PASS must not mask a per-bank FAIL.
 - **Underpowered cells return `INSUFFICIENT`, never `PASS`.** A cell is underpowered if expected count per category < `min_expected_count`. Silence is not evidence of fairness.
+- Explicitly exclude unsupported schema types:
+  - Remove `bowtie` from active scope.
+  - Remove generic `hotspot` from active scope.
+- First-pass scope for implementation:
+  - `select_all`: correct-count degeneracy, correct-option positional clustering
+  - `ordered_response`: scramble depth, template repetition
+  - `dropdown_cloze`: per-dropdown correct-index distribution
+  - `matrix`: correct-column distribution, repeated all-rows-same-column pattern
+  - cross-cutting rationale shuffle hazard: may call or reuse the existing rationale-reference audit if already present
+- Defer: case-study inferability, distractor plausibility, visual-kind structural audit, Gemini Layer B.
 
 ---
 
@@ -44,7 +74,6 @@ sata_count_degeneracy: 0.70    # FAIL if one count value covers > 70% of SATA it
 sata_missing_count_fails: true # FAIL if any plausible count (1..n-1, n) never appears
 ordered_min_mean_kendall: 0.35 # FAIL if mean normalized Kendall-tau (presented vs correct) below this
 template_repeat_max_share: 0.15 # FAIL if top structural template covers > 15% of items (ordered/bowtie)
-hotspot_grid: [3, 3]           # normalized grid for spatial chi-square
 example_cap: 3                 # worst-N example item IDs per finding
 ```
 
@@ -72,20 +101,22 @@ For each, the **null** is stated explicitly. Layer A computes the metric; the ve
 - **Cell distribution.** Distribution of correct cells across columns and across rows, computed separately. Also check the per-row pattern: FAIL-flag if the correct column is identical across a suspicious share of rows. Null = uniform. Verdict per §4.
 - **Fix class:** `SHUFFLE_AT_PROMOTION` (column order shuffle per row).
 
-### 3.5 Case study / unfolding  *(Layer B — semantic)*
+### 3.5 Case study / unfolding *(Deferred)*
 - **Inferability.** Operationalize "inferable from first/last row only": for each flagged item, Gemini receives the stem with all-but-one data row redacted and must state whether the correct answer is still determinable. Run with first-row-only and last-row-only redactions. Item FAILs if answer is determinable from a single row in ≥ 1 of the redaction conditions.
 - **Distractor plausibility.** Gemini rates whether distractors are clinically plausible to a competent test-taker (implausible distractors leak the answer). Only on Layer-A-flagged or sampled items.
 - **Fix class:** `MANUAL_REVIEW` or targeted `REGENERATE`. Do not auto-fix.
 
-### 3.6 Visual / hotspot  *(Layer A)*
-- **Spatial distribution.** Normalize each correct region's centroid to [0,1]², bin into `hotspot_grid`, chi-square vs uniform over occupied bins. Flag center / top-left concentration explicitly.
-- **Label-correlation flag.** Flag (for Layer B confirmation) items where the correct region coincides with the single most visually salient or first-listed label.
-- **Fix class:** spatial bias → `REGENERATE` (target generation toward underused regions; hotspots usually can't be shuffled); label correlation → `MANUAL_REVIEW`.
+### 3.6 Visual-kind structural audit *(Deferred)*
+Visual-kind structural audit is deferred until there is enough promoted content per visual kind to power a statistical test. Underpowered cells must return `INSUFFICIENT`, not `PASS`.
 
-### 3.7 Bowtie / NGN
-- **Slot template repetition.** Hash the structural template (slot types and arity, normalized of surface content). FAIL if top template share > `template_repeat_max_share`.
-- **Per-slot positional distribution.** For each slot, correct-option position distribution, null = uniform, verdict per §4.
-- **Fix class:** template repetition → `REGENERATE`; per-slot positional → `SHUFFLE_AT_PROMOTION`.
+For future visual audits:
+* `burn_map`: region distribution by adult body area; pediatric content excluded while blocked.
+* `fetal_monitoring`: expected-pattern distribution, not spatial distribution.
+* `device_screen`, `medication_label`, `mar`, `io_record`: derive-position and field-salience audits may be designed later, but do not invent generic hotspot tests.
+* `rhythm_strip`, `capnography`, `vitals_trend`, `lab_trend`: pattern/trend distribution only when enough content exists.
+
+### 3.7 Bowtie / NGN *(Deferred/Out of Scope)*
+- *Removed from active scope.*
 
 ### 3.8 Cross-cutting — rationale shuffle hazard *(Layer A, applies to ALL shufflable types)*
 - Scan rationales/explanations for position references: option letters (`Option A/B/C/D`), ordinal language (`the first choice`, `the last option`), spatial words (`above`, `top`, `the option below`).
@@ -113,7 +144,7 @@ One machine-readable record per `(bank, item_type, check)`:
   "audit_version": "2.0.0",
   "config_hash": "<sha256 of CONFIG>",
   "bank": "<bank_id>",
-  "item_type": "SATA|ordered|cloze|matrix|case_study|hotspot|bowtie",
+  "item_type": "select_all|ordered_response|dropdown_cloze|matrix",
   "check": "<check_name>",
   "layer": "A|B",
   "n": 0,
@@ -143,10 +174,27 @@ Every finding resolves to exactly one class:
 
 ---
 
-## 7. Acceptance criteria for the implementer
+## 7. Commands & Integration
 
-- Layer A is a standalone deterministic script; same bank → identical JSON.
-- Layer B is invoked only on Layer-A-flagged items plus check #6; its prompts and item IDs are logged.
-- Every record carries a `fix_class`; no finding is left unclassified.
-- `INSUFFICIENT` is reported wherever power is lacking; it never silently becomes `PASS`.
-- The promotion-step shuffle is re-audited as a post-condition.
+Prefer a TypeScript/Node implementation integrated with package scripts:
+
+```sh
+npm run audit:non-mcq-bias
+npm run audit:non-mcq-bias -- --json
+```
+
+Do not require Gemini for the first implementation. Output deterministic JSON plus a human-readable rollup.
+
+---
+
+## 8. Acceptance criteria for the implementer
+
+First implementation passes if:
+
+* It reports per-bank and global records.
+* It emits `INSUFFICIENT` for underpowered cells.
+* It never silently passes unsupported item types.
+* It produces stable output on repeated runs.
+* It integrates into `npm run audit` only after the team accepts the baseline output.
+* Layer A is a standalone deterministic script; same bank → identical JSON.
+* Every record carries a `fix_class`; no finding is left unclassified.
