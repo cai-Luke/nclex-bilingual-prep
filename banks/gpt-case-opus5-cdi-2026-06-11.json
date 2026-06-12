@@ -163,19 +163,14 @@
             },
             "options": [
               {
-                "id": "B",
-                "en": "Administer loperamide now because reducing stool frequency will prevent dehydration and skin injury.",
-                "zh": "立即给予洛哌丁胺，因为减少排便次数可预防脱水和皮肤损伤。"
-              },
-              {
-                "id": "D",
-                "en": "Request diphenoxylate-atropine instead because it is stronger than loperamide for severe diarrhea.",
-                "zh": "改请医师开地芬诺酯-阿托品，因为它比洛哌丁胺更强，适合严重腹泻。"
-              },
-              {
                 "id": "C",
                 "en": "Give loperamide only after the stool specimen is collected so the medication does not interfere with testing.",
                 "zh": "仅在采集粪便标本后给予洛哌丁胺，以免影响检测。"
+              },
+              {
+                "id": "A",
+                "en": "Withhold the loperamide and notify the provider that the order should be discontinued or held for suspected CDI.",
+                "zh": "暂缓洛哌丁胺，并通知医师疑似 CDI，应停用或暂停该医嘱。"
               },
               {
                 "id": "E",
@@ -183,9 +178,14 @@
                 "zh": "给予洛哌丁胺并增加口服液体，然后再联系医师。"
               },
               {
-                "id": "A",
-                "en": "Withhold the loperamide and notify the provider that the order should be discontinued or held for suspected CDI.",
-                "zh": "暂缓洛哌丁胺，并通知医师疑似 CDI，应停用或暂停该医嘱。"
+                "id": "D",
+                "en": "Request diphenoxylate-atropine instead because it is stronger than loperamide for severe diarrhea.",
+                "zh": "改请医师开地芬诺酯-阿托品，因为它比洛哌丁胺更强，适合严重腹泻。"
+              },
+              {
+                "id": "B",
+                "en": "Administer loperamide now because reducing stool frequency will prevent dehydration and skin injury.",
+                "zh": "立即给予洛哌丁胺，因为减少排便次数可预防脱水和皮肤损伤。"
               }
             ],
             "correct": [
@@ -254,26 +254,6 @@
             },
             "options": [
               {
-                "id": "B",
-                "en": "Perform hand hygiene with soap and water after removing gloves and before leaving the room.",
-                "zh": "脱手套后、离开房间前使用肥皂和清水进行手卫生。"
-              },
-              {
-                "id": "A",
-                "en": "Initiate contact precautions while CDI is suspected rather than waiting for a confirmed result.",
-                "zh": "疑似 CDI 时即启动接触隔离，而不是等待确诊结果。"
-              },
-              {
-                "id": "E",
-                "en": "Place a dedicated commode and dedicated assessment equipment in the room.",
-                "zh": "在房间内放置患者专用便椅和专用评估设备。"
-              },
-              {
-                "id": "C",
-                "en": "Send an unformed stool specimen for C. difficile testing per facility protocol once ordered.",
-                "zh": "医嘱开立后，按机构流程送检未成形粪便标本进行艰难梭菌检测。"
-              },
-              {
                 "id": "F",
                 "en": "Delay notifying environmental services until the client has a negative follow-up stool test.",
                 "zh": "等患者复查粪便阴性后再通知环境服务人员。"
@@ -282,6 +262,26 @@
                 "id": "D",
                 "en": "Use alcohol-based hand rub as the preferred method because gloves were worn during care.",
                 "zh": "因为护理时戴了手套，所以首选含酒精手消毒剂。"
+              },
+              {
+                "id": "A",
+                "en": "Initiate contact precautions while CDI is suspected rather than waiting for a confirmed result.",
+                "zh": "疑似 CDI 时即启动接触隔离，而不是等待确诊结果。"
+              },
+              {
+                "id": "C",
+                "en": "Send an unformed stool specimen for C. difficile testing per facility protocol once ordered.",
+                "zh": "医嘱开立后，按机构流程送检未成形粪便标本进行艰难梭菌检测。"
+              },
+              {
+                "id": "B",
+                "en": "Perform hand hygiene with soap and water after removing gloves and before leaving the room.",
+                "zh": "脱手套后、离开房间前使用肥皂和清水进行手卫生。"
+              },
+              {
+                "id": "E",
+                "en": "Place a dedicated commode and dedicated assessment equipment in the room.",
+                "zh": "在房间内放置患者专用便椅和专用评估设备。"
               }
             ],
             "correct": [
@@ -370,14 +370,14 @@
                     "zh": "结肠腔内"
                   },
                   {
-                    "id": "o2",
-                    "en": "serum",
-                    "zh": "血清"
-                  },
-                  {
                     "id": "o3",
                     "en": "intracellular leukocyte",
                     "zh": "白细胞细胞内"
+                  },
+                  {
+                    "id": "o2",
+                    "en": "serum",
+                    "zh": "血清"
                   }
                 ],
                 "correct": "o1"
@@ -385,6 +385,11 @@
               {
                 "id": "2",
                 "options": [
+                  {
+                    "id": "o3",
+                    "en": "activated by renal filtration",
+                    "zh": "经肾小球滤过后激活"
+                  },
                   {
                     "id": "o1",
                     "en": "minimally absorbed",
@@ -394,11 +399,6 @@
                     "id": "o2",
                     "en": "rapidly absorbed",
                     "zh": "迅速吸收"
-                  },
-                  {
-                    "id": "o3",
-                    "en": "activated by renal filtration",
-                    "zh": "经肾小球滤过后激活"
                   }
                 ],
                 "correct": "o1"
@@ -511,14 +511,14 @@
               ],
               "columns": [
                 {
-                  "id": "c1",
-                  "en": "Expected improvement",
-                  "zh": "预期好转"
-                },
-                {
                   "id": "c2",
                   "en": "Immediate escalation",
                   "zh": "立即升级处理"
+                },
+                {
+                  "id": "c1",
+                  "en": "Expected improvement",
+                  "zh": "预期好转"
                 }
               ],
               "selectionMode": "single_per_row"
@@ -629,6 +629,16 @@
             },
             "options": [
               {
+                "id": "B",
+                "en": "Initiate contact precautions, soap-and-water hand hygiene, and dedicated equipment while CDI is suspected.",
+                "zh": "疑似 CDI 时启动接触隔离、肥皂清水手卫生和专用设备。"
+              },
+              {
+                "id": "E",
+                "en": "Collect and send an unformed stool specimen as ordered using appropriate precautions, then administer ordered fluids, potassium replacement, and oral vancomycin; continue stool counts, intake/output, abdominal checks, and skin protection.",
+                "zh": "按医嘱在适当防护下采集并送检未成形粪便标本，然后给予医嘱补液、补钾和口服万古霉素；继续记录排便、出入量、腹部评估和皮肤保护。"
+              },
+              {
                 "id": "A",
                 "en": "Perform a focused assessment and recognize the CDI risk pattern from new watery diarrhea, fever, leukocytosis, recent antibiotics, immunosuppression, and abdominal distension.",
                 "zh": "进行重点评估，并根据新发水样腹泻、发热、白细胞增多、近期抗生素、免疫抑制和腹胀识别 CDI 风险模式。"
@@ -642,16 +652,6 @@
                 "id": "C",
                 "en": "Hold the PRN loperamide and flag the order for provider review.",
                 "zh": "暂缓 PRN 洛哌丁胺，并提示医师复核该医嘱。"
-              },
-              {
-                "id": "E",
-                "en": "Collect and send an unformed stool specimen as ordered using appropriate precautions, then administer ordered fluids, potassium replacement, and oral vancomycin; continue stool counts, intake/output, abdominal checks, and skin protection.",
-                "zh": "按医嘱在适当防护下采集并送检未成形粪便标本，然后给予医嘱补液、补钾和口服万古霉素；继续记录排便、出入量、腹部评估和皮肤保护。"
-              },
-              {
-                "id": "B",
-                "en": "Initiate contact precautions, soap-and-water hand hygiene, and dedicated equipment while CDI is suspected.",
-                "zh": "疑似 CDI 时启动接触隔离、肥皂清水手卫生和专用设备。"
               }
             ],
             "correct": [
@@ -724,16 +724,6 @@
             },
             "options": [
               {
-                "id": "C",
-                "en": "Stop oral vancomycin when stools become formed for 24 hours because taking extra doses increases resistance.",
-                "zh": "粪便成形 24 小时后即可停止口服万古霉素，因为多服会增加耐药。"
-              },
-              {
-                "id": "A",
-                "en": "You do not need a repeat C. difficile test if symptoms have resolved. Finish the oral vancomycin course and call the provider if watery diarrhea, fever, or worsening abdominal pain returns.",
-                "zh": "如果症状已经缓解，就不需要重复艰难梭菌检测。请完成口服万古霉素疗程；若水样腹泻、发热或腹痛加重再次出现，请联系医师。"
-              },
-              {
                 "id": "D",
                 "en": "Use hand sanitizer after toileting because it is less irritating than frequent soap-and-water handwashing.",
                 "zh": "如厕后使用免洗手消毒剂，因为它比频繁肥皂清水洗手更不刺激皮肤。"
@@ -744,9 +734,19 @@
                 "zh": "腹泻一改善就在家重新开始甲氨蝶呤，以免类风湿关节炎发作。"
               },
               {
+                "id": "A",
+                "en": "You do not need a repeat C. difficile test if symptoms have resolved. Finish the oral vancomycin course and call the provider if watery diarrhea, fever, or worsening abdominal pain returns.",
+                "zh": "如果症状已经缓解，就不需要重复艰难梭菌检测。请完成口服万古霉素疗程；若水样腹泻、发热或腹痛加重再次出现，请联系医师。"
+              },
+              {
                 "id": "B",
                 "en": "A repeat PCR must be negative before you can safely stop contact precautions at home.",
                 "zh": "必须复查 PCR 阴性后，才能在家中安全停止接触隔离。"
+              },
+              {
+                "id": "C",
+                "en": "Stop oral vancomycin when stools become formed for 24 hours because taking extra doses increases resistance.",
+                "zh": "粪便成形 24 小时后即可停止口服万古霉素，因为多服会增加耐药。"
               }
             ],
             "correct": [

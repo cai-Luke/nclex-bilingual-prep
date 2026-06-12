@@ -205,6 +205,13 @@ Only top-level `banks/*.json` files are bundled by the app. `banks/Pending cases
 - Final review: schema valid; bilingual parity intact; no positional language; no visuals (text exhibits). Clinical accuracy verified: immediate qualified interpreter activation (not family, not delay); teach-back failure as clinical barrier not documentation task; interdisciplinary SATA: notify charge nurse, social work referral, home health initiation, stair assessment, rivaroxaban/renal trending, language-appropriate materials; renal trend with renally-cleared anticoagulant requires provider notification; SBAR handoff to home health must include language needs and interpreter requirement; 7-day pill organizer labeled in Mandarin as discharge enabler. No fixes required.
 - Promoted 2026-06-12 → `banks/opus1-tha-discharge-case-study-patched.json`; all audit tiers passed.
 
+### 2026-06-12 — Mechanical presentation normalization
+
+- Applied idempotent deterministic presentation normalization to all 16 bundled top-level `banks/*.json` files.
+- Canonicalized display arrays by stable IDs before seeded permutation for MC/SATA/ordered-response options, dropdown options, and matrix columns, including embedded case-study parts.
+- This was not a clinical content promotion or review-status change. Question IDs, item types, answer keys, ordered-response correct sequences, matrix row/column mappings, rationale references, bilingual text, metadata, and question counts were preserved.
+- Validation, rationale/reference audit, focused normalization tests, census regeneration, and production build passed. The deterministic non-MCQ Layer A audit was rebaselined; the prior Layer B final report remains unchanged.
+
 ## Next Planned Review
 
 - Next GPT/Gemini batch: prioritize Physiological Adaptation singleton topics (ADHF, AKI, acute pancreatitis, Reduction of Risk Potential) using case_study format to close the 93-item case_study gap (71 vs 164 target).

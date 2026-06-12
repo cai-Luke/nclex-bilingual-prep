@@ -77,14 +77,9 @@
       },
       "options": [
         {
-          "id": "D",
-          "en": "Request a sodium-restricted diet order before giving the medication.",
-          "zh": "给药前请求开立限钠饮食医嘱。"
-        },
-        {
-          "id": "B",
-          "en": "Hold the dose temporarily and notify the provider of the potassium trend.",
-          "zh": "暂缓该剂量，并将血钾趋势通知医嘱开立者。"
+          "id": "A",
+          "en": "Administer the furosemide as scheduled and recheck potassium tomorrow.",
+          "zh": "按计划给予呋塞米，并明天复查血钾。"
         },
         {
           "id": "C",
@@ -92,9 +87,14 @@
           "zh": "给药时让患者喝一大杯橙汁。"
         },
         {
-          "id": "A",
-          "en": "Administer the furosemide as scheduled and recheck potassium tomorrow.",
-          "zh": "按计划给予呋塞米，并明天复查血钾。"
+          "id": "B",
+          "en": "Hold the dose temporarily and notify the provider of the potassium trend.",
+          "zh": "暂缓该剂量，并将血钾趋势通知医嘱开立者。"
+        },
+        {
+          "id": "D",
+          "en": "Request a sodium-restricted diet order before giving the medication.",
+          "zh": "给药前请求开立限钠饮食医嘱。"
         }
       ],
       "correct": [
@@ -219,24 +219,24 @@
       },
       "options": [
         {
-          "id": "C",
-          "en": "Recheck the serum sodium level in 2 hours.",
-          "zh": "2 小时后复查血钠。"
-        },
-        {
           "id": "D",
           "en": "Notify the provider of the change in mental status.",
           "zh": "将意识状态改变通知医嘱开立者。"
         },
         {
-          "id": "A",
-          "en": "Place the client on seizure precautions.",
-          "zh": "为患者实施癫痫发作防护措施。"
-        },
-        {
           "id": "B",
           "en": "Start 0.45% sodium chloride at 125 mL/hr.",
           "zh": "以 125 mL/小时开始输注 0.45% 氯化钠。"
+        },
+        {
+          "id": "C",
+          "en": "Recheck the serum sodium level in 2 hours.",
+          "zh": "2 小时后复查血钠。"
+        },
+        {
+          "id": "A",
+          "en": "Place the client on seizure precautions.",
+          "zh": "为患者实施癫痫发作防护措施。"
         }
       ],
       "correct": [
@@ -383,11 +383,6 @@
       },
       "options": [
         {
-          "id": "C",
-          "en": "Give the dose and encourage the client to drink cranberry juice.",
-          "zh": "给予该剂量，并鼓励患者喝蔓越莓汁。"
-        },
-        {
           "id": "A",
           "en": "Administer the gentamicin because the infection is complicated.",
           "zh": "因感染复杂，按时给予庆大霉素。"
@@ -401,6 +396,11 @@
           "id": "D",
           "en": "Request a stool culture before administering the medication.",
           "zh": "给药前请求进行粪便培养。"
+        },
+        {
+          "id": "C",
+          "en": "Give the dose and encourage the client to drink cranberry juice.",
+          "zh": "给予该剂量，并鼓励患者喝蔓越莓汁。"
         }
       ],
       "correct": [
@@ -930,14 +930,14 @@
           "zh": "为患者连接连续心电监护并评估心律。"
         },
         {
-          "id": "B",
-          "en": "Stop the potassium-containing IV fluid.",
-          "zh": "停止含钾静脉液。"
-        },
-        {
           "id": "C",
           "en": "Notify the provider or rapid response team of worsening hyperkalemia with ECG changes.",
           "zh": "将伴心电图改变的高钾血症恶化情况通知医嘱开立者或快速反应团队。"
+        },
+        {
+          "id": "B",
+          "en": "Stop the potassium-containing IV fluid.",
+          "zh": "停止含钾静脉液。"
         },
         {
           "id": "E",
@@ -1104,14 +1104,14 @@
       },
       "options": [
         {
-          "id": "D",
-          "en": "Update the provider and ask whether the plan should transition toward oral hydration or maintenance fluids.",
-          "zh": "向医嘱开立者汇报，并询问计划是否应转向口服补液或维持液。"
-        },
-        {
           "id": "B",
           "en": "Interpret and document that renal perfusion is improving.",
           "zh": "解读并记录肾脏灌注正在改善。"
+        },
+        {
+          "id": "D",
+          "en": "Update the provider and ask whether the plan should transition toward oral hydration or maintenance fluids.",
+          "zh": "向医嘱开立者汇报，并询问计划是否应转向口服补液或维持液。"
         },
         {
           "id": "A",
@@ -1257,6 +1257,11 @@
           "id": "1",
           "options": [
             {
+              "id": "o3",
+              "en": "bleeding related to thrombocytopenia",
+              "zh": "与血小板减少相关的出血"
+            },
+            {
               "id": "o1",
               "en": "dysrhythmias related to worsening hypomagnesemia",
               "zh": "与低镁血症恶化相关的心律失常"
@@ -1265,11 +1270,6 @@
               "id": "o2",
               "en": "fluid overload related to hypermagnesemia",
               "zh": "与高镁血症相关的液体过负荷"
-            },
-            {
-              "id": "o3",
-              "en": "bleeding related to thrombocytopenia",
-              "zh": "与血小板减少相关的出血"
             }
           ],
           "correct": "o1"
@@ -1278,9 +1278,9 @@
           "id": "2",
           "options": [
             {
-              "id": "o1",
-              "en": "prescribed magnesium replacement and cardiac monitoring",
-              "zh": "按医嘱补镁并进行心电监测"
+              "id": "o3",
+              "en": "administration of vitamin K",
+              "zh": "给予维生素 K"
             },
             {
               "id": "o2",
@@ -1288,9 +1288,9 @@
               "zh": "限制所有口服和静脉液体"
             },
             {
-              "id": "o3",
-              "en": "administration of vitamin K",
-              "zh": "给予维生素 K"
+              "id": "o1",
+              "en": "prescribed magnesium replacement and cardiac monitoring",
+              "zh": "按医嘱补镁并进行心电监测"
             }
           ],
           "correct": "o1"
@@ -1413,11 +1413,6 @@
           "id": "1",
           "options": [
             {
-              "id": "o1",
-              "en": "hypocalcemia from possible parathyroid injury",
-              "zh": "可能因甲状旁腺受损导致的低钙血症"
-            },
-            {
               "id": "o2",
               "en": "hypercalcemia from dehydration",
               "zh": "脱水导致的高钙血症"
@@ -1426,6 +1421,11 @@
               "id": "o3",
               "en": "normal postoperative variation without risk",
               "zh": "无风险的术后正常波动"
+            },
+            {
+              "id": "o1",
+              "en": "hypocalcemia from possible parathyroid injury",
+              "zh": "可能因甲状旁腺受损导致的低钙血症"
             }
           ],
           "correct": "o1"
@@ -1706,11 +1706,6 @@
       },
       "options": [
         {
-          "id": "D",
-          "en": "Request a dietary consult for foods high in vitamin K.",
-          "zh": "请求营养会诊，指导富含维生素 K 的食物。"
-        },
-        {
           "id": "A",
           "en": "Administer the dose because the client has a pulmonary embolism.",
           "zh": "因患者有肺栓塞，按时给予该剂量。"
@@ -1724,6 +1719,11 @@
           "id": "C",
           "en": "Give the heparin and apply prolonged pressure to injection sites.",
           "zh": "给予肝素，并在注射部位延长按压时间。"
+        },
+        {
+          "id": "D",
+          "en": "Request a dietary consult for foods high in vitamin K.",
+          "zh": "请求营养会诊，指导富含维生素 K 的食物。"
         }
       ],
       "correct": [
@@ -1848,9 +1848,9 @@
       },
       "options": [
         {
-          "id": "C",
-          "en": "Recheck the aPTT as prescribed after a rate change or hold.",
-          "zh": "在调整或暂停输注后按医嘱复查 aPTT。"
+          "id": "B",
+          "en": "Increase the heparin infusion rate by 200 units/hr.",
+          "zh": "将肝素输注速度增加 200 单位/小时。"
         },
         {
           "id": "D",
@@ -1858,14 +1858,14 @@
           "zh": "继续为患者实施出血预防措施。"
         },
         {
-          "id": "B",
-          "en": "Increase the heparin infusion rate by 200 units/hr.",
-          "zh": "将肝素输注速度增加 200 单位/小时。"
-        },
-        {
           "id": "A",
           "en": "Assess the client for bleeding from gums, urine, stool, and IV sites.",
           "zh": "评估患者牙龈、尿液、粪便和静脉穿刺处是否出血。"
+        },
+        {
+          "id": "C",
+          "en": "Recheck the aPTT as prescribed after a rate change or hold.",
+          "zh": "在调整或暂停输注后按医嘱复查 aPTT。"
         }
       ],
       "correct": [
@@ -2013,14 +2013,14 @@
       },
       "options": [
         {
-          "id": "C",
-          "en": "Delay reassessment until the next scheduled morning laboratory draw.",
-          "zh": "等到下次计划的早晨抽血再复评。"
-        },
-        {
           "id": "B",
           "en": "Notify the provider or rapid response team of worsening markers despite treatment.",
           "zh": "将治疗后指标仍恶化的情况通知医嘱开立者或快速反应团队。"
+        },
+        {
+          "id": "C",
+          "en": "Delay reassessment until the next scheduled morning laboratory draw.",
+          "zh": "等到下次计划的早晨抽血再复评。"
         },
         {
           "id": "D",
@@ -2201,14 +2201,14 @@
         ],
         "columns": [
           {
-            "id": "c1",
-            "en": "Supported by the trend",
-            "zh": "趋势支持"
-          },
-          {
             "id": "c2",
             "en": "Not supported by the trend",
             "zh": "趋势不支持"
+          },
+          {
+            "id": "c1",
+            "en": "Supported by the trend",
+            "zh": "趋势支持"
           }
         ],
         "selectionMode": "single_per_row"
@@ -2382,14 +2382,14 @@
         ],
         "columns": [
           {
-            "id": "c1",
-            "en": "Appropriate now",
-            "zh": "此刻合适"
-          },
-          {
             "id": "c2",
             "en": "Not appropriate now",
             "zh": "此刻不合适"
+          },
+          {
+            "id": "c1",
+            "en": "Appropriate now",
+            "zh": "此刻合适"
           }
         ],
         "selectionMode": "single_per_row"
@@ -2562,9 +2562,9 @@
       },
       "options": [
         {
-          "id": "D",
-          "en": "Maintain IV access and prepare for prescribed fluid or blood product administration.",
-          "zh": "维持静脉通路，并准备按医嘱给予液体或血制品。"
+          "id": "C",
+          "en": "Prepare to obtain type and screen or type and crossmatch as prescribed.",
+          "zh": "准备按医嘱采集血型筛查或交叉配血标本。"
         },
         {
           "id": "A",
@@ -2577,9 +2577,9 @@
           "zh": "将有症状恶化并伴血红蛋白和血细胞比容下降的情况通知医嘱开立者。"
         },
         {
-          "id": "C",
-          "en": "Prepare to obtain type and screen or type and crossmatch as prescribed.",
-          "zh": "准备按医嘱采集血型筛查或交叉配血标本。"
+          "id": "D",
+          "en": "Maintain IV access and prepare for prescribed fluid or blood product administration.",
+          "zh": "维持静脉通路，并准备按医嘱给予液体或血制品。"
         }
       ],
       "correct": [
@@ -2709,6 +2709,11 @@
       },
       "options": [
         {
+          "id": "D",
+          "en": "Prepare to administer prescribed isotonic IV fluids if not contraindicated.",
+          "zh": "若无禁忌，准备按医嘱给予等渗静脉液体。"
+        },
+        {
           "id": "C",
           "en": "Notify the provider of symptomatic worsening hypercalcemia.",
           "zh": "将有症状且恶化的高钙血症通知医嘱开立者。"
@@ -2717,11 +2722,6 @@
           "id": "B",
           "en": "Hold calcium and vitamin D supplements pending provider direction.",
           "zh": "在医嘱开立者进一步指示前暂缓钙剂和维生素 D 补充剂。"
-        },
-        {
-          "id": "D",
-          "en": "Prepare to administer prescribed isotonic IV fluids if not contraindicated.",
-          "zh": "若无禁忌，准备按医嘱给予等渗静脉液体。"
         },
         {
           "id": "A",
@@ -2866,14 +2866,14 @@
               "zh": "可能存在血钠纠正过快"
             },
             {
-              "id": "o2",
-              "en": "expected slow correction without concern",
-              "zh": "无须担心的预期缓慢纠正"
-            },
-            {
               "id": "o3",
               "en": "worsening dilutional hyponatremia",
               "zh": "稀释性低钠血症恶化"
+            },
+            {
+              "id": "o2",
+              "en": "expected slow correction without concern",
+              "zh": "无须担心的预期缓慢纠正"
             }
           ],
           "correct": "o1"
@@ -2882,9 +2882,9 @@
           "id": "2",
           "options": [
             {
-              "id": "o1",
-              "en": "notify the provider and anticipate reassessment of the infusion plan",
-              "zh": "通知医嘱开立者，并预期重新评估输注方案"
+              "id": "o3",
+              "en": "stop all neurologic checks because the final sodium is near normal",
+              "zh": "因最终血钠接近正常，停止所有神经系统检查"
             },
             {
               "id": "o2",
@@ -2892,9 +2892,9 @@
               "zh": "增加高渗盐水速度，使血钠更快正常化"
             },
             {
-              "id": "o3",
-              "en": "stop all neurologic checks because the final sodium is near normal",
-              "zh": "因最终血钠接近正常，停止所有神经系统检查"
+              "id": "o1",
+              "en": "notify the provider and anticipate reassessment of the infusion plan",
+              "zh": "通知医嘱开立者，并预期重新评估输注方案"
             }
           ],
           "correct": "o1"
@@ -3017,9 +3017,9 @@
           "id": "1",
           "options": [
             {
-              "id": "o1",
-              "en": "bleeding from excessive anticoagulation",
-              "zh": "抗凝过强导致的出血"
+              "id": "o3",
+              "en": "hypoglycemia from insulin excess",
+              "zh": "胰岛素过量导致的低血糖"
             },
             {
               "id": "o2",
@@ -3027,9 +3027,9 @@
               "zh": "抗凝不足导致的血栓形成"
             },
             {
-              "id": "o3",
-              "en": "hypoglycemia from insulin excess",
-              "zh": "胰岛素过量导致的低血糖"
+              "id": "o1",
+              "en": "bleeding from excessive anticoagulation",
+              "zh": "抗凝过强导致的出血"
             }
           ],
           "correct": "o1"
@@ -3038,9 +3038,9 @@
           "id": "2",
           "options": [
             {
-              "id": "o1",
-              "en": "assessing for bleeding and notifying the provider before the next warfarin dose",
-              "zh": "评估出血，并在下一剂华法林前通知医嘱开立者"
+              "id": "o3",
+              "en": "administering the next warfarin dose early",
+              "zh": "提前给予下一剂华法林"
             },
             {
               "id": "o2",
@@ -3048,9 +3048,9 @@
               "zh": "指导患者立即大量增加绿叶蔬菜"
             },
             {
-              "id": "o3",
-              "en": "administering the next warfarin dose early",
-              "zh": "提前给予下一剂华法林"
+              "id": "o1",
+              "en": "assessing for bleeding and notifying the provider before the next warfarin dose",
+              "zh": "评估出血，并在下一剂华法林前通知医嘱开立者"
             }
           ],
           "correct": "o1"

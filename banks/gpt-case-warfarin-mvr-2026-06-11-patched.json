@@ -153,9 +153,9 @@
                 "zh": "因患者有机械性二尖瓣，照常给予计划剂量华法林。"
               },
               {
-                "id": "C",
-                "en": "Give half of the warfarin dose and recheck the INR after the medication is absorbed.",
-                "zh": "给予半量华法林，并在药物吸收后复查INR。"
+                "id": "B",
+                "en": "Hold the warfarin, verify the hold order or obtain clarification, and notify the provider of the INR and bleeding findings.",
+                "zh": "暂停华法林，核实暂停医嘱或取得澄清，并将INR及出血表现通知医生。"
               },
               {
                 "id": "D",
@@ -163,9 +163,9 @@
                 "zh": "询问妻子是否希望暂停华法林，因为她在家负责整理药盒。"
               },
               {
-                "id": "B",
-                "en": "Hold the warfarin, verify the hold order or obtain clarification, and notify the provider of the INR and bleeding findings.",
-                "zh": "暂停华法林，核实暂停医嘱或取得澄清，并将INR及出血表现通知医生。"
+                "id": "C",
+                "en": "Give half of the warfarin dose and recheck the INR after the medication is absorbed.",
+                "zh": "给予半量华法林，并在药物吸收后复查INR。"
               }
             ],
             "correct": [
@@ -239,6 +239,21 @@
                 "zh": "教育患者和妻子：除非抗凝处方医生明确批准，否则应避免NSAID。"
               },
               {
+                "id": "E",
+                "en": "Tell the wife that over-the-counter medications should be checked with the anticoagulation clinic or prescriber before use.",
+                "zh": "告知妻子，使用非处方药前应先与抗凝门诊或处方医生确认。"
+              },
+              {
+                "id": "D",
+                "en": "Instruct the client to stop eating dark green vegetables permanently to prevent future warfarin interactions.",
+                "zh": "指导患者永久停止食用深绿色蔬菜，以预防未来华法林相互作用。"
+              },
+              {
+                "id": "C",
+                "en": "Explain that NSAIDs can increase bleeding risk through platelet inhibition and gastrointestinal mucosal injury, even when the INR does not fully explain the bleeding.",
+                "zh": "解释NSAID可通过抑制血小板和损伤胃肠黏膜增加出血风险，即使INR不能完全解释出血也如此。"
+              },
+              {
                 "id": "F",
                 "en": "Reassure the family that two doses of naproxen are too few to be clinically relevant.",
                 "zh": "安慰家属，两次萘普生剂量太少，不具有临床意义。"
@@ -247,21 +262,6 @@
                 "id": "A",
                 "en": "Document the naproxen dose and timing and notify the provider because this exposure changes the bleeding-risk assessment.",
                 "zh": "记录萘普生剂量和时间，并通知医生，因为该暴露会改变出血风险评估。"
-              },
-              {
-                "id": "E",
-                "en": "Tell the wife that over-the-counter medications should be checked with the anticoagulation clinic or prescriber before use.",
-                "zh": "告知妻子，使用非处方药前应先与抗凝门诊或处方医生确认。"
-              },
-              {
-                "id": "C",
-                "en": "Explain that NSAIDs can increase bleeding risk through platelet inhibition and gastrointestinal mucosal injury, even when the INR does not fully explain the bleeding.",
-                "zh": "解释NSAID可通过抑制血小板和损伤胃肠黏膜增加出血风险，即使INR不能完全解释出血也如此。"
-              },
-              {
-                "id": "D",
-                "en": "Instruct the client to stop eating dark green vegetables permanently to prevent future warfarin interactions.",
-                "zh": "指导患者永久停止食用深绿色蔬菜，以预防未来华法林相互作用。"
               }
             ],
             "correct": [
@@ -350,9 +350,9 @@
                 "id": "1",
                 "options": [
                   {
-                    "id": "o1",
-                    "en": "minor mucocutaneous bleeding without hemodynamic instability",
-                    "zh": "无血流动力学不稳定的轻度黏膜皮肤出血"
+                    "id": "o3",
+                    "en": "suspected valve thrombosis",
+                    "zh": "疑似瓣膜血栓形成"
                   },
                   {
                     "id": "o2",
@@ -360,9 +360,9 @@
                     "zh": "伴休克的大量出血"
                   },
                   {
-                    "id": "o3",
-                    "en": "suspected valve thrombosis",
-                    "zh": "疑似瓣膜血栓形成"
+                    "id": "o1",
+                    "en": "minor mucocutaneous bleeding without hemodynamic instability",
+                    "zh": "无血流动力学不稳定的轻度黏膜皮肤出血"
                   }
                 ],
                 "correct": "o1"
@@ -376,14 +376,14 @@
                     "zh": "需要持续抗凝的机械性二尖瓣"
                   },
                   {
-                    "id": "o2",
-                    "en": "a bioprosthetic valve that never requires anticoagulation",
-                    "zh": "绝不需要抗凝的生物瓣"
-                  },
-                  {
                     "id": "o3",
                     "en": "a contraindication to all vitamin K products",
                     "zh": "所有维生素K制剂均禁忌"
+                  },
+                  {
+                    "id": "o2",
+                    "en": "a bioprosthetic valve that never requires anticoagulation",
+                    "zh": "绝不需要抗凝的生物瓣"
                   }
                 ],
                 "correct": "o1"
@@ -391,6 +391,11 @@
               {
                 "id": "3",
                 "options": [
+                  {
+                    "id": "o3",
+                    "en": "loss of platelet production from vitamin K",
+                    "zh": "维生素K导致血小板生成丧失"
+                  },
                   {
                     "id": "o1",
                     "en": "overcorrection to a subtherapeutic INR and valve thrombosis risk",
@@ -400,11 +405,6 @@
                     "id": "o2",
                     "en": "immediate hemolysis from oral vitamin K",
                     "zh": "口服维生素K导致立即溶血"
-                  },
-                  {
-                    "id": "o3",
-                    "en": "loss of platelet production from vitamin K",
-                    "zh": "维生素K导致血小板生成丧失"
                   }
                 ],
                 "correct": "o1"
@@ -608,19 +608,9 @@
             },
             "options": [
               {
-                "id": "A",
-                "en": "Verify the orders, allergies, baseline vital signs, IV patency, product availability, and required second-nurse checks before administration.",
-                "zh": "给药前核对医嘱、过敏史、基线生命体征、静脉通路通畅性、制品可用性及所需双人核对。"
-              },
-              {
                 "id": "B",
                 "en": "Dilute vitamin K as ordered and infuse it by pump over the ordered time rather than giving a rapid IV push.",
                 "zh": "按医嘱稀释维生素K，并用输液泵按规定时间输注，而不是快速静推。"
-              },
-              {
-                "id": "F",
-                "en": "Delay PCC until the vitamin K infusion is complete and a repeat INR confirms that the vitamin K has not corrected the coagulopathy.",
-                "zh": "等维生素K输注完成并复查INR确认尚未纠正凝血异常后，再延迟给予PCC。"
               },
               {
                 "id": "E",
@@ -631,6 +621,16 @@
                 "id": "D",
                 "en": "Administer 4-factor PCC promptly according to institutional protocol with required verification and monitoring.",
                 "zh": "按照机构流程经必要核对和监测后及时给予四因子PCC。"
+              },
+              {
+                "id": "F",
+                "en": "Delay PCC until the vitamin K infusion is complete and a repeat INR confirms that the vitamin K has not corrected the coagulopathy.",
+                "zh": "等维生素K输注完成并复查INR确认尚未纠正凝血异常后，再延迟给予PCC。"
+              },
+              {
+                "id": "A",
+                "en": "Verify the orders, allergies, baseline vital signs, IV patency, product availability, and required second-nurse checks before administration.",
+                "zh": "给药前核对医嘱、过敏史、基线生命体征、静脉通路通畅性、制品可用性及所需双人核对。"
               },
               {
                 "id": "C",
@@ -718,16 +718,6 @@
             },
             "options": [
               {
-                "id": "B",
-                "en": "The INR is close enough to the target range that routine every-4-hour vital signs are sufficient and hourly urine assessment can stop.",
-                "zh": "INR已足够接近目标范围，因此每4小时常规生命体征即可，并可停止每小时尿液评估。"
-              },
-              {
-                "id": "A",
-                "en": "The hemorrhagic crisis is improving, but the client still requires close monitoring for both rebleeding and valve thrombosis as reversal continues.",
-                "zh": "出血危象正在改善，但随着逆转作用持续，患者仍需密切监测再出血和瓣膜血栓两方面风险。"
-              },
-              {
                 "id": "D",
                 "en": "Warfarin should be restarted immediately by the nurse to prevent mechanical valve thrombosis.",
                 "zh": "护士应立即重新开始华法林，以预防机械瓣血栓形成。"
@@ -736,6 +726,16 @@
                 "id": "C",
                 "en": "Because the head CT is negative, neurologic checks and fall precautions are no longer necessary.",
                 "zh": "由于头颅CT阴性，已不再需要神经系统检查和跌倒预防。"
+              },
+              {
+                "id": "B",
+                "en": "The INR is close enough to the target range that routine every-4-hour vital signs are sufficient and hourly urine assessment can stop.",
+                "zh": "INR已足够接近目标范围，因此每4小时常规生命体征即可，并可停止每小时尿液评估。"
+              },
+              {
+                "id": "A",
+                "en": "The hemorrhagic crisis is improving, but the client still requires close monitoring for both rebleeding and valve thrombosis as reversal continues.",
+                "zh": "出血危象正在改善，但随着逆转作用持续，患者仍需密切监测再出血和瓣膜血栓两方面风险。"
               }
             ],
             "correct": [

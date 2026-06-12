@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-06-12T05:37:28.985Z",
-  "gitSha": "95f0cb73540f0358ba13acf649fbd443d6db6f28",
+  "generatedAt": "2026-06-12T21:52:19.849Z",
+  "gitSha": "a661f21f53bbee90145877366594103ae67a5050",
   "perFile": [
     {
       "file": "capnography-canonical.json",
@@ -31,6 +31,34 @@
       "mismatch": false
     },
     {
+      "file": "gpt-case-opus5-cdi-2026-06-11.json",
+      "schemaVersion": "1.2",
+      "metaCount": 1,
+      "questionsLength": 1,
+      "mismatch": false
+    },
+    {
+      "file": "gpt-case-warfarin-mvr-2026-06-11-patched.json",
+      "schemaVersion": "1.2",
+      "metaCount": 1,
+      "questionsLength": 1,
+      "mismatch": false
+    },
+    {
+      "file": "gpt-gap-jun12-rrp-bcc.json",
+      "schemaVersion": "1.2",
+      "metaCount": 10,
+      "questionsLength": 10,
+      "mismatch": false
+    },
+    {
+      "file": "gpt-visual-smoke-2026-06-12-a.json",
+      "schemaVersion": "1.2",
+      "metaCount": 10,
+      "questionsLength": 10,
+      "mismatch": false
+    },
+    {
       "file": "hard-cases-canonical.json",
       "schemaVersion": "1.2",
       "metaCount": 46,
@@ -52,6 +80,27 @@
       "mismatch": false
     },
     {
+      "file": "opus-code-status-escalation-opus2.json",
+      "schemaVersion": "1.2",
+      "metaCount": 1,
+      "questionsLength": 1,
+      "mismatch": false
+    },
+    {
+      "file": "opus-vanco-case-2026-06-11.json",
+      "schemaVersion": "1.2",
+      "metaCount": 1,
+      "questionsLength": 1,
+      "mismatch": false
+    },
+    {
+      "file": "opus1-tha-discharge-case-study-patched.json",
+      "schemaVersion": "1.2",
+      "metaCount": 1,
+      "questionsLength": 1,
+      "mismatch": false
+    },
+    {
       "file": "visual-canonical.json",
       "schemaVersion": "1.2",
       "metaCount": 53,
@@ -67,28 +116,28 @@
     }
   ],
   "totals": {
-    "topLevel": 1194,
-    "caseStudyTopLevel": 84,
-    "embeddedParts": 360,
-    "gradedTotal": 1554
+    "topLevel": 1219,
+    "caseStudyTopLevel": 89,
+    "embeddedParts": 389,
+    "gradedTotal": 1608
   },
   "byItemType": {
-    "case_study": 84,
-    "fill_in_blank": 113,
-    "ordered_response": 120,
-    "dropdown_cloze": 136,
-    "matrix": 150,
+    "case_study": 89,
+    "fill_in_blank": 120,
+    "ordered_response": 123,
+    "dropdown_cloze": 138,
+    "matrix": 155,
     "select_all": 183,
-    "multiple_choice": 408
+    "multiple_choice": 411
   },
   "byCategory": {
-    "Management of Care": 136,
-    "Safety and Infection Control": 136,
     "Psychosocial Integrity": 137,
-    "Basic Care and Comfort": 138,
     "Health Promotion and Maintenance": 138,
-    "Reduction of Risk Potential": 139,
-    "Pharmacological and Parenteral Therapies": 150,
+    "Safety and Infection Control": 139,
+    "Management of Care": 140,
+    "Basic Care and Comfort": 145,
+    "Reduction of Risk Potential": 147,
+    "Pharmacological and Parenteral Therapies": 153,
     "Physiological Adaptation": 220
   },
   "withinCategory": {
@@ -135,7 +184,9 @@
           "count": 2
         }
       ],
-      "visualKinds": {}
+      "visualKinds": {
+        "device_screen": 1
+      }
     },
     "Safety and Infection Control": {
       "topTopics": [
@@ -182,6 +233,8 @@
       ],
       "visualKinds": {
         "capnography": 1,
+        "device_screen": 1,
+        "medication_label": 1,
         "vitals_trend": 1
       }
     },
@@ -318,7 +371,10 @@
           "count": 2
         }
       ],
-      "visualKinds": {}
+      "visualKinds": {
+        "burn_map": 1,
+        "io_record": 2
+      }
     },
     "Pharmacological and Parenteral Therapies": {
       "topTopics": [
@@ -367,6 +423,7 @@
         "capnography": 1,
         "lab_trend": 6,
         "mar": 5,
+        "medication_label": 1,
         "rhythm_strip": 10,
         "vitals_trend": 2
       }
@@ -415,7 +472,9 @@
         }
       ],
       "visualKinds": {
+        "burn_map": 2,
         "capnography": 1,
+        "io_record": 1,
         "lab_trend": 7,
         "rhythm_strip": 2,
         "vitals_trend": 1
@@ -473,21 +532,28 @@
     }
   },
   "byDifficulty": {
-    "easy": 152,
-    "hard": 442,
-    "medium": 600
+    "easy": 159,
+    "hard": 449,
+    "medium": 611
   },
   "bySchemaVersion": {
     "1.2": {
-      "questions": 1194,
+      "questions": 1219,
       "files": [
         "capnography-canonical.json",
         "claude-canonical.json",
         "gemini-canonical.json",
         "gpt-canonical.json",
+        "gpt-case-opus5-cdi-2026-06-11.json",
+        "gpt-case-warfarin-mvr-2026-06-11-patched.json",
+        "gpt-gap-jun12-rrp-bcc.json",
+        "gpt-visual-smoke-2026-06-12-a.json",
         "hard-cases-canonical.json",
         "lab-canonical.json",
         "mar-canonical.json",
+        "opus-code-status-escalation-opus2.json",
+        "opus-vanco-case-2026-06-11.json",
+        "opus1-tha-discharge-case-study-patched.json",
         "visual-canonical.json",
         "vitals-canonical.json"
       ]
@@ -498,23 +564,30 @@
     "claude-canonical.json": 57,
     "gemini-canonical.json": 771,
     "gpt-canonical.json": 220,
+    "gpt-case-opus5-cdi-2026-06-11.json": 1,
+    "gpt-case-warfarin-mvr-2026-06-11-patched.json": 1,
+    "gpt-gap-jun12-rrp-bcc.json": 10,
+    "gpt-visual-smoke-2026-06-12-a.json": 10,
     "hard-cases-canonical.json": 51,
     "lab-canonical.json": 20,
     "mar-canonical.json": 5,
+    "opus-code-status-escalation-opus2.json": 1,
+    "opus-vanco-case-2026-06-11.json": 1,
+    "opus1-tha-discharge-case-study-patched.json": 1,
     "visual-canonical.json": 53,
     "vitals-canonical.json": 10
   },
   "visuals": {
-    "total": 87,
+    "total": 97,
     "byKind": {
-      "burn_map": 0,
+      "burn_map": 3,
       "capnography": 7,
-      "device_screen": 0,
+      "device_screen": 2,
       "fetal_monitoring": 0,
-      "io_record": 0,
+      "io_record": 3,
       "lab_trend": 20,
       "mar": 5,
-      "medication_label": 0,
+      "medication_label": 2,
       "rhythm_strip": 44,
       "vitals_trend": 11
     },
@@ -535,7 +608,11 @@
       "vtach": 4
     },
     "idsByKind": {
-      "burn_map": [],
+      "burn_map": [
+        "gpt_visual_smoke_2026_06_12_fib_burn_parkland_rate_01",
+        "gpt_visual_smoke_2026_06_12_matrix_burn_regions_03",
+        "gpt_visual_smoke_2026_06_12_mc_burn_tbsa_02"
+      ],
       "capnography": [
         "cap_01",
         "cap_02",
@@ -545,9 +622,16 @@
         "cap_08",
         "cap_10"
       ],
-      "device_screen": [],
+      "device_screen": [
+        "gpt_visual_smoke_2026_06_12_fib_device_enteral_duration_10",
+        "gpt_visual_smoke_2026_06_12_matrix_device_pca_basal_09"
+      ],
       "fetal_monitoring": [],
-      "io_record": [],
+      "io_record": [
+        "gpt_visual_smoke_2026_06_12_fib_io_net_balance_04",
+        "gpt_visual_smoke_2026_06_12_matrix_io_totals_06",
+        "gpt_visual_smoke_2026_06_12_mc_io_output_total_05"
+      ],
       "lab_trend": [
         "gpt_u3_labtrend_2026_06_09_b_cloze_inr_amiodarone_09",
         "gpt_u3_labtrend_2026_06_09_b_cloze_sodium_overcorrection_08",
@@ -577,7 +661,10 @@
         "mar_mc_vanco_03",
         "mar_mc_warfarin_02"
       ],
-      "medication_label": [],
+      "medication_label": [
+        "gpt_visual_smoke_2026_06_12_fib_medlabel_heparin_rate_07",
+        "gpt_visual_smoke_2026_06_12_mc_medlabel_tablet_quantity_08"
+      ],
       "rhythm_strip": [
         "ekg_b1_matrix_09",
         "ekg_b1_mc_01",
@@ -893,6 +980,18 @@
       "bank": "gpt-canonical.json"
     },
     {
+      "id": "gpt_case_opus5_cdi_immunocompromised_01",
+      "topic": "Clostridioides difficile infection control and treatment",
+      "parts": 6,
+      "bank": "gpt-case-opus5-cdi-2026-06-11.json"
+    },
+    {
+      "id": "gpt_case_warfarin_mvr_2026_06_11_01",
+      "topic": "warfarin reversal in mechanical mitral valve bleeding",
+      "parts": 6,
+      "bank": "gpt-case-warfarin-mvr-2026-06-11-patched.json"
+    },
+    {
       "id": "case_sepsis_pneumonia_01",
       "topic": "Sepsis & Septic Shock",
       "parts": 4,
@@ -1143,38 +1242,56 @@
       "topic": "status epilepticus",
       "parts": 6,
       "bank": "hard-cases-canonical.json"
+    },
+    {
+      "id": "opus2_case_code_status_01",
+      "topic": "code status escalation",
+      "parts": 5,
+      "bank": "opus-code-status-escalation-opus2.json"
+    },
+    {
+      "id": "opus_vanco_case_01",
+      "topic": "vancomycin infusion reaction and nephrotoxicity",
+      "parts": 6,
+      "bank": "opus-vanco-case-2026-06-11.json"
+    },
+    {
+      "id": "opus1_case_tha_discharge_lep_01",
+      "topic": "discharge coordination after hip arthroplasty",
+      "parts": 6,
+      "bank": "opus1-tha-discharge-case-study-patched.json"
     }
   ],
   "idUniqueness": {
     "duplicates": []
   },
   "targets": {
-    "categoryAvg": 149.25,
-    "itemTypeAvg": 170.57142857142858,
+    "categoryAvg": 152.375,
+    "itemTypeAvg": 174.14285714285714,
     "underCategories": [
-      [
-        "Management of Care",
-        136
-      ],
-      [
-        "Safety and Infection Control",
-        136
-      ],
       [
         "Psychosocial Integrity",
         137
-      ],
-      [
-        "Basic Care and Comfort",
-        138
       ],
       [
         "Health Promotion and Maintenance",
         138
       ],
       [
-        "Reduction of Risk Potential",
+        "Safety and Infection Control",
         139
+      ],
+      [
+        "Management of Care",
+        140
+      ],
+      [
+        "Basic Care and Comfort",
+        145
+      ],
+      [
+        "Reduction of Risk Potential",
+        147
       ]
     ],
     "overCategories": [
@@ -1184,44 +1301,44 @@
       ],
       [
         "Pharmacological and Parenteral Therapies",
-        150
+        153
       ]
     ],
     "underItemTypes": [
       [
         "case_study",
-        84
+        89
       ],
       [
         "fill_in_blank",
-        113
-      ],
-      [
-        "ordered_response",
         120
       ],
       [
+        "ordered_response",
+        123
+      ],
+      [
         "dropdown_cloze",
-        136
+        138
       ],
       [
         "matrix",
-        150
+        155
       ]
     ]
   },
   "prioritizeTopics": [
-    "Management of Care (136 vs target 149.3)",
-    "Safety and Infection Control (136 vs target 149.3)",
-    "Psychosocial Integrity (137 vs target 149.3)",
-    "Basic Care and Comfort (138 vs target 149.3)",
-    "Health Promotion and Maintenance (138 vs target 149.3)",
-    "Reduction of Risk Potential (139 vs target 149.3)",
-    "case_study (84 vs target 170.6)",
-    "fill_in_blank (113 vs target 170.6)",
-    "ordered_response (120 vs target 170.6)",
-    "dropdown_cloze (136 vs target 170.6)",
-    "matrix (150 vs target 170.6)",
+    "Psychosocial Integrity (137 vs target 152.4)",
+    "Health Promotion and Maintenance (138 vs target 152.4)",
+    "Safety and Infection Control (139 vs target 152.4)",
+    "Management of Care (140 vs target 152.4)",
+    "Basic Care and Comfort (145 vs target 152.4)",
+    "Reduction of Risk Potential (147 vs target 152.4)",
+    "case_study (89 vs target 174.1)",
+    "fill_in_blank (120 vs target 174.1)",
+    "ordered_response (123 vs target 174.1)",
+    "dropdown_cloze (138 vs target 174.1)",
+    "matrix (155 vs target 174.1)",
     "Active Pulmonary TB Airborne Precautions",
     "Acute decompensated heart failure",
     "Acute Decompensated Heart Failure (ADHF)",
@@ -1232,8 +1349,8 @@
     "Adenosine Side Effects",
     "Adrenal crisis",
     "Adrenal crisis recognition and treatment",
-    "adult immunization",
-    "Adult Immunization and Preventive Screening"
+    "adult burn resuscitation Parkland calculation",
+    "adult immunization"
   ],
   "avoidTopics": [
     "Mental Health Disorders (61)",
