@@ -87,6 +87,7 @@ Committed visual lanes (append-only):
 | `mar` | Medication Administration Record |
 | `io_record` | Intake and output flowsheet with derived totals and net balance |
 | `medication_label` | Synthetic medication product label with structured strength |
+| `device_screen` | PCA, infusion, or enteral pump settings display |
 
 ### Visual contract metadata
 
@@ -492,6 +493,64 @@ Validation and arithmetic rules:
 - `showDerivedConcentration` must be false when the item keys on `concentration_per_ml`, because displaying that row would reveal the answer.
 - **Caption rule:** captions and ancillary fields must not reveal the answer or clinical interpretation.
 - **STRICTEST tier.** Human review must source-check the product strength, verify the order is clinically plausible, confirm the strength is not restated in the stem, and ensure nothing else on the item is accidentally unsafe.
+
+### Kind: `device_screen`
+
+Renders a PCA, infusion, or enteral pump settings display, not a picture of the device. The visual is load-bearing only when the learner must read a keyed setting from the screen or compute a value from settings that are not restated in the stem.
+
+Unlike the global visual default, `device_screen` is allowed on `multiple_choice`, `select_all`, `matrix`, and `fill_in_blank`.
+
+```json
+{
+  "visual": {
+    "kind": "device_screen",
+    "device": "pca",
+    "title": { "en": "PCA Pump - morphine", "zh": "PCA 泵 - 吗啡" },
+    "settings": [
+      { "key": "drug", "text": "morphine" },
+      { "key": "concentration", "text": "1 mg/mL" },
+      { "key": "mode", "text": "PCA+basal" },
+      { "key": "demand_dose", "value": 1, "unit": "mg" },
+      { "key": "lockout_min", "value": 8, "unit": "min" },
+      { "key": "basal_rate", "value": 1, "unit": "mg/hr", "flag": true }
+    ],
+    "caption": { "en": "PCA pump settings", "zh": "PCA 泵设置" }
+  },
+  "meta": {
+    "visual_justification": "The learner must identify the basal infusion from the pump screen.",
+    "tier": "strictest",
+    "source": "...",
+    "skill_signature": "device:pca-basal-opioid-naive",
+    "stem_disambiguators": ["PCA", "opioid-naive"],
+    "keyed_settings": [
+      { "key": "basal_rate", "reason": "present_in_opioid_naive_pca" }
+    ],
+    "derived_values_keyed": {
+      "max_dose_1h_mg": 8
+    },
+    "round": 0
+  }
+}
+```
+
+Controlled vocabularies:
+- `device`: `pca`, `infusion`, `enteral`
+- Text setting keys: `drug`, `concentration`, `mode`
+- Numeric setting keys: `demand_dose`, `lockout_min`, `basal_rate`, `limit_1h`, `limit_4h`, `attempts`, `delivered`, `rate_ml_hr`, `vtbi_ml`, `volume_infused_ml`, `duration_min`
+
+Validation and arithmetic rules:
+- `kind` must be `"device_screen"` and `device` must use the controlled vocabulary.
+- `settings` must be non-empty with no duplicate keys. Text keys require non-empty `text` and no numeric `value`; numeric keys require a finite value from 0 through 100,000.
+- Optional `flag` values must be boolean. Flagging changes display emphasis only and does not assert that a setting is unsafe.
+- `title.en` and `caption.en` are required when their objects are present. Optional `zh` values must be non-empty.
+- `selfCheck` requires `visual_justification` and at least one cue in `keyed_settings` or recognized `derived_values_keyed`.
+- Every `keyed_settings` entry must resolve to a setting present on the screen.
+- Supported keyed derivations are `max_demands_1h`, `max_dose_1h_mg`, `delivered_dose_total_mg`, `infusion_volume_ml`, and `infusion_duration_min`.
+- PCA hourly maxima derive from `lockout_min` and `demand_dose`; basal dose is included only when the displayed mode includes basal. Delivered-dose totals also require `meta.shift_hours` when basal is included.
+- Infusion and enteral volume/duration derivations use only `rate_ml_hr`, `duration_min`, and `vtbi_ml`. Richer titration and free-water calculations are out of scope.
+- `meta.round` may be `0`, `1`, or `2` and defaults to `0`. `selfCheck` recomputes each declared value, applies the shared deterministic rounding helper, and requires exact equality.
+- **Caption/title rule:** captions, titles, and settings must not state a verdict or display a computed answer.
+- **STRICTEST tier.** Human review must source-check device and drug settings, confirm the keyed cue is not restated in the stem, and verify that nothing other than the intended keyed element is accidentally unsafe.
 
 ---
 

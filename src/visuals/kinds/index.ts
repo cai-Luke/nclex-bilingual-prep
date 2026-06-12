@@ -9,3 +9,4 @@ import "./lab_trend";
 import "./mar";
 import "./io_record";
 import "./medication_label";
+import "./device_screen";

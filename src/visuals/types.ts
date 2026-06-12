@@ -5,10 +5,11 @@ import type { LabTrendSpec } from "./kinds/lab_trend/types";
 import type { MarSpec } from "./kinds/mar/types";
 import type { IoRecordSpec } from "./kinds/io_record/types";
 import type { MedLabelSpec } from "./kinds/medication_label/types";
+import type { DeviceScreenSpec } from "./kinds/device_screen/types";
 
 // Append-only: add ` | CapnographyVisual` etc. as kinds land. This is the ONLY
 // shared compile-time touch-point when adding a visual kind.
-export type QuestionVisual = RhythmStripVisual | CapnographySpec | VitalsTrendSpec | LabTrendSpec | MarSpec | IoRecordSpec | MedLabelSpec;
+export type QuestionVisual = RhythmStripVisual | CapnographySpec | VitalsTrendSpec | LabTrendSpec | MarSpec | IoRecordSpec | MedLabelSpec | DeviceScreenSpec;
 
 export interface VisualBase {
   kind: string;

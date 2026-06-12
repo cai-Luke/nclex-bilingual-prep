@@ -126,12 +126,15 @@ Two reusable primitives unlock this whole tier. Build each primitive *reusably* 
 - ✅ `selfCheck` verifies the five enumerated same-unit concentration, volume, quantity, and rate derivations exactly after declared rounding.
 - Targets for the later content lane: dosage and infusion calculations, verification, high-alert safety.
 
-### U9 · `device_screen`
+### U9 · `device_screen` — ✅ DONE (2026-06-12)
 **Type:** renderer (code). **Depends on:** U6 (`renderFieldPanel` + shared numeric helpers). **Concurrent with:** U3, U5.
 
-- Renders a device **settings display**, not a picture of a device: PCA pumps, infusion pumps, enteral feeding pumps. Covers dose, lockout interval, basal rate, 1-/4-hour limits, attempts vs delivered, mL/hr, volume infused.
+- ✅ Renders a device **settings display**, not a picture of a device: PCA pumps, infusion pumps, enteral feeding pumps. Covers dose, lockout interval, basal rate, 1-/4-hour limits, attempts vs delivered, mL/hr, volume infused.
+- ✅ Reuses U6's `renderFieldPanel` / `measureFieldPanel` screen variant and shared `fmtNum` / `roundTo` helpers unchanged.
+- ✅ Supports direct-read `keyed_settings` and five enumerated PCA/infusion/enteral arithmetic derivations.
+- ✅ Supports `multiple_choice`, `select_all`, `matrix`, and numeric `fill_in_blank`.
+- ✅ Enforces deterministic validation, keyed-setting presence, internal numeric consistency, and exact derived-value equality after declared rounding.
 - Targets: unsafe pump settings, PCA-by-proxy / family-controlled analgesia danger, lockout/limit appropriateness, rate verification.
-- Reuses the table/form primitive; layout is a settings panel rather than a chart.
 - **Accuracy watch-item:** strictest tier (high-alert infusions). `selfCheck` asserts that any computed value the answer turns on (delivered dose over interval, hourly total) resolves exactly; settings shown must be internally consistent, and the unsafe element must be the one the answer flags.
 
 ### Borderline — needs decision before building: chest-tube collection systems

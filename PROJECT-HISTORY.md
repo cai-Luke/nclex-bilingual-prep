@@ -55,6 +55,16 @@ Out of scope until a future schema bump:
 
 ## Milestones
 
+### U9 `device_screen` Renderer (Jun 12)
+
+Completed:
+- Added `src/visuals/kinds/device_screen/` with typed PCA, infusion, and enteral pump settings, defensive validation, deterministic screen rendering, and colocated fixtures.
+- Reused U6's `renderFieldPanel` / `measureFieldPanel` screen variant and shared numeric helpers without modifying the primitives.
+- Added direct-read `keyed_settings` checks and strict arithmetic gates for PCA hourly demand/dose totals, delivered shift dose, infusion volume, and infusion duration.
+- Registered `device_screen` for `multiple_choice`, `select_all`, `matrix`, and `fill_in_blank`; added focused validation, render, necessity, keyed-setting, and arithmetic tests.
+- Updated `NCLEX-Question-Schema.md` and marked U9 done in `VISUAL-STIMULI-ROADMAP.md`. No content generation or bank promotion was performed.
+- Verified: `npm run test-visuals` passes with 8 registered kinds; bank validation, census checks, and production build pass.
+
 ### U6 `medication_label` Renderer (Jun 12)
 
 Completed:
