@@ -41,7 +41,7 @@ For every visual kind whose answer turns on a computed value (`io_record` totals
 
 ## Study-session distribution (2026 NCLEX-RN Test Plan, effective April 2026)
 
-Category weights for the weighted study draw, keyed by the `Category` literals in `src/types.ts`. Midpoint targets from the published test plan; sum to 1.00. NCSBN permits ±3% per category, so these are targets, not constraints. ("Safety and Infection Control" is the schema label for the 2026 plan's "Safety and Infection Prevention and Control," 13%.)
+Category weights for the weighted study draw, keyed by the `Category` literals in `src/types.ts`. Midpoint targets from the published test plan; sum to 1.00. The same map (`NCLEX_CATEGORY_WEIGHTS`, homed in `src/schema.ts`) drives generation targeting in `coverage-report.ts` -- see *Other standing invariants*. NCSBN permits ±3% per category, so these are targets, not constraints. ("Safety and Infection Control" is the schema label for the 2026 plan's "Safety and Infection Prevention and Control," 13%.)
 
 | Category | Weight |
 |----------|:------:|
@@ -68,6 +68,7 @@ The D-correct-at-3% MCQ finding is the canonical example of why this apparatus e
 - Runtime stays static, offline, and `file://`-compatible. No server or live model call after build.
 - Schema changes are rare and deliberate.
 - Shared visual numeric helpers have a **single definition**: `fmt`, `fmtNum`, and `roundTo` live in `src/visuals/primitives/graphPaper.ts`, and every kind imports them — none redefines them. This is a correctness property, not just DRY: one canonical `roundTo` means every arithmetic kind rounds identically, so two kinds can never resolve the same dose math to different values. Same single-transform discipline the shuffle function follows (principle 2).
+- Category targets are the 2026 test-plan weights, projectwide -- not uniform. `NCLEX_CATEGORY_WEIGHTS` (in `src/schema.ts`, re-exported from `sessionSampler.ts`) is the single source for both the weighted study draw (principle 10) and the generation backlog in `scripts/coverage-report.ts`. The coverage report formerly used a uniform `questions.length / categories.length`, so the bank was generated toward flat-eight balance while sampled toward the test plan -- two distributions for one bank. Both now read one map; under/over is measured against `weight * total` within NCSBN's +/-3 percentage-point tolerance. **Item-type** balance stays uniform by design: the plan weights Client Needs categories, not item formats, so even coverage across the seven types is the right target there.
 
 ## Open threads / live state (as of this planning session)
 
@@ -84,6 +85,8 @@ The D-correct-at-3% MCQ finding is the canonical example of why this apparatus e
 **Dormant audit checks.** The non-MCQ bias and adversarial audit specs reference `bowtie` and `highlight`/hotspot item types that are out of scope until a schema bump. Those checks stay dormant until those types ship — do not read their silence as a pass.
 
 **Documentation drift / running census — specced this session.** `PROJECT-HISTORY.md` and `BANK-REVIEW-LEDGER.md` snapshot counts drift from the banks on disk: the 2026-06-09 census had to be hand-run by Sonnet because the prose had gone stale, and it surfaced that `capnography-canonical.json` was bundled but missing from the canonical list. Per principle 3 this is deterministic work that should never cost model tokens. Fix: a `scripts/census.ts` that reuses `coverage-report.ts`'s counters and topic normalizer, emits a structured `census.json` (source of truth) plus a generated `BANK-CENSUS.md`, and is wired into `npm run audit` / `promotion-gate.yml` so a stale committed census fails CI — converting "census" from a thing-someone-remembers-to-run into an invariant. Spec: `census-spec.md`. Two deterministic-layer bugs surfaced while speccing it: (a) `coverage.json` is an empty capture — `coverage-report.ts` has no `--json` branch, so a `--json` arg is silently treated as a bank-file path and ignored; (b) `normalizeTopic` strips all non-ASCII, which would silently erase any Simplified-Chinese text that leaked into `topic` — now closed by the English-only-`topic` invariant above, enforced in `validateBankObject` (Tier 0, fail loud on CJK).
+
+**Coverage-report category target -- implemented.** `coverage-report.ts` formerly measured category under/over against a uniform `questions.length / categories.length`, inconsistent with principle 10's test-plan-weighted draw. Reporting, census output, and the sampler now share `NCLEX_CATEGORY_WEIGHTS` from `src/schema.ts`; under/over uses `weight * total` with the +/-3 percentage-point band, while item-type targeting remains uniform. Spec: `coverage-target-spec.md`.
 
 **15. Bank patches are raw-scoped and declarative.**
 `scripts/patch-raw.ts` writes only under `banks/banks-raw/`. Canonical files are read-only except via the explicit `--allow-canonical --reason` in-place mode, which forces a ledger entry. Patch ops are declarative (`before`→`after`, precondition-checked); there is deliberately no arbitrary-mutate primitive, because mechanical fixes belong in patches and semantic fixes belong in review.

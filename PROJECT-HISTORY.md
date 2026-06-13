@@ -25,12 +25,12 @@ The app is a static offline Vite + React + TypeScript NCLEX-RN practice tool. It
 
 Core learning features are implemented: all schema item types render and grade, case studies are supported, sessions are resumable, custom sessions can be built from filters, the dashboard summarizes performance, flags feed review pools, glossary flashcards have their own SRS progress, and adaptive exam-condition practice is available without any pass/fail readiness claim.
 
-Current canonical banks (see [BANK-CENSUS.md](BANK-CENSUS.md); 1 194 top-level, 360 embedded parts as of 2026-06-12):
+Current canonical banks (see [BANK-CENSUS.md](BANK-CENSUS.md); 1,219 top-level, 389 embedded parts as of 2026-06-13):
 
 - `banks/capnography-canonical.json` (7 schema v1.2 capnography visual items; dedicated home for capnography kind)
-- `banks/claude-canonical.json` (57 bilingual Claude-source questions; ledgered content review complete)
+- `banks/claude-canonical.json` (60 bilingual Claude-source questions; ledgered content review complete)
 - `banks/gemini-canonical.json` (771 bilingual Gemini-source questions; includes original + pending batches + traditional/easy/gap-fill consolidations minus redundant/flawed questions)
-- `banks/gpt-canonical.json` (220 bilingual GPT-source questions; ledgered content review complete)
+- `banks/gpt-canonical.json` (242 bilingual GPT-source questions; ledgered content review complete)
 - `banks/hard-cases-canonical.json` (51 top-level items: 42 unfolding case studies + 9 hard standalones; 180 embedded case-study parts)
 - `banks/lab-canonical.json` (20 schema v1.2 lab_trend visual items; dedicated home for lab_trend kind)
 - `banks/mar-canonical.json` (5 schema v1.2 mar visual items; dedicated home for mar kind)
@@ -54,6 +54,14 @@ Out of scope until a future schema bump:
 - `bowtie`
 
 ## Milestones
+
+### Test-Plan-Weighted Coverage Targets (Jun 13)
+
+Completed:
+- Moved `NCLEX_CATEGORY_WEIGHTS` into `src/schema.ts` and re-exported it from `src/sessionSampler.ts`, giving study-session sampling and bank coverage reporting one category-weight source.
+- Replaced flat-eight category targeting in `scripts/coverage-report.ts` with 2026 NCLEX-RN test-plan targets and the published +/-3 percentage-point tolerance; deficits and surpluses now sort by gap from each category's own target.
+- Kept item-type targeting uniform, added target/gap annotations to category report rows, and carried per-category targets into `census.json` and `BANK-CENSUS.md`.
+- Added fail-fast weight completeness/sum guards and a CI regression proving weighted deficit ordering; embedded case-study parts remain intentionally excluded from category counts.
 
 ### Idempotent Presentation Normalization and Bias Rebaseline (Jun 12)
 

@@ -1,16 +1,8 @@
 import { isDueForReview } from "./reviewSchedule";
+import { NCLEX_CATEGORY_WEIGHTS } from "./schema";
 import type { Category, QuestionProgress, QuestionRecord } from "./types";
 
-export const NCLEX_CATEGORY_WEIGHTS: Record<Category, number> = {
-  "Management of Care": 0.18,
-  "Pharmacological and Parenteral Therapies": 0.16,
-  "Physiological Adaptation": 0.14,
-  "Safety and Infection Control": 0.13,
-  "Reduction of Risk Potential": 0.12,
-  "Health Promotion and Maintenance": 0.09,
-  "Psychosocial Integrity": 0.09,
-  "Basic Care and Comfort": 0.09,
-};
+export { NCLEX_CATEGORY_WEIGHTS };
 
 const CATEGORY_ORDER = Object.keys(NCLEX_CATEGORY_WEIGHTS) as Category[];
 
