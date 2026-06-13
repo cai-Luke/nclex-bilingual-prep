@@ -23,26 +23,26 @@ const secondSummary = await readFile(DEFAULT_SUMMARY, "utf8");
 
 assert.equal(
   first.inventory.length,
-  1513,
-  "current text-bank inventory is 1,124 top-level items plus 389 embedded parts",
+  1645,
+  "current text-bank inventory is 1,163 top-level items plus 482 embedded parts",
 );
 assert.equal(second.inventory.length, first.inventory.length);
 assert.equal(secondQueue, firstQueue, "queue JSONL must be byte-stable");
 assert.equal(secondSummary, firstSummary, "summary JSON must be byte-stable");
 assert.deepEqual(second.rows, first.rows, "Layer A output must be deterministic");
-assert.equal(first.rows.length, 1267);
-assert.equal(first.summary.unique_queued_items, 1099);
+assert.equal(first.rows.length, 1301);
+assert.equal(first.summary.unique_queued_items, 1127);
 assert.deepEqual(first.summary.rows_by_track, {
-  currency: 256,
-  coherence: 1011,
+  currency: 271,
+  coherence: 1030,
 });
 assert.deepEqual(first.summary.currency_rows_by_cluster, {
   immunization_screening: 65,
-  isolation_precautions: 60,
-  anticoagulation: 42,
-  dka_insulin: 24,
+  isolation_precautions: 61,
+  anticoagulation: 51,
+  dka_insulin: 27,
   sepsis: 19,
-  stroke: 21,
+  stroke: 23,
   burn_parkland: 17,
   bp_targets: 5,
   acls: 3,

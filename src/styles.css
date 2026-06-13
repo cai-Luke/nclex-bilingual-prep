@@ -160,6 +160,7 @@ main {
 
 .hero-panel,
 .summary-hero,
+.session-empty-state,
 .import-panel,
 .settings-grid,
 .builder-panel,
@@ -1297,6 +1298,22 @@ h4 {
 
 .summary-hero {
   padding: 1.25rem;
+}
+
+.session-empty-state {
+  display: grid;
+  gap: 0.8rem;
+  padding: clamp(1.25rem, 5vw, 2.5rem);
+}
+
+.session-empty-state p,
+.summary-counts {
+  margin-bottom: 0;
+}
+
+.summary-counts {
+  color: #47535f;
+  font-weight: 700;
 }
 
 .category-breakdown {

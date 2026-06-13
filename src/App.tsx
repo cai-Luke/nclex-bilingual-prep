@@ -62,6 +62,11 @@ import {
   saveUploadedRecords,
 } from "./storage";
 import { categories, difficulties } from "./schema";
+import {
+  findFirstSkippedQuestionIndex,
+  findNextPendingQuestionIndex,
+  findNextSkippedQuestionIndex,
+} from "./sessionNavigation";
 import { buildWeightedSession } from "./sessionSampler";
 import { VisualStimulus } from "./visuals";
 import { mulberry32 } from "./visuals/primitives/prng";
@@ -82,6 +87,7 @@ import type {
   QuestionRecord,
   SessionMode,
   SessionOrder,
+  SessionPhase,
   SessionStatusFilter,
   Settings,
   StudyMode,
@@ -108,6 +114,8 @@ type SessionState = {
   index: number;
   answers: Record<string, AnswerState>;
   results: Record<string, boolean>;
+  skippedQuestionIds: string[];
+  phase: SessionPhase;
   languageMode: LanguageMode;
   title: string;
   startedAt: string;
@@ -301,6 +309,8 @@ export default function App() {
       index: 0,
       answers: {},
       results: {},
+      skippedQuestionIds: [],
+      phase: "questions",
       languageMode: mode === "test" ? "off" : settings.languageMode,
       title,
       startedAt: new Date().toISOString(),
@@ -321,6 +331,8 @@ export default function App() {
       index: 0,
       answers: {},
       results: {},
+      skippedQuestionIds: [],
+      phase: "questions",
       languageMode: "off",
       title,
       startedAt: new Date().toISOString(),
@@ -362,8 +374,49 @@ export default function App() {
       return {
         ...current,
         results: { ...current.results, [question.id]: wasCorrect },
+        skippedQuestionIds: current.skippedQuestionIds.filter((questionId) => questionId !== question.id),
         adaptive: current.adaptive ? updateAdaptiveAfterAnswer(current.adaptive, question, wasCorrect) : undefined,
       };
+    });
+  };
+
+  const skipCurrent = () => {
+    setSession((current) => {
+      if (!current || current.mode !== "study" || current.phase === "skipped-prompt") return current;
+      const question = current.questions[current.index];
+      if (Object.prototype.hasOwnProperty.call(current.results, question.id)) return current;
+      const skippedQuestionIds = Array.from(new Set([...current.skippedQuestionIds, question.id]));
+      if (current.phase === "skipped-review") {
+        const nextSkippedIndex = findNextSkippedQuestionIndex(
+          current.questions.map((item) => item.id),
+          current.index,
+          new Set(skippedQuestionIds),
+        );
+        return nextSkippedIndex >= 0
+          ? { ...current, index: nextSkippedIndex, skippedQuestionIds }
+          : { ...current, skippedQuestionIds, phase: "skipped-prompt" };
+      }
+      const nextIndex = findNextPendingQuestionIndex(
+        current.questions.map((item) => item.id),
+        current.index,
+        new Set(Object.keys(current.results)),
+        new Set(skippedQuestionIds),
+      );
+      if (nextIndex >= 0) {
+        return { ...current, index: nextIndex, skippedQuestionIds };
+      }
+      return { ...current, skippedQuestionIds, phase: "skipped-prompt" };
+    });
+  };
+
+  const reviewSkippedQuestions = () => {
+    setSession((current) => {
+      if (!current || current.mode !== "study") return current;
+      const index = findFirstSkippedQuestionIndex(
+        current.questions.map((question) => question.id),
+        new Set(current.skippedQuestionIds),
+      );
+      return index >= 0 ? { ...current, index, phase: "skipped-review" } : current;
     });
   };
 
@@ -396,12 +449,32 @@ export default function App() {
           },
         };
       }
-      if (current.index >= current.questions.length - 1) {
+      if (current.mode === "study") {
+        if (current.phase === "skipped-review") {
+          const nextSkippedIndex = findFirstSkippedQuestionIndex(
+            current.questions.map((question) => question.id),
+            new Set(current.skippedQuestionIds),
+          );
+          if (nextSkippedIndex >= 0) return { ...current, index: nextSkippedIndex };
+        } else {
+          const nextIndex = findNextPendingQuestionIndex(
+            current.questions.map((question) => question.id),
+            current.index,
+            new Set(Object.keys(current.results)),
+            new Set(current.skippedQuestionIds),
+          );
+          if (nextIndex >= 0) return { ...current, index: nextIndex };
+          if (current.skippedQuestionIds.length > 0) return { ...current, phase: "skipped-prompt" };
+        }
+      } else if (current.index < current.questions.length - 1) {
+        return { ...current, index: current.index + 1 };
+      }
+      if (current.mode !== "study" || current.skippedQuestionIds.length === 0) {
         void clearActiveSession();
         setView("summary");
         return { ...current, completed: true };
       }
-      return { ...current, index: current.index + 1 };
+      return { ...current, phase: "skipped-prompt" };
     });
   };
 
@@ -610,7 +683,9 @@ export default function App() {
             voiceEnabled={settings.voiceEnabled}
             onAnswer={updateAnswer}
             onSubmit={submitCurrent}
+            onSkip={skipCurrent}
             onNext={goNext}
+            onReviewSkipped={reviewSkippedQuestions}
             onFinish={finishSession}
             onLanguageModeChange={(languageMode) => setSession((current) => (current ? { ...current, languageMode } : current))}
             onToggleFlag={toggleFlag}
@@ -1850,7 +1925,9 @@ function SessionView({
   voiceEnabled,
   onAnswer,
   onSubmit,
+  onSkip,
   onNext,
+  onReviewSkipped,
   onFinish,
   onLanguageModeChange,
   onToggleFlag,
@@ -1863,13 +1940,49 @@ function SessionView({
   voiceEnabled: boolean;
   onAnswer: (questionId: string, answer: AnswerState) => void;
   onSubmit: () => void;
+  onSkip: () => void;
   onNext: () => void;
+  onReviewSkipped: () => void;
   onFinish: () => void;
   onLanguageModeChange: (mode: LanguageMode) => void;
   onToggleFlag: (questionId: string) => void;
   onExit: () => void;
   exitLabel: string;
 }) {
+  if (session.phase === "skipped-prompt") {
+    return (
+      <section className="session-shell">
+        <div className="session-topbar">
+          <button type="button" onClick={onExit}>
+            <ChevronLeft aria-hidden="true" />
+            <span>{exitLabel}</span>
+          </button>
+          <div>
+            <strong>{session.title}</strong>
+            <span>{session.skippedQuestionIds.length} skipped</span>
+          </div>
+          <LanguageTabs value={session.languageMode} onChange={onLanguageModeChange} />
+        </div>
+
+        <div className="session-empty-state">
+          <p className="eyebrow">Study session</p>
+          <h2>Questions deferred</h2>
+          <p>You skipped some questions. Review them now or end this session.</p>
+          <p className="muted-copy">
+            Answered {Object.keys(session.results).length} · Skipped {session.skippedQuestionIds.length}
+          </p>
+          <div className="action-row">
+            <button className="primary-action" type="button" onClick={onReviewSkipped}>
+              <RotateCcw aria-hidden="true" />
+              <span>Review skipped questions</span>
+            </button>
+            <button type="button" onClick={onFinish}>End session</button>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
   const question = session.questions[session.index];
   const answer = session.answers[question.id] ?? getInitialAnswer(question);
   const submitted = Object.prototype.hasOwnProperty.call(session.results, question.id);
@@ -1878,7 +1991,16 @@ function SessionView({
   const isLast =
     session.mode === "adaptive"
       ? session.index === session.questions.length - 1 && session.questions.length >= totalTarget
-      : session.index === session.questions.length - 1;
+      : session.mode === "test"
+        ? session.index === session.questions.length - 1
+        : session.phase === "skipped-review"
+          ? session.skippedQuestionIds.length === 0
+          : findNextPendingQuestionIndex(
+              session.questions.map((item) => item.id),
+              session.index,
+              new Set(Object.keys(session.results)),
+              new Set(session.skippedQuestionIds),
+            ) < 0 && session.skippedQuestionIds.length === 0;
 
   return (
     <section className="session-shell">
@@ -1920,6 +2042,10 @@ function SessionView({
           <button className="primary-action" type="button" onClick={onNext}>
             <span>{isLast ? "Finish" : "Next"}</span>
             <ChevronRight aria-hidden="true" />
+          </button>
+        ) : session.mode === "study" ? (
+          <button className="secondary-action" type="button" onClick={onSkip}>
+            Skip for now
           </button>
         ) : (
           <span />
@@ -2741,6 +2867,8 @@ function SummaryView({
 }) {
   const answered = Object.keys(session.results).length;
   const correct = Object.values(session.results).filter(Boolean).length;
+  const incorrect = answered - correct;
+  const skipped = session.skippedQuestionIds.length;
   const answeredQuestions = session.questions.filter((question) =>
     Object.prototype.hasOwnProperty.call(session.results, question.id),
   );
@@ -2767,6 +2895,9 @@ function SummaryView({
         <h2>
           {correct} / {answered} correct
         </h2>
+        <p className="summary-counts">
+          Answered {answered} · Correct {correct} · Incorrect {incorrect} · Skipped {skipped}
+        </p>
         {session.mode === "adaptive" && (
           <p className="muted-copy">Adaptive practice changes difficulty by rolling performance. It is not a pass/fail or readiness estimate.</p>
         )}
@@ -3012,6 +3143,8 @@ const toStoredSession = (session: SessionState): StoredSessionSnapshot => ({
   index: session.index,
   answers: session.answers as Record<string, unknown>,
   results: session.results,
+  skippedQuestionIds: session.skippedQuestionIds,
+  phase: session.phase,
   languageMode: session.languageMode,
   title: session.title,
   startedAt: session.startedAt,
@@ -3028,6 +3161,14 @@ const hydrateSession = (
     .filter((question): question is Question => Boolean(question));
   if (questions.length === 0) return null;
   const poolIds = snapshot.poolIds.filter((questionId) => recordsById.has(questionId));
+  const questionIds = new Set(questions.map((question) => question.id));
+  const skippedQuestionIds = snapshot.mode === "study"
+    ? Array.from(new Set(snapshot.skippedQuestionIds ?? [])).filter(
+        (questionId) => questionIds.has(questionId) && !Object.prototype.hasOwnProperty.call(snapshot.results, questionId),
+      )
+    : [];
+  const requestedPhase = snapshot.mode === "study" ? snapshot.phase ?? "questions" : "questions";
+  const phase = skippedQuestionIds.length === 0 && requestedPhase !== "questions" ? "questions" : requestedPhase;
   return {
     id: snapshot.id,
     mode: snapshot.mode,
@@ -3036,6 +3177,8 @@ const hydrateSession = (
     index: Math.min(snapshot.index, questions.length - 1),
     answers: snapshot.answers as Record<string, AnswerState>,
     results: snapshot.results,
+    skippedQuestionIds,
+    phase,
     languageMode: snapshot.languageMode,
     title: snapshot.title,
     startedAt: snapshot.startedAt,

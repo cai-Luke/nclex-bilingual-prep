@@ -212,6 +212,16 @@ Only top-level `banks/*.json` files are bundled by the app. `banks/Pending cases
 - This was not a clinical content promotion or review-status change. Question IDs, item types, answer keys, ordered-response correct sequences, matrix row/column mappings, rationale references, bilingual text, metadata, and question counts were preserved.
 - Validation, rationale/reference audit, focused normalization tests, census regeneration, and production build passed. The deterministic non-MCQ Layer A audit was rebaselined; the prior Layer B final report remains unchanged.
 
+### 2026-06-13 — Opus C. difficile / dehydration case study
+
+- Bank item: `opus20_case_cdiff_01` — 1 case_study, 6 embedded (5 multiple_choice + 1 matrix)
+- Topic: Clostridioides difficile infection with dehydration and contact-precaution teaching for family visitors | categories: Physiological Adaptation (Q1, Q6), Safety and Infection Control (Q2, Q3), Basic Care and Comfort (Q4), Pharmacological and Parenteral Therapies (Q5) | difficulty: medium | schema 1.2
+- Chain: Opus 4.6 generation; Claude final review
+- Final review: schema valid; bilingual parity intact; no positional language; no visuals (text exhibits — necessity gate N/A). Clinical accuracy verified: prerenal AKI vs. CKD progression distinction (creatinine 1.4→2.1 with 4 kg weight loss, tachycardia, hypotension, oliguria); CDC C. difficile contact precautions (gown + gloves for all room entry; alcohol-based hand sanitizer ineffective against spores — soap and water required); IAD/moisture-associated skin damage management (moisture barrier cream after gentle cleansing, avoid friction); FDA 2016 metformin eGFR thresholds (absolute CI <30, caution 30–45; eGFR 33 still below baseline 42, continue hold); matrix outcome evaluation (stool↓, WBC 18.2→12.4, lactate 1.2, UO 50 mL/hr = improvement; eGFR 33 < baseline 42 = ongoing monitoring). No fixes required.
+- Promoted 2026-06-13 → `banks/opus20.json`; raw `banks/banks-raw/opus20.json` deleted; all audit tiers passed.
+
 ## Next Planned Review
 
 - Next GPT/Gemini batch: prioritize Physiological Adaptation singleton topics (ADHF, AKI, acute pancreatitis, Reduction of Risk Potential) using case_study format to close the 93-item case_study gap (71 vs 164 target).
+
+Matrix-item generation note: The 2026-06-13 promoted-content review found a recurring matrix-answer inversion defect across GPT, Gemini FHR, and IO batches. In affected items, the matrix columns themselves were clinically correct, but `correct[].columnIds` were reversed (`c1` keyed where `c2` should be, and vice versa). Future matrix generation/review sessions must explicitly verify each row’s keyed `columnIds` against the column labels and rationale before promotion. Do not rely on schema validation or selfCheck to catch this class of error, because the shape is valid even when the clinical key is inverted.

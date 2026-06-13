@@ -1,7 +1,14 @@
 {
-  "generatedAt": "2026-06-13T01:20:42.179Z",
-  "gitSha": "a10f9a53a79bf4d8b2f8e545976b5b86c6f36e53",
+  "generatedAt": "2026-06-13T20:16:06.046Z",
+  "gitSha": "b3a68e890988ca7155dcc8113881b3a36ddf6826",
   "perFile": [
+    {
+      "file": "burn-canonical.json",
+      "schemaVersion": "1.2",
+      "metaCount": 8,
+      "questionsLength": 8,
+      "mismatch": false
+    },
     {
       "file": "capnography-canonical.json",
       "schemaVersion": "1.2",
@@ -12,29 +19,43 @@
     {
       "file": "claude-canonical.json",
       "schemaVersion": "1.2",
-      "metaCount": 60,
-      "questionsLength": 60,
+      "metaCount": 61,
+      "questionsLength": 61,
+      "mismatch": false
+    },
+    {
+      "file": "device-canonical.json",
+      "schemaVersion": "1.2",
+      "metaCount": 8,
+      "questionsLength": 8,
       "mismatch": false
     },
     {
       "file": "gemini-canonical.json",
       "schemaVersion": "1.2",
-      "metaCount": 771,
-      "questionsLength": 771,
+      "metaCount": 777,
+      "questionsLength": 777,
       "mismatch": false
     },
     {
       "file": "gpt-canonical.json",
       "schemaVersion": "1.2",
-      "metaCount": 242,
-      "questionsLength": 242,
+      "metaCount": 267,
+      "questionsLength": 267,
       "mismatch": false
     },
     {
       "file": "hard-cases-canonical.json",
       "schemaVersion": "1.2",
-      "metaCount": 51,
-      "questionsLength": 51,
+      "metaCount": 58,
+      "questionsLength": 58,
+      "mismatch": false
+    },
+    {
+      "file": "io-canonical.json",
+      "schemaVersion": "1.2",
+      "metaCount": 8,
+      "questionsLength": 8,
       "mismatch": false
     },
     {
@@ -47,8 +68,15 @@
     {
       "file": "mar-canonical.json",
       "schemaVersion": "1.2",
-      "metaCount": 5,
-      "questionsLength": 5,
+      "metaCount": 8,
+      "questionsLength": 8,
+      "mismatch": false
+    },
+    {
+      "file": "medlabel-canonical.json",
+      "schemaVersion": "1.2",
+      "metaCount": 8,
+      "questionsLength": 8,
       "mismatch": false
     },
     {
@@ -67,29 +95,29 @@
     }
   ],
   "totals": {
-    "topLevel": 1219,
-    "caseStudyTopLevel": 89,
-    "embeddedParts": 389,
-    "gradedTotal": 1608
+    "topLevel": 1293,
+    "caseStudyTopLevel": 106,
+    "embeddedParts": 482,
+    "gradedTotal": 1775
   },
   "byItemType": {
-    "case_study": 89,
-    "fill_in_blank": 120,
-    "ordered_response": 123,
-    "dropdown_cloze": 138,
-    "matrix": 155,
-    "select_all": 183,
-    "multiple_choice": 411
+    "case_study": 106,
+    "ordered_response": 127,
+    "fill_in_blank": 140,
+    "dropdown_cloze": 142,
+    "matrix": 165,
+    "select_all": 189,
+    "multiple_choice": 424
   },
   "byCategory": {
-    "Psychosocial Integrity": 137,
-    "Health Promotion and Maintenance": 138,
-    "Safety and Infection Control": 139,
-    "Management of Care": 140,
-    "Basic Care and Comfort": 145,
-    "Reduction of Risk Potential": 147,
-    "Pharmacological and Parenteral Therapies": 153,
-    "Physiological Adaptation": 220
+    "Health Promotion and Maintenance": 140,
+    "Psychosocial Integrity": 141,
+    "Safety and Infection Control": 144,
+    "Management of Care": 148,
+    "Basic Care and Comfort": 152,
+    "Reduction of Risk Potential": 168,
+    "Pharmacological and Parenteral Therapies": 171,
+    "Physiological Adaptation": 229
   },
   "withinCategory": {
     "Management of Care": {
@@ -131,12 +159,13 @@
           "count": 2
         },
         {
-          "topic": "Medication Safety & Admin",
+          "topic": "interpreter-supported consent and discharge readiness",
           "count": 2
         }
       ],
       "visualKinds": {
-        "device_screen": 1
+        "device_screen": 1,
+        "mar": 1
       }
     },
     "Safety and Infection Control": {
@@ -162,6 +191,10 @@
           "count": 4
         },
         {
+          "topic": "contact precautions workflow for diarrheal illness",
+          "count": 2
+        },
+        {
           "topic": "Endocrine & Neurological Disorders",
           "count": 2
         },
@@ -175,10 +208,6 @@
         },
         {
           "topic": "Burn Assessment",
-          "count": 1
-        },
-        {
-          "topic": "burn management",
           "count": 1
         }
       ],
@@ -216,6 +245,10 @@
           "count": 6
         },
         {
+          "topic": "pediatric dehydration oral rehydration teaching",
+          "count": 2
+        },
+        {
           "topic": "adult immunization",
           "count": 1
         },
@@ -225,10 +258,6 @@
         },
         {
           "topic": "Adult Physical Activity Counseling",
-          "count": 1
-        },
-        {
-          "topic": "adult preventive screening",
           "count": 1
         }
       ],
@@ -324,7 +353,8 @@
       ],
       "visualKinds": {
         "burn_map": 1,
-        "io_record": 2
+        "device_screen": 1,
+        "io_record": 4
       }
     },
     "Pharmacological and Parenteral Therapies": {
@@ -362,19 +392,20 @@
           "count": 3
         },
         {
-          "topic": "Adenosine Administration Technique",
+          "topic": "acetaminophen duplicate therapy",
           "count": 1
         },
         {
-          "topic": "Adenosine Side Effects",
+          "topic": "Adenosine Administration Technique",
           "count": 1
         }
       ],
       "visualKinds": {
         "capnography": 1,
+        "device_screen": 4,
         "lab_trend": 6,
-        "mar": 5,
-        "medication_label": 1,
+        "mar": 7,
+        "medication_label": 9,
         "rhythm_strip": 10,
         "vitals_trend": 2
       }
@@ -402,6 +433,10 @@
           "count": 7
         },
         {
+          "topic": "intrapartum fetal monitoring",
+          "count": 6
+        },
+        {
           "topic": "ABG & Acid-Base Interpretation",
           "count": 4
         },
@@ -416,16 +451,14 @@
         {
           "topic": "Endocrine & Neurological Disorders",
           "count": 3
-        },
-        {
-          "topic": "Mobility & Immobility",
-          "count": 3
         }
       ],
       "visualKinds": {
-        "burn_map": 2,
+        "burn_map": 5,
         "capnography": 1,
-        "io_record": 1,
+        "device_screen": 3,
+        "fetal_monitoring": 6,
+        "io_record": 5,
         "lab_trend": 7,
         "rhythm_strip": 2,
         "vitals_trend": 1
@@ -475,7 +508,9 @@
         }
       ],
       "visualKinds": {
+        "burn_map": 5,
         "capnography": 4,
+        "io_record": 2,
         "lab_trend": 7,
         "rhythm_strip": 32,
         "vitals_trend": 7
@@ -483,48 +518,56 @@
     }
   },
   "byDifficulty": {
-    "easy": 159,
-    "hard": 449,
-    "medium": 611
+    "easy": 163,
+    "hard": 481,
+    "medium": 649
   },
   "bySchemaVersion": {
     "1.2": {
-      "questions": 1219,
+      "questions": 1293,
       "files": [
+        "burn-canonical.json",
         "capnography-canonical.json",
         "claude-canonical.json",
+        "device-canonical.json",
         "gemini-canonical.json",
         "gpt-canonical.json",
         "hard-cases-canonical.json",
+        "io-canonical.json",
         "lab-canonical.json",
         "mar-canonical.json",
+        "medlabel-canonical.json",
         "visual-canonical.json",
         "vitals-canonical.json"
       ]
     }
   },
   "bySourceFile": {
+    "burn-canonical.json": 8,
     "capnography-canonical.json": 7,
-    "claude-canonical.json": 60,
-    "gemini-canonical.json": 771,
-    "gpt-canonical.json": 242,
-    "hard-cases-canonical.json": 51,
+    "claude-canonical.json": 61,
+    "device-canonical.json": 8,
+    "gemini-canonical.json": 777,
+    "gpt-canonical.json": 267,
+    "hard-cases-canonical.json": 58,
+    "io-canonical.json": 8,
     "lab-canonical.json": 20,
-    "mar-canonical.json": 5,
+    "mar-canonical.json": 8,
+    "medlabel-canonical.json": 8,
     "visual-canonical.json": 53,
     "vitals-canonical.json": 10
   },
   "visuals": {
-    "total": 97,
+    "total": 138,
     "byKind": {
-      "burn_map": 3,
+      "burn_map": 11,
       "capnography": 7,
-      "device_screen": 2,
-      "fetal_monitoring": 0,
-      "io_record": 3,
+      "device_screen": 10,
+      "fetal_monitoring": 6,
+      "io_record": 11,
       "lab_trend": 20,
-      "mar": 5,
-      "medication_label": 2,
+      "mar": 8,
+      "medication_label": 10,
       "rhythm_strip": 44,
       "vitals_trend": 11
     },
@@ -546,6 +589,14 @@
     },
     "idsByKind": {
       "burn_map": [
+        "burn_fib_parkland_first8h_leg_arm_08",
+        "burn_fib_parkland_rate_arm_trunk_genitalia_04",
+        "burn_fib_parkland_total_posterior_03",
+        "burn_fib_tbsa_anterior_mix_01",
+        "burn_matrix_parkland_values_05",
+        "burn_mc_posterior_tbsa_07",
+        "burn_mc_resuscitation_threshold_02",
+        "burn_sata_parkland_chain_06",
         "gpt_visual_smoke_2026_06_12_fib_burn_parkland_rate_01",
         "gpt_visual_smoke_2026_06_12_matrix_burn_regions_03",
         "gpt_visual_smoke_2026_06_12_mc_burn_tbsa_02"
@@ -560,14 +611,37 @@
         "cap_10"
       ],
       "device_screen": [
+        "dev_enteral_volume_shift_01",
+        "dev_high_alert_kcl_pump_mismatch_01",
+        "dev_infusion_duration_vtbi_01",
+        "dev_pca_basal_opioid_naive_01",
+        "dev_pca_delivered_total_basal_01",
+        "dev_pca_delivered_total_no_basal_01",
+        "dev_pca_lockout_max_demands_01",
+        "dev_pca_max_dose_basal_01",
         "gpt_visual_smoke_2026_06_12_fib_device_enteral_duration_10",
         "gpt_visual_smoke_2026_06_12_matrix_device_pca_basal_09"
       ],
-      "fetal_monitoring": [],
+      "fetal_monitoring": [
+        "fhr_gemini_smoke_2026_06_13_01",
+        "fhr_gemini_smoke_2026_06_13_02",
+        "fhr_gemini_smoke_2026_06_13_03",
+        "fhr_gemini_smoke_2026_06_13_04",
+        "fhr_gemini_smoke_2026_06_13_05",
+        "fhr_gemini_smoke_2026_06_13_06"
+      ],
       "io_record": [
         "gpt_visual_smoke_2026_06_12_fib_io_net_balance_04",
         "gpt_visual_smoke_2026_06_12_matrix_io_totals_06",
-        "gpt_visual_smoke_2026_06_12_mc_io_output_total_05"
+        "gpt_visual_smoke_2026_06_12_mc_io_output_total_05",
+        "io_fib_hf_net_balance_01",
+        "io_fib_postop_output_total_06",
+        "io_matrix_bowel_prep_deficit_08",
+        "io_matrix_prerenal_aki_recheck_04",
+        "io_mc_postop_retention_priority_05",
+        "io_mc_pulmonary_edema_diuresis_02",
+        "io_sata_ckd_fluid_overload_07",
+        "io_sata_gastroenteritis_deficit_03"
       ],
       "lab_trend": [
         "gpt_u3_labtrend_2026_06_09_b_cloze_inr_amiodarone_09",
@@ -592,15 +666,26 @@
         "gpt_u3_labtrend_2026_06_09_or_hyperkalemia_progression_06"
       ],
       "mar": [
-        "mar_matrix_assess_05",
-        "mar_matrix_cardiac_04",
-        "mar_mc_digoxin_01",
-        "mar_mc_vanco_03",
-        "mar_mc_warfarin_02"
+        "mar_acetaminophen_duplicate_products_04",
+        "mar_av_nodal_blockers_1600_01",
+        "mar_digoxin_low_pulse_due_08",
+        "mar_enoxaparin_prior_held_03",
+        "mar_lispro_meal_delayed_02",
+        "mar_missed_antibiotic_followup_07",
+        "mar_opioid_benzodiazepine_due_05",
+        "mar_warfarin_antibiotic_bleeding_06"
       ],
       "medication_label": [
         "gpt_visual_smoke_2026_06_12_fib_medlabel_heparin_rate_07",
-        "gpt_visual_smoke_2026_06_12_mc_medlabel_tablet_quantity_08"
+        "gpt_visual_smoke_2026_06_12_mc_medlabel_tablet_quantity_08",
+        "medlbl_cephalexin_capsules_006",
+        "medlbl_digoxin_tablets_005",
+        "medlbl_enoxaparin_volume_004",
+        "medlbl_furosemide_matrix_007",
+        "medlbl_heparin_infusion_rate_001",
+        "medlbl_morphine_iv_volume_002",
+        "medlbl_potassium_chloride_rate_003",
+        "medlbl_regular_insulin_volume_008"
       ],
       "rhythm_strip": [
         "ekg_b1_matrix_09",
@@ -685,6 +770,12 @@
     {
       "id": "opus1_case_tha_discharge_lep_01",
       "topic": "discharge coordination after hip arthroplasty",
+      "parts": 6,
+      "bank": "claude-canonical.json"
+    },
+    {
+      "id": "opus20_case_cdiff_01",
+      "topic": "C. difficile colitis and dehydration",
       "parts": 6,
       "bank": "claude-canonical.json"
     },
@@ -947,6 +1038,60 @@
       "bank": "gpt-canonical.json"
     },
     {
+      "id": "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01",
+      "topic": "home oxygen safety and COPD discharge teaching",
+      "parts": 5,
+      "bank": "gpt-canonical.json"
+    },
+    {
+      "id": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "topic": "post-fall assessment and escalation in long-term care",
+      "parts": 5,
+      "bank": "gpt-canonical.json"
+    },
+    {
+      "id": "gpt_gap_2026_06_12_nonmcq_balanced_case_pressure_injury_nutrition_03",
+      "topic": "pressure injury prevention with poor nutrition",
+      "parts": 5,
+      "bank": "gpt-canonical.json"
+    },
+    {
+      "id": "gpt_gap_2026_06_12_nonmcq_balanced_case_delirium_family_04",
+      "topic": "delirium prevention and family education after hospitalization",
+      "parts": 5,
+      "bank": "gpt-canonical.json"
+    },
+    {
+      "id": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_opioid_safety_01",
+      "topic": "safe opioid administration and respiratory reassessment",
+      "parts": 5,
+      "bank": "gpt-canonical.json"
+    },
+    {
+      "id": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_interpreter_consent_02",
+      "topic": "interpreter-supported consent and discharge readiness",
+      "parts": 5,
+      "bank": "gpt-canonical.json"
+    },
+    {
+      "id": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_peds_dehydration_03",
+      "topic": "pediatric dehydration oral rehydration teaching",
+      "parts": 5,
+      "bank": "gpt-canonical.json"
+    },
+    {
+      "id": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_wound_teachback_04",
+      "topic": "home health wound-care teaching with teach-back failure",
+      "parts": 5,
+      "bank": "gpt-canonical.json"
+    },
+    {
+      "id": "gpt_2026_06_13_case_delirium_uti_01",
+      "topic": "delirium superimposed on dementia",
+      "parts": 6,
+      "bank": "gpt-canonical.json"
+    },
+    {
       "id": "case_sepsis_pneumonia_01",
       "topic": "Sepsis & Septic Shock",
       "parts": 4,
@@ -1197,6 +1342,48 @@
       "topic": "status epilepticus",
       "parts": 6,
       "bank": "hard-cases-canonical.json"
+    },
+    {
+      "id": "opus1_case_discharge_med_rec_anticoag_01",
+      "topic": "discharge medication reconciliation",
+      "parts": 6,
+      "bank": "hard-cases-canonical.json"
+    },
+    {
+      "id": "opus2_case_postop_opioid_respiratory_depression_01",
+      "topic": "opioid-induced respiratory depression",
+      "parts": 6,
+      "bank": "hard-cases-canonical.json"
+    },
+    {
+      "id": "opus3_iv_potassium_safety_case_01",
+      "topic": "IV potassium replacement safety",
+      "parts": 6,
+      "bank": "hard-cases-canonical.json"
+    },
+    {
+      "id": "opus4_case_postop_sbar_01",
+      "topic": "postoperative deterioration escalation",
+      "parts": 6,
+      "bank": "hard-cases-canonical.json"
+    },
+    {
+      "id": "opus5_case_consent_interpreter_01",
+      "topic": "informed consent and interpreter services",
+      "parts": 5,
+      "bank": "hard-cases-canonical.json"
+    },
+    {
+      "id": "opus12_case_inpatient_suicide_risk_01",
+      "topic": "Inpatient suicide risk and safety precautions",
+      "parts": 6,
+      "bank": "hard-cases-canonical.json"
+    },
+    {
+      "id": "opus_case_warfarin_bridge_01",
+      "topic": "warfarin-enoxaparin-bridge",
+      "parts": 6,
+      "bank": "hard-cases-canonical.json"
     }
   ],
   "idUniqueness": {
@@ -1206,97 +1393,92 @@
     "categoryTargets": [
       [
         "Management of Care",
-        219.42
+        232.73999999999998
       ],
       [
         "Safety and Infection Control",
-        158.47
+        168.09
       ],
       [
         "Health Promotion and Maintenance",
-        109.71
+        116.36999999999999
       ],
       [
         "Psychosocial Integrity",
-        109.71
+        116.36999999999999
       ],
       [
         "Basic Care and Comfort",
-        109.71
+        116.36999999999999
       ],
       [
         "Pharmacological and Parenteral Therapies",
-        195.04
+        206.88
       ],
       [
         "Reduction of Risk Potential",
-        146.28
+        155.16
       ],
       [
         "Physiological Adaptation",
-        170.66000000000003
+        181.02
       ]
     ],
-    "itemTypeAvg": 174.14285714285714,
+    "itemTypeAvg": 184.71428571428572,
     "underCategories": [
       [
         "Management of Care",
-        140
-      ],
-      [
-        "Pharmacological and Parenteral Therapies",
-        153
+        148
       ]
     ],
     "overCategories": [
       [
         "Physiological Adaptation",
-        220
+        229
       ]
     ],
     "underItemTypes": [
       [
         "case_study",
-        89
-      ],
-      [
-        "fill_in_blank",
-        120
+        106
       ],
       [
         "ordered_response",
-        123
+        127
+      ],
+      [
+        "fill_in_blank",
+        140
       ],
       [
         "dropdown_cloze",
-        138
+        142
       ],
       [
         "matrix",
-        155
+        165
       ]
     ]
   },
   "prioritizeTopics": [
-    "Management of Care (140 vs target 219)",
-    "Pharmacological and Parenteral Therapies (153 vs target 195)",
-    "case_study (89 vs target 174.1)",
-    "fill_in_blank (120 vs target 174.1)",
-    "ordered_response (123 vs target 174.1)",
-    "dropdown_cloze (138 vs target 174.1)",
-    "matrix (155 vs target 174.1)",
+    "Management of Care (148 vs target 233)",
+    "case_study (106 vs target 184.7)",
+    "ordered_response (127 vs target 184.7)",
+    "fill_in_blank (140 vs target 184.7)",
+    "dropdown_cloze (142 vs target 184.7)",
+    "matrix (165 vs target 184.7)",
+    "acetaminophen duplicate therapy",
     "Active Pulmonary TB Airborne Precautions",
     "Acute decompensated heart failure",
     "Acute Decompensated Heart Failure (ADHF)",
     "Acute Graft-Versus-Host Disease",
+    "acute kidney injury fluid response",
     "Acute Myocardial Infarction and Ventricular Fibrillation",
     "Acute Pancreatitis",
     "Adenosine Administration Technique",
     "Adenosine Side Effects",
     "Adrenal crisis",
-    "Adrenal crisis recognition and treatment",
-    "adult burn resuscitation Parkland calculation",
-    "adult immunization"
+    "Adrenal crisis recognition and treatment"
   ],
   "avoidTopics": [
     "Mental Health Disorders (61)",

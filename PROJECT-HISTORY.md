@@ -55,6 +55,15 @@ Out of scope until a future schema bump:
 
 ## Milestones
 
+### Study Session Skip-for-Now Flow (Jun 13)
+
+Completed:
+- Added a persisted, session-scoped skipped-question list for Study and custom Study sessions without writing skip actions to progress, answer history, missed status, SRS scheduling, or adaptive state.
+- Added `Skip for now`, an end-of-pass skipped-question prompt, `Review skipped questions`, and separate answered/correct/incorrect/skipped summary counts.
+- Answering a deferred question removes it from the skipped list and grades through the existing answer path; flags remain independent.
+- Added focused navigation regressions for bypassing deferred questions and revisiting them in session order.
+- Verified the two-question visual Study flow, reload/resume persistence, Test/adaptive exclusion, bank validation, coverage reporting, the full visual suite, and the production build.
+
 ### Schema 1.2 Documentation Reconciliation (Jun 13)
 
 Completed:
@@ -73,6 +82,29 @@ Completed:
 - Verified all eight actioned IDs in the developer Review Console with bilingual content and correct-answer reveal.
 - Completed the High-provenance currency phase: 129 unique IDs audited across four sessions, yielding 29 FIX proposals and 100 no-finding dispositions. The next phase contains 72 unique Medium-provenance currency IDs.
 - Canonical banks, the review ledger, and census artifacts remain unchanged pending Luke's approval and execution.
+
+### Early-Bank Semantic Audit Currency Session 05 (Jun 13)
+
+Completed:
+- Audited eight Medium-provenance currency candidates whose Claude or Gemini provenance allowed review by a non-producer OpenAI model. The deliberately small scope preserves the campaign's producer-mismatch rule because most remaining Medium candidates were GPT-produced.
+- Produced two HIGH-confidence bilingual cure proposals and six no-finding dispositions. The proposals make posterior hip precautions conditional on individualized surgical orders and replace a universal metoprolol `pulse <60/min` hold rule with heart-rate and blood-pressure assessment against prescribed parameters.
+- Source-checked against AAOS OrthoInfo, a 2024 posterior-THA precautions systematic review, current FDA Lopressor and Pradaxa labeling, CDC influenza guidance, and current dysphagia practice guidance.
+- Added the findings report and a two-row JSONL manifest containing 16 exact field edits. Every English edit has a Chinese pair, and every `before` value was verified against canonical JSON.
+- Verified both actioned IDs in the developer Review Console with bilingual content and correct-answer reveal.
+- Regenerated Layer A after the in-scope banks expanded during the session. A subsequent Claude case addition moved the current deterministic baseline to 1,645 inventory records, 1,301 queue rows, and 1,127 unique queued IDs; the focused regression was recalibrated again in Session 06.
+- The Medium currency queue contains 79 unique IDs before Session 05 and 71 afterward: three Claude `opus1` parts, 38 GPT-produced items requiring a non-OpenAI reviewer, and 30 mixed-producer items requiring narrower provenance or a known non-contributor reviewer.
+- Canonical banks, the review ledger, and census artifacts remain unchanged pending Luke's approval and execution.
+
+### Early-Bank Semantic Audit Currency Session 06 (Jun 13)
+
+Completed:
+- Audited four Medium-provenance Claude currency candidates with a non-Claude reviewer: the final three `opus1` hip-arthroplasty discharge parts plus a newly landed `opus20` C. difficile precautions item.
+- No actioned finding met the evidentiary threshold. The items correctly treat failed teach-back as an unresolved discharge barrier, require qualified language support and multidisciplinary transition planning, preserve nursing role boundaries around rivaroxaban monitoring, and immediately correct a C. difficile Contact Precautions breach.
+- Confirmed against 2025 FDA Xarelto labeling that hip-replacement prophylaxis is 10 mg once daily for 35 days and that the 10 mg dose may be taken with or without food. Also checked HHS Section 1557 language-access provisions, AHRQ teach-back guidance, CMS discharge-planning guidance, and current CDC C. difficile and hand-hygiene guidance.
+- Added a four-item null findings report and an empty zero-action JSONL manifest. No Review Console inspection was required because no patch or cut is proposed.
+- Regenerated and recalibrated Layer A after the new Claude case landed. The current baseline is 1,645 inventory records, 1,301 queue rows, and 1,127 unique queued IDs.
+- The OpenAI currency pass is now exhausted under producer-mismatch rules. The remaining 68 Medium currency IDs consist of 38 GPT-produced items requiring a non-OpenAI reviewer and 30 mixed-producer hard-case items requiring provenance resolution or a known non-contributor reviewer.
+- Canonical banks, the review ledger, and census artifacts remain unchanged.
 
 ### Early-Bank Semantic Audit Currency Session 03 (Jun 13)
 
