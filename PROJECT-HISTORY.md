@@ -55,6 +55,88 @@ Out of scope until a future schema bump:
 
 ## Milestones
 
+### Schema 1.2 Documentation Reconciliation (Jun 13)
+
+Completed:
+- Reconciled `NCLEX-Question-Schema.md` with the registered visual runtime contracts and the arithmetic/documentation lane spec.
+- Clarified kind-specific `derived_values_keyed` shapes, visual metadata, placement rules, and runtime `selfCheck` authority.
+- Added a narrow schema-authority warning to `NCLEX_Audit_Spec.md`; no runtime code, validators, banks, or clinical content changed in this pass.
+
+### Early-Bank Semantic Audit Currency Session 04 (Jun 13)
+
+Completed:
+- Audited the remaining 26 High-provenance Layer A currency candidates across sepsis, stroke, burn/Parkland, and blood-pressure clusters under the `OG`-only live-source track with a non-Gemini reviewer.
+- Produced eight HIGH-confidence bilingual cure proposals and 18 no-finding dispositions. The proposals update age-specific septic-shock MAP and fluid guidance, distinguish hypoperfusion warnings from sepsis diagnoses, make four dysphagia interventions assessment-dependent, preserve resistance training in hypertension care, and replace universal first-dose enalapril bed rest with orthostatic-safety teaching.
+- Retained the traditional Parkland calculations because each explicitly names the `4 mL/kg/%TBSA` formula, satisfying the project's established wording rule.
+- Source-checked against the 2026 Surviving Sepsis Campaign, Sepsis-3 criteria, 2026 AHA/ASA acute ischemic stroke guidance, ASHA adult dysphagia guidance, the 2025 AHA/ACC high-blood-pressure guideline, and FDA Vasotec labeling.
+- Added the findings report and an eight-row JSONL manifest containing 82 exact field edits. Every English edit has a Chinese pair, and every `before` value was verified against canonical JSON.
+- Verified all eight actioned IDs in the developer Review Console with bilingual content and correct-answer reveal.
+- Completed the High-provenance currency phase: 129 unique IDs audited across four sessions, yielding 29 FIX proposals and 100 no-finding dispositions. The next phase contains 72 unique Medium-provenance currency IDs.
+- Canonical banks, the review ledger, and census artifacts remain unchanged pending Luke's approval and execution.
+
+### Early-Bank Semantic Audit Currency Session 03 (Jun 13)
+
+Completed:
+- Audited the 38 High-provenance Layer A anticoagulation and DKA/insulin candidates under the `OG`-only live-source track with a non-Gemini reviewer.
+- Produced seven HIGH-confidence bilingual cure proposals and 31 no-finding dispositions. The proposals remove a nonexistent cirrhosis/paracentesis INR cutoff, correct routine warfarin reversal at INR 5.2, update the DKA potassium threshold from 3.3 to 3.5 mEq/L, narrow an overbroad IV-insulin claim, distinguish thrombocytopenia from confirmed HIT, and correct two DKA dextrose explanations and potassium sequences.
+- Source-checked against AASLD peri-procedural bleeding guidance, ASH anticoagulation and HIT guidance, FDA heparin and insulin-aspart labeling, and the 2024 international hyperglycemic-crisis consensus report.
+- Added the findings report and a seven-row JSONL manifest containing 43 exact field edits. Every English edit has a Chinese pair, and every `before` value was verified against canonical JSON.
+- Verified all seven actioned IDs in the developer Review Console with bilingual content and correct-answer reveal.
+- Canonical banks, the review ledger, and census artifacts remain unchanged pending Luke's approval and execution.
+
+### Early-Bank Semantic Audit Currency Session 02 (Jun 13)
+
+Completed:
+- Audited the 45 High-provenance Layer A isolation/precautions candidates under the `OG`-only live-source track with a non-Gemini reviewer.
+- Produced ten HIGH-confidence bilingual cure proposals and 35 no-finding dispositions. The proposals correct varicella isolation, C. difficile hand-hygiene and disinfection overstatements, obsolete droplet-distance mask rules, meningitis treatment sequencing, neutropenia hygiene/food advice, and misuse of CDC Protective Environment terminology.
+- Source-checked against current CDC transmission, isolation, CDI, chickenpox, and Protective Environment guidance; NCI and Oncology Nursing Society neutropenia guidance; WHO and NICE meningitis guidance; and the NCI ANC definition.
+- Added the findings report and a ten-row JSONL manifest containing 86 exact field edits. Every English edit has a Chinese pair, and every `before` value was verified against canonical JSON.
+- Verified all ten actioned IDs in the developer Review Console with bilingual content and correct-answer reveal.
+- Canonical banks, the review ledger, and census artifacts remain unchanged pending Luke's approval and execution.
+
+### Early-Bank Semantic Audit Currency Session 01 (Jun 13)
+
+Completed:
+- Audited the 20 High-provenance Layer A immunization/screening candidates under the `OG`-only live-source track with a non-Gemini reviewer.
+- Produced four HIGH-confidence bilingual cure proposals and 16 no-finding dispositions. The actioned items correct age/risk conditions for BP and STI screening and replace outdated colonoscopy diet, fasting, and overnight-only preparation rules with current split-dose guidance.
+- Source-checked against USPSTF hypertension and chlamydia/gonorrhea recommendations, CDC STI screening recommendations, the 2025 U.S. Multi-Society Task Force bowel-preparation guidance, and ASA fasting guidance.
+- Added the findings report and a four-row JSONL manifest containing 46 exact field edits. Every English edit has a Chinese pair, and every `before` value was verified against canonical JSON.
+- Verified all four actioned IDs in the developer Review Console with bilingual content and correct-answer reveal.
+- Canonical banks, the review ledger, and census artifacts remain unchanged pending Luke's approval and execution.
+
+### Early-Bank Semantic Audit Layer A (Jun 13)
+
+Completed:
+- Added `npm run audit:early-bank-semantic`, a deterministic routing pass over the four canonical text banks plus embedded case-study parts; it does not make clinical findings or edit canonical content.
+- Reconciled current scope to 1,513 records (1,124 top-level items + 389 embedded parts), superseding the early audit spec's stale 1,608-item calibration.
+- Tagged provenance tiers and volatile currency clusters, assembled conservative topic/answer-similarity pairs and `(topic,itemType,skill_signature)` redundancy groups, and emitted a harm-sorted JSONL queue with bank/path/producer context and routing reasons.
+- Current baseline: 1,267 queue rows across 1,099 unique IDs, including 256 currency rows and 1,011 coherence rows. The first semantic session is capped at the 20 High-provenance immunization/screening candidates.
+- Added `audit/early-bank-semantic/CAMPAIGN-STATUS.md` as the durable cross-window handoff and `npm run test:early-bank-semantic` for provenance mapping, inventory reconciliation, artifact determinism, and calibrated queue counts.
+- Canonical banks, the review ledger, and census artifacts were intentionally left unchanged.
+
+### Rhythm-Strip Curation Audit Proposal (Jun 13)
+
+Completed:
+- Added `npm run audit:rhythm-strip`, which deterministically emits a 44-row Layer A JSONL manifest plus the calibrated seven-item Chinese positional-language cure list for `banks/visual-canonical.json`.
+- Layer A reproduces the audited baseline: 22 necessity-name leaks, 27 `(subtype,itemType)` redundancy-group members, 7 positional-language candidates, and 37 unique flagged items.
+- Added a capped semantic proposal with exact stem/answer/rationale evidence, Alternative Interpretation, confidence justification, and optional two-item comparison evidence. The proposed disposition is 25 `CUT`, 4 one-field `CURE`, and 15 unchanged `KEEP`, leaving 19 items.
+- The retained proposal protects `vfib`, `vtach`, `asystole`, `avb_3`, `avb_2_mobitz2`, `svt`, and `afib`; no cure contains more than one field edit.
+- Current-guidance checks against the 2025 AHA adult bradycardia, cardiac-arrest, and tachycardia algorithms found no `OG` verdict requiring escalation.
+- Verified all 44 proposal IDs in the developer Review Console; all 19 retained items resolved and rendered, and the four cure items were individually inspected with visual, answer reveal, and rationale.
+- Confirmed the standing `audit:references` implementation already scans every top-level `banks/*.json`, including `visual-canonical.json`; no scope expansion was needed, and the current canonical bank passes that gate.
+- Canonical content, the review ledger, and census artifacts were intentionally left unchanged. Luke remains the executor for approved deletions/cures and the subsequent ledger/census update.
+- Verified: focused rhythm-audit regression, deterministic artifact regeneration, Node TypeScript check, `audit:references`, full bank validation, coverage reporting, and production build.
+
+### Whole-Bank Deterministic Re-Gate (Jun 13)
+
+Completed:
+- Ran a deterministic re-gate across the eight non-rhythm canonical banks (capnography, claude, gemini, gpt, hard-cases, lab, mar, vitals; `visual-canonical`/rhythm_strip is under separate audit), covering top-level and embedded case-study parts.
+- Structural health is clean: zero bilingual-parity gaps, zero MC/SATA answer-key integrity failures (every `correct` id is present in the item's options), `meta.count` matches `questions.length` in every bank, and zero duplicate IDs across all top-level and embedded items.
+- Positional integrity is healthy bank-wide: single-correct MC answer positions are near-uniform (overall slots 122/137/129/115 over 503 items; Gemini's 309 are 74/81/78/76). No D-at-~3% pre-shuffle signature in any bank, so the deterministic shuffle reached the whole bank, not only the original Gemini batch.
+- Positional-language: zero unambiguous hazards (`选项A/B`, `Option X`, `the first choice`) in these eight banks. The 34 `以上` and ~5 `前者/后者` hits are legitimate clinical prose ("above a threshold", "the latter"), confirming the production `audit:references` regex correctly ignores them; the only genuine positional-language debt is the 3 `选项X` items in `visual-canonical`, captured by the rhythm-strip audit.
+- SATA correct-count is non-degenerate (no count exceeds the 70% threshold), though GPT (68%) and hard-cases (69%) skew toward four-correct — a generation-side note, not a defect.
+- Conclusion: the looser U0/U1-era promotion standards left no structural debt; the gate caught up retroactively. A structural re-audit of the early bank is not warranted. The only unaddressed axis is semantic (clinical-currency/OG, cross-bank contradictions, redundancy, distractor quality), which the deterministic layer cannot see; that targeted adversarial semantic campaign is deliberately deferred in favor of new-content generation (see `DECISIONS.md` open threads).
+
 ### Test-Plan-Weighted Coverage Targets (Jun 13)
 
 Completed:

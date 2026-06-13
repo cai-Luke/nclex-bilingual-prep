@@ -1,6 +1,6 @@
 # NCLEX Bank — Canonical Question Schema
 
-**schemaVersion: `1.2` — current.** This is the single source of truth. The app's TS type, the validator, and the generation prompt all implement this verbatim. `1.0` standalone-question banks remain supported. `1.1` case-study banks remain supported. Do not change shapes without bumping `schemaVersion` and writing a migration.
+**schemaVersion: `1.2` — current.** This document is the canonical authoring and review contract; runtime behavior is implemented by `src/types.ts`, `src/schema.ts`, and the registered modules under `src/visuals/`. `1.0` standalone-question banks remain supported. `1.1` case-study banks remain supported. Do not change shapes without bumping `schemaVersion` and writing a migration.
 
 ---
 
@@ -68,15 +68,19 @@ All `{ en, zh }` pairs require both languages non-empty. `zh` is natural Simplif
 
 ## Optional visual stimulus — schema `1.2`
 
-Visuals are deterministic data, not image files. A question or case-study exhibit may carry an optional `visual` object. The app renders the visual locally as SVG from the stored parameters, with no raster assets, runtime API calls, or external files.
+Visuals are deterministic data, not AI-generated medical images or external assets. A standalone question or case-study exhibit may carry an optional `visual` object. The app renders the visual locally as SVG from the stored parameters, with no raster assets, runtime API calls, or external files.
 
-### Visual determinacy principle
+### Common Visual Rules
 
-A visual item is only valid if the answer is only resolvable through the **combination** of stem + visual + answer choices. If removing the visual leaves the answer unchanged, the visual is decorative and the item is invalid. Every visual must contribute information required to answer the question.
+- **Optionality**: `question.visual` is optional overall, but if present it must exactly match one implemented kind.
+- **Justification**: `meta.visual_justification` is **required** for visual items and must explain what the learner must read from the visual that the stem does not state.
+- **Determinacy (Load-bearing)**: A visual item is only valid if the answer is only resolvable through the **combination** of stem + visual + answer choices. If removing the visual leaves the answer unchanged, the visual is decorative and the item is invalid.
+- **Bilingual parity**: Learner-facing visual captions, titles, or labels that use bilingual fields should preserve English/Simplified Chinese parity.
+- **Topic**: `question.topic` remains English-only.
 
 ### Visual kind taxonomy
 
-Committed visual lanes (append-only):
+Committed visual lanes (append-only). For detailed generation and review rules, consult `visual-content-lanes-spec.md`.
 
 | `kind` | Description |
 |---|---|
@@ -95,6 +99,8 @@ Committed visual lanes (append-only):
 
 Some visual kinds require a question-level `meta` block that exists **for validation and audit only** — it must never be displayed to learners. This is distinct from the bank-envelope `meta` (schemaVersion, topic, etc.).
 
+Supported visual `meta` keys include (requirements are kind-specific): `visual_justification`, `derived_values_keyed`, `expected_trend`, `expected_flags`, `expected_pattern`, `reference_bands`, `keyed_cells`, `keyed_relationship`, `keyed_settings`, `source`, `tier`, `skill_signature`, `stem_disambiguators`, `order`, `weight_kg`, `round`, and `shift_hours`.
+
 ```jsonc
 // Sibling of `visual`, at the QUESTION level. Audit-only. Never displayed.
 {
@@ -110,12 +116,28 @@ Some visual kinds require a question-level `meta` block that exists **for valida
     "expected_flags": [
       { "series": "potassium", "at": 48, "flag": "H" }
     ],
+    // Trend-style visuals may use a list of derived series names.
     "derived_values_keyed": ["map"],
     "reference_bands": "adult",
     "stem_disambiguators": ["acute kidney injury"]
   }
 }
 ```
+
+For arithmetic visual lanes (`io_record`, `medication_label`, `device_screen`, and `burn_map`), `derived_values_keyed` is instead an object that maps each derivation key to its computed number:
+
+```json
+{
+  "meta": {
+    "derived_values_keyed": {
+      "tbsa_pct": 36,
+      "parkland_total_ml": 10080
+    }
+  }
+}
+```
+
+The kind-specific `selfCheck` invoked by runtime bank validation recomputes declared arithmetic values. A mismatch is a validation failure, not a reviewer preference note.
 
 - `series` — the kind-specific series identifier (`analyte` key for `lab_trend`, `vital` key for `vitals_trend`).
 - `direction` — `"up"` | `"down"` | `"stable"`. `"stable"` passes when `|valEnd − valStart| ≤ stableEps × (refBand.high − refBand.low)` (default 10% per analyte).
@@ -327,6 +349,8 @@ Validation rules:
 ### Kind: `mar`
 
 Renders a nursing Medication Administration Record: medications (name, dose, route, frequency) against a time grid of administration events. Load-bearing only when the answer turns on a **relationship across the grid** — timing collision, held/missed dose, duplicate therapy across rows, or PRN given outside its interval. If the answer is "is this one drug appropriate for this diagnosis," no MAR is needed and the item is a text question.
+
+`mar` is allowed on `multiple_choice`, `select_all`, and `matrix`; it does not support `fill_in_blank`. The dose is display-only text, with no arithmetic inputs. Single-cell items use `meta.keyed_cells` and cross-row or cross-time reasoning uses `meta.keyed_relationship`.
 
 ```json
 {

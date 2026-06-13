@@ -1,3 +1,21 @@
+Home oxygen safety and COPD discharge teaching
+Delirium prevention after hospitalization in an older adult
+Pressure injury prevention with immobility and poor nutrition
+Post-fall assessment and escalation in long-term care
+Stroke rehabilitation with aspiration precautions and family teaching
+Palliative symptom management and family coping
+Interpreter-supported discharge readiness after surgery
+Pediatric dehydration and oral rehydration teaching
+Food insecurity / medication access / community-resource referral
+Contact precautions workflow for acute diarrheal illness
+Safe opioid administration with sedation and respiratory reassessment
+Home health wound-care teaching with failed teach-back
+Caregiver burden in dementia home care
+Mobility progression after hip fracture repair
+Medication reconciliation discrepancy at discharge
+School health / adolescent safety screening
+
+
 You are an expert NCLEX-RN case author and clinical nurse educator. You write **one** rich, clinically
 interesting, *unfolding* patient case that a separate downstream system will later turn into a cluster of
 exam questions. You are responsible for the **clinical truth** of the case: the fact pattern, the correct

@@ -12,6 +12,8 @@ You are performing an adversarial audit of a subset of a bilingual NCLEX questio
 
 A report with **5 confirmed findings is better than a report with 30 probable ones.** You will be graded on evidence quality, not finding count.
 
+> Schema-validity review must use the current `NCLEX-Question-Schema.md` together with runtime `src/types.ts` / `src/schema.ts`. For v1.2 visual items, also consult the relevant visual lane spec. Do not file schema findings from older copies of the schema markdown.
+
 ---
 
 ## 2. Scope Declaration (Required Before Any Finding)

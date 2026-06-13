@@ -1,0 +1,909 @@
+{
+  "meta": {
+    "schemaVersion": "1.2",
+    "exam": "NCLEX-RN",
+    "topic": "burn-map visual smoke batch",
+    "category": "mixed",
+    "difficulty": "mixed",
+    "count": 8
+  },
+  "questions": [
+    {
+      "id": "burn_fib_tbsa_anterior_mix_01",
+      "itemType": "fill_in_blank",
+      "category": "Reduction of Risk Potential",
+      "topic": "adult burn TBSA estimation",
+      "difficulty": "medium",
+      "ngnSkill": "analyze_cues",
+      "stem": {
+        "en": "An adult client arrives after a thermal injury. Estimate the percentage of total body surface area (%TBSA) represented by the shaded deep partial- and full-thickness burns on the diagram. Record the answer as a number.",
+        "zh": "一名成年患者因热损伤就诊。根据图中阴影所示的深二度及三度烧伤，估算其体表总面积百分比（%TBSA）。请以数字形式记录答案。"
+      },
+      "blanks": [
+        {
+          "id": "b1",
+          "prompt": {
+            "en": "%TBSA",
+            "zh": "%体表面积"
+          },
+          "acceptable": [
+            "27",
+            "27%"
+          ],
+          "numeric": {
+            "value": 27,
+            "unit": "%TBSA",
+            "tolerance": 0
+          }
+        }
+      ],
+      "rationale": {
+        "correct": {
+          "en": "The shaded regions are the anterior trunk (18%), anterior head (4.5%), and anterior left arm (4.5%). The total is 18 + 4.5 + 4.5 = 27% TBSA.",
+          "zh": "阴影区域为躯干前侧（18%）、头部前侧（4.5%）和左上肢前侧（4.5%）。合计为 18 + 4.5 + 4.5 = 27% TBSA。"
+        },
+        "byChoice": [
+          {
+            "refId": "b1",
+            "en": "Use the adult Rule of Nines segment values shown by the shaded regions, then add them without rounding the segment values.",
+            "zh": "使用成人九分法中阴影区域对应的分段数值，然后直接相加，不要对各分段数值进行四舍五入。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "For Rule-of-Nines visuals, name each shaded body surface before adding. Do not count unshaded posterior or opposite-side surfaces.",
+        "zh": "做九分法图示题时，先逐一说出每个阴影身体表面，再相加。不要计入未阴影的背侧或对侧表面。"
+      },
+      "visual": {
+        "kind": "burn_map",
+        "population": "adult",
+        "burns": [
+          "trunk_anterior",
+          "head_anterior",
+          "arm_l_anterior"
+        ],
+        "caption": {
+          "en": "Adult burn diagram",
+          "zh": "成人烧伤示意图"
+        }
+      },
+      "meta": {
+        "visual_justification": "The %TBSA is obtained only by reading which adult Rule-of-Nines regions are shaded; the stem does not state the burned surfaces or total.",
+        "derived_values_keyed": {
+          "tbsa_pct": 27
+        },
+        "source": "NCBI StatPearls Rule of Nines; Minnesota Department of Health Rule of Nines Adults",
+        "tier": "strictest",
+        "skill_signature": "burn:tbsa/anterior-segment-sum",
+        "stem_disambiguators": [
+          "adult",
+          "deep partial- and full-thickness burns"
+        ]
+      },
+      "glossary": [
+        {
+          "termEn": "total body surface area",
+          "termZh": "体表总面积",
+          "defZh": "用于估算烧伤范围的身体表面积百分比。"
+        },
+        {
+          "termEn": "Rule of Nines",
+          "termZh": "九分法",
+          "defZh": "成人烧伤面积快速估算方法，将身体区域按9%或其倍数分配。"
+        },
+        {
+          "termEn": "deep partial-thickness burn",
+          "termZh": "深二度烧伤",
+          "defZh": "累及较深真皮层的烧伤，常用于计算烧伤复苏范围。"
+        }
+      ]
+    },
+    {
+      "id": "burn_mc_resuscitation_threshold_02",
+      "itemType": "multiple_choice",
+      "category": "Physiological Adaptation",
+      "topic": "burn fluid resuscitation threshold",
+      "difficulty": "medium",
+      "ngnSkill": "analyze_cues",
+      "stem": {
+        "en": "A facility protocol states that adults with deep partial- or full-thickness burns involving 20% TBSA or more should have formal IV burn-fluid resuscitation initiated while urine output and perfusion are monitored. Based on the shaded burn diagram, which action matches the protocol?",
+        "zh": "某机构方案规定：成人深二度或三度烧伤面积达到或超过20% TBSA时，应开始正式的静脉烧伤补液复苏，并监测尿量和灌注。根据阴影烧伤示意图，哪项措施符合该方案？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "en": "Initiate formal IV burn-fluid resuscitation and monitor response.",
+          "zh": "开始正式的静脉烧伤补液复苏并监测反应。"
+        },
+        {
+          "id": "C",
+          "en": "Delay fluid planning until the burns are remeasured with a pediatric chart.",
+          "zh": "推迟补液计划，直到使用儿童图表重新测量烧伤面积。"
+        },
+        {
+          "id": "B",
+          "en": "Treat the burns as below the protocol threshold and provide oral fluids only.",
+          "zh": "按低于方案阈值处理，仅给予口服液体。"
+        },
+        {
+          "id": "D",
+          "en": "Exclude the anterior leg burn because extremity burns are not counted in TBSA.",
+          "zh": "排除下肢前侧烧伤，因为四肢烧伤不计入TBSA。"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "rationale": {
+        "correct": {
+          "en": "The shaded regions are the anterior trunk (18%) and anterior left leg (9%), for a total of 27% TBSA. This meets the stated protocol threshold of 20% TBSA or more, so formal IV burn-fluid resuscitation with monitoring is appropriate.",
+          "zh": "阴影区域为躯干前侧（18%）和左下肢前侧（9%），合计27% TBSA。该数值达到题干所述20% TBSA或以上的方案阈值，因此应进行正式静脉烧伤补液复苏并监测。"
+        },
+        "byChoice": [
+          {
+            "refId": "B",
+            "en": "The burns are not below threshold; the shaded areas total more than 20% TBSA.",
+            "zh": "烧伤面积并未低于阈值；阴影区域合计超过20% TBSA。"
+          },
+          {
+            "refId": "C",
+            "en": "The client is an adult, and this lane uses adult Rule-of-Nines values rather than pediatric charts.",
+            "zh": "患者为成人，本题使用成人九分法数值，而不是儿童图表。"
+          },
+          {
+            "refId": "A",
+            "en": "This follows the stated protocol because the diagram totals 27% TBSA.",
+            "zh": "这符合题干方案，因为图示合计为27% TBSA。"
+          },
+          {
+            "refId": "D",
+            "en": "Extremity surfaces are counted in adult TBSA estimates; the anterior leg contributes 9%.",
+            "zh": "成人TBSA估算会计入四肢表面；下肢前侧占9%。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "When a protocol threshold is stated in the stem, first calculate the visual value, then compare it directly with the stated cutoff.",
+        "zh": "当题干给出方案阈值时，先计算图示数值，再直接与该截止值比较。"
+      },
+      "visual": {
+        "kind": "burn_map",
+        "population": "adult",
+        "burns": [
+          "trunk_anterior",
+          "leg_l_anterior"
+        ],
+        "caption": {
+          "en": "Adult burn diagram",
+          "zh": "成人烧伤示意图"
+        }
+      },
+      "meta": {
+        "visual_justification": "The decision depends on the burn extent calculated from the shaded diagram; the stem provides the protocol threshold but not the %TBSA.",
+        "derived_values_keyed": {
+          "tbsa_pct": 27
+        },
+        "source": "NCBI StatPearls Rule of Nines; NCBI StatPearls Parkland Formula",
+        "tier": "strictest",
+        "skill_signature": "burn:tbsa-threshold/formal-fluid-resuscitation",
+        "stem_disambiguators": [
+          "adult",
+          "20% TBSA protocol threshold stated in stem"
+        ]
+      },
+      "glossary": [
+        {
+          "termEn": "fluid resuscitation",
+          "termZh": "补液复苏",
+          "defZh": "通过静脉液体支持循环灌注和尿量的治疗措施。"
+        },
+        {
+          "termEn": "perfusion",
+          "termZh": "灌注",
+          "defZh": "血液向组织输送氧气和营养的过程。"
+        },
+        {
+          "termEn": "protocol threshold",
+          "termZh": "方案阈值",
+          "defZh": "机构方案中规定触发某项干预的最低条件。"
+        }
+      ]
+    },
+    {
+      "id": "burn_fib_parkland_total_posterior_03",
+      "itemType": "fill_in_blank",
+      "category": "Physiological Adaptation",
+      "topic": "burn Parkland total volume",
+      "difficulty": "hard",
+      "ngnSkill": "analyze_cues",
+      "stem": {
+        "en": "An 80 kg adult has the shaded deep partial- and full-thickness burns. Using the Parkland formula (4 mL × kg × %TBSA over the first 24 hours), calculate the total fluid volume in milliliters for the first 24 hours. Record the answer as a whole number.",
+        "zh": "一名80 kg成年人有图中阴影所示的深二度及三度烧伤。使用Parkland公式（4 mL × kg × %TBSA，在最初24小时内给予），计算最初24小时的总补液量（mL）。请以整数记录答案。"
+      },
+      "blanks": [
+        {
+          "id": "b1",
+          "prompt": {
+            "en": "mL in first 24 hours",
+            "zh": "最初24小时毫升数"
+          },
+          "acceptable": [
+            "10080",
+            "10,080"
+          ],
+          "numeric": {
+            "value": 10080,
+            "unit": "mL",
+            "tolerance": 0
+          }
+        }
+      ],
+      "rationale": {
+        "correct": {
+          "en": "The shaded regions are the posterior trunk (18%), posterior left leg (9%), and posterior right arm (4.5%), totaling 31.5% TBSA. Parkland total = 4 × 80 × 31.5 = 10,080 mL in the first 24 hours.",
+          "zh": "阴影区域为躯干后侧（18%）、左下肢后侧（9%）和右上肢后侧（4.5%），合计31.5% TBSA。Parkland总量 = 4 × 80 × 31.5 = 10,080 mL，用于最初24小时。"
+        },
+        "byChoice": [
+          {
+            "refId": "b1",
+            "en": "Add the shaded adult Rule-of-Nines regions first, then apply 4 mL × weight in kg × %TBSA.",
+            "zh": "先相加成人九分法中阴影区域，再套用 4 mL × 体重kg × %TBSA。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Keep 31.5 as 31.5, not 32. Rounding the TBSA before the formula can change a strict keyed calculation.",
+        "zh": "将31.5保留为31.5，不要先四舍五入为32。先对TBSA取整可能改变严格计分的计算答案。"
+      },
+      "visual": {
+        "kind": "burn_map",
+        "population": "adult",
+        "burns": [
+          "trunk_posterior",
+          "leg_l_posterior",
+          "arm_r_posterior"
+        ],
+        "caption": {
+          "en": "Adult burn diagram",
+          "zh": "成人烧伤示意图"
+        }
+      },
+      "meta": {
+        "visual_justification": "The total Parkland volume depends on the %TBSA from the shaded posterior trunk, leg, and arm regions; those regions are not named in the stem.",
+        "derived_values_keyed": {
+          "tbsa_pct": 32,
+          "parkland_total_ml": 10080
+        },
+        "weight_kg": 80,
+        "round": 0,
+        "source": "NCBI StatPearls Rule of Nines; NCBI StatPearls Parkland Formula",
+        "tier": "strictest",
+        "skill_signature": "burn:tbsa-parkland/total-volume",
+        "stem_disambiguators": [
+          "80 kg",
+          "4 mL × kg × %TBSA stated in stem"
+        ]
+      },
+      "glossary": [
+        {
+          "termEn": "Parkland formula",
+          "termZh": "Parkland公式",
+          "defZh": "用于估算严重烧伤最初24小时晶体液需求量的公式。"
+        },
+        {
+          "termEn": "posterior trunk",
+          "termZh": "躯干后侧",
+          "defZh": "成人九分法中背部躯干区域，占18%体表面积。"
+        },
+        {
+          "termEn": "crystalloid",
+          "termZh": "晶体液",
+          "defZh": "临床补液常用的电解质溶液，如乳酸林格液。"
+        }
+      ]
+    },
+    {
+      "id": "burn_fib_parkland_rate_arm_trunk_genitalia_04",
+      "itemType": "fill_in_blank",
+      "category": "Physiological Adaptation",
+      "topic": "burn Parkland first 8 hours rate",
+      "difficulty": "hard",
+      "ngnSkill": "analyze_cues",
+      "stem": {
+        "en": "A 60 kg adult is admitted with the shaded deep partial- and full-thickness burns. Using the Parkland formula (4 mL × kg × %TBSA, with half of the total volume infused over the first 8 hours), calculate the first-8-hour infusion rate in mL/hr. Record the answer as a whole number.",
+        "zh": "一名60 kg成年人因图中阴影所示的深二度及三度烧伤入院。使用Parkland公式（4 mL × kg × %TBSA，总量的一半在最初8小时内输注），计算最初8小时的输液速率（mL/hr）。请以整数记录答案。"
+      },
+      "blanks": [
+        {
+          "id": "b1",
+          "prompt": {
+            "en": "mL/hr",
+            "zh": "mL/hr"
+          },
+          "acceptable": [
+            "420",
+            "420 mL/hr"
+          ],
+          "numeric": {
+            "value": 420,
+            "unit": "mL/hr",
+            "tolerance": 0
+          }
+        }
+      ],
+      "rationale": {
+        "correct": {
+          "en": "Shaded regions: anterior trunk (18%) + entire left arm (4.5% anterior + 4.5% posterior) + genitalia (1%) = 28% TBSA. Parkland total = 4 × 60 × 28 = 6,720 mL. Half is 3,360 mL over the first 8 hours: 3,360 ÷ 8 = 420 mL/hr.",
+          "zh": "阴影区域：躯干前侧（18%）+ 整个左上肢（前侧4.5% + 后侧4.5%）+ 会阴/生殖器（1%）= 28% TBSA。Parkland总量 = 4 × 60 × 28 = 6,720 mL。一半为3,360 mL，在最初8小时内输注：3,360 ÷ 8 = 420 mL/hr。"
+        },
+        "byChoice": [
+          {
+            "refId": "b1",
+            "en": "Calculate TBSA from the shaded regions, calculate the 24-hour Parkland total, take half, then divide by 8 hours.",
+            "zh": "先根据阴影区域计算TBSA，再计算24小时Parkland总量，取一半后除以8小时。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "For first-8-hour rate questions, do not stop at the total. Parkland asks for half of the total over the first 8 hours.",
+        "zh": "遇到最初8小时速率题时，不要停在总量。Parkland要求最初8小时给予总量的一半。"
+      },
+      "visual": {
+        "kind": "burn_map",
+        "population": "adult",
+        "burns": [
+          "trunk_anterior",
+          "arm_l_anterior",
+          "arm_l_posterior",
+          "genitalia"
+        ],
+        "caption": {
+          "en": "Adult burn diagram",
+          "zh": "成人烧伤示意图"
+        }
+      },
+      "meta": {
+        "visual_justification": "The infusion rate requires the %TBSA from the shaded diagram; the stem provides weight and formula timing but not the burned regions or total.",
+        "derived_values_keyed": {
+          "tbsa_pct": 28,
+          "parkland_total_ml": 6720,
+          "parkland_first8h_ml": 3360,
+          "parkland_rate_first8h_ml_hr": 420
+        },
+        "weight_kg": 60,
+        "round": 0,
+        "source": "NCBI StatPearls Rule of Nines; NCBI StatPearls Parkland Formula",
+        "tier": "strictest",
+        "skill_signature": "burn:tbsa-parkland/first8h-rate",
+        "stem_disambiguators": [
+          "60 kg",
+          "4 mL × kg × %TBSA stated in stem",
+          "half over first 8 hours stated in stem"
+        ]
+      },
+      "glossary": [
+        {
+          "termEn": "first 8 hours",
+          "termZh": "最初8小时",
+          "defZh": "Parkland公式中从烧伤发生时间开始计算的早期补液阶段。"
+        },
+        {
+          "termEn": "infusion rate",
+          "termZh": "输液速率",
+          "defZh": "每小时应输注的液体量，常以mL/hr表示。"
+        },
+        {
+          "termEn": "genitalia",
+          "termZh": "会阴/生殖器区域",
+          "defZh": "成人九分法中占1%体表面积的区域。"
+        }
+      ]
+    },
+    {
+      "id": "burn_matrix_parkland_values_05",
+      "itemType": "matrix",
+      "category": "Reduction of Risk Potential",
+      "topic": "burn Parkland calculation verification",
+      "difficulty": "hard",
+      "ngnSkill": "evaluate_outcomes",
+      "stem": {
+        "en": "A nurse checks another nurse's burn-resuscitation worksheet for a 72 kg adult. The shaded diagram shows the client's deep partial- and full-thickness burns. The worksheet uses the Parkland formula (4 mL × kg × %TBSA, with half over the first 8 hours). For each worksheet entry, select whether it is correct or incorrect.",
+        "zh": "护士核对另一名护士为一名72 kg成年患者填写的烧伤补液复苏计算表。图中阴影显示患者的深二度及三度烧伤。该计算表使用Parkland公式（4 mL × kg × %TBSA，最初8小时给予一半）。请判断每个计算表条目是正确还是错误。"
+      },
+      "matrix": {
+        "rows": [
+          {
+            "id": "r1",
+            "en": "TBSA: 31.5%",
+            "zh": "TBSA：31.5%"
+          },
+          {
+            "id": "r2",
+            "en": "Total Parkland volume: 9,072 mL",
+            "zh": "Parkland总量：9,072 mL"
+          },
+          {
+            "id": "r3",
+            "en": "First-8-hour volume: 4,536 mL",
+            "zh": "最初8小时补液量：4,536 mL"
+          },
+          {
+            "id": "r4",
+            "en": "First-8-hour rate: 454 mL/hr",
+            "zh": "最初8小时速率：454 mL/hr"
+          }
+        ],
+        "columns": [
+          {
+            "id": "c1",
+            "en": "Correct",
+            "zh": "正确"
+          },
+          {
+            "id": "c2",
+            "en": "Incorrect",
+            "zh": "错误"
+          }
+        ],
+        "selectionMode": "single_per_row"
+      },
+      "correct": [
+        {
+          "rowId": "r1",
+          "columnIds": [
+            "c1"
+          ]
+        },
+        {
+          "rowId": "r2",
+          "columnIds": [
+            "c1"
+          ]
+        },
+        {
+          "rowId": "r3",
+          "columnIds": [
+            "c1"
+          ]
+        },
+        {
+          "rowId": "r4",
+          "columnIds": [
+            "c2"
+          ]
+        }
+      ],
+      "rationale": {
+        "correct": {
+          "en": "The shaded regions are the whole head (9%), posterior trunk (18%), and anterior right arm (4.5%) = 31.5% TBSA. Total Parkland volume = 4 × 72 × 31.5 = 9,072 mL. Half is 4,536 mL over the first 8 hours. The first-8-hour rate is 4,536 ÷ 8 = 567 mL/hr, so 454 mL/hr is incorrect.",
+          "zh": "阴影区域为整个头部（9%）、躯干后侧（18%）和右上肢前侧（4.5%）= 31.5% TBSA。Parkland总量 = 4 × 72 × 31.5 = 9,072 mL。一半为4,536 mL，在最初8小时内输注。最初8小时速率为 4,536 ÷ 8 = 567 mL/hr，因此454 mL/hr错误。"
+        },
+        "byChoice": [
+          {
+            "refId": "r1",
+            "en": "Correct: 9% + 18% + 4.5% = 31.5% TBSA.",
+            "zh": "正确：9% + 18% + 4.5% = 31.5% TBSA。"
+          },
+          {
+            "refId": "r2",
+            "en": "Correct: 4 × 72 × 31.5 = 9,072 mL.",
+            "zh": "正确：4 × 72 × 31.5 = 9,072 mL。"
+          },
+          {
+            "refId": "r3",
+            "en": "Correct: half of 9,072 mL is 4,536 mL.",
+            "zh": "正确：9,072 mL的一半为4,536 mL。"
+          },
+          {
+            "refId": "r4",
+            "en": "Incorrect: 4,536 mL over 8 hours is 567 mL/hr, not 454 mL/hr.",
+            "zh": "错误：4,536 mL分8小时输注为567 mL/hr，不是454 mL/hr。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "In matrix calculations, verify each row independently. One correct worksheet value does not make the next row correct.",
+        "zh": "矩阵计算题要逐行独立核对。一个计算表数值正确并不代表下一行也正确。"
+      },
+      "visual": {
+        "kind": "burn_map",
+        "population": "adult",
+        "burns": [
+          "head_anterior",
+          "head_posterior",
+          "trunk_posterior",
+          "arm_r_anterior"
+        ],
+        "caption": {
+          "en": "Adult burn diagram",
+          "zh": "成人烧伤示意图"
+        }
+      },
+      "meta": {
+        "visual_justification": "Each worksheet entry can only be verified after calculating %TBSA from the shaded burn regions on the visual.",
+        "derived_values_keyed": {
+          "tbsa_pct": 32,
+          "parkland_total_ml": 9072,
+          "parkland_first8h_ml": 4536,
+          "parkland_rate_first8h_ml_hr": 567
+        },
+        "weight_kg": 72,
+        "round": 0,
+        "source": "NCBI StatPearls Rule of Nines; NCBI StatPearls Parkland Formula",
+        "tier": "strictest",
+        "skill_signature": "burn:tbsa-parkland/worksheet-verification",
+        "stem_disambiguators": [
+          "72 kg",
+          "4 mL × kg × %TBSA stated in stem",
+          "half over first 8 hours stated in stem"
+        ]
+      },
+      "glossary": [
+        {
+          "termEn": "worksheet verification",
+          "termZh": "计算表核对",
+          "defZh": "逐项确认记录或计算是否与原始资料和公式一致。"
+        },
+        {
+          "termEn": "full-thickness burn",
+          "termZh": "三度烧伤",
+          "defZh": "累及全层皮肤的烧伤，通常纳入严重烧伤面积估算。"
+        },
+        {
+          "termEn": "monitor response",
+          "termZh": "监测反应",
+          "defZh": "根据尿量、灌注和生命体征等指标调整治疗。"
+        }
+      ]
+    },
+    {
+      "id": "burn_sata_parkland_chain_06",
+      "itemType": "select_all",
+      "category": "Physiological Adaptation",
+      "topic": "burn Parkland calculation chain",
+      "difficulty": "hard",
+      "ngnSkill": "analyze_cues",
+      "stem": {
+        "en": "A 90 kg adult has the shaded deep partial- and full-thickness burns. Using the Parkland formula (4 mL × kg × %TBSA, with half over the first 8 hours), which statements are correct? Select all that apply.",
+        "zh": "一名90 kg成年人有图中阴影所示的深二度及三度烧伤。使用Parkland公式（4 mL × kg × %TBSA，最初8小时给予一半），哪些说法正确？选择所有适用项。"
+      },
+      "options": [
+        {
+          "id": "D",
+          "en": "The first-8-hour rate rounds to 709 mL/hr.",
+          "zh": "最初8小时速率四舍五入为709 mL/hr。"
+        },
+        {
+          "id": "C",
+          "en": "The first-8-hour volume is 5,670 mL.",
+          "zh": "最初8小时补液量为5,670 mL。"
+        },
+        {
+          "id": "B",
+          "en": "The total Parkland volume is 11,340 mL.",
+          "zh": "Parkland总量为11,340 mL。"
+        },
+        {
+          "id": "E",
+          "en": "The burn size is 22.5% TBSA.",
+          "zh": "烧伤面积为22.5% TBSA。"
+        },
+        {
+          "id": "A",
+          "en": "The burn size is 31.5% TBSA.",
+          "zh": "烧伤面积为31.5% TBSA。"
+        },
+        {
+          "id": "F",
+          "en": "The first-8-hour volume is 11,340 mL.",
+          "zh": "最初8小时补液量为11,340 mL。"
+        }
+      ],
+      "correct": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "rationale": {
+        "correct": {
+          "en": "The shaded regions are the anterior trunk (18%), anterior head (4.5%), anterior left arm (4.5%), and anterior right arm (4.5%) = 31.5% TBSA. Total Parkland volume = 4 × 90 × 31.5 = 11,340 mL. Half over the first 8 hours is 5,670 mL. The rate is 5,670 ÷ 8 = 708.75 mL/hr, which rounds to 709 mL/hr.",
+          "zh": "阴影区域为躯干前侧（18%）、头部前侧（4.5%）、左上肢前侧（4.5%）和右上肢前侧（4.5%）= 31.5% TBSA。Parkland总量 = 4 × 90 × 31.5 = 11,340 mL。最初8小时给予一半，即5,670 mL。速率为 5,670 ÷ 8 = 708.75 mL/hr，四舍五入为709 mL/hr。"
+        },
+        "byChoice": [
+          {
+            "refId": "B",
+            "en": "Correct: 4 × 90 × 31.5 = 11,340 mL.",
+            "zh": "正确：4 × 90 × 31.5 = 11,340 mL。"
+          },
+          {
+            "refId": "C",
+            "en": "Correct: the first-8-hour amount is half of 11,340 mL, or 5,670 mL.",
+            "zh": "正确：最初8小时补液量为11,340 mL的一半，即5,670 mL。"
+          },
+          {
+            "refId": "F",
+            "en": "Incorrect: 11,340 mL is the 24-hour total, not the first-8-hour volume.",
+            "zh": "错误：11,340 mL是24小时总量，不是最初8小时补液量。"
+          },
+          {
+            "refId": "D",
+            "en": "Correct: 5,670 ÷ 8 = 708.75 mL/hr, which rounds to 709 mL/hr.",
+            "zh": "正确：5,670 ÷ 8 = 708.75 mL/hr，四舍五入为709 mL/hr。"
+          },
+          {
+            "refId": "A",
+            "en": "Correct: 18 + 4.5 + 4.5 + 4.5 = 31.5% TBSA.",
+            "zh": "正确：18 + 4.5 + 4.5 + 4.5 = 31.5% TBSA。"
+          },
+          {
+            "refId": "E",
+            "en": "Incorrect: 22.5% leaves out one or more shaded 4.5% regions.",
+            "zh": "错误：22.5%漏算了一个或多个阴影4.5%区域。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "For select-all calculation chains, separate the chain into TBSA, total volume, first-half volume, and hourly rate.",
+        "zh": "选择所有适用的计算链题时，将计算拆成TBSA、总量、前一半补液量和每小时速率。"
+      },
+      "visual": {
+        "kind": "burn_map",
+        "population": "adult",
+        "burns": [
+          "trunk_anterior",
+          "head_anterior",
+          "arm_l_anterior",
+          "arm_r_anterior"
+        ],
+        "caption": {
+          "en": "Adult burn diagram",
+          "zh": "成人烧伤示意图"
+        }
+      },
+      "meta": {
+        "visual_justification": "All correct statements depend on reading the shaded adult Rule-of-Nines regions; the stem gives only weight and formula.",
+        "derived_values_keyed": {
+          "tbsa_pct": 32,
+          "parkland_total_ml": 11340,
+          "parkland_first8h_ml": 5670,
+          "parkland_rate_first8h_ml_hr": 709
+        },
+        "weight_kg": 90,
+        "round": 0,
+        "source": "NCBI StatPearls Rule of Nines; NCBI StatPearls Parkland Formula",
+        "tier": "strictest",
+        "skill_signature": "burn:tbsa-parkland/multi-step-chain",
+        "stem_disambiguators": [
+          "90 kg",
+          "4 mL × kg × %TBSA stated in stem",
+          "half over first 8 hours stated in stem"
+        ]
+      },
+      "glossary": [
+        {
+          "termEn": "rounding",
+          "termZh": "四舍五入",
+          "defZh": "按题目要求将小数结果转换为指定精度。"
+        },
+        {
+          "termEn": "24-hour total",
+          "termZh": "24小时总量",
+          "defZh": "Parkland公式计算出的最初24小时总液体量。"
+        },
+        {
+          "termEn": "hourly rate",
+          "termZh": "每小时速率",
+          "defZh": "将指定时间段的液体量除以小时数得到的输液速度。"
+        }
+      ]
+    },
+    {
+      "id": "burn_mc_posterior_tbsa_07",
+      "itemType": "multiple_choice",
+      "category": "Reduction of Risk Potential",
+      "topic": "adult burn posterior surface TBSA",
+      "difficulty": "medium",
+      "ngnSkill": "analyze_cues",
+      "stem": {
+        "en": "An adult client has the shaded deep partial- and full-thickness burns on the diagram. What burn size should the nurse document?",
+        "zh": "一名成年患者有图中阴影所示的深二度及三度烧伤。护士应记录的烧伤面积是多少？"
+      },
+      "options": [
+        {
+          "id": "C",
+          "en": "36% TBSA",
+          "zh": "36% TBSA"
+        },
+        {
+          "id": "B",
+          "en": "27% TBSA",
+          "zh": "27% TBSA"
+        },
+        {
+          "id": "A",
+          "en": "18% TBSA",
+          "zh": "18% TBSA"
+        },
+        {
+          "id": "D",
+          "en": "45% TBSA",
+          "zh": "45% TBSA"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "rationale": {
+        "correct": {
+          "en": "The shaded regions are the posterior trunk (18%), posterior left leg (9%), and posterior right leg (9%). The total is 18 + 9 + 9 = 36% TBSA.",
+          "zh": "阴影区域为躯干后侧（18%）、左下肢后侧（9%）和右下肢后侧（9%）。合计为 18 + 9 + 9 = 36% TBSA。"
+        },
+        "byChoice": [
+          {
+            "refId": "C",
+            "en": "This correctly adds posterior trunk 18% plus both posterior legs 9% each.",
+            "zh": "这正确相加躯干后侧18%和两侧下肢后侧各9%。"
+          },
+          {
+            "refId": "D",
+            "en": "This overcounts by adding an extra 9% region that is not shaded.",
+            "zh": "这多加了一个未阴影的9%区域。"
+          },
+          {
+            "refId": "A",
+            "en": "This counts only the posterior trunk and omits both shaded posterior legs.",
+            "zh": "这只计算了躯干后侧，漏掉了两侧阴影下肢后侧。"
+          },
+          {
+            "refId": "B",
+            "en": "This omits one shaded posterior leg.",
+            "zh": "这漏算了一侧阴影下肢后侧。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Posterior and anterior surfaces are separate. Count only the visible shaded surface named in the visual.",
+        "zh": "后侧和前侧表面是分开计算的。只计算图示中被阴影标出的表面。"
+      },
+      "visual": {
+        "kind": "burn_map",
+        "population": "adult",
+        "burns": [
+          "trunk_posterior",
+          "leg_l_posterior",
+          "leg_r_posterior"
+        ],
+        "caption": {
+          "en": "Adult burn diagram",
+          "zh": "成人烧伤示意图"
+        }
+      },
+      "meta": {
+        "visual_justification": "The answer is determined entirely by the shaded posterior surfaces on the burn diagram; the stem does not identify the regions.",
+        "derived_values_keyed": {
+          "tbsa_pct": 36
+        },
+        "source": "NCBI StatPearls Rule of Nines; Minnesota Department of Health Rule of Nines Adults",
+        "tier": "strictest",
+        "skill_signature": "burn:tbsa/posterior-surface-sum",
+        "stem_disambiguators": [
+          "adult",
+          "posterior shaded regions"
+        ]
+      },
+      "glossary": [
+        {
+          "termEn": "posterior",
+          "termZh": "后侧",
+          "defZh": "身体背面或后方的表面。"
+        },
+        {
+          "termEn": "anterior",
+          "termZh": "前侧",
+          "defZh": "身体正面或前方的表面。"
+        },
+        {
+          "termEn": "document",
+          "termZh": "记录",
+          "defZh": "在病历中准确写下评估结果或护理措施。"
+        }
+      ]
+    },
+    {
+      "id": "burn_fib_parkland_first8h_leg_arm_08",
+      "itemType": "fill_in_blank",
+      "category": "Physiological Adaptation",
+      "topic": "burn Parkland first 8 hours volume",
+      "difficulty": "hard",
+      "ngnSkill": "analyze_cues",
+      "stem": {
+        "en": "A 75 kg adult has the shaded deep partial- and full-thickness burns. Using the Parkland formula (4 mL × kg × %TBSA, with half of the total volume given in the first 8 hours), how many milliliters should be infused in the first 8 hours? Record the answer as a whole number.",
+        "zh": "一名75 kg成年人有图中阴影所示的深二度及三度烧伤。使用Parkland公式（4 mL × kg × %TBSA，总量的一半在最初8小时给予），最初8小时应输注多少毫升？请以整数记录答案。"
+      },
+      "blanks": [
+        {
+          "id": "b1",
+          "prompt": {
+            "en": "mL in first 8 hours",
+            "zh": "最初8小时毫升数"
+          },
+          "acceptable": [
+            "3375",
+            "3,375"
+          ],
+          "numeric": {
+            "value": 3375,
+            "unit": "mL",
+            "tolerance": 0
+          }
+        }
+      ],
+      "rationale": {
+        "correct": {
+          "en": "The shaded regions are the entire left leg (9% anterior + 9% posterior = 18%) and anterior right arm (4.5%), totaling 22.5% TBSA. Parkland total = 4 × 75 × 22.5 = 6,750 mL. Half is given in the first 8 hours: 6,750 ÷ 2 = 3,375 mL.",
+          "zh": "阴影区域为整个左下肢（前侧9% + 后侧9% = 18%）和右上肢前侧（4.5%），合计22.5% TBSA。Parkland总量 = 4 × 75 × 22.5 = 6,750 mL。最初8小时给予一半：6,750 ÷ 2 = 3,375 mL。"
+        },
+        "byChoice": [
+          {
+            "refId": "b1",
+            "en": "The blank asks for first-8-hour volume, so calculate the total Parkland volume and divide by 2, not by 8.",
+            "zh": "空格询问最初8小时补液量，因此先计算Parkland总量再除以2，而不是除以8。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Read the unit carefully: mL for the first 8 hours is a volume; mL/hr would require one more step.",
+        "zh": "仔细看单位：最初8小时的mL是总量；若是mL/hr则还需要再做一步计算。"
+      },
+      "visual": {
+        "kind": "burn_map",
+        "population": "adult",
+        "burns": [
+          "leg_l_anterior",
+          "leg_l_posterior",
+          "arm_r_anterior"
+        ],
+        "caption": {
+          "en": "Adult burn diagram",
+          "zh": "成人烧伤示意图"
+        }
+      },
+      "meta": {
+        "visual_justification": "The first-8-hour volume depends on the %TBSA from the shaded leg and arm regions, which the stem does not state.",
+        "derived_values_keyed": {
+          "tbsa_pct": 23,
+          "parkland_total_ml": 6750,
+          "parkland_first8h_ml": 3375
+        },
+        "weight_kg": 75,
+        "round": 0,
+        "source": "NCBI StatPearls Rule of Nines; NCBI StatPearls Parkland Formula",
+        "tier": "strictest",
+        "skill_signature": "burn:tbsa-parkland/first8h-volume",
+        "stem_disambiguators": [
+          "75 kg",
+          "4 mL × kg × %TBSA stated in stem",
+          "half over first 8 hours stated in stem"
+        ]
+      },
+      "glossary": [
+        {
+          "termEn": "first-8-hour volume",
+          "termZh": "最初8小时补液量",
+          "defZh": "Parkland公式总量的一半，应在烧伤后最初8小时内给予。"
+        },
+        {
+          "termEn": "volume",
+          "termZh": "容量",
+          "defZh": "一定时间内应给予的液体总毫升数。"
+        },
+        {
+          "termEn": "mL/hr",
+          "termZh": "毫升/小时",
+          "defZh": "每小时输注多少毫升的速率单位。"
+        }
+      ]
+    }
+  ]
+}

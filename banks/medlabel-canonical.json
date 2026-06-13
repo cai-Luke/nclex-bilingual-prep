@@ -1,0 +1,955 @@
+{
+  "meta": {
+    "schemaVersion": "1.2",
+    "exam": "NCLEX-RN",
+    "topic": "medication_label visual smoke batch",
+    "category": "Pharmacological and Parenteral Therapies",
+    "difficulty": "mixed",
+    "count": 8
+  },
+  "questions": [
+    {
+      "id": "medlbl_heparin_infusion_rate_001",
+      "itemType": "fill_in_blank",
+      "category": "Pharmacological and Parenteral Therapies",
+      "topic": "heparin infusion calculation",
+      "difficulty": "hard",
+      "ngnSkill": "take_action",
+      "stem": {
+        "en": "A provider orders a heparin infusion at 1200 units/hour. Using the medication label shown, what rate should the nurse set on the infusion pump? Record your answer in milliliters per hour (mL/hr).",
+        "zh": "医嘱开具肝素输注速率为1200单位/小时。根据所示药物标签，护士应将输液泵设置为多少？以毫升/小时（mL/hr）记录答案。"
+      },
+      "blanks": [
+        {
+          "id": "b1",
+          "prompt": {
+            "en": "mL/hr",
+            "zh": "毫升/小时"
+          },
+          "acceptable": [
+            "12",
+            "12 mL/hr"
+          ],
+          "numeric": {
+            "value": 12,
+            "unit": "mL/hr",
+            "tolerance": 0
+          }
+        }
+      ],
+      "rationale": {
+        "correct": {
+          "en": "The label contains 25,000 units in 250 mL, so the concentration is 25,000 ÷ 250 = 100 units/mL. To deliver 1200 units/hour, divide 1200 by 100: 12 mL/hr.",
+          "zh": "标签显示250 mL中含25,000单位，因此浓度为25,000 ÷ 250 = 100单位/mL。要输注1200单位/小时，用1200除以100，得到12 mL/hr。"
+        },
+        "byChoice": [
+          {
+            "refId": "b1",
+            "en": "The pump rate is the ordered hourly dose divided by the concentration read from the label.",
+            "zh": "输液泵速率等于医嘱每小时剂量除以从标签读取并计算出的浓度。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Reduce the label to units per mL first, then divide the ordered hourly units by that concentration.",
+        "zh": "先把标签换算成每mL多少单位，再用医嘱每小时单位数除以该浓度。"
+      },
+      "glossary": [
+        {
+          "termEn": "heparin",
+          "termZh": "肝素",
+          "defZh": "一种抗凝药，用于预防或治疗血栓形成。"
+        },
+        {
+          "termEn": "infusion pump",
+          "termZh": "输液泵",
+          "defZh": "用于按设定速率输注液体或药物的设备。"
+        },
+        {
+          "termEn": "concentration",
+          "termZh": "浓度",
+          "defZh": "单位体积中所含药物的量。"
+        }
+      ],
+      "visual": {
+        "kind": "medication_label",
+        "drugName": "Heparin Sodium",
+        "amount": 25000,
+        "amountUnit": "units",
+        "perQty": 250,
+        "perUnit": "mL",
+        "showDerivedConcentration": false,
+        "fields": [
+          {
+            "label": "Diluent",
+            "value": "D5W"
+          }
+        ],
+        "caption": {
+          "en": "Heparin premix label",
+          "zh": "肝素预混液标签"
+        }
+      },
+      "meta": {
+        "visual_justification": "The pump rate depends on the label strength of 25,000 units per 250 mL, which is shown only on the medication label and not stated in the stem.",
+        "derived_values_keyed": {
+          "concentration_per_ml": 100,
+          "rate_ml_per_hr": 12
+        },
+        "order": {
+          "kind": "dose_rate",
+          "value": 1200,
+          "unit": "units",
+          "round": 0
+        },
+        "source": "ISMP High-Alert Medications in Acute Care Settings; DailyMed heparin sodium injection labeling",
+        "tier": "strictest",
+        "skill_signature": "medlbl:concentration/heparin-rate",
+        "stem_disambiguators": [
+          "1200 units/hour order",
+          "pump rate in mL/hr"
+        ]
+      }
+    },
+    {
+      "id": "medlbl_morphine_iv_volume_002",
+      "itemType": "multiple_choice",
+      "category": "Pharmacological and Parenteral Therapies",
+      "topic": "opioid dose volume calculation",
+      "difficulty": "medium",
+      "ngnSkill": "take_action",
+      "stem": {
+        "en": "A provider orders morphine sulfate 4 mg IV now for severe postoperative pain. Using the medication label shown, how many milliliters should the nurse prepare?",
+        "zh": "医嘱为术后重度疼痛患者立即静脉给予硫酸吗啡4 mg。根据所示药物标签，护士应准备多少毫升？"
+      },
+      "options": [
+        {
+          "id": "B",
+          "en": "0.4 mL",
+          "zh": "0.4 mL"
+        },
+        {
+          "id": "A",
+          "en": "0.2 mL",
+          "zh": "0.2 mL"
+        },
+        {
+          "id": "D",
+          "en": "2 mL",
+          "zh": "2 mL"
+        },
+        {
+          "id": "C",
+          "en": "1 mL",
+          "zh": "1 mL"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "rationale": {
+        "correct": {
+          "en": "The label strength is 10 mg per 1 mL, or 10 mg/mL. The ordered dose is 4 mg, so 4 ÷ 10 = 0.4 mL.",
+          "zh": "标签规格为1 mL含10 mg，即10 mg/mL。医嘱剂量为4 mg，因此4 ÷ 10 = 0.4 mL。"
+        },
+        "byChoice": [
+          {
+            "refId": "D",
+            "en": "2 mL would deliver 20 mg, a large overdose.",
+            "zh": "2 mL会给药20 mg，属于明显超量。"
+          },
+          {
+            "refId": "A",
+            "en": "0.2 mL would deliver only 2 mg at 10 mg/mL.",
+            "zh": "按10 mg/mL计算，0.2 mL只会给药2 mg。"
+          },
+          {
+            "refId": "B",
+            "en": "0.4 mL delivers the ordered 4 mg dose.",
+            "zh": "0.4 mL可给到医嘱的4 mg剂量。"
+          },
+          {
+            "refId": "C",
+            "en": "1 mL would deliver 10 mg, more than the order.",
+            "zh": "1 mL会给药10 mg，超过医嘱剂量。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "For dose-volume questions, use desired dose divided by available concentration.",
+        "zh": "剂量-体积题使用“所需剂量 ÷ 可用浓度”。"
+      },
+      "glossary": [
+        {
+          "termEn": "morphine sulfate",
+          "termZh": "硫酸吗啡",
+          "defZh": "一种阿片类镇痛药，可引起镇静和呼吸抑制等风险。"
+        },
+        {
+          "termEn": "IV",
+          "termZh": "静脉给药",
+          "defZh": "将药物通过静脉途径给入体内。"
+        },
+        {
+          "termEn": "overdose",
+          "termZh": "药物过量",
+          "defZh": "给药剂量超过安全或医嘱剂量。"
+        }
+      ],
+      "visual": {
+        "kind": "medication_label",
+        "drugName": "Morphine Sulfate Injection",
+        "amount": 10,
+        "amountUnit": "mg",
+        "perQty": 1,
+        "perUnit": "mL",
+        "showDerivedConcentration": false,
+        "fields": [
+          {
+            "label": "Use",
+            "value": "Single-dose vial"
+          }
+        ],
+        "caption": {
+          "en": "Morphine vial label",
+          "zh": "吗啡小瓶标签"
+        }
+      },
+      "meta": {
+        "visual_justification": "The correct volume depends on the vial strength, which appears only on the medication label and is not stated in the stem.",
+        "derived_values_keyed": {
+          "concentration_per_ml": 10,
+          "volume_to_administer_ml": 0.4
+        },
+        "order": {
+          "kind": "dose",
+          "value": 4,
+          "unit": "mg",
+          "round": 1
+        },
+        "source": "ISMP High-Alert Medications in Acute Care Settings; DailyMed morphine sulfate injection labeling",
+        "tier": "strictest",
+        "skill_signature": "medlbl:concentration/opioid-volume",
+        "stem_disambiguators": [
+          "4 mg IV order",
+          "prepare volume in mL"
+        ]
+      }
+    },
+    {
+      "id": "medlbl_potassium_chloride_rate_003",
+      "itemType": "fill_in_blank",
+      "category": "Pharmacological and Parenteral Therapies",
+      "topic": "potassium chloride infusion calculation",
+      "difficulty": "hard",
+      "ngnSkill": "take_action",
+      "stem": {
+        "en": "A provider orders potassium chloride IV at 10 mEq/hour. Using the premixed medication label shown, what rate should the nurse set on the infusion pump? Record your answer in milliliters per hour (mL/hr).",
+        "zh": "医嘱为静脉输注氯化钾10 mEq/小时。根据所示预混药物标签，护士应将输液泵设置为多少？以毫升/小时（mL/hr）记录答案。"
+      },
+      "blanks": [
+        {
+          "id": "b1",
+          "prompt": {
+            "en": "mL/hr",
+            "zh": "毫升/小时"
+          },
+          "acceptable": [
+            "50",
+            "50 mL/hr"
+          ],
+          "numeric": {
+            "value": 50,
+            "unit": "mL/hr",
+            "tolerance": 0
+          }
+        }
+      ],
+      "rationale": {
+        "correct": {
+          "en": "The premix contains 20 mEq in 100 mL, so the concentration is 20 ÷ 100 = 0.2 mEq/mL. To infuse 10 mEq/hour: 10 ÷ 0.2 = 50 mL/hr.",
+          "zh": "预混液100 mL中含20 mEq，因此浓度为20 ÷ 100 = 0.2 mEq/mL。要输注10 mEq/小时：10 ÷ 0.2 = 50 mL/hr。"
+        },
+        "byChoice": [
+          {
+            "refId": "b1",
+            "en": "The hourly rate is obtained by dividing the ordered mEq/hour by the mEq per mL from the label.",
+            "zh": "每小时速率等于医嘱mEq/小时除以标签换算出的每mL所含mEq。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Keep mEq as the dose unit. Do not convert units; convert only the label amount into mEq per mL.",
+        "zh": "保持mEq为剂量单位，不做跨单位换算；只把标签换算成每mL含多少mEq。"
+      },
+      "glossary": [
+        {
+          "termEn": "potassium chloride",
+          "termZh": "氯化钾",
+          "defZh": "用于补钾的电解质药物，静脉给药需严格控制。"
+        },
+        {
+          "termEn": "mEq",
+          "termZh": "毫当量",
+          "defZh": "表示电解质剂量的单位。"
+        },
+        {
+          "termEn": "premix",
+          "termZh": "预混液",
+          "defZh": "厂家或药房已配制成固定浓度的输注液。"
+        }
+      ],
+      "visual": {
+        "kind": "medication_label",
+        "drugName": "Potassium Chloride in 0.9% Sodium Chloride",
+        "amount": 20,
+        "amountUnit": "mEq",
+        "perQty": 100,
+        "perUnit": "mL",
+        "showDerivedConcentration": false,
+        "fields": [
+          {
+            "label": "Administration",
+            "value": "For IV infusion"
+          }
+        ],
+        "caption": {
+          "en": "Potassium chloride premix label",
+          "zh": "氯化钾预混液标签"
+        }
+      },
+      "meta": {
+        "visual_justification": "The infusion rate depends on the premix strength, which is shown only on the medication label and not stated in the stem.",
+        "derived_values_keyed": {
+          "rate_ml_per_hr": 50
+        },
+        "order": {
+          "kind": "dose_rate",
+          "value": 10,
+          "unit": "mEq",
+          "round": 0
+        },
+        "source": "ISMP High-Alert Medications in Acute Care Settings; DailyMed potassium chloride injection labeling",
+        "tier": "strictest",
+        "skill_signature": "medlbl:concentration/kcl-rate",
+        "stem_disambiguators": [
+          "10 mEq/hour order",
+          "premixed IV label"
+        ]
+      }
+    },
+    {
+      "id": "medlbl_enoxaparin_volume_004",
+      "itemType": "multiple_choice",
+      "category": "Pharmacological and Parenteral Therapies",
+      "topic": "subcutaneous anticoagulant dose volume",
+      "difficulty": "medium",
+      "ngnSkill": "take_action",
+      "stem": {
+        "en": "A provider orders enoxaparin 40 mg subcutaneously once daily. Using the medication label shown, how many milliliters should the nurse administer?",
+        "zh": "医嘱为依诺肝素40 mg皮下注射，每日一次。根据所示药物标签，护士应给药多少毫升？"
+      },
+      "options": [
+        {
+          "id": "B",
+          "en": "0.4 mL",
+          "zh": "0.4 mL"
+        },
+        {
+          "id": "A",
+          "en": "0.2 mL",
+          "zh": "0.2 mL"
+        },
+        {
+          "id": "C",
+          "en": "1 mL",
+          "zh": "1 mL"
+        },
+        {
+          "id": "D",
+          "en": "4 mL",
+          "zh": "4 mL"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "rationale": {
+        "correct": {
+          "en": "The label concentration is 100 mg/mL. The ordered dose is 40 mg, so 40 ÷ 100 = 0.4 mL.",
+          "zh": "标签浓度为100 mg/mL。医嘱剂量为40 mg，因此40 ÷ 100 = 0.4 mL。"
+        },
+        "byChoice": [
+          {
+            "refId": "D",
+            "en": "4 mL would deliver 400 mg and is not consistent with the order.",
+            "zh": "4 mL会给药400 mg，与医嘱不符。"
+          },
+          {
+            "refId": "A",
+            "en": "0.2 mL would deliver 20 mg.",
+            "zh": "0.2 mL会给药20 mg。"
+          },
+          {
+            "refId": "B",
+            "en": "0.4 mL delivers 40 mg from a 100 mg/mL label.",
+            "zh": "按100 mg/mL计算，0.4 mL可给药40 mg。"
+          },
+          {
+            "refId": "C",
+            "en": "1 mL would deliver 100 mg.",
+            "zh": "1 mL会给药100 mg。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "When the label is a simple mg/mL concentration, divide the ordered mg by mg per mL.",
+        "zh": "当标签为简单的mg/mL浓度时，用医嘱mg数除以每mL的mg数。"
+      },
+      "glossary": [
+        {
+          "termEn": "enoxaparin",
+          "termZh": "依诺肝素",
+          "defZh": "一种低分子肝素类抗凝药，常用于血栓预防或治疗。"
+        },
+        {
+          "termEn": "subcutaneous",
+          "termZh": "皮下注射",
+          "defZh": "将药物注入皮下组织的给药途径。"
+        },
+        {
+          "termEn": "anticoagulant",
+          "termZh": "抗凝药",
+          "defZh": "降低血液凝固倾向的药物。"
+        }
+      ],
+      "visual": {
+        "kind": "medication_label",
+        "drugName": "Enoxaparin Sodium Injection",
+        "amount": 100,
+        "amountUnit": "mg",
+        "perQty": 1,
+        "perUnit": "mL",
+        "showDerivedConcentration": false,
+        "fields": [
+          {
+            "label": "Route",
+            "value": "Subcutaneous use"
+          }
+        ],
+        "caption": {
+          "en": "Enoxaparin vial label",
+          "zh": "依诺肝素标签"
+        }
+      },
+      "meta": {
+        "visual_justification": "The injection volume depends on the label concentration, which appears only on the medication label and not in the stem.",
+        "derived_values_keyed": {
+          "concentration_per_ml": 100,
+          "volume_to_administer_ml": 0.4
+        },
+        "order": {
+          "kind": "dose",
+          "value": 40,
+          "unit": "mg",
+          "round": 1
+        },
+        "source": "DailyMed Lovenox/enoxaparin sodium injection labeling; ISMP High-Alert Medications in Acute Care Settings",
+        "tier": "strictest",
+        "skill_signature": "medlbl:concentration/enoxaparin-volume",
+        "stem_disambiguators": [
+          "40 mg subcutaneous order"
+        ]
+      }
+    },
+    {
+      "id": "medlbl_digoxin_tablets_005",
+      "itemType": "fill_in_blank",
+      "category": "Pharmacological and Parenteral Therapies",
+      "topic": "cardiac glycoside tablet calculation",
+      "difficulty": "medium",
+      "ngnSkill": "take_action",
+      "stem": {
+        "en": "A provider orders digoxin 250 mcg PO once daily. The nurse confirms the apical pulse is within the prescribed parameters. Using the medication label shown, how many tablets should the nurse administer?",
+        "zh": "医嘱为地高辛250 mcg口服，每日一次。护士确认心尖脉搏符合医嘱参数。根据所示药物标签，护士应给几片？"
+      },
+      "blanks": [
+        {
+          "id": "b1",
+          "prompt": {
+            "en": "tablets",
+            "zh": "片"
+          },
+          "acceptable": [
+            "2",
+            "2 tablets"
+          ],
+          "numeric": {
+            "value": 2,
+            "unit": "tablets",
+            "tolerance": 0
+          }
+        }
+      ],
+      "rationale": {
+        "correct": {
+          "en": "Each tablet contains 125 mcg. The ordered dose is 250 mcg. 250 ÷ 125 = 2 tablets.",
+          "zh": "每片含125 mcg。医嘱剂量为250 mcg。250 ÷ 125 = 2片。"
+        },
+        "byChoice": [
+          {
+            "refId": "b1",
+            "en": "Tablet quantity is the ordered dose divided by the amount per tablet shown on the label.",
+            "zh": "片数等于医嘱剂量除以标签显示的每片含量。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Do not convert units when the order and label already match. Divide mcg ordered by mcg per tablet.",
+        "zh": "当医嘱和标签单位已经一致时，不要换算单位。用医嘱mcg数除以每片mcg数。"
+      },
+      "glossary": [
+        {
+          "termEn": "digoxin",
+          "termZh": "地高辛",
+          "defZh": "一种强心苷类药物，给药前通常需评估脉搏。"
+        },
+        {
+          "termEn": "apical pulse",
+          "termZh": "心尖脉搏",
+          "defZh": "在心尖部听诊测得的心率。"
+        },
+        {
+          "termEn": "mcg",
+          "termZh": "微克",
+          "defZh": "药物剂量单位，1 mg等于1000 mcg。"
+        }
+      ],
+      "visual": {
+        "kind": "medication_label",
+        "drugName": "Digoxin Tablets",
+        "amount": 125,
+        "amountUnit": "mcg",
+        "perQty": 1,
+        "perUnit": "tablet",
+        "fields": [
+          {
+            "label": "Route",
+            "value": "Oral"
+          }
+        ],
+        "caption": {
+          "en": "Digoxin tablet label",
+          "zh": "地高辛片剂标签"
+        }
+      },
+      "meta": {
+        "visual_justification": "The number of tablets depends on the tablet strength, which is visible only on the medication label and not stated in the stem.",
+        "derived_values_keyed": {
+          "quantity_to_administer_tablets": 2
+        },
+        "order": {
+          "kind": "dose",
+          "value": 250,
+          "unit": "mcg",
+          "round": 0
+        },
+        "source": "DailyMed digoxin tablet labeling; medication administration safety standards",
+        "tier": "strictest",
+        "skill_signature": "medlbl:tablet-strength/digoxin-quantity",
+        "stem_disambiguators": [
+          "250 mcg PO order",
+          "pulse parameters confirmed"
+        ]
+      }
+    },
+    {
+      "id": "medlbl_cephalexin_capsules_006",
+      "itemType": "multiple_choice",
+      "category": "Pharmacological and Parenteral Therapies",
+      "topic": "oral antibiotic capsule calculation",
+      "difficulty": "easy",
+      "ngnSkill": "take_action",
+      "stem": {
+        "en": "A provider orders cephalexin 500 mg PO now. Using the medication label shown, how many capsules should the nurse administer?",
+        "zh": "医嘱为立即口服头孢氨苄500 mg。根据所示药物标签，护士应给几粒胶囊？"
+      },
+      "options": [
+        {
+          "id": "D",
+          "en": "4 capsules",
+          "zh": "4粒胶囊"
+        },
+        {
+          "id": "A",
+          "en": "1 capsule",
+          "zh": "1粒胶囊"
+        },
+        {
+          "id": "B",
+          "en": "2 capsules",
+          "zh": "2粒胶囊"
+        },
+        {
+          "id": "C",
+          "en": "3 capsules",
+          "zh": "3粒胶囊"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "rationale": {
+        "correct": {
+          "en": "The label shows 250 mg per capsule. The ordered dose is 500 mg. 500 ÷ 250 = 2 capsules.",
+          "zh": "标签显示每粒胶囊250 mg。医嘱剂量为500 mg。500 ÷ 250 = 2粒胶囊。"
+        },
+        "byChoice": [
+          {
+            "refId": "D",
+            "en": "Four capsules would provide 1000 mg.",
+            "zh": "4粒胶囊会提供1000 mg。"
+          },
+          {
+            "refId": "A",
+            "en": "One capsule would provide only 250 mg.",
+            "zh": "1粒胶囊只提供250 mg。"
+          },
+          {
+            "refId": "C",
+            "en": "Three capsules would provide 750 mg.",
+            "zh": "3粒胶囊会提供750 mg。"
+          },
+          {
+            "refId": "B",
+            "en": "Two 250 mg capsules provide the ordered 500 mg dose.",
+            "zh": "2粒250 mg胶囊可提供医嘱的500 mg剂量。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "For tablets or capsules, divide the ordered dose by the dose in one unit.",
+        "zh": "片剂或胶囊题，用医嘱剂量除以每一单位药物的剂量。"
+      },
+      "glossary": [
+        {
+          "termEn": "cephalexin",
+          "termZh": "头孢氨苄",
+          "defZh": "一种头孢菌素类抗生素。"
+        },
+        {
+          "termEn": "capsule",
+          "termZh": "胶囊",
+          "defZh": "一种口服固体剂型。"
+        },
+        {
+          "termEn": "PO",
+          "termZh": "口服",
+          "defZh": "通过口腔给药。"
+        }
+      ],
+      "visual": {
+        "kind": "medication_label",
+        "drugName": "Cephalexin Capsules",
+        "amount": 250,
+        "amountUnit": "mg",
+        "perQty": 1,
+        "perUnit": "capsule",
+        "fields": [
+          {
+            "label": "Route",
+            "value": "Oral"
+          }
+        ],
+        "caption": {
+          "en": "Cephalexin capsule label",
+          "zh": "头孢氨苄胶囊标签"
+        }
+      },
+      "meta": {
+        "visual_justification": "The capsule quantity depends on the capsule strength displayed on the medication label; the stem gives only the order.",
+        "derived_values_keyed": {
+          "quantity_to_administer_capsules": 2
+        },
+        "order": {
+          "kind": "dose",
+          "value": 500,
+          "unit": "mg",
+          "round": 0
+        },
+        "source": "DailyMed cephalexin capsule labeling; medication administration calculation standards",
+        "tier": "strictest",
+        "skill_signature": "medlbl:capsule-strength/antibiotic-quantity",
+        "stem_disambiguators": [
+          "500 mg PO order"
+        ]
+      }
+    },
+    {
+      "id": "medlbl_furosemide_matrix_007",
+      "itemType": "matrix",
+      "category": "Pharmacological and Parenteral Therapies",
+      "topic": "IV diuretic dose volume verification",
+      "difficulty": "medium",
+      "ngnSkill": "analyze_cues",
+      "stem": {
+        "en": "A provider orders furosemide 40 mg IV now. Using the medication label shown, classify each calculation statement as accurate or inaccurate.",
+        "zh": "医嘱为立即静脉给予呋塞米40 mg。根据所示药物标签，判断每项计算陈述是准确还是不准确。"
+      },
+      "matrix": {
+        "rows": [
+          {
+            "id": "r1",
+            "en": "The concentration is 10 mg/mL.",
+            "zh": "浓度为10 mg/mL。"
+          },
+          {
+            "id": "r2",
+            "en": "The nurse should prepare 2 mL.",
+            "zh": "护士应准备2 mL。"
+          },
+          {
+            "id": "r3",
+            "en": "The nurse should prepare 4 mL.",
+            "zh": "护士应准备4 mL。"
+          },
+          {
+            "id": "r4",
+            "en": "One 2-mL vial contains the full ordered dose.",
+            "zh": "一支2 mL小瓶含有完整医嘱剂量。"
+          }
+        ],
+        "columns": [
+          {
+            "id": "c1",
+            "en": "Accurate",
+            "zh": "准确"
+          },
+          {
+            "id": "c2",
+            "en": "Inaccurate",
+            "zh": "不准确"
+          }
+        ],
+        "selectionMode": "single_per_row"
+      },
+      "correct": [
+        {
+          "rowId": "r1",
+          "columnIds": [
+            "c1"
+          ]
+        },
+        {
+          "rowId": "r2",
+          "columnIds": [
+            "c2"
+          ]
+        },
+        {
+          "rowId": "r3",
+          "columnIds": [
+            "c1"
+          ]
+        },
+        {
+          "rowId": "r4",
+          "columnIds": [
+            "c2"
+          ]
+        }
+      ],
+      "rationale": {
+        "correct": {
+          "en": "The label shows 20 mg in 2 mL, which equals 10 mg/mL. A 40 mg dose requires 40 ÷ 10 = 4 mL. One 2-mL vial contains 20 mg, not the full 40 mg dose.",
+          "zh": "标签显示2 mL中含20 mg，即10 mg/mL。40 mg剂量需要40 ÷ 10 = 4 mL。一支2 mL小瓶含20 mg，不是完整的40 mg剂量。"
+        },
+        "byChoice": [
+          {
+            "refId": "r1",
+            "en": "20 mg divided by 2 mL equals 10 mg/mL.",
+            "zh": "20 mg除以2 mL等于10 mg/mL。"
+          },
+          {
+            "refId": "r2",
+            "en": "2 mL would provide only 20 mg, half of the ordered dose.",
+            "zh": "2 mL只提供20 mg，是医嘱剂量的一半。"
+          },
+          {
+            "refId": "r3",
+            "en": "4 mL provides 40 mg at 10 mg/mL.",
+            "zh": "按10 mg/mL计算，4 mL可提供40 mg。"
+          },
+          {
+            "refId": "r4",
+            "en": "A single 2-mL vial contains 20 mg, so it does not contain the full ordered dose.",
+            "zh": "一支2 mL小瓶含20 mg，因此不含完整医嘱剂量。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "In matrix calculations, verify the concentration first, then test each statement against that concentration.",
+        "zh": "矩阵计算题先确认浓度，再用该浓度逐项核对陈述。"
+      },
+      "glossary": [
+        {
+          "termEn": "furosemide",
+          "termZh": "呋塞米",
+          "defZh": "一种袢利尿剂，可促进尿液排出。"
+        },
+        {
+          "termEn": "diuretic",
+          "termZh": "利尿剂",
+          "defZh": "促进体内排出水分和电解质的药物。"
+        },
+        {
+          "termEn": "vial",
+          "termZh": "小瓶",
+          "defZh": "盛装注射用药物的小容器。"
+        }
+      ],
+      "visual": {
+        "kind": "medication_label",
+        "drugName": "Furosemide Injection",
+        "amount": 20,
+        "amountUnit": "mg",
+        "perQty": 2,
+        "perUnit": "mL",
+        "showDerivedConcentration": false,
+        "fields": [
+          {
+            "label": "Use",
+            "value": "Single-dose vial"
+          }
+        ],
+        "caption": {
+          "en": "Furosemide injection label",
+          "zh": "呋塞米注射液标签"
+        }
+      },
+      "meta": {
+        "visual_justification": "Each row can be judged only by reading the label strength of 20 mg per 2 mL; the stem does not state the vial concentration or total vial dose.",
+        "derived_values_keyed": {
+          "concentration_per_ml": 10,
+          "volume_to_administer_ml": 4
+        },
+        "order": {
+          "kind": "dose",
+          "value": 40,
+          "unit": "mg",
+          "round": 0
+        },
+        "source": "DailyMed furosemide injection labeling; medication administration calculation standards",
+        "tier": "strictest",
+        "skill_signature": "medlbl:concentration/furosemide-volume-verification",
+        "stem_disambiguators": [
+          "40 mg IV order",
+          "accurate versus inaccurate calculation statements"
+        ]
+      }
+    },
+    {
+      "id": "medlbl_regular_insulin_volume_008",
+      "itemType": "fill_in_blank",
+      "category": "Pharmacological and Parenteral Therapies",
+      "topic": "regular insulin dose volume calculation",
+      "difficulty": "hard",
+      "ngnSkill": "take_action",
+      "stem": {
+        "en": "A provider orders regular insulin 12 units subcutaneously before breakfast. Using the medication label shown, calculate the equivalent volume. Record your answer in milliliters (mL) to the nearest hundredth.",
+        "zh": "医嘱为早餐前皮下注射常规胰岛素12单位。根据所示药物标签，计算等效体积。以毫升（mL）记录答案，保留到百分位。"
+      },
+      "blanks": [
+        {
+          "id": "b1",
+          "prompt": {
+            "en": "mL",
+            "zh": "毫升"
+          },
+          "acceptable": [
+            "0.12",
+            "0.12 mL"
+          ],
+          "numeric": {
+            "value": 0.12,
+            "unit": "mL",
+            "tolerance": 0
+          }
+        }
+      ],
+      "rationale": {
+        "correct": {
+          "en": "The label contains 1000 units in 10 mL, or 100 units/mL. The ordered dose is 12 units, so 12 ÷ 100 = 0.12 mL.",
+          "zh": "标签显示10 mL中含1000单位，即100单位/mL。医嘱剂量为12单位，因此12 ÷ 100 = 0.12 mL。"
+        },
+        "byChoice": [
+          {
+            "refId": "b1",
+            "en": "The volume is the ordered insulin units divided by the label concentration in units per mL.",
+            "zh": "体积等于医嘱胰岛素单位数除以标签换算出的每mL单位数。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "For U-100 insulin, confirm the label concentration and keep the answer in mL only when the question explicitly asks for mL.",
+        "zh": "对于U-100胰岛素，先确认标签浓度；只有题目明确要求mL时才以mL作答。"
+      },
+      "glossary": [
+        {
+          "termEn": "regular insulin",
+          "termZh": "常规胰岛素",
+          "defZh": "短效胰岛素，用于控制血糖。"
+        },
+        {
+          "termEn": "U-100",
+          "termZh": "U-100",
+          "defZh": "表示每mL含100单位胰岛素的浓度。"
+        },
+        {
+          "termEn": "subcutaneous",
+          "termZh": "皮下注射",
+          "defZh": "将药物注入皮下组织的给药途径。"
+        }
+      ],
+      "visual": {
+        "kind": "medication_label",
+        "drugName": "Regular Insulin",
+        "amount": 1000,
+        "amountUnit": "units",
+        "perQty": 10,
+        "perUnit": "mL",
+        "showDerivedConcentration": false,
+        "fields": [
+          {
+            "label": "Route",
+            "value": "Subcutaneous use"
+          }
+        ],
+        "caption": {
+          "en": "Regular insulin vial label",
+          "zh": "常规胰岛素小瓶标签"
+        }
+      },
+      "meta": {
+        "visual_justification": "The equivalent mL volume depends on the insulin vial concentration, which appears only on the medication label and is not stated in the stem.",
+        "derived_values_keyed": {
+          "concentration_per_ml": 100,
+          "volume_to_administer_ml": 0.12
+        },
+        "order": {
+          "kind": "dose",
+          "value": 12,
+          "unit": "units",
+          "round": 2
+        },
+        "source": "DailyMed Humulin R/regular insulin U-100 labeling; ISMP High-Alert Medications in Acute Care Settings",
+        "tier": "strictest",
+        "skill_signature": "medlbl:concentration/regular-insulin-volume",
+        "stem_disambiguators": [
+          "12 units subcutaneous order",
+          "answer requested in mL to nearest hundredth"
+        ]
+      }
+    }
+  ]
+}

@@ -2,168 +2,875 @@
   "meta": {
     "schemaVersion": "1.2",
     "exam": "NCLEX-RN",
-    "topic": "MAR interpretation and medication safety",
-    "category": "Pharmacological and Parenteral Therapies",
+    "topic": "MAR visual smoke batch",
+    "category": "mixed",
     "difficulty": "mixed",
-    "count": 5
+    "count": 8
   },
   "questions": [
     {
-      "id": "mar_mc_digoxin_01",
+      "id": "mar_av_nodal_blockers_1600_01",
       "itemType": "multiple_choice",
       "category": "Pharmacological and Parenteral Therapies",
-      "topic": "digoxin administration and hold parameters",
-      "difficulty": "medium",
-      "ngnSkill": "analyze_cues",
+      "topic": "medication administration safety",
+      "difficulty": "hard",
+      "ngnSkill": "take_action",
       "stem": {
-        "en": "The nurse is reviewing the client's vital signs and Medication Administration Record (MAR). The client's apical pulse is 56 beats/min and serum potassium level is 4.2 mEq/L (4.2 mmol/L). Which action is most appropriate?",
-        "zh": "护士正在查阅患者的生命体征和药物给药记录（MAR）。患者的心尖搏动为56次/分，血清钾水平为4.2 mEq/L (4.2 mmol/L)。哪项操作最合适？"
+        "en": "A nurse reviews the medication administration record before the 1600 medication pass for an adult client on telemetry. The client's heart rate is 58/min and blood pressure is 108/62 mm Hg. Which action is the priority?",
+        "zh": "护士在1600给药前查看一名成人遥测监护患者的药物给药记录。患者心率为58次/分，血压为108/62 mm Hg。哪项措施是首要的？"
       },
+      "options": [
+        {
+          "id": "B",
+          "en": "Administer both 1600 medications because they were tolerated earlier in the day.",
+          "zh": "因当天早些时候患者耐受良好，所以给予两种1600药物。"
+        },
+        {
+          "id": "D",
+          "en": "Give the calcium channel blocker first and reassess the beta-blocker in 30 minutes.",
+          "zh": "先给予钙通道阻滞剂，30分钟后再评估β受体阻滞剂。"
+        },
+        {
+          "id": "C",
+          "en": "Hold all antihypertensive medications for the rest of the shift.",
+          "zh": "本班次剩余时间停用所有降压药。"
+        },
+        {
+          "id": "A",
+          "en": "Assess the apical pulse and blood pressure against the prescribed hold parameters before giving the due cardiac medications.",
+          "zh": "在给予到时的心脏药物前，根据医嘱停药参数评估心尖脉和血压。"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "rationale": {
+        "correct": {
+          "en": "The MAR shows metoprolol and diltiazem are both due at 1600. Both can slow AV-node conduction and lower heart rate and blood pressure. With a heart rate of 58/min, the nurse should assess against hold parameters and clarify if needed before administering the concurrent rate-lowering medications.",
+          "zh": "MAR显示美托洛尔和地尔硫卓均在1600到时。两者都可减慢房室结传导并降低心率和血压。心率58次/分时，护士应根据停药参数评估，必要时澄清医嘱，再给予这两种同时到时的降心率药物。"
+        },
+        "byChoice": [
+          {
+            "refId": "B",
+            "en": "Earlier tolerance does not remove the need to reassess before two rate-lowering doses due together.",
+            "zh": "早些时候耐受并不能取消两种降心率药物同时到时时的给药前评估。"
+          },
+          {
+            "refId": "A",
+            "en": "This addresses the additive bradycardia and hypotension risk visible on the MAR.",
+            "zh": "这项措施处理了MAR上可见的叠加性心动过缓和低血压风险。"
+          },
+          {
+            "refId": "D",
+            "en": "Giving one AV-nodal blocker first still risks worsening bradycardia without first checking the ordered parameters.",
+            "zh": "先给一种房室结阻滞药仍可能加重心动过缓，不能替代先核对医嘱参数。"
+          },
+          {
+            "refId": "C",
+            "en": "Blanket holding is not appropriate; the nurse should assess and follow or clarify specific hold parameters.",
+            "zh": "一概停药不合适；护士应评估并遵循或澄清具体停药参数。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "When two medications that slow the heart are due together, pause and assess the client's current heart rate and blood pressure before giving either one.",
+        "zh": "当两种减慢心率的药物同时到时时，先暂停并评估患者当前心率和血压，再决定是否给药。"
+      },
+      "glossary": [
+        {
+          "termEn": "AV node",
+          "termZh": "房室结",
+          "defZh": "心脏传导系统中连接心房和心室的结构，某些药物会减慢其传导。"
+        },
+        {
+          "termEn": "Beta-blocker",
+          "termZh": "β受体阻滞剂",
+          "defZh": "可降低心率、血压和心肌耗氧量的一类药物。"
+        },
+        {
+          "termEn": "Hold parameter",
+          "termZh": "停药参数",
+          "defZh": "医嘱中规定何时暂缓给药的条件，例如心率或血压低于某数值。"
+        }
+      ],
       "visual": {
         "kind": "mar",
         "timeGrid": [
-          "0900",
+          "0800",
+          "1200",
+          "1600",
+          "2000"
+        ],
+        "medications": [
+          {
+            "name": "metoprolol",
+            "dose": "25 mg",
+            "route": "PO",
+            "frequency": "BID",
+            "administrations": [
+              {
+                "time": "0800",
+                "status": "given"
+              },
+              {
+                "time": "1600",
+                "status": "due"
+              }
+            ]
+          },
+          {
+            "name": "diltiazem",
+            "dose": "30 mg",
+            "route": "PO",
+            "frequency": "QID",
+            "administrations": [
+              {
+                "time": "0800",
+                "status": "given"
+              },
+              {
+                "time": "1200",
+                "status": "given"
+              },
+              {
+                "time": "1600",
+                "status": "due"
+              },
+              {
+                "time": "2000",
+                "status": "due"
+              }
+            ]
+          }
+        ],
+        "caption": {
+          "en": "Medication Administration Record",
+          "zh": "药物给药记录"
+        }
+      },
+      "meta": {
+        "visual_justification": "The priority depends on seeing that metoprolol and diltiazem are both due at 1600; the stem does not name the medications or their timing.",
+        "keyed_relationship": "metoprolol and diltiazem both due at 1600 — concurrent AV-nodal blockade",
+        "source": "DailyMed diltiazem labeling; MedlinePlus metoprolol drug information",
+        "tier": "strictest",
+        "skill_signature": "mar:concurrent-av-nodal-blockers/pre-dose-assessment",
+        "stem_disambiguators": [
+          "1600 medication pass",
+          "heart rate 58/min",
+          "blood pressure 108/62 mm Hg"
+        ]
+      }
+    },
+    {
+      "id": "mar_lispro_meal_delayed_02",
+      "itemType": "select_all",
+      "category": "Pharmacological and Parenteral Therapies",
+      "topic": "rapid-acting insulin administration",
+      "difficulty": "medium",
+      "ngnSkill": "take_action",
+      "stem": {
+        "en": "At 0730, a client with type 1 diabetes is alert and reports that the breakfast tray has not arrived. The capillary glucose is 92 mg/dL. The nurse reviews the MAR shown. Which actions should the nurse take? Select all that apply.",
+        "zh": "0730，一名1型糖尿病患者清醒，并表示早餐餐盘尚未送达。毛细血管血糖为92 mg/dL。护士查看所示MAR。护士应采取哪些措施？选择所有适用项。"
+      },
+      "options": [
+        {
+          "id": "E",
+          "en": "Ensure the breakfast tray or carbohydrate source is present before administering the rapid-acting dose.",
+          "zh": "在给予速效剂量前，确保早餐餐盘或碳水化合物来源已在场。"
+        },
+        {
+          "id": "A",
+          "en": "Delay the rapid-acting insulin until the meal is available or clarify the order according to facility protocol.",
+          "zh": "在餐食可用前暂缓速效胰岛素，或按机构流程澄清医嘱。"
+        },
+        {
+          "id": "B",
+          "en": "Give the insulin lispro now because it is marked due at 0730.",
+          "zh": "因为赖脯胰岛素标记为0730到时，所以现在立即给药。"
+        },
+        {
+          "id": "F",
+          "en": "Hold all insulin doses for the rest of the day because the glucose is below 100 mg/dL.",
+          "zh": "因血糖低于100 mg/dL，所以当天剩余时间停用所有胰岛素。"
+        },
+        {
+          "id": "C",
+          "en": "Continue to monitor the client's glucose if the meal remains delayed.",
+          "zh": "如果餐食继续延迟，继续监测患者血糖。"
+        },
+        {
+          "id": "D",
+          "en": "Substitute the previous evening's insulin glargine for the due breakfast insulin.",
+          "zh": "用前一晚的甘精胰岛素替代到时的早餐胰岛素。"
+        }
+      ],
+      "correct": [
+        "A",
+        "C",
+        "E"
+      ],
+      "rationale": {
+        "correct": {
+          "en": "The MAR shows insulin lispro, a rapid-acting insulin, due with breakfast. Because the meal is not available and the glucose is 92 mg/dL, the nurse should avoid giving the rapid-acting dose before food is available, continue monitoring, and follow protocol or clarify the order.",
+          "zh": "MAR显示赖脯胰岛素（速效胰岛素）随早餐到时。由于餐食尚不可用且血糖为92 mg/dL，护士应避免在食物可用前给予速效剂量，继续监测，并按流程处理或澄清医嘱。"
+        },
+        "byChoice": [
+          {
+            "refId": "E",
+            "en": "Having food or a carbohydrate source present aligns the rapid-acting dose with meal intake.",
+            "zh": "确保食物或碳水来源在场，可使速效剂量与进餐相匹配。"
+          },
+          {
+            "refId": "C",
+            "en": "Ongoing monitoring is needed because glucose can fall while the meal is delayed.",
+            "zh": "餐食延迟期间血糖可能下降，因此需要持续监测。"
+          },
+          {
+            "refId": "B",
+            "en": "Administering lispro before food is available increases hypoglycemia risk.",
+            "zh": "在食物可用前给予赖脯胰岛素会增加低血糖风险。"
+          },
+          {
+            "refId": "A",
+            "en": "This prevents rapid-acting insulin from peaking without carbohydrate intake.",
+            "zh": "这可避免速效胰岛素在没有碳水摄入时发挥作用。"
+          },
+          {
+            "refId": "F",
+            "en": "The nurse should not independently hold all future insulin; insulin decisions require assessment and orders/protocols.",
+            "zh": "护士不应自行停用所有后续胰岛素；胰岛素处理需要评估并依据医嘱或流程。"
+          },
+          {
+            "refId": "D",
+            "en": "Glargine is basal insulin and is not substituted for a rapid-acting mealtime dose.",
+            "zh": "甘精胰岛素是基础胰岛素，不能替代速效餐时剂量。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Match insulin onset to food availability. Rapid-acting insulin without a meal is a hypoglycemia setup.",
+        "zh": "将胰岛素起效时间与食物可用性相匹配。无餐食时给予速效胰岛素容易导致低血糖。"
+      },
+      "glossary": [
+        {
+          "termEn": "Insulin lispro",
+          "termZh": "赖脯胰岛素",
+          "defZh": "一种速效胰岛素，通常与进餐时间紧密配合使用。"
+        },
+        {
+          "termEn": "Insulin glargine",
+          "termZh": "甘精胰岛素",
+          "defZh": "一种长效基础胰岛素，用于提供较平稳的基础胰岛素水平。"
+        },
+        {
+          "termEn": "Hypoglycemia",
+          "termZh": "低血糖",
+          "defZh": "血糖过低，可导致出汗、颤抖、意识改变或更严重后果。"
+        }
+      ],
+      "visual": {
+        "kind": "mar",
+        "timeGrid": [
+          "0730",
+          "1200",
+          "1700",
           "2100"
         ],
         "medications": [
           {
-            "name": "digoxin",
-            "dose": "0.125 mg",
-            "route": "PO",
-            "frequency": "daily",
+            "name": "insulin lispro",
+            "dose": "4 units",
+            "route": "SubQ",
+            "frequency": "before meals",
             "administrations": [
               {
-                "time": "0900",
+                "time": "0730",
+                "status": "due"
+              },
+              {
+                "time": "1200",
+                "status": "due"
+              },
+              {
+                "time": "1700",
                 "status": "due"
               }
             ],
             "isHighAlert": true
           },
           {
-            "name": "furosemide",
-            "dose": "40 mg",
-            "route": "PO",
-            "frequency": "daily",
+            "name": "insulin glargine",
+            "dose": "18 units",
+            "route": "SubQ",
+            "frequency": "nightly",
             "administrations": [
               {
-                "time": "0900",
-                "status": "due"
+                "time": "2100",
+                "status": "given"
               }
             ],
-            "isHighAlert": false
+            "isHighAlert": true
           }
         ],
         "caption": {
-          "en": "Morning Medication Administration Record",
-          "zh": "晨间药物给药记录"
+          "en": "Medication Administration Record",
+          "zh": "药物给药记录"
         }
       },
       "meta": {
-        "visual_justification": "Requires reading the MAR to identify digoxin and furosemide are scheduled and synthesizing with vital signs to hold digoxin.",
-        "tier": "strictest",
-        "source": "Standard Nursing Pharmacology Guidelines",
-        "skill_signature": "mar:hold-parameter/bradycardia",
-        "stem_disambiguators": [
-          "digoxin",
-          "apical"
-        ],
+        "visual_justification": "The action depends on reading that the due 0730 insulin is rapid-acting lispro, while the stem only states that the meal is delayed and gives the glucose value.",
         "keyed_cells": [
           {
-            "medication": "digoxin",
-            "time": "0900",
-            "reason": "hold_dose"
+            "medication": "insulin lispro",
+            "time": "0730"
           }
         ],
-        "expected_trend": [],
-        "expected_flags": [],
-        "derived_values_keyed": [],
-        "reference_bands": "adult"
+        "source": "DailyMed insulin lispro labeling; ISMP High-Alert Medications in Acute Care Settings",
+        "tier": "strictest",
+        "skill_signature": "mar:rapid-insulin-due/meal-delayed",
+        "stem_disambiguators": [
+          "0730",
+          "breakfast tray not arrived",
+          "glucose 92 mg/dL"
+        ]
+      }
+    },
+    {
+      "id": "mar_enoxaparin_prior_held_03",
+      "itemType": "multiple_choice",
+      "category": "Pharmacological and Parenteral Therapies",
+      "topic": "anticoagulant administration safety",
+      "difficulty": "hard",
+      "ngnSkill": "take_action",
+      "stem": {
+        "en": "A client is receiving medication therapy for a pulmonary embolism. Before the 1800 medication pass, the nurse reviews the MAR shown. Which action should the nurse take first?",
+        "zh": "一名患者正在接受肺栓塞药物治疗。护士在1800给药前查看所示MAR。护士首先应采取哪项措施？"
       },
       "options": [
         {
-          "id": "C",
-          "en": "Hold the digoxin, administer the furosemide, and notify the healthcare provider.",
-          "zh": "暂停给予地高辛，给予呋塞米，并通知医疗服务提供者。"
-        },
-        {
           "id": "D",
-          "en": "Administer the digoxin, hold the furosemide, and notify the healthcare provider.",
-          "zh": "给予地高辛，暂停给予呋塞米，并通知医疗服务提供者。"
-        },
-        {
-          "id": "B",
-          "en": "Hold both digoxin and furosemide and notify the healthcare provider.",
-          "zh": "暂停给予地高辛和呋塞米，并通知医疗服务提供者。"
+          "en": "Replace the held enoxaparin with the scheduled oral stool softener.",
+          "zh": "用计划中的口服软便剂替代被暂缓的依诺肝素。"
         },
         {
           "id": "A",
-          "en": "Administer both digoxin and furosemide as prescribed.",
-          "zh": "按医嘱给予地高辛和呋塞米。"
+          "en": "Verify why the earlier anticoagulant dose was held and review the most recent safety parameters before giving the 1800 dose.",
+          "zh": "在给予1800剂量前，核实早前抗凝剂量被暂缓的原因，并查看最新安全参数。"
+        },
+        {
+          "id": "C",
+          "en": "Document the held dose as a medication error and skip the 1800 dose.",
+          "zh": "将暂缓剂量记录为给药错误，并跳过1800剂量。"
+        },
+        {
+          "id": "B",
+          "en": "Give the 1800 dose immediately because pulmonary embolism always requires uninterrupted anticoagulation.",
+          "zh": "立即给予1800剂量，因为肺栓塞总是需要不间断抗凝。"
         }
       ],
       "correct": [
-        "C"
+        "A"
       ],
       "rationale": {
         "correct": {
-          "en": "Digoxin is a cardiac glycoside that decreases heart rate. It should be held if the adult client's apical pulse is less than 60 beats/min. Furosemide is a loop diuretic; because the client's potassium level is normal (3.5–5.0 mEq/L), there is no indication to hold the furosemide.",
-          "zh": "地高辛是一种可减慢心率的强心苷类药物。如果成年患者的心尖搏动低于60次/分，则应暂停给药。呋塞米是一种袢利尿剂；由于患者的钾水平正常（3.5–5.0 mEq/L），因此没有暂停给予呋塞米的指征。"
+          "en": "The MAR shows the 0600 enoxaparin dose was held and the next dose is due at 1800. Because enoxaparin is a high-alert anticoagulant, the nurse should determine why the previous dose was held and review current safety data or parameters before administering another dose.",
+          "zh": "MAR显示0600依诺肝素剂量被暂缓，下一剂1800到时。由于依诺肝素是高警讯抗凝药，护士应先确定前一剂暂缓原因，并查看当前安全数据或参数，再给予下一剂。"
         },
         "byChoice": [
           {
-            "refId": "A",
-            "en": "Administering digoxin to a client with an apical pulse of 56 beats/min is unsafe and can cause severe symptomatic bradycardia.",
-            "zh": "向心尖搏动为56次/分的患者给予地高辛是不安全的，可能导致严重的症状性心动过缓。"
+            "refId": "D",
+            "en": "A stool softener does not replace anticoagulant therapy and does not address the safety issue.",
+            "zh": "软便剂不能替代抗凝治疗，也不能处理该安全问题。"
           },
           {
             "refId": "B",
-            "en": "There is no clinical indication to hold furosemide, as the potassium level is within normal limits.",
-            "zh": "由于钾水平在正常范围内，因此没有暂停呋塞米的临床指征。"
+            "en": "Anticoagulation is important, but a held high-alert dose signals a safety concern that must be checked.",
+            "zh": "抗凝治疗很重要，但高警讯药物被暂缓提示存在安全问题，必须核查。"
           },
           {
             "refId": "C",
-            "en": "Holding the digoxin due to bradycardia and administering the furosemide because potassium is stable is the correct, safe nursing action.",
-            "zh": "因心动过缓暂停地高辛，并因血钾稳定给予呋塞米是正确且安全的护理操作。"
+            "en": "A held dose is not automatically an error, and skipping the next dose without assessment is unsafe.",
+            "zh": "暂缓剂量不一定是错误；未经评估就跳过下一剂也不安全。"
           },
           {
-            "refId": "D",
-            "en": "This is the opposite of the correct action. Digoxin must be held, and furosemide should be given.",
-            "zh": "这与正确操作完全相反。必须暂停地高辛，而应给予呋塞米。"
+            "refId": "A",
+            "en": "This addresses the visible held anticoagulant cell before the next due dose.",
+            "zh": "这项措施针对MAR上可见的抗凝药暂缓记录，并在下一剂到时前处理。"
           }
         ]
       },
       "testTakingStrategy": {
-        "en": "Evaluate the safety parameters for each medication independently. Digoxin requires an apical pulse ≥ 60; furosemide requires normal potassium.",
-        "zh": "独立评估每种药物的安全参数。地高辛要求心尖搏动 ≥ 60；呋塞米要求钾水平正常。"
+        "en": "A held dose of a high-alert medication is a cue to investigate before the next scheduled administration.",
+        "zh": "高警讯药物有暂缓记录时，应在下一次计划给药前先查明原因。"
       },
       "glossary": [
         {
-          "termEn": "Apical pulse",
-          "termZh": "心尖搏动",
-          "defZh": "在心脏心尖部听诊或触诊到的心跳，用以评估给药前的心率。"
+          "termEn": "Enoxaparin",
+          "termZh": "依诺肝素",
+          "defZh": "一种低分子肝素抗凝药，用于预防或治疗血栓。"
         },
         {
-          "termEn": "Bradycardia",
-          "termZh": "心动过缓",
-          "defZh": "成人的心率低于60次/分钟。"
+          "termEn": "Pulmonary embolism",
+          "termZh": "肺栓塞",
+          "defZh": "血栓阻塞肺部血管，可导致呼吸困难、胸痛和低氧。"
+        },
+        {
+          "termEn": "High-alert medication",
+          "termZh": "高警讯药物",
+          "defZh": "一旦使用错误，造成严重伤害风险较高的药物。"
         }
-      ]
-    },
-    {
-      "id": "mar_mc_warfarin_02",
-      "itemType": "multiple_choice",
-      "category": "Pharmacological and Parenteral Therapies",
-      "topic": "warfarin administration and lab monitoring",
-      "difficulty": "medium",
-      "ngnSkill": "take_action",
-      "stem": {
-        "en": "The nurse reviews the client's MAR and morning laboratory results. The client's International Normalized Ratio (INR) is 4.8. What is the priority nursing action?",
-        "zh": "护士查看了患者的MAR和晨间实验室检查结果。患者的国际标准化比值（INR）为4.8。护士的首要操作是什么？"
-      },
+      ],
       "visual": {
         "kind": "mar",
         "timeGrid": [
+          "0600",
+          "0900",
+          "1800",
+          "2100"
+        ],
+        "medications": [
+          {
+            "name": "enoxaparin",
+            "dose": "80 mg",
+            "route": "SubQ",
+            "frequency": "q12h",
+            "administrations": [
+              {
+                "time": "0600",
+                "status": "held"
+              },
+              {
+                "time": "1800",
+                "status": "due"
+              }
+            ],
+            "isHighAlert": true
+          },
+          {
+            "name": "docusate sodium",
+            "dose": "100 mg",
+            "route": "PO",
+            "frequency": "BID",
+            "administrations": [
+              {
+                "time": "0900",
+                "status": "given"
+              },
+              {
+                "time": "2100",
+                "status": "due"
+              }
+            ]
+          }
+        ],
+        "caption": {
+          "en": "Medication Administration Record",
+          "zh": "药物给药记录"
+        }
+      },
+      "meta": {
+        "visual_justification": "The need to investigate comes from the MAR cell showing the earlier enoxaparin dose was held; the stem does not state that any anticoagulant dose was held.",
+        "keyed_cells": [
+          {
+            "medication": "enoxaparin",
+            "time": "0600"
+          },
+          {
+            "medication": "enoxaparin",
+            "time": "1800"
+          }
+        ],
+        "source": "ISMP High-Alert Medications in Acute Care Settings; anticoagulant administration standards",
+        "tier": "strictest",
+        "skill_signature": "mar:held-anticoagulant/verify-before-next-dose",
+        "stem_disambiguators": [
+          "pulmonary embolism",
+          "1800 medication pass"
+        ]
+      }
+    },
+    {
+      "id": "mar_acetaminophen_duplicate_products_04",
+      "itemType": "multiple_choice",
+      "category": "Pharmacological and Parenteral Therapies",
+      "topic": "acetaminophen duplicate therapy",
+      "difficulty": "medium",
+      "ngnSkill": "analyze_cues",
+      "stem": {
+        "en": "A postoperative adult reports incisional pain before the 1400 medication pass. The nurse reviews the MAR shown. Which action is safest?",
+        "zh": "一名术后成人患者在1400给药前诉切口疼痛。护士查看所示MAR。哪项措施最安全？"
+      },
+      "options": [
+        {
+          "id": "C",
+          "en": "Hold all pain medication until the next shift.",
+          "zh": "停用所有止痛药直到下一班次。"
+        },
+        {
+          "id": "B",
+          "en": "Give the scheduled acetaminophen and the PRN combination analgesic together because they have different names.",
+          "zh": "因两种药名不同，同时给予计划对乙酰氨基酚和PRN复方止痛药。"
+        },
+        {
+          "id": "A",
+          "en": "Check the total acetaminophen received from all products before giving another acetaminophen-containing medication.",
+          "zh": "在给予另一种含对乙酰氨基酚药物前，核对患者从所有药品中已接受的对乙酰氨基酚总量。"
+        },
+        {
+          "id": "D",
+          "en": "Administer only the PRN combination analgesic and ignore the scheduled medication record.",
+          "zh": "只给予PRN复方止痛药，不理会计划用药记录。"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "rationale": {
+        "correct": {
+          "en": "The MAR shows scheduled acetaminophen and a PRN hydrocodone-acetaminophen product. The nurse must recognize duplicate acetaminophen exposure and check the total from all acetaminophen-containing products before administering more.",
+          "zh": "MAR显示计划对乙酰氨基酚和PRN氢可酮-对乙酰氨基酚复方药。护士必须识别重复的对乙酰氨基酚暴露，并在继续给药前核对所有含对乙酰氨基酚药品的总量。"
+        },
+        "byChoice": [
+          {
+            "refId": "A",
+            "en": "This uses the MAR to identify duplicate acetaminophen-containing products and prevent overdose.",
+            "zh": "这利用MAR识别重复含对乙酰氨基酚药物，以预防过量。"
+          },
+          {
+            "refId": "C",
+            "en": "Withholding all analgesia is not indicated; safe pain control requires medication reconciliation and assessment.",
+            "zh": "不应一概停用止痛药；安全镇痛需要药物核对和评估。"
+          },
+          {
+            "refId": "D",
+            "en": "Ignoring scheduled medication information misses the duplicate-ingredient risk.",
+            "zh": "忽视计划用药信息会漏掉重复成分风险。"
+          },
+          {
+            "refId": "B",
+            "en": "Different product names can still contain the same active ingredient.",
+            "zh": "不同商品或药品名称仍可能含有相同有效成分。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "For pain medications, scan for combination products. The same ingredient can appear under more than one medication name.",
+        "zh": "处理止痛药时，要查找复方制剂。同一成分可能出现在多个药名下。"
+      },
+      "glossary": [
+        {
+          "termEn": "Acetaminophen",
+          "termZh": "对乙酰氨基酚",
+          "defZh": "常用退热止痛药，过量可导致严重肝损伤。"
+        },
+        {
+          "termEn": "PRN",
+          "termZh": "必要时",
+          "defZh": "按需要给药，而不是固定时间给药。"
+        },
+        {
+          "termEn": "Combination product",
+          "termZh": "复方制剂",
+          "defZh": "一种药品中含有两种或两种以上有效成分。"
+        }
+      ],
+      "visual": {
+        "kind": "mar",
+        "timeGrid": [
+          "0600",
+          "1000",
+          "1200",
+          "1400",
           "1800"
+        ],
+        "medications": [
+          {
+            "name": "acetaminophen",
+            "dose": "650 mg",
+            "route": "PO",
+            "frequency": "q6h",
+            "administrations": [
+              {
+                "time": "0600",
+                "status": "given"
+              },
+              {
+                "time": "1200",
+                "status": "late"
+              },
+              {
+                "time": "1400",
+                "status": "due"
+              }
+            ]
+          },
+          {
+            "name": "hydrocodone-acetaminophen",
+            "dose": "5 mg/325 mg",
+            "route": "PO",
+            "frequency": "PRN q4h pain",
+            "administrations": [
+              {
+                "time": "1000",
+                "status": "given"
+              },
+              {
+                "time": "1400",
+                "status": "due"
+              }
+            ]
+          }
+        ],
+        "caption": {
+          "en": "Medication Administration Record",
+          "zh": "药物给药记录"
+        }
+      },
+      "meta": {
+        "visual_justification": "The duplicate acetaminophen exposure is only visible by reading both MAR rows; the stem does not state which pain medications are ordered or already given.",
+        "keyed_relationship": "scheduled acetaminophen plus hydrocodone-acetaminophen PRN due at 1400 — duplicate acetaminophen ingredient",
+        "source": "FDA acetaminophen safety communication; DailyMed acetaminophen labeling",
+        "tier": "strictest",
+        "skill_signature": "mar:duplicate-acetaminophen/check-total-exposure",
+        "stem_disambiguators": [
+          "postoperative pain",
+          "1400 medication pass"
+        ]
+      }
+    },
+    {
+      "id": "mar_opioid_benzodiazepine_due_05",
+      "itemType": "multiple_choice",
+      "category": "Pharmacological and Parenteral Therapies",
+      "topic": "opioid and benzodiazepine coadministration",
+      "difficulty": "hard",
+      "ngnSkill": "take_action",
+      "stem": {
+        "en": "Before the 2200 medication pass, an adult client is difficult to keep awake and has a respiratory rate of 10/min. The nurse reviews the MAR shown. Which action is the priority?",
+        "zh": "在2200给药前，一名成人患者难以保持清醒，呼吸频率为10次/分。护士查看所示MAR。哪项措施是首要的？"
+      },
+      "options": [
+        {
+          "id": "B",
+          "en": "Administer the 2200 medications because the client is sleeping and comfortable.",
+          "zh": "因患者正在睡眠且舒适，给予2200药物。"
+        },
+        {
+          "id": "D",
+          "en": "Document the respiratory rate as expected after pain medication and continue routine care.",
+          "zh": "将呼吸频率记录为止痛药后的预期表现，并继续常规护理。"
+        },
+        {
+          "id": "C",
+          "en": "Give the benzodiazepine first because anxiety can cause slow respirations.",
+          "zh": "先给予苯二氮䓬类药物，因为焦虑会导致呼吸变慢。"
+        },
+        {
+          "id": "A",
+          "en": "Withhold the sedating due medications, assess sedation and respiratory status, and notify the provider according to protocol.",
+          "zh": "暂缓到时的镇静性药物，评估镇静程度和呼吸状态，并按流程通知医生。"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "rationale": {
+        "correct": {
+          "en": "The MAR shows an opioid and a benzodiazepine due at 2200, with an opioid already given at 1800. The client's sedation and respiratory rate of 10/min indicate risk for respiratory depression. The nurse should withhold sedating doses, reassess, and notify the provider according to protocol.",
+          "zh": "MAR显示阿片类药物和苯二氮䓬类药物均在2200到时，且1800已给予过阿片类药物。患者嗜睡且呼吸频率10次/分，提示呼吸抑制风险。护士应暂缓镇静性剂量，重新评估，并按流程通知医生。"
+        },
+        "byChoice": [
+          {
+            "refId": "C",
+            "en": "A benzodiazepine can worsen CNS and respiratory depression, especially with opioids.",
+            "zh": "苯二氮䓬类药物可加重中枢和呼吸抑制，尤其与阿片类药物合用时。"
+          },
+          {
+            "refId": "B",
+            "en": "Sleeping is not reassurance when the client is hard to arouse and breathing slowly.",
+            "zh": "当患者难以唤醒且呼吸缓慢时，睡眠并不是令人放心的表现。"
+          },
+          {
+            "refId": "D",
+            "en": "A respiratory rate of 10/min with sedation requires action, not routine documentation only.",
+            "zh": "镇静伴呼吸频率10次/分需要干预，不能仅常规记录。"
+          },
+          {
+            "refId": "A",
+            "en": "This responds to the visual cue of concurrent sedatives plus clinical respiratory depression cues.",
+            "zh": "这针对MAR中同时到时的镇静药物以及临床呼吸抑制线索。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Sedation plus a low respiratory rate is an acute safety cue. Do not add more CNS depressants.",
+        "zh": "镇静加呼吸频率低是急性安全线索。不要再增加中枢抑制药物。"
+      },
+      "glossary": [
+        {
+          "termEn": "Opioid",
+          "termZh": "阿片类药物",
+          "defZh": "用于镇痛但可导致镇静和呼吸抑制的一类药物。"
+        },
+        {
+          "termEn": "Benzodiazepine",
+          "termZh": "苯二氮䓬类药物",
+          "defZh": "用于焦虑、痉挛或镇静等，可能导致嗜睡和呼吸抑制。"
+        },
+        {
+          "termEn": "Respiratory depression",
+          "termZh": "呼吸抑制",
+          "defZh": "呼吸频率或深度降低，可能导致缺氧和危及生命。"
+        }
+      ],
+      "visual": {
+        "kind": "mar",
+        "timeGrid": [
+          "1400",
+          "1800",
+          "2200",
+          "0200"
+        ],
+        "medications": [
+          {
+            "name": "oxycodone",
+            "dose": "5 mg",
+            "route": "PO",
+            "frequency": "q4h PRN pain",
+            "administrations": [
+              {
+                "time": "1800",
+                "status": "given"
+              },
+              {
+                "time": "2200",
+                "status": "due"
+              }
+            ],
+            "isHighAlert": true
+          },
+          {
+            "name": "lorazepam",
+            "dose": "1 mg",
+            "route": "PO",
+            "frequency": "q8h PRN anxiety",
+            "administrations": [
+              {
+                "time": "2200",
+                "status": "due"
+              }
+            ]
+          }
+        ],
+        "caption": {
+          "en": "Medication Administration Record",
+          "zh": "药物给药记录"
+        }
+      },
+      "meta": {
+        "visual_justification": "The risk depends on reading that oxycodone and lorazepam are both due at 2200 and that oxycodone was already given at 1800; the stem does not name the medications.",
+        "keyed_relationship": "oxycodone and lorazepam both due at 2200 with recent oxycodone at 1800 — additive CNS/respiratory depression risk",
+        "source": "FDA opioid and benzodiazepine boxed-warning communications; ISMP High-Alert Medications in Acute Care Settings",
+        "tier": "strictest",
+        "skill_signature": "mar:opioid-benzodiazepine/respiratory-depression",
+        "stem_disambiguators": [
+          "difficult to keep awake",
+          "respiratory rate 10/min",
+          "2200 medication pass"
+        ]
+      }
+    },
+    {
+      "id": "mar_warfarin_antibiotic_bleeding_06",
+      "itemType": "multiple_choice",
+      "category": "Pharmacological and Parenteral Therapies",
+      "topic": "warfarin interaction monitoring",
+      "difficulty": "hard",
+      "ngnSkill": "take_action",
+      "stem": {
+        "en": "A client taking chronic anticoagulation reports new gum bleeding before the evening medication pass. The nurse reviews the MAR shown. Which action is the priority?",
+        "zh": "一名长期抗凝治疗患者在晚间给药前报告新出现牙龈出血。护士查看所示MAR。哪项措施是首要的？"
+      },
+      "options": [
+        {
+          "id": "B",
+          "en": "Give the warfarin as scheduled because gum bleeding is expected during antibiotic therapy.",
+          "zh": "按计划给予华法林，因为抗生素治疗期间牙龈出血是预期现象。"
+        },
+        {
+          "id": "A",
+          "en": "Assess for bleeding, review the most recent INR, and notify the provider before administering the evening anticoagulant.",
+          "zh": "在给予晚间抗凝药前，评估出血情况，查看最新INR，并通知医生。"
+        },
+        {
+          "id": "C",
+          "en": "Stop the antibiotic independently and give the warfarin.",
+          "zh": "自行停用抗生素并给予华法林。"
+        },
+        {
+          "id": "D",
+          "en": "Administer vitamin K immediately without contacting the provider.",
+          "zh": "不联系医生，立即给予维生素K。"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "rationale": {
+        "correct": {
+          "en": "The MAR shows warfarin due in the same medication period as trimethoprim-sulfamethoxazole therapy. New gum bleeding is a bleeding cue. The nurse should assess bleeding, review the INR, and notify the provider before giving the next warfarin dose.",
+          "zh": "MAR显示华法林到时，同时患者正在接受复方新诺明治疗。新出现牙龈出血是出血线索。护士应评估出血、查看INR，并在给予下一剂华法林前通知医生。"
+        },
+        "byChoice": [
+          {
+            "refId": "B",
+            "en": "Bleeding is not an expected finding to ignore; it requires assessment and INR review.",
+            "zh": "出血不是可忽略的预期表现；需要评估和查看INR。"
+          },
+          {
+            "refId": "A",
+            "en": "This responds to the anticoagulant, interacting medication, and bleeding cue before giving warfarin.",
+            "zh": "这在给华法林前处理了抗凝药、相互作用药物和出血线索。"
+          },
+          {
+            "refId": "D",
+            "en": "Vitamin K administration requires provider direction and should be guided by assessment and INR.",
+            "zh": "给予维生素K需要医嘱，并应根据评估和INR决定。"
+          },
+          {
+            "refId": "C",
+            "en": "The nurse should not independently discontinue the antibiotic.",
+            "zh": "护士不应自行停用抗生素。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Bleeding plus warfarin is never a routine pass. Check the INR and escalate before giving the next dose.",
+        "zh": "出血加华法林绝不是常规给药情境。给予下一剂前应查看INR并升级处理。"
+      },
+      "glossary": [
+        {
+          "termEn": "Warfarin",
+          "termZh": "华法林",
+          "defZh": "一种口服抗凝药，需要通过INR监测治疗效果和出血风险。"
+        },
+        {
+          "termEn": "INR",
+          "termZh": "国际标准化比值",
+          "defZh": "用于监测华法林抗凝强度的实验室指标。"
+        },
+        {
+          "termEn": "Drug interaction",
+          "termZh": "药物相互作用",
+          "defZh": "一种药物改变另一种药物效果或毒性的情况。"
+        }
+      ],
+      "visual": {
+        "kind": "mar",
+        "timeGrid": [
+          "0900",
+          "1800",
+          "2100"
         ],
         "medications": [
           {
@@ -178,358 +885,85 @@
               }
             ],
             "isHighAlert": true
+          },
+          {
+            "name": "trimethoprim-sulfamethoxazole",
+            "dose": "160 mg/800 mg",
+            "route": "PO",
+            "frequency": "BID",
+            "administrations": [
+              {
+                "time": "0900",
+                "status": "given"
+              },
+              {
+                "time": "2100",
+                "status": "due"
+              }
+            ]
           }
         ],
         "caption": {
-          "en": "Evening MAR",
-          "zh": "晚间给药记录"
+          "en": "Medication Administration Record",
+          "zh": "药物给药记录"
         }
       },
       "meta": {
-        "visual_justification": "Requires recognizing that warfarin is scheduled and synthesizing this with a critically high INR.",
+        "visual_justification": "The need to check INR before the warfarin dose depends on reading the concurrent warfarin and trimethoprim-sulfamethoxazole rows; the stem does not name either medication.",
+        "keyed_relationship": "warfarin due at 1800 with trimethoprim-sulfamethoxazole therapy and bleeding cue",
+        "source": "DailyMed warfarin labeling; warfarin interaction monitoring references",
         "tier": "strictest",
-        "source": "Standard Anticoagulant Guidelines",
-        "skill_signature": "mar:hold-parameter/high-inr",
+        "skill_signature": "mar:warfarin-antibiotic/bleeding-inr-review",
         "stem_disambiguators": [
-          "warfarin",
-          "INR"
-        ],
-        "keyed_cells": [
-          {
-            "medication": "warfarin",
-            "time": "1800",
-            "reason": "hold_dose"
-          }
-        ],
-        "expected_trend": [],
-        "expected_flags": [],
-        "derived_values_keyed": [],
-        "reference_bands": "adult"
-      },
-      "options": [
-        {
-          "id": "C",
-          "en": "Administer a half dose of warfarin.",
-          "zh": "给予一半剂量的华法林。"
-        },
-        {
-          "id": "D",
-          "en": "Hold the warfarin and prepare to administer protamine sulfate.",
-          "zh": "暂停华法林并准备给予硫酸鱼精蛋白。"
-        },
-        {
-          "id": "B",
-          "en": "Hold the warfarin and notify the healthcare provider.",
-          "zh": "暂停给予华法林并通知医疗服务提供者。"
-        },
-        {
-          "id": "A",
-          "en": "Administer the warfarin as scheduled.",
-          "zh": "按计划给予华法林。"
-        }
-      ],
-      "correct": [
-        "B"
-      ],
-      "rationale": {
-        "correct": {
-          "en": "The therapeutic INR range for a client on warfarin is typically 2.0 to 3.0. An INR of 4.8 is critically elevated, placing the client at high risk for bleeding. The nurse must hold the scheduled dose and notify the healthcare provider.",
-          "zh": "服用华法林患者的治疗性INR范围通常为2.0至3.0。INR为4.8属于严重升高，使患者面临极高的出血风险。护士必须暂停按计划给药并通知医疗服务提供者。"
-        },
-        "byChoice": [
-          {
-            "refId": "A",
-            "en": "Administering warfarin with an INR of 4.8 could lead to life-threatening hemorrhage.",
-            "zh": "在INR为4.8的情况下给予华法林可能导致危及生命的出血。"
-          },
-          {
-            "refId": "B",
-            "en": "Holding the dose and notifying the provider is the safest and most appropriate action.",
-            "zh": "暂停给药并通知医生是最安全和最合适的操作。"
-          },
-          {
-            "refId": "C",
-            "en": "The nurse cannot independently alter medication dosages. This is outside the nursing scope of practice.",
-            "zh": "护士不能独立更改药物剂量。这超出了护理执业范围。"
-          },
-          {
-            "refId": "D",
-            "en": "Protamine sulfate is the antidote for heparin, not warfarin. Vitamin K is the antidote for warfarin.",
-            "zh": "硫酸鱼精蛋白是肝素的解毒剂，而不是华法林的解毒剂。华法林的解毒剂是维生素K。"
-          }
+          "new gum bleeding",
+          "evening medication pass"
         ]
-      },
-      "testTakingStrategy": {
-        "en": "Identify the relationship between the medication (warfarin) and the lab test (INR). Recognize that 4.8 is above the therapeutic range.",
-        "zh": "确定药物（华法林）与化验（INR）之间的关系。需认识到4.8高于治疗范围。"
-      },
-      "glossary": [
-        {
-          "termEn": "International Normalized Ratio (INR)",
-          "termZh": "国际标准化比值",
-          "defZh": "用于监测口服抗凝血药（如华法林）疗效的凝血指标。"
-        },
-        {
-          "termEn": "Hemorrhage",
-          "termZh": "出血",
-          "defZh": "大量失血，是过度抗凝的严重并发症。"
-        }
-      ]
+      }
     },
     {
-      "id": "mar_mc_vanco_03",
-      "itemType": "multiple_choice",
-      "category": "Pharmacological and Parenteral Therapies",
-      "topic": "missed antibiotic dose in sepsis",
+      "id": "mar_missed_antibiotic_followup_07",
+      "itemType": "matrix",
+      "category": "Management of Care",
+      "topic": "missed dose follow-up",
       "difficulty": "medium",
       "ngnSkill": "take_action",
       "stem": {
-        "en": "The nurse assumes care of a client with sepsis at 1000 and reviews the MAR. The client's peripheral IV infiltrated earlier in the shift, and a new IV was just established. What is the priority nursing action regarding the vancomycin dose?",
-        "zh": "护士在1000时接手一位脓毒症患者的护理工作并查阅MAR。患者的外周静脉留置针在早些时候发生渗出，刚刚建立了新的静脉通路。关于万古霉素的给药，护士的首要操作是什么？"
-      },
-      "visual": {
-        "kind": "mar",
-        "timeGrid": [
-          "0800",
-          "2000"
-        ],
-        "medications": [
-          {
-            "name": "vancomycin",
-            "dose": "1000 mg",
-            "route": "IVPB",
-            "frequency": "q12h",
-            "administrations": [
-              {
-                "time": "0800",
-                "status": "missed"
-              },
-              {
-                "time": "2000",
-                "status": "due"
-              }
-            ],
-            "isHighAlert": true
-          }
-        ],
-        "caption": {
-          "en": "Current MAR",
-          "zh": "当前给药记录"
-        }
-      },
-      "meta": {
-        "visual_justification": "Requires recognizing the missed antibiotic status and synthesizing it with the sepsis diagnosis to prioritize immediate administration.",
-        "tier": "strictest",
-        "source": "Surviving Sepsis Campaign Guidelines",
-        "skill_signature": "mar:missed-dose/sepsis-antibiotic",
-        "stem_disambiguators": [
-          "sepsis",
-          "vancomycin"
-        ],
-        "keyed_cells": [
-          {
-            "medication": "vancomycin",
-            "time": "0800",
-            "reason": "missed"
-          }
-        ],
-        "expected_trend": [],
-        "expected_flags": [],
-        "derived_values_keyed": [],
-        "reference_bands": "adult"
-      },
-      "options": [
-        {
-          "id": "B",
-          "en": "Wait and administer the next dose at the next scheduled time.",
-          "zh": "等待并在下一次预定时间给药。"
-        },
-        {
-          "id": "C",
-          "en": "Notify the pharmacy to change the administration frequency to daily.",
-          "zh": "通知药房将给药频率更改为每日一次。"
-        },
-        {
-          "id": "A",
-          "en": "Administer the missed vancomycin dose immediately.",
-          "zh": "立即给予漏服的万古霉素剂量。"
-        },
-        {
-          "id": "D",
-          "en": "Document the medication as not given due to lack of IV access.",
-          "zh": "记录因无静脉通路未给予该药物。"
-        }
-      ],
-      "correct": [
-        "A"
-      ],
-      "rationale": {
-        "correct": {
-          "en": "In a client with sepsis, timely administration of antibiotics is critical to survival. Since a new IV has been established, the delayed 0800 dose should be administered immediately. The schedule for subsequent doses can be adjusted by pharmacy later.",
-          "zh": "对于脓毒症患者，及时给予抗生素对生存至关重要。既然已建立新的静脉通路，应立即给予延迟的0800剂量。后续剂量的计划可由药房随后进行调整。"
-        },
-        "byChoice": [
-          {
-            "refId": "A",
-            "en": "Immediate administration treats the underlying severe infection and prevents clinical deterioration.",
-            "zh": "立即给药可治疗潜在的严重感染并防止临床恶化。"
-          },
-          {
-            "refId": "B",
-            "en": "Waiting until 2000 would leave the septic client without antibiotic coverage for approximately 24 hours (since the previous q12h dose at 2000 the night before), increasing the risk of mortality.",
-            "zh": "等待到2000将导致这位脓毒症患者在约24小时内（自前一夜2000的q12h给药起）没有抗生素覆盖，从而增加死亡风险。"
-          },
-          {
-            "refId": "C",
-            "en": "The nurse cannot independently alter the frequency of the medication, nor is daily frequency appropriate for standard q12h vancomycin dosing without specific trough level guidance.",
-            "zh": "护士不能独立更改药物的给药频率，并且在没有具体谷浓度指导的情况下，对于标准的q12h万古霉素，每日一次的频率也是不合适的。"
-          },
-          {
-            "refId": "D",
-            "en": "Documenting is required, but it does not address the client's urgent physiological need for the antibiotic now that access is restored.",
-            "zh": "记录是必要的，但这并不能解决患者在静脉通路恢复后对抗生素的紧急生理需求。"
-          }
-        ]
-      },
-      "testTakingStrategy": {
-        "en": "Prioritize actions based on the client's acute condition (sepsis) and the 'missed' status on the MAR. Surviving Sepsis Campaign guidelines support antibiotic administration within one hour of sepsis recognition.",
-        "zh": "根据患者的急性病情（脓毒症）和MAR上的「missed（漏服）」状态对操作进行优先排序。脓毒症存活运动指南支持在脓毒症识别后一小时内给予抗生素。"
-      },
-      "glossary": [
-        {
-          "termEn": "Sepsis",
-          "termZh": "脓毒症",
-          "defZh": "由感染引起的全身性炎症反应，是一种危及生命的医疗紧急情况。"
-        },
-        {
-          "termEn": "Infiltration",
-          "termZh": "渗出",
-          "defZh": "静脉注射液漏入周围组织，导致局部肿胀和输液中断。"
-        }
-      ]
-    },
-    {
-      "id": "mar_matrix_cardiac_04",
-      "itemType": "matrix",
-      "category": "Pharmacological and Parenteral Therapies",
-      "topic": "cardiac medication hold parameters",
-      "difficulty": "medium",
-      "ngnSkill": "analyze_cues",
-      "stem": {
-        "en": "The nurse is preparing 0900 medications for a client. The client's blood pressure is 138/86 mm Hg and heart rate is 52 beats/min. Based on the MAR, indicate whether the nurse should administer or hold each medication.",
-        "zh": "护士正在为患者准备0900的药物。患者的血压为138/86 mm Hg，心率为52次/分。根据MAR，指出护士应给予还是暂停每种药物。"
-      },
-      "visual": {
-        "kind": "mar",
-        "timeGrid": [
-          "0900"
-        ],
-        "medications": [
-          {
-            "name": "metoprolol",
-            "dose": "50 mg",
-            "route": "PO",
-            "frequency": "daily",
-            "administrations": [
-              {
-                "time": "0900",
-                "status": "due"
-              }
-            ],
-            "isHighAlert": true
-          },
-          {
-            "name": "lisinopril",
-            "dose": "10 mg",
-            "route": "PO",
-            "frequency": "daily",
-            "administrations": [
-              {
-                "time": "0900",
-                "status": "due"
-              }
-            ],
-            "isHighAlert": false
-          },
-          {
-            "name": "pantoprazole",
-            "dose": "40 mg",
-            "route": "PO",
-            "frequency": "daily",
-            "administrations": [
-              {
-                "time": "0900",
-                "status": "due"
-              }
-            ],
-            "isHighAlert": false
-          }
-        ],
-        "caption": {
-          "en": "0900 MAR",
-          "zh": "0900 给药记录"
-        }
-      },
-      "meta": {
-        "visual_justification": "Requires interpreting the MAR to determine which medications are scheduled and linking them to vital signs.",
-        "tier": "strictest",
-        "source": "Standard Nursing Pharmacology",
-        "skill_signature": "mar:hold-parameter/multiple-meds",
-        "stem_disambiguators": [
-          "metoprolol",
-          "lisinopril",
-          "pantoprazole"
-        ],
-        "keyed_cells": [
-          {
-            "medication": "metoprolol",
-            "time": "0900",
-            "reason": "due"
-          },
-          {
-            "medication": "lisinopril",
-            "time": "0900",
-            "reason": "due"
-          },
-          {
-            "medication": "pantoprazole",
-            "time": "0900",
-            "reason": "due"
-          }
-        ],
-        "expected_trend": [],
-        "expected_flags": [],
-        "derived_values_keyed": [],
-        "reference_bands": "adult"
+        "en": "At 0800, a nurse assumes care of a client being treated for suspected sepsis and reviews the MAR shown. For each possible nursing action, select whether it is appropriate or inappropriate.",
+        "zh": "0800，护士接手一名疑似脓毒症治疗患者的护理，并查看所示MAR。对于每项可能的护理措施，选择其是否适当。"
       },
       "matrix": {
         "rows": [
           {
             "id": "r1",
-            "en": "Metoprolol",
-            "zh": "美托洛尔"
+            "en": "Notify the provider or pharmacist that the 0600 IV antibiotic dose was missed and ask how to adjust the schedule.",
+            "zh": "通知医生或药师0600静脉抗生素剂量漏给，并询问如何调整给药时间表。"
           },
           {
             "id": "r2",
-            "en": "Lisinopril",
-            "zh": "赖诺普利"
+            "en": "Give the missed 0600 antibiotic dose and the next scheduled antibiotic dose together.",
+            "zh": "将漏给的0600抗生素剂量和下一次计划抗生素剂量一起给予。"
           },
           {
             "id": "r3",
-            "en": "Pantoprazole",
-            "zh": "泮托拉唑"
+            "en": "Assess the client for clinical deterioration and document the missed dose and follow-up actions.",
+            "zh": "评估患者是否有临床恶化，并记录漏给剂量及后续措施。"
+          },
+          {
+            "id": "r4",
+            "en": "Ignore the missed dose because another dose is due later in the day.",
+            "zh": "忽略漏给剂量，因为当天稍后还有另一剂到时。"
           }
         ],
         "columns": [
           {
-            "id": "c2",
-            "en": "Hold",
-            "zh": "暂停"
+            "id": "inappropriate",
+            "en": "Inappropriate",
+            "zh": "不适当"
           },
           {
-            "id": "c1",
-            "en": "Administer",
-            "zh": "给予"
+            "id": "appropriate",
+            "en": "Appropriate",
+            "zh": "适当"
           }
         ],
         "selectionMode": "single_per_row"
@@ -538,92 +972,273 @@
         {
           "rowId": "r1",
           "columnIds": [
-            "c2"
+            "appropriate"
           ]
         },
         {
           "rowId": "r2",
           "columnIds": [
-            "c1"
+            "inappropriate"
           ]
         },
         {
           "rowId": "r3",
           "columnIds": [
-            "c1"
+            "appropriate"
+          ]
+        },
+        {
+          "rowId": "r4",
+          "columnIds": [
+            "inappropriate"
           ]
         }
       ],
       "rationale": {
         "correct": {
-          "en": "Metoprolol is a beta-blocker that decreases heart rate; it should be held for a heart rate less than 60 beats/min. Lisinopril is an ACE inhibitor that lowers blood pressure; because the BP is 138/86, it is safe to administer. Pantoprazole is a proton pump inhibitor with no cardiac hold parameters and should be administered.",
-          "zh": "美托洛尔是一种降低心率的β受体阻滞剂；当心率低于60次/分时应暂停给药。赖诺普利是一种降低血压的ACE抑制剂；由于血压为138/86，因此给药是安全的。泮托拉唑是质子泵抑制剂，没有心脏相关的暂停参数，应予以给药。"
+          "en": "The MAR shows the 0600 cefepime dose was missed. The nurse should assess the client, document accurately, and contact the provider or pharmacist for schedule guidance rather than doubling doses or ignoring the omission.",
+          "zh": "MAR显示0600头孢吡肟剂量漏给。护士应评估患者、准确记录，并联系医生或药师获取调整给药时间的指导，而不是加倍给药或忽略漏给。"
         },
         "byChoice": [
           {
             "refId": "r1",
-            "en": "Hold metoprolol. Beta-blockers can worsen bradycardia. The client's heart rate is 52.",
-            "zh": "暂停美托洛尔。β受体阻滞剂可能加重心动过缓。患者的心率为52。"
+            "en": "Appropriate: missed IV antibiotic doses require timely communication so therapy can be safely re-timed.",
+            "zh": "适当：静脉抗生素漏给需要及时沟通，以便安全调整治疗时间。"
           },
           {
             "refId": "r2",
-            "en": "Administer lisinopril. The blood pressure is safely elevated (138/86) and requires the scheduled antihypertensive.",
-            "zh": "给予赖诺普利。血压安全升高（138/86），需要按计划给予降压药。"
+            "en": "Inappropriate: giving two antibiotic doses together can cause harm and does not follow safe medication administration.",
+            "zh": "不适当：两剂抗生素一起给可能造成伤害，不符合安全给药原则。"
           },
           {
             "refId": "r3",
-            "en": "Administer pantoprazole. Vital signs do not affect the administration of a proton pump inhibitor.",
-            "zh": "给予泮托拉唑。生命体征不影响质子泵抑制剂的给药。"
+            "en": "Appropriate: suspected sepsis makes assessment and documentation of the missed anti-infective dose important.",
+            "zh": "适当：疑似脓毒症背景下，评估并记录抗感染药漏给很重要。"
+          },
+          {
+            "refId": "r4",
+            "en": "Inappropriate: a missed anti-infective dose is not ignored simply because another dose is scheduled later.",
+            "zh": "不适当：不能仅因稍后还有下一剂就忽略抗感染药漏给。"
           }
         ]
       },
       "testTakingStrategy": {
-        "en": "Evaluate each medication individually against the provided vital signs. Do not assume all cardiac medications must be held simply because one vital sign is abnormal.",
-        "zh": "根据提供的生命体征独立评估每种药物。不要因为一个生命体征异常就假设必须暂停所有心脏药物。"
+        "en": "For a missed time-sensitive medication, think: assess, communicate, document, and do not double-dose without an order.",
+        "zh": "遇到漏给的时间敏感药物时，思路是：评估、沟通、记录；没有医嘱不要加倍给药。"
       },
       "glossary": [
         {
-          "termEn": "Beta-blocker",
-          "termZh": "β受体阻滞剂",
-          "defZh": "一类可减慢心率和降低血压的药物（例如美托洛尔）。"
+          "termEn": "Cefepime",
+          "termZh": "头孢吡肟",
+          "defZh": "一种广谱静脉抗生素，可用于严重感染治疗。"
         },
         {
-          "termEn": "ACE inhibitor",
-          "termZh": "ACE抑制剂",
-          "defZh": "血管紧张素转换酶抑制剂，主要用于降低血压。"
+          "termEn": "Missed dose",
+          "termZh": "漏给剂量",
+          "defZh": "计划给药时间已过但未给出的药物剂量。"
+        },
+        {
+          "termEn": "Sepsis",
+          "termZh": "脓毒症",
+          "defZh": "感染引发的危及生命的全身反应，可导致器官功能障碍。"
         }
-      ]
-    },
-    {
-      "id": "mar_matrix_assess_05",
-      "itemType": "matrix",
-      "category": "Pharmacological and Parenteral Therapies",
-      "topic": "pre-administration nursing assessment",
-      "difficulty": "medium",
-      "ngnSkill": "analyze_cues",
-      "stem": {
-        "en": "The nurse is reviewing the MAR to plan morning care. Match each scheduled medication to the priority pre-administration laboratory or assessment data.",
-        "zh": "护士正在查阅MAR以计划晨间护理。将每种预定的药物与给药前首要的实验室或评估数据相匹配。"
-      },
+      ],
       "visual": {
         "kind": "mar",
         "timeGrid": [
-          "0800"
+          "0600",
+          "0800",
+          "1400",
+          "2200"
         ],
         "medications": [
           {
-            "name": "furosemide",
-            "dose": "40 mg",
-            "route": "PO",
-            "frequency": "daily",
+            "name": "cefepime",
+            "dose": "2 g",
+            "route": "IVPB",
+            "frequency": "q8h",
+            "administrations": [
+              {
+                "time": "0600",
+                "status": "missed"
+              },
+              {
+                "time": "1400",
+                "status": "due"
+              },
+              {
+                "time": "2200",
+                "status": "due"
+              }
+            ]
+          },
+          {
+            "name": "0.9% sodium chloride flush",
+            "dose": "10 mL",
+            "route": "IV",
+            "frequency": "per protocol",
             "administrations": [
               {
                 "time": "0800",
                 "status": "due"
               }
-            ],
-            "isHighAlert": false
+            ]
+          }
+        ],
+        "caption": {
+          "en": "Medication Administration Record",
+          "zh": "药物给药记录"
+        }
+      },
+      "meta": {
+        "visual_justification": "The nursing actions depend on the MAR cell showing the 0600 cefepime dose was missed; the stem does not state which medication was missed or when.",
+        "keyed_cells": [
+          {
+            "medication": "cefepime",
+            "time": "0600"
+          }
+        ],
+        "source": "Medication administration standards; sepsis anti-infective timing principles",
+        "tier": "strictest",
+        "skill_signature": "mar:missed-antibiotic/communicate-retime-document",
+        "stem_disambiguators": [
+          "0800 handoff",
+          "suspected sepsis"
+        ]
+      }
+    },
+    {
+      "id": "mar_digoxin_low_pulse_due_08",
+      "itemType": "matrix",
+      "category": "Pharmacological and Parenteral Therapies",
+      "topic": "digoxin administration assessment",
+      "difficulty": "medium",
+      "ngnSkill": "take_action",
+      "stem": {
+        "en": "Before the 0900 medication pass, the nurse obtains an apical pulse of 52/min in an adult client. The nurse reviews the MAR shown. For each action, select whether it is appropriate or inappropriate.",
+        "zh": "0900给药前，护士测得一名成人患者心尖脉为52次/分。护士查看所示MAR。对于每项措施，选择其是否适当。"
+      },
+      "matrix": {
+        "rows": [
+          {
+            "id": "r1",
+            "en": "Hold the digoxin dose and notify the provider according to the prescribed parameters.",
+            "zh": "根据医嘱参数暂缓地高辛剂量并通知医生。"
           },
+          {
+            "id": "r2",
+            "en": "Give digoxin because the medication is marked due on the MAR.",
+            "zh": "因为MAR显示地高辛到时，所以给予地高辛。"
+          },
+          {
+            "id": "r3",
+            "en": "Assess for dizziness, weakness, nausea, or visual changes before escalating the concern.",
+            "zh": "在升级处理前评估是否有头晕、乏力、恶心或视觉改变。"
+          },
+          {
+            "id": "r4",
+            "en": "Give an extra dose of furosemide to raise the pulse before giving digoxin.",
+            "zh": "在给予地高辛前额外给予一剂呋塞米以提高脉搏。"
+          }
+        ],
+        "columns": [
+          {
+            "id": "appropriate",
+            "en": "Appropriate",
+            "zh": "适当"
+          },
+          {
+            "id": "inappropriate",
+            "en": "Inappropriate",
+            "zh": "不适当"
+          }
+        ],
+        "selectionMode": "single_per_row"
+      },
+      "correct": [
+        {
+          "rowId": "r1",
+          "columnIds": [
+            "appropriate"
+          ]
+        },
+        {
+          "rowId": "r2",
+          "columnIds": [
+            "inappropriate"
+          ]
+        },
+        {
+          "rowId": "r3",
+          "columnIds": [
+            "appropriate"
+          ]
+        },
+        {
+          "rowId": "r4",
+          "columnIds": [
+            "inappropriate"
+          ]
+        }
+      ],
+      "rationale": {
+        "correct": {
+          "en": "The MAR shows digoxin is due at 0900. An apical pulse of 52/min is a bradycardia cue. The nurse should hold the dose according to parameters, assess for possible digoxin toxicity or intolerance, and notify the provider rather than administering the dose solely because it is due.",
+          "zh": "MAR显示地高辛在0900到时。心尖脉52次/分是心动过缓线索。护士应按参数暂缓给药，评估可能的地高辛毒性或不耐受，并通知医生，而不是仅因到时就给药。"
+        },
+        "byChoice": [
+          {
+            "refId": "r1",
+            "en": "Appropriate: bradycardia before a due digoxin dose warrants holding according to parameters and notifying the provider.",
+            "zh": "适当：地高辛给药前出现心动过缓，应按参数暂缓并通知医生。"
+          },
+          {
+            "refId": "r2",
+            "en": "Inappropriate: due status does not override an unsafe pre-dose assessment finding.",
+            "zh": "不适当：到时状态不能凌驾于不安全的给药前评估发现之上。"
+          },
+          {
+            "refId": "r3",
+            "en": "Appropriate: symptoms such as dizziness, weakness, nausea, and visual changes help assess possible toxicity or intolerance.",
+            "zh": "适当：头晕、乏力、恶心和视觉改变等症状有助于评估可能的毒性或不耐受。"
+          },
+          {
+            "refId": "r4",
+            "en": "Inappropriate: the nurse should not give extra diuretic medication to manipulate pulse or enable digoxin administration.",
+            "zh": "不适当：护士不应额外给予利尿剂来改变脉搏或促成地高辛给药。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "For digoxin, a low apical pulse before administration is a stop-and-check cue.",
+        "zh": "对于地高辛，给药前心尖脉偏低是“暂停并核查”的线索。"
+      },
+      "glossary": [
+        {
+          "termEn": "Digoxin",
+          "termZh": "地高辛",
+          "defZh": "一种强心苷，可增强心肌收缩并减慢房室结传导。"
+        },
+        {
+          "termEn": "Apical pulse",
+          "termZh": "心尖脉",
+          "defZh": "在心尖部听诊测得的心率，常用于给某些心脏药物前评估。"
+        },
+        {
+          "termEn": "Bradycardia",
+          "termZh": "心动过缓",
+          "defZh": "心率低于正常范围，可能由疾病或药物导致。"
+        }
+      ],
+      "visual": {
+        "kind": "mar",
+        "timeGrid": [
+          "0900",
+          "1300",
+          "1700",
+          "2100"
+        ],
+        "medications": [
           {
             "name": "digoxin",
             "dose": "0.125 mg",
@@ -631,159 +1246,57 @@
             "frequency": "daily",
             "administrations": [
               {
-                "time": "0800",
+                "time": "0900",
                 "status": "due"
               }
-            ],
-            "isHighAlert": true
+            ]
           },
           {
-            "name": "insulin regular",
-            "dose": "4 units",
-            "route": "SubQ",
-            "frequency": "AC breakfast",
+            "name": "furosemide",
+            "dose": "40 mg",
+            "route": "PO",
+            "frequency": "daily",
             "administrations": [
               {
-                "time": "0800",
+                "time": "0900",
                 "status": "due"
               }
-            ],
-            "isHighAlert": true
+            ]
+          },
+          {
+            "name": "potassium chloride",
+            "dose": "20 mEq",
+            "route": "PO",
+            "frequency": "daily",
+            "administrations": [
+              {
+                "time": "0900",
+                "status": "due"
+              }
+            ]
           }
         ],
         "caption": {
-          "en": "0800 Scheduled Medications",
-          "zh": "0800 预定药物"
+          "en": "Medication Administration Record",
+          "zh": "药物给药记录"
         }
       },
       "meta": {
-        "visual_justification": "Requires mapping the medications listed on the MAR to their specific clinical hold parameters.",
-        "tier": "strictest",
-        "source": "Standard Nursing Pharmacology",
-        "skill_signature": "mar:pre-admin-assessment/matching",
-        "stem_disambiguators": [
-          "furosemide",
-          "digoxin",
-          "insulin"
-        ],
+        "visual_justification": "The appropriate actions depend on seeing that digoxin is one of the medications due at 0900; the stem gives only the apical pulse and does not name the due medications.",
         "keyed_cells": [
           {
-            "medication": "furosemide",
-            "time": "0800",
-            "reason": "due"
-          },
-          {
             "medication": "digoxin",
-            "time": "0800",
-            "reason": "due"
-          },
-          {
-            "medication": "insulin regular",
-            "time": "0800",
-            "reason": "due"
+            "time": "0900"
           }
         ],
-        "expected_trend": [],
-        "expected_flags": [],
-        "derived_values_keyed": [],
-        "reference_bands": "adult"
-      },
-      "matrix": {
-        "rows": [
-          {
-            "id": "r1",
-            "en": "Furosemide",
-            "zh": "呋塞米"
-          },
-          {
-            "id": "r2",
-            "en": "Digoxin",
-            "zh": "地高辛"
-          },
-          {
-            "id": "r3",
-            "en": "Insulin regular",
-            "zh": "常规胰岛素"
-          }
-        ],
-        "columns": [
-          {
-            "id": "c2",
-            "en": "Apical pulse rate",
-            "zh": "心尖搏动率"
-          },
-          {
-            "id": "c3",
-            "en": "Blood glucose level",
-            "zh": "血糖水平"
-          },
-          {
-            "id": "c1",
-            "en": "Serum potassium level",
-            "zh": "血清钾水平"
-          }
-        ],
-        "selectionMode": "single_per_row"
-      },
-      "correct": [
-        {
-          "rowId": "r1",
-          "columnIds": [
-            "c1"
-          ]
-        },
-        {
-          "rowId": "r2",
-          "columnIds": [
-            "c2"
-          ]
-        },
-        {
-          "rowId": "r3",
-          "columnIds": [
-            "c3"
-          ]
-        }
-      ],
-      "rationale": {
-        "correct": {
-          "en": "Furosemide is a potassium-wasting diuretic, so serum potassium must be monitored. Digoxin lowers the heart rate, requiring an apical pulse check before administration. Regular insulin lowers blood sugar, requiring a current blood glucose level before giving.",
-          "zh": "呋塞米是一种排钾利尿剂，因此必须监测血清钾。地高辛会降低心率，在给药前需要检查心尖搏动。常规胰岛素会降低血糖，在给药前需要测量当前的血糖水平。"
-        },
-        "byChoice": [
-          {
-            "refId": "r1",
-            "en": "Furosemide can cause hypokalemia, making the serum potassium level the priority assessment.",
-            "zh": "呋塞米可引起低钾血症，因此血清钾水平是首要评估指标。"
-          },
-          {
-            "refId": "r2",
-            "en": "Digoxin toxicity and its therapeutic effect directly impact heart rate, requiring a full 1-minute apical pulse.",
-            "zh": "地高辛的毒性及其治疗作用直接影响心率，需要测量整整1分钟的心尖搏动。"
-          },
-          {
-            "refId": "r3",
-            "en": "Insulin requires checking the blood glucose level to prevent life-threatening hypoglycemia.",
-            "zh": "胰岛素要求检查血糖水平以防止危及生命的低血糖。"
-          }
+        "source": "DailyMed digoxin labeling; cardiac medication administration standards",
+        "tier": "strictest",
+        "skill_signature": "mar:digoxin-due/low-apical-pulse",
+        "stem_disambiguators": [
+          "apical pulse 52/min",
+          "0900 medication pass"
         ]
-      },
-      "testTakingStrategy": {
-        "en": "Connect each drug to its primary adverse effect or mechanism of action to determine the priority assessment.",
-        "zh": "将每种药物与其主要不良反应或作用机制联系起来，以确定首要的评估项目。"
-      },
-      "glossary": [
-        {
-          "termEn": "Hypokalemia",
-          "termZh": "低钾血症",
-          "defZh": "血液中钾离子水平过低的状态。"
-        },
-        {
-          "termEn": "Hypoglycemia",
-          "termZh": "低血糖",
-          "defZh": "血液中葡萄糖水平过低，需紧急处理的状态。"
-        }
-      ]
+      }
     }
   ]
 }

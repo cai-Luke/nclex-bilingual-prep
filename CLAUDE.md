@@ -33,6 +33,16 @@ The division of labor (per `PROJECT-HISTORY.md`):
 
 **You are the last step before promotion.** When Luke brings raw bank files to you, assume they have already been generated and that your job is the final content review + promotion. Do not ask him to paste content or re-describe what the files contain — pull them directly and work through the promotion checklist: schema validation, selfCheck, content review (clinical accuracy, bilingual parity, answer unambiguity, visual necessity for visual items), `npm run promote`, `npm run audit`, ledger update.
 
+### When a raw bank won't parse — curly-quote recovery
+
+A `validate-bank` JSON parse error on a `banks/banks-raw/*.json` file is almost always quote corruption left by a prior hand-edit — smart quotes (`"` `"` / U+201C–U+201D) used as JSON delimiters, or in-string Chinese speech marks downgraded to bare ASCII `"`. Do not hand-diagnose or hand-roll a state machine. Run:
+
+```
+tsx scripts/fix-bank-quotes.ts banks/banks-raw/<file>.json
+```
+
+It normalizes structural curly quotes to ASCII `"`, escapes stray in-string ASCII quotes, keeps legitimate in-string Chinese quotes, and writes `<file>.fixed.json` only if the result parses. A file that already parses is left untouched. If it reports "could NOT auto-resolve," it prints the exact line/col/codepoint to fix by hand (its one refusal case: a Chinese close-quote `"` immediately followed by an ASCII `:`, `,`, `}`, `]`). Add `--in-place` to overwrite once you trust the diff.
+
 Work spec-first: plan and specify here, hand implementation to Codex or Claude Code, PR to GitHub. Prefer small, well-scoped changes that match existing patterns; do not rewrite app architecture during feature work.
 
 ## House style for your work
@@ -40,6 +50,16 @@ Work spec-first: plan and specify here, hand implementation to Codex or Claude C
 - **Deterministic core, LLM only for the irreducible semantic residual — and cap it.** Counting, distributions, and permutation checks are scripts, never model calls. See `DECISIONS.md` for why.
 - **Precision over volume.** A short, fully-evidenced output beats a long speculative one — this is the explicit grading standard in the adversarial audit spec.
 - **Bilingual is an invariant.** Every rule, check, and renderer that touches text covers English *and* Simplified Chinese, or it is incomplete.
+
+## JSON authoring: curly-quote hazard
+
+LLMs and rich-text editors frequently substitute typographic ("smart") quotes for ASCII quotes. This is a recurring failure mode when editing bank files. Rules:
+
+- **All JSON structural delimiters must be ASCII U+0022 `"`** — for both property names and string values. Never use U+201C `"` (left double quotation) or U+201D `"` (right double quotation) as JSON delimiters.
+- **Chinese speech marks inside zh content are U+201C/U+201D and are valid JSON content** — they are regular Unicode characters within a string and do not need escaping. Do not touch them.
+- **ASCII `"` inside a JSON string value must be escaped as `\"`** — e.g., `"She said \"hello\"."`. Unescaped ASCII double-quotes inside a string are a parse error.
+- When an Edit operation produces a JSON parse error, check for curly-quote delimiters first: `python3 -c "data=open('file.json').read(); print(hex(ord(data[N])))"` at the error position will show `0x201c` or `0x201d` if that's the problem.
+- The safe repair path: replace U+201C with ASCII `"` always; replace U+201D with ASCII `"` only when the next non-whitespace character is `:`, `,`, `}`, or `]` (structural context) — otherwise it is Chinese speech-mark content and must be preserved.
 
 ## Current task surface: visual renderers complete → content lanes
 

@@ -1,0 +1,1179 @@
+{
+  "meta": {
+    "schemaVersion": "1.2",
+    "exam": "NCLEX-RN",
+    "topic": "io_record visual smoke bank",
+    "category": "mixed",
+    "difficulty": "mixed",
+    "count": 8,
+    "generatedAt": "2026-06-13",
+    "lane": "io_record",
+    "bankIdPrefix": "io"
+  },
+  "questions": [
+    {
+      "id": "io_fib_hf_net_balance_01",
+      "itemType": "fill_in_blank",
+      "category": "Reduction of Risk Potential",
+      "topic": "fluid balance monitoring",
+      "difficulty": "medium",
+      "ngnSkill": "analyze_cues",
+      "stem": {
+        "en": "A nurse reviews the 8-hour intake and output record below for a client with heart failure. Calculate the client's net fluid balance for the shift. Record the answer in milliliters (mL), including the sign.",
+        "zh": "护士查看下面一名心力衰竭患者8小时的出入量记录。计算该患者本班次的净体液平衡。以毫升（mL）记录答案，并注明正负号。"
+      },
+      "blanks": [
+        {
+          "id": "b1",
+          "prompt": {
+            "en": "Net fluid balance",
+            "zh": "净体液平衡"
+          },
+          "acceptable": [
+            "+580",
+            "+580 mL",
+            "580",
+            "580 mL"
+          ],
+          "numeric": {
+            "value": 580,
+            "unit": "mL",
+            "tolerance": 0
+          }
+        }
+      ],
+      "rationale": {
+        "correct": {
+          "en": "Intake totals 360 + 240 + 500 + 100 = 1,200 mL. Output totals 560 + 60 = 620 mL. Net balance = 1,200 − 620 = +580 mL. A positive balance in heart failure requires continued assessment for fluid overload.",
+          "zh": "入量合计为360 + 240 + 500 + 100 = 1,200 mL。出量合计为560 + 60 = 620 mL。净平衡 = 1,200 − 620 = +580 mL。心力衰竭患者出现正平衡时，需要继续评估液体超负荷。"
+        },
+        "byChoice": [
+          {
+            "refId": "b1",
+            "en": "The correct numeric entry is +580 mL because intake exceeds output by 580 mL.",
+            "zh": "正确的数值为+580 mL，因为入量比出量多580 mL。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Add the intake column, add the output column, then subtract output from intake. Keep the sign of the result.",
+        "zh": "先将入量列相加，再将出量列相加，然后用入量减去出量。保留结果的正负号。"
+      },
+      "visual": {
+        "kind": "io_record",
+        "periodLabel": {
+          "en": "0700–1500 shift",
+          "zh": "0700–1500 班次"
+        },
+        "intake": [
+          {
+            "label": "PO water",
+            "volumeMl": 360
+          },
+          {
+            "label": "Soup",
+            "volumeMl": 240
+          },
+          {
+            "label": "0.9% NaCl IV",
+            "volumeMl": 500
+          },
+          {
+            "label": "IV piggyback antibiotic",
+            "volumeMl": 100
+          }
+        ],
+        "output": [
+          {
+            "label": "Foley urine",
+            "volumeMl": 560
+          },
+          {
+            "label": "Emesis",
+            "volumeMl": 60
+          }
+        ],
+        "caption": {
+          "en": "Intake and output flowsheet",
+          "zh": "出入量记录单"
+        }
+      },
+      "meta": {
+        "visual_justification": "The net balance can only be determined by summing the intake and output entries shown in the visual; the stem does not state either total.",
+        "derived_values_keyed": {
+          "intake_total_ml": 1200,
+          "output_total_ml": 620,
+          "net_balance_ml": 580
+        },
+        "source": "NCBI Bookshelf Nursing Fundamentals: Fluids and Electrolytes; StatPearls Heart Failure and cardiogenic pulmonary edema monitoring",
+        "tier": "strict",
+        "skill_signature": "io:net-balance/fluid-overload-risk",
+        "stem_disambiguators": [
+          "heart failure",
+          "8-hour shift",
+          "answer includes sign"
+        ]
+      },
+      "glossary": [
+        {
+          "termEn": "Net fluid balance",
+          "termZh": "净体液平衡",
+          "defZh": "入量减去出量后的结果；正数表示入量多于出量。"
+        },
+        {
+          "termEn": "Heart failure",
+          "termZh": "心力衰竭",
+          "defZh": "心脏泵血能力不足，容易发生液体潴留。"
+        },
+        {
+          "termEn": "Fluid overload",
+          "termZh": "液体超负荷",
+          "defZh": "体内液体过多，可导致水肿、肺部啰音或呼吸困难。"
+        }
+      ]
+    },
+    {
+      "id": "io_mc_pulmonary_edema_diuresis_02",
+      "itemType": "multiple_choice",
+      "category": "Physiological Adaptation",
+      "topic": "diuresis response evaluation",
+      "difficulty": "medium",
+      "ngnSkill": "evaluate_outcomes",
+      "stem": {
+        "en": "A client admitted with cardiogenic pulmonary edema received an IV loop diuretic at 0800. The nurse reviews the intake and output record below at 1200. Which conclusion is best supported by the record?",
+        "zh": "一名因心源性肺水肿入院的患者在0800接受了静脉袢利尿剂。护士在1200查看下面的出入量记录。该记录最支持哪项结论？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "en": "The client is responding to diuresis; continue respiratory, electrolyte, and renal monitoring.",
+          "zh": "患者对利尿治疗有反应；继续监测呼吸状况、电解质和肾功能。"
+        },
+        {
+          "id": "B",
+          "en": "The client has inadequate urine output and should receive an additional IV fluid bolus.",
+          "zh": "患者尿量不足，应再给予一次静脉补液。"
+        },
+        {
+          "id": "C",
+          "en": "The client has a positive fluid balance and is at increased risk for worsening pulmonary edema.",
+          "zh": "患者呈正液体平衡，肺水肿恶化风险增加。"
+        },
+        {
+          "id": "D",
+          "en": "The record cannot be interpreted until the provider prescribes a daily weight.",
+          "zh": "在医生开具每日体重医嘱前，无法解释该记录。"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "rationale": {
+        "correct": {
+          "en": "Intake totals 180 mL and output totals 1,710 mL, giving a net balance of −1,530 mL. After a loop diuretic for pulmonary edema, a large negative balance indicates diuresis, but the nurse must continue monitoring respiratory status, electrolytes, and renal function.",
+          "zh": "入量合计为180 mL，出量合计为1,710 mL，净平衡为−1,530 mL。肺水肿患者使用袢利尿剂后出现明显负平衡，说明正在利尿；但护士仍需继续监测呼吸状况、电解质和肾功能。"
+        },
+        "byChoice": [
+          {
+            "refId": "A",
+            "en": "This choice matches the negative balance and appropriate monitoring after diuresis.",
+            "zh": "该选项符合负平衡和利尿后的适当监测。"
+          },
+          {
+            "refId": "D",
+            "en": "Daily weight is useful, but this 4-hour intake and output record still supports an immediate interpretation.",
+            "zh": "每日体重有帮助，但这份4小时出入量记录仍可支持当前判断。"
+          },
+          {
+            "refId": "B",
+            "en": "Urine output is high, not inadequate; an extra fluid bolus could worsen pulmonary edema unless specifically indicated.",
+            "zh": "尿量很高，并非不足；除非有明确适应证，额外补液可能加重肺水肿。"
+          },
+          {
+            "refId": "C",
+            "en": "The calculated balance is negative, not positive.",
+            "zh": "计算得到的是负平衡，而不是正平衡。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "After diuretic therapy, decide whether output exceeds intake, then connect that trend to both improvement and monitoring risks.",
+        "zh": "利尿治疗后，先判断出量是否超过入量，再把这个趋势与疗效和监测风险联系起来。"
+      },
+      "visual": {
+        "kind": "io_record",
+        "periodLabel": {
+          "en": "0800–1200 reassessment period",
+          "zh": "0800–1200 复评时段"
+        },
+        "intake": [
+          {
+            "label": "Sips of water",
+            "volumeMl": 60
+          },
+          {
+            "label": "IVPB potassium replacement",
+            "volumeMl": 120
+          }
+        ],
+        "output": [
+          {
+            "label": "Foley urine",
+            "volumeMl": 1680
+          },
+          {
+            "label": "Sputum basin estimate",
+            "volumeMl": 30
+          }
+        ],
+        "caption": {
+          "en": "Post-diuretic intake and output",
+          "zh": "利尿后出入量记录"
+        }
+      },
+      "meta": {
+        "visual_justification": "The conclusion depends on recognizing that output greatly exceeds intake on the visual; the stem does not state the intake total, output total, or net balance.",
+        "derived_values_keyed": {
+          "intake_total_ml": 180,
+          "output_total_ml": 1710,
+          "net_balance_ml": -1530
+        },
+        "source": "StatPearls Cardiogenic Pulmonary Edema: diuresis monitoring with strict intake/output, electrolytes, and renal function",
+        "tier": "strict",
+        "skill_signature": "io:negative-balance/diuresis-response",
+        "stem_disambiguators": [
+          "cardiogenic pulmonary edema",
+          "IV loop diuretic",
+          "1200 reassessment"
+        ]
+      },
+      "glossary": [
+        {
+          "termEn": "Diuresis",
+          "termZh": "利尿",
+          "defZh": "尿量增加，常见于利尿剂治疗后。"
+        },
+        {
+          "termEn": "Pulmonary edema",
+          "termZh": "肺水肿",
+          "defZh": "肺内液体积聚，可导致呼吸困难和低氧。"
+        },
+        {
+          "termEn": "Electrolytes",
+          "termZh": "电解质",
+          "defZh": "钾、钠、镁等带电矿物质，利尿治疗时需要监测。"
+        }
+      ]
+    },
+    {
+      "id": "io_sata_gastroenteritis_deficit_03",
+      "itemType": "select_all",
+      "category": "Basic Care and Comfort",
+      "topic": "dehydration fluid deficit cues",
+      "difficulty": "medium",
+      "ngnSkill": "recognize_cues",
+      "stem": {
+        "en": "An older adult with gastroenteritis has the intake and output record shown below. Which assessment findings would be consistent with the fluid balance shown? Select all that apply.",
+        "zh": "一名患胃肠炎的老年患者有如下出入量记录。哪些评估发现与图中所示的体液平衡一致？选择所有适用项。"
+      },
+      "options": [
+        {
+          "id": "B",
+          "en": "Orthostatic dizziness",
+          "zh": "体位性头晕"
+        },
+        {
+          "id": "F",
+          "en": "Decreased urine output",
+          "zh": "尿量减少"
+        },
+        {
+          "id": "C",
+          "en": "Bounding peripheral pulses",
+          "zh": "外周脉搏洪大"
+        },
+        {
+          "id": "D",
+          "en": "Concentrated urine",
+          "zh": "尿液浓缩"
+        },
+        {
+          "id": "E",
+          "en": "New crackles at the lung bases",
+          "zh": "肺底新出现湿啰音"
+        },
+        {
+          "id": "A",
+          "en": "Dry mucous membranes",
+          "zh": "黏膜干燥"
+        }
+      ],
+      "correct": [
+        "A",
+        "B",
+        "D",
+        "F"
+      ],
+      "rationale": {
+        "correct": {
+          "en": "Intake totals 120 mL and output totals 1,270 mL, giving a net balance of −1,150 mL. This fluid deficit is consistent with dehydration cues such as dry mucous membranes, orthostatic symptoms, concentrated urine, and decreased urine output.",
+          "zh": "入量合计为120 mL，出量合计为1,270 mL，净平衡为−1,150 mL。此体液不足与脱水线索一致，如黏膜干燥、体位性症状、尿液浓缩和尿量减少。"
+        },
+        "byChoice": [
+          {
+            "refId": "E",
+            "en": "New crackles suggest pulmonary fluid overload, not the negative balance shown.",
+            "zh": "新出现湿啰音提示肺部液体超负荷，而不是图中所示的负平衡。"
+          },
+          {
+            "refId": "C",
+            "en": "Bounding pulses suggest excess volume rather than a fluid deficit.",
+            "zh": "脉搏洪大更提示容量过多，而不是体液不足。"
+          },
+          {
+            "refId": "D",
+            "en": "Concentrated urine can occur when the body conserves water during dehydration.",
+            "zh": "脱水时机体保水，尿液可变浓缩。"
+          },
+          {
+            "refId": "F",
+            "en": "Low urine output is consistent with dehydration and the small urine amount recorded.",
+            "zh": "尿量少与脱水以及记录中尿量偏少一致。"
+          },
+          {
+            "refId": "A",
+            "en": "Dry mucous membranes are consistent with dehydration from a large negative balance.",
+            "zh": "黏膜干燥符合明显负平衡导致的脱水。"
+          },
+          {
+            "refId": "B",
+            "en": "Orthostatic dizziness can occur with volume depletion.",
+            "zh": "血容量不足时可出现体位性头晕。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "For select-all fluid items, first decide whether the balance is positive or negative, then choose findings from the same direction.",
+        "zh": "做体液相关的多选题时，先判断平衡是正还是负，再选择同一方向的体征。"
+      },
+      "visual": {
+        "kind": "io_record",
+        "periodLabel": {
+          "en": "1900–0300 shift",
+          "zh": "1900–0300 班次"
+        },
+        "intake": [
+          {
+            "label": "Oral rehydration solution",
+            "volumeMl": 90
+          },
+          {
+            "label": "Ice chips",
+            "volumeMl": 30
+          }
+        ],
+        "output": [
+          {
+            "label": "Watery stool",
+            "volumeMl": 900
+          },
+          {
+            "label": "Emesis",
+            "volumeMl": 250
+          },
+          {
+            "label": "Voided urine",
+            "volumeMl": 120
+          }
+        ],
+        "caption": {
+          "en": "Gastroenteritis intake and output",
+          "zh": "胃肠炎出入量记录"
+        }
+      },
+      "meta": {
+        "visual_justification": "The deficit is identified only by comparing the intake and output rows in the visual; the stem does not state the negative balance.",
+        "derived_values_keyed": {
+          "intake_total_ml": 120,
+          "output_total_ml": 1270,
+          "net_balance_ml": -1150
+        },
+        "source": "Merck Manual dehydration symptoms; NCBI Bookshelf Nursing Fundamentals urine output and dehydration cues",
+        "tier": "strict",
+        "skill_signature": "io:negative-balance/dehydration-cues",
+        "stem_disambiguators": [
+          "older adult",
+          "gastroenteritis",
+          "select all consistent findings"
+        ]
+      },
+      "glossary": [
+        {
+          "termEn": "Gastroenteritis",
+          "termZh": "胃肠炎",
+          "defZh": "胃肠道炎症，常导致腹泻、呕吐和体液丢失。"
+        },
+        {
+          "termEn": "Orthostatic",
+          "termZh": "体位性",
+          "defZh": "与从卧位或坐位变为站立时发生的变化有关。"
+        },
+        {
+          "termEn": "Concentrated urine",
+          "termZh": "浓缩尿",
+          "defZh": "尿液颜色较深、比重较高，常见于水分不足。"
+        }
+      ]
+    },
+    {
+      "id": "io_matrix_prerenal_aki_recheck_04",
+      "itemType": "matrix",
+      "category": "Reduction of Risk Potential",
+      "topic": "acute kidney injury fluid response",
+      "difficulty": "hard",
+      "ngnSkill": "analyze_cues",
+      "stem": {
+        "en": "A client with suspected prerenal acute kidney injury is reassessed after a provider-prescribed fluid challenge. The provider's reassessment goal is at least 240 mL of urine output during this 6-hour period. Using the record shown, classify each nursing interpretation.",
+        "zh": "一名疑似肾前性急性肾损伤患者在医嘱补液试验后接受复评。医生设定的复评目标是在这6小时内尿量至少达到240 mL。根据所示记录，对每项护理解释进行分类。"
+      },
+      "matrix": {
+        "rows": [
+          {
+            "id": "r1",
+            "en": "Notify the provider that the urine output goal was not met.",
+            "zh": "通知医生尿量目标未达到。"
+          },
+          {
+            "id": "r2",
+            "en": "Recognize that intake exceeded output during the reassessment period.",
+            "zh": "识别出复评期间入量超过出量。"
+          },
+          {
+            "id": "r3",
+            "en": "Increase oral fluids because the client has a negative balance.",
+            "zh": "因患者为负平衡而增加口服液体。"
+          },
+          {
+            "id": "r4",
+            "en": "Continue to monitor lung sounds while additional fluids are considered.",
+            "zh": "在考虑追加液体时继续监测肺音。"
+          }
+        ],
+        "columns": [
+          {
+            "id": "c2",
+            "en": "Inappropriate interpretation",
+            "zh": "不适当解释"
+          },
+          {
+            "id": "c1",
+            "en": "Appropriate interpretation",
+            "zh": "适当解释"
+          }
+        ],
+        "selectionMode": "single_per_row"
+      },
+      "correct": [
+        {
+          "rowId": "r1",
+          "columnIds": [
+            "c1"
+          ]
+        },
+        {
+          "rowId": "r2",
+          "columnIds": [
+            "c1"
+          ]
+        },
+        {
+          "rowId": "r3",
+          "columnIds": [
+            "c2"
+          ]
+        },
+        {
+          "rowId": "r4",
+          "columnIds": [
+            "c1"
+          ]
+        }
+      ],
+      "rationale": {
+        "correct": {
+          "en": "Intake totals 1,120 mL and output totals 210 mL, giving a net balance of +910 mL. The urine output did not meet the stated 240 mL goal, so provider notification is appropriate. Because intake exceeds output, the nurse should monitor for fluid overload while the response to fluids is evaluated.",
+          "zh": "入量合计为1,120 mL，出量合计为210 mL，净平衡为+910 mL。尿量未达到题干中规定的240 mL目标，因此应通知医生。由于入量超过出量，在评估补液反应时，护士应监测液体超负荷。"
+        },
+        "byChoice": [
+          {
+            "refId": "r1",
+            "en": "The urine output is 210 mL, which is below the stated 240 mL goal.",
+            "zh": "尿量为210 mL，低于题干规定的240 mL目标。"
+          },
+          {
+            "refId": "r2",
+            "en": "The charted intake is greater than the charted output, so this interpretation is accurate.",
+            "zh": "记录的入量大于出量，因此该解释准确。"
+          },
+          {
+            "refId": "r3",
+            "en": "The client has a positive balance, not a negative balance; increasing fluids is not justified by that statement.",
+            "zh": "患者为正平衡，而不是负平衡；不能以该说法作为增加液体的理由。"
+          },
+          {
+            "refId": "r4",
+            "en": "A positive balance with limited urine output makes ongoing lung-sound assessment appropriate when additional fluids are considered.",
+            "zh": "在尿量有限且正平衡的情况下，若考虑追加液体，应继续评估肺音。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Use closed-world thresholds in the stem, then compare them with the visual. Do not assume the goal was met just because fluids were given.",
+        "zh": "使用题干给出的封闭条件阈值，再与视觉资料比较。不要因为已经补液就假设目标已达到。"
+      },
+      "visual": {
+        "kind": "io_record",
+        "periodLabel": {
+          "en": "6-hour reassessment after fluid challenge",
+          "zh": "补液试验后6小时复评"
+        },
+        "intake": [
+          {
+            "label": "Lactated Ringer's IV bolus",
+            "volumeMl": 1000
+          },
+          {
+            "label": "PO water",
+            "volumeMl": 120
+          }
+        ],
+        "output": [
+          {
+            "label": "Foley urine",
+            "volumeMl": 210
+          }
+        ],
+        "caption": {
+          "en": "Fluid challenge response record",
+          "zh": "补液试验反应记录"
+        }
+      },
+      "meta": {
+        "visual_justification": "The learner must read the urine amount and compare intake versus output on the visual; the stem gives only the urine-output goal, not the actual totals.",
+        "derived_values_keyed": {
+          "intake_total_ml": 1120,
+          "output_total_ml": 210,
+          "net_balance_ml": 910
+        },
+        "source": "StatPearls Acute Kidney Injury: urine output and renal-function monitoring during fluid challenge; NCBI Bookshelf Nursing Fundamentals",
+        "tier": "strict",
+        "skill_signature": "io:fluid-challenge/aki-reassessment",
+        "stem_disambiguators": [
+          "prerenal AKI",
+          "provider goal 240 mL",
+          "6-hour period"
+        ]
+      },
+      "glossary": [
+        {
+          "termEn": "Prerenal",
+          "termZh": "肾前性",
+          "defZh": "肾脏本身未必受损，但肾血流或循环容量不足导致肾功能下降。"
+        },
+        {
+          "termEn": "Fluid challenge",
+          "termZh": "补液试验",
+          "defZh": "按医嘱给予一定液体并观察尿量、血压和肺部情况的评估方法。"
+        },
+        {
+          "termEn": "Acute kidney injury",
+          "termZh": "急性肾损伤",
+          "defZh": "短时间内肾功能下降，可能伴随尿量减少和肌酐升高。"
+        }
+      ]
+    },
+    {
+      "id": "io_mc_postop_retention_priority_05",
+      "itemType": "multiple_choice",
+      "category": "Basic Care and Comfort",
+      "topic": "postoperative urinary retention",
+      "difficulty": "medium",
+      "ngnSkill": "take_action",
+      "stem": {
+        "en": "A client is 8 hours postoperative after the indwelling urinary catheter was removed. The client reports lower abdominal discomfort. The nurse reviews the intake and output record below. Which action should the nurse take first?",
+        "zh": "一名术后8小时的患者已拔除留置导尿管，主诉下腹部不适。护士查看下面的出入量记录。护士应首先采取哪项措施？"
+      },
+      "options": [
+        {
+          "id": "D",
+          "en": "Restrict all oral fluids for the rest of the shift.",
+          "zh": "本班次剩余时间内限制所有口服液体。"
+        },
+        {
+          "id": "C",
+          "en": "Document that urine output is adequate for the shift.",
+          "zh": "记录本班次尿量充足。"
+        },
+        {
+          "id": "A",
+          "en": "Assess for bladder distention and perform a bladder scan per protocol.",
+          "zh": "评估膀胱膨胀，并按流程进行膀胱扫描。"
+        },
+        {
+          "id": "B",
+          "en": "Encourage the client to drink another liter of water immediately.",
+          "zh": "鼓励患者立即再喝1升水。"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "rationale": {
+        "correct": {
+          "en": "Intake totals 1,500 mL and output totals 140 mL, giving a net balance of +1,360 mL. Very low urine output after catheter removal with lower abdominal discomfort suggests possible urinary retention. The nurse should assess the bladder and use a bladder scan according to protocol before giving more fluid or simply documenting the finding.",
+          "zh": "入量合计为1,500 mL，出量合计为140 mL，净平衡为+1,360 mL。拔除导尿管后尿量很少并伴下腹部不适，提示可能尿潴留。护士应先评估膀胱，并按流程进行膀胱扫描，而不是继续大量补水或仅记录。"
+        },
+        "byChoice": [
+          {
+            "refId": "C",
+            "en": "The urine output is not adequate when compared with the intake and symptoms.",
+            "zh": "结合入量和症状，尿量并不充足。"
+          },
+          {
+            "refId": "B",
+            "en": "More oral fluid may worsen discomfort if urine is being retained.",
+            "zh": "如果存在尿潴留，继续大量口服液体可能加重不适。"
+          },
+          {
+            "refId": "A",
+            "en": "This is the priority because the record shows very little urine output despite substantial intake and the client has lower abdominal discomfort.",
+            "zh": "这是优先措施，因为记录显示入量不少但尿量很少，且患者有下腹部不适。"
+          },
+          {
+            "refId": "D",
+            "en": "Blanket fluid restriction does not address possible retention and requires assessment first.",
+            "zh": "一概限制液体不能处理可能的尿潴留，必须先评估。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "When urine output is low after catheter removal, compare it with intake and symptoms; retention is an assessment problem before it is a fluid-intake problem.",
+        "zh": "拔除导尿管后尿量低时，要结合入量和症状判断；尿潴留首先是评估问题，而不是单纯喝水问题。"
+      },
+      "visual": {
+        "kind": "io_record",
+        "periodLabel": {
+          "en": "Postoperative 8-hour shift",
+          "zh": "术后8小时班次"
+        },
+        "intake": [
+          {
+            "label": "0.9% NaCl IV",
+            "volumeMl": 900
+          },
+          {
+            "label": "PO water",
+            "volumeMl": 480
+          },
+          {
+            "label": "Gelatin snack",
+            "volumeMl": 120
+          }
+        ],
+        "output": [
+          {
+            "label": "Voided urine",
+            "volumeMl": 100
+          },
+          {
+            "label": "Surgical drain",
+            "volumeMl": 40
+          }
+        ],
+        "caption": {
+          "en": "Postoperative intake and output",
+          "zh": "术后出入量记录"
+        }
+      },
+      "meta": {
+        "visual_justification": "The priority depends on seeing low urine output despite substantial intake on the visual; the stem does not state those amounts or the net positive balance.",
+        "derived_values_keyed": {
+          "intake_total_ml": 1500,
+          "output_total_ml": 140,
+          "net_balance_ml": 1360
+        },
+        "source": "StatPearls Postoperative Urinary Retention: voiding after Foley removal and bladder-scan evaluation; NCBI Bookshelf Nursing Fundamentals",
+        "tier": "strict",
+        "skill_signature": "io:low-output/postop-retention-assessment",
+        "stem_disambiguators": [
+          "catheter removed",
+          "lower abdominal discomfort",
+          "8 hours postoperative"
+        ]
+      },
+      "glossary": [
+        {
+          "termEn": "Urinary retention",
+          "termZh": "尿潴留",
+          "defZh": "膀胱内有尿液但无法有效排出。"
+        },
+        {
+          "termEn": "Bladder scan",
+          "termZh": "膀胱扫描",
+          "defZh": "用无创超声估计膀胱内尿量。"
+        },
+        {
+          "termEn": "Indwelling catheter",
+          "termZh": "留置导尿管",
+          "defZh": "置入膀胱用于持续引流尿液的导尿管。"
+        }
+      ]
+    },
+    {
+      "id": "io_fib_postop_output_total_06",
+      "itemType": "fill_in_blank",
+      "category": "Reduction of Risk Potential",
+      "topic": "postoperative output calculation",
+      "difficulty": "easy",
+      "ngnSkill": "analyze_cues",
+      "stem": {
+        "en": "A nurse is preparing to hand off care for a postoperative client with multiple drains. Using the intake and output record below, calculate the client's total output for the shift. Record the answer in milliliters (mL).",
+        "zh": "护士准备交接一名术后带有多个引流管的患者。根据下面的出入量记录，计算该患者本班次总出量。以毫升（mL）记录答案。"
+      },
+      "blanks": [
+        {
+          "id": "b1",
+          "prompt": {
+            "en": "Total output",
+            "zh": "总出量"
+          },
+          "acceptable": [
+            "620",
+            "620 mL"
+          ],
+          "numeric": {
+            "value": 620,
+            "unit": "mL",
+            "tolerance": 0
+          }
+        }
+      ],
+      "rationale": {
+        "correct": {
+          "en": "Output totals 350 mL urine + 180 mL chest tube drainage + 90 mL Jackson-Pratt drainage = 620 mL. Intake is not needed because the question asks only for total output.",
+          "zh": "出量合计为尿液350 mL + 胸腔引流180 mL + JP引流90 mL = 620 mL。本题只问总出量，因此不需要计算入量。"
+        },
+        "byChoice": [
+          {
+            "refId": "b1",
+            "en": "The correct numeric entry is 620 mL, the sum of all output rows.",
+            "zh": "正确数值为620 mL，即所有出量项目之和。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Read the question carefully: if it asks for output only, do not subtract intake.",
+        "zh": "仔细读题：如果只问出量，就不要减去入量。"
+      },
+      "visual": {
+        "kind": "io_record",
+        "periodLabel": {
+          "en": "1500–2300 shift",
+          "zh": "1500–2300 班次"
+        },
+        "intake": [
+          {
+            "label": "PO fluids",
+            "volumeMl": 300
+          },
+          {
+            "label": "IV maintenance fluid",
+            "volumeMl": 600
+          }
+        ],
+        "output": [
+          {
+            "label": "Voided urine",
+            "volumeMl": 350
+          },
+          {
+            "label": "Chest tube drainage",
+            "volumeMl": 180
+          },
+          {
+            "label": "Jackson-Pratt drainage",
+            "volumeMl": 90
+          }
+        ],
+        "caption": {
+          "en": "Postoperative intake and output",
+          "zh": "术后出入量记录"
+        }
+      },
+      "meta": {
+        "visual_justification": "The total output can only be obtained by summing the output rows on the visual; the stem does not list or total the drainage amounts.",
+        "derived_values_keyed": {
+          "intake_total_ml": 900,
+          "output_total_ml": 620,
+          "net_balance_ml": 280
+        },
+        "source": "NCBI Bookshelf Nursing Fundamentals: intake/output measurement and urine/drainage monitoring",
+        "tier": "strict",
+        "skill_signature": "io:output-total/postoperative-drains",
+        "stem_disambiguators": [
+          "postoperative",
+          "multiple drains",
+          "asks total output only"
+        ]
+      },
+      "glossary": [
+        {
+          "termEn": "Output",
+          "termZh": "出量",
+          "defZh": "从体内排出或引流出的液体量，如尿液、呕吐物或引流液。"
+        },
+        {
+          "termEn": "Chest tube drainage",
+          "termZh": "胸管引流液",
+          "defZh": "经胸腔引流管排出的液体或空气相关引流。"
+        },
+        {
+          "termEn": "Jackson-Pratt drain",
+          "termZh": "JP引流管",
+          "defZh": "术后常用的负压引流装置。"
+        }
+      ]
+    },
+    {
+      "id": "io_sata_ckd_fluid_overload_07",
+      "itemType": "select_all",
+      "category": "Physiological Adaptation",
+      "topic": "chronic kidney disease fluid overload risk",
+      "difficulty": "hard",
+      "ngnSkill": "generate_solutions",
+      "stem": {
+        "en": "A client with chronic kidney disease has the intake and output record shown below. Which nursing actions are appropriate before the end of the shift? Select all that apply.",
+        "zh": "一名慢性肾病患者有如下出入量记录。本班次结束前哪些护理措施是适当的？选择所有适用项。"
+      },
+      "options": [
+        {
+          "id": "E",
+          "en": "Review scheduled fluid sources before hanging additional IV fluid.",
+          "zh": "在悬挂额外静脉液体前复核计划中的液体来源。"
+        },
+        {
+          "id": "A",
+          "en": "Assess lung sounds and oxygen saturation.",
+          "zh": "评估肺音和血氧饱和度。"
+        },
+        {
+          "id": "C",
+          "en": "Report the positive balance with low urine output according to unit policy.",
+          "zh": "按科室流程报告正平衡伴尿量低。"
+        },
+        {
+          "id": "B",
+          "en": "Compare the current weight with the previous daily weight.",
+          "zh": "将当前体重与前一日每日体重比较。"
+        },
+        {
+          "id": "D",
+          "en": "Encourage rapid oral fluid intake to improve kidney perfusion.",
+          "zh": "鼓励快速大量口服液体以改善肾灌注。"
+        },
+        {
+          "id": "F",
+          "en": "Assume the record is expected and take no further action.",
+          "zh": "认为该记录属预期情况，不采取进一步措施。"
+        }
+      ],
+      "correct": [
+        "A",
+        "B",
+        "C",
+        "E"
+      ],
+      "rationale": {
+        "correct": {
+          "en": "Intake totals 880 mL and output totals 250 mL, giving a net balance of +630 mL. In chronic kidney disease, a positive balance with low urine output warrants assessment for fluid overload, comparison with daily weight, reporting per policy, and review of additional fluid sources.",
+          "zh": "入量合计为880 mL，出量合计为250 mL，净平衡为+630 mL。慢性肾病患者出现正平衡且尿量低时，应评估液体超负荷、比较每日体重、按流程报告，并在继续给予液体前复核其他液体来源。"
+        },
+        "byChoice": [
+          {
+            "refId": "E",
+            "en": "Reviewing fluid sources helps prevent unintended worsening of a positive balance.",
+            "zh": "复核液体来源有助于避免无意中加重正平衡。"
+          },
+          {
+            "refId": "B",
+            "en": "Daily weight helps evaluate fluid retention trends.",
+            "zh": "每日体重有助于评估液体潴留趋势。"
+          },
+          {
+            "refId": "F",
+            "en": "No action ignores the positive balance and low urine output.",
+            "zh": "不采取行动会忽视正平衡和尿量低。"
+          },
+          {
+            "refId": "A",
+            "en": "A positive balance with kidney disease can contribute to pulmonary congestion, so respiratory assessment is appropriate.",
+            "zh": "肾病患者正平衡可能导致肺部淤液，因此评估呼吸状况是适当的。"
+          },
+          {
+            "refId": "C",
+            "en": "Low urine output with positive balance is clinically relevant and should be communicated according to policy.",
+            "zh": "尿量低伴正平衡具有临床意义，应按流程沟通。"
+          },
+          {
+            "refId": "D",
+            "en": "Rapid extra fluids could worsen overload and are not supported by this record.",
+            "zh": "快速额外补液可能加重超负荷，记录并不支持这样做。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "In kidney disease, low output plus positive balance points toward overload risk; choose assessment and communication, not automatic fluid loading.",
+        "zh": "肾病中，低出量加正平衡提示超负荷风险；选择评估和沟通，而不是自动补液。"
+      },
+      "visual": {
+        "kind": "io_record",
+        "periodLabel": {
+          "en": "0700–1900 shift",
+          "zh": "0700–1900 班次"
+        },
+        "intake": [
+          {
+            "label": "PO water",
+            "volumeMl": 600
+          },
+          {
+            "label": "IV antibiotic piggyback",
+            "volumeMl": 100
+          },
+          {
+            "label": "Enteral tube flushes",
+            "volumeMl": 180
+          }
+        ],
+        "output": [
+          {
+            "label": "Voided urine",
+            "volumeMl": 150
+          },
+          {
+            "label": "Stool",
+            "volumeMl": 100
+          }
+        ],
+        "caption": {
+          "en": "Chronic kidney disease intake and output",
+          "zh": "慢性肾病出入量记录"
+        }
+      },
+      "meta": {
+        "visual_justification": "The appropriate actions depend on recognizing the positive balance and low urine output from the visual; the stem does not state either finding.",
+        "derived_values_keyed": {
+          "intake_total_ml": 880,
+          "output_total_ml": 250,
+          "net_balance_ml": 630
+        },
+        "source": "NCBI Bookshelf Normal and Abnormal Urine Output; Nursing Fundamentals fluid balance monitoring",
+        "tier": "strict",
+        "skill_signature": "io:positive-balance/ckd-overload-risk",
+        "stem_disambiguators": [
+          "chronic kidney disease",
+          "before end of shift",
+          "select all appropriate actions"
+        ]
+      },
+      "glossary": [
+        {
+          "termEn": "Chronic kidney disease",
+          "termZh": "慢性肾病",
+          "defZh": "肾功能长期下降，可能影响体液和电解质调节。"
+        },
+        {
+          "termEn": "Daily weight",
+          "termZh": "每日体重",
+          "defZh": "每天同一条件下测量体重，用于追踪液体变化。"
+        },
+        {
+          "termEn": "Oxygen saturation",
+          "termZh": "血氧饱和度",
+          "defZh": "血红蛋白携带氧气的百分比，可反映氧合状况。"
+        }
+      ]
+    },
+    {
+      "id": "io_matrix_bowel_prep_deficit_08",
+      "itemType": "matrix",
+      "category": "Reduction of Risk Potential",
+      "topic": "bowel preparation fluid deficit",
+      "difficulty": "medium",
+      "ngnSkill": "take_action",
+      "stem": {
+        "en": "A client is completing bowel preparation for a colonoscopy. The nurse reviews the intake and output record below. Classify each nursing action.",
+        "zh": "一名患者正在为结肠镜检查进行肠道准备。护士查看下面的出入量记录。请对每项护理措施进行分类。"
+      },
+      "matrix": {
+        "rows": [
+          {
+            "id": "r1",
+            "en": "Assess orthostatic vital signs and mucous membranes.",
+            "zh": "评估体位性生命体征和黏膜情况。"
+          },
+          {
+            "id": "r2",
+            "en": "Encourage allowed clear liquids if not contraindicated.",
+            "zh": "如无禁忌，鼓励允许范围内的清流质。"
+          },
+          {
+            "id": "r3",
+            "en": "Ignore the balance because stool output is expected during bowel preparation.",
+            "zh": "因肠道准备时排便增多属预期情况，所以忽略液体平衡。"
+          },
+          {
+            "id": "r4",
+            "en": "Notify the provider of dizziness, hypotension, or inability to maintain intake.",
+            "zh": "如出现头晕、低血压或无法维持入量，应通知医生。"
+          }
+        ],
+        "columns": [
+          {
+            "id": "c1",
+            "en": "Appropriate action",
+            "zh": "适当措施"
+          },
+          {
+            "id": "c2",
+            "en": "Inappropriate action",
+            "zh": "不适当措施"
+          }
+        ],
+        "selectionMode": "single_per_row"
+      },
+      "correct": [
+        {
+          "rowId": "r1",
+          "columnIds": [
+            "c1"
+          ]
+        },
+        {
+          "rowId": "r2",
+          "columnIds": [
+            "c1"
+          ]
+        },
+        {
+          "rowId": "r3",
+          "columnIds": [
+            "c2"
+          ]
+        },
+        {
+          "rowId": "r4",
+          "columnIds": [
+            "c1"
+          ]
+        }
+      ],
+      "rationale": {
+        "correct": {
+          "en": "Intake totals 1,290 mL and output totals 2,500 mL, giving a net balance of −1,210 mL. Stool output is expected with bowel preparation, but the net deficit still requires assessment for dehydration, encouragement of permitted clear liquids if safe, and provider notification for concerning symptoms or inability to maintain intake.",
+          "zh": "入量合计为1,290 mL，出量合计为2,500 mL，净平衡为−1,210 mL。肠道准备时排便增多是预期情况，但净负平衡仍需要评估脱水、在安全情况下鼓励允许的清流质，并在出现相关症状或无法维持入量时通知医生。"
+        },
+        "byChoice": [
+          {
+            "refId": "r1",
+            "en": "The negative balance makes dehydration assessment appropriate.",
+            "zh": "负平衡使脱水评估成为适当措施。"
+          },
+          {
+            "refId": "r2",
+            "en": "Allowed clear liquids can help reduce deficit when not contraindicated by the procedure plan.",
+            "zh": "在不违反检查计划或禁忌的情况下，允许的清流质可帮助减少体液不足。"
+          },
+          {
+            "refId": "r3",
+            "en": "Expected stool output does not mean the fluid deficit should be ignored.",
+            "zh": "排便增多虽可预期，但不代表可以忽略体液不足。"
+          },
+          {
+            "refId": "r4",
+            "en": "Symptoms such as dizziness or hypotension would make the negative balance more urgent and should be reported.",
+            "zh": "头晕或低血压等症状会使负平衡更紧急，应报告。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Separate expected output from safe response: even expected losses can become clinically important when intake does not keep up.",
+        "zh": "把“预期出量”与“安全应对”分开：即使是预期的丢失，当入量跟不上时也可能有临床意义。"
+      },
+      "visual": {
+        "kind": "io_record",
+        "periodLabel": {
+          "en": "Bowel preparation evening shift",
+          "zh": "肠道准备晚班"
+        },
+        "intake": [
+          {
+            "label": "Clear liquids",
+            "volumeMl": 540
+          },
+          {
+            "label": "IV maintenance fluid",
+            "volumeMl": 750
+          }
+        ],
+        "output": [
+          {
+            "label": "Liquid stool",
+            "volumeMl": 2200
+          },
+          {
+            "label": "Voided urine",
+            "volumeMl": 300
+          }
+        ],
+        "caption": {
+          "en": "Bowel preparation intake and output",
+          "zh": "肠道准备出入量记录"
+        }
+      },
+      "meta": {
+        "visual_justification": "The need for dehydration-focused actions depends on calculating the negative balance from the visual; the stem does not state the intake total, output total, or deficit.",
+        "derived_values_keyed": {
+          "intake_total_ml": 1290,
+          "output_total_ml": 2500,
+          "net_balance_ml": -1210
+        },
+        "source": "Merck Manual dehydration symptoms; Nursing Fundamentals intake/output and dehydration assessment",
+        "tier": "strict",
+        "skill_signature": "io:negative-balance/bowel-prep-deficit",
+        "stem_disambiguators": [
+          "bowel preparation",
+          "colonoscopy",
+          "classify actions"
+        ]
+      },
+      "glossary": [
+        {
+          "termEn": "Bowel preparation",
+          "termZh": "肠道准备",
+          "defZh": "检查或手术前清空肠道的过程，常会增加粪便液体丢失。"
+        },
+        {
+          "termEn": "Clear liquids",
+          "termZh": "清流质",
+          "defZh": "透明、无渣的液体，如水、清汤或某些电解质饮料。"
+        },
+        {
+          "termEn": "Orthostatic vital signs",
+          "termZh": "体位性生命体征",
+          "defZh": "比较卧位、坐位或站立时血压和脉搏变化，以评估容量状态。"
+        }
+      ]
+    }
+  ]
+}

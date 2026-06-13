@@ -85,6 +85,7 @@ Never output partial JSON.
 Never output trailing commas.
 
 Never output comments inside JSON.
+Use only ASCII double quotes (U+0022) for all JSON keys and string delimiters. Never use smart/curly quotes (“ ” ‘ ’) as JSON syntax. Inside a zh string, use Chinese quotation marks (“…” or 「…」) for quoted speech; if a literal ASCII double quote must appear inside a string, escape it as \".
 
 Never claim that generated content is reviewed, validated, safe, canonical, or promotion-ready.
 

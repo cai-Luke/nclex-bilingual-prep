@@ -45,6 +45,16 @@ Guidance for coding and content agents working on Project Shrimp / NCLEX Bilingu
 - Be especially strict with medication, lab, dosage, prioritization, and delegation items.
 - Do not AI-generate medical images. Visual stimuli must be either deterministic data-derived visuals or curated licensed images. The visual must contribute information required to answer the item — if the answer is unchanged when the visual is removed, the visual is decorative and the item is invalid. Decorative visuals are prohibited.
 
+### Editing raw bank JSON (quote safety)
+
+Raw banks are JSON — do not let a model retype JSON structure. Two corruption modes have hit the promotion gate, both from free-form Edit-tool rewrites of `case_study` stage sections:
+- **Structural curly quotes** — replacement text used “ ” (U+201C/D) as key/value delimiters (`“id”`, `“content”`). Invalid JSON; parse fails.
+- **Downgraded content quotes** — Chinese speech marks in a `zh` value (`患者说：“…”`) came back as bare, unescaped ASCII `"`, terminating the string early. Parse fails.
+
+Rules:
+- **Migrate JSON shape with a programmatic transform, not the Edit tool.** Load → mutate the object → re-serialize (`JSON.stringify` / `json.dumps(…, ensure_ascii=False)`). A serializer can't emit curly structural quotes and escapes inner quotes correctly, so both modes become impossible. Prefer `scripts/patch-raw.ts` (declarative before→after) over ad-hoc rewrites — DECISIONS principle 15.
+- When a targeted text edit is unavoidable: keep all JSON structure ASCII `"`, use Chinese quotation marks only inside string values, escape any literal ASCII `"` as `\"`, and run `npm run validate-bank -- <file>` immediately after each edit — do not batch edits and validate once at the end.
+
 ## Visual Question Workflow
 
 Committed visual lanes (first-class content types):
@@ -70,8 +80,15 @@ Visual items must be deterministic, locally rendered, and inspectable from struc
 **Promotion pipeline** — when moving content from `banks/banks-raw/` into a canonical bank:
 
 ```sh
+npm run fix-bank-quotes -- banks/banks-raw/<file>.json   # repair curly-quote corruption before validating (writes <file>.fixed.json; add --in-place to overwrite)
 npm run promote        # applies deterministic shuffle; writes to banks/<same-filename>
 npm run audit          # Tier 0 validate-bank + Tier 1 references/positions/integrity
+```
+
+If a raw draft fails `validate-bank` with a JSON parse error, recover the quotes deterministically before reviewing — do not hand-fix:
+
+```sh
+tsx scripts/fix-bank-quotes.ts banks/banks-raw/<file>.json   # writes <file>.fixed.json if it parses, else pinpoints the spot
 ```
 
 `audit:integrity` requires the draft to still exist in `banks-raw/` — delete drafts only *after* the shuffled output has been merged into the canonical bank and the audit passes. If content is merged directly into a canonical bank (bypassing the promote script), apply `shuffle()` manually to all MC/SATA/OR items and run `npm run audit:references` to confirm no positional-language hazards were introduced.

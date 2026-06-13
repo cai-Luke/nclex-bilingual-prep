@@ -1,0 +1,1022 @@
+{
+  "meta": {
+    "schemaVersion": "1.2",
+    "exam": "NCLEX-RN",
+    "topic": "device screen visual smoke batch",
+    "category": "mixed",
+    "difficulty": "mixed",
+    "count": 8
+  },
+  "questions": [
+    {
+      "id": "dev_pca_basal_opioid_naive_01",
+      "itemType": "multiple_choice",
+      "category": "Pharmacological and Parenteral Therapies",
+      "topic": "patient-controlled analgesia safety",
+      "difficulty": "hard",
+      "ngnSkill": "recognize_cues",
+      "stem": {
+        "en": "An opioid-naïve adult is prescribed morphine patient-controlled analgesia after surgery. The nurse reviews the pump screen before initiating therapy. Which setting should the nurse question first?",
+        "zh": "一名未曾使用过阿片类药物的成年人术后被医嘱使用吗啡患者自控镇痛。护士在开始治疗前查看泵屏幕。护士首先应质疑哪项设置？"
+      },
+      "options": [
+        {
+          "id": "C",
+          "en": "The 1 mg patient demand dose",
+          "zh": "1 mg患者需求剂量"
+        },
+        {
+          "id": "A",
+          "en": "The continuous basal infusion",
+          "zh": "持续基础输注"
+        },
+        {
+          "id": "D",
+          "en": "The displayed drug concentration",
+          "zh": "显示的药物浓度"
+        },
+        {
+          "id": "B",
+          "en": "The 10-minute lockout interval",
+          "zh": "10分钟锁定间隔"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "rationale": {
+        "correct": {
+          "en": "The screen shows PCA+basal mode with a continuous basal opioid infusion. A basal opioid infusion in an opioid-naïve client can deliver opioid when the client is asleep or not requesting medication, increasing the risk for oversedation and respiratory depression. The nurse should question this setting before starting the pump.",
+          "zh": "屏幕显示PCA+基础输注模式，并设置了持续基础阿片类输注。对未曾使用过阿片类药物的患者，基础输注可能在患者睡眠或未主动请求用药时继续给药，增加过度镇静和呼吸抑制风险。护士应在启动泵前质疑该设置。"
+        },
+        "byChoice": [
+          {
+            "refId": "A",
+            "en": "The basal infusion is the unsafe cue because it gives opioid continuously to an opioid-naïve client.",
+            "zh": "基础输注是不安全线索，因为它会持续给未曾使用过阿片类药物的患者输注阿片类药物。"
+          },
+          {
+            "refId": "D",
+            "en": "The concentration identifies the medication strength; the question asks which programmed setting should be questioned first.",
+            "zh": "浓度用于识别药物强度；题目询问首先应质疑哪项程序设置。"
+          },
+          {
+            "refId": "B",
+            "en": "A lockout interval limits repeat demand doses; it is not the priority concern shown on this screen.",
+            "zh": "锁定间隔限制重复需求剂量；这不是屏幕上显示的首要问题。"
+          },
+          {
+            "refId": "C",
+            "en": "The demand dose may still require policy verification, but the continuous basal infusion is the immediate safety concern for an opioid-naïve client.",
+            "zh": "需求剂量仍需按机构政策核对，但对未曾使用过阿片类药物的患者，持续基础输注才是立即的安全问题。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "For PCA questions, first ask whether the client is opioid-naïve. Continuous basal opioid delivery is the high-risk cue.",
+        "zh": "遇到PCA题目时，先判断患者是否未曾使用过阿片类药物。持续基础阿片类给药是高风险线索。"
+      },
+      "glossary": [
+        {
+          "termEn": "opioid-naïve",
+          "termZh": "未曾使用过阿片类药物",
+          "defZh": "指患者近期没有持续使用阿片类药物，耐受性低，较容易发生镇静和呼吸抑制。"
+        },
+        {
+          "termEn": "basal infusion",
+          "termZh": "基础输注",
+          "defZh": "除患者按键需求剂量外，泵持续给予的背景输注速率。"
+        },
+        {
+          "termEn": "lockout interval",
+          "termZh": "锁定间隔",
+          "defZh": "PCA泵在一次有效给药后暂时不再给药的时间，以减少剂量叠加。"
+        }
+      ],
+      "visual": {
+        "kind": "device_screen",
+        "device": "pca",
+        "title": {
+          "en": "PCA Pump — Morphine",
+          "zh": "PCA泵 — 吗啡"
+        },
+        "settings": [
+          {
+            "key": "drug",
+            "text": "morphine"
+          },
+          {
+            "key": "concentration",
+            "text": "1 mg/mL"
+          },
+          {
+            "key": "mode",
+            "text": "PCA+basal"
+          },
+          {
+            "key": "demand_dose",
+            "value": 1,
+            "unit": "mg"
+          },
+          {
+            "key": "lockout_min",
+            "value": 10,
+            "unit": "min"
+          },
+          {
+            "key": "basal_rate",
+            "value": 1,
+            "unit": "mg/hr",
+            "flag": true
+          },
+          {
+            "key": "limit_4h",
+            "value": 20,
+            "unit": "mg"
+          }
+        ],
+        "caption": {
+          "en": "Programmed PCA settings",
+          "zh": "已设定的PCA参数"
+        }
+      },
+      "meta": {
+        "visual_justification": "The unsafe element is the programmed PCA+basal mode and basal_rate value on the pump screen; the stem does not state which settings are programmed.",
+        "keyed_settings": [
+          {
+            "key": "mode"
+          },
+          {
+            "key": "basal_rate"
+          }
+        ],
+        "source": "AHRQ PSNet and ISMP PCA safety guidance; institutional PCA policy",
+        "tier": "strictest",
+        "skill_signature": "dev:pca-basal/opioid-naive-risk",
+        "stem_disambiguators": [
+          "opioid-naïve adult",
+          "before initiating therapy"
+        ]
+      }
+    },
+    {
+      "id": "dev_pca_lockout_max_demands_01",
+      "itemType": "fill_in_blank",
+      "category": "Reduction of Risk Potential",
+      "topic": "patient-controlled analgesia dose limits",
+      "difficulty": "medium",
+      "ngnSkill": "analyze_cues",
+      "stem": {
+        "en": "A nurse is verifying how many patient demand doses could be delivered in 1 hour if the client presses the PCA button whenever it is available. Using the pump screen shown, calculate the maximum number of delivered demand doses in 1 hour. Record a whole number.",
+        "zh": "护士正在核对如果患者每次PCA按键可用时都按键，1小时内最多可给予多少次患者需求剂量。根据所示泵屏幕，计算1小时内最多可给予的需求剂量次数。记录整数。"
+      },
+      "blanks": [
+        {
+          "id": "b1",
+          "prompt": {
+            "en": "maximum delivered demand doses in 1 hour",
+            "zh": "1小时内最多给予的需求剂量次数"
+          },
+          "acceptable": [
+            "7"
+          ],
+          "numeric": {
+            "value": 7,
+            "unit": "doses",
+            "tolerance": 0
+          }
+        }
+      ],
+      "rationale": {
+        "correct": {
+          "en": "The lockout interval is 8 minutes. Maximum delivered demand doses in 1 hour = floor(60 ÷ 8) = floor(7.5) = 7 doses. The partial interval does not allow another full dose.",
+          "zh": "锁定间隔为8分钟。1小时内最多给予的需求剂量次数 = floor(60 ÷ 8) = floor(7.5) = 7次。不完整的间隔不能再给予一次完整剂量。"
+        },
+        "byChoice": [
+          {
+            "refId": "b1",
+            "en": "The answer is the integer number of complete lockout intervals that fit into 60 minutes.",
+            "zh": "答案是60分钟内可容纳的完整锁定间隔数，取整数。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "For a lockout calculation, divide 60 minutes by the lockout time and round down because a partial lockout period cannot deliver a dose.",
+        "zh": "计算锁定间隔题时，用60分钟除以锁定时间并向下取整，因为不完整的锁定时段不能给药。"
+      },
+      "glossary": [
+        {
+          "termEn": "demand dose",
+          "termZh": "需求剂量",
+          "defZh": "患者按PCA按钮后，泵在允许条件下给予的一次剂量。"
+        },
+        {
+          "termEn": "round down",
+          "termZh": "向下取整",
+          "defZh": "只计算完整可用的次数，不把不完整的时间段算作一次给药。"
+        }
+      ],
+      "visual": {
+        "kind": "device_screen",
+        "device": "pca",
+        "title": {
+          "en": "PCA Pump — Hydromorphone",
+          "zh": "PCA泵 — 氢吗啡酮"
+        },
+        "settings": [
+          {
+            "key": "drug",
+            "text": "hydromorphone"
+          },
+          {
+            "key": "concentration",
+            "text": "0.2 mg/mL"
+          },
+          {
+            "key": "mode",
+            "text": "PCA only"
+          },
+          {
+            "key": "demand_dose",
+            "value": 0.2,
+            "unit": "mg"
+          },
+          {
+            "key": "lockout_min",
+            "value": 8,
+            "unit": "min"
+          },
+          {
+            "key": "limit_1h",
+            "value": 1.4,
+            "unit": "mg"
+          }
+        ],
+        "caption": {
+          "en": "PCA lockout settings",
+          "zh": "PCA锁定设置"
+        }
+      },
+      "meta": {
+        "visual_justification": "The maximum number of demand doses depends on the lockout_min value shown only on the pump screen.",
+        "derived_values_keyed": {
+          "max_demands_1h": 7
+        },
+        "round": 0,
+        "source": "PCA pump programming math: complete lockout intervals per hour",
+        "tier": "strictest",
+        "skill_signature": "dev:pca-lockout/max-demands-1h",
+        "stem_disambiguators": [
+          "1-hour maximum",
+          "presses whenever available"
+        ]
+      }
+    },
+    {
+      "id": "dev_pca_max_dose_basal_01",
+      "itemType": "fill_in_blank",
+      "category": "Pharmacological and Parenteral Therapies",
+      "topic": "patient-controlled analgesia dose limits",
+      "difficulty": "hard",
+      "ngnSkill": "analyze_cues",
+      "stem": {
+        "en": "A nurse is checking the maximum hydromorphone dose that could be delivered in 1 hour if the client presses the PCA button whenever it is available. Using the pump screen shown, calculate the maximum milligrams delivered in 1 hour. Record your answer to the nearest tenth.",
+        "zh": "护士正在核对如果患者每次PCA按键可用时都按键，1小时内最多可能给予多少氢吗啡酮。根据所示泵屏幕，计算1小时内最多给予的毫克数。答案保留到十分位。"
+      },
+      "blanks": [
+        {
+          "id": "b1",
+          "prompt": {
+            "en": "mg in 1 hour",
+            "zh": "1小时内毫克数"
+          },
+          "acceptable": [
+            "1.4",
+            "1.4 mg"
+          ],
+          "numeric": {
+            "value": 1.4,
+            "unit": "mg",
+            "tolerance": 0
+          }
+        }
+      ],
+      "rationale": {
+        "correct": {
+          "en": "The lockout is 10 minutes, so at most floor(60 ÷ 10) = 6 demand doses can be delivered in 1 hour. Six 0.2 mg doses = 1.2 mg. Because the screen shows PCA+basal mode, add the basal 0.2 mg/hr: 1.2 + 0.2 = 1.4 mg in 1 hour.",
+          "zh": "锁定间隔为10分钟，因此1小时内最多可给予 floor(60 ÷ 10) = 6次需求剂量。6次 × 0.2 mg = 1.2 mg。由于屏幕显示PCA+基础输注模式，还要加上0.2 mg/hr的基础输注：1.2 + 0.2 = 1.4 mg。"
+        },
+        "byChoice": [
+          {
+            "refId": "b1",
+            "en": "Include the basal rate because the mode text contains basal; otherwise only delivered demand doses would count.",
+            "zh": "因为模式文字包含基础输注，所以要计入基础速率；否则只计算需求剂量。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Check the PCA mode before doing the math. Basal opioid dose is included only when the screen shows basal mode.",
+        "zh": "计算前先查看PCA模式。只有屏幕显示基础输注模式时，才计入基础阿片类剂量。"
+      },
+      "glossary": [
+        {
+          "termEn": "maximum dose",
+          "termZh": "最大剂量",
+          "defZh": "在特定时间内泵设置允许给予的最高总剂量。"
+        },
+        {
+          "termEn": "PCA+basal",
+          "termZh": "PCA加基础输注",
+          "defZh": "患者可按键获得需求剂量，同时泵还持续给予背景剂量。"
+        }
+      ],
+      "visual": {
+        "kind": "device_screen",
+        "device": "pca",
+        "title": {
+          "en": "PCA Pump — Hydromorphone",
+          "zh": "PCA泵 — 氢吗啡酮"
+        },
+        "settings": [
+          {
+            "key": "drug",
+            "text": "hydromorphone"
+          },
+          {
+            "key": "concentration",
+            "text": "0.2 mg/mL"
+          },
+          {
+            "key": "mode",
+            "text": "PCA+basal"
+          },
+          {
+            "key": "demand_dose",
+            "value": 0.2,
+            "unit": "mg"
+          },
+          {
+            "key": "lockout_min",
+            "value": 10,
+            "unit": "min"
+          },
+          {
+            "key": "basal_rate",
+            "value": 0.2,
+            "unit": "mg/hr"
+          },
+          {
+            "key": "limit_1h",
+            "value": 1.4,
+            "unit": "mg"
+          }
+        ],
+        "caption": {
+          "en": "PCA dose-limit settings",
+          "zh": "PCA剂量限制设置"
+        }
+      },
+      "meta": {
+        "visual_justification": "The 1-hour maximum requires reading the lockout, demand dose, basal rate, and basal mode from the pump screen; the stem does not state these values.",
+        "derived_values_keyed": {
+          "max_demands_1h": 6,
+          "max_dose_1h_mg": 1.4
+        },
+        "round": 1,
+        "source": "PCA pump programming math; AHRQ PSNet PCA safety overview",
+        "tier": "strictest",
+        "skill_signature": "dev:pca-basal/max-dose-1h",
+        "stem_disambiguators": [
+          "nearest tenth",
+          "client presses whenever available"
+        ]
+      }
+    },
+    {
+      "id": "dev_pca_delivered_total_no_basal_01",
+      "itemType": "fill_in_blank",
+      "category": "Reduction of Risk Potential",
+      "topic": "patient-controlled analgesia documentation",
+      "difficulty": "medium",
+      "ngnSkill": "analyze_cues",
+      "stem": {
+        "en": "At the end of a postoperative assessment period, the nurse documents how much hydromorphone the client received from delivered PCA demand doses. Using the pump screen shown, calculate the total delivered demand-dose amount in milligrams. Record your answer to the nearest tenth.",
+        "zh": "在术后评估时段结束时，护士记录患者通过PCA需求剂量实际获得了多少氢吗啡酮。根据所示泵屏幕，计算已给予需求剂量的总毫克数。答案保留到十分位。"
+      },
+      "blanks": [
+        {
+          "id": "b1",
+          "prompt": {
+            "en": "total delivered demand-dose amount",
+            "zh": "已给予需求剂量总量"
+          },
+          "acceptable": [
+            "1.8",
+            "1.8 mg"
+          ],
+          "numeric": {
+            "value": 1.8,
+            "unit": "mg",
+            "tolerance": 0
+          }
+        }
+      ],
+      "rationale": {
+        "correct": {
+          "en": "The screen shows PCA only mode, so there is no basal dose to add. Delivered demand doses = 9, and each demand dose is 0.2 mg. Total delivered amount = 9 × 0.2 = 1.8 mg.",
+          "zh": "屏幕显示仅PCA模式，因此没有基础剂量需要相加。已给予需求剂量为9次，每次0.2 mg。总已给剂量 = 9 × 0.2 = 1.8 mg。"
+        },
+        "byChoice": [
+          {
+            "refId": "b1",
+            "en": "Multiply the delivered count by the demand dose and do not add basal medication because the mode is PCA only.",
+            "zh": "用已给予次数乘以需求剂量；由于模式为仅PCA，不加基础输注剂量。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Distinguish attempts from delivered doses. Dose received is based on delivered doses, not every button press.",
+        "zh": "区分尝试次数和已给予次数。患者实际获得的剂量按已给予次数计算，而不是每次按键都计算。"
+      },
+      "glossary": [
+        {
+          "termEn": "attempts",
+          "termZh": "尝试次数",
+          "defZh": "患者按下PCA按钮的次数，其中一部分可能因锁定间隔而未给药。"
+        },
+        {
+          "termEn": "delivered",
+          "termZh": "已给予",
+          "defZh": "泵实际给出药物剂量的次数。"
+        }
+      ],
+      "visual": {
+        "kind": "device_screen",
+        "device": "pca",
+        "title": {
+          "en": "PCA Pump — Hydromorphone",
+          "zh": "PCA泵 — 氢吗啡酮"
+        },
+        "settings": [
+          {
+            "key": "drug",
+            "text": "hydromorphone"
+          },
+          {
+            "key": "concentration",
+            "text": "0.2 mg/mL"
+          },
+          {
+            "key": "mode",
+            "text": "PCA only"
+          },
+          {
+            "key": "demand_dose",
+            "value": 0.2,
+            "unit": "mg"
+          },
+          {
+            "key": "lockout_min",
+            "value": 8,
+            "unit": "min"
+          },
+          {
+            "key": "attempts",
+            "value": 21,
+            "unit": "presses"
+          },
+          {
+            "key": "delivered",
+            "value": 9,
+            "unit": "doses"
+          }
+        ],
+        "caption": {
+          "en": "PCA dose history",
+          "zh": "PCA给药记录"
+        }
+      },
+      "meta": {
+        "visual_justification": "The delivered dose total requires reading the delivered count, demand dose, and PCA-only mode from the pump screen; the stem does not state these values.",
+        "derived_values_keyed": {
+          "delivered_dose_total_mg": 1.8
+        },
+        "round": 1,
+        "source": "PCA pump dose-history documentation math",
+        "tier": "strictest",
+        "skill_signature": "dev:pca-delivered/total-demand-dose",
+        "stem_disambiguators": [
+          "delivered PCA demand doses",
+          "nearest tenth"
+        ]
+      }
+    },
+    {
+      "id": "dev_pca_delivered_total_basal_01",
+      "itemType": "fill_in_blank",
+      "category": "Pharmacological and Parenteral Therapies",
+      "topic": "patient-controlled analgesia documentation",
+      "difficulty": "hard",
+      "ngnSkill": "analyze_cues",
+      "stem": {
+        "en": "A nurse is reconciling the morphine administered during a 4-hour postoperative period. Using the PCA screen shown, calculate the total morphine delivered during the 4 hours in milligrams. Record a whole number.",
+        "zh": "护士正在核对术后4小时时段内给予的吗啡总量。根据所示PCA屏幕，计算4小时内实际给予的吗啡总毫克数。记录整数。"
+      },
+      "blanks": [
+        {
+          "id": "b1",
+          "prompt": {
+            "en": "total morphine delivered in 4 hours",
+            "zh": "4小时内给予的吗啡总量"
+          },
+          "acceptable": [
+            "7",
+            "7 mg"
+          ],
+          "numeric": {
+            "value": 7,
+            "unit": "mg",
+            "tolerance": 0
+          }
+        }
+      ],
+      "rationale": {
+        "correct": {
+          "en": "The screen shows PCA+basal mode. Delivered demand doses = 5 doses × 1 mg = 5 mg. Basal infusion = 0.5 mg/hr × 4 hours = 2 mg. Total morphine delivered = 5 + 2 = 7 mg.",
+          "zh": "屏幕显示PCA+基础输注模式。已给予需求剂量 = 5次 × 1 mg = 5 mg。基础输注 = 0.5 mg/hr × 4小时 = 2 mg。总吗啡剂量 = 5 + 2 = 7 mg。"
+        },
+        "byChoice": [
+          {
+            "refId": "b1",
+            "en": "Because the mode includes basal, add the basal dose over the 4-hour period to the delivered demand-dose amount.",
+            "zh": "由于模式包含基础输注，需要把4小时内的基础剂量加到已给予需求剂量中。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "When a PCA screen includes basal mode, total delivered dose equals demand-dose delivery plus basal dose over time.",
+        "zh": "当PCA屏幕包含基础输注模式时，总给药量等于需求剂量给药量加上该时段内的基础输注量。"
+      },
+      "glossary": [
+        {
+          "termEn": "dose reconciliation",
+          "termZh": "剂量核对",
+          "defZh": "核对记录中患者在某时段实际获得的总药量。"
+        },
+        {
+          "termEn": "basal rate",
+          "termZh": "基础速率",
+          "defZh": "泵每小时持续输注的药量，通常以mg/hr表示。"
+        }
+      ],
+      "visual": {
+        "kind": "device_screen",
+        "device": "pca",
+        "title": {
+          "en": "PCA Pump — Morphine",
+          "zh": "PCA泵 — 吗啡"
+        },
+        "settings": [
+          {
+            "key": "drug",
+            "text": "morphine"
+          },
+          {
+            "key": "concentration",
+            "text": "1 mg/mL"
+          },
+          {
+            "key": "mode",
+            "text": "PCA+basal"
+          },
+          {
+            "key": "demand_dose",
+            "value": 1,
+            "unit": "mg"
+          },
+          {
+            "key": "lockout_min",
+            "value": 10,
+            "unit": "min"
+          },
+          {
+            "key": "basal_rate",
+            "value": 0.5,
+            "unit": "mg/hr"
+          },
+          {
+            "key": "attempts",
+            "value": 12,
+            "unit": "presses"
+          },
+          {
+            "key": "delivered",
+            "value": 5,
+            "unit": "doses"
+          }
+        ],
+        "caption": {
+          "en": "PCA dose history for the assessment period",
+          "zh": "评估时段PCA给药记录"
+        }
+      },
+      "meta": {
+        "visual_justification": "The total delivered morphine requires reading delivered demand doses, demand_dose, basal_rate, and basal mode from the pump screen; the stem supplies only the 4-hour period.",
+        "derived_values_keyed": {
+          "delivered_dose_total_mg": 7
+        },
+        "shift_hours": 4,
+        "round": 0,
+        "source": "PCA pump dose-history documentation math",
+        "tier": "strictest",
+        "skill_signature": "dev:pca-basal/total-delivered-dose",
+        "stem_disambiguators": [
+          "4-hour postoperative period"
+        ]
+      }
+    },
+    {
+      "id": "dev_infusion_duration_vtbi_01",
+      "itemType": "fill_in_blank",
+      "category": "Reduction of Risk Potential",
+      "topic": "infusion pump time verification",
+      "difficulty": "medium",
+      "ngnSkill": "analyze_cues",
+      "stem": {
+        "en": "A nurse checks an IV infusion pump while planning the next assessment. Using the screen shown, calculate how many minutes remain until the programmed volume to be infused is complete if the rate is unchanged. Record a whole number.",
+        "zh": "护士在计划下一次评估时查看静脉输液泵。根据所示屏幕，如果速率不变，计算距离设定待输注量完成还剩多少分钟。记录整数。"
+      },
+      "blanks": [
+        {
+          "id": "b1",
+          "prompt": {
+            "en": "minutes remaining",
+            "zh": "剩余分钟数"
+          },
+          "acceptable": [
+            "120",
+            "120 min"
+          ],
+          "numeric": {
+            "value": 120,
+            "unit": "min",
+            "tolerance": 0
+          }
+        }
+      ],
+      "rationale": {
+        "correct": {
+          "en": "The pump shows VTBI 250 mL and rate 125 mL/hr. Time = VTBI ÷ rate × 60 = 250 ÷ 125 × 60 = 120 minutes.",
+          "zh": "泵显示待输注量250 mL，速率125 mL/hr。时间 = 待输注量 ÷ 速率 × 60 = 250 ÷ 125 × 60 = 120分钟。"
+        },
+        "byChoice": [
+          {
+            "refId": "b1",
+            "en": "Use the programmed VTBI and hourly rate from the screen, then convert hours to minutes.",
+            "zh": "使用屏幕上的待输注量和每小时速率，再把小时换算为分钟。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "For pump time, divide volume by mL/hr to get hours, then multiply by 60 for minutes.",
+        "zh": "计算泵剩余时间时，用体积除以mL/hr得到小时，再乘以60得到分钟。"
+      },
+      "glossary": [
+        {
+          "termEn": "VTBI",
+          "termZh": "待输注量",
+          "defZh": "volume to be infused，泵设定尚需输注的体积。"
+        },
+        {
+          "termEn": "rate",
+          "termZh": "速率",
+          "defZh": "泵每小时输注的体积，通常以mL/hr表示。"
+        }
+      ],
+      "visual": {
+        "kind": "device_screen",
+        "device": "infusion",
+        "title": {
+          "en": "IV Infusion Pump",
+          "zh": "静脉输液泵"
+        },
+        "settings": [
+          {
+            "key": "drug",
+            "text": "0.9% sodium chloride"
+          },
+          {
+            "key": "mode",
+            "text": "continuous infusion"
+          },
+          {
+            "key": "rate_ml_hr",
+            "value": 125,
+            "unit": "mL/hr"
+          },
+          {
+            "key": "vtbi_ml",
+            "value": 250,
+            "unit": "mL"
+          }
+        ],
+        "caption": {
+          "en": "Current IV pump settings",
+          "zh": "当前静脉输液泵设置"
+        }
+      },
+      "meta": {
+        "visual_justification": "The remaining infusion time depends on the VTBI and rate displayed on the pump screen; neither value is stated in the stem.",
+        "derived_values_keyed": {
+          "infusion_duration_min": 120
+        },
+        "round": 0,
+        "source": "Infusion pump volume-rate-time calculation",
+        "tier": "strictest",
+        "skill_signature": "dev:infusion-vtbi/duration-min",
+        "stem_disambiguators": [
+          "rate unchanged",
+          "minutes remaining"
+        ]
+      }
+    },
+    {
+      "id": "dev_enteral_volume_shift_01",
+      "itemType": "fill_in_blank",
+      "category": "Basic Care and Comfort",
+      "topic": "enteral feeding pump monitoring",
+      "difficulty": "medium",
+      "ngnSkill": "evaluate_outcomes",
+      "stem": {
+        "en": "A client is receiving continuous enteral feeding. The nurse reviews the pump screen at the start of an 8-hour shift and calculates the volume expected to infuse during the shift if the settings are unchanged. Using the screen shown, calculate the expected volume in milliliters. Record a whole number.",
+        "zh": "一名患者正在接受连续肠内营养。护士在8小时班次开始时查看泵屏幕，并计算如果设置不变，本班次预计输注的体积。根据所示屏幕，计算预计输注量（毫升）。记录整数。"
+      },
+      "blanks": [
+        {
+          "id": "b1",
+          "prompt": {
+            "en": "expected volume during 8 hours",
+            "zh": "8小时预计输注量"
+          },
+          "acceptable": [
+            "600",
+            "600 mL"
+          ],
+          "numeric": {
+            "value": 600,
+            "unit": "mL",
+            "tolerance": 0
+          }
+        }
+      ],
+      "rationale": {
+        "correct": {
+          "en": "The enteral pump rate is 75 mL/hr. Over 8 hours, volume = 75 × 8 = 600 mL. This is the same as 75 × 480 ÷ 60 = 600 mL.",
+          "zh": "肠内营养泵速率为75 mL/hr。8小时内输注量 = 75 × 8 = 600 mL。也可计算为75 × 480 ÷ 60 = 600 mL。"
+        },
+        "byChoice": [
+          {
+            "refId": "b1",
+            "en": "Multiply the hourly enteral rate on the screen by the 8-hour shift length.",
+            "zh": "用屏幕上的每小时肠内营养速率乘以8小时班次长度。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "For expected volume, multiply the mL/hr rate by the number of hours the pump will run.",
+        "zh": "计算预计输注量时，用mL/hr速率乘以泵运行的小时数。"
+      },
+      "glossary": [
+        {
+          "termEn": "enteral feeding",
+          "termZh": "肠内营养",
+          "defZh": "通过胃管、鼻肠管或造口管向胃肠道给予营养。"
+        },
+        {
+          "termEn": "continuous feeding",
+          "termZh": "连续喂养",
+          "defZh": "营养液以固定速率持续输注，而不是间歇性快速给予。"
+        }
+      ],
+      "visual": {
+        "kind": "device_screen",
+        "device": "enteral",
+        "title": {
+          "en": "Enteral Feeding Pump",
+          "zh": "肠内营养泵"
+        },
+        "settings": [
+          {
+            "key": "mode",
+            "text": "continuous feeding"
+          },
+          {
+            "key": "rate_ml_hr",
+            "value": 75,
+            "unit": "mL/hr"
+          },
+          {
+            "key": "duration_min",
+            "value": 480,
+            "unit": "min"
+          },
+          {
+            "key": "vtbi_ml",
+            "value": 600,
+            "unit": "mL"
+          }
+        ],
+        "caption": {
+          "en": "Current enteral pump settings",
+          "zh": "当前肠内营养泵设置"
+        }
+      },
+      "meta": {
+        "visual_justification": "The expected shift volume depends on the enteral pump rate and duration displayed on the screen; the stem only states the shift length.",
+        "derived_values_keyed": {
+          "infusion_volume_ml": 600
+        },
+        "round": 0,
+        "source": "Enteral pump volume-rate-time calculation",
+        "tier": "strictest",
+        "skill_signature": "dev:enteral-rate/shift-volume",
+        "stem_disambiguators": [
+          "8-hour shift",
+          "settings unchanged"
+        ]
+      }
+    },
+    {
+      "id": "dev_high_alert_kcl_pump_mismatch_01",
+      "itemType": "select_all",
+      "category": "Pharmacological and Parenteral Therapies",
+      "topic": "high-alert infusion pump verification",
+      "difficulty": "hard",
+      "ngnSkill": "take_action",
+      "stem": {
+        "en": "A provider prescribes potassium chloride 10 mEq in 100 mL IVPB to infuse over 1 hour. Before starting the infusion, the nurse compares the order with the pump screen shown. Which actions should the nurse take? Select all that apply.",
+        "zh": "医嘱为氯化钾10 mEq加入100 mL静脉小壶输注，1小时输完。开始输注前，护士将医嘱与所示泵屏幕进行比较。护士应采取哪些措施？选择所有适用项。"
+      },
+      "options": [
+        {
+          "id": "F",
+          "en": "Ignore the pump display if the medication label matches the order.",
+          "zh": "如果药物标签与医嘱一致，就忽略泵屏幕显示。"
+        },
+        {
+          "id": "D",
+          "en": "Leave the rate unchanged because the VTBI is 100 mL.",
+          "zh": "因为待输注量是100 mL，所以保持当前速率不变。"
+        },
+        {
+          "id": "C",
+          "en": "Obtain the required independent double-check for the high-alert electrolyte infusion according to policy.",
+          "zh": "按机构政策对高警讯电解质输注进行所需的独立双人核对。"
+        },
+        {
+          "id": "B",
+          "en": "Reprogram the pump so the 100 mL infusion runs over 1 hour per the order and policy.",
+          "zh": "重新设置泵，使100 mL按医嘱和机构政策在1小时内输完。"
+        },
+        {
+          "id": "E",
+          "en": "Administer the potassium chloride IV push if the infusion pump cannot be corrected promptly.",
+          "zh": "如果输液泵不能及时纠正，则将氯化钾静脉推注。"
+        },
+        {
+          "id": "A",
+          "en": "Do not start the infusion with the pump programmed as shown.",
+          "zh": "不要按屏幕所示设置启动输注。"
+        }
+      ],
+      "correct": [
+        "A",
+        "B",
+        "C"
+      ],
+      "rationale": {
+        "correct": {
+          "en": "The order is 100 mL over 1 hour, but the pump screen is programmed at 200 mL/hr with a 30-minute duration. The nurse should not start the infusion as shown, should reprogram the pump to match the order and policy, and should complete the required independent double-check for a high-alert electrolyte infusion.",
+          "zh": "医嘱为100 mL在1小时内输完，但泵屏幕设置为200 mL/hr，持续30分钟。护士不应按当前设置启动输注，应按医嘱和机构政策重新设置泵，并对高警讯电解质输注完成所需的独立双人核对。"
+        },
+        "byChoice": [
+          {
+            "refId": "F",
+            "en": "Medication-label verification does not replace pump-programming verification.",
+            "zh": "核对药物标签不能替代泵程序设置核对。"
+          },
+          {
+            "refId": "D",
+            "en": "A correct VTBI does not make an incorrect rate safe; rate and duration must also match the order.",
+            "zh": "待输注量正确并不能使错误速率变安全；速率和持续时间也必须与医嘱一致。"
+          },
+          {
+            "refId": "A",
+            "en": "The programmed rate and duration do not match the order, so starting the infusion as displayed would create a medication-safety risk.",
+            "zh": "当前设置的速率和持续时间与医嘱不符，按屏幕启动会造成用药安全风险。"
+          },
+          {
+            "refId": "C",
+            "en": "Potassium chloride infusion is a high-alert medication process in many policies, so the required independent double-check should be completed.",
+            "zh": "氯化钾输注在许多机构政策中属于高警讯用药流程，因此应完成所需的独立双人核对。"
+          },
+          {
+            "refId": "B",
+            "en": "The pump should be corrected so the ordered 100 mL volume infuses over 1 hour.",
+            "zh": "应纠正泵设置，使医嘱中的100 mL在1小时内输完。"
+          },
+          {
+            "refId": "E",
+            "en": "Potassium chloride must not be given IV push; inability to correct the pump requires escalation, not unsafe administration.",
+            "zh": "氯化钾不得静脉推注；如果不能纠正泵设置，应升级处理，而不是采用不安全给药方式。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "For high-alert infusions, compare the order, medication, and pump screen. A correct bag does not make an incorrect pump setting safe.",
+        "zh": "遇到高警讯输注时，要比较医嘱、药物和泵屏幕。药袋正确并不代表错误泵设置是安全的。"
+      },
+      "glossary": [
+        {
+          "termEn": "IVPB",
+          "termZh": "静脉小壶输注",
+          "defZh": "通过静脉输注的小容量间歇性药物给药方式。"
+        },
+        {
+          "termEn": "independent double-check",
+          "termZh": "独立双人核对",
+          "defZh": "两名合格人员分别核对关键用药信息，而不是一人带着另一人确认。"
+        },
+        {
+          "termEn": "high-alert medication",
+          "termZh": "高警讯药物",
+          "defZh": "发生错误时更可能造成严重伤害的药物或用药流程。"
+        }
+      ],
+      "visual": {
+        "kind": "device_screen",
+        "device": "infusion",
+        "title": {
+          "en": "IV Infusion Pump — KCl IVPB",
+          "zh": "静脉输液泵 — 氯化钾静脉小壶"
+        },
+        "settings": [
+          {
+            "key": "drug",
+            "text": "potassium chloride"
+          },
+          {
+            "key": "concentration",
+            "text": "10 mEq/100 mL"
+          },
+          {
+            "key": "mode",
+            "text": "intermittent IVPB"
+          },
+          {
+            "key": "rate_ml_hr",
+            "value": 200,
+            "unit": "mL/hr",
+            "flag": true
+          },
+          {
+            "key": "vtbi_ml",
+            "value": 100,
+            "unit": "mL"
+          },
+          {
+            "key": "duration_min",
+            "value": 30,
+            "unit": "min",
+            "flag": true
+          }
+        ],
+        "caption": {
+          "en": "Programmed infusion pump settings",
+          "zh": "已设定的输液泵参数"
+        }
+      },
+      "meta": {
+        "visual_justification": "The safety issue is visible only by comparing the ordered 100 mL over 1 hour with the pump's displayed 200 mL/hr rate and 30-minute duration.",
+        "keyed_settings": [
+          {
+            "key": "rate_ml_hr"
+          },
+          {
+            "key": "duration_min"
+          },
+          {
+            "key": "vtbi_ml"
+          }
+        ],
+        "source": "ISMP high-alert medication guidance; institutional potassium infusion policy",
+        "tier": "strictest",
+        "skill_signature": "dev:infusion-rate-mismatch/high-alert-kcl",
+        "stem_disambiguators": [
+          "10 mEq in 100 mL over 1 hour",
+          "before starting infusion"
+        ]
+      }
+    }
+  ]
+}

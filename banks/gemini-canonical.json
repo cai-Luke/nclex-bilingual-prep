@@ -5,7 +5,7 @@
     "topic": "assorted NCLEX-RN",
     "category": "mixed",
     "difficulty": "mixed",
-    "count": 771
+    "count": 777
   },
   "questions": [
     {
@@ -67551,6 +67551,835 @@
               "selectionMode": "single_per_row"
             }
           }
+        ]
+      }
+    },
+    {
+      "id": "fhr_gemini_smoke_2026_06_13_01",
+      "itemType": "multiple_choice",
+      "category": "Reduction of Risk Potential",
+      "topic": "intrapartum fetal monitoring",
+      "difficulty": "easy",
+      "stem": {
+        "en": "The nurse is monitoring a client in active labor. Maternal vital signs are stable, and oxygen saturation is 99% on room air. Based on the fetal monitoring tracing below, which action should the nurse take?",
+        "zh": "护士正在监测一名处于活跃期的产妇。产妇生命体征平稳，室内空气下血氧饱和度为99%。根据下面的胎儿监护图，护士应采取哪项措施？"
+      },
+      "options": [
+        {
+          "id": "B",
+          "en": "Administer oxygen by nonrebreather mask.",
+          "zh": "通过非重复呼吸面罩给氧。"
+        },
+        {
+          "id": "D",
+          "en": "Prepare the client for an amnioinfusion.",
+          "zh": "为患者准备羊膜腔灌注。"
+        },
+        {
+          "id": "A",
+          "en": "Continue routine monitoring.",
+          "zh": "继续常规监测。"
+        },
+        {
+          "id": "C",
+          "en": "Notify the healthcare provider immediately.",
+          "zh": "立即通知医疗保健提供者。"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "rationale": {
+        "correct": {
+          "en": "The tracing shows a baseline of 140 bpm with moderate variability, accelerations, and no late or variable decelerations. This is a Category I, reassuring tracing. The correct action is to continue routine monitoring.",
+          "zh": "图形显示基线为140 bpm，具有中等变异和加速，无晚期或变异减速。这是I类（安心型）图形。正确的措施是继续常规监测。"
+        },
+        "byChoice": [
+          {
+            "refId": "B",
+            "en": "Oxygen administration is not indicated for a reassuring tracing or a normoxic client.",
+            "zh": "对于安心型图形或血氧正常的患者，不需要给氧。"
+          },
+          {
+            "refId": "A",
+            "en": "A Category I tracing is normal and requires no intervention.",
+            "zh": "I类图形是正常的，不需要干预。"
+          },
+          {
+            "refId": "D",
+            "en": "Amnioinfusion is used for severe variable decelerations, which are absent.",
+            "zh": "羊膜腔灌注用于严重的变异减速，此处并未出现。"
+          },
+          {
+            "refId": "C",
+            "en": "Provider notification is unnecessary for a normal tracing.",
+            "zh": "对于正常图形，不需要通知提供者。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Identify moderate variability and accelerations, which are reassuring signs and make clinically significant fetal acidemia unlikely.",
+        "zh": "识别中等变异和加速，这些是令人安心的迹象，使具有临床意义的胎儿酸血症的可能性降低。"
+      },
+      "glossary": [
+        {
+          "termEn": "moderate variability",
+          "termZh": "中等变异",
+          "defZh": "基线胎心率在6到25次/分之间波动，提示胎儿氧合良好。"
+        }
+      ],
+      "visual": {
+        "kind": "fetal_monitoring",
+        "durationSec": 480,
+        "baselineFhr": 140,
+        "variability": "moderate",
+        "seed": 101,
+        "contractions": [
+          {
+            "peakSec": 90
+          },
+          {
+            "peakSec": 240
+          },
+          {
+            "peakSec": 390
+          }
+        ],
+        "accelerations": [
+          {
+            "peakSec": 160,
+            "riseBpm": 20,
+            "durationSec": 30
+          }
+        ],
+        "caption": {
+          "en": "Fetal monitoring tracing",
+          "zh": "胎儿监护图"
+        }
+      },
+      "meta": {
+        "visual_justification": "The learner must assess variability and the presence of accelerations from the tracing.",
+        "expected_pattern": {
+          "variability": "moderate",
+          "accelerations_present": true
+        },
+        "source": "NICHD 2008 standardized fetal monitoring nomenclature; ACOG intrapartum fetal heart rate monitoring guidance; AWHONN Fetal Heart Monitoring Principles and Practices, 6th ed.",
+        "tier": "strictest",
+        "skill_signature": "fhr:category-1/reassuring",
+        "stem_disambiguators": [
+          "maternal vital signs stable"
+        ]
+      }
+    },
+    {
+      "id": "fhr_gemini_smoke_2026_06_13_02",
+      "itemType": "multiple_choice",
+      "category": "Reduction of Risk Potential",
+      "topic": "intrapartum fetal monitoring",
+      "difficulty": "medium",
+      "stem": {
+        "en": "A client in active labor is being monitored continuously. The nurse reviews the tracing below. Which interpretation of this finding is most accurate?",
+        "zh": "一名处于活跃期的产妇正在接受持续监测。护士查看了下面的监护图。对这一发现最准确的解释是什么？"
+      },
+      "options": [
+        {
+          "id": "D",
+          "en": "This pattern requires immediate intrauterine resuscitation.",
+          "zh": "这种模式需要立即进行宫内复苏。"
+        },
+        {
+          "id": "B",
+          "en": "This pattern indicates uteroplacental insufficiency.",
+          "zh": "这种模式提示子宫胎盘功能不全。"
+        },
+        {
+          "id": "C",
+          "en": "This pattern is caused by umbilical cord compression.",
+          "zh": "这种模式是由脐带受压引起的。"
+        },
+        {
+          "id": "A",
+          "en": "This is a benign pattern caused by fetal head compression.",
+          "zh": "这是一种由胎头受压引起的良性模式。"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "rationale": {
+        "correct": {
+          "en": "The tracing shows decelerations that have a gradual onset and mirror the contraction, with the nadir aligning with the contraction peak. These are early decelerations, which are a benign finding caused by fetal head compression.",
+          "zh": "图形显示减速的发生是逐渐的，且与宫缩同步，其最低点与宫缩峰值对齐。这是早期减速，是由胎头受压引起的一种良性发现。"
+        },
+        "byChoice": [
+          {
+            "refId": "A",
+            "en": "Early decelerations align with contractions and represent benign head compression.",
+            "zh": "早期减速与宫缩对齐，代表良性的胎头受压。"
+          },
+          {
+            "refId": "B",
+            "en": "Uteroplacental insufficiency causes late decelerations, which lag behind the contraction peak.",
+            "zh": "子宫胎盘功能不全导致晚期减速，其最低点滞后于宫缩峰值。"
+          },
+          {
+            "refId": "D",
+            "en": "Early decelerations do not require intrauterine resuscitation.",
+            "zh": "早期减速不需要宫内复苏。"
+          },
+          {
+            "refId": "C",
+            "en": "Cord compression causes variable decelerations, which are typically abrupt in onset.",
+            "zh": "脐带受压导致变异减速，其发生通常是突然的。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Look at the timing of the lowest point (nadir) of the deceleration relative to the contraction peak.",
+        "zh": "观察减速最低点与宫缩峰值的相对时间关系。"
+      },
+      "glossary": [
+        {
+          "termEn": "early deceleration",
+          "termZh": "早期减速",
+          "defZh": "胎心率逐渐下降，其最低点与宫缩峰值一致，提示胎头受压"
+        }
+      ],
+      "visual": {
+        "kind": "fetal_monitoring",
+        "durationSec": 480,
+        "baselineFhr": 140,
+        "variability": "moderate",
+        "seed": 102,
+        "contractions": [
+          {
+            "peakSec": 90
+          },
+          {
+            "peakSec": 240
+          },
+          {
+            "peakSec": 390
+          }
+        ],
+        "decelerations": [
+          {
+            "type": "early",
+            "nadirSec": 90,
+            "depthBpm": 20,
+            "durationSec": 70,
+            "contractionIndex": 0
+          },
+          {
+            "type": "early",
+            "nadirSec": 240,
+            "depthBpm": 20,
+            "durationSec": 70,
+            "contractionIndex": 1
+          },
+          {
+            "type": "early",
+            "nadirSec": 390,
+            "depthBpm": 20,
+            "durationSec": 70,
+            "contractionIndex": 2
+          }
+        ],
+        "caption": {
+          "en": "Fetal monitoring tracing",
+          "zh": "胎儿监护图"
+        }
+      },
+      "meta": {
+        "visual_justification": "The learner must determine that the deceleration nadir aligns with the contraction peak.",
+        "expected_pattern": {
+          "decelerations": [
+            "early"
+          ],
+          "variability": "moderate",
+          "accelerations_present": false
+        },
+        "source": "NICHD 2008 standardized fetal monitoring nomenclature; ACOG intrapartum fetal heart rate monitoring guidance; AWHONN Fetal Heart Monitoring Principles and Practices, 6th ed.",
+        "tier": "strictest",
+        "skill_signature": "fhr:early-deceleration/head-compression",
+        "stem_disambiguators": [
+          "active labor"
+        ]
+      }
+    },
+    {
+      "id": "fhr_gemini_smoke_2026_06_13_03",
+      "itemType": "multiple_choice",
+      "category": "Reduction of Risk Potential",
+      "topic": "intrapartum fetal monitoring",
+      "difficulty": "hard",
+      "stem": {
+        "en": "A client at 40 weeks' gestation is receiving a continuous oxytocin infusion. Maternal oxygen saturation is 98% on room air. Based on the fetal monitoring tracing below, which action should the nurse take first?",
+        "zh": "一名妊娠40周的患者正在持续静脉输注缩宫素。产妇在室内空气下的血氧饱和度为98%。根据下面的胎儿监护图，护士应首先采取哪项措施？"
+      },
+      "options": [
+        {
+          "id": "A",
+          "en": "Discontinue the oxytocin infusion and assist the client to a lateral position.",
+          "zh": "停止缩宫素输注并协助患者采取侧卧位。"
+        },
+        {
+          "id": "C",
+          "en": "Prepare the client for immediate cesarean birth.",
+          "zh": "为患者准备立即剖宫产。"
+        },
+        {
+          "id": "D",
+          "en": "Document the findings and reevaluate in 15 minutes.",
+          "zh": "记录结果并在15分钟后重新评估。"
+        },
+        {
+          "id": "B",
+          "en": "Apply oxygen by nonrebreather mask at 10 L/minute.",
+          "zh": "通过非重复呼吸面罩以10升/分钟给氧。"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "rationale": {
+        "correct": {
+          "en": "The tracing demonstrates recurrent late decelerations with minimal variability. The priority intervention is intrauterine resuscitation to improve placental perfusion, which includes stopping the oxytocin infusion (the stressor) and repositioning the client laterally.",
+          "zh": "图形显示伴有微小变异的反复晚期减速。首要干预措施是进行宫内复苏以改善胎盘灌注，包括停止缩宫素输注（应激源）并协助患者转为侧卧位。"
+        },
+        "byChoice": [
+          {
+            "refId": "D",
+            "en": "This is a non-reassuring tracing that requires immediate intervention, not observation.",
+            "zh": "这是需要立即干预的非安心型图形，不能仅作观察。"
+          },
+          {
+            "refId": "A",
+            "en": "Stopping oxytocin removes uterine stress, and lateral positioning improves blood flow to the placenta.",
+            "zh": "停止缩宫素可去除子宫应激，侧卧位可改善流向胎盘的血流。"
+          },
+          {
+            "refId": "C",
+            "en": "Expedited delivery may be necessary if the pattern does not improve, but initial corrective measures must be attempted first.",
+            "zh": "如果图形未改善，可能需要紧急分娩，但必须首先尝试初始纠正措施。"
+          },
+          {
+            "refId": "B",
+            "en": "The client is normoxic (SpO2 98%). Routine oxygen administration is not the first-line action and may be used as a later measure only if initial interventions fail or hypoxia develops.",
+            "zh": "患者血氧正常（SpO2 98%）。常规给氧不是首选措施，仅在初始干预失败或出现缺氧时才作为后续措施使用。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "When oxytocin is infusing and late decelerations appear, first remove that uterine stressor and reposition the client.",
+        "zh": "当缩宫素正在输注且出现晚期减速时，首先去除该子宫应激源并为患者重新摆位。"
+      },
+      "glossary": [
+        {
+          "termEn": "late deceleration",
+          "termZh": "晚期减速",
+          "defZh": "胎心率逐渐下降，其最低点出现在宫缩峰值之后，提示子宫胎盘功能不全"
+        },
+        {
+          "termEn": "intrauterine resuscitation",
+          "termZh": "宫内复苏",
+          "defZh": "旨在改善胎儿氧合的一系列干预措施"
+        }
+      ],
+      "visual": {
+        "kind": "fetal_monitoring",
+        "durationSec": 480,
+        "baselineFhr": 140,
+        "variability": "minimal",
+        "seed": 103,
+        "contractions": [
+          {
+            "peakSec": 90
+          },
+          {
+            "peakSec": 240
+          },
+          {
+            "peakSec": 390
+          }
+        ],
+        "decelerations": [
+          {
+            "type": "late",
+            "nadirSec": 115,
+            "depthBpm": 20,
+            "durationSec": 70,
+            "contractionIndex": 0
+          },
+          {
+            "type": "late",
+            "nadirSec": 265,
+            "depthBpm": 20,
+            "durationSec": 70,
+            "contractionIndex": 1
+          },
+          {
+            "type": "late",
+            "nadirSec": 415,
+            "depthBpm": 20,
+            "durationSec": 70,
+            "contractionIndex": 2
+          }
+        ],
+        "caption": {
+          "en": "Fetal monitoring tracing",
+          "zh": "胎儿监护图"
+        }
+      },
+      "meta": {
+        "visual_justification": "The learner must observe the lag between the contraction peak and the deceleration nadir to identify the late deceleration pattern.",
+        "expected_pattern": {
+          "decelerations": [
+            "late"
+          ],
+          "variability": "minimal",
+          "accelerations_present": false
+        },
+        "source": "NICHD 2008 standardized fetal monitoring nomenclature; ACOG intrapartum fetal heart rate monitoring guidance; AWHONN Fetal Heart Monitoring Principles and Practices, 6th ed.",
+        "tier": "strictest",
+        "skill_signature": "fhr:late-deceleration/intrauterine-resuscitation",
+        "stem_disambiguators": [
+          "oxytocin infusion",
+          "normoxic mother"
+        ]
+      }
+    },
+    {
+      "id": "fhr_gemini_smoke_2026_06_13_04",
+      "itemType": "select_all",
+      "category": "Reduction of Risk Potential",
+      "topic": "intrapartum fetal monitoring",
+      "difficulty": "medium",
+      "stem": {
+        "en": "Immediately after spontaneous rupture of membranes, the nurse reviews the fetal monitoring tracing of a client in active labor. The client's oxygen saturation is 99% on room air. Which interventions are appropriate based on the findings? Select all that apply.",
+        "zh": "在胎膜自然破裂后，护士立即查看了一名处于活跃期产妇的胎儿监护图。该患者在室内空气下的血氧饱和度为99%。根据发现，哪些干预措施是合适的？请选择所有适用项。"
+      },
+      "options": [
+        {
+          "id": "D",
+          "en": "Evaluate for umbilical cord prolapse.",
+          "zh": "评估是否发生脐带脱垂。"
+        },
+        {
+          "id": "E",
+          "en": "Prepare for an immediate cesarean birth without attempting other measures.",
+          "zh": "准备立即进行剖宫产，不尝试其他措施。"
+        },
+        {
+          "id": "A",
+          "en": "Assist the client into a knee-chest or lateral position.",
+          "zh": "协助患者采取胸膝卧位或侧卧位。"
+        },
+        {
+          "id": "C",
+          "en": "Administer oxygen via nonrebreather mask.",
+          "zh": "通过非重复呼吸面罩给氧。"
+        },
+        {
+          "id": "B",
+          "en": "Notify the healthcare provider.",
+          "zh": "通知医疗保健提供者。"
+        }
+      ],
+      "correct": [
+        "A",
+        "B",
+        "D"
+      ],
+      "rationale": {
+        "correct": {
+          "en": "The tracing shows variable decelerations, which are abrupt drops in the fetal heart rate caused by umbilical cord compression. Appropriate initial interventions include maternal repositioning to relieve pressure on the cord, evaluating for cord prolapse, and notifying the provider.",
+          "zh": "图形显示变异减速，即由脐带受压引起的胎心率突然下降。合适的初始干预措施包括改变产妇体位以减轻脐带压力、评估脐带脱垂情况并通知提供者。"
+        },
+        "byChoice": [
+          {
+            "refId": "B",
+            "en": "The provider should be notified of non-reassuring fetal heart rate patterns.",
+            "zh": "对于非安心型胎心率模式，应通知提供者。"
+          },
+          {
+            "refId": "A",
+            "en": "Repositioning (lateral or knee-chest) helps relieve mechanical cord compression.",
+            "zh": "重新摆位（侧卧位或胸膝卧位）有助于缓解脐带的机械性受压。"
+          },
+          {
+            "refId": "D",
+            "en": "Variable decelerations can indicate cord compression or cord prolapse, necessitating clinical evaluation.",
+            "zh": "变异减速可能提示脐带受压或脐带脱垂，需要进行临床评估。"
+          },
+          {
+            "refId": "E",
+            "en": "Intrauterine resuscitation measures must be attempted before proceeding directly to expedited delivery.",
+            "zh": "在直接进行紧急分娩之前，必须尝试宫内复苏措施。"
+          },
+          {
+            "refId": "C",
+            "en": "Routine oxygen is not recommended for a normoxic mother. Cord compression requires mechanical relief.",
+            "zh": "对于血氧正常的产妇，不推荐常规给氧。脐带受压需要机械性缓解。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Variable decelerations are abrupt and 'V' or 'W' shaped. They indicate cord compression. Focus on actions that relieve pressure on the umbilical cord.",
+        "zh": "变异减速是突然发生的，呈“V”形或“W”形，提示脐带受压。重点关注能减轻脐带压力的措施。"
+      },
+      "glossary": [
+        {
+          "termEn": "variable deceleration",
+          "termZh": "变异减速",
+          "defZh": "胎心率突然下降（幅度≥15 bpm，持续时间15秒至2分钟），不一定与宫缩同步，通常因脐带受压引起"
+        }
+      ],
+      "visual": {
+        "kind": "fetal_monitoring",
+        "durationSec": 480,
+        "baselineFhr": 145,
+        "variability": "moderate",
+        "seed": 104,
+        "contractions": [
+          {
+            "peakSec": 150
+          },
+          {
+            "peakSec": 350
+          }
+        ],
+        "decelerations": [
+          {
+            "type": "variable",
+            "nadirSec": 120,
+            "depthBpm": 45,
+            "durationSec": 24
+          },
+          {
+            "type": "variable",
+            "nadirSec": 300,
+            "depthBpm": 40,
+            "durationSec": 22
+          }
+        ],
+        "caption": {
+          "en": "Fetal monitoring tracing",
+          "zh": "胎儿监护图"
+        }
+      },
+      "meta": {
+        "visual_justification": "The learner must identify the abrupt onset and shape characteristic of variable decelerations.",
+        "expected_pattern": {
+          "decelerations": [
+            "variable"
+          ],
+          "variability": "moderate",
+          "accelerations_present": false
+        },
+        "source": "NICHD 2008 standardized fetal monitoring nomenclature; ACOG intrapartum fetal heart rate monitoring guidance; AWHONN Fetal Heart Monitoring Principles and Practices, 6th ed.",
+        "tier": "strictest",
+        "skill_signature": "fhr:variable-deceleration/cord-compression",
+        "stem_disambiguators": [
+          "normoxic mother",
+          "spontaneous rupture of membranes"
+        ]
+      }
+    },
+    {
+      "id": "fhr_gemini_smoke_2026_06_13_05",
+      "itemType": "matrix",
+      "category": "Reduction of Risk Potential",
+      "topic": "intrapartum fetal monitoring",
+      "difficulty": "hard",
+      "stem": {
+        "en": "Fifteen minutes after epidural placement, the nurse is caring for a laboring client. The client's blood pressure has decreased slightly from baseline, and oxygen saturation is 99% on room air. The nurse observes the following fetal monitoring tracing. For each potential intervention, indicate whether it is appropriate or inappropriate.",
+        "zh": "硬膜外麻醉置管15分钟后，护士正在护理一名处于产程中的患者。患者的血压较基线轻微下降，室内空气下血氧饱和度为99%。护士观察到以下胎儿监护图。对于每项潜在干预措施，请指出其是否合适。"
+      },
+      "matrix": {
+        "rows": [
+          {
+            "id": "r1",
+            "en": "Administering an IV fluid bolus",
+            "zh": "静脉快速输液"
+          },
+          {
+            "id": "r2",
+            "en": "Administering oxygen via nonrebreather mask",
+            "zh": "通过非重复呼吸面罩给氧"
+          },
+          {
+            "id": "r3",
+            "en": "Repositioning the client",
+            "zh": "为患者重新摆位"
+          },
+          {
+            "id": "r4",
+            "en": "Continuing routine monitoring without intervention",
+            "zh": "继续常规监测而不采取干预"
+          }
+        ],
+        "columns": [
+          {
+            "id": "c1",
+            "en": "Appropriate",
+            "zh": "合适"
+          },
+          {
+            "id": "c2",
+            "en": "Inappropriate",
+            "zh": "不合适"
+          }
+        ],
+        "selectionMode": "single_per_row"
+      },
+      "correct": [
+        {
+          "rowId": "r1",
+          "columnIds": [
+            "c1"
+          ]
+        },
+        {
+          "rowId": "r2",
+          "columnIds": [
+            "c2"
+          ]
+        },
+        {
+          "rowId": "r3",
+          "columnIds": [
+            "c1"
+          ]
+        },
+        {
+          "rowId": "r4",
+          "columnIds": [
+            "c2"
+          ]
+        }
+      ],
+      "rationale": {
+        "correct": {
+          "en": "The tracing shows a prolonged deceleration (a drop in FHR of ≥15 bpm lasting ≥2 minutes but <10 minutes). This requires immediate intrauterine resuscitation to improve fetal oxygenation and uteroplacental perfusion. Appropriate actions include repositioning the client and administering an IV fluid bolus. Routine oxygen is not recommended for a normoxic mother, and doing nothing is inappropriate.",
+          "zh": "图形显示延长减速（胎心率下降≥15 bpm，持续时间≥2分钟但<10分钟）。这需要立即进行宫内复苏，以改善胎儿氧合和子宫胎盘灌注。合适的措施包括为患者重新摆位和静脉快速输液。对于血氧正常的产妇，不推荐常规给氧，不采取任何措施是不合适的。"
+        },
+        "byChoice": [
+          {
+            "refId": "r1",
+            "en": "An IV fluid bolus improves maternal blood volume and uteroplacental perfusion.",
+            "zh": "静脉快速输液可改善产妇血容量和子宫胎盘灌注。"
+          },
+          {
+            "refId": "r2",
+            "en": "The client is normoxic (SpO2 99%). Routine oxygen is a distractor and not the primary intervention.",
+            "zh": "患者血氧正常（SpO2 99%）。常规给氧是一个干扰项，并非主要干预措施。"
+          },
+          {
+            "refId": "r3",
+            "en": "Repositioning laterally displaces the uterus off the great vessels, improving blood flow.",
+            "zh": "侧卧位可使子宫移开大血管，从而改善血流。"
+          },
+          {
+            "refId": "r4",
+            "en": "A prolonged deceleration indicates fetal compromise and requires prompt intervention.",
+            "zh": "延长减速提示胎儿处于危险中，需要迅速干预。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Recognize that a deceleration lasting more than 2 minutes is prolonged. Intervention is mandatory. Focus on core resuscitation measures while avoiding unnecessary oxygen in a stable, normoxic mother.",
+        "zh": "认识到持续超过2分钟的减速属于延长减速。必须进行干预。重点关注核心复苏措施，同时避免在生命体征平稳、血氧正常的产妇身上进行不必要的给氧。"
+      },
+      "glossary": [
+        {
+          "termEn": "prolonged deceleration",
+          "termZh": "延长减速",
+          "defZh": "胎心率下降≥15 bpm，持续时间超过2分钟但不到10分钟"
+        }
+      ],
+      "visual": {
+        "kind": "fetal_monitoring",
+        "durationSec": 480,
+        "baselineFhr": 140,
+        "variability": "moderate",
+        "seed": 105,
+        "contractions": [
+          {
+            "peakSec": 80
+          }
+        ],
+        "decelerations": [
+          {
+            "type": "prolonged",
+            "nadirSec": 240,
+            "depthBpm": 35,
+            "durationSec": 180
+          }
+        ],
+        "caption": {
+          "en": "Fetal monitoring tracing",
+          "zh": "胎儿监护图"
+        }
+      },
+      "meta": {
+        "visual_justification": "The learner must determine the duration of the deceleration to classify it as prolonged.",
+        "expected_pattern": {
+          "decelerations": [
+            "prolonged"
+          ],
+          "variability": "moderate",
+          "accelerations_present": false
+        },
+        "source": "NICHD 2008 standardized fetal monitoring nomenclature; ACOG intrapartum fetal heart rate monitoring guidance; AWHONN Fetal Heart Monitoring Principles and Practices, 6th ed.",
+        "tier": "strictest",
+        "skill_signature": "fhr:prolonged-deceleration/resuscitation",
+        "stem_disambiguators": [
+          "stable vital signs",
+          "recent epidural",
+          "mild BP drop"
+        ]
+      }
+    },
+    {
+      "id": "fhr_gemini_smoke_2026_06_13_06",
+      "itemType": "matrix",
+      "category": "Reduction of Risk Potential",
+      "topic": "intrapartum fetal monitoring",
+      "difficulty": "hard",
+      "stem": {
+        "en": "The nurse reviews the fetal monitoring tracing of a client in labor. Determine if each statement about the tracing is true or false.",
+        "zh": "护士查看了一名产程中患者的胎儿监护图。判断关于该图形的每一项陈述是正确还是错误。"
+      },
+      "matrix": {
+        "rows": [
+          {
+            "id": "r1",
+            "en": "Fetal heart rate variability is absent.",
+            "zh": "胎心率变异消失。"
+          },
+          {
+            "id": "r2",
+            "en": "The baseline fetal heart rate is within the expected normal range.",
+            "zh": "基线胎心率在预期的正常范围内。"
+          },
+          {
+            "id": "r3",
+            "en": "This tracing is predictive of normal fetal acid-base status.",
+            "zh": "该图形预示正常的胎儿酸碱状态。"
+          },
+          {
+            "id": "r4",
+            "en": "This pattern requires immediate intrauterine resuscitation.",
+            "zh": "这种模式需要立即进行宫内复苏。"
+          }
+        ],
+        "columns": [
+          {
+            "id": "c2",
+            "en": "False",
+            "zh": "错误"
+          },
+          {
+            "id": "c1",
+            "en": "True",
+            "zh": "正确"
+          }
+        ],
+        "selectionMode": "single_per_row"
+      },
+      "correct": [
+        {
+          "rowId": "r1",
+          "columnIds": [
+            "c1"
+          ]
+        },
+        {
+          "rowId": "r2",
+          "columnIds": [
+            "c2"
+          ]
+        },
+        {
+          "rowId": "r3",
+          "columnIds": [
+            "c2"
+          ]
+        },
+        {
+          "rowId": "r4",
+          "columnIds": [
+            "c1"
+          ]
+        }
+      ],
+      "rationale": {
+        "correct": {
+          "en": "The tracing demonstrates bradycardia (baseline ~95 bpm) and absent variability. This is a Category III tracing, which is predictive of abnormal fetal acid-base status and requires immediate intrauterine resuscitation and potential expedited delivery.",
+          "zh": "图形显示心动过缓（基线约95 bpm）和变异消失。这是III类图形，预示胎儿酸碱状态异常，需要立即进行宫内复苏并可能需要紧急分娩。"
+        },
+        "byChoice": [
+          {
+            "refId": "r1",
+            "en": "The baseline is flat with undetectable fluctuation, indicating absent variability.",
+            "zh": "基线平坦，波动无法检测到，提示变异消失。"
+          },
+          {
+            "refId": "r2",
+            "en": "The baseline is approximately 95 bpm, indicating fetal bradycardia (normal is 110-160).",
+            "zh": "基线约为95 bpm，提示胎儿心动过缓（正常为110-160）。"
+          },
+          {
+            "refId": "r3",
+            "en": "Absent variability with bradycardia is a Category III pattern, indicating severe compromise, not normal acid-base status.",
+            "zh": "变异消失伴心动过缓是III类模式，提示严重代偿不良，而非正常的酸碱状态。"
+          },
+          {
+            "refId": "r4",
+            "en": "This is an ominous pattern that requires immediate action to restore oxygenation.",
+            "zh": "这是一种不祥的模式，需要立即采取行动以恢复氧合。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Systematically assess the baseline rate and variability. A baseline under 110 bpm is bradycardia. When combined with absent variability, it is a severe emergency.",
+        "zh": "系统评估基线心率和变异。低于110 bpm的基线是心动过缓。当与变异消失结合时，这是一种严重的紧急情况。"
+      },
+      "glossary": [
+        {
+          "termEn": "fetal bradycardia",
+          "termZh": "胎儿心动过缓",
+          "defZh": "基线胎心率低于110次/分，持续时间≥10分钟"
+        },
+        {
+          "termEn": "absent variability",
+          "termZh": "变异消失",
+          "defZh": "基线胎心率平坦，肉眼无法检测到波动幅度"
+        }
+      ],
+      "visual": {
+        "kind": "fetal_monitoring",
+        "durationSec": 480,
+        "baselineFhr": 95,
+        "variability": "absent",
+        "seed": 106,
+        "caption": {
+          "en": "Fetal monitoring tracing",
+          "zh": "胎儿监护图"
+        }
+      },
+      "meta": {
+        "visual_justification": "The learner must identify the abnormal baseline rate and the lack of fluctuation from the tracing.",
+        "expected_pattern": {
+          "variability": "absent",
+          "accelerations_present": false
+        },
+        "source": "NICHD 2008 standardized fetal monitoring nomenclature; ACOG intrapartum fetal heart rate monitoring guidance; AWHONN Fetal Heart Monitoring Principles and Practices, 6th ed.",
+        "tier": "strictest",
+        "skill_signature": "fhr:bradycardia-absent-variability/category-3",
+        "stem_disambiguators": [
+          "true or false interpretation"
         ]
       }
     }

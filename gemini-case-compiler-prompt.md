@@ -41,6 +41,7 @@ Compile the one skeleton into one `meta`+`questions` envelope holding a single `
 | → "When it becomes answerable" | place the item so it depends on that stage's exhibit (preserve the unfold) |
 | COMMON NURSING ERRORS | distractor options + their `rationale.byChoice` (why wrong) |
 | EXPECTED LEARNING OBJECTIVES | coverage check — confirm the cluster actually tests these; pick `category` accordingly |
+| `---REVIEWER-CURRENCY-NOTES---` | **Discard entirely.** Do not include in JSON. |
 
 ## ITEM-TYPE SELECTION
 
@@ -61,7 +62,7 @@ question with its own full common fields, `rationale`, `testTakingStrategy`, and
 Every learner-facing string carries `en` **and** `zh`; `zh` is natural, formal Simplified-Chinese medical
 language conveying the same clinical meaning (never word-for-word). The skeleton is English-only by design,
 so **all** Chinese is generated here. **`topic` is English-only** — never put Chinese characters in `topic`
-(it fails validation). Use Chinese quotation marks “ ” inside Chinese strings.
+(it fails validation). Use Chinese quotation marks “…” or 「…」 inside Chinese strings. Use ASCII double quotes (U+0022) only as JSON structure — never smart/curly quotes as syntax — and escape any literal ASCII `"` inside a string as `\"`.
 
 ## VISUALS (conservative; only schema-defined kinds)
 
@@ -94,6 +95,7 @@ Exactly one valid JSON object, raw — no markdown, no fences, no comments, no p
 
 `meta.count` is the number of top-level questions (here, 1 — the case). Do not use alternate top-level keys
 (`caseStudies`, `items`, `bank`, …). Never output partial JSON or trailing commas.
+If the skeleton ends with a `---REVIEWER-CURRENCY-NOTES---` block, **discard it entirely**. It is for human reviewers only and must not appear anywhere in your JSON output.
 
 ## MULTI-PASS (the user may request these separately)
 
@@ -122,4 +124,5 @@ This compile may run in passes; obey whichever the user asks for:
   skeleton-consistent misconception. No clinical claim absent from the skeleton.
 - Every learner-facing field has non-empty `en` and `zh`; `topic` is English-only (no CJK).
 - No placeholder/filler text; no claim that the content is reviewed/canonical/safe.
+- No `---REVIEWER-CURRENCY-NOTES---` content leaked into the JSON output.
 - Visuals (if any) use only schema-defined kinds/params and carry their audit `meta` block.

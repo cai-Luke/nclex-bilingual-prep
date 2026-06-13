@@ -13,6 +13,7 @@ import { join, basename } from "node:path";
 import { parseBankText } from "../src/bankImport";
 import { validateBankObject } from "../src/schema";
 import { shuffle } from "../lib/shuffle";
+import { normalizeBankPresentations, serializeBank } from "../lib/presentation-normalization";
 import type { BankEnvelope } from "../src/types";
 
 const DRAFT_DIR = "banks/banks-raw";
@@ -81,12 +82,14 @@ for (const filename of jsonFiles) {
       // canonical not yet present (new bank) — skip silently
     }
 
-    const promoted: BankEnvelope = {
+    const shuffled: BankEnvelope = {
       ...bank,
       questions: bank.questions.map(shuffle),
     };
 
-    await writeFile(promotedPath, JSON.stringify(promoted, null, 2) + "\n", "utf8");
+    const { bank: promoted } = normalizeBankPresentations(shuffled);
+
+    await writeFile(promotedPath, serializeBank(promoted), "utf8");
     console.log(`${filename}: promoted ${promoted.questions.length} item(s) → ${basename(promotedPath)}`);
   } catch (e) {
     console.error(`${filename}: ${e instanceof Error ? e.message : String(e)}`);
