@@ -46,7 +46,7 @@ type CensusData = {
   caseStudies: Array<{ id: string; topic: string; parts: number; bank: string }>;
   idUniqueness: { duplicates: Array<{ id: string; files: string[] }> };
   targets: {
-    categoryAvg: number;
+    categoryTargets: [string, number][];
     itemTypeAvg: number;
     underCategories: [string, number][];
     overCategories: [string, number][];
@@ -299,7 +299,7 @@ const computeCensus = async (): Promise<CensusData> => {
     caseStudies,
     idUniqueness: { duplicates },
     targets: {
-      categoryAvg: coverage.categoryAverage,
+      categoryTargets: coverage.categoryTargets,
       itemTypeAvg: coverage.itemTypeAverage,
       underCategories: coverage.underCategories,
       overCategories: coverage.overCategories,
@@ -441,7 +441,10 @@ const renderCensus = (census: CensusData): string => {
 
   lines.push("## Targets");
   lines.push("");
-  lines.push(`Category average: ${census.targets.categoryAvg.toFixed(1)}`);
+  lines.push("Category targets (2026 NCLEX-RN test-plan weights):");
+  for (const [category, target] of census.targets.categoryTargets) {
+    lines.push(`- ${category}: ${target.toFixed(1)}`);
+  }
   lines.push(`Item type average: ${census.targets.itemTypeAvg.toFixed(1)}`);
   lines.push("");
   if (census.targets.underCategories.length > 0) {

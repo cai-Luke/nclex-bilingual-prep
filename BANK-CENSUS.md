@@ -2,27 +2,20 @@
 
 # NCLEX Bank Census
 
-Generated: 2026-06-13T01:00:36.285Z
-Git SHA: 7123957fa0f3fb0c9ed1d7397bfb187e4eb6ed5a
+Generated: 2026-06-13T01:20:42.179Z
+Git SHA: a10f9a53a79bf4d8b2f8e545976b5b86c6f36e53
 
 ## Per-File Summary
 
 | File | Schema | meta.count | questions | Mismatch |
 |------|--------|-----------|-----------|---------|
 | capnography-canonical.json | 1.2 | 7 | 7 | — |
-| claude-canonical.json | 1.2 | 57 | 57 | — |
+| claude-canonical.json | 1.2 | 60 | 60 | — |
 | gemini-canonical.json | 1.2 | 771 | 771 | — |
-| gpt-canonical.json | 1.2 | 220 | 220 | — |
-| gpt-case-opus5-cdi-2026-06-11.json | 1.2 | 1 | 1 | — |
-| gpt-case-warfarin-mvr-2026-06-11-patched.json | 1.2 | 1 | 1 | — |
-| gpt-gap-jun12-rrp-bcc.json | 1.2 | 10 | 10 | — |
-| gpt-visual-smoke-2026-06-12-a.json | 1.2 | 10 | 10 | — |
+| gpt-canonical.json | 1.2 | 242 | 242 | — |
 | hard-cases-canonical.json | 1.2 | 51 | 51 | — |
 | lab-canonical.json | 1.2 | 20 | 20 | — |
 | mar-canonical.json | 1.2 | 5 | 5 | — |
-| opus-code-status-escalation-opus2.json | 1.2 | 1 | 1 | — |
-| opus-vanco-case-2026-06-11.json | 1.2 | 1 | 1 | — |
-| opus1-tha-discharge-case-study-patched.json | 1.2 | 1 | 1 | — |
 | visual-canonical.json | 1.2 | 53 | 53 | — |
 | vitals-canonical.json | 1.2 | 10 | 10 | — |
 
@@ -104,24 +97,17 @@ Visual kinds: capnography (4), lab_trend (7), rhythm_strip (32), vitals_trend (7
 
 ## By Schema Version
 
-- v1.2: 1219 questions (capnography-canonical.json, claude-canonical.json, gemini-canonical.json, gpt-canonical.json, gpt-case-opus5-cdi-2026-06-11.json, gpt-case-warfarin-mvr-2026-06-11-patched.json, gpt-gap-jun12-rrp-bcc.json, gpt-visual-smoke-2026-06-12-a.json, hard-cases-canonical.json, lab-canonical.json, mar-canonical.json, opus-code-status-escalation-opus2.json, opus-vanco-case-2026-06-11.json, opus1-tha-discharge-case-study-patched.json, visual-canonical.json, vitals-canonical.json)
+- v1.2: 1219 questions (capnography-canonical.json, claude-canonical.json, gemini-canonical.json, gpt-canonical.json, hard-cases-canonical.json, lab-canonical.json, mar-canonical.json, visual-canonical.json, vitals-canonical.json)
 
 ## By Source File
 
 - capnography-canonical.json: 7
-- claude-canonical.json: 57
+- claude-canonical.json: 60
 - gemini-canonical.json: 771
-- gpt-canonical.json: 220
-- gpt-case-opus5-cdi-2026-06-11.json: 1
-- gpt-case-warfarin-mvr-2026-06-11-patched.json: 1
-- gpt-gap-jun12-rrp-bcc.json: 10
-- gpt-visual-smoke-2026-06-12-a.json: 10
+- gpt-canonical.json: 242
 - hard-cases-canonical.json: 51
 - lab-canonical.json: 20
 - mar-canonical.json: 5
-- opus-code-status-escalation-opus2.json: 1
-- opus-vanco-case-2026-06-11.json: 1
-- opus1-tha-discharge-case-study-patched.json: 1
 - visual-canonical.json: 53
 - vitals-canonical.json: 10
 
@@ -164,6 +150,9 @@ Total visuals: 97
 | ID | Topic | Parts | Bank |
 |----|-------|-------|------|
 | opus_psi_caregiver_2026_06_10_01 | caregiver burden and family adaptation | 6 | claude-canonical.json |
+| opus2_case_code_status_01 | code status escalation | 5 | claude-canonical.json |
+| opus_vanco_case_01 | vancomycin infusion reaction and nephrotoxicity | 6 | claude-canonical.json |
+| opus1_case_tha_discharge_lep_01 | discharge coordination after hip arthroplasty | 6 | claude-canonical.json |
 | gen_rrp_batch1_10 | Respiratory & Infectious Disorders | 2 | gemini-canonical.json |
 | gen_rrp_batch2_10 | Perioperative Care | 2 | gemini-canonical.json |
 | gemini_gapfill_case_2026_06_10_case_imm_01 | adult immunization | 4 | gemini-canonical.json |
@@ -205,8 +194,8 @@ Total visuals: 97
 | gpt_case_gap_2026_06_11_case_adrenal_crisis_04 | Adrenal crisis | 4 | gpt-canonical.json |
 | gpt_case_gap_2026_06_11_case_urosepsis_05 | Sepsis from obstructed urinary source | 4 | gpt-canonical.json |
 | gpt_case_gap_2026_06_11_case_anticoag_bleeding_06 | Anticoagulation monitoring complication | 4 | gpt-canonical.json |
-| gpt_case_opus5_cdi_immunocompromised_01 | Clostridioides difficile infection control and treatment | 6 | gpt-case-opus5-cdi-2026-06-11.json |
-| gpt_case_warfarin_mvr_2026_06_11_01 | warfarin reversal in mechanical mitral valve bleeding | 6 | gpt-case-warfarin-mvr-2026-06-11-patched.json |
+| gpt_case_opus5_cdi_immunocompromised_01 | Clostridioides difficile infection control and treatment | 6 | gpt-canonical.json |
+| gpt_case_warfarin_mvr_2026_06_11_01 | warfarin reversal in mechanical mitral valve bleeding | 6 | gpt-canonical.json |
 | case_sepsis_pneumonia_01 | Sepsis & Septic Shock | 4 | hard-cases-canonical.json |
 | case_preeclampsia_magnesium_01 | Maternal-Newborn Care & Teaching | 4 | hard-cases-canonical.json |
 | cs_copd_01 | Respiratory & Infectious Disorders | 5 | hard-cases-canonical.json |
@@ -249,9 +238,6 @@ Total visuals: 97
 | opus_icit_case_01 | Immune Checkpoint Inhibitor Myocarditis | 6 | hard-cases-canonical.json |
 | opus_tpn_case_mucositis_01 | Mucositis TPN and CRBSI | 6 | hard-cases-canonical.json |
 | opus_case_se_01 | status epilepticus | 6 | hard-cases-canonical.json |
-| opus2_case_code_status_01 | code status escalation | 5 | opus-code-status-escalation-opus2.json |
-| opus_vanco_case_01 | vancomycin infusion reaction and nephrotoxicity | 6 | opus-vanco-case-2026-06-11.json |
-| opus1_case_tha_discharge_lep_01 | discharge coordination after hip arthroplasty | 6 | opus1-tha-discharge-case-study-patched.json |
 
 ## ID Uniqueness
 
@@ -259,20 +245,23 @@ No duplicates detected.
 
 ## Targets
 
-Category average: 152.4
+Category targets (2026 NCLEX-RN test-plan weights):
+- Management of Care: 219.4
+- Safety and Infection Control: 158.5
+- Health Promotion and Maintenance: 109.7
+- Psychosocial Integrity: 109.7
+- Basic Care and Comfort: 109.7
+- Pharmacological and Parenteral Therapies: 195.0
+- Reduction of Risk Potential: 146.3
+- Physiological Adaptation: 170.7
 Item type average: 174.1
 
 Under-served categories:
-- Psychosocial Integrity: 137
-- Health Promotion and Maintenance: 138
-- Safety and Infection Control: 139
 - Management of Care: 140
-- Basic Care and Comfort: 145
-- Reduction of Risk Potential: 147
+- Pharmacological and Parenteral Therapies: 153
 
 Over-served categories:
 - Physiological Adaptation: 220
-- Pharmacological and Parenteral Therapies: 153
 
 Under-served item types:
 - case_study: 89
@@ -284,12 +273,8 @@ Under-served item types:
 ## Prompt Parameters
 
 PRIORITIZE_TOPICS:
-- Psychosocial Integrity (137 vs target 152.4)
-- Health Promotion and Maintenance (138 vs target 152.4)
-- Safety and Infection Control (139 vs target 152.4)
-- Management of Care (140 vs target 152.4)
-- Basic Care and Comfort (145 vs target 152.4)
-- Reduction of Risk Potential (147 vs target 152.4)
+- Management of Care (140 vs target 219)
+- Pharmacological and Parenteral Therapies (153 vs target 195)
 - case_study (89 vs target 174.1)
 - fill_in_blank (120 vs target 174.1)
 - ordered_response (123 vs target 174.1)

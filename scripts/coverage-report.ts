@@ -2,9 +2,16 @@ import { readFile, readdir } from "node:fs/promises";
 import { basename, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { parseBankText } from "../src/bankImport";
-import { categories, difficulties, itemTypes, rhythmClasses, validateBankObject } from "../src/schema";
+import {
+  categories,
+  difficulties,
+  itemTypes,
+  NCLEX_CATEGORY_WEIGHTS,
+  rhythmClasses,
+  validateBankObject,
+} from "../src/schema";
 import { listVisualKinds } from "../src/visuals/registry";
-import type { Question, QuestionVisual, RhythmStripVisual } from "../src/types";
+import type { Category, Question, QuestionVisual, RhythmStripVisual } from "../src/types";
 
 export type TopicBucket = {
   label: string;
@@ -22,7 +29,7 @@ export type CoverageData = {
   totalVisuals: number;
   byRhythmClass: [string, number][];
   topics: TopicBucket[];
-  categoryAverage: number;
+  categoryTargets: [string, number][];
   itemTypeAverage: number;
   underCategories: [string, number][];
   overCategories: [string, number][];
@@ -49,6 +56,20 @@ const sortedCounts = <K extends string>(keys: readonly K[], counts: Map<K, numbe
 
 const formatCountRows = (rows: readonly (readonly [string, number])[]) =>
   rows.map(([label, count]) => `- ${label}: ${count}`).join("\n");
+
+const formatCategoryRows = (
+  rows: readonly (readonly [string, number])[],
+  targets: readonly (readonly [string, number])[],
+) => {
+  const targetsByCategory = new Map(targets);
+  return rows
+    .map(([label, count]) => {
+      const target = targetsByCategory.get(label) ?? 0;
+      const gap = count - target;
+      return `- ${label}: ${count} (target ${target.toFixed(0)}, gap ${gap >= 0 ? "+" : ""}${gap.toFixed(0)})`;
+    })
+    .join("\n");
+};
 
 export const collectVisuals = (question: Question): QuestionVisual[] => {
   const visuals: QuestionVisual[] = [];
@@ -106,12 +127,32 @@ export const computeCoverage = (questions: Question[]): CoverageData => {
     .map((b) => ({ label: b.label, count: b.count, categories: [...b.categories].sort(), itemTypes: [...b.itemTypes].sort() }));
 
   const overTopics = [...topicRows].reverse().filter((t) => t.count > 1).slice(0, 8);
-  const categoryAverage = questions.length / categories.length;
   const itemTypeAverage = questions.length / itemTypes.length;
   const sortedCategoryRows = sortedCounts(categories, categoryCounts);
   const sortedItemTypeRows = sortedCounts(itemTypes, itemTypeCounts);
-  const underCategories = sortedCategoryRows.filter(([, c]) => c < categoryAverage);
-  const overCategories = sortedCategoryRows.filter(([, c]) => c > categoryAverage).reverse();
+
+  // Category targets follow the same 2026 NCLEX-RN test-plan weights as the
+  // study sampler. Only counts outside NCSBN's +/-3 percentage-point band flag.
+  const tolerancePercentagePoints = 0.03;
+  const band = tolerancePercentagePoints * questions.length;
+  const categoryTarget = (category: string) => {
+    const weight = NCLEX_CATEGORY_WEIGHTS[category as Category];
+    if (weight === undefined) {
+      throw new Error(`Missing NCLEX category weight for "${category}"`);
+    }
+    return weight * questions.length;
+  };
+  const categoryGap = (category: string, count: number) => count - categoryTarget(category);
+  const categoryTargets: [string, number][] = categories.map((category) => [
+    category,
+    categoryTarget(category),
+  ]);
+  const underCategories = sortedCategoryRows
+    .filter(([category, count]) => count < categoryTarget(category) - band)
+    .sort((left, right) => categoryGap(left[0], left[1]) - categoryGap(right[0], right[1]));
+  const overCategories = sortedCategoryRows
+    .filter(([category, count]) => count > categoryTarget(category) + band)
+    .sort((left, right) => categoryGap(right[0], right[1]) - categoryGap(left[0], left[1]));
   const underItemTypes = sortedItemTypeRows.filter(([, c]) => c < itemTypeAverage);
   const lowTopics = topicRows.slice(0, 12);
 
@@ -122,7 +163,7 @@ export const computeCoverage = (questions: Question[]): CoverageData => {
     .map((kind) => [kind, visualCounts.get(kind) ?? 0]);
 
   const prioritizeTopics = [
-    ...underCategories.map(([cat, cnt]) => `${cat} (${cnt} vs target ${categoryAverage.toFixed(1)})`),
+    ...underCategories.map(([cat, cnt]) => `${cat} (${cnt} vs target ${categoryTarget(cat).toFixed(0)})`),
     ...underItemTypes.map(([it, cnt]) => `${it} (${cnt} vs target ${itemTypeAverage.toFixed(1)})`),
     ...lowTopics.map((t) => t.label),
   ].slice(0, 24);
@@ -138,7 +179,7 @@ export const computeCoverage = (questions: Question[]): CoverageData => {
     totalVisuals,
     byRhythmClass: sortedCounts(rhythmClasses, rhythmVisualCounts),
     topics: topicRows,
-    categoryAverage,
+    categoryTargets,
     itemTypeAverage,
     underCategories,
     overCategories,
@@ -191,7 +232,7 @@ const runCli = async () => {
   console.log(`Unique normalized topics: ${coverage.topics.length}`);
   console.log("");
   console.log("## Category Counts");
-  console.log(formatCountRows(coverage.byCategory));
+  console.log(formatCategoryRows(coverage.byCategory, coverage.categoryTargets));
   console.log("");
   console.log("## Item Type Counts");
   console.log(formatCountRows(coverage.byItemType));

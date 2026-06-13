@@ -33,6 +33,31 @@ export const categories = [
   "Physiological Adaptation",
 ] as const satisfies readonly Category[];
 
+export const NCLEX_CATEGORY_WEIGHTS: Record<Category, number> = {
+  "Management of Care": 0.18,
+  "Pharmacological and Parenteral Therapies": 0.16,
+  "Physiological Adaptation": 0.14,
+  "Safety and Infection Control": 0.13,
+  "Reduction of Risk Potential": 0.12,
+  "Health Promotion and Maintenance": 0.09,
+  "Psychosocial Integrity": 0.09,
+  "Basic Care and Comfort": 0.09,
+};
+
+const categoryWeightEntries = categories.map((category) => [
+  category,
+  NCLEX_CATEGORY_WEIGHTS[category],
+] as const);
+for (const [category, weight] of categoryWeightEntries) {
+  if (!Number.isFinite(weight) || weight <= 0) {
+    throw new Error(`NCLEX category weight for "${category}" must be a positive finite number`);
+  }
+}
+const categoryWeightTotal = categoryWeightEntries.reduce((sum, [, weight]) => sum + weight, 0);
+if (Math.abs(categoryWeightTotal - 1) > 1e-9) {
+  throw new Error(`NCLEX category weights must sum to 1.00; received ${categoryWeightTotal}`);
+}
+
 export const standaloneItemTypes = [
   "multiple_choice",
   "select_all",

@@ -31,5 +31,8 @@ jobs:
       - name: Test bank schema invariants
         run: npm run test:schema-bank
 
+      - name: Test coverage targeting
+        run: npm run test:coverage-report
+
       - name: Check census drift
         run: npm run census:check

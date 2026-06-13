@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-06-13T01:00:36.285Z",
-  "gitSha": "7123957fa0f3fb0c9ed1d7397bfb187e4eb6ed5a",
+  "generatedAt": "2026-06-13T01:20:42.179Z",
+  "gitSha": "a10f9a53a79bf4d8b2f8e545976b5b86c6f36e53",
   "perFile": [
     {
       "file": "capnography-canonical.json",
@@ -12,8 +12,8 @@
     {
       "file": "claude-canonical.json",
       "schemaVersion": "1.2",
-      "metaCount": 57,
-      "questionsLength": 57,
+      "metaCount": 60,
+      "questionsLength": 60,
       "mismatch": false
     },
     {
@@ -26,36 +26,8 @@
     {
       "file": "gpt-canonical.json",
       "schemaVersion": "1.2",
-      "metaCount": 220,
-      "questionsLength": 220,
-      "mismatch": false
-    },
-    {
-      "file": "gpt-case-opus5-cdi-2026-06-11.json",
-      "schemaVersion": "1.2",
-      "metaCount": 1,
-      "questionsLength": 1,
-      "mismatch": false
-    },
-    {
-      "file": "gpt-case-warfarin-mvr-2026-06-11-patched.json",
-      "schemaVersion": "1.2",
-      "metaCount": 1,
-      "questionsLength": 1,
-      "mismatch": false
-    },
-    {
-      "file": "gpt-gap-jun12-rrp-bcc.json",
-      "schemaVersion": "1.2",
-      "metaCount": 10,
-      "questionsLength": 10,
-      "mismatch": false
-    },
-    {
-      "file": "gpt-visual-smoke-2026-06-12-a.json",
-      "schemaVersion": "1.2",
-      "metaCount": 10,
-      "questionsLength": 10,
+      "metaCount": 242,
+      "questionsLength": 242,
       "mismatch": false
     },
     {
@@ -77,27 +49,6 @@
       "schemaVersion": "1.2",
       "metaCount": 5,
       "questionsLength": 5,
-      "mismatch": false
-    },
-    {
-      "file": "opus-code-status-escalation-opus2.json",
-      "schemaVersion": "1.2",
-      "metaCount": 1,
-      "questionsLength": 1,
-      "mismatch": false
-    },
-    {
-      "file": "opus-vanco-case-2026-06-11.json",
-      "schemaVersion": "1.2",
-      "metaCount": 1,
-      "questionsLength": 1,
-      "mismatch": false
-    },
-    {
-      "file": "opus1-tha-discharge-case-study-patched.json",
-      "schemaVersion": "1.2",
-      "metaCount": 1,
-      "questionsLength": 1,
       "mismatch": false
     },
     {
@@ -544,16 +495,9 @@
         "claude-canonical.json",
         "gemini-canonical.json",
         "gpt-canonical.json",
-        "gpt-case-opus5-cdi-2026-06-11.json",
-        "gpt-case-warfarin-mvr-2026-06-11-patched.json",
-        "gpt-gap-jun12-rrp-bcc.json",
-        "gpt-visual-smoke-2026-06-12-a.json",
         "hard-cases-canonical.json",
         "lab-canonical.json",
         "mar-canonical.json",
-        "opus-code-status-escalation-opus2.json",
-        "opus-vanco-case-2026-06-11.json",
-        "opus1-tha-discharge-case-study-patched.json",
         "visual-canonical.json",
         "vitals-canonical.json"
       ]
@@ -561,19 +505,12 @@
   },
   "bySourceFile": {
     "capnography-canonical.json": 7,
-    "claude-canonical.json": 57,
+    "claude-canonical.json": 60,
     "gemini-canonical.json": 771,
-    "gpt-canonical.json": 220,
-    "gpt-case-opus5-cdi-2026-06-11.json": 1,
-    "gpt-case-warfarin-mvr-2026-06-11-patched.json": 1,
-    "gpt-gap-jun12-rrp-bcc.json": 10,
-    "gpt-visual-smoke-2026-06-12-a.json": 10,
+    "gpt-canonical.json": 242,
     "hard-cases-canonical.json": 51,
     "lab-canonical.json": 20,
     "mar-canonical.json": 5,
-    "opus-code-status-escalation-opus2.json": 1,
-    "opus-vanco-case-2026-06-11.json": 1,
-    "opus1-tha-discharge-case-study-patched.json": 1,
     "visual-canonical.json": 53,
     "vitals-canonical.json": 10
   },
@@ -730,6 +667,24 @@
     {
       "id": "opus_psi_caregiver_2026_06_10_01",
       "topic": "caregiver burden and family adaptation",
+      "parts": 6,
+      "bank": "claude-canonical.json"
+    },
+    {
+      "id": "opus2_case_code_status_01",
+      "topic": "code status escalation",
+      "parts": 5,
+      "bank": "claude-canonical.json"
+    },
+    {
+      "id": "opus_vanco_case_01",
+      "topic": "vancomycin infusion reaction and nephrotoxicity",
+      "parts": 6,
+      "bank": "claude-canonical.json"
+    },
+    {
+      "id": "opus1_case_tha_discharge_lep_01",
+      "topic": "discharge coordination after hip arthroplasty",
       "parts": 6,
       "bank": "claude-canonical.json"
     },
@@ -983,13 +938,13 @@
       "id": "gpt_case_opus5_cdi_immunocompromised_01",
       "topic": "Clostridioides difficile infection control and treatment",
       "parts": 6,
-      "bank": "gpt-case-opus5-cdi-2026-06-11.json"
+      "bank": "gpt-canonical.json"
     },
     {
       "id": "gpt_case_warfarin_mvr_2026_06_11_01",
       "topic": "warfarin reversal in mechanical mitral valve bleeding",
       "parts": 6,
-      "bank": "gpt-case-warfarin-mvr-2026-06-11-patched.json"
+      "bank": "gpt-canonical.json"
     },
     {
       "id": "case_sepsis_pneumonia_01",
@@ -1242,66 +1197,61 @@
       "topic": "status epilepticus",
       "parts": 6,
       "bank": "hard-cases-canonical.json"
-    },
-    {
-      "id": "opus2_case_code_status_01",
-      "topic": "code status escalation",
-      "parts": 5,
-      "bank": "opus-code-status-escalation-opus2.json"
-    },
-    {
-      "id": "opus_vanco_case_01",
-      "topic": "vancomycin infusion reaction and nephrotoxicity",
-      "parts": 6,
-      "bank": "opus-vanco-case-2026-06-11.json"
-    },
-    {
-      "id": "opus1_case_tha_discharge_lep_01",
-      "topic": "discharge coordination after hip arthroplasty",
-      "parts": 6,
-      "bank": "opus1-tha-discharge-case-study-patched.json"
     }
   ],
   "idUniqueness": {
     "duplicates": []
   },
   "targets": {
-    "categoryAvg": 152.375,
-    "itemTypeAvg": 174.14285714285714,
-    "underCategories": [
+    "categoryTargets": [
       [
-        "Psychosocial Integrity",
-        137
-      ],
-      [
-        "Health Promotion and Maintenance",
-        138
+        "Management of Care",
+        219.42
       ],
       [
         "Safety and Infection Control",
-        139
+        158.47
       ],
+      [
+        "Health Promotion and Maintenance",
+        109.71
+      ],
+      [
+        "Psychosocial Integrity",
+        109.71
+      ],
+      [
+        "Basic Care and Comfort",
+        109.71
+      ],
+      [
+        "Pharmacological and Parenteral Therapies",
+        195.04
+      ],
+      [
+        "Reduction of Risk Potential",
+        146.28
+      ],
+      [
+        "Physiological Adaptation",
+        170.66000000000003
+      ]
+    ],
+    "itemTypeAvg": 174.14285714285714,
+    "underCategories": [
       [
         "Management of Care",
         140
       ],
       [
-        "Basic Care and Comfort",
-        145
-      ],
-      [
-        "Reduction of Risk Potential",
-        147
+        "Pharmacological and Parenteral Therapies",
+        153
       ]
     ],
     "overCategories": [
       [
         "Physiological Adaptation",
         220
-      ],
-      [
-        "Pharmacological and Parenteral Therapies",
-        153
       ]
     ],
     "underItemTypes": [
@@ -1328,12 +1278,8 @@
     ]
   },
   "prioritizeTopics": [
-    "Psychosocial Integrity (137 vs target 152.4)",
-    "Health Promotion and Maintenance (138 vs target 152.4)",
-    "Safety and Infection Control (139 vs target 152.4)",
-    "Management of Care (140 vs target 152.4)",
-    "Basic Care and Comfort (145 vs target 152.4)",
-    "Reduction of Risk Potential (147 vs target 152.4)",
+    "Management of Care (140 vs target 219)",
+    "Pharmacological and Parenteral Therapies (153 vs target 195)",
     "case_study (89 vs target 174.1)",
     "fill_in_blank (120 vs target 174.1)",
     "ordered_response (123 vs target 174.1)",
