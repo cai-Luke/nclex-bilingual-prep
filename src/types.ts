@@ -210,6 +210,7 @@ export type StudyMode = "study" | "test";
 export type SessionMode = StudyMode | "adaptive";
 export type SessionOrder = "random" | "sequential";
 export type SessionStatusFilter = "all" | "unseen" | "answered" | "incorrect" | "flagged" | "due";
+export type SessionPhase = "questions" | "skipped-prompt" | "skipped-review";
 
 export type Settings = {
   languageMode: LanguageMode;
@@ -236,6 +237,8 @@ export type StoredSessionSnapshot = {
   index: number;
   answers: Record<string, unknown>;
   results: Record<string, boolean>;
+  skippedQuestionIds?: string[];
+  phase?: SessionPhase;
   languageMode: LanguageMode;
   title: string;
   startedAt: string;

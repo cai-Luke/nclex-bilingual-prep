@@ -2,56 +2,60 @@
 
 # NCLEX Bank Census
 
-Generated: 2026-06-13T01:20:42.179Z
-Git SHA: a10f9a53a79bf4d8b2f8e545976b5b86c6f36e53
+Generated: 2026-06-13T20:16:06.046Z
+Git SHA: b3a68e890988ca7155dcc8113881b3a36ddf6826
 
 ## Per-File Summary
 
 | File | Schema | meta.count | questions | Mismatch |
 |------|--------|-----------|-----------|---------|
+| burn-canonical.json | 1.2 | 8 | 8 | — |
 | capnography-canonical.json | 1.2 | 7 | 7 | — |
-| claude-canonical.json | 1.2 | 60 | 60 | — |
-| gemini-canonical.json | 1.2 | 771 | 771 | — |
-| gpt-canonical.json | 1.2 | 242 | 242 | — |
-| hard-cases-canonical.json | 1.2 | 51 | 51 | — |
+| claude-canonical.json | 1.2 | 61 | 61 | — |
+| device-canonical.json | 1.2 | 8 | 8 | — |
+| gemini-canonical.json | 1.2 | 777 | 777 | — |
+| gpt-canonical.json | 1.2 | 267 | 267 | — |
+| hard-cases-canonical.json | 1.2 | 58 | 58 | — |
+| io-canonical.json | 1.2 | 8 | 8 | — |
 | lab-canonical.json | 1.2 | 20 | 20 | — |
-| mar-canonical.json | 1.2 | 5 | 5 | — |
+| mar-canonical.json | 1.2 | 8 | 8 | — |
+| medlabel-canonical.json | 1.2 | 8 | 8 | — |
 | visual-canonical.json | 1.2 | 53 | 53 | — |
 | vitals-canonical.json | 1.2 | 10 | 10 | — |
 
 ## Totals
 
-- Top-level questions: 1219
-- Case study top-level: 89
-- Embedded parts: 389
-- Graded total: 1608
+- Top-level questions: 1293
+- Case study top-level: 106
+- Embedded parts: 482
+- Graded total: 1775
 
 ## By Category
 
-- Psychosocial Integrity: 137
-- Health Promotion and Maintenance: 138
-- Safety and Infection Control: 139
-- Management of Care: 140
-- Basic Care and Comfort: 145
-- Reduction of Risk Potential: 147
-- Pharmacological and Parenteral Therapies: 153
-- Physiological Adaptation: 220
+- Health Promotion and Maintenance: 140
+- Psychosocial Integrity: 141
+- Safety and Infection Control: 144
+- Management of Care: 148
+- Basic Care and Comfort: 152
+- Reduction of Risk Potential: 168
+- Pharmacological and Parenteral Therapies: 171
+- Physiological Adaptation: 229
 
 ## Within-Category Concentration
 
 ### Management of Care
 
-Top topics: Prioritization & Delegation (41), Legal & Ethical Principles (40), Confidentiality & HIPAA (9), Client Advocacy (5), Discharge Planning & Handoff (5), legal & ethical principles (5), prioritization & delegation (5), Conflict Resolution (3), Disaster & Emergency Preparedness (2), Medication Safety & Admin (2)
-Visual kinds: device_screen (1)
+Top topics: Prioritization & Delegation (41), Legal & Ethical Principles (40), Confidentiality & HIPAA (9), Client Advocacy (5), Discharge Planning & Handoff (5), legal & ethical principles (5), prioritization & delegation (5), Conflict Resolution (3), Disaster & Emergency Preparedness (2), interpreter-supported consent and discharge readiness (2)
+Visual kinds: device_screen (1), mar (1)
 
 ### Safety and Infection Control
 
-Top topics: Patient & Environment Safety (37), Transmission-Based Precautions (31), Standard Precautions & Hygiene (17), PPE & Sterile Technique (13), Disaster & Emergency Preparedness (4), Endocrine & Neurological Disorders (2), Active Pulmonary TB Airborne Precautions (1), anesthesia equipment (1), Burn Assessment (1), burn management (1)
+Top topics: Patient & Environment Safety (37), Transmission-Based Precautions (31), Standard Precautions & Hygiene (17), PPE & Sterile Technique (13), Disaster & Emergency Preparedness (4), contact precautions workflow for diarrheal illness (2), Endocrine & Neurological Disorders (2), Active Pulmonary TB Airborne Precautions (1), anesthesia equipment (1), Burn Assessment (1)
 Visual kinds: capnography (1), device_screen (1), medication_label (1), vitals_trend (1)
 
 ### Health Promotion and Maintenance
 
-Top topics: Maternal-Newborn Care & Teaching (32), Pediatric & Adolescent Health (30), Adult Health & Wellness (23), Reproductive & Endocrine Health (9), Pediatric & Toddler Safety (7), Chronic Disease Management & Lifestyle (6), adult immunization (1), Adult Immunization and Preventive Screening (1), Adult Physical Activity Counseling (1), adult preventive screening (1)
+Top topics: Maternal-Newborn Care & Teaching (32), Pediatric & Adolescent Health (30), Adult Health & Wellness (23), Reproductive & Endocrine Health (9), Pediatric & Toddler Safety (7), Chronic Disease Management & Lifestyle (6), pediatric dehydration oral rehydration teaching (2), adult immunization (1), Adult Immunization and Preventive Screening (1), Adult Physical Activity Counseling (1)
 Visual kinds: none
 
 ### Psychosocial Integrity
@@ -62,69 +66,73 @@ Visual kinds: none
 ### Basic Care and Comfort
 
 Top topics: Elimination & Comfort (26), Nutritional & Fluid Support (25), Mobility & Immobility (20), Palliative & Supportive Care (11), Sleep & Rest (11), Dosage Calculations (10), Transmission-Based Precautions (3), adult health & wellness (2), Enteral Nutrition (2), Perioperative Care (2)
-Visual kinds: burn_map (1), io_record (2)
+Visual kinds: burn_map (1), device_screen (1), io_record (4)
 
 ### Pharmacological and Parenteral Therapies
 
-Top topics: Medication Safety & Admin (33), Dosage Calculations (29), Cardiovascular & Endocrine Medications (18), Anticoagulant Therapy (15), medication safety & admin (5), Psychotropic Medications (5), anticoagulant therapy (3), Nutritional & Fluid Support (3), Adenosine Administration Technique (1), Adenosine Side Effects (1)
-Visual kinds: capnography (1), lab_trend (6), mar (5), medication_label (1), rhythm_strip (10), vitals_trend (2)
+Top topics: Medication Safety & Admin (33), Dosage Calculations (29), Cardiovascular & Endocrine Medications (18), Anticoagulant Therapy (15), medication safety & admin (5), Psychotropic Medications (5), anticoagulant therapy (3), Nutritional & Fluid Support (3), acetaminophen duplicate therapy (1), Adenosine Administration Technique (1)
+Visual kinds: capnography (1), device_screen (4), lab_trend (6), mar (7), medication_label (9), rhythm_strip (10), vitals_trend (2)
 
 ### Reduction of Risk Potential
 
-Top topics: Procedural Complications & Dialysis (34), Laboratory & Diagnostic Tests (19), Perioperative Care (15), Burn Management (8), Maternal-Newborn Care & Teaching (7), ABG & Acid-Base Interpretation (4), perioperative care (4), PPE & Sterile Technique (4), Endocrine & Neurological Disorders (3), Mobility & Immobility (3)
-Visual kinds: burn_map (2), capnography (1), io_record (1), lab_trend (7), rhythm_strip (2), vitals_trend (1)
+Top topics: Procedural Complications & Dialysis (34), Laboratory & Diagnostic Tests (19), Perioperative Care (15), Burn Management (8), Maternal-Newborn Care & Teaching (7), intrapartum fetal monitoring (6), ABG & Acid-Base Interpretation (4), perioperative care (4), PPE & Sterile Technique (4), Endocrine & Neurological Disorders (3)
+Visual kinds: burn_map (5), capnography (1), device_screen (3), fetal_monitoring (6), io_record (5), lab_trend (7), rhythm_strip (2), vitals_trend (1)
 
 ### Physiological Adaptation
 
 Top topics: Cardiovascular Disorders (38), Endocrine & Neurological Disorders (27), Renal & Gastrointestinal Disorders (17), Diabetic Ketoacidosis (DKA) (9), Respiratory & Infectious Disorders (8), Burn Management (6), Electrolyte Imbalances (5), diabetic ketoacidosis (dka) (3), renal & gastrointestinal disorders (3), Sepsis & Septic Shock (3)
-Visual kinds: capnography (4), lab_trend (7), rhythm_strip (32), vitals_trend (7)
+Visual kinds: burn_map (5), capnography (4), io_record (2), lab_trend (7), rhythm_strip (32), vitals_trend (7)
 
 ## By Item Type
 
-- case_study: 89
-- fill_in_blank: 120
-- ordered_response: 123
-- dropdown_cloze: 138
-- matrix: 155
-- select_all: 183
-- multiple_choice: 411
+- case_study: 106
+- ordered_response: 127
+- fill_in_blank: 140
+- dropdown_cloze: 142
+- matrix: 165
+- select_all: 189
+- multiple_choice: 424
 
 ## By Difficulty
 
-- easy: 159
-- hard: 449
-- medium: 611
+- easy: 163
+- hard: 481
+- medium: 649
 
 ## By Schema Version
 
-- v1.2: 1219 questions (capnography-canonical.json, claude-canonical.json, gemini-canonical.json, gpt-canonical.json, hard-cases-canonical.json, lab-canonical.json, mar-canonical.json, visual-canonical.json, vitals-canonical.json)
+- v1.2: 1293 questions (burn-canonical.json, capnography-canonical.json, claude-canonical.json, device-canonical.json, gemini-canonical.json, gpt-canonical.json, hard-cases-canonical.json, io-canonical.json, lab-canonical.json, mar-canonical.json, medlabel-canonical.json, visual-canonical.json, vitals-canonical.json)
 
 ## By Source File
 
+- burn-canonical.json: 8
 - capnography-canonical.json: 7
-- claude-canonical.json: 60
-- gemini-canonical.json: 771
-- gpt-canonical.json: 242
-- hard-cases-canonical.json: 51
+- claude-canonical.json: 61
+- device-canonical.json: 8
+- gemini-canonical.json: 777
+- gpt-canonical.json: 267
+- hard-cases-canonical.json: 58
+- io-canonical.json: 8
 - lab-canonical.json: 20
-- mar-canonical.json: 5
+- mar-canonical.json: 8
+- medlabel-canonical.json: 8
 - visual-canonical.json: 53
 - vitals-canonical.json: 10
 
 ## Visuals
 
-Total visuals: 97
+Total visuals: 138
 
 ### By Kind
 
-- burn_map: 3 (gpt_visual_smoke_2026_06_12_fib_burn_parkland_rate_01, gpt_visual_smoke_2026_06_12_matrix_burn_regions_03, gpt_visual_smoke_2026_06_12_mc_burn_tbsa_02)
+- burn_map: 11 (burn_fib_parkland_first8h_leg_arm_08, burn_fib_parkland_rate_arm_trunk_genitalia_04, burn_fib_parkland_total_posterior_03, burn_fib_tbsa_anterior_mix_01, burn_matrix_parkland_values_05, …+6)
 - capnography: 7 (cap_01, cap_02, cap_03, cap_04, cap_05, …+2)
-- device_screen: 2 (gpt_visual_smoke_2026_06_12_fib_device_enteral_duration_10, gpt_visual_smoke_2026_06_12_matrix_device_pca_basal_09)
-- fetal_monitoring: 0
-- io_record: 3 (gpt_visual_smoke_2026_06_12_fib_io_net_balance_04, gpt_visual_smoke_2026_06_12_matrix_io_totals_06, gpt_visual_smoke_2026_06_12_mc_io_output_total_05)
+- device_screen: 10 (dev_enteral_volume_shift_01, dev_high_alert_kcl_pump_mismatch_01, dev_infusion_duration_vtbi_01, dev_pca_basal_opioid_naive_01, dev_pca_delivered_total_basal_01, …+5)
+- fetal_monitoring: 6 (fhr_gemini_smoke_2026_06_13_01, fhr_gemini_smoke_2026_06_13_02, fhr_gemini_smoke_2026_06_13_03, fhr_gemini_smoke_2026_06_13_04, fhr_gemini_smoke_2026_06_13_05, …+1)
+- io_record: 11 (gpt_visual_smoke_2026_06_12_fib_io_net_balance_04, gpt_visual_smoke_2026_06_12_matrix_io_totals_06, gpt_visual_smoke_2026_06_12_mc_io_output_total_05, io_fib_hf_net_balance_01, io_fib_postop_output_total_06, …+6)
 - lab_trend: 20 (gpt_u3_labtrend_2026_06_09_b_cloze_inr_amiodarone_09, gpt_u3_labtrend_2026_06_09_b_cloze_sodium_overcorrection_08, gpt_u3_labtrend_2026_06_09_b_fib_creatinine_increase_10, gpt_u3_labtrend_2026_06_09_b_matrix_dka_potassium_glucose_04, gpt_u3_labtrend_2026_06_09_b_matrix_neutropenia_wbc_05, …+15)
-- mar: 5 (mar_matrix_assess_05, mar_matrix_cardiac_04, mar_mc_digoxin_01, mar_mc_vanco_03, mar_mc_warfarin_02)
-- medication_label: 2 (gpt_visual_smoke_2026_06_12_fib_medlabel_heparin_rate_07, gpt_visual_smoke_2026_06_12_mc_medlabel_tablet_quantity_08)
+- mar: 8 (mar_acetaminophen_duplicate_products_04, mar_av_nodal_blockers_1600_01, mar_digoxin_low_pulse_due_08, mar_enoxaparin_prior_held_03, mar_lispro_meal_delayed_02, …+3)
+- medication_label: 10 (gpt_visual_smoke_2026_06_12_fib_medlabel_heparin_rate_07, gpt_visual_smoke_2026_06_12_mc_medlabel_tablet_quantity_08, medlbl_cephalexin_capsules_006, medlbl_digoxin_tablets_005, medlbl_enoxaparin_volume_004, …+5)
 - rhythm_strip: 44 (ekg_b1_matrix_09, ekg_b1_mc_01, ekg_b1_mc_02, ekg_b1_mc_04, ekg_b1_mc_05, …+39)
 - vitals_trend: 11 (cs_thyroid_storm_main, vit_01, vit_02, vit_03, vit_04, …+6)
 
@@ -153,6 +161,7 @@ Total visuals: 97
 | opus2_case_code_status_01 | code status escalation | 5 | claude-canonical.json |
 | opus_vanco_case_01 | vancomycin infusion reaction and nephrotoxicity | 6 | claude-canonical.json |
 | opus1_case_tha_discharge_lep_01 | discharge coordination after hip arthroplasty | 6 | claude-canonical.json |
+| opus20_case_cdiff_01 | C. difficile colitis and dehydration | 6 | claude-canonical.json |
 | gen_rrp_batch1_10 | Respiratory & Infectious Disorders | 2 | gemini-canonical.json |
 | gen_rrp_batch2_10 | Perioperative Care | 2 | gemini-canonical.json |
 | gemini_gapfill_case_2026_06_10_case_imm_01 | adult immunization | 4 | gemini-canonical.json |
@@ -196,6 +205,15 @@ Total visuals: 97
 | gpt_case_gap_2026_06_11_case_anticoag_bleeding_06 | Anticoagulation monitoring complication | 4 | gpt-canonical.json |
 | gpt_case_opus5_cdi_immunocompromised_01 | Clostridioides difficile infection control and treatment | 6 | gpt-canonical.json |
 | gpt_case_warfarin_mvr_2026_06_11_01 | warfarin reversal in mechanical mitral valve bleeding | 6 | gpt-canonical.json |
+| gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01 | home oxygen safety and COPD discharge teaching | 5 | gpt-canonical.json |
+| gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02 | post-fall assessment and escalation in long-term care | 5 | gpt-canonical.json |
+| gpt_gap_2026_06_12_nonmcq_balanced_case_pressure_injury_nutrition_03 | pressure injury prevention with poor nutrition | 5 | gpt-canonical.json |
+| gpt_gap_2026_06_12_nonmcq_balanced_case_delirium_family_04 | delirium prevention and family education after hospitalization | 5 | gpt-canonical.json |
+| gpt_gap_2026_06_12_nonmcq_balanced_b_case_opioid_safety_01 | safe opioid administration and respiratory reassessment | 5 | gpt-canonical.json |
+| gpt_gap_2026_06_12_nonmcq_balanced_b_case_interpreter_consent_02 | interpreter-supported consent and discharge readiness | 5 | gpt-canonical.json |
+| gpt_gap_2026_06_12_nonmcq_balanced_b_case_peds_dehydration_03 | pediatric dehydration oral rehydration teaching | 5 | gpt-canonical.json |
+| gpt_gap_2026_06_12_nonmcq_balanced_b_case_wound_teachback_04 | home health wound-care teaching with teach-back failure | 5 | gpt-canonical.json |
+| gpt_2026_06_13_case_delirium_uti_01 | delirium superimposed on dementia | 6 | gpt-canonical.json |
 | case_sepsis_pneumonia_01 | Sepsis & Septic Shock | 4 | hard-cases-canonical.json |
 | case_preeclampsia_magnesium_01 | Maternal-Newborn Care & Teaching | 4 | hard-cases-canonical.json |
 | cs_copd_01 | Respiratory & Infectious Disorders | 5 | hard-cases-canonical.json |
@@ -238,6 +256,13 @@ Total visuals: 97
 | opus_icit_case_01 | Immune Checkpoint Inhibitor Myocarditis | 6 | hard-cases-canonical.json |
 | opus_tpn_case_mucositis_01 | Mucositis TPN and CRBSI | 6 | hard-cases-canonical.json |
 | opus_case_se_01 | status epilepticus | 6 | hard-cases-canonical.json |
+| opus1_case_discharge_med_rec_anticoag_01 | discharge medication reconciliation | 6 | hard-cases-canonical.json |
+| opus2_case_postop_opioid_respiratory_depression_01 | opioid-induced respiratory depression | 6 | hard-cases-canonical.json |
+| opus3_iv_potassium_safety_case_01 | IV potassium replacement safety | 6 | hard-cases-canonical.json |
+| opus4_case_postop_sbar_01 | postoperative deterioration escalation | 6 | hard-cases-canonical.json |
+| opus5_case_consent_interpreter_01 | informed consent and interpreter services | 5 | hard-cases-canonical.json |
+| opus12_case_inpatient_suicide_risk_01 | Inpatient suicide risk and safety precautions | 6 | hard-cases-canonical.json |
+| opus_case_warfarin_bridge_01 | warfarin-enoxaparin-bridge | 6 | hard-cases-canonical.json |
 
 ## ID Uniqueness
 
@@ -246,52 +271,50 @@ No duplicates detected.
 ## Targets
 
 Category targets (2026 NCLEX-RN test-plan weights):
-- Management of Care: 219.4
-- Safety and Infection Control: 158.5
-- Health Promotion and Maintenance: 109.7
-- Psychosocial Integrity: 109.7
-- Basic Care and Comfort: 109.7
-- Pharmacological and Parenteral Therapies: 195.0
-- Reduction of Risk Potential: 146.3
-- Physiological Adaptation: 170.7
-Item type average: 174.1
+- Management of Care: 232.7
+- Safety and Infection Control: 168.1
+- Health Promotion and Maintenance: 116.4
+- Psychosocial Integrity: 116.4
+- Basic Care and Comfort: 116.4
+- Pharmacological and Parenteral Therapies: 206.9
+- Reduction of Risk Potential: 155.2
+- Physiological Adaptation: 181.0
+Item type average: 184.7
 
 Under-served categories:
-- Management of Care: 140
-- Pharmacological and Parenteral Therapies: 153
+- Management of Care: 148
 
 Over-served categories:
-- Physiological Adaptation: 220
+- Physiological Adaptation: 229
 
 Under-served item types:
-- case_study: 89
-- fill_in_blank: 120
-- ordered_response: 123
-- dropdown_cloze: 138
-- matrix: 155
+- case_study: 106
+- ordered_response: 127
+- fill_in_blank: 140
+- dropdown_cloze: 142
+- matrix: 165
 
 ## Prompt Parameters
 
 PRIORITIZE_TOPICS:
-- Management of Care (140 vs target 219)
-- Pharmacological and Parenteral Therapies (153 vs target 195)
-- case_study (89 vs target 174.1)
-- fill_in_blank (120 vs target 174.1)
-- ordered_response (123 vs target 174.1)
-- dropdown_cloze (138 vs target 174.1)
-- matrix (155 vs target 174.1)
+- Management of Care (148 vs target 233)
+- case_study (106 vs target 184.7)
+- ordered_response (127 vs target 184.7)
+- fill_in_blank (140 vs target 184.7)
+- dropdown_cloze (142 vs target 184.7)
+- matrix (165 vs target 184.7)
+- acetaminophen duplicate therapy
 - Active Pulmonary TB Airborne Precautions
 - Acute decompensated heart failure
 - Acute Decompensated Heart Failure (ADHF)
 - Acute Graft-Versus-Host Disease
+- acute kidney injury fluid response
 - Acute Myocardial Infarction and Ventricular Fibrillation
 - Acute Pancreatitis
 - Adenosine Administration Technique
 - Adenosine Side Effects
 - Adrenal crisis
 - Adrenal crisis recognition and treatment
-- adult burn resuscitation Parkland calculation
-- adult immunization
 
 AVOID_TOPICS:
 - Mental Health Disorders (61)
