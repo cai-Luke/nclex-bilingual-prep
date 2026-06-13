@@ -2,8 +2,8 @@
 
 # NCLEX Bank Census
 
-Generated: 2026-06-12T21:52:19.849Z
-Git SHA: a661f21f53bbee90145877366594103ae67a5050
+Generated: 2026-06-13T01:00:36.285Z
+Git SHA: 7123957fa0f3fb0c9ed1d7397bfb187e4eb6ed5a
 
 ## Per-File Summary
 
@@ -17,7 +17,7 @@ Git SHA: a661f21f53bbee90145877366594103ae67a5050
 | gpt-case-warfarin-mvr-2026-06-11-patched.json | 1.2 | 1 | 1 | — |
 | gpt-gap-jun12-rrp-bcc.json | 1.2 | 10 | 10 | — |
 | gpt-visual-smoke-2026-06-12-a.json | 1.2 | 10 | 10 | — |
-| hard-cases-canonical.json | 1.2 | 46 | 51 | YES |
+| hard-cases-canonical.json | 1.2 | 51 | 51 | — |
 | lab-canonical.json | 1.2 | 20 | 20 | — |
 | mar-canonical.json | 1.2 | 5 | 5 | — |
 | opus-code-status-escalation-opus2.json | 1.2 | 1 | 1 | — |

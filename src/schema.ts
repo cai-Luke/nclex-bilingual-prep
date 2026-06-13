@@ -514,19 +514,30 @@ export const validateBankObject = (raw: unknown): ValidationResult<BankEnvelope>
   if (!isRecord(payload)) return { ok: false, reasons: ["bank must be an object or array"] };
 
   let schemaVersion: SchemaVersion | undefined;
+  let meta: Record<string, unknown> | undefined;
   if (payload.meta !== undefined) {
     if (!isRecord(payload.meta)) {
       reasons.push("meta must be an object");
-    } else if (!enumIncludes(supportedSchemaVersions, payload.meta.schemaVersion)) {
-      reasons.push(`meta.schemaVersion must be one of ${supportedSchemaVersions.join(", ")}`);
     } else {
-      schemaVersion = payload.meta.schemaVersion;
+      meta = payload.meta;
+      if (!enumIncludes(supportedSchemaVersions, meta.schemaVersion)) {
+        reasons.push(`meta.schemaVersion must be one of ${supportedSchemaVersions.join(", ")}`);
+      } else {
+        schemaVersion = meta.schemaVersion;
+      }
     }
   }
 
   if (!Array.isArray(payload.questions)) {
     reasons.push("questions must be an array");
     return { ok: false, reasons };
+  }
+  if (meta?.count !== undefined) {
+    if (typeof meta.count !== "number" || !Number.isInteger(meta.count) || meta.count < 0) {
+      reasons.push("meta.count must be a non-negative integer");
+    } else if (meta.count !== payload.questions.length) {
+      reasons.push(`meta.count ${meta.count} does not match questions.length ${payload.questions.length}`);
+    }
   }
 
   const seen = new Set<string>();

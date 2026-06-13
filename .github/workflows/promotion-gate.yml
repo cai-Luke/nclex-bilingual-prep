@@ -28,5 +28,8 @@ jobs:
       - name: Test non-MCQ bias audit and Layer B handoff
         run: npm run test:non-mcq-bias
 
+      - name: Test bank schema invariants
+        run: npm run test:schema-bank
+
       - name: Check census drift
         run: npm run census:check
