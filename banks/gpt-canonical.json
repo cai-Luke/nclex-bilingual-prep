@@ -1,11 +1,11 @@
 {
   "meta": {
-    "schemaVersion": "1.2",
+    "schemaVersion": "1.3",
     "exam": "NCLEX-RN",
     "topic": "assorted NCLEX-RN GPT canonical bank",
     "category": "mixed",
     "difficulty": "mixed",
-    "count": 269
+    "count": 272
   },
   "questions": [
     {
@@ -47365,6 +47365,483 @@
           "termEn": "colostomy",
           "termZh": "结肠造口",
           "defZh": "将结肠开口引至腹壁，使粪便经造口排出。"
+        }
+      ]
+    },
+    {
+      "id": "hl_smoke_2026_06_14_aki_hyperkalemia_01",
+      "itemType": "highlight",
+      "category": "Reduction of Risk Potential",
+      "topic": "acute kidney injury and hyperkalemia",
+      "difficulty": "medium",
+      "ngnSkill": "analyze_cues",
+      "stem": {
+        "en": "Highlight the findings that require immediate follow-up.",
+        "zh": "标出需要立即跟进的发现。"
+      },
+      "highlight": {
+        "segments": [
+          {
+            "id": "s1",
+            "en": "0900 progress note:",
+            "zh": "0900 病程记录："
+          },
+          {
+            "id": "s2",
+            "en": "Blood pressure 134/78 mm Hg.",
+            "zh": "血压 134/78 mmHg。",
+            "selectable": true
+          },
+          {
+            "id": "s3",
+            "en": "Urine output 18 mL over 4 hours.",
+            "zh": "4 小时尿量 18 毫升。",
+            "selectable": true
+          },
+          {
+            "id": "s4",
+            "en": "Potassium 6.7 mEq/L.",
+            "zh": "血钾 6.7 mEq/L。",
+            "selectable": true
+          },
+          {
+            "id": "s5",
+            "en": "Telemetry strip shows tall, peaked T waves.",
+            "zh": "遥测心电图显示高尖 T 波。",
+            "selectable": true
+          },
+          {
+            "id": "s6",
+            "en": "Incisional pain is 3/10 after coughing.",
+            "zh": "咳嗽后切口疼痛为 3/10。",
+            "selectable": true
+          }
+        ],
+        "correct": [
+          "s3",
+          "s4",
+          "s5"
+        ]
+      },
+      "rationale": {
+        "correct": {
+          "en": "Severely decreased urine output, potassium 6.7 mEq/L, and peaked T waves suggest clinically important hyperkalemia in the setting of acute kidney injury and require immediate escalation. The stable blood pressure and mild incisional pain are not the priority cues.",
+          "zh": "尿量明显减少、血钾 6.7 mEq/L 以及高尖 T 波提示急性肾损伤背景下具有临床意义的高钾血症，需要立即上报和处理。血压稳定和轻度切口疼痛不是优先线索。"
+        },
+        "byChoice": [
+          {
+            "refId": "s2",
+            "en": "This blood pressure is not an urgent cue in this context.",
+            "zh": "在此情境下，该血压不是紧急线索。"
+          },
+          {
+            "refId": "s3",
+            "en": "Oliguria suggests worsening renal perfusion or kidney injury and increases risk for potassium retention.",
+            "zh": "少尿提示肾灌注或肾损伤可能加重，并增加钾潴留风险。"
+          },
+          {
+            "refId": "s4",
+            "en": "A potassium level of 6.7 mEq/L is severe enough to require prompt attention.",
+            "zh": "血钾 6.7 mEq/L 已达到需要及时处理的严重程度。"
+          },
+          {
+            "refId": "s5",
+            "en": "Peaked T waves are a concerning ECG change associated with hyperkalemia.",
+            "zh": "高尖 T 波是与高钾血症相关的令人担忧的心电图变化。"
+          },
+          {
+            "refId": "s6",
+            "en": "Mild incisional pain after coughing can be expected after surgery and is not the priority over unstable renal/electrolyte cues.",
+            "zh": "咳嗽后轻度切口疼痛在术后可见，优先级低于肾功能和电解质异常线索。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "In highlight items, select only cues that match the stated criterion. Do not highlight every abnormal-sounding word; extra selections subtract points.",
+        "zh": "做标注题时，只选择符合题干标准的线索。不要把所有听起来异常的内容都标出；多选会扣分。"
+      },
+      "glossary": [
+        {
+          "termEn": "Oliguria",
+          "termZh": "少尿",
+          "defZh": "尿量明显减少，可能提示肾灌注不足或肾功能恶化。"
+        },
+        {
+          "termEn": "Hyperkalemia",
+          "termZh": "高钾血症",
+          "defZh": "血钾水平升高，可导致危险的心律失常。"
+        },
+        {
+          "termEn": "Peaked T waves",
+          "termZh": "高尖 T 波",
+          "defZh": "高钾血症时可能出现的心电图改变。"
+        }
+      ]
+    },
+    {
+      "id": "hl_smoke_2026_06_14_opioid_sedation_02",
+      "itemType": "highlight",
+      "category": "Pharmacological and Parenteral Therapies",
+      "topic": "opioid-induced respiratory depression",
+      "difficulty": "medium",
+      "ngnSkill": "recognize_cues",
+      "stem": {
+        "en": "Highlight the findings that require the nurse to hold the opioid and intervene immediately.",
+        "zh": "标出提示护士应暂停阿片类药物并立即干预的发现。"
+      },
+      "highlight": {
+        "segments": [
+          {
+            "id": "s1",
+            "en": "1430 postoperative assessment:",
+            "zh": "1430 术后评估："
+          },
+          {
+            "id": "s2",
+            "en": "Hydromorphone PCA is running at the prescribed settings.",
+            "zh": "氢吗啡酮 PCA 正按医嘱设置运行。",
+            "selectable": true
+          },
+          {
+            "id": "s3",
+            "en": "Respiratory rate is 8/min.",
+            "zh": "呼吸频率为 8 次/分。",
+            "selectable": true
+          },
+          {
+            "id": "s4",
+            "en": "Client is difficult to arouse to voice.",
+            "zh": "呼唤后患者不易唤醒。",
+            "selectable": true
+          },
+          {
+            "id": "s5",
+            "en": "Oxygen saturation is 88% on 2 L/min nasal cannula.",
+            "zh": "鼻导管 2 L/分吸氧下血氧饱和度为 88%。",
+            "selectable": true
+          },
+          {
+            "id": "s6",
+            "en": "Pain score is 7/10 at the incision.",
+            "zh": "切口疼痛评分为 7/10。",
+            "selectable": true
+          }
+        ],
+        "correct": [
+          "s3",
+          "s4",
+          "s5"
+        ]
+      },
+      "rationale": {
+        "correct": {
+          "en": "A respiratory rate of 8/min, decreased arousability, and oxygen saturation of 88% indicate possible opioid-induced respiratory depression. The opioid should be held while the nurse supports airway and breathing, stimulates the client, notifies the provider or rapid response team per policy, and anticipates naloxone if prescribed or protocolized.",
+          "zh": "呼吸频率 8 次/分、不易唤醒以及血氧饱和度 88% 提示可能发生阿片类药物导致的呼吸抑制。护士应暂停阿片类药物，同时支持气道和呼吸、刺激患者、按流程通知医师或快速反应团队，并预期根据医嘱或流程使用纳洛酮。"
+        },
+        "byChoice": [
+          {
+            "refId": "s2",
+            "en": "A PCA running as prescribed is context, not by itself a cue to hold the opioid.",
+            "zh": "PCA 正按医嘱运行只是背景信息，本身不是暂停阿片类药物的线索。"
+          },
+          {
+            "refId": "s3",
+            "en": "A respiratory rate of 8/min is dangerously low and indicates respiratory depression.",
+            "zh": "呼吸频率 8 次/分明显过低，提示呼吸抑制。"
+          },
+          {
+            "refId": "s4",
+            "en": "Difficulty arousing the client is a central nervous system depression cue.",
+            "zh": "患者不易唤醒是中枢神经系统抑制的线索。"
+          },
+          {
+            "refId": "s5",
+            "en": "Hypoxemia despite supplemental oxygen requires immediate intervention.",
+            "zh": "补充氧气后仍低氧血症，需要立即干预。"
+          },
+          {
+            "refId": "s6",
+            "en": "Pain is important, but giving more opioid is unsafe until respiratory depression is addressed.",
+            "zh": "疼痛需要处理，但在处理呼吸抑制前继续给予更多阿片类药物是不安全的。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "When an analgesic item includes sedation and breathing data, prioritize respiratory safety over pain-score treatment.",
+        "zh": "镇痛药题目若同时出现镇静和呼吸资料，应优先考虑呼吸安全，而不是先处理疼痛评分。"
+      },
+      "glossary": [
+        {
+          "termEn": "Patient-controlled analgesia",
+          "termZh": "患者自控镇痛",
+          "defZh": "患者可按设定参数自行触发止痛药给药的泵系统。"
+        },
+        {
+          "termEn": "Respiratory depression",
+          "termZh": "呼吸抑制",
+          "defZh": "呼吸频率或通气不足，可能导致低氧和二氧化碳潴留。"
+        },
+        {
+          "termEn": "Naloxone",
+          "termZh": "纳洛酮",
+          "defZh": "可逆转阿片类药物作用的拮抗剂，常用于疑似阿片过量或严重呼吸抑制。"
+        }
+      ]
+    },
+    {
+      "id": "hl_smoke_2026_06_14_case_postpartum_preeclampsia_03",
+      "itemType": "case_study",
+      "category": "Reduction of Risk Potential",
+      "topic": "postpartum preeclampsia",
+      "difficulty": "hard",
+      "ngnSkill": "analyze_cues",
+      "stem": {
+        "en": "Review the postpartum client record and answer the questions.",
+        "zh": "查看产后患者资料并回答问题。"
+      },
+      "caseStudy": {
+        "title": {
+          "en": "Unfolding case: postpartum hypertension warning signs",
+          "zh": "展开病例：产后高血压警示征象"
+        },
+        "summary": {
+          "en": "A client calls the postpartum triage line 4 days after birth.",
+          "zh": "一名产后第 4 天的患者致电产后分诊热线。"
+        },
+        "exhibits": [
+          {
+            "id": "triage_call",
+            "title": {
+              "en": "Telephone triage note",
+              "zh": "电话分诊记录"
+            },
+            "content": {
+              "en": "Postpartum day 4 after an uncomplicated vaginal birth. The client says, \"I thought I was just tired, but I feel worse today.\" The client is at home with a partner.",
+              "zh": "顺产后第 4 天。患者说：“我以为只是累了，但今天感觉更糟。”患者目前与伴侣在家。"
+            }
+          }
+        ],
+        "questions": [
+          {
+            "id": "hl_smoke_2026_06_14_case_postpartum_preeclampsia_03_q1",
+            "itemType": "highlight",
+            "category": "Reduction of Risk Potential",
+            "topic": "postpartum preeclampsia",
+            "difficulty": "hard",
+            "ngnSkill": "analyze_cues",
+            "stem": {
+              "en": "Highlight the findings most concerning for postpartum preeclampsia with severe features.",
+              "zh": "标出最提示产后子痫前期伴严重特征的发现。"
+            },
+            "highlight": {
+              "segments": [
+                {
+                  "id": "s1",
+                  "en": "Telephone triage findings:",
+                  "zh": "电话分诊发现："
+                },
+                {
+                  "id": "s2",
+                  "en": "Home blood pressure is 168/112 mm Hg.",
+                  "zh": "家庭测量血压为 168/112 mmHg。",
+                  "selectable": true
+                },
+                {
+                  "id": "s3",
+                  "en": "Client reports a severe headache not relieved by acetaminophen.",
+                  "zh": "患者诉严重头痛，服用对乙酰氨基酚后未缓解。",
+                  "selectable": true
+                },
+                {
+                  "id": "s4",
+                  "en": "Client says, \"I am seeing spots.\"",
+                  "zh": "患者说：“我眼前有闪点。”",
+                  "selectable": true
+                },
+                {
+                  "id": "s5",
+                  "en": "Lochia is light rubra without clots.",
+                  "zh": "恶露为少量红色，无血块。",
+                  "selectable": true
+                },
+                {
+                  "id": "s6",
+                  "en": "Client reports right upper quadrant abdominal pain.",
+                  "zh": "患者诉右上腹痛。",
+                  "selectable": true
+                },
+                {
+                  "id": "s7",
+                  "en": "Temperature is 37.1 C (98.8 F).",
+                  "zh": "体温 37.1°C（98.8°F）。",
+                  "selectable": true
+                }
+              ],
+              "correct": [
+                "s2",
+                "s3",
+                "s4",
+                "s6"
+              ]
+            },
+            "rationale": {
+              "correct": {
+                "en": "Severe-range blood pressure, severe persistent headache, visual symptoms, and right upper quadrant pain are concerning for postpartum preeclampsia with severe features and require urgent evaluation. Light rubra without clots and a normal temperature do not point to severe preeclampsia.",
+                "zh": "重度范围血压、持续严重头痛、视觉症状和右上腹痛提示可能为产后子痫前期伴严重特征，需要紧急评估。少量红色恶露且无血块、体温正常并不指向严重子痫前期。"
+              },
+              "byChoice": [
+                {
+                  "refId": "s2",
+                  "en": "A blood pressure of 168/112 mm Hg is in the severe range.",
+                  "zh": "168/112 mmHg 属于重度范围血压。"
+                },
+                {
+                  "refId": "s3",
+                  "en": "A severe headache unrelieved by medication is a neurologic warning symptom.",
+                  "zh": "药物不能缓解的严重头痛是神经系统警示症状。"
+                },
+                {
+                  "refId": "s4",
+                  "en": "Seeing spots is a visual disturbance and a severe-feature cue.",
+                  "zh": "眼前有闪点属于视觉障碍，是严重特征线索。"
+                },
+                {
+                  "refId": "s5",
+                  "en": "Light rubra without clots can be an expected postpartum finding.",
+                  "zh": "少量红色恶露且无血块可为产后预期表现。"
+                },
+                {
+                  "refId": "s6",
+                  "en": "Right upper quadrant pain can indicate hepatic involvement in preeclampsia.",
+                  "zh": "右上腹痛可能提示子痫前期的肝脏受累。"
+                },
+                {
+                  "refId": "s7",
+                  "en": "This temperature is normal and does not support the severe-feature concern.",
+                  "zh": "该体温正常，并不支持严重特征的判断。"
+                }
+              ]
+            },
+            "testTakingStrategy": {
+              "en": "For postpartum warning-sign questions, do not dismiss pregnancy complications just because birth already occurred.",
+              "zh": "产后警示征象题不要因为已经分娩就排除妊娠相关并发症。"
+            },
+            "glossary": [
+              {
+                "termEn": "Postpartum preeclampsia",
+                "termZh": "产后子痫前期",
+                "defZh": "分娩后出现的高血压相关疾病，可伴头痛、视觉症状、右上腹痛或其他器官受累。"
+              },
+              {
+                "termEn": "Severe-range blood pressure",
+                "termZh": "重度范围血压",
+                "defZh": "通常指收缩压至少 160 mmHg 或舒张压至少 110 mmHg，需要及时评估和处理。"
+              },
+              {
+                "termEn": "Visual disturbance",
+                "termZh": "视觉障碍",
+                "defZh": "如眼前闪点、视物模糊等，可能提示神经系统受累。"
+              }
+            ]
+          },
+          {
+            "id": "hl_smoke_2026_06_14_case_postpartum_preeclampsia_03_q2",
+            "itemType": "multiple_choice",
+            "category": "Reduction of Risk Potential",
+            "topic": "postpartum preeclampsia",
+            "difficulty": "medium",
+            "ngnSkill": "take_action",
+            "stem": {
+              "en": "Which instruction should the nurse give first?",
+              "zh": "护士首先应给予哪项指导？"
+            },
+            "options": [
+              {
+                "id": "A",
+                "en": "Have the client seek emergency evaluation now and avoid driving herself.",
+                "zh": "指导患者立即寻求急诊评估，并避免自行开车。"
+              },
+              {
+                "id": "D",
+                "en": "Encourage oral fluids and rest with the feet elevated.",
+                "zh": "鼓励口服补液并抬高双脚休息。"
+              },
+              {
+                "id": "B",
+                "en": "Tell the client to take another dose of acetaminophen and recheck the blood pressure in 4 hours.",
+                "zh": "告诉患者再服一剂对乙酰氨基酚，并 4 小时后复测血压。"
+              },
+              {
+                "id": "C",
+                "en": "Schedule a routine postpartum visit within the next week.",
+                "zh": "安排未来一周内常规产后复诊。"
+              }
+            ],
+            "correct": [
+              "A"
+            ],
+            "rationale": {
+              "correct": {
+                "en": "The severe-range blood pressure with headache, visual symptoms, and right upper quadrant pain requires emergency evaluation. The client should not delay care or drive herself because seizure or neurologic deterioration is possible.",
+                "zh": "重度范围血压合并头痛、视觉症状和右上腹痛需要急诊评估。患者不应延误就医，也不应自行开车，因为可能发生惊厥或神经系统恶化。"
+              },
+              "byChoice": [
+                {
+                  "refId": "B",
+                  "en": "This delays urgent evaluation of severe hypertension and neurologic symptoms.",
+                  "zh": "该做法会延误对重度高血压和神经系统症状的紧急评估。"
+                },
+                {
+                  "refId": "A",
+                  "en": "This is correct because it addresses the immediate maternal safety risk.",
+                  "zh": "正确。该选项处理了眼前的母体安全风险。"
+                },
+                {
+                  "refId": "D",
+                  "en": "Rest and fluids do not treat the emergency risk of severe postpartum hypertension.",
+                  "zh": "休息和补液不能处理严重产后高血压的紧急风险。"
+                },
+                {
+                  "refId": "C",
+                  "en": "Routine follow-up is not appropriate for severe-range blood pressure with warning symptoms.",
+                  "zh": "重度范围血压伴警示症状时，常规随访不合适。"
+                }
+              ]
+            },
+            "testTakingStrategy": {
+              "en": "When severe-range vital signs are paired with neurologic symptoms, choose urgent escalation over home care or delayed follow-up.",
+              "zh": "重度范围生命体征合并神经系统症状时，应选择紧急升级处理，而不是居家处理或延后随访。"
+            },
+            "glossary": [
+              {
+                "termEn": "Emergency evaluation",
+                "termZh": "急诊评估",
+                "defZh": "需要立即由医疗团队评估和处理的情况。"
+              },
+              {
+                "termEn": "Escalation",
+                "termZh": "升级处理",
+                "defZh": "将病情及时上报或转入更高等级的医疗处理。"
+              }
+            ]
+          }
+        ]
+      },
+      "rationale": {
+        "correct": {
+          "en": "This case tests recognition of postpartum preeclampsia warning signs and urgent triage of severe-range hypertension.",
+          "zh": "本病例考查识别产后子痫前期警示征象，以及对重度范围高血压进行紧急分诊。"
+        }
+      },
+      "testTakingStrategy": {
+        "en": "Case-study highlight items should be treated like cue collection: identify the data that changes urgency or safety first.",
+        "zh": "病例标注题应当像收集关键线索一样处理：先找出会改变紧急程度或安全性的资料。"
+      },
+      "glossary": [
+        {
+          "termEn": "Postpartum",
+          "termZh": "产后",
+          "defZh": "分娩后的时期，仍可能发生需要紧急处理的妊娠相关并发症。"
         }
       ]
     }

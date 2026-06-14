@@ -2,8 +2,8 @@
 
 # NCLEX Bank Census
 
-Generated: 2026-06-14T09:36:20.143Z
-Git SHA: e7bc768f51437be4f942c8ca62c66da431a9307c
+Generated: 2026-06-14T14:29:31.022Z
+Git SHA: 36cb51c0d4f3da049c103847002a080e2b30099e
 
 ## Per-File Summary
 
@@ -14,7 +14,7 @@ Git SHA: e7bc768f51437be4f942c8ca62c66da431a9307c
 | claude-canonical.json | 1.2 | 67 | 67 | — |
 | device-canonical.json | 1.2 | 8 | 8 | — |
 | gemini-canonical.json | 1.2 | 777 | 777 | — |
-| gpt-canonical.json | 1.2 | 269 | 269 | — |
+| gpt-canonical.json | 1.3 | 272 | 272 | — |
 | hard-cases-canonical.json | 1.2 | 57 | 57 | — |
 | io-canonical.json | 1.2 | 8 | 8 | — |
 | lab-canonical.json | 1.2 | 20 | 20 | — |
@@ -25,10 +25,10 @@ Git SHA: e7bc768f51437be4f942c8ca62c66da431a9307c
 
 ## Totals
 
-- Top-level questions: 1300
-- Case study top-level: 113
-- Embedded parts: 522
-- Graded total: 1822
+- Top-level questions: 1303
+- Case study top-level: 114
+- Embedded parts: 524
+- Graded total: 1827
 
 ## By Category
 
@@ -37,8 +37,8 @@ Git SHA: e7bc768f51437be4f942c8ca62c66da431a9307c
 - Safety and Infection Control: 145
 - Management of Care: 150
 - Basic Care and Comfort: 152
-- Reduction of Risk Potential: 168
-- Pharmacological and Parenteral Therapies: 171
+- Reduction of Risk Potential: 170
+- Pharmacological and Parenteral Therapies: 172
 - Physiological Adaptation: 230
 
 ## Within-Category Concentration
@@ -70,7 +70,7 @@ Visual kinds: burn_map (1), device_screen (1), io_record (4)
 
 ### Pharmacological and Parenteral Therapies
 
-Top topics: Medication Safety & Admin (33), Dosage Calculations (29), Cardiovascular & Endocrine Medications (18), Anticoagulant Therapy (15), medication safety & admin (5), Psychotropic Medications (5), anticoagulant therapy (3), Nutritional & Fluid Support (3), acetaminophen duplicate therapy (1), Adenosine Administration Technique (1)
+Top topics: Medication Safety & Admin (33), Dosage Calculations (29), Cardiovascular & Endocrine Medications (18), Anticoagulant Therapy (15), medication safety & admin (5), Psychotropic Medications (5), anticoagulant therapy (3), Nutritional & Fluid Support (3), opioid-induced respiratory depression (2), acetaminophen duplicate therapy (1)
 Visual kinds: capnography (1), device_screen (4), lab_trend (6), mar (7), medication_label (9), rhythm_strip (10), vitals_trend (2)
 
 ### Reduction of Risk Potential
@@ -85,8 +85,8 @@ Visual kinds: burn_map (5), capnography (4), io_record (2), lab_trend (7), rhyth
 
 ## By Item Type
 
-- highlight: 0
-- case_study: 113
+- highlight: 2
+- case_study: 114
 - ordered_response: 127
 - fill_in_blank: 140
 - dropdown_cloze: 142
@@ -97,12 +97,13 @@ Visual kinds: burn_map (5), capnography (4), io_record (2), lab_trend (7), rhyth
 ## By Difficulty
 
 - easy: 163
-- hard: 487
-- medium: 650
+- hard: 488
+- medium: 652
 
 ## By Schema Version
 
-- v1.2: 1300 questions (burn-canonical.json, capnography-canonical.json, claude-canonical.json, device-canonical.json, gemini-canonical.json, gpt-canonical.json, hard-cases-canonical.json, io-canonical.json, lab-canonical.json, mar-canonical.json, medlabel-canonical.json, visual-canonical.json, vitals-canonical.json)
+- v1.2: 1031 questions (burn-canonical.json, capnography-canonical.json, claude-canonical.json, device-canonical.json, gemini-canonical.json, hard-cases-canonical.json, io-canonical.json, lab-canonical.json, mar-canonical.json, medlabel-canonical.json, visual-canonical.json, vitals-canonical.json)
+- v1.3: 272 questions (gpt-canonical.json)
 
 ## By Source File
 
@@ -111,7 +112,7 @@ Visual kinds: burn_map (5), capnography (4), io_record (2), lab_trend (7), rhyth
 - claude-canonical.json: 67
 - device-canonical.json: 8
 - gemini-canonical.json: 777
-- gpt-canonical.json: 269
+- gpt-canonical.json: 272
 - hard-cases-canonical.json: 57
 - io-canonical.json: 8
 - lab-canonical.json: 20
@@ -223,6 +224,7 @@ Total visuals: 138
 | gpt_2026_06_13_case_delirium_uti_01 | delirium superimposed on dementia | 6 | gpt-canonical.json |
 | gpt_case_opus23_nat_toddler_01 | suspected nonaccidental trauma in a toddler | 5 | gpt-canonical.json |
 | gpt_opus21_case_colostomy_lep_discharge_01 | colostomy discharge teaching for limited English proficiency | 6 | gpt-canonical.json |
+| hl_smoke_2026_06_14_case_postpartum_preeclampsia_03 | postpartum preeclampsia | 2 | gpt-canonical.json |
 | case_sepsis_pneumonia_01 | Sepsis & Septic Shock | 4 | hard-cases-canonical.json |
 | case_preeclampsia_magnesium_01 | Maternal-Newborn Care & Teaching | 4 | hard-cases-canonical.json |
 | cs_copd_01 | Respiratory & Infectious Disorders | 5 | hard-cases-canonical.json |
@@ -279,15 +281,15 @@ No duplicates detected.
 ## Targets
 
 Category targets (2026 NCLEX-RN test-plan weights):
-- Management of Care: 234.0
-- Safety and Infection Control: 169.0
-- Health Promotion and Maintenance: 117.0
-- Psychosocial Integrity: 117.0
-- Basic Care and Comfort: 117.0
-- Pharmacological and Parenteral Therapies: 208.0
-- Reduction of Risk Potential: 156.0
-- Physiological Adaptation: 182.0
-Item type average: 162.5
+- Management of Care: 234.5
+- Safety and Infection Control: 169.4
+- Health Promotion and Maintenance: 117.3
+- Psychosocial Integrity: 117.3
+- Basic Care and Comfort: 117.3
+- Pharmacological and Parenteral Therapies: 208.5
+- Reduction of Risk Potential: 156.4
+- Physiological Adaptation: 182.4
+Item type average: 162.9
 
 Under-served categories:
 - Management of Care: 150
@@ -296,8 +298,8 @@ Over-served categories:
 - Physiological Adaptation: 230
 
 Under-served item types:
-- highlight: 0
-- case_study: 113
+- highlight: 2
+- case_study: 114
 - ordered_response: 127
 - fill_in_blank: 140
 - dropdown_cloze: 142
@@ -305,24 +307,24 @@ Under-served item types:
 ## Prompt Parameters
 
 PRIORITIZE_TOPICS:
-- Management of Care (150 vs target 234)
-- highlight (0 vs target 162.5)
-- case_study (113 vs target 162.5)
-- ordered_response (127 vs target 162.5)
-- fill_in_blank (140 vs target 162.5)
-- dropdown_cloze (142 vs target 162.5)
+- Management of Care (150 vs target 235)
+- highlight (2 vs target 162.9)
+- case_study (114 vs target 162.9)
+- ordered_response (127 vs target 162.9)
+- fill_in_blank (140 vs target 162.9)
+- dropdown_cloze (142 vs target 162.9)
 - acetaminophen duplicate therapy
 - Active Pulmonary TB Airborne Precautions
 - Acute decompensated heart failure
 - Acute Decompensated Heart Failure (ADHF)
 - Acute Graft-Versus-Host Disease
+- acute kidney injury and hyperkalemia
 - acute kidney injury fluid response
 - Acute Myocardial Infarction and Ventricular Fibrillation
 - Acute Pancreatitis
 - Adenosine Administration Technique
 - Adenosine Side Effects
 - Adrenal crisis
-- Adrenal crisis recognition and treatment
 
 AVOID_TOPICS:
 - Mental Health Disorders (61)

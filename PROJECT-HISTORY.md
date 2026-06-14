@@ -25,15 +25,19 @@ The app is a static offline Vite + React + TypeScript NCLEX-RN practice tool. It
 
 Core learning features are implemented: all schema item types render and grade, case studies are supported, sessions are resumable, custom sessions can be built from filters, the dashboard summarizes performance, flags feed review pools, glossary flashcards have their own SRS progress, and adaptive exam-condition practice is available without any pass/fail readiness claim.
 
-Current canonical banks (see [BANK-CENSUS.md](BANK-CENSUS.md); 1,300 top-level, 522 embedded parts as of 2026-06-13):
+Current canonical banks (see [BANK-CENSUS.md](BANK-CENSUS.md); 1,303 top-level, 524 embedded parts as of 2026-06-14):
 
+- `banks/burn-canonical.json` (8 schema v1.2 burn-map visual items)
 - `banks/capnography-canonical.json` (7 schema v1.2 capnography visual items; dedicated home for capnography kind)
 - `banks/claude-canonical.json` (67 bilingual Claude/Opus-source questions; ledgered content review complete)
-- `banks/gemini-canonical.json` (771 bilingual Gemini-source questions; includes original + pending batches + traditional/easy/gap-fill consolidations minus redundant/flawed questions)
-- `banks/gpt-canonical.json` (269 bilingual GPT-source questions; ledgered content review complete)
+- `banks/device-canonical.json` (8 schema v1.2 device-screen visual items)
+- `banks/gemini-canonical.json` (777 bilingual Gemini-source questions; includes original + pending batches + traditional/easy/gap-fill consolidations minus redundant/flawed questions)
+- `banks/gpt-canonical.json` (272 bilingual GPT-source questions; ledgered content review complete)
 - `banks/hard-cases-canonical.json` (57 top-level hard/NGN items; ledgered content review complete)
+- `banks/io-canonical.json` (8 schema v1.2 intake/output record visual items)
 - `banks/lab-canonical.json` (20 schema v1.2 lab_trend visual items; dedicated home for lab_trend kind)
-- `banks/mar-canonical.json` (5 schema v1.2 mar visual items; dedicated home for mar kind)
+- `banks/mar-canonical.json` (8 schema v1.2 mar visual items; dedicated home for mar kind)
+- `banks/medlabel-canonical.json` (8 schema v1.2 medication-label visual items)
 - `banks/visual-canonical.json` (53 reviewed schema v1.2 rhythm-strip visual items; the dedicated home for rhythm_strip kind, formerly `banks/rhythm-canonical`)
 - `banks/vitals-canonical.json` (10 reviewed schema v1.2 vitals-trend visual items; dedicated home for vitals_trend kind)
 - Schema version `1.3` current; `1.0` standalone, `1.1` case-study, and `1.2` visual banks remain supported
@@ -59,6 +63,7 @@ Out of scope until a future schema bump:
 
 Completed:
 - Added `highlight` as a standalone item type that also nests inside case studies, with bilingual ordered segments and accessible selectable text toggles.
+- Bundled the first reviewed highlight smoke batch in `banks/gpt-canonical.json`: two standalone highlight items and one postpartum preeclampsia case study containing a highlight stage.
 - Added schema `1.3`, recursive top-level/embedded version floors, non-degenerate selectable-distractor validation, keyed-segment and rationale-reference checks, and `1.3` export inference.
 - Reused the shared `+/-` scoring family, including over-selection penalties, partial-credit feedback, and full-marks-only retention.
 - Added post-submit states for correct selections, incorrect selections, and missed keyed segments, plus bilingual display and read-all passage support.
