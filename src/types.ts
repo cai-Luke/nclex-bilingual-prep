@@ -3,7 +3,7 @@ export type TextPair = {
   zh: string;
 };
 
-export type SchemaVersion = "1.0" | "1.1" | "1.2";
+export type SchemaVersion = "1.0" | "1.1" | "1.2" | "1.3";
 
 export type StandaloneItemType =
   | "multiple_choice"
@@ -11,7 +11,8 @@ export type StandaloneItemType =
   | "ordered_response"
   | "fill_in_blank"
   | "matrix"
-  | "dropdown_cloze";
+  | "dropdown_cloze"
+  | "highlight";
 
 export type ItemType = StandaloneItemType | "case_study";
 
@@ -135,13 +136,29 @@ export type DropdownClozeQuestion = CommonQuestion & {
   }>;
 };
 
+export type HighlightSegment = {
+  id: string;
+  en: string;
+  zh: string;
+  selectable?: boolean;
+};
+
+export type HighlightQuestion = CommonQuestion & {
+  itemType: "highlight";
+  highlight: {
+    segments: HighlightSegment[];
+    correct: string[];
+  };
+};
+
 export type StandaloneQuestion =
   | MultipleChoiceQuestion
   | SelectAllQuestion
   | OrderedResponseQuestion
   | FillInBlankQuestion
   | MatrixQuestion
-  | DropdownClozeQuestion;
+  | DropdownClozeQuestion
+  | HighlightQuestion;
 
 export type CaseStudyExhibit = {
   id: string;
@@ -205,6 +222,11 @@ export type QuestionProgress = {
   srsLapses?: number;
 };
 
+export type ItemScore = {
+  earned: number;
+  possible: number;
+};
+
 export type LanguageMode = "off" | "on-tap" | "always";
 export type StudyMode = "study" | "test";
 export type SessionMode = StudyMode | "adaptive";
@@ -237,6 +259,7 @@ export type StoredSessionSnapshot = {
   index: number;
   answers: Record<string, unknown>;
   results: Record<string, boolean>;
+  scores?: Record<string, ItemScore>;
   skippedQuestionIds?: string[];
   phase?: SessionPhase;
   languageMode: LanguageMode;

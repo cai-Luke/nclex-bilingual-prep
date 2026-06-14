@@ -1,6 +1,6 @@
 # NCLEX Bank — Canonical Question Schema
 
-**schemaVersion: `1.2` — current.** This document is the canonical authoring and review contract; runtime behavior is implemented by `src/types.ts`, `src/schema.ts`, and the registered modules under `src/visuals/`. `1.0` standalone-question banks remain supported. `1.1` case-study banks remain supported. Do not change shapes without bumping `schemaVersion` and writing a migration.
+**schemaVersion: `1.3` — current.** This document is the canonical authoring and review contract; runtime behavior is implemented by `src/types.ts`, `src/schema.ts`, and the registered modules under `src/visuals/`. `1.0` standalone-question banks, `1.1` case-study banks, and `1.2` visual banks remain supported. Do not change shapes without bumping `schemaVersion` and writing a migration.
 
 ---
 
@@ -11,7 +11,7 @@ A generated bank is one JSON object:
 ```json
 {
   "meta": {
-    "schemaVersion": "1.2",
+    "schemaVersion": "1.3",
     "exam": "NCLEX-RN",
     "topic": "echo of the requested topic",
     "category": "echo of the requested category, or 'mixed'",
@@ -22,7 +22,7 @@ A generated bank is one JSON object:
 }
 ```
 
-The importer also accepts a bare `[ ... ]` array of Question objects (no envelope). When present, `meta.schemaVersion` must be `"1.0"`, `"1.1"`, or `"1.2"`. `case_study` requires `"1.1"` or later. `visual` requires `"1.2"` when a bank envelope declares a schema version.
+The importer also accepts a bare `[ ... ]` array of Question objects (no envelope). When present, `meta.schemaVersion` must be `"1.0"`, `"1.1"`, `"1.2"`, or `"1.3"`. `case_study` requires `"1.1"` or later. `visual` requires `"1.2"` or later. `highlight`, including a highlight embedded in a case study, requires `"1.3"`.
 
 ---
 
@@ -31,7 +31,7 @@ The importer also accepts a bare `[ ... ]` array of Question objects (no envelop
 | field | type | required | notes |
 |---|---|---|---|
 | `id` | string | yes | unique within the bank; top-level bundled banks should be globally unique across each other because app state keys by `question.id`; uploaded imports regenerate collisions |
-| `itemType` | enum | yes | `multiple_choice` \| `select_all` \| `ordered_response` \| `fill_in_blank` \| `matrix` \| `dropdown_cloze` \| `case_study` |
+| `itemType` | enum | yes | `multiple_choice` \| `select_all` \| `ordered_response` \| `fill_in_blank` \| `matrix` \| `dropdown_cloze` \| `highlight` \| `case_study` |
 | `category` | enum | yes | one of the 8 client-needs subcategories (below), or `"mixed"` only at `meta` level — a question is always one specific category |
 | `topic` | string | yes | free text, e.g. `"heart failure"`; keep concise + reusable for coverage tallying |
 | `difficulty` | enum | yes | `easy` \| `medium` \| `hard` |
@@ -799,7 +799,7 @@ Rows are statements/findings; columns are categories. Each row gets a selection.
 - Each dropdown's `correct` is one of its own option ids. No top-level `correct`.
 
 ### 7. `case_study` — unfolding NGN case container
-`case_study` is a top-level `1.1+` item type for harder NGN practice. It presents shared chart/exhibit data once, then asks 2–6 embedded standalone questions that reuse the existing six item types.
+`case_study` is a top-level `1.1+` item type for harder NGN practice. It presents shared chart/exhibit data once, then asks 2–6 embedded standalone questions. Schema `1.3+` cases may include `highlight` parts.
 
 ```json
 {
@@ -847,9 +847,45 @@ Rows are statements/findings; columns are categories. Each row gets a selection.
 - `caseStudy.exhibits`: required, at least one exhibit. Use concise chart-like content; newline-separated vitals/labs are allowed.
 - `caseStudy.exhibits[].visual`: optional schema `1.2` visual stimulus. Exhibit `title` and `content` remain required even when a visual is present.
 - `caseStudy.stages`: optional unfolding updates, each with at least one exhibit.
-- `caseStudy.questions`: 2–6 embedded standalone questions. Embedded questions must be one of the six v1.0 item types and must include their own full common fields, rationale, strategy, and glossary.
+- `caseStudy.questions`: 2–6 embedded standalone questions. Embedded questions may use any current standalone item type and must include their own full common fields, rationale, strategy, and glossary. An embedded `highlight` requires the enclosing bank to declare schema `1.3`.
 - Embedded question ids must be unique within the case and differ from the parent case id.
 - Case-level `rationale.correct` summarizes the whole case. Each embedded question carries the detailed graded rationale.
+
+### 8. `highlight` — highlight in context (text)
+
+Schema `1.3+`. The instruction or selection criterion lives in `stem`; the passage is an ordered array of bilingual segments. Static segments provide connective text. Selectable segments are learner toggles, and `correct` keys the required subset.
+
+```json
+{
+  "id": "hl_aki_01",
+  "itemType": "highlight",
+  "category": "Reduction of Risk Potential",
+  "topic": "acute kidney injury",
+  "difficulty": "medium",
+  "ngnSkill": "analyze_cues",
+  "stem": {
+    "en": "Highlight the findings that require immediate follow-up.",
+    "zh": "标出需要立即跟进的发现。"
+  },
+  "highlight": {
+    "segments": [
+      { "id": "s1", "en": "0800 nursing note:", "zh": "0800 护理记录：" },
+      { "id": "s2", "en": "Blood pressure 138/82.", "zh": "血压 138/82。", "selectable": true },
+      { "id": "s3", "en": "Urine output 12 mL over 4 hours.", "zh": "4 小时尿量 12 毫升。", "selectable": true },
+      { "id": "s4", "en": "Potassium 6.4 mEq/L.", "zh": "血钾 6.4 mEq/L。", "selectable": true }
+    ],
+    "correct": ["s3", "s4"]
+  }
+}
+```
+
+- `segments`: at least one segment. Every segment requires unique `id`, non-empty `en`, and non-empty `zh`.
+- `selectable`: optional boolean; omitted means static/non-selectable.
+- At least one segment must be selectable, `correct` must be non-empty and duplicate-free, and every keyed id must identify a selectable segment.
+- At least one selectable segment must be a distractor. Keying every selectable segment is invalid.
+- `rationale.byChoice` is optional. When present, each unique `refId` must identify a selectable segment.
+- Segment order is fixed passage order. Adjacent segments render with one space; punctuation belongs inside the segment it attaches to.
+- Scoring uses `+/-`: +1 per correct selection, -1 per incorrect selection, floored at 0. `possible` is the number of keyed segments.
 
 ---
 
@@ -863,6 +899,7 @@ An item is **invalid → skipped and reported** (never partially rendered) if an
 - **fill_in_blank:** missing `blanks`, or a blank with neither `acceptable` nor `numeric`.
 - **matrix:** missing `matrix.rows`/`matrix.columns`/`correct`; a `rowId`/`columnId` not found; `single_per_row` with a `columnIds` length ≠ 1.
 - **dropdown_cloze:** a `{{id}}` in `clozeStem` with no matching dropdown (or vice versa); a dropdown `correct` not among its options; placeholders missing from `zh`.
+- **highlight:** missing `segments`/`correct`; duplicate segment ids; no selectable segment; a keyed id that is absent or non-selectable; duplicate keyed ids; every selectable segment is keyed; empty segment `en`/`zh`; or a `rationale.byChoice.refId` that is duplicated or does not resolve to a selectable segment.
 - **case_study:** `meta.schemaVersion` is `"1.0"`; missing `caseStudy.exhibits`; fewer than 2 or more than 6 embedded questions; an embedded question is another `case_study`; embedded ids are duplicated.
 - **visual:** present in a versioned bank below schema `"1.2"`; placed on an unsupported item type; unknown visual `kind`; invalid rhythm class; out-of-range rate, duration, interval, seed, atrial rate, or conduction ratio.
 
@@ -872,19 +909,24 @@ Report format: `"imported N of M; skipped K (reasons...)"`.
 
 ## Grading (app must implement consistently)
 
-- `multiple_choice`: correct iff selected == the single `correct` id.
-- `select_all`: correct iff selected set == `correct` set exactly (NCLEX gives no partial credit on SATA; the app may optionally show "x of y" but scores it all-or-nothing).
-- `ordered_response`: correct iff submitted order == `correct` order exactly.
-- `fill_in_blank`: per blank, correct iff matches an `acceptable` (trim + lowercase) OR (if `numeric`) parsed value within `value ± tolerance`. All blanks must pass.
-- `matrix`: correct iff every row's selected `columnIds` set == the `correct` entry for that row.
-- `dropdown_cloze`: correct iff every dropdown's selection == its `correct`.
-- `case_study`: correct iff every embedded question is correct. The app also shows each part's correct/review status and rationale after submission.
+Scoring is polytomous (partial credit), matching the NGN. Each item yields `{ earned, possible }`. Partial credit contributes to the session score; an item is counted as **mastered** (and removed from spaced-repetition review) only at full marks (`earned === possible`).
+
+- `multiple_choice`: `0/1`. 1 point iff the selection equals the single key.
+- `select_all`: `+/-`. +1 per correct selection, -1 per incorrect, floored at 0; `possible` = number of correct options.
+- `ordered_response`: `0/1` all-or-nothing on the full permutation.
+- `fill_in_blank`: `0/1` per blank; `possible` = number of blanks.
+- `matrix` `single_per_row`: `0/1` per row; `possible` = number of rows.
+- `matrix` `multiple_per_row`: `+/-` per row, each row floored at 0; `possible` = total correct cells.
+- `dropdown_cloze`: `0/1` per dropdown; `possible` = number of dropdowns.
+- `highlight`: `+/-` per selectable segment, floored at 0; `possible` = number of keyed segments.
+- `case_study`: sum of embedded item points.
 
 ---
 
 ## Notes
 
-- `highlight` / enhanced hot-spot and `bowtie` are still intentionally not in v1.2. Adding them later = a `1.x` bump with new type blocks.
+- `highlight` text items are supported in schema `1.3`. Highlight: Table remains deferred.
+- `bowtie` remains out of scope until a future schema bump (at least `1.4`).
 - `case_study` is the v1.1 hard-mode container for multi-part unfolding practice. It deliberately reuses v1.0 embedded item types instead of introducing new grading rules.
 - IDs: any unique string is fine. A readable convention like `<type>_<topicslug>_<n>` helps debugging but isn't required.
 - Keep `topic` strings consistent across batches (e.g., always `"heart failure"`, not sometimes `"CHF"`) so the coverage tool tallies cleanly. Minor variants can be fuzzy-grouped by the tool.

@@ -36,7 +36,7 @@ Current canonical banks (see [BANK-CENSUS.md](BANK-CENSUS.md); 1,300 top-level, 
 - `banks/mar-canonical.json` (5 schema v1.2 mar visual items; dedicated home for mar kind)
 - `banks/visual-canonical.json` (53 reviewed schema v1.2 rhythm-strip visual items; the dedicated home for rhythm_strip kind, formerly `banks/rhythm-canonical`)
 - `banks/vitals-canonical.json` (10 reviewed schema v1.2 vitals-trend visual items; dedicated home for vitals_trend kind)
-- Schema version `1.2` current; `1.0` standalone banks and `1.1` case-study banks remain supported
+- Schema version `1.3` current; `1.0` standalone, `1.1` case-study, and `1.2` visual banks remain supported
 
 Current schema item types:
 
@@ -46,14 +46,33 @@ Current schema item types:
 - `fill_in_blank`
 - `matrix`
 - `dropdown_cloze`
+- `highlight`
 - `case_study`
 
 Out of scope until a future schema bump:
 
-- `highlight`
 - `bowtie`
 
 ## Milestones
+
+### Schema 1.3 Highlight: Text Items (Jun 14)
+
+Completed:
+- Added `highlight` as a standalone item type that also nests inside case studies, with bilingual ordered segments and accessible selectable text toggles.
+- Added schema `1.3`, recursive top-level/embedded version floors, non-degenerate selectable-distractor validation, keyed-segment and rationale-reference checks, and `1.3` export inference.
+- Reused the shared `+/-` scoring family, including over-selection penalties, partial-credit feedback, and full-marks-only retention.
+- Added post-submit states for correct selections, incorrect selections, and missed keyed segments, plus bilingual display and read-all passage support.
+- Updated semantic audit serialization and coverage enumeration for the new item type.
+- Added focused validation, grading, export, and schema-floor regressions.
+
+### NGN Partial-Credit Scoring (Jun 14)
+
+Completed:
+- Added `ItemScore { earned, possible }` and exam-style polytomous scoring for every current item type: `0/1`, `+/-`, per-blank, per-row, per-dropdown, and summed case-study scoring.
+- Preserved the existing retention contract: `gradeQuestion` is full-marks-only, so partial-credit items remain missed and scheduled for review without changing storage or SRS behavior.
+- Persisted top-level item scores in resumable sessions, added point feedback after submission, and made exam-style percentage the session-summary headline with a separate mastered count.
+- Kept old persisted sessions compatible through optional stored scores and a mastery-only summary fallback.
+- Added focused grading regressions for full, partial, over-selected, row-floored, and case-study scores.
 
 ### Early-Bank Semantic Audit — 32 Corrections Applied (Jun 13)
 
@@ -780,6 +799,8 @@ Completed:
 
 Last verified on 2026-06-14:
 
+- `npm run test:grading` — all current item types, partial-credit families, full-marks retention, and malformed duplicate-selection regressions pass
+- `npm run test:highlight` — schema 1.3 highlight validation, export, and recursive version-floor regressions pass
 - `npm run validate-bank -- banks/*.json` — all bundled top-level banks pass
 - `npm run test-visuals` — 10 registered visual kinds green
 - `npm run census && npm run census:check`
@@ -790,7 +811,7 @@ Representative fetal-monitoring fixtures were also inspected through the in-app 
 ## Authoritative references
 
 - `NCLEX-Question-Schema.md` is the schema source of truth.
-- `src/types.ts` mirrors schema v1.2.
+- `src/types.ts` mirrors schema v1.3.
 - `src/schema.ts` validates committed and imported question data.
 - `scripts/validate-bank.ts` reuses the app validation path for bank files.
 - `BANK-REVIEW-LEDGER.md` tracks per-bank review status and should be updated before any generated bank is treated as reviewed testing material.
@@ -809,7 +830,7 @@ Representative fetal-monitoring fixtures were also inspected through the in-app 
 ## Candidate next work
 
 - Add browser automation to the verification baseline when Playwright or the in-app browser tool is available.
-- Add focused regression tests around shared grading, especially imported-answer edge cases.
+- Extend shared grading regressions when new item types are added.
 - Continue bank expansion guided by `npm run census` (structured) and `npm run coverage-report` (Markdown prompt parameters).
 - Consider optional live Gemini generation only if still wanted.
 - Consider optional remote bank update flow if manual bundled-bank updates become annoying.

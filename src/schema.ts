@@ -4,6 +4,7 @@ import type {
   Category,
   Difficulty,
   FillInBlankQuestion,
+  HighlightQuestion,
   ItemType,
   MatrixQuestion,
   NgnSkill,
@@ -18,9 +19,9 @@ import { getVisual, VISUAL_ITEM_TYPES, type VisualError } from "./visuals/regist
 import "./visuals/kinds"; // register every visual kind for validation (React-free)
 export { rhythmClasses } from "./visuals/kinds/rhythmStrip";
 
-export const SCHEMA_VERSION = "1.2";
+export const SCHEMA_VERSION = "1.3";
 
-export const supportedSchemaVersions = ["1.0", "1.1", "1.2"] as const satisfies readonly SchemaVersion[];
+export const supportedSchemaVersions = ["1.0", "1.1", "1.2", "1.3"] as const satisfies readonly SchemaVersion[];
 
 export const categories = [
   "Management of Care",
@@ -65,6 +66,7 @@ export const standaloneItemTypes = [
   "fill_in_blank",
   "matrix",
   "dropdown_cloze",
+  "highlight",
 ] as const satisfies readonly StandaloneItemType[];
 
 export const itemTypes = [
@@ -118,7 +120,7 @@ const extractPlaceholders = (value: string) => {
   return Array.from(matches, (match) => match[1].trim());
 };
 
-const schemaOrder = ["1.0", "1.1", "1.2"];
+const schemaOrder = ["1.0", "1.1", "1.2", "1.3"];
 const cmpSchema = (a: string, b: string) => schemaOrder.indexOf(a) - schemaOrder.indexOf(b);
 
 const formatVisualError = (basePath: string, err: VisualError) =>
@@ -242,6 +244,8 @@ export const validateQuestion = (raw: unknown, options: { allowCaseStudy?: boole
     validateMatrix(question, reasons);
   } else if (question.itemType === "dropdown_cloze") {
     validateDropdownCloze(question, reasons);
+  } else if (question.itemType === "highlight") {
+    validateHighlight(question, reasons);
   } else if (question.itemType === "case_study") {
     validateCaseStudy(question, reasons);
   }
@@ -433,6 +437,63 @@ const validateDropdownCloze = (question: Question, reasons: string[]) => {
   });
 };
 
+const validateHighlight = (question: HighlightQuestion, reasons: string[]) => {
+  if (!isRecord(question.highlight)) {
+    reasons.push("highlight requires highlight");
+    return;
+  }
+  if (!Array.isArray(question.highlight.segments) || question.highlight.segments.length === 0) {
+    reasons.push("highlight requires segments");
+    return;
+  }
+
+  const segmentIds = new Set<string>();
+  const selectableIds = new Set<string>();
+  question.highlight.segments.forEach((segment, index) => {
+    if (
+      !isRecord(segment) ||
+      !nonEmptyString(segment.id) ||
+      !nonEmptyString(segment.en) ||
+      !nonEmptyString(segment.zh)
+    ) {
+      reasons.push(`highlight.segments[${index}] requires id, en, and zh`);
+      return;
+    }
+    if (segment.selectable !== undefined && typeof segment.selectable !== "boolean") {
+      reasons.push(`highlight.segments[${index}].selectable must be boolean when present`);
+    }
+    if (segmentIds.has(segment.id)) reasons.push(`duplicate highlight segment id ${segment.id}`);
+    segmentIds.add(segment.id);
+    if (segment.selectable === true) selectableIds.add(segment.id);
+  });
+
+  if (selectableIds.size === 0) reasons.push("highlight requires at least one selectable segment");
+  if (!Array.isArray(question.highlight.correct) || question.highlight.correct.length === 0) {
+    reasons.push("highlight requires correct");
+    return;
+  }
+  if (new Set(question.highlight.correct).size !== question.highlight.correct.length) {
+    reasons.push("highlight correct contains duplicate ids");
+  }
+  question.highlight.correct.forEach((id) => {
+    if (!selectableIds.has(id)) reasons.push(`highlight correct id ${id} is not a selectable segment`);
+  });
+  if (question.highlight.correct.length >= selectableIds.size) {
+    reasons.push("highlight must include at least one selectable distractor");
+  }
+
+  const seenRationaleIds = new Set<string>();
+  question.rationale.byChoice?.forEach((choice) => {
+    if (seenRationaleIds.has(choice.refId)) {
+      reasons.push(`rationale.byChoice contains duplicate refId ${choice.refId}`);
+    }
+    seenRationaleIds.add(choice.refId);
+    if (!selectableIds.has(choice.refId)) {
+      reasons.push(`rationale.byChoice refId ${choice.refId} is not a selectable highlight segment`);
+    }
+  });
+};
+
 const validateCaseStudyExhibit = (value: unknown, path: string, seenIds: Set<string>, reasons: string[]) => {
   if (!isRecord(value)) {
     reasons.push(`${path} must be an object`);
@@ -575,6 +636,16 @@ export const validateBankObject = (raw: unknown): ValidationResult<BankEnvelope>
     }
     if (schemaVersion === "1.0" && result.value.itemType === "case_study") {
       reasons.push(`questions[${index}]: case_study requires meta.schemaVersion 1.1`);
+      return;
+    }
+    if (
+      schemaVersion !== undefined &&
+      cmpSchema(schemaVersion, "1.3") < 0 &&
+      (result.value.itemType === "highlight" ||
+        (result.value.itemType === "case_study" &&
+          result.value.caseStudy.questions.some((caseQuestion) => caseQuestion.itemType === "highlight")))
+    ) {
+      reasons.push(`questions[${index}]: highlight requires meta.schemaVersion 1.3`);
       return;
     }
     if (

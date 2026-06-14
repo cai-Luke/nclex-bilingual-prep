@@ -244,6 +244,13 @@ const keyedAnswerText = (question: Question): string => {
       )
       .join(" ");
   }
+  if (question.itemType === "highlight") {
+    const correct = new Set(question.highlight.correct);
+    return question.highlight.segments
+      .filter((segment) => correct.has(segment.id))
+      .map((segment) => segment.en)
+      .join(" ");
+  }
   return question.dropdowns
     .map((dropdown) => {
       const option = dropdown.options.find(

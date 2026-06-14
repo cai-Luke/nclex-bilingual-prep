@@ -1,10 +1,18 @@
-import type { CaseStudyQuestion, FillInBlankQuestion, MatrixQuestion, OptionQuestion, Question, StandaloneQuestion } from "./types";
+import type {
+  CaseStudyQuestion,
+  FillInBlankQuestion,
+  ItemScore,
+  MatrixQuestion,
+  Question,
+  StandaloneQuestion,
+} from "./types";
 
 export type AnswerState = {
   optionIds?: string[];
   blanks?: Record<string, string>;
   matrix?: Record<string, string[]>;
   dropdowns?: Record<string, string>;
+  segments?: string[];
   caseStudy?: Record<string, AnswerState>;
 };
 
@@ -20,55 +28,113 @@ const sameSet = (left: string[], right: string[]) => {
 
 const normalizedText = (value: string) => value.trim().toLowerCase();
 
-const gradeOptionQuestion = (question: OptionQuestion, answer: AnswerState) => {
-  const selected = answer.optionIds ?? [];
-  if (question.itemType === "ordered_response") return sameOrdered(selected, question.correct);
-  return sameSet(selected, question.correct);
+export const plusMinus = (selected: string[], correct: string[]): number => {
+  const correctSet = new Set(correct);
+  const picked = new Set(selected);
+  let earned = 0;
+  for (const id of picked) earned += correctSet.has(id) ? 1 : -1;
+  return Math.max(0, earned);
 };
 
-const gradeFillInBlank = (question: FillInBlankQuestion, answer: AnswerState) => {
+const scorePlusMinus = (selected: string[], correct: string[]): ItemScore => {
+  const possible = correct.length;
+  const earned = plusMinus(selected, correct);
+  const hasDuplicateSelection = new Set(selected).size !== selected.length;
+  return {
+    earned: hasDuplicateSelection ? Math.min(earned, Math.max(0, possible - 1)) : earned,
+    possible,
+  };
+};
+
+const blankIsCorrect = (blank: FillInBlankQuestion["blanks"][number], submitted: string) => {
+  const textMatch =
+    blank.acceptable?.some((acceptable) => normalizedText(acceptable) === normalizedText(submitted)) ?? false;
+  const numericValue = Number.parseFloat(submitted.replace(/,/g, ""));
+  const numericMatch =
+    blank.numeric !== undefined &&
+    Number.isFinite(numericValue) &&
+    numericValue >= blank.numeric.value - blank.numeric.tolerance &&
+    numericValue <= blank.numeric.value + blank.numeric.tolerance;
+  return textMatch || numericMatch;
+};
+
+const scoreFillInBlank = (question: FillInBlankQuestion, answer: AnswerState): ItemScore => {
   const blanks = answer.blanks ?? {};
-  return question.blanks.every((blank) => {
-    const submitted = blanks[blank.id] ?? "";
-    const textMatch =
-      blank.acceptable?.some((acceptable) => normalizedText(acceptable) === normalizedText(submitted)) ?? false;
-    const numericValue = Number.parseFloat(submitted.replace(/,/g, ""));
-    const numericMatch =
-      blank.numeric !== undefined &&
-      Number.isFinite(numericValue) &&
-      numericValue >= blank.numeric.value - blank.numeric.tolerance &&
-      numericValue <= blank.numeric.value + blank.numeric.tolerance;
-    return textMatch || numericMatch;
-  });
+  const earned = question.blanks.filter((blank) => blankIsCorrect(blank, blanks[blank.id] ?? "")).length;
+  return { earned, possible: question.blanks.length };
 };
 
-const gradeMatrix = (question: MatrixQuestion, answer: AnswerState) => {
+const scoreMatrix = (question: MatrixQuestion, answer: AnswerState): ItemScore => {
   const matrix = answer.matrix ?? {};
-  return question.correct.every((entry) => sameSet(matrix[entry.rowId] ?? [], entry.columnIds));
-};
-
-export const gradeStandaloneQuestion = (question: StandaloneQuestion, answer: AnswerState) => {
-  if (
-    question.itemType === "multiple_choice" ||
-    question.itemType === "select_all" ||
-    question.itemType === "ordered_response"
-  ) {
-    return gradeOptionQuestion(question, answer);
+  const correctByRow = new Map(question.correct.map((entry) => [entry.rowId, entry.columnIds]));
+  if (question.matrix.selectionMode === "single_per_row") {
+    const earned = question.matrix.rows.filter((row) =>
+      sameSet(matrix[row.id] ?? [], correctByRow.get(row.id) ?? []),
+    ).length;
+    return { earned, possible: question.matrix.rows.length };
   }
-  if (question.itemType === "fill_in_blank") return gradeFillInBlank(question, answer);
-  if (question.itemType === "matrix") return gradeMatrix(question, answer);
-  return question.dropdowns.every((dropdown) => answer.dropdowns?.[dropdown.id] === dropdown.correct);
+  return question.matrix.rows.reduce<ItemScore>(
+    (score, row) => {
+      const correct = correctByRow.get(row.id) ?? [];
+      const rowScore = scorePlusMinus(matrix[row.id] ?? [], correct);
+      return {
+        earned: score.earned + rowScore.earned,
+        possible: score.possible + rowScore.possible,
+      };
+    },
+    { earned: 0, possible: 0 },
+  );
 };
 
-const gradeCaseStudy = (question: CaseStudyQuestion, answer: AnswerState) =>
-  question.caseStudy.questions.every((caseQuestion) =>
-    gradeStandaloneQuestion(caseQuestion, answer.caseStudy?.[caseQuestion.id] ?? getInitialAnswer(caseQuestion)),
+export const scoreStandaloneQuestion = (question: StandaloneQuestion, answer: AnswerState): ItemScore => {
+  if (question.itemType === "multiple_choice") {
+    return { earned: sameSet(answer.optionIds ?? [], question.correct) ? 1 : 0, possible: 1 };
+  }
+  if (question.itemType === "select_all") {
+    return scorePlusMinus(answer.optionIds ?? [], question.correct);
+  }
+  if (question.itemType === "ordered_response") {
+    return { earned: sameOrdered(answer.optionIds ?? [], question.correct) ? 1 : 0, possible: 1 };
+  }
+  if (question.itemType === "fill_in_blank") return scoreFillInBlank(question, answer);
+  if (question.itemType === "matrix") return scoreMatrix(question, answer);
+  if (question.itemType === "highlight") {
+    return scorePlusMinus(answer.segments ?? [], question.highlight.correct);
+  }
+  return {
+    earned: question.dropdowns.filter((dropdown) => answer.dropdowns?.[dropdown.id] === dropdown.correct).length,
+    possible: question.dropdowns.length,
+  };
+};
+
+const scoreCaseStudy = (question: CaseStudyQuestion, answer: AnswerState): ItemScore =>
+  question.caseStudy.questions.reduce<ItemScore>(
+    (score, caseQuestion) => {
+      const partScore = scoreStandaloneQuestion(
+        caseQuestion,
+        answer.caseStudy?.[caseQuestion.id] ?? getInitialAnswer(caseQuestion),
+      );
+      return {
+        earned: score.earned + partScore.earned,
+        possible: score.possible + partScore.possible,
+      };
+    },
+    { earned: 0, possible: 0 },
   );
 
-export const gradeQuestion = (question: Question, answer: AnswerState) => {
-  if (question.itemType === "case_study") return gradeCaseStudy(question, answer);
-  return gradeStandaloneQuestion(question, answer);
+export const scoreQuestion = (question: Question, answer: AnswerState): ItemScore => {
+  if (question.itemType === "case_study") return scoreCaseStudy(question, answer);
+  return scoreStandaloneQuestion(question, answer);
 };
+
+export const isFullyCorrect = (score: ItemScore): boolean =>
+  score.possible > 0 && score.earned === score.possible;
+
+export const gradeStandaloneQuestion = (question: StandaloneQuestion, answer: AnswerState): boolean =>
+  isFullyCorrect(scoreStandaloneQuestion(question, answer));
+
+export const gradeQuestion = (question: Question, answer: AnswerState): boolean =>
+  isFullyCorrect(scoreQuestion(question, answer));
 
 export const getAnswerCompleteness = (question: Question, answer: AnswerState): boolean => {
   if (question.itemType === "multiple_choice" || question.itemType === "select_all") {
@@ -82,6 +148,9 @@ export const getAnswerCompleteness = (question: Question, answer: AnswerState): 
   }
   if (question.itemType === "matrix") {
     return question.matrix.rows.every((row) => (answer.matrix?.[row.id]?.length ?? 0) > 0);
+  }
+  if (question.itemType === "highlight") {
+    return (answer.segments?.length ?? 0) > 0;
   }
   if (question.itemType === "case_study") {
     return question.caseStudy.questions.every((caseQuestion) =>
@@ -127,6 +196,9 @@ export const getCorrectAnswer = (question: Question): AnswerState => {
     return {
       matrix: Object.fromEntries(question.correct.map((entry) => [entry.rowId, [...entry.columnIds]])),
     };
+  }
+  if (question.itemType === "highlight") {
+    return { segments: [...question.highlight.correct] };
   }
   if (question.itemType === "case_study") {
     return {

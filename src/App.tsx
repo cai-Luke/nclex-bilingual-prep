@@ -35,6 +35,7 @@ import {
   getCorrectAnswer,
   getInitialAnswer,
   gradeQuestion,
+  scoreQuestion,
 } from "./grading";
 import {
   buildQuestionReviewIndex,
@@ -78,6 +79,7 @@ import type {
   FlashcardProgress,
   GlossaryTerm,
   ImportSummary,
+  ItemScore,
   LanguageMode,
   Option,
   OptionQuestion,
@@ -114,6 +116,7 @@ type SessionState = {
   index: number;
   answers: Record<string, AnswerState>;
   results: Record<string, boolean>;
+  scores: Record<string, ItemScore>;
   skippedQuestionIds: string[];
   phase: SessionPhase;
   languageMode: LanguageMode;
@@ -309,6 +312,7 @@ export default function App() {
       index: 0,
       answers: {},
       results: {},
+      scores: {},
       skippedQuestionIds: [],
       phase: "questions",
       languageMode: mode === "test" ? "off" : settings.languageMode,
@@ -331,6 +335,7 @@ export default function App() {
       index: 0,
       answers: {},
       results: {},
+      scores: {},
       skippedQuestionIds: [],
       phase: "questions",
       languageMode: "off",
@@ -364,6 +369,7 @@ export default function App() {
     const question = session.questions[session.index];
     if (Object.prototype.hasOwnProperty.call(session.results, question.id)) return;
     const answer = session.answers[question.id] ?? getInitialAnswer(question);
+    const score = scoreQuestion(question, answer);
     const wasCorrect = gradeQuestion(question, answer);
     const nextProgress = await recordAnswer(question.id, wasCorrect);
     setProgress((current) => ({ ...current, [question.id]: nextProgress }));
@@ -374,6 +380,7 @@ export default function App() {
       return {
         ...current,
         results: { ...current.results, [question.id]: wasCorrect },
+        scores: { ...current.scores, [question.id]: score },
         skippedQuestionIds: current.skippedQuestionIds.filter((questionId) => questionId !== question.id),
         adaptive: current.adaptive ? updateAdaptiveAfterAnswer(current.adaptive, question, wasCorrect) : undefined,
       };
@@ -2098,6 +2105,8 @@ function QuestionCard({
 }) {
   const [activeTerm, setActiveTerm] = useState<GlossaryTerm | null>(null);
   const readyToSubmit = getAnswerCompleteness(question, answer);
+  const score = submitted ? scoreQuestion(question, answer) : undefined;
+  const showsPartialCredit = !reviewMode && score !== undefined && score.possible > 1;
 
   return (
     <article className="question-card">
@@ -2169,7 +2178,15 @@ function QuestionCard({
       {submitted && (
         <div className={`answer-banner ${reviewMode || result ? "correct" : "incorrect"}`}>
           {reviewMode || result ? <CheckCircle2 aria-hidden="true" /> : <XCircle aria-hidden="true" />}
-          <strong>{reviewMode ? "Correct answer shown" : result ? "Correct" : "Review this one"}</strong>
+          <div>
+            <strong>{reviewMode ? "Correct answer shown" : result ? "Correct" : "Review this one"}</strong>
+            {showsPartialCredit && score && (
+              <span>
+                {score.earned} of {score.possible} points
+                {!result && score.earned > 0 ? " · Partial credit earned; scheduled for review until fully correct." : ""}
+              </span>
+            )}
+          </div>
         </div>
       )}
 
@@ -2237,6 +2254,17 @@ function QuestionAnswerControl({
       />
     );
   }
+  if (question.itemType === "highlight") {
+    return (
+      <HighlightControl
+        question={question}
+        answer={answer}
+        submitted={submitted}
+        languageMode={languageMode}
+        onAnswer={onAnswer}
+      />
+    );
+  }
   if (question.itemType === "case_study") {
     return (
       <CaseStudyControl
@@ -2259,6 +2287,93 @@ function QuestionAnswerControl({
       languageMode={languageMode}
       onAnswer={onAnswer}
     />
+  );
+}
+
+function HighlightControl({
+  question,
+  answer,
+  submitted,
+  languageMode,
+  onAnswer,
+}: {
+  question: Extract<Question, { itemType: "highlight" }>;
+  answer: AnswerState;
+  submitted: boolean;
+  languageMode: LanguageMode;
+  onAnswer: (answer: AnswerState) => void;
+}) {
+  const [revealed, setRevealed] = useState(false);
+  const selectedIds = answer.segments ?? [];
+  const correctIds = new Set(question.highlight.correct);
+  const showZh = languageMode === "always" || (languageMode === "on-tap" && revealed);
+
+  const toggleSegment = (segmentId: string) => {
+    if (submitted) return;
+    onAnswer({
+      ...answer,
+      segments: selectedIds.includes(segmentId)
+        ? selectedIds.filter((id) => id !== segmentId)
+        : [...selectedIds, segmentId],
+    });
+  };
+
+  const renderLine = (locale: "en" | "zh") => (
+    <p className={`highlight-line ${locale === "zh" ? "chinese-line" : ""}`} lang={locale === "zh" ? "zh-Hans" : undefined}>
+      {question.highlight.segments.map((segment, index) => {
+        const text = segment[locale];
+        const selected = selectedIds.includes(segment.id);
+        const correct = correctIds.has(segment.id);
+        const statusClass = submitted
+          ? selected && correct
+            ? "correct"
+            : selected
+              ? "incorrect"
+              : correct
+                ? "missed"
+                : ""
+          : selected
+            ? "selected"
+            : "";
+        return (
+          <span className="highlight-segment-wrap" key={`${locale}-${segment.id}`}>
+            {index > 0 && " "}
+            {segment.selectable ? (
+              <button
+                className={`highlight-segment ${statusClass}`}
+                type="button"
+                aria-pressed={selected}
+                disabled={submitted}
+                onClick={() => toggleSegment(segment.id)}
+              >
+                {text}
+              </button>
+            ) : (
+              <span className="highlight-static">{text}</span>
+            )}
+          </span>
+        );
+      })}
+    </p>
+  );
+
+  return (
+    <div className="highlight-panel">
+      {renderLine("en")}
+      {languageMode === "on-tap" && !revealed && (
+        <button className="inline-reveal" type="button" onClick={() => setRevealed(true)}>
+          需要中文
+        </button>
+      )}
+      {showZh && renderLine("zh")}
+      {submitted && (
+        <div className="highlight-legend" aria-label="Highlight answer legend">
+          <span className="correct">Correct selection</span>
+          <span className="incorrect">Incorrect selection</span>
+          <span className="missed">Missed correct selection</span>
+        </div>
+      )}
+    </div>
   );
 }
 
@@ -2631,6 +2746,7 @@ function CaseStudyControl({
         {question.caseStudy.questions.map((caseQuestion, index) => {
           const caseAnswer = caseAnswers[caseQuestion.id] ?? getInitialAnswer(caseQuestion);
           const caseResult = submitted ? gradeQuestion(caseQuestion, caseAnswer) : undefined;
+          const caseScore = submitted ? scoreQuestion(caseQuestion, caseAnswer) : undefined;
           const statusClass = submitted ? (caseResult ? "correct" : "incorrect") : "";
           return (
             <section
@@ -2642,7 +2758,13 @@ function CaseStudyControl({
                 <span className="type-pill">Part {index + 1}</span>
                 <span className="type-pill">{formatItemType(caseQuestion.itemType)}</span>
                 {submitted && (
-                  <span className={caseResult ? "type-pill" : "missed-pill"}>{caseResult ? "Correct" : "Review"}</span>
+                  <span className={caseResult ? "type-pill" : "missed-pill"}>
+                    {caseResult
+                      ? "Correct"
+                      : caseScore && caseScore.possible > 1
+                        ? `${caseScore.earned} of ${caseScore.possible} points · Review`
+                        : "Review"}
+                  </span>
                 )}
               </div>
               <VisualStimulus visual={caseQuestion.visual} languageMode={languageMode} />
@@ -2773,6 +2895,10 @@ function SpeakButton({ text, enabled, label }: { text: string; enabled: boolean;
 // followed by each answer option (when the item type has them).
 function collectReadableEnglish(question: Question): string[] {
   const parts: string[] = [question.stem.en];
+  if (question.itemType === "highlight") {
+    parts.push(question.highlight.segments.map((segment) => segment.en).join(" "));
+    return parts;
+  }
   const options = (question as Partial<OptionQuestion>).options;
   if (Array.isArray(options)) {
     for (const option of options) {
@@ -2869,6 +2995,20 @@ function SummaryView({
   const correct = Object.values(session.results).filter(Boolean).length;
   const incorrect = answered - correct;
   const skipped = session.skippedQuestionIds.length;
+  const hasCompleteScores =
+    answered > 0 &&
+    Object.keys(session.scores).length === answered &&
+    Object.keys(session.results).every((questionId) => session.scores[questionId]?.possible > 0);
+  const pointTotals = hasCompleteScores
+    ? Object.keys(session.results).reduce<ItemScore>(
+        (total, questionId) => ({
+          earned: total.earned + session.scores[questionId].earned,
+          possible: total.possible + session.scores[questionId].possible,
+        }),
+        { earned: 0, possible: 0 },
+      )
+    : undefined;
+  const scorePercent = pointTotals ? Math.round((pointTotals.earned / pointTotals.possible) * 100) : undefined;
   const answeredQuestions = session.questions.filter((question) =>
     Object.prototype.hasOwnProperty.call(session.results, question.id),
   );
@@ -2893,10 +3033,15 @@ function SummaryView({
       <div className="summary-hero">
         <p className="eyebrow">{session.mode === "adaptive" ? "Exam-condition practice" : "Summary"}</p>
         <h2>
-          {correct} / {answered} correct
+          {scorePercent !== undefined ? `Score ${scorePercent}%` : `Mastered ${correct} / ${answered}`}
         </h2>
+        {pointTotals && (
+          <p className="summary-score-detail">
+            {pointTotals.earned} of {pointTotals.possible} points · Mastered {correct}/{answered}
+          </p>
+        )}
         <p className="summary-counts">
-          Answered {answered} · Correct {correct} · Incorrect {incorrect} · Skipped {skipped}
+          Answered {answered} · Mastered {correct} · Review {incorrect} · Skipped {skipped}
         </p>
         {session.mode === "adaptive" && (
           <p className="muted-copy">Adaptive practice changes difficulty by rolling performance. It is not a pass/fail or readiness estimate.</p>
@@ -3143,6 +3288,7 @@ const toStoredSession = (session: SessionState): StoredSessionSnapshot => ({
   index: session.index,
   answers: session.answers as Record<string, unknown>,
   results: session.results,
+  scores: session.scores,
   skippedQuestionIds: session.skippedQuestionIds,
   phase: session.phase,
   languageMode: session.languageMode,
@@ -3177,6 +3323,7 @@ const hydrateSession = (
     index: Math.min(snapshot.index, questions.length - 1),
     answers: snapshot.answers as Record<string, AnswerState>,
     results: snapshot.results,
+    scores: snapshot.scores ?? {},
     skippedQuestionIds,
     phase,
     languageMode: snapshot.languageMode,
@@ -3243,6 +3390,8 @@ const formatItemType = (itemType: Question["itemType"]) =>
       ? "SATA"
       : itemType === "case_study"
         ? "Case study"
+        : itemType === "highlight"
+          ? "Highlight"
         : itemType.replace(/_/g, " ");
 
 // Tracks the last single-tap utterance so that re-tapping the *same* text

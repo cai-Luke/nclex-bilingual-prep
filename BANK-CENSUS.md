@@ -2,8 +2,8 @@
 
 # NCLEX Bank Census
 
-Generated: 2026-06-13T21:37:02.261Z
-Git SHA: ec1c0082f2188a938e9996ab07aa35721525e879
+Generated: 2026-06-14T09:36:20.143Z
+Git SHA: e7bc768f51437be4f942c8ca62c66da431a9307c
 
 ## Per-File Summary
 
@@ -85,6 +85,7 @@ Visual kinds: burn_map (5), capnography (4), io_record (2), lab_trend (7), rhyth
 
 ## By Item Type
 
+- highlight: 0
 - case_study: 113
 - ordered_response: 127
 - fill_in_blank: 140
@@ -286,7 +287,7 @@ Category targets (2026 NCLEX-RN test-plan weights):
 - Pharmacological and Parenteral Therapies: 208.0
 - Reduction of Risk Potential: 156.0
 - Physiological Adaptation: 182.0
-Item type average: 185.7
+Item type average: 162.5
 
 Under-served categories:
 - Management of Care: 150
@@ -295,21 +296,21 @@ Over-served categories:
 - Physiological Adaptation: 230
 
 Under-served item types:
+- highlight: 0
 - case_study: 113
 - ordered_response: 127
 - fill_in_blank: 140
 - dropdown_cloze: 142
-- matrix: 165
 
 ## Prompt Parameters
 
 PRIORITIZE_TOPICS:
 - Management of Care (150 vs target 234)
-- case_study (113 vs target 185.7)
-- ordered_response (127 vs target 185.7)
-- fill_in_blank (140 vs target 185.7)
-- dropdown_cloze (142 vs target 185.7)
-- matrix (165 vs target 185.7)
+- highlight (0 vs target 162.5)
+- case_study (113 vs target 162.5)
+- ordered_response (127 vs target 162.5)
+- fill_in_blank (140 vs target 162.5)
+- dropdown_cloze (142 vs target 162.5)
 - acetaminophen duplicate therapy
 - Active Pulmonary TB Airborne Precautions
 - Acute decompensated heart failure

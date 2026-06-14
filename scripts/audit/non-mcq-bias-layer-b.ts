@@ -21,7 +21,8 @@ export type LayerBQueueRow = {
     | "select_all"
     | "ordered_response"
     | "dropdown_cloze"
-    | "matrix";
+    | "matrix"
+    | "highlight";
   layer_b_task: LayerBTask;
   triggering_layer_a_checks: string[];
   stem_en: string;
@@ -143,6 +144,13 @@ function itemSurface(question: StandaloneQuestion): unknown[] {
       ...question.matrix.columns.map((column) => ({ kind: "column", id: column.id, text: column.en })),
     ];
   }
+  if (question.itemType === "highlight") {
+    return question.highlight.segments.map((segment) => ({
+      id: segment.id,
+      text: segment.en,
+      selectable: segment.selectable === true,
+    }));
+  }
   return question.blanks.map((blank) => ({ id: blank.id, prompt: blank.prompt.en }));
 }
 
@@ -156,6 +164,7 @@ function correctAnswer(question: StandaloneQuestion): unknown {
     return question.dropdowns.map((dropdown) => ({ id: dropdown.id, correct: dropdown.correct }));
   }
   if (question.itemType === "matrix") return question.correct;
+  if (question.itemType === "highlight") return question.highlight.correct;
   return question.blanks.map((blank) => ({
     id: blank.id,
     acceptable: blank.acceptable,

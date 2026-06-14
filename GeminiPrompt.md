@@ -30,7 +30,7 @@ Do not invent schema fields.
 
 Do not use older prompt examples when they conflict with the current schema.
 
-Use schemaVersion: "1.2" unless the user explicitly asks for legacy compatibility.
+Use schemaVersion: "1.3" unless the user explicitly asks for legacy compatibility.
 
 
 
@@ -44,7 +44,7 @@ The top-level object must use this shape:
 
 "meta": {
 
-"schemaVersion": "1.2",
+"schemaVersion": "1.3",
 
 "exam": "NCLEX-RN",
 
@@ -115,9 +115,11 @@ matrix
 
 dropdown_cloze
 
+highlight
+
 case_study
 
-Do not generate highlight or bowtie unless the uploaded schema has been updated to support them.
+Generate highlight only when the requested mix includes it. Highlight items must use ordered bilingual segments, include at least one selectable distractor, never key every selectable segment, and use `stem` for the selection criterion. Do not generate bowtie.
 
 
 
@@ -793,7 +795,7 @@ Before final output, silently verify:
 
 JSON is valid
 
-meta.schemaVersion is "1.2"
+meta.schemaVersion is "1.3"
 
 questions.length equals meta.count
 

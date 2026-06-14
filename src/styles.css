@@ -1011,6 +1011,92 @@ h4 {
   background: #ffffff;
 }
 
+.highlight-panel {
+  display: grid;
+  gap: 0.75rem;
+  border: 1px solid #d7dde2;
+  border-radius: 8px;
+  padding: 1rem;
+  background: #ffffff;
+}
+
+.highlight-line {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 2.15;
+}
+
+.highlight-segment-wrap {
+  display: inline;
+}
+
+.highlight-static {
+  color: #33414d;
+}
+
+.highlight-segment {
+  display: inline;
+  min-height: 0;
+  border: 0;
+  border-radius: 4px;
+  padding: 0.18rem 0.3rem;
+  color: inherit;
+  background: #eef2f5;
+  font: inherit;
+  line-height: inherit;
+  text-align: left;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+.highlight-segment:hover:not(:disabled),
+.highlight-segment:focus-visible {
+  background: #fff0c9;
+}
+
+.highlight-segment.selected {
+  box-shadow: inset 0 -0.35rem #f2c85b;
+  background: #fff8e8;
+}
+
+.highlight-segment.correct,
+.highlight-legend .correct {
+  color: #0f513f;
+  background: #dff5e9;
+}
+
+.highlight-segment.incorrect,
+.highlight-legend .incorrect {
+  color: #7f2a1f;
+  background: #ffe0d5;
+}
+
+.highlight-segment.missed,
+.highlight-legend .missed {
+  color: #6b4a00;
+  background: #fff0b8;
+  outline: 2px dashed #b7791f;
+  outline-offset: -2px;
+}
+
+.highlight-segment:disabled {
+  cursor: default;
+  opacity: 1;
+}
+
+.highlight-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.highlight-legend span {
+  border-radius: 999px;
+  padding: 0.25rem 0.55rem;
+}
+
 .cloze-line {
   margin: 0;
   font-size: 1.05rem;
@@ -1072,6 +1158,16 @@ h4 {
   gap: 0.55rem;
   border-radius: 8px;
   padding: 0.8rem 1rem;
+}
+
+.answer-banner > div {
+  display: grid;
+  gap: 0.2rem;
+}
+
+.answer-banner span {
+  font-size: 0.9rem;
+  font-weight: 700;
 }
 
 .answer-banner.correct {
@@ -1314,6 +1410,12 @@ h4 {
 .summary-counts {
   color: #47535f;
   font-weight: 700;
+}
+
+.summary-score-detail {
+  margin-bottom: 0;
+  color: #24313c;
+  font-weight: 800;
 }
 
 .category-breakdown {

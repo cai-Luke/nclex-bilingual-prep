@@ -3,7 +3,7 @@
 **Status:** Layer A and the offline Layer B handoff were implemented 2026-06-12. Layer B remains a manual external-model step; no live Gemini/API integration exists. The statistical audit is not yet integrated into the promotion gate, but its fixture suite runs in CI.
 
 ## Current repo assumptions
-* Project Shrimp is now schemaVersion `1.2`.
+* Project Shrimp is now schemaVersion `1.3`; existing `1.2` visual banks remain supported.
 * The visual renderer registry has landed.
 * Supported visual kinds are exactly:
   * `rhythm_strip`
@@ -18,7 +18,7 @@
   * `burn_map`
   * `null`
 * Do not use legacy renderer names: `ecg_rhythm_strip`, `fetal_monitor_tracing`, `chest_tube_drainage`, `wound_stage_diagram`, `lab_panel`, `intake_output_chart`
-* `highlight` and `bowtie` remain out of scope unless a future schema bump adds them.
+* Highlight: Text is supported. Its fixed passage order has no positional-shuffle null; Tier 0 validation instead rejects "highlight everything" items by requiring at least one selectable distractor. `bowtie` remains out of scope.
 * Codex owns implementation. Gemini may run read-only sweeps or do text cleanup, but Gemini must not edit canonical banks or make final clinical-review decisions.
 
 **Project:** Shrimp (bilingual NCLEX-RN question bank)
