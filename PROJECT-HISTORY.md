@@ -385,6 +385,17 @@ Completed:
 - Registered `burn_map` for `multiple_choice`, `select_all`, `matrix`, and `fill_in_blank`; updated the schema and roadmap. Pediatric rendering support ships, but pediatric content remains blocked until authoritative source verification is recorded.
 - No content generation or bank promotion was performed.
 
+### U8 `burn_map` Clinical Figure Polish (Jun 14)
+
+Completed:
+- Replaced the primitive rounded-rectangle figure with deterministic articulated anterior/posterior clinical silhouettes inside a ruled assessment form.
+- Kept all Rule-of-Nines values, region keys, validation, arithmetic, schema, and bank content unchanged.
+- Added posterior glute contours as rendering-only anatomy within `trunk_posterior`; no buttocks region or percentage was introduced.
+- Removed fill overlap at the arm/trunk shoulder joins so independently burned regions remain visually distinct.
+- Derived ink boundaries from the same paths as region fills and clipped interior anatomical detail to each body silhouette, preventing posterior detail strokes from rendering outside the body.
+- Browser-inspected mixed anterior and posterior burn cases, including independently shaded trunk, arm, and leg regions.
+- Verified: `npm run test-visuals`, `npm run validate-bank -- banks/*.json`, and `npm run build` pass.
+
 ### U9 `device_screen` Renderer (Jun 12)
 
 Completed:
@@ -767,9 +778,9 @@ Completed:
 
 ## Verification baseline
 
-Last verified on 2026-06-12:
+Last verified on 2026-06-14:
 
-- `npm run validate-bank -- banks/*.json` — all 9 banks pass
+- `npm run validate-bank -- banks/*.json` — all bundled top-level banks pass
 - `npm run test-visuals` — 10 registered visual kinds green
 - `npm run census && npm run census:check`
 - `npm run build`

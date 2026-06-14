@@ -2,6 +2,7 @@ import { escapeXml } from "../../primitives/escapeXml";
 import { fmt, fmtNum, roundTo } from "../../primitives/graphPaper";
 import { type VisualError, type VisualKindModule, registerVisual } from "../../registry";
 import {
+  BODY_INK,
   BURN_REGION_KEYS,
   REGION_GEOMETRY,
   TBSA_PCT,
@@ -222,26 +223,47 @@ export const selfCheckBurnMap = (
 };
 
 const regionAttributes = (burned: boolean): string =>
-  burned
-    ? 'fill="#dc2626" fill-opacity="0.55" stroke="#94a3b8" stroke-width="1.5"'
-    : 'fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"';
+  burned ? 'fill="#dc2626" fill-opacity="0.55"' : 'fill="#f1f5f9"';
 
 export const renderBurnMapSvg = (spec: BurnMapSpec): string => {
   const population = spec.population ?? "adult";
   const burned = new Set(Array.isArray(spec.burns) ? spec.burns : []);
-  const shapes = BURN_REGION_KEYS
+  const fills = BURN_REGION_KEYS
     .filter((key) => REGION_GEOMETRY[key] !== undefined)
     .map((key) => renderRegionShape(key, regionAttributes(burned.has(key))))
     .join("\n");
+  const outlines = BURN_REGION_KEYS
+    .filter((key) => REGION_GEOMETRY[key] !== undefined)
+    .map((key) => `<path d="${REGION_GEOMETRY[key].d}"/>`)
+    .join("");
+  const clipPaths = (["anterior", "posterior"] as const)
+    .map((view) => {
+      const paths = BURN_REGION_KEYS
+        .filter((key) => REGION_GEOMETRY[key].view === view)
+        .map((key) => `<path d="${REGION_GEOMETRY[key].d}"/>`)
+        .join("");
+      return `<clipPath id="burn-${view}-clip">${paths}</clipPath>`;
+    })
+    .join("");
   const ariaLabel = escapeXml(spec.caption?.en ?? "Burn diagram");
   const populationLabel = population === "pediatric" ? "Pediatric" : "Adult";
 
   return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${fmt(480)} ${fmt(360)}" role="img" aria-label="${ariaLabel}" data-kind="burn_map" data-population="${population}">
 <rect x="0" y="0" width="${fmt(480)}" height="${fmt(360)}" fill="#ffffff"/>
-${shapes}
-<text x="${fmt(120)}" y="${fmt(338)}" text-anchor="middle" font-family="system-ui, sans-serif" font-size="${fmt(14)}" fill="#334155">Anterior</text>
-<text x="${fmt(360)}" y="${fmt(338)}" text-anchor="middle" font-family="system-ui, sans-serif" font-size="${fmt(14)}" fill="#334155">Posterior</text>
-<text x="${fmt(240)}" y="${fmt(22)}" text-anchor="middle" font-family="system-ui, sans-serif" font-size="${fmt(13)}" font-weight="600" fill="#475569">${escapeXml(populationLabel)}</text>
+<defs>${clipPaths}</defs>
+<rect x="${fmt(8)}" y="${fmt(8)}" width="${fmt(464)}" height="${fmt(344)}" fill="none" stroke="#cbd5e1" stroke-width="1.5"/>
+<line x1="${fmt(8)}" y1="${fmt(38)}" x2="${fmt(472)}" y2="${fmt(38)}" stroke="#cbd5e1"/>
+<line x1="${fmt(240)}" y1="${fmt(38)}" x2="${fmt(240)}" y2="${fmt(352)}" stroke="#e2e8f0"/>
+<text x="${fmt(20)}" y="${fmt(28)}" font-family="Georgia, serif" font-size="${fmt(14)}" font-weight="600" fill="#1e293b">Burn Surface Assessment</text>
+<text x="${fmt(452)}" y="${fmt(28)}" text-anchor="end" font-family="system-ui, sans-serif" font-size="${fmt(12)}" fill="#475569">${escapeXml(populationLabel)}</text>
+<g>${fills}</g>
+<g stroke="#334155" stroke-width="1.3" stroke-linejoin="round" stroke-linecap="round" fill="none">
+${outlines}
+<g clip-path="url(#burn-anterior-clip)">${BODY_INK.anterior}</g>
+<g clip-path="url(#burn-posterior-clip)">${BODY_INK.posterior}</g>
+</g>
+<text x="${fmt(120)}" y="${fmt(344)}" text-anchor="middle" font-family="system-ui, sans-serif" font-size="${fmt(12)}" font-weight="600" fill="#334155">Anterior</text>
+<text x="${fmt(360)}" y="${fmt(344)}" text-anchor="middle" font-family="system-ui, sans-serif" font-size="${fmt(12)}" font-weight="600" fill="#334155">Posterior</text>
 </svg>`;
 };
 

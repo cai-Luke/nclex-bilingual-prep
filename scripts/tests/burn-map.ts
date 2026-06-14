@@ -113,6 +113,10 @@ assert(renderBurnMapSvg(adult) === svg, "burn-map rendering must be deterministi
 assert(svg.includes('data-kind="burn_map"'), "burn map must identify its kind");
 assert(svg.includes('data-region="trunk_anterior"') && svg.includes('fill="#dc2626" fill-opacity="0.55"'), "burned region must use solid translucent red");
 assert(svg.includes('data-region="head_anterior"') && svg.includes('fill="#f1f5f9"'), "unburned region must use neutral fill");
+assert(svg.includes('clip-path="url(#burn-posterior-clip)"'), "posterior detail lines must be clipped to the body silhouette");
+assert(svg.includes("C 386 212 379 216 371 216"), "posterior trunk must include the glute contour");
+assert(svg.includes("M 88 109 L 112 100"), "anterior trunk must start inside the arm shoulder boundary");
+assert(svg.includes("M 328 109 L 352 100"), "posterior trunk must start inside the arm shoulder boundary");
 
 const visibleLabels = Array.from(svg.matchAll(/<text\b[^>]*>([^<]*)<\/text>/g), (match) => match[1]);
 assert(

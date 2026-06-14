@@ -22,11 +22,27 @@ const PROMOTED_DIR = "banks";
 // Maps filename prefix → the canonical bank it will be jq-merged into.
 // Used by the schemaVersion guard so it compares against the aggregate, not
 // the same-named transient intermediate written by this script.
+// Model-origin banks are the active generation targets — `gemini-` is the live
+// emit prefix; `gpt-`/`claude-`/`hard-cases-` are legacy aggregates. The
+// visual-kind banks are complete content sets, not generation targets; their
+// rows exist so a stray draft still routes for the schema guard. No prefix here
+// is a string-prefix of another, so `find`/`startsWith` order is not load-bearing.
 const CANONICAL_PREFIXES: Array<[prefix: string, canonical: string]> = [
+  // model-origin lanes
   ["gemini-", "gemini-canonical.json"],
   ["gpt-", "gpt-canonical.json"],
   ["claude-", "claude-canonical.json"],
   ["hard-cases-", "hard-cases-canonical.json"],
+  // visual-kind lanes (complete sets, not generation targets)
+  ["burn-", "burn-canonical.json"],
+  ["capnography-", "capnography-canonical.json"],
+  ["device-", "device-canonical.json"],
+  ["io-", "io-canonical.json"],
+  ["lab-", "lab-canonical.json"],
+  ["mar-", "mar-canonical.json"],
+  ["medlabel-", "medlabel-canonical.json"],
+  ["vitals-", "vitals-canonical.json"],
+  ["visual-", "visual-canonical.json"],
 ];
 
 const SCHEMA_RANK: Record<string, number> = { "1.0": 0, "1.1": 1, "1.2": 2 };

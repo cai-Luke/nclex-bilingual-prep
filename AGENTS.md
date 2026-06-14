@@ -85,6 +85,8 @@ npm run promote        # applies deterministic shuffle; writes to banks/<same-fi
 npm run audit          # Tier 0 validate-bank + Tier 1 references/positions/integrity
 ```
 
+The shuffled output in `banks/<same-filename>` then merges into the canonical bank chosen by filename prefix. Model-origin lanes `gemini-`/`gpt-`/`claude-`/`hard-cases-` and the visual kinds `burn-`/`capnography-`/`device-`/`io-`/`lab-`/`mar-`/`medlabel-`/`vitals-`/`visual-` each route to the matching `*-canonical.json` (source of truth: `CANONICAL_PREFIXES` in `promote.ts`). The visual-kind canonicals are complete sets — generation does not add to them. Until a `consolidate` command exists this merge is manual: read-modify-write the target canonical, fail loud on any ID collision, bump `meta.count`, then delete the raw stub and update the ledger.
+
 If a raw draft fails `validate-bank` with a JSON parse error, recover the quotes deterministically before reviewing — do not hand-fix:
 
 ```sh
