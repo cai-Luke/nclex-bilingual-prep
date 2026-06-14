@@ -2,8 +2,8 @@
 
 # NCLEX Bank Census
 
-Generated: 2026-06-14T14:29:31.022Z
-Git SHA: 36cb51c0d4f3da049c103847002a080e2b30099e
+Generated: 2026-06-14T20:29:31.954Z
+Git SHA: 356b1a6c8dc97048b11f4d40e5942f025afdf941
 
 ## Per-File Summary
 
@@ -131,6 +131,7 @@ Total visuals: 138
 - capnography: 7 (cap_01, cap_02, cap_03, cap_04, cap_05, …+2)
 - device_screen: 10 (dev_enteral_volume_shift_01, dev_high_alert_kcl_pump_mismatch_01, dev_infusion_duration_vtbi_01, dev_pca_basal_opioid_naive_01, dev_pca_delivered_total_basal_01, …+5)
 - fetal_monitoring: 6 (fhr_gemini_smoke_2026_06_13_01, fhr_gemini_smoke_2026_06_13_02, fhr_gemini_smoke_2026_06_13_03, fhr_gemini_smoke_2026_06_13_04, fhr_gemini_smoke_2026_06_13_05, …+1)
+- injection_site: 0
 - io_record: 11 (gpt_visual_smoke_2026_06_12_fib_io_net_balance_04, gpt_visual_smoke_2026_06_12_matrix_io_totals_06, gpt_visual_smoke_2026_06_12_mc_io_output_total_05, io_fib_hf_net_balance_01, io_fib_postop_output_total_06, …+6)
 - lab_trend: 20 (gpt_u3_labtrend_2026_06_09_b_cloze_inr_amiodarone_09, gpt_u3_labtrend_2026_06_09_b_cloze_sodium_overcorrection_08, gpt_u3_labtrend_2026_06_09_b_fib_creatinine_increase_10, gpt_u3_labtrend_2026_06_09_b_matrix_dka_potassium_glucose_04, gpt_u3_labtrend_2026_06_09_b_matrix_neutropenia_wbc_05, …+15)
 - mar: 8 (mar_acetaminophen_duplicate_products_04, mar_av_nodal_blockers_1600_01, mar_digoxin_low_pulse_due_08, mar_enoxaparin_prior_held_03, mar_lispro_meal_delayed_02, …+3)

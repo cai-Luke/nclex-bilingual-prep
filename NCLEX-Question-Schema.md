@@ -94,12 +94,13 @@ Committed visual lanes (append-only). For detailed generation and review rules, 
 | `device_screen` | PCA, infusion, or enteral pump settings display |
 | `fetal_monitoring` | Synchronized fetal heart rate and uterine activity tracing |
 | `burn_map` | Anterior/posterior whole-region burn diagram for Rule-of-Nines and Parkland arithmetic |
+| `injection_site` | Schematic skin cross-section (epidermis→muscle with a fixed vessel) and a needle at a route-canonical angle/depth, for parenteral route or target-layer identification |
 
 ### Visual contract metadata
 
 Some visual kinds require a question-level `meta` block that exists **for validation and audit only** — it must never be displayed to learners. This is distinct from the bank-envelope `meta` (schemaVersion, topic, etc.).
 
-Supported visual `meta` keys include (requirements are kind-specific): `visual_justification`, `derived_values_keyed`, `expected_trend`, `expected_flags`, `expected_pattern`, `reference_bands`, `keyed_cells`, `keyed_relationship`, `keyed_settings`, `source`, `tier`, `skill_signature`, `stem_disambiguators`, `order`, `weight_kg`, `round`, and `shift_hours`.
+Supported visual `meta` keys include (requirements are kind-specific): `visual_justification`, `derived_values_keyed`, `expected_trend`, `expected_flags`, `expected_pattern`, `expected`, `reference_bands`, `keyed_cells`, `keyed_relationship`, `keyed_settings`, `source`, `tier`, `skill_signature`, `stem_disambiguators`, `order`, `weight_kg`, `round`, and `shift_hours`.
 
 ```jsonc
 // Sibling of `visual`, at the QUESTION level. Audit-only. Never displayed.
@@ -704,6 +705,57 @@ Validation and arithmetic rules:
 - **Answer-reveal rule:** the SVG may show only `Anterior`, `Posterior`, and the population label. It must not show region percentages, %TBSA, Parkland totals, or rates.
 - **Content rule:** the stem must not state the %TBSA if the map is used.
 - **STRICTEST tier.** Clinical review must also confirm the visual is necessary and the burn distribution and weight are plausible.
+
+### Kind: `injection_site`
+
+Renders a schematic skin cross-section — epidermis, dermis, subcutaneous tissue, and muscle as labeled bands, plus a fixed vessel in the dermal/subcutaneous plane — with a single needle inserted at the canonical angle and depth for a parenteral `route`. The visual is load-bearing only when the learner must read the needle's angle and termination layer off the figure to identify the route (or the target tissue). If the stem names the route or the angle, or the answer is resolvable from the options alone (e.g. "which route is fastest?"), the figure is decorative and the item is invalid.
+
+`injection_site` uses the global default placement (`multiple_choice`, `select_all`, `matrix`); it does **not** support `fill_in_blank` (there is no numeric derivation). The needle's angle and termination depth are fixed per route and derived by the renderer — never stored on the spec.
+
+```json
+{
+  "visual": {
+    "kind": "injection_site",
+    "route": "intramuscular",
+    "caption": { "en": "Skin cross-section with needle", "zh": "带针头的皮肤横断面" }
+  },
+  "meta": {
+    "visual_justification": "The learner must read the needle's angle and termination depth from the figure to identify the route; the stem does not name it.",
+    "tier": "strictest",
+    "source": "Parenteral route angle/depth reference (recorded per route).",
+    "skill_signature": "inj:identify-route/intramuscular-90deg",
+    "stem_disambiguators": ["injection", "needle angle"],
+    "expected": {
+      "route": "intramuscular",
+      "target": "muscle"
+    }
+  }
+}
+```
+
+Controlled vocabularies:
+- `route`: `intradermal`, `subcutaneous`, `intramuscular`, `intravenous`.
+- `meta.expected.target` is the canonical termination for the route and is derived, not varied independently in v1: `intradermal → dermis`, `subcutaneous → subcutaneous`, `intramuscular → muscle`, `intravenous → vessel`. The target vocabulary is the four layer keys (`epidermis`, `dermis`, `subcutaneous`, `muscle`) plus `vessel`; v1 routes never terminate in `epidermis`.
+
+Canonical geometry (fixed in the kind, strictest-tier — source-verify before the content lane opens):
+- `intradermal` ≈ 10° into dermis; `subcutaneous` 45° into subcutaneous tissue; `intramuscular` 90° into muscle; `intravenous` ≈ 25° into the vessel lumen.
+- Angle is measured **from the skin-surface plane**: 0° lies flat along the surface, 90° is perpendicular (deepest).
+
+Validation rules:
+- `kind` must be `"injection_site"`.
+- `route` must be one of `intradermal`, `subcutaneous`, `intramuscular`, `intravenous`.
+- `caption.en`, if `caption` is present, is required. `caption.zh` is optional but must be non-empty if present.
+
+`selfCheck` rules (necessity + declared-vs-spec consistency; no arithmetic):
+- `meta.visual_justification` must be present and non-empty (`self_check_missing_justification`).
+- `meta.expected.route` must be present (`self_check_no_expected_cue`) and must equal `visual.route` (`self_check_route_mismatch`).
+- If `meta.expected.target` is present, it must equal the canonical target for `visual.route` (`self_check_target_mismatch`).
+
+- **Answer-reveal rule:** the SVG may label only the four anatomical layers (in English) and nothing else. It must never render the route name, the insertion angle/degree, any vessel/vein/lumen label, or the route as a `data-*` attribute — any of these hands the learner the answer.
+- **Content rule:** the stem must not name the route or the insertion angle when the learner is expected to identify it from the figure.
+- **STRICTEST tier.** The route→(angle, target) table is a fixed clinical constant; it must be source-verified and recorded per route before the content lane opens (mirror `lab_trend`/`burn_map`). Human review confirms the figure is load-bearing (the answer dies if the visual is removed) and that the depicted route is clinically appropriate for any drug named in the stem.
+
+Future content uses globally unique `inj_*` IDs and remains subject to raw → cross-model review → visual source verification → promote → ledger.
 
 ---
 

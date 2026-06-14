@@ -12,3 +12,4 @@ import "./medication_label";
 import "./device_screen";
 import "./burn_map";
 import "./fetal_monitoring";
+import "./injection_site";

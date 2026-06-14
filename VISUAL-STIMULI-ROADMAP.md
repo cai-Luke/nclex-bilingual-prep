@@ -4,7 +4,7 @@ Revised future-work roadmap for deterministic, data-derived clinical visuals. Su
 
 ## Roadmap Status
 
-**The visual renderer roadmap is now COMPLETE.** All planned renderer phases (U0 through U9) have successfully landed.
+The original U0–U9 renderer roadmap is complete. U10 re-opens the visual taxonomy for narrowly justified, deterministic diagram kinds; the roadmap remains open after U10 lands because additional diagram molds may be considered individually.
 
 ### Content-Lane Status Notes
 - **adult `burn_map`:** Content lane is OPEN.
@@ -61,8 +61,9 @@ Phase 0 is serial and must land first (it touches shared schema/validation/cover
 | U9 | `device_screen` renderer (PCA / infusion / enteral settings) | U4 (table primitive) | U3, U5, U6 | ~1 window |
 | U7 | Fetal monitoring (dual-channel) | U0 | anything | **2–3 windows** |
 | U8 | `burn_map` renderer (+ Parkland/Rule-of-Nines selfCheck) | U0 | anything | ~1 window |
+| U10 | `injection_site` skin cross-section renderer | U0 | anything | ✅ DONE (2026-06-14) |
 
-Suggested split once U0 is in: hand U1 to one agent and U2 to the other to run in parallel; then U4 alongside U3; etc. Keep one agent on a slice end-to-end so file ownership is clean within a window. Content-generation lanes (the questions themselves) partition by `kind` with disjoint ID prefixes (`cap_*`, `vit_*`, `lab_*`, `mar_*`, `io_*`, `medlbl_*`, `fhr_*`, `burn_*`), same collision-proof scheme as the rhythm-strip lanes.
+Suggested split once U0 is in: hand U1 to one agent and U2 to the other to run in parallel; then U4 alongside U3; etc. Keep one agent on a slice end-to-end so file ownership is clean within a window. Content-generation lanes (the questions themselves) partition by `kind` with disjoint ID prefixes (`cap_*`, `vit_*`, `lab_*`, `mar_*`, `io_*`, `medlbl_*`, `fhr_*`, `burn_*`, `inj_*`), same collision-proof scheme as the rhythm-strip lanes.
 
 ---
 
@@ -183,6 +184,20 @@ Partially renderable: fluid level/output, chamber identification, and suction-co
 - ✅ Fractional burns and Lund-Browder interpolation remain explicitly out of v1 scope.
 - Targets: Rule of Nines, Parkland formula, severity classification.
 - **Accuracy watch-item:** `selfCheck` computes %TBSA from shaded regions and Parkland volume from %TBSA + weight, asserting both match the keyed answer.
+
+---
+
+## Phase 5 — Additional diagram molds
+
+### U10 · `injection_site` — ✅ DONE (2026-06-14)
+**Type:** renderer (code) + later content lane. **Depends on:** U0. **Concurrent with:** anything.
+
+- ✅ Added a deterministic skin cross-section with four labeled tissue bands, an always-present fixed vessel, and one route-keyed needle.
+- ✅ Fixed the v1 route table to intradermal, subcutaneous, intramuscular, and intravenous teaching geometry; angle and target are derived, never hand-keyed on the visual spec.
+- ✅ Added necessity and declared-route/target `selfCheck` gates plus validation, geometry, determinism, answer-reveal, and in-frame tests.
+- ✅ Kept route names, angle values, and vessel labels off the rendered figure; only the four English anatomical layer labels are visible.
+- ✅ No content was generated or promoted. The strictest-tier route table remains source-verification-gated before the `inj_*` lane opens.
+- The visual taxonomy remains open for future diagram molds only when they satisfy the same load-bearing and faithfully-renderable gate.
 
 ---
 

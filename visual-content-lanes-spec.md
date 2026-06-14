@@ -24,7 +24,7 @@ These five share one backbone — DECISIONS principle 11, the machine-checked ar
 
 **Tier & sourcing.** All five are strictest-tier except `io_record` (strict). Every clinical claim is source-checked live at the gatekeeping step (never trusted from a model's cutoff); record the reference in `meta.source`. Put load-bearing protocol constants *inside the stem* (closed-world, principle 12) so the keyed answer survives guideline drift — this is mandatory for Parkland (`burn_map`).
 
-**ID prefixes (globally unique):** `io_*`, `medlbl_*`, `dev_*`, `burn_*`, `mar_*`.
+**ID prefixes (globally unique):** `io_*`, `medlbl_*`, `dev_*`, `burn_*`, `mar_*`, `inj_*`.
 
 **Bank homes.** `mar` continues into the existing `banks/mar-canonical.json`. The other four currently have only `gpt_visual_smoke_*` items inside `gpt-canonical.json`; **recommend** dedicated homes (`banks/io-canonical.json`, `medlabel-canonical.json`, `device-canonical.json`, `burn-canonical.json`), migrating the existing smoke items at the same time (zero cost — bank file is just a label). **Confirm before building.**
 

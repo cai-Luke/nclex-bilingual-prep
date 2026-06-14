@@ -59,6 +59,15 @@ Out of scope until a future schema bump:
 
 ## Milestones
 
+### U10 Injection-Site Visual Renderer (Jun 14)
+
+Completed:
+- Added `injection_site` as the eleventh deterministic visual kind: a schematic skin cross-section with labeled epidermis, dermis, subcutaneous tissue, and muscle bands, an always-rendered vessel, and a route-keyed needle.
+- Added fixed v1 geometry for intradermal, subcutaneous, intramuscular, and intravenous routes, with angle measured from the skin surface and the tip derived into the canonical target layer or vessel.
+- Added defensive validation, necessity and declared-route/target `selfCheck` gates, colocated conformance fixtures, and focused geometry, determinism, answer-reveal, vessel-presence, and in-frame regressions.
+- Kept the global default visual placement (`multiple_choice`, `select_all`, `matrix`) and made no schema, app-dispatcher, bank-loader, coverage, census, or content-bank changes.
+- Re-opened the visual roadmap for individually justified diagram molds. No `inj_*` content was generated or promoted; the strictest-tier route table remains source-verification-gated before that lane opens.
+
 ### Schema 1.3 Highlight: Text Items (Jun 14)
 
 Completed:
