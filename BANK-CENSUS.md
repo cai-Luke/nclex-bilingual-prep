@@ -2,8 +2,8 @@
 
 # NCLEX Bank Census
 
-Generated: 2026-06-13T20:16:06.046Z
-Git SHA: b3a68e890988ca7155dcc8113881b3a36ddf6826
+Generated: 2026-06-13T21:37:02.261Z
+Git SHA: ec1c0082f2188a938e9996ab07aa35721525e879
 
 ## Per-File Summary
 
@@ -11,11 +11,11 @@ Git SHA: b3a68e890988ca7155dcc8113881b3a36ddf6826
 |------|--------|-----------|-----------|---------|
 | burn-canonical.json | 1.2 | 8 | 8 | — |
 | capnography-canonical.json | 1.2 | 7 | 7 | — |
-| claude-canonical.json | 1.2 | 61 | 61 | — |
+| claude-canonical.json | 1.2 | 67 | 67 | — |
 | device-canonical.json | 1.2 | 8 | 8 | — |
 | gemini-canonical.json | 1.2 | 777 | 777 | — |
-| gpt-canonical.json | 1.2 | 267 | 267 | — |
-| hard-cases-canonical.json | 1.2 | 58 | 58 | — |
+| gpt-canonical.json | 1.2 | 269 | 269 | — |
+| hard-cases-canonical.json | 1.2 | 57 | 57 | — |
 | io-canonical.json | 1.2 | 8 | 8 | — |
 | lab-canonical.json | 1.2 | 20 | 20 | — |
 | mar-canonical.json | 1.2 | 8 | 8 | — |
@@ -25,21 +25,21 @@ Git SHA: b3a68e890988ca7155dcc8113881b3a36ddf6826
 
 ## Totals
 
-- Top-level questions: 1293
-- Case study top-level: 106
-- Embedded parts: 482
-- Graded total: 1775
+- Top-level questions: 1300
+- Case study top-level: 113
+- Embedded parts: 522
+- Graded total: 1822
 
 ## By Category
 
 - Health Promotion and Maintenance: 140
-- Psychosocial Integrity: 141
-- Safety and Infection Control: 144
-- Management of Care: 148
+- Psychosocial Integrity: 144
+- Safety and Infection Control: 145
+- Management of Care: 150
 - Basic Care and Comfort: 152
 - Reduction of Risk Potential: 168
 - Pharmacological and Parenteral Therapies: 171
-- Physiological Adaptation: 229
+- Physiological Adaptation: 230
 
 ## Within-Category Concentration
 
@@ -85,7 +85,7 @@ Visual kinds: burn_map (5), capnography (4), io_record (2), lab_trend (7), rhyth
 
 ## By Item Type
 
-- case_study: 106
+- case_study: 113
 - ordered_response: 127
 - fill_in_blank: 140
 - dropdown_cloze: 142
@@ -96,22 +96,22 @@ Visual kinds: burn_map (5), capnography (4), io_record (2), lab_trend (7), rhyth
 ## By Difficulty
 
 - easy: 163
-- hard: 481
-- medium: 649
+- hard: 487
+- medium: 650
 
 ## By Schema Version
 
-- v1.2: 1293 questions (burn-canonical.json, capnography-canonical.json, claude-canonical.json, device-canonical.json, gemini-canonical.json, gpt-canonical.json, hard-cases-canonical.json, io-canonical.json, lab-canonical.json, mar-canonical.json, medlabel-canonical.json, visual-canonical.json, vitals-canonical.json)
+- v1.2: 1300 questions (burn-canonical.json, capnography-canonical.json, claude-canonical.json, device-canonical.json, gemini-canonical.json, gpt-canonical.json, hard-cases-canonical.json, io-canonical.json, lab-canonical.json, mar-canonical.json, medlabel-canonical.json, visual-canonical.json, vitals-canonical.json)
 
 ## By Source File
 
 - burn-canonical.json: 8
 - capnography-canonical.json: 7
-- claude-canonical.json: 61
+- claude-canonical.json: 67
 - device-canonical.json: 8
 - gemini-canonical.json: 777
-- gpt-canonical.json: 267
-- hard-cases-canonical.json: 58
+- gpt-canonical.json: 269
+- hard-cases-canonical.json: 57
 - io-canonical.json: 8
 - lab-canonical.json: 20
 - mar-canonical.json: 8
@@ -162,6 +162,12 @@ Total visuals: 138
 | opus_vanco_case_01 | vancomycin infusion reaction and nephrotoxicity | 6 | claude-canonical.json |
 | opus1_case_tha_discharge_lep_01 | discharge coordination after hip arthroplasty | 6 | claude-canonical.json |
 | opus20_case_cdiff_01 | C. difficile colitis and dehydration | 6 | claude-canonical.json |
+| opus_case_warfarin_bridge_01 | warfarin-enoxaparin-bridge | 6 | claude-canonical.json |
+| opus22_case_postpartum_intrusive_thoughts_01 | postpartum depression with intrusive thoughts | 5 | claude-canonical.json |
+| opus24_case_elder_neglect_med_mismanagement_01 | elder neglect medication mismanagement | 6 | claude-canonical.json |
+| opus25_case_tb_airborne_treatment_monitoring_01 | Tuberculosis airborne precautions and treatment monitoring | 6 | claude-canonical.json |
+| opus26_case_refeeding_syndrome_01 | refeeding syndrome risk in anorexia nervosa | 6 | claude-canonical.json |
+| opus27_case_ipv_prenatal_care_01 | intimate partner violence in prenatal care | 6 | claude-canonical.json |
 | gen_rrp_batch1_10 | Respiratory & Infectious Disorders | 2 | gemini-canonical.json |
 | gen_rrp_batch2_10 | Perioperative Care | 2 | gemini-canonical.json |
 | gemini_gapfill_case_2026_06_10_case_imm_01 | adult immunization | 4 | gemini-canonical.json |
@@ -214,6 +220,8 @@ Total visuals: 138
 | gpt_gap_2026_06_12_nonmcq_balanced_b_case_peds_dehydration_03 | pediatric dehydration oral rehydration teaching | 5 | gpt-canonical.json |
 | gpt_gap_2026_06_12_nonmcq_balanced_b_case_wound_teachback_04 | home health wound-care teaching with teach-back failure | 5 | gpt-canonical.json |
 | gpt_2026_06_13_case_delirium_uti_01 | delirium superimposed on dementia | 6 | gpt-canonical.json |
+| gpt_case_opus23_nat_toddler_01 | suspected nonaccidental trauma in a toddler | 5 | gpt-canonical.json |
+| gpt_opus21_case_colostomy_lep_discharge_01 | colostomy discharge teaching for limited English proficiency | 6 | gpt-canonical.json |
 | case_sepsis_pneumonia_01 | Sepsis & Septic Shock | 4 | hard-cases-canonical.json |
 | case_preeclampsia_magnesium_01 | Maternal-Newborn Care & Teaching | 4 | hard-cases-canonical.json |
 | cs_copd_01 | Respiratory & Infectious Disorders | 5 | hard-cases-canonical.json |
@@ -262,7 +270,6 @@ Total visuals: 138
 | opus4_case_postop_sbar_01 | postoperative deterioration escalation | 6 | hard-cases-canonical.json |
 | opus5_case_consent_interpreter_01 | informed consent and interpreter services | 5 | hard-cases-canonical.json |
 | opus12_case_inpatient_suicide_risk_01 | Inpatient suicide risk and safety precautions | 6 | hard-cases-canonical.json |
-| opus_case_warfarin_bridge_01 | warfarin-enoxaparin-bridge | 6 | hard-cases-canonical.json |
 
 ## ID Uniqueness
 
@@ -271,24 +278,24 @@ No duplicates detected.
 ## Targets
 
 Category targets (2026 NCLEX-RN test-plan weights):
-- Management of Care: 232.7
-- Safety and Infection Control: 168.1
-- Health Promotion and Maintenance: 116.4
-- Psychosocial Integrity: 116.4
-- Basic Care and Comfort: 116.4
-- Pharmacological and Parenteral Therapies: 206.9
-- Reduction of Risk Potential: 155.2
-- Physiological Adaptation: 181.0
-Item type average: 184.7
+- Management of Care: 234.0
+- Safety and Infection Control: 169.0
+- Health Promotion and Maintenance: 117.0
+- Psychosocial Integrity: 117.0
+- Basic Care and Comfort: 117.0
+- Pharmacological and Parenteral Therapies: 208.0
+- Reduction of Risk Potential: 156.0
+- Physiological Adaptation: 182.0
+Item type average: 185.7
 
 Under-served categories:
-- Management of Care: 148
+- Management of Care: 150
 
 Over-served categories:
-- Physiological Adaptation: 229
+- Physiological Adaptation: 230
 
 Under-served item types:
-- case_study: 106
+- case_study: 113
 - ordered_response: 127
 - fill_in_blank: 140
 - dropdown_cloze: 142
@@ -297,12 +304,12 @@ Under-served item types:
 ## Prompt Parameters
 
 PRIORITIZE_TOPICS:
-- Management of Care (148 vs target 233)
-- case_study (106 vs target 184.7)
-- ordered_response (127 vs target 184.7)
-- fill_in_blank (140 vs target 184.7)
-- dropdown_cloze (142 vs target 184.7)
-- matrix (165 vs target 184.7)
+- Management of Care (150 vs target 234)
+- case_study (113 vs target 185.7)
+- ordered_response (127 vs target 185.7)
+- fill_in_blank (140 vs target 185.7)
+- dropdown_cloze (142 vs target 185.7)
+- matrix (165 vs target 185.7)
 - acetaminophen duplicate therapy
 - Active Pulmonary TB Airborne Precautions
 - Acute decompensated heart failure
