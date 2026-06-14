@@ -25,13 +25,13 @@ The app is a static offline Vite + React + TypeScript NCLEX-RN practice tool. It
 
 Core learning features are implemented: all schema item types render and grade, case studies are supported, sessions are resumable, custom sessions can be built from filters, the dashboard summarizes performance, flags feed review pools, glossary flashcards have their own SRS progress, and adaptive exam-condition practice is available without any pass/fail readiness claim.
 
-Current canonical banks (see [BANK-CENSUS.md](BANK-CENSUS.md); 1,219 top-level, 389 embedded parts as of 2026-06-13):
+Current canonical banks (see [BANK-CENSUS.md](BANK-CENSUS.md); 1,300 top-level, 522 embedded parts as of 2026-06-13):
 
 - `banks/capnography-canonical.json` (7 schema v1.2 capnography visual items; dedicated home for capnography kind)
-- `banks/claude-canonical.json` (60 bilingual Claude-source questions; ledgered content review complete)
+- `banks/claude-canonical.json` (67 bilingual Claude/Opus-source questions; ledgered content review complete)
 - `banks/gemini-canonical.json` (771 bilingual Gemini-source questions; includes original + pending batches + traditional/easy/gap-fill consolidations minus redundant/flawed questions)
-- `banks/gpt-canonical.json` (242 bilingual GPT-source questions; ledgered content review complete)
-- `banks/hard-cases-canonical.json` (51 top-level items: 42 unfolding case studies + 9 hard standalones; 180 embedded case-study parts)
+- `banks/gpt-canonical.json` (269 bilingual GPT-source questions; ledgered content review complete)
+- `banks/hard-cases-canonical.json` (57 top-level hard/NGN items; ledgered content review complete)
 - `banks/lab-canonical.json` (20 schema v1.2 lab_trend visual items; dedicated home for lab_trend kind)
 - `banks/mar-canonical.json` (5 schema v1.2 mar visual items; dedicated home for mar kind)
 - `banks/visual-canonical.json` (53 reviewed schema v1.2 rhythm-strip visual items; the dedicated home for rhythm_strip kind, formerly `banks/rhythm-canonical`)
@@ -54,6 +54,115 @@ Out of scope until a future schema bump:
 - `bowtie`
 
 ## Milestones
+
+### Early-Bank Semantic Audit — 32 Corrections Applied (Jun 13)
+
+Completed:
+- Luke accepted all 32 proposals in the semantic audit review packet without
+  revision.
+- Applied 290 guarded field edits across 29 Gemini questions, 2 Claude
+  questions, and 1 GPT question.
+- Corrected current-guidance teaching for screening, colonoscopy preparation,
+  isolation precautions, meningitis, neutropenia, anticoagulation, DKA,
+  sepsis, dysphagia, hypertension exercise, enalapril, hip precautions, and
+  metoprolol.
+- Added a consolidated approved execution manifest and execution report.
+- Removed a byte-identical warfarin-bridge case duplicated across Claude and
+  hard-cases banks, retaining the ledgered Claude copy and restoring global ID
+  uniqueness.
+- Regenerated Layer A after concurrent reviewed bank additions at 1,692
+  inventory records, 1,312 queue rows, and 1,136 unique queued IDs.
+- Verified all 32 corrected IDs in the Review Console and passed Layer A,
+  schema-bank, coverage, census freshness, bundled-bank validation, promotion
+  audit, and production build checks.
+
+### Semantic Audit Proposal Review Packet (Jun 13)
+
+Completed:
+- Consolidated the 32 active HIGH-confidence FIX proposals from currency
+  Sessions 01-05 and 10 into
+  `audit/early-bank-semantic/PROPOSAL-REVIEW-PACKET.md`.
+- Grouped proposals into six human decision batches with concise issue, cure,
+  source, and `ACCEPT`/`REVISE`/`REJECT`/`HOLD` fields.
+- Excluded the superseded Session 07 REVIEW rows; Session 10 remains
+  authoritative for those two findings.
+- Added a 32-row decision log and execution gate. No canonical bank content
+  was edited.
+
+### Human Adjudication of 13 Hard-Case Records (Jun 13)
+
+Completed:
+- Luke adjudicated the Gemini advisory pass for all 13 provenance-unknown
+  hard-case currency records and approved every item to remain as-is.
+- Reviewed the sole possible concern, `case_dka_01_q5`. Although an IV insulin
+  bolus is not necessary in every DKA pathway, the question supplies a valid
+  provider order and correctly tests `60 kg × 0.1 units/kg = 6 units`; it does
+  not state that a bolus is universally required.
+- Added `currency/11-gemini-13-human-adjudication.report.md` with all 13
+  no-action IDs. No manifest was needed.
+- Canonical banks, ledger, and census were not edited.
+
+### Gemini Advisory Packet for 13 Hard-Case Records (Jun 13)
+
+Completed:
+- Added `audit/early-bank-semantic/GEMINI-13-ITEM-REVIEW-SPEC.md` for the 13
+  Phase B records whose per-item producer and final-review provenance could not
+  be recovered.
+- Defined exact IDs and canonical paths, parent-case requirements, focused
+  checks for enoxaparin dosing, DKA, sepsis, and Parkland calculations, current
+  source families, verdict standards, and a strict bilingual manifest format.
+- Recorded the provenance caveat that historical bank-level notes mention
+  Gemini review. Gemini's output is advisory, with Luke's own read serving as
+  the independent human adjudication layer.
+- Canonical banks and content-review records were not edited.
+
+### Early-Bank Semantic Audit — Claude Return Adjudicated (Jun 13)
+
+Completed:
+- Independently adjudicated both Claude Session 07 REVIEW findings.
+- Promoted `gpt_canonical_cloze_neutropenia_038` to a bilingual FIX proposal:
+  replace automatic Protective Environment placement and categorical raw-produce
+  avoidance with Standard Precautions, strict hand hygiene, avoidance of sick
+  contacts, and safe food handling.
+- Dismissed the `gpt_canonical_or_ppe_doffing_104` finding because CDC's general
+  Isolation Precautions figure matches the keyed gloves, eye protection, gown,
+  mask or respirator, then hand-hygiene sequence.
+- Traced the 13 provenance-unknown hard-case rows to the initial Codex/source-checked
+  seed bank. No raw producer artifact or per-item review chain survives, so they
+  remain blocked for an independent non-OpenAI reviewer.
+- Regenerated Layer A at 1,652 inventory records, 1,317 queue rows, and 1,127
+  unique queued IDs; recalibrated the deterministic regression baseline.
+- Added the Session 10 adjudication report and one-row FIX manifest. Canonical
+  banks were not edited.
+- Verified zero manifest before-state mismatches and complete English/Chinese
+  edit pairing; confirmed the item in the Review Console and passed Layer A
+  regression, bundled-bank validation, and the production build.
+
+### Early-Bank Semantic Audit — Claude Code Currency Pass Complete (Jun 13)
+
+Completed:
+- Claude Code audited all 38 GPT-produced Medium-provenance currency candidates across
+  Sessions 07 (immunization/screening + isolation/precautions, 23 IDs) and 08
+  (anticoagulation, DKA/insulin, sepsis, stroke, burn/Parkland, 15 IDs).
+- 2 REVIEW verdicts raised: `gpt_canonical_cloze_neutropenia_038` (raw-produce
+  restriction evidence gap) and `gpt_canonical_or_ppe_doffing_104` (CDC 2019 doffing
+  sequence ordering). 36 items cleared with no finding. No FIX or CUT proposed.
+- Completed Phase B provenance map (`09-mixed-provenance-map.jsonl`) for all 30 mixed
+  hard-case Layer A currency candidates: 17 BLOCKED_PRODUCER_CONFLICT, 13
+  BLOCKED_PROVENANCE_UNKNOWN, 0 claude_eligible. No Phase B auditing performed.
+- Return package filed at `audit/early-bank-semantic/CLAUDE-RETURN-INDEX.md`.
+- Canonical banks, ledger, and census were not edited; no patches/cuts executed.
+- Layer A baseline drift: +7 records (concurrent bank additions in ec1c008, b3a68e8).
+  Regenerate baseline before applying manifests.
+
+### Early-Bank Semantic Audit Claude Code Handoff (Jun 13)
+
+Completed:
+- Added a durable Claude Code handoff for the 68 remaining Medium-provenance currency candidates after the OpenAI reviewer reached the producer-mismatch boundary.
+- Split the immediately eligible 38 GPT-produced items into screening/isolation and medication/resuscitation sessions, with current source families and exact artifact names.
+- Required a provenance map before Claude audits any of the 30 mixed-producer hard-case items; Claude-authored, Claude-final-reviewed, and unresolved-provenance items must be returned as blocked rather than forced through review.
+- Defined the report/manifest contract, bilingual cure requirements, mechanical validation gates, Review Console checks, and the required `CLAUDE-RETURN-INDEX.md` package.
+- Recorded that Codex will independently adjudicate Claude's returned findings and produce a separate approved execution manifest; Claude must not edit canonical banks, ledger/census artifacts, or execute patches/cuts.
 
 ### Study Session Skip-for-Now Flow (Jun 13)
 

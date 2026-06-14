@@ -5,7 +5,7 @@
     "topic": "assorted NCLEX-RN GPT canonical bank",
     "category": "mixed",
     "difficulty": "mixed",
-    "count": 267
+    "count": 269
   },
   "questions": [
     {
@@ -3347,8 +3347,8 @@
         "zh": "一位接受化疗的患者绝对中性粒细胞计数为 400/mm3。完成优先护理计划。"
       },
       "clozeStem": {
-        "en": "The nurse should place the client in {{1}} and avoid {{2}}.",
-        "zh": "护士应将患者安置在 {{1}}，并避免 {{2}}。"
+        "en": "The nurse should use {{1}} and avoid {{2}}.",
+        "zh": "护士应采取 {{1}}，并避免 {{2}}。"
       },
       "dropdowns": [
         {
@@ -3366,8 +3366,8 @@
             },
             {
               "id": "o1",
-              "en": "a private room with protective precautions",
-              "zh": "采取保护性措施的单人病房"
+              "en": "Standard Precautions with strict hand hygiene",
+              "zh": "标准预防措施并严格执行手卫生"
             }
           ],
           "correct": "o1"
@@ -3377,8 +3377,8 @@
           "options": [
             {
               "id": "o1",
-              "en": "fresh flowers and raw produce",
-              "zh": "鲜花和生食农产品"
+              "en": "sick visitors and unwashed produce",
+              "zh": "生病的访客和未清洗的农产品"
             },
             {
               "id": "o2",
@@ -3396,25 +3396,25 @@
       ],
       "rationale": {
         "correct": {
-          "en": "Severe neutropenia requires infection-prevention measures that reduce exposure to organisms. Fresh flowers, plants, and raw foods can carry microbes.",
-          "zh": "严重中性粒细胞减少需要采取减少接触病原体的感染预防措施。鲜花、植物和生食可能携带微生物。"
+          "en": "An ANC of 400/mm3 indicates severe neutropenia and increased infection risk. Use Standard Precautions with strict hand hygiene, avoid sick contacts, and follow food-safety guidance. Neutropenia alone does not require a formal Protective Environment, and raw produce may be eaten when it is washed well or peeled according to the care plan.",
+          "zh": "绝对中性粒细胞计数为 400/mm3 表示严重中性粒细胞减少，感染风险升高。应采取标准预防措施并严格执行手卫生，避免接触生病的人，并遵循食品安全指导。仅凭中性粒细胞减少并不需要正式的保护性环境；按照护理计划充分清洗或削皮后，可以食用生鲜农产品。"
         },
         "byChoice": [
           {
             "refId": "1",
-            "en": "A private room with protective precautions reduces exposure to infectious organisms.",
-            "zh": "采取保护性措施的单人病房可减少接触感染性病原体。"
+            "en": "Standard Precautions and strict hand hygiene reduce exposure to infectious organisms. A formal Protective Environment is reserved for specific indications such as allogeneic stem-cell transplantation, not neutropenia alone.",
+            "zh": "标准预防措施和严格的手卫生可减少接触感染性病原体。正式的保护性环境适用于异基因造血干细胞移植等特定指征，而不是仅凭中性粒细胞减少。"
           },
           {
             "refId": "2",
-            "en": "Fresh flowers and raw produce may harbor bacteria or fungi and should be avoided.",
-            "zh": "鲜花和生食农产品可能携带细菌或真菌，应避免。"
+            "en": "Sick visitors increase exposure to infection, and unwashed produce can carry pathogens. Properly washed or peeled produce is not categorically prohibited.",
+            "zh": "生病的访客会增加感染暴露，未清洗的农产品可能携带病原体。充分清洗或削皮的农产品并非一律禁止。"
           }
         ]
       },
       "testTakingStrategy": {
-        "en": "For neutropenia, think protection from organisms: private room, hand hygiene, no sick visitors, no raw foods or plants.",
-        "zh": "遇到中性粒细胞减少，想到保护患者免受病原体接触：单人房、手卫生、避免生病访客、避免生食和植物。"
+        "en": "For neutropenia, prioritize hand hygiene, avoiding sick contacts, and safe food handling. Do not assume that every low ANC requires a formal Protective Environment or a blanket ban on raw produce.",
+        "zh": "遇到中性粒细胞减少，应优先考虑手卫生、避免接触生病的人和安全处理食物。不要假设每个低 ANC 患者都需要正式的保护性环境或一律禁止生鲜农产品。"
       },
       "glossary": [
         {
@@ -3423,9 +3423,9 @@
           "defZh": "反映抗细菌和真菌感染能力的中性粒细胞数量。"
         },
         {
-          "termEn": "protective precautions",
-          "termZh": "保护性预防措施",
-          "defZh": "用于保护免疫低下患者免受感染的护理措施。"
+          "termEn": "Standard Precautions",
+          "termZh": "标准预防措施",
+          "defZh": "适用于所有患者护理的基本感染预防措施，包括根据暴露风险执行手卫生和使用个人防护用品。"
         },
         {
           "termEn": "chemotherapy",
@@ -45870,6 +45870,1501 @@
           "termEn": "least restrictive intervention",
           "termZh": "限制性最小的干预",
           "defZh": "在保证安全的前提下优先使用对患者自由和尊严限制最少的措施。"
+        }
+      ]
+    },
+    {
+      "id": "gpt_case_opus23_nat_toddler_01",
+      "itemType": "case_study",
+      "category": "Management of Care",
+      "topic": "suspected nonaccidental trauma in a toddler",
+      "difficulty": "hard",
+      "ngnSkill": "prioritize_hypotheses",
+      "stem": {
+        "en": "Review the client record and answer the case-study items.",
+        "zh": "查看患儿病历，并回答病例题。"
+      },
+      "caseStudy": {
+        "title": {
+          "en": "Suspected nonaccidental trauma in a toddler with occult fractures and inconsistent caregiver history",
+          "zh": "幼儿疑似非意外性创伤：隐匿性骨折伴照护者病史不一致"
+        },
+        "summary": {
+          "en": "A 22-month-old boy is brought to the emergency department by his mother's boyfriend after a reported fall from a couch. The child has left arm pain, patterned bruising in concerning locations, and later imaging reveals occult healing fractures in addition to the acute injury.",
+          "zh": "一名22个月男童由母亲男友带至急诊，据称从沙发跌落。患儿左臂疼痛，并有位于可疑部位的图案性瘀伤；后续影像除急性损伤外，还发现隐匿的愈合期骨折。"
+        },
+        "exhibits": [
+          {
+            "id": "initial_ed_record",
+            "title": {
+              "en": "Initial emergency department record",
+              "zh": "急诊初始记录"
+            },
+            "content": {
+              "en": "Background: 22-month-old boy brought by mother's boyfriend, who reports the child fell off a couch onto carpet about 1 hour ago and will not stop crying. The mother is at work and has not yet been contacted. The boyfriend reports being the primary daytime caregiver for about 3 months. No known bleeding disorder, metabolic bone disease, or significant past medical history. Immunizations are up to date per state registry. No prior CPS involvement is documented.\n\nOrders placed: skeletal survey, CT head without contrast, BMP, CBC with differential, coagulation studies, AST/ALT, lipase, urinalysis, continuous cardiorespiratory monitoring, and peripheral IV.\n\nCaregiver statements: The boyfriend says the child is \"always a crybaby\" and \"does this for attention.\" He reports no loss of consciousness, vomiting, or seizure activity and initially declines to call the mother.",
+              "zh": "背景：22个月男童由母亲男友带至急诊。男友称患儿约1小时前从沙发跌到地毯上，之后一直哭闹。母亲正在上班，尚未被联系。男友称自己约3个月来是白天主要照护者。患儿无已知出血性疾病、代谢性骨病或重要既往病史。州登记显示免疫接种已按时完成。系统中无既往儿童保护服务（CPS）介入记录。\n\n已开立医嘱：骨骼系统筛查X线、头颅CT平扫、基础代谢面板、全血细胞计数及分类、凝血功能、AST/ALT、脂肪酶、尿液分析、连续心肺监测和外周静脉通路。\n\n照护者陈述：男友说患儿“总是爱哭”“这样是为了引人注意”。他否认患儿有意识丧失、呕吐或癫痫样发作，并起初拒绝联系母亲。"
+            }
+          },
+          {
+            "id": "initial_assessment_labs",
+            "title": {
+              "en": "Initial assessment and laboratory data",
+              "zh": "初始评估与实验室资料"
+            },
+            "content": {
+              "en": "Weight 12.4 kg, length 86 cm. T 37.2 °C, HR 152, BP 96/58, RR 28, SpO2 99% on room air.\n\nNeurologic/head: crying but arousable, tracks faces, pupils equal and reactive, anterior fontanelle closed and flat, no hemotympanum, oral mucosa moist, no frenulum tear.\n\nMusculoskeletal/skin: left upper extremity swelling and point tenderness over the mid-humerus with guarding; the child screams and withdraws when palpated. Distal radial pulse intact; capillary refill <2 seconds; fingers pink and warm. Right upper extremity moves freely. Four circular, well-demarcated bruises about 1 cm each on the left lateral chest wall. Two linear bruises about 3 cm and 5 cm on the posterior right thigh. Fading yellow-green bruise about 2 × 3 cm on the left scapular region. Abdomen soft and non-distended; no abdominal or genital bruising. No petechiae.\n\nLabs: WBC 9,800/µL, Hgb 11.4 g/dL, platelets 312,000/µL. Sodium 139 mEq/L, potassium 4.3 mEq/L, creatinine 0.3 mg/dL, glucose 94 mg/dL, calcium 9.8 mg/dL. PT 12.8 seconds, INR 1.0, PTT 28 seconds. AST 34 U/L, ALT 28 U/L, lipase 42 U/L. Urinalysis negative for blood, protein, and leukocyte esterase.",
+              "zh": "体重12.4 kg，身长86 cm。体温37.2 °C，心率152次/分，血压96/58 mmHg，呼吸28次/分，室内空气SpO2 99%。\n\n神经/头部：患儿哭闹但可唤醒，能追视面孔，双瞳等大等圆并对光反应，前囟已闭合且平坦，无鼓室积血，口腔黏膜湿润，无系带撕裂。\n\n肌肉骨骼/皮肤：左上肢肿胀，中段肱骨处点状压痛并保护性固定；触诊时患儿尖叫并回缩。远端桡动脉搏动存在；毛细血管再充盈<2秒；手指粉红温暖。右上肢活动自如。左侧胸壁外侧有4处圆形、边界清楚、每处约1 cm的瘀伤。右大腿后侧有2条线状瘀伤，约3 cm和5 cm。左肩胛区有一处约2 × 3 cm、颜色变淡的黄绿色瘀伤。腹部柔软、无胀，无腹部或外生殖器瘀伤。无瘀点。\n\n实验室：WBC 9,800/µL，Hgb 11.4 g/dL，血小板312,000/µL。钠139 mEq/L，钾4.3 mEq/L，肌酐0.3 mg/dL，血糖94 mg/dL，钙9.8 mg/dL。PT 12.8秒，INR 1.0，PTT 28秒。AST 34 U/L，ALT 28 U/L，脂肪酶42 U/L。尿液分析：无血、无蛋白、白细胞酯酶阴性。"
+            }
+          }
+        ],
+        "stages": [
+          {
+            "id": "stage_1_90_min",
+            "title": {
+              "en": "Stage 1: 90 minutes after arrival",
+              "zh": "第1阶段：到院后90分钟"
+            },
+            "exhibits": [
+              {
+                "id": "stage_1_imaging_caregiver_update",
+                "title": {
+                  "en": "Imaging and caregiver update",
+                  "zh": "影像结果与照护者动态"
+                },
+                "content": {
+                  "en": "Skeletal survey: transverse fracture of the left humeral shaft with minimal displacement; healing posterior rib fracture of the left 8th rib with callus formation estimated at 2–3 weeks old; healing classic metaphyseal lesion (corner fracture) of the right distal tibia with early callus formation. CT head is negative for intracranial hemorrhage or skull fracture.\n\nThe boyfriend now states the child \"falls a lot\" and \"bruises easily.\" When asked about the rib and tibial injuries, he says he was unaware of prior injuries and suggests the child may have hurt himself in his crib. The mother arrives, is visibly upset, and says she was unaware of injuries other than today's. She reports the boyfriend \"gets frustrated sometimes\" but denies witnessing physical discipline. The child clings to the mother and turns away from the boyfriend. HR decreases to 128 with the mother present.\n\nThe ED physician states the injury pattern is highly concerning for nonaccidental trauma and that a mandatory report to CPS is being filed. The boyfriend becomes agitated and says, \"You can't just accuse me — kids get hurt all the time.\"",
+                  "zh": "骨骼系统筛查X线：左肱骨干横行骨折，移位轻微；左第8后肋愈合期骨折并有骨痂形成，估计伤龄2–3周；右胫骨远端愈合期典型干骺端损伤（角部骨折），已有早期骨痂。头颅CT未见颅内出血或颅骨骨折。\n\n男友现在称患儿“经常摔倒”“容易瘀青”。问及肋骨和胫骨伤时，他称不知道既往受伤，并推测患儿可能是在婴儿床里弄伤自己。母亲到达后明显难过，称除今天的伤外，她并不知道其他受伤。她说男友“有时会很烦躁”，但否认亲眼见过体罚。患儿紧贴母亲，并转身避开男友。母亲在场后心率降至128次/分。\n\n急诊医生说明该损伤模式高度令人担忧为非意外性创伤，并正在向CPS进行强制报告。男友变得激动并说：“你们不能就这样指控我——孩子总会受伤。”"
+                }
+              }
+            ]
+          },
+          {
+            "id": "stage_2_3_hr",
+            "title": {
+              "en": "Stage 2: 3 hours after arrival",
+              "zh": "第2阶段：到院后3小时"
+            },
+            "exhibits": [
+              {
+                "id": "stage_2_interviews_safety",
+                "title": {
+                  "en": "Separate interviews and safety measures",
+                  "zh": "分别访谈与安全措施"
+                },
+                "content": {
+                  "en": "A CPS investigator arrives and interviews the mother and boyfriend separately with the ED social worker present. When interviewed alone, the mother tearfully discloses that the boyfriend has \"grabbed\" the child roughly several times. She once saw a bruise on the child's chest about 2 weeks ago, but the boyfriend told her the child bumped into a doorknob. She says she fears he will \"lose his temper\" if she says anything and asks the nurse, \"Can you just not tell him what I said? I'm scared he'll hurt me too.\"\n\nHospital security has been notified and the boyfriend is asked to wait in a separate area. The child receives weight-based ibuprofen per order, and orthopedics applies a posterior splint to the left upper extremity. The child is calmer. HR 118, BP 92/56, RR 24, SpO2 99%. FLACC score 4, down from 8 at presentation.\n\nThe CPS investigator requests that the child not be discharged until a safety plan is established. The ED physician orders admission to the pediatric unit for further evaluation, pain management, and coordination with CPS and the child abuse team.",
+                  "zh": "CPS调查员到达，并在急诊社工在场的情况下分别访谈母亲和男友。母亲单独受访时哭着透露，男友曾多次粗暴地“抓”患儿。她约2周前曾看到患儿胸部有瘀伤，但男友说是患儿撞到门把手。她表示害怕自己说出来后男友会“发脾气”，并问护士：“你能不能不要告诉他我说了什么？我也怕他会伤害我。”\n\n医院安保已被通知，男友被要求在单独区域等待。患儿按医嘱接受按体重计算的布洛芬止痛，骨科为左上肢上后侧夹板。患儿较平静。心率118次/分，血压92/56 mmHg，呼吸24次/分，SpO2 99%。FLACC评分4分，较入院时8分下降。\n\nCPS调查员要求在建立安全计划前不要让患儿出院。急诊医生下达住院至儿科病房医嘱，以便进一步评估、疼痛管理，并与CPS及儿童虐待团队协调。"
+                }
+              }
+            ]
+          },
+          {
+            "id": "stage_3_8_hr",
+            "title": {
+              "en": "Stage 3: 8 hours after arrival, pediatric unit",
+              "zh": "第3阶段：到院后8小时，儿科病房"
+            },
+            "exhibits": [
+              {
+                "id": "stage_3_pediatric_unit_plan",
+                "title": {
+                  "en": "Child abuse team evaluation and discharge planning",
+                  "zh": "儿童虐待团队评估与出院计划"
+                },
+                "content": {
+                  "en": "The child abuse pediatrician documents multiple injuries in various stages of healing, a developmentally inconsistent injury pattern, and a history inconsistent with the injury mechanism. The findings are described as highly concerning for inflicted injury/nonaccidental trauma. A follow-up skeletal survey is ordered for 2 weeks per child abuse team protocol to identify additional occult fractures not visible on initial imaging.\n\nThe mother is at the bedside and asks, \"What's going to happen to my son? Will they take him away from me?\" She is tearful and says she feels guilty for not protecting him. The child is resting comfortably. HR 110, BP 90/54, RR 22, SpO2 99%, FLACC score 2. He is taking oral fluids and small amounts of food.\n\nCPS informs nursing staff that a temporary safety plan is established: the boyfriend is not permitted to have unsupervised contact with the child, and the mother has agreed to a safety plan that includes a temporary protective order. CPS asks the nurse to document the child's behavioral responses to each visitor and to notify CPS immediately if the boyfriend attempts to visit. Discharge planning is initiated with the social worker, CPS, and the mother.",
+                  "zh": "儿童虐待专科儿科医生记录：患儿存在不同愈合阶段的多处损伤，损伤模式与发育阶段不一致，病史与损伤机制不一致；这些发现高度提示蓄意损伤/非意外性创伤。儿童虐待团队按方案开立2周后复查骨骼系统筛查X线，以识别初次影像未显示的其他隐匿骨折。\n\n母亲在床旁问：“我儿子接下来会怎样？他们会把他从我身边带走吗？”她流泪，并说自己因没能保护他而感到内疚。患儿休息舒适。心率110次/分，血压90/54 mmHg，呼吸22次/分，SpO2 99%，FLACC评分2分。患儿可口服液体并少量进食。\n\nCPS通知护理人员，临时安全计划已建立：男友不得与患儿有无人监督的接触，母亲已同意包含临时保护令的安全计划。CPS要求护士记录患儿对每位访客的行为反应，并在男友试图探视时立即通知CPS。社工、CPS和母亲共同启动出院计划。"
+                }
+              }
+            ]
+          }
+        ],
+        "questions": [
+          {
+            "id": "gpt_case_opus23_nat_toddler_01_q1",
+            "itemType": "select_all",
+            "category": "Management of Care",
+            "topic": "suspected nonaccidental trauma in a toddler",
+            "difficulty": "hard",
+            "ngnSkill": "recognize_cues",
+            "stem": {
+              "en": "At initial presentation, before imaging results are available, which nursing actions are appropriate? Select all that apply.",
+              "zh": "在初始就诊时、影像结果出来之前，护士采取哪些行动是合适的？选择所有适用项。"
+            },
+            "options": [
+              {
+                "id": "C",
+                "en": "Continue pain assessment and neurovascular checks of the injured left arm while avoiding unnecessary manipulation.",
+                "zh": "继续评估疼痛并检查受伤左臂的神经血管状态，同时避免不必要的搬动或牵拉。"
+              },
+              {
+                "id": "E",
+                "en": "Tell the boyfriend that the bruises prove child abuse and that he caused the injuries.",
+                "zh": "告诉男友这些瘀伤证明存在虐待，并且就是他造成了损伤。"
+              },
+              {
+                "id": "B",
+                "en": "Communicate to the ED physician that the patterned bruising and locations are inconsistent with the reported short fall.",
+                "zh": "告知急诊医生：这些图案性瘀伤及其部位与所述短距离跌落不一致。"
+              },
+              {
+                "id": "F",
+                "en": "Delay documentation until the skeletal survey confirms whether fractures are present.",
+                "zh": "等骨骼系统筛查X线确认是否有骨折后，再记录瘀伤情况。"
+              },
+              {
+                "id": "A",
+                "en": "Document each bruise objectively, including size, shape, color, and exact anatomic location, using a body map if available.",
+                "zh": "客观记录每处瘀伤，包括大小、形状、颜色和精确解剖位置；如有身体图，应使用身体图。"
+              },
+              {
+                "id": "D",
+                "en": "Accept the caregiver's explanation because toddlers commonly fall and bruise during play.",
+                "zh": "接受照护者解释，因为幼儿在玩耍时经常摔倒并出现瘀伤。"
+              }
+            ],
+            "correct": [
+              "A",
+              "B",
+              "C"
+            ],
+            "rationale": {
+              "correct": {
+                "en": "The initial bruising pattern is a safety and reporting cue even before imaging. Objective documentation, prompt communication to the provider, and ongoing pain/neurovascular assessment protect the child and preserve a clear record without assigning legal guilt.",
+                "zh": "即使影像尚未出来，初始瘀伤模式已是安全和报告线索。客观记录、及时告知医师，并持续进行疼痛和神经血管评估，有助于保护患儿并保留清晰记录，同时不作法律定责。"
+              },
+              "byChoice": [
+                {
+                  "refId": "A",
+                  "en": "Precise, objective documentation of bruise size, shape, color, and location supports clinical communication and forensic clarity without drawing a legal conclusion.",
+                  "zh": "准确、客观记录瘀伤的大小、形状、颜色和位置，有助于临床沟通和法医学清晰性，同时避免作出法律结论。"
+                },
+                {
+                  "refId": "E",
+                  "en": "The nurse should not accuse, determine guilt, or confront the caregiver; that can escalate danger and exceeds the nursing role.",
+                  "zh": "护士不应指控、判断责任或对照护者进行对质；这样可能升级危险，也超出护理职责。"
+                },
+                {
+                  "refId": "C",
+                  "en": "The injured extremity still needs routine fracture care: pain assessment and distal circulation, movement, and sensation checks.",
+                  "zh": "受伤肢体仍需常规骨折护理：评估疼痛，并检查远端循环、运动和感觉。"
+                },
+                {
+                  "refId": "B",
+                  "en": "Patterned bruises on the lateral chest wall, posterior thigh, and scapular region are not typical simple fall contact points and should be escalated to the provider.",
+                  "zh": "胸壁外侧、大腿后侧和肩胛区的图案性瘀伤，不符合普通跌倒的典型接触点，应向医师升级沟通。"
+                },
+                {
+                  "refId": "F",
+                  "en": "Bruising should be documented when observed; waiting can weaken the record and does not protect the child.",
+                  "zh": "观察到瘀伤时就应记录；等待会削弱记录质量，也不利于保护患儿。"
+                },
+                {
+                  "refId": "D",
+                  "en": "Toddlers do fall, but the pattern, locations, and varying bruise appearance make accepting the explanation without escalation unsafe.",
+                  "zh": "幼儿确实会摔倒，但瘀伤的形态、部位和不同外观提示风险，未经升级处理就接受解释是不安全的。"
+                }
+              ]
+            },
+            "testTakingStrategy": {
+              "en": "For suspected abuse, separate objective nursing actions from legal conclusions: document, report concerns through proper channels, maintain safety, and continue clinical assessment.",
+              "zh": "遇到疑似虐待时，要区分客观护理行动和法律结论：记录、通过正确渠道报告疑虑、维持安全，并继续临床评估。"
+            },
+            "glossary": [
+              {
+                "termEn": "Patterned bruising",
+                "termZh": "图案性瘀伤",
+                "defZh": "形状或排列提示可能由物体、抓握或特定受力方式造成的瘀伤。"
+              },
+              {
+                "termEn": "Body map",
+                "termZh": "身体图",
+                "defZh": "用于标注损伤精确位置、大小和形态的记录工具。"
+              },
+              {
+                "termEn": "Neurovascular assessment",
+                "termZh": "神经血管评估",
+                "defZh": "评估受伤肢体远端循环、感觉、运动、皮肤温度和颜色的检查。"
+              }
+            ]
+          },
+          {
+            "id": "gpt_case_opus23_nat_toddler_01_q2",
+            "itemType": "matrix",
+            "category": "Reduction of Risk Potential",
+            "topic": "fracture patterns concerning for nonaccidental trauma",
+            "difficulty": "hard",
+            "ngnSkill": "analyze_cues",
+            "stem": {
+              "en": "Stage 1 imaging results are available. For each finding, classify how it should affect the nurse's concern about nonaccidental trauma.",
+              "zh": "第1阶段影像结果已出。请判断每项发现对护士关于非意外性创伤疑虑的影响。"
+            },
+            "matrix": {
+              "rows": [
+                {
+                  "id": "r1",
+                  "en": "Healing posterior left 8th rib fracture with callus formation",
+                  "zh": "左第8后肋愈合期骨折并有骨痂形成"
+                },
+                {
+                  "id": "r2",
+                  "en": "Healing classic metaphyseal lesion of the right distal tibia",
+                  "zh": "右胫骨远端愈合期典型干骺端损伤"
+                },
+                {
+                  "id": "r3",
+                  "en": "Multiple fractures in different stages of healing with vague, shifting explanations",
+                  "zh": "不同愈合阶段的多处骨折，且解释含糊、前后变化"
+                },
+                {
+                  "id": "r4",
+                  "en": "Negative CT head for intracranial hemorrhage or skull fracture",
+                  "zh": "头颅CT未见颅内出血或颅骨骨折"
+                },
+                {
+                  "id": "r5",
+                  "en": "Normal PT/INR/PTT and normal serum calcium",
+                  "zh": "PT/INR/PTT正常，血钙正常"
+                }
+              ],
+              "columns": [
+                {
+                  "id": "c2",
+                  "en": "Does not explain away the concern or justify delaying the report",
+                  "zh": "不能解释掉疑虑，也不能作为延迟报告的理由"
+                },
+                {
+                  "id": "c1",
+                  "en": "Supports reasonable suspicion and need for safety/reporting actions",
+                  "zh": "支持合理怀疑，需要采取安全和报告行动"
+                }
+              ],
+              "selectionMode": "single_per_row"
+            },
+            "correct": [
+              {
+                "rowId": "r1",
+                "columnIds": [
+                  "c1"
+                ]
+              },
+              {
+                "rowId": "r2",
+                "columnIds": [
+                  "c1"
+                ]
+              },
+              {
+                "rowId": "r3",
+                "columnIds": [
+                  "c1"
+                ]
+              },
+              {
+                "rowId": "r4",
+                "columnIds": [
+                  "c2"
+                ]
+              },
+              {
+                "rowId": "r5",
+                "columnIds": [
+                  "c2"
+                ]
+              }
+            ],
+            "rationale": {
+              "correct": {
+                "en": "Posterior rib fracture, classic metaphyseal lesion, multiple injuries in different healing stages, and inconsistent explanations together support reasonable suspicion and safety/reporting actions. A negative head CT and normal coagulation/calcium results do not erase the concern created by the skeletal findings and history.",
+                "zh": "后肋骨折、典型干骺端损伤、不同愈合阶段的多处损伤以及不一致解释，共同支持合理怀疑并需要采取安全和报告行动。头颅CT阴性以及凝血/钙正常，不能消除骨骼发现和病史所造成的疑虑。"
+              },
+              "byChoice": [
+                {
+                  "refId": "r1",
+                  "en": "A healing posterior rib fracture in this context is a high-concern skeletal finding, especially because the reported couch fall does not explain an older rib injury.",
+                  "zh": "在此情境下，愈合期后肋骨折是高度可疑的骨骼发现，尤其是所述沙发跌落不能解释较早发生的肋骨损伤。"
+                },
+                {
+                  "refId": "r2",
+                  "en": "A classic metaphyseal lesion with callus formation is highly concerning when the caregiver history does not provide a plausible mechanism.",
+                  "zh": "在照护者病史不能提供合理机制时，带骨痂的典型干骺端损伤高度令人担忧。"
+                },
+                {
+                  "refId": "r3",
+                  "en": "Repeated injuries at different healing stages plus shifting explanations increase concern for inflicted injury and trigger reporting/safety responsibilities.",
+                  "zh": "不同愈合阶段的反复损伤加上前后变化的解释，会增加对蓄意损伤的担忧，并触发报告和安全职责。"
+                },
+                {
+                  "refId": "r4",
+                  "en": "No intracranial injury is reassuring for neurologic status, but it does not negate the skeletal and bruising concerns.",
+                  "zh": "未见颅内损伤对神经状态较为安慰，但不能否定骨骼和瘀伤方面的疑虑。"
+                },
+                {
+                  "refId": "r5",
+                  "en": "Normal coagulation studies and calcium reduce some alternative explanations but do not justify delaying a report when suspicious injuries are present.",
+                  "zh": "凝血功能和血钙正常可减少某些替代解释，但在可疑损伤存在时，不能作为延迟报告的理由。"
+                }
+              ]
+            },
+            "testTakingStrategy": {
+              "en": "Do not let one reassuring result cancel out multiple high-concern cues. Weigh the pattern, timing, developmental plausibility, and consistency of the history.",
+              "zh": "不要让一个看似安慰的结果抵消多个高度可疑线索。要综合损伤模式、时间、发育阶段合理性以及病史一致性。"
+            },
+            "glossary": [
+              {
+                "termEn": "Skeletal survey",
+                "termZh": "骨骼系统筛查X线",
+                "defZh": "用于评估儿童多处或隐匿骨折的一组系统性影像检查。"
+              },
+              {
+                "termEn": "Posterior rib fracture",
+                "termZh": "后肋骨折",
+                "defZh": "发生在肋骨后部的骨折；在幼儿中若病史不相符，应高度关注非意外性创伤。"
+              },
+              {
+                "termEn": "Classic metaphyseal lesion",
+                "termZh": "典型干骺端损伤",
+                "defZh": "靠近生长板的特殊骨折模式，也称角部骨折；在疑似虐待评估中是重要线索。"
+              },
+              {
+                "termEn": "Reasonable suspicion",
+                "termZh": "合理怀疑",
+                "defZh": "基于临床线索足以触发报告和安全行动的怀疑程度，不要求护士证明法律责任。"
+              }
+            ]
+          },
+          {
+            "id": "gpt_case_opus23_nat_toddler_01_q3",
+            "itemType": "select_all",
+            "category": "Psychosocial Integrity",
+            "topic": "domestic violence disclosure during child safety planning",
+            "difficulty": "hard",
+            "ngnSkill": "generate_solutions",
+            "stem": {
+              "en": "During Stage 2, the mother discloses fear of the boyfriend and asks the nurse not to tell him what she said. Which nursing responses are appropriate? Select all that apply.",
+              "zh": "第2阶段，母亲透露自己害怕男友，并请护士不要把她的话告诉男友。哪些护理回应是合适的？选择所有适用项。"
+            },
+            "options": [
+              {
+                "id": "E",
+                "en": "Tell the boyfriend what the mother disclosed so he can respond to the allegation directly.",
+                "zh": "把母亲透露的内容告诉男友，让他直接回应指控。"
+              },
+              {
+                "id": "B",
+                "en": "Explain that the team will protect her confidentiality to the greatest extent possible and will not share her specific statements with the boyfriend.",
+                "zh": "说明团队会在最大可能范围内保护她的保密性，不会把她的具体陈述告诉男友。"
+              },
+              {
+                "id": "A",
+                "en": "Acknowledge her fear and validate that it was important to disclose safety concerns.",
+                "zh": "承认她的害怕，并肯定她说出安全担忧是重要的。"
+              },
+              {
+                "id": "D",
+                "en": "Offer domestic violence resources and continue safety-focused, nonjudgmental support.",
+                "zh": "提供家庭暴力相关资源，并继续给予以安全为重点、非评判性的支持。"
+              },
+              {
+                "id": "F",
+                "en": "Advise the mother to confront the boyfriend in the hospital while security is nearby.",
+                "zh": "建议母亲趁安保在附近时，在医院里当面对质男友。"
+              },
+              {
+                "id": "C",
+                "en": "Ensure the social worker and CPS investigator know about the domestic violence concern so the safety plan addresses both the child and the mother.",
+                "zh": "确保社工和CPS调查员了解家庭暴力担忧，使安全计划同时涵盖患儿和母亲。"
+              }
+            ],
+            "correct": [
+              "A",
+              "B",
+              "C",
+              "D"
+            ],
+            "rationale": {
+              "correct": {
+                "en": "The mother may be a protective caregiver and a victim at risk. The nurse should respond therapeutically, protect confidentiality from the alleged perpetrator as much as possible, involve the appropriate safety-planning team, and provide resources. Confrontation or disclosure to the boyfriend can increase danger.",
+                "zh": "母亲可能既是保护性照护者，也可能是处于危险中的受害者。护士应以治疗性沟通回应，尽可能避免向疑似施害者透露她的具体陈述，联系适当的安全计划团队，并提供资源。对质或向男友透露内容可能增加危险。"
+              },
+              "byChoice": [
+                {
+                  "refId": "E",
+                  "en": "Sharing the mother's statement with the boyfriend could escalate danger and is not part of the nurse's role.",
+                  "zh": "把母亲的陈述告诉男友可能升级危险，也不是护士的职责。"
+                },
+                {
+                  "refId": "B",
+                  "en": "Confidentiality should be protected as much as possible; the boyfriend does not need the mother's specific statements for the nurse to maintain safety and reporting duties.",
+                  "zh": "应尽可能保护保密性；护士维持安全和报告职责，并不需要让男友知道母亲的具体陈述。"
+                },
+                {
+                  "refId": "C",
+                  "en": "CPS and social work need the disclosure to build a safety plan that addresses risk to both the child and the mother.",
+                  "zh": "CPS和社工需要了解该披露，才能制定同时处理患儿和母亲风险的安全计划。"
+                },
+                {
+                  "refId": "A",
+                  "en": "Validation supports disclosure, reduces shame, and keeps the focus on safety rather than blame.",
+                  "zh": "给予肯定有助于支持披露、减轻羞耻感，并把重点放在安全而非责备上。"
+                },
+                {
+                  "refId": "D",
+                  "en": "Domestic violence resources and nonjudgmental support are appropriate nursing interventions after a disclosure.",
+                  "zh": "在披露家庭暴力担忧后，提供相关资源和非评判性支持是恰当的护理干预。"
+                },
+                {
+                  "refId": "F",
+                  "en": "Encouraging confrontation can increase risk; safety planning should be coordinated through trained staff and protective agencies.",
+                  "zh": "鼓励对质可能增加风险；安全计划应由受过训练的工作人员和保护机构协调。"
+                }
+              ]
+            },
+            "testTakingStrategy": {
+              "en": "When a client or caregiver discloses interpersonal violence, prioritize safety, confidentiality from the alleged perpetrator, validation, and referral to trained resources.",
+              "zh": "当患者或照护者披露人际暴力时，优先考虑安全、避免向疑似施害者泄密、给予肯定，并转介到受过训练的资源。"
+            },
+            "glossary": [
+              {
+                "termEn": "Domestic violence",
+                "termZh": "家庭暴力",
+                "defZh": "亲密伴侣或家庭成员之间的身体、心理、性或控制性伤害行为。"
+              },
+              {
+                "termEn": "Safety plan",
+                "termZh": "安全计划",
+                "defZh": "为降低受害者和儿童风险而制定的具体保护措施和行动安排。"
+              },
+              {
+                "termEn": "Therapeutic communication",
+                "termZh": "治疗性沟通",
+                "defZh": "以尊重、倾听和支持为基础，帮助患者表达感受并促进安全决策的沟通方式。"
+              }
+            ]
+          },
+          {
+            "id": "gpt_case_opus23_nat_toddler_01_q4",
+            "itemType": "dropdown_cloze",
+            "category": "Management of Care",
+            "topic": "mandatory reporting and nursing role boundaries",
+            "difficulty": "medium",
+            "ngnSkill": "take_action",
+            "stem": {
+              "en": "Complete the statement describing the nurse's appropriate response to the agitated caregiver.",
+              "zh": "完成下列语句，说明护士对激动照护者的恰当回应。"
+            },
+            "clozeStem": {
+              "en": "The nurse should explain that the CPS report is based on {{1}}, and should avoid {{2}}.",
+              "zh": "护士应说明，向CPS报告是基于 {{1}}，并应避免 {{2}}。"
+            },
+            "dropdowns": [
+              {
+                "id": "1",
+                "options": [
+                  {
+                    "id": "o1",
+                    "en": "reasonable suspicion and a legal reporting obligation, not a hospital determination of guilt",
+                    "zh": "合理怀疑和法定报告义务，而不是医院对责任的判定"
+                  },
+                  {
+                    "id": "o3",
+                    "en": "the mother's permission to involve protective services",
+                    "zh": "母亲同意联系保护服务机构"
+                  },
+                  {
+                    "id": "o2",
+                    "en": "definitive proof that the caregiver intentionally injured the child",
+                    "zh": "照护者故意伤害患儿的确凿证明"
+                  }
+                ],
+                "correct": "o1"
+              },
+              {
+                "id": "2",
+                "options": [
+                  {
+                    "id": "o3",
+                    "en": "asking security for assistance if behavior threatens safety",
+                    "zh": "如果其行为威胁安全，向安保请求协助"
+                  },
+                  {
+                    "id": "o1",
+                    "en": "debating guilt, confronting him with accusations, or attempting a forensic interview",
+                    "zh": "辩论责任、以指控方式对质，或试图进行法医式访谈"
+                  },
+                  {
+                    "id": "o2",
+                    "en": "documenting his statements verbatim in the medical record",
+                    "zh": "在病历中逐字记录他的陈述"
+                  }
+                ],
+                "correct": "o1"
+              }
+            ],
+            "rationale": {
+              "correct": {
+                "en": "Mandatory reporting is triggered by reasonable suspicion and safety concerns; it is not the nurse's role to prove abuse, determine guilt, or conduct an interrogation. The nurse should remain calm, explain the duty to report, document objectively, and preserve safety.",
+                "zh": "强制报告由合理怀疑和安全担忧触发；护士的职责不是证明虐待、判定责任或进行审问。护士应保持冷静，解释报告义务，客观记录，并维护安全。"
+              },
+              "byChoice": [
+                {
+                  "refId": "1",
+                  "en": "The correct trigger is reasonable suspicion and mandated reporting, not definitive proof, legal guilt, or caregiver permission.",
+                  "zh": "正确触发条件是合理怀疑和强制报告，而不是确凿证明、法律责任判定或照护者同意。"
+                },
+                {
+                  "refId": "2",
+                  "en": "The nurse should avoid confrontation and forensic interviewing; objective documentation and safety escalation remain appropriate.",
+                  "zh": "护士应避免对质和法医式访谈；客观记录和安全升级处理仍然合适。"
+                }
+              ]
+            },
+            "testTakingStrategy": {
+              "en": "For legal/ethical nursing questions, identify the nurse's actual role: report reasonable suspicion, document facts, maintain safety, and leave investigation or guilt determination to the appropriate agencies.",
+              "zh": "处理法律/伦理类护理题时，要明确护士的实际职责：报告合理怀疑、记录事实、维护安全，把调查或责任判定交给相应机构。"
+            },
+            "glossary": [
+              {
+                "termEn": "Mandatory reporting",
+                "termZh": "强制报告",
+                "defZh": "法律要求特定专业人员在合理怀疑虐待或忽视时向指定机构报告。"
+              },
+              {
+                "termEn": "Forensic interview",
+                "termZh": "法医式访谈",
+                "defZh": "由受过专门训练人员进行、用于保护调查完整性的正式访谈；不是普通护士的职责。"
+              },
+              {
+                "termEn": "Verbatim documentation",
+                "termZh": "逐字记录",
+                "defZh": "将患者或照护者的重要原话准确写入病历，避免主观解释。"
+              }
+            ]
+          },
+          {
+            "id": "gpt_case_opus23_nat_toddler_01_q5",
+            "itemType": "select_all",
+            "category": "Management of Care",
+            "topic": "multidisciplinary discharge planning after suspected child abuse",
+            "difficulty": "hard",
+            "ngnSkill": "evaluate_outcomes",
+            "stem": {
+              "en": "At Stage 3, the child is stable and a temporary safety plan is in place. Which nursing actions should be included in discharge planning and psychosocial support? Select all that apply.",
+              "zh": "第3阶段，患儿情况稳定，临时安全计划已建立。出院计划和心理社会支持应包括哪些护理行动？选择所有适用项。"
+            },
+            "options": [
+              {
+                "id": "B",
+                "en": "Teach the mother the need for the follow-up skeletal survey in 2 weeks and orthopedic follow-up for the humeral fracture.",
+                "zh": "向母亲说明2周后复查骨骼系统筛查X线以及肱骨骨折骨科随访的必要性。"
+              },
+              {
+                "id": "A",
+                "en": "Give honest, supportive information that CPS's goal is child safety and reinforce the mother's protective actions.",
+                "zh": "诚实而支持性地说明CPS的目标是儿童安全，并强化母亲正在采取的保护性行动。"
+              },
+              {
+                "id": "F",
+                "en": "Limit discharge teaching to splint care because CPS is responsible for all safety and psychosocial issues.",
+                "zh": "将出院教育仅限于夹板护理，因为所有安全和心理社会问题都由CPS负责。"
+              },
+              {
+                "id": "D",
+                "en": "Document the mother's emotional state, her statements, and the child's behavioral responses to visitors.",
+                "zh": "记录母亲的情绪状态、她的陈述，以及患儿对访客的行为反应。"
+              },
+              {
+                "id": "C",
+                "en": "Coordinate with social work and CPS so community resources and the safety plan are confirmed before discharge.",
+                "zh": "与社工和CPS协调，确保出院前社区资源和安全计划已确认。"
+              },
+              {
+                "id": "E",
+                "en": "Reassure the mother that CPS will not remove the child as long as she cooperates with the plan.",
+                "zh": "安慰母亲：只要她配合计划，CPS就不会带走孩子。"
+              }
+            ],
+            "correct": [
+              "A",
+              "B",
+              "C",
+              "D"
+            ],
+            "rationale": {
+              "correct": {
+                "en": "Discharge planning must address the medical injury, scheduled reevaluation for occult fractures, psychosocial support, objective documentation, and the safety plan. The nurse should support the mother without making promises about CPS decisions and should not narrow teaching to orthopedic care alone.",
+                "zh": "出院计划必须涵盖医疗损伤、隐匿骨折复查、心理社会支持、客观记录和安全计划。护士应支持母亲，但不能承诺CPS的决定，也不能把教育只缩小到骨科护理。"
+              },
+              "byChoice": [
+                {
+                  "refId": "F",
+                  "en": "Focusing only on the splint ignores safety planning, psychosocial support, and required follow-up for occult injuries.",
+                  "zh": "只关注夹板护理会忽略安全计划、心理社会支持和隐匿损伤所需随访。"
+                },
+                {
+                  "refId": "A",
+                  "en": "Honest support reduces guilt and anxiety while keeping the focus on the child's safety and the mother's protective behavior.",
+                  "zh": "诚实支持可减轻内疚和焦虑，同时把重点放在儿童安全和母亲的保护性行为上。"
+                },
+                {
+                  "refId": "E",
+                  "en": "The nurse cannot promise what CPS will decide; over-reassurance is misleading and may damage trust.",
+                  "zh": "护士不能承诺CPS会作出什么决定；过度保证会误导家属并可能损害信任。"
+                },
+                {
+                  "refId": "B",
+                  "en": "The 2-week follow-up skeletal survey and orthopedic follow-up are explicit parts of the medical plan and must be understood before discharge.",
+                  "zh": "2周后复查骨骼系统筛查X线和骨科随访是医疗计划的明确组成部分，出院前必须让照护者理解。"
+                },
+                {
+                  "refId": "C",
+                  "en": "Safe discharge requires coordination with social work and CPS, not isolated bedside teaching.",
+                  "zh": "安全出院需要与社工和CPS协调，而不是只靠床旁教育。"
+                },
+                {
+                  "refId": "D",
+                  "en": "Objective documentation of caregiver statements and the child's behavioral responses supports continuity of care and safety monitoring.",
+                  "zh": "客观记录照护者陈述和患儿行为反应，有助于护理连续性和安全监测。"
+                }
+              ]
+            },
+            "testTakingStrategy": {
+              "en": "For discharge after suspected abuse, think beyond the physical injury: safety plan, follow-up, resources, caregiver support, and objective documentation all matter.",
+              "zh": "疑似虐待后的出院计划不能只看身体损伤：安全计划、随访、资源、照护者支持和客观记录都很重要。"
+            },
+            "glossary": [
+              {
+                "termEn": "Occult fracture",
+                "termZh": "隐匿性骨折",
+                "defZh": "初始评估可能不明显、需影像或随访才发现的骨折。"
+              },
+              {
+                "termEn": "Protective order",
+                "termZh": "保护令",
+                "defZh": "限制特定人员接触或靠近受保护者的法律性保护措施。"
+              },
+              {
+                "termEn": "Multidisciplinary discharge planning",
+                "termZh": "多学科出院计划",
+                "defZh": "由护理、医疗、社工和相关机构共同制定的出院安排。"
+              }
+            ]
+          }
+        ]
+      },
+      "rationale": {
+        "correct": {
+          "en": "This case requires the nurse to integrate patterned bruising, injuries in different stages of healing, inconsistent caregiver explanations, caregiver behavior, and the child's responses to caregivers. The priority hypothesis is suspected nonaccidental trauma with a need for immediate safety actions, objective documentation, mandatory reporting through proper channels, pain and neurovascular care for the acute fracture, confidentiality-sensitive support for the mother, and coordinated discharge planning with CPS, social work, orthopedics, and the child abuse team. The nurse must not decide legal guilt, confront or interrogate the alleged perpetrator, or let reassuring findings such as a negative head CT erase the concern created by the overall injury pattern.",
+          "zh": "本病例要求护士综合图案性瘀伤、不同愈合阶段的损伤、照护者解释不一致、照护者行为以及患儿对不同照护者的反应。优先判断是假设存在疑似非意外性创伤，需要立即采取安全行动、客观记录、通过正确渠道强制报告、为急性骨折提供疼痛和神经血管护理、以保护保密性的方式支持母亲，并与CPS、社工、骨科和儿童虐待团队协调出院计划。护士不应判定法律责任、对质或审问疑似施害者，也不应让头颅CT阴性等安慰性发现抵消整体损伤模式带来的疑虑。"
+        }
+      },
+      "testTakingStrategy": {
+        "en": "In unfolding child-safety cases, prioritize safety and reporting once reasonable suspicion is present, document objective facts, maintain clinical care for injuries, and stay within the nursing role rather than acting as an investigator.",
+        "zh": "在儿童安全类展开病例中，一旦存在合理怀疑，应优先考虑安全和报告，客观记录事实，继续处理临床损伤，并保持在护理职责范围内，而不是充当调查人员。"
+      },
+      "glossary": [
+        {
+          "termEn": "Nonaccidental trauma",
+          "termZh": "非意外性创伤",
+          "defZh": "由照护者或他人蓄意造成或高度疑似蓄意造成的损伤模式，而非普通意外所能合理解释。"
+        },
+        {
+          "termEn": "Child protective services",
+          "termZh": "儿童保护服务",
+          "defZh": "负责评估儿童安全、调查虐待或忽视疑虑并协调保护措施的机构。"
+        },
+        {
+          "termEn": "Reasonable suspicion",
+          "termZh": "合理怀疑",
+          "defZh": "基于临床资料和安全线索已足以触发报告义务的怀疑，不要求护士证明法律责任。"
+        },
+        {
+          "termEn": "Safety plan",
+          "termZh": "安全计划",
+          "defZh": "为降低儿童或家庭成员受伤风险而制定的具体监督、接触限制和支持安排。"
+        }
+      ]
+    },
+    {
+      "id": "gpt_opus21_case_colostomy_lep_discharge_01",
+      "itemType": "case_study",
+      "category": "Management of Care",
+      "topic": "colostomy discharge teaching for limited English proficiency",
+      "difficulty": "medium",
+      "ngnSkill": "evaluate_outcomes",
+      "stem": {
+        "en": "Review the client record and answer the case-study items about safe discharge teaching for a limited-English-proficient patient with a new colostomy.",
+        "zh": "阅读患者记录，并回答关于英语能力有限且新做结肠造口患者安全出院宣教的病例题。"
+      },
+      "caseStudy": {
+        "title": {
+          "en": "Safe discharge teaching for a limited-English-proficient patient with a new colostomy",
+          "zh": "英语能力有限的新结肠造口患者安全出院宣教"
+        },
+        "summary": {
+          "en": "A 62-year-old Spanish-speaking woman is on postoperative day 3 after open sigmoid colectomy with end colostomy for perforated diverticulitis. She speaks and reads only Spanish. Her adult daughter speaks English and Spanish and has been interpreting at the bedside, but the chart contains no documentation of qualified interpreter use or patient teach-back. The surgeon's conditional discharge order requires the patient to demonstrate pouch emptying and wafer changing, identify concerning stoma findings, and explain when to call; caregiver participation may supplement but does not replace patient teach-back unless caregiver-dependent discharge planning is documented by the provider.",
+          "zh": "一名62岁西班牙语患者因穿孔性憩室炎接受开放乙状结肠切除和末端结肠造口术后第3天。她只会说和读西班牙语。成年女儿会英语和西班牙语，并一直在床旁口译，但病历没有记录使用合格口译员，也没有记录患者本人回教。外科医生的有条件出院医嘱要求患者能演示造口袋排空和底盘更换、识别需担心的造口表现，并说明何时联系医生；照护者可参与补充，但除非医生记录为依赖照护者的出院计划，否则不能替代患者本人回教。"
+        },
+        "exhibits": [
+          {
+            "id": "initial_record",
+            "title": {
+              "en": "0700 initial record",
+              "zh": "0700 初始记录"
+            },
+            "content": {
+              "en": "Postoperative day 3 after open sigmoid colectomy with end colostomy.\nHistory: type 2 diabetes; metformin 1,000 mg twice daily restarted this morning after adequate oral intake and creatinine 0.9 mg/dL; hypertension on lisinopril 10 mg daily; BMI 34.\nLanguage: preferred language Spanish; speaks and reads only Spanish. No qualified interpreter use documented during admission.\nCurrent orders: regular diet as tolerated; ambulate four times daily; saline lock; acetaminophen PRN; oxycodone PRN; wound and stoma assessments every shift; begin discharge planning today. WOC nurse consult placed postoperative day 1 but not completed.\nNight note: 'Patient educated on ostomy care via daughter interpreting. Patient nodded understanding.' No teach-back documented.\nAssessment: T 37.2 C, HR 78, BP 134/82, RR 16, SpO2 97% room air. Abdomen soft, mildly tender, no distension. Midline incision clean, dry, approximated with staples. Stoma round, beefy red, moist, about 3 cm diameter, protrudes about 1 cm. Two-piece cut-to-fit wafer with about 1/8-inch clearance. Pouch contains moderate thick greenish-brown stool. Peristomal skin intact. Pain 3/10 by fingers. Ambulates steadily to bathroom.\nLabs: WBC 9,800/uL; Hgb 11.4 g/dL; platelets 268,000/uL; BUN 14 mg/dL; creatinine 0.9 mg/dL; K 4.0 mEq/L; Na 139 mEq/L; glucose 148 mg/dL; albumin 3.1 g/dL. No labs pending.",
+              "zh": "术后第3天，患者因穿孔性憩室炎接受开放乙状结肠切除和末端结肠造口。\n病史：2型糖尿病；确认可经口进食且肌酐0.9 mg/dL后，今晨重新开始二甲双胍1,000 mg每日两次；高血压，服用赖诺普利10 mg每日一次；BMI 34。\n语言：首选语言为西班牙语；只会说和读西班牙语。本次住院没有记录使用合格口译员。\n当前医嘱：按耐受进普通饮食；每日下床活动4次；静脉留置盐水封管；对乙酰氨基酚按需；羟考酮按需；每班评估伤口和造口；今天开始出院计划。术后第1天已请造口伤口护理护士会诊，但尚未完成。\n夜班记录：“通过女儿口译进行了造口护理宣教。患者点头表示理解。”未记录回教。\n评估：T 37.2 C，HR 78，BP 134/82，RR 16，室内空气SpO2 97%。腹部软，切口周围轻度压痛，无腹胀。腹中线切口清洁、干燥，钉合良好。造口圆形、鲜红湿润，直径约3 cm，突出约1 cm。两件式可剪裁底盘，造口周围间隙约1/8英寸。造口袋内有中等量浓稠绿褐色粪便。造口周围皮肤完整。患者用手指表示疼痛3/10。可稳步走到卫生间。\n实验室：WBC 9,800/uL；Hgb 11.4 g/dL；血小板268,000/uL；BUN 14 mg/dL；肌酐0.9 mg/dL；K 4.0 mEq/L；Na 139 mEq/L；血糖148 mg/dL；白蛋白3.1 g/dL。无待出结果。"
+            }
+          }
+        ],
+        "stages": [
+          {
+            "id": "stage_0700_0900",
+            "title": {
+              "en": "Stage 1: 0700-0900, postoperative day 3",
+              "zh": "第1阶段：术后第3天 0700-0900"
+            },
+            "exhibits": [
+              {
+                "id": "stage1_discharge_gaps",
+                "title": {
+                  "en": "Discharge-readiness review",
+                  "zh": "出院准备度复核"
+                },
+                "content": {
+                  "en": "The nurse identifies three gaps: no qualified interpreter has been used, no WOC nurse visit has occurred, and the discharge criteria require the patient's independent demonstration and explanation. The daughter offers to continue interpreting and states she will live with the patient after discharge. When the nurse asks the patient through the daughter to describe a normal stoma, the daughter answers, 'It should be red and wet,' and the patient nods. When asked directly in simple English with gestures to show pouch emptying, the patient looks to her daughter and the daughter begins guiding the patient's hands. The nurse requests a qualified Spanish interpreter, available by video within 15 minutes, and pages the WOC nurse, who can arrive by 1000.",
+                  "zh": "护士发现三个缺口：没有使用合格口译员、造口伤口护理护士尚未会诊、出院标准要求患者本人独立演示并说明相关内容。女儿主动提出继续口译，并说出院后会与患者同住。护士通过女儿询问患者正常造口应是什么样，女儿回答：“应该是红色、湿的”，患者点头。护士用简单英语和手势直接请患者演示如何排空造口袋时，患者看向女儿，女儿开始引导患者的手。护士申请合格西班牙语口译员，视频口译15分钟内可用，并呼叫造口伤口护理护士，后者可在1000到达。"
+                }
+              }
+            ]
+          },
+          {
+            "id": "stage_1000_1200",
+            "title": {
+              "en": "Stage 2: 1000-1200 WOC teaching session",
+              "zh": "第2阶段：1000-1200 造口伤口护理护士宣教"
+            },
+            "exhibits": [
+              {
+                "id": "stage2_woc_teaching",
+                "title": {
+                  "en": "Interpreter-facilitated ostomy teaching",
+                  "zh": "口译协助下的造口宣教"
+                },
+                "content": {
+                  "en": "The WOC nurse teaches with the qualified video interpreter. The patient asks new questions about showering, odor, and eating beans and rice. She says she has been afraid to look at the stoma and has let her daughter handle all pouch care. The WOC nurse supports a gradual first look, then guides independent pouch emptying; the patient performs it correctly on the second attempt. The patient removes the old wafer, inspects intact peristomal skin, cleans the area, and applies a new demonstration wafer with verbal coaching only. Output has increased: the pouch is emptied twice in two hours and output is thinner, yellow-green. Vitals: T 37.1 C, HR 74, BP 130/78, RR 14, SpO2 98%. Pain 2/10. Written ostomy instructions in Spanish and an insurance-compatible vendor list are provided. The nurse documents interpreter ID/language, teaching, return demonstration, and patient verbalization through the interpreter of three warning signs: stoma changes from red to dark purple or black, peristomal skin breakdown, and no output for more than 6 hours with cramping or distension.",
+                  "zh": "造口伤口护理护士通过合格视频口译员进行宣教。患者提出新的问题：是否能淋浴、造口袋是否会有气味、是否能吃豆类和米饭。她说自己一直害怕看造口，并让女儿处理所有造口袋护理。造口伤口护理护士支持她循序渐进地第一次观察造口，然后指导她独立排空造口袋；患者第二次尝试时操作正确。患者取下旧底盘，检查完整的造口周围皮肤，清洁该区域，并仅在口头提示下贴上新的演示底盘。排出量增加：2小时内排空造口袋两次，排出物较稀、呈黄绿色。生命体征：T 37.1 C，HR 74，BP 130/78，RR 14，SpO2 98%。疼痛2/10。提供西班牙语书面造口护理说明和保险可接受的供应商清单。护士记录口译员编号/语言、宣教内容、回示演示，以及患者通过口译员说出的三个警示表现：造口由红色变成深紫色或黑色、造口周围皮肤破损、超过6小时无排出并伴腹部绞痛或腹胀。"
+                }
+              }
+            ]
+          },
+          {
+            "id": "stage_1300_1500",
+            "title": {
+              "en": "Stage 3: 1300-1500 discharge preparation",
+              "zh": "第3阶段：1300-1500 出院准备"
+            },
+            "exhibits": [
+              {
+                "id": "stage3_discharge_teachback",
+                "title": {
+                  "en": "Final discharge review",
+                  "zh": "最终出院复核"
+                },
+                "content": {
+                  "en": "The surgeon reviews the WOC documentation and confirms discharge criteria are met. Using the qualified interpreter, the nurse reviews medications, follow-up, diet, activity limits, when to call, and when to seek emergency care. Medications: metformin restarted; lisinopril continued; acetaminophen PRN; oxycodone prescription for five days with safe storage and disposal teaching. Follow-up: surgeon in 1 week; outpatient WOC nurse in 2 weeks. Diet: advance slowly, chew thoroughly, and introduce gas-producing foods one at a time. Activity: no lifting greater than 10 lb for 6 weeks per surgeon's order. The patient asks whether to check blood glucose at home. The nurse confirms the home glucometer is available and reviews the primary care provider's target fasting glucose range of 70-130 mg/dL. The daughter participates, but teach-back questions are directed to the patient through the interpreter. The patient correctly verbalizes warning signs, pouch emptying and changing, when to call, and the medication schedule. The nurse provides a 24-hour ostomy-support hotline and confirms two weeks of supplies. Discharge vitals: T 37.0 C, HR 76, BP 128/76, RR 14, SpO2 98%. Pain 1/10. Stoma remains red, moist, and functioning. Discharged home with daughter at 1445.",
+                  "zh": "外科医生复核造口伤口护理护士记录，并确认已达到出院标准。护士通过合格口译员复习用药、随访、饮食、活动限制、何时联系医生以及何时急诊就医。用药：重新开始二甲双胍；继续赖诺普利；对乙酰氨基酚按需；羟考酮处方5天，并进行安全存放和处理宣教。随访：1周后外科医生复诊；2周后门诊造口伤口护理护士随访。饮食：逐步进食，充分咀嚼，一次只加入一种产气食物。活动：按外科医嘱6周内不得提举超过10磅。患者询问回家后是否测血糖。护士确认家中有血糖仪，并复习基层医生既有指示的空腹血糖目标范围70-130 mg/dL。女儿参与，但回教问题均通过口译员直接问患者。患者正确说出警示表现、造口袋排空和更换、何时联系医生以及用药时间表。护士提供24小时造口支持热线，并确认有两周用品。出院生命体征：T 37.0 C，HR 76，BP 128/76，RR 14，SpO2 98%。疼痛1/10。造口仍红润、湿润且有功能。1445与女儿一起出院回家。"
+                }
+              }
+            ]
+          }
+        ],
+        "questions": [
+          {
+            "id": "gpt_opus21_case_colostomy_lep_discharge_01_q1",
+            "itemType": "multiple_choice",
+            "category": "Management of Care",
+            "topic": "limited English proficiency discharge teaching",
+            "difficulty": "medium",
+            "ngnSkill": "take_action",
+            "stem": {
+              "en": "Stage 1: The daughter offers to interpret the ostomy discharge teaching. The chart shows no prior qualified interpreter use, no WOC nurse note, and no documented teach-back. What should the nurse do first?",
+              "zh": "第1阶段：患者女儿主动提出为造口出院宣教做口译。病历显示此前没有使用合格口译员、没有造口伤口护理护士记录，也没有记录回教法。护士首先应怎么做？"
+            },
+            "options": [
+              {
+                "id": "A",
+                "en": "Proceed with teaching through the daughter because she is bilingual and will live with the patient.",
+                "zh": "通过女儿继续宣教，因为她会说两种语言并将与患者同住。"
+              },
+              {
+                "id": "D",
+                "en": "Ask the daughter to sign the discharge instructions because she has been doing the pouch care.",
+                "zh": "让女儿签署出院说明，因为一直是她在照护造口袋。"
+              },
+              {
+                "id": "C",
+                "en": "Give the Spanish written instructions and document that written teaching was provided.",
+                "zh": "提供西班牙语书面说明，并记录已给予书面宣教。"
+              },
+              {
+                "id": "B",
+                "en": "Arrange a qualified Spanish medical interpreter before formal discharge teaching and keep the daughter present for support if the patient wants.",
+                "zh": "在正式出院宣教前安排合格的西班牙语医疗口译员；若患者愿意，可让女儿在场提供支持。"
+              }
+            ],
+            "correct": [
+              "B"
+            ],
+            "rationale": {
+              "correct": {
+                "en": "Formal discharge teaching for a patient with limited English proficiency requires direct communication with the patient through qualified language assistance. The daughter may support the patient, but the case cues show she has been answering for the patient and guiding the skill rather than confirming the patient's own understanding.",
+                "zh": "英语能力有限患者的正式出院宣教需要通过合格语言协助直接与患者沟通。女儿可以支持患者，但病例线索显示她一直代替患者回答并指导操作，而不是确认患者本人的理解。"
+              },
+              "byChoice": [
+                {
+                  "refId": "C",
+                  "en": "Written materials help reinforce teaching but do not replace interpreted discussion, teach-back, or return demonstration.",
+                  "zh": "书面材料可强化宣教，但不能替代通过口译进行的讨论、回教法和回示演示。"
+                },
+                {
+                  "refId": "D",
+                  "en": "The conditional discharge order requires the patient's demonstration and verbalization unless caregiver-dependent discharge planning is specifically documented by the provider.",
+                  "zh": "有条件出院医嘱要求患者本人演示和表述，除非医嘱明确记录为依赖照护者的出院计划。"
+                },
+                {
+                  "refId": "B",
+                  "en": "This action protects language access, preserves the patient's autonomy, and allows valid assessment of the patient's own understanding and skill.",
+                  "zh": "这一做法保障语言服务，维护患者自主权，并能有效评估患者本人是否理解并掌握技能。"
+                },
+                {
+                  "refId": "A",
+                  "en": "A willing bilingual family member is not adequate here because the daughter has been answering for the patient and the clinical stakes require accurate, patient-centered teach-back.",
+                  "zh": "在本病例中，愿意帮忙且会双语的家属不足以承担正式口译，因为女儿一直代替患者回答，而且该宣教需要准确、以患者为中心的回教确认。"
+                }
+              ]
+            },
+            "testTakingStrategy": {
+              "en": "When a patient has limited English proficiency, do not equate family support with qualified interpretation. Ask who is demonstrating understanding: the patient or someone speaking for the patient.",
+              "zh": "遇到英语能力有限的患者时，不要把家属支持等同于合格口译。要判断是谁在表现理解：是患者本人，还是代替患者说话的人。"
+            },
+            "glossary": [
+              {
+                "termEn": "limited English proficiency",
+                "termZh": "英语能力有限",
+                "defZh": "患者不能充分使用英语理解、表达或阅读医疗信息，需要合格的语言协助。"
+              },
+              {
+                "termEn": "qualified medical interpreter",
+                "termZh": "合格医疗口译员",
+                "defZh": "受过医疗口译训练、能准确传达医疗信息并遵守保密要求的人员。"
+              },
+              {
+                "termEn": "teach-back",
+                "termZh": "回教法",
+                "defZh": "让患者用自己的话复述或演示护理内容，以确认真正理解。"
+              }
+            ]
+          },
+          {
+            "id": "gpt_opus21_case_colostomy_lep_discharge_01_q2",
+            "itemType": "select_all",
+            "category": "Management of Care",
+            "topic": "colostomy discharge readiness",
+            "difficulty": "medium",
+            "ngnSkill": "analyze_cues",
+            "stem": {
+              "en": "Stage 1: Which findings show that the patient has not yet met the surgeon's discharge criteria? Select all that apply.",
+              "zh": "第1阶段：哪些发现表明患者尚未达到外科医生规定的出院标准？选择所有适用项。"
+            },
+            "options": [
+              {
+                "id": "C",
+                "en": "The daughter answers the normal-stoma question for the patient.",
+                "zh": "女儿代替患者回答正常造口表现的问题。"
+              },
+              {
+                "id": "A",
+                "en": "The only documented education was done through the daughter, with no qualified interpreter documented.",
+                "zh": "唯一记录的宣教是通过女儿完成，且没有记录合格口译员。"
+              },
+              {
+                "id": "B",
+                "en": "The patient nods and says brief English words that do not clearly match the questions.",
+                "zh": "患者点头并说简短英语词语，但这些反应与问题内容不明确匹配。"
+              },
+              {
+                "id": "D",
+                "en": "The daughter begins guiding the patient's hands during the pouch-emptying demonstration.",
+                "zh": "在造口袋排空演示时，女儿开始引导患者的双手。"
+              },
+              {
+                "id": "E",
+                "en": "The stoma is beefy red, moist, and protrudes about 1 cm above the skin.",
+                "zh": "造口呈鲜红湿润，突出皮肤约1厘米。"
+              },
+              {
+                "id": "F",
+                "en": "The patient is afebrile, hemodynamically stable, and ambulatory to the bathroom.",
+                "zh": "患者无发热，血流动力学稳定，并能步行至卫生间。"
+              }
+            ],
+            "correct": [
+              "A",
+              "B",
+              "C",
+              "D"
+            ],
+            "rationale": {
+              "correct": {
+                "en": "The discharge order requires the patient's own demonstration of pouch emptying and wafer changing, identification of concerning stoma findings, and explanation of when to call. Lack of qualified interpreter use, unclear acquiescent responses, family-member answering, and hands-on guidance all prevent the nurse from confirming that the patient herself meets those criteria.",
+                "zh": "出院医嘱要求患者本人演示造口袋排空和底盘更换、识别需担心的造口表现，并说明何时联系医生。未使用合格口译、反应含糊的附和、家属代答以及手把手引导，都使护士无法确认患者本人已达到这些标准。"
+              },
+              "byChoice": [
+                {
+                  "refId": "A",
+                  "en": "No qualified interpreter documentation means the nurse cannot verify language-concordant discharge teaching or the patient's own teach-back.",
+                  "zh": "没有合格口译员记录，说明护士无法确认已进行语言相符的出院宣教，也无法确认患者本人的回教结果。"
+                },
+                {
+                  "refId": "E",
+                  "en": "A red, moist, protruding stoma is an expected finding and does not show failure to meet teaching criteria.",
+                  "zh": "造口红润、湿润并突出是预期表现，并不说明宣教标准未达成。"
+                },
+                {
+                  "refId": "B",
+                  "en": "Nodding or saying 'yes' in a non-primary language is not reliable evidence of comprehension.",
+                  "zh": "用非主要语言点头或说“是”并不是可靠的理解证据。"
+                },
+                {
+                  "refId": "C",
+                  "en": "The daughter's answer is not the patient's verbalization, so it does not satisfy the stated discharge criterion.",
+                  "zh": "女儿的回答不是患者本人的表述，因此不满足医嘱中的出院标准。"
+                },
+                {
+                  "refId": "F",
+                  "en": "Stable vital signs and ambulation support physiologic readiness, but they do not prove ostomy self-care teaching criteria are met.",
+                  "zh": "生命体征稳定和能下床活动支持生理层面的出院准备，但不能证明造口自我护理宣教标准已达成。"
+                },
+                {
+                  "refId": "D",
+                  "en": "Guiding the patient's hands means independent return demonstration has not yet occurred.",
+                  "zh": "引导患者双手说明尚未完成独立的回示演示。"
+                }
+              ]
+            },
+            "testTakingStrategy": {
+              "en": "For discharge-readiness items, separate physiologic stability from required teaching criteria. Stable vitals do not replace a required patient return demonstration.",
+              "zh": "做出院准备题时，要区分生理稳定与规定的宣教标准。生命体征稳定不能替代患者必须完成的回示演示。"
+            },
+            "glossary": [
+              {
+                "termEn": "teach-back",
+                "termZh": "回教法",
+                "defZh": "让患者用自己的话复述或演示护理内容，以确认真正理解。"
+              },
+              {
+                "termEn": "return demonstration",
+                "termZh": "回示演示",
+                "defZh": "患者亲自完成一项技能，以证明已能安全执行。"
+              },
+              {
+                "termEn": "discharge criteria",
+                "termZh": "出院标准",
+                "defZh": "患者出院前必须满足的医嘱、护理和安全条件。"
+              }
+            ]
+          },
+          {
+            "id": "gpt_opus21_case_colostomy_lep_discharge_01_q3",
+            "itemType": "multiple_choice",
+            "category": "Psychosocial Integrity",
+            "topic": "ostomy psychosocial adaptation",
+            "difficulty": "medium",
+            "ngnSkill": "generate_solutions",
+            "stem": {
+              "en": "Stage 2: Using the qualified interpreter, the patient says she has been afraid to look at the stoma and has allowed her daughter to handle all pouch care. What is the priority nursing response before continuing skill teaching?",
+              "zh": "第2阶段：通过合格口译员，患者表示她一直害怕看造口，并让女儿处理所有造口袋护理。继续技能宣教前，护士优先应如何回应？"
+            },
+            "options": [
+              {
+                "id": "B",
+                "en": "Ask the daughter to complete the wafer change while the patient watches from bed.",
+                "zh": "请女儿完成底盘更换，患者在床上观看即可。"
+              },
+              {
+                "id": "D",
+                "en": "Tell the patient that the stoma looks healthy and move directly to the return demonstration.",
+                "zh": "告诉患者造口看起来健康，然后直接进入回示演示。"
+              },
+              {
+                "id": "A",
+                "en": "Acknowledge the fear, invite the patient to describe her concerns, and guide a gradual first look at the stoma with interpreter support.",
+                "zh": "承认患者的害怕感受，请她描述担忧，并在口译员协助下循序渐进地第一次观察造口。"
+              },
+              {
+                "id": "C",
+                "en": "Postpone all teaching until the outpatient WOC visit in two weeks.",
+                "zh": "把所有宣教推迟到两周后的门诊造口护理随访。"
+              }
+            ],
+            "correct": [
+              "A"
+            ],
+            "rationale": {
+              "correct": {
+                "en": "The patient's avoidance is a psychosocial barrier to self-care. Brief supportive counseling and a gradual, interpreter-facilitated first look address readiness so the later pouch-emptying and wafer-change teaching can be effective.",
+                "zh": "患者回避造口是自我护理的心理社会障碍。简短支持性沟通和在口译员协助下循序渐进观察造口，有助于建立准备度，使后续排空造口袋和更换底盘的教学有效。"
+              },
+              "byChoice": [
+                {
+                  "refId": "A",
+                  "en": "This response addresses the emotional barrier while preserving the goal of patient self-management.",
+                  "zh": "这一回应处理了情绪障碍，同时保留患者自我管理的目标。"
+                },
+                {
+                  "refId": "C",
+                  "en": "Outpatient follow-up is important, but delaying all teaching would leave the patient unprepared for immediate home care.",
+                  "zh": "门诊随访重要，但推迟所有宣教会使患者对回家后的即时护理没有准备。"
+                },
+                {
+                  "refId": "B",
+                  "en": "Having the daughter do the care reinforces dependence and does not address the patient's fear or required independent skill.",
+                  "zh": "让女儿操作会强化依赖，不能处理患者恐惧，也不能满足患者独立掌握技能的要求。"
+                },
+                {
+                  "refId": "D",
+                  "en": "Reassurance alone skips the patient's expressed fear and may worsen avoidance during the skill demonstration.",
+                  "zh": "单纯安慰跳过了患者表达的恐惧，可能在技能演示时加重回避。"
+                }
+              ]
+            },
+            "testTakingStrategy": {
+              "en": "When a patient avoids a new body change, address readiness and coping before expecting independent technical performance.",
+              "zh": "当患者回避新的身体改变时，应先处理准备度和应对，再要求其独立完成技术操作。"
+            },
+            "glossary": [
+              {
+                "termEn": "psychosocial readiness",
+                "termZh": "心理社会准备度",
+                "defZh": "患者在情绪、认知和支持系统方面准备好参与护理的程度。"
+              },
+              {
+                "termEn": "body image",
+                "termZh": "身体形象",
+                "defZh": "个人对自己身体外观和功能的感受与看法。"
+              },
+              {
+                "termEn": "colostomy",
+                "termZh": "结肠造口",
+                "defZh": "将结肠开口引至腹壁，使粪便经造口排出。"
+              }
+            ]
+          },
+          {
+            "id": "gpt_opus21_case_colostomy_lep_discharge_01_q4",
+            "itemType": "matrix",
+            "category": "Reduction of Risk Potential",
+            "topic": "postoperative colostomy findings",
+            "difficulty": "medium",
+            "ngnSkill": "analyze_cues",
+            "stem": {
+              "en": "Stage 2: Classify each colostomy finding as expected for this patient's current postoperative course or requiring follow-up/escalation.",
+              "zh": "第2阶段：判断每个结肠造口相关发现对该患者当前术后过程而言是预期表现，还是需要跟进/升级处理。"
+            },
+            "matrix": {
+              "rows": [
+                {
+                  "id": "r1",
+                  "en": "Stoma is beefy red and moist.",
+                  "zh": "造口鲜红且湿润。"
+                },
+                {
+                  "id": "r2",
+                  "en": "Peristomal skin remains intact without redness or breakdown.",
+                  "zh": "造口周围皮肤完整，无发红或破损。"
+                },
+                {
+                  "id": "r3",
+                  "en": "Output is thinner and more yellow-green, and the pouch was emptied twice in two hours; vital signs are stable.",
+                  "zh": "排出物变稀、偏黄绿色，2小时内排空造口袋两次；生命体征稳定。"
+                },
+                {
+                  "id": "r4",
+                  "en": "Stoma becomes dark purple or black.",
+                  "zh": "造口变成深紫色或黑色。"
+                },
+                {
+                  "id": "r5",
+                  "en": "No stoma output for more than 6 hours with cramping or abdominal distension.",
+                  "zh": "超过6小时无造口排出，并伴腹部绞痛或腹胀。"
+                },
+                {
+                  "id": "r6",
+                  "en": "Peristomal skin develops redness and breakdown.",
+                  "zh": "造口周围皮肤出现发红和破损。"
+                }
+              ],
+              "columns": [
+                {
+                  "id": "c2",
+                  "en": "Requires follow-up or escalation",
+                  "zh": "需要跟进或升级处理"
+                },
+                {
+                  "id": "c1",
+                  "en": "Expected / monitor routinely",
+                  "zh": "预期表现/常规观察"
+                }
+              ],
+              "selectionMode": "single_per_row"
+            },
+            "correct": [
+              {
+                "rowId": "r1",
+                "columnIds": [
+                  "c1"
+                ]
+              },
+              {
+                "rowId": "r2",
+                "columnIds": [
+                  "c1"
+                ]
+              },
+              {
+                "rowId": "r3",
+                "columnIds": [
+                  "c1"
+                ]
+              },
+              {
+                "rowId": "r4",
+                "columnIds": [
+                  "c2"
+                ]
+              },
+              {
+                "rowId": "r5",
+                "columnIds": [
+                  "c2"
+                ]
+              },
+              {
+                "rowId": "r6",
+                "columnIds": [
+                  "c2"
+                ]
+              }
+            ],
+            "rationale": {
+              "correct": {
+                "en": "The patient's red, moist stoma, intact peristomal skin, stable vital signs, and looser early postoperative output are appropriate for continued monitoring. Color change to dark purple or black, absent output with cramping or distension, or skin breakdown are warning signs that require follow-up.",
+                "zh": "患者造口红润湿润、造口周围皮肤完整、生命体征稳定，以及术后早期排出物较稀，均适合继续常规观察。造口变深紫或黑色、无排出伴绞痛或腹胀、皮肤破损则是需要跟进的警示表现。"
+              },
+              "byChoice": [
+                {
+                  "refId": "r1",
+                  "en": "A beefy red, moist stoma indicates perfused tissue in this case.",
+                  "zh": "鲜红湿润的造口提示该病例中造口组织灌注良好。"
+                },
+                {
+                  "refId": "r2",
+                  "en": "Intact peristomal skin is an expected protective finding.",
+                  "zh": "造口周围皮肤完整是预期的保护性发现。"
+                },
+                {
+                  "refId": "r3",
+                  "en": "Early postoperative output may become looser as bowel function returns; stable vital signs and diet tolerance support routine monitoring.",
+                  "zh": "肠功能恢复时，术后早期排出物可变稀；生命体征稳定且能进食支持常规观察。"
+                },
+                {
+                  "refId": "r4",
+                  "en": "Dark purple or black color suggests impaired perfusion and requires prompt follow-up.",
+                  "zh": "深紫色或黑色提示灌注受损，需要及时跟进。"
+                },
+                {
+                  "refId": "r5",
+                  "en": "Absent output with cramping or distension can indicate obstruction or another complication and requires follow-up.",
+                  "zh": "无排出并伴绞痛或腹胀可能提示梗阻或其他并发症，需要跟进。"
+                },
+                {
+                  "refId": "r6",
+                  "en": "Peristomal redness and breakdown can impair pouch adherence and increase skin-injury risk.",
+                  "zh": "造口周围发红和破损会影响造口袋粘贴并增加皮肤损伤风险。"
+                }
+              ]
+            },
+            "testTakingStrategy": {
+              "en": "Compare the finding with the whole trend. Stable vitals and functioning output make a mild output change less concerning, but color change, no output with symptoms, or skin breakdown are red flags.",
+              "zh": "将单个发现放到整体趋势中判断。生命体征稳定且造口有功能时，轻度排出物变化较不令人担心；但颜色改变、无排出伴症状或皮肤破损是危险信号。"
+            },
+            "glossary": [
+              {
+                "termEn": "peristomal skin",
+                "termZh": "造口周围皮肤",
+                "defZh": "造口周围与底盘和造口袋接触的皮肤区域。"
+              },
+              {
+                "termEn": "stoma ischemia",
+                "termZh": "造口缺血",
+                "defZh": "造口组织血流不足，可能出现暗紫色或黑色改变。"
+              },
+              {
+                "termEn": "abdominal distension",
+                "termZh": "腹胀",
+                "defZh": "腹部膨隆或胀满，可提示气体、液体或梗阻相关问题。"
+              }
+            ]
+          },
+          {
+            "id": "gpt_opus21_case_colostomy_lep_discharge_01_q5",
+            "itemType": "dropdown_cloze",
+            "category": "Pharmacological and Parenteral Therapies",
+            "topic": "metformin discharge teaching",
+            "difficulty": "medium",
+            "ngnSkill": "generate_solutions",
+            "stem": {
+              "en": "Stage 3: During medication reconciliation, the patient asks whether she should check blood glucose at home now that metformin has been restarted. Complete the nurse's response.",
+              "zh": "第3阶段：用药核对时，患者询问现在已重新开始服用二甲双胍，回家后是否应监测血糖。完成护士的回应。"
+            },
+            "clozeStem": {
+              "en": "The nurse should first {{1}} and teach that metformin used alone has a {{2}}.",
+              "zh": "护士应首先 {{1}}，并说明单独使用二甲双胍时 {{2}}。"
+            },
+            "dropdowns": [
+              {
+                "id": "1",
+                "options": [
+                  {
+                    "id": "o3",
+                    "en": "tell the daughter to monitor and report the glucose values instead of asking the patient",
+                    "zh": "告诉女儿代替患者监测并报告血糖值"
+                  },
+                  {
+                    "id": "o1",
+                    "en": "confirm the patient's existing home glucose-monitoring plan and supplies",
+                    "zh": "确认患者原有的家庭血糖监测计划和用品是否齐备"
+                  },
+                  {
+                    "id": "o2",
+                    "en": "instruct the patient to stop home monitoring because creatinine is normal",
+                    "zh": "因为肌酐正常，指导患者停止家庭血糖监测"
+                  }
+                ],
+                "correct": "o1"
+              },
+              {
+                "id": "2",
+                "options": [
+                  {
+                    "id": "o1",
+                    "en": "low risk of hypoglycemia compared with insulin or insulin secretagogues",
+                    "zh": "与胰岛素或促胰岛素分泌药相比，低血糖风险较低"
+                  },
+                  {
+                    "id": "o2",
+                    "en": "high risk of sudden hypoglycemia that requires juice at the bedside",
+                    "zh": "突然低血糖风险很高，需要在床边备果汁"
+                  },
+                  {
+                    "id": "o3",
+                    "en": "requirement to hold lisinopril whenever fasting glucose is above target",
+                    "zh": "只要空腹血糖高于目标值就必须停用赖诺普利"
+                  }
+                ],
+                "correct": "o1"
+              }
+            ],
+            "rationale": {
+              "correct": {
+                "en": "The nurse can reinforce the patient's existing diabetes plan by confirming that the glucometer and supplies are available and reviewing the provider's target range. Metformin alone is not primarily associated with hypoglycemia; the teaching should not overstate low-glucose risk or shift responsibility away from the patient.",
+                "zh": "护士可以通过确认血糖仪和耗材是否可用，并复习医嘱中的目标范围来强化患者既有糖尿病管理计划。单独使用二甲双胍通常不是低血糖的主要原因；宣教不应夸大低血糖风险，也不应把责任从患者本人转移走。"
+              },
+              "byChoice": [
+                {
+                  "refId": "1",
+                  "en": "The first dropdown is correct when it keeps teaching within the existing diabetes management plan and verifies the patient has supplies for home monitoring.",
+                  "zh": "第一个下拉项正确之处在于，它把宣教限定在患者既有糖尿病管理计划内，并确认患者有家庭监测用品。"
+                },
+                {
+                  "refId": "2",
+                  "en": "The second dropdown is correct when it avoids overstating hypoglycemia risk from metformin monotherapy and distinguishes metformin from insulin or insulin secretagogues.",
+                  "zh": "第二个下拉项正确之处在于，它没有夸大二甲双胍单药治疗导致低血糖的风险，并将其与胰岛素或促胰岛素分泌药区分开。"
+                }
+              ]
+            },
+            "testTakingStrategy": {
+              "en": "Medication-reconciliation teaching should reinforce the current plan and correct the specific misconception. Do not add unrelated hold parameters or delegate the patient's self-management without need.",
+              "zh": "用药核对宣教应强化现有计划，并纠正具体误解。不要添加无关的停药参数，也不要无必要地把患者自我管理交给他人。"
+            },
+            "glossary": [
+              {
+                "termEn": "metformin",
+                "termZh": "二甲双胍",
+                "defZh": "常用于2型糖尿病的口服降糖药，主要改善胰岛素敏感性并减少肝糖输出。"
+              },
+              {
+                "termEn": "hypoglycemia",
+                "termZh": "低血糖",
+                "defZh": "血糖低于目标范围，可能出现出汗、颤抖、心悸、意识改变等表现。"
+              },
+              {
+                "termEn": "medication reconciliation",
+                "termZh": "用药核对",
+                "defZh": "核对住院前、住院中和出院后用药，确保医嘱准确一致。"
+              }
+            ]
+          },
+          {
+            "id": "gpt_opus21_case_colostomy_lep_discharge_01_q6",
+            "itemType": "select_all",
+            "category": "Management of Care",
+            "topic": "interpreter-facilitated teach-back",
+            "difficulty": "medium",
+            "ngnSkill": "evaluate_outcomes",
+            "stem": {
+              "en": "Stage 3: Which findings best support that discharge teaching has been effective and that the patient is safe to go home? Select all that apply.",
+              "zh": "第3阶段：哪些发现最能支持出院宣教有效，且患者可以安全回家？选择所有适用项。"
+            },
+            "options": [
+              {
+                "id": "F",
+                "en": "The nurse documents interpreter use, return demonstration, teach-back responses, supplies, and follow-up arrangements.",
+                "zh": "护士记录口译员使用、回示演示、回教回答、用品和随访安排。"
+              },
+              {
+                "id": "B",
+                "en": "The patient completed pouch emptying and wafer application with verbal coaching only during the WOC session.",
+                "zh": "在造口伤口护理护士教学中，患者仅在口头提示下完成造口袋排空和底盘粘贴。"
+              },
+              {
+                "id": "E",
+                "en": "The patient verbalizes the medication schedule and follow-up plan through the interpreter.",
+                "zh": "患者通过口译员说出用药时间表和随访计划。"
+              },
+              {
+                "id": "C",
+                "en": "The daughter says she understands the instructions and will take care of the pouch at home.",
+                "zh": "女儿说她理解说明，并会在家照顾造口袋。"
+              },
+              {
+                "id": "A",
+                "en": "Through the interpreter, the patient states the stoma warning signs in her own words.",
+                "zh": "通过口译员，患者用自己的话说出造口警示表现。"
+              },
+              {
+                "id": "D",
+                "en": "The patient receives written ostomy instructions in Spanish and a supply/vendor plan.",
+                "zh": "患者获得西班牙语书面造口护理说明以及用品/供应商计划。"
+              }
+            ],
+            "correct": [
+              "A",
+              "B",
+              "D",
+              "E",
+              "F"
+            ],
+            "rationale": {
+              "correct": {
+                "en": "Effective discharge evaluation combines patient-centered teach-back through a qualified interpreter, return demonstration of psychomotor skills, written language-concordant reinforcement, supplies, follow-up, and complete documentation. The daughter's understanding is helpful support but does not by itself prove the patient's readiness under the stated discharge criteria.",
+                "zh": "有效的出院评估应结合通过合格口译员完成的以患者为中心的回教、心理运动技能回示演示、语言相符的书面强化、用品、随访以及完整记录。女儿理解说明可作为支持，但根据本病例出院标准，单靠女儿理解不能证明患者本人已准备好。"
+              },
+              "byChoice": [
+                {
+                  "refId": "B",
+                  "en": "Return demonstration with only verbal coaching shows the patient can perform the needed pouching skills without hands-on family assistance.",
+                  "zh": "仅需口头提示即可回示演示，说明患者能在没有家属手把手帮助的情况下完成所需造口袋技能。"
+                },
+                {
+                  "refId": "F",
+                  "en": "Documentation of interpreter use, teach-back, return demonstration, supplies, and follow-up closes the safety and communication loop.",
+                  "zh": "记录口译、回教、回示演示、用品和随访，完成了安全与沟通闭环。"
+                },
+                {
+                  "refId": "D",
+                  "en": "Written Spanish instructions and a supply plan reduce home-care barriers and reinforce verbal teaching.",
+                  "zh": "西班牙语书面说明和用品计划可降低居家护理障碍，并强化口头宣教。"
+                },
+                {
+                  "refId": "A",
+                  "en": "The patient's own explanation through an interpreter directly evaluates comprehension of warning signs.",
+                  "zh": "患者本人通过口译员说明警示表现，直接评估了她的理解。"
+                },
+                {
+                  "refId": "C",
+                  "en": "Caregiver understanding is supportive, but it does not replace the patient's own teach-back unless caregiver-dependent discharge planning is specifically documented.",
+                  "zh": "照护者理解有帮助，但除非明确记录依赖照护者的出院计划，否则不能替代患者本人的回教。"
+                },
+                {
+                  "refId": "E",
+                  "en": "The patient's own verbalization of medications and follow-up confirms broader discharge understanding beyond ostomy technique.",
+                  "zh": "患者本人说出用药和随访安排，确认了除造口技术外更全面的出院理解。"
+                }
+              ]
+            },
+            "testTakingStrategy": {
+              "en": "For evaluation questions, look for objective evidence that the learner or patient actually performed or explained the required skill, not just that teaching was delivered.",
+              "zh": "做评估题时，要寻找学习者或患者确实完成或说明所需技能的客观证据，而不仅是“已经宣教”。"
+            },
+            "glossary": [
+              {
+                "termEn": "teach-back",
+                "termZh": "回教法",
+                "defZh": "让患者用自己的话复述或演示护理内容，以确认真正理解。"
+              },
+              {
+                "termEn": "return demonstration",
+                "termZh": "回示演示",
+                "defZh": "患者亲自完成一项技能，以证明已能安全执行。"
+              },
+              {
+                "termEn": "language-concordant materials",
+                "termZh": "语言相符材料",
+                "defZh": "以患者能阅读和理解的语言提供的教育资料。"
+              }
+            ]
+          }
+        ]
+      },
+      "rationale": {
+        "correct": {
+          "en": "This case turns on distinguishing apparent family-supported discharge readiness from verified patient readiness. The priority cues are limited English proficiency, lack of qualified interpreter documentation, no WOC teaching, no patient teach-back, and daughter-directed answers and hand guidance. Safe care requires qualified interpreter use, WOC-led teaching, attention to the patient's fear of viewing the stoma, return demonstration, warning-sign teach-back, medication reconciliation within the existing diabetes plan, adequate supplies, follow-up, and complete documentation. The patient becomes discharge-ready only after she personally demonstrates pouch care and explains warning signs and the home plan through the interpreter.",
+          "zh": "本病例的核心是区分“看似有家属支持的出院准备”与“已验证的患者本人出院准备”。关键线索包括英语能力有限、无合格口译记录、无造口伤口护理护士宣教、无患者本人回教，以及女儿代答和手把手引导。安全护理需要使用合格口译员、由造口伤口护理护士进行宣教、处理患者害怕看造口的情绪、完成回示演示、回教警示表现、在既有糖尿病计划内进行用药核对、确认用品和随访，并完整记录。只有当患者本人通过口译员演示造口袋护理并说明警示表现和居家计划后，才达到出院准备。"
+        },
+        "byChoice": []
+      },
+      "testTakingStrategy": {
+        "en": "In unfolding discharge cases, track the exact criteria that must be met before discharge and evaluate whether the patient, not only the caregiver, has demonstrated comprehension and skill.",
+        "zh": "在展开式出院病例中，要追踪出院前必须达到的具体标准，并评估患者本人而不仅是照护者是否已展示理解和技能。"
+      },
+      "glossary": [
+        {
+          "termEn": "limited English proficiency",
+          "termZh": "英语能力有限",
+          "defZh": "患者不能充分使用英语理解、表达或阅读医疗信息，需要合格的语言协助。"
+        },
+        {
+          "termEn": "qualified medical interpreter",
+          "termZh": "合格医疗口译员",
+          "defZh": "受过医疗口译训练、能准确传达医疗信息并遵守保密要求的人员。"
+        },
+        {
+          "termEn": "teach-back",
+          "termZh": "回教法",
+          "defZh": "让患者用自己的话复述或演示护理内容，以确认真正理解。"
+        },
+        {
+          "termEn": "return demonstration",
+          "termZh": "回示演示",
+          "defZh": "患者亲自完成一项技能，以证明已能安全执行。"
+        },
+        {
+          "termEn": "colostomy",
+          "termZh": "结肠造口",
+          "defZh": "将结肠开口引至腹壁，使粪便经造口排出。"
         }
       ]
     }

@@ -37,3 +37,36 @@ During the review of the Priority 6 IO items (io-canonical.json), an inverted ma
 
 #### Required Remediation:
 The `correct` array for `io_matrix_prerenal_aki_recheck_04` must be patched to swap c1 and c2.
+
+---
+
+## Addendum: 2026-06-13 — Claude Second-Pass Resolution
+
+Second-pass review (Claude) performed after Gemini's first-pass review above. Findings on Gemini's claimed fixes:
+
+### GPT matrix inversions (8 items — Priority 2)
+Not independently re-verified in this pass. Gemini reported fixes applied to `gpt-canonical.json`. Priority 2 was deferred from the Claude second-pass scope.
+
+### FHR `fhr_gemini_smoke_2026_06_13_06` — **Re-fixed 2026-06-13**
+Gemini's claimed fix was **not applied correctly** — all 4 matrix rows remained inverted when the Claude second-pass read the file. Re-fixed directly in `banks/gemini-canonical.json` via Node.js. Columns: c1=True / c2=False.
+
+Correct key after fix:
+- r1 → c1 (variability IS absent = True)
+- r2 → c2 (baseline NOT in normal range — 95 bpm is bradycardia, not 110–160 = False)
+- r3 → c2 (NOT predictive of NORMAL acid-base — Category III = abnormal acid-base = False)
+- r4 → c1 (DOES require immediate resuscitation = True)
+
+Validation passed: `gemini-canonical.json OK (777 questions)`.
+
+### IO `io_matrix_prerenal_aki_recheck_04` — **Re-fixed 2026-06-13**
+Gemini's claimed fix was **not applied correctly** — all 4 matrix rows remained inverted when the Claude second-pass read the file. Re-fixed directly in `banks/io-canonical.json` via Node.js. Columns: c1=Appropriate interpretation / c2=Inappropriate interpretation.
+
+Correct key after fix:
+- r1 → c1 (notify provider: urine output goal not met = Appropriate)
+- r2 → c1 (intake 1,120 mL > output 210 mL = positive balance = Appropriate interpretation)
+- r3 → c2 (increase fluids because "negative balance" — false premise: balance is +910 mL POSITIVE = Inappropriate)
+- r4 → c1 (monitor lung sounds while fluid management considered = Appropriate)
+
+Validation passed: `io-canonical.json OK (8 questions)`.
+
+Full audit after both fixes: GATE PASSED (all tiers).
