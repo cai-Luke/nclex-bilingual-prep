@@ -40,7 +40,7 @@ Current canonical banks (see [BANK-CENSUS.md](BANK-CENSUS.md); 1,303 top-level, 
 - `banks/medlabel-canonical.json` (8 schema v1.2 medication-label visual items)
 - `banks/visual-canonical.json` (53 reviewed schema v1.2 rhythm-strip visual items; the dedicated home for rhythm_strip kind, formerly `banks/rhythm-canonical`)
 - `banks/vitals-canonical.json` (10 reviewed schema v1.2 vitals-trend visual items; dedicated home for vitals_trend kind)
-- Schema version `1.4` current; `1.0` standalone, `1.1` case-study, `1.2` visual, and `1.3` highlight banks remain supported
+- Schema version `1.5` current; `1.0` standalone, `1.1` case-study, `1.2` visual, `1.3` highlight, and `1.4` bowtie banks remain supported
 
 Current schema item types:
 
@@ -57,6 +57,25 @@ Current schema item types:
 The committed NGN item-type set is complete. Rationale/dyad scoring and an explicit linked “X as evidenced by Y” type remain out of scope.
 
 ## Milestones
+
+### Rationale Explanation Visuals — Schema 1.5 (Jun 15)
+
+Completed:
+- Added optional answer-revealed `rationale.visuals` for post-answer explanation figures, reusing the existing deterministic `QuestionVisual` union without adding new visual kinds.
+- Bumped schema support to `1.5`, including bank-floor validation for top-level and embedded case-study rationale visuals.
+- Renders rationale visuals after `rationale.correct` and before per-choice rationales, with the active bilingual `languageMode` threaded through every `RationalePanel` call.
+- Kept the custom-session "Questions with images" filter stimulus/exhibit-only for v1; rationale visuals do not change that chip's meaning.
+- Added schema-bank fixtures for shape limits, structural bad-kind failure, non-stimulus item placement, bare-array imports, embedded case floor checks, and export-envelope versioning.
+
+### Regeneration Omission Closure + Gemini Review Layer (Jun 15)
+
+Completed:
+- Closed the P2 branch without regeneration by recording accepted omissions for `opus_car_t_crs_2026_06_11_case_01` and `opus2_case_code_status_01` in `BANK-REVIEW-LEDGER.md`.
+- Reconciled the CAR-T ledger count ambiguity: the bank has 5 embedded CAR-T items; DP5's lab-trend/end-organ analysis is accepted as merged into Q4 rather than missing.
+- Updated the case-skeleton pipeline role split to `Opus skeleton -> GPT fact-check + compile -> Gemini flag-only review -> Claude final gate`.
+- Converted the old Gemini compiler prompt into a Gemini review-layer prompt that emits structured flags only, never edited JSON.
+- Updated the GPT compiler prompt and `DECISIONS.md` to record GPT-compile provenance, Gemini-review scope, and the no-mutation boundary.
+- No canonical bank JSON was changed in this pass.
 
 ### Case Completion Reconciliation — Layer A + Manifest Gate (Jun 15)
 

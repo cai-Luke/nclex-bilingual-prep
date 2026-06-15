@@ -2190,7 +2190,7 @@ function QuestionCard({
         </div>
       )}
 
-      {submitted && <RationalePanel question={question} voiceEnabled={voiceEnabled} />}
+      {submitted && <RationalePanel question={question} voiceEnabled={voiceEnabled} languageMode={languageMode} />}
     </article>
   );
 }
@@ -2929,7 +2929,7 @@ function CaseStudyControl({
                 onTerm={onTerm}
                 onAnswer={(nextAnswer) => updateCaseAnswer(caseQuestion.id, nextAnswer)}
               />
-              {submitted && <RationalePanel question={caseQuestion} title="Part rationale" voiceEnabled={voiceEnabled} />}
+              {submitted && <RationalePanel question={caseQuestion} title="Part rationale" voiceEnabled={voiceEnabled} languageMode={languageMode} />}
             </section>
           );
         })}
@@ -3077,10 +3077,12 @@ function RationalePanel({
   question,
   title = "Rationale",
   voiceEnabled = false,
+  languageMode,
 }: {
   question: Question;
   title?: string;
   voiceEnabled?: boolean;
+  languageMode: LanguageMode;
 }) {
   const choiceRationales = question.rationale.byChoice ?? [];
   return (
@@ -3093,6 +3095,13 @@ function RationalePanel({
         <p>{question.rationale.correct.en}</p>
         <p lang="zh-Hans">{question.rationale.correct.zh}</p>
       </div>
+      {question.rationale.visuals && question.rationale.visuals.length > 0 && (
+        <div className="rationale-visuals">
+          {question.rationale.visuals.map((visual, index) => (
+            <VisualStimulus key={index} visual={visual} languageMode={languageMode} />
+          ))}
+        </div>
+      )}
       {choiceRationales.length > 0 && (
         <>
           <h4>Per choice</h4>

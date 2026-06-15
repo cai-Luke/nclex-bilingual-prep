@@ -1,6 +1,6 @@
 # NCLEX Bank — Canonical Question Schema
 
-**schemaVersion: `1.4` — current.** This document is the canonical authoring and review contract; runtime behavior is implemented by `src/types.ts`, `src/schema.ts`, and the registered modules under `src/visuals/`. `1.0` standalone-question banks, `1.1` case-study banks, `1.2` visual banks, and `1.3` highlight banks remain supported. Do not change shapes without bumping `schemaVersion` and writing a migration.
+**schemaVersion: `1.5` — current.** This document is the canonical authoring and review contract; runtime behavior is implemented by `src/types.ts`, `src/schema.ts`, and the registered modules under `src/visuals/`. `1.0` standalone-question banks, `1.1` case-study banks, `1.2` visual banks, `1.3` highlight banks, and `1.4` bowtie banks remain supported. Do not change shapes without bumping `schemaVersion` and writing a migration.
 
 ---
 
@@ -11,7 +11,7 @@ A generated bank is one JSON object:
 ```json
 {
   "meta": {
-    "schemaVersion": "1.4",
+    "schemaVersion": "1.5",
     "exam": "NCLEX-RN",
     "topic": "echo of the requested topic",
     "category": "echo of the requested category, or 'mixed'",
@@ -22,7 +22,7 @@ A generated bank is one JSON object:
 }
 ```
 
-The importer also accepts a bare `[ ... ]` array of Question objects (no envelope). When present, `meta.schemaVersion` must be `"1.0"`, `"1.1"`, `"1.2"`, `"1.3"`, or `"1.4"`. `case_study` requires `"1.1"` or later. `visual` requires `"1.2"` or later. `highlight`, including a highlight embedded in a case study, requires `"1.3"`. Standalone `bowtie` requires `"1.4"`.
+The importer also accepts a bare `[ ... ]` array of Question objects (no envelope). When present, `meta.schemaVersion` must be `"1.0"`, `"1.1"`, `"1.2"`, `"1.3"`, `"1.4"`, or `"1.5"`. `case_study` requires `"1.1"` or later. `visual` requires `"1.2"` or later. `highlight`, including a highlight embedded in a case study, requires `"1.3"`. Standalone `bowtie` requires `"1.4"`. `rationale.visuals` (explanation visuals) requires `"1.5"`.
 
 ---
 
@@ -51,6 +51,9 @@ The importer also accepts a bare `[ ... ]` array of Question objects (no envelop
   "correct": { "en": "why the keyed answer(s) are correct", "zh": "..." },
   "byChoice": [
     { "refId": "A", "en": "why this choice is right/wrong", "zh": "..." }
+  ],
+  "visuals": [
+    { "kind": "lab_trend", "...": "an existing visual kind, answer-revealed" }
   ]
 }
 ```
@@ -64,7 +67,18 @@ The importer also accepts a bare `[ ... ]` array of Question objects (no envelop
 
 `byChoice` is **required for option types** (one entry per option). For other types it's encouraged (one per row / dropdown / blank) but may be omitted if `rationale.correct` fully explains it.
 
+`rationale.visuals` (schema `1.5`, optional) is an array of **1-6** explanation visuals shown after the answer is revealed. Omit the field for none; an empty array is invalid. See *Rationale explanation visuals* below.
+
 All `{ en, zh }` pairs require both languages non-empty. `zh` is natural Simplified Chinese, not literal word-for-word.
+
+### Rationale explanation visuals — schema `1.5`
+
+`rationale.visuals` carries deterministic figures that **teach the explanation**, distinct from the load-bearing `question.visual` stimulus. They render after `rationale.correct`, before the per-choice block, only once the item is submitted.
+
+- **Shape:** array of **1-6** entries, each an existing visual `kind` (same `QuestionVisual` union). No new kinds, no AI-generated or bespoke art. Empty array invalid; absence = none.
+- **Answer-revealed, by design.** The necessity rule ("removing the visual must change the answer") and the caption-neutrality rule do **not** apply here; an explanation figure may annotate the finding, draw the threshold, or name the abnormality. Its validity test is instead: does it materially clarify the post-answer explanation? That is a human review-gate judgment, not a machine check.
+- **Validation:** structural only (exhibit mode). Placement restrictions (`allowedItemTypes`) and `selfCheck` arithmetic/answer-coupling gates are **not** run, so a rationale visual is permitted on any item type and is not required to be load-bearing. Each kind's structural `validate` still applies.
+- **Not in v1:** per-`byChoice`/per-row/per-dropdown attachment; visuals inside `rationale.byChoice[]`.
 
 ---
 
@@ -1042,8 +1056,8 @@ Scoring is polytomous (partial credit), matching the NGN. Each item yields `{ ea
 
 ## Notes
 
-- `highlight` text items are supported in schema `1.3`; standalone bowtie items are supported in schema `1.4`. The current NGN item-type set is complete. Highlight: Table remains deferred.
-- Migration from `1.3` to `1.4` requires no changes to existing questions. Only banks containing a bowtie need to declare `meta.schemaVersion: "1.4"`.
+- `highlight` text items are supported in schema `1.3`; standalone bowtie items are supported in schema `1.4`; rationale explanation visuals are supported in schema `1.5`. The current NGN item-type set is complete. Highlight: Table remains deferred.
+- Migration from `1.4` to `1.5` requires no changes to existing questions. Only banks containing `rationale.visuals` need to declare `meta.schemaVersion: "1.5"`.
 - Rationale/dyad scoring and any explicit linked “X as evidenced by Y” item type remain out of scope; no current item type requires them.
 - `case_study` is the v1.1 hard-mode container for multi-part unfolding practice. It deliberately reuses v1.0 embedded item types instead of introducing new grading rules.
 - IDs: any unique string is fine. A readable convention like `<type>_<topicslug>_<n>` helps debugging but isn't required.

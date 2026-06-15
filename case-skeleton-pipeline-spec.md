@@ -1,7 +1,9 @@
-# Case-Skeleton Pipeline Spec — Opus authors, GPT/Gemini scaffold
+# Case-Skeleton Pipeline Spec — Opus authors, GPT compiles, Gemini reviews
 
-**Status:** implemented; prompts updated to schema 1.4 (retrofit Jun 14). Paste-ready prompts:
-`opus-case-skeleton-prompt.md`/`.txt`, `gemini-case-compiler-prompt.md`, `gpt-case-skeleton-compiler-prompt.md`.
+**Status:** implemented; prompts updated to schema 1.4 (retrofit Jun 14) and role-split
+updated Jun 15. Paste-ready prompts:
+`opus-case-skeleton-prompt.md`/`.txt`, `gpt-case-skeleton-compiler-prompt.md`,
+`gemini-case-compiler-prompt.md` (now the Gemini flag-only review-layer prompt).
 
 ## Problem this solves
 
@@ -13,46 +15,54 @@ and then emitted a non-schema shape — `bankId`/`title`/`titleEs`, `caseStudy.n
 Chinese**. The harness nails the irreducible semantic residual (the fact pattern) and mangles everything
 mechanical.
 
-So we stop asking it to produce JSON at all and cut the work along that seam.
+So we stop asking it to produce JSON at all and keep the semantic, compile, review,
+and promotion responsibilities explicit.
 
 ## Architecture
 
 ```
-Opus (hub)       GPT/Gemini fact-check       Opposite model compiles       Claude
-English case ──► clinical accuracy + ──────► schema-1.4 bilingual ──────► review + promote
-skeleton          guidance currency           case_study cluster           (canonical + ledger)
-                                              (+ optional bowtie capstone)
+Opus (hub)       GPT fact-check + compile       Gemini flag-only review       Claude
+English case ──► clinical accuracy + ────────► structured issue list ───────► final gate +
+skeleton          schema-1.4 bilingual           (no mutation)                promote
+                  case_study cluster
+                  (+ optional bowtie capstone)
 ```
 
 - **Opus authors clinical truth.** One unfolding case as English prose in 10 fixed sections (CASE TITLE …
   EXPECTED LEARNING OBJECTIVES … BOW-TIE SYNTHESIS [optional]). No JSON, no Chinese, no Spanish. This is
   the only step that needs the expensive model, and it is the part the crippled harness can do
   (DECISIONS §3: model only for the irreducible semantic residual).
-- **GPT and Gemini split fact-check and compile roles.** One independently checks clinical accuracy and
-  guidance currency; the opposite model compiles one skeleton into one fully bilingual `case_study`
-  envelope targeting 6 embedded questions, one per authored NCJMM decision point. Fewer items are allowed
-  only when the compiler logs a specific omission in the raw `_compileManifest`. The compiler selects item types, generates ids, and produces all
-  `zh`; it does **not** decide medicine.
+- **GPT is the baseline fact-checker and compiler.** GPT checks the skeleton's clinical accuracy and
+  guidance currency, then compiles one skeleton into one fully bilingual `case_study` envelope targeting
+  6 embedded questions, one per authored NCJMM decision point. Fewer items are allowed only when GPT logs
+  a specific omission in the raw `_compileManifest`. GPT selects item types, generates ids, and produces all
+  `zh`; it does **not** invent a different case or add unsupported clinical claims.
+- **Gemini is a review layer, not a compiler.** Gemini receives the GPT-compiled raw artifact and emits a
+  structured flag list only: structural issues, manifest faithfulness concerns, bilingual/stale-translation
+  concerns, obvious internal inconsistencies, and omission-reason sanity checks. Gemini never rewrites JSON,
+  skeleton prose, Chinese translation, ids, or answer keys.
 - **Claude is the final reviewer.** The chain preserves producer≠checker (DECISIONS §2/§5): the author
-  (Opus), the clinical fact-checker (GPT or Gemini), the compiler (the opposite model), and the final
-  reviewer (Claude) have distinct roles.
+  (Opus), GPT's compile pass, Gemini's independent review layer, and the final reviewer (Claude) have
+  distinct roles. Gemini review is a pre-filter and never substitutes for Claude's clinical/content gate.
 
-## Clinical fact-check & currency step (scaffold phase)
+## Clinical fact-check, compile, and review steps
 
 After the author model (Opus hub) produces the English skeleton and before final
-review, the scaffold phase runs two distinct roles across the two non-author,
-non-reviewer models (GPT and Gemini), assigned **opposite** each other per case:
+review, the scaffold phase is:
 
-- **Fact-check / currency** — one of {GPT, Gemini} checks the clinical accuracy and
-  current-guidance currency of the author's fact pattern.
-- **Compile / scaffold** — the *other* model compiles the fact pattern into
-  schema-compliant bilingual JSON. The author's prose (the reasoning notes appended
-  to the end of the raw skeleton) is **stripped from the raw source before it reaches
-  the compiler**, so the compiler works from the fact pattern alone, not the author's
-  commentary.
+1. **GPT fact-check + currency.** GPT clinically checks the author's fact pattern and current-guidance
+   risks. When a claim is volatile, GPT either keeps the rule closed-world inside the case or flags it for
+   Claude rather than treating memory as source verification.
+2. **GPT compile / scaffold.** GPT compiles the checked fact pattern into schema-compliant bilingual JSON.
+   The author's prose reasoning notes are stripped from the raw source before compilation, so the compiler
+   works from the fact pattern alone, not author commentary. Provenance routes to the `gpt-` lane.
+3. **Gemini flag-only review.** Gemini reviews the raw GPT artifact for parse/shape problems, id and answer
+   reference integrity, `_compileManifest` faithfulness, bilingual completeness and obvious mistranslation,
+   stale `zh`, unit/value drift, and internal contradictions. Gemini outputs only `{issue, location,
+   severity}`-style flags for GPT to fix or Claude to adjudicate.
 
-The fact-check and compile roles are never the same model on a given case
-(producer ≠ checker at the clinical layer).
+Gemini is deliberately out of scope for final clinical accuracy/currency adjudication, answer-defensibility
+calls, and distractor-quality judgment. Those stay with Claude.
 
 ## Why one case → a cluster (decided)
 

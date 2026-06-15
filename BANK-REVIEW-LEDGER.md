@@ -29,11 +29,12 @@ This ledger tracks which generated question banks are safe to treat as reviewed 
 7. After merge and successful validation, delete the raw/staging source file unless there is an explicit reason to retain it.
 8. Update this ledger before treating the bank as reviewed, including the deleted source filename in Merged Source Batches.
 
-`Chain:` lines for skeleton-derived cases must name the fact-check/currency role
-explicitly, e.g.: `Opus skeleton → Gemini fact-check + currency → GPT
-compile/scaffold (author prose stripped) → Claude final review`. Naming only
-"compile" or "patch" understates the independent clinical adjudication and is what
-made the topology read as a producer self-review.
+`Chain:` lines for skeleton-derived cases must name the fact-check/currency and
+review-layer roles explicitly. Forward default:
+`Opus skeleton → GPT fact-check + compile/scaffold (author prose stripped) →
+Gemini flag-only review → Claude final review`. Naming only "compile" or
+"patch" understates the independent checks; Gemini review is a structured flag
+list only and must never rewrite JSON or skeleton prose.
 
 ## Generation Policy
 
@@ -143,7 +144,7 @@ Only top-level `banks/*.json` files are bundled by the app. `banks/Pending cases
 
 ### 2026-06-11 — 5 Opus oncology/neurology hard case studies
 
-- Bank items (5 case_study, each with 6 embedded questions = 30 sub-items):
+- Bank items (5 case_study, 29 embedded sub-items total after accepted CAR-T omission):
   - `opus_scc_case_01` — Malignant Spinal Cord Compression (Physiological Adaptation, hard) — 61yo NSCLC with T7 MSCC; 3-stage: MRI confirms + dexamethasone, pre-surgical, postop day 1; NGN skills: recognize_cues, take_action, analyze_cues, generate_solutions, evaluate_outcomes
   - `opus_car_t_crs_2026_06_11_case_01` — CAR-T CRS/ICANS (Reduction of Risk Potential, hard) — 58yo DLBCL post axi-cel; 3-stage: CRS Grade 1 → Grade 2 + ICANS → tocilizumab response; NGN skills: recognize_cues, generate_solutions, take_action, analyze_cues, evaluate_outcomes
   - `opus_icit_case_01` — ICI Myocarditis with hepatotoxicity (Pharmacological and Parenteral Therapies, hard) — 61yo melanoma on nivolumab + ipilimumab; 3-stage: ECG changes, LVEF 38%/PVCs, corticosteroid response; NGN skills: recognize_cues, analyze_cues, prioritize_hypotheses, generate_solutions, take_action, evaluate_outcomes
@@ -151,6 +152,7 @@ Only top-level `banks/*.json` files are bundled by the app. `banks/Pending cases
   - `opus_case_se_01` — Status Epilepticus (Physiological Adaptation, hard) — 27yo known epilepsy, medication nonadherence; 3-stage: fosphenytoin, refractory SE + RSI, ICU rhabdomyolysis; NGN skills: recognize_cues, analyze_cues, generate_solutions, prioritize_hypotheses, evaluate_outcomes, take_action
 - Chain (generator≠reviewer satisfied): Opus 4.6 generation; SCC additionally cured by Gemini; Claude final review
 - Final review: all 5 schema-valid; bilingual parity intact; answer keys clinically verified (MSCC dexamethasone as first pharmacologic priority, enoxaparin hold pre-spinal surgery; CRS grading, toci before dexa for ICANS; ICI myocarditis hold + permanent discontinue for grade 3-4; TPN cannot be stopped independently, PICC removal after alternative access secured; SE motor cessation ≠ EEG termination, aggressive hydration for rhabdomyolysis); zero positional language; no visuals (text exhibits — necessity gate N/A). No fixes required.
+- Logged omission accepted 2026-06-15: `{ case_id: "opus_car_t_crs_2026_06_11_case_01", omitted_dp_index: 5, dp_skill: "analyze_cues", reason: "merged-into-Q4: the lab-trend/end-organ analysis DP is already tested inside Q4's dedicated end-organ or coagulation dysfunction column with creatinine/oliguria and fibrinogen/D-dimer rows; a separate DP5 item would duplicate Q4.", adjudicated_by: "Claude", date: "2026-06-15", disposition: "accepted-omission", emitted_item_count: 5 }`. This reconciles the prior ledger count ambiguity; the bank has 5 embedded CAR-T items.
 - Merged 2026-06-11 → `banks/hard-cases-canonical.json` (46→51); shuffle applied via promote.ts; all audit tiers passed. Raw + intermediate files deleted.
 
 ### 2026-06-12 — GPT CDI case study
@@ -194,6 +196,7 @@ Only top-level `banks/*.json` files are bundled by the app. `banks/Pending cases
 - Topic: Advance directive clarification and code status escalation in metastatic lung cancer with acute respiratory decline | category: Management of Care | difficulty: medium → hard | schema 1.2
 - Chain: Opus 4.6 generation; Claude final review
 - Final review: schema valid; bilingual parity intact; no positional language; no visuals. Clinical/legal accuracy verified: nurses cannot unilaterally enter DNAR/DNI; documentation of capacity and verbatim statements is the immediate priority; proportional escalation based on stability; RRT handoff must proactively communicate active refusal; morphine indicated for dyspnea by principle of double effect; incident report for system-level provider delay is correct closure step. No fixes required.
+- Logged omission accepted 2026-06-15: `{ case_id: "opus2_case_code_status_01", omitted_dp_index: 6, dp_skill: "documentation", reason: "distributed-across-Q1-Q2-Q5: Q1 documents the verbatim statement and capacity, Q2 documents the provider conversation, and Q5 tests the contemporaneous-documentation principle by using a single retrospective end-of-shift note as a distractor; a dedicated DP6 item would overlap.", adjudicated_by: "Claude", date: "2026-06-15", disposition: "accepted-omission", emitted_item_count: 5 }`.
 - Promoted 2026-06-12 → `banks/opus-code-status-escalation-opus2.json`; all audit tiers passed.
 
 ### 2026-06-12 — Opus vancomycin case study
