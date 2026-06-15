@@ -432,12 +432,12 @@
       "id": "gpt_injection_smoke_2026_06_15_mc_layer_highlight_05",
       "itemType": "multiple_choice",
       "category": "Reduction of Risk Potential",
-      "topic": "Skin layer identification for injection technique",
+      "topic": "Target layer identification from visual",
       "difficulty": "easy",
       "ngnSkill": "recognize_cues",
       "stem": {
-        "en": "The highlighted layer in the cross-section is the intended target for a subcutaneous injection. Which layer is highlighted?",
-        "zh": "横截面图中高亮的组织层是皮下注射的目标层。被高亮的是哪一层？"
+        "en": "The nurse reviews the injection-site visual. Which tissue layer is the intended target for the route shown?",
+        "zh": "护士查看注射部位图。图中显示的给药途径的目标组织层是哪一层？"
       },
       "visual": {
         "kind": "injection_site",
@@ -540,8 +540,8 @@
       "difficulty": "medium",
       "ngnSkill": "analyze_cues",
       "stem": {
-        "en": "The image shows an injection technique. Which visual cues support that this is an intramuscular injection? Select all that apply.",
-        "zh": "图中显示一种注射技术。哪些视觉线索支持这是肌内注射？选择所有适用项。"
+        "en": "The image shows an injection technique. Which visual cues correctly describe the route shown? Select all that apply.",
+        "zh": "图中显示一种注射技术。哪些视觉线索正确描述了图中显示的给药途径？选择所有适用项。"
       },
       "visual": {
         "kind": "injection_site",
@@ -804,12 +804,12 @@
       "id": "gpt_injection_smoke_2026_06_15_matrix_route_match_08",
       "itemType": "matrix",
       "category": "Reduction of Risk Potential",
-      "topic": "Injection route and target layer matching",
+      "topic": "Visual technique analysis",
       "difficulty": "medium",
       "ngnSkill": "analyze_cues",
       "stem": {
-        "en": "For each route, identify whether the target described matches the route.",
-        "zh": "对每种给药途径，判断所描述的目标位置是否与该途径匹配。"
+        "en": "The nurse reviews the injection-site visual. Classify whether each statement accurately describes the technique shown.",
+        "zh": "护士查看注射部位图。对每项描述进行分类：它是否准确描述了图中显示的技术？"
       },
       "visual": {
         "kind": "injection_site",
@@ -823,35 +823,35 @@
         "rows": [
           {
             "id": "r1",
-            "en": "Intradermal — medication is placed in the dermis",
-            "zh": "皮内——药液进入真皮层"
+            "en": "The medication is placed in the dermis",
+            "zh": "药液进入真皮层"
           },
           {
             "id": "r2",
-            "en": "Subcutaneous — medication is placed in muscle",
-            "zh": "皮下——药液进入肌肉"
+            "en": "The medication is placed in the subcutaneous tissue",
+            "zh": "药液进入皮下组织"
           },
           {
             "id": "r3",
-            "en": "Intramuscular — medication is placed in muscle",
-            "zh": "肌内——药液进入肌肉"
+            "en": "The needle enters at a 10 to 15 degree angle",
+            "zh": "针头以 10 至 15 度角进入"
           },
           {
             "id": "r4",
-            "en": "Intravenous — the needle tip enters a vessel",
-            "zh": "静脉——针尖进入血管"
+            "en": "The needle enters at a 45 to 90 degree angle",
+            "zh": "针头以 45 至 90 度角进入"
           }
         ],
         "columns": [
           {
             "id": "c1",
-            "en": "Matches",
-            "zh": "匹配"
+            "en": "Accurate",
+            "zh": "准确"
           },
           {
             "id": "c2",
-            "en": "Does not match",
-            "zh": "不匹配"
+            "en": "Inaccurate",
+            "zh": "不准确"
           }
         ],
         "selectionMode": "single_per_row"
@@ -878,41 +878,41 @@
         {
           "rowId": "r4",
           "columnIds": [
-            "c1"
+            "c2"
           ]
         }
       ],
       "rationale": {
         "correct": {
-          "en": "Intradermal targets the dermis, intramuscular targets muscle, and intravenous access enters a vessel. Subcutaneous administration targets tissue above muscle, not muscle.",
-          "zh": "皮内给药目标是真皮，肌内给药目标是肌肉，静脉通路进入血管。皮下给药目标是肌肉上方的组织，而不是肌肉。"
+          "en": "The visual shows an intradermal injection, which targets the dermis at a shallow 10 to 15 degree angle.",
+          "zh": "图示为皮内注射，其目标为真皮层，进针角度较浅（10至15度）。"
         },
         "byChoice": [
           {
             "refId": "r1",
-            "en": "Intradermal placement in the dermis is a correct route-target match.",
-            "zh": "皮内给药进入真皮层，是正确的途径-目标匹配。"
+            "en": "Accurate; the needle tip ends in the dermis.",
+            "zh": "准确；针尖最终位于真皮层。"
           },
           {
             "refId": "r2",
-            "en": "Subcutaneous placement targets tissue below the dermis and above muscle, so muscle is not the correct target.",
-            "zh": "皮下给药目标是真皮下方、肌肉上方的组织，因此肌肉不是正确目标。"
+            "en": "Inaccurate; the tip is above the subcutaneous tissue.",
+            "zh": "不准确；针尖在皮下组织上方。"
           },
           {
             "refId": "r3",
-            "en": "Intramuscular placement in muscle is a correct route-target match.",
-            "zh": "肌内给药进入肌肉，是正确的途径-目标匹配。"
+            "en": "Accurate; the needle enters at a very shallow angle consistent with intradermal administration.",
+            "zh": "准确；进针角度非常浅，符合皮内给药。"
           },
           {
             "refId": "r4",
-            "en": "Intravenous access requires the needle tip to enter a blood vessel, so this match is correct.",
-            "zh": "静脉通路需要针尖进入血管，因此该匹配正确。"
+            "en": "Inaccurate; 45-90 degrees is used for subcutaneous or intramuscular routes.",
+            "zh": "不准确；45-90度用于皮下或肌内给药。"
           }
         ]
       },
       "testTakingStrategy": {
-        "en": "Separate the route name from the target tissue: each route is defined by where the medication or catheter tip ends.",
-        "zh": "把给药途径名称和目标组织分开理解：每种途径由药液或针尖最终所在的位置决定。"
+        "en": "First identify the route from the image, then evaluate each statement against that route.",
+        "zh": "首先根据图像识别给药途径，然后评估每项描述是否符合该途径。"
       },
       "glossary": [
         {
