@@ -20,9 +20,9 @@ import { getVisual, VISUAL_ITEM_TYPES, type VisualError } from "./visuals/regist
 import "./visuals/kinds"; // register every visual kind for validation (React-free)
 export { rhythmClasses } from "./visuals/kinds/rhythmStrip";
 
-export const SCHEMA_VERSION = "1.4";
+export const SCHEMA_VERSION = "1.5";
 
-export const supportedSchemaVersions = ["1.0", "1.1", "1.2", "1.3", "1.4"] as const satisfies readonly SchemaVersion[];
+export const supportedSchemaVersions = ["1.0", "1.1", "1.2", "1.3", "1.4", "1.5"] as const satisfies readonly SchemaVersion[];
 
 export const categories = [
   "Management of Care",
@@ -224,6 +224,19 @@ export const validateQuestion = (raw: unknown, options: { allowCaseStudy?: boole
           reasons.push(`rationale.byChoice[${index}] requires refId, en, and zh`);
         }
       });
+    }
+    if (raw.rationale.visuals !== undefined) {
+      if (!Array.isArray(raw.rationale.visuals)) {
+        reasons.push("rationale.visuals must be an array when present");
+      } else if (raw.rationale.visuals.length === 0) {
+        reasons.push("rationale.visuals must not be empty (omit the field for no visuals)");
+      } else if (raw.rationale.visuals.length > 6) {
+        reasons.push("rationale.visuals must contain at most 6 entries");
+      } else {
+        raw.rationale.visuals.forEach((visual, index) => {
+          validateVisual(visual, `rationale.visuals[${index}]`, reasons);
+        });
+      }
     }
   }
 
@@ -678,6 +691,16 @@ const validateCaseStudy = (question: CaseStudyQuestion, reasons: string[]) => {
   });
 };
 
+const hasRationaleVisuals = (question: Question): boolean => {
+  if (Array.isArray(question.rationale.visuals) && question.rationale.visuals.length > 0) return true;
+  if (question.itemType === "case_study") {
+    return question.caseStudy.questions.some(
+      (caseQuestion) => Array.isArray(caseQuestion.rationale.visuals) && caseQuestion.rationale.visuals.length > 0,
+    );
+  }
+  return false;
+};
+
 export const validateBankObject = (raw: unknown): ValidationResult<BankEnvelope> => {
   const reasons: string[] = [];
   const payload = Array.isArray(raw) ? { questions: raw } : raw;
@@ -739,6 +762,14 @@ export const validateBankObject = (raw: unknown): ValidationResult<BankEnvelope>
       result.value.itemType === "bowtie"
     ) {
       reasons.push(`questions[${index}]: bowtie requires meta.schemaVersion 1.4`);
+      return;
+    }
+    if (
+      schemaVersion !== undefined &&
+      cmpSchema(schemaVersion, "1.5") < 0 &&
+      hasRationaleVisuals(result.value)
+    ) {
+      reasons.push(`questions[${index}]: rationale.visuals requires meta.schemaVersion 1.5`);
       return;
     }
     if (

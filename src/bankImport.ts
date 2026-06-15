@@ -135,17 +135,27 @@ const hasHighlight = (question: Question) =>
 
 const hasBowtie = (question: Question) => question.itemType === "bowtie";
 
+const hasRationaleVisuals = (question: Question) => {
+  if (Array.isArray(question.rationale.visuals) && question.rationale.visuals.length > 0) return true;
+  if (question.itemType !== "case_study") return false;
+  return question.caseStudy.questions.some(
+    (caseQuestion) => Array.isArray(caseQuestion.rationale.visuals) && caseQuestion.rationale.visuals.length > 0,
+  );
+};
+
 export const toExportEnvelope = (questions: Question[]): BankEnvelope => ({
   meta: {
-    schemaVersion: questions.some(hasBowtie)
-      ? "1.4"
-      : questions.some(hasHighlight)
-        ? "1.3"
-        : questions.some(hasVisual)
-          ? "1.2"
-          : questions.some((question) => question.itemType === "case_study")
-            ? "1.1"
-            : "1.0",
+    schemaVersion: questions.some(hasRationaleVisuals)
+      ? "1.5"
+      : questions.some(hasBowtie)
+        ? "1.4"
+        : questions.some(hasHighlight)
+          ? "1.3"
+          : questions.some(hasVisual)
+            ? "1.2"
+            : questions.some((question) => question.itemType === "case_study")
+              ? "1.1"
+              : "1.0",
     exam: "NCLEX-RN",
     topic: "exported library",
     category: "mixed",

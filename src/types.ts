@@ -3,7 +3,7 @@ export type TextPair = {
   zh: string;
 };
 
-export type SchemaVersion = "1.0" | "1.1" | "1.2" | "1.3" | "1.4";
+export type SchemaVersion = "1.0" | "1.1" | "1.2" | "1.3" | "1.4" | "1.5";
 
 export type StandaloneItemType =
   | "multiple_choice"
@@ -52,6 +52,7 @@ export type RationaleChoice = {
 export type Rationale = {
   correct: TextPair;
   byChoice?: RationaleChoice[];
+  visuals?: QuestionVisual[];
 };
 
 // Visual types now live with their kind module (see src/visuals/). Re-exported
