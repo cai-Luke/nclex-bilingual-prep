@@ -251,6 +251,19 @@ const keyedAnswerText = (question: Question): string => {
       .map((segment) => segment.en)
       .join(" ");
   }
+  if (question.itemType === "bowtie") {
+    const zones = question.bowtie;
+    const keyedIds = new Set([
+      zones.condition.correct,
+      ...zones.actions.correct,
+      ...zones.parameters.correct,
+    ]);
+    return [zones.condition, zones.actions, zones.parameters]
+      .flatMap((zone) => zone.tokens)
+      .filter((token) => keyedIds.has(token.id))
+      .map((token) => token.en)
+      .join(" ");
+  }
   return question.dropdowns
     .map((dropdown) => {
       const option = dropdown.options.find(

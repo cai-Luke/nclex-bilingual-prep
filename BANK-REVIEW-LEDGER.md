@@ -29,6 +29,12 @@ This ledger tracks which generated question banks are safe to treat as reviewed 
 7. After merge and successful validation, delete the raw/staging source file unless there is an explicit reason to retain it.
 8. Update this ledger before treating the bank as reviewed, including the deleted source filename in Merged Source Batches.
 
+`Chain:` lines for skeleton-derived cases must name the fact-check/currency role
+explicitly, e.g.: `Opus skeleton → Gemini fact-check + currency → GPT
+compile/scaffold (author prose stripped) → Claude final review`. Naming only
+"compile" or "patch" understates the independent clinical adjudication and is what
+made the topology read as a producer self-review.
+
 ## Generation Policy
 
 Prefer new JSON files for every Gemini batch. Do not ask Gemini to append directly to canonical bundled banks.

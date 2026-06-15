@@ -17,8 +17,9 @@ question structure — do not attempt them.
    with the **CASE TITLE** heading and end with the last line of the final section — nothing before it, and
    nothing after it except the single optional reviewer-only block described in rule 4.
 4. **One optional reviewer-only block may follow the case.** The case itself still ends at the last
-   learner-facing line (the final EXPECTED LEARNING OBJECTIVES entry, or BOW-TIE SYNTHESIS if present). After it, and only after it, you may add
-   exactly one reviewer-only block, beginning on its own line with this exact sentinel:
+   learner-facing line (the final EXPECTED LEARNING OBJECTIVES entry, or BOW-TIE SYNTHESIS if present).
+   After it, and only after it, you may add exactly one reviewer-only block, beginning on its own line with
+   this exact sentinel:
 
    `---REVIEWER-CURRENCY-NOTES---`
 

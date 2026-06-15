@@ -1,6 +1,6 @@
 # NCLEX Bank — Canonical Question Schema
 
-**schemaVersion: `1.3` — current.** This document is the canonical authoring and review contract; runtime behavior is implemented by `src/types.ts`, `src/schema.ts`, and the registered modules under `src/visuals/`. `1.0` standalone-question banks, `1.1` case-study banks, and `1.2` visual banks remain supported. Do not change shapes without bumping `schemaVersion` and writing a migration.
+**schemaVersion: `1.4` — current.** This document is the canonical authoring and review contract; runtime behavior is implemented by `src/types.ts`, `src/schema.ts`, and the registered modules under `src/visuals/`. `1.0` standalone-question banks, `1.1` case-study banks, `1.2` visual banks, and `1.3` highlight banks remain supported. Do not change shapes without bumping `schemaVersion` and writing a migration.
 
 ---
 
@@ -11,7 +11,7 @@ A generated bank is one JSON object:
 ```json
 {
   "meta": {
-    "schemaVersion": "1.3",
+    "schemaVersion": "1.4",
     "exam": "NCLEX-RN",
     "topic": "echo of the requested topic",
     "category": "echo of the requested category, or 'mixed'",
@@ -22,7 +22,7 @@ A generated bank is one JSON object:
 }
 ```
 
-The importer also accepts a bare `[ ... ]` array of Question objects (no envelope). When present, `meta.schemaVersion` must be `"1.0"`, `"1.1"`, `"1.2"`, or `"1.3"`. `case_study` requires `"1.1"` or later. `visual` requires `"1.2"` or later. `highlight`, including a highlight embedded in a case study, requires `"1.3"`.
+The importer also accepts a bare `[ ... ]` array of Question objects (no envelope). When present, `meta.schemaVersion` must be `"1.0"`, `"1.1"`, `"1.2"`, `"1.3"`, or `"1.4"`. `case_study` requires `"1.1"` or later. `visual` requires `"1.2"` or later. `highlight`, including a highlight embedded in a case study, requires `"1.3"`. Standalone `bowtie` requires `"1.4"`.
 
 ---
 
@@ -31,7 +31,7 @@ The importer also accepts a bare `[ ... ]` array of Question objects (no envelop
 | field | type | required | notes |
 |---|---|---|---|
 | `id` | string | yes | unique within the bank; top-level bundled banks should be globally unique across each other because app state keys by `question.id`; uploaded imports regenerate collisions |
-| `itemType` | enum | yes | `multiple_choice` \| `select_all` \| `ordered_response` \| `fill_in_blank` \| `matrix` \| `dropdown_cloze` \| `highlight` \| `case_study` |
+| `itemType` | enum | yes | `multiple_choice` \| `select_all` \| `ordered_response` \| `fill_in_blank` \| `matrix` \| `dropdown_cloze` \| `highlight` \| `bowtie` \| `case_study` |
 | `category` | enum | yes | one of the 8 client-needs subcategories (below), or `"mixed"` only at `meta` level — a question is always one specific category |
 | `topic` | string | yes | free text, e.g. `"heart failure"`; keep concise + reusable for coverage tallying |
 | `difficulty` | enum | yes | `easy` \| `medium` \| `hard` |
@@ -59,6 +59,8 @@ The importer also accepts a bare `[ ... ]` array of Question objects (no envelop
 - `matrix` → `rowId`
 - `dropdown_cloze` → `dropdownId`
 - `fill_in_blank` → `blankId`
+- `highlight` → selectable `segmentId`
+- `bowtie` → any token id across its three zones
 
 `byChoice` is **required for option types** (one entry per option). For other types it's encouraged (one per row / dropdown / blank) but may be omitted if `rationale.correct` fully explains it.
 
@@ -899,7 +901,7 @@ Rows are statements/findings; columns are categories. Each row gets a selection.
 - `caseStudy.exhibits`: required, at least one exhibit. Use concise chart-like content; newline-separated vitals/labs are allowed.
 - `caseStudy.exhibits[].visual`: optional schema `1.2` visual stimulus. Exhibit `title` and `content` remain required even when a visual is present.
 - `caseStudy.stages`: optional unfolding updates, each with at least one exhibit.
-- `caseStudy.questions`: 2–6 embedded standalone questions. Embedded questions may use any current standalone item type and must include their own full common fields, rationale, strategy, and glossary. An embedded `highlight` requires the enclosing bank to declare schema `1.3`.
+- `caseStudy.questions`: 2–6 embedded questions using any current standalone item type except `bowtie`. Each must include its own full common fields, rationale, strategy, and glossary. An embedded `highlight` requires the enclosing bank to declare schema `1.3`.
 - Embedded question ids must be unique within the case and differ from the parent case id.
 - Case-level `rationale.correct` summarizes the whole case. Each embedded question carries the detailed graded rationale.
 
@@ -939,6 +941,67 @@ Schema `1.3+`. The instruction or selection criterion lives in `stem`; the passa
 - Segment order is fixed passage order. Adjacent segments render with one space; punctuation belongs inside the segment it attaches to.
 - Scoring uses `+/-`: +1 per correct selection, -1 per incorrect selection, floored at 0. `possible` is the number of keyed segments.
 
+### 9. `bowtie` — bow-tie synthesis (standalone)
+
+Schema `1.4+`. Bowtie is a standalone capstone item with three zone-scoped token pools: one condition target, two action targets, and two monitoring-parameter targets.
+
+```json
+{
+  "id": "bt_dka_01",
+  "itemType": "bowtie",
+  "category": "Physiological Adaptation",
+  "topic": "diabetic ketoacidosis",
+  "difficulty": "hard",
+  "ngnSkill": "take_action",
+  "stem": {
+    "en": "Complete the diagram.",
+    "zh": "完成图示。"
+  },
+  "bowtie": {
+    "condition": {
+      "prompt": { "en": "Most likely condition", "zh": "最可能的病情" },
+      "tokens": [
+        { "id": "c1", "en": "Diabetic ketoacidosis", "zh": "糖尿病酮症酸中毒" },
+        { "id": "c2", "en": "Hyperosmolar state", "zh": "高渗状态" },
+        { "id": "c3", "en": "Lactic acidosis", "zh": "乳酸性酸中毒" }
+      ],
+      "correct": "c1"
+    },
+    "actions": {
+      "prompt": { "en": "Actions to take", "zh": "应采取的措施" },
+      "tokens": [
+        { "id": "a1", "en": "Begin isotonic IV fluids", "zh": "开始等渗静脉补液" },
+        { "id": "a2", "en": "Start the prescribed insulin infusion", "zh": "开始医嘱的胰岛素输注" },
+        { "id": "a3", "en": "Give bicarbonate routinely", "zh": "常规给予碳酸氢盐" },
+        { "id": "a4", "en": "Give a rapid potassium bolus", "zh": "快速静脉推注钾" }
+      ],
+      "correct": ["a1", "a2"]
+    },
+    "parameters": {
+      "prompt": { "en": "Parameters to monitor", "zh": "应监测的指标" },
+      "tokens": [
+        { "id": "p1", "en": "Serum potassium", "zh": "血清钾" },
+        { "id": "p2", "en": "Anion gap", "zh": "阴离子间隙" },
+        { "id": "p3", "en": "Serum lipase", "zh": "血清脂肪酶" },
+        { "id": "p4", "en": "INR", "zh": "国际标准化比值" }
+      ],
+      "correct": ["p1", "p2"]
+    }
+  }
+}
+```
+
+- `bowtie` is top-level only. It may not appear in `caseStudy.questions`.
+- Token ids must be globally unique across all three zones. Every token requires non-empty `id`, `en`, and `zh`.
+- Within a zone, English display text must be unique and Chinese display text must be unique.
+- `condition.correct` is one id from the condition pool. `actions.correct` and `parameters.correct` are duplicate-free arrays of exactly two ids from their respective pools.
+- Every zone must include at least one distractor. Reviewed generated content should use at least 3 condition tokens and at least 4 action and 4 parameter tokens.
+- `prompt` is optional; when present it requires non-empty `en` and `zh`.
+- `rationale.byChoice` is optional in schema. When present, each `refId` must be unique and resolve to a token in any zone. Reviewed content should cover every token unless explicitly waived.
+- Token pools are shuffled independently at promotion. Keys remain stable by token id.
+- Actions must remain within nursing scope or be clearly framed as prescribed/protocol-directed. Parameters must be nursing-monitorable.
+- Scoring is `0/1` per correctly placed target, with no deduction. The fixed maximum is 5 points.
+
 ---
 
 ## Validation rules (importer + commit-time check)
@@ -952,7 +1015,8 @@ An item is **invalid → skipped and reported** (never partially rendered) if an
 - **matrix:** missing `matrix.rows`/`matrix.columns`/`correct`; a `rowId`/`columnId` not found; `single_per_row` with a `columnIds` length ≠ 1.
 - **dropdown_cloze:** a `{{id}}` in `clozeStem` with no matching dropdown (or vice versa); a dropdown `correct` not among its options; placeholders missing from `zh`.
 - **highlight:** missing `segments`/`correct`; duplicate segment ids; no selectable segment; a keyed id that is absent or non-selectable; duplicate keyed ids; every selectable segment is keyed; empty segment `en`/`zh`; or a `rationale.byChoice.refId` that is duplicated or does not resolve to a selectable segment.
-- **case_study:** `meta.schemaVersion` is `"1.0"`; missing `caseStudy.exhibits`; fewer than 2 or more than 6 embedded questions; an embedded question is another `case_study`; embedded ids are duplicated.
+- **bowtie:** missing zones/tokens; wrong fixed correct counts; a key outside its zone; duplicate key ids; token ids duplicated across zones; duplicate `en` or `zh` display text within a zone; empty token text; no distractor in a zone; an unresolved or duplicate `rationale.byChoice.refId`; embedding in a case study; or use below schema `1.4`.
+- **case_study:** `meta.schemaVersion` is `"1.0"`; missing `caseStudy.exhibits`; fewer than 2 or more than 6 embedded questions; an embedded question is another `case_study` or a `bowtie`; embedded ids are duplicated.
 - **visual:** present in a versioned bank below schema `"1.2"`; placed on an unsupported item type; unknown visual `kind`; invalid rhythm class; out-of-range rate, duration, interval, seed, atrial rate, or conduction ratio.
 
 Report format: `"imported N of M; skipped K (reasons...)"`.
@@ -971,14 +1035,16 @@ Scoring is polytomous (partial credit), matching the NGN. Each item yields `{ ea
 - `matrix` `multiple_per_row`: `+/-` per row, each row floored at 0; `possible` = total correct cells.
 - `dropdown_cloze`: `0/1` per dropdown; `possible` = number of dropdowns.
 - `highlight`: `+/-` per selectable segment, floored at 0; `possible` = number of keyed segments.
+- `bowtie`: `0/1` per target, no deduction; `possible = 5`.
 - `case_study`: sum of embedded item points.
 
 ---
 
 ## Notes
 
-- `highlight` text items are supported in schema `1.3`. Highlight: Table remains deferred.
-- `bowtie` remains out of scope until a future schema bump (at least `1.4`).
+- `highlight` text items are supported in schema `1.3`; standalone bowtie items are supported in schema `1.4`. The current NGN item-type set is complete. Highlight: Table remains deferred.
+- Migration from `1.3` to `1.4` requires no changes to existing questions. Only banks containing a bowtie need to declare `meta.schemaVersion: "1.4"`.
+- Rationale/dyad scoring and any explicit linked “X as evidenced by Y” item type remain out of scope; no current item type requires them.
 - `case_study` is the v1.1 hard-mode container for multi-part unfolding practice. It deliberately reuses v1.0 embedded item types instead of introducing new grading rules.
 - IDs: any unique string is fine. A readable convention like `<type>_<topicslug>_<n>` helps debugging but isn't required.
 - Keep `topic` strings consistent across batches (e.g., always `"heart failure"`, not sometimes `"CHF"`) so the coverage tool tallies cleanly. Minor variants can be fuzzy-grouped by the tool.

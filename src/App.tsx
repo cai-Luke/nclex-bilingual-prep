@@ -2265,6 +2265,18 @@ function QuestionAnswerControl({
       />
     );
   }
+  if (question.itemType === "bowtie") {
+    return (
+      <BowtieControl
+        question={question}
+        answer={answer}
+        submitted={submitted}
+        languageMode={languageMode}
+        onTerm={onTerm}
+        onAnswer={onAnswer}
+      />
+    );
+  }
   if (question.itemType === "case_study") {
     return (
       <CaseStudyControl
@@ -2287,6 +2299,135 @@ function QuestionAnswerControl({
       languageMode={languageMode}
       onAnswer={onAnswer}
     />
+  );
+}
+
+function BowtieControl({
+  question,
+  answer,
+  submitted,
+  languageMode,
+  onTerm,
+  onAnswer,
+}: {
+  question: Extract<Question, { itemType: "bowtie" }>;
+  answer: AnswerState;
+  submitted: boolean;
+  languageMode: LanguageMode;
+  onTerm: (term: GlossaryTerm) => void;
+  onAnswer: (answer: AnswerState) => void;
+}) {
+  const zoneConfig = [
+    { name: "actions", label: "Actions to take", targetCount: 2 },
+    { name: "condition", label: "Most likely condition", targetCount: 1 },
+    { name: "parameters", label: "Parameters to monitor", targetCount: 2 },
+  ] as const;
+  const placements = answer.bowtie ?? {};
+
+  const updateZone = (
+    zoneName: (typeof zoneConfig)[number]["name"],
+    tokenIds: string[],
+  ) => {
+    onAnswer({
+      ...answer,
+      bowtie: {
+        ...placements,
+        [zoneName]: tokenIds,
+      },
+    });
+  };
+
+  return (
+    <div className="bowtie-panel" aria-label="Bowtie response diagram">
+      {zoneConfig.map(({ name, label, targetCount }) => {
+        const zone = question.bowtie[name];
+        const tokenById = new Map(zone.tokens.map((token) => [token.id, token]));
+        const current = Array.from(new Set((placements[name] ?? []).filter((id) => tokenById.has(id)))).slice(0, targetCount);
+        const correctIds = new Set(Array.isArray(zone.correct) ? zone.correct : [zone.correct]);
+        const prompt = zone.prompt ?? { en: label, zh: name === "actions" ? "应采取的措施" : name === "condition" ? "最可能的病情" : "应监测的指标" };
+
+        const placeToken = (tokenId: string) => {
+          if (submitted || current.includes(tokenId) || current.length >= targetCount) return;
+          updateZone(name, [...current, tokenId]);
+        };
+        const clearSlot = (slotIndex: number) => {
+          if (submitted) return;
+          updateZone(name, current.filter((_, index) => index !== slotIndex));
+        };
+
+        return (
+          <section className={`bowtie-zone bowtie-${name}`} key={name}>
+            <div className="bowtie-zone-heading">
+              <BilingualText pair={prompt} mode={languageMode} glossary={question.glossary} onTerm={onTerm} />
+            </div>
+            <div className="bowtie-slots">
+              {Array.from({ length: targetCount }, (_, slotIndex) => {
+                const token = tokenById.get(current[slotIndex] ?? "");
+                const correct = token ? correctIds.has(token.id) : false;
+                const statusClass = submitted ? (correct ? "correct" : "incorrect") : token ? "filled" : "";
+                return (
+                  <button
+                    className={`bowtie-slot ${statusClass}`}
+                    type="button"
+                    key={`${name}-${slotIndex}`}
+                    disabled={submitted || !token}
+                    aria-pressed={Boolean(token)}
+                    aria-label={
+                      token
+                        ? `${label} slot ${slotIndex + 1}: ${token.en}. ${submitted ? (correct ? "Correct." : "Incorrect.") : "Activate to clear."}`
+                        : `${label} slot ${slotIndex + 1}: empty`
+                    }
+                    onClick={() => clearSlot(slotIndex)}
+                  >
+                    <span className="bowtie-slot-number">{slotIndex + 1}</span>
+                    {token ? (
+                      <BilingualText pair={token} mode={languageMode} glossary={question.glossary} onTerm={onTerm} />
+                    ) : (
+                      <span className="bowtie-empty">Choose a token</span>
+                    )}
+                  </button>
+                );
+              })}
+            </div>
+            <div className="bowtie-token-pool" aria-label={`${label} token choices`}>
+              {zone.tokens.map((token) => {
+                const selected = current.includes(token.id);
+                return (
+                  <button
+                    className={`bowtie-token ${selected ? "selected" : ""}`}
+                    type="button"
+                    key={token.id}
+                    disabled={submitted || selected || current.length >= targetCount}
+                    aria-pressed={selected}
+                    aria-label={`${token.en}${selected ? ", placed" : ""}`}
+                    onClick={() => placeToken(token.id)}
+                  >
+                    <BilingualText pair={token} mode={languageMode} glossary={question.glossary} onTerm={onTerm} />
+                  </button>
+                );
+              })}
+            </div>
+            {submitted && (
+              <div className="bowtie-key">
+                <strong>Correct:</strong>
+                {zone.tokens
+                  .filter((token) => correctIds.has(token.id))
+                  .map((token) => (
+                    <BilingualText
+                      pair={token}
+                      mode={languageMode}
+                      glossary={question.glossary}
+                      onTerm={onTerm}
+                      className="bowtie-key-token"
+                      key={token.id}
+                    />
+                  ))}
+              </div>
+            )}
+          </section>
+        );
+      })}
+    </div>
   );
 }
 
@@ -2899,6 +3040,13 @@ function collectReadableEnglish(question: Question): string[] {
     parts.push(question.highlight.segments.map((segment) => segment.en).join(" "));
     return parts;
   }
+  if (question.itemType === "bowtie") {
+    for (const zone of [question.bowtie.condition, question.bowtie.actions, question.bowtie.parameters]) {
+      if (zone.prompt) parts.push(zone.prompt.en);
+      parts.push(...zone.tokens.map((token) => token.en));
+    }
+    return parts;
+  }
   const options = (question as Partial<OptionQuestion>).options;
   if (Array.isArray(options)) {
     for (const option of options) {
@@ -3392,6 +3540,8 @@ const formatItemType = (itemType: Question["itemType"]) =>
         ? "Case study"
         : itemType === "highlight"
           ? "Highlight"
+          : itemType === "bowtie"
+            ? "Bowtie"
         : itemType.replace(/_/g, " ");
 
 // Tracks the last single-tap utterance so that re-tapping the *same* text

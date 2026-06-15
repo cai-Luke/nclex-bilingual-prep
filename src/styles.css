@@ -1020,6 +1020,135 @@ h4 {
   background: #ffffff;
 }
 
+.bowtie-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.08fr) minmax(0, 1fr);
+  grid-template-areas: "actions condition parameters";
+  gap: 0.8rem;
+  align-items: start;
+}
+
+.bowtie-zone {
+  display: grid;
+  gap: 0.75rem;
+  min-width: 0;
+  border: 1px solid #cbd5dc;
+  border-radius: 10px;
+  padding: 0.85rem;
+  background: #f8fafb;
+}
+
+.bowtie-actions {
+  grid-area: actions;
+}
+
+.bowtie-condition {
+  grid-area: condition;
+  border: 2px solid #31505f;
+  background: #f3f8fa;
+}
+
+.bowtie-parameters {
+  grid-area: parameters;
+}
+
+.bowtie-zone-heading {
+  min-height: 2.8rem;
+  color: #263d49;
+  font-weight: 900;
+  text-align: center;
+}
+
+.bowtie-slots,
+.bowtie-token-pool {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.bowtie-slot,
+.bowtie-token {
+  width: 100%;
+  min-height: 3.5rem;
+  text-align: left;
+}
+
+.bowtie-slot {
+  display: grid;
+  grid-template-columns: 1.8rem minmax(0, 1fr);
+  gap: 0.55rem;
+  align-items: center;
+  border: 2px dashed #9aabb5;
+  color: #33414d;
+  background: #ffffff;
+}
+
+.bowtie-slot.filled {
+  border-style: solid;
+  border-color: #c38c1f;
+  background: #fff8e8;
+}
+
+.bowtie-slot.correct {
+  border-style: solid;
+  border-color: #1f7d63;
+  background: #e6f7ef;
+}
+
+.bowtie-slot.incorrect {
+  border-style: solid;
+  border-color: #c6543b;
+  background: #fff0eb;
+}
+
+.bowtie-slot-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.65rem;
+  height: 1.65rem;
+  border-radius: 999px;
+  color: #ffffff;
+  background: #31505f;
+  font-weight: 900;
+}
+
+.bowtie-empty {
+  color: #6b7c87;
+  font-weight: 700;
+}
+
+.bowtie-token {
+  border-color: #d7dde2;
+  color: #263d49;
+  background: #ffffff;
+}
+
+.bowtie-token:hover:not(:disabled),
+.bowtie-token:focus-visible {
+  border-color: #c38c1f;
+  background: #fff8e8;
+}
+
+.bowtie-token.selected {
+  border-color: #9aabb5;
+  color: #687983;
+  background: #eef2f5;
+}
+
+.bowtie-key {
+  display: grid;
+  gap: 0.35rem;
+  border-top: 1px solid #d7dde2;
+  padding-top: 0.65rem;
+  color: #31505f;
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+.bowtie-key-token {
+  padding-left: 0.6rem;
+}
+
 .highlight-line {
   margin: 0;
   font-size: 1.05rem;
@@ -1057,6 +1186,16 @@ h4 {
 .highlight-segment.selected {
   box-shadow: inset 0 -0.35rem #f2c85b;
   background: #fff8e8;
+}
+
+@media (max-width: 820px) {
+  .bowtie-panel {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "condition"
+      "actions"
+      "parameters";
+  }
 }
 
 .highlight-segment.correct,

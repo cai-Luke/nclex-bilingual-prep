@@ -13,6 +13,11 @@ export type AnswerState = {
   matrix?: Record<string, string[]>;
   dropdowns?: Record<string, string>;
   segments?: string[];
+  bowtie?: {
+    condition?: string[];
+    actions?: string[];
+    parameters?: string[];
+  };
   caseStudy?: Record<string, AnswerState>;
 };
 
@@ -101,6 +106,20 @@ export const scoreStandaloneQuestion = (question: StandaloneQuestion, answer: An
   if (question.itemType === "highlight") {
     return scorePlusMinus(answer.segments ?? [], question.highlight.correct);
   }
+  if (question.itemType === "bowtie") {
+    const placed = answer.bowtie ?? {};
+    const hit = (ids: string[] | undefined, key: string[]) => {
+      const placedSet = new Set(ids ?? []);
+      return key.filter((id) => placedSet.has(id)).length;
+    };
+    return {
+      earned:
+        hit(placed.condition, [question.bowtie.condition.correct]) +
+        hit(placed.actions, question.bowtie.actions.correct) +
+        hit(placed.parameters, question.bowtie.parameters.correct),
+      possible: 5,
+    };
+  }
   return {
     earned: question.dropdowns.filter((dropdown) => answer.dropdowns?.[dropdown.id] === dropdown.correct).length,
     possible: question.dropdowns.length,
@@ -152,6 +171,30 @@ export const getAnswerCompleteness = (question: Question, answer: AnswerState): 
   if (question.itemType === "highlight") {
     return (answer.segments?.length ?? 0) > 0;
   }
+  if (question.itemType === "bowtie") {
+    const isZoneComplete = (
+      placed: string[] | undefined,
+      tokenIds: Set<string>,
+      targetCount: number,
+    ) => new Set((placed ?? []).filter((id) => tokenIds.has(id))).size === targetCount;
+    return (
+      isZoneComplete(
+        answer.bowtie?.condition,
+        new Set(question.bowtie.condition.tokens.map((token) => token.id)),
+        1,
+      ) &&
+      isZoneComplete(
+        answer.bowtie?.actions,
+        new Set(question.bowtie.actions.tokens.map((token) => token.id)),
+        2,
+      ) &&
+      isZoneComplete(
+        answer.bowtie?.parameters,
+        new Set(question.bowtie.parameters.tokens.map((token) => token.id)),
+        2,
+      )
+    );
+  }
   if (question.itemType === "case_study") {
     return question.caseStudy.questions.every((caseQuestion) =>
       getAnswerCompleteness(caseQuestion, answer.caseStudy?.[caseQuestion.id] ?? getInitialAnswer(caseQuestion)),
@@ -163,6 +206,9 @@ export const getAnswerCompleteness = (question: Question, answer: AnswerState): 
 export const getInitialAnswer = (question: Question): AnswerState => {
   if (question.itemType === "ordered_response") {
     return { optionIds: question.options.map((option) => option.id) };
+  }
+  if (question.itemType === "bowtie") {
+    return { bowtie: { condition: [], actions: [], parameters: [] } };
   }
   if (question.itemType === "case_study") {
     return {
@@ -199,6 +245,15 @@ export const getCorrectAnswer = (question: Question): AnswerState => {
   }
   if (question.itemType === "highlight") {
     return { segments: [...question.highlight.correct] };
+  }
+  if (question.itemType === "bowtie") {
+    return {
+      bowtie: {
+        condition: [question.bowtie.condition.correct],
+        actions: [...question.bowtie.actions.correct],
+        parameters: [...question.bowtie.parameters.correct],
+      },
+    };
   }
   if (question.itemType === "case_study") {
     return {

@@ -11,7 +11,7 @@
 import { readFile, readdir, writeFile } from "node:fs/promises";
 import { join, basename } from "node:path";
 import { parseBankText } from "../src/bankImport";
-import { validateBankObject } from "../src/schema";
+import { supportedSchemaVersions, validateBankObject } from "../src/schema";
 import { shuffle } from "../lib/shuffle";
 import { normalizeBankPresentations, serializeBank } from "../lib/presentation-normalization";
 import type { BankEnvelope } from "../src/types";
@@ -45,7 +45,9 @@ const CANONICAL_PREFIXES: Array<[prefix: string, canonical: string]> = [
   ["visual-", "visual-canonical.json"],
 ];
 
-const SCHEMA_RANK: Record<string, number> = { "1.0": 0, "1.1": 1, "1.2": 2 };
+const SCHEMA_RANK = Object.fromEntries(
+  supportedSchemaVersions.map((version, index) => [version, index]),
+) as Record<string, number>;
 
 const files = await readdir(DRAFT_DIR);
 const jsonFiles = files.filter((f) => f.endsWith(".json")).sort();

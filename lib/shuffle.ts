@@ -1,4 +1,10 @@
-import type { Question, OptionQuestion, CaseStudyQuestion, StandaloneQuestion } from "../src/types";
+import type {
+  BowtieQuestion,
+  CaseStudyQuestion,
+  OptionQuestion,
+  Question,
+  StandaloneQuestion,
+} from "../src/types";
 
 // FNV-1a 32-bit hash — stable, deterministic string → seed
 export function fnv1a32(s: string): number {
@@ -71,6 +77,24 @@ function shuffleCaseStudy(q: CaseStudyQuestion): CaseStudyQuestion {
   };
 }
 
+function shuffleBowtie(q: BowtieQuestion): BowtieQuestion {
+  const shuffleZone = <T extends BowtieQuestion["bowtie"][keyof BowtieQuestion["bowtie"]]>(
+    zone: T,
+    zoneName: string,
+  ): T => ({
+    ...zone,
+    tokens: deterministicShuffle(zone.tokens, `${q.id}\u001f${zoneName}`),
+  });
+  return {
+    ...q,
+    bowtie: {
+      condition: shuffleZone(q.bowtie.condition, "condition"),
+      actions: shuffleZone(q.bowtie.actions, "actions"),
+      parameters: shuffleZone(q.bowtie.parameters, "parameters"),
+    },
+  };
+}
+
 /**
  * Pure, deterministic shuffle of a bank item.
  *
@@ -78,7 +102,8 @@ function shuffleCaseStudy(q: CaseStudyQuestion): CaseStudyQuestion {
  *   is reordered via Fisher-Yates seeded by item.id. Option IDs and the correct
  *   array are unchanged — IDs remain tied to their option content.
  * - Case studies: each nested question is recursively shuffled.
- * - All other item types (fill_in_blank, matrix, dropdown_cloze): returned unchanged.
+ * - Bowtie items: each zone's token pool is shuffled independently.
+ * - All other item types (fill_in_blank, matrix, dropdown_cloze, highlight): returned unchanged.
  *
  * Idempotent for a given seed: shuffle(shuffle(q)) === shuffle(q).
  * Actually NOT idempotent in general — calling shuffle twice applies the permutation
@@ -94,6 +119,9 @@ export function shuffle(q: Question): Question {
   }
   if (q.itemType === "case_study") {
     return shuffleCaseStudy(q);
+  }
+  if (q.itemType === "bowtie") {
+    return shuffleBowtie(q);
   }
   return q;
 }

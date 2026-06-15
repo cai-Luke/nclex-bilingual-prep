@@ -2,8 +2,8 @@
 
 # NCLEX Bank Census
 
-Generated: 2026-06-14T20:29:31.954Z
-Git SHA: 356b1a6c8dc97048b11f4d40e5942f025afdf941
+Generated: 2026-06-14T20:54:14.303Z
+Git SHA: ec7e34142cacc6bde5fc1c011aca259c8cee3010
 
 ## Per-File Summary
 
@@ -85,6 +85,7 @@ Visual kinds: burn_map (5), capnography (4), io_record (2), lab_trend (7), rhyth
 
 ## By Item Type
 
+- bowtie: 0
 - highlight: 2
 - case_study: 114
 - ordered_response: 127
@@ -290,7 +291,7 @@ Category targets (2026 NCLEX-RN test-plan weights):
 - Pharmacological and Parenteral Therapies: 208.5
 - Reduction of Risk Potential: 156.4
 - Physiological Adaptation: 182.4
-Item type average: 162.9
+Item type average: 144.8
 
 Under-served categories:
 - Management of Care: 150
@@ -299,6 +300,7 @@ Over-served categories:
 - Physiological Adaptation: 230
 
 Under-served item types:
+- bowtie: 0
 - highlight: 2
 - case_study: 114
 - ordered_response: 127
@@ -309,11 +311,12 @@ Under-served item types:
 
 PRIORITIZE_TOPICS:
 - Management of Care (150 vs target 235)
-- highlight (2 vs target 162.9)
-- case_study (114 vs target 162.9)
-- ordered_response (127 vs target 162.9)
-- fill_in_blank (140 vs target 162.9)
-- dropdown_cloze (142 vs target 162.9)
+- bowtie (0 vs target 144.8)
+- highlight (2 vs target 144.8)
+- case_study (114 vs target 144.8)
+- ordered_response (127 vs target 144.8)
+- fill_in_blank (140 vs target 144.8)
+- dropdown_cloze (142 vs target 144.8)
 - acetaminophen duplicate therapy
 - Active Pulmonary TB Airborne Precautions
 - Acute decompensated heart failure

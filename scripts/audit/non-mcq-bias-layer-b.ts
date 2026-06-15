@@ -22,7 +22,8 @@ export type LayerBQueueRow = {
     | "ordered_response"
     | "dropdown_cloze"
     | "matrix"
-    | "highlight";
+    | "highlight"
+    | "bowtie";
   layer_b_task: LayerBTask;
   triggering_layer_a_checks: string[];
   stem_en: string;
@@ -151,6 +152,13 @@ function itemSurface(question: StandaloneQuestion): unknown[] {
       selectable: segment.selectable === true,
     }));
   }
+  if (question.itemType === "bowtie") {
+    return (["condition", "actions", "parameters"] as const).map((zoneName) => ({
+      zone: zoneName,
+      prompt: question.bowtie[zoneName].prompt?.en,
+      tokens: question.bowtie[zoneName].tokens.map((token) => ({ id: token.id, text: token.en })),
+    }));
+  }
   return question.blanks.map((blank) => ({ id: blank.id, prompt: blank.prompt.en }));
 }
 
@@ -165,6 +173,13 @@ function correctAnswer(question: StandaloneQuestion): unknown {
   }
   if (question.itemType === "matrix") return question.correct;
   if (question.itemType === "highlight") return question.highlight.correct;
+  if (question.itemType === "bowtie") {
+    return {
+      condition: question.bowtie.condition.correct,
+      actions: question.bowtie.actions.correct,
+      parameters: question.bowtie.parameters.correct,
+    };
+  }
   return question.blanks.map((blank) => ({
     id: blank.id,
     acceptable: blank.acceptable,

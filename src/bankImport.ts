@@ -133,15 +133,19 @@ const hasHighlight = (question: Question) =>
   (question.itemType === "case_study" &&
     question.caseStudy.questions.some((caseQuestion) => caseQuestion.itemType === "highlight"));
 
+const hasBowtie = (question: Question) => question.itemType === "bowtie";
+
 export const toExportEnvelope = (questions: Question[]): BankEnvelope => ({
   meta: {
-    schemaVersion: questions.some(hasHighlight)
-      ? "1.3"
-      : questions.some(hasVisual)
-        ? "1.2"
-        : questions.some((question) => question.itemType === "case_study")
-          ? "1.1"
-          : "1.0",
+    schemaVersion: questions.some(hasBowtie)
+      ? "1.4"
+      : questions.some(hasHighlight)
+        ? "1.3"
+        : questions.some(hasVisual)
+          ? "1.2"
+          : questions.some((question) => question.itemType === "case_study")
+            ? "1.1"
+            : "1.0",
     exam: "NCLEX-RN",
     topic: "exported library",
     category: "mixed",

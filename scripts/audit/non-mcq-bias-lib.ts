@@ -1,5 +1,6 @@
 import { createHash } from "node:crypto";
 import type {
+  BowtieQuestion,
   DropdownClozeQuestion,
   MatrixQuestion,
   OrderedResponseQuestion,
@@ -32,7 +33,7 @@ export type BiasFixClass =
   | "RATIONALE_REPAIR"
   | "MANUAL_REVIEW"
   | "NONE";
-export type AuditedItemType = "select_all" | "ordered_response" | "dropdown_cloze" | "matrix";
+export type AuditedItemType = "select_all" | "ordered_response" | "dropdown_cloze" | "matrix" | "bowtie";
 
 export type BiasRecord = {
   audit_version: string;
@@ -72,6 +73,7 @@ const ITEM_TYPES: AuditedItemType[] = [
   "ordered_response",
   "dropdown_cloze",
   "matrix",
+  "bowtie",
 ];
 
 function flattenQuestions(questions: Question[]): StandaloneQuestion[] {
@@ -572,6 +574,38 @@ function matrixRecords(
   return records;
 }
 
+function bowtieRecords(bank: string, questions: BowtieQuestion[]): BiasRecord[] {
+  if (questions.length === 0) return [];
+  const records: BiasRecord[] = [];
+  for (const zoneName of ["condition", "actions", "parameters"] as const) {
+    const tokenCounts = [...new Set(questions.map((question) => question.bowtie[zoneName].tokens.length))]
+      .sort((left, right) => left - right);
+    for (const tokenCount of tokenCounts) {
+      const observations = questions
+        .filter((question) => question.bowtie[zoneName].tokens.length === tokenCount)
+        .flatMap((question) => {
+          const zone = question.bowtie[zoneName];
+          const correct = new Set(Array.isArray(zone.correct) ? zone.correct : [zone.correct]);
+          return zone.tokens.flatMap((token, index) =>
+            correct.has(token.id) ? [{ id: question.id, index }] : [],
+          );
+        });
+      records.push(
+        uniformRecord(
+          bank,
+          "bowtie",
+          `${zoneName}_correct_position_n${tokenCount}`,
+          tokenCount,
+          observations,
+          "SHUFFLE_AT_PROMOTION",
+        ),
+      );
+    }
+  }
+  records.push(rationaleRecord(bank, "bowtie", questions));
+  return records;
+}
+
 function analyzeOneBank(
   bank: string,
   questions: StandaloneQuestion[],
@@ -598,6 +632,7 @@ function analyzeOneBank(
       shapes.matrixColumns,
       shapes.matrixRows,
     ),
+    ...bowtieRecords(bank, byType.bowtie as BowtieQuestion[]),
   ];
 }
 

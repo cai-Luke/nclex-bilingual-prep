@@ -3,7 +3,7 @@ export type TextPair = {
   zh: string;
 };
 
-export type SchemaVersion = "1.0" | "1.1" | "1.2" | "1.3";
+export type SchemaVersion = "1.0" | "1.1" | "1.2" | "1.3" | "1.4";
 
 export type StandaloneItemType =
   | "multiple_choice"
@@ -12,7 +12,8 @@ export type StandaloneItemType =
   | "fill_in_blank"
   | "matrix"
   | "dropdown_cloze"
-  | "highlight";
+  | "highlight"
+  | "bowtie";
 
 export type ItemType = StandaloneItemType | "case_study";
 
@@ -151,6 +152,27 @@ export type HighlightQuestion = CommonQuestion & {
   };
 };
 
+export type BowtieToken = {
+  id: string;
+  en: string;
+  zh: string;
+};
+
+export type BowtieZone<C> = {
+  prompt?: TextPair;
+  tokens: BowtieToken[];
+  correct: C;
+};
+
+export type BowtieQuestion = CommonQuestion & {
+  itemType: "bowtie";
+  bowtie: {
+    condition: BowtieZone<string>;
+    actions: BowtieZone<string[]>;
+    parameters: BowtieZone<string[]>;
+  };
+};
+
 export type StandaloneQuestion =
   | MultipleChoiceQuestion
   | SelectAllQuestion
@@ -158,7 +180,8 @@ export type StandaloneQuestion =
   | FillInBlankQuestion
   | MatrixQuestion
   | DropdownClozeQuestion
-  | HighlightQuestion;
+  | HighlightQuestion
+  | BowtieQuestion;
 
 export type CaseStudyExhibit = {
   id: string;

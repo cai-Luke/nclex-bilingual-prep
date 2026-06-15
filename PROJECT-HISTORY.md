@@ -40,7 +40,7 @@ Current canonical banks (see [BANK-CENSUS.md](BANK-CENSUS.md); 1,303 top-level, 
 - `banks/medlabel-canonical.json` (8 schema v1.2 medication-label visual items)
 - `banks/visual-canonical.json` (53 reviewed schema v1.2 rhythm-strip visual items; the dedicated home for rhythm_strip kind, formerly `banks/rhythm-canonical`)
 - `banks/vitals-canonical.json` (10 reviewed schema v1.2 vitals-trend visual items; dedicated home for vitals_trend kind)
-- Schema version `1.3` current; `1.0` standalone, `1.1` case-study, and `1.2` visual banks remain supported
+- Schema version `1.4` current; `1.0` standalone, `1.1` case-study, `1.2` visual, and `1.3` highlight banks remain supported
 
 Current schema item types:
 
@@ -51,13 +51,35 @@ Current schema item types:
 - `matrix`
 - `dropdown_cloze`
 - `highlight`
+- `bowtie`
 - `case_study`
 
-Out of scope until a future schema bump:
-
-- `bowtie`
+The committed NGN item-type set is complete. Rationale/dyad scoring and an explicit linked “X as evidenced by Y” type remain out of scope.
 
 ## Milestones
+
+### Case-Skeleton Pipeline Retrofit to Schema 1.4 (Jun 14)
+
+Completed:
+- Synced `opus-case-skeleton-prompt.md` to the richer `opus-case-skeleton-prompt.txt` harness-paste baseline (`.txt` is canonical; the `.md` was stale — missing 7 instruction sections). Both files are now identical in content.
+- Added **BOW-TIE SYNTHESIS** as the 10th author section to both Opus prompt files: optional, author-supplied English prose covering the most-likely condition + two competing conditions, two priority actions + two wrong actions, two confirming parameters + two irrelevant parameters. Added the TLS worked example for the new section.
+- Added a highlight distractor note to ASSESSMENT FINDINGS and a matching cross-reference in KEY DECISION POINTS in both Opus prompt files.
+- Updated `gemini-case-compiler-prompt.md` and `gpt-case-skeleton-compiler-prompt.md` to schema 1.4: all `"1.2"` references replaced with `"1.4"`, stale "11-section" count replaced with count-free wording, `highlight` item type added to the compiler menu with segmentation build rules, BOW-TIE CAPSTONE section added with full zone mapping and drop-don't-repair build rules, self-checks updated to allow 1–2 top-level questions per skeleton and `meta.count` equal to top-level question count.
+- Updated `case-skeleton-pipeline-spec.md` to schema 1.4: architecture diagram and contract table updated to reflect the optional standalone bowtie as a second top-level item, highlight in the embedded item menu, `meta.count` 1-or-2, and correct 10-section author prose count.
+- Patched `BOWTIE-ITEM-TYPE-SPEC.md` §9.8 with an erratum replacing the incomplete "no author-prompt change" skeleton-retrofit mapping, pointing to the author-side synthesis section implemented here.
+- Extended `DECISIONS.md` principle 8 to record that the bowtie synthesis zone is author-supplied, and that a skeleton may now yield two top-level items.
+- Archived `opus-skeleton-retrofit-spec.md` to `Archive/` with implementation amendments.
+- No `src/` changes — all schema and renderer work for 1.4 (bowtie) and 1.3 (highlight) already shipped Jun 14.
+
+### Schema 1.4 Bowtie: Synthesis Items (Jun 14)
+
+Completed:
+- Added standalone `bowtie` items with bilingual, zone-scoped condition/action/parameter token pools and fixed 1/2/2 placement targets.
+- Added strict validation for token/key integrity, cross-zone id uniqueness, within-zone display uniqueness, distractor presence, rationale references, standalone-only placement, and the schema `1.4` floor.
+- Reused the shared `0/1` partial-credit path for a five-point maximum, with dirty persisted-answer de-duplication and zone-aware completeness checks.
+- Added an accessible mobile-first tap-to-place bowtie renderer with clear-on-tap slots, keyboard-operable buttons, bilingual tokens, answer-state reveal, and full-marks-only retention.
+- Added deterministic per-zone promotion shuffling, `1.4` export inference, schema-rank derivation in the promoter, audit serialization, coverage enumeration, and bowtie positional-bias checks.
+- Added focused validation, grading, export, completeness, standalone-only, schema-floor, and shuffle regressions. No unreviewed bowtie content was added to canonical banks.
 
 ### U10 Injection-Site Visual Renderer (Jun 14)
 
@@ -815,8 +837,9 @@ Last verified on 2026-06-14:
 
 - `npm run test:grading` — all current item types, partial-credit families, full-marks retention, and malformed duplicate-selection regressions pass
 - `npm run test:highlight` — schema 1.3 highlight validation, export, and recursive version-floor regressions pass
+- `npm run test:bowtie` — schema 1.4 bowtie validation, grading, export, completeness, standalone-only, version-floor, and shuffle regressions pass
 - `npm run validate-bank -- banks/*.json` — all bundled top-level banks pass
-- `npm run test-visuals` — 10 registered visual kinds green
+- `npm run test-visuals` — 11 registered visual kinds green
 - `npm run census && npm run census:check`
 - `npm run build`
 
@@ -825,7 +848,7 @@ Representative fetal-monitoring fixtures were also inspected through the in-app 
 ## Authoritative references
 
 - `NCLEX-Question-Schema.md` is the schema source of truth.
-- `src/types.ts` mirrors schema v1.3.
+- `src/types.ts` mirrors schema v1.4.
 - `src/schema.ts` validates committed and imported question data.
 - `scripts/validate-bank.ts` reuses the app validation path for bank files.
 - `BANK-REVIEW-LEDGER.md` tracks per-bank review status and should be updated before any generated bank is treated as reviewed testing material.

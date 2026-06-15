@@ -1,5 +1,6 @@
 import type {
   BankEnvelope,
+  BowtieQuestion,
   CaseStudyQuestion,
   Category,
   Difficulty,
@@ -19,9 +20,9 @@ import { getVisual, VISUAL_ITEM_TYPES, type VisualError } from "./visuals/regist
 import "./visuals/kinds"; // register every visual kind for validation (React-free)
 export { rhythmClasses } from "./visuals/kinds/rhythmStrip";
 
-export const SCHEMA_VERSION = "1.3";
+export const SCHEMA_VERSION = "1.4";
 
-export const supportedSchemaVersions = ["1.0", "1.1", "1.2", "1.3"] as const satisfies readonly SchemaVersion[];
+export const supportedSchemaVersions = ["1.0", "1.1", "1.2", "1.3", "1.4"] as const satisfies readonly SchemaVersion[];
 
 export const categories = [
   "Management of Care",
@@ -67,6 +68,7 @@ export const standaloneItemTypes = [
   "matrix",
   "dropdown_cloze",
   "highlight",
+  "bowtie",
 ] as const satisfies readonly StandaloneItemType[];
 
 export const itemTypes = [
@@ -120,7 +122,7 @@ const extractPlaceholders = (value: string) => {
   return Array.from(matches, (match) => match[1].trim());
 };
 
-const schemaOrder = ["1.0", "1.1", "1.2", "1.3"];
+const schemaOrder: readonly string[] = supportedSchemaVersions;
 const cmpSchema = (a: string, b: string) => schemaOrder.indexOf(a) - schemaOrder.indexOf(b);
 
 const formatVisualError = (basePath: string, err: VisualError) =>
@@ -246,6 +248,8 @@ export const validateQuestion = (raw: unknown, options: { allowCaseStudy?: boole
     validateDropdownCloze(question, reasons);
   } else if (question.itemType === "highlight") {
     validateHighlight(question, reasons);
+  } else if (question.itemType === "bowtie") {
+    validateBowtie(question, reasons);
   } else if (question.itemType === "case_study") {
     validateCaseStudy(question, reasons);
   }
@@ -494,6 +498,80 @@ const validateHighlight = (question: HighlightQuestion, reasons: string[]) => {
   });
 };
 
+const validateBowtie = (question: BowtieQuestion, reasons: string[]) => {
+  if (!isRecord(question.bowtie)) {
+    reasons.push("bowtie requires bowtie");
+    return;
+  }
+
+  const allTokenIds = new Set<string>();
+  const zones = [
+    ["condition", question.bowtie.condition, 1],
+    ["actions", question.bowtie.actions, 2],
+    ["parameters", question.bowtie.parameters, 2],
+  ] as const;
+
+  for (const [zoneName, zone, correctCount] of zones) {
+    if (!isRecord(zone)) {
+      reasons.push(`bowtie.${zoneName} must be an object`);
+      continue;
+    }
+    if (zone.prompt !== undefined) {
+      addTextPairError(zone.prompt, `bowtie.${zoneName}.prompt`, reasons);
+    }
+    if (!Array.isArray(zone.tokens) || zone.tokens.length === 0) {
+      reasons.push(`bowtie.${zoneName}.tokens must be a non-empty array`);
+      continue;
+    }
+
+    const tokenIds = new Set<string>();
+    const enTexts = new Set<string>();
+    const zhTexts = new Set<string>();
+    zone.tokens.forEach((token, index) => {
+      if (!isRecord(token) || !nonEmptyString(token.id) || !nonEmptyString(token.en) || !nonEmptyString(token.zh)) {
+        reasons.push(`bowtie.${zoneName}.tokens[${index}] requires id, en, and zh`);
+        return;
+      }
+      if (allTokenIds.has(token.id)) reasons.push(`duplicate bowtie token id ${token.id}`);
+      allTokenIds.add(token.id);
+      tokenIds.add(token.id);
+      if (enTexts.has(token.en)) reasons.push(`bowtie.${zoneName} has duplicate en token text ${token.en}`);
+      if (zhTexts.has(token.zh)) reasons.push(`bowtie.${zoneName} has duplicate zh token text ${token.zh}`);
+      enTexts.add(token.en);
+      zhTexts.add(token.zh);
+    });
+    const correctIds = zoneName === "condition"
+      ? (nonEmptyString(zone.correct) ? [zone.correct] : [])
+      : (Array.isArray(zone.correct) ? zone.correct : []);
+    if (zoneName === "condition" && !nonEmptyString(zone.correct)) {
+      reasons.push("bowtie.condition.correct must be a token id");
+    }
+    if (zoneName !== "condition" && (!Array.isArray(zone.correct) || zone.correct.length !== correctCount)) {
+      reasons.push(`bowtie.${zoneName}.correct must contain exactly ${correctCount} ids`);
+    }
+    if (new Set(correctIds).size !== correctIds.length) {
+      reasons.push(`bowtie.${zoneName}.correct contains duplicate ids`);
+    }
+    correctIds.forEach((id) => {
+      if (!tokenIds.has(id)) reasons.push(`bowtie.${zoneName}.correct id ${id} is not in that zone's tokens`);
+    });
+    if (zone.tokens.length <= correctCount) {
+      reasons.push(`bowtie.${zoneName} must include at least one distractor`);
+    }
+  }
+
+  const seenRationaleIds = new Set<string>();
+  question.rationale.byChoice?.forEach((choice) => {
+    if (seenRationaleIds.has(choice.refId)) {
+      reasons.push(`rationale.byChoice contains duplicate refId ${choice.refId}`);
+    }
+    seenRationaleIds.add(choice.refId);
+    if (!allTokenIds.has(choice.refId)) {
+      reasons.push(`rationale.byChoice refId ${choice.refId} is not a bowtie token`);
+    }
+  });
+};
+
 const validateCaseStudyExhibit = (value: unknown, path: string, seenIds: Set<string>, reasons: string[]) => {
   if (!isRecord(value)) {
     reasons.push(`${path} must be an object`);
@@ -573,6 +651,10 @@ const validateCaseStudy = (question: CaseStudyQuestion, reasons: string[]) => {
 
   const seenQuestionIds = new Set<string>();
   question.caseStudy.questions.forEach((caseQuestion, index) => {
+    if (caseQuestion.itemType === "bowtie") {
+      reasons.push(`caseStudy.questions[${index}]: bowtie may not be embedded in a case study (standalone item type)`);
+      return;
+    }
     const result = validateQuestion(caseQuestion, { allowCaseStudy: false });
     if (!result.ok) {
       reasons.push(`caseStudy.questions[${index}]: ${result.reasons.join("; ")}`);
@@ -646,6 +728,14 @@ export const validateBankObject = (raw: unknown): ValidationResult<BankEnvelope>
           result.value.caseStudy.questions.some((caseQuestion) => caseQuestion.itemType === "highlight")))
     ) {
       reasons.push(`questions[${index}]: highlight requires meta.schemaVersion 1.3`);
+      return;
+    }
+    if (
+      schemaVersion !== undefined &&
+      cmpSchema(schemaVersion, "1.4") < 0 &&
+      result.value.itemType === "bowtie"
+    ) {
+      reasons.push(`questions[${index}]: bowtie requires meta.schemaVersion 1.4`);
       return;
     }
     if (

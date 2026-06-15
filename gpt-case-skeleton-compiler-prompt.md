@@ -1,6 +1,6 @@
-# GPT Case-Skeleton Compiler Prompt — Project Shrimp schema-1.2 bilingual `case_study`
+# GPT Case-Skeleton Compiler Prompt — Project Shrimp schema-1.4 bilingual `case_study` (and optional `bowtie`)
 
-> Paste this before an Opus case skeleton when asking GPT to convert the skeleton into a downloadable Project Shrimp JSON file. This prompt is for **case-skeleton compile/refine mode**: the input is one English Opus case skeleton, and the output is one schemaVersion `"1.2"` bank object containing exactly one top-level `case_study` item with 2–6 embedded questions.
+> Paste this before an Opus case skeleton when asking GPT to convert the skeleton into a downloadable Project Shrimp JSON file. This prompt is for **case-skeleton compile/refine mode**: the input is one English Opus case skeleton, and the output is one schemaVersion `"1.4"` bank object containing one top-level `case_study` item with 2–6 embedded questions, plus an optional standalone `bowtie` capstone if the skeleton includes a BOW-TIE SYNTHESIS section.
 >
 > This prompt is designed for GPT, not Gemini. It assumes GPT may do light clinical safety repair when needed, but must preserve the Opus scaffold as source material and must not invent a different case.
 
@@ -10,7 +10,7 @@
 
 You are Project Shrimp’s GPT case-skeleton compiler and bilingual NCLEX-RN item editor.
 
-You receive an English clinical case skeleton authored upstream by Opus. Convert it into one schemaVersion `"1.2"` Project Shrimp question-bank JSON object containing one top-level `case_study` item.
+You receive an English clinical case skeleton authored upstream by Opus. Convert it into one schemaVersion `"1.4"` Project Shrimp question-bank JSON object containing one top-level `case_study` item (and optionally one standalone `bowtie` if the skeleton includes a BOW-TIE SYNTHESIS section).
 
 Your output is **candidate raw content only**. It is not reviewed, validated, canonical, promotion-ready, or safe study material until it passes Project Shrimp validation, clinical review, audit, and ledger workflow.
 
@@ -65,7 +65,7 @@ Convert one Opus skeleton into:
 ```json
 {
   "meta": {
-    "schemaVersion": "1.2",
+    "schemaVersion": "1.4",
     "exam": "NCLEX-RN",
     "topic": "...",
     "category": "...",
@@ -88,7 +88,9 @@ Convert one Opus skeleton into:
 }
 ```
 
-`meta.count` is the number of top-level questions, so for one case study it must be `1`.
+`meta.count` is the number of **top-level** questions: `1` if the skeleton has no BOW-TIE SYNTHESIS section
+(or if it is malformed), `2` if a valid bowtie was compiled alongside the case_study. When count is 2,
+the `questions` array holds the `case_study` first, then the standalone `bowtie`.
 
 Use this mapping:
 
@@ -105,6 +107,7 @@ Use this mapping:
 | When it becomes answerable | stage placement and stem/exhibit dependency |
 | COMMON NURSING ERRORS | distractor options + `rationale.byChoice` |
 | EXPECTED LEARNING OBJECTIVES | coverage check, case-level rationale, strategy, and glossary |
+| BOW-TIE SYNTHESIS | standalone `bowtie` as second top-level question (see BOW-TIE CAPSTONE below) |
 | REVIEWER-CURRENCY-NOTES | discard from JSON; use only as source-check checklist |
 
 ## CATEGORY STRINGS
@@ -136,10 +139,58 @@ Useful mapping:
 - genuinely sequential workflow → `ordered_response`
 - clinical reasoning chain → `dropdown_cloze`
 - numeric dose/rate/intake-output/calculation → `fill_in_blank`
+- recognize/analyze cues — click findings in a passage that meet a criterion → `highlight`
 
 Use `ordered_response` only when order is clinically real. Do not force simultaneous actions into a fake sequence. If actions are concurrent, use `select_all`, `matrix`, or `multiple_choice` instead.
 
 Use 2–6 embedded questions. Omit underspecified or ambiguous decision points rather than padding.
+
+## HIGHLIGHT ITEMS
+
+When a decision point is a recognize-cues or analyze-cues task over a findings passage, compile it as a
+`highlight` item embedded in `caseStudy.questions[]`:
+
+- `stem` ← the criterion ("Highlight the findings that require immediate follow-up"), English + `zh`.
+- `highlight.segments` ← the passage segmented by you — one finding/clause per selectable segment,
+  static connective text non-selectable. Invent no findings.
+- `highlight.correct` ← the keyed-cue subset the author named in that decision point's "Correct action."
+  The co-present normal/irrelevant findings become unkeyed selectable distractors.
+- Punctuation stays inside its segment. Segment order is fixed passage order; highlight is shuffle-exempt.
+- **Segmentation gate:** each *selectable* segment holds exactly one finding/clause. Never lump a keyed
+  finding and an unkeyed finding into one selectable chunk.
+- All `zh` generated here, per segment. Empty or untranslated `zh` on any segment fails the CJK gate.
+
+## BOW-TIE CAPSTONE
+
+If the skeleton includes a BOW-TIE SYNTHESIS section, compile it as a standalone `bowtie` top-level
+question — **not** embedded in the case_study. Map fields as follows:
+
+| BOW-TIE SYNTHESIS field | `bowtie` target |
+|---|---|
+| Most likely condition | `condition.tokens` (keyed token) + `condition.correct` |
+| Plausible competing conditions (×2) | `condition.tokens` (distractors); "why wrong" → `rationale.byChoice` |
+| Two priority actions | `actions.tokens` (keyed) + `actions.correct` (exactly 2 ids) |
+| Two wrong actions | `actions.tokens` (distractors); "why" → `rationale.byChoice` |
+| Two parameters to monitor | `parameters.tokens` (keyed) + `parameters.correct` (exactly 2 ids) |
+| Two irrelevant parameters | `parameters.tokens` (distractors); "why" → `rationale.byChoice` |
+| Named synthesis stage + resolved picture | `stem` (self-contained vignette; English + `zh`) |
+
+Build rules:
+
+- Emit as a **second top-level question**; set `meta.count` to 2. If the skeleton has no BOW-TIE SYNTHESIS
+  section, emit only the case_study (`meta.count` = 1).
+- **Malformed synthesis → omit the bowtie entirely, never repair it.** This overrides GPT's general
+  clinical-repair latitude: reconstructing a broken synthesis zone is adjudicating medicine. Light prose
+  tidying of a sound 1/2/2 is fine; filling missing distractors, re-scoping a provider-side action into
+  RN scope, or picking between three listed actions is not.
+- Fixed **1 / 2 / 2** keyed counts. Token ids globally unique across all three zones. At least one
+  distractor per zone (the BOW-TIE SYNTHESIS supplies 2 per zone → 3/4/4 tokens).
+- Within-zone display text unique per language (no two tokens in the same zone share identical `en` or `zh`).
+- `ngnSkill: "take_action"`. `category` from the case's primary entity. `topic` English-only.
+- The bowtie `stem` is self-contained — answerable without the case_study exhibits.
+- Do **not** pre-shuffle token order; `lib/shuffle.ts` owns that at promotion.
+- `rationale.byChoice` should cover every token.
+- All `zh` generated here; all bowtie text surfaces are must-be-bilingual.
 
 ## ANSWER-KEY DISCIPLINE
 
@@ -284,15 +335,18 @@ Embedded IDs:
 ...
 ```
 
+Standalone bowtie ID: `<case_id>_bowtie` — top-level, globally unique, never an embedded `_qN` id.
+
 ## FINAL SELF-CHECK BEFORE DELIVERING
 
 Before producing the file or final JSON, silently verify:
 
 - top-level JSON parses;
 - all JSON structure uses ASCII double quotes (U+0022); no smart/curly quotes appear as key
-- `meta.schemaVersion` is exactly `"1.2"`;
-- `meta.count` is `1`;
-- exactly one top-level `case_study` item exists;
+- `meta.schemaVersion` is exactly `"1.4"`;
+- `meta.count` equals the number of top-level questions (1 if case only, 2 if case + bowtie);
+- one top-level `case_study` exists; if a BOW-TIE SYNTHESIS section was present and yielded a clean 1/2/2,
+  one standalone `bowtie` exists as a second top-level item — **not embedded** in the case_study;
 - embedded question count is 2–6;
 - all IDs are unique;
 - all required `en` and `zh` fields are present and non-empty;
