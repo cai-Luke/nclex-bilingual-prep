@@ -6,7 +6,7 @@ const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
 
 // Fix Q5: mc_layer_highlight_05
 // It was decorative because it named the route. Now it asks for the target layer of the route shown.
-const q5 = data.questions.find(q => q.id === "gpt_injection_smoke_2026_06_15_mc_layer_highlight_05");
+const q5 = data.questions.find((q: any) => q.id === "gpt_injection_smoke_2026_06_15_mc_layer_highlight_05");
 if (q5) {
   q5.topic = "Target layer identification from visual";
   q5.stem = {
@@ -19,7 +19,7 @@ if (q5) {
 
 // Fix Q6: sata_im_cues_06
 // It was decorative because it named IM. 
-const q6 = data.questions.find(q => q.id === "gpt_injection_smoke_2026_06_15_sata_im_cues_06");
+const q6 = data.questions.find((q: any) => q.id === "gpt_injection_smoke_2026_06_15_sata_im_cues_06");
 if (q6) {
   q6.stem = {
     en: "The image shows an injection technique. Which visual cues correctly describe the route shown? Select all that apply.",
@@ -32,7 +32,7 @@ if (q6) {
 
 // Fix Q8: matrix_route_match_08
 // It was a definition matching question, completely decorative.
-const q8 = data.questions.find(q => q.id === "gpt_injection_smoke_2026_06_15_matrix_route_match_08");
+const q8 = data.questions.find((q: any) => q.id === "gpt_injection_smoke_2026_06_15_matrix_route_match_08");
 if (q8) {
   q8.topic = "Visual technique analysis";
   q8.stem = {
