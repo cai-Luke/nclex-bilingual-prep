@@ -13,6 +13,7 @@ import { join, basename } from "node:path";
 import { parseBankText } from "../src/bankImport";
 import { supportedSchemaVersions, validateBankObject } from "../src/schema";
 import { shuffle } from "../lib/shuffle";
+import { checkCaseCompileManifests, stripCompileManifests } from "../lib/case-completeness";
 import { normalizeBankPresentations, serializeBank } from "../lib/presentation-normalization";
 import type { BankEnvelope } from "../src/types";
 
@@ -66,7 +67,16 @@ for (const filename of jsonFiles) {
   try {
     const text = await readFile(draftPath, "utf8");
     const raw = parseBankText(text);
-    const result = validateBankObject(raw);
+    const manifestFailures = checkCaseCompileManifests(raw);
+    if (manifestFailures.length > 0) {
+      console.error(`\n${filename}: case-completeness gate failed:`);
+      manifestFailures.forEach((failure) => {
+        failure.reasons.forEach((reason) => console.error(`  - ${failure.caseId}: ${reason}`));
+      });
+      anyFailed = true;
+      continue;
+    }
+    const result = validateBankObject(stripCompileManifests(raw));
 
     if (!result.ok) {
       console.error(`\n${filename}: draft validation failed — fix these before promoting:`);

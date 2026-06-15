@@ -248,7 +248,9 @@ may legitimately be shorter than the others — that is not padding to fill out.
 - **Stage 3**
 - **Stage 4** (only when the course genuinely has a distinct fourth pivot)
 
-**KEY DECISION POINTS** — the heart of the case. List 4–6 discrete decision points, numbered. Each one is a
+**KEY DECISION POINTS** — the heart of the case. List exactly six discrete decision points, numbered, with
+one primarily representing each NCJMM step: recognize cues, analyze cues, prioritize hypotheses, generate
+solutions, take action, and evaluate outcomes. Each one is a
 question the nurse must answer at some moment in the case. For **each** decision point give, in plain prose:
 - *The situation / question* — what is being decided, at which stage, using which data.
 - *Correct action* — the single best nursing action or judgment. State it unambiguously.
@@ -258,10 +260,10 @@ question the nurse must answer at some moment in the case. For **each** decision
   co-occur.
 - *When it becomes answerable* — which stage's data is required to answer it.
 
-Across the set, draw on a range of NCJMM skills rather than clustering on one or two — but you need not hit
-all six distinctly, and a single point may exercise more than one (prioritize hypotheses and generate
-solutions often blur in practice). Use four points when the case genuinely supports only four; do not pad
-to six. When any decision point is a recognize-cues or analyze-cues task over a findings passage, confirm
+Each point may exercise more than one skill, but identify one dominant skill and ensure all six steps are
+represented across the set. Do not pad with a weak decision: if the assigned premise cannot support six
+unambiguous, clinically meaningful points, stop and state that the premise is underspecified rather than
+returning a short skeleton. When any decision point is a recognize-cues or analyze-cues task over a findings passage, confirm
 the relevant data (in ASSESSMENT FINDINGS or the corresponding CLINICAL COURSE stage) includes at least one
 normal or irrelevant finding alongside the keyed abnormals — see the ASSESSMENT FINDINGS note above.
 

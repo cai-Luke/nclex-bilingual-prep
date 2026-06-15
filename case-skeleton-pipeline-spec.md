@@ -30,7 +30,8 @@ skeleton          guidance currency           case_study cluster           (cano
   (DECISIONS §3: model only for the irreducible semantic residual).
 - **GPT and Gemini split fact-check and compile roles.** One independently checks clinical accuracy and
   guidance currency; the opposite model compiles one skeleton into one fully bilingual `case_study`
-  envelope with 4–6 embedded questions. The compiler selects item types, generates ids, and produces all
+  envelope targeting 6 embedded questions, one per authored NCJMM decision point. Fewer items are allowed
+  only when the compiler logs a specific omission in the raw `_compileManifest`. The compiler selects item types, generates ids, and produces all
   `zh`; it does **not** decide medicine.
 - **Claude is the final reviewer.** The chain preserves producer≠checker (DECISIONS §2/§5): the author
   (Opus), the clinical fact-checker (GPT or Gemini), the compiler (the opposite model), and the final
@@ -55,7 +56,7 @@ The fact-check and compile roles are never the same model on a given case
 
 ## Why one case → a cluster (decided)
 
-The skeleton's three-stage CLINICAL COURSE plus 4–6 KEY DECISION POINTS is built to fan out into a multi-part
+The skeleton's three-stage CLINICAL COURSE plus 6 KEY DECISION POINTS is built to fan out into a multi-part
 `case_study`, which amortizes the hard-to-schedule hub generation across several items and naturally walks the
 NCJMM sequence. Cost: coverage is counted per item, not per case — see follow-ups.
 
@@ -76,8 +77,10 @@ Each skeleton section has a fixed destination, so the compiler is shaping, not i
 
 The load-bearing rule: **correct answers are read from KEY DECISION POINTS, distractors from COMMON NURSING
 ERRORS.** The compiler may translate and rephrase but may not change which action is correct or introduce clinical
-claims absent from the skeleton. An underspecified decision point is dropped, not guessed. A malformed
-BOW-TIE SYNTHESIS section is dropped, not repaired — the bowtie is omitted and count stays 1.
+claims absent from the skeleton. An underspecified decision point is dropped, not guessed, and the omission
+is recorded in the raw `_compileManifest`. A malformed BOW-TIE SYNTHESIS section is dropped, not repaired —
+the bowtie is omitted, the reason is logged, and count stays 1. Promotion verifies the manifest against
+actual output and strips it before canonical merge.
 
 ## The Spanish bug doesn't vanish — it migrates, and is gated
 

@@ -2,6 +2,7 @@ import { readFile } from "node:fs/promises";
 import { basename } from "node:path";
 import { parseBankText } from "../src/bankImport";
 import { validateBankObject } from "../src/schema";
+import { checkCaseCompileManifests, stripCompileManifests } from "../lib/case-completeness";
 
 const files = process.argv.slice(2);
 
@@ -16,7 +17,19 @@ for (const file of files) {
   try {
     const text = await readFile(file, "utf8");
     const raw = parseBankText(text);
-    const result = validateBankObject(raw);
+    const isRaw = file.split(/[\\/]/).includes("banks-raw");
+    if (isRaw) {
+      const failures = checkCaseCompileManifests(raw);
+      if (failures.length > 0) {
+        failed = true;
+        console.error(`\n${basename(file)} failed case-completeness validation:`);
+        failures.forEach((failure) => {
+          failure.reasons.forEach((reason) => console.error(`- ${failure.caseId}: ${reason}`));
+        });
+        continue;
+      }
+    }
+    const result = validateBankObject(isRaw ? stripCompileManifests(raw) : raw);
     if (!result.ok) {
       failed = true;
       console.error(`\n${basename(file)} failed validation:`);

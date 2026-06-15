@@ -186,6 +186,9 @@ export const validateQuestion = (raw: unknown, options: { allowCaseStudy?: boole
   }
 
   if (!nonEmptyString(raw.id)) reasons.push("missing id");
+  if (raw._compileManifest !== undefined) {
+    reasons.push("_compileManifest is raw-only and must be stripped before canonical/import validation");
+  }
   if (!enumIncludes(itemTypes, raw.itemType)) {
     reasons.push("invalid itemType");
   } else if (!allowCaseStudy && raw.itemType === "case_study") {

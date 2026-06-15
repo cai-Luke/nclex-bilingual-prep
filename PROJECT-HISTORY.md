@@ -58,6 +58,18 @@ The committed NGN item-type set is complete. Rationale/dyad scoring and an expli
 
 ## Milestones
 
+### Case Completion Reconciliation — Layer A + Manifest Gate (Jun 15)
+
+Completed:
+- Added a deterministic reconciliation sweep across canonical, raw, and pending JSON populations plus all 27 archived Opus prose skeletons.
+- Produced `audit/case-completion/` artifacts: full Layer A rows, population/lane count distributions, a concise report, and a capped Gemini Layer B queue/prompt.
+- Identified two high-confidence P2 under-compilation candidates: `opus_car_t_crs_2026_06_11_case_01` and `opus2_case_code_status_01`, each with six authored decision points and five emitted items. No P1 Opus cases were found.
+- Confirmed three other five-item Opus cases are faithful to five-DP legacy skeletons and remain tolerated: informed consent/interpreter, postpartum intrusive thoughts, and toddler nonaccidental trauma.
+- Added raw-only `_compileManifest` checking: actual embedded count and sibling bowtie presence must match declarations; all six authored DPs must be emitted or specifically omitted; authored bowtie omission requires a reason.
+- Integrated the gate into raw `validate-bank` and `promote`; manifests are stripped before normal schema validation/output and rejected if they leak into canonical or imported content.
+- Updated Opus and compiler prompts to target six NCJMM decision points/items without padding, and documented the forward accounting rule in the pipeline spec and decisions log.
+- Layer B was not run. Gemini owns the two-row DP alignment pass; Claude remains the final reviewer.
+
 ### Case-Skeleton Pipeline Retrofit to Schema 1.4 (Jun 14)
 
 Completed:
@@ -833,8 +845,11 @@ Completed:
 
 ## Verification baseline
 
-Last verified on 2026-06-14:
+Last verified on 2026-06-15:
 
+- `npm run test:case-completeness` — raw compile-manifest accounting, omission, bowtie, strip, and canonical-leak regressions pass
+- `npm run case-completion:layer-a` — 116 cases reconciled against 27 archived skeletons; substantive output is deterministic; 2-row Gemini queue emitted
+- Gemini Layer B completed the capped two-case alignment: both joins were confirmed, with one merged CAR-T DP and one code-status DP lacking a dedicated item. `audit/case-completion/FINAL-ARCHITECTURE-REPORT.md` records the GPT completion contract and Claude adjudication choices; no bank content was changed.
 - `npm run test:grading` — all current item types, partial-credit families, full-marks retention, and malformed duplicate-selection regressions pass
 - `npm run test:highlight` — schema 1.3 highlight validation, export, and recursive version-floor regressions pass
 - `npm run test:bowtie` — schema 1.4 bowtie validation, grading, export, completeness, standalone-only, version-floor, and shuffle regressions pass
