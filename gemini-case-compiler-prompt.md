@@ -38,7 +38,7 @@ standalone `bowtie` as a second top-level question (never embedded).
 | PATIENT BACKGROUND + INITIAL PRESENTATION | `caseStudy.summary` and the first `caseStudy.exhibits[]` content |
 | ASSESSMENT FINDINGS + LABORATORY DATA (baseline) | exhibit `content` (chart-like, newline-separated values OK) |
 | CLINICAL COURSE stages | `caseStudy.stages[]`, one stage object each, each with ≥1 exhibit carrying that stage's new data (3 stages, or 4 when the skeleton includes a Stage 4) |
-| KEY DECISION POINTS | one embedded question each → `caseStudy.questions[]` (4–6 items, the cluster) |
+| KEY DECISION POINTS | one embedded question per usable point → `caseStudy.questions[]` (target 6) |
 | → "Correct action" of a decision point | that question's keyed `correct` + `rationale.correct` |
 | → "Clinical-judgment skill" | that question's `ngnSkill` |
 | → "When it becomes answerable" | place the item so it depends on that stage's exhibit (preserve the unfold) |
@@ -58,8 +58,10 @@ Choose the item type that fits each decision point's cognitive task — do not f
 - dosage/numeric → `fill_in_blank`
 - recognize/analyze cues — click the findings in a passage that meet a criterion (require follow-up, are abnormal, are relevant) → `highlight`
 
-Aim for 4–6 embedded items that walk the NCJMM sequence (recognize → analyze → prioritize → generate →
-take action → evaluate), mirroring the skeleton's skill tags. Each embedded item is a complete standalone
+Compile one embedded item per usable decision point. The target is six items walking the NCJMM sequence
+(recognize → analyze → prioritize → generate → take action → evaluate), mirroring the skeleton's skill
+tags. Omit a point only when it is genuinely underspecified and cannot yield an unambiguous key; record every
+omission in `_compileManifest.omittedDps`. Never pad to six with a weak item. Each embedded item is a complete standalone
 question with its own full common fields, `rationale`, `testTakingStrategy`, and `glossary`.
 
 ## HIGHLIGHT ITEMS
@@ -164,6 +166,22 @@ If a valid BOW-TIE SYNTHESIS section is present, `count` becomes 2 and `question
 (`caseStudies`, `items`, `bank`, …). Never output partial JSON or trailing commas.
 If the skeleton ends with a `---REVIEWER-CURRENCY-NOTES---` block, **discard it entirely**. It is for human reviewers only and must not appear anywhere in your JSON output.
 
+The raw `case_study` object must carry this audit-only field:
+
+```json
+"_compileManifest": {
+  "skeletonDpCount": 6,
+  "skeletonHasBowtie": false,
+  "emittedItemCount": 6,
+  "emittedBowtie": false,
+  "omittedDps": []
+}
+```
+
+If an authored bowtie is omitted because its source is malformed, add a non-empty
+`bowtieOmissionReason`. `_compileManifest` is required in raw output, is checked at validation/promotion,
+and is stripped before canonical merge. It is never learner-facing.
+
 ## MULTI-PASS (the user may request these separately)
 
 This compile may run in passes; obey whichever the user asks for:
@@ -180,7 +198,11 @@ This compile may run in passes; obey whichever the user asks for:
 - 1–2 top-level questions: always one `case_study`; if a valid BOW-TIE SYNTHESIS section was present and
   yielded a clean 1/2/2, one standalone `bowtie` (never embedded). If the section was absent or malformed,
   emit only the case_study (count 1).
-- `caseStudy.exhibits` ≥ 1; 2–6 embedded questions; no embedded `case_study`; no embedded `bowtie`;
+- `_compileManifest` is present and truthful: `skeletonDpCount` = 6; actual embedded count equals
+  `emittedItemCount`; `emittedItemCount + omittedDps.length = 6`; each omission has a unique DP number and
+  specific reason; actual sibling bowtie presence equals `emittedBowtie`; an authored-but-omitted bowtie has
+  `bowtieOmissionReason`.
+- `caseStudy.exhibits` ≥ 1; target 6 embedded questions, fewer only through logged manifest omissions; no embedded `case_study`; no embedded `bowtie`;
   embedded ids unique and ≠ parent id.
 - The case **unfolds**: stages carry changing data; not every embedded item is answerable from the initial
   presentation.

@@ -1,6 +1,6 @@
 # GPT Case-Skeleton Compiler Prompt — Project Shrimp schema-1.4 bilingual `case_study` (and optional `bowtie`)
 
-> Paste this before an Opus case skeleton when asking GPT to convert the skeleton into a downloadable Project Shrimp JSON file. This prompt is for **case-skeleton compile/refine mode**: the input is one English Opus case skeleton, and the output is one schemaVersion `"1.4"` bank object containing one top-level `case_study` item with 2–6 embedded questions, plus an optional standalone `bowtie` capstone if the skeleton includes a BOW-TIE SYNTHESIS section.
+> Paste this before an Opus case skeleton when asking GPT to convert the skeleton into a downloadable Project Shrimp JSON file. This prompt is for **case-skeleton compile/refine mode**: the input is one English Opus case skeleton, and the output is one schemaVersion `"1.4"` bank object containing one top-level `case_study` item targeting six embedded questions, plus an optional standalone `bowtie` capstone if the skeleton includes a BOW-TIE SYNTHESIS section.
 >
 > This prompt is designed for GPT, not Gemini. It assumes GPT may do light clinical safety repair when needed, but must preserve the Opus scaffold as source material and must not invent a different case.
 
@@ -143,7 +143,9 @@ Useful mapping:
 
 Use `ordered_response` only when order is clinically real. Do not force simultaneous actions into a fake sequence. If actions are concurrent, use `select_all`, `matrix`, or `multiple_choice` instead.
 
-Use 2–6 embedded questions. Omit underspecified or ambiguous decision points rather than padding.
+Compile one embedded item per usable decision point; the target is six. Omit an item only when its decision
+point is genuinely underspecified or ambiguous, record `{ "dp": N, "reason": "specific reason" }` in
+`_compileManifest.omittedDps`, and never pad to six with a weak item.
 
 ## HIGHLIGHT ITEMS
 
@@ -309,6 +311,22 @@ Preferred output for normal Project Shrimp sessions:
 
 The JSON file itself must contain exactly one valid JSON object. No markdown fences, comments, prose, trailing commas, or alternate top-level keys.
 
+The raw `case_study` object must include:
+
+```json
+"_compileManifest": {
+  "skeletonDpCount": 6,
+  "skeletonHasBowtie": false,
+  "emittedItemCount": 6,
+  "emittedBowtie": false,
+  "omittedDps": []
+}
+```
+
+If the skeleton authored a bowtie but it was omitted as malformed, include a non-empty
+`bowtieOmissionReason`. This field is audit-only, required in raw output, checked and stripped at promotion,
+and forbidden in canonical/imported banks.
+
 If the user explicitly requests “JSON only,” output only the JSON object and no explanatory text.
 
 ## FILE NAMING
@@ -347,7 +365,11 @@ Before producing the file or final JSON, silently verify:
 - `meta.count` equals the number of top-level questions (1 if case only, 2 if case + bowtie);
 - one top-level `case_study` exists; if a BOW-TIE SYNTHESIS section was present and yielded a clean 1/2/2,
   one standalone `bowtie` exists as a second top-level item — **not embedded** in the case_study;
-- embedded question count is 2–6;
+- `_compileManifest` is present and agrees with the actual output; `emittedItemCount + omittedDps.length`
+  equals `skeletonDpCount` (six), every omission has a unique DP number and specific reason, and actual
+  sibling bowtie presence equals `emittedBowtie`;
+- embedded question count targets six; fewer items are allowed only when every missing item is logged in
+  `_compileManifest.omittedDps`;
 - all IDs are unique;
 - all required `en` and `zh` fields are present and non-empty;
 - no Chinese appears in `topic`;
