@@ -43,8 +43,16 @@ for (const reason of forbiddenWriteReasons) {
   assert(!updatesSection.includes(reason), `write-path section contains forbidden semantic reason: ${reason}`);
 }
 
-const suggestionSection = report.split("## Suggestions Requiring Review")[1] ?? "";
-assert(suggestionSection.includes("suggestion"), "expected semantic/ID matches to appear in the suggestion section");
+const suggestionSection = report.split("## Suggestions Requiring Review")[1]?.split("## Broad-Topic Review Suggestions")[0] ?? "";
+const suggestionRows = suggestionSection
+  .split("\n")
+  .filter((line) => line.startsWith("| `") && !line.includes("|---|"));
+
+assert(suggestionRows.length === suggestions, `expected ${suggestions} suggestion rows, found ${suggestionRows.length}`);
+assert(
+  suggestionRows.some((row) => !row.endsWith("| exact topic normalization |")),
+  "expected semantic/ID matches to appear in the suggestion section",
+);
 
 console.log(
   `Topic migration guards OK (${exactUpdates} exact updates, ${suggestions} suggestions, ${unresolved} unresolved)`,
