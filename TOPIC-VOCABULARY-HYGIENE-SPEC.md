@@ -1,8 +1,9 @@
 # Topic Vocabulary Hygiene — Cure Spec
 
-Status: **approved for implementation.** Topic-list/class decisions are resolved (see Resolved
-Decisions and `TOPIC-VOCABULARY-DECISIONS.md`). Ledger entry and any `DECISIONS.md` invariant
-promotion are left to Luke at execution time.
+Status: **implementation corrected after failed applied migration.** Topic-list/class decisions are
+resolved (see Resolved Decisions and `TOPIC-VOCABULARY-DECISIONS.md`), but canonical bank writes are
+paused pending review of conservative suggestions. Keep the failed applied report as an audit
+artifact.
 
 ## Definition (the keystone — read first)
 
@@ -124,10 +125,11 @@ cleanup-topic-metadata.ts --allow-canonical --reason "one-time topic vocabulary 
   `scripts/standardize-topics.ts`** — the pure string-cascade is the weaker classifier and the
   duplicate source of truth. Keep the content-aware `cleanup-topic-metadata.ts` lineage, refit to
   import the SoT instead of its inline map.
-- **Classification order, no silent fallback:** ID override → exact alias (`TOPIC_ALIASES`) →
-  content rule → **unresolved human-decision list.** Explicitly forbid the category-based fallbacks
-  presently in `standardize-topics.ts` (`-> "Adult Health"`, `-> "Physiological Adaptation"`, etc.).
-  A forced human-decision list is the whole point.
+- **Classification order, no silent fallback:** exact alias (`TOPIC_ALIASES`) writes; ID override and
+  content rule emit suggestions only; unmatched noncanonical topics route to the unresolved
+  human-decision list. Explicitly forbid the category-based fallbacks presently in
+  `standardize-topics.ts` (`-> "Adult Health"`, `-> "Physiological Adaptation"`, etc.). A forced
+  human-decision list is the whole point.
 - **Behavior fix for the survivor:** today `cleanup-topic-metadata.ts` sets `newTopic = override ??
   exact ?? oldTopic`, i.e. it silently *keeps* an unmatched topic. For a migration whose acceptance
   bar is "every topic is canonical," any topic not resolved by override/exact/content-rule must route
@@ -161,7 +163,8 @@ this prompt rule is the first line. Together they make Layer 3 a one-time event.
 | Gate placement | Canonical/CI bank-level; runtime import warns/normalizes, never rejects on topic alone |
 | Noncanonical topic | Hard-fail at the canonical gate |
 | Topic×category licensing | Phased — Phase 1 membership hard-fail; Phase 2 mismatch audit-only; Phase 3 strict licensing for STRICT-class topics after review |
-| Canonical-write protocol | One-time sanctioned migration via `--allow-canonical --reason` + full audit report |
+| Canonical-write protocol | One-time sanctioned migration via `--allow-canonical --reason` + full audit report, only after conservative suggestions are reviewed |
+| Failed applied migration | `audit/topic-vocabulary-migration-2026-06-16.report.md` is retained as a failed-attempt audit artifact; its canonical bank edits were rolled back |
 | Final topic list | Locked in `TOPIC-VOCABULARY-DECISIONS.md`; err slightly coarser than the current tail |
 | Shared topics | Medication Safety & Admin = Pharmacological + Safety/Infection Control; Laboratory & Diagnostic Tests = Reduction of Risk Potential + Pharmacological |
 | Strict judgment calls | Palliative & Supportive Care = Basic Care and Comfort; Discharge Planning & Handoff = Management of Care; Patient & Environment Safety = Safety and Infection Control; Therapeutic Communication = Psychosocial Integrity; Dosage Calculations = Pharmacological |

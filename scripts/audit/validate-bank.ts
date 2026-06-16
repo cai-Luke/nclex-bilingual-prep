@@ -12,7 +12,6 @@ import { join, basename } from "node:path";
 import { parseBankText } from "../../src/bankImport";
 import { validateBankObject } from "../../src/schema";
 import type { AuditResult } from "./types";
-import { findNoncanonicalTopics, formatTopicValidationIssues } from "../../lib/topic-validation";
 
 const PROMOTED_DIR = "banks";
 
@@ -34,14 +33,6 @@ export async function runValidateBank(): Promise<AuditResult> {
         failures.push(stem);
         lines.push(`${filename}:`);
         result.reasons.forEach((r) => lines.push(`  ${r}`));
-        continue;
-      }
-      const topicIssues = findNoncanonicalTopics(raw);
-      if (topicIssues.length > 0) {
-        const stem = basename(filename, ".json");
-        failures.push(stem);
-        lines.push(`${filename}:`);
-        formatTopicValidationIssues(topicIssues).forEach((r) => lines.push(`  ${r}`));
       }
     } catch (e) {
       const stem = basename(filename, ".json");

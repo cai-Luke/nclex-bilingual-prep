@@ -632,6 +632,7 @@ const updateQuestionTopic = (
   file: string,
   changes: ProposedChange[],
   unresolved: ProposedChange[],
+  suggestions: ProposedChange[],
   parentContext = "",
 ) => {
   if (typeof question.topic !== "string") return;
@@ -640,23 +641,35 @@ const updateQuestionTopic = (
   const override = idTopicOverrides.get(question.id);
   const exact = aliasTopic(oldTopic) ?? exactTopicFixes.get(normalizeTopic(oldTopic));
   const contentMatch = classifyByContent(question, parentContext);
-  const newTopic = override ?? exact ?? contentMatch?.topic;
 
-  if (newTopic && newTopic !== oldTopic) {
+  if (exact && exact !== oldTopic) {
     changes.push({
       file,
       id: question.id ?? "(missing id)",
       oldTopic,
-      newTopic,
+      newTopic: exact,
       category: question.category ?? "(missing category)",
       itemType: question.itemType ?? "(missing itemType)",
-      reason: override ? "curated content review" : exact ? "exact topic normalization" : contentMatch?.reason ?? "content rule",
+      reason: "exact topic normalization",
     });
-    question.topic = newTopic;
+    question.topic = exact;
     return;
   }
 
-  if (!newTopic && !isCanonicalTopic(oldTopic)) {
+  const suggestedTopic = override ?? contentMatch?.topic;
+  if (!isCanonicalTopic(oldTopic)) {
+    if (suggestedTopic && suggestedTopic !== oldTopic) {
+      suggestions.push({
+        file,
+        id: question.id ?? "(missing id)",
+        oldTopic,
+        newTopic: suggestedTopic,
+        category: question.category ?? "(missing category)",
+        itemType: question.itemType ?? "(missing itemType)",
+        reason: override ? "curated ID suggestion" : contentMatch?.reason ?? "content rule suggestion",
+      });
+      return;
+    }
     unresolved.push({
       file,
       id: question.id ?? "(missing id)",
@@ -664,7 +677,7 @@ const updateQuestionTopic = (
       newTopic: "(unresolved)",
       category: question.category ?? "(missing category)",
       itemType: question.itemType ?? "(missing itemType)",
-      reason: "no ID override, exact alias, or content rule matched",
+      reason: "no exact alias matched; no suggestion available",
     });
   }
 };
@@ -674,7 +687,7 @@ const getBankFiles = async () => {
   return files.filter((file) => file.endsWith(".json")).map((file) => join("banks", file));
 };
 
-const formatReport = (changes: ProposedChange[], unresolved: ProposedChange[], reviewSuggestions: ProposedChange[]) => {
+const formatReport = (changes: ProposedChange[], unresolved: ProposedChange[], suggestions: ProposedChange[], reviewSuggestions: ProposedChange[]) => {
   const byFile = new Map<string, ProposedChange[]>();
   const byOldTopic = new Map<string, number>();
   for (const change of changes) {
@@ -689,7 +702,8 @@ const formatReport = (changes: ProposedChange[], unresolved: ProposedChange[], r
     `Mode: ${dryRun ? "dry run" : "applied"}`,
     allowCanonicalWrite ? `Write reason: ${writeReason}` : "Write reason: none; canonical banks were not modified",
     "",
-    `Total topic updates: ${changes.length}`,
+    `Exact topic updates: ${changes.length}`,
+    `Suggestions requiring review: ${suggestions.length}`,
     `Unresolved noncanonical topics: ${unresolved.length}`,
     `Broad-topic review suggestions: ${reviewSuggestions.length}`,
     "",
@@ -725,6 +739,16 @@ const formatReport = (changes: ProposedChange[], unresolved: ProposedChange[], r
     lines.push("");
   }
 
+  if (suggestions.length > 0) {
+    lines.push("## Suggestions Requiring Review", "");
+    lines.push("| Question ID | Category | Type | Current topic | Suggested topic | Reason |");
+    lines.push("|---|---|---|---|---|---|");
+    for (const item of suggestions) {
+      lines.push(`| \`${item.id}\` | ${item.category} | ${item.itemType} | ${item.oldTopic} | ${item.newTopic} | ${item.reason} |`);
+    }
+    lines.push("");
+  }
+
   if (reviewSuggestions.length > 0) {
     lines.push("## Broad-Topic Review Suggestions", "");
     lines.push("| Question ID | Category | Type | Current topic | Suggested topic | Reason |");
@@ -741,6 +765,7 @@ const formatReport = (changes: ProposedChange[], unresolved: ProposedChange[], r
 const bankFiles = await getBankFiles();
 const allChanges: ProposedChange[] = [];
 const unresolved: ProposedChange[] = [];
+const suggestions: ProposedChange[] = [];
 const reviewSuggestions: ProposedChange[] = [];
 
 for (const file of bankFiles) {
@@ -762,11 +787,11 @@ for (const file of bankFiles) {
           )} ${textFromValue(question.caseStudy?.stages)}`
         : "";
 
-    updateQuestionTopic(question, file, fileChanges, unresolved);
+    updateQuestionTopic(question, file, fileChanges, unresolved, suggestions);
 
     if (question.itemType === "case_study" && Array.isArray(question.caseStudy?.questions)) {
       for (const embedded of question.caseStudy.questions) {
-        updateQuestionTopic(embedded, file, fileChanges, unresolved, parentContext);
+        updateQuestionTopic(embedded, file, fileChanges, unresolved, suggestions, parentContext);
       }
     }
   }
@@ -809,9 +834,10 @@ for (const file of bankFiles) {
 
 await mkdir("audit", { recursive: true });
 const reportPath = `audit/topic-vocabulary-migration-${reportDate}${dryRun ? ".dry-run" : ""}.report.md`;
-await writeFile(reportPath, formatReport(allChanges, unresolved, reviewSuggestions));
+await writeFile(reportPath, formatReport(allChanges, unresolved, suggestions, reviewSuggestions));
 
 console.log(`${dryRun ? "Would update" : "Updated"} ${allChanges.length} topic assignments across ${bankFiles.length} bank files.`);
+console.log(`${suggestions.length} noncanonical topic assignments have suggestions requiring review.`);
 console.log(`${unresolved.length} noncanonical topic assignments require human decisions.`);
 console.log(`${reviewSuggestions.length} broad canonical topic assignments may deserve review.`);
 console.log(`Report: ${reportPath}`);

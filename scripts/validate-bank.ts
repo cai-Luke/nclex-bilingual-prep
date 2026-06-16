@@ -3,7 +3,6 @@ import { basename } from "node:path";
 import { parseBankText } from "../src/bankImport";
 import { validateBankObject } from "../src/schema";
 import { checkCaseCompileManifests, stripCompileManifests } from "../lib/case-completeness";
-import { findNoncanonicalTopics, formatTopicValidationIssues } from "../lib/topic-validation";
 
 const files = process.argv.slice(2);
 
@@ -30,19 +29,11 @@ for (const file of files) {
         continue;
       }
     }
-    const checkedBank = isRaw ? stripCompileManifests(raw) : raw;
-    const result = validateBankObject(checkedBank);
+    const result = validateBankObject(isRaw ? stripCompileManifests(raw) : raw);
     if (!result.ok) {
       failed = true;
       console.error(`\n${basename(file)} failed validation:`);
       result.reasons.forEach((reason) => console.error(`- ${reason}`));
-      continue;
-    }
-    const topicIssues = findNoncanonicalTopics(checkedBank);
-    if (topicIssues.length > 0) {
-      failed = true;
-      console.error(`\n${basename(file)} failed topic vocabulary validation:`);
-      formatTopicValidationIssues(topicIssues).forEach((reason) => console.error(`- ${reason}`));
       continue;
     }
     console.log(`${basename(file)} OK (${result.value.questions.length} questions)`);

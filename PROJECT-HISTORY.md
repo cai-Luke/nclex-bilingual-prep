@@ -58,14 +58,15 @@ The committed NGN item-type set is complete. Rationale/dyad scoring and an expli
 
 ## Milestones
 
-### Topic Vocabulary Hygiene Migration (Jun 16)
+### Topic Vocabulary Hygiene — Failed Applied Migration Rolled Back (Jun 16)
 
 Completed:
-- Locked the 45-topic canonical vocabulary and final STRICT/SHARED calls in `src/topics.ts`, `docs/topic-vocabulary.md`, and `TOPIC-VOCABULARY-DECISIONS.md`.
-- Retired the duplicate `scripts/standardize-topics.ts` path and made `scripts/cleanup-topic-metadata.ts` the one sanctioned migration/report path.
-- Applied the one-time canonical-bank topic migration with zero unresolved noncanonical topics; 877 topic assignments were normalized across the 13 bundled banks.
-- Added Phase 1 topic vocabulary gates to `validate-bank`, promotion, and aggregate audit Tier 0 while keeping runtime user imports permissive.
-- Regenerated `census.json` and `BANK-CENSUS.md`; coverage now reports 45 unique normalized topics.
+- Preserved the topic vocabulary source-of-truth scaffolding from `208d593`, including `src/topics.ts`, generated vocabulary docs, and invariant tests.
+- Recorded Luke's final STRICT/SHARED calls in `TOPIC-VOCABULARY-DECISIONS.md`: Medication Safety & Admin and Laboratory & Diagnostic Tests remain shared; Palliative & Supportive Care, Discharge Planning & Handoff, Patient & Environment Safety, Therapeutic Communication, and Dosage Calculations are strict.
+- Reverted the applied canonical-bank topic migration from `34be054` after semantic review found the fuzzy/content-rule auto-writes too error-prone.
+- Kept `audit/topic-vocabulary-migration-2026-06-16.report.md` as a failed-attempt audit artifact for inventory and debugging.
+- Changed the migration strategy to conservative exact normalized mappings only; ID/content-rule matches are suggestions for manual review, not auto-applied canonical edits.
+- Phase 1 hard topic gates are paused until a corrected migration is reviewed and applied.
 
 ### Rationale Explanation Visuals — Schema 1.5 (Jun 15)
 

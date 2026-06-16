@@ -12,9 +12,8 @@ almost nothing to reconcile. Luke's final calls are recorded here:
 2. **Class**: mark each `STRICT` (one category only) or `SHARED` (allowed under listed categories).
    This drives the Phase 3 topic×category licensing in the spec.
 
-This set is canonical, but the Layer 3 migration dry-run still proves live-bank coverage: any live
-topic that doesn't map to one of these lands on the unresolved list. Alias and tail-to-canonical
-mappings come from the dry-run report and migration review.
+This set is canonical, but live-bank migration must be conservative: exact normalized mappings may
+write; ID/content-rule matches are suggestions only until reviewed.
 
 ## Management of Care
 
