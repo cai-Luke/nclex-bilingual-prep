@@ -3,7 +3,7 @@
 Status: **implementation corrected after failed applied migration.** Topic-list/class decisions are
 resolved (see Resolved Decisions and `TOPIC-VOCABULARY-DECISIONS.md`), but canonical bank writes are
 paused pending review of conservative suggestions. Keep the failed applied report as an audit
-artifact.
+artifact. Layer 3 now carries the two migration safety guards that the failed run violated.
 
 ## Definition (the keystone — read first)
 
@@ -121,19 +121,41 @@ The mess is already in canonical, so this is **not** "pre-promotion." Run the ex
 cleanup-topic-metadata.ts --allow-canonical --reason "one-time topic vocabulary migration"
 ```
 
+**Migration safety guards (added after the failed applied run — non-negotiable).** The first applied
+attempt wrote 877 changes with *0 unresolved* and corrupted topics wholesale (`cardiogenic shock →
+Respiratory & Infectious Disorders`, `PPE & Sterile Technique → Transmission-Based Precautions`). Root
+cause: the content classifier never abstains, so it force-resolved everything and the human-review
+funnel caught nothing. Two guards make the pass safe:
+
+- **Guard 1 — never reclassify an already-canonical topic.** A topic already in `CANONICAL_TOPICS`
+  (case-insensitively) may only be normalized to its canonical casing — never semantically remapped to
+  a different canonical topic. The migration maps *noncanonical* topics in; it has no authority to
+  re-litigate a topic that is already valid. (`medication safety & admin → Medication Safety & Admin`
+  is allowed; `Transmission-Based Precautions → Prioritization & Delegation` is forbidden.)
+- **Guard 2 — only exact aliases may write; all semantic resolvers only suggest.** Exact aliases
+  (including casing) are the only resolver permitted to mutate `topic`. ID overrides require the same
+  review discipline as content rules: they emit suggestions unless they are later promoted into a
+  reviewed execution manifest. Every clinical/content-phrase rule emits a review suggestion and
+  writes nothing. Consequently the unresolved/suggested list is expected to be **large**, and a run
+  reporting **0 unresolved before any human curation is a failure signal** (classifier overmatch), not
+  success — the run should flag it, not celebrate it.
+
 - Reconcile the two scripts into one migration that imports `src/topics.ts`. **Retire
   `scripts/standardize-topics.ts`** — the pure string-cascade is the weaker classifier and the
   duplicate source of truth. Keep the content-aware `cleanup-topic-metadata.ts` lineage, refit to
   import the SoT instead of its inline map.
-- **Classification order, no silent fallback:** exact alias (`TOPIC_ALIASES`) writes; ID override and
-  content rule emit suggestions only; unmatched noncanonical topics route to the unresolved
-  human-decision list. Explicitly forbid the category-based fallbacks presently in
-  `standardize-topics.ts` (`-> "Adult Health"`, `-> "Physiological Adaptation"`, etc.). A forced
+- **Resolver precedence (write path):** exact alias (`TOPIC_ALIASES`, including casing
+  normalization) **writes**. ID overrides and content/clinical-phrase rules **suggest only** → review
+  list, never the write path. Any noncanonical topic with no exact-alias match routes to either the
+  suggestion list (if an ID/content rule fires) or the unresolved human-decision list (if no
+  suggestion exists). Explicitly forbid the category-based fallbacks presently in
+  `standardize-topics.ts` (`-> "Adult Health"`, `-> "Physiological Adaptation"`, etc.) — a forced
   human-decision list is the whole point.
 - **Behavior fix for the survivor:** today `cleanup-topic-metadata.ts` sets `newTopic = override ??
-  exact ?? oldTopic`, i.e. it silently *keeps* an unmatched topic. For a migration whose acceptance
-  bar is "every topic is canonical," any topic not resolved by override/exact/content-rule must route
-  to the unresolved list — never be kept as-is.
+  exact ?? oldTopic`, silently *keeping* an unmatched topic. Corrected: a noncanonical `oldTopic` with
+  no override/alias match routes to the unresolved list (never kept as-is, never content-classified
+  into a write); a canonical `oldTopic` is kept, casing-normalized only (Guard 1). Content rules never
+  enter the write path.
 - Cover embedded case-study parts. Validate before and after. Write once.
 - Emit `audit/topic-vocabulary-migration-2026-06-16.report.md` containing: changed topics, alias
   hits, ID overrides used, content-rule classifications, unresolved human decisions, category
@@ -185,9 +207,12 @@ this prompt rule is the first line. Together they make Layer 3 a one-time event.
   unless shared).
 - `npm run export-topic-vocab` produces `docs/topic-vocabulary.md`; the generation prompts consume
   that artifact rather than a hand-maintained list.
-- After the Layer 3 migration, every `topic` in canonical banks (including embedded case parts) is in
-  `CANONICAL_TOPICS`; the migration report's unresolved list is empty or human-adjudicated; no silent
-  category fallback occurred.
+- The Layer 3 migration **writes only exact aliases**; it never reclassifies an already-canonical
+  topic and never writes an ID/content-rule guess. A run reporting 0 unresolved/suggested rows before
+  human curation fails as a classifier-overmatch signal.
+- Canonical banks reach full `CANONICAL_TOPICS` coverage (including embedded case parts) **only after**
+  the unresolved/suggested rows are alias-resolved, ID-overridden, or human-adjudicated across
+  iterations — not in a single automated pass; no silent category fallback occurred.
 - A canonical bank with a noncanonical topic hard-fails `validate-bank` / promotion / CI; a user
   import with a noncanonical topic does not reject on that basis alone.
 - Generation prompts carry the terse TOPIC FIELD RULE + pasted vocabulary.

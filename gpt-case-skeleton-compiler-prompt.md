@@ -76,6 +76,16 @@ structural, manifest, bilingual, and internal-consistency flags in your regenera
 silently accept a Gemini clinical/currency advisory as final; either make a conservative closed-world repair
 or preserve a note for Claude adjudication outside learner-facing JSON.
 
+## REGENERATION / LEGACY-ID GUARD
+
+If the skeleton includes prior case IDs, purge IDs, legacy bank IDs, or notes about replacement/regeneration, treat those as provenance only unless the user explicitly says to reuse an ID.
+
+For regenerated cases:
+- create a new `gpt-` raw-staging ID using the requested `BANK_ID_PREFIX`;
+- do not silently reuse an old canonical/imported/opus case ID;
+- do not include purge notes, replacement notes, or legacy-ID commentary in learner-facing fields;
+- if legacy IDs are clinically relevant to routing, record them only in `_compileManifest.sourceCaseIds`.
+
 ## CASE-SKELETON → SCHEMA CONTRACT
 
 Convert one Opus skeleton into:
@@ -127,6 +137,8 @@ Use this mapping:
 | EXPECTED LEARNING OBJECTIVES | coverage check, case-level rationale, strategy, and glossary |
 | BOW-TIE SYNTHESIS | standalone `bowtie` as second top-level question (see BOW-TIE CAPSTONE below) |
 | REVIEWER-CURRENCY-NOTES | discard from JSON; use only as source-check checklist |
+
+If uncertain about an exact optional field shape, prefer omitting the optional field rather than inventing a plausible schema object. Required fields must still be completed.
 
 ## CATEGORY STRINGS
 
@@ -243,13 +255,15 @@ English is the exam-facing surface. Keep it clear, realistic, and NCLEX-like.
 
 Chinese must be natural Simplified Chinese medical/nursing language, not word-for-word English. Preserve clinical meaning exactly. Do not use Traditional Chinese unless quoted from an input source.
 
+Keep standard clinical abbreviations and units consistent across languages when natural: BP, HR, SpO2, IV, IM, PO, mg, mL, mEq, L/min, ng/mL, mmol/L. Translate the surrounding nursing meaning, not the unit string.
+
 Do not leave English text inside `zh` fields except accepted medical abbreviations/units where natural.
 
 Do not put Chinese in `topic`, IDs, or schema keys.
 
 ## RATIONALE RULES
 
-Case-level `rationale.correct` must be substantive. It should summarize the whole clinical judgment arc of the case: key cues, priority hypothesis, safe actions, and evaluation findings.
+Case-level `rationale.correct` must be substantive. It should summarize the whole clinical judgment arc of the case: key cues, priority hypothesis, safe actions, and evaluation findings. Do not rely on the case-level rationale to compensate for weak embedded rationales; each embedded question must stand alone as teachable review material.
 
 Never use placeholder rationales such as:
 
@@ -353,6 +367,22 @@ The raw `case_study` object must include:
   "omittedDps": []
 }
 ```
+
+When a clinical/currency issue needs Claude adjudication, record it in:
+
+```json
+"_compileManifest": {
+  ...
+  "claudeReviewFlags": [
+    {
+      "issue": "specific issue",
+      "reason": "why it needs source or promotion-gate review"
+    }
+  ]
+}
+```
+
+Use an empty array when there are no flags. Do not put these flags in learner-facing fields.
 
 If the skeleton authored a bowtie but it was omitted as malformed, include a non-empty
 `bowtieOmissionReason`. This field is audit-only, required in raw output, checked and stripped at promotion,
