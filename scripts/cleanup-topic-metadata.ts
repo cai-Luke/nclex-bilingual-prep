@@ -28,6 +28,8 @@ const dryRun = process.argv.includes("--dry-run") || !process.argv.includes("--a
 const allowCanonicalWrite = process.argv.includes("--allow-canonical");
 const reasonIndex = process.argv.indexOf("--reason");
 const writeReason = reasonIndex >= 0 ? process.argv[reasonIndex + 1] : undefined;
+const reportLabelIndex = process.argv.indexOf("--report-label");
+const reportLabel = reportLabelIndex >= 0 ? process.argv[reportLabelIndex + 1] : undefined;
 
 if (allowCanonicalWrite && !writeReason) {
   throw new Error('Canonical topic cleanup writes require --reason "..."');
@@ -833,7 +835,8 @@ for (const file of bankFiles) {
 }
 
 await mkdir("audit", { recursive: true });
-const reportPath = `audit/topic-vocabulary-migration-${reportDate}${dryRun ? ".dry-run" : ""}.report.md`;
+const reportSuffix = reportLabel ? `.${reportLabel}` : dryRun ? ".dry-run" : "";
+const reportPath = `audit/topic-vocabulary-migration-${reportDate}${reportSuffix}.report.md`;
 await writeFile(reportPath, formatReport(allChanges, unresolved, suggestions, reviewSuggestions));
 
 console.log(`${dryRun ? "Would update" : "Updated"} ${allChanges.length} topic assignments across ${bankFiles.length} bank files.`);

@@ -2,8 +2,8 @@
 
 # NCLEX Bank Census
 
-Generated: 2026-06-16T22:05:43.885Z
-Git SHA: 8f046dee212e452c98a64a1363be10ac8dbad109
+Generated: 2026-06-16T22:20:03.200Z
+Git SHA: a50fcc7f45a989b6b557f8954052eed190262be4
 
 ## Per-File Summary
 
@@ -45,42 +45,42 @@ Git SHA: 8f046dee212e452c98a64a1363be10ac8dbad109
 
 ### Management of Care
 
-Top topics: Prioritization & Delegation (41), Legal & Ethical Principles (40), Confidentiality & HIPAA (9), Client Advocacy (5), Discharge Planning & Handoff (5), legal & ethical principles (5), prioritization & delegation (5), Conflict Resolution (3), Disaster & Emergency Preparedness (2), interpreter-supported consent and discharge readiness (2)
+Top topics: Prioritization & Delegation (46), Legal & Ethical Principles (45), Confidentiality & HIPAA (9), Client Advocacy (5), Discharge Planning & Handoff (5), Conflict Resolution (3), Disaster & Emergency Preparedness (2), interpreter-supported consent and discharge readiness (2), Medication Safety & Admin (2), Case Management & Continuity of Care (1)
 Visual kinds: device_screen (1), mar (1)
 
 ### Safety and Infection Control
 
-Top topics: Patient & Environment Safety (37), Transmission-Based Precautions (31), Standard Precautions & Hygiene (17), PPE & Sterile Technique (13), Disaster & Emergency Preparedness (4), contact precautions workflow for diarrheal illness (2), Endocrine & Neurological Disorders (2), Active Pulmonary TB Airborne Precautions (1), anesthesia equipment (1), Burn Assessment (1)
+Top topics: Patient & Environment Safety (37), Transmission-Based Precautions (31), Standard Precautions & Hygiene (17), PPE & Sterile Technique (13), Disaster & Emergency Preparedness (4), contact precautions workflow for diarrheal illness (2), Endocrine & Neurological Disorders (2), Respiratory & Infectious Disorders (2), Active Pulmonary TB Airborne Precautions (1), anesthesia equipment (1)
 Visual kinds: capnography (1), device_screen (1), medication_label (1), vitals_trend (1)
 
 ### Health Promotion and Maintenance
 
-Top topics: Maternal-Newborn Care & Teaching (32), Pediatric & Adolescent Health (30), Adult Health & Wellness (23), Reproductive & Endocrine Health (9), Pediatric & Toddler Safety (7), Chronic Disease Management & Lifestyle (6), pediatric dehydration oral rehydration teaching (2), adult immunization (1), Adult Immunization and Preventive Screening (1), Adult Physical Activity Counseling (1)
+Top topics: Maternal-Newborn Care & Teaching (32), Pediatric & Adolescent Health (30), Adult Health & Wellness (25), Reproductive & Endocrine Health (9), Pediatric & Toddler Safety (7), Chronic Disease Management & Lifestyle (6), pediatric dehydration oral rehydration teaching (2), Respiratory & Infectious Disorders (2), adult immunization (1), Adult Immunization and Preventive Screening (1)
 Visual kinds: none
 
 ### Psychosocial Integrity
 
-Top topics: Mental Health Disorders (57), Suicide & Crisis Intervention (19), Therapeutic Communication (17), Substance Use & Withdrawal (12), Electroconvulsive Therapy (ECT) (4), caregiver burden and family adaptation (3), mental health disorders (3), substance use & withdrawal (2), Anticipatory Grief Therapeutic Response (1), Bipolar I - Acute Manic Episode (1)
+Top topics: Mental Health Disorders (60), Suicide & Crisis Intervention (19), Therapeutic Communication (17), Substance Use & Withdrawal (14), Electroconvulsive Therapy (ECT) (4), caregiver burden and family adaptation (3), Anticipatory Grief Therapeutic Response (1), Bipolar I - Acute Manic Episode (1), Body Image After Amputation (1), Body Image Disturbance After Colostomy (1)
 Visual kinds: none
 
 ### Basic Care and Comfort
 
-Top topics: Elimination & Comfort (26), Nutritional & Fluid Support (25), Mobility & Immobility (20), Palliative & Supportive Care (11), Sleep & Rest (11), Dosage Calculations (10), Transmission-Based Precautions (3), adult health & wellness (2), Enteral Nutrition (2), Perioperative Care (2)
+Top topics: Nutritional & Fluid Support (27), Elimination & Comfort (26), Mobility & Immobility (20), Palliative & Supportive Care (11), Sleep & Rest (11), Dosage Calculations (10), Transmission-Based Precautions (3), Adult Health & Wellness (2), Perioperative Care (2), adult Rule of Nines TBSA estimation (1)
 Visual kinds: burn_map (1), device_screen (1), io_record (4)
 
 ### Pharmacological and Parenteral Therapies
 
-Top topics: Medication Safety & Admin (33), Dosage Calculations (29), Cardiovascular & Endocrine Medications (18), Anticoagulant Therapy (15), medication safety & admin (5), Psychotropic Medications (5), anticoagulant therapy (3), Nutritional & Fluid Support (3), lithium toxicity (2), opioid-induced respiratory depression (2)
+Top topics: Medication Safety & Admin (38), Dosage Calculations (29), Anticoagulant Therapy (18), Cardiovascular & Endocrine Medications (18), Psychotropic Medications (5), Nutritional & Fluid Support (3), Cardiovascular Disorders (2), lithium toxicity (2), opioid-induced respiratory depression (2), acetaminophen duplicate therapy (1)
 Visual kinds: capnography (1), device_screen (4), lab_trend (6), mar (7), medication_label (9), rhythm_strip (10), vitals_trend (2)
 
 ### Reduction of Risk Potential
 
-Top topics: Procedural Complications & Dialysis (34), Laboratory & Diagnostic Tests (19), Perioperative Care (14), Burn Management (8), Maternal-Newborn Care & Teaching (7), intrapartum fetal monitoring (6), ABG & Acid-Base Interpretation (4), Injection route recognition from skin cross-section (4), perioperative care (4), PPE & Sterile Technique (4)
+Top topics: Procedural Complications & Dialysis (34), Laboratory & Diagnostic Tests (19), Perioperative Care (18), Burn Management (8), Maternal-Newborn Care & Teaching (7), intrapartum fetal monitoring (6), ABG & Acid-Base Interpretation (4), Injection route recognition from skin cross-section (4), PPE & Sterile Technique (4), Endocrine & Neurological Disorders (3)
 Visual kinds: burn_map (5), capnography (1), device_screen (3), fetal_monitoring (6), injection_site (8), io_record (5), lab_trend (7), rhythm_strip (2), vitals_trend (1)
 
 ### Physiological Adaptation
 
-Top topics: Cardiovascular Disorders (38), Endocrine & Neurological Disorders (27), Renal & Gastrointestinal Disorders (17), Diabetic Ketoacidosis (DKA) (9), Respiratory & Infectious Disorders (8), Burn Management (6), Electrolyte Imbalances (5), diabetic ketoacidosis (dka) (3), renal & gastrointestinal disorders (3), Sepsis & Septic Shock (3)
+Top topics: Cardiovascular Disorders (40), Endocrine & Neurological Disorders (27), Renal & Gastrointestinal Disorders (20), Diabetic Ketoacidosis (DKA) (12), Respiratory & Infectious Disorders (9), Burn Management (8), Electrolyte Imbalances (5), Sepsis & Septic Shock (3), ABG & Acid-Base Interpretation (2), Acute gallstone pancreatitis with cholangitis (2)
 Visual kinds: burn_map (5), capnography (4), io_record (2), lab_trend (7), rhythm_strip (32), vitals_trend (7)
 
 ## By Item Type

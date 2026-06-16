@@ -75,6 +75,9 @@ Completed:
 - Kept `audit/topic-vocabulary-migration-2026-06-16.report.md` as a failed-attempt audit artifact for inventory and debugging.
 - Changed the migration strategy to conservative exact normalized mappings only; ID/content-rule matches are suggestions for manual review, not auto-applied canonical edits.
 - Phase 1 hard topic gates are paused until a corrected migration is reviewed and applied.
+- Follow-up exact-only pass applied 54 casing/alias normalizations to `banks/gemini-canonical.json`
+  only, with semantic mappings left in `audit/topic-vocabulary-migration-2026-06-16.exact-only.report.md`
+  for review; canonical topic coverage is still intentionally incomplete.
 
 ### Rationale Explanation Visuals — Schema 1.5 (Jun 15)
 

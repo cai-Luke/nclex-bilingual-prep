@@ -1,6 +1,6 @@
 import { readFileSync } from "node:fs";
 
-const reportPath = "audit/topic-vocabulary-migration-2026-06-16.dry-run.report.md";
+const reportPath = "audit/topic-vocabulary-migration-2026-06-16.exact-only.report.md";
 const report = readFileSync(reportPath, "utf8");
 
 const assert = (condition: unknown, message: string) => {
