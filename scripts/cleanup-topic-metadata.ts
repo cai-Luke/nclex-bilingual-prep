@@ -2,6 +2,7 @@ import { mkdir, readFile, readdir, writeFile } from "node:fs/promises";
 import { basename, join } from "node:path";
 import { parseBankText } from "../src/bankImport";
 import { validateBankObject } from "../src/schema";
+import { TOPICS, aliasTopic, isCanonicalTopic } from "../src/topics";
 
 type JsonRecord = Record<string, any>;
 
@@ -22,55 +23,62 @@ type ProposedChange = {
   reason: string;
 };
 
-const today = "2026-06-06";
-const dryRun = process.argv.includes("--dry-run");
+const reportDate = "2026-06-16";
+const dryRun = process.argv.includes("--dry-run") || !process.argv.includes("--allow-canonical");
+const allowCanonicalWrite = process.argv.includes("--allow-canonical");
+const reasonIndex = process.argv.indexOf("--reason");
+const writeReason = reasonIndex >= 0 ? process.argv[reasonIndex + 1] : undefined;
+
+if (allowCanonicalWrite && !writeReason) {
+  throw new Error('Canonical topic cleanup writes require --reason "..."');
+}
 
 const canonicalTopics = {
-  ABG: "ABG & Acid-Base Interpretation",
-  ADULT_HEALTH: "Adult Health & Wellness",
-  ANTICOAGULANT: "Anticoagulant Therapy",
-  BURN: "Burn Management",
-  CARDIO: "Cardiovascular Disorders",
-  CARDIO_ENDOCRINE_MEDS: "Cardiovascular & Endocrine Medications",
-  CHRONIC_LIFESTYLE: "Chronic Disease Management & Lifestyle",
-  CLIENT_ADVOCACY: "Client Advocacy",
-  CONFIDENTIALITY: "Confidentiality & HIPAA",
-  CONFLICT: "Conflict Resolution",
-  DISASTER: "Disaster & Emergency Preparedness",
-  DISCHARGE: "Discharge Planning & Handoff",
-  DKA: "Diabetic Ketoacidosis (DKA)",
-  DOSAGE: "Dosage Calculations",
-  ECT: "Electroconvulsive Therapy (ECT)",
-  ELECTROLYTES: "Electrolyte Imbalances",
-  ELIMINATION: "Elimination & Comfort",
-  ENDOCRINE_NEURO: "Endocrine & Neurological Disorders",
-  LABS: "Laboratory & Diagnostic Tests",
-  LEGAL: "Legal & Ethical Principles",
-  MATERNAL_NEWBORN: "Maternal-Newborn Care & Teaching",
-  MED_SAFETY: "Medication Safety & Admin",
-  MENTAL_HEALTH: "Mental Health Disorders",
-  MOBILITY: "Mobility & Immobility",
-  NUTRITION: "Nutritional & Fluid Support",
-  PALLIATIVE: "Palliative & Supportive Care",
-  PARENTERAL_NUTRITION: "Parenteral Nutrition",
-  PATIENT_SAFETY: "Patient & Environment Safety",
-  PEDIATRIC: "Pediatric & Adolescent Health",
-  PEDIATRIC_SAFETY: "Pediatric & Toddler Safety",
-  PERIOP: "Perioperative Care",
-  PPE: "PPE & Sterile Technique",
-  PROCEDURES: "Procedural Complications & Dialysis",
-  PSYCHOTROPIC: "Psychotropic Medications",
-  RENAL_GI: "Renal & Gastrointestinal Disorders",
-  REPRODUCTIVE_ENDOCRINE: "Reproductive & Endocrine Health",
-  RESPIRATORY: "Respiratory & Infectious Disorders",
-  SEPSIS: "Sepsis & Septic Shock",
-  SLEEP: "Sleep & Rest",
-  STANDARD: "Standard Precautions & Hygiene",
-  SUBSTANCE: "Substance Use & Withdrawal",
-  SUICIDE_CRISIS: "Suicide & Crisis Intervention",
-  THERAPEUTIC_COMM: "Therapeutic Communication",
-  TRANSMISSION: "Transmission-Based Precautions",
-  TRIAGE_DELEGATION: "Prioritization & Delegation",
+  ABG: TOPICS.ABG_ACID_BASE,
+  ADULT_HEALTH: TOPICS.ADULT_HEALTH,
+  ANTICOAGULANT: TOPICS.ANTICOAGULANT_THERAPY,
+  BURN: TOPICS.BURN_MANAGEMENT,
+  CARDIO: TOPICS.CARDIOVASCULAR_DISORDERS,
+  CARDIO_ENDOCRINE_MEDS: TOPICS.CARDIOVASCULAR_ENDOCRINE_MEDICATIONS,
+  CHRONIC_LIFESTYLE: TOPICS.CHRONIC_DISEASE_LIFESTYLE,
+  CLIENT_ADVOCACY: TOPICS.CLIENT_ADVOCACY,
+  CONFIDENTIALITY: TOPICS.CONFIDENTIALITY_HIPAA,
+  CONFLICT: TOPICS.CONFLICT_RESOLUTION,
+  DISASTER: TOPICS.DISASTER_EMERGENCY_PREPAREDNESS,
+  DISCHARGE: TOPICS.DISCHARGE_HANDOFF,
+  DKA: TOPICS.DIABETIC_KETOACIDOSIS,
+  DOSAGE: TOPICS.DOSAGE_CALCULATIONS,
+  ECT: TOPICS.ECT,
+  ELECTROLYTES: TOPICS.ELECTROLYTE_IMBALANCES,
+  ELIMINATION: TOPICS.ELIMINATION_COMFORT,
+  ENDOCRINE_NEURO: TOPICS.ENDOCRINE_NEUROLOGICAL_DISORDERS,
+  LABS: TOPICS.LAB_DIAGNOSTIC_TESTS,
+  LEGAL: TOPICS.LEGAL_ETHICAL,
+  MATERNAL_NEWBORN: TOPICS.MATERNAL_NEWBORN,
+  MED_SAFETY: TOPICS.MEDICATION_SAFETY_ADMIN,
+  MENTAL_HEALTH: TOPICS.MENTAL_HEALTH_DISORDERS,
+  MOBILITY: TOPICS.MOBILITY_IMMOBILITY,
+  NUTRITION: TOPICS.NUTRITIONAL_FLUID_SUPPORT,
+  PALLIATIVE: TOPICS.PALLIATIVE_SUPPORTIVE_CARE,
+  PARENTERAL_NUTRITION: TOPICS.PARENTERAL_NUTRITION,
+  PATIENT_SAFETY: TOPICS.PATIENT_ENVIRONMENT_SAFETY,
+  PEDIATRIC: TOPICS.PEDIATRIC_ADOLESCENT_HEALTH,
+  PEDIATRIC_SAFETY: TOPICS.PEDIATRIC_TODDLER_SAFETY,
+  PERIOP: TOPICS.PERIOPERATIVE_CARE,
+  PPE: TOPICS.PPE_STERILE_TECHNIQUE,
+  PROCEDURES: TOPICS.PROCEDURAL_COMPLICATIONS_DIALYSIS,
+  PSYCHOTROPIC: TOPICS.PSYCHOTROPIC_MEDICATIONS,
+  RENAL_GI: TOPICS.RENAL_GASTROINTESTINAL_DISORDERS,
+  REPRODUCTIVE_ENDOCRINE: TOPICS.REPRODUCTIVE_ENDOCRINE_HEALTH,
+  RESPIRATORY: TOPICS.RESPIRATORY_INFECTIOUS_DISORDERS,
+  SEPSIS: TOPICS.SEPSIS_SEPTIC_SHOCK,
+  SLEEP: TOPICS.SLEEP_REST,
+  STANDARD: TOPICS.STANDARD_PRECAUTIONS_HYGIENE,
+  SUBSTANCE: TOPICS.SUBSTANCE_USE_WITHDRAWAL,
+  SUICIDE_CRISIS: TOPICS.SUICIDE_CRISIS_INTERVENTION,
+  THERAPEUTIC_COMM: TOPICS.THERAPEUTIC_COMMUNICATION,
+  TRANSMISSION: TOPICS.TRANSMISSION_BASED_PRECAUTIONS,
+  TRIAGE_DELEGATION: TOPICS.PRIORITIZATION_DELEGATION,
 };
 
 const exactTopicFixes = new Map<string, string>([
@@ -609,16 +617,22 @@ const classifyByContent = (question: JsonRecord, parentContext = "") => {
   return rules.find((rule) => (!rule.category || rule.category === question.category) && rule.test(text, question));
 };
 
-const updateQuestionTopic = (question: JsonRecord, file: string, changes: ProposedChange[], parentContext = "") => {
+const updateQuestionTopic = (
+  question: JsonRecord,
+  file: string,
+  changes: ProposedChange[],
+  unresolved: ProposedChange[],
+  parentContext = "",
+) => {
   if (typeof question.topic !== "string") return;
 
   const oldTopic = question.topic;
   const override = idTopicOverrides.get(question.id);
-  const exact = exactTopicFixes.get(normalizeTopic(oldTopic));
+  const exact = aliasTopic(oldTopic) ?? exactTopicFixes.get(normalizeTopic(oldTopic));
   const contentMatch = classifyByContent(question, parentContext);
-  const newTopic = override ?? exact ?? oldTopic;
+  const newTopic = override ?? exact ?? contentMatch?.topic;
 
-  if (newTopic !== oldTopic) {
+  if (newTopic && newTopic !== oldTopic) {
     changes.push({
       file,
       id: question.id ?? "(missing id)",
@@ -629,6 +643,19 @@ const updateQuestionTopic = (question: JsonRecord, file: string, changes: Propos
       reason: override ? "curated content review" : exact ? "exact topic normalization" : contentMatch?.reason ?? "content rule",
     });
     question.topic = newTopic;
+    return;
+  }
+
+  if (!newTopic && !isCanonicalTopic(oldTopic)) {
+    unresolved.push({
+      file,
+      id: question.id ?? "(missing id)",
+      oldTopic,
+      newTopic: "(unresolved)",
+      category: question.category ?? "(missing category)",
+      itemType: question.itemType ?? "(missing itemType)",
+      reason: "no ID override, exact alias, or content rule matched",
+    });
   }
 };
 
@@ -648,10 +675,12 @@ const formatReport = (changes: ProposedChange[], unresolved: ProposedChange[]) =
   const lines = [
     "# Topic Metadata Cleanup",
     "",
-    `Date: ${today}`,
+    `Date: ${reportDate}`,
     `Mode: ${dryRun ? "dry run" : "applied"}`,
+    allowCanonicalWrite ? `Write reason: ${writeReason}` : "Write reason: none; canonical banks were not modified",
     "",
     `Total topic updates: ${changes.length}`,
+    `Unresolved noncanonical topics: ${unresolved.length}`,
     "",
     "## Updates by Previous Topic",
     "",
@@ -676,7 +705,7 @@ const formatReport = (changes: ProposedChange[], unresolved: ProposedChange[]) =
   }
 
   if (unresolved.length > 0) {
-    lines.push("## Left Unchanged for Review", "");
+    lines.push("## Unresolved Human Decisions", "");
     lines.push("| Question ID | Category | Type | Topic | Suggested topic | Reason |");
     lines.push("|---|---|---|---|---|---|");
     for (const item of unresolved) {
@@ -685,7 +714,7 @@ const formatReport = (changes: ProposedChange[], unresolved: ProposedChange[]) =
     lines.push("");
   }
 
-  return `${lines.join("\n")}\n`;
+  return `${lines.join("\n").replace(/\n+$/, "")}\n`;
 };
 
 const bankFiles = await getBankFiles();
@@ -711,11 +740,11 @@ for (const file of bankFiles) {
           )} ${textFromValue(question.caseStudy?.stages)}`
         : "";
 
-    updateQuestionTopic(question, file, fileChanges);
+    updateQuestionTopic(question, file, fileChanges, unresolved);
 
     if (question.itemType === "case_study" && Array.isArray(question.caseStudy?.questions)) {
       for (const embedded of question.caseStudy.questions) {
-        updateQuestionTopic(embedded, file, fileChanges, parentContext);
+        updateQuestionTopic(embedded, file, fileChanges, unresolved, parentContext);
       }
     }
   }
@@ -757,8 +786,9 @@ for (const file of bankFiles) {
 }
 
 await mkdir("audit", { recursive: true });
-const reportPath = `audit/topic-metadata-cleanup-${today}${dryRun ? ".dry-run" : ""}.md`;
+const reportPath = `audit/topic-vocabulary-migration-${reportDate}${dryRun ? ".dry-run" : ""}.report.md`;
 await writeFile(reportPath, formatReport(allChanges, unresolved));
 
 console.log(`${dryRun ? "Would update" : "Updated"} ${allChanges.length} topic assignments across ${bankFiles.length} bank files.`);
+console.log(`${unresolved.length} noncanonical topic assignments require human decisions.`);
 console.log(`Report: ${reportPath}`);
