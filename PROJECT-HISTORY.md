@@ -58,6 +58,15 @@ The committed NGN item-type set is complete. Rationale/dyad scoring and an expli
 
 ## Milestones
 
+### Topic Vocabulary Hygiene Migration (Jun 16)
+
+Completed:
+- Locked the 45-topic canonical vocabulary and final STRICT/SHARED calls in `src/topics.ts`, `docs/topic-vocabulary.md`, and `TOPIC-VOCABULARY-DECISIONS.md`.
+- Retired the duplicate `scripts/standardize-topics.ts` path and made `scripts/cleanup-topic-metadata.ts` the one sanctioned migration/report path.
+- Applied the one-time canonical-bank topic migration with zero unresolved noncanonical topics; 877 topic assignments were normalized across the 13 bundled banks.
+- Added Phase 1 topic vocabulary gates to `validate-bank`, promotion, and aggregate audit Tier 0 while keeping runtime user imports permissive.
+- Regenerated `census.json` and `BANK-CENSUS.md`; coverage now reports 45 unique normalized topics.
+
 ### Rationale Explanation Visuals — Schema 1.5 (Jun 15)
 
 Completed:

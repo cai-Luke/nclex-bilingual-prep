@@ -2,8 +2,8 @@
 
 # NCLEX Bank Census
 
-Generated: 2026-06-14T20:54:14.303Z
-Git SHA: ec7e34142cacc6bde5fc1c011aca259c8cee3010
+Generated: 2026-06-16T17:04:15.898Z
+Git SHA: 208d59396aa6f79cff4abe723500605840f8d2a5
 
 ## Per-File Summary
 
@@ -11,11 +11,11 @@ Git SHA: ec7e34142cacc6bde5fc1c011aca259c8cee3010
 |------|--------|-----------|-----------|---------|
 | burn-canonical.json | 1.2 | 8 | 8 | — |
 | capnography-canonical.json | 1.2 | 7 | 7 | — |
-| claude-canonical.json | 1.2 | 67 | 67 | — |
+| claude-canonical.json | 1.4 | 69 | 69 | — |
 | device-canonical.json | 1.2 | 8 | 8 | — |
-| gemini-canonical.json | 1.2 | 777 | 777 | — |
-| gpt-canonical.json | 1.3 | 272 | 272 | — |
-| hard-cases-canonical.json | 1.2 | 57 | 57 | — |
+| gemini-canonical.json | 1.2 | 775 | 775 | — |
+| gpt-canonical.json | 1.3 | 279 | 279 | — |
+| hard-cases-canonical.json | 1.2 | 48 | 48 | — |
 | io-canonical.json | 1.2 | 8 | 8 | — |
 | lab-canonical.json | 1.2 | 20 | 20 | — |
 | mar-canonical.json | 1.2 | 8 | 8 | — |
@@ -25,96 +25,97 @@ Git SHA: ec7e34142cacc6bde5fc1c011aca259c8cee3010
 
 ## Totals
 
-- Top-level questions: 1303
-- Case study top-level: 114
-- Embedded parts: 524
-- Graded total: 1827
+- Top-level questions: 1301
+- Case study top-level: 103
+- Embedded parts: 502
+- Graded total: 1803
 
 ## By Category
 
 - Health Promotion and Maintenance: 140
 - Psychosocial Integrity: 144
 - Safety and Infection Control: 145
-- Management of Care: 150
-- Basic Care and Comfort: 152
-- Reduction of Risk Potential: 170
-- Pharmacological and Parenteral Therapies: 172
-- Physiological Adaptation: 230
+- Management of Care: 149
+- Basic Care and Comfort: 151
+- Pharmacological and Parenteral Therapies: 174
+- Reduction of Risk Potential: 175
+- Physiological Adaptation: 223
 
 ## Within-Category Concentration
 
 ### Management of Care
 
-Top topics: Prioritization & Delegation (41), Legal & Ethical Principles (40), Confidentiality & HIPAA (9), Client Advocacy (5), Discharge Planning & Handoff (5), legal & ethical principles (5), prioritization & delegation (5), Conflict Resolution (3), Disaster & Emergency Preparedness (2), interpreter-supported consent and discharge readiness (2)
+Top topics: Prioritization & Delegation (51), Legal & Ethical Principles (46), Discharge Planning & Handoff (19), Confidentiality & HIPAA (12), Client Advocacy (7), Conflict Resolution (3), Perioperative Care (3), Disaster & Emergency Preparedness (2), Medication Safety & Admin (2), Electrolyte Imbalances (1)
 Visual kinds: device_screen (1), mar (1)
 
 ### Safety and Infection Control
 
-Top topics: Patient & Environment Safety (37), Transmission-Based Precautions (31), Standard Precautions & Hygiene (17), PPE & Sterile Technique (13), Disaster & Emergency Preparedness (4), contact precautions workflow for diarrheal illness (2), Endocrine & Neurological Disorders (2), Active Pulmonary TB Airborne Precautions (1), anesthesia equipment (1), Burn Assessment (1)
+Top topics: Patient & Environment Safety (43), Transmission-Based Precautions (39), Standard Precautions & Hygiene (21), PPE & Sterile Technique (13), Prioritization & Delegation (7), Disaster & Emergency Preparedness (5), Burn Management (2), Elimination & Comfort (2), Endocrine & Neurological Disorders (2), Maternal-Newborn Care & Teaching (2)
 Visual kinds: capnography (1), device_screen (1), medication_label (1), vitals_trend (1)
 
 ### Health Promotion and Maintenance
 
-Top topics: Maternal-Newborn Care & Teaching (32), Pediatric & Adolescent Health (30), Adult Health & Wellness (23), Reproductive & Endocrine Health (9), Pediatric & Toddler Safety (7), Chronic Disease Management & Lifestyle (6), pediatric dehydration oral rehydration teaching (2), adult immunization (1), Adult Immunization and Preventive Screening (1), Adult Physical Activity Counseling (1)
+Top topics: Adult Health & Wellness (34), Pediatric & Adolescent Health (33), Maternal-Newborn Care & Teaching (32), Chronic Disease Management & Lifestyle (17), Reproductive & Endocrine Health (11), Pediatric & Toddler Safety (7), Respiratory & Infectious Disorders (2), Cardiovascular Disorders (1), Discharge Planning & Handoff (1), Electrolyte Imbalances (1)
 Visual kinds: none
 
 ### Psychosocial Integrity
 
-Top topics: Mental Health Disorders (57), Suicide & Crisis Intervention (19), Therapeutic Communication (17), Substance Use & Withdrawal (12), Electroconvulsive Therapy (ECT) (4), caregiver burden and family adaptation (3), mental health disorders (3), substance use & withdrawal (2), Anticipatory Grief Therapeutic Response (1), Bipolar I - Acute Manic Episode (1)
+Top topics: Mental Health Disorders (72), Therapeutic Communication (28), Suicide & Crisis Intervention (22), Substance Use & Withdrawal (14), Electroconvulsive Therapy (ECT) (4), Maternal-Newborn Care & Teaching (3), Medication Safety & Admin (1)
 Visual kinds: none
 
 ### Basic Care and Comfort
 
-Top topics: Elimination & Comfort (26), Nutritional & Fluid Support (25), Mobility & Immobility (20), Palliative & Supportive Care (11), Sleep & Rest (11), Dosage Calculations (10), Transmission-Based Precautions (3), adult health & wellness (2), Enteral Nutrition (2), Perioperative Care (2)
+Top topics: Nutritional & Fluid Support (41), Elimination & Comfort (32), Mobility & Immobility (29), Palliative & Supportive Care (13), Sleep & Rest (13), Dosage Calculations (10), Transmission-Based Precautions (3), Adult Health & Wellness (2), Perioperative Care (2), Prioritization & Delegation (2)
 Visual kinds: burn_map (1), device_screen (1), io_record (4)
 
 ### Pharmacological and Parenteral Therapies
 
-Top topics: Medication Safety & Admin (33), Dosage Calculations (29), Cardiovascular & Endocrine Medications (18), Anticoagulant Therapy (15), medication safety & admin (5), Psychotropic Medications (5), anticoagulant therapy (3), Nutritional & Fluid Support (3), opioid-induced respiratory depression (2), acetaminophen duplicate therapy (1)
+Top topics: Medication Safety & Admin (59), Dosage Calculations (37), Anticoagulant Therapy (29), Cardiovascular & Endocrine Medications (29), Psychotropic Medications (8), Nutritional & Fluid Support (3), Cardiovascular Disorders (2), Burn Management (1), Diabetic Ketoacidosis (DKA) (1), Parenteral Nutrition (1)
 Visual kinds: capnography (1), device_screen (4), lab_trend (6), mar (7), medication_label (9), rhythm_strip (10), vitals_trend (2)
 
 ### Reduction of Risk Potential
 
-Top topics: Procedural Complications & Dialysis (34), Laboratory & Diagnostic Tests (19), Perioperative Care (15), Burn Management (8), Maternal-Newborn Care & Teaching (7), intrapartum fetal monitoring (6), ABG & Acid-Base Interpretation (4), perioperative care (4), PPE & Sterile Technique (4), Endocrine & Neurological Disorders (3)
-Visual kinds: burn_map (5), capnography (1), device_screen (3), fetal_monitoring (6), io_record (5), lab_trend (7), rhythm_strip (2), vitals_trend (1)
+Top topics: Procedural Complications & Dialysis (42), Laboratory & Diagnostic Tests (24), Perioperative Care (24), Maternal-Newborn Care & Teaching (14), Burn Management (13), Medication Safety & Admin (9), Endocrine & Neurological Disorders (7), Renal & Gastrointestinal Disorders (5), ABG & Acid-Base Interpretation (4), Nutritional & Fluid Support (4)
+Visual kinds: burn_map (5), capnography (1), device_screen (3), fetal_monitoring (6), injection_site (8), io_record (5), lab_trend (7), rhythm_strip (2), vitals_trend (1)
 
 ### Physiological Adaptation
 
-Top topics: Cardiovascular Disorders (38), Endocrine & Neurological Disorders (27), Renal & Gastrointestinal Disorders (17), Diabetic Ketoacidosis (DKA) (9), Respiratory & Infectious Disorders (8), Burn Management (6), Electrolyte Imbalances (5), diabetic ketoacidosis (dka) (3), renal & gastrointestinal disorders (3), Sepsis & Septic Shock (3)
+Top topics: Cardiovascular Disorders (67), Endocrine & Neurological Disorders (33), Renal & Gastrointestinal Disorders (26), Respiratory & Infectious Disorders (21), Electrolyte Imbalances (15), Diabetic Ketoacidosis (DKA) (14), Burn Management (12), Sepsis & Septic Shock (11), Perioperative Care (6), Pediatric & Adolescent Health (4)
 Visual kinds: burn_map (5), capnography (4), io_record (2), lab_trend (7), rhythm_strip (32), vitals_trend (7)
 
 ## By Item Type
 
-- bowtie: 0
+- bowtie: 1
 - highlight: 2
-- case_study: 114
+- case_study: 103
 - ordered_response: 127
 - fill_in_blank: 140
 - dropdown_cloze: 142
-- matrix: 165
-- select_all: 189
-- multiple_choice: 424
+- matrix: 167
+- select_all: 190
+- multiple_choice: 429
 
 ## By Difficulty
 
-- easy: 163
-- hard: 488
-- medium: 652
+- easy: 168
+- hard: 478
+- medium: 655
 
 ## By Schema Version
 
-- v1.2: 1031 questions (burn-canonical.json, capnography-canonical.json, claude-canonical.json, device-canonical.json, gemini-canonical.json, hard-cases-canonical.json, io-canonical.json, lab-canonical.json, mar-canonical.json, medlabel-canonical.json, visual-canonical.json, vitals-canonical.json)
-- v1.3: 272 questions (gpt-canonical.json)
+- v1.2: 953 questions (burn-canonical.json, capnography-canonical.json, device-canonical.json, gemini-canonical.json, hard-cases-canonical.json, io-canonical.json, lab-canonical.json, mar-canonical.json, medlabel-canonical.json, visual-canonical.json, vitals-canonical.json)
+- v1.4: 69 questions (claude-canonical.json)
+- v1.3: 279 questions (gpt-canonical.json)
 
 ## By Source File
 
 - burn-canonical.json: 8
 - capnography-canonical.json: 7
-- claude-canonical.json: 67
+- claude-canonical.json: 69
 - device-canonical.json: 8
-- gemini-canonical.json: 777
-- gpt-canonical.json: 272
-- hard-cases-canonical.json: 57
+- gemini-canonical.json: 775
+- gpt-canonical.json: 279
+- hard-cases-canonical.json: 48
 - io-canonical.json: 8
 - lab-canonical.json: 20
 - mar-canonical.json: 8
@@ -124,7 +125,7 @@ Visual kinds: burn_map (5), capnography (4), io_record (2), lab_trend (7), rhyth
 
 ## Visuals
 
-Total visuals: 138
+Total visuals: 146
 
 ### By Kind
 
@@ -132,7 +133,7 @@ Total visuals: 138
 - capnography: 7 (cap_01, cap_02, cap_03, cap_04, cap_05, …+2)
 - device_screen: 10 (dev_enteral_volume_shift_01, dev_high_alert_kcl_pump_mismatch_01, dev_infusion_duration_vtbi_01, dev_pca_basal_opioid_naive_01, dev_pca_delivered_total_basal_01, …+5)
 - fetal_monitoring: 6 (fhr_gemini_smoke_2026_06_13_01, fhr_gemini_smoke_2026_06_13_02, fhr_gemini_smoke_2026_06_13_03, fhr_gemini_smoke_2026_06_13_04, fhr_gemini_smoke_2026_06_13_05, …+1)
-- injection_site: 0
+- injection_site: 8 (gpt_injection_smoke_2026_06_15_matrix_route_match_08, gpt_injection_smoke_2026_06_15_matrix_subq_cues_07, gpt_injection_smoke_2026_06_15_mc_intradermal_01, gpt_injection_smoke_2026_06_15_mc_intramuscular_03, gpt_injection_smoke_2026_06_15_mc_intravenous_04, …+3)
 - io_record: 11 (gpt_visual_smoke_2026_06_12_fib_io_net_balance_04, gpt_visual_smoke_2026_06_12_matrix_io_totals_06, gpt_visual_smoke_2026_06_12_mc_io_output_total_05, io_fib_hf_net_balance_01, io_fib_postop_output_total_06, …+6)
 - lab_trend: 20 (gpt_u3_labtrend_2026_06_09_b_cloze_inr_amiodarone_09, gpt_u3_labtrend_2026_06_09_b_cloze_sodium_overcorrection_08, gpt_u3_labtrend_2026_06_09_b_fib_creatinine_increase_10, gpt_u3_labtrend_2026_06_09_b_matrix_dka_potassium_glucose_04, gpt_u3_labtrend_2026_06_09_b_matrix_neutropenia_wbc_05, …+15)
 - mar: 8 (mar_acetaminophen_duplicate_products_04, mar_av_nodal_blockers_1600_01, mar_digoxin_low_pulse_due_08, mar_enoxaparin_prior_held_03, mar_lispro_meal_delayed_02, …+3)
@@ -161,72 +162,70 @@ Total visuals: 138
 
 | ID | Topic | Parts | Bank |
 |----|-------|-------|------|
-| opus_psi_caregiver_2026_06_10_01 | caregiver burden and family adaptation | 6 | claude-canonical.json |
-| opus2_case_code_status_01 | code status escalation | 5 | claude-canonical.json |
-| opus_vanco_case_01 | vancomycin infusion reaction and nephrotoxicity | 6 | claude-canonical.json |
-| opus1_case_tha_discharge_lep_01 | discharge coordination after hip arthroplasty | 6 | claude-canonical.json |
-| opus20_case_cdiff_01 | C. difficile colitis and dehydration | 6 | claude-canonical.json |
-| opus_case_warfarin_bridge_01 | warfarin-enoxaparin-bridge | 6 | claude-canonical.json |
-| opus22_case_postpartum_intrusive_thoughts_01 | postpartum depression with intrusive thoughts | 5 | claude-canonical.json |
-| opus24_case_elder_neglect_med_mismanagement_01 | elder neglect medication mismanagement | 6 | claude-canonical.json |
-| opus25_case_tb_airborne_treatment_monitoring_01 | Tuberculosis airborne precautions and treatment monitoring | 6 | claude-canonical.json |
-| opus26_case_refeeding_syndrome_01 | refeeding syndrome risk in anorexia nervosa | 6 | claude-canonical.json |
-| opus27_case_ipv_prenatal_care_01 | intimate partner violence in prenatal care | 6 | claude-canonical.json |
-| gen_rrp_batch1_10 | Respiratory & Infectious Disorders | 2 | gemini-canonical.json |
-| gen_rrp_batch2_10 | Perioperative Care | 2 | gemini-canonical.json |
-| gemini_gapfill_case_2026_06_10_case_imm_01 | adult immunization | 4 | gemini-canonical.json |
-| gemini_gapfill_case_2026_06_10_case_osteo_02 | osteoporosis prevention | 4 | gemini-canonical.json |
-| gemini_gapfill_case_2026_06_10_case_wellness_03 | wellness counseling | 4 | gemini-canonical.json |
-| gemini_gapfill_case_2026_06_10_case_smoking_04 | smoking cessation | 4 | gemini-canonical.json |
-| gemini_gapfill_case_2026_06_10_case_sleep_05 | sleep promotion | 4 | gemini-canonical.json |
-| gemini_gapfill_case_2026_06_10_case_bowel_06 | bowel management | 4 | gemini-canonical.json |
-| gemini_gapfill_case_2026_06_10_case_mobility_07 | mobility assistance | 4 | gemini-canonical.json |
-| gemini_gapfill_case_2026_06_10_case_caregiver_08 | caregiver strain | 4 | gemini-canonical.json |
-| gemini_gapfill_case_2026_06_10_case_grief_09 | grief and bereavement | 4 | gemini-canonical.json |
-| gemini_gapfill_case_2026_06_10_case_adapt_10 | chronic illness adaptation | 4 | gemini-canonical.json |
-| opus_agvd_case_agvhd_01 | Acute Graft-Versus-Host Disease | 6 | gemini-canonical.json |
-| gpt_case_premium_2026_06_10_case01_preventive_screening | adult preventive screening | 5 | gpt-canonical.json |
-| gpt_case_premium_2026_06_10_case02_caregiver_burden | caregiver burden and family adaptation | 5 | gpt-canonical.json |
-| gpt_case_premium_2026_06_10_case03_chronic_self_management | chronic illness self-management | 5 | gpt-canonical.json |
-| gpt_case_premium_2026_06_10_case04_pressure_injury_rehab | pressure injury prevention in rehabilitation | 5 | gpt-canonical.json |
-| gpt_case_premium_2026_06_10_case05_health_literacy_adherence | health literacy and medication adherence | 5 | gpt-canonical.json |
-| gpt_case_gap_2026_06_11_case_post_stroke_outpatient_rehab_09 | Post-stroke outpatient rehabilitation and safe feeding | 4 | gpt-canonical.json |
-| gpt_case_gap_2026_06_11_case_grief_depression_safety_10 | Depression and grief safety screening | 4 | gpt-canonical.json |
-| gpt_case_gap_2026_06_11_case_chronic_self_management_07 | Chronic illness self-management with symptom tracking | 4 | gpt-canonical.json |
-| gpt_case_gap_2026_06_11_case_family_coping_chronic_diagnosis_08 | Family coping after new chronic illness diagnosis | 4 | gpt-canonical.json |
-| gpt_case_gap_2026_06_11_case_community_resource_discharge_05 | Community resource planning for safe discharge | 4 | gpt-canonical.json |
-| gpt_case_gap_2026_06_11_case_preventive_screening_navigation_06 | Adult preventive screening follow-up navigation | 4 | gpt-canonical.json |
-| gpt_case_gap_2026_06_11_case_rehab_mobility_falls_03 | Rehabilitation mobility progression and fall prevention | 4 | gpt-canonical.json |
-| gpt_case_gap_2026_06_11_case_pressure_injury_ltc_04 | Pressure injury prevention in long-term care | 4 | gpt-canonical.json |
-| gpt_case_gap_2026_06_11_case_dementia_caregiver_burden_01 | Caregiver burden after dementia discharge | 4 | gpt-canonical.json |
-| gpt_case_gap_2026_06_11_case_ostomy_health_literacy_02 | New ostomy discharge teaching with health literacy barriers | 4 | gpt-canonical.json |
-| gpt_case_premium_next_case_health_literacy_diabetes_01 | chronic illness self-management and health literacy | 5 | gpt-canonical.json |
-| gpt_case_premium_next_case_rehab_pressure_bowel_02 | rehabilitation pressure injury prevention and bowel management | 5 | gpt-canonical.json |
-| gpt_case_premium_next_case_caregiver_adaptation_dementia_03 | caregiver burden and family adaptation | 5 | gpt-canonical.json |
-| gpt_case_premium_next_case_occupational_exposure_vaccine_04 | occupational exposure and sharps safety | 5 | gpt-canonical.json |
-| gpt_case_premium_next_case_preventive_screening_vaccine_05 | adult preventive screening and vaccination counseling | 5 | gpt-canonical.json |
-| gpt_case_premium_next_case_ipv_safety_planning_06 | intimate partner violence screening and safety planning | 5 | gpt-canonical.json |
-| gpt_case_gap_2026_06_11_case_tls_01 | tumor lysis syndrome | 5 | gpt-canonical.json |
-| gpt_case_gap_2026_06_11_case_adhf_01 | Acute decompensated heart failure | 4 | gpt-canonical.json |
-| gpt_case_gap_2026_06_11_case_aki_02 | Acute kidney injury | 4 | gpt-canonical.json |
-| gpt_case_gap_2026_06_11_case_pancreatitis_03 | Acute pancreatitis complications | 4 | gpt-canonical.json |
-| gpt_case_gap_2026_06_11_case_adrenal_crisis_04 | Adrenal crisis | 4 | gpt-canonical.json |
-| gpt_case_gap_2026_06_11_case_urosepsis_05 | Sepsis from obstructed urinary source | 4 | gpt-canonical.json |
-| gpt_case_gap_2026_06_11_case_anticoag_bleeding_06 | Anticoagulation monitoring complication | 4 | gpt-canonical.json |
-| gpt_case_opus5_cdi_immunocompromised_01 | Clostridioides difficile infection control and treatment | 6 | gpt-canonical.json |
-| gpt_case_warfarin_mvr_2026_06_11_01 | warfarin reversal in mechanical mitral valve bleeding | 6 | gpt-canonical.json |
-| gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01 | home oxygen safety and COPD discharge teaching | 5 | gpt-canonical.json |
-| gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02 | post-fall assessment and escalation in long-term care | 5 | gpt-canonical.json |
-| gpt_gap_2026_06_12_nonmcq_balanced_case_pressure_injury_nutrition_03 | pressure injury prevention with poor nutrition | 5 | gpt-canonical.json |
-| gpt_gap_2026_06_12_nonmcq_balanced_case_delirium_family_04 | delirium prevention and family education after hospitalization | 5 | gpt-canonical.json |
-| gpt_gap_2026_06_12_nonmcq_balanced_b_case_opioid_safety_01 | safe opioid administration and respiratory reassessment | 5 | gpt-canonical.json |
-| gpt_gap_2026_06_12_nonmcq_balanced_b_case_interpreter_consent_02 | interpreter-supported consent and discharge readiness | 5 | gpt-canonical.json |
-| gpt_gap_2026_06_12_nonmcq_balanced_b_case_peds_dehydration_03 | pediatric dehydration oral rehydration teaching | 5 | gpt-canonical.json |
-| gpt_gap_2026_06_12_nonmcq_balanced_b_case_wound_teachback_04 | home health wound-care teaching with teach-back failure | 5 | gpt-canonical.json |
-| gpt_2026_06_13_case_delirium_uti_01 | delirium superimposed on dementia | 6 | gpt-canonical.json |
-| gpt_case_opus23_nat_toddler_01 | suspected nonaccidental trauma in a toddler | 5 | gpt-canonical.json |
-| gpt_opus21_case_colostomy_lep_discharge_01 | colostomy discharge teaching for limited English proficiency | 6 | gpt-canonical.json |
-| hl_smoke_2026_06_14_case_postpartum_preeclampsia_03 | postpartum preeclampsia | 2 | gpt-canonical.json |
+| opus_psi_caregiver_2026_06_10_01 | Mental Health Disorders | 6 | claude-canonical.json |
+| opus2_case_code_status_01 | Discharge Planning & Handoff | 5 | claude-canonical.json |
+| opus_vanco_case_01 | Medication Safety & Admin | 6 | claude-canonical.json |
+| opus1_case_tha_discharge_lep_01 | Discharge Planning & Handoff | 6 | claude-canonical.json |
+| opus20_case_cdiff_01 | Transmission-Based Precautions | 6 | claude-canonical.json |
+| opus_case_warfarin_bridge_01 | Anticoagulant Therapy | 6 | claude-canonical.json |
+| opus22_case_postpartum_intrusive_thoughts_01 | Maternal-Newborn Care & Teaching | 5 | claude-canonical.json |
+| opus24_case_elder_neglect_med_mismanagement_01 | Suicide & Crisis Intervention | 6 | claude-canonical.json |
+| opus25_case_tb_airborne_treatment_monitoring_01 | Prioritization & Delegation | 6 | claude-canonical.json |
+| opus26_case_refeeding_syndrome_01 | Electrolyte Imbalances | 6 | claude-canonical.json |
+| opus27_case_ipv_prenatal_care_01 | Maternal-Newborn Care & Teaching | 6 | claude-canonical.json |
+| opus_case_lithium_toxicity_01 | Psychotropic Medications | 6 | claude-canonical.json |
+| gemini_gapfill_case_2026_06_10_case_imm_01 | Adult Health & Wellness | 4 | gemini-canonical.json |
+| gemini_gapfill_case_2026_06_10_case_osteo_02 | Reproductive & Endocrine Health | 4 | gemini-canonical.json |
+| gemini_gapfill_case_2026_06_10_case_wellness_03 | Chronic Disease Management & Lifestyle | 4 | gemini-canonical.json |
+| gemini_gapfill_case_2026_06_10_case_smoking_04 | Chronic Disease Management & Lifestyle | 4 | gemini-canonical.json |
+| gemini_gapfill_case_2026_06_10_case_sleep_05 | Sleep & Rest | 4 | gemini-canonical.json |
+| gemini_gapfill_case_2026_06_10_case_bowel_06 | Mobility & Immobility | 4 | gemini-canonical.json |
+| gemini_gapfill_case_2026_06_10_case_mobility_07 | Mobility & Immobility | 4 | gemini-canonical.json |
+| gemini_gapfill_case_2026_06_10_case_caregiver_08 | Mental Health Disorders | 4 | gemini-canonical.json |
+| gemini_gapfill_case_2026_06_10_case_grief_09 | Therapeutic Communication | 4 | gemini-canonical.json |
+| gemini_gapfill_case_2026_06_10_case_adapt_10 | Mental Health Disorders | 4 | gemini-canonical.json |
+| opus_agvd_case_agvhd_01 | Cardiovascular Disorders | 6 | gemini-canonical.json |
+| gpt_case_premium_2026_06_10_case01_preventive_screening | Adult Health & Wellness | 5 | gpt-canonical.json |
+| gpt_case_premium_2026_06_10_case02_caregiver_burden | Mental Health Disorders | 5 | gpt-canonical.json |
+| gpt_case_premium_2026_06_10_case03_chronic_self_management | Chronic Disease Management & Lifestyle | 5 | gpt-canonical.json |
+| gpt_case_premium_2026_06_10_case04_pressure_injury_rehab | Elimination & Comfort | 5 | gpt-canonical.json |
+| gpt_case_premium_2026_06_10_case05_health_literacy_adherence | Medication Safety & Admin | 5 | gpt-canonical.json |
+| gpt_case_gap_2026_06_11_case_post_stroke_outpatient_rehab_09 | Nutritional & Fluid Support | 4 | gpt-canonical.json |
+| gpt_case_gap_2026_06_11_case_grief_depression_safety_10 | Therapeutic Communication | 4 | gpt-canonical.json |
+| gpt_case_gap_2026_06_11_case_chronic_self_management_07 | Chronic Disease Management & Lifestyle | 4 | gpt-canonical.json |
+| gpt_case_gap_2026_06_11_case_family_coping_chronic_diagnosis_08 | Mental Health Disorders | 4 | gpt-canonical.json |
+| gpt_case_gap_2026_06_11_case_community_resource_discharge_05 | Discharge Planning & Handoff | 4 | gpt-canonical.json |
+| gpt_case_gap_2026_06_11_case_preventive_screening_navigation_06 | Adult Health & Wellness | 4 | gpt-canonical.json |
+| gpt_case_gap_2026_06_11_case_rehab_mobility_falls_03 | Mobility & Immobility | 4 | gpt-canonical.json |
+| gpt_case_gap_2026_06_11_case_pressure_injury_ltc_04 | Prioritization & Delegation | 4 | gpt-canonical.json |
+| gpt_case_gap_2026_06_11_case_dementia_caregiver_burden_01 | Therapeutic Communication | 4 | gpt-canonical.json |
+| gpt_case_gap_2026_06_11_case_ostomy_health_literacy_02 | Elimination & Comfort | 4 | gpt-canonical.json |
+| gpt_case_premium_next_case_health_literacy_diabetes_01 | Chronic Disease Management & Lifestyle | 5 | gpt-canonical.json |
+| gpt_case_premium_next_case_rehab_pressure_bowel_02 | Prioritization & Delegation | 5 | gpt-canonical.json |
+| gpt_case_premium_next_case_caregiver_adaptation_dementia_03 | Mental Health Disorders | 5 | gpt-canonical.json |
+| gpt_case_premium_next_case_occupational_exposure_vaccine_04 | Standard Precautions & Hygiene | 5 | gpt-canonical.json |
+| gpt_case_premium_next_case_preventive_screening_vaccine_05 | Adult Health & Wellness | 5 | gpt-canonical.json |
+| gpt_case_premium_next_case_ipv_safety_planning_06 | Therapeutic Communication | 5 | gpt-canonical.json |
+| gpt_case_gap_2026_06_11_case_tls_01 | Electrolyte Imbalances | 5 | gpt-canonical.json |
+| gpt_case_gap_2026_06_11_case_adhf_01 | Cardiovascular Disorders | 4 | gpt-canonical.json |
+| gpt_case_gap_2026_06_11_case_aki_02 | Renal & Gastrointestinal Disorders | 4 | gpt-canonical.json |
+| gpt_case_gap_2026_06_11_case_pancreatitis_03 | Renal & Gastrointestinal Disorders | 4 | gpt-canonical.json |
+| gpt_case_gap_2026_06_11_case_adrenal_crisis_04 | Endocrine & Neurological Disorders | 4 | gpt-canonical.json |
+| gpt_case_gap_2026_06_11_case_urosepsis_05 | Sepsis & Septic Shock | 4 | gpt-canonical.json |
+| gpt_case_gap_2026_06_11_case_anticoag_bleeding_06 | Anticoagulant Therapy | 4 | gpt-canonical.json |
+| gpt_case_opus5_cdi_immunocompromised_01 | Transmission-Based Precautions | 6 | gpt-canonical.json |
+| gpt_case_warfarin_mvr_2026_06_11_01 | Anticoagulant Therapy | 6 | gpt-canonical.json |
+| gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01 | Patient & Environment Safety | 5 | gpt-canonical.json |
+| gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02 | Endocrine & Neurological Disorders | 5 | gpt-canonical.json |
+| gpt_gap_2026_06_12_nonmcq_balanced_case_pressure_injury_nutrition_03 | Nutritional & Fluid Support | 5 | gpt-canonical.json |
+| gpt_gap_2026_06_12_nonmcq_balanced_case_delirium_family_04 | Mental Health Disorders | 5 | gpt-canonical.json |
+| gpt_gap_2026_06_12_nonmcq_balanced_b_case_opioid_safety_01 | Perioperative Care | 5 | gpt-canonical.json |
+| gpt_gap_2026_06_12_nonmcq_balanced_b_case_interpreter_consent_02 | Discharge Planning & Handoff | 5 | gpt-canonical.json |
+| gpt_gap_2026_06_12_nonmcq_balanced_b_case_peds_dehydration_03 | Pediatric & Adolescent Health | 5 | gpt-canonical.json |
+| gpt_gap_2026_06_12_nonmcq_balanced_b_case_wound_teachback_04 | Discharge Planning & Handoff | 5 | gpt-canonical.json |
+| gpt_2026_06_13_case_delirium_uti_01 | Renal & Gastrointestinal Disorders | 6 | gpt-canonical.json |
+| gpt_case_opus23_nat_toddler_01 | Confidentiality & HIPAA | 5 | gpt-canonical.json |
+| gpt_opus21_case_colostomy_lep_discharge_01 | Discharge Planning & Handoff | 6 | gpt-canonical.json |
 | case_sepsis_pneumonia_01 | Sepsis & Septic Shock | 4 | hard-cases-canonical.json |
 | case_preeclampsia_magnesium_01 | Maternal-Newborn Care & Teaching | 4 | hard-cases-canonical.json |
 | cs_copd_01 | Respiratory & Infectious Disorders | 5 | hard-cases-canonical.json |
@@ -236,45 +235,36 @@ Total visuals: 138
 | cs_hip_01 | Perioperative Care | 5 | hard-cases-canonical.json |
 | case_dka_01 | Diabetic Ketoacidosis (DKA) | 5 | hard-cases-canonical.json |
 | case_ami_01 | Cardiovascular Disorders | 5 | hard-cases-canonical.json |
-| cs_ngn_001_anorexia | Anorexia Nervosa / Refeeding Syndrome | 5 | hard-cases-canonical.json |
-| cs_ngn_002_disaster | Disaster Triage / Chemical Exposure | 5 | hard-cases-canonical.json |
-| cs_ngn_003_child_abuse | Child Abuse / Non-Accidental Trauma | 5 | hard-cases-canonical.json |
-| cs_ngn_004_blood | Blood Transfusion Reaction (Hemolytic/TRALI) | 5 | hard-cases-canonical.json |
-| cs_ngn_005_bipolar | Bipolar I - Acute Manic Episode | 5 | hard-cases-canonical.json |
-| cs_ngn_006_tbi | Traumatic Brain Injury (TBI) / Cushing's Triad | 5 | hard-cases-canonical.json |
-| cs_ngn_007_dic | Disseminated Intravascular Coagulation (DIC) | 5 | hard-cases-canonical.json |
-| cs_ngn_008_peds | Pyloric Stenosis vs. Intussusception | 5 | hard-cases-canonical.json |
-| cs_ngn_009_serotonin | Serotonin Syndrome vs. NMS | 5 | hard-cases-canonical.json |
-| cs_ngn_010_ad | Autonomic Dysreflexia | 5 | hard-cases-canonical.json |
-| case_stroke_01 | Ischemic Stroke | 3 | hard-cases-canonical.json |
-| cs_aki_01 | Acute Kidney Injury | 3 | hard-cases-canonical.json |
-| cs_panc_01 | Acute Pancreatitis | 2 | hard-cases-canonical.json |
-| case_burns_01 | Severe Burns | 2 | hard-cases-canonical.json |
-| case_pph_01 | Postpartum Hemorrhage | 2 | hard-cases-canonical.json |
-| case_pe_01 | Pulmonary Embolism | 3 | hard-cases-canonical.json |
-| case_cirrhosis_01 | Cirrhosis With Esophageal Varices | 3 | hard-cases-canonical.json |
-| case_gbs_01 | Guillain-Barré Syndrome | 2 | hard-cases-canonical.json |
-| case_celiac_01 | Celiac Disease | 2 | hard-cases-canonical.json |
-| claude_cs_jun06_chest_tube_rrp_01 | Chest Tube Management | 4 | hard-cases-canonical.json |
-| claude_cs_jun06_pressure_injury_bcc_01 | Pressure Injury Staging and Prevention | 4 | hard-cases-canonical.json |
-| claude_cs_jun06_cdiff_sic_01 | Clostridioides difficile and Contact Precautions | 4 | hard-cases-canonical.json |
-| claude_cs_jun06_adult_immunization_hpm_01 | Adult Immunization and Preventive Screening | 4 | hard-cases-canonical.json |
-| claude_cs_jun06_ipv_screening_psi_01 | Intimate Partner Violence Screening and Support | 4 | hard-cases-canonical.json |
-| cs_thyroid_storm_main | Thyroid Storm | 4 | hard-cases-canonical.json |
-| cs_adhf_pulm_edema_01 | Acute Decompensated Heart Failure (ADHF) | 4 | hard-cases-canonical.json |
-| cs_stemi_vfib_04 | Acute Myocardial Infarction and Ventricular Fibrillation | 4 | hard-cases-canonical.json |
-| cs_sepsis_shock_01 | Septic Shock from Urosepsis | 4 | hard-cases-canonical.json |
-| opus_scc_case_01 | Malignant Spinal Cord Compression | 6 | hard-cases-canonical.json |
-| opus_car_t_crs_2026_06_11_case_01 | CAR-T cytokine release syndrome and ICANS monitoring | 5 | hard-cases-canonical.json |
-| opus_icit_case_01 | Immune Checkpoint Inhibitor Myocarditis | 6 | hard-cases-canonical.json |
-| opus_tpn_case_mucositis_01 | Mucositis TPN and CRBSI | 6 | hard-cases-canonical.json |
-| opus_case_se_01 | status epilepticus | 6 | hard-cases-canonical.json |
-| opus1_case_discharge_med_rec_anticoag_01 | discharge medication reconciliation | 6 | hard-cases-canonical.json |
-| opus2_case_postop_opioid_respiratory_depression_01 | opioid-induced respiratory depression | 6 | hard-cases-canonical.json |
-| opus3_iv_potassium_safety_case_01 | IV potassium replacement safety | 6 | hard-cases-canonical.json |
-| opus4_case_postop_sbar_01 | postoperative deterioration escalation | 6 | hard-cases-canonical.json |
-| opus5_case_consent_interpreter_01 | informed consent and interpreter services | 5 | hard-cases-canonical.json |
-| opus12_case_inpatient_suicide_risk_01 | Inpatient suicide risk and safety precautions | 6 | hard-cases-canonical.json |
+| cs_ngn_001_anorexia | Electrolyte Imbalances | 5 | hard-cases-canonical.json |
+| cs_ngn_002_disaster | Disaster & Emergency Preparedness | 5 | hard-cases-canonical.json |
+| cs_ngn_003_child_abuse | Patient & Environment Safety | 5 | hard-cases-canonical.json |
+| cs_ngn_004_blood | Procedural Complications & Dialysis | 5 | hard-cases-canonical.json |
+| cs_ngn_005_bipolar | Mental Health Disorders | 5 | hard-cases-canonical.json |
+| cs_ngn_006_tbi | Endocrine & Neurological Disorders | 5 | hard-cases-canonical.json |
+| cs_ngn_007_dic | Laboratory & Diagnostic Tests | 5 | hard-cases-canonical.json |
+| cs_ngn_008_peds | Pediatric & Adolescent Health | 5 | hard-cases-canonical.json |
+| cs_ngn_009_serotonin | Psychotropic Medications | 5 | hard-cases-canonical.json |
+| cs_ngn_010_ad | Endocrine & Neurological Disorders | 5 | hard-cases-canonical.json |
+| claude_cs_jun06_chest_tube_rrp_01 | Procedural Complications & Dialysis | 4 | hard-cases-canonical.json |
+| claude_cs_jun06_pressure_injury_bcc_01 | Prioritization & Delegation | 4 | hard-cases-canonical.json |
+| claude_cs_jun06_cdiff_sic_01 | Transmission-Based Precautions | 4 | hard-cases-canonical.json |
+| claude_cs_jun06_adult_immunization_hpm_01 | Pediatric & Adolescent Health | 4 | hard-cases-canonical.json |
+| claude_cs_jun06_ipv_screening_psi_01 | Suicide & Crisis Intervention | 4 | hard-cases-canonical.json |
+| cs_thyroid_storm_main | Endocrine & Neurological Disorders | 4 | hard-cases-canonical.json |
+| cs_adhf_pulm_edema_01 | Cardiovascular Disorders | 4 | hard-cases-canonical.json |
+| cs_stemi_vfib_04 | Cardiovascular Disorders | 4 | hard-cases-canonical.json |
+| cs_sepsis_shock_01 | Sepsis & Septic Shock | 4 | hard-cases-canonical.json |
+| opus_scc_case_01 | Perioperative Care | 6 | hard-cases-canonical.json |
+| opus_car_t_crs_2026_06_11_case_01 | Sepsis & Septic Shock | 5 | hard-cases-canonical.json |
+| opus_icit_case_01 | Cardiovascular & Endocrine Medications | 6 | hard-cases-canonical.json |
+| opus_tpn_case_mucositis_01 | Parenteral Nutrition | 6 | hard-cases-canonical.json |
+| opus_case_se_01 | Respiratory & Infectious Disorders | 6 | hard-cases-canonical.json |
+| opus1_case_discharge_med_rec_anticoag_01 | Perioperative Care | 6 | hard-cases-canonical.json |
+| opus2_case_postop_opioid_respiratory_depression_01 | Medication Safety & Admin | 6 | hard-cases-canonical.json |
+| opus3_iv_potassium_safety_case_01 | Medication Safety & Admin | 6 | hard-cases-canonical.json |
+| opus4_case_postop_sbar_01 | Discharge Planning & Handoff | 6 | hard-cases-canonical.json |
+| opus5_case_consent_interpreter_01 | Client Advocacy | 5 | hard-cases-canonical.json |
+| opus12_case_inpatient_suicide_risk_01 | Suicide & Crisis Intervention | 6 | hard-cases-canonical.json |
 
 ## ID Uniqueness
 
@@ -283,26 +273,26 @@ No duplicates detected.
 ## Targets
 
 Category targets (2026 NCLEX-RN test-plan weights):
-- Management of Care: 234.5
-- Safety and Infection Control: 169.4
-- Health Promotion and Maintenance: 117.3
-- Psychosocial Integrity: 117.3
-- Basic Care and Comfort: 117.3
-- Pharmacological and Parenteral Therapies: 208.5
-- Reduction of Risk Potential: 156.4
-- Physiological Adaptation: 182.4
-Item type average: 144.8
+- Management of Care: 234.2
+- Safety and Infection Control: 169.1
+- Health Promotion and Maintenance: 117.1
+- Psychosocial Integrity: 117.1
+- Basic Care and Comfort: 117.1
+- Pharmacological and Parenteral Therapies: 208.2
+- Reduction of Risk Potential: 156.1
+- Physiological Adaptation: 182.1
+Item type average: 144.6
 
 Under-served categories:
-- Management of Care: 150
+- Management of Care: 149
 
 Over-served categories:
-- Physiological Adaptation: 230
+- Physiological Adaptation: 223
 
 Under-served item types:
-- bowtie: 0
+- bowtie: 1
 - highlight: 2
-- case_study: 114
+- case_study: 103
 - ordered_response: 127
 - fill_in_blank: 140
 - dropdown_cloze: 142
@@ -310,35 +300,35 @@ Under-served item types:
 ## Prompt Parameters
 
 PRIORITIZE_TOPICS:
-- Management of Care (150 vs target 235)
-- bowtie (0 vs target 144.8)
-- highlight (2 vs target 144.8)
-- case_study (114 vs target 144.8)
-- ordered_response (127 vs target 144.8)
-- fill_in_blank (140 vs target 144.8)
-- dropdown_cloze (142 vs target 144.8)
-- acetaminophen duplicate therapy
-- Active Pulmonary TB Airborne Precautions
-- Acute decompensated heart failure
-- Acute Decompensated Heart Failure (ADHF)
-- Acute Graft-Versus-Host Disease
-- acute kidney injury and hyperkalemia
-- acute kidney injury fluid response
-- Acute Myocardial Infarction and Ventricular Fibrillation
-- Acute Pancreatitis
-- Adenosine Administration Technique
-- Adenosine Side Effects
-- Adrenal crisis
+- Management of Care (149 vs target 234)
+- bowtie (1 vs target 144.6)
+- highlight (2 vs target 144.6)
+- case_study (103 vs target 144.6)
+- ordered_response (127 vs target 144.6)
+- fill_in_blank (140 vs target 144.6)
+- dropdown_cloze (142 vs target 144.6)
+- Parenteral Nutrition
+- Conflict Resolution
+- Electroconvulsive Therapy (ECT)
+- ABG & Acid-Base Interpretation
+- Client Advocacy
+- Disaster & Emergency Preparedness
+- Pediatric & Toddler Safety
+- Psychotropic Medications
+- Reproductive & Endocrine Health
+- Confidentiality & HIPAA
+- Sleep & Rest
+- Palliative & Supportive Care
 
 AVOID_TOPICS:
-- Mental Health Disorders (61)
-- Prioritization & Delegation (47)
-- Legal & Ethical Principles (45)
-- Maternal-Newborn Care & Teaching (43)
-- Cardiovascular Disorders (43)
-- Dosage Calculations (41)
-- Medication Safety & Admin (40)
-- Patient & Environment Safety (39)
+- Mental Health Disorders (73)
+- Medication Safety & Admin (72)
+- Cardiovascular Disorders (72)
+- Prioritization & Delegation (60)
+- Maternal-Newborn Care & Teaching (53)
+- Nutritional & Fluid Support (50)
+- Dosage Calculations (50)
+- Transmission-Based Precautions (46)
 
 ## Docs Drift
 

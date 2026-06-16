@@ -1,12 +1,12 @@
 # Topic Metadata Cleanup
 
 Date: 2026-06-16
-Mode: dry run
-Write reason: none; canonical banks were not modified
+Mode: applied
+Write reason: one-time topic vocabulary migration
 
 Total topic updates: 877
 Unresolved noncanonical topics: 0
-Broad-topic review suggestions: 75
+Broad-topic review suggestions: 93
 
 ## Updates by Previous Topic
 
@@ -1591,6 +1591,10 @@ Broad-topic review suggestions: 75
 | `claude_a_mc_hip_replacement_21` | Reduction of Risk Potential | multiple_choice | Transmission-Based Precautions | Perioperative Care | perioperative/postoperative care |
 | `claude_a_mc_restraint_alternative_37` | Management of Care | multiple_choice | Patient & Environment Safety | Transmission-Based Precautions | transmission-based precautions/isolation |
 | `claude_a_mc_surgical_timeout_50` | Safety and Infection Control | multiple_choice | Patient & Environment Safety | Standard Precautions & Hygiene | standard precautions/hand hygiene/sharps |
+| `opus20_case_cdiff_01_q1` | Physiological Adaptation | multiple_choice | Transmission-Based Precautions | Sepsis & Septic Shock | sepsis/shock |
+| `opus20_case_cdiff_01_q3` | Safety and Infection Control | multiple_choice | Transmission-Based Precautions | PPE & Sterile Technique | PPE/sterile technique |
+| `opus20_case_cdiff_01_q4` | Basic Care and Comfort | multiple_choice | Transmission-Based Precautions | Elimination & Comfort | elimination/hygiene/skin integrity |
+| `opus20_case_cdiff_01_q6` | Physiological Adaptation | matrix | Transmission-Based Precautions | Sepsis & Septic Shock | sepsis/shock |
 | `gemini_jun05_a_sata_airborne_precautions_03` | Safety and Infection Control | select_all | Transmission-Based Precautions | Prioritization & Delegation | prioritization/delegation/staffing |
 | `gemini_jun05_a_or_transfusion_reaction_05` | Reduction of Risk Potential | ordered_response | Procedural Complications & Dialysis | Laboratory & Diagnostic Tests | laboratory/diagnostic tests |
 | `gemini_jun05_a_mc_compartment_syndrome_10` | Reduction of Risk Potential | multiple_choice | Procedural Complications & Dialysis | Perioperative Care | perioperative/postoperative care |
@@ -1639,11 +1643,17 @@ Broad-topic review suggestions: 75
 | `gen_hpm_batch2_10` | Health Promotion and Maintenance | multiple_choice | Adult Health & Wellness | Chronic Disease Management & Lifestyle | chronic disease/lifestyle teaching |
 | `gen_psi_batch2_04` | Psychosocial Integrity | ordered_response | Suicide & Crisis Intervention | Prioritization & Delegation | prioritization/delegation/staffing |
 | `gen_psi_batch2_08` | Psychosocial Integrity | multiple_choice | Suicide & Crisis Intervention | Pediatric & Adolescent Health | pediatric/adolescent health |
+| `easy_adult_health_01` | Physiological Adaptation | multiple_choice | Adult Health & Wellness | Respiratory & Infectious Disorders | respiratory/infectious disorder |
+| `easy_adult_health_03` | Reduction of Risk Potential | multiple_choice | Adult Health & Wellness | Electrolyte Imbalances | electrolyte imbalance |
+| `easy_adult_health_05` | Basic Care and Comfort | multiple_choice | Adult Health & Wellness | Sleep & Rest | sleep/rest |
 | `gap_50_bcc_07` | Basic Care and Comfort | matrix | Elimination & Comfort | Parenteral Nutrition | TPN/parenteral nutrition |
 | `gap_50_sic_01` | Safety and Infection Control | ordered_response | PPE & Sterile Technique | Transmission-Based Precautions | transmission-based precautions/isolation |
 | `gap_50_sic_02` | Safety and Infection Control | ordered_response | PPE & Sterile Technique | Transmission-Based Precautions | transmission-based precautions/isolation |
 | `gap_50_sic_08` | Safety and Infection Control | dropdown_cloze | Patient & Environment Safety | Prioritization & Delegation | prioritization/delegation/staffing |
 | `gap_50_sic_12` | Safety and Infection Control | fill_in_blank | Patient & Environment Safety | Disaster & Emergency Preparedness | disaster/emergency preparedness |
+| `gemini_gapfill_case_2026_06_10_case_imm_01_q1` | Health Promotion and Maintenance | matrix | Adult Health & Wellness | Pediatric & Adolescent Health | pediatric/adolescent health |
+| `gemini_gapfill_case_2026_06_10_case_imm_01_q2` | Health Promotion and Maintenance | select_all | Adult Health & Wellness | Pediatric & Adolescent Health | pediatric/adolescent health |
+| `gemini_gapfill_case_2026_06_10_case_imm_01_q3` | Health Promotion and Maintenance | multiple_choice | Adult Health & Wellness | Pediatric & Adolescent Health | pediatric/adolescent health |
 | `mc_airborne_tb_precautions_004` | Safety and Infection Control | multiple_choice | Transmission-Based Precautions | Prioritization & Delegation | prioritization/delegation/staffing |
 | `sata_fall_risk_interventions_005` | Safety and Infection Control | select_all | Standard Precautions & Hygiene | Patient & Environment Safety | environmental safety/restraints/radiation/chemical exposure |
 | `mc_dysphagia_positioning_013` | Basic Care and Comfort | multiple_choice | Elimination & Comfort | Nutritional & Fluid Support | nutrition/feeding/fluid support |
@@ -1657,8 +1667,16 @@ Broad-topic review suggestions: 75
 | `gpt_canonical_matrix_meningitis_precautions_105` | Safety and Infection Control | matrix | Transmission-Based Precautions | Prioritization & Delegation | prioritization/delegation/staffing |
 | `gpt_canonical_matrix_chemical_splash_109` | Safety and Infection Control | matrix | Patient & Environment Safety | Prioritization & Delegation | prioritization/delegation/staffing |
 | `gpt_canonical_matrix_constipation_prevention_120` | Basic Care and Comfort | matrix | Elimination & Comfort | Palliative & Supportive Care | pain/comfort/palliative/supportive care |
+| `gpt_case_premium_2026_06_10_case04_matrix_risk_01` | Basic Care and Comfort | matrix | Elimination & Comfort | Palliative & Supportive Care | pain/comfort/palliative/supportive care |
+| `gpt_case_premium_2026_06_10_case04_mc_first_action_03` | Basic Care and Comfort | multiple_choice | Elimination & Comfort | Mobility & Immobility | mobility/positioning/assistive device |
+| `gpt_case_premium_2026_06_10_case04_sata_prevention_04` | Basic Care and Comfort | select_all | Elimination & Comfort | Nutritional & Fluid Support | nutrition/feeding/fluid support |
+| `gpt_case_premium_2026_06_10_case04_or_heel_action_05` | Basic Care and Comfort | ordered_response | Elimination & Comfort | Prioritization & Delegation | prioritization/delegation/staffing |
+| `gpt_gap_2026_06_10_or_pressure_injury_prevention_04` | Safety and Infection Control | ordered_response | Elimination & Comfort | Prioritization & Delegation | prioritization/delegation/staffing |
 | `cs_ckd_01_q3` | Reduction of Risk Potential | select_all | Procedural Complications & Dialysis | Electrolyte Imbalances | electrolyte imbalance |
 | `cs_asthma_01_q1` | Health Promotion and Maintenance | multiple_choice | Adult Health & Wellness | Pediatric & Adolescent Health | pediatric/adolescent health |
 | `cs_asthma_01_q2` | Health Promotion and Maintenance | select_all | Adult Health & Wellness | Pediatric & Adolescent Health | pediatric/adolescent health |
 | `cs_asthma_01_q3` | Health Promotion and Maintenance | dropdown_cloze | Adult Health & Wellness | Pediatric & Adolescent Health | pediatric/adolescent health |
 | `cs_asthma_01_q5` | Health Promotion and Maintenance | multiple_choice | Adult Health & Wellness | Pediatric & Adolescent Health | pediatric/adolescent health |
+| `claude_cs_jun06_cdiff_sic_01_part_2` | Safety and Infection Control | multiple_choice | Transmission-Based Precautions | Standard Precautions & Hygiene | standard precautions/hand hygiene/sharps |
+| `claude_cs_jun06_cdiff_sic_01_part_3` | Safety and Infection Control | matrix | Transmission-Based Precautions | Standard Precautions & Hygiene | standard precautions/hand hygiene/sharps |
+| `claude_cs_jun06_cdiff_sic_01_part_4` | Safety and Infection Control | ordered_response | Transmission-Based Precautions | Standard Precautions & Hygiene | standard precautions/hand hygiene/sharps |

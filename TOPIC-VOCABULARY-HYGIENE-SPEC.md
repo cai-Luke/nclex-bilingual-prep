@@ -1,8 +1,8 @@
 # Topic Vocabulary Hygiene — Cure Spec
 
-Status: **approved for implementation.** Decisions are resolved (see Resolved Decisions). This
-revision incorporates the pre-implementation review. Ledger entry and any `DECISIONS.md`
-invariant promotion are left to Luke at execution time.
+Status: **approved for implementation.** Topic-list/class decisions are resolved (see Resolved
+Decisions and `TOPIC-VOCABULARY-DECISIONS.md`). Ledger entry and any `DECISIONS.md` invariant
+promotion are left to Luke at execution time.
 
 ## Definition (the keystone — read first)
 
@@ -74,7 +74,7 @@ export const normalizeTopicKey: (t: string) => string;         // trim + lowerca
 
 Reconcile the two inline lists into this one module under `src/` (so runtime, scripts, and
 prompt-export all share it). The canonical set already exists — it needs unifying and relocating,
-plus a human pass to lock the names (err slightly coarser than the current tail).
+with names/classes locked in `TOPIC-VOCABULARY-DECISIONS.md`.
 
 **Alias / structure invariants (enforced by a test, not by convention):**
 
@@ -162,7 +162,9 @@ this prompt rule is the first line. Together they make Layer 3 a one-time event.
 | Noncanonical topic | Hard-fail at the canonical gate |
 | Topic×category licensing | Phased — Phase 1 membership hard-fail; Phase 2 mismatch audit-only; Phase 3 strict licensing for STRICT-class topics after review |
 | Canonical-write protocol | One-time sanctioned migration via `--allow-canonical --reason` + full audit report |
-| Final topic list | Human pass to lock names before enforcement; err slightly coarser than the current tail |
+| Final topic list | Locked in `TOPIC-VOCABULARY-DECISIONS.md`; err slightly coarser than the current tail |
+| Shared topics | Medication Safety & Admin = Pharmacological + Safety/Infection Control; Laboratory & Diagnostic Tests = Reduction of Risk Potential + Pharmacological |
+| Strict judgment calls | Palliative & Supportive Care = Basic Care and Comfort; Discharge Planning & Handoff = Management of Care; Patient & Environment Safety = Safety and Infection Control; Therapeutic Communication = Psychosocial Integrity; Dosage Calculations = Pharmacological |
 
 ## Fit with existing invariants
 

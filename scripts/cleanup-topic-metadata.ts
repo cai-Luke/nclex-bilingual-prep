@@ -188,7 +188,7 @@ const exactTopicFixes = new Map<string, string>([
   ["abuse and neglect", canonicalTopics.SUICIDE_CRISIS],
   ["cultural awareness", canonicalTopics.THERAPEUTIC_COMM],
   ["psychopathology", canonicalTopics.MENTAL_HEALTH],
-  ["antibiotic safety", canonicalTopics.DOSAGE],
+  ["antibiotic safety", canonicalTopics.MED_SAFETY],
   ["system-specific assessment (respiratory)", canonicalTopics.RESPIRATORY],
   ["respiratory monitoring", canonicalTopics.RESPIRATORY],
   ["nursing interventions", canonicalTopics.RESPIRATORY],
@@ -332,15 +332,18 @@ const matches = (pattern: RegExp) => (text: string) => pattern.test(text);
 const rules: TopicRule[] = [
   {
     topic: canonicalTopics.DOSAGE,
-    reason: "calculation/dose/infusion content",
+    reason: "numeric dosage calculation",
     category: "Pharmacological and Parenteral Therapies",
     test: (text, question) =>
       question.itemType === "fill_in_blank" &&
-      matches(/\b(mg|mcg|ml|units?|tablets?|tabs?|kg|lb|hr|hour|dose|rate|half-life)\b/i)(text),
+      Array.isArray(question.blanks) &&
+      question.blanks.some((blank: JsonRecord) => blank.numeric) &&
+      matches(/\b(mg|mcg|ml|units?|tablets?|tabs?|kg|lb|hr|hour|dose|rate|half-life|calculate|available medication)\b/i)(text),
   },
   {
     topic: canonicalTopics.DOSAGE,
     reason: "explicit dosage calculation",
+    category: "Pharmacological and Parenteral Therapies",
     test: matches(/\b(calculate|flow rate|infusion rate|ml\/hr|mcg\/kg\/min|how many tablets?|how many ml|available medication|pharmacy dispenses)\b/i),
   },
   {
@@ -392,7 +395,14 @@ const rules: TopicRule[] = [
     topic: canonicalTopics.DISCHARGE,
     reason: "discharge/referral/handoff/continuity",
     category: "Management of Care",
-    test: matches(/\b(discharge|handoff|transfer report|continuity|case management|home health|referral|speech-language pathologist|interdisciplinary)\b/i),
+    test: (text) => {
+      if (/\b(discharge teaching|teaching after discharge|home teaching|sick-day|self-management)\b/i.test(text)) {
+        return false;
+      }
+      return matches(
+        /\b(handoff|transfer report|continuity|case management|home health|referral|speech-language pathologist|interdisciplinary|discharge planning|discharge barrier|discharge readiness|discharge coordination)\b/i,
+      )(text);
+    },
   },
   {
     topic: canonicalTopics.CLIENT_ADVOCACY,
@@ -664,7 +674,7 @@ const getBankFiles = async () => {
   return files.filter((file) => file.endsWith(".json")).map((file) => join("banks", file));
 };
 
-const formatReport = (changes: ProposedChange[], unresolved: ProposedChange[]) => {
+const formatReport = (changes: ProposedChange[], unresolved: ProposedChange[], reviewSuggestions: ProposedChange[]) => {
   const byFile = new Map<string, ProposedChange[]>();
   const byOldTopic = new Map<string, number>();
   for (const change of changes) {
@@ -681,6 +691,7 @@ const formatReport = (changes: ProposedChange[], unresolved: ProposedChange[]) =
     "",
     `Total topic updates: ${changes.length}`,
     `Unresolved noncanonical topics: ${unresolved.length}`,
+    `Broad-topic review suggestions: ${reviewSuggestions.length}`,
     "",
     "## Updates by Previous Topic",
     "",
@@ -714,12 +725,23 @@ const formatReport = (changes: ProposedChange[], unresolved: ProposedChange[]) =
     lines.push("");
   }
 
+  if (reviewSuggestions.length > 0) {
+    lines.push("## Broad-Topic Review Suggestions", "");
+    lines.push("| Question ID | Category | Type | Current topic | Suggested topic | Reason |");
+    lines.push("|---|---|---|---|---|---|");
+    for (const item of reviewSuggestions) {
+      lines.push(`| \`${item.id}\` | ${item.category} | ${item.itemType} | ${item.oldTopic} | ${item.newTopic} | ${item.reason} |`);
+    }
+    lines.push("");
+  }
+
   return `${lines.join("\n").replace(/\n+$/, "")}\n`;
 };
 
 const bankFiles = await getBankFiles();
 const allChanges: ProposedChange[] = [];
 const unresolved: ProposedChange[] = [];
+const reviewSuggestions: ProposedChange[] = [];
 
 for (const file of bankFiles) {
   const text = await readFile(file, "utf8");
@@ -767,7 +789,7 @@ for (const file of bankFiles) {
     const check = (item: JsonRecord) => {
       const match = classifyByContent(item);
       if (match && broadTopics.has(item.topic) && match.topic !== item.topic) {
-        unresolved.push({
+        reviewSuggestions.push({
           file,
           id: item.id ?? "(missing id)",
           oldTopic: item.topic,
@@ -787,8 +809,9 @@ for (const file of bankFiles) {
 
 await mkdir("audit", { recursive: true });
 const reportPath = `audit/topic-vocabulary-migration-${reportDate}${dryRun ? ".dry-run" : ""}.report.md`;
-await writeFile(reportPath, formatReport(allChanges, unresolved));
+await writeFile(reportPath, formatReport(allChanges, unresolved, reviewSuggestions));
 
 console.log(`${dryRun ? "Would update" : "Updated"} ${allChanges.length} topic assignments across ${bankFiles.length} bank files.`);
 console.log(`${unresolved.length} noncanonical topic assignments require human decisions.`);
+console.log(`${reviewSuggestions.length} broad canonical topic assignments may deserve review.`);
 console.log(`Report: ${reportPath}`);

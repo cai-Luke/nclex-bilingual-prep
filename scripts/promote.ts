@@ -16,6 +16,7 @@ import { shuffle } from "../lib/shuffle";
 import { checkCaseCompileManifests, stripCompileManifests } from "../lib/case-completeness";
 import { normalizeBankPresentations, serializeBank } from "../lib/presentation-normalization";
 import type { BankEnvelope } from "../src/types";
+import { findNoncanonicalTopics, formatTopicValidationIssues } from "../lib/topic-validation";
 
 const DRAFT_DIR = "banks/banks-raw";
 const PROMOTED_DIR = "banks";
@@ -86,6 +87,13 @@ for (const filename of jsonFiles) {
     }
 
     const bank = result.value;
+    const topicIssues = findNoncanonicalTopics(bank);
+    if (topicIssues.length > 0) {
+      console.error(`\n${filename}: topic vocabulary gate failed — fix these before promoting:`);
+      formatTopicValidationIssues(topicIssues).forEach((r) => console.error(`  - ${r}`));
+      anyFailed = true;
+      continue;
+    }
 
     // Schema version guard: warn if draft declares a higher schemaVersion than
     // the canonical it will land in, so the bump surfaces here rather than as a
