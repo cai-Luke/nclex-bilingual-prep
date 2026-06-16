@@ -58,6 +58,14 @@ The committed NGN item-type set is complete. Rationale/dyad scoring and an expli
 
 ## Milestones
 
+### Raw Case-Staging Remediation — Structural Gate Prep (Jun 16)
+
+Completed:
+- Accepted Gemini's block on the pending GPT raw case banks while rejecting the embedded-bowtie repair direction; bowtie remains a standalone top-level item.
+- Added a deterministic serializer-based remediation script for `banks/banks-raw/*.json` that adds missing parent case stems, wraps malformed standalone bowtie zones under `bowtie`, normalizes case stages to `{ id, title, exhibits }`, repairs raw PPH glossary/byChoice/option shapes, maps `difficulty: "high"` to `hard`, and prunes overlong SATA option sets to the schema cap.
+- Patched the GPT case-skeleton compiler prompt to require parent `CommonQuestion` fields, schema-shaped stages, and the standalone bowtie wrapper.
+- This pass is structural only. The remediated raw banks still require clinical/source review, audit, ledger updates, and promotion workflow before they can become reviewed study material.
+
 ### Topic Vocabulary Hygiene — Failed Applied Migration Rolled Back (Jun 16)
 
 Completed:

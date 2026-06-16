@@ -54,13 +54,29 @@
               "en": "Initial clinic visit",
               "zh": "初次门诊"
             },
-            "time": {
-              "en": "Initial presentation",
-              "zh": "初始表现"
-            },
-            "availableExhibits": [
-              "initial_history",
-              "initial_labs"
+            "exhibits": [
+              {
+                "id": "initial_history",
+                "title": {
+                  "en": "Initial history and assessment",
+                  "zh": "初始病史和评估"
+                },
+                "content": {
+                  "en": "No significant past medical history. Six months of foul-smelling, pale, bulky stools 3-5 times daily, bloating/cramping after meals, 10-lb unintentional weight loss, fatigue, occasional mouth sores, and a 3-month pruritic blistering rash on elbows and knees. Denies bloody stools, fever, joint swelling, or recent travel. Thin-appearing, BMI 19.0. Abdomen mildly distended and diffusely mildly tender without guarding or rebound. Symmetric erythematous papulovesicular lesions on extensor elbows and knees; pale conjunctivae; mild koilonychia.",
+                  "zh": "无明显既往病史。6个月来每日3–5次恶臭、灰白、量多大便，餐后腹胀/绞痛，非故意体重下降10磅，疲乏，偶有口腔溃疡，肘部和膝部瘙痒性水疱样皮疹3个月。否认血便、发热、关节肿胀或近期旅行。外观偏瘦，BMI 19.0。腹部轻度膨隆、弥漫轻压痛，无肌紧张或反跳痛。肘膝伸侧对称红斑性丘疹水疱样皮损；结膜苍白；轻度匙状甲。"
+                }
+              },
+              {
+                "id": "initial_labs",
+                "title": {
+                  "en": "Initial laboratory data",
+                  "zh": "初始实验室资料"
+                },
+                "content": {
+                  "en": "Hgb 10.4 g/dL, MCV 74 fL, WBC 6,200/µL, platelets 310,000/µL. Calcium 7.6 mg/dL, albumin 3.3 g/dL, alkaline phosphatase 142 U/L, creatinine 0.7 mg/dL. Total IgA 245 mg/dL; tTG-IgA pending. ESR 12 mm/hr, CRP 0.4 mg/dL. Qualitative fecal fat positive; stool occult blood negative; no ova or parasites identified.",
+                  "zh": "血红蛋白10.4 g/dL，MCV 74 fL，WBC 6,200/µL，血小板310,000/µL。钙7.6 mg/dL，白蛋白3.3 g/dL，碱性磷酸酶142 U/L，肌酐0.7 mg/dL。总IgA 245 mg/dL；tTG-IgA待回报。ESR 12 mm/hr，CRP 0.4 mg/dL。定性粪脂阳性；粪便隐血阴性；未发现虫卵或寄生虫。"
+                }
+              }
             ]
           },
           {
@@ -69,14 +85,19 @@
               "en": "Diagnosis confirmed",
               "zh": "诊断确认"
             },
-            "time": {
-              "en": "Two weeks after the initial visit",
-              "zh": "初诊后2周"
-            },
-            "content": {
-              "en": "tTG-IgA returns at 128 U/mL (reference <4) with normal total IgA. EGD with duodenal biopsy shows villous atrophy, crypt hyperplasia, and increased intraepithelial lymphocytes (Marsh 3a). The gastroenterologist confirms celiac disease and prescribes strict lifelong gluten-free diet. Iron 28 µg/dL, ferritin 8 ng/mL, folate 3.2 ng/mL, B12 280 pg/mL, 25-hydroxyvitamin D 14 ng/mL, and PTH 78 pg/mL. Dermatology referral is placed for perilesional skin biopsy of suspected dermatitis herpetiformis.",
-              "zh": "tTG-IgA回报128 U/mL（参考<4），总IgA正常。EGD十二指肠活检示绒毛萎缩、隐窝增生和上皮内淋巴细胞增多（Marsh 3a）。胃肠科医师确认乳糜泻并开立终身严格无麸质饮食。铁28 µg/dL、铁蛋白8 ng/mL、叶酸3.2 ng/mL、B12 280 pg/mL、25-羟维生素D 14 ng/mL、PTH 78 pg/mL。因疑似疱疹样皮炎，转诊皮肤科进行皮损周围皮肤活检。"
-            }
+            "exhibits": [
+              {
+                "id": "stage1_update",
+                "title": {
+                  "en": "Diagnosis confirmed",
+                  "zh": "诊断确认"
+                },
+                "content": {
+                  "en": "tTG-IgA returns at 128 U/mL (reference <4) with normal total IgA. EGD with duodenal biopsy shows villous atrophy, crypt hyperplasia, and increased intraepithelial lymphocytes (Marsh 3a). The gastroenterologist confirms celiac disease and prescribes strict lifelong gluten-free diet. Iron 28 µg/dL, ferritin 8 ng/mL, folate 3.2 ng/mL, B12 280 pg/mL, 25-hydroxyvitamin D 14 ng/mL, and PTH 78 pg/mL. Dermatology referral is placed for perilesional skin biopsy of suspected dermatitis herpetiformis.",
+                  "zh": "tTG-IgA回报128 U/mL（参考<4），总IgA正常。EGD十二指肠活检示绒毛萎缩、隐窝增生和上皮内淋巴细胞增多（Marsh 3a）。胃肠科医师确认乳糜泻并开立终身严格无麸质饮食。铁28 µg/dL、铁蛋白8 ng/mL、叶酸3.2 ng/mL、B12 280 pg/mL、25-羟维生素D 14 ng/mL、PTH 78 pg/mL。因疑似疱疹样皮炎，转诊皮肤科进行皮损周围皮肤活检。"
+                }
+              }
+            ]
           },
           {
             "id": "stage2",
@@ -84,14 +105,19 @@
               "en": "Incomplete early response and dermatitis treatment",
               "zh": "早期反应不完全及皮炎治疗"
             },
-            "time": {
-              "en": "Four weeks after diagnosis",
-              "zh": "诊断后4周"
-            },
-            "content": {
-              "en": "After four weeks attempting a gluten-free diet, stools improve to 1-2 times daily and are less pale/malodorous, but the rash remains intensely pruritic and disrupts sleep. The patient reports ongoing hidden gluten exposure from soy sauce containing wheat and standard communion wafers. She is taking iron and vitamin D but has not started folate. Perilesional skin biopsy confirms dermatitis herpetiformis with granular IgA deposits at the dermal papillae. Dermatology prescribes low-dose oral dapsone per protocol with planned titration. Before treatment, normal G6PD level, CBC with differential, reticulocyte count, liver function, renal function, and urinalysis are reviewed. The nurse teaches frequent early blood work and warning symptoms: cyanosis, shortness of breath, severe fatigue, jaundice, fever, sore throat, or widespread rash.",
-              "zh": "尝试无麸质饮食4周后，大便改善为每日1–2次，颜色和气味改善，但皮疹仍剧痒并影响睡眠。患者报告仍通过含小麦酱油和普通圣餐饼发生隐匿麸质暴露。她正在服铁剂和维生素D，但尚未开始叶酸。皮损周围活检证实疱疹样皮炎，真皮乳头见颗粒状IgA沉积。皮肤科按方案开立低剂量口服氨苯砜并计划滴定。治疗前已复核G6PD正常、CBC分类、网织红细胞计数、肝功能、肾功能和尿液分析。护士教育早期需频繁验血，并报告发绀、气短、严重疲乏、黄疸、发热、咽痛或广泛皮疹等警示症状。"
-            }
+            "exhibits": [
+              {
+                "id": "stage2_update",
+                "title": {
+                  "en": "Incomplete early response and dermatitis treatment",
+                  "zh": "早期反应不完全及皮炎治疗"
+                },
+                "content": {
+                  "en": "After four weeks attempting a gluten-free diet, stools improve to 1-2 times daily and are less pale/malodorous, but the rash remains intensely pruritic and disrupts sleep. The patient reports ongoing hidden gluten exposure from soy sauce containing wheat and standard communion wafers. She is taking iron and vitamin D but has not started folate. Perilesional skin biopsy confirms dermatitis herpetiformis with granular IgA deposits at the dermal papillae. Dermatology prescribes low-dose oral dapsone per protocol with planned titration. Before treatment, normal G6PD level, CBC with differential, reticulocyte count, liver function, renal function, and urinalysis are reviewed. The nurse teaches frequent early blood work and warning symptoms: cyanosis, shortness of breath, severe fatigue, jaundice, fever, sore throat, or widespread rash.",
+                  "zh": "尝试无麸质饮食4周后，大便改善为每日1–2次，颜色和气味改善，但皮疹仍剧痒并影响睡眠。患者报告仍通过含小麦酱油和普通圣餐饼发生隐匿麸质暴露。她正在服铁剂和维生素D，但尚未开始叶酸。皮损周围活检证实疱疹样皮炎，真皮乳头见颗粒状IgA沉积。皮肤科按方案开立低剂量口服氨苯砜并计划滴定。治疗前已复核G6PD正常、CBC分类、网织红细胞计数、肝功能、肾功能和尿液分析。护士教育早期需频繁验血，并报告发绀、气短、严重疲乏、黄疸、发热、咽痛或广泛皮疹等警示症状。"
+                }
+              }
+            ]
           },
           {
             "id": "stage3",
@@ -99,14 +125,19 @@
               "en": "Treatment response evaluation",
               "zh": "治疗反应评价"
             },
-            "time": {
-              "en": "Four months after diagnosis",
-              "zh": "诊断后4个月"
-            },
-            "content": {
-              "en": "The patient eliminated hidden gluten sources and has been strictly gluten-free for three months. She uses wheat-free tamari and gluten-free communion wafers. She takes iron, folic acid, and vitamin D. She is on dapsone 50 mg daily with dermatology planning taper after rash control. Rash is nearly resolved; stools are formed, brown, once daily; bloating resolved; energy improved; mouth sores have not recurred; weight is 123 lb. Labs: Hgb 12.1 g/dL, MCV 82 fL, ferritin 22 ng/mL, folate 8.6 ng/mL, vitamin D 32 ng/mL, calcium 8.6 mg/dL, PTH 42 pg/mL, albumin 3.8 g/dL, tTG-IgA 38 U/mL. The provider explains the falling tTG-IgA supports response and orders DEXA because prior vitamin D deficiency, hypocalcemia, and secondary hyperparathyroidism increase bone-health risk.",
-              "zh": "患者已消除隐匿麸质来源，并严格无麸质3个月。她使用无小麦日式酱油和无麸质圣餐饼。她服用铁剂、叶酸和维生素D。氨苯砜50 mg每日一次，皮肤科计划皮疹控制后逐渐减量。皮疹几乎消退；大便成形、棕色、每日一次；腹胀消失；精力改善；口腔溃疡未复发；体重123磅。实验室：血红蛋白12.1 g/dL，MCV 82 fL，铁蛋白22 ng/mL，叶酸8.6 ng/mL，维生素D 32 ng/mL，钙8.6 mg/dL，PTH 42 pg/mL，白蛋白3.8 g/dL，tTG-IgA 38 U/mL。医师说明tTG-IgA下降支持治疗反应，并因既往维生素D缺乏、低钙和继发性甲旁亢增加骨健康风险而安排DEXA。"
-            }
+            "exhibits": [
+              {
+                "id": "stage3_update",
+                "title": {
+                  "en": "Treatment response evaluation",
+                  "zh": "治疗反应评价"
+                },
+                "content": {
+                  "en": "The patient eliminated hidden gluten sources and has been strictly gluten-free for three months. She uses wheat-free tamari and gluten-free communion wafers. She takes iron, folic acid, and vitamin D. She is on dapsone 50 mg daily with dermatology planning taper after rash control. Rash is nearly resolved; stools are formed, brown, once daily; bloating resolved; energy improved; mouth sores have not recurred; weight is 123 lb. Labs: Hgb 12.1 g/dL, MCV 82 fL, ferritin 22 ng/mL, folate 8.6 ng/mL, vitamin D 32 ng/mL, calcium 8.6 mg/dL, PTH 42 pg/mL, albumin 3.8 g/dL, tTG-IgA 38 U/mL. The provider explains the falling tTG-IgA supports response and orders DEXA because prior vitamin D deficiency, hypocalcemia, and secondary hyperparathyroidism increase bone-health risk.",
+                  "zh": "患者已消除隐匿麸质来源，并严格无麸质3个月。她使用无小麦日式酱油和无麸质圣餐饼。她服用铁剂、叶酸和维生素D。氨苯砜50 mg每日一次，皮肤科计划皮疹控制后逐渐减量。皮疹几乎消退；大便成形、棕色、每日一次；腹胀消失；精力改善；口腔溃疡未复发；体重123磅。实验室：血红蛋白12.1 g/dL，MCV 82 fL，铁蛋白22 ng/mL，叶酸8.6 ng/mL，维生素D 32 ng/mL，钙8.6 mg/dL，PTH 42 pg/mL，白蛋白3.8 g/dL，tTG-IgA 38 U/mL。医师说明tTG-IgA下降支持治疗反应，并因既往维生素D缺乏、低钙和继发性甲旁亢增加骨健康风险而安排DEXA。"
+                }
+              }
+            ]
           }
         ],
         "questions": [
@@ -957,6 +988,10 @@
           "case_celiac_01"
         ],
         "claudeReviewFlags": []
+      },
+      "stem": {
+        "en": "Review the client record and answer the case-study items.",
+        "zh": "请查看患者病历，并回答本病例题组。"
       }
     },
     {
@@ -969,82 +1004,6 @@
       "stem": {
         "en": "Stage 3 summary: A 28-year-old woman with prior steatorrhea, weight loss, iron/folate/vitamin D/calcium deficiencies, positive tTG-IgA with normal total IgA, Marsh 3a duodenal biopsy, and skin biopsy-confirmed dermatitis herpetiformis has completed three months of strict gluten-free diet after eliminating hidden gluten. Her GI symptoms and rash have resolved, nutritional labs have improved, and tTG-IgA has fallen from 128 to 38 U/mL. Select the most likely condition, two priority nursing actions, and two parameters to monitor.",
         "zh": "第3阶段摘要：一名28岁女性曾有脂肪泻、体重下降、铁/叶酸/维生素D/钙缺乏，tTG-IgA阳性且总IgA正常，十二指肠活检Marsh 3a，皮肤活检确认疱疹样皮炎。消除隐匿麸质后，她已严格无麸质饮食3个月。胃肠症状和皮疹已缓解，营养实验室指标改善，tTG-IgA从128降至38 U/mL。请选择最可能的疾病、两项优先护理措施和两个需要监测的参数。"
-      },
-      "condition": {
-        "tokens": [
-          {
-            "id": "cond_celiac_dh",
-            "en": "Celiac disease with dermatitis herpetiformis",
-            "zh": "乳糜泻合并疱疹样皮炎"
-          },
-          {
-            "id": "cond_crohn",
-            "en": "Crohn disease",
-            "zh": "克罗恩病"
-          },
-          {
-            "id": "cond_ibs",
-            "en": "Irritable bowel syndrome",
-            "zh": "肠易激综合征"
-          }
-        ],
-        "correct": "cond_celiac_dh"
-      },
-      "actions": {
-        "tokens": [
-          {
-            "id": "act_gfd",
-            "en": "Reinforce strict lifelong gluten-free adherence, including hidden sources and cross-contamination prevention",
-            "zh": "强化终身严格无麸质依从性，包括隐匿来源和防止交叉污染"
-          },
-          {
-            "id": "act_dexa",
-            "en": "Coordinate the DEXA scan and explain the bone-health rationale",
-            "zh": "协调DEXA检查并解释骨健康原因"
-          },
-          {
-            "id": "act_biopsy_now",
-            "en": "Label the falling but elevated tTG-IgA as treatment failure and recommend immediate repeat duodenal biopsy",
-            "zh": "将下降但仍升高的tTG-IgA判定为治疗失败，并建议立即重复十二指肠活检"
-          },
-          {
-            "id": "act_stop_supp",
-            "en": "Stop nutritional supplements because the latest values improved into or near the reference range",
-            "zh": "因最新指标已改善至正常或接近正常而停止营养补充剂"
-          }
-        ],
-        "correct": [
-          "act_gfd",
-          "act_dexa"
-        ]
-      },
-      "parameters": {
-        "tokens": [
-          {
-            "id": "param_ttg",
-            "en": "Serial tTG-IgA levels",
-            "zh": "连续tTG-IgA水平"
-          },
-          {
-            "id": "param_hgb_ferritin",
-            "en": "Hemoglobin and ferritin",
-            "zh": "血红蛋白和铁蛋白"
-          },
-          {
-            "id": "param_esr_crp",
-            "en": "ESR and CRP",
-            "zh": "ESR和CRP"
-          },
-          {
-            "id": "param_b12",
-            "en": "Vitamin B12 level",
-            "zh": "维生素B12水平"
-          }
-        ],
-        "correct": [
-          "param_ttg",
-          "param_hgb_ferritin"
-        ]
       },
       "rationale": {
         "correct": {
@@ -1129,7 +1088,85 @@
           "termZh": "麸质暴露",
           "defZh": "摄入或接触小麦、大麦、黑麦等含麸质来源。"
         }
-      ]
+      ],
+      "bowtie": {
+        "condition": {
+          "tokens": [
+            {
+              "id": "cond_celiac_dh",
+              "en": "Celiac disease with dermatitis herpetiformis",
+              "zh": "乳糜泻合并疱疹样皮炎"
+            },
+            {
+              "id": "cond_crohn",
+              "en": "Crohn disease",
+              "zh": "克罗恩病"
+            },
+            {
+              "id": "cond_ibs",
+              "en": "Irritable bowel syndrome",
+              "zh": "肠易激综合征"
+            }
+          ],
+          "correct": "cond_celiac_dh"
+        },
+        "actions": {
+          "tokens": [
+            {
+              "id": "act_gfd",
+              "en": "Reinforce strict lifelong gluten-free adherence, including hidden sources and cross-contamination prevention",
+              "zh": "强化终身严格无麸质依从性，包括隐匿来源和防止交叉污染"
+            },
+            {
+              "id": "act_dexa",
+              "en": "Coordinate the DEXA scan and explain the bone-health rationale",
+              "zh": "协调DEXA检查并解释骨健康原因"
+            },
+            {
+              "id": "act_biopsy_now",
+              "en": "Label the falling but elevated tTG-IgA as treatment failure and recommend immediate repeat duodenal biopsy",
+              "zh": "将下降但仍升高的tTG-IgA判定为治疗失败，并建议立即重复十二指肠活检"
+            },
+            {
+              "id": "act_stop_supp",
+              "en": "Stop nutritional supplements because the latest values improved into or near the reference range",
+              "zh": "因最新指标已改善至正常或接近正常而停止营养补充剂"
+            }
+          ],
+          "correct": [
+            "act_gfd",
+            "act_dexa"
+          ]
+        },
+        "parameters": {
+          "tokens": [
+            {
+              "id": "param_ttg",
+              "en": "Serial tTG-IgA levels",
+              "zh": "连续tTG-IgA水平"
+            },
+            {
+              "id": "param_hgb_ferritin",
+              "en": "Hemoglobin and ferritin",
+              "zh": "血红蛋白和铁蛋白"
+            },
+            {
+              "id": "param_esr_crp",
+              "en": "ESR and CRP",
+              "zh": "ESR和CRP"
+            },
+            {
+              "id": "param_b12",
+              "en": "Vitamin B12 level",
+              "zh": "维生素B12水平"
+            }
+          ],
+          "correct": [
+            "param_ttg",
+            "param_hgb_ferritin"
+          ]
+        }
+      }
     }
   ]
 }

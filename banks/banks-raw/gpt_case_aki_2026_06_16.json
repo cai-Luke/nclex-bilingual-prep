@@ -65,7 +65,6 @@
               "en": "Stage 1: 0 to 2 hours after arrival",
               "zh": "第 1 阶段：到达后 0 至 2 小时"
             },
-            "timepoint": "0-2 hours after arrival",
             "exhibits": [
               {
                 "id": "stage1_course",
@@ -86,7 +85,6 @@
               "en": "Stage 2: 2 to 6 hours after arrival",
               "zh": "第 2 阶段：到达后 2 至 6 小时"
             },
-            "timepoint": "2-6 hours after arrival",
             "exhibits": [
               {
                 "id": "stage2_course",
@@ -107,7 +105,6 @@
               "en": "Stage 3: 6 to 14 hours after arrival",
               "zh": "第 3 阶段：到达后 6 至 14 小时"
             },
-            "timepoint": "6-14 hours after arrival",
             "exhibits": [
               {
                 "id": "stage3_course",
@@ -395,11 +392,6 @@
                 "id": "F",
                 "en": "Give metformin because the admission glucose is 188 mg/dL.",
                 "zh": "因入院血糖 188 mg/dL，应给予二甲双胍。"
-              },
-              {
-                "id": "G",
-                "en": "Take no action about ibuprofen because it was taken two days ago and is not scheduled now.",
-                "zh": "布洛芬是两天前服用且目前不是定时用药，因此无需处理。"
               }
             ],
             "correct": [
@@ -444,11 +436,6 @@
                   "refId": "F",
                   "en": "Metformin is not used to acutely correct this glucose, and giving it during AKI increases safety risk.",
                   "zh": "二甲双胍不是用来急性纠正该血糖的药物，在 AKI 期间给予会增加安全风险。"
-                },
-                {
-                  "refId": "G",
-                  "en": "Ignoring ibuprofen is unsafe because prior or future NSAID exposure is relevant to renal perfusion and medication reconciliation.",
-                  "zh": "忽视布洛芬是不安全的，因为既往或未来 NSAID 暴露都与肾灌注和用药核对相关。"
                 }
               ]
             },
@@ -783,16 +770,6 @@
                 "id": "F",
                 "en": "Use fall/safety precautions because the client is lethargic and confused.",
                 "zh": "因患者嗜睡、意识混乱，采取跌倒/安全预防措施。"
-              },
-              {
-                "id": "G",
-                "en": "Push calcium gluconate as rapidly as possible because the situation is emergent.",
-                "zh": "因情况紧急，应尽可能快速推注葡萄糖酸钙。"
-              },
-              {
-                "id": "H",
-                "en": "Give oral sodium polystyrene sulfonate immediately despite active nausea and vomiting.",
-                "zh": "即使患者正在恶心呕吐，也立即口服聚苯乙烯磺酸钠。"
               }
             ],
             "correct": [
@@ -838,16 +815,6 @@
                   "refId": "F",
                   "en": "Altered mental status requires injury prevention while emergency therapies are being delivered.",
                   "zh": "意识状态改变时，在执行紧急治疗的同时必须预防受伤。"
-                },
-                {
-                  "refId": "G",
-                  "en": "Rapid uncontrolled calcium administration can cause serious cardiovascular effects; use the ordered/protocol rate.",
-                  "zh": "失控快速给予钙剂可造成严重心血管反应；应按医嘱/方案速度给药。"
-                },
-                {
-                  "refId": "H",
-                  "en": "A vomiting client may aspirate or fail to retain oral SPS, so the order should be clarified.",
-                  "zh": "呕吐患者可能误吸或无法保留口服 SPS，因此应澄清医嘱。"
                 }
               ]
             },
@@ -1124,6 +1091,10 @@
             "reason": "The skeleton used vesicant language; compiled learner-facing copy teaches the safer nursing action—patency and extravasation monitoring—without relying on a classification label that may vary by reference."
           }
         ]
+      },
+      "stem": {
+        "en": "Review the client record and answer the case-study items.",
+        "zh": "请查看患者病历，并回答本病例题组。"
       }
     },
     {
@@ -1136,82 +1107,6 @@
       "stem": {
         "en": "Stage 2 synthesis: A 65-year-old man with baseline stage 3a CKD has had 72 hours of vomiting and profuse watery diarrhea during a norovirus outbreak. After 1,500 mL IV fluid, urine output remains about 0.14 mL/kg/hr. Creatinine has risen from a baseline of 1.4 to 4.5 mg/dL. Admission urine was concentrated with urine sodium 8 mEq/L and FENa 0.4%, and bladder scan was 40 mL. Potassium is now 6.4 mEq/L with persistent peaked T waves, PR prolongation to 0.24 seconds, and QRS widening to 0.12 seconds. Select the most likely condition, two priority actions, and two parameters to monitor.",
         "zh": "第 2 阶段综合判断：65 岁男性，基线为 3a 期 CKD，在诺如病毒暴发期间出现 72 小时呕吐和大量水样腹泻。接受 1,500 mL IV 液体后，尿量仍约 0.14 mL/kg/hr。肌酐从基线 1.4 升至 4.5 mg/dL。入院尿液浓缩，尿钠 8 mEq/L，FENa 0.4%，膀胱扫描 40 mL。当前血钾 6.4 mEq/L，仍有高尖 T 波，PR 延长至 0.24 秒，QRS 增宽至 0.12 秒。请选择最可能的病情、两个优先措施以及两个需要监测的参数。"
-      },
-      "condition": {
-        "tokens": [
-          {
-            "id": "cond_prerenal_aki_hyperkalemia",
-            "en": "Prerenal acute kidney injury with life-threatening hyperkalemia",
-            "zh": "肾前性急性肾损伤并危及生命的高钾血症"
-          },
-          {
-            "id": "cond_atn",
-            "en": "Acute tubular necrosis",
-            "zh": "急性肾小管坏死"
-          },
-          {
-            "id": "cond_postrenal",
-            "en": "Obstructive post-renal acute kidney injury",
-            "zh": "梗阻性肾后性急性肾损伤"
-          }
-        ],
-        "correct": "cond_prerenal_aki_hyperkalemia"
-      },
-      "actions": {
-        "tokens": [
-          {
-            "id": "act_calcium_gluconate",
-            "en": "Administer calcium gluconate 1 g IV at the ordered/protocol rate",
-            "zh": "按医嘱/方案速度给予葡萄糖酸钙 1 g IV"
-          },
-          {
-            "id": "act_insulin_dextrose",
-            "en": "Administer regular insulin 10 units IV with 25 g dextrose per protocol",
-            "zh": "按方案给予普通胰岛素 10 units IV 合并葡萄糖 25 g"
-          },
-          {
-            "id": "act_insulin_before_calcium",
-            "en": "Give insulin and dextrose before calcium gluconate",
-            "zh": "先给予胰岛素和葡萄糖，再给予葡萄糖酸钙"
-          },
-          {
-            "id": "act_oral_sps_vomiting",
-            "en": "Administer oral sodium polystyrene sulfonate despite active vomiting",
-            "zh": "即使正在呕吐，也给予口服聚苯乙烯磺酸钠"
-          }
-        ],
-        "correct": [
-          "act_calcium_gluconate",
-          "act_insulin_dextrose"
-        ]
-      },
-      "parameters": {
-        "tokens": [
-          {
-            "id": "param_ecg_morphology",
-            "en": "ECG morphology: PR interval, QRS duration, and T-wave changes",
-            "zh": "ECG 形态：PR 间期、QRS 时限和 T 波变化"
-          },
-          {
-            "id": "param_hourly_urine_output",
-            "en": "Hourly urine output",
-            "zh": "每小时尿量"
-          },
-          {
-            "id": "param_hemoglobin_trend",
-            "en": "Hemoglobin trend",
-            "zh": "血红蛋白趋势"
-          },
-          {
-            "id": "param_urine_specific_gravity",
-            "en": "Urine specific gravity trend after IV fluids",
-            "zh": "IV 补液后的尿比重趋势"
-          }
-        ],
-        "correct": [
-          "param_ecg_morphology",
-          "param_hourly_urine_output"
-        ]
       },
       "rationale": {
         "correct": {
@@ -1301,7 +1196,85 @@
           "termZh": "ECG 形态",
           "defZh": "心电图波形和间期变化，可反映传导和心肌电活动异常。"
         }
-      ]
+      ],
+      "bowtie": {
+        "condition": {
+          "tokens": [
+            {
+              "id": "cond_prerenal_aki_hyperkalemia",
+              "en": "Prerenal acute kidney injury with life-threatening hyperkalemia",
+              "zh": "肾前性急性肾损伤并危及生命的高钾血症"
+            },
+            {
+              "id": "cond_atn",
+              "en": "Acute tubular necrosis",
+              "zh": "急性肾小管坏死"
+            },
+            {
+              "id": "cond_postrenal",
+              "en": "Obstructive post-renal acute kidney injury",
+              "zh": "梗阻性肾后性急性肾损伤"
+            }
+          ],
+          "correct": "cond_prerenal_aki_hyperkalemia"
+        },
+        "actions": {
+          "tokens": [
+            {
+              "id": "act_calcium_gluconate",
+              "en": "Administer calcium gluconate 1 g IV at the ordered/protocol rate",
+              "zh": "按医嘱/方案速度给予葡萄糖酸钙 1 g IV"
+            },
+            {
+              "id": "act_insulin_dextrose",
+              "en": "Administer regular insulin 10 units IV with 25 g dextrose per protocol",
+              "zh": "按方案给予普通胰岛素 10 units IV 合并葡萄糖 25 g"
+            },
+            {
+              "id": "act_insulin_before_calcium",
+              "en": "Give insulin and dextrose before calcium gluconate",
+              "zh": "先给予胰岛素和葡萄糖，再给予葡萄糖酸钙"
+            },
+            {
+              "id": "act_oral_sps_vomiting",
+              "en": "Administer oral sodium polystyrene sulfonate despite active vomiting",
+              "zh": "即使正在呕吐，也给予口服聚苯乙烯磺酸钠"
+            }
+          ],
+          "correct": [
+            "act_calcium_gluconate",
+            "act_insulin_dextrose"
+          ]
+        },
+        "parameters": {
+          "tokens": [
+            {
+              "id": "param_ecg_morphology",
+              "en": "ECG morphology: PR interval, QRS duration, and T-wave changes",
+              "zh": "ECG 形态：PR 间期、QRS 时限和 T 波变化"
+            },
+            {
+              "id": "param_hourly_urine_output",
+              "en": "Hourly urine output",
+              "zh": "每小时尿量"
+            },
+            {
+              "id": "param_hemoglobin_trend",
+              "en": "Hemoglobin trend",
+              "zh": "血红蛋白趋势"
+            },
+            {
+              "id": "param_urine_specific_gravity",
+              "en": "Urine specific gravity trend after IV fluids",
+              "zh": "IV 补液后的尿比重趋势"
+            }
+          ],
+          "correct": [
+            "param_ecg_morphology",
+            "param_hourly_urine_output"
+          ]
+        }
+      }
     }
   ]
 }

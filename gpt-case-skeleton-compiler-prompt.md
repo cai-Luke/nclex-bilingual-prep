@@ -107,6 +107,10 @@ Convert one Opus skeleton into:
       "category": "...",
       "topic": "...",
       "difficulty": "...",
+      "stem": {
+        "en": "Review the client record and answer the case-study items.",
+        "zh": "请查看患者病历，并回答本病例题组。"
+      },
       "caseStudy": { ... },
       "rationale": { ... },
       "testTakingStrategy": { ... },
@@ -127,7 +131,7 @@ Use this mapping:
 | CASE TITLE | `caseStudy.title.en`; translate to `.zh`; seed English-only `topic` |
 | PATIENT BACKGROUND + INITIAL PRESENTATION | `caseStudy.summary` and initial exhibit(s) |
 | ASSESSMENT FINDINGS + LABORATORY DATA | baseline exhibit content; keep chart-like and clinically readable |
-| CLINICAL COURSE stages | `caseStudy.stages[]`, preserving timing and unfolding data availability |
+| CLINICAL COURSE stages | `caseStudy.stages[]`, preserving timing and unfolding data availability in schema shape `{ id, title, exhibits }` |
 | KEY DECISION POINTS | embedded `caseStudy.questions[]`; one question per usable decision point |
 | Correct action | keyed answer + `rationale.correct` |
 | Why it is correct | embedded rationale and/or case-level rationale |
@@ -139,6 +143,28 @@ Use this mapping:
 | REVIEWER-CURRENCY-NOTES | discard from JSON; use only as source-check checklist |
 
 If uncertain about an exact optional field shape, prefer omitting the optional field rather than inventing a plausible schema object. Required fields must still be completed.
+
+The parent `case_study` is a full `CommonQuestion`. It must include `stem`, `rationale.correct`,
+`testTakingStrategy`, and `glossary` just like standalone items. Do not omit the parent `stem`.
+
+Each `caseStudy.stages[]` entry must use only the schema stage shape:
+
+```json
+{
+  "id": "stage_1",
+  "title": { "en": "...", "zh": "..." },
+  "exhibits": [
+    {
+      "id": "stage_1_update",
+      "title": { "en": "...", "zh": "..." },
+      "content": { "en": "...", "zh": "..." }
+    }
+  ]
+}
+```
+
+Do not emit `timing`, `time`, `timepoint`, `availableExhibitIds`, `availableExhibits`, `narrative`, or
+bare `content` inside a stage. Timing belongs in the stage title or in a stage exhibit's `content`.
 
 ## CATEGORY STRINGS
 
@@ -211,6 +237,9 @@ Build rules:
 
 - Emit as a **second top-level question**; set `meta.count` to 2. If the skeleton has no BOW-TIE SYNTHESIS
   section, emit only the case_study (`meta.count` = 1).
+- The standalone bowtie must wrap its zones under a top-level `bowtie` object:
+  `bowtie.condition`, `bowtie.actions`, and `bowtie.parameters`. Do not place `condition`, `actions`, or
+  `parameters` directly on the question object.
 - **Malformed synthesis → omit the bowtie entirely, never repair it.** This overrides GPT's general
   clinical-repair latitude: reconstructing a broken synthesis zone is adjudicating medicine. Light prose
   tidying of a sound 1/2/2 is fine; filling missing distractors, re-scoping a provider-side action into

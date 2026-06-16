@@ -54,7 +54,6 @@
               "en": "Stage 1 - Triage call and ED arrival",
               "zh": "第 1 阶段——分诊电话和到达急诊"
             },
-            "time": "Postpartum day 4, 10:15 AM to 11:30 AM",
             "exhibits": [
               {
                 "id": "stage1_triage_call",
@@ -86,7 +85,6 @@
               "en": "Stage 2 - Acute treatment initiation",
               "zh": "第 2 阶段——启动急性治疗"
             },
-            "time": "Postpartum day 4, 11:30 AM to 1:00 PM",
             "exhibits": [
               {
                 "id": "stage2_orders",
@@ -129,7 +127,6 @@
               "en": "Stage 3 - Reassessment and stabilization",
               "zh": "第 3 阶段——复评和稳定"
             },
-            "time": "Postpartum day 4, 1:00 PM to 3:00 PM",
             "exhibits": [
               {
                 "id": "stage3_reassessment",
@@ -964,6 +961,10 @@
         "emittedBowtie": true,
         "omittedDps": [],
         "claudeReviewFlags": []
+      },
+      "stem": {
+        "en": "Review the client record and answer the case-study items.",
+        "zh": "请查看患者病历，并回答本病例题组。"
       }
     },
     {
@@ -976,82 +977,6 @@
       "stem": {
         "en": "Postpartum day 4: A previously normotensive primipara presents after discharge with BP 168/112 and 164/110, severe headache, scotomata, new facial edema, DTRs 3+ with ankle clonus, and urine protein-to-creatinine ratio 0.42. Labs show platelets 195,000/µL, AST 34 U/L, ALT 28 U/L, LDH 198 U/L, and creatinine 0.9 mg/dL. Select the most likely condition, two priority actions, and two parameters to monitor.",
         "zh": "产后第 4 天：一名此前血压正常的初产妇出院后来院，BP 168/112 和 164/110，严重头痛、暗点、新发面部水肿，深腱反射 3+ 并有踝阵挛，尿蛋白/肌酐比值 0.42。实验室结果：血小板 195,000/µL，AST 34 U/L，ALT 28 U/L，LDH 198 U/L，肌酐 0.9 mg/dL。请选择最可能的病情、两项优先措施和两项需监测的参数。"
-      },
-      "condition": {
-        "tokens": [
-          {
-            "id": "cond_postpartum_preeclampsia_severe",
-            "en": "Postpartum preeclampsia with severe features",
-            "zh": "产后子痫前期伴重度特征"
-          },
-          {
-            "id": "cond_hellp",
-            "en": "HELLP syndrome",
-            "zh": "HELLP 综合征"
-          },
-          {
-            "id": "cond_postpartum_htn_no_severe",
-            "en": "Postpartum hypertension without severe features",
-            "zh": "产后高血压不伴重度特征"
-          }
-        ],
-        "correct": "cond_postpartum_preeclampsia_severe"
-      },
-      "actions": {
-        "tokens": [
-          {
-            "id": "act_mag_load",
-            "en": "Administer magnesium sulfate 4 g IV loading dose by pump as ordered",
-            "zh": "按医嘱用输液泵给予硫酸镁 4 g IV 负荷剂量"
-          },
-          {
-            "id": "act_ir_nifedipine",
-            "en": "Administer immediate-release nifedipine 10 mg PO as ordered",
-            "zh": "按医嘱给予速释硝苯地平 10 mg PO"
-          },
-          {
-            "id": "act_hold_antihypertensive",
-            "en": "Withhold nifedipine because magnesium is already infusing",
-            "zh": "因硫酸镁已经在输注而暂缓硝苯地平"
-          },
-          {
-            "id": "act_er_nifedipine",
-            "en": "Substitute extended-release nifedipine for the acute dose",
-            "zh": "用缓释硝苯地平替代急性处理剂量"
-          }
-        ],
-        "correct": [
-          "act_mag_load",
-          "act_ir_nifedipine"
-        ]
-      },
-      "parameters": {
-        "tokens": [
-          {
-            "id": "param_bp_trend",
-            "en": "BP trend after acute antihypertensive therapy",
-            "zh": "急性降压治疗后的 BP 趋势"
-          },
-          {
-            "id": "param_mag_safety",
-            "en": "Magnesium safety and seizure-risk markers: RR, LOC, DTR/clonus, urine output, headache/visual symptoms",
-            "zh": "硫酸镁安全和癫痫风险指标：RR、LOC、DTR/阵挛、尿量、头痛/视觉症状"
-          },
-          {
-            "id": "param_facial_edema",
-            "en": "Facial edema as the marker of acute treatment response",
-            "zh": "把面部水肿作为急性治疗反应指标"
-          },
-          {
-            "id": "param_lochia",
-            "en": "Lochia color and amount as the main marker of preeclampsia response",
-            "zh": "把恶露颜色和量作为子痫前期反应的主要指标"
-          }
-        ],
-        "correct": [
-          "param_bp_trend",
-          "param_mag_safety"
-        ]
       },
       "rationale": {
         "correct": {
@@ -1136,7 +1061,85 @@
           "termZh": "维持治疗",
           "defZh": "急性危机控制后用于维持稳定的后续治疗。"
         }
-      ]
+      ],
+      "bowtie": {
+        "condition": {
+          "tokens": [
+            {
+              "id": "cond_postpartum_preeclampsia_severe",
+              "en": "Postpartum preeclampsia with severe features",
+              "zh": "产后子痫前期伴重度特征"
+            },
+            {
+              "id": "cond_hellp",
+              "en": "HELLP syndrome",
+              "zh": "HELLP 综合征"
+            },
+            {
+              "id": "cond_postpartum_htn_no_severe",
+              "en": "Postpartum hypertension without severe features",
+              "zh": "产后高血压不伴重度特征"
+            }
+          ],
+          "correct": "cond_postpartum_preeclampsia_severe"
+        },
+        "actions": {
+          "tokens": [
+            {
+              "id": "act_mag_load",
+              "en": "Administer magnesium sulfate 4 g IV loading dose by pump as ordered",
+              "zh": "按医嘱用输液泵给予硫酸镁 4 g IV 负荷剂量"
+            },
+            {
+              "id": "act_ir_nifedipine",
+              "en": "Administer immediate-release nifedipine 10 mg PO as ordered",
+              "zh": "按医嘱给予速释硝苯地平 10 mg PO"
+            },
+            {
+              "id": "act_hold_antihypertensive",
+              "en": "Withhold nifedipine because magnesium is already infusing",
+              "zh": "因硫酸镁已经在输注而暂缓硝苯地平"
+            },
+            {
+              "id": "act_er_nifedipine",
+              "en": "Substitute extended-release nifedipine for the acute dose",
+              "zh": "用缓释硝苯地平替代急性处理剂量"
+            }
+          ],
+          "correct": [
+            "act_mag_load",
+            "act_ir_nifedipine"
+          ]
+        },
+        "parameters": {
+          "tokens": [
+            {
+              "id": "param_bp_trend",
+              "en": "BP trend after acute antihypertensive therapy",
+              "zh": "急性降压治疗后的 BP 趋势"
+            },
+            {
+              "id": "param_mag_safety",
+              "en": "Magnesium safety and seizure-risk markers: RR, LOC, DTR/clonus, urine output, headache/visual symptoms",
+              "zh": "硫酸镁安全和癫痫风险指标：RR、LOC、DTR/阵挛、尿量、头痛/视觉症状"
+            },
+            {
+              "id": "param_facial_edema",
+              "en": "Facial edema as the marker of acute treatment response",
+              "zh": "把面部水肿作为急性治疗反应指标"
+            },
+            {
+              "id": "param_lochia",
+              "en": "Lochia color and amount as the main marker of preeclampsia response",
+              "zh": "把恶露颜色和量作为子痫前期反应的主要指标"
+            }
+          ],
+          "correct": [
+            "param_bp_trend",
+            "param_mag_safety"
+          ]
+        }
+      }
     }
   ]
 }
