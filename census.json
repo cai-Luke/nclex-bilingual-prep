@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-06-14T20:54:14.303Z",
-  "gitSha": "ec7e34142cacc6bde5fc1c011aca259c8cee3010",
+  "generatedAt": "2026-06-16T22:05:43.885Z",
+  "gitSha": "8f046dee212e452c98a64a1363be10ac8dbad109",
   "perFile": [
     {
       "file": "burn-canonical.json",
@@ -18,9 +18,9 @@
     },
     {
       "file": "claude-canonical.json",
-      "schemaVersion": "1.2",
-      "metaCount": 67,
-      "questionsLength": 67,
+      "schemaVersion": "1.4",
+      "metaCount": 69,
+      "questionsLength": 69,
       "mismatch": false
     },
     {
@@ -33,22 +33,22 @@
     {
       "file": "gemini-canonical.json",
       "schemaVersion": "1.2",
-      "metaCount": 777,
-      "questionsLength": 777,
+      "metaCount": 775,
+      "questionsLength": 775,
       "mismatch": false
     },
     {
       "file": "gpt-canonical.json",
-      "schemaVersion": "1.3",
-      "metaCount": 272,
-      "questionsLength": 272,
+      "schemaVersion": "1.5",
+      "metaCount": 281,
+      "questionsLength": 281,
       "mismatch": false
     },
     {
       "file": "hard-cases-canonical.json",
-      "schemaVersion": "1.2",
-      "metaCount": 57,
-      "questionsLength": 57,
+      "schemaVersion": "1.5",
+      "metaCount": 66,
+      "questionsLength": 66,
       "mismatch": false
     },
     {
@@ -95,31 +95,31 @@
     }
   ],
   "totals": {
-    "topLevel": 1303,
-    "caseStudyTopLevel": 114,
-    "embeddedParts": 524,
-    "gradedTotal": 1827
+    "topLevel": 1321,
+    "caseStudyTopLevel": 113,
+    "embeddedParts": 561,
+    "gradedTotal": 1882
   },
   "byItemType": {
-    "bowtie": 0,
     "highlight": 2,
-    "case_study": 114,
+    "bowtie": 11,
+    "case_study": 113,
     "ordered_response": 127,
     "fill_in_blank": 140,
     "dropdown_cloze": 142,
-    "matrix": 165,
-    "select_all": 189,
-    "multiple_choice": 424
+    "matrix": 167,
+    "select_all": 190,
+    "multiple_choice": 429
   },
   "byCategory": {
     "Health Promotion and Maintenance": 140,
     "Psychosocial Integrity": 144,
     "Safety and Infection Control": 145,
-    "Management of Care": 150,
-    "Basic Care and Comfort": 152,
-    "Reduction of Risk Potential": 170,
-    "Pharmacological and Parenteral Therapies": 172,
-    "Physiological Adaptation": 230
+    "Management of Care": 149,
+    "Basic Care and Comfort": 151,
+    "Pharmacological and Parenteral Therapies": 174,
+    "Reduction of Risk Potential": 179,
+    "Physiological Adaptation": 239
   },
   "withinCategory": {
     "Management of Care": {
@@ -394,12 +394,12 @@
           "count": 3
         },
         {
-          "topic": "opioid-induced respiratory depression",
+          "topic": "lithium toxicity",
           "count": 2
         },
         {
-          "topic": "acetaminophen duplicate therapy",
-          "count": 1
+          "topic": "opioid-induced respiratory depression",
+          "count": 2
         }
       ],
       "visualKinds": {
@@ -424,7 +424,7 @@
         },
         {
           "topic": "Perioperative Care",
-          "count": 15
+          "count": 14
         },
         {
           "topic": "Burn Management",
@@ -443,16 +443,16 @@
           "count": 4
         },
         {
+          "topic": "Injection route recognition from skin cross-section",
+          "count": 4
+        },
+        {
           "topic": "perioperative care",
           "count": 4
         },
         {
           "topic": "PPE & Sterile Technique",
           "count": 4
-        },
-        {
-          "topic": "Endocrine & Neurological Disorders",
-          "count": 3
         }
       ],
       "visualKinds": {
@@ -460,6 +460,7 @@
         "capnography": 1,
         "device_screen": 3,
         "fetal_monitoring": 6,
+        "injection_site": 8,
         "io_record": 5,
         "lab_trend": 7,
         "rhythm_strip": 2,
@@ -520,20 +521,18 @@
     }
   },
   "byDifficulty": {
-    "easy": 163,
-    "hard": 488,
-    "medium": 652
+    "easy": 168,
+    "hard": 498,
+    "medium": 655
   },
   "bySchemaVersion": {
     "1.2": {
-      "questions": 1031,
+      "questions": 905,
       "files": [
         "burn-canonical.json",
         "capnography-canonical.json",
-        "claude-canonical.json",
         "device-canonical.json",
         "gemini-canonical.json",
-        "hard-cases-canonical.json",
         "io-canonical.json",
         "lab-canonical.json",
         "mar-canonical.json",
@@ -542,21 +541,28 @@
         "vitals-canonical.json"
       ]
     },
-    "1.3": {
-      "questions": 272,
+    "1.4": {
+      "questions": 69,
       "files": [
-        "gpt-canonical.json"
+        "claude-canonical.json"
+      ]
+    },
+    "1.5": {
+      "questions": 347,
+      "files": [
+        "gpt-canonical.json",
+        "hard-cases-canonical.json"
       ]
     }
   },
   "bySourceFile": {
     "burn-canonical.json": 8,
     "capnography-canonical.json": 7,
-    "claude-canonical.json": 67,
+    "claude-canonical.json": 69,
     "device-canonical.json": 8,
-    "gemini-canonical.json": 777,
-    "gpt-canonical.json": 272,
-    "hard-cases-canonical.json": 57,
+    "gemini-canonical.json": 775,
+    "gpt-canonical.json": 281,
+    "hard-cases-canonical.json": 66,
     "io-canonical.json": 8,
     "lab-canonical.json": 20,
     "mar-canonical.json": 8,
@@ -565,13 +571,13 @@
     "vitals-canonical.json": 10
   },
   "visuals": {
-    "total": 138,
+    "total": 146,
     "byKind": {
       "burn_map": 11,
       "capnography": 7,
       "device_screen": 10,
       "fetal_monitoring": 6,
-      "injection_site": 0,
+      "injection_site": 8,
       "io_record": 11,
       "lab_trend": 20,
       "mar": 8,
@@ -638,7 +644,16 @@
         "fhr_gemini_smoke_2026_06_13_05",
         "fhr_gemini_smoke_2026_06_13_06"
       ],
-      "injection_site": [],
+      "injection_site": [
+        "gpt_injection_smoke_2026_06_15_matrix_route_match_08",
+        "gpt_injection_smoke_2026_06_15_matrix_subq_cues_07",
+        "gpt_injection_smoke_2026_06_15_mc_intradermal_01",
+        "gpt_injection_smoke_2026_06_15_mc_intramuscular_03",
+        "gpt_injection_smoke_2026_06_15_mc_intravenous_04",
+        "gpt_injection_smoke_2026_06_15_mc_layer_highlight_05",
+        "gpt_injection_smoke_2026_06_15_mc_subcutaneous_02",
+        "gpt_injection_smoke_2026_06_15_sata_im_cues_06"
+      ],
       "io_record": [
         "gpt_visual_smoke_2026_06_12_fib_io_net_balance_04",
         "gpt_visual_smoke_2026_06_12_matrix_io_totals_06",
@@ -825,16 +840,10 @@
       "bank": "claude-canonical.json"
     },
     {
-      "id": "gen_rrp_batch1_10",
-      "topic": "Respiratory & Infectious Disorders",
-      "parts": 2,
-      "bank": "gemini-canonical.json"
-    },
-    {
-      "id": "gen_rrp_batch2_10",
-      "topic": "Perioperative Care",
-      "parts": 2,
-      "bank": "gemini-canonical.json"
+      "id": "opus_case_lithium_toxicity_01",
+      "topic": "lithium toxicity",
+      "parts": 6,
+      "bank": "claude-canonical.json"
     },
     {
       "id": "gemini_gapfill_case_2026_06_10_case_imm_01",
@@ -1149,9 +1158,9 @@
       "bank": "gpt-canonical.json"
     },
     {
-      "id": "hl_smoke_2026_06_14_case_postpartum_preeclampsia_03",
-      "topic": "postpartum preeclampsia",
-      "parts": 2,
+      "id": "gpt_2026_06_16_case_postpartum_preeclampsia_severe_01",
+      "topic": "Late postpartum preeclampsia with severe features",
+      "parts": 6,
       "bank": "gpt-canonical.json"
     },
     {
@@ -1266,60 +1275,6 @@
       "id": "cs_ngn_010_ad",
       "topic": "Autonomic Dysreflexia",
       "parts": 5,
-      "bank": "hard-cases-canonical.json"
-    },
-    {
-      "id": "case_stroke_01",
-      "topic": "Ischemic Stroke",
-      "parts": 3,
-      "bank": "hard-cases-canonical.json"
-    },
-    {
-      "id": "cs_aki_01",
-      "topic": "Acute Kidney Injury",
-      "parts": 3,
-      "bank": "hard-cases-canonical.json"
-    },
-    {
-      "id": "cs_panc_01",
-      "topic": "Acute Pancreatitis",
-      "parts": 2,
-      "bank": "hard-cases-canonical.json"
-    },
-    {
-      "id": "case_burns_01",
-      "topic": "Severe Burns",
-      "parts": 2,
-      "bank": "hard-cases-canonical.json"
-    },
-    {
-      "id": "case_pph_01",
-      "topic": "Postpartum Hemorrhage",
-      "parts": 2,
-      "bank": "hard-cases-canonical.json"
-    },
-    {
-      "id": "case_pe_01",
-      "topic": "Pulmonary Embolism",
-      "parts": 3,
-      "bank": "hard-cases-canonical.json"
-    },
-    {
-      "id": "case_cirrhosis_01",
-      "topic": "Cirrhosis With Esophageal Varices",
-      "parts": 3,
-      "bank": "hard-cases-canonical.json"
-    },
-    {
-      "id": "case_gbs_01",
-      "topic": "Guillain-Barré Syndrome",
-      "parts": 2,
-      "bank": "hard-cases-canonical.json"
-    },
-    {
-      "id": "case_celiac_01",
-      "topic": "Celiac Disease",
-      "parts": 2,
       "bank": "hard-cases-canonical.json"
     },
     {
@@ -1441,6 +1396,60 @@
       "topic": "Inpatient suicide risk and safety precautions",
       "parts": 6,
       "bank": "hard-cases-canonical.json"
+    },
+    {
+      "id": "gpt_case_major_burn_inhalation_fluid_creep_01",
+      "topic": "Major thermal burn with inhalation injury and fluid creep",
+      "parts": 5,
+      "bank": "hard-cases-canonical.json"
+    },
+    {
+      "id": "gpt_case_gallstone_pancreatitis_01",
+      "topic": "Acute gallstone pancreatitis with cholangitis",
+      "parts": 6,
+      "bank": "hard-cases-canonical.json"
+    },
+    {
+      "id": "gpt_case_gbs_respiratory_compromise_01",
+      "topic": "Guillain-Barre syndrome respiratory compromise",
+      "parts": 6,
+      "bank": "hard-cases-canonical.json"
+    },
+    {
+      "id": "gpt_case_pe_2026_06_16_case_pulmonary_embolism_01",
+      "topic": "Postoperative pulmonary embolism with right ventricular strain",
+      "parts": 6,
+      "bank": "hard-cases-canonical.json"
+    },
+    {
+      "id": "gpt_case_variceal_hemorrhage_cirrhosis_2026_06_16_01",
+      "topic": "Acute variceal hemorrhage in cirrhosis",
+      "parts": 6,
+      "bank": "hard-cases-canonical.json"
+    },
+    {
+      "id": "gpt_pph_2026_06_16_case_01",
+      "topic": "Postpartum hemorrhage due to uterine atony",
+      "parts": 6,
+      "bank": "hard-cases-canonical.json"
+    },
+    {
+      "id": "gpt_r1_regen_case_celiac_01",
+      "topic": "Celiac disease with dermatitis herpetiformis",
+      "parts": 6,
+      "bank": "hard-cases-canonical.json"
+    },
+    {
+      "id": "gpt_stroke_2026_06_16_case_acute_ischemic_stroke_warfarin_01",
+      "topic": "Acute ischemic stroke thrombolysis and thrombectomy complications",
+      "parts": 6,
+      "bank": "hard-cases-canonical.json"
+    },
+    {
+      "id": "gpt_case_aki_2026_06_16_case_prerenal_aki_hyperkalemia_01",
+      "topic": "Prerenal acute kidney injury with hyperkalemia",
+      "parts": 6,
+      "bank": "hard-cases-canonical.json"
     }
   ],
   "idUniqueness": {
@@ -1450,62 +1459,62 @@
     "categoryTargets": [
       [
         "Management of Care",
-        234.54
+        237.78
       ],
       [
         "Safety and Infection Control",
-        169.39000000000001
+        171.73000000000002
       ],
       [
         "Health Promotion and Maintenance",
-        117.27
+        118.89
       ],
       [
         "Psychosocial Integrity",
-        117.27
+        118.89
       ],
       [
         "Basic Care and Comfort",
-        117.27
+        118.89
       ],
       [
         "Pharmacological and Parenteral Therapies",
-        208.48000000000002
+        211.36
       ],
       [
         "Reduction of Risk Potential",
-        156.35999999999999
+        158.51999999999998
       ],
       [
         "Physiological Adaptation",
-        182.42000000000002
+        184.94000000000003
       ]
     ],
-    "itemTypeAvg": 144.77777777777777,
+    "itemTypeAvg": 146.77777777777777,
     "underCategories": [
       [
         "Management of Care",
-        150
+        149
       ]
     ],
     "overCategories": [
       [
         "Physiological Adaptation",
-        230
+        239
       ]
     ],
     "underItemTypes": [
-      [
-        "bowtie",
-        0
-      ],
       [
         "highlight",
         2
       ],
       [
+        "bowtie",
+        11
+      ],
+      [
         "case_study",
-        114
+        113
       ],
       [
         "ordered_response",
@@ -1522,22 +1531,22 @@
     ]
   },
   "prioritizeTopics": [
-    "Management of Care (150 vs target 235)",
-    "bowtie (0 vs target 144.8)",
-    "highlight (2 vs target 144.8)",
-    "case_study (114 vs target 144.8)",
-    "ordered_response (127 vs target 144.8)",
-    "fill_in_blank (140 vs target 144.8)",
-    "dropdown_cloze (142 vs target 144.8)",
+    "Management of Care (149 vs target 238)",
+    "highlight (2 vs target 146.8)",
+    "bowtie (11 vs target 146.8)",
+    "case_study (113 vs target 146.8)",
+    "ordered_response (127 vs target 146.8)",
+    "fill_in_blank (140 vs target 146.8)",
+    "dropdown_cloze (142 vs target 146.8)",
     "acetaminophen duplicate therapy",
     "Active Pulmonary TB Airborne Precautions",
     "Acute decompensated heart failure",
     "Acute Decompensated Heart Failure (ADHF)",
     "Acute Graft-Versus-Host Disease",
+    "Acute kidney injury",
     "acute kidney injury and hyperkalemia",
     "acute kidney injury fluid response",
     "Acute Myocardial Infarction and Ventricular Fibrillation",
-    "Acute Pancreatitis",
     "Adenosine Administration Technique",
     "Adenosine Side Effects",
     "Adrenal crisis"

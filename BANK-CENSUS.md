@@ -2,8 +2,8 @@
 
 # NCLEX Bank Census
 
-Generated: 2026-06-14T20:54:14.303Z
-Git SHA: ec7e34142cacc6bde5fc1c011aca259c8cee3010
+Generated: 2026-06-16T22:05:43.885Z
+Git SHA: 8f046dee212e452c98a64a1363be10ac8dbad109
 
 ## Per-File Summary
 
@@ -11,11 +11,11 @@ Git SHA: ec7e34142cacc6bde5fc1c011aca259c8cee3010
 |------|--------|-----------|-----------|---------|
 | burn-canonical.json | 1.2 | 8 | 8 | — |
 | capnography-canonical.json | 1.2 | 7 | 7 | — |
-| claude-canonical.json | 1.2 | 67 | 67 | — |
+| claude-canonical.json | 1.4 | 69 | 69 | — |
 | device-canonical.json | 1.2 | 8 | 8 | — |
-| gemini-canonical.json | 1.2 | 777 | 777 | — |
-| gpt-canonical.json | 1.3 | 272 | 272 | — |
-| hard-cases-canonical.json | 1.2 | 57 | 57 | — |
+| gemini-canonical.json | 1.2 | 775 | 775 | — |
+| gpt-canonical.json | 1.5 | 281 | 281 | — |
+| hard-cases-canonical.json | 1.5 | 66 | 66 | — |
 | io-canonical.json | 1.2 | 8 | 8 | — |
 | lab-canonical.json | 1.2 | 20 | 20 | — |
 | mar-canonical.json | 1.2 | 8 | 8 | — |
@@ -25,21 +25,21 @@ Git SHA: ec7e34142cacc6bde5fc1c011aca259c8cee3010
 
 ## Totals
 
-- Top-level questions: 1303
-- Case study top-level: 114
-- Embedded parts: 524
-- Graded total: 1827
+- Top-level questions: 1321
+- Case study top-level: 113
+- Embedded parts: 561
+- Graded total: 1882
 
 ## By Category
 
 - Health Promotion and Maintenance: 140
 - Psychosocial Integrity: 144
 - Safety and Infection Control: 145
-- Management of Care: 150
-- Basic Care and Comfort: 152
-- Reduction of Risk Potential: 170
-- Pharmacological and Parenteral Therapies: 172
-- Physiological Adaptation: 230
+- Management of Care: 149
+- Basic Care and Comfort: 151
+- Pharmacological and Parenteral Therapies: 174
+- Reduction of Risk Potential: 179
+- Physiological Adaptation: 239
 
 ## Within-Category Concentration
 
@@ -70,13 +70,13 @@ Visual kinds: burn_map (1), device_screen (1), io_record (4)
 
 ### Pharmacological and Parenteral Therapies
 
-Top topics: Medication Safety & Admin (33), Dosage Calculations (29), Cardiovascular & Endocrine Medications (18), Anticoagulant Therapy (15), medication safety & admin (5), Psychotropic Medications (5), anticoagulant therapy (3), Nutritional & Fluid Support (3), opioid-induced respiratory depression (2), acetaminophen duplicate therapy (1)
+Top topics: Medication Safety & Admin (33), Dosage Calculations (29), Cardiovascular & Endocrine Medications (18), Anticoagulant Therapy (15), medication safety & admin (5), Psychotropic Medications (5), anticoagulant therapy (3), Nutritional & Fluid Support (3), lithium toxicity (2), opioid-induced respiratory depression (2)
 Visual kinds: capnography (1), device_screen (4), lab_trend (6), mar (7), medication_label (9), rhythm_strip (10), vitals_trend (2)
 
 ### Reduction of Risk Potential
 
-Top topics: Procedural Complications & Dialysis (34), Laboratory & Diagnostic Tests (19), Perioperative Care (15), Burn Management (8), Maternal-Newborn Care & Teaching (7), intrapartum fetal monitoring (6), ABG & Acid-Base Interpretation (4), perioperative care (4), PPE & Sterile Technique (4), Endocrine & Neurological Disorders (3)
-Visual kinds: burn_map (5), capnography (1), device_screen (3), fetal_monitoring (6), io_record (5), lab_trend (7), rhythm_strip (2), vitals_trend (1)
+Top topics: Procedural Complications & Dialysis (34), Laboratory & Diagnostic Tests (19), Perioperative Care (14), Burn Management (8), Maternal-Newborn Care & Teaching (7), intrapartum fetal monitoring (6), ABG & Acid-Base Interpretation (4), Injection route recognition from skin cross-section (4), perioperative care (4), PPE & Sterile Technique (4)
+Visual kinds: burn_map (5), capnography (1), device_screen (3), fetal_monitoring (6), injection_site (8), io_record (5), lab_trend (7), rhythm_strip (2), vitals_trend (1)
 
 ### Physiological Adaptation
 
@@ -85,36 +85,37 @@ Visual kinds: burn_map (5), capnography (4), io_record (2), lab_trend (7), rhyth
 
 ## By Item Type
 
-- bowtie: 0
 - highlight: 2
-- case_study: 114
+- bowtie: 11
+- case_study: 113
 - ordered_response: 127
 - fill_in_blank: 140
 - dropdown_cloze: 142
-- matrix: 165
-- select_all: 189
-- multiple_choice: 424
+- matrix: 167
+- select_all: 190
+- multiple_choice: 429
 
 ## By Difficulty
 
-- easy: 163
-- hard: 488
-- medium: 652
+- easy: 168
+- hard: 498
+- medium: 655
 
 ## By Schema Version
 
-- v1.2: 1031 questions (burn-canonical.json, capnography-canonical.json, claude-canonical.json, device-canonical.json, gemini-canonical.json, hard-cases-canonical.json, io-canonical.json, lab-canonical.json, mar-canonical.json, medlabel-canonical.json, visual-canonical.json, vitals-canonical.json)
-- v1.3: 272 questions (gpt-canonical.json)
+- v1.2: 905 questions (burn-canonical.json, capnography-canonical.json, device-canonical.json, gemini-canonical.json, io-canonical.json, lab-canonical.json, mar-canonical.json, medlabel-canonical.json, visual-canonical.json, vitals-canonical.json)
+- v1.4: 69 questions (claude-canonical.json)
+- v1.5: 347 questions (gpt-canonical.json, hard-cases-canonical.json)
 
 ## By Source File
 
 - burn-canonical.json: 8
 - capnography-canonical.json: 7
-- claude-canonical.json: 67
+- claude-canonical.json: 69
 - device-canonical.json: 8
-- gemini-canonical.json: 777
-- gpt-canonical.json: 272
-- hard-cases-canonical.json: 57
+- gemini-canonical.json: 775
+- gpt-canonical.json: 281
+- hard-cases-canonical.json: 66
 - io-canonical.json: 8
 - lab-canonical.json: 20
 - mar-canonical.json: 8
@@ -124,7 +125,7 @@ Visual kinds: burn_map (5), capnography (4), io_record (2), lab_trend (7), rhyth
 
 ## Visuals
 
-Total visuals: 138
+Total visuals: 146
 
 ### By Kind
 
@@ -132,7 +133,7 @@ Total visuals: 138
 - capnography: 7 (cap_01, cap_02, cap_03, cap_04, cap_05, …+2)
 - device_screen: 10 (dev_enteral_volume_shift_01, dev_high_alert_kcl_pump_mismatch_01, dev_infusion_duration_vtbi_01, dev_pca_basal_opioid_naive_01, dev_pca_delivered_total_basal_01, …+5)
 - fetal_monitoring: 6 (fhr_gemini_smoke_2026_06_13_01, fhr_gemini_smoke_2026_06_13_02, fhr_gemini_smoke_2026_06_13_03, fhr_gemini_smoke_2026_06_13_04, fhr_gemini_smoke_2026_06_13_05, …+1)
-- injection_site: 0
+- injection_site: 8 (gpt_injection_smoke_2026_06_15_matrix_route_match_08, gpt_injection_smoke_2026_06_15_matrix_subq_cues_07, gpt_injection_smoke_2026_06_15_mc_intradermal_01, gpt_injection_smoke_2026_06_15_mc_intramuscular_03, gpt_injection_smoke_2026_06_15_mc_intravenous_04, …+3)
 - io_record: 11 (gpt_visual_smoke_2026_06_12_fib_io_net_balance_04, gpt_visual_smoke_2026_06_12_matrix_io_totals_06, gpt_visual_smoke_2026_06_12_mc_io_output_total_05, io_fib_hf_net_balance_01, io_fib_postop_output_total_06, …+6)
 - lab_trend: 20 (gpt_u3_labtrend_2026_06_09_b_cloze_inr_amiodarone_09, gpt_u3_labtrend_2026_06_09_b_cloze_sodium_overcorrection_08, gpt_u3_labtrend_2026_06_09_b_fib_creatinine_increase_10, gpt_u3_labtrend_2026_06_09_b_matrix_dka_potassium_glucose_04, gpt_u3_labtrend_2026_06_09_b_matrix_neutropenia_wbc_05, …+15)
 - mar: 8 (mar_acetaminophen_duplicate_products_04, mar_av_nodal_blockers_1600_01, mar_digoxin_low_pulse_due_08, mar_enoxaparin_prior_held_03, mar_lispro_meal_delayed_02, …+3)
@@ -172,8 +173,7 @@ Total visuals: 138
 | opus25_case_tb_airborne_treatment_monitoring_01 | Tuberculosis airborne precautions and treatment monitoring | 6 | claude-canonical.json |
 | opus26_case_refeeding_syndrome_01 | refeeding syndrome risk in anorexia nervosa | 6 | claude-canonical.json |
 | opus27_case_ipv_prenatal_care_01 | intimate partner violence in prenatal care | 6 | claude-canonical.json |
-| gen_rrp_batch1_10 | Respiratory & Infectious Disorders | 2 | gemini-canonical.json |
-| gen_rrp_batch2_10 | Perioperative Care | 2 | gemini-canonical.json |
+| opus_case_lithium_toxicity_01 | lithium toxicity | 6 | claude-canonical.json |
 | gemini_gapfill_case_2026_06_10_case_imm_01 | adult immunization | 4 | gemini-canonical.json |
 | gemini_gapfill_case_2026_06_10_case_osteo_02 | osteoporosis prevention | 4 | gemini-canonical.json |
 | gemini_gapfill_case_2026_06_10_case_wellness_03 | wellness counseling | 4 | gemini-canonical.json |
@@ -226,7 +226,7 @@ Total visuals: 138
 | gpt_2026_06_13_case_delirium_uti_01 | delirium superimposed on dementia | 6 | gpt-canonical.json |
 | gpt_case_opus23_nat_toddler_01 | suspected nonaccidental trauma in a toddler | 5 | gpt-canonical.json |
 | gpt_opus21_case_colostomy_lep_discharge_01 | colostomy discharge teaching for limited English proficiency | 6 | gpt-canonical.json |
-| hl_smoke_2026_06_14_case_postpartum_preeclampsia_03 | postpartum preeclampsia | 2 | gpt-canonical.json |
+| gpt_2026_06_16_case_postpartum_preeclampsia_severe_01 | Late postpartum preeclampsia with severe features | 6 | gpt-canonical.json |
 | case_sepsis_pneumonia_01 | Sepsis & Septic Shock | 4 | hard-cases-canonical.json |
 | case_preeclampsia_magnesium_01 | Maternal-Newborn Care & Teaching | 4 | hard-cases-canonical.json |
 | cs_copd_01 | Respiratory & Infectious Disorders | 5 | hard-cases-canonical.json |
@@ -246,15 +246,6 @@ Total visuals: 138
 | cs_ngn_008_peds | Pyloric Stenosis vs. Intussusception | 5 | hard-cases-canonical.json |
 | cs_ngn_009_serotonin | Serotonin Syndrome vs. NMS | 5 | hard-cases-canonical.json |
 | cs_ngn_010_ad | Autonomic Dysreflexia | 5 | hard-cases-canonical.json |
-| case_stroke_01 | Ischemic Stroke | 3 | hard-cases-canonical.json |
-| cs_aki_01 | Acute Kidney Injury | 3 | hard-cases-canonical.json |
-| cs_panc_01 | Acute Pancreatitis | 2 | hard-cases-canonical.json |
-| case_burns_01 | Severe Burns | 2 | hard-cases-canonical.json |
-| case_pph_01 | Postpartum Hemorrhage | 2 | hard-cases-canonical.json |
-| case_pe_01 | Pulmonary Embolism | 3 | hard-cases-canonical.json |
-| case_cirrhosis_01 | Cirrhosis With Esophageal Varices | 3 | hard-cases-canonical.json |
-| case_gbs_01 | Guillain-Barré Syndrome | 2 | hard-cases-canonical.json |
-| case_celiac_01 | Celiac Disease | 2 | hard-cases-canonical.json |
 | claude_cs_jun06_chest_tube_rrp_01 | Chest Tube Management | 4 | hard-cases-canonical.json |
 | claude_cs_jun06_pressure_injury_bcc_01 | Pressure Injury Staging and Prevention | 4 | hard-cases-canonical.json |
 | claude_cs_jun06_cdiff_sic_01 | Clostridioides difficile and Contact Precautions | 4 | hard-cases-canonical.json |
@@ -275,6 +266,15 @@ Total visuals: 138
 | opus4_case_postop_sbar_01 | postoperative deterioration escalation | 6 | hard-cases-canonical.json |
 | opus5_case_consent_interpreter_01 | informed consent and interpreter services | 5 | hard-cases-canonical.json |
 | opus12_case_inpatient_suicide_risk_01 | Inpatient suicide risk and safety precautions | 6 | hard-cases-canonical.json |
+| gpt_case_major_burn_inhalation_fluid_creep_01 | Major thermal burn with inhalation injury and fluid creep | 5 | hard-cases-canonical.json |
+| gpt_case_gallstone_pancreatitis_01 | Acute gallstone pancreatitis with cholangitis | 6 | hard-cases-canonical.json |
+| gpt_case_gbs_respiratory_compromise_01 | Guillain-Barre syndrome respiratory compromise | 6 | hard-cases-canonical.json |
+| gpt_case_pe_2026_06_16_case_pulmonary_embolism_01 | Postoperative pulmonary embolism with right ventricular strain | 6 | hard-cases-canonical.json |
+| gpt_case_variceal_hemorrhage_cirrhosis_2026_06_16_01 | Acute variceal hemorrhage in cirrhosis | 6 | hard-cases-canonical.json |
+| gpt_pph_2026_06_16_case_01 | Postpartum hemorrhage due to uterine atony | 6 | hard-cases-canonical.json |
+| gpt_r1_regen_case_celiac_01 | Celiac disease with dermatitis herpetiformis | 6 | hard-cases-canonical.json |
+| gpt_stroke_2026_06_16_case_acute_ischemic_stroke_warfarin_01 | Acute ischemic stroke thrombolysis and thrombectomy complications | 6 | hard-cases-canonical.json |
+| gpt_case_aki_2026_06_16_case_prerenal_aki_hyperkalemia_01 | Prerenal acute kidney injury with hyperkalemia | 6 | hard-cases-canonical.json |
 
 ## ID Uniqueness
 
@@ -283,26 +283,26 @@ No duplicates detected.
 ## Targets
 
 Category targets (2026 NCLEX-RN test-plan weights):
-- Management of Care: 234.5
-- Safety and Infection Control: 169.4
-- Health Promotion and Maintenance: 117.3
-- Psychosocial Integrity: 117.3
-- Basic Care and Comfort: 117.3
-- Pharmacological and Parenteral Therapies: 208.5
-- Reduction of Risk Potential: 156.4
-- Physiological Adaptation: 182.4
-Item type average: 144.8
+- Management of Care: 237.8
+- Safety and Infection Control: 171.7
+- Health Promotion and Maintenance: 118.9
+- Psychosocial Integrity: 118.9
+- Basic Care and Comfort: 118.9
+- Pharmacological and Parenteral Therapies: 211.4
+- Reduction of Risk Potential: 158.5
+- Physiological Adaptation: 184.9
+Item type average: 146.8
 
 Under-served categories:
-- Management of Care: 150
+- Management of Care: 149
 
 Over-served categories:
-- Physiological Adaptation: 230
+- Physiological Adaptation: 239
 
 Under-served item types:
-- bowtie: 0
 - highlight: 2
-- case_study: 114
+- bowtie: 11
+- case_study: 113
 - ordered_response: 127
 - fill_in_blank: 140
 - dropdown_cloze: 142
@@ -310,22 +310,22 @@ Under-served item types:
 ## Prompt Parameters
 
 PRIORITIZE_TOPICS:
-- Management of Care (150 vs target 235)
-- bowtie (0 vs target 144.8)
-- highlight (2 vs target 144.8)
-- case_study (114 vs target 144.8)
-- ordered_response (127 vs target 144.8)
-- fill_in_blank (140 vs target 144.8)
-- dropdown_cloze (142 vs target 144.8)
+- Management of Care (149 vs target 238)
+- highlight (2 vs target 146.8)
+- bowtie (11 vs target 146.8)
+- case_study (113 vs target 146.8)
+- ordered_response (127 vs target 146.8)
+- fill_in_blank (140 vs target 146.8)
+- dropdown_cloze (142 vs target 146.8)
 - acetaminophen duplicate therapy
 - Active Pulmonary TB Airborne Precautions
 - Acute decompensated heart failure
 - Acute Decompensated Heart Failure (ADHF)
 - Acute Graft-Versus-Host Disease
+- Acute kidney injury
 - acute kidney injury and hyperkalemia
 - acute kidney injury fluid response
 - Acute Myocardial Infarction and Ventricular Fibrillation
-- Acute Pancreatitis
 - Adenosine Administration Technique
 - Adenosine Side Effects
 - Adrenal crisis
