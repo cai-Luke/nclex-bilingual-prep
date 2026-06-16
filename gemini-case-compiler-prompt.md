@@ -41,7 +41,7 @@ Check these layers:
 1. **Structural**
    - JSON parses.
    - Top-level shape is `{ meta, questions }`.
-   - `meta.schemaVersion` is `"1.4"`.
+   - `meta.schemaVersion` is `"1.5"`.
    - `meta.count` equals the number of top-level questions.
    - Exactly one top-level `case_study` exists.
    - A sibling `bowtie` exists only when `_compileManifest.emittedBowtie` is true.

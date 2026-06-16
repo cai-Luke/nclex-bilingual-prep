@@ -1,7 +1,7 @@
 # Case-Skeleton Pipeline Spec — Opus authors, GPT compiles, Gemini reviews
 
-**Status:** implemented; prompts updated to schema 1.4 (retrofit Jun 14) and role-split
-updated Jun 15. Paste-ready prompts:
+**Status:** implemented; prompts updated to schema 1.5 after the rationale-visuals schema bump, with the
+Jun 15 role-split. Paste-ready prompts:
 `opus-case-skeleton-prompt.md`/`.txt`, `gpt-case-skeleton-compiler-prompt.md`,
 `gemini-case-compiler-prompt.md` (now the Gemini flag-only review-layer prompt).
 
@@ -23,7 +23,7 @@ and promotion responsibilities explicit.
 ```
 Opus (hub)       GPT fact-check + compile       Gemini flag-only review       Claude
 English case ──► clinical accuracy + ────────► structured issue list ───────► final gate +
-skeleton          schema-1.4 bilingual           (no mutation)                promote
+skeleton          schema-1.5 bilingual           (no mutation)                promote
                   case_study cluster
                   (+ optional bowtie capstone)
 ```
@@ -74,7 +74,7 @@ NCJMM sequence. Cost: coverage is counted per item, not per case — see follow-
 
 Each skeleton section has a fixed destination, so the compiler is shaping, not inventing:
 
-| Skeleton section | Schema-1.4 target |
+| Skeleton section | Schema-1.5 target |
 |---|---|
 | CASE TITLE | `caseStudy.title` + English `topic` |
 | PATIENT BACKGROUND + INITIAL PRESENTATION | `caseStudy.summary` + first exhibit |

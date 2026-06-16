@@ -24,7 +24,7 @@ The sweep found **13 R1 cases** (below the 4-floor, no usable skeleton). Generat
 4. **Compile** — GPT compiles (per §C), emitting `_compileManifest`.
 5. **Review** — Gemini review layer (§C), then Claude promotion gate (schema, selfCheck, bilingual parity, answer unambiguity, faithfulness, source-check for any currency-flagged claims).
 6. **Promote** — shuffle, audit, census recount, ledger update.
-7. **Purge + replace** — remove the old case from its bank via the deterministic path (load → filter out old id → insert new → serialize), never a hand-edit. **Reuse the original top-level `case_id`** so any references/progress keyed to it survive; embedded `_qN` ids will be new (per-item progress on the old stub resets — acceptable, the case is being rebuilt). Regenerated cases land at current schema (**1.4**), upgrading these 1.2 legacy stubs as a side benefit, and route to the lane of whoever compiles (`gpt-`).
+7. **Purge + replace** — remove the old case from its bank via the deterministic path (load → filter out old id → insert new → serialize), never a hand-edit. **Reuse the original top-level `case_id`** so any references/progress keyed to it survive; embedded `_qN` ids will be new (per-item progress on the old stub resets — acceptable, the case is being rebuilt). Regenerated cases land at current schema (**1.5**), upgrading these 1.2 legacy stubs as a side benefit, and route to the lane of whoever compiles (`gpt-`).
 
 ### A.2 Triage applied to the 13 (proposed; confirm at execution)
 

@@ -5,7 +5,7 @@
     "topic": "assorted NCLEX-RN GPT canonical bank",
     "category": "mixed",
     "difficulty": "mixed",
-    "count": 272
+    "count": 279
   },
   "questions": [
     {
@@ -47589,261 +47589,934 @@
       ]
     },
     {
-      "id": "hl_smoke_2026_06_14_case_postpartum_preeclampsia_03",
-      "itemType": "case_study",
+      "id": "gpt_injection_smoke_2026_06_15_mc_intradermal_01",
+      "itemType": "multiple_choice",
       "category": "Reduction of Risk Potential",
-      "topic": "postpartum preeclampsia",
-      "difficulty": "hard",
-      "ngnSkill": "analyze_cues",
+      "topic": "Injection route recognition from skin cross-section",
+      "difficulty": "easy",
+      "ngnSkill": "recognize_cues",
       "stem": {
-        "en": "Review the postpartum client record and answer the questions.",
-        "zh": "查看产后患者资料并回答问题。"
+        "en": "The nurse reviews the injection-site cross-section. Which medication route is represented by the needle position shown?",
+        "zh": "护士查看注射部位横截面图。图中针头位置表示哪一种给药途径？"
       },
-      "caseStudy": {
-        "title": {
-          "en": "Unfolding case: postpartum hypertension warning signs",
-          "zh": "展开病例：产后高血压警示征象"
+      "visual": {
+        "kind": "injection_site",
+        "route": "intradermal",
+        "caption": {
+          "en": "Diagram illustrating a needle entering a cross-section of the skin.",
+          "zh": "皮肤横截面图，显示针头进入皮肤。"
+        }
+      },
+      "options": [
+        {
+          "id": "C",
+          "en": "Intramuscular",
+          "zh": "肌内注射"
         },
-        "summary": {
-          "en": "A client calls the postpartum triage line 4 days after birth.",
-          "zh": "一名产后第 4 天的患者致电产后分诊热线。"
+        {
+          "id": "D",
+          "en": "Intravenous",
+          "zh": "静脉给药"
         },
-        "exhibits": [
+        {
+          "id": "A",
+          "en": "Intradermal",
+          "zh": "皮内注射"
+        },
+        {
+          "id": "B",
+          "en": "Subcutaneous",
+          "zh": "皮下注射"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "rationale": {
+        "correct": {
+          "en": "A shallow needle angle with the tip in the dermis and a small bleb is consistent with intradermal administration.",
+          "zh": "针头角度很浅，针尖位于真皮层，并出现小皮丘，符合皮内给药。"
+        },
+        "byChoice": [
           {
-            "id": "triage_call",
-            "title": {
-              "en": "Telephone triage note",
-              "zh": "电话分诊记录"
-            },
-            "content": {
-              "en": "Postpartum day 4 after an uncomplicated vaginal birth. The client says, \"I thought I was just tired, but I feel worse today.\" The client is at home with a partner.",
-              "zh": "顺产后第 4 天。患者说：“我以为只是累了，但今天感觉更糟。”患者目前与伴侣在家。"
-            }
-          }
-        ],
-        "questions": [
-          {
-            "id": "hl_smoke_2026_06_14_case_postpartum_preeclampsia_03_q1",
-            "itemType": "highlight",
-            "category": "Reduction of Risk Potential",
-            "topic": "postpartum preeclampsia",
-            "difficulty": "hard",
-            "ngnSkill": "analyze_cues",
-            "stem": {
-              "en": "Highlight the findings most concerning for postpartum preeclampsia with severe features.",
-              "zh": "标出最提示产后子痫前期伴严重特征的发现。"
-            },
-            "highlight": {
-              "segments": [
-                {
-                  "id": "s1",
-                  "en": "Telephone triage findings:",
-                  "zh": "电话分诊发现："
-                },
-                {
-                  "id": "s2",
-                  "en": "Home blood pressure is 168/112 mm Hg.",
-                  "zh": "家庭测量血压为 168/112 mmHg。",
-                  "selectable": true
-                },
-                {
-                  "id": "s3",
-                  "en": "Client reports a severe headache not relieved by acetaminophen.",
-                  "zh": "患者诉严重头痛，服用对乙酰氨基酚后未缓解。",
-                  "selectable": true
-                },
-                {
-                  "id": "s4",
-                  "en": "Client says, \"I am seeing spots.\"",
-                  "zh": "患者说：“我眼前有闪点。”",
-                  "selectable": true
-                },
-                {
-                  "id": "s5",
-                  "en": "Lochia is light rubra without clots.",
-                  "zh": "恶露为少量红色，无血块。",
-                  "selectable": true
-                },
-                {
-                  "id": "s6",
-                  "en": "Client reports right upper quadrant abdominal pain.",
-                  "zh": "患者诉右上腹痛。",
-                  "selectable": true
-                },
-                {
-                  "id": "s7",
-                  "en": "Temperature is 37.1 C (98.8 F).",
-                  "zh": "体温 37.1°C（98.8°F）。",
-                  "selectable": true
-                }
-              ],
-              "correct": [
-                "s2",
-                "s3",
-                "s4",
-                "s6"
-              ]
-            },
-            "rationale": {
-              "correct": {
-                "en": "Severe-range blood pressure, severe persistent headache, visual symptoms, and right upper quadrant pain are concerning for postpartum preeclampsia with severe features and require urgent evaluation. Light rubra without clots and a normal temperature do not point to severe preeclampsia.",
-                "zh": "重度范围血压、持续严重头痛、视觉症状和右上腹痛提示可能为产后子痫前期伴严重特征，需要紧急评估。少量红色恶露且无血块、体温正常并不指向严重子痫前期。"
-              },
-              "byChoice": [
-                {
-                  "refId": "s2",
-                  "en": "A blood pressure of 168/112 mm Hg is in the severe range.",
-                  "zh": "168/112 mmHg 属于重度范围血压。"
-                },
-                {
-                  "refId": "s3",
-                  "en": "A severe headache unrelieved by medication is a neurologic warning symptom.",
-                  "zh": "药物不能缓解的严重头痛是神经系统警示症状。"
-                },
-                {
-                  "refId": "s4",
-                  "en": "Seeing spots is a visual disturbance and a severe-feature cue.",
-                  "zh": "眼前有闪点属于视觉障碍，是严重特征线索。"
-                },
-                {
-                  "refId": "s5",
-                  "en": "Light rubra without clots can be an expected postpartum finding.",
-                  "zh": "少量红色恶露且无血块可为产后预期表现。"
-                },
-                {
-                  "refId": "s6",
-                  "en": "Right upper quadrant pain can indicate hepatic involvement in preeclampsia.",
-                  "zh": "右上腹痛可能提示子痫前期的肝脏受累。"
-                },
-                {
-                  "refId": "s7",
-                  "en": "This temperature is normal and does not support the severe-feature concern.",
-                  "zh": "该体温正常，并不支持严重特征的判断。"
-                }
-              ]
-            },
-            "testTakingStrategy": {
-              "en": "For postpartum warning-sign questions, do not dismiss pregnancy complications just because birth already occurred.",
-              "zh": "产后警示征象题不要因为已经分娩就排除妊娠相关并发症。"
-            },
-            "glossary": [
-              {
-                "termEn": "Postpartum preeclampsia",
-                "termZh": "产后子痫前期",
-                "defZh": "分娩后出现的高血压相关疾病，可伴头痛、视觉症状、右上腹痛或其他器官受累。"
-              },
-              {
-                "termEn": "Severe-range blood pressure",
-                "termZh": "重度范围血压",
-                "defZh": "通常指收缩压至少 160 mmHg 或舒张压至少 110 mmHg，需要及时评估和处理。"
-              },
-              {
-                "termEn": "Visual disturbance",
-                "termZh": "视觉障碍",
-                "defZh": "如眼前闪点、视物模糊等，可能提示神经系统受累。"
-              }
-            ]
+            "refId": "B",
+            "en": "Subcutaneous administration targets adipose tissue below the dermis, not the thin dermal layer shown.",
+            "zh": "皮下注射的目标是位于真皮下方的脂肪性皮下组织，而不是图中较浅的真皮层。"
           },
           {
-            "id": "hl_smoke_2026_06_14_case_postpartum_preeclampsia_03_q2",
-            "itemType": "multiple_choice",
-            "category": "Reduction of Risk Potential",
-            "topic": "postpartum preeclampsia",
-            "difficulty": "medium",
-            "ngnSkill": "take_action",
-            "stem": {
-              "en": "Which instruction should the nurse give first?",
-              "zh": "护士首先应给予哪项指导？"
-            },
-            "options": [
-              {
-                "id": "A",
-                "en": "Have the client seek emergency evaluation now and avoid driving herself.",
-                "zh": "指导患者立即寻求急诊评估，并避免自行开车。"
-              },
-              {
-                "id": "D",
-                "en": "Encourage oral fluids and rest with the feet elevated.",
-                "zh": "鼓励口服补液并抬高双脚休息。"
-              },
-              {
-                "id": "B",
-                "en": "Tell the client to take another dose of acetaminophen and recheck the blood pressure in 4 hours.",
-                "zh": "告诉患者再服一剂对乙酰氨基酚，并 4 小时后复测血压。"
-              },
-              {
-                "id": "C",
-                "en": "Schedule a routine postpartum visit within the next week.",
-                "zh": "安排未来一周内常规产后复诊。"
-              }
-            ],
-            "correct": [
-              "A"
-            ],
-            "rationale": {
-              "correct": {
-                "en": "The severe-range blood pressure with headache, visual symptoms, and right upper quadrant pain requires emergency evaluation. The client should not delay care or drive herself because seizure or neurologic deterioration is possible.",
-                "zh": "重度范围血压合并头痛、视觉症状和右上腹痛需要急诊评估。患者不应延误就医，也不应自行开车，因为可能发生惊厥或神经系统恶化。"
-              },
-              "byChoice": [
-                {
-                  "refId": "B",
-                  "en": "This delays urgent evaluation of severe hypertension and neurologic symptoms.",
-                  "zh": "该做法会延误对重度高血压和神经系统症状的紧急评估。"
-                },
-                {
-                  "refId": "A",
-                  "en": "This is correct because it addresses the immediate maternal safety risk.",
-                  "zh": "正确。该选项处理了眼前的母体安全风险。"
-                },
-                {
-                  "refId": "D",
-                  "en": "Rest and fluids do not treat the emergency risk of severe postpartum hypertension.",
-                  "zh": "休息和补液不能处理严重产后高血压的紧急风险。"
-                },
-                {
-                  "refId": "C",
-                  "en": "Routine follow-up is not appropriate for severe-range blood pressure with warning symptoms.",
-                  "zh": "重度范围血压伴警示症状时，常规随访不合适。"
-                }
-              ]
-            },
-            "testTakingStrategy": {
-              "en": "When severe-range vital signs are paired with neurologic symptoms, choose urgent escalation over home care or delayed follow-up.",
-              "zh": "重度范围生命体征合并神经系统症状时，应选择紧急升级处理，而不是居家处理或延后随访。"
-            },
-            "glossary": [
-              {
-                "termEn": "Emergency evaluation",
-                "termZh": "急诊评估",
-                "defZh": "需要立即由医疗团队评估和处理的情况。"
-              },
-              {
-                "termEn": "Escalation",
-                "termZh": "升级处理",
-                "defZh": "将病情及时上报或转入更高等级的医疗处理。"
-              }
-            ]
+            "refId": "A",
+            "en": "Intradermal administration places a small volume into the dermis just below the epidermis.",
+            "zh": "皮内给药是将少量药液注入表皮下方的真皮层。"
+          },
+          {
+            "refId": "D",
+            "en": "Intravenous administration places the needle tip in a blood vessel; the tip shown is not within a vessel.",
+            "zh": "静脉给药需要针尖进入血管；图中针尖不在血管内。"
+          },
+          {
+            "refId": "C",
+            "en": "Intramuscular administration requires the needle tip to reach muscle tissue, which is deeper than the tip shown.",
+            "zh": "肌内注射需要针尖到达肌肉组织，比图中针尖位置更深。"
           }
         ]
       },
-      "rationale": {
-        "correct": {
-          "en": "This case tests recognition of postpartum preeclampsia warning signs and urgent triage of severe-range hypertension.",
-          "zh": "本病例考查识别产后子痫前期警示征象，以及对重度范围高血压进行紧急分诊。"
-        }
-      },
       "testTakingStrategy": {
-        "en": "Case-study highlight items should be treated like cue collection: identify the data that changes urgency or safety first.",
-        "zh": "病例标注题应当像收集关键线索一样处理：先找出会改变紧急程度或安全性的资料。"
+        "en": "First identify the layer reached by the needle tip; then match the layer to the route.",
+        "zh": "先判断针尖到达的组织层，再把该组织层与给药途径对应。"
       },
       "glossary": [
         {
-          "termEn": "Postpartum",
-          "termZh": "产后",
-          "defZh": "分娩后的时期，仍可能发生需要紧急处理的妊娠相关并发症。"
+          "termEn": "Intradermal",
+          "termZh": "皮内",
+          "defZh": "进入真皮层的给药途径，通常用于小剂量试验或特定疫苗。"
+        },
+        {
+          "termEn": "Dermis",
+          "termZh": "真皮",
+          "defZh": "位于表皮下方、皮下组织上方的皮肤层。"
+        },
+        {
+          "termEn": "Bleb",
+          "termZh": "皮丘",
+          "defZh": "皮内注射后皮肤表面出现的小隆起。"
         }
-      ]
+      ],
+      "meta": {
+        "visual_justification": "The learner must read the needle's angle and termination depth from the figure to identify the route; the stem does not name it.",
+        "tier": "strictest",
+        "source": "Parenteral route angle/depth reference.",
+        "skill_signature": "inj:identify-route/intradermal",
+        "expected": {
+          "route": "intradermal",
+          "target": "dermis"
+        }
+      }
+    },
+    {
+      "id": "gpt_injection_smoke_2026_06_15_mc_subcutaneous_02",
+      "itemType": "multiple_choice",
+      "category": "Reduction of Risk Potential",
+      "topic": "Injection route recognition from skin cross-section",
+      "difficulty": "easy",
+      "ngnSkill": "recognize_cues",
+      "stem": {
+        "en": "The nurse reviews the injection-site cross-section. Which route is represented by the needle tip location?",
+        "zh": "护士查看注射部位横截面图。根据针尖位置，图中表示哪一种给药途径？"
+      },
+      "visual": {
+        "kind": "injection_site",
+        "route": "subcutaneous",
+        "caption": {
+          "en": "Diagram illustrating a needle entering a cross-section of the skin.",
+          "zh": "皮肤横截面图，显示针头进入皮肤。"
+        }
+      },
+      "options": [
+        {
+          "id": "B",
+          "en": "Subcutaneous",
+          "zh": "皮下注射"
+        },
+        {
+          "id": "C",
+          "en": "Intramuscular",
+          "zh": "肌内注射"
+        },
+        {
+          "id": "A",
+          "en": "Intradermal",
+          "zh": "皮内注射"
+        },
+        {
+          "id": "D",
+          "en": "Intravenous",
+          "zh": "静脉给药"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "rationale": {
+        "correct": {
+          "en": "The needle tip is in the subcutaneous tissue between the dermis and muscle, which represents subcutaneous administration.",
+          "zh": "针尖位于真皮和肌肉之间的皮下组织内，表示皮下给药。"
+        },
+        "byChoice": [
+          {
+            "refId": "D",
+            "en": "Intravenous administration requires the needle tip to enter a blood vessel.",
+            "zh": "静脉给药需要针尖进入血管。"
+          },
+          {
+            "refId": "B",
+            "en": "Subcutaneous administration deposits medication into the adipose layer below the dermis and above the muscle.",
+            "zh": "皮下注射是将药液注入真皮下方、肌肉上方的脂肪性皮下层。"
+          },
+          {
+            "refId": "A",
+            "en": "Intradermal administration would stop in the dermis, a more superficial layer.",
+            "zh": "皮内给药应停留在更浅的真皮层。"
+          },
+          {
+            "refId": "C",
+            "en": "Intramuscular administration would place the needle tip in muscle tissue, not in the layer above it.",
+            "zh": "肌内注射应使针尖进入肌肉组织，而不是停在肌肉上方的组织层。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Do not choose the deepest route automatically. Match the tip location to the tissue layer named in the option.",
+        "zh": "不要自动选择最深的途径；要把针尖位置与选项中的组织层相匹配。"
+      },
+      "glossary": [
+        {
+          "termEn": "Subcutaneous tissue",
+          "termZh": "皮下组织",
+          "defZh": "位于真皮下方、肌肉上方的脂肪和结缔组织层。"
+        },
+        {
+          "termEn": "Adipose tissue",
+          "termZh": "脂肪组织",
+          "defZh": "储存脂肪的组织，是许多皮下注射的目标层。"
+        },
+        {
+          "termEn": "Needle tip",
+          "termZh": "针尖",
+          "defZh": "针头最前端，决定药液实际进入的组织层。"
+        }
+      ],
+      "meta": {
+        "visual_justification": "The learner must read the needle's angle and termination depth from the figure to identify the route; the stem does not name it.",
+        "tier": "strictest",
+        "source": "Parenteral route angle/depth reference.",
+        "skill_signature": "inj:identify-route/subcutaneous",
+        "expected": {
+          "route": "subcutaneous",
+          "target": "subcutaneous"
+        }
+      }
+    },
+    {
+      "id": "gpt_injection_smoke_2026_06_15_mc_intramuscular_03",
+      "itemType": "multiple_choice",
+      "category": "Reduction of Risk Potential",
+      "topic": "Injection route recognition from skin cross-section",
+      "difficulty": "easy",
+      "ngnSkill": "recognize_cues",
+      "stem": {
+        "en": "The nurse reviews the injection-site cross-section. Which route is shown?",
+        "zh": "护士查看注射部位横截面图。图中显示的是哪一种给药途径？"
+      },
+      "visual": {
+        "kind": "injection_site",
+        "route": "intramuscular",
+        "caption": {
+          "en": "Diagram illustrating a needle entering a cross-section of the skin.",
+          "zh": "皮肤横截面图，显示针头进入皮肤。"
+        }
+      },
+      "options": [
+        {
+          "id": "B",
+          "en": "Subcutaneous",
+          "zh": "皮下注射"
+        },
+        {
+          "id": "D",
+          "en": "Intravenous",
+          "zh": "静脉给药"
+        },
+        {
+          "id": "A",
+          "en": "Intradermal",
+          "zh": "皮内注射"
+        },
+        {
+          "id": "C",
+          "en": "Intramuscular",
+          "zh": "肌内注射"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "rationale": {
+        "correct": {
+          "en": "A perpendicular needle path with the tip in muscle tissue represents intramuscular administration.",
+          "zh": "针头垂直进入且针尖位于肌肉组织内，表示肌内给药。"
+        },
+        "byChoice": [
+          {
+            "refId": "A",
+            "en": "Intradermal administration is much shallower and targets the dermis.",
+            "zh": "皮内给药更浅，目标是真皮层。"
+          },
+          {
+            "refId": "D",
+            "en": "Intravenous administration places the tip inside a blood vessel; the figure shows muscle placement.",
+            "zh": "静脉给药需要针尖位于血管内；图中显示的是肌肉内位置。"
+          },
+          {
+            "refId": "B",
+            "en": "Subcutaneous administration stops in the tissue above muscle, not in the muscle itself.",
+            "zh": "皮下注射停留在肌肉上方的组织层，而不是肌肉本身。"
+          },
+          {
+            "refId": "C",
+            "en": "Intramuscular administration deposits medication into muscle tissue, matching the tip location shown.",
+            "zh": "肌内注射将药液注入肌肉组织，与图中针尖位置一致。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "For route-identification visuals, the final needle-tip location is more important than the tissue layers crossed on the way in.",
+        "zh": "判断给药途径时，针尖最终所在位置比进入过程中穿过的组织层更重要。"
+      },
+      "glossary": [
+        {
+          "termEn": "Intramuscular",
+          "termZh": "肌内",
+          "defZh": "进入肌肉组织的给药途径。"
+        },
+        {
+          "termEn": "Muscle tissue",
+          "termZh": "肌肉组织",
+          "defZh": "位于皮下组织深处、可作为肌内注射目标的组织。"
+        },
+        {
+          "termEn": "Perpendicular",
+          "termZh": "垂直",
+          "defZh": "与皮肤表面约成直角的方向。"
+        }
+      ],
+      "meta": {
+        "visual_justification": "The learner must read the needle's angle and termination depth from the figure to identify the route; the stem does not name it.",
+        "tier": "strictest",
+        "source": "Parenteral route angle/depth reference.",
+        "skill_signature": "inj:identify-route/intramuscular",
+        "expected": {
+          "route": "intramuscular",
+          "target": "muscle"
+        }
+      }
+    },
+    {
+      "id": "gpt_injection_smoke_2026_06_15_mc_intravenous_04",
+      "itemType": "multiple_choice",
+      "category": "Reduction of Risk Potential",
+      "topic": "Injection route recognition from skin cross-section",
+      "difficulty": "easy",
+      "ngnSkill": "recognize_cues",
+      "stem": {
+        "en": "The nurse reviews the injection-site cross-section. Which route is represented by the needle tip shown?",
+        "zh": "护士查看注射部位横截面图。图中针尖位置表示哪一种给药途径？"
+      },
+      "visual": {
+        "kind": "injection_site",
+        "route": "intravenous",
+        "caption": {
+          "en": "Diagram illustrating a needle entering a cross-section of the skin.",
+          "zh": "皮肤横截面图，显示针头进入皮肤。"
+        }
+      },
+      "options": [
+        {
+          "id": "D",
+          "en": "Intravenous",
+          "zh": "静脉给药"
+        },
+        {
+          "id": "C",
+          "en": "Intramuscular",
+          "zh": "肌内注射"
+        },
+        {
+          "id": "A",
+          "en": "Intradermal",
+          "zh": "皮内注射"
+        },
+        {
+          "id": "B",
+          "en": "Subcutaneous",
+          "zh": "皮下注射"
+        }
+      ],
+      "correct": [
+        "D"
+      ],
+      "rationale": {
+        "correct": {
+          "en": "The needle tip is inside a vessel, which represents intravenous access or administration.",
+          "zh": "针尖位于血管内，表示静脉通路或静脉给药。"
+        },
+        "byChoice": [
+          {
+            "refId": "D",
+            "en": "Intravenous access is identified by the needle tip entering the lumen of a blood vessel.",
+            "zh": "静脉通路的关键是针尖进入血管腔内。"
+          },
+          {
+            "refId": "C",
+            "en": "Intramuscular placement would put the tip in muscle tissue, not in a vessel.",
+            "zh": "肌内位置应在肌肉组织内，而不是血管内。"
+          },
+          {
+            "refId": "A",
+            "en": "Intradermal placement would put the tip in the dermis rather than in a vessel.",
+            "zh": "皮内位置应在真皮层，而不是血管内。"
+          },
+          {
+            "refId": "B",
+            "en": "Subcutaneous placement would put the tip in tissue below the dermis and above muscle, not within a vessel.",
+            "zh": "皮下位置应在真皮下方、肌肉上方的组织内，而不是血管内。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "When a visual includes a vessel, decide whether the needle tip is actually inside the vessel or merely near it.",
+        "zh": "图中出现血管时，要判断针尖是否真正进入血管，而不仅仅是靠近血管。"
+      },
+      "glossary": [
+        {
+          "termEn": "Intravenous",
+          "termZh": "静脉",
+          "defZh": "进入静脉血管内的给药或通路方式。"
+        },
+        {
+          "termEn": "Vessel",
+          "termZh": "血管",
+          "defZh": "输送血液的管状结构。"
+        },
+        {
+          "termEn": "Lumen",
+          "termZh": "管腔",
+          "defZh": "血管内部可供血液流动的空间。"
+        }
+      ],
+      "meta": {
+        "visual_justification": "The learner must read the needle's angle and termination depth from the figure to identify the route; the stem does not name it.",
+        "tier": "strictest",
+        "source": "Parenteral route angle/depth reference.",
+        "skill_signature": "inj:identify-route/intravenous",
+        "expected": {
+          "route": "intravenous",
+          "target": "vessel"
+        }
+      }
+    },
+    {
+      "id": "gpt_injection_smoke_2026_06_15_mc_layer_highlight_05",
+      "itemType": "multiple_choice",
+      "category": "Reduction of Risk Potential",
+      "topic": "Target layer identification from visual",
+      "difficulty": "easy",
+      "ngnSkill": "recognize_cues",
+      "stem": {
+        "en": "The nurse reviews the injection-site visual. Based on the needle's position, which tissue layer is the intended target?",
+        "zh": "护士查看注射部位图。根据针头位置，给药的目标组织层是哪一层？"
+      },
+      "visual": {
+        "kind": "injection_site",
+        "route": "subcutaneous",
+        "caption": {
+          "en": "Diagram illustrating a needle entering a cross-section of the skin.",
+          "zh": "皮肤横截面图，显示针头进入皮肤。"
+        }
+      },
+      "options": [
+        {
+          "id": "B",
+          "en": "Dermis",
+          "zh": "真皮"
+        },
+        {
+          "id": "D",
+          "en": "Muscle",
+          "zh": "肌肉"
+        },
+        {
+          "id": "A",
+          "en": "Epidermis",
+          "zh": "表皮"
+        },
+        {
+          "id": "C",
+          "en": "Subcutaneous tissue",
+          "zh": "皮下组织"
+        }
+      ],
+      "correct": [
+        "C"
+      ],
+      "rationale": {
+        "correct": {
+          "en": "The needle tip is located below the dermis and above muscle, which is subcutaneous tissue.",
+          "zh": "针尖位于真皮下方、肌肉上方，即皮下组织。"
+        },
+        "byChoice": [
+          {
+            "refId": "B",
+            "en": "The dermis lies above the target layer shown.",
+            "zh": "真皮位于目标层上方。"
+          },
+          {
+            "refId": "D",
+            "en": "Muscle is deeper than the target layer shown.",
+            "zh": "肌肉比目标层更深。"
+          },
+          {
+            "refId": "A",
+            "en": "The epidermis is the most superficial skin layer and is not the target layer shown.",
+            "zh": "表皮是最浅的皮肤层，不是图中的目标层。"
+          },
+          {
+            "refId": "C",
+            "en": "Subcutaneous tissue lies between the dermis and muscle and is the target layer where the needle tip rests.",
+            "zh": "皮下组织位于真皮与肌肉之间，是针尖停留的目标层。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Use relative location: superficial-to-deep order is epidermis, dermis, subcutaneous tissue, then muscle.",
+        "zh": "使用相对位置判断：由浅到深依次为表皮、真皮、皮下组织、肌肉。"
+      },
+      "glossary": [
+        {
+          "termEn": "Epidermis",
+          "termZh": "表皮",
+          "defZh": "皮肤最外层。"
+        },
+        {
+          "termEn": "Subcutaneous tissue",
+          "termZh": "皮下组织",
+          "defZh": "位于真皮下方和肌肉上方的组织层。"
+        },
+        {
+          "termEn": "Target layer",
+          "termZh": "目标层",
+          "defZh": "给药时针尖应到达的组织层。"
+        }
+      ],
+      "meta": {
+        "visual_justification": "The learner must read the needle's angle and termination depth from the figure to identify the route; the stem does not name it.",
+        "tier": "strictest",
+        "source": "Parenteral route angle/depth reference.",
+        "skill_signature": "inj:identify-route/subcutaneous",
+        "expected": {
+          "route": "subcutaneous",
+          "target": "subcutaneous"
+        }
+      }
+    },
+    {
+      "id": "gpt_injection_smoke_2026_06_15_sata_im_cues_06",
+      "itemType": "select_all",
+      "category": "Reduction of Risk Potential",
+      "topic": "Injection visual cue interpretation",
+      "difficulty": "medium",
+      "ngnSkill": "analyze_cues",
+      "stem": {
+        "en": "The image shows an injection technique. Which visual cues correctly describe the route shown? Select all that apply.",
+        "zh": "图中显示一种注射技术。哪些视觉线索正确描述了图中显示的给药途径？选择所有适用项。"
+      },
+      "visual": {
+        "kind": "injection_site",
+        "route": "intramuscular",
+        "caption": {
+          "en": "Diagram illustrating a needle entering a cross-section of the skin.",
+          "zh": "皮肤横截面图，显示针头进入皮肤。"
+        }
+      },
+      "options": [
+        {
+          "id": "F",
+          "en": "The medication is deposited in the fatty tissue above muscle.",
+          "zh": "药液注入肌肉上方的脂肪组织内。"
+        },
+        {
+          "id": "B",
+          "en": "The needle tip ends in the muscle layer.",
+          "zh": "针尖最终位于肌肉层。"
+        },
+        {
+          "id": "D",
+          "en": "The needle tip ends in the dermis.",
+          "zh": "针尖最终位于真皮层。"
+        },
+        {
+          "id": "E",
+          "en": "The needle tip is inside a blood vessel.",
+          "zh": "针尖位于血管内。"
+        },
+        {
+          "id": "C",
+          "en": "The needle passes through the subcutaneous layer before reaching the target.",
+          "zh": "针头在到达目标层前穿过皮下组织层。"
+        },
+        {
+          "id": "A",
+          "en": "The needle enters at about a right angle to the skin.",
+          "zh": "针头与皮肤表面约成直角进入。"
+        }
+      ],
+      "correct": [
+        "A",
+        "B",
+        "C"
+      ],
+      "rationale": {
+        "correct": {
+          "en": "The visual supports intramuscular administration because the needle enters at a right angle, passes through superficial layers, and terminates in muscle.",
+          "zh": "该图支持肌内给药，因为针头垂直进入，穿过浅层组织，并最终到达肌肉。"
+        },
+        "byChoice": [
+          {
+            "refId": "E",
+            "en": "A tip inside a blood vessel would support intravenous access, not intramuscular placement.",
+            "zh": "针尖在血管内支持静脉通路，而不是肌内位置。"
+          },
+          {
+            "refId": "F",
+            "en": "Depositing medication in fatty tissue above muscle describes subcutaneous placement.",
+            "zh": "药液位于肌肉上方脂肪组织内描述的是皮下位置。"
+          },
+          {
+            "refId": "D",
+            "en": "A tip ending in the dermis would support intradermal, not intramuscular, placement.",
+            "zh": "针尖位于真皮层支持皮内给药，而不是肌内给药。"
+          },
+          {
+            "refId": "B",
+            "en": "The defining visual cue is that the needle tip ends in muscle tissue.",
+            "zh": "最关键的视觉线索是针尖最终位于肌肉组织内。"
+          },
+          {
+            "refId": "C",
+            "en": "Passing through the subcutaneous layer is expected because muscle is deeper than the skin and subcutaneous tissue.",
+            "zh": "肌肉位于皮肤和皮下组织深处，因此穿过皮下层是预期现象。"
+          },
+          {
+            "refId": "A",
+            "en": "A right-angle approach is consistent with typical intramuscular technique.",
+            "zh": "直角进针符合常见肌内注射技术。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "For SATA visual items, select only cues actually shown and directly tied to the route.",
+        "zh": "做多选视觉题时，只选择图中真正显示且与途径直接相关的线索。"
+      },
+      "glossary": [
+        {
+          "termEn": "Visual cue",
+          "termZh": "视觉线索",
+          "defZh": "图像中帮助判断临床含义的可见特征。"
+        },
+        {
+          "termEn": "Right angle",
+          "termZh": "直角",
+          "defZh": "约90度的角度。"
+        },
+        {
+          "termEn": "Target",
+          "termZh": "目标",
+          "defZh": "针尖应最终到达的组织或结构。"
+        }
+      ],
+      "meta": {
+        "visual_justification": "The learner must read the needle's angle and termination depth from the figure to identify the route; the stem does not name it.",
+        "tier": "strictest",
+        "source": "Parenteral route angle/depth reference.",
+        "skill_signature": "inj:identify-route/intramuscular",
+        "expected": {
+          "route": "intramuscular",
+          "target": "muscle"
+        }
+      }
+    },
+    {
+      "id": "gpt_injection_smoke_2026_06_15_matrix_subq_cues_07",
+      "itemType": "matrix",
+      "category": "Reduction of Risk Potential",
+      "topic": "Injection visual cue interpretation",
+      "difficulty": "medium",
+      "ngnSkill": "analyze_cues",
+      "stem": {
+        "en": "For each visual cue, classify whether it supports the route shown in the cross-section.",
+        "zh": "对每个视觉线索进行分类：它是否支持横截面图中显示的给药途径？"
+      },
+      "visual": {
+        "kind": "injection_site",
+        "route": "subcutaneous",
+        "caption": {
+          "en": "Diagram illustrating a needle entering a cross-section of the skin.",
+          "zh": "皮肤横截面图，显示针头进入皮肤。"
+        }
+      },
+      "matrix": {
+        "rows": [
+          {
+            "id": "r1",
+            "en": "Needle tip ends between the dermis and muscle",
+            "zh": "针尖位于真皮与肌肉之间"
+          },
+          {
+            "id": "r2",
+            "en": "Needle tip reaches the muscle layer",
+            "zh": "针尖到达肌肉层"
+          },
+          {
+            "id": "r3",
+            "en": "Needle tip enters a visible blood vessel",
+            "zh": "针尖进入可见血管"
+          },
+          {
+            "id": "r4",
+            "en": "Needle enters at an oblique angle rather than perpendicular to the skin",
+            "zh": "针头斜向进入，而不是与皮肤垂直进入"
+          }
+        ],
+        "columns": [
+          {
+            "id": "c2",
+            "en": "Does not support the route shown",
+            "zh": "不支持图中途径"
+          },
+          {
+            "id": "c1",
+            "en": "Supports the route shown",
+            "zh": "支持图中途径"
+          }
+        ],
+        "selectionMode": "single_per_row"
+      },
+      "correct": [
+        {
+          "rowId": "r1",
+          "columnIds": [
+            "c1"
+          ]
+        },
+        {
+          "rowId": "r2",
+          "columnIds": [
+            "c2"
+          ]
+        },
+        {
+          "rowId": "r3",
+          "columnIds": [
+            "c2"
+          ]
+        },
+        {
+          "rowId": "r4",
+          "columnIds": [
+            "c1"
+          ]
+        }
+      ],
+      "rationale": {
+        "correct": {
+          "en": "The route shown is supported by a needle tip in subcutaneous tissue and an oblique approach; muscle or vessel placement would indicate a different route.",
+          "zh": "图中途径由针尖位于皮下组织和斜向进针支持；若针尖在肌肉或血管内，则提示不同途径。"
+        },
+        "byChoice": [
+          {
+            "refId": "r1",
+            "en": "The tissue between dermis and muscle is the subcutaneous layer, so this cue supports the route shown.",
+            "zh": "真皮和肌肉之间的组织是皮下层，因此该线索支持图中途径。"
+          },
+          {
+            "refId": "r2",
+            "en": "A tip reaching muscle would support intramuscular placement rather than the route shown.",
+            "zh": "针尖到达肌肉更支持肌内位置，而不是图中途径。"
+          },
+          {
+            "refId": "r3",
+            "en": "A tip inside a vessel would support intravenous access rather than the route shown.",
+            "zh": "针尖在血管内更支持静脉通路，而不是图中途径。"
+          },
+          {
+            "refId": "r4",
+            "en": "In this visual, the oblique approach is consistent with the needle tip ending in subcutaneous tissue.",
+            "zh": "在该图中，斜向进针与针尖停留在皮下组织内一致。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Judge each row independently; a cue can be true in another route but still not support the route shown here.",
+        "zh": "逐行独立判断；某个线索可能适用于另一种途径，但不一定支持本图显示的途径。"
+      },
+      "glossary": [
+        {
+          "termEn": "Oblique",
+          "termZh": "斜向",
+          "defZh": "不是垂直、而是倾斜进入的方向。"
+        },
+        {
+          "termEn": "Subcutaneous layer",
+          "termZh": "皮下层",
+          "defZh": "位于真皮和肌肉之间的组织层。"
+        },
+        {
+          "termEn": "Perpendicular",
+          "termZh": "垂直",
+          "defZh": "与皮肤表面约成90度的方向。"
+        }
+      ],
+      "meta": {
+        "visual_justification": "The learner must read the needle's angle and termination depth from the figure to identify the route; the stem does not name it.",
+        "tier": "strictest",
+        "source": "Parenteral route angle/depth reference.",
+        "skill_signature": "inj:identify-route/subcutaneous",
+        "expected": {
+          "route": "subcutaneous",
+          "target": "subcutaneous"
+        }
+      }
+    },
+    {
+      "id": "gpt_injection_smoke_2026_06_15_matrix_route_match_08",
+      "itemType": "matrix",
+      "category": "Reduction of Risk Potential",
+      "topic": "Visual technique analysis",
+      "difficulty": "medium",
+      "ngnSkill": "analyze_cues",
+      "stem": {
+        "en": "The nurse reviews the injection-site visual. Classify whether each statement accurately describes the technique shown.",
+        "zh": "护士查看注射部位图。对每项描述进行分类：它是否准确描述了图中显示的技术？"
+      },
+      "visual": {
+        "kind": "injection_site",
+        "route": "intradermal",
+        "caption": {
+          "en": "Diagram illustrating a needle entering a cross-section of the skin.",
+          "zh": "皮肤横截面图，显示针头进入皮肤。"
+        }
+      },
+      "matrix": {
+        "rows": [
+          {
+            "id": "r1",
+            "en": "The medication is placed in the dermis",
+            "zh": "药液进入真皮层"
+          },
+          {
+            "id": "r2",
+            "en": "The medication is placed in the subcutaneous tissue",
+            "zh": "药液进入皮下组织"
+          },
+          {
+            "id": "r3",
+            "en": "The needle enters at a 10 to 15 degree angle",
+            "zh": "针头以 10 至 15 度角进入"
+          },
+          {
+            "id": "r4",
+            "en": "The needle enters at a 45 to 90 degree angle",
+            "zh": "针头以 45 至 90 度角进入"
+          }
+        ],
+        "columns": [
+          {
+            "id": "c2",
+            "en": "Inaccurate",
+            "zh": "不准确"
+          },
+          {
+            "id": "c1",
+            "en": "Accurate",
+            "zh": "准确"
+          }
+        ],
+        "selectionMode": "single_per_row"
+      },
+      "correct": [
+        {
+          "rowId": "r1",
+          "columnIds": [
+            "c1"
+          ]
+        },
+        {
+          "rowId": "r2",
+          "columnIds": [
+            "c2"
+          ]
+        },
+        {
+          "rowId": "r3",
+          "columnIds": [
+            "c1"
+          ]
+        },
+        {
+          "rowId": "r4",
+          "columnIds": [
+            "c2"
+          ]
+        }
+      ],
+      "rationale": {
+        "correct": {
+          "en": "The visual shows an intradermal injection, which targets the dermis at a shallow 10 to 15 degree angle.",
+          "zh": "图示为皮内注射，其目标为真皮层，进针角度较浅（10至15度）。"
+        },
+        "byChoice": [
+          {
+            "refId": "r1",
+            "en": "Accurate; the needle tip ends in the dermis.",
+            "zh": "准确；针尖最终位于真皮层。"
+          },
+          {
+            "refId": "r2",
+            "en": "Inaccurate; the tip is above the subcutaneous tissue.",
+            "zh": "不准确；针尖在皮下组织上方。"
+          },
+          {
+            "refId": "r3",
+            "en": "Accurate; the needle enters at a very shallow angle consistent with intradermal administration.",
+            "zh": "准确；进针角度非常浅，符合皮内给药。"
+          },
+          {
+            "refId": "r4",
+            "en": "Inaccurate; 45-90 degrees is used for subcutaneous or intramuscular routes.",
+            "zh": "不准确；45-90度用于皮下或肌内给药。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "First identify the route from the image, then evaluate each statement against that route.",
+        "zh": "首先根据图像识别给药途径，然后评估每项描述是否符合该途径。"
+      },
+      "glossary": [
+        {
+          "termEn": "Route",
+          "termZh": "给药途径",
+          "defZh": "药物进入身体的方式或路径。"
+        },
+        {
+          "termEn": "Target tissue",
+          "termZh": "目标组织",
+          "defZh": "给药时药物应进入的组织。"
+        },
+        {
+          "termEn": "Intravenous access",
+          "termZh": "静脉通路",
+          "defZh": "针头或导管进入静脉血管内的通路。"
+        }
+      ],
+      "meta": {
+        "visual_justification": "The learner must read the needle's angle and termination depth from the figure to identify the route; the stem does not name it.",
+        "tier": "strictest",
+        "source": "Parenteral route angle/depth reference.",
+        "skill_signature": "inj:identify-route/intradermal",
+        "expected": {
+          "route": "intradermal",
+          "target": "dermis"
+        }
+      }
     }
   ]
 }

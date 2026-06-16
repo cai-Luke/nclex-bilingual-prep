@@ -3,7 +3,7 @@ Nothing screams “clinical-fatal” now. The catches I’d specifically tell Cl
 Watchlist:
 
 1. **Top-level `case_study` may be missing `ngnSkill`.**
-   The bowtie has `"ngnSkill": "take_action"`, but the parent case-study item does not. If schema 1.4 still requires common question fields on every top-level item, this is a validator fail. If case-study parents are exempt, fine.
+   The bowtie has `"ngnSkill": "take_action"`, but the parent case-study item does not. If schema 1.5 still requires common question fields on every top-level item, this is a validator fail. If case-study parents are exempt, fine.
 
 2. **Parent `case_study` rationale has no `byChoice`.**
    Again, this may be allowed for case-study wrappers, but if the validator expects `rationale.byChoice` on every top-level question, it will fail. Embedded questions all have `byChoice`.
