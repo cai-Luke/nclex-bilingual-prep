@@ -58,6 +58,27 @@ The committed NGN item-type set is complete. Rationale/dyad scoring and an expli
 
 ## Milestones
 
+### Topic Vocabulary Hygiene — Residual Proposal Harness (Jun 17)
+
+Completed:
+- Added a deterministic proposal-only harness for the 835 residual GPT/Claude topic rows, split into queue emission for an external non-Gemini classifier and deterministic ingest/validation/report assembly after Luke supplies returned decisions.
+- Generated `audit/topic-residual-proposals-2026-06-17.queue.json` with a prominent no-Gemini warning, category-licensed candidate sets, hydrated answer/rationale context, scoped context hashes, and no `oldTopic` in classifier-facing records.
+- Added focused regression coverage for the Gemini scope guard, no-oldTopic queue invariant, classifier metadata guard, deterministic context-incomplete/category-untrusted/already-canonical routing, and validated proposal ingest.
+- No canonical banks were modified, no topic proposals were applied, and `BANK-REVIEW-LEDGER.md` was intentionally untouched.
+
+### Topic Vocabulary Hygiene — Gemini Semantic Decision Pass (Jun 16)
+
+Completed:
+- Added `audit/proposal_manifest_gemini.json` for the 52-row Gemini-authored unresolved-topic split,
+  with category-licensed proposals and conservative hold notes for weak Reduction of Risk Potential
+  compromises.
+- Revised the grief routing decision: grief is context, not a topic alias; route by tested construct
+  to Mental Health Disorders, Therapeutic Communication, or Suicide & Crisis Intervention.
+- Removed the semantic aliases that forced `grief and loss` / `grief communication` into Suicide &
+  Crisis Intervention.
+- Corrected `gemini_u5_fib_or_2026_06_09_fib_tbsa_04` from Safety and Infection Control / Burn
+  Assessment to Physiological Adaptation / Burn Management.
+
 ### Raw Case-Staging Remediation — Structural Gate Prep (Jun 16)
 
 Completed:
