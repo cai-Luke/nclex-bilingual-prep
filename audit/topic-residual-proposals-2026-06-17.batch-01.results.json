@@ -1,0 +1,162 @@
+{
+  "meta": {
+    "classifier": "codex-gpt-5",
+    "temperature": 0,
+    "batch": "01",
+    "queueFile": "audit/topic-residual-proposals-2026-06-17.queue.json",
+    "recordCount": 25,
+    "note": "First conservative classification batch from queue records 1-25. This is not a canonical-bank write."
+  },
+  "records": [
+    {
+      "id": "burn_fib_tbsa_anterior_mix_01",
+      "decision": "out_of_category",
+      "topic": "Burn Management",
+      "reason": "The item tests burn TBSA estimation, but Burn Management is not licensed for the item's category."
+    },
+    {
+      "id": "burn_mc_resuscitation_threshold_02",
+      "decision": "propose",
+      "topic": "Burn Management",
+      "reason": "The item tests burn-fluid resuscitation decisions from TBSA severity."
+    },
+    {
+      "id": "burn_fib_parkland_total_posterior_03",
+      "decision": "propose",
+      "topic": "Burn Management",
+      "reason": "The item calculates Parkland burn-resuscitation volume."
+    },
+    {
+      "id": "burn_fib_parkland_rate_arm_trunk_genitalia_04",
+      "decision": "propose",
+      "topic": "Burn Management",
+      "reason": "The item calculates the first-8-hour Parkland infusion rate for burns."
+    },
+    {
+      "id": "burn_matrix_parkland_values_05",
+      "decision": "out_of_category",
+      "topic": "Burn Management",
+      "reason": "The item checks burn TBSA and Parkland values, but Burn Management is not licensed for the item's category."
+    },
+    {
+      "id": "burn_sata_parkland_chain_06",
+      "decision": "propose",
+      "topic": "Burn Management",
+      "reason": "The item tests the full Parkland calculation chain for burn resuscitation."
+    },
+    {
+      "id": "burn_mc_posterior_tbsa_07",
+      "decision": "out_of_category",
+      "topic": "Burn Management",
+      "reason": "The item asks for burn-size documentation, but Burn Management is not licensed for the item's category."
+    },
+    {
+      "id": "burn_fib_parkland_first8h_leg_arm_08",
+      "decision": "propose",
+      "topic": "Burn Management",
+      "reason": "The item calculates first-8-hour Parkland fluid volume for a burn injury."
+    },
+    {
+      "id": "cap_01",
+      "decision": "propose",
+      "topic": "Respiratory & Infectious Disorders",
+      "reason": "The item interprets a bronchospasm capnogram as acute asthma exacerbation."
+    },
+    {
+      "id": "cap_02",
+      "decision": "propose",
+      "topic": "Procedural Complications & Dialysis",
+      "reason": "The item identifies esophageal intubation and immediate corrective action after a procedure."
+    },
+    {
+      "id": "cap_03",
+      "decision": "propose",
+      "topic": "Cardiovascular Disorders",
+      "reason": "The item interprets an abrupt EtCO2 rise during CPR as return of spontaneous circulation."
+    },
+    {
+      "id": "cap_04",
+      "decision": "propose",
+      "topic": "Patient & Environment Safety",
+      "reason": "The item identifies an anesthesia-circuit rebreathing hazard from exhausted soda lime."
+    },
+    {
+      "id": "cap_05",
+      "decision": "propose",
+      "topic": "Respiratory & Infectious Disorders",
+      "reason": "The item interprets capnography in severe respiratory distress and differentiates bronchospasm."
+    },
+    {
+      "id": "cap_08",
+      "decision": "propose",
+      "topic": "Respiratory & Infectious Disorders",
+      "reason": "The item interprets low EtCO2 with rapid breathing as hyperventilation physiology."
+    },
+    {
+      "id": "cap_10",
+      "decision": "propose",
+      "topic": "Medication Safety & Admin",
+      "reason": "The item selects first-line epinephrine administration for antibiotic-associated anaphylaxis."
+    },
+    {
+      "id": "claude_jun05_moc_case_mgmt_01",
+      "decision": "propose",
+      "topic": "Discharge Planning & Handoff",
+      "reason": "The item tests arranging home services before discharge to preserve care continuity."
+    },
+    {
+      "id": "claude_jun05_moc_referral_slp_02",
+      "decision": "abstain",
+      "topic": null,
+      "reason": "The item tests interdisciplinary referral for dysphagia, and no licensed candidate genuinely fits."
+    },
+    {
+      "id": "claude_jun05_moc_quality_improvement_03",
+      "decision": "abstain",
+      "topic": null,
+      "reason": "The item tests quality improvement data collection, and no licensed candidate genuinely fits."
+    },
+    {
+      "id": "claude_jun05_pharm_pca_opioid_safety_04",
+      "decision": "propose",
+      "topic": "Medication Safety & Admin",
+      "reason": "The item tests safe reversal of opioid-induced respiratory depression from PCA morphine."
+    },
+    {
+      "id": "opus_bcc_rehab_2026_06_10_01",
+      "decision": "abstain",
+      "topic": null,
+      "reason": "The item tests pressure-injury risk assessment, and no licensed candidate genuinely fits."
+    },
+    {
+      "id": "opus_bcc_rehab_2026_06_10_02",
+      "decision": "abstain",
+      "topic": null,
+      "reason": "The item tests pressure-injury prevention, and no licensed candidate genuinely fits."
+    },
+    {
+      "id": "opus_bcc_rehab_2026_06_10_03",
+      "decision": "propose",
+      "topic": "Elimination & Comfort",
+      "reason": "The item sequences incontinence skin care for urinary incontinence."
+    },
+    {
+      "id": "opus_bcc_rehab_2026_06_10_04",
+      "decision": "propose",
+      "topic": "Nutritional & Fluid Support",
+      "reason": "The item calculates protein needs to support pressure-injury wound healing."
+    },
+    {
+      "id": "opus_bcc_rehab_2026_06_10_05",
+      "decision": "propose",
+      "topic": "Mobility & Immobility",
+      "reason": "The item evaluates safe walker, cane, hip-precaution, and stair-mobility techniques."
+    },
+    {
+      "id": "opus_bcc_rehab_2026_06_10_06",
+      "decision": "abstain",
+      "topic": null,
+      "reason": "The item tests wound-healing progression, and no licensed candidate genuinely fits."
+    }
+  ]
+}

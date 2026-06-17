@@ -63,8 +63,10 @@ The committed NGN item-type set is complete. Rationale/dyad scoring and an expli
 Completed:
 - Added a deterministic proposal-only harness for the 835 residual GPT/Claude topic rows, split into queue emission for an external non-Gemini classifier and deterministic ingest/validation/report assembly after Luke supplies returned decisions.
 - Generated `audit/topic-residual-proposals-2026-06-17.queue.json` with a prominent no-Gemini warning, category-licensed candidate sets, hydrated answer/rationale context, scoped context hashes, and no `oldTopic` in classifier-facing records.
+- Luke elected to bulk-approve the Codex recommendation set rather than complete row-by-row adjudication; `audit/topic-residual-proposals-2026-06-17.full-results.json` was ingested into `audit/topic-residual-proposals-2026-06-17.manifest.json` and `audit/topic-residual-proposals-2026-06-17.report.md`.
+- Applied the 493 in-category `proposed` topic updates to canonical banks and recorded the write in `audit/topic-residual-proposals-2026-06-17.execution-manifest.json` and `audit/topic-residual-proposals-2026-06-17.execution-report.md`; blocked-cross-category, unresolved, category-untrusted, and context-incomplete rows remain unapplied.
 - Added focused regression coverage for the Gemini scope guard, no-oldTopic queue invariant, classifier metadata guard, deterministic context-incomplete/category-untrusted/already-canonical routing, and validated proposal ingest.
-- No canonical banks were modified, no topic proposals were applied, and `BANK-REVIEW-LEDGER.md` was intentionally untouched.
+- `BANK-REVIEW-LEDGER.md` was intentionally untouched because this was metadata cleanup, not new content promotion or clinical review.
 
 ### Topic Vocabulary Hygiene — Gemini Semantic Decision Pass (Jun 16)
 
