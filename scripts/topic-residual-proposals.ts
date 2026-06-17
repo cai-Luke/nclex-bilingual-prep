@@ -406,10 +406,6 @@ const buildCoreRecords = async (
     } else if (residualCategory !== hydrated.canonicalCategory) {
       integrity.push(`residual category (${residualCategory}) differs from canonical category (${hydrated.canonicalCategory})`);
     }
-    if (hydrated.parentCategory && hydrated.parentCategory !== hydrated.canonicalCategory) {
-      integrity.push(`parent category (${hydrated.parentCategory}) differs from child category (${hydrated.canonicalCategory})`);
-    }
-
     const authoritativeCategory = isCategory(hydrated.canonicalCategory) ? hydrated.canonicalCategory : null;
     const candidateSet = authoritativeCategory ? candidateSetForCategory(authoritativeCategory) : [];
     const scopedContext: ScopedContext = {

@@ -88,8 +88,9 @@ const queue = await emitQueue({
   generatedAt: "2026-06-17T00:00:00.000Z",
 });
 
-assert.equal(queue.records.length, 1);
+assert.equal(queue.records.length, 2);
 assert.equal(queue.records[0].id, "q_queued");
+assert.equal(queue.records[1].id, "q_conflict");
 assert.equal(JSON.stringify(queue.records).includes("oldTopic"), false, "queue must not expose oldTopic");
 assert.match(queue.DO_NOT_CLASSIFY_WITH_GEMINI, /DO NOT CLASSIFY/i);
 
@@ -101,6 +102,12 @@ await writeJson(resultsFile, {
       decision: "propose",
       topic: "Legal & Ethical Principles",
       reason: "The item tests respect for client legal rights.",
+    },
+    {
+      id: "q_conflict",
+      decision: "abstain",
+      topic: null,
+      reason: "The parent category differs, but the child category is trusted; no topic fit is proposed.",
     },
   ],
 });
@@ -118,7 +125,7 @@ const manifest = await ingestResults({
 const statusById = new Map(manifest.records.map((record) => [record.id, record.status]));
 assert.equal(statusById.get("q_queued"), "proposed");
 assert.equal(statusById.get("q_already"), "already-canonical");
-assert.equal(statusById.get("q_conflict"), "category-untrusted");
+assert.equal(statusById.get("q_conflict"), "unresolved");
 assert.equal(statusById.get("q_missing"), "context-incomplete");
 assert.equal(manifest.records.find((record) => record.id === "q_queued")?.proposedTopic, "Legal & Ethical Principles");
 assert.match(await readFile(reportFile, "utf8"), /Category Integrity/);
@@ -138,7 +145,10 @@ await assert.rejects(
 await writeJson(geminiFile, []);
 await writeJson(resultsFile, {
   meta: { classifier: "gemini-fixture", temperature: 0 },
-  records: [{ id: "q_queued", decision: "abstain", topic: null, reason: "No fit." }],
+  records: [
+    { id: "q_queued", decision: "abstain", topic: null, reason: "No fit." },
+    { id: "q_conflict", decision: "abstain", topic: null, reason: "No fit." },
+  ],
 });
 await assert.rejects(
   ingestResults({
@@ -155,7 +165,10 @@ await assert.rejects(
 
 await writeJson(resultsFile, {
   meta: { classifier: "gpt-fixture", temperature: 0 },
-  records: [{ id: "q_queued", decision: "invent_topic", topic: "Legal & Ethical Principles", reason: "Bad enum." }],
+  records: [
+    { id: "q_queued", decision: "invent_topic", topic: "Legal & Ethical Principles", reason: "Bad enum." },
+    { id: "q_conflict", decision: "abstain", topic: null, reason: "No fit." },
+  ],
 });
 const malformedManifest = await ingestResults({
   inputFile,
