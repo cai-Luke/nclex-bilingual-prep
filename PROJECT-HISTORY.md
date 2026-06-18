@@ -4,7 +4,7 @@ This is the living status record for Project Shrimp / NCLEX Bilingual Prep. Upda
 
 ## Coding-agent orientation
 
-For coding work, treat this file plus `NCLEX-Question-Schema.md` as the current map. `NCLEX-Prep-SPEC.md` is useful product context, but it started as a build spec and may describe historical implementation plans. `PASS2-HANDOFF.md` is explicitly historical.
+For coding work, treat this file plus `NCLEX-Question-Schema.md` as the current map. `Archive/root-specs-2026-06-18/NCLEX-Prep-SPEC.md` is useful product context, but it started as a build spec and may describe historical implementation plans. `PASS2-HANDOFF.md` is explicitly historical.
 
 Codex is the implementation agent for code changes. Other LLMs may generate or review question content, but they should not be treated as owners of app architecture.
 
@@ -57,6 +57,16 @@ Current schema item types:
 The committed NGN item-type set is complete. Rationale/dyad scoring and an explicit linked “X as evidenced by Y” type remain out of scope.
 
 ## Milestones
+
+### Summary Review Screen Polish (Jun 18)
+
+Completed:
+- Turned the end-of-session summary from a missed-question text list into an expandable review surface using the existing submitted `QuestionCard` rendering path.
+- Added per-topic session breakdown sorted by worst accuracy, then larger sample size, then topic name.
+- Added summary-local review scopes for Missed only, All answered, and Flagged, plus a summary language toggle and flagged-this-set shortcut.
+- Kept review rows derived from answered questions only; skipped/unanswered questions remain excluded.
+- Archived the root summary review spec plus other root spec/handoff files under `Archive/root-specs-2026-06-18/`.
+- Verification: `npm run build` and `npm run test-visuals` passed.
 
 ### Topic Vocabulary Hygiene — Consolidated Residual Re-Run Prep (Jun 18)
 

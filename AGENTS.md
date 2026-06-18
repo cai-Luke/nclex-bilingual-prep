@@ -14,7 +14,7 @@ Guidance for coding and content agents working on Project Shrimp / NCLEX Bilingu
 - `PROJECT-HISTORY.md` is the current status map. Update it when a meaningful implementation pass lands, verification changes, or active scope moves.
 - `NCLEX-Question-Schema.md` is the schema source of truth.
 - `BANK-REVIEW-LEDGER.md` tracks content-review status and should be updated before generated questions are treated as reviewed study material.
-- `NCLEX-Prep-SPEC.md` is useful product context, but it started as a build spec and may describe historical plans.
+- `Archive/root-specs-2026-06-18/NCLEX-Prep-SPEC.md` is useful product context, but it started as a build spec and may describe historical plans.
 - `PASS2-HANDOFF.md` is historical.
 
 ## Product Constraints

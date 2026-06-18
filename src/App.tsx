@@ -5,6 +5,7 @@ import {
   Brain,
   CheckCircle2,
   AudioLines,
+  ChevronDown,
   ChevronLeft,
   ChevronRight,
   Download,
@@ -704,6 +705,10 @@ export default function App() {
         {view === "summary" && session && (
           <SummaryView
             session={session}
+            flags={flags}
+            onToggleFlag={toggleFlag}
+            voiceEnabled={settings.voiceEnabled}
+            defaultLanguageMode={session.languageMode}
             onHome={() => setView(sessionReturnView)}
             homeLabel={sessionReturnView === "library" ? "Back to Library" : "Home"}
             relatedCount={relatedPracticePool.length}
@@ -3137,17 +3142,28 @@ function RationalePanel({
 
 function SummaryView({
   session,
+  flags,
+  onToggleFlag,
+  voiceEnabled,
+  defaultLanguageMode,
   onHome,
   homeLabel,
   relatedCount,
   onPracticeRelated,
 }: {
   session: SessionState;
+  flags: Record<string, QuestionFlag>;
+  onToggleFlag: (questionId: string) => void;
+  voiceEnabled: boolean;
+  defaultLanguageMode: LanguageMode;
   onHome: () => void;
   homeLabel: string;
   relatedCount: number;
   onPracticeRelated: () => void;
 }) {
+  const [expandedIds, setExpandedIds] = useState<Set<string>>(() => new Set());
+  const [reviewScope, setReviewScope] = useState<"missed" | "answered" | "flagged">("missed");
+  const [languageMode, setLanguageMode] = useState<LanguageMode>(defaultLanguageMode);
   const answered = Object.keys(session.results).length;
   const correct = Object.values(session.results).filter(Boolean).length;
   const incorrect = answered - correct;
@@ -3184,6 +3200,29 @@ function SummaryView({
     acc[question.difficulty] = current;
     return acc;
   }, {});
+  const byTopic = answeredQuestions.reduce<Record<string, { total: number; correct: number }>>((acc, question) => {
+    const current = acc[question.topic] ?? { total: 0, correct: 0 };
+    current.total += 1;
+    if (session.results[question.id]) current.correct += 1;
+    acc[question.topic] = current;
+    return acc;
+  }, {});
+  const topicRows = Object.entries(byTopic).sort(([leftTopic, leftCounts], [rightTopic, rightCounts]) => {
+    const leftAccuracy = leftCounts.correct / leftCounts.total;
+    const rightAccuracy = rightCounts.correct / rightCounts.total;
+    return leftAccuracy - rightAccuracy || rightCounts.total - leftCounts.total || leftTopic.localeCompare(rightTopic);
+  });
+  const flaggedQuestions = answeredQuestions.filter((question) => flags[question.id]?.flagged);
+  const reviewQuestions =
+    reviewScope === "missed" ? missed : reviewScope === "answered" ? answeredQuestions : flaggedQuestions;
+  const toggleExpanded = (id: string) => {
+    setExpandedIds((prev) => {
+      const next = new Set(prev);
+      if (next.has(id)) next.delete(id);
+      else next.add(id);
+      return next;
+    });
+  };
 
   return (
     <section className="stack">
@@ -3239,6 +3278,22 @@ function SummaryView({
         </div>
       )}
 
+      {topicRows.length > 0 && (
+        <section className="stack compact-stack">
+          <h3>Topics from this set</h3>
+          <div className="category-breakdown">
+            {topicRows.map(([topic, counts]) => (
+              <div key={topic}>
+                <span>{topic}</span>
+                <strong>
+                  {counts.correct}/{counts.total}
+                </strong>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
       {session.adaptive && (
         <section className="dashboard-panel">
           <h3>Difficulty trajectory</h3>
@@ -3252,20 +3307,111 @@ function SummaryView({
         </section>
       )}
 
-      {missed.length > 0 && (
-        <div className="question-list">
-          {missed.map((question) => (
-            <article className="question-row" key={question.id}>
-              <div>
-                <span className="missed-pill">Missed</span>
-                <h3>{question.stem.en}</h3>
-                <p>{question.topic}</p>
-              </div>
-            </article>
+      <section className="stack compact-stack">
+        <div className="section-heading">
+          <div>
+            <p className="eyebrow">Review this set</p>
+            <h3>{reviewQuestions.length} question{reviewQuestions.length === 1 ? "" : "s"}</h3>
+          </div>
+          <div className="action-row compact">
+            {flaggedQuestions.length > 0 && (
+              <button className="secondary-action" type="button" onClick={() => setReviewScope("flagged")}>
+                <Flag aria-hidden="true" />
+                <span>Flagged this set ({flaggedQuestions.length})</span>
+              </button>
+            )}
+            <LanguageTabs value={languageMode} onChange={setLanguageMode} />
+          </div>
+        </div>
+
+        <div className="segmented" role="group" aria-label="Review scope">
+          {[
+            ["missed", "Missed only"],
+            ["answered", "All answered"],
+            ["flagged", "Flagged"],
+          ].map(([scope, label]) => (
+            <button
+              className={reviewScope === scope ? "active" : ""}
+              type="button"
+              key={scope}
+              onClick={() => setReviewScope(scope as "missed" | "answered" | "flagged")}
+            >
+              {label}
+            </button>
           ))}
         </div>
-      )}
+
+        <div className="question-list">
+          {reviewQuestions.length === 0 && (
+            <div className="session-empty-state">
+              <p>
+                {reviewScope === "flagged"
+                  ? "No flagged answered questions in this set."
+                  : reviewScope === "missed"
+                    ? "No missed answered questions in this set."
+                    : "No answered questions in this set."}
+              </p>
+            </div>
+          )}
+          {reviewQuestions.map((question) => {
+            const expanded = expandedIds.has(question.id);
+            const result = session.results[question.id];
+            return (
+              <article className="summary-review-item" key={question.id}>
+                <button
+                  className="question-row interactive-row summary-review-toggle"
+                  type="button"
+                  aria-expanded={expanded}
+                  onClick={() => toggleExpanded(question.id)}
+                >
+                  <div>
+                    <span className="type-pill">{formatItemType(question.itemType)}</span>
+                    {!result && <span className="missed-pill">Missed</span>}
+                    <h3>
+                      <SummaryStemText pair={question.stem} mode={languageMode} />
+                    </h3>
+                    <p>{question.topic}</p>
+                  </div>
+                  <div className="row-status">
+                    <span className={result ? "type-pill" : "missed-pill"}>{result ? "Correct" : "Missed"}</span>
+                    <ChevronDown className={expanded ? "summary-review-chevron expanded" : "summary-review-chevron"} aria-hidden="true" />
+                  </div>
+                </button>
+                {expanded && (
+                  <div
+                    className="summary-review-body"
+                    onClick={(event) => event.stopPropagation()}
+                    onKeyDown={(event) => event.stopPropagation()}
+                  >
+                    <QuestionCard
+                      question={question}
+                      answer={session.answers[question.id] ?? getInitialAnswer(question)}
+                      submitted
+                      result={result}
+                      languageMode={languageMode}
+                      flagged={flags[question.id]?.flagged ?? false}
+                      voiceEnabled={voiceEnabled}
+                      onAnswer={() => undefined}
+                      onSubmit={() => undefined}
+                      onToggleFlag={() => onToggleFlag(question.id)}
+                    />
+                  </div>
+                )}
+              </article>
+            );
+          })}
+        </div>
+      </section>
     </section>
+  );
+}
+
+function SummaryStemText({ pair, mode }: { pair: { en: string; zh: string }; mode: LanguageMode }) {
+  return (
+    <span className="bilingual-text">
+      <span className="english-line">{pair.en}</span>
+      {mode !== "off" && <span className="chinese-line">{pair.zh}</span>}
+    </span>
   );
 }
 

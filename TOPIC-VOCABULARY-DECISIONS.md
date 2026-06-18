@@ -1,6 +1,6 @@
 # Topic Vocabulary — Decision Worksheet
 
-Companion to `TOPIC-VOCABULARY-HYGIENE-SPEC.md`.
+Companion to `Archive/root-specs-2026-06-18/TOPIC-VOCABULARY-HYGIENE-SPEC.md`.
 
 ## What this is
 
@@ -14,7 +14,7 @@ almost nothing to reconcile. Luke's final calls are recorded here:
 
 This set is canonical. Live-bank migration is conservative: **lexical aliases write** (each
 category-license-checked); **semantic aliases and the gated LLM proposal pass only suggest** until
-reviewed and approved into an execution manifest. See `TOPIC-VOCABULARY-HYGIENE-SPEC.md` Layer 3.
+reviewed and approved into an execution manifest. See `Archive/root-specs-2026-06-18/TOPIC-VOCABULARY-HYGIENE-SPEC.md` Layer 3.
 
 ## Management of Care
 

@@ -483,6 +483,31 @@ h4 {
   background: #ffffff;
 }
 
+.summary-review-toggle {
+  width: 100%;
+  text-align: left;
+}
+
+.summary-review-toggle h3 {
+  margin-top: 0.35rem;
+}
+
+.summary-review-toggle .type-pill + .missed-pill {
+  margin-left: 0.35rem;
+}
+
+.summary-review-body {
+  margin-top: 0.65rem;
+}
+
+.summary-review-chevron {
+  transition: transform 160ms ease;
+}
+
+.summary-review-chevron.expanded {
+  transform: rotate(180deg);
+}
+
 .interactive-row {
   cursor: pointer;
 }

@@ -11,7 +11,7 @@ review and the parked readings feature.
   connector (scoped to all of `/Users/holemini`). The `Filesystem:` connector is microscopy-only and
   **cannot see this repo** — an "access denied" there is a connector-selection error, not a missing file.
 - **Read current state from disk first; it drifts between sessions.** Pull, in order:
-  `TOPIC-VOCABULARY-HYGIENE-SPEC.md` (the plan + invariants), `TOPIC-VOCABULARY-DECISIONS.md` (locked
+  `Archive/root-specs-2026-06-18/TOPIC-VOCABULARY-HYGIENE-SPEC.md` (the plan + invariants), `TOPIC-VOCABULARY-DECISIONS.md` (locked
   vocabulary + judgment calls), `src/topics.ts` (source of truth), and the `audit/` reports below.
 - **Verify what actually landed**, because this handoff may be stale: did the reviewed/corrected
   **Gemini-52** proposals get written to canonical, or is that write still pending an approved
