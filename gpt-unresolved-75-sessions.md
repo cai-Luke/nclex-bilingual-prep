@@ -1,7 +1,11 @@
-# GPT Adjudication Sessions — 75 Unresolved Residual Topics
+# GPT Adjudication Sessions — 74 Remaining Unresolved Residual Topics
 
-10 sessions, grouped by category (≤15 items each). Paste one session at a time: the **Prompt**
+10 sessions, grouped by category (≤15 items each). One item was precision-adjudicated before batch work. Paste one session at a time: the **Prompt**
 block, then the **Items** block. The 46 canonical topics are listed once at the end for the out_of_category option.
+
+## Precision Adjudications Before Batch Work
+
+- `gpt_gap_jun11_or_nonpharm_pain_01` -> `Palliative & Supportive Care`: sequences nonpharmacological pain and comfort measures; removed from S06 before GPT batch work.
 
 ---
 
@@ -15,7 +19,7 @@ For each id, choose exactly one:
   - out_of_category:<canonical topic NOT in candidateSet>  — if the true topic is clearly a canonical
     topic the current category does not license. This flags a CATEGORY error (route to the category worklist).
   - abstain  — if nothing canonical genuinely fits.
-These 75 already defeated a first-pass classifier (it abstained), so expect out_of_category/abstain to be
+These remaining unresolved items already defeated a first-pass classifier (it abstained), so expect out_of_category/abstain to be
 common and legitimate. Return one line per id: <id> | <decision> | <topic-or-null> | <one-sentence reason>.
 ```
 **Items**
@@ -152,7 +156,7 @@ For each id, choose exactly one:
   - out_of_category:<canonical topic NOT in candidateSet>  — if the true topic is clearly a canonical
     topic the current category does not license. This flags a CATEGORY error (route to the category worklist).
   - abstain  — if nothing canonical genuinely fits.
-These 75 already defeated a first-pass classifier (it abstained), so expect out_of_category/abstain to be
+These remaining unresolved items already defeated a first-pass classifier (it abstained), so expect out_of_category/abstain to be
 common and legitimate. Return one line per id: <id> | <decision> | <topic-or-null> | <one-sentence reason>.
 ```
 **Items**
@@ -249,7 +253,7 @@ For each id, choose exactly one:
   - out_of_category:<canonical topic NOT in candidateSet>  — if the true topic is clearly a canonical
     topic the current category does not license. This flags a CATEGORY error (route to the category worklist).
   - abstain  — if nothing canonical genuinely fits.
-These 75 already defeated a first-pass classifier (it abstained), so expect out_of_category/abstain to be
+These remaining unresolved items already defeated a first-pass classifier (it abstained), so expect out_of_category/abstain to be
 common and legitimate. Return one line per id: <id> | <decision> | <topic-or-null> | <one-sentence reason>.
 ```
 **Items**
@@ -386,7 +390,7 @@ For each id, choose exactly one:
   - out_of_category:<canonical topic NOT in candidateSet>  — if the true topic is clearly a canonical
     topic the current category does not license. This flags a CATEGORY error (route to the category worklist).
   - abstain  — if nothing canonical genuinely fits.
-These 75 already defeated a first-pass classifier (it abstained), so expect out_of_category/abstain to be
+These remaining unresolved items already defeated a first-pass classifier (it abstained), so expect out_of_category/abstain to be
 common and legitimate. Return one line per id: <id> | <decision> | <topic-or-null> | <one-sentence reason>.
 ```
 **Items**
@@ -443,7 +447,7 @@ For each id, choose exactly one:
   - out_of_category:<canonical topic NOT in candidateSet>  — if the true topic is clearly a canonical
     topic the current category does not license. This flags a CATEGORY error (route to the category worklist).
   - abstain  — if nothing canonical genuinely fits.
-These 75 already defeated a first-pass classifier (it abstained), so expect out_of_category/abstain to be
+These remaining unresolved items already defeated a first-pass classifier (it abstained), so expect out_of_category/abstain to be
 common and legitimate. Return one line per id: <id> | <decision> | <topic-or-null> | <one-sentence reason>.
 ```
 **Items**
@@ -538,7 +542,7 @@ id: vit_10  [multiple_choice]
 
 ```
 
-## S06 — Basic Care and Comfort (7 items)
+## S06 — Basic Care and Comfort (6 items)
 
 **Prompt**
 ```
@@ -548,7 +552,7 @@ For each id, choose exactly one:
   - out_of_category:<canonical topic NOT in candidateSet>  — if the true topic is clearly a canonical
     topic the current category does not license. This flags a CATEGORY error (route to the category worklist).
   - abstain  — if nothing canonical genuinely fits.
-These 75 already defeated a first-pass classifier (it abstained), so expect out_of_category/abstain to be
+These remaining unresolved items already defeated a first-pass classifier (it abstained), so expect out_of_category/abstain to be
 common and legitimate. Return one line per id: <id> | <decision> | <topic-or-null> | <one-sentence reason>.
 ```
 **Items**
@@ -593,13 +597,6 @@ id: gpt_gap_2026_06_10_b_fib_bed_repositioning_08  [fill_in_blank]
   rationale: The care plan specifies repositioning at least every 2 hours while the client is in bed. The nurse should also teach that the schedule may be individualized based on skin tolerance, support surfaces, comfort, and clinical condition.
   (first-pass abstained: The item tests skin/wound care, and no licensed candidate genuinely fits.)
 
-id: gpt_gap_jun11_or_nonpharm_pain_01  [ordered_response]
-  oldTopic (free-text): Nonpharmacological Musculoskeletal Pain Management
-  candidateSet: ['Nutritional & Fluid Support', 'Mobility & Immobility', 'Elimination & Comfort', 'Sleep & Rest', 'Palliative & Supportive Care']
-  stem: A client reports 6/10 musculoskeletal pain. The prescribed analgesic plan is adequate, and the nurse is adding nonpharmacological comfort measures. Arrange the steps in the correct order.
-  correctAnswer: 1. Help the client change position into therapeutic alignment that avoids strain on the painful area.; 2. Apply heat or cold according to the pain type, skin condition, and client preference.; 3. Coach the client in guided breathing, relaxation, or distraction while the comfort measure is in place.; 4. Reassess the pain rating and functional response 30–60 minutes after the measures are started.; 5. Document the interventions used, the reassessment findings, and the client’s response.
-  rationale: Nonpharmacological pain care begins with positioning to reduce strain, adds appropriate thermal therapy, supports relaxation or distraction, reassesses effectiveness within a reasonable interval, and documents the intervention and response.
-  (first-pass abstained: The item tests skin/wound care, and no licensed candidate genuinely fits.)
 
 id: claude_cs_jun06_pressure_injury_bcc_01_part_4  [multiple_choice]
   oldTopic (free-text): Pressure Injury Staging and Prevention
@@ -621,7 +618,7 @@ For each id, choose exactly one:
   - out_of_category:<canonical topic NOT in candidateSet>  — if the true topic is clearly a canonical
     topic the current category does not license. This flags a CATEGORY error (route to the category worklist).
   - abstain  — if nothing canonical genuinely fits.
-These 75 already defeated a first-pass classifier (it abstained), so expect out_of_category/abstain to be
+These remaining unresolved items already defeated a first-pass classifier (it abstained), so expect out_of_category/abstain to be
 common and legitimate. Return one line per id: <id> | <decision> | <topic-or-null> | <one-sentence reason>.
 ```
 **Items**
@@ -678,7 +675,7 @@ For each id, choose exactly one:
   - out_of_category:<canonical topic NOT in candidateSet>  — if the true topic is clearly a canonical
     topic the current category does not license. This flags a CATEGORY error (route to the category worklist).
   - abstain  — if nothing canonical genuinely fits.
-These 75 already defeated a first-pass classifier (it abstained), so expect out_of_category/abstain to be
+These remaining unresolved items already defeated a first-pass classifier (it abstained), so expect out_of_category/abstain to be
 common and legitimate. Return one line per id: <id> | <decision> | <topic-or-null> | <one-sentence reason>.
 ```
 **Items**
@@ -727,7 +724,7 @@ For each id, choose exactly one:
   - out_of_category:<canonical topic NOT in candidateSet>  — if the true topic is clearly a canonical
     topic the current category does not license. This flags a CATEGORY error (route to the category worklist).
   - abstain  — if nothing canonical genuinely fits.
-These 75 already defeated a first-pass classifier (it abstained), so expect out_of_category/abstain to be
+These remaining unresolved items already defeated a first-pass classifier (it abstained), so expect out_of_category/abstain to be
 common and legitimate. Return one line per id: <id> | <decision> | <topic-or-null> | <one-sentence reason>.
 ```
 **Items**
@@ -760,7 +757,7 @@ For each id, choose exactly one:
   - out_of_category:<canonical topic NOT in candidateSet>  — if the true topic is clearly a canonical
     topic the current category does not license. This flags a CATEGORY error (route to the category worklist).
   - abstain  — if nothing canonical genuinely fits.
-These 75 already defeated a first-pass classifier (it abstained), so expect out_of_category/abstain to be
+These remaining unresolved items already defeated a first-pass classifier (it abstained), so expect out_of_category/abstain to be
 common and legitimate. Return one line per id: <id> | <decision> | <topic-or-null> | <one-sentence reason>.
 ```
 **Items**

@@ -1,7 +1,7 @@
 {
   "DO_NOT_CLASSIFY_WITH_GEMINI": "Use any capable non-Gemini model. Gemini is the compile-step origin and is excluded.",
-  "purpose": "Human-in-the-loop adjudication of the 75 unresolved residual topics, in small sessions.",
-  "instructions": "You are assigning ONE canonical NCLEX topic to each item, or determining the category itself is wrong.\nFor each id, choose exactly one:\n  - propose:<canonical topic FROM candidateSet>  \u2014 only if it genuinely fits. Do NOT pick the least-bad.\n  - out_of_category:<canonical topic NOT in candidateSet>  \u2014 if the true topic is clearly a canonical\n    topic the current category does not license. This flags a CATEGORY error (route to the category worklist).\n  - abstain  \u2014 if nothing canonical genuinely fits.\nThese 75 already defeated a first-pass classifier (it abstained), so expect out_of_category/abstain to be\ncommon and legitimate. Return one line per id: <id> | <decision> | <topic-or-null> | <one-sentence reason>.",
+  "purpose": "Human-in-the-loop adjudication of the 74 remaining unresolved residual topics, in small sessions. One item was precision-adjudicated before batch work.",
+  "instructions": "You are assigning ONE canonical NCLEX topic to each item, or determining the category itself is wrong.\nFor each id, choose exactly one:\n  - propose:<canonical topic FROM candidateSet>  — only if it genuinely fits. Do NOT pick the least-bad.\n  - out_of_category:<canonical topic NOT in candidateSet>  — if the true topic is clearly a canonical\n    topic the current category does not license. This flags a CATEGORY error (route to the category worklist).\n  - abstain  — if nothing canonical genuinely fits.\nThese remaining unresolved items already defeated a first-pass classifier (it abstained), so expect out_of_category/abstain to be\ncommon and legitimate. Return one line per id: <id> | <decision> | <topic-or-null> | <one-sentence reason>.",
   "fullCanonicalTopics": [
     "Prioritization & Delegation",
     "Legal & Ethical Principles",
@@ -70,7 +70,7 @@
           ],
           "stem": "A nurse checks an IV infusion pump while planning the next assessment. Using the screen shown, calculate how many minutes remain until the programmed volume to be infused is complete if the rate is unchanged. Record a whole number.",
           "correctAnswer": "b1: 120 min (tolerance 0)",
-          "rationale": "The pump shows VTBI 250 mL and rate 125 mL/hr. Time = VTBI \u00f7 rate \u00d7 60 = 250 \u00f7 125 \u00d7 60 = 120 minutes.",
+          "rationale": "The pump shows VTBI 250 mL and rate 125 mL/hr. Time = VTBI ÷ rate × 60 = 250 ÷ 125 × 60 = 120 minutes.",
           "firstPassAbstainReason": "No candidate topic genuinely fits the scoped context."
         },
         {
@@ -166,7 +166,7 @@
           ],
           "stem": "The client weighs 80 kg. Calculate the urine output for the last 8 hr in mL/kg/hr. Round to the nearest hundredth.",
           "correctAnswer": "b1: 0.19 mL/kg/hr (tolerance 0.01)",
-          "rationale": "Urine output is 120 mL \u00f7 80 kg \u00f7 8 hr = 0.1875 mL/kg/hr, rounded to 0.19 mL/kg/hr. This is oliguria and supports ongoing AKI risk.",
+          "rationale": "Urine output is 120 mL ÷ 80 kg ÷ 8 hr = 0.1875 mL/kg/hr, rounded to 0.19 mL/kg/hr. This is oliguria and supports ongoing AKI risk.",
           "firstPassAbstainReason": "No candidate topic genuinely fits the scoped context."
         },
         {
@@ -213,8 +213,8 @@
             "Laboratory & Diagnostic Tests"
           ],
           "stem": "During a home health visit, the nurse reviews a wound-care log. Last visit, the wound measured 3.5 cm by 2.0 cm. Today it measures 4.5 cm by 2.4 cm. By how many square centimeters did the wound area increase? Round to the nearest tenth if needed.",
-          "correctAnswer": "b1: 3.8 cm\u00b2 (tolerance 0)",
-          "rationale": "Last area: 3.5 \u00d7 2.0 = 7.0 cm\u00b2. Today's area: 4.5 \u00d7 2.4 = 10.8 cm\u00b2. Increase: 10.8 \u2212 7.0 = 3.8 cm\u00b2.",
+          "correctAnswer": "b1: 3.8 cm² (tolerance 0)",
+          "rationale": "Last area: 3.5 × 2.0 = 7.0 cm². Today's area: 4.5 × 2.4 = 10.8 cm². Increase: 10.8 − 7.0 = 3.8 cm².",
           "firstPassAbstainReason": "No candidate topic genuinely fits the scoped context."
         },
         {
@@ -245,8 +245,8 @@
             "Laboratory & Diagnostic Tests"
           ],
           "stem": "The nurse reviews the clinical cues from Stage 1. For each cue, indicate whether it supports early Cytokine Release Syndrome (CRS), neutropenic fever/sepsis risk, or is a nonspecific finding. Each row may have more than one correct category.",
-          "correctAnswer": "Fever, rigors, and myalgias: Supports early Cytokine Release Syndrome (CRS), Supports neutropenic fever/sepsis risk; Absolute neutrophil count (ANC) 0.1 \u00d7 10\u00b3/\u00b5L: Supports neutropenic fever/sepsis risk; CRP 86 mg/L and ferritin 1,450 ng/mL: Supports early Cytokine Release Syndrome (CRS); Mild fatigue reported at 1600: Nonspecific or expected finding",
-          "rationale": "Recognizing the clinical signs of both CRS and neutropenic fever is critical in the post-CAR-T setting. Fever, rigors, and myalgias are hallmark initial signs of CRS but are also classic symptoms of sepsis in a neutropenic patient. An ANC of 0.1 \u00d7 10\u00b3/\u00b5L places the patient at profound risk for neutropenic fever and sepsis, requiring immediate intervention. The elevation of CRP and ferritin strongly supports the onset of CRS. Mild fatigue is a nonspecific finding often expected following lymphodepleting chemotherapy.",
+          "correctAnswer": "Fever, rigors, and myalgias: Supports early Cytokine Release Syndrome (CRS), Supports neutropenic fever/sepsis risk; Absolute neutrophil count (ANC) 0.1 × 10³/µL: Supports neutropenic fever/sepsis risk; CRP 86 mg/L and ferritin 1,450 ng/mL: Supports early Cytokine Release Syndrome (CRS); Mild fatigue reported at 1600: Nonspecific or expected finding",
+          "rationale": "Recognizing the clinical signs of both CRS and neutropenic fever is critical in the post-CAR-T setting. Fever, rigors, and myalgias are hallmark initial signs of CRS but are also classic symptoms of sepsis in a neutropenic patient. An ANC of 0.1 × 10³/µL places the patient at profound risk for neutropenic fever and sepsis, requiring immediate intervention. The elevation of CRP and ferritin strongly supports the onset of CRS. Mild fatigue is a nonspecific finding often expected following lymphodepleting chemotherapy.",
           "firstPassAbstainReason": "No candidate topic genuinely fits the scoped context."
         },
         {
@@ -349,7 +349,7 @@
           ],
           "stem": "A nurse reviews the 8-hour intake and output record below for a client with heart failure. Calculate the client's net fluid balance for the shift. Record the answer in milliliters (mL), including the sign.",
           "correctAnswer": "b1: 580 mL (tolerance 0)",
-          "rationale": "Intake totals 360 + 240 + 500 + 100 = 1,200 mL. Output totals 560 + 60 = 620 mL. Net balance = 1,200 \u2212 620 = +580 mL. A positive balance in heart failure requires continued assessment for fluid overload.",
+          "rationale": "Intake totals 360 + 240 + 500 + 100 = 1,200 mL. Output totals 560 + 60 = 620 mL. Net balance = 1,200 − 620 = +580 mL. A positive balance in heart failure requires continued assessment for fluid overload.",
           "firstPassAbstainReason": "No candidate topic genuinely fits the scoped context."
         },
         {
@@ -381,7 +381,7 @@
           ],
           "stem": "A client is completing bowel preparation for a colonoscopy. The nurse reviews the intake and output record below. Classify each nursing action.",
           "correctAnswer": "Assess orthostatic vital signs and mucous membranes.: Appropriate action; Encourage allowed clear liquids if not contraindicated.: Appropriate action; Ignore the balance because stool output is expected during bowel preparation.: Inappropriate action; Notify the provider of dizziness, hypotension, or inability to maintain intake.: Appropriate action",
-          "rationale": "Intake totals 1,290 mL and output totals 2,500 mL, giving a net balance of \u22121,210 mL. Stool output is expected with bowel preparation, but the net deficit still requires assessment for dehydration, encouragement of permitted clear liquids if safe, and provider notification for concerning symptoms or inability to maintain intake.",
+          "rationale": "Intake totals 1,290 mL and output totals 2,500 mL, giving a net balance of −1,210 mL. Stool output is expected with bowel preparation, but the net deficit still requires assessment for dehydration, encouragement of permitted clear liquids if safe, and provider notification for concerning symptoms or inability to maintain intake.",
           "firstPassAbstainReason": "No candidate topic genuinely fits the scoped context."
         },
         {
@@ -1088,7 +1088,7 @@
     {
       "sessionId": "S06",
       "category": "Basic Care and Comfort",
-      "count": 7,
+      "count": 6,
       "records": [
         {
           "id": "opus_bcc_rehab_2026_06_10_06",
@@ -1154,7 +1154,7 @@
             "Palliative & Supportive Care"
           ],
           "stem": "A client with decreased sensation in the lower body is learning home skin care. The nurse teaches the client to inspect high-pressure areas at least once each _____.",
-          "correctAnswer": "b1: day / daily / each day / 24 hours / twenty-four hours / \u4e00\u5929 / \u6bcf\u5929",
+          "correctAnswer": "b1: day / daily / each day / 24 hours / twenty-four hours / 一天 / 每天",
           "rationale": "Clients with decreased sensation may not feel early pressure or friction injury. Daily inspection of high-pressure areas supports early identification of redness, moisture damage, or skin breakdown.",
           "firstPassAbstainReason": "The item tests skin/wound care, and no licensed candidate genuinely fits."
         },
@@ -1173,23 +1173,6 @@
           "stem": "A bedbound client is at risk for pressure injury. The facility care plan states the client should be turned at least every 2 hours while in bed unless an individualized plan requires a different interval. Complete the teaching statement for the family caregiver.",
           "correctAnswer": "b1: 2 hours (tolerance 0)",
           "rationale": "The care plan specifies repositioning at least every 2 hours while the client is in bed. The nurse should also teach that the schedule may be individualized based on skin tolerance, support surfaces, comfort, and clinical condition.",
-          "firstPassAbstainReason": "The item tests skin/wound care, and no licensed candidate genuinely fits."
-        },
-        {
-          "id": "gpt_gap_jun11_or_nonpharm_pain_01",
-          "itemType": "ordered_response",
-          "category": "Basic Care and Comfort",
-          "oldTopic": "Nonpharmacological Musculoskeletal Pain Management",
-          "candidateSet": [
-            "Nutritional & Fluid Support",
-            "Mobility & Immobility",
-            "Elimination & Comfort",
-            "Sleep & Rest",
-            "Palliative & Supportive Care"
-          ],
-          "stem": "A client reports 6/10 musculoskeletal pain. The prescribed analgesic plan is adequate, and the nurse is adding nonpharmacological comfort measures. Arrange the steps in the correct order.",
-          "correctAnswer": "1. Help the client change position into therapeutic alignment that avoids strain on the painful area.; 2. Apply heat or cold according to the pain type, skin condition, and client preference.; 3. Coach the client in guided breathing, relaxation, or distraction while the comfort measure is in place.; 4. Reassess the pain rating and functional response 30\u201360 minutes after the measures are started.; 5. Document the interventions used, the reassessment findings, and the client\u2019s response.",
-          "rationale": "Nonpharmacological pain care begins with positioning to reduce strain, adds appropriate thermal therapy, supports relaxation or distraction, reassesses effectiveness within a reasonable interval, and documents the intervention and response.",
           "firstPassAbstainReason": "The item tests skin/wound care, and no licensed candidate genuinely fits."
         },
         {
@@ -1413,7 +1396,7 @@
           ],
           "stem": "Review the enteral feeding pump screen. If the displayed settings continue unchanged, over how many hours will the volume to be infused run? Round to the nearest whole number.",
           "correctAnswer": "b1: 4 hr (tolerance 0)",
-          "rationale": "The pump shows a rate of 60 mL/hr and a volume to be infused of 240 mL. Duration is 240 \u00f7 60 = 4 hours.",
+          "rationale": "The pump shows a rate of 60 mL/hr and a volume to be infused of 240 mL. Duration is 240 ÷ 60 = 4 hours.",
           "firstPassAbstainReason": "No candidate topic genuinely fits the scoped context."
         },
         {
@@ -1461,6 +1444,16 @@
           "firstPassAbstainReason": "No candidate topic genuinely fits the scoped context."
         }
       ]
+    }
+  ],
+  "precisionAdjudications": [
+    {
+      "id": "gpt_gap_jun11_or_nonpharm_pain_01",
+      "decision": "propose",
+      "topic": "Palliative & Supportive Care",
+      "reason": "The item sequences nonpharmacological pain and comfort measures, which fits Palliative & Supportive Care better than mobility training.",
+      "source": "precision adjudication before GPT unresolved batch work",
+      "adjudicatedAt": "2026-06-17T22:42:37.588Z"
     }
   ]
 }

@@ -1,0 +1,481 @@
+{
+  "meta": {
+    "generatedAt": "2026-06-17T22:53:53.026Z",
+    "mode": "dry-run",
+    "scope": "S01 only from gpt-unresolved-75.json",
+    "canonicalBankWrites": false,
+    "topicsWrites": false
+  },
+  "vocabularyChanges": [
+    {
+      "kind": "shared_license",
+      "topic": "Maternal-Newborn Care & Teaching",
+      "before": [
+        "Health Promotion and Maintenance"
+      ],
+      "after": [
+        "Health Promotion and Maintenance",
+        "Reduction of Risk Potential",
+        "Physiological Adaptation"
+      ],
+      "dryRunDiff": "src/topics.ts: move/add topic to SHARED_TOPIC_CATEGORY with HPM/RRP/PhysAdapt licensing; remove strict-only HPM duplicate during write."
+    },
+    {
+      "kind": "add_strict_topic",
+      "topic": "Skin & Wound Care",
+      "before": null,
+      "after": {
+        "category": "Basic Care and Comfort"
+      },
+      "dryRunDiff": "src/topics.ts: add TOPICS.SKIN_WOUND_CARE and include it in STRICT_TOPIC_CATEGORY[\"Basic Care and Comfort\"]."
+    },
+    {
+      "kind": "add_shared_topic",
+      "topic": "Oncology & Immunotherapy Complications",
+      "before": null,
+      "after": [
+        "Physiological Adaptation",
+        "Reduction of Risk Potential"
+      ],
+      "dryRunDiff": "src/topics.ts: add TOPICS.ONCOLOGY_IMMUNOTHERAPY_COMPLICATIONS and include it in SHARED_TOPIC_CATEGORY for PhysAdapt/RRP."
+    }
+  ],
+  "safetySummary": {
+    "topicOnlyWrites": 1,
+    "categoryAndTopicWrites": 10,
+    "vocabularyLicensingChanges": 3,
+    "rowsLeftUntouched": 0,
+    "notFound": [],
+    "ambiguousMatches": [],
+    "totalRows": 15,
+    "vocabularyOnlyThenTopicWrites": 4,
+    "totalTopicFieldOnlyBankWrites": 5
+  },
+  "rows": [
+    {
+      "id": "dev_infusion_duration_vtbi_01",
+      "sourceBank": "device-canonical.json",
+      "parentCaseId": null,
+      "childPath": "questions.5",
+      "embedded": false,
+      "itemType": "fill_in_blank",
+      "currentCategory": "Reduction of Risk Potential",
+      "currentTopic": "infusion pump time verification",
+      "proposedCategory": "Pharmacological and Parenteral Therapies",
+      "proposedTopic": "Dosage Calculations",
+      "gptDecision": "out_of_category",
+      "decisionType": "category_and_topic",
+      "reason": "The item calculates infusion time from VTBI and rate, which fits calculation/infusion math better than an RRP diagnostic or procedural topic.",
+      "found": true,
+      "ambiguous": false,
+      "diffPreview": [
+        {
+          "path": "banks/device-canonical.json:questions.5.category",
+          "before": "Reduction of Risk Potential",
+          "after": "Pharmacological and Parenteral Therapies"
+        },
+        {
+          "path": "banks/device-canonical.json:questions.5.topic",
+          "before": "infusion pump time verification",
+          "after": "Dosage Calculations"
+        }
+      ],
+      "requiresVocabularyChange": false
+    },
+    {
+      "id": "gpt_u6_matrix_cloze_2026_06_09_cloze_transfusion_trali_09",
+      "sourceBank": "gpt-canonical.json",
+      "parentCaseId": null,
+      "childPath": "questions.130",
+      "embedded": false,
+      "itemType": "dropdown_cloze",
+      "currentCategory": "Reduction of Risk Potential",
+      "currentTopic": "Transfusion-related acute lung injury response",
+      "proposedCategory": "Reduction of Risk Potential",
+      "proposedTopic": "Procedural Complications & Dialysis",
+      "gptDecision": "propose",
+      "decisionType": "topic_only",
+      "reason": "The item tests recognition and immediate nursing response to a transfusion complication, which genuinely fits the procedural-complication bucket.",
+      "found": true,
+      "ambiguous": false,
+      "diffPreview": [
+        {
+          "path": "banks/gpt-canonical.json:questions.130.topic",
+          "before": "Transfusion-related acute lung injury response",
+          "after": "Procedural Complications & Dialysis"
+        }
+      ],
+      "requiresVocabularyChange": false
+    },
+    {
+      "id": "gpt_case_gap_2026_06_11_case_tls_01_q4",
+      "sourceBank": "gpt-canonical.json",
+      "parentCaseId": "gpt_case_gap_2026_06_11_case_tls_01",
+      "childPath": "questions.183.caseStudy.questions.3",
+      "embedded": true,
+      "itemType": "fill_in_blank",
+      "currentCategory": "Reduction of Risk Potential",
+      "currentTopic": "tumor lysis syndrome urine output monitoring",
+      "proposedCategory": "Physiological Adaptation",
+      "proposedTopic": "Renal & Gastrointestinal Disorders",
+      "gptDecision": "out_of_category",
+      "decisionType": "category_and_topic",
+      "reason": "The item interprets oliguria in TLS-associated kidney injury rather than ABG, perioperative care, procedural complications, or diagnostic testing.",
+      "found": true,
+      "ambiguous": false,
+      "diffPreview": [
+        {
+          "path": "banks/gpt-canonical.json:questions.183.caseStudy.questions.3.category",
+          "before": "Reduction of Risk Potential",
+          "after": "Physiological Adaptation"
+        },
+        {
+          "path": "banks/gpt-canonical.json:questions.183.caseStudy.questions.3.topic",
+          "before": "tumor lysis syndrome urine output monitoring",
+          "after": "Renal & Gastrointestinal Disorders"
+        }
+      ],
+      "requiresVocabularyChange": false
+    },
+    {
+      "id": "gpt_case_gap_2026_06_11_adhf_cloze_02",
+      "sourceBank": "gpt-canonical.json",
+      "parentCaseId": "gpt_case_gap_2026_06_11_case_adhf_01",
+      "childPath": "questions.184.caseStudy.questions.1",
+      "embedded": true,
+      "itemType": "dropdown_cloze",
+      "currentCategory": "Reduction of Risk Potential",
+      "currentTopic": "Acute pulmonary edema in heart failure",
+      "proposedCategory": "Physiological Adaptation",
+      "proposedTopic": "Cardiovascular Disorders",
+      "gptDecision": "out_of_category",
+      "decisionType": "category_and_topic",
+      "reason": "The item identifies acute pulmonary edema/respiratory failure from decompensated heart failure, which is cardiovascular physiology.",
+      "found": true,
+      "ambiguous": false,
+      "diffPreview": [
+        {
+          "path": "banks/gpt-canonical.json:questions.184.caseStudy.questions.1.category",
+          "before": "Reduction of Risk Potential",
+          "after": "Physiological Adaptation"
+        },
+        {
+          "path": "banks/gpt-canonical.json:questions.184.caseStudy.questions.1.topic",
+          "before": "Acute pulmonary edema in heart failure",
+          "after": "Cardiovascular Disorders"
+        }
+      ],
+      "requiresVocabularyChange": false
+    },
+    {
+      "id": "gpt_case_gap_2026_06_11_adhf_fib_04",
+      "sourceBank": "gpt-canonical.json",
+      "parentCaseId": "gpt_case_gap_2026_06_11_case_adhf_01",
+      "childPath": "questions.184.caseStudy.questions.3",
+      "embedded": true,
+      "itemType": "fill_in_blank",
+      "currentCategory": "Reduction of Risk Potential",
+      "currentTopic": "Evaluating diuretic response",
+      "proposedCategory": "Physiological Adaptation",
+      "proposedTopic": "Cardiovascular Disorders",
+      "gptDecision": "out_of_category",
+      "decisionType": "category_and_topic",
+      "reason": "The net fluid balance is used to evaluate diuretic response in acute decompensated heart failure.",
+      "found": true,
+      "ambiguous": false,
+      "diffPreview": [
+        {
+          "path": "banks/gpt-canonical.json:questions.184.caseStudy.questions.3.category",
+          "before": "Reduction of Risk Potential",
+          "after": "Physiological Adaptation"
+        },
+        {
+          "path": "banks/gpt-canonical.json:questions.184.caseStudy.questions.3.topic",
+          "before": "Evaluating diuretic response",
+          "after": "Cardiovascular Disorders"
+        }
+      ],
+      "requiresVocabularyChange": false
+    },
+    {
+      "id": "gpt_case_gap_2026_06_11_aki_cloze_02",
+      "sourceBank": "gpt-canonical.json",
+      "parentCaseId": "gpt_case_gap_2026_06_11_case_aki_02",
+      "childPath": "questions.185.caseStudy.questions.1",
+      "embedded": true,
+      "itemType": "dropdown_cloze",
+      "currentCategory": "Reduction of Risk Potential",
+      "currentTopic": "Hyperkalemia in acute kidney injury",
+      "proposedCategory": "Physiological Adaptation",
+      "proposedTopic": "Electrolyte Imbalances",
+      "gptDecision": "out_of_category",
+      "decisionType": "category_and_topic",
+      "reason": "The central cue is severe hyperkalemia with ECG changes and risk for lethal dysrhythmia.",
+      "found": true,
+      "ambiguous": false,
+      "diffPreview": [
+        {
+          "path": "banks/gpt-canonical.json:questions.185.caseStudy.questions.1.category",
+          "before": "Reduction of Risk Potential",
+          "after": "Physiological Adaptation"
+        },
+        {
+          "path": "banks/gpt-canonical.json:questions.185.caseStudy.questions.1.topic",
+          "before": "Hyperkalemia in acute kidney injury",
+          "after": "Electrolyte Imbalances"
+        }
+      ],
+      "requiresVocabularyChange": false
+    },
+    {
+      "id": "gpt_case_gap_2026_06_11_aki_fib_04",
+      "sourceBank": "gpt-canonical.json",
+      "parentCaseId": "gpt_case_gap_2026_06_11_case_aki_02",
+      "childPath": "questions.185.caseStudy.questions.3",
+      "embedded": true,
+      "itemType": "fill_in_blank",
+      "currentCategory": "Reduction of Risk Potential",
+      "currentTopic": "Oliguria in acute kidney injury",
+      "proposedCategory": "Physiological Adaptation",
+      "proposedTopic": "Renal & Gastrointestinal Disorders",
+      "gptDecision": "out_of_category",
+      "decisionType": "category_and_topic",
+      "reason": "The item calculates oliguria in acute kidney injury, which is renal physiologic adaptation.",
+      "found": true,
+      "ambiguous": false,
+      "diffPreview": [
+        {
+          "path": "banks/gpt-canonical.json:questions.185.caseStudy.questions.3.category",
+          "before": "Reduction of Risk Potential",
+          "after": "Physiological Adaptation"
+        },
+        {
+          "path": "banks/gpt-canonical.json:questions.185.caseStudy.questions.3.topic",
+          "before": "Oliguria in acute kidney injury",
+          "after": "Renal & Gastrointestinal Disorders"
+        }
+      ],
+      "requiresVocabularyChange": false
+    },
+    {
+      "id": "gpt_case_gap_2026_06_11_adrenal_fib_04",
+      "sourceBank": "gpt-canonical.json",
+      "parentCaseId": "gpt_case_gap_2026_06_11_case_adrenal_crisis_04",
+      "childPath": "questions.187.caseStudy.questions.3",
+      "embedded": true,
+      "itemType": "fill_in_blank",
+      "currentCategory": "Reduction of Risk Potential",
+      "currentTopic": "Mean arterial pressure in shock",
+      "proposedCategory": "Physiological Adaptation",
+      "proposedTopic": "Cardiovascular Disorders",
+      "gptDecision": "out_of_category",
+      "decisionType": "category_and_topic",
+      "reason": "The item calculates MAP and interprets shock-level perfusion, which is hemodynamic/cardiovascular rather than an RRP candidate topic.",
+      "found": true,
+      "ambiguous": false,
+      "diffPreview": [
+        {
+          "path": "banks/gpt-canonical.json:questions.187.caseStudy.questions.3.category",
+          "before": "Reduction of Risk Potential",
+          "after": "Physiological Adaptation"
+        },
+        {
+          "path": "banks/gpt-canonical.json:questions.187.caseStudy.questions.3.topic",
+          "before": "Mean arterial pressure in shock",
+          "after": "Cardiovascular Disorders"
+        }
+      ],
+      "requiresVocabularyChange": false
+    },
+    {
+      "id": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q1",
+      "sourceBank": "gpt-canonical.json",
+      "parentCaseId": "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02",
+      "childPath": "questions.243.caseStudy.questions.0",
+      "embedded": true,
+      "itemType": "multiple_choice",
+      "currentCategory": "Reduction of Risk Potential",
+      "currentTopic": "post-fall assessment",
+      "proposedCategory": "Safety and Infection Control",
+      "proposedTopic": "Patient & Environment Safety",
+      "gptDecision": "out_of_category",
+      "decisionType": "category_and_topic",
+      "reason": "The item tests post-fall safety assessment before moving a resident.",
+      "found": true,
+      "ambiguous": false,
+      "diffPreview": [
+        {
+          "path": "banks/gpt-canonical.json:questions.243.caseStudy.questions.0.category",
+          "before": "Reduction of Risk Potential",
+          "after": "Safety and Infection Control"
+        },
+        {
+          "path": "banks/gpt-canonical.json:questions.243.caseStudy.questions.0.topic",
+          "before": "post-fall assessment",
+          "after": "Patient & Environment Safety"
+        }
+      ],
+      "requiresVocabularyChange": false
+    },
+    {
+      "id": "gpt_gap_2026_06_12_nonmcq_balanced_fib_wound_teachback_12",
+      "sourceBank": "gpt-canonical.json",
+      "parentCaseId": null,
+      "childPath": "questions.253",
+      "embedded": false,
+      "itemType": "fill_in_blank",
+      "currentCategory": "Reduction of Risk Potential",
+      "currentTopic": "home health wound-care teaching with teach-back failure",
+      "proposedCategory": "Basic Care and Comfort",
+      "proposedTopic": "Skin & Wound Care",
+      "gptDecision": "out_of_category",
+      "decisionType": "category_and_topic",
+      "reason": "The item calculates wound area change and belongs with wound monitoring/skin care now that Skin & Wound Care is an approved canonical topic.",
+      "found": true,
+      "ambiguous": false,
+      "diffPreview": [
+        {
+          "path": "banks/gpt-canonical.json:questions.253.category",
+          "before": "Reduction of Risk Potential",
+          "after": "Basic Care and Comfort"
+        },
+        {
+          "path": "banks/gpt-canonical.json:questions.253.topic",
+          "before": "home health wound-care teaching with teach-back failure",
+          "after": "Skin & Wound Care"
+        }
+      ],
+      "requiresVocabularyChange": true
+    },
+    {
+      "id": "hl_smoke_2026_06_14_aki_hyperkalemia_01",
+      "sourceBank": "gpt-canonical.json",
+      "parentCaseId": null,
+      "childPath": "questions.269",
+      "embedded": false,
+      "itemType": "highlight",
+      "currentCategory": "Reduction of Risk Potential",
+      "currentTopic": "acute kidney injury and hyperkalemia",
+      "proposedCategory": "Physiological Adaptation",
+      "proposedTopic": "Electrolyte Imbalances",
+      "gptDecision": "out_of_category",
+      "decisionType": "category_and_topic",
+      "reason": "The immediate-follow-up cues center on dangerous hyperkalemia with peaked T waves.",
+      "found": true,
+      "ambiguous": false,
+      "diffPreview": [
+        {
+          "path": "banks/gpt-canonical.json:questions.269.category",
+          "before": "Reduction of Risk Potential",
+          "after": "Physiological Adaptation"
+        },
+        {
+          "path": "banks/gpt-canonical.json:questions.269.topic",
+          "before": "acute kidney injury and hyperkalemia",
+          "after": "Electrolyte Imbalances"
+        }
+      ],
+      "requiresVocabularyChange": false
+    },
+    {
+      "id": "opus_car_t_crs_2026_06_11_case_01_q1",
+      "sourceBank": "hard-cases-canonical.json",
+      "parentCaseId": "opus_car_t_crs_2026_06_11_case_01",
+      "childPath": "questions.38.caseStudy.questions.0",
+      "embedded": true,
+      "itemType": "matrix",
+      "currentCategory": "Reduction of Risk Potential",
+      "currentTopic": "CAR-T cytokine release syndrome and ICANS monitoring",
+      "proposedCategory": "Reduction of Risk Potential",
+      "proposedTopic": "Oncology & Immunotherapy Complications",
+      "gptDecision": "out_of_category",
+      "decisionType": "vocabulary_only_then_topic",
+      "reason": "The item tests CAR-T CRS/ICANS monitoring with concurrent neutropenic fever/sepsis risk, which belongs under the approved oncology/immunotherapy complication topic.",
+      "found": true,
+      "ambiguous": false,
+      "diffPreview": [
+        {
+          "path": "banks/hard-cases-canonical.json:questions.38.caseStudy.questions.0.topic",
+          "before": "CAR-T cytokine release syndrome and ICANS monitoring",
+          "after": "Oncology & Immunotherapy Complications"
+        }
+      ],
+      "requiresVocabularyChange": true
+    },
+    {
+      "id": "opus_car_t_crs_2026_06_11_case_01_q2",
+      "sourceBank": "hard-cases-canonical.json",
+      "parentCaseId": "opus_car_t_crs_2026_06_11_case_01",
+      "childPath": "questions.38.caseStudy.questions.1",
+      "embedded": true,
+      "itemType": "select_all",
+      "currentCategory": "Reduction of Risk Potential",
+      "currentTopic": "CAR-T cytokine release syndrome and ICANS monitoring",
+      "proposedCategory": "Reduction of Risk Potential",
+      "proposedTopic": "Oncology & Immunotherapy Complications",
+      "gptDecision": "out_of_category",
+      "decisionType": "vocabulary_only_then_topic",
+      "reason": "The item requires concurrent CRS-pathway and neutropenic fever/sepsis management after CAR-T therapy.",
+      "found": true,
+      "ambiguous": false,
+      "diffPreview": [
+        {
+          "path": "banks/hard-cases-canonical.json:questions.38.caseStudy.questions.1.topic",
+          "before": "CAR-T cytokine release syndrome and ICANS monitoring",
+          "after": "Oncology & Immunotherapy Complications"
+        }
+      ],
+      "requiresVocabularyChange": true
+    },
+    {
+      "id": "opus_car_t_crs_2026_06_11_case_01_q3",
+      "sourceBank": "hard-cases-canonical.json",
+      "parentCaseId": "opus_car_t_crs_2026_06_11_case_01",
+      "childPath": "questions.38.caseStudy.questions.2",
+      "embedded": true,
+      "itemType": "ordered_response",
+      "currentCategory": "Reduction of Risk Potential",
+      "currentTopic": "CAR-T cytokine release syndrome and ICANS monitoring",
+      "proposedCategory": "Reduction of Risk Potential",
+      "proposedTopic": "Oncology & Immunotherapy Complications",
+      "gptDecision": "out_of_category",
+      "decisionType": "vocabulary_only_then_topic",
+      "reason": "The sequence addresses CRS/ICANS escalation after CAR-T therapy, including oxygen, fluids, tocilizumab, dexamethasone, and ICU preparation.",
+      "found": true,
+      "ambiguous": false,
+      "diffPreview": [
+        {
+          "path": "banks/hard-cases-canonical.json:questions.38.caseStudy.questions.2.topic",
+          "before": "CAR-T cytokine release syndrome and ICANS monitoring",
+          "after": "Oncology & Immunotherapy Complications"
+        }
+      ],
+      "requiresVocabularyChange": true
+    },
+    {
+      "id": "opus_car_t_crs_2026_06_11_case_01_q5",
+      "sourceBank": "hard-cases-canonical.json",
+      "parentCaseId": "opus_car_t_crs_2026_06_11_case_01",
+      "childPath": "questions.38.caseStudy.questions.4",
+      "embedded": true,
+      "itemType": "dropdown_cloze",
+      "currentCategory": "Reduction of Risk Potential",
+      "currentTopic": "CAR-T cytokine release syndrome and ICANS monitoring",
+      "proposedCategory": "Reduction of Risk Potential",
+      "proposedTopic": "Oncology & Immunotherapy Complications",
+      "gptDecision": "out_of_category",
+      "decisionType": "vocabulary_only_then_topic",
+      "reason": "The item evaluates response after tocilizumab/dexamethasone for CRS/ICANS and ongoing recurrence monitoring.",
+      "found": true,
+      "ambiguous": false,
+      "diffPreview": [
+        {
+          "path": "banks/hard-cases-canonical.json:questions.38.caseStudy.questions.4.topic",
+          "before": "CAR-T cytokine release syndrome and ICANS monitoring",
+          "after": "Oncology & Immunotherapy Complications"
+        }
+      ],
+      "requiresVocabularyChange": true
+    }
+  ]
+}

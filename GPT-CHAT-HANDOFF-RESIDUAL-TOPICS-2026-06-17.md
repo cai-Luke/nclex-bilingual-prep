@@ -15,7 +15,7 @@ Use this handoff for small-batch GPT chat work after the 2026-06-17 Codex topic-
 
 ## Do Not Touch Automatically
 
-The 75 unresolved rows are Luke's manual/GPT-chat work:
+The 74 remaining unresolved rows are Luke's manual/GPT-chat work:
 
 - `gpt-unresolved-75-sessions.md`
 - `gpt-unresolved-75.json`
@@ -135,7 +135,7 @@ Expected effect:
 
 ## Good GPT Batch Plan
 
-1. Run `gpt-unresolved-75-sessions.md` S01 only.
+1. Run `gpt-unresolved-75-sessions.md` S01 only; one item has already been precision-adjudicated.
 2. Convert results into a JSON result artifact.
 3. Inspect `out_of_category` rows for vocabulary/category implications.
 4. Repeat S02-S10 one at a time.
