@@ -58,6 +58,14 @@ The committed NGN item-type set is complete. Rationale/dyad scoring and an expli
 
 ## Milestones
 
+### Topic Vocabulary Hygiene — Consolidated Residual Re-Run Prep (Jun 18)
+
+Completed:
+- Preserved the post-S01 baseline in commit `479902f`, including the approved S01 topic/category updates and the new `scripts/residual-rerun.ts` proposal-only harness.
+- Confirmed the architectural contract: in-harness GPT-5 is acceptable for proposal-only topic residual adjudication, provided it remains non-Gemini, records metadata, emits exact dry-run diffs, and preserves Luke's stop-gate approval before any canonical write.
+- Added `emit-input` support to the residual rerun harness and generated `audit/residual-rerun-2026-06-18.input.json` with 237 classifier-facing rows, live category-licensed candidate sets, scoped current item context, and no `oldTopic` or prior proposal fields.
+- Next step: GPT-5 adjudicates the emitted input into `audit/residual-rerun-2026-06-18.decisions.json`, then the deterministic dry-run command writes `audit/residual-rerun-2026-06-18.manifest.json` and `.dry-run.md` for approval. Canonical writes remain blocked.
+
 ### Topic Vocabulary Hygiene — Residual Proposal Harness (Jun 17)
 
 Completed:

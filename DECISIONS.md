@@ -15,6 +15,8 @@ Counting, distributions, permutation integrity, template repetition — all have
 
 For the non-MCQ bias audit, this means an offline handoff rather than an integration: the repo emits a deterministic Gemini queue and prompt, validates returned JSONL, and merges semantic findings without allowing them to modify Layer A. No API key, live model call, or network dependency belongs in the repository.
 
+**Principle 3 extension — proposal-only topic residual passes may use in-harness GPT-5 (Jun 18).** For the post-S01 residual topic rerun, in-harness GPT-5 adjudication is accepted instead of an external queue/ingest loop because the safety boundary is proposal-only output: complete dry-run manifest, exact category/topic diff preview, non-Gemini classifier metadata, and Luke approval of the exact manifest before any canonical write. This exception does not authorize Gemini classification, automatic `topics.ts` writes, or removing the stop gate.
+
 **4. Rationales are position-agnostic — bilingual.**
 A rationale references option *content* ("furosemide is contraindicated because…"), never a letter or ordinal/spatial position ("Option D", "the first choice"). A rationale that never names a position cannot carry a stale answer-key reference after a shuffle — so this invariant makes a whole bug class structurally impossible rather than something to catch each run. Enforced across English and Simplified Chinese (选项A, 第一个, 以上 …).
 

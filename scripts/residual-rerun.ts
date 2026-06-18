@@ -126,6 +126,34 @@ type Manifest = {
   records: ManifestRow[];
 };
 
+type AdjudicationInput = {
+  meta: {
+    generatedAt: string;
+    runDate: string;
+    schemaVersion: "residual-rerun-adjudication-input-v1";
+    topicsSourceHash: string;
+    banksSourceHash: string;
+    inputManifestHashes: Record<string, string>;
+    scopeCounts: Record<string, number>;
+    instructions: string[];
+  };
+  records: Array<{
+    id: string;
+    currentCategory: Category;
+    candidateSet: string[];
+    fullCanonicalTopics: string[];
+    scopedContext: ScopedContext;
+    scopedContextHash: string;
+    expectedOutput: {
+      decisionType: "topic_only | category_and_topic | vocabulary_gap | abstain";
+      proposedCategory: "current category for topic_only, corrected category for category_and_topic, omitted otherwise";
+      proposedTopic: "canonical topic for topic_only/category_and_topic, omitted otherwise";
+      reason: "one concise sentence";
+      vocabularyChange: "only for vocabulary_gap";
+    };
+  }>;
+};
+
 const ORIGINAL_MANIFEST = "audit/topic-residual-proposals-2026-06-17.manifest.json";
 const RECLAIM_MANIFEST = "audit/residual-reclaim-children-2026-06-17.manifest.json";
 const S01_DRY_RUN = "audit/residual-s01-adjudication-2026-06-17.dry-run.json";
@@ -855,6 +883,85 @@ export const createDryRun = async (options: {
   return manifest;
 };
 
+export const emitAdjudicationInput = async (options: {
+  banksDir: string;
+  outputPath: string;
+  generatedAt: string;
+  runDate: string;
+}): Promise<AdjudicationInput> => {
+  assertCleanMonitoredInputs();
+  assertPostS01Topics();
+
+  const [originalText, reclaimText, s01Text, executionText, topicsText, canonical] = await Promise.all([
+    readText(ORIGINAL_MANIFEST),
+    readText(RECLAIM_MANIFEST),
+    readText(S01_DRY_RUN),
+    readText(EXECUTION_MANIFEST),
+    readText("src/topics.ts"),
+    collectCanonicalRecords(options.banksDir),
+  ]);
+  const scope = buildScopeRows({
+    originalManifest: JSON.parse(originalText),
+    reclaimManifest: JSON.parse(reclaimText),
+    s01DryRun: JSON.parse(s01Text),
+    executionManifest: JSON.parse(executionText),
+  });
+
+  const records = scope.rows.flatMap((scopeRow) => {
+    const matches = canonical.recordsById.get(scopeRow.id) ?? [];
+    const uniqueRecords = new Map(matches.map((record) => [`${record.bankFile}:${record.path}:${record.recordHash}`, record]));
+    if (uniqueRecords.size !== 1) return [];
+    const record = matches[0];
+    const scopedContext = scopedContextFor(record);
+    return [
+      {
+        id: scopeRow.id,
+        currentCategory: record.question.category,
+        candidateSet: candidateSetForCategory(record.question.category),
+        fullCanonicalTopics: [...CANONICAL_TOPIC_LIST],
+        scopedContext,
+        scopedContextHash: hashJson(scopedContext),
+        expectedOutput: {
+          decisionType: "topic_only | category_and_topic | vocabulary_gap | abstain" as const,
+          proposedCategory: "current category for topic_only, corrected category for category_and_topic, omitted otherwise" as const,
+          proposedTopic: "canonical topic for topic_only/category_and_topic, omitted otherwise" as const,
+          reason: "one concise sentence" as const,
+          vocabularyChange: "only for vocabulary_gap" as const,
+        },
+      },
+    ];
+  });
+
+  const artifact: AdjudicationInput = {
+    meta: {
+      generatedAt: options.generatedAt,
+      runDate: options.runDate,
+      schemaVersion: "residual-rerun-adjudication-input-v1",
+      topicsSourceHash: hashText(topicsText),
+      banksSourceHash: canonical.banksSourceHash,
+      inputManifestHashes: {
+        [ORIGINAL_MANIFEST]: hashText(originalText),
+        [RECLAIM_MANIFEST]: hashText(reclaimText),
+        [S01_DRY_RUN]: hashText(s01Text),
+        [EXECUTION_MANIFEST]: hashText(executionText),
+      },
+      scopeCounts: scope.counts,
+      instructions: [
+        "Classify each record using only currentCategory, candidateSet, fullCanonicalTopics, and scopedContext.",
+        "Do not infer or use any old topic or prior proposal; those are intentionally omitted.",
+        "Use topic_only only when a candidateSet topic fits the current category.",
+        "Use category_and_topic only when the item is genuinely miscategorized; proposedTopic must be licensed for proposedCategory.",
+        "Use vocabulary_gap when no canonical topic fits without a vocabulary/licensing change; do not apply the change.",
+        "Use abstain when no fit is defensible.",
+      ],
+    },
+    records,
+  };
+  await mkdir("audit", { recursive: true });
+  await writeFile(options.outputPath, `${JSON.stringify(artifact, null, 2)}\n`);
+  return artifact;
+};
+
 const parseArgs = () => {
   const [command, ...rest] = process.argv.slice(2);
   const args = new Map<string, string | boolean>();
@@ -881,10 +988,23 @@ const stringArg = (args: Map<string, string | boolean>, key: string, fallback?: 
 
 const main = async () => {
   const { command, args } = parseArgs();
-  if (command !== "dry-run") {
-    throw new Error("Usage: tsx scripts/residual-rerun.ts dry-run --decisions audit/residual-rerun-decisions.json [--date YYYY-MM-DD]");
+  if (command !== "dry-run" && command !== "emit-input") {
+    throw new Error(
+      "Usage: tsx scripts/residual-rerun.ts emit-input [--date YYYY-MM-DD] OR dry-run --decisions audit/residual-rerun-decisions.json [--date YYYY-MM-DD]",
+    );
   }
   const date = stringArg(args, "date", runDate());
+  if (command === "emit-input") {
+    const outputPath = stringArg(args, "out", `audit/residual-rerun-${date}.input.json`);
+    const input = await emitAdjudicationInput({
+      banksDir: "banks",
+      outputPath,
+      generatedAt: new Date().toISOString(),
+      runDate: date,
+    });
+    console.log(`Wrote ${outputPath} with ${input.records.length} record(s).`);
+    return;
+  }
   const manifestPath = stringArg(args, "manifest-out", `audit/residual-rerun-${date}.manifest.json`);
   const reportPath = stringArg(args, "report-out", `audit/residual-rerun-${date}.dry-run.md`);
   const manifest = await createDryRun({
