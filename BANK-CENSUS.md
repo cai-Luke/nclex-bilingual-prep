@@ -2,8 +2,8 @@
 
 # NCLEX Bank Census
 
-Generated: 2026-06-16T22:20:03.200Z
-Git SHA: a50fcc7f45a989b6b557f8954052eed190262be4
+Generated: 2026-06-17T03:48:02.580Z
+Git SHA: 76b8838ca139373d23e6906b8aff5648002daf17
 
 ## Per-File Summary
 
@@ -34,53 +34,53 @@ Git SHA: a50fcc7f45a989b6b557f8954052eed190262be4
 
 - Health Promotion and Maintenance: 140
 - Psychosocial Integrity: 144
-- Safety and Infection Control: 145
+- Safety and Infection Control: 144
 - Management of Care: 149
 - Basic Care and Comfort: 151
 - Pharmacological and Parenteral Therapies: 174
 - Reduction of Risk Potential: 179
-- Physiological Adaptation: 239
+- Physiological Adaptation: 240
 
 ## Within-Category Concentration
 
 ### Management of Care
 
-Top topics: Prioritization & Delegation (46), Legal & Ethical Principles (45), Confidentiality & HIPAA (9), Client Advocacy (5), Discharge Planning & Handoff (5), Conflict Resolution (3), Disaster & Emergency Preparedness (2), interpreter-supported consent and discharge readiness (2), Medication Safety & Admin (2), Case Management & Continuity of Care (1)
+Top topics: Prioritization & Delegation (48), Legal & Ethical Principles (46), Discharge Planning & Handoff (21), Confidentiality & HIPAA (9), Client Advocacy (5), Conflict Resolution (3), Disaster & Emergency Preparedness (2), Medication Safety & Admin (2), code status escalation (1), colostomy discharge teaching for limited English proficiency (1)
 Visual kinds: device_screen (1), mar (1)
 
 ### Safety and Infection Control
 
-Top topics: Patient & Environment Safety (37), Transmission-Based Precautions (31), Standard Precautions & Hygiene (17), PPE & Sterile Technique (13), Disaster & Emergency Preparedness (4), contact precautions workflow for diarrheal illness (2), Endocrine & Neurological Disorders (2), Respiratory & Infectious Disorders (2), Active Pulmonary TB Airborne Precautions (1), anesthesia equipment (1)
+Top topics: Patient & Environment Safety (41), Transmission-Based Precautions (39), Standard Precautions & Hygiene (20), PPE & Sterile Technique (15), Disaster & Emergency Preparedness (4), Endocrine & Neurological Disorders (2), Medication Safety & Admin (2), Respiratory & Infectious Disorders (2), Burn Management (1), CAUTI Prevention Bundle (1)
 Visual kinds: capnography (1), device_screen (1), medication_label (1), vitals_trend (1)
 
 ### Health Promotion and Maintenance
 
-Top topics: Maternal-Newborn Care & Teaching (32), Pediatric & Adolescent Health (30), Adult Health & Wellness (25), Reproductive & Endocrine Health (9), Pediatric & Toddler Safety (7), Chronic Disease Management & Lifestyle (6), pediatric dehydration oral rehydration teaching (2), Respiratory & Infectious Disorders (2), adult immunization (1), Adult Immunization and Preventive Screening (1)
+Top topics: Adult Health & Wellness (33), Maternal-Newborn Care & Teaching (32), Pediatric & Adolescent Health (31), Chronic Disease Management & Lifestyle (14), Reproductive & Endocrine Health (9), Pediatric & Toddler Safety (8), Respiratory & Infectious Disorders (2), Adult Immunization and Preventive Screening (1), adult preventive screening (1), adult preventive screening and vaccination counseling (1)
 Visual kinds: none
 
 ### Psychosocial Integrity
 
-Top topics: Mental Health Disorders (60), Suicide & Crisis Intervention (19), Therapeutic Communication (17), Substance Use & Withdrawal (14), Electroconvulsive Therapy (ECT) (4), caregiver burden and family adaptation (3), Anticipatory Grief Therapeutic Response (1), Bipolar I - Acute Manic Episode (1), Body Image After Amputation (1), Body Image Disturbance After Colostomy (1)
+Top topics: Mental Health Disorders (61), Therapeutic Communication (25), Suicide & Crisis Intervention (20), Substance Use & Withdrawal (14), Electroconvulsive Therapy (ECT) (4), caregiver burden and family adaptation (3), Caregiver Role Strain & Family Coping (3), Bipolar I - Acute Manic Episode (1), Caregiver burden after dementia discharge (1), caregiver strain (1)
 Visual kinds: none
 
 ### Basic Care and Comfort
 
-Top topics: Nutritional & Fluid Support (27), Elimination & Comfort (26), Mobility & Immobility (20), Palliative & Supportive Care (11), Sleep & Rest (11), Dosage Calculations (10), Transmission-Based Precautions (3), Adult Health & Wellness (2), Perioperative Care (2), adult Rule of Nines TBSA estimation (1)
+Top topics: Nutritional & Fluid Support (35), Elimination & Comfort (30), Mobility & Immobility (27), Sleep & Rest (17), Palliative & Supportive Care (11), Dosage Calculations (10), Transmission-Based Precautions (3), Adult Health & Wellness (2), Perioperative Care (2), adult Rule of Nines TBSA estimation (1)
 Visual kinds: burn_map (1), device_screen (1), io_record (4)
 
 ### Pharmacological and Parenteral Therapies
 
-Top topics: Medication Safety & Admin (38), Dosage Calculations (29), Anticoagulant Therapy (18), Cardiovascular & Endocrine Medications (18), Psychotropic Medications (5), Nutritional & Fluid Support (3), Cardiovascular Disorders (2), lithium toxicity (2), opioid-induced respiratory depression (2), acetaminophen duplicate therapy (1)
+Top topics: Medication Safety & Admin (51), Dosage Calculations (46), Anticoagulant Therapy (29), Cardiovascular & Endocrine Medications (20), Psychotropic Medications (7), Nutritional & Fluid Support (3), Cardiovascular Disorders (2), Adenosine Side Effects (1), Burn Management (1), Diabetic Ketoacidosis (DKA) (1)
 Visual kinds: capnography (1), device_screen (4), lab_trend (6), mar (7), medication_label (9), rhythm_strip (10), vitals_trend (2)
 
 ### Reduction of Risk Potential
 
-Top topics: Procedural Complications & Dialysis (34), Laboratory & Diagnostic Tests (19), Perioperative Care (18), Burn Management (8), Maternal-Newborn Care & Teaching (7), intrapartum fetal monitoring (6), ABG & Acid-Base Interpretation (4), Injection route recognition from skin cross-section (4), PPE & Sterile Technique (4), Endocrine & Neurological Disorders (3)
+Top topics: Procedural Complications & Dialysis (40), Laboratory & Diagnostic Tests (27), Perioperative Care (26), Burn Management (8), Maternal-Newborn Care & Teaching (7), intrapartum fetal monitoring (6), ABG & Acid-Base Interpretation (4), Injection route recognition from skin cross-section (4), PPE & Sterile Technique (4), Endocrine & Neurological Disorders (3)
 Visual kinds: burn_map (5), capnography (1), device_screen (3), fetal_monitoring (6), injection_site (8), io_record (5), lab_trend (7), rhythm_strip (2), vitals_trend (1)
 
 ### Physiological Adaptation
 
-Top topics: Cardiovascular Disorders (40), Endocrine & Neurological Disorders (27), Renal & Gastrointestinal Disorders (20), Diabetic Ketoacidosis (DKA) (12), Respiratory & Infectious Disorders (9), Burn Management (8), Electrolyte Imbalances (5), Sepsis & Septic Shock (3), ABG & Acid-Base Interpretation (2), Acute gallstone pancreatitis with cholangitis (2)
+Top topics: Cardiovascular Disorders (70), Endocrine & Neurological Disorders (31), Renal & Gastrointestinal Disorders (29), Electrolyte Imbalances (22), Burn Management (15), Diabetic Ketoacidosis (DKA) (13), Respiratory & Infectious Disorders (10), Sepsis & Septic Shock (7), ABG & Acid-Base Interpretation (2), Adult Health & Wellness (2)
 Visual kinds: burn_map (5), capnography (4), io_record (2), lab_trend (7), rhythm_strip (32), vitals_trend (7)
 
 ## By Item Type
@@ -174,16 +174,16 @@ Total visuals: 146
 | opus26_case_refeeding_syndrome_01 | refeeding syndrome risk in anorexia nervosa | 6 | claude-canonical.json |
 | opus27_case_ipv_prenatal_care_01 | intimate partner violence in prenatal care | 6 | claude-canonical.json |
 | opus_case_lithium_toxicity_01 | lithium toxicity | 6 | claude-canonical.json |
-| gemini_gapfill_case_2026_06_10_case_imm_01 | adult immunization | 4 | gemini-canonical.json |
-| gemini_gapfill_case_2026_06_10_case_osteo_02 | osteoporosis prevention | 4 | gemini-canonical.json |
-| gemini_gapfill_case_2026_06_10_case_wellness_03 | wellness counseling | 4 | gemini-canonical.json |
-| gemini_gapfill_case_2026_06_10_case_smoking_04 | smoking cessation | 4 | gemini-canonical.json |
-| gemini_gapfill_case_2026_06_10_case_sleep_05 | sleep promotion | 4 | gemini-canonical.json |
-| gemini_gapfill_case_2026_06_10_case_bowel_06 | bowel management | 4 | gemini-canonical.json |
-| gemini_gapfill_case_2026_06_10_case_mobility_07 | mobility assistance | 4 | gemini-canonical.json |
+| gemini_gapfill_case_2026_06_10_case_imm_01 | Adult Health & Wellness | 4 | gemini-canonical.json |
+| gemini_gapfill_case_2026_06_10_case_osteo_02 | Adult Health & Wellness | 4 | gemini-canonical.json |
+| gemini_gapfill_case_2026_06_10_case_wellness_03 | Chronic Disease Management & Lifestyle | 4 | gemini-canonical.json |
+| gemini_gapfill_case_2026_06_10_case_smoking_04 | Chronic Disease Management & Lifestyle | 4 | gemini-canonical.json |
+| gemini_gapfill_case_2026_06_10_case_sleep_05 | Sleep & Rest | 4 | gemini-canonical.json |
+| gemini_gapfill_case_2026_06_10_case_bowel_06 | Elimination & Comfort | 4 | gemini-canonical.json |
+| gemini_gapfill_case_2026_06_10_case_mobility_07 | Mobility & Immobility | 4 | gemini-canonical.json |
 | gemini_gapfill_case_2026_06_10_case_caregiver_08 | caregiver strain | 4 | gemini-canonical.json |
-| gemini_gapfill_case_2026_06_10_case_grief_09 | grief and bereavement | 4 | gemini-canonical.json |
-| gemini_gapfill_case_2026_06_10_case_adapt_10 | chronic illness adaptation | 4 | gemini-canonical.json |
+| gemini_gapfill_case_2026_06_10_case_grief_09 | Mental Health Disorders | 4 | gemini-canonical.json |
+| gemini_gapfill_case_2026_06_10_case_adapt_10 | Therapeutic Communication | 4 | gemini-canonical.json |
 | opus_agvd_case_agvhd_01 | Acute Graft-Versus-Host Disease | 6 | gemini-canonical.json |
 | gpt_case_premium_2026_06_10_case01_preventive_screening | adult preventive screening | 5 | gpt-canonical.json |
 | gpt_case_premium_2026_06_10_case02_caregiver_burden | caregiver burden and family adaptation | 5 | gpt-canonical.json |
@@ -297,7 +297,7 @@ Under-served categories:
 - Management of Care: 149
 
 Over-served categories:
-- Physiological Adaptation: 239
+- Physiological Adaptation: 240
 
 Under-served item types:
 - highlight: 2
@@ -317,28 +317,28 @@ PRIORITIZE_TOPICS:
 - ordered_response (127 vs target 146.8)
 - fill_in_blank (140 vs target 146.8)
 - dropdown_cloze (142 vs target 146.8)
-- acetaminophen duplicate therapy
-- Active Pulmonary TB Airborne Precautions
 - Acute decompensated heart failure
 - Acute Decompensated Heart Failure (ADHF)
+- Acute gallstone pancreatitis with cholangitis
 - Acute Graft-Versus-Host Disease
 - Acute kidney injury
 - acute kidney injury and hyperkalemia
 - acute kidney injury fluid response
 - Acute Myocardial Infarction and Ventricular Fibrillation
-- Adenosine Administration Technique
+- Acute pancreatitis complications
+- Acute variceal hemorrhage in cirrhosis
 - Adenosine Side Effects
 - Adrenal crisis
 
 AVOID_TOPICS:
-- Mental Health Disorders (61)
-- Prioritization & Delegation (47)
-- Legal & Ethical Principles (45)
-- Maternal-Newborn Care & Teaching (43)
-- Cardiovascular Disorders (43)
-- Dosage Calculations (41)
-- Medication Safety & Admin (40)
-- Patient & Environment Safety (39)
+- Cardiovascular Disorders (73)
+- Mental Health Disorders (62)
+- Dosage Calculations (58)
+- Medication Safety & Admin (55)
+- Prioritization & Delegation (49)
+- Legal & Ethical Principles (46)
+- Transmission-Based Precautions (44)
+- Patient & Environment Safety (43)
 
 ## Docs Drift
 
