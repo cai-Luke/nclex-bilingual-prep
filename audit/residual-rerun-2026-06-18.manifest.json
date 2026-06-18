@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generatedAt": "2026-06-18T15:14:22.319Z",
+    "generatedAt": "2026-06-18T15:29:51.550Z",
     "runDate": "2026-06-18",
     "mode": "dry-run",
     "canonicalBankWrites": false,
@@ -10471,13 +10471,19 @@
         "Transfusion & Blood Products"
       ],
       "scopedContextHash": "86815428a2aefeb314467a0ac88eaaaf074d07953d4627b596d52ddaa9621435",
-      "status": "unresolved",
-      "decisionType": "abstain",
-      "proposedCategory": null,
-      "proposedTopic": null,
-      "reason": "No canonical topic fits this scoped edge case without forcing a weak match.",
+      "status": "proposed",
+      "decisionType": "topic_only",
+      "proposedCategory": "Pharmacological and Parenteral Therapies",
+      "proposedTopic": "Medication Safety & Admin",
+      "reason": "Chat review correction: adverse-drug-reaction recognition item should match sibling toxidrome rows already resolved to Medication Safety & Admin.",
       "validationErrors": [],
-      "diffPreview": []
+      "diffPreview": [
+        {
+          "path": "banks/hard-cases-canonical.json:questions.26.caseStudy.questions.1.topic",
+          "before": "SS vs NMS Distinction",
+          "after": "Medication Safety & Admin"
+        }
+      ]
     },
     {
       "id": "q9_4",

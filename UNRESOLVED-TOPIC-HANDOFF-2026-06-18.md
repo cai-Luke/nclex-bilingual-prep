@@ -2,9 +2,9 @@
 
 Date: 2026-06-18
 
-Scope: the two rows still unresolved after the consolidated residual rerun, Luke-approved wound sharing, and Luke-approved `Transfusion & Blood Products` topic addition.
+Scope: the two rows that were still unresolved after the consolidated residual rerun, Luke-approved wound sharing, and Luke-approved `Transfusion & Blood Products` topic addition.
 
-Do not write canonical banks from this handoff. The goal is a researched recommendation for the next exact dry-run adjustment.
+Status: chat review has resolved `q9_2` to `Medication Safety & Admin` and deliberately left the vaccine supply calculation unresolved. Do not write canonical banks from this handoff; it records the review decision trail for the final dry-run packet.
 
 ## Current Dry-Run State
 
@@ -14,19 +14,18 @@ Source packet:
 - `audit/residual-rerun-2026-06-18.manifest.json`
 - `audit/residual-rerun-2026-06-18.decisions.json`
 
-Summary after review corrections:
+Summary after final chat review corrections:
 
 - total rows: 237
-- proposed: 170
+- proposed: 171
 - carried-forward: 65
 - vocabulary gaps: 0
-- unresolved: 2
+- unresolved: 1
 - category-and-topic proposals: 66
 
-Unresolved IDs:
+Remaining unresolved ID:
 
 - `gpt_case_premium_next_case_occupational_exposure_vaccine_04_fib_supplies`
-- `q9_2`
 
 ## Decision Question 1 — Vaccine Clinic Supply Calculation
 
@@ -92,9 +91,9 @@ Research task for chat:
 
 Suggested starting hypothesis:
 
-Keep category as `Management of Care`. If this pattern appears elsewhere, add a shared topic like `Resource Management & Supplies` under `Management of Care` and possibly `Safety and Infection Control`. If it is a one-off, leaving it unresolved may be better than creating a new topic for one row.
+Final decision: leave unresolved. Keep the Client Needs category as `Management of Care`, but do not create a one-row `Resource Management & Supplies` topic and do not force the row into `Prioritization & Delegation`, `Standard Precautions & Hygiene`, or `Dosage Calculations`. Revisit only if a resource/supply-logistics cluster emerges.
 
-## Decision Question 2 — Serotonin Syndrome vs NMS Distinction
+## Resolved Decision 2 — Serotonin Syndrome vs NMS Distinction
 
 ID: `q9_2`
 
@@ -109,7 +108,8 @@ Current metadata:
 - category: `Pharmacological and Parenteral Therapies`
 - topic: `SS vs NMS Distinction`
 - item type: `multiple_choice`
-- residual status: `unresolved`
+- residual status after chat review: `proposed`
+- final proposal: `topic_only` to `Medication Safety & Admin`
 - current licensed candidate set for Pharmacological and Parenteral Therapies:
   - `Dosage Calculations`
   - `Anticoagulant Therapy`
@@ -150,53 +150,37 @@ Parent case context:
   - `q9_4`: `Medication Safety & Admin`
   - `q9_5`: still `Physiological Adaptation` / `NMS Renal Risk` in the current bank, parent pass pending
 
-Why it stayed unresolved:
+Why it originally stayed unresolved:
 
 The item tests differential recognition of two medication-induced hyperthermic syndromes. Existing Pharmacological topics are either broad (`Medication Safety & Admin`, `Psychotropic Medications`) or unrelated. `Psychotropic Medications` is tempting because both conditions may arise from psychiatric medications, but serotonin syndrome and NMS are adverse drug syndromes rather than medication-class teaching. `Medication Safety & Admin` is broad but may be acceptable if no separate adverse-reaction topic is desired.
 
-Research task for chat:
+Chat review decision:
 
-1. Decide whether this should resolve to:
-   - `Medication Safety & Admin`
-   - `Psychotropic Medications`
-   - a new/shared topic such as `Adverse Drug Reactions & Toxicity`
-   - a narrower new/shared topic such as `Serotonin Syndrome & Neuroleptic Malignant Syndrome`
-2. Check whether other hyperthermic/toxicity rows in the bank would also use the proposed topic, including:
-   - `q9_1` Serotonin Syndrome Recognition
-   - `q9_3` NMS antidote
-   - `q9_4` hyperthermic syndrome interventions
-   - `vit_10` malignant hyperthermia after anesthetic exposure
-   - other toxicity rows if found in the bank
-3. If proposing a new/shared topic, specify exact topic name and licensed categories. Likely categories to consider: `Pharmacological and Parenteral Therapies`, `Physiological Adaptation`, and possibly `Safety and Infection Control`.
-
-Suggested starting hypothesis:
-
-If the goal is to avoid excessive topic growth, use `Medication Safety & Admin` for `q9_2` and keep the broader adverse-reaction/toxicity discussion for a later vocabulary pass. If the bank has enough toxicity/adverse-reaction rows, `Adverse Drug Reactions & Toxicity` may be cleaner than forcing all of them into medication administration.
+Resolve to `Medication Safety & Admin` within `Pharmacological and Parenteral Therapies`. The item is adverse-drug-reaction recognition, and matching sibling toxidrome rows (`q9_1`, `q9_3`, `q9_4`, and `vit_10`) keeps the case coherent without creating a late-stage adverse-reaction topic. `Psychotropic Medications` is rejected because serotonin syndrome can involve non-psychotropic medications such as tramadol or linezolid.
 
 ## Expected Output From Chat Review
 
-Please return a compact decision object for each unresolved ID:
+Chat review returned this compact decision object:
 
 ```json
 [
   {
     "id": "gpt_case_premium_next_case_occupational_exposure_vaccine_04_fib_supplies",
-    "recommendation": "topic_only | category_and_topic | vocabulary_gap | leave_unresolved",
-    "proposedCategory": "only if changing or confirming category",
-    "proposedTopic": "canonical or proposed new topic",
-    "topicLicensing": ["categories if proposing a new/shared topic"],
-    "reason": "one concise evidence-backed sentence",
-    "confidence": "high | medium | low"
+    "recommendation": "leave_unresolved",
+    "proposedCategory": "Management of Care",
+    "proposedTopic": null,
+    "topicLicensing": [],
+    "reason": "One-off supply-packaging calculation with no clean canonical home; Management of Care is the correct Client-Needs frame but no licensed topic fits, and adding a topic for a single row repeats the long-tail anti-pattern — revisit only if a resource/supply-logistics cluster emerges.",
+    "confidence": "medium"
   },
   {
     "id": "q9_2",
-    "recommendation": "topic_only | category_and_topic | vocabulary_gap | leave_unresolved",
-    "proposedCategory": "only if changing or confirming category",
-    "proposedTopic": "canonical or proposed new topic",
-    "topicLicensing": ["categories if proposing a new/shared topic"],
-    "reason": "one concise evidence-backed sentence",
-    "confidence": "high | medium | low"
+    "recommendation": "topic_only",
+    "proposedCategory": "Pharmacological and Parenteral Therapies",
+    "proposedTopic": "Medication Safety & Admin",
+    "topicLicensing": [],
+    "reason": "Adverse-drug-reaction recognition item whose four sibling toxidrome rows (q9_1, q9_3, q9_4, vit_10) all resolved to Medication Safety & Admin; matching keeps the case coherent and avoids vocab growth and churn against settled rows.",
+    "confidence": "high"
   }
 ]
 ```
-

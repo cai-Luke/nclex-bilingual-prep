@@ -1,6 +1,6 @@
 # Consolidated Residual Re-Run Dry Run
 
-Generated: 2026-06-18T15:14:22.319Z
+Generated: 2026-06-18T15:29:51.550Z
 Classifier: openai/gpt-5-codex-in-harness
 Mode: dry-run only
 Canonical bank writes: none
@@ -12,14 +12,14 @@ Topic vocabulary writes: none
 
 ## Safety Summary
 
-- proposed: 170
+- proposed: 171
 - carried-forward: 65
-- unresolved: 2
+- unresolved: 1
 
 Decision types:
-- topic_only: 169
+- topic_only: 170
 - category_and_topic: 66
-- abstain: 2
+- abstain: 1
 
 ## Scope Membership
 
@@ -37,7 +37,7 @@ Decision types:
 
 | Bucket | Rows |
 |---|---:|
-| resolved with no S01-dependent change | 194 |
+| resolved with no S01-dependent change | 195 |
 | maternal shared licensing | 19 |
 | Skin & Wound Care | 17 |
 | Oncology & Immunotherapy Complications | 5 |
@@ -46,7 +46,7 @@ Decision types:
 
 | Proposed topic | Count | Flags |
 |---|---:|---|
-| Medication Safety & Admin | 34 | Pharmacological and Parenteral Therapies >=35% |
+| Medication Safety & Admin | 35 | Pharmacological and Parenteral Therapies >=35% |
 | Prioritization & Delegation | 22 | Management of Care >=35% |
 | Cardiovascular Disorders | 19 |  |
 | Maternal-Newborn Care & Teaching | 19 | Reduction of Risk Potential >=35% |
@@ -135,6 +135,7 @@ No wound recategorization pressure detected.
 | proposed | Pharmacological and Parenteral Therapies | Postoperative pulmonary embolism with right ventricular strain | Pharmacological and Parenteral Therapies | Medication Safety & Admin | reclaim-proposed | `gpt_case_pe_2026_06_16_case_pulmonary_embolism_01_q4` | The item tests medication actions for postoperative PE. |
 | proposed | Pharmacological and Parenteral Therapies | Potassium infusion IV-site complication | Pharmacological and Parenteral Therapies | Medication Safety & Admin | original-blocked-cross-category | `opus3_iv_potassium_safety_case_01_q6` | The item evaluates IV potassium infusion-site safety. |
 | proposed | Pharmacological and Parenteral Therapies | Serotonin Syndrome Recognition | Pharmacological and Parenteral Therapies | Medication Safety & Admin | original-unresolved | `q9_1` | The item recognizes serotonin syndrome from medication exposure. |
+| proposed | Pharmacological and Parenteral Therapies | SS vs NMS Distinction | Pharmacological and Parenteral Therapies | Medication Safety & Admin | original-unresolved | `q9_2` | Chat review correction: adverse-drug-reaction recognition item should match sibling toxidrome rows already resolved to Medication Safety & Admin. |
 | proposed | Pharmacological and Parenteral Therapies | Thyroid Storm Pharmacology Sequence | Pharmacological and Parenteral Therapies | Medication Safety & Admin | reclaim-proposed | `cs_thyroid_storm_q2` | The item sequences thyroid-storm medication administration. |
 | proposed | Pharmacological and Parenteral Therapies | Cryoprecipitate Role | Pharmacological and Parenteral Therapies | Transfusion & Blood Products | reclaim-proposed | `q7_3` | After approved shared licensing, this transfusion or blood-product row can keep its current category and use Transfusion & Blood Products. |
 | proposed | Physiological Adaptation | acute hemorrhage prioritization | Physiological Adaptation | Cardiovascular Disorders | reclaim-proposed | `gpt_case_warfarin_mvr_2026_06_11_01_q4` | The item tests cardiovascular physiology, perfusion, dysrhythmia, hemorrhage, or hemodynamic response. |
@@ -336,7 +337,6 @@ No wound recategorization pressure detected.
 | Status | Current category | Current topic | Proposed category | Proposed topic | Sources | ID | Reason |
 |---|---|---|---|---|---|---|---|
 | unresolved | Management of Care | resource management for vaccination clinic supplies |  |  | reclaim-unresolved | `gpt_case_premium_next_case_occupational_exposure_vaccine_04_fib_supplies` | No canonical topic fits this scoped edge case without forcing a weak match. |
-| unresolved | Pharmacological and Parenteral Therapies | SS vs NMS Distinction |  |  | original-unresolved | `q9_2` | No canonical topic fits this scoped edge case without forcing a weak match. |
 
 ## Exact Before/After Diff Preview
 
@@ -1318,6 +1318,10 @@ No wound recategorization pressure detected.
 ### q9_1
 
 - banks/hard-cases-canonical.json:questions.26.caseStudy.questions.0.topic: `Serotonin Syndrome Recognition` -> `Medication Safety & Admin`
+
+### q9_2
+
+- banks/hard-cases-canonical.json:questions.26.caseStudy.questions.1.topic: `SS vs NMS Distinction` -> `Medication Safety & Admin`
 
 ### q9_4
 

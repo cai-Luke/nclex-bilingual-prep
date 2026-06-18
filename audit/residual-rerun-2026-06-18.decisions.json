@@ -12,7 +12,8 @@
         "Added shared Transfusion & Blood Products and resolved transfusion/blood-product scatter.",
         "Rejected HPM category pull for acute preeclampsia pharmacology and RN-scope postpartum row.",
         "Resolved enteral-pump duration calculation to Pharmacological / Dosage Calculations.",
-        "Routed hemolytic-reaction lab confirmation to Transfusion & Blood Products while retaining RRP category."
+        "Routed hemolytic-reaction lab confirmation to Transfusion & Blood Products while retaining RRP category.",
+        "Resolved q9_2 to Medication Safety & Admin; deliberately left vaccine supply calculation unresolved as a one-off logistics edge case."
       ]
     }
   },
@@ -1627,8 +1628,10 @@
     },
     {
       "id": "q9_2",
-      "decisionType": "abstain",
-      "reason": "No canonical topic fits this scoped edge case without forcing a weak match."
+      "decisionType": "topic_only",
+      "reason": "Chat review correction: adverse-drug-reaction recognition item should match sibling toxidrome rows already resolved to Medication Safety & Admin.",
+      "proposedCategory": "Pharmacological and Parenteral Therapies",
+      "proposedTopic": "Medication Safety & Admin"
     },
     {
       "id": "q9_4",
