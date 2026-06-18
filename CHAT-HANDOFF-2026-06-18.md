@@ -3,7 +3,8 @@
 ## Baseline
 
 - Repo: `https://github.com/cai-Luke/nclex-bilingual-prep.git`
-- Working baseline commit before this handoff: `479902f Prepare post-S01 residual rerun baseline`
+- Working baseline commit before this handoff: `ac940fe Prepare post-S01 residual rerun baseline`
+- Handoff prep commit: `c13f7aa Prepare residual rerun chat handoff`
 - Current task: finish the consolidated residual topic rerun from `residual-rerun-codex-spec.md`.
 - Runtime/product constraints unchanged: static/offline app; no canonical bank writes without Luke approving an exact dry-run.
 
@@ -12,6 +13,9 @@
 - Harness: `scripts/residual-rerun.ts`
 - Focused test: `npm run test:residual-rerun`
 - Model-facing input: `audit/residual-rerun-2026-06-18.input.json`
+- Decisions: `audit/residual-rerun-2026-06-18.decisions.json`
+- Dry-run manifest: `audit/residual-rerun-2026-06-18.manifest.json`
+- Dry-run report: `audit/residual-rerun-2026-06-18.dry-run.md`
 - Input row count: 237
 - Input intentionally withholds `oldTopic` and prior proposals.
 - Candidate sets are recomputed live from current `src/topics.ts`.
@@ -35,21 +39,69 @@ Scope counts in the emitted input:
 - Parents remain out of scope until child rows settle.
 - Wound rule: recategorize a wound row to BCC only if BCC is genuinely correct. If rows are moved to BCC solely to reach `Skin & Wound Care`, use that count as the signal to consider sharing `Skin & Wound Care` across BCC + RRP + Safety.
 
+## Dry-Run Result
+
+The approved in-harness GPT-5 adjudication has been run. The deterministic dry-run produced:
+
+- proposed rows: 160
+- carried-forward rows: 65
+- vocabulary-gap flags: 8
+- unresolved rows: 4
+- `topic_only` decisions: 155
+- `category_and_topic` decisions: 70
+- `vocabulary_gap` decisions: 8
+- `abstain` decisions: 4
+
+The 8 vocabulary-gap flags are wound/pressure-injury rows where the report recommends considering shared `Skin & Wound Care` licensing for RRP/Safety rather than moving rows solely to Basic Care and Comfort. The wound recategorization-pressure count is 0 because those rows were flagged instead of force-moved.
+
+Unresolved rows:
+
+- `gpt_case_premium_next_case_occupational_exposure_vaccine_04_fib_supplies`
+- `gpt_visual_smoke_2026_06_12_fib_device_enteral_duration_10`
+- `q7_3`
+- `q9_2`
+
 ## Next Action
 
-Classify every record in:
+Review and approve/reject the exact dry-run report:
 
 ```sh
-audit/residual-rerun-2026-06-18.input.json
+audit/residual-rerun-2026-06-18.dry-run.md
 ```
 
-Write decisions to:
+Pay special attention to:
+
+- the 70 `category_and_topic` rows
+- the 8 wound vocabulary-gap flags
+- the 4 unresolved rows
+- the exact diff preview
+
+Do not run any writer and do not edit canonical banks unless Luke approves this exact dry-run.
+
+## Reproduction Commands
+
+The input was already classified into:
 
 ```sh
 audit/residual-rerun-2026-06-18.decisions.json
 ```
 
-Expected decisions artifact shape:
+To reproduce the dry-run artifacts:
+
+```sh
+npx tsx scripts/residual-rerun.ts dry-run \
+  --decisions audit/residual-rerun-2026-06-18.decisions.json \
+  --date 2026-06-18
+```
+
+Expected outputs:
+
+```sh
+audit/residual-rerun-2026-06-18.manifest.json
+audit/residual-rerun-2026-06-18.dry-run.md
+```
+
+Decision artifact shape:
 
 ```json
 {
@@ -72,23 +124,6 @@ Expected decisions artifact shape:
 }
 ```
 
-Then run:
-
-```sh
-npx tsx scripts/residual-rerun.ts dry-run \
-  --decisions audit/residual-rerun-2026-06-18.decisions.json \
-  --date 2026-06-18
-```
-
-Expected outputs:
-
-```sh
-audit/residual-rerun-2026-06-18.manifest.json
-audit/residual-rerun-2026-06-18.dry-run.md
-```
-
-Do not run any writer and do not edit canonical banks for this handoff.
-
 ## Verification Already Run
 
 Before the baseline commit:
@@ -106,6 +141,13 @@ After adding `emit-input`:
 npx tsc -b --pretty false
 npm run test:residual-rerun
 npx tsx scripts/residual-rerun.ts emit-input --date 2026-06-18
+```
+
+After generating the dry-run:
+
+```sh
+npm run test:residual-rerun
+npx tsc -b --pretty false
 ```
 
 ## Review Focus After Dry Run
