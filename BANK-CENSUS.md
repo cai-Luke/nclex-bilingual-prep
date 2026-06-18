@@ -2,8 +2,8 @@
 
 # NCLEX Bank Census
 
-Generated: 2026-06-17T03:48:02.580Z
-Git SHA: 76b8838ca139373d23e6906b8aff5648002daf17
+Generated: 2026-06-18T04:02:38.255Z
+Git SHA: 08d22601e94d560e66a212bf9f0c668a20981fe3
 
 ## Per-File Summary
 
@@ -36,10 +36,10 @@ Git SHA: 76b8838ca139373d23e6906b8aff5648002daf17
 - Psychosocial Integrity: 144
 - Safety and Infection Control: 144
 - Management of Care: 149
-- Basic Care and Comfort: 151
-- Pharmacological and Parenteral Therapies: 174
-- Reduction of Risk Potential: 179
-- Physiological Adaptation: 240
+- Basic Care and Comfort: 152
+- Pharmacological and Parenteral Therapies: 175
+- Reduction of Risk Potential: 176
+- Physiological Adaptation: 241
 
 ## Within-Category Concentration
 
@@ -70,17 +70,17 @@ Visual kinds: burn_map (1), device_screen (1), io_record (4)
 
 ### Pharmacological and Parenteral Therapies
 
-Top topics: Medication Safety & Admin (51), Dosage Calculations (46), Anticoagulant Therapy (29), Cardiovascular & Endocrine Medications (20), Psychotropic Medications (7), Nutritional & Fluid Support (3), Cardiovascular Disorders (2), Adenosine Side Effects (1), Burn Management (1), Diabetic Ketoacidosis (DKA) (1)
-Visual kinds: capnography (1), device_screen (4), lab_trend (6), mar (7), medication_label (9), rhythm_strip (10), vitals_trend (2)
+Top topics: Medication Safety & Admin (51), Dosage Calculations (47), Anticoagulant Therapy (29), Cardiovascular & Endocrine Medications (20), Psychotropic Medications (7), Nutritional & Fluid Support (3), Cardiovascular Disorders (2), Adenosine Side Effects (1), Burn Management (1), Diabetic Ketoacidosis (DKA) (1)
+Visual kinds: capnography (1), device_screen (5), lab_trend (6), mar (7), medication_label (9), rhythm_strip (10), vitals_trend (2)
 
 ### Reduction of Risk Potential
 
-Top topics: Procedural Complications & Dialysis (40), Laboratory & Diagnostic Tests (27), Perioperative Care (26), Burn Management (8), Maternal-Newborn Care & Teaching (7), intrapartum fetal monitoring (6), ABG & Acid-Base Interpretation (4), Injection route recognition from skin cross-section (4), PPE & Sterile Technique (4), Endocrine & Neurological Disorders (3)
-Visual kinds: burn_map (5), capnography (1), device_screen (3), fetal_monitoring (6), injection_site (8), io_record (5), lab_trend (7), rhythm_strip (2), vitals_trend (1)
+Top topics: Procedural Complications & Dialysis (41), Laboratory & Diagnostic Tests (27), Perioperative Care (26), Burn Management (8), Maternal-Newborn Care & Teaching (7), intrapartum fetal monitoring (6), ABG & Acid-Base Interpretation (4), Injection route recognition from skin cross-section (4), PPE & Sterile Technique (4), Endocrine & Neurological Disorders (3)
+Visual kinds: burn_map (5), capnography (1), device_screen (2), fetal_monitoring (6), injection_site (8), io_record (5), lab_trend (7), rhythm_strip (2), vitals_trend (1)
 
 ### Physiological Adaptation
 
-Top topics: Cardiovascular Disorders (70), Endocrine & Neurological Disorders (31), Renal & Gastrointestinal Disorders (29), Electrolyte Imbalances (22), Burn Management (15), Diabetic Ketoacidosis (DKA) (13), Respiratory & Infectious Disorders (10), Sepsis & Septic Shock (7), ABG & Acid-Base Interpretation (2), Adult Health & Wellness (2)
+Top topics: Cardiovascular Disorders (70), Endocrine & Neurological Disorders (31), Renal & Gastrointestinal Disorders (29), Electrolyte Imbalances (23), Burn Management (15), Diabetic Ketoacidosis (DKA) (13), Respiratory & Infectious Disorders (10), Sepsis & Septic Shock (7), ABG & Acid-Base Interpretation (2), Adult Health & Wellness (2)
 Visual kinds: burn_map (5), capnography (4), io_record (2), lab_trend (7), rhythm_strip (32), vitals_trend (7)
 
 ## By Item Type
@@ -297,7 +297,7 @@ Under-served categories:
 - Management of Care: 149
 
 Over-served categories:
-- Physiological Adaptation: 240
+- Physiological Adaptation: 241
 
 Under-served item types:
 - highlight: 2
@@ -322,23 +322,23 @@ PRIORITIZE_TOPICS:
 - Acute gallstone pancreatitis with cholangitis
 - Acute Graft-Versus-Host Disease
 - Acute kidney injury
-- acute kidney injury and hyperkalemia
 - acute kidney injury fluid response
 - Acute Myocardial Infarction and Ventricular Fibrillation
 - Acute pancreatitis complications
 - Acute variceal hemorrhage in cirrhosis
 - Adenosine Side Effects
 - Adrenal crisis
+- adult burn posterior surface TBSA
 
 AVOID_TOPICS:
 - Cardiovascular Disorders (73)
 - Mental Health Disorders (62)
-- Dosage Calculations (58)
+- Dosage Calculations (59)
 - Medication Safety & Admin (55)
 - Prioritization & Delegation (49)
 - Legal & Ethical Principles (46)
 - Transmission-Based Precautions (44)
-- Patient & Environment Safety (43)
+- Procedural Complications & Dialysis (43)
 
 ## Docs Drift
 
