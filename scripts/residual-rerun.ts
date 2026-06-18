@@ -219,8 +219,8 @@ export const assertCleanMonitoredInputs = (cwd = process.cwd(), paths = MONITORE
 export const assertPostS01Topics = (): void => {
   const maternal = SHARED_TOPIC_CATEGORY[TOPICS.MATERNAL_NEWBORN] ?? [];
   const oncology = SHARED_TOPIC_CATEGORY[TOPICS.ONCOLOGY_IMMUNOTHERAPY_COMPLICATIONS] ?? [];
-  const woundStrict = STRICT_TOPIC_CATEGORY["Basic Care and Comfort"].includes(TOPICS.SKIN_WOUND_CARE);
-  const woundShared = Object.hasOwn(SHARED_TOPIC_CATEGORY, TOPICS.SKIN_WOUND_CARE);
+  const wound = SHARED_TOPIC_CATEGORY[TOPICS.SKIN_WOUND_CARE] ?? [];
+  const transfusion = SHARED_TOPIC_CATEGORY[TOPICS.TRANSFUSION_BLOOD_PRODUCTS] ?? [];
 
   const missing: string[] = [];
   for (const category of [
@@ -233,8 +233,17 @@ export const assertPostS01Topics = (): void => {
   for (const category of ["Physiological Adaptation", "Reduction of Risk Potential"] as const) {
     if (!oncology.includes(category)) missing.push(`Oncology & Immunotherapy Complications lacks ${category}`);
   }
-  if (!CANONICAL_TOPICS.has(TOPICS.SKIN_WOUND_CARE)) missing.push("Skin & Wound Care topic is absent");
-  if (!woundStrict || woundShared) missing.push("Skin & Wound Care must be strict-only Basic Care and Comfort");
+  for (const category of ["Basic Care and Comfort", "Reduction of Risk Potential", "Safety and Infection Control"] as const) {
+    if (!wound.includes(category)) missing.push(`Skin & Wound Care lacks ${category}`);
+  }
+  for (const category of [
+    "Safety and Infection Control",
+    "Pharmacological and Parenteral Therapies",
+    "Reduction of Risk Potential",
+    "Physiological Adaptation",
+  ] as const) {
+    if (!transfusion.includes(category)) missing.push(`Transfusion & Blood Products lacks ${category}`);
+  }
   if (missing.length > 0) throw new Error(`topics.ts does not satisfy post-S01 preconditions:\n- ${missing.join("\n- ")}`);
 };
 

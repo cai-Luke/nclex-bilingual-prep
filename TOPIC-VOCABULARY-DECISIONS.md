@@ -148,6 +148,17 @@ walkthrough and wired into `src/topics.ts`.**
   Reduction of Risk Potential compromise for endotracheal suctioning steps; review if the RRP topic
   vocabulary gains a cleaner procedure/monitoring home.
 
+## Residual rerun decisions (Jun 18)
+
+- **Skin & Wound Care sharing:** share across Basic Care and Comfort, Reduction of Risk Potential,
+  and Safety and Infection Control. The residual rerun produced eight wound/pressure-injury
+  vocabulary-gap flags where moving rows to BCC solely to reach the topic would distort the tested
+  Client Needs category.
+- **Transfusion & Blood Products:** add a shared topic across Safety and Infection Control,
+  Pharmacological and Parenteral Therapies, Reduction of Risk Potential, and Physiological
+  Adaptation. Use it for transfusion reactions, blood-product indications, and product-role
+  questions that otherwise scatter into cardiovascular, lab, or procedural catchalls.
+
 ## Open structural questions (optional, for next chat)
 
 - Is the ~45-topic granularity right, or too coarse/fine anywhere? (e.g. should rhythm-strip / EKG

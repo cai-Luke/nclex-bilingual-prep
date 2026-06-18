@@ -60,6 +60,7 @@ export const TOPICS = {
   SUICIDE_CRISIS_INTERVENTION: "Suicide & Crisis Intervention",
   THERAPEUTIC_COMMUNICATION: "Therapeutic Communication",
   TRANSMISSION_BASED_PRECAUTIONS: "Transmission-Based Precautions",
+  TRANSFUSION_BLOOD_PRODUCTS: "Transfusion & Blood Products",
 } as const;
 
 // Canonical vocabulary pending a reviewed live-bank migration.
@@ -99,7 +100,6 @@ export const STRICT_TOPIC_CATEGORY: Record<Category, readonly string[]> = {
     TOPICS.ELIMINATION_COMFORT,
     TOPICS.SLEEP_REST,
     TOPICS.PALLIATIVE_SUPPORTIVE_CARE,
-    TOPICS.SKIN_WOUND_CARE,
   ],
   "Pharmacological and Parenteral Therapies": [
     TOPICS.DOSAGE_CALCULATIONS,
@@ -146,6 +146,17 @@ export const SHARED_TOPIC_CATEGORY: Record<string, readonly Category[]> = {
   [TOPICS.ONCOLOGY_IMMUNOTHERAPY_COMPLICATIONS]: [
     "Physiological Adaptation",
     "Reduction of Risk Potential",
+  ],
+  [TOPICS.SKIN_WOUND_CARE]: [
+    "Basic Care and Comfort",
+    "Reduction of Risk Potential",
+    "Safety and Infection Control",
+  ],
+  [TOPICS.TRANSFUSION_BLOOD_PRODUCTS]: [
+    "Safety and Infection Control",
+    "Pharmacological and Parenteral Therapies",
+    "Reduction of Risk Potential",
+    "Physiological Adaptation",
   ],
 };
 
@@ -223,6 +234,8 @@ export const LEXICAL_ALIASES = [
   ["therapeutic procedures", "Procedural Complications & Dialysis"],
   ["therapeutic procedures (ng tube placement)", "Procedural Complications & Dialysis"],
   ["total parenteral nutrition", "Parenteral Nutrition"],
+  ["transfusion and blood products", "Transfusion & Blood Products"],
+  ["transfusion reaction", "Transfusion & Blood Products"],
   ["transmission-based precautions", "Transmission-Based Precautions"],
   ["triage and prioritization", "Prioritization & Delegation"],
   ["wheelchair transfer safety", "Mobility & Immobility"],
@@ -237,12 +250,14 @@ export const SEMANTIC_ALIASES = [
   ["antibiotic safety", "Medication Safety & Admin"],
   ["assistive devices", "Mobility & Immobility"],
   ["bladder training", "Elimination & Comfort"],
-  ["blood transfusion", "Medication Safety & Admin"],
+  ["blood products", "Transfusion & Blood Products"],
+  ["blood transfusion", "Transfusion & Blood Products"],
   ["cane use", "Mobility & Immobility"],
   ["central venous catheter", "Standard Precautions & Hygiene"],
   ["colorectal cancer screening", "Adult Health & Wellness"],
   ["comfort", "Elimination & Comfort"],
   ["controlled substances", "Medication Safety & Admin"],
+  ["cryoprecipitate", "Transfusion & Blood Products"],
   ["crisis intervention", "Suicide & Crisis Intervention"],
   ["crutch walking", "Mobility & Immobility"],
   ["developmental stages", "Pediatric & Adolescent Health"],
