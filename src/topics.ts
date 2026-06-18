@@ -37,6 +37,7 @@ export const TOPICS = {
   MENTAL_HEALTH_DISORDERS: "Mental Health Disorders",
   MOBILITY_IMMOBILITY: "Mobility & Immobility",
   NUTRITIONAL_FLUID_SUPPORT: "Nutritional & Fluid Support",
+  ONCOLOGY_IMMUNOTHERAPY_COMPLICATIONS: "Oncology & Immunotherapy Complications",
   PALLIATIVE_SUPPORTIVE_CARE: "Palliative & Supportive Care",
   PARENTERAL_NUTRITION: "Parenteral Nutrition",
   PATIENT_ENVIRONMENT_SAFETY: "Patient & Environment Safety",
@@ -51,6 +52,7 @@ export const TOPICS = {
   REPRODUCTIVE_ENDOCRINE_HEALTH: "Reproductive & Endocrine Health",
   RESPIRATORY_INFECTIOUS_DISORDERS: "Respiratory & Infectious Disorders",
   SEPSIS_SEPTIC_SHOCK: "Sepsis & Septic Shock",
+  SKIN_WOUND_CARE: "Skin & Wound Care",
   SLEEP_REST: "Sleep & Rest",
   STANDARD_PRECAUTIONS_HYGIENE: "Standard Precautions & Hygiene",
   SUBSTANCE_USE_WITHDRAWAL: "Substance Use & Withdrawal",
@@ -77,7 +79,6 @@ export const STRICT_TOPIC_CATEGORY: Record<Category, readonly string[]> = {
     TOPICS.DISASTER_EMERGENCY_PREPAREDNESS,
   ],
   "Health Promotion and Maintenance": [
-    TOPICS.MATERNAL_NEWBORN,
     TOPICS.PEDIATRIC_ADOLESCENT_HEALTH,
     TOPICS.PEDIATRIC_TODDLER_SAFETY,
     TOPICS.ADULT_HEALTH,
@@ -97,6 +98,7 @@ export const STRICT_TOPIC_CATEGORY: Record<Category, readonly string[]> = {
     TOPICS.ELIMINATION_COMFORT,
     TOPICS.SLEEP_REST,
     TOPICS.PALLIATIVE_SUPPORTIVE_CARE,
+    TOPICS.SKIN_WOUND_CARE,
   ],
   "Pharmacological and Parenteral Therapies": [
     TOPICS.DOSAGE_CALCULATIONS,
@@ -130,6 +132,15 @@ export const SHARED_TOPIC_CATEGORY: Record<string, readonly Category[]> = {
   [TOPICS.LAB_DIAGNOSTIC_TESTS]: [
     "Reduction of Risk Potential",
     "Pharmacological and Parenteral Therapies",
+  ],
+  [TOPICS.MATERNAL_NEWBORN]: [
+    "Health Promotion and Maintenance",
+    "Reduction of Risk Potential",
+    "Physiological Adaptation",
+  ],
+  [TOPICS.ONCOLOGY_IMMUNOTHERAPY_COMPLICATIONS]: [
+    "Physiological Adaptation",
+    "Reduction of Risk Potential",
   ],
 };
 
