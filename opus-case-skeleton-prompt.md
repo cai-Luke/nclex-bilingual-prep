@@ -162,6 +162,23 @@ Psychosocial Integrity, Health Promotion and Maintenance, Basic Care and Comfort
 Potential. Do not default every case to high-acuity Physiological Adaptation unless the assigned topic
 requires it.
 
+TOPIC FIELD RULE:
+question.topic must be copied exactly from the canonical topic vocabulary below.
+Do not invent, specialize, lowercase, pluralize, or translate topic strings.
+If no exact topic fits, choose the closest canonical topic and express the specific
+clinical angle in the stem/rationale, not in topic.
+
+| Category | Allowed topics |
+|---|---|
+| Management of Care | Prioritization & Delegation; Legal & Ethical Principles; Client Advocacy; Confidentiality & HIPAA; Discharge Planning & Handoff; Conflict Resolution; Caregiver Role Strain & Family Coping |
+| Safety and Infection Control | Patient & Environment Safety; Transmission-Based Precautions; Standard Precautions & Hygiene; PPE & Sterile Technique; Disaster & Emergency Preparedness; Medication Safety & Admin |
+| Health Promotion and Maintenance | Maternal-Newborn Care & Teaching; Pediatric & Adolescent Health; Pediatric & Toddler Safety; Adult Health & Wellness; Reproductive & Endocrine Health; Chronic Disease Management & Lifestyle |
+| Psychosocial Integrity | Therapeutic Communication; Mental Health Disorders; Substance Use & Withdrawal; Suicide & Crisis Intervention; Electroconvulsive Therapy (ECT); Caregiver Role Strain & Family Coping |
+| Basic Care and Comfort | Nutritional & Fluid Support; Mobility & Immobility; Elimination & Comfort; Sleep & Rest; Palliative & Supportive Care |
+| Pharmacological and Parenteral Therapies | Dosage Calculations; Anticoagulant Therapy; Cardiovascular & Endocrine Medications; Psychotropic Medications; Parenteral Nutrition; Medication Safety & Admin; Laboratory & Diagnostic Tests |
+| Reduction of Risk Potential | ABG & Acid-Base Interpretation; Perioperative Care; Procedural Complications & Dialysis; Laboratory & Diagnostic Tests |
+| Physiological Adaptation | Cardiovascular Disorders; Respiratory & Infectious Disorders; Renal & Gastrointestinal Disorders; Endocrine & Neurological Disorders; Electrolyte Imbalances; Diabetic Ketoacidosis (DKA); Sepsis & Septic Shock; Burn Management |
+
 ## DOWNSTREAM COMPILATION AWARENESS
 
 A separate system later converts this prose into NGN-style questions. You do not write those questions. Do

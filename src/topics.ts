@@ -18,6 +18,7 @@ export const TOPICS = {
   BURN_MANAGEMENT: "Burn Management",
   CARDIOVASCULAR_DISORDERS: "Cardiovascular Disorders",
   CARDIOVASCULAR_ENDOCRINE_MEDICATIONS: "Cardiovascular & Endocrine Medications",
+  CAREGIVER_ROLE_STRAIN_FAMILY_COPING: "Caregiver Role Strain & Family Coping",
   CHRONIC_DISEASE_LIFESTYLE: "Chronic Disease Management & Lifestyle",
   CLIENT_ADVOCACY: "Client Advocacy",
   CONFIDENTIALITY_HIPAA: "Confidentiality & HIPAA",
@@ -133,6 +134,10 @@ export const SHARED_TOPIC_CATEGORY: Record<string, readonly Category[]> = {
     "Reduction of Risk Potential",
     "Pharmacological and Parenteral Therapies",
   ],
+  [TOPICS.CAREGIVER_ROLE_STRAIN_FAMILY_COPING]: [
+    "Psychosocial Integrity",
+    "Management of Care",
+  ],
   [TOPICS.MATERNAL_NEWBORN]: [
     "Health Promotion and Maintenance",
     "Reduction of Risk Potential",
@@ -160,58 +165,32 @@ export const normalizeTopicKey = (topic: string): string => topic.trim().toLower
 
 const selfAliasEntries = CANONICAL_TOPIC_LIST.map((topic) => [normalizeTopicKey(topic), topic] as const);
 
-export const TOPIC_ALIAS_ENTRIES = [
+export const LEXICAL_ALIASES = [
   ...selfAliasEntries,
   ["abg", "ABG & Acid-Base Interpretation"],
   ["abg interpretation", "ABG & Acid-Base Interpretation"],
   ["abg and acid-base interpretation", "ABG & Acid-Base Interpretation"],
   ["acid-base interpretation", "ABG & Acid-Base Interpretation"],
-  ["advance directives", "Legal & Ethical Principles"],
   ["advocacy", "Client Advocacy"],
   ["airborne precautions", "Transmission-Based Precautions"],
-  ["alcohol withdrawal", "Substance Use & Withdrawal"],
   ["antepartum care", "Maternal-Newborn Care & Teaching"],
-  ["antibiotic safety", "Medication Safety & Admin"],
-  ["assistive devices", "Mobility & Immobility"],
-  ["bladder training", "Elimination & Comfort"],
-  ["blood transfusion", "Medication Safety & Admin"],
   ["c. difficile care", "Transmission-Based Precautions"],
-  ["cane use", "Mobility & Immobility"],
-  ["central venous catheter", "Standard Precautions & Hygiene"],
   ["client advocacy", "Client Advocacy"],
   ["client rights and refusal", "Legal & Ethical Principles"],
-  ["colorectal cancer screening", "Adult Health & Wellness"],
-  ["comfort", "Elimination & Comfort"],
   ["contact precautions", "Transmission-Based Precautions"],
-  ["controlled substances", "Medication Safety & Admin"],
   ["continuity of care", "Discharge Planning & Handoff"],
   ["copd", "Respiratory & Infectious Disorders"],
-  ["crisis intervention", "Suicide & Crisis Intervention"],
-  ["crutch walking", "Mobility & Immobility"],
-  ["developmental stages", "Pediatric & Adolescent Health"],
   ["diagnostic tests", "Laboratory & Diagnostic Tests"],
   ["disaster triage", "Disaster & Emergency Preparedness"],
   ["discharge planning", "Discharge Planning & Handoff"],
   ["droplet precautions", "Transmission-Based Precautions"],
-  ["dvt", "Procedural Complications & Dialysis"],
-  ["dvt management", "Procedural Complications & Dialysis"],
-  ["elimination", "Elimination & Comfort"],
   ["emergency severity index (esi) triage", "Prioritization & Delegation"],
-  ["enteral nutrition", "Nutritional & Fluid Support"],
   ["ethical principles", "Legal & Ethical Principles"],
-  ["fall prevention", "Patient & Environment Safety"],
   ["fire safety", "Patient & Environment Safety"],
-  ["fluid balance", "Nutritional & Fluid Support"],
-  ["grief and loss", "Therapeutic Communication"],
-  ["grief communication", "Therapeutic Communication"],
   ["hand hygiene", "Standard Precautions & Hygiene"],
   ["hazardous materials", "Patient & Environment Safety"],
-  ["health screening", "Adult Health & Wellness"],
   ["hipaa and confidentiality", "Confidentiality & HIPAA"],
-  ["hygiene", "Elimination & Comfort"],
   ["informed consent", "Legal & Ethical Principles"],
-  ["insulin administration", "Medication Safety & Admin"],
-  ["intravenous therapy", "Medication Safety & Admin"],
   ["laboratory values", "Laboratory & Diagnostic Tests"],
   ["laboratory values (abg interpretation)", "ABG & Acid-Base Interpretation"],
   ["laboratory values (hba1c)", "Laboratory & Diagnostic Tests"],
@@ -221,14 +200,8 @@ export const TOPIC_ALIAS_ENTRIES = [
   ["lifestyle choices", "Chronic Disease Management & Lifestyle"],
   ["medication safety", "Medication Safety & Admin"],
   ["menopause teaching", "Reproductive & Endocrine Health"],
-  ["mobility", "Mobility & Immobility"],
   ["neutropenic precautions", "Transmission-Based Precautions"],
   ["newborn care", "Maternal-Newborn Care & Teaching"],
-  ["non-pharmacological comfort", "Palliative & Supportive Care"],
-  ["non-pharmacological comfort (heat/cold therapy)", "Palliative & Supportive Care"],
-  ["nutrition", "Nutritional & Fluid Support"],
-  ["nutrition (enteral feeding)", "Nutritional & Fluid Support"],
-  ["pain management", "Palliative & Supportive Care"],
   ["personal hygiene", "Elimination & Comfort"],
   ["personal hygiene (diabetic foot care)", "Elimination & Comfort"],
   ["postoperative complications", "Perioperative Care"],
@@ -242,7 +215,6 @@ export const TOPIC_ALIAS_ENTRIES = [
   ["restraint monitoring", "Patient & Environment Safety"],
   ["restraint safety", "Patient & Environment Safety"],
   ["schizophrenia", "Mental Health Disorders"],
-  ["seizure precautions", "Endocrine & Neurological Disorders"],
   ["sharps disposal", "Standard Precautions & Hygiene"],
   ["sleep hygiene", "Sleep & Rest"],
   ["standard precautions", "Standard Precautions & Hygiene"],
@@ -254,13 +226,56 @@ export const TOPIC_ALIAS_ENTRIES = [
   ["transmission-based precautions", "Transmission-Based Precautions"],
   ["triage and prioritization", "Prioritization & Delegation"],
   ["wheelchair transfer safety", "Mobility & Immobility"],
+  ["caregiver strain", "Caregiver Role Strain & Family Coping"],
+  ["caregiver burden and family adaptation", "Caregiver Role Strain & Family Coping"],
+  ["family coping after new chronic illness diagnosis", "Caregiver Role Strain & Family Coping"],
 ] as const satisfies readonly (readonly [string, string])[];
 
+export const SEMANTIC_ALIASES = [
+  ["advance directives", "Legal & Ethical Principles"],
+  ["alcohol withdrawal", "Substance Use & Withdrawal"],
+  ["antibiotic safety", "Medication Safety & Admin"],
+  ["assistive devices", "Mobility & Immobility"],
+  ["bladder training", "Elimination & Comfort"],
+  ["blood transfusion", "Medication Safety & Admin"],
+  ["cane use", "Mobility & Immobility"],
+  ["central venous catheter", "Standard Precautions & Hygiene"],
+  ["colorectal cancer screening", "Adult Health & Wellness"],
+  ["comfort", "Elimination & Comfort"],
+  ["controlled substances", "Medication Safety & Admin"],
+  ["crisis intervention", "Suicide & Crisis Intervention"],
+  ["crutch walking", "Mobility & Immobility"],
+  ["developmental stages", "Pediatric & Adolescent Health"],
+  ["dvt", "Procedural Complications & Dialysis"],
+  ["dvt management", "Procedural Complications & Dialysis"],
+  ["elimination", "Elimination & Comfort"],
+  ["enteral nutrition", "Nutritional & Fluid Support"],
+  ["fall prevention", "Patient & Environment Safety"],
+  ["fluid balance", "Nutritional & Fluid Support"],
+  ["insulin administration", "Medication Safety & Admin"],
+  ["intravenous therapy", "Medication Safety & Admin"],
+  ["mobility", "Mobility & Immobility"],
+  ["neutropenic precautions", "Transmission-Based Precautions"],
+  ["non-pharmacological comfort", "Palliative & Supportive Care"],
+  ["non-pharmacological comfort (heat/cold therapy)", "Palliative & Supportive Care"],
+  ["nutrition", "Nutritional & Fluid Support"],
+  ["nutrition (enteral feeding)", "Nutritional & Fluid Support"],
+  ["pain management", "Palliative & Supportive Care"],
+  ["seizure precautions", "Endocrine & Neurological Disorders"],
+] as const satisfies readonly (readonly [string, string])[];
+
+export const TOPIC_ALIAS_ENTRIES = LEXICAL_ALIASES.map(([alias, target]) => [normalizeTopicKey(alias), target] as const);
+export const SEMANTIC_TOPIC_ALIAS_ENTRIES = SEMANTIC_ALIASES.map(
+  ([alias, target]) => [normalizeTopicKey(alias), target] as const,
+);
+
 export const TOPIC_ALIASES: ReadonlyMap<string, string> = new Map(TOPIC_ALIAS_ENTRIES);
+export const SEMANTIC_TOPIC_ALIASES: ReadonlyMap<string, string> = new Map(SEMANTIC_TOPIC_ALIAS_ENTRIES);
 
 export const isCanonicalTopic = (topic: string): boolean => CANONICAL_TOPICS.has(topic);
 
 export const aliasTopic = (topic: string): string | undefined => TOPIC_ALIASES.get(normalizeTopicKey(topic));
+export const semanticAliasTopic = (topic: string): string | undefined => SEMANTIC_TOPIC_ALIASES.get(normalizeTopicKey(topic));
 
 export const topicCategories = (topic: string): readonly Category[] => {
   const entry = TOPIC_CATEGORY_ENTRIES.find(([candidate]) => candidate === topic);

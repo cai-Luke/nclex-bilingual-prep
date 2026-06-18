@@ -12,8 +12,9 @@ almost nothing to reconcile. Luke's final calls are recorded here:
 2. **Class**: mark each `STRICT` (one category only) or `SHARED` (allowed under listed categories).
    This drives the Phase 3 topic×category licensing in the spec.
 
-This set is canonical, but live-bank migration must be conservative: exact normalized mappings may
-write; ID/content-rule matches are suggestions only until reviewed.
+This set is canonical. Live-bank migration is conservative: **lexical aliases write** (each
+category-license-checked); **semantic aliases and the gated LLM proposal pass only suggest** until
+reviewed and approved into an execution manifest. See `TOPIC-VOCABULARY-HYGIENE-SPEC.md` Layer 3.
 
 ## Management of Care
 
@@ -117,6 +118,35 @@ These were the topics where a single clinical concept legitimately spans categor
    routes to Management of Care topics when that is the actual tested construct.
 7. **Dosage Calculations** — STRICT `Pharmacological and Parenteral Therapies`. Classifier should
    reserve this for actual calculation/numeric dose work, not broad medication safety.
+
+## Approved additions (locked)
+
+Surfaced by the migration residual — a cluster with no clean canonical home. **Approved in the
+walkthrough and wired into `src/topics.ts`.**
+
+- **`Caregiver Role Strain & Family Coping`** — **approved; locked.** SHARED `[Psychosocial Integrity,
+  Management of Care]` (the MoC side only for referrals, respite, discharge resources, home health,
+  support groups, or care coordination). Its three aliases (`caregiver strain`, `caregiver burden and
+  family adaptation`, `family coping after new chronic illness diagnosis`) sit in the **lexical** write
+  tier. Named narrowly on purpose: **not** `Family Support` (which would vacuum every
+  peds/OB/psych/hospice/chronic-illness/teaching item).
+- **Grief routing (resolved, revised):** grief is a clinical context, not a stable topic by itself.
+  Route grief items by the construct actually tested: grief-vs-depression assessment to **Mental
+  Health Disorders**, therapeutic grief responses to **Therapeutic Communication**, and active
+  self-harm or safety-crisis findings to **Suicide & Crisis Intervention**. The prior
+  `grief and loss` / `grief communication` semantic aliases to Suicide & Crisis Intervention were
+  removed because they overrode this construct-based routing.
+
+## Review holds from Gemini semantic pass (Jun 16)
+
+- `gemini_u5_fib_or_2026_06_09_fib_tbsa_04`: corrected category from Safety and Infection Control to
+  Physiological Adaptation; topic resolves to **Burn Management**.
+- `gemini_u5_fib_or_2026_06_09_fib_gcs_01`: **Laboratory & Diagnostic Tests** is a licensed
+  Reduction of Risk Potential compromise for GCS scoring, but the fit is weak and should be reviewed
+  if an assessment/monitoring topic is added later.
+- `gemini_u5_fib_or_2026_06_09_or_trach_12`: **Procedural Complications & Dialysis** is a licensed
+  Reduction of Risk Potential compromise for endotracheal suctioning steps; review if the RRP topic
+  vocabulary gains a cleaner procedure/monitoring home.
 
 ## Open structural questions (optional, for next chat)
 
