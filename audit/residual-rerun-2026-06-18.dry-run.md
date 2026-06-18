@@ -1,6 +1,6 @@
 # Consolidated Residual Re-Run Dry Run
 
-Generated: 2026-06-18T13:34:24.136Z
+Generated: 2026-06-18T15:14:22.319Z
 Classifier: openai/gpt-5-codex-in-harness
 Mode: dry-run only
 Canonical bank writes: none
@@ -8,27 +8,18 @@ Topic vocabulary writes: none
 
 ## Vocabulary/Licensing Changes Proposed
 
-- `gpt_case_gap_2026_06_11_pressure_ltc_part_1_matrix_risk`: The row is genuinely wound/skin care, but moving categories solely to reach strict-only Skin & Wound Care would distort the tested client-needs category. Proposed vocabulary change: Consider sharing Skin & Wound Care with Reduction of Risk Potential and/or Safety and Infection Control for wound risk, prevention, staging, and monitoring rows.
-- `gpt_case_gap_2026_06_11_pressure_ltc_part_2_sata_plan`: The row is genuinely wound/skin care, but moving categories solely to reach strict-only Skin & Wound Care would distort the tested client-needs category. Proposed vocabulary change: Consider sharing Skin & Wound Care with Reduction of Risk Potential and/or Safety and Infection Control for wound risk, prevention, staging, and monitoring rows.
-- `gpt_case_gap_2026_06_11_pressure_ltc_part_4_cloze_outcome`: The row is pressure-injury outcome monitoring in a Safety category; moving to BCC solely to reach Skin & Wound Care would distort category intent. Proposed vocabulary change: Consider sharing Skin & Wound Care with Safety and Infection Control for pressure-injury outcome/prevention rows.
-- `gpt_gap_2026_06_10_b_or_moisture_pressure_prevention_04`: The row is genuinely wound/skin care, but moving categories solely to reach strict-only Skin & Wound Care would distort the tested client-needs category. Proposed vocabulary change: Consider sharing Skin & Wound Care with Reduction of Risk Potential and/or Safety and Infection Control for wound risk, prevention, staging, and monitoring rows.
-- `gpt_gap_2026_06_10_or_pressure_injury_prevention_04`: The row is genuinely wound/skin care, but moving categories solely to reach strict-only Skin & Wound Care would distort the tested client-needs category. Proposed vocabulary change: Consider sharing Skin & Wound Care with Reduction of Risk Potential and/or Safety and Infection Control for wound risk, prevention, staging, and monitoring rows.
-- `gpt_gap_2026_06_12_nonmcq_balanced_b_case_wound_teachback_04_q1`: The row is genuinely wound/skin care, but moving categories solely to reach strict-only Skin & Wound Care would distort the tested client-needs category. Proposed vocabulary change: Consider sharing Skin & Wound Care with Reduction of Risk Potential and/or Safety and Infection Control for wound risk, prevention, staging, and monitoring rows.
-- `gpt_gap_2026_06_12_nonmcq_balanced_case_pressure_injury_nutrition_03_q5`: The row is genuinely wound/skin care, but moving categories solely to reach strict-only Skin & Wound Care would distort the tested client-needs category. Proposed vocabulary change: Consider sharing Skin & Wound Care with Reduction of Risk Potential and/or Safety and Infection Control for wound risk, prevention, staging, and monitoring rows.
-- `gpt_gap_jun12_matrix_pressure_injury_staging_01`: The row is genuinely wound/skin care, but moving categories solely to reach strict-only Skin & Wound Care would distort the tested client-needs category. Proposed vocabulary change: Consider sharing Skin & Wound Care with Reduction of Risk Potential and/or Safety and Infection Control for wound risk, prevention, staging, and monitoring rows.
+- none
 
 ## Safety Summary
 
-- proposed: 160
+- proposed: 170
 - carried-forward: 65
-- vocabulary_gap: 8
-- unresolved: 4
+- unresolved: 2
 
 Decision types:
-- topic_only: 155
-- category_and_topic: 70
-- vocabulary_gap: 8
-- abstain: 4
+- topic_only: 169
+- category_and_topic: 66
+- abstain: 2
 
 ## Scope Membership
 
@@ -46,43 +37,44 @@ Decision types:
 
 | Bucket | Rows |
 |---|---:|
-| resolved with no S01-dependent change | 189 |
-| maternal shared licensing | 22 |
-| Skin & Wound Care | 9 |
+| resolved with no S01-dependent change | 194 |
+| maternal shared licensing | 19 |
+| Skin & Wound Care | 17 |
 | Oncology & Immunotherapy Complications | 5 |
 
 ## Dominance + Category Integrity
 
 | Proposed topic | Count | Flags |
 |---|---:|---|
-| Medication Safety & Admin | 32 | Pharmacological and Parenteral Therapies >=35% |
-| Maternal-Newborn Care & Teaching | 22 | Health Promotion and Maintenance >=35%; Reduction of Risk Potential >=35% |
+| Medication Safety & Admin | 34 | Pharmacological and Parenteral Therapies >=35% |
 | Prioritization & Delegation | 22 | Management of Care >=35% |
-| Cardiovascular Disorders | 20 |  |
+| Cardiovascular Disorders | 19 |  |
+| Maternal-Newborn Care & Teaching | 19 | Reduction of Risk Potential >=35% |
 | Renal & Gastrointestinal Disorders | 18 |  |
+| Skin & Wound Care | 17 | Basic Care and Comfort >=35% |
 | Endocrine & Neurological Disorders | 10 |  |
 | Discharge Planning & Handoff | 9 |  |
-| Laboratory & Diagnostic Tests | 9 | Reduction of Risk Potential >=35% |
-| Skin & Wound Care | 9 | Basic Care and Comfort >=35% |
 | Therapeutic Communication | 9 | Psychosocial Integrity >=35% |
+| Laboratory & Diagnostic Tests | 8 |  |
 | Patient & Environment Safety | 8 | Safety and Infection Control >=35% |
 | Anticoagulant Therapy | 7 |  |
 | Burn Management | 6 |  |
 | Sepsis & Septic Shock | 6 |  |
 | Mental Health Disorders | 5 |  |
 | Oncology & Immunotherapy Complications | 5 |  |
+| Transfusion & Blood Products | 5 |  |
 | Nutritional & Fluid Support | 4 |  |
 | Respiratory & Infectious Disorders | 4 |  |
 | Caregiver Role Strain & Family Coping | 3 |  |
-| Chronic Disease Management & Lifestyle | 2 |  |
+| Chronic Disease Management & Lifestyle | 2 | Health Promotion and Maintenance >=35% |
 | Electrolyte Imbalances | 2 |  |
 | Legal & Ethical Principles | 2 |  |
 | Palliative & Supportive Care | 2 |  |
 | Transmission-Based Precautions | 2 |  |
 | Confidentiality & HIPAA | 1 |  |
+| Dosage Calculations | 1 |  |
 | Elimination & Comfort | 1 |  |
 | PPE & Sterile Technique | 1 |  |
-| Procedural Complications & Dialysis | 1 |  |
 | Psychotropic Medications | 1 |  |
 | Sleep & Rest | 1 |  |
 | Standard Precautions & Hygiene | 1 |  |
@@ -123,6 +115,7 @@ No wound recategorization pressure detected.
 | proposed | Management of Care | Initial nursing sequence for suspected C. difficile infection | Management of Care | Prioritization & Delegation | reclaim-proposed | `gpt_case_opus5_cdi_immunocompromised_01_q5` | The item sequences initial CDI response. |
 | proposed | Management of Care | missed dose follow-up | Management of Care | Prioritization & Delegation | original-unresolved | `mar_missed_antibiotic_followup_07` | The item tests appropriate follow-up actions for a missed antibiotic dose. |
 | proposed | Management of Care | post-fall escalation | Management of Care | Prioritization & Delegation | reclaim-unresolved | `gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q3` | The item frames the provider-notification priority after a fall. |
+| proposed | Management of Care | RN scope medication dose question | Management of Care | Prioritization & Delegation | reclaim-blocked-cross-category | `opus22_case_postpartum_intrusive_thoughts_01_q4` | Review correction: keep the RN-scope medication-dose item in Management of Care rather than moving postpartum context to HPM. |
 | proposed | Management of Care | Thyroid Storm Interventions | Management of Care | Prioritization & Delegation | reclaim-unresolved | `cs_thyroid_storm_q3` | The item selects indicated safety interventions for thyroid storm management. |
 | proposed | Pharmacological and Parenteral Therapies | Ethambutol baseline assessment | Pharmacological and Parenteral Therapies | Laboratory & Diagnostic Tests | reclaim-proposed | `opus25_case_tb_airborne_treatment_monitoring_01_q3` | The item tests baseline assessment before ethambutol therapy. |
 | proposed | Pharmacological and Parenteral Therapies | Adenosine Side Effects | Pharmacological and Parenteral Therapies | Medication Safety & Admin | original-unresolved | `ekg_b2_sata_06` | The item tests adenosine medication effects and safety monitoring. |
@@ -133,6 +126,8 @@ No wound recategorization pressure detected.
 | proposed | Pharmacological and Parenteral Therapies | diuretic potassium safety | Pharmacological and Parenteral Therapies | Medication Safety & Admin | reclaim-proposed | `opus24_case_elder_neglect_med_mismanagement_01_q2` | The item handles medication safety in elder neglect. |
 | proposed | Pharmacological and Parenteral Therapies | haloperidol safety in delirium | Pharmacological and Parenteral Therapies | Medication Safety & Admin | reclaim-proposed | `gpt_2026_06_13_case_delirium_uti_01_q3` | The item tests medication safety for haloperidol in delirium. |
 | proposed | Pharmacological and Parenteral Therapies | Hyperthermic Syndrome Interventions | Pharmacological and Parenteral Therapies | Medication Safety & Admin | original-unresolved | `q9_4` | The item tests interventions for a hyperthermic medication syndrome. |
+| proposed | Pharmacological and Parenteral Therapies | Late postpartum preeclampsia with severe features | Pharmacological and Parenteral Therapies | Medication Safety & Admin | reclaim-blocked-cross-category | `gpt_2026_06_16_case_postpartum_preeclampsia_severe_01_q4` | Review correction: keep acute magnesium/antihypertensive management in Pharmacological and route it to Medication Safety & Admin rather than HPM. |
+| proposed | Pharmacological and Parenteral Therapies | Late postpartum preeclampsia with severe features | Pharmacological and Parenteral Therapies | Medication Safety & Admin | reclaim-blocked-cross-category | `gpt_2026_06_16_case_postpartum_preeclampsia_severe_01_q5` | Review correction: keep acute magnesium/antihypertensive management in Pharmacological and route it to Medication Safety & Admin rather than HPM. |
 | proposed | Pharmacological and Parenteral Therapies | metformin discharge teaching | Pharmacological and Parenteral Therapies | Medication Safety & Admin | reclaim-proposed | `gpt_opus21_case_colostomy_lep_discharge_01_q5` | The item teaches metformin discharge safety. |
 | proposed | Pharmacological and Parenteral Therapies | metformin renal safety | Pharmacological and Parenteral Therapies | Medication Safety & Admin | reclaim-proposed | `opus24_case_elder_neglect_med_mismanagement_01_q5` | The item tests metformin renal safety. |
 | proposed | Pharmacological and Parenteral Therapies | opioid reassessment after IV dose | Pharmacological and Parenteral Therapies | Medication Safety & Admin | reclaim-proposed | `gpt_gap_2026_06_12_nonmcq_balanced_b_case_opioid_safety_01_q2` | The item reassesses after an IV opioid dose. |
@@ -141,6 +136,7 @@ No wound recategorization pressure detected.
 | proposed | Pharmacological and Parenteral Therapies | Potassium infusion IV-site complication | Pharmacological and Parenteral Therapies | Medication Safety & Admin | original-blocked-cross-category | `opus3_iv_potassium_safety_case_01_q6` | The item evaluates IV potassium infusion-site safety. |
 | proposed | Pharmacological and Parenteral Therapies | Serotonin Syndrome Recognition | Pharmacological and Parenteral Therapies | Medication Safety & Admin | original-unresolved | `q9_1` | The item recognizes serotonin syndrome from medication exposure. |
 | proposed | Pharmacological and Parenteral Therapies | Thyroid Storm Pharmacology Sequence | Pharmacological and Parenteral Therapies | Medication Safety & Admin | reclaim-proposed | `cs_thyroid_storm_q2` | The item sequences thyroid-storm medication administration. |
+| proposed | Pharmacological and Parenteral Therapies | Cryoprecipitate Role | Pharmacological and Parenteral Therapies | Transfusion & Blood Products | reclaim-proposed | `q7_3` | After approved shared licensing, this transfusion or blood-product row can keep its current category and use Transfusion & Blood Products. |
 | proposed | Physiological Adaptation | acute hemorrhage prioritization | Physiological Adaptation | Cardiovascular Disorders | reclaim-proposed | `gpt_case_warfarin_mvr_2026_06_11_01_q4` | The item tests cardiovascular physiology, perfusion, dysrhythmia, hemorrhage, or hemodynamic response. |
 | proposed | Physiological Adaptation | Acute variceal hemorrhage in cirrhosis | Physiological Adaptation | Cardiovascular Disorders | original-unresolved | `gpt_case_variceal_hemorrhage_cirrhosis_2026_06_16_01_q3` | The item tests cardiovascular physiology, perfusion, dysrhythmia, hemorrhage, or hemodynamic response. |
 | proposed | Physiological Adaptation | Atrial Arrhythmias | Physiological Adaptation | Cardiovascular Disorders | original-unresolved | `ekg_b2_matrix_10` | The item tests cardiovascular physiology, perfusion, dysrhythmia, hemorrhage, or hemodynamic response. |
@@ -148,7 +144,6 @@ No wound recategorization pressure detected.
 | proposed | Physiological Adaptation | Atrial Flutter | Physiological Adaptation | Cardiovascular Disorders | original-unresolved | `ekg_b2_mc_07` | The item tests cardiovascular physiology, perfusion, dysrhythmia, hemorrhage, or hemodynamic response. |
 | proposed | Physiological Adaptation | AV Heart Blocks | Physiological Adaptation | Cardiovascular Disorders | original-unresolved | `ekg_b3_matrix_10` | The item tests cardiovascular physiology, perfusion, dysrhythmia, hemorrhage, or hemodynamic response. |
 | proposed | Physiological Adaptation | First-Degree AV Block | Physiological Adaptation | Cardiovascular Disorders | original-unresolved | `ekg_b3_mc_01` | The item tests cardiovascular physiology, perfusion, dysrhythmia, hemorrhage, or hemodynamic response. |
-| proposed | Physiological Adaptation | Hemolytic Reaction Identification | Physiological Adaptation | Cardiovascular Disorders | original-unresolved | `q4_2` | The item identifies acute hemolytic transfusion reaction with hypotension/back pain. |
 | proposed | Physiological Adaptation | postoperative hemorrhage with hypovolemic shock | Physiological Adaptation | Cardiovascular Disorders | reclaim-proposed | `opus4_case_postop_sbar_01_q2` | The item tests cardiovascular physiology, perfusion, dysrhythmia, hemorrhage, or hemodynamic response. |
 | proposed | Physiological Adaptation | AD Cause Identification | Physiological Adaptation | Endocrine & Neurological Disorders | original-unresolved | `q10_4` | The item identifies autonomic dysreflexia causes. |
 | proposed | Physiological Adaptation | Autonomic Dysreflexia Triggers | Physiological Adaptation | Endocrine & Neurological Disorders | original-unresolved | `q10_1` | The item identifies an autonomic dysreflexia trigger. |
@@ -165,6 +160,7 @@ No wound recategorization pressure detected.
 | proposed | Physiological Adaptation | Intussusception Recovery Sign | Physiological Adaptation | Renal & Gastrointestinal Disorders | original-unresolved | `q8_5` | The item recognizes recovery after intussusception treatment. |
 | proposed | Physiological Adaptation | Pyloric Stenosis Metabolic Impact | Physiological Adaptation | Renal & Gastrointestinal Disorders | original-unresolved | `q8_3` | The item interprets pyloric stenosis metabolic effects. |
 | proposed | Physiological Adaptation | Pyloric Stenosis Recognition | Physiological Adaptation | Renal & Gastrointestinal Disorders | original-unresolved | `q8_1` | The item recognizes pyloric stenosis. |
+| proposed | Physiological Adaptation | Hemolytic Reaction Identification | Physiological Adaptation | Transfusion & Blood Products | original-unresolved | `q4_2` | After approved shared licensing, this transfusion or blood-product row can keep its current category and use Transfusion & Blood Products. |
 | proposed | Psychosocial Integrity | caregiver burden and safety cue recognition | Psychosocial Integrity | Caregiver Role Strain & Family Coping | original-unresolved | `gpt_case_premium_next_case_caregiver_adaptation_dementia_03_matrix_cues` | The item identifies caregiver strain and family safety/coping cues. |
 | proposed | Psychosocial Integrity | elder neglect recognition | Psychosocial Integrity | Mental Health Disorders | original-unresolved | `opus24_case_elder_neglect_med_mismanagement_01_q1` | The item recognizes elder neglect pattern and cognitive vulnerabilities. |
 | proposed | Psychosocial Integrity | postpartum depression treatment response | Psychosocial Integrity | Mental Health Disorders | original-blocked-cross-category | `opus22_case_postpartum_intrusive_thoughts_01_q3` | The item evaluates postpartum depression/anxiety treatment response. |
@@ -181,13 +177,23 @@ No wound recategorization pressure detected.
 | proposed | Reduction of Risk Potential | falling magnesium trend | Reduction of Risk Potential | Laboratory & Diagnostic Tests | original-unresolved | `gpt_u3_labtrend_2026_06_09_cloze_magnesium_decline_08` | The item interprets magnesium lab trend. |
 | proposed | Reduction of Risk Potential | fluid balance monitoring | Reduction of Risk Potential | Laboratory & Diagnostic Tests | original-unresolved | `io_fib_hf_net_balance_01` | The item calculates net fluid balance from a record. |
 | proposed | Reduction of Risk Potential | rapid sodium correction trend | Reduction of Risk Potential | Laboratory & Diagnostic Tests | original-unresolved | `gpt_u3_labtrend_2026_06_09_b_cloze_sodium_overcorrection_08` | The item interprets sodium overcorrection lab trend. |
+| proposed | Reduction of Risk Potential | Pressure injury staging | Reduction of Risk Potential | Skin & Wound Care | original-blocked-cross-category | `gpt_gap_jun12_matrix_pressure_injury_staging_01` | After approved shared licensing, this wound or pressure-injury row can keep its current category and use Skin & Wound Care. |
+| proposed | Reduction of Risk Potential | wound measurement trend | Reduction of Risk Potential | Skin & Wound Care | reclaim-unresolved | `gpt_gap_2026_06_12_nonmcq_balanced_case_pressure_injury_nutrition_03_q5` | After approved shared licensing, this wound or pressure-injury row can keep its current category and use Skin & Wound Care. |
 | proposed | Safety and Infection Control | malignant hyperthermia | Safety and Infection Control | Medication Safety & Admin | original-unresolved | `vit_10` | The item recognizes malignant hyperthermia after anesthetic exposure. |
 | proposed | Safety and Infection Control | Child Abuse Interventions | Safety and Infection Control | Patient & Environment Safety | original-unresolved | `q3_4` | The item selects safety and assessment actions for suspected abuse. |
 | proposed | Safety and Infection Control | DIC Nursing Interventions | Safety and Infection Control | Patient & Environment Safety | reclaim-proposed | `q7_4` | The item selects bleeding-safety interventions for DIC. |
 | proposed | Safety and Infection Control | post-fall monitoring sequence | Safety and Infection Control | Patient & Environment Safety | reclaim-proposed | `gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q4` | The item sequences ongoing monitoring and fall precautions after a fall. |
 | proposed | Safety and Infection Control | Shaken Baby Syndrome Signs | Safety and Infection Control | Patient & Environment Safety | original-unresolved | `q3_1` | The item identifies abusive head trauma findings. |
 | proposed | Safety and Infection Control | C. difficile colitis and dehydration | Safety and Infection Control | PPE & Sterile Technique | reclaim-proposed | `opus20_case_cdiff_01_q2` | The item corrects visitor PPE for CDI contact precautions. |
+| proposed | Safety and Infection Control | home wound-care infection prevention | Safety and Infection Control | Skin & Wound Care | reclaim-proposed | `gpt_gap_2026_06_12_nonmcq_balanced_b_case_wound_teachback_04_q1` | After approved shared licensing, this wound or pressure-injury row can keep its current category and use Skin & Wound Care. |
+| proposed | Safety and Infection Control | Moisture management for pressure injury prevention | Safety and Infection Control | Skin & Wound Care | original-unresolved | `gpt_gap_2026_06_10_b_or_moisture_pressure_prevention_04` | After approved shared licensing, this wound or pressure-injury row can keep its current category and use Skin & Wound Care. |
+| proposed | Safety and Infection Control | Pressure injury prevention in long-term care | Safety and Infection Control | Skin & Wound Care | original-unresolved | `gpt_case_gap_2026_06_11_pressure_ltc_part_1_matrix_risk` | After approved shared licensing, this wound or pressure-injury row can keep its current category and use Skin & Wound Care. |
+| proposed | Safety and Infection Control | Pressure injury prevention in long-term care | Safety and Infection Control | Skin & Wound Care | original-unresolved | `gpt_case_gap_2026_06_11_pressure_ltc_part_2_sata_plan` | After approved shared licensing, this wound or pressure-injury row can keep its current category and use Skin & Wound Care. |
+| proposed | Safety and Infection Control | Pressure injury prevention in long-term care | Safety and Infection Control | Skin & Wound Care | original-unresolved | `gpt_case_gap_2026_06_11_pressure_ltc_part_4_cloze_outcome` | After approved shared licensing, this wound or pressure-injury row can keep its current category and use Skin & Wound Care. |
+| proposed | Safety and Infection Control | Pressure injury prevention in rehabilitation | Safety and Infection Control | Skin & Wound Care | original-unresolved | `gpt_gap_2026_06_10_or_pressure_injury_prevention_04` | After approved shared licensing, this wound or pressure-injury row can keep its current category and use Skin & Wound Care. |
 | proposed | Safety and Infection Control | CAUTI Prevention Bundle | Safety and Infection Control | Standard Precautions & Hygiene | original-unresolved | `gpt_gap_jun11_fib_cauti_prevention_01` | The item tests CAUTI prevention through catheter necessity review. |
+| proposed | Safety and Infection Control | Transfusion Reaction Priority | Safety and Infection Control | Transfusion & Blood Products | reclaim-unresolved | `q4_1` | After approved shared licensing, this transfusion or blood-product row can keep its current category and use Transfusion & Blood Products. |
+| proposed | Safety and Infection Control | Transfusion Reaction Protocol | Safety and Infection Control | Transfusion & Blood Products | reclaim-unresolved | `q4_4` | After approved shared licensing, this transfusion or blood-product row can keep its current category and use Transfusion & Blood Products. |
 | carried-forward | Basic Care and Comfort | early refeeding gastrointestinal discomfort | Basic Care and Comfort | Nutritional & Fluid Support | reclaim-proposed | `opus26_case_refeeding_syndrome_01_q2` | The item addresses GI discomfort while maintaining the refeeding meal plan. |
 | carried-forward | Basic Care and Comfort | Mania Nutritional Support | Basic Care and Comfort | Nutritional & Fluid Support | reclaim-proposed | `q5_3` | The item selects nutrition support for mania. |
 | carried-forward | Basic Care and Comfort | Mucositis TPN and CRBSI | Basic Care and Comfort | Nutritional & Fluid Support | reclaim-proposed | `opus_tpn_case_mucositis_01_q6` | The item evaluates whether TPN can be discontinued for enteral intake. |
@@ -258,16 +264,13 @@ No wound recategorization pressure detected.
 
 | Status | Current category | Current topic | Proposed category | Proposed topic | Sources | ID | Reason |
 |---|---|---|---|---|---|---|---|
-| proposed | Pharmacological and Parenteral Therapies | Late postpartum preeclampsia with severe features | Health Promotion and Maintenance | Maternal-Newborn Care & Teaching | reclaim-blocked-cross-category | `gpt_2026_06_16_case_postpartum_preeclampsia_severe_01_q4` | The item manages acute postpartum preeclampsia treatment. |
-| proposed | Pharmacological and Parenteral Therapies | Late postpartum preeclampsia with severe features | Health Promotion and Maintenance | Maternal-Newborn Care & Teaching | reclaim-blocked-cross-category | `gpt_2026_06_16_case_postpartum_preeclampsia_severe_01_q5` | The item monitors magnesium and antihypertensive therapy in postpartum preeclampsia. |
-| proposed | Management of Care | RN scope medication dose question | Health Promotion and Maintenance | Maternal-Newborn Care & Teaching | reclaim-blocked-cross-category | `opus22_case_postpartum_intrusive_thoughts_01_q4` | The item concerns RN scope and postpartum medication follow-up. |
 | proposed | Reduction of Risk Potential | discharge readiness after sedation with language barrier | Management of Care | Discharge Planning & Handoff | reclaim-proposed | `gpt_gap_2026_06_12_nonmcq_balanced_b_case_interpreter_consent_02_q2` | The item assesses discharge readiness after sedation with language barriers. |
 | proposed | Safety and Infection Control | Pressure injury prevention in long-term care | Management of Care | Discharge Planning & Handoff | original-unresolved | `gpt_case_gap_2026_06_11_pressure_ltc_part_3_mc_delegate` | The item tests discharge planning, referrals, handoff, or care coordination. |
-| proposed | Safety and Infection Control | Transfusion Reaction Priority | Management of Care | Prioritization & Delegation | reclaim-unresolved | `q4_1` | The immediate transfusion-reaction action is a priority-setting item. |
 | proposed | Safety and Infection Control | warfarin-enoxaparin-bridge | Pharmacological and Parenteral Therapies | Anticoagulant Therapy | reclaim-proposed | `opus_case_warfarin_bridge_q2` | The item manages NSAID use with warfarin/enoxaparin bleeding risk. |
 | proposed | Safety and Infection Control | warfarin-enoxaparin-bridge | Pharmacological and Parenteral Therapies | Anticoagulant Therapy | reclaim-unresolved | `opus_case_warfarin_bridge_q4` | The item teaches bleeding urgency while on anticoagulation. |
 | proposed | Basic Care and Comfort | warfarin-enoxaparin-bridge | Pharmacological and Parenteral Therapies | Anticoagulant Therapy | reclaim-proposed | `opus_case_warfarin_bridge_q5` | The item teaches consistent vitamin K intake with warfarin. |
 | proposed | Management of Care | warfarin-enoxaparin-bridge | Pharmacological and Parenteral Therapies | Anticoagulant Therapy | reclaim-proposed | `opus_case_warfarin_bridge_q6` | The item addresses return-to-work safety while anticoagulated. |
+| proposed | Management of Care | enteral pump duration calculation | Pharmacological and Parenteral Therapies | Dosage Calculations | original-unresolved | `gpt_visual_smoke_2026_06_12_fib_device_enteral_duration_10` | Review correction: enteral-pump duration is a medication/nutrition-device calculation matching the Dosage Calculations precedent. |
 | proposed | Health Promotion and Maintenance | family teaching for patient-controlled analgesia safety | Pharmacological and Parenteral Therapies | Medication Safety & Admin | reclaim-proposed | `gpt_gap_2026_06_12_nonmcq_balanced_b_case_opioid_safety_01_q4` | The item teaches family PCA medication safety. |
 | proposed | Reduction of Risk Potential | Injection route recognition from skin cross-section | Pharmacological and Parenteral Therapies | Medication Safety & Admin | original-blocked-cross-category | `gpt_injection_smoke_2026_06_15_mc_intradermal_01` | The item identifies parenteral injection route/technique. |
 | proposed | Reduction of Risk Potential | Injection route recognition from skin cross-section | Pharmacological and Parenteral Therapies | Medication Safety & Admin | original-blocked-cross-category | `gpt_injection_smoke_2026_06_15_mc_intramuscular_03` | The item identifies parenteral injection route/technique. |
@@ -323,31 +326,15 @@ No wound recategorization pressure detected.
 | proposed | Pharmacological and Parenteral Therapies | Vasopressor Titration | Physiological Adaptation | Sepsis & Septic Shock | reclaim-proposed | `cs_sepsis_shock_01_part_4` | The item tests sepsis or septic-shock recognition, intervention, or response. |
 | proposed | Health Promotion and Maintenance | family education for delirium prevention | Psychosocial Integrity | Mental Health Disorders | reclaim-unresolved | `gpt_gap_2026_06_12_nonmcq_balanced_case_delirium_family_04_q4` | The item teaches family prevention/monitoring for delirium recurrence. |
 | proposed | Health Promotion and Maintenance | post-sedation discharge teaching comprehension | Psychosocial Integrity | Therapeutic Communication | reclaim-unresolved | `gpt_gap_2026_06_12_nonmcq_balanced_b_case_interpreter_consent_02_q5` | The item evaluates teach-back comprehension with interpreter support. |
-| proposed | Physiological Adaptation | Hemolytic Reaction Confirmation | Reduction of Risk Potential | Laboratory & Diagnostic Tests | original-unresolved | `q4_5` | The item identifies the lab test confirming acute hemolytic reaction. |
-| proposed | Safety and Infection Control | Transfusion Reaction Protocol | Reduction of Risk Potential | Procedural Complications & Dialysis | reclaim-unresolved | `q4_4` | The item tests transfusion reaction protocol after stopping blood. |
+| proposed | Physiological Adaptation | Hemolytic Reaction Confirmation | Reduction of Risk Potential | Transfusion & Blood Products | original-unresolved | `q4_5` | After approved shared licensing, the hemolytic-reaction confirmation item belongs with transfusion content while keeping its diagnostic-risk category. |
 | proposed | Health Promotion and Maintenance | fall prevention plan | Safety and Infection Control | Patient & Environment Safety | reclaim-unresolved | `gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5` | The item tests a fall-prevention plan. |
 | proposed | Reduction of Risk Potential | fracture patterns concerning for nonaccidental trauma | Safety and Infection Control | Patient & Environment Safety | reclaim-proposed | `gpt_case_opus23_nat_toddler_01_q2` | The item interprets injury patterns concerning for nonaccidental trauma. |
 | proposed | Management of Care | Tuberculosis contact investigation | Safety and Infection Control | Transmission-Based Precautions | reclaim-unresolved | `opus25_case_tb_airborne_treatment_monitoring_01_q2` | The item tests TB contact investigation/public-health infection-control follow-up. |
-
-### vocabulary_gap
-
-| Status | Current category | Current topic | Proposed category | Proposed topic | Sources | ID | Reason |
-|---|---|---|---|---|---|---|---|
-| vocabulary_gap | Safety and Infection Control | home wound-care infection prevention |  |  | reclaim-proposed | `gpt_gap_2026_06_12_nonmcq_balanced_b_case_wound_teachback_04_q1` | The row is genuinely wound/skin care, but moving categories solely to reach strict-only Skin & Wound Care would distort the tested client-needs category. Proposed vocabulary change: Consider sharing Skin & Wound Care with Reduction of Risk Potential and/or Safety and Infection Control for wound risk, prevention, staging, and monitoring rows. |
-| vocabulary_gap | Safety and Infection Control | Moisture management for pressure injury prevention |  |  | original-unresolved | `gpt_gap_2026_06_10_b_or_moisture_pressure_prevention_04` | The row is genuinely wound/skin care, but moving categories solely to reach strict-only Skin & Wound Care would distort the tested client-needs category. Proposed vocabulary change: Consider sharing Skin & Wound Care with Reduction of Risk Potential and/or Safety and Infection Control for wound risk, prevention, staging, and monitoring rows. |
-| vocabulary_gap | Safety and Infection Control | Pressure injury prevention in long-term care |  |  | original-unresolved | `gpt_case_gap_2026_06_11_pressure_ltc_part_1_matrix_risk` | The row is genuinely wound/skin care, but moving categories solely to reach strict-only Skin & Wound Care would distort the tested client-needs category. Proposed vocabulary change: Consider sharing Skin & Wound Care with Reduction of Risk Potential and/or Safety and Infection Control for wound risk, prevention, staging, and monitoring rows. |
-| vocabulary_gap | Safety and Infection Control | Pressure injury prevention in long-term care |  |  | original-unresolved | `gpt_case_gap_2026_06_11_pressure_ltc_part_2_sata_plan` | The row is genuinely wound/skin care, but moving categories solely to reach strict-only Skin & Wound Care would distort the tested client-needs category. Proposed vocabulary change: Consider sharing Skin & Wound Care with Reduction of Risk Potential and/or Safety and Infection Control for wound risk, prevention, staging, and monitoring rows. |
-| vocabulary_gap | Safety and Infection Control | Pressure injury prevention in long-term care |  |  | original-unresolved | `gpt_case_gap_2026_06_11_pressure_ltc_part_4_cloze_outcome` | The row is pressure-injury outcome monitoring in a Safety category; moving to BCC solely to reach Skin & Wound Care would distort category intent. Proposed vocabulary change: Consider sharing Skin & Wound Care with Safety and Infection Control for pressure-injury outcome/prevention rows. |
-| vocabulary_gap | Safety and Infection Control | Pressure injury prevention in rehabilitation |  |  | original-unresolved | `gpt_gap_2026_06_10_or_pressure_injury_prevention_04` | The row is genuinely wound/skin care, but moving categories solely to reach strict-only Skin & Wound Care would distort the tested client-needs category. Proposed vocabulary change: Consider sharing Skin & Wound Care with Reduction of Risk Potential and/or Safety and Infection Control for wound risk, prevention, staging, and monitoring rows. |
-| vocabulary_gap | Reduction of Risk Potential | Pressure injury staging |  |  | original-blocked-cross-category | `gpt_gap_jun12_matrix_pressure_injury_staging_01` | The row is genuinely wound/skin care, but moving categories solely to reach strict-only Skin & Wound Care would distort the tested client-needs category. Proposed vocabulary change: Consider sharing Skin & Wound Care with Reduction of Risk Potential and/or Safety and Infection Control for wound risk, prevention, staging, and monitoring rows. |
-| vocabulary_gap | Reduction of Risk Potential | wound measurement trend |  |  | reclaim-unresolved | `gpt_gap_2026_06_12_nonmcq_balanced_case_pressure_injury_nutrition_03_q5` | The row is genuinely wound/skin care, but moving categories solely to reach strict-only Skin & Wound Care would distort the tested client-needs category. Proposed vocabulary change: Consider sharing Skin & Wound Care with Reduction of Risk Potential and/or Safety and Infection Control for wound risk, prevention, staging, and monitoring rows. |
 
 ### abstain
 
 | Status | Current category | Current topic | Proposed category | Proposed topic | Sources | ID | Reason |
 |---|---|---|---|---|---|---|---|
-| unresolved | Pharmacological and Parenteral Therapies | Cryoprecipitate Role |  |  | reclaim-proposed | `q7_3` | No canonical topic fits this scoped edge case without forcing a weak match. |
-| unresolved | Management of Care | enteral pump duration calculation |  |  | original-unresolved | `gpt_visual_smoke_2026_06_12_fib_device_enteral_duration_10` | No canonical topic fits this scoped edge case without forcing a weak match. |
 | unresolved | Management of Care | resource management for vaccination clinic supplies |  |  | reclaim-unresolved | `gpt_case_premium_next_case_occupational_exposure_vaccine_04_fib_supplies` | No canonical topic fits this scoped edge case without forcing a weak match. |
 | unresolved | Pharmacological and Parenteral Therapies | SS vs NMS Distinction |  |  | original-unresolved | `q9_2` | No canonical topic fits this scoped edge case without forcing a weak match. |
 
@@ -516,13 +503,11 @@ No wound recategorization pressure detected.
 
 ### gpt_2026_06_16_case_postpartum_preeclampsia_severe_01_q4
 
-- banks/gpt-canonical.json:questions.279.caseStudy.questions.3.category: `Pharmacological and Parenteral Therapies` -> `Health Promotion and Maintenance`
-- banks/gpt-canonical.json:questions.279.caseStudy.questions.3.topic: `Late postpartum preeclampsia with severe features` -> `Maternal-Newborn Care & Teaching`
+- banks/gpt-canonical.json:questions.279.caseStudy.questions.3.topic: `Late postpartum preeclampsia with severe features` -> `Medication Safety & Admin`
 
 ### gpt_2026_06_16_case_postpartum_preeclampsia_severe_01_q5
 
-- banks/gpt-canonical.json:questions.279.caseStudy.questions.4.category: `Pharmacological and Parenteral Therapies` -> `Health Promotion and Maintenance`
-- banks/gpt-canonical.json:questions.279.caseStudy.questions.4.topic: `Late postpartum preeclampsia with severe features` -> `Maternal-Newborn Care & Teaching`
+- banks/gpt-canonical.json:questions.279.caseStudy.questions.4.topic: `Late postpartum preeclampsia with severe features` -> `Medication Safety & Admin`
 
 ### gpt_2026_06_16_case_postpartum_preeclampsia_severe_01_q6
 
@@ -587,10 +572,22 @@ No wound recategorization pressure detected.
 
 - banks/gpt-canonical.json:questions.157.caseStudy.questions.3.topic: `Post-stroke outpatient rehabilitation and safe feeding` -> `Prioritization & Delegation`
 
+### gpt_case_gap_2026_06_11_pressure_ltc_part_1_matrix_risk
+
+- banks/gpt-canonical.json:questions.164.caseStudy.questions.0.topic: `Pressure injury prevention in long-term care` -> `Skin & Wound Care`
+
+### gpt_case_gap_2026_06_11_pressure_ltc_part_2_sata_plan
+
+- banks/gpt-canonical.json:questions.164.caseStudy.questions.1.topic: `Pressure injury prevention in long-term care` -> `Skin & Wound Care`
+
 ### gpt_case_gap_2026_06_11_pressure_ltc_part_3_mc_delegate
 
 - banks/gpt-canonical.json:questions.164.caseStudy.questions.2.category: `Safety and Infection Control` -> `Management of Care`
 - banks/gpt-canonical.json:questions.164.caseStudy.questions.2.topic: `Pressure injury prevention in long-term care` -> `Discharge Planning & Handoff`
+
+### gpt_case_gap_2026_06_11_pressure_ltc_part_4_cloze_outcome
+
+- banks/gpt-canonical.json:questions.164.caseStudy.questions.3.topic: `Pressure injury prevention in long-term care` -> `Skin & Wound Care`
 
 ### gpt_case_gap_2026_06_11_sepsis_cloze_02
 
@@ -721,9 +718,17 @@ No wound recategorization pressure detected.
 
 - banks/gpt-canonical.json:questions.172.topic: `Repositioning schedule for pressure injury prevention` -> `Skin & Wound Care`
 
+### gpt_gap_2026_06_10_b_or_moisture_pressure_prevention_04
+
+- banks/gpt-canonical.json:questions.168.topic: `Moisture management for pressure injury prevention` -> `Skin & Wound Care`
+
 ### gpt_gap_2026_06_10_fib_daily_skin_inspection_07
 
 - banks/gpt-canonical.json:questions.153.topic: `Home skin inspection for pressure injury prevention` -> `Skin & Wound Care`
+
+### gpt_gap_2026_06_10_or_pressure_injury_prevention_04
+
+- banks/gpt-canonical.json:questions.150.topic: `Pressure injury prevention in rehabilitation` -> `Skin & Wound Care`
 
 ### gpt_gap_2026_06_12_nonmcq_balanced_b_case_interpreter_consent_02_q2
 
@@ -748,6 +753,10 @@ No wound recategorization pressure detected.
 
 - banks/gpt-canonical.json:questions.256.caseStudy.questions.0.category: `Reduction of Risk Potential` -> `Physiological Adaptation`
 - banks/gpt-canonical.json:questions.256.caseStudy.questions.0.topic: `pediatric dehydration cue recognition` -> `Renal & Gastrointestinal Disorders`
+
+### gpt_gap_2026_06_12_nonmcq_balanced_b_case_wound_teachback_04_q1
+
+- banks/gpt-canonical.json:questions.257.caseStudy.questions.0.topic: `home wound-care infection prevention` -> `Skin & Wound Care`
 
 ### gpt_gap_2026_06_12_nonmcq_balanced_b_case_wound_teachback_04_q2
 
@@ -793,6 +802,10 @@ No wound recategorization pressure detected.
 - banks/gpt-canonical.json:questions.243.caseStudy.questions.4.category: `Health Promotion and Maintenance` -> `Safety and Infection Control`
 - banks/gpt-canonical.json:questions.243.caseStudy.questions.4.topic: `fall prevention plan` -> `Patient & Environment Safety`
 
+### gpt_gap_2026_06_12_nonmcq_balanced_case_pressure_injury_nutrition_03_q5
+
+- banks/gpt-canonical.json:questions.244.caseStudy.questions.4.topic: `wound measurement trend` -> `Skin & Wound Care`
+
 ### gpt_gap_jun11_fib_cauti_prevention_01
 
 - banks/gpt-canonical.json:questions.191.topic: `CAUTI Prevention Bundle` -> `Standard Precautions & Hygiene`
@@ -800,6 +813,10 @@ No wound recategorization pressure detected.
 ### gpt_gap_jun11_or_nonpharm_pain_01
 
 - banks/gpt-canonical.json:questions.199.topic: `Nonpharmacological Musculoskeletal Pain Management` -> `Palliative & Supportive Care`
+
+### gpt_gap_jun12_matrix_pressure_injury_staging_01
+
+- banks/gpt-canonical.json:questions.224.topic: `Pressure injury staging` -> `Skin & Wound Care`
 
 ### gpt_injection_smoke_2026_06_15_matrix_route_match_08
 
@@ -927,6 +944,11 @@ No wound recategorization pressure detected.
 
 - banks/gpt-canonical.json:questions.232.category: `Reduction of Risk Potential` -> `Physiological Adaptation`
 - banks/gpt-canonical.json:questions.232.topic: `adult burn resuscitation Parkland calculation` -> `Burn Management`
+
+### gpt_visual_smoke_2026_06_12_fib_device_enteral_duration_10
+
+- banks/gpt-canonical.json:questions.241.category: `Management of Care` -> `Pharmacological and Parenteral Therapies`
+- banks/gpt-canonical.json:questions.241.topic: `enteral pump duration calculation` -> `Dosage Calculations`
 
 ### gpt_visual_smoke_2026_06_12_matrix_burn_regions_03
 
@@ -1115,8 +1137,7 @@ No wound recategorization pressure detected.
 
 ### opus22_case_postpartum_intrusive_thoughts_01_q4
 
-- banks/claude-canonical.json:questions.62.caseStudy.questions.3.category: `Management of Care` -> `Health Promotion and Maintenance`
-- banks/claude-canonical.json:questions.62.caseStudy.questions.3.topic: `RN scope medication dose question` -> `Maternal-Newborn Care & Teaching`
+- banks/claude-canonical.json:questions.62.caseStudy.questions.3.topic: `RN scope medication dose question` -> `Prioritization & Delegation`
 
 ### opus22_case_postpartum_intrusive_thoughts_01_q5
 
@@ -1227,22 +1248,20 @@ No wound recategorization pressure detected.
 
 ### q4_1
 
-- banks/hard-cases-canonical.json:questions.21.caseStudy.questions.0.category: `Safety and Infection Control` -> `Management of Care`
-- banks/hard-cases-canonical.json:questions.21.caseStudy.questions.0.topic: `Transfusion Reaction Priority` -> `Prioritization & Delegation`
+- banks/hard-cases-canonical.json:questions.21.caseStudy.questions.0.topic: `Transfusion Reaction Priority` -> `Transfusion & Blood Products`
 
 ### q4_2
 
-- banks/hard-cases-canonical.json:questions.21.caseStudy.questions.1.topic: `Hemolytic Reaction Identification` -> `Cardiovascular Disorders`
+- banks/hard-cases-canonical.json:questions.21.caseStudy.questions.1.topic: `Hemolytic Reaction Identification` -> `Transfusion & Blood Products`
 
 ### q4_4
 
-- banks/hard-cases-canonical.json:questions.21.caseStudy.questions.3.category: `Safety and Infection Control` -> `Reduction of Risk Potential`
-- banks/hard-cases-canonical.json:questions.21.caseStudy.questions.3.topic: `Transfusion Reaction Protocol` -> `Procedural Complications & Dialysis`
+- banks/hard-cases-canonical.json:questions.21.caseStudy.questions.3.topic: `Transfusion Reaction Protocol` -> `Transfusion & Blood Products`
 
 ### q4_5
 
 - banks/hard-cases-canonical.json:questions.21.caseStudy.questions.4.category: `Physiological Adaptation` -> `Reduction of Risk Potential`
-- banks/hard-cases-canonical.json:questions.21.caseStudy.questions.4.topic: `Hemolytic Reaction Confirmation` -> `Laboratory & Diagnostic Tests`
+- banks/hard-cases-canonical.json:questions.21.caseStudy.questions.4.topic: `Hemolytic Reaction Confirmation` -> `Transfusion & Blood Products`
 
 ### q5_3
 
@@ -1267,6 +1286,10 @@ No wound recategorization pressure detected.
 ### q6_4
 
 - banks/hard-cases-canonical.json:questions.23.caseStudy.questions.3.topic: `ICP Management Interventions` -> `Endocrine & Neurological Disorders`
+
+### q7_3
+
+- banks/hard-cases-canonical.json:questions.24.caseStudy.questions.2.topic: `Cryoprecipitate Role` -> `Transfusion & Blood Products`
 
 ### q7_4
 

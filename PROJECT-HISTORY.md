@@ -64,9 +64,9 @@ Completed:
 - Preserved the post-S01 baseline in commit `ac940fe`, including the approved S01 topic/category updates and the new `scripts/residual-rerun.ts` proposal-only harness.
 - Confirmed the architectural contract: in-harness GPT-5 is acceptable for proposal-only topic residual adjudication, provided it remains non-Gemini, records metadata, emits exact dry-run diffs, and preserves Luke's stop-gate approval before any canonical write.
 - Added `emit-input` support to the residual rerun harness and generated `audit/residual-rerun-2026-06-18.input.json` with 237 classifier-facing rows, live category-licensed candidate sets, scoped current item context, and no `oldTopic` or prior proposal fields.
-- Ran the approved in-harness GPT-5 adjudication and deterministic dry-run, producing `audit/residual-rerun-2026-06-18.decisions.json`, `audit/residual-rerun-2026-06-18.manifest.json`, and `audit/residual-rerun-2026-06-18.dry-run.md`.
-- Dry-run outcome: 160 proposed rows, 65 carried-forward rows, 8 vocabulary-gap flags, and 4 unresolved rows; 70 proposals are `category_and_topic` and require the harder approval review.
-- Wound/pressure-injury result: 8 vocabulary-gap flags recommend considering shared `Skin & Wound Care` licensing for RRP/Safety wound rows rather than recategorizing solely to reach a strict BCC topic. Canonical writes and `topics.ts` writes remain blocked until Luke approves the exact dry-run.
+- Ran the approved in-harness GPT-5 adjudication and deterministic dry-run, then applied Luke-approved review corrections from the dry-run review, producing `audit/residual-rerun-2026-06-18.decisions.json`, `audit/residual-rerun-2026-06-18.manifest.json`, and `audit/residual-rerun-2026-06-18.dry-run.md`.
+- Dry-run outcome after review corrections: 170 proposed rows, 65 carried-forward rows, 0 vocabulary-gap flags, and 2 unresolved rows; 66 proposals are `category_and_topic` and require the harder approval review.
+- Wound/pressure-injury result: `Skin & Wound Care` is now shared across BCC/RRP/Safety, resolving the 8 vocabulary-gap flags without forcing category distortion. `Transfusion & Blood Products` is now shared across Safety/Pharm/RRP/PhysAdapt, grouping transfusion-reaction and blood-product rows. Canonical bank writes remain blocked until Luke approves the exact dry-run.
 
 ### Topic Vocabulary Hygiene — Residual Proposal Harness (Jun 17)
 

@@ -43,22 +43,20 @@ Scope counts in the emitted input:
 
 The approved in-harness GPT-5 adjudication has been run. The deterministic dry-run produced:
 
-- proposed rows: 160
+- proposed rows: 170
 - carried-forward rows: 65
-- vocabulary-gap flags: 8
-- unresolved rows: 4
-- `topic_only` decisions: 155
-- `category_and_topic` decisions: 70
-- `vocabulary_gap` decisions: 8
-- `abstain` decisions: 4
+- vocabulary-gap flags: 0
+- unresolved rows: 2
+- `topic_only` decisions: 169
+- `category_and_topic` decisions: 66
+- `vocabulary_gap` decisions: 0
+- `abstain` decisions: 2
 
-The 8 vocabulary-gap flags are wound/pressure-injury rows where the report recommends considering shared `Skin & Wound Care` licensing for RRP/Safety rather than moving rows solely to Basic Care and Comfort. The wound recategorization-pressure count is 0 because those rows were flagged instead of force-moved.
+After review, Luke approved sharing `Skin & Wound Care` across BCC/RRP/Safety and adding shared `Transfusion & Blood Products` across Safety/Pharm/RRP/PhysAdapt. The wound vocabulary-gap rows now resolve to `Skin & Wound Care`, transfusion/blood-product rows resolve to the new topic, the two acute preeclampsia pharmacology rows no longer move to HPM, the RN-scope postpartum row stays in Management of Care, and the enteral-pump duration row resolves to Pharm / Dosage Calculations.
 
 Unresolved rows:
 
 - `gpt_case_premium_next_case_occupational_exposure_vaccine_04_fib_supplies`
-- `gpt_visual_smoke_2026_06_12_fib_device_enteral_duration_10`
-- `q7_3`
 - `q9_2`
 
 ## Next Action
@@ -71,9 +69,9 @@ audit/residual-rerun-2026-06-18.dry-run.md
 
 Pay special attention to:
 
-- the 70 `category_and_topic` rows
-- the 8 wound vocabulary-gap flags
-- the 4 unresolved rows
+- the 66 `category_and_topic` rows
+- the new `Skin & Wound Care` and `Transfusion & Blood Products` topic vocabulary/licensing
+- the 2 unresolved rows
 - the exact diff preview
 
 Do not run any writer and do not edit canonical banks unless Luke approves this exact dry-run.

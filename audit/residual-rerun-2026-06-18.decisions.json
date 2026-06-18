@@ -3,7 +3,18 @@
     "provider": "openai",
     "model": "gpt-5-codex-in-harness",
     "temperature": 0,
-    "promptHash": "7da3809e3ff6560119c87e90f659ef556d1efa973106c72d81eb2f84d3385fc4"
+    "promptHash": "7da3809e3ff6560119c87e90f659ef556d1efa973106c72d81eb2f84d3385fc4",
+    "reviewAdjustments": {
+      "reviewer": "Claude review accepted by Luke",
+      "date": "2026-06-18",
+      "notes": [
+        "Shared Skin & Wound Care across BCC/RRP/Safety and resolved wound vocabulary_gap rows.",
+        "Added shared Transfusion & Blood Products and resolved transfusion/blood-product scatter.",
+        "Rejected HPM category pull for acute preeclampsia pharmacology and RN-scope postpartum row.",
+        "Resolved enteral-pump duration calculation to Pharmacological / Dosage Calculations.",
+        "Routed hemolytic-reaction lab confirmation to Transfusion & Blood Products while retaining RRP category."
+      ]
+    }
   },
   "records": [
     {
@@ -274,17 +285,17 @@
     },
     {
       "id": "gpt_2026_06_16_case_postpartum_preeclampsia_severe_01_q4",
-      "decisionType": "category_and_topic",
-      "proposedCategory": "Health Promotion and Maintenance",
-      "proposedTopic": "Maternal-Newborn Care & Teaching",
-      "reason": "The item manages acute postpartum preeclampsia treatment."
+      "decisionType": "topic_only",
+      "reason": "Review correction: keep acute magnesium/antihypertensive management in Pharmacological and route it to Medication Safety & Admin rather than HPM.",
+      "proposedCategory": "Pharmacological and Parenteral Therapies",
+      "proposedTopic": "Medication Safety & Admin"
     },
     {
       "id": "gpt_2026_06_16_case_postpartum_preeclampsia_severe_01_q5",
-      "decisionType": "category_and_topic",
-      "proposedCategory": "Health Promotion and Maintenance",
-      "proposedTopic": "Maternal-Newborn Care & Teaching",
-      "reason": "The item monitors magnesium and antihypertensive therapy in postpartum preeclampsia."
+      "decisionType": "topic_only",
+      "reason": "Review correction: keep acute magnesium/antihypertensive management in Pharmacological and route it to Medication Safety & Admin rather than HPM.",
+      "proposedCategory": "Pharmacological and Parenteral Therapies",
+      "proposedTopic": "Medication Safety & Admin"
     },
     {
       "id": "gpt_2026_06_16_case_postpartum_preeclampsia_severe_01_q6",
@@ -393,15 +404,17 @@
     },
     {
       "id": "gpt_case_gap_2026_06_11_pressure_ltc_part_1_matrix_risk",
-      "decisionType": "vocabulary_gap",
-      "reason": "The row is genuinely wound/skin care, but moving categories solely to reach strict-only Skin & Wound Care would distort the tested client-needs category.",
-      "vocabularyChange": "Consider sharing Skin & Wound Care with Reduction of Risk Potential and/or Safety and Infection Control for wound risk, prevention, staging, and monitoring rows."
+      "decisionType": "topic_only",
+      "reason": "After approved shared licensing, this wound or pressure-injury row can keep its current category and use Skin & Wound Care.",
+      "proposedCategory": "Safety and Infection Control",
+      "proposedTopic": "Skin & Wound Care"
     },
     {
       "id": "gpt_case_gap_2026_06_11_pressure_ltc_part_2_sata_plan",
-      "decisionType": "vocabulary_gap",
-      "reason": "The row is genuinely wound/skin care, but moving categories solely to reach strict-only Skin & Wound Care would distort the tested client-needs category.",
-      "vocabularyChange": "Consider sharing Skin & Wound Care with Reduction of Risk Potential and/or Safety and Infection Control for wound risk, prevention, staging, and monitoring rows."
+      "decisionType": "topic_only",
+      "reason": "After approved shared licensing, this wound or pressure-injury row can keep its current category and use Skin & Wound Care.",
+      "proposedCategory": "Safety and Infection Control",
+      "proposedTopic": "Skin & Wound Care"
     },
     {
       "id": "gpt_case_gap_2026_06_11_pressure_ltc_part_3_mc_delegate",
@@ -412,9 +425,10 @@
     },
     {
       "id": "gpt_case_gap_2026_06_11_pressure_ltc_part_4_cloze_outcome",
-      "decisionType": "vocabulary_gap",
-      "reason": "The row is pressure-injury outcome monitoring in a Safety category; moving to BCC solely to reach Skin & Wound Care would distort category intent.",
-      "vocabularyChange": "Consider sharing Skin & Wound Care with Safety and Infection Control for pressure-injury outcome/prevention rows."
+      "decisionType": "topic_only",
+      "reason": "After approved shared licensing, this wound or pressure-injury row can keep its current category and use Skin & Wound Care.",
+      "proposedCategory": "Safety and Infection Control",
+      "proposedTopic": "Skin & Wound Care"
     },
     {
       "id": "gpt_case_gap_2026_06_11_sepsis_cloze_02",
@@ -633,9 +647,10 @@
     },
     {
       "id": "gpt_gap_2026_06_10_b_or_moisture_pressure_prevention_04",
-      "decisionType": "vocabulary_gap",
-      "reason": "The row is genuinely wound/skin care, but moving categories solely to reach strict-only Skin & Wound Care would distort the tested client-needs category.",
-      "vocabularyChange": "Consider sharing Skin & Wound Care with Reduction of Risk Potential and/or Safety and Infection Control for wound risk, prevention, staging, and monitoring rows."
+      "decisionType": "topic_only",
+      "reason": "After approved shared licensing, this wound or pressure-injury row can keep its current category and use Skin & Wound Care.",
+      "proposedCategory": "Safety and Infection Control",
+      "proposedTopic": "Skin & Wound Care"
     },
     {
       "id": "gpt_gap_2026_06_10_fib_daily_skin_inspection_07",
@@ -646,9 +661,10 @@
     },
     {
       "id": "gpt_gap_2026_06_10_or_pressure_injury_prevention_04",
-      "decisionType": "vocabulary_gap",
-      "reason": "The row is genuinely wound/skin care, but moving categories solely to reach strict-only Skin & Wound Care would distort the tested client-needs category.",
-      "vocabularyChange": "Consider sharing Skin & Wound Care with Reduction of Risk Potential and/or Safety and Infection Control for wound risk, prevention, staging, and monitoring rows."
+      "decisionType": "topic_only",
+      "reason": "After approved shared licensing, this wound or pressure-injury row can keep its current category and use Skin & Wound Care.",
+      "proposedCategory": "Safety and Infection Control",
+      "proposedTopic": "Skin & Wound Care"
     },
     {
       "id": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_interpreter_consent_02_q2",
@@ -687,9 +703,10 @@
     },
     {
       "id": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_wound_teachback_04_q1",
-      "decisionType": "vocabulary_gap",
-      "reason": "The row is genuinely wound/skin care, but moving categories solely to reach strict-only Skin & Wound Care would distort the tested client-needs category.",
-      "vocabularyChange": "Consider sharing Skin & Wound Care with Reduction of Risk Potential and/or Safety and Infection Control for wound risk, prevention, staging, and monitoring rows."
+      "decisionType": "topic_only",
+      "reason": "After approved shared licensing, this wound or pressure-injury row can keep its current category and use Skin & Wound Care.",
+      "proposedCategory": "Safety and Infection Control",
+      "proposedTopic": "Skin & Wound Care"
     },
     {
       "id": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_wound_teachback_04_q2",
@@ -763,9 +780,10 @@
     },
     {
       "id": "gpt_gap_2026_06_12_nonmcq_balanced_case_pressure_injury_nutrition_03_q5",
-      "decisionType": "vocabulary_gap",
-      "reason": "The row is genuinely wound/skin care, but moving categories solely to reach strict-only Skin & Wound Care would distort the tested client-needs category.",
-      "vocabularyChange": "Consider sharing Skin & Wound Care with Reduction of Risk Potential and/or Safety and Infection Control for wound risk, prevention, staging, and monitoring rows."
+      "decisionType": "topic_only",
+      "reason": "After approved shared licensing, this wound or pressure-injury row can keep its current category and use Skin & Wound Care.",
+      "proposedCategory": "Reduction of Risk Potential",
+      "proposedTopic": "Skin & Wound Care"
     },
     {
       "id": "gpt_gap_jun11_fib_cauti_prevention_01",
@@ -783,9 +801,10 @@
     },
     {
       "id": "gpt_gap_jun12_matrix_pressure_injury_staging_01",
-      "decisionType": "vocabulary_gap",
-      "reason": "The row is genuinely wound/skin care, but moving categories solely to reach strict-only Skin & Wound Care would distort the tested client-needs category.",
-      "vocabularyChange": "Consider sharing Skin & Wound Care with Reduction of Risk Potential and/or Safety and Infection Control for wound risk, prevention, staging, and monitoring rows."
+      "decisionType": "topic_only",
+      "reason": "After approved shared licensing, this wound or pressure-injury row can keep its current category and use Skin & Wound Care.",
+      "proposedCategory": "Reduction of Risk Potential",
+      "proposedTopic": "Skin & Wound Care"
     },
     {
       "id": "gpt_injection_smoke_2026_06_15_matrix_route_match_08",
@@ -985,8 +1004,10 @@
     },
     {
       "id": "gpt_visual_smoke_2026_06_12_fib_device_enteral_duration_10",
-      "decisionType": "abstain",
-      "reason": "No canonical topic fits this scoped edge case without forcing a weak match."
+      "decisionType": "category_and_topic",
+      "reason": "Review correction: enteral-pump duration is a medication/nutrition-device calculation matching the Dosage Calculations precedent.",
+      "proposedCategory": "Pharmacological and Parenteral Therapies",
+      "proposedTopic": "Dosage Calculations"
     },
     {
       "id": "gpt_visual_smoke_2026_06_12_matrix_burn_regions_03",
@@ -1291,10 +1312,10 @@
     },
     {
       "id": "opus22_case_postpartum_intrusive_thoughts_01_q4",
-      "decisionType": "category_and_topic",
-      "proposedCategory": "Health Promotion and Maintenance",
-      "proposedTopic": "Maternal-Newborn Care & Teaching",
-      "reason": "The item concerns RN scope and postpartum medication follow-up."
+      "decisionType": "topic_only",
+      "reason": "Review correction: keep the RN-scope medication-dose item in Management of Care rather than moving postpartum context to HPM.",
+      "proposedCategory": "Management of Care",
+      "proposedTopic": "Prioritization & Delegation"
     },
     {
       "id": "opus22_case_postpartum_intrusive_thoughts_01_q5",
@@ -1480,31 +1501,31 @@
     },
     {
       "id": "q4_1",
-      "decisionType": "category_and_topic",
-      "proposedCategory": "Management of Care",
-      "proposedTopic": "Prioritization & Delegation",
-      "reason": "The immediate transfusion-reaction action is a priority-setting item."
+      "decisionType": "topic_only",
+      "reason": "After approved shared licensing, this transfusion or blood-product row can keep its current category and use Transfusion & Blood Products.",
+      "proposedCategory": "Safety and Infection Control",
+      "proposedTopic": "Transfusion & Blood Products"
     },
     {
       "id": "q4_2",
       "decisionType": "topic_only",
+      "reason": "After approved shared licensing, this transfusion or blood-product row can keep its current category and use Transfusion & Blood Products.",
       "proposedCategory": "Physiological Adaptation",
-      "proposedTopic": "Cardiovascular Disorders",
-      "reason": "The item identifies acute hemolytic transfusion reaction with hypotension/back pain."
+      "proposedTopic": "Transfusion & Blood Products"
     },
     {
       "id": "q4_4",
-      "decisionType": "category_and_topic",
-      "proposedCategory": "Reduction of Risk Potential",
-      "proposedTopic": "Procedural Complications & Dialysis",
-      "reason": "The item tests transfusion reaction protocol after stopping blood."
+      "decisionType": "topic_only",
+      "reason": "After approved shared licensing, this transfusion or blood-product row can keep its current category and use Transfusion & Blood Products.",
+      "proposedCategory": "Safety and Infection Control",
+      "proposedTopic": "Transfusion & Blood Products"
     },
     {
       "id": "q4_5",
       "decisionType": "category_and_topic",
+      "reason": "After approved shared licensing, the hemolytic-reaction confirmation item belongs with transfusion content while keeping its diagnostic-risk category.",
       "proposedCategory": "Reduction of Risk Potential",
-      "proposedTopic": "Laboratory & Diagnostic Tests",
-      "reason": "The item identifies the lab test confirming acute hemolytic reaction."
+      "proposedTopic": "Transfusion & Blood Products"
     },
     {
       "id": "q5_3",
@@ -1550,8 +1571,10 @@
     },
     {
       "id": "q7_3",
-      "decisionType": "abstain",
-      "reason": "No canonical topic fits this scoped edge case without forcing a weak match."
+      "decisionType": "topic_only",
+      "reason": "After approved shared licensing, this transfusion or blood-product row can keep its current category and use Transfusion & Blood Products.",
+      "proposedCategory": "Pharmacological and Parenteral Therapies",
+      "proposedTopic": "Transfusion & Blood Products"
     },
     {
       "id": "q7_4",
