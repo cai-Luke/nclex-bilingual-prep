@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-06-18T04:02:38.255Z",
-  "gitSha": "08d22601e94d560e66a212bf9f0c668a20981fe3",
+  "generatedAt": "2026-06-19T22:49:40.579Z",
+  "gitSha": "0355717255b9362b55fa36f9f8306e801b32044f",
   "perFile": [
     {
       "file": "burn-canonical.json",
@@ -40,8 +40,8 @@
     {
       "file": "gpt-canonical.json",
       "schemaVersion": "1.5",
-      "metaCount": 281,
-      "questionsLength": 281,
+      "metaCount": 291,
+      "questionsLength": 291,
       "mismatch": false
     },
     {
@@ -95,15 +95,15 @@
     }
   ],
   "totals": {
-    "topLevel": 1321,
-    "caseStudyTopLevel": 113,
-    "embeddedParts": 561,
-    "gradedTotal": 1882
+    "topLevel": 1331,
+    "caseStudyTopLevel": 118,
+    "embeddedParts": 591,
+    "gradedTotal": 1922
   },
   "byItemType": {
     "highlight": 2,
-    "bowtie": 11,
-    "case_study": 113,
+    "bowtie": 16,
+    "case_study": 118,
     "ordered_response": 127,
     "fill_in_blank": 140,
     "dropdown_cloze": 142,
@@ -114,12 +114,12 @@
   "byCategory": {
     "Health Promotion and Maintenance": 140,
     "Psychosocial Integrity": 144,
-    "Safety and Infection Control": 144,
+    "Safety and Infection Control": 148,
     "Management of Care": 149,
     "Basic Care and Comfort": 152,
     "Pharmacological and Parenteral Therapies": 175,
     "Reduction of Risk Potential": 176,
-    "Physiological Adaptation": 241
+    "Physiological Adaptation": 247
   },
   "withinCategory": {
     "Management of Care": {
@@ -193,6 +193,10 @@
           "count": 4
         },
         {
+          "topic": "Transfusion & Blood Products",
+          "count": 4
+        },
+        {
           "topic": "Endocrine & Neurological Disorders",
           "count": 2
         },
@@ -206,10 +210,6 @@
         },
         {
           "topic": "Burn Management",
-          "count": 1
-        },
-        {
-          "topic": "CAUTI Prevention Bundle",
           "count": 1
         }
       ],
@@ -502,11 +502,11 @@
           "count": 7
         },
         {
-          "topic": "ABG & Acid-Base Interpretation",
-          "count": 2
+          "topic": "Oncology & Immunotherapy Complications",
+          "count": 6
         },
         {
-          "topic": "Adult Health & Wellness",
+          "topic": "ABG & Acid-Base Interpretation",
           "count": 2
         }
       ],
@@ -522,7 +522,7 @@
   },
   "byDifficulty": {
     "easy": 168,
-    "hard": 498,
+    "hard": 508,
     "medium": 655
   },
   "bySchemaVersion": {
@@ -548,7 +548,7 @@
       ]
     },
     "1.5": {
-      "questions": 347,
+      "questions": 357,
       "files": [
         "gpt-canonical.json",
         "hard-cases-canonical.json"
@@ -561,7 +561,7 @@
     "claude-canonical.json": 69,
     "device-canonical.json": 8,
     "gemini-canonical.json": 775,
-    "gpt-canonical.json": 281,
+    "gpt-canonical.json": 291,
     "hard-cases-canonical.json": 66,
     "io-canonical.json": 8,
     "lab-canonical.json": 20,
@@ -1164,6 +1164,36 @@
       "bank": "gpt-canonical.json"
     },
     {
+      "id": "gpt_case_acute_hemolytic_transfusion_reaction_01",
+      "topic": "Transfusion & Blood Products",
+      "parts": 6,
+      "bank": "gpt-canonical.json"
+    },
+    {
+      "id": "gpt_case_svc_syndrome_01",
+      "topic": "Oncology & Immunotherapy Complications",
+      "parts": 6,
+      "bank": "gpt-canonical.json"
+    },
+    {
+      "id": "gpt_2026_06_19_case_ici_pneumonitis_01",
+      "topic": "Oncology & Immunotherapy Complications",
+      "parts": 6,
+      "bank": "gpt-canonical.json"
+    },
+    {
+      "id": "gpt_case_neutropenic_fever_nadir_01",
+      "topic": "Oncology & Immunotherapy Complications",
+      "parts": 6,
+      "bank": "gpt-canonical.json"
+    },
+    {
+      "id": "gpt_case_taco_vs_trali_01",
+      "topic": "Transfusion & Blood Products",
+      "parts": 6,
+      "bank": "gpt-canonical.json"
+    },
+    {
       "id": "case_sepsis_pneumonia_01",
       "topic": "Sepsis & Septic Shock",
       "parts": 4,
@@ -1459,38 +1489,38 @@
     "categoryTargets": [
       [
         "Management of Care",
-        237.78
+        239.57999999999998
       ],
       [
         "Safety and Infection Control",
-        171.73000000000002
+        173.03
       ],
       [
         "Health Promotion and Maintenance",
-        118.89
+        119.78999999999999
       ],
       [
         "Psychosocial Integrity",
-        118.89
+        119.78999999999999
       ],
       [
         "Basic Care and Comfort",
-        118.89
+        119.78999999999999
       ],
       [
         "Pharmacological and Parenteral Therapies",
-        211.36
+        212.96
       ],
       [
         "Reduction of Risk Potential",
-        158.51999999999998
+        159.72
       ],
       [
         "Physiological Adaptation",
-        184.94000000000003
+        186.34000000000003
       ]
     ],
-    "itemTypeAvg": 146.77777777777777,
+    "itemTypeAvg": 147.88888888888889,
     "underCategories": [
       [
         "Management of Care",
@@ -1500,7 +1530,7 @@
     "overCategories": [
       [
         "Physiological Adaptation",
-        241
+        247
       ]
     ],
     "underItemTypes": [
@@ -1510,11 +1540,11 @@
       ],
       [
         "bowtie",
-        11
+        16
       ],
       [
         "case_study",
-        113
+        118
       ],
       [
         "ordered_response",
@@ -1531,13 +1561,13 @@
     ]
   },
   "prioritizeTopics": [
-    "Management of Care (149 vs target 238)",
-    "highlight (2 vs target 146.8)",
-    "bowtie (11 vs target 146.8)",
-    "case_study (113 vs target 146.8)",
-    "ordered_response (127 vs target 146.8)",
-    "fill_in_blank (140 vs target 146.8)",
-    "dropdown_cloze (142 vs target 146.8)",
+    "Management of Care (149 vs target 240)",
+    "highlight (2 vs target 147.9)",
+    "bowtie (16 vs target 147.9)",
+    "case_study (118 vs target 147.9)",
+    "ordered_response (127 vs target 147.9)",
+    "fill_in_blank (140 vs target 147.9)",
+    "dropdown_cloze (142 vs target 147.9)",
     "Acute decompensated heart failure",
     "Acute Decompensated Heart Failure (ADHF)",
     "Acute gallstone pancreatitis with cholangitis",

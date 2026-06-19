@@ -147,6 +147,15 @@ If uncertain about an exact optional field shape, prefer omitting the optional f
 The parent `case_study` is a full `CommonQuestion`. It must include `stem`, `rationale.correct`,
 `testTakingStrategy`, and `glossary` just like standalone items. Do not omit the parent `stem`.
 
+`caseStudy.exhibits` is a **required, non-empty** top-level array — at least one baseline exhibit available
+from the initial presentation, separate from any stage exhibits. A case whose exhibits live only inside
+`stages[]` fails validation ("caseStudy.exhibits must include at least one exhibit"). Put baseline /
+initial-presentation chart data in `caseStudy.exhibits`; put later-unfolding data in `stages[].exhibits`.
+
+`caseStudy.questions` must hold **2–6** embedded standalone items. The target is six; fewer is allowed only
+when every shortfall is logged in `_compileManifest.omittedDps`, but the array must never drop below two
+embedded items.
+
 Each `caseStudy.stages[]` entry must use only the schema stage shape:
 
 ```json
@@ -189,16 +198,25 @@ Do not invent, specialize, lowercase, pluralize, or translate topic strings.
 If no exact topic fits, choose the closest canonical topic and express the specific
 clinical angle in the stem/rationale, not in topic.
 
+Several topics are **shared** across categories — they appear under more than one category row below:
+Medication Safety & Admin, Laboratory & Diagnostic Tests, Caregiver Role Strain & Family Coping,
+Oncology & Immunotherapy Complications, Skin & Wound Care, and Transfusion & Blood Products. For a shared topic, set `category` to the **single** category that matches
+the case's primary clinical framing — not every category the topic can appear under, and not a secondary
+category unless that is the case's actual focus. (E.g. a febrile-neutropenia case keyed on recognizing and
+treating the emergency is `Oncology & Immunotherapy Complications` under `Physiological Adaptation`; a
+hemolytic-transfusion-reaction case keyed on stopping the infusion and reaction workup is
+`Transfusion & Blood Products` under `Safety and Infection Control`.)
+
 | Category | Allowed topics |
 |---|---|
 | Management of Care | Prioritization & Delegation; Legal & Ethical Principles; Client Advocacy; Confidentiality & HIPAA; Discharge Planning & Handoff; Conflict Resolution; Caregiver Role Strain & Family Coping |
-| Safety and Infection Control | Patient & Environment Safety; Transmission-Based Precautions; Standard Precautions & Hygiene; PPE & Sterile Technique; Disaster & Emergency Preparedness; Medication Safety & Admin |
+| Safety and Infection Control | Patient & Environment Safety; Transmission-Based Precautions; Standard Precautions & Hygiene; PPE & Sterile Technique; Disaster & Emergency Preparedness; Medication Safety & Admin; Skin & Wound Care; Transfusion & Blood Products |
 | Health Promotion and Maintenance | Maternal-Newborn Care & Teaching; Pediatric & Adolescent Health; Pediatric & Toddler Safety; Adult Health & Wellness; Reproductive & Endocrine Health; Chronic Disease Management & Lifestyle |
 | Psychosocial Integrity | Therapeutic Communication; Mental Health Disorders; Substance Use & Withdrawal; Suicide & Crisis Intervention; Electroconvulsive Therapy (ECT); Caregiver Role Strain & Family Coping |
-| Basic Care and Comfort | Nutritional & Fluid Support; Mobility & Immobility; Elimination & Comfort; Sleep & Rest; Palliative & Supportive Care |
-| Pharmacological and Parenteral Therapies | Dosage Calculations; Anticoagulant Therapy; Cardiovascular & Endocrine Medications; Psychotropic Medications; Parenteral Nutrition; Medication Safety & Admin; Laboratory & Diagnostic Tests |
-| Reduction of Risk Potential | ABG & Acid-Base Interpretation; Perioperative Care; Procedural Complications & Dialysis; Laboratory & Diagnostic Tests |
-| Physiological Adaptation | Cardiovascular Disorders; Respiratory & Infectious Disorders; Renal & Gastrointestinal Disorders; Endocrine & Neurological Disorders; Electrolyte Imbalances; Diabetic Ketoacidosis (DKA); Sepsis & Septic Shock; Burn Management |
+| Basic Care and Comfort | Nutritional & Fluid Support; Mobility & Immobility; Elimination & Comfort; Sleep & Rest; Palliative & Supportive Care; Skin & Wound Care |
+| Pharmacological and Parenteral Therapies | Dosage Calculations; Anticoagulant Therapy; Cardiovascular & Endocrine Medications; Psychotropic Medications; Parenteral Nutrition; Medication Safety & Admin; Laboratory & Diagnostic Tests; Transfusion & Blood Products |
+| Reduction of Risk Potential | ABG & Acid-Base Interpretation; Perioperative Care; Procedural Complications & Dialysis; Laboratory & Diagnostic Tests; Oncology & Immunotherapy Complications; Skin & Wound Care; Transfusion & Blood Products |
+| Physiological Adaptation | Cardiovascular Disorders; Respiratory & Infectious Disorders; Renal & Gastrointestinal Disorders; Endocrine & Neurological Disorders; Electrolyte Imbalances; Diabetic Ketoacidosis (DKA); Sepsis & Septic Shock; Burn Management; Oncology & Immunotherapy Complications; Transfusion & Blood Products |
 
 ## ITEM-TYPE SELECTION
 
@@ -216,6 +234,17 @@ Useful mapping:
 
 Use `ordered_response` only when order is clinically real. Do not force simultaneous actions into a fake sequence. If actions are concurrent, use `select_all`, `matrix`, or `multiple_choice` instead.
 
+Option-count bounds are enforced at validation — out-of-range counts hard-fail promotion:
+
+- `multiple_choice`: **3–5** options, exactly **1** correct id.
+- `select_all`: **5–6** options, **1 or more** correct ids. A 4-option SATA fails.
+- `ordered_response`: **3–6** options; `correct` is a full permutation of every option id.
+
+Every option / select / ordered item needs **exactly one** `rationale.byChoice` entry per option — no more, no fewer, each `refId` matching a real option id.
+
+For `matrix`: set `matrix.selectionMode` to `single_per_row` or `multiple_per_row`; `correct` is one
+`{ "rowId": "...", "columnIds": [...] }` entry per row (exactly one `columnId` per row when `single_per_row`).
+
 Compile one embedded item per usable decision point; the target is six. Omit an item only when its decision
 point is genuinely underspecified or ambiguous, record `{ "dp": N, "reason": "specific reason" }` in
 `_compileManifest.omittedDps`, and never pad to six with a weak item.
@@ -228,12 +257,35 @@ When a decision point is a recognize-cues or analyze-cues task over a findings p
 - `stem` ← the criterion ("Highlight the findings that require immediate follow-up"), English + `zh`.
 - `highlight.segments` ← the passage segmented by you — one finding/clause per selectable segment,
   static connective text non-selectable. Invent no findings.
+- **Mark each selectable finding segment with `"selectable": true`.** A segment without this flag is
+  treated as non-selectable; if no segment is flagged selectable, the item fails ("highlight requires at
+  least one selectable segment") and keyed ids will not resolve. Connective/static text omits the flag
+  (or sets `"selectable": false`).
 - `highlight.correct` ← the keyed-cue subset the author named in that decision point's "Correct action."
-  The co-present normal/irrelevant findings become unkeyed selectable distractors.
+  The co-present normal/irrelevant findings become unkeyed selectable distractors. `highlight.correct`
+  must be a **strict subset** of the selectable segments — at least one selectable segment stays unkeyed,
+  never key every selectable segment.
+- If the source passage has no unkeyed selectable distractor findings, do not invent one; use a different
+  item type instead of compiling that decision point as `highlight`.
 - Punctuation stays inside its segment. Segment order is fixed passage order; highlight is shuffle-exempt.
 - **Segmentation gate:** each *selectable* segment holds exactly one finding/clause. Never lump a keyed
   finding and an unkeyed finding into one selectable chunk.
+- `rationale.byChoice` must include exactly one entry for every selectable segment, keyed and unkeyed;
+  each `refId` must be a selectable segment id, not a connective segment.
 - All `zh` generated here, per segment. Empty or untranslated `zh` on any segment fails the CJK gate.
+
+## DROPDOWN-CLOZE ITEMS
+
+When a clinical-reasoning-chain decision point is compiled as `dropdown_cloze`:
+
+- Provide a bilingual `clozeStem`. Each dropdown is referenced inside the stem by a **double-brace
+  placeholder** `{{dropdown_id}}` — e.g. `"The priority finding is {{d1}}, so the nurse should {{d2}}."`
+- Every dropdown id must appear as a `{{id}}` placeholder in **both** `clozeStem.en` and `clozeStem.zh`,
+  and every placeholder must have a matching dropdown. Single braces (`{id}`), an id present in only one
+  language, or a placeholder with no dropdown all hard-fail.
+- Each dropdown has `options[]` (bilingual, unique ids) and a `correct` id that exists in its options.
+- **Do not leak the answer:** the correct option's display text must not appear verbatim anywhere in
+  `clozeStem.en` / `clozeStem.zh`. Phrase the stem around the blank rather than restating the keyed answer.
 
 ## BOW-TIE CAPSTONE
 
@@ -475,18 +527,21 @@ Before producing the file or final JSON, silently verify:
 - `_compileManifest` is present and agrees with the actual output; `emittedItemCount + omittedDps.length`
   equals `skeletonDpCount` (six), every omission has a unique DP number and specific reason, and actual
   sibling bowtie presence equals `emittedBowtie`;
-- embedded question count targets six; fewer items are allowed only when every missing item is logged in
-  `_compileManifest.omittedDps`;
+- `caseStudy.exhibits` has at least one baseline exhibit (not only stage exhibits);
+- embedded question count is **2–6** (target six); every shortfall from six is logged in
+  `_compileManifest.omittedDps`, and the array never drops below two;
 - all IDs are unique;
 - all required `en` and `zh` fields are present and non-empty;
 - no Chinese appears in `topic`;
 - every category uses one exact Project Shrimp category string;
+- every shared topic's `category` is the single primary-framing category, not a secondary one;
 - every correct answer ID exists;
-- MCQ has exactly one correct answer;
-- SATA has one or more correct answers;
-- ordered response is a complete permutation and only used for real sequence;
-- matrix correct entries match rows and columns;
-- dropdown placeholders match dropdown IDs in both languages;
+- MCQ has 3–5 options and exactly one correct answer;
+- SATA has 5–6 options and one or more correct answers;
+- ordered response has 3–6 options, is a complete permutation, and is only used for a real sequence;
+- matrix has a valid `selectionMode` and one `{rowId, columnIds[]}` entry per row (one columnId per row if single_per_row);
+- highlight marks each selectable segment `"selectable": true`, keeps `correct` a strict subset of selectable segments, and uses only selectable refIds in `rationale.byChoice`;
+- dropdown_cloze uses `{{id}}` double-brace placeholders present in both `en` and `zh`, with no correct-answer text leaked into `clozeStem`;
 - fill-in-blank has valid acceptable/numeric answers and no invalid top-level `correct`;
 - `rationale.byChoice` covers every required element and uses valid `refId`s;
 - case-level rationale is substantive;

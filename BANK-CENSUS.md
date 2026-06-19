@@ -2,8 +2,8 @@
 
 # NCLEX Bank Census
 
-Generated: 2026-06-18T04:02:38.255Z
-Git SHA: 08d22601e94d560e66a212bf9f0c668a20981fe3
+Generated: 2026-06-19T22:49:40.579Z
+Git SHA: 0355717255b9362b55fa36f9f8306e801b32044f
 
 ## Per-File Summary
 
@@ -14,7 +14,7 @@ Git SHA: 08d22601e94d560e66a212bf9f0c668a20981fe3
 | claude-canonical.json | 1.4 | 69 | 69 | — |
 | device-canonical.json | 1.2 | 8 | 8 | — |
 | gemini-canonical.json | 1.2 | 775 | 775 | — |
-| gpt-canonical.json | 1.5 | 281 | 281 | — |
+| gpt-canonical.json | 1.5 | 291 | 291 | — |
 | hard-cases-canonical.json | 1.5 | 66 | 66 | — |
 | io-canonical.json | 1.2 | 8 | 8 | — |
 | lab-canonical.json | 1.2 | 20 | 20 | — |
@@ -25,21 +25,21 @@ Git SHA: 08d22601e94d560e66a212bf9f0c668a20981fe3
 
 ## Totals
 
-- Top-level questions: 1321
-- Case study top-level: 113
-- Embedded parts: 561
-- Graded total: 1882
+- Top-level questions: 1331
+- Case study top-level: 118
+- Embedded parts: 591
+- Graded total: 1922
 
 ## By Category
 
 - Health Promotion and Maintenance: 140
 - Psychosocial Integrity: 144
-- Safety and Infection Control: 144
+- Safety and Infection Control: 148
 - Management of Care: 149
 - Basic Care and Comfort: 152
 - Pharmacological and Parenteral Therapies: 175
 - Reduction of Risk Potential: 176
-- Physiological Adaptation: 241
+- Physiological Adaptation: 247
 
 ## Within-Category Concentration
 
@@ -50,7 +50,7 @@ Visual kinds: device_screen (1), mar (1)
 
 ### Safety and Infection Control
 
-Top topics: Patient & Environment Safety (41), Transmission-Based Precautions (39), Standard Precautions & Hygiene (20), PPE & Sterile Technique (15), Disaster & Emergency Preparedness (4), Endocrine & Neurological Disorders (2), Medication Safety & Admin (2), Respiratory & Infectious Disorders (2), Burn Management (1), CAUTI Prevention Bundle (1)
+Top topics: Patient & Environment Safety (41), Transmission-Based Precautions (39), Standard Precautions & Hygiene (20), PPE & Sterile Technique (15), Disaster & Emergency Preparedness (4), Transfusion & Blood Products (4), Endocrine & Neurological Disorders (2), Medication Safety & Admin (2), Respiratory & Infectious Disorders (2), Burn Management (1)
 Visual kinds: capnography (1), device_screen (1), medication_label (1), vitals_trend (1)
 
 ### Health Promotion and Maintenance
@@ -80,14 +80,14 @@ Visual kinds: burn_map (5), capnography (1), device_screen (2), fetal_monitoring
 
 ### Physiological Adaptation
 
-Top topics: Cardiovascular Disorders (70), Endocrine & Neurological Disorders (31), Renal & Gastrointestinal Disorders (29), Electrolyte Imbalances (23), Burn Management (15), Diabetic Ketoacidosis (DKA) (13), Respiratory & Infectious Disorders (10), Sepsis & Septic Shock (7), ABG & Acid-Base Interpretation (2), Adult Health & Wellness (2)
+Top topics: Cardiovascular Disorders (70), Endocrine & Neurological Disorders (31), Renal & Gastrointestinal Disorders (29), Electrolyte Imbalances (23), Burn Management (15), Diabetic Ketoacidosis (DKA) (13), Respiratory & Infectious Disorders (10), Sepsis & Septic Shock (7), Oncology & Immunotherapy Complications (6), ABG & Acid-Base Interpretation (2)
 Visual kinds: burn_map (5), capnography (4), io_record (2), lab_trend (7), rhythm_strip (32), vitals_trend (7)
 
 ## By Item Type
 
 - highlight: 2
-- bowtie: 11
-- case_study: 113
+- bowtie: 16
+- case_study: 118
 - ordered_response: 127
 - fill_in_blank: 140
 - dropdown_cloze: 142
@@ -98,14 +98,14 @@ Visual kinds: burn_map (5), capnography (4), io_record (2), lab_trend (7), rhyth
 ## By Difficulty
 
 - easy: 168
-- hard: 498
+- hard: 508
 - medium: 655
 
 ## By Schema Version
 
 - v1.2: 905 questions (burn-canonical.json, capnography-canonical.json, device-canonical.json, gemini-canonical.json, io-canonical.json, lab-canonical.json, mar-canonical.json, medlabel-canonical.json, visual-canonical.json, vitals-canonical.json)
 - v1.4: 69 questions (claude-canonical.json)
-- v1.5: 347 questions (gpt-canonical.json, hard-cases-canonical.json)
+- v1.5: 357 questions (gpt-canonical.json, hard-cases-canonical.json)
 
 ## By Source File
 
@@ -114,7 +114,7 @@ Visual kinds: burn_map (5), capnography (4), io_record (2), lab_trend (7), rhyth
 - claude-canonical.json: 69
 - device-canonical.json: 8
 - gemini-canonical.json: 775
-- gpt-canonical.json: 281
+- gpt-canonical.json: 291
 - hard-cases-canonical.json: 66
 - io-canonical.json: 8
 - lab-canonical.json: 20
@@ -227,6 +227,11 @@ Total visuals: 146
 | gpt_case_opus23_nat_toddler_01 | suspected nonaccidental trauma in a toddler | 5 | gpt-canonical.json |
 | gpt_opus21_case_colostomy_lep_discharge_01 | colostomy discharge teaching for limited English proficiency | 6 | gpt-canonical.json |
 | gpt_2026_06_16_case_postpartum_preeclampsia_severe_01 | Late postpartum preeclampsia with severe features | 6 | gpt-canonical.json |
+| gpt_case_acute_hemolytic_transfusion_reaction_01 | Transfusion & Blood Products | 6 | gpt-canonical.json |
+| gpt_case_svc_syndrome_01 | Oncology & Immunotherapy Complications | 6 | gpt-canonical.json |
+| gpt_2026_06_19_case_ici_pneumonitis_01 | Oncology & Immunotherapy Complications | 6 | gpt-canonical.json |
+| gpt_case_neutropenic_fever_nadir_01 | Oncology & Immunotherapy Complications | 6 | gpt-canonical.json |
+| gpt_case_taco_vs_trali_01 | Transfusion & Blood Products | 6 | gpt-canonical.json |
 | case_sepsis_pneumonia_01 | Sepsis & Septic Shock | 4 | hard-cases-canonical.json |
 | case_preeclampsia_magnesium_01 | Maternal-Newborn Care & Teaching | 4 | hard-cases-canonical.json |
 | cs_copd_01 | Respiratory & Infectious Disorders | 5 | hard-cases-canonical.json |
@@ -283,26 +288,26 @@ No duplicates detected.
 ## Targets
 
 Category targets (2026 NCLEX-RN test-plan weights):
-- Management of Care: 237.8
-- Safety and Infection Control: 171.7
-- Health Promotion and Maintenance: 118.9
-- Psychosocial Integrity: 118.9
-- Basic Care and Comfort: 118.9
-- Pharmacological and Parenteral Therapies: 211.4
-- Reduction of Risk Potential: 158.5
-- Physiological Adaptation: 184.9
-Item type average: 146.8
+- Management of Care: 239.6
+- Safety and Infection Control: 173.0
+- Health Promotion and Maintenance: 119.8
+- Psychosocial Integrity: 119.8
+- Basic Care and Comfort: 119.8
+- Pharmacological and Parenteral Therapies: 213.0
+- Reduction of Risk Potential: 159.7
+- Physiological Adaptation: 186.3
+Item type average: 147.9
 
 Under-served categories:
 - Management of Care: 149
 
 Over-served categories:
-- Physiological Adaptation: 241
+- Physiological Adaptation: 247
 
 Under-served item types:
 - highlight: 2
-- bowtie: 11
-- case_study: 113
+- bowtie: 16
+- case_study: 118
 - ordered_response: 127
 - fill_in_blank: 140
 - dropdown_cloze: 142
@@ -310,13 +315,13 @@ Under-served item types:
 ## Prompt Parameters
 
 PRIORITIZE_TOPICS:
-- Management of Care (149 vs target 238)
-- highlight (2 vs target 146.8)
-- bowtie (11 vs target 146.8)
-- case_study (113 vs target 146.8)
-- ordered_response (127 vs target 146.8)
-- fill_in_blank (140 vs target 146.8)
-- dropdown_cloze (142 vs target 146.8)
+- Management of Care (149 vs target 240)
+- highlight (2 vs target 147.9)
+- bowtie (16 vs target 147.9)
+- case_study (118 vs target 147.9)
+- ordered_response (127 vs target 147.9)
+- fill_in_blank (140 vs target 147.9)
+- dropdown_cloze (142 vs target 147.9)
 - Acute decompensated heart failure
 - Acute Decompensated Heart Failure (ADHF)
 - Acute gallstone pancreatitis with cholangitis
