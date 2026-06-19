@@ -67,7 +67,7 @@ Stat lab results return within the hour: Hemoglobin 7.1 g/dL (expected rise from
 
 - *(Decision 4)* Slowing the transfusion rate instead of stopping it completely. For any suspected hemolytic, anaphylactic, septic, or TRALI reaction, the transfusion must be stopped — not slowed. Slowing the rate is appropriate only for mild allergic reactions (isolated urticaria without systemic symptoms) per provider order after assessment. In this case, the hemodynamic instability and hemoglobinuria demand a full stop.
 
-- *(Decision 4)* Disconnecting the IV line entirely to "get the blood away from the patient" and then attempting to restart a new IV for saline. This loses IV access during a hemodynamic emergency. The correct action is to clamp the blood tubing and switch the existing IV to normal saline, preserving the functional line.
+- *(Decision 4)* Disconnecting the IV line entirely to "get the blood away from the patient" and then attempting to restart a new IV for saline. This loses IV access during a hemodynamic emergency. The correct action is to clamp/disconnect the blood tubing at the IV hub and attach new normal-saline tubing to the existing IV catheter, preserving functional vascular access.
 
 - *(Decision 5)* Discarding the blood unit or disconnecting the tubing from the bag before sending it to the blood bank. The intact unit-and-tubing assembly is required for the blood bank investigation. Once discarded, the root cause of the reaction may be unrecoverable.
 
