@@ -360,44 +360,60 @@ Baseline: WBC 48,000/µL, Hgb 10.2 g/dL, platelets 98,000/µL, BUN 22 mg/dL, cre
   ongoing monitoring confirms the patient is turning the corner.
 
 **KEY DECISION POINTS**
-1. *Situation:* At Stage 1, classify each new finding as consistent with TLS, unrelated, or contradicting the
-   picture. *Correct:* potassium 7.1 with peaked T waves, phosphorus 8.4 with calcium 6.8, and the creatinine
-   rise are all consistent with TLS; the **uric acid drop to 4.1 contradicts** the untreated picture (it
-   reflects rasburicase working, not TLS progression); a temperature of 37.4 °C is unrelated. *Why:* TLS
-   releases intracellular potassium and phosphate; phosphate binds calcium → hypocalcemia; uricase lowers
-   uric acid, so a falling uric acid is a treatment effect, not deterioration. *Skill:* analyze cues.
-   *Answerable from:* Stage 1.
-2. *Situation:* Identify the most immediately life-threatening problem at Stage 1. *Correct:* the hyperkalemia
+1. *Situation:* At Stage 1, 18 h after first chemotherapy, identify which changes from the admission baseline
+   are significant cues that demand nursing attention. *Correct:* the new muscle cramping and fingertip
+   tingling, the potassium rise (4.8 → 7.1), the phosphorus rise (4.9 → 8.4) with the calcium fall
+   (8.9 → 6.8), the creatinine rise (1.1 → 2.4), the peaked T waves with widening QRS, and the drop in urine
+   output (80 mL over 4 h) are all significant changes; the temperature shift (37.0 → 37.4 °C) is trivial and
+   not a meaningful cue. *Why:* noticing the cluster of new neuromuscular, electrolyte, renal, and ECG changes
+   — and separating it from clinically meaningless drift — is what flags an evolving emergency. *Skill:*
+   recognize cues. *Answerable from:* Stage 1.
+2. *Situation:* At Stage 1, classify each significant finding as consistent with TLS, unrelated, or
+   contradicting the picture. *Correct:* the potassium 7.1 with peaked T waves, the phosphorus 8.4 with
+   calcium 6.8, and the creatinine rise are all consistent with TLS; the uric acid drop to 4.1 contradicts
+   the untreated picture (it reflects rasburicase working, not TLS progression). *Why:* TLS releases
+   intracellular potassium and phosphate; phosphate binds calcium → hypocalcemia; uricase lowers uric acid,
+   so a falling uric acid is a treatment effect, not deterioration. *Skill:* analyze cues. *Answerable from:*
+   Stage 1.
+3. *Situation:* Identify the most immediately life-threatening problem at Stage 1. *Correct:* the hyperkalemia
    with ECG changes (peaked T waves, widening QRS). *Why:* it is the proximate cause of a lethal arrhythmia —
-   circulation/ABCs over the metabolic derangements. *Skill:* prioritize hypotheses. *Answerable from:* Stage 1.
-3. *Situation:* At Stage 2, with worsening ECG and palpitations, choose the first nursing action while awaiting
-   dialysis. *Correct:* anticipate/administer IV calcium gluconate to stabilize the myocardium per order, then
-   measures to shift potassium intracellularly (insulin with dextrose), while preparing for dialysis. *Why:*
-   membrane stabilization addresses the immediate arrhythmia risk before potassium-lowering measures take
-   effect; dialysis is definitive but not yet available. *Skill:* take action. *Answerable from:* Stage 2.
-4. *Situation:* Sequence the interventions while awaiting dialysis access. *Correct:* protect the airway/
-   circulation and stabilize the myocardium first, then shift potassium, then prepare the patient and access
-   for dialysis, then continuous monitoring. *Why:* immediate rescue precedes definitive therapy; assessment
-   must not delay membrane stabilization. *Skill:* generate solutions. *Answerable from:* Stage 2.
-5. *Situation:* At Stage 3, evaluate response to treatment. *Correct:* normalization of the ECG (T-wave
+   circulation/ABCs over the metabolic derangements. *Skill:* prioritize hypotheses. *Answerable from:*
+   Stage 1.
+4. *Situation:* Determine the management approach for the emergent hyperkalemia while definitive dialysis
+   access is being arranged. *Correct:* a three-pronged plan — stabilize the myocardial membrane (IV calcium
+   gluconate per order), shift potassium intracellularly (insulin with dextrose), and eliminate potassium
+   definitively (hemodialysis, since the failing kidneys cannot clear the load). *Why:* each prong addresses a
+   different part of the threat; pharmacologic measures buy time but only dialysis removes the potassium once
+   renal clearance has failed. *Skill:* generate solutions. *Answerable from:* Stage 2.
+5. *Situation:* At Stage 2, with further QRS widening and loss of P waves, choose the first action to carry
+   out. *Correct:* administer IV calcium gluconate per order to stabilize the myocardium before the
+   potassium-shifting measures. *Why:* membrane stabilization addresses the immediate arrhythmia risk now;
+   shifting and elimination take longer to act, and the conduction toxicity is already advancing. *Skill:*
+   take action. *Answerable from:* Stage 2.
+6. *Situation:* At Stage 3, evaluate response to treatment. *Correct:* normalization of the ECG (T-wave
    morphology, QRS width) and a falling potassium confirm the emergency is resolving; recovering urine output
    confirms renal recovery. *Why:* the keyed cues are the reversible markers of the treated derangement.
    *Skill:* evaluate outcomes. *Answerable from:* Stage 3.
 
 **COMMON NURSING ERRORS**
-- (Decision 1) Reading the uric acid drop as worsening TLS — it is the expected rasburicase effect.
-- (Decision 2) Prioritizing the hypocalcemia or the rising creatinine over the hyperkalemia-with-ECG-changes —
+- (Decision 1) Dismissing the new muscle cramping and fingertip tingling as anxiety or positioning rather than
+  recognizing them as cues of evolving hypocalcemia, or treating the minor temperature change as the
+  significant new finding — missing the real cue cluster.
+- (Decision 2) Reading the uric acid drop as worsening TLS — it is the expected rasburicase effect.
+- (Decision 3) Prioritizing the hypocalcemia or the rising creatinine over the hyperkalemia-with-ECG-changes —
   wrong priority; the arrhythmia risk is the immediate threat.
-- (Decision 3) Giving insulin/dextrose or sodium polystyrene first while ignoring myocardial stabilization —
-  wrong sequence; calcium gluconate protects the heart while other measures work.
-- (Decision 3) Restarting or pushing allopurinol acutely — does not treat the existing uric acid load and is
-  redundant with rasburicase.
-- (Decision 4) Delaying membrane stabilization to draw more labs or await dialysis — assessment/definitive
-  care must not delay rescue.
-- (Decision 5) Calling the patient stable on a single normal potassium without confirming ECG normalization
+- (Decision 4) Building a plan that relies only on pharmacologic potassium-lowering and omits dialysis — with
+  the kidneys failing, only dialysis removes the potassium load; or restarting/pushing allopurinol acutely,
+  which does not treat the existing uric acid load and is redundant with rasburicase.
+- (Decision 5) Giving insulin/dextrose or sodium polystyrene first while ignoring myocardial stabilization —
+  wrong sequence; calcium gluconate protects the heart while the other measures work; or delaying membrane
+  stabilization to draw more labs or await dialysis — rescue must not wait.
+- (Decision 6) Calling the patient stable on a single normal potassium without confirming ECG normalization
   and urine output — premature evaluation.
 
 **EXPECTED LEARNING OBJECTIVES**
+- Recognize the early cue cluster of evolving tumor lysis syndrome (neuromuscular, electrolyte, renal, and ECG
+  changes) read against the admission baseline.
 - Distinguish TLS-consistent findings from treatment effects and unrelated findings.
 - Prioritize hyperkalemia-with-ECG-changes as the immediate threat in TLS.
 - Sequence emergent hyperkalemia management (stabilize → shift → eliminate) within RN scope.

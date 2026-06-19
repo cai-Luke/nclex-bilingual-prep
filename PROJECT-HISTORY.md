@@ -58,6 +58,15 @@ The committed NGN item-type set is complete. Rationale/dyad scoring and an expli
 
 ## Milestones
 
+### Oncology Reclassification Dry Run (Jun 18)
+
+Completed:
+- Generated a proposal-only oncology case reclassification packet for the six identified parent case rows and SCC child rows: `audit/oncology-reclassification-2026-06-18.manifest.json` and `audit/oncology-reclassification-2026-06-18.report.md`.
+- Proposed parent-level `Oncology & Immunotherapy Complications` labeling for AGVHD, CAR-T CRS/ICANS, malignant spinal cord compression, chemo-induced mucositis/TPN/CRBSI, ICI myocarditis, and tumor lysis syndrome; ICI myocarditis requires a parent category move to Physiological Adaptation because Oncology is not licensed under Pharmacological and Parenteral Therapies.
+- Verified the TPN/mucositis case is oncology-framed from source context (AML induction chemotherapy, profound neutropenia, grade IV chemotherapy-induced mucositis, inpatient oncology setting).
+- Adjudicated SCC children conservatively: proposed Oncology topic moves for the recognition and urgent MSCC dexamethasone items only, while carrying forward or abstaining on neuro, perioperative, and therapeutic-communication constructs.
+- Guard results: 12 dry-run rows, 8 proposed diffs, 0 license-validation errors, 0 out-of-scope AGVHD/CAR-T/ICI/TLS child rows emitted, and no canonical bank writes.
+
 ### Summary Review Screen Polish (Jun 18)
 
 Completed:

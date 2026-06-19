@@ -1,0 +1,307 @@
+{
+  "meta": {
+    "generatedAt": "2026-06-18T23:25:39.762Z",
+    "runDate": "2026-06-18",
+    "mode": "dry-run",
+    "canonicalBankWrites": false,
+    "topicsWrites": false,
+    "schemaVersion": "oncology-reclassification-v1",
+    "classifier": {
+      "provider": "openai",
+      "model": "gpt-5-codex-in-harness",
+      "temperature": 0,
+      "gemini": false
+    },
+    "sourceSpec": "oncology-reclassification-codex-spec.md",
+    "sourceSpecHash": "39fd864be3dfca83e187eeeb8f17dca631078a1d6ccfb01c673508ab09368aed",
+    "topicsSourceHash": "41c32e179086ac1245c67586067ad475fe9ced1e70d7b06c58148a6c729cc179",
+    "banksSourceHash": "9ff6e4a4c1ed023d3c29e6bed062c0a4f272a2c2869e8541939b76a8236c5052",
+    "handledParentIdsForGeneralParentPass": [
+      "opus_agvd_case_agvhd_01",
+      "opus_car_t_crs_2026_06_11_case_01",
+      "opus_scc_case_01",
+      "opus_tpn_case_mucositis_01",
+      "opus_icit_case_01",
+      "gpt_case_gap_2026_06_11_case_tls_01"
+    ],
+    "guards": {
+      "nonGeminiClassifier": true,
+      "exactDiffCategoryTopicOnly": true,
+      "noCanonicalWrites": true,
+      "noTopicVocabularyWrites": true,
+      "outOfScopeChildrenEmitted": 0,
+      "licenseValidated": true
+    },
+    "counts": {
+      "totalRecords": 12,
+      "operationAParentRows": 6,
+      "operationBSccChildRows": 6,
+      "proposed": 8,
+      "carriedForward": 2,
+      "notOncologyConstruct": 2,
+      "topicOnly": 7,
+      "categoryAndTopic": 1,
+      "abstain": 4,
+      "validationErrors": 0
+    }
+  },
+  "records": [
+    {
+      "id": "opus_agvd_case_agvhd_01",
+      "operation": "A_parent_case_level_oncology_label",
+      "sourceBank": "gemini-canonical.json",
+      "path": "questions.768",
+      "parentId": null,
+      "itemType": "case_study_parent",
+      "currentCategory": "Physiological Adaptation",
+      "currentTopic": "Acute Graft-Versus-Host Disease",
+      "decisionType": "topic_only",
+      "status": "proposed",
+      "proposedCategory": "Physiological Adaptation",
+      "proposedTopic": "Oncology & Immunotherapy Complications",
+      "reason": "Parent/case clinical subject is acute GVHD after transplant; oncology topic is licensed under the existing Physiological Adaptation category.",
+      "validationErrors": [],
+      "diffPreview": [
+        {
+          "path": "banks/gemini-canonical.json:questions.768.topic",
+          "before": "Acute Graft-Versus-Host Disease",
+          "after": "Oncology & Immunotherapy Complications"
+        }
+      ]
+    },
+    {
+      "id": "opus_car_t_crs_2026_06_11_case_01",
+      "operation": "A_parent_case_level_oncology_label",
+      "sourceBank": "hard-cases-canonical.json",
+      "path": "questions.38",
+      "parentId": null,
+      "itemType": "case_study_parent",
+      "currentCategory": "Reduction of Risk Potential",
+      "currentTopic": "CAR-T cytokine release syndrome and ICANS monitoring",
+      "decisionType": "topic_only",
+      "status": "proposed",
+      "proposedCategory": "Reduction of Risk Potential",
+      "proposedTopic": "Oncology & Immunotherapy Complications",
+      "reason": "Parent/case clinical subject is CAR-T CRS/ICANS monitoring; oncology topic is licensed under the existing Reduction of Risk Potential category.",
+      "validationErrors": [],
+      "diffPreview": [
+        {
+          "path": "banks/hard-cases-canonical.json:questions.38.topic",
+          "before": "CAR-T cytokine release syndrome and ICANS monitoring",
+          "after": "Oncology & Immunotherapy Complications"
+        }
+      ]
+    },
+    {
+      "id": "opus_scc_case_01",
+      "operation": "A_parent_case_level_oncology_label",
+      "sourceBank": "hard-cases-canonical.json",
+      "path": "questions.37",
+      "parentId": null,
+      "itemType": "case_study_parent",
+      "currentCategory": "Physiological Adaptation",
+      "currentTopic": "Malignant Spinal Cord Compression",
+      "decisionType": "topic_only",
+      "status": "proposed",
+      "proposedCategory": "Physiological Adaptation",
+      "proposedTopic": "Oncology & Immunotherapy Complications",
+      "reason": "Parent/case clinical subject is malignant spinal cord compression from metastatic cancer; oncology topic is licensed under the existing Physiological Adaptation category.",
+      "validationErrors": [],
+      "diffPreview": [
+        {
+          "path": "banks/hard-cases-canonical.json:questions.37.topic",
+          "before": "Malignant Spinal Cord Compression",
+          "after": "Oncology & Immunotherapy Complications"
+        }
+      ]
+    },
+    {
+      "id": "opus_tpn_case_mucositis_01",
+      "operation": "A_parent_case_level_oncology_label",
+      "sourceBank": "hard-cases-canonical.json",
+      "path": "questions.40",
+      "parentId": null,
+      "itemType": "case_study_parent",
+      "currentCategory": "Physiological Adaptation",
+      "currentTopic": "Mucositis TPN and CRBSI",
+      "decisionType": "topic_only",
+      "status": "proposed",
+      "proposedCategory": "Physiological Adaptation",
+      "proposedTopic": "Oncology & Immunotherapy Complications",
+      "reason": "Verified oncology framing from source: AML induction chemotherapy with profound neutropenia and grade IV chemotherapy-induced mucositis; oncology topic is licensed under the existing Physiological Adaptation category.",
+      "validationErrors": [],
+      "diffPreview": [
+        {
+          "path": "banks/hard-cases-canonical.json:questions.40.topic",
+          "before": "Mucositis TPN and CRBSI",
+          "after": "Oncology & Immunotherapy Complications"
+        }
+      ]
+    },
+    {
+      "id": "opus_icit_case_01",
+      "operation": "A_parent_case_level_oncology_label",
+      "sourceBank": "hard-cases-canonical.json",
+      "path": "questions.39",
+      "parentId": null,
+      "itemType": "case_study_parent",
+      "currentCategory": "Pharmacological and Parenteral Therapies",
+      "currentTopic": "Immune Checkpoint Inhibitor Myocarditis",
+      "decisionType": "category_and_topic",
+      "status": "proposed",
+      "proposedCategory": "Physiological Adaptation",
+      "proposedTopic": "Oncology & Immunotherapy Complications",
+      "reason": "Parent/case clinical subject is immune checkpoint inhibitor myocarditis; current Pharmacological category does not license Oncology, so propose Physiological Adaptation plus Oncology topic.",
+      "validationErrors": [],
+      "diffPreview": [
+        {
+          "path": "banks/hard-cases-canonical.json:questions.39.category",
+          "before": "Pharmacological and Parenteral Therapies",
+          "after": "Physiological Adaptation"
+        },
+        {
+          "path": "banks/hard-cases-canonical.json:questions.39.topic",
+          "before": "Immune Checkpoint Inhibitor Myocarditis",
+          "after": "Oncology & Immunotherapy Complications"
+        }
+      ]
+    },
+    {
+      "id": "gpt_case_gap_2026_06_11_case_tls_01",
+      "operation": "A_parent_case_level_oncology_label",
+      "sourceBank": "gpt-canonical.json",
+      "path": "questions.183",
+      "parentId": null,
+      "itemType": "case_study_parent",
+      "currentCategory": "Reduction of Risk Potential",
+      "currentTopic": "tumor lysis syndrome",
+      "decisionType": "topic_only",
+      "status": "proposed",
+      "proposedCategory": "Reduction of Risk Potential",
+      "proposedTopic": "Oncology & Immunotherapy Complications",
+      "reason": "Parent/case clinical subject is tumor lysis syndrome during chemotherapy for high-burden lymphoma; oncology topic is licensed under the existing Reduction of Risk Potential category.",
+      "validationErrors": [],
+      "diffPreview": [
+        {
+          "path": "banks/gpt-canonical.json:questions.183.topic",
+          "before": "tumor lysis syndrome",
+          "after": "Oncology & Immunotherapy Complications"
+        }
+      ]
+    },
+    {
+      "id": "opus_scc_case_01_q1",
+      "operation": "B_scc_child_per_child_adjudication",
+      "sourceBank": "hard-cases-canonical.json",
+      "path": "questions.37.caseStudy.questions.0",
+      "parentId": "opus_scc_case_01",
+      "itemType": "multiple_choice",
+      "currentCategory": "Physiological Adaptation",
+      "currentTopic": "Endocrine & Neurological Disorders",
+      "decisionType": "topic_only",
+      "status": "proposed",
+      "proposedCategory": "Physiological Adaptation",
+      "proposedTopic": "Oncology & Immunotherapy Complications",
+      "reason": "Recognition item explicitly asks for the oncologic emergency and keys malignant spinal cord compression.",
+      "validationErrors": [],
+      "diffPreview": [
+        {
+          "path": "banks/hard-cases-canonical.json:questions.37.caseStudy.questions.0.topic",
+          "before": "Endocrine & Neurological Disorders",
+          "after": "Oncology & Immunotherapy Complications"
+        }
+      ]
+    },
+    {
+      "id": "opus_scc_case_01_q2",
+      "operation": "B_scc_child_per_child_adjudication",
+      "sourceBank": "hard-cases-canonical.json",
+      "path": "questions.37.caseStudy.questions.1",
+      "parentId": "opus_scc_case_01",
+      "itemType": "multiple_choice",
+      "currentCategory": "Physiological Adaptation",
+      "currentTopic": "Endocrine & Neurological Disorders",
+      "decisionType": "topic_only",
+      "status": "proposed",
+      "proposedCategory": "Physiological Adaptation",
+      "proposedTopic": "Oncology & Immunotherapy Complications",
+      "reason": "Immediate dexamethasone for confirmed MSCC is time-critical oncologic-emergency management rather than generic neuro assessment.",
+      "validationErrors": [],
+      "diffPreview": [
+        {
+          "path": "banks/hard-cases-canonical.json:questions.37.caseStudy.questions.1.topic",
+          "before": "Endocrine & Neurological Disorders",
+          "after": "Oncology & Immunotherapy Complications"
+        }
+      ]
+    },
+    {
+      "id": "opus_scc_case_01_q3",
+      "operation": "B_scc_child_per_child_adjudication",
+      "sourceBank": "hard-cases-canonical.json",
+      "path": "questions.37.caseStudy.questions.2",
+      "parentId": "opus_scc_case_01",
+      "itemType": "multiple_choice",
+      "currentCategory": "Physiological Adaptation",
+      "currentTopic": "Endocrine & Neurological Disorders",
+      "decisionType": "abstain",
+      "status": "carried-forward",
+      "proposedCategory": "Physiological Adaptation",
+      "proposedTopic": null,
+      "reason": "Bladder retention plus perineal numbness tests neurologic/autonomic pathway interpretation; keep current Endocrine & Neurological Disorders in this oncology pass.",
+      "validationErrors": [],
+      "diffPreview": []
+    },
+    {
+      "id": "opus_scc_case_01_q4",
+      "operation": "B_scc_child_per_child_adjudication",
+      "sourceBank": "hard-cases-canonical.json",
+      "path": "questions.37.caseStudy.questions.3",
+      "parentId": "opus_scc_case_01",
+      "itemType": "select_all",
+      "currentCategory": "Physiological Adaptation",
+      "currentTopic": "Endocrine & Neurological Disorders",
+      "decisionType": "abstain",
+      "status": "not_oncology_construct",
+      "proposedCategory": "Physiological Adaptation",
+      "proposedTopic": null,
+      "reason": "Preoperative preparation for decompression tests perioperative/legal/safety workflow more than oncology recognition; no oncology move proposed in this scoped pass.",
+      "validationErrors": [],
+      "diffPreview": []
+    },
+    {
+      "id": "opus_scc_case_01_q5",
+      "operation": "B_scc_child_per_child_adjudication",
+      "sourceBank": "hard-cases-canonical.json",
+      "path": "questions.37.caseStudy.questions.4",
+      "parentId": "opus_scc_case_01",
+      "itemType": "multiple_choice",
+      "currentCategory": "Physiological Adaptation",
+      "currentTopic": "Endocrine & Neurological Disorders",
+      "decisionType": "abstain",
+      "status": "not_oncology_construct",
+      "proposedCategory": "Physiological Adaptation",
+      "proposedTopic": null,
+      "reason": "Family prognosis response tests therapeutic communication and scope boundaries, not oncology complication recognition.",
+      "validationErrors": [],
+      "diffPreview": []
+    },
+    {
+      "id": "opus_scc_case_01_q6",
+      "operation": "B_scc_child_per_child_adjudication",
+      "sourceBank": "hard-cases-canonical.json",
+      "path": "questions.37.caseStudy.questions.5",
+      "parentId": "opus_scc_case_01",
+      "itemType": "matrix",
+      "currentCategory": "Physiological Adaptation",
+      "currentTopic": "Endocrine & Neurological Disorders",
+      "decisionType": "abstain",
+      "status": "carried-forward",
+      "proposedCategory": "Physiological Adaptation",
+      "proposedTopic": null,
+      "reason": "Postoperative outcome evaluation tests serial neurologic recovery versus persistent spinal cord dysfunction; keep current Endocrine & Neurological Disorders in this oncology pass.",
+      "validationErrors": [],
+      "diffPreview": []
+    }
+  ]
+}
