@@ -2,8 +2,8 @@
 
 # NCLEX Bank Census
 
-Generated: 2026-06-20T01:10:12.656Z
-Git SHA: 4e55708d20ab9ea6f05454ab8fac1f685c04d01f
+Generated: 2026-06-20T13:40:34.222Z
+Git SHA: 644778fcf3324c91ca3bac3df61151525cc1ed6f
 
 ## Per-File Summary
 
@@ -14,7 +14,7 @@ Git SHA: 4e55708d20ab9ea6f05454ab8fac1f685c04d01f
 | claude-canonical.json | 1.4 | 69 | 69 | — |
 | device-canonical.json | 1.2 | 8 | 8 | — |
 | gemini-canonical.json | 1.2 | 775 | 775 | — |
-| gpt-canonical.json | 1.5 | 293 | 293 | — |
+| gpt-canonical.json | 1.5 | 309 | 309 | — |
 | hard-cases-canonical.json | 1.5 | 66 | 66 | — |
 | io-canonical.json | 1.2 | 8 | 8 | — |
 | lab-canonical.json | 1.2 | 20 | 20 | — |
@@ -25,32 +25,32 @@ Git SHA: 4e55708d20ab9ea6f05454ab8fac1f685c04d01f
 
 ## Totals
 
-- Top-level questions: 1333
-- Case study top-level: 119
-- Embedded parts: 597
-- Graded total: 1930
+- Top-level questions: 1349
+- Case study top-level: 127
+- Embedded parts: 645
+- Graded total: 1994
 
 ## By Category
 
 - Health Promotion and Maintenance: 140
 - Psychosocial Integrity: 144
-- Safety and Infection Control: 148
-- Management of Care: 151
+- Safety and Infection Control: 150
 - Basic Care and Comfort: 152
-- Pharmacological and Parenteral Therapies: 175
+- Management of Care: 161
 - Reduction of Risk Potential: 176
+- Pharmacological and Parenteral Therapies: 179
 - Physiological Adaptation: 247
 
 ## Within-Category Concentration
 
 ### Management of Care
 
-Top topics: Prioritization & Delegation (50), Legal & Ethical Principles (46), Discharge Planning & Handoff (21), Confidentiality & HIPAA (9), Client Advocacy (5), Conflict Resolution (3), Disaster & Emergency Preparedness (2), Medication Safety & Admin (2), code status escalation (1), colostomy discharge teaching for limited English proficiency (1)
+Top topics: Prioritization & Delegation (50), Legal & Ethical Principles (46), Discharge Planning & Handoff (23), Confidentiality & HIPAA (11), Client Advocacy (7), Conflict Resolution (7), Disaster & Emergency Preparedness (2), Medication Safety & Admin (2), code status escalation (1), colostomy discharge teaching for limited English proficiency (1)
 Visual kinds: device_screen (1), mar (1)
 
 ### Safety and Infection Control
 
-Top topics: Patient & Environment Safety (41), Transmission-Based Precautions (39), Standard Precautions & Hygiene (20), PPE & Sterile Technique (15), Disaster & Emergency Preparedness (4), Transfusion & Blood Products (4), Endocrine & Neurological Disorders (2), Medication Safety & Admin (2), Respiratory & Infectious Disorders (2), Burn Management (1)
+Top topics: Patient & Environment Safety (41), Transmission-Based Precautions (39), Standard Precautions & Hygiene (20), PPE & Sterile Technique (15), Disaster & Emergency Preparedness (6), Transfusion & Blood Products (4), Endocrine & Neurological Disorders (2), Medication Safety & Admin (2), Respiratory & Infectious Disorders (2), Burn Management (1)
 Visual kinds: capnography (1), device_screen (1), medication_label (1), vitals_trend (1)
 
 ### Health Promotion and Maintenance
@@ -70,7 +70,7 @@ Visual kinds: burn_map (1), device_screen (1), io_record (4)
 
 ### Pharmacological and Parenteral Therapies
 
-Top topics: Medication Safety & Admin (51), Dosage Calculations (47), Anticoagulant Therapy (29), Cardiovascular & Endocrine Medications (20), Psychotropic Medications (7), Nutritional & Fluid Support (3), Cardiovascular Disorders (2), Adenosine Side Effects (1), Burn Management (1), Diabetic Ketoacidosis (DKA) (1)
+Top topics: Medication Safety & Admin (51), Dosage Calculations (47), Anticoagulant Therapy (29), Cardiovascular & Endocrine Medications (20), Psychotropic Medications (9), Nutritional & Fluid Support (3), Parenteral Nutrition (3), Cardiovascular Disorders (2), Adenosine Side Effects (1), Burn Management (1)
 Visual kinds: capnography (1), device_screen (5), lab_trend (6), mar (7), medication_label (9), rhythm_strip (10), vitals_trend (2)
 
 ### Reduction of Risk Potential
@@ -86,8 +86,8 @@ Visual kinds: burn_map (5), capnography (4), io_record (2), lab_trend (7), rhyth
 ## By Item Type
 
 - highlight: 2
-- bowtie: 17
-- case_study: 119
+- bowtie: 25
+- case_study: 127
 - ordered_response: 127
 - fill_in_blank: 140
 - dropdown_cloze: 142
@@ -98,14 +98,14 @@ Visual kinds: burn_map (5), capnography (4), io_record (2), lab_trend (7), rhyth
 ## By Difficulty
 
 - easy: 168
-- hard: 510
+- hard: 526
 - medium: 655
 
 ## By Schema Version
 
 - v1.2: 905 questions (burn-canonical.json, capnography-canonical.json, device-canonical.json, gemini-canonical.json, io-canonical.json, lab-canonical.json, mar-canonical.json, medlabel-canonical.json, visual-canonical.json, vitals-canonical.json)
 - v1.4: 69 questions (claude-canonical.json)
-- v1.5: 359 questions (gpt-canonical.json, hard-cases-canonical.json)
+- v1.5: 375 questions (gpt-canonical.json, hard-cases-canonical.json)
 
 ## By Source File
 
@@ -114,7 +114,7 @@ Visual kinds: burn_map (5), capnography (4), io_record (2), lab_trend (7), rhyth
 - claude-canonical.json: 69
 - device-canonical.json: 8
 - gemini-canonical.json: 775
-- gpt-canonical.json: 293
+- gpt-canonical.json: 309
 - hard-cases-canonical.json: 66
 - io-canonical.json: 8
 - lab-canonical.json: 20
@@ -233,6 +233,14 @@ Total visuals: 146
 | gpt_case_neutropenic_fever_nadir_01 | Oncology & Immunotherapy Complications | 6 | gpt-canonical.json |
 | gpt_case_taco_vs_trali_01 | Transfusion & Blood Products | 6 | gpt-canonical.json |
 | gpt_case_unsafe_assignment_01 | Prioritization & Delegation | 6 | gpt-canonical.json |
+| gpt_case_hipaa_disclosure_breach_01 | Confidentiality & HIPAA | 6 | gpt-canonical.json |
+| gpt_case_mass_casualty_start_triage_01 | Disaster & Emergency Preparedness | 6 | gpt-canonical.json |
+| gpt_case_unsafe_premature_discharge_01 | Discharge Planning & Handoff | 6 | gpt-canonical.json |
+| gpt_case_nurse_provider_conflict_01 | Conflict Resolution | 6 | gpt-canonical.json |
+| gpt_case_client_advocacy_refusal_01 | Client Advocacy | 6 | gpt-canonical.json |
+| gpt_case_lateral_incivility_01 | Conflict Resolution | 6 | gpt-canonical.json |
+| gpt_case_clozapine_toxicity_01 | Psychotropic Medications | 6 | gpt-canonical.json |
+| gpt_case_refeeding_syndrome_tpn_01 | Parenteral Nutrition | 6 | gpt-canonical.json |
 | case_sepsis_pneumonia_01 | Sepsis & Septic Shock | 4 | hard-cases-canonical.json |
 | case_preeclampsia_magnesium_01 | Maternal-Newborn Care & Teaching | 4 | hard-cases-canonical.json |
 | cs_copd_01 | Respiratory & Infectious Disorders | 5 | hard-cases-canonical.json |
@@ -289,26 +297,26 @@ No duplicates detected.
 ## Targets
 
 Category targets (2026 NCLEX-RN test-plan weights):
-- Management of Care: 239.9
-- Safety and Infection Control: 173.3
-- Health Promotion and Maintenance: 120.0
-- Psychosocial Integrity: 120.0
-- Basic Care and Comfort: 120.0
-- Pharmacological and Parenteral Therapies: 213.3
-- Reduction of Risk Potential: 160.0
-- Physiological Adaptation: 186.6
-Item type average: 148.1
+- Management of Care: 242.8
+- Safety and Infection Control: 175.4
+- Health Promotion and Maintenance: 121.4
+- Psychosocial Integrity: 121.4
+- Basic Care and Comfort: 121.4
+- Pharmacological and Parenteral Therapies: 215.8
+- Reduction of Risk Potential: 161.9
+- Physiological Adaptation: 188.9
+Item type average: 149.9
 
 Under-served categories:
-- Management of Care: 151
+- Management of Care: 161
 
 Over-served categories:
 - Physiological Adaptation: 247
 
 Under-served item types:
 - highlight: 2
-- bowtie: 17
-- case_study: 119
+- bowtie: 25
+- case_study: 127
 - ordered_response: 127
 - fill_in_blank: 140
 - dropdown_cloze: 142
@@ -316,13 +324,13 @@ Under-served item types:
 ## Prompt Parameters
 
 PRIORITIZE_TOPICS:
-- Management of Care (151 vs target 240)
-- highlight (2 vs target 148.1)
-- bowtie (17 vs target 148.1)
-- case_study (119 vs target 148.1)
-- ordered_response (127 vs target 148.1)
-- fill_in_blank (140 vs target 148.1)
-- dropdown_cloze (142 vs target 148.1)
+- Management of Care (161 vs target 243)
+- highlight (2 vs target 149.9)
+- bowtie (25 vs target 149.9)
+- case_study (127 vs target 149.9)
+- ordered_response (127 vs target 149.9)
+- fill_in_blank (140 vs target 149.9)
+- dropdown_cloze (142 vs target 149.9)
 - Acute decompensated heart failure
 - Acute Decompensated Heart Failure (ADHF)
 - Acute gallstone pancreatitis with cholangitis

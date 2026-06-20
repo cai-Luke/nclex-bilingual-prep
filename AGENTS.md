@@ -17,6 +17,14 @@ Guidance for coding and content agents working on Project Shrimp / NCLEX Bilingu
 - `Archive/root-specs-2026-06-18/NCLEX-Prep-SPEC.md` is useful product context, but it started as a build spec and may describe historical plans.
 - `PASS2-HANDOFF.md` is historical.
 
+## Project Knowledge Hygiene
+
+The repo is the source of truth. ChatGPT Project files, uploaded markdowns, model memory, and external model reports are orientation aids only and may be stale.
+
+For substantive coding, schema, bank-promotion, audit, or content-review work, start from this `AGENTS.md`, then inspect the relevant current repo files before making firm claims or edits. Pay special attention to `PROJECT-HISTORY.md`, `NCLEX-Question-Schema.md`, `BANK-REVIEW-LEDGER.md`, `BANK-CENSUS.md`, and any active prompt/spec named by the user.
+
+If repo files conflict with project memory, uploaded files, or reports from Claude, Gemini, Opus, Codex, or prior ChatGPT sessions, prefer the repo unless Luke explicitly says a pasted or uploaded document supersedes it for the current task.
+
 ## Product Constraints
 
 - Keep the runtime static and offline. No server, API key, or live model call is required after build.

@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-06-20T01:10:12.656Z",
-  "gitSha": "4e55708d20ab9ea6f05454ab8fac1f685c04d01f",
+  "generatedAt": "2026-06-20T13:40:34.222Z",
+  "gitSha": "644778fcf3324c91ca3bac3df61151525cc1ed6f",
   "perFile": [
     {
       "file": "burn-canonical.json",
@@ -40,8 +40,8 @@
     {
       "file": "gpt-canonical.json",
       "schemaVersion": "1.5",
-      "metaCount": 293,
-      "questionsLength": 293,
+      "metaCount": 309,
+      "questionsLength": 309,
       "mismatch": false
     },
     {
@@ -95,15 +95,15 @@
     }
   ],
   "totals": {
-    "topLevel": 1333,
-    "caseStudyTopLevel": 119,
-    "embeddedParts": 597,
-    "gradedTotal": 1930
+    "topLevel": 1349,
+    "caseStudyTopLevel": 127,
+    "embeddedParts": 645,
+    "gradedTotal": 1994
   },
   "byItemType": {
     "highlight": 2,
-    "bowtie": 17,
-    "case_study": 119,
+    "bowtie": 25,
+    "case_study": 127,
     "ordered_response": 127,
     "fill_in_blank": 140,
     "dropdown_cloze": 142,
@@ -114,11 +114,11 @@
   "byCategory": {
     "Health Promotion and Maintenance": 140,
     "Psychosocial Integrity": 144,
-    "Safety and Infection Control": 148,
-    "Management of Care": 151,
+    "Safety and Infection Control": 150,
     "Basic Care and Comfort": 152,
-    "Pharmacological and Parenteral Therapies": 175,
+    "Management of Care": 161,
     "Reduction of Risk Potential": 176,
+    "Pharmacological and Parenteral Therapies": 179,
     "Physiological Adaptation": 247
   },
   "withinCategory": {
@@ -134,19 +134,19 @@
         },
         {
           "topic": "Discharge Planning & Handoff",
-          "count": 21
+          "count": 23
         },
         {
           "topic": "Confidentiality & HIPAA",
-          "count": 9
+          "count": 11
         },
         {
           "topic": "Client Advocacy",
-          "count": 5
+          "count": 7
         },
         {
           "topic": "Conflict Resolution",
-          "count": 3
+          "count": 7
         },
         {
           "topic": "Disaster & Emergency Preparedness",
@@ -190,7 +190,7 @@
         },
         {
           "topic": "Disaster & Emergency Preparedness",
-          "count": 4
+          "count": 6
         },
         {
           "topic": "Transfusion & Blood Products",
@@ -379,10 +379,14 @@
         },
         {
           "topic": "Psychotropic Medications",
-          "count": 7
+          "count": 9
         },
         {
           "topic": "Nutritional & Fluid Support",
+          "count": 3
+        },
+        {
+          "topic": "Parenteral Nutrition",
           "count": 3
         },
         {
@@ -395,10 +399,6 @@
         },
         {
           "topic": "Burn Management",
-          "count": 1
-        },
-        {
-          "topic": "Diabetic Ketoacidosis (DKA)",
           "count": 1
         }
       ],
@@ -522,7 +522,7 @@
   },
   "byDifficulty": {
     "easy": 168,
-    "hard": 510,
+    "hard": 526,
     "medium": 655
   },
   "bySchemaVersion": {
@@ -548,7 +548,7 @@
       ]
     },
     "1.5": {
-      "questions": 359,
+      "questions": 375,
       "files": [
         "gpt-canonical.json",
         "hard-cases-canonical.json"
@@ -561,7 +561,7 @@
     "claude-canonical.json": 69,
     "device-canonical.json": 8,
     "gemini-canonical.json": 775,
-    "gpt-canonical.json": 293,
+    "gpt-canonical.json": 309,
     "hard-cases-canonical.json": 66,
     "io-canonical.json": 8,
     "lab-canonical.json": 20,
@@ -1200,6 +1200,54 @@
       "bank": "gpt-canonical.json"
     },
     {
+      "id": "gpt_case_hipaa_disclosure_breach_01",
+      "topic": "Confidentiality & HIPAA",
+      "parts": 6,
+      "bank": "gpt-canonical.json"
+    },
+    {
+      "id": "gpt_case_mass_casualty_start_triage_01",
+      "topic": "Disaster & Emergency Preparedness",
+      "parts": 6,
+      "bank": "gpt-canonical.json"
+    },
+    {
+      "id": "gpt_case_unsafe_premature_discharge_01",
+      "topic": "Discharge Planning & Handoff",
+      "parts": 6,
+      "bank": "gpt-canonical.json"
+    },
+    {
+      "id": "gpt_case_nurse_provider_conflict_01",
+      "topic": "Conflict Resolution",
+      "parts": 6,
+      "bank": "gpt-canonical.json"
+    },
+    {
+      "id": "gpt_case_client_advocacy_refusal_01",
+      "topic": "Client Advocacy",
+      "parts": 6,
+      "bank": "gpt-canonical.json"
+    },
+    {
+      "id": "gpt_case_lateral_incivility_01",
+      "topic": "Conflict Resolution",
+      "parts": 6,
+      "bank": "gpt-canonical.json"
+    },
+    {
+      "id": "gpt_case_clozapine_toxicity_01",
+      "topic": "Psychotropic Medications",
+      "parts": 6,
+      "bank": "gpt-canonical.json"
+    },
+    {
+      "id": "gpt_case_refeeding_syndrome_tpn_01",
+      "topic": "Parenteral Nutrition",
+      "parts": 6,
+      "bank": "gpt-canonical.json"
+    },
+    {
       "id": "case_sepsis_pneumonia_01",
       "topic": "Sepsis & Septic Shock",
       "parts": 4,
@@ -1495,42 +1543,42 @@
     "categoryTargets": [
       [
         "Management of Care",
-        239.94
+        242.82
       ],
       [
         "Safety and Infection Control",
-        173.29
+        175.37
       ],
       [
         "Health Promotion and Maintenance",
-        119.97
+        121.41
       ],
       [
         "Psychosocial Integrity",
-        119.97
+        121.41
       ],
       [
         "Basic Care and Comfort",
-        119.97
+        121.41
       ],
       [
         "Pharmacological and Parenteral Therapies",
-        213.28
+        215.84
       ],
       [
         "Reduction of Risk Potential",
-        159.96
+        161.88
       ],
       [
         "Physiological Adaptation",
-        186.62
+        188.86
       ]
     ],
-    "itemTypeAvg": 148.11111111111111,
+    "itemTypeAvg": 149.88888888888889,
     "underCategories": [
       [
         "Management of Care",
-        151
+        161
       ]
     ],
     "overCategories": [
@@ -1546,11 +1594,11 @@
       ],
       [
         "bowtie",
-        17
+        25
       ],
       [
         "case_study",
-        119
+        127
       ],
       [
         "ordered_response",
@@ -1567,13 +1615,13 @@
     ]
   },
   "prioritizeTopics": [
-    "Management of Care (151 vs target 240)",
-    "highlight (2 vs target 148.1)",
-    "bowtie (17 vs target 148.1)",
-    "case_study (119 vs target 148.1)",
-    "ordered_response (127 vs target 148.1)",
-    "fill_in_blank (140 vs target 148.1)",
-    "dropdown_cloze (142 vs target 148.1)",
+    "Management of Care (161 vs target 243)",
+    "highlight (2 vs target 149.9)",
+    "bowtie (25 vs target 149.9)",
+    "case_study (127 vs target 149.9)",
+    "ordered_response (127 vs target 149.9)",
+    "fill_in_blank (140 vs target 149.9)",
+    "dropdown_cloze (142 vs target 149.9)",
     "Acute decompensated heart failure",
     "Acute Decompensated Heart Failure (ADHF)",
     "Acute gallstone pancreatitis with cholangitis",

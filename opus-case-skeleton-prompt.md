@@ -151,6 +151,21 @@ violates OUTPUT VOICE. State the facts correctly and let the rationale do the ex
    dose-adjusted at eGFR < 30, not at 44; metformin is reviewed/cautioned at eGFR 30–45 and contraindicated
    below 30). Do not imply contraindication where the data only call for monitoring.
 
+7. **When the case turns on a process judgment, keep the clinical trigger out of the keyed answer.** Some
+   cases test an organizational, ethical, communication, or safety-system judgment — conflict resolution,
+   client advocacy, confidentiality, delegation, disaster triage — rather than a pathophysiologic call.
+   There, a concrete clinical particular (a dose ceiling, a reference range, a named statute, a specific lab
+   value) is the *trigger and context* that sets the judgment in motion, not the thing being tested. State it
+   accurately, but keep the keyed reasoning in the process: the correct action turns on the communication,
+   advocacy, prioritization, or system step, and the rationale must cite that step, not the number. The vivid
+   detail is legitimate distractor material — a student who reaches to compute the safe rate or recite the
+   regulation instead of making the judgment is a realistic COMMON NURSING ERROR — but it must never be where
+   the correct answer lives. (An unsafe potassium-replacement order can be the conflict trigger without the
+   item ever asking the learner to compute the infusion ceiling.) This is the complement of precision rule 3:
+   there the number *is* the point and must be concrete; here it is only the trigger, and the judgment is the
+   point. If the keyed decision drifts onto the clinical particular, the case has lost its teaching point —
+   re-anchor it on the process, or change the premise.
+
 ## USER-SUPPLIED TOPIC
 
 The user may provide a specific topic, clinical entity, NCLEX category, or learning lane before this prompt.
