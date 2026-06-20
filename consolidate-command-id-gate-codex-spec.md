@@ -27,7 +27,10 @@ export const STAGING_DIR = "banks/_promoted"; // NOT bundled (banks.ts glob is b
 export const CANONICAL_DIR = "banks";
 ```
 
-- `scripts/promote.ts`: replace its local `PROMOTED_DIR = "banks"` with `STAGING_DIR`. Promote now writes `banks/_promoted/<filename>` instead of `banks/<filename>`. No other promote logic changes. Its schema-version guard already compares against the routed canonical via `CANONICAL_PREFIXES` (Part B moves that table but keeps behavior).
+- `scripts/promote.ts`: **do not mechanically swap every `PROMOTED_DIR` usage.** That constant currently serves two distinct purposes and they must diverge:
+  - **transient output path** — `const promotedPath = join(PROMOTED_DIR, filename)` → change to `join(STAGING_DIR, filename)`. Promote now writes `banks/_promoted/<filename>`.
+  - **schema-version guard lookup** — `const comparisonPath = join(PROMOTED_DIR, canonicalName ?? filename)` → change to `join(CANONICAL_DIR, canonicalName ?? filename)`. The guard compares the draft's declared `schemaVersion` against the **routed canonical**, which lives in `banks/`, not in staging. If this is pointed at `STAGING_DIR` the canonical is never found, the existing `try/catch` swallows the miss, and the guard silently becomes a no-op — the exact deliberate check the spec wants preserved. (For an unrouted draft the fallback then resolves to `banks/<filename>`, which will usually be absent and skip silently; acceptable, since there is no canonical to compare against.)
+  - No other promote logic changes.
 - `scripts/audit/audit-integrity.ts`: replace its local `PROMOTED_DIR = "banks"` with the imported `STAGING_DIR`. This is the only change to that file in this spec; it is a one-line, non-conflicting follow-on to the integrity hotfix.
 - Add `banks/_promoted/` to `.gitignore`.
 
@@ -44,7 +47,9 @@ export const routeCanonical = (filename: string): string | null =>
   CANONICAL_PREFIXES.find(([pfx]) => filename.startsWith(pfx))?.[1] ?? null;
 ```
 
-`consolidate.ts` behavior, per staging file in `STAGING_DIR`:
+Structure it as a pure core plus a thin CLI wrapper (same pattern as the integrity refactor in spec 1): `consolidate.ts` exposes a core function that accepts explicit directory overrides — `consolidateInto({ stagingDir, canonicalDir }, filename)` (or equivalent) — and the CLI entry point calls it with the `lib/pipeline-paths.ts` constants. This keeps the tests on temp dirs without cwd tricks.
+
+`consolidate.ts` behavior, per staging file in `stagingDir`:
 
 1. **Route.** `routeCanonical(filename)`. **Unknown route → FAIL loud**, name the file, do not touch anything.
 2. **Load + validate both sides.** Read the staging file and its target canonical (if the canonical does not exist yet, treat as empty `questions: []` with the staging file's `meta`). Validate each with `validateBankObject` (staging is post-promote, already stripped). Any validation failure → FAIL.
@@ -103,7 +108,7 @@ Wire into `scripts/audit.ts` Tier 1 (the `Promise.all([...])` block) alongside r
 
 ## Tests
 
-**`scripts/tests/consolidate.ts`** (`test:consolidate`) — use temp dirs (`node:os` tmpdir + `node:fs`), write fixtures, run the consolidate core:
+**`scripts/tests/consolidate.ts`** (`test:consolidate`) — write fixtures into `node:os` tmpdir paths and pass them to the consolidate **core** via its `{ stagingDir, canonicalDir }` overrides (never mutate the real `banks/`):
 
 - routes `gemini-*.json` → `gemini-canonical.json`, `lab-*.json` → `lab-canonical.json` (sample the table).
 - **unknown route** (`zzz-foo.json`) → FAIL.

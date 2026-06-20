@@ -15,6 +15,7 @@ import { runValidateBank } from "./audit/validate-bank";
 import { runAuditReferences } from "./audit/audit-references";
 import { runAuditPositions } from "./audit/audit-positions";
 import { runAuditIntegrity } from "./audit/audit-integrity";
+import { runAuditIds } from "./audit/audit-ids";
 import type { AuditResult } from "./audit/types";
 
 function printResult(r: AuditResult): void {
@@ -49,13 +50,14 @@ if (tier0.status === "FAIL") {
 // ---------------------------------------------------------------------------
 console.log("\n── Tier 1: standing audits ──");
 
-const [references, positions, integrity] = await Promise.all([
+const [references, positions, integrity, ids] = await Promise.all([
   runAuditReferences(),
   runAuditPositions(),
   runAuditIntegrity(),
+  runAuditIds(),
 ]);
 
-const tier1Results: AuditResult[] = [references, positions, integrity];
+const tier1Results: AuditResult[] = [references, positions, integrity, ids];
 for (const r of tier1Results) printResult(r);
 
 // ---------------------------------------------------------------------------

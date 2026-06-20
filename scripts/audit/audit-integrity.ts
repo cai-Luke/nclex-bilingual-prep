@@ -19,15 +19,15 @@
 
 import { readFile, readdir } from "node:fs/promises";
 import { join } from "node:path";
+import { fileURLToPath } from "node:url";
 import { parseBankText } from "../../src/bankImport";
 import { validateBankObject } from "../../src/schema";
 import { shuffle } from "../../lib/shuffle";
+import { stripCompileManifests } from "../../lib/case-completeness";
 import { normalizeBankPresentations } from "../../lib/presentation-normalization";
+import { DRAFT_DIR, STAGING_DIR } from "../../lib/pipeline-paths";
 import type { AuditResult } from "./types";
 import type { Question } from "../../src/types";
-
-const DRAFT_DIR = "banks/banks-raw";
-const PROMOTED_DIR = "banks";
 
 /** Deep equality via JSON serialization — sufficient for plain data objects. */
 function deepEqual(a: unknown, b: unknown): boolean {
@@ -42,7 +42,13 @@ function questionIds(q: Question): string[] {
   return [q.id];
 }
 
-type IntegrityFailure = { id: string; reason: string };
+export type IntegrityFailure = { id: string; reason: string };
+
+export type IntegrityOutcome =
+  | { kind: "checked"; failures: IntegrityFailure[] }
+  | { kind: "missingPromoted" }
+  | { kind: "draftInvalid"; reasons: string[] }
+  | { kind: "promotedInvalid"; reasons: string[] };
 
 function expectedQuestion(draft: Question): Question {
   return normalizeBankPresentations({ questions: [shuffle(draft)] }).bank.questions[0];
@@ -88,6 +94,57 @@ function checkQuestion(draft: Question, promoted: Question): IntegrityFailure[] 
   return [{ id: draft.id, reason: "differs from expected normalized promotion output" }];
 }
 
+const parseAndStrip = (text: string) => stripCompileManifests(parseBankText(text));
+
+/** Pure: parse -> strip -> validate -> compare. No disk I/O. */
+export function integrityForFile(
+  draftText: string,
+  promotedText: string | null,
+): IntegrityOutcome {
+  if (promotedText === null) return { kind: "missingPromoted" };
+
+  let draftRaw: unknown;
+  try {
+    draftRaw = parseAndStrip(draftText);
+  } catch (error) {
+    return { kind: "draftInvalid", reasons: [error instanceof Error ? error.message : String(error)] };
+  }
+
+  const draftResult = validateBankObject(draftRaw);
+  if (!draftResult.ok) return { kind: "draftInvalid", reasons: draftResult.reasons };
+
+  let promotedRaw: unknown;
+  try {
+    promotedRaw = parseAndStrip(promotedText);
+  } catch (error) {
+    return { kind: "promotedInvalid", reasons: [error instanceof Error ? error.message : String(error)] };
+  }
+
+  const promotedResult = validateBankObject(promotedRaw);
+  if (!promotedResult.ok) return { kind: "promotedInvalid", reasons: promotedResult.reasons };
+
+  const promotedById = new Map(promotedResult.value.questions.map((q) => [q.id, q]));
+  const failures: IntegrityFailure[] = [];
+
+  for (const draftQ of draftResult.value.questions) {
+    const promotedQ = promotedById.get(draftQ.id);
+    if (!promotedQ) {
+      failures.push({ id: draftQ.id, reason: "present in draft but missing from promoted bank" });
+      continue;
+    }
+    failures.push(...checkQuestion(draftQ, promotedQ));
+  }
+
+  const draftById = new Map(draftResult.value.questions.map((q) => [q.id, q]));
+  for (const promotedQ of promotedResult.value.questions) {
+    if (!draftById.has(promotedQ.id)) {
+      failures.push({ id: promotedQ.id, reason: "present in promoted bank but missing from draft — manual addition?" });
+    }
+  }
+
+  return { kind: "checked", failures };
+}
+
 export async function runAuditIntegrity(): Promise<AuditResult> {
   let draftFiles: string[];
   try {
@@ -113,70 +170,51 @@ export async function runAuditIntegrity(): Promise<AuditResult> {
   const failures: string[] = [];
   const lines: string[] = [];
   let checked = 0;
-  let skipped = 0;
+  let missingPromoted = 0;
+  const draftValidationFailed: string[] = [];
+  const promotedValidationFailed: string[] = [];
 
   for (const filename of draftFiles) {
-    const promotedPath = join(PROMOTED_DIR, filename);
+    const promotedPath = join(STAGING_DIR, filename);
 
-    // Check whether the promoted file exists
-    let promotedText: string;
+    let promotedText: string | null;
     try {
       promotedText = await readFile(promotedPath, "utf8");
     } catch {
-      skipped++;
-      lines.push(`${filename}: no promoted file found — run 'npm run promote'`);
-      continue;
+      promotedText = null;
     }
 
     const draftText = await readFile(join(DRAFT_DIR, filename), "utf8");
+    const outcome = integrityForFile(draftText, promotedText);
 
-    const draftResult = validateBankObject(parseBankText(draftText));
-    const promotedResult = validateBankObject(parseBankText(promotedText));
-
-    if (!draftResult.ok || !promotedResult.ok) {
-      // Structural failures are Tier 0's domain; skip here
-      skipped++;
-      continue;
-    }
-
-    const draftById = new Map(draftResult.value.questions.map((q) => [q.id, q]));
-    const promotedById = new Map(promotedResult.value.questions.map((q) => [q.id, q]));
-
-    // Every question in the draft must appear (shuffled) in the promoted bank
-    for (const draftQ of draftResult.value.questions) {
-      const promotedQ = promotedById.get(draftQ.id);
-      if (!promotedQ) {
-        failures.push(draftQ.id);
-        lines.push(`${draftQ.id}: present in draft but missing from promoted bank`);
-        continue;
-      }
-
-      const itemFailures = checkQuestion(draftQ, promotedQ);
-      for (const f of itemFailures) {
+    if (outcome.kind === "missingPromoted") {
+      missingPromoted++;
+      lines.push(`${filename}: no promoted file found — run 'npm run promote'`);
+    } else if (outcome.kind === "draftInvalid") {
+      draftValidationFailed.push(filename);
+      lines.push(`${filename}: draft failed validation mid-integrity (should not happen post-strip): ${outcome.reasons.join("; ")}`);
+    } else if (outcome.kind === "promotedInvalid") {
+      promotedValidationFailed.push(filename);
+      lines.push(`${filename}: promoted failed validation mid-integrity: ${outcome.reasons.join("; ")}`);
+    } else {
+      checked++;
+      for (const f of outcome.failures) {
         failures.push(f.id);
         lines.push(`${f.id}: ${f.reason}`);
       }
     }
-
-    // Items in promoted that have no draft counterpart are suspicious
-    for (const promotedQ of promotedResult.value.questions) {
-      if (!draftById.has(promotedQ.id)) {
-        failures.push(promotedQ.id);
-        lines.push(`${promotedQ.id}: present in promoted bank but missing from draft — manual addition?`);
-      }
-    }
-
-    checked++;
   }
 
-  const uniqueFailures = [...new Set(failures)];
+  const uniqueFailures = [
+    ...new Set([...draftValidationFailed, ...promotedValidationFailed, ...failures]),
+  ];
   const status = uniqueFailures.length > 0 ? "FAIL" : "PASS";
 
   const summary =
     status === "PASS"
-      ? `Integrity verified for ${checked} draft file(s)${skipped > 0 ? ` (${skipped} skipped — not yet promoted)` : ""}.`
+      ? `Integrity verified for ${checked} draft file(s). ${missingPromoted} not yet promoted.`
       : [
-          `${uniqueFailures.length} item(s) failed integrity check (checked ${checked} file(s), skipped ${skipped}).`,
+          `${uniqueFailures.length} item/file(s) failed integrity check (checked ${checked} file(s), ${missingPromoted} not yet promoted).`,
           ...lines,
         ].join("\n");
 
@@ -184,7 +222,7 @@ export async function runAuditIntegrity(): Promise<AuditResult> {
 }
 
 // Standalone entry point
-if (process.argv[1]?.includes("audit-integrity")) {
+if (process.argv[1] === fileURLToPath(import.meta.url)) {
   const result = await runAuditIntegrity();
   console.log(`[${result.status}] ${result.name}`);
   console.log(result.detail);

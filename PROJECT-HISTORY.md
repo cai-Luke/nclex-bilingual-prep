@@ -25,14 +25,14 @@ The app is a static offline Vite + React + TypeScript NCLEX-RN practice tool. It
 
 Core learning features are implemented: all schema item types render and grade, case studies are supported, sessions are resumable, custom sessions can be built from filters, the dashboard summarizes performance, flags feed review pools, glossary flashcards have their own SRS progress, and adaptive exam-condition practice is available without any pass/fail readiness claim.
 
-Current canonical banks (see [BANK-CENSUS.md](BANK-CENSUS.md); 1,303 top-level, 524 embedded parts as of 2026-06-14):
+Current canonical banks (see [BANK-CENSUS.md](BANK-CENSUS.md); 1,333 top-level, 597 embedded parts as of 2026-06-19):
 
 - `banks/burn-canonical.json` (8 schema v1.2 burn-map visual items)
 - `banks/capnography-canonical.json` (7 schema v1.2 capnography visual items; dedicated home for capnography kind)
 - `banks/claude-canonical.json` (67 bilingual Claude/Opus-source questions; ledgered content review complete)
 - `banks/device-canonical.json` (8 schema v1.2 device-screen visual items)
 - `banks/gemini-canonical.json` (777 bilingual Gemini-source questions; includes original + pending batches + traditional/easy/gap-fill consolidations minus redundant/flawed questions)
-- `banks/gpt-canonical.json` (272 bilingual GPT-source questions; ledgered content review complete)
+- `banks/gpt-canonical.json` (293 bilingual GPT-source questions; ledgered content review complete)
 - `banks/hard-cases-canonical.json` (57 top-level hard/NGN items; ledgered content review complete)
 - `banks/io-canonical.json` (8 schema v1.2 intake/output record visual items)
 - `banks/lab-canonical.json` (20 schema v1.2 lab_trend visual items; dedicated home for lab_trend kind)
@@ -57,6 +57,36 @@ Current schema item types:
 The committed NGN item-type set is complete. Rationale/dyad scoring and an explicit linked “X as evidenced by Y” type remain out of scope.
 
 ## Milestones
+
+### First Real Promotion Through the Hardened Gate (Jun 19)
+
+Completed:
+- Promoted the `gpt-unsafe-assignment-float-nurse` Management of Care case (1 unfolding `case_study` with 6 NGN-step embedded items + 1 standalone `bowtie`) into `gpt-canonical.json` (291→293) — the first content actually merged through the hardened pipeline, not just smoked. The prior two Jun-20 milestones built and dry-ran the tooling; this run exercised it end-to-end.
+- Content review passed clean (Claude promotion gate): MAP arithmetic, vasoactive/nicardipine titration ranges, post-CEA neuro protocol, q6 incident-report legal-privilege teaching, and q3 root-cause prioritization all verified; bilingual parity complete; no fixes required.
+- Confirmed the gate improvements behave as designed: `audit:integrity` reported "Integrity verified for 1 draft file(s)" (the manifest case study is no longer silently skipped), `audit:ids` enforced global uniqueness across 1930 bundled IDs, promote staged to `banks/_promoted/`, and `npm run consolidate` performed the merge deterministically (route + collision gate + recount + staged-file consumption) with no hand-merge or byte-equality diffing.
+- Housekeeping: raw draft deleted, case source archived to `Archive/case_sources/`, ledger updated (table row + Merged Source Batches row + dated promotion entry), census regenerated.
+- Verification: `npm run test:consolidate`, `test:audit-ids`, `test:audit-integrity`, `npm run audit`, `npm run census:check`, and `npm run build` all passed.
+
+### Integrity Audit Manifest Coverage Fix (Jun 20)
+
+Completed:
+- Fixed `audit:integrity` to strip raw-only `_compileManifest` fields before validation, matching the promote and raw validate paths so manifest-bearing case-study drafts are actually compared.
+- Extracted pure `integrityForFile` coverage with distinct outcomes for checked files, missing promoted files, draft validation failures, and promoted validation failures.
+- Split missing-promoted reporting from validation failures; draft/promoted validation failures now fail the integrity gate instead of being lumped into a benign skip count.
+- Added `test:audit-integrity` for manifest-bearing case comparison, tamper detection, missing-promoted handling, and genuinely invalid draft reporting.
+- Promoted `gpt-unsafe-assignment-float-nurse.json` for the gate fixture and regenerated census artifacts.
+- Verification: `npm run test:audit-integrity`, `npx tsc -b --pretty false`, `npm run audit:integrity`, `npm run audit`, `npm run validate-bank -- banks/*.json`, `npm run coverage-report`, `npm run census`, and `npm run build` passed.
+
+### Consolidate Command and ID Gate (Jun 20)
+
+Completed:
+- Moved promote intermediates out of bundled `banks/` root and into ignored `banks/_promoted/`, while preserving the schema-version guard against routed canonicals in `banks/`.
+- Added shared pipeline path constants, shared canonical routing, and shared top-level/embedded question ID indexing.
+- Added `npm run consolidate` with dry-run support, route validation, staging/canonical schema validation, explicit schema-version bump guard, global ID collision gate, deterministic append/recount/serialize, and staged-file consumption.
+- Added `audit:ids` as a Tier-1 audit wired into `npm run audit`, failing duplicate IDs across top-level questions and embedded case-study leaves.
+- Added focused `test:consolidate` and `test:audit-ids` coverage for routing, unknown routes, top-level/leaf collision classes, counts, new-canonical creation, schema bump refusal, and staging-file consumption.
+- Deleted the accidental top-level promoted copy of `gpt-unsafe-assignment-float-nurse.json` and regenerated census artifacts back to canonical-only bundled counts.
+- Smoked the real raw case through `npm run promote`, `npm run audit:integrity`, and `npm run consolidate -- --dry-run`; it staged under `banks/_promoted/`, verified integrity for 1 draft, and routed to `gpt-canonical.json` as `291 + 2 = 293` without bundling a transient file.
 
 ### Oncology Reclassification Dry Run (Jun 18)
 

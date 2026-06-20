@@ -81,11 +81,13 @@ Visual items must be deterministic, locally rendered, and inspectable from struc
 
 ```sh
 npm run fix-bank-quotes -- banks/banks-raw/<file>.json   # repair curly-quote corruption before validating (writes <file>.fixed.json; add --in-place to overwrite)
-npm run promote        # applies deterministic shuffle; writes to banks/<same-filename>
-npm run audit          # Tier 0 validate-bank + Tier 1 references/positions/integrity
+npm run promote        # applies deterministic shuffle; writes to banks/_promoted/<same-filename>
+npm run audit          # Tier 0 validate-bank + Tier 1 references/positions/integrity/ids
+npm run consolidate -- --dry-run  # preview canonical route, collision gate, and merged count
+npm run consolidate    # merge staged output into routed canonical and remove banks/_promoted/<file>
 ```
 
-The shuffled output in `banks/<same-filename>` then merges into the canonical bank chosen by filename prefix. Model-origin lanes `gemini-`/`gpt-`/`claude-`/`hard-cases-` and the visual kinds `burn-`/`capnography-`/`device-`/`io-`/`lab-`/`mar-`/`medlabel-`/`vitals-`/`visual-` each route to the matching `*-canonical.json` (source of truth: `CANONICAL_PREFIXES` in `promote.ts`). The visual-kind canonicals are complete sets — generation does not add to them. Until a `consolidate` command exists this merge is manual: read-modify-write the target canonical, fail loud on any ID collision, bump `meta.count`, then delete the raw stub and update the ledger.
+The shuffled output in `banks/_promoted/<same-filename>` then merges into the canonical bank chosen by filename prefix. Model-origin lanes `gemini-`/`gpt-`/`claude-`/`hard-cases-` and the visual kinds `burn-`/`capnography-`/`device-`/`io-`/`lab-`/`mar-`/`medlabel-`/`vitals-`/`visual-` each route to the matching `*-canonical.json` (source of truth: `CANONICAL_PREFIXES` in `lib/canonical-routing.ts`). The visual-kind canonicals are complete sets — generation does not add to them. `npm run consolidate` is the canonical merge path: route, validate, schema-version guard, global top-level/embedded ID collision gate, append, recount `meta.count`, deterministic serialize, and remove the consumed staged file. Do not hand-merge canonicals.
 
 If a raw draft fails `validate-bank` with a JSON parse error, recover the quotes deterministically before reviewing — do not hand-fix:
 
@@ -93,7 +95,7 @@ If a raw draft fails `validate-bank` with a JSON parse error, recover the quotes
 tsx scripts/fix-bank-quotes.ts banks/banks-raw/<file>.json   # writes <file>.fixed.json if it parses, else pinpoints the spot
 ```
 
-`audit:integrity` requires the draft to still exist in `banks-raw/` — delete drafts only *after* the shuffled output has been merged into the canonical bank and the audit passes. If content is merged directly into a canonical bank (bypassing the promote script), apply `shuffle()` manually to all MC/SATA/OR items and run `npm run audit:references` to confirm no positional-language hazards were introduced.
+`audit:integrity` requires the draft to still exist in `banks-raw/` and the staged promoted file to still exist in `banks/_promoted/` — delete drafts only *after* the staged output has been merged into the canonical bank, the audit passes, and the ledger is updated. `audit:ids` is a Tier-1 gate that fails any duplicate bundled question ID across top-level questions and embedded case-study leaves.
 
 Run these before calling a code/content pass complete when relevant:
 

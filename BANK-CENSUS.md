@@ -2,8 +2,8 @@
 
 # NCLEX Bank Census
 
-Generated: 2026-06-19T22:49:40.579Z
-Git SHA: 0355717255b9362b55fa36f9f8306e801b32044f
+Generated: 2026-06-20T01:10:12.656Z
+Git SHA: 4e55708d20ab9ea6f05454ab8fac1f685c04d01f
 
 ## Per-File Summary
 
@@ -14,7 +14,7 @@ Git SHA: 0355717255b9362b55fa36f9f8306e801b32044f
 | claude-canonical.json | 1.4 | 69 | 69 | — |
 | device-canonical.json | 1.2 | 8 | 8 | — |
 | gemini-canonical.json | 1.2 | 775 | 775 | — |
-| gpt-canonical.json | 1.5 | 291 | 291 | — |
+| gpt-canonical.json | 1.5 | 293 | 293 | — |
 | hard-cases-canonical.json | 1.5 | 66 | 66 | — |
 | io-canonical.json | 1.2 | 8 | 8 | — |
 | lab-canonical.json | 1.2 | 20 | 20 | — |
@@ -25,17 +25,17 @@ Git SHA: 0355717255b9362b55fa36f9f8306e801b32044f
 
 ## Totals
 
-- Top-level questions: 1331
-- Case study top-level: 118
-- Embedded parts: 591
-- Graded total: 1922
+- Top-level questions: 1333
+- Case study top-level: 119
+- Embedded parts: 597
+- Graded total: 1930
 
 ## By Category
 
 - Health Promotion and Maintenance: 140
 - Psychosocial Integrity: 144
 - Safety and Infection Control: 148
-- Management of Care: 149
+- Management of Care: 151
 - Basic Care and Comfort: 152
 - Pharmacological and Parenteral Therapies: 175
 - Reduction of Risk Potential: 176
@@ -45,7 +45,7 @@ Git SHA: 0355717255b9362b55fa36f9f8306e801b32044f
 
 ### Management of Care
 
-Top topics: Prioritization & Delegation (48), Legal & Ethical Principles (46), Discharge Planning & Handoff (21), Confidentiality & HIPAA (9), Client Advocacy (5), Conflict Resolution (3), Disaster & Emergency Preparedness (2), Medication Safety & Admin (2), code status escalation (1), colostomy discharge teaching for limited English proficiency (1)
+Top topics: Prioritization & Delegation (50), Legal & Ethical Principles (46), Discharge Planning & Handoff (21), Confidentiality & HIPAA (9), Client Advocacy (5), Conflict Resolution (3), Disaster & Emergency Preparedness (2), Medication Safety & Admin (2), code status escalation (1), colostomy discharge teaching for limited English proficiency (1)
 Visual kinds: device_screen (1), mar (1)
 
 ### Safety and Infection Control
@@ -86,8 +86,8 @@ Visual kinds: burn_map (5), capnography (4), io_record (2), lab_trend (7), rhyth
 ## By Item Type
 
 - highlight: 2
-- bowtie: 16
-- case_study: 118
+- bowtie: 17
+- case_study: 119
 - ordered_response: 127
 - fill_in_blank: 140
 - dropdown_cloze: 142
@@ -98,14 +98,14 @@ Visual kinds: burn_map (5), capnography (4), io_record (2), lab_trend (7), rhyth
 ## By Difficulty
 
 - easy: 168
-- hard: 508
+- hard: 510
 - medium: 655
 
 ## By Schema Version
 
 - v1.2: 905 questions (burn-canonical.json, capnography-canonical.json, device-canonical.json, gemini-canonical.json, io-canonical.json, lab-canonical.json, mar-canonical.json, medlabel-canonical.json, visual-canonical.json, vitals-canonical.json)
 - v1.4: 69 questions (claude-canonical.json)
-- v1.5: 357 questions (gpt-canonical.json, hard-cases-canonical.json)
+- v1.5: 359 questions (gpt-canonical.json, hard-cases-canonical.json)
 
 ## By Source File
 
@@ -114,7 +114,7 @@ Visual kinds: burn_map (5), capnography (4), io_record (2), lab_trend (7), rhyth
 - claude-canonical.json: 69
 - device-canonical.json: 8
 - gemini-canonical.json: 775
-- gpt-canonical.json: 291
+- gpt-canonical.json: 293
 - hard-cases-canonical.json: 66
 - io-canonical.json: 8
 - lab-canonical.json: 20
@@ -232,6 +232,7 @@ Total visuals: 146
 | gpt_2026_06_19_case_ici_pneumonitis_01 | Oncology & Immunotherapy Complications | 6 | gpt-canonical.json |
 | gpt_case_neutropenic_fever_nadir_01 | Oncology & Immunotherapy Complications | 6 | gpt-canonical.json |
 | gpt_case_taco_vs_trali_01 | Transfusion & Blood Products | 6 | gpt-canonical.json |
+| gpt_case_unsafe_assignment_01 | Prioritization & Delegation | 6 | gpt-canonical.json |
 | case_sepsis_pneumonia_01 | Sepsis & Septic Shock | 4 | hard-cases-canonical.json |
 | case_preeclampsia_magnesium_01 | Maternal-Newborn Care & Teaching | 4 | hard-cases-canonical.json |
 | cs_copd_01 | Respiratory & Infectious Disorders | 5 | hard-cases-canonical.json |
@@ -288,26 +289,26 @@ No duplicates detected.
 ## Targets
 
 Category targets (2026 NCLEX-RN test-plan weights):
-- Management of Care: 239.6
-- Safety and Infection Control: 173.0
-- Health Promotion and Maintenance: 119.8
-- Psychosocial Integrity: 119.8
-- Basic Care and Comfort: 119.8
-- Pharmacological and Parenteral Therapies: 213.0
-- Reduction of Risk Potential: 159.7
-- Physiological Adaptation: 186.3
-Item type average: 147.9
+- Management of Care: 239.9
+- Safety and Infection Control: 173.3
+- Health Promotion and Maintenance: 120.0
+- Psychosocial Integrity: 120.0
+- Basic Care and Comfort: 120.0
+- Pharmacological and Parenteral Therapies: 213.3
+- Reduction of Risk Potential: 160.0
+- Physiological Adaptation: 186.6
+Item type average: 148.1
 
 Under-served categories:
-- Management of Care: 149
+- Management of Care: 151
 
 Over-served categories:
 - Physiological Adaptation: 247
 
 Under-served item types:
 - highlight: 2
-- bowtie: 16
-- case_study: 118
+- bowtie: 17
+- case_study: 119
 - ordered_response: 127
 - fill_in_blank: 140
 - dropdown_cloze: 142
@@ -315,13 +316,13 @@ Under-served item types:
 ## Prompt Parameters
 
 PRIORITIZE_TOPICS:
-- Management of Care (149 vs target 240)
-- highlight (2 vs target 147.9)
-- bowtie (16 vs target 147.9)
-- case_study (118 vs target 147.9)
-- ordered_response (127 vs target 147.9)
-- fill_in_blank (140 vs target 147.9)
-- dropdown_cloze (142 vs target 147.9)
+- Management of Care (151 vs target 240)
+- highlight (2 vs target 148.1)
+- bowtie (17 vs target 148.1)
+- case_study (119 vs target 148.1)
+- ordered_response (127 vs target 148.1)
+- fill_in_blank (140 vs target 148.1)
+- dropdown_cloze (142 vs target 148.1)
 - Acute decompensated heart failure
 - Acute Decompensated Heart Failure (ADHF)
 - Acute gallstone pancreatitis with cholangitis
@@ -340,7 +341,7 @@ AVOID_TOPICS:
 - Mental Health Disorders (62)
 - Dosage Calculations (59)
 - Medication Safety & Admin (55)
-- Prioritization & Delegation (49)
+- Prioritization & Delegation (51)
 - Legal & Ethical Principles (46)
 - Transmission-Based Precautions (44)
 - Procedural Complications & Dialysis (43)

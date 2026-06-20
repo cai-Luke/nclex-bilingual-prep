@@ -1,3 +1,7 @@
+> [!NOTE]
+> **Historical Archive**
+> This document is mostly historical. All work outlined here has been deferred indefinitely.
+
 # NEXT SESSION — Harden the promotion gate, then close residual topic + dev work
 
 Handoff for the next chat. The topic-vocabulary hygiene rollout that drove the previous handoff is
