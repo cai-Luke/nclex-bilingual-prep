@@ -1,7 +1,7 @@
 {
   "meta": {
     "schemaVersion": "1.5",
-    "count": 309,
+    "count": 321,
     "exam": "NCLEX-RN",
     "topic": "assorted NCLEX-RN GPT canonical bank",
     "category": "mixed",
@@ -64037,6 +64037,1110 @@
           "termEn": "electrolyte trend",
           "termZh": "电解质趋势",
           "defZh": "电解质数值随时间变化的方向和幅度。"
+        }
+      ]
+    },
+    {
+      "id": "gpt_hl_moc_chain_command_01",
+      "itemType": "highlight",
+      "category": "Management of Care",
+      "topic": "Chain of Command & Escalation",
+      "difficulty": "hard",
+      "ngnSkill": "take_action",
+      "stem": {
+        "en": "Highlight the note entry that requires the charge nurse to use the chain of command.",
+        "zh": "标出需要护士长/带班护士启动指挥链处理的记录内容。"
+      },
+      "highlight": {
+        "segments": [
+          {
+            "id": "s1",
+            "en": "Progress note: A client who had a thyroidectomy 6 hours ago reports increasing neck tightness. ",
+            "zh": "病程记录：一名甲状腺切除术后 6 小时的患者主诉颈部越来越紧。"
+          },
+          {
+            "id": "s2",
+            "en": "The nurse elevates the head of the bed and assesses the airway. ",
+            "zh": "护士抬高床头并评估气道。",
+            "selectable": true
+          },
+          {
+            "id": "s3",
+            "en": "The incision dressing is dry, but the anterior neck appears more swollen than during the previous assessment. ",
+            "zh": "切口敷料干燥，但颈前部看起来比上次评估时更肿胀。",
+            "selectable": true
+          },
+          {
+            "id": "s4",
+            "en": "The provider is notified twice and replies, \"This can wait until morning rounds.\" ",
+            "zh": "护士两次通知医嘱提供者，对方回复：“这可以等到早晨查房再说。”",
+            "selectable": true
+          },
+          {
+            "id": "s5",
+            "en": "The client remains in semi-Fowler position while emergency airway equipment is brought to the bedside.",
+            "zh": "患者保持半坐卧位，同时将紧急气道设备带至床旁。",
+            "selectable": true
+          }
+        ],
+        "correct": [
+          "s4"
+        ]
+      },
+      "rationale": {
+        "correct": {
+          "en": "A post-thyroidectomy client with increasing neck tightness and swelling may be developing a hematoma that can rapidly obstruct the airway. If the provider does not respond appropriately to an urgent safety threat, the nurse must escalate through the chain of command.",
+          "zh": "甲状腺切除术后患者出现颈部越来越紧和肿胀，可能正在形成血肿并迅速阻塞气道。如果医嘱提供者没有对紧急安全威胁作出适当反应，护士必须通过指挥链升级处理。"
+        },
+        "byChoice": [
+          {
+            "refId": "s2",
+            "en": "Elevating the head of the bed and assessing the airway are appropriate immediate nursing actions.",
+            "zh": "抬高床头并评估气道是适当的立即护理措施。"
+          },
+          {
+            "refId": "s3",
+            "en": "Neck swelling is concerning, but the question asks which note entry requires chain-of-command escalation; the escalation trigger is the inadequate provider response.",
+            "zh": "颈部肿胀令人担忧，但题目询问哪条记录需要启动指挥链；触发升级的是医嘱提供者反应不足。"
+          },
+          {
+            "refId": "s4",
+            "en": "Delaying evaluation of a possible airway-compromising neck hematoma is unsafe; the nurse should notify the charge nurse/supervisor and continue escalation.",
+            "zh": "延迟评估可能危及气道的颈部血肿是不安全的；护士应通知带班护士/主管并继续升级处理。"
+          },
+          {
+            "refId": "s5",
+            "en": "Keeping the client semi-Fowler and preparing airway equipment are appropriate safety actions.",
+            "zh": "让患者保持半坐卧位并准备气道设备是适当的安全措施。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "When an urgent client-safety issue is not addressed after provider notification, the nurse does not simply wait; the nurse escalates through the chain of command.",
+        "zh": "当紧急患者安全问题在通知医嘱提供者后仍未得到处理时，护士不能只是等待；护士应通过指挥链升级。"
+      },
+      "glossary": [
+        {
+          "termEn": "chain of command",
+          "termZh": "指挥链",
+          "defZh": "当患者安全受到威胁且常规沟通无效时，逐级向上报告的正式流程。"
+        },
+        {
+          "termEn": "hematoma",
+          "termZh": "血肿",
+          "defZh": "血液在组织内积聚；颈部血肿可能压迫气道。"
+        }
+      ]
+    },
+    {
+      "id": "gpt_hl_moc_interpreter_02",
+      "itemType": "highlight",
+      "category": "Management of Care",
+      "topic": "Communication & Interpreter Use",
+      "difficulty": "medium",
+      "ngnSkill": "recognize_cues",
+      "stem": {
+        "en": "Highlight the action that violates safe communication standards for a client with limited English proficiency.",
+        "zh": "标出违反英语能力有限患者安全沟通标准的行为。"
+      },
+      "highlight": {
+        "segments": [
+          {
+            "id": "s1",
+            "en": "A Mandarin-speaking client is admitted for a scheduled procedure. ",
+            "zh": "一名讲普通话的患者因计划性操作入院。"
+          },
+          {
+            "id": "s2",
+            "en": "The nurse asks the client which language they prefer for medical information. ",
+            "zh": "护士询问患者希望使用哪种语言接收医疗信息。",
+            "selectable": true
+          },
+          {
+            "id": "s3",
+            "en": "The nurse uses a certified medical interpreter to review the preprocedure checklist. ",
+            "zh": "护士使用合格的医疗口译员核对术前清单。",
+            "selectable": true
+          },
+          {
+            "id": "s4",
+            "en": "The nurse asks the client's adult child to interpret the risks and benefits because the unit is busy. ",
+            "zh": "由于病区很忙，护士请患者的成年子女翻译操作的风险和益处。",
+            "selectable": true
+          },
+          {
+            "id": "s5",
+            "en": "The nurse documents the interpreter identification number in the chart.",
+            "zh": "护士在病历中记录口译员识别号码。",
+            "selectable": true
+          }
+        ],
+        "correct": [
+          "s4"
+        ]
+      },
+      "rationale": {
+        "correct": {
+          "en": "Family members should not be used to interpret complex medical information such as risks and benefits unless there is an emergency and no qualified interpreter is available. A qualified medical interpreter protects accuracy, privacy, and informed decision-making.",
+          "zh": "除非是紧急情况且无法获得合格口译员，否则不应让家属翻译风险和益处等复杂医疗信息。合格医疗口译员可保障准确性、隐私和知情决策。"
+        },
+        "byChoice": [
+          {
+            "refId": "s2",
+            "en": "Asking the preferred language supports patient-centered communication.",
+            "zh": "询问首选语言有助于以患者为中心的沟通。"
+          },
+          {
+            "refId": "s3",
+            "en": "Using a certified medical interpreter is the correct standard for important medical communication.",
+            "zh": "使用合格医疗口译员是重要医疗沟通的正确标准。"
+          },
+          {
+            "refId": "s4",
+            "en": "Using a family member because the unit is busy risks inaccurate interpretation, coercion, and privacy violations.",
+            "zh": "因为病区忙而使用家属翻译，可能导致翻译不准确、胁迫和隐私泄露。"
+          },
+          {
+            "refId": "s5",
+            "en": "Documenting interpreter use supports continuity and accountability.",
+            "zh": "记录口译员使用情况有助于连续性和责任追踪。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "For consent, teaching, discharge instructions, and risk/benefit conversations, choose a qualified interpreter instead of relatives or untrained staff.",
+        "zh": "在同意、教学、出院指导以及风险/益处沟通中，应选择合格口译员，而不是亲属或未经培训的工作人员。"
+      },
+      "glossary": [
+        {
+          "termEn": "limited English proficiency",
+          "termZh": "英语能力有限",
+          "defZh": "患者不能充分使用英语理解或表达医疗信息。"
+        },
+        {
+          "termEn": "medical interpreter",
+          "termZh": "医疗口译员",
+          "defZh": "受过训练、能够准确解释医疗沟通内容的人员。"
+        }
+      ]
+    },
+    {
+      "id": "gpt_hl_moc_code_status_03",
+      "itemType": "highlight",
+      "category": "Management of Care",
+      "topic": "Advance Directives & Code Status",
+      "difficulty": "hard",
+      "ngnSkill": "analyze_cues",
+      "stem": {
+        "en": "Highlight the documentation finding that must be clarified before transporting the client for a procedure.",
+        "zh": "标出在将患者送去操作前必须澄清的文件记录。"
+      },
+      "highlight": {
+        "segments": [
+          {
+            "id": "s1",
+            "en": "The nurse reviews the chart before a client is transported for an endoscopy. ",
+            "zh": "在患者被送去内镜检查前，护士查阅病历。"
+          },
+          {
+            "id": "s2",
+            "en": "The signed consent lists the correct client name and planned procedure. ",
+            "zh": "已签署的同意书列有正确的患者姓名和计划操作。",
+            "selectable": true
+          },
+          {
+            "id": "s3",
+            "en": "A portable oxygen tank is full and attached to the transport stretcher. ",
+            "zh": "转运担架上连接的便携氧气瓶已充满。",
+            "selectable": true
+          },
+          {
+            "id": "s4",
+            "en": "The admission record states \"do not resuscitate,\" but the procedure checklist states \"full code during procedure\" with no provider clarification note. ",
+            "zh": "入院记录写着“拒绝复苏”，但操作清单写着“操作期间全码复苏”，且没有医嘱提供者澄清记录。",
+            "selectable": true
+          },
+          {
+            "id": "s5",
+            "en": "The most recent vital signs were documented 20 minutes ago.",
+            "zh": "最近一次生命体征记录在 20 分钟前。",
+            "selectable": true
+          }
+        ],
+        "correct": [
+          "s4"
+        ]
+      },
+      "rationale": {
+        "correct": {
+          "en": "Conflicting code-status documentation must be clarified before a procedure. The nurse should not assume that a DNR order is automatically suspended or automatically unchanged during a procedure; the client's wishes and provider orders must be clear.",
+          "zh": "操作前必须澄清相互矛盾的复苏状态记录。护士不能假设 DNR 医嘱在操作期间会自动暂停或自动保持不变；必须明确患者意愿和医嘱。"
+        },
+        "byChoice": [
+          {
+            "refId": "s2",
+            "en": "A consent form with the correct client and procedure supports safe transport.",
+            "zh": "同意书上的患者和操作正确，有助于安全转运。"
+          },
+          {
+            "refId": "s3",
+            "en": "A full oxygen tank is an appropriate transport safety check.",
+            "zh": "氧气瓶已充满是适当的转运安全检查。"
+          },
+          {
+            "refId": "s4",
+            "en": "Contradictory code-status documentation is a safety and legal issue that must be resolved before sedation/procedure transport.",
+            "zh": "相互矛盾的复苏状态记录属于安全和法律问题，必须在镇静/操作转运前解决。"
+          },
+          {
+            "refId": "s5",
+            "en": "Vital signs documented 20 minutes ago may be acceptable depending on policy and client condition; this is less urgent than a code-status conflict.",
+            "zh": "20 分钟前记录的生命体征是否可接受取决于政策和患者状况；与复苏状态冲突相比不那么紧急。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Do not assume code-status changes. When advance directives, consent, or procedure paperwork conflict, stop and clarify before proceeding.",
+        "zh": "不要假设复苏状态会改变。当预立医疗指示、同意书或操作文件相互冲突时，应暂停并澄清后再继续。"
+      },
+      "glossary": [
+        {
+          "termEn": "DNR",
+          "termZh": "拒绝复苏/不施行心肺复苏",
+          "defZh": "当患者心跳或呼吸停止时不进行复苏的医嘱。"
+        },
+        {
+          "termEn": "code status",
+          "termZh": "复苏状态",
+          "defZh": "说明患者在心肺停止时希望接受哪些复苏措施的记录。"
+        }
+      ]
+    },
+    {
+      "id": "gpt_hl_moc_incident_doc_04",
+      "itemType": "highlight",
+      "category": "Management of Care",
+      "topic": "Documentation & Incident Reporting",
+      "difficulty": "medium",
+      "ngnSkill": "evaluate_outcomes",
+      "stem": {
+        "en": "Highlight the charting entry that should be corrected because it is inappropriate documentation.",
+        "zh": "标出因记录方式不当而应被更正的病历记录。"
+      },
+      "highlight": {
+        "segments": [
+          {
+            "id": "s1",
+            "en": "After a client fall, the nurse documents the event in the medical record. ",
+            "zh": "患者跌倒后，护士在病历中记录事件。"
+          },
+          {
+            "id": "s2",
+            "en": "Client found sitting on the floor beside the bed at 0215. ",
+            "zh": "0215 发现患者坐在床旁地板上。",
+            "selectable": true
+          },
+          {
+            "id": "s3",
+            "en": "Client states, \"I tried to reach the bathroom without calling.\" ",
+            "zh": "患者说：“我想自己去厕所，没有按铃。”",
+            "selectable": true
+          },
+          {
+            "id": "s4",
+            "en": "No visible injury noted; neurologic checks initiated per policy. ",
+            "zh": "未见明显损伤；按政策开始神经系统检查。",
+            "selectable": true
+          },
+          {
+            "id": "s5",
+            "en": "Incident report completed and sent to risk management.",
+            "zh": "事件报告已填写并发送给风险管理部门。",
+            "selectable": true
+          }
+        ],
+        "correct": [
+          "s5"
+        ]
+      },
+      "rationale": {
+        "correct": {
+          "en": "The medical record should objectively document the client's assessment, statements, notifications, and interventions. It should not mention that an incident report was completed because the incident report is a separate risk-management document.",
+          "zh": "病历应客观记录患者评估、患者陈述、通知对象和护理措施。不应在病历中提到已填写事件报告，因为事件报告是单独的风险管理文件。"
+        },
+        "byChoice": [
+          {
+            "refId": "s2",
+            "en": "This is objective documentation of where and when the client was found.",
+            "zh": "这是对患者被发现地点和时间的客观记录。"
+          },
+          {
+            "refId": "s3",
+            "en": "A direct client quote is appropriate documentation when relevant.",
+            "zh": "相关时，直接记录患者原话是适当的。"
+          },
+          {
+            "refId": "s4",
+            "en": "Documenting assessment findings and initiated monitoring is appropriate.",
+            "zh": "记录评估发现和已开始的监测是适当的。"
+          },
+          {
+            "refId": "s5",
+            "en": "The chart should not reference completion of an incident report.",
+            "zh": "病历不应提及已完成事件报告。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Chart facts and nursing actions. Do not chart blame, speculation, or the existence of an incident report.",
+        "zh": "病历记录事实和护理措施。不要记录责备、推测或事件报告的存在。"
+      },
+      "glossary": [
+        {
+          "termEn": "incident report",
+          "termZh": "事件报告",
+          "defZh": "用于机构安全改进和风险管理的内部文件，不属于患者病历的一部分。"
+        },
+        {
+          "termEn": "objective documentation",
+          "termZh": "客观记录",
+          "defZh": "只记录可观察事实、患者原话和已采取措施，避免主观判断。"
+        }
+      ]
+    },
+    {
+      "id": "gpt_hl_moc_lpn_scope_05",
+      "itemType": "highlight",
+      "category": "Management of Care",
+      "topic": "Scope of Practice & Assignment",
+      "difficulty": "medium",
+      "ngnSkill": "take_action",
+      "stem": {
+        "en": "Highlight the assignment that the charge nurse must change because it is outside the licensed practical/vocational nurse (LPN/LVN) role.",
+        "zh": "标出带班护士必须更改的分工，因为该任务超出执业护士（LPN/LVN）的职责范围。"
+      },
+      "highlight": {
+        "segments": [
+          {
+            "id": "s1",
+            "en": "The charge nurse is assigning clients on a medical-surgical unit with one RN, one LPN, and one UAP. ",
+            "zh": "内外科病区带班护士正在为一名 RN、一名 LPN 和一名 UAP 分配工作。"
+          },
+          {
+            "id": "s2",
+            "en": "The LPN will reinforce coughing and deep-breathing exercises for a stable postoperative client. ",
+            "zh": "LPN 将为一名稳定术后患者强化咳嗽和深呼吸练习。",
+            "selectable": true
+          },
+          {
+            "id": "s3",
+            "en": "The LPN will administer a scheduled oral antihypertensive medication. ",
+            "zh": "LPN 将给予定时口服降压药。",
+            "selectable": true
+          },
+          {
+            "id": "s4",
+            "en": "The LPN will titrate an IV heparin infusion according to the aPTT protocol. ",
+            "zh": "LPN 将根据 aPTT 方案调整静脉肝素输注速度。",
+            "selectable": true
+          },
+          {
+            "id": "s5",
+            "en": "The LPN will change a simple dry dressing on a stable client's surgical incision.",
+            "zh": "LPN 将为稳定患者的手术切口更换简单干敷料。",
+            "selectable": true
+          }
+        ],
+        "correct": [
+          "s4"
+        ]
+      },
+      "rationale": {
+        "correct": {
+          "en": "Titrating an IV heparin infusion requires ongoing assessment, interpretation of laboratory data, and clinical judgment. This responsibility belongs to the RN and is not an appropriate LPN/LVN assignment in NCLEX delegation logic.",
+          "zh": "调整静脉肝素输注需要持续评估、解释实验室数据和临床判断。按照 NCLEX 委派逻辑，这属于 RN 职责，不适合分配给 LPN/LVN。"
+        },
+        "byChoice": [
+          {
+            "refId": "s2",
+            "en": "Reinforcing previously taught information for a stable client is generally appropriate for an LPN/LVN.",
+            "zh": "为稳定患者强化已经教过的内容通常适合 LPN/LVN。"
+          },
+          {
+            "refId": "s3",
+            "en": "Administering scheduled oral medication is generally within the LPN/LVN role, depending on state law and facility policy.",
+            "zh": "给予定时口服药通常在 LPN/LVN 职责范围内，具体取决于州法规和机构政策。"
+          },
+          {
+            "refId": "s4",
+            "en": "Titrating a high-alert IV anticoagulant based on lab results requires RN-level judgment.",
+            "zh": "根据实验室结果调整高警示静脉抗凝药需要 RN 层级的判断。"
+          },
+          {
+            "refId": "s5",
+            "en": "A simple dressing change for a stable client is generally appropriate for an LPN/LVN.",
+            "zh": "为稳定患者更换简单敷料通常适合 LPN/LVN。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Stable, predictable care may be assigned to LPN/LVN staff. Unstable clients, initial teaching, assessment, evaluation, and titration of high-alert IV medications stay with the RN.",
+        "zh": "稳定、可预测的护理可分配给 LPN/LVN。病情不稳定、初次教学、评估、评价以及高警示静脉药物滴定应由 RN 负责。"
+      },
+      "glossary": [
+        {
+          "termEn": "titrate",
+          "termZh": "滴定/调整剂量",
+          "defZh": "根据患者反应或实验室结果调整药物剂量或输注速度。"
+        },
+        {
+          "termEn": "aPTT",
+          "termZh": "活化部分凝血活酶时间",
+          "defZh": "用于监测普通肝素抗凝效果的凝血检查。"
+        }
+      ]
+    },
+    {
+      "id": "gpt_hl_sic_restraint_06",
+      "itemType": "highlight",
+      "category": "Safety and Infection Control",
+      "topic": "Restraint Safety",
+      "difficulty": "medium",
+      "ngnSkill": "recognize_cues",
+      "stem": {
+        "en": "Highlight the restraint-related action that requires immediate correction.",
+        "zh": "标出与约束相关、需要立即纠正的行为。"
+      },
+      "highlight": {
+        "segments": [
+          {
+            "id": "s1",
+            "en": "The nurse checks a client in soft wrist restraints. ",
+            "zh": "护士检查一名使用软腕部约束的患者。"
+          },
+          {
+            "id": "s2",
+            "en": "The restraints are secured with quick-release knots. ",
+            "zh": "约束带使用快速释放结固定。",
+            "selectable": true
+          },
+          {
+            "id": "s3",
+            "en": "Two fingers fit between the restraint and the client's wrist. ",
+            "zh": "约束带与患者手腕之间可容纳两根手指。",
+            "selectable": true
+          },
+          {
+            "id": "s4",
+            "en": "The restraint ties are attached to the movable side rails. ",
+            "zh": "约束带系在可移动的床侧栏上。",
+            "selectable": true
+          },
+          {
+            "id": "s5",
+            "en": "Circulation, skin integrity, and range of motion are assessed according to policy.",
+            "zh": "按政策评估循环、皮肤完整性和关节活动度。",
+            "selectable": true
+          }
+        ],
+        "correct": [
+          "s4"
+        ]
+      },
+      "rationale": {
+        "correct": {
+          "en": "Restraints should be attached to the bed frame, not to movable side rails. If the side rail is lowered or moves, the client can be injured or trapped.",
+          "zh": "约束带应固定在床架上，而不是可移动的床侧栏上。如果侧栏放下或移动，患者可能受伤或被困。"
+        },
+        "byChoice": [
+          {
+            "refId": "s2",
+            "en": "Quick-release knots are appropriate because staff must be able to remove restraints rapidly in an emergency.",
+            "zh": "快速释放结是合适的，因为紧急情况下工作人员必须能迅速解除约束。"
+          },
+          {
+            "refId": "s3",
+            "en": "Allowing two fingers under the restraint helps prevent impaired circulation.",
+            "zh": "约束带下可容纳两根手指有助于防止循环受损。"
+          },
+          {
+            "refId": "s4",
+            "en": "Securing restraints to side rails is unsafe; restraints should be attached to the bed frame.",
+            "zh": "将约束带固定在侧栏上不安全；应固定在床架上。"
+          },
+          {
+            "refId": "s5",
+            "en": "Ongoing assessment of circulation, skin, and range of motion is required.",
+            "zh": "需要持续评估循环、皮肤和关节活动度。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "For restraints, look for least-restrictive use, correct fit, frequent monitoring, quick release, and attachment to the bed frame—not side rails.",
+        "zh": "关于约束，应寻找最少限制原则、合适松紧、频繁监测、可快速释放，以及固定在床架上而不是侧栏上。"
+      },
+      "glossary": [
+        {
+          "termEn": "restraints",
+          "termZh": "约束",
+          "defZh": "限制患者活动的设备或方法，只能在必要时按规定使用。"
+        },
+        {
+          "termEn": "quick-release knot",
+          "termZh": "快速释放结",
+          "defZh": "紧急情况下可迅速解开的固定方式。"
+        }
+      ]
+    },
+    {
+      "id": "gpt_hl_sic_fire_oxygen_07",
+      "itemType": "highlight",
+      "category": "Safety and Infection Control",
+      "topic": "Oxygen & Fire Safety",
+      "difficulty": "medium",
+      "ngnSkill": "recognize_cues",
+      "stem": {
+        "en": "Highlight the home-care finding that creates the greatest immediate fire-safety risk for a client using oxygen.",
+        "zh": "标出居家护理发现中对使用氧气患者造成最大立即火灾安全风险的情况。"
+      },
+      "highlight": {
+        "segments": [
+          {
+            "id": "s1",
+            "en": "During a home visit, the nurse assesses a client using oxygen at 2 L/min by nasal cannula. ",
+            "zh": "家访期间，护士评估一名经鼻导管以 2 L/min 吸氧的患者。"
+          },
+          {
+            "id": "s2",
+            "en": "A \"No Smoking\" sign is posted near the front door. ",
+            "zh": "前门附近贴有“禁止吸烟”标志。",
+            "selectable": true
+          },
+          {
+            "id": "s3",
+            "en": "The oxygen tubing is routed along the wall to reduce tripping. ",
+            "zh": "氧气管沿墙布置以减少绊倒。",
+            "selectable": true
+          },
+          {
+            "id": "s4",
+            "en": "The client keeps a lit scented candle on the bedside table while oxygen is in use. ",
+            "zh": "患者在使用氧气时，将点燃的香薰蜡烛放在床旁桌上。",
+            "selectable": true
+          },
+          {
+            "id": "s5",
+            "en": "The oxygen cylinder is stored upright in a stand.",
+            "zh": "氧气瓶直立放置在支架中。",
+            "selectable": true
+          }
+        ],
+        "correct": [
+          "s4"
+        ]
+      },
+      "rationale": {
+        "correct": {
+          "en": "Oxygen supports combustion. Open flames such as candles, smoking materials, or gas flames should not be near oxygen equipment because they create an immediate fire and burn hazard.",
+          "zh": "氧气会助燃。蜡烛、吸烟材料或燃气火焰等明火不应靠近氧气设备，因为会造成立即的火灾和烧伤危险。"
+        },
+        "byChoice": [
+          {
+            "refId": "s2",
+            "en": "A no-smoking sign is an appropriate safety measure.",
+            "zh": "禁止吸烟标志是适当的安全措施。"
+          },
+          {
+            "refId": "s3",
+            "en": "Routing tubing along the wall helps reduce tripping hazards when done safely.",
+            "zh": "在安全布置的情况下，氧气管沿墙放置有助于减少绊倒风险。"
+          },
+          {
+            "refId": "s4",
+            "en": "A lit candle near oxygen is an immediate fire hazard and must be removed.",
+            "zh": "氧气附近点燃的蜡烛是立即火灾危险，必须移除。"
+          },
+          {
+            "refId": "s5",
+            "en": "Storing the oxygen cylinder upright and secured is appropriate.",
+            "zh": "将氧气瓶直立并固定存放是适当的。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "For oxygen safety, choose the option that removes open flame or smoking materials first.",
+        "zh": "关于氧气安全，优先选择移除明火或吸烟材料的选项。"
+      },
+      "glossary": [
+        {
+          "termEn": "combustion",
+          "termZh": "燃烧",
+          "defZh": "物质与氧气反应产生热和火焰的过程；氧气会使火更容易燃烧。"
+        },
+        {
+          "termEn": "nasal cannula",
+          "termZh": "鼻导管",
+          "defZh": "通过鼻孔输送低流量氧气的装置。"
+        }
+      ]
+    },
+    {
+      "id": "gpt_hl_sic_airborne_tb_08",
+      "itemType": "highlight",
+      "category": "Safety and Infection Control",
+      "topic": "Airborne Precautions",
+      "difficulty": "medium",
+      "ngnSkill": "recognize_cues",
+      "stem": {
+        "en": "Highlight the infection-control breach in the care of a client with suspected pulmonary tuberculosis.",
+        "zh": "标出照护疑似肺结核患者时的感染控制违规行为。"
+      },
+      "highlight": {
+        "segments": [
+          {
+            "id": "s1",
+            "en": "A client with a persistent cough, night sweats, weight loss, and hemoptysis is placed on Airborne Precautions. ",
+            "zh": "一名持续咳嗽、盗汗、体重下降和咯血的患者被实施空气传播隔离。"
+          },
+          {
+            "id": "s2",
+            "en": "The client is assigned to a negative-pressure room. ",
+            "zh": "患者被安排在负压病房。",
+            "selectable": true
+          },
+          {
+            "id": "s3",
+            "en": "The room door is kept closed except when staff enter and exit. ",
+            "zh": "除工作人员进出外，病房门保持关闭。",
+            "selectable": true
+          },
+          {
+            "id": "s4",
+            "en": "The nurse enters the room wearing a surgical mask instead of a fit-tested N95 respirator. ",
+            "zh": "护士戴着外科口罩而不是经过密合度测试的 N95 呼吸器进入病房。",
+            "selectable": true
+          },
+          {
+            "id": "s5",
+            "en": "The client wears a surgical mask when transported for an essential test.",
+            "zh": "患者因必要检查转运时佩戴外科口罩。",
+            "selectable": true
+          }
+        ],
+        "correct": [
+          "s4"
+        ]
+      },
+      "rationale": {
+        "correct": {
+          "en": "Staff caring for a client with suspected or confirmed pulmonary tuberculosis must wear a fit-tested N95 respirator or higher-level respiratory protection. A standard surgical mask does not provide adequate airborne protection for staff.",
+          "zh": "照护疑似或确诊肺结核患者的工作人员必须佩戴经过密合度测试的 N95 呼吸器或更高级别呼吸防护。普通外科口罩不能为工作人员提供足够的空气传播防护。"
+        },
+        "byChoice": [
+          {
+            "refId": "s2",
+            "en": "A negative-pressure room is appropriate for Airborne Precautions.",
+            "zh": "负压病房适用于空气传播隔离。"
+          },
+          {
+            "refId": "s3",
+            "en": "Keeping the door closed helps maintain negative pressure and airborne containment.",
+            "zh": "保持房门关闭有助于维持负压和控制空气传播。"
+          },
+          {
+            "refId": "s4",
+            "en": "A surgical mask is inadequate respiratory protection for staff entering a TB isolation room.",
+            "zh": "外科口罩不足以保护进入结核隔离病房的工作人员。"
+          },
+          {
+            "refId": "s5",
+            "en": "A surgical mask on the client during necessary transport helps contain respiratory droplets/aerosols.",
+            "zh": "必要转运时让患者佩戴外科口罩，有助于控制呼吸道飞沫/气溶胶。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "For tuberculosis, think Airborne Precautions: negative pressure, closed door, and N95 respirator for staff.",
+        "zh": "遇到结核病，要想到空气传播隔离：负压、关门、工作人员佩戴 N95 呼吸器。"
+      },
+      "glossary": [
+        {
+          "termEn": "Airborne Precautions",
+          "termZh": "空气传播隔离",
+          "defZh": "用于可通过空气传播的病原体，需要特殊通风和呼吸防护。"
+        },
+        {
+          "termEn": "N95 respirator",
+          "termZh": "N95 呼吸器",
+          "defZh": "能过滤空气颗粒并需要密合度测试的呼吸防护设备。"
+        }
+      ]
+    },
+    {
+      "id": "gpt_hl_pharm_kcl_order_09",
+      "itemType": "highlight",
+      "category": "Pharmacological and Parenteral Therapies",
+      "topic": "High-Alert Medication Safety",
+      "difficulty": "hard",
+      "ngnSkill": "take_action",
+      "stem": {
+        "en": "Highlight the medication order that the nurse must question before administration.",
+        "zh": "标出护士给药前必须质疑的用药医嘱。"
+      },
+      "highlight": {
+        "segments": [
+          {
+            "id": "s1",
+            "en": "The nurse reviews new medication orders for a client with hypokalemia. ",
+            "zh": "护士查看一名低钾血症患者的新用药医嘱。"
+          },
+          {
+            "id": "s2",
+            "en": "Potassium chloride 20 mEq diluted in 100 mL 0.9% sodium chloride IV over 2 hours via pump. ",
+            "zh": "氯化钾 20 mEq 加入 100 mL 0.9% 氯化钠，经输液泵静脉输注 2 小时。",
+            "selectable": true
+          },
+          {
+            "id": "s3",
+            "en": "Place the client on continuous cardiac monitoring during replacement. ",
+            "zh": "补钾期间给予连续心电监测。",
+            "selectable": true
+          },
+          {
+            "id": "s4",
+            "en": "Potassium chloride 10 mEq IV push now for serum potassium 2.9 mEq/L. ",
+            "zh": "血清钾 2.9 mEq/L，立即静脉推注氯化钾 10 mEq。",
+            "selectable": true
+          },
+          {
+            "id": "s5",
+            "en": "Recheck serum potassium after completion of replacement.",
+            "zh": "补钾完成后复查血清钾。",
+            "selectable": true
+          }
+        ],
+        "correct": [
+          "s4"
+        ]
+      },
+      "rationale": {
+        "correct": {
+          "en": "Potassium chloride must never be administered by IV push because rapid administration can cause fatal dysrhythmias and cardiac arrest. The nurse must question and clarify this order before giving the medication.",
+          "zh": "氯化钾绝不能静脉推注，因为快速给药可导致致命性心律失常和心脏骤停。护士在给药前必须质疑并澄清该医嘱。"
+        },
+        "byChoice": [
+          {
+            "refId": "s2",
+            "en": "Diluted potassium administered by controlled IV infusion is an expected replacement method when ordered appropriately.",
+            "zh": "按医嘱将氯化钾稀释后通过受控静脉输注，是常见补钾方式。"
+          },
+          {
+            "refId": "s3",
+            "en": "Cardiac monitoring is appropriate for significant hypokalemia or IV potassium replacement.",
+            "zh": "明显低钾或静脉补钾时进行心电监测是适当的。"
+          },
+          {
+            "refId": "s4",
+            "en": "IV push potassium is unsafe and must not be administered.",
+            "zh": "静脉推注氯化钾不安全，不能执行。"
+          },
+          {
+            "refId": "s5",
+            "en": "Rechecking potassium evaluates the response to replacement.",
+            "zh": "复查血钾可评估补钾效果。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "High-alert medication rule: potassium is diluted and infused by pump; never give IV push.",
+        "zh": "高警示药物规则：氯化钾需稀释并用泵输注；绝不静脉推注。"
+      },
+      "glossary": [
+        {
+          "termEn": "hypokalemia",
+          "termZh": "低钾血症",
+          "defZh": "血清钾低于正常范围，可能导致肌无力和心律失常。"
+        },
+        {
+          "termEn": "IV push",
+          "termZh": "静脉推注",
+          "defZh": "将药物快速直接注入静脉的给药方式。"
+        }
+      ]
+    },
+    {
+      "id": "gpt_hl_pharm_maoi_10",
+      "itemType": "highlight",
+      "category": "Pharmacological and Parenteral Therapies",
+      "topic": "Psychotropic Medication Safety",
+      "difficulty": "medium",
+      "ngnSkill": "analyze_cues",
+      "stem": {
+        "en": "Highlight the medication-history finding that places the client at risk for a dangerous interaction with phenelzine.",
+        "zh": "标出用药史中会使患者与苯乙肼发生危险相互作用的发现。"
+      },
+      "highlight": {
+        "segments": [
+          {
+            "id": "s1",
+            "en": "The nurse reviews the medication history of a client newly prescribed phenelzine. ",
+            "zh": "护士查看一名新开具苯乙肼医嘱患者的用药史。"
+          },
+          {
+            "id": "s2",
+            "en": "The client takes acetaminophen occasionally for headaches. ",
+            "zh": "患者偶尔服用对乙酰氨基酚治疗头痛。",
+            "selectable": true
+          },
+          {
+            "id": "s3",
+            "en": "The client takes a daily multivitamin without iron. ",
+            "zh": "患者每天服用不含铁的复合维生素。",
+            "selectable": true
+          },
+          {
+            "id": "s4",
+            "en": "The client has continued taking sertraline 100 mg every morning. ",
+            "zh": "患者仍每天早晨服用舍曲林 100 mg。",
+            "selectable": true
+          },
+          {
+            "id": "s5",
+            "en": "The client uses saline nasal spray for dryness.",
+            "zh": "患者使用生理盐水鼻喷雾缓解干燥。",
+            "selectable": true
+          }
+        ],
+        "correct": [
+          "s4"
+        ]
+      },
+      "rationale": {
+        "correct": {
+          "en": "Phenelzine is a monoamine oxidase inhibitor (MAOI). Taking it with an SSRI such as sertraline can cause serotonin syndrome, a potentially life-threatening interaction. The nurse should hold the medication and notify the provider.",
+          "zh": "苯乙肼是单胺氧化酶抑制剂（MAOI）。与舍曲林等 SSRI 同用可导致血清素综合征，这是一种可能危及生命的相互作用。护士应暂停给药并通知医嘱提供者。"
+        },
+        "byChoice": [
+          {
+            "refId": "s2",
+            "en": "Occasional acetaminophen is not the dangerous interaction in this medication history.",
+            "zh": "偶尔使用对乙酰氨基酚不是此用药史中的危险相互作用。"
+          },
+          {
+            "refId": "s3",
+            "en": "A routine multivitamin without iron is not the priority interaction with phenelzine.",
+            "zh": "常规不含铁复合维生素不是与苯乙肼最需关注的相互作用。"
+          },
+          {
+            "refId": "s4",
+            "en": "Concurrent SSRI and MAOI use can precipitate serotonin syndrome.",
+            "zh": "SSRI 与 MAOI 同时使用可诱发血清素综合征。"
+          },
+          {
+            "refId": "s5",
+            "en": "Saline nasal spray is not a sympathomimetic decongestant and is not the dangerous interaction.",
+            "zh": "生理盐水鼻喷雾不是拟交感减充血剂，不是危险相互作用。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "MAOIs have major interaction risks. Avoid combining them with SSRIs/SNRIs and many sympathomimetic or serotonergic drugs.",
+        "zh": "MAOI 有重要相互作用风险。避免与 SSRI/SNRI 以及许多拟交感或促血清素药物合用。"
+      },
+      "glossary": [
+        {
+          "termEn": "phenelzine",
+          "termZh": "苯乙肼",
+          "defZh": "一种 MAOI 类抗抑郁药，有显著药物和食物相互作用。"
+        },
+        {
+          "termEn": "serotonin syndrome",
+          "termZh": "血清素综合征",
+          "defZh": "血清素活性过高导致的危险综合征，可出现发热、躁动、肌强直和自主神经不稳定。"
+        }
+      ]
+    },
+    {
+      "id": "gpt_hl_rrp_postop_11",
+      "itemType": "highlight",
+      "category": "Reduction of Risk Potential",
+      "topic": "Postoperative Complications",
+      "difficulty": "medium",
+      "ngnSkill": "analyze_cues",
+      "stem": {
+        "en": "Highlight the postoperative assessment finding that requires immediate nursing intervention.",
+        "zh": "标出术后评估中需要护士立即干预的发现。"
+      },
+      "highlight": {
+        "segments": [
+          {
+            "id": "s1",
+            "en": "The nurse assesses a client 1 hour after abdominal surgery. ",
+            "zh": "护士评估一名腹部手术后 1 小时的患者。"
+          },
+          {
+            "id": "s2",
+            "en": "The client reports incisional pain rated 5/10. ",
+            "zh": "患者主诉切口疼痛 5/10。",
+            "selectable": true
+          },
+          {
+            "id": "s3",
+            "en": "The dressing has a 2-cm circle of serosanguineous drainage. ",
+            "zh": "敷料上有直径 2 cm 的浆液血性渗液。",
+            "selectable": true
+          },
+          {
+            "id": "s4",
+            "en": "Respirations are 8/min after receiving IV hydromorphone 30 minutes ago. ",
+            "zh": "30 分钟前接受静脉氢吗啡酮后，呼吸频率为 8 次/分。",
+            "selectable": true
+          },
+          {
+            "id": "s5",
+            "en": "The client is drowsy but awakens when spoken to.",
+            "zh": "患者嗜睡，但呼唤时能醒来。",
+            "selectable": true
+          }
+        ],
+        "correct": [
+          "s4"
+        ]
+      },
+      "rationale": {
+        "correct": {
+          "en": "A respiratory rate of 8/min after IV opioid administration indicates opioid-induced respiratory depression. This threatens airway and breathing and requires immediate intervention, such as stimulating the client, supporting ventilation, holding opioids, notifying the provider, and preparing naloxone per protocol.",
+          "zh": "静脉阿片类药物给药后呼吸频率 8 次/分，提示阿片所致呼吸抑制。该情况威胁气道和呼吸，需要立即干预，如刺激患者、支持通气、暂停阿片类药物、通知医嘱提供者，并按规程准备纳洛酮。"
+        },
+        "byChoice": [
+          {
+            "refId": "s2",
+            "en": "Moderate incisional pain should be treated, but it is not more urgent than respiratory depression.",
+            "zh": "中度切口疼痛需要处理，但不比呼吸抑制更紧急。"
+          },
+          {
+            "refId": "s3",
+            "en": "A small amount of serosanguineous drainage soon after surgery can be expected.",
+            "zh": "术后早期少量浆液血性渗液可能是预期表现。"
+          },
+          {
+            "refId": "s4",
+            "en": "Respirations of 8/min after an IV opioid are dangerously low and require immediate action.",
+            "zh": "静脉阿片类药物后呼吸 8 次/分危险偏低，需要立即处理。"
+          },
+          {
+            "refId": "s5",
+            "en": "Drowsiness can occur after opioids, but it becomes urgent when paired with inadequate respirations.",
+            "zh": "阿片类药物后可能嗜睡，但与呼吸不足同时出现时才变得紧急。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "After opioid administration, prioritize breathing. A low respiratory rate is more urgent than expected postoperative pain or small drainage.",
+        "zh": "给予阿片类药物后，优先关注呼吸。呼吸频率低比预期术后疼痛或少量渗液更紧急。"
+      },
+      "glossary": [
+        {
+          "termEn": "hydromorphone",
+          "termZh": "氢吗啡酮",
+          "defZh": "强效阿片类止痛药，可导致镇静和呼吸抑制。"
+        },
+        {
+          "termEn": "naloxone",
+          "termZh": "纳洛酮",
+          "defZh": "用于逆转阿片类药物作用的拮抗剂。"
+        }
+      ]
+    },
+    {
+      "id": "gpt_hl_hpm_immunization_12",
+      "itemType": "highlight",
+      "category": "Health Promotion and Maintenance",
+      "topic": "Immunizations & Immunosuppression",
+      "difficulty": "hard",
+      "ngnSkill": "recognize_cues",
+      "stem": {
+        "en": "Highlight the immunization plan that requires the nurse to intervene before administration.",
+        "zh": "标出给药前需要护士干预的免疫接种计划。"
+      },
+      "highlight": {
+        "segments": [
+          {
+            "id": "s1",
+            "en": "The nurse reviews immunizations for an adult client receiving high-dose prednisone for a severe autoimmune flare. ",
+            "zh": "护士查看一名因严重自身免疫病急性发作而接受大剂量泼尼松治疗的成年患者的免疫接种。"
+          },
+          {
+            "id": "s2",
+            "en": "Administer the inactivated influenza vaccine when due. ",
+            "zh": "到期时接种灭活流感疫苗。",
+            "selectable": true
+          },
+          {
+            "id": "s3",
+            "en": "Administer the recombinant zoster vaccine according to the recommended schedule. ",
+            "zh": "按推荐程序接种重组带状疱疹疫苗。",
+            "selectable": true
+          },
+          {
+            "id": "s4",
+            "en": "Administer the live attenuated varicella vaccine today. ",
+            "zh": "今天接种水痘减毒活疫苗。",
+            "selectable": true
+          },
+          {
+            "id": "s5",
+            "en": "Review the client's vaccine history and document contraindications.",
+            "zh": "查看患者疫苗史并记录禁忌证。",
+            "selectable": true
+          }
+        ],
+        "correct": [
+          "s4"
+        ]
+      },
+      "rationale": {
+        "correct": {
+          "en": "Live attenuated vaccines are generally contraindicated in clients with significant immunosuppression, such as those receiving high-dose systemic corticosteroids. The nurse should hold the live vaccine and clarify the plan.",
+          "zh": "对于明显免疫抑制的患者，例如正在接受大剂量全身性糖皮质激素治疗者，减毒活疫苗通常禁用。护士应暂缓接种活疫苗并澄清计划。"
+        },
+        "byChoice": [
+          {
+            "refId": "s2",
+            "en": "Inactivated influenza vaccine is not a live vaccine and is generally appropriate when indicated.",
+            "zh": "灭活流感疫苗不是活疫苗，通常在有适应证时可以接种。"
+          },
+          {
+            "refId": "s3",
+            "en": "Recombinant zoster vaccine is non-live and may be appropriate for eligible immunocompromised adults.",
+            "zh": "重组带状疱疹疫苗为非活疫苗，可能适合符合条件的免疫功能低下成人。"
+          },
+          {
+            "refId": "s4",
+            "en": "Live attenuated varicella vaccine should not be administered during significant immunosuppression.",
+            "zh": "明显免疫抑制期间不应接种水痘减毒活疫苗。"
+          },
+          {
+            "refId": "s5",
+            "en": "Reviewing vaccine history and documenting contraindications are appropriate nursing actions.",
+            "zh": "查看疫苗史并记录禁忌证是适当的护理措施。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "When a client is immunosuppressed, separate live vaccines from inactivated or recombinant vaccines. Live vaccines are the safety concern.",
+        "zh": "患者免疫受抑时，要区分活疫苗与灭活或重组疫苗。活疫苗是安全重点。"
+      },
+      "glossary": [
+        {
+          "termEn": "live attenuated vaccine",
+          "termZh": "减毒活疫苗",
+          "defZh": "含有减弱活病原体的疫苗，免疫受抑患者可能不能安全接种。"
+        },
+        {
+          "termEn": "immunosuppression",
+          "termZh": "免疫抑制",
+          "defZh": "免疫系统功能下降，可能由疾病或药物导致。"
         }
       ]
     }
