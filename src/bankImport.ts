@@ -143,9 +143,27 @@ const hasRationaleVisuals = (question: Question) => {
   );
 };
 
+const hasSchema16CaseFields = (question: Question) => {
+  if (question.itemType !== "case_study") return false;
+  if (question.caseStudy.exhibits.some((exhibit) => exhibit.type !== undefined)) return true;
+  if (question.caseStudy.stages?.some((stage) =>
+    stage.trigger !== undefined ||
+    stage.narrative !== undefined ||
+    stage.timeOffset !== undefined ||
+    stage.exhibits.some((exhibit) => exhibit.type !== undefined)
+  )) {
+    return true;
+  }
+  return question.caseStudy.questions.some(
+    (caseQuestion) => caseQuestion.stageId !== undefined || caseQuestion.answerableAfterStageId !== undefined,
+  );
+};
+
 export const toExportEnvelope = (questions: Question[]): BankEnvelope => ({
   meta: {
-    schemaVersion: questions.some(hasRationaleVisuals)
+    schemaVersion: questions.some(hasSchema16CaseFields)
+      ? "1.6"
+      : questions.some(hasRationaleVisuals)
       ? "1.5"
       : questions.some(hasBowtie)
         ? "1.4"

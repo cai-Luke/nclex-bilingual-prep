@@ -2,8 +2,8 @@
 
 # NCLEX Bank Census
 
-Generated: 2026-06-21T00:44:32.792Z
-Git SHA: 3c6652e13c26104c77f7e7f9d818e9e23c04617b
+Generated: 2026-06-21T16:20:55.131Z
+Git SHA: 6d334e26add24a1761daa72182172b97079d52c9
 
 ## Per-File Summary
 
@@ -11,11 +11,11 @@ Git SHA: 3c6652e13c26104c77f7e7f9d818e9e23c04617b
 |------|--------|-----------|-----------|---------|
 | burn-canonical.json | 1.2 | 8 | 8 | — |
 | capnography-canonical.json | 1.2 | 7 | 7 | — |
-| claude-canonical.json | 1.4 | 69 | 69 | — |
+| claude-canonical.json | 1.6 | 69 | 69 | — |
 | device-canonical.json | 1.2 | 8 | 8 | — |
 | gemini-canonical.json | 1.5 | 824 | 824 | — |
-| gpt-canonical.json | 1.5 | 321 | 321 | — |
-| hard-cases-canonical.json | 1.5 | 66 | 66 | — |
+| gpt-canonical.json | 1.6 | 321 | 321 | — |
+| hard-cases-canonical.json | 1.6 | 66 | 66 | — |
 | io-canonical.json | 1.2 | 8 | 8 | — |
 | lab-canonical.json | 1.2 | 20 | 20 | — |
 | mar-canonical.json | 1.2 | 8 | 8 | — |
@@ -104,8 +104,8 @@ Visual kinds: burn_map (5), capnography (4), io_record (2), lab_trend (7), rhyth
 ## By Schema Version
 
 - v1.2: 130 questions (burn-canonical.json, capnography-canonical.json, device-canonical.json, io-canonical.json, lab-canonical.json, mar-canonical.json, medlabel-canonical.json, visual-canonical.json, vitals-canonical.json)
-- v1.4: 69 questions (claude-canonical.json)
-- v1.5: 1211 questions (gemini-canonical.json, gpt-canonical.json, hard-cases-canonical.json)
+- v1.6: 456 questions (claude-canonical.json, gpt-canonical.json, hard-cases-canonical.json)
+- v1.5: 824 questions (gemini-canonical.json)
 
 ## By Source File
 

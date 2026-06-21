@@ -25,22 +25,22 @@ The app is a static offline Vite + React + TypeScript NCLEX-RN practice tool. It
 
 Core learning features are implemented: all schema item types render and grade, case studies are supported, sessions are resumable, custom sessions can be built from filters, the dashboard summarizes performance, flags feed review pools, glossary flashcards have their own SRS progress, and adaptive exam-condition practice is available without any pass/fail readiness claim.
 
-Current canonical banks (see [BANK-CENSUS.md](BANK-CENSUS.md); 1,333 top-level, 597 embedded parts as of 2026-06-19):
+Current canonical banks (see [BANK-CENSUS.md](BANK-CENSUS.md); 1,410 top-level, 685 embedded parts as of 2026-06-21):
 
 - `banks/burn-canonical.json` (8 schema v1.2 burn-map visual items)
 - `banks/capnography-canonical.json` (7 schema v1.2 capnography visual items; dedicated home for capnography kind)
-- `banks/claude-canonical.json` (67 bilingual Claude/Opus-source questions; ledgered content review complete)
+- `banks/claude-canonical.json` (69 bilingual Claude/Opus-source questions; ledgered content review complete; schema v1.6 for typed unfolding-case metadata)
 - `banks/device-canonical.json` (8 schema v1.2 device-screen visual items)
-- `banks/gemini-canonical.json` (777 bilingual Gemini-source questions; includes original + pending batches + traditional/easy/gap-fill consolidations minus redundant/flawed questions)
-- `banks/gpt-canonical.json` (293 bilingual GPT-source questions; ledgered content review complete)
-- `banks/hard-cases-canonical.json` (57 top-level hard/NGN items; ledgered content review complete)
+- `banks/gemini-canonical.json` (824 bilingual Gemini-source questions; includes original + pending batches + traditional/easy/gap-fill/format-backfill consolidations minus redundant/flawed questions)
+- `banks/gpt-canonical.json` (321 bilingual GPT-source questions; ledgered content review complete; schema v1.6 for typed unfolding-case metadata)
+- `banks/hard-cases-canonical.json` (66 top-level hard/NGN items; ledgered content review complete; schema v1.6 for typed unfolding-case metadata)
 - `banks/io-canonical.json` (8 schema v1.2 intake/output record visual items)
 - `banks/lab-canonical.json` (20 schema v1.2 lab_trend visual items; dedicated home for lab_trend kind)
 - `banks/mar-canonical.json` (8 schema v1.2 mar visual items; dedicated home for mar kind)
 - `banks/medlabel-canonical.json` (8 schema v1.2 medication-label visual items)
 - `banks/visual-canonical.json` (53 reviewed schema v1.2 rhythm-strip visual items; the dedicated home for rhythm_strip kind, formerly `banks/rhythm-canonical`)
 - `banks/vitals-canonical.json` (10 reviewed schema v1.2 vitals-trend visual items; dedicated home for vitals_trend kind)
-- Schema version `1.5` current; `1.0` standalone, `1.1` case-study, `1.2` visual, `1.3` highlight, and `1.4` bowtie banks remain supported
+- Schema version `1.6` current; `1.0` standalone, `1.1` case-study, `1.2` visual, `1.3` highlight, `1.4` bowtie, and `1.5` rationale-visual banks remain supported
 
 Current schema item types:
 
@@ -57,6 +57,26 @@ Current schema item types:
 The committed NGN item-type set is complete. Rationale/dyad scoring and an explicit linked “X as evidenced by Y” type remain out of scope.
 
 ## Milestones
+
+### Schema 1.6 Case-Study Metadata Reconciliation (Jun 21)
+
+Completed:
+- Added schema `1.6` as the current runtime and authoring version, with additive typing for already-present unfolding-case metadata: `stageId` / `answerableAfterStageId` on embedded case questions, `trigger` / `narrative` / `timeOffset` on case stages, and `type` on case exhibits.
+- Kept the fields inert: no rendering, grading, sampling, or stage-gating behavior changed. Validators enforce only shape/parity (`trigger` and `narrative` as bilingual text pairs, `timeOffset` / `type` / stage markers as non-empty strings) and deliberately do not enforce stage-reference integrity because current canonical uses baseline/admission labels.
+- Updated `NCLEX-Question-Schema.md`, export schema inference, the unknown-key allowed-key manifest, and the scanner to recognize the 1.6 fields. Retro-bumped `claude-canonical.json`, `gpt-canonical.json`, and `hard-cases-canonical.json` to `meta.schemaVersion: "1.6"`.
+- Re-ran the unknown-key scan: Bucket 1 cleared, dropping from 127 remaining findings to 15. Remaining findings are the cleanup/provenance tail (`gpt_case_unsafe_assignment_01` misnested fields, `cs_copd_01_q1` duplicate rationale `id`s, one nested matrix duplicate `correct`, one glossary stray `en`, one legacy `overview`, and `io-canonical` bank-meta provenance).
+- Regenerated `census.json` and `BANK-CENSUS.md`.
+- Cleared the unrelated pre-existing `audit:references` hazard in `gemini_backfill_or_cardio_01` by removing `(A)`-through-`(E)` option-letter tags from `rationale.correct.en` and `.zh` while preserving the resuscitation sequence and bilingual parity.
+- Verification: `npx tsc -b --pretty false`, `npm run test:schema-bank`, `npm run validate-bank -- banks/*.json`, `npx tsx scripts/audit/audit-references.ts`, `npm run audit`, `npm run census:check`, and `npm run build` passed. `npm run scan-unknown-keys` wrote the expected 15-finding report and exited non-zero by design.
+
+### Unknown-Key Gate Phase 1 Scan (Jun 21)
+
+Completed:
+- Added a reusable runtime allowed-key manifest in `src/allowedKeys.ts`, covering bank envelopes, question/common objects, item-specific objects, case-study structures, glossary/rationale/option shapes, visual audit metadata, and registered visual-kind specs.
+- Added the non-mutating `npm run scan-unknown-keys` Phase 1 scanner. It scans the 13 `banks/*-canonical.json` files only, records source line numbers for findings, writes `unknown-key-gate-report.md`, and exits non-zero when unknown keys are found.
+- Ran the scan before implementing any A1 strict-reject validator gate, then reviewed the output against `src/types.ts` (Claude, content-review seat). The scanner is sound — it typed every object correctly and every flagged key is genuinely absent from the types — but "off-schema" is not "dirty content." Of 134 occurrences (5 banks, 17 distinct keys), ~110 are legitimate unfolding-case-study structure the type model does not yet cover (`stageId`, `answerableAfterStageId` on nested `caseStudy.questions`; `trigger`, `narrative`, `timeOffset` on `caseStudyStage`; `type` on `caseStudyExhibit`) — a schema-coverage gap (Schema 1.6 candidate), not content drift. Remainder: `pattern_keyed` (whitelist omission — add to `questionMeta`); benign strays (`id` duplicating `refId` on `cs_copd_01_q1`; one stray `en` on a glossary term); `io-canonical` meta provenance (`generatedAt`/`bankIdPrefix`/`lane` — keep-or-strip); and one misnested-field item (`gpt_case_unsafe_assignment_01`, the Jun-19 float-nurse case) pending a targeted in-repo read.
+- A1 was therefore blocked at this point, not merely pending cleanup: enabling it before Schema 1.6 would have rejected ~110 occurrences of real case content. Phase 2 was left deliberately unimplemented pending the 1.6 reconciliation and the remaining cleanup/provenance decisions.
+- Verification: `npx tsc -b --pretty false` passed; `npm run scan-unknown-keys` completed and wrote the report, exiting non-zero as designed because findings exist.
 
 ### First Real Promotion Through the Hardened Gate (Jun 19)
 

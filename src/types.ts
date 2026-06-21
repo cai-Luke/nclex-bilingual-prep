@@ -3,7 +3,7 @@ export type TextPair = {
   zh: string;
 };
 
-export type SchemaVersion = "1.0" | "1.1" | "1.2" | "1.3" | "1.4" | "1.5";
+export type SchemaVersion = "1.0" | "1.1" | "1.2" | "1.3" | "1.4" | "1.5" | "1.6";
 
 export type StandaloneItemType =
   | "multiple_choice"
@@ -186,6 +186,7 @@ export type StandaloneQuestion =
 
 export type CaseStudyExhibit = {
   id: string;
+  type?: string;
   title: TextPair;
   content: TextPair;
   visual?: QuestionVisual;
@@ -194,7 +195,15 @@ export type CaseStudyExhibit = {
 export type CaseStudyStage = {
   id: string;
   title: TextPair;
+  trigger?: TextPair;
+  narrative?: TextPair;
+  timeOffset?: string;
   exhibits: CaseStudyExhibit[];
+};
+
+export type CaseSubQuestion = StandaloneQuestion & {
+  stageId?: string;
+  answerableAfterStageId?: string;
 };
 
 export type CaseStudyQuestion = CommonQuestion & {
@@ -204,7 +213,7 @@ export type CaseStudyQuestion = CommonQuestion & {
     summary?: TextPair;
     exhibits: CaseStudyExhibit[];
     stages?: CaseStudyStage[];
-    questions: StandaloneQuestion[];
+    questions: CaseSubQuestion[];
   };
 };
 

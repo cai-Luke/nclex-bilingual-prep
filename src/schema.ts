@@ -20,9 +20,9 @@ import { getVisual, VISUAL_ITEM_TYPES, type VisualError } from "./visuals/regist
 import "./visuals/kinds"; // register every visual kind for validation (React-free)
 export { rhythmClasses } from "./visuals/kinds/rhythmStrip";
 
-export const SCHEMA_VERSION = "1.5";
+export const SCHEMA_VERSION = "1.6";
 
-export const supportedSchemaVersions = ["1.0", "1.1", "1.2", "1.3", "1.4", "1.5"] as const satisfies readonly SchemaVersion[];
+export const supportedSchemaVersions = ["1.0", "1.1", "1.2", "1.3", "1.4", "1.5", "1.6"] as const satisfies readonly SchemaVersion[];
 
 export const categories = [
   "Management of Care",
@@ -600,6 +600,9 @@ const validateCaseStudyExhibit = (value: unknown, path: string, seenIds: Set<str
   } else {
     seenIds.add(value.id);
   }
+  if (value.type !== undefined && !nonEmptyString(value.type)) {
+    reasons.push(`${path}.type must be non-empty when present`);
+  }
   addTextPairError(value.title, `${path}.title`, reasons);
   addTextPairError(value.content, `${path}.content`, reasons);
   if (value.visual !== undefined) validateVisual(value.visual, `${path}.visual`, reasons);
@@ -640,6 +643,11 @@ const validateCaseStudy = (question: CaseStudyQuestion, reasons: string[]) => {
           seenStageIds.add(stage.id);
         }
         addTextPairError(stage.title, `caseStudy.stages[${stageIndex}].title`, reasons);
+        if (stage.trigger !== undefined) addTextPairError(stage.trigger, `caseStudy.stages[${stageIndex}].trigger`, reasons);
+        if (stage.narrative !== undefined) addTextPairError(stage.narrative, `caseStudy.stages[${stageIndex}].narrative`, reasons);
+        if (stage.timeOffset !== undefined && !nonEmptyString(stage.timeOffset)) {
+          reasons.push(`caseStudy.stages[${stageIndex}].timeOffset must be non-empty when present`);
+        }
         if (!Array.isArray(stage.exhibits) || stage.exhibits.length === 0) {
           reasons.push(`caseStudy.stages[${stageIndex}].exhibits must include at least one exhibit`);
         } else {
@@ -671,6 +679,12 @@ const validateCaseStudy = (question: CaseStudyQuestion, reasons: string[]) => {
       reasons.push(`caseStudy.questions[${index}]: bowtie may not be embedded in a case study (standalone item type)`);
       return;
     }
+    if (caseQuestion.stageId !== undefined && !nonEmptyString(caseQuestion.stageId)) {
+      reasons.push(`caseStudy.questions[${index}].stageId must be non-empty when present`);
+    }
+    if (caseQuestion.answerableAfterStageId !== undefined && !nonEmptyString(caseQuestion.answerableAfterStageId)) {
+      reasons.push(`caseStudy.questions[${index}].answerableAfterStageId must be non-empty when present`);
+    }
     const result = validateQuestion(caseQuestion, { allowCaseStudy: false });
     if (!result.ok) {
       reasons.push(`caseStudy.questions[${index}]: ${result.reasons.join("; ")}`);
@@ -699,6 +713,23 @@ const hasRationaleVisuals = (question: Question): boolean => {
     );
   }
   return false;
+};
+
+const hasSchema16CaseFields = (question: Question): boolean => {
+  if (question.itemType !== "case_study") return false;
+  if (question.caseStudy.exhibits.some((exhibit) => exhibit.type !== undefined)) return true;
+  if (question.caseStudy.stages?.some((stage) =>
+    stage.trigger !== undefined ||
+    stage.narrative !== undefined ||
+    stage.timeOffset !== undefined ||
+    stage.exhibits.some((exhibit) => exhibit.type !== undefined)
+  )) {
+    return true;
+  }
+  return question.caseStudy.questions.some((caseQuestion) =>
+    caseQuestion.stageId !== undefined ||
+    caseQuestion.answerableAfterStageId !== undefined
+  );
 };
 
 export const validateBankObject = (raw: unknown): ValidationResult<BankEnvelope> => {
@@ -780,6 +811,14 @@ export const validateBankObject = (raw: unknown): ValidationResult<BankEnvelope>
             result.value.caseStudy.stages?.some((stage) => stage.exhibits.some((exhibit) => exhibit.visual !== undefined)))))
     ) {
       reasons.push(`questions[${index}]: visual requires meta.schemaVersion 1.2`);
+      return;
+    }
+    if (
+      schemaVersion !== undefined &&
+      cmpSchema(schemaVersion, "1.6") < 0 &&
+      hasSchema16CaseFields(result.value)
+    ) {
+      reasons.push(`questions[${index}]: unfolding case-study metadata requires meta.schemaVersion 1.6`);
       return;
     }
     if (seen.has(result.value.id)) {

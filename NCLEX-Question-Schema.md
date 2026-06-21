@@ -1,6 +1,6 @@
 # NCLEX Bank — Canonical Question Schema
 
-**schemaVersion: `1.5` — current.** This document is the canonical authoring and review contract; runtime behavior is implemented by `src/types.ts`, `src/schema.ts`, and the registered modules under `src/visuals/`. `1.0` standalone-question banks, `1.1` case-study banks, `1.2` visual banks, `1.3` highlight banks, and `1.4` bowtie banks remain supported. Do not change shapes without bumping `schemaVersion` and writing a migration.
+**schemaVersion: `1.6` — current.** This document is the canonical authoring and review contract; runtime behavior is implemented by `src/types.ts`, `src/schema.ts`, and the registered modules under `src/visuals/`. `1.0` standalone-question banks, `1.1` case-study banks, `1.2` visual banks, `1.3` highlight banks, `1.4` bowtie banks, and `1.5` rationale-visual banks remain supported. Do not change shapes without bumping `schemaVersion` and writing a migration.
 
 ---
 
@@ -11,7 +11,7 @@ A generated bank is one JSON object:
 ```json
 {
   "meta": {
-    "schemaVersion": "1.5",
+    "schemaVersion": "1.6",
     "exam": "NCLEX-RN",
     "topic": "echo of the requested topic",
     "category": "echo of the requested category, or 'mixed'",
@@ -22,7 +22,7 @@ A generated bank is one JSON object:
 }
 ```
 
-The importer also accepts a bare `[ ... ]` array of Question objects (no envelope). When present, `meta.schemaVersion` must be `"1.0"`, `"1.1"`, `"1.2"`, `"1.3"`, `"1.4"`, or `"1.5"`. `case_study` requires `"1.1"` or later. `visual` requires `"1.2"` or later. `highlight`, including a highlight embedded in a case study, requires `"1.3"`. Standalone `bowtie` requires `"1.4"`. `rationale.visuals` (explanation visuals) requires `"1.5"`.
+The importer also accepts a bare `[ ... ]` array of Question objects (no envelope). When present, `meta.schemaVersion` must be `"1.0"`, `"1.1"`, `"1.2"`, `"1.3"`, `"1.4"`, `"1.5"`, or `"1.6"`. `case_study` requires `"1.1"` or later. `visual` requires `"1.2"` or later. `highlight`, including a highlight embedded in a case study, requires `"1.3"`. Standalone `bowtie` requires `"1.4"`. `rationale.visuals` (explanation visuals) requires `"1.5"`. Case-study unfolding metadata fields (`stageId`, `answerableAfterStageId`, stage `trigger`/`narrative`/`timeOffset`, and exhibit `type`) require `"1.6"`.
 
 ---
 
@@ -892,9 +892,13 @@ Rows are statements/findings; columns are categories. Each row gets a selection.
       {
         "id": "stage_0815",
         "title": { "en": "0815 update", "zh": "..." },
+        "trigger": { "en": "The client reports worsening dyspnea.", "zh": "..." },
+        "narrative": { "en": "New assessment data are available.", "zh": "..." },
+        "timeOffset": "30 minutes later",
         "exhibits": [
           {
             "id": "new_labs",
+            "type": "text",
             "title": { "en": "New results", "zh": "..." },
             "content": { "en": "...", "zh": "..." }
           }
@@ -902,8 +906,8 @@ Rows are statements/findings; columns are categories. Each row gets a selection.
       }
     ],
     "questions": [
-      { "id": "case_sepsis_01_part_1", "itemType": "matrix", "...": "full standalone question shape" },
-      { "id": "case_sepsis_01_part_2", "itemType": "ordered_response", "...": "full standalone question shape" }
+      { "id": "case_sepsis_01_part_1", "itemType": "matrix", "stageId": "baseline", "...": "full standalone question shape" },
+      { "id": "case_sepsis_01_part_2", "itemType": "ordered_response", "answerableAfterStageId": "stage_0815", "...": "full standalone question shape" }
     ]
   },
   "rationale": { "correct": { "en": "Case-level clinical reasoning summary", "zh": "..." } },
@@ -913,9 +917,10 @@ Rows are statements/findings; columns are categories. Each row gets a selection.
 ```
 
 - `caseStudy.exhibits`: required, at least one exhibit. Use concise chart-like content; newline-separated vitals/labs are allowed.
+- `caseStudy.exhibits[].type`: optional schema `1.6` discriminator string. Current renderer does not consume it; observed canonical value is `"text"`.
 - `caseStudy.exhibits[].visual`: optional schema `1.2` visual stimulus. Exhibit `title` and `content` remain required even when a visual is present.
-- `caseStudy.stages`: optional unfolding updates, each with at least one exhibit.
-- `caseStudy.questions`: 2–6 embedded questions using any current standalone item type except `bowtie`. Each must include its own full common fields, rationale, strategy, and glossary. An embedded `highlight` requires the enclosing bank to declare schema `1.3`.
+- `caseStudy.stages`: optional unfolding updates, each with at least one exhibit. Schema `1.6` adds optional `trigger` and `narrative` (`{ en, zh }`) plus optional plain string `timeOffset`; these are metadata today and are not rendered as separate controls.
+- `caseStudy.questions`: 2–6 embedded questions using any current standalone item type except `bowtie`. Each must include its own full common fields, rationale, strategy, and glossary. An embedded `highlight` requires the enclosing bank to declare schema `1.3`. Schema `1.6` adds optional opaque string `stageId` and `answerableAfterStageId`; validators do not enforce that these match `caseStudy.stages[].id` because current canonical also uses baseline/admission labels.
 - Embedded question ids must be unique within the case and differ from the parent case id.
 - Case-level `rationale.correct` summarizes the whole case. Each embedded question carries the detailed graded rationale.
 
@@ -1056,8 +1061,8 @@ Scoring is polytomous (partial credit), matching the NGN. Each item yields `{ ea
 
 ## Notes
 
-- `highlight` text items are supported in schema `1.3`; standalone bowtie items are supported in schema `1.4`; rationale explanation visuals are supported in schema `1.5`. The current NGN item-type set is complete. Highlight: Table remains deferred.
-- Migration from `1.4` to `1.5` requires no changes to existing questions. Only banks containing `rationale.visuals` need to declare `meta.schemaVersion: "1.5"`.
+- `highlight` text items are supported in schema `1.3`; standalone bowtie items are supported in schema `1.4`; rationale explanation visuals are supported in schema `1.5`; additive unfolding case-study metadata is supported in schema `1.6`. The current NGN item-type set is complete. Highlight: Table remains deferred.
+- Migration from `1.5` to `1.6` requires no content changes. Only banks containing the additive case-study metadata fields need to declare `meta.schemaVersion: "1.6"`.
 - Rationale/dyad scoring and any explicit linked “X as evidenced by Y” item type remain out of scope; no current item type requires them.
 - `case_study` is the v1.1 hard-mode container for multi-part unfolding practice. It deliberately reuses v1.0 embedded item types instead of introducing new grading rules.
 - IDs: any unique string is fine. A readable convention like `<type>_<topicslug>_<n>` helps debugging but isn't required.

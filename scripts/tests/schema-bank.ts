@@ -199,7 +199,77 @@ assert.equal(validateBankObject({
   questions: [embeddedCaseStudy],
 }).ok, true);
 
+const caseStudy16 = {
+  ...embeddedCaseStudy,
+  id: "schema_16_case",
+  rationale: { correct: pair("Schema 1.6 metadata is inert.") },
+  caseStudy: {
+    ...embeddedCaseStudy.caseStudy,
+    exhibits: [{
+      id: "baseline",
+      type: "text",
+      title: pair("Baseline"),
+      content: pair("Baseline exhibit."),
+    }],
+    stages: [{
+      id: "stage_1",
+      title: pair("Stage 1"),
+      trigger: pair("The client develops a new symptom."),
+      narrative: pair("Stage narrative."),
+      timeOffset: "30 minutes later",
+      exhibits: [{
+        id: "stage_note",
+        type: "text",
+        title: pair("Stage note"),
+        content: pair("Stage exhibit."),
+      }],
+    }],
+    questions: [
+      { ...withRationaleVisuals([rationaleVisual]), id: "schema_16_case_part_1", stageId: "baseline" },
+      {
+        ...baseOptionQuestion,
+        id: "schema_16_case_part_2",
+        answerableAfterStageId: "stage_1",
+      },
+    ],
+  },
+};
+
+assert.equal(validateBankObject({
+  meta: { schemaVersion: "1.6", count: 1 },
+  questions: [caseStudy16],
+}).ok, true);
+
+const stale16Floor = validateBankObject({
+  meta: { schemaVersion: "1.5", count: 1 },
+  questions: [caseStudy16],
+});
+assert.equal(stale16Floor.ok, false);
+if (!stale16Floor.ok) {
+  assert(stale16Floor.reasons.includes("questions[0]: unfolding case-study metadata requires meta.schemaVersion 1.6"));
+}
+
+const badStageTrigger = validateBankObject({
+  meta: { schemaVersion: "1.6", count: 1 },
+  questions: [{
+    ...caseStudy16,
+    caseStudy: {
+      ...caseStudy16.caseStudy,
+      stages: [{
+        ...caseStudy16.caseStudy.stages[0],
+        trigger: { en: "English only" },
+      }],
+    },
+  }],
+});
+assert.equal(badStageTrigger.ok, false);
+if (!badStageTrigger.ok) {
+  assert(badStageTrigger.reasons.includes("questions[0]: caseStudy.stages[0].trigger.en and caseStudy.stages[0].trigger.zh are required"));
+}
+
 const exportEnvelope = toExportEnvelope([withRationaleVisuals([rationaleVisual]) as unknown as Question]);
 assert.equal(exportEnvelope.meta?.schemaVersion, "1.5");
+const schema16ExportEnvelope = toExportEnvelope([caseStudy16 as unknown as Question]);
+assert.equal(schema16ExportEnvelope.meta?.schemaVersion, "1.6");
 
 console.log("bank schema tests passed");
