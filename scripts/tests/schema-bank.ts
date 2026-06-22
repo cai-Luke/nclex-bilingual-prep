@@ -267,6 +267,54 @@ if (!badStageTrigger.ok) {
   assert(badStageTrigger.reasons.includes("questions[0]: caseStudy.stages[0].trigger.en and caseStudy.stages[0].trigger.zh are required"));
 }
 
+// U+FFFD (replacement character) is never legitimate content — it signals an
+// encoding round-trip corruption. Reject it in any string field, at any depth.
+const replacementInStem = validateBankObject({
+  meta: { schemaVersion: "1.5", count: 1 },
+  questions: [{ ...baseOptionQuestion, stem: { en: "ok", zh: "速率�四舍五入" } }],
+});
+assert.equal(replacementInStem.ok, false);
+if (!replacementInStem.ok) {
+  assert(replacementInStem.reasons.includes(
+    "questions[0]: stem.zh contains a U+FFFD replacement character (encoding corruption)",
+  ));
+}
+
+const replacementInOption = validateBankObject({
+  meta: { schemaVersion: "1.5", count: 1 },
+  questions: [{
+    ...baseOptionQuestion,
+    options: [
+      { id: "A", en: "Normal ventilation", zh: "正常�通气" },
+      { id: "B", en: "Bronchospasm", zh: "支气管痉挛" },
+      { id: "C", en: "Disconnected circuit", zh: "回路断开" },
+    ],
+  }],
+});
+assert.equal(replacementInOption.ok, false);
+if (!replacementInOption.ok) {
+  assert(replacementInOption.reasons.includes(
+    "questions[0]: options[0].zh contains a U+FFFD replacement character (encoding corruption)",
+  ));
+}
+
+const replacementInEmbeddedExhibit = validateBankObject({
+  meta: { schemaVersion: "1.5", count: 1 },
+  questions: [{
+    ...embeddedCaseStudy,
+    caseStudy: {
+      ...embeddedCaseStudy.caseStudy,
+      exhibits: [{ id: "nurses_note", title: pair("Nurses note"), content: { en: "Monitored.", zh: "正在�监测。" } }],
+    },
+  }],
+});
+assert.equal(replacementInEmbeddedExhibit.ok, false);
+if (!replacementInEmbeddedExhibit.ok) {
+  assert(replacementInEmbeddedExhibit.reasons.some((reason) =>
+    reason.includes("caseStudy.exhibits[0].content.zh contains a U+FFFD replacement character")),
+  );
+}
+
 const exportEnvelope = toExportEnvelope([withRationaleVisuals([rationaleVisual]) as unknown as Question]);
 assert.equal(exportEnvelope.meta?.schemaVersion, "1.5");
 const schema16ExportEnvelope = toExportEnvelope([caseStudy16 as unknown as Question]);

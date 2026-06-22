@@ -106,6 +106,29 @@ const addTextPairError = (value: unknown, path: string, reasons: string[]) => {
   }
 };
 
+// U+FFFD (replacement character) in any string field means encoding corruption
+// (mojibake from a non-UTF-8 round-trip) — it is never legitimate content. Walk
+// every nested string so the check covers options, exhibits, visual captions,
+// embedded sub-questions, etc., regardless of shape. Schema validation otherwise
+// only sees a "plausible" string and lets the corruption through.
+const scanForReplacementChar = (value: unknown, path: string, reasons: string[]): void => {
+  if (typeof value === "string") {
+    if (value.includes("�")) {
+      reasons.push(`${path || "question"} contains a U+FFFD replacement character (encoding corruption)`);
+    }
+    return;
+  }
+  if (Array.isArray(value)) {
+    value.forEach((item, index) => scanForReplacementChar(item, `${path}[${index}]`, reasons));
+    return;
+  }
+  if (isRecord(value)) {
+    for (const [key, child] of Object.entries(value)) {
+      scanForReplacementChar(child, path ? `${path}.${key}` : key, reasons);
+    }
+  }
+};
+
 const enumIncludes = <T extends string>(values: readonly T[], value: unknown): value is T =>
   typeof value === "string" && values.includes(value as T);
 
@@ -184,6 +207,8 @@ export const validateQuestion = (raw: unknown, options: { allowCaseStudy?: boole
   if (!isRecord(raw)) {
     return { ok: false, reasons: ["question must be an object"] };
   }
+
+  scanForReplacementChar(raw, "", reasons);
 
   if (!nonEmptyString(raw.id)) reasons.push("missing id");
   if (raw._compileManifest !== undefined) {
