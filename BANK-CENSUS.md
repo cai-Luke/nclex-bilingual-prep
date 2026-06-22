@@ -2,8 +2,8 @@
 
 # NCLEX Bank Census
 
-Generated: 2026-06-22T03:55:31.113Z
-Git SHA: c2a817ef9f1a265726a6312f3a99306fbdefca8a
+Generated: 2026-06-22T22:11:32.271Z
+Git SHA: 1b9594b28487270adb84045147c08621f70e04ea
 
 ## Per-File Summary
 
@@ -14,7 +14,7 @@ Git SHA: c2a817ef9f1a265726a6312f3a99306fbdefca8a
 | claude-canonical.json | 1.6 | 97 | 97 | — |
 | device-canonical.json | 1.2 | 8 | 8 | — |
 | gemini-canonical.json | 1.6 | 874 | 874 | — |
-| gpt-canonical.json | 1.6 | 357 | 357 | — |
+| gpt-canonical.json | 1.6 | 391 | 391 | — |
 | hard-cases-canonical.json | 1.6 | 66 | 66 | — |
 | io-canonical.json | 1.2 | 8 | 8 | — |
 | lab-canonical.json | 1.2 | 20 | 20 | — |
@@ -25,32 +25,32 @@ Git SHA: c2a817ef9f1a265726a6312f3a99306fbdefca8a
 
 ## Totals
 
-- Top-level questions: 1524
+- Top-level questions: 1558
 - Case study top-level: 143
 - Embedded parts: 721
-- Graded total: 2245
+- Graded total: 2279
 
 ## By Category
 
 - Psychosocial Integrity: 153
 - Basic Care and Comfort: 155
 - Health Promotion and Maintenance: 160
-- Reduction of Risk Potential: 178
-- Safety and Infection Control: 180
-- Management of Care: 216
-- Pharmacological and Parenteral Therapies: 218
+- Reduction of Risk Potential: 179
+- Safety and Infection Control: 188
+- Management of Care: 227
+- Pharmacological and Parenteral Therapies: 232
 - Physiological Adaptation: 264
 
 ## Within-Category Concentration
 
 ### Management of Care
 
-Top topics: Prioritization & Delegation (55), Legal & Ethical Principles (51), Discharge Planning & Handoff (26), Confidentiality & HIPAA (15), Client Advocacy (10), Conflict Resolution (8), Chain of Command & Escalation (2), Disaster & Emergency Preparedness (2), Medication Safety & Admin (2), Advance Directives / DNR (1)
-Visual kinds: device_screen (1), mar (1)
+Top topics: Prioritization & Delegation (55), Legal & Ethical Principles (51), Discharge Planning & Handoff (28), Confidentiality & HIPAA (16), Client Advocacy (11), Conflict Resolution (10), Chain of Command & Escalation (4), Disaster & Emergency Preparedness (3), Advance Directives / DNR (2), Medication Safety & Admin (2)
+Visual kinds: device_screen (1), mar (2)
 
 ### Safety and Infection Control
 
-Top topics: Patient & Environment Safety (42), Transmission-Based Precautions (42), Standard Precautions & Hygiene (20), PPE & Sterile Technique (15), Disaster & Emergency Preparedness (7), Medication Safety & Admin (4), Transfusion & Blood Products (4), Environmental safety and equipment checks (3), Endocrine & Neurological Disorders (2), Fall prevention (2)
+Top topics: Patient & Environment Safety (42), Transmission-Based Precautions (42), Standard Precautions & Hygiene (21), PPE & Sterile Technique (18), Disaster & Emergency Preparedness (8), Environmental safety and equipment checks (4), Fall prevention (4), Medication Safety & Admin (4), Transfusion & Blood Products (4), Endocrine & Neurological Disorders (2)
 Visual kinds: capnography (1), device_screen (1), medication_label (1), vitals_trend (1)
 
 ### Health Promotion and Maintenance
@@ -70,13 +70,13 @@ Visual kinds: burn_map (1), device_screen (1), io_record (4)
 
 ### Pharmacological and Parenteral Therapies
 
-Top topics: Medication Safety & Admin (54), Dosage Calculations (52), Anticoagulant Therapy (33), Cardiovascular & Endocrine Medications (22), Psychotropic Medications (11), Parenteral Nutrition (4), Nutritional & Fluid Support (3), Antibiotic Allergy Screening (2), Cardiovascular Disorders (2), High-Alert Medication Safety (2)
-Visual kinds: capnography (1), device_screen (5), lab_trend (6), mar (7), medication_label (9), rhythm_strip (10), vitals_trend (2)
+Top topics: Medication Safety & Admin (54), Dosage Calculations (53), Anticoagulant Therapy (36), Cardiovascular & Endocrine Medications (23), Psychotropic Medications (13), Parenteral Nutrition (8), High-Alert Medication Safety (5), Nutritional & Fluid Support (3), Antibiotic Allergy Screening (2), Cardiovascular Disorders (2)
+Visual kinds: capnography (1), device_screen (6), lab_trend (6), mar (9), medication_label (12), rhythm_strip (10), vitals_trend (2)
 
 ### Reduction of Risk Potential
 
 Top topics: Procedural Complications & Dialysis (41), Laboratory & Diagnostic Tests (27), Perioperative Care (26), Burn Management (8), Maternal-Newborn Care & Teaching (7), intrapartum fetal monitoring (6), ABG & Acid-Base Interpretation (4), Injection route recognition from skin cross-section (4), PPE & Sterile Technique (4), Endocrine & Neurological Disorders (3)
-Visual kinds: burn_map (5), capnography (1), device_screen (2), fetal_monitoring (6), injection_site (8), io_record (5), lab_trend (7), rhythm_strip (2), vitals_trend (1)
+Visual kinds: burn_map (5), capnography (1), device_screen (3), fetal_monitoring (6), injection_site (8), io_record (5), lab_trend (7), rhythm_strip (2), vitals_trend (1)
 
 ### Physiological Adaptation
 
@@ -85,26 +85,26 @@ Visual kinds: burn_map (5), capnography (4), io_record (2), lab_trend (7), rhyth
 
 ## By Item Type
 
-- bowtie: 64
-- highlight: 64
-- ordered_response: 135
+- bowtie: 70
+- highlight: 75
+- ordered_response: 142
 - case_study: 143
-- fill_in_blank: 148
-- dropdown_cloze: 151
+- fill_in_blank: 152
+- dropdown_cloze: 153
 - matrix: 178
 - select_all: 205
-- multiple_choice: 436
+- multiple_choice: 440
 
 ## By Difficulty
 
-- easy: 212
+- easy: 217
 - hard: 549
-- medium: 763
+- medium: 792
 
 ## By Schema Version
 
 - v1.2: 130 questions (burn-canonical.json, capnography-canonical.json, device-canonical.json, io-canonical.json, lab-canonical.json, mar-canonical.json, medlabel-canonical.json, visual-canonical.json, vitals-canonical.json)
-- v1.6: 1394 questions (claude-canonical.json, gemini-canonical.json, gpt-canonical.json, hard-cases-canonical.json)
+- v1.6: 1428 questions (claude-canonical.json, gemini-canonical.json, gpt-canonical.json, hard-cases-canonical.json)
 
 ## By Source File
 
@@ -113,7 +113,7 @@ Visual kinds: burn_map (5), capnography (4), io_record (2), lab_trend (7), rhyth
 - claude-canonical.json: 97
 - device-canonical.json: 8
 - gemini-canonical.json: 874
-- gpt-canonical.json: 357
+- gpt-canonical.json: 391
 - hard-cases-canonical.json: 66
 - io-canonical.json: 8
 - lab-canonical.json: 20
@@ -124,19 +124,19 @@ Visual kinds: burn_map (5), capnography (4), io_record (2), lab_trend (7), rhyth
 
 ## Visuals
 
-Total visuals: 146
+Total visuals: 154
 
 ### By Kind
 
 - burn_map: 11 (burn_fib_parkland_first8h_leg_arm_08, burn_fib_parkland_rate_arm_trunk_genitalia_04, burn_fib_parkland_total_posterior_03, burn_fib_tbsa_anterior_mix_01, burn_matrix_parkland_values_05, …+6)
 - capnography: 7 (cap_01, cap_02, cap_03, cap_04, cap_05, …+2)
-- device_screen: 10 (dev_enteral_volume_shift_01, dev_high_alert_kcl_pump_mismatch_01, dev_infusion_duration_vtbi_01, dev_pca_basal_opioid_naive_01, dev_pca_delivered_total_basal_01, …+5)
+- device_screen: 12 (dev_enteral_volume_shift_01, dev_high_alert_kcl_pump_mismatch_01, dev_infusion_duration_vtbi_01, dev_pca_basal_opioid_naive_01, dev_pca_delivered_total_basal_01, …+7)
 - fetal_monitoring: 6 (fhr_gemini_smoke_2026_06_13_01, fhr_gemini_smoke_2026_06_13_02, fhr_gemini_smoke_2026_06_13_03, fhr_gemini_smoke_2026_06_13_04, fhr_gemini_smoke_2026_06_13_05, …+1)
 - injection_site: 8 (gpt_injection_smoke_2026_06_15_matrix_route_match_08, gpt_injection_smoke_2026_06_15_matrix_subq_cues_07, gpt_injection_smoke_2026_06_15_mc_intradermal_01, gpt_injection_smoke_2026_06_15_mc_intramuscular_03, gpt_injection_smoke_2026_06_15_mc_intravenous_04, …+3)
 - io_record: 11 (gpt_visual_smoke_2026_06_12_fib_io_net_balance_04, gpt_visual_smoke_2026_06_12_matrix_io_totals_06, gpt_visual_smoke_2026_06_12_mc_io_output_total_05, io_fib_hf_net_balance_01, io_fib_postop_output_total_06, …+6)
 - lab_trend: 20 (gpt_u3_labtrend_2026_06_09_b_cloze_inr_amiodarone_09, gpt_u3_labtrend_2026_06_09_b_cloze_sodium_overcorrection_08, gpt_u3_labtrend_2026_06_09_b_fib_creatinine_increase_10, gpt_u3_labtrend_2026_06_09_b_matrix_dka_potassium_glucose_04, gpt_u3_labtrend_2026_06_09_b_matrix_neutropenia_wbc_05, …+15)
-- mar: 8 (mar_acetaminophen_duplicate_products_04, mar_av_nodal_blockers_1600_01, mar_digoxin_low_pulse_due_08, mar_enoxaparin_prior_held_03, mar_lispro_meal_delayed_02, …+3)
-- medication_label: 10 (gpt_visual_smoke_2026_06_12_fib_medlabel_heparin_rate_07, gpt_visual_smoke_2026_06_12_mc_medlabel_tablet_quantity_08, medlbl_cephalexin_capsules_006, medlbl_digoxin_tablets_005, medlbl_enoxaparin_volume_004, …+5)
+- mar: 11 (gpt_fresh_2026_06_22_vis_01, gpt_fresh_2026_06_22_vis_05, gpt_fresh_2026_06_22_vis_06, mar_acetaminophen_duplicate_products_04, mar_av_nodal_blockers_1600_01, …+6)
+- medication_label: 13 (gpt_fresh_2026_06_22_vis_02, gpt_fresh_2026_06_22_vis_03, gpt_fresh_2026_06_22_vis_07, gpt_visual_smoke_2026_06_12_fib_medlabel_heparin_rate_07, gpt_visual_smoke_2026_06_12_mc_medlabel_tablet_quantity_08, …+8)
 - rhythm_strip: 44 (ekg_b1_matrix_09, ekg_b1_mc_01, ekg_b1_mc_02, ekg_b1_mc_04, ekg_b1_mc_05, …+39)
 - vitals_trend: 11 (cs_thyroid_storm_main, vit_01, vit_02, vit_03, vit_04, …+6)
 
@@ -312,39 +312,36 @@ No duplicates detected.
 ## Targets
 
 Category targets (2026 NCLEX-RN test-plan weights):
-- Management of Care: 274.3
-- Safety and Infection Control: 198.1
-- Health Promotion and Maintenance: 137.2
-- Psychosocial Integrity: 137.2
-- Basic Care and Comfort: 137.2
-- Pharmacological and Parenteral Therapies: 243.8
-- Reduction of Risk Potential: 182.9
-- Physiological Adaptation: 213.4
-Item type average: 169.3
+- Management of Care: 280.4
+- Safety and Infection Control: 202.5
+- Health Promotion and Maintenance: 140.2
+- Psychosocial Integrity: 140.2
+- Basic Care and Comfort: 140.2
+- Pharmacological and Parenteral Therapies: 249.3
+- Reduction of Risk Potential: 187.0
+- Physiological Adaptation: 218.1
+Item type average: 173.1
 
 Under-served categories:
-- Management of Care: 216
-
-Over-served categories:
-- Physiological Adaptation: 264
+- Management of Care: 227
 
 Under-served item types:
-- bowtie: 64
-- highlight: 64
-- ordered_response: 135
+- bowtie: 70
+- highlight: 75
+- ordered_response: 142
 - case_study: 143
-- fill_in_blank: 148
-- dropdown_cloze: 151
+- fill_in_blank: 152
+- dropdown_cloze: 153
 
 ## Prompt Parameters
 
 PRIORITIZE_TOPICS:
-- Anticoagulant Therapy — add: ordered_response, bowtie
+- Anticoagulant Therapy — add: ordered_response
 - Nutritional & Fluid Support — add: highlight, bowtie
 - Maternal-Newborn Care & Teaching — add: highlight
 - Patient & Environment Safety — add: bowtie
 - Therapeutic Communication — add: ordered_response, fill_in_blank, highlight, bowtie
-- Cardiovascular & Endocrine Medications — add: ordered_response, fill_in_blank, dropdown_cloze, bowtie
+- Cardiovascular & Endocrine Medications — add: ordered_response, fill_in_blank, dropdown_cloze
 - Renal & Gastrointestinal Disorders — add: ordered_response, fill_in_blank
 - Dosage Calculations — add: ordered_response, highlight, bowtie
 - Procedural Complications & Dialysis — add: highlight, bowtie
@@ -357,9 +354,9 @@ PRIORITIZE_TOPICS:
 - Suicide & Crisis Intervention — add: fill_in_blank, bowtie
 - Burn Management — add: ordered_response, dropdown_cloze, highlight
 - Electrolyte Imbalances — add: fill_in_blank
-- PPE & Sterile Technique — add: highlight, bowtie
+- PPE & Sterile Technique — add: bowtie
 - Sleep & Rest — add: highlight, bowtie
-- Standard Precautions & Hygiene — add: highlight, bowtie
+- Standard Precautions & Hygiene — add: bowtie
 - Confidentiality & HIPAA — add: ordered_response, fill_in_blank
 - Diabetic Ketoacidosis (DKA) — add: fill_in_blank, highlight, bowtie
 - Injection route recognition from skin cross-section — add: select_all, ordered_response, fill_in_blank, matrix, dropdown_cloze, highlight, bowtie
@@ -369,8 +366,8 @@ PRIORITIZE_TOPICS:
 - Electroconvulsive Therapy (ECT) — add: select_all, fill_in_blank, matrix, dropdown_cloze, highlight, bowtie
 - intrapartum fetal monitoring — add: ordered_response, fill_in_blank, dropdown_cloze, highlight, bowtie
 - Reproductive & Endocrine Health — add: ordered_response, fill_in_blank, bowtie
-- Management of Care (216 vs target 274)
-- bowtie (64 vs target 169.3)
+- Management of Care (227 vs target 280)
+- bowtie (70 vs target 173.1)
 
 AVOID_TOPICS:
 - Cardiovascular Disorders (78)

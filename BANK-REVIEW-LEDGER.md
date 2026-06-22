@@ -527,6 +527,19 @@ Gate results: `validate-bank` clean on all raw + all 13 canonical post-merge; pr
 
 Six GPT unfolding cases promoted earlier this session (`gpt-canonical` 321→333) were reverted when an "in-progress promotion was unwound" during parallel Codex work (per the 2026-06-22 Claude MoC review entry), and their untracked compiled JSON was deleted post-merge — unrecoverable from the repo. **Resolved:** the maintainer re-supplied the 6 raw case files, which were re-gated in Pass 2 above (`gpt-canonical` 345→357), restoring all `gpt_case_{caregiver_role_strain_dementia, infection_control_clustered_care, nine_month_well_child_safety, opioid_recovery_relapse_risk, overdue_preventive_screening, pressure_injury_prevention_mobility}_01` ids and their embedded leaves. `.md` source skeletons remain archived in `Archive/case_sources/`.
 
+### 2026-06-22 — GPT fresh MoC / Pharm / Safety / Visual batch (34 items → `banks/gpt-canonical.json`, 357→391)
+
+Status: `fixed-and-validated`. Claude operated the final review + promotion gate over the `gpt-*-fresh-2026-06-22` slate (generated externally by GPT; cross-model reviewed in the GPT session per maintainer):
+
+- `gpt-moc-fresh-2026-06-22.json` — 10 Management of Care items (highlight + ordered_response): confidentiality/HIPAA, handoff, chain-of-command escalation, advance directives/DNR, conflict resolution, client advocacy, disaster preparedness, discharge teaching.
+- `gpt-pharm-fresh-2026-06-22.json` — 8 Pharmacological & Parenteral items (bowtie + dropdown_cloze): warfarin over-anticoagulation, clozapine neutropenia, lithium toxicity, PN hyperglycemia, insulin error, refeeding electrolyte shift, digoxin toxicity, HIT.
+- `gpt-sic-fresh-2026-06-22.json` — 8 Safety & Infection Control items (highlight + ordered_response): sterile technique, standard precautions, equipment checks, PPE doffing, fall prevention, evacuation safety, post-fall sequence, sterile-field setup.
+- `gpt-vis-fresh-2026-06-22.json` — 8 visual items (MAR / medication_label / device_screen): all `Tier 1`, visual-necessary; arithmetic verified (heparin 10 mL/hr, morphine 0.2 mL, PN 720 min, KCl 50 mL/hr, PCA 1.2 mg/hr) and MAR-linked safety actions confirmed.
+
+Pre-promotion fixes (Claude): 6 ASCII `" and "` tokens leaked into Chinese rationale/glossary strings (bilingual-parity defect) replaced with `和`, and one garbled zh sentence in `pharm_04` (`流程发现在此前已达指标…`) rewritten. All clinical keys, single-best answers, and ordered-response sequences confirmed correct.
+
+Gate results: `validate-bank` clean on all 4 raw + all 13 canonical post-merge; `npm run audit` **GATE PASSED** (references clean / positions χ²=0.330 / integrity verified 4 drafts / ids 2245 unique). `npm run consolidate` merged sequentially → `gpt-canonical.json` **357→391**; staged files auto-consumed; raw drafts deleted. Census regenerated; build green.
+
 ## Next Planned Review
 
 - Next GPT/Gemini batch: prioritize Physiological Adaptation singleton topics (ADHF, AKI, acute pancreatitis, Reduction of Risk Potential) using case_study format to close the 93-item case_study gap (71 vs 164 target).

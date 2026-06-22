@@ -1,7 +1,7 @@
 {
   "meta": {
     "schemaVersion": "1.6",
-    "count": 357,
+    "count": 391,
     "exam": "NCLEX-RN",
     "topic": "assorted NCLEX-RN GPT canonical bank",
     "category": "mixed",
@@ -74195,6 +74195,4304 @@
           "defZh": "红斑按压后是否变白，并在松开后恢复的特性。"
         }
       ]
+    },
+    {
+      "id": "gpt_fresh_2026_06_22_moc_01",
+      "itemType": "highlight",
+      "category": "Management of Care",
+      "topic": "Confidentiality & HIPAA",
+      "difficulty": "easy",
+      "ngnSkill": "recognize_cues",
+      "stem": {
+        "en": "The nurse manager reviews incident-report excerpts from the previous shift. Highlight the entry that describes a confidentiality breach requiring follow-up.",
+        "zh": "护士长查看上一班的事件报告摘录。请标出描述保密违规、需要跟进的记录。"
+      },
+      "highlight": {
+        "segments": [
+          {
+            "id": "s1",
+            "en": "Incident log excerpt:",
+            "zh": "事件记录摘录："
+          },
+          {
+            "id": "s2",
+            "en": "A visitor asked for an update at the nurses' station; staff directed the visitor to speak with the client.",
+            "zh": "一名访客在护士站询问病情；工作人员请该访客与患者本人沟通。",
+            "selectable": true
+          },
+          {
+            "id": "s3",
+            "en": "Two staff members discussed a client's HIV diagnosis in a public elevator while visitors were present.",
+            "zh": "两名工作人员在有访客在场的公共电梯里讨论一名患者的 HIV 诊断。",
+            "selectable": true
+          },
+          {
+            "id": "s4",
+            "en": "The nurse closed the privacy curtain before assisting a client with perineal care.",
+            "zh": "护士在协助患者进行会阴护理前拉上了隐私帘。",
+            "selectable": true
+          },
+          {
+            "id": "s5",
+            "en": "The charge nurse moved a printed report from the medication room counter to the locked shred bin.",
+            "zh": "责任护士将放在配药室台面上的打印报告移到上锁的碎纸箱中。",
+            "selectable": true
+          }
+        ],
+        "correct": [
+          "s3"
+        ]
+      },
+      "rationale": {
+        "correct": {
+          "en": "Discussing a client's diagnosis in a public elevator where visitors can hear is an unauthorized disclosure of protected health information and requires follow-up.",
+          "zh": "在访客可能听到的公共电梯里讨论患者诊断，属于未经授权披露受保护健康信息，需要跟进处理。"
+        },
+        "byChoice": [
+          {
+            "refId": "s2",
+            "en": "Directing the visitor to the client protects confidentiality because staff do not disclose information without authorization.",
+            "zh": "请访客与患者本人沟通可以保护保密性，因为工作人员没有在未授权情况下透露信息。"
+          },
+          {
+            "refId": "s3",
+            "en": "A public discussion of a specific diagnosis exposes protected health information to people without a need to know.",
+            "zh": "在公共场合讨论具体诊断，会让无知情必要的人接触到受保护健康信息。"
+          },
+          {
+            "refId": "s4",
+            "en": "Closing the privacy curtain supports dignity and privacy during personal care.",
+            "zh": "在个人护理时拉上隐私帘，有助于维护患者尊严和隐私。"
+          },
+          {
+            "refId": "s5",
+            "en": "Moving a printed report to a locked shred bin reduces the risk of accidental disclosure.",
+            "zh": "将打印报告放入上锁的碎纸箱，可降低意外泄露风险。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "For confidentiality questions, look for disclosure of identifiable health information to someone without authorization or a need to know.",
+        "zh": "遇到保密题时，重点寻找是否把可识别的健康信息透露给未授权或无知情必要的人。"
+      },
+      "glossary": [
+        {
+          "termEn": "Protected health information",
+          "termZh": "受保护健康信息",
+          "defZh": "能识别患者身份并与健康、诊疗或付款相关的信息。"
+        },
+        {
+          "termEn": "Confidentiality breach",
+          "termZh": "保密违规",
+          "defZh": "未按规定保护患者隐私或健康信息的行为。"
+        },
+        {
+          "termEn": "Need to know",
+          "termZh": "知情必要",
+          "defZh": "只有为照护或工作职责需要时才可接触相关信息。"
+        }
+      ]
+    },
+    {
+      "id": "gpt_fresh_2026_06_22_moc_02",
+      "itemType": "highlight",
+      "category": "Management of Care",
+      "topic": "Discharge Planning & Handoff",
+      "difficulty": "medium",
+      "ngnSkill": "analyze_cues",
+      "stem": {
+        "en": "A nurse audits transfer handoff notes for clients discharged to skilled nursing facilities. Highlight the note that contains a missing handoff element requiring correction before transfer.",
+        "zh": "护士审核转往专业护理机构患者的交接记录。请标出包含交接信息缺失、转运前必须更正的记录。"
+      },
+      "highlight": {
+        "segments": [
+          {
+            "id": "s1",
+            "en": "Transfer handoff audit:",
+            "zh": "转运交接审核："
+          },
+          {
+            "id": "s2",
+            "en": "Client A: Medication reconciliation completed; last dose times listed for scheduled medications.",
+            "zh": "患者 A：已完成用药核对；列出了定时用药的末次给药时间。",
+            "selectable": true
+          },
+          {
+            "id": "s3",
+            "en": "Client B: Wound care order attached; dressing type and next change time documented.",
+            "zh": "患者 B：已附伤口护理医嘱；记录了敷料类型和下次更换时间。",
+            "selectable": true
+          },
+          {
+            "id": "s4",
+            "en": "Client C: Blood culture result is expected tomorrow; pending result and follow-up provider were not listed in the receiving-facility handoff.",
+            "zh": "患者 C：血培养结果预计明天出；交给接收机构的交接中未列出待出结果及负责跟进的医师。",
+            "selectable": true
+          },
+          {
+            "id": "s5",
+            "en": "Client D: Family will bring eyeglasses and dentures; belongings list placed in the discharge packet.",
+            "zh": "患者 D：家属会带来眼镜和假牙；物品清单已放入出院资料包。",
+            "selectable": true
+          }
+        ],
+        "correct": [
+          "s4"
+        ]
+      },
+      "rationale": {
+        "correct": {
+          "en": "A pending diagnostic result must be communicated during transfer, including who will follow up. Omitting it creates a risk that an abnormal result will not be acted on.",
+          "zh": "转运交接时必须说明待出的诊断结果以及由谁负责跟进。遗漏该信息会造成异常结果无人处理的风险。"
+        },
+        "byChoice": [
+          {
+            "refId": "s2",
+            "en": "Medication reconciliation and last-dose times are appropriate handoff elements.",
+            "zh": "用药核对和末次给药时间属于适当的交接内容。"
+          },
+          {
+            "refId": "s3",
+            "en": "Wound-care instructions and the next dressing-change time support continuity of care.",
+            "zh": "伤口护理说明和下次换药时间有助于照护连续性。"
+          },
+          {
+            "refId": "s4",
+            "en": "Pending results require explicit handoff so the receiving team knows what to monitor and who is responsible for follow-up.",
+            "zh": "待出结果必须明确交接，使接收团队知道要关注什么以及谁负责跟进。"
+          },
+          {
+            "refId": "s5",
+            "en": "Documenting belongings and family plans is useful but does not indicate an unsafe omission.",
+            "zh": "记录个人物品和家属安排有用，但不表示存在不安全遗漏。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "In handoff questions, prioritize unresolved clinical tasks: pending tests, follow-up responsibility, medication changes, and safety needs.",
+        "zh": "交接题要优先关注未完成的临床任务：待出检查、跟进责任、用药变化和安全需求。"
+      },
+      "glossary": [
+        {
+          "termEn": "Handoff",
+          "termZh": "交接",
+          "defZh": "照护责任转移时传递关键信息的过程。"
+        },
+        {
+          "termEn": "Pending result",
+          "termZh": "待出结果",
+          "defZh": "检查已完成但结果尚未返回或尚未处理。"
+        },
+        {
+          "termEn": "Continuity of care",
+          "termZh": "照护连续性",
+          "defZh": "不同照护团队之间保持信息和治疗计划衔接。"
+        }
+      ]
+    },
+    {
+      "id": "gpt_fresh_2026_06_22_moc_03",
+      "itemType": "ordered_response",
+      "category": "Management of Care",
+      "topic": "Chain of Command & Escalation",
+      "difficulty": "medium",
+      "ngnSkill": "take_action",
+      "stem": {
+        "en": "The nurse receives a discharge order for a client who cannot obtain prescribed home oxygen until the next day. The client becomes short of breath when walking to the bathroom. Per facility policy, unresolved unsafe discharge concerns are escalated through the chain of command after the prescriber is contacted. Place the nurse's actions in order.",
+        "zh": "护士收到一名患者的出院医嘱，但该患者要到第二天才能取得处方的家庭氧气；患者步行到卫生间时会气短。根据机构政策，护士联系开医嘱者后，若不安全出院问题仍未解决，应按指挥链上报。请按顺序排列护士的行动。"
+      },
+      "options": [
+        {
+          "id": "D",
+          "en": "Escalate to the nursing supervisor according to the facility chain-of-command policy.",
+          "zh": "根据机构指挥链政策向护理主管上报。"
+        },
+        {
+          "id": "B",
+          "en": "Contact the prescriber with the safety concern and request clarification of the discharge order.",
+          "zh": "联系开医嘱者，说明安全问题，并请求澄清出院医嘱。"
+        },
+        {
+          "id": "C",
+          "en": "Notify the charge nurse and case manager that the unsafe discharge issue remains unresolved.",
+          "zh": "通知责任护士和个案管理人员，不安全出院问题仍未解决。"
+        },
+        {
+          "id": "A",
+          "en": "Assess the client's current respiratory status and keep the client safe in the unit.",
+          "zh": "评估患者当前呼吸状态，并确保患者在病区内安全。"
+        },
+        {
+          "id": "E",
+          "en": "Document objective assessment findings, notifications, responses, and the current discharge plan.",
+          "zh": "记录客观评估结果、通知对象、对方回应以及当前出院计划。"
+        }
+      ],
+      "correct": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ],
+      "rationale": {
+        "correct": {
+          "en": "The nurse begins with assessment and safety, then contacts the prescriber to clarify the unsafe discharge order. If the issue remains unresolved, the nurse uses the chain of command and documents objective facts and responses.",
+          "zh": "护士从评估和维持安全开始，然后联系开医嘱者澄清不安全的出院医嘱。若问题仍未解决，再按指挥链上报，并记录客观事实和各方回应。"
+        },
+        "byChoice": [
+          {
+            "refId": "A",
+            "en": "Assessment and immediate safety come before calls or paperwork because the client is currently symptomatic with exertion.",
+            "zh": "患者活动后已有症状，因此评估并确保安全应在沟通和记录之前完成。"
+          },
+          {
+            "refId": "D",
+            "en": "The nursing supervisor is the next chain-of-command step when the safety concern remains unresolved after initial escalation.",
+            "zh": "初步上报后安全问题仍未解决时，护理主管是指挥链中的下一步。"
+          },
+          {
+            "refId": "C",
+            "en": "The charge nurse and case manager are appropriate early escalation resources when a discharge barrier remains unresolved.",
+            "zh": "当出院障碍仍未解决时，责任护士和个案管理人员是合适的早期上报资源。"
+          },
+          {
+            "refId": "B",
+            "en": "The prescriber should be contacted to clarify or revise the discharge order once the nurse has assessed the immediate concern.",
+            "zh": "护士评估当前问题后，应联系开医嘱者以澄清或修改出院医嘱。"
+          },
+          {
+            "refId": "E",
+            "en": "Documentation captures the assessments, contacts, and responses after they occur so the record is accurate and complete.",
+            "zh": "记录应涵盖已经完成的评估、联系和回应，才能保证病历准确完整。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "For escalation sequences, protect the client, communicate to the responsible provider, then move up the chain of command if the risk remains unresolved.",
+        "zh": "上报流程题中，保护患者，与负责医嘱者沟通；若风险未解决，再逐级按指挥链上报。"
+      },
+      "glossary": [
+        {
+          "termEn": "Chain of command",
+          "termZh": "指挥链",
+          "defZh": "为解决安全或管理问题而逐级上报的正式路径。"
+        },
+        {
+          "termEn": "Discharge barrier",
+          "termZh": "出院障碍",
+          "defZh": "会妨碍患者安全出院或居家照护连续性的因素。"
+        },
+        {
+          "termEn": "Case manager",
+          "termZh": "个案管理人员",
+          "defZh": "协助协调出院计划、资源和照护衔接的人员。"
+        }
+      ]
+    },
+    {
+      "id": "gpt_fresh_2026_06_22_moc_04",
+      "itemType": "highlight",
+      "category": "Management of Care",
+      "topic": "Advance Directives / DNR",
+      "difficulty": "medium",
+      "ngnSkill": "recognize_cues",
+      "stem": {
+        "en": "The nurse reviews a provider order set for a hospitalized client. The chart contains a signed, scanned directive stating do-not-resuscitate and do-not-intubate preferences. Facility policy requires code-status conflicts to be clarified before orders are implemented. Highlight the order-set entry that requires clarification.",
+        "zh": "护士查看一名住院患者的医嘱集。病历中有已签署并扫描的指示文件，说明患者选择不复苏和不插管。机构政策要求在执行医嘱前澄清任何代码状态冲突。请标出需要澄清的医嘱集条目。"
+      },
+      "highlight": {
+        "segments": [
+          {
+            "id": "s1",
+            "en": "Provider order set:",
+            "zh": "医嘱集："
+          },
+          {
+            "id": "s2",
+            "en": "Diet: regular diet as tolerated after bedside swallow screen.",
+            "zh": "饮食：床旁吞咽筛查后按耐受情况给予普通饮食。",
+            "selectable": true
+          },
+          {
+            "id": "s3",
+            "en": "Code status: Full code; perform resuscitation and intubation if clinically indicated.",
+            "zh": "代码状态：全力抢救；如有临床指征，进行复苏和插管。",
+            "selectable": true
+          },
+          {
+            "id": "s4",
+            "en": "Activity: assist with ambulation until gait is steady.",
+            "zh": "活动：步态稳定前协助下床行走。",
+            "selectable": true
+          },
+          {
+            "id": "s5",
+            "en": "Consult: case management for discharge equipment needs.",
+            "zh": "会诊：请个案管理评估出院设备需求。",
+            "selectable": true
+          }
+        ],
+        "correct": [
+          "s3"
+        ]
+      },
+      "rationale": {
+        "correct": {
+          "en": "A full-code order conflicts with the signed directive for do-not-resuscitate and do-not-intubate preferences. The nurse should clarify the conflict before implementing the order set.",
+          "zh": "全力抢救医嘱与已签署的不复苏、不插管意愿相冲突。护士应在执行医嘱集前澄清该冲突。"
+        },
+        "byChoice": [
+          {
+            "refId": "s2",
+            "en": "A diet order after a swallow screen does not conflict with the documented code-status preference.",
+            "zh": "吞咽筛查后的饮食医嘱与已记录的代码状态意愿不冲突。"
+          },
+          {
+            "refId": "s3",
+            "en": "A full-code order authorizes resuscitation and intubation, which conflicts with the signed directive in the chart.",
+            "zh": "全力抢救医嘱授权复苏和插管，与病历中已签署的指示文件相冲突。"
+          },
+          {
+            "refId": "s4",
+            "en": "Assisted ambulation is a safety measure and does not override the client's directive.",
+            "zh": "协助行走属于安全措施，不会推翻患者的指示文件。"
+          },
+          {
+            "refId": "s5",
+            "en": "A case-management consult supports discharge planning and does not conflict with code status.",
+            "zh": "个案管理会诊有助于出院计划，与代码状态不冲突。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "When an advance directive is present, identify any order that conflicts with the client's expressed treatment preferences and seek clarification.",
+        "zh": "有预立医疗指示时，要找出与患者已表达治疗意愿冲突的医嘱，并请求澄清。"
+      },
+      "glossary": [
+        {
+          "termEn": "Advance directive",
+          "termZh": "预立医疗指示",
+          "defZh": "患者提前说明在特定情况下希望接受或拒绝哪些治疗的文件。"
+        },
+        {
+          "termEn": "Do-not-resuscitate",
+          "termZh": "不复苏",
+          "defZh": "患者在心跳或呼吸停止时不接受心肺复苏的医嘱或意愿。"
+        },
+        {
+          "termEn": "Do-not-intubate",
+          "termZh": "不插管",
+          "defZh": "患者表示不接受气管插管和机械通气的意愿或医嘱。"
+        }
+      ]
+    },
+    {
+      "id": "gpt_fresh_2026_06_22_moc_05",
+      "itemType": "highlight",
+      "category": "Management of Care",
+      "topic": "Conflict Resolution",
+      "difficulty": "easy",
+      "ngnSkill": "recognize_cues",
+      "stem": {
+        "en": "The charge nurse reviews shift notes after a reported staff conflict. Highlight the entry that requires follow-up for unprofessional conflict behavior.",
+        "zh": "责任护士在收到员工冲突报告后查看班次记录。请标出需要因不专业冲突行为而跟进的记录。"
+      },
+      "highlight": {
+        "segments": [
+          {
+            "id": "s1",
+            "en": "Shift conflict notes:",
+            "zh": "班次冲突记录："
+          },
+          {
+            "id": "s2",
+            "en": "The RN asked the respiratory therapist to step into the report room to discuss conflicting oxygen-weaning recommendations.",
+            "zh": "注册护士请呼吸治疗师到交班室讨论氧气减量建议不一致的问题。",
+            "selectable": true
+          },
+          {
+            "id": "s3",
+            "en": "The RN told the UAP in the hallway, 'If you question me again, I will make sure you never work this unit.' Family members were nearby.",
+            "zh": "注册护士在走廊对护理助理说：“你要是再质疑我，我会让你再也不能在这个病区工作。”旁边有家属。",
+            "selectable": true
+          },
+          {
+            "id": "s4",
+            "en": "The LPN stated, 'I am concerned we are using different intake totals; can we compare the flowsheet entries?'",
+            "zh": "执业护士说：“我担心我们使用的摄入量总数不一致；能否一起核对护理记录单？”",
+            "selectable": true
+          },
+          {
+            "id": "s5",
+            "en": "The charge nurse scheduled a brief huddle so both staff members could clarify the plan away from client rooms.",
+            "zh": "责任护士安排了简短讨论，让两名员工在患者房间外澄清计划。",
+            "selectable": true
+          }
+        ],
+        "correct": [
+          "s3"
+        ]
+      },
+      "rationale": {
+        "correct": {
+          "en": "Threatening a coworker in a public area is unprofessional, can intimidate staff, and may affect client safety and team communication.",
+          "zh": "在公共区域威胁同事是不专业行为，可能恐吓员工，并影响患者安全和团队沟通。"
+        },
+        "byChoice": [
+          {
+            "refId": "s2",
+            "en": "Moving a disagreement to a private setting supports respectful conflict resolution.",
+            "zh": "把分歧转到私下场所讨论，有助于尊重地解决冲突。"
+          },
+          {
+            "refId": "s3",
+            "en": "A public threat toward a coworker requires follow-up because it undermines a safe work environment.",
+            "zh": "公开威胁同事需要跟进，因为这会破坏安全的工作环境。"
+          },
+          {
+            "refId": "s4",
+            "en": "Requesting a comparison of documentation is a constructive way to resolve inconsistent information.",
+            "zh": "请求核对记录是解决信息不一致的建设性方式。"
+          },
+          {
+            "refId": "s5",
+            "en": "A brief private huddle helps clarify the plan without exposing clients or families to staff conflict.",
+            "zh": "简短的私下讨论有助于澄清计划，避免让患者或家属暴露在员工冲突中。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "For conflict-resolution items, separate assertive, private communication from threats, blame, or public confrontation.",
+        "zh": "处理冲突题时，要区分坚定且私下的沟通，以及威胁、指责或公开冲突。"
+      },
+      "glossary": [
+        {
+          "termEn": "Unprofessional behavior",
+          "termZh": "不专业行为",
+          "defZh": "不符合安全、尊重和团队合作标准的行为。"
+        },
+        {
+          "termEn": "Conflict resolution",
+          "termZh": "冲突解决",
+          "defZh": "通过尊重、清晰和以患者安全为中心的沟通处理分歧。"
+        },
+        {
+          "termEn": "Huddle",
+          "termZh": "简短团队讨论",
+          "defZh": "护理团队为快速澄清信息或计划而进行的短时间沟通。"
+        }
+      ]
+    },
+    {
+      "id": "gpt_fresh_2026_06_22_moc_06",
+      "itemType": "ordered_response",
+      "category": "Management of Care",
+      "topic": "Conflict Resolution",
+      "difficulty": "medium",
+      "ngnSkill": "take_action",
+      "stem": {
+        "en": "A nurse and another staff member disagree about who will call a client's family with a routine update. Their disagreement is becoming tense at the nurses' station. Place the nurse's actions in order to resolve the conflict professionally.",
+        "zh": "护士与另一名工作人员就谁给患者家属进行常规更新发生分歧，且在护士站气氛变得紧张。请按顺序排列护士以专业方式解决冲突的行动。"
+      },
+      "options": [
+        {
+          "id": "B",
+          "en": "State the concern using objective language focused on the family update.",
+          "zh": "用客观语言说明问题，重点放在给家属更新信息这件事上。"
+        },
+        {
+          "id": "A",
+          "en": "Move the discussion away from the public nurses' station.",
+          "zh": "将讨论移到公共护士站以外的地方。"
+        },
+        {
+          "id": "C",
+          "en": "Ask the other staff member to describe their understanding of the plan.",
+          "zh": "请另一名工作人员说明其对计划的理解。"
+        },
+        {
+          "id": "D",
+          "en": "Agree on who will call the family and what information may be shared.",
+          "zh": "商定由谁给家属打电话以及可分享哪些信息。"
+        }
+      ],
+      "correct": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "rationale": {
+        "correct": {
+          "en": "Professional conflict resolution protects privacy, uses objective language, invites the other person's perspective, and ends with a clear shared plan.",
+          "zh": "专业解决冲突应保护隐私，使用客观语言，了解对方观点，并形成明确的共同计划。"
+        },
+        "byChoice": [
+          {
+            "refId": "D",
+            "en": "A clear agreement about responsibility and allowable information prevents duplicate calls or inappropriate disclosure.",
+            "zh": "明确责任和可分享信息，可避免重复联系或不当披露。"
+          },
+          {
+            "refId": "B",
+            "en": "Objective language keeps the discussion focused on the task rather than blame.",
+            "zh": "客观语言能让讨论聚焦任务，而不是互相指责。"
+          },
+          {
+            "refId": "A",
+            "en": "Moving away from the public area prevents families and clients from overhearing staff conflict or private information.",
+            "zh": "离开公共区域可避免家属和患者听到员工冲突或私人信息。"
+          },
+          {
+            "refId": "C",
+            "en": "Inviting the other person's understanding helps identify miscommunication and supports collaboration.",
+            "zh": "了解对方的理解有助于发现沟通误差，并促进合作。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "In workplace-conflict sequences, choose actions that reduce public tension, clarify facts, listen, and create a shared plan.",
+        "zh": "职场冲突排序题中，应选择能降低公开紧张气氛、澄清事实、倾听并形成共同计划的行动。"
+      },
+      "glossary": [
+        {
+          "termEn": "Objective language",
+          "termZh": "客观语言",
+          "defZh": "描述可观察事实，而不是评价或指责。"
+        },
+        {
+          "termEn": "Shared plan",
+          "termZh": "共同计划",
+          "defZh": "团队成员对责任、步骤和沟通内容达成一致。"
+        }
+      ]
+    },
+    {
+      "id": "gpt_fresh_2026_06_22_moc_07",
+      "itemType": "highlight",
+      "category": "Management of Care",
+      "topic": "Client Advocacy",
+      "difficulty": "medium",
+      "ngnSkill": "recognize_cues",
+      "stem": {
+        "en": "The nurse reviews discharge-instruction documentation before a client leaves the unit. Highlight the entry that requires client advocacy before discharge.",
+        "zh": "护士在患者离开病区前查看出院指导记录。请标出出院前需要为患者倡导的记录。"
+      },
+      "highlight": {
+        "segments": [
+          {
+            "id": "s1",
+            "en": "Discharge-instruction documentation:",
+            "zh": "出院指导记录："
+          },
+          {
+            "id": "s2",
+            "en": "Client correctly demonstrates use of the walker and states when to call the clinic.",
+            "zh": "患者能正确示范助行器使用，并说明何时联系门诊。",
+            "selectable": true
+          },
+          {
+            "id": "s3",
+            "en": "Client says, 'I cannot read English well.' Printed instructions are available only in English; no interpreter or translated instructions were requested.",
+            "zh": "患者说：“我英文读得不好。”打印指导只有英文版本；未申请口译员或翻译版指导。",
+            "selectable": true
+          },
+          {
+            "id": "s4",
+            "en": "Client's spouse will pick up the discharge prescriptions from the pharmacy after leaving the unit.",
+            "zh": "患者配偶将在离开病区后到药房领取出院处方。",
+            "selectable": true
+          },
+          {
+            "id": "s5",
+            "en": "Client identifies the follow-up appointment date and transportation plan.",
+            "zh": "患者能说出复诊日期和交通安排。",
+            "selectable": true
+          }
+        ],
+        "correct": [
+          "s3"
+        ]
+      },
+      "rationale": {
+        "correct": {
+          "en": "A client who cannot read the discharge language needs accessible education, such as interpreter support and translated instructions, before leaving the unit.",
+          "zh": "如果患者无法阅读出院指导所用语言，出院前需要可理解的教育，例如口译支持和翻译版指导。"
+        },
+        "byChoice": [
+          {
+            "refId": "s2",
+            "en": "Correct demonstration and knowing when to call the clinic suggest the teaching was understood.",
+            "zh": "能正确示范并知道何时联系门诊，说明指导已被理解。"
+          },
+          {
+            "refId": "s3",
+            "en": "English-only written instructions do not meet the client's communication need and require advocacy for accessible teaching.",
+            "zh": "仅提供英文书面指导无法满足患者的沟通需求，需要护士倡导可理解的教学。"
+          },
+          {
+            "refId": "s4",
+            "en": "A spouse picking up prescriptions is acceptable when the client has a plan to obtain the medications.",
+            "zh": "若患者已有取得药物的计划，由配偶领取处方药是可以接受的。"
+          },
+          {
+            "refId": "s5",
+            "en": "Knowing the follow-up date and transportation plan supports a safe discharge.",
+            "zh": "知道复诊日期和交通安排有助于安全出院。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Advocacy items often turn on whether the client can actually understand, access, or consent to the plan being implemented.",
+        "zh": "患者倡导题常考患者是否真正能理解、获得或同意正在执行的计划。"
+      },
+      "glossary": [
+        {
+          "termEn": "Client advocacy",
+          "termZh": "患者倡导",
+          "defZh": "护士帮助患者表达需求、获得信息并维护安全和权利。"
+        },
+        {
+          "termEn": "Interpreter",
+          "termZh": "口译员",
+          "defZh": "受过训练、能在医疗沟通中准确传达双方意思的人员。"
+        },
+        {
+          "termEn": "Accessible education",
+          "termZh": "可理解的健康教育",
+          "defZh": "以患者能够理解的语言、方式和程度提供的指导。"
+        }
+      ]
+    },
+    {
+      "id": "gpt_fresh_2026_06_22_moc_08",
+      "itemType": "ordered_response",
+      "category": "Management of Care",
+      "topic": "Disaster & Emergency Preparedness",
+      "difficulty": "medium",
+      "ngnSkill": "take_action",
+      "stem": {
+        "en": "The emergency department is notified that a bus crash will bring multiple clients within 15 minutes. The charge nurse is coordinating the initial unit response. Place the actions in order.",
+        "zh": "急诊科接到通知，15 分钟内会有多名公交车事故伤者到达。责任护士正在协调科室初始应对。请按顺序排列行动。"
+      },
+      "options": [
+        {
+          "id": "D",
+          "en": "Assign team members to triage, treatment areas, documentation, and family communication roles.",
+          "zh": "分派团队成员负责分诊、治疗区域、记录和家属沟通角色。"
+        },
+        {
+          "id": "F",
+          "en": "Continue situation updates through the incident-command communication channel.",
+          "zh": "通过事件指挥沟通渠道持续更新现场情况。"
+        },
+        {
+          "id": "B",
+          "en": "Identify currently available beds, staff, supplies, and critical equipment.",
+          "zh": "确认当前可用床位、人员、物资和关键设备。"
+        },
+        {
+          "id": "E",
+          "en": "Receive arriving clients through the disaster triage process.",
+          "zh": "通过灾难分诊流程接收陆续到达的伤者。"
+        },
+        {
+          "id": "C",
+          "en": "Move stable clients who meet criteria to designated discharge or holding areas.",
+          "zh": "将符合条件的稳定患者转至指定出院区或留观区。"
+        },
+        {
+          "id": "A",
+          "en": "Activate the facility disaster plan and report to the assigned incident-command role.",
+          "zh": "启动机构灾难预案，并向指定的事件指挥角色报到。"
+        }
+      ],
+      "correct": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F"
+      ],
+      "rationale": {
+        "correct": {
+          "en": "The initial disaster response uses the facility plan and incident-command structure, rapidly determines capacity, creates space, assigns roles, triages incoming clients, and keeps communication centralized.",
+          "zh": "初始灾难应对应按照机构预案和事件指挥结构进行，迅速确认容量、腾出空间、分配角色、对到达伤者进行分诊，并保持集中沟通。"
+        },
+        "byChoice": [
+          {
+            "refId": "C",
+            "en": "Moving stable clients who meet criteria creates capacity before multiple injured clients arrive.",
+            "zh": "在多名伤者到达前转移符合条件的稳定患者，可腾出接收能力。"
+          },
+          {
+            "refId": "F",
+            "en": "Ongoing updates through the incident-command channel keep the response coordinated as conditions change.",
+            "zh": "随着情况变化，通过事件指挥渠道持续更新信息，可保持应对协调。"
+          },
+          {
+            "refId": "B",
+            "en": "Knowing available capacity and resources guides safe placement and staffing decisions.",
+            "zh": "了解可用容量和资源有助于安全安排床位和人员。"
+          },
+          {
+            "refId": "A",
+            "en": "Activating the disaster plan aligns the unit response with the facility incident-command system.",
+            "zh": "启动灾难预案可使科室应对与机构事件指挥系统保持一致。"
+          },
+          {
+            "refId": "D",
+            "en": "Defined roles reduce duplication and confusion during a surge response.",
+            "zh": "明确角色可减少激增应对中的重复工作和混乱。"
+          },
+          {
+            "refId": "E",
+            "en": "Disaster triage is used as arriving clients enter the emergency department response flow.",
+            "zh": "伤者进入急诊应对流程时，应使用灾难分诊。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "For disaster-response sequences, look for activation of the plan, resource assessment, role assignment, triage, and centralized communication.",
+        "zh": "灾难应对排序题中，寻找启动预案、评估资源、分配角色、分诊以及集中沟通。"
+      },
+      "glossary": [
+        {
+          "termEn": "Incident command",
+          "termZh": "事件指挥",
+          "defZh": "灾难或紧急事件中用于统一指挥、沟通和资源分配的管理结构。"
+        },
+        {
+          "termEn": "Disaster triage",
+          "termZh": "灾难分诊",
+          "defZh": "在大量伤者情况下，根据紧急程度和资源情况快速分类处理。"
+        },
+        {
+          "termEn": "Surge response",
+          "termZh": "激增应对",
+          "defZh": "医疗机构面对短时间大量患者到达时扩大接收和照护能力的行动。"
+        }
+      ]
+    },
+    {
+      "id": "gpt_fresh_2026_06_22_moc_09",
+      "itemType": "highlight",
+      "category": "Management of Care",
+      "topic": "Chain of Command & Escalation",
+      "difficulty": "medium",
+      "ngnSkill": "recognize_cues",
+      "stem": {
+        "en": "The night charge nurse reviews escalation-chain notes. Per facility policy, a nurse must notify the nursing supervisor when a prescriber cannot be reached for a time-sensitive safety concern after two contact attempts within 20 minutes. Highlight the entry that requires escalation to the nursing supervisor.",
+        "zh": "夜班责任护士查看上报链记录。根据机构政策，对于有时间敏感性的安全问题，如果 20 分钟内两次联系开医嘱者仍无法取得联系，护士必须通知护理主管。请标出需要上报护理主管的记录。"
+      },
+      "highlight": {
+        "segments": [
+          {
+            "id": "s1",
+            "en": "Escalation-chain notes:",
+            "zh": "上报链记录："
+          },
+          {
+            "id": "s2",
+            "en": "Client A: PRN sleep medication request; prescriber paged once 5 minutes ago; client resting quietly.",
+            "zh": "患者 A：请求按需睡眠药；5 分钟前已呼叫开医嘱者一次；患者安静休息。",
+            "selectable": true
+          },
+          {
+            "id": "s3",
+            "en": "Client B: Family requests routine update after visiting hours; provider message sent to day team.",
+            "zh": "患者 B：家属在探视时间后请求常规更新；已将信息发给白班团队。",
+            "selectable": true
+          },
+          {
+            "id": "s4",
+            "en": "Client C: New confusion and pulled central-line dressing; prescriber paged twice over 25 minutes with no response.",
+            "zh": "患者 C：新发意识混乱并拉扯中心静脉导管敷料；25 分钟内两次呼叫开医嘱者均无回应。",
+            "selectable": true
+          },
+          {
+            "id": "s5",
+            "en": "Client D: Discharge ride delayed until morning; case management follow-up already scheduled.",
+            "zh": "患者 D：出院接送延迟到早上；个案管理跟进已安排。",
+            "selectable": true
+          }
+        ],
+        "correct": [
+          "s4"
+        ]
+      },
+      "rationale": {
+        "correct": {
+          "en": "New confusion with disruption of a central-line dressing is a time-sensitive safety concern. The prescriber has not responded after two attempts beyond the facility time frame, so escalation to the nursing supervisor is required.",
+          "zh": "新发意识混乱并破坏中心静脉导管敷料属于时间敏感的安全问题。开医嘱者在机构规定时间后两次联系仍无回应，因此必须上报护理主管。"
+        },
+        "byChoice": [
+          {
+            "refId": "s2",
+            "en": "A nonurgent sleep-medication request with one recent contact attempt does not meet the stated escalation rule.",
+            "zh": "非紧急睡眠药请求且仅最近联系一次，不符合题干所述上报规则。"
+          },
+          {
+            "refId": "s3",
+            "en": "A routine family update routed to the day team is not a time-sensitive safety concern.",
+            "zh": "常规家属更新转交白班团队，不属于时间敏感的安全问题。"
+          },
+          {
+            "refId": "s4",
+            "en": "The central-line safety risk plus two unanswered prescriber contacts beyond the policy time frame meets the escalation requirement.",
+            "zh": "中心静脉导管安全风险，加上超过政策时限后的两次无回应联系，符合上报要求。"
+          },
+          {
+            "refId": "s5",
+            "en": "A delayed ride with planned case-management follow-up is a discharge coordination issue, not an immediate chain-of-command trigger.",
+            "zh": "接送延迟且已有个案管理跟进安排，属于出院协调问题，不是立即启动指挥链的触发点。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "When a facility escalation rule is given, match the facts in the note to every part of the rule: safety risk, contact attempts, and time frame.",
+        "zh": "题干给出机构上报规则时，要把记录事实与规则的每一部分对应：安全风险、联系次数和时间范围。"
+      },
+      "glossary": [
+        {
+          "termEn": "Escalation",
+          "termZh": "上报",
+          "defZh": "当问题未解决或风险增加时，将情况报告给更高层级人员。"
+        },
+        {
+          "termEn": "Prescriber",
+          "termZh": "开医嘱者",
+          "defZh": "有权开具或修改治疗医嘱的医疗人员。"
+        },
+        {
+          "termEn": "Time-sensitive",
+          "termZh": "时间敏感",
+          "defZh": "需要在短时间内处理，以免安全风险增加。"
+        }
+      ]
+    },
+    {
+      "id": "gpt_fresh_2026_06_22_moc_10",
+      "itemType": "ordered_response",
+      "category": "Management of Care",
+      "topic": "Discharge Planning & Handoff",
+      "difficulty": "medium",
+      "ngnSkill": "take_action",
+      "stem": {
+        "en": "A client is being discharged after a new ostomy creation. The home-health agency can see the client tomorrow, but the client states, 'I watched the video, but I have not practiced changing the pouch.' Place the nurse's discharge workflow actions in order.",
+        "zh": "一名患者造口术后准备出院。居家护理机构明天可以上门，但患者说：“我看过视频，但还没有练习更换造口袋。”请按顺序排列护士的出院流程行动。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "en": "Assess the client's current understanding and readiness to perform ostomy care.",
+          "zh": "评估患者当前对造口护理的理解和操作准备程度。"
+        },
+        {
+          "id": "B",
+          "en": "Provide hands-on teaching and have the client demonstrate pouch emptying and changing.",
+          "zh": "提供动手教学，并让患者示范清空和更换造口袋。"
+        },
+        {
+          "id": "E",
+          "en": "Document the teaching, return demonstration, remaining barriers, and follow-up plan.",
+          "zh": "记录教学内容、回示操作、仍存在的障碍和跟进计划。"
+        },
+        {
+          "id": "D",
+          "en": "Notify the provider and case manager if the client cannot safely demonstrate required care.",
+          "zh": "如果患者无法安全示范必要护理，通知医师和个案管理人员。"
+        },
+        {
+          "id": "C",
+          "en": "Clarify the home-health visit date, supply plan, and contact number in the discharge instructions.",
+          "zh": "在出院指导中明确居家护理上门日期、用品计划和联系电话。"
+        }
+      ],
+      "correct": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ],
+      "rationale": {
+        "correct": {
+          "en": "A safe discharge workflow assesses the learning gap, provides hands-on teaching with return demonstration, confirms follow-up and supplies, notifies the care team if the client cannot perform required care, and documents the plan.",
+          "zh": "安全出院流程应评估学习缺口，进行动手教学并要求回示，确认随访和用品安排；若患者无法完成必要护理，则通知照护团队，并记录计划。"
+        },
+        "byChoice": [
+          {
+            "refId": "E",
+            "en": "Documentation records the education provided, the client's demonstrated ability, unresolved barriers, and follow-up arrangements.",
+            "zh": "记录应说明已提供的教育、患者示范能力、未解决障碍和跟进安排。"
+          },
+          {
+            "refId": "A",
+            "en": "Assessment identifies what the client understands and what must be taught before discharge.",
+            "zh": "评估可明确患者已理解的内容以及出院前必须教学的内容。"
+          },
+          {
+            "refId": "B",
+            "en": "Hands-on teaching with return demonstration verifies whether the client can perform essential ostomy care.",
+            "zh": "动手教学和回示可确认患者是否能完成基本造口护理。"
+          },
+          {
+            "refId": "D",
+            "en": "If the client cannot safely perform required care, the provider and case manager need to address the discharge barrier.",
+            "zh": "如果患者无法安全完成必要护理，医师和个案管理人员需要处理出院障碍。"
+          },
+          {
+            "refId": "C",
+            "en": "Confirming the home-health visit, supplies, and contact information supports continuity after discharge.",
+            "zh": "确认居家护理上门、用品和联系方式，有助于出院后的照护连续性。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "For discharge teaching sequences, assess the need, teach and verify skill performance, confirm resources, escalate barriers, and document the final plan.",
+        "zh": "出院教学排序题中，应评估需求，教学并确认技能表现，确认资源，上报障碍，并记录最终计划。"
+      },
+      "glossary": [
+        {
+          "termEn": "Return demonstration",
+          "termZh": "回示",
+          "defZh": "患者在教学后亲自示范操作，以确认理解和能力。"
+        },
+        {
+          "termEn": "Ostomy",
+          "termZh": "造口",
+          "defZh": "通过手术在腹壁建立的排泄开口。"
+        },
+        {
+          "termEn": "Discharge workflow",
+          "termZh": "出院流程",
+          "defZh": "确保患者安全离院并衔接后续照护的一系列步骤。"
+        }
+      ]
+    },
+    {
+      "id": "gpt_fresh_2026_06_22_pharm_01",
+      "itemType": "bowtie",
+      "category": "Pharmacological and Parenteral Therapies",
+      "topic": "Anticoagulant Therapy",
+      "difficulty": "medium",
+      "ngnSkill": "analyze_cues",
+      "stem": {
+        "en": "A client takes warfarin 5 mg by mouth nightly for atrial fibrillation. The client started trimethoprim-sulfamethoxazole 3 days ago. Today the INR is 6.8, and the client reports black, tarry stool and dizziness when standing. Unit protocol states: notify the provider for INR greater than 4.5 or suspected bleeding, and do not administer the next warfarin dose until the provider evaluates the client. Complete the bow-tie.",
+        "zh": "一名患者因房颤每晚口服华法林 5 mg。3 天前开始服用甲氧苄啶-磺胺甲噁唑。今天 INR 为 6.8，患者报告黑色柏油样大便，站立时头晕。病区流程规定：INR 大于 4.5 或疑似出血时通知医嘱提供者；在提供者评估前不要给下一剂华法林。完成领结题。"
+      },
+      "bowtie": {
+        "condition": {
+          "prompt": {
+            "en": "Most likely condition",
+            "zh": "最可能的情况"
+          },
+          "tokens": [
+            {
+              "id": "q1_c3",
+              "en": "Heparin-induced thrombocytopenia",
+              "zh": "肝素诱导性血小板减少"
+            },
+            {
+              "id": "q1_c2",
+              "en": "Subtherapeutic anticoagulation",
+              "zh": "抗凝不足"
+            },
+            {
+              "id": "q1_c1",
+              "en": "Warfarin over-anticoagulation with suspected gastrointestinal bleeding",
+              "zh": "华法林抗凝过度并疑似胃肠道出血"
+            },
+            {
+              "id": "q1_c4",
+              "en": "New thromboembolism despite therapy",
+              "zh": "治疗期间新发血栓栓塞"
+            }
+          ],
+          "correct": "q1_c1"
+        },
+        "actions": {
+          "prompt": {
+            "en": "Actions to take",
+            "zh": "应采取的措施"
+          },
+          "tokens": [
+            {
+              "id": "q1_a4",
+              "en": "Encourage vigorous flossing to assess gum bleeding",
+              "zh": "鼓励用力使用牙线以评估牙龈出血"
+            },
+            {
+              "id": "q1_a3",
+              "en": "Administer the next warfarin dose to prevent stroke",
+              "zh": "为预防卒中继续给予下一剂华法林"
+            },
+            {
+              "id": "q1_a2",
+              "en": "Notify the provider with the INR and bleeding findings",
+              "zh": "将 INR 和出血表现报告给医嘱提供者"
+            },
+            {
+              "id": "q1_a1",
+              "en": "Hold the scheduled warfarin dose per protocol",
+              "zh": "按流程暂停预定的华法林剂量"
+            }
+          ],
+          "correct": [
+            "q1_a1",
+            "q1_a2"
+          ]
+        },
+        "parameters": {
+          "prompt": {
+            "en": "Parameters to monitor",
+            "zh": "应监测的指标"
+          },
+          "tokens": [
+            {
+              "id": "q1_p2",
+              "en": "Blood pressure, heart rate, and visible bleeding",
+              "zh": "血压、心率和可见出血"
+            },
+            {
+              "id": "q1_p3",
+              "en": "aPTT as the primary anticoagulation target",
+              "zh": "将 aPTT 作为主要抗凝目标"
+            },
+            {
+              "id": "q1_p4",
+              "en": "Fasting blood glucose before meals",
+              "zh": "餐前空腹血糖"
+            },
+            {
+              "id": "q1_p1",
+              "en": "INR trend",
+              "zh": "INR 变化趋势"
+            }
+          ],
+          "correct": [
+            "q1_p1",
+            "q1_p2"
+          ]
+        }
+      },
+      "rationale": {
+        "correct": {
+          "en": "The very elevated INR plus black, tarry stool and dizziness indicates warfarin over-anticoagulation with suspected bleeding. The stated protocol supports holding warfarin and notifying the provider while monitoring coagulation and bleeding status.",
+          "zh": "INR 明显升高，加上黑色柏油样大便和站立头晕，提示华法林抗凝过度并疑似出血。题干给出的流程支持暂停华法林并通知医嘱提供者，同时监测凝血和出血状态。"
+        },
+        "byChoice": [
+          {
+            "refId": "q1_c1",
+            "en": "Warfarin over-anticoagulation with suspected gastrointestinal bleeding matches the INR of 6.8 and melena-like stool.",
+            "zh": "华法林抗凝过度并疑似胃肠道出血与 INR 6.8 和类似黑便的表现相符。"
+          },
+          {
+            "refId": "q1_c2",
+            "en": "Subtherapeutic anticoagulation would involve an INR below the therapeutic goal, not an INR of 6.8.",
+            "zh": "抗凝不足通常表现为 INR 低于治疗目标，而不是 INR 6.8。"
+          },
+          {
+            "refId": "q1_c3",
+            "en": "Heparin-induced thrombocytopenia is linked to heparin exposure and thrombocytopenia, which are not the key cues here.",
+            "zh": "肝素诱导性血小板减少与肝素暴露和血小板减少相关，这不是本题的关键线索。"
+          },
+          {
+            "refId": "q1_c4",
+            "en": "New thromboembolism would suggest clotting signs, while this client has bleeding cues and excessive anticoagulation.",
+            "zh": "新发血栓栓塞会提示血栓形成表现；该患者的线索是出血和抗凝过度。"
+          },
+          {
+            "refId": "q1_a1",
+            "en": "Holding warfarin follows the stated protocol for INR greater than 4.5 or suspected bleeding.",
+            "zh": "暂停华法林符合题干中 INR 大于 4.5 或疑似出血时的流程。"
+          },
+          {
+            "refId": "q1_a2",
+            "en": "Provider notification is required by the stated protocol and communicates the urgent INR and bleeding findings.",
+            "zh": "题干流程要求通知医嘱提供者，并报告紧急的 INR 和出血表现。"
+          },
+          {
+            "refId": "q1_a3",
+            "en": "Giving more warfarin would worsen over-anticoagulation and bleeding risk.",
+            "zh": "继续给予华法林会加重抗凝过度和出血风险。"
+          },
+          {
+            "refId": "q1_a4",
+            "en": "Vigorous flossing could provoke bleeding and is not an appropriate assessment maneuver.",
+            "zh": "用力使用牙线可能诱发出血，不是合适的评估措施。"
+          },
+          {
+            "refId": "q1_p1",
+            "en": "INR is the key laboratory measure for warfarin effect and guides follow-up.",
+            "zh": "INR 是评估华法林作用的关键实验室指标，可指导后续处理。"
+          },
+          {
+            "refId": "q1_p2",
+            "en": "Vital signs and bleeding findings help detect worsening hemorrhage or hemodynamic instability.",
+            "zh": "生命体征和出血表现有助于发现出血加重或血流动力学不稳定。"
+          },
+          {
+            "refId": "q1_p3",
+            "en": "aPTT is not the primary monitoring target for warfarin therapy.",
+            "zh": "aPTT 不是华法林治疗的主要监测目标。"
+          },
+          {
+            "refId": "q1_p4",
+            "en": "Fasting glucose does not address the immediate anticoagulant over-effect and bleeding concern.",
+            "zh": "空腹血糖不能解决当前抗凝过度和出血风险。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Link the medication, interacting drug, lab value, and symptom cluster. For warfarin, a very high INR plus bleeding cues means hold and escalate according to protocol.",
+        "zh": "把药物、相互作用药物、实验室数值和症状组合起来判断。华法林患者 INR 很高并有出血线索时，应按流程暂停并上报。"
+      },
+      "glossary": [
+        {
+          "termEn": "INR",
+          "termZh": "国际标准化比值",
+          "defZh": "用于监测华法林抗凝效果的凝血指标。"
+        },
+        {
+          "termEn": "Melena",
+          "termZh": "黑便",
+          "defZh": "黑色柏油样大便，常提示上消化道出血。"
+        },
+        {
+          "termEn": "Over-anticoagulation",
+          "termZh": "抗凝过度",
+          "defZh": "抗凝作用过强，导致出血风险升高。"
+        }
+      ]
+    },
+    {
+      "id": "gpt_fresh_2026_06_22_pharm_02",
+      "itemType": "bowtie",
+      "category": "Pharmacological and Parenteral Therapies",
+      "topic": "Psychotropic Medications",
+      "difficulty": "medium",
+      "ngnSkill": "prioritize_hypotheses",
+      "stem": {
+        "en": "A client who takes clozapine 300 mg nightly calls the clinic reporting fever, sore throat, and mouth ulcers. Same-day laboratory results show an absolute neutrophil count of 650/mm3. The clinic protocol states: hold clozapine and notify the prescriber for ANC less than 1000/mm3 or infection symptoms. Complete the bow-tie.",
+        "zh": "一名每晚服用氯氮平 300 mg 的患者致电门诊，报告发热、咽痛和口腔溃疡。当天实验室结果显示绝对中性粒细胞计数为 650/mm3。门诊流程规定：ANC 低于 1000/mm3 或出现感染症状时暂停氯氮平并通知处方者。完成领结题。"
+      },
+      "bowtie": {
+        "condition": {
+          "prompt": {
+            "en": "Most likely condition",
+            "zh": "最可能的情况"
+          },
+          "tokens": [
+            {
+              "id": "q2_c2",
+              "en": "Serotonin syndrome",
+              "zh": "血清素综合征"
+            },
+            {
+              "id": "q2_c1",
+              "en": "Clozapine-associated severe neutropenia",
+              "zh": "氯氮平相关重度中性粒细胞减少"
+            },
+            {
+              "id": "q2_c3",
+              "en": "Lithium toxicity",
+              "zh": "锂中毒"
+            },
+            {
+              "id": "q2_c4",
+              "en": "Expected anticholinergic effect",
+              "zh": "预期的抗胆碱能反应"
+            }
+          ],
+          "correct": "q2_c1"
+        },
+        "actions": {
+          "prompt": {
+            "en": "Actions to take",
+            "zh": "应采取的措施"
+          },
+          "tokens": [
+            {
+              "id": "q2_a1",
+              "en": "Hold clozapine per protocol",
+              "zh": "按流程暂停氯氮平"
+            },
+            {
+              "id": "q2_a4",
+              "en": "Encourage attending a crowded group activity for mood support",
+              "zh": "鼓励参加人群密集的小组活动以获得情绪支持"
+            },
+            {
+              "id": "q2_a3",
+              "en": "Advise taking clozapine with a snack and reassessing next month",
+              "zh": "建议与点心同服氯氮平，并下个月再评估"
+            },
+            {
+              "id": "q2_a2",
+              "en": "Notify the prescriber and report ANC, fever, and sore throat",
+              "zh": "通知处方者并报告 ANC、发热和咽痛"
+            }
+          ],
+          "correct": [
+            "q2_a1",
+            "q2_a2"
+          ]
+        },
+        "parameters": {
+          "prompt": {
+            "en": "Parameters to monitor",
+            "zh": "应监测的指标"
+          },
+          "tokens": [
+            {
+              "id": "q2_p4",
+              "en": "Peak and trough clozapine levels before each dose",
+              "zh": "每次给药前的氯氮平峰谷浓度"
+            },
+            {
+              "id": "q2_p1",
+              "en": "Absolute neutrophil count trend",
+              "zh": "绝对中性粒细胞计数趋势"
+            },
+            {
+              "id": "q2_p2",
+              "en": "Temperature and new infection symptoms",
+              "zh": "体温和新的感染症状"
+            },
+            {
+              "id": "q2_p3",
+              "en": "Serum lithium concentration",
+              "zh": "血清锂浓度"
+            }
+          ],
+          "correct": [
+            "q2_p1",
+            "q2_p2"
+          ]
+        }
+      },
+      "rationale": {
+        "correct": {
+          "en": "Clozapine can cause severe neutropenia. Fever, sore throat, mouth ulcers, and ANC 650/mm3 meet the stated protocol for holding clozapine and notifying the prescriber.",
+          "zh": "氯氮平可导致重度中性粒细胞减少。发热、咽痛、口腔溃疡和 ANC 650/mm3 符合题干流程中暂停氯氮平并通知处方者的条件。"
+        },
+        "byChoice": [
+          {
+            "refId": "q2_c1",
+            "en": "Clozapine-associated severe neutropenia is supported by the low ANC and infection symptoms.",
+            "zh": "低 ANC 和感染症状支持氯氮平相关重度中性粒细胞减少。"
+          },
+          {
+            "refId": "q2_c2",
+            "en": "Serotonin syndrome would more strongly involve neuromuscular hyperactivity, autonomic instability, and serotonergic exposure.",
+            "zh": "血清素综合征更常见神经肌肉兴奋、自主神经不稳定和血清素能药物暴露。"
+          },
+          {
+            "refId": "q2_c3",
+            "en": "Lithium toxicity is not supported because lithium exposure and classic neurologic or gastrointestinal cues are absent.",
+            "zh": "题干没有锂暴露，也没有典型神经或胃肠道线索，因此不支持锂中毒。"
+          },
+          {
+            "refId": "q2_c4",
+            "en": "Fever, sore throat, ulcers, and ANC 650/mm3 are not expected anticholinergic effects.",
+            "zh": "发热、咽痛、溃疡和 ANC 650/mm3 不是预期的抗胆碱能反应。"
+          },
+          {
+            "refId": "q2_a1",
+            "en": "Holding clozapine follows the clinic protocol for ANC less than 1000/mm3 or infection symptoms.",
+            "zh": "ANC 低于 1000/mm3 或出现感染症状时暂停氯氮平，符合门诊流程。"
+          },
+          {
+            "refId": "q2_a2",
+            "en": "Notify the prescriber and report ANC, fever, and sore throat.",
+            "zh": "通知处方者并报告绝对中性粒细胞计数、发热与咽痛。"
+          },
+          {
+            "refId": "q2_a3",
+            "en": "Taking clozapine with food does not correct the low neutrophil count or address the infection risk.",
+            "zh": "与食物同服不能纠正中性粒细胞减少，也无法应对感染风险。"
+          },
+          {
+            "refId": "q2_a4",
+            "en": "Crowded places expose the immunocompromised client to high infection risk and must be avoided.",
+            "zh": "免疫功能受损患者暴露于人群密集场所会面临极高的感染风险，必须避免。"
+          },
+          {
+            "refId": "q2_p1",
+            "en": "ANC trend is critical to follow the severity and resolution of neutropenia.",
+            "zh": "监测绝对中性粒细胞计数趋势对评估中性粒细胞减少的严重程度和恢复至关重要。"
+          },
+          {
+            "refId": "q2_p2",
+            "en": "Temperature and new infection signs show clinical progression of the drug-induced neutropenia.",
+            "zh": "体温和新发感染征象可反映药物引起的中性粒细胞减少的临床进展。"
+          },
+          {
+            "refId": "q2_p3",
+            "en": "Lithium levels are not related to monitoring safety for a client on clozapine.",
+            "zh": "血清锂浓度与氯氮平患者的安全监测无关。"
+          },
+          {
+            "refId": "q2_p4",
+            "en": "Routine serum clozapine level measurement does not guide immediate management of severe neutropenia.",
+            "zh": "常规测定氯氮平血药浓度不能指导重度中性粒细胞减少的即刻临床处理。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "For clozapine, infection symptoms plus a low ANC are a medication emergency cue. Use the protocol threshold in the stem rather than relying on memory alone.",
+        "zh": "遇到氯氮平时，感染症状加低 ANC 是药物安全的紧急线索。优先使用题干给出的流程阈值，而不是只凭记忆。"
+      },
+      "glossary": [
+        {
+          "termEn": "Clozapine",
+          "termZh": "氯氮平",
+          "defZh": "一种抗精神病药，需重点监测中性粒细胞减少等严重不良反应。"
+        },
+        {
+          "termEn": "Absolute neutrophil count",
+          "termZh": "绝对中性粒细胞计数",
+          "defZh": "评估感染防御能力的重要白细胞分类指标。"
+        },
+        {
+          "termEn": "Severe neutropenia",
+          "termZh": "重度中性粒细胞减少",
+          "defZh": "中性粒细胞显著降低，感染风险明显升高。"
+        }
+      ]
+    },
+    {
+      "id": "gpt_fresh_2026_06_22_pharm_03",
+      "itemType": "bowtie",
+      "category": "Pharmacological and Parenteral Therapies",
+      "topic": "Psychotropic Medications",
+      "difficulty": "medium",
+      "ngnSkill": "analyze_cues",
+      "stem": {
+        "en": "A client takes lithium carbonate 900 mg/day for bipolar disorder. Hydrochlorothiazide was started 1 week ago. The client now has vomiting, coarse hand tremor, unsteady gait, and new confusion. Serum lithium is 2.1 mEq/L. Unit protocol states: hold lithium and notify the provider for lithium level 1.5 mEq/L or higher, new neurologic changes, or persistent vomiting. Complete the bow-tie.",
+        "zh": "一名双相障碍患者每日服用碳酸锂 900 mg。1 周前开始服用氢氯噻嗪。患者现在出现呕吐、明显手颤、步态不稳和新发意识混乱。血清锂浓度为 2.1 mEq/L。病区流程规定：锂浓度达到或超过 1.5 mEq/L、新发神经系统改变或持续呕吐时暂停锂剂并通知医嘱提供者。完成领结题。"
+      },
+      "bowtie": {
+        "condition": {
+          "prompt": {
+            "en": "Most likely condition",
+            "zh": "最可能的情况"
+          },
+          "tokens": [
+            {
+              "id": "q3_c3",
+              "en": "Clozapine-associated neutropenia",
+              "zh": "氯氮平相关中性粒细胞减少"
+            },
+            {
+              "id": "q3_c1",
+              "en": "Lithium toxicity",
+              "zh": "锂中毒"
+            },
+            {
+              "id": "q3_c2",
+              "en": "Expected lithium therapeutic effect",
+              "zh": "锂剂的预期治疗作用"
+            },
+            {
+              "id": "q3_c4",
+              "en": "Warfarin over-anticoagulation",
+              "zh": "华法林抗凝过度"
+            }
+          ],
+          "correct": "q3_c1"
+        },
+        "actions": {
+          "prompt": {
+            "en": "Actions to take",
+            "zh": "应采取的措施"
+          },
+          "tokens": [
+            {
+              "id": "q3_a1",
+              "en": "Hold lithium per protocol",
+              "zh": "按流程暂停锂剂"
+            },
+            {
+              "id": "q3_a2",
+              "en": "Notify the provider with lithium level and neurologic findings",
+              "zh": "向医嘱提供者报告锂浓度和神经系统表现"
+            },
+            {
+              "id": "q3_a4",
+              "en": "Teach strict sodium restriction during vomiting",
+              "zh": "指导患者呕吐期间严格限制钠摄入"
+            },
+            {
+              "id": "q3_a3",
+              "en": "Give the next lithium dose with food",
+              "zh": "将下一剂锂剂与食物同服"
+            }
+          ],
+          "correct": [
+            "q3_a1",
+            "q3_a2"
+          ]
+        },
+        "parameters": {
+          "prompt": {
+            "en": "Parameters to monitor",
+            "zh": "应监测的指标"
+          },
+          "tokens": [
+            {
+              "id": "q3_p3",
+              "en": "Serum digoxin level",
+              "zh": "血清地高辛浓度"
+            },
+            {
+              "id": "q3_p4",
+              "en": "Peak insulin action after meals",
+              "zh": "餐后胰岛素作用峰值"
+            },
+            {
+              "id": "q3_p1",
+              "en": "Neurologic status, tremor, and gait safety",
+              "zh": "神经状态、震颤和步态安全"
+            },
+            {
+              "id": "q3_p2",
+              "en": "Serum lithium level and renal function results",
+              "zh": "血清锂浓度和肾功能结果"
+            }
+          ],
+          "correct": [
+            "q3_p1",
+            "q3_p2"
+          ]
+        }
+      },
+      "rationale": {
+        "correct": {
+          "en": "The lithium level of 2.1 mEq/L with vomiting, coarse tremor, ataxia, and confusion is consistent with lithium toxicity. The stated protocol directs the nurse to hold lithium and notify the provider while monitoring neurologic and renal-related parameters.",
+          "zh": "锂浓度 2.1 mEq/L 加上呕吐、明显震颤、共济失调样步态和意识混乱，符合锂中毒。题干流程要求护士暂停锂剂并通知医嘱提供者，同时监测神经和肾功能相关指标。"
+        },
+        "byChoice": [
+          {
+            "refId": "q3_c1",
+            "en": "Lithium toxicity is supported by the high lithium level, thiazide exposure, vomiting, tremor, unsteady gait, and confusion.",
+            "zh": "高锂浓度、噻嗪类用药、呕吐、震颤、步态不稳和意识混乱支持锂中毒。"
+          },
+          {
+            "refId": "q3_c2",
+            "en": "Expected therapeutic effect would not include vomiting, coarse tremor, ataxia, or confusion with a high lithium level.",
+            "zh": "预期治疗作用不应包括在高锂浓度下出现呕吐、明显震颤、共济失调或意识混乱。"
+          },
+          {
+            "refId": "q3_c3",
+            "en": "Clozapine-associated neutropenia requires clozapine exposure and low neutrophil findings, which are absent.",
+            "zh": "氯氮平相关中性粒细胞减少需要氯氮平暴露和低中性粒细胞线索，题干未显示。"
+          },
+          {
+            "refId": "q3_c4",
+            "en": "Warfarin over-anticoagulation requires warfarin-related bleeding or INR cues, which are not present.",
+            "zh": "华法林抗凝过度需要华法林相关出血或 INR 线索，题干没有这些表现。"
+          },
+          {
+            "refId": "q3_a1",
+            "en": "Holding lithium follows the stated protocol and prevents worsening toxicity.",
+            "zh": "暂停锂剂符合题干流程，可避免毒性加重。"
+          },
+          {
+            "refId": "q3_a2",
+            "en": "Provider notification is required because the client meets multiple protocol criteria for lithium toxicity.",
+            "zh": "患者符合多个锂中毒流程标准，因此需要通知医嘱提供者。"
+          },
+          {
+            "refId": "q3_a3",
+            "en": "Giving more lithium would worsen toxicity even if the dose is taken with food.",
+            "zh": "即使与食物同服，继续给锂剂也会加重毒性。"
+          },
+          {
+            "refId": "q3_a4",
+            "en": "Strict sodium restriction can increase lithium retention and worsen toxicity risk.",
+            "zh": "严格限制钠摄入可能增加锂潴留并加重中毒风险。"
+          },
+          {
+            "refId": "q3_p1",
+            "en": "Neurologic status, tremor, and gait safety track the toxicity manifestations and injury risk.",
+            "zh": "神经状态、震颤和步态安全可反映毒性表现和受伤风险。"
+          },
+          {
+            "refId": "q3_p2",
+            "en": "Serum lithium and renal function results help evaluate severity and lithium clearance.",
+            "zh": "血清锂浓度和肾功能结果有助于评估严重程度和锂清除情况。"
+          },
+          {
+            "refId": "q3_p3",
+            "en": "Serum digoxin monitoring does not address lithium toxicity.",
+            "zh": "监测血清地高辛不能处理锂中毒。"
+          },
+          {
+            "refId": "q3_p4",
+            "en": "Peak insulin action is unrelated to the lithium toxicity problem described.",
+            "zh": "胰岛素作用峰值与题干描述的锂中毒问题无关。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "When a medication has a narrow therapeutic index, treat new neurologic changes and a high drug level as toxicity until proven otherwise.",
+        "zh": "窄治疗指数药物出现新发神经系统改变并伴药物浓度升高时，应先按中毒处理。"
+      },
+      "glossary": [
+        {
+          "termEn": "Lithium",
+          "termZh": "锂剂",
+          "defZh": "用于双相障碍等疾病的药物，治疗范围较窄，需要监测血药浓度。"
+        },
+        {
+          "termEn": "Ataxia",
+          "termZh": "共济失调",
+          "defZh": "协调能力下降，可表现为步态不稳。"
+        },
+        {
+          "termEn": "Thiazide diuretic",
+          "termZh": "噻嗪类利尿剂",
+          "defZh": "一种利尿药，可影响电解质和某些药物的体内水平。"
+        }
+      ]
+    },
+    {
+      "id": "gpt_fresh_2026_06_22_pharm_04",
+      "itemType": "dropdown_cloze",
+      "category": "Pharmacological and Parenteral Therapies",
+      "topic": "Parenteral Nutrition",
+      "difficulty": "medium",
+      "ngnSkill": "take_action",
+      "stem": {
+        "en": "A client receiving parenteral nutrition requires follow-up for a metabolic complication.",
+        "zh": "一名接受肠外营养的患者需要因代谢并发症进行跟进。"
+      },
+      "clozeStem": {
+        "en": "A client has parenteral nutrition infusing through a central line at 80 mL/hr. Six hours after initiation, the capillary glucose is 328 mg/dL, and the client reports thirst and frequent urination. The unit protocol states: notify the provider for glucose greater than 300 mg/dL and administer prescribed correction insulin per scale; do not abruptly stop parenteral nutrition unless directed. The nurse should recognize {{d1}}, then {{d2}}, while monitoring {{d3}}.",
+        "zh": "一名患者经中心静脉以 80 mL/小时输注肠外营养。开始 6 小时后，床旁血糖为 328 mg/dL，患者诉口渴并尿频。病区流程规定：血糖大于 300 mg/dL 时通知医嘱提供者，并按处方校正胰岛素量表给药；除非有指示，不要突然停止肠外营养。护士应识别为 {{d1}}，随后 {{d2}}，同时监测 {{d3}}。"
+      },
+      "dropdowns": [
+        {
+          "id": "d1",
+          "options": [
+            {
+              "id": "d1_o1",
+              "en": "parenteral-nutrition-associated hyperglycemia",
+              "zh": "肠外营养相关高血糖"
+            },
+            {
+              "id": "d1_o3",
+              "en": "fat embolism",
+              "zh": "脂肪栓塞"
+            },
+            {
+              "id": "d1_o2",
+              "en": "hypoglycemia from abrupt parenteral nutrition discontinuation",
+              "zh": "肠外营养突然停止导致的低血糖"
+            },
+            {
+              "id": "d1_o4",
+              "en": "allergic reaction to insulin",
+              "zh": "对胰岛素的过敏反应"
+            }
+          ],
+          "correct": "d1_o1"
+        },
+        {
+          "id": "d2",
+          "options": [
+            {
+              "id": "d2_o2",
+              "en": "stop the parenteral nutrition and saline-lock the central line",
+              "zh": "停止肠外营养并将中心静脉管路盐水封管"
+            },
+            {
+              "id": "d2_o4",
+              "en": "wait for routine morning laboratory results before acting",
+              "zh": "等待常规晨间实验室结果后再处理"
+            },
+            {
+              "id": "d2_o3",
+              "en": "increase the parenteral nutrition rate to improve calorie delivery",
+              "zh": "提高肠外营养速度以增加热量供给"
+            },
+            {
+              "id": "d2_o1",
+              "en": "notify the provider and give prescribed correction insulin per protocol",
+              "zh": "通知医嘱提供者，并按流程给予处方校正胰岛素"
+            }
+          ],
+          "correct": "d2_o1"
+        },
+        {
+          "id": "d3",
+          "options": [
+            {
+              "id": "d3_o4",
+              "en": "peak and trough antibiotic levels",
+              "zh": "抗生素峰谷浓度"
+            },
+            {
+              "id": "d3_o2",
+              "en": "pupillary response and intracranial pressure",
+              "zh": "瞳孔反应和颅内压"
+            },
+            {
+              "id": "d3_o1",
+              "en": "capillary glucose and hydration status",
+              "zh": "床旁血糖和水合状态"
+            },
+            {
+              "id": "d3_o3",
+              "en": "aPTT and platelet count",
+              "zh": "aPTT 和血小板计数"
+            }
+          ],
+          "correct": "d3_o1"
+        }
+      ],
+      "rationale": {
+        "correct": {
+          "en": "Parenteral nutrition contains concentrated dextrose and can cause hyperglycemia. The stated protocol directs provider notification and prescribed correction insulin for glucose greater than 300 mg/dL, with ongoing monitoring of glucose and hydration.",
+          "zh": "肠外营养含高浓度葡萄糖，可导致高血糖。题干流程规定血糖大于 300 mg/dL 时通知医嘱提供者并给予处方校正胰岛素，同时持续监测血糖和水合状态。"
+        },
+        "byChoice": [
+          {
+            "refId": "d1_o1",
+            "en": "Parenteral-nutrition-associated hyperglycemia fits the glucose of 328 mg/dL, thirst, and frequent urination.",
+            "zh": "血糖 328 mg/dL、口渴和尿频符合肠外营养相关高血糖。"
+          },
+          {
+            "refId": "d1_o2",
+            "en": "Hypoglycemia from abrupt discontinuation is not supported because the infusion is running and the glucose is high.",
+            "zh": "肠外营养仍在输注且血糖升高，因此不支持突然停止导致的低血糖。"
+          },
+          {
+            "refId": "d1_o3",
+            "en": "Fat embolism is not suggested by the metabolic glucose finding and urinary symptoms.",
+            "zh": "代谢性血糖异常和尿频不提示脂肪栓塞。"
+          },
+          {
+            "refId": "d1_o4",
+            "en": "Insulin allergy is not supported because the cue is hyperglycemia before correction treatment, not allergic symptoms.",
+            "zh": "线索是校正治疗前的高血糖，而不是过敏表现，因此不支持胰岛素过敏。"
+          },
+          {
+            "refId": "d2_o1",
+            "en": "Provider notification and prescribed correction insulin follow the stated protocol for glucose greater than 300 mg/dL.",
+            "zh": "血糖大于 300 mg/dL 时通知医嘱提供者并给予处方校正胰岛素，符合题干流程。"
+          },
+          {
+            "refId": "d2_o2",
+            "en": "Abruptly stopping parenteral nutrition conflicts with the stated protocol and can create additional glucose instability.",
+            "zh": "突然停止肠外营养与题干流程相冲突，也可能造成额外的血糖不稳定。"
+          },
+          {
+            "refId": "d2_o3",
+            "en": "Increasing the infusion rate would deliver more dextrose and may worsen hyperglycemia.",
+            "zh": "提高输注速度会输入更多葡萄糖，可能加重高血糖。"
+          },
+          {
+            "refId": "d2_o4",
+            "en": "Waiting for routine labs delays treatment even though the protocol threshold has already been met.",
+            "zh": "尽管流程阈值此前已达到，但等待常规化验会延误处理。"
+          },
+          {
+            "refId": "d3_o1",
+            "en": "Glucose and hydration status are directly related to hyperglycemia, thirst, and frequent urination.",
+            "zh": "血糖和水合状态与高血糖、口渴和尿频直接相关。"
+          },
+          {
+            "refId": "d3_o2",
+            "en": "Pupillary response and intracranial pressure are not the priority monitoring parameters for this parenteral nutrition complication.",
+            "zh": "瞳孔反应和颅内压不是此肠外营养并发症的优先监测指标。"
+          },
+          {
+            "refId": "d3_o3",
+            "en": "aPTT and platelet count are more relevant to anticoagulation or bleeding risks, not parenteral nutrition hyperglycemia.",
+            "zh": "aPTT 和血小板计数更适用于抗凝或出血风险评估，而不是肠外营养相关高血糖。"
+          },
+          {
+            "refId": "d3_o4",
+            "en": "Antibiotic peak and trough levels do not address the glucose complication described.",
+            "zh": "抗生素峰谷浓度不能处理题干描述的血糖并发症。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Use the protocol value embedded in the stem. A glucose value beyond the stated threshold plus osmotic symptoms points to hyperglycemia requiring action, not observation alone.",
+        "zh": "使用题干给出的流程数值。血糖超过阈值并伴渗透性症状时，提示高血糖，需要处理，而不是单纯观察。"
+      },
+      "glossary": [
+        {
+          "termEn": "Parenteral nutrition",
+          "termZh": "肠外营养",
+          "defZh": "通过静脉提供营养的治疗方式，常含高浓度葡萄糖。"
+        },
+        {
+          "termEn": "Correction insulin",
+          "termZh": "校正胰岛素",
+          "defZh": "按血糖水平和处方量表给予的胰岛素，用于纠正高血糖。"
+        },
+        {
+          "termEn": "Hyperglycemia",
+          "termZh": "高血糖",
+          "defZh": "血糖高于目标范围，可出现口渴、多尿等表现。"
+        }
+      ]
+    },
+    {
+      "id": "gpt_fresh_2026_06_22_pharm_05",
+      "itemType": "bowtie",
+      "category": "Pharmacological and Parenteral Therapies",
+      "topic": "High-Alert Medication Safety",
+      "difficulty": "medium",
+      "ngnSkill": "take_action",
+      "stem": {
+        "en": "A client with type 1 diabetes is scheduled to receive insulin glargine 24 units at bedtime and insulin lispro 6 units with dinner. The nurse discovers that another nurse accidentally administered insulin lispro 24 units instead of insulin glargine 24 units 10 minutes ago. The client is awake and reports feeling shaky. Bedside glucose is 92 mg/dL. Unit protocol states: for rapid-acting insulin dose errors, notify the provider, initiate the hypoglycemia monitoring protocol, keep a rapid carbohydrate source available, and check bedside glucose every 15 minutes for at least 1 hour or as prescribed. Complete the bow-tie.",
+        "zh": "一名 1 型糖尿病患者睡前应接受甘精胰岛素 24 单位，并在晚餐时接受赖脯胰岛素 6 单位。护士发现另一名护士 10 分钟前误将赖脯胰岛素 24 单位当作甘精胰岛素 24 单位给予。患者清醒，诉发抖。床旁血糖为 92 mg/dL。病区流程规定：发生速效胰岛素剂量错误时，应通知医嘱提供者，启动低血糖监测流程，备好快速碳水来源，并至少 1 小时或按医嘱每 15 分钟复查床旁血糖。完成领结题。"
+      },
+      "bowtie": {
+        "condition": {
+          "prompt": {
+            "en": "Most likely complication",
+            "zh": "最可能的并发症"
+          },
+          "tokens": [
+            {
+              "id": "q5_c3",
+              "en": "Expected postprandial glucose rise",
+              "zh": "预期的餐后血糖升高"
+            },
+            {
+              "id": "q5_c2",
+              "en": "Diabetic ketoacidosis from missed basal insulin only",
+              "zh": "仅因漏用基础胰岛素导致的糖尿病酮症酸中毒"
+            },
+            {
+              "id": "q5_c1",
+              "en": "Impending hypoglycemia from rapid-acting insulin overdose",
+              "zh": "速效胰岛素过量导致的即将发生低血糖"
+            },
+            {
+              "id": "q5_c4",
+              "en": "Allergic reaction to insulin",
+              "zh": "胰岛素过敏反应"
+            }
+          ],
+          "correct": "q5_c1"
+        },
+        "actions": {
+          "prompt": {
+            "en": "Actions to take",
+            "zh": "应采取的措施"
+          },
+          "tokens": [
+            {
+              "id": "q5_a1",
+              "en": "Notify the provider about the rapid-acting insulin dose error",
+              "zh": "将速效胰岛素剂量错误通知医嘱提供者"
+            },
+            {
+              "id": "q5_a4",
+              "en": "Leave the client alone to rest because the glucose is above 70 mg/dL",
+              "zh": "因血糖高于 70 mg/dL，让患者独自休息"
+            },
+            {
+              "id": "q5_a3",
+              "en": "Give the missed glargine dose immediately without provider input",
+              "zh": "不经医嘱提供者确认，立即补给漏用的甘精胰岛素"
+            },
+            {
+              "id": "q5_a2",
+              "en": "Initiate the unit hypoglycemia monitoring protocol",
+              "zh": "启动病区低血糖监测流程"
+            }
+          ],
+          "correct": [
+            "q5_a1",
+            "q5_a2"
+          ]
+        },
+        "parameters": {
+          "prompt": {
+            "en": "Parameters to monitor",
+            "zh": "应监测的指标"
+          },
+          "tokens": [
+            {
+              "id": "q5_p3",
+              "en": "Daily hemoglobin A1c",
+              "zh": "每日糖化血红蛋白"
+            },
+            {
+              "id": "q5_p4",
+              "en": "Peak serum warfarin level",
+              "zh": "血清华法林峰值浓度"
+            },
+            {
+              "id": "q5_p2",
+              "en": "Sweating, tremor, confusion, and ability to swallow",
+              "zh": "出汗、震颤、意识混乱和吞咽能力"
+            },
+            {
+              "id": "q5_p1",
+              "en": "Bedside glucose every 15 minutes per protocol",
+              "zh": "按流程每 15 分钟复查床旁血糖"
+            }
+          ],
+          "correct": [
+            "q5_p1",
+            "q5_p2"
+          ]
+        }
+      },
+      "rationale": {
+        "correct": {
+          "en": "A large unintended dose of rapid-acting insulin creates a high risk for hypoglycemia even before the glucose falls below 70 mg/dL. The stated protocol supports provider notification, hypoglycemia monitoring, and frequent bedside glucose checks.",
+          "zh": "误给大剂量速效胰岛素会造成高低血糖风险，即使血糖尚未低于 70 mg/dL 也需要警惕。题干流程支持通知医嘱提供者、启动低血糖监测，并频繁复查床旁血糖。"
+        },
+        "byChoice": [
+          {
+            "refId": "q5_c1",
+            "en": "Impending hypoglycemia fits the rapid-acting insulin overdose, shakiness, and still-normal but vulnerable glucose value.",
+            "zh": "速效胰岛素过量、发抖以及仍在正常范围但易下降的血糖值，符合即将发生低血糖。"
+          },
+          {
+            "refId": "q5_c2",
+            "en": "Missed basal insulin matters later, but the immediate danger is the rapid-acting insulin overdose.",
+            "zh": "漏用基础胰岛素之后也重要，但当前即时危险是速效胰岛素过量。"
+          },
+          {
+            "refId": "q5_c3",
+            "en": "A routine postprandial rise does not explain the overdose or shakiness.",
+            "zh": "常规餐后血糖升高不能解释过量用药和发抖。"
+          },
+          {
+            "refId": "q5_c4",
+            "en": "Insulin allergy would involve allergic findings such as rash, swelling, wheezing, or anaphylaxis cues.",
+            "zh": "胰岛素过敏会出现皮疹、肿胀、喘鸣或过敏性休克等线索。"
+          },
+          {
+            "refId": "q5_a1",
+            "en": "Provider notification is required because the client received a high-alert medication in the wrong dose and type.",
+            "zh": "患者收到错误种类和剂量的高警讯药物，因此需要通知医嘱提供者。"
+          },
+          {
+            "refId": "q5_a2",
+            "en": "The hypoglycemia monitoring protocol directly addresses the expected complication of the error.",
+            "zh": "低血糖监测流程直接针对该错误可能导致的并发症。"
+          },
+          {
+            "refId": "q5_a3",
+            "en": "Giving glargine without provider input could complicate management after the rapid-acting insulin overdose.",
+            "zh": "在速效胰岛素过量后未经医嘱提供者确认就给甘精胰岛素，可能使处理更复杂。"
+          },
+          {
+            "refId": "q5_a4",
+            "en": "A glucose above 70 mg/dL does not remove the risk because rapid-acting insulin can continue lowering glucose.",
+            "zh": "血糖高于 70 mg/dL 并不能排除风险，因为速效胰岛素仍可能继续降低血糖。"
+          },
+          {
+            "refId": "q5_p1",
+            "en": "Frequent bedside glucose checks detect a rapid decline while the insulin is active.",
+            "zh": "胰岛素仍在作用时，频繁床旁血糖监测可发现快速下降。"
+          },
+          {
+            "refId": "q5_p2",
+            "en": "Hypoglycemia symptoms and swallowing ability determine whether oral carbohydrate is safe and effective.",
+            "zh": "低血糖症状和吞咽能力决定口服碳水是否安全有效。"
+          },
+          {
+            "refId": "q5_p3",
+            "en": "Hemoglobin A1c reflects long-term control and does not monitor the acute insulin error.",
+            "zh": "糖化血红蛋白反映长期控制情况，不能监测急性胰岛素错误。"
+          },
+          {
+            "refId": "q5_p4",
+            "en": "Warfarin levels are unrelated to insulin overdose and hypoglycemia risk.",
+            "zh": "华法林浓度与胰岛素过量和低血糖风险无关。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "For high-alert medication errors, do not wait for harm to fully develop. Match the expected complication to the medication’s action and use the protocol in the stem.",
+        "zh": "遇到高警讯药物错误时，不要等到伤害完全出现才处理。把可能并发症与药物作用联系起来，并使用题干给出的流程。"
+      },
+      "glossary": [
+        {
+          "termEn": "Rapid-acting insulin",
+          "termZh": "速效胰岛素",
+          "defZh": "起效较快、可迅速降低血糖的胰岛素。"
+        },
+        {
+          "termEn": "Insulin glargine",
+          "termZh": "甘精胰岛素",
+          "defZh": "长效基础胰岛素，用于提供较平稳的基础胰岛素作用。"
+        },
+        {
+          "termEn": "High-alert medication",
+          "termZh": "高警讯药物",
+          "defZh": "一旦使用错误，可能造成严重伤害的药物。"
+        }
+      ]
+    },
+    {
+      "id": "gpt_fresh_2026_06_22_pharm_06",
+      "itemType": "bowtie",
+      "category": "Pharmacological and Parenteral Therapies",
+      "topic": "Parenteral Nutrition",
+      "difficulty": "medium",
+      "ngnSkill": "analyze_cues",
+      "stem": {
+        "en": "A severely malnourished client started parenteral nutrition 18 hours ago. The client now reports new weakness and palpitations. Laboratory results show phosphorus 1.4 mg/dL, potassium 3.1 mEq/L, and magnesium 1.4 mg/dL. Unit protocol states: for phosphorus less than 1.8 mg/dL after nutrition initiation, notify the provider, anticipate prescribed electrolyte replacement, and place the client on cardiac monitoring if palpitations or significant electrolyte abnormalities occur. Complete the bow-tie.",
+        "zh": "一名重度营养不良患者 18 小时前开始肠外营养。患者现在报告新发乏力和心悸。实验室结果显示磷 1.4 mg/dL、钾 3.1 mEq/L、镁 1.4 mg/dL。病区流程规定：开始营养支持后磷低于 1.8 mg/dL 时，通知医嘱提供者，预期按医嘱补充电解质；如出现心悸或明显电解质异常，应进行心电监测。完成领结题。"
+      },
+      "bowtie": {
+        "condition": {
+          "prompt": {
+            "en": "Most likely complication",
+            "zh": "最可能的并发症"
+          },
+          "tokens": [
+            {
+              "id": "q6_c4",
+              "en": "Expected adaptation to parenteral nutrition",
+              "zh": "对肠外营养的预期适应"
+            },
+            {
+              "id": "q6_c2",
+              "en": "Central-line air embolism",
+              "zh": "中心静脉空气栓塞"
+            },
+            {
+              "id": "q6_c3",
+              "en": "Warfarin over-anticoagulation",
+              "zh": "华法林抗凝过度"
+            },
+            {
+              "id": "q6_c1",
+              "en": "Refeeding-related electrolyte shift",
+              "zh": "再喂养相关电解质转移"
+            }
+          ],
+          "correct": "q6_c1"
+        },
+        "actions": {
+          "prompt": {
+            "en": "Actions to take",
+            "zh": "应采取的措施"
+          },
+          "tokens": [
+            {
+              "id": "q6_a3",
+              "en": "Increase the parenteral nutrition rate to restore calories faster",
+              "zh": "提高肠外营养速度以更快恢复热量"
+            },
+            {
+              "id": "q6_a1",
+              "en": "Notify the provider about the low phosphorus and symptoms",
+              "zh": "将低磷和症状报告给医嘱提供者"
+            },
+            {
+              "id": "q6_a4",
+              "en": "Restrict all oral and intravenous electrolytes",
+              "zh": "限制所有口服和静脉电解质"
+            },
+            {
+              "id": "q6_a2",
+              "en": "Prepare to administer prescribed electrolyte replacement",
+              "zh": "准备给予处方电解质补充"
+            }
+          ],
+          "correct": [
+            "q6_a1",
+            "q6_a2"
+          ]
+        },
+        "parameters": {
+          "prompt": {
+            "en": "Parameters to monitor",
+            "zh": "应监测的指标"
+          },
+          "tokens": [
+            {
+              "id": "q6_p2",
+              "en": "Heart rhythm and palpitations",
+              "zh": "心律和心悸情况"
+            },
+            {
+              "id": "q6_p3",
+              "en": "International normalized ratio",
+              "zh": "国际标准化比值"
+            },
+            {
+              "id": "q6_p4",
+              "en": "Pupillary light response every 5 minutes",
+              "zh": "每 5 分钟检查瞳孔对光反应"
+            },
+            {
+              "id": "q6_p1",
+              "en": "Phosphorus, potassium, and magnesium levels",
+              "zh": "磷、钾和镁水平"
+            }
+          ],
+          "correct": [
+            "q6_p1",
+            "q6_p2"
+          ]
+        }
+      },
+      "rationale": {
+        "correct": {
+          "en": "Severe malnutrition followed by nutrition initiation and low phosphorus, potassium, and magnesium suggests a refeeding-related electrolyte shift. The stated protocol supports provider notification, prescribed electrolyte replacement, and rhythm monitoring for palpitations or significant abnormalities.",
+          "zh": "重度营养不良后开始营养支持，并出现低磷、低钾、低镁，提示再喂养相关电解质转移。题干流程支持通知医嘱提供者、按医嘱补充电解质，并因心悸或明显异常进行心律监测。"
+        },
+        "byChoice": [
+          {
+            "refId": "q6_c1",
+            "en": "Refeeding-related electrolyte shift matches the timing after nutrition initiation and the low phosphorus, potassium, and magnesium.",
+            "zh": "开始营养支持后的时间点，以及低磷、低钾、低镁，符合再喂养相关电解质转移。"
+          },
+          {
+            "refId": "q6_c2",
+            "en": "Air embolism would more likely involve sudden respiratory distress, chest pain, or acute hemodynamic change during line manipulation.",
+            "zh": "空气栓塞更可能在管路操作时出现突发呼吸困难、胸痛或急性血流动力学改变。"
+          },
+          {
+            "refId": "q6_c3",
+            "en": "Warfarin over-anticoagulation is not supported because no warfarin, INR, or bleeding cues are provided.",
+            "zh": "题干没有华法林、INR 或出血线索，因此不支持华法林抗凝过度。"
+          },
+          {
+            "refId": "q6_c4",
+            "en": "Weakness, palpitations, and marked electrolyte abnormalities are not expected adaptation findings.",
+            "zh": "乏力、心悸和明显电解质异常不是预期适应表现。"
+          },
+          {
+            "refId": "q6_a1",
+            "en": "Notify the provider about the low phosphorus and symptoms.",
+            "zh": "通知医嘱提供者低磷和相关症状。"
+          },
+          {
+            "refId": "q6_a2",
+            "en": "Prepare to administer prescribed electrolyte replacement.",
+            "zh": "准备给予处方的电解质补充治疗。"
+          },
+          {
+            "refId": "q6_a3",
+            "en": "Increasing the rate would accelerate calorie intake and potentially worsen electrolyte shifts.",
+            "zh": "提高输速会加速能量输入，可能进一步加重电解质转移。"
+          },
+          {
+            "refId": "q6_a4",
+            "en": "Restricting electrolytes would worsen the documented deficits.",
+            "zh": "限制电解质会加重已有的电解质缺失。"
+          },
+          {
+            "refId": "q6_p1",
+            "en": "Phosphorus, potassium, and magnesium levels directly track the recovery of electrolyte status.",
+            "zh": "监测磷、钾、镁浓度能直接追踪电解质的恢复状态。"
+          },
+          {
+            "refId": "q6_p2",
+            "en": "Heart rhythm and palpitations monitor for dysrhythmias secondary to electrolyte disturbances.",
+            "zh": "监测心律和心悸有助于发现继发于电解质失衡的心律失常。"
+          },
+          {
+            "refId": "q6_p3",
+            "en": "INR tracks coagulation and is not relevant to refeeding electrolyte monitoring.",
+            "zh": "INR 用于追踪凝血功能，与再喂养电解质监测无关。"
+          },
+          {
+            "refId": "q6_p4",
+            "en": "Pupillary checks are not indicated for metabolic or electrolyte shifts.",
+            "zh": "对于代谢或电解质转移，无须进行瞳孔检查。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "After nutrition starts in a severely malnourished client, connect new weakness or palpitations with low phosphorus, potassium, and magnesium.",
+        "zh": "重度营养不良患者开始营养支持后，若出现新发乏力或心悸，要联想到低磷、低钾和低镁。"
+      },
+      "glossary": [
+        {
+          "termEn": "Refeeding-related electrolyte shift",
+          "termZh": "再喂养相关电解质转移",
+          "defZh": "营养重新开始后电解质进入细胞，可导致血磷、血钾、血镁下降。"
+        },
+        {
+          "termEn": "Phosphorus",
+          "termZh": "磷",
+          "defZh": "与能量代谢、肌肉功能和心肺功能相关的重要电解质。"
+        },
+        {
+          "termEn": "Cardiac monitoring",
+          "termZh": "心电监测",
+          "defZh": "连续观察心律，以发现心律失常。"
+        }
+      ]
+    },
+    {
+      "id": "gpt_fresh_2026_06_22_pharm_07",
+      "itemType": "bowtie",
+      "category": "Pharmacological and Parenteral Therapies",
+      "topic": "Cardiovascular & Endocrine Medications",
+      "difficulty": "medium",
+      "ngnSkill": "prioritize_hypotheses",
+      "stem": {
+        "en": "A client takes digoxin 0.25 mg by mouth daily and furosemide 40 mg by mouth daily. The client reports nausea, seeing yellow halos around lights, and feeling unusually weak. The apical pulse is 52/min. Laboratory results show potassium 3.0 mEq/L and digoxin level 2.6 ng/mL. Unit protocol states: hold digoxin and notify the provider for apical pulse less than 60/min, digoxin level greater than 2.0 ng/mL, or new visual disturbances. Complete the bow-tie.",
+        "zh": "一名患者每日口服地高辛 0.25 mg 和呋塞米 40 mg。患者报告恶心、看灯光时有黄色光圈，并感到异常乏力。心尖脉 52 次/分。实验室结果显示钾 3.0 mEq/L，地高辛浓度 2.6 ng/mL。病区流程规定：心尖脉低于 60 次/分、地高辛浓度高于 2.0 ng/mL 或出现新发视觉异常时，暂停地高辛并通知医嘱提供者。完成领结题。"
+      },
+      "bowtie": {
+        "condition": {
+          "prompt": {
+            "en": "Most likely condition",
+            "zh": "最可能的情况"
+          },
+          "tokens": [
+            {
+              "id": "q7_c3",
+              "en": "Clozapine-associated neutropenia",
+              "zh": "氯氮平相关中性粒细胞减少"
+            },
+            {
+              "id": "q7_c2",
+              "en": "Therapeutic digoxin effect",
+              "zh": "地高辛治疗作用"
+            },
+            {
+              "id": "q7_c4",
+              "en": "Insulin-induced hypoglycemia",
+              "zh": "胰岛素诱导低血糖"
+            },
+            {
+              "id": "q7_c1",
+              "en": "Digoxin toxicity with hypokalemia",
+              "zh": "低钾相关地高辛中毒"
+            }
+          ],
+          "correct": "q7_c1"
+        },
+        "actions": {
+          "prompt": {
+            "en": "Actions to take",
+            "zh": "应采取的措施"
+          },
+          "tokens": [
+            {
+              "id": "q7_a2",
+              "en": "Notify the provider with pulse, potassium, symptoms, and digoxin level",
+              "zh": "向医嘱提供者报告脉搏、钾值、症状和地高辛浓度"
+            },
+            {
+              "id": "q7_a3",
+              "en": "Administer the scheduled digoxin to improve contractility",
+              "zh": "给予预定地高辛以改善心肌收缩力"
+            },
+            {
+              "id": "q7_a4",
+              "en": "Teach that yellow halos are expected and harmless",
+              "zh": "告知患者黄色光圈是预期且无害的表现"
+            },
+            {
+              "id": "q7_a1",
+              "en": "Hold digoxin per protocol",
+              "zh": "按流程暂停地高辛"
+            }
+          ],
+          "correct": [
+            "q7_a1",
+            "q7_a2"
+          ]
+        },
+        "parameters": {
+          "prompt": {
+            "en": "Parameters to monitor",
+            "zh": "应监测的指标"
+          },
+          "tokens": [
+            {
+              "id": "q7_p3",
+              "en": "Absolute neutrophil count",
+              "zh": "绝对中性粒细胞计数"
+            },
+            {
+              "id": "q7_p2",
+              "en": "Potassium and digoxin level trends",
+              "zh": "钾和地高辛浓度趋势"
+            },
+            {
+              "id": "q7_p1",
+              "en": "Apical pulse and heart rhythm",
+              "zh": "心尖脉和心律"
+            },
+            {
+              "id": "q7_p4",
+              "en": "Urine ketones before every meal",
+              "zh": "每餐前尿酮"
+            }
+          ],
+          "correct": [
+            "q7_p1",
+            "q7_p2"
+          ]
+        }
+      },
+      "rationale": {
+        "correct": {
+          "en": "Nausea, yellow halos, weakness, bradycardia, low potassium, and a high digoxin level indicate digoxin toxicity. The stated protocol supports holding digoxin and notifying the provider while monitoring pulse, rhythm, potassium, and digoxin levels.",
+          "zh": "恶心、黄色光圈、乏力、心动过缓、低钾和高地高辛浓度提示地高辛中毒。题干流程支持暂停地高辛并通知医嘱提供者，同时监测脉搏、心律、钾和地高辛浓度。"
+        },
+        "byChoice": [
+          {
+            "refId": "q7_c1",
+            "en": "Digoxin toxicity is supported by the visual changes, gastrointestinal symptoms, bradycardia, hypokalemia, and high drug level.",
+            "zh": "视觉改变、胃肠道症状、心动过缓、低钾和高药物浓度支持地高辛中毒。"
+          },
+          {
+            "refId": "q7_c2",
+            "en": "Therapeutic effect does not include yellow halos, nausea, weakness, bradycardia, and a toxic drug level.",
+            "zh": "治疗作用不包括黄色光圈、恶心、乏力、心动过缓和中毒范围药物浓度。"
+          },
+          {
+            "refId": "q7_c3",
+            "en": "Clozapine-associated neutropenia requires clozapine exposure and neutrophil findings, which are not provided.",
+            "zh": "氯氮平相关中性粒细胞减少需要氯氮平暴露和中性粒细胞线索，题干未提供。"
+          },
+          {
+            "refId": "q7_c4",
+            "en": "Insulin-induced hypoglycemia would require insulin and low-glucose cues, which are absent.",
+            "zh": "胰岛素诱导低血糖需要胰岛素和低血糖线索，题干没有这些信息。"
+          },
+          {
+            "refId": "q7_a1",
+            "en": "Hold digoxin per protocol.",
+            "zh": "按临床流程暂停地高辛。"
+          },
+          {
+            "refId": "q7_a2",
+            "en": "Notify the provider with pulse, potassium, symptoms, and digoxin level.",
+            "zh": "通知医嘱提供者脉搏、血钾、症状和地高辛浓度。"
+          },
+          {
+            "refId": "q7_a3",
+            "en": "Giving digoxin in toxicity increases dysrhythmia risks and contractility holds are secondary.",
+            "zh": "在中毒时给地高辛会增加心律失常风险，改善心肌收缩力并非首要。"
+          },
+          {
+            "refId": "q7_a4",
+            "en": "Yellow halos indicate toxic drug effect and need immediate evaluation.",
+            "zh": "黄色光圈提示药物毒性反应，需要立即评估。"
+          },
+          {
+            "refId": "q7_p1",
+            "en": "Apical pulse and rhythm monitor for worsening block or ectopic beats.",
+            "zh": "监测心尖脉和心律可发现加重的传导阻滞或异位搏动。"
+          },
+          {
+            "refId": "q7_p2",
+            "en": "Potassium and digoxin trends follow recovery or drug clearance.",
+            "zh": "监测钾和地高辛浓度能跟踪病情恢复或药物清除进度。"
+          },
+          {
+            "refId": "q7_p3",
+            "en": "Absolute neutrophil count is unrelated to digoxin safety monitoring.",
+            "zh": "绝对中性粒细胞计数与地高辛安全监测无关。"
+          },
+          {
+            "refId": "q7_p4",
+            "en": "Urine ketones do not track cardiac glycoside toxicity or potassium.",
+            "zh": "尿酮不能反映强心苷中毒或血钾变化。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "For digoxin, cluster gastrointestinal symptoms, visual changes, bradycardia, potassium changes, and drug level. A low potassium level increases concern for toxicity.",
+        "zh": "遇到地高辛题时，把胃肠道症状、视觉改变、心动过缓、钾变化和药物浓度组合判断。低钾会增加中毒风险。"
+      },
+      "glossary": [
+        {
+          "termEn": "Digoxin",
+          "termZh": "地高辛",
+          "defZh": "一种心脏药物，治疗范围较窄，需监测脉搏、电解质和药物浓度。"
+        },
+        {
+          "termEn": "Hypokalemia",
+          "termZh": "低钾血症",
+          "defZh": "血钾低于正常范围，可增加某些心脏药物毒性风险。"
+        },
+        {
+          "termEn": "Apical pulse",
+          "termZh": "心尖脉",
+          "defZh": "在心尖部听诊测得的心率，常用于给某些心脏药物前评估。"
+        }
+      ]
+    },
+    {
+      "id": "gpt_fresh_2026_06_22_pharm_08",
+      "itemType": "dropdown_cloze",
+      "category": "Pharmacological and Parenteral Therapies",
+      "topic": "Anticoagulant Therapy",
+      "difficulty": "medium",
+      "ngnSkill": "evaluate_outcomes",
+      "stem": {
+        "en": "A client receiving a heparin infusion has a change in platelet count and new symptoms.",
+        "zh": "一名接受肝素输注的患者出现血小板计数变化和新症状。"
+      },
+      "clozeStem": {
+        "en": "A client has been receiving an unfractionated heparin infusion for 6 days after a pulmonary embolism. The platelet count decreased from 228,000/mm3 at baseline to 92,000/mm3 today. The client reports new calf pain, and the affected calf is warm and swollen. The facility protocol states: if platelet count drops by 50% or more after heparin exposure or thrombosis is suspected, stop heparin per protocol, notify the provider, and monitor for new thrombosis or bleeding. The nurse should suspect {{d1}}, first take the protocol-directed action to {{d2}}, and monitor {{d3}}.",
+        "zh": "一名肺栓塞患者已连续 6 天接受普通肝素输注。血小板计数从基线 228,000/mm3 降至今天的 92,000/mm3。患者报告新发小腿疼痛，患侧小腿温热并肿胀。机构流程规定：肝素暴露后血小板下降 50% 或以上，或怀疑血栓形成时，应按流程停止肝素、通知医嘱提供者，并监测新的血栓或出血。护士应怀疑 {{d1}}，先按流程 {{d2}}，并监测 {{d3}}。"
+      },
+      "dropdowns": [
+        {
+          "id": "d1",
+          "options": [
+            {
+              "id": "d1_o1",
+              "en": "heparin-induced thrombocytopenia with possible new thrombosis",
+              "zh": "肝素诱导性血小板减少并可能有新血栓"
+            },
+            {
+              "id": "d1_o3",
+              "en": "warfarin over-anticoagulation",
+              "zh": "华法林抗凝过度"
+            },
+            {
+              "id": "d1_o4",
+              "en": "parenteral nutrition refeeding complication",
+              "zh": "肠外营养再喂养并发症"
+            },
+            {
+              "id": "d1_o2",
+              "en": "expected platelet response to heparin",
+              "zh": "肝素的预期血小板反应"
+            }
+          ],
+          "correct": "d1_o1"
+        },
+        {
+          "id": "d2",
+          "options": [
+            {
+              "id": "d2_o4",
+              "en": "wait for the next routine platelet count before reporting",
+              "zh": "等下一次常规血小板计数后再报告"
+            },
+            {
+              "id": "d2_o1",
+              "en": "stop the heparin infusion and notify the provider",
+              "zh": "停止肝素输注并通知医嘱提供者"
+            },
+            {
+              "id": "d2_o2",
+              "en": "increase the heparin infusion rate",
+              "zh": "提高肝素输注速度"
+            },
+            {
+              "id": "d2_o3",
+              "en": "massage the painful calf",
+              "zh": "按摩疼痛小腿"
+            }
+          ],
+          "correct": "d2_o1"
+        },
+        {
+          "id": "d3",
+          "options": [
+            {
+              "id": "d3_o2",
+              "en": "capillary glucose before meals only",
+              "zh": "仅监测餐前床旁血糖"
+            },
+            {
+              "id": "d3_o3",
+              "en": "serum lithium level and hand tremor",
+              "zh": "血清锂浓度和手颤"
+            },
+            {
+              "id": "d3_o1",
+              "en": "calf swelling, chest pain, shortness of breath, and bleeding",
+              "zh": "小腿肿胀、胸痛、气短和出血"
+            },
+            {
+              "id": "d3_o4",
+              "en": "visual halos and apical pulse before digoxin",
+              "zh": "地高辛给药前的视觉光圈和心尖脉"
+            }
+          ],
+          "correct": "d3_o1"
+        }
+      ],
+      "rationale": {
+        "correct": {
+          "en": "A platelet drop of more than 50% after several days of heparin exposure plus new calf findings suggests heparin-induced thrombocytopenia with possible thrombosis. The stated protocol directs stopping heparin, notifying the provider, and monitoring for thrombosis and bleeding.",
+          "zh": "肝素暴露数天后血小板下降超过 50%，并出现新的小腿表现，提示肝素诱导性血小板减少并可能有血栓。题干流程要求停止肝素、通知医嘱提供者，并监测血栓和出血。"
+        },
+        "byChoice": [
+          {
+            "refId": "d1_o1",
+            "en": "Heparin-induced thrombocytopenia with possible thrombosis fits the timing, platelet fall, and warm swollen calf.",
+            "zh": "肝素诱导性血小板减少并可能有血栓，与时间点、血小板下降和温热肿胀小腿相符。"
+          },
+          {
+            "refId": "d1_o2",
+            "en": "A large platelet drop with possible thrombosis is not an expected safe response to heparin.",
+            "zh": "血小板大幅下降并可能出现血栓，不是肝素的安全预期反应。"
+          },
+          {
+            "refId": "d1_o3",
+            "en": "Warfarin over-anticoagulation would be supported by warfarin exposure, elevated INR, and bleeding cues.",
+            "zh": "华法林抗凝过度需要华法林暴露、INR 升高和出血线索支持。"
+          },
+          {
+            "refId": "d1_o4",
+            "en": "Refeeding complication is not supported because the cues involve heparin exposure, platelet fall, and thrombosis signs.",
+            "zh": "题干线索涉及肝素暴露、血小板下降和血栓表现，因此不支持再喂养并发症。"
+          },
+          {
+            "refId": "d2_o1",
+            "en": "Stopping heparin and notifying the provider follow the stated protocol for suspected heparin-induced thrombocytopenia.",
+            "zh": "怀疑肝素诱导性血小板减少时停止肝素并通知医嘱提供者，符合题干流程。"
+          },
+          {
+            "refId": "d2_o2",
+            "en": "Increasing heparin would worsen exposure to the suspected trigger.",
+            "zh": "提高肝素速度会增加对疑似诱因的暴露。"
+          },
+          {
+            "refId": "d2_o3",
+            "en": "Massaging a painful swollen calf can dislodge a clot and is unsafe.",
+            "zh": "按摩疼痛肿胀的小腿可能使血栓脱落，不安全。"
+          },
+          {
+            "refId": "d2_o4",
+            "en": "Waiting delays action despite meeting the stated protocol criteria.",
+            "zh": "已经符合题干流程标准，等待会延误处理。"
+          },
+          {
+            "refId": "d3_o1",
+            "en": "Calf findings, chest pain, shortness of breath, and bleeding monitor thrombotic and bleeding complications.",
+            "zh": "小腿表现、胸痛、气短和出血可监测血栓和出血并发症。"
+          },
+          {
+            "refId": "d3_o2",
+            "en": "Capillary glucose does not monitor the suspected heparin-related platelet and thrombosis problem.",
+            "zh": "床旁血糖不能监测疑似肝素相关血小板和血栓问题。"
+          },
+          {
+            "refId": "d3_o3",
+            "en": "Lithium level and tremor are unrelated to suspected heparin-induced thrombocytopenia.",
+            "zh": "血清锂浓度和手颤与疑似肝素诱导性血小板减少无关。"
+          },
+          {
+            "refId": "d3_o4",
+            "en": "Visual halos and apical pulse before digoxin are relevant to digoxin toxicity, not heparin-induced thrombocytopenia.",
+            "zh": "视觉光圈和地高辛给药前心尖脉与地高辛中毒有关，不是肝素诱导性血小板减少的监测重点。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "A falling platelet count during heparin therapy is not always bleeding-focused; pair it with new clot symptoms to recognize heparin-induced thrombocytopenia.",
+        "zh": "肝素治疗期间血小板下降并不总是只看出血；如果合并新的血栓症状，要想到肝素诱导性血小板减少。"
+      },
+      "glossary": [
+        {
+          "termEn": "Unfractionated heparin",
+          "termZh": "普通肝素",
+          "defZh": "一种静脉或皮下使用的抗凝药，需监测出血和某些免疫性并发症。"
+        },
+        {
+          "termEn": "Heparin-induced thrombocytopenia",
+          "termZh": "肝素诱导性血小板减少",
+          "defZh": "肝素相关免疫反应，可导致血小板下降并增加血栓风险。"
+        },
+        {
+          "termEn": "Thrombosis",
+          "termZh": "血栓形成",
+          "defZh": "血管内形成血块，可导致疼痛、肿胀或栓塞风险。"
+        }
+      ]
+    },
+    {
+      "id": "gpt_fresh_2026_06_22_sic_01",
+      "itemType": "highlight",
+      "category": "Safety and Infection Control",
+      "topic": "PPE & Sterile Technique",
+      "difficulty": "medium",
+      "ngnSkill": "recognize_cues",
+      "stem": {
+        "en": "Highlight the breach in sterile technique documented in the procedure note.",
+        "zh": "请标出操作记录中违反无菌技术的内容。"
+      },
+      "highlight": {
+        "segments": [
+          {
+            "id": "s1",
+            "en": "Procedure note: The nurse performs hand hygiene before opening the sterile dressing tray.",
+            "zh": "操作记录：护士在打开无菌换药盘前进行手卫生。"
+          },
+          {
+            "id": "s2",
+            "en": "The nurse opens the outer wrapper by moving the far flap away from the body.",
+            "zh": "护士先将远侧包布向远离身体的方向打开。",
+            "selectable": true
+          },
+          {
+            "id": "s3",
+            "en": "The nurse reaches across the open sterile field to pick up a sterile gauze pad.",
+            "zh": "护士越过已经打开的无菌区域去拿取一块无菌纱布。",
+            "selectable": true
+          },
+          {
+            "id": "s4",
+            "en": "The nurse keeps sterile-gloved hands above waist level while preparing supplies.",
+            "zh": "护士准备物品时将戴无菌手套的双手保持在腰部以上。",
+            "selectable": true
+          },
+          {
+            "id": "s5",
+            "en": "The nurse adds sterile saline to the basin without touching the bottle lip to the basin.",
+            "zh": "护士向容器内倒入无菌生理盐水，瓶口没有接触容器。"
+          }
+        ],
+        "correct": [
+          "s3"
+        ]
+      },
+      "rationale": {
+        "correct": {
+          "en": "Reaching across an open sterile field contaminates the field because the nurse's arm passes over sterile supplies. The other documented actions maintain the field.",
+          "zh": "手臂越过已经打开的无菌区域会污染无菌区，因为手臂经过无菌物品上方。其他记录中的做法可维持无菌状态。"
+        },
+        "byChoice": [
+          {
+            "refId": "s2",
+            "en": "Opening the far flap away from the body helps avoid reaching over the sterile field.",
+            "zh": "先将远侧包布向远离身体的方向打开，有助于避免越过无菌区域。"
+          },
+          {
+            "refId": "s3",
+            "en": "Reaching across the sterile field places a nonsterile arm over sterile supplies and contaminates the field.",
+            "zh": "越过无菌区域会使非无菌手臂经过无菌物品上方，从而污染无菌区。"
+          },
+          {
+            "refId": "s4",
+            "en": "Keeping sterile-gloved hands above waist level supports sterile technique.",
+            "zh": "将戴无菌手套的双手保持在腰部以上符合无菌技术要求。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "For sterile-field questions, look for movement over the field, items below the waist, wet surfaces, or contact between sterile and nonsterile objects.",
+        "zh": "遇到无菌区域题时，重点寻找越过无菌区、物品低于腰部、潮湿表面或无菌物品接触非无菌物品等线索。"
+      },
+      "glossary": [
+        {
+          "termEn": "Sterile field",
+          "termZh": "无菌区域",
+          "defZh": "操作过程中保持无微生物污染的区域。"
+        },
+        {
+          "termEn": "Contaminate",
+          "termZh": "污染",
+          "defZh": "使物品或区域不再保持无菌或清洁。"
+        }
+      ]
+    },
+    {
+      "id": "gpt_fresh_2026_06_22_sic_02",
+      "itemType": "highlight",
+      "category": "Safety and Infection Control",
+      "topic": "Standard Precautions & Hygiene",
+      "difficulty": "easy",
+      "ngnSkill": "recognize_cues",
+      "stem": {
+        "en": "Highlight the documented action that breaches standard precautions.",
+        "zh": "请标出记录中违反标准预防措施的行为。"
+      },
+      "highlight": {
+        "segments": [
+          {
+            "id": "s1",
+            "en": "Hygiene note: The nurse wears gloves while emptying a bedside commode.",
+            "zh": "卫生记录：护士清空床旁便盆时戴手套。",
+            "selectable": true
+          },
+          {
+            "id": "s2",
+            "en": "The nurse avoids touching the uniform with gloved hands.",
+            "zh": "护士避免用戴手套的手接触工作服。",
+            "selectable": true
+          },
+          {
+            "id": "s3",
+            "en": "The nurse removes the gloves and immediately answers the unit phone before performing hand hygiene.",
+            "zh": "护士脱下手套后，在进行手卫生前立即接听护士站电话。",
+            "selectable": true
+          },
+          {
+            "id": "s4",
+            "en": "The nurse disinfects the commode seat after emptying the container.",
+            "zh": "护士清空容器后对便盆座面进行消毒。"
+          },
+          {
+            "id": "s5",
+            "en": "The nurse places used wipes in the designated waste container.",
+            "zh": "护士将用过的湿巾放入指定废物容器。"
+          }
+        ],
+        "correct": [
+          "s3"
+        ]
+      },
+      "rationale": {
+        "correct": {
+          "en": "Hand hygiene is required after removing gloves. Touching a shared phone before hand hygiene can spread microorganisms to equipment and staff.",
+          "zh": "脱手套后需要进行手卫生。在手卫生前接触共用电话，可能将微生物传播到设备和工作人员。"
+        },
+        "byChoice": [
+          {
+            "refId": "s1",
+            "en": "Wearing gloves during contact with body fluids or contaminated items follows standard precautions.",
+            "zh": "接触体液或污染物品时戴手套符合标准预防措施。"
+          },
+          {
+            "refId": "s2",
+            "en": "Avoiding contact between contaminated gloves and the uniform reduces cross-contamination.",
+            "zh": "避免污染手套接触工作服可减少交叉污染。"
+          },
+          {
+            "refId": "s3",
+            "en": "Removing gloves does not replace hand hygiene, and shared equipment should not be touched before cleaning hands.",
+            "zh": "脱手套不能代替手卫生，清洁双手前不应接触共用设备。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Treat gloves as contaminated after use. The safe pattern is gloves for exposure risk, remove gloves, perform hand hygiene, and only then touch clean or shared surfaces.",
+        "zh": "使用后的手套应视为已污染。安全流程是：有暴露风险时戴手套，脱手套，进行手卫生，然后再接触清洁或共用表面。"
+      },
+      "glossary": [
+        {
+          "termEn": "Standard precautions",
+          "termZh": "标准预防措施",
+          "defZh": "适用于所有患者的基本感染控制措施。"
+        },
+        {
+          "termEn": "Hand hygiene",
+          "termZh": "手卫生",
+          "defZh": "根据情况使用肥皂和水或含酒精手消毒剂清洁双手。"
+        }
+      ]
+    },
+    {
+      "id": "gpt_fresh_2026_06_22_sic_03",
+      "itemType": "highlight",
+      "category": "Safety and Infection Control",
+      "topic": "Environmental safety and equipment checks",
+      "difficulty": "medium",
+      "ngnSkill": "analyze_cues",
+      "stem": {
+        "en": "Per facility policy, portable oxygen cylinders must be replaced before transport if the pressure gauge reads below 500 psi. Highlight the checklist finding that requires follow-up.",
+        "zh": "根据机构政策，便携式氧气瓶压力表读数低于 500 psi 时，转运前必须更换。请标出需要后续处理的检查单发现。"
+      },
+      "highlight": {
+        "segments": [
+          {
+            "id": "s1",
+            "en": "Pre-transport equipment checklist:",
+            "zh": "转运前设备检查单："
+          },
+          {
+            "id": "s2",
+            "en": "Portable suction canister is attached and tubing is capped.",
+            "zh": "便携式吸引瓶已连接，管路已盖好。",
+            "selectable": true
+          },
+          {
+            "id": "s3",
+            "en": "Oxygen cylinder pressure gauge reads 350 psi.",
+            "zh": "氧气瓶压力表读数为 350 psi。",
+            "selectable": true
+          },
+          {
+            "id": "s4",
+            "en": "Wheelchair brakes lock when tested.",
+            "zh": "轮椅刹车测试时可以锁定。",
+            "selectable": true
+          },
+          {
+            "id": "s5",
+            "en": "Call light is within reach while waiting for transport staff.",
+            "zh": "等待转运人员期间，呼叫铃在患者可及范围内。"
+          }
+        ],
+        "correct": [
+          "s3"
+        ]
+      },
+      "rationale": {
+        "correct": {
+          "en": "The oxygen cylinder pressure is below the facility's stated 500 psi replacement threshold, so the cylinder must be replaced before transport.",
+          "zh": "氧气瓶压力低于题干中机构规定的 500 psi 更换阈值，因此转运前必须更换氧气瓶。"
+        },
+        "byChoice": [
+          {
+            "refId": "s2",
+            "en": "Attached suction with capped tubing is an expected transport safety check.",
+            "zh": "吸引装置已连接且管路盖好，是预期的转运安全检查内容。"
+          },
+          {
+            "refId": "s3",
+            "en": "The pressure reading is below the stated replacement threshold and requires action before transport.",
+            "zh": "该压力读数低于题干所述的更换阈值，转运前需要处理。"
+          },
+          {
+            "refId": "s4",
+            "en": "Wheelchair brakes that lock during testing support safe transport.",
+            "zh": "轮椅刹车测试时能够锁定，有助于安全转运。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "When the stem gives a facility threshold, compare each finding directly with that threshold instead of relying on memory.",
+        "zh": "当题干给出机构阈值时，应将每个发现直接与该阈值比较，而不是依赖记忆。"
+      },
+      "glossary": [
+        {
+          "termEn": "psi",
+          "termZh": "psi",
+          "defZh": "磅/平方英寸；某些压力表使用的压力单位。"
+        },
+        {
+          "termEn": "Follow-up",
+          "termZh": "后续处理",
+          "defZh": "为纠正或澄清安全问题而需要采取的行动。"
+        }
+      ]
+    },
+    {
+      "id": "gpt_fresh_2026_06_22_sic_04",
+      "itemType": "ordered_response",
+      "category": "Safety and Infection Control",
+      "topic": "PPE & Sterile Technique",
+      "difficulty": "medium",
+      "ngnSkill": "take_action",
+      "stem": {
+        "en": "A nurse wore gloves, gown, face shield, and mask for a procedure with splash risk. Arrange the PPE removal steps in the correct sequence using the unit's posted doffing sequence.",
+        "zh": "护士在有液体飞溅风险的操作中佩戴了手套、隔离衣、面屏和口罩。请根据科室张贴的脱卸流程，将 PPE 脱卸步骤按正确顺序排列。"
+      },
+      "options": [
+        {
+          "id": "D",
+          "en": "Remove the face shield by handling the strap or side arms.",
+          "zh": "握住面屏的绑带或侧臂取下面屏。"
+        },
+        {
+          "id": "A",
+          "en": "Remove gloves without touching bare skin.",
+          "zh": "脱下手套，避免接触裸露皮肤。"
+        },
+        {
+          "id": "C",
+          "en": "Perform hand hygiene.",
+          "zh": "进行手卫生。"
+        },
+        {
+          "id": "B",
+          "en": "Remove the gown by turning the contaminated outside inward.",
+          "zh": "脱下隔离衣，将受污染的外面向内卷起。"
+        },
+        {
+          "id": "E",
+          "en": "Remove the mask by the ties or ear loops.",
+          "zh": "通过系带或耳挂取下口罩。"
+        },
+        {
+          "id": "F",
+          "en": "Perform hand hygiene again.",
+          "zh": "再次进行手卫生。"
+        }
+      ],
+      "correct": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F"
+      ],
+      "rationale": {
+        "correct": {
+          "en": "The posted sequence removes heavily contaminated gloves and gown, cleans hands, removes face and respiratory protection by clean handling points, and ends with hand hygiene.",
+          "zh": "张贴流程要求先脱去污染较重的手套和隔离衣，清洁双手，再通过清洁接触点取下面部和呼吸防护用品，并以手卫生结束。"
+        },
+        "byChoice": [
+          {
+            "refId": "D",
+            "en": "The strap or side arms are the intended handling points for removing a face shield.",
+            "zh": "面屏的绑带或侧臂是取下面屏时应接触的位置。"
+          },
+          {
+            "refId": "A",
+            "en": "Gloves are likely contaminated and should be removed without contacting bare skin.",
+            "zh": "手套很可能已被污染，脱下时应避免接触裸露皮肤。"
+          },
+          {
+            "refId": "B",
+            "en": "Turning the contaminated gown surface inward contains contamination while removing it.",
+            "zh": "脱隔离衣时将污染面向内卷起，可限制污染扩散。"
+          },
+          {
+            "refId": "F",
+            "en": "Hand hygiene after PPE removal reduces the risk of carrying microorganisms to clean surfaces.",
+            "zh": "脱卸 PPE 后进行手卫生，可降低将微生物带到清洁表面的风险。"
+          },
+          {
+            "refId": "E",
+            "en": "Removing the mask by ties or ear loops avoids touching the contaminated front surface.",
+            "zh": "通过系带或耳挂取下口罩，可避免接触受污染的正面。"
+          },
+          {
+            "refId": "C",
+            "en": "Hand hygiene after removing gloves and gown reduces contamination before touching face protection.",
+            "zh": "脱下手套和隔离衣后进行手卫生，可在接触面部防护用品前减少污染。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "For PPE sequence items, separate contaminated surfaces from clean handling points and place hand hygiene at transition points where contamination could spread.",
+        "zh": "做 PPE 顺序题时，要区分污染表面和清洁接触点，并在污染可能传播的转换环节安排手卫生。"
+      },
+      "glossary": [
+        {
+          "termEn": "Doffing",
+          "termZh": "脱卸",
+          "defZh": "安全脱下个人防护用品的过程。"
+        },
+        {
+          "termEn": "Splash risk",
+          "termZh": "飞溅风险",
+          "defZh": "血液或体液可能飞溅到护士身上的情况。"
+        },
+        {
+          "termEn": "Face shield",
+          "termZh": "面屏",
+          "defZh": "用于保护眼部和面部免受飞溅污染的个人防护用品。"
+        }
+      ]
+    },
+    {
+      "id": "gpt_fresh_2026_06_22_sic_05",
+      "itemType": "highlight",
+      "category": "Safety and Infection Control",
+      "topic": "Fall prevention",
+      "difficulty": "medium",
+      "ngnSkill": "analyze_cues",
+      "stem": {
+        "en": "Per unit fall-prevention protocol, a client who received an opioid within the past 4 hours must have staff assistance before ambulating. Highlight the safety-note finding that requires follow-up.",
+        "zh": "根据科室跌倒预防流程，过去 4 小时内使用过阿片类药物的患者下床行走前必须由工作人员协助。请标出安全记录中需要后续处理的发现。"
+      },
+      "highlight": {
+        "segments": [
+          {
+            "id": "s1",
+            "en": "Safety note: Client received hydromorphone 1 mg IV at 0930 for postoperative pain.",
+            "zh": "安全记录：患者 0930 因术后疼痛接受氢吗啡酮 1 mg 静脉给药。"
+          },
+          {
+            "id": "s2",
+            "en": "At 1100, the client states, “I feel a little sleepy but need to use the bathroom.”",
+            "zh": "1100，患者说：“我有点困，但需要去卫生间。”",
+            "selectable": true
+          },
+          {
+            "id": "s3",
+            "en": "The nurse tells the client to press the call light and waits at the bedside.",
+            "zh": "护士告知患者按呼叫铃，并在床旁等待。",
+            "selectable": true
+          },
+          {
+            "id": "s4",
+            "en": "The client’s nonskid socks are on both feet.",
+            "zh": "患者双脚均穿着防滑袜。",
+            "selectable": true
+          },
+          {
+            "id": "s5",
+            "en": "The bedside table is placed across the room so the path to the bathroom is wider.",
+            "zh": "床旁桌被放到房间另一侧，以便通往卫生间的通道更宽。",
+            "selectable": true
+          }
+        ],
+        "correct": [
+          "s5"
+        ]
+      },
+      "rationale": {
+        "correct": {
+          "en": "A bedside table placed across the room may put needed items out of reach and encourage unassisted ambulation. The client recently received an opioid, so staff assistance and reachable items are important fall-prevention measures.",
+          "zh": "床旁桌放在房间另一侧可能使患者无法拿到所需物品，并促使患者自行下床。患者近期使用过阿片类药物，因此工作人员协助和物品可及是重要的跌倒预防措施。"
+        },
+        "byChoice": [
+          {
+            "refId": "s2",
+            "en": "Sleepiness after a recent opioid increases fall risk, but the statement itself is a cue to provide assistance rather than the documented breach.",
+            "zh": "近期使用阿片类药物后嗜睡会增加跌倒风险，但该陈述提示需要提供协助，并不是记录中的违规行为。"
+          },
+          {
+            "refId": "s3",
+            "en": "Staying at the bedside after directing the client to use the call light supports fall prevention.",
+            "zh": "告知患者使用呼叫铃后留在床旁，有助于预防跌倒。"
+          },
+          {
+            "refId": "s4",
+            "en": "Nonskid socks are an expected fall-prevention measure.",
+            "zh": "防滑袜是预期的跌倒预防措施。"
+          },
+          {
+            "refId": "s5",
+            "en": "Moving the bedside table out of reach can remove access to needed items and increase the chance that the client gets up without assistance.",
+            "zh": "将床旁桌移到患者够不到的位置，可能使患者拿不到所需物品，并增加其无人协助下床的可能。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "For fall-prevention items, look for anything that makes the client choose between waiting for help and reaching or walking alone.",
+        "zh": "做跌倒预防题时，注意寻找会让患者在等待帮助和自行伸手或行走之间做选择的因素。"
+      },
+      "glossary": [
+        {
+          "termEn": "Opioid",
+          "termZh": "阿片类药物",
+          "defZh": "一类止痛药，可能导致镇静并增加跌倒风险。"
+        },
+        {
+          "termEn": "Nonskid socks",
+          "termZh": "防滑袜",
+          "defZh": "带有防滑材料、用于减少滑倒的袜子。"
+        }
+      ]
+    },
+    {
+      "id": "gpt_fresh_2026_06_22_sic_06",
+      "itemType": "highlight",
+      "category": "Safety and Infection Control",
+      "topic": "Disaster & Emergency Preparedness",
+      "difficulty": "medium",
+      "ngnSkill": "recognize_cues",
+      "stem": {
+        "en": "The unit is preparing for an internal evacuation drill. Highlight the action that breaches emergency safety procedures.",
+        "zh": "科室正在准备内部疏散演练。请标出违反应急安全流程的行为。"
+      },
+      "highlight": {
+        "segments": [
+          {
+            "id": "s1",
+            "en": "Evacuation drill note: Charge nurse assigns one staff member to bring the unit census and client acuity list.",
+            "zh": "疏散演练记录：主管护士安排一名工作人员携带科室患者名单和病情轻重清单。",
+            "selectable": true
+          },
+          {
+            "id": "s2",
+            "en": "Staff place evacuation tags on clients after verifying each identity band.",
+            "zh": "工作人员核对每名患者腕带后放置疏散标签。",
+            "selectable": true
+          },
+          {
+            "id": "s3",
+            "en": "A staff member props open a fire door with a linen cart to speed movement through the hallway.",
+            "zh": "一名工作人员用布草车顶住防火门，以加快人员通过走廊。",
+            "selectable": true
+          },
+          {
+            "id": "s4",
+            "en": "The nurse keeps a battery-powered communication device with the evacuation team.",
+            "zh": "护士让疏散小组携带电池供电的通信设备。",
+            "selectable": true
+          },
+          {
+            "id": "s5",
+            "en": "Oxygen-dependent clients are paired with staff before relocation.",
+            "zh": "依赖氧气的患者在转移前与工作人员配对。"
+          }
+        ],
+        "correct": [
+          "s3"
+        ]
+      },
+      "rationale": {
+        "correct": {
+          "en": "Fire doors must not be propped open because they help contain smoke and fire. Speeding movement does not justify disabling a fire-safety barrier.",
+          "zh": "防火门不得被顶开，因为它们有助于阻隔烟雾和火势。为了加快移动而破坏防火屏障是不安全的。"
+        },
+        "byChoice": [
+          {
+            "refId": "s1",
+            "en": "Taking the census and acuity list helps account for clients and prioritize assistance during relocation.",
+            "zh": "携带患者名单和病情轻重清单有助于疏散时清点患者并优先安排协助。"
+          },
+          {
+            "refId": "s2",
+            "en": "Verifying identity before applying evacuation tags supports accurate tracking.",
+            "zh": "放置疏散标签前核对身份，有助于准确追踪患者。"
+          },
+          {
+            "refId": "s3",
+            "en": "Propping open a fire door defeats a safety feature intended to limit smoke and fire spread.",
+            "zh": "顶开防火门会破坏用于限制烟雾和火势扩散的安全功能。"
+          },
+          {
+            "refId": "s4",
+            "en": "A battery-powered communication device supports coordination if power or phones are disrupted.",
+            "zh": "电池供电的通信设备可在停电或电话中断时支持协调。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "In emergency-preparedness questions, do not sacrifice containment, communication, identification, or life support for speed alone.",
+        "zh": "做应急准备题时，不要为了单纯追求速度而牺牲隔离控制、沟通、身份识别或生命支持。"
+      },
+      "glossary": [
+        {
+          "termEn": "Evacuation tag",
+          "termZh": "疏散标签",
+          "defZh": "疏散转移时用于追踪患者的标签。"
+        },
+        {
+          "termEn": "Fire door",
+          "termZh": "防火门",
+          "defZh": "用于减缓烟雾和火势扩散的门。"
+        }
+      ]
+    },
+    {
+      "id": "gpt_fresh_2026_06_22_sic_07",
+      "itemType": "ordered_response",
+      "category": "Safety and Infection Control",
+      "topic": "Fall prevention",
+      "difficulty": "medium",
+      "ngnSkill": "take_action",
+      "stem": {
+        "en": "A nurse finds a client sitting on the floor beside the bed after an unwitnessed fall. Arrange the actions in the correct sequence.",
+        "zh": "护士发现一名患者在无人目击的跌倒后坐在床旁地板上。请按正确顺序排列护理措施。"
+      },
+      "options": [
+        {
+          "id": "E",
+          "en": "Document objective findings, interventions, notifications, and the client’s response.",
+          "zh": "记录客观发现、干预措施、通知情况和患者反应。"
+        },
+        {
+          "id": "B",
+          "en": "Call for assistance and stay with the client.",
+          "zh": "呼叫协助并留在患者身边。"
+        },
+        {
+          "id": "A",
+          "en": "Assess the client for airway, breathing, circulation, pain, deformity, bleeding, and level of consciousness before moving the client.",
+          "zh": "移动患者前评估气道、呼吸、循环、疼痛、畸形、出血和意识水平。"
+        },
+        {
+          "id": "D",
+          "en": "Assist the client back to bed only after assessment indicates it is safe and enough help is present.",
+          "zh": "只有在评估显示安全且有足够人员协助后，才协助患者回到床上。"
+        },
+        {
+          "id": "C",
+          "en": "Notify the provider using the client’s assessment findings and the fall circumstances.",
+          "zh": "根据患者评估结果和跌倒经过通知医护提供者。"
+        }
+      ],
+      "correct": [
+        "B",
+        "A",
+        "D",
+        "C",
+        "E"
+      ],
+      "rationale": {
+        "correct": {
+          "en": "The nurse first stays with the client and calls for help, assesses for injury before moving the client, returns the client to safety only when appropriate, notifies the provider with assessment data, and documents the event objectively.",
+          "zh": "护士应先留在患者身边并呼叫协助，移动前评估是否受伤，在适当且安全时将患者转回床上，再用评估资料通知医护提供者，并客观记录事件。"
+        },
+        "byChoice": [
+          {
+            "refId": "D",
+            "en": "Assisting the client back to bed is appropriate only after injury screening and with adequate help.",
+            "zh": "只有在筛查损伤并有足够协助后，才适合帮助患者回到床上。"
+          },
+          {
+            "refId": "C",
+            "en": "Provider notification is done after immediate assessment and safety needs are addressed so the report includes useful findings.",
+            "zh": "在完成初步评估并处理安全需求后通知医护提供者，可使报告包含有用的评估发现。"
+          },
+          {
+            "refId": "A",
+            "en": "Assessment before movement helps detect injuries that could worsen if the client is moved too soon.",
+            "zh": "移动前评估有助于发现可能因过早移动而加重的损伤。"
+          },
+          {
+            "refId": "E",
+            "en": "Objective documentation follows assessment, interventions, and notifications.",
+            "zh": "客观记录应在评估、干预和通知完成后进行。"
+          },
+          {
+            "refId": "B",
+            "en": "Calling for assistance while staying with the client prevents leaving the client alone and brings help for safe assessment and transfer.",
+            "zh": "留在患者身边并呼叫协助，可避免患者独处，并获得安全评估和转移所需的帮助。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "After a fall, do not move the client first. Stay, get help, assess for injury, then move only if safe.",
+        "zh": "患者跌倒后，不要先移动患者。应留在现场、寻求帮助、评估损伤，然后在安全时再移动。"
+      },
+      "glossary": [
+        {
+          "termEn": "Unwitnessed fall",
+          "termZh": "无人目击的跌倒",
+          "defZh": "工作人员或其他观察者没有亲眼看到的跌倒。"
+        },
+        {
+          "termEn": "Objective findings",
+          "termZh": "客观发现",
+          "defZh": "可测量或可观察的数据，而不是主观意见。"
+        }
+      ]
+    },
+    {
+      "id": "gpt_fresh_2026_06_22_sic_08",
+      "itemType": "ordered_response",
+      "category": "Safety and Infection Control",
+      "topic": "PPE & Sterile Technique",
+      "difficulty": "medium",
+      "ngnSkill": "take_action",
+      "stem": {
+        "en": "A nurse is setting up a sterile field for a bedside dressing change. Arrange the actions in the correct sequence.",
+        "zh": "护士正在为床旁换药建立无菌区域。请按正确顺序排列操作。"
+      },
+      "options": [
+        {
+          "id": "B",
+          "en": "Open the far flap of the sterile wrapper away from the body.",
+          "zh": "先将远侧无菌包布向远离身体的方向打开。"
+        },
+        {
+          "id": "D",
+          "en": "Open the near flap toward the body while keeping the arm outside the sterile field.",
+          "zh": "将近侧包布朝身体方向打开，同时保持手臂不进入无菌区域上方。"
+        },
+        {
+          "id": "E",
+          "en": "Add sterile supplies to the field by dropping them gently from above without touching the field edge.",
+          "zh": "从上方轻轻投放无菌物品到无菌区域内，避免接触无菌区边缘。"
+        },
+        {
+          "id": "C",
+          "en": "Open the side flaps without reaching over the sterile contents.",
+          "zh": "打开两侧包布，避免越过无菌物品上方。"
+        },
+        {
+          "id": "A",
+          "en": "Perform hand hygiene and place the sterile package on a clean, dry work surface above waist level.",
+          "zh": "进行手卫生，并将无菌包放在腰部以上清洁、干燥的工作台面上。"
+        }
+      ],
+      "correct": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ],
+      "rationale": {
+        "correct": {
+          "en": "A sterile field is opened on a clean, dry surface above waist level. The far flap is opened first, then side flaps, then the near flap, and sterile supplies are added without touching the field edge.",
+          "zh": "无菌区域应在腰部以上清洁、干燥的表面上打开。先打开远侧包布，再打开两侧包布，然后打开近侧包布，最后在不接触无菌区边缘的情况下加入无菌物品。"
+        },
+        "byChoice": [
+          {
+            "refId": "E",
+            "en": "Sterile supplies may be added after the field is open, while avoiding contact with the field edge.",
+            "zh": "无菌区域打开后可以加入无菌物品，本步骤中需避免接触无菌区边缘。"
+          },
+          {
+            "refId": "A",
+            "en": "Hand hygiene and a clean, dry surface above waist level are needed before the sterile package is opened.",
+            "zh": "打开无菌包前需要进行手卫生，并准备腰部以上清洁、干燥的表面。"
+          },
+          {
+            "refId": "D",
+            "en": "Opening the near flap last completes the field while keeping the arm outside the sterile area.",
+            "zh": "最后打开近侧包布并保持手臂不进入无菌区域上方，可完成无菌区建立。"
+          },
+          {
+            "refId": "B",
+            "en": "Opening the far flap first prevents the nurse from reaching across the open field later.",
+            "zh": "先打开远侧包布，可避免之后越过已经打开的无菌区域。"
+          },
+          {
+            "refId": "C",
+            "en": "Opening side flaps without reaching over sterile contents maintains the field.",
+            "zh": "打开两侧包布且不越过无菌物品上方，有助于保持无菌区域。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "For sterile setup sequences, establish the clean surface first, open the far side before the near side, and avoid reaching over the sterile contents.",
+        "zh": "做无菌建立顺序题时，先准备清洁表面，先开远侧再开近侧，并避免越过无菌物品上方。"
+      },
+      "glossary": [
+        {
+          "termEn": "Sterile package",
+          "termZh": "无菌包",
+          "defZh": "正确打开前保持无菌的一套包裹物品。"
+        },
+        {
+          "termEn": "Field edge",
+          "termZh": "无菌区边缘",
+          "defZh": "无菌区域的边界，通常视为已污染。"
+        }
+      ]
+    },
+    {
+      "id": "gpt_fresh_2026_06_22_vis_01",
+      "itemType": "multiple_choice",
+      "category": "Pharmacological and Parenteral Therapies",
+      "topic": "Anticoagulant Therapy",
+      "difficulty": "medium",
+      "ngnSkill": "take_action",
+      "stem": {
+        "en": "Review the medication administration record. Per unit anticoagulant protocol, hold warfarin and notify the provider when the same-day INR is greater than 4.0. Which action should the nurse take at 2100?",
+        "zh": "查看用药记录。根据病区抗凝药物规程，如果当天 INR 大于 4.0，应暂缓华法林并通知医嘱提供者。护士在 2100 应采取哪项措施？"
+      },
+      "visual": {
+        "kind": "mar",
+        "timeGrid": [
+          "0900",
+          "1300",
+          "1700",
+          "2100"
+        ],
+        "medications": [
+          {
+            "name": "enoxaparin",
+            "dose": "40 mg",
+            "route": "SubQ",
+            "frequency": "daily",
+            "administrations": [
+              {
+                "time": "0900",
+                "status": "given"
+              }
+            ],
+            "isHighAlert": true
+          },
+          {
+            "name": "warfarin",
+            "dose": "5 mg",
+            "route": "PO",
+            "frequency": "daily",
+            "administrations": [
+              {
+                "time": "2100",
+                "status": "due"
+              }
+            ]
+          },
+          {
+            "name": "INR (Lab Result)",
+            "dose": "Value: 4.6",
+            "route": "PO",
+            "frequency": "daily",
+            "administrations": [
+              {
+                "time": "1700",
+                "status": "given"
+              }
+            ]
+          }
+        ],
+        "caption": {
+          "en": "Medication Administration Record",
+          "zh": "药物给药记录"
+        }
+      },
+      "options": [
+        {
+          "id": "C",
+          "en": "Give the enoxaparin dose that was administered earlier again.",
+          "zh": "再次给予之前已给过的依诺肝素。"
+        },
+        {
+          "id": "A",
+          "en": "Administer the warfarin because it is listed as due.",
+          "zh": "因华法林显示到点，应给予该药。"
+        },
+        {
+          "id": "B",
+          "en": "Hold the warfarin and notify the provider.",
+          "zh": "暂缓华法林并通知医嘱提供者。"
+        },
+        {
+          "id": "D",
+          "en": "Document that no anticoagulant is scheduled at 2100.",
+          "zh": "记录 2100 没有安排抗凝药。"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "rationale": {
+        "correct": {
+          "en": "The MAR shows warfarin is due at 2100 and the same-day INR is 4.6. Under the stated protocol, the nurse should hold warfarin and notify the provider.",
+          "zh": "用药记录显示 2100 华法林到点，且当天 INR 为 4.6。根据题干给出的规程，护士应暂缓华法林并通知医嘱提供者。"
+        },
+        "byChoice": [
+          {
+            "refId": "B",
+            "en": "Holding warfarin and notifying the provider matches the MAR finding and the stated anticoagulant protocol.",
+            "zh": "暂缓华法林并通知医嘱提供者符合用药记录所示情况和题干中的抗凝规程。"
+          },
+          {
+            "refId": "D",
+            "en": "The MAR shows warfarin is scheduled at 2100, so documenting no scheduled anticoagulant would be inaccurate.",
+            "zh": "用药记录显示 2100 有华法林医嘱，因此记录没有抗凝药安排是不准确的。"
+          },
+          {
+            "refId": "A",
+            "en": "Administering warfarin ignores the same-day INR value shown on the record and conflicts with the stated hold parameter.",
+            "zh": "给予华法林会忽视记录中的当天 INR 数值，并与题干给出的暂缓标准相冲突。"
+          },
+          {
+            "refId": "C",
+            "en": "Repeating enoxaparin would duplicate a dose already documented as given at 0900.",
+            "zh": "重复给予依诺肝素会造成重复给药，因为 0900 已记录给药。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "When a MAR item includes a safety threshold, match the due medication with the relevant lab or status cell before choosing the nursing action.",
+        "zh": "当用药记录题包含安全阈值时，先把到点药物与相关化验或状态格对应起来，再选择护理措施。"
+      },
+      "glossary": [
+        {
+          "termEn": "INR",
+          "termZh": "国际标准化比值",
+          "defZh": "用于监测华法林抗凝效果的凝血指标。"
+        },
+        {
+          "termEn": "Hold",
+          "termZh": "暂缓给药",
+          "defZh": "因安全原因暂时不执行给药，并按规程进一步处理。"
+        }
+      ],
+      "meta": {
+        "visual_justification": "The correct action requires reading both the 2100 warfarin due cell and the INR value shown only in the MAR visual.",
+        "tier": "Tier 1",
+        "source": "closed-world unit anticoagulant protocol stated in stem",
+        "skill_signature": "MAR anticoagulant due-dose check against lab-linked hold parameter",
+        "stem_disambiguators": [
+          "same-day INR threshold is stated in the stem",
+          "warfarin due time is only in the MAR",
+          "INR value is only in the MAR"
+        ],
+        "keyed_cells": [
+          {
+            "medication": "warfarin",
+            "time": "2100"
+          },
+          {
+            "medication": "INR (Lab Result)",
+            "time": "1700"
+          }
+        ],
+        "keyed_relationship": "warfarin_due_2100_with_same_day_inr_4_6",
+        "derived_values_keyed": {}
+      }
+    },
+    {
+      "id": "gpt_fresh_2026_06_22_vis_02",
+      "itemType": "fill_in_blank",
+      "category": "Pharmacological and Parenteral Therapies",
+      "topic": "Dosage Calculations",
+      "difficulty": "easy",
+      "ngnSkill": "take_action",
+      "stem": {
+        "en": "The provider prescribes heparin at 1,000 units/hr IV. Use the medication label to calculate the infusion pump rate. Round to the nearest whole mL/hr.",
+        "zh": "医嘱为肝素静脉输注 1,000 units/hr。请根据药品标签计算输液泵速率，四舍五入到最接近的整数 mL/hr。"
+      },
+      "visual": {
+        "kind": "medication_label",
+        "drugName": "Heparin Sodium",
+        "amount": 25000,
+        "amountUnit": "units",
+        "perQty": 250,
+        "perUnit": "mL",
+        "showDerivedConcentration": false,
+        "fields": [
+          {
+            "label": "Total volume",
+            "value": "250 mL"
+          },
+          {
+            "label": "Total drug",
+            "value": "25,000 units"
+          }
+        ],
+        "caption": {
+          "en": "IV infusion bag label.",
+          "zh": "静脉输注袋标签。"
+        }
+      },
+      "blanks": [
+        {
+          "id": "b1",
+          "prompt": {
+            "en": "mL/hr",
+            "zh": "mL/hr"
+          },
+          "acceptable": [
+            "10",
+            "10 mL/hr"
+          ],
+          "numeric": {
+            "value": 10,
+            "tolerance": 0,
+            "unit": "mL/hr"
+          }
+        }
+      ],
+      "rationale": {
+        "correct": {
+          "en": "The label shows 25,000 units in 250 mL, which is 100 units/mL. A prescription for 1,000 units/hr requires 1,000 divided by 100, or 10 mL/hr.",
+          "zh": "标签显示 250 mL 中含 25,000 units，即 100 units/mL。医嘱 1,000 units/hr 需要 1,000 除以 100，即 10 mL/hr。"
+        },
+        "byChoice": [
+          {
+            "refId": "b1",
+            "en": "The blank should contain the pump rate calculated from the concentration printed on the medication label.",
+            "zh": "空格应填写根据药品标签浓度计算出的输液泵速率。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "For an infusion-label calculation, first compute concentration from the label, then divide the ordered dose rate by that concentration.",
+        "zh": "输注标签计算题先根据标签算出浓度，再用医嘱剂量速率除以该浓度。"
+      },
+      "glossary": [
+        {
+          "termEn": "Dose rate",
+          "termZh": "剂量速率",
+          "defZh": "单位时间内需要给入的药物剂量。"
+        },
+        {
+          "termEn": "Concentration",
+          "termZh": "浓度",
+          "defZh": "每单位体积中所含药物量。"
+        }
+      ],
+      "meta": {
+        "visual_justification": "The stem gives only the prescribed dose rate; the concentration needed for the answer is available only from the medication label visual.",
+        "tier": "Tier 1",
+        "source": "synthetic medication label arithmetic",
+        "skill_signature": "heparin infusion rate from label concentration",
+        "stem_disambiguators": [
+          "order unit matches label amount unit",
+          "rounding instruction is stated",
+          "label hides derived concentration"
+        ],
+        "order": {
+          "kind": "dose_rate",
+          "value": 1000,
+          "unit": "units",
+          "round": 0
+        },
+        "derived_values_keyed": {
+          "concentration_per_ml": 100,
+          "rate_ml_per_hr": 10
+        }
+      }
+    },
+    {
+      "id": "gpt_fresh_2026_06_22_vis_03",
+      "itemType": "multiple_choice",
+      "category": "Pharmacological and Parenteral Therapies",
+      "topic": "High-Alert Medication Safety",
+      "difficulty": "medium",
+      "ngnSkill": "take_action",
+      "stem": {
+        "en": "The provider prescribes morphine sulfate 2 mg IV now for severe postoperative pain. Use the medication label to determine the volume the nurse should prepare.",
+        "zh": "医嘱为立即静脉给予硫酸吗啡 2 mg，用于严重术后疼痛。请根据药品标签判断护士应准备的体积。"
+      },
+      "visual": {
+        "kind": "medication_label",
+        "drugName": "Morphine Sulfate",
+        "amount": 10,
+        "amountUnit": "mg",
+        "perQty": 1,
+        "perUnit": "mL",
+        "showDerivedConcentration": false,
+        "fields": [
+          {
+            "label": "Total volume",
+            "value": "1 mL"
+          },
+          {
+            "label": "Strength",
+            "value": "10 mg per vial"
+          }
+        ],
+        "caption": {
+          "en": "Single-dose vial label.",
+          "zh": "单剂量小瓶标签。"
+        }
+      },
+      "options": [
+        {
+          "id": "C",
+          "en": "1 mL",
+          "zh": "1 mL"
+        },
+        {
+          "id": "B",
+          "en": "0.5 mL",
+          "zh": "0.5 mL"
+        },
+        {
+          "id": "D",
+          "en": "2 mL",
+          "zh": "2 mL"
+        },
+        {
+          "id": "A",
+          "en": "0.2 mL",
+          "zh": "0.2 mL"
+        }
+      ],
+      "correct": [
+        "A"
+      ],
+      "rationale": {
+        "correct": {
+          "en": "The label shows 10 mg in 1 mL, or 10 mg/mL. A 2 mg dose requires 2 divided by 10, which is 0.2 mL.",
+          "zh": "标签显示 1 mL 中含 10 mg，即 10 mg/mL。2 mg 剂量需要 2 除以 10，即 0.2 mL。"
+        },
+        "byChoice": [
+          {
+            "refId": "C",
+            "en": "A volume of 1 mL would provide the full vial amount of 10 mg, not the prescribed dose.",
+            "zh": "1 mL 会提供整瓶 10 mg，而不是医嘱剂量。"
+          },
+          {
+            "refId": "D",
+            "en": "A volume of 2 mL is incompatible with the 1 mL vial label and would not represent the prescribed dose.",
+            "zh": "2 mL 与标签显示的 1 mL 小瓶规格不符，也不是医嘱剂量。"
+          },
+          {
+            "refId": "A",
+            "en": "A volume of 0.2 mL provides 2 mg from a vial concentration of 10 mg/mL.",
+            "zh": "在小瓶浓度为 10 mg/mL 时，0.2 mL 可提供 2 mg。"
+          },
+          {
+            "refId": "B",
+            "en": "A volume of 0.5 mL would provide 5 mg, which exceeds the prescribed dose.",
+            "zh": "0.5 mL 会提供 5 mg，超过医嘱剂量。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "For high-alert medications, verify that the prepared volume matches the ordered dose and not the total amount in the container.",
+        "zh": "对于高警示药物，要确认准备体积对应医嘱剂量，而不是容器内的总药量。"
+      },
+      "glossary": [
+        {
+          "termEn": "Single-dose vial",
+          "termZh": "单剂量小瓶",
+          "defZh": "设计为一次给药使用的药物容器。"
+        },
+        {
+          "termEn": "High-alert medication",
+          "termZh": "高警示药物",
+          "defZh": "使用错误时可能造成严重伤害的药物。"
+        }
+      ],
+      "meta": {
+        "visual_justification": "The ordered dose is in the stem, but the concentration required to determine volume is only on the medication label.",
+        "tier": "Tier 1",
+        "source": "synthetic medication label arithmetic",
+        "skill_signature": "opioid dose-volume calculation from vial label",
+        "stem_disambiguators": [
+          "order unit matches label amount unit",
+          "route is stated on the label",
+          "computed concentration is not shown on the label"
+        ],
+        "order": {
+          "kind": "dose",
+          "value": 2,
+          "unit": "mg",
+          "round": 1
+        },
+        "derived_values_keyed": {
+          "concentration_per_ml": 10,
+          "volume_to_administer_ml": 0.2
+        }
+      }
+    },
+    {
+      "id": "gpt_fresh_2026_06_22_vis_04",
+      "itemType": "fill_in_blank",
+      "category": "Pharmacological and Parenteral Therapies",
+      "topic": "Parenteral Nutrition",
+      "difficulty": "easy",
+      "ngnSkill": "evaluate_outcomes",
+      "stem": {
+        "en": "A client is receiving parenteral nutrition through an infusion pump. Use the device screen to calculate how many minutes remain until the programmed volume is infused.",
+        "zh": "患者正在通过输液泵接受肠外营养。请根据设备屏幕计算程序设定的液体量输完还需要多少分钟。"
+      },
+      "visual": {
+        "kind": "device_screen",
+        "device": "infusion",
+        "title": {
+          "en": "Infusion Pump Screen",
+          "zh": "输液泵屏幕"
+        },
+        "settings": [
+          {
+            "key": "mode",
+            "text": "continuous"
+          },
+          {
+            "key": "rate_ml_hr",
+            "value": 75,
+            "unit": "mL/hr"
+          },
+          {
+            "key": "vtbi_ml",
+            "value": 900,
+            "unit": "mL"
+          }
+        ],
+        "caption": {
+          "en": "Current parenteral nutrition pump settings.",
+          "zh": "当前肠外营养泵设置。"
+        }
+      },
+      "blanks": [
+        {
+          "id": "b1",
+          "prompt": {
+            "en": "minutes",
+            "zh": "分钟"
+          },
+          "acceptable": [
+            "720",
+            "720 minutes"
+          ],
+          "numeric": {
+            "value": 720,
+            "tolerance": 0,
+            "unit": "minutes"
+          }
+        }
+      ],
+      "rationale": {
+        "correct": {
+          "en": "The screen shows VTBI 900 mL and a rate of 75 mL/hr. The infusion duration is 900 divided by 75, then multiplied by 60, which equals 720 minutes.",
+          "zh": "屏幕显示待输注量 900 mL，速率 75 mL/hr。输注时间为 900 除以 75，再乘以 60，等于 720 分钟。"
+        },
+        "byChoice": [
+          {
+            "refId": "b1",
+            "en": "The blank should contain the remaining infusion time in minutes based on the pump's VTBI and rate fields.",
+            "zh": "空格应填写根据输液泵待输注量和速率计算出的剩余输注时间（分钟）。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "For pump-screen time calculations, divide volume by hourly rate to get hours, then convert hours to minutes if the question asks for minutes.",
+        "zh": "输液泵时间计算题中，用体积除以每小时速率得到小时数；如果题目要求分钟，再换算为分钟。"
+      },
+      "glossary": [
+        {
+          "termEn": "VTBI",
+          "termZh": "待输注量",
+          "defZh": "输液泵设定还需要输注的体积。"
+        },
+        {
+          "termEn": "Parenteral nutrition",
+          "termZh": "肠外营养",
+          "defZh": "经静脉给予营养物质的治疗方式。"
+        }
+      ],
+      "meta": {
+        "visual_justification": "The remaining time cannot be calculated without the VTBI and rate shown on the device screen.",
+        "tier": "Tier 1",
+        "source": "synthetic infusion pump screen arithmetic",
+        "skill_signature": "infusion duration from VTBI and rate",
+        "stem_disambiguators": [
+          "question asks for minutes",
+          "device screen provides VTBI",
+          "device screen provides rate"
+        ],
+        "round": 0,
+        "derived_values_keyed": {
+          "infusion_duration_min": 720
+        }
+      }
+    },
+    {
+      "id": "gpt_fresh_2026_06_22_vis_05",
+      "itemType": "multiple_choice",
+      "category": "Pharmacological and Parenteral Therapies",
+      "topic": "Parenteral Nutrition",
+      "difficulty": "medium",
+      "ngnSkill": "take_action",
+      "stem": {
+        "en": "Review the medication administration record. Per unit protocol, hold scheduled nutritional insulin and notify the provider when parenteral nutrition is interrupted. Which action should the nurse take at 1800?",
+        "zh": "查看用药记录。根据病区规程，肠外营养中断时应暂缓按营养摄入安排的胰岛素并通知医嘱提供者。护士在 1800 应采取哪项措施？"
+      },
+      "visual": {
+        "kind": "mar",
+        "timeGrid": [
+          "1200",
+          "1600",
+          "1800",
+          "2200"
+        ],
+        "medications": [
+          {
+            "name": "Parenteral Nutrition",
+            "dose": "Continuous",
+            "route": "IV",
+            "frequency": "continuous",
+            "administrations": [
+              {
+                "time": "1200",
+                "status": "given"
+              },
+              {
+                "time": "1600",
+                "status": "missed"
+              },
+              {
+                "time": "1800",
+                "status": "not_given"
+              }
+            ]
+          },
+          {
+            "name": "Regular Insulin",
+            "dose": "6 units",
+            "route": "SubQ",
+            "frequency": "q6h",
+            "administrations": [
+              {
+                "time": "1200",
+                "status": "given"
+              },
+              {
+                "time": "1800",
+                "status": "due"
+              }
+            ]
+          },
+          {
+            "name": "Dextrose 10% in Water",
+            "dose": "IV infusion",
+            "route": "IV",
+            "frequency": "PRN protocol",
+            "administrations": [
+              {
+                "time": "1800",
+                "status": "due"
+              }
+            ]
+          }
+        ],
+        "caption": {
+          "en": "Evening medications and infusion status.",
+          "zh": "晚间药物和输注状态。"
+        }
+      },
+      "options": [
+        {
+          "id": "B",
+          "en": "Hold the regular insulin, start the protocol backup fluid as prescribed, and notify the provider.",
+          "zh": "暂缓常规胰岛素，按医嘱启动规程备用液，并通知医嘱提供者。"
+        },
+        {
+          "id": "C",
+          "en": "Mark the parenteral nutrition as given because it was infusing earlier in the day.",
+          "zh": "因为当天早些时候曾在输注，将肠外营养记录为已给。"
+        },
+        {
+          "id": "A",
+          "en": "Administer the scheduled regular insulin and document it as given.",
+          "zh": "给予按时常规胰岛素并记录已给药。"
+        },
+        {
+          "id": "D",
+          "en": "Give the regular insulin and hold the dextrose backup fluid until 2200.",
+          "zh": "给予常规胰岛素，并将葡萄糖备用液延后到 2200。"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "rationale": {
+        "correct": {
+          "en": "The MAR shows parenteral nutrition remains interrupted at 1800 and regular insulin is due at the same time. Under the stated protocol, the nurse should hold the nutritional insulin, start the ordered backup fluid, and notify the provider.",
+          "zh": "用药记录显示 1800 肠外营养仍中断，同时常规胰岛素到点。根据题干规程，护士应暂缓营养相关胰岛素，启动已开立的备用液，并通知医嘱提供者。"
+        },
+        "byChoice": [
+          {
+            "refId": "C",
+            "en": "Documenting parenteral nutrition as given would be inaccurate because the MAR shows it was missed and remains interrupted.",
+            "zh": "将肠外营养记录为已给是不准确的，因为用药记录显示其漏给且仍中断。"
+          },
+          {
+            "refId": "A",
+            "en": "Giving scheduled nutritional insulin while parenteral nutrition is interrupted increases hypoglycemia risk and conflicts with the stated protocol.",
+            "zh": "在肠外营养中断时给予按营养摄入安排的胰岛素会增加低血糖风险，并与题干规程不符。"
+          },
+          {
+            "refId": "D",
+            "en": "Giving insulin while delaying the backup dextrose fluid does not address the interruption of parenteral nutrition.",
+            "zh": "给予胰岛素却延后葡萄糖备用液，不能处理肠外营养中断的问题。"
+          },
+          {
+            "refId": "B",
+            "en": "Holding the insulin, starting the ordered backup fluid, and notifying the provider responds to the interrupted PN status shown in the MAR.",
+            "zh": "暂缓胰岛素、启动已开立的备用液并通知医嘱提供者，是对用药记录中肠外营养中断状态的正确处理。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "When insulin is linked to nutrition, match the insulin due time with the nutrition status before deciding whether to administer it.",
+        "zh": "当胰岛素与营养输注相关时，先把胰岛素到点时间与营养输注状态对应，再决定是否给药。"
+      },
+      "glossary": [
+        {
+          "termEn": "Parenteral nutrition",
+          "termZh": "肠外营养",
+          "defZh": "通过静脉给予营养物质。"
+        },
+        {
+          "termEn": "Nutritional insulin",
+          "termZh": "营养相关胰岛素",
+          "defZh": "用于覆盖正在摄入或输注营养所需的胰岛素。"
+        }
+      ],
+      "meta": {
+        "visual_justification": "The correct action requires seeing that PN remains interrupted and regular insulin is due at 1800; both facts are only in the MAR visual.",
+        "tier": "Tier 1",
+        "source": "closed-world unit protocol stated in stem",
+        "skill_signature": "MAR-linked PN interruption and insulin safety action",
+        "stem_disambiguators": [
+          "protocol is stated in the stem",
+          "PN interruption status is only in the MAR",
+          "regular insulin due time is only in the MAR"
+        ],
+        "keyed_cells": [
+          {
+            "medication": "Parenteral Nutrition",
+            "time": "1800"
+          },
+          {
+            "medication": "Regular Insulin",
+            "time": "1800"
+          },
+          {
+            "medication": "Dextrose 10% in Water",
+            "time": "1800"
+          }
+        ],
+        "keyed_relationship": "pn_interrupted_at_1800_with_regular_insulin_due_and_backup_dextrose_due",
+        "derived_values_keyed": {}
+      }
+    },
+    {
+      "id": "gpt_fresh_2026_06_22_vis_06",
+      "itemType": "multiple_choice",
+      "category": "Management of Care",
+      "topic": "Anticoagulant Therapy",
+      "difficulty": "medium",
+      "ngnSkill": "take_action",
+      "stem": {
+        "en": "Review the medication administration record. Per facility transition protocol, clarify with the provider before giving a newly scheduled oral anticoagulant if a therapeutic heparin infusion is still running. Which action should the nurse take at 0900?",
+        "zh": "查看用药记录。根据机构转换抗凝治疗规程，如果治疗剂量肝素输注仍在进行，应在给予新安排的口服抗凝药前与医嘱提供者澄清。护士在 0900 应采取哪项措施？"
+      },
+      "visual": {
+        "kind": "mar",
+        "timeGrid": [
+          "0600",
+          "0800",
+          "0900",
+          "1000"
+        ],
+        "medications": [
+          {
+            "name": "Heparin Infusion",
+            "dose": "Continuous",
+            "route": "IV",
+            "frequency": "continuous",
+            "administrations": [
+              {
+                "time": "0600",
+                "status": "given"
+              },
+              {
+                "time": "0800",
+                "status": "given"
+              }
+            ]
+          },
+          {
+            "name": "Apixaban",
+            "dose": "5 mg",
+            "route": "PO",
+            "frequency": "BID",
+            "administrations": [
+              {
+                "time": "0900",
+                "status": "due"
+              }
+            ]
+          },
+          {
+            "name": "Heparin Discontinue Order",
+            "dose": "Discontinue",
+            "route": "IV",
+            "frequency": "once",
+            "administrations": [
+              {
+                "time": "1000",
+                "status": "due"
+              }
+            ]
+          }
+        ],
+        "caption": {
+          "en": "Morning anticoagulation orders and administration status.",
+          "zh": "上午抗凝医嘱和给药状态。"
+        }
+      },
+      "options": [
+        {
+          "id": "A",
+          "en": "Give apixaban at 0900 because it is listed as due.",
+          "zh": "因阿哌沙班显示 0900 到点，应立即给药。"
+        },
+        {
+          "id": "C",
+          "en": "Stop the heparin infusion immediately without contacting the provider.",
+          "zh": "不联系医嘱提供者，立即停止肝素输注。"
+        },
+        {
+          "id": "D",
+          "en": "Document that the heparin infusion has already been discontinued.",
+          "zh": "记录肝素输注已经停止。"
+        },
+        {
+          "id": "B",
+          "en": "Clarify the anticoagulant transition before giving apixaban.",
+          "zh": "在给予阿哌沙班前澄清抗凝转换方案。"
+        }
+      ],
+      "correct": [
+        "B"
+      ],
+      "rationale": {
+        "correct": {
+          "en": "The MAR shows the therapeutic heparin infusion is still running at 0800, apixaban is due at 0900, and the heparin stop order is not due until 1000. The stated transition protocol requires clarification before giving apixaban.",
+          "zh": "用药记录显示 0800 治疗剂量肝素仍在输注，0900 阿哌沙班到点，而停止肝素医嘱到 1000 才到点。根据题干转换规程，给阿哌沙班前应先澄清。"
+        },
+        "byChoice": [
+          {
+            "refId": "C",
+            "en": "Stopping a therapeutic heparin infusion early without a clarified order is outside the safe action described in the protocol.",
+            "zh": "在未澄清医嘱的情况下提前停止治疗剂量肝素输注，不属于题干规程中的安全措施。"
+          },
+          {
+            "refId": "B",
+            "en": "Clarifying the transition matches the stated protocol and the overlapping anticoagulant statuses shown in the MAR.",
+            "zh": "澄清转换方案符合题干规程，也符合用药记录显示的抗凝药重叠状态。"
+          },
+          {
+            "refId": "D",
+            "en": "Documenting heparin as discontinued would be inaccurate because the MAR shows it continues and the stop time is later.",
+            "zh": "记录肝素已停止是不准确的，因为用药记录显示肝素仍在输注，停止时间在稍后。"
+          },
+          {
+            "refId": "A",
+            "en": "Giving apixaban without clarifying ignores the MAR evidence that therapeutic heparin is still running.",
+            "zh": "未澄清就给予阿哌沙班，会忽视用药记录中治疗剂量肝素仍在输注的证据。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "For transition-of-therapy items, compare active medication status with the timing of the replacement medication and stop order.",
+        "zh": "抗凝转换题要比较当前药物状态、替代药物到点时间和停药医嘱时间。"
+      },
+      "glossary": [
+        {
+          "termEn": "Therapeutic infusion",
+          "termZh": "治疗剂量输注",
+          "defZh": "用于达到治疗效果的持续静脉给药。"
+        },
+        {
+          "termEn": "Transition protocol",
+          "termZh": "转换治疗规程",
+          "defZh": "从一种治疗转为另一种治疗时用于避免重叠或中断风险的流程。"
+        }
+      ],
+      "meta": {
+        "visual_justification": "The answer depends on reading three MAR cells: ongoing heparin, apixaban due, and later heparin discontinuation time.",
+        "tier": "Tier 1",
+        "source": "closed-world facility transition protocol stated in stem",
+        "skill_signature": "MAR anticoagulant transition timing and clarification",
+        "stem_disambiguators": [
+          "transition rule is stated in the stem",
+          "heparin running status is only in the MAR",
+          "apixaban due time and heparin stop time are only in the MAR"
+        ],
+        "keyed_cells": [
+          {
+            "medication": "Heparin Infusion",
+            "time": "0800"
+          },
+          {
+            "medication": "Apixaban",
+            "time": "0900"
+          },
+          {
+            "medication": "Heparin Discontinue Order",
+            "time": "1000"
+          }
+        ],
+        "keyed_relationship": "apixaban_due_before_heparin_discontinue_order_while_heparin_still_running",
+        "derived_values_keyed": {}
+      }
+    },
+    {
+      "id": "gpt_fresh_2026_06_22_vis_07",
+      "itemType": "fill_in_blank",
+      "category": "Pharmacological and Parenteral Therapies",
+      "topic": "High-Alert Medication Safety",
+      "difficulty": "medium",
+      "ngnSkill": "take_action",
+      "stem": {
+        "en": "The provider prescribes potassium chloride 10 mEq/hr IV. Use the medication label to calculate the infusion pump rate. Round to the nearest whole mL/hr.",
+        "zh": "医嘱为氯化钾静脉输注 10 mEq/hr。请根据药品标签计算输液泵速率，四舍五入到最接近的整数 mL/hr。"
+      },
+      "visual": {
+        "kind": "medication_label",
+        "drugName": "Potassium Chloride",
+        "amount": 20,
+        "amountUnit": "mEq",
+        "perQty": 100,
+        "perUnit": "mL",
+        "showDerivedConcentration": false,
+        "fields": [
+          {
+            "label": "Total volume",
+            "value": "100 mL"
+          },
+          {
+            "label": "Total drug",
+            "value": "20 mEq"
+          }
+        ],
+        "caption": {
+          "en": "IV piggyback bag label.",
+          "zh": "静脉小袋标签。"
+        }
+      },
+      "blanks": [
+        {
+          "id": "b1",
+          "prompt": {
+            "en": "mL/hr",
+            "zh": "mL/hr"
+          },
+          "acceptable": [
+            "50",
+            "50 mL/hr"
+          ],
+          "numeric": {
+            "value": 50,
+            "tolerance": 0,
+            "unit": "mL/hr"
+          }
+        }
+      ],
+      "rationale": {
+        "correct": {
+          "en": "The label shows 20 mEq in 100 mL, which is 0.2 mEq/mL. A prescription for 10 mEq/hr requires 10 divided by 0.2, or 50 mL/hr.",
+          "zh": "标签显示 100 mL 中含 20 mEq，即 0.2 mEq/mL。医嘱 10 mEq/hr 需要 10 除以 0.2，即 50 mL/hr。"
+        },
+        "byChoice": [
+          {
+            "refId": "b1",
+            "en": "The blank should contain the pump rate calculated from the potassium chloride amount and volume shown on the label.",
+            "zh": "空格应填写根据标签所示氯化钾总量和总体积计算出的输液泵速率。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "With high-alert electrolyte infusions, calculate the mEq per mL from the bag before setting the pump rate.",
+        "zh": "高警示电解质输注题中，先根据输液袋计算每 mL 含多少 mEq，再设置泵速。"
+      },
+      "glossary": [
+        {
+          "termEn": "Potassium chloride",
+          "termZh": "氯化钾",
+          "defZh": "用于补钾的高警示电解质药物。"
+        },
+        {
+          "termEn": "IV piggyback",
+          "termZh": "静脉小袋输注",
+          "defZh": "通过静脉管路给予的小容量间歇输注。"
+        }
+      ],
+      "meta": {
+        "visual_justification": "The stem gives only the prescribed mEq/hr; the bag amount and volume needed for the pump rate are only on the medication label.",
+        "tier": "Tier 1",
+        "source": "synthetic medication label arithmetic",
+        "skill_signature": "potassium chloride infusion rate from label concentration",
+        "custom": {},
+        "stem_disambiguators": [
+          "order unit matches label amount unit",
+          "rounding instruction is stated",
+          "label hides derived concentration"
+        ],
+        "order": {
+          "kind": "dose_rate",
+          "value": 10,
+          "unit": "mEq",
+          "round": 0
+        },
+        "derived_values_keyed": {
+          "rate_ml_per_hr": 50
+        }
+      }
+    },
+    {
+      "id": "gpt_fresh_2026_06_22_vis_08",
+      "itemType": "fill_in_blank",
+      "category": "Reduction of Risk Potential",
+      "topic": "High-Alert Medication Safety",
+      "difficulty": "medium",
+      "ngnSkill": "analyze_cues",
+      "stem": {
+        "en": "A client is using a PCA pump after surgery. Use the device screen to calculate the maximum medication dose the client can receive in 1 hour if the client presses the demand button as often as allowed. Round to the nearest tenth.",
+        "zh": "患者术后正在使用 PCA 泵。请根据设备屏幕计算：如果患者按允许的最频繁次数按需给药，1 小时内最多可获得多少药物剂量。四舍五入到最接近的十分位。"
+      },
+      "visual": {
+        "kind": "device_screen",
+        "device": "pca",
+        "title": {
+          "en": "PCA Pump Screen",
+          "zh": "PCA 泵屏幕"
+        },
+        "settings": [
+          {
+            "key": "mode",
+            "text": "PCA demand only"
+          },
+          {
+            "key": "demand_dose",
+            "value": 0.2,
+            "unit": "mg"
+          },
+          {
+            "key": "lockout_min",
+            "value": 10,
+            "unit": "min"
+          },
+          {
+            "key": "basal_rate",
+            "value": 0,
+            "unit": "mg/hr"
+          }
+        ],
+        "caption": {
+          "en": "Current PCA settings.",
+          "zh": "当前 PCA 设置。"
+        }
+      },
+      "blanks": [
+        {
+          "id": "b1",
+          "prompt": {
+            "en": "mg in 1 hour",
+            "zh": "1 小时内 mg"
+          },
+          "acceptable": [
+            "1.2",
+            "1.2 mg"
+          ],
+          "numeric": {
+            "value": 1.2,
+            "tolerance": 0,
+            "unit": "mg"
+          }
+        }
+      ],
+      "rationale": {
+        "correct": {
+          "en": "The lockout is 10 minutes, so the maximum number of demand doses in 1 hour is 60 divided by 10, or 6. Each demand dose is 0.2 mg, so the maximum dose is 6 times 0.2 mg, or 1.2 mg.",
+          "zh": "锁定时间为 10 分钟，因此 1 小时内最多按需给药次数为 60 除以 10，即 6 次。每次按需剂量为 0.2 mg，所以最大剂量为 6 乘以 0.2 mg，即 1.2 mg。"
+        },
+        "byChoice": [
+          {
+            "refId": "b1",
+            "en": "The blank should contain the maximum demand-dose total based on the lockout interval and demand dose shown on the device screen.",
+            "zh": "空格应填写根据设备屏幕所示锁定时间和按需剂量计算出的最大按需给药总量。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "For PCA safety calculations, use the lockout interval to find the maximum number of allowed demands before multiplying by the demand dose.",
+        "zh": "PCA 安全计算题中，先用锁定时间算出最多允许按需给药次数，再乘以每次按需剂量。"
+      },
+      "glossary": [
+        {
+          "termEn": "PCA",
+          "termZh": "患者自控镇痛",
+          "defZh": "患者可在设定安全限制内自行按需给药的镇痛方式。"
+        },
+        {
+          "termEn": "Lockout interval",
+          "termZh": "锁定时间",
+          "defZh": "两次按需给药之间必须间隔的最短时间。"
+        }
+      ],
+      "meta": {
+        "visual_justification": "The maximum hourly dose requires the demand dose and lockout interval, both shown only on the PCA device screen.",
+        "tier": "Tier 1",
+        "source": "synthetic PCA pump screen arithmetic",
+        "skill_signature": "PCA maximum hourly demand dose from lockout and demand dose",
+        "stem_disambiguators": [
+          "question asks for maximum possible 1-hour dose",
+          "device screen provides lockout interval",
+          "device screen provides demand dose",
+          "mode excludes basal dosing"
+        ],
+        "round": 1,
+        "derived_values_keyed": {
+          "max_demands_1h": 6,
+          "max_dose_1h_mg": 1.2
+        }
+      }
     }
   ]
 }
