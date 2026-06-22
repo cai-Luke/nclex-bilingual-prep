@@ -2,8 +2,8 @@
 
 # NCLEX Bank Census
 
-Generated: 2026-06-21T16:20:55.131Z
-Git SHA: 6d334e26add24a1761daa72182172b97079d52c9
+Generated: 2026-06-22T03:55:31.113Z
+Git SHA: c2a817ef9f1a265726a6312f3a99306fbdefca8a
 
 ## Per-File Summary
 
@@ -11,10 +11,10 @@ Git SHA: 6d334e26add24a1761daa72182172b97079d52c9
 |------|--------|-----------|-----------|---------|
 | burn-canonical.json | 1.2 | 8 | 8 | — |
 | capnography-canonical.json | 1.2 | 7 | 7 | — |
-| claude-canonical.json | 1.6 | 69 | 69 | — |
+| claude-canonical.json | 1.6 | 97 | 97 | — |
 | device-canonical.json | 1.2 | 8 | 8 | — |
-| gemini-canonical.json | 1.5 | 824 | 824 | — |
-| gpt-canonical.json | 1.6 | 321 | 321 | — |
+| gemini-canonical.json | 1.6 | 874 | 874 | — |
+| gpt-canonical.json | 1.6 | 357 | 357 | — |
 | hard-cases-canonical.json | 1.6 | 66 | 66 | — |
 | io-canonical.json | 1.2 | 8 | 8 | — |
 | lab-canonical.json | 1.2 | 20 | 20 | — |
@@ -25,52 +25,52 @@ Git SHA: 6d334e26add24a1761daa72182172b97079d52c9
 
 ## Totals
 
-- Top-level questions: 1410
-- Case study top-level: 137
-- Embedded parts: 685
-- Graded total: 2095
+- Top-level questions: 1524
+- Case study top-level: 143
+- Embedded parts: 721
+- Graded total: 2245
 
 ## By Category
 
-- Health Promotion and Maintenance: 146
-- Psychosocial Integrity: 149
-- Basic Care and Comfort: 153
-- Safety and Infection Control: 158
-- Management of Care: 178
+- Psychosocial Integrity: 153
+- Basic Care and Comfort: 155
+- Health Promotion and Maintenance: 160
 - Reduction of Risk Potential: 178
-- Pharmacological and Parenteral Therapies: 184
+- Safety and Infection Control: 180
+- Management of Care: 216
+- Pharmacological and Parenteral Therapies: 218
 - Physiological Adaptation: 264
 
 ## Within-Category Concentration
 
 ### Management of Care
 
-Top topics: Prioritization & Delegation (53), Legal & Ethical Principles (49), Discharge Planning & Handoff (25), Confidentiality & HIPAA (13), Client Advocacy (9), Conflict Resolution (7), Disaster & Emergency Preparedness (2), Medication Safety & Admin (2), Advance Directives & Code Status (1), Chain of Command & Escalation (1)
+Top topics: Prioritization & Delegation (55), Legal & Ethical Principles (51), Discharge Planning & Handoff (26), Confidentiality & HIPAA (15), Client Advocacy (10), Conflict Resolution (8), Chain of Command & Escalation (2), Disaster & Emergency Preparedness (2), Medication Safety & Admin (2), Advance Directives / DNR (1)
 Visual kinds: device_screen (1), mar (1)
 
 ### Safety and Infection Control
 
-Top topics: Patient & Environment Safety (42), Transmission-Based Precautions (40), Standard Precautions & Hygiene (20), PPE & Sterile Technique (15), Disaster & Emergency Preparedness (7), Medication Safety & Admin (4), Transfusion & Blood Products (4), Endocrine & Neurological Disorders (2), Respiratory & Infectious Disorders (2), Airborne Precautions (1)
+Top topics: Patient & Environment Safety (42), Transmission-Based Precautions (42), Standard Precautions & Hygiene (20), PPE & Sterile Technique (15), Disaster & Emergency Preparedness (7), Medication Safety & Admin (4), Transfusion & Blood Products (4), Environmental safety and equipment checks (3), Endocrine & Neurological Disorders (2), Fall prevention (2)
 Visual kinds: capnography (1), device_screen (1), medication_label (1), vitals_trend (1)
 
 ### Health Promotion and Maintenance
 
-Top topics: Adult Health & Wellness (36), Maternal-Newborn Care & Teaching (32), Pediatric & Adolescent Health (31), Chronic Disease Management & Lifestyle (15), Pediatric & Toddler Safety (9), Reproductive & Endocrine Health (9), Respiratory & Infectious Disorders (2), Adult Immunization and Preventive Screening (1), adult preventive screening (1), adult preventive screening and vaccination counseling (1)
+Top topics: Adult Health & Wellness (39), Maternal-Newborn Care & Teaching (34), Pediatric & Adolescent Health (33), Chronic Disease Management & Lifestyle (16), Pediatric & Toddler Safety (13), Reproductive & Endocrine Health (11), Respiratory & Infectious Disorders (2), Adult Immunization and Preventive Screening (1), adult preventive screening (1), adult preventive screening and vaccination counseling (1)
 Visual kinds: none
 
 ### Psychosocial Integrity
 
-Top topics: Mental Health Disorders (63), Therapeutic Communication (25), Suicide & Crisis Intervention (22), Substance Use & Withdrawal (14), Caregiver Role Strain & Family Coping (4), Electroconvulsive Therapy (ECT) (4), caregiver burden and family adaptation (3), Bipolar I - Acute Manic Episode (1), Caregiver burden after dementia discharge (1), caregiver strain (1)
+Top topics: Mental Health Disorders (63), Therapeutic Communication (25), Suicide & Crisis Intervention (22), Substance Use & Withdrawal (16), Caregiver Role Strain & Family Coping (6), Electroconvulsive Therapy (ECT) (4), caregiver burden and family adaptation (3), Bipolar I - Acute Manic Episode (1), Caregiver burden after dementia discharge (1), caregiver strain (1)
 Visual kinds: none
 
 ### Basic Care and Comfort
 
-Top topics: Nutritional & Fluid Support (35), Elimination & Comfort (30), Mobility & Immobility (27), Sleep & Rest (17), Palliative & Supportive Care (12), Dosage Calculations (10), Transmission-Based Precautions (3), Adult Health & Wellness (2), Perioperative Care (2), adult Rule of Nines TBSA estimation (1)
+Top topics: Nutritional & Fluid Support (35), Elimination & Comfort (30), Mobility & Immobility (27), Sleep & Rest (17), Palliative & Supportive Care (12), Dosage Calculations (10), Skin & Wound Care (3), Transmission-Based Precautions (3), Adult Health & Wellness (2), Perioperative Care (2)
 Visual kinds: burn_map (1), device_screen (1), io_record (4)
 
 ### Pharmacological and Parenteral Therapies
 
-Top topics: Medication Safety & Admin (52), Dosage Calculations (47), Anticoagulant Therapy (30), Cardiovascular & Endocrine Medications (21), Psychotropic Medications (9), Nutritional & Fluid Support (3), Parenteral Nutrition (3), Cardiovascular Disorders (2), Adenosine Side Effects (1), Burn Management (1)
+Top topics: Medication Safety & Admin (54), Dosage Calculations (52), Anticoagulant Therapy (33), Cardiovascular & Endocrine Medications (22), Psychotropic Medications (11), Parenteral Nutrition (4), Nutritional & Fluid Support (3), Antibiotic Allergy Screening (2), Cardiovascular Disorders (2), High-Alert Medication Safety (2)
 Visual kinds: capnography (1), device_screen (5), lab_trend (6), mar (7), medication_label (9), rhythm_strip (10), vitals_trend (2)
 
 ### Reduction of Risk Potential
@@ -85,36 +85,35 @@ Visual kinds: burn_map (5), capnography (4), io_record (2), lab_trend (7), rhyth
 
 ## By Item Type
 
-- bowtie: 36
-- highlight: 39
-- ordered_response: 128
-- case_study: 137
-- fill_in_blank: 140
-- dropdown_cloze: 143
-- matrix: 168
-- select_all: 190
-- multiple_choice: 429
+- bowtie: 64
+- highlight: 64
+- ordered_response: 135
+- case_study: 143
+- fill_in_blank: 148
+- dropdown_cloze: 151
+- matrix: 178
+- select_all: 205
+- multiple_choice: 436
 
 ## By Difficulty
 
-- easy: 168
-- hard: 545
-- medium: 697
+- easy: 212
+- hard: 549
+- medium: 763
 
 ## By Schema Version
 
 - v1.2: 130 questions (burn-canonical.json, capnography-canonical.json, device-canonical.json, io-canonical.json, lab-canonical.json, mar-canonical.json, medlabel-canonical.json, visual-canonical.json, vitals-canonical.json)
-- v1.6: 456 questions (claude-canonical.json, gpt-canonical.json, hard-cases-canonical.json)
-- v1.5: 824 questions (gemini-canonical.json)
+- v1.6: 1394 questions (claude-canonical.json, gemini-canonical.json, gpt-canonical.json, hard-cases-canonical.json)
 
 ## By Source File
 
 - burn-canonical.json: 8
 - capnography-canonical.json: 7
-- claude-canonical.json: 69
+- claude-canonical.json: 97
 - device-canonical.json: 8
-- gemini-canonical.json: 824
-- gpt-canonical.json: 321
+- gemini-canonical.json: 874
+- gpt-canonical.json: 357
 - hard-cases-canonical.json: 66
 - io-canonical.json: 8
 - lab-canonical.json: 20
@@ -251,6 +250,12 @@ Total visuals: 146
 | gpt_case_lateral_incivility_01 | Conflict Resolution | 6 | gpt-canonical.json |
 | gpt_case_clozapine_toxicity_01 | Psychotropic Medications | 6 | gpt-canonical.json |
 | gpt_case_refeeding_syndrome_tpn_01 | Parenteral Nutrition | 6 | gpt-canonical.json |
+| gpt_case_caregiver_role_strain_dementia_01 | Caregiver Role Strain & Family Coping | 6 | gpt-canonical.json |
+| gpt_case_infection_control_clustered_care_01 | Transmission-Based Precautions | 6 | gpt-canonical.json |
+| gpt_case_nine_month_well_child_safety_01 | Pediatric & Toddler Safety | 6 | gpt-canonical.json |
+| gpt_case_opioid_recovery_relapse_risk_01 | Substance Use & Withdrawal | 6 | gpt-canonical.json |
+| gpt_case_overdue_preventive_screening_01 | Adult Health & Wellness | 6 | gpt-canonical.json |
+| gpt_case_pressure_injury_prevention_mobility_01 | Skin & Wound Care | 6 | gpt-canonical.json |
 | case_sepsis_pneumonia_01 | Sepsis & Septic Shock | 4 | hard-cases-canonical.json |
 | case_preeclampsia_magnesium_01 | Maternal-Newborn Care & Teaching | 4 | hard-cases-canonical.json |
 | cs_copd_01 | Respiratory & Infectious Disorders | 5 | hard-cases-canonical.json |
@@ -307,45 +312,43 @@ No duplicates detected.
 ## Targets
 
 Category targets (2026 NCLEX-RN test-plan weights):
-- Management of Care: 253.8
-- Safety and Infection Control: 183.3
-- Health Promotion and Maintenance: 126.9
-- Psychosocial Integrity: 126.9
-- Basic Care and Comfort: 126.9
-- Pharmacological and Parenteral Therapies: 225.6
-- Reduction of Risk Potential: 169.2
-- Physiological Adaptation: 197.4
-Item type average: 156.7
+- Management of Care: 274.3
+- Safety and Infection Control: 198.1
+- Health Promotion and Maintenance: 137.2
+- Psychosocial Integrity: 137.2
+- Basic Care and Comfort: 137.2
+- Pharmacological and Parenteral Therapies: 243.8
+- Reduction of Risk Potential: 182.9
+- Physiological Adaptation: 213.4
+Item type average: 169.3
 
 Under-served categories:
-- Management of Care: 178
+- Management of Care: 216
 
 Over-served categories:
 - Physiological Adaptation: 264
 
 Under-served item types:
-- bowtie: 36
-- highlight: 39
-- ordered_response: 128
-- case_study: 137
-- fill_in_blank: 140
-- dropdown_cloze: 143
+- bowtie: 64
+- highlight: 64
+- ordered_response: 135
+- case_study: 143
+- fill_in_blank: 148
+- dropdown_cloze: 151
 
 ## Prompt Parameters
 
 PRIORITIZE_TOPICS:
 - Anticoagulant Therapy — add: ordered_response, bowtie
 - Nutritional & Fluid Support — add: highlight, bowtie
-- Maternal-Newborn Care & Teaching — add: highlight, bowtie
+- Maternal-Newborn Care & Teaching — add: highlight
 - Patient & Environment Safety — add: bowtie
-- Pediatric & Adolescent Health — add: highlight, bowtie
 - Therapeutic Communication — add: ordered_response, fill_in_blank, highlight, bowtie
 - Cardiovascular & Endocrine Medications — add: ordered_response, fill_in_blank, dropdown_cloze, bowtie
 - Renal & Gastrointestinal Disorders — add: ordered_response, fill_in_blank
-- Transmission-Based Precautions — add: bowtie
 - Dosage Calculations — add: ordered_response, highlight, bowtie
 - Procedural Complications & Dialysis — add: highlight, bowtie
-- Substance Use & Withdrawal — add: ordered_response, fill_in_blank, highlight, bowtie
+- Substance Use & Withdrawal — add: ordered_response, fill_in_blank, highlight
 - Elimination & Comfort — add: highlight, bowtie
 - Endocrine & Neurological Disorders — add: fill_in_blank
 - Laboratory & Diagnostic Tests — add: highlight, bowtie
@@ -361,18 +364,21 @@ PRIORITIZE_TOPICS:
 - Diabetic Ketoacidosis (DKA) — add: fill_in_blank, highlight, bowtie
 - Injection route recognition from skin cross-section — add: select_all, ordered_response, fill_in_blank, matrix, dropdown_cloze, highlight, bowtie
 - Palliative & Supportive Care — add: select_all, dropdown_cloze, highlight, bowtie
+- Pediatric & Toddler Safety — add: ordered_response, highlight
 - Client Advocacy — add: select_all, fill_in_blank, matrix
 - Electroconvulsive Therapy (ECT) — add: select_all, fill_in_blank, matrix, dropdown_cloze, highlight, bowtie
 - intrapartum fetal monitoring — add: ordered_response, fill_in_blank, dropdown_cloze, highlight, bowtie
-- Pediatric & Toddler Safety — add: ordered_response, dropdown_cloze, highlight, bowtie
-- Reproductive & Endocrine Health — add: ordered_response, fill_in_blank, matrix, highlight, bowtie
+- Reproductive & Endocrine Health — add: ordered_response, fill_in_blank, bowtie
+- Management of Care (216 vs target 274)
+- bowtie (64 vs target 169.3)
 
 AVOID_TOPICS:
 - Cardiovascular Disorders (78)
 - Mental Health Disorders (64)
-- Medication Safety & Admin (58)
-- Prioritization & Delegation (54)
-- Legal & Ethical Principles (49)
+- Medication Safety & Admin (60)
+- Prioritization & Delegation (56)
+- Legal & Ethical Principles (51)
+- Transmission-Based Precautions (47)
 
 ## Docs Drift
 

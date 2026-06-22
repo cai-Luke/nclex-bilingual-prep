@@ -25,14 +25,14 @@ The app is a static offline Vite + React + TypeScript NCLEX-RN practice tool. It
 
 Core learning features are implemented: all schema item types render and grade, case studies are supported, sessions are resumable, custom sessions can be built from filters, the dashboard summarizes performance, flags feed review pools, glossary flashcards have their own SRS progress, and adaptive exam-condition practice is available without any pass/fail readiness claim.
 
-Current canonical banks (see [BANK-CENSUS.md](BANK-CENSUS.md); 1,410 top-level, 685 embedded parts as of 2026-06-21):
+Current canonical banks (see [BANK-CENSUS.md](BANK-CENSUS.md); 1,524 top-level, 721 embedded parts as of 2026-06-22):
 
 - `banks/burn-canonical.json` (8 schema v1.2 burn-map visual items)
 - `banks/capnography-canonical.json` (7 schema v1.2 capnography visual items; dedicated home for capnography kind)
-- `banks/claude-canonical.json` (69 bilingual Claude/Opus-source questions; ledgered content review complete; schema v1.6 for typed unfolding-case metadata)
+- `banks/claude-canonical.json` (97 bilingual Claude/Opus-source questions; ledgered content review complete; schema v1.6 for typed unfolding-case metadata)
 - `banks/device-canonical.json` (8 schema v1.2 device-screen visual items)
-- `banks/gemini-canonical.json` (824 bilingual Gemini-source questions; includes original + pending batches + traditional/easy/gap-fill/format-backfill consolidations minus redundant/flawed questions)
-- `banks/gpt-canonical.json` (321 bilingual GPT-source questions; ledgered content review complete; schema v1.6 for typed unfolding-case metadata)
+- `banks/gemini-canonical.json` (874 bilingual Gemini-source questions; includes original + pending batches + traditional/easy/gap-fill/format-backfill/standalone NGN consolidations minus redundant/flawed questions; schema v1.6)
+- `banks/gpt-canonical.json` (357 bilingual GPT-source questions; ledgered content review complete; schema v1.6 for typed unfolding-case metadata)
 - `banks/hard-cases-canonical.json` (66 top-level hard/NGN items; ledgered content review complete; schema v1.6 for typed unfolding-case metadata)
 - `banks/io-canonical.json` (8 schema v1.2 intake/output record visual items)
 - `banks/lab-canonical.json` (20 schema v1.2 lab_trend visual items; dedicated home for lab_trend kind)
@@ -57,6 +57,31 @@ Current schema item types:
 The committed NGN item-type set is complete. Rationale/dyad scoring and an explicit linked “X as evidenced by Y” type remain out of scope.
 
 ## Milestones
+
+### Collective Promotion Gate — 7 batches, 94 top-level items (Jun 22)
+
+Completed: ran the full promotion gate over the staged `banks/banks-raw/` slate and pushed to live.
+- Pass 1 — 6 standalone NGN batches (82 items): Claude Management of Care `claude-moc-standalone-ngn-2026-06-21-a/-b` (28) → `claude-canonical` 69→97; Gemini `gemini-moc` (10) + `gemini-sic` (20) → `gemini-canonical` 844→874; GPT `gpt-pharm-parenteral-easy-medium-a/-b` (24) → `gpt-canonical` 321→345.
+- Pass 2 — 6 recovered GPT case_study batches (12 top-level + 36 embedded) → `gpt-canonical` 345→357, restoring the cases lost to an earlier in-progress-promotion unwind (re-supplied by the maintainer; see `BANK-REVIEW-LEDGER.md`).
+- Provenance: maintainer confirmed cross-model review of all `banks-raw/` content (Claude MoC by Codex, logged; Gemini/GPT batches in external sessions).
+- Verification: `validate-bank` clean on all 13 canonicals; `npm run audit` GATE PASSED both passes; census regenerated (1,524 top-level / 721 embedded / 146 visuals; `census:check` clean); `npm run build` green. Final counts claude 97 / gemini 874 / gpt 357.
+
+### Gemini HPM/PPT Standalone NGN Promotion (Jun 22)
+
+Completed:
+- Reviewed and patched the Gemini HPM and PPT standalone NGN raw banks: `banks/banks-raw/gemini-hpm-standalone-ngn-2026-06-22-a.json` and `banks/banks-raw/gemini-ppt-standalone-ngn-2026-06-22-a.json`.
+- HPM fixes: corrected a Chinese connector artifact in Q7, removed an unrelated SIDS glossary entry from the Q3 car-seat item, and aligned Q9 menopause/breast-screening language to biennial mammography starting at age 40.
+- PPT fixes: reframed Q2 potassium chloride 40 mEq/250 mL as central-venous-catheter administration using an infusion pump with continuous cardiac monitoring, softened "vesicant" wording to high-alert/vein-irritating medication, and clarified Q5 as current digoxin-toxicity manifestations rather than risk factors.
+- Promoted only these two scoped Gemini files into `banks/_promoted/`, deliberately bumped `banks/gemini-canonical.json` from schema 1.5 to 1.6, and consolidated into `banks/gemini-canonical.json` (824→834→844). Raw sources deleted after merge; staged files auto-consumed.
+- Verification: raw `validate-bank` passed for both files; `npm run audit` passed before merge; scoped `npm run consolidate -- --dry-run ...` passed after the schema bump; post-merge `npm run validate-bank -- banks/*.json`, `npm run coverage-report`, `npm run census:check`, `npm run audit`, and `npm run build` passed.
+
+### Claude Management of Care Standalone Review (Jun 22)
+
+Completed:
+- Reviewed the two Claude-generated raw Management of Care standalone NGN batches (`banks/banks-raw/claude-moc-standalone-ngn-2026-06-21-a.json` and `banks/banks-raw/claude-moc-standalone-ngn-2026-06-21-b.json`) as a Codex cross-model review. All 28 items were accepted with no JSON edits.
+- Confirmed all four matrix items are non-inverted, adjudicated the state-variable LPN/LVN and independent-action scope caveats as acceptable under common U.S. acute-care assumptions, kept both prioritization items as non-clone high-yield variants, and confirmed the opioid-naive morphine order is a clear clarify-before-carrying-out order.
+- Unwound an out-of-scope in-progress promotion/consolidation attempt so no canonical bank, census, or bundled count changes remain from this review-only pass. Deleted the transient `MOC-REVIEW-HANDOFF.md` after recording the review in `BANK-REVIEW-LEDGER.md`.
+- Verification: `npm run validate-bank -- banks/banks-raw/claude-moc-standalone-ngn-2026-06-21-a.json` and `npm run validate-bank -- banks/banks-raw/claude-moc-standalone-ngn-2026-06-21-b.json` passed.
 
 ### Schema 1.6 Case-Study Metadata Reconciliation (Jun 21)
 

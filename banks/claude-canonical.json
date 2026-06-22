@@ -1,11 +1,11 @@
 {
   "meta": {
     "schemaVersion": "1.6",
+    "count": 97,
     "exam": "NCLEX-RN",
     "topic": "assorted NCLEX-RN Claude canonical bank",
     "category": "mixed",
-    "difficulty": "mixed",
-    "count": 69
+    "difficulty": "mixed"
   },
   "questions": [
     {
@@ -14254,6 +14254,3113 @@
           ]
         }
       }
+    },
+    {
+      "id": "claude_moc_deleg_uap_hl_01",
+      "itemType": "highlight",
+      "category": "Management of Care",
+      "topic": "Delegation to UAP",
+      "difficulty": "easy",
+      "ngnSkill": "generate_solutions",
+      "stem": {
+        "en": "A registered nurse is planning the shift for a stable medical client. Highlight the tasks that are appropriate to delegate to unlicensed assistive personnel (UAP).",
+        "zh": "护士正在为一名病情稳定的内科患者安排班次。请标出适合委派给无执照辅助人员（UAP）的任务。"
+      },
+      "highlight": {
+        "segments": [
+          {
+            "id": "s1",
+            "en": "Assist the client to the bathroom and provide perineal care.",
+            "zh": "协助患者如厕并进行会阴护理。",
+            "selectable": true
+          },
+          {
+            "id": "s2",
+            "en": "Measure and record routine vital signs on the stable client.",
+            "zh": "为该病情稳定的患者测量并记录常规生命体征。",
+            "selectable": true
+          },
+          {
+            "id": "s3",
+            "en": "Record the client's oral intake and urine output.",
+            "zh": "记录患者的经口摄入量和尿量。",
+            "selectable": true
+          },
+          {
+            "id": "s4",
+            "en": "Reposition the client every 2 hours and apply prescribed lotion.",
+            "zh": "每2小时为患者翻身并涂抹医嘱规定的润肤露。",
+            "selectable": true
+          },
+          {
+            "id": "s5",
+            "en": "Perform the admission assessment for a newly arrived client.",
+            "zh": "为新入院患者完成入院评估。",
+            "selectable": true
+          },
+          {
+            "id": "s6",
+            "en": "Teach the client how to use the incentive spirometer.",
+            "zh": "教患者如何使用激励式肺量计。",
+            "selectable": true
+          },
+          {
+            "id": "s7",
+            "en": "Evaluate whether the client's pain has improved after analgesia.",
+            "zh": "评估患者用镇痛药后疼痛是否缓解。",
+            "selectable": true
+          },
+          {
+            "id": "s8",
+            "en": "Adjust the IV infusion rate for the client's antibiotic.",
+            "zh": "调整患者抗生素静脉输注的速度。",
+            "selectable": true
+          }
+        ],
+        "correct": [
+          "s1",
+          "s2",
+          "s3",
+          "s4"
+        ]
+      },
+      "rationale": {
+        "correct": {
+          "en": "UAP may perform standardized, predictable tasks for stable clients with predictable outcomes: hygiene and ADLs, routine vital signs, recording intake and output, and routine repositioning. The RN retains the activities that require nursing judgment — assessment (including admission assessment), client teaching, evaluation of responses to care, and management of IV medications. This split reflects the NCSBN/ANA National Guidelines for Nursing Delegation and the Five Rights of Delegation (right task, circumstance, person, direction, supervision).",
+          "zh": "对于病情稳定、结果可预测的患者，UAP 可执行标准化、可预测的任务：卫生和日常生活活动、常规生命体征、记录出入量以及常规翻身。护士保留需要护理判断的活动——评估（包括入院评估）、患者教育、评价护理反应以及静脉药物管理。该划分依据 NCSBN/ANA《护理委派国家指南》和委派五项原则（正确的任务、情境、人员、指导和监督）。"
+        },
+        "byChoice": [
+          {
+            "refId": "s5",
+            "en": "Admission assessment is the RN's initial assessment and cannot be delegated.",
+            "zh": "入院评估属于护士的首次评估，不能被委派。"
+          },
+          {
+            "refId": "s6",
+            "en": "Client teaching requires nursing judgment and is not delegated to UAP.",
+            "zh": "患者教育需要护理判断，不委派给 UAP。"
+          },
+          {
+            "refId": "s7",
+            "en": "Evaluating the response to a medication is nursing judgment, not a UAP task.",
+            "zh": "评价用药反应属于护理判断，不是 UAP 的任务。"
+          },
+          {
+            "refId": "s8",
+            "en": "Adjusting an IV medication rate is outside UAP scope.",
+            "zh": "调整静脉药物速度超出 UAP 的执业范围。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Delegate the predictable and standardized; keep assessment, teaching, evaluation, and medication management with the RN.",
+        "zh": "可委派可预测、标准化的任务；评估、教育、评价和药物管理仍由护士保留。"
+      },
+      "glossary": [
+        {
+          "termEn": "Unlicensed assistive personnel (UAP)",
+          "termZh": "无执照辅助人员（UAP）",
+          "defZh": "在执照护士的指导和监督下协助提供护理的人员，如护理助理。"
+        },
+        {
+          "termEn": "Five Rights of Delegation",
+          "termZh": "委派五项原则",
+          "defZh": "正确的任务、正确的情境、正确的人员、正确的指导/沟通、正确的监督/评价。"
+        }
+      ]
+    },
+    {
+      "id": "claude_moc_unsafe_orders_hl_02",
+      "itemType": "highlight",
+      "category": "Management of Care",
+      "topic": "Unsafe Orders / Chain of Command",
+      "difficulty": "medium",
+      "ngnSkill": "analyze_cues",
+      "stem": {
+        "en": "A nurse reviews newly written orders for a 70-year-old client. Highlight the orders the nurse must clarify with the prescriber before carrying them out.",
+        "zh": "护士审阅一名70岁患者的新医嘱。请标出护士在执行前必须先与开具医嘱者核实的医嘱。"
+      },
+      "highlight": {
+        "segments": [
+          {
+            "id": "s1",
+            "en": "Potassium chloride 20 mEq IV push now.",
+            "zh": "氯化钾20 mEq静脉推注，立即执行。",
+            "selectable": true
+          },
+          {
+            "id": "s2",
+            "en": "Furosemide 40 mg IV once daily.",
+            "zh": "呋塞米40 mg静脉注射，每日一次。",
+            "selectable": true
+          },
+          {
+            "id": "s3",
+            "en": "Heparin 'titrate per protocol' with no order for baseline labs or the protocol referenced.",
+            "zh": "肝素“按方案滴定”，但未开具基线化验，也未注明所依据的方案。",
+            "selectable": true
+          },
+          {
+            "id": "s4",
+            "en": "Metoprolol 25 mg PO twice daily, hold for heart rate below 60.",
+            "zh": "美托洛尔25 mg口服，每日两次，心率低于60时暂停。",
+            "selectable": true
+          },
+          {
+            "id": "s5",
+            "en": "Morphine 10 mg IV every 1 hour PRN for an opioid-naive client.",
+            "zh": "吗啡10 mg静脉注射，每1小时按需一次，用于未使用过阿片类药物的患者。",
+            "selectable": true
+          },
+          {
+            "id": "s6",
+            "en": "Acetaminophen 650 mg PO every 6 hours PRN for pain.",
+            "zh": "对乙酰氨基酚650 mg口服，每6小时按需一次，用于疼痛。",
+            "selectable": true
+          },
+          {
+            "id": "s7",
+            "en": "Regular diet as tolerated.",
+            "zh": "普通饮食，耐受即可。",
+            "selectable": true
+          }
+        ],
+        "correct": [
+          "s1",
+          "s3",
+          "s5"
+        ]
+      },
+      "rationale": {
+        "correct": {
+          "en": "Three orders are unsafe or incomplete and must be clarified. Concentrated potassium chloride is never given by IV push — it is a high-alert medication that must be diluted and infused; rapid IV potassium can cause fatal dysrhythmia (ISMP high-alert list). A heparin titration order with no protocol named and no baseline coagulation studies is incomplete and unsafe. Morphine 10 mg IV every hour for an opioid-naive older adult is an excessive dose/frequency and risks respiratory depression. Furosemide, metoprolol with a hold parameter, PRN acetaminophen, and a regular diet are all reasonable as written. Questioning an unsafe order is the first step in the chain of command.",
+          "zh": "其中三条医嘱不安全或不完整，必须核实。浓氯化钾绝不可静脉推注——它是高警示药物，必须稀释后输注；快速静脉补钾可致命性心律失常（ISMP 高警示药物清单）。肝素滴定医嘱未注明方案、也无基线凝血检查，属不完整且不安全。对未使用过阿片类的老年人每小时静脉注射吗啡10 mg剂量/频率过高，有呼吸抑制风险。呋塞米、带暂停参数的美托洛尔、按需对乙酰氨基酚和普通饮食按医嘱执行均合理。质疑不安全医嘱是启动指挥链的第一步。"
+        },
+        "byChoice": [
+          {
+            "refId": "s1",
+            "en": "KCl IV push is never appropriate; it must be diluted and infused.",
+            "zh": "氯化钾不可静脉推注；必须稀释后输注。"
+          },
+          {
+            "refId": "s3",
+            "en": "An incomplete titration order without a named protocol or baseline labs cannot be safely executed.",
+            "zh": "无方案名称、无基线化验的不完整滴定医嘱无法安全执行。"
+          },
+          {
+            "refId": "s5",
+            "en": "10 mg IV morphine hourly is excessive for an opioid-naive older adult.",
+            "zh": "对未用过阿片类的老年人每小时静脉吗啡10 mg属过量。"
+          },
+          {
+            "refId": "s4",
+            "en": "A beta-blocker with a heart-rate hold parameter is a complete, safe order.",
+            "zh": "带有心率暂停参数的β受体阻滞剂是完整、安全的医嘱。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Scan for high-alert routes/doses (IV push potassium, opioid excess) and incomplete orders (no protocol, no parameters) — those are the ones to clarify.",
+        "zh": "重点查找高警示给药途径/剂量（静脉推注钾、阿片过量）和不完整医嘱（无方案、无参数）——这些需要核实。"
+      },
+      "glossary": [
+        {
+          "termEn": "High-alert medication",
+          "termZh": "高警示药物",
+          "defZh": "使用错误时可造成严重伤害的药物，如静脉钾、肝素、阿片类、胰岛素。"
+        },
+        {
+          "termEn": "Chain of command",
+          "termZh": "指挥链",
+          "defZh": "解决临床或安全问题时逐级上报的层级途径。"
+        }
+      ]
+    },
+    {
+      "id": "claude_moc_informed_consent_hl_03",
+      "itemType": "highlight",
+      "category": "Management of Care",
+      "topic": "Informed Consent / Advocacy",
+      "difficulty": "easy",
+      "ngnSkill": "recognize_cues",
+      "stem": {
+        "en": "A client is scheduled for surgery and has signed the consent form. Highlight the findings that mean the nurse should pause and notify the surgeon before the client proceeds.",
+        "zh": "一名患者已安排手术并签署了同意书。请标出提示护士应暂停并在患者继续前通知外科医生的发现。"
+      },
+      "highlight": {
+        "segments": [
+          {
+            "id": "s1",
+            "en": "The client says, 'I'm not really sure what they're removing or why.'",
+            "zh": "患者说：“我其实不太清楚他们要切除什么、为什么切。”",
+            "selectable": true
+          },
+          {
+            "id": "s2",
+            "en": "The client received IV midazolam 20 minutes before signing.",
+            "zh": "患者在签字前20分钟接受了静脉咪达唑仑。",
+            "selectable": true
+          },
+          {
+            "id": "s3",
+            "en": "The client asks to speak with the surgeon again about the risks.",
+            "zh": "患者要求再次与外科医生讨论风险。",
+            "selectable": true
+          },
+          {
+            "id": "s4",
+            "en": "The consent form is signed, dated, and witnessed.",
+            "zh": "同意书已签名、注明日期并有见证。",
+            "selectable": true
+          },
+          {
+            "id": "s5",
+            "en": "The client states the planned procedure and expected benefit in their own words.",
+            "zh": "患者用自己的话说出了计划的手术及预期获益。",
+            "selectable": true
+          },
+          {
+            "id": "s6",
+            "en": "The client's spouse is present and supportive.",
+            "zh": "患者的配偶在场并表示支持。",
+            "selectable": true
+          }
+        ],
+        "correct": [
+          "s1",
+          "s2",
+          "s3"
+        ]
+      },
+      "rationale": {
+        "correct": {
+          "en": "Valid informed consent requires that the client understand the procedure, risks, benefits, and alternatives, and consent voluntarily while competent. The nurse advocates by stopping the process when consent appears invalid. A client who cannot describe what is being done or why does not have adequate understanding; consent signed after a sedative (midazolam) may not be valid because the client was not fully competent; and a request to speak with the surgeon again about risks means the disclosure is incomplete — the provider, not the nurse, obtains informed consent. A complete, witnessed form, an accurate teach-back, and a supportive spouse are reassuring, not red flags.",
+          "zh": "有效的知情同意要求患者理解手术、风险、获益和替代方案，并在具备行为能力时自愿同意。当同意似乎无效时，护士通过暂停流程来维护患者权益。无法说明手术内容或原因的患者理解不充分；在使用镇静剂（咪达唑仑）后签署的同意可能无效，因为患者并非完全具备行为能力；要求再次与外科医生讨论风险说明告知不完整——获取知情同意的是医生而非护士。完整且有见证的同意书、准确的回授以及支持性的配偶是令人安心的，而非警示信号。"
+        },
+        "byChoice": [
+          {
+            "refId": "s2",
+            "en": "Consent obtained after sedation may be invalid; notify the surgeon.",
+            "zh": "镇静后获得的同意可能无效；通知外科医生。"
+          },
+          {
+            "refId": "s5",
+            "en": "An accurate teach-back supports valid consent.",
+            "zh": "准确的回授支持同意有效。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Consent is invalid if the client lacks understanding or competence (sedation) or still has unanswered questions. The provider — not the nurse — discloses and obtains it.",
+        "zh": "若患者缺乏理解、缺乏行为能力（镇静）或仍有未解答的问题，同意即无效。告知并获取同意的是医生，而非护士。"
+      },
+      "glossary": [
+        {
+          "termEn": "Informed consent",
+          "termZh": "知情同意",
+          "defZh": "在了解手术、风险、获益和替代方案后自愿作出的同意；由医生告知，护士见证签字。"
+        },
+        {
+          "termEn": "Client advocacy",
+          "termZh": "患者权益维护",
+          "defZh": "护士保护患者权利与安全，包括在同意无效时暂停流程。"
+        }
+      ]
+    },
+    {
+      "id": "claude_moc_incident_doc_hl_04",
+      "itemType": "highlight",
+      "category": "Management of Care",
+      "topic": "Incident Reporting vs Documentation",
+      "difficulty": "medium",
+      "ngnSkill": "take_action",
+      "stem": {
+        "en": "A client fell while ambulating. Highlight the entries that the nurse should document in the client's medical record.",
+        "zh": "一名患者在行走时跌倒。请标出护士应记录在患者病历中的内容。"
+      },
+      "highlight": {
+        "segments": [
+          {
+            "id": "s1",
+            "en": "Objective description of how the client was found and the time.",
+            "zh": "对发现患者时情形和时间的客观描述。",
+            "selectable": true
+          },
+          {
+            "id": "s2",
+            "en": "Assessment findings after the fall, including vital signs and any injury.",
+            "zh": "跌倒后的评估发现，包括生命体征和有无损伤。",
+            "selectable": true
+          },
+          {
+            "id": "s3",
+            "en": "The provider was notified and the time of notification.",
+            "zh": "已通知医生及通知的时间。",
+            "selectable": true
+          },
+          {
+            "id": "s4",
+            "en": "Interventions performed and the client's response.",
+            "zh": "已实施的护理措施及患者的反应。",
+            "selectable": true
+          },
+          {
+            "id": "s5",
+            "en": "A note that an incident report was completed and filed.",
+            "zh": "注明已填写并提交事件报告。",
+            "selectable": true
+          },
+          {
+            "id": "s6",
+            "en": "The nurse's opinion that staffing was too low and the fall was the hospital's fault.",
+            "zh": "护士关于人手不足、跌倒是医院过错的个人看法。",
+            "selectable": true
+          }
+        ],
+        "correct": [
+          "s1",
+          "s2",
+          "s3",
+          "s4"
+        ]
+      },
+      "rationale": {
+        "correct": {
+          "en": "The medical record should contain only objective, factual clinical information: how and when the client was found, post-event assessment and vital signs, provider notification with time, and interventions with the client's response. The chart must NOT state that an incident (occurrence) report was filed — the incident report is a separate internal quality/risk-management document, and referencing it in the record can make it discoverable and undermine its protected purpose. The chart should also never contain blame, opinions, or speculation about fault. This reflects standard risk-management and documentation practice.",
+          "zh": "病历只应包含客观、事实性的临床信息：发现患者的方式与时间、事件后评估与生命体征、通知医生及时间、护理措施及患者反应。病历中绝不可写明已填写事件（不良事件）报告——事件报告是单独的内部质量/风险管理文件，在病历中引用可能使其可被司法调取，破坏其受保护的用途。病历中也绝不应出现指责、个人观点或对过错的猜测。这符合标准的风险管理与记录规范。"
+        },
+        "byChoice": [
+          {
+            "refId": "s5",
+            "en": "Never chart that an incident report was filed; it is a separate confidential document.",
+            "zh": "切勿在病历中记录已提交事件报告；它是单独的保密文件。"
+          },
+          {
+            "refId": "s6",
+            "en": "Opinions and blame do not belong in the medical record.",
+            "zh": "个人观点和指责不应出现在病历中。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Chart objective facts, assessment, notification, and response. Keep the incident report — and all blame/opinion — out of the medical record.",
+        "zh": "记录客观事实、评估、通知和反应。事件报告及一切指责/观点都不写入病历。"
+      },
+      "glossary": [
+        {
+          "termEn": "Incident report",
+          "termZh": "事件报告",
+          "defZh": "用于质量改进和风险管理的内部机构文件；不属于病历的一部分。"
+        },
+        {
+          "termEn": "Objective documentation",
+          "termZh": "客观记录",
+          "defZh": "记录可观察、可测量的事实，而非观点或猜测。"
+        }
+      ]
+    },
+    {
+      "id": "claude_moc_discharge_coord_bt_05",
+      "itemType": "bowtie",
+      "category": "Management of Care",
+      "topic": "Discharge Coordination / Referrals",
+      "difficulty": "medium",
+      "ngnSkill": "generate_solutions",
+      "stem": {
+        "en": "An older adult is being discharged after a heart-failure admission with new daily weights, a low-sodium diet, several new medications, and a planned home oxygen setup. The client lives alone, has limited mobility, and cannot reliably read the discharge instructions. Complete the bow-tie by selecting the most likely problem, two priority nursing actions, and two parameters to monitor.",
+        "zh": "一名独居老人因心力衰竭住院后即将出院，新增每日称重、低钠饮食、数种新药以及计划中的家庭氧疗。患者活动受限，且无法可靠阅读出院说明。请完成蝶形图：选择最可能的问题、两项优先护理措施和两项需监测的指标。"
+      },
+      "bowtie": {
+        "condition": {
+          "prompt": {
+            "en": "Most likely problem",
+            "zh": "最可能的问题"
+          },
+          "tokens": [
+            {
+              "id": "c_nonadh",
+              "en": "Intentional nonadherence to the treatment plan",
+              "zh": "对治疗方案的故意不依从"
+            },
+            {
+              "id": "c_delay",
+              "en": "No discharge concern; the client is medically stable",
+              "zh": "无出院顾虑；患者病情稳定"
+            },
+            {
+              "id": "c_risk",
+              "en": "Risk for an unsafe discharge with unmet self-care and home-support needs",
+              "zh": "存在不安全出院风险，自我照护和居家支持需求未得到满足"
+            }
+          ],
+          "correct": "c_risk"
+        },
+        "actions": {
+          "prompt": {
+            "en": "Priority nursing actions",
+            "zh": "优先护理措施"
+          },
+          "tokens": [
+            {
+              "id": "a_cps",
+              "en": "Report the client to adult protective services for living alone",
+              "zh": "因患者独居而向成人保护服务机构举报"
+            },
+            {
+              "id": "a_referrals",
+              "en": "Coordinate referrals for home health and durable medical equipment, and confirm the oxygen setup before discharge",
+              "zh": "协调家庭护理和耐用医疗设备转介，并在出院前确认氧疗设备到位"
+            },
+            {
+              "id": "a_discharge_now",
+              "en": "Discharge as scheduled and document that the client verbalized understanding",
+              "zh": "按计划出院，并记录患者口头表示理解"
+            },
+            {
+              "id": "a_teachback",
+              "en": "Use plain-language teaching with teach-back and provide pictorial/written instructions the client can use",
+              "zh": "采用通俗语言教学并进行回授，提供患者可使用的图示/书面说明"
+            }
+          ],
+          "correct": [
+            "a_referrals",
+            "a_teachback"
+          ]
+        },
+        "parameters": {
+          "prompt": {
+            "en": "Parameters to monitor",
+            "zh": "需监测的指标"
+          },
+          "tokens": [
+            {
+              "id": "p_teachback",
+              "en": "The client's teach-back of daily weights, medications, and when to call for help",
+              "zh": "患者对每日称重、用药及何时求助的回授情况"
+            },
+            {
+              "id": "p_room",
+              "en": "The client's preference for a private room",
+              "zh": "患者对单人病房的偏好"
+            },
+            {
+              "id": "p_followup",
+              "en": "Confirmed follow-up appointment and home-health visit are in place",
+              "zh": "已落实的随访预约和家庭护理上门访视"
+            },
+            {
+              "id": "p_satisfaction",
+              "en": "Hospital satisfaction-survey score as the main discharge outcome",
+              "zh": "将医院满意度调查评分作为主要出院结局"
+            }
+          ],
+          "correct": [
+            "p_followup",
+            "p_teachback"
+          ]
+        }
+      },
+      "rationale": {
+        "correct": {
+          "en": "The combination of living alone, limited mobility, low health literacy, and a complex new regimen creates a high risk for an unsafe discharge — this is a care-coordination problem, not willful nonadherence. The nurse's priority actions are to arrange the interdisciplinary supports the client needs (home health, durable medical equipment, confirmed home oxygen) and to teach in a way the client can actually use (plain language, teach-back, pictorial instructions). Effectiveness is monitored by confirming the follow-up and home-health visit are actually in place and by the client's teach-back of the key self-care behaviors. Discharging on schedule with only 'verbalized understanding,' or making an unwarranted protective-services report, do not address the unmet needs.",
+          "zh": "独居、活动受限、健康素养低再加上复杂的新方案，造成不安全出院的高风险——这是护理协调问题，而非故意不依从。护士的优先措施是安排患者所需的跨学科支持（家庭护理、耐用医疗设备、确认家庭氧疗），并以患者真正能使用的方式进行教学（通俗语言、回授、图示说明）。通过确认随访和家庭护理访视确实落实、以及患者对关键自我照护行为的回授来监测效果。仅凭“口头表示理解”就按时出院，或作出无依据的保护服务举报，都无法解决未满足的需求。"
+        },
+        "byChoice": [
+          {
+            "refId": "c_nonadh",
+            "en": "Nothing indicates willful refusal; the barriers are knowledge and support, not intent.",
+            "zh": "没有迹象表明故意拒绝；障碍在于知识和支持，而非意图。"
+          },
+          {
+            "refId": "a_cps",
+            "en": "Living alone is not abuse/neglect and does not warrant a protective-services report.",
+            "zh": "独居不构成虐待/忽视，不构成保护服务举报的理由。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "When discharge needs exceed the client's resources, the answer is coordination and usable teaching — then verify the supports are actually in place.",
+        "zh": "当出院需求超出患者资源时，答案是协调和可用的教学——然后核实支持确实到位。"
+      },
+      "glossary": [
+        {
+          "termEn": "Care coordination",
+          "termZh": "护理协调",
+          "defZh": "组织跨学科服务与转介，以满足患者过渡期的需求。"
+        },
+        {
+          "termEn": "Teach-back",
+          "termZh": "回授法",
+          "defZh": "让患者用自己的话复述以确认理解的教学核实方法。"
+        }
+      ]
+    },
+    {
+      "id": "claude_moc_escalation_bt_06",
+      "itemType": "bowtie",
+      "category": "Management of Care",
+      "topic": "Chain of Command / Escalation",
+      "difficulty": "medium",
+      "ngnSkill": "take_action",
+      "stem": {
+        "en": "A postoperative client's condition is worsening: blood pressure is falling, heart rate is rising, and urine output has dropped. The nurse pages the first-year resident twice with no response. Complete the bow-tie for the nurse's management priority.",
+        "zh": "一名术后患者病情恶化：血压下降、心率升高、尿量减少。护士两次呼叫第一年住院医师均无回应。请完成蝶形图，确定护士的管理优先事项。"
+      },
+      "bowtie": {
+        "condition": {
+          "prompt": {
+            "en": "Most likely problem",
+            "zh": "最可能的问题"
+          },
+          "tokens": [
+            {
+              "id": "c_wait",
+              "en": "An expected postoperative course that requires no escalation",
+              "zh": "属预期的术后过程，无需上报"
+            },
+            {
+              "id": "c_deter",
+              "en": "Clinical deterioration with an unanswered escalation that the nurse must move up the chain of command",
+              "zh": "临床病情恶化且上报未获回应，护士必须沿指挥链继续上报"
+            },
+            {
+              "id": "c_doc",
+              "en": "A documentation problem to be resolved at the end of shift",
+              "zh": "属在班末处理的记录问题"
+            }
+          ],
+          "correct": "c_deter"
+        },
+        "actions": {
+          "prompt": {
+            "en": "Priority nursing actions",
+            "zh": "优先护理措施"
+          },
+          "tokens": [
+            {
+              "id": "a_wait_resident",
+              "en": "Keep paging only the first-year resident and wait for a callback",
+              "zh": "仅继续呼叫第一年住院医师并等待回电"
+            },
+            {
+              "id": "a_chart_only",
+              "en": "Document the unanswered pages and address it in the morning",
+              "zh": "记录未获回应的呼叫，留待早上处理"
+            },
+            {
+              "id": "a_rrt",
+              "en": "Stay with the client, initiate the rapid response team, and continue monitoring per protocol",
+              "zh": "留在患者身边，启动快速反应团队，并按方案持续监测"
+            },
+            {
+              "id": "a_chain",
+              "en": "Escalate up the chain of command (charge nurse, attending/supervising provider) until the client is evaluated",
+              "zh": "沿指挥链上报（责任护士、主治/上级医生），直至患者得到评估"
+            }
+          ],
+          "correct": [
+            "a_rrt",
+            "a_chain"
+          ]
+        },
+        "parameters": {
+          "prompt": {
+            "en": "Parameters to monitor",
+            "zh": "需监测的指标"
+          },
+          "tokens": [
+            {
+              "id": "p_time",
+              "en": "Time to provider evaluation and time to intervention",
+              "zh": "至医生评估的时间和至干预的时间"
+            },
+            {
+              "id": "p_vitals",
+              "en": "Trend in vital signs, urine output, and level of consciousness",
+              "zh": "生命体征、尿量和意识水平的变化趋势"
+            },
+            {
+              "id": "p_pref",
+              "en": "The client's room-temperature preference",
+              "zh": "患者对室温的偏好"
+            },
+            {
+              "id": "p_staff",
+              "en": "Staff lunch-break schedule",
+              "zh": "工作人员午休时间安排"
+            }
+          ],
+          "correct": [
+            "p_vitals",
+            "p_time"
+          ]
+        }
+      },
+      "rationale": {
+        "correct": {
+          "en": "Falling blood pressure, rising heart rate, and dropping urine output signal clinical deterioration (possible hypovolemia/shock). When the first responder does not answer, the nurse must not simply keep paging the same resident — patient safety requires both immediate support (stay with the client, activate the rapid response team) and moving up the chain of command until a qualified provider evaluates the client. Effectiveness is judged by the trend in the client's status and by how quickly evaluation and intervention occur. Documenting and waiting until morning, or repeatedly paging only the unresponsive resident, delays needed care.",
+          "zh": "血压下降、心率升高、尿量减少提示临床恶化（可能为低血容量/休克）。当第一应答者无回应时，护士不能只是继续呼叫同一住院医师——患者安全要求既给予即时支持（留在患者身边、启动快速反应团队），又沿指挥链向上上报，直至有资质的医生评估患者。效果通过患者状态的变化趋势以及评估和干预发生的速度来判断。记录后等到早上、或反复只呼叫无回应的住院医师，都会延误所需的护理。"
+        },
+        "byChoice": [
+          {
+            "refId": "a_wait_resident",
+            "en": "Repeatedly paging only the unresponsive resident delays care; move up the chain.",
+            "zh": "反复只呼叫无回应的住院医师会延误护理；应沿指挥链上报。"
+          },
+          {
+            "refId": "a_chart_only",
+            "en": "Documenting and deferring to morning abandons a deteriorating client.",
+            "zh": "记录后拖到早上等于放弃了一名病情恶化的患者。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Deterioration plus an unanswered call = stay, get rapid help (RRT), and climb the chain of command. Never just re-page and wait.",
+        "zh": "病情恶化加上呼叫无回应＝留下、寻求快速支援（RRT）、并沿指挥链上报。绝不能只是反复呼叫并等待。"
+      },
+      "glossary": [
+        {
+          "termEn": "Rapid response team (RRT)",
+          "termZh": "快速反应团队（RRT）",
+          "defZh": "为病情恶化但尚未心跳骤停的患者提供床旁紧急评估的团队。"
+        },
+        {
+          "termEn": "Chain of command",
+          "termZh": "指挥链",
+          "defZh": "当问题未解决时逐级上报的层级途径。"
+        }
+      ]
+    },
+    {
+      "id": "claude_moc_informed_refusal_bt_07",
+      "itemType": "bowtie",
+      "category": "Management of Care",
+      "topic": "Advocacy / Informed Refusal",
+      "difficulty": "easy",
+      "ngnSkill": "take_action",
+      "stem": {
+        "en": "A competent, alert adult client refuses a scheduled blood transfusion that the provider has recommended. The client says, 'I understand the risks, but I do not want it.' Complete the bow-tie for the nurse's response.",
+        "zh": "一名有行为能力、清醒的成年患者拒绝医生建议的预定输血。患者说：“我了解风险，但我不想输。”请完成蝶形图，确定护士的处理方式。"
+      },
+      "bowtie": {
+        "condition": {
+          "prompt": {
+            "en": "Most likely situation",
+            "zh": "最可能的情况"
+          },
+          "tokens": [
+            {
+              "id": "c_emergency",
+              "en": "An emergency that allows treatment without consent",
+              "zh": "属于可在无同意下施治的紧急情况"
+            },
+            {
+              "id": "c_incompetent",
+              "en": "An incompetent client who cannot make decisions",
+              "zh": "无行为能力、不能作出决定的患者"
+            },
+            {
+              "id": "c_refusal",
+              "en": "A competent client exercising the right to refuse treatment (informed refusal)",
+              "zh": "有行为能力的患者行使拒绝治疗的权利（知情拒绝）"
+            }
+          ],
+          "correct": "c_refusal"
+        },
+        "actions": {
+          "prompt": {
+            "en": "Priority nursing actions",
+            "zh": "优先护理措施"
+          },
+          "tokens": [
+            {
+              "id": "a_guilt",
+              "en": "Tell the client they could die and that refusing is irresponsible",
+              "zh": "告诉患者拒绝就可能死亡、是不负责任的行为"
+            },
+            {
+              "id": "a_support",
+              "en": "Ensure the client understands the consequences, explore concerns, and respect the decision",
+              "zh": "确认患者理解后果，了解其顾虑，并尊重其决定"
+            },
+            {
+              "id": "a_notify_doc",
+              "en": "Notify the provider of the refusal and document the client's decision and stated understanding",
+              "zh": "通知医生患者拒绝，并记录患者的决定及其所表述的理解"
+            },
+            {
+              "id": "a_force",
+              "en": "Administer the transfusion anyway because the provider ordered it",
+              "zh": "因医生已开具医嘱而仍然执行输血"
+            }
+          ],
+          "correct": [
+            "a_notify_doc",
+            "a_support"
+          ]
+        },
+        "parameters": {
+          "prompt": {
+            "en": "Parameters to monitor",
+            "zh": "需监测的指标"
+          },
+          "tokens": [
+            {
+              "id": "p_understanding",
+              "en": "The client's continued understanding and any change in the decision",
+              "zh": "患者持续的理解情况及决定是否有变化"
+            },
+            {
+              "id": "p_status",
+              "en": "The client's clinical status related to the refused treatment",
+              "zh": "与所拒绝治疗相关的患者临床状态"
+            },
+            {
+              "id": "p_room",
+              "en": "The client's meal-tray preferences",
+              "zh": "患者对餐盘的偏好"
+            },
+            {
+              "id": "p_nurse_pref",
+              "en": "The nurse's personal opinion about the choice",
+              "zh": "护士本人对该选择的个人意见"
+            }
+          ],
+          "correct": [
+            "p_understanding",
+            "p_status"
+          ]
+        }
+      },
+      "rationale": {
+        "correct": {
+          "en": "A competent, informed adult has the legal and ethical right to refuse any treatment, even life-sustaining treatment such as a transfusion. The nurse advocates by confirming the client understands the consequences and exploring concerns, then respecting the decision, notifying the provider, and documenting the informed refusal. Forcing treatment is battery; using guilt or coercion violates the client's autonomy. Monitoring focuses on continued understanding, any change of mind, and the clinical status affected by the refusal — not on the nurse's personal opinion.",
+          "zh": "有行为能力且知情的成年人拥有拒绝任何治疗的法律和伦理权利，即使是输血等维持生命的治疗。护士通过确认患者理解后果并了解其顾虑来维护其权益，然后尊重决定、通知医生并记录知情拒绝。强行施治构成侵权（人身侵犯）；使用内疚感或胁迫则侵犯患者自主权。监测聚焦于患者持续的理解、是否改变主意以及受拒绝影响的临床状态——而非护士的个人意见。"
+        },
+        "byChoice": [
+          {
+            "refId": "a_force",
+            "en": "Treating over a competent refusal is battery.",
+            "zh": "在患者有行为能力拒绝时仍施治构成人身侵犯。"
+          },
+          {
+            "refId": "a_guilt",
+            "en": "Coercion and guilt violate client autonomy.",
+            "zh": "胁迫和内疚感侵犯患者自主权。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "A competent client may refuse anything. Confirm understanding, respect the choice, notify the provider, and document — never coerce.",
+        "zh": "有行为能力的患者可拒绝任何治疗。确认理解、尊重选择、通知医生并记录——绝不胁迫。"
+      },
+      "glossary": [
+        {
+          "termEn": "Autonomy",
+          "termZh": "自主权",
+          "defZh": "患者就自身医疗作出自主决定的权利，包括拒绝治疗。"
+        },
+        {
+          "termEn": "Informed refusal",
+          "termZh": "知情拒绝",
+          "defZh": "患者在了解后果后拒绝建议治疗的决定。"
+        }
+      ]
+    },
+    {
+      "id": "claude_moc_deleg_matrix_08",
+      "itemType": "matrix",
+      "category": "Management of Care",
+      "topic": "Delegation Scope (UAP / LPN / RN)",
+      "difficulty": "medium",
+      "ngnSkill": "generate_solutions",
+      "stem": {
+        "en": "For each task, select the lowest-level team member to whom the registered nurse can appropriately assign it on a medical-surgical unit. Assume a common U.S. med-surg scope where the state Nurse Practice Act and facility policy permit.",
+        "zh": "对于每项任务，请选择在内外科病区护士可恰当委派的最低层级团队成员。假设是在相关州《护理执业法》和机构政策允许的常见美国内外科执业范围内。"
+      },
+      "matrix": {
+        "rows": [
+          {
+            "id": "r1",
+            "en": "Bathing and feeding a stable client",
+            "zh": "为病情稳定的患者洗澡和喂食"
+          },
+          {
+            "id": "r2",
+            "en": "Administering a scheduled oral medication to a stable client",
+            "zh": "为病情稳定的患者给予一次定时口服药"
+          },
+          {
+            "id": "r3",
+            "en": "Reinforcing previously taught discharge instructions",
+            "zh": "强化先前已教过的出院指导"
+          },
+          {
+            "id": "r4",
+            "en": "Performing the initial assessment of a newly admitted client",
+            "zh": "为新入院患者进行首次评估"
+          },
+          {
+            "id": "r5",
+            "en": "Developing and revising the nursing care plan",
+            "zh": "制定和修订护理计划"
+          },
+          {
+            "id": "r6",
+            "en": "Administering IV push medication and titrating a vasoactive drip",
+            "zh": "静脉推注药物并滴定血管活性药物"
+          }
+        ],
+        "columns": [
+          {
+            "id": "c_rn",
+            "en": "RN only",
+            "zh": "仅注册护士"
+          },
+          {
+            "id": "c_uap",
+            "en": "UAP",
+            "zh": "UAP（无执照辅助人员）"
+          },
+          {
+            "id": "c_lpn",
+            "en": "LPN/LVN",
+            "zh": "LPN/LVN（实用/职业护士）"
+          }
+        ],
+        "selectionMode": "single_per_row"
+      },
+      "correct": [
+        {
+          "rowId": "r1",
+          "columnIds": [
+            "c_uap"
+          ]
+        },
+        {
+          "rowId": "r2",
+          "columnIds": [
+            "c_lpn"
+          ]
+        },
+        {
+          "rowId": "r3",
+          "columnIds": [
+            "c_lpn"
+          ]
+        },
+        {
+          "rowId": "r4",
+          "columnIds": [
+            "c_rn"
+          ]
+        },
+        {
+          "rowId": "r5",
+          "columnIds": [
+            "c_rn"
+          ]
+        },
+        {
+          "rowId": "r6",
+          "columnIds": [
+            "c_rn"
+          ]
+        }
+      ],
+      "rationale": {
+        "correct": {
+          "en": "Assign at the lowest level whose scope safely covers the task. UAP perform standardized ADL care for stable clients (bathing/feeding). LPN/LVN may administer most routine oral/IM/SubQ medications and reinforce teaching the RN already provided. The RN retains the activities requiring independent nursing judgment: the initial/admission assessment, creating and revising the care plan, and high-risk medication administration such as IV push drugs and titration of vasoactive infusions. (Scope varies by state Nurse Practice Act and facility policy; this reflects common U.S. acute-care delegation rules and the NCSBN/ANA delegation guidelines.)",
+          "zh": "在能安全覆盖任务的最低层级进行委派。UAP 为病情稳定的患者提供标准化的日常生活照护（洗澡/喂食）。LPN/LVN 可给予多数常规口服/肌注/皮下药物，并强化护士已提供的教学。护士保留需要独立护理判断的活动：首次/入院评估、制定和修订护理计划，以及高风险给药如静脉推注和血管活性药物滴定。（执业范围因各州《护理执业法》和机构政策而异；此处反映美国急症护理常见的委派规则及 NCSBN/ANA 委派指南。）"
+        },
+        "byChoice": [
+          {
+            "refId": "r3",
+            "en": "An LPN/LVN may reinforce teaching the RN initiated, but the RN performs the initial teaching.",
+            "zh": "LPN/LVN 可强化护士发起的教学，但首次教学由护士进行。"
+          },
+          {
+            "refId": "r4",
+            "en": "The initial assessment requires RN judgment and is not delegated.",
+            "zh": "首次评估需要护士判断，不予委派。"
+          },
+          {
+            "refId": "r6",
+            "en": "IV push and vasoactive titration are RN-only because of the judgment and risk involved.",
+            "zh": "因涉及判断和风险，静脉推注和血管活性药物滴定仅限护士。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Match the task to the lowest safe scope: UAP = stable ADLs; LPN = routine meds + reinforcing teaching; RN = assessment, care planning, teaching, high-risk meds.",
+        "zh": "将任务匹配到最低的安全执业范围：UAP＝稳定患者的日常照护；LPN＝常规给药＋强化教学；RN＝评估、护理计划、教学、高风险给药。"
+      },
+      "glossary": [
+        {
+          "termEn": "Scope of practice",
+          "termZh": "执业范围",
+          "defZh": "由各州护理执业法和机构政策界定的某一岗位可合法执行的活动。"
+        },
+        {
+          "termEn": "LPN/LVN",
+          "termZh": "实用/职业护士",
+          "defZh": "在 RN 或医生指导下提供护理的执照护士；执业范围比 RN 窄。"
+        }
+      ]
+    },
+    {
+      "id": "claude_moc_notify_matrix_09",
+      "itemType": "matrix",
+      "category": "Management of Care",
+      "topic": "Prioritization / Escalation",
+      "difficulty": "easy",
+      "ngnSkill": "analyze_cues",
+      "stem": {
+        "en": "For each finding during routine rounds, classify whether the nurse should notify the provider promptly or document it as a routine finding.",
+        "zh": "对于常规查房中的每项发现，请判断护士应及时通知医生，还是作为常规发现进行记录。"
+      },
+      "matrix": {
+        "rows": [
+          {
+            "id": "r1",
+            "en": "New onset of confusion in a previously alert client",
+            "zh": "原本清醒的患者出现新发意识混乱"
+          },
+          {
+            "id": "r2",
+            "en": "Urine output of 15 mL/hr for the last 3 hours",
+            "zh": "过去3小时尿量为15 mL/小时"
+          },
+          {
+            "id": "r3",
+            "en": "Oxygen saturation that dropped from 96% to 84% on room air",
+            "zh": "室内空气下血氧饱和度从96%降至84%"
+          },
+          {
+            "id": "r4",
+            "en": "Blood pressure 122/76, unchanged from baseline",
+            "zh": "血压122/76，与基线相比无变化"
+          },
+          {
+            "id": "r5",
+            "en": "A healed surgical incision with sutures intact",
+            "zh": "已愈合的手术切口，缝线完整"
+          },
+          {
+            "id": "r6",
+            "en": "A client sleeping comfortably with normal vital signs",
+            "zh": "患者安睡，生命体征正常"
+          }
+        ],
+        "columns": [
+          {
+            "id": "c_routine",
+            "en": "Routine documentation",
+            "zh": "常规记录"
+          },
+          {
+            "id": "c_notify",
+            "en": "Notify provider promptly",
+            "zh": "及时通知医生"
+          }
+        ],
+        "selectionMode": "single_per_row"
+      },
+      "correct": [
+        {
+          "rowId": "r1",
+          "columnIds": [
+            "c_notify"
+          ]
+        },
+        {
+          "rowId": "r2",
+          "columnIds": [
+            "c_notify"
+          ]
+        },
+        {
+          "rowId": "r3",
+          "columnIds": [
+            "c_notify"
+          ]
+        },
+        {
+          "rowId": "r4",
+          "columnIds": [
+            "c_routine"
+          ]
+        },
+        {
+          "rowId": "r5",
+          "columnIds": [
+            "c_routine"
+          ]
+        },
+        {
+          "rowId": "r6",
+          "columnIds": [
+            "c_routine"
+          ]
+        }
+      ],
+      "rationale": {
+        "correct": {
+          "en": "Promptly report findings that represent a meaningful change or a threat to safety: new confusion (possible hypoxia, infection, stroke, or metabolic cause), oliguria of 15 mL/hr (well below the ~30 mL/hr adequacy threshold, suggesting hypovolemia or AKI), and a significant oxygen desaturation to 84%. Stable, expected, or normal findings — an unchanged baseline blood pressure, a healed incision, and a comfortably sleeping client with normal vitals — are documented routinely. The skill is distinguishing a clinically significant change from an expected normal finding.",
+          "zh": "应及时上报代表显著变化或威胁安全的发现：新发意识混乱（可能为缺氧、感染、卒中或代谢原因）、尿量15 mL/小时的少尿（远低于约30 mL/小时的充足阈值，提示低血容量或急性肾损伤）以及降至84%的明显血氧下降。稳定、预期或正常的发现——与基线相同的血压、已愈合的切口、生命体征正常且安睡的患者——按常规记录。关键能力是区分有临床意义的变化与预期的正常发现。"
+        },
+        "byChoice": [
+          {
+            "refId": "r2",
+            "en": "15 mL/hr is below the ~30 mL/hr adequacy threshold and must be reported.",
+            "zh": "15 mL/小时低于约30 mL/小时的充足阈值，必须上报。"
+          },
+          {
+            "refId": "r4",
+            "en": "An unchanged baseline blood pressure is a routine finding.",
+            "zh": "与基线相同的血压属常规发现。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Report new changes and threats to safety; document the stable, expected, and normal. Ask: is this different from baseline and clinically meaningful?",
+        "zh": "上报新变化和安全威胁；记录稳定、预期和正常的发现。自问：这是否不同于基线且有临床意义？"
+      },
+      "glossary": [
+        {
+          "termEn": "Oliguria",
+          "termZh": "少尿",
+          "defZh": "尿量减少，成人通常指低于约30 mL/小时或0.5 mL/kg/小时。"
+        },
+        {
+          "termEn": "Baseline",
+          "termZh": "基线",
+          "defZh": "用于比较以判断变化的患者既往状态。"
+        }
+      ]
+    },
+    {
+      "id": "claude_moc_referrals_sata_10",
+      "itemType": "select_all",
+      "category": "Management of Care",
+      "topic": "Care Coordination / Referrals",
+      "difficulty": "easy",
+      "ngnSkill": "generate_solutions",
+      "stem": {
+        "en": "A client recovering from a stroke has new swallowing difficulty, weakness on one side, financial worries about home care, and questions about medication costs. Which referrals should the nurse coordinate? Select all that apply.",
+        "zh": "一名卒中康复期患者出现新的吞咽困难、一侧肢体无力、对居家护理的经济担忧以及关于药费的疑问。护士应协调哪些转介？选择所有适用项。"
+      },
+      "options": [
+        {
+          "id": "a",
+          "en": "Speech-language pathology for a swallowing evaluation",
+          "zh": "言语-语言治疗（言语病理）以评估吞咽功能"
+        },
+        {
+          "id": "b",
+          "en": "Physical and occupational therapy for mobility and self-care",
+          "zh": "物理治疗和作业治疗以改善活动和自我照护"
+        },
+        {
+          "id": "d",
+          "en": "Pharmacy for medication review and cost/assistance options",
+          "zh": "药剂科进行用药审查及费用/援助方案咨询"
+        },
+        {
+          "id": "e",
+          "en": "No referrals are needed; the nurse will manage all needs alone",
+          "zh": "无需转介；护士将独自处理所有需求"
+        },
+        {
+          "id": "f",
+          "en": "Delay all referrals until the client is discharged",
+          "zh": "将所有转介推迟到患者出院后"
+        },
+        {
+          "id": "c",
+          "en": "Social work or case management for home-care and financial concerns",
+          "zh": "社会工作或个案管理以解决居家护理和经济顾虑"
+        }
+      ],
+      "correct": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ],
+      "rationale": {
+        "correct": {
+          "en": "Care coordination means matching each identified need to the right interdisciplinary resource. New swallowing difficulty warrants a speech-language pathology referral (and aspiration precautions) before further oral intake; one-sided weakness warrants physical and occupational therapy; financial and home-care concerns are addressed by social work/case management; and medication-cost questions are addressed by pharmacy. Managing everything alone or delaying referrals until discharge fails the client and is unsafe — early referral is what makes a safe, supported transition possible.",
+          "zh": "护理协调意味着将每项已识别的需求匹配到合适的跨学科资源。新发吞咽困难需在进一步经口进食前转介言语-语言治疗（并采取防误吸措施）；一侧肢体无力需物理治疗和作业治疗；经济和居家护理顾虑由社会工作/个案管理处理；药费问题由药剂科处理。独自处理一切或将转介拖到出院后会辜负患者且不安全——尽早转介才能实现安全、有支持的过渡。"
+        },
+        "byChoice": [
+          {
+            "refId": "c",
+            "en": "Financial and home-care concerns are a social-work/case-management referral.",
+            "zh": "经济和居家护理顾虑应转介社会工作/个案管理。"
+          },
+          {
+            "refId": "d",
+            "en": "Medication-cost questions are addressed by pharmacy.",
+            "zh": "药费问题由药剂科处理。"
+          },
+          {
+            "refId": "f",
+            "en": "Early referral, not delay, enables a safe transition.",
+            "zh": "尽早转介而非拖延，才能实现安全过渡。"
+          },
+          {
+            "refId": "b",
+            "en": "One-sided weakness needs PT/OT for mobility and self-care.",
+            "zh": "一侧肢体无力需物理/作业治疗以改善活动和自我照护。"
+          },
+          {
+            "refId": "e",
+            "en": "The RN coordinates a team; managing all specialized needs alone is unsafe.",
+            "zh": "护士协调团队；独自处理所有专科需求并不安全。"
+          },
+          {
+            "refId": "a",
+            "en": "New swallowing difficulty needs an SLP swallow evaluation before further oral intake.",
+            "zh": "新发吞咽困难需在进一步经口进食前由言语治疗评估吞咽功能。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Match each need to its discipline (swallowing→SLP, mobility→PT/OT, money/home→social work, drug cost→pharmacy). Coordinating early beats doing it all alone.",
+        "zh": "将每项需求匹配到相应学科（吞咽→言语治疗、活动→物理/作业治疗、经济/居家→社会工作、药费→药剂科）。尽早协调胜过独自包揽。"
+      },
+      "glossary": [
+        {
+          "termEn": "Interdisciplinary referral",
+          "termZh": "跨学科转介",
+          "defZh": "将患者的某项需求转交给相应专科团队成员。"
+        },
+        {
+          "termEn": "Case management",
+          "termZh": "个案管理",
+          "defZh": "协调服务、资源和过渡护理以满足患者需求的过程。"
+        }
+      ]
+    },
+    {
+      "id": "claude_moc_ama_sata_11",
+      "itemType": "select_all",
+      "category": "Management of Care",
+      "topic": "Legal-Ethical / Against Medical Advice",
+      "difficulty": "medium",
+      "ngnSkill": "take_action",
+      "stem": {
+        "en": "A competent adult client states they want to leave the hospital against medical advice (AMA). Which actions should the nurse take? Select all that apply.",
+        "zh": "一名有行为能力的成年患者表示要违背医嘱（AMA）离院。护士应采取哪些措施？选择所有适用项。"
+      },
+      "options": [
+        {
+          "id": "c",
+          "en": "Determine why the client wants to leave and try to resolve fixable barriers",
+          "zh": "了解患者想离院的原因，并尝试解决可解决的障碍"
+        },
+        {
+          "id": "d",
+          "en": "Provide discharge instructions, any provider-written prescriptions, and follow-up information",
+          "zh": "提供出院指导、任何医生开具的处方以及随访信息"
+        },
+        {
+          "id": "b",
+          "en": "Explain the risks of leaving and the benefits of staying in understandable terms",
+          "zh": "用患者可理解的语言说明离院的风险和留院的获益"
+        },
+        {
+          "id": "a",
+          "en": "Notify the provider that the client wishes to leave AMA",
+          "zh": "通知医生患者希望违背医嘱离院"
+        },
+        {
+          "id": "f",
+          "en": "Document the client's decision, the teaching provided, and their stated understanding",
+          "zh": "记录患者的决定、所提供的教育及其表述的理解"
+        },
+        {
+          "id": "e",
+          "en": "Physically prevent the competent client from leaving until they sign the form",
+          "zh": "在患者签字前以人身方式阻止这名有行为能力的患者离开"
+        }
+      ],
+      "correct": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "f"
+      ],
+      "rationale": {
+        "correct": {
+          "en": "A competent client may leave AMA. The nurse notifies the provider, explains the risks of leaving and benefits of staying in understandable language, explores and tries to resolve the reasons for leaving (pain, childcare, cost, fear), still provides discharge instructions, provider-written prescriptions, and follow-up so the client can be as safe as possible, and documents the decision, teaching, and the client's understanding. The nurse may NOT physically detain a competent client — false imprisonment is unlawful, and signing the AMA form is requested but cannot be forced. Care and documentation continue regardless of whether the form is signed.",
+          "zh": "有行为能力的患者可违背医嘱离院。护士通知医生，用可理解的语言说明离院风险和留院获益，了解并尝试解决离院原因（疼痛、照顾孩子、费用、恐惧），仍提供出院指导、医生开具的处方和随访以使患者尽可能安全，并记录决定、教育及患者的理解。护士不得以人身方式拘留一名有行为能力的患者——非法拘禁属违法，签署 AMA 表格可请求但不能强迫。无论是否签署表格，护理和记录都应继续。"
+        },
+        "byChoice": [
+          {
+            "refId": "b",
+            "en": "The client must understand the risks of leaving to make an informed choice.",
+            "zh": "患者必须理解离院风险才能作出知情选择。"
+          },
+          {
+            "refId": "f",
+            "en": "The decision, teaching, and understanding must be documented.",
+            "zh": "必须记录决定、教育及理解情况。"
+          },
+          {
+            "refId": "d",
+            "en": "Discharge instructions and provider-written prescriptions still make the client as safe as possible.",
+            "zh": "出院指导和医生开具的处方仍能使患者尽可能安全。"
+          },
+          {
+            "refId": "c",
+            "en": "Resolving fixable barriers (pain, childcare, cost) may keep the client safe.",
+            "zh": "解决可解决的障碍（疼痛、照顾孩子、费用）有助于保障患者安全。"
+          },
+          {
+            "refId": "a",
+            "en": "Notifying the provider of an AMA request is required.",
+            "zh": "发生 AMA 请求时必须通知医生。"
+          },
+          {
+            "refId": "e",
+            "en": "Detaining a competent client is false imprisonment; the AMA form cannot be forced.",
+            "zh": "拘留有行为能力的患者构成非法拘禁；不能强迫签署 AMA 表格。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "For AMA: notify, educate, explore barriers, still give instructions/scripts, and document. You may not physically detain a competent client.",
+        "zh": "对于 AMA：通知、教育、了解障碍、仍提供指导/处方并记录。不得以人身方式拘留有行为能力的患者。"
+      },
+      "glossary": [
+        {
+          "termEn": "Against medical advice (AMA)",
+          "termZh": "违背医嘱（AMA）",
+          "defZh": "患者在医疗团队建议留院时仍选择离院。"
+        },
+        {
+          "termEn": "False imprisonment",
+          "termZh": "非法拘禁",
+          "defZh": "未经合法理由限制有行为能力者的活动自由。"
+        }
+      ]
+    },
+    {
+      "id": "claude_moc_med_error_order_12",
+      "itemType": "ordered_response",
+      "category": "Management of Care",
+      "topic": "Error Response / Incident Reporting",
+      "difficulty": "medium",
+      "ngnSkill": "take_action",
+      "stem": {
+        "en": "A nurse discovers that a client was just given a medication intended for a different client. Place the nurse's actions in the correct order.",
+        "zh": "护士发现一名患者刚被给予了本应给另一名患者的药物。请将护士的措施按正确顺序排列。"
+      },
+      "options": [
+        {
+          "id": "a",
+          "en": "Assess the client for any adverse effects and ensure immediate safety",
+          "zh": "评估患者有无不良反应并确保即时安全"
+        },
+        {
+          "id": "c",
+          "en": "Carry out new orders and monitor the client as directed",
+          "zh": "执行新医嘱并按指示监测患者"
+        },
+        {
+          "id": "b",
+          "en": "Notify the provider and the charge nurse of the error",
+          "zh": "通知医生和责任护士发生了差错"
+        },
+        {
+          "id": "e",
+          "en": "Complete an incident report per facility policy",
+          "zh": "按机构政策填写事件报告"
+        },
+        {
+          "id": "d",
+          "en": "Document the facts and the client's response in the medical record",
+          "zh": "在病历中记录事实及患者的反应"
+        }
+      ],
+      "correct": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "e"
+      ],
+      "rationale": {
+        "correct": {
+          "en": "Client safety comes first: immediately assess for adverse effects and stabilize the client. Next notify the provider and charge nurse so corrective orders and monitoring can be given, then carry out those orders and monitor as directed. Document the objective facts and the client's response in the medical record. Finally, complete the incident report per facility policy — a separate internal risk-management document that is NOT referenced in the chart. Safety and provider notification precede paperwork; the incident report is completed last.",
+          "zh": "患者安全第一：立即评估有无不良反应并稳定患者。接着通知医生和责任护士，以便下达纠正性医嘱和监测，然后执行这些医嘱并按指示监测。在病历中记录客观事实及患者的反应。最后按机构政策填写事件报告——这是一份单独的内部风险管理文件，不在病历中提及。安全和通知医生先于文书工作；事件报告最后完成。"
+        },
+        "byChoice": [
+          {
+            "refId": "d",
+            "en": "Document the objective facts and the client's response.",
+            "zh": "记录客观事实及患者的反应。"
+          },
+          {
+            "refId": "b",
+            "en": "Notify the provider and charge nurse after the client is safe.",
+            "zh": "确保患者安全后通知医生和责任护士。"
+          },
+          {
+            "refId": "c",
+            "en": "Carry out the new corrective orders and monitor as directed.",
+            "zh": "执行新的纠正性医嘱并按指示监测。"
+          },
+          {
+            "refId": "a",
+            "en": "Assessing and securing client safety is always the first action after an error.",
+            "zh": "差错发生后，评估并确保患者安全始终是第一步。"
+          },
+          {
+            "refId": "e",
+            "en": "The incident report is completed last and is kept separate from the chart.",
+            "zh": "事件报告最后完成，并与病历分开保存。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "After an error: client first (assess/stabilize), then notify, then carry out orders, then document facts, then incident report last.",
+        "zh": "差错后：先患者（评估/稳定），再通知，再执行医嘱，再记录事实，事件报告放在最后。"
+      },
+      "glossary": [
+        {
+          "termEn": "Medication error",
+          "termZh": "用药差错",
+          "defZh": "任何可能导致不当用药或患者伤害的可预防事件。"
+        },
+        {
+          "termEn": "Incident report",
+          "termZh": "事件报告",
+          "defZh": "记录不良事件用于质量与风险管理的内部文件；不属于病历。"
+        }
+      ]
+    },
+    {
+      "id": "claude_moc_deleg_process_order_13",
+      "itemType": "ordered_response",
+      "category": "Management of Care",
+      "topic": "Delegation Process / Supervision",
+      "difficulty": "medium",
+      "ngnSkill": "generate_solutions",
+      "stem": {
+        "en": "A charge nurse is delegating a task to unlicensed assistive personnel (UAP). Place the steps of safe delegation in the correct order.",
+        "zh": "责任护士正在将一项任务委派给无执照辅助人员（UAP）。请将安全委派的步骤按正确顺序排列。"
+      },
+      "options": [
+        {
+          "id": "a",
+          "en": "Confirm the task is within the UAP's role and right for this client's situation",
+          "zh": "确认该任务在 UAP 的岗位职责范围内，且适合该患者的具体情况"
+        },
+        {
+          "id": "b",
+          "en": "Verify the UAP is competent and available to take the task",
+          "zh": "核实该 UAP 有能力且有空承担该任务"
+        },
+        {
+          "id": "e",
+          "en": "Follow up, evaluate the outcome, and give feedback",
+          "zh": "跟进、评价结果并给予反馈"
+        },
+        {
+          "id": "c",
+          "en": "Give clear directions, expected outcomes, limits, and when to report back",
+          "zh": "给予清晰的指示、预期结果、界限以及何时回报"
+        },
+        {
+          "id": "d",
+          "en": "Have the UAP perform the task while remaining available",
+          "zh": "让 UAP 执行任务，同时保持可联系"
+        }
+      ],
+      "correct": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "e"
+      ],
+      "rationale": {
+        "correct": {
+          "en": "Safe delegation follows the Five Rights in sequence. First confirm the right task and right circumstance — is this task delegatable and appropriate for this specific client right now? Then the right person — verify the UAP is competent and available. Then the right direction/communication — give clear, specific instructions, the expected outcome, limits, and when to report. The UAP performs the task while the RN remains available. Finally the right supervision/evaluation — follow up, evaluate the outcome, and give feedback. The RN remains accountable for the delegation decision and outcome throughout.",
+          "zh": "安全委派按顺序遵循五项原则。首先确认正确的任务和正确的情境——该任务是否可委派，且当下是否适合这名具体患者？然后是正确的人员——核实 UAP 有能力且有空。接着是正确的指导/沟通——给予清晰、具体的指示、预期结果、界限以及何时回报。UAP 执行任务，护士保持可联系。最后是正确的监督/评价——跟进、评价结果并给予反馈。整个过程中，护士对委派决定及结果始终负有责任。"
+        },
+        "byChoice": [
+          {
+            "refId": "b",
+            "en": "Confirm the right person — a competent, available UAP.",
+            "zh": "确认正确的人员——有能力且有空的 UAP。"
+          },
+          {
+            "refId": "a",
+            "en": "Right task and circumstance are confirmed before choosing a person.",
+            "zh": "在选择人员之前先确认正确的任务和情境。"
+          },
+          {
+            "refId": "e",
+            "en": "Supervision, evaluation, and feedback complete the delegation cycle.",
+            "zh": "监督、评价和反馈是委派循环的最后一环。"
+          },
+          {
+            "refId": "d",
+            "en": "The UAP performs the task while the RN remains available.",
+            "zh": "UAP 执行任务，护士保持可联系。"
+          },
+          {
+            "refId": "c",
+            "en": "Give clear directions, expected outcomes, limits, and reporting points.",
+            "zh": "给予清晰的指示、预期结果、界限和回报要点。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Follow the Five Rights in order: task/circumstance, person, direction, then supervise and evaluate. The RN stays accountable.",
+        "zh": "按顺序遵循五项原则：任务/情境、人员、指导，然后监督和评价。护士始终负责。"
+      },
+      "glossary": [
+        {
+          "termEn": "Accountability",
+          "termZh": "问责/负责",
+          "defZh": "护士对委派的决定及其结果负责，即使任务由他人执行。"
+        },
+        {
+          "termEn": "Supervision",
+          "termZh": "监督",
+          "defZh": "对所委派任务的执行进行指导、监测、评价和跟进。"
+        }
+      ]
+    },
+    {
+      "id": "claude_moc_assignment_mc_14",
+      "itemType": "multiple_choice",
+      "category": "Management of Care",
+      "topic": "Assignment / Acuity Matching",
+      "difficulty": "easy",
+      "ngnSkill": "prioritize_hypotheses",
+      "stem": {
+        "en": "A charge nurse must assign a client to a licensed practical nurse (LPN/LVN). Which client is most appropriate to assign to the LPN/LVN?",
+        "zh": "责任护士需要为一名实用/职业护士（LPN/LVN）分配患者。将哪名患者分配给 LPN/LVN 最合适？"
+      },
+      "options": [
+        {
+          "id": "c",
+          "en": "A client receiving a first dose of IV chemotherapy",
+          "zh": "一名正在接受首剂静脉化疗的患者"
+        },
+        {
+          "id": "b",
+          "en": "A newly admitted client who has not yet had an initial assessment",
+          "zh": "一名尚未完成首次评估的新入院患者"
+        },
+        {
+          "id": "a",
+          "en": "A stable client with a chronic wound who needs a scheduled dressing change",
+          "zh": "一名病情稳定、有慢性伤口、需要按时换药的患者"
+        },
+        {
+          "id": "d",
+          "en": "An unstable client requiring frequent reassessment and titration of a drip",
+          "zh": "一名病情不稳定、需要频繁再评估并滴定输液的患者"
+        }
+      ],
+      "correct": [
+        "a"
+      ],
+      "rationale": {
+        "correct": {
+          "en": "Assign to the LPN/LVN a stable client with a predictable plan of care. A scheduled dressing change on a stable client with a chronic wound is well within the LPN/LVN scope. The newly admitted client needs the RN's initial assessment; a first dose of IV chemotherapy and an unstable client requiring frequent reassessment and drip titration all require the RN's judgment and are not appropriate for the LPN/LVN. Match the most stable, predictable client to the LPN/LVN and keep unstable or not-yet-assessed clients with the RN.",
+          "zh": "应将病情稳定、护理计划可预测的患者分配给 LPN/LVN。为病情稳定的慢性伤口患者按时换药完全在 LPN/LVN 执业范围内。新入院患者需要护士的首次评估；首剂静脉化疗以及需要频繁再评估并滴定输液的不稳定患者都需要护士判断，不适合 LPN/LVN。将最稳定、最可预测的患者匹配给 LPN/LVN，而把不稳定或尚未评估的患者留给护士。"
+        },
+        "byChoice": [
+          {
+            "refId": "c",
+            "en": "A first dose of IV chemotherapy requires RN administration and judgment.",
+            "zh": "首剂静脉化疗需要护士给药和判断。"
+          },
+          {
+            "refId": "a",
+            "en": "A stable client needing a scheduled dressing change is within LPN/LVN scope.",
+            "zh": "病情稳定、需按时换药的患者在 LPN/LVN 执业范围内。"
+          },
+          {
+            "refId": "d",
+            "en": "Unstable clients and drip titration require the RN.",
+            "zh": "不稳定患者和输液滴定需要护士负责。"
+          },
+          {
+            "refId": "b",
+            "en": "The initial assessment requires the RN.",
+            "zh": "首次评估需要由护士完成。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Give the LPN/LVN the most stable, predictable client. Keep unstable, not-yet-assessed, and first-dose/high-risk clients with the RN.",
+        "zh": "把最稳定、最可预测的患者交给 LPN/LVN。不稳定、尚未评估以及首剂/高风险的患者留给护士。"
+      },
+      "glossary": [
+        {
+          "termEn": "Acuity",
+          "termZh": "病情严重度/护理需求度",
+          "defZh": "患者病情的严重程度和所需护理强度，用于匹配人员分配。"
+        },
+        {
+          "termEn": "Assignment",
+          "termZh": "分配",
+          "defZh": "在团队成员执业范围内分派对某些患者的护理责任。"
+        }
+      ]
+    },
+    {
+      "id": "claude_moc_lpn_deleg_hl_b01",
+      "itemType": "highlight",
+      "category": "Management of Care",
+      "topic": "Delegation to LPN/LVN",
+      "difficulty": "easy",
+      "ngnSkill": "generate_solutions",
+      "stem": {
+        "en": "A registered nurse is delegating to a licensed practical/vocational nurse (LPN/LVN) on a medical-surgical unit. Highlight the tasks that are appropriate to delegate to the LPN/LVN.",
+        "zh": "在内外科病区，护士正在向实用/职业护士（LPN/LVN）委派任务。请标出适合委派给 LPN/LVN 的任务。"
+      },
+      "highlight": {
+        "segments": [
+          {
+            "id": "s1",
+            "en": "Administer scheduled oral and subcutaneous medications to a stable client.",
+            "zh": "为病情稳定的患者给予定时的口服和皮下药物。",
+            "selectable": true
+          },
+          {
+            "id": "s2",
+            "en": "Perform a sterile dressing change on a chronic, stable wound.",
+            "zh": "为慢性、稳定的伤口进行无菌换药。",
+            "selectable": true
+          },
+          {
+            "id": "s3",
+            "en": "Reinforce diet teaching the RN already provided.",
+            "zh": "强化护士已经提供的饮食教学。",
+            "selectable": true
+          },
+          {
+            "id": "s4",
+            "en": "Monitor and record findings on a stable client and report changes to the RN.",
+            "zh": "监测并记录病情稳定患者的发现，并将变化报告给护士。",
+            "selectable": true
+          },
+          {
+            "id": "s5",
+            "en": "Perform the initial admission assessment of a new client.",
+            "zh": "为新患者进行入院首次评估。",
+            "selectable": true
+          },
+          {
+            "id": "s6",
+            "en": "Develop the nursing care plan for a newly admitted client.",
+            "zh": "为新入院患者制定护理计划。",
+            "selectable": true
+          },
+          {
+            "id": "s7",
+            "en": "Provide the first teaching about a new diabetes diagnosis.",
+            "zh": "首次为新诊断的糖尿病进行教学。",
+            "selectable": true
+          },
+          {
+            "id": "s8",
+            "en": "Administer the first dose of IV chemotherapy.",
+            "zh": "给予首剂静脉化疗。",
+            "selectable": true
+          }
+        ],
+        "correct": [
+          "s1",
+          "s2",
+          "s3",
+          "s4"
+        ]
+      },
+      "rationale": {
+        "correct": {
+          "en": "The LPN/LVN scope covers routine, stable care: administering most scheduled oral/SubQ/IM medications, performing sterile dressing changes on stable wounds, reinforcing teaching the RN initiated, and monitoring stable clients and reporting to the RN. The RN retains the activities requiring independent nursing judgment: the initial admission assessment, developing the care plan, providing the initial teaching for a new diagnosis, and high-risk care such as the first dose of IV chemotherapy. This reflects the NCSBN/ANA delegation guidelines; exact scope varies by state Nurse Practice Act and facility policy.",
+          "zh": "LPN/LVN 的执业范围涵盖常规、稳定的护理：给予多数定时的口服/皮下/肌注药物、为稳定伤口进行无菌换药、强化护士发起的教学，以及监测稳定患者并向护士报告。护士保留需要独立护理判断的活动：入院首次评估、制定护理计划、为新诊断进行首次教学，以及如首剂静脉化疗等高风险护理。此处依据 NCSBN/ANA 委派指南；具体范围因各州《护理执业法》和机构政策而异。"
+        },
+        "byChoice": [
+          {
+            "refId": "s5",
+            "en": "Initial assessment is the RN's and cannot be delegated.",
+            "zh": "首次评估属护士职责，不能委派。"
+          },
+          {
+            "refId": "s6",
+            "en": "Creating the care plan requires RN judgment.",
+            "zh": "制定护理计划需要护士判断。"
+          },
+          {
+            "refId": "s7",
+            "en": "Initial teaching of a new diagnosis is the RN's responsibility.",
+            "zh": "新诊断的首次教学是护士的职责。"
+          },
+          {
+            "refId": "s8",
+            "en": "First-dose IV chemotherapy is high-risk RN care.",
+            "zh": "首剂静脉化疗属高风险护士护理。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "LPN/LVN = routine, stable, reinforcing. RN keeps initial assessment, care planning, initial teaching, and high-risk meds.",
+        "zh": "LPN/LVN＝常规、稳定、强化。护士保留首次评估、护理计划、首次教学和高风险给药。"
+      },
+      "glossary": [
+        {
+          "termEn": "LPN/LVN",
+          "termZh": "实用/职业护士",
+          "defZh": "在 RN 或医生指导下提供护理的执照护士；执业范围比 RN 窄。"
+        },
+        {
+          "termEn": "Reinforce teaching",
+          "termZh": "强化教学",
+          "defZh": "重复并巩固注册护士已发起的教育内容，而非进行首次教学。"
+        }
+      ]
+    },
+    {
+      "id": "claude_moc_intervene_cues_hl_b02",
+      "itemType": "highlight",
+      "category": "Management of Care",
+      "topic": "Prioritization of Cues",
+      "difficulty": "medium",
+      "ngnSkill": "analyze_cues",
+      "stem": {
+        "en": "A nurse receives report on a postoperative client. Highlight the findings that require the nurse's immediate intervention.",
+        "zh": "护士接班一名术后患者。请标出需要护士立即处理的发现。"
+      },
+      "highlight": {
+        "segments": [
+          {
+            "id": "s1",
+            "en": "Oxygen saturation is 85% with increasing respiratory effort.",
+            "zh": "血氧饱和度为85%，呼吸费力加重。",
+            "selectable": true
+          },
+          {
+            "id": "s2",
+            "en": "Systolic blood pressure has fallen from 118 to 84 over the last hour.",
+            "zh": "收缩压在过去一小时内从118降至84。",
+            "selectable": true
+          },
+          {
+            "id": "s3",
+            "en": "The client is increasingly difficult to arouse.",
+            "zh": "患者越来越难以唤醒。",
+            "selectable": true
+          },
+          {
+            "id": "s4",
+            "en": "The surgical dressing has a small amount of dried serosanguineous drainage.",
+            "zh": "手术敷料上有少量干涸的浆液血性渗液。",
+            "selectable": true
+          },
+          {
+            "id": "s5",
+            "en": "The client reports incisional pain of 4/10, relieved with repositioning.",
+            "zh": "患者诉切口疼痛4/10，翻身后缓解。",
+            "selectable": true
+          },
+          {
+            "id": "s6",
+            "en": "Urine output has been 30-40 mL/hr.",
+            "zh": "尿量为30–40 mL/小时。",
+            "selectable": true
+          },
+          {
+            "id": "s7",
+            "en": "The client is anxious and asking when they can see family.",
+            "zh": "患者焦虑，询问何时能见家属。",
+            "selectable": true
+          }
+        ],
+        "correct": [
+          "s1",
+          "s2",
+          "s3"
+        ]
+      },
+      "rationale": {
+        "correct": {
+          "en": "Immediate intervention is required for threats to airway, breathing, and circulation and for a falling level of consciousness. An oxygen saturation of 85% with increasing effort is a breathing emergency; a systolic pressure dropping from 118 to 84 signals possible hemorrhage/shock; and a client who is increasingly difficult to arouse has a deteriorating neurologic status. Dried serosanguineous drainage, incisional pain relieved by repositioning, urine output of 30-40 mL/hr, and situational anxiety are expected or stable and do not require immediate action. Use the ABC framework to separate emergent cues from expected postoperative findings.",
+          "zh": "对气道、呼吸、循环的威胁以及意识水平下降需要立即处理。血氧85%伴呼吸费力加重是呼吸急症；收缩压从118降至84提示可能出血/休克；越来越难唤醒的患者神经状态在恶化。干涸的浆液血性渗液、翻身后缓解的切口疼痛、30–40 mL/小时的尿量以及情境性焦虑均属预期或稳定，无需立即处理。用 ABC 框架将紧急线索与预期术后发现区分开。"
+        },
+        "byChoice": [
+          {
+            "refId": "s4",
+            "en": "Dried, scant serosanguineous drainage is an expected postoperative finding.",
+            "zh": "干涸、少量的浆液血性渗液是预期的术后发现。"
+          },
+          {
+            "refId": "s6",
+            "en": "30-40 mL/hr urine output is adequate.",
+            "zh": "30–40 mL/小时尿量是充足的。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Airway/breathing/circulation and a dropping level of consciousness come first; expected, stable, or relieved findings can wait.",
+        "zh": "气道/呼吸/循环和意识水平下降优先；预期、稳定或已缓解的发现可以等待。"
+      },
+      "glossary": [
+        {
+          "termEn": "ABC framework",
+          "termZh": "ABC 框架",
+          "defZh": "按气道、呼吸、循环排序临床优先级的方法。"
+        },
+        {
+          "termEn": "Serosanguineous",
+          "termZh": "浆液血性",
+          "defZh": "由浆液和少量血液组成的渗液，常见于术后早期。"
+        }
+      ]
+    },
+    {
+      "id": "claude_moc_hipaa_breach_hl_b03",
+      "itemType": "highlight",
+      "category": "Management of Care",
+      "topic": "Confidentiality / HIPAA",
+      "difficulty": "easy",
+      "ngnSkill": "recognize_cues",
+      "stem": {
+        "en": "Highlight the nurse actions that are breaches of client confidentiality.",
+        "zh": "请标出属于侵犯患者隐私（保密）的护士行为。"
+      },
+      "highlight": {
+        "segments": [
+          {
+            "id": "s1",
+            "en": "Discussing a client's diagnosis with a coworker in a crowded elevator.",
+            "zh": "在拥挤的电梯里与同事讨论某患者的诊断。",
+            "selectable": true
+          },
+          {
+            "id": "s2",
+            "en": "Sharing a client's lab results with a friend who asks out of concern.",
+            "zh": "因朋友出于关心询问，便向其透露患者的化验结果。",
+            "selectable": true
+          },
+          {
+            "id": "s3",
+            "en": "Leaving the electronic health record open and unattended at the nurses' station.",
+            "zh": "在护士站让电子病历处于打开且无人看管的状态。",
+            "selectable": true
+          },
+          {
+            "id": "s4",
+            "en": "Giving a verbal handoff to the oncoming nurse assigned to the client.",
+            "zh": "向接班并负责该患者的护士进行口头交接。",
+            "selectable": true
+          },
+          {
+            "id": "s5",
+            "en": "Reporting a suspected case of a communicable disease to public health as required by law.",
+            "zh": "依法向公共卫生部门报告疑似传染病病例。",
+            "selectable": true
+          },
+          {
+            "id": "s6",
+            "en": "Verifying identity before discussing care with a person on the client's approved contact list.",
+            "zh": "在与患者批准的联系人讨论护理前先核实其身份。",
+            "selectable": true
+          }
+        ],
+        "correct": [
+          "s1",
+          "s2",
+          "s3"
+        ]
+      },
+      "rationale": {
+        "correct": {
+          "en": "Confidentiality is breached when protected health information is shared with or exposed to people who do not have a need to know. Discussing a diagnosis in a public elevator, telling a friend about lab results, and leaving the medical record open and unattended all expose information improperly. In contrast, a handoff to the assigned oncoming nurse is sharing for treatment, legally mandated communicable-disease reporting is a permitted disclosure under the HIPAA Privacy Rule, and verifying identity before speaking with an approved contact protects confidentiality.",
+          "zh": "当受保护的健康信息被分享给或暴露给无需知晓的人时，即构成保密性被侵犯。在公共电梯讨论诊断、把化验结果告诉朋友、让病历打开且无人看管，都是不当地暴露信息。相反，向接班负责的护士交接属于为治疗目的分享，依法的传染病上报在 HIPAA《隐私规则》下属许可披露，而在与获批准联系人交谈前核实身份则是在保护保密性。"
+        },
+        "byChoice": [
+          {
+            "refId": "s4",
+            "en": "Handoff to the assigned nurse is sharing for treatment, not a breach.",
+            "zh": "向负责护士交接属为治疗目的分享，不是违规。"
+          },
+          {
+            "refId": "s5",
+            "en": "Mandated public-health reporting is a permitted disclosure.",
+            "zh": "法定的公共卫生上报属许可披露。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "A breach is sharing/exposing PHI to those without a need to know. Treatment handoffs, mandated reports, and identity-verified approved contacts are permitted.",
+        "zh": "违规＝向无需知晓者分享/暴露受保护健康信息。治疗交接、法定上报、经身份核实的获批联系人均被许可。"
+      },
+      "glossary": [
+        {
+          "termEn": "Protected health information (PHI)",
+          "termZh": "受保护健康信息（PHI）",
+          "defZh": "可识别个人身份的健康相关信息。"
+        },
+        {
+          "termEn": "HIPAA Privacy Rule",
+          "termZh": "HIPAA 隐私规则",
+          "defZh": "规定受保护健康信息使用与披露的美国联邦标准。"
+        }
+      ]
+    },
+    {
+      "id": "claude_moc_supervision_hl_b04",
+      "itemType": "highlight",
+      "category": "Management of Care",
+      "topic": "Supervision of UAP",
+      "difficulty": "medium",
+      "ngnSkill": "evaluate_outcomes",
+      "stem": {
+        "en": "A nurse is supervising unlicensed assistive personnel (UAP). Highlight the UAP actions that require the nurse to intervene.",
+        "zh": "护士正在监督无执照辅助人员（UAP）。请标出需要护士介入纠正的 UAP 行为。"
+      },
+      "highlight": {
+        "segments": [
+          {
+            "id": "s1",
+            "en": "The UAP tells a client newly ordered nothing-by-mouth that it is fine to drink water.",
+            "zh": "UAP 告诉一名新医嘱禁食禁饮的患者可以喝水。",
+            "selectable": true
+          },
+          {
+            "id": "s2",
+            "en": "The UAP reapplies a wrist restraint tied to the movable side rail.",
+            "zh": "UAP 将腕部约束带重新系在可活动的床栏上。",
+            "selectable": true
+          },
+          {
+            "id": "s3",
+            "en": "The UAP interprets a client's new lab result and advises a diet change.",
+            "zh": "UAP 解读患者的新化验结果并建议改变饮食。",
+            "selectable": true
+          },
+          {
+            "id": "s4",
+            "en": "The UAP assists a stable client to ambulate in the hallway with a gait belt.",
+            "zh": "UAP 使用步态带协助一名病情稳定的患者在走廊行走。",
+            "selectable": true
+          },
+          {
+            "id": "s5",
+            "en": "The UAP records the client's intake and output on the flowsheet.",
+            "zh": "UAP 在流程表上记录患者的出入量。",
+            "selectable": true
+          },
+          {
+            "id": "s6",
+            "en": "The UAP measures and reports a routine blood pressure on a stable client.",
+            "zh": "UAP 为病情稳定的患者测量并报告常规血压。",
+            "selectable": true
+          }
+        ],
+        "correct": [
+          "s1",
+          "s2",
+          "s3"
+        ]
+      },
+      "rationale": {
+        "correct": {
+          "en": "The nurse must intervene when a UAP acts outside their role or unsafely. Overriding an NPO order risks aspiration and harm; tying a restraint to a movable side rail is a serious safety hazard because the rail can move and injure the client (restraints are anchored to the non-movable bed frame); and interpreting labs and advising a diet change requires nursing judgment outside the UAP scope. Assisting a stable client to ambulate with a gait belt, recording intake and output, and reporting a routine blood pressure on a stable client are all appropriate UAP tasks that need no intervention.",
+          "zh": "当 UAP 超出其职责或行为不安全时，护士必须介入。擅自取消禁食禁饮医嘱有误吸和伤害风险；将约束带系在可活动床栏上是严重安全隐患，因为床栏移动可能伤及患者（约束应固定在不可活动的床架上）；解读化验并建议改变饮食需要超出 UAP 范围的护理判断。用步态带协助稳定患者行走、记录出入量、为稳定患者报告常规血压，都是恰当的 UAP 任务，无需介入。"
+        },
+        "byChoice": [
+          {
+            "refId": "s2",
+            "en": "Restraints anchor to the bed frame, never to a movable side rail.",
+            "zh": "约束带固定在床架上，绝不可系在可活动床栏上。"
+          },
+          {
+            "refId": "s4",
+            "en": "Ambulating a stable client with a gait belt is an appropriate UAP task.",
+            "zh": "用步态带协助稳定患者行走是恰当的 UAP 任务。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Intervene when the UAP overrides orders, acts unsafely, or uses nursing judgment. Leave appropriate, in-scope tasks alone.",
+        "zh": "当 UAP 擅自更改医嘱、行为不安全或行使护理判断时介入。对恰当、范围内的任务不予干涉。"
+      },
+      "glossary": [
+        {
+          "termEn": "Supervision",
+          "termZh": "监督",
+          "defZh": "对所委派任务的执行进行指导、监测、评价和必要的纠正。"
+        },
+        {
+          "termEn": "NPO",
+          "termZh": "禁食禁饮（NPO）",
+          "defZh": "拉丁文 nil per os，指经口不摄入任何食物或液体。"
+        }
+      ]
+    },
+    {
+      "id": "claude_moc_triage_priority_bt_b05",
+      "itemType": "bowtie",
+      "category": "Management of Care",
+      "topic": "Prioritization / Triage",
+      "difficulty": "medium",
+      "ngnSkill": "prioritize_hypotheses",
+      "stem": {
+        "en": "A nurse begins the shift with four clients: (A) a client with new audible inspiratory stridor and rising respiratory effort; (B) a client due for routine oral medications; (C) a client requesting discharge teaching; (D) a client with stable chronic pain rated 3/10. Complete the bow-tie for the nurse's first priority.",
+        "zh": "护士开始接班时有四名患者：（A）出现新发可闻及的吸气性喘鸣且呼吸费力加重；（B）到了常规口服给药时间；（C）要求出院教学；（D）慢性疼痛稳定、评分3/10。请完成蝶形图，确定护士的首要优先事项。"
+      },
+      "bowtie": {
+        "condition": {
+          "prompt": {
+            "en": "Highest-priority client problem",
+            "zh": "最高优先级的患者问题"
+          },
+          "tokens": [
+            {
+              "id": "c_teach",
+              "en": "Client C: discharge teaching that should be completed soon",
+              "zh": "患者C：应尽快完成的出院教学"
+            },
+            {
+              "id": "c_meds",
+              "en": "Client B: routine medications that are slightly overdue",
+              "zh": "患者B：略微逾期的常规给药"
+            },
+            {
+              "id": "c_airway",
+              "en": "Client A: a threatened airway requiring immediate assessment and intervention",
+              "zh": "患者A：气道受威胁，需要立即评估和干预"
+            }
+          ],
+          "correct": "c_airway"
+        },
+        "actions": {
+          "prompt": {
+            "en": "Priority nursing actions",
+            "zh": "优先护理措施"
+          },
+          "tokens": [
+            {
+              "id": "a_rrt",
+              "en": "Call for help/activate the rapid response team and prepare emergency airway support",
+              "zh": "呼叫支援/启动快速反应团队，并准备紧急气道支持"
+            },
+            {
+              "id": "a_meds_first",
+              "en": "Pass Client B's routine medications before seeing Client A",
+              "zh": "在看患者A之前先给患者B发放常规药物"
+            },
+            {
+              "id": "a_teach_first",
+              "en": "Complete Client C's discharge teaching first because they are ready to leave",
+              "zh": "因患者C准备离院，先完成其出院教学"
+            },
+            {
+              "id": "a_assess_airway",
+              "en": "Go to Client A first, assess the airway and breathing, and position to maximize the airway",
+              "zh": "首先到患者A处，评估气道和呼吸，并摆位以最大程度保持气道通畅"
+            }
+          ],
+          "correct": [
+            "a_assess_airway",
+            "a_rrt"
+          ]
+        },
+        "parameters": {
+          "prompt": {
+            "en": "Parameters to monitor",
+            "zh": "需监测的指标"
+          },
+          "tokens": [
+            {
+              "id": "p_satisfaction",
+              "en": "Client C's satisfaction with the timing of teaching",
+              "zh": "患者C对教学时机的满意度"
+            },
+            {
+              "id": "p_loc",
+              "en": "Level of consciousness and response to airway interventions",
+              "zh": "意识水平及对气道干预的反应"
+            },
+            {
+              "id": "p_med_time",
+              "en": "How many minutes late Client B's routine dose was given",
+              "zh": "患者B的常规剂量延迟了多少分钟"
+            },
+            {
+              "id": "p_airway",
+              "en": "Airway patency, work of breathing, and oxygen saturation",
+              "zh": "气道通畅度、呼吸做功和血氧饱和度"
+            }
+          ],
+          "correct": [
+            "p_airway",
+            "p_loc"
+          ]
+        }
+      },
+      "rationale": {
+        "correct": {
+          "en": "Using the ABC framework, a threatened airway is always the first priority. New inspiratory stridor with rising effort signals airway compromise that can progress to obstruction, so the nurse goes to Client A first, assesses and positions the airway, and calls for help/activates the rapid response team while preparing emergency support. Routine medications, discharge teaching, and stable chronic pain are lower priority and can be delegated or deferred briefly. Effectiveness is monitored by airway patency, work of breathing, oxygen saturation, and level of consciousness — not by medication timing or satisfaction.",
+          "zh": "依据 ABC 框架，气道受威胁始终是首要优先。新发吸气性喘鸣伴呼吸费力加重提示气道受损，可能进展为梗阻，因此护士先到患者A处，评估并摆正气道，呼叫支援/启动快速反应团队，同时准备紧急支持。常规给药、出院教学和稳定的慢性疼痛优先级较低，可委派或短暂推迟。效果通过气道通畅度、呼吸做功、血氧和意识水平来监测——而非给药时机或满意度。"
+        },
+        "byChoice": [
+          {
+            "refId": "a_meds_first",
+            "en": "Routine meds can wait or be delegated; the airway cannot.",
+            "zh": "常规给药可等待或委派；气道不能。"
+          },
+          {
+            "refId": "a_teach_first",
+            "en": "Discharge teaching is not time-critical compared with a threatened airway.",
+            "zh": "与气道受威胁相比，出院教学并不紧急。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Airway beats everything. The stridor client is seen first; routine meds and teaching wait.",
+        "zh": "气道高于一切。喘鸣患者最先处理；常规给药和教学需等待。"
+      },
+      "glossary": [
+        {
+          "termEn": "Stridor",
+          "termZh": "喘鸣",
+          "defZh": "因气道狭窄产生的高调呼吸音，提示气道受损。"
+        },
+        {
+          "termEn": "Rapid response team (RRT)",
+          "termZh": "快速反应团队（RRT）",
+          "defZh": "为病情恶化但尚未骤停的患者提供床旁紧急评估的团队。"
+        }
+      ]
+    },
+    {
+      "id": "claude_moc_advance_directive_bt_b06",
+      "itemType": "bowtie",
+      "category": "Management of Care",
+      "topic": "Advance Directives / DNR",
+      "difficulty": "easy",
+      "ngnSkill": "take_action",
+      "stem": {
+        "en": "A client has a valid do-not-resuscitate (DNR) order and a living will declining resuscitation. The client's adult child arrives and insists that 'everything be done.' Complete the bow-tie for the nurse's response.",
+        "zh": "一名患者有有效的不复苏（DNR）医嘱和拒绝复苏的生前预嘱。患者的成年子女到达并坚持“全力抢救”。请完成蝶形图，确定护士的处理方式。"
+      },
+      "bowtie": {
+        "condition": {
+          "prompt": {
+            "en": "Guiding principle",
+            "zh": "指导原则"
+          },
+          "tokens": [
+            {
+              "id": "c_family",
+              "en": "Follow the adult child's wishes because family makes the final decision",
+              "zh": "听从成年子女的意愿，因为由家属作最终决定"
+            },
+            {
+              "id": "c_honor",
+              "en": "Honor the competent client's valid advance directive and right to self-determination",
+              "zh": "尊重有行为能力患者的有效预嘱及其自我决定权"
+            },
+            {
+              "id": "c_full",
+              "en": "Default to full resuscitation whenever any family member objects",
+              "zh": "只要有家属反对就默认全力复苏"
+            }
+          ],
+          "correct": "c_honor"
+        },
+        "actions": {
+          "prompt": {
+            "en": "Priority nursing actions",
+            "zh": "优先护理措施"
+          },
+          "tokens": [
+            {
+              "id": "a_revoke",
+              "en": "Revoke the DNR at the bedside because the family objects",
+              "zh": "因家属反对，在床旁撤销 DNR"
+            },
+            {
+              "id": "a_support",
+              "en": "Support the family's emotions while explaining the client's documented wishes are followed",
+              "zh": "在解释将遵循患者已记录意愿的同时，安抚家属情绪"
+            },
+            {
+              "id": "a_ignore_family",
+              "en": "Ignore the family's distress and refuse to discuss the situation",
+              "zh": "无视家属的痛苦并拒绝讨论该情况"
+            },
+            {
+              "id": "a_notify_clarify",
+              "en": "Notify the provider and arrange for the team to clarify the directive and answer the family's questions",
+              "zh": "通知医生，并安排团队向家属澄清预嘱并解答其疑问"
+            }
+          ],
+          "correct": [
+            "a_notify_clarify",
+            "a_support"
+          ]
+        },
+        "parameters": {
+          "prompt": {
+            "en": "Parameters to monitor",
+            "zh": "需监测的指标"
+          },
+          "tokens": [
+            {
+              "id": "p_understanding",
+              "en": "The family's understanding and any change in the client's own wishes",
+              "zh": "家属的理解情况以及患者本人意愿是否有变化"
+            },
+            {
+              "id": "p_visiting",
+              "en": "The number of visitors at the bedside",
+              "zh": "床旁探视者的人数"
+            },
+            {
+              "id": "p_pref",
+              "en": "The family's preference for the client's room assignment",
+              "zh": "家属对患者病房分配的偏好"
+            },
+            {
+              "id": "p_order",
+              "en": "That the DNR order and advance directive remain current and documented in the record",
+              "zh": "DNR 医嘱和预嘱在病历中保持有效并已记录"
+            }
+          ],
+          "correct": [
+            "p_order",
+            "p_understanding"
+          ]
+        }
+      },
+      "rationale": {
+        "correct": {
+          "en": "A competent client's valid advance directive must be honored; the right to self-determination is protected (Patient Self-Determination Act). A family member cannot override a competent client's documented wishes, and the nurse does not revoke a DNR at the bedside because family objects. The nurse notifies the provider, arranges for the team to clarify the directive and answer questions, and supports the family's emotions while explaining that the client's wishes are followed. Monitoring confirms the DNR/advance directive remains current and documented and tracks the family's understanding and any change in the client's own wishes.",
+          "zh": "有行为能力患者的有效预嘱必须得到尊重；自我决定权受保护（《患者自我决定法》）。家属不能推翻有行为能力患者的已记录意愿，护士也不会因家属反对而在床旁撤销 DNR。护士通知医生，安排团队澄清预嘱并解答疑问，在解释将遵循患者意愿的同时安抚家属情绪。监测确认 DNR/预嘱保持有效并已记录，并跟踪家属的理解以及患者本人意愿是否有变化。"
+        },
+        "byChoice": [
+          {
+            "refId": "a_revoke",
+            "en": "A family objection alone does not revoke a valid DNR/advance directive; clarify through the provider/team and policy.",
+            "zh": "仅凭家属反对并不能撤销有效的 DNR/预嘱；应通过医生/团队和机构政策进行澄清。"
+          },
+          {
+            "refId": "a_ignore_family",
+            "en": "The family's distress should be supported, not ignored.",
+            "zh": "应安抚而非无视家属的痛苦。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "A competent client's directive wins over family objection. Honor it, involve the provider/team, support the family — never revoke at the bedside.",
+        "zh": "有行为能力患者的预嘱优先于家属反对。尊重预嘱、让医生/团队参与、安抚家属——绝不在床旁撤销。"
+      },
+      "glossary": [
+        {
+          "termEn": "Advance directive",
+          "termZh": "预嘱",
+          "defZh": "说明患者在无法表达时医疗意愿的法律文件，如生前预嘱。"
+        },
+        {
+          "termEn": "Do-not-resuscitate (DNR)",
+          "termZh": "不复苏（DNR）",
+          "defZh": "在患者心跳或呼吸停止时不进行心肺复苏的医嘱。"
+        }
+      ]
+    },
+    {
+      "id": "claude_moc_uap_supervision_bt_b07",
+      "itemType": "bowtie",
+      "category": "Management of Care",
+      "topic": "Delegation / Supervision",
+      "difficulty": "medium",
+      "ngnSkill": "take_action",
+      "stem": {
+        "en": "A nurse delegated vital-sign measurement to unlicensed assistive personnel (UAP). The UAP reports that a postoperative client's blood pressure is 86/48 and the client 'seems sleepy.' Complete the bow-tie for the nurse's response.",
+        "zh": "护士将测量生命体征委派给无执照辅助人员（UAP）。UAP 报告一名术后患者血压为86/48，且患者“似乎昏昏欲睡”。请完成蝶形图，确定护士的处理方式。"
+      },
+      "bowtie": {
+        "condition": {
+          "prompt": {
+            "en": "Most likely problem",
+            "zh": "最可能的问题"
+          },
+          "tokens": [
+            {
+              "id": "c_uap",
+              "en": "A UAP performance problem to be addressed at the staff meeting",
+              "zh": "属在员工会议上处理的 UAP 表现问题"
+            },
+            {
+              "id": "c_normal",
+              "en": "An expected postoperative finding that needs no action",
+              "zh": "属预期的术后发现，无需处理"
+            },
+            {
+              "id": "c_deter",
+              "en": "Possible clinical deterioration requiring the RN's own assessment and judgment",
+              "zh": "可能的临床恶化，需要护士亲自评估和判断"
+            }
+          ],
+          "correct": "c_deter"
+        },
+        "actions": {
+          "prompt": {
+            "en": "Priority nursing actions",
+            "zh": "优先护理措施"
+          },
+          "tokens": [
+            {
+              "id": "a_notify",
+              "en": "Notify the provider of the abnormal findings and intervene per orders/protocol",
+              "zh": "将异常发现通知医生，并按医嘱/方案进行干预"
+            },
+            {
+              "id": "a_document_only",
+              "en": "Document the UAP's report and continue routine rounds",
+              "zh": "记录 UAP 的报告并继续常规查房"
+            },
+            {
+              "id": "a_delegate_recheck",
+              "en": "Tell the UAP to recheck the blood pressure in one hour and document it",
+              "zh": "让 UAP 一小时后再测血压并记录"
+            },
+            {
+              "id": "a_assess",
+              "en": "Go to the bedside and personally reassess blood pressure, level of consciousness, and other vital signs",
+              "zh": "到床旁亲自重新评估血压、意识水平和其他生命体征"
+            }
+          ],
+          "correct": [
+            "a_assess",
+            "a_notify"
+          ]
+        },
+        "parameters": {
+          "prompt": {
+            "en": "Parameters to monitor",
+            "zh": "需监测的指标"
+          },
+          "tokens": [
+            {
+              "id": "p_room",
+              "en": "The client's television preference",
+              "zh": "患者对电视节目的偏好"
+            },
+            {
+              "id": "p_vitals",
+              "en": "Trend in blood pressure, heart rate, and level of consciousness",
+              "zh": "血压、心率和意识水平的变化趋势"
+            },
+            {
+              "id": "p_uap_schedule",
+              "en": "The UAP's break schedule",
+              "zh": "UAP 的休息时间安排"
+            },
+            {
+              "id": "p_perfusion",
+              "en": "Signs of perfusion such as urine output and skin color/temperature",
+              "zh": "灌注体征，如尿量和皮肤颜色/温度"
+            }
+          ],
+          "correct": [
+            "p_vitals",
+            "p_perfusion"
+          ]
+        }
+      },
+      "rationale": {
+        "correct": {
+          "en": "Although measuring vital signs can be delegated, interpreting an abnormal result and assessing a client are the RN's responsibility and cannot be delegated. A blood pressure of 86/48 with new sleepiness suggests possible deterioration (hypovolemia, hemorrhage, or shock), so the nurse must personally reassess at the bedside and notify the provider, intervening per orders. Telling the UAP to recheck in an hour or merely documenting the report delays recognition of a deteriorating client. Monitoring focuses on the vital-sign trend, level of consciousness, and perfusion indicators.",
+          "zh": "尽管测量生命体征可以委派，但解读异常结果和评估患者是护士的职责，不能委派。血压86/48伴新发嗜睡提示可能的恶化（低血容量、出血或休克），因此护士必须亲自到床旁重新评估并通知医生，按医嘱干预。让 UAP 一小时后再测、或仅记录报告，都会延误对病情恶化患者的识别。监测聚焦于生命体征趋势、意识水平和灌注指标。"
+        },
+        "byChoice": [
+          {
+            "refId": "a_delegate_recheck",
+            "en": "Delaying a recheck delegates the judgment the RN must make now.",
+            "zh": "推迟复测等于把护士此刻必须作出的判断委派出去。"
+          },
+          {
+            "refId": "a_document_only",
+            "en": "Documenting without assessing abandons a possibly deteriorating client.",
+            "zh": "只记录不评估等于放弃了一名可能恶化的患者。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "You can delegate measuring a vital sign, never interpreting it. An abnormal result = the RN assesses now and notifies.",
+        "zh": "可以委派测量生命体征，但绝不能委派对其的解读。结果异常＝护士立即评估并通知。"
+      },
+      "glossary": [
+        {
+          "termEn": "Delegation vs assessment",
+          "termZh": "委派与评估",
+          "defZh": "可委派数据采集任务，但护理评估与判断不可委派。"
+        },
+        {
+          "termEn": "Perfusion",
+          "termZh": "灌注",
+          "defZh": "血液向组织的输送；尿量、皮肤颜色和温度反映灌注情况。"
+        }
+      ]
+    },
+    {
+      "id": "claude_moc_independent_action_matrix_b08",
+      "itemType": "matrix",
+      "category": "Management of Care",
+      "topic": "Scope of Practice / Independent Actions",
+      "difficulty": "medium",
+      "ngnSkill": "generate_solutions",
+      "stem": {
+        "en": "Classify each nursing action as an independent nursing action the RN may initiate without a provider order, or an action that requires a provider order.",
+        "zh": "请将每项护理行为分类为护士无需医嘱即可发起的独立护理行为，或需要医嘱的行为。"
+      },
+      "matrix": {
+        "rows": [
+          {
+            "id": "r1",
+            "en": "Repositioning a client every 2 hours to protect skin",
+            "zh": "每2小时为患者翻身以保护皮肤"
+          },
+          {
+            "id": "r2",
+            "en": "Teaching relaxation and coping techniques for anxiety",
+            "zh": "教授缓解焦虑的放松和应对技巧"
+          },
+          {
+            "id": "r3",
+            "en": "Elevating the head of the bed for a client reporting dyspnea",
+            "zh": "为诉呼吸困难的患者抬高床头"
+          },
+          {
+            "id": "r4",
+            "en": "Administering a PRN analgesic",
+            "zh": "给予按需镇痛药"
+          },
+          {
+            "id": "r5",
+            "en": "Inserting an indwelling urinary catheter",
+            "zh": "留置导尿管"
+          },
+          {
+            "id": "r6",
+            "en": "Applying physical restraints",
+            "zh": "使用身体约束"
+          }
+        ],
+        "columns": [
+          {
+            "id": "c_indep",
+            "en": "Independent nursing action",
+            "zh": "独立护理行为"
+          },
+          {
+            "id": "c_order",
+            "en": "Requires a provider order",
+            "zh": "需要医嘱"
+          }
+        ],
+        "selectionMode": "single_per_row"
+      },
+      "correct": [
+        {
+          "rowId": "r1",
+          "columnIds": [
+            "c_indep"
+          ]
+        },
+        {
+          "rowId": "r2",
+          "columnIds": [
+            "c_indep"
+          ]
+        },
+        {
+          "rowId": "r3",
+          "columnIds": [
+            "c_indep"
+          ]
+        },
+        {
+          "rowId": "r4",
+          "columnIds": [
+            "c_order"
+          ]
+        },
+        {
+          "rowId": "r5",
+          "columnIds": [
+            "c_order"
+          ]
+        },
+        {
+          "rowId": "r6",
+          "columnIds": [
+            "c_order"
+          ]
+        }
+      ],
+      "rationale": {
+        "correct": {
+          "en": "Independent nursing actions are within the RN's scope and require no provider order: repositioning to protect skin, teaching coping and relaxation techniques, and positioning such as elevating the head of the bed for comfort and breathing. Actions that require a provider order include administering medications (even PRN, which still requires an order), inserting an indwelling urinary catheter, and applying physical restraints (which require a provider order with strict time limits and monitoring, or emergency application per policy with a prompt order). Distinguishing independent from dependent/collaborative actions is core to safe scope of practice.",
+          "zh": "独立护理行为在护士执业范围内，无需医嘱：翻身保护皮肤、教授应对和放松技巧、以及为舒适和呼吸而抬高床头等体位调整。需要医嘱的行为包括给药（即使是按需药也仍需医嘱）、留置导尿、以及使用身体约束（需要包含严格时限和监测的医生医嘱，或在紧急情况下根据机构政策先使用并立即获取医嘱）。区分独立行为与依赖/协作行为是安全执业范围的核心。"
+        },
+        "byChoice": [
+          {
+            "refId": "r4",
+            "en": "Even a PRN analgesic requires an existing provider order.",
+            "zh": "即使是按需镇痛药也需要既有的医嘱。"
+          },
+          {
+            "refId": "r6",
+            "en": "Restraints require a provider order with time limits and monitoring, or emergency application per policy with a prompt order.",
+            "zh": "约束需要带时限和监测的医嘱，或在紧急情况下根据机构政策先使用并立即获取医嘱。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Positioning, hygiene, teaching, and comfort = independent. Medications, invasive devices, and restraints = need an order.",
+        "zh": "体位、卫生、教学和舒适措施＝独立行为。给药、侵入性装置和约束＝需要医嘱。"
+      },
+      "glossary": [
+        {
+          "termEn": "Independent nursing action",
+          "termZh": "独立护理行为",
+          "defZh": "护士在其执业范围内无需医嘱即可发起的行为。"
+        },
+        {
+          "termEn": "Dependent action",
+          "termZh": "依赖性行为",
+          "defZh": "需要医生医嘱才能执行的护理行为。"
+        }
+      ]
+    },
+    {
+      "id": "claude_moc_see_first_matrix_b09",
+      "itemType": "matrix",
+      "category": "Management of Care",
+      "topic": "Prioritization / Assessment Order",
+      "difficulty": "easy",
+      "ngnSkill": "prioritize_hypotheses",
+      "stem": {
+        "en": "For each client, classify whether the nurse should assess them first (urgent) or whether they can wait.",
+        "zh": "对于每名患者，请判断护士应先评估（紧急）还是可以稍后处理。"
+      },
+      "matrix": {
+        "rows": [
+          {
+            "id": "r1",
+            "en": "A client reporting new crushing chest pain and diaphoresis",
+            "zh": "一名诉新发压榨性胸痛伴大汗的患者"
+          },
+          {
+            "id": "r2",
+            "en": "A client with an oxygen saturation of 86% and labored breathing",
+            "zh": "一名血氧饱和度86%、呼吸费力的患者"
+          },
+          {
+            "id": "r3",
+            "en": "A postoperative client whose blood pressure is trending down with tachycardia",
+            "zh": "一名血压呈下降趋势伴心动过速的术后患者"
+          },
+          {
+            "id": "r4",
+            "en": "A client requesting a PRN laxative for mild constipation",
+            "zh": "一名因轻度便秘请求按需通便剂的患者"
+          },
+          {
+            "id": "r5",
+            "en": "A stable client ready for scheduled discharge teaching",
+            "zh": "一名病情稳定、可进行预定出院教学的患者"
+          },
+          {
+            "id": "r6",
+            "en": "A client with chronic stable knee pain due for a scheduled dose",
+            "zh": "一名慢性稳定膝痛、到了预定给药时间的患者"
+          }
+        ],
+        "columns": [
+          {
+            "id": "c_first",
+            "en": "Assess first (urgent)",
+            "zh": "先评估（紧急）"
+          },
+          {
+            "id": "c_wait",
+            "en": "Can wait",
+            "zh": "可以稍后"
+          }
+        ],
+        "selectionMode": "single_per_row"
+      },
+      "correct": [
+        {
+          "rowId": "r1",
+          "columnIds": [
+            "c_first"
+          ]
+        },
+        {
+          "rowId": "r2",
+          "columnIds": [
+            "c_first"
+          ]
+        },
+        {
+          "rowId": "r3",
+          "columnIds": [
+            "c_first"
+          ]
+        },
+        {
+          "rowId": "r4",
+          "columnIds": [
+            "c_wait"
+          ]
+        },
+        {
+          "rowId": "r5",
+          "columnIds": [
+            "c_wait"
+          ]
+        },
+        {
+          "rowId": "r6",
+          "columnIds": [
+            "c_wait"
+          ]
+        }
+      ],
+      "rationale": {
+        "correct": {
+          "en": "Assess first the clients with potentially life-threatening, unstable problems: new crushing chest pain with diaphoresis (possible acute coronary syndrome), an oxygen saturation of 86% with labored breathing (a breathing emergency), and a postoperative client with a falling blood pressure and tachycardia (possible hemorrhage/shock). A PRN laxative request, scheduled discharge teaching for a stable client, and a scheduled dose for chronic stable pain are important but not urgent and can wait. The principle is to see unstable, ABC-threatening clients before stable, predictable ones.",
+          "zh": "应先评估存在潜在危及生命、病情不稳定问题的患者：新发压榨性胸痛伴大汗（可能为急性冠脉综合征）、血氧86%伴呼吸费力（呼吸急症）、以及血压下降伴心动过速的术后患者（可能出血/休克）。按需通便剂请求、稳定患者的预定出院教学、慢性稳定疼痛的预定给药虽重要但不紧急，可以稍后。原则是先看不稳定、威胁 ABC 的患者，再看稳定、可预测的患者。"
+        },
+        "byChoice": [
+          {
+            "refId": "r3",
+            "en": "A falling blood pressure with tachycardia after surgery suggests bleeding/shock — assess first.",
+            "zh": "术后血压下降伴心动过速提示出血/休克——先评估。"
+          },
+          {
+            "refId": "r4",
+            "en": "A PRN laxative for mild constipation is not urgent.",
+            "zh": "因轻度便秘使用按需通便剂并不紧急。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Unstable and ABC-threatening clients are assessed first; stable, scheduled, and comfort needs can wait.",
+        "zh": "不稳定、威胁 ABC 的患者先评估；稳定、预定和舒适类需求可以稍后。"
+      },
+      "glossary": [
+        {
+          "termEn": "Acute coronary syndrome",
+          "termZh": "急性冠脉综合征",
+          "defZh": "包括心绞痛和心肌梗死在内的、由心肌缺血引起的急症。"
+        },
+        {
+          "termEn": "Prioritization",
+          "termZh": "优先级排序",
+          "defZh": "根据紧迫性和风险决定先处理哪名患者或哪项需求。"
+        }
+      ]
+    },
+    {
+      "id": "claude_moc_telephone_order_sata_b10",
+      "itemType": "select_all",
+      "category": "Management of Care",
+      "topic": "Verbal / Telephone Orders",
+      "difficulty": "easy",
+      "ngnSkill": "take_action",
+      "stem": {
+        "en": "A nurse takes a telephone order from a provider for a client. Which actions ensure the order is handled safely? Select all that apply.",
+        "zh": "护士接收医生为某患者下达的电话医嘱。哪些做法能确保该医嘱被安全处理？选择所有适用项。"
+      },
+      "options": [
+        {
+          "id": "e",
+          "en": "Ensure the provider co-signs the order within the facility's required time frame.",
+          "zh": "确保医生在机构规定的时限内补签该医嘱。"
+        },
+        {
+          "id": "b",
+          "en": "Read the order back to the provider and receive confirmation.",
+          "zh": "向医生复述医嘱并获得确认。"
+        },
+        {
+          "id": "a",
+          "en": "Write down the complete order as it is given.",
+          "zh": "按下达内容完整记录该医嘱。"
+        },
+        {
+          "id": "c",
+          "en": "Clarify anything unclear, including spelling of the drug if needed.",
+          "zh": "对任何不清楚之处进行澄清，必要时核对药名拼写。"
+        },
+        {
+          "id": "d",
+          "en": "Document the order, date, time, provider name, and that it was read back.",
+          "zh": "记录医嘱、日期、时间、医生姓名以及已复述确认。"
+        },
+        {
+          "id": "f",
+          "en": "Carry out the order first and clarify any concerns later if there is time.",
+          "zh": "先执行医嘱，若有时间再澄清疑问。"
+        }
+      ],
+      "correct": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "e"
+      ],
+      "rationale": {
+        "correct": {
+          "en": "Safe verbal/telephone order practice requires writing down the complete order, reading it back (read-back) and receiving confirmation, clarifying anything unclear (including drug spelling), and documenting the order with date, time, provider name, and that it was read back. The provider must co-sign within the facility's required time frame. Read-back/verification before carrying out the order is a Joint Commission patient-safety expectation; carrying out an order before clarifying concerns is unsafe.",
+          "zh": "安全的口头/电话医嘱处理要求：完整记录医嘱、复述（read-back）并获得确认、澄清任何不清楚之处（包括药名拼写），并记录医嘱及日期、时间、医生姓名和已复述确认。医生必须在机构规定时限内补签。在执行前复述/核实是联合委员会的患者安全要求；在澄清疑问前就执行医嘱并不安全。"
+        },
+        "byChoice": [
+          {
+            "refId": "c",
+            "en": "Clarifying unclear elements prevents medication errors.",
+            "zh": "澄清不清楚之处可预防用药差错。"
+          },
+          {
+            "refId": "f",
+            "en": "Never carry out an order with unresolved concerns; clarify first.",
+            "zh": "切勿在疑问未解决时执行医嘱；应先澄清。"
+          },
+          {
+            "refId": "d",
+            "en": "Complete documentation creates an accurate, accountable record.",
+            "zh": "完整记录形成准确、可追责的记录。"
+          },
+          {
+            "refId": "b",
+            "en": "Read-back with confirmation catches errors before they reach the client.",
+            "zh": "复述并确认可在差错到达患者前发现它。"
+          },
+          {
+            "refId": "a",
+            "en": "Writing the complete order captures it accurately.",
+            "zh": "完整记录医嘱可准确留存。"
+          },
+          {
+            "refId": "e",
+            "en": "Provider co-signature within policy time validates the verbal order.",
+            "zh": "医生在规定时限内补签使口头医嘱有效。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Write it, read it back, clarify, document, and get the co-signature. Never act on an unclear order.",
+        "zh": "记录、复述、澄清、记录在案、获取补签。绝不在医嘱不清时贸然执行。"
+      },
+      "glossary": [
+        {
+          "termEn": "Read-back",
+          "termZh": "复述确认",
+          "defZh": "接收者向下达者复述口头/电话医嘱并获得确认，以核实准确性。"
+        },
+        {
+          "termEn": "Verbal/telephone order",
+          "termZh": "口头/电话医嘱",
+          "defZh": "医生口头或经电话下达、随后须记录并补签的医嘱。"
+        }
+      ]
+    },
+    {
+      "id": "claude_moc_impaired_colleague_sata_b11",
+      "itemType": "select_all",
+      "category": "Management of Care",
+      "topic": "Legal-Ethical / Impaired Practice",
+      "difficulty": "medium",
+      "ngnSkill": "take_action",
+      "stem": {
+        "en": "A nurse notices that a coworker has slurred speech, smells of alcohol, and has several unexplained discrepancies in controlled-substance counts. Which actions should the nurse take? Select all that apply.",
+        "zh": "护士发现一名同事言语含糊、身上有酒味，且管制药品清点存在多处无法解释的差异。护士应采取哪些措施？选择所有适用项。"
+      },
+      "options": [
+        {
+          "id": "b",
+          "en": "Report the concern to the charge nurse or supervisor promptly.",
+          "zh": "及时将该顾虑报告给责任护士或主管。"
+        },
+        {
+          "id": "e",
+          "en": "Say nothing to avoid getting a colleague in trouble.",
+          "zh": "保持沉默，以免给同事惹麻烦。"
+        },
+        {
+          "id": "a",
+          "en": "Ensure clients assigned to the coworker are currently safe.",
+          "zh": "确保该同事所负责的患者目前安全。"
+        },
+        {
+          "id": "d",
+          "en": "Document the objective observations factually.",
+          "zh": "客观、如实记录所观察到的情况。"
+        },
+        {
+          "id": "c",
+          "en": "Follow facility policy for suspected impairment and controlled-substance discrepancies.",
+          "zh": "遵循机构关于疑似受损执业和管制药品差异的政策。"
+        },
+        {
+          "id": "f",
+          "en": "Confront the coworker alone and let them drive themselves home.",
+          "zh": "独自质问该同事，并让其自行开车回家。"
+        }
+      ],
+      "correct": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ],
+      "rationale": {
+        "correct": {
+          "en": "Client safety comes first: ensure the coworker's clients are safe, then report the concern promptly to the charge nurse/supervisor, follow facility policy for suspected impairment and controlled-substance discrepancies, and document objective observations factually. Nurses have an ethical and often legal duty to report impaired or unsafe practice (ANA Code of Ethics; state reporting requirements) — staying silent endangers clients. The nurse should not handle it alone or let a possibly impaired colleague drive; the situation is managed through the chain of command and policy, which also connects the colleague to help.",
+          "zh": "患者安全第一：先确保该同事的患者安全，然后及时向责任护士/主管报告顾虑，遵循机构关于疑似受损执业和管制药品差异的政策，并客观如实记录所观察到的情况。护士有伦理乃至法律上的义务报告受损或不安全的执业（ANA 伦理守则；各州上报要求）——保持沉默会危及患者。护士不应独自处理，也不应让可能受损的同事开车；应通过指挥链和政策处理，这也能让该同事获得帮助。"
+        },
+        "byChoice": [
+          {
+            "refId": "f",
+            "en": "Do not handle it alone or let a possibly impaired colleague drive.",
+            "zh": "不要独自处理，也不要让可能受损的同事开车。"
+          },
+          {
+            "refId": "a",
+            "en": "Client safety is the first priority.",
+            "zh": "患者安全是首要优先。"
+          },
+          {
+            "refId": "d",
+            "en": "Objective documentation creates an accurate record.",
+            "zh": "客观记录形成准确的记录。"
+          },
+          {
+            "refId": "b",
+            "en": "Prompt reporting up the chain protects clients.",
+            "zh": "及时沿指挥链上报可保护患者。"
+          },
+          {
+            "refId": "e",
+            "en": "Silence endangers clients and violates the duty to report.",
+            "zh": "沉默危及患者并违背上报义务。"
+          },
+          {
+            "refId": "c",
+            "en": "Facility policy guides handling impairment and drug discrepancies.",
+            "zh": "机构政策指导处理受损执业和药品差异。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Protect clients first, then report up the chain and follow policy. Reporting impaired practice is a duty, not optional — and not a solo confrontation.",
+        "zh": "先保护患者，再沿指挥链上报并遵循政策。报告受损执业是义务而非可选——也不是单独质问。"
+      },
+      "glossary": [
+        {
+          "termEn": "Impaired practice",
+          "termZh": "受损执业",
+          "defZh": "因酒精、药物或其他损害而无法安全执业的状态。"
+        },
+        {
+          "termEn": "Duty to report",
+          "termZh": "上报义务",
+          "defZh": "护士在伦理和法律上有义务报告不安全或受损的执业。"
+        }
+      ]
+    },
+    {
+      "id": "claude_moc_chain_command_order_b12",
+      "itemType": "ordered_response",
+      "category": "Management of Care",
+      "topic": "Chain of Command / Unsafe Order",
+      "difficulty": "medium",
+      "ngnSkill": "take_action",
+      "stem": {
+        "en": "A nurse believes a newly written order is unsafe for the client. Place the nurse's actions in the correct order.",
+        "zh": "护士认为一条新开具的医嘱对患者不安全。请将护士的措施按正确顺序排列。"
+      },
+      "options": [
+        {
+          "id": "e",
+          "en": "Document the concern, the people notified, and the actions taken.",
+          "zh": "记录该顾虑、已通知的人员以及所采取的措施。"
+        },
+        {
+          "id": "c",
+          "en": "If still unresolved, escalate further up the chain (e.g., nursing administration/medical director).",
+          "zh": "若仍未解决，沿指挥链进一步上报（如护理管理层/医务主任）。"
+        },
+        {
+          "id": "a",
+          "en": "Hold implementation of the order and contact the prescribing provider to clarify the concern.",
+          "zh": "暂缓执行该医嘱，并联系开具医嘱的医生以澄清疑虑."
+        },
+        {
+          "id": "d",
+          "en": "Do not carry out an order that remains unsafe.",
+          "zh": "不执行仍然不安全的医嘱。"
+        },
+        {
+          "id": "b",
+          "en": "If unresolved, notify the charge nurse and nursing supervisor.",
+          "zh": "若仍未解决，通知责任护士和护理主管。"
+        }
+      ],
+      "correct": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "e"
+      ],
+      "rationale": {
+        "correct": {
+          "en": "When an order appears unsafe, the nurse first holds its implementation and contacts the prescriber to clarify — most concerns resolve here. If it is not resolved, the nurse moves up the chain of command: charge nurse and nursing supervisor, then further (nursing administration/medical director) as needed. A nurse must never carry out an order they believe is unsafe — doing so does not relieve the nurse of accountability. Throughout, the nurse documents the concern, who was notified, and the actions taken. Patient safety, not hierarchy, drives the process.",
+          "zh": "当医嘱看似不安全时，护士首先暂缓执行并联系开嘱医生澄清——多数疑虑在此解决。若未解决，护士沿指挥链上报：责任护士和护理主管，必要时再向上（护理管理层/医务主任）。护士绝不能执行其认为不安全的医嘱——执行并不能免除护士的责任。整个过程中，护士记录该顾虑、通知了谁以及所采取的措施。驱动该流程的是患者安全，而非层级。"
+        },
+        "byChoice": [
+          {
+            "refId": "a",
+            "en": "Clarifying with the prescriber first resolves most concerns.",
+            "zh": "先与开嘱医生澄清可解决多数疑虑。"
+          },
+          {
+            "refId": "c",
+            "en": "Persisting concerns escalate further up the chain.",
+            "zh": "持续的疑虑沿指挥链进一步上报。"
+          },
+          {
+            "refId": "e",
+            "en": "Documentation records the concern, notifications, and actions.",
+            "zh": "记录留存该顾虑、通知和措施。"
+          },
+          {
+            "refId": "b",
+            "en": "Unresolved concerns move up to charge nurse/supervisor.",
+            "zh": "未解决的疑虑上报至责任护士/主管。"
+          },
+          {
+            "refId": "d",
+            "en": "An order believed unsafe is never carried out.",
+            "zh": "认为不安全的医嘱绝不执行。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Clarify with the prescriber, then climb the chain, never carry out an unsafe order, and document throughout.",
+        "zh": "先与开嘱医生澄清，再沿指挥链上报，绝不执行不安全医嘱，并全程记录。"
+      },
+      "glossary": [
+        {
+          "termEn": "Chain of command",
+          "termZh": "指挥链",
+          "defZh": "问题未解决时逐级上报的层级途径。"
+        },
+        {
+          "termEn": "Accountability",
+          "termZh": "问责/负责",
+          "defZh": "护士对自己的行为及决定负责，包括拒绝执行不安全医嘱。"
+        }
+      ]
+    },
+    {
+      "id": "claude_moc_discharge_process_order_b13",
+      "itemType": "ordered_response",
+      "category": "Management of Care",
+      "topic": "Discharge Coordination",
+      "difficulty": "medium",
+      "ngnSkill": "generate_solutions",
+      "stem": {
+        "en": "A nurse is preparing a client for discharge. Place the steps for a safe discharge in the correct order.",
+        "zh": "护士正在为一名患者办理出院。请将安全出院的步骤按正确顺序排列。"
+      },
+      "options": [
+        {
+          "id": "a",
+          "en": "Verify the provider's written discharge order.",
+          "zh": "核实医生书面出院医嘱。"
+        },
+        {
+          "id": "b",
+          "en": "Complete medication reconciliation and discharge teaching with teach-back.",
+          "zh": "完成用药核对，并通过回授进行出院教学。"
+        },
+        {
+          "id": "e",
+          "en": "Document the discharge and the client's condition, then escort the client out with belongings.",
+          "zh": "记录出院情况及患者状况，然后陪同患者携个人物品离开。"
+        },
+        {
+          "id": "d",
+          "en": "Provide written instructions and prescriptions the client understands.",
+          "zh": "提供患者能理解的书面说明和处方。"
+        },
+        {
+          "id": "c",
+          "en": "Confirm follow-up appointments, transportation, and any home-care referrals.",
+          "zh": "确认随访预约、交通安排以及任何居家护理转介。"
+        }
+      ],
+      "correct": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "e"
+      ],
+      "rationale": {
+        "correct": {
+          "en": "A safe discharge begins with verifying the provider's written discharge order — the client cannot be discharged without it. Next the nurse completes medication reconciliation and discharge teaching with teach-back to confirm understanding, then confirms follow-up appointments, transportation, and home-care referrals so the transition is supported. The client is given written instructions and prescriptions they understand, and finally the nurse documents the discharge and the client's condition and escorts the client out with their belongings. Confirming the order and ensuring understanding precede the physical departure.",
+          "zh": "安全出院首先要核实医生书面出院医嘱——没有它就不能让患者出院。接着护士完成用药核对，并通过回授进行出院教学以确认理解，然后确认随访预约、交通安排和居家护理转介，使过渡得到支持。向患者提供其能理解的书面说明和处方，最后护士记录出院情况及患者状况，并陪同患者携个人物品离开。先确认医嘱并确保理解，再让患者实际离开。"
+        },
+        "byChoice": [
+          {
+            "refId": "c",
+            "en": "Confirming follow-up and transport supports the transition.",
+            "zh": "确认随访和交通支持过渡。"
+          },
+          {
+            "refId": "b",
+            "en": "Med reconciliation and teach-back confirm safe understanding.",
+            "zh": "用药核对和回授确认患者安全理解。"
+          },
+          {
+            "refId": "d",
+            "en": "Written instructions and prescriptions reinforce teaching.",
+            "zh": "书面说明和处方巩固教学。"
+          },
+          {
+            "refId": "a",
+            "en": "No discharge proceeds without a provider's written order.",
+            "zh": "没有医生书面医嘱不得办理出院。"
+          },
+          {
+            "refId": "e",
+            "en": "Documentation and safe escort complete the discharge.",
+            "zh": "记录和安全陪同完成出院。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Order first, then teach and reconcile, confirm follow-up, give written materials, document, and escort out last.",
+        "zh": "先有医嘱，再教学和核对，确认随访，提供书面材料，记录，最后陪同离开。"
+      },
+      "glossary": [
+        {
+          "termEn": "Medication reconciliation",
+          "termZh": "用药核对",
+          "defZh": "比较患者用药清单以避免遗漏、重复或相互作用的过程。"
+        },
+        {
+          "termEn": "Discharge teaching",
+          "termZh": "出院教学",
+          "defZh": "出院前为安全居家自我照护提供的指导。"
+        }
+      ]
+    },
+    {
+      "id": "claude_moc_priority_mc_b14",
+      "itemType": "multiple_choice",
+      "category": "Management of Care",
+      "topic": "Prioritization",
+      "difficulty": "easy",
+      "ngnSkill": "prioritize_hypotheses",
+      "stem": {
+        "en": "A nurse is responsible for four clients. Which client should the nurse assess first?",
+        "zh": "护士负责四名患者。护士应首先评估哪名患者？"
+      },
+      "options": [
+        {
+          "id": "b",
+          "en": "A client requesting pain medication for chronic, stable back pain.",
+          "zh": "一名因慢性稳定性背痛请求止痛药的患者。"
+        },
+        {
+          "id": "a",
+          "en": "A client with new shortness of breath and an oxygen saturation of 88%.",
+          "zh": "一名新发气短、血氧饱和度88%的患者。"
+        },
+        {
+          "id": "d",
+          "en": "A client who wants to review discharge instructions before leaving tomorrow.",
+          "zh": "一名希望在明天离院前复习出院说明的患者。"
+        },
+        {
+          "id": "c",
+          "en": "A client asking for help ordering a meal tray.",
+          "zh": "一名请求协助点餐的患者。"
+        }
+      ],
+      "correct": [
+        "a"
+      ],
+      "rationale": {
+        "correct": {
+          "en": "Using the ABC framework, the client with new shortness of breath and an oxygen saturation of 88% has a breathing problem and must be assessed first — a low oxygen saturation is a threat to oxygenation that can deteriorate quickly. Requesting medication for chronic stable pain, help ordering a meal, and reviewing discharge instructions for a departure tomorrow are all important but lower priority and can be addressed after the client with the airway/breathing concern.",
+          "zh": "依据 ABC 框架，新发气短、血氧88%的患者存在呼吸问题，必须最先评估——低血氧是对氧合的威胁，可能迅速恶化。慢性稳定性疼痛的止痛请求、协助点餐、以及为明天离院复习出院说明都重要但优先级较低，可在处理完有气道/呼吸问题的患者后再处理。"
+        },
+        "byChoice": [
+          {
+            "refId": "a",
+            "en": "New dyspnea with SpO2 88% is a breathing emergency — assess first.",
+            "zh": "新发呼吸困难伴血氧88%是呼吸急症——先评估。"
+          },
+          {
+            "refId": "b",
+            "en": "Chronic stable pain is important but not urgent.",
+            "zh": "慢性稳定性疼痛重要但不紧急。"
+          },
+          {
+            "refId": "c",
+            "en": "Help with a meal tray is not time-critical.",
+            "zh": "协助点餐并非时间紧迫。"
+          },
+          {
+            "refId": "d",
+            "en": "Discharge instructions for tomorrow can wait.",
+            "zh": "明天才离院的出院说明可以稍后。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Apply ABCs: a breathing problem with low oxygen saturation outranks pain, meals, and tomorrow's discharge.",
+        "zh": "应用 ABC：低血氧的呼吸问题优先于疼痛、餐食和明天的出院。"
+      },
+      "glossary": [
+        {
+          "termEn": "Oxygen saturation",
+          "termZh": "血氧饱和度",
+          "defZh": "血红蛋白结合氧的百分比；偏低提示氧合受损。"
+        },
+        {
+          "termEn": "ABC framework",
+          "termZh": "ABC 框架",
+          "defZh": "按气道、呼吸、循环排序临床优先级的方法。"
+        }
+      ]
     }
   ]
 }
