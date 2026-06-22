@@ -6,3 +6,7 @@ dist/
 banks/_promoted/
 banks/banks-raw/
 banks/case_sources/
+# Generated TTS artifacts (deterministic, regenerable from banks/*.json; the
+# queue manifest is ~25 MB and the opus blobs ship out-of-band — see DECISIONS 20).
+audio/manifest.queue.json
+audio/*.opus

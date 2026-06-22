@@ -1,6 +1,7 @@
 import { execSync } from "node:child_process";
 import { readFile, readdir, writeFile } from "node:fs/promises";
 import { basename, join, resolve } from "node:path";
+import { fileURLToPath } from "node:url";
 import { parseBankText } from "../src/bankImport";
 import { validateBankObject } from "../src/schema";
 import { categories } from "../src/schema";
@@ -59,7 +60,7 @@ type CensusData = {
 
 // ---- File loading ----
 
-const getBankFiles = async () => {
+export const getBankFiles = async () => {
   const bankFiles = await readdir("banks").then((files) =>
     files
       .filter((file) => file.endsWith(".json"))
@@ -69,7 +70,7 @@ const getBankFiles = async () => {
   return bankFiles.map((file) => resolve(file));
 };
 
-const loadBank = async (file: string) => {
+export const loadBank = async (file: string) => {
   const text = await readFile(file, "utf8");
   const raw = parseBankText(text);
   const result = validateBankObject(raw);
@@ -554,25 +555,33 @@ const checkDrift = async (): Promise<void> => {
 };
 
 // ---- Entry point ----
+//
+// Guard the side-effecting run so this module can be imported for its exported
+// helpers (e.g. by scripts/audio/build-tts-queue.ts) without regenerating
+// census.json / BANK-CENSUS.md.
 
-const isCheck = process.argv.includes("--check");
+const isMain = process.argv[1] !== undefined && resolve(process.argv[1]) === fileURLToPath(import.meta.url);
 
-if (isCheck) {
-  await checkDrift();
-} else {
-  const census = await computeCensus();
-  await writeFile("census.json", JSON.stringify(census, null, 2) + "\n", "utf8");
-  await writeFile("BANK-CENSUS.md", renderCensus(census), "utf8");
-  const { topLevel, embeddedParts } = census.totals;
-  console.log(`Census written to census.json and BANK-CENSUS.md`);
-  console.log(`  ${topLevel} top-level, ${embeddedParts} embedded parts, ${census.visuals.total} visuals`);
-  if (census.idUniqueness.duplicates.length > 0) {
-    console.warn(`  ${census.idUniqueness.duplicates.length} ID collision(s) detected`);
-  }
-  if (!census.docsDrift.ok) {
-    console.warn("  Docs drift warnings:");
-    for (const finding of census.docsDrift.findings) {
-      console.warn(`    - ${finding}`);
+if (isMain) {
+  const isCheck = process.argv.includes("--check");
+
+  if (isCheck) {
+    await checkDrift();
+  } else {
+    const census = await computeCensus();
+    await writeFile("census.json", JSON.stringify(census, null, 2) + "\n", "utf8");
+    await writeFile("BANK-CENSUS.md", renderCensus(census), "utf8");
+    const { topLevel, embeddedParts } = census.totals;
+    console.log(`Census written to census.json and BANK-CENSUS.md`);
+    console.log(`  ${topLevel} top-level, ${embeddedParts} embedded parts, ${census.visuals.total} visuals`);
+    if (census.idUniqueness.duplicates.length > 0) {
+      console.warn(`  ${census.idUniqueness.duplicates.length} ID collision(s) detected`);
+    }
+    if (!census.docsDrift.ok) {
+      console.warn("  Docs drift warnings:");
+      for (const finding of census.docsDrift.findings) {
+        console.warn(`    - ${finding}`);
+      }
     }
   }
 }
