@@ -545,6 +545,19 @@ Pre-promotion fixes (Claude): 6 ASCII `" and "` tokens leaked into Chinese ratio
 
 Gate results: `validate-bank` clean on all 4 raw + all 13 canonical post-merge; `npm run audit` **GATE PASSED** (references clean / positions χ²=0.330 / integrity verified 4 drafts / ids 2245 unique). `npm run consolidate` merged sequentially → `gpt-canonical.json` **357→391**; staged files auto-consumed; raw drafts deleted. Census regenerated; build green.
 
+### 2026-06-22 — GPT "deepen" MoC / Pharm / Safety / Escalation batch (48 items → `banks/gpt-canonical.json`, 391→439)
+
+Status: `fixed-and-validated`. Claude operated the final review + promotion gate over the four `gpt-deepen-2026-06-22-*` raw banks (generated externally by GPT; cross-model reviewed in the GPT session per maintainer):
+
+- `gpt-deepen-2026-06-22-bow.json` — 12 Pharmacological & Parenteral items (bowtie + dropdown_cloze): warfarin over-anticoagulation w/ GI bleed, HIT w/ limb ischemia, clozapine neutropenia, lithium toxicity, insulin hypoglycemia, abrupt-steroid-withdrawal adrenal crisis, refeeding syndrome, PN hyperglycemia, carvedilol hold, metformin/contrast hold, levothyroxine absorption, furosemide hypokalemia.
+- `gpt-deepen-2026-06-22-esc.json` — 10 Management of Care items (bowtie + ordered_response): rapid-response activation, chain-of-command for contrast-allergy conflict, START disaster triage, hazmat decontamination, unverifiable-DNR-during-arrest, competent-client DNR/DNI vs family, transfusion-reaction sequence, mass-casualty incident command, hazmat doffing/decon order, code-status-change escalation.
+- `gpt-deepen-2026-06-22-moc.json` — 12 Management of Care items (highlight + ordered_response): HIPAA breach ID, handoff/SBAR missing-element ID, privacy-incident sequence, interpreter advocacy, conflict resolution, wound-vac discharge planning, decision-making-capacity advocacy, transfer handoff, disclosure-log audit.
+- `gpt-deepen-2026-06-22-sic.json` — 14 Safety & Infection Control items (highlight + ordered_response + bowtie): sterile-field breaks, hand-hygiene/standard-precautions, fall prevention, electrical-equipment hazard, PPE doffing, sterile-field setup, central-line/wound-irrigation contamination, sharps disposal, post-fall sequence, suction-equipment readiness.
+
+Pre-promotion fixes (Claude, deterministic transform `scripts/fix-gpt-deepen-2026-06-22.ts`): (1) `ngnSkill` was title-case prose ("Recognize Cues") on all 48 items → normalized to the snake_case enum; (2) glossary key-shape repair on bow/moc, which were each missing one required bilingual field — bow `{term, en(def), zh(def)}` had no `termZh` (24 Chinese terms authored by Claude; non-schema English `en` definition dropped) and moc `{en(term), zh(term)}` had no `defZh` (24 Chinese definitions authored by Claude). esc/sic carried empty glossaries (ngnSkill-only fix). eGFR `defZh` de-duplicated against its authored `termZh`. All clinical keys, single-best answers, bowtie token sets, and ordered-response sequences confirmed correct; bilingual parity verified across all 48 items; obviously-decorative distractors (room temp, blanket color, TV volume) confirmed clearly wrong.
+
+Gate results: `validate-bank` clean on all 4 raw + all 13 canonical post-merge; `npm run audit` **GATE PASSED** (references clean / positions χ²=0.345, max dev 0.9pp / integrity verified / ids 2327 unique across 13 files). `npm run consolidate` merged sequentially → `gpt-canonical.json` **391→439**; staged files auto-consumed; raw drafts deleted (backup in `scratch/raw-backup-2026-06-22/`). Build green.
+
 ## Next Planned Review
 
 - Next GPT/Gemini batch: prioritize Physiological Adaptation singleton topics (ADHF, AKI, acute pancreatitis, Reduction of Risk Potential) using case_study format to close the 93-item case_study gap (71 vs 164 target).
