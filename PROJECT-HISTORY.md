@@ -58,6 +58,21 @@ The committed NGN item-type set is complete. Rationale/dyad scoring and an expli
 
 ## Milestones
 
+### Scoped Raw-Bank MCP Writer for ChatGPT (Jun 23)
+
+Completed:
+- Added `scripts/raw-bank-mcp.ts`, a purpose-built stdio MCP server for quarantined raw-bank intake. It exposes only `write_raw_bank_json`, `list_raw_bank_files`, `read_raw_bank_file`, and `validate_raw_bank_file`.
+- Hardcoded the write jail to `banks/banks-raw/`; filenames must be non-hidden `.json` basenames and payloads must parse as strict JSON under a 2 MiB cap. The writer rejects traversal, absolute paths, symlink targets, non-regular targets, and duplicate writes when `overwrite:false`.
+- Implemented atomic write behavior using target reservation with `O_EXCL`, temp-file write inside the raw directory, fsync, and rename. The validator helper runs only the fixed argv path `node_modules/.bin/tsx scripts/validate-bank.ts <resolved raw file>` with no shell interpolation.
+- Added `npm run raw-bank-mcp` plus `@modelcontextprotocol/sdk` and `zod` dev tooling.
+- Wrote connector and operational handoffs: `GPT-RAW-BANK-MCP-HANDOFF-2026-06-23.md` and `CLAUDE-FSMCP-DEFERRED-HANDOFF-2026-06-23.md`.
+- Deferred disabling the existing broad `fsmcp` filesystem service by owner request because Claude still uses it.
+
+Verification:
+- `npm run build` passed.
+- MCP client smoke test listed exactly the four intended tools, wrote/read/validated a valid empty raw bank, rejected duplicate write with `overwrite:false`, and rejected traversal filename `../package.json`.
+- `npm audit --audit-level=low` reports one low-severity `esbuild` development-server advisory unrelated to this MCP addition.
+
 ### Collective Promotion Gate — 7 batches, 94 top-level items (Jun 22)
 
 Completed: ran the full promotion gate over the staged `banks/banks-raw/` slate and pushed to live.

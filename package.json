@@ -29,6 +29,7 @@
     "validate-sweep": "tsx scripts/validate-sweep.ts",
     "test:validate-sweep": "tsx scripts/tests/validate-sweep.ts",
     "validate-bank": "tsx scripts/validate-bank.ts",
+    "raw-bank-mcp": "tsx scripts/raw-bank-mcp.ts",
     "scan-unknown-keys": "tsx scripts/scan-unknown-keys.ts",
     "test:schema-bank": "tsx scripts/tests/schema-bank.ts",
     "fix-bank-quotes": "tsx scripts/fix-bank-quotes.ts",
@@ -59,15 +60,17 @@
     "@vitejs/plugin-react": "^5.1.1",
     "idb": "^8.0.3",
     "lucide-react": "^0.468.0",
-    "vite": "^6.0.0",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "vite": "^6.0.0"
   },
   "devDependencies": {
+    "@modelcontextprotocol/sdk": "^1.29.0",
     "@types/node": "^22.10.2",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
+    "tsx": "^4.19.2",
     "typescript": "^5.7.2",
-    "tsx": "^4.19.2"
+    "zod": "^4.4.3"
   }
 }
