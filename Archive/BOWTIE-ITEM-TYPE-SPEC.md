@@ -1,5 +1,7 @@
 # BOWTIE-ITEM-TYPE-SPEC
 
+> Archived implementation spec. Bowtie is already implemented. For current authoring and validation rules, use `NCLEX-Question-Schema.md`, `src/types.ts`, `src/schema.ts`, and `src/grading.ts`.
+
 **Status:** ready for implementation.
 **Schema impact:** new item type → **schema bump to `1.4`** (new JSON shape, migration note required).
 **Depends on:** the partial-credit scoring refactor (bowtie reuses its `0/1` summed path — no new scoring mechanism) and the `1.3` highlight bump (this builds on the same "add an item type" surface).

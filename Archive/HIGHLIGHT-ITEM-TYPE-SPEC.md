@@ -1,5 +1,7 @@
 # HIGHLIGHT-ITEM-TYPE-SPEC
 
+> Archived implementation spec. Highlight is already implemented. For current authoring and validation rules, use `NCLEX-Question-Schema.md`, `src/types.ts`, `src/schema.ts`, and `src/grading.ts`.
+
 **Status:** ready for implementation, **after** `PARTIAL-CREDIT-SCORING-SPEC` lands.
 **Schema impact:** new item type → **schema bump to `1.3`** (new JSON shape, migration note required).
 **Depends on:** the `+/-` scoring path from `PARTIAL-CREDIT-SCORING-SPEC` (highlight reuses it unchanged).

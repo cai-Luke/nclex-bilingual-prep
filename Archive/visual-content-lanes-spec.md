@@ -1,5 +1,7 @@
 # VISUAL-CONTENT-LANES-SPEC.md — arithmetic & documentation tier
 
+> Archived lane-expansion spec. For current visual-kind shapes, placement, and validation rules, use `NCLEX-Question-Schema.md` plus the registered modules under `src/visuals/`.
+
 Content-generation specs for the five under-served visual lanes whose renderers are complete but whose banks are nearly empty: `io_record` (3 items), `medication_label` (2), `device_screen` (2), `burn_map` (3, adult only), `mar` (5). The trend/waveform lanes (`rhythm_strip` 44, `lab_trend` 20, `vitals_trend` 11) are already populated and are **not** covered here; `fetal_monitoring` has its own spec.
 
 These five share one backbone — DECISIONS principle 11, the machine-checked arithmetic/keyed-cell gate — so §1 is a shared core that applies to all of them, and §§2–6 are self-contained per-kind sections (each handable to a generator on its own). Rules are transcribed from `src/visuals/kinds/<kind>/` and the schema as of 2026-06-13; re-pull if a renderer changes. Authority on conflict: `AGENTS.md` › `NCLEX-Question-Schema.md` › this file.

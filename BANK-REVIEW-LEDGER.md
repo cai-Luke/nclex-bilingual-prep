@@ -14,7 +14,8 @@ This ledger tracks which generated question banks are safe to treat as reviewed 
 ## Workflow
 
 1. Generate each model batch as a raw/review candidate, preferably under `banks-raw/` or another non-bundled holding location, using a source/date/batch naming convention such as `gemini-2026-06-05-b.json`.
-2. Run schema validation before content review:
+2. Normalize deterministic raw shape drift when needed, then run schema validation before content review:
+   - `npm run normalize-raw-bank -- <candidate-file>.json` (dry-run; add `--write` only after reviewing the report)
    - `npm run validate-bank -- <candidate-file>.json`
 3. Content-review the bank for:
    - unsafe or outdated clinical claims
@@ -53,15 +54,19 @@ Reasons:
 
 Appending is acceptable only after a batch is already reviewed and validated, and only as a deliberate consolidation step.
 
-Canonical source banks (see [BANK-CENSUS.md](BANK-CENSUS.md)):
+Canonical source banks (see [BANK-CENSUS.md](BANK-CENSUS.md) for current counts; older row counts below are ledger history and may be superseded by later promotion entries):
 
+- `banks/burn-canonical.json` (burn_map visual items)
 - `banks/capnography-canonical.json` (capnography visual items)
 - `banks/claude-canonical.json`
+- `banks/device-canonical.json` (device_screen visual items)
 - `banks/gemini-canonical.json`
 - `banks/gpt-canonical.json`
 - `banks/hard-cases-canonical.json`
+- `banks/io-canonical.json` (io_record visual items)
 - `banks/lab-canonical.json` (lab_trend visual items — created 2026-06-09)
 - `banks/mar-canonical.json` (mar visual items)
+- `banks/medlabel-canonical.json` (medication_label visual items)
 - `banks/visual-canonical.json` (rhythm_strip visual items; formerly `banks/rhythm-canonical`)
 - `banks/vitals-canonical.json` (vitals_trend visual items)
 

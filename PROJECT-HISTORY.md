@@ -4,7 +4,7 @@ This is the living status record for Project Shrimp / NCLEX Bilingual Prep. Upda
 
 ## Coding-agent orientation
 
-For coding work, treat this file plus `NCLEX-Question-Schema.md` as the current map. `Archive/root-specs-2026-06-18/NCLEX-Prep-SPEC.md` is useful product context, but it started as a build spec and may describe historical implementation plans. `PASS2-HANDOFF.md` is explicitly historical.
+For coding work, treat this file plus `NCLEX-Question-Schema.md` as the current map. `Archive/root-specs-2026-06-18/NCLEX-Prep-SPEC.md` is useful product context, but it started as a build spec and may describe historical implementation plans. Archived item-type and visual specs are implementation records; use `NCLEX-Question-Schema.md` and the runtime sources for current schema. `Archive/PASS2-HANDOFF.md` is explicitly historical.
 
 Codex is the implementation agent for code changes. Other LLMs may generate or review question content, but they should not be treated as owners of app architecture.
 
@@ -25,14 +25,14 @@ The app is a static offline Vite + React + TypeScript NCLEX-RN practice tool. It
 
 Core learning features are implemented: all schema item types render and grade, case studies are supported, sessions are resumable, custom sessions can be built from filters, the dashboard summarizes performance, flags feed review pools, glossary flashcards have their own SRS progress, and adaptive exam-condition practice is available without any pass/fail readiness claim.
 
-Current canonical banks (see [BANK-CENSUS.md](BANK-CENSUS.md); 1,524 top-level, 721 embedded parts as of 2026-06-22):
+Current canonical banks (see [BANK-CENSUS.md](BANK-CENSUS.md); 1,558 top-level, 721 embedded parts as of 2026-06-22):
 
 - `banks/burn-canonical.json` (8 schema v1.2 burn-map visual items)
 - `banks/capnography-canonical.json` (7 schema v1.2 capnography visual items; dedicated home for capnography kind)
 - `banks/claude-canonical.json` (97 bilingual Claude/Opus-source questions; ledgered content review complete; schema v1.6 for typed unfolding-case metadata)
 - `banks/device-canonical.json` (8 schema v1.2 device-screen visual items)
 - `banks/gemini-canonical.json` (874 bilingual Gemini-source questions; includes original + pending batches + traditional/easy/gap-fill/format-backfill/standalone NGN consolidations minus redundant/flawed questions; schema v1.6)
-- `banks/gpt-canonical.json` (357 bilingual GPT-source questions; ledgered content review complete; schema v1.6 for typed unfolding-case metadata)
+- `banks/gpt-canonical.json` (391 bilingual GPT-source questions; ledgered content review complete; schema v1.6 for typed unfolding-case metadata)
 - `banks/hard-cases-canonical.json` (66 top-level hard/NGN items; ledgered content review complete; schema v1.6 for typed unfolding-case metadata)
 - `banks/io-canonical.json` (8 schema v1.2 intake/output record visual items)
 - `banks/lab-canonical.json` (20 schema v1.2 lab_trend visual items; dedicated home for lab_trend kind)

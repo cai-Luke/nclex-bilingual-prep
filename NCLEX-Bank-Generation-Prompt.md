@@ -12,7 +12,7 @@
 - Some models still wrap output in ```json fences or add a sentence of preamble despite instructions. The app's importer is built to tolerate that (strips fences, finds the JSON), so don't worry if it isn't pristine.
 - **Source label comes from the filename**, so don't ask the model which model it is (self-ID is unreliable) — just save it under the right `<source>-<date>` name. However, the app stores progress by `question.id`, so use source/batch-prefixed IDs that stay unique after accepted questions are merged into top-level bundled banks.
 - `PRIORITIZE_TOPICS` / `AVOID_TOPICS` are optional and only matter once you have a sizable bank. The coverage tool reads top-level `/banks/*.json` and fills these in for you to steer generation toward gaps; until then, leave them blank.
-- The schema here is **identical** to the app's internal schema, so anything this prompt produces slots straight in. `schemaVersion: "1.0"` banks still import for standalone questions; use `"1.1"` for hard `case_study` banks without visuals; use `"1.2"` for any bank that includes `visual`.
+- `NCLEX-Question-Schema.md` is authoritative. This portable prompt is a compact authoring aid, not a replacement for the schema doc or validator. Current authoring should use `schemaVersion: "1.6"`; older `1.0`–`1.5` banks remain import-compatible for their historical shapes.
 - **Gemini caution:** Gemini can be fast and useful for raw volume, but recent hard-case output showed it needs strict guard rails: it may produce placeholder distractors, generic rationales, broad/wrong topic labels, or noncanonical shapes if asked loosely. Keep Gemini batches small, save them only under `banks-raw/`, and never let Gemini append directly to canonical `banks/*.json`. Use a non-generator reviewer before promotion. Other models can contribute too — save each under its own `<source>-<date>` file. Don't use the same model to both generate and review a batch.
 
 ---
@@ -25,9 +25,9 @@ You are an expert NCLEX-RN item writer and a professional English↔Simplified-C
 - COUNT: 2
 - CATEGORY: mixed            // one NCLEX client-needs category, or "mixed"
 - TOPIC: high-acuity unfolding case studies
-- ITEM_TYPES: case_study     // any of: multiple_choice, select_all, ordered_response, fill_in_blank, matrix, dropdown_cloze, case_study
+- ITEM_TYPES: case_study     // any of: multiple_choice, select_all, ordered_response, fill_in_blank, matrix, dropdown_cloze, highlight, bowtie, case_study
 - DIFFICULTY: hard           // easy | medium | hard | mixed
-- INCLUDE_VISUALS: no        // no | rhythm_strip. If rhythm_strip, use only inspected data-derived visual specs and save output as raw review material.
+- INCLUDE_VISUALS: no        // no | a current deterministic visual kind from NCLEX-Question-Schema.md. Treat visual output as raw review material.
 - PRIORITIZE_TOPICS:         // optional: comma-separated under-covered topics to lean into (leave blank if none)
 - AVOID_TOPICS:              // optional: comma-separated over-covered topics to de-emphasize, NOT hard-exclude (leave blank if none)
 
@@ -42,8 +42,8 @@ Generate COUNT original NCLEX-RN practice questions matching the parameters abov
 - Each answer option must be meaningful on its own. If an option is incorrect, make it a realistic misconception, unsafe action, wrong prioritization, wrong diagnosis, or wrong medication/class — not filler.
 - Answers are **type-specific** — follow the per-type structure in the SCHEMA section exactly. (Option types use a `correct` array of option ids; `fill_in_blank` uses `blanks[]` with `acceptable`/`numeric` and has NO top-level `correct`; `matrix` uses `correct: [{rowId, columnIds}]`; `dropdown_cloze` puts `correct` inside each dropdown.)
 - Each rationale must explain WHY the correct answer is correct (`rationale.correct`) AND, in `rationale.byChoice`, why each individual choice is right or wrong, in clinical-reasoning terms. `byChoice[].refId` points to the option / row / dropdown / blank id as defined per type. Do not write reusable template text; every `byChoice` entry must mention the actual clinical reasoning for that exact choice.
-- If generating `case_study`, each case should include shared clinical exhibits and 4–6 embedded standalone items that together exercise the NCJMM sequence: recognize cues, analyze cues, prioritize hypotheses, generate solutions, take action, and evaluate outcomes.
-- If INCLUDE_VISUALS is `rhythm_strip`, add deterministic `visual` objects only to `multiple_choice`, `select_all`, `matrix`, or case-study exhibits. Do not add raster images, image URLs, base64 images, or AI-generated medical images. The visual must be inspectable data, clinically consistent with the keyed answer, and treated as raw material until human review checks the parameters, rendered strip, and clinical reasoning.
+- If generating `case_study`, each case should include shared clinical exhibits and 4–6 embedded standalone items that together exercise the NCJMM sequence: recognize cues, analyze cues, prioritize hypotheses, generate solutions, take action, and evaluate outcomes. Embedded questions may use current standalone item types except `bowtie`.
+- If INCLUDE_VISUALS is not `no`, add deterministic `visual` objects only where the current schema allows that visual kind. Do not add raster images, image URLs, base64 images, or AI-generated medical images. The visual must be inspectable data, clinically consistent with the keyed answer, load-bearing, and treated as raw material until human review checks the parameters, rendered artifact, and clinical reasoning.
 - If a rhythm-strip visual is used to ask rhythm identification, the `caption` must not reveal the rhythm name or diagnosis.
 - Translations must convey clinical meaning naturally — do not translate word-for-word. Use standard Simplified-Chinese medical/nursing terminology.
 - `glossary`: list the key medical/nursing terms appearing in the item, each with the English term, its Simplified-Chinese term, and a one-line Chinese definition.
@@ -55,18 +55,18 @@ Generate COUNT original NCLEX-RN practice questions matching the parameters abov
 - Do NOT wrap it in markdown code fences. Do NOT write any text before or after the JSON.
 - Use standard ASCII double quotes for all keys and string delimiters. No trailing commas. No comments. The output must be valid, parseable JSON.
 
-## SCHEMA (schemaVersion 1.2 — follow exactly)
+## SCHEMA (schemaVersion 1.6 — follow exactly; `NCLEX-Question-Schema.md` is authoritative)
 
 Top-level object:
 {
-  "meta": { "schemaVersion": "1.2", "exam": "NCLEX-RN", "topic": "<echo TOPIC>", "category": "<echo CATEGORY>", "difficulty": "<echo DIFFICULTY>", "count": <number generated> },
+  "meta": { "schemaVersion": "1.6", "exam": "NCLEX-RN", "topic": "<echo TOPIC>", "category": "<echo CATEGORY>", "difficulty": "<echo DIFFICULTY>", "count": <number generated> },
   "questions": [ <Question>, ... ]
 }
 
 Every Question has these COMMON fields:
 {
   "id": "unique string",
-  "itemType": "one of: multiple_choice | select_all | ordered_response | fill_in_blank | matrix | dropdown_cloze | case_study",
+  "itemType": "one of: multiple_choice | select_all | ordered_response | fill_in_blank | matrix | dropdown_cloze | highlight | bowtie | case_study",
   "category": "EXACTLY one of: Management of Care | Safety and Infection Control | Health Promotion and Maintenance | Psychosocial Integrity | Basic Care and Comfort | Pharmacological and Parenteral Therapies | Reduction of Risk Potential | Physiological Adaptation",
   "topic": "concise reusable label, e.g. heart failure",
   "difficulty": "easy | medium | hard",
@@ -80,9 +80,9 @@ Every Question has these COMMON fields:
   "glossary": [ { "termEn": "...", "termZh": "...", "defZh": "..." } ]
 }
 
-## VISUAL STIMULUS (optional schemaVersion 1.2)
+## VISUAL STIMULUS (optional schemaVersion 1.2+)
 
-Only include `visual` when INCLUDE_VISUALS is `rhythm_strip`.
+Only include `visual` when INCLUDE_VISUALS names a current deterministic visual kind. The example below is only the `rhythm_strip` shape; for `capnography`, `vitals_trend`, `lab_trend`, `mar`, `io_record`, `medication_label`, `device_screen`, `fetal_monitoring`, `burn_map`, or `injection_site`, follow `NCLEX-Question-Schema.md`.
 
 Current variant:
 {
@@ -101,7 +101,7 @@ Current variant:
 }
 
 Rules:
-- `visual` is supported only on `multiple_choice`, `select_all`, and `matrix` questions, plus case-study exhibits.
+- Visual placement is per kind. The global default is `multiple_choice`, `select_all`, and `matrix`, plus case-study exhibits; some arithmetic/trend kinds also allow other item types as documented in `NCLEX-Question-Schema.md`.
 - Case-study exhibits keep required `title` and `content`; add optional `visual` beside them.
 - `rateBpm` is required. Use 20-300 except `vfib` and `asystole`, where 0-300 is allowed because rate is nominal.
 - `durationSec` must be 3-12 when present; default 6.
@@ -118,7 +118,9 @@ Then ADD the type-specific fields:
 - fill_in_blank: NO "options", NO top-level "correct". Instead: "blanks": [ { "id":"b1", "prompt":{"en":"mL/hr","zh":"..."}, "acceptable":["125","125 mL/hr"], "numeric":{"value":125,"tolerance":0,"unit":"mL/hr"} } ]  (each blank needs acceptable[] and/or numeric).
 - matrix: "matrix": { "rows":[{"id":"r1","en":"...","zh":"..."}], "columns":[{"id":"c1","en":"...","zh":"..."}], "selectionMode":"single_per_row | multiple_per_row" }, "correct": [ {"rowId":"r1","columnIds":["c2"]}, ... ]  (one entry per row; single_per_row => exactly one columnId). byChoice keyed by rowId.
 - dropdown_cloze: NO top-level "correct". "stem" holds scenario; ADD "clozeStem": {"en":"... {{1}} ... {{2}} ...","zh":"... {{1}} ... {{2}} ..."} with {{id}} placeholders in BOTH languages, and "dropdowns": [ {"id":"1","options":[{"id":"o1","en":"...","zh":"..."},...],"correct":"o1"}, ... ]. byChoice keyed by dropdown id.
-- case_study: NO top-level "options" or "correct". ADD "caseStudy": { "title":{"en":"...","zh":"..."}, "summary":{"en":"...","zh":"..."}, "exhibits":[{"id":"triage","title":{"en":"...","zh":"..."},"content":{"en":"chart-like data","zh":"..."}}], "stages":[{"id":"stage_1","title":{"en":"...","zh":"..."},"exhibits":[{"id":"update","title":{"en":"...","zh":"..."},"content":{"en":"new data","zh":"..."}}]}], "questions":[ <full standalone Question>, ... ] }. Exhibits may include the optional `visual` object shown above. Embedded questions must use only multiple_choice, select_all, ordered_response, fill_in_blank, matrix, or dropdown_cloze, and must include their own full common fields, rationales, strategy, glossary, and type-specific answer fields.
+- highlight: ADD "highlight": { "segments":[{"id":"s1","en":"...","zh":"...","selectable":true}], "correct":["s1"] }. Correct ids must be selectable segment ids and at least one selectable distractor must remain.
+- bowtie: standalone only. ADD "bowtie": { "condition":{"tokens":[...],"correct":"c1"}, "actions":{"tokens":[...],"correct":["a1","a2"]}, "parameters":{"tokens":[...],"correct":["p1","p2"]} }. Token ids must be unique across zones; condition keys exactly 1, actions 2, parameters 2.
+- case_study: NO top-level "options" or "correct". ADD "caseStudy": { "title":{"en":"...","zh":"..."}, "summary":{"en":"...","zh":"..."}, "exhibits":[{"id":"triage","title":{"en":"...","zh":"..."},"content":{"en":"chart-like data","zh":"..."}}], "stages":[{"id":"stage_1","title":{"en":"...","zh":"..."},"exhibits":[{"id":"update","title":{"en":"...","zh":"..."},"content":{"en":"new data","zh":"..."}}]}], "questions":[ <full standalone Question>, ... ] }. Exhibits may include optional `visual` objects. Embedded questions may use current standalone item types except bowtie and must include their own full common fields, rationales, strategy, glossary, and type-specific answer fields.
 
 RULES:
 - Only emit the itemTypes listed in ITEM_TYPES. Do not invent other shapes.

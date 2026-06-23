@@ -4,6 +4,20 @@
 
 ---
 
+## Authority and enforcement split
+
+This file is the current schema contract. Archived build specs and old generation prompts are orientation only; if they conflict with this file or the runtime sources, use the runtime sources and patch the stale markdown.
+
+Deterministic mechanical rules belong in code:
+
+- `src/schema.ts` validates enum values, glossary shape, item-type structures, schema-version floors, topic English-only, answer-key references, visual placement, and visual `selfCheck`.
+- `npm run normalize-raw-bank -- banks/banks-raw/<file>.json` dry-runs safe raw-bank shape cleanup before validation. It currently normalizes `ngnSkill` spelling/casing to exact enum values, legacy glossary objects to `{ termEn, termZh, defZh }` when all three values are present, stale `meta.count`, and empty optional `rationale.visuals`.
+- `npm run audit` covers reference/position/integrity/id gates that should not be reimplemented in prose prompts.
+
+Semantic quality remains a human/model-review responsibility: clinical ambiguity, unsafe ordered-response sequences, stale guidelines, weak distractors, bilingual clinical parity, topic saturation, and whether a visual is educationally necessary.
+
+---
+
 ## Bank envelope
 
 A generated bank is one JSON object:
@@ -96,7 +110,7 @@ Visuals are deterministic data, not AI-generated medical images or external asse
 
 ### Visual kind taxonomy
 
-Committed visual lanes (append-only). For detailed generation and review rules, consult `visual-content-lanes-spec.md`.
+Committed visual lanes (append-only). The per-kind sections below are canonical for current authoring; archived visual lane specs under `Archive/` are historical implementation context.
 
 | `kind` | Description |
 |---|---|
@@ -812,6 +826,7 @@ Same shape as `multiple_choice` but:
 }
 ```
 - `correct`: **every** optionId, listed in the correct order. Must be a permutation of all option ids (same set, no repeats, no omissions).
+- Use only when the sequence is stable in the presented clinical context. If the right order depends on branch conditions ("if X, then..."), split the workflow into a different item type or make the needed condition explicit in the stem/exhibit.
 
 ### 4. `fill_in_blank` — numeric (dosage calc) or short text
 ```json

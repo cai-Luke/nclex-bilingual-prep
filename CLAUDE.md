@@ -63,9 +63,17 @@ LLMs and rich-text editors frequently substitute typographic ("smart") quotes fo
 
 ## Current task surface: visual taxonomy open; most lanes are content work
 
-The visual system is a kind registry under `src/visuals/` (the U0 refactor). The original ten roadmap kinds have landed, and U10 adds `injection_site` as kind eleven. Reusable primitives in place: `lineChart` (charts), `table.ts`'s `renderDocTable` (documentation tables) and `renderFieldPanel` / `measureFieldPanel` (key→value label/screen panels, landed in U6). The shared numeric helpers `fmt` / `fmtNum` / `roundTo` have a **single definition** in `primitives/graphPaper.ts` — every arithmetic kind imports them and none redefines (a correctness invariant, `DECISIONS.md` principle 11). Schema `1.5` is current: it includes Highlight: Text (`1.3`), standalone `bowtie` (`1.4`), and answer-revealed `rationale.visuals` explanation figures (`1.5`). Highlight: Table remains out of scope.
+The visual system is a kind registry under `src/visuals/` (the U0 refactor). The original ten roadmap kinds have landed, and U10 adds `injection_site` as kind eleven. Reusable primitives in place: `lineChart` (charts), `table.ts`'s `renderDocTable` (documentation tables) and `renderFieldPanel` / `measureFieldPanel` (key→value label/screen panels, landed in U6). The shared numeric helpers `fmt` / `fmtNum` / `roundTo` have a **single definition** in `primitives/graphPaper.ts` — every arithmetic kind imports them and none redefines (a correctness invariant, `DECISIONS.md` principle 11). Schema `1.6` is current: it includes Highlight: Text (`1.3`), standalone `bowtie` (`1.4`), answer-revealed `rationale.visuals` explanation figures (`1.5`), and inert unfolding-case metadata (`1.6`). Highlight: Table remains out of scope.
 
-Per `VISUAL-STIMULI-ROADMAP.md`, most active work is content: the per-kind generation lanes (disjoint ID prefixes `cap_*`, `vit_*`, `lab_*`, `mar_*`, `io_*`, `medlbl_*`, `dev_*`, `burn_*`, `fhr_*`, `inj_*`) run through the existing raw→review→promote→ledger pipeline. The `inj_*` content lane remains closed until its strictest-tier route table is source-verified; check `PROJECT-HISTORY.md` / `npm run coverage-report` for current per-kind counts before generating.
+Most active work is content: the per-kind generation lanes (disjoint ID prefixes `cap_*`, `vit_*`, `lab_*`, `mar_*`, `io_*`, `medlbl_*`, `dev_*`, `burn_*`, `fhr_*`, `inj_*`) run through the existing raw→review→promote→ledger pipeline. Check `PROJECT-HISTORY.md`, `BANK-CENSUS.md`, and `npm run coverage-report` for current per-kind counts and open targets before generating.
+
+Before promoting raw JSON, run deterministic cleanup for mechanical drift when needed:
+
+```
+npm run normalize-raw-bank -- banks/banks-raw/<file>.json
+```
+
+Review the report, then add `--write` if the changes are the expected enum/glossary/count/empty-array cleanup. Clinical fixes still require content review.
 
 If a new kind is ever proposed (the renderer surface is complete, so this is now the exception, not the workflow) — or when opening a content lane:
 

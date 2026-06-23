@@ -15,7 +15,8 @@ Guidance for coding and content agents working on Project Shrimp / NCLEX Bilingu
 - `NCLEX-Question-Schema.md` is the schema source of truth.
 - `BANK-REVIEW-LEDGER.md` tracks content-review status and should be updated before generated questions are treated as reviewed study material.
 - `Archive/root-specs-2026-06-18/NCLEX-Prep-SPEC.md` is useful product context, but it started as a build spec and may describe historical plans.
-- `PASS2-HANDOFF.md` is historical.
+- Archived item-type and visual specs under `Archive/` are historical implementation records. On conflict, prefer `NCLEX-Question-Schema.md`, `src/types.ts`, `src/schema.ts`, `src/grading.ts`, and the registered modules under `src/visuals/`.
+- `Archive/PASS2-HANDOFF.md` is historical.
 
 ## Project Knowledge Hygiene
 
@@ -63,6 +64,17 @@ Rules:
 - **Migrate JSON shape with a programmatic transform, not the Edit tool.** Load → mutate the object → re-serialize (`JSON.stringify` / `json.dumps(…, ensure_ascii=False)`). A serializer can't emit curly structural quotes and escapes inner quotes correctly, so both modes become impossible. Prefer `scripts/patch-raw.ts` (declarative before→after) over ad-hoc rewrites — DECISIONS principle 15.
 - When a targeted text edit is unavoidable: keep all JSON structure ASCII `"`, use Chinese quotation marks only inside string values, escape any literal ASCII `"` as `\"`, and run `npm run validate-bank -- <file>` immediately after each edit — do not batch edits and validate once at the end.
 
+### Mechanical normalization vs generation prose
+
+Keep deterministic shape repair in code instead of repeating long prompt guardrails:
+
+- `npm run normalize-raw-bank -- banks/banks-raw/<file>.json` dry-runs raw-bank structural normalization and validates the normalized result.
+- Add `--write` only after reviewing the reported changes.
+- Current normalizations include `ngnSkill` display/camel/spaced casing to exact enum values, legacy glossary objects to schema `1.6` `{ termEn, termZh, defZh }` when all three values are present, empty optional `rationale.visuals` removal, and stale `meta.count` correction.
+- Validators/audits already own schema floors, exact enum checks, topic English-only, ID/reference integrity, visual placement, visual `selfCheck`, and position-dependent rationale scans.
+
+Keep semantic requirements in prose and review: clinical ambiguity, unsafe sequences, weak distractors, bilingual clinical parity, stale guideline risk, topic saturation strategy, and whether a visual is truly load-bearing.
+
 ## Visual Question Workflow
 
 Committed visual lanes (first-class content types):
@@ -72,6 +84,12 @@ Committed visual lanes (first-class content types):
 - `vitals_trend` — multi-vital time-series chart
 - `lab_trend` — laboratory analyte time-series chart
 - `mar` — medication administration record
+- `io_record` — intake/output flowsheet
+- `medication_label` — synthetic medication product label
+- `device_screen` — PCA/infusion/enteral pump settings display
+- `fetal_monitoring` — fetal heart rate and uterine activity tracing
+- `burn_map` — adult Rule-of-Nines/Parkland burn diagram
+- `injection_site` — parenteral route skin cross-section
 
 Visual items must pass all of the following before being treated as reviewed study material:
 
@@ -89,6 +107,7 @@ Visual items must be deterministic, locally rendered, and inspectable from struc
 
 ```sh
 npm run fix-bank-quotes -- banks/banks-raw/<file>.json   # repair curly-quote corruption before validating (writes <file>.fixed.json; add --in-place to overwrite)
+npm run normalize-raw-bank -- banks/banks-raw/<file>.json # dry-run deterministic schema-shape cleanup; add --write after review
 npm run promote        # applies deterministic shuffle; writes to banks/_promoted/<same-filename>
 npm run audit          # Tier 0 validate-bank + Tier 1 references/positions/integrity/ids
 npm run consolidate -- --dry-run  # preview canonical route, collision gate, and merged count

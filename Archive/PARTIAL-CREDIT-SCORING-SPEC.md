@@ -1,5 +1,7 @@
 # PARTIAL-CREDIT-SCORING-SPEC
 
+> Archived implementation spec. Partial-credit scoring is already implemented. For current scoring behavior, use `src/grading.ts` and the scoring notes in `NCLEX-Question-Schema.md`.
+
 **Status:** ready for implementation. **Owner of this change:** implementation agent (Codex/Claude Code).
 **Schema impact:** none — this is a runtime grading + display change, release-versioned, **not** a `meta.schemaVersion` bump. Bank JSON shapes are unchanged; existing banks re-grade under the new rules with no migration; an older runtime reads new banks fine (it just grades harsher).
 **Prerequisite for:** `HIGHLIGHT-ITEM-TYPE-SPEC` (highlight reuses the `+/-` path defined here).
