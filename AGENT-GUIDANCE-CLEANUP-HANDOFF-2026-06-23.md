@@ -80,9 +80,7 @@ Passed:
 Notes:
 
 - `npm run validate-sweep` is available but requires manifest/summary arguments; there is no no-arg repo-wide sweep.
-- Existing raw drafts under `banks/banks-raw/` still fail `validate-bank` before normalization for the known mechanical issues.
-- Dry-run normalizer validates the raw `esc` and `sic` GPT deepen drafts after `ngnSkill` cleanup.
-- Raw `bow` and `moc` drafts still need real glossary review because their glossary entries do not contain enough information to safely produce `{ termEn, termZh, defZh }`.
+- The normalizer is a mechanical pre-validation aid, not a substitute for content review. It validates the normalized result and reports when remaining defects require real review.
 
 ## What GPT/Claude Should Do Next
 
@@ -99,10 +97,3 @@ For content review:
    - bilingual clinical parity
    - topic saturation
    - visual necessity/load-bearing status
-
-For the current raw GPT deepen drafts:
-
-- Use the normalizer for `ngnSkill`.
-- Do not rely on it to repair incomplete glossaries.
-- Add or review missing glossary Chinese terms/definitions programmatically or through a targeted content-review patch, then re-run `validate-bank`.
-
