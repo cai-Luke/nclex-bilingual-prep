@@ -58,6 +58,19 @@ The committed NGN item-type set is complete. Rationale/dyad scoring and an expli
 
 ## Milestones
 
+### Adversarial Semantic Audit Pilot — Gemini + Codex lanes (Jun 24)
+
+In progress:
+- Opened the Phase A adversarial semantic audit pilot for the regenerated coherence slice at `audit/early-bank-semantic/coherence/2026-06-24.slice.json`.
+- Completed the Gemini-flagged / Luke-adjudicated straggler review for the two Claude × GPT delegation pairs. Both candidate contradictions were dismissed/kept; the shared report and manifest are recorded in `ADVERSARIAL-AUDIT-FINDINGS-2026-06-24.md` and `audit/early-bank-semantic/coherence/ADVERSARIAL-AUDIT-2026-06-24.manifest.jsonl`.
+- Completed the GPT-5/Codex assigned lane and wrote lane-scoped artifacts under `audit/early-bank-semantic/coherence/lanes/`: 5 coherence pairs plus 7 source-checked currency rows, with zero actionable findings and 14 DISMISS/keep manifest rows.
+- Updated the GPT-5, Gemini, Claude Opus currency, and Claude Code specs so Claude Code runs last, preserves Gemini, merges Codex if present, writes its own lane files first, then performs final aggregation/cleanup after its coherence and Opus currency work.
+
+Verification:
+- Parsed the shared Gemini JSONL manifest successfully (4 rows with required pilot fields).
+- Parsed `audit/early-bank-semantic/coherence/lanes/codex.manifest.jsonl` successfully (14 rows with required pilot fields).
+- Current result is promising but not closed: Claude Code coherence and the five-row Opus currency exception remain pending before pilot closeout.
+
 ### Phase 2 Schema-Hardening Step B Closeout (Jun 24)
 
 Completed:

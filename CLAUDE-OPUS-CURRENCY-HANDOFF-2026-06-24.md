@@ -40,11 +40,11 @@ Rows to audit:
 
 | id | bank | path | original block reason |
 |---|---|---|---|
-| `opus1_case_discharge_med_rec_anticoag_01_q3` | `hard-cases-canonical.json` | `questions[51].caseStudy.questions[2]` | Opus 4.6 generation; Claude final review on 2026-06-13 |
-| `opus1_case_discharge_med_rec_anticoag_01_q5` | `hard-cases-canonical.json` | `questions[51].caseStudy.questions[4]` | Same case container as above |
-| `opus3_iv_potassium_safety_case_01` | `hard-cases-canonical.json` | `questions[53]` | Opus 4.6 generation; Claude final review on 2026-06-13 |
-| `opus3_iv_potassium_safety_case_01_q4` | `hard-cases-canonical.json` | `questions[53].caseStudy.questions[3]` | Same case container as above |
-| `opus3_iv_potassium_safety_case_01_q5` | `hard-cases-canonical.json` | `questions[53].caseStudy.questions[4]` | Same case container as above |
+| `opus1_case_discharge_med_rec_anticoag_01_q3` | `hard-cases-canonical.json` | `questions[42].caseStudy.questions[2]` | Opus 4.6 generation; Claude final review on 2026-06-13 |
+| `opus1_case_discharge_med_rec_anticoag_01_q5` | `hard-cases-canonical.json` | `questions[42].caseStudy.questions[4]` | Same case container as above |
+| `opus3_iv_potassium_safety_case_01` | `hard-cases-canonical.json` | `questions[44]` | Opus 4.6 generation; Claude final review on 2026-06-13 |
+| `opus3_iv_potassium_safety_case_01_q4` | `hard-cases-canonical.json` | `questions[44].caseStudy.questions[3]` | Same case container as above |
+| `opus3_iv_potassium_safety_case_01_q5` | `hard-cases-canonical.json` | `questions[44].caseStudy.questions[4]` | Same case container as above |
 
 ## Audit task
 
@@ -113,7 +113,8 @@ manifest schema where applicable:
 ## Non-goals
 
 - Do not audit the GPT-5 coherence package here.
-- Do not audit the other 12 currency rows assigned to GPT-5.
+- Do not audit the GPT-5 currency rows listed in
+  `GPT5-AUDIT-HANDOFF-2026-06-24.md`.
 - Do not edit canonical banks.
 - Do not update `BANK-REVIEW-LEDGER.md` until a later approved repair/cut pass
   is executed.
