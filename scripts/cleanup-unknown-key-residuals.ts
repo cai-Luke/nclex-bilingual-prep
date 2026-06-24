@@ -62,6 +62,7 @@ function cleanupGpt(bank: BankEnvelope): CleanupChange[] {
   if (unsafe.itemType !== "case_study") throw new Error(`${unsafe.id} is not a case_study`);
   const caseStudy = unsafe.caseStudy as unknown as Record<string, unknown>;
   for (const key of ["rationale", "testTakingStrategy", "glossary"] as const) {
+    if (!(key in caseStudy)) continue;
     if (!deepEqual(caseStudy[key], unsafe[key])) {
       throw new Error(`${unsafe.id}.caseStudy.${key} is not a duplicate of the question-level ${key}`);
     }
@@ -75,14 +76,16 @@ function cleanupGpt(bank: BankEnvelope): CleanupChange[] {
   const visual = questionById(bank, "gpt_fresh_2026_06_22_vis_07") as unknown as {
     meta?: Record<string, unknown>;
   };
-  if (!isRecord(visual.meta) || !isRecord(visual.meta.custom) || Object.keys(visual.meta.custom).length !== 0) {
-    throw new Error("gpt_fresh_2026_06_22_vis_07.meta.custom is not the expected empty object");
+  if (isRecord(visual.meta) && "custom" in visual.meta) {
+    if (!isRecord(visual.meta.custom) || Object.keys(visual.meta.custom).length !== 0) {
+      throw new Error("gpt_fresh_2026_06_22_vis_07.meta.custom is not the expected empty object");
+    }
+    removeKey(visual.meta, "custom", changes, {
+      file,
+      id: "gpt_fresh_2026_06_22_vis_07",
+      path: "meta.custom",
+    });
   }
-  removeKey(visual.meta, "custom", changes, {
-    file,
-    id: "gpt_fresh_2026_06_22_vis_07",
-    path: "meta.custom",
-  });
 
   return changes;
 }
@@ -99,6 +102,7 @@ function cleanupHardCases(bank: BankEnvelope): CleanupChange[] {
   }
   byChoice.forEach((choice, index) => {
     const record = choice as unknown as Record<string, unknown>;
+    if (!("id" in record)) return;
     if (record.id !== choice.refId) {
       throw new Error(`cs_copd_01_q1.rationale.byChoice[${index}].id does not duplicate refId`);
     }
@@ -112,33 +116,40 @@ function cleanupHardCases(bank: BankEnvelope): CleanupChange[] {
   const tpn = questionById(bank, "opus_tpn_case_mucositis_01");
   const tpnQ3 = embeddedById(tpn, "opus_tpn_case_mucositis_01_q3");
   const glossaryTerm = tpnQ3.glossary[0] as unknown as Record<string, unknown>;
-  if (typeof glossaryTerm.en !== "string" || !glossaryTerm.en.includes("Growth of the same organism")) {
-    throw new Error("opus_tpn_case_mucositis_01_q3.glossary[0].en is not the expected stray definition");
+  if ("en" in glossaryTerm) {
+    if (typeof glossaryTerm.en !== "string" || !glossaryTerm.en.includes("Growth of the same organism")) {
+      throw new Error("opus_tpn_case_mucositis_01_q3.glossary[0].en is not the expected stray definition");
+    }
+    removeKey(glossaryTerm, "en", changes, {
+      file,
+      id: "opus_tpn_case_mucositis_01_q3",
+      path: "glossary[0].en",
+    });
   }
-  removeKey(glossaryTerm, "en", changes, {
-    file,
-    id: "opus_tpn_case_mucositis_01_q3",
-    path: "glossary[0].en",
-  });
 
   const pph = questionById(bank, "gpt_pph_2026_06_16_case_01");
   const pphQ5 = embeddedById(pph, "gpt_pph_2026_06_16_case_01_q5");
   if (pphQ5.itemType !== "matrix") throw new Error(`${pphQ5.id} is not a matrix`);
   const matrix = pphQ5.matrix as unknown as Record<string, unknown>;
-  if (!isRecord(matrix.correct)) {
-    throw new Error("gpt_pph_2026_06_16_case_01_q5.matrix.correct is not the expected legacy object");
+  if ("correct" in matrix) {
+    if (!isRecord(matrix.correct)) {
+      throw new Error("gpt_pph_2026_06_16_case_01_q5.matrix.correct is not the expected legacy object");
+    }
+    removeKey(matrix, "correct", changes, {
+      file,
+      id: pphQ5.id,
+      path: "matrix.correct",
+    });
   }
-  removeKey(matrix, "correct", changes, {
-    file,
-    id: pphQ5.id,
-    path: "matrix.correct",
-  });
 
   const suicide = questionById(bank, "opus12_case_inpatient_suicide_risk_01");
   if (suicide.itemType !== "case_study") throw new Error(`${suicide.id} is not a case_study`);
   const suicideCase = suicide.caseStudy as CaseStudyQuestion["caseStudy"] & {
     overview?: unknown;
   };
+  if (suicideCase.overview === undefined) {
+    return changes;
+  }
   if (suicideCase.summary !== undefined) {
     throw new Error(`${suicide.id}.caseStudy.summary already exists; refusing overview rename`);
   }
@@ -162,6 +173,7 @@ function cleanupIo(bank: BankEnvelope): CleanupChange[] {
   const changes: CleanupChange[] = [];
   if (!isRecord(bank.meta)) throw new Error("io-canonical meta is missing");
   for (const key of ["generatedAt", "lane", "bankIdPrefix"]) {
+    if (!(key in bank.meta)) continue;
     removeKey(bank.meta, key, changes, {
       file,
       id: "(bank)",
