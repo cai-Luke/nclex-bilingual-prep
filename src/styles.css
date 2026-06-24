@@ -710,6 +710,42 @@ h4 {
   height: auto;
 }
 
+/* Data-dense visuals render at their design size, capped to the reading
+   column and centered. Tracings keep the base scroll behavior. */
+.rhythm-strip-svg.vis-device_screen,
+.rhythm-strip-svg.vis-medication_label,
+.rhythm-strip-svg.vis-mar,
+.rhythm-strip-svg.vis-io_record,
+.rhythm-strip-svg.vis-burn_map,
+.rhythm-strip-svg.vis-injection_site,
+.rhythm-strip-svg.vis-vitals_trend,
+.rhythm-strip-svg.vis-lab_trend {
+  overflow-x: visible;
+}
+
+.rhythm-strip-svg.vis-device_screen svg,
+.rhythm-strip-svg.vis-medication_label svg {
+  min-width: 0;
+  max-width: 22.5rem;
+  margin-inline: auto;
+}
+
+.rhythm-strip-svg.vis-burn_map svg,
+.rhythm-strip-svg.vis-injection_site svg {
+  min-width: 0;
+  max-width: 30rem;
+  margin-inline: auto;
+}
+
+.rhythm-strip-svg.vis-mar svg,
+.rhythm-strip-svg.vis-io_record svg,
+.rhythm-strip-svg.vis-vitals_trend svg,
+.rhythm-strip-svg.vis-lab_trend svg {
+  min-width: 0;
+  max-width: 37.5rem;
+  margin-inline: auto;
+}
+
 .rhythm-strip figcaption {
   color: #5d6872;
   font-size: 0.88rem;

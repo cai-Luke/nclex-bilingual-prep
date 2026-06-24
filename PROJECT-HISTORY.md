@@ -58,6 +58,19 @@ The committed NGN item-type set is complete. Rationale/dyad scoring and an expli
 
 ## Milestones
 
+### Visual Stimulus Natural-Size Caps (Jun 24)
+
+Completed:
+- Added visual-kind classes to the shared `VisualStimulus` SVG wrapper so CSS can distinguish data-dense panels from calibrated tracings without changing renderer output.
+- Capped non-tracing visual kinds (`device_screen`, `medication_label`, `mar`, `io_record`, `burn_map`, `injection_site`, `vitals_trend`, `lab_trend`) to their design widths while allowing them to shrink to mobile column width with no forced horizontal scrollbar.
+- Left `rhythm_strip`, `capnography`, and `fetal_monitoring` on the existing tracing behavior with the 36rem floor and wrapper-level horizontal scroll.
+- Archived the implementation spec at `Archive/visual-sizing-codex-spec.md`.
+
+Verification:
+- `npm run test-visuals` passed.
+- `npm run build` passed.
+- Browser spot checks in the dev review console confirmed capped visuals fit mobile width without page overflow, while rhythm strip and capnography still keep their horizontal scroll behavior.
+
 ### Scoped Raw-Bank MCP Writer for ChatGPT (Jun 23)
 
 Completed:

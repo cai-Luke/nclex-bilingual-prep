@@ -28,7 +28,7 @@ export function VisualStimulus({
 
   return (
     <figure className="rhythm-strip" role="img" aria-label={visual.caption?.en ?? "clinical visual"}>
-      <div className="rhythm-strip-svg" dangerouslySetInnerHTML={{ __html: svg }} />
+      <div className={`rhythm-strip-svg vis-${visual.kind}`} dangerouslySetInnerHTML={{ __html: svg }} />
       {caption && <figcaption>{caption}</figcaption>}
     </figure>
   );
