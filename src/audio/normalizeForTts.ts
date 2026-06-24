@@ -3,7 +3,8 @@
 // This is the contract between the (offline) generation pass and the runtime
 // resolver: both must import THIS function so a string hashes identically on
 // both sides. Keep it runtime-safe — no node imports — so the browser app can
-// import it too. See tts-queue-builder-codex-spec.md and DECISIONS principle 20.
+// import it too. See Archive/root-cleanup-2026-06-24/tts-queue-builder-codex-spec.md
+// and DECISIONS principle 20.
 
 /**
  * Normalize a voiceable string before hashing/synthesis.

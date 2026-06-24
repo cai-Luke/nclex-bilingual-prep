@@ -3,7 +3,7 @@
 // generation pass and the size projection that answers "how big is the job".
 // Run this and read its summary BEFORE spending any Gemini credits.
 //
-// Spec: tts-queue-builder-codex-spec.md.
+// Spec: Archive/root-cleanup-2026-06-24/tts-queue-builder-codex-spec.md.
 
 import { execSync } from "node:child_process";
 import { createHash } from "node:crypto";

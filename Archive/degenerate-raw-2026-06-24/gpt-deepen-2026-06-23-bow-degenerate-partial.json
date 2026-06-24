@@ -1,0 +1,942 @@
+{
+  "meta": {
+    "schemaVersion": "1.6",
+    "exam": "NCLEX-RN",
+    "topic": "mixed",
+    "category": "mixed",
+    "difficulty": "mixed",
+    "count": 5
+  },
+  "questions": [
+    {
+      "id": "gpt_deepen_2026_06_23_bow_01",
+      "itemType": "bowtie",
+      "category": "Reduction of Risk Potential",
+      "topic": "Laboratory & Diagnostic Tests",
+      "difficulty": "medium",
+      "ngnSkill": "prioritize_hypotheses",
+      "stem": {
+        "en": "Complete the bow-tie diagram. The nurse is reviewing an arterial blood gas for a client with 24 hours of diarrhea and increasing weakness. ABG: pH 7.29, PaCO2 30 mm Hg, HCO3− 14 mEq/L. The facility teaches that metabolic compensation should be assessed by whether the respiratory change moves in the expected direction for the primary disorder.",
+        "zh": "完成蝴蝶图。护士正在查看一名腹泻 24 小时且虚弱加重的患者动脉血气结果。ABG：pH 7.29，PaCO2 30 mm Hg，HCO3− 14 mEq/L。机构教学说明：判断代偿时，应看呼吸变化是否朝原发紊乱所预期的方向改变。"
+      },
+      "bowtie": {
+        "condition": {
+          "prompt": {
+            "en": "Most likely acid-base disorder",
+            "zh": "最可能的酸碱紊乱"
+          },
+          "tokens": [
+            {
+              "id": "bt01_c_metabolic_acidosis_comp",
+              "en": "Metabolic acidosis with respiratory compensation",
+              "zh": "代谢性酸中毒伴呼吸代偿"
+            },
+            {
+              "id": "bt01_c_respiratory_acidosis",
+              "en": "Respiratory acidosis",
+              "zh": "呼吸性酸中毒"
+            },
+            {
+              "id": "bt01_c_metabolic_alkalosis",
+              "en": "Metabolic alkalosis",
+              "zh": "代谢性碱中毒"
+            }
+          ],
+          "correct": "bt01_c_metabolic_acidosis_comp"
+        },
+        "actions": {
+          "prompt": {
+            "en": "Actions to take",
+            "zh": "应采取的措施"
+          },
+          "tokens": [
+            {
+              "id": "bt01_a_assess_dehydration",
+              "en": "Assess volume status and diarrhea losses",
+              "zh": "评估容量状态和腹泻丢失量"
+            },
+            {
+              "id": "bt01_a_notify_provider_abg",
+              "en": "Notify the provider of the ABG and likely bicarbonate loss",
+              "zh": "将血气结果和可能的碳酸氢盐丢失通知医嘱提供者"
+            },
+            {
+              "id": "bt01_a_sedate_slow_breathing",
+              "en": "Administer a sedative to slow respirations",
+              "zh": "给予镇静药以减慢呼吸"
+            },
+            {
+              "id": "bt01_a_withhold_fluids",
+              "en": "Withhold oral and IV fluids until the next ABG",
+              "zh": "在下一次血气前暂停口服和静脉补液"
+            }
+          ],
+          "correct": [
+            "bt01_a_assess_dehydration",
+            "bt01_a_notify_provider_abg"
+          ]
+        },
+        "parameters": {
+          "prompt": {
+            "en": "Parameters to monitor",
+            "zh": "应监测的指标"
+          },
+          "tokens": [
+            {
+              "id": "bt01_p_repeat_abg_bicarbonate",
+              "en": "Repeat ABG and serum bicarbonate",
+              "zh": "复查动脉血气和血清碳酸氢盐"
+            },
+            {
+              "id": "bt01_p_intake_output",
+              "en": "Intake, output, and daily weight",
+              "zh": "摄入量、排出量和每日体重"
+            },
+            {
+              "id": "bt01_p_peak_expiratory_flow",
+              "en": "Peak expiratory flow",
+              "zh": "呼气峰流速"
+            },
+            {
+              "id": "bt01_p_inr_trend",
+              "en": "INR trend",
+              "zh": "INR 趋势"
+            }
+          ],
+          "correct": [
+            "bt01_p_repeat_abg_bicarbonate",
+            "bt01_p_intake_output"
+          ]
+        }
+      },
+      "rationale": {
+        "correct": {
+          "en": "The low pH indicates acidemia. The low bicarbonate identifies a primary metabolic acidosis, and the low PaCO2 shows expected respiratory compensation through hyperventilation. Diarrhea can cause bicarbonate loss and volume depletion, so nursing priorities include assessing hydration, reporting the ABG pattern, and monitoring acid-base status and fluid balance.",
+          "zh": "pH 降低提示酸血症。碳酸氢盐降低说明原发问题是代谢性酸中毒，PaCO2 降低说明患者通过过度通气进行预期的呼吸代偿。腹泻可导致碳酸氢盐丢失和容量不足，因此护理重点是评估水合状态、报告血气模式，并监测酸碱状态和液体平衡。"
+        },
+        "byChoice": [
+          {
+            "refId": "bt01_c_metabolic_acidosis_comp",
+            "en": "Metabolic acidosis with respiratory compensation matches low pH, low HCO3−, and low PaCO2.",
+            "zh": "代谢性酸中毒伴呼吸代偿符合 pH 低、HCO3− 低、PaCO2 低的组合。"
+          },
+          {
+            "refId": "bt01_c_respiratory_acidosis",
+            "en": "Respiratory acidosis would have an elevated PaCO2 as the primary abnormality.",
+            "zh": "呼吸性酸中毒的原发异常通常是 PaCO2 升高。"
+          },
+          {
+            "refId": "bt01_c_metabolic_alkalosis",
+            "en": "Metabolic alkalosis would have an elevated pH and elevated bicarbonate.",
+            "zh": "代谢性碱中毒通常表现为 pH 升高和碳酸氢盐升高。"
+          },
+          {
+            "refId": "bt01_a_assess_dehydration",
+            "en": "Assessing volume status addresses the likely dehydration and ongoing gastrointestinal losses.",
+            "zh": "评估容量状态可处理可能存在的脱水和持续胃肠道丢失。"
+          },
+          {
+            "refId": "bt01_a_notify_provider_abg",
+            "en": "Reporting the ABG pattern supports timely treatment of the underlying bicarbonate loss and volume problem.",
+            "zh": "报告血气模式有助于及时处理碳酸氢盐丢失和容量问题。"
+          },
+          {
+            "refId": "bt01_a_sedate_slow_breathing",
+            "en": "Slowing respirations could remove the client's compensatory response and worsen acidemia.",
+            "zh": "减慢呼吸可能削弱患者的代偿反应，使酸血症加重。"
+          },
+          {
+            "refId": "bt01_a_withhold_fluids",
+            "en": "Withholding fluids is unsafe when diarrhea-related volume depletion is likely.",
+            "zh": "在腹泻相关容量不足可能存在时暂停补液是不安全的。"
+          },
+          {
+            "refId": "bt01_p_repeat_abg_bicarbonate",
+            "en": "Repeat ABG and bicarbonate show whether the acid-base disorder is improving or worsening.",
+            "zh": "复查血气和碳酸氢盐可显示酸碱紊乱是在改善还是恶化。"
+          },
+          {
+            "refId": "bt01_p_intake_output",
+            "en": "Intake, output, and weight help trend fluid losses and response to replacement.",
+            "zh": "摄入量、排出量和体重有助于追踪液体丢失和补液反应。"
+          },
+          {
+            "refId": "bt01_p_peak_expiratory_flow",
+            "en": "Peak expiratory flow is useful for obstructive airway disease, not this primary metabolic problem.",
+            "zh": "呼气峰流速用于评估阻塞性气道疾病，不是此处原发代谢问题的重点。"
+          },
+          {
+            "refId": "bt01_p_inr_trend",
+            "en": "INR monitoring does not evaluate metabolic acidosis from bicarbonate loss.",
+            "zh": "监测 INR 不能评估碳酸氢盐丢失导致的代谢性酸中毒。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Interpret pH first, then identify which value points to the primary problem. Low bicarbonate with low pH is metabolic acidosis; a low PaCO2 is the expected respiratory compensation.",
+        "zh": "先看 pH，再判断哪项指标指向原发问题。低碳酸氢盐合并低 pH 是代谢性酸中毒；PaCO2 降低是预期的呼吸代偿。"
+      },
+      "glossary": [
+        {
+          "termEn": "Metabolic acidosis",
+          "termZh": "代谢性酸中毒",
+          "defZh": "以碳酸氢盐降低和酸血症为特征的酸碱紊乱。"
+        },
+        {
+          "termEn": "Respiratory compensation",
+          "termZh": "呼吸代偿",
+          "defZh": "肺部通过改变通气量来帮助纠正代谢性酸碱紊乱。"
+        },
+        {
+          "termEn": "Bicarbonate",
+          "termZh": "碳酸氢盐",
+          "defZh": "血液中的主要缓冲物质之一，常用于判断代谢性酸碱状态。"
+        }
+      ]
+    },
+    {
+      "id": "gpt_deepen_2026_06_23_bow_02",
+      "itemType": "bowtie",
+      "category": "Reduction of Risk Potential",
+      "topic": "Laboratory & Diagnostic Tests",
+      "difficulty": "hard",
+      "ngnSkill": "prioritize_hypotheses",
+      "stem": {
+        "en": "Complete the bow-tie diagram. A client admitted with sepsis develops oozing from IV sites and petechiae. Labs: platelet count 42,000/mm3, PT 24 seconds, aPTT 68 seconds, fibrinogen 90 mg/dL, D-dimer markedly elevated. The facility lab guide states that DIC is suspected when thrombocytopenia occurs with prolonged PT/aPTT, low fibrinogen, and elevated D-dimer.",
+        "zh": "完成蝴蝶图。一名因脓毒症入院的患者出现静脉穿刺点渗血和瘀点。化验：血小板 42,000/mm3，PT 24 秒，aPTT 68 秒，纤维蛋白原 90 mg/dL，D-二聚体显著升高。机构检验指南说明：血小板减少并伴 PT/aPTT 延长、纤维蛋白原降低和 D-二聚体升高时，应怀疑 DIC。"
+      },
+      "bowtie": {
+        "condition": {
+          "prompt": {
+            "en": "Most likely bleeding-lab pattern",
+            "zh": "最可能的出血相关化验模式"
+          },
+          "tokens": [
+            {
+              "id": "bt02_c_dic",
+              "en": "Disseminated intravascular coagulation",
+              "zh": "弥散性血管内凝血"
+            },
+            {
+              "id": "bt02_c_hit",
+              "en": "Heparin-induced thrombocytopenia",
+              "zh": "肝素诱导性血小板减少症"
+            },
+            {
+              "id": "bt02_c_vitamin_k_deficiency",
+              "en": "Vitamin K deficiency pattern",
+              "zh": "维生素 K 缺乏模式"
+            }
+          ],
+          "correct": "bt02_c_dic"
+        },
+        "actions": {
+          "prompt": {
+            "en": "Actions to take",
+            "zh": "应采取的措施"
+          },
+          "tokens": [
+            {
+              "id": "bt02_a_notify_rapidly",
+              "en": "Notify the provider or rapid response team about suspected DIC",
+              "zh": "将疑似 DIC 情况通知医嘱提供者或快速反应团队"
+            },
+            {
+              "id": "bt02_a_apply_bleeding_precautions",
+              "en": "Institute bleeding precautions and minimize venipunctures",
+              "zh": "实施出血预防措施并尽量减少静脉穿刺"
+            },
+            {
+              "id": "bt02_a_encourage_ambulation",
+              "en": "Encourage frequent hallway ambulation",
+              "zh": "鼓励频繁在走廊行走"
+            },
+            {
+              "id": "bt02_a_administer_im_injection",
+              "en": "Give intramuscular injections for faster absorption",
+              "zh": "给予肌内注射以加快吸收"
+            }
+          ],
+          "correct": [
+            "bt02_a_notify_rapidly",
+            "bt02_a_apply_bleeding_precautions"
+          ]
+        },
+        "parameters": {
+          "prompt": {
+            "en": "Parameters to monitor",
+            "zh": "应监测的指标"
+          },
+          "tokens": [
+            {
+              "id": "bt02_p_bleeding_sites",
+              "en": "New bleeding, bruising, and mental status changes",
+              "zh": "新的出血、瘀斑和意识状态变化"
+            },
+            {
+              "id": "bt02_p_coags_platelets_fibrinogen",
+              "en": "Platelets, PT/aPTT, fibrinogen, and D-dimer",
+              "zh": "血小板、PT/aPTT、纤维蛋白原和 D-二聚体"
+            },
+            {
+              "id": "bt02_p_daily_calcium",
+              "en": "Daily serum calcium only",
+              "zh": "仅每日血钙"
+            },
+            {
+              "id": "bt02_p_peak_trough_antibiotic",
+              "en": "Antibiotic peak and trough levels",
+              "zh": "抗生素峰值和谷值浓度"
+            }
+          ],
+          "correct": [
+            "bt02_p_bleeding_sites",
+            "bt02_p_coags_platelets_fibrinogen"
+          ]
+        }
+      },
+      "rationale": {
+        "correct": {
+          "en": "The combination of sepsis, bleeding, thrombocytopenia, prolonged PT/aPTT, low fibrinogen, and elevated D-dimer fits DIC. The nurse should escalate promptly, reduce bleeding risk, and monitor for bleeding, organ hypoperfusion, and changes in coagulation labs.",
+          "zh": "脓毒症、出血、血小板减少、PT/aPTT 延长、纤维蛋白原降低和 D-二聚体升高的组合符合 DIC。护士应及时升级处理，降低出血风险，并监测出血、器官低灌注和凝血化验变化。"
+        },
+        "byChoice": [
+          {
+            "refId": "bt02_c_dic",
+            "en": "DIC is supported by consumption of platelets and clotting factors plus fibrin breakdown.",
+            "zh": "DIC 的依据是血小板和凝血因子被消耗，同时存在纤维蛋白降解。"
+          },
+          {
+            "refId": "bt02_c_hit",
+            "en": "HIT causes thrombocytopenia and thrombosis risk, but it does not typically cause low fibrinogen with markedly elevated D-dimer and diffuse oozing.",
+            "zh": "HIT 可导致血小板减少和血栓风险，但通常不会出现低纤维蛋白原、D-二聚体显著升高和弥漫性渗血的组合。"
+          },
+          {
+            "refId": "bt02_c_vitamin_k_deficiency",
+            "en": "Vitamin K deficiency primarily prolongs PT and does not explain the full platelet, fibrinogen, and D-dimer pattern.",
+            "zh": "维生素 K 缺乏主要导致 PT 延长，不能解释完整的血小板、纤维蛋白原和 D-二聚体模式。"
+          },
+          {
+            "refId": "bt02_a_notify_rapidly",
+            "en": "Suspected DIC with active bleeding requires urgent communication because deterioration can be rapid.",
+            "zh": "疑似 DIC 且有活动性出血时需紧急沟通，因为病情可迅速恶化。"
+          },
+          {
+            "refId": "bt02_a_apply_bleeding_precautions",
+            "en": "Bleeding precautions and fewer punctures reduce additional bleeding risk.",
+            "zh": "出血预防措施和减少穿刺可降低进一步出血风险。"
+          },
+          {
+            "refId": "bt02_a_encourage_ambulation",
+            "en": "Frequent ambulation may increase fall and bleeding risk in an unstable client with severe thrombocytopenia.",
+            "zh": "严重血小板减少且不稳定的患者频繁行走会增加跌倒和出血风险。"
+          },
+          {
+            "refId": "bt02_a_administer_im_injection",
+            "en": "Intramuscular injections can cause hematoma and should be avoided when bleeding risk is high.",
+            "zh": "肌内注射可导致血肿，在出血风险高时应避免。"
+          },
+          {
+            "refId": "bt02_p_bleeding_sites",
+            "en": "Bleeding and mental status trends can indicate worsening hemorrhage or impaired perfusion.",
+            "zh": "出血和意识状态趋势可提示出血加重或灌注受损。"
+          },
+          {
+            "refId": "bt02_p_coags_platelets_fibrinogen",
+            "en": "Serial coagulation labs show progression of the consumption coagulopathy.",
+            "zh": "连续凝血化验可显示消耗性凝血病的进展。"
+          },
+          {
+            "refId": "bt02_p_daily_calcium",
+            "en": "Calcium alone does not track the coagulation emergency described.",
+            "zh": "单独监测血钙不能追踪题干中的凝血急症。"
+          },
+          {
+            "refId": "bt02_p_peak_trough_antibiotic",
+            "en": "Antibiotic levels may be relevant to therapy but do not monitor DIC severity.",
+            "zh": "抗生素浓度可能与治疗相关，但不能监测 DIC 严重程度。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Link the whole lab pattern, not one value. DIC consumes platelets and clotting factors and produces fibrin breakdown markers.",
+        "zh": "要把整组化验联系起来，而不是只看一个数值。DIC 会消耗血小板和凝血因子，并产生纤维蛋白降解标志物。"
+      },
+      "glossary": [
+        {
+          "termEn": "Disseminated intravascular coagulation",
+          "termZh": "弥散性血管内凝血",
+          "defZh": "全身性凝血激活导致血栓形成与凝血因子消耗，可同时出现出血和器官灌注问题。"
+        },
+        {
+          "termEn": "Fibrinogen",
+          "termZh": "纤维蛋白原",
+          "defZh": "形成纤维蛋白凝块所需的凝血蛋白，DIC 中可被消耗而降低。"
+        },
+        {
+          "termEn": "D-dimer",
+          "termZh": "D-二聚体",
+          "defZh": "纤维蛋白降解产物，升高提示凝块形成和分解增加。"
+        }
+      ]
+    },
+    {
+      "id": "gpt_deepen_2026_06_23_bow_03",
+      "itemType": "bowtie",
+      "category": "Reduction of Risk Potential",
+      "topic": "Burn Management",
+      "difficulty": "hard",
+      "ngnSkill": "take_action",
+      "stem": {
+        "en": "Complete the bow-tie diagram. A client is brought to the emergency department after an apartment fire. Burns involve the face, neck, anterior chest, and both arms. The client has singed nasal hair, a hoarse voice, carbonaceous sputum, increasing restlessness, and oxygen saturation 93% on a nonrebreather mask. The unit guideline states that hoarseness, facial/neck burns, soot, or carbonaceous sputum after a closed-space fire are red flags for inhalation injury and impending airway compromise.",
+        "zh": "完成蝴蝶图。一名患者因公寓火灾被送至急诊。烧伤累及面部、颈部、前胸和双臂。患者鼻毛烧焦、声音嘶哑、咳出含炭痰、烦躁加重，使用非重复吸入面罩时血氧饱和度为 93%。科室指南说明：密闭空间火灾后出现声音嘶哑、面颈部烧伤、烟灰或含炭痰，是吸入性损伤和即将发生气道受损的危险信号。"
+      },
+      "bowtie": {
+        "condition": {
+          "prompt": {
+            "en": "Most likely complication",
+            "zh": "最可能的并发症"
+          },
+          "tokens": [
+            {
+              "id": "bt03_c_inhalation_airway",
+              "en": "Inhalation injury with impending airway compromise",
+              "zh": "吸入性损伤伴即将发生的气道受损"
+            },
+            {
+              "id": "bt03_c_circumferential_limb_eschar",
+              "en": "Circumferential extremity eschar causing limb ischemia",
+              "zh": "环形肢体焦痂导致肢体缺血"
+            },
+            {
+              "id": "bt03_c_burn_wound_infection",
+              "en": "Early burn wound infection",
+              "zh": "早期烧伤创面感染"
+            }
+          ],
+          "correct": "bt03_c_inhalation_airway"
+        },
+        "actions": {
+          "prompt": {
+            "en": "Actions to take",
+            "zh": "应采取的措施"
+          },
+          "tokens": [
+            {
+              "id": "bt03_a_prepare_intubation",
+              "en": "Prepare for early endotracheal intubation by the provider",
+              "zh": "为医嘱提供者早期气管插管做准备"
+            },
+            {
+              "id": "bt03_a_maintain_high_flow_oxygen",
+              "en": "Maintain high-flow oxygen and keep airway equipment at bedside",
+              "zh": "维持高流量氧气并将气道设备备于床旁"
+            },
+            {
+              "id": "bt03_a_offer_oral_fluids",
+              "en": "Offer oral fluids to soothe throat irritation",
+              "zh": "给予口服液体以缓解咽喉刺激"
+            },
+            {
+              "id": "bt03_a_apply_occlusive_neck_dressing",
+              "en": "Apply a tight occlusive dressing around the neck",
+              "zh": "在颈部周围使用紧密封闭敷料"
+            }
+          ],
+          "correct": [
+            "bt03_a_prepare_intubation",
+            "bt03_a_maintain_high_flow_oxygen"
+          ]
+        },
+        "parameters": {
+          "prompt": {
+            "en": "Parameters to monitor",
+            "zh": "应监测的指标"
+          },
+          "tokens": [
+            {
+              "id": "bt03_p_voice_stridor_work_breathing",
+              "en": "Voice changes, stridor, and work of breathing",
+              "zh": "声音变化、喘鸣和呼吸做功"
+            },
+            {
+              "id": "bt03_p_spo2_abg_carboxy",
+              "en": "Oxygen saturation, ABG, and carboxyhemoglobin as ordered",
+              "zh": "血氧饱和度、动脉血气和按医嘱检测碳氧血红蛋白"
+            },
+            {
+              "id": "bt03_p_bowel_sounds",
+              "en": "Bowel sounds every 4 hours",
+              "zh": "每 4 小时肠鸣音"
+            },
+            {
+              "id": "bt03_p_daily_wound_culture",
+              "en": "Daily wound culture results",
+              "zh": "每日创面培养结果"
+            }
+          ],
+          "correct": [
+            "bt03_p_voice_stridor_work_breathing",
+            "bt03_p_spo2_abg_carboxy"
+          ]
+        }
+      },
+      "rationale": {
+        "correct": {
+          "en": "Facial and neck burns with hoarseness, soot, carbonaceous sputum, restlessness, and borderline oxygenation after a closed-space fire indicate inhalation injury and possible airway edema. Airway swelling can progress quickly, so early airway preparation, high-flow oxygen, and close respiratory monitoring are priorities.",
+          "zh": "密闭空间火灾后出现面颈部烧伤、声音嘶哑、烟灰、含炭痰、烦躁和血氧边缘性下降，提示吸入性损伤及可能的气道水肿。气道肿胀可迅速进展，因此应优先准备气道处理、给予高流量氧气并密切监测呼吸。"
+        },
+        "byChoice": [
+          {
+            "refId": "bt03_c_inhalation_airway",
+            "en": "The airway cues are classic red flags for inhalation injury with impending obstruction.",
+            "zh": "这些气道线索是吸入性损伤并可能即将阻塞的典型危险信号。"
+          },
+          {
+            "refId": "bt03_c_circumferential_limb_eschar",
+            "en": "Limb ischemia from eschar would emphasize distal pulses, capillary refill, pain, and paresthesia.",
+            "zh": "焦痂导致的肢体缺血重点表现为远端脉搏、毛细血管再充盈、疼痛和感觉异常。"
+          },
+          {
+            "refId": "bt03_c_burn_wound_infection",
+            "en": "Wound infection is not the immediate explanation for hoarseness and carbonaceous sputum at presentation.",
+            "zh": "入院时的声音嘶哑和含炭痰不能首先用创面感染解释。"
+          },
+          {
+            "refId": "bt03_a_prepare_intubation",
+            "en": "Early intubation may be needed before edema makes airway access more difficult.",
+            "zh": "在水肿使气道处理更困难之前，可能需要早期插管。"
+          },
+          {
+            "refId": "bt03_a_maintain_high_flow_oxygen",
+            "en": "High-flow oxygen supports oxygenation and is appropriate while definitive airway management is prepared.",
+            "zh": "高流量氧气可支持氧合，并适用于准备确定性气道处理期间。"
+          },
+          {
+            "refId": "bt03_a_offer_oral_fluids",
+            "en": "Oral intake is unsafe when airway compromise and possible intubation are concerns.",
+            "zh": "存在气道受损和可能插管风险时，口服摄入不安全。"
+          },
+          {
+            "refId": "bt03_a_apply_occlusive_neck_dressing",
+            "en": "A tight neck dressing can worsen swelling-related airway and circulation problems.",
+            "zh": "紧密颈部敷料可能加重与肿胀相关的气道和循环问题。"
+          },
+          {
+            "refId": "bt03_p_voice_stridor_work_breathing",
+            "en": "Voice change, stridor, and increased work of breathing are direct signs of airway narrowing.",
+            "zh": "声音变化、喘鸣和呼吸做功增加是气道狭窄的直接表现。"
+          },
+          {
+            "refId": "bt03_p_spo2_abg_carboxy",
+            "en": "Oxygenation and ordered gas measurements help evaluate hypoxemia, ventilation, and carbon monoxide exposure.",
+            "zh": "氧合和按医嘱进行的血气检测有助于评估低氧、通气和一氧化碳暴露。"
+          },
+          {
+            "refId": "bt03_p_bowel_sounds",
+            "en": "Bowel sounds are not the priority parameter for suspected airway compromise.",
+            "zh": "疑似气道受损时，肠鸣音不是优先监测指标。"
+          },
+          {
+            "refId": "bt03_p_daily_wound_culture",
+            "en": "Wound cultures do not monitor the immediate airway threat.",
+            "zh": "创面培养不能监测当前的气道威胁。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "In burn questions, airway comes before wound care. Hoarseness, soot, facial burns, and carbonaceous sputum point to inhalation injury even when oxygen saturation is not yet severely low.",
+        "zh": "烧伤题中，气道优先于创面护理。即使血氧尚未严重下降，声音嘶哑、烟灰、面部烧伤和含炭痰也指向吸入性损伤。"
+      },
+      "glossary": [
+        {
+          "termEn": "Inhalation injury",
+          "termZh": "吸入性损伤",
+          "defZh": "吸入热气、烟雾或有毒气体造成的气道和肺部损伤。"
+        },
+        {
+          "termEn": "Carbonaceous sputum",
+          "termZh": "含炭痰",
+          "defZh": "含黑色烟灰样物质的痰，提示吸入烟雾或燃烧产物。"
+        },
+        {
+          "termEn": "Stridor",
+          "termZh": "喘鸣",
+          "defZh": "上气道狭窄时可出现的高调呼吸音。"
+        }
+      ]
+    },
+    {
+      "id": "gpt_deepen_2026_06_23_bow_04",
+      "itemType": "bowtie",
+      "category": "Reduction of Risk Potential",
+      "topic": "intrapartum fetal monitoring",
+      "difficulty": "medium",
+      "ngnSkill": "take_action",
+      "stem": {
+        "en": "Complete the bow-tie diagram. A laboring client receiving oxytocin is in the left lateral position. The fetal heart rate baseline is 150/min with moderate variability. With each of the last 4 contractions, the fetal heart rate gradually decreased after the contraction began, reached its lowest point after the contraction peak, and returned to baseline after the contraction ended. The unit teaches that recurrent late decelerations suggest uteroplacental insufficiency; recurrent variable decelerations suggest cord compression.",
+        "zh": "完成蝴蝶图。一名临产患者正在使用催产素，体位为左侧卧。胎心基线 150 次/分，变异度中等。最近 4 次宫缩中，每次胎心都在宫缩开始后逐渐下降，在宫缩峰值后达到最低点，并在宫缩结束后才恢复至基线。科室教学说明：反复晚期减速提示子宫胎盘灌注不足；反复变异减速提示脐带受压。"
+      },
+      "bowtie": {
+        "condition": {
+          "prompt": {
+            "en": "Most likely tracing interpretation",
+            "zh": "最可能的胎心监护解读"
+          },
+          "tokens": [
+            {
+              "id": "bt04_c_uteroplacental_insufficiency",
+              "en": "Uteroplacental insufficiency with recurrent late decelerations",
+              "zh": "子宫胎盘灌注不足伴反复晚期减速"
+            },
+            {
+              "id": "bt04_c_cord_compression",
+              "en": "Umbilical cord compression with recurrent variable decelerations",
+              "zh": "脐带受压伴反复变异减速"
+            },
+            {
+              "id": "bt04_c_reassuring_tracing",
+              "en": "Reassuring tracing with accelerations only",
+              "zh": "仅有加速的安心型胎心图"
+            }
+          ],
+          "correct": "bt04_c_uteroplacental_insufficiency"
+        },
+        "actions": {
+          "prompt": {
+            "en": "Actions to take",
+            "zh": "应采取的措施"
+          },
+          "tokens": [
+            {
+              "id": "bt04_a_stop_or_reduce_oxytocin",
+              "en": "Stop or reduce oxytocin per protocol",
+              "zh": "按规程停止或减少催产素"
+            },
+            {
+              "id": "bt04_a_reposition_and_fluids",
+              "en": "Reposition the client and increase IV fluids as ordered or per protocol",
+              "zh": "调整孕妇体位，并按医嘱或规程增加静脉补液"
+            },
+            {
+              "id": "bt04_a_encourage_pushing",
+              "en": "Encourage pushing with every contraction",
+              "zh": "鼓励每次宫缩时用力屏气"
+            },
+            {
+              "id": "bt04_a_apply_fundal_pressure",
+              "en": "Apply fundal pressure to shorten labor",
+              "zh": "施加宫底压力以缩短产程"
+            }
+          ],
+          "correct": [
+            "bt04_a_stop_or_reduce_oxytocin",
+            "bt04_a_reposition_and_fluids"
+          ]
+        },
+        "parameters": {
+          "prompt": {
+            "en": "Parameters to monitor",
+            "zh": "应监测的指标"
+          },
+          "tokens": [
+            {
+              "id": "bt04_p_fhr_variability_decelerations",
+              "en": "Fetal heart rate variability and deceleration pattern",
+              "zh": "胎心变异度和减速模式"
+            },
+            {
+              "id": "bt04_p_contraction_frequency_resting_tone",
+              "en": "Contraction frequency and uterine resting tone",
+              "zh": "宫缩频率和子宫静息张力"
+            },
+            {
+              "id": "bt04_p_maternal_fasting_glucose",
+              "en": "Maternal fasting glucose after delivery",
+              "zh": "分娩后的母体空腹血糖"
+            },
+            {
+              "id": "bt04_p_newborn_bilirubin",
+              "en": "Newborn bilirubin level",
+              "zh": "新生儿胆红素水平"
+            }
+          ],
+          "correct": [
+            "bt04_p_fhr_variability_decelerations",
+            "bt04_p_contraction_frequency_resting_tone"
+          ]
+        }
+      },
+      "rationale": {
+        "correct": {
+          "en": "A gradual fetal heart rate decrease that begins after the contraction starts, nadirs after the contraction peak, and returns after the contraction ends is a late deceleration pattern. Recurrent late decelerations suggest uteroplacental insufficiency. Nursing actions aim to improve placental perfusion and reduce uterine stimulation while monitoring fetal response and contraction activity.",
+          "zh": "胎心在宫缩开始后逐渐下降、在宫缩峰值后达到最低点、宫缩结束后才恢复，是晚期减速模式。反复晚期减速提示子宫胎盘灌注不足。护理措施应改善胎盘灌注、减少子宫刺激，并监测胎儿反应和宫缩情况。"
+        },
+        "byChoice": [
+          {
+            "refId": "bt04_c_uteroplacental_insufficiency",
+            "en": "The timing of the gradual decelerations relative to contractions identifies late decelerations.",
+            "zh": "减速与宫缩之间的时间关系提示这是晚期减速。"
+          },
+          {
+            "refId": "bt04_c_cord_compression",
+            "en": "Cord compression is associated with abrupt variable decelerations, not gradual late decelerations.",
+            "zh": "脐带受压通常与突然发生的变异减速相关，而不是逐渐发生的晚期减速。"
+          },
+          {
+            "refId": "bt04_c_reassuring_tracing",
+            "en": "Recurrent late decelerations are not a reassuring tracing finding.",
+            "zh": "反复晚期减速不是安心型胎心图表现。"
+          },
+          {
+            "refId": "bt04_a_stop_or_reduce_oxytocin",
+            "en": "Reducing uterine stimulation can improve fetal oxygenation when late decelerations occur with oxytocin.",
+            "zh": "使用催产素时出现晚期减速，减少子宫刺激可改善胎儿氧合。"
+          },
+          {
+            "refId": "bt04_a_reposition_and_fluids",
+            "en": "Repositioning and fluids can support maternal blood pressure and uteroplacental perfusion.",
+            "zh": "调整体位和补液可支持母体血压和子宫胎盘灌注。"
+          },
+          {
+            "refId": "bt04_a_encourage_pushing",
+            "en": "Pushing can worsen fetal oxygen demand and is not appropriate for recurrent late decelerations unless birth is imminent and directed by the provider.",
+            "zh": "用力屏气会增加胎儿氧需求；除非即将分娩且由医嘱提供者指导，否则不适用于反复晚期减速。"
+          },
+          {
+            "refId": "bt04_a_apply_fundal_pressure",
+            "en": "Fundal pressure is unsafe and does not correct uteroplacental insufficiency.",
+            "zh": "宫底压力不安全，也不能纠正子宫胎盘灌注不足。"
+          },
+          {
+            "refId": "bt04_p_fhr_variability_decelerations",
+            "en": "Fetal variability and deceleration trends show whether intrauterine resuscitation is improving fetal status.",
+            "zh": "胎心变异度和减速趋势可显示宫内复苏是否改善胎儿状态。"
+          },
+          {
+            "refId": "bt04_p_contraction_frequency_resting_tone",
+            "en": "Contraction pattern and resting tone help identify tachysystole or excessive uterine activity.",
+            "zh": "宫缩模式和静息张力有助于识别宫缩过频或子宫活动过强。"
+          },
+          {
+            "refId": "bt04_p_maternal_fasting_glucose",
+            "en": "A postpartum fasting glucose does not assess the immediate fetal oxygenation problem.",
+            "zh": "产后空腹血糖不能评估当前胎儿氧合问题。"
+          },
+          {
+            "refId": "bt04_p_newborn_bilirubin",
+            "en": "Newborn bilirubin is not relevant to the intrapartum tracing emergency.",
+            "zh": "新生儿胆红素与产时胎心监护急情无关。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "For fetal monitoring, compare the deceleration timing with the contraction. A gradual decrease that lags behind the contraction is late and points to placental perfusion problems.",
+        "zh": "解读胎心监护时，要比较减速与宫缩的时间关系。逐渐下降且滞后于宫缩的减速是晚期减速，指向胎盘灌注问题。"
+      },
+      "glossary": [
+        {
+          "termEn": "Late deceleration",
+          "termZh": "晚期减速",
+          "defZh": "胎心逐渐下降并滞后于宫缩，最低点通常在宫缩峰值之后。"
+        },
+        {
+          "termEn": "Uteroplacental insufficiency",
+          "termZh": "子宫胎盘灌注不足",
+          "defZh": "母体到胎盘和胎儿的血流或氧供不足。"
+        },
+        {
+          "termEn": "Oxytocin",
+          "termZh": "催产素",
+          "defZh": "用于诱导或加强宫缩的高警示药物，需监测宫缩和胎心反应。"
+        }
+      ]
+    },
+    {
+      "id": "gpt_deepen_2026_06_23_bow_05",
+      "itemType": "bowtie",
+      "category": "Physiological Adaptation",
+      "topic": "Sepsis & Septic Shock",
+      "difficulty": "hard",
+      "ngnSkill": "take_action",
+      "stem": {
+        "en": "Complete the bow-tie diagram. A client with pneumonia is newly confused and has warm flushed skin. Vital signs: T 39.2°C, HR 128/min, RR 30/min, BP 86/48 mm Hg, SpO2 92% on 4 L nasal cannula. Urine output has been 15 mL/hr for 2 hours. Lactate is 4.6 mmol/L. The sepsis protocol states that suspected infection with hypotension or lactate 4 mmol/L or higher requires immediate sepsis bundle activation.",
+        "zh": "完成蝴蝶图。一名肺炎患者新近出现意识混乱，皮肤温暖潮红。生命体征：体温 39.2°C，心率 128 次/分，呼吸 30 次/分，血压 86/48 mm Hg，鼻导管 4 L 给氧时 SpO2 92%。过去 2 小时尿量为 15 mL/hr。乳酸 4.6 mmol/L。脓毒症规程说明：疑似感染并伴低血压或乳酸 ≥4 mmol/L 时，需要立即启动脓毒症集束处理。"
+      },
+      "bowtie": {
+        "condition": {
+          "prompt": {
+            "en": "Most likely shock state",
+            "zh": "最可能的休克状态"
+          },
+          "tokens": [
+            {
+              "id": "bt05_c_early_septic_shock",
+              "en": "Early septic shock",
+              "zh": "早期脓毒性休克"
+            },
+            {
+              "id": "bt05_c_hypovolemic_shock",
+              "en": "Hypovolemic shock from fluid loss",
+              "zh": "液体丢失导致的低血容量性休克"
+            },
+            {
+              "id": "bt05_c_cardiogenic_shock",
+              "en": "Cardiogenic shock",
+              "zh": "心源性休克"
+            }
+          ],
+          "correct": "bt05_c_early_septic_shock"
+        },
+        "actions": {
+          "prompt": {
+            "en": "Actions to take",
+            "zh": "应采取的措施"
+          },
+          "tokens": [
+            {
+              "id": "bt05_a_activate_sepsis_protocol",
+              "en": "Activate the sepsis protocol and notify the provider immediately",
+              "zh": "启动脓毒症规程并立即通知医嘱提供者"
+            },
+            {
+              "id": "bt05_a_cultures_antibiotics_fluids",
+              "en": "Obtain ordered cultures, administer prescribed broad-spectrum antibiotics, and prepare rapid IV fluids",
+              "zh": "采集医嘱要求的培养，给予处方广谱抗生素，并准备快速静脉补液"
+            },
+            {
+              "id": "bt05_a_delay_antibiotics_until_sputum",
+              "en": "Delay antibiotics until the client can produce sputum",
+              "zh": "等患者能咳出痰后再使用抗生素"
+            },
+            {
+              "id": "bt05_a_give_beta_blocker_first",
+              "en": "Give a beta blocker first to lower the heart rate",
+              "zh": "先给予 β 受体阻滞剂降低心率"
+            }
+          ],
+          "correct": [
+            "bt05_a_activate_sepsis_protocol",
+            "bt05_a_cultures_antibiotics_fluids"
+          ]
+        },
+        "parameters": {
+          "prompt": {
+            "en": "Parameters to monitor",
+            "zh": "应监测的指标"
+          },
+          "tokens": [
+            {
+              "id": "bt05_p_map_bp_lactate",
+              "en": "Mean arterial pressure, blood pressure, and repeat lactate",
+              "zh": "平均动脉压、血压和复查乳酸"
+            },
+            {
+              "id": "bt05_p_urine_mental_resp",
+              "en": "Urine output, mental status, and respiratory status",
+              "zh": "尿量、意识状态和呼吸状态"
+            },
+            {
+              "id": "bt05_p_daily_weight_only",
+              "en": "Daily weight only",
+              "zh": "仅每日体重"
+            },
+            {
+              "id": "bt05_p_pain_before_after_coughing",
+              "en": "Pain score before and after coughing",
+              "zh": "咳嗽前后的疼痛评分"
+            }
+          ],
+          "correct": [
+            "bt05_p_map_bp_lactate",
+            "bt05_p_urine_mental_resp"
+          ]
+        }
+      },
+      "rationale": {
+        "correct": {
+          "en": "Suspected infection plus hypotension, altered mentation, oliguria, tachypnea, fever, and lactate above the protocol threshold indicates early septic shock. The nurse should activate the protocol, communicate urgently, implement ordered cultures and antibiotics without unnecessary delay, prepare fluids, and trend perfusion markers.",
+          "zh": "疑似感染合并低血压、意识改变、少尿、呼吸急促、发热和乳酸超过规程阈值，提示早期脓毒性休克。护士应启动规程、紧急沟通，按医嘱采集培养和给予抗生素且不要不必要延误，准备补液，并追踪灌注指标。"
+        },
+        "byChoice": [
+          {
+            "refId": "bt05_c_early_septic_shock",
+            "en": "Infection with hypotension, high lactate, warm flushed skin, altered mentation, and oliguria supports septic shock.",
+            "zh": "感染合并低血压、高乳酸、皮肤温暖潮红、意识改变和少尿支持脓毒性休克。"
+          },
+          {
+            "refId": "bt05_c_hypovolemic_shock",
+            "en": "Hypovolemic shock would center on fluid loss; the fever, pneumonia, and lactate-triggered sepsis protocol point elsewhere.",
+            "zh": "低血容量性休克的核心是液体丢失；本题中的发热、肺炎和触发脓毒症规程的乳酸更支持其他诊断。"
+          },
+          {
+            "refId": "bt05_c_cardiogenic_shock",
+            "en": "Cardiogenic shock usually includes pump failure findings such as pulmonary edema or chest pain, which are not the leading cues here.",
+            "zh": "心源性休克通常有泵衰竭表现，如肺水肿或胸痛，这些不是本题主要线索。"
+          },
+          {
+            "refId": "bt05_a_activate_sepsis_protocol",
+            "en": "The stated protocol threshold is met, so immediate activation and notification are required.",
+            "zh": "题干给出的规程阈值已经达到，因此需要立即启动并通知。"
+          },
+          {
+            "refId": "bt05_a_cultures_antibiotics_fluids",
+            "en": "Cultures, prescribed broad-spectrum antibiotics, and fluid resuscitation are time-sensitive sepsis-bundle elements.",
+            "zh": "培养、处方广谱抗生素和液体复苏是有时间要求的脓毒症集束处理内容。"
+          },
+          {
+            "refId": "bt05_a_delay_antibiotics_until_sputum",
+            "en": "Waiting for sputum can delay antibiotics after the sepsis threshold has been met.",
+            "zh": "达到脓毒症阈值后等待痰标本可能延误抗生素使用。"
+          },
+          {
+            "refId": "bt05_a_give_beta_blocker_first",
+            "en": "Treating tachycardia first can worsen compensation and delays management of shock.",
+            "zh": "先处理心动过速可能削弱代偿，并延误休克处理。"
+          },
+          {
+            "refId": "bt05_p_map_bp_lactate",
+            "en": "Blood pressure, MAP, and lactate are key perfusion and response-to-treatment markers.",
+            "zh": "血压、平均动脉压和乳酸是关键的灌注及治疗反应指标。"
+          },
+          {
+            "refId": "bt05_p_urine_mental_resp",
+            "en": "Urine output, mentation, and respiratory status reveal organ perfusion and deterioration.",
+            "zh": "尿量、意识和呼吸状态可反映器官灌注和病情恶化。"
+          },
+          {
+            "refId": "bt05_p_daily_weight_only",
+            "en": "Daily weight alone is too delayed and incomplete for active shock monitoring.",
+            "zh": "仅每日体重对活动性休克监测来说过于滞后且不完整。"
+          },
+          {
+            "refId": "bt05_p_pain_before_after_coughing",
+            "en": "Pain with coughing may matter for pneumonia care but does not monitor septic shock perfusion.",
+            "zh": "咳嗽疼痛可能与肺炎护理相关，但不能监测脓毒性休克的灌注状态。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Use the protocol threshold inside the stem. Infection plus hypotension or lactate at least 4 mmol/L makes sepsis-bundle activation the safest priority.",
+        "zh": "使用题干中的规程阈值。感染合并低血压或乳酸至少 4 mmol/L 时，启动脓毒症集束处理是最安全的优先事项。"
+      },
+      "glossary": [
+        {
+          "termEn": "Septic shock",
+          "termZh": "脓毒性休克",
+          "defZh": "感染引起的循环和细胞代谢异常，导致组织灌注不足和器官功能受损风险。"
+        },
+        {
+          "termEn": "Lactate",
+          "termZh": "乳酸",
+          "defZh": "组织灌注不足或代谢应激时可升高的指标。"
+        },
+        {
+          "termEn": "Mean arterial pressure",
+          "termZh": "平均动脉压",
+          "defZh": "反映器官灌注压力的血流动力学指标。"
+        }
+      ]
+    }
+  ]
+}

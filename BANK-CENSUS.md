@@ -2,8 +2,8 @@
 
 # NCLEX Bank Census
 
-Generated: 2026-06-23T23:56:15.307Z
-Git SHA: 924aa23f5d6334aa288eed55aa5fa78adfe754bf
+Generated: 2026-06-24T02:23:24.962Z
+Git SHA: f951c83250c7a85745decc7344fe387c71693047
 
 ## Per-File Summary
 
@@ -14,7 +14,7 @@ Git SHA: 924aa23f5d6334aa288eed55aa5fa78adfe754bf
 | claude-canonical.json | 1.6 | 97 | 97 | — |
 | device-canonical.json | 1.2 | 8 | 8 | — |
 | gemini-canonical.json | 1.6 | 874 | 874 | — |
-| gpt-canonical.json | 1.6 | 468 | 468 | — |
+| gpt-canonical.json | 1.6 | 498 | 498 | — |
 | hard-cases-canonical.json | 1.6 | 66 | 66 | — |
 | io-canonical.json | 1.2 | 8 | 8 | — |
 | lab-canonical.json | 1.2 | 20 | 20 | — |
@@ -25,21 +25,21 @@ Git SHA: 924aa23f5d6334aa288eed55aa5fa78adfe754bf
 
 ## Totals
 
-- Top-level questions: 1635
+- Top-level questions: 1665
 - Case study top-level: 143
 - Embedded parts: 721
-- Graded total: 2356
+- Graded total: 2386
 
 ## By Category
 
-- Psychosocial Integrity: 153
-- Basic Care and Comfort: 155
-- Health Promotion and Maintenance: 160
-- Reduction of Risk Potential: 186
-- Safety and Infection Control: 202
-- Pharmacological and Parenteral Therapies: 251
+- Psychosocial Integrity: 158
+- Health Promotion and Maintenance: 162
+- Basic Care and Comfort: 165
+- Reduction of Risk Potential: 190
+- Safety and Infection Control: 205
+- Pharmacological and Parenteral Therapies: 253
 - Management of Care: 264
-- Physiological Adaptation: 264
+- Physiological Adaptation: 268
 
 ## Within-Category Concentration
 
@@ -50,43 +50,43 @@ Visual kinds: device_screen (1), mar (2)
 
 ### Safety and Infection Control
 
-Top topics: Patient & Environment Safety (42), Transmission-Based Precautions (42), PPE & Sterile Technique (24), Standard Precautions & Hygiene (23), Disaster & Emergency Preparedness (8), Environmental safety and equipment checks (8), Fall prevention (6), Medication Safety & Admin (4), Transfusion & Blood Products (4), Endocrine & Neurological Disorders (2)
+Top topics: Patient & Environment Safety (44), Transmission-Based Precautions (42), PPE & Sterile Technique (24), Standard Precautions & Hygiene (24), Disaster & Emergency Preparedness (8), Environmental safety and equipment checks (8), Fall prevention (6), Medication Safety & Admin (4), Transfusion & Blood Products (4), Endocrine & Neurological Disorders (2)
 Visual kinds: capnography (1), device_screen (1), medication_label (1), vitals_trend (1)
 
 ### Health Promotion and Maintenance
 
-Top topics: Adult Health & Wellness (39), Maternal-Newborn Care & Teaching (34), Pediatric & Adolescent Health (33), Chronic Disease Management & Lifestyle (16), Pediatric & Toddler Safety (13), Reproductive & Endocrine Health (11), Respiratory & Infectious Disorders (2), Adult Immunization and Preventive Screening (1), adult preventive screening (1), adult preventive screening and vaccination counseling (1)
+Top topics: Adult Health & Wellness (39), Maternal-Newborn Care & Teaching (35), Pediatric & Adolescent Health (33), Chronic Disease Management & Lifestyle (16), Pediatric & Toddler Safety (14), Reproductive & Endocrine Health (11), Respiratory & Infectious Disorders (2), Adult Immunization and Preventive Screening (1), adult preventive screening (1), adult preventive screening and vaccination counseling (1)
 Visual kinds: none
 
 ### Psychosocial Integrity
 
-Top topics: Mental Health Disorders (63), Therapeutic Communication (25), Suicide & Crisis Intervention (22), Substance Use & Withdrawal (16), Caregiver Role Strain & Family Coping (6), Electroconvulsive Therapy (ECT) (4), caregiver burden and family adaptation (3), Bipolar I - Acute Manic Episode (1), Caregiver burden after dementia discharge (1), caregiver strain (1)
+Top topics: Mental Health Disorders (63), Therapeutic Communication (27), Suicide & Crisis Intervention (23), Substance Use & Withdrawal (18), Caregiver Role Strain & Family Coping (6), Electroconvulsive Therapy (ECT) (4), caregiver burden and family adaptation (3), Bipolar I - Acute Manic Episode (1), Caregiver burden after dementia discharge (1), caregiver strain (1)
 Visual kinds: none
 
 ### Basic Care and Comfort
 
-Top topics: Nutritional & Fluid Support (35), Elimination & Comfort (30), Mobility & Immobility (27), Sleep & Rest (17), Palliative & Supportive Care (12), Dosage Calculations (10), Skin & Wound Care (3), Transmission-Based Precautions (3), Adult Health & Wellness (2), Perioperative Care (2)
+Top topics: Nutritional & Fluid Support (37), Elimination & Comfort (32), Mobility & Immobility (29), Sleep & Rest (19), Palliative & Supportive Care (14), Dosage Calculations (10), Skin & Wound Care (3), Transmission-Based Precautions (3), Adult Health & Wellness (2), Perioperative Care (2)
 Visual kinds: burn_map (1), device_screen (1), io_record (4)
 
 ### Pharmacological and Parenteral Therapies
 
-Top topics: Medication Safety & Admin (54), Dosage Calculations (53), Anticoagulant Therapy (42), Cardiovascular & Endocrine Medications (32), Psychotropic Medications (15), Parenteral Nutrition (10), High-Alert Medication Safety (5), Nutritional & Fluid Support (3), Antibiotic Allergy Screening (2), Cardiovascular Disorders (2)
+Top topics: Medication Safety & Admin (54), Dosage Calculations (53), Anticoagulant Therapy (43), Cardiovascular & Endocrine Medications (32), Psychotropic Medications (15), Parenteral Nutrition (10), High-Alert Medication Safety (6), Nutritional & Fluid Support (3), Antibiotic Allergy Screening (2), Cardiovascular Disorders (2)
 Visual kinds: capnography (1), device_screen (6), lab_trend (6), mar (9), medication_label (12), rhythm_strip (10), vitals_trend (2)
 
 ### Reduction of Risk Potential
 
-Top topics: Procedural Complications & Dialysis (44), Laboratory & Diagnostic Tests (29), Perioperative Care (28), Burn Management (8), Maternal-Newborn Care & Teaching (7), intrapartum fetal monitoring (6), ABG & Acid-Base Interpretation (4), Injection route recognition from skin cross-section (4), PPE & Sterile Technique (4), Endocrine & Neurological Disorders (3)
+Top topics: Procedural Complications & Dialysis (44), Laboratory & Diagnostic Tests (31), Perioperative Care (28), Burn Management (9), intrapartum fetal monitoring (7), Maternal-Newborn Care & Teaching (7), ABG & Acid-Base Interpretation (4), Injection route recognition from skin cross-section (4), PPE & Sterile Technique (4), Endocrine & Neurological Disorders (3)
 Visual kinds: burn_map (5), capnography (1), device_screen (3), fetal_monitoring (6), injection_site (8), io_record (5), lab_trend (7), rhythm_strip (2), vitals_trend (1)
 
 ### Physiological Adaptation
 
-Top topics: Cardiovascular Disorders (74), Endocrine & Neurological Disorders (34), Renal & Gastrointestinal Disorders (33), Electrolyte Imbalances (25), Burn Management (15), Diabetic Ketoacidosis (DKA) (13), Respiratory & Infectious Disorders (13), Sepsis & Septic Shock (7), Oncology & Immunotherapy Complications (6), ABG & Acid-Base Interpretation (2)
+Top topics: Cardiovascular Disorders (74), Endocrine & Neurological Disorders (35), Renal & Gastrointestinal Disorders (34), Electrolyte Imbalances (26), Burn Management (15), Diabetic Ketoacidosis (DKA) (13), Respiratory & Infectious Disorders (13), Sepsis & Septic Shock (8), Oncology & Immunotherapy Complications (6), ABG & Acid-Base Interpretation (2)
 Visual kinds: burn_map (5), capnography (4), io_record (2), lab_trend (7), rhythm_strip (32), vitals_trend (7)
 
 ## By Item Type
 
-- bowtie: 95
-- highlight: 97
+- bowtie: 110
+- highlight: 112
 - case_study: 143
 - fill_in_blank: 157
 - dropdown_cloze: 159
@@ -98,13 +98,13 @@ Visual kinds: burn_map (5), capnography (4), io_record (2), lab_trend (7), rhyth
 ## By Difficulty
 
 - easy: 226
-- hard: 567
-- medium: 842
+- hard: 583
+- medium: 856
 
 ## By Schema Version
 
 - v1.2: 130 questions (burn-canonical.json, capnography-canonical.json, device-canonical.json, io-canonical.json, lab-canonical.json, mar-canonical.json, medlabel-canonical.json, visual-canonical.json, vitals-canonical.json)
-- v1.6: 1505 questions (claude-canonical.json, gemini-canonical.json, gpt-canonical.json, hard-cases-canonical.json)
+- v1.6: 1535 questions (claude-canonical.json, gemini-canonical.json, gpt-canonical.json, hard-cases-canonical.json)
 
 ## By Source File
 
@@ -113,7 +113,7 @@ Visual kinds: burn_map (5), capnography (4), io_record (2), lab_trend (7), rhyth
 - claude-canonical.json: 97
 - device-canonical.json: 8
 - gemini-canonical.json: 874
-- gpt-canonical.json: 468
+- gpt-canonical.json: 498
 - hard-cases-canonical.json: 66
 - io-canonical.json: 8
 - lab-canonical.json: 20
@@ -312,19 +312,19 @@ No duplicates detected.
 ## Targets
 
 Category targets (2026 NCLEX-RN test-plan weights):
-- Management of Care: 294.3
-- Safety and Infection Control: 212.6
-- Health Promotion and Maintenance: 147.2
-- Psychosocial Integrity: 147.2
-- Basic Care and Comfort: 147.2
-- Pharmacological and Parenteral Therapies: 261.6
-- Reduction of Risk Potential: 196.2
-- Physiological Adaptation: 228.9
-Item type average: 181.7
+- Management of Care: 299.7
+- Safety and Infection Control: 216.5
+- Health Promotion and Maintenance: 149.8
+- Psychosocial Integrity: 149.8
+- Basic Care and Comfort: 149.8
+- Pharmacological and Parenteral Therapies: 266.4
+- Reduction of Risk Potential: 199.8
+- Physiological Adaptation: 233.1
+Item type average: 185.0
 
 Under-served item types:
-- bowtie: 95
-- highlight: 97
+- bowtie: 110
+- highlight: 112
 - case_study: 143
 - fill_in_blank: 157
 - dropdown_cloze: 159
@@ -334,38 +334,38 @@ Under-served item types:
 ## Prompt Parameters
 
 PRIORITIZE_TOPICS:
-- Nutritional & Fluid Support — add: highlight, bowtie
-- Maternal-Newborn Care & Teaching — add: highlight
 - Patient & Environment Safety — add: bowtie
-- Therapeutic Communication — add: ordered_response, fill_in_blank, highlight, bowtie
+- Therapeutic Communication — add: ordered_response, fill_in_blank, bowtie
 - Renal & Gastrointestinal Disorders — add: ordered_response, fill_in_blank
 - Dosage Calculations — add: ordered_response, highlight, bowtie
-- Substance Use & Withdrawal — add: ordered_response, fill_in_blank, highlight
-- Elimination & Comfort — add: highlight, bowtie
+- Substance Use & Withdrawal — add: ordered_response, fill_in_blank
 - Endocrine & Neurological Disorders — add: fill_in_blank
-- Laboratory & Diagnostic Tests — add: bowtie
-- Mobility & Immobility — add: highlight, bowtie
 - Suicide & Crisis Intervention — add: fill_in_blank, bowtie
 - Burn Management — add: ordered_response, dropdown_cloze, highlight
 - Electrolyte Imbalances — add: fill_in_blank
-- Sleep & Rest — add: highlight, bowtie
 - Standard Precautions & Hygiene — add: bowtie
 - Diabetic Ketoacidosis (DKA) — add: fill_in_blank, highlight, bowtie
 - Injection route recognition from skin cross-section — add: select_all, ordered_response, fill_in_blank, matrix, dropdown_cloze, highlight, bowtie
-- Palliative & Supportive Care — add: select_all, dropdown_cloze, highlight, bowtie
-- Pediatric & Toddler Safety — add: ordered_response, highlight
+- Palliative & Supportive Care — add: select_all, dropdown_cloze
+- Pediatric & Toddler Safety — add: ordered_response
 - Client Advocacy — add: select_all, matrix
 - Electroconvulsive Therapy (ECT) — add: select_all, fill_in_blank, matrix, dropdown_cloze, highlight, bowtie
-- intrapartum fetal monitoring — add: ordered_response, fill_in_blank, dropdown_cloze, highlight, bowtie
+- intrapartum fetal monitoring — add: ordered_response, fill_in_blank, dropdown_cloze, highlight
 - Reproductive & Endocrine Health — add: ordered_response, fill_in_blank, bowtie
-- bowtie (95 vs target 181.7)
-- highlight (97 vs target 181.7)
-- case_study (143 vs target 181.7)
-- fill_in_blank (157 vs target 181.7)
-- dropdown_cloze (159 vs target 181.7)
-- ordered_response (161 vs target 181.7)
-- matrix (178 vs target 181.7)
+- bowtie (110 vs target 185.0)
+- highlight (112 vs target 185.0)
+- case_study (143 vs target 185.0)
+- fill_in_blank (157 vs target 185.0)
+- dropdown_cloze (159 vs target 185.0)
+- ordered_response (161 vs target 185.0)
+- matrix (178 vs target 185.0)
 - Acute decompensated heart failure
+- Acute Decompensated Heart Failure (ADHF)
+- Acute gallstone pancreatitis with cholangitis
+- Acute Graft-Versus-Host Disease
+- Acute kidney injury
+- acute kidney injury fluid response
+- Acute Myocardial Infarction and Ventricular Fibrillation
 
 AVOID_TOPICS:
 - Cardiovascular Disorders (78)
