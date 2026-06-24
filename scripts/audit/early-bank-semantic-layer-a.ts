@@ -29,6 +29,21 @@ export type CurrencyCluster =
   | "stroke"
   | "acls"
   | "bp_targets";
+export type ConceptCluster =
+  | "delegation_scope"
+  | "isolation_mode"
+  | "potassium_replacement"
+  | "insulin_hypoglycemia"
+  | "mi_chest_pain"
+  | "stroke_escalation"
+  | "digoxin_hold"
+  | "lithium_toxicity"
+  | "dialysis_complications"
+  | "fetal_heart_rate"
+  | "restraints_fall"
+  | "neutropenic_precautions"
+  | "pressure_injury"
+  | "hipaa_disclosure";
 
 export type SemanticInventoryItem = {
   id: string;
@@ -41,6 +56,7 @@ export type SemanticInventoryItem = {
   item_type: Question["itemType"];
   skill_signature?: string;
   currency_clusters: CurrencyCluster[];
+  concept_clusters: ConceptCluster[];
 };
 
 export type SemanticQueueRow = SemanticInventoryItem & {
@@ -132,6 +148,96 @@ const CURRENCY_RULES: Array<{
     harmRank: 80,
   },
 ];
+
+const CONCEPT_RULES: Array<{
+  cluster: ConceptCluster;
+  pattern: RegExp;
+  harmTier: number;
+}> = [
+  {
+    cluster: "delegation_scope",
+    pattern:
+      /\b(?:delegat\w*|assign\w*|unlicensed assistive|uap|lpn|lvn|scope of practice|charge nurse|float pool)\b/i,
+    harmTier: 25,
+  },
+  {
+    cluster: "isolation_mode",
+    pattern:
+      /\b(?:airborne|droplet|contact precaution|negative[- ]pressure|n95|tuberculosis|c\.? ?diff|mrsa|vre|measles|varicella|pertussis|meningitis)\b/i,
+    harmTier: 25,
+  },
+  {
+    cluster: "potassium_replacement",
+    pattern: /\b(?:potassium|kcl|hyperkalemia|hypokalemia|iv potassium)\b/i,
+    harmTier: 25,
+  },
+  {
+    cluster: "insulin_hypoglycemia",
+    pattern:
+      /\b(?:insulin|hypoglycemia|blood glucose|sliding scale|d50|dextrose 50|glucagon)\b/i,
+    harmTier: 25,
+  },
+  {
+    cluster: "mi_chest_pain",
+    pattern:
+      /\b(?:chest pain|myocardial infarction|stemi|nstemi|troponin|acute coronary|angina|nitroglycerin)\b/i,
+    harmTier: 25,
+  },
+  {
+    cluster: "stroke_escalation",
+    pattern:
+      /\b(?:stroke|cva|tia|nihss|thrombectomy|alteplase|tenecteplase|last known well)\b/i,
+    harmTier: 25,
+  },
+  {
+    cluster: "digoxin_hold",
+    pattern: /\b(?:digoxin|lanoxin|digitalis|dig(?:oxin)? level)\b/i,
+    harmTier: 20,
+  },
+  {
+    cluster: "lithium_toxicity",
+    pattern: /\b(?:lithium)\b/i,
+    harmTier: 20,
+  },
+  {
+    cluster: "dialysis_complications",
+    pattern:
+      /\b(?:dialysis|hemodialysis|peritoneal dialysis|av fistula|graft|disequilibrium|dwell|effluent)\b/i,
+    harmTier: 20,
+  },
+  {
+    cluster: "fetal_heart_rate",
+    pattern:
+      /\b(?:fetal heart rate|fhr|(?:late|early|variable) decelerat\w*|variability|uterine|tocod?ynamometer|contraction pattern)\b/i,
+    harmTier: 20,
+  },
+  {
+    cluster: "restraints_fall",
+    pattern:
+      /\b(?:restraint|seclusion|sitter|fall (?:precaution|risk)|bed alarm|side rail)\b/i,
+    harmTier: 20,
+  },
+  {
+    cluster: "neutropenic_precautions",
+    pattern:
+      /\b(?:neutropeni\w*|absolute neutrophil|protective environment|reverse isolation)\b/i,
+    harmTier: 20,
+  },
+  {
+    cluster: "pressure_injury",
+    pattern:
+      /\b(?:pressure (?:injury|ulcer)|braden|deep tissue|unstageable|stage (?:i{1,4}|[1-4]))\b/i,
+    harmTier: 15,
+  },
+  {
+    cluster: "hipaa_disclosure",
+    pattern:
+      /\b(?:hipaa|confidential|disclosure|privacy|protected health information|phi|release of information)\b/i,
+    harmTier: 15,
+  },
+];
+
+const MAX_PAIR_GROUP = 60;
 
 const STOP_WORDS = new Set([
   "a",
@@ -309,6 +415,9 @@ const loadItems = async (bankPaths: readonly string[]): Promise<LoadedItem[]> =>
           const currencyClusters = CURRENCY_RULES.filter(({ pattern }) =>
             pattern.test(searchText),
           ).map(({ cluster }) => cluster);
+          const conceptClusters = CONCEPT_RULES.filter(({ pattern }) =>
+            pattern.test(searchText),
+          ).map(({ cluster }) => cluster);
           return {
             id: question.id,
             bank,
@@ -320,6 +429,7 @@ const loadItems = async (bankPaths: readonly string[]): Promise<LoadedItem[]> =>
             item_type: question.itemType,
             skill_signature: getSkillSignature(question),
             currency_clusters: currencyClusters,
+            concept_clusters: conceptClusters,
             question,
             searchText,
             tokens: tokenize(searchText),
@@ -341,53 +451,132 @@ const groupBy = <T>(values: T[], keyFor: (value: T) => string) => {
   return groups;
 };
 
+const sortItems = (items: LoadedItem[]) =>
+  [...items].sort((left, right) => left.id.localeCompare(right.id));
+
+const sortedGroups = <T>(
+  groups: Map<string, T[]>,
+  sortValues?: (values: T[]) => T[],
+) =>
+  [...groups.entries()]
+    .sort(([left], [right]) => left.localeCompare(right))
+    .map(([, values]) => (sortValues ? sortValues(values) : values));
+
+const shardGroup = (group: LoadedItem[]): LoadedItem[][] => {
+  const sortedGroup = sortItems(group);
+  if (sortedGroup.length <= MAX_PAIR_GROUP) return [sortedGroup];
+
+  const conceptGroups = groupBy(
+    sortedGroup,
+    (item) => [...item.concept_clusters].sort()[0] ?? "_none",
+  );
+  return sortedGroups(conceptGroups, sortItems).flatMap((conceptGroup) => {
+    if (conceptGroup.length <= MAX_PAIR_GROUP) return [conceptGroup];
+    const typeGroups = groupBy(conceptGroup, (item) => item.item_type);
+    return sortedGroups(typeGroups, sortItems);
+  });
+};
+
+const passesSimilarityGate = (left: LoadedItem, right: LoadedItem) => {
+  const stemSimilarity = jaccard(left.tokens, right.tokens);
+  const answerSimilarity = jaccard(left.answerTokens, right.answerTokens);
+  return stemSimilarity >= 0.28 || answerSimilarity >= 0.34;
+};
+
 const buildPairMap = (items: LoadedItem[]) => {
   const pairMap = new Map<string, Set<string>>();
+  const topicPairIds = new Set<string>();
+  const conceptPairClusters = new Map<string, Set<ConceptCluster>>();
   const addPair = (left: string, right: string) => {
     pairMap.set(left, new Set([...(pairMap.get(left) ?? []), right]));
     pairMap.set(right, new Set([...(pairMap.get(right) ?? []), left]));
   };
+  const addTopicPair = (left: string, right: string) => {
+    addPair(left, right);
+    topicPairIds.add(left);
+    topicPairIds.add(right);
+  };
+  const addConceptPair = (
+    left: string,
+    right: string,
+    cluster: ConceptCluster,
+  ) => {
+    addPair(left, right);
+    conceptPairClusters.set(
+      left,
+      new Set([...(conceptPairClusters.get(left) ?? []), cluster]),
+    );
+    conceptPairClusters.set(
+      right,
+      new Set([...(conceptPairClusters.get(right) ?? []), cluster]),
+    );
+  };
 
   const topicGroups = groupBy(items, (item) => item.normalized_topic);
-  topicGroups.forEach((group) => {
-    if (group.length < 2 || group.length > 40) return;
-    for (let leftIndex = 0; leftIndex < group.length; leftIndex += 1) {
-      for (
-        let rightIndex = leftIndex + 1;
-        rightIndex < group.length;
-        rightIndex += 1
-      ) {
-        const left = group[leftIndex];
-        const right = group[rightIndex];
-        const stemSimilarity = jaccard(left.tokens, right.tokens);
-        const answerSimilarity = jaccard(left.answerTokens, right.answerTokens);
-        if (stemSimilarity >= 0.28 || answerSimilarity >= 0.34) {
-          addPair(left.id, right.id);
+  sortedGroups(topicGroups, sortItems).forEach((group) => {
+    if (group.length < 2) return;
+    shardGroup(group).forEach((shard) => {
+      for (let leftIndex = 0; leftIndex < shard.length; leftIndex += 1) {
+        for (
+          let rightIndex = leftIndex + 1;
+          rightIndex < shard.length;
+          rightIndex += 1
+        ) {
+          const left = shard[leftIndex];
+          const right = shard[rightIndex];
+          if (passesSimilarityGate(left, right)) {
+            addTopicPair(left.id, right.id);
+          }
         }
       }
-    }
+    });
+  });
+
+  CONCEPT_RULES.map(({ cluster }) => cluster)
+    .sort()
+    .forEach((cluster) => {
+      const group = items.filter((item) =>
+        item.concept_clusters.includes(cluster),
+      );
+      if (group.length < 2) return;
+      shardGroup(group).forEach((shard) => {
+        for (let leftIndex = 0; leftIndex < shard.length; leftIndex += 1) {
+          for (
+            let rightIndex = leftIndex + 1;
+            rightIndex < shard.length;
+            rightIndex += 1
+          ) {
+            const left = shard[leftIndex];
+            const right = shard[rightIndex];
+            if (passesSimilarityGate(left, right)) {
+              addConceptPair(left.id, right.id, cluster);
+            }
+          }
+        }
+      });
   });
 
   const signatureGroups = groupBy(
     items.filter((item) => item.skill_signature),
     (item) => item.skill_signature ?? "",
   );
-  signatureGroups.forEach((group) => {
-    for (let leftIndex = 0; leftIndex < group.length; leftIndex += 1) {
+  sortedGroups(signatureGroups, sortItems).forEach((group) => {
+    const sortedGroup = sortItems(group);
+    for (let leftIndex = 0; leftIndex < sortedGroup.length; leftIndex += 1) {
       for (
         let rightIndex = leftIndex + 1;
-        rightIndex < group.length;
+        rightIndex < sortedGroup.length;
         rightIndex += 1
       ) {
-        addPair(group[leftIndex].id, group[rightIndex].id);
+        addPair(sortedGroup[leftIndex].id, sortedGroup[rightIndex].id);
       }
     }
   });
-  return pairMap;
+  return { pairMap, topicPairIds, conceptPairClusters };
 };
 
 export const buildSemanticLayerA = (items: LoadedItem[]) => {
-  const pairMap = buildPairMap(items);
+  const { pairMap, topicPairIds, conceptPairClusters } = buildPairMap(items);
   const redundancyGroups = groupBy(
     items,
     (item) =>
@@ -417,7 +606,18 @@ export const buildSemanticLayerA = (items: LoadedItem[]) => {
 
     const peers = [...(pairMap.get(item.id) ?? [])].sort();
     const routingReasons: string[] = [];
-    if (peers.length > 0) routingReasons.push("topic/answer similarity pair");
+    const conceptReasons = [
+      ...(conceptPairClusters.get(item.id) ?? new Set<ConceptCluster>()),
+    ].sort();
+    if (
+      topicPairIds.has(item.id) ||
+      (peers.length > 0 && conceptReasons.length === 0)
+    ) {
+      routingReasons.push("topic/answer similarity pair");
+    }
+    conceptReasons.forEach((cluster) => {
+      routingReasons.push(`concept cluster: ${cluster}`);
+    });
     if (redundancyIds.has(item.id)) {
       routingReasons.push("redundancy cluster size >= 3");
     }
@@ -427,7 +627,8 @@ export const buildSemanticLayerA = (items: LoadedItem[]) => {
         track: "coherence",
         pair_with: peers,
         routing_reasons: routingReasons,
-        harm_rank: 50 + provenanceBonus(item.provenance_tier),
+        harm_rank:
+          50 + provenanceBonus(item.provenance_tier) + conceptHarm(item),
       });
     }
   });
@@ -464,10 +665,20 @@ const inventoryFields = (item: LoadedItem): SemanticInventoryItem => ({
     ? { skill_signature: item.skill_signature }
     : {}),
   currency_clusters: item.currency_clusters,
+  concept_clusters: item.concept_clusters,
 });
 
 const provenanceBonus = (tier: ProvenanceTier) =>
   tier === "high" ? 20 : tier === "medium" ? 10 : 0;
+
+const conceptHarm = (item: SemanticInventoryItem) =>
+  Math.max(
+    0,
+    ...item.concept_clusters.map(
+      (cluster) =>
+        CONCEPT_RULES.find((rule) => rule.cluster === cluster)?.harmTier ?? 0,
+    ),
+  );
 
 const countBy = <T extends string>(
   values: T[],
@@ -504,6 +715,37 @@ export const writeSemanticLayerA = async (
         .filter((row) => row.track === "currency")
         .map((row) => row.currency_cluster as CurrencyCluster),
     ),
+    concept_rows_by_cluster: countBy(
+      output.rows
+        .filter((row) => row.track === "coherence")
+        .flatMap((row) =>
+          row.routing_reasons
+            .filter((reason) => reason.startsWith("concept cluster: "))
+            .map(
+              (reason) =>
+                reason.replace("concept cluster: ", "") as ConceptCluster,
+            ),
+        ),
+    ),
+    coherence_rows_by_reason: {
+      similarity_pair: output.rows.filter(
+        (row) =>
+          row.track === "coherence" &&
+          row.routing_reasons.includes("topic/answer similarity pair"),
+      ).length,
+      concept_pair: output.rows.filter(
+        (row) =>
+          row.track === "coherence" &&
+          row.routing_reasons.some((reason) =>
+            reason.startsWith("concept cluster: "),
+          ),
+      ).length,
+      redundancy_cluster: output.rows.filter(
+        (row) =>
+          row.track === "coherence" &&
+          row.routing_reasons.includes("redundancy cluster size >= 3"),
+      ).length,
+    },
   };
   await Promise.all([
     mkdir(dirname(queuePath), { recursive: true }),

@@ -230,6 +230,12 @@ Then report (do not commit canonical or census changes — Luke runs
   the Jaccard gate owns precision. A residual shard still > 60 after concept +
   item_type keys is kept whole — at the current bank the worst case is a few
   thousand comparisons, negligible. Do not reintroduce a drop.
+- **Layer A is a candidate generator, not a cleanliness proof.** Sharding
+  preserves every item's *consideration*, but it does not guarantee every
+  in-group pair is compared — cross-shard pairs within an oversized group may go
+  uncompared, and the Jaccard gate intentionally suppresses weak pairs. An item
+  that surfaces no pair means "no candidate found," never "semantically clean";
+  the audit's evidentiary standard, not Layer A, decides cleanliness.
 - Currency/concept assignment is a content lever: the two rule arrays share a
   shape, so moving a cluster between `CURRENCY_RULES` and `CONCEPT_RULES` is a
   one-line change if Luke reclassifies one later (see the open question in the

@@ -246,6 +246,7 @@ End the report with the proposals grouped so Luke can triage:
 - **Named follow-on — visual-necessity audit (separate spec, not this one).**
   The principle-6 necessity test ("what cue is available *only* from the visual;
   if the answer is unchanged with the visual removed, it is decorative and
-  invalid") applies to the nine visual-kind canonicals, which Layer A does not
+  invalid") applies to the visual-kind canonicals (the committed visual lanes
+  in `AGENTS.md`), which Layer A does not
   route and whose method differs from text coherence. Spec it separately if/when
   the visual lane is prioritized; do not fold it into this text-bank pilot.
