@@ -585,6 +585,16 @@ Pre-promotion fixes: **none required.** All three files parsed first try; `valid
 
 Gate results: `npm run audit` **GATE PASSED** (references clean / positions χ²=0.345, max dev 0.9pp / integrity verified / ids 2356 unique across 13 files). `npm run consolidate` routed all 30 → `gpt-canonical.json` **468→498**; staged files auto-consumed; raw drafts deleted. Census regenerated (1665 top-level / 721 embedded / 154 visuals). Build green.
 
+### 2026-06-24 — Phase 2 unknown-key residual cleanup and strict gate
+
+Status: `fixed-and-validated`. Codex ran the schema-hardening closeout cleanup over canonical banks after `npm run scan-unknown-keys` reported 16 residual off-schema occurrences across `gpt-canonical.json`, `hard-cases-canonical.json`, and `io-canonical.json`.
+
+Cleanup was deterministic and non-semantic: `scripts/cleanup-unknown-key-residuals.ts` dry-run reported the expected 16 operations, then `npm run cleanup-unknown-keys -- --write` applied them. Removed duplicate/misnested or provenance-only keys: `gpt_case_unsafe_assignment_01.caseStudy.{rationale,testTakingStrategy,glossary}` after confirming each duplicated the question-level field; empty `gpt_fresh_2026_06_22_vis_07.meta.custom`; six duplicate `cs_copd_01_q1.rationale.byChoice[].id` values that duplicated `refId`; stray glossary `en` on `opus_tpn_case_mucositis_01_q3`; legacy nested `matrix.correct` on `gpt_pph_2026_06_16_case_01_q5`; and `io-canonical.json` bank-meta provenance keys `generatedAt`, `lane`, and `bankIdPrefix`. Renamed legacy `opus12_case_inpatient_suicide_risk_01.caseStudy.overview` to schema `summary`.
+
+Standing gate change: `src/schema.ts` now supports `rejectUnknownKeys` strict validation sourced from `src/allowedKeys.ts`; promote/consolidate/validate-bank/audit paths opt in explicitly, while learner uploads remain forgiving by default. `scan-unknown-keys` remains diagnostic-only.
+
+Verification: `npm run scan-unknown-keys` passed with 0 findings; `npm run test:schema-bank` passed including the `termDef` regression; `npm run validate-bank -- banks/*.json` passed with strict mode; `npm run audit` passed (integrity insufficient only because no raw drafts are present); final census/build verification completed.
+
 ## Next Planned Review
 
 - Next GPT/Gemini batch: prioritize Physiological Adaptation singleton topics (ADHF, AKI, acute pancreatitis, Reduction of Risk Potential) using case_study format to close the 93-item case_study gap (71 vs 164 target).

@@ -88,7 +88,7 @@ export async function runAuditPositions(): Promise<AuditResult> {
     try {
       const text = await readFile(join(PROMOTED_DIR, filename), "utf8");
       const raw = parseBankText(text);
-      const result = validateBankObject(raw);
+      const result = validateBankObject(raw, { rejectUnknownKeys: true });
       if (!result.ok) continue;
 
       for (const q of result.value.questions) {

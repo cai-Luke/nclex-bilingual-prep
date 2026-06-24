@@ -50,7 +50,7 @@ for (const filename of jsonFiles) {
       anyFailed = true;
       continue;
     }
-    const result = validateBankObject(stripCompileManifests(raw));
+    const result = validateBankObject(stripCompileManifests(raw), { rejectUnknownKeys: true });
 
     if (!result.ok) {
       console.error(`\n${filename}: draft validation failed — fix these before promoting:`);

@@ -25,14 +25,14 @@ The app is a static offline Vite + React + TypeScript NCLEX-RN practice tool. It
 
 Core learning features are implemented: all schema item types render and grade, case studies are supported, sessions are resumable, custom sessions can be built from filters, the dashboard summarizes performance, flags feed review pools, glossary flashcards have their own SRS progress, and adaptive exam-condition practice is available without any pass/fail readiness claim.
 
-Current canonical banks (see [BANK-CENSUS.md](BANK-CENSUS.md); 1,558 top-level, 721 embedded parts as of 2026-06-22):
+Current canonical banks (see [BANK-CENSUS.md](BANK-CENSUS.md); 1,665 top-level, 721 embedded parts as of 2026-06-24):
 
 - `banks/burn-canonical.json` (8 schema v1.2 burn-map visual items)
 - `banks/capnography-canonical.json` (7 schema v1.2 capnography visual items; dedicated home for capnography kind)
 - `banks/claude-canonical.json` (97 bilingual Claude/Opus-source questions; ledgered content review complete; schema v1.6 for typed unfolding-case metadata)
 - `banks/device-canonical.json` (8 schema v1.2 device-screen visual items)
 - `banks/gemini-canonical.json` (874 bilingual Gemini-source questions; includes original + pending batches + traditional/easy/gap-fill/format-backfill/standalone NGN consolidations minus redundant/flawed questions; schema v1.6)
-- `banks/gpt-canonical.json` (391 bilingual GPT-source questions; ledgered content review complete; schema v1.6 for typed unfolding-case metadata)
+- `banks/gpt-canonical.json` (498 bilingual GPT-source questions; ledgered content review complete; schema v1.6 for typed unfolding-case metadata)
 - `banks/hard-cases-canonical.json` (66 top-level hard/NGN items; ledgered content review complete; schema v1.6 for typed unfolding-case metadata)
 - `banks/io-canonical.json` (8 schema v1.2 intake/output record visual items)
 - `banks/lab-canonical.json` (20 schema v1.2 lab_trend visual items; dedicated home for lab_trend kind)
@@ -57,6 +57,41 @@ Current schema item types:
 The committed NGN item-type set is complete. Rationale/dyad scoring and an explicit linked “X as evidenced by Y” type remain out of scope.
 
 ## Milestones
+
+### Phase 2 Schema-Hardening Step B Closeout (Jun 24)
+
+Completed:
+- Added `scripts/cleanup-unknown-key-residuals.ts` plus `npm run cleanup-unknown-keys`, a dry-run-default deterministic cleanup for the Phase 2 residual unknown-key tail.
+- Cleaned all 16 live residual off-schema keys from canonical banks: duplicate `rationale.byChoice[].id` keys on `cs_copd_01_q1`; stray glossary `en` on `opus_tpn_case_mucositis_01_q3`; legacy nested `matrix.correct` on `gpt_pph_2026_06_16_case_01_q5`; duplicate misnested `caseStudy.rationale` / `testTakingStrategy` / `glossary` on `gpt_case_unsafe_assignment_01`; empty `meta.custom` on `gpt_fresh_2026_06_22_vis_07`; `io-canonical.json` bank-meta provenance keys; and the legacy `overview` alias on `opus12_case_inpatient_suicide_risk_01`, renamed to schema `summary`.
+- Implemented the A1 unknown-key strict reject gate in `src/schema.ts` using `src/allowedKeys.ts` as the single manifest. Strictness is opt-in via `rejectUnknownKeys`; pipeline/audit call sites pass it explicitly, while learner-uploaded imports remain forgiving by default.
+- Kept `npm run scan-unknown-keys` as an on-demand diagnostic rather than wiring it into `npm run audit`; Tier 0 `validate:bank` now owns strict rejection in the aggregate gate.
+
+Verification:
+- `npm run cleanup-unknown-keys` dry-run reported the expected 16 changes; `npm run cleanup-unknown-keys -- --write` applied them.
+- `npm run scan-unknown-keys` passed with 0 off-schema key occurrences.
+- `npm run test:schema-bank` passed, including strict unknown-key fixtures and the `termDef` regression.
+- `npm run validate-bank -- banks/*.json` passed with strict mode.
+- `npm run audit` passed, with `audit:integrity` marked INSUFFICIENT because no raw draft files are currently present.
+- `npx tsc -b --pretty false` passed.
+- Final census/build verification completed for this pass.
+
+### Phase 2 Schema-Hardening Step A Closeout (Jun 24)
+
+Completed:
+- Confirmed promote-time presentation normalization is already folded into `scripts/promote.ts` via `normalizeBankPresentations(shuffled)`, covering MC/SATA/ordered option pools, dropdown options, matrix columns, and embedded case-study leaves after deterministic shuffle.
+- Extended `audit:integrity` regression coverage with embedded ordered-response, dropdown-cloze, and matrix leaves so the effective promote path verifies normalized structural axes while preserving keys, IDs, rationale refs, bilingual text, and keyed answers.
+- Ran the standalone presentation dry run and resolved the one live canonical display-order drift: `banks/gemini-canonical.json` item `gap_50_sic_04` matrix columns were re-normalized from `c2,c1,c3` to `c3,c1,c2`. The recorded `gpt-gap-jun12-rrp-bcc` diagnostic was clean.
+- Left `audit-non-mcq-bias` advisory-only; distributional bias findings are not wired into `npm run audit`.
+- Regenerated census artifacts. Counts remain 1,665 top-level questions, 721 embedded parts, and 154 visuals.
+
+Verification:
+- `npm run test:audit-integrity` passed.
+- `npm run test:presentation-normalization` passed.
+- `npm run normalize-presentations` passed with 0 pending changes after the rebaseline.
+- `npm run validate-bank -- banks/*.json` passed.
+- `npm run audit` passed, with `audit:integrity` marked INSUFFICIENT because no raw draft files are currently present.
+- `npm run census` completed.
+- `npm run build` passed.
 
 ### Visual Stimulus Natural-Size Caps (Jun 24)
 

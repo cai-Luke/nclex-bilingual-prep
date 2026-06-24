@@ -16,6 +16,7 @@ import type {
   StandaloneItemType,
   TextPair,
 } from "./types";
+import { allowedKeySets } from "./allowedKeys";
 import { getVisual, VISUAL_ITEM_TYPES, type VisualError } from "./visuals/registry";
 import "./visuals/kinds"; // register every visual kind for validation (React-free)
 export { rhythmClasses } from "./visuals/kinds/rhythmStrip";
@@ -151,6 +152,259 @@ const cmpSchema = (a: string, b: string) => schemaOrder.indexOf(a) - schemaOrder
 const formatVisualError = (basePath: string, err: VisualError) =>
   err.path ? `${basePath}.${err.path} ${err.message}` : `${basePath} ${err.message}`;
 
+type ValidateQuestionOptions = {
+  allowCaseStudy?: boolean;
+  rejectUnknownKeys?: boolean;
+};
+
+type ValidateBankOptions = {
+  rejectUnknownKeys?: boolean;
+};
+
+const keySet = (keys: readonly string[]) => new Set<string>(keys);
+
+const unknownKeys = (
+  value: unknown,
+  path: string,
+  objectType: string,
+  allowed: ReadonlySet<string>,
+  reasons: string[],
+) => {
+  if (!isRecord(value)) return;
+  for (const key of Object.keys(value)) {
+    if (!allowed.has(key)) {
+      reasons.push(`${path || objectType} has unknown key '${key}'`);
+    }
+  }
+};
+
+const collectTextPairUnknownKeys = (value: unknown, path: string, reasons: string[]) => {
+  unknownKeys(value, path, "textPair", keySet(allowedKeySets.textPair), reasons);
+};
+
+const collectVisualUnknownKeys = (value: unknown, path: string, reasons: string[]) => {
+  if (!isRecord(value)) return;
+  const kind = typeof value.kind === "string" ? value.kind : "unknown";
+  const kindKeys = kind in allowedKeySets.visualByKind
+    ? allowedKeySets.visualByKind[kind as keyof typeof allowedKeySets.visualByKind]
+    : [];
+  unknownKeys(value, path, `visual:${kind}`, keySet([...allowedKeySets.visualCommon, ...kindKeys]), reasons);
+
+  if (value.caption !== undefined) collectTextPairUnknownKeys(value.caption, `${path}.caption`, reasons);
+  if (value.rosc !== undefined) unknownKeys(value.rosc, `${path}.rosc`, "rosc", keySet(allowedKeySets.rosc), reasons);
+  if (value.time !== undefined) unknownKeys(value.time, `${path}.time`, "visualTime", keySet(allowedKeySets.visualTime), reasons);
+  if (Array.isArray(value.series)) {
+    const seriesType = kind === "lab_trend" ? "labSeries" : "vitalsSeries";
+    const allowed = keySet(seriesType === "labSeries" ? allowedKeySets.labSeries : allowedKeySets.vitalsSeries);
+    value.series.forEach((entry, index) => unknownKeys(entry, `${path}.series[${index}]`, seriesType, allowed, reasons));
+  }
+  if (Array.isArray(value.medications)) {
+    value.medications.forEach((medication, index) => {
+      const medicationPath = `${path}.medications[${index}]`;
+      unknownKeys(medication, medicationPath, "marMedication", keySet(allowedKeySets.marMedication), reasons);
+      if (isRecord(medication) && Array.isArray(medication.administrations)) {
+        medication.administrations.forEach((administration, adminIndex) =>
+          unknownKeys(administration, `${medicationPath}.administrations[${adminIndex}]`, "marAdministration", keySet(allowedKeySets.marAdministration), reasons),
+        );
+      }
+    });
+  }
+  for (const entryKey of ["intake", "output"] as const) {
+    if (Array.isArray(value[entryKey])) {
+      value[entryKey].forEach((entry, index) =>
+        unknownKeys(entry, `${path}.${entryKey}[${index}]`, "ioEntry", keySet(allowedKeySets.ioEntry), reasons),
+      );
+    }
+  }
+  if (value.periodLabel !== undefined) collectTextPairUnknownKeys(value.periodLabel, `${path}.periodLabel`, reasons);
+  if (value.title !== undefined) collectTextPairUnknownKeys(value.title, `${path}.title`, reasons);
+  if (Array.isArray(value.fields)) {
+    value.fields.forEach((field, index) => unknownKeys(field, `${path}.fields[${index}]`, "medLabelField", keySet(allowedKeySets.medLabelField), reasons));
+  }
+  if (Array.isArray(value.settings)) {
+    value.settings.forEach((setting, index) => unknownKeys(setting, `${path}.settings[${index}]`, "deviceSetting", keySet(allowedKeySets.deviceSetting), reasons));
+  }
+  if (Array.isArray(value.contractions)) {
+    value.contractions.forEach((contraction, index) =>
+      unknownKeys(contraction, `${path}.contractions[${index}]`, "fetalContraction", keySet(allowedKeySets.fetalContraction), reasons),
+    );
+  }
+  if (Array.isArray(value.accelerations)) {
+    value.accelerations.forEach((acceleration, index) =>
+      unknownKeys(acceleration, `${path}.accelerations[${index}]`, "fetalAcceleration", keySet(allowedKeySets.fetalAcceleration), reasons),
+    );
+  }
+  if (Array.isArray(value.decelerations)) {
+    value.decelerations.forEach((deceleration, index) =>
+      unknownKeys(deceleration, `${path}.decelerations[${index}]`, "fetalDeceleration", keySet(allowedKeySets.fetalDeceleration), reasons),
+    );
+  }
+};
+
+const collectQuestionMetaUnknownKeys = (value: unknown, path: string, reasons: string[]) => {
+  unknownKeys(value, path, "questionMeta", keySet(allowedKeySets.questionMeta), reasons);
+  if (!isRecord(value)) return;
+  if (Array.isArray(value.expected_trend)) {
+    value.expected_trend.forEach((entry, index) =>
+      unknownKeys(entry, `${path}.expected_trend[${index}]`, "expectedTrend", keySet(allowedKeySets.expectedTrend), reasons),
+    );
+  }
+  if (Array.isArray(value.expected_flags)) {
+    value.expected_flags.forEach((entry, index) =>
+      unknownKeys(entry, `${path}.expected_flags[${index}]`, "expectedFlag", keySet(allowedKeySets.expectedFlag), reasons),
+    );
+  }
+  if (Array.isArray(value.reference_bands)) {
+    value.reference_bands.forEach((entry, index) =>
+      unknownKeys(entry, `${path}.reference_bands[${index}]`, "referenceBand", keySet(allowedKeySets.referenceBand), reasons),
+    );
+  }
+};
+
+const collectRationaleUnknownKeys = (value: unknown, path: string, reasons: string[]) => {
+  unknownKeys(value, path, "rationale", keySet(allowedKeySets.rationale), reasons);
+  if (!isRecord(value)) return;
+  if (value.correct !== undefined) collectTextPairUnknownKeys(value.correct, `${path}.correct`, reasons);
+  if (Array.isArray(value.byChoice)) {
+    value.byChoice.forEach((choice, index) =>
+      unknownKeys(choice, `${path}.byChoice[${index}]`, "rationaleChoice", keySet(allowedKeySets.rationaleChoice), reasons),
+    );
+  }
+  if (Array.isArray(value.visuals)) {
+    value.visuals.forEach((visual, index) => collectVisualUnknownKeys(visual, `${path}.visuals[${index}]`, reasons));
+  }
+};
+
+const collectOptionsUnknownKeys = (value: unknown, path: string, reasons: string[]) => {
+  if (!Array.isArray(value)) return;
+  value.forEach((option, index) => unknownKeys(option, `${path}[${index}]`, "option", keySet(allowedKeySets.option), reasons));
+};
+
+const collectCaseStudyExhibitUnknownKeys = (value: unknown, path: string, reasons: string[]) => {
+  unknownKeys(value, path, "caseStudyExhibit", keySet(allowedKeySets.caseStudyExhibit), reasons);
+  if (!isRecord(value)) return;
+  collectTextPairUnknownKeys(value.title, `${path}.title`, reasons);
+  collectTextPairUnknownKeys(value.content, `${path}.content`, reasons);
+  if (value.visual !== undefined) collectVisualUnknownKeys(value.visual, `${path}.visual`, reasons);
+};
+
+const collectQuestionUnknownKeys = (
+  value: unknown,
+  path: string,
+  reasons: string[],
+  options: { caseSubQuestion?: boolean } = {},
+) => {
+  if (!isRecord(value)) return;
+  const itemType = typeof value.itemType === "string" ? value.itemType : "unknown";
+  const itemTypeKeys = itemType in allowedKeySets.questionByItemType
+    ? allowedKeySets.questionByItemType[itemType as ItemType]
+    : [];
+  const caseSubQuestionKeys = options.caseSubQuestion ? allowedKeySets.caseSubQuestion : [];
+  unknownKeys(
+    value,
+    path,
+    `question:${itemType}`,
+    keySet([...allowedKeySets.questionCommon, ...itemTypeKeys, ...caseSubQuestionKeys]),
+    reasons,
+  );
+
+  collectTextPairUnknownKeys(value.stem, `${path}.stem`, reasons);
+  collectTextPairUnknownKeys(value.testTakingStrategy, `${path}.testTakingStrategy`, reasons);
+  if (value.rationale !== undefined) collectRationaleUnknownKeys(value.rationale, `${path}.rationale`, reasons);
+  if (value.visual !== undefined) collectVisualUnknownKeys(value.visual, `${path}.visual`, reasons);
+  if (value.meta !== undefined) collectQuestionMetaUnknownKeys(value.meta, `${path}.meta`, reasons);
+  if (Array.isArray(value.glossary)) {
+    value.glossary.forEach((term, index) =>
+      unknownKeys(term, `${path}.glossary[${index}]`, "glossaryTerm", keySet(allowedKeySets.glossaryTerm), reasons),
+    );
+  }
+  if (Array.isArray(value.options)) collectOptionsUnknownKeys(value.options, `${path}.options`, reasons);
+  if (Array.isArray(value.blanks)) {
+    value.blanks.forEach((blank, index) => {
+      const blankPath = `${path}.blanks[${index}]`;
+      unknownKeys(blank, blankPath, "blank", keySet(allowedKeySets.blank), reasons);
+      if (isRecord(blank)) {
+        collectTextPairUnknownKeys(blank.prompt, `${blankPath}.prompt`, reasons);
+        if (blank.numeric !== undefined) unknownKeys(blank.numeric, `${blankPath}.numeric`, "blankNumeric", keySet(allowedKeySets.blankNumeric), reasons);
+      }
+    });
+  }
+  if (isRecord(value.matrix)) {
+    unknownKeys(value.matrix, `${path}.matrix`, "matrix", keySet(allowedKeySets.matrix), reasons);
+    collectOptionsUnknownKeys(value.matrix.rows, `${path}.matrix.rows`, reasons);
+    collectOptionsUnknownKeys(value.matrix.columns, `${path}.matrix.columns`, reasons);
+  }
+  if (Array.isArray(value.correct) && itemType === "matrix") {
+    value.correct.forEach((entry, index) =>
+      unknownKeys(entry, `${path}.correct[${index}]`, "matrixCorrect", keySet(allowedKeySets.matrixCorrect), reasons),
+    );
+  }
+  if (value.clozeStem !== undefined) collectTextPairUnknownKeys(value.clozeStem, `${path}.clozeStem`, reasons);
+  if (Array.isArray(value.dropdowns)) {
+    value.dropdowns.forEach((dropdown, index) => {
+      const dropdownPath = `${path}.dropdowns[${index}]`;
+      unknownKeys(dropdown, dropdownPath, "dropdown", keySet(allowedKeySets.dropdown), reasons);
+      if (isRecord(dropdown)) collectOptionsUnknownKeys(dropdown.options, `${dropdownPath}.options`, reasons);
+    });
+  }
+  if (isRecord(value.highlight)) {
+    unknownKeys(value.highlight, `${path}.highlight`, "highlight", keySet(allowedKeySets.highlight), reasons);
+    if (Array.isArray(value.highlight.segments)) {
+      value.highlight.segments.forEach((segment, index) =>
+        unknownKeys(segment, `${path}.highlight.segments[${index}]`, "highlightSegment", keySet(allowedKeySets.highlightSegment), reasons),
+      );
+    }
+  }
+  if (isRecord(value.bowtie)) {
+    unknownKeys(value.bowtie, `${path}.bowtie`, "bowtie", keySet(allowedKeySets.bowtie), reasons);
+    for (const zoneName of ["condition", "actions", "parameters"] as const) {
+      const zone = value.bowtie[zoneName];
+      const zonePath = `${path}.bowtie.${zoneName}`;
+      unknownKeys(zone, zonePath, "bowtieZone", keySet(allowedKeySets.bowtieZone), reasons);
+      if (isRecord(zone)) {
+        if (zone.prompt !== undefined) collectTextPairUnknownKeys(zone.prompt, `${zonePath}.prompt`, reasons);
+        if (Array.isArray(zone.tokens)) {
+          zone.tokens.forEach((token, index) =>
+            unknownKeys(token, `${zonePath}.tokens[${index}]`, "bowtieToken", keySet(allowedKeySets.bowtieToken), reasons),
+          );
+        }
+      }
+    }
+  }
+  if (isRecord(value.caseStudy)) {
+    const casePath = `${path}.caseStudy`;
+    unknownKeys(value.caseStudy, casePath, "caseStudy", keySet(allowedKeySets.caseStudy), reasons);
+    collectTextPairUnknownKeys(value.caseStudy.title, `${casePath}.title`, reasons);
+    if (value.caseStudy.summary !== undefined) collectTextPairUnknownKeys(value.caseStudy.summary, `${casePath}.summary`, reasons);
+    if (Array.isArray(value.caseStudy.exhibits)) {
+      value.caseStudy.exhibits.forEach((exhibit, index) =>
+        collectCaseStudyExhibitUnknownKeys(exhibit, `${casePath}.exhibits[${index}]`, reasons),
+      );
+    }
+    if (Array.isArray(value.caseStudy.stages)) {
+      value.caseStudy.stages.forEach((stage, index) => {
+        const stagePath = `${casePath}.stages[${index}]`;
+        unknownKeys(stage, stagePath, "caseStudyStage", keySet(allowedKeySets.caseStudyStage), reasons);
+        if (isRecord(stage)) {
+          collectTextPairUnknownKeys(stage.title, `${stagePath}.title`, reasons);
+          if (stage.trigger !== undefined) collectTextPairUnknownKeys(stage.trigger, `${stagePath}.trigger`, reasons);
+          if (stage.narrative !== undefined) collectTextPairUnknownKeys(stage.narrative, `${stagePath}.narrative`, reasons);
+          if (Array.isArray(stage.exhibits)) {
+            stage.exhibits.forEach((exhibit, exhibitIndex) =>
+              collectCaseStudyExhibitUnknownKeys(exhibit, `${stagePath}.exhibits[${exhibitIndex}]`, reasons),
+            );
+          }
+        }
+      });
+    }
+    if (Array.isArray(value.caseStudy.questions)) {
+      value.caseStudy.questions.forEach((caseQuestion, index) =>
+        collectQuestionUnknownKeys(caseQuestion, `${casePath}.questions[${index}]`, reasons, { caseSubQuestion: true }),
+      );
+    }
+  }
+};
+
 /**
  * Registry-driven visual validation. Resolves the kind module and delegates
  * structural/range checks (validate), placement (allowedItemTypes), schema-floor
@@ -201,13 +455,16 @@ export const validateVisual = (
   }
 };
 
-export const validateQuestion = (raw: unknown, options: { allowCaseStudy?: boolean } = {}): ValidationResult<Question> => {
+export const validateQuestion = (raw: unknown, options: ValidateQuestionOptions = {}): ValidationResult<Question> => {
   const allowCaseStudy = options.allowCaseStudy ?? true;
   const reasons: string[] = [];
   if (!isRecord(raw)) {
     return { ok: false, reasons: ["question must be an object"] };
   }
 
+  if (options.rejectUnknownKeys === true) {
+    collectQuestionUnknownKeys(raw, "question", reasons);
+  }
   scanForReplacementChar(raw, "", reasons);
 
   if (!nonEmptyString(raw.id)) reasons.push("missing id");
@@ -757,11 +1014,23 @@ const hasSchema16CaseFields = (question: Question): boolean => {
   );
 };
 
-export const validateBankObject = (raw: unknown): ValidationResult<BankEnvelope> => {
+export const validateBankObject = (raw: unknown, options: ValidateBankOptions = {}): ValidationResult<BankEnvelope> => {
   const reasons: string[] = [];
   const payload = Array.isArray(raw) ? { questions: raw } : raw;
 
   if (!isRecord(payload)) return { ok: false, reasons: ["bank must be an object or array"] };
+
+  if (options.rejectUnknownKeys === true) {
+    unknownKeys(payload, "$", "bank", keySet(allowedKeySets.bank), reasons);
+    if (payload.meta !== undefined) {
+      unknownKeys(payload.meta, "$.meta", "bankMeta", keySet(allowedKeySets.bankMeta), reasons);
+    }
+    if (Array.isArray(payload.questions)) {
+      payload.questions.forEach((question, index) =>
+        collectQuestionUnknownKeys(question, `questions[${index}]`, reasons),
+      );
+    }
+  }
 
   let schemaVersion: SchemaVersion | undefined;
   let meta: Record<string, unknown> | undefined;

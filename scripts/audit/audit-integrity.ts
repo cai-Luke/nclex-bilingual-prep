@@ -110,7 +110,7 @@ export function integrityForFile(
     return { kind: "draftInvalid", reasons: [error instanceof Error ? error.message : String(error)] };
   }
 
-  const draftResult = validateBankObject(draftRaw);
+  const draftResult = validateBankObject(draftRaw, { rejectUnknownKeys: true });
   if (!draftResult.ok) return { kind: "draftInvalid", reasons: draftResult.reasons };
 
   let promotedRaw: unknown;
@@ -120,7 +120,7 @@ export function integrityForFile(
     return { kind: "promotedInvalid", reasons: [error instanceof Error ? error.message : String(error)] };
   }
 
-  const promotedResult = validateBankObject(promotedRaw);
+  const promotedResult = validateBankObject(promotedRaw, { rejectUnknownKeys: true });
   if (!promotedResult.ok) return { kind: "promotedInvalid", reasons: promotedResult.reasons };
 
   const promotedById = new Map(promotedResult.value.questions.map((q) => [q.id, q]));

@@ -27,7 +27,7 @@ export async function runValidateBank(): Promise<AuditResult> {
     try {
       const text = await readFile(path, "utf8");
       const raw = parseBankText(text);
-      const result = validateBankObject(raw);
+      const result = validateBankObject(raw, { rejectUnknownKeys: true });
       if (!result.ok) {
         const stem = basename(filename, ".json");
         failures.push(stem);

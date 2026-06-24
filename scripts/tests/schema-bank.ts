@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { validateBankObject } from "../../src/schema";
+import { validateBankObject, validateQuestion } from "../../src/schema";
 import { toExportEnvelope } from "../../src/bankImport";
 import type { Question } from "../../src/types";
 
@@ -319,5 +319,50 @@ const exportEnvelope = toExportEnvelope([withRationaleVisuals([rationaleVisual])
 assert.equal(exportEnvelope.meta?.schemaVersion, "1.5");
 const schema16ExportEnvelope = toExportEnvelope([caseStudy16 as unknown as Question]);
 assert.equal(schema16ExportEnvelope.meta?.schemaVersion, "1.6");
+
+const strictClean = validateBankObject({
+  meta: { schemaVersion: "1.5", count: 1 },
+  questions: [withRationaleVisuals([rationaleVisual])],
+}, { rejectUnknownKeys: true });
+assert.equal(strictClean.ok, true);
+
+const strictQuestionExtra = validateBankObject({
+  meta: { schemaVersion: "1.5", count: 1 },
+  questions: [{
+    ...withRationaleVisuals([rationaleVisual]),
+    stray: true,
+  }],
+}, { rejectUnknownKeys: true });
+assert.equal(strictQuestionExtra.ok, false);
+if (!strictQuestionExtra.ok) {
+  assert(strictQuestionExtra.reasons.includes("questions[0] has unknown key 'stray'"));
+}
+
+const strictGlossaryTermDef = validateBankObject({
+  meta: { schemaVersion: "1.5", count: 1 },
+  questions: [{
+    ...withRationaleVisuals([rationaleVisual]),
+    glossary: [{ termEn: "Term", termZh: "术语", defZh: "定义", termDef: "legacy" }],
+  }],
+}, { rejectUnknownKeys: true });
+assert.equal(strictGlossaryTermDef.ok, false);
+if (!strictGlossaryTermDef.ok) {
+  assert(strictGlossaryTermDef.reasons.includes("questions[0].glossary[0] has unknown key 'termDef'"));
+}
+
+const strictBankMetaExtra = validateBankObject({
+  meta: { schemaVersion: "1.5", count: 1, generatedAt: "2026-06-24" },
+  questions: [withRationaleVisuals([rationaleVisual])],
+}, { rejectUnknownKeys: true });
+assert.equal(strictBankMetaExtra.ok, false);
+if (!strictBankMetaExtra.ok) {
+  assert(strictBankMetaExtra.reasons.includes("$.meta has unknown key 'generatedAt'"));
+}
+
+const forgivingQuestionImport = validateQuestion({
+  ...baseOptionQuestion,
+  glossary: [{ termEn: "Term", termZh: "术语", defZh: "定义", termDef: "legacy" }],
+});
+assert.equal(forgivingQuestionImport.ok, true);
 
 console.log("bank schema tests passed");

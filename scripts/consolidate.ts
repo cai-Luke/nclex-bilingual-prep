@@ -37,7 +37,7 @@ const defaultMeta = (): NonNullable<BankEnvelope["meta"]> => ({
 
 const loadValidatedBank = async (path: string, label: string): Promise<BankEnvelope> => {
   const raw = parseBankText(await readFile(path, "utf8"));
-  const result = validateBankObject(raw);
+  const result = validateBankObject(raw, { rejectUnknownKeys: true });
   if (!result.ok) {
     throw new Error(`${label} failed validation:\n${result.reasons.join("\n")}`);
   }
@@ -137,7 +137,7 @@ export async function consolidateInto(
     questions: [...canonicalBank.questions, ...staging.questions],
   };
 
-  const mergedResult = validateBankObject(merged);
+  const mergedResult = validateBankObject(merged, { rejectUnknownKeys: true });
   if (!mergedResult.ok) {
     return {
       ok: false,

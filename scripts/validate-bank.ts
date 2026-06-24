@@ -29,7 +29,7 @@ for (const file of files) {
         continue;
       }
     }
-    const result = validateBankObject(isRaw ? stripCompileManifests(raw) : raw);
+    const result = validateBankObject(isRaw ? stripCompileManifests(raw) : raw, { rejectUnknownKeys: true });
     if (!result.ok) {
       failed = true;
       console.error(`\n${basename(file)} failed validation:`);

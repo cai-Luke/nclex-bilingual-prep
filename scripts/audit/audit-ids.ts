@@ -48,7 +48,7 @@ export async function runAuditIds(): Promise<AuditResult> {
   for (const filename of files) {
     const text = await readFile(join(CANONICAL_DIR, filename), "utf8");
     const raw = parseBankText(text);
-    const result = validateBankObject(raw);
+    const result = validateBankObject(raw, { rejectUnknownKeys: true });
     if (!result.ok) {
       return {
         name: "audit:ids",
