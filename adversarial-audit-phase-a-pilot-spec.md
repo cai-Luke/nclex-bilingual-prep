@@ -26,8 +26,10 @@ has been regenerated.
   **severity axis** (§3) and the **concept-cluster seeds** (do they surface real
   cross-topic contradictions?).
 - It is **not** a schema audit (structure is the deterministic layer's job,
-  campaign §0) and **not** a visual load-bearing audit (that is the separate
-  visual lane; the four text banks carry no load-bearing stimuli).
+  campaign §0; unknown-key strict-reject is the separate Phase-2 closeout track
+  and is **not** invoked here) and **not** a visual-necessity audit (that is a
+  separate named follow-on, §8 — different bank set, different method; the four
+  text banks carry no load-bearing stimuli).
 - It does **not** edit banks. Output is a findings report + a JSONL manifest of
   proposals. Repairs are separate, smaller patch specs (`patch-raw
   --allow-canonical --reason`), executed by Luke after review.
@@ -75,27 +77,32 @@ is non-producer for **both** sides.
 Each session/sub-batch states its reviewing model in the Session Header and the
 producer-mismatch basis.
 
-## 3. Severity — new axis, orthogonal to confidence and verdict
+## 3. Severity — harm-if-real, orthogonal to confidence, verdict, and evidence-state
 
 The campaign tracks **confidence** (is the finding real?) and **verdict**
-(FIX/CUT/REVIEW/DISMISS). It has no measure of **harm if real**. Add severity as
-an independent field so a confidently-real awkward-Chinese line and a
-confidently-real wrong answer key do not share a lane.
+(FIX/CUT/REVIEW/DISMISS). It has no measure of **harm if real**. Severity is
+that axis and that axis only — it answers "if this finding is true, how bad is
+it for the learner," nothing else. Whether a claim still needs source
+verification is **not** a severity; it is carried by `recommendedAction =
+source_check` and `needsHumanReview = true` (§5).
 
 | Severity | Meaning |
 |---|---|
-| `blocker` | Unsafe clinical teaching: wrong answer key, false rationale, dangerous delegation/priority/order, stale medication/lab guidance that flips the keyed answer. |
-| `major` | Item nonfunctional or misleading: genuinely ambiguous (second defensible answer), distractors that break the item, bilingual divergence that changes clinical meaning, a cross-item contradiction a learner cannot reconcile. |
-| `minor` | Teaches but imperfectly: awkward (not wrong) Chinese, a rationale that could teach better, slight redundancy, polish. |
-| `watch` | Possibly stale/wrong but needs source verification before any claim. Equivalent to verdict `REVIEW`. |
+| `blocker` | Unsafe clinical teaching: wrong answer key, false rationale, dangerous delegation/priority/order, or stale medication/lab guidance that flips the keyed answer. |
+| `major` | Item nonfunctional or misleading: genuinely ambiguous (second defensible answer), distractors that break the item, bilingual divergence that changes clinical meaning, or a cross-item contradiction a learner cannot reconcile. |
+| `minor` | Teaches but imperfectly: awkward (not wrong) Chinese, a rationale that could teach better, slight redundancy, cosmetic polish. |
+| `housekeeping` | Metadata only, no teaching impact: junk/oversized topic label, census/ledger/source-provenance drift. Routes to the deterministic normalization/metadata lane, never a clinical patch. |
 
 Severity is **independent** of confidence: a finding can be HIGH-confidence /
 `minor` (definitely awkward Chinese) or MEDIUM-confidence / `blocker` (probably a
-wrong key, reconciliation exists). Both are recorded.
+wrong key, but a reconciliation exists). Both are recorded as-is.
 
-**Action gating:** only `blocker` and `major` trigger immediate repair specs.
-`watch` → REVIEW queue (source-check). `minor` → polish queue (batched, low
-priority). This keeps remediation focused.
+**Action gating:** `blocker` and `major` trigger immediate repair specs.
+`minor` → polish queue (batched, low priority). `housekeeping` → normalization /
+metadata lane (not this audit's repair path). Source-verification need
+(`recommendedAction = source_check`) cuts across all four — a `blocker` can be
+"confirmed wrong, patch now" or "probably wrong, verify first," and the action
+field, not the severity, says which.
 
 ## 4. Evidence & citation rules (inherited + concretized)
 
@@ -104,21 +111,24 @@ finding), Two-Question Rule (`DC`/`AK` need two IDs), Articulation Rule, Hedge
 Rule (LOW confidence + plausible reconciliation → `DISMISS`), and the parent §5
 hallucination guards. Plus:
 
-- **Citation only where it matters** (GPT review point 4). Internal defects —
+- **Citation only where it matters** (GPT review point). Internal defects —
   `DC`/`AK`/`RI`/`BD` and redundancy — need only the verbatim bank quotes; no
-  external source. A source (body + year + the specific value) is **required**
-  when the finding is `OG`, or when adjudicating *which side of a contradiction
-  is correct* depends on a guideline: medication, lab threshold, infection
-  control, procedure timing, fetal monitoring, delegation/scope-of-practice,
-  CPR/emergency, dialysis. No source for those → downgrade to `watch`/`REVIEW`,
-  never assert.
+  external source. A dated source (body + year + the specific value) is
+  **required** when the finding is `OG`, or when adjudicating *which side of a
+  contradiction is correct* depends on a guideline. High-risk claim classes that
+  require a source: medication and **dosage**, lab thresholds, infection
+  control, procedure timing/complications, **obstetric / fetal monitoring**,
+  delegation / scope-of-practice, CPR / emergency, dialysis, **oncology
+  emergencies**, and **guideline-sensitive screening / vaccine** content. No
+  source for one of these → `recommendedAction = source_check`,
+  `needsHumanReview = true`; never assert from model knowledge.
 - **Translation parity is judged clinically, not stylistically** (campaign §1,
   AGENTS check 13). A `BD` finding requires a meaning change: who does what,
   timing, negation, severity, escalation/priority, drug name/route, lab
   value/unit, client quote/consent, delegation-role boundary. Hold→give,
   before→after, can→cannot delegate, or lost urgency is `major`/`blocker`.
   Awkward-but-faithful Chinese is `minor` at most.
-- **No UWorld overfitting** (GPT review point 8). Do not flag bilingual
+- **No UWorld overfitting** (GPT review point). Do not flag bilingual
   scaffolding, originality, or non-UWorld style as a defect unless it creates
   ambiguity or misteaching. The app teaches safely; it does not impersonate a
   commercial bank.
@@ -133,43 +143,66 @@ Two artifacts, no canonical writes:
    (`RI`/`SC`/`BD`/`OG`); sorted HIGH → MEDIUM → LOW → DISMISSED; verbatim
    evidence; a mandatory Alternative Interpretation on every finding; ≤3,000
    words per 50 audited items (parent §9 — exceeding it is the signal that
-   evidentiary standards slipped). A zero-finding batch is a valid result.
+   evidentiary standards slipped). A zero-finding batch is a valid result. Full
+   rationale (Conflict Claim, Alternative Interpretation) lives here.
 2. **`audit/early-bank-semantic/coherence/ADVERSARIAL-AUDIT-2026-06-24.manifest.jsonl`**
-   — one row per actioned item:
+   — a triage index, one row per actioned item, keyed back to the report by
+   `findingRef`. It does **not** duplicate the report's prose or carry rewritten
+   JSON:
 
 ```json
 {
   "itemId": "string",
+  "parentId": "string | null",
   "bank": "gemini-canonical.json | gpt-canonical.json | claude-canonical.json | hard-cases-canonical.json",
+  "path": "questions[N] | questions[N].caseStudy.questions[M]",
+  "itemType": "multiple_choice | select_all | ordered_response | fill_in_blank | matrix | dropdown_cloze | highlight | bowtie | case_study",
   "pairId": "string | null",
   "categoryCode": "DC | AK | RI | SC | BD | OG",
-  "severity": "blocker | major | minor | watch",
+  "severity": "blocker | major | minor | housekeeping",
   "confidence": "HIGH | MEDIUM | LOW",
   "verdict": "FIX | CUT | REVIEW | DISMISS",
+  "recommendedAction": "keep | source_check | patch | hold | discard",
+  "needsHumanReview": true,
   "finding": "one-sentence statement of the defect",
   "evidence": "verbatim quoted span(s) from the bank",
   "source": "body + year + superseded/correct value — required for OG and guideline-dependent adjudications, else null",
   "reviewingModel": "claude-... | gpt-5...",
-  "recommendedAction": "retire | rewrite | source_check | minor_edit | keep"
+  "findingRef": "FINDING #N | CONCERN #N in the report"
 }
 ```
 
-`recommendedAction` maps to the campaign verdict vocab: `retire`=CUT,
-`rewrite`/`minor_edit`=FIX, `source_check`=REVIEW, `keep`=DISMISS. A `FIX`/CUT
-proposal does **not** include the rewritten JSON here — repairs are separate
-patch specs so no model retypes canonical JSON in the audit pass (AGENTS quote
-safety; principle 15).
+- **`parentId`** is the case-study container ID for an embedded leaf
+  (`null` for a top-level item); **`path`** is Layer A's exact locator. Both
+  exist so the later patch pass can address the precise leaf without
+  re-resolving it. `itemType` is copied from Layer A.
+- **`recommendedAction` → campaign verdict mapping** (`verdict` stays the
+  authoritative campaign field): `patch`=FIX, `discard`=CUT, `keep`=DISMISS,
+  `source_check`=REVIEW (real but unverified — blocks on a source),
+  `hold`=REVIEW (real, verified, but parked: a contested call or a
+  non-urgent rewrite that needs a human decision, not a source).
+- **`needsHumanReview`** is `true` when `verdict = REVIEW`, when a
+  `blocker`/`major` would change a keyed answer, or when an `OG`/guideline
+  adjudication lacks a confirmed source. It is the explicit "do not auto-apply"
+  flag the parent task-spec report schema carried.
+- No rewritten JSON in either artifact — repairs are separate patch specs so no
+  model retypes canonical JSON in the audit pass (AGENTS quote safety;
+  principle 15).
 
 ## 6. Remediation queue (grouped, for the report tail)
 
 End the report with the proposals grouped so Luke can triage:
 
-- **retire (CUT):** strictly-dominated redundant duplicates; unsalvageable
-  items.
-- **rewrite (FIX, blocker/major):** the immediate-repair queue — each becomes a
-  small `patch-raw` spec.
-- **source-check (watch/REVIEW):** needs a dated source before action.
+- **discard / retire (CUT):** strictly-dominated redundant duplicates;
+  unsalvageable items.
+- **patch (FIX, blocker/major):** the immediate-repair queue — each becomes a
+  small `patch-raw` spec, EN+ZH together.
+- **source_check (REVIEW + needsHumanReview):** real finding, needs a dated
+  source before any action.
+- **hold (REVIEW):** contested or non-urgent; awaits a human decision.
 - **minor polish (minor):** batched, deferrable.
+- **housekeeping:** routed to the deterministic normalization / metadata lane,
+  not a clinical patch.
 
 ## 7. Done criteria
 
@@ -181,10 +214,12 @@ End the report with the proposals grouped so Luke can triage:
       concept clusters; Claude-reviewable vs GPT-5 carve-out applied per §2.
 - [ ] Every `DC`/`AK` finding has two IDs and verbatim evidence for both; every
       finding has an Alternative Interpretation; LOW + reconciliation → DISMISS.
-- [ ] Every finding carries an independent `severity`; only blocker/major are
-      routed to immediate repair.
+- [ ] Every finding carries an independent `severity` (harm-only) and a
+      `recommendedAction`; only `blocker`/`major` route to immediate repair.
+- [ ] Every manifest row carries `itemType`, `path`, and `parentId`
+      (`null` for top-level); embedded-leaf findings name their case container.
 - [ ] `OG` and guideline-dependent adjudications carry a dated source, else
-      `watch`/REVIEW.
+      `recommendedAction = source_check` + `needsHumanReview = true`.
 - [ ] Findings sorted by confidence; under the word budget; zero-finding batches
       stated explicitly.
 - [ ] Manifest emitted; no canonical edits; no rewritten JSON in the audit
@@ -199,9 +234,18 @@ End the report with the proposals grouped so Luke can triage:
 - If scale is justified: Phase B runs the rest of the coherence queue in
   ≤100-item harm-sorted batches, same apparatus, Claude/GPT-5 split by
   provenance.
-- The blocker/major repair specs are written and executed (Luke) via
+- The `blocker`/`major` repair specs are written and executed (Luke) via
   `patch-raw --allow-canonical --reason`, each updating EN **and** ZH together
   (principle 9 / campaign §5), with ledger + `npm run census && census:check` at
   execution time, verified in the Review Console (`?dev=1&qids=`).
-- `audit/early-bank-semantic/CAMPAIGN-STATUS.md` is updated to record the
-  coherence track opening and the pilot result.
+- **Record closeout:** update `audit/early-bank-semantic/CAMPAIGN-STATUS.md`
+  (coherence track opened, pilot result), `BANK-REVIEW-LEDGER.md` (any executed
+  cure/cut), and `PROJECT-HISTORY.md` (active-scope change: the coherence track
+  is now open) — per AGENTS.md, history and ledger are the current status/review
+  records and update when scope or review status moves.
+- **Named follow-on — visual-necessity audit (separate spec, not this one).**
+  The principle-6 necessity test ("what cue is available *only* from the visual;
+  if the answer is unchanged with the visual removed, it is decorative and
+  invalid") applies to the nine visual-kind canonicals, which Layer A does not
+  route and whose method differs from text coherence. Spec it separately if/when
+  the visual lane is prioritized; do not fold it into this text-bank pilot.
