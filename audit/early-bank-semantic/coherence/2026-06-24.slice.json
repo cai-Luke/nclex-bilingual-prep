@@ -1,0 +1,3940 @@
+{
+  "generated": "2026-06-24",
+  "source_queue": "audit/early-bank-semantic/layer-a-queue.jsonl",
+  "clusters": [
+    "delegation_scope",
+    "insulin_hypoglycemia",
+    "isolation_mode",
+    "potassium_replacement"
+  ],
+  "unique_item_count": 109,
+  "candidate_pair_count": 156,
+  "reviewer_split": {
+    "claude_pairs": 149,
+    "gpt5_pairs": 7
+  },
+  "gpt5_carveout_ids": [
+    "claude_moc_assignment_mc_14",
+    "claude_moc_deleg_matrix_08",
+    "claude_moc_deleg_uap_hl_01",
+    "claude_moc_lpn_deleg_hl_b01",
+    "claude_moc_supervision_hl_b04"
+  ],
+  "items": [
+    {
+      "id": "claude_moc_assignment_mc_14",
+      "bank": "claude-canonical.json",
+      "path": "questions[82]",
+      "producer": "claude",
+      "provenance_tier": "medium",
+      "harm_rank": 85,
+      "pilot_clusters": [
+        "delegation_scope"
+      ],
+      "within_cluster_peers": [
+        "gemini_p8_08"
+      ]
+    },
+    {
+      "id": "claude_moc_deleg_matrix_08",
+      "bank": "claude-canonical.json",
+      "path": "questions[76]",
+      "producer": "claude",
+      "provenance_tier": "medium",
+      "harm_rank": 85,
+      "pilot_clusters": [
+        "delegation_scope"
+      ],
+      "within_cluster_peers": [
+        "gpt_canonical_matrix_scope_assignment_050"
+      ]
+    },
+    {
+      "id": "claude_moc_deleg_uap_hl_01",
+      "bank": "claude-canonical.json",
+      "path": "questions[69]",
+      "producer": "claude",
+      "provenance_tier": "medium",
+      "harm_rank": 85,
+      "pilot_clusters": [
+        "delegation_scope"
+      ],
+      "within_cluster_peers": [
+        "claude_moc_lpn_deleg_hl_b01",
+        "claude_moc_supervision_hl_b04",
+        "gemini_hl_moc_delegation_02"
+      ]
+    },
+    {
+      "id": "claude_moc_lpn_deleg_hl_b01",
+      "bank": "claude-canonical.json",
+      "path": "questions[83]",
+      "producer": "claude",
+      "provenance_tier": "medium",
+      "harm_rank": 85,
+      "pilot_clusters": [
+        "delegation_scope"
+      ],
+      "within_cluster_peers": [
+        "claude_moc_deleg_uap_hl_01",
+        "gpt_hl_moc_lpn_scope_05"
+      ]
+    },
+    {
+      "id": "claude_moc_supervision_hl_b04",
+      "bank": "claude-canonical.json",
+      "path": "questions[86]",
+      "producer": "claude",
+      "provenance_tier": "medium",
+      "harm_rank": 85,
+      "pilot_clusters": [
+        "delegation_scope"
+      ],
+      "within_cluster_peers": [
+        "claude_moc_deleg_uap_hl_01",
+        "gemini_hl_sic_precautions_06"
+      ]
+    },
+    {
+      "id": "easy_dka_01",
+      "bank": "gemini-canonical.json",
+      "path": "questions[687]",
+      "producer": "gemini",
+      "provenance_tier": "high",
+      "harm_rank": 95,
+      "pilot_clusters": [
+        "insulin_hypoglycemia"
+      ],
+      "within_cluster_peers": [
+        "gemini_d10_03",
+        "gemini_p5_10",
+        "gemini_p7_06"
+      ]
+    },
+    {
+      "id": "easy_prioritization_01",
+      "bank": "gemini-canonical.json",
+      "path": "questions[647]",
+      "producer": "gemini",
+      "provenance_tier": "high",
+      "harm_rank": 95,
+      "pilot_clusters": [
+        "delegation_scope"
+      ],
+      "within_cluster_peers": [
+        "gemini_p8_01",
+        "gemini_p8_06",
+        "trad_batchB_03"
+      ]
+    },
+    {
+      "id": "easy_prioritization_02",
+      "bank": "gemini-canonical.json",
+      "path": "questions[648]",
+      "producer": "gemini",
+      "provenance_tier": "high",
+      "harm_rank": 95,
+      "pilot_clusters": [
+        "delegation_scope"
+      ],
+      "within_cluster_peers": [
+        "gemini_jun05_a_mc_delegation_21",
+        "gemini_p8_02",
+        "gpt_case_gap_2026_06_11_pressure_ltc_part_3_mc_delegate",
+        "mc_delegation_uap_vitals_001",
+        "trad_batchB_01"
+      ]
+    },
+    {
+      "id": "easy_prioritization_03",
+      "bank": "gemini-canonical.json",
+      "path": "questions[649]",
+      "producer": "gemini",
+      "provenance_tier": "high",
+      "harm_rank": 95,
+      "pilot_clusters": [
+        "delegation_scope"
+      ],
+      "within_cluster_peers": [
+        "trad_batchB_03"
+      ]
+    },
+    {
+      "id": "easy_prioritization_04",
+      "bank": "gemini-canonical.json",
+      "path": "questions[650]",
+      "producer": "gemini",
+      "provenance_tier": "high",
+      "harm_rank": 95,
+      "pilot_clusters": [
+        "delegation_scope"
+      ],
+      "within_cluster_peers": [
+        "gemini_b10_02",
+        "gemini_c3_01",
+        "gemini_c3_07",
+        "gemini_c9_08",
+        "sata_prioritize_change_condition_002",
+        "trad_batchB_02"
+      ]
+    },
+    {
+      "id": "easy_resp_infect_02",
+      "bank": "gemini-canonical.json",
+      "path": "questions[681]",
+      "producer": "gemini",
+      "provenance_tier": "high",
+      "harm_rank": 95,
+      "pilot_clusters": [
+        "isolation_mode"
+      ],
+      "within_cluster_peers": [
+        "gemini_p5_02"
+      ]
+    },
+    {
+      "id": "gap_50_ppt_05",
+      "bank": "gemini-canonical.json",
+      "path": "questions[739]",
+      "producer": "gemini",
+      "provenance_tier": "high",
+      "harm_rank": 95,
+      "pilot_clusters": [
+        "insulin_hypoglycemia"
+      ],
+      "within_cluster_peers": [
+        "gemini_d2_insulin_01",
+        "gemini_gap_case_pediatric_diabetes_03_q3"
+      ]
+    },
+    {
+      "id": "gap_50_sic_01",
+      "bank": "gemini-canonical.json",
+      "path": "questions[723]",
+      "producer": "gemini",
+      "provenance_tier": "high",
+      "harm_rank": 95,
+      "pilot_clusters": [
+        "isolation_mode"
+      ],
+      "within_cluster_peers": [
+        "gap_50_sic_02",
+        "gemini_b10_05",
+        "gemini_jun05_a_or_ppe_donning_56",
+        "gemini_p1_03",
+        "gemini_sic_ngn_2026_06_21_q1",
+        "gen_sic_batch2_3",
+        "trad_batchD_14"
+      ]
+    },
+    {
+      "id": "gap_50_sic_02",
+      "bank": "gemini-canonical.json",
+      "path": "questions[724]",
+      "producer": "gemini",
+      "provenance_tier": "high",
+      "harm_rank": 95,
+      "pilot_clusters": [
+        "isolation_mode"
+      ],
+      "within_cluster_peers": [
+        "gap_50_sic_01",
+        "gemini_b10_05",
+        "gemini_jun05_a_or_ppe_donning_56",
+        "gemini_p1_03",
+        "gemini_sic_ngn_2026_06_21_q1",
+        "gen_sic_batch2_3"
+      ]
+    },
+    {
+      "id": "gap_50_sic_03",
+      "bank": "gemini-canonical.json",
+      "path": "questions[725]",
+      "producer": "gemini",
+      "provenance_tier": "high",
+      "harm_rank": 95,
+      "pilot_clusters": [
+        "delegation_scope"
+      ],
+      "within_cluster_peers": [
+        "gemini_sic_ngn_2026_06_21_q8",
+        "gpt_u6_matrix_cloze_2026_06_09_matrix_infection_precautions_02"
+      ]
+    },
+    {
+      "id": "gemini_b10_02",
+      "bank": "gemini-canonical.json",
+      "path": "questions[187]",
+      "producer": "gemini",
+      "provenance_tier": "high",
+      "harm_rank": 95,
+      "pilot_clusters": [
+        "delegation_scope"
+      ],
+      "within_cluster_peers": [
+        "easy_prioritization_04",
+        "gemini_c3_01",
+        "gemini_c3_07",
+        "gemini_c9_08",
+        "gemini_moc_ngn_2026_06_22_q8",
+        "gpt_case_unsafe_assignment_01_q4",
+        "sata_prioritize_change_condition_002",
+        "trad_batchB_02"
+      ]
+    },
+    {
+      "id": "gemini_b10_05",
+      "bank": "gemini-canonical.json",
+      "path": "questions[189]",
+      "producer": "gemini",
+      "provenance_tier": "high",
+      "harm_rank": 95,
+      "pilot_clusters": [
+        "isolation_mode"
+      ],
+      "within_cluster_peers": [
+        "gap_50_sic_01",
+        "gap_50_sic_02",
+        "gemini_jun05_a_or_ppe_donning_56",
+        "gemini_p1_03",
+        "gen_sic_batch2_3",
+        "trad_batchD_14"
+      ]
+    },
+    {
+      "id": "gemini_b4_01",
+      "bank": "gemini-canonical.json",
+      "path": "questions[215]",
+      "producer": "gemini",
+      "provenance_tier": "high",
+      "harm_rank": 95,
+      "pilot_clusters": [
+        "isolation_mode"
+      ],
+      "within_cluster_peers": [
+        "gemini_b4_08",
+        "gemini_jun05_a_or_ppe_donning_56",
+        "gemini_sic_ngn_2026_06_21_q1",
+        "gen_sic_batch2_3",
+        "trad_batchB_16"
+      ]
+    },
+    {
+      "id": "gemini_b4_08",
+      "bank": "gemini-canonical.json",
+      "path": "questions[222]",
+      "producer": "gemini",
+      "provenance_tier": "high",
+      "harm_rank": 95,
+      "pilot_clusters": [
+        "isolation_mode"
+      ],
+      "within_cluster_peers": [
+        "gemini_b4_01",
+        "gpt_canonical_matrix_meningitis_precautions_105"
+      ]
+    },
+    {
+      "id": "gemini_b9_06",
+      "bank": "gemini-canonical.json",
+      "path": "questions[270]",
+      "producer": "gemini",
+      "provenance_tier": "high",
+      "harm_rank": 95,
+      "pilot_clusters": [
+        "isolation_mode"
+      ],
+      "within_cluster_peers": [
+        "trad_batchD_14"
+      ]
+    },
+    {
+      "id": "gemini_b9_10",
+      "bank": "gemini-canonical.json",
+      "path": "questions[274]",
+      "producer": "gemini",
+      "provenance_tier": "high",
+      "harm_rank": 95,
+      "pilot_clusters": [
+        "potassium_replacement"
+      ],
+      "within_cluster_peers": [
+        "gemini_c1_01"
+      ]
+    },
+    {
+      "id": "gemini_c1_01",
+      "bank": "gemini-canonical.json",
+      "path": "questions[275]",
+      "producer": "gemini",
+      "provenance_tier": "high",
+      "harm_rank": 95,
+      "pilot_clusters": [
+        "potassium_replacement"
+      ],
+      "within_cluster_peers": [
+        "gemini_b9_10"
+      ]
+    },
+    {
+      "id": "gemini_c3_01",
+      "bank": "gemini-canonical.json",
+      "path": "questions[305]",
+      "producer": "gemini",
+      "provenance_tier": "high",
+      "harm_rank": 95,
+      "pilot_clusters": [
+        "delegation_scope"
+      ],
+      "within_cluster_peers": [
+        "easy_prioritization_04",
+        "gemini_b10_02",
+        "gemini_c3_07",
+        "gemini_c9_08",
+        "gemini_moc_ngn_2026_06_22_q8",
+        "trad_batchB_02"
+      ]
+    },
+    {
+      "id": "gemini_c3_07",
+      "bank": "gemini-canonical.json",
+      "path": "questions[311]",
+      "producer": "gemini",
+      "provenance_tier": "high",
+      "harm_rank": 95,
+      "pilot_clusters": [
+        "delegation_scope"
+      ],
+      "within_cluster_peers": [
+        "easy_prioritization_04",
+        "gemini_b10_02",
+        "gemini_c3_01",
+        "gemini_c9_02",
+        "gemini_c9_08",
+        "gpt_canonical_sata_disaster_triage_037",
+        "gpt_case_unsafe_assignment_01_q4",
+        "sata_prioritize_change_condition_002",
+        "trad_batchB_02"
+      ]
+    },
+    {
+      "id": "gemini_c9_01",
+      "bank": "gemini-canonical.json",
+      "path": "questions[365]",
+      "producer": "gemini",
+      "provenance_tier": "high",
+      "harm_rank": 95,
+      "pilot_clusters": [
+        "delegation_scope"
+      ],
+      "within_cluster_peers": [
+        "gemini_gap_case_disaster_triage_05_q1",
+        "gemini_p8_05"
+      ]
+    },
+    {
+      "id": "gemini_c9_02",
+      "bank": "gemini-canonical.json",
+      "path": "questions[366]",
+      "producer": "gemini",
+      "provenance_tier": "high",
+      "harm_rank": 95,
+      "pilot_clusters": [
+        "delegation_scope"
+      ],
+      "within_cluster_peers": [
+        "gemini_c3_07",
+        "gpt_canonical_sata_disaster_triage_037",
+        "sata_prioritize_change_condition_002"
+      ]
+    },
+    {
+      "id": "gemini_c9_08",
+      "bank": "gemini-canonical.json",
+      "path": "questions[371]",
+      "producer": "gemini",
+      "provenance_tier": "high",
+      "harm_rank": 95,
+      "pilot_clusters": [
+        "delegation_scope"
+      ],
+      "within_cluster_peers": [
+        "easy_prioritization_04",
+        "gemini_b10_02",
+        "gemini_c3_01",
+        "gemini_c3_07",
+        "gemini_moc_ngn_2026_06_22_q8"
+      ]
+    },
+    {
+      "id": "gemini_d10_03",
+      "bank": "gemini-canonical.json",
+      "path": "questions[386]",
+      "producer": "gemini",
+      "provenance_tier": "high",
+      "harm_rank": 95,
+      "pilot_clusters": [
+        "insulin_hypoglycemia"
+      ],
+      "within_cluster_peers": [
+        "easy_dka_01",
+        "gemini_p5_10",
+        "gemini_p7_06"
+      ]
+    },
+    {
+      "id": "gemini_d10_05",
+      "bank": "gemini-canonical.json",
+      "path": "questions[388]",
+      "producer": "gemini",
+      "provenance_tier": "high",
+      "harm_rank": 95,
+      "pilot_clusters": [
+        "isolation_mode"
+      ],
+      "within_cluster_peers": [
+        "gen_sic_batch2_2",
+        "mc_airborne_tb_precautions_004"
+      ]
+    },
+    {
+      "id": "gemini_d2_insulin_01",
+      "bank": "gemini-canonical.json",
+      "path": "questions[398]",
+      "producer": "gemini",
+      "provenance_tier": "high",
+      "harm_rank": 95,
+      "pilot_clusters": [
+        "insulin_hypoglycemia"
+      ],
+      "within_cluster_peers": [
+        "gap_50_ppt_05"
+      ]
+    },
+    {
+      "id": "gemini_gap_case_disaster_triage_05_q1",
+      "bank": "gemini-canonical.json",
+      "path": "questions[803].caseStudy.questions[0]",
+      "producer": "gemini",
+      "provenance_tier": "medium",
+      "harm_rank": 85,
+      "pilot_clusters": [
+        "delegation_scope"
+      ],
+      "within_cluster_peers": [
+        "gemini_c9_01"
+      ]
+    },
+    {
+      "id": "gemini_gap_case_pediatric_diabetes_03_q3",
+      "bank": "gemini-canonical.json",
+      "path": "questions[816].caseStudy.questions[2]",
+      "producer": "gemini",
+      "provenance_tier": "medium",
+      "harm_rank": 85,
+      "pilot_clusters": [
+        "insulin_hypoglycemia"
+      ],
+      "within_cluster_peers": [
+        "gap_50_ppt_05"
+      ]
+    },
+    {
+      "id": "gemini_hl_moc_delegation_02",
+      "bank": "gemini-canonical.json",
+      "path": "questions[776]",
+      "producer": "gemini",
+      "provenance_tier": "medium",
+      "harm_rank": 85,
+      "pilot_clusters": [
+        "delegation_scope"
+      ],
+      "within_cluster_peers": [
+        "claude_moc_deleg_uap_hl_01"
+      ]
+    },
+    {
+      "id": "gemini_hl_sic_precautions_06",
+      "bank": "gemini-canonical.json",
+      "path": "questions[780]",
+      "producer": "gemini",
+      "provenance_tier": "medium",
+      "harm_rank": 85,
+      "pilot_clusters": [
+        "delegation_scope"
+      ],
+      "within_cluster_peers": [
+        "claude_moc_supervision_hl_b04"
+      ]
+    },
+    {
+      "id": "gemini_jun05_a_matrix_disaster_triage_27",
+      "bank": "gemini-canonical.json",
+      "path": "questions[26]",
+      "producer": "gemini",
+      "provenance_tier": "high",
+      "harm_rank": 95,
+      "pilot_clusters": [
+        "delegation_scope"
+      ],
+      "within_cluster_peers": [
+        "gpt_case_mass_casualty_start_triage_01_q1"
+      ]
+    },
+    {
+      "id": "gemini_jun05_a_mc_delegation_21",
+      "bank": "gemini-canonical.json",
+      "path": "questions[20]",
+      "producer": "gemini",
+      "provenance_tier": "high",
+      "harm_rank": 95,
+      "pilot_clusters": [
+        "delegation_scope"
+      ],
+      "within_cluster_peers": [
+        "easy_prioritization_02",
+        "gemini_p8_02",
+        "mc_delegation_uap_vitals_001",
+        "trad_batchB_01"
+      ]
+    },
+    {
+      "id": "gemini_jun05_a_or_ppe_donning_56",
+      "bank": "gemini-canonical.json",
+      "path": "questions[54]",
+      "producer": "gemini",
+      "provenance_tier": "high",
+      "harm_rank": 95,
+      "pilot_clusters": [
+        "isolation_mode"
+      ],
+      "within_cluster_peers": [
+        "gap_50_sic_01",
+        "gap_50_sic_02",
+        "gemini_b10_05",
+        "gemini_b4_01",
+        "gemini_p1_03",
+        "gemini_sic_ngn_2026_06_21_q1",
+        "gen_sic_batch2_3",
+        "trad_batchD_14"
+      ]
+    },
+    {
+      "id": "gemini_jun05_a_sata_airborne_precautions_03",
+      "bank": "gemini-canonical.json",
+      "path": "questions[2]",
+      "producer": "gemini",
+      "provenance_tier": "high",
+      "harm_rank": 95,
+      "pilot_clusters": [
+        "isolation_mode"
+      ],
+      "within_cluster_peers": [
+        "gen_sic_batch2_2",
+        "gpt_gap_jun11_sata_meningococcal_droplet_03",
+        "gpt_gap_jun11_sata_tb_airborne_precautions_01",
+        "gpt_gap_jun11_sata_varicella_precautions_02",
+        "gpt_hl_sic_airborne_tb_08"
+      ]
+    },
+    {
+      "id": "gemini_moc_ngn_2026_06_22_q8",
+      "bank": "gemini-canonical.json",
+      "path": "questions[851]",
+      "producer": "gemini",
+      "provenance_tier": "medium",
+      "harm_rank": 85,
+      "pilot_clusters": [
+        "delegation_scope"
+      ],
+      "within_cluster_peers": [
+        "gemini_b10_02",
+        "gemini_c3_01",
+        "gemini_c9_08"
+      ]
+    },
+    {
+      "id": "gemini_p1_03",
+      "bank": "gemini-canonical.json",
+      "path": "questions[58]",
+      "producer": "gemini",
+      "provenance_tier": "high",
+      "harm_rank": 95,
+      "pilot_clusters": [
+        "isolation_mode"
+      ],
+      "within_cluster_peers": [
+        "gap_50_sic_01",
+        "gap_50_sic_02",
+        "gemini_b10_05",
+        "gemini_jun05_a_or_ppe_donning_56",
+        "gen_sic_batch2_3",
+        "trad_batchD_14"
+      ]
+    },
+    {
+      "id": "gemini_p2_07",
+      "bank": "gemini-canonical.json",
+      "path": "questions[78]",
+      "producer": "gemini",
+      "provenance_tier": "high",
+      "harm_rank": 95,
+      "pilot_clusters": [
+        "delegation_scope"
+      ],
+      "within_cluster_peers": [
+        "gemini_p8_01",
+        "gemini_p8_08",
+        "gpt_canonical_mc_staff_assignment_057",
+        "mc_delegation_uap_vitals_001"
+      ]
+    },
+    {
+      "id": "gemini_p4_06",
+      "bank": "gemini-canonical.json",
+      "path": "questions[97]",
+      "producer": "gemini",
+      "provenance_tier": "high",
+      "harm_rank": 95,
+      "pilot_clusters": [
+        "potassium_replacement"
+      ],
+      "within_cluster_peers": [
+        "trad_pa_05"
+      ]
+    },
+    {
+      "id": "gemini_p5_02",
+      "bank": "gemini-canonical.json",
+      "path": "questions[103]",
+      "producer": "gemini",
+      "provenance_tier": "high",
+      "harm_rank": 95,
+      "pilot_clusters": [
+        "isolation_mode"
+      ],
+      "within_cluster_peers": [
+        "easy_resp_infect_02",
+        "gen_sic_batch2_2"
+      ]
+    },
+    {
+      "id": "gemini_p5_10",
+      "bank": "gemini-canonical.json",
+      "path": "questions[110]",
+      "producer": "gemini",
+      "provenance_tier": "high",
+      "harm_rank": 95,
+      "pilot_clusters": [
+        "insulin_hypoglycemia"
+      ],
+      "within_cluster_peers": [
+        "easy_dka_01",
+        "gemini_d10_03",
+        "gemini_p7_06"
+      ]
+    },
+    {
+      "id": "gemini_p7_06",
+      "bank": "gemini-canonical.json",
+      "path": "questions[126]",
+      "producer": "gemini",
+      "provenance_tier": "high",
+      "harm_rank": 95,
+      "pilot_clusters": [
+        "insulin_hypoglycemia"
+      ],
+      "within_cluster_peers": [
+        "easy_dka_01",
+        "gemini_d10_03",
+        "gemini_p5_10"
+      ]
+    },
+    {
+      "id": "gemini_p8_01",
+      "bank": "gemini-canonical.json",
+      "path": "questions[131]",
+      "producer": "gemini",
+      "provenance_tier": "high",
+      "harm_rank": 95,
+      "pilot_clusters": [
+        "delegation_scope"
+      ],
+      "within_cluster_peers": [
+        "easy_prioritization_01",
+        "gemini_p2_07",
+        "gemini_p8_06",
+        "gpt_canonical_mc_staff_assignment_057",
+        "mc_delegation_uap_vitals_001",
+        "trad_batchB_03"
+      ]
+    },
+    {
+      "id": "gemini_p8_02",
+      "bank": "gemini-canonical.json",
+      "path": "questions[132]",
+      "producer": "gemini",
+      "provenance_tier": "high",
+      "harm_rank": 95,
+      "pilot_clusters": [
+        "delegation_scope"
+      ],
+      "within_cluster_peers": [
+        "easy_prioritization_02",
+        "gemini_jun05_a_mc_delegation_21",
+        "gpt_case_gap_2026_06_11_pressure_ltc_part_3_mc_delegate",
+        "mc_delegation_uap_vitals_001",
+        "trad_batchB_01"
+      ]
+    },
+    {
+      "id": "gemini_p8_03",
+      "bank": "gemini-canonical.json",
+      "path": "questions[133]",
+      "producer": "gemini",
+      "provenance_tier": "high",
+      "harm_rank": 95,
+      "pilot_clusters": [
+        "delegation_scope"
+      ],
+      "within_cluster_peers": [
+        "gemini_p8_08"
+      ]
+    },
+    {
+      "id": "gemini_p8_05",
+      "bank": "gemini-canonical.json",
+      "path": "questions[135]",
+      "producer": "gemini",
+      "provenance_tier": "high",
+      "harm_rank": 95,
+      "pilot_clusters": [
+        "delegation_scope"
+      ],
+      "within_cluster_peers": [
+        "gemini_c9_01"
+      ]
+    },
+    {
+      "id": "gemini_p8_06",
+      "bank": "gemini-canonical.json",
+      "path": "questions[136]",
+      "producer": "gemini",
+      "provenance_tier": "high",
+      "harm_rank": 95,
+      "pilot_clusters": [
+        "delegation_scope"
+      ],
+      "within_cluster_peers": [
+        "easy_prioritization_01",
+        "gemini_p8_01",
+        "trad_batchB_03"
+      ]
+    },
+    {
+      "id": "gemini_p8_08",
+      "bank": "gemini-canonical.json",
+      "path": "questions[138]",
+      "producer": "gemini",
+      "provenance_tier": "high",
+      "harm_rank": 95,
+      "pilot_clusters": [
+        "delegation_scope"
+      ],
+      "within_cluster_peers": [
+        "claude_moc_assignment_mc_14",
+        "gemini_p2_07",
+        "gemini_p8_03"
+      ]
+    },
+    {
+      "id": "gemini_sic_ngn_2026_06_21_q1",
+      "bank": "gemini-canonical.json",
+      "path": "questions[854]",
+      "producer": "gemini",
+      "provenance_tier": "medium",
+      "harm_rank": 85,
+      "pilot_clusters": [
+        "isolation_mode"
+      ],
+      "within_cluster_peers": [
+        "gap_50_sic_01",
+        "gap_50_sic_02",
+        "gemini_b4_01",
+        "gemini_jun05_a_or_ppe_donning_56",
+        "gen_sic_batch2_3"
+      ]
+    },
+    {
+      "id": "gemini_sic_ngn_2026_06_21_q15",
+      "bank": "gemini-canonical.json",
+      "path": "questions[868]",
+      "producer": "gemini",
+      "provenance_tier": "medium",
+      "harm_rank": 85,
+      "pilot_clusters": [
+        "isolation_mode"
+      ],
+      "within_cluster_peers": [
+        "gemini_sic_ngn_2026_06_21_q6",
+        "gpt_case_infection_control_clustered_care_01_q3"
+      ]
+    },
+    {
+      "id": "gemini_sic_ngn_2026_06_21_q6",
+      "bank": "gemini-canonical.json",
+      "path": "questions[859]",
+      "producer": "gemini",
+      "provenance_tier": "medium",
+      "harm_rank": 85,
+      "pilot_clusters": [
+        "isolation_mode"
+      ],
+      "within_cluster_peers": [
+        "gemini_sic_ngn_2026_06_21_q15"
+      ]
+    },
+    {
+      "id": "gemini_sic_ngn_2026_06_21_q8",
+      "bank": "gemini-canonical.json",
+      "path": "questions[861]",
+      "producer": "gemini",
+      "provenance_tier": "medium",
+      "harm_rank": 85,
+      "pilot_clusters": [
+        "delegation_scope"
+      ],
+      "within_cluster_peers": [
+        "gap_50_sic_03",
+        "gpt_u6_matrix_cloze_2026_06_09_matrix_infection_precautions_02"
+      ]
+    },
+    {
+      "id": "gen_sic_batch2_2",
+      "bank": "gemini-canonical.json",
+      "path": "questions[593]",
+      "producer": "gemini",
+      "provenance_tier": "high",
+      "harm_rank": 95,
+      "pilot_clusters": [
+        "isolation_mode"
+      ],
+      "within_cluster_peers": [
+        "gemini_d10_05",
+        "gemini_jun05_a_sata_airborne_precautions_03",
+        "gemini_p5_02",
+        "gpt_gap_jun11_sata_meningococcal_droplet_03",
+        "gpt_gap_jun11_sata_tb_airborne_precautions_01",
+        "gpt_gap_jun11_sata_varicella_precautions_02",
+        "mc_airborne_tb_precautions_004",
+        "trad_batchD_14"
+      ]
+    },
+    {
+      "id": "gen_sic_batch2_3",
+      "bank": "gemini-canonical.json",
+      "path": "questions[594]",
+      "producer": "gemini",
+      "provenance_tier": "high",
+      "harm_rank": 95,
+      "pilot_clusters": [
+        "isolation_mode"
+      ],
+      "within_cluster_peers": [
+        "gap_50_sic_01",
+        "gap_50_sic_02",
+        "gemini_b10_05",
+        "gemini_b4_01",
+        "gemini_jun05_a_or_ppe_donning_56",
+        "gemini_p1_03",
+        "gemini_sic_ngn_2026_06_21_q1",
+        "trad_batchD_14"
+      ]
+    },
+    {
+      "id": "gpt_canonical_matrix_meningitis_precautions_105",
+      "bank": "gpt-canonical.json",
+      "path": "questions[104]",
+      "producer": "gpt",
+      "provenance_tier": "medium",
+      "harm_rank": 85,
+      "pilot_clusters": [
+        "isolation_mode"
+      ],
+      "within_cluster_peers": [
+        "gemini_b4_08",
+        "gpt_gap_jun11_sata_meningococcal_droplet_03",
+        "mc_airborne_tb_precautions_004"
+      ]
+    },
+    {
+      "id": "gpt_canonical_matrix_scope_assignment_050",
+      "bank": "gpt-canonical.json",
+      "path": "questions[49]",
+      "producer": "gpt",
+      "provenance_tier": "medium",
+      "harm_rank": 85,
+      "pilot_clusters": [
+        "delegation_scope"
+      ],
+      "within_cluster_peers": [
+        "claude_moc_deleg_matrix_08",
+        "gpt_u6_matrix_cloze_2026_06_09_matrix_delegation_scope_04"
+      ]
+    },
+    {
+      "id": "gpt_canonical_mc_staff_assignment_057",
+      "bank": "gpt-canonical.json",
+      "path": "questions[56]",
+      "producer": "gpt",
+      "provenance_tier": "medium",
+      "harm_rank": 85,
+      "pilot_clusters": [
+        "delegation_scope"
+      ],
+      "within_cluster_peers": [
+        "gemini_p2_07",
+        "gemini_p8_01"
+      ]
+    },
+    {
+      "id": "gpt_canonical_sata_disaster_triage_037",
+      "bank": "gpt-canonical.json",
+      "path": "questions[36]",
+      "producer": "gpt",
+      "provenance_tier": "medium",
+      "harm_rank": 85,
+      "pilot_clusters": [
+        "delegation_scope"
+      ],
+      "within_cluster_peers": [
+        "gemini_c3_07",
+        "gemini_c9_02",
+        "sata_prioritize_change_condition_002"
+      ]
+    },
+    {
+      "id": "gpt_case_aki_2026_06_16_case_prerenal_aki_hyperkalemia_01",
+      "bank": "hard-cases-canonical.json",
+      "path": "questions[64]",
+      "producer": "gpt",
+      "provenance_tier": "low",
+      "harm_rank": 75,
+      "pilot_clusters": [
+        "potassium_replacement"
+      ],
+      "within_cluster_peers": [
+        "gpt_case_aki_2026_06_16_case_prerenal_aki_hyperkalemia_01_q4"
+      ]
+    },
+    {
+      "id": "gpt_case_aki_2026_06_16_case_prerenal_aki_hyperkalemia_01_q2",
+      "bank": "hard-cases-canonical.json",
+      "path": "questions[64].caseStudy.questions[1]",
+      "producer": "gpt",
+      "provenance_tier": "low",
+      "harm_rank": 75,
+      "pilot_clusters": [
+        "potassium_replacement"
+      ],
+      "within_cluster_peers": [
+        "gpt_case_aki_2026_06_16_case_prerenal_aki_hyperkalemia_01_q4",
+        "gpt_case_aki_2026_06_16_case_prerenal_aki_hyperkalemia_01_q5",
+        "opus3_iv_potassium_safety_case_01_q5"
+      ]
+    },
+    {
+      "id": "gpt_case_aki_2026_06_16_case_prerenal_aki_hyperkalemia_01_q4",
+      "bank": "hard-cases-canonical.json",
+      "path": "questions[64].caseStudy.questions[3]",
+      "producer": "gpt",
+      "provenance_tier": "low",
+      "harm_rank": 75,
+      "pilot_clusters": [
+        "potassium_replacement"
+      ],
+      "within_cluster_peers": [
+        "gpt_case_aki_2026_06_16_case_prerenal_aki_hyperkalemia_01",
+        "gpt_case_aki_2026_06_16_case_prerenal_aki_hyperkalemia_01_q2",
+        "gpt_case_aki_2026_06_16_case_prerenal_aki_hyperkalemia_01_q5"
+      ]
+    },
+    {
+      "id": "gpt_case_aki_2026_06_16_case_prerenal_aki_hyperkalemia_01_q5",
+      "bank": "hard-cases-canonical.json",
+      "path": "questions[64].caseStudy.questions[4]",
+      "producer": "gpt",
+      "provenance_tier": "low",
+      "harm_rank": 75,
+      "pilot_clusters": [
+        "potassium_replacement"
+      ],
+      "within_cluster_peers": [
+        "gpt_case_aki_2026_06_16_case_prerenal_aki_hyperkalemia_01_q2",
+        "gpt_case_aki_2026_06_16_case_prerenal_aki_hyperkalemia_01_q4"
+      ]
+    },
+    {
+      "id": "gpt_case_gap_2026_06_11_aki_or_03",
+      "bank": "gpt-canonical.json",
+      "path": "questions[185].caseStudy.questions[2]",
+      "producer": "gpt",
+      "provenance_tier": "low",
+      "harm_rank": 75,
+      "pilot_clusters": [
+        "potassium_replacement"
+      ],
+      "within_cluster_peers": [
+        "gpt_case_gap_2026_06_11_case_tls_01_q3",
+        "gpt_deepen_2026_06_23_bow_06"
+      ]
+    },
+    {
+      "id": "gpt_case_gap_2026_06_11_case_tls_01_q3",
+      "bank": "gpt-canonical.json",
+      "path": "questions[183].caseStudy.questions[2]",
+      "producer": "gpt",
+      "provenance_tier": "low",
+      "harm_rank": 75,
+      "pilot_clusters": [
+        "potassium_replacement"
+      ],
+      "within_cluster_peers": [
+        "gpt_case_gap_2026_06_11_aki_or_03"
+      ]
+    },
+    {
+      "id": "gpt_case_gap_2026_06_11_pressure_ltc_part_3_mc_delegate",
+      "bank": "gpt-canonical.json",
+      "path": "questions[164].caseStudy.questions[2]",
+      "producer": "gpt",
+      "provenance_tier": "low",
+      "harm_rank": 75,
+      "pilot_clusters": [
+        "delegation_scope"
+      ],
+      "within_cluster_peers": [
+        "easy_prioritization_02",
+        "gemini_p8_02"
+      ]
+    },
+    {
+      "id": "gpt_case_infection_control_clustered_care_01_q3",
+      "bank": "gpt-canonical.json",
+      "path": "questions[347].caseStudy.questions[2]",
+      "producer": "gpt",
+      "provenance_tier": "low",
+      "harm_rank": 75,
+      "pilot_clusters": [
+        "isolation_mode"
+      ],
+      "within_cluster_peers": [
+        "gemini_sic_ngn_2026_06_21_q15",
+        "gpt_gap_jun11_sata_meningococcal_droplet_03",
+        "gpt_gap_jun11_sata_tb_airborne_precautions_01",
+        "gpt_gap_jun11_sata_varicella_precautions_02"
+      ]
+    },
+    {
+      "id": "gpt_case_mass_casualty_start_triage_01_q1",
+      "bank": "gpt-canonical.json",
+      "path": "questions[295].caseStudy.questions[0]",
+      "producer": "gpt",
+      "provenance_tier": "low",
+      "harm_rank": 75,
+      "pilot_clusters": [
+        "delegation_scope"
+      ],
+      "within_cluster_peers": [
+        "gemini_jun05_a_matrix_disaster_triage_27"
+      ]
+    },
+    {
+      "id": "gpt_case_premium_next_case_rehab_pressure_bowel_02_matrix_delegation",
+      "bank": "gpt-canonical.json",
+      "path": "questions[178].caseStudy.questions[4]",
+      "producer": "gpt",
+      "provenance_tier": "low",
+      "harm_rank": 75,
+      "pilot_clusters": [
+        "delegation_scope"
+      ],
+      "within_cluster_peers": [
+        "gpt_u6_matrix_cloze_2026_06_09_matrix_delegation_scope_04"
+      ]
+    },
+    {
+      "id": "gpt_case_unsafe_assignment_01_q1",
+      "bank": "gpt-canonical.json",
+      "path": "questions[291].caseStudy.questions[0]",
+      "producer": "gpt",
+      "provenance_tier": "low",
+      "harm_rank": 75,
+      "pilot_clusters": [
+        "delegation_scope"
+      ],
+      "within_cluster_peers": [
+        "sata_prioritize_change_condition_002"
+      ]
+    },
+    {
+      "id": "gpt_case_unsafe_assignment_01_q4",
+      "bank": "gpt-canonical.json",
+      "path": "questions[291].caseStudy.questions[3]",
+      "producer": "gpt",
+      "provenance_tier": "low",
+      "harm_rank": 75,
+      "pilot_clusters": [
+        "delegation_scope"
+      ],
+      "within_cluster_peers": [
+        "gemini_b10_02",
+        "gemini_c3_07",
+        "sata_prioritize_change_condition_002"
+      ]
+    },
+    {
+      "id": "gpt_deepen_2026_06_22_b_pharm_03",
+      "bank": "gpt-canonical.json",
+      "path": "questions[456]",
+      "producer": "gpt",
+      "provenance_tier": "medium",
+      "harm_rank": 85,
+      "pilot_clusters": [
+        "potassium_replacement"
+      ],
+      "within_cluster_peers": [
+        "gpt_fresh_2026_06_22_pharm_07"
+      ]
+    },
+    {
+      "id": "gpt_deepen_2026_06_22_b_pharm_05",
+      "bank": "gpt-canonical.json",
+      "path": "questions[458]",
+      "producer": "gpt",
+      "provenance_tier": "medium",
+      "harm_rank": 85,
+      "pilot_clusters": [
+        "insulin_hypoglycemia"
+      ],
+      "within_cluster_peers": [
+        "gpt_deepen_2026_06_22_bow_05"
+      ]
+    },
+    {
+      "id": "gpt_deepen_2026_06_22_bow_05",
+      "bank": "gpt-canonical.json",
+      "path": "questions[395]",
+      "producer": "gpt",
+      "provenance_tier": "medium",
+      "harm_rank": 85,
+      "pilot_clusters": [
+        "insulin_hypoglycemia"
+      ],
+      "within_cluster_peers": [
+        "gpt_deepen_2026_06_22_b_pharm_05",
+        "gpt_deepen_2026_06_23_bow_09",
+        "gpt_pharm_easy_medium_2026_06_21_b_bowtie_insulin_hypoglycemia_05"
+      ]
+    },
+    {
+      "id": "gpt_deepen_2026_06_22_bow_07",
+      "bank": "gpt-canonical.json",
+      "path": "questions[397]",
+      "producer": "gpt",
+      "provenance_tier": "medium",
+      "harm_rank": 85,
+      "pilot_clusters": [
+        "potassium_replacement"
+      ],
+      "within_cluster_peers": [
+        "gpt_deepen_2026_06_23_bcc_01"
+      ]
+    },
+    {
+      "id": "gpt_deepen_2026_06_22_moc_07",
+      "bank": "gpt-canonical.json",
+      "path": "questions[419]",
+      "producer": "gpt",
+      "provenance_tier": "medium",
+      "harm_rank": 85,
+      "pilot_clusters": [
+        "delegation_scope"
+      ],
+      "within_cluster_peers": [
+        "gpt_fresh_2026_06_22_moc_05"
+      ]
+    },
+    {
+      "id": "gpt_deepen_2026_06_22_sic_02",
+      "bank": "gpt-canonical.json",
+      "path": "questions[426]",
+      "producer": "gpt",
+      "provenance_tier": "medium",
+      "harm_rank": 85,
+      "pilot_clusters": [
+        "delegation_scope"
+      ],
+      "within_cluster_peers": [
+        "gpt_hl_moc_chain_command_01"
+      ]
+    },
+    {
+      "id": "gpt_deepen_2026_06_23_bcc_01",
+      "bank": "gpt-canonical.json",
+      "path": "questions[468]",
+      "producer": "gpt",
+      "provenance_tier": "medium",
+      "harm_rank": 85,
+      "pilot_clusters": [
+        "potassium_replacement"
+      ],
+      "within_cluster_peers": [
+        "gpt_deepen_2026_06_22_bow_07",
+        "gpt_fresh_2026_06_22_pharm_06"
+      ]
+    },
+    {
+      "id": "gpt_deepen_2026_06_23_bow_06",
+      "bank": "gpt-canonical.json",
+      "path": "questions[483]",
+      "producer": "gpt",
+      "provenance_tier": "medium",
+      "harm_rank": 85,
+      "pilot_clusters": [
+        "potassium_replacement"
+      ],
+      "within_cluster_peers": [
+        "gpt_case_gap_2026_06_11_aki_or_03"
+      ]
+    },
+    {
+      "id": "gpt_deepen_2026_06_23_bow_09",
+      "bank": "gpt-canonical.json",
+      "path": "questions[486]",
+      "producer": "gpt",
+      "provenance_tier": "medium",
+      "harm_rank": 85,
+      "pilot_clusters": [
+        "insulin_hypoglycemia"
+      ],
+      "within_cluster_peers": [
+        "gpt_deepen_2026_06_22_bow_05",
+        "gpt_pharm_easy_medium_2026_06_21_b_bowtie_insulin_hypoglycemia_05"
+      ]
+    },
+    {
+      "id": "gpt_fresh_2026_06_22_moc_05",
+      "bank": "gpt-canonical.json",
+      "path": "questions[361]",
+      "producer": "gpt",
+      "provenance_tier": "medium",
+      "harm_rank": 85,
+      "pilot_clusters": [
+        "delegation_scope"
+      ],
+      "within_cluster_peers": [
+        "gpt_deepen_2026_06_22_moc_07"
+      ]
+    },
+    {
+      "id": "gpt_fresh_2026_06_22_pharm_06",
+      "bank": "gpt-canonical.json",
+      "path": "questions[372]",
+      "producer": "gpt",
+      "provenance_tier": "medium",
+      "harm_rank": 85,
+      "pilot_clusters": [
+        "potassium_replacement"
+      ],
+      "within_cluster_peers": [
+        "gpt_deepen_2026_06_23_bcc_01"
+      ]
+    },
+    {
+      "id": "gpt_fresh_2026_06_22_pharm_07",
+      "bank": "gpt-canonical.json",
+      "path": "questions[373]",
+      "producer": "gpt",
+      "provenance_tier": "medium",
+      "harm_rank": 85,
+      "pilot_clusters": [
+        "potassium_replacement"
+      ],
+      "within_cluster_peers": [
+        "gpt_deepen_2026_06_22_b_pharm_03"
+      ]
+    },
+    {
+      "id": "gpt_gap_jun11_sata_meningococcal_droplet_03",
+      "bank": "gpt-canonical.json",
+      "path": "questions[212]",
+      "producer": "gpt",
+      "provenance_tier": "medium",
+      "harm_rank": 85,
+      "pilot_clusters": [
+        "isolation_mode"
+      ],
+      "within_cluster_peers": [
+        "gemini_jun05_a_sata_airborne_precautions_03",
+        "gen_sic_batch2_2",
+        "gpt_canonical_matrix_meningitis_precautions_105",
+        "gpt_case_infection_control_clustered_care_01_q3",
+        "gpt_gap_jun11_sata_tb_airborne_precautions_01",
+        "gpt_gap_jun11_sata_varicella_precautions_02"
+      ]
+    },
+    {
+      "id": "gpt_gap_jun11_sata_tb_airborne_precautions_01",
+      "bank": "gpt-canonical.json",
+      "path": "questions[192]",
+      "producer": "gpt",
+      "provenance_tier": "medium",
+      "harm_rank": 85,
+      "pilot_clusters": [
+        "isolation_mode"
+      ],
+      "within_cluster_peers": [
+        "gemini_jun05_a_sata_airborne_precautions_03",
+        "gen_sic_batch2_2",
+        "gpt_case_infection_control_clustered_care_01_q3",
+        "gpt_gap_jun11_sata_meningococcal_droplet_03",
+        "gpt_gap_jun11_sata_varicella_precautions_02"
+      ]
+    },
+    {
+      "id": "gpt_gap_jun11_sata_varicella_precautions_02",
+      "bank": "gpt-canonical.json",
+      "path": "questions[202]",
+      "producer": "gpt",
+      "provenance_tier": "medium",
+      "harm_rank": 85,
+      "pilot_clusters": [
+        "isolation_mode"
+      ],
+      "within_cluster_peers": [
+        "gemini_jun05_a_sata_airborne_precautions_03",
+        "gen_sic_batch2_2",
+        "gpt_case_infection_control_clustered_care_01_q3",
+        "gpt_gap_jun11_sata_meningococcal_droplet_03",
+        "gpt_gap_jun11_sata_tb_airborne_precautions_01"
+      ]
+    },
+    {
+      "id": "gpt_hl_moc_chain_command_01",
+      "bank": "gpt-canonical.json",
+      "path": "questions[309]",
+      "producer": "gpt",
+      "provenance_tier": "medium",
+      "harm_rank": 85,
+      "pilot_clusters": [
+        "delegation_scope"
+      ],
+      "within_cluster_peers": [
+        "gpt_deepen_2026_06_22_sic_02"
+      ]
+    },
+    {
+      "id": "gpt_hl_moc_lpn_scope_05",
+      "bank": "gpt-canonical.json",
+      "path": "questions[313]",
+      "producer": "gpt",
+      "provenance_tier": "medium",
+      "harm_rank": 85,
+      "pilot_clusters": [
+        "delegation_scope"
+      ],
+      "within_cluster_peers": [
+        "claude_moc_lpn_deleg_hl_b01"
+      ]
+    },
+    {
+      "id": "gpt_hl_sic_airborne_tb_08",
+      "bank": "gpt-canonical.json",
+      "path": "questions[316]",
+      "producer": "gpt",
+      "provenance_tier": "medium",
+      "harm_rank": 85,
+      "pilot_clusters": [
+        "isolation_mode"
+      ],
+      "within_cluster_peers": [
+        "gemini_jun05_a_sata_airborne_precautions_03"
+      ]
+    },
+    {
+      "id": "gpt_pharm_easy_medium_2026_06_21_a_bowtie_insulin_hypoglycemia_06",
+      "bank": "gpt-canonical.json",
+      "path": "questions[326]",
+      "producer": "gpt",
+      "provenance_tier": "medium",
+      "harm_rank": 85,
+      "pilot_clusters": [
+        "insulin_hypoglycemia"
+      ],
+      "within_cluster_peers": [
+        "gpt_pharm_easy_medium_2026_06_21_b_bowtie_insulin_hypoglycemia_05"
+      ]
+    },
+    {
+      "id": "gpt_pharm_easy_medium_2026_06_21_a_fib_kcl_rate_04",
+      "bank": "gpt-canonical.json",
+      "path": "questions[324]",
+      "producer": "gpt",
+      "provenance_tier": "medium",
+      "harm_rank": 85,
+      "pilot_clusters": [
+        "potassium_replacement"
+      ],
+      "within_cluster_peers": [
+        "opus3_iv_potassium_safety_case_01_q3"
+      ]
+    },
+    {
+      "id": "gpt_pharm_easy_medium_2026_06_21_b_bowtie_insulin_hypoglycemia_05",
+      "bank": "gpt-canonical.json",
+      "path": "questions[337]",
+      "producer": "gpt",
+      "provenance_tier": "medium",
+      "harm_rank": 85,
+      "pilot_clusters": [
+        "insulin_hypoglycemia"
+      ],
+      "within_cluster_peers": [
+        "gpt_deepen_2026_06_22_bow_05",
+        "gpt_deepen_2026_06_23_bow_09",
+        "gpt_pharm_easy_medium_2026_06_21_a_bowtie_insulin_hypoglycemia_06"
+      ]
+    },
+    {
+      "id": "gpt_u6_matrix_cloze_2026_06_09_matrix_delegation_scope_04",
+      "bank": "gpt-canonical.json",
+      "path": "questions[125]",
+      "producer": "gpt",
+      "provenance_tier": "medium",
+      "harm_rank": 85,
+      "pilot_clusters": [
+        "delegation_scope"
+      ],
+      "within_cluster_peers": [
+        "gpt_canonical_matrix_scope_assignment_050",
+        "gpt_case_premium_next_case_rehab_pressure_bowel_02_matrix_delegation"
+      ]
+    },
+    {
+      "id": "gpt_u6_matrix_cloze_2026_06_09_matrix_infection_precautions_02",
+      "bank": "gpt-canonical.json",
+      "path": "questions[123]",
+      "producer": "gpt",
+      "provenance_tier": "medium",
+      "harm_rank": 85,
+      "pilot_clusters": [
+        "delegation_scope"
+      ],
+      "within_cluster_peers": [
+        "gap_50_sic_03",
+        "gemini_sic_ngn_2026_06_21_q8"
+      ]
+    },
+    {
+      "id": "mc_airborne_tb_precautions_004",
+      "bank": "gpt-canonical.json",
+      "path": "questions[3]",
+      "producer": "gpt",
+      "provenance_tier": "medium",
+      "harm_rank": 85,
+      "pilot_clusters": [
+        "isolation_mode"
+      ],
+      "within_cluster_peers": [
+        "gemini_d10_05",
+        "gen_sic_batch2_2",
+        "gpt_canonical_matrix_meningitis_precautions_105"
+      ]
+    },
+    {
+      "id": "mc_delegation_uap_vitals_001",
+      "bank": "gpt-canonical.json",
+      "path": "questions[0]",
+      "producer": "gpt",
+      "provenance_tier": "medium",
+      "harm_rank": 85,
+      "pilot_clusters": [
+        "delegation_scope"
+      ],
+      "within_cluster_peers": [
+        "easy_prioritization_02",
+        "gemini_jun05_a_mc_delegation_21",
+        "gemini_p2_07",
+        "gemini_p8_01",
+        "gemini_p8_02",
+        "trad_batchB_01"
+      ]
+    },
+    {
+      "id": "opus24_case_elder_neglect_med_mismanagement_01_q4",
+      "bank": "claude-canonical.json",
+      "path": "questions[63].caseStudy.questions[3]",
+      "producer": "gpt",
+      "provenance_tier": "low",
+      "harm_rank": 75,
+      "pilot_clusters": [
+        "potassium_replacement"
+      ],
+      "within_cluster_peers": [
+        "opus3_iv_potassium_safety_case_01_q5",
+        "opus_case_lithium_toxicity_q4"
+      ]
+    },
+    {
+      "id": "opus3_iv_potassium_safety_case_01_q3",
+      "bank": "hard-cases-canonical.json",
+      "path": "questions[44].caseStudy.questions[2]",
+      "producer": "gpt",
+      "provenance_tier": "low",
+      "harm_rank": 75,
+      "pilot_clusters": [
+        "potassium_replacement"
+      ],
+      "within_cluster_peers": [
+        "gpt_pharm_easy_medium_2026_06_21_a_fib_kcl_rate_04"
+      ]
+    },
+    {
+      "id": "opus3_iv_potassium_safety_case_01_q5",
+      "bank": "hard-cases-canonical.json",
+      "path": "questions[44].caseStudy.questions[4]",
+      "producer": "gpt",
+      "provenance_tier": "low",
+      "harm_rank": 75,
+      "pilot_clusters": [
+        "potassium_replacement"
+      ],
+      "within_cluster_peers": [
+        "gpt_case_aki_2026_06_16_case_prerenal_aki_hyperkalemia_01_q2",
+        "opus24_case_elder_neglect_med_mismanagement_01_q4"
+      ]
+    },
+    {
+      "id": "opus_case_lithium_toxicity_q4",
+      "bank": "claude-canonical.json",
+      "path": "questions[67].caseStudy.questions[3]",
+      "producer": "gpt",
+      "provenance_tier": "low",
+      "harm_rank": 75,
+      "pilot_clusters": [
+        "potassium_replacement"
+      ],
+      "within_cluster_peers": [
+        "opus24_case_elder_neglect_med_mismanagement_01_q4"
+      ]
+    },
+    {
+      "id": "sata_prioritize_change_condition_002",
+      "bank": "gpt-canonical.json",
+      "path": "questions[1]",
+      "producer": "gpt",
+      "provenance_tier": "medium",
+      "harm_rank": 85,
+      "pilot_clusters": [
+        "delegation_scope"
+      ],
+      "within_cluster_peers": [
+        "easy_prioritization_04",
+        "gemini_b10_02",
+        "gemini_c3_07",
+        "gemini_c9_02",
+        "gpt_canonical_sata_disaster_triage_037",
+        "gpt_case_unsafe_assignment_01_q1",
+        "gpt_case_unsafe_assignment_01_q4",
+        "trad_batchB_02"
+      ]
+    },
+    {
+      "id": "trad_batchB_01",
+      "bank": "gemini-canonical.json",
+      "path": "questions[498]",
+      "producer": "gemini",
+      "provenance_tier": "high",
+      "harm_rank": 95,
+      "pilot_clusters": [
+        "delegation_scope"
+      ],
+      "within_cluster_peers": [
+        "easy_prioritization_02",
+        "gemini_jun05_a_mc_delegation_21",
+        "gemini_p8_02",
+        "mc_delegation_uap_vitals_001"
+      ]
+    },
+    {
+      "id": "trad_batchB_02",
+      "bank": "gemini-canonical.json",
+      "path": "questions[499]",
+      "producer": "gemini",
+      "provenance_tier": "high",
+      "harm_rank": 95,
+      "pilot_clusters": [
+        "delegation_scope"
+      ],
+      "within_cluster_peers": [
+        "easy_prioritization_04",
+        "gemini_b10_02",
+        "gemini_c3_01",
+        "gemini_c3_07",
+        "sata_prioritize_change_condition_002"
+      ]
+    },
+    {
+      "id": "trad_batchB_03",
+      "bank": "gemini-canonical.json",
+      "path": "questions[500]",
+      "producer": "gemini",
+      "provenance_tier": "high",
+      "harm_rank": 95,
+      "pilot_clusters": [
+        "delegation_scope"
+      ],
+      "within_cluster_peers": [
+        "easy_prioritization_01",
+        "easy_prioritization_03",
+        "gemini_p8_01",
+        "gemini_p8_06"
+      ]
+    },
+    {
+      "id": "trad_batchB_16",
+      "bank": "gemini-canonical.json",
+      "path": "questions[512]",
+      "producer": "gemini",
+      "provenance_tier": "high",
+      "harm_rank": 95,
+      "pilot_clusters": [
+        "isolation_mode"
+      ],
+      "within_cluster_peers": [
+        "gemini_b4_01"
+      ]
+    },
+    {
+      "id": "trad_batchD_14",
+      "bank": "gemini-canonical.json",
+      "path": "questions[558]",
+      "producer": "gemini",
+      "provenance_tier": "high",
+      "harm_rank": 95,
+      "pilot_clusters": [
+        "isolation_mode"
+      ],
+      "within_cluster_peers": [
+        "gap_50_sic_01",
+        "gemini_b10_05",
+        "gemini_b9_06",
+        "gemini_jun05_a_or_ppe_donning_56",
+        "gemini_p1_03",
+        "gen_sic_batch2_2",
+        "gen_sic_batch2_3"
+      ]
+    },
+    {
+      "id": "trad_pa_05",
+      "bank": "gemini-canonical.json",
+      "path": "questions[478]",
+      "producer": "gemini",
+      "provenance_tier": "high",
+      "harm_rank": 95,
+      "pilot_clusters": [
+        "potassium_replacement"
+      ],
+      "within_cluster_peers": [
+        "gemini_p4_06"
+      ]
+    }
+  ],
+  "pairs": [
+    {
+      "a": "easy_prioritization_01",
+      "b": "gemini_p8_01",
+      "clusters": [
+        "delegation_scope"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[647]",
+      "b_path": "questions[131]"
+    },
+    {
+      "a": "easy_prioritization_01",
+      "b": "gemini_p8_06",
+      "clusters": [
+        "delegation_scope"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[647]",
+      "b_path": "questions[136]"
+    },
+    {
+      "a": "easy_prioritization_01",
+      "b": "trad_batchB_03",
+      "clusters": [
+        "delegation_scope"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[647]",
+      "b_path": "questions[500]"
+    },
+    {
+      "a": "easy_prioritization_02",
+      "b": "gemini_jun05_a_mc_delegation_21",
+      "clusters": [
+        "delegation_scope"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[648]",
+      "b_path": "questions[20]"
+    },
+    {
+      "a": "easy_prioritization_02",
+      "b": "gemini_p8_02",
+      "clusters": [
+        "delegation_scope"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[648]",
+      "b_path": "questions[132]"
+    },
+    {
+      "a": "easy_prioritization_02",
+      "b": "gpt_case_gap_2026_06_11_pressure_ltc_part_3_mc_delegate",
+      "clusters": [
+        "delegation_scope"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gpt",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gpt-canonical.json",
+      "a_path": "questions[648]",
+      "b_path": "questions[164].caseStudy.questions[2]"
+    },
+    {
+      "a": "easy_prioritization_02",
+      "b": "mc_delegation_uap_vitals_001",
+      "clusters": [
+        "delegation_scope"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gpt",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gpt-canonical.json",
+      "a_path": "questions[648]",
+      "b_path": "questions[0]"
+    },
+    {
+      "a": "easy_prioritization_02",
+      "b": "trad_batchB_01",
+      "clusters": [
+        "delegation_scope"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[648]",
+      "b_path": "questions[498]"
+    },
+    {
+      "a": "easy_prioritization_03",
+      "b": "trad_batchB_03",
+      "clusters": [
+        "delegation_scope"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[649]",
+      "b_path": "questions[500]"
+    },
+    {
+      "a": "easy_prioritization_04",
+      "b": "gemini_b10_02",
+      "clusters": [
+        "delegation_scope"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[650]",
+      "b_path": "questions[187]"
+    },
+    {
+      "a": "easy_prioritization_04",
+      "b": "gemini_c3_01",
+      "clusters": [
+        "delegation_scope"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[650]",
+      "b_path": "questions[305]"
+    },
+    {
+      "a": "easy_prioritization_04",
+      "b": "gemini_c3_07",
+      "clusters": [
+        "delegation_scope"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[650]",
+      "b_path": "questions[311]"
+    },
+    {
+      "a": "easy_prioritization_04",
+      "b": "gemini_c9_08",
+      "clusters": [
+        "delegation_scope"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[650]",
+      "b_path": "questions[371]"
+    },
+    {
+      "a": "easy_prioritization_04",
+      "b": "sata_prioritize_change_condition_002",
+      "clusters": [
+        "delegation_scope"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gpt",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gpt-canonical.json",
+      "a_path": "questions[650]",
+      "b_path": "questions[1]"
+    },
+    {
+      "a": "easy_prioritization_04",
+      "b": "trad_batchB_02",
+      "clusters": [
+        "delegation_scope"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[650]",
+      "b_path": "questions[499]"
+    },
+    {
+      "a": "gap_50_sic_03",
+      "b": "gemini_sic_ngn_2026_06_21_q8",
+      "clusters": [
+        "delegation_scope"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[725]",
+      "b_path": "questions[861]"
+    },
+    {
+      "a": "gap_50_sic_03",
+      "b": "gpt_u6_matrix_cloze_2026_06_09_matrix_infection_precautions_02",
+      "clusters": [
+        "delegation_scope"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gpt",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gpt-canonical.json",
+      "a_path": "questions[725]",
+      "b_path": "questions[123]"
+    },
+    {
+      "a": "gemini_b10_02",
+      "b": "gemini_c3_01",
+      "clusters": [
+        "delegation_scope"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[187]",
+      "b_path": "questions[305]"
+    },
+    {
+      "a": "gemini_b10_02",
+      "b": "gemini_c3_07",
+      "clusters": [
+        "delegation_scope"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[187]",
+      "b_path": "questions[311]"
+    },
+    {
+      "a": "gemini_b10_02",
+      "b": "gemini_c9_08",
+      "clusters": [
+        "delegation_scope"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[187]",
+      "b_path": "questions[371]"
+    },
+    {
+      "a": "gemini_b10_02",
+      "b": "gemini_moc_ngn_2026_06_22_q8",
+      "clusters": [
+        "delegation_scope"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[187]",
+      "b_path": "questions[851]"
+    },
+    {
+      "a": "gemini_b10_02",
+      "b": "gpt_case_unsafe_assignment_01_q4",
+      "clusters": [
+        "delegation_scope"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gpt",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gpt-canonical.json",
+      "a_path": "questions[187]",
+      "b_path": "questions[291].caseStudy.questions[3]"
+    },
+    {
+      "a": "gemini_b10_02",
+      "b": "sata_prioritize_change_condition_002",
+      "clusters": [
+        "delegation_scope"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gpt",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gpt-canonical.json",
+      "a_path": "questions[187]",
+      "b_path": "questions[1]"
+    },
+    {
+      "a": "gemini_b10_02",
+      "b": "trad_batchB_02",
+      "clusters": [
+        "delegation_scope"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[187]",
+      "b_path": "questions[499]"
+    },
+    {
+      "a": "gemini_c3_01",
+      "b": "gemini_c3_07",
+      "clusters": [
+        "delegation_scope"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[305]",
+      "b_path": "questions[311]"
+    },
+    {
+      "a": "gemini_c3_01",
+      "b": "gemini_c9_08",
+      "clusters": [
+        "delegation_scope"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[305]",
+      "b_path": "questions[371]"
+    },
+    {
+      "a": "gemini_c3_01",
+      "b": "gemini_moc_ngn_2026_06_22_q8",
+      "clusters": [
+        "delegation_scope"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[305]",
+      "b_path": "questions[851]"
+    },
+    {
+      "a": "gemini_c3_01",
+      "b": "trad_batchB_02",
+      "clusters": [
+        "delegation_scope"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[305]",
+      "b_path": "questions[499]"
+    },
+    {
+      "a": "gemini_c3_07",
+      "b": "gemini_c9_02",
+      "clusters": [
+        "delegation_scope"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[311]",
+      "b_path": "questions[366]"
+    },
+    {
+      "a": "gemini_c3_07",
+      "b": "gemini_c9_08",
+      "clusters": [
+        "delegation_scope"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[311]",
+      "b_path": "questions[371]"
+    },
+    {
+      "a": "gemini_c3_07",
+      "b": "gpt_canonical_sata_disaster_triage_037",
+      "clusters": [
+        "delegation_scope"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gpt",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gpt-canonical.json",
+      "a_path": "questions[311]",
+      "b_path": "questions[36]"
+    },
+    {
+      "a": "gemini_c3_07",
+      "b": "gpt_case_unsafe_assignment_01_q4",
+      "clusters": [
+        "delegation_scope"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gpt",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gpt-canonical.json",
+      "a_path": "questions[311]",
+      "b_path": "questions[291].caseStudy.questions[3]"
+    },
+    {
+      "a": "gemini_c3_07",
+      "b": "sata_prioritize_change_condition_002",
+      "clusters": [
+        "delegation_scope"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gpt",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gpt-canonical.json",
+      "a_path": "questions[311]",
+      "b_path": "questions[1]"
+    },
+    {
+      "a": "gemini_c3_07",
+      "b": "trad_batchB_02",
+      "clusters": [
+        "delegation_scope"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[311]",
+      "b_path": "questions[499]"
+    },
+    {
+      "a": "gemini_c9_01",
+      "b": "gemini_gap_case_disaster_triage_05_q1",
+      "clusters": [
+        "delegation_scope"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[365]",
+      "b_path": "questions[803].caseStudy.questions[0]"
+    },
+    {
+      "a": "gemini_c9_01",
+      "b": "gemini_p8_05",
+      "clusters": [
+        "delegation_scope"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[365]",
+      "b_path": "questions[135]"
+    },
+    {
+      "a": "gemini_c9_02",
+      "b": "gpt_canonical_sata_disaster_triage_037",
+      "clusters": [
+        "delegation_scope"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gpt",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gpt-canonical.json",
+      "a_path": "questions[366]",
+      "b_path": "questions[36]"
+    },
+    {
+      "a": "gemini_c9_02",
+      "b": "sata_prioritize_change_condition_002",
+      "clusters": [
+        "delegation_scope"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gpt",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gpt-canonical.json",
+      "a_path": "questions[366]",
+      "b_path": "questions[1]"
+    },
+    {
+      "a": "gemini_c9_08",
+      "b": "gemini_moc_ngn_2026_06_22_q8",
+      "clusters": [
+        "delegation_scope"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[371]",
+      "b_path": "questions[851]"
+    },
+    {
+      "a": "gemini_jun05_a_matrix_disaster_triage_27",
+      "b": "gpt_case_mass_casualty_start_triage_01_q1",
+      "clusters": [
+        "delegation_scope"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gpt",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gpt-canonical.json",
+      "a_path": "questions[26]",
+      "b_path": "questions[295].caseStudy.questions[0]"
+    },
+    {
+      "a": "gemini_jun05_a_mc_delegation_21",
+      "b": "gemini_p8_02",
+      "clusters": [
+        "delegation_scope"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[20]",
+      "b_path": "questions[132]"
+    },
+    {
+      "a": "gemini_jun05_a_mc_delegation_21",
+      "b": "mc_delegation_uap_vitals_001",
+      "clusters": [
+        "delegation_scope"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gpt",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gpt-canonical.json",
+      "a_path": "questions[20]",
+      "b_path": "questions[0]"
+    },
+    {
+      "a": "gemini_jun05_a_mc_delegation_21",
+      "b": "trad_batchB_01",
+      "clusters": [
+        "delegation_scope"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[20]",
+      "b_path": "questions[498]"
+    },
+    {
+      "a": "gemini_p2_07",
+      "b": "gemini_p8_01",
+      "clusters": [
+        "delegation_scope"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[78]",
+      "b_path": "questions[131]"
+    },
+    {
+      "a": "gemini_p2_07",
+      "b": "gemini_p8_08",
+      "clusters": [
+        "delegation_scope"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[78]",
+      "b_path": "questions[138]"
+    },
+    {
+      "a": "gemini_p2_07",
+      "b": "gpt_canonical_mc_staff_assignment_057",
+      "clusters": [
+        "delegation_scope"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gpt",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gpt-canonical.json",
+      "a_path": "questions[78]",
+      "b_path": "questions[56]"
+    },
+    {
+      "a": "gemini_p2_07",
+      "b": "mc_delegation_uap_vitals_001",
+      "clusters": [
+        "delegation_scope"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gpt",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gpt-canonical.json",
+      "a_path": "questions[78]",
+      "b_path": "questions[0]"
+    },
+    {
+      "a": "gemini_p8_01",
+      "b": "gemini_p8_06",
+      "clusters": [
+        "delegation_scope"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[131]",
+      "b_path": "questions[136]"
+    },
+    {
+      "a": "gemini_p8_01",
+      "b": "gpt_canonical_mc_staff_assignment_057",
+      "clusters": [
+        "delegation_scope"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gpt",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gpt-canonical.json",
+      "a_path": "questions[131]",
+      "b_path": "questions[56]"
+    },
+    {
+      "a": "gemini_p8_01",
+      "b": "mc_delegation_uap_vitals_001",
+      "clusters": [
+        "delegation_scope"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gpt",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gpt-canonical.json",
+      "a_path": "questions[131]",
+      "b_path": "questions[0]"
+    },
+    {
+      "a": "gemini_p8_01",
+      "b": "trad_batchB_03",
+      "clusters": [
+        "delegation_scope"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[131]",
+      "b_path": "questions[500]"
+    },
+    {
+      "a": "gemini_p8_02",
+      "b": "gpt_case_gap_2026_06_11_pressure_ltc_part_3_mc_delegate",
+      "clusters": [
+        "delegation_scope"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gpt",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gpt-canonical.json",
+      "a_path": "questions[132]",
+      "b_path": "questions[164].caseStudy.questions[2]"
+    },
+    {
+      "a": "gemini_p8_02",
+      "b": "mc_delegation_uap_vitals_001",
+      "clusters": [
+        "delegation_scope"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gpt",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gpt-canonical.json",
+      "a_path": "questions[132]",
+      "b_path": "questions[0]"
+    },
+    {
+      "a": "gemini_p8_02",
+      "b": "trad_batchB_01",
+      "clusters": [
+        "delegation_scope"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[132]",
+      "b_path": "questions[498]"
+    },
+    {
+      "a": "gemini_p8_03",
+      "b": "gemini_p8_08",
+      "clusters": [
+        "delegation_scope"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[133]",
+      "b_path": "questions[138]"
+    },
+    {
+      "a": "gemini_p8_06",
+      "b": "trad_batchB_03",
+      "clusters": [
+        "delegation_scope"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[136]",
+      "b_path": "questions[500]"
+    },
+    {
+      "a": "gemini_sic_ngn_2026_06_21_q8",
+      "b": "gpt_u6_matrix_cloze_2026_06_09_matrix_infection_precautions_02",
+      "clusters": [
+        "delegation_scope"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gpt",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gpt-canonical.json",
+      "a_path": "questions[861]",
+      "b_path": "questions[123]"
+    },
+    {
+      "a": "gpt_canonical_matrix_scope_assignment_050",
+      "b": "gpt_u6_matrix_cloze_2026_06_09_matrix_delegation_scope_04",
+      "clusters": [
+        "delegation_scope"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gpt",
+      "b_producer": "gpt",
+      "a_bank": "gpt-canonical.json",
+      "b_bank": "gpt-canonical.json",
+      "a_path": "questions[49]",
+      "b_path": "questions[125]"
+    },
+    {
+      "a": "gpt_canonical_sata_disaster_triage_037",
+      "b": "sata_prioritize_change_condition_002",
+      "clusters": [
+        "delegation_scope"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gpt",
+      "b_producer": "gpt",
+      "a_bank": "gpt-canonical.json",
+      "b_bank": "gpt-canonical.json",
+      "a_path": "questions[36]",
+      "b_path": "questions[1]"
+    },
+    {
+      "a": "gpt_case_premium_next_case_rehab_pressure_bowel_02_matrix_delegation",
+      "b": "gpt_u6_matrix_cloze_2026_06_09_matrix_delegation_scope_04",
+      "clusters": [
+        "delegation_scope"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gpt",
+      "b_producer": "gpt",
+      "a_bank": "gpt-canonical.json",
+      "b_bank": "gpt-canonical.json",
+      "a_path": "questions[178].caseStudy.questions[4]",
+      "b_path": "questions[125]"
+    },
+    {
+      "a": "gpt_case_unsafe_assignment_01_q1",
+      "b": "sata_prioritize_change_condition_002",
+      "clusters": [
+        "delegation_scope"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gpt",
+      "b_producer": "gpt",
+      "a_bank": "gpt-canonical.json",
+      "b_bank": "gpt-canonical.json",
+      "a_path": "questions[291].caseStudy.questions[0]",
+      "b_path": "questions[1]"
+    },
+    {
+      "a": "gpt_case_unsafe_assignment_01_q4",
+      "b": "sata_prioritize_change_condition_002",
+      "clusters": [
+        "delegation_scope"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gpt",
+      "b_producer": "gpt",
+      "a_bank": "gpt-canonical.json",
+      "b_bank": "gpt-canonical.json",
+      "a_path": "questions[291].caseStudy.questions[3]",
+      "b_path": "questions[1]"
+    },
+    {
+      "a": "gpt_deepen_2026_06_22_moc_07",
+      "b": "gpt_fresh_2026_06_22_moc_05",
+      "clusters": [
+        "delegation_scope"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gpt",
+      "b_producer": "gpt",
+      "a_bank": "gpt-canonical.json",
+      "b_bank": "gpt-canonical.json",
+      "a_path": "questions[419]",
+      "b_path": "questions[361]"
+    },
+    {
+      "a": "gpt_deepen_2026_06_22_sic_02",
+      "b": "gpt_hl_moc_chain_command_01",
+      "clusters": [
+        "delegation_scope"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gpt",
+      "b_producer": "gpt",
+      "a_bank": "gpt-canonical.json",
+      "b_bank": "gpt-canonical.json",
+      "a_path": "questions[426]",
+      "b_path": "questions[309]"
+    },
+    {
+      "a": "mc_delegation_uap_vitals_001",
+      "b": "trad_batchB_01",
+      "clusters": [
+        "delegation_scope"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gpt",
+      "b_producer": "gemini",
+      "a_bank": "gpt-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[0]",
+      "b_path": "questions[498]"
+    },
+    {
+      "a": "sata_prioritize_change_condition_002",
+      "b": "trad_batchB_02",
+      "clusters": [
+        "delegation_scope"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gpt",
+      "b_producer": "gemini",
+      "a_bank": "gpt-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[1]",
+      "b_path": "questions[499]"
+    },
+    {
+      "a": "easy_dka_01",
+      "b": "gemini_d10_03",
+      "clusters": [
+        "insulin_hypoglycemia"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[687]",
+      "b_path": "questions[386]"
+    },
+    {
+      "a": "easy_dka_01",
+      "b": "gemini_p5_10",
+      "clusters": [
+        "insulin_hypoglycemia"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[687]",
+      "b_path": "questions[110]"
+    },
+    {
+      "a": "easy_dka_01",
+      "b": "gemini_p7_06",
+      "clusters": [
+        "insulin_hypoglycemia"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[687]",
+      "b_path": "questions[126]"
+    },
+    {
+      "a": "gap_50_ppt_05",
+      "b": "gemini_d2_insulin_01",
+      "clusters": [
+        "insulin_hypoglycemia"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[739]",
+      "b_path": "questions[398]"
+    },
+    {
+      "a": "gap_50_ppt_05",
+      "b": "gemini_gap_case_pediatric_diabetes_03_q3",
+      "clusters": [
+        "insulin_hypoglycemia"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[739]",
+      "b_path": "questions[816].caseStudy.questions[2]"
+    },
+    {
+      "a": "gemini_d10_03",
+      "b": "gemini_p5_10",
+      "clusters": [
+        "insulin_hypoglycemia"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[386]",
+      "b_path": "questions[110]"
+    },
+    {
+      "a": "gemini_d10_03",
+      "b": "gemini_p7_06",
+      "clusters": [
+        "insulin_hypoglycemia"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[386]",
+      "b_path": "questions[126]"
+    },
+    {
+      "a": "gemini_p5_10",
+      "b": "gemini_p7_06",
+      "clusters": [
+        "insulin_hypoglycemia"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[110]",
+      "b_path": "questions[126]"
+    },
+    {
+      "a": "gpt_deepen_2026_06_22_b_pharm_05",
+      "b": "gpt_deepen_2026_06_22_bow_05",
+      "clusters": [
+        "insulin_hypoglycemia"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gpt",
+      "b_producer": "gpt",
+      "a_bank": "gpt-canonical.json",
+      "b_bank": "gpt-canonical.json",
+      "a_path": "questions[458]",
+      "b_path": "questions[395]"
+    },
+    {
+      "a": "gpt_deepen_2026_06_22_bow_05",
+      "b": "gpt_deepen_2026_06_23_bow_09",
+      "clusters": [
+        "insulin_hypoglycemia"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gpt",
+      "b_producer": "gpt",
+      "a_bank": "gpt-canonical.json",
+      "b_bank": "gpt-canonical.json",
+      "a_path": "questions[395]",
+      "b_path": "questions[486]"
+    },
+    {
+      "a": "gpt_deepen_2026_06_22_bow_05",
+      "b": "gpt_pharm_easy_medium_2026_06_21_b_bowtie_insulin_hypoglycemia_05",
+      "clusters": [
+        "insulin_hypoglycemia"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gpt",
+      "b_producer": "gpt",
+      "a_bank": "gpt-canonical.json",
+      "b_bank": "gpt-canonical.json",
+      "a_path": "questions[395]",
+      "b_path": "questions[337]"
+    },
+    {
+      "a": "gpt_deepen_2026_06_23_bow_09",
+      "b": "gpt_pharm_easy_medium_2026_06_21_b_bowtie_insulin_hypoglycemia_05",
+      "clusters": [
+        "insulin_hypoglycemia"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gpt",
+      "b_producer": "gpt",
+      "a_bank": "gpt-canonical.json",
+      "b_bank": "gpt-canonical.json",
+      "a_path": "questions[486]",
+      "b_path": "questions[337]"
+    },
+    {
+      "a": "gpt_pharm_easy_medium_2026_06_21_a_bowtie_insulin_hypoglycemia_06",
+      "b": "gpt_pharm_easy_medium_2026_06_21_b_bowtie_insulin_hypoglycemia_05",
+      "clusters": [
+        "insulin_hypoglycemia"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gpt",
+      "b_producer": "gpt",
+      "a_bank": "gpt-canonical.json",
+      "b_bank": "gpt-canonical.json",
+      "a_path": "questions[326]",
+      "b_path": "questions[337]"
+    },
+    {
+      "a": "easy_resp_infect_02",
+      "b": "gemini_p5_02",
+      "clusters": [
+        "isolation_mode"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[681]",
+      "b_path": "questions[103]"
+    },
+    {
+      "a": "gap_50_sic_01",
+      "b": "gap_50_sic_02",
+      "clusters": [
+        "isolation_mode"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[723]",
+      "b_path": "questions[724]"
+    },
+    {
+      "a": "gap_50_sic_01",
+      "b": "gemini_b10_05",
+      "clusters": [
+        "isolation_mode"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[723]",
+      "b_path": "questions[189]"
+    },
+    {
+      "a": "gap_50_sic_01",
+      "b": "gemini_jun05_a_or_ppe_donning_56",
+      "clusters": [
+        "isolation_mode"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[723]",
+      "b_path": "questions[54]"
+    },
+    {
+      "a": "gap_50_sic_01",
+      "b": "gemini_p1_03",
+      "clusters": [
+        "isolation_mode"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[723]",
+      "b_path": "questions[58]"
+    },
+    {
+      "a": "gap_50_sic_01",
+      "b": "gemini_sic_ngn_2026_06_21_q1",
+      "clusters": [
+        "isolation_mode"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[723]",
+      "b_path": "questions[854]"
+    },
+    {
+      "a": "gap_50_sic_01",
+      "b": "gen_sic_batch2_3",
+      "clusters": [
+        "isolation_mode"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[723]",
+      "b_path": "questions[594]"
+    },
+    {
+      "a": "gap_50_sic_01",
+      "b": "trad_batchD_14",
+      "clusters": [
+        "isolation_mode"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[723]",
+      "b_path": "questions[558]"
+    },
+    {
+      "a": "gap_50_sic_02",
+      "b": "gemini_b10_05",
+      "clusters": [
+        "isolation_mode"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[724]",
+      "b_path": "questions[189]"
+    },
+    {
+      "a": "gap_50_sic_02",
+      "b": "gemini_jun05_a_or_ppe_donning_56",
+      "clusters": [
+        "isolation_mode"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[724]",
+      "b_path": "questions[54]"
+    },
+    {
+      "a": "gap_50_sic_02",
+      "b": "gemini_p1_03",
+      "clusters": [
+        "isolation_mode"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[724]",
+      "b_path": "questions[58]"
+    },
+    {
+      "a": "gap_50_sic_02",
+      "b": "gemini_sic_ngn_2026_06_21_q1",
+      "clusters": [
+        "isolation_mode"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[724]",
+      "b_path": "questions[854]"
+    },
+    {
+      "a": "gap_50_sic_02",
+      "b": "gen_sic_batch2_3",
+      "clusters": [
+        "isolation_mode"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[724]",
+      "b_path": "questions[594]"
+    },
+    {
+      "a": "gemini_b10_05",
+      "b": "gemini_jun05_a_or_ppe_donning_56",
+      "clusters": [
+        "isolation_mode"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[189]",
+      "b_path": "questions[54]"
+    },
+    {
+      "a": "gemini_b10_05",
+      "b": "gemini_p1_03",
+      "clusters": [
+        "isolation_mode"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[189]",
+      "b_path": "questions[58]"
+    },
+    {
+      "a": "gemini_b10_05",
+      "b": "gen_sic_batch2_3",
+      "clusters": [
+        "isolation_mode"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[189]",
+      "b_path": "questions[594]"
+    },
+    {
+      "a": "gemini_b10_05",
+      "b": "trad_batchD_14",
+      "clusters": [
+        "isolation_mode"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[189]",
+      "b_path": "questions[558]"
+    },
+    {
+      "a": "gemini_b4_01",
+      "b": "gemini_b4_08",
+      "clusters": [
+        "isolation_mode"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[215]",
+      "b_path": "questions[222]"
+    },
+    {
+      "a": "gemini_b4_01",
+      "b": "gemini_jun05_a_or_ppe_donning_56",
+      "clusters": [
+        "isolation_mode"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[215]",
+      "b_path": "questions[54]"
+    },
+    {
+      "a": "gemini_b4_01",
+      "b": "gemini_sic_ngn_2026_06_21_q1",
+      "clusters": [
+        "isolation_mode"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[215]",
+      "b_path": "questions[854]"
+    },
+    {
+      "a": "gemini_b4_01",
+      "b": "gen_sic_batch2_3",
+      "clusters": [
+        "isolation_mode"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[215]",
+      "b_path": "questions[594]"
+    },
+    {
+      "a": "gemini_b4_01",
+      "b": "trad_batchB_16",
+      "clusters": [
+        "isolation_mode"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[215]",
+      "b_path": "questions[512]"
+    },
+    {
+      "a": "gemini_b4_08",
+      "b": "gpt_canonical_matrix_meningitis_precautions_105",
+      "clusters": [
+        "isolation_mode"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gpt",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gpt-canonical.json",
+      "a_path": "questions[222]",
+      "b_path": "questions[104]"
+    },
+    {
+      "a": "gemini_b9_06",
+      "b": "trad_batchD_14",
+      "clusters": [
+        "isolation_mode"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[270]",
+      "b_path": "questions[558]"
+    },
+    {
+      "a": "gemini_d10_05",
+      "b": "gen_sic_batch2_2",
+      "clusters": [
+        "isolation_mode"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[388]",
+      "b_path": "questions[593]"
+    },
+    {
+      "a": "gemini_d10_05",
+      "b": "mc_airborne_tb_precautions_004",
+      "clusters": [
+        "isolation_mode"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gpt",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gpt-canonical.json",
+      "a_path": "questions[388]",
+      "b_path": "questions[3]"
+    },
+    {
+      "a": "gemini_jun05_a_or_ppe_donning_56",
+      "b": "gemini_p1_03",
+      "clusters": [
+        "isolation_mode"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[54]",
+      "b_path": "questions[58]"
+    },
+    {
+      "a": "gemini_jun05_a_or_ppe_donning_56",
+      "b": "gemini_sic_ngn_2026_06_21_q1",
+      "clusters": [
+        "isolation_mode"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[54]",
+      "b_path": "questions[854]"
+    },
+    {
+      "a": "gemini_jun05_a_or_ppe_donning_56",
+      "b": "gen_sic_batch2_3",
+      "clusters": [
+        "isolation_mode"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[54]",
+      "b_path": "questions[594]"
+    },
+    {
+      "a": "gemini_jun05_a_or_ppe_donning_56",
+      "b": "trad_batchD_14",
+      "clusters": [
+        "isolation_mode"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[54]",
+      "b_path": "questions[558]"
+    },
+    {
+      "a": "gemini_jun05_a_sata_airborne_precautions_03",
+      "b": "gen_sic_batch2_2",
+      "clusters": [
+        "isolation_mode"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[2]",
+      "b_path": "questions[593]"
+    },
+    {
+      "a": "gemini_jun05_a_sata_airborne_precautions_03",
+      "b": "gpt_gap_jun11_sata_meningococcal_droplet_03",
+      "clusters": [
+        "isolation_mode"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gpt",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gpt-canonical.json",
+      "a_path": "questions[2]",
+      "b_path": "questions[212]"
+    },
+    {
+      "a": "gemini_jun05_a_sata_airborne_precautions_03",
+      "b": "gpt_gap_jun11_sata_tb_airborne_precautions_01",
+      "clusters": [
+        "isolation_mode"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gpt",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gpt-canonical.json",
+      "a_path": "questions[2]",
+      "b_path": "questions[192]"
+    },
+    {
+      "a": "gemini_jun05_a_sata_airborne_precautions_03",
+      "b": "gpt_gap_jun11_sata_varicella_precautions_02",
+      "clusters": [
+        "isolation_mode"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gpt",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gpt-canonical.json",
+      "a_path": "questions[2]",
+      "b_path": "questions[202]"
+    },
+    {
+      "a": "gemini_jun05_a_sata_airborne_precautions_03",
+      "b": "gpt_hl_sic_airborne_tb_08",
+      "clusters": [
+        "isolation_mode"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gpt",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gpt-canonical.json",
+      "a_path": "questions[2]",
+      "b_path": "questions[316]"
+    },
+    {
+      "a": "gemini_p1_03",
+      "b": "gen_sic_batch2_3",
+      "clusters": [
+        "isolation_mode"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[58]",
+      "b_path": "questions[594]"
+    },
+    {
+      "a": "gemini_p1_03",
+      "b": "trad_batchD_14",
+      "clusters": [
+        "isolation_mode"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[58]",
+      "b_path": "questions[558]"
+    },
+    {
+      "a": "gemini_p5_02",
+      "b": "gen_sic_batch2_2",
+      "clusters": [
+        "isolation_mode"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[103]",
+      "b_path": "questions[593]"
+    },
+    {
+      "a": "gemini_sic_ngn_2026_06_21_q1",
+      "b": "gen_sic_batch2_3",
+      "clusters": [
+        "isolation_mode"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[854]",
+      "b_path": "questions[594]"
+    },
+    {
+      "a": "gemini_sic_ngn_2026_06_21_q15",
+      "b": "gemini_sic_ngn_2026_06_21_q6",
+      "clusters": [
+        "isolation_mode"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[868]",
+      "b_path": "questions[859]"
+    },
+    {
+      "a": "gemini_sic_ngn_2026_06_21_q15",
+      "b": "gpt_case_infection_control_clustered_care_01_q3",
+      "clusters": [
+        "isolation_mode"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gpt",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gpt-canonical.json",
+      "a_path": "questions[868]",
+      "b_path": "questions[347].caseStudy.questions[2]"
+    },
+    {
+      "a": "gen_sic_batch2_2",
+      "b": "gpt_gap_jun11_sata_meningococcal_droplet_03",
+      "clusters": [
+        "isolation_mode"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gpt",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gpt-canonical.json",
+      "a_path": "questions[593]",
+      "b_path": "questions[212]"
+    },
+    {
+      "a": "gen_sic_batch2_2",
+      "b": "gpt_gap_jun11_sata_tb_airborne_precautions_01",
+      "clusters": [
+        "isolation_mode"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gpt",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gpt-canonical.json",
+      "a_path": "questions[593]",
+      "b_path": "questions[192]"
+    },
+    {
+      "a": "gen_sic_batch2_2",
+      "b": "gpt_gap_jun11_sata_varicella_precautions_02",
+      "clusters": [
+        "isolation_mode"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gpt",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gpt-canonical.json",
+      "a_path": "questions[593]",
+      "b_path": "questions[202]"
+    },
+    {
+      "a": "gen_sic_batch2_2",
+      "b": "mc_airborne_tb_precautions_004",
+      "clusters": [
+        "isolation_mode"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gpt",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gpt-canonical.json",
+      "a_path": "questions[593]",
+      "b_path": "questions[3]"
+    },
+    {
+      "a": "gen_sic_batch2_2",
+      "b": "trad_batchD_14",
+      "clusters": [
+        "isolation_mode"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[593]",
+      "b_path": "questions[558]"
+    },
+    {
+      "a": "gen_sic_batch2_3",
+      "b": "trad_batchD_14",
+      "clusters": [
+        "isolation_mode"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[594]",
+      "b_path": "questions[558]"
+    },
+    {
+      "a": "gpt_canonical_matrix_meningitis_precautions_105",
+      "b": "gpt_gap_jun11_sata_meningococcal_droplet_03",
+      "clusters": [
+        "isolation_mode"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gpt",
+      "b_producer": "gpt",
+      "a_bank": "gpt-canonical.json",
+      "b_bank": "gpt-canonical.json",
+      "a_path": "questions[104]",
+      "b_path": "questions[212]"
+    },
+    {
+      "a": "gpt_canonical_matrix_meningitis_precautions_105",
+      "b": "mc_airborne_tb_precautions_004",
+      "clusters": [
+        "isolation_mode"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gpt",
+      "b_producer": "gpt",
+      "a_bank": "gpt-canonical.json",
+      "b_bank": "gpt-canonical.json",
+      "a_path": "questions[104]",
+      "b_path": "questions[3]"
+    },
+    {
+      "a": "gpt_case_infection_control_clustered_care_01_q3",
+      "b": "gpt_gap_jun11_sata_meningococcal_droplet_03",
+      "clusters": [
+        "isolation_mode"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gpt",
+      "b_producer": "gpt",
+      "a_bank": "gpt-canonical.json",
+      "b_bank": "gpt-canonical.json",
+      "a_path": "questions[347].caseStudy.questions[2]",
+      "b_path": "questions[212]"
+    },
+    {
+      "a": "gpt_case_infection_control_clustered_care_01_q3",
+      "b": "gpt_gap_jun11_sata_tb_airborne_precautions_01",
+      "clusters": [
+        "isolation_mode"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gpt",
+      "b_producer": "gpt",
+      "a_bank": "gpt-canonical.json",
+      "b_bank": "gpt-canonical.json",
+      "a_path": "questions[347].caseStudy.questions[2]",
+      "b_path": "questions[192]"
+    },
+    {
+      "a": "gpt_case_infection_control_clustered_care_01_q3",
+      "b": "gpt_gap_jun11_sata_varicella_precautions_02",
+      "clusters": [
+        "isolation_mode"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gpt",
+      "b_producer": "gpt",
+      "a_bank": "gpt-canonical.json",
+      "b_bank": "gpt-canonical.json",
+      "a_path": "questions[347].caseStudy.questions[2]",
+      "b_path": "questions[202]"
+    },
+    {
+      "a": "gpt_gap_jun11_sata_meningococcal_droplet_03",
+      "b": "gpt_gap_jun11_sata_tb_airborne_precautions_01",
+      "clusters": [
+        "isolation_mode"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gpt",
+      "b_producer": "gpt",
+      "a_bank": "gpt-canonical.json",
+      "b_bank": "gpt-canonical.json",
+      "a_path": "questions[212]",
+      "b_path": "questions[192]"
+    },
+    {
+      "a": "gpt_gap_jun11_sata_meningococcal_droplet_03",
+      "b": "gpt_gap_jun11_sata_varicella_precautions_02",
+      "clusters": [
+        "isolation_mode"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gpt",
+      "b_producer": "gpt",
+      "a_bank": "gpt-canonical.json",
+      "b_bank": "gpt-canonical.json",
+      "a_path": "questions[212]",
+      "b_path": "questions[202]"
+    },
+    {
+      "a": "gpt_gap_jun11_sata_tb_airborne_precautions_01",
+      "b": "gpt_gap_jun11_sata_varicella_precautions_02",
+      "clusters": [
+        "isolation_mode"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gpt",
+      "b_producer": "gpt",
+      "a_bank": "gpt-canonical.json",
+      "b_bank": "gpt-canonical.json",
+      "a_path": "questions[192]",
+      "b_path": "questions[202]"
+    },
+    {
+      "a": "gemini_b9_10",
+      "b": "gemini_c1_01",
+      "clusters": [
+        "potassium_replacement"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[274]",
+      "b_path": "questions[275]"
+    },
+    {
+      "a": "gemini_p4_06",
+      "b": "trad_pa_05",
+      "clusters": [
+        "potassium_replacement"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[97]",
+      "b_path": "questions[478]"
+    },
+    {
+      "a": "gpt_case_aki_2026_06_16_case_prerenal_aki_hyperkalemia_01",
+      "b": "gpt_case_aki_2026_06_16_case_prerenal_aki_hyperkalemia_01_q4",
+      "clusters": [
+        "potassium_replacement"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gpt",
+      "b_producer": "gpt",
+      "a_bank": "hard-cases-canonical.json",
+      "b_bank": "hard-cases-canonical.json",
+      "a_path": "questions[64]",
+      "b_path": "questions[64].caseStudy.questions[3]"
+    },
+    {
+      "a": "gpt_case_aki_2026_06_16_case_prerenal_aki_hyperkalemia_01_q2",
+      "b": "gpt_case_aki_2026_06_16_case_prerenal_aki_hyperkalemia_01_q4",
+      "clusters": [
+        "potassium_replacement"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gpt",
+      "b_producer": "gpt",
+      "a_bank": "hard-cases-canonical.json",
+      "b_bank": "hard-cases-canonical.json",
+      "a_path": "questions[64].caseStudy.questions[1]",
+      "b_path": "questions[64].caseStudy.questions[3]"
+    },
+    {
+      "a": "gpt_case_aki_2026_06_16_case_prerenal_aki_hyperkalemia_01_q2",
+      "b": "gpt_case_aki_2026_06_16_case_prerenal_aki_hyperkalemia_01_q5",
+      "clusters": [
+        "potassium_replacement"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gpt",
+      "b_producer": "gpt",
+      "a_bank": "hard-cases-canonical.json",
+      "b_bank": "hard-cases-canonical.json",
+      "a_path": "questions[64].caseStudy.questions[1]",
+      "b_path": "questions[64].caseStudy.questions[4]"
+    },
+    {
+      "a": "gpt_case_aki_2026_06_16_case_prerenal_aki_hyperkalemia_01_q2",
+      "b": "opus3_iv_potassium_safety_case_01_q5",
+      "clusters": [
+        "potassium_replacement"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gpt",
+      "b_producer": "gpt",
+      "a_bank": "hard-cases-canonical.json",
+      "b_bank": "hard-cases-canonical.json",
+      "a_path": "questions[64].caseStudy.questions[1]",
+      "b_path": "questions[44].caseStudy.questions[4]"
+    },
+    {
+      "a": "gpt_case_aki_2026_06_16_case_prerenal_aki_hyperkalemia_01_q4",
+      "b": "gpt_case_aki_2026_06_16_case_prerenal_aki_hyperkalemia_01_q5",
+      "clusters": [
+        "potassium_replacement"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gpt",
+      "b_producer": "gpt",
+      "a_bank": "hard-cases-canonical.json",
+      "b_bank": "hard-cases-canonical.json",
+      "a_path": "questions[64].caseStudy.questions[3]",
+      "b_path": "questions[64].caseStudy.questions[4]"
+    },
+    {
+      "a": "gpt_case_gap_2026_06_11_aki_or_03",
+      "b": "gpt_case_gap_2026_06_11_case_tls_01_q3",
+      "clusters": [
+        "potassium_replacement"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gpt",
+      "b_producer": "gpt",
+      "a_bank": "gpt-canonical.json",
+      "b_bank": "gpt-canonical.json",
+      "a_path": "questions[185].caseStudy.questions[2]",
+      "b_path": "questions[183].caseStudy.questions[2]"
+    },
+    {
+      "a": "gpt_case_gap_2026_06_11_aki_or_03",
+      "b": "gpt_deepen_2026_06_23_bow_06",
+      "clusters": [
+        "potassium_replacement"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gpt",
+      "b_producer": "gpt",
+      "a_bank": "gpt-canonical.json",
+      "b_bank": "gpt-canonical.json",
+      "a_path": "questions[185].caseStudy.questions[2]",
+      "b_path": "questions[483]"
+    },
+    {
+      "a": "gpt_deepen_2026_06_22_b_pharm_03",
+      "b": "gpt_fresh_2026_06_22_pharm_07",
+      "clusters": [
+        "potassium_replacement"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gpt",
+      "b_producer": "gpt",
+      "a_bank": "gpt-canonical.json",
+      "b_bank": "gpt-canonical.json",
+      "a_path": "questions[456]",
+      "b_path": "questions[373]"
+    },
+    {
+      "a": "gpt_deepen_2026_06_22_bow_07",
+      "b": "gpt_deepen_2026_06_23_bcc_01",
+      "clusters": [
+        "potassium_replacement"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gpt",
+      "b_producer": "gpt",
+      "a_bank": "gpt-canonical.json",
+      "b_bank": "gpt-canonical.json",
+      "a_path": "questions[397]",
+      "b_path": "questions[468]"
+    },
+    {
+      "a": "gpt_deepen_2026_06_23_bcc_01",
+      "b": "gpt_fresh_2026_06_22_pharm_06",
+      "clusters": [
+        "potassium_replacement"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gpt",
+      "b_producer": "gpt",
+      "a_bank": "gpt-canonical.json",
+      "b_bank": "gpt-canonical.json",
+      "a_path": "questions[468]",
+      "b_path": "questions[372]"
+    },
+    {
+      "a": "gpt_pharm_easy_medium_2026_06_21_a_fib_kcl_rate_04",
+      "b": "opus3_iv_potassium_safety_case_01_q3",
+      "clusters": [
+        "potassium_replacement"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gpt",
+      "b_producer": "gpt",
+      "a_bank": "gpt-canonical.json",
+      "b_bank": "hard-cases-canonical.json",
+      "a_path": "questions[324]",
+      "b_path": "questions[44].caseStudy.questions[2]"
+    },
+    {
+      "a": "opus24_case_elder_neglect_med_mismanagement_01_q4",
+      "b": "opus_case_lithium_toxicity_q4",
+      "clusters": [
+        "potassium_replacement"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gpt",
+      "b_producer": "gpt",
+      "a_bank": "claude-canonical.json",
+      "b_bank": "claude-canonical.json",
+      "a_path": "questions[63].caseStudy.questions[3]",
+      "b_path": "questions[67].caseStudy.questions[3]"
+    },
+    {
+      "a": "opus24_case_elder_neglect_med_mismanagement_01_q4",
+      "b": "opus3_iv_potassium_safety_case_01_q5",
+      "clusters": [
+        "potassium_replacement"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gpt",
+      "b_producer": "gpt",
+      "a_bank": "claude-canonical.json",
+      "b_bank": "hard-cases-canonical.json",
+      "a_path": "questions[63].caseStudy.questions[3]",
+      "b_path": "questions[44].caseStudy.questions[4]"
+    },
+    {
+      "a": "claude_moc_assignment_mc_14",
+      "b": "gemini_p8_08",
+      "clusters": [
+        "delegation_scope"
+      ],
+      "reviewer": "gpt-5",
+      "a_producer": "claude",
+      "b_producer": "gemini",
+      "a_bank": "claude-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[82]",
+      "b_path": "questions[138]"
+    },
+    {
+      "a": "claude_moc_deleg_matrix_08",
+      "b": "gpt_canonical_matrix_scope_assignment_050",
+      "clusters": [
+        "delegation_scope"
+      ],
+      "reviewer": "gpt-5",
+      "a_producer": "claude",
+      "b_producer": "gpt",
+      "a_bank": "claude-canonical.json",
+      "b_bank": "gpt-canonical.json",
+      "a_path": "questions[76]",
+      "b_path": "questions[49]"
+    },
+    {
+      "a": "claude_moc_deleg_uap_hl_01",
+      "b": "claude_moc_lpn_deleg_hl_b01",
+      "clusters": [
+        "delegation_scope"
+      ],
+      "reviewer": "gpt-5",
+      "a_producer": "claude",
+      "b_producer": "claude",
+      "a_bank": "claude-canonical.json",
+      "b_bank": "claude-canonical.json",
+      "a_path": "questions[69]",
+      "b_path": "questions[83]"
+    },
+    {
+      "a": "claude_moc_deleg_uap_hl_01",
+      "b": "claude_moc_supervision_hl_b04",
+      "clusters": [
+        "delegation_scope"
+      ],
+      "reviewer": "gpt-5",
+      "a_producer": "claude",
+      "b_producer": "claude",
+      "a_bank": "claude-canonical.json",
+      "b_bank": "claude-canonical.json",
+      "a_path": "questions[69]",
+      "b_path": "questions[86]"
+    },
+    {
+      "a": "claude_moc_deleg_uap_hl_01",
+      "b": "gemini_hl_moc_delegation_02",
+      "clusters": [
+        "delegation_scope"
+      ],
+      "reviewer": "gpt-5",
+      "a_producer": "claude",
+      "b_producer": "gemini",
+      "a_bank": "claude-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[69]",
+      "b_path": "questions[776]"
+    },
+    {
+      "a": "claude_moc_lpn_deleg_hl_b01",
+      "b": "gpt_hl_moc_lpn_scope_05",
+      "clusters": [
+        "delegation_scope"
+      ],
+      "reviewer": "gpt-5",
+      "a_producer": "claude",
+      "b_producer": "gpt",
+      "a_bank": "claude-canonical.json",
+      "b_bank": "gpt-canonical.json",
+      "a_path": "questions[83]",
+      "b_path": "questions[313]"
+    },
+    {
+      "a": "claude_moc_supervision_hl_b04",
+      "b": "gemini_hl_sic_precautions_06",
+      "clusters": [
+        "delegation_scope"
+      ],
+      "reviewer": "gpt-5",
+      "a_producer": "claude",
+      "b_producer": "gemini",
+      "a_bank": "claude-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[86]",
+      "b_path": "questions[780]"
+    }
+  ]
+}

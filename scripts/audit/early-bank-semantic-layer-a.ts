@@ -22,13 +22,15 @@ export type SemanticTrack = "currency" | "coherence";
 export type CurrencyCluster =
   | "immunization_screening"
   | "isolation_precautions"
+  | "neutropenic_precautions"
   | "anticoagulation"
   | "dka_insulin"
   | "sepsis"
   | "burn_parkland"
   | "stroke"
   | "acls"
-  | "bp_targets";
+  | "bp_targets"
+  | "restraints_fall";
 export type ConceptCluster =
   | "delegation_scope"
   | "isolation_mode"
@@ -40,8 +42,6 @@ export type ConceptCluster =
   | "lithium_toxicity"
   | "dialysis_complications"
   | "fetal_heart_rate"
-  | "restraints_fall"
-  | "neutropenic_precautions"
   | "pressure_injury"
   | "hipaa_disclosure";
 
@@ -86,7 +86,7 @@ const HIGH_PREFIXES = [
   "gap_",
   "gemini_gapfill",
 ];
-const LOW_PREFIXES = ["opus_", "gpt_case_", "claude_cs_"];
+const LOW_PREFIXES = ["gpt_case_", "claude_cs_"];
 
 const CURRENCY_RULES: Array<{
   cluster: CurrencyCluster;
@@ -104,6 +104,12 @@ const CURRENCY_RULES: Array<{
     pattern:
       /\b(?:isolation|transmission-based|airborne|droplet|contact precaution|negative-pressure|negative pressure|n95|respirator|ppe|personal protective equipment|doffing|donning)\b/i,
     harmRank: 88,
+  },
+  {
+    cluster: "neutropenic_precautions",
+    pattern:
+      /\b(?:neutropeni\w*|absolute neutrophil|protective environment|reverse isolation)\b/i,
+    harmRank: 87,
   },
   {
     cluster: "anticoagulation",
@@ -146,6 +152,12 @@ const CURRENCY_RULES: Array<{
     pattern:
       /\b(?:hypertension|hypertensive|blood pressure target|bp target|systolic target|map target|mean arterial pressure target)\b/i,
     harmRank: 80,
+  },
+  {
+    cluster: "restraints_fall",
+    pattern:
+      /\b(?:restraint|seclusion|sitter|fall (?:precaution|risk)|bed alarm|side rail)\b/i,
+    harmRank: 79,
   },
 ];
 
@@ -212,21 +224,9 @@ const CONCEPT_RULES: Array<{
     harmTier: 20,
   },
   {
-    cluster: "restraints_fall",
-    pattern:
-      /\b(?:restraint|seclusion|sitter|fall (?:precaution|risk)|bed alarm|side rail)\b/i,
-    harmTier: 20,
-  },
-  {
-    cluster: "neutropenic_precautions",
-    pattern:
-      /\b(?:neutropeni\w*|absolute neutrophil|protective environment|reverse isolation)\b/i,
-    harmTier: 20,
-  },
-  {
     cluster: "pressure_injury",
     pattern:
-      /\b(?:pressure (?:injury|ulcer)|braden|deep tissue|unstageable|stage (?:i{1,4}|[1-4]))\b/i,
+      /\b(?:pressure (?:injury|ulcer)|braden|unstageable|deep tissue (?:pressure )?injury|stage (?:i{1,4}|[1-4]) pressure)\b/i,
     harmTier: 15,
   },
   {
@@ -238,6 +238,13 @@ const CONCEPT_RULES: Array<{
 ];
 
 const MAX_PAIR_GROUP = 60;
+
+export const matchConceptClusters = (
+  searchText: string,
+): ConceptCluster[] =>
+  CONCEPT_RULES.filter(({ pattern }) => pattern.test(searchText)).map(
+    ({ cluster }) => cluster,
+  );
 
 const STOP_WORDS = new Set([
   "a",
@@ -285,12 +292,13 @@ const jaccard = (left: Set<string>, right: Set<string>) => {
   return intersection / (left.size + right.size - intersection);
 };
 
-const producerFor = (
+export const producerFor = (
   bank: string,
   id: string,
 ): SemanticInventoryItem["producer"] => {
-  if (id.startsWith("opus_") || bank.startsWith("claude-")) return "claude";
+  if (/^opus\d*_/.test(id)) return "gpt";
   if (id.startsWith("gpt_") || bank.startsWith("gpt-")) return "gpt";
+  if (bank.startsWith("claude-")) return "claude";
   if (
     id.startsWith("gemini_") ||
     id.startsWith("trad_") ||
@@ -305,6 +313,7 @@ const producerFor = (
 };
 
 export const provenanceTierFor = (id: string): ProvenanceTier => {
+  if (/^opus\d*_/.test(id)) return "low";
   if (LOW_PREFIXES.some((prefix) => id.startsWith(prefix))) return "low";
   if (HIGH_PREFIXES.some((prefix) => id.startsWith(prefix))) return "high";
   return "medium";
@@ -415,9 +424,7 @@ const loadItems = async (bankPaths: readonly string[]): Promise<LoadedItem[]> =>
           const currencyClusters = CURRENCY_RULES.filter(({ pattern }) =>
             pattern.test(searchText),
           ).map(({ cluster }) => cluster);
-          const conceptClusters = CONCEPT_RULES.filter(({ pattern }) =>
-            pattern.test(searchText),
-          ).map(({ cluster }) => cluster);
+          const conceptClusters = matchConceptClusters(searchText);
           return {
             id: question.id,
             bank,

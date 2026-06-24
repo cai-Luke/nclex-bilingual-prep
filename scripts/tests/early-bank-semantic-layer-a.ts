@@ -4,6 +4,8 @@ import {
   DEFAULT_BANKS,
   DEFAULT_QUEUE,
   DEFAULT_SUMMARY,
+  matchConceptClusters,
+  producerFor,
   provenanceTierFor,
   writeSemanticLayerA,
 } from "../audit/early-bank-semantic-layer-a";
@@ -13,6 +15,44 @@ assert.equal(provenanceTierFor("trad_batchB_01"), "high");
 assert.equal(provenanceTierFor("gpt_general_01"), "medium");
 assert.equal(provenanceTierFor("gpt_case_recent_01"), "low");
 assert.equal(provenanceTierFor("opus_recent_01"), "low");
+assert.equal(provenanceTierFor("opus3_iv_potassium_safety_case_01_q3"), "low");
+assert.equal(provenanceTierFor("opus24_case_elder_neglect_01_q4"), "low");
+assert.equal(
+  producerFor("hard-cases-canonical.json", "opus3_iv_potassium_safety_case_01_q3"),
+  "gpt",
+);
+assert.equal(
+  producerFor("claude-canonical.json", "opus5_case_consent_interpreter_01_q1"),
+  "gpt",
+);
+assert.equal(
+  producerFor("claude-canonical.json", "claude_moc_deleg_uap_hl_01"),
+  "claude",
+);
+assert(
+  !matchConceptClusters("Stage II breast cancer staging").includes(
+    "pressure_injury",
+  ),
+  "pressure_injury must not match generic cancer staging language",
+);
+assert(
+  !matchConceptClusters("Stage 3 chronic kidney disease").includes(
+    "pressure_injury",
+  ),
+  "pressure_injury must not match generic CKD staging language",
+);
+assert(
+  matchConceptClusters("Stage III pressure ulcer on the sacrum").includes(
+    "pressure_injury",
+  ),
+  "pressure_injury must still match staged pressure ulcer content",
+);
+assert(
+  matchConceptClusters("Braden scale risk assessment").includes(
+    "pressure_injury",
+  ),
+  "pressure_injury must still match Braden scale content",
+);
 
 const first = await writeSemanticLayerA();
 const firstQueue = await readFile(DEFAULT_QUEUE, "utf8");
@@ -24,8 +64,8 @@ const secondSummary = await readFile(DEFAULT_SUMMARY, "utf8");
 // Recorded baseline — update on intentional regen.
 const recordedBaseline = {
   inventoryLength: 2256,
-  rowLength: 2157,
-  uniqueQueuedItems: 1876,
+  rowLength: 2152,
+  uniqueQueuedItems: 1857,
 };
 void recordedBaseline;
 
