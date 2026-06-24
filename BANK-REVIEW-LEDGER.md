@@ -558,6 +558,21 @@ Pre-promotion fixes (Claude, deterministic transform `scripts/fix-gpt-deepen-202
 
 Gate results: `validate-bank` clean on all 4 raw + all 13 canonical post-merge; `npm run audit` **GATE PASSED** (references clean / positions χ²=0.345, max dev 0.9pp / integrity verified / ids 2327 unique across 13 files). `npm run consolidate` merged sequentially → `gpt-canonical.json` **391→439**; staged files auto-consumed; raw drafts deleted (backup in `scratch/raw-backup-2026-06-22/`). Build green.
 
+### 2026-06-23 — GPT "deepen" round-3 trusted-agent batch (29 items → `banks/gpt-canonical.json`, 439→468)
+
+Status: `clean-promoted`. Claude operated the final review + promotion gate over four `gpt-deepen-2026-06-22-b-*` raw banks generated from the minimal/"trusted-agent" prompt experiment in `GPT-DEEPEN-BLOCKS-2026-06-22-b.md` (per-format shape rules deferred to repo schema docs; only the semantic floor + answer-key warning carried inline). Disjoint `_b_` ID prefix avoids collision with the earlier `391→439` deepen batch.
+
+- `gpt-deepen-2026-06-22-b-moc1.json` — 7 Management of Care (4 bowtie, 3 ordered_response): RRT activation for post-colectomy hemorrhage, DNR non-arrest dyspnea vs comfort-only, START red-tag by RR>30, verified-DNR/POLST honored mid-arrest despite proxy reversal, full START primary-triage sequence, IV-push-KCl policy-violation escalation chain, perioperative DNR required-reconsideration order.
+- `gpt-deepen-2026-06-22-b-moc2.json` — 8 Management of Care (5 highlight, 3 fill_in_blank): incident-report HIPAA breach (voicemail to neighbor), SBAR drain-handoff missing notification threshold, disclosure-log entry contradicting client wishes, discharge-sheet advocacy violation, communication-accommodation override, qualified-interpreter blank, home-health follow-up destination, privacy-officer breach-review role.
+- `gpt-deepen-2026-06-22-b-pharm.json` — 7 Pharmacological (3 ordered_response, 2 fill_in_blank, 2 dropdown_cloze): warfarin INR 5.6 hold sequence, heparin aPTT 128 stop/restart sequence, digoxin pre-dose hold + toxicity, warfarin-bridge INR blank, insulin-hypoglycemia 15-min recheck (numeric), ACE-I/spironolactone hyperkalemia hold cloze, apixaban GI-bleed hold + Hgb/Hct trend cloze.
+- `gpt-deepen-2026-06-22-b-rrp.json` — 7 Reduction of Risk Potential (4 highlight, 3 bowtie): pre-dialysis critical K+ panel, neuraxial-anesthesia enoxaparin-timing checklist breach, post-liver-biopsy hemorrhage cue cluster, post-thyroidectomy hypocalcemia, dialysis disequilibrium syndrome, venous air embolism, acute compartment syndrome with palpable pulse.
+
+Pre-promotion fixes: **none required.** All four files parsed first try; `validate-bank` OK on all (7+8+7+7=29, counts matched targets); `normalize-raw-bank` reported 0 structural changes on every file (no enum/glossary/curly-quote drift). Content review confirmed closed-world stems (every threshold/policy stated inline), no-filler distractors, full `rationale.byChoice` coverage of every option/segment/token/blank, unique ordered_response sequences, fill_in_blank closed-vocabulary `acceptable[]` with spelled-out variants, and English↔Simplified-Chinese parity throughout.
+
+Gate results: `npm run audit` **GATE PASSED** (references clean / positions χ²=0.345, max dev 0.9pp / ids 2356 unique across 13 files). `npm run consolidate` routed all 29 → `gpt-canonical.json` **439→468**; staged files auto-consumed; raw drafts removed (backup in `scratch/raw-backup-2026-06-22-b/`). Census regenerated (1635 top-level / 721 embedded / 154 visuals). Root prompt files (combined block + 4 splits) archived to `Archive/gpt-deepen-2026-06-22-b-prompts/`.
+
+Prompt-experiment verdict: the minimal "trusted-agent" prompt produced **zero schema errors and zero mechanical drift** across 29 items spanning 6 item types — a clear win for the bet that deferring shape rules to the repo docs would not raise the schema-error rate. Content quality was high: scenario diversity strong, closed-world discipline consistent, distractors clinically realistic. Shape lines remain a cheap re-add if a future round regresses.
+
 ## Next Planned Review
 
 - Next GPT/Gemini batch: prioritize Physiological Adaptation singleton topics (ADHF, AKI, acute pancreatitis, Reduction of Risk Potential) using case_study format to close the 93-item case_study gap (71 vs 164 target).
