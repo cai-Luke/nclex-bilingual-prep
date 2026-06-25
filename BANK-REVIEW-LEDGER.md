@@ -585,6 +585,26 @@ Pre-promotion fixes: **none required.** All three files parsed first try; `valid
 
 Gate results: `npm run audit` **GATE PASSED** (references clean / positions χ²=0.345, max dev 0.9pp / integrity verified / ids 2356 unique across 13 files). `npm run consolidate` routed all 30 → `gpt-canonical.json` **468→498**; staged files auto-consumed; raw drafts deleted. Census regenerated (1665 top-level / 721 embedded / 154 visuals). Build green.
 
+### 2026-06-25 — Phase A adversarial coherence-polish patch (`banks/gemini-canonical.json`, 2 items)
+
+Status: `fixed-and-validated`. Applied the Phase A adversarial semantic audit's
+two minor, key-preserving FIX findings from
+`ADVERSARIAL-AUDIT-FINDINGS-2026-06-24.md`:
+
+- CONCERN #1, `gemini_c9_01`: corrected the `rationale.correct` summary option
+  letter from B to A in both English and Chinese. The keyed answer remains
+  `["A"]`; option IDs and per-choice rationales were already correct.
+- CONCERN #2, `gap_50_sic_03`: corrected the Chinese rationale disease term
+  `流液` to `流感` for influenza. The matrix mapping remains influenza `r3` ->
+  droplet `c2`.
+
+Patch reason: "Phase A adversarial-audit coherence polish: gemini_c9_01 RI
+transposed option letter (EN+ZH); gap_50_sic_03 BD zh lexical 流液→流感.
+Key-preserving, no clinical change." Applied with
+`scripts/patches/2026-06-25-phase-a-coherence-polish.ts` via canonical
+`patch-raw --allow-canonical`; no raw/staging source file was involved and
+`meta.count` remained 874.
+
 ### 2026-06-24 — Phase 2 unknown-key residual cleanup and strict gate
 
 Status: `fixed-and-validated`. Codex ran the schema-hardening closeout cleanup over canonical banks after `npm run scan-unknown-keys` reported 16 residual off-schema occurrences across `gpt-canonical.json`, `hard-cases-canonical.json`, and `io-canonical.json`.

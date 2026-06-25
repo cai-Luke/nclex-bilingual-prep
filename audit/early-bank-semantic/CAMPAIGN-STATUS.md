@@ -6,16 +6,21 @@ sessions.
 
 ## Current State
 
-- Phase: 32 human-approved semantic corrections applied. Phase B now has only
-  the 17 producer-conflict records awaiting an independent reviewer.
-- Last completed pass: Session 12 approved execution, 2026-06-13.
+- Phase: Phase A coherence pilot closed; proceed to Phase B coherence in
+  bounded, provenance-split batches. Currency remainder is closed.
+- Last completed pass: Phase A coherence pilot closeout and polish patch,
+  2026-06-25.
 - Return package: `audit/early-bank-semantic/CLAUDE-RETURN-INDEX.md`
 - Command: `npm run audit:early-bank-semantic`
 - Regression: `npm run test:early-bank-semantic`
 - Queue: `audit/early-bank-semantic/layer-a-queue.jsonl`
 - Summary: `audit/early-bank-semantic/layer-a-summary.json`
-- Canonical edits: none.
-- Layer A baseline regenerated after the concurrent bank additions.
+- Canonical edits: 2026-06-25 Phase A coherence-polish patch applied two
+  minor, key-preserving fixes in `banks/gemini-canonical.json`:
+  `gemini_c9_01` EN/ZH rationale option letter B->A and `gap_50_sic_03` ZH
+  `流液`->`流感`.
+- Layer A baseline regenerated after the concurrent bank additions; Phase A
+  used `coherence/2026-06-24.slice.json`.
 
 ## Scope Reconciliation
 
@@ -70,6 +75,7 @@ groups are not findings, clinical judgments, or action recommendations.
 | 2026-06-13-Currency-10 | currency / OG adjudication | Two Session 07 REVIEW findings plus provenance check for 13 unknown hard-case rows | complete: 1 FIX, 1 dismissed, 13 remain blocked | `currency/10-claude-return-adjudication.report.md` | `currency/10-claude-return-adjudication.manifest.jsonl` |
 | 2026-06-13-Currency-11 | currency / OG human adjudication | 13 provenance-unknown hard-case records | complete: 13 retain as-is, 0 actioned | `currency/11-gemini-13-human-adjudication.report.md` | none |
 | 2026-06-13-Currency-12 | approved execution | Sessions 01-05 and 10: 32 human-approved FIX rows | complete: 32 applied, 290 exact field edits | `currency/12-approved-execution.report.md` | `currency/12-approved-execution.manifest.jsonl` |
+| 2026-06-24/25-Phase-A-Coherence | coherence pilot + currency remainder | 109 unique items / 156 candidate pairs plus 5 Opus currency exception rows | complete: 117 DISMISS, 2 minor FIX applied, 0 blocker/major/source_check/hold/discard | `../../ADVERSARIAL-AUDIT-FINDINGS-2026-06-24.md`; `currency/13-opus-currency-claude-exception.report.md` | `coherence/ADVERSARIAL-AUDIT-2026-06-24.manifest.jsonl`; `currency/13-opus-currency-claude-exception.manifest.jsonl` |
 
 ## Session 01 Result
 

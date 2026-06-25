@@ -58,18 +58,21 @@ The committed NGN item-type set is complete. Rationale/dyad scoring and an expli
 
 ## Milestones
 
-### Adversarial Semantic Audit Pilot — Gemini + Codex lanes (Jun 24)
+### Phase A Adversarial Semantic Audit Pilot Closeout (Jun 25)
 
-In progress:
+Completed:
 - Opened the Phase A adversarial semantic audit pilot for the regenerated coherence slice at `audit/early-bank-semantic/coherence/2026-06-24.slice.json`.
 - Completed the Gemini-flagged / Luke-adjudicated straggler review for the two Claude × GPT delegation pairs. Both candidate contradictions were dismissed/kept; the shared report and manifest are recorded in `ADVERSARIAL-AUDIT-FINDINGS-2026-06-24.md` and `audit/early-bank-semantic/coherence/ADVERSARIAL-AUDIT-2026-06-24.manifest.jsonl`.
 - Completed the GPT-5/Codex assigned lane and wrote lane-scoped artifacts under `audit/early-bank-semantic/coherence/lanes/`: 5 coherence pairs plus 7 source-checked currency rows, with zero actionable findings and 14 DISMISS/keep manifest rows.
-- Updated the GPT-5, Gemini, Claude Opus currency, and Claude Code specs so Claude Code runs last, preserves Gemini, merges Codex if present, writes its own lane files first, then performs final aggregation/cleanup after its coherence and Opus currency work.
+- Completed the Claude coherence lane and the five-row Claude Opus currency exception. The merged pilot covers 109 unique items / 156 candidate pairs, with 117 DISMISS rows and 2 minor FIX rows.
+- Applied the two key-preserving Phase A coherence-polish corrections to `banks/gemini-canonical.json`: `gemini_c9_01` rationale summary option letter B→A in EN and ZH, and `gap_50_sic_03` ZH `流液`→`流感`.
+- The Phase A pilot recommends scaling to Phase B in bounded, provenance-split coherence batches. There are no blocker/major, source_check, hold, discard, or answer-key-change findings.
 
 Verification:
 - Parsed the shared Gemini JSONL manifest successfully (4 rows with required pilot fields).
 - Parsed `audit/early-bank-semantic/coherence/lanes/codex.manifest.jsonl` successfully (14 rows with required pilot fields).
-- Current result is promising but not closed: Claude Code coherence and the five-row Opus currency exception remain pending before pilot closeout.
+- Parsed the merged coherence manifest successfully (119 rows with required pilot fields) and parsed the Claude Opus currency exception manifest successfully (5 rows).
+- The canonical patch reported 3 FIX operations, preserved 874 Gemini questions, and passed in-process bank validation. Post-patch disk reread confirmed keys/matrix mapping unchanged.
 
 ### Phase 2 Schema-Hardening Step B Closeout (Jun 24)
 
