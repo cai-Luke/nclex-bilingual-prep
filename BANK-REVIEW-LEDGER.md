@@ -615,6 +615,14 @@ Standing gate change: `src/schema.ts` now supports `rejectUnknownKeys` strict va
 
 Verification: `npm run scan-unknown-keys` passed with 0 findings; `npm run test:schema-bank` passed including the `termDef` regression; `npm run validate-bank -- banks/*.json` passed with strict mode; `npm run audit` passed (integrity insufficient only because no raw drafts are present); final census/build verification completed.
 
+### 2026-06-26 — Phase B coherence adversarial audit (no content change)
+
+Status: `audit-complete` (advisory; no canonical content changed). Relational coherence audit of the 104-pair / 93-item Phase B slice (`audit/early-bank-semantic/coherence/2026-06-25-phaseB.slice.json`), dispatched producer-clean across three lanes — Claude Code / Claude Opus 4.8 (81 pairs), Codex / GPT-5 (6), Gemini / gemini-3.5-flash (46) — for 266 manifest rows total.
+
+Result: **0 contradictions; all 266 rows DISMISS; `needsHumanReview` 0.** Every pair resolved to a coherent shared-decision dismissal or NULL-COHERENCE no-shared-decision dismissal. All lanes are flag-only, so no `banks/*.json` file was mutated, no schema/promote/consolidate cycle ran, and all bank counts are unchanged. Luke independently reviewed all three lanes and concurs.
+
+Artifacts: merged findings `ADVERSARIAL-AUDIT-FINDINGS-2026-06-25.md`; merged manifest `audit/early-bank-semantic/coherence/ADVERSARIAL-AUDIT-2026-06-25.manifest.jsonl`; lane files `lanes/{claude,codex,gemini}.phaseB.*`. Architect quality finding on the Gemini lane: `Archive/root-cleanup-2026-06-26/CLAUDE-ARCHITECT-GEMINI-AUDIT-QUALITY-HANDOFF-2026-06-26.md` (decision recorded in `DECISIONS.md`).
+
 ## Next Planned Review
 
 - Next GPT/Gemini batch: prioritize Physiological Adaptation singleton topics (ADHF, AKI, acute pancreatitis, Reduction of Risk Potential) using case_study format to close the 93-item case_study gap (71 vs 164 target).

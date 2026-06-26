@@ -1,6 +1,6 @@
 # Non-MCQ Bias Audit Layer B Review
 
-Review exactly 806 JSONL queue rows. Return JSONL only, one result per input row, in the same order.
+Review exactly 1463 JSONL queue rows. Return JSONL only, one result per input row, in the same order.
 
 For `case_inferability`, judge only whether the keyed answer is determinable from the single exhibit retained in `options_or_rows_en`. Do not use omitted exhibits or outside facts.
 

@@ -1,0 +1,3116 @@
+{
+  "generated": "2026-06-25-phaseB",
+  "source_queue": "audit/early-bank-semantic/layer-a-queue.jsonl",
+  "clusters": [
+    "dialysis_complications",
+    "digoxin_hold",
+    "fetal_heart_rate",
+    "hipaa_disclosure",
+    "lithium_toxicity",
+    "mi_chest_pain",
+    "pressure_injury",
+    "stroke_escalation"
+  ],
+  "unique_item_count": 93,
+  "candidate_pair_count": 104,
+  "reviewer_split": {
+    "claude_pairs": 81,
+    "gpt5_pairs": 6,
+    "gemini_pairs": 2,
+    "needs_provenance_pairs": 15
+  },
+  "gpt5_carveout_ids": [
+    "claude_a_mc_postpartum_fundus_41",
+    "claude_a_sata_tracheostomy_09",
+    "claude_moc_hipaa_breach_hl_b03"
+  ],
+  "needs_provenance_pairs": [
+    {
+      "a": "claude_a_sata_tracheostomy_09",
+      "b": "cs_ckd_01_q3",
+      "clusters": [
+        "dialysis_complications"
+      ],
+      "reviewer": "needs-provenance",
+      "a_producer": "claude",
+      "b_producer": "mixed",
+      "a_bank": "claude-canonical.json",
+      "b_bank": "hard-cases-canonical.json",
+      "a_path": "questions[6]",
+      "b_path": "questions[3].caseStudy.questions[2]"
+    },
+    {
+      "a": "cs_ckd_01_q3",
+      "b": "gemini_jun05_a_sata_pacemaker_41",
+      "clusters": [
+        "dialysis_complications"
+      ],
+      "reviewer": "needs-provenance",
+      "a_producer": "mixed",
+      "b_producer": "gemini",
+      "a_bank": "hard-cases-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[3].caseStudy.questions[2]",
+      "b_path": "questions[39]"
+    },
+    {
+      "a": "cs_ckd_01_q3",
+      "b": "trad_batchD_08",
+      "clusters": [
+        "dialysis_complications"
+      ],
+      "reviewer": "needs-provenance",
+      "a_producer": "mixed",
+      "b_producer": "gemini",
+      "a_bank": "hard-cases-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[3].caseStudy.questions[2]",
+      "b_path": "questions[552]"
+    },
+    {
+      "a": "cs_ckd_01_q3",
+      "b": "trad_batchD_10",
+      "clusters": [
+        "dialysis_complications"
+      ],
+      "reviewer": "needs-provenance",
+      "a_producer": "mixed",
+      "b_producer": "gemini",
+      "a_bank": "hard-cases-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[3].caseStudy.questions[2]",
+      "b_path": "questions[554]"
+    },
+    {
+      "a": "cs_ckd_01_q3",
+      "b": "trad_batchD_20",
+      "clusters": [
+        "dialysis_complications"
+      ],
+      "reviewer": "needs-provenance",
+      "a_producer": "mixed",
+      "b_producer": "gemini",
+      "a_bank": "hard-cases-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[3].caseStudy.questions[2]",
+      "b_path": "questions[564]"
+    },
+    {
+      "a": "cs_ckd_01_q3",
+      "b": "trad_batchD_24",
+      "clusters": [
+        "dialysis_complications"
+      ],
+      "reviewer": "needs-provenance",
+      "a_producer": "mixed",
+      "b_producer": "gemini",
+      "a_bank": "hard-cases-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[3].caseStudy.questions[2]",
+      "b_path": "questions[568]"
+    },
+    {
+      "a": "cs_ckd_01_q5",
+      "b": "gemini_c8_08",
+      "clusters": [
+        "dialysis_complications"
+      ],
+      "reviewer": "needs-provenance",
+      "a_producer": "mixed",
+      "b_producer": "gemini",
+      "a_bank": "hard-cases-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[3].caseStudy.questions[4]",
+      "b_path": "questions[362]"
+    },
+    {
+      "a": "cs_stemi_vfib_04_part_1",
+      "b": "gemini_b1_04",
+      "clusters": [
+        "mi_chest_pain"
+      ],
+      "reviewer": "needs-provenance",
+      "a_producer": "mixed",
+      "b_producer": "gemini",
+      "a_bank": "hard-cases-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[35].caseStudy.questions[0]",
+      "b_path": "questions[180]"
+    },
+    {
+      "a": "claude_cs_jun06_pressure_injury_bcc_01",
+      "b": "gpt_case_gap_2026_06_11_case_pressure_injury_ltc_04",
+      "clusters": [
+        "pressure_injury"
+      ],
+      "reviewer": "needs-provenance",
+      "a_producer": "mixed",
+      "b_producer": "gpt",
+      "a_bank": "hard-cases-canonical.json",
+      "b_bank": "gpt-canonical.json",
+      "a_path": "questions[29]",
+      "b_path": "questions[164]"
+    },
+    {
+      "a": "claude_cs_jun06_pressure_injury_bcc_01",
+      "b": "gpt_case_premium_2026_06_10_case04_pressure_injury_rehab",
+      "clusters": [
+        "pressure_injury"
+      ],
+      "reviewer": "needs-provenance",
+      "a_producer": "mixed",
+      "b_producer": "gpt",
+      "a_bank": "hard-cases-canonical.json",
+      "b_bank": "gpt-canonical.json",
+      "a_path": "questions[29]",
+      "b_path": "questions[145]"
+    },
+    {
+      "a": "claude_cs_jun06_pressure_injury_bcc_01",
+      "b": "gpt_gap_2026_06_12_nonmcq_balanced_case_pressure_injury_nutrition_03",
+      "clusters": [
+        "pressure_injury"
+      ],
+      "reviewer": "needs-provenance",
+      "a_producer": "mixed",
+      "b_producer": "gpt",
+      "a_bank": "hard-cases-canonical.json",
+      "b_bank": "gpt-canonical.json",
+      "a_path": "questions[29]",
+      "b_path": "questions[244]"
+    },
+    {
+      "a": "claude_cs_jun06_pressure_injury_bcc_01_part_2",
+      "b": "gpt_canonical_matrix_pressure_injury_040",
+      "clusters": [
+        "pressure_injury"
+      ],
+      "reviewer": "needs-provenance",
+      "a_producer": "mixed",
+      "b_producer": "gpt",
+      "a_bank": "hard-cases-canonical.json",
+      "b_bank": "gpt-canonical.json",
+      "a_path": "questions[29].caseStudy.questions[1]",
+      "b_path": "questions[39]"
+    },
+    {
+      "a": "claude_cs_jun06_pressure_injury_bcc_01_part_2",
+      "b": "gpt_case_gap_2026_06_11_pressure_ltc_part_2_sata_plan",
+      "clusters": [
+        "pressure_injury"
+      ],
+      "reviewer": "needs-provenance",
+      "a_producer": "mixed",
+      "b_producer": "gpt",
+      "a_bank": "hard-cases-canonical.json",
+      "b_bank": "gpt-canonical.json",
+      "a_path": "questions[29].caseStudy.questions[1]",
+      "b_path": "questions[164].caseStudy.questions[1]"
+    },
+    {
+      "a": "claude_cs_jun06_pressure_injury_bcc_01_part_4",
+      "b": "gemini_d8_10",
+      "clusters": [
+        "pressure_injury"
+      ],
+      "reviewer": "needs-provenance",
+      "a_producer": "mixed",
+      "b_producer": "gemini",
+      "a_bank": "hard-cases-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[29].caseStudy.questions[3]",
+      "b_path": "questions[463]"
+    },
+    {
+      "a": "claude_cs_jun06_pressure_injury_bcc_01_part_4",
+      "b": "opus_bcc_rehab_2026_06_10_01",
+      "clusters": [
+        "pressure_injury"
+      ],
+      "reviewer": "needs-provenance",
+      "a_producer": "mixed",
+      "b_producer": "gpt",
+      "a_bank": "hard-cases-canonical.json",
+      "b_bank": "claude-canonical.json",
+      "a_path": "questions[29].caseStudy.questions[3]",
+      "b_path": "questions[50]"
+    }
+  ],
+  "items": [
+    {
+      "id": "claude_a_mc_postpartum_fundus_41",
+      "bank": "claude-canonical.json",
+      "path": "questions[36]",
+      "producer": "claude",
+      "provenance_tier": "medium",
+      "harm_rank": 80,
+      "pilot_clusters": [
+        "fetal_heart_rate"
+      ],
+      "within_cluster_peers": [
+        "gemini_jun05_a_mc_pph_priority_32"
+      ]
+    },
+    {
+      "id": "claude_a_sata_tracheostomy_09",
+      "bank": "claude-canonical.json",
+      "path": "questions[6]",
+      "producer": "claude",
+      "provenance_tier": "medium",
+      "harm_rank": 80,
+      "pilot_clusters": [
+        "dialysis_complications"
+      ],
+      "within_cluster_peers": [
+        "cs_ckd_01_q3",
+        "trad_batchD_08",
+        "trad_batchD_10",
+        "trad_batchD_20"
+      ]
+    },
+    {
+      "id": "claude_cs_jun06_pressure_injury_bcc_01",
+      "bank": "hard-cases-canonical.json",
+      "path": "questions[29]",
+      "producer": "mixed",
+      "provenance_tier": "low",
+      "harm_rank": 65,
+      "pilot_clusters": [
+        "pressure_injury"
+      ],
+      "within_cluster_peers": [
+        "gpt_case_gap_2026_06_11_case_pressure_injury_ltc_04",
+        "gpt_case_premium_2026_06_10_case04_pressure_injury_rehab",
+        "gpt_gap_2026_06_12_nonmcq_balanced_case_pressure_injury_nutrition_03"
+      ]
+    },
+    {
+      "id": "claude_cs_jun06_pressure_injury_bcc_01_part_2",
+      "bank": "hard-cases-canonical.json",
+      "path": "questions[29].caseStudy.questions[1]",
+      "producer": "mixed",
+      "provenance_tier": "low",
+      "harm_rank": 65,
+      "pilot_clusters": [
+        "pressure_injury"
+      ],
+      "within_cluster_peers": [
+        "gpt_canonical_matrix_pressure_injury_040",
+        "gpt_case_gap_2026_06_11_pressure_ltc_part_2_sata_plan"
+      ]
+    },
+    {
+      "id": "claude_cs_jun06_pressure_injury_bcc_01_part_4",
+      "bank": "hard-cases-canonical.json",
+      "path": "questions[29].caseStudy.questions[3]",
+      "producer": "mixed",
+      "provenance_tier": "low",
+      "harm_rank": 65,
+      "pilot_clusters": [
+        "pressure_injury"
+      ],
+      "within_cluster_peers": [
+        "gemini_d8_10",
+        "opus_bcc_rehab_2026_06_10_01"
+      ]
+    },
+    {
+      "id": "claude_moc_hipaa_breach_hl_b03",
+      "bank": "claude-canonical.json",
+      "path": "questions[85]",
+      "producer": "claude",
+      "provenance_tier": "medium",
+      "harm_rank": 75,
+      "pilot_clusters": [
+        "hipaa_disclosure"
+      ],
+      "within_cluster_peers": [
+        "gemini_gap_hl_hipaa_03",
+        "gemini_hl_moc_hipaa_03",
+        "gpt_deepen_2026_06_22_moc_01",
+        "gpt_deepen_2026_06_22_moc_11"
+      ]
+    },
+    {
+      "id": "cs_ckd_01_q3",
+      "bank": "hard-cases-canonical.json",
+      "path": "questions[3].caseStudy.questions[2]",
+      "producer": "mixed",
+      "provenance_tier": "medium",
+      "harm_rank": 80,
+      "pilot_clusters": [
+        "dialysis_complications"
+      ],
+      "within_cluster_peers": [
+        "claude_a_sata_tracheostomy_09",
+        "gemini_jun05_a_sata_pacemaker_41",
+        "trad_batchD_08",
+        "trad_batchD_10",
+        "trad_batchD_20",
+        "trad_batchD_24"
+      ]
+    },
+    {
+      "id": "cs_ckd_01_q5",
+      "bank": "hard-cases-canonical.json",
+      "path": "questions[3].caseStudy.questions[4]",
+      "producer": "mixed",
+      "provenance_tier": "medium",
+      "harm_rank": 80,
+      "pilot_clusters": [
+        "dialysis_complications"
+      ],
+      "within_cluster_peers": [
+        "gemini_c8_08"
+      ]
+    },
+    {
+      "id": "cs_stemi_vfib_04_part_1",
+      "bank": "hard-cases-canonical.json",
+      "path": "questions[35].caseStudy.questions[0]",
+      "producer": "mixed",
+      "provenance_tier": "medium",
+      "harm_rank": 85,
+      "pilot_clusters": [
+        "mi_chest_pain"
+      ],
+      "within_cluster_peers": [
+        "gemini_b1_04"
+      ]
+    },
+    {
+      "id": "gap_50_bcc_02",
+      "bank": "gemini-canonical.json",
+      "path": "questions[711]",
+      "producer": "gemini",
+      "provenance_tier": "high",
+      "harm_rank": 95,
+      "pilot_clusters": [
+        "stroke_escalation"
+      ],
+      "within_cluster_peers": [
+        "gemini_jun05_a_mc_cane_ambulation_02"
+      ]
+    },
+    {
+      "id": "gap_50_bcc_07",
+      "bank": "gemini-canonical.json",
+      "path": "questions[716]",
+      "producer": "gemini",
+      "provenance_tier": "high",
+      "harm_rank": 85,
+      "pilot_clusters": [
+        "pressure_injury"
+      ],
+      "within_cluster_peers": [
+        "gemini_d10_07"
+      ]
+    },
+    {
+      "id": "gap_50_mc_04",
+      "bank": "gemini-canonical.json",
+      "path": "questions[700]",
+      "producer": "gemini",
+      "provenance_tier": "high",
+      "harm_rank": 85,
+      "pilot_clusters": [
+        "hipaa_disclosure"
+      ],
+      "within_cluster_peers": [
+        "gemini_c3_02",
+        "gemini_hl_moc_hipaa_03"
+      ]
+    },
+    {
+      "id": "gemini_b10_07",
+      "bank": "gemini-canonical.json",
+      "path": "questions[191]",
+      "producer": "gemini",
+      "provenance_tier": "high",
+      "harm_rank": 90,
+      "pilot_clusters": [
+        "dialysis_complications"
+      ],
+      "within_cluster_peers": [
+        "gemini_jun05_a_or_chest_tube_disconnection_13",
+        "gpt_canonical_or_chest_tube_disconnect_052"
+      ]
+    },
+    {
+      "id": "gemini_b1_04",
+      "bank": "gemini-canonical.json",
+      "path": "questions[180]",
+      "producer": "gemini",
+      "provenance_tier": "high",
+      "harm_rank": 95,
+      "pilot_clusters": [
+        "mi_chest_pain"
+      ],
+      "within_cluster_peers": [
+        "cs_stemi_vfib_04_part_1"
+      ]
+    },
+    {
+      "id": "gemini_b8_05",
+      "bank": "gemini-canonical.json",
+      "path": "questions[259]",
+      "producer": "gemini",
+      "provenance_tier": "high",
+      "harm_rank": 90,
+      "pilot_clusters": [
+        "lithium_toxicity"
+      ],
+      "within_cluster_peers": [
+        "gen_rrp_batch2_07"
+      ]
+    },
+    {
+      "id": "gemini_c3_02",
+      "bank": "gemini-canonical.json",
+      "path": "questions[306]",
+      "producer": "gemini",
+      "provenance_tier": "high",
+      "harm_rank": 85,
+      "pilot_clusters": [
+        "hipaa_disclosure"
+      ],
+      "within_cluster_peers": [
+        "gap_50_mc_04",
+        "gemini_hl_moc_hipaa_03",
+        "gpt_case_hipaa_disclosure_breach_01_q1",
+        "gpt_case_hipaa_disclosure_breach_01_q4"
+      ]
+    },
+    {
+      "id": "gemini_c7_01",
+      "bank": "gemini-canonical.json",
+      "path": "questions[345]",
+      "producer": "gemini",
+      "provenance_tier": "high",
+      "harm_rank": 90,
+      "pilot_clusters": [
+        "lithium_toxicity"
+      ],
+      "within_cluster_peers": [
+        "trad_ppt_12"
+      ]
+    },
+    {
+      "id": "gemini_c8_02",
+      "bank": "gemini-canonical.json",
+      "path": "questions[356]",
+      "producer": "gemini",
+      "provenance_tier": "high",
+      "harm_rank": 90,
+      "pilot_clusters": [
+        "dialysis_complications"
+      ],
+      "within_cluster_peers": [
+        "gemini_u5_fib_or_2026_06_09_or_paracentesis_09"
+      ]
+    },
+    {
+      "id": "gemini_c8_05",
+      "bank": "gemini-canonical.json",
+      "path": "questions[359]",
+      "producer": "gemini",
+      "provenance_tier": "high",
+      "harm_rank": 90,
+      "pilot_clusters": [
+        "dialysis_complications"
+      ],
+      "within_cluster_peers": [
+        "gemini_jun05_a_mc_compartment_syndrome_10"
+      ]
+    },
+    {
+      "id": "gemini_c8_08",
+      "bank": "gemini-canonical.json",
+      "path": "questions[362]",
+      "producer": "gemini",
+      "provenance_tier": "high",
+      "harm_rank": 90,
+      "pilot_clusters": [
+        "dialysis_complications"
+      ],
+      "within_cluster_peers": [
+        "cs_ckd_01_q5"
+      ]
+    },
+    {
+      "id": "gemini_c8_09",
+      "bank": "gemini-canonical.json",
+      "path": "questions[363]",
+      "producer": "gemini",
+      "provenance_tier": "high",
+      "harm_rank": 90,
+      "pilot_clusters": [
+        "dialysis_complications"
+      ],
+      "within_cluster_peers": [
+        "gemini_u5_fib_or_2026_06_09_or_trach_12"
+      ]
+    },
+    {
+      "id": "gemini_d10_07",
+      "bank": "gemini-canonical.json",
+      "path": "questions[390]",
+      "producer": "gemini",
+      "provenance_tier": "high",
+      "harm_rank": 85,
+      "pilot_clusters": [
+        "pressure_injury"
+      ],
+      "within_cluster_peers": [
+        "gap_50_bcc_07"
+      ]
+    },
+    {
+      "id": "gemini_d2_digoxin_01",
+      "bank": "gemini-canonical.json",
+      "path": "questions[394]",
+      "producer": "gemini",
+      "provenance_tier": "high",
+      "harm_rank": 90,
+      "pilot_clusters": [
+        "digoxin_hold"
+      ],
+      "within_cluster_peers": [
+        "gemini_d2_digoxin_02",
+        "gemini_d2_digoxin_03",
+        "trad_ppt_02"
+      ]
+    },
+    {
+      "id": "gemini_d2_digoxin_02",
+      "bank": "gemini-canonical.json",
+      "path": "questions[395]",
+      "producer": "gemini",
+      "provenance_tier": "high",
+      "harm_rank": 90,
+      "pilot_clusters": [
+        "digoxin_hold"
+      ],
+      "within_cluster_peers": [
+        "gemini_d2_digoxin_01",
+        "gemini_d2_digoxin_03",
+        "trad_ppt_02"
+      ]
+    },
+    {
+      "id": "gemini_d2_digoxin_03",
+      "bank": "gemini-canonical.json",
+      "path": "questions[401]",
+      "producer": "gemini",
+      "provenance_tier": "high",
+      "harm_rank": 90,
+      "pilot_clusters": [
+        "digoxin_hold"
+      ],
+      "within_cluster_peers": [
+        "gemini_d2_digoxin_01",
+        "gemini_d2_digoxin_02",
+        "trad_ppt_02"
+      ]
+    },
+    {
+      "id": "gemini_d3_01",
+      "bank": "gemini-canonical.json",
+      "path": "questions[404]",
+      "producer": "gemini",
+      "provenance_tier": "high",
+      "harm_rank": 95,
+      "pilot_clusters": [
+        "stroke_escalation"
+      ],
+      "within_cluster_peers": [
+        "gemini_jun05_a_mc_dysphagia_29",
+        "gemini_jun05_b_cloze_dysphagia_19",
+        "gen_bcc_batch1_8"
+      ]
+    },
+    {
+      "id": "gemini_d8_10",
+      "bank": "gemini-canonical.json",
+      "path": "questions[463]",
+      "producer": "gemini",
+      "provenance_tier": "high",
+      "harm_rank": 85,
+      "pilot_clusters": [
+        "pressure_injury"
+      ],
+      "within_cluster_peers": [
+        "claude_cs_jun06_pressure_injury_bcc_01_part_4",
+        "gpt_case_premium_2026_06_10_case04_cloze_stage1_02",
+        "opus_bcc_rehab_2026_06_10_01"
+      ]
+    },
+    {
+      "id": "gemini_gap_hl_hipaa_03",
+      "bank": "gemini-canonical.json",
+      "path": "questions[806]",
+      "producer": "gemini",
+      "provenance_tier": "medium",
+      "harm_rank": 75,
+      "pilot_clusters": [
+        "hipaa_disclosure"
+      ],
+      "within_cluster_peers": [
+        "claude_moc_hipaa_breach_hl_b03",
+        "gemini_hl_moc_hipaa_03",
+        "gemini_moc_ngn_2026_06_22_q10"
+      ]
+    },
+    {
+      "id": "gemini_hl_moc_hipaa_03",
+      "bank": "gemini-canonical.json",
+      "path": "questions[777]",
+      "producer": "gemini",
+      "provenance_tier": "medium",
+      "harm_rank": 75,
+      "pilot_clusters": [
+        "hipaa_disclosure"
+      ],
+      "within_cluster_peers": [
+        "claude_moc_hipaa_breach_hl_b03",
+        "gap_50_mc_04",
+        "gemini_c3_02",
+        "gemini_gap_hl_hipaa_03"
+      ]
+    },
+    {
+      "id": "gemini_hl_pharm_cardio_09",
+      "bank": "gemini-canonical.json",
+      "path": "questions[783]",
+      "producer": "gemini",
+      "provenance_tier": "medium",
+      "harm_rank": 80,
+      "pilot_clusters": [
+        "digoxin_hold"
+      ],
+      "within_cluster_peers": [
+        "gemini_ppt_ngn_2026_06_22_q5"
+      ]
+    },
+    {
+      "id": "gemini_jun05_a_matrix_cardiac_cath_18",
+      "bank": "gemini-canonical.json",
+      "path": "questions[17]",
+      "producer": "gemini",
+      "provenance_tier": "high",
+      "harm_rank": 90,
+      "pilot_clusters": [
+        "dialysis_complications"
+      ],
+      "within_cluster_peers": [
+        "gpt_canonical_matrix_post_cath_096"
+      ]
+    },
+    {
+      "id": "gemini_jun05_a_mc_cane_ambulation_02",
+      "bank": "gemini-canonical.json",
+      "path": "questions[1]",
+      "producer": "gemini",
+      "provenance_tier": "high",
+      "harm_rank": 95,
+      "pilot_clusters": [
+        "stroke_escalation"
+      ],
+      "within_cluster_peers": [
+        "gap_50_bcc_02"
+      ]
+    },
+    {
+      "id": "gemini_jun05_a_mc_compartment_syndrome_10",
+      "bank": "gemini-canonical.json",
+      "path": "questions[9]",
+      "producer": "gemini",
+      "provenance_tier": "high",
+      "harm_rank": 90,
+      "pilot_clusters": [
+        "dialysis_complications"
+      ],
+      "within_cluster_peers": [
+        "gemini_c8_05"
+      ]
+    },
+    {
+      "id": "gemini_jun05_a_mc_digoxin_toxicity_26",
+      "bank": "gemini-canonical.json",
+      "path": "questions[25]",
+      "producer": "gemini",
+      "provenance_tier": "high",
+      "harm_rank": 90,
+      "pilot_clusters": [
+        "digoxin_hold"
+      ],
+      "within_cluster_peers": [
+        "gemini_p7_02"
+      ]
+    },
+    {
+      "id": "gemini_jun05_a_mc_dysphagia_29",
+      "bank": "gemini-canonical.json",
+      "path": "questions[28]",
+      "producer": "gemini",
+      "provenance_tier": "high",
+      "harm_rank": 95,
+      "pilot_clusters": [
+        "stroke_escalation"
+      ],
+      "within_cluster_peers": [
+        "gemini_d3_01",
+        "gemini_jun05_b_cloze_dysphagia_19",
+        "gen_bcc_batch1_8"
+      ]
+    },
+    {
+      "id": "gemini_jun05_a_mc_lithium_toxicity_36",
+      "bank": "gemini-canonical.json",
+      "path": "questions[35]",
+      "producer": "gemini",
+      "provenance_tier": "high",
+      "harm_rank": 90,
+      "pilot_clusters": [
+        "lithium_toxicity"
+      ],
+      "within_cluster_peers": [
+        "gemini_ppt_ngn_2026_06_22_q3",
+        "trad_ppt_12"
+      ]
+    },
+    {
+      "id": "gemini_jun05_a_mc_pph_priority_32",
+      "bank": "gemini-canonical.json",
+      "path": "questions[31]",
+      "producer": "gemini",
+      "provenance_tier": "high",
+      "harm_rank": 90,
+      "pilot_clusters": [
+        "fetal_heart_rate"
+      ],
+      "within_cluster_peers": [
+        "claude_a_mc_postpartum_fundus_41"
+      ]
+    },
+    {
+      "id": "gemini_jun05_a_or_chest_tube_disconnection_13",
+      "bank": "gemini-canonical.json",
+      "path": "questions[12]",
+      "producer": "gemini",
+      "provenance_tier": "high",
+      "harm_rank": 90,
+      "pilot_clusters": [
+        "dialysis_complications"
+      ],
+      "within_cluster_peers": [
+        "gemini_b10_07",
+        "gpt_canonical_or_chest_tube_disconnect_052"
+      ]
+    },
+    {
+      "id": "gemini_jun05_a_or_transfusion_reaction_05",
+      "bank": "gemini-canonical.json",
+      "path": "questions[4]",
+      "producer": "gemini",
+      "provenance_tier": "high",
+      "harm_rank": 90,
+      "pilot_clusters": [
+        "dialysis_complications"
+      ],
+      "within_cluster_peers": [
+        "gemini_jun05_b_or_transfusion_22",
+        "gen_rrp_batch1_08",
+        "gpt_gap_jun12_or_transfusion_reaction_01"
+      ]
+    },
+    {
+      "id": "gemini_jun05_a_sata_pacemaker_41",
+      "bank": "gemini-canonical.json",
+      "path": "questions[39]",
+      "producer": "gemini",
+      "provenance_tier": "high",
+      "harm_rank": 90,
+      "pilot_clusters": [
+        "dialysis_complications"
+      ],
+      "within_cluster_peers": [
+        "cs_ckd_01_q3"
+      ]
+    },
+    {
+      "id": "gemini_jun05_b_cloze_dysphagia_19",
+      "bank": "gemini-canonical.json",
+      "path": "questions[168]",
+      "producer": "gemini",
+      "provenance_tier": "high",
+      "harm_rank": 95,
+      "pilot_clusters": [
+        "stroke_escalation"
+      ],
+      "within_cluster_peers": [
+        "gemini_d3_01",
+        "gemini_jun05_a_mc_dysphagia_29",
+        "gen_bcc_batch1_8"
+      ]
+    },
+    {
+      "id": "gemini_jun05_b_or_transfusion_22",
+      "bank": "gemini-canonical.json",
+      "path": "questions[171]",
+      "producer": "gemini",
+      "provenance_tier": "high",
+      "harm_rank": 90,
+      "pilot_clusters": [
+        "dialysis_complications"
+      ],
+      "within_cluster_peers": [
+        "gemini_jun05_a_or_transfusion_reaction_05",
+        "gen_rrp_batch1_08",
+        "gpt_gap_jun12_or_transfusion_reaction_01"
+      ]
+    },
+    {
+      "id": "gemini_moc_ngn_2026_06_22_q10",
+      "bank": "gemini-canonical.json",
+      "path": "questions[853]",
+      "producer": "gemini",
+      "provenance_tier": "medium",
+      "harm_rank": 75,
+      "pilot_clusters": [
+        "hipaa_disclosure"
+      ],
+      "within_cluster_peers": [
+        "gemini_gap_hl_hipaa_03"
+      ]
+    },
+    {
+      "id": "gemini_p7_02",
+      "bank": "gemini-canonical.json",
+      "path": "questions[122]",
+      "producer": "gemini",
+      "provenance_tier": "high",
+      "harm_rank": 95,
+      "pilot_clusters": [
+        "digoxin_hold"
+      ],
+      "within_cluster_peers": [
+        "gemini_jun05_a_mc_digoxin_toxicity_26"
+      ]
+    },
+    {
+      "id": "gemini_ppt_ngn_2026_06_22_q3",
+      "bank": "gemini-canonical.json",
+      "path": "questions[836]",
+      "producer": "gemini",
+      "provenance_tier": "high",
+      "harm_rank": 90,
+      "pilot_clusters": [
+        "lithium_toxicity"
+      ],
+      "within_cluster_peers": [
+        "gemini_jun05_a_mc_lithium_toxicity_36",
+        "trad_ppt_12"
+      ]
+    },
+    {
+      "id": "gemini_ppt_ngn_2026_06_22_q5",
+      "bank": "gemini-canonical.json",
+      "path": "questions[838]",
+      "producer": "gemini",
+      "provenance_tier": "high",
+      "harm_rank": 90,
+      "pilot_clusters": [
+        "digoxin_hold"
+      ],
+      "within_cluster_peers": [
+        "gemini_hl_pharm_cardio_09"
+      ]
+    },
+    {
+      "id": "gemini_u5_fib_or_2026_06_09_or_paracentesis_09",
+      "bank": "gemini-canonical.json",
+      "path": "questions[754]",
+      "producer": "gemini",
+      "provenance_tier": "medium",
+      "harm_rank": 80,
+      "pilot_clusters": [
+        "dialysis_complications"
+      ],
+      "within_cluster_peers": [
+        "gemini_c8_02"
+      ]
+    },
+    {
+      "id": "gemini_u5_fib_or_2026_06_09_or_trach_12",
+      "bank": "gemini-canonical.json",
+      "path": "questions[757]",
+      "producer": "gemini",
+      "provenance_tier": "medium",
+      "harm_rank": 80,
+      "pilot_clusters": [
+        "dialysis_complications"
+      ],
+      "within_cluster_peers": [
+        "gemini_c8_09"
+      ]
+    },
+    {
+      "id": "gen_bcc_batch1_8",
+      "bank": "gemini-canonical.json",
+      "path": "questions[577]",
+      "producer": "gemini",
+      "provenance_tier": "high",
+      "harm_rank": 95,
+      "pilot_clusters": [
+        "stroke_escalation"
+      ],
+      "within_cluster_peers": [
+        "gemini_d3_01",
+        "gemini_jun05_a_mc_dysphagia_29",
+        "gemini_jun05_b_cloze_dysphagia_19"
+      ]
+    },
+    {
+      "id": "gen_rrp_batch1_08",
+      "bank": "gemini-canonical.json",
+      "path": "questions[605]",
+      "producer": "gemini",
+      "provenance_tier": "high",
+      "harm_rank": 90,
+      "pilot_clusters": [
+        "dialysis_complications"
+      ],
+      "within_cluster_peers": [
+        "gemini_jun05_a_or_transfusion_reaction_05",
+        "gemini_jun05_b_or_transfusion_22",
+        "gpt_gap_jun12_or_transfusion_reaction_01",
+        "trad_batchD_24"
+      ]
+    },
+    {
+      "id": "gen_rrp_batch1_09",
+      "bank": "gemini-canonical.json",
+      "path": "questions[606]",
+      "producer": "gemini",
+      "provenance_tier": "high",
+      "harm_rank": 90,
+      "pilot_clusters": [
+        "dialysis_complications"
+      ],
+      "within_cluster_peers": [
+        "gpt_canonical_or_chest_tube_disconnect_052"
+      ]
+    },
+    {
+      "id": "gen_rrp_batch2_07",
+      "bank": "gemini-canonical.json",
+      "path": "questions[612]",
+      "producer": "gemini",
+      "provenance_tier": "high",
+      "harm_rank": 90,
+      "pilot_clusters": [
+        "lithium_toxicity"
+      ],
+      "within_cluster_peers": [
+        "gemini_b8_05"
+      ]
+    },
+    {
+      "id": "gpt_canonical_matrix_post_cath_096",
+      "bank": "gpt-canonical.json",
+      "path": "questions[95]",
+      "producer": "gpt",
+      "provenance_tier": "medium",
+      "harm_rank": 80,
+      "pilot_clusters": [
+        "dialysis_complications"
+      ],
+      "within_cluster_peers": [
+        "gemini_jun05_a_matrix_cardiac_cath_18"
+      ]
+    },
+    {
+      "id": "gpt_canonical_matrix_pressure_injury_040",
+      "bank": "gpt-canonical.json",
+      "path": "questions[39]",
+      "producer": "gpt",
+      "provenance_tier": "medium",
+      "harm_rank": 75,
+      "pilot_clusters": [
+        "pressure_injury"
+      ],
+      "within_cluster_peers": [
+        "claude_cs_jun06_pressure_injury_bcc_01_part_2"
+      ]
+    },
+    {
+      "id": "gpt_canonical_or_chest_tube_disconnect_052",
+      "bank": "gpt-canonical.json",
+      "path": "questions[51]",
+      "producer": "gpt",
+      "provenance_tier": "medium",
+      "harm_rank": 80,
+      "pilot_clusters": [
+        "dialysis_complications"
+      ],
+      "within_cluster_peers": [
+        "gemini_b10_07",
+        "gemini_jun05_a_or_chest_tube_disconnection_13",
+        "gen_rrp_batch1_09"
+      ]
+    },
+    {
+      "id": "gpt_case_gap_2026_06_11_case_post_stroke_outpatient_rehab_09",
+      "bank": "gpt-canonical.json",
+      "path": "questions[157]",
+      "producer": "gpt",
+      "provenance_tier": "low",
+      "harm_rank": 75,
+      "pilot_clusters": [
+        "stroke_escalation"
+      ],
+      "within_cluster_peers": [
+        "gpt_case_gap_2026_06_11_post_stroke_rehab_part_4_cloze_priority",
+        "gpt_stroke_2026_06_16_case_acute_ischemic_stroke_warfarin_01"
+      ]
+    },
+    {
+      "id": "gpt_case_gap_2026_06_11_case_pressure_injury_ltc_04",
+      "bank": "gpt-canonical.json",
+      "path": "questions[164]",
+      "producer": "gpt",
+      "provenance_tier": "low",
+      "harm_rank": 65,
+      "pilot_clusters": [
+        "pressure_injury"
+      ],
+      "within_cluster_peers": [
+        "claude_cs_jun06_pressure_injury_bcc_01",
+        "gpt_case_gap_2026_06_11_pressure_ltc_part_1_matrix_risk",
+        "gpt_case_gap_2026_06_11_pressure_ltc_part_2_sata_plan",
+        "gpt_case_gap_2026_06_11_pressure_ltc_part_3_mc_delegate",
+        "gpt_case_gap_2026_06_11_pressure_ltc_part_4_cloze_outcome",
+        "gpt_case_premium_2026_06_10_case04_pressure_injury_rehab",
+        "gpt_gap_2026_06_12_nonmcq_balanced_case_pressure_injury_nutrition_03"
+      ]
+    },
+    {
+      "id": "gpt_case_gap_2026_06_11_post_stroke_rehab_part_4_cloze_priority",
+      "bank": "gpt-canonical.json",
+      "path": "questions[157].caseStudy.questions[3]",
+      "producer": "gpt",
+      "provenance_tier": "low",
+      "harm_rank": 75,
+      "pilot_clusters": [
+        "stroke_escalation"
+      ],
+      "within_cluster_peers": [
+        "gpt_case_gap_2026_06_11_case_post_stroke_outpatient_rehab_09"
+      ]
+    },
+    {
+      "id": "gpt_case_gap_2026_06_11_pressure_ltc_part_1_matrix_risk",
+      "bank": "gpt-canonical.json",
+      "path": "questions[164].caseStudy.questions[0]",
+      "producer": "gpt",
+      "provenance_tier": "low",
+      "harm_rank": 65,
+      "pilot_clusters": [
+        "pressure_injury"
+      ],
+      "within_cluster_peers": [
+        "gpt_case_gap_2026_06_11_case_pressure_injury_ltc_04",
+        "gpt_case_gap_2026_06_11_pressure_ltc_part_2_sata_plan",
+        "gpt_case_gap_2026_06_11_pressure_ltc_part_3_mc_delegate",
+        "gpt_case_gap_2026_06_11_pressure_ltc_part_4_cloze_outcome"
+      ]
+    },
+    {
+      "id": "gpt_case_gap_2026_06_11_pressure_ltc_part_2_sata_plan",
+      "bank": "gpt-canonical.json",
+      "path": "questions[164].caseStudy.questions[1]",
+      "producer": "gpt",
+      "provenance_tier": "low",
+      "harm_rank": 65,
+      "pilot_clusters": [
+        "pressure_injury"
+      ],
+      "within_cluster_peers": [
+        "claude_cs_jun06_pressure_injury_bcc_01_part_2",
+        "gpt_case_gap_2026_06_11_case_pressure_injury_ltc_04",
+        "gpt_case_gap_2026_06_11_pressure_ltc_part_1_matrix_risk",
+        "gpt_case_gap_2026_06_11_pressure_ltc_part_3_mc_delegate",
+        "gpt_case_gap_2026_06_11_pressure_ltc_part_4_cloze_outcome"
+      ]
+    },
+    {
+      "id": "gpt_case_gap_2026_06_11_pressure_ltc_part_3_mc_delegate",
+      "bank": "gpt-canonical.json",
+      "path": "questions[164].caseStudy.questions[2]",
+      "producer": "gpt",
+      "provenance_tier": "low",
+      "harm_rank": 75,
+      "pilot_clusters": [
+        "pressure_injury"
+      ],
+      "within_cluster_peers": [
+        "gpt_case_gap_2026_06_11_case_pressure_injury_ltc_04",
+        "gpt_case_gap_2026_06_11_pressure_ltc_part_1_matrix_risk",
+        "gpt_case_gap_2026_06_11_pressure_ltc_part_2_sata_plan",
+        "gpt_case_gap_2026_06_11_pressure_ltc_part_4_cloze_outcome"
+      ]
+    },
+    {
+      "id": "gpt_case_gap_2026_06_11_pressure_ltc_part_4_cloze_outcome",
+      "bank": "gpt-canonical.json",
+      "path": "questions[164].caseStudy.questions[3]",
+      "producer": "gpt",
+      "provenance_tier": "low",
+      "harm_rank": 65,
+      "pilot_clusters": [
+        "pressure_injury"
+      ],
+      "within_cluster_peers": [
+        "gpt_case_gap_2026_06_11_case_pressure_injury_ltc_04",
+        "gpt_case_gap_2026_06_11_pressure_ltc_part_1_matrix_risk",
+        "gpt_case_gap_2026_06_11_pressure_ltc_part_2_sata_plan",
+        "gpt_case_gap_2026_06_11_pressure_ltc_part_3_mc_delegate"
+      ]
+    },
+    {
+      "id": "gpt_case_hipaa_disclosure_breach_01_q1",
+      "bank": "gpt-canonical.json",
+      "path": "questions[293].caseStudy.questions[0]",
+      "producer": "gpt",
+      "provenance_tier": "low",
+      "harm_rank": 65,
+      "pilot_clusters": [
+        "hipaa_disclosure"
+      ],
+      "within_cluster_peers": [
+        "gemini_c3_02",
+        "gpt_case_hipaa_disclosure_breach_01_q4",
+        "gpt_case_hipaa_disclosure_breach_01_q6"
+      ]
+    },
+    {
+      "id": "gpt_case_hipaa_disclosure_breach_01_q4",
+      "bank": "gpt-canonical.json",
+      "path": "questions[293].caseStudy.questions[3]",
+      "producer": "gpt",
+      "provenance_tier": "low",
+      "harm_rank": 65,
+      "pilot_clusters": [
+        "hipaa_disclosure"
+      ],
+      "within_cluster_peers": [
+        "gemini_c3_02",
+        "gpt_case_hipaa_disclosure_breach_01_q1",
+        "gpt_case_hipaa_disclosure_breach_01_q6"
+      ]
+    },
+    {
+      "id": "gpt_case_hipaa_disclosure_breach_01_q6",
+      "bank": "gpt-canonical.json",
+      "path": "questions[293].caseStudy.questions[5]",
+      "producer": "gpt",
+      "provenance_tier": "low",
+      "harm_rank": 65,
+      "pilot_clusters": [
+        "hipaa_disclosure"
+      ],
+      "within_cluster_peers": [
+        "gpt_case_hipaa_disclosure_breach_01_q1",
+        "gpt_case_hipaa_disclosure_breach_01_q4"
+      ]
+    },
+    {
+      "id": "gpt_case_premium_2026_06_10_case04_cloze_stage1_02",
+      "bank": "gpt-canonical.json",
+      "path": "questions[145].caseStudy.questions[1]",
+      "producer": "gpt",
+      "provenance_tier": "low",
+      "harm_rank": 65,
+      "pilot_clusters": [
+        "pressure_injury"
+      ],
+      "within_cluster_peers": [
+        "gemini_d8_10",
+        "gpt_case_premium_2026_06_10_case04_mc_first_action_03",
+        "gpt_case_premium_2026_06_10_case04_pressure_injury_rehab"
+      ]
+    },
+    {
+      "id": "gpt_case_premium_2026_06_10_case04_mc_first_action_03",
+      "bank": "gpt-canonical.json",
+      "path": "questions[145].caseStudy.questions[2]",
+      "producer": "gpt",
+      "provenance_tier": "low",
+      "harm_rank": 65,
+      "pilot_clusters": [
+        "pressure_injury"
+      ],
+      "within_cluster_peers": [
+        "gpt_case_premium_2026_06_10_case04_cloze_stage1_02"
+      ]
+    },
+    {
+      "id": "gpt_case_premium_2026_06_10_case04_pressure_injury_rehab",
+      "bank": "gpt-canonical.json",
+      "path": "questions[145]",
+      "producer": "gpt",
+      "provenance_tier": "low",
+      "harm_rank": 65,
+      "pilot_clusters": [
+        "pressure_injury"
+      ],
+      "within_cluster_peers": [
+        "claude_cs_jun06_pressure_injury_bcc_01",
+        "gpt_case_gap_2026_06_11_case_pressure_injury_ltc_04",
+        "gpt_case_premium_2026_06_10_case04_cloze_stage1_02",
+        "gpt_gap_2026_06_12_nonmcq_balanced_case_pressure_injury_nutrition_03"
+      ]
+    },
+    {
+      "id": "gpt_deepen_2026_06_22_b_pharm_03",
+      "bank": "gpt-canonical.json",
+      "path": "questions[456]",
+      "producer": "gpt",
+      "provenance_tier": "medium",
+      "harm_rank": 85,
+      "pilot_clusters": [
+        "digoxin_hold"
+      ],
+      "within_cluster_peers": [
+        "gpt_fresh_2026_06_22_pharm_07"
+      ]
+    },
+    {
+      "id": "gpt_deepen_2026_06_22_bow_04",
+      "bank": "gpt-canonical.json",
+      "path": "questions[394]",
+      "producer": "gpt",
+      "provenance_tier": "medium",
+      "harm_rank": 80,
+      "pilot_clusters": [
+        "lithium_toxicity"
+      ],
+      "within_cluster_peers": [
+        "gpt_fresh_2026_06_22_pharm_03",
+        "gpt_u6_matrix_cloze_2026_06_09_cloze_lithium_toxicity_06"
+      ]
+    },
+    {
+      "id": "gpt_deepen_2026_06_22_moc_01",
+      "bank": "gpt-canonical.json",
+      "path": "questions[413]",
+      "producer": "gpt",
+      "provenance_tier": "medium",
+      "harm_rank": 85,
+      "pilot_clusters": [
+        "hipaa_disclosure"
+      ],
+      "within_cluster_peers": [
+        "claude_moc_hipaa_breach_hl_b03",
+        "gpt_deepen_2026_06_22_moc_11"
+      ]
+    },
+    {
+      "id": "gpt_deepen_2026_06_22_moc_11",
+      "bank": "gpt-canonical.json",
+      "path": "questions[423]",
+      "producer": "gpt",
+      "provenance_tier": "medium",
+      "harm_rank": 75,
+      "pilot_clusters": [
+        "hipaa_disclosure"
+      ],
+      "within_cluster_peers": [
+        "claude_moc_hipaa_breach_hl_b03",
+        "gpt_deepen_2026_06_22_moc_01",
+        "gpt_fresh_2026_06_22_moc_01"
+      ]
+    },
+    {
+      "id": "gpt_fresh_2026_06_22_moc_01",
+      "bank": "gpt-canonical.json",
+      "path": "questions[357]",
+      "producer": "gpt",
+      "provenance_tier": "medium",
+      "harm_rank": 75,
+      "pilot_clusters": [
+        "hipaa_disclosure"
+      ],
+      "within_cluster_peers": [
+        "gpt_deepen_2026_06_22_moc_11"
+      ]
+    },
+    {
+      "id": "gpt_fresh_2026_06_22_pharm_03",
+      "bank": "gpt-canonical.json",
+      "path": "questions[369]",
+      "producer": "gpt",
+      "provenance_tier": "medium",
+      "harm_rank": 80,
+      "pilot_clusters": [
+        "lithium_toxicity"
+      ],
+      "within_cluster_peers": [
+        "gpt_deepen_2026_06_22_bow_04"
+      ]
+    },
+    {
+      "id": "gpt_fresh_2026_06_22_pharm_07",
+      "bank": "gpt-canonical.json",
+      "path": "questions[373]",
+      "producer": "gpt",
+      "provenance_tier": "medium",
+      "harm_rank": 85,
+      "pilot_clusters": [
+        "digoxin_hold"
+      ],
+      "within_cluster_peers": [
+        "gpt_deepen_2026_06_22_b_pharm_03"
+      ]
+    },
+    {
+      "id": "gpt_gap_2026_06_12_nonmcq_balanced_b_matrix_stroke_rehab_10",
+      "bank": "gpt-canonical.json",
+      "path": "questions[263]",
+      "producer": "gpt",
+      "provenance_tier": "medium",
+      "harm_rank": 85,
+      "pilot_clusters": [
+        "stroke_escalation"
+      ],
+      "within_cluster_peers": [
+        "gpt_gap_2026_06_12_nonmcq_balanced_matrix_stroke_aspiration_rehab_10"
+      ]
+    },
+    {
+      "id": "gpt_gap_2026_06_12_nonmcq_balanced_case_pressure_injury_nutrition_03",
+      "bank": "gpt-canonical.json",
+      "path": "questions[244]",
+      "producer": "gpt",
+      "provenance_tier": "medium",
+      "harm_rank": 75,
+      "pilot_clusters": [
+        "pressure_injury"
+      ],
+      "within_cluster_peers": [
+        "claude_cs_jun06_pressure_injury_bcc_01",
+        "gpt_case_gap_2026_06_11_case_pressure_injury_ltc_04",
+        "gpt_case_premium_2026_06_10_case04_pressure_injury_rehab"
+      ]
+    },
+    {
+      "id": "gpt_gap_2026_06_12_nonmcq_balanced_matrix_stroke_aspiration_rehab_10",
+      "bank": "gpt-canonical.json",
+      "path": "questions[251]",
+      "producer": "gpt",
+      "provenance_tier": "medium",
+      "harm_rank": 85,
+      "pilot_clusters": [
+        "stroke_escalation"
+      ],
+      "within_cluster_peers": [
+        "gpt_gap_2026_06_12_nonmcq_balanced_b_matrix_stroke_rehab_10"
+      ]
+    },
+    {
+      "id": "gpt_gap_jun12_or_transfusion_reaction_01",
+      "bank": "gpt-canonical.json",
+      "path": "questions[222]",
+      "producer": "gpt",
+      "provenance_tier": "medium",
+      "harm_rank": 80,
+      "pilot_clusters": [
+        "dialysis_complications"
+      ],
+      "within_cluster_peers": [
+        "gemini_jun05_a_or_transfusion_reaction_05",
+        "gemini_jun05_b_or_transfusion_22",
+        "gen_rrp_batch1_08"
+      ]
+    },
+    {
+      "id": "gpt_pph_2026_06_16_case_01_q1",
+      "bank": "hard-cases-canonical.json",
+      "path": "questions[58].caseStudy.questions[0]",
+      "producer": "gpt",
+      "provenance_tier": "medium",
+      "harm_rank": 80,
+      "pilot_clusters": [
+        "fetal_heart_rate"
+      ],
+      "within_cluster_peers": [
+        "gpt_pph_2026_06_16_case_01_q2",
+        "gpt_pph_2026_06_16_case_01_q6"
+      ]
+    },
+    {
+      "id": "gpt_pph_2026_06_16_case_01_q2",
+      "bank": "hard-cases-canonical.json",
+      "path": "questions[58].caseStudy.questions[1]",
+      "producer": "gpt",
+      "provenance_tier": "medium",
+      "harm_rank": 80,
+      "pilot_clusters": [
+        "fetal_heart_rate"
+      ],
+      "within_cluster_peers": [
+        "gpt_pph_2026_06_16_case_01_q1",
+        "gpt_pph_2026_06_16_case_01_q3"
+      ]
+    },
+    {
+      "id": "gpt_pph_2026_06_16_case_01_q3",
+      "bank": "hard-cases-canonical.json",
+      "path": "questions[58].caseStudy.questions[2]",
+      "producer": "gpt",
+      "provenance_tier": "medium",
+      "harm_rank": 80,
+      "pilot_clusters": [
+        "fetal_heart_rate"
+      ],
+      "within_cluster_peers": [
+        "gpt_pph_2026_06_16_case_01_q2"
+      ]
+    },
+    {
+      "id": "gpt_pph_2026_06_16_case_01_q4",
+      "bank": "hard-cases-canonical.json",
+      "path": "questions[58].caseStudy.questions[3]",
+      "producer": "gpt",
+      "provenance_tier": "medium",
+      "harm_rank": 80,
+      "pilot_clusters": [
+        "fetal_heart_rate"
+      ],
+      "within_cluster_peers": [
+        "gpt_pph_2026_06_16_case_01_q6"
+      ]
+    },
+    {
+      "id": "gpt_pph_2026_06_16_case_01_q6",
+      "bank": "hard-cases-canonical.json",
+      "path": "questions[58].caseStudy.questions[5]",
+      "producer": "gpt",
+      "provenance_tier": "medium",
+      "harm_rank": 80,
+      "pilot_clusters": [
+        "fetal_heart_rate"
+      ],
+      "within_cluster_peers": [
+        "gpt_pph_2026_06_16_case_01_q1",
+        "gpt_pph_2026_06_16_case_01_q4"
+      ]
+    },
+    {
+      "id": "gpt_stroke_2026_06_16_case_acute_ischemic_stroke_warfarin_01",
+      "bank": "hard-cases-canonical.json",
+      "path": "questions[62]",
+      "producer": "gpt",
+      "provenance_tier": "medium",
+      "harm_rank": 85,
+      "pilot_clusters": [
+        "stroke_escalation"
+      ],
+      "within_cluster_peers": [
+        "gpt_case_gap_2026_06_11_case_post_stroke_outpatient_rehab_09"
+      ]
+    },
+    {
+      "id": "gpt_u6_matrix_cloze_2026_06_09_cloze_lithium_toxicity_06",
+      "bank": "gpt-canonical.json",
+      "path": "questions[127]",
+      "producer": "gpt",
+      "provenance_tier": "medium",
+      "harm_rank": 80,
+      "pilot_clusters": [
+        "lithium_toxicity"
+      ],
+      "within_cluster_peers": [
+        "gpt_deepen_2026_06_22_bow_04"
+      ]
+    },
+    {
+      "id": "opus_bcc_rehab_2026_06_10_01",
+      "bank": "claude-canonical.json",
+      "path": "questions[50]",
+      "producer": "gpt",
+      "provenance_tier": "low",
+      "harm_rank": 75,
+      "pilot_clusters": [
+        "pressure_injury"
+      ],
+      "within_cluster_peers": [
+        "claude_cs_jun06_pressure_injury_bcc_01_part_4",
+        "gemini_d8_10"
+      ]
+    },
+    {
+      "id": "trad_batchD_08",
+      "bank": "gemini-canonical.json",
+      "path": "questions[552]",
+      "producer": "gemini",
+      "provenance_tier": "high",
+      "harm_rank": 90,
+      "pilot_clusters": [
+        "dialysis_complications"
+      ],
+      "within_cluster_peers": [
+        "claude_a_sata_tracheostomy_09",
+        "cs_ckd_01_q3",
+        "trad_batchD_10",
+        "trad_batchD_20",
+        "trad_batchD_24"
+      ]
+    },
+    {
+      "id": "trad_batchD_10",
+      "bank": "gemini-canonical.json",
+      "path": "questions[554]",
+      "producer": "gemini",
+      "provenance_tier": "high",
+      "harm_rank": 90,
+      "pilot_clusters": [
+        "dialysis_complications"
+      ],
+      "within_cluster_peers": [
+        "claude_a_sata_tracheostomy_09",
+        "cs_ckd_01_q3",
+        "trad_batchD_08",
+        "trad_batchD_20",
+        "trad_batchD_24"
+      ]
+    },
+    {
+      "id": "trad_batchD_20",
+      "bank": "gemini-canonical.json",
+      "path": "questions[564]",
+      "producer": "gemini",
+      "provenance_tier": "high",
+      "harm_rank": 90,
+      "pilot_clusters": [
+        "dialysis_complications"
+      ],
+      "within_cluster_peers": [
+        "claude_a_sata_tracheostomy_09",
+        "cs_ckd_01_q3",
+        "trad_batchD_08",
+        "trad_batchD_10",
+        "trad_batchD_24"
+      ]
+    },
+    {
+      "id": "trad_batchD_24",
+      "bank": "gemini-canonical.json",
+      "path": "questions[568]",
+      "producer": "gemini",
+      "provenance_tier": "high",
+      "harm_rank": 90,
+      "pilot_clusters": [
+        "dialysis_complications"
+      ],
+      "within_cluster_peers": [
+        "cs_ckd_01_q3",
+        "gen_rrp_batch1_08",
+        "trad_batchD_08",
+        "trad_batchD_10",
+        "trad_batchD_20"
+      ]
+    },
+    {
+      "id": "trad_ppt_02",
+      "bank": "gemini-canonical.json",
+      "path": "questions[475]",
+      "producer": "gemini",
+      "provenance_tier": "high",
+      "harm_rank": 90,
+      "pilot_clusters": [
+        "digoxin_hold"
+      ],
+      "within_cluster_peers": [
+        "gemini_d2_digoxin_01",
+        "gemini_d2_digoxin_02",
+        "gemini_d2_digoxin_03"
+      ]
+    },
+    {
+      "id": "trad_ppt_12",
+      "bank": "gemini-canonical.json",
+      "path": "questions[485]",
+      "producer": "gemini",
+      "provenance_tier": "high",
+      "harm_rank": 90,
+      "pilot_clusters": [
+        "lithium_toxicity"
+      ],
+      "within_cluster_peers": [
+        "gemini_c7_01",
+        "gemini_jun05_a_mc_lithium_toxicity_36",
+        "gemini_ppt_ngn_2026_06_22_q3"
+      ]
+    }
+  ],
+  "pairs": [
+    {
+      "a": "gemini_b10_07",
+      "b": "gemini_jun05_a_or_chest_tube_disconnection_13",
+      "clusters": [
+        "dialysis_complications"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[191]",
+      "b_path": "questions[12]"
+    },
+    {
+      "a": "gemini_b10_07",
+      "b": "gpt_canonical_or_chest_tube_disconnect_052",
+      "clusters": [
+        "dialysis_complications"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gpt",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gpt-canonical.json",
+      "a_path": "questions[191]",
+      "b_path": "questions[51]"
+    },
+    {
+      "a": "gemini_c8_02",
+      "b": "gemini_u5_fib_or_2026_06_09_or_paracentesis_09",
+      "clusters": [
+        "dialysis_complications"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[356]",
+      "b_path": "questions[754]"
+    },
+    {
+      "a": "gemini_c8_05",
+      "b": "gemini_jun05_a_mc_compartment_syndrome_10",
+      "clusters": [
+        "dialysis_complications"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[359]",
+      "b_path": "questions[9]"
+    },
+    {
+      "a": "gemini_c8_09",
+      "b": "gemini_u5_fib_or_2026_06_09_or_trach_12",
+      "clusters": [
+        "dialysis_complications"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[363]",
+      "b_path": "questions[757]"
+    },
+    {
+      "a": "gemini_jun05_a_matrix_cardiac_cath_18",
+      "b": "gpt_canonical_matrix_post_cath_096",
+      "clusters": [
+        "dialysis_complications"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gpt",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gpt-canonical.json",
+      "a_path": "questions[17]",
+      "b_path": "questions[95]"
+    },
+    {
+      "a": "gemini_jun05_a_or_chest_tube_disconnection_13",
+      "b": "gpt_canonical_or_chest_tube_disconnect_052",
+      "clusters": [
+        "dialysis_complications"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gpt",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gpt-canonical.json",
+      "a_path": "questions[12]",
+      "b_path": "questions[51]"
+    },
+    {
+      "a": "gemini_jun05_a_or_transfusion_reaction_05",
+      "b": "gemini_jun05_b_or_transfusion_22",
+      "clusters": [
+        "dialysis_complications"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[4]",
+      "b_path": "questions[171]"
+    },
+    {
+      "a": "gemini_jun05_a_or_transfusion_reaction_05",
+      "b": "gen_rrp_batch1_08",
+      "clusters": [
+        "dialysis_complications"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[4]",
+      "b_path": "questions[605]"
+    },
+    {
+      "a": "gemini_jun05_a_or_transfusion_reaction_05",
+      "b": "gpt_gap_jun12_or_transfusion_reaction_01",
+      "clusters": [
+        "dialysis_complications"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gpt",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gpt-canonical.json",
+      "a_path": "questions[4]",
+      "b_path": "questions[222]"
+    },
+    {
+      "a": "gemini_jun05_b_or_transfusion_22",
+      "b": "gen_rrp_batch1_08",
+      "clusters": [
+        "dialysis_complications"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[171]",
+      "b_path": "questions[605]"
+    },
+    {
+      "a": "gemini_jun05_b_or_transfusion_22",
+      "b": "gpt_gap_jun12_or_transfusion_reaction_01",
+      "clusters": [
+        "dialysis_complications"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gpt",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gpt-canonical.json",
+      "a_path": "questions[171]",
+      "b_path": "questions[222]"
+    },
+    {
+      "a": "gen_rrp_batch1_08",
+      "b": "gpt_gap_jun12_or_transfusion_reaction_01",
+      "clusters": [
+        "dialysis_complications"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gpt",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gpt-canonical.json",
+      "a_path": "questions[605]",
+      "b_path": "questions[222]"
+    },
+    {
+      "a": "gen_rrp_batch1_08",
+      "b": "trad_batchD_24",
+      "clusters": [
+        "dialysis_complications"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[605]",
+      "b_path": "questions[568]"
+    },
+    {
+      "a": "gen_rrp_batch1_09",
+      "b": "gpt_canonical_or_chest_tube_disconnect_052",
+      "clusters": [
+        "dialysis_complications"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gpt",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gpt-canonical.json",
+      "a_path": "questions[606]",
+      "b_path": "questions[51]"
+    },
+    {
+      "a": "trad_batchD_08",
+      "b": "trad_batchD_10",
+      "clusters": [
+        "dialysis_complications"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[552]",
+      "b_path": "questions[554]"
+    },
+    {
+      "a": "trad_batchD_08",
+      "b": "trad_batchD_20",
+      "clusters": [
+        "dialysis_complications"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[552]",
+      "b_path": "questions[564]"
+    },
+    {
+      "a": "trad_batchD_08",
+      "b": "trad_batchD_24",
+      "clusters": [
+        "dialysis_complications"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[552]",
+      "b_path": "questions[568]"
+    },
+    {
+      "a": "trad_batchD_10",
+      "b": "trad_batchD_20",
+      "clusters": [
+        "dialysis_complications"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[554]",
+      "b_path": "questions[564]"
+    },
+    {
+      "a": "trad_batchD_10",
+      "b": "trad_batchD_24",
+      "clusters": [
+        "dialysis_complications"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[554]",
+      "b_path": "questions[568]"
+    },
+    {
+      "a": "trad_batchD_20",
+      "b": "trad_batchD_24",
+      "clusters": [
+        "dialysis_complications"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[564]",
+      "b_path": "questions[568]"
+    },
+    {
+      "a": "gemini_d2_digoxin_01",
+      "b": "gemini_d2_digoxin_02",
+      "clusters": [
+        "digoxin_hold"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[394]",
+      "b_path": "questions[395]"
+    },
+    {
+      "a": "gemini_d2_digoxin_01",
+      "b": "gemini_d2_digoxin_03",
+      "clusters": [
+        "digoxin_hold"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[394]",
+      "b_path": "questions[401]"
+    },
+    {
+      "a": "gemini_d2_digoxin_01",
+      "b": "trad_ppt_02",
+      "clusters": [
+        "digoxin_hold"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[394]",
+      "b_path": "questions[475]"
+    },
+    {
+      "a": "gemini_d2_digoxin_02",
+      "b": "gemini_d2_digoxin_03",
+      "clusters": [
+        "digoxin_hold"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[395]",
+      "b_path": "questions[401]"
+    },
+    {
+      "a": "gemini_d2_digoxin_02",
+      "b": "trad_ppt_02",
+      "clusters": [
+        "digoxin_hold"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[395]",
+      "b_path": "questions[475]"
+    },
+    {
+      "a": "gemini_d2_digoxin_03",
+      "b": "trad_ppt_02",
+      "clusters": [
+        "digoxin_hold"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[401]",
+      "b_path": "questions[475]"
+    },
+    {
+      "a": "gemini_hl_pharm_cardio_09",
+      "b": "gemini_ppt_ngn_2026_06_22_q5",
+      "clusters": [
+        "digoxin_hold"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[783]",
+      "b_path": "questions[838]"
+    },
+    {
+      "a": "gemini_jun05_a_mc_digoxin_toxicity_26",
+      "b": "gemini_p7_02",
+      "clusters": [
+        "digoxin_hold"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[25]",
+      "b_path": "questions[122]"
+    },
+    {
+      "a": "gpt_deepen_2026_06_22_b_pharm_03",
+      "b": "gpt_fresh_2026_06_22_pharm_07",
+      "clusters": [
+        "digoxin_hold"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gpt",
+      "b_producer": "gpt",
+      "a_bank": "gpt-canonical.json",
+      "b_bank": "gpt-canonical.json",
+      "a_path": "questions[456]",
+      "b_path": "questions[373]"
+    },
+    {
+      "a": "gpt_pph_2026_06_16_case_01_q1",
+      "b": "gpt_pph_2026_06_16_case_01_q2",
+      "clusters": [
+        "fetal_heart_rate"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gpt",
+      "b_producer": "gpt",
+      "a_bank": "hard-cases-canonical.json",
+      "b_bank": "hard-cases-canonical.json",
+      "a_path": "questions[58].caseStudy.questions[0]",
+      "b_path": "questions[58].caseStudy.questions[1]"
+    },
+    {
+      "a": "gpt_pph_2026_06_16_case_01_q1",
+      "b": "gpt_pph_2026_06_16_case_01_q6",
+      "clusters": [
+        "fetal_heart_rate"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gpt",
+      "b_producer": "gpt",
+      "a_bank": "hard-cases-canonical.json",
+      "b_bank": "hard-cases-canonical.json",
+      "a_path": "questions[58].caseStudy.questions[0]",
+      "b_path": "questions[58].caseStudy.questions[5]"
+    },
+    {
+      "a": "gpt_pph_2026_06_16_case_01_q2",
+      "b": "gpt_pph_2026_06_16_case_01_q3",
+      "clusters": [
+        "fetal_heart_rate"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gpt",
+      "b_producer": "gpt",
+      "a_bank": "hard-cases-canonical.json",
+      "b_bank": "hard-cases-canonical.json",
+      "a_path": "questions[58].caseStudy.questions[1]",
+      "b_path": "questions[58].caseStudy.questions[2]"
+    },
+    {
+      "a": "gpt_pph_2026_06_16_case_01_q4",
+      "b": "gpt_pph_2026_06_16_case_01_q6",
+      "clusters": [
+        "fetal_heart_rate"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gpt",
+      "b_producer": "gpt",
+      "a_bank": "hard-cases-canonical.json",
+      "b_bank": "hard-cases-canonical.json",
+      "a_path": "questions[58].caseStudy.questions[3]",
+      "b_path": "questions[58].caseStudy.questions[5]"
+    },
+    {
+      "a": "gap_50_mc_04",
+      "b": "gemini_c3_02",
+      "clusters": [
+        "hipaa_disclosure"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[700]",
+      "b_path": "questions[306]"
+    },
+    {
+      "a": "gap_50_mc_04",
+      "b": "gemini_hl_moc_hipaa_03",
+      "clusters": [
+        "hipaa_disclosure"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[700]",
+      "b_path": "questions[777]"
+    },
+    {
+      "a": "gemini_c3_02",
+      "b": "gemini_hl_moc_hipaa_03",
+      "clusters": [
+        "hipaa_disclosure"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[306]",
+      "b_path": "questions[777]"
+    },
+    {
+      "a": "gemini_c3_02",
+      "b": "gpt_case_hipaa_disclosure_breach_01_q1",
+      "clusters": [
+        "hipaa_disclosure"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gpt",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gpt-canonical.json",
+      "a_path": "questions[306]",
+      "b_path": "questions[293].caseStudy.questions[0]"
+    },
+    {
+      "a": "gemini_c3_02",
+      "b": "gpt_case_hipaa_disclosure_breach_01_q4",
+      "clusters": [
+        "hipaa_disclosure"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gpt",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gpt-canonical.json",
+      "a_path": "questions[306]",
+      "b_path": "questions[293].caseStudy.questions[3]"
+    },
+    {
+      "a": "gemini_gap_hl_hipaa_03",
+      "b": "gemini_hl_moc_hipaa_03",
+      "clusters": [
+        "hipaa_disclosure"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[806]",
+      "b_path": "questions[777]"
+    },
+    {
+      "a": "gemini_gap_hl_hipaa_03",
+      "b": "gemini_moc_ngn_2026_06_22_q10",
+      "clusters": [
+        "hipaa_disclosure"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[806]",
+      "b_path": "questions[853]"
+    },
+    {
+      "a": "gpt_case_hipaa_disclosure_breach_01_q1",
+      "b": "gpt_case_hipaa_disclosure_breach_01_q4",
+      "clusters": [
+        "hipaa_disclosure"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gpt",
+      "b_producer": "gpt",
+      "a_bank": "gpt-canonical.json",
+      "b_bank": "gpt-canonical.json",
+      "a_path": "questions[293].caseStudy.questions[0]",
+      "b_path": "questions[293].caseStudy.questions[3]"
+    },
+    {
+      "a": "gpt_case_hipaa_disclosure_breach_01_q1",
+      "b": "gpt_case_hipaa_disclosure_breach_01_q6",
+      "clusters": [
+        "hipaa_disclosure"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gpt",
+      "b_producer": "gpt",
+      "a_bank": "gpt-canonical.json",
+      "b_bank": "gpt-canonical.json",
+      "a_path": "questions[293].caseStudy.questions[0]",
+      "b_path": "questions[293].caseStudy.questions[5]"
+    },
+    {
+      "a": "gpt_case_hipaa_disclosure_breach_01_q4",
+      "b": "gpt_case_hipaa_disclosure_breach_01_q6",
+      "clusters": [
+        "hipaa_disclosure"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gpt",
+      "b_producer": "gpt",
+      "a_bank": "gpt-canonical.json",
+      "b_bank": "gpt-canonical.json",
+      "a_path": "questions[293].caseStudy.questions[3]",
+      "b_path": "questions[293].caseStudy.questions[5]"
+    },
+    {
+      "a": "gpt_deepen_2026_06_22_moc_01",
+      "b": "gpt_deepen_2026_06_22_moc_11",
+      "clusters": [
+        "hipaa_disclosure"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gpt",
+      "b_producer": "gpt",
+      "a_bank": "gpt-canonical.json",
+      "b_bank": "gpt-canonical.json",
+      "a_path": "questions[413]",
+      "b_path": "questions[423]"
+    },
+    {
+      "a": "gpt_deepen_2026_06_22_moc_11",
+      "b": "gpt_fresh_2026_06_22_moc_01",
+      "clusters": [
+        "hipaa_disclosure"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gpt",
+      "b_producer": "gpt",
+      "a_bank": "gpt-canonical.json",
+      "b_bank": "gpt-canonical.json",
+      "a_path": "questions[423]",
+      "b_path": "questions[357]"
+    },
+    {
+      "a": "gemini_b8_05",
+      "b": "gen_rrp_batch2_07",
+      "clusters": [
+        "lithium_toxicity"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[259]",
+      "b_path": "questions[612]"
+    },
+    {
+      "a": "gemini_c7_01",
+      "b": "trad_ppt_12",
+      "clusters": [
+        "lithium_toxicity"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[345]",
+      "b_path": "questions[485]"
+    },
+    {
+      "a": "gemini_jun05_a_mc_lithium_toxicity_36",
+      "b": "gemini_ppt_ngn_2026_06_22_q3",
+      "clusters": [
+        "lithium_toxicity"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[35]",
+      "b_path": "questions[836]"
+    },
+    {
+      "a": "gemini_jun05_a_mc_lithium_toxicity_36",
+      "b": "trad_ppt_12",
+      "clusters": [
+        "lithium_toxicity"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[35]",
+      "b_path": "questions[485]"
+    },
+    {
+      "a": "gemini_ppt_ngn_2026_06_22_q3",
+      "b": "trad_ppt_12",
+      "clusters": [
+        "lithium_toxicity"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[836]",
+      "b_path": "questions[485]"
+    },
+    {
+      "a": "gpt_deepen_2026_06_22_bow_04",
+      "b": "gpt_fresh_2026_06_22_pharm_03",
+      "clusters": [
+        "lithium_toxicity"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gpt",
+      "b_producer": "gpt",
+      "a_bank": "gpt-canonical.json",
+      "b_bank": "gpt-canonical.json",
+      "a_path": "questions[394]",
+      "b_path": "questions[369]"
+    },
+    {
+      "a": "gpt_deepen_2026_06_22_bow_04",
+      "b": "gpt_u6_matrix_cloze_2026_06_09_cloze_lithium_toxicity_06",
+      "clusters": [
+        "lithium_toxicity"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gpt",
+      "b_producer": "gpt",
+      "a_bank": "gpt-canonical.json",
+      "b_bank": "gpt-canonical.json",
+      "a_path": "questions[394]",
+      "b_path": "questions[127]"
+    },
+    {
+      "a": "gap_50_bcc_07",
+      "b": "gemini_d10_07",
+      "clusters": [
+        "pressure_injury"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[716]",
+      "b_path": "questions[390]"
+    },
+    {
+      "a": "gemini_d8_10",
+      "b": "gpt_case_premium_2026_06_10_case04_cloze_stage1_02",
+      "clusters": [
+        "pressure_injury"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gpt",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gpt-canonical.json",
+      "a_path": "questions[463]",
+      "b_path": "questions[145].caseStudy.questions[1]"
+    },
+    {
+      "a": "gemini_d8_10",
+      "b": "opus_bcc_rehab_2026_06_10_01",
+      "clusters": [
+        "pressure_injury"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gpt",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "claude-canonical.json",
+      "a_path": "questions[463]",
+      "b_path": "questions[50]"
+    },
+    {
+      "a": "gpt_case_gap_2026_06_11_case_pressure_injury_ltc_04",
+      "b": "gpt_case_gap_2026_06_11_pressure_ltc_part_1_matrix_risk",
+      "clusters": [
+        "pressure_injury"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gpt",
+      "b_producer": "gpt",
+      "a_bank": "gpt-canonical.json",
+      "b_bank": "gpt-canonical.json",
+      "a_path": "questions[164]",
+      "b_path": "questions[164].caseStudy.questions[0]"
+    },
+    {
+      "a": "gpt_case_gap_2026_06_11_case_pressure_injury_ltc_04",
+      "b": "gpt_case_gap_2026_06_11_pressure_ltc_part_2_sata_plan",
+      "clusters": [
+        "pressure_injury"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gpt",
+      "b_producer": "gpt",
+      "a_bank": "gpt-canonical.json",
+      "b_bank": "gpt-canonical.json",
+      "a_path": "questions[164]",
+      "b_path": "questions[164].caseStudy.questions[1]"
+    },
+    {
+      "a": "gpt_case_gap_2026_06_11_case_pressure_injury_ltc_04",
+      "b": "gpt_case_gap_2026_06_11_pressure_ltc_part_3_mc_delegate",
+      "clusters": [
+        "pressure_injury"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gpt",
+      "b_producer": "gpt",
+      "a_bank": "gpt-canonical.json",
+      "b_bank": "gpt-canonical.json",
+      "a_path": "questions[164]",
+      "b_path": "questions[164].caseStudy.questions[2]"
+    },
+    {
+      "a": "gpt_case_gap_2026_06_11_case_pressure_injury_ltc_04",
+      "b": "gpt_case_gap_2026_06_11_pressure_ltc_part_4_cloze_outcome",
+      "clusters": [
+        "pressure_injury"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gpt",
+      "b_producer": "gpt",
+      "a_bank": "gpt-canonical.json",
+      "b_bank": "gpt-canonical.json",
+      "a_path": "questions[164]",
+      "b_path": "questions[164].caseStudy.questions[3]"
+    },
+    {
+      "a": "gpt_case_gap_2026_06_11_case_pressure_injury_ltc_04",
+      "b": "gpt_case_premium_2026_06_10_case04_pressure_injury_rehab",
+      "clusters": [
+        "pressure_injury"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gpt",
+      "b_producer": "gpt",
+      "a_bank": "gpt-canonical.json",
+      "b_bank": "gpt-canonical.json",
+      "a_path": "questions[164]",
+      "b_path": "questions[145]"
+    },
+    {
+      "a": "gpt_case_gap_2026_06_11_case_pressure_injury_ltc_04",
+      "b": "gpt_gap_2026_06_12_nonmcq_balanced_case_pressure_injury_nutrition_03",
+      "clusters": [
+        "pressure_injury"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gpt",
+      "b_producer": "gpt",
+      "a_bank": "gpt-canonical.json",
+      "b_bank": "gpt-canonical.json",
+      "a_path": "questions[164]",
+      "b_path": "questions[244]"
+    },
+    {
+      "a": "gpt_case_gap_2026_06_11_pressure_ltc_part_1_matrix_risk",
+      "b": "gpt_case_gap_2026_06_11_pressure_ltc_part_2_sata_plan",
+      "clusters": [
+        "pressure_injury"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gpt",
+      "b_producer": "gpt",
+      "a_bank": "gpt-canonical.json",
+      "b_bank": "gpt-canonical.json",
+      "a_path": "questions[164].caseStudy.questions[0]",
+      "b_path": "questions[164].caseStudy.questions[1]"
+    },
+    {
+      "a": "gpt_case_gap_2026_06_11_pressure_ltc_part_1_matrix_risk",
+      "b": "gpt_case_gap_2026_06_11_pressure_ltc_part_3_mc_delegate",
+      "clusters": [
+        "pressure_injury"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gpt",
+      "b_producer": "gpt",
+      "a_bank": "gpt-canonical.json",
+      "b_bank": "gpt-canonical.json",
+      "a_path": "questions[164].caseStudy.questions[0]",
+      "b_path": "questions[164].caseStudy.questions[2]"
+    },
+    {
+      "a": "gpt_case_gap_2026_06_11_pressure_ltc_part_1_matrix_risk",
+      "b": "gpt_case_gap_2026_06_11_pressure_ltc_part_4_cloze_outcome",
+      "clusters": [
+        "pressure_injury"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gpt",
+      "b_producer": "gpt",
+      "a_bank": "gpt-canonical.json",
+      "b_bank": "gpt-canonical.json",
+      "a_path": "questions[164].caseStudy.questions[0]",
+      "b_path": "questions[164].caseStudy.questions[3]"
+    },
+    {
+      "a": "gpt_case_gap_2026_06_11_pressure_ltc_part_2_sata_plan",
+      "b": "gpt_case_gap_2026_06_11_pressure_ltc_part_3_mc_delegate",
+      "clusters": [
+        "pressure_injury"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gpt",
+      "b_producer": "gpt",
+      "a_bank": "gpt-canonical.json",
+      "b_bank": "gpt-canonical.json",
+      "a_path": "questions[164].caseStudy.questions[1]",
+      "b_path": "questions[164].caseStudy.questions[2]"
+    },
+    {
+      "a": "gpt_case_gap_2026_06_11_pressure_ltc_part_2_sata_plan",
+      "b": "gpt_case_gap_2026_06_11_pressure_ltc_part_4_cloze_outcome",
+      "clusters": [
+        "pressure_injury"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gpt",
+      "b_producer": "gpt",
+      "a_bank": "gpt-canonical.json",
+      "b_bank": "gpt-canonical.json",
+      "a_path": "questions[164].caseStudy.questions[1]",
+      "b_path": "questions[164].caseStudy.questions[3]"
+    },
+    {
+      "a": "gpt_case_gap_2026_06_11_pressure_ltc_part_3_mc_delegate",
+      "b": "gpt_case_gap_2026_06_11_pressure_ltc_part_4_cloze_outcome",
+      "clusters": [
+        "pressure_injury"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gpt",
+      "b_producer": "gpt",
+      "a_bank": "gpt-canonical.json",
+      "b_bank": "gpt-canonical.json",
+      "a_path": "questions[164].caseStudy.questions[2]",
+      "b_path": "questions[164].caseStudy.questions[3]"
+    },
+    {
+      "a": "gpt_case_premium_2026_06_10_case04_cloze_stage1_02",
+      "b": "gpt_case_premium_2026_06_10_case04_mc_first_action_03",
+      "clusters": [
+        "pressure_injury"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gpt",
+      "b_producer": "gpt",
+      "a_bank": "gpt-canonical.json",
+      "b_bank": "gpt-canonical.json",
+      "a_path": "questions[145].caseStudy.questions[1]",
+      "b_path": "questions[145].caseStudy.questions[2]"
+    },
+    {
+      "a": "gpt_case_premium_2026_06_10_case04_cloze_stage1_02",
+      "b": "gpt_case_premium_2026_06_10_case04_pressure_injury_rehab",
+      "clusters": [
+        "pressure_injury"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gpt",
+      "b_producer": "gpt",
+      "a_bank": "gpt-canonical.json",
+      "b_bank": "gpt-canonical.json",
+      "a_path": "questions[145].caseStudy.questions[1]",
+      "b_path": "questions[145]"
+    },
+    {
+      "a": "gpt_case_premium_2026_06_10_case04_pressure_injury_rehab",
+      "b": "gpt_gap_2026_06_12_nonmcq_balanced_case_pressure_injury_nutrition_03",
+      "clusters": [
+        "pressure_injury"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gpt",
+      "b_producer": "gpt",
+      "a_bank": "gpt-canonical.json",
+      "b_bank": "gpt-canonical.json",
+      "a_path": "questions[145]",
+      "b_path": "questions[244]"
+    },
+    {
+      "a": "gap_50_bcc_02",
+      "b": "gemini_jun05_a_mc_cane_ambulation_02",
+      "clusters": [
+        "stroke_escalation"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[711]",
+      "b_path": "questions[1]"
+    },
+    {
+      "a": "gemini_d3_01",
+      "b": "gemini_jun05_a_mc_dysphagia_29",
+      "clusters": [
+        "stroke_escalation"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[404]",
+      "b_path": "questions[28]"
+    },
+    {
+      "a": "gemini_d3_01",
+      "b": "gemini_jun05_b_cloze_dysphagia_19",
+      "clusters": [
+        "stroke_escalation"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[404]",
+      "b_path": "questions[168]"
+    },
+    {
+      "a": "gemini_d3_01",
+      "b": "gen_bcc_batch1_8",
+      "clusters": [
+        "stroke_escalation"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[404]",
+      "b_path": "questions[577]"
+    },
+    {
+      "a": "gemini_jun05_a_mc_dysphagia_29",
+      "b": "gemini_jun05_b_cloze_dysphagia_19",
+      "clusters": [
+        "stroke_escalation"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[28]",
+      "b_path": "questions[168]"
+    },
+    {
+      "a": "gemini_jun05_a_mc_dysphagia_29",
+      "b": "gen_bcc_batch1_8",
+      "clusters": [
+        "stroke_escalation"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[28]",
+      "b_path": "questions[577]"
+    },
+    {
+      "a": "gemini_jun05_b_cloze_dysphagia_19",
+      "b": "gen_bcc_batch1_8",
+      "clusters": [
+        "stroke_escalation"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gemini",
+      "b_producer": "gemini",
+      "a_bank": "gemini-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[168]",
+      "b_path": "questions[577]"
+    },
+    {
+      "a": "gpt_case_gap_2026_06_11_case_post_stroke_outpatient_rehab_09",
+      "b": "gpt_case_gap_2026_06_11_post_stroke_rehab_part_4_cloze_priority",
+      "clusters": [
+        "stroke_escalation"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gpt",
+      "b_producer": "gpt",
+      "a_bank": "gpt-canonical.json",
+      "b_bank": "gpt-canonical.json",
+      "a_path": "questions[157]",
+      "b_path": "questions[157].caseStudy.questions[3]"
+    },
+    {
+      "a": "gpt_case_gap_2026_06_11_case_post_stroke_outpatient_rehab_09",
+      "b": "gpt_stroke_2026_06_16_case_acute_ischemic_stroke_warfarin_01",
+      "clusters": [
+        "stroke_escalation"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gpt",
+      "b_producer": "gpt",
+      "a_bank": "gpt-canonical.json",
+      "b_bank": "hard-cases-canonical.json",
+      "a_path": "questions[157]",
+      "b_path": "questions[62]"
+    },
+    {
+      "a": "gpt_gap_2026_06_12_nonmcq_balanced_b_matrix_stroke_rehab_10",
+      "b": "gpt_gap_2026_06_12_nonmcq_balanced_matrix_stroke_aspiration_rehab_10",
+      "clusters": [
+        "stroke_escalation"
+      ],
+      "reviewer": "claude",
+      "a_producer": "gpt",
+      "b_producer": "gpt",
+      "a_bank": "gpt-canonical.json",
+      "b_bank": "gpt-canonical.json",
+      "a_path": "questions[263]",
+      "b_path": "questions[251]"
+    },
+    {
+      "a": "claude_moc_hipaa_breach_hl_b03",
+      "b": "gpt_deepen_2026_06_22_moc_01",
+      "clusters": [
+        "hipaa_disclosure"
+      ],
+      "reviewer": "gemini",
+      "a_producer": "claude",
+      "b_producer": "gpt",
+      "a_bank": "claude-canonical.json",
+      "b_bank": "gpt-canonical.json",
+      "a_path": "questions[85]",
+      "b_path": "questions[413]"
+    },
+    {
+      "a": "claude_moc_hipaa_breach_hl_b03",
+      "b": "gpt_deepen_2026_06_22_moc_11",
+      "clusters": [
+        "hipaa_disclosure"
+      ],
+      "reviewer": "gemini",
+      "a_producer": "claude",
+      "b_producer": "gpt",
+      "a_bank": "claude-canonical.json",
+      "b_bank": "gpt-canonical.json",
+      "a_path": "questions[85]",
+      "b_path": "questions[423]"
+    },
+    {
+      "a": "claude_a_sata_tracheostomy_09",
+      "b": "trad_batchD_08",
+      "clusters": [
+        "dialysis_complications"
+      ],
+      "reviewer": "gpt-5",
+      "a_producer": "claude",
+      "b_producer": "gemini",
+      "a_bank": "claude-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[6]",
+      "b_path": "questions[552]"
+    },
+    {
+      "a": "claude_a_sata_tracheostomy_09",
+      "b": "trad_batchD_10",
+      "clusters": [
+        "dialysis_complications"
+      ],
+      "reviewer": "gpt-5",
+      "a_producer": "claude",
+      "b_producer": "gemini",
+      "a_bank": "claude-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[6]",
+      "b_path": "questions[554]"
+    },
+    {
+      "a": "claude_a_sata_tracheostomy_09",
+      "b": "trad_batchD_20",
+      "clusters": [
+        "dialysis_complications"
+      ],
+      "reviewer": "gpt-5",
+      "a_producer": "claude",
+      "b_producer": "gemini",
+      "a_bank": "claude-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[6]",
+      "b_path": "questions[564]"
+    },
+    {
+      "a": "claude_a_mc_postpartum_fundus_41",
+      "b": "gemini_jun05_a_mc_pph_priority_32",
+      "clusters": [
+        "fetal_heart_rate"
+      ],
+      "reviewer": "gpt-5",
+      "a_producer": "claude",
+      "b_producer": "gemini",
+      "a_bank": "claude-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[36]",
+      "b_path": "questions[31]"
+    },
+    {
+      "a": "claude_moc_hipaa_breach_hl_b03",
+      "b": "gemini_gap_hl_hipaa_03",
+      "clusters": [
+        "hipaa_disclosure"
+      ],
+      "reviewer": "gpt-5",
+      "a_producer": "claude",
+      "b_producer": "gemini",
+      "a_bank": "claude-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[85]",
+      "b_path": "questions[806]"
+    },
+    {
+      "a": "claude_moc_hipaa_breach_hl_b03",
+      "b": "gemini_hl_moc_hipaa_03",
+      "clusters": [
+        "hipaa_disclosure"
+      ],
+      "reviewer": "gpt-5",
+      "a_producer": "claude",
+      "b_producer": "gemini",
+      "a_bank": "claude-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[85]",
+      "b_path": "questions[777]"
+    },
+    {
+      "a": "claude_a_sata_tracheostomy_09",
+      "b": "cs_ckd_01_q3",
+      "clusters": [
+        "dialysis_complications"
+      ],
+      "reviewer": "needs-provenance",
+      "a_producer": "claude",
+      "b_producer": "mixed",
+      "a_bank": "claude-canonical.json",
+      "b_bank": "hard-cases-canonical.json",
+      "a_path": "questions[6]",
+      "b_path": "questions[3].caseStudy.questions[2]"
+    },
+    {
+      "a": "cs_ckd_01_q3",
+      "b": "gemini_jun05_a_sata_pacemaker_41",
+      "clusters": [
+        "dialysis_complications"
+      ],
+      "reviewer": "needs-provenance",
+      "a_producer": "mixed",
+      "b_producer": "gemini",
+      "a_bank": "hard-cases-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[3].caseStudy.questions[2]",
+      "b_path": "questions[39]"
+    },
+    {
+      "a": "cs_ckd_01_q3",
+      "b": "trad_batchD_08",
+      "clusters": [
+        "dialysis_complications"
+      ],
+      "reviewer": "needs-provenance",
+      "a_producer": "mixed",
+      "b_producer": "gemini",
+      "a_bank": "hard-cases-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[3].caseStudy.questions[2]",
+      "b_path": "questions[552]"
+    },
+    {
+      "a": "cs_ckd_01_q3",
+      "b": "trad_batchD_10",
+      "clusters": [
+        "dialysis_complications"
+      ],
+      "reviewer": "needs-provenance",
+      "a_producer": "mixed",
+      "b_producer": "gemini",
+      "a_bank": "hard-cases-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[3].caseStudy.questions[2]",
+      "b_path": "questions[554]"
+    },
+    {
+      "a": "cs_ckd_01_q3",
+      "b": "trad_batchD_20",
+      "clusters": [
+        "dialysis_complications"
+      ],
+      "reviewer": "needs-provenance",
+      "a_producer": "mixed",
+      "b_producer": "gemini",
+      "a_bank": "hard-cases-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[3].caseStudy.questions[2]",
+      "b_path": "questions[564]"
+    },
+    {
+      "a": "cs_ckd_01_q3",
+      "b": "trad_batchD_24",
+      "clusters": [
+        "dialysis_complications"
+      ],
+      "reviewer": "needs-provenance",
+      "a_producer": "mixed",
+      "b_producer": "gemini",
+      "a_bank": "hard-cases-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[3].caseStudy.questions[2]",
+      "b_path": "questions[568]"
+    },
+    {
+      "a": "cs_ckd_01_q5",
+      "b": "gemini_c8_08",
+      "clusters": [
+        "dialysis_complications"
+      ],
+      "reviewer": "needs-provenance",
+      "a_producer": "mixed",
+      "b_producer": "gemini",
+      "a_bank": "hard-cases-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[3].caseStudy.questions[4]",
+      "b_path": "questions[362]"
+    },
+    {
+      "a": "cs_stemi_vfib_04_part_1",
+      "b": "gemini_b1_04",
+      "clusters": [
+        "mi_chest_pain"
+      ],
+      "reviewer": "needs-provenance",
+      "a_producer": "mixed",
+      "b_producer": "gemini",
+      "a_bank": "hard-cases-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[35].caseStudy.questions[0]",
+      "b_path": "questions[180]"
+    },
+    {
+      "a": "claude_cs_jun06_pressure_injury_bcc_01",
+      "b": "gpt_case_gap_2026_06_11_case_pressure_injury_ltc_04",
+      "clusters": [
+        "pressure_injury"
+      ],
+      "reviewer": "needs-provenance",
+      "a_producer": "mixed",
+      "b_producer": "gpt",
+      "a_bank": "hard-cases-canonical.json",
+      "b_bank": "gpt-canonical.json",
+      "a_path": "questions[29]",
+      "b_path": "questions[164]"
+    },
+    {
+      "a": "claude_cs_jun06_pressure_injury_bcc_01",
+      "b": "gpt_case_premium_2026_06_10_case04_pressure_injury_rehab",
+      "clusters": [
+        "pressure_injury"
+      ],
+      "reviewer": "needs-provenance",
+      "a_producer": "mixed",
+      "b_producer": "gpt",
+      "a_bank": "hard-cases-canonical.json",
+      "b_bank": "gpt-canonical.json",
+      "a_path": "questions[29]",
+      "b_path": "questions[145]"
+    },
+    {
+      "a": "claude_cs_jun06_pressure_injury_bcc_01",
+      "b": "gpt_gap_2026_06_12_nonmcq_balanced_case_pressure_injury_nutrition_03",
+      "clusters": [
+        "pressure_injury"
+      ],
+      "reviewer": "needs-provenance",
+      "a_producer": "mixed",
+      "b_producer": "gpt",
+      "a_bank": "hard-cases-canonical.json",
+      "b_bank": "gpt-canonical.json",
+      "a_path": "questions[29]",
+      "b_path": "questions[244]"
+    },
+    {
+      "a": "claude_cs_jun06_pressure_injury_bcc_01_part_2",
+      "b": "gpt_canonical_matrix_pressure_injury_040",
+      "clusters": [
+        "pressure_injury"
+      ],
+      "reviewer": "needs-provenance",
+      "a_producer": "mixed",
+      "b_producer": "gpt",
+      "a_bank": "hard-cases-canonical.json",
+      "b_bank": "gpt-canonical.json",
+      "a_path": "questions[29].caseStudy.questions[1]",
+      "b_path": "questions[39]"
+    },
+    {
+      "a": "claude_cs_jun06_pressure_injury_bcc_01_part_2",
+      "b": "gpt_case_gap_2026_06_11_pressure_ltc_part_2_sata_plan",
+      "clusters": [
+        "pressure_injury"
+      ],
+      "reviewer": "needs-provenance",
+      "a_producer": "mixed",
+      "b_producer": "gpt",
+      "a_bank": "hard-cases-canonical.json",
+      "b_bank": "gpt-canonical.json",
+      "a_path": "questions[29].caseStudy.questions[1]",
+      "b_path": "questions[164].caseStudy.questions[1]"
+    },
+    {
+      "a": "claude_cs_jun06_pressure_injury_bcc_01_part_4",
+      "b": "gemini_d8_10",
+      "clusters": [
+        "pressure_injury"
+      ],
+      "reviewer": "needs-provenance",
+      "a_producer": "mixed",
+      "b_producer": "gemini",
+      "a_bank": "hard-cases-canonical.json",
+      "b_bank": "gemini-canonical.json",
+      "a_path": "questions[29].caseStudy.questions[3]",
+      "b_path": "questions[463]"
+    },
+    {
+      "a": "claude_cs_jun06_pressure_injury_bcc_01_part_4",
+      "b": "opus_bcc_rehab_2026_06_10_01",
+      "clusters": [
+        "pressure_injury"
+      ],
+      "reviewer": "needs-provenance",
+      "a_producer": "mixed",
+      "b_producer": "gpt",
+      "a_bank": "hard-cases-canonical.json",
+      "b_bank": "claude-canonical.json",
+      "a_path": "questions[29].caseStudy.questions[3]",
+      "b_path": "questions[50]"
+    }
+  ]
+}

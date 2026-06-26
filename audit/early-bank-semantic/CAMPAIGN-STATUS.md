@@ -244,11 +244,6 @@ groups are not findings, clinical judgments, or action recommendations.
 - Layer A regression, bundled-bank validation, and the production build passed.
 - Canonical banks edited: none.
 
-## Next Turn
-
-1. Assign the remaining 17 producer-conflict Phase B rows to a reviewer whose
-   producer and final-review chain does not conflict with each case.
-
 ## Session 12 Result
 
 - Luke accepted all 32 proposals in `PROPOSAL-REVIEW-PACKET.md`.

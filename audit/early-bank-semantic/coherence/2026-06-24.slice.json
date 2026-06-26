@@ -11,15 +11,17 @@
   "candidate_pair_count": 156,
   "reviewer_split": {
     "claude_pairs": 149,
-    "gpt5_pairs": 7
+    "gpt5_pairs": 5,
+    "gemini_pairs": 2,
+    "needs_provenance_pairs": 0
   },
   "gpt5_carveout_ids": [
     "claude_moc_assignment_mc_14",
-    "claude_moc_deleg_matrix_08",
     "claude_moc_deleg_uap_hl_01",
     "claude_moc_lpn_deleg_hl_b01",
     "claude_moc_supervision_hl_b04"
   ],
+  "needs_provenance_pairs": [],
   "items": [
     {
       "id": "claude_moc_assignment_mc_14",
@@ -3839,6 +3841,34 @@
       "b_path": "questions[44].caseStudy.questions[4]"
     },
     {
+      "a": "claude_moc_deleg_matrix_08",
+      "b": "gpt_canonical_matrix_scope_assignment_050",
+      "clusters": [
+        "delegation_scope"
+      ],
+      "reviewer": "gemini",
+      "a_producer": "claude",
+      "b_producer": "gpt",
+      "a_bank": "claude-canonical.json",
+      "b_bank": "gpt-canonical.json",
+      "a_path": "questions[76]",
+      "b_path": "questions[49]"
+    },
+    {
+      "a": "claude_moc_lpn_deleg_hl_b01",
+      "b": "gpt_hl_moc_lpn_scope_05",
+      "clusters": [
+        "delegation_scope"
+      ],
+      "reviewer": "gemini",
+      "a_producer": "claude",
+      "b_producer": "gpt",
+      "a_bank": "claude-canonical.json",
+      "b_bank": "gpt-canonical.json",
+      "a_path": "questions[83]",
+      "b_path": "questions[313]"
+    },
+    {
       "a": "claude_moc_assignment_mc_14",
       "b": "gemini_p8_08",
       "clusters": [
@@ -3851,20 +3881,6 @@
       "b_bank": "gemini-canonical.json",
       "a_path": "questions[82]",
       "b_path": "questions[138]"
-    },
-    {
-      "a": "claude_moc_deleg_matrix_08",
-      "b": "gpt_canonical_matrix_scope_assignment_050",
-      "clusters": [
-        "delegation_scope"
-      ],
-      "reviewer": "gpt-5",
-      "a_producer": "claude",
-      "b_producer": "gpt",
-      "a_bank": "claude-canonical.json",
-      "b_bank": "gpt-canonical.json",
-      "a_path": "questions[76]",
-      "b_path": "questions[49]"
     },
     {
       "a": "claude_moc_deleg_uap_hl_01",
@@ -3907,20 +3923,6 @@
       "b_bank": "gemini-canonical.json",
       "a_path": "questions[69]",
       "b_path": "questions[776]"
-    },
-    {
-      "a": "claude_moc_lpn_deleg_hl_b01",
-      "b": "gpt_hl_moc_lpn_scope_05",
-      "clusters": [
-        "delegation_scope"
-      ],
-      "reviewer": "gpt-5",
-      "a_producer": "claude",
-      "b_producer": "gpt",
-      "a_bank": "claude-canonical.json",
-      "b_bank": "gpt-canonical.json",
-      "a_path": "questions[83]",
-      "b_path": "questions[313]"
     },
     {
       "a": "claude_moc_supervision_hl_b04",

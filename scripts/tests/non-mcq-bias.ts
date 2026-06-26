@@ -14,6 +14,11 @@ import {
   type BiasRecord,
 } from "../audit/non-mcq-bias-lib";
 import {
+  nonMcqBiasReportToAuditResults,
+} from "../audit/audit-non-mcq-bias";
+import { gateVerdict } from "../audit/audit-verdict";
+import type { AuditResult } from "../audit/types";
+import {
   buildLayerBQueue,
   formatLayerBPrompt,
   mergeLayerBResults,
@@ -125,6 +130,12 @@ assert.equal(find(balanced.records, "balanced", "all_rows_same_column").verdict,
 const underpowered = auditNonMcqBias([{ id: "tiny", questions: [dropdown("tiny-dropdown", 0)] }]);
 assert.equal(find(underpowered.records, "tiny", "correct_index_n4").verdict, "INSUFFICIENT");
 
+const tinyOrdered = auditNonMcqBias([{
+  id: "tiny-ordered",
+  questions: Array.from({ length: 3 }, (_, index) => ordered(`tiny-ordered-${index}`, [0, 1, 2, 3])),
+}]);
+assert.equal(find(tinyOrdered.records, "tiny-ordered", "scramble_depth").verdict, "INSUFFICIENT");
+
 const absent = auditNonMcqBias([{ id: "empty", questions: [] }]);
 assert.equal(find(absent.records, "empty", "correct_option_position").verdict, "INSUFFICIENT");
 assert.equal(find(absent.records, "empty", "correct_index").verdict, "INSUFFICIENT");
@@ -148,6 +159,67 @@ assert.deepEqual(globalDropdown.metrics.inherited_per_bank_failures, ["biased-ba
 const first = JSON.stringify(auditNonMcqBias([{ id: "biased", questions: biasedQuestions }]));
 const second = JSON.stringify(auditNonMcqBias([{ id: "biased", questions: [...biasedQuestions].reverse() }]));
 assert.equal(first, second);
+
+const biasedAuditResults = nonMcqBiasReportToAuditResults(biased);
+const mechanicalResult = biasedAuditResults.find((result) => result.name === "audit:non-mcq-bias:mechanical");
+const distributionalResult = biasedAuditResults.find((result) => result.name === "audit:non-mcq-bias:distributional");
+assert.equal(mechanicalResult?.status, "FAIL");
+assert.equal(distributionalResult?.status, "WARN");
+
+const standingPass: AuditResult = {
+  name: "audit:references",
+  status: "PASS",
+  failures: [],
+  detail: "ok",
+};
+assert.equal(gateVerdict([standingPass, mechanicalResult!], [standingPass]).exitCode, 0);
+assert.equal(gateVerdict([standingPass, mechanicalResult!], [standingPass, mechanicalResult!]).exitCode, 1);
+assert.equal(gateVerdict([standingPass, distributionalResult!], [standingPass]).exitCode, 0);
+assert.equal(gateVerdict([standingPass], [standingPass]).message, "GATE PASSED — clean.");
+assert.equal(gateVerdict([{
+  ...standingPass,
+  status: "INSUFFICIENT",
+}], [{
+  ...standingPass,
+  status: "INSUFFICIENT",
+}]).message.includes("INSUFFICIENT"), true);
+assert.equal(gateVerdict([{
+  ...standingPass,
+  status: "WARN",
+}], [standingPass]).message.includes("warnings present"), true);
+
+const manualRecord: BiasRecord = {
+  ...find(biased.records, "biased", "correct_count_distribution"),
+  fix_class: "MANUAL_REVIEW",
+  check: "synthetic_manual",
+};
+const manualResult = nonMcqBiasReportToAuditResults({
+  ...biased,
+  records: [manualRecord],
+}).find((result) => result.name === "audit:non-mcq-bias:manual");
+assert.equal(manualResult?.status, "WARN");
+
+const rationaleOnly = nonMcqBiasReportToAuditResults({
+  ...biased,
+  records: [{
+    ...find(biased.records, "biased", "rationale_shuffle_hazard"),
+    verdict: "FAIL",
+    fix_class: "RATIONALE_REPAIR",
+  }],
+});
+assert.equal(rationaleOnly.some((result) => result.name === "audit:non-mcq-bias:manual"), false);
+assert.equal(rationaleOnly.some((result) => result.status === "FAIL"), false);
+
+assert.throws(
+  () => nonMcqBiasReportToAuditResults({
+    ...biased,
+    records: [{
+      ...find(biased.records, "biased", "correct_count_distribution"),
+      fix_class: "FUTURE_CLASS" as never,
+    }],
+  }),
+  /Unhandled non-MCQ bias fix_class/,
+);
 
 const casePart = sata("case-part", [0, 1]);
 const caseStudy: CaseStudyQuestion = {

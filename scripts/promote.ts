@@ -17,6 +17,8 @@ import { checkCaseCompileManifests, stripCompileManifests } from "../lib/case-co
 import { normalizeBankPresentations, serializeBank } from "../lib/presentation-normalization";
 import { routeCanonical } from "../lib/canonical-routing";
 import { CANONICAL_DIR, DRAFT_DIR, STAGING_DIR } from "../lib/pipeline-paths";
+import { runAuditNonMcqBiasOnBanks } from "./audit/audit-non-mcq-bias";
+import { isMechanicalBiasEnforced } from "./audit/audit-verdict";
 import type { BankEnvelope } from "../src/types";
 
 const SCHEMA_RANK = Object.fromEntries(
@@ -33,6 +35,7 @@ if (jsonFiles.length === 0) {
 
 let anyFailed = false;
 await mkdir(STAGING_DIR, { recursive: true });
+const stagedBanks: Array<{ filename: string; promotedPath: string; bank: BankEnvelope }> = [];
 
 for (const filename of jsonFiles) {
   const draftPath = join(DRAFT_DIR, filename);
@@ -90,8 +93,7 @@ for (const filename of jsonFiles) {
 
     const { bank: promoted } = normalizeBankPresentations(shuffled);
 
-    await writeFile(promotedPath, serializeBank(promoted), "utf8");
-    console.log(`${filename}: promoted ${promoted.questions.length} item(s) → ${join(STAGING_DIR, basename(promotedPath))}`);
+    stagedBanks.push({ filename, promotedPath, bank: promoted });
   } catch (e) {
     console.error(`${filename}: ${e instanceof Error ? e.message : String(e)}`);
     anyFailed = true;
@@ -99,3 +101,25 @@ for (const filename of jsonFiles) {
 }
 
 if (anyFailed) process.exit(1);
+
+const biasResults = runAuditNonMcqBiasOnBanks(stagedBanks.map((entry) => ({
+  id: basename(entry.filename, ".json"),
+  questions: entry.bank.questions,
+})));
+const mechanicalBias = biasResults.find((result) => result.name === "audit:non-mcq-bias:mechanical");
+const advisoryBias = biasResults.filter((result) => result.status === "WARN" || result.status === "FAIL");
+
+for (const result of advisoryBias) {
+  const label = result.status === "FAIL" ? "fail" : "warn";
+  console.warn(`[${label}] ${result.name}: ${result.detail}`);
+}
+
+if (mechanicalBias?.status === "FAIL" && isMechanicalBiasEnforced()) {
+  console.error("staged batch has positional tells post-shuffle — normalization did not apply; not staging.");
+  process.exit(1);
+}
+
+for (const { filename, promotedPath, bank } of stagedBanks) {
+  await writeFile(promotedPath, serializeBank(bank), "utf8");
+  console.log(`${filename}: promoted ${bank.questions.length} item(s) → ${join(STAGING_DIR, basename(promotedPath))}`);
+}

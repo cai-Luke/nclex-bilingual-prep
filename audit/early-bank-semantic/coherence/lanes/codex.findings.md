@@ -43,7 +43,7 @@ Total Findings     : 0
 Null Ranges        : All seven Codex currency rows: no findings meeting evidentiary standard
 
 Reviewing model: GPT-5 / Codex
-Producer basis: these surviving hard-case currency rows are GPT-5-auditable under `GPT5-AUDIT-HANDOFF-2026-06-24.md`; the five Opus rows are excluded and assigned to Claude by Luke override.
+Producer basis: these surviving hard-case currency rows are GPT-5-auditable under `Archive/root-cleanup-2026-06-26/GPT5-AUDIT-HANDOFF-2026-06-24.md`; the five Opus rows are excluded and assigned to Claude by Luke override.
 Canonical writes: none
 Sources consulted: Surviving Sepsis Campaign 2021; American Heart Association 2025 adult cardiac arrest algorithms; 2025 ACC/AHA/ACEP/NAEMSP/SCAI acute coronary syndromes guideline hub / guideline text.
 

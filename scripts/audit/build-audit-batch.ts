@@ -15,7 +15,7 @@ const DEFAULT_CLUSTERS: ConceptCluster[] = [
   "insulin_hypoglycemia",
 ];
 
-type Reviewer = "claude" | "gpt-5";
+type Reviewer = "claude" | "gpt-5" | "gemini" | "needs-provenance";
 
 type BuildAuditBatchOptions = {
   queuePath?: string;
@@ -58,8 +58,11 @@ export type AuditBatchArtifact = {
   reviewer_split: {
     claude_pairs: number;
     gpt5_pairs: number;
+    gemini_pairs: number;
+    needs_provenance_pairs: number;
   };
   gpt5_carveout_ids: string[];
+  needs_provenance_pairs: SlicePair[];
   items: SliceItem[];
   pairs: SlicePair[];
 };
@@ -122,13 +125,14 @@ const pairKey = (left: string, right: string) =>
 const reviewerFor = (
   left: SemanticQueueRow,
   right: SemanticQueueRow,
-): Reviewer =>
-  left.producer === "claude" ||
-  left.producer === "mixed" ||
-  right.producer === "claude" ||
-  right.producer === "mixed"
-    ? "gpt-5"
-    : "claude";
+): Reviewer => {
+  const producers = new Set([left.producer, right.producer]);
+  if (producers.has("mixed")) return "needs-provenance";
+  if (!producers.has("claude")) return "claude";
+  if (!producers.has("gpt")) return "gpt-5";
+  if (!producers.has("gemini")) return "gemini";
+  return "needs-provenance";
+};
 
 export const buildAuditBatch = async (
   options: BuildAuditBatchOptions = {},
@@ -249,8 +253,15 @@ export const buildAuditBatch = async (
     reviewer_split: {
       claude_pairs: pairs.filter((pair) => pair.reviewer === "claude").length,
       gpt5_pairs: pairs.filter((pair) => pair.reviewer === "gpt-5").length,
+      gemini_pairs: pairs.filter((pair) => pair.reviewer === "gemini").length,
+      needs_provenance_pairs: pairs.filter(
+        (pair) => pair.reviewer === "needs-provenance",
+      ).length,
     },
     gpt5_carveout_ids: gpt5CarveoutIds,
+    needs_provenance_pairs: pairs.filter(
+      (pair) => pair.reviewer === "needs-provenance",
+    ),
     items,
     pairs,
   };
@@ -275,7 +286,9 @@ const runCli = async () => {
     `Wrote ${artifact.unique_item_count} items / ` +
       `${artifact.candidate_pair_count} pairs to ${outPath} ` +
       `(claude=${artifact.reviewer_split.claude_pairs}, ` +
-      `gpt-5=${artifact.reviewer_split.gpt5_pairs}).`,
+      `gpt-5=${artifact.reviewer_split.gpt5_pairs}, ` +
+      `gemini=${artifact.reviewer_split.gemini_pairs}, ` +
+      `needs-provenance=${artifact.reviewer_split.needs_provenance_pairs}).`,
   );
 };
 

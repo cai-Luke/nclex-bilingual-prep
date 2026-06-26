@@ -1,7 +1,7 @@
 # 13 — Opus Currency Exception (Claude reviewer) — 2026-06-24
 
 Findings-only currency/OG audit of the five Opus rows split out of the GPT-5
-package per `CLAUDE-OPUS-CURRENCY-HANDOFF-2026-06-24.md`. No canonical writes.
+package per `Archive/root-cleanup-2026-06-26/CLAUDE-OPUS-CURRENCY-HANDOFF-2026-06-24.md`. No canonical writes.
 
 ```
 AUDIT SESSION HEADER

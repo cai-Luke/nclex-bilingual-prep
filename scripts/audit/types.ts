@@ -1,4 +1,4 @@
-export type CheckStatus = "PASS" | "FAIL" | "INSUFFICIENT";
+export type CheckStatus = "PASS" | "FAIL" | "INSUFFICIENT" | "WARN";
 
 export type AuditResult = {
   /** Canonical check name (matches npm run script name) */

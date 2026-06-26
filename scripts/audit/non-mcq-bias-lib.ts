@@ -18,6 +18,7 @@ export const NON_MCQ_BIAS_CONFIG = {
   sata_count_degeneracy: 0.70,
   sata_missing_count_fails: true,
   ordered_min_mean_kendall: 0.35,
+  scramble_min_n: 8,
   template_repeat_max_share: 0.15,
   example_cap: 3,
 } as const;
@@ -386,6 +387,8 @@ function orderedRecords(bank: string, questions: OrderedResponseQuestion[]): Bia
   const scrambleVerdict =
     questions.length === 0
       ? "INSUFFICIENT"
+      : questions.length < NON_MCQ_BIAS_CONFIG.scramble_min_n
+        ? "INSUFFICIENT"
       : mean < NON_MCQ_BIAS_CONFIG.ordered_min_mean_kendall
         ? "FAIL"
         : "PASS";
@@ -551,6 +554,8 @@ function matrixRecords(
   const verdict =
     eligible.length === 0
       ? "INSUFFICIENT"
+      : eligible.length < NON_MCQ_BIAS_CONFIG.scramble_min_n
+        ? "INSUFFICIENT"
       : share > NON_MCQ_BIAS_CONFIG.template_repeat_max_share
         ? "FAIL"
         : "PASS";

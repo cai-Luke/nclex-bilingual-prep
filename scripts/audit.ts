@@ -16,67 +16,81 @@ import { runAuditReferences } from "./audit/audit-references";
 import { runAuditPositions } from "./audit/audit-positions";
 import { runAuditIntegrity } from "./audit/audit-integrity";
 import { runAuditIds } from "./audit/audit-ids";
+import { runAuditNonMcqBias } from "./audit/audit-non-mcq-bias";
+import { gateVerdict, isMechanicalBiasEnforced } from "./audit/audit-verdict";
 import type { AuditResult } from "./audit/types";
 
 function printResult(r: AuditResult): void {
-  const icon = r.status === "PASS" ? "✓" : r.status === "INSUFFICIENT" ? "?" : "✗";
+  const icon = r.status === "PASS" ? "✓" : r.status === "INSUFFICIENT" ? "?" : r.status === "WARN" ? "!" : "✗";
   console.log(`\n[${r.status}] ${icon} ${r.name}`);
   if (r.status !== "PASS") {
     console.log(r.detail);
     if (r.failures.length > 0) {
-      console.log(`Failing IDs: ${r.failures.join(", ")}`);
+      const label = r.status === "WARN" ? "Related IDs" : "Failing IDs";
+      console.log(`${label}: ${r.failures.join(", ")}`);
     }
   } else {
     console.log(r.detail);
   }
 }
 
-// ---------------------------------------------------------------------------
-// Tier 0
-// ---------------------------------------------------------------------------
-console.log("=== Promotion Gate ===\n");
-console.log("── Tier 0: structural validation ──");
+async function main(): Promise<number> {
+  // ---------------------------------------------------------------------------
+  // Tier 0
+  // ---------------------------------------------------------------------------
+  console.log("=== Promotion Gate ===\n");
+  console.log("── Tier 0: structural validation ──");
 
-const tier0 = await runValidateBank();
-printResult(tier0);
+  const tier0 = await runValidateBank();
+  printResult(tier0);
 
-if (tier0.status === "FAIL") {
-  console.error("\nTier 0 failed — bank is structurally broken. Fix before running audits.\n");
-  process.exit(1);
-}
-
-// ---------------------------------------------------------------------------
-// Tier 1 — all three run, collect all failures
-// ---------------------------------------------------------------------------
-console.log("\n── Tier 1: standing audits ──");
-
-const [references, positions, integrity, ids] = await Promise.all([
-  runAuditReferences(),
-  runAuditPositions(),
-  runAuditIntegrity(),
-  runAuditIds(),
-]);
-
-const tier1Results: AuditResult[] = [references, positions, integrity, ids];
-for (const r of tier1Results) printResult(r);
-
-// ---------------------------------------------------------------------------
-// Final verdict
-// ---------------------------------------------------------------------------
-const anyFailed = tier1Results.some((r) => r.status === "FAIL");
-const allInsufficient = tier1Results.every((r) => r.status !== "FAIL");
-
-const allFailedIds = [...new Set(tier1Results.flatMap((r) => r.failures))];
-
-console.log("\n══════════════════════");
-if (anyFailed) {
-  console.error(`GATE FAILED — ${allFailedIds.length} item(s) across ${tier1Results.filter((r) => r.status === "FAIL").length} check(s).`);
-  if (allFailedIds.length > 0) {
-    console.error(`Items requiring repair: ${allFailedIds.join(", ")}`);
+  if (tier0.status === "FAIL") {
+    console.error("\nTier 0 failed — bank is structurally broken. Fix before running audits.\n");
+    return 1;
   }
-  process.exit(1);
-} else if (allInsufficient) {
-  console.log("GATE PASSED (some checks INSUFFICIENT — bank may be too small for full analysis).");
-} else {
-  console.log("GATE PASSED — bank is clean.");
+
+  // ---------------------------------------------------------------------------
+  // Tier 1 — run all standing checks, collect all failures
+  // ---------------------------------------------------------------------------
+  console.log("\n── Tier 1: standing audits ──");
+
+  const [references, positions, integrity, ids, nonMcqBias] = await Promise.all([
+    runAuditReferences(),
+    runAuditPositions(),
+    runAuditIntegrity(),
+    runAuditIds(),
+    runAuditNonMcqBias(),
+  ]);
+
+  const tier1Results: AuditResult[] = [references, positions, integrity, ids];
+  for (const r of tier1Results) printResult(r);
+
+  // ---------------------------------------------------------------------------
+  // Tier 2 — advisory non-MCQ bias split
+  // ---------------------------------------------------------------------------
+  console.log("\n── Tier 2: non-MCQ bias (advisory) ──");
+  for (const r of nonMcqBias) printResult(r);
+
+  // ---------------------------------------------------------------------------
+  // Final verdict
+  // ---------------------------------------------------------------------------
+  const mechanicalBias = nonMcqBias.find((result) => result.name === "audit:non-mcq-bias:mechanical");
+  const blockingResults = isMechanicalBiasEnforced() && mechanicalBias
+    ? [...tier1Results, mechanicalBias]
+    : tier1Results;
+  const allResults = [...tier1Results, ...nonMcqBias];
+  const verdict = gateVerdict(allResults, blockingResults);
+
+  console.log("\n══════════════════════");
+  if (verdict.exitCode === 1) {
+    console.error(verdict.message);
+    if (verdict.failedIds.length > 0) {
+      console.error(`Items requiring repair: ${verdict.failedIds.join(", ")}`);
+    }
+  } else {
+    console.log(verdict.message);
+  }
+  return verdict.exitCode;
 }
+
+process.exit(await main());
