@@ -78,6 +78,22 @@ Verification:
 - `npx tsc -b --pretty false` passed.
 - `npm run audit` passed: Tier 2 showed mechanical PASS and distributional WARN (12 records), with `audit:integrity` still INSUFFICIENT because no raw drafts are present.
 
+### Sampler Calibration Closeout (Jun 26)
+
+Completed:
+- Resolved the study-session sampler calibration placeholder: retained `alpha = beta = 1` after checking the live case-study-excluded sampler pool, where rhythm strips are ~14% of Physiological Adaptation and the largest topic concentration is Cardiovascular Disorders at ~31%.
+- Replaced the drifting visual floor derivation ("all visual kinds with count >= 10") with the explicit, threshold-gated priority allowlist `["rhythm_strip", "lab_trend", "vitals_trend"]`, reserved in list order and deduped for caller overrides. `floorThreshold = 10` now serves only as a viability gate.
+- Flipped the mechanical non-MCQ bias gate to enforce by default in local audit, local promote, and CI; `BIAS_GATE_ENFORCE_MECHANICAL=0` remains the explicit observe-only diagnostic escape hatch.
+- Added sampler regressions for high-count non-allowlisted visuals, below-threshold allowlisted visuals, disabled floors, and duplicate allowlist entries.
+
+Verification:
+- `npm run test:non-mcq-bias` passed.
+- `npx tsx scripts/tests/session-sampler.ts` passed.
+- `npm run test-visuals` passed.
+- `npx tsc -b --pretty false` passed.
+- `npm run audit` passed: Tier 2 showed mechanical PASS under default-on enforcement and distributional WARN (12 records), with `audit:integrity` still INSUFFICIENT because no raw drafts are present.
+- `npm run build` passed.
+
 ### Phase A Adversarial Semantic Audit Pilot Closeout (Jun 25)
 
 Completed:

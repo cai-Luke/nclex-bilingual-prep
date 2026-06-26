@@ -7,7 +7,8 @@ import { validateSweep, type ValidatorReport } from "../validate-sweep-lib";
 type Row = Record<string, unknown>;
 type Summary = Record<string, unknown>;
 
-const fixtureDir = resolve("Fixtures/validate-sweep");
+const archivedFixtureRoot = "Archive/Fixtures";
+const fixtureDir = resolve(archivedFixtureRoot, "validate-sweep");
 const goodManifestPath = join(fixtureDir, "good_min.jsonl");
 const goodSummaryPath = join(fixtureDir, "good_min.summary.json");
 const baseRows = (await readFile(goodManifestPath, "utf8"))
@@ -169,8 +170,8 @@ try {
 
   for (const version of ["v1", "v2"]) {
     const historical = await validateSweep({
-      manifestPath: resolve(`Fixtures/${version}manifest.jsonl`),
-      summaryPath: resolve(`Fixtures/${version}summary.json`),
+      manifestPath: resolve(`${archivedFixtureRoot}/${version}manifest.jsonl`),
+      summaryPath: resolve(`${archivedFixtureRoot}/${version}summary.json`),
       writeReport: false,
     });
     assert.equal(historical.status, "rejected", `${version} historical fixture must be rejected`);

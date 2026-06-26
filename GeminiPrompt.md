@@ -30,7 +30,7 @@ Do not invent schema fields.
 
 Do not use older prompt examples when they conflict with the current schema.
 
-Use schemaVersion: "1.3" unless the user explicitly asks for legacy compatibility.
+Use the current schema version — `"1.6"`, per NCLEX-Question-Schema.md, which marks the version currently in force — unless the user explicitly asks for legacy compatibility.
 
 
 
@@ -44,7 +44,7 @@ The top-level object must use this shape:
 
 "meta": {
 
-"schemaVersion": "1.3",
+"schemaVersion": "1.6",
 
 "exam": "NCLEX-RN",
 
@@ -117,9 +117,11 @@ dropdown_cloze
 
 highlight
 
+bowtie
+
 case_study
 
-Generate highlight only when the requested mix includes it. Highlight items must use ordered bilingual segments, include at least one selectable distractor, never key every selectable segment, and use `stem` for the selection criterion. Do not generate bowtie.
+Generate highlight only when the requested mix includes it. Highlight items must use ordered bilingual segments, include at least one selectable distractor, never key every selectable segment, and use `stem` for the selection criterion. Bowtie is a live standalone item type (schema 1.4+), but it is normally authored through the GPT/Opus case-skeleton pipeline; in this raw-volume Gemini lane, generate bowtie only if the user explicitly requests it and provides current schema/skeleton context.
 
 
 
@@ -812,7 +814,7 @@ Before final output, silently verify:
 
 JSON is valid
 
-meta.schemaVersion is "1.3"
+meta.schemaVersion is "1.6"
 
 questions.length equals meta.count
 

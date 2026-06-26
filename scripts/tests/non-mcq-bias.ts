@@ -16,7 +16,7 @@ import {
 import {
   nonMcqBiasReportToAuditResults,
 } from "../audit/audit-non-mcq-bias";
-import { gateVerdict } from "../audit/audit-verdict";
+import { gateVerdict, isMechanicalBiasEnforced } from "../audit/audit-verdict";
 import type { AuditResult } from "../audit/types";
 import {
   buildLayerBQueue,
@@ -165,6 +165,9 @@ const mechanicalResult = biasedAuditResults.find((result) => result.name === "au
 const distributionalResult = biasedAuditResults.find((result) => result.name === "audit:non-mcq-bias:distributional");
 assert.equal(mechanicalResult?.status, "FAIL");
 assert.equal(distributionalResult?.status, "WARN");
+assert.equal(isMechanicalBiasEnforced({}), true);
+assert.equal(isMechanicalBiasEnforced({ BIAS_GATE_ENFORCE_MECHANICAL: "1" }), true);
+assert.equal(isMechanicalBiasEnforced({ BIAS_GATE_ENFORCE_MECHANICAL: "0" }), false);
 
 const standingPass: AuditResult = {
   name: "audit:references",

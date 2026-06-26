@@ -12,7 +12,7 @@ The original U0–U9 renderer roadmap is complete. U10 re-opens the visual taxon
 - **`fetal_monitoring`:** Content lane is OPEN under strict NICHD/AWHONN/ACOG wording constraints.
 - **Oxygen caveat:** Oxygen administration is NOT routine for normoxic patients.
 
-*(Note: No visual smoke content has been promoted for these newly opened lanes yet. Content generation can resume through the standard raw → review → promotion workflow.)*
+*(Note: Initial visual smoke content has been promoted for these lanes — see `BANK-CENSUS.md` for current per-kind counts; `burn_map`, `fetal_monitoring`, and `injection_site` all carry promoted items. Further content generation proceeds through the standard raw → review → promotion workflow.)*
 
 ## Guiding principle
 

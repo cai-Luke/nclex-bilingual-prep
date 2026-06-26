@@ -1,6 +1,6 @@
-# GPT Case-Skeleton Compiler Prompt — Project Shrimp schema-1.5 bilingual `case_study` (and optional `bowtie`)
+# GPT Case-Skeleton Compiler Prompt — Project Shrimp schema-1.6 bilingual `case_study` (and optional `bowtie`)
 
-> Paste this before an Opus case skeleton when asking GPT to convert the skeleton into a downloadable Project Shrimp JSON file. This prompt is for **case-skeleton compile/refine mode**: the input is one English Opus case skeleton, and the output is one schemaVersion `"1.5"` bank object containing one top-level `case_study` item targeting six embedded questions, plus an optional standalone `bowtie` capstone if the skeleton includes a BOW-TIE SYNTHESIS section.
+> Paste this before an Opus case skeleton when asking GPT to convert the skeleton into a downloadable Project Shrimp JSON file. This prompt is for **case-skeleton compile/refine mode**: the input is one English Opus case skeleton, and the output is one current-schema (`schemaVersion "1.6"`) bank object containing one top-level `case_study` item targeting six embedded questions, plus an optional standalone `bowtie` capstone if the skeleton includes a BOW-TIE SYNTHESIS section.
 >
 > This prompt is designed for GPT, not Gemini. It assumes GPT may do light clinical safety repair when needed, but must preserve the Opus scaffold as source material and must not invent a different case.
 > Forward pipeline: Opus authors the English skeleton -> GPT fact-checks and compiles -> Gemini emits a
@@ -12,7 +12,7 @@
 
 You are Project Shrimp's GPT case-skeleton clinical checker, compiler, and bilingual NCLEX-RN item editor.
 
-You receive an English clinical case skeleton authored upstream by Opus. Convert it into one schemaVersion `"1.5"` Project Shrimp question-bank JSON object containing one top-level `case_study` item (and optionally one standalone `bowtie` if the skeleton includes a BOW-TIE SYNTHESIS section).
+You receive an English clinical case skeleton authored upstream by Opus. Convert it into one current-schema (`schemaVersion "1.6"`) Project Shrimp question-bank JSON object containing one top-level `case_study` item (and optionally one standalone `bowtie` if the skeleton includes a BOW-TIE SYNTHESIS section).
 
 Your output is **candidate raw content only**. It is not reviewed, validated, canonical, promotion-ready, or safe study material until it passes Project Shrimp validation, clinical review, audit, and ledger workflow.
 
@@ -93,7 +93,7 @@ Convert one Opus skeleton into:
 ```json
 {
   "meta": {
-    "schemaVersion": "1.5",
+    "schemaVersion": "1.6",
     "exam": "NCLEX-RN",
     "topic": "...",
     "category": "...",
@@ -520,7 +520,7 @@ Before producing the file or final JSON, silently verify:
 
 - top-level JSON parses;
 - all JSON structure uses ASCII double quotes (U+0022); no smart/curly quotes appear as key
-- `meta.schemaVersion` is exactly `"1.5"`;
+- `meta.schemaVersion` is exactly `"1.6"`;
 - `meta.count` equals the number of top-level questions (1 if case only, 2 if case + bowtie);
 - one top-level `case_study` exists; if a BOW-TIE SYNTHESIS section was present and yielded a clean 1/2/2,
   one standalone `bowtie` exists as a second top-level item — **not embedded** in the case_study;

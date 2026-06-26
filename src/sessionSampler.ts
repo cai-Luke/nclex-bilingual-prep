@@ -6,11 +6,16 @@ export { NCLEX_CATEGORY_WEIGHTS };
 
 const CATEGORY_ORDER = Object.keys(NCLEX_CATEGORY_WEIGHTS) as Category[];
 
+// Curated product decision: the visual literacies worth guaranteeing practice on.
+// List order is reservation priority; this is not derived from generation counts.
+export const DEFAULT_FLOOR_KIND_PRIORITY = ["rhythm_strip", "lab_trend", "vitals_trend"];
+
 export type SamplerParams = {
   alpha?: number;
   beta?: number;
   floorThreshold?: number;
   floorMinCount?: number;
+  floorKindPriority?: string[];
   now?: Date;
 };
 
@@ -117,6 +122,7 @@ export const buildWeightedSession = (
   const beta = Math.max(0, params.beta ?? 1);
   const floorThreshold = Math.max(1, Math.floor(params.floorThreshold ?? 10));
   const floorMinCount = Math.max(1, Math.floor(params.floorMinCount ?? 40));
+  const floorKindPriority = [...new Set(params.floorKindPriority ?? DEFAULT_FLOOR_KIND_PRIORITY)];
 
   const byCategory = Object.fromEntries(
     CATEGORY_ORDER.map((category) => [
@@ -149,10 +155,7 @@ export const buildWeightedSession = (
       const kind = record.question.visual?.kind;
       if (kind) visualCounts.set(kind, (visualCounts.get(kind) ?? 0) + 1);
     }
-    const floorKinds = [...visualCounts.entries()]
-      .filter(([, visualCount]) => visualCount >= floorThreshold)
-      .map(([kind]) => kind)
-      .sort();
+    const floorKinds = floorKindPriority.filter((kind) => (visualCounts.get(kind) ?? 0) >= floorThreshold);
 
     for (const kind of floorKinds) {
       const candidates = eligible.filter(

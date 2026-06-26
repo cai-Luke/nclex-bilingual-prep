@@ -6,8 +6,13 @@ export type GateVerdict = {
   failedIds: string[];
 };
 
+// Enforce-by-default (Phase 2, 2026-06-26): the mechanical non-MCQ bias axis blocks in
+// CI audit, local `npm run audit`, and local `npm run promote` unless explicitly opted
+// out for a diagnostic observe-only run via BIAS_GATE_ENFORCE_MECHANICAL=0. The
+// mechanical axis only FAILs on a genuine post-shuffle positional tell (a normalization
+// bypass), so there is no legitimate silent-pass case other than diagnostics.
 export function isMechanicalBiasEnforced(env: NodeJS.ProcessEnv = process.env): boolean {
-  return env.BIAS_GATE_ENFORCE_MECHANICAL === "1";
+  return env.BIAS_GATE_ENFORCE_MECHANICAL !== "0";
 }
 
 export function gateVerdict(allResults: AuditResult[], blockingResults: AuditResult[]): GateVerdict {

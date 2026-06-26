@@ -1,6 +1,6 @@
 import { readFile } from "node:fs/promises";
-import { NCLEX_CATEGORY_WEIGHTS, buildWeightedSession } from "../../src/sessionSampler";
-import type { Category, QuestionRecord } from "../../src/types";
+import { DEFAULT_FLOOR_KIND_PRIORITY, NCLEX_CATEGORY_WEIGHTS, buildWeightedSession } from "../../src/sessionSampler";
+import type { Category, QuestionProgress, QuestionRecord } from "../../src/types";
 import { mulberry32 } from "../../src/visuals/primitives/prng";
 
 const assert = (condition: unknown, message: string) => {
@@ -53,6 +53,24 @@ const largePool = categories.flatMap((category) =>
   ),
 );
 
+const seenProgress = (records: QuestionRecord[]): Record<string, QuestionProgress> =>
+  Object.fromEntries(
+    records.map((record) => [
+      record.question.id,
+      {
+        questionId: record.question.id,
+        seen: 1,
+        correct: 1,
+        incorrect: 0,
+        correctStreak: 1,
+        missed: false,
+      },
+    ]),
+  );
+
+const countByVisualKind = (records: QuestionRecord[], kind: string): number =>
+  records.filter((record) => record.question.visual?.kind === kind).length;
+
 const expectedCounts = new Map<Category, number>();
 for (const category of categories) {
   expectedCounts.set(category, Math.floor(NCLEX_CATEGORY_WEIGHTS[category] * 50));
@@ -104,6 +122,68 @@ for (const kind of ["rhythm_strip", "lab_trend", "vitals_trend"]) {
   assert(floored.some((record) => record.question.visual?.kind === kind), `${kind} floor must reserve one item`);
 }
 assert(!floored.some((record) => record.question.itemType === "case_study"), "case studies must be excluded");
+
+assert(
+  JSON.stringify(DEFAULT_FLOOR_KIND_PRIORITY) === JSON.stringify(["rhythm_strip", "lab_trend", "vitals_trend"]),
+  "default visual floor priority must stay explicit and ordered",
+);
+
+const allowlistVisuals = [
+  ...Array.from({ length: 12 }, (_, index) =>
+    makeRecord(`allow-rhythm-${index}`, "Physiological Adaptation", "allow-rhythm", "rhythm_strip")),
+  ...Array.from({ length: 11 }, (_, index) =>
+    makeRecord(`allow-lab-${index}`, "Reduction of Risk Potential", "allow-lab", "lab_trend")),
+  ...Array.from({ length: 10 }, (_, index) =>
+    makeRecord(`allow-vitals-${index}`, "Management of Care", "allow-vitals", "vitals_trend")),
+  ...Array.from({ length: 13 }, (_, index) =>
+    makeRecord(`allow-medlabel-${index}`, "Pharmacological and Parenteral Therapies", "allow-medlabel", "medication_label")),
+];
+const allowlistProgress = seenProgress(
+  allowlistVisuals.filter((record) => record.question.visual?.kind === "medication_label"),
+);
+for (let seed = 1; seed <= 5; seed += 1) {
+  const selected = buildWeightedSession([...largePool, ...allowlistVisuals], 50, allowlistProgress, mulberry32(seed));
+  for (const kind of DEFAULT_FLOOR_KIND_PRIORITY) {
+    assert(countByVisualKind(selected, kind) >= 1, `seed ${seed}: ${kind} must be floor-reserved`);
+  }
+  assert(
+    countByVisualKind(selected, "medication_label") === 0,
+    `seed ${seed}: high-count non-allowlisted medication_label must not be floor-reserved`,
+  );
+}
+
+const thinVitalsVisuals = [
+  ...allowlistVisuals.filter((record) => record.question.visual?.kind !== "vitals_trend"),
+  ...Array.from({ length: 6 }, (_, index) =>
+    makeRecord(`thin-vitals-${index}`, "Management of Care", "thin-vitals", "vitals_trend")),
+];
+const thinVitalsProgress = seenProgress(
+  thinVitalsVisuals.filter((record) =>
+    record.question.visual?.kind === "vitals_trend" || record.question.visual?.kind === "medication_label"),
+);
+const thinVitalsDraw = buildWeightedSession([...largePool, ...thinVitalsVisuals], 50, thinVitalsProgress, mulberry32(7));
+assert(countByVisualKind(thinVitalsDraw, "rhythm_strip") >= 1, "viability gate must still floor rhythm_strip");
+assert(countByVisualKind(thinVitalsDraw, "lab_trend") >= 1, "viability gate must still floor lab_trend");
+assert(countByVisualKind(thinVitalsDraw, "vitals_trend") === 0, "below-threshold vitals_trend must not be floor-reserved");
+
+const allVisualsSeen = seenProgress(allowlistVisuals);
+const noFloorDraw = buildWeightedSession([...largePool, ...allowlistVisuals], 50, allVisualsSeen, mulberry32(8), {
+  floorKindPriority: [],
+});
+assert(noFloorDraw.every((record) => record.question.visual === undefined), "empty floorKindPriority must disable floors");
+
+const duplicatePriorityVisuals = [
+  makeRecord("dedupe-rhythm-unseen", "Physiological Adaptation", "dedupe-rhythm", "rhythm_strip"),
+  makeRecord("dedupe-rhythm-seen", "Physiological Adaptation", "dedupe-rhythm", "rhythm_strip"),
+];
+const dedupeDraw = buildWeightedSession(
+  [...largePool, ...duplicatePriorityVisuals],
+  50,
+  seenProgress([duplicatePriorityVisuals[1]]),
+  mulberry32(9),
+  { floorThreshold: 1, floorKindPriority: ["rhythm_strip", "rhythm_strip"] },
+);
+assert(countByVisualKind(dedupeDraw, "rhythm_strip") === 1, "duplicate floorKindPriority entries must reserve at most once");
 
 const smallDraw = buildWeightedSession(floorPool, 10, {}, mulberry32(42));
 assert(
