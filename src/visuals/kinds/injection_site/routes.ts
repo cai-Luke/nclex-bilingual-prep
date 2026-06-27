@@ -44,10 +44,3 @@ export const LAYER_BANDS: LayerBand[] = [
   },
   { key: "muscle", y0: 235, y1: 330, fill: "#b96868", label: "Muscle" },
 ];
-
-export const VESSEL_GEOMETRY = {
-  cx: 330,
-  cy: 162,
-  rx: 25,
-  ry: 11,
-} as const;

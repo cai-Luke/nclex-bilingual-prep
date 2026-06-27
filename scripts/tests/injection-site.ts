@@ -11,6 +11,12 @@ import {
   ROUTE_TABLE,
   type InjectionRoute,
 } from "../../src/visuals/kinds/injection_site/routes";
+import {
+  BYSTANDER_VESSEL,
+  getRenderedVesselGeometry,
+  segmentIntersectsEllipse,
+  tipInsideEllipse,
+} from "../../src/visuals/kinds/injection_site/geometry";
 import type { InjectionSiteSpec } from "../../src/visuals/kinds/injection_site/types";
 
 const assert = (condition: unknown, message: string) => {
@@ -35,6 +41,14 @@ assert(
     caption: { en: "" },
   })).includes("caption_en_required"),
   "empty English caption must fail",
+);
+assert(
+  codes(validateInjectionSite({
+    kind: "injection_site",
+    route: "subcutaneous",
+    vessel: "intra_arterial" as never,
+  })).includes("invalid_vessel_relation"),
+  "unsupported vessel relation must fail",
 );
 
 const paths = new Set<string>();
@@ -65,7 +79,7 @@ for (const route of INJECTION_ROUTES) {
     assert(value >= 0 && value <= max, `${route} ${key} must remain in frame`);
   });
 
-  assert(svg.includes('data-element="blood-channel"'), `${route} must always render the blood channel`);
+  assert(!svg.includes('data-element="blood-channel"'), `${route} bare spec must not render a blood channel`);
   assert(!/[°]/.test(svg) && !/\bangle\b/i.test(svg), `${route} must not render angle text`);
   assert(!/\b(vein|vessel|lumen)\b/i.test(svg), `${route} must not label the vessel`);
   assert(!/data-[^=]*route/i.test(svg), `${route} must not expose the route as metadata`);
@@ -104,6 +118,40 @@ assert(
   "intravenous route must terminate in the fixed blood channel",
 );
 
+for (const route of INJECTION_ROUTES.filter((candidate) => candidate !== "intravenous")) {
+  const spec: InjectionSiteSpec = { kind: "injection_site", route, vessel: "bystander" };
+  const svg = renderInjectionSiteSvg(spec);
+  assert(svg.includes('data-element="blood-channel"'), `${route} bystander vessel must render`);
+
+  const geometry = getInjectionNeedleGeometry(route);
+  assert(
+    !segmentIntersectsEllipse(
+      { x: geometry.entryX, y: geometry.entryY },
+      { x: geometry.tipX, y: geometry.tipY },
+      BYSTANDER_VESSEL,
+    ),
+    `${route} bystander vessel must remain clear of the needle`,
+  );
+}
+
+const ivWithTarget: InjectionSiteSpec = {
+  kind: "injection_site",
+  route: "intravenous",
+  vessel: "target",
+};
+const ivSvg = renderInjectionSiteSvg(ivWithTarget);
+const ivGeometry = getInjectionNeedleGeometry("intravenous");
+const ivVessel = getRenderedVesselGeometry("intravenous", "target", {
+  x: ivGeometry.tipX,
+  y: ivGeometry.tipY,
+});
+assert(ivSvg.includes('data-element="blood-channel"'), "intravenous target vessel must render");
+assert(ivVessel !== null, "intravenous target vessel geometry must resolve");
+assert(
+  tipInsideEllipse({ x: ivGeometry.tipX, y: ivGeometry.tipY }, ivVessel!),
+  "intravenous target vessel must contain the needle tip",
+);
+
 const intramuscular: InjectionSiteSpec = {
   kind: "injection_site",
   route: "intramuscular",
@@ -113,6 +161,46 @@ const matching = selfCheckInjectionSite(intramuscular, questionWithMeta({
   expected: { route: "intramuscular", target: "muscle" },
 }));
 assert(matching.length === 0, `matching expected cue must pass: ${JSON.stringify(matching)}`);
+
+const targetOnSubcutaneous = selfCheckInjectionSite({
+  kind: "injection_site",
+  route: "subcutaneous",
+  vessel: "target",
+}, questionWithMeta({
+  visual_justification: "The figure is load-bearing.",
+  expected: { route: "subcutaneous", target: "subcutaneous" },
+}));
+assert(
+  targetOnSubcutaneous.some((error) => error.code === "self_check_target_requires_iv"),
+  "target vessel relation on non-IV route must fail selfCheck",
+);
+
+const bareIv = selfCheckInjectionSite({
+  kind: "injection_site",
+  route: "intravenous",
+}, questionWithMeta({
+  visual_justification: "The figure is load-bearing.",
+  expected: { route: "intravenous", target: "vessel" },
+}));
+assert(
+  bareIv.some((error) => error.code === "self_check_iv_requires_target"),
+  "intravenous route must require target vessel relation in selfCheck",
+);
+
+const fullIv = selfCheckInjectionSite(ivWithTarget, questionWithMeta({
+  visual_justification: "The figure is load-bearing.",
+  expected: { route: "intravenous", target: "vessel", vesselEntry: true },
+}));
+assert(fullIv.length === 0, `intravenous target vessel cue must pass: ${JSON.stringify(fullIv)}`);
+
+const vesselEntryMismatch = selfCheckInjectionSite(intramuscular, questionWithMeta({
+  visual_justification: "The figure is load-bearing.",
+  expected: { route: "intramuscular", target: "muscle", vesselEntry: true },
+}));
+assert(
+  vesselEntryMismatch.some((error) => error.code === "self_check_vessel_entry_mismatch"),
+  "expected vesselEntry must match rendered vessel-entry state",
+);
 
 const routeMismatch = selfCheckInjectionSite(intramuscular, questionWithMeta({
   visual_justification: "The figure is load-bearing.",

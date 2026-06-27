@@ -124,7 +124,7 @@ Committed visual lanes (append-only). The per-kind sections below are canonical 
 | `device_screen` | PCA, infusion, or enteral pump settings display |
 | `fetal_monitoring` | Synchronized fetal heart rate and uterine activity tracing |
 | `burn_map` | Anterior/posterior whole-region burn diagram for Rule-of-Nines and Parkland arithmetic |
-| `injection_site` | Schematic skin cross-section (epidermis→muscle with a fixed vessel) and a needle at a route-canonical angle/depth, for parenteral route or target-layer identification |
+| `injection_site` | Schematic skin cross-section (epidermis→muscle) with a needle at a route-canonical angle/depth and optional typed vessel relation, for parenteral route or target-layer identification |
 
 ### Visual contract metadata
 
@@ -738,15 +738,16 @@ Validation and arithmetic rules:
 
 ### Kind: `injection_site`
 
-Renders a schematic skin cross-section — epidermis, dermis, subcutaneous tissue, and muscle as labeled bands, plus a fixed vessel in the dermal/subcutaneous plane — with a single needle inserted at the canonical angle and depth for a parenteral `route`. The visual is load-bearing only when the learner must read the needle's angle and termination layer off the figure to identify the route (or the target tissue). If the stem names the route or the angle, or the answer is resolvable from the options alone (e.g. "which route is fastest?"), the figure is decorative and the item is invalid.
+Renders a schematic skin cross-section — epidermis, dermis, subcutaneous tissue, and muscle as labeled bands — with a single needle inserted at the canonical angle and depth for a parenteral `route`. The optional `vessel` field controls whether a blood vessel is rendered and whether the needle is intended to enter it. The visual is load-bearing only when the learner must read the needle's angle, termination layer, or typed vessel relationship off the figure to identify the route (or the target tissue). If the stem names the route or the angle, or the answer is resolvable from the options alone (e.g. "which route is fastest?"), the figure is decorative and the item is invalid.
 
-`injection_site` uses the global default placement (`multiple_choice`, `select_all`, `matrix`); it does **not** support `fill_in_blank` (there is no numeric derivation). The needle's angle and termination depth are fixed per route and derived by the renderer — never stored on the spec.
+`injection_site` uses the global default placement (`multiple_choice`, `select_all`, `matrix`); it does **not** support `fill_in_blank` (there is no numeric derivation). The needle's angle, termination depth, and vessel geometry are derived by the renderer — never stored as per-item coordinates on the spec.
 
 ```json
 {
   "visual": {
     "kind": "injection_site",
     "route": "intramuscular",
+    "vessel": "bystander",
     "caption": { "en": "Skin cross-section with needle", "zh": "带针头的皮肤横断面" }
   },
   "meta": {
@@ -757,7 +758,8 @@ Renders a schematic skin cross-section — epidermis, dermis, subcutaneous tissu
     "stem_disambiguators": ["injection", "needle angle"],
     "expected": {
       "route": "intramuscular",
-      "target": "muscle"
+      "target": "muscle",
+      "vesselEntry": false
     }
   }
 }
@@ -765,21 +767,30 @@ Renders a schematic skin cross-section — epidermis, dermis, subcutaneous tissu
 
 Controlled vocabularies:
 - `route`: `intradermal`, `subcutaneous`, `intramuscular`, `intravenous`.
+- `vessel` (optional): `target` or `bystander`. Omitted means no vessel is rendered. `target` means the needle enters the vessel and is valid only for `route: "intravenous"`. `bystander` means a vessel is visible but the needle must not intersect it.
 - `meta.expected.target` is the canonical termination for the route and is derived, not varied independently in v1: `intradermal → dermis`, `subcutaneous → subcutaneous`, `intramuscular → muscle`, `intravenous → vessel`. The target vocabulary is the four layer keys (`epidermis`, `dermis`, `subcutaneous`, `muscle`) plus `vessel`; v1 routes never terminate in `epidermis`.
+- `meta.expected.vesselEntry`, if present, is a boolean audit cue and must match whether the rendered needle enters a target vessel.
 
 Canonical geometry (fixed in the kind, strictest-tier — source-verify before the content lane opens):
 - `intradermal` ≈ 10° into dermis; `subcutaneous` 45° into subcutaneous tissue; `intramuscular` 90° into muscle; `intravenous` ≈ 25° into the vessel lumen.
 - Angle is measured **from the skin-surface plane**: 0° lies flat along the surface, 90° is perpendicular (deepest).
+- Non-IV routes must not render or imply a needle-vessel intersection. If a non-IV item needs a visible vessel as a rejected/distractor cue, use `vessel: "bystander"` and the renderer places it in a deterministic safe zone. If the item does not require a visible vessel, omit `vessel`.
 
 Validation rules:
 - `kind` must be `"injection_site"`.
 - `route` must be one of `intradermal`, `subcutaneous`, `intramuscular`, `intravenous`.
+- `vessel`, if present, must be `target` or `bystander`.
 - `caption.en`, if `caption` is present, is required. `caption.zh` is optional but must be non-empty if present.
 
 `selfCheck` rules (necessity + declared-vs-spec consistency; no arithmetic):
 - `meta.visual_justification` must be present and non-empty (`self_check_missing_justification`).
 - `meta.expected.route` must be present (`self_check_no_expected_cue`) and must equal `visual.route` (`self_check_route_mismatch`).
 - If `meta.expected.target` is present, it must equal the canonical target for `visual.route` (`self_check_target_mismatch`).
+- `vessel: "target"` is valid only with `route: "intravenous"` (`self_check_target_requires_iv`).
+- `route: "intravenous"` must declare `vessel: "target"` (`self_check_iv_requires_target`).
+- A target vessel must contain the needle tip (`self_check_target_not_entered`).
+- A bystander vessel must not intersect the needle segment (`self_check_unsafe_vessel_crossing`).
+- If `meta.expected.vesselEntry` is present, it must equal whether the rendered vessel relation is `target` (`self_check_vessel_entry_mismatch`).
 
 - **Answer-reveal rule:** the SVG may label only the four anatomical layers (in English) and nothing else. It must never render the route name, the insertion angle/degree, any vessel/vein/lumen label, or the route as a `data-*` attribute — any of these hands the learner the answer.
 - **Content rule:** the stem must not name the route or the insertion angle when the learner is expected to identify it from the figure.

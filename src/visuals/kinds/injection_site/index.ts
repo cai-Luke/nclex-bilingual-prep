@@ -5,10 +5,16 @@ import {
   INJECTION_ROUTES,
   LAYER_BANDS,
   ROUTE_TABLE,
-  VESSEL_GEOMETRY,
   type InjectionRoute,
   type InjectionTarget,
 } from "./routes";
+import {
+  getRenderedVesselGeometry,
+  IV_VESSEL_DEPTH_Y,
+  segmentIntersectsEllipse,
+  tipInsideEllipse,
+  type Ellipse,
+} from "./geometry";
 import type { InjectionSiteSpec } from "./types";
 
 const WIDTH = 480;
@@ -29,6 +35,9 @@ const nonEmptyString = (value: unknown): value is string =>
 const isInjectionRoute = (value: unknown): value is InjectionRoute =>
   typeof value === "string" && ROUTES.has(value as InjectionRoute);
 
+const isVesselRelation = (value: unknown): value is InjectionSiteSpec["vessel"] =>
+  value === "target" || value === "bystander";
+
 export const validateInjectionSite = (spec: InjectionSiteSpec): VisualError[] => {
   const value = spec as unknown as Record<string, unknown>;
   const errors: VisualError[] = [];
@@ -41,6 +50,13 @@ export const validateInjectionSite = (spec: InjectionSiteSpec): VisualError[] =>
       path: "route",
       code: "invalid_route",
       message: "must be intradermal, subcutaneous, intramuscular, or intravenous",
+    });
+  }
+  if (value.vessel !== undefined && !isVesselRelation(value.vessel)) {
+    errors.push({
+      path: "vessel",
+      code: "invalid_vessel_relation",
+      message: "must be target or bystander when present",
     });
   }
   if (value.caption !== undefined) {
@@ -116,11 +132,69 @@ export const selfCheckInjectionSite = (
     });
   }
 
+  const vessel = isVesselRelation(value.vessel) ? value.vessel : undefined;
+  const needle = getInjectionNeedleGeometry(value.route);
+  const renderedVessel = getRenderedVesselGeometry(value.route, vessel, {
+    x: needle.tipX,
+    y: needle.tipY,
+  });
+
+  if (vessel === "target" && value.route !== "intravenous") {
+    errors.push({
+      path: "vessel",
+      code: "self_check_target_requires_iv",
+      message: "target vessel relation is only valid for intravenous route",
+    });
+  }
+
+  if (value.route === "intravenous" && vessel !== "target") {
+    errors.push({
+      path: "vessel",
+      code: "self_check_iv_requires_target",
+      message: "intravenous route must declare vessel target relation",
+    });
+  }
+
+  if (vessel === "target" && renderedVessel !== null) {
+    const tip = { x: needle.tipX, y: needle.tipY };
+    if (!tipInsideEllipse(tip, renderedVessel)) {
+      errors.push({
+        path: "vessel",
+        code: "self_check_target_not_entered",
+        message: "needle tip must enter the target vessel",
+      });
+    }
+  } else if (renderedVessel !== null) {
+    const intersects = segmentIntersectsEllipse(
+      { x: needle.entryX, y: needle.entryY },
+      { x: needle.tipX, y: needle.tipY },
+      renderedVessel,
+    );
+    if (intersects) {
+      errors.push({
+        path: "vessel",
+        code: "self_check_unsafe_vessel_crossing",
+        message: "non-target vessel must not intersect the needle segment",
+      });
+    }
+  }
+
+  if (
+    expected.vesselEntry !== undefined &&
+    expected.vesselEntry !== (vessel === "target")
+  ) {
+    errors.push({
+      path: "meta.expected.vesselEntry",
+      code: "self_check_vessel_entry_mismatch",
+      message: "does not match the rendered vessel entry state",
+    });
+  }
+
   return errors;
 };
 
 const targetY = (target: InjectionTarget): number => {
-  if (target === "vessel") return VESSEL_GEOMETRY.cy;
+  if (target === "vessel") return IV_VESSEL_DEPTH_Y;
   const band = LAYER_BANDS.find((candidate) => candidate.key === target);
   return band ? (band.y0 + band.y1) / 2 : SURFACE_Y;
 };
@@ -171,9 +245,20 @@ const renderBands = () =>
 </g>`,
   ).join("\n");
 
+const renderVessel = (vessel: Ellipse | null): string => {
+  if (vessel === null) return "";
+  return `<ellipse data-element="blood-channel" cx="${fmt(vessel.cx)}" cy="${fmt(vessel.cy)}" rx="${fmt(vessel.rx)}" ry="${fmt(vessel.ry)}" fill="#8b1e3f" stroke="#5f1530" stroke-width="2"/>
+<ellipse cx="${fmt(vessel.cx)}" cy="${fmt(vessel.cy)}" rx="${fmt(Math.max(vessel.rx - 5, 1))}" ry="${fmt(Math.max(vessel.ry - 4, 1))}" fill="#d56a7f"/>`;
+};
+
 export const renderInjectionSiteSvg = (spec: InjectionSiteSpec): string => {
   const route = isInjectionRoute(spec.route) ? spec.route : "intradermal";
   const needle = getInjectionNeedleGeometry(route);
+  const vessel = isVesselRelation(spec.vessel) ? spec.vessel : undefined;
+  const renderedVessel = getRenderedVesselGeometry(route, vessel, {
+    x: needle.tipX,
+    y: needle.tipY,
+  });
   const ariaLabel = escapeXml(spec.caption?.en ?? "Injection cross-section");
   const barrelStartX = needle.barrelX - needle.barrelPerpX;
   const barrelStartY = needle.barrelY - needle.barrelPerpY;
@@ -184,8 +269,7 @@ export const renderInjectionSiteSvg = (spec: InjectionSiteSpec): string => {
 <rect x="0" y="0" width="${fmt(WIDTH)}" height="${fmt(HEIGHT)}" fill="#ffffff"/>
 <rect x="${fmt(TISSUE_X)}" y="${fmt(SURFACE_Y)}" width="${fmt(TISSUE_WIDTH)}" height="${fmt(LAYER_BANDS[LAYER_BANDS.length - 1].y1 - SURFACE_Y)}" fill="none" stroke="#7c5a4b" stroke-width="1.5"/>
 ${renderBands()}
-<ellipse data-element="blood-channel" cx="${fmt(VESSEL_GEOMETRY.cx)}" cy="${fmt(VESSEL_GEOMETRY.cy)}" rx="${fmt(VESSEL_GEOMETRY.rx)}" ry="${fmt(VESSEL_GEOMETRY.ry)}" fill="#8b1e3f" stroke="#5f1530" stroke-width="2"/>
-<ellipse cx="${fmt(VESSEL_GEOMETRY.cx)}" cy="${fmt(VESSEL_GEOMETRY.cy)}" rx="${fmt(VESSEL_GEOMETRY.rx - 5)}" ry="${fmt(VESSEL_GEOMETRY.ry - 4)}" fill="#d56a7f"/>
+${renderVessel(renderedVessel)}
 <g stroke-linecap="round" stroke-linejoin="round">
 <path data-element="needle" d="M ${fmt(needle.entryX)} ${fmt(needle.entryY)} L ${fmt(needle.tipX)} ${fmt(needle.tipY)}" fill="none" stroke="#475569" stroke-width="4"/>
 <path d="M ${fmt(needle.entryX)} ${fmt(needle.entryY)} L ${fmt(needle.tipX)} ${fmt(needle.tipY)}" fill="none" stroke="#e2e8f0" stroke-width="1.3"/>
@@ -207,6 +291,8 @@ const fixtures: VisualKindModule<InjectionSiteSpec>["fixtures"] = {
       caption: { en: "Skin cross-section", zh: "皮肤横断面" },
     },
     { kind: "injection_site", route: "intravenous" },
+    { kind: "injection_site", route: "intravenous", vessel: "target" },
+    { kind: "injection_site", route: "subcutaneous", vessel: "bystander" },
   ],
   invalid: [
     { spec: { kind: "mar" }, expectCode: "invalid_kind" },
@@ -225,6 +311,10 @@ const fixtures: VisualKindModule<InjectionSiteSpec>["fixtures"] = {
         caption: { en: "x", zh: "" },
       },
       expectCode: "caption_zh_empty",
+    },
+    {
+      spec: { kind: "injection_site", route: "subcutaneous", vessel: "intra_arterial" },
+      expectCode: "invalid_vessel_relation",
     },
   ],
 };

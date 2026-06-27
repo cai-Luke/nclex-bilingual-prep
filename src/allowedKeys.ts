@@ -119,7 +119,7 @@ export const allowedKeySets = {
       "decelerations",
     ],
     burn_map: ["population", "burns"],
-    injection_site: ["route"],
+    injection_site: ["route", "vessel"],
   },
   rosc: ["lowEtco2", "highEtco2", "stepAtSec"],
   visualTime: ["unit", "values"],
