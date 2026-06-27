@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Offline bilingual NCLEX-RN practice" />
     <title>NCLEX Bilingual Prep</title>
+    <script>
+      try {
+        var s = JSON.parse(localStorage.getItem("nclex-settings") || "{}");
+        if (s.themeMode === "dark") document.documentElement.dataset.theme = "dark";
+      } catch (e) {}
+    </script>
   </head>
   <body>
     <div id="root"></div>

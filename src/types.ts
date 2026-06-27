@@ -262,6 +262,7 @@ export type ItemScore = {
 
 export type LanguageMode = "off" | "on-tap" | "always";
 export type StudyMode = "study" | "test";
+export type ThemeMode = "light" | "dark";
 export type SessionMode = StudyMode | "adaptive";
 export type SessionOrder = "random" | "sequential";
 export type SessionStatusFilter = "all" | "unseen" | "answered" | "incorrect" | "flagged" | "due";
@@ -271,6 +272,7 @@ export type Settings = {
   languageMode: LanguageMode;
   defaultMode: StudyMode;
   voiceEnabled: boolean;
+  themeMode: ThemeMode;
 };
 
 export type AdaptiveSessionSnapshot = {

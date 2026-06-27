@@ -17,6 +17,7 @@ export const defaultSettings: Settings = {
   languageMode: "always",
   defaultMode: "study",
   voiceEnabled: false,
+  themeMode: "light",
 };
 
 type UploadedRecord = QuestionRecord & {

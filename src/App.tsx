@@ -95,6 +95,7 @@ import type {
   Settings,
   StudyMode,
   StoredSessionSnapshot,
+  ThemeMode,
 } from "./types";
 
 type View =
@@ -207,6 +208,10 @@ export default function App() {
   const [filters, setFilters] = useState<Filters>(blankFilters);
   const [builderFilters, setBuilderFilters] = useState<BuilderFilters>(blankBuilderFilters);
   const [sessionHydrated, setSessionHydrated] = useState(false);
+
+  useEffect(() => {
+    document.documentElement.dataset.theme = settings.themeMode;
+  }, [settings.themeMode]);
 
   useEffect(() => {
     void Promise.all([loadUploadedRecords(), loadProgress(), loadFlags(), loadAnswerEvents(), loadFlashcardProgress()]).then(
@@ -1498,6 +1503,16 @@ function SettingsView({ settings, updateSettings }: { settings: Settings; update
           >
             <option value="study">Study</option>
             <option value="test">Test</option>
+          </select>
+        </label>
+        <label>
+          <span>Theme</span>
+          <select
+            value={settings.themeMode}
+            onChange={(event) => updateSettings({ ...settings, themeMode: event.target.value as ThemeMode })}
+          >
+            <option value="light">Light</option>
+            <option value="dark">Dark</option>
           </select>
         </label>
         <label className="toggle-row">
