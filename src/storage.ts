@@ -2,6 +2,7 @@ import { openDB, type DBSchema, type IDBPDatabase } from "idb";
 import type {
   AnswerEvent,
   FlashcardProgress,
+  LanguageMiss,
   QuestionFlag,
   QuestionProgress,
   QuestionRecord,
@@ -11,7 +12,7 @@ import type {
 export { isDueForReview } from "./reviewSchedule";
 
 const DB_NAME = "nclex-bilingual-prep";
-const DB_VERSION = 2;
+const DB_VERSION = 3;
 
 export const defaultSettings: Settings = {
   languageMode: "always",
@@ -49,6 +50,10 @@ interface PrepDb extends DBSchema {
     key: string;
     value: FlashcardProgress;
   };
+  languageMisses: {
+    key: string;
+    value: LanguageMiss;
+  };
 }
 
 let dbPromise: Promise<IDBPDatabase<PrepDb>> | undefined;
@@ -57,6 +62,7 @@ const memoryProgress: Record<string, QuestionProgress> = {};
 let memoryActiveSession: StoredSessionSnapshot | null = null;
 const memoryFlags: Record<string, QuestionFlag> = {};
 const memoryFlashcardProgress: Record<string, FlashcardProgress> = {};
+const memoryLanguageMisses: Record<string, LanguageMiss> = {};
 const memoryAnswerEvents: AnswerEvent[] = [];
 
 const getDb = () => {
@@ -71,6 +77,7 @@ const getDb = () => {
       if (!db.objectStoreNames.contains("flags")) db.createObjectStore("flags", { keyPath: "questionId" });
       if (!db.objectStoreNames.contains("answerEvents")) db.createObjectStore("answerEvents", { keyPath: "id" });
       if (!db.objectStoreNames.contains("flashcardProgress")) db.createObjectStore("flashcardProgress", { keyPath: "termId" });
+      if (!db.objectStoreNames.contains("languageMisses")) db.createObjectStore("languageMisses", { keyPath: "questionId" });
     },
   });
   return dbPromise;
@@ -242,6 +249,42 @@ export const saveQuestionFlag = async (flag: QuestionFlag) => {
   } catch {
     // In-memory fallback already captured the flag state.
   }
+};
+
+export const loadLanguageMisses = async (): Promise<Record<string, LanguageMiss>> => {
+  try {
+    const db = await getDb();
+    const records = await db.getAll("languageMisses");
+    return Object.fromEntries(records.map((record) => [record.questionId, record]));
+  } catch {
+    return memoryLanguageMisses;
+  }
+};
+
+export const recordLanguageMiss = async (questionId: string, marked: boolean): Promise<LanguageMiss | null> => {
+  let next: LanguageMiss | null = null;
+  if (marked) {
+    next = {
+      questionId,
+      markedAt: new Date().toISOString(),
+    };
+    memoryLanguageMisses[questionId] = next;
+  } else {
+    delete memoryLanguageMisses[questionId];
+  }
+
+  try {
+    const db = await getDb();
+    if (marked && next) {
+      await db.put("languageMisses", next);
+    } else {
+      await db.delete("languageMisses", questionId);
+    }
+  } catch {
+    // In-memory fallback already captured the update.
+  }
+
+  return next;
 };
 
 export const loadAnswerEvents = async (): Promise<AnswerEvent[]> => {

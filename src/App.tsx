@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import {
   BarChart3,
   BookOpen,
@@ -53,9 +53,11 @@ import {
   loadAnswerEvents,
   loadFlags,
   loadFlashcardProgress,
+  loadLanguageMisses,
   loadProgress,
   loadSettings,
   loadUploadedRecords,
+  recordLanguageMiss,
   recordFlashcardReview,
   recordAnswer,
   saveActiveSession,
@@ -81,6 +83,7 @@ import type {
   GlossaryTerm,
   ImportSummary,
   ItemScore,
+  LanguageMiss,
   LanguageMode,
   Option,
   OptionQuestion,
@@ -199,11 +202,13 @@ export default function App() {
   const [uploadedLoaded, setUploadedLoaded] = useState(false);
   const [progress, setProgress] = useState<Record<string, QuestionProgress>>({});
   const [flags, setFlags] = useState<Record<string, QuestionFlag>>({});
+  const [languageMisses, setLanguageMisses] = useState<Record<string, LanguageMiss>>({});
   const [answerEvents, setAnswerEvents] = useState<AnswerEvent[]>([]);
   const [flashcardProgress, setFlashcardProgress] = useState<Record<string, FlashcardProgress>>({});
   const [settings, setSettings] = useState<Settings>(() => loadSettings());
   const [view, setView] = useState<View>(devStartup.openConsole ? "review" : "home");
   const [session, setSession] = useState<SessionState | null>(null);
+  const [rescueFocusIds, setRescueFocusIds] = useState<string[] | null>(null);
   const [sessionReturnView, setSessionReturnView] = useState<View>("home");
   const [filters, setFilters] = useState<Filters>(blankFilters);
   const [builderFilters, setBuilderFilters] = useState<BuilderFilters>(blankBuilderFilters);
@@ -214,11 +219,19 @@ export default function App() {
   }, [settings.themeMode]);
 
   useEffect(() => {
-    void Promise.all([loadUploadedRecords(), loadProgress(), loadFlags(), loadAnswerEvents(), loadFlashcardProgress()]).then(
-      ([nextUploadedRecords, nextProgress, nextFlags, nextAnswerEvents, nextFlashcardProgress]) => {
+    void Promise.all([
+      loadUploadedRecords(),
+      loadProgress(),
+      loadFlags(),
+      loadLanguageMisses(),
+      loadAnswerEvents(),
+      loadFlashcardProgress(),
+    ]).then(
+      ([nextUploadedRecords, nextProgress, nextFlags, nextLanguageMisses, nextAnswerEvents, nextFlashcardProgress]) => {
         setUploadedRecords(nextUploadedRecords);
         setProgress(nextProgress);
         setFlags(nextFlags);
+        setLanguageMisses(nextLanguageMisses);
         setAnswerEvents(nextAnswerEvents);
         setFlashcardProgress(nextFlashcardProgress);
         setUploadedLoaded(true);
@@ -253,6 +266,37 @@ export default function App() {
     [flags, allRecords],
   );
   const flashcardDeck = useMemo(() => buildFlashcardDeck(allRecords), [allRecords]);
+  const missedQuestionIds = useMemo(
+    () => new Set(missedRecords.map((record) => record.question.id)),
+    [missedRecords],
+  );
+  const languageMissQuestionIds = useMemo(() => new Set(Object.keys(languageMisses)), [languageMisses]);
+  const durableRescueQuestionIds = useMemo(
+    () => new Set([...missedQuestionIds, ...languageMissQuestionIds]),
+    [missedQuestionIds, languageMissQuestionIds],
+  );
+  const rescueTermIds = useMemo(
+    () =>
+      new Set(
+        flashcardDeck
+          .filter((term) => term.questionIds.some((questionId) => durableRescueQuestionIds.has(questionId)))
+          .map((term) => term.id),
+      ),
+    [flashcardDeck, durableRescueQuestionIds],
+  );
+  const languageMissTermIds = useMemo(
+    () =>
+      new Set(
+        flashcardDeck
+          .filter((term) => term.questionIds.some((questionId) => languageMissQuestionIds.has(questionId)))
+          .map((term) => term.id),
+      ),
+    [flashcardDeck, languageMissQuestionIds],
+  );
+  const sessionMissedTermIds = useMemo(
+    () => (session ? getSessionMissedTermIds(session, flashcardDeck, languageMissQuestionIds) : []),
+    [session, flashcardDeck, languageMissQuestionIds],
+  );
 
   useEffect(() => {
     if (!uploadedLoaded || sessionHydrated) return;
@@ -277,6 +321,12 @@ export default function App() {
     }
     void saveActiveSession(toStoredSession(session));
   }, [session, sessionHydrated]);
+
+  useEffect(() => {
+    if (view !== "flashcards" && rescueFocusIds) {
+      setRescueFocusIds(null);
+    }
+  }, [view, rescueFocusIds]);
 
   const updateSettings = (next: Settings) => {
     setSettings(next);
@@ -511,9 +561,33 @@ export default function App() {
     });
   };
 
+  const toggleLanguageMiss = async (questionId: string) => {
+    const marked = !languageMisses[questionId];
+    const stored = await recordLanguageMiss(questionId, marked);
+    setLanguageMisses((current) => {
+      const next = { ...current };
+      if (stored) {
+        next[questionId] = stored;
+      } else {
+        delete next[questionId];
+      }
+      return next;
+    });
+  };
+
   const reviewFlashcard = async (termId: string, remembered: boolean) => {
     const next = await recordFlashcardReview(termId, remembered);
     setFlashcardProgress((current) => ({ ...current, [termId]: next }));
+  };
+
+  const openFocusedVocabRescue = (termIds: string[]) => {
+    setRescueFocusIds(termIds);
+    setView("flashcards");
+  };
+  const clearRescueFocus = useCallback(() => setRescueFocusIds(null), []);
+  const openVocab = () => {
+    setRescueFocusIds(null);
+    setView("flashcards");
   };
 
   const openBuilder = (overrides: Partial<BuilderFilters> = {}) => {
@@ -553,7 +627,7 @@ export default function App() {
             <BarChart3 aria-hidden="true" />
             <span>Dashboard</span>
           </button>
-          <button className={view === "flashcards" ? "active" : ""} type="button" onClick={() => setView("flashcards")}>
+          <button className={view === "flashcards" ? "active" : ""} type="button" onClick={openVocab}>
             <Brain aria-hidden="true" />
             <span>Vocab</span>
           </button>
@@ -607,7 +681,7 @@ export default function App() {
             onDue={() => startSession(dueRecords, "study", "Spaced review")}
             onCustom={() => openBuilder()}
             onDashboard={() => setView("dashboard")}
-            onFlashcards={() => setView("flashcards")}
+            onFlashcards={openVocab}
             onImport={() => setView("import")}
             onLibrary={() => setView("library")}
           />
@@ -646,7 +720,11 @@ export default function App() {
           <FlashcardsView
             deck={flashcardDeck}
             progress={flashcardProgress}
+            rescueTermIds={rescueTermIds}
+            languageMissTermIds={languageMissTermIds}
+            rescueFocusIds={rescueFocusIds}
             voiceEnabled={settings.voiceEnabled}
+            onClearRescueFocus={clearRescueFocus}
             onReview={reviewFlashcard}
           />
         )}
@@ -702,6 +780,8 @@ export default function App() {
             onFinish={finishSession}
             onLanguageModeChange={(languageMode) => setSession((current) => (current ? { ...current, languageMode } : current))}
             onToggleFlag={toggleFlag}
+            languageMisses={languageMisses}
+            onToggleLanguageMiss={toggleLanguageMiss}
             onExit={() => setView(sessionReturnView)}
             exitLabel={sessionReturnLabel}
           />
@@ -711,18 +791,22 @@ export default function App() {
           <SummaryView
             session={session}
             flags={flags}
+            languageMisses={languageMisses}
             onToggleFlag={toggleFlag}
+            onToggleLanguageMiss={toggleLanguageMiss}
             voiceEnabled={settings.voiceEnabled}
             defaultLanguageMode={session.languageMode}
             onHome={() => setView(sessionReturnView)}
             homeLabel={sessionReturnView === "library" ? "Back to Library" : "Home"}
             relatedCount={relatedPracticePool.length}
+            sessionMissedTermIds={sessionMissedTermIds}
             onPracticeRelated={() =>
               startSession(relatedPracticePool, "study", "Practice related", {
                 count: DEFAULT_SESSION_COUNT,
                 order: "sequential",
               })
             }
+            onReviewTerms={openFocusedVocabRescue}
           />
         )}
       </main>
@@ -1253,17 +1337,32 @@ function StatsTable({ title, rows }: { title: string; rows: AggregateRow[] }) {
 function FlashcardsView({
   deck,
   progress,
+  rescueTermIds,
+  languageMissTermIds,
+  rescueFocusIds,
   voiceEnabled,
+  onClearRescueFocus,
   onReview,
 }: {
   deck: FlashcardTerm[];
   progress: Record<string, FlashcardProgress>;
+  rescueTermIds: Set<string>;
+  languageMissTermIds: Set<string>;
+  rescueFocusIds: string[] | null;
   voiceEnabled: boolean;
+  onClearRescueFocus: () => void;
   onReview: (termId: string, remembered: boolean) => Promise<void>;
 }) {
+  const effectiveRescueList = useMemo(
+    () => rescueFocusIds ?? Array.from(rescueTermIds).sort(),
+    [rescueFocusIds, rescueTermIds],
+  );
+  const effectiveRescueSet = useMemo(() => new Set(effectiveRescueList), [effectiveRescueList]);
+  const effectiveRescueKey = effectiveRescueList.join("\u0001");
   const [category, setCategory] = useState("all");
   const [topic, setTopic] = useState("all");
   const [readyNow, setReadyNow] = useState(true);
+  const [scope, setScope] = useState<"rescue" | "all">(effectiveRescueSet.size > 0 ? "rescue" : "all");
   const [sessionDeck, setSessionDeck] = useState<FlashcardTerm[]>([]);
   const [index, setIndex] = useState(0);
   const [revealed, setRevealed] = useState(false);
@@ -1272,7 +1371,14 @@ function FlashcardsView({
   const card = sessionDeck[index % Math.max(1, sessionDeck.length)];
 
   useEffect(() => {
+    if (effectiveRescueSet.size > 0 && scope === "all" && rescueFocusIds) {
+      setScope("rescue");
+    }
+  }, [effectiveRescueSet.size, rescueFocusIds, scope]);
+
+  useEffect(() => {
     const filteredDeck = deck.filter((term) => {
+      if (scope === "rescue" && !effectiveRescueSet.has(term.id)) return false;
       if (category !== "all" && !term.categories.includes(category)) return false;
       if (topic !== "all" && !term.topics.includes(topic)) return false;
       if (readyNow && progress[term.id] && !isDueForReview(progress[term.id])) return false;
@@ -1281,7 +1387,12 @@ function FlashcardsView({
     setSessionDeck(shuffle(filteredDeck));
     setIndex(0);
     setRevealed(false);
-  }, [category, topic, readyNow, deck]);
+  }, [category, topic, readyNow, deck, scope, effectiveRescueKey]);
+
+  const updateScope = (nextScope: "rescue" | "all") => {
+    setScope(nextScope);
+    if (nextScope === "all") onClearRescueFocus();
+  };
 
   const gradeCard = async (remembered: boolean) => {
     if (!card) return;
@@ -1303,6 +1414,20 @@ function FlashcardsView({
         </label>
       </div>
 
+      <div className="segmented" role="group" aria-label="Vocabulary scope">
+        <button
+          className={scope === "rescue" ? "active" : ""}
+          type="button"
+          onClick={() => updateScope("rescue")}
+          disabled={effectiveRescueSet.size === 0}
+        >
+          Rescue
+        </button>
+        <button className={scope === "all" ? "active" : ""} type="button" onClick={() => updateScope("all")}>
+          All
+        </button>
+      </div>
+
       <div className="filters flashcard-filters">
         <div className="flashcard-topic-filter">
           <SelectFilter label="Topic" value={topic} values={["all", ...topicsInDeck]} onChange={setTopic} />
@@ -1312,12 +1437,24 @@ function FlashcardsView({
 
       {!card ? (
         <div className="dashboard-panel">
-          <p className="muted-copy">No cards match the current filters.</p>
+          {scope === "rescue" && effectiveRescueSet.size === 0 ? (
+            <>
+              <h3>No Vocab Rescue terms yet.</h3>
+              <p className="muted-copy">
+                When a missed question was blocked by English wording, mark it after review. Terms from that question will appear here.
+              </p>
+            </>
+          ) : (
+            <p className="muted-copy">No cards match the current filters.</p>
+          )}
         </div>
       ) : (
         <article className="flashcard">
           <div className="flashcard-top">
-            <span className="type-pill">Appears in {card.questionIds.length} questions</span>
+            <div className="pill-row">
+              <span className="type-pill">Appears in {card.questionIds.length} questions</span>
+              {languageMissTermIds.has(card.id) && <span className="rescue-pill">Vocab Rescue</span>}
+            </div>
             <SpeakButton text={card.termEn} enabled={voiceEnabled} label={`Read ${card.termEn}`} />
           </div>
           <button className="flashcard-face" type="button" onClick={() => setRevealed(true)}>
@@ -1949,6 +2086,7 @@ function SessionView({
   session,
   progress,
   flags,
+  languageMisses,
   voiceEnabled,
   onAnswer,
   onSubmit,
@@ -1958,12 +2096,14 @@ function SessionView({
   onFinish,
   onLanguageModeChange,
   onToggleFlag,
+  onToggleLanguageMiss,
   onExit,
   exitLabel,
 }: {
   session: SessionState;
   progress: Record<string, QuestionProgress>;
   flags: Record<string, QuestionFlag>;
+  languageMisses: Record<string, LanguageMiss>;
   voiceEnabled: boolean;
   onAnswer: (questionId: string, answer: AnswerState) => void;
   onSubmit: () => void;
@@ -1973,6 +2113,7 @@ function SessionView({
   onFinish: () => void;
   onLanguageModeChange: (mode: LanguageMode) => void;
   onToggleFlag: (questionId: string) => void;
+  onToggleLanguageMiss: (questionId: string) => void;
   onExit: () => void;
   exitLabel: string;
 }) {
@@ -2055,10 +2196,13 @@ function SessionView({
         languageMode={session.languageMode}
         progress={progress[question.id]}
         flagged={flags[question.id]?.flagged ?? false}
+        languageMissed={Boolean(languageMisses[question.id])}
+        allowLanguageMissToggle={session.mode === "study"}
         voiceEnabled={voiceEnabled}
         onAnswer={(next) => onAnswer(question.id, next)}
         onSubmit={onSubmit}
         onToggleFlag={() => onToggleFlag(question.id)}
+        onToggleLanguageMiss={() => onToggleLanguageMiss(question.id)}
       />
 
       <div className="session-actions">
@@ -2102,10 +2246,13 @@ function QuestionCard({
   languageMode,
   progress,
   flagged,
+  languageMissed = false,
+  allowLanguageMissToggle = false,
   voiceEnabled,
   onAnswer,
   onSubmit,
   onToggleFlag,
+  onToggleLanguageMiss,
   reviewMode = false,
   focusedPartId,
 }: {
@@ -2116,10 +2263,13 @@ function QuestionCard({
   languageMode: LanguageMode;
   progress?: QuestionProgress;
   flagged: boolean;
+  languageMissed?: boolean;
+  allowLanguageMissToggle?: boolean;
   voiceEnabled: boolean;
   onAnswer: (answer: AnswerState) => void;
   onSubmit: () => void;
   onToggleFlag: () => void;
+  onToggleLanguageMiss?: () => void;
   reviewMode?: boolean;
   focusedPartId?: string;
 }) {
@@ -2127,6 +2277,12 @@ function QuestionCard({
   const readyToSubmit = getAnswerCompleteness(question, answer);
   const score = submitted ? scoreQuestion(question, answer) : undefined;
   const showsPartialCredit = !reviewMode && score !== undefined && score.possible > 1;
+  const canToggleLanguageMiss =
+    submitted &&
+    result === false &&
+    allowLanguageMissToggle &&
+    onToggleLanguageMiss &&
+    collectGlossarySources(question).length > 0;
 
   return (
     <article className="question-card">
@@ -2207,6 +2363,24 @@ function QuestionCard({
               </span>
             )}
           </div>
+        </div>
+      )}
+
+      {canToggleLanguageMiss && (
+        <div className="language-miss-action">
+          <button
+            className={languageMissed ? "secondary-action active" : "secondary-action"}
+            type="button"
+            onClick={onToggleLanguageMiss}
+            aria-pressed={languageMissed}
+          >
+            <Brain aria-hidden="true" />
+            <span>{languageMissed ? "Added to Vocab Rescue" : "Missed because of the English"}</span>
+            <span lang="zh-Hans">{languageMissed ? "已加入词汇救援" : "是英文卡住了"}</span>
+          </button>
+          <p className="muted-copy" lang="zh-Hans">
+            Adds terms from this question to Vocab Rescue. 把这题里的词加入词汇救援复习。
+          </p>
         </div>
       )}
 
@@ -3158,23 +3332,31 @@ function RationalePanel({
 function SummaryView({
   session,
   flags,
+  languageMisses,
   onToggleFlag,
+  onToggleLanguageMiss,
   voiceEnabled,
   defaultLanguageMode,
   onHome,
   homeLabel,
   relatedCount,
+  sessionMissedTermIds,
   onPracticeRelated,
+  onReviewTerms,
 }: {
   session: SessionState;
   flags: Record<string, QuestionFlag>;
+  languageMisses: Record<string, LanguageMiss>;
   onToggleFlag: (questionId: string) => void;
+  onToggleLanguageMiss: (questionId: string) => void;
   voiceEnabled: boolean;
   defaultLanguageMode: LanguageMode;
   onHome: () => void;
   homeLabel: string;
   relatedCount: number;
+  sessionMissedTermIds: string[];
   onPracticeRelated: () => void;
+  onReviewTerms: (termIds: string[]) => void;
 }) {
   const [expandedIds, setExpandedIds] = useState<Set<string>>(() => new Set());
   const [reviewScope, setReviewScope] = useState<"missed" | "answered" | "flagged">("missed");
@@ -3266,7 +3448,14 @@ function SummaryView({
             <RotateCcw aria-hidden="true" />
             <span>Practice related</span>
           </button>
+          <button type="button" onClick={() => onReviewTerms(sessionMissedTermIds)} disabled={sessionMissedTermIds.length === 0}>
+            <Brain aria-hidden="true" />
+            <span>Review missed terms</span>
+          </button>
         </div>
+        {sessionMissedTermIds.length > 0 && (
+          <p className="muted-copy">Vocab Rescue · {sessionMissedTermIds.length} terms from questions you missed.</p>
+        )}
       </div>
 
       <div className="category-breakdown">
@@ -3405,10 +3594,13 @@ function SummaryView({
                       result={result}
                       languageMode={languageMode}
                       flagged={flags[question.id]?.flagged ?? false}
+                      languageMissed={Boolean(languageMisses[question.id])}
+                      allowLanguageMissToggle={result === false}
                       voiceEnabled={voiceEnabled}
                       onAnswer={() => undefined}
                       onSubmit={() => undefined}
                       onToggleFlag={() => onToggleFlag(question.id)}
+                      onToggleLanguageMiss={() => onToggleLanguageMiss(question.id)}
                     />
                   </div>
                 )}
@@ -3570,6 +3762,28 @@ const buildFlashcardDeck = (records: QuestionRecord[]): FlashcardTerm[] => {
       questionIds: Array.from(term.questionIds).sort(),
     }))
     .sort((left, right) => left.termEn.localeCompare(right.termEn));
+};
+
+const getSessionMissedTermIds = (
+  session: SessionState,
+  deck: FlashcardTerm[],
+  languageMissQuestionIds: Set<string>,
+): string[] => {
+  const sessionMissedIds = new Set(
+    session.questions
+      .filter((question) => session.results[question.id] === false)
+      .map((question) => question.id),
+  );
+
+  return deck
+    .filter((term) => term.questionIds.some((questionId) => sessionMissedIds.has(questionId)))
+    .sort((left, right) => {
+      const leftTagged = left.questionIds.some((questionId) => languageMissQuestionIds.has(questionId));
+      const rightTagged = right.questionIds.some((questionId) => languageMissQuestionIds.has(questionId));
+      if (leftTagged !== rightTagged) return leftTagged ? -1 : 1;
+      return left.termEn.localeCompare(right.termEn);
+    })
+    .map((term) => term.id);
 };
 
 const collectGlossarySources = (question: Question) => {

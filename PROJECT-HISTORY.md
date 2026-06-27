@@ -49,6 +49,20 @@ The committed NGN item-type set is complete. Rationale/dyad scoring and an expli
 
 > Milestones dated **2026-06-23 and earlier** are archived in [`Archive/PROJECT-HISTORY-ARCHIVE.md`](Archive/PROJECT-HISTORY-ARCHIVE.md). Only the current arc (2026-06-24 onward) is kept here.
 
+### Vocab Rescue Phase 1 Instrument MVP (Jun 27)
+
+Completed:
+- Added a local `LanguageMiss` signal for learner-marked English-language misses, stored in a new IndexedDB `languageMisses` object store with in-memory fallback and no bank/schema/content-pipeline changes.
+- Added the incorrect-answer "Missed because of the English / 是英文卡住了" affordance for study-mode and summary-review missed questions that have glossary terms.
+- Added durable Vocab Rescue term derivation from missed questions plus manually language-tagged questions, using the existing glossary aggregation and flashcard SRS.
+- Added a Summary "Review missed terms" handoff that opens Vocab in a one-shot session-focused Rescue scope, with stale focus cleared on normal Vocab entry or after leaving the Flashcards view.
+- Added a `Rescue | All` scope control to Vocab and a `Vocab Rescue` chip for terms tied to manually language-tagged questions.
+- Added [`VOCAB-RESCUE-PHASE1-WALKTHROUGH.md`](VOCAB-RESCUE-PHASE1-WALKTHROUGH.md) in the project root to document the unfinished product state, manual QA flow, and future interview questions.
+
+Verification:
+- `npx tsc -b --pretty false` passed.
+- `npm run build` passed, with only the existing Vite chunk-size warning.
+
 ### Dark Mode Toggle Prep and Implementation (Jun 27)
 
 Completed:

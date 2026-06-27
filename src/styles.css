@@ -646,7 +646,8 @@ h4 {
 
 .type-pill,
 .muted-pill,
-.missed-pill {
+.missed-pill,
+.rescue-pill {
   display: inline-flex;
   align-items: center;
   min-height: 1.5rem;
@@ -669,6 +670,11 @@ h4 {
 .missed-pill {
   color: var(--state-missed-text);
   background: var(--state-missed-surface);
+}
+
+.rescue-pill {
+  color: var(--state-flagged-text);
+  background: var(--state-flagged-surface);
 }
 
 .import-panel,
@@ -1480,6 +1486,31 @@ h4 {
   background: var(--state-incorrect-surface);
 }
 
+.language-miss-action {
+  display: grid;
+  gap: 0.45rem;
+  justify-items: start;
+  padding: 0.85rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface-muted);
+}
+
+.language-miss-action button {
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.language-miss-action button.active {
+  border-color: var(--state-flagged-border);
+  color: var(--state-flagged-text);
+  background: var(--state-flagged-surface);
+}
+
+.language-miss-action p {
+  margin: 0;
+}
+
 .rationale-panel {
   display: grid;
   gap: 0.65rem;
@@ -1634,6 +1665,13 @@ h4 {
   display: flex;
   justify-content: space-between;
   gap: 0.75rem;
+  align-items: center;
+}
+
+.pill-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
   align-items: center;
 }
 

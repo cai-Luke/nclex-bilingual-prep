@@ -311,6 +311,11 @@ export type QuestionFlag = {
   updatedAt: string;
 };
 
+export type LanguageMiss = {
+  questionId: string;
+  markedAt: string;
+};
+
 export type AnswerEvent = {
   id: string;
   questionId: string;
