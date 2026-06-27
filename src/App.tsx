@@ -98,6 +98,7 @@ import type {
   Settings,
   StudyMode,
   StoredSessionSnapshot,
+  TextSizeMode,
   ThemeMode,
 } from "./types";
 
@@ -217,6 +218,10 @@ export default function App() {
   useEffect(() => {
     document.documentElement.dataset.theme = settings.themeMode;
   }, [settings.themeMode]);
+
+  useEffect(() => {
+    document.documentElement.dataset.textSize = settings.textSizeMode;
+  }, [settings.textSizeMode]);
 
   useEffect(() => {
     void Promise.all([
@@ -1611,6 +1616,12 @@ function ImportView({
   );
 }
 
+const textSizeOptions: Array<{ value: TextSizeMode; label: string }> = [
+  { value: "compact", label: "Compact" },
+  { value: "default", label: "Default" },
+  { value: "large", label: "Large" },
+];
+
 function SettingsView({ settings, updateSettings }: { settings: Settings; updateSettings: (settings: Settings) => void }) {
   return (
     <section className="stack narrow">
@@ -1651,6 +1662,22 @@ function SettingsView({ settings, updateSettings }: { settings: Settings; update
             <option value="light">Light</option>
             <option value="dark">Dark</option>
           </select>
+        </label>
+        <label>
+          <span>Text size</span>
+          <div className="segmented text-size-toggle" role="group" aria-label="Text size">
+            {textSizeOptions.map((option) => (
+              <button
+                key={option.value}
+                type="button"
+                className={settings.textSizeMode === option.value ? "active" : ""}
+                aria-pressed={settings.textSizeMode === option.value}
+                onClick={() => updateSettings({ ...settings, textSizeMode: option.value })}
+              >
+                {option.label}
+              </button>
+            ))}
+          </div>
         </label>
         <label className="toggle-row">
           <input

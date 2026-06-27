@@ -46,6 +46,7 @@
   --evidence-divider: #ead9b8;
   --focus-ring: #d69b28;
   --hard-surface: #9d4936;
+  --font-scale: 1.08;
 
   font-family:
     Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -106,6 +107,18 @@
   --evidence-divider: #5c4822;
   --focus-ring: #c79a3a;
   --hard-surface: #9d4936;
+}
+
+:root[data-text-size="compact"] {
+  --font-scale: 1;
+}
+
+:root[data-text-size="default"] {
+  --font-scale: 1.08;
+}
+
+:root[data-text-size="large"] {
+  --font-scale: 1.16;
 }
 
 * {
@@ -781,7 +794,7 @@ h4 {
 }
 
 .stem {
-  font-size: 1.3rem;
+  font-size: calc(1.3rem * var(--font-scale));
   font-weight: 800;
   line-height: 1.35;
 }
@@ -886,6 +899,11 @@ h4 {
 .bilingual-text {
   display: grid;
   gap: 0.3rem;
+  font-size: calc(1rem * var(--font-scale));
+}
+
+.bilingual-text.stem {
+  font-size: calc(1.3rem * var(--font-scale));
 }
 
 .english-line,
@@ -1034,7 +1052,12 @@ h4 {
   font-weight: 800;
 }
 
+.case-question-stem {
+  font-size: calc(1rem * var(--font-scale));
+}
+
 .case-exhibit-content {
+  font-size: calc(1rem * var(--font-scale));
   white-space: pre-line;
 }
 
@@ -1236,6 +1259,7 @@ h4 {
 .bowtie-token {
   width: 100%;
   min-height: 3.5rem;
+  font-size: calc(1rem * var(--font-scale));
   text-align: left;
 }
 
@@ -1308,7 +1332,7 @@ h4 {
   border-top: 1px solid var(--border);
   padding-top: 0.65rem;
   color: var(--badge-bg);
-  font-size: 0.9rem;
+  font-size: calc(0.9rem * var(--font-scale));
   line-height: 1.45;
 }
 
@@ -1318,7 +1342,7 @@ h4 {
 
 .highlight-line {
   margin: 0;
-  font-size: 1.05rem;
+  font-size: calc(1.05rem * var(--font-scale));
   line-height: 2.15;
 }
 
@@ -1405,7 +1429,7 @@ h4 {
 
 .cloze-line {
   margin: 0;
-  font-size: 1.05rem;
+  font-size: calc(1.05rem * var(--font-scale));
   line-height: 2.4;
 }
 
@@ -1526,6 +1550,10 @@ h4 {
   background: var(--surface-muted);
 }
 
+.dual-copy p {
+  font-size: calc(1rem * var(--font-scale));
+}
+
 .dual-copy p:last-child,
 .choice-rationales p:last-child {
   color: var(--text-muted);
@@ -1541,6 +1569,7 @@ h4 {
 .choice-rationales {
   display: grid;
   gap: 0.55rem;
+  font-size: calc(1rem * var(--font-scale));
 }
 
 .choice-rationales div {
@@ -1566,7 +1595,7 @@ h4 {
   border-radius: 999px;
   padding: 0.25rem 0.55rem;
   background: var(--surface-muted);
-  font-size: 0.85rem;
+  font-size: calc(0.85rem * var(--font-scale));
 }
 
 .dashboard-metrics {
@@ -1688,7 +1717,7 @@ h4 {
 }
 
 .flashcard-face strong {
-  font-size: clamp(2rem, 6vw, 3.4rem);
+  font-size: calc(clamp(2rem, 6vw, 3.4rem) * var(--font-scale));
   line-height: 1.05;
 }
 
@@ -1696,14 +1725,14 @@ h4 {
   display: grid;
   gap: 0.65rem;
   color: var(--text);
-  font-size: 1.35rem;
+  font-size: calc(1.35rem * var(--font-scale));
   font-weight: 800;
 }
 
 .flashcard-face small {
   max-width: 34rem;
   color: var(--text-muted);
-  font-size: 1rem;
+  font-size: calc(1rem * var(--font-scale));
   font-weight: 600;
 }
 
@@ -2171,6 +2200,10 @@ h4 {
   }
 
   .stem {
-    font-size: 1.12rem;
+    font-size: calc(1.12rem * var(--font-scale));
+  }
+
+  .bilingual-text.stem {
+    font-size: calc(1.12rem * var(--font-scale));
   }
 }

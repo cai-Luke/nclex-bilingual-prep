@@ -49,6 +49,19 @@ The committed NGN item-type set is complete. Rationale/dyad scoring and an expli
 
 > Milestones dated **2026-06-23 and earlier** are archived in [`Archive/PROJECT-HISTORY-ARCHIVE.md`](Archive/PROJECT-HISTORY-ARCHIVE.md). Only the current arc (2026-06-24 onward) is kept here.
 
+### Text Size Accessibility Follow-up (Jun 27)
+
+Completed:
+- Added a persisted `Compact / Default / Large` text-size setting to the existing Settings view, stored through the current local settings path.
+- Made `Default` the new baseline and mapped it to a modest reading-text scale increase without changing root `font-size`, app chrome sizing, spacing, or visual-stimulus dimensions.
+- Scoped the font scale to learner-facing reading surfaces including stems, bilingual text, case-study copy, cloze/highlight text, bowtie tokens, rationales, glossary chips, and flashcards.
+- Preserved the dark-mode root sync and added a separate `data-text-size` root sync for the reading scale.
+
+Verification:
+- `npx tsc -b --pretty false` passed.
+- `npm run build` passed, with only the existing Vite chunk-size warning.
+- Browser sanity check on `http://127.0.0.1:5173/` confirmed Settings shows the text-size segmented control, Default starts at `--font-scale: 1.08`, Large applies `1.16`, Compact applies `1`, and the session was restored to Default.
+
 ### Vocab Rescue Phase 1 Instrument MVP (Jun 27)
 
 Completed:
