@@ -125,6 +125,7 @@ assert(svg.includes('M 235,145 Q 215,145 180,155'), "anterior trunk must keep a 
 assert(svg.includes('M 585,145 Q 565,145 530,155'), "posterior trunk must keep a parallel curved shoulder yoke");
 assert(svg.includes('M 230,125 Q 250,140 270,125'), "anterior view must include a low chin/jaw orientation cue");
 assert(!svg.includes('M 230,106 Q 250,128 270,106'), "anterior view must not include the old higher face/chin/mouth cue");
+assert(svg.includes('M 216,157 Q 232,164 246,166 M 254,166 Q 268,164 284,157'), "anterior view must include a subtle broken clavicle cue");
 assert(svg.includes('M 600,170 L 600,310'), "posterior view must include a faint central spine orientation cue");
 assert(svg.includes('M 600,320 L 600,350'), "posterior view must include clipped orientation lines");
 
