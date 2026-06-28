@@ -49,6 +49,76 @@ The committed NGN item-type set is complete. Rationale/dyad scoring and an expli
 
 > Milestones dated **2026-06-23 and earlier** are archived in [`Archive/PROJECT-HISTORY-ARCHIVE.md`](Archive/PROJECT-HISTORY-ARCHIVE.md). Only the current arc (2026-06-24 onward) is kept here.
 
+### Burn Map Gemini Geometry Follow-up (Jun 28)
+
+Completed:
+- Translated Gemini's latest burn-map fixes into the deterministic SVG renderer while preserving the existing 13 `BurnRegionKey` schema surface, TBSA table, self-check arithmetic, and static/offline rendering path.
+- Replaced the compact mannequin paths with the revised full-size anterior/posterior geometry: clearer head/neck silhouette, broader trunk/shoulder joins, longer limbs with hand/foot termini, distinct genitalia, and posterior glute orientation ink.
+- Expanded the SVG viewBox to add a bottom label band so view labels do not overlap the head or feet, and updated burn-map regressions around the new geometry landmarks.
+- Further refined the head-only geometry after preview review: smaller skull, shorter neck run, modest jaw/chin taper, and a subtler anterior lower-face boundary cue without touching hand geometry.
+- Added a valid genitalia-only burn-map fixture to keep the supported anterior 1% region covered by visual fixture/conformance runs.
+
+Verification:
+- `npx tsx scripts/tests/burn-map.ts` passed.
+- `npm run test-visuals` passed.
+- `npm run validate-bank -- banks/*.json` passed.
+- `npm run build` passed with the existing Vite chunk-size warning.
+
+### Burn Map Jawline and Shoulder Polish (Jun 28)
+
+Completed:
+- Added a clipped anterior jawline/chin `BODY_INK` cue so the front-view head/neck reads less alien without adding face details or a new fillable region.
+- Softened the anterior/posterior shoulder yokes from straight ruler-like lines into shallow curves while moving shared arm/trunk seam points together.
+- Generated updated smoke outputs under `audit/burn-map-smoke-2026-06-28-jaw-shoulders/`.
+
+Verification:
+- `npx tsx scripts/tests/burn-map.ts` passed.
+- `npm run validate-bank -- banks/*.json` passed.
+- `npm run test-visuals` passed.
+- `npm run build` passed with the existing Vite chunk-size warning.
+
+### Burn Map Clinical-Chart Translation (Jun 28)
+
+Completed:
+- Translated Gemini's chart-style burn mannequin direction into the existing 13-key `burn_map` renderer without adding schema regions: neck is absorbed into the head keys, glute cues remain posterior `BODY_INK`, and no extra fillable neck/glute islands were introduced.
+- Reworked the silhouette toward a professional schematic chart: broad flat shoulders, simple tapered trunk, deliberate hand termini, no ears, and high-readability whole-region boundaries.
+- Added a single-region renderer regression loop so every `BurnRegionKey` shades exactly one keyed fill when selected alone.
+- Generated updated chart-style smoke outputs under `audit/burn-map-smoke-2026-06-28-chart/`.
+
+Verification:
+- `npx tsx scripts/tests/burn-map.ts` passed.
+- `npm run validate-bank -- banks/*.json` passed.
+- `npm run test-visuals` passed.
+- `npm run build` passed with the existing Vite chunk-size warning.
+
+### Burn Map Anatomical Readability Follow-up (Jun 28)
+
+Completed:
+- Refined the `burn_map` silhouette around anatomical readability rather than pixel-area proportionality: arms now reach mid-thigh, taper more clearly, and preserve shared shoulder seams with the trunk.
+- Enlarged the anterior genitalia wedge enough to read when selected while keeping it visibly subordinate to trunk and legs.
+- Mirrored posterior left/right keyed regions for anatomical back-view convention while preserving the symmetric visible silhouette and posterior glute orientation creases.
+- Generated updated renderer smoke outputs under `audit/burn-map-smoke-2026-06-28/`.
+
+Verification:
+- `npx tsx scripts/tests/burn-map.ts` passed.
+- `npm run validate-bank -- banks/*.json` passed.
+- `npm run test-visuals` passed.
+- `npm run build` passed with the existing Vite chunk-size warning.
+
+### Burn Map Renderer Readability Polish (Jun 27)
+
+Completed:
+- Reworked the `burn_map` SVG region geometry for a clearer NCLEX-style adult anterior/posterior silhouette: broader shoulder yokes, more distinguishable arms and legs, parallel front/back proportions, and a more visible standalone genitalia region.
+- Reduced body-ink detail to posterior orientation lines only and softened burn-map outlines so selected translucent red regions remain the dominant cue.
+- Kept the pass cosmetic only: no `BurnRegionKey`, `TBSA_PCT`, validation, self-check, schema, scoring, bank JSON, or question-content changes.
+- Generated renderer smoke outputs under `audit/burn-map-smoke-2026-06-27/` for baseline, anterior/posterior group burns, individual trunk/arm/leg/genitalia selections, and a mixed case.
+
+Verification:
+- `npx tsx scripts/tests/burn-map.ts` passed.
+- `npm run validate-bank -- banks/*.json` passed.
+- `npm run test-visuals` passed.
+- `npm run build` passed with the existing Vite chunk-size warning.
+
 ### Injection-Site Vessel Safety Hardening (Jun 27)
 
 Completed:

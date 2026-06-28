@@ -7,6 +7,7 @@ import {
 } from "../../src/visuals/kinds/burn_map";
 import {
   BURN_REGION_KEYS,
+  REGION_GEOMETRY,
   TBSA_PCT,
   type BurnPopulation,
 } from "../../src/visuals/kinds/burn_map/regions";
@@ -114,9 +115,26 @@ assert(svg.includes('data-kind="burn_map"'), "burn map must identify its kind");
 assert(svg.includes('data-region="trunk_anterior"') && svg.includes('fill="#dc2626" fill-opacity="0.55"'), "burned region must use solid translucent red");
 assert(svg.includes('data-region="head_anterior"') && svg.includes('fill="#f1f5f9"'), "unburned region must use neutral fill");
 assert(svg.includes('clip-path="url(#burn-posterior-clip)"'), "posterior detail lines must be clipped to the body silhouette");
-assert(svg.includes("C 386 212 379 216 371 216"), "posterior trunk must include the glute contour");
-assert(svg.includes("M 88 109 L 112 100"), "anterior trunk must start inside the arm shoulder boundary");
-assert(svg.includes("M 328 109 L 352 100"), "posterior trunk must start inside the arm shoulder boundary");
+assert(svg.includes('stroke="#64748b" stroke-width="1"'), "burn map outlines must stay lighter than selected burn fills");
+assert(svg.includes('viewBox="0 0 850 640"'), "burn map must reserve a label band below the full-size figures");
+assert(svg.includes('data-region="genitalia"') && svg.includes("M 235,320 Q 250,310 265,320"), "genitalia must render as a distinct selectable region");
+assert(svg.includes("L 125,330 Q 115,340 107,325"), "anterior arms must include readable hand termini");
+assert(svg.includes('data-region="arm_l_posterior" d="M 540,180'), "posterior left arm must render on the patient's left side");
+assert(svg.includes('data-region="leg_l_posterior" d="M 550,310'), "posterior left leg must render on the patient's left side");
+assert(svg.includes('M 235,145 Q 215,145 180,155'), "anterior trunk must keep a broad curved shoulder yoke");
+assert(svg.includes('M 585,145 Q 565,145 530,155'), "posterior trunk must keep a parallel curved shoulder yoke");
+assert(svg.includes('M 230,106 Q 250,128 270,106'), "anterior view must include a clipped jawline orientation cue");
+assert(svg.includes('M 600,320 L 600,350'), "posterior view must include clipped orientation lines");
+
+for (const key of BURN_REGION_KEYS) {
+  const singleRegionSvg = renderBurnMapSvg({ kind: "burn_map", population: "adult", burns: [key] });
+  assert(
+    singleRegionSvg.includes(`data-region="${key}"`) && singleRegionSvg.includes(`data-region="${key}" d="${REGION_GEOMETRY[key].d}" fill="#dc2626" fill-opacity="0.55"`),
+    `${key} must visibly select its own keyed region`,
+  );
+  const selectedFills = singleRegionSvg.match(/fill="#dc2626" fill-opacity="0.55"/g) ?? [];
+  assert(selectedFills.length === 1, `${key} single-region render must shade exactly one keyed fill`);
+}
 
 const visibleLabels = Array.from(svg.matchAll(/<text\b[^>]*>([^<]*)<\/text>/g), (match) => match[1]);
 assert(

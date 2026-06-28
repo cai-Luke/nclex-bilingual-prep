@@ -248,22 +248,21 @@ export const renderBurnMapSvg = (spec: BurnMapSpec): string => {
   const ariaLabel = escapeXml(spec.caption?.en ?? "Burn diagram");
   const populationLabel = population === "pediatric" ? "Pediatric" : "Adult";
 
-  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${fmt(480)} ${fmt(360)}" role="img" aria-label="${ariaLabel}" data-kind="burn_map" data-population="${population}">
-<rect x="0" y="0" width="${fmt(480)}" height="${fmt(360)}" fill="#ffffff"/>
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${fmt(850)} ${fmt(640)}" role="img" aria-label="${ariaLabel}" data-kind="burn_map" data-population="${population}">
+<rect x="0" y="0" width="${fmt(850)}" height="${fmt(640)}" fill="#ffffff"/>
 <defs>${clipPaths}</defs>
-<rect x="${fmt(8)}" y="${fmt(8)}" width="${fmt(464)}" height="${fmt(344)}" fill="none" stroke="#cbd5e1" stroke-width="1.5"/>
-<line x1="${fmt(8)}" y1="${fmt(38)}" x2="${fmt(472)}" y2="${fmt(38)}" stroke="#cbd5e1"/>
-<line x1="${fmt(240)}" y1="${fmt(38)}" x2="${fmt(240)}" y2="${fmt(352)}" stroke="#e2e8f0"/>
-<text x="${fmt(20)}" y="${fmt(28)}" font-family="Georgia, serif" font-size="${fmt(14)}" font-weight="600" fill="#1e293b">Burn Surface Assessment</text>
-<text x="${fmt(452)}" y="${fmt(28)}" text-anchor="end" font-family="system-ui, sans-serif" font-size="${fmt(12)}" fill="#475569">${escapeXml(populationLabel)}</text>
+<rect x="${fmt(8)}" y="${fmt(8)}" width="${fmt(834)}" height="${fmt(624)}" fill="none" stroke="#cbd5e1" stroke-width="1.5"/>
+<line x1="${fmt(425)}" y1="${fmt(8)}" x2="${fmt(425)}" y2="${fmt(632)}" stroke="#e2e8f0"/>
+<text x="${fmt(20)}" y="${fmt(30)}" font-family="Georgia, serif" font-size="${fmt(16)}" font-weight="600" fill="#1e293b">Burn Surface Assessment</text>
+<text x="${fmt(822)}" y="${fmt(30)}" text-anchor="end" font-family="system-ui, sans-serif" font-size="${fmt(14)}" fill="#475569">${escapeXml(populationLabel)}</text>
 <g>${fills}</g>
-<g stroke="#334155" stroke-width="1.3" stroke-linejoin="round" stroke-linecap="round" fill="none">
+<g stroke="#64748b" stroke-width="1" stroke-linejoin="round" stroke-linecap="round" fill="none">
 ${outlines}
 <g clip-path="url(#burn-anterior-clip)">${BODY_INK.anterior}</g>
 <g clip-path="url(#burn-posterior-clip)">${BODY_INK.posterior}</g>
 </g>
-<text x="${fmt(120)}" y="${fmt(344)}" text-anchor="middle" font-family="system-ui, sans-serif" font-size="${fmt(12)}" font-weight="600" fill="#334155">Anterior</text>
-<text x="${fmt(360)}" y="${fmt(344)}" text-anchor="middle" font-family="system-ui, sans-serif" font-size="${fmt(12)}" font-weight="600" fill="#334155">Posterior</text>
+<text x="${fmt(250)}" y="${fmt(622)}" text-anchor="middle" font-family="system-ui, sans-serif" font-size="${fmt(16)}" font-weight="700" fill="#334155">Anterior</text>
+<text x="${fmt(600)}" y="${fmt(622)}" text-anchor="middle" font-family="system-ui, sans-serif" font-size="${fmt(16)}" font-weight="700" fill="#334155">Posterior</text>
 </svg>`;
 };
 
@@ -289,6 +288,12 @@ const fixtures: VisualKindModule<BurnMapSpec>["fixtures"] = {
       kind: "burn_map",
       population: "pediatric",
       burns: ["head_anterior", "head_posterior", "trunk_anterior"],
+    },
+    {
+      kind: "burn_map",
+      population: "adult",
+      burns: ["genitalia"],
+      caption: { en: "Burn diagram", zh: "烧伤示意图" },
     },
   ],
   invalid: [
