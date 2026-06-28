@@ -49,6 +49,37 @@ The committed NGN item-type set is complete. Rationale/dyad scoring and an expli
 
 > Milestones dated **2026-06-23 and earlier** are archived in [`Archive/PROJECT-HISTORY-ARCHIVE.md`](Archive/PROJECT-HISTORY-ARCHIVE.md). Only the current arc (2026-06-24 onward) is kept here.
 
+### Exam-Like Case-Study Split Layout (Jun 28)
+
+Completed:
+- Refactored case-study rendering into an exam-like split layout: client chart/exhibits in a left pane and one active embedded case part in a right pane.
+- Added local embedded-part navigation with previous/next controls, part chips, pre-submit completion status, and post-submit correct/review status while preserving top-level case-study identity and aggregate submit/grading.
+- Moved the aggregate case-study submit affordance into the right-pane toolbar so it remains visible from any active embedded part, while still gating submit readiness on all embedded parts being complete.
+- Kept inactive embedded parts mounted with `hidden` in split mode so tab switching does not discard local draft UI state.
+- Constrained the desktop split layout so the chart and work panes scroll independently; mobile returns to normal stacked flow.
+- Added conservative stage visibility: global exhibits always show; valid `answerableAfterStageId` and valid `stageId` show cumulative stages through the mapped stage; absent or invalid mappings show all stages so chart data is not hidden.
+- Preserved existing summary/dev-review reuse of `QuestionCard`; Summary and Developer Review intentionally use the stacked read-through case layout, while live sessions use the split layout.
+- Deferred standalone visual split layout to a later PR.
+- Added [`CLAUDE-HANDOFF-EXAM-SPLIT-LAYOUT-2026-06-28.md`](CLAUDE-HANDOFF-EXAM-SPLIT-LAYOUT-2026-06-28.md) with implementation notes, smoke IDs, verification, and review requests.
+
+Verification:
+- `npx tsc -b --pretty false` passed.
+- `npm run validate-bank -- banks/*.json` passed.
+- `npm run test-visuals` passed.
+- `npm run build` passed with the existing Vite chunk-size warning.
+- Browser smoke checks covered `opus_psi_caregiver_2026_06_10_01`, `opus25_case_tb_airborne_treatment_monitoring_01`, `gpt_case_gallstone_pancreatitis_01`, `cs_thyroid_storm_main`, and `opus_vanco_case_01`; mobile collapse, dark mode, language modes, chip navigation, visible aggregate submit, cumulative mapped stages, invalid-mapping fallback, stage visual rendering, independent pane scrolling, stacked Developer Review, and stacked Summary expansion were checked.
+
+### Split-Screen Layout Feasibility Investigation (Jun 28)
+
+Completed:
+- Audited the current case-study, visual-stimulus, renderer, grading, session, storage, and CSS surfaces for an NCLEX/Pearson-style split-screen testing layout.
+- Added [`SPLIT-SCREEN-LAYOUT-INVESTIGATION-2026-06-28.md`](SPLIT-SCREEN-LAYOUT-INVESTIGATION-2026-06-28.md) with feasibility findings, bank-shape counts, risky stage-mapping IDs, renderer insertion points, and a phased implementation recommendation.
+- Recommended a renderer-only case-study split layout as PR #1, preserving top-level session identity and aggregate submit behavior, with conservative all-stage fallback for absent or invalid stage mappings.
+
+Verification:
+- `npm run validate-bank -- banks/*.json` passed.
+- `npm run build` passed with the existing Vite chunk-size warning.
+
 ### Burn Map Gemini Geometry Follow-up (Jun 28)
 
 Completed:

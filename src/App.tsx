@@ -132,6 +132,8 @@ type SessionState = {
   adaptive?: AdaptiveSessionSnapshot;
 };
 
+type CaseStudyLayoutMode = "split" | "stacked";
+
 type Filters = {
   category: string;
   topic: string;
@@ -2025,6 +2027,7 @@ function DeveloperReviewConsole({
                 onToggleFlag={() => undefined}
                 reviewMode
                 focusedPartId={selectedEntry.embeddedPart?.id}
+                caseStudyLayout="stacked"
               />
 
               <section className="dev-review-notes">
@@ -2282,6 +2285,7 @@ function QuestionCard({
   onToggleLanguageMiss,
   reviewMode = false,
   focusedPartId,
+  caseStudyLayout = "split",
 }: {
   question: Question;
   answer: AnswerState;
@@ -2299,6 +2303,7 @@ function QuestionCard({
   onToggleLanguageMiss?: () => void;
   reviewMode?: boolean;
   focusedPartId?: string;
+  caseStudyLayout?: CaseStudyLayoutMode;
 }) {
   const [activeTerm, setActiveTerm] = useState<GlossaryTerm | null>(null);
   const readyToSubmit = getAnswerCompleteness(question, answer);
@@ -2312,7 +2317,7 @@ function QuestionCard({
     collectGlossarySources(question).length > 0;
 
   return (
-    <article className="question-card">
+    <article className={`question-card ${question.itemType === "case_study" && caseStudyLayout === "split" ? "split-case-card" : ""}`}>
       <div className="question-meta">
         <span className="type-pill">{formatItemType(question.itemType)}</span>
         <span>{question.category}</span>
@@ -2368,10 +2373,14 @@ function QuestionCard({
         voiceEnabled={voiceEnabled}
         onTerm={setActiveTerm}
         onAnswer={onAnswer}
+        onSubmit={onSubmit}
+        readyToSubmit={readyToSubmit}
+        showTopLevelSubmit={question.itemType === "case_study" && !submitted && !reviewMode}
         focusedPartId={focusedPartId}
+        caseStudyLayout={caseStudyLayout}
       />
 
-      {!submitted && !reviewMode && (
+      {!submitted && !reviewMode && question.itemType !== "case_study" && (
         <button className="primary-action submit-button" type="button" disabled={!readyToSubmit} onClick={onSubmit}>
           <CheckCircle2 aria-hidden="true" />
           <span>Submit answer</span>
@@ -2424,7 +2433,11 @@ function QuestionAnswerControl({
   voiceEnabled,
   onTerm,
   onAnswer,
+  onSubmit,
+  readyToSubmit = false,
+  showTopLevelSubmit = false,
   focusedPartId,
+  caseStudyLayout = "split",
 }: {
   question: Question;
   answer: AnswerState;
@@ -2433,7 +2446,11 @@ function QuestionAnswerControl({
   voiceEnabled: boolean;
   onTerm: (term: GlossaryTerm) => void;
   onAnswer: (answer: AnswerState) => void;
+  onSubmit?: () => void;
+  readyToSubmit?: boolean;
+  showTopLevelSubmit?: boolean;
   focusedPartId?: string;
+  caseStudyLayout?: CaseStudyLayoutMode;
 }) {
   if (
     question.itemType === "multiple_choice" ||
@@ -2508,7 +2525,11 @@ function QuestionAnswerControl({
         voiceEnabled={voiceEnabled}
         onTerm={onTerm}
         onAnswer={onAnswer}
+        onSubmit={onSubmit}
+        readyToSubmit={readyToSubmit}
+        showTopLevelSubmit={showTopLevelSubmit}
         focusedPartId={focusedPartId}
+        layoutMode={caseStudyLayout}
       />
     );
   }
@@ -3062,7 +3083,11 @@ function CaseStudyControl({
   voiceEnabled,
   onTerm,
   onAnswer,
+  onSubmit,
+  readyToSubmit = false,
+  showTopLevelSubmit = false,
   focusedPartId,
+  layoutMode = "split",
 }: {
   question: Extract<Question, { itemType: "case_study" }>;
   answer: AnswerState;
@@ -3071,15 +3096,170 @@ function CaseStudyControl({
   voiceEnabled: boolean;
   onTerm: (term: GlossaryTerm) => void;
   onAnswer: (answer: AnswerState) => void;
+  onSubmit?: () => void;
+  readyToSubmit?: boolean;
+  showTopLevelSubmit?: boolean;
   focusedPartId?: string;
+  layoutMode?: CaseStudyLayoutMode;
 }) {
   const caseAnswers = answer.caseStudy ?? {};
+  const caseQuestions = question.caseStudy.questions;
+  const getDefaultActivePartId = () => {
+    if (focusedPartId && caseQuestions.some((caseQuestion) => caseQuestion.id === focusedPartId)) {
+      return focusedPartId;
+    }
+    if (submitted) {
+      const firstMissed = caseQuestions.find((caseQuestion) => {
+        const caseAnswer = caseAnswers[caseQuestion.id] ?? getInitialAnswer(caseQuestion);
+        return !gradeQuestion(caseQuestion, caseAnswer);
+      });
+      if (firstMissed) return firstMissed.id;
+    }
+    return caseQuestions[0]?.id ?? "";
+  };
+  const [activePartId, setActivePartId] = useState(getDefaultActivePartId);
+  useEffect(() => {
+    if (focusedPartId && caseQuestions.some((caseQuestion) => caseQuestion.id === focusedPartId)) {
+      setActivePartId(focusedPartId);
+      return;
+    }
+    if (!caseQuestions.some((caseQuestion) => caseQuestion.id === activePartId)) {
+      setActivePartId(caseQuestions[0]?.id ?? "");
+    }
+  }, [activePartId, caseQuestions, focusedPartId]);
+
+  const activeIndex = Math.max(
+    0,
+    caseQuestions.findIndex((caseQuestion) => caseQuestion.id === activePartId),
+  );
+  const activeQuestion = caseQuestions[activeIndex] ?? caseQuestions[0];
+  const visibleStages = getVisibleCaseStages(question, activeQuestion);
   const updateCaseAnswer = (questionId: string, nextAnswer: AnswerState) => {
     onAnswer({ ...answer, caseStudy: { ...caseAnswers, [questionId]: nextAnswer } });
   };
 
+  if (layoutMode === "stacked") {
+    return (
+      <CaseStudyStackedLayout
+        question={question}
+        caseAnswers={caseAnswers}
+        submitted={submitted}
+        languageMode={languageMode}
+        voiceEnabled={voiceEnabled}
+        focusedPartId={focusedPartId}
+        onTerm={onTerm}
+        onCaseAnswer={updateCaseAnswer}
+      />
+    );
+  }
+
+  return (
+    <div className="case-study-panel exam-split-layout">
+      <CaseChartPane
+        question={question}
+        stages={visibleStages}
+        languageMode={languageMode}
+        onTerm={onTerm}
+      />
+
+      <div className="exam-split-work-pane">
+        <div className="case-work-toolbar">
+          <CasePartNavigator
+            question={question}
+            caseAnswers={caseAnswers}
+            activePartId={activeQuestion?.id ?? ""}
+            submitted={submitted}
+            onSelect={setActivePartId}
+          />
+          {showTopLevelSubmit && onSubmit && (
+            <button className="primary-action submit-button case-submit-button" type="button" disabled={!readyToSubmit} onClick={onSubmit}>
+              <CheckCircle2 aria-hidden="true" />
+              <span>Submit answer</span>
+            </button>
+          )}
+        </div>
+        {caseQuestions.map((caseQuestion, index) => (
+          <CaseActivePart
+            key={caseQuestion.id}
+            caseQuestion={caseQuestion}
+            index={index}
+            total={caseQuestions.length}
+            answer={caseAnswers[caseQuestion.id] ?? getInitialAnswer(caseQuestion)}
+            submitted={submitted}
+            languageMode={languageMode}
+            voiceEnabled={voiceEnabled}
+            focused={focusedPartId === caseQuestion.id}
+            hidden={caseQuestion.id !== activeQuestion?.id}
+            onTerm={onTerm}
+            onAnswer={(nextAnswer) => updateCaseAnswer(caseQuestion.id, nextAnswer)}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function CaseStudyStackedLayout({
+  question,
+  caseAnswers,
+  submitted,
+  languageMode,
+  voiceEnabled,
+  focusedPartId,
+  onTerm,
+  onCaseAnswer,
+}: {
+  question: Extract<Question, { itemType: "case_study" }>;
+  caseAnswers: Record<string, AnswerState>;
+  submitted: boolean;
+  languageMode: LanguageMode;
+  voiceEnabled: boolean;
+  focusedPartId?: string;
+  onTerm: (term: GlossaryTerm) => void;
+  onCaseAnswer: (questionId: string, answer: AnswerState) => void;
+}) {
   return (
     <div className="case-study-panel">
+      <CaseChartPane
+        question={question}
+        stages={question.caseStudy.stages ?? []}
+        languageMode={languageMode}
+        onTerm={onTerm}
+      />
+      <div className="case-question-list">
+        {question.caseStudy.questions.map((caseQuestion, index) => (
+          <CaseActivePart
+            key={caseQuestion.id}
+            caseQuestion={caseQuestion}
+            index={index}
+            total={question.caseStudy.questions.length}
+            answer={caseAnswers[caseQuestion.id] ?? getInitialAnswer(caseQuestion)}
+            submitted={submitted}
+            languageMode={languageMode}
+            voiceEnabled={voiceEnabled}
+            focused={focusedPartId === caseQuestion.id}
+            onTerm={onTerm}
+            onAnswer={(nextAnswer) => onCaseAnswer(caseQuestion.id, nextAnswer)}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function CaseChartPane({
+  question,
+  stages,
+  languageMode,
+  onTerm,
+}: {
+  question: Extract<Question, { itemType: "case_study" }>;
+  stages: Extract<Question, { itemType: "case_study" }>["caseStudy"]["stages"];
+  languageMode: LanguageMode;
+  onTerm: (term: GlossaryTerm) => void;
+}) {
+  return (
+    <aside className="exam-split-chart-pane" aria-label="Client chart">
       <div className="case-study-header">
         <BilingualText pair={question.caseStudy.title} mode={languageMode} glossary={question.glossary} onTerm={onTerm} />
         {question.caseStudy.summary && (
@@ -3087,75 +3267,202 @@ function CaseStudyControl({
         )}
       </div>
 
-      <div className="case-exhibits">
-        {question.caseStudy.exhibits.map((exhibit) => (
-          <CaseExhibit key={exhibit.id} exhibit={exhibit} languageMode={languageMode} glossary={question.glossary} onTerm={onTerm} />
-        ))}
-      </div>
-
-      {question.caseStudy.stages?.map((stage) => (
-        <section className="case-stage" key={stage.id}>
-          <BilingualText pair={stage.title} mode={languageMode} className="case-stage-title" />
+      {question.caseStudy.exhibits.length > 0 && (
+        <section className="case-chart-section">
+          <h3>Client record</h3>
           <div className="case-exhibits">
-            {stage.exhibits.map((exhibit) => (
+            {question.caseStudy.exhibits.map((exhibit) => (
               <CaseExhibit key={exhibit.id} exhibit={exhibit} languageMode={languageMode} glossary={question.glossary} onTerm={onTerm} />
             ))}
           </div>
         </section>
-      ))}
+      )}
 
-      <div className="case-question-list">
+      {stages && stages.length > 0 && (
+        <section className="case-chart-section">
+          <h3>Updates</h3>
+          {stages.map((stage) => (
+            <section className="case-stage" key={stage.id}>
+              <div className="case-stage-heading">
+                <BilingualText pair={stage.title} mode={languageMode} className="case-stage-title" />
+                {stage.timeOffset && <span>{stage.timeOffset}</span>}
+              </div>
+              {stage.trigger && (
+                <BilingualText pair={stage.trigger} mode={languageMode} className="case-stage-note" glossary={question.glossary} onTerm={onTerm} />
+              )}
+              {stage.narrative && (
+                <BilingualText pair={stage.narrative} mode={languageMode} className="case-stage-note" glossary={question.glossary} onTerm={onTerm} />
+              )}
+              {stage.exhibits.length > 0 && (
+                <div className="case-exhibits">
+                  {stage.exhibits.map((exhibit) => (
+                    <CaseExhibit key={exhibit.id} exhibit={exhibit} languageMode={languageMode} glossary={question.glossary} onTerm={onTerm} />
+                  ))}
+                </div>
+              )}
+            </section>
+          ))}
+        </section>
+      )}
+    </aside>
+  );
+}
+
+function getVisibleCaseStages(
+  question: Extract<Question, { itemType: "case_study" }>,
+  activeQuestion?: Extract<Question, { itemType: "case_study" }>["caseStudy"]["questions"][number],
+) {
+  const stages = question.caseStudy.stages ?? [];
+  if (!activeQuestion || stages.length === 0) return [];
+  const stageIndexById = new Map(stages.map((stage, index) => [stage.id, index]));
+  const answerableAfterStageIndex =
+    activeQuestion.answerableAfterStageId !== undefined
+      ? stageIndexById.get(activeQuestion.answerableAfterStageId)
+      : undefined;
+  if (answerableAfterStageIndex !== undefined) {
+    return stages.slice(0, answerableAfterStageIndex + 1);
+  }
+  const stageIndex = activeQuestion.stageId !== undefined ? stageIndexById.get(activeQuestion.stageId) : undefined;
+  if (stageIndex !== undefined) {
+    return stages.slice(0, stageIndex + 1);
+  }
+  // Many bundled staged cases do not have reliable part-to-stage metadata yet.
+  // Show all stages when a mapping is absent or invalid so the UI never hides
+  // clinically necessary chart data.
+  return stages;
+}
+
+function CasePartNavigator({
+  question,
+  caseAnswers,
+  activePartId,
+  submitted,
+  onSelect,
+}: {
+  question: Extract<Question, { itemType: "case_study" }>;
+  caseAnswers: Record<string, AnswerState>;
+  activePartId: string;
+  submitted: boolean;
+  onSelect: (partId: string) => void;
+}) {
+  const activeIndex = Math.max(
+    0,
+    question.caseStudy.questions.findIndex((caseQuestion) => caseQuestion.id === activePartId),
+  );
+  const previousPart = question.caseStudy.questions[activeIndex - 1];
+  const nextPart = question.caseStudy.questions[activeIndex + 1];
+  return (
+    <nav className="case-part-nav" aria-label="Case study parts">
+      <div className="case-part-nav-controls">
+        <button type="button" onClick={() => previousPart && onSelect(previousPart.id)} disabled={!previousPart}>
+          <ChevronLeft aria-hidden="true" />
+          <span>Previous</span>
+        </button>
+        <span>
+          Part {activeIndex + 1} of {question.caseStudy.questions.length}
+        </span>
+        <button type="button" onClick={() => nextPart && onSelect(nextPart.id)} disabled={!nextPart}>
+          <span>Next</span>
+          <ChevronRight aria-hidden="true" />
+        </button>
+      </div>
+      <div className="case-part-chip-list">
         {question.caseStudy.questions.map((caseQuestion, index) => {
           const caseAnswer = caseAnswers[caseQuestion.id] ?? getInitialAnswer(caseQuestion);
-          const caseResult = submitted ? gradeQuestion(caseQuestion, caseAnswer) : undefined;
-          const caseScore = submitted ? scoreQuestion(caseQuestion, caseAnswer) : undefined;
-          const statusClass = submitted ? (caseResult ? "correct" : "incorrect") : "";
+          const complete = getAnswerCompleteness(caseQuestion, caseAnswer);
+          const correct = submitted ? gradeQuestion(caseQuestion, caseAnswer) : undefined;
+          const statusClass = submitted ? (correct ? "correct" : "missed") : complete ? "complete" : "";
           return (
-            <section
-              className={`case-question ${statusClass} ${focusedPartId === caseQuestion.id ? "focused" : ""}`}
+            <button
+              className={`case-part-chip ${statusClass} ${activePartId === caseQuestion.id ? "active" : ""}`}
+              type="button"
               key={caseQuestion.id}
-              data-case-part-id={caseQuestion.id}
+              aria-current={activePartId === caseQuestion.id ? "step" : undefined}
+              onClick={() => onSelect(caseQuestion.id)}
             >
-              <div className="case-question-heading">
-                <span className="type-pill">Part {index + 1}</span>
-                <span className="type-pill">{formatItemType(caseQuestion.itemType)}</span>
-                {submitted && (
-                  <span className={caseResult ? "type-pill" : "missed-pill"}>
-                    {caseResult
-                      ? "Correct"
-                      : caseScore && caseScore.possible > 1
-                        ? `${caseScore.earned} of ${caseScore.possible} points · Review`
-                        : "Review"}
-                  </span>
-                )}
-              </div>
-              <VisualStimulus visual={caseQuestion.visual} languageMode={languageMode} />
-              <div className="stem-row">
-                <BilingualText
-                  pair={caseQuestion.stem}
-                  mode={languageMode}
-                  className="case-question-stem"
-                  glossary={caseQuestion.glossary}
-                  onTerm={onTerm}
-                />
-                <SpeakButton text={caseQuestion.stem.en} enabled={voiceEnabled} label={`Read case part ${index + 1}`} />
-                <ReadAllButton question={caseQuestion} enabled={voiceEnabled} />
-              </div>
-              <QuestionAnswerControl
-                question={caseQuestion}
-                answer={caseAnswer}
-                submitted={submitted}
-                languageMode={languageMode}
-                voiceEnabled={voiceEnabled}
-                onTerm={onTerm}
-                onAnswer={(nextAnswer) => updateCaseAnswer(caseQuestion.id, nextAnswer)}
-              />
-              {submitted && <RationalePanel question={caseQuestion} title="Part rationale" voiceEnabled={voiceEnabled} languageMode={languageMode} />}
-            </section>
+              <span>Part {index + 1}</span>
+              <small>{submitted ? (correct ? "Correct" : "Review") : complete ? "Complete" : "Open"}</small>
+            </button>
           );
         })}
       </div>
-    </div>
+    </nav>
+  );
+}
+
+function CaseActivePart({
+  caseQuestion,
+  index,
+  total,
+  answer,
+  submitted,
+  languageMode,
+  voiceEnabled,
+  focused,
+  hidden = false,
+  onTerm,
+  onAnswer,
+}: {
+  caseQuestion: Extract<Question, { itemType: "case_study" }>["caseStudy"]["questions"][number];
+  index: number;
+  total: number;
+  answer: AnswerState;
+  submitted: boolean;
+  languageMode: LanguageMode;
+  voiceEnabled: boolean;
+  focused: boolean;
+  hidden?: boolean;
+  onTerm: (term: GlossaryTerm) => void;
+  onAnswer: (answer: AnswerState) => void;
+}) {
+  const caseResult = submitted ? gradeQuestion(caseQuestion, answer) : undefined;
+  const caseScore = submitted ? scoreQuestion(caseQuestion, answer) : undefined;
+  const complete = getAnswerCompleteness(caseQuestion, answer);
+  const statusClass = submitted ? (caseResult ? "correct" : "incorrect") : complete ? "complete" : "";
+  return (
+    <section
+      className={`case-question case-active-part ${statusClass} ${focused ? "focused" : ""}`}
+      data-case-part-id={caseQuestion.id}
+      hidden={hidden}
+    >
+      <div className="case-question-heading">
+        <span className="type-pill">Part {index + 1} of {total}</span>
+        <span className="type-pill">{formatItemType(caseQuestion.itemType)}</span>
+        {submitted ? (
+          <span className={caseResult ? "type-pill" : "missed-pill"}>
+            {caseResult
+              ? "Correct"
+              : caseScore && caseScore.possible > 1
+                ? `${caseScore.earned} of ${caseScore.possible} points · Review`
+                : "Review"}
+          </span>
+        ) : (
+          <span className={complete ? "type-pill" : "missed-pill"}>{complete ? "Complete" : "Incomplete"}</span>
+        )}
+      </div>
+      <VisualStimulus visual={caseQuestion.visual} languageMode={languageMode} />
+      <div className="stem-row">
+        <BilingualText
+          pair={caseQuestion.stem}
+          mode={languageMode}
+          className="case-question-stem"
+          glossary={caseQuestion.glossary}
+          onTerm={onTerm}
+        />
+        <SpeakButton text={caseQuestion.stem.en} enabled={voiceEnabled} label={`Read case part ${index + 1}`} />
+        <ReadAllButton question={caseQuestion} enabled={voiceEnabled} />
+      </div>
+      <QuestionAnswerControl
+        question={caseQuestion}
+        answer={answer}
+        submitted={submitted}
+        languageMode={languageMode}
+        voiceEnabled={voiceEnabled}
+        onTerm={onTerm}
+        onAnswer={onAnswer}
+      />
+      {submitted && <RationalePanel question={caseQuestion} title="Part rationale" voiceEnabled={voiceEnabled} languageMode={languageMode} />}
+    </section>
   );
 }
 
@@ -3628,6 +3935,7 @@ function SummaryView({
                       onSubmit={() => undefined}
                       onToggleFlag={() => onToggleFlag(question.id)}
                       onToggleLanguageMiss={() => onToggleLanguageMiss(question.id)}
+                      caseStudyLayout="stacked"
                     />
                   </div>
                 )}
