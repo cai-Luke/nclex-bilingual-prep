@@ -59,11 +59,11 @@ type Geometry = { view: View; d: string };
 export const REGION_GEOMETRY: Record<BurnRegionKey, Geometry> = {
   head_anterior: {
     view: "anterior",
-    d: "M 238,145 C 238,136 239,130 235,123 C 224,108 218,92 218,66 C 218,34 282,34 282,66 C 282,92 276,108 265,123 C 261,130 262,136 262,145 Z",
+    d: "M 240,145 Q 237,135 231,125 Q 222,105 219,85 C 217,35 283,35 281,85 Q 278,105 269,125 Q 263,135 260,145 Z",
   },
   head_posterior: {
     view: "posterior",
-    d: "M 588,145 C 588,136 589,130 585,123 C 574,108 568,92 568,66 C 568,34 632,34 632,66 C 632,92 626,108 615,123 C 611,130 612,136 612,145 Z",
+    d: "M 590,145 Q 587,135 581,125 Q 572,105 569,85 C 567,35 633,35 631,85 Q 628,105 619,125 Q 613,135 610,145 Z",
   },
   trunk_anterior: {
     view: "anterior",
@@ -112,7 +112,7 @@ export const REGION_GEOMETRY: Record<BurnRegionKey, Geometry> = {
 };
 
 export const BODY_INK: Record<View, string> = {
-  anterior: "",
+  anterior: '<path d="M 230,125 Q 250,140 270,125" fill="none" stroke="#64748b" opacity="0.4"/>',
   posterior:
     '<path d="M 600,170 L 600,310" opacity="0.25"/>' +
     '<path d="M 550,310 Q 600,330 650,310" opacity="0.45"/>' +
