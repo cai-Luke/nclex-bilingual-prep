@@ -123,7 +123,8 @@ assert(svg.includes('data-region="arm_l_posterior" d="M 540,180'), "posterior le
 assert(svg.includes('data-region="leg_l_posterior" d="M 550,310'), "posterior left leg must render on the patient's left side");
 assert(svg.includes('M 235,145 Q 215,145 180,155'), "anterior trunk must keep a broad curved shoulder yoke");
 assert(svg.includes('M 585,145 Q 565,145 530,155'), "posterior trunk must keep a parallel curved shoulder yoke");
-assert(svg.includes('M 230,106 Q 250,128 270,106'), "anterior view must include a clipped jawline orientation cue");
+assert(!svg.includes('M 230,106 Q 250,128 270,106'), "anterior view must not include a face/chin/mouth cue");
+assert(svg.includes('M 600,170 L 600,310'), "posterior view must include a faint central spine orientation cue");
 assert(svg.includes('M 600,320 L 600,350'), "posterior view must include clipped orientation lines");
 
 for (const key of BURN_REGION_KEYS) {

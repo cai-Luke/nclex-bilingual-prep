@@ -112,8 +112,9 @@ export const REGION_GEOMETRY: Record<BurnRegionKey, Geometry> = {
 };
 
 export const BODY_INK: Record<View, string> = {
-  anterior: '<path d="M 230,106 Q 250,128 270,106" opacity="0.42"/>',
+  anterior: "",
   posterior:
+    '<path d="M 600,170 L 600,310" opacity="0.25"/>' +
     '<path d="M 550,310 Q 600,330 650,310" opacity="0.45"/>' +
     '<path d="M 600,320 L 600,350" opacity="0.5"/>',
 };
