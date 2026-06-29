@@ -66,6 +66,23 @@ Verification:
 - `npm run test-visuals` passed.
 - `npm run build` passed with the existing Vite chunk-size warning.
 
+### Case-Study Split QA Hardening (Jun 28)
+
+Completed:
+- Hardened the live case-study split layout after PR #1 and PR #1.1 without changing grading, storage, schema, or bank content.
+- Changed the aggregate case submit affordance to `Submit all parts` and added a whole-case completion indicator such as `0 of 6 parts complete`.
+- Fixed the independent-pane scrolling constraint by stretching live split grid items inside the fixed-height container and capping chart/work pane heights to the container.
+- Reset the work pane scroll position when switching active case parts; mobile collapse also scrolls the work pane into view on part switches.
+- Repositioned glossary popovers from clicked term buttons and clamped them inside the containing split pane so chart terms do not open in the work pane.
+- Added [`CLAUDE-HANDOFF-CASE-SPLIT-QA-HARDENING-2026-06-28.md`](CLAUDE-HANDOFF-CASE-SPLIT-QA-HARDENING-2026-06-28.md) with smoke notes, edge cases, and review requests.
+
+Verification:
+- `npx tsc -b --pretty false` passed.
+- Browser smoke checks covered Developer Review stacked layout, live clean staged split, absent-mapping fallback, stage visual rendering, six-part fallback case, mobile collapse, part-switch scroll reset, non-overlapping sticky actions, and chart-pane glossary popover placement.
+- `npm run validate-bank -- banks/*.json` passed.
+- `npm run test-visuals` passed.
+- `npm run build` passed with the existing Vite chunk-size warning.
+
 ### Case-Study Stage Reference Audit (Jun 28)
 
 Completed:

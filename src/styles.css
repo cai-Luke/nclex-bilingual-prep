@@ -1045,12 +1045,15 @@ h4 {
 }
 
 .split-case-card .exam-split-layout {
+  align-items: stretch;
   height: clamp(32rem, calc(100vh - 13rem), 48rem);
   overflow: hidden;
 }
 
 .split-case-card .exam-split-chart-pane,
 .split-case-card .exam-split-work-pane {
+  min-height: 0;
+  max-height: 100%;
   overflow-y: auto;
   padding-right: 0.15rem;
 }
@@ -1161,6 +1164,7 @@ h4 {
 
 .case-submit-button {
   justify-self: stretch;
+  justify-content: center;
 }
 
 .case-part-nav-controls {
@@ -1175,6 +1179,12 @@ h4 {
   font-size: 0.84rem;
   font-weight: 900;
   white-space: nowrap;
+}
+
+.case-part-nav-summary {
+  color: var(--text-muted);
+  font-size: 0.82rem;
+  font-weight: 800;
 }
 
 .case-part-nav-controls button:first-child {
