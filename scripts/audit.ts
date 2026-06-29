@@ -3,9 +3,10 @@
  *
  * Execution order:
  *   1. Tier 0: validate:bank — structural well-formedness. Short-circuits on FAIL.
- *   2. Tier 1: audit:references, audit:positions, audit:integrity — run in
- *      parallel, all failures collected into a single report. Exits non-zero
- *      if any Tier-1 check failed.
+ *   2. Tier 1: blocking standing audits — run in parallel, all failures
+ *      collected into a single report. Exits non-zero if any Tier-1 check
+ *      failed.
+ *   3. Tier 2: advisory audits — report warnings without blocking the gate.
  *
  * Wiring all checks as a single process (not separate CI steps) ensures every
  * failure is visible in one run — no first-failure masking.
@@ -17,6 +18,7 @@ import { runAuditPositions } from "./audit/audit-positions";
 import { runAuditIntegrity } from "./audit/audit-integrity";
 import { runAuditIds } from "./audit/audit-ids";
 import { runAuditNonMcqBias } from "./audit/audit-non-mcq-bias";
+import { runAuditStageRefs } from "./audit/audit-stage-refs";
 import { gateVerdict, isMechanicalBiasEnforced } from "./audit/audit-verdict";
 import type { AuditResult } from "./audit/types";
 
@@ -54,11 +56,12 @@ async function main(): Promise<number> {
   // ---------------------------------------------------------------------------
   console.log("\n── Tier 1: standing audits ──");
 
-  const [references, positions, integrity, ids, nonMcqBias] = await Promise.all([
+  const [references, positions, integrity, ids, stageRefs, nonMcqBias] = await Promise.all([
     runAuditReferences(),
     runAuditPositions(),
     runAuditIntegrity(),
     runAuditIds(),
+    runAuditStageRefs(),
     runAuditNonMcqBias(),
   ]);
 
@@ -66,9 +69,10 @@ async function main(): Promise<number> {
   for (const r of tier1Results) printResult(r);
 
   // ---------------------------------------------------------------------------
-  // Tier 2 — advisory non-MCQ bias split
+  // Tier 2 — advisory metadata and distribution checks
   // ---------------------------------------------------------------------------
-  console.log("\n── Tier 2: non-MCQ bias (advisory) ──");
+  console.log("\n── Tier 2: advisory audits ──");
+  printResult(stageRefs);
   for (const r of nonMcqBias) printResult(r);
 
   // ---------------------------------------------------------------------------
@@ -78,7 +82,7 @@ async function main(): Promise<number> {
   const blockingResults = isMechanicalBiasEnforced() && mechanicalBias
     ? [...tier1Results, mechanicalBias]
     : tier1Results;
-  const allResults = [...tier1Results, ...nonMcqBias];
+  const allResults = [...tier1Results, stageRefs, ...nonMcqBias];
   const verdict = gateVerdict(allResults, blockingResults);
 
   console.log("\n══════════════════════");
