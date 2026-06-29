@@ -134,6 +134,17 @@ type SessionState = {
 
 type CaseStudyLayoutMode = "split" | "stacked";
 
+const STANDALONE_SPLIT_VISUAL_KINDS = new Set([
+  "vitals_trend",
+  "lab_trend",
+  "mar",
+  "io_record",
+  "medication_label",
+  "device_screen",
+  "burn_map",
+  "injection_site",
+]);
+
 type Filters = {
   category: string;
   topic: string;
@@ -2315,32 +2326,13 @@ function QuestionCard({
     allowLanguageMissToggle &&
     onToggleLanguageMiss &&
     collectGlossarySources(question).length > 0;
+  const usesStandaloneVisualSplit =
+    question.itemType !== "case_study" &&
+    question.visual !== undefined &&
+    STANDALONE_SPLIT_VISUAL_KINDS.has(question.visual.kind);
 
-  return (
-    <article className={`question-card ${question.itemType === "case_study" && caseStudyLayout === "split" ? "split-case-card" : ""}`}>
-      <div className="question-meta">
-        <span className="type-pill">{formatItemType(question.itemType)}</span>
-        <span>{question.category}</span>
-        <span>{question.topic}</span>
-        <span>{question.difficulty}</span>
-        {flagged && <span className="type-pill">Flagged</span>}
-        {progress?.missed && <span className="missed-pill">Review</span>}
-        {isDueForReview(progress) && <span className="type-pill">Due</span>}
-        {!reviewMode && (
-          <button
-            className={`icon-action flag-action ${flagged ? "flagged" : ""}`}
-            type="button"
-            aria-label={flagged ? "Remove flag" : "Flag for review"}
-            title={flagged ? "Remove flag" : "Flag for review"}
-            onClick={onToggleFlag}
-          >
-            <Flag aria-hidden="true" />
-          </button>
-        )}
-      </div>
-
-      <VisualStimulus visual={question.visual} languageMode={languageMode} />
-
+  const answerBody = (
+    <>
       <div className="stem-row">
         <BilingualText
           pair={question.stem}
@@ -2421,6 +2413,45 @@ function QuestionCard({
       )}
 
       {submitted && <RationalePanel question={question} voiceEnabled={voiceEnabled} languageMode={languageMode} />}
+    </>
+  );
+
+  return (
+    <article className={`question-card ${question.itemType === "case_study" && caseStudyLayout === "split" ? "split-case-card" : ""} ${usesStandaloneVisualSplit ? "standalone-visual-card" : ""}`}>
+      <div className="question-meta">
+        <span className="type-pill">{formatItemType(question.itemType)}</span>
+        <span>{question.category}</span>
+        <span>{question.topic}</span>
+        <span>{question.difficulty}</span>
+        {flagged && <span className="type-pill">Flagged</span>}
+        {progress?.missed && <span className="missed-pill">Review</span>}
+        {isDueForReview(progress) && <span className="type-pill">Due</span>}
+        {!reviewMode && (
+          <button
+            className={`icon-action flag-action ${flagged ? "flagged" : ""}`}
+            type="button"
+            aria-label={flagged ? "Remove flag" : "Flag for review"}
+            title={flagged ? "Remove flag" : "Flag for review"}
+            onClick={onToggleFlag}
+          >
+            <Flag aria-hidden="true" />
+          </button>
+        )}
+      </div>
+
+      {usesStandaloneVisualSplit ? (
+        <div className="exam-split-layout standalone-visual-layout">
+          <aside className="standalone-visual-pane" aria-label="Clinical visual">
+            <VisualStimulus visual={question.visual} languageMode={languageMode} />
+          </aside>
+          <div className="standalone-work-pane">{answerBody}</div>
+        </div>
+      ) : (
+        <>
+          <VisualStimulus visual={question.visual} languageMode={languageMode} />
+          {answerBody}
+        </>
+      )}
     </article>
   );
 }
