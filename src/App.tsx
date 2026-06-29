@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
 import {
   BarChart3,
   BookOpen,
@@ -133,6 +133,11 @@ type SessionState = {
 };
 
 type CaseStudyLayoutMode = "split" | "stacked";
+type TermSelectHandler = (term: GlossaryTerm, anchor?: HTMLElement) => void;
+type ActiveTermPopover = {
+  term: GlossaryTerm;
+  style?: CSSProperties;
+};
 
 const STANDALONE_SPLIT_VISUAL_KINDS = new Set([
   "vitals_trend",
@@ -2316,7 +2321,39 @@ function QuestionCard({
   focusedPartId?: string;
   caseStudyLayout?: CaseStudyLayoutMode;
 }) {
-  const [activeTerm, setActiveTerm] = useState<GlossaryTerm | null>(null);
+  const cardRef = useRef<HTMLElement | null>(null);
+  const [activeTerm, setActiveTerm] = useState<ActiveTermPopover | null>(null);
+  const handleTermSelect = useCallback<TermSelectHandler>((term, anchor) => {
+    const card = cardRef.current;
+    if (!card || !anchor) {
+      setActiveTerm({ term });
+      return;
+    }
+
+    const cardRect = card.getBoundingClientRect();
+    const anchorRect = anchor.getBoundingClientRect();
+    const containingPane = anchor.closest(
+      ".exam-split-chart-pane, .exam-split-work-pane, .standalone-visual-pane, .standalone-work-pane",
+    );
+    const boundsRect = containingPane instanceof HTMLElement ? containingPane.getBoundingClientRect() : cardRect;
+    const minLeft = boundsRect.left - cardRect.left + 16;
+    const maxRight = boundsRect.right - cardRect.left - 16;
+    const popoverWidth = Math.min(336, Math.max(220, maxRight - minLeft));
+    const left = Math.min(
+      Math.max(anchorRect.left - cardRect.left, minLeft),
+      Math.max(minLeft, maxRight - popoverWidth),
+    );
+    const top = Math.max(16, anchorRect.bottom - cardRect.top + 8);
+    setActiveTerm({
+      term,
+      style: {
+        top,
+        left,
+        right: "auto",
+        width: popoverWidth,
+      },
+    });
+  }, []);
   const readyToSubmit = getAnswerCompleteness(question, answer);
   const score = submitted ? scoreQuestion(question, answer) : undefined;
   const showsPartialCredit = !reviewMode && score !== undefined && score.possible > 1;
@@ -2339,21 +2376,21 @@ function QuestionCard({
           mode={languageMode}
           className="stem"
           glossary={question.glossary}
-          onTerm={setActiveTerm}
+          onTerm={handleTermSelect}
         />
         <SpeakButton text={question.stem.en} enabled={voiceEnabled} label="Read stem" />
         <ReadAllButton question={question} enabled={voiceEnabled} />
       </div>
 
       {activeTerm && (
-        <div className="term-popover">
+        <div className="term-popover" style={activeTerm.style}>
           <button type="button" onClick={() => setActiveTerm(null)} aria-label="Close term">
             x
           </button>
           <strong>
-            {activeTerm.termEn} · {activeTerm.termZh}
+            {activeTerm.term.termEn} · {activeTerm.term.termZh}
           </strong>
-          <p>{activeTerm.defZh}</p>
+          <p>{activeTerm.term.defZh}</p>
         </div>
       )}
 
@@ -2363,7 +2400,7 @@ function QuestionCard({
         submitted={submitted}
         languageMode={languageMode}
         voiceEnabled={voiceEnabled}
-        onTerm={setActiveTerm}
+        onTerm={handleTermSelect}
         onAnswer={onAnswer}
         onSubmit={onSubmit}
         readyToSubmit={readyToSubmit}
@@ -2417,7 +2454,7 @@ function QuestionCard({
   );
 
   return (
-    <article className={`question-card ${question.itemType === "case_study" && caseStudyLayout === "split" ? "split-case-card" : ""} ${usesStandaloneVisualSplit ? "standalone-visual-card" : ""}`}>
+    <article ref={cardRef} className={`question-card ${question.itemType === "case_study" && caseStudyLayout === "split" ? "split-case-card" : ""} ${usesStandaloneVisualSplit ? "standalone-visual-card" : ""}`}>
       <div className="question-meta">
         <span className="type-pill">{formatItemType(question.itemType)}</span>
         <span>{question.category}</span>
@@ -2475,7 +2512,7 @@ function QuestionAnswerControl({
   submitted: boolean;
   languageMode: LanguageMode;
   voiceEnabled: boolean;
-  onTerm: (term: GlossaryTerm) => void;
+  onTerm: TermSelectHandler;
   onAnswer: (answer: AnswerState) => void;
   onSubmit?: () => void;
   readyToSubmit?: boolean;
@@ -2587,7 +2624,7 @@ function BowtieControl({
   answer: AnswerState;
   submitted: boolean;
   languageMode: LanguageMode;
-  onTerm: (term: GlossaryTerm) => void;
+  onTerm: TermSelectHandler;
   onAnswer: (answer: AnswerState) => void;
 }) {
   const zoneConfig = [
@@ -2805,7 +2842,7 @@ function OptionAnswerControl({
   submitted: boolean;
   languageMode: LanguageMode;
   voiceEnabled: boolean;
-  onTerm: (term: GlossaryTerm) => void;
+  onTerm: TermSelectHandler;
   onAnswer: (answer: AnswerState) => void;
 }) {
   const selectedIds = answer.optionIds ?? (question.itemType === "ordered_response" ? question.options.map((option) => option.id) : []);
@@ -2947,7 +2984,7 @@ function MatrixControl({
   answer: AnswerState;
   submitted: boolean;
   languageMode: LanguageMode;
-  onTerm: (term: GlossaryTerm) => void;
+  onTerm: TermSelectHandler;
   onAnswer: (answer: AnswerState) => void;
 }) {
   const matrixAnswer = answer.matrix ?? {};
@@ -3125,7 +3162,7 @@ function CaseStudyControl({
   submitted: boolean;
   languageMode: LanguageMode;
   voiceEnabled: boolean;
-  onTerm: (term: GlossaryTerm) => void;
+  onTerm: TermSelectHandler;
   onAnswer: (answer: AnswerState) => void;
   onSubmit?: () => void;
   readyToSubmit?: boolean;
@@ -3135,6 +3172,7 @@ function CaseStudyControl({
 }) {
   const caseAnswers = answer.caseStudy ?? {};
   const caseQuestions = question.caseStudy.questions;
+  const workPaneRef = useRef<HTMLDivElement | null>(null);
   const getDefaultActivePartId = () => {
     if (focusedPartId && caseQuestions.some((caseQuestion) => caseQuestion.id === focusedPartId)) {
       return focusedPartId;
@@ -3149,6 +3187,7 @@ function CaseStudyControl({
     return caseQuestions[0]?.id ?? "";
   };
   const [activePartId, setActivePartId] = useState(getDefaultActivePartId);
+  const previousActivePartId = useRef(activePartId);
   useEffect(() => {
     if (focusedPartId && caseQuestions.some((caseQuestion) => caseQuestion.id === focusedPartId)) {
       setActivePartId(focusedPartId);
@@ -3158,6 +3197,16 @@ function CaseStudyControl({
       setActivePartId(caseQuestions[0]?.id ?? "");
     }
   }, [activePartId, caseQuestions, focusedPartId]);
+  useEffect(() => {
+    if (previousActivePartId.current === activePartId) return;
+    previousActivePartId.current = activePartId;
+    const workPane = workPaneRef.current;
+    if (!workPane) return;
+    workPane.scrollTo({ top: 0, behavior: "auto" });
+    if (window.matchMedia("(max-width: 820px)").matches) {
+      workPane.scrollIntoView({ block: "start", behavior: "auto" });
+    }
+  }, [activePartId]);
 
   const activeIndex = Math.max(
     0,
@@ -3193,7 +3242,7 @@ function CaseStudyControl({
         onTerm={onTerm}
       />
 
-      <div className="exam-split-work-pane">
+      <div className="exam-split-work-pane" ref={workPaneRef}>
         <div className="case-work-toolbar">
           <CasePartNavigator
             question={question}
@@ -3203,9 +3252,15 @@ function CaseStudyControl({
             onSelect={setActivePartId}
           />
           {showTopLevelSubmit && onSubmit && (
-            <button className="primary-action submit-button case-submit-button" type="button" disabled={!readyToSubmit} onClick={onSubmit}>
+            <button
+              className="primary-action submit-button case-submit-button"
+              type="button"
+              disabled={!readyToSubmit}
+              title={readyToSubmit ? "Submit all parts" : `Complete all ${caseQuestions.length} parts before submitting`}
+              onClick={onSubmit}
+            >
               <CheckCircle2 aria-hidden="true" />
-              <span>Submit answer</span>
+              <span>Submit all parts</span>
             </button>
           )}
         </div>
@@ -3246,7 +3301,7 @@ function CaseStudyStackedLayout({
   languageMode: LanguageMode;
   voiceEnabled: boolean;
   focusedPartId?: string;
-  onTerm: (term: GlossaryTerm) => void;
+  onTerm: TermSelectHandler;
   onCaseAnswer: (questionId: string, answer: AnswerState) => void;
 }) {
   return (
@@ -3287,7 +3342,7 @@ function CaseChartPane({
   question: Extract<Question, { itemType: "case_study" }>;
   stages: Extract<Question, { itemType: "case_study" }>["caseStudy"]["stages"];
   languageMode: LanguageMode;
-  onTerm: (term: GlossaryTerm) => void;
+  onTerm: TermSelectHandler;
 }) {
   return (
     <aside className="exam-split-chart-pane" aria-label="Client chart">
@@ -3382,6 +3437,9 @@ function CasePartNavigator({
   );
   const previousPart = question.caseStudy.questions[activeIndex - 1];
   const nextPart = question.caseStudy.questions[activeIndex + 1];
+  const completeCount = question.caseStudy.questions.filter((caseQuestion) =>
+    getAnswerCompleteness(caseQuestion, caseAnswers[caseQuestion.id] ?? getInitialAnswer(caseQuestion)),
+  ).length;
   return (
     <nav className="case-part-nav" aria-label="Case study parts">
       <div className="case-part-nav-controls">
@@ -3396,6 +3454,9 @@ function CasePartNavigator({
           <span>Next</span>
           <ChevronRight aria-hidden="true" />
         </button>
+      </div>
+      <div className="case-part-nav-summary" aria-live="polite">
+        {completeCount} of {question.caseStudy.questions.length} parts complete
       </div>
       <div className="case-part-chip-list">
         {question.caseStudy.questions.map((caseQuestion, index) => {
@@ -3443,7 +3504,7 @@ function CaseActivePart({
   voiceEnabled: boolean;
   focused: boolean;
   hidden?: boolean;
-  onTerm: (term: GlossaryTerm) => void;
+  onTerm: TermSelectHandler;
   onAnswer: (answer: AnswerState) => void;
 }) {
   const caseResult = submitted ? gradeQuestion(caseQuestion, answer) : undefined;
@@ -3506,7 +3567,7 @@ function CaseExhibit({
   exhibit: CaseStudyExhibit;
   languageMode: LanguageMode;
   glossary: GlossaryTerm[];
-  onTerm: (term: GlossaryTerm) => void;
+  onTerm: TermSelectHandler;
 }) {
   return (
     <section className="case-exhibit">
@@ -3528,7 +3589,7 @@ function BilingualText({
   mode: LanguageMode;
   className?: string;
   glossary?: GlossaryTerm[];
-  onTerm?: (term: GlossaryTerm) => void;
+  onTerm?: TermSelectHandler;
 }) {
   const [revealed, setRevealed] = useState(false);
   const showZh = mode === "always" || (mode === "on-tap" && revealed);
@@ -3555,7 +3616,7 @@ function GlossaryText({
 }: {
   text: string;
   glossary: GlossaryTerm[];
-  onTerm?: (term: GlossaryTerm) => void;
+  onTerm?: TermSelectHandler;
 }) {
   if (!onTerm || glossary.length === 0) return <>{text}</>;
   const terms = glossary
@@ -3572,7 +3633,7 @@ function GlossaryText({
         return (
           <button className="term-button" type="button" key={`${part}-${index}`} onClick={(event) => {
             event.stopPropagation();
-            onTerm(term);
+            onTerm(term, event.currentTarget);
           }}>
             {part}
           </button>
