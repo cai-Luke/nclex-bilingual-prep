@@ -137,8 +137,6 @@ type CaseStudyLayoutMode = "split" | "stacked";
 const STANDALONE_SPLIT_VISUAL_KINDS = new Set([
   "vitals_trend",
   "lab_trend",
-  "mar",
-  "io_record",
   "medication_label",
   "device_screen",
   "burn_map",
