@@ -3191,10 +3191,14 @@ function CaseStudyControl({
       setActivePartId(focusedPartId);
       return;
     }
-    if (!caseQuestions.some((caseQuestion) => caseQuestion.id === activePartId)) {
-      setActivePartId(caseQuestions[0]?.id ?? "");
-    }
-  }, [activePartId, caseQuestions, focusedPartId]);
+
+    setActivePartId((current) => {
+      if (caseQuestions.some((caseQuestion) => caseQuestion.id === current)) {
+        return current;
+      }
+      return caseQuestions[0]?.id ?? "";
+    });
+  }, [focusedPartId, caseQuestions]);
   useEffect(() => {
     if (previousActivePartId.current === activePartId) return;
     previousActivePartId.current = activePartId;
@@ -3258,7 +3262,7 @@ function CaseStudyControl({
               onClick={onSubmit}
             >
               <CheckCircle2 aria-hidden="true" />
-              <span>Submit all parts</span>
+              <span>Submit case study</span>
             </button>
           )}
         </div>
