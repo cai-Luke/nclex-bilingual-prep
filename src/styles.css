@@ -271,6 +271,10 @@ main {
   padding: clamp(1rem, 4vw, 2rem) 0;
 }
 
+.app-shell.wide-main main {
+  width: min(1400px, calc(100% - 2rem));
+}
+
 .home-grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(15rem, 21rem);
@@ -1196,18 +1200,28 @@ h4 {
   min-width: 0;
 }
 
-.split-case-card .exam-split-layout {
-  align-items: stretch;
-  height: clamp(32rem, calc(100vh - 13rem), 48rem);
-  overflow: hidden;
+.exam-split-work-pane {
+  scroll-margin-top: 5.25rem;
 }
 
-.split-case-card .exam-split-chart-pane,
-.split-case-card .exam-split-work-pane {
-  min-height: 0;
-  max-height: 100%;
+.split-case-card .exam-split-layout {
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: auto auto;
+  align-items: start;
+  height: auto;
+  overflow: visible;
+}
+
+.split-case-card .exam-split-chart-pane {
+  max-height: 40vh;
   overflow-y: auto;
   padding-right: 0.15rem;
+}
+
+.split-case-card .exam-split-work-pane {
+  max-height: none;
+  overflow-y: visible;
+  padding-right: 0;
 }
 
 .exam-split-chart-pane .case-exhibits {
@@ -1310,7 +1324,7 @@ h4 {
 
 .case-work-toolbar {
   position: sticky;
-  top: 0;
+  top: 5.25rem;
   z-index: 2;
   display: grid;
   gap: 0.65rem;
@@ -1735,7 +1749,8 @@ h4 {
   .standalone-visual-pane .rhythm-strip-svg.vis-medication_label,
   .standalone-visual-pane .rhythm-strip-svg.vis-device_screen,
   .standalone-visual-pane .rhythm-strip-svg.vis-burn_map,
-  .standalone-visual-pane .rhythm-strip-svg.vis-injection_site {
+  .standalone-visual-pane .rhythm-strip-svg.vis-injection_site,
+  .standalone-visual-pane .rhythm-strip-svg.vis-io_record {
     overflow-x: auto;
   }
 }

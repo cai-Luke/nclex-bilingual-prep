@@ -8,14 +8,15 @@ import type {
   QuestionRecord,
   Settings,
   StoredSessionSnapshot,
+  TranslationRevealEvent,
 } from "./types";
 export { isDueForReview } from "./reviewSchedule";
 
 const DB_NAME = "nclex-bilingual-prep";
-const DB_VERSION = 3;
+const DB_VERSION = 4;
 
 export const defaultSettings: Settings = {
-  languageMode: "always",
+  languageMode: "on-tap",
   defaultMode: "study",
   voiceEnabled: false,
   themeMode: "light",
@@ -55,6 +56,10 @@ interface PrepDb extends DBSchema {
     key: string;
     value: LanguageMiss;
   };
+  translationRevealEvents: {
+    key: string;
+    value: TranslationRevealEvent;
+  };
 }
 
 let dbPromise: Promise<IDBPDatabase<PrepDb>> | undefined;
@@ -65,6 +70,7 @@ const memoryFlags: Record<string, QuestionFlag> = {};
 const memoryFlashcardProgress: Record<string, FlashcardProgress> = {};
 const memoryLanguageMisses: Record<string, LanguageMiss> = {};
 const memoryAnswerEvents: AnswerEvent[] = [];
+const memoryTranslationRevealEvents: TranslationRevealEvent[] = [];
 
 const getDb = () => {
   if (typeof indexedDB === "undefined") {
@@ -79,6 +85,7 @@ const getDb = () => {
       if (!db.objectStoreNames.contains("answerEvents")) db.createObjectStore("answerEvents", { keyPath: "id" });
       if (!db.objectStoreNames.contains("flashcardProgress")) db.createObjectStore("flashcardProgress", { keyPath: "termId" });
       if (!db.objectStoreNames.contains("languageMisses")) db.createObjectStore("languageMisses", { keyPath: "questionId" });
+      if (!db.objectStoreNames.contains("translationRevealEvents")) db.createObjectStore("translationRevealEvents", { keyPath: "id" });
     },
   });
   return dbPromise;
@@ -295,6 +302,35 @@ export const loadAnswerEvents = async (): Promise<AnswerEvent[]> => {
     return records.sort((left, right) => left.answeredAt.localeCompare(right.answeredAt));
   } catch {
     return memoryAnswerEvents;
+  }
+};
+
+export const recordTranslationReveal = async (
+  event: Omit<TranslationRevealEvent, "id" | "revealedAt">,
+): Promise<TranslationRevealEvent> => {
+  const now = new Date();
+  const full: TranslationRevealEvent = {
+    ...event,
+    id: `${event.questionId}-${now.getTime()}-${Math.random().toString(36).slice(2, 8)}`,
+    revealedAt: now.toISOString(),
+  };
+  memoryTranslationRevealEvents.push(full);
+  try {
+    const db = await getDb();
+    await db.put("translationRevealEvents", full);
+  } catch {
+    // In-memory fallback already captured the event.
+  }
+  return full;
+};
+
+export const loadTranslationRevealEvents = async (): Promise<TranslationRevealEvent[]> => {
+  try {
+    const db = await getDb();
+    const records = await db.getAll("translationRevealEvents");
+    return records.sort((left, right) => left.revealedAt.localeCompare(right.revealedAt));
+  } catch {
+    return memoryTranslationRevealEvents;
   }
 };
 

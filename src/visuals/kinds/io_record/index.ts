@@ -233,8 +233,8 @@ export const renderIoRecordSvg = (spec: IoRecordSpec): string => {
     },
   ];
 
-  const rowHeight = 28;
-  const headerHeight = 32;
+  const rowHeight = 24;
+  const headerHeight = 28;
   const titleHeight = 32;
   const totalHeight = titleHeight + headerHeight + rows.length * rowHeight;
   const title = spec.periodLabel?.en ?? "Intake & Output Record";
@@ -245,7 +245,7 @@ export const renderIoRecordSvg = (spec: IoRecordSpec): string => {
       { key: "vol", label: "Volume (mL)", widthFr: 1.4, align: "right" },
     ],
     rows,
-    width: 600,
+    width: 420,
     rowHeight,
     headerHeight,
   });
@@ -253,7 +253,7 @@ export const renderIoRecordSvg = (spec: IoRecordSpec): string => {
     spec.caption?.en ?? spec.periodLabel?.en ?? "Intake and Output Record",
   );
 
-  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 ${fmt(totalHeight)}" role="img" aria-label="${ariaLabel}" data-kind="io_record">\n${table}\n</svg>`;
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 ${fmt(totalHeight)}" role="img" aria-label="${ariaLabel}" data-kind="io_record">\n${table}\n</svg>`;
 };
 
 const fixtures: VisualKindModule<IoRecordSpec>["fixtures"] = {

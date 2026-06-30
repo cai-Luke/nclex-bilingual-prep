@@ -325,6 +325,31 @@ export type AnswerEvent = {
   answeredAt: string;
 };
 
+export type RevealBlock =
+  | "stem"
+  | "choices"
+  | "exhibit"
+  | "case_stage"
+  | "rationale"
+  | "glossary"
+  | "other";
+
+export type TranslationRevealEvent = {
+  id: string;
+  sessionId: string;
+  questionId: string;
+  partId?: string;
+  block: RevealBlock;
+  itemType: ItemType;
+  category: Category;
+  topic: string;
+  revealedAt: string;
+  elapsedMsOnQuestion: number;
+  answeredBeforeReveal: boolean;
+  submittedBeforeReveal: boolean;
+  revealCountForQuestion: number;
+};
+
 export type FlashcardProgress = {
   termId: string;
   seen: number;

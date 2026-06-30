@@ -1,4 +1,15 @@
-import { useCallback, useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+  type CSSProperties,
+  type MouseEvent,
+  type MutableRefObject,
+} from "react";
 import {
   BarChart3,
   BookOpen,
@@ -55,10 +66,12 @@ import {
   loadLanguageMisses,
   loadProgress,
   loadSettings,
+  loadTranslationRevealEvents,
   loadUploadedRecords,
   recordLanguageMiss,
   recordFlashcardReview,
   recordAnswer,
+  recordTranslationReveal,
   saveActiveSession,
   saveSettings,
   saveQuestionFlag,
@@ -73,16 +86,18 @@ import {
 import { buildWeightedSession } from "./sessionSampler";
 import { VisualStimulus } from "./visuals";
 import { mulberry32 } from "./visuals/primitives/prng";
-import { getVisibleCaseStages, usesStandaloneVisualSplit } from "./examLayout";
+import { STANDALONE_SPLIT_VISUAL_KINDS, getVisibleCaseStages, usesStandaloneVisualSplit } from "./examLayout";
 import type {
   AdaptiveSessionSnapshot,
   AnswerEvent,
+  Category,
   CaseStudyExhibit,
   Difficulty,
   FlashcardProgress,
   GlossaryTerm,
   ImportSummary,
   ItemScore,
+  ItemType,
   LanguageMiss,
   LanguageMode,
   Option,
@@ -92,6 +107,7 @@ import type {
   QuestionProgress,
   QuestionRecord,
   QuestionVisual,
+  RevealBlock,
   SessionMode,
   SessionOrder,
   SessionPhase,
@@ -101,6 +117,7 @@ import type {
   StoredSessionSnapshot,
   TextSizeMode,
   ThemeMode,
+  TranslationRevealEvent,
 } from "./types";
 
 type View =
@@ -132,6 +149,40 @@ type SessionState = {
   startedAt: string;
   completed?: boolean;
   adaptive?: AdaptiveSessionSnapshot;
+};
+
+type RevealTrackingContextValue = {
+  sessionId: string;
+  questionId: string;
+  partId?: string;
+  itemType: ItemType;
+  category: Category;
+  topic: string;
+  submitted: boolean;
+  answeredBeforeReveal: boolean;
+  questionLoadedAtRef: MutableRefObject<number>;
+  revealCountRef: MutableRefObject<number>;
+  recordEvent: (event: Omit<TranslationRevealEvent, "id" | "revealedAt">) => void;
+};
+
+const RevealTrackingContext = createContext<RevealTrackingContextValue | null>(null);
+
+const recordRevealFromContext = (ctx: RevealTrackingContextValue | null, block: RevealBlock) => {
+  if (!ctx) return;
+  ctx.revealCountRef.current += 1;
+  ctx.recordEvent({
+    sessionId: ctx.sessionId,
+    questionId: ctx.questionId,
+    partId: ctx.partId,
+    block,
+    itemType: ctx.itemType,
+    category: ctx.category,
+    topic: ctx.topic,
+    elapsedMsOnQuestion: Date.now() - ctx.questionLoadedAtRef.current,
+    answeredBeforeReveal: ctx.answeredBeforeReveal,
+    submittedBeforeReveal: ctx.submitted,
+    revealCountForQuestion: ctx.revealCountRef.current,
+  });
 };
 
 type CaseStudyLayoutMode = "split" | "stacked";
@@ -215,6 +266,7 @@ export default function App() {
   const [flags, setFlags] = useState<Record<string, QuestionFlag>>({});
   const [languageMisses, setLanguageMisses] = useState<Record<string, LanguageMiss>>({});
   const [answerEvents, setAnswerEvents] = useState<AnswerEvent[]>([]);
+  const [, setTranslationRevealEvents] = useState<TranslationRevealEvent[]>([]);
   const [flashcardProgress, setFlashcardProgress] = useState<Record<string, FlashcardProgress>>({});
   const [settings, setSettings] = useState<Settings>(() => loadSettings());
   const [view, setView] = useState<View>(devStartup.openConsole ? "review" : "home");
@@ -240,14 +292,24 @@ export default function App() {
       loadFlags(),
       loadLanguageMisses(),
       loadAnswerEvents(),
+      loadTranslationRevealEvents(),
       loadFlashcardProgress(),
     ]).then(
-      ([nextUploadedRecords, nextProgress, nextFlags, nextLanguageMisses, nextAnswerEvents, nextFlashcardProgress]) => {
+      ([
+        nextUploadedRecords,
+        nextProgress,
+        nextFlags,
+        nextLanguageMisses,
+        nextAnswerEvents,
+        nextTranslationRevealEvents,
+        nextFlashcardProgress,
+      ]) => {
         setUploadedRecords(nextUploadedRecords);
         setProgress(nextProgress);
         setFlags(nextFlags);
         setLanguageMisses(nextLanguageMisses);
         setAnswerEvents(nextAnswerEvents);
+        setTranslationRevealEvents(nextTranslationRevealEvents);
         setFlashcardProgress(nextFlashcardProgress);
         setUploadedLoaded(true);
       },
@@ -590,6 +652,15 @@ export default function App() {
     });
   };
 
+  const recordTranslationRevealEvent = useCallback(
+    (event: Omit<TranslationRevealEvent, "id" | "revealedAt">) => {
+      void recordTranslationReveal(event).then(async () => {
+        setTranslationRevealEvents(await loadTranslationRevealEvents());
+      });
+    },
+    [],
+  );
+
   const reviewFlashcard = async (termId: string, remembered: boolean) => {
     const next = await recordFlashcardReview(termId, remembered);
     setFlashcardProgress((current) => ({ ...current, [termId]: next }));
@@ -621,9 +692,10 @@ export default function App() {
   const activeSession = session && !session.completed ? session : null;
   const relatedPracticePool = useMemo(() => buildRelatedPracticePool(session, allRecords, progress), [session, allRecords, progress]);
   const sessionReturnLabel = sessionReturnView === "library" ? "Library" : "Home";
+  const isWidePage = view === "session" || view === "previewLab";
 
   return (
-    <div className={`app-shell ${view === "session" ? "session-active" : ""}`}>
+    <div className={`app-shell ${view === "session" ? "session-active" : ""} ${isWidePage ? "wide-main" : ""}`}>
       <header className="app-header">
         <button className="brand" type="button" onClick={() => setView("home")}>
           <img className="brand-mark" src={APP_ICON_SRC} alt="" aria-hidden="true" />
@@ -811,6 +883,7 @@ export default function App() {
             onToggleFlag={toggleFlag}
             languageMisses={languageMisses}
             onToggleLanguageMiss={toggleLanguageMiss}
+            onTranslationReveal={recordTranslationRevealEvent}
             onExit={() => setView(sessionReturnView)}
             exitLabel={sessionReturnLabel}
           />
@@ -1745,21 +1818,13 @@ type PreviewBucket = {
   matches: (question: Question) => boolean;
 };
 
-const previewSplitKinds: QuestionVisual["kind"][] = [
-  "vitals_trend",
-  "lab_trend",
-  "medication_label",
-  "device_screen",
-  "burn_map",
-  "injection_site",
-];
+const previewSplitKinds: QuestionVisual["kind"][] = Array.from(STANDALONE_SPLIT_VISUAL_KINDS);
 
 const previewFullWidthKinds: QuestionVisual["kind"][] = [
   "rhythm_strip",
   "capnography",
   "fetal_monitoring",
   "mar",
-  "io_record",
 ];
 
 const previewBuckets: PreviewBucket[] = [
@@ -2489,6 +2554,7 @@ function SessionView({
   onLanguageModeChange,
   onToggleFlag,
   onToggleLanguageMiss,
+  onTranslationReveal,
   onExit,
   exitLabel,
 }: {
@@ -2506,6 +2572,7 @@ function SessionView({
   onLanguageModeChange: (mode: LanguageMode) => void;
   onToggleFlag: (questionId: string) => void;
   onToggleLanguageMiss: (questionId: string) => void;
+  onTranslationReveal: (event: Omit<TranslationRevealEvent, "id" | "revealedAt">) => void;
   onExit: () => void;
   exitLabel: string;
 }) {
@@ -2595,6 +2662,8 @@ function SessionView({
         onSubmit={onSubmit}
         onToggleFlag={() => onToggleFlag(question.id)}
         onToggleLanguageMiss={() => onToggleLanguageMiss(question.id)}
+        sessionId={session.mode === "study" ? session.id : undefined}
+        onTranslationReveal={session.mode === "study" ? onTranslationReveal : undefined}
       />
 
       <div className="session-actions">
@@ -2645,6 +2714,8 @@ function QuestionCard({
   onSubmit,
   onToggleFlag,
   onToggleLanguageMiss,
+  sessionId,
+  onTranslationReveal,
   reviewMode = false,
   focusedPartId,
   caseStudyLayout = "split",
@@ -2668,6 +2739,8 @@ function QuestionCard({
   onSubmit: () => void;
   onToggleFlag: () => void;
   onToggleLanguageMiss?: () => void;
+  sessionId?: string;
+  onTranslationReveal?: (event: Omit<TranslationRevealEvent, "id" | "revealedAt">) => void;
   reviewMode?: boolean;
   focusedPartId?: string;
   caseStudyLayout?: CaseStudyLayoutMode;
@@ -2679,6 +2752,8 @@ function QuestionCard({
 }) {
   const cardRef = useRef<HTMLElement | null>(null);
   const [activeTerm, setActiveTerm] = useState<ActiveTermPopover | null>(null);
+  const questionLoadedAtRef = useRef(Date.now());
+  const revealCountRef = useRef(0);
   const handleTermSelect = useCallback<TermSelectHandler>((term, anchor) => {
     const card = cardRef.current;
     if (!card || !anchor) {
@@ -2721,6 +2796,34 @@ function QuestionCard({
     collectGlossarySources(question).length > 0;
   const showsStandaloneVisualSplit =
     standaloneVisualLayout !== "stacked" && usesStandaloneVisualSplit(question);
+  useEffect(() => {
+    questionLoadedAtRef.current = Date.now();
+    revealCountRef.current = 0;
+  }, [question.id]);
+  const revealTrackingContext = useMemo<RevealTrackingContextValue | null>(() => {
+    if (!sessionId || !onTranslationReveal) return null;
+    return {
+      sessionId,
+      questionId: question.id,
+      itemType: question.itemType,
+      category: question.category,
+      topic: question.topic,
+      submitted,
+      answeredBeforeReveal: readyToSubmit,
+      questionLoadedAtRef,
+      revealCountRef,
+      recordEvent: onTranslationReveal,
+    };
+  }, [
+    sessionId,
+    onTranslationReveal,
+    question.id,
+    question.itemType,
+    question.category,
+    question.topic,
+    submitted,
+    readyToSubmit,
+  ]);
 
   const answerBody = (
     <>
@@ -2728,6 +2831,7 @@ function QuestionCard({
         <BilingualText
           pair={question.stem}
           mode={languageMode}
+          block="stem"
           className="stem"
           glossary={question.glossary}
           onTerm={handleTermSelect}
@@ -2809,6 +2913,11 @@ function QuestionCard({
       {submitted && <RationalePanel question={question} voiceEnabled={voiceEnabled} languageMode={languageMode} />}
     </>
   );
+  const trackedAnswerBody = revealTrackingContext ? (
+    <RevealTrackingContext.Provider value={revealTrackingContext}>{answerBody}</RevealTrackingContext.Provider>
+  ) : (
+    answerBody
+  );
 
   return (
     <article ref={cardRef} className={`question-card ${question.itemType === "case_study" && caseStudyLayout === "split" ? "split-case-card" : ""} ${showsStandaloneVisualSplit ? "standalone-visual-card" : ""}`}>
@@ -2838,12 +2947,12 @@ function QuestionCard({
           <aside className="standalone-visual-pane" aria-label="Clinical visual">
             <VisualStimulus visual={question.visual} languageMode={languageMode} />
           </aside>
-          <div className="standalone-work-pane">{answerBody}</div>
+          <div className="standalone-work-pane">{trackedAnswerBody}</div>
         </div>
       ) : (
         <>
           <VisualStimulus visual={question.visual} languageMode={languageMode} />
-          {answerBody}
+          {trackedAnswerBody}
         </>
       )}
     </article>
@@ -3034,7 +3143,7 @@ function BowtieControl({
         return (
           <section className={`bowtie-zone bowtie-${name}`} key={name}>
             <div className="bowtie-zone-heading">
-              <BilingualText pair={prompt} mode={languageMode} glossary={question.glossary} onTerm={onTerm} />
+              <BilingualText pair={prompt} mode={languageMode} block="choices" glossary={question.glossary} onTerm={onTerm} />
             </div>
             <div className="bowtie-slots">
               {Array.from({ length: targetCount }, (_, slotIndex) => {
@@ -3057,7 +3166,14 @@ function BowtieControl({
                   >
                     <span className="bowtie-slot-number">{slotIndex + 1}</span>
                     {token ? (
-                      <BilingualText pair={token} mode={languageMode} glossary={question.glossary} onTerm={onTerm} />
+                      <BilingualText
+                        pair={token}
+                        mode={languageMode}
+                        block="choices"
+                        glossary={question.glossary}
+                        onTerm={onTerm}
+                        revealOnEnglishClick={false}
+                      />
                     ) : (
                       <span className="bowtie-empty">Choose a token</span>
                     )}
@@ -3078,7 +3194,14 @@ function BowtieControl({
                     aria-label={`${token.en}${selected ? ", placed" : ""}`}
                     onClick={() => placeToken(token.id)}
                   >
-                    <BilingualText pair={token} mode={languageMode} glossary={question.glossary} onTerm={onTerm} />
+                    <BilingualText
+                      pair={token}
+                      mode={languageMode}
+                      block="choices"
+                      glossary={question.glossary}
+                      onTerm={onTerm}
+                      revealOnEnglishClick={false}
+                    />
                   </button>
                 );
               })}
@@ -3092,6 +3215,7 @@ function BowtieControl({
                     <BilingualText
                       pair={token}
                       mode={languageMode}
+                      block="rationale"
                       glossary={question.glossary}
                       onTerm={onTerm}
                       className="bowtie-key-token"
@@ -3121,9 +3245,17 @@ function HighlightControl({
   onAnswer: (answer: AnswerState) => void;
 }) {
   const [revealed, setRevealed] = useState(false);
+  const revealTracking = useContext(RevealTrackingContext);
   const selectedIds = answer.segments ?? [];
   const correctIds = new Set(question.highlight.correct);
-  const showZh = languageMode === "always" || (languageMode === "on-tap" && revealed);
+  const hasZh = question.highlight.segments.some((segment) => (segment.zh ?? "").trim().length > 0);
+  const showZh = hasZh && (languageMode === "always" || (languageMode === "on-tap" && revealed));
+  const handleReveal = (event: MouseEvent<HTMLButtonElement>) => {
+    event.stopPropagation();
+    if (revealed || languageMode !== "on-tap" || !hasZh) return;
+    setRevealed(true);
+    recordRevealFromContext(revealTracking, "choices");
+  };
 
   const toggleSegment = (segmentId: string) => {
     if (submitted) return;
@@ -3177,8 +3309,8 @@ function HighlightControl({
   return (
     <div className="highlight-panel">
       {renderLine("en")}
-      {languageMode === "on-tap" && !revealed && (
-        <button className="inline-reveal" type="button" onClick={() => setRevealed(true)}>
+      {languageMode === "on-tap" && !revealed && hasZh && (
+        <button className="inline-reveal" type="button" onClick={handleReveal}>
           需要中文
         </button>
       )}
@@ -3249,7 +3381,14 @@ function OptionAnswerControl({
           return (
             <div className={`ordered-row ${statusClass}`} key={option.id}>
               <span className="order-number">{index + 1}</span>
-              <BilingualText pair={option} mode={languageMode} glossary={question.glossary} onTerm={onTerm} />
+              <BilingualText
+                pair={option}
+                mode={languageMode}
+                block="choices"
+                glossary={question.glossary}
+                onTerm={onTerm}
+                revealOnEnglishClick={false}
+              />
               <SpeakButton text={option.en} enabled={voiceEnabled} label={`Read option ${option.id}`} />
               <div className="order-buttons">
                 <button type="button" onClick={() => moveOrderedOption(option.id, -1)} disabled={submitted || index === 0}>
@@ -3298,7 +3437,14 @@ function OptionAnswerControl({
               {question.itemType === "multiple_choice" ? (selected ? "●" : "○") : selected ? "☑" : "☐"}
             </span>
             <span className="option-id">{option.id}</span>
-            <BilingualText pair={option} mode={languageMode} glossary={question.glossary} onTerm={onTerm} />
+            <BilingualText
+              pair={option}
+              mode={languageMode}
+              block="choices"
+              glossary={question.glossary}
+              onTerm={onTerm}
+              revealOnEnglishClick={false}
+            />
             <span className="option-audio-control" onClick={(event) => event.stopPropagation()}>
               <SpeakButton text={option.en} enabled={voiceEnabled} label={`Read option ${option.id}`} />
             </span>
@@ -3331,7 +3477,7 @@ function FillInBlankControl({
         const statusClass = submitted ? (isCorrect ? "correct" : "incorrect") : "";
         return (
           <label className={`blank-row ${statusClass}`} key={blank.id}>
-            <BilingualText pair={blank.prompt} mode={languageMode} />
+            <BilingualText pair={blank.prompt} mode={languageMode} block="choices" />
             <div className="blank-input-row">
               <input
                 value={value}
@@ -3385,7 +3531,7 @@ function MatrixControl({
             <th scope="col">Finding</th>
             {question.matrix.columns.map((column) => (
               <th scope="col" key={column.id}>
-                <BilingualText pair={column} mode={languageMode} glossary={question.glossary} onTerm={onTerm} />
+                <BilingualText pair={column} mode={languageMode} block="choices" glossary={question.glossary} onTerm={onTerm} />
               </th>
             ))}
           </tr>
@@ -3394,7 +3540,7 @@ function MatrixControl({
           {question.matrix.rows.map((row) => (
             <tr key={row.id}>
               <th scope="row">
-                <BilingualText pair={row} mode={languageMode} glossary={question.glossary} onTerm={onTerm} />
+                <BilingualText pair={row} mode={languageMode} block="choices" glossary={question.glossary} onTerm={onTerm} />
               </th>
               {question.matrix.columns.map((column) => {
                 const selected = matrixAnswer[row.id]?.includes(column.id) ?? false;
@@ -3430,8 +3576,16 @@ function DropdownClozeControl({
   onAnswer: (answer: AnswerState) => void;
 }) {
   const [revealed, setRevealed] = useState(false);
+  const revealTracking = useContext(RevealTrackingContext);
   const dropdowns = answer.dropdowns ?? {};
-  const showZh = languageMode === "always" || (languageMode === "on-tap" && revealed);
+  const hasZh = (question.clozeStem.zh ?? "").trim().length > 0;
+  const showZh = hasZh && (languageMode === "always" || (languageMode === "on-tap" && revealed));
+  const handleReveal = (event: MouseEvent<HTMLButtonElement>) => {
+    event.stopPropagation();
+    if (revealed || languageMode !== "on-tap" || !hasZh) return;
+    setRevealed(true);
+    recordRevealFromContext(revealTracking, "choices");
+  };
 
   return (
     <div className="cloze-panel">
@@ -3444,8 +3598,8 @@ function DropdownClozeControl({
         interactive
         onSelect={(dropdownId, optionId) => onAnswer({ ...answer, dropdowns: { ...dropdowns, [dropdownId]: optionId } })}
       />
-      {languageMode === "on-tap" && !revealed && (
-        <button className="inline-reveal" type="button" onClick={() => setRevealed(true)}>
+      {languageMode === "on-tap" && !revealed && hasZh && (
+        <button className="inline-reveal" type="button" onClick={handleReveal}>
           需要中文
         </button>
       )}
@@ -3598,10 +3752,7 @@ function CaseStudyControl({
     previousActivePartId.current = effectiveActivePartId;
     const workPane = workPaneRef.current;
     if (!workPane) return;
-    workPane.scrollTo({ top: 0, behavior: "auto" });
-    if (window.matchMedia("(max-width: 820px)").matches) {
-      workPane.scrollIntoView({ block: "start", behavior: "auto" });
-    }
+    workPane.scrollIntoView({ block: "start", behavior: "auto" });
   }, [effectiveActivePartId]);
 
   const activeIndex = Math.max(
@@ -3748,9 +3899,21 @@ function CaseChartPane({
   return (
     <aside className="exam-split-chart-pane" aria-label="Client chart">
       <div className="case-study-header">
-        <BilingualText pair={question.caseStudy.title} mode={languageMode} glossary={question.glossary} onTerm={onTerm} />
+        <BilingualText
+          pair={question.caseStudy.title}
+          mode={languageMode}
+          block="case_stage"
+          glossary={question.glossary}
+          onTerm={onTerm}
+        />
         {question.caseStudy.summary && (
-          <BilingualText pair={question.caseStudy.summary} mode={languageMode} glossary={question.glossary} onTerm={onTerm} />
+          <BilingualText
+            pair={question.caseStudy.summary}
+            mode={languageMode}
+            block="case_stage"
+            glossary={question.glossary}
+            onTerm={onTerm}
+          />
         )}
       </div>
 
@@ -3771,14 +3934,28 @@ function CaseChartPane({
           {stages.map((stage) => (
             <section className="case-stage" key={stage.id}>
               <div className="case-stage-heading">
-                <BilingualText pair={stage.title} mode={languageMode} className="case-stage-title" />
+                <BilingualText pair={stage.title} mode={languageMode} block="case_stage" className="case-stage-title" />
                 {stage.timeOffset && <span>{stage.timeOffset}</span>}
               </div>
               {stage.trigger && (
-                <BilingualText pair={stage.trigger} mode={languageMode} className="case-stage-note" glossary={question.glossary} onTerm={onTerm} />
+                <BilingualText
+                  pair={stage.trigger}
+                  mode={languageMode}
+                  block="case_stage"
+                  className="case-stage-note"
+                  glossary={question.glossary}
+                  onTerm={onTerm}
+                />
               )}
               {stage.narrative && (
-                <BilingualText pair={stage.narrative} mode={languageMode} className="case-stage-note" glossary={question.glossary} onTerm={onTerm} />
+                <BilingualText
+                  pair={stage.narrative}
+                  mode={languageMode}
+                  block="case_stage"
+                  className="case-stage-note"
+                  glossary={question.glossary}
+                  onTerm={onTerm}
+                />
               )}
               {stage.exhibits.length > 0 && (
                 <div className="case-exhibits">
@@ -3884,11 +4061,23 @@ function CaseActivePart({
   onTerm: TermSelectHandler;
   onAnswer: (answer: AnswerState) => void;
 }) {
+  const parentRevealTracking = useContext(RevealTrackingContext);
   const caseResult = submitted ? gradeQuestion(caseQuestion, answer) : undefined;
   const caseScore = submitted ? scoreQuestion(caseQuestion, answer) : undefined;
   const complete = getAnswerCompleteness(caseQuestion, answer);
   const statusClass = submitted ? (caseResult ? "correct" : "incorrect") : complete ? "complete" : "";
-  return (
+  const revealTrackingContext = parentRevealTracking
+    ? {
+        ...parentRevealTracking,
+        partId: caseQuestion.id,
+        itemType: caseQuestion.itemType,
+        category: caseQuestion.category,
+        topic: caseQuestion.topic,
+        submitted,
+        answeredBeforeReveal: complete,
+      }
+    : null;
+  const content = (
     <section
       className={`case-question case-active-part ${statusClass} ${focused ? "focused" : ""}`}
       data-case-part-id={caseQuestion.id}
@@ -3914,6 +4103,7 @@ function CaseActivePart({
         <BilingualText
           pair={caseQuestion.stem}
           mode={languageMode}
+          block="stem"
           className="case-question-stem"
           glossary={caseQuestion.glossary}
           onTerm={onTerm}
@@ -3933,6 +4123,11 @@ function CaseActivePart({
       {submitted && <RationalePanel question={caseQuestion} title="Part rationale" voiceEnabled={voiceEnabled} languageMode={languageMode} />}
     </section>
   );
+  return revealTrackingContext ? (
+    <RevealTrackingContext.Provider value={revealTrackingContext}>{content}</RevealTrackingContext.Provider>
+  ) : (
+    content
+  );
 }
 
 function CaseExhibit({
@@ -3948,9 +4143,23 @@ function CaseExhibit({
 }) {
   return (
     <section className="case-exhibit">
-      <BilingualText pair={exhibit.title} mode={languageMode} className="case-exhibit-title" glossary={glossary} onTerm={onTerm} />
+      <BilingualText
+        pair={exhibit.title}
+        mode={languageMode}
+        block="exhibit"
+        className="case-exhibit-title"
+        glossary={glossary}
+        onTerm={onTerm}
+      />
       <VisualStimulus visual={exhibit.visual} languageMode={languageMode} />
-      <BilingualText pair={exhibit.content} mode={languageMode} className="case-exhibit-content" glossary={glossary} onTerm={onTerm} />
+      <BilingualText
+        pair={exhibit.content}
+        mode={languageMode}
+        block="exhibit"
+        className="case-exhibit-content"
+        glossary={glossary}
+        onTerm={onTerm}
+      />
     </section>
   );
 }
@@ -3958,26 +4167,38 @@ function CaseExhibit({
 function BilingualText({
   pair,
   mode,
+  block = "other",
   className = "",
   glossary = [],
   onTerm,
+  revealOnEnglishClick = true,
 }: {
-  pair: { en: string; zh: string };
+  pair: { en: string; zh?: string };
   mode: LanguageMode;
+  block?: RevealBlock;
   className?: string;
   glossary?: GlossaryTerm[];
   onTerm?: TermSelectHandler;
+  revealOnEnglishClick?: boolean;
 }) {
   const [revealed, setRevealed] = useState(false);
-  const showZh = mode === "always" || (mode === "on-tap" && revealed);
+  const revealTracking = useContext(RevealTrackingContext);
+  const hasZh = (pair.zh ?? "").trim().length > 0;
+  const showZh = hasZh && (mode === "always" || (mode === "on-tap" && revealed));
+  const handleReveal = (event?: MouseEvent<HTMLElement>) => {
+    event?.stopPropagation();
+    if (revealed || mode !== "on-tap" || !hasZh) return;
+    setRevealed(true);
+    recordRevealFromContext(revealTracking, block);
+  };
 
   return (
     <span className={`bilingual-text ${className}`}>
-      <span className="english-line" onClick={() => mode === "on-tap" && setRevealed(true)}>
+      <span className="english-line" onClick={revealOnEnglishClick ? handleReveal : undefined}>
         <GlossaryText text={pair.en} glossary={glossary} onTerm={onTerm} />
       </span>
-      {mode === "on-tap" && !revealed && (
-        <button className="inline-reveal" type="button" onClick={() => setRevealed(true)}>
+      {mode === "on-tap" && !revealed && hasZh && (
+        <button className="inline-reveal" type="button" onClick={handleReveal}>
           需要中文
         </button>
       )}
@@ -4089,8 +4310,7 @@ function RationalePanel({
         <SpeakButton text={question.rationale.correct.en} enabled={voiceEnabled} label="Read rationale" />
       </div>
       <div className="dual-copy">
-        <p>{question.rationale.correct.en}</p>
-        <p lang="zh-Hans">{question.rationale.correct.zh}</p>
+        <BilingualText pair={question.rationale.correct} mode={languageMode} block="rationale" />
       </div>
       {question.rationale.visuals && question.rationale.visuals.length > 0 && (
         <div className="rationale-visuals">
@@ -4106,8 +4326,7 @@ function RationalePanel({
             {choiceRationales.map((choice) => (
               <div key={choice.refId}>
                 <strong>{choice.refId}</strong>
-                <p>{choice.en}</p>
-                <p lang="zh-Hans">{choice.zh}</p>
+                <BilingualText pair={choice} mode={languageMode} block="rationale" />
               </div>
             ))}
           </div>
@@ -4118,13 +4337,17 @@ function RationalePanel({
         <SpeakButton text={question.testTakingStrategy.en} enabled={voiceEnabled} label="Read strategy" />
       </div>
       <div className="dual-copy">
-        <p>{question.testTakingStrategy.en}</p>
-        <p lang="zh-Hans">{question.testTakingStrategy.zh}</p>
+        <BilingualText pair={question.testTakingStrategy} mode={languageMode} block="rationale" />
       </div>
       <div className="glossary-strip">
         {question.glossary.map((term) => (
           <span key={term.termEn}>
-            {term.termEn} · {term.termZh}
+            <BilingualText
+              pair={{ en: term.termEn, zh: term.termZh }}
+              mode={languageMode}
+              block="glossary"
+              revealOnEnglishClick={false}
+            />
           </span>
         ))}
       </div>

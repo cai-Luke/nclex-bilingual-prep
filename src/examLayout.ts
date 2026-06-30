@@ -7,8 +7,9 @@ import type {
 } from "./types";
 
 // Standalone visual kinds that render in the exam-style split layout.
-// Excluded by design: rhythm_strip, capnography, fetal_monitoring, mar, and
-// io_record because their geometry or density does not fit the narrow pane.
+// Excluded by design: rhythm_strip, capnography, fetal_monitoring, and mar —
+// their geometry or density does not fit the narrow pane. io_record rejoined
+// after compacting its SVG geometry (see visuals/kinds/io_record/index.ts).
 export const STANDALONE_SPLIT_VISUAL_KINDS: ReadonlySet<QuestionVisual["kind"]> = new Set([
   "vitals_trend",
   "lab_trend",
@@ -16,6 +17,7 @@ export const STANDALONE_SPLIT_VISUAL_KINDS: ReadonlySet<QuestionVisual["kind"]> 
   "device_screen",
   "burn_map",
   "injection_site",
+  "io_record",
 ]);
 
 export const usesStandaloneVisualSplit = (question: Question): boolean =>
