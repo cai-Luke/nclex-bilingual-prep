@@ -49,6 +49,19 @@ The committed NGN item-type set is complete. Rationale/dyad scoring and an expli
 
 > Milestones dated **2026-06-23 and earlier** are archived in [`Archive/PROJECT-HISTORY-ARCHIVE.md`](Archive/PROJECT-HISTORY-ARCHIVE.md). Only the current arc (2026-06-24 onward) is kept here.
 
+### Exam Layout Extraction and Review Visual Layout (Jun 30)
+
+Completed:
+- Extracted exam split/stage layout helpers from `src/App.tsx` into `src/examLayout.ts` so stage visibility and standalone visual split eligibility are directly testable.
+- Added `npm run test:exam-layout` coverage for cumulative case-stage visibility, fail-open unresolved stage metadata, answerable-after precedence, and the six-kind standalone split allowlist.
+- Added a `standaloneVisualLayout` prop so Summary review and Developer Review render standalone visual questions full-width while live answering keeps the exam-style split layout.
+- Implemented `exam-layout-extraction-and-tests-codex-spec.md` and `standalone-visual-review-layout-codex-spec.md`.
+
+Verification:
+- `npx tsc -b --pretty false` passed.
+- `npm run test:exam-layout` passed.
+- `npm run build` passed with the existing Vite chunk-size warning.
+
 ### App Icon Pack Integration (Jun 29)
 
 Completed:
@@ -409,6 +422,7 @@ Last verified on 2026-06-15:
 - `npm run test:grading` — all current item types, partial-credit families, full-marks retention, and malformed duplicate-selection regressions pass
 - `npm run test:highlight` — schema 1.3 highlight validation, export, and recursive version-floor regressions pass
 - `npm run test:bowtie` — schema 1.4 bowtie validation, grading, export, completeness, standalone-only, version-floor, and shuffle regressions pass
+- `npm run test:exam-layout` — split/stage visibility and standalone visual split eligibility regressions pass
 - `npm run validate-bank -- banks/*.json` — all bundled top-level banks pass
 - `npm run test-visuals` — 11 registered visual kinds green
 - `npm run census && npm run census:check`

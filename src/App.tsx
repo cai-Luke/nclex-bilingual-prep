@@ -73,6 +73,7 @@ import {
 import { buildWeightedSession } from "./sessionSampler";
 import { VisualStimulus } from "./visuals";
 import { mulberry32 } from "./visuals/primitives/prng";
+import { getVisibleCaseStages, usesStandaloneVisualSplit } from "./examLayout";
 import type {
   AdaptiveSessionSnapshot,
   AnswerEvent,
@@ -137,15 +138,6 @@ type ActiveTermPopover = {
   term: GlossaryTerm;
   style?: CSSProperties;
 };
-
-const STANDALONE_SPLIT_VISUAL_KINDS = new Set([
-  "vitals_trend",
-  "lab_trend",
-  "medication_label",
-  "device_screen",
-  "burn_map",
-  "injection_site",
-]);
 
 type Filters = {
   category: string;
@@ -2045,6 +2037,7 @@ function DeveloperReviewConsole({
                 reviewMode
                 focusedPartId={selectedEntry.embeddedPart?.id}
                 caseStudyLayout="stacked"
+                standaloneVisualLayout="stacked"
               />
 
               <section className="dev-review-notes">
@@ -2303,6 +2296,7 @@ function QuestionCard({
   reviewMode = false,
   focusedPartId,
   caseStudyLayout = "split",
+  standaloneVisualLayout = "split",
 }: {
   question: Question;
   answer: AnswerState;
@@ -2321,6 +2315,7 @@ function QuestionCard({
   reviewMode?: boolean;
   focusedPartId?: string;
   caseStudyLayout?: CaseStudyLayoutMode;
+  standaloneVisualLayout?: CaseStudyLayoutMode;
 }) {
   const cardRef = useRef<HTMLElement | null>(null);
   const [activeTerm, setActiveTerm] = useState<ActiveTermPopover | null>(null);
@@ -2364,10 +2359,8 @@ function QuestionCard({
     allowLanguageMissToggle &&
     onToggleLanguageMiss &&
     collectGlossarySources(question).length > 0;
-  const usesStandaloneVisualSplit =
-    question.itemType !== "case_study" &&
-    question.visual !== undefined &&
-    STANDALONE_SPLIT_VISUAL_KINDS.has(question.visual.kind);
+  const showsStandaloneVisualSplit =
+    standaloneVisualLayout !== "stacked" && usesStandaloneVisualSplit(question);
 
   const answerBody = (
     <>
@@ -2455,7 +2448,7 @@ function QuestionCard({
   );
 
   return (
-    <article ref={cardRef} className={`question-card ${question.itemType === "case_study" && caseStudyLayout === "split" ? "split-case-card" : ""} ${usesStandaloneVisualSplit ? "standalone-visual-card" : ""}`}>
+    <article ref={cardRef} className={`question-card ${question.itemType === "case_study" && caseStudyLayout === "split" ? "split-case-card" : ""} ${showsStandaloneVisualSplit ? "standalone-visual-card" : ""}`}>
       <div className="question-meta">
         <span className="type-pill">{formatItemType(question.itemType)}</span>
         <span>{question.category}</span>
@@ -2477,7 +2470,7 @@ function QuestionCard({
         )}
       </div>
 
-      {usesStandaloneVisualSplit ? (
+      {showsStandaloneVisualSplit ? (
         <div className="exam-split-layout standalone-visual-layout">
           <aside className="standalone-visual-pane" aria-label="Clinical visual">
             <VisualStimulus visual={question.visual} languageMode={languageMode} />
@@ -3399,30 +3392,6 @@ function CaseChartPane({
   );
 }
 
-function getVisibleCaseStages(
-  question: Extract<Question, { itemType: "case_study" }>,
-  activeQuestion?: Extract<Question, { itemType: "case_study" }>["caseStudy"]["questions"][number],
-) {
-  const stages = question.caseStudy.stages ?? [];
-  if (!activeQuestion || stages.length === 0) return [];
-  const stageIndexById = new Map(stages.map((stage, index) => [stage.id, index]));
-  const answerableAfterStageIndex =
-    activeQuestion.answerableAfterStageId !== undefined
-      ? stageIndexById.get(activeQuestion.answerableAfterStageId)
-      : undefined;
-  if (answerableAfterStageIndex !== undefined) {
-    return stages.slice(0, answerableAfterStageIndex + 1);
-  }
-  const stageIndex = activeQuestion.stageId !== undefined ? stageIndexById.get(activeQuestion.stageId) : undefined;
-  if (stageIndex !== undefined) {
-    return stages.slice(0, stageIndex + 1);
-  }
-  // Many bundled staged cases do not have reliable part-to-stage metadata yet.
-  // Show all stages when a mapping is absent or invalid so the UI never hides
-  // clinically necessary chart data.
-  return stages;
-}
-
 function CasePartNavigator({
   question,
   caseAnswers,
@@ -4033,6 +4002,7 @@ function SummaryView({
                       onToggleFlag={() => onToggleFlag(question.id)}
                       onToggleLanguageMiss={() => onToggleLanguageMiss(question.id)}
                       caseStudyLayout="stacked"
+                      standaloneVisualLayout="stacked"
                     />
                   </div>
                 )}
