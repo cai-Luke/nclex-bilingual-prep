@@ -49,6 +49,22 @@ The committed NGN item-type set is complete. Rationale/dyad scoring and an expli
 
 > Milestones dated **2026-06-23 and earlier** are archived in [`Archive/PROJECT-HISTORY-ARCHIVE.md`](Archive/PROJECT-HISTORY-ARCHIVE.md). Only the current arc (2026-06-24 onward) is kept here.
 
+### Settings Preview Lab (Jun 30)
+
+Completed:
+- Added a low-prominence collapsed `Preview Lab` section at the bottom of Settings for inspecting bundled questions without starting sessions or writing progress.
+- Added curated preview buckets for case studies, standalone split visual candidates, standalone full-width/excluded visual kinds, ordered response, bowtie, and highlight items.
+- Reused `QuestionCard`, visual rendering, standalone split eligibility, and `getVisibleCaseStages` instead of duplicating clinical question markup.
+- Added local-only preview modes for live answer layout, current summary/review layout, and a narrow stacked mobile inspection container.
+- Added case-study controls for current part selection, detected `stageId` / `answerableAfterStageId`, visible stage count, and a comparison-only show-all-stages toggle.
+
+Verification:
+- Browser smoke checked Settings Preview Lab expansion, case-study split rendering, `lab_trend` live standalone split, excluded `capnography` full-width rendering, staged case cumulative visibility, mobile stacked preview, summary/review standalone full-width behavior, and browser console errors.
+- `npx tsc -b --pretty false` passed.
+- `npm run test:exam-layout` passed.
+- `npm run validate-bank -- banks/*.json` passed.
+- `npm run build` passed with the existing Vite chunk-size warning.
+
 ### Exam Layout Extraction and Review Visual Layout (Jun 30)
 
 Completed:

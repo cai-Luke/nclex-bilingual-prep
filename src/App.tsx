@@ -91,6 +91,7 @@ import type {
   QuestionFlag,
   QuestionProgress,
   QuestionRecord,
+  QuestionVisual,
   SessionMode,
   SessionOrder,
   SessionPhase,
@@ -769,7 +770,13 @@ export default function App() {
           />
         )}
 
-        {view === "settings" && <SettingsView settings={settings} updateSettings={updateSettings} />}
+        {view === "settings" && (
+          <SettingsView
+            settings={settings}
+            updateSettings={updateSettings}
+            bundledRecords={bundled.records}
+          />
+        )}
 
         {view === "review" && devStartup.enabled && (
           <DeveloperReviewConsole
@@ -1633,7 +1640,15 @@ const textSizeOptions: Array<{ value: TextSizeMode; label: string }> = [
   { value: "large", label: "Large" },
 ];
 
-function SettingsView({ settings, updateSettings }: { settings: Settings; updateSettings: (settings: Settings) => void }) {
+function SettingsView({
+  settings,
+  updateSettings,
+  bundledRecords,
+}: {
+  settings: Settings;
+  updateSettings: (settings: Settings) => void;
+  bundledRecords: QuestionRecord[];
+}) {
   return (
     <section className="stack narrow">
       <div className="section-heading">
@@ -1699,7 +1714,313 @@ function SettingsView({ settings, updateSettings }: { settings: Settings; update
           <span>English audio buttons</span>
         </label>
       </div>
+      <PreviewLab records={bundledRecords} settings={settings} />
     </section>
+  );
+}
+
+type PreviewMode = "live" | "review" | "mobile";
+type PreviewBucket = {
+  id: string;
+  label: string;
+  group: string;
+  matches: (question: Question) => boolean;
+};
+
+const previewSplitKinds: QuestionVisual["kind"][] = [
+  "vitals_trend",
+  "lab_trend",
+  "medication_label",
+  "device_screen",
+  "burn_map",
+  "injection_site",
+];
+
+const previewFullWidthKinds: QuestionVisual["kind"][] = [
+  "rhythm_strip",
+  "capnography",
+  "fetal_monitoring",
+  "mar",
+  "io_record",
+];
+
+const previewBuckets: PreviewBucket[] = [
+  {
+    id: "case_study",
+    label: "Case studies",
+    group: "Case studies",
+    matches: (question) => question.itemType === "case_study",
+  },
+  ...previewSplitKinds.map((kind) => ({
+    id: `split-${kind}`,
+    label: kind,
+    group: "Standalone split visual candidates",
+    matches: (question: Question) => question.itemType !== "case_study" && question.visual?.kind === kind,
+  })),
+  ...previewFullWidthKinds.map((kind) => ({
+    id: `full-${kind}`,
+    label: kind,
+    group: "Standalone visual exclusions / full-width candidates",
+    matches: (question: Question) => question.itemType !== "case_study" && question.visual?.kind === kind,
+  })),
+  {
+    id: "ordered_response",
+    label: "Ordered response",
+    group: "Other item types",
+    matches: (question) => question.itemType === "ordered_response",
+  },
+  {
+    id: "bowtie",
+    label: "Bowtie",
+    group: "Other item types",
+    matches: (question) => question.itemType === "bowtie",
+  },
+  {
+    id: "highlight",
+    label: "Highlight",
+    group: "Other item types",
+    matches: (question) => question.itemType === "highlight",
+  },
+];
+
+const previewModes: Array<{ value: PreviewMode; label: string }> = [
+  { value: "live", label: "Live answer" },
+  { value: "review", label: "Summary/review" },
+  { value: "mobile", label: "Mobile stacked" },
+];
+
+function previewQuestionLabel(record: QuestionRecord) {
+  const question = record.question;
+  const title = question.itemType === "case_study" ? question.caseStudy.title.en : question.stem.en;
+  const shortTitle = title.length > 84 ? `${title.slice(0, 81)}...` : title;
+  return `${question.id} - ${shortTitle} (${record.sourceLabel})`;
+}
+
+function PreviewLab({ records, settings }: { records: QuestionRecord[]; settings: Settings }) {
+  const [bucketId, setBucketId] = useState(previewBuckets[0].id);
+  const [selectedIdsByBucket, setSelectedIdsByBucket] = useState<Record<string, string>>({});
+  const [mode, setMode] = useState<PreviewMode>("live");
+  const [answers, setAnswers] = useState<Record<string, AnswerState>>({});
+  const [submittedIds, setSubmittedIds] = useState<Set<string>>(() => new Set());
+  const [casePartIds, setCasePartIds] = useState<Record<string, string>>({});
+  const [showAllStages, setShowAllStages] = useState(false);
+
+  const bucket = previewBuckets.find((candidate) => candidate.id === bucketId) ?? previewBuckets[0];
+  const groupedBuckets = useMemo(() => {
+    const groups = new Map<string, PreviewBucket[]>();
+    previewBuckets.forEach((candidate) => {
+      const items = groups.get(candidate.group) ?? [];
+      items.push(candidate);
+      groups.set(candidate.group, items);
+    });
+    return Array.from(groups.entries());
+  }, []);
+  const matches = useMemo(
+    () => records.filter((record) => bucket.matches(record.question)),
+    [bucket, records],
+  );
+  const selectedId = selectedIdsByBucket[bucket.id] ?? matches[0]?.question.id ?? "";
+  const selectedRecord = matches.find((record) => record.question.id === selectedId) ?? matches[0];
+  const selectedQuestion = selectedRecord?.question;
+  const selectedSubmitted = Boolean(selectedQuestion && (mode === "review" || submittedIds.has(selectedQuestion.id)));
+  const selectedAnswer = selectedQuestion
+    ? mode === "review"
+      ? getCorrectAnswer(selectedQuestion)
+      : answers[selectedQuestion.id] ?? getInitialAnswer(selectedQuestion)
+    : {};
+  const result = selectedQuestion && selectedSubmitted ? gradeQuestion(selectedQuestion, selectedAnswer) : undefined;
+  const isMobilePreview = mode === "mobile";
+  const caseStudyLayout: CaseStudyLayoutMode = mode === "live" ? "split" : "stacked";
+  const standaloneVisualLayout: CaseStudyLayoutMode = mode === "live" ? "split" : "stacked";
+  const currentCasePart =
+    selectedQuestion?.itemType === "case_study"
+      ? selectedQuestion.caseStudy.questions.find(
+          (caseQuestion) => caseQuestion.id === (casePartIds[selectedQuestion.id] ?? selectedQuestion.caseStudy.questions[0]?.id),
+        ) ?? selectedQuestion.caseStudy.questions[0]
+      : undefined;
+  const productionVisibleStages =
+    selectedQuestion?.itemType === "case_study"
+      ? getVisibleCaseStages(selectedQuestion, currentCasePart)
+      : [];
+  const displayedVisibleStageCount =
+    showAllStages && selectedQuestion?.itemType === "case_study"
+      ? selectedQuestion.caseStudy.stages?.length ?? 0
+      : productionVisibleStages.length;
+
+  const selectQuestion = (questionId: string) => {
+    setSelectedIdsByBucket((current) => ({ ...current, [bucket.id]: questionId }));
+    setShowAllStages(false);
+  };
+  const updateAnswer = (answer: AnswerState) => {
+    if (!selectedQuestion || mode === "review") return;
+    setAnswers((current) => ({ ...current, [selectedQuestion.id]: answer }));
+  };
+  const submitLocal = () => {
+    if (!selectedQuestion || mode === "review") return;
+    setSubmittedIds((current) => {
+      const next = new Set(current);
+      next.add(selectedQuestion.id);
+      return next;
+    });
+  };
+  const resetLocal = () => {
+    if (!selectedQuestion) return;
+    setAnswers((current) => {
+      const { [selectedQuestion.id]: _removed, ...rest } = current;
+      return rest;
+    });
+    setSubmittedIds((current) => {
+      const next = new Set(current);
+      next.delete(selectedQuestion.id);
+      return next;
+    });
+  };
+
+  return (
+    <details className="preview-lab">
+      <summary>
+        <div>
+          <h3>Preview Lab</h3>
+          <p>Inspect layout behavior using bundled questions. Does not save answers or progress.</p>
+        </div>
+      </summary>
+      <div className="preview-lab-body">
+        <div className="preview-note">Preview only - answers are not saved.</div>
+        <div className="preview-controls">
+          <label>
+            <span>Preview bucket</span>
+            <select value={bucket.id} onChange={(event) => setBucketId(event.target.value)}>
+              {groupedBuckets.map(([group, items]) => (
+                <optgroup label={group} key={group}>
+                  {items.map((item) => (
+                    <option value={item.id} key={item.id}>
+                      {item.label}
+                    </option>
+                  ))}
+                </optgroup>
+              ))}
+            </select>
+          </label>
+          <label>
+            <span>Question</span>
+            <select
+              value={selectedRecord?.question.id ?? ""}
+              onChange={(event) => selectQuestion(event.target.value)}
+              disabled={matches.length === 0}
+            >
+              {matches.map((record) => (
+                <option value={record.question.id} key={record.question.id}>
+                  {previewQuestionLabel(record)}
+                </option>
+              ))}
+            </select>
+          </label>
+          <label>
+            <span>Preview mode</span>
+            <div className="segmented preview-mode-toggle" role="group" aria-label="Preview mode">
+              {previewModes.map((option) => (
+                <button
+                  className={mode === option.value ? "active" : ""}
+                  type="button"
+                  aria-pressed={mode === option.value}
+                  key={option.value}
+                  onClick={() => setMode(option.value)}
+                >
+                  {option.label}
+                </button>
+              ))}
+            </div>
+          </label>
+        </div>
+
+        {selectedQuestion?.itemType === "case_study" && currentCasePart && (
+          <div className="preview-case-controls">
+            <label>
+              <span>Current part</span>
+              <select
+                value={currentCasePart.id}
+                onChange={(event) =>
+                  setCasePartIds((current) => ({ ...current, [selectedQuestion.id]: event.target.value }))
+                }
+              >
+                {selectedQuestion.caseStudy.questions.map((caseQuestion, index) => (
+                  <option value={caseQuestion.id} key={caseQuestion.id}>
+                    Part {index + 1} - {caseQuestion.id}
+                  </option>
+                ))}
+              </select>
+            </label>
+            <div className="preview-stage-readout">
+              <span>stageId: {currentCasePart.stageId ?? "none"}</span>
+              <span>answerableAfterStageId: {currentCasePart.answerableAfterStageId ?? "none"}</span>
+              <span>visible stages: {displayedVisibleStageCount}</span>
+            </div>
+            <label className="toggle-row">
+              <input
+                type="checkbox"
+                checked={showAllStages}
+                onChange={(event) => setShowAllStages(event.target.checked)}
+              />
+              <span>Show all stages</span>
+            </label>
+          </div>
+        )}
+
+        {selectedQuestion ? (
+          <>
+            <div className="preview-layout-readout">
+              <span>{selectedRecord?.sourceLabel ?? "Bundled"}</span>
+              <span>{formatItemType(selectedQuestion.itemType)}</span>
+              {selectedQuestion.visual && <span>{selectedQuestion.visual.kind}</span>}
+              <span>
+                {mode === "review"
+                  ? "Current review behavior"
+                  : isMobilePreview
+                    ? "Narrow stacked inspection"
+                    : "Live split gates"}
+              </span>
+            </div>
+            <div className={isMobilePreview ? "preview-canvas mobile-preview-canvas" : "preview-canvas"}>
+              <QuestionCard
+                question={selectedQuestion}
+                answer={selectedAnswer}
+                submitted={selectedSubmitted}
+                result={result}
+                languageMode={settings.languageMode}
+                flagged={false}
+                voiceEnabled={settings.voiceEnabled}
+                onAnswer={updateAnswer}
+                onSubmit={submitLocal}
+                onToggleFlag={() => undefined}
+                reviewMode={mode === "review"}
+                caseStudyLayout={isMobilePreview ? "stacked" : caseStudyLayout}
+                standaloneVisualLayout={isMobilePreview ? "stacked" : standaloneVisualLayout}
+                controlledCasePartId={currentCasePart?.id}
+                onControlledCasePartChange={
+                  selectedQuestion.itemType === "case_study"
+                    ? (partId) => setCasePartIds((current) => ({ ...current, [selectedQuestion.id]: partId }))
+                    : undefined
+                }
+                showAllCaseStages={showAllStages}
+                showQuestionActions={false}
+              />
+            </div>
+            {mode !== "review" && (
+              <div className="action-row compact">
+                <button type="button" onClick={resetLocal}>
+                  <RotateCcw aria-hidden="true" />
+                  <span>Reset local answer</span>
+                </button>
+              </div>
+            )}
+          </>
+        ) : (
+          <div className="session-empty-state">
+            <p>No bundled question found for this preview bucket.</p>
+          </div>
+        )}
+      </div>
+    </details>
   );
 }
 
@@ -2297,6 +2618,10 @@ function QuestionCard({
   focusedPartId,
   caseStudyLayout = "split",
   standaloneVisualLayout = "split",
+  controlledCasePartId,
+  onControlledCasePartChange,
+  showAllCaseStages = false,
+  showQuestionActions = true,
 }: {
   question: Question;
   answer: AnswerState;
@@ -2316,6 +2641,10 @@ function QuestionCard({
   focusedPartId?: string;
   caseStudyLayout?: CaseStudyLayoutMode;
   standaloneVisualLayout?: CaseStudyLayoutMode;
+  controlledCasePartId?: string;
+  onControlledCasePartChange?: (partId: string) => void;
+  showAllCaseStages?: boolean;
+  showQuestionActions?: boolean;
 }) {
   const cardRef = useRef<HTMLElement | null>(null);
   const [activeTerm, setActiveTerm] = useState<ActiveTermPopover | null>(null);
@@ -2401,6 +2730,9 @@ function QuestionCard({
         showTopLevelSubmit={question.itemType === "case_study" && !submitted && !reviewMode}
         focusedPartId={focusedPartId}
         caseStudyLayout={caseStudyLayout}
+        controlledCasePartId={controlledCasePartId}
+        onControlledCasePartChange={onControlledCasePartChange}
+        showAllCaseStages={showAllCaseStages}
       />
 
       {!submitted && !reviewMode && question.itemType !== "case_study" && (
@@ -2457,7 +2789,7 @@ function QuestionCard({
         {flagged && <span className="type-pill">Flagged</span>}
         {progress?.missed && <span className="missed-pill">Review</span>}
         {isDueForReview(progress) && <span className="type-pill">Due</span>}
-        {!reviewMode && (
+        {!reviewMode && showQuestionActions && (
           <button
             className={`icon-action flag-action ${flagged ? "flagged" : ""}`}
             type="button"
@@ -2500,6 +2832,9 @@ function QuestionAnswerControl({
   showTopLevelSubmit = false,
   focusedPartId,
   caseStudyLayout = "split",
+  controlledCasePartId,
+  onControlledCasePartChange,
+  showAllCaseStages = false,
 }: {
   question: Question;
   answer: AnswerState;
@@ -2513,6 +2848,9 @@ function QuestionAnswerControl({
   showTopLevelSubmit?: boolean;
   focusedPartId?: string;
   caseStudyLayout?: CaseStudyLayoutMode;
+  controlledCasePartId?: string;
+  onControlledCasePartChange?: (partId: string) => void;
+  showAllCaseStages?: boolean;
 }) {
   if (
     question.itemType === "multiple_choice" ||
@@ -2592,6 +2930,9 @@ function QuestionAnswerControl({
         showTopLevelSubmit={showTopLevelSubmit}
         focusedPartId={focusedPartId}
         layoutMode={caseStudyLayout}
+        controlledActivePartId={controlledCasePartId}
+        onControlledActivePartChange={onControlledCasePartChange}
+        showAllStages={showAllCaseStages}
       />
     );
   }
@@ -3150,6 +3491,9 @@ function CaseStudyControl({
   showTopLevelSubmit = false,
   focusedPartId,
   layoutMode = "split",
+  controlledActivePartId,
+  onControlledActivePartChange,
+  showAllStages = false,
 }: {
   question: Extract<Question, { itemType: "case_study" }>;
   answer: AnswerState;
@@ -3163,6 +3507,9 @@ function CaseStudyControl({
   showTopLevelSubmit?: boolean;
   focusedPartId?: string;
   layoutMode?: CaseStudyLayoutMode;
+  controlledActivePartId?: string;
+  onControlledActivePartChange?: (partId: string) => void;
+  showAllStages?: boolean;
 }) {
   const caseAnswers = answer.caseStudy ?? {};
   const caseQuestions = question.caseStudy.questions;
@@ -3181,10 +3528,20 @@ function CaseStudyControl({
     return caseQuestions[0]?.id ?? "";
   };
   const [activePartId, setActivePartId] = useState(getDefaultActivePartId);
-  const previousActivePartId = useRef(activePartId);
+  const controlledPartIsValid = controlledActivePartId !== undefined &&
+    caseQuestions.some((caseQuestion) => caseQuestion.id === controlledActivePartId);
+  const effectiveActivePartId = controlledPartIsValid
+    ? controlledActivePartId
+    : activePartId;
+  const previousActivePartId = useRef(effectiveActivePartId);
+  const selectActivePart = (partId: string) => {
+    setActivePartId(partId);
+    onControlledActivePartChange?.(partId);
+  };
   useEffect(() => {
     if (focusedPartId && caseQuestions.some((caseQuestion) => caseQuestion.id === focusedPartId)) {
       setActivePartId(focusedPartId);
+      onControlledActivePartChange?.(focusedPartId);
       return;
     }
 
@@ -3194,24 +3551,26 @@ function CaseStudyControl({
       }
       return caseQuestions[0]?.id ?? "";
     });
-  }, [focusedPartId, caseQuestions]);
+  }, [focusedPartId, caseQuestions, onControlledActivePartChange]);
   useEffect(() => {
-    if (previousActivePartId.current === activePartId) return;
-    previousActivePartId.current = activePartId;
+    if (previousActivePartId.current === effectiveActivePartId) return;
+    previousActivePartId.current = effectiveActivePartId;
     const workPane = workPaneRef.current;
     if (!workPane) return;
     workPane.scrollTo({ top: 0, behavior: "auto" });
     if (window.matchMedia("(max-width: 820px)").matches) {
       workPane.scrollIntoView({ block: "start", behavior: "auto" });
     }
-  }, [activePartId]);
+  }, [effectiveActivePartId]);
 
   const activeIndex = Math.max(
     0,
-    caseQuestions.findIndex((caseQuestion) => caseQuestion.id === activePartId),
+    caseQuestions.findIndex((caseQuestion) => caseQuestion.id === effectiveActivePartId),
   );
   const activeQuestion = caseQuestions[activeIndex] ?? caseQuestions[0];
-  const visibleStages = getVisibleCaseStages(question, activeQuestion);
+  const visibleStages = showAllStages
+    ? question.caseStudy.stages ?? []
+    : getVisibleCaseStages(question, activeQuestion);
   const updateCaseAnswer = (questionId: string, nextAnswer: AnswerState) => {
     onAnswer({ ...answer, caseStudy: { ...caseAnswers, [questionId]: nextAnswer } });
   };
@@ -3225,6 +3584,7 @@ function CaseStudyControl({
         languageMode={languageMode}
         voiceEnabled={voiceEnabled}
         focusedPartId={focusedPartId}
+        stagesOverride={controlledPartIsValid || showAllStages ? visibleStages : undefined}
         onTerm={onTerm}
         onCaseAnswer={updateCaseAnswer}
       />
@@ -3247,7 +3607,7 @@ function CaseStudyControl({
             caseAnswers={caseAnswers}
             activePartId={activeQuestion?.id ?? ""}
             submitted={submitted}
-            onSelect={setActivePartId}
+            onSelect={selectActivePart}
           />
           {showTopLevelSubmit && onSubmit && (
             <button
@@ -3290,6 +3650,7 @@ function CaseStudyStackedLayout({
   languageMode,
   voiceEnabled,
   focusedPartId,
+  stagesOverride,
   onTerm,
   onCaseAnswer,
 }: {
@@ -3299,6 +3660,7 @@ function CaseStudyStackedLayout({
   languageMode: LanguageMode;
   voiceEnabled: boolean;
   focusedPartId?: string;
+  stagesOverride?: Extract<Question, { itemType: "case_study" }>["caseStudy"]["stages"];
   onTerm: TermSelectHandler;
   onCaseAnswer: (questionId: string, answer: AnswerState) => void;
 }) {
@@ -3306,7 +3668,7 @@ function CaseStudyStackedLayout({
     <div className="case-study-panel">
       <CaseChartPane
         question={question}
-        stages={question.caseStudy.stages ?? []}
+        stages={stagesOverride ?? question.caseStudy.stages ?? []}
         languageMode={languageMode}
         onTerm={onTerm}
       />
