@@ -11,7 +11,6 @@ import {
   Download,
   FileJson,
   Flag,
-  FlaskConical,
   Home,
   Import,
   Library,
@@ -185,6 +184,7 @@ type FlashcardTerm = GlossaryTerm & {
 
 const DEFAULT_SESSION_COUNT = 50;
 const DEV_TOOLS_KEY = "shrimpDevTools";
+const APP_ICON_SRC = "./icon-192.png";
 
 const readDevStartup = () => {
   try {
@@ -632,7 +632,7 @@ export default function App() {
     <div className={`app-shell ${view === "session" ? "session-active" : ""}`}>
       <header className="app-header">
         <button className="brand" type="button" onClick={() => setView("home")}>
-          <FlaskConical aria-hidden="true" />
+          <img className="brand-mark" src={APP_ICON_SRC} alt="" aria-hidden="true" />
           <span>NCLEX Bilingual Prep</span>
         </button>
         <nav aria-label="Main navigation">
@@ -880,7 +880,10 @@ function HomeView({
   return (
     <section className="home-grid">
       <div className="hero-panel">
-        <p className="eyebrow">Offline bilingual NCLEX-RN practice</p>
+        <div className="hero-brand-row">
+          <img className="hero-brand-mark" src={APP_ICON_SRC} alt="" aria-hidden="true" />
+          <p className="eyebrow">Offline bilingual NCLEX-RN practice</p>
+        </div>
         <h1>Train in English. Check reasoning in Chinese.</h1>
         <div className="metric-row">
           <Metric label="Questions" value={total} />

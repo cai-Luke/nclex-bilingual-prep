@@ -231,6 +231,14 @@ label span {
   font-weight: 800;
 }
 
+.brand-mark {
+  width: 2rem;
+  height: 2rem;
+  flex: 0 0 auto;
+  border-radius: 7px;
+  box-shadow: 0 8px 20px rgba(11, 85, 200, 0.16);
+}
+
 .brand:hover:not(:disabled) {
   border-color: transparent;
   background: transparent;
@@ -290,6 +298,25 @@ main {
 
 .hero-panel {
   padding: clamp(1.25rem, 5vw, 3rem);
+}
+
+.hero-brand-row {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin-bottom: 0.65rem;
+}
+
+.hero-brand-row .eyebrow {
+  margin: 0;
+}
+
+.hero-brand-mark {
+  width: clamp(2.5rem, 7vw, 3.75rem);
+  height: clamp(2.5rem, 7vw, 3.75rem);
+  flex: 0 0 auto;
+  border-radius: 10px;
+  box-shadow: 0 14px 32px rgba(11, 85, 200, 0.2);
 }
 
 .eyebrow {
