@@ -57,9 +57,10 @@ Completed:
 - Reused `QuestionCard`, visual rendering, standalone split eligibility, and `getVisibleCaseStages` instead of duplicating clinical question markup.
 - Added local-only preview modes for live answer layout, current summary/review layout, and a narrow stacked mobile inspection container.
 - Added case-study controls for current part selection, detected `stageId` / `answerableAfterStageId`, visible stage count, and a comparison-only show-all-stages toggle.
+- Moved the actual preview renderer out of the narrow Settings column into a full-width hidden app view, leaving Settings as a low-prominence launcher so desktop previews match the real user environment.
 
 Verification:
-- Browser smoke checked Settings Preview Lab expansion, case-study split rendering, `lab_trend` live standalone split, excluded `capnography` full-width rendering, staged case cumulative visibility, mobile stacked preview, summary/review standalone full-width behavior, and browser console errors.
+- Browser smoke checked the Settings launcher, full-width Preview Lab page width, case-study split rendering, `lab_trend` live standalone split, excluded `capnography` full-width rendering, staged case cumulative visibility, mobile stacked preview, summary/review standalone full-width behavior, and browser console errors.
 - `npx tsc -b --pretty false` passed.
 - `npm run test:exam-layout` passed.
 - `npm run validate-bank -- banks/*.json` passed.

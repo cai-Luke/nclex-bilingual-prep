@@ -283,7 +283,7 @@ main {
 .session-empty-state,
 .import-panel,
 .settings-grid,
-.preview-lab,
+.preview-lab-launcher,
 .builder-panel,
 .dashboard-panel,
 .flashcard,
@@ -729,38 +729,49 @@ h4 {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
-.preview-lab {
-  overflow: hidden;
-  background: var(--surface-muted);
-  box-shadow: none;
-}
-
-.preview-lab summary {
+.preview-lab-launcher {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  padding: 0.9rem 1rem;
-  cursor: pointer;
+  padding: 1rem;
+  background: var(--surface-muted);
+  box-shadow: none;
 }
 
-.preview-lab summary h3 {
+.preview-lab-launcher h3,
+.preview-lab-page h3 {
   margin: 0;
-  font-size: calc(1rem * var(--font-scale));
 }
 
-.preview-lab summary p {
+.preview-lab-launcher p,
+.preview-lab-page .section-heading p:not(.eyebrow) {
   margin: 0.2rem 0 0;
   color: var(--text-muted);
-  font-size: calc(0.9rem * var(--font-scale));
+}
+
+.preview-lab-page {
+  display: grid;
+  gap: 1rem;
+  min-width: 0;
+}
+
+.preview-lab-page > .section-heading {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1rem;
+  background: var(--surface);
+  box-shadow: var(--card-shadow);
 }
 
 .preview-lab-body {
   display: grid;
   gap: 1rem;
-  border-top: 1px solid var(--border);
+  border: 1px solid var(--border);
+  border-radius: 8px;
   padding: 1rem;
   background: var(--surface);
+  box-shadow: var(--card-shadow);
 }
 
 .preview-note,
@@ -1095,8 +1106,23 @@ h4 {
   align-items: start;
   width: 100%;
   min-height: 4rem;
+  border: 1px solid var(--border-strong);
+  border-radius: 8px;
   padding: 0.85rem;
+  color: var(--text);
+  background: var(--control-bg);
+  cursor: pointer;
   text-align: left;
+}
+
+.option-row:hover,
+.option-row:focus-visible {
+  border-color: var(--control-hover-border);
+  background: var(--control-hover-bg);
+}
+
+.option-row[aria-disabled="true"] {
+  cursor: default;
 }
 
 .option-row.selected {
@@ -1117,6 +1143,11 @@ h4 {
 .option-control,
 .option-id {
   font-weight: 900;
+}
+
+.option-audio-control {
+  display: inline-flex;
+  justify-content: flex-end;
 }
 
 .ordered-list,

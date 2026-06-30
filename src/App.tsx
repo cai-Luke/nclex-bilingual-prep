@@ -111,6 +111,7 @@ type View =
   | "library"
   | "import"
   | "settings"
+  | "previewLab"
   | "review"
   | "session"
   | "summary";
@@ -653,7 +654,7 @@ export default function App() {
             <Import aria-hidden="true" />
             <span>Import</span>
           </button>
-          <button className={view === "settings" ? "active" : ""} type="button" onClick={() => setView("settings")}>
+          <button className={view === "settings" || view === "previewLab" ? "active" : ""} type="button" onClick={() => setView("settings")}>
             <SettingsIcon aria-hidden="true" />
             <span>Settings</span>
           </button>
@@ -774,7 +775,15 @@ export default function App() {
           <SettingsView
             settings={settings}
             updateSettings={updateSettings}
-            bundledRecords={bundled.records}
+            onOpenPreviewLab={() => setView("previewLab")}
+          />
+        )}
+
+        {view === "previewLab" && (
+          <PreviewLab
+            records={bundled.records}
+            settings={settings}
+            onBack={() => setView("settings")}
           />
         )}
 
@@ -1643,11 +1652,11 @@ const textSizeOptions: Array<{ value: TextSizeMode; label: string }> = [
 function SettingsView({
   settings,
   updateSettings,
-  bundledRecords,
+  onOpenPreviewLab,
 }: {
   settings: Settings;
   updateSettings: (settings: Settings) => void;
-  bundledRecords: QuestionRecord[];
+  onOpenPreviewLab: () => void;
 }) {
   return (
     <section className="stack narrow">
@@ -1714,7 +1723,16 @@ function SettingsView({
           <span>English audio buttons</span>
         </label>
       </div>
-      <PreviewLab records={bundledRecords} settings={settings} />
+      <section className="preview-lab-launcher">
+        <div>
+          <h3>Preview Lab</h3>
+          <p>Inspect layout behavior using bundled questions. Does not save answers or progress.</p>
+        </div>
+        <button className="secondary-action" type="button" onClick={onOpenPreviewLab}>
+          <Wrench aria-hidden="true" />
+          <span>Open Preview Lab</span>
+        </button>
+      </section>
     </section>
   );
 }
@@ -1796,7 +1814,15 @@ function previewQuestionLabel(record: QuestionRecord) {
   return `${question.id} - ${shortTitle} (${record.sourceLabel})`;
 }
 
-function PreviewLab({ records, settings }: { records: QuestionRecord[]; settings: Settings }) {
+function PreviewLab({
+  records,
+  settings,
+  onBack,
+}: {
+  records: QuestionRecord[];
+  settings: Settings;
+  onBack: () => void;
+}) {
   const [bucketId, setBucketId] = useState(previewBuckets[0].id);
   const [selectedIdsByBucket, setSelectedIdsByBucket] = useState<Record<string, string>>({});
   const [mode, setMode] = useState<PreviewMode>("live");
@@ -1877,13 +1903,18 @@ function PreviewLab({ records, settings }: { records: QuestionRecord[]; settings
   };
 
   return (
-    <details className="preview-lab">
-      <summary>
+    <section className="preview-lab-page">
+      <div className="section-heading">
         <div>
+          <p className="eyebrow">Developer preview</p>
           <h3>Preview Lab</h3>
           <p>Inspect layout behavior using bundled questions. Does not save answers or progress.</p>
         </div>
-      </summary>
+        <button type="button" onClick={onBack}>
+          <ChevronLeft aria-hidden="true" />
+          <span>Settings</span>
+        </button>
+      </div>
       <div className="preview-lab-body">
         <div className="preview-note">Preview only - answers are not saved.</div>
         <div className="preview-controls">
@@ -2020,7 +2051,7 @@ function PreviewLab({ records, settings }: { records: QuestionRecord[]; settings
           </div>
         )}
       </div>
-    </details>
+    </section>
   );
 }
 
@@ -3248,11 +3279,19 @@ function OptionAnswerControl({
         const correct = question.correct.includes(option.id);
         const statusClass = submitted ? (correct ? "correct" : selected ? "incorrect" : "") : selected ? "selected" : "";
         return (
-          <button
+          <div
             className={`option-row ${statusClass}`}
             key={option.id}
-            type="button"
+            role="button"
+            tabIndex={submitted ? -1 : 0}
+            aria-disabled={submitted}
             onClick={() => toggleOption(option.id)}
+            onKeyDown={(event) => {
+              if (event.target !== event.currentTarget) return;
+              if (event.key !== "Enter" && event.key !== " ") return;
+              event.preventDefault();
+              toggleOption(option.id);
+            }}
             aria-pressed={selected}
           >
             <span className="option-control" aria-hidden="true">
@@ -3260,8 +3299,10 @@ function OptionAnswerControl({
             </span>
             <span className="option-id">{option.id}</span>
             <BilingualText pair={option} mode={languageMode} glossary={question.glossary} onTerm={onTerm} />
-            <SpeakButton text={option.en} enabled={voiceEnabled} label={`Read option ${option.id}`} />
-          </button>
+            <span className="option-audio-control" onClick={(event) => event.stopPropagation()}>
+              <SpeakButton text={option.en} enabled={voiceEnabled} label={`Read option ${option.id}`} />
+            </span>
+          </div>
         );
       })}
     </div>
