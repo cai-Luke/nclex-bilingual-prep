@@ -49,6 +49,28 @@ The committed NGN item-type set is complete. Rationale/dyad scoring and an expli
 
 > Milestones dated **2026-06-23 and earlier** are archived in [`Archive/PROJECT-HISTORY-ARCHIVE.md`](Archive/PROJECT-HISTORY-ARCHIVE.md). Only the current arc (2026-06-24 onward) is kept here.
 
+### Stabilization Verification Pass Attempt (Jun 30)
+
+Completed:
+- Ran the combined post-feature automated stabilization suite requested by `stabilization-verification-pass-2026-06-30-codex-spec.md`.
+- Confirmed browser/rendering capability was available and started manual smoke against the local Vite app at `1440x900`.
+- Added [`STABILIZATION-VERIFICATION-HANDOFF-2026-06-30.md`](STABILIZATION-VERIFICATION-HANDOFF-2026-06-30.md) for architect follow-up.
+
+Verification:
+- `npx tsc -b --pretty false` passed.
+- `npm run test:exam-layout` passed.
+- `npm run test:session-navigation` passed.
+- `npm run test:grading` passed.
+- `npm run test:highlight` passed.
+- `npm run test:bowtie` passed.
+- `npm run test:case-completeness` passed.
+- `npm run test-visuals` passed.
+- `npm run validate-bank -- banks/*.json` passed.
+- `npm run audit` passed with the existing advisory non-MCQ distribution warning and `audit:integrity` insufficient because no raw drafts were present.
+- `npm run census:check` passed.
+- `npm run build` passed with the existing Vite chunk-size warning.
+- Browser smoke stopped without app patching because the live case-study aggregate submit button visibly reads `Submit case study`, while the stabilization checklist asked to confirm `Submit all parts`; architects need to decide whether to restore the visible copy or update the checklist.
+
 ### Exam Shell Width and Split Density (Jun 30)
 
 Completed:

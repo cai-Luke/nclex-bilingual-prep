@@ -17,7 +17,7 @@ Live-verified 2026-06-30 by reading `banks/visual-canonical.json` and `src/visua
 - `ekg_b5_mc_04`'s stem still states "several spikes are not followed by a QRS complex" verbatim — confirms the handoff's own content-rewrite rule applies (see *Content Rewrite Rule* below); converting this item without rewriting the stem would ship a text-tell visual.
 - `RhythmClass` (in `rhythmStrip.ts`) has zero pacemaker-related variants; `RhythmStripVisual` has no `pacer` field; `rhythmStripModule`'s exported object has no `selfCheck` at all today (only `validate`, `renderSvg`, `fixtures`).
 
-Candidate list has not drifted. A full bank-wide re-audit of Buckets 1/2/4 from the original handoff is **out of scope for this spec** — this spec covers Bucket 3 only (the three IDs above).
+Candidate list has not drifted. A full bank-wide re-audit of Buckets 1/2/4 from the original handoff is **out of scope for this spec** — this spec covers Bucket 3 only (the three IDs above), plus the addendum below.
 
 ## Decision Points — Resolved
 
@@ -111,3 +111,49 @@ The visual must carry the finding; the stem must not state it. `ekg_b5_mc_04`'s 
 - **Schema creep** — keep this to the four pacer fields above; do not generalize into an ECG-description language.
 - **Coverage bloat** — this pays down debt (3 backfilled items, 3 retired), it does not net-add EKG content; watch that Phase 4 temptation doesn't creep in.
 - **Legacy progress IDs** — resolved above (retire + reissue), but double-check no other surface (flags, custom session filters) references the old IDs by literal string before retiring them.
+
+---
+
+## Addendum (2026-06-30, post-litigation): Narration-Debt Conversion Pass ("Bucket 1B")
+
+Luke's framing, litigated and adjudicated: convert any item whose stem narrates a rhythm/EKG *shape* — not just names a diagnosis — into a visual item, even when the rhythm isn't the item's literal graded decision point. This is a distinct, independently-sequenceable workstream from the pacemaker overlay above: it needs **zero renderer changes** (every candidate already uses one of the 14 existing `RhythmClass` values), so it can run before, after, or in parallel with Phases 1–4.
+
+### Why this is compliant with the decorative-visual rule, not an exception to it
+
+Principle 6 ("a visual whose removal leaves the answer unchanged is decorative and invalid") stays intact *only if every conversion includes a stem rewrite that removes the narrated finding*. Adding a strip next to an unchanged stem would be genuinely decorative — the same failure mode the existing rule exists to catch. The visual must become load-bearing for at least the recognition step, exactly the same discipline already required for the 3 pacemaker items above (*Content Rewrite Rule*).
+
+### The line: shape vs. label
+
+A bare diagnosis name ("client with atrial fibrillation," used as PMH context for an unrelated pharmacology decision) has nothing to mentally construct — converting it would mean inventing rate/morphology detail not present in the original item, which is fabrication, not backfill. A narrated *shape* — irregularity, a rate tied to an event, wide/bizarre complexes, absent P waves, frequency of an ectopic beat — is the actual "I have to visualize this" trigger and is what qualifies.
+
+### Drift-checked candidate scan (2026-06-30)
+
+Scanned all four model-origin banks (`gpt-`, `claude-`, `hard-cases-`, `gemini-canonical.json`) — top-level stems, embedded case-study leaf stems, and case exhibits — for the 14 supported rhythm patterns, cross-checked against the Bucket-4 morphology terms (ST-elevation, peaked T, U waves, low-voltage QRS, 12-lead, right-heart strain) to catch contamination.
+
+- 33 raw keyword hits.
+- 3 excluded — Bucket-4 morphology term present alongside a renderable one (e.g. `gemini_gap_bt_severe_hyperkalemia_05` narrates peaked T waves; a partial strip omitting that would misrepresent the teaching point). Re-verify on pickup, full text wasn't hand-checked for all three.
+- Of the remaining 30, most are bare diagnosis-label mentions (chiefly AFib-on-anticoagulant pharmacology items) — excluded per the shape/label line above, stay text, consistent with the original audit's Bucket 1 classification.
+
+**Genuine shape-narration candidates (7):**
+
+| ID | Bank | Finding narrated | Note |
+|---|---|---|---|
+| `gemini_backfill_or_cardio_01` | gemini | VF, code-blue trigger | `vfib` needs no extra data (`rateBpm: 0`) |
+| `opus26_case_refeeding_syndrome_01` / leaf `_q3` | claude | PVCs 3–5/min, QTc 480ms | Already independently flagged in the original Bucket 2 audit |
+| `opus26_case_refeeding_syndrome_01` / leaf `_q5` | claude | PVCs resolved | Pair with `_q3` as before/after rather than a third standalone strip |
+| `gpt_deepen_2026_06_22_bow_12` | gpt | Frequent PVCs, K 2.9 | Frequency descriptor present, not just the label |
+| `cs_adhf_pulm_edema_01` / exhibit `ed_assessment` | hard-cases | HR 128, irregularly irregular | Vitals-exhibit shape, not a PMH mention |
+| `gpt_stroke_..._warfarin_01` / exhibit `baseline_assessment` | hard-cases | HR 88, irregularly irregular | Same case's `initial_ed_record` exhibit (bare AFib PMH mention) stays text |
+| `gemini_c10_07` | gemini | HR 160 + new-onset AFib, thyroid storm | Rate tied to onset, NCJMM cloze item |
+
+**Optional / low-priority tail:** six `sinus_tach` hits (regular rate, no morphology — e.g. "heart rate 102 and regular"). A bare number already fully specifies these; defer unless dogfooding surfaces the same frustration for simple tachycardia.
+
+**Scope caveat:** this was one keyword pass, not exhaustive — creative phrasing without the matched terms (e.g. "chaotic, disorganized rhythm with no identifiable pattern" for VF) would be missed. Treat the candidate count as a floor. Re-run the scan if picked up materially later than this date.
+
+### Open question for Luke (not Claude's call)
+
+Content generation is paused pending real-session observation. This pass argued to be exempt: the underlying clinical fact pattern doesn't change, only its delivery (prose → strip + trimmed stem), so it's a presentation fix riding the existing review pipeline rather than new generation. Stated as a recommendation, not a decision — needs Luke's explicit sign-off before any conversion starts, same gate as everything else in this file.
+
+### Process (same pipeline as Phase 3 above)
+
+Each conversion: rewrite stem to remove the narrated finding → attach the matching `rhythm_strip` visual with the narrated values (rate, regularity, PVC frequency, etc.) → retire the old text-only version's content under a new or same ID per the same ID-preservation logic as the pacemaker Decision Point #2 (here, unlike the pacemaker bucket, the underlying clinical decision is genuinely unchanged, so preserving the existing ID is more defensible than in Phase 3 — confirm against actual stored progress before deciding) → validate, self-check (the rhythm-strip kind has no `selfCheck` today regardless of this addendum — not required unless Phase 1 above lands first) → human content review for clinical fairness and bilingual parity → promote → ledger update.

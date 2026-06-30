@@ -1,7 +1,7 @@
 # Codex Spec — Stabilization Verification Pass (No New Scope)
 
 Date: 2026-06-30
-Status: Verification only. No code, schema, bank, or architecture changes unless a check fails.
+Status: Verification only. No code, schema, bank, or architecture changes in this pass.
 Author: Claude (planning/review gate)
 
 ## Why
