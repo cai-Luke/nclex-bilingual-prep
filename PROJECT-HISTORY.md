@@ -49,6 +49,19 @@ The committed NGN item-type set is complete. Rationale/dyad scoring and an expli
 
 > Milestones dated **2026-06-23 and earlier** are archived in [`Archive/PROJECT-HISTORY-ARCHIVE.md`](Archive/PROJECT-HISTORY-ARCHIVE.md). Only the current arc (2026-06-24 onward) is kept here.
 
+### Translation Telemetry V1.2a Attempt History (Jul 1)
+
+Completed:
+- Added durable attempt context for future translation-friction joins: `AnswerEvent` now records `sessionId`, `sessionMode`, and `languageModeAtAnswer` for newly submitted answers while remaining backward-compatible with older rows.
+- Added a new local `caseAnswerPartEvents` IndexedDB store plus in-memory fallback, record/load helpers, and a DB version bump for part-level case-study correctness.
+- Wrote case-part correctness events only from the canonical `submitCurrent` submission path, leaving render/display grading in `CasePartNavigator` and `CaseActivePart` read-only.
+- Confirmed V1.2a discovery: `submitCurrent` is the canonical persisted answer path, `"on-tap"` is the reveal-eligible `LanguageMode`, study language mode can change mid-session, and existing `AnswerEvent` consumers only use the stream for dashboard trend history.
+
+Verification:
+- `npm run test:translation-telemetry` passed.
+- `npx tsc -b --pretty false` passed.
+- `npm run build` passed with the existing Vite chunk-size warning.
+
 ### Rhythm Strip Bucket 1B Conversions (Jul 1)
 
 Completed:

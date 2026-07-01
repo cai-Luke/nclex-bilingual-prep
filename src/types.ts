@@ -323,6 +323,20 @@ export type AnswerEvent = {
   questionId: string;
   wasCorrect: boolean;
   answeredAt: string;
+  sessionId?: string;
+  sessionMode?: SessionMode;
+  languageModeAtAnswer?: LanguageMode;
+};
+
+export type CaseAnswerPartEvent = {
+  id: string;
+  questionId: string;
+  partId: string;
+  wasCorrect: boolean;
+  sessionId: string;
+  sessionMode: SessionMode;
+  languageModeAtAnswer: LanguageMode;
+  answeredAt: string;
 };
 
 export type RevealBlock =

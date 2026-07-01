@@ -74,6 +74,7 @@ import {
   recordLanguageMiss,
   recordFlashcardReview,
   recordAnswer,
+  recordCaseAnswerPartEvent,
   recordTranslationReveal,
   saveActiveSession,
   saveSettings,
@@ -481,7 +482,26 @@ export default function App() {
     const answer = session.answers[question.id] ?? getInitialAnswer(question);
     const score = scoreQuestion(question, answer);
     const wasCorrect = gradeQuestion(question, answer);
-    const nextProgress = await recordAnswer(question.id, wasCorrect);
+    const answerContext = {
+      sessionId: session.id,
+      sessionMode: session.mode,
+      languageModeAtAnswer: session.languageMode,
+    };
+    const nextProgress = await recordAnswer(question.id, wasCorrect, answerContext);
+    if (question.itemType === "case_study") {
+      const caseAnswers = answer.caseStudy ?? {};
+      await Promise.all(
+        question.caseStudy.questions.map((part) => {
+          const partAnswer = caseAnswers[part.id] ?? getInitialAnswer(part);
+          return recordCaseAnswerPartEvent({
+            questionId: question.id,
+            partId: part.id,
+            wasCorrect: gradeQuestion(part, partAnswer),
+            ...answerContext,
+          });
+        }),
+      );
+    }
     setProgress((current) => ({ ...current, [question.id]: nextProgress }));
     setAnswerEvents(await loadAnswerEvents());
     setSession((current) => {

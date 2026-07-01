@@ -1,6 +1,7 @@
 import { openDB, type DBSchema, type IDBPDatabase } from "idb";
 import type {
   AnswerEvent,
+  CaseAnswerPartEvent,
   FlashcardProgress,
   LanguageMiss,
   QuestionFlag,
@@ -13,7 +14,7 @@ import type {
 export { isDueForReview } from "./reviewSchedule";
 
 const DB_NAME = "nclex-bilingual-prep";
-const DB_VERSION = 4;
+const DB_VERSION = 5;
 
 export const defaultSettings: Settings = {
   languageMode: "on-tap",
@@ -48,6 +49,10 @@ interface PrepDb extends DBSchema {
     key: string;
     value: AnswerEvent;
   };
+  caseAnswerPartEvents: {
+    key: string;
+    value: CaseAnswerPartEvent;
+  };
   flashcardProgress: {
     key: string;
     value: FlashcardProgress;
@@ -70,6 +75,7 @@ const memoryFlags: Record<string, QuestionFlag> = {};
 const memoryFlashcardProgress: Record<string, FlashcardProgress> = {};
 const memoryLanguageMisses: Record<string, LanguageMiss> = {};
 const memoryAnswerEvents: AnswerEvent[] = [];
+const memoryCaseAnswerPartEvents: CaseAnswerPartEvent[] = [];
 const memoryTranslationRevealEvents: TranslationRevealEvent[] = [];
 
 const getDb = () => {
@@ -83,6 +89,7 @@ const getDb = () => {
       if (!db.objectStoreNames.contains("activeSession")) db.createObjectStore("activeSession", { keyPath: "id" });
       if (!db.objectStoreNames.contains("flags")) db.createObjectStore("flags", { keyPath: "questionId" });
       if (!db.objectStoreNames.contains("answerEvents")) db.createObjectStore("answerEvents", { keyPath: "id" });
+      if (!db.objectStoreNames.contains("caseAnswerPartEvents")) db.createObjectStore("caseAnswerPartEvents", { keyPath: "id" });
       if (!db.objectStoreNames.contains("flashcardProgress")) db.createObjectStore("flashcardProgress", { keyPath: "termId" });
       if (!db.objectStoreNames.contains("languageMisses")) db.createObjectStore("languageMisses", { keyPath: "questionId" });
       if (!db.objectStoreNames.contains("translationRevealEvents")) db.createObjectStore("translationRevealEvents", { keyPath: "id" });
@@ -132,7 +139,13 @@ export const saveProgress = async (progress: QuestionProgress) => {
   }
 };
 
-export const recordAnswer = async (questionId: string, wasCorrect: boolean) => {
+type AnswerEventContext = Pick<AnswerEvent, "sessionId" | "sessionMode" | "languageModeAtAnswer">;
+
+export const recordAnswer = async (
+  questionId: string,
+  wasCorrect: boolean,
+  context: AnswerEventContext = {},
+) => {
   let existing: QuestionProgress | undefined = memoryProgress[questionId];
   try {
     const db = await getDb();
@@ -158,6 +171,7 @@ export const recordAnswer = async (questionId: string, wasCorrect: boolean) => {
     questionId,
     wasCorrect,
     answeredAt: now.toISOString(),
+    ...context,
   };
   memoryAnswerEvents.push(event);
   try {
@@ -302,6 +316,35 @@ export const loadAnswerEvents = async (): Promise<AnswerEvent[]> => {
     return records.sort((left, right) => left.answeredAt.localeCompare(right.answeredAt));
   } catch {
     return memoryAnswerEvents;
+  }
+};
+
+export const recordCaseAnswerPartEvent = async (
+  event: Omit<CaseAnswerPartEvent, "id" | "answeredAt">,
+): Promise<CaseAnswerPartEvent> => {
+  const now = new Date();
+  const full: CaseAnswerPartEvent = {
+    ...event,
+    id: `${event.questionId}-${event.partId}-${now.getTime()}-${Math.random().toString(36).slice(2, 8)}`,
+    answeredAt: now.toISOString(),
+  };
+  memoryCaseAnswerPartEvents.push(full);
+  try {
+    const db = await getDb();
+    await db.put("caseAnswerPartEvents", full);
+  } catch {
+    // The in-memory event list still supports the current session.
+  }
+  return full;
+};
+
+export const loadCaseAnswerPartEvents = async (): Promise<CaseAnswerPartEvent[]> => {
+  try {
+    const db = await getDb();
+    const records = await db.getAll("caseAnswerPartEvents");
+    return records.sort((left, right) => left.answeredAt.localeCompare(right.answeredAt));
+  } catch {
+    return memoryCaseAnswerPartEvents;
   }
 };
 
