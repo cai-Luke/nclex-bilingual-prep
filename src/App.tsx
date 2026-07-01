@@ -14,6 +14,7 @@ import {
   BarChart3,
   BookOpen,
   Brain,
+  Check,
   CheckCircle2,
   AudioLines,
   ChevronDown,
@@ -31,6 +32,7 @@ import {
   MoveUp,
   Play,
   Search,
+  Copy,
   RotateCcw,
   Settings as SettingsIcon,
   SlidersHorizontal,
@@ -85,6 +87,8 @@ import {
 } from "./sessionNavigation";
 import { buildTargetedReviewPool, buildWeightedSession, seedFromString } from "./sessionSampler";
 import { buildSessionState, type SessionState } from "./sessionState";
+import { formatItemType } from "./itemTypes";
+import { buildReviewPromptText } from "./reviewPrompt";
 import { VisualStimulus } from "./visuals";
 import { mulberry32 } from "./visuals/primitives/prng";
 import { STANDALONE_SPLIT_VISUAL_KINDS, getVisibleCaseStages, usesStandaloneVisualSplit } from "./examLayout";
@@ -4370,6 +4374,7 @@ function SummaryView({
   const [expandedIds, setExpandedIds] = useState<Set<string>>(() => new Set());
   const [reviewScope, setReviewScope] = useState<"missed" | "answered" | "flagged">("missed");
   const [languageMode, setLanguageMode] = useState<LanguageMode>(defaultLanguageMode);
+  const [copyState, setCopyState] = useState<"idle" | "copied" | "manual">("idle");
   const answered = Object.keys(session.results).length;
   const correct = Object.values(session.results).filter(Boolean).length;
   const incorrect = answered - correct;
@@ -4392,6 +4397,7 @@ function SummaryView({
     Object.prototype.hasOwnProperty.call(session.results, question.id),
   );
   const missed = session.questions.filter((question) => session.results[question.id] === false);
+  const reviewPromptText = useMemo(() => buildReviewPromptText({ session }), [session]);
   const byCategory = answeredQuestions.reduce<Record<string, { total: number; correct: number }>>((acc, question) => {
     const current = acc[question.category] ?? { total: 0, correct: 0 };
     current.total += 1;
@@ -4421,6 +4427,15 @@ function SummaryView({
   const flaggedQuestions = answeredQuestions.filter((question) => flags[question.id]?.flagged);
   const reviewQuestions =
     reviewScope === "missed" ? missed : reviewScope === "answered" ? answeredQuestions : flaggedQuestions;
+  const handleCopyPrompt = async () => {
+    try {
+      await navigator.clipboard.writeText(reviewPromptText);
+      setCopyState("copied");
+      setTimeout(() => setCopyState("idle"), 2000);
+    } catch {
+      setCopyState("manual");
+    }
+  };
   const toggleExpanded = (id: string) => {
     setExpandedIds((prev) => {
       const next = new Set(prev);
@@ -4457,11 +4472,21 @@ function SummaryView({
             <RotateCcw aria-hidden="true" />
             <span>Practice related</span>
           </button>
+          <button type="button" onClick={handleCopyPrompt} disabled={missed.length === 0}>
+            {copyState === "copied" ? <Check aria-hidden="true" /> : <Copy aria-hidden="true" />}
+            <span>{copyState === "copied" ? "Copied!" : "Copy review prompt"}</span>
+          </button>
           <button type="button" onClick={() => onReviewTerms(sessionMissedTermIds)} disabled={sessionMissedTermIds.length === 0}>
             <Brain aria-hidden="true" />
             <span>Review missed terms</span>
           </button>
         </div>
+        {copyState === "manual" && (
+          <div className="review-prompt-fallback">
+            <p className="muted-copy">Clipboard access isn't available here — select the text below and copy manually.</p>
+            <textarea readOnly value={reviewPromptText} onFocus={(event) => event.currentTarget.select()} />
+          </div>
+        )}
         {sessionMissedTermIds.length > 0 && (
           <p className="muted-copy">Vocab Rescue · {sessionMissedTermIds.length} terms from questions you missed.</p>
         )}
@@ -4906,19 +4931,6 @@ const updateAdaptiveAfterAnswer = (adaptive: AdaptiveSessionSnapshot, question: 
 const uniqueSorted = (values: string[]) => Array.from(new Set(values)).sort((left, right) => left.localeCompare(right));
 
 const escapeRegex = (value: string) => value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-
-const formatItemType = (itemType: Question["itemType"]) =>
-  itemType === "multiple_choice"
-    ? "Single best answer"
-    : itemType === "select_all"
-      ? "SATA"
-      : itemType === "case_study"
-        ? "Case study"
-        : itemType === "highlight"
-          ? "Highlight"
-          : itemType === "bowtie"
-            ? "Bowtie"
-        : itemType.replace(/_/g, " ");
 
 // Tracks the last single-tap utterance so that re-tapping the *same* text
 // alternates the playback rate (normal -> 0.8x -> normal ...). Playing any new

@@ -49,6 +49,21 @@ The committed NGN item-type set is complete. Rationale/dyad scoring and an expli
 
 > Milestones dated **2026-06-23 and earlier** are archived in [`Archive/PROJECT-HISTORY-ARCHIVE.md`](Archive/PROJECT-HISTORY-ARCHIVE.md). Only the current arc (2026-06-24 onward) is kept here.
 
+### Summary GPT Review Prompt (Jul 1)
+
+Completed:
+- Added a Summary "Copy review prompt" action that assembles missed non-visual leaf items into a Chinese-first Markdown prompt for external GPT review, with no in-app AI call or network dependency.
+- Extracted the shared `formatItemType` helper into `src/itemTypes.ts` so both `App.tsx` and the new pure `src/reviewPrompt.ts` can use it without a module cycle.
+- The prompt includes learner answer state, correct answer markers, targeted per-choice rationales for MC/SATA, full rationale context for other item types, dropdown cloze sentences, highlight passages, glossary practice terms, and case parent context when available.
+- Visual-dependent misses are conservatively excluded from full detail blocks and surfaced as pointer lines when either the leaf has its own visual or the parent case has exhibit/stage visuals.
+- Added a clipboard fallback textarea for contexts where `navigator.clipboard.writeText` is unavailable.
+
+Verification:
+- `npm run test:review-prompt` passed.
+- `npx tsc -b --pretty false` passed.
+- `npm run build` passed with the existing Vite chunk-size warning.
+- Browser smoke loaded the local Vite app successfully; the available browser session resumed into an unfinished case study, so Summary-specific UI was covered by build and prompt tests rather than a forced multi-part browser completion.
+
 ### Targeted Review V1 (Jul 1)
 
 Completed:
