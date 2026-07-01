@@ -2,8 +2,8 @@
 
 ## 0. Layer & Status
 
-- **Blocked on V1.2a** (sessionId threading + case-part correctness persistence). Do not begin implementation until V1.2a's acceptance criteria are met and merged.
-- **Landed (v1.1, Layer A — observe):** reveal event capture, panel, export. Events include block/category/topic, elapsed_time, reveal_before_submit flag, session_count.
+- **Blocked on V1.2a** (sessionId/mode threading + case-part correctness persistence, submit-path only). Do not begin until V1.2a's acceptance criteria are met and merged.
+- **Landed (v1.1, Layer A — observe):** reveal event capture, panel, export. Events include block/category/topic, elapsed_time, reveal_before_submit flag.
 - **This spec (Layer B — interpret):** join reveal events to final correctness and produce ranked audit candidates. Analytic layer only — no new instrumentation, no learner-facing surface, no sampler changes.
 - **Explicitly deferred (Layer C — intervene):** learner-facing summaries, sticky/default language behavior, targeted-review weighting (`scoreTargetedReviewCandidate`). V1.1 already deferred whether reveal concentration should influence scoring — V1.2b preserves that boundary.
 
@@ -18,9 +18,10 @@ Turn persisted attempt history plus raw reveal events into two things a human ca
 Repo state beats this spec. Before implementing anything below:
 
 1. Inspect `src/storage.ts`, `src/types.ts`, `src/grading.ts`, and the session summary/history write path in `src/App.tsx`.
-2. Confirm `AnswerEvent.sessionId` and `CaseAnswerPartEvent` are present and populated per V1.2a's acceptance criteria.
-3. Confirm the `partId` convention used by `CaseAnswerPartEvent` matches the one `TranslationRevealEvent` already uses, so the three-way join (reveal events, part-level correctness, bank records) resolves on one consistent key.
-4. `questionId` shape changed once already during the v1.1 case-study schema bump. Confirm it currently resolves stably and uniquely for both standalone items and case-study sub-parts.
+2. Confirm `AnswerEvent.sessionId` / `sessionMode` / `languageModeAtAnswer` and `CaseAnswerPartEvent` are present and populated per V1.2a's acceptance criteria.
+3. Confirm the `LanguageMode` value V1.2a identified for on-demand reveal. Working assumption: `"on-tap"`, distinct from `"always"` and `"off"`.
+4. Confirm the `partId` convention on `CaseAnswerPartEvent` matches `TranslationRevealEvent`'s.
+5. `questionId` shape changed once already during the v1.1 case-study schema bump. Confirm it currently resolves stably and uniquely for both standalone items and case-study sub-parts.
 
 **If V1.2a did not land as specified, or the identity convention is unclear, stop and report the gap.** Do not add new instrumentation in V1.2b unless this spec is revised first. Do not implement §4-§7 until this discovery step is complete and the join key is confirmed.
 
@@ -28,16 +29,42 @@ Join key rule: prefer whatever key V1.2a persisted for `AnswerEvent` and `CaseAn
 
 ## 3. Correctness Join
 
-Enriched rows are built by **iterating attempts, not reveal events.** Attempt sources: `AnswerEvent` for standalone questions, `CaseAnswerPartEvent` for case-study parts. For each attempt, left-join a matching reveal event on `(sessionId, questionId[, partId])`. **Every attempt produces exactly one row**, whether or not a reveal event exists for it — this is what makes `correct_no_reveal` and `missed_no_reveal` possible at all.
+**Pre-submit reveal — exact definition.** Use `event.submittedBeforeReveal === false`. Do **not** use `answeredBeforeReveal` for this — that field describes whether an answer was already selected/ready at reveal time, not whether the question had been submitted. V1.1's existing before-submit counting already relies on `submittedBeforeReveal`; stay consistent with it.
 
-Produce four buckets, described as observed facts rather than inferred causes:
+**Reveal aggregation.** An attempt can have multiple matching reveal events (stem, choices, rationale, glossary, case stage — reveal is logged per block, one row per event). Aggregate, don't join to a single event:
+
+```ts
+matchingRevealEvents: TranslationRevealEvent[];
+revealBeforeSubmitCount: number;   // count where submittedBeforeReveal === false
+hadRevealBeforeSubmit: boolean;
+firstRevealBeforeSubmitAt?: string;
+revealedBlocks: RevealBlock[];     // unique blocks, sorted by first occurrence, stable fallback order for ties
+```
+
+**Eligibility.** Compute, don't store:
+
+```ts
+function isTranslationRevealEligible(sessionMode: SessionMode, languageModeAtAnswer: LanguageMode): boolean {
+  return sessionMode === "study" && languageModeAtAnswer === "on-tap"; // confirm literal value per §2
+}
+```
+
+Ineligible attempts (`eligible === false`) are excluded from the four friction buckets and from every downstream rate/ranking (§5, §6) — but not from session ordinal derivation (§5). Report their count in diagnostics.
+
+**Attempt-centric, not reveal-event-centric.** Iterate attempts (`AnswerEvent` for standalone questions, `CaseAnswerPartEvent` for case-study parts), left-join aggregated reveal data by `(sessionId, questionId[, partId])`. Every eligible attempt produces exactly one row, with or without a reveal.
+
+**Standalone/case-part exclusivity.** Exclude `AnswerEvent` rows whose `questionId` resolves to a top-level case-study item from the normalized attempt set — those are still written for backward compatibility per V1.2a, but must not also become standalone attempt rows. Count exclusions (see §9 — this count must be passed into the pure function, not computed by it).
+
+**Legacy rows.** `AnswerEvent` rows missing `sessionId`, `sessionMode`, or `languageModeAtAnswer` (predating V1.2a) are excluded from `NormalizedAttempt[]` and counted as `legacyUnjoinableAttemptCount`. Do not coerce them into a fake session or a default eligibility value. Count these too (see §9).
+
+Bucket table, applying only to eligible attempts:
 
 | bucket enum | Description |
 |---|---|
-| `correct_no_reveal` | correct, no reveal-before-submit event |
-| `missed_no_reveal` | incorrect, no reveal-before-submit event |
-| `correct_after_reveal` | correct, reveal-before-submit occurred |
-| `missed_after_reveal` | incorrect, reveal-before-submit occurred |
+| `correct_no_reveal` | correct, no pre-submit reveal |
+| `missed_no_reveal` | incorrect, no pre-submit reveal |
+| `correct_after_reveal` | correct, `hadRevealBeforeSubmit` |
+| `missed_after_reveal` | incorrect, `hadRevealBeforeSubmit` |
 
 Add `itemType: "standalone" | "case_part"` to each enriched row, populated from which attempt source the row came from.
 
@@ -55,13 +82,15 @@ Purpose: surface whether reveal reliance is trending down over time, without tou
 
 - Primary aggregation level: category/topic x session-ordinal bucket, since literal question repeats are uncommon outside SRS-driven re-serving of missed items.
 - `sessionBucketSize` is a parameter (default 5), not a hardcoded "1-5, 6-10" split.
-- Rows with fewer than `sessionBucketSize` attempts in a bucket are included but marked `lowSample: true` — not hidden. Sparse data is still useful for dev/audit review even where it'd be too noisy for a learner-facing claim.
+- **Session ordinal is derived from the full valid attempt stream — all non-legacy attempts with a valid `sessionId` and `answeredAt`, including ineligible ones (test/adaptive/`always`-mode sessions).** Group by `sessionId`, take earliest `answeredAt`, sort. This keeps chronology honest — deriving order from eligible attempts alone would silently skip test/adaptive sessions and make the timeline look more compressed than it actually was.
+- **Fade rates (numerator/denominator) are then computed from eligible attempts only**, within whichever session-ordinal bucket their true chronological position falls into. A bucket may legitimately contain zero eligible attempts (e.g. a stretch of test-mode sessions) — that row still appears with `lowSample: true` and a null rate, not hidden, consistent with how other sparse buckets are handled.
+- Rows with fewer than `sessionBucketSize` eligible attempts in a bucket are included but marked `lowSample: true` — not hidden. Sparse data is still useful for dev/audit review even where it'd be too noisy for a learner-facing claim.
 - **This table is descriptive only. It must not produce improvement claims, readiness claims, or learner-facing conclusions.** That restriction is what made V1.1 good; V1.2b doesn't get to quietly relax it.
-- Session ordinal is derived from the **attempt stream** (`AnswerEvent`, which exists for every session), not from `TranslationRevealEvent` (which only exists for sessions containing a reveal). Group by `sessionId`, take each session's earliest `answeredAt`, sort. Deriving from reveal events alone would bias the ordinal toward sessions that happened to contain a reveal — deriving from the full attempt stream avoids that.
 - Open question: whether the SRS missed-question loop re-serves identical `questionId`s often enough to also support an item-level fade metric, in addition to category-level. Flagging, not deciding — resolve during discovery (§2) if the data density is visible there.
 
 ## 6. Audit Candidate List
 
+- Ranking and denominators are computed over **eligible attempts only**.
 - Rank by:
   1. `attemptCount >= minAuditAttempts` (default 5)
   2. `revealBeforeSubmitRate` descending
@@ -70,7 +99,7 @@ Purpose: surface whether reveal reliance is trending down over time, without tou
   5. `questionId` ascending (deterministic tie-break floor)
 - Include both numerator and denominator per row, not just rate: `attemptCount`, `revealBeforeSubmitCount`, `revealBeforeSubmitRate`, `correctAfterRevealCount`, `missedAfterRevealCount`. A 4/5 item and a 20/25 item can share a rate — they aren't equally compelling.
 - Output top N (default `topAuditCandidates = 20`).
-- Case-study items produce one audit-candidate row per part (using `CaseAnswerPartEvent` + matching reveals), not one row per case. Add `itemType` and `partId` (when applicable) to the candidate row shape so a reviewer can tell a standalone-question candidate from a specific case-part candidate. Ranking and tie-break rules apply per-row regardless of `itemType`.
+- Case-study items rank at **part level** (one candidate row per part). Add `itemType` and `partId` (when applicable). Tie-break rules apply per-row regardless of `itemType`.
 - **`stem_excerpt` is derived from the current question bank at export/summarization time — it is not stored on or copied from reveal events.** Reveal events must not carry `stem_excerpt`; that would be de facto new instrumentation and would go stale relative to bank edits. If a `questionId` no longer resolves in the current bank, emit `stem_excerpt: "[unresolved question in current bank]"` and `resolved: false` rather than dropping the row.
 - `stem_excerpt` remains mandatory on every resolved row — the bilingual-divergence audit spec requires verbatim evidence and rejects paraphrase-as-evidence. This candidate list is an input to that audit chain and must preserve it.
 
@@ -79,17 +108,17 @@ Purpose: surface whether reveal reliance is trending down over time, without tou
 - No changes to sampler or targeted-review weighting (`scoreTargetedReviewCandidate` untouched).
 - No learner-facing UI or end-of-session summary — deferred to Layer C, pending dogfooding on a stable metric.
 - No sticky/default language persistence change.
-- No new event instrumentation beyond what v1.1 already captures (this explicitly includes: reveal events do not gain a `stem_excerpt` field).
+- No new translation-reveal instrumentation beyond v1.1, and no new attempt instrumentation beyond the V1.2a persisted attempt streams (`AnswerEvent` additions, `CaseAnswerPartEvent`).
 
 ## 8. Output Format
 
 Dev-only exports (JSON/CSV), consistent with the existing panel/export mechanism:
 
-1. **Enriched attempt rows** — normalized attempt + optional joined reveal event + `bucket` + `itemType` + optional `interpretation` + raw `elapsed_time_ms` (descriptive, unweighted).
+1. **Enriched attempt rows** — normalized attempt + aggregated joined reveal data + `bucket` + `itemType` + optional `interpretation` + raw `elapsed_time_ms` (descriptive, unweighted).
 2. **Audit candidate summary** — `questionId`, optional `partId`, `itemType`, category, rate + count fields per §6, `stem_excerpt`, `resolved`.
-3. **Fade trend table** — category/topic x session-ordinal bucket -> reveal rate, `lowSample` flag.
+3. **Fade trend table** — category/topic x session-ordinal bucket -> reveal rate or null, `lowSample` flag.
 4. **Diagnostics** — surfaces join health so bad joins can't silently disappear:
-   ```
+   ```ts
    diagnostics: {
      revealEventCount: number;
      attemptCount: number;
@@ -99,29 +128,41 @@ Dev-only exports (JSON/CSV), consistent with the existing panel/export mechanism
      unresolvedQuestionCount: number;
      duplicateJoinKeyCount: number;
      attemptSourceBreakdown: {
-       standalone: number;   // AnswerEvent-derived attempt count
-       casePart: number;     // CaseAnswerPartEvent-derived attempt count
+       standalone: number;
+       casePart: number;
      };
+     ineligibleAttemptCount: number;
+     legacyUnjoinableAttemptCount: number;
+     excludedCaseTopLevelAnswerEventCount: number;
    }
    ```
    Given §2 already anticipates key instability, this is what makes that risk checkable rather than just noted.
 
 ## 9. Function Shape (for Codex)
 
+The caller/adapter normalizes both attempt sources before calling the pure function. It also passes counts for rows the pure function cannot see because they were excluded during normalization.
+
 ```ts
 interface NormalizedAttempt {
   questionId: string;
-  partId?: string;       // present only for case_part attempts
+  partId?: string;
   itemType: "standalone" | "case_part";
   wasCorrect: boolean;
   sessionId: string;
+  sessionMode: SessionMode;
+  languageModeAtAnswer: LanguageMode;
   answeredAt: string;
 }
 
 summarizeTranslationFriction({
-  attempts,          // NormalizedAttempt[] — caller merges AnswerEvent + CaseAnswerPartEvent
+  attempts,          // NormalizedAttempt[] — caller has already merged AnswerEvent + CaseAnswerPartEvent,
+                     // excluding case-study top-level rows and legacy-unjoinable rows
   events,            // TranslationRevealEvent[]
   questions,
+  normalizationDiagnostics = {
+    legacyUnjoinableAttemptCount: 0,
+    excludedCaseTopLevelAnswerEventCount: 0,
+  },
   minAuditAttempts = 5,
   topAuditCandidates = 20,
   sessionBucketSize = 5,
@@ -129,11 +170,11 @@ summarizeTranslationFriction({
   enrichedRows;
   auditCandidates;
   fadeTrend;
-  diagnostics;
+  diagnostics;   // merges normalizationDiagnostics with internally-computed counts (ineligibleAttemptCount, attemptSourceBreakdown, etc.)
 }
 ```
 
-Where `attempts` = normalized persisted attempt rows (confirmed to exist via §2 discovery), `questions` = flattened bank records / case-study parts used to derive `stem_excerpt` at export time. Normalize both attempt sources into one shape *before* calling the pure function; the merge/normalize step is a small adapter at the call site, not inside the pure function. This keeps `summarizeTranslationFriction` grain-agnostic and easy to unit test with plain fixtures.
+Eligibility, bucket assignment, and reveal aggregation are computed inside the function from fields already on `NormalizedAttempt`. The merge/normalize/exclude step for the two attempt sources stays a small adapter at the call site — the pure function stays fixture-testable, it just now also accepts the adapter's exclusion counts as an explicit input rather than trying to infer them.
 
 Pure function, no side effects — same deterministic-transform pattern already used for the shuffler/verifier split. Testable in isolation against fixture arrays without touching the live bank or session store.
 
@@ -143,14 +184,20 @@ Pure function, no side effects — same deterministic-transform pattern already 
 - [ ] Discovery phase (§2) completed and documented; V1.2a persisted attempt sources confirmed before implementation begins; no new instrumentation added unless this spec is revised
 - [ ] Join-key confirmed against existing answer-history/grading convention (or composite key adopted only after confirming no existing convention applies)
 - [ ] `summarizeTranslationFriction` implemented as a pure function with unit tests covering all four buckets
-- [ ] Enriched rows are attempt-centric: every `NormalizedAttempt` produces exactly one row, with or without a matching reveal
+- [ ] `hadRevealBeforeSubmit` computed from `submittedBeforeReveal === false`; `answeredBeforeReveal` never used to define pre-submit status
+- [ ] `revealedBlocks` output is deterministically ordered
+- [ ] Eligibility computed from `sessionMode`/`languageModeAtAnswer`, not stored; ineligible attempts excluded from buckets, audit ranking, and fade rates — but included in fade ordinal derivation
+- [ ] Enriched rows are attempt-centric: every eligible `NormalizedAttempt` produces exactly one row, with or without a matching reveal
 - [ ] Case-study items produce part-level buckets and part-level audit-candidate rows, not whole-item aggregates
+- [ ] Case-study top-level `AnswerEvent` rows excluded from standalone attempt rows; exclusion count passed into `summarizeTranslationFriction` via `normalizationDiagnostics` and reflected in output
+- [ ] Legacy rows excluded and their count passed into `summarizeTranslationFriction` via `normalizationDiagnostics`, never coerced into a fake session
 - [ ] Enriched export includes raw `elapsed_time_ms`, excluded from ranking, weighting, bucket assignment, and sort order
 - [ ] Audit candidates derive `stem_excerpt` from current bank records at export time; unresolved questions marked `resolved: false` rather than dropped
 - [ ] Ranking is deterministic with the documented 5-level tie-break
 - [ ] Fade trend rows with low denominators are marked `lowSample: true` rather than hidden or silently dropped
-- [ ] Fade-metric session ordinal derived from the full attempt stream, not from reveal events alone
+- [ ] Fade-metric session ordinal derived from the full valid attempt stream, not from eligible attempts or reveal events alone
+- [ ] Fade trend buckets with zero eligible attempts still appear, marked `lowSample: true`, rather than being omitted
 - [ ] Export includes `diagnostics`; smoke-check verifies unjoined/duplicate counts are zero or explicitly explained
-- [ ] `diagnostics.attemptSourceBreakdown` present and non-zero for both sources on a real dataset containing case-study attempts
+- [ ] `diagnostics.attemptSourceBreakdown` present and non-zero for both sources on a dataset containing case-study attempts
 - [ ] No modifications to sampler, targeted-review logic, or any learner-facing screen
 - [ ] `npm run build` and `npx tsc -b --pretty false` pass
