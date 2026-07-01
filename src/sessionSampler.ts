@@ -1,6 +1,14 @@
 import { isDueForReview } from "./reviewSchedule";
 import { NCLEX_CATEGORY_WEIGHTS } from "./schema";
-import type { Category, QuestionProgress, QuestionRecord } from "./types";
+import type {
+  Category,
+  ItemType,
+  NgnSkill,
+  Question,
+  QuestionFlag,
+  QuestionProgress,
+  QuestionRecord,
+} from "./types";
 
 export { NCLEX_CATEGORY_WEIGHTS };
 
@@ -17,6 +25,27 @@ export type SamplerParams = {
   floorMinCount?: number;
   floorKindPriority?: string[];
   now?: Date;
+};
+
+export type CompletedSessionSignal = {
+  questions: Question[];
+  results: Record<string, boolean>;
+};
+
+export type TargetedReviewSignals = {
+  missedTopics: Set<string>;
+  missedCategories: Set<Category>;
+  missedItemTypes: Set<ItemType>;
+  missedNgnSkills: Set<NgnSkill>;
+};
+
+export const seedFromString = (value: string): number => {
+  let hash = 0x811c9dc5;
+  for (let index = 0; index < value.length; index += 1) {
+    hash ^= value.charCodeAt(index);
+    hash = Math.imul(hash, 0x01000193) >>> 0;
+  }
+  return hash;
 };
 
 export const progressTier = (
@@ -99,12 +128,50 @@ const chooseRandom = <T,>(items: T[], rng: () => number): T | undefined =>
 const chooseWeighted = <T,>(items: T[], weights: number[], rng: () => number): T | undefined => {
   if (items.length === 0) return undefined;
   const total = weights.reduce((sum, weight) => sum + weight, 0);
+  if (total <= 0) return chooseRandom(items, rng);
   let cursor = rng() * total;
   for (let index = 0; index < items.length; index += 1) {
     cursor -= weights[index];
     if (cursor < 0) return items[index];
   }
   return items[items.length - 1];
+};
+
+const extractTargetedReviewSignals = (session: CompletedSessionSignal): TargetedReviewSignals => {
+  const missedTopics = new Set<string>();
+  const missedCategories = new Set<Category>();
+  const missedItemTypes = new Set<ItemType>();
+  const missedNgnSkills = new Set<NgnSkill>();
+
+  for (const question of session.questions) {
+    if (session.results[question.id] !== false) continue;
+    missedTopics.add(question.topic);
+    missedCategories.add(question.category);
+    missedItemTypes.add(question.itemType);
+    if (question.ngnSkill) missedNgnSkills.add(question.ngnSkill);
+  }
+
+  return { missedTopics, missedCategories, missedItemTypes, missedNgnSkills };
+};
+
+export const scoreTargetedReviewCandidate = (
+  record: QuestionRecord,
+  signals: TargetedReviewSignals,
+  progress: Record<string, QuestionProgress>,
+  flags: Record<string, QuestionFlag>,
+): number => {
+  const { question } = record;
+  const itemProgress = progress[question.id];
+  let score = 0;
+  if (signals.missedTopics.has(question.topic)) score += 6;
+  if (signals.missedCategories.has(question.category)) score += 4;
+  if (signals.missedItemTypes.has(question.itemType)) score += 3;
+  if (question.ngnSkill && signals.missedNgnSkills.has(question.ngnSkill)) score += 3;
+  if (flags[question.id]?.flagged) score += 5;
+  if ((itemProgress?.incorrect ?? 0) > 0) score += 4;
+  if ((itemProgress?.seen ?? 0) === 0) score += 2;
+  if ((itemProgress?.correctStreak ?? 0) >= 2) score -= 3;
+  return score;
 };
 
 export const buildWeightedSession = (
@@ -206,6 +273,87 @@ export const buildWeightedSession = (
       addSelection(candidate);
       remainingByCategory[category] -= 1;
     }
+  }
+
+  return shuffleWithRng(selected, rng);
+};
+
+export const buildTargetedReviewPool = (
+  records: QuestionRecord[],
+  session: CompletedSessionSignal,
+  progress: Record<string, QuestionProgress>,
+  flags: Record<string, QuestionFlag>,
+  count: number,
+  rng: () => number,
+): QuestionRecord[] => {
+  const signals = extractTargetedReviewSignals(session);
+  if (signals.missedTopics.size === 0) return [];
+
+  const eligible = records.filter((record) => record.question.itemType !== "case_study");
+  const uniqueEligibleCount = new Set(eligible.map((record) => record.question.id)).size;
+  const targetCount = Math.min(Math.max(0, Math.floor(count)), uniqueEligibleCount);
+  if (targetCount === 0) return [];
+
+  const alpha = 1;
+  const beta = 1;
+  const selected: QuestionRecord[] = [];
+  const selectedIds = new Set<string>();
+  const topicCounts = new Map<string, number>();
+  const kindCounts = new Map<string, number>();
+
+  const addSelection = (record: QuestionRecord) => {
+    selected.push(record);
+    selectedIds.add(record.question.id);
+    topicCounts.set(record.question.topic, (topicCounts.get(record.question.topic) ?? 0) + 1);
+    const kind = record.question.visual?.kind;
+    if (kind) kindCounts.set(kind, (kindCounts.get(kind) ?? 0) + 1);
+  };
+
+  const diversityWeight = (record: QuestionRecord, baseWeight: number) => {
+    const sameTopicCount = topicCounts.get(record.question.topic) ?? 0;
+    const kind = record.question.visual?.kind;
+    const sameKindCount = kind ? (kindCounts.get(kind) ?? 0) : 0;
+    return baseWeight / (1 + alpha * sameTopicCount + beta * sameKindCount);
+  };
+
+  const drawWeighted = (
+    candidates: QuestionRecord[],
+    baseWeightFor: (record: QuestionRecord) => number,
+    limit: number,
+  ) => {
+    while (selected.length < targetCount && limit > 0) {
+      const available = candidates.filter((record) => {
+        if (selectedIds.has(record.question.id)) return false;
+        return baseWeightFor(record) > 0;
+      });
+      if (available.length === 0) break;
+
+      const weights = available.map((record) => diversityWeight(record, baseWeightFor(record)));
+      const candidate = chooseWeighted(available, weights, rng);
+      if (!candidate) break;
+      addSelection(candidate);
+      limit -= 1;
+    }
+  };
+
+  const scoredCandidates = eligible.map((record) => ({
+    record,
+    score: scoreTargetedReviewCandidate(record, signals, progress, flags),
+  }));
+  const strongCandidates = scoredCandidates
+    .filter(({ score }) => score > 0)
+    .map(({ record }) => record);
+
+  drawWeighted(
+    strongCandidates,
+    (record) => scoreTargetedReviewCandidate(record, signals, progress, flags),
+    strongCandidates.length >= targetCount ? targetCount : strongCandidates.length,
+  );
+
+  for (const tier of [0, 1, 2] as const) {
+    if (selected.length >= targetCount) break;
+    const tierCandidates = eligible.filter((record) => progressTier(progress[record.question.id]) === tier);
+    drawWeighted(tierCandidates, () => 1, tierCandidates.length);
   }
 
   return shuffleWithRng(selected, rng);

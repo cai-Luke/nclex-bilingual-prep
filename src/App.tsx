@@ -83,7 +83,8 @@ import {
   findNextPendingQuestionIndex,
   findNextSkippedQuestionIndex,
 } from "./sessionNavigation";
-import { buildWeightedSession } from "./sessionSampler";
+import { buildTargetedReviewPool, buildWeightedSession, seedFromString } from "./sessionSampler";
+import { buildSessionState, type SessionState } from "./sessionState";
 import { VisualStimulus } from "./visuals";
 import { mulberry32 } from "./visuals/primitives/prng";
 import { STANDALONE_SPLIT_VISUAL_KINDS, getVisibleCaseStages, usesStandaloneVisualSplit } from "./examLayout";
@@ -110,7 +111,6 @@ import type {
   RevealBlock,
   SessionMode,
   SessionOrder,
-  SessionPhase,
   SessionStatusFilter,
   Settings,
   StudyMode,
@@ -132,24 +132,6 @@ type View =
   | "review"
   | "session"
   | "summary";
-
-type SessionState = {
-  id: string;
-  mode: SessionMode;
-  questions: Question[];
-  poolIds: string[];
-  index: number;
-  answers: Record<string, AnswerState>;
-  results: Record<string, boolean>;
-  scores: Record<string, ItemScore>;
-  skippedQuestionIds: string[];
-  phase: SessionPhase;
-  languageMode: LanguageMode;
-  title: string;
-  startedAt: string;
-  completed?: boolean;
-  adaptive?: AdaptiveSessionSnapshot;
-};
 
 type RevealTrackingContextValue = {
   sessionId: string;
@@ -437,21 +419,15 @@ export default function App() {
       orderedRecords = [...unseen, ...seen];
     }
     const selectedRecords = orderedRecords.slice(0, requestedCount);
-    setSession({
+    setSession(buildSessionState({
       id: createSessionId(),
       mode,
       questions: selectedRecords.map((record) => record.question),
       poolIds: selectedRecords.map((record) => record.question.id),
-      index: 0,
-      answers: {},
-      results: {},
-      scores: {},
-      skippedQuestionIds: [],
-      phase: "questions",
       languageMode: mode === "test" ? "off" : settings.languageMode,
       title,
       startedAt: new Date().toISOString(),
-    });
+    }));
     setView("session");
   };
 
@@ -460,17 +436,11 @@ export default function App() {
     const firstRecord = selectRecordForDifficulty(selectedRecords, "medium");
     if (!firstRecord) return;
     const targetCount = Math.max(1, Math.min(requestedCount, selectedRecords.length));
-    setSession({
+    setSession(buildSessionState({
       id: createSessionId(),
       mode: "adaptive",
       questions: [firstRecord.question],
       poolIds: selectedRecords.map((record) => record.question.id),
-      index: 0,
-      answers: {},
-      results: {},
-      scores: {},
-      skippedQuestionIds: [],
-      phase: "questions",
       languageMode: "off",
       title,
       startedAt: new Date().toISOString(),
@@ -480,7 +450,7 @@ export default function App() {
         rollingResults: [],
         difficultyHistory: [{ questionId: firstRecord.question.id, difficulty: firstRecord.question.difficulty }],
       },
-    });
+    }));
     setView("session");
   };
 
@@ -690,7 +660,20 @@ export default function App() {
 
   const existingIds = useMemo(() => new Set(allRecords.map((record) => record.question.id)), [allRecords]);
   const activeSession = session && !session.completed ? session : null;
-  const relatedPracticePool = useMemo(() => buildRelatedPracticePool(session, allRecords, progress), [session, allRecords, progress]);
+  const relatedPracticePool = useMemo(
+    () =>
+      session
+        ? buildTargetedReviewPool(
+            allRecords,
+            { questions: session.questions, results: session.results },
+            progress,
+            flags,
+            DEFAULT_SESSION_COUNT,
+            mulberry32(seedFromString(session.id)),
+          )
+        : [],
+    [session, allRecords, progress, flags],
+  );
   const sessionReturnLabel = sessionReturnView === "library" ? "Library" : "Home";
   const isWidePage = view === "session" || view === "previewLab";
 
@@ -4686,25 +4669,6 @@ const applyBuilderFilters = (
     if (filters.status === "due") return isDueForReview(itemProgress);
     return true;
   });
-
-const buildRelatedPracticePool = (
-  session: SessionState | null,
-  records: QuestionRecord[],
-  progress: Record<string, QuestionProgress>,
-) => {
-  if (!session) return [];
-  const missedTopics = uniqueSorted(
-    session.questions.filter((question) => session.results[question.id] === false).map((question) => question.topic),
-  );
-  if (missedTopics.length === 0) return [];
-  const servedIds = new Set(session.questions.map((question) => question.id));
-  const candidates = records.filter(
-    (record) => missedTopics.includes(record.question.topic) && !servedIds.has(record.question.id),
-  );
-  const unseen = candidates.filter((record) => (progress[record.question.id]?.seen ?? 0) === 0);
-  const seen = candidates.filter((record) => (progress[record.question.id]?.seen ?? 0) > 0);
-  return [...shuffle(unseen), ...shuffle(seen)].slice(0, DEFAULT_SESSION_COUNT);
-};
 
 type AggregateRow = {
   label: string;

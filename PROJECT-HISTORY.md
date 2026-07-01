@@ -49,6 +49,22 @@ The committed NGN item-type set is complete. Rationale/dyad scoring and an expli
 
 > Milestones dated **2026-06-23 and earlier** are archived in [`Archive/PROJECT-HISTORY-ARCHIVE.md`](Archive/PROJECT-HISTORY-ARCHIVE.md). Only the current arc (2026-06-24 onward) is kept here.
 
+### Targeted Review V1 (Jul 1)
+
+Completed:
+- Replaced Summary "Practice related" pool construction with a pure `buildTargetedReviewPool` sampler in `src/sessionSampler.ts`.
+- Targeted review now scores missed-topic/category/item-type/NGN signals, flags, prior incorrect history, unseen status, and mastered streaks; it uses the same topic/visual-kind diversity dampening pattern as the weighted study sampler.
+- Case studies are excluded from targeted-review output while top-level missed case-study topic/category/NGN signals still contribute to standalone remediation.
+- Direct retry is eligible for just-missed standalone questions, but each targeted-review pool is still selected without replacement so no question ID can appear twice in one session.
+- Extracted `buildSessionState` into `src/sessionState.ts` and routed plain Study/Test and Adaptive session construction through it.
+- Seeded Summary targeted-review generation from stable `session.id` so the memoized related pool is deterministic across renders and includes flags in its dependencies.
+
+Verification:
+- `npx tsc -b --pretty false` passed.
+- `npx tsx scripts/tests/session-sampler.ts` passed with targeted-review scoring, case-study exclusion, direct retry, no-duplicate, fallback, determinism, and session-state shape coverage.
+- `npm run validate-bank -- banks/*.json` passed.
+- `npm run build` passed with the existing Vite chunk-size warning.
+
 ### Stabilization Verification Pass (Jun 30)
 
 Completed:
