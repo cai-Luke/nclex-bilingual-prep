@@ -2,8 +2,8 @@
 
 # NCLEX Bank Census
 
-Generated: 2026-06-29T00:13:12.285Z
-Git SHA: 1898dd08402499a3bdf797734f682cf2fd7bab43
+Generated: 2026-07-01T17:18:33.748Z
+Git SHA: 7567c79123c18c49386217df9a70870729ba8d2e
 
 ## Per-File Summary
 
@@ -20,7 +20,7 @@ Git SHA: 1898dd08402499a3bdf797734f682cf2fd7bab43
 | lab-canonical.json | 1.2 | 20 | 20 | — |
 | mar-canonical.json | 1.2 | 8 | 8 | — |
 | medlabel-canonical.json | 1.2 | 8 | 8 | — |
-| visual-canonical.json | 1.2 | 53 | 53 | — |
+| visual-canonical.json | 1.7 | 53 | 53 | — |
 | vitals-canonical.json | 1.2 | 10 | 10 | — |
 
 ## Totals
@@ -76,12 +76,12 @@ Visual kinds: capnography (1), device_screen (6), lab_trend (6), mar (9), medica
 ### Reduction of Risk Potential
 
 Top topics: Procedural Complications & Dialysis (44), Laboratory & Diagnostic Tests (31), Perioperative Care (28), Burn Management (9), intrapartum fetal monitoring (7), Maternal-Newborn Care & Teaching (7), ABG & Acid-Base Interpretation (4), Injection route recognition from skin cross-section (4), PPE & Sterile Technique (4), Endocrine & Neurological Disorders (3)
-Visual kinds: burn_map (5), capnography (1), device_screen (3), fetal_monitoring (6), injection_site (8), io_record (5), lab_trend (7), rhythm_strip (2), vitals_trend (1)
+Visual kinds: burn_map (5), capnography (1), device_screen (3), fetal_monitoring (6), injection_site (8), io_record (5), lab_trend (7), rhythm_strip (3), vitals_trend (1)
 
 ### Physiological Adaptation
 
 Top topics: Cardiovascular Disorders (74), Endocrine & Neurological Disorders (35), Renal & Gastrointestinal Disorders (34), Electrolyte Imbalances (26), Burn Management (15), Diabetic Ketoacidosis (DKA) (13), Respiratory & Infectious Disorders (13), Sepsis & Septic Shock (8), Oncology & Immunotherapy Complications (6), ABG & Acid-Base Interpretation (2)
-Visual kinds: burn_map (5), capnography (4), io_record (2), lab_trend (7), rhythm_strip (32), vitals_trend (7)
+Visual kinds: burn_map (5), capnography (4), io_record (2), lab_trend (7), rhythm_strip (38), vitals_trend (7)
 
 ## By Item Type
 
@@ -91,9 +91,9 @@ Visual kinds: burn_map (5), capnography (4), io_record (2), lab_trend (7), rhyth
 - fill_in_blank: 157
 - dropdown_cloze: 159
 - ordered_response: 161
-- matrix: 178
+- matrix: 177
 - select_all: 205
-- multiple_choice: 440
+- multiple_choice: 441
 
 ## By Difficulty
 
@@ -103,8 +103,9 @@ Visual kinds: burn_map (5), capnography (4), io_record (2), lab_trend (7), rhyth
 
 ## By Schema Version
 
-- v1.2: 130 questions (burn-canonical.json, capnography-canonical.json, device-canonical.json, io-canonical.json, lab-canonical.json, mar-canonical.json, medlabel-canonical.json, visual-canonical.json, vitals-canonical.json)
+- v1.2: 77 questions (burn-canonical.json, capnography-canonical.json, device-canonical.json, io-canonical.json, lab-canonical.json, mar-canonical.json, medlabel-canonical.json, vitals-canonical.json)
 - v1.6: 1535 questions (claude-canonical.json, gemini-canonical.json, gpt-canonical.json, hard-cases-canonical.json)
+- v1.7: 53 questions (visual-canonical.json)
 
 ## By Source File
 
@@ -124,7 +125,7 @@ Visual kinds: burn_map (5), capnography (4), io_record (2), lab_trend (7), rhyth
 
 ## Visuals
 
-Total visuals: 154
+Total visuals: 161
 
 ### By Kind
 
@@ -137,20 +138,20 @@ Total visuals: 154
 - lab_trend: 20 (gpt_u3_labtrend_2026_06_09_b_cloze_inr_amiodarone_09, gpt_u3_labtrend_2026_06_09_b_cloze_sodium_overcorrection_08, gpt_u3_labtrend_2026_06_09_b_fib_creatinine_increase_10, gpt_u3_labtrend_2026_06_09_b_matrix_dka_potassium_glucose_04, gpt_u3_labtrend_2026_06_09_b_matrix_neutropenia_wbc_05, …+15)
 - mar: 11 (gpt_fresh_2026_06_22_vis_01, gpt_fresh_2026_06_22_vis_05, gpt_fresh_2026_06_22_vis_06, mar_acetaminophen_duplicate_products_04, mar_av_nodal_blockers_1600_01, …+6)
 - medication_label: 13 (gpt_fresh_2026_06_22_vis_02, gpt_fresh_2026_06_22_vis_03, gpt_fresh_2026_06_22_vis_07, gpt_visual_smoke_2026_06_12_fib_medlabel_heparin_rate_07, gpt_visual_smoke_2026_06_12_mc_medlabel_tablet_quantity_08, …+8)
-- rhythm_strip: 44 (ekg_b1_matrix_09, ekg_b1_mc_01, ekg_b1_mc_02, ekg_b1_mc_04, ekg_b1_mc_05, …+39)
+- rhythm_strip: 51 (cs_adhf_pulm_edema_01, ekg_b1_matrix_09, ekg_b1_mc_01, ekg_b1_mc_02, ekg_b1_mc_04, …+46)
 - vitals_trend: 11 (cs_thyroid_storm_main, vit_01, vit_02, vit_03, vit_04, …+6)
 
 ### Rhythm Subtypes
 
-- afib: 5
+- afib: 7
 - aflutter: 2
-- asystole: 2
+- asystole: 4
 - avb_1: 3
 - avb_2_mobitz1: 2
 - avb_2_mobitz2: 2
 - avb_3: 3
-- pvc: 2
-- sinus: 2
+- pvc: 3
+- sinus: 4
 - sinus_brady: 6
 - sinus_tach: 4
 - svt: 4
@@ -329,7 +330,7 @@ Under-served item types:
 - fill_in_blank: 157
 - dropdown_cloze: 159
 - ordered_response: 161
-- matrix: 178
+- matrix: 177
 
 ## Prompt Parameters
 
@@ -358,7 +359,7 @@ PRIORITIZE_TOPICS:
 - fill_in_blank (157 vs target 185.0)
 - dropdown_cloze (159 vs target 185.0)
 - ordered_response (161 vs target 185.0)
-- matrix (178 vs target 185.0)
+- matrix (177 vs target 185.0)
 - Acute decompensated heart failure
 - Acute Decompensated Heart Failure (ADHF)
 - Acute gallstone pancreatitis with cholangitis

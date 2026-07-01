@@ -1,0 +1,404 @@
+{
+  "meta": {
+    "schemaVersion": "1.2",
+    "exam": "NCLEX-RN",
+    "topic": "pacemaker rhythm strip smoke",
+    "category": "Physiological Adaptation",
+    "difficulty": "medium",
+    "count": 4
+  },
+  "questions": [
+    {
+      "id": "smoke_pacer_capture_2026_07_01",
+      "itemType": "multiple_choice",
+      "category": "Physiological Adaptation",
+      "topic": "pacemaker rhythm strip smoke",
+      "difficulty": "medium",
+      "ngnSkill": "recognize_cues",
+      "stem": {
+        "en": "Smoke fixture: The nurse reviews a telemetry strip from a client with a ventricular pacemaker. Which pacing pattern is shown?",
+        "zh": "烟测试题：护士查看一名装有心室起搏器患者的遥测心电条。图中显示哪一种起搏模式？"
+      },
+      "visual": {
+        "kind": "rhythm_strip",
+        "rhythm": "asystole",
+        "rateBpm": 0,
+        "durationSec": 6,
+        "seed": 101,
+        "pacer": {
+          "mode": "ventricular",
+          "setRateBpm": 60,
+          "spikeTimesSec": [1, 2, 3, 4, 5],
+          "capturedSpikeTimesSec": [1, 2, 3, 4, 5],
+          "finding": "capture"
+        },
+        "caption": {
+          "en": "Lead II rhythm strip",
+          "zh": "II导联心律条"
+        }
+      },
+      "meta": {
+        "visual_justification": "The learner must inspect whether each pacing spike is followed by a paced QRS complex.",
+        "expected": {
+          "pacerFinding": "capture"
+        }
+      },
+      "options": [
+        {
+          "id": "A",
+          "en": "Failure to capture",
+          "zh": "起搏未夺获"
+        },
+        {
+          "id": "B",
+          "en": "Failure to sense",
+          "zh": "感知失败"
+        },
+        {
+          "id": "C",
+          "en": "Failure to pace",
+          "zh": "起搏失败"
+        },
+        {
+          "id": "D",
+          "en": "Consistent ventricular capture",
+          "zh": "心室起搏夺获一致"
+        }
+      ],
+      "correct": ["D"],
+      "rationale": {
+        "correct": {
+          "en": "Every pacing spike is followed after a short latency by a wide paced QRS complex, so the smoke fixture shows ventricular capture.",
+          "zh": "每个起搏尖波后都在短暂延迟后出现宽大的起搏QRS波群，因此该烟测试图显示心室起搏夺获。"
+        },
+        "byChoice": [
+          {
+            "refId": "A",
+            "en": "Incorrect. Failure to capture would show one or more spikes without a following QRS complex.",
+            "zh": "不正确。起搏未夺获会表现为一个或多个尖波后没有QRS波群。"
+          },
+          {
+            "refId": "B",
+            "en": "Incorrect. Failure to sense would show spikes landing inappropriately on intrinsic complexes.",
+            "zh": "不正确。感知失败会表现为尖波不适当地落在自身心搏上。"
+          },
+          {
+            "refId": "C",
+            "en": "Incorrect. Failure to pace would show an interval without expected pacing spikes.",
+            "zh": "不正确。起搏失败会表现为应出现起搏时没有起搏尖波。"
+          },
+          {
+            "refId": "D",
+            "en": "Correct. Each spike captures the ventricle.",
+            "zh": "正确。每个尖波均夺获心室。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "For pacemaker strips, first ask whether spikes are present, then whether each spike captures, and then whether spikes respect intrinsic beats.",
+        "zh": "看起搏器心电条时，先判断是否有起搏尖波，再判断每个尖波是否夺获，最后判断尖波是否避开自身心搏。"
+      },
+      "glossary": [
+        {
+          "termEn": "capture",
+          "termZh": "夺获",
+          "defZh": "起搏刺激成功使心肌除极并产生相应波群。"
+        }
+      ]
+    },
+    {
+      "id": "smoke_pacer_failure_to_capture_2026_07_01",
+      "itemType": "multiple_choice",
+      "category": "Physiological Adaptation",
+      "topic": "pacemaker rhythm strip smoke",
+      "difficulty": "medium",
+      "ngnSkill": "recognize_cues",
+      "stem": {
+        "en": "Smoke fixture: The nurse reviews a telemetry strip from a client with a ventricular pacemaker. Which pacing problem is shown?",
+        "zh": "烟测试题：护士查看一名装有心室起搏器患者的遥测心电条。图中显示哪一种起搏问题？"
+      },
+      "visual": {
+        "kind": "rhythm_strip",
+        "rhythm": "asystole",
+        "rateBpm": 0,
+        "durationSec": 6,
+        "seed": 102,
+        "pacer": {
+          "mode": "ventricular",
+          "setRateBpm": 60,
+          "spikeTimesSec": [1, 2, 3, 4, 5],
+          "capturedSpikeTimesSec": [1, 3, 5],
+          "finding": "failure_to_capture"
+        },
+        "caption": {
+          "en": "Lead II rhythm strip",
+          "zh": "II导联心律条"
+        }
+      },
+      "meta": {
+        "visual_justification": "The learner must identify that some pacing spikes do not produce a following QRS complex.",
+        "expected": {
+          "pacerFinding": "failure_to_capture"
+        }
+      },
+      "options": [
+        {
+          "id": "A",
+          "en": "Failure to capture",
+          "zh": "起搏未夺获"
+        },
+        {
+          "id": "B",
+          "en": "Failure to sense",
+          "zh": "感知失败"
+        },
+        {
+          "id": "C",
+          "en": "Failure to pace",
+          "zh": "起搏失败"
+        },
+        {
+          "id": "D",
+          "en": "Consistent ventricular capture",
+          "zh": "心室起搏夺获一致"
+        }
+      ],
+      "correct": ["A"],
+      "rationale": {
+        "correct": {
+          "en": "Several pacing spikes are not followed by a paced QRS complex, which is failure to capture.",
+          "zh": "数个起搏尖波后没有出现起搏QRS波群，这是起搏未夺获。"
+        },
+        "byChoice": [
+          {
+            "refId": "A",
+            "en": "Correct. A pacer impulse fires, but the ventricle does not depolarize after every spike.",
+            "zh": "正确。起搏器发放脉冲，但并非每个尖波后心室都除极。"
+          },
+          {
+            "refId": "B",
+            "en": "Incorrect. Failure to sense is about inappropriate spike timing relative to intrinsic beats.",
+            "zh": "不正确。感知失败强调尖波相对于自身心搏出现时机不当。"
+          },
+          {
+            "refId": "C",
+            "en": "Incorrect. Spikes are present, so the pacer is firing.",
+            "zh": "不正确。图中有尖波，说明起搏器正在发放脉冲。"
+          },
+          {
+            "refId": "D",
+            "en": "Incorrect. Not every spike captures.",
+            "zh": "不正确。并非每个尖波都夺获。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Match the word capture with the QRS response after a spike.",
+        "zh": "将“夺获”与尖波后的QRS反应对应起来。"
+      },
+      "glossary": [
+        {
+          "termEn": "failure to capture",
+          "termZh": "起搏未夺获",
+          "defZh": "起搏器发放刺激，但心肌未产生相应除极。"
+        }
+      ]
+    },
+    {
+      "id": "smoke_pacer_failure_to_sense_2026_07_01",
+      "itemType": "multiple_choice",
+      "category": "Physiological Adaptation",
+      "topic": "pacemaker rhythm strip smoke",
+      "difficulty": "medium",
+      "ngnSkill": "recognize_cues",
+      "stem": {
+        "en": "Smoke fixture: The nurse reviews a telemetry strip from a client with a ventricular pacemaker and visible intrinsic beats. Which pacing problem is shown?",
+        "zh": "烟测试题：护士查看一名装有心室起搏器且可见自身心搏的患者遥测心电条。图中显示哪一种起搏问题？"
+      },
+      "visual": {
+        "kind": "rhythm_strip",
+        "rhythm": "sinus",
+        "rateBpm": 75,
+        "durationSec": 6,
+        "seed": 7,
+        "pacer": {
+          "mode": "ventricular",
+          "setRateBpm": 60,
+          "spikeTimesSec": [1.02, 2.8],
+          "capturedSpikeTimesSec": [2.8],
+          "finding": "failure_to_sense"
+        },
+        "caption": {
+          "en": "Lead II rhythm strip",
+          "zh": "II导联心律条"
+        }
+      },
+      "meta": {
+        "visual_justification": "The learner must notice an inappropriate pacing spike landing on an intrinsic QRS/T window.",
+        "expected": {
+          "pacerFinding": "failure_to_sense"
+        }
+      },
+      "options": [
+        {
+          "id": "A",
+          "en": "Failure to capture",
+          "zh": "起搏未夺获"
+        },
+        {
+          "id": "B",
+          "en": "Failure to sense",
+          "zh": "感知失败"
+        },
+        {
+          "id": "C",
+          "en": "Failure to pace",
+          "zh": "起搏失败"
+        },
+        {
+          "id": "D",
+          "en": "Consistent ventricular capture",
+          "zh": "心室起搏夺获一致"
+        }
+      ],
+      "correct": ["B"],
+      "rationale": {
+        "correct": {
+          "en": "A pacing spike lands on the intrinsic repolarization window, showing that the pacemaker did not sense the client's intrinsic activity.",
+          "zh": "起搏尖波落在自身心搏复极窗口上，说明起搏器未感知到患者自身电活动。"
+        },
+        "byChoice": [
+          {
+            "refId": "A",
+            "en": "Incorrect. The key cue is inappropriate spike timing, not an absent QRS after every spike.",
+            "zh": "不正确。关键线索是尖波时机不当，而不是每个尖波后都无QRS。"
+          },
+          {
+            "refId": "B",
+            "en": "Correct. The pacer fires despite intrinsic activity.",
+            "zh": "正确。尽管有自身电活动，起搏器仍发放脉冲。"
+          },
+          {
+            "refId": "C",
+            "en": "Incorrect. Spikes are present.",
+            "zh": "不正确。图中有起搏尖波。"
+          },
+          {
+            "refId": "D",
+            "en": "Incorrect. The spike timing is inappropriate.",
+            "zh": "不正确。尖波出现时机不恰当。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Use intrinsic beats as landmarks; spikes should not fall into a QRS/T window.",
+        "zh": "以自身心搏为定位标志；尖波不应落在QRS/T窗口内。"
+      },
+      "glossary": [
+        {
+          "termEn": "failure to sense",
+          "termZh": "感知失败",
+          "defZh": "起搏器未识别患者自身心脏电活动，导致不适当发放脉冲。"
+        }
+      ]
+    },
+    {
+      "id": "smoke_pacer_failure_to_pace_2026_07_01",
+      "itemType": "multiple_choice",
+      "category": "Physiological Adaptation",
+      "topic": "pacemaker rhythm strip smoke",
+      "difficulty": "medium",
+      "ngnSkill": "recognize_cues",
+      "stem": {
+        "en": "Smoke fixture: The nurse reviews a telemetry strip from a client with a ventricular pacemaker. Which pacing problem is shown?",
+        "zh": "烟测试题：护士查看一名装有心室起搏器患者的遥测心电条。图中显示哪一种起搏问题？"
+      },
+      "visual": {
+        "kind": "rhythm_strip",
+        "rhythm": "asystole",
+        "rateBpm": 0,
+        "durationSec": 6,
+        "seed": 104,
+        "pacer": {
+          "mode": "ventricular",
+          "setRateBpm": 60,
+          "spikeTimesSec": [1, 2, 5],
+          "capturedSpikeTimesSec": [1, 2, 5],
+          "finding": "failure_to_pace"
+        },
+        "caption": {
+          "en": "Lead II rhythm strip",
+          "zh": "II导联心律条"
+        }
+      },
+      "meta": {
+        "visual_justification": "The learner must identify a long interval with no pacing spike despite the programmed pacer rate.",
+        "expected": {
+          "pacerFinding": "failure_to_pace"
+        }
+      },
+      "options": [
+        {
+          "id": "A",
+          "en": "Failure to capture",
+          "zh": "起搏未夺获"
+        },
+        {
+          "id": "B",
+          "en": "Failure to sense",
+          "zh": "感知失败"
+        },
+        {
+          "id": "C",
+          "en": "Failure to pace",
+          "zh": "起搏失败"
+        },
+        {
+          "id": "D",
+          "en": "Consistent ventricular capture",
+          "zh": "心室起搏夺获一致"
+        }
+      ],
+      "correct": ["C"],
+      "rationale": {
+        "correct": {
+          "en": "A prolonged interval occurs without an expected pacing spike, so the smoke fixture shows failure to pace.",
+          "zh": "出现了长时间未见预期起搏尖波的间期，因此该烟测试图显示起搏失败。"
+        },
+        "byChoice": [
+          {
+            "refId": "A",
+            "en": "Incorrect. The rendered spikes capture when they occur.",
+            "zh": "不正确。图中出现的尖波能够夺获。"
+          },
+          {
+            "refId": "B",
+            "en": "Incorrect. The cue is missing spikes, not spikes landing on intrinsic activity.",
+            "zh": "不正确。线索是缺少尖波，而不是尖波落在自身电活动上。"
+          },
+          {
+            "refId": "C",
+            "en": "Correct. There is a spike-free gap longer than the programmed pacing interval.",
+            "zh": "正确。存在长于设定起搏间期的无尖波空档。"
+          },
+          {
+            "refId": "D",
+            "en": "Incorrect. Pacing is not occurring consistently across the strip.",
+            "zh": "不正确。整条心电图中起搏并不连续。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Compare the programmed pacing interval with the longest gap between spikes.",
+        "zh": "将设定起搏间期与尖波之间最长空档进行比较。"
+      },
+      "glossary": [
+        {
+          "termEn": "failure to pace",
+          "termZh": "起搏失败",
+          "defZh": "起搏器未在需要时发放预期起搏脉冲。"
+        }
+      ]
+    }
+  ]
+}

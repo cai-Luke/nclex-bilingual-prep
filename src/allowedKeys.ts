@@ -85,6 +85,7 @@ export const allowedKeySets = {
       "prSec",
       "qrsSec",
       "qtSec",
+      "pacer",
     ],
     capnography: [
       "pattern",

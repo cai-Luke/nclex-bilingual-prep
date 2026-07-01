@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-06-29T00:13:12.285Z",
-  "gitSha": "1898dd08402499a3bdf797734f682cf2fd7bab43",
+  "generatedAt": "2026-07-01T17:18:33.748Z",
+  "gitSha": "7567c79123c18c49386217df9a70870729ba8d2e",
   "perFile": [
     {
       "file": "burn-canonical.json",
@@ -81,7 +81,7 @@
     },
     {
       "file": "visual-canonical.json",
-      "schemaVersion": "1.2",
+      "schemaVersion": "1.7",
       "metaCount": 53,
       "questionsLength": 53,
       "mismatch": false
@@ -107,9 +107,9 @@
     "fill_in_blank": 157,
     "dropdown_cloze": 159,
     "ordered_response": 161,
-    "matrix": 178,
+    "matrix": 177,
     "select_all": 205,
-    "multiple_choice": 440
+    "multiple_choice": 441
   },
   "byCategory": {
     "Psychosocial Integrity": 158,
@@ -463,7 +463,7 @@
         "injection_site": 8,
         "io_record": 5,
         "lab_trend": 7,
-        "rhythm_strip": 2,
+        "rhythm_strip": 3,
         "vitals_trend": 1
       }
     },
@@ -515,7 +515,7 @@
         "capnography": 4,
         "io_record": 2,
         "lab_trend": 7,
-        "rhythm_strip": 32,
+        "rhythm_strip": 38,
         "vitals_trend": 7
       }
     }
@@ -527,7 +527,7 @@
   },
   "bySchemaVersion": {
     "1.2": {
-      "questions": 130,
+      "questions": 77,
       "files": [
         "burn-canonical.json",
         "capnography-canonical.json",
@@ -536,7 +536,6 @@
         "lab-canonical.json",
         "mar-canonical.json",
         "medlabel-canonical.json",
-        "visual-canonical.json",
         "vitals-canonical.json"
       ]
     },
@@ -547,6 +546,12 @@
         "gemini-canonical.json",
         "gpt-canonical.json",
         "hard-cases-canonical.json"
+      ]
+    },
+    "1.7": {
+      "questions": 53,
+      "files": [
+        "visual-canonical.json"
       ]
     }
   },
@@ -566,7 +571,7 @@
     "vitals-canonical.json": 10
   },
   "visuals": {
-    "total": 154,
+    "total": 161,
     "byKind": {
       "burn_map": 11,
       "capnography": 7,
@@ -577,19 +582,19 @@
       "lab_trend": 20,
       "mar": 11,
       "medication_label": 13,
-      "rhythm_strip": 44,
+      "rhythm_strip": 51,
       "vitals_trend": 11
     },
     "rhythmSubtypes": {
-      "afib": 5,
+      "afib": 7,
       "aflutter": 2,
-      "asystole": 2,
+      "asystole": 4,
       "avb_1": 3,
       "avb_2_mobitz1": 2,
       "avb_2_mobitz2": 2,
       "avb_3": 3,
-      "pvc": 2,
-      "sinus": 2,
+      "pvc": 3,
+      "sinus": 4,
       "sinus_brady": 6,
       "sinus_tach": 4,
       "svt": 4,
@@ -715,6 +720,7 @@
         "medlbl_regular_insulin_volume_008"
       ],
       "rhythm_strip": [
+        "cs_adhf_pulm_edema_01",
         "ekg_b1_matrix_09",
         "ekg_b1_mc_01",
         "ekg_b1_mc_02",
@@ -756,6 +762,12 @@
         "ekg_b4_sata_07",
         "ekg_b4_sata_09",
         "ekg_b5_mc_02",
+        "ekg_pacer_failure_to_capture_2026_07_01",
+        "ekg_pacer_failure_to_pace_2026_07_01",
+        "ekg_pacer_failure_to_sense_2026_07_01",
+        "gpt_stroke_2026_06_16_case_acute_ischemic_stroke_warfarin_01",
+        "opus26_case_refeeding_syndrome_01_q3",
+        "opus26_case_refeeding_syndrome_01_q5",
         "rhy_afib_001",
         "rhy_sinus_brady_001",
         "rhy_vtach_001"
@@ -1703,7 +1715,7 @@
       ],
       [
         "matrix",
-        178
+        177
       ]
     ]
   },
@@ -1732,7 +1744,7 @@
     "fill_in_blank (157 vs target 185.0)",
     "dropdown_cloze (159 vs target 185.0)",
     "ordered_response (161 vs target 185.0)",
-    "matrix (178 vs target 185.0)",
+    "matrix (177 vs target 185.0)",
     "Acute decompensated heart failure",
     "Acute Decompensated Heart Failure (ADHF)",
     "Acute gallstone pancreatitis with cholangitis",

@@ -249,6 +249,66 @@ if (!stale16Floor.ok) {
   assert(stale16Floor.reasons.includes("questions[0]: unfolding case-study metadata requires meta.schemaVersion 1.6"));
 }
 
+const pacerVisual = {
+  kind: "rhythm_strip",
+  rhythm: "asystole",
+  rateBpm: 0,
+  durationSec: 6,
+  seed: 1,
+  pacer: {
+    mode: "ventricular",
+    setRateBpm: 60,
+    spikeTimesSec: [1, 2, 3],
+    capturedSpikeTimesSec: [1, 3],
+    finding: "failure_to_capture",
+  },
+};
+
+const pacerQuestion = {
+  ...baseOptionQuestion,
+  id: "schema_17_pacer_question",
+  visual: pacerVisual,
+  meta: {
+    visual_justification: "The strip must show which pacing spikes capture.",
+    expected: { pacerFinding: "failure_to_capture" },
+  },
+};
+
+assert.equal(validateBankObject({
+  meta: { schemaVersion: "1.7", count: 1 },
+  questions: [pacerQuestion],
+}).ok, true);
+
+const stale17Floor = validateBankObject({
+  meta: { schemaVersion: "1.6", count: 1 },
+  questions: [pacerQuestion],
+});
+assert.equal(stale17Floor.ok, false);
+if (!stale17Floor.ok) {
+  assert(stale17Floor.reasons.includes("questions[0]: pacer rhythm_strip requires meta.schemaVersion 1.7"));
+}
+
+const embeddedPacerCase = {
+  ...embeddedCaseStudy,
+  id: "schema_17_embedded_pacer_case",
+  caseStudy: {
+    ...embeddedCaseStudy.caseStudy,
+    questions: [
+      { ...pacerQuestion, id: "schema_17_embedded_pacer_case_part_1" },
+      { ...baseOptionQuestion, id: "schema_17_embedded_pacer_case_part_2" },
+    ],
+  },
+};
+
+const staleEmbedded17Floor = validateBankObject({
+  meta: { schemaVersion: "1.6", count: 1 },
+  questions: [embeddedPacerCase],
+});
+assert.equal(staleEmbedded17Floor.ok, false);
+if (!staleEmbedded17Floor.ok) {
+  assert(staleEmbedded17Floor.reasons.includes("questions[0]: pacer rhythm_strip requires meta.schemaVersion 1.7"));
+}
+
 const badStageTrigger = validateBankObject({
   meta: { schemaVersion: "1.6", count: 1 },
   questions: [{
@@ -319,6 +379,8 @@ const exportEnvelope = toExportEnvelope([withRationaleVisuals([rationaleVisual])
 assert.equal(exportEnvelope.meta?.schemaVersion, "1.5");
 const schema16ExportEnvelope = toExportEnvelope([caseStudy16 as unknown as Question]);
 assert.equal(schema16ExportEnvelope.meta?.schemaVersion, "1.6");
+const schema17ExportEnvelope = toExportEnvelope([pacerQuestion as unknown as Question]);
+assert.equal(schema17ExportEnvelope.meta?.schemaVersion, "1.7");
 
 const strictClean = validateBankObject({
   meta: { schemaVersion: "1.5", count: 1 },

@@ -1,6 +1,6 @@
 # NCLEX Bank — Canonical Question Schema
 
-**schemaVersion: `1.6` — current.** This document is the canonical authoring and review contract; runtime behavior is implemented by `src/types.ts`, `src/schema.ts`, and the registered modules under `src/visuals/`. `1.0` standalone-question banks, `1.1` case-study banks, `1.2` visual banks, `1.3` highlight banks, `1.4` bowtie banks, and `1.5` rationale-visual banks remain supported. Do not change shapes without bumping `schemaVersion` and writing a migration.
+**schemaVersion: `1.7` — current.** This document is the canonical authoring and review contract; runtime behavior is implemented by `src/types.ts`, `src/schema.ts`, and the registered modules under `src/visuals/`. `1.0` standalone-question banks, `1.1` case-study banks, `1.2` visual banks, `1.3` highlight banks, `1.4` bowtie banks, `1.5` rationale-visual banks, and `1.6` unfolding case-study metadata banks remain supported. Do not change shapes without bumping `schemaVersion` and writing a migration.
 
 ---
 
@@ -25,7 +25,7 @@ A generated bank is one JSON object:
 ```json
 {
   "meta": {
-    "schemaVersion": "1.6",
+    "schemaVersion": "1.7",
     "exam": "NCLEX-RN",
     "topic": "echo of the requested topic",
     "category": "echo of the requested category, or 'mixed'",
@@ -36,7 +36,7 @@ A generated bank is one JSON object:
 }
 ```
 
-The importer also accepts a bare `[ ... ]` array of Question objects (no envelope). When present, `meta.schemaVersion` must be `"1.0"`, `"1.1"`, `"1.2"`, `"1.3"`, `"1.4"`, `"1.5"`, or `"1.6"`. `case_study` requires `"1.1"` or later. `visual` requires `"1.2"` or later. `highlight`, including a highlight embedded in a case study, requires `"1.3"`. Standalone `bowtie` requires `"1.4"`. `rationale.visuals` (explanation visuals) requires `"1.5"`. Case-study unfolding metadata fields (`stageId`, `answerableAfterStageId`, stage `trigger`/`narrative`/`timeOffset`, and exhibit `type`) require `"1.6"`.
+The importer also accepts a bare `[ ... ]` array of Question objects (no envelope). When present, `meta.schemaVersion` must be `"1.0"`, `"1.1"`, `"1.2"`, `"1.3"`, `"1.4"`, `"1.5"`, `"1.6"`, or `"1.7"`. `case_study` requires `"1.1"` or later. `visual` requires `"1.2"` or later. `highlight`, including a highlight embedded in a case study, requires `"1.3"`. Standalone `bowtie` requires `"1.4"`. `rationale.visuals` (explanation visuals) requires `"1.5"`. Case-study unfolding metadata fields (`stageId`, `answerableAfterStageId`, stage `trigger`/`narrative`/`timeOffset`, and exhibit `type`) require `"1.6"`. Pacer-bearing `rhythm_strip` visuals require `"1.7"`.
 
 ---
 
@@ -207,7 +207,7 @@ Placement is per-kind; the set above is the global default.
 Every visual `kind` is a self-contained module under `src/visuals/kinds/<kind>.ts` registered in a shared registry. The kind-agnostic files — `src/App.tsx` (renders through one `VisualStimulus` dispatcher), `src/schema.ts` (validates through the registry), `scripts/validate-bank.ts`, and `scripts/coverage-report.ts` — iterate the registry and never special-case a kind. A kind module exposes a contract:
 
 - `validate(spec) → VisualError[]` — structural + range validation of the spec **alone**; this is what the per-kind "Validation rules" below enumerate.
-- `selfCheck?(spec, question) → VisualError[]` — optional cross-consistency check of render-vs-answer. This includes arithmetic gates (I&O totals, label dose, Parkland volume) and waveform phase gates (`fetal_monitoring`); `rhythm_strip` has none.
+- `selfCheck?(spec, question) → VisualError[]` — optional cross-consistency check of render-vs-answer. This includes arithmetic gates (I&O totals, label dose, Parkland volume), waveform phase gates (`fetal_monitoring`), and pacer cross-checks for `rhythm_strip` items that include a `pacer` object.
 - `renderSvg(spec) → string` — pure, deterministic, XML-escaped SVG. No `Math.random` (seed the shared PRNG from `spec.seed ?? 0`), no `Date`/`performance`, no DOM, no network, no module-level mutable state. Route all coordinate numbers through the shared fixed-decimal formatter so float formatting can't drift; XML-escape any free text (only `caption` today).
 - `requiredSchemaVersion?` / `allowedItemTypes?` — default to `"1.2"` and the global placement set above; a kind overrides only if it differs.
 - `fixtures` — colocated valid + invalid examples the generic conformance harness runs automatically.
@@ -240,6 +240,14 @@ If a step requires editing `App.tsx`, `schema.ts`, `validate-bank.ts`, or `cover
     "prSec": 0.16,
     "qrsSec": 0.08,
     "qtSec": 0.36,
+    "pacer": {
+      "mode": "ventricular",
+      "setRateBpm": 60,
+      "captureLatencySec": 0.08,
+      "spikeTimesSec": [1, 2, 3, 4, 5],
+      "capturedSpikeTimesSec": [1, 2, 3, 4, 5],
+      "finding": "capture"
+    },
     "caption": { "en": "Lead II rhythm strip" }
   }
 }
@@ -259,7 +267,14 @@ Validation rules:
 - `prSec`, if present, must be 0.06–0.40 seconds.
 - `qrsSec`, if present, must be 0.04–0.24 seconds.
 - `qtSec`, if present, must be 0.16–0.70 seconds.
+- `pacer`, if present, renders ventricular pacing spikes and optional captured paced complexes. Phase 1 supports only `mode: "ventricular"`.
+- `pacer.setRateBpm` is required and must be 20–300.
+- `pacer.captureLatencySec`, if present, must be 0.03–0.20 seconds. Default is 0.08.
+- `pacer.spikeTimesSec` is required when `pacer` is present, must be non-empty, unique, and each entry must fall within `[0, durationSec]`.
+- `pacer.capturedSpikeTimesSec` is required when `pacer` is present, must be unique, and every entry must also appear in `spikeTimesSec`. Each captured spike must leave room for the generated captured QRS before the strip end.
+- `pacer.finding` must be one of `capture`, `failure_to_capture`, `failure_to_sense`, or `failure_to_pace`.
 - `caption.en`, if caption is present, is required. `caption.zh` is optional but must be non-empty if present.
+- `selfCheck` is a no-op for non-pacer rhythm strips. Pacer-bearing `rhythm_strip` visuals require bank schema `1.7`. For pacer strips, `selfCheck` requires `meta.visual_justification` and `meta.expected.pacerFinding`, verifies the expected finding matches `pacer.finding`, checks capture/failure-to-capture array consistency, verifies failure-to-pace gaps against the intrinsic rhythm, and verifies failure-to-sense spikes against intrinsic QRS/T windows.
 
 The `caption` must never reveal the answer. For example, do not caption a strip `"Atrial fibrillation"` on an item asking the learner to identify atrial fibrillation.
 
@@ -1062,7 +1077,7 @@ An item is **invalid → skipped and reported** (never partially rendered) if an
 - **highlight:** missing `segments`/`correct`; duplicate segment ids; no selectable segment; a keyed id that is absent or non-selectable; duplicate keyed ids; every selectable segment is keyed; empty segment `en`/`zh`; or a `rationale.byChoice.refId` that is duplicated or does not resolve to a selectable segment.
 - **bowtie:** missing zones/tokens; wrong fixed correct counts; a key outside its zone; duplicate key ids; token ids duplicated across zones; duplicate `en` or `zh` display text within a zone; empty token text; no distractor in a zone; an unresolved or duplicate `rationale.byChoice.refId`; embedding in a case study; or use below schema `1.4`.
 - **case_study:** `meta.schemaVersion` is `"1.0"`; missing `caseStudy.exhibits`; fewer than 2 or more than 6 embedded questions; an embedded question is another `case_study` or a `bowtie`; embedded ids are duplicated.
-- **visual:** present in a versioned bank below schema `"1.2"`; placed on an unsupported item type; unknown visual `kind`; invalid rhythm class; out-of-range rate, duration, interval, seed, atrial rate, or conduction ratio.
+- **visual:** present in a versioned bank below schema `"1.2"`; pacer-bearing `rhythm_strip` present below schema `"1.7"`; placed on an unsupported item type; unknown visual `kind`; invalid rhythm class; out-of-range rate, duration, interval, seed, atrial rate, or conduction ratio.
 
 Report format: `"imported N of M; skipped K (reasons...)"`.
 
@@ -1087,8 +1102,8 @@ Scoring is polytomous (partial credit), matching the NGN. Each item yields `{ ea
 
 ## Notes
 
-- `highlight` text items are supported in schema `1.3`; standalone bowtie items are supported in schema `1.4`; rationale explanation visuals are supported in schema `1.5`; additive unfolding case-study metadata is supported in schema `1.6`. The current NGN item-type set is complete. Highlight: Table remains deferred.
-- Migration from `1.5` to `1.6` requires no content changes. Only banks containing the additive case-study metadata fields need to declare `meta.schemaVersion: "1.6"`.
+- `highlight` text items are supported in schema `1.3`; standalone bowtie items are supported in schema `1.4`; rationale explanation visuals are supported in schema `1.5`; additive unfolding case-study metadata is supported in schema `1.6`; pacer-bearing `rhythm_strip` visuals are supported in schema `1.7`. The current NGN item-type set is complete. Highlight: Table remains deferred.
+- Migration from `1.6` to `1.7` requires no content changes. Only banks containing pacer-bearing `rhythm_strip` visuals need to declare `meta.schemaVersion: "1.7"`.
 - Rationale/dyad scoring and any explicit linked “X as evidenced by Y” item type remain out of scope; no current item type requires them.
 - `case_study` is the v1.1 hard-mode container for multi-part unfolding practice. It deliberately reuses v1.0 embedded item types instead of introducing new grading rules.
 - IDs: any unique string is fine. A readable convention like `<type>_<topicslug>_<n>` helps debugging but isn't required.

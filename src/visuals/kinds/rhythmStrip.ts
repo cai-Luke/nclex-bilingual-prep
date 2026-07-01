@@ -22,6 +22,8 @@ export type RhythmClass =
   | "vfib"
   | "asystole";
 
+export type PacerFinding = "capture" | "failure_to_capture" | "failure_to_sense" | "failure_to_pace";
+
 export type RhythmStripVisual = {
   kind: "rhythm_strip";
   rhythm: RhythmClass;
@@ -34,6 +36,14 @@ export type RhythmStripVisual = {
   prSec?: number;
   qrsSec?: number;
   qtSec?: number;
+  pacer?: {
+    mode: "ventricular";
+    setRateBpm: number;
+    captureLatencySec?: number;
+    spikeTimesSec: number[];
+    capturedSpikeTimesSec: number[];
+    finding: PacerFinding;
+  };
   caption?: {
     en: string;
     zh?: string;
@@ -57,6 +67,8 @@ export const rhythmClasses = [
   "asystole",
 ] as const satisfies readonly RhythmClass[];
 
+const pacerFindings = ["capture", "failure_to_capture", "failure_to_sense", "failure_to_pace"] as const satisfies readonly PacerFinding[];
+
 // ---------------------------------------------------------------------------
 // Deterministic ECG renderer (relocated verbatim; math/scaling unchanged)
 // ---------------------------------------------------------------------------
@@ -64,9 +76,13 @@ export const rhythmClasses = [
 type NormalizedRhythmStripVisual = Required<
   Pick<RhythmStripVisual, "kind" | "rhythm" | "rateBpm" | "durationSec" | "seed" | "calibrationPulse">
 > &
-  Omit<RhythmStripVisual, "kind" | "rhythm" | "rateBpm" | "durationSec" | "seed" | "calibrationPulse">;
+  Omit<RhythmStripVisual, "kind" | "rhythm" | "rateBpm" | "durationSec" | "seed" | "calibrationPulse" | "pacer"> & {
+    pacer?: Omit<NonNullable<RhythmStripVisual["pacer"]>, "captureLatencySec"> & {
+      captureLatencySec: number;
+    };
+  };
 
-type Beat = {
+export type RhythmStripBeat = {
   rSec: number;
   pSec?: number;
   tSec?: number;
@@ -83,6 +99,7 @@ const normalizeSpec = (spec: RhythmStripVisual): NormalizedRhythmStripVisual => 
   durationSec: spec.durationSec ?? 6,
   seed: spec.seed ?? 0,
   calibrationPulse: spec.calibrationPulse ?? true,
+  pacer: spec.pacer ? { ...spec.pacer, captureLatencySec: spec.pacer.captureLatencySec ?? 0.08 } : undefined,
 });
 
 const rhythmDefaults = (rhythm: RhythmClass) => {
@@ -119,19 +136,25 @@ const buildIrregularRPeaks = (rateBpm: number, durationSec: number, rng: Rng) =>
   return peaks;
 };
 
-const buildBeats = (spec: NormalizedRhythmStripVisual, rng: Rng) => {
+export const buildRenderContext = (spec: NormalizedRhythmStripVisual): { rng: Rng; rngValues: readonly number[] } => {
+  const rng = mulberry32(spec.seed);
+  const rngValues = [rng(), rng(), rng(), rng()];
+  return { rng, rngValues };
+};
+
+export const buildIntrinsicBeats = (spec: NormalizedRhythmStripVisual, rng: Rng): RhythmStripBeat[] => {
   const defaults = rhythmDefaults(spec.rhythm);
   const prSec = spec.prSec ?? defaults.prSec;
   const qrsSec = spec.qrsSec ?? defaults.qrsSec;
   const qtSec = spec.qtSec ?? defaults.qtSec;
-  const beats: Beat[] = [];
+  const beats: RhythmStripBeat[] = [];
 
   // Synthetic morphology map for review:
   // sinus family/AVB1 = P before each narrow QRS; AF = irregular narrow QRS with fibrillatory baseline;
   // flutter = regular narrow QRS over sawtooth atrial activity; SVT = fast regular narrow QRS with hidden P;
   // Mobitz I/II = repeated P waves with dropped QRS patterns; AVB3 = independent P waves plus escape QRS;
   // PVC/VT = wide complexes; VF/asystole are baseline-only rhythms handled outside beat composition.
-  const pushSinusBeat = (rSec: number, overrides: Partial<Beat> = {}) => {
+  const pushSinusBeat = (rSec: number, overrides: Partial<RhythmStripBeat> = {}) => {
     beats.push({
       rSec,
       pSec: rSec - prSec,
@@ -215,6 +238,23 @@ const buildBeats = (spec: NormalizedRhythmStripVisual, rng: Rng) => {
   return beats;
 };
 
+export const composeRenderBeats = (spec: NormalizedRhythmStripVisual, rng: Rng): RhythmStripBeat[] => {
+  const beats = buildIntrinsicBeats(spec, rng);
+  if (spec.pacer) {
+    const pacer = spec.pacer;
+    pacer.capturedSpikeTimesSec.forEach((spikeTimeSec) => {
+      beats.push({
+        rSec: spikeTimeSec + pacer.captureLatencySec,
+        tSec: spikeTimeSec + pacer.captureLatencySec + 0.34,
+        rAmpMv: 1.18,
+        qrsSec: spec.qrsSec ?? rhythmDefaults(spec.rhythm).qrsSec,
+        wide: true,
+      });
+    });
+  }
+  return beats.sort((left, right) => left.rSec - right.rSec);
+};
+
 const atrialPWaveMv = (timeSec: number, spec: NormalizedRhythmStripVisual) => {
   if (spec.rhythm !== "avb_3") return 0;
   const atrialRate = spec.atrialRateBpm ?? Math.max(spec.rateBpm * 1.8, 78);
@@ -251,7 +291,7 @@ const rhythmBaselineMv = (timeSec: number, spec: NormalizedRhythmStripVisual, rn
   return 0;
 };
 
-const beatMvAt = (timeSec: number, beat: Beat) => {
+const beatMvAt = (timeSec: number, beat: RhythmStripBeat) => {
   let value = 0;
   if (beat.pSec !== undefined) value += gaussian(timeSec, beat.pSec, 0.045, beat.pAmpMv ?? 0.14);
   const qrsSigma = beat.qrsSec / (beat.wide ? 4.8 : 7.5);
@@ -260,6 +300,14 @@ const beatMvAt = (timeSec: number, beat: Beat) => {
   value += gaussian(timeSec, beat.rSec + beat.qrsSec * 0.24, qrsSigma, beat.wide ? -0.65 : -0.28);
   if (beat.tSec !== undefined) value += gaussian(timeSec, beat.tSec, beat.wide ? 0.11 : 0.13, beat.wide ? -0.18 : 0.28);
   return value;
+};
+
+const pacerSpikeMv = (timeSec: number, spec: NormalizedRhythmStripVisual) => {
+  if (!spec.pacer) return 0;
+  return spec.pacer.spikeTimesSec.reduce(
+    (sum, spikeTimeSec) => sum + gaussian(timeSec, spikeTimeSec, 0.01, 2.4),
+    0,
+  );
 };
 
 const renderCalibrationPulse = (x: number, baselineY: number) => {
@@ -271,8 +319,7 @@ const renderCalibrationPulse = (x: number, baselineY: number) => {
 
 export const renderRhythmStripSvg = (input: RhythmStripVisual): string => {
   const spec = normalizeSpec(input);
-  const rng = mulberry32(spec.seed);
-  const rngValues = [rng(), rng(), rng(), rng()];
+  const { rng, rngValues } = buildRenderContext(spec);
   const leftPadding = spec.calibrationPulse ? 72 : 18;
   const rightPadding = 18;
   const topPadding = 18;
@@ -280,12 +327,12 @@ export const renderRhythmStripSvg = (input: RhythmStripVisual): string => {
   const width = leftPadding + secondsToPx(spec.durationSec) + rightPadding;
   const height = topPadding * 2 + traceHeight;
   const baselineY = topPadding + traceHeight / 2;
-  const beats = buildBeats(spec, rng);
+  const beats = composeRenderBeats(spec, rng);
   const sampleStepSec = 0.004;
   const points: string[] = [];
 
   for (let timeSec = 0; timeSec <= spec.durationSec + sampleStepSec / 2; timeSec += sampleStepSec) {
-    let mv = rhythmBaselineMv(timeSec, spec, rngValues) + atrialPWaveMv(timeSec, spec);
+    let mv = rhythmBaselineMv(timeSec, spec, rngValues) + atrialPWaveMv(timeSec, spec) + pacerSpikeMv(timeSec, spec);
     beats.forEach((beat) => {
       mv += beatMvAt(timeSec, beat);
     });
@@ -310,6 +357,9 @@ const isRecord = (value: unknown): value is Record<string, unknown> =>
 
 const nonEmptyString = (value: unknown): value is string => typeof value === "string" && value.trim().length > 0;
 
+const isPacerFinding = (value: unknown): value is PacerFinding =>
+  typeof value === "string" && pacerFindings.includes(value as PacerFinding);
+
 const bounded = (
   value: unknown,
   path: string,
@@ -326,6 +376,22 @@ const bounded = (
   }
   if (options.integer && !Number.isInteger(value)) errs.push({ path, code: `${code}_not_integer`, message: "must be an integer" });
   if (value < min || value > max) errs.push({ path, code, message: `must be between ${min} and ${max}` });
+};
+
+const numericArray = (value: unknown, path: string, errs: VisualError[]) => {
+  if (!Array.isArray(value)) {
+    errs.push({ path, code: "pacer_array_required", message: "must be an array" });
+    return null;
+  }
+  const numbers: number[] = [];
+  value.forEach((entry, index) => {
+    if (typeof entry !== "number" || !Number.isFinite(entry)) {
+      errs.push({ path: `${path}[${index}]`, code: "pacer_time_not_number", message: "must be a number" });
+    } else {
+      numbers.push(entry);
+    }
+  });
+  return numbers.length === value.length ? numbers : null;
 };
 
 const validateRhythmStrip = (spec: RhythmStripVisual): VisualError[] => {
@@ -348,6 +414,66 @@ const validateRhythmStrip = (spec: RhythmStripVisual): VisualError[] => {
   bounded(value.qrsSec, "qrsSec", 0.04, 0.24, "qrs_out_of_range", errs);
   bounded(value.qtSec, "qtSec", 0.16, 0.7, "qt_out_of_range", errs);
 
+  if (value.pacer !== undefined) {
+    if (!isRecord(value.pacer)) {
+      errs.push({ path: "pacer", code: "pacer_not_object", message: "must be an object" });
+    } else {
+      const pacer = value.pacer;
+      const durationSec = typeof value.durationSec === "number" && Number.isFinite(value.durationSec) ? value.durationSec : 6;
+      const captureLatencySec =
+        typeof pacer.captureLatencySec === "number" && Number.isFinite(pacer.captureLatencySec)
+          ? pacer.captureLatencySec
+          : 0.08;
+
+      if (pacer.mode !== "ventricular") {
+        errs.push({ path: "pacer.mode", code: "pacer_mode_invalid", message: "must be ventricular" });
+      }
+      bounded(pacer.setRateBpm, "pacer.setRateBpm", 20, 300, "pacer_set_rate_out_of_range", errs);
+      if (pacer.setRateBpm === undefined) {
+        errs.push({ path: "pacer.setRateBpm", code: "pacer_set_rate_required", message: "is required" });
+      }
+      bounded(pacer.captureLatencySec, "pacer.captureLatencySec", 0.03, 0.2, "pacer_latency_out_of_range", errs);
+      if (!isPacerFinding(pacer.finding)) {
+        errs.push({ path: "pacer.finding", code: "pacer_finding_invalid", message: "is invalid" });
+      }
+
+      const spikeTimes = numericArray(pacer.spikeTimesSec, "pacer.spikeTimesSec", errs);
+      const capturedTimes = numericArray(pacer.capturedSpikeTimesSec, "pacer.capturedSpikeTimesSec", errs);
+
+      if (spikeTimes && spikeTimes.length === 0) {
+        errs.push({ path: "pacer.spikeTimesSec", code: "pacer_spikes_required", message: "must contain at least one spike" });
+      }
+      if (spikeTimes) {
+        const seen = new Set<number>();
+        spikeTimes.forEach((timeSec, index) => {
+          if (timeSec < 0 || timeSec > durationSec) {
+            errs.push({ path: `pacer.spikeTimesSec[${index}]`, code: "pacer_spike_time_out_of_range", message: `must be between 0 and ${durationSec}` });
+          }
+          if (seen.has(timeSec)) {
+            errs.push({ path: `pacer.spikeTimesSec[${index}]`, code: "pacer_spike_time_duplicate", message: "must be unique" });
+          }
+          seen.add(timeSec);
+        });
+      }
+      if (spikeTimes && capturedTimes) {
+        const spikeSet = new Set(spikeTimes);
+        const capturedSet = new Set<number>();
+        capturedTimes.forEach((timeSec, index) => {
+          if (!spikeSet.has(timeSec)) {
+            errs.push({ path: `pacer.capturedSpikeTimesSec[${index}]`, code: "pacer_captured_spike_not_subset", message: "must also appear in spikeTimesSec" });
+          }
+          if (capturedSet.has(timeSec)) {
+            errs.push({ path: `pacer.capturedSpikeTimesSec[${index}]`, code: "pacer_captured_spike_duplicate", message: "must be unique" });
+          }
+          capturedSet.add(timeSec);
+          if (timeSec + captureLatencySec > durationSec) {
+            errs.push({ path: `pacer.capturedSpikeTimesSec[${index}]`, code: "pacer_captured_qrs_out_of_range", message: "must leave room for capture before strip end" });
+          }
+        });
+      }
+    }
+  }
+
   if (value.calibrationPulse !== undefined && typeof value.calibrationPulse !== "boolean") {
     errs.push({ path: "calibrationPulse", code: "calibration_not_boolean", message: "must be a boolean" });
   }
@@ -362,6 +488,120 @@ const validateRhythmStrip = (spec: RhythmStripVisual): VisualError[] => {
   return errs;
 };
 
+export const selfCheckRhythmStrip = (spec: RhythmStripVisual, question: unknown): VisualError[] => {
+  const value = spec as unknown as Record<string, unknown>;
+  if (value.pacer === undefined) return [];
+  if (!isRecord(value.pacer)) return [];
+
+  const errors: VisualError[] = [];
+  const normalized = normalizeSpec(spec);
+  const pacer = normalized.pacer;
+  if (!pacer || !isPacerFinding(pacer.finding)) return errors;
+
+  const meta = isRecord(question) && isRecord(question.meta) ? question.meta : {};
+  if (!nonEmptyString(meta.visual_justification)) {
+    errors.push({
+      path: "meta.visual_justification",
+      code: "self_check_missing_justification",
+      message: "must be present and non-empty",
+    });
+  }
+
+  const expected = isRecord(meta.expected) ? meta.expected : null;
+  if (expected === null || !nonEmptyString(expected.pacerFinding)) {
+    errors.push({
+      path: "meta.expected.pacerFinding",
+      code: "self_check_no_expected_cue",
+      message: "must declare the pacer finding",
+    });
+  } else if (expected.pacerFinding !== pacer.finding) {
+    errors.push({
+      path: "meta.expected.pacerFinding",
+      code: "self_check_pacer_finding_mismatch",
+      message: "does not match the visual pacer finding",
+    });
+  }
+
+  if (pacer.finding === "capture" && pacer.capturedSpikeTimesSec.length !== pacer.spikeTimesSec.length) {
+    errors.push({
+      path: "pacer.capturedSpikeTimesSec",
+      code: "self_check_capture_incomplete",
+      message: "must include every spike for capture",
+    });
+  }
+
+  if (pacer.finding === "failure_to_capture" && pacer.capturedSpikeTimesSec.length >= pacer.spikeTimesSec.length) {
+    errors.push({
+      path: "pacer.capturedSpikeTimesSec",
+      code: "self_check_failure_to_capture_absent",
+      message: "must omit at least one spike for failure to capture",
+    });
+  }
+
+  const { rng } = buildRenderContext(normalized);
+  const intrinsicBeats = buildIntrinsicBeats(normalized, rng);
+  if (pacer.finding === "failure_to_pace" && !hasPacingGap(intrinsicBeats, pacer.spikeTimesSec, pacer.setRateBpm, normalized.durationSec)) {
+    errors.push({
+      path: "pacer.spikeTimesSec",
+      code: "self_check_failure_to_pace_absent",
+      message: "must leave a programmed-rate interval without a spike",
+    });
+  }
+
+  if (pacer.finding === "failure_to_sense" && !hasSpikeOnIntrinsicRepolarization(intrinsicBeats, pacer.spikeTimesSec)) {
+    errors.push({
+      path: "pacer.spikeTimesSec",
+      code: "self_check_failure_to_sense_absent",
+      message: "must place a spike on an intrinsic QRS/T window",
+    });
+  }
+
+  return errors;
+};
+
+const hasPacingGap = (
+  intrinsicBeats: readonly RhythmStripBeat[],
+  spikeTimesSec: readonly number[],
+  setRateBpm: number,
+  durationSec: number,
+) => {
+  const sortedBeats = [...intrinsicBeats].sort((left, right) => left.rSec - right.rSec);
+  const gapEdges =
+    sortedBeats.length === 0
+      ? [{ start: 0, end: durationSec }]
+      : [
+          { start: 0, end: sortedBeats[0].rSec },
+          ...sortedBeats.slice(0, -1).map((beat, index) => ({ start: beat.rSec, end: sortedBeats[index + 1].rSec })),
+          { start: sortedBeats[sortedBeats.length - 1].rSec, end: durationSec },
+        ];
+  const maxExpectedIntervalSec = 60 / setRateBpm;
+  const sortedSpikes = [...spikeTimesSec].sort((left, right) => left - right);
+
+  return gapEdges.some(({ start, end }) => {
+    let segmentStart = start;
+    for (const spikeTimeSec of sortedSpikes) {
+      if (spikeTimeSec <= start || spikeTimeSec >= end) continue;
+      if (spikeTimeSec - segmentStart > maxExpectedIntervalSec) return true;
+      segmentStart = spikeTimeSec;
+    }
+    return end - segmentStart > maxExpectedIntervalSec;
+  });
+};
+
+const hasSpikeOnIntrinsicRepolarization = (
+  intrinsicBeats: readonly RhythmStripBeat[],
+  spikeTimesSec: readonly number[],
+) => {
+  const epsilonSec = 0.04;
+  return spikeTimesSec.some((spikeTimeSec) =>
+    intrinsicBeats.some((beat) => {
+      const windowStart = beat.rSec - beat.qrsSec - epsilonSec;
+      const windowEnd = (beat.tSec ?? beat.rSec + beat.qrsSec) + 0.16 + epsilonSec;
+      return spikeTimeSec >= windowStart && spikeTimeSec <= windowEnd;
+    }),
+  );
+};
+
 // ---------------------------------------------------------------------------
 // Fixtures (the conformance harness runs these automatically)
 // ---------------------------------------------------------------------------
@@ -373,6 +613,27 @@ const fixtures: VisualKindModule<RhythmStripVisual>["fixtures"] = {
     { kind: "rhythm_strip", rhythm: "vfib", rateBpm: 0, seed: 5 },
     { kind: "rhythm_strip", rhythm: "asystole", rateBpm: 0 },
     { kind: "rhythm_strip", rhythm: "aflutter", rateBpm: 75, atrialRateBpm: 300, conductionRatio: 4, caption: { en: "On admission", zh: "入院时" } },
+    {
+      kind: "rhythm_strip",
+      rhythm: "asystole",
+      rateBpm: 0,
+      durationSec: 6,
+      pacer: { mode: "ventricular", setRateBpm: 60, spikeTimesSec: [1, 2, 3, 4, 5], capturedSpikeTimesSec: [1, 2, 3, 4, 5], finding: "capture" },
+    },
+    {
+      kind: "rhythm_strip",
+      rhythm: "asystole",
+      rateBpm: 0,
+      durationSec: 6,
+      pacer: { mode: "ventricular", setRateBpm: 60, spikeTimesSec: [1, 2, 3, 4, 5], capturedSpikeTimesSec: [1, 3, 5], finding: "failure_to_capture" },
+    },
+    {
+      kind: "rhythm_strip",
+      rhythm: "asystole",
+      rateBpm: 0,
+      durationSec: 6,
+      pacer: { mode: "ventricular", setRateBpm: 60, spikeTimesSec: [1, 2, 5], capturedSpikeTimesSec: [1, 2, 5], finding: "failure_to_pace" },
+    },
   ],
   invalid: [
     { spec: { kind: "rhythm_strip", rhythm: "nope", rateBpm: 75 }, expectCode: "bad_rhythm_class" },
@@ -385,12 +646,31 @@ const fixtures: VisualKindModule<RhythmStripVisual>["fixtures"] = {
     { spec: { kind: "rhythm_strip", rhythm: "sinus", rateBpm: 75, calibrationPulse: "yes" }, expectCode: "calibration_not_boolean" },
     { spec: { kind: "rhythm_strip", rhythm: "sinus", rateBpm: 75, caption: { en: "" } }, expectCode: "caption_en_required" },
     { spec: { kind: "rhythm_strip", rhythm: "sinus", rateBpm: 75, caption: { en: "ok", zh: "" } }, expectCode: "caption_zh_empty" },
+    {
+      spec: {
+        kind: "rhythm_strip",
+        rhythm: "asystole",
+        rateBpm: 0,
+        pacer: { mode: "ventricular", setRateBpm: 60, spikeTimesSec: [], capturedSpikeTimesSec: [], finding: "capture" },
+      },
+      expectCode: "pacer_spikes_required",
+    },
+    {
+      spec: {
+        kind: "rhythm_strip",
+        rhythm: "sinus",
+        rateBpm: 75,
+        pacer: { mode: "ventricular", setRateBpm: 60, spikeTimesSec: [1], capturedSpikeTimesSec: [2], finding: "capture" },
+      },
+      expectCode: "pacer_captured_spike_not_subset",
+    },
   ],
 };
 
 export const rhythmStripModule: VisualKindModule<RhythmStripVisual> = {
   kind: "rhythm_strip",
   validate: validateRhythmStrip,
+  selfCheck: selfCheckRhythmStrip,
   renderSvg: renderRhythmStripSvg,
   fixtures,
 };

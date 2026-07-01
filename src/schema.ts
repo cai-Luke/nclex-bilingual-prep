@@ -21,9 +21,9 @@ import { getVisual, VISUAL_ITEM_TYPES, type VisualError } from "./visuals/regist
 import "./visuals/kinds"; // register every visual kind for validation (React-free)
 export { rhythmClasses } from "./visuals/kinds/rhythmStrip";
 
-export const SCHEMA_VERSION = "1.6";
+export const SCHEMA_VERSION = "1.7";
 
-export const supportedSchemaVersions = ["1.0", "1.1", "1.2", "1.3", "1.4", "1.5", "1.6"] as const satisfies readonly SchemaVersion[];
+export const supportedSchemaVersions = ["1.0", "1.1", "1.2", "1.3", "1.4", "1.5", "1.6", "1.7"] as const satisfies readonly SchemaVersion[];
 
 export const categories = [
   "Management of Care",
@@ -1014,6 +1014,21 @@ const hasSchema16CaseFields = (question: Question): boolean => {
   );
 };
 
+const hasPacerRhythmVisual = (visual: Question["visual"]): boolean =>
+  visual?.kind === "rhythm_strip" && "pacer" in visual && visual.pacer !== undefined;
+
+const hasPacerRhythmStrip = (question: Question): boolean => {
+  if (hasPacerRhythmVisual(question.visual)) return true;
+  if (question.itemType !== "case_study") return false;
+  if (question.caseStudy.exhibits.some((exhibit) => hasPacerRhythmVisual(exhibit.visual))) return true;
+  if (question.caseStudy.stages?.some((stage) =>
+    stage.exhibits.some((exhibit) => hasPacerRhythmVisual(exhibit.visual))
+  )) {
+    return true;
+  }
+  return question.caseStudy.questions.some((caseQuestion) => hasPacerRhythmVisual(caseQuestion.visual));
+};
+
 export const validateBankObject = (raw: unknown, options: ValidateBankOptions = {}): ValidationResult<BankEnvelope> => {
   const reasons: string[] = [];
   const payload = Array.isArray(raw) ? { questions: raw } : raw;
@@ -1113,6 +1128,14 @@ export const validateBankObject = (raw: unknown, options: ValidateBankOptions = 
       hasSchema16CaseFields(result.value)
     ) {
       reasons.push(`questions[${index}]: unfolding case-study metadata requires meta.schemaVersion 1.6`);
+      return;
+    }
+    if (
+      schemaVersion !== undefined &&
+      cmpSchema(schemaVersion, "1.7") < 0 &&
+      hasPacerRhythmStrip(result.value)
+    ) {
+      reasons.push(`questions[${index}]: pacer rhythm_strip requires meta.schemaVersion 1.7`);
       return;
     }
     if (seen.has(result.value.id)) {

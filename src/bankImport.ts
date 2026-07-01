@@ -159,9 +159,24 @@ const hasSchema16CaseFields = (question: Question) => {
   );
 };
 
+const hasPacerRhythmVisual = (visual: Question["visual"]) =>
+  visual?.kind === "rhythm_strip" && "pacer" in visual && visual.pacer !== undefined;
+
+const hasPacerRhythmStrip = (question: Question) => {
+  if (hasPacerRhythmVisual(question.visual)) return true;
+  if (question.itemType !== "case_study") return false;
+  return (
+    question.caseStudy.exhibits.some((exhibit) => hasPacerRhythmVisual(exhibit.visual)) ||
+    question.caseStudy.stages?.some((stage) => stage.exhibits.some((exhibit) => hasPacerRhythmVisual(exhibit.visual))) ||
+    question.caseStudy.questions.some((caseQuestion) => hasPacerRhythmVisual(caseQuestion.visual))
+  );
+};
+
 export const toExportEnvelope = (questions: Question[]): BankEnvelope => ({
   meta: {
-    schemaVersion: questions.some(hasSchema16CaseFields)
+    schemaVersion: questions.some(hasPacerRhythmStrip)
+      ? "1.7"
+      : questions.some(hasSchema16CaseFields)
       ? "1.6"
       : questions.some(hasRationaleVisuals)
       ? "1.5"

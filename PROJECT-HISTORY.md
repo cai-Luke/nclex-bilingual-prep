@@ -14,7 +14,7 @@ The app is a static offline Vite + React + TypeScript NCLEX-RN practice tool. It
 
 Core learning features are implemented: all schema item types render and grade, case studies are supported, sessions are resumable, custom sessions can be built from filters, the dashboard summarizes performance, flags feed review pools, glossary flashcards have their own SRS progress, and adaptive exam-condition practice is available without any pass/fail readiness claim.
 
-Current canonical banks (see [BANK-CENSUS.md](BANK-CENSUS.md); 1,665 top-level, 721 embedded parts as of 2026-06-24):
+Current canonical banks (see [BANK-CENSUS.md](BANK-CENSUS.md); 1,665 top-level, 721 embedded parts, 161 visuals as of 2026-07-01):
 
 - `banks/burn-canonical.json` (8 schema v1.2 burn-map visual items)
 - `banks/capnography-canonical.json` (7 schema v1.2 capnography visual items; dedicated home for capnography kind)
@@ -27,9 +27,9 @@ Current canonical banks (see [BANK-CENSUS.md](BANK-CENSUS.md); 1,665 top-level, 
 - `banks/lab-canonical.json` (20 schema v1.2 lab_trend visual items; dedicated home for lab_trend kind)
 - `banks/mar-canonical.json` (8 schema v1.2 mar visual items; dedicated home for mar kind)
 - `banks/medlabel-canonical.json` (8 schema v1.2 medication-label visual items)
-- `banks/visual-canonical.json` (53 reviewed schema v1.2 rhythm-strip visual items; the dedicated home for rhythm_strip kind, formerly `banks/rhythm-canonical`)
+- `banks/visual-canonical.json` (53 reviewed rhythm/EKG items; 47 carry `rhythm_strip` visuals; schema v1.7 for pacer-overlay rhythm strips; the dedicated home for rhythm_strip kind, formerly `banks/rhythm-canonical`)
 - `banks/vitals-canonical.json` (10 reviewed schema v1.2 vitals-trend visual items; dedicated home for vitals_trend kind)
-- Schema version `1.6` current; `1.0` standalone, `1.1` case-study, `1.2` visual, `1.3` highlight, `1.4` bowtie, and `1.5` rationale-visual banks remain supported
+- Schema version `1.7` current; `1.0` standalone, `1.1` case-study, `1.2` visual, `1.3` highlight, `1.4` bowtie, `1.5` rationale-visual, and `1.6` unfolding case-study metadata banks remain supported
 
 Current schema item types:
 
@@ -48,6 +48,63 @@ The committed NGN item-type set is complete. Rationale/dyad scoring and an expli
 ## Milestones
 
 > Milestones dated **2026-06-23 and earlier** are archived in [`Archive/PROJECT-HISTORY-ARCHIVE.md`](Archive/PROJECT-HISTORY-ARCHIVE.md). Only the current arc (2026-06-24 onward) is kept here.
+
+### Rhythm Strip Bucket 1B Conversions (Jul 1)
+
+Completed:
+- Converted the four placement-clean narration-debt targets from the pacemaker overlay spec: `opus26_case_refeeding_syndrome_01_q3`, `opus26_case_refeeding_syndrome_01_q5`, `cs_adhf_pulm_edema_01/ed_assessment`, and `gpt_stroke_2026_06_16_case_acute_ischemic_stroke_warfarin_01/baseline_assessment`.
+- Kept the edits as manual canonical patches because the targets are existing case-study entries or embedded leaves, which cannot be safely staged through append-only consolidation.
+- Deferred `gemini_backfill_or_cardio_01`, `gpt_deepen_2026_06_22_bow_12`, and `gemini_c10_07` pending a separate `rhythm_strip` item-type placement-policy decision.
+- Added render-audit artifacts under `audit/rhythm-strip-bucket-1b-conversions-2026-07-01/`.
+
+Verification:
+- `npm run validate-bank -- banks/claude-canonical.json banks/hard-cases-canonical.json` passed after the canonical patch.
+- Visual inspection of `audit/rhythm-strip-bucket-1b-conversions-2026-07-01/rendered/contact-sheet.png` confirmed all four rhythm strips are readable.
+
+### Rhythm Strip Pacemaker Overlay Phase 3 Backfill (Jul 1)
+
+Completed:
+- Added schema `1.7` support and live bank-level validation requiring `meta.schemaVersion >= 1.7` for pacer-bearing `rhythm_strip` visuals.
+- Retired text-only pacemaker items `ekg_b5_mc_04`, `ekg_b5_mc_05`, and `ekg_b5_matrix_10` from `banks/visual-canonical.json`.
+- Promoted and consolidated three new load-bearing rhythm-strip replacements: `ekg_pacer_failure_to_capture_2026_07_01`, `ekg_pacer_failure_to_sense_2026_07_01`, and `ekg_pacer_failure_to_pace_2026_07_01`.
+- Bumped `banks/visual-canonical.json` from schema `1.2` to `1.7` while keeping its count at 53 after the retire/replace cycle.
+- Added ledger and render-audit artifacts under `audit/rhythm-strip-pacemaker-backfill-2026-07-01/`.
+
+Verification:
+- `npm run validate-bank -- banks/visual-canonical.json banks/banks-raw/visual-pacemaker-overlay-2026-07-01.json` passed before consolidation.
+- `npm run promote` staged the 3 replacement items.
+- `npm run audit` passed before consolidation with the raw and promoted artifacts present; only the existing advisory non-MCQ distribution warning remained.
+- `npm run consolidate -- --dry-run` reported `50 + 3 = 53`, then `npm run consolidate` merged the replacements.
+- Visual inspection of `audit/rhythm-strip-pacemaker-backfill-2026-07-01/rendered/contact-sheet.png` confirmed the pacer cues are readable.
+
+### Rhythm Strip Pacemaker Overlay Phase 2 Smoke (Jul 1)
+
+Completed:
+- Added an audit-only pacemaker smoke bank under `audit/rhythm-strip-pacemaker-smoke-2026-07-01/` covering capture, failure to capture, failure to sense, and failure to pace.
+- Rendered each smoke fixture to SVG and PNG, plus a stacked contact sheet for quick visual review.
+- Confirmed the smoke fixtures remain outside bundled top-level banks and are not promoted study content.
+
+Verification:
+- `npm run validate-bank -- audit/rhythm-strip-pacemaker-smoke-2026-07-01/smoke-bank.json` passed.
+- `npx tsx scripts/tests/rhythm-strip.ts` passed.
+- Visual inspection of `audit/rhythm-strip-pacemaker-smoke-2026-07-01/rendered/contact-sheet.png` confirmed the pacer cues are readable.
+
+### Rhythm Strip Pacemaker Overlay Phase 1 (Jul 1)
+
+Completed:
+- Added ventricular pacemaker overlay support to `rhythm_strip` visuals without adding new rhythm-class enums.
+- Split intrinsic rhythm generation from pacer-aware render beat composition, with a shared render context so AFib RNG timing stays identical between rendering and `selfCheck`.
+- Added sampled pacer spike rendering, captured paced QRS synthesis, pacer structural validation, and pacer-only `selfCheck` assertions for capture, failure to capture, failure to pace, and failure to sense.
+- Updated strict visual-key allowlists and the schema documentation for the new optional `pacer` contract.
+- Kept Phase 1 code-only: no canonical bank items, raw bank drafts, pacer smoke items, or Bucket 1B content conversions were edited.
+
+Verification:
+- `npx tsc -b --pretty false` passed.
+- `npx tsx scripts/tests/rhythm-strip.ts` passed with pacer validation/self-check coverage and existing 14-rhythm render coverage.
+- `npm run test-visuals` passed.
+- `npm run validate-bank -- banks/*.json` passed.
+- `npm run audit` passed with the existing insufficient raw-draft integrity note and advisory non-MCQ distribution warning.
+- `npm run build` passed with the existing Vite chunk-size warning.
 
 ### Translation Telemetry V1.1 (Jul 1)
 
@@ -553,7 +610,7 @@ Representative fetal-monitoring fixtures were also inspected through the in-app 
 ## Authoritative references
 
 - `NCLEX-Question-Schema.md` is the schema source of truth.
-- `src/types.ts` mirrors schema v1.6 (its `SchemaVersion` union spans `1.0`–`1.6`; `Rationale.visuals` carries the 1.5 figures and the visual union is assembled in `src/visuals/types.ts`).
+- `src/types.ts` mirrors schema v1.7 (its `SchemaVersion` union spans `1.0`–`1.7`; `Rationale.visuals` carries the 1.5 figures and the visual union is assembled in `src/visuals/types.ts`).
 - `src/schema.ts` validates committed and imported question data.
 - `scripts/validate-bank.ts` reuses the app validation path for bank files.
 - `BANK-REVIEW-LEDGER.md` tracks per-bank review status and should be updated before any generated bank is treated as reviewed testing material.
