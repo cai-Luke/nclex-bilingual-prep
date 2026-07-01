@@ -1,6 +1,15 @@
 # Stabilization Verification Handoff — 2026-06-30
 
-Status: **Stopped on browser smoke mismatch. No app code patched in this pass.**
+Status: **Rerun passed after architect-side app patch.**
+
+## Rerun After Patch
+
+Claude patched the visible split case-study aggregate submit copy in `src/App.tsx` from `Submit case study` to `Submit all parts`. I reran the full automated suite and browser smoke against that patched tree.
+
+Outcome:
+- The original stop condition is resolved: the live split case-study toolbar now visibly renders `Submit all parts`.
+- No app code was patched during this rerun by Codex; I only verified Claude's patch and updated documentation.
+- The only tooling limitation was direct IndexedDB inspection from the browser automation sandbox. As a fallback, I compared the learner-visible Home counters before and after a Preview Lab visit; they were unchanged.
 
 ## Browser Capability
 
@@ -31,32 +40,18 @@ Notes:
 
 ## Browser Smoke Results
 
-The smoke pass stopped on a manual mismatch, per the spec's stop condition.
+Rerun smoke findings:
+- **Live Study split layout:** Passed. `lab_trend` rendered in `.exam-split-layout.standalone-visual-layout` at about `420px / 912px` columns inside a 1393px session shell. `io_record` rendered split with a visual SVG viewBox of `0 0 420 324`. `mar` stayed full-width with no standalone split container. A hard-cases case study rendered chart-over-work; the chart pane had `overflow-y: auto`.
+- **Summary / Developer Review layout:** Passed. Developer Review rendered a case study stacked with zero case split panels, and rendered a standalone lab visual full-width with zero standalone split panels. Actual Summary expanded an `io_record` standalone visual with zero standalone split panels. Source check confirms Summary passes both `caseStudyLayout="stacked"` and `standaloneVisualLayout="stacked"` into `QuestionCard`.
+- **Preview Lab:** Passed. Opened from Settings. Live preview split a case study and a `lab_trend`; Summary/review mode removed standalone split for the lab visual; Mobile stacked mode rendered inside the 400px mobile preview canvas. Browser automation could not directly inspect IndexedDB, but Home counters before and after a Preview Lab visit were identical: 1665 Questions, 4 Answered, 3 Due review, 1 Mistakes, 0 Flagged, 3055 Vocab terms.
+- **Mobile stacked layout:** Passed. At an 800px viewport, standalone `lab_trend` collapsed to one grid column with visual and work panes both full-width; the case-study split also collapsed to a one-column stacked layout.
+- **On-tap Chinese reveal inside answer controls:** Passed. In a live bowtie item, tapping a token reveal button decreased reveal buttons from 11 to 10 and left selected token count at 0. In a live highlight item, tapping the answer-control reveal button decreased reveal buttons from 1 to 0 and left selected segment count at 0.
+- **Case-study part-switch flow:** Passed. After scrolling a split case study and switching from Part 1 to Part 3, the active part changed, the visible scroll position reset upward, the sticky toolbar stayed clear of the active content, the completion count remained `1 of 4 parts complete`, and the aggregate submit affordance read `Submit all parts`.
 
-Confirmed before the stop:
-- `lab-canonical` live Study item at 1440x900 used the widened session shell, measured about 1393 px wide in-browser.
-- The same `lab_trend` item rendered in `.exam-split-layout.standalone-visual-layout` with CSS `display: grid`, grid columns around `420px 912px`, and the lab SVG in `.standalone-visual-pane`.
-- A hard-cases live case-study item rendered chart-over-work in `.case-study-panel.exam-split-layout`; the chart pane measured full-width above the work pane and had `overflow-y: auto`.
-- The case-study completion count was visible as `1 of 4 parts complete`.
-
-Stop reason:
-- The stabilization checklist asks to confirm `Submit all parts` / completion count through a case-study part-switch flow.
-- The current live case-study aggregate submit button visibly renders `Submit case study`.
-- The button title attribute is still `Submit all parts` when ready, or `Complete all N parts before submitting` when incomplete, but the visible affordance text is not `Submit all parts`.
-- Source location observed: `src/App.tsx`, in the split case-study toolbar, where the button span is `Submit case study`.
-
-Because the checklist calls out `Submit all parts`, I treated this as a smoke mismatch and stopped without patching.
-
-## Outstanding Smoke Items
-
-Not completed because of the stop condition:
-- Finish target 1: verify `mar` remains full-width and `io_record` splits with compacted 420-unit viewBox.
-- Target 2: Summary / Developer Review full-width stacked layout for one case study and one standalone visual.
-- Target 3: Preview Lab from Settings, including no session/progress write and desktop/mobile preview modes.
-- Target 4: Mobile stacked layout below the split breakpoint.
-- Target 5: On-tap Chinese reveal inside bowtie and highlight/dropdown answer controls.
-- Target 6 remainder: part-switch scroll reset and sticky-toolbar clearance after deciding whether the visible submit copy should be `Submit all parts` or the checklist should be updated to accept `Submit case study`.
+Historical first-run stop:
+- The first run stopped because the visible case-study aggregate submit copy was `Submit case study` while the checklist expected `Submit all parts`.
+- That mismatch is now fixed by the architect-side patch and verified in browser.
 
 ## Recommendation
 
-Architects should decide whether the visible aggregate case-study submit copy should be restored to `Submit all parts` or whether the stabilization checklist should be amended to treat `Submit case study` as intentional current copy. After that decision, rerun the manual smoke checklist from the beginning.
+No further stabilization blocker found in this rerun.

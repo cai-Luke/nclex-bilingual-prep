@@ -48,6 +48,7 @@ export type PacerFinding = "capture" | "failure_to_capture" | "failure_to_sense"
 pacer?: {
   mode: "ventricular" | "atrial" | "dual_chamber";
   setRateBpm: number;                 // programmed pacing rate — defines expected spike cadence
+  captureLatencySec?: number;         // default 0.08; delay from pacing spike to captured paced QRS
   spikeTimesSec: number[];            // every spike actually rendered
   capturedSpikeTimesSec: number[];    // subset of spikeTimesSec that produces a paced QRS
   finding: PacerFinding;              // declared scenario — selfCheck asserts the data backs this up
@@ -60,7 +61,7 @@ pacer?: {
 
 - **`buildBeats(spec, rng)`** — after computing the base intrinsic beats for `spec.rhythm`, if `spec.pacer` is present, append one synthesized `Beat` per entry in `capturedSpikeTimesSec` (`rSec = spikeTime + captureLatencySec`, `wide: true` for `mode: "ventricular"`). Uncaptured spikes (in `spikeTimesSec` but not `capturedSpikeTimesSec`) get no `Beat` — the spike renders with nothing following it, which *is* the failure-to-capture finding.
 - **Per-sample composition loop in `renderRhythmStripSvg`** — add a `pacerSpikeMv(timeSec, spec)` term to the existing `rhythmBaselineMv + atrialPWaveMv + Σ beatMvAt` sum. Implement as the same `gaussian()` helper already in the file, with a very small sigma and tall amplitude, one bump per entry in `spec.pacer.spikeTimesSec`.
-- **`validateRhythmStrip`** — extend with bounds checks for the new fields using the existing `bounded()` helper pattern (e.g. each `spikeTimesSec` entry within `[0, durationSec]`, `captureLatencySec` within a clinically plausible window).
+- **`validateRhythmStrip`** — extend with bounds checks for the new fields using the existing `bounded()` helper pattern: each `spikeTimesSec` entry within `[0, durationSec]`, `captureLatencySec` within `[0.03, 0.20]` seconds, normalized to a default of `0.08` when omitted (same `normalizeSpec`-style default pattern the file already uses for `durationSec`/`seed`/`calibrationPulse`).
 - **`rhythmStripModule` export** — currently has no `selfCheck` at all; this is a genuinely new addition, not a modification. Model it directly on `selfCheckInjectionSite` in `src/visuals/kinds/injection_site/index.ts`: read `question.meta.expected.pacerFinding`, cross-check against `spec.pacer.finding`, and assert the numeric data is internally consistent with the declared finding (see *Self-Check Assertions* below).
 
 **Shared-derivation requirement:** whatever function computes "where are this rhythm's intrinsic beats" for `failure_to_sense` / `failure_to_pace` checking must be the *same* function `buildBeats` already uses to render them — never a second parallel derivation in `selfCheck` that could drift from what's actually drawn. Export the relevant internal helper from `buildBeats` rather than reimplementing intrinsic-beat timing inside the self-check. This is principle 2/11 (producer ≠ checker only via a shared deterministic transform; single definition, never redefined) applied to this kind.

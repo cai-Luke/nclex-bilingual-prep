@@ -49,12 +49,14 @@ The committed NGN item-type set is complete. Rationale/dyad scoring and an expli
 
 > Milestones dated **2026-06-23 and earlier** are archived in [`Archive/PROJECT-HISTORY-ARCHIVE.md`](Archive/PROJECT-HISTORY-ARCHIVE.md). Only the current arc (2026-06-24 onward) is kept here.
 
-### Stabilization Verification Pass Attempt (Jun 30)
+### Stabilization Verification Pass (Jun 30)
 
 Completed:
 - Ran the combined post-feature automated stabilization suite requested by `stabilization-verification-pass-2026-06-30-codex-spec.md`.
 - Confirmed browser/rendering capability was available and started manual smoke against the local Vite app at `1440x900`.
 - Added [`STABILIZATION-VERIFICATION-HANDOFF-2026-06-30.md`](STABILIZATION-VERIFICATION-HANDOFF-2026-06-30.md) for architect follow-up.
+- Verified the architect-side patch changing the visible split case-study aggregate submit copy to `Submit all parts`.
+- Reran browser smoke after the patch and confirmed the checklist passed, with a browser-tooling note that direct IndexedDB reads were unavailable and learner-visible Home counters were used as the fallback progress-write check.
 
 Verification:
 - `npx tsc -b --pretty false` passed.
@@ -69,7 +71,8 @@ Verification:
 - `npm run audit` passed with the existing advisory non-MCQ distribution warning and `audit:integrity` insufficient because no raw drafts were present.
 - `npm run census:check` passed.
 - `npm run build` passed with the existing Vite chunk-size warning.
-- Browser smoke stopped without app patching because the live case-study aggregate submit button visibly reads `Submit case study`, while the stabilization checklist asked to confirm `Submit all parts`; architects need to decide whether to restore the visible copy or update the checklist.
+- First browser smoke stopped without Codex app patching because the live case-study aggregate submit button visibly read `Submit case study`, while the stabilization checklist asked to confirm `Submit all parts`.
+- Rerun browser smoke passed after the architect-side copy patch: lab and I/O split, MAR full-width, case-study chart-over-work, Summary/Developer Review stacked review behavior, Preview Lab live/review/mobile modes, mobile stacked fallback, on-tap reveal click isolation, and case-study part-switch toolbar/counter behavior were verified.
 
 ### Exam Shell Width and Split Density (Jun 30)
 

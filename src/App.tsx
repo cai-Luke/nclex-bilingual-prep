@@ -3810,7 +3810,7 @@ function CaseStudyControl({
               onClick={onSubmit}
             >
               <CheckCircle2 aria-hidden="true" />
-              <span>Submit case study</span>
+              <span>Submit all parts</span>
             </button>
           )}
         </div>
