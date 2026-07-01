@@ -49,6 +49,20 @@ The committed NGN item-type set is complete. Rationale/dyad scoring and an expli
 
 > Milestones dated **2026-06-23 and earlier** are archived in [`Archive/PROJECT-HISTORY-ARCHIVE.md`](Archive/PROJECT-HISTORY-ARCHIVE.md). Only the current arc (2026-06-24 onward) is kept here.
 
+### Translation Telemetry V1.1 (Jul 1)
+
+Completed:
+- Added a dev-gated Translation telemetry panel behind the existing hidden dev-tools flag, making locally recorded reveal-tap history visible without surfacing anything in the learner UI.
+- Added pure translation telemetry aggregation in `src/translationTelemetry.ts` for totals, distinct sessions, earliest/latest reveal timestamps, deterministic block/category/topic grouping, finite elapsed-time averages, before-submit shares, blank-topic fallback, and top-15 topic capping.
+- Added raw JSON export with an `exportFormatVersion` envelope so local reveal events can be analyzed outside the app without overloading bank `schemaVersion` semantics.
+- Added dedicated telemetry row styling instead of reusing `.category-breakdown`, avoiding selector bleed from the existing descendant selector.
+
+Verification:
+- `npm run test:translation-telemetry` passed.
+- `npx tsc -b --pretty false` passed.
+- `npm run build` passed with the existing Vite chunk-size warning.
+- Browser smoke confirmed the Telemetry nav and panel render behind `?dev=1`, a clean-origin non-dev page shows only learner navigation, and the export control is present and click-safe with no console errors; the browser automation surface did not expose a Blob download event for direct file verification.
+
 ### Summary GPT Review Prompt (Jul 1)
 
 Completed:

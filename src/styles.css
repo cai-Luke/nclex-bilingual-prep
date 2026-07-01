@@ -2229,6 +2229,49 @@ h4 {
   background: var(--surface);
 }
 
+.telemetry-panel {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.telemetry-row-list {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.telemetry-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.85rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+}
+
+.telemetry-row > span:first-child {
+  flex: 1 1 12rem;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.telemetry-values {
+  display: flex;
+  flex: 1 1 18rem;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.35rem 0.65rem;
+  min-width: 0;
+  color: var(--text-muted);
+  text-align: right;
+}
+
+.telemetry-values strong {
+  color: var(--text);
+}
+
 .dev-review-console {
   display: grid;
   gap: 1rem;

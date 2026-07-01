@@ -11,6 +11,7 @@ import {
   type MutableRefObject,
 } from "react";
 import {
+  Activity,
   BarChart3,
   BookOpen,
   Brain,
@@ -89,6 +90,7 @@ import { buildTargetedReviewPool, buildWeightedSession, seedFromString } from ".
 import { buildSessionState, type SessionState } from "./sessionState";
 import { formatItemType } from "./itemTypes";
 import { buildReviewPromptText } from "./reviewPrompt";
+import { summarizeTranslationRevealEvents } from "./translationTelemetry";
 import { VisualStimulus } from "./visuals";
 import { mulberry32 } from "./visuals/primitives/prng";
 import { STANDALONE_SPLIT_VISUAL_KINDS, getVisibleCaseStages, usesStandaloneVisualSplit } from "./examLayout";
@@ -134,6 +136,7 @@ type View =
   | "settings"
   | "previewLab"
   | "review"
+  | "telemetry"
   | "session"
   | "summary";
 
@@ -252,7 +255,7 @@ export default function App() {
   const [flags, setFlags] = useState<Record<string, QuestionFlag>>({});
   const [languageMisses, setLanguageMisses] = useState<Record<string, LanguageMiss>>({});
   const [answerEvents, setAnswerEvents] = useState<AnswerEvent[]>([]);
-  const [, setTranslationRevealEvents] = useState<TranslationRevealEvent[]>([]);
+  const [translationRevealEvents, setTranslationRevealEvents] = useState<TranslationRevealEvent[]>([]);
   const [flashcardProgress, setFlashcardProgress] = useState<Record<string, FlashcardProgress>>({});
   const [settings, setSettings] = useState<Settings>(() => loadSettings());
   const [view, setView] = useState<View>(devStartup.openConsole ? "review" : "home");
@@ -723,6 +726,12 @@ export default function App() {
               <span>Developer</span>
             </button>
           )}
+          {devStartup.enabled && (
+            <button className={view === "telemetry" ? "active" : ""} type="button" onClick={() => setView("telemetry")}>
+              <Activity aria-hidden="true" />
+              <span>Telemetry</span>
+            </button>
+          )}
         </nav>
       </header>
 
@@ -852,6 +861,10 @@ export default function App() {
             initialIds={devStartup.requestedIds}
             initialLanguageMode={settings.languageMode}
           />
+        )}
+
+        {view === "telemetry" && devStartup.enabled && (
+          <TranslationTelemetryPanel events={translationRevealEvents} />
         )}
 
         {view === "session" && session && (
@@ -2150,6 +2163,149 @@ const loadDevReviewNotes = (): Record<string, DevReviewNote> => {
     return {};
   }
 };
+
+const formatTelemetryDate = (value: string | undefined) => {
+  if (!value) return "—";
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) return value;
+  return date.toLocaleString(undefined, {
+    month: "short",
+    day: "numeric",
+    hour: "numeric",
+    minute: "2-digit",
+  });
+};
+
+const formatTelemetryElapsed = (elapsedMs: number | undefined) => {
+  if (elapsedMs === undefined) return "—";
+  const seconds = elapsedMs / 1000;
+  return `${seconds < 10 ? seconds.toFixed(1).replace(/\.0$/, "") : Math.round(seconds)}s`;
+};
+
+const formatTelemetryPercent = (value: number) => `${Math.round(value * 100)}%`;
+
+function TranslationTelemetryPanel({ events }: { events: TranslationRevealEvent[] }) {
+  const summary = useMemo(() => summarizeTranslationRevealEvents(events), [events]);
+
+  const exportTelemetry = () => {
+    const blob = new Blob(
+      [
+        JSON.stringify(
+          {
+            exportFormatVersion: 1,
+            exportedAt: new Date().toISOString(),
+            eventCount: events.length,
+            events,
+          },
+          null,
+          2,
+        ),
+      ],
+      { type: "application/json" },
+    );
+    const url = URL.createObjectURL(blob);
+    const anchor = document.createElement("a");
+    anchor.href = url;
+    anchor.download = `shrimp-translation-telemetry-${new Date().toISOString().slice(0, 10)}.json`;
+    anchor.click();
+    URL.revokeObjectURL(url);
+  };
+
+  const renderBlockRows = () => (
+    <div className="telemetry-row-list">
+      {summary.byBlock.map((row) => (
+        <div className="telemetry-row" key={row.block}>
+          <span>{row.block}</span>
+          <span className="telemetry-values">
+            <strong>{row.count}</strong>
+            <span>{formatTelemetryPercent(row.count / Math.max(summary.totalCount, 1))}</span>
+          </span>
+        </div>
+      ))}
+    </div>
+  );
+
+  const renderCategoryRows = () => (
+    <div className="telemetry-row-list">
+      {summary.byCategory.map((row) => (
+        <div className="telemetry-row" key={row.category}>
+          <span>{row.category}</span>
+          <span className="telemetry-values">
+            <strong>{row.count}</strong>
+            <span>{formatTelemetryElapsed(row.avgElapsedMs)} avg</span>
+            <span>{formatTelemetryPercent(row.beforeSubmitShare)} before submit</span>
+          </span>
+        </div>
+      ))}
+    </div>
+  );
+
+  const renderTopicRows = () => (
+    <div className="telemetry-row-list">
+      {summary.byTopic.map((row) => (
+        <div className="telemetry-row" key={row.topic}>
+          <span>{row.topic}</span>
+          <span className="telemetry-values">
+            <strong>{row.count}</strong>
+            <span>{formatTelemetryElapsed(row.avgElapsedMs)} avg</span>
+            <span>{formatTelemetryPercent(row.beforeSubmitShare)} before submit</span>
+          </span>
+        </div>
+      ))}
+    </div>
+  );
+
+  return (
+    <section className="dev-review-console">
+      <div className="section-heading">
+        <div>
+          <p className="eyebrow">Developer only</p>
+          <h2>Translation telemetry</h2>
+          <p>Local reveal-tap history. Not visible to learners; nothing here is sent anywhere automatically.</p>
+        </div>
+        <div className="dev-review-heading-actions">
+          <button type="button" onClick={exportTelemetry}>
+            <Download aria-hidden="true" />
+            <span>Export telemetry</span>
+          </button>
+        </div>
+      </div>
+
+      {events.length === 0 ? (
+        <section className="dev-review-empty">
+          <p>No reveal events recorded yet.</p>
+        </section>
+      ) : (
+        <>
+          <section className="dev-review-summary">
+            <div>
+              <span>Total reveals</span>
+              <strong>{summary.totalCount}</strong>
+            </div>
+            <p className="muted-copy">
+              {formatTelemetryDate(summary.earliest)} to {formatTelemetryDate(summary.latest)} · {summary.sessionCount} sessions
+            </p>
+          </section>
+
+          <section className="dashboard-panel telemetry-panel">
+            <h3>By block</h3>
+            {renderBlockRows()}
+          </section>
+
+          <section className="dashboard-panel telemetry-panel">
+            <h3>By category</h3>
+            {renderCategoryRows()}
+          </section>
+
+          <section className="dashboard-panel telemetry-panel">
+            <h3>By topic</h3>
+            {renderTopicRows()}
+          </section>
+        </>
+      )}
+    </section>
+  );
+}
 
 function DeveloperReviewConsole({
   records,
