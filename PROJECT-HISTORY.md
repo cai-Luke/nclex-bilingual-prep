@@ -49,6 +49,15 @@ The committed NGN item-type set is complete. Rationale/dyad scoring and an expli
 
 > Milestones dated **2026-06-23 and earlier** are archived in [`Archive/PROJECT-HISTORY-ARCHIVE.md`](Archive/PROJECT-HISTORY-ARCHIVE.md). Only the current arc (2026-06-24 onward) is kept here.
 
+### GPT Visual Content Prompt Split (Jul 2)
+
+Completed:
+- Split the archived combined U1/U2 visual content-generation spec into two standalone GPT-chat handoff prompts:
+  - `GPT-CAPNOGRAPHY-CONTENT-GENERATION-PROMPT.md`
+  - `GPT-VITALS-TREND-CONTENT-GENERATION-PROMPT.md`
+- Kept the archived source spec intact while updating the split prompts against the current schema/version, visual placement rules, raw-bank workflow, and live `capnography` / `vitals_trend` renderer contracts.
+- Made each prompt self-contained for external chat use, with duplicated shared safeguards for visual necessity, bilingual parity, audit-only metadata, raw staging, downloadable JSON output, and a turn-labeled smoke → follow-up batch workflow.
+
 ### GPT Rescue Prompt (Jul 2)
 
 Completed:

@@ -652,8 +652,37 @@ Post-fix verification: `validate-bank` clean (66 questions); `test-visuals` pass
 
 Minor non-blocking notes (no action needed without Luke's direction): `ekg_pacer_failure_to_capture_2026_07_01` has `topic: "Electrolyte Imbalances"` where the other two pacer items use `"Cardiovascular Disorders"`; same item's glossary ZH mentions "P波" (P-wave) which overgeneralizes to atrial pacing for a ventricular pacemaker item.
 
-## Next Planned Review
+### 2026-07-02 — GPT capnography + vitals-trend smoke batches (12 items → gpt-canonical.json)
 
-- Next GPT/Gemini batch: prioritize Physiological Adaptation singleton topics (ADHF, AKI, acute pancreatitis, Reduction of Risk Potential) using case_study format to close the 93-item case_study gap (71 vs 164 target).
+Status: `content-reviewed` and promoted. Two GPT-generated smoke batches — `gpt-capnography-2026-07-02-turn-01-smoke.json` (6 items, IDs `cap_gpt_2026_07_02_t01_001`–`006`) and `gpt-vitals-trend-2026-07-02-turn-01-smoke.json` (6 items, IDs `vit_gpt_2026_07_02_t01_001`–`006`) — routed to `gpt-canonical.json` via the `gpt-` model lane. Item mix per batch: 2 multiple_choice, 2 select_all, 2 matrix. Clinical content was strong on arrival (Gemini-checked source); the defects were schema-shape, not clinical.
+
+Schema-compliance fixes before promotion (deterministic, non-clinical):
+- **`type` → `itemType`** on all 12 questions — generator emitted the legacy key, which caused cascade "unknown key" failures on `options`/`correct`/`matrix` (the validator could not resolve the item-type variant). Renamed via load→mutate→re-serialize.
+- **`ngnSkill` title-case → snake_case** on the 6 capnography items (`"Recognize Cues"` → `recognize_cues`, etc.) via `npm run normalize-raw-bank -- --write`. The vitals batch omitted `ngnSkill` entirely (optional; left as-is).
+- Everything else was already schema-valid: full category names, per-question `meta` provenance keys (all within `allowedKeySets.questionMeta`), matrix `{rows,columns,selectionMode}` / `correct:[{rowId,columnIds}]` shape, and bilingual `en`/`zh` parity.
+
+Schema-version gate: both drafts declared `schemaVersion 1.7` while `gpt-canonical.json` was at `1.6`; `consolidate` hard-blocks a draft that out-declares its canonical. Content uses no 1.7-exclusive feature (1.7 = rhythm_strip pacer overlays; no rhythm_strip, no case_study, no rationale.visuals here), so both resolutions were safe. Per Luke's decision, bumped `gpt-canonical.json` `meta.schemaVersion 1.6 → 1.7` deliberately (declare-current; 1.7 is an additive superset) rather than downgrading the drafts. Bump done via serializer (single-line diff, 498 questions revalidated).
+
+Matrix keying verified against the standing inversion-defect note: all 4 matrix items (`cap_…_004` rebreathing, `cap_…_006` opioid-apnea, `vit_…_003` hypovolemia, `vit_…_005` septic-shock) have `columnIds` correctly mapped to their column labels and rationale — no inversion. Visual necessity confirmed load-bearing for every item (the capnogram morphology / vitals trajectory carries the decisive cue the stem withholds).
+
+Verification: `validate-bank` clean on both raw files; `promote` staged 6+6; `consolidate` merged 498 → 504 → 510; `npm run audit` **GATE PASSED** (only pre-existing advisory distributional warnings; gpt-canonical select_all pool n=93 → 97, no new finding class); `test-visuals` capnography + vitals-trend + session-sampler passed; `npm run census` regenerated (gpt-canonical 1.7/510, total visuals 160 → 172, 1677 top-level).
+
+### 2026-07-02 — GPT capnography + vitals-trend turns 02–03 (24 items → gpt-canonical.json)
+
+Status: `content-reviewed` and promoted. Four GPT batches following the turn-01 prompt-fix feedback: `gpt-capnography-2026-07-02-turn-02.json`, `-turn-03.json`, `gpt-vitals-trend-2026-07-02-turn-02.json`, `-turn-03.json` — 6 items each (IDs `{cap,vit}_gpt_2026_07_02_t0{2,3}_00[1-6]`), routed to `gpt-canonical.json`. Per-batch mix: 2 multiple_choice, 2 select_all, 2 matrix (8 MC / 8 SATA / 8 matrix total).
+
+**Turn-01 feedback fully landed — zero schema-shape defects this round.** All 24 items used the `itemType` discriminator (no stray `type`), snake_case `ngnSkill` enum values, advanced ID prefixes (`t02`/`t03`, no collision with the `t01` items already in canonical), and `schemaVersion 1.7` (now matching canonical, so no consolidate version-gate friction). `validate-bank` clean on arrival; `normalize-raw-bank` reported 0 structural changes across all four.
+
+Content review (all PASS):
+- **Answer keys and matrix keying correct on all items.** All 8 matrix items verified against column labels and rationale per the standing inversion-defect note — no inversions. Several rows deliberately key a *counterfactual/false* claim to the negative column (e.g. vit t02_006 r4 "MAP progressively falling below 65" when MAP is rising 63→88; cap t03_005 r4 "shark-fin present" on a `normal` capnogram) — keying is robust under either reading.
+- **MAP arithmetic internally consistent** across all vitals series (MAP ≈ DBP + (SBP−DBP)/3), including the load-bearing 65 mm Hg septic-shock threshold crossings (vit t03_005 MAP 59→79 on norepinephrine).
+- **Visual necessity confirmed load-bearing throughout.** Consistent, strong design: stems present a reassuring surface (small drainage, moderate lochia, dry groin dressing, temperature normalizing after antipyretic) while the trend/waveform carries the deterioration the stem withholds.
+- **High-quality clinically load-bearing distractors** correctly excluded: no 1 L bolus in cardiogenic shock with crackles (vit t02_005); don't delay antibiotics for cultures in urosepsis (vit t02_002); a dry groin dressing does not rule out retroperitoneal bleed (vit t03_006); mainstem-intubation vs. persistent bronchospasm keyed correctly (cap t03_006, the turn-01 safety trap).
+
+Minor non-blocking note (no action): cap t03_005 row r4 references shark-fin morphology that is not present in that item's `normal` capnogram — a counterfactual distractor row; keyed answer ("does not support routine monitoring") holds either way.
+
+Verification: `promote` staged 6×4; `consolidate` merged 510 → 516 → 522 → 528 → 534; `npm run audit` **GATE PASSED** (Tier-1 all pass; only pre-existing advisory SATA `correct_count_distribution` warnings; 4-opt MC χ²=0.272, n=453; 2422 IDs globally unique); `test-visuals` capnography + vitals-trend + session-sampler passed; `census` regenerated (gpt-canonical 1.7/534, total visuals 172 → 196, 1701 top-level). Consumed raw drafts deleted from `banks/banks-raw/`.
+
+### 2026-07-02 — GPT capnography + vitals-trend smoke batches (12 items → gpt-canonical.json) (ADHF, AKI, acute pancreatitis, Reduction of Risk Potential) using case_study format to close the 93-item case_study gap (71 vs 164 target).
 
 Matrix-item generation note: The 2026-06-13 promoted-content review found a recurring matrix-answer inversion defect across GPT, Gemini FHR, and IO batches. In affected items, the matrix columns themselves were clinically correct, but `correct[].columnIds` were reversed (`c1` keyed where `c2` should be, and vice versa). Future matrix generation/review sessions must explicitly verify each row’s keyed `columnIds` against the column labels and rationale before promotion. Do not rely on schema validation or selfCheck to catch this class of error, because the shape is valid even when the clinical key is inverted.

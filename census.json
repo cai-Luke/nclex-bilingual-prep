@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-07-02T00:08:05.913Z",
-  "gitSha": "c78cb4ecabd2e46eb07031daa12989e37ceb1f24",
+  "generatedAt": "2026-07-02T22:05:13.919Z",
+  "gitSha": "6d44e963a0339dcda9fb66593d3b33b1edf9e70f",
   "perFile": [
     {
       "file": "burn-canonical.json",
@@ -39,9 +39,9 @@
     },
     {
       "file": "gpt-canonical.json",
-      "schemaVersion": "1.6",
-      "metaCount": 498,
-      "questionsLength": 498,
+      "schemaVersion": "1.7",
+      "metaCount": 534,
+      "questionsLength": 534,
       "mismatch": false
     },
     {
@@ -95,10 +95,10 @@
     }
   ],
   "totals": {
-    "topLevel": 1665,
+    "topLevel": 1701,
     "caseStudyTopLevel": 143,
     "embeddedParts": 721,
-    "gradedTotal": 2386
+    "gradedTotal": 2422
   },
   "byItemType": {
     "bowtie": 110,
@@ -107,19 +107,19 @@
     "fill_in_blank": 157,
     "dropdown_cloze": 159,
     "ordered_response": 161,
-    "matrix": 177,
-    "select_all": 205,
-    "multiple_choice": 441
+    "matrix": 189,
+    "select_all": 217,
+    "multiple_choice": 453
   },
   "byCategory": {
     "Psychosocial Integrity": 158,
     "Health Promotion and Maintenance": 162,
     "Basic Care and Comfort": 165,
-    "Reduction of Risk Potential": 190,
-    "Safety and Infection Control": 205,
-    "Pharmacological and Parenteral Therapies": 253,
-    "Management of Care": 264,
-    "Physiological Adaptation": 268
+    "Reduction of Risk Potential": 200,
+    "Safety and Infection Control": 210,
+    "Pharmacological and Parenteral Therapies": 261,
+    "Management of Care": 265,
+    "Physiological Adaptation": 280
   },
   "withinCategory": {
     "Management of Care": {
@@ -166,6 +166,7 @@
         }
       ],
       "visualKinds": {
+        "capnography": 1,
         "device_screen": 1,
         "mar": 2
       }
@@ -214,10 +215,10 @@
         }
       ],
       "visualKinds": {
-        "capnography": 1,
+        "capnography": 4,
         "device_screen": 1,
         "medication_label": 1,
-        "vitals_trend": 1
+        "vitals_trend": 3
       }
     },
     "Health Promotion and Maintenance": {
@@ -403,13 +404,13 @@
         }
       ],
       "visualKinds": {
-        "capnography": 1,
+        "capnography": 3,
         "device_screen": 6,
         "lab_trend": 6,
         "mar": 9,
         "medication_label": 12,
         "rhythm_strip": 10,
-        "vitals_trend": 2
+        "vitals_trend": 8
       }
     },
     "Reduction of Risk Potential": {
@@ -457,14 +458,14 @@
       ],
       "visualKinds": {
         "burn_map": 5,
-        "capnography": 1,
+        "capnography": 6,
         "device_screen": 3,
         "fetal_monitoring": 6,
         "injection_site": 8,
         "io_record": 5,
         "lab_trend": 7,
         "rhythm_strip": 3,
-        "vitals_trend": 1
+        "vitals_trend": 6
       }
     },
     "Physiological Adaptation": {
@@ -512,18 +513,18 @@
       ],
       "visualKinds": {
         "burn_map": 5,
-        "capnography": 4,
+        "capnography": 11,
         "io_record": 2,
         "lab_trend": 7,
         "rhythm_strip": 37,
-        "vitals_trend": 7
+        "vitals_trend": 12
       }
     }
   },
   "byDifficulty": {
     "easy": 226,
     "hard": 583,
-    "medium": 856
+    "medium": 892
   },
   "bySchemaVersion": {
     "1.2": {
@@ -540,17 +541,17 @@
       ]
     },
     "1.6": {
-      "questions": 1535,
+      "questions": 1037,
       "files": [
         "claude-canonical.json",
         "gemini-canonical.json",
-        "gpt-canonical.json",
         "hard-cases-canonical.json"
       ]
     },
     "1.7": {
-      "questions": 53,
+      "questions": 587,
       "files": [
+        "gpt-canonical.json",
         "visual-canonical.json"
       ]
     }
@@ -561,7 +562,7 @@
     "claude-canonical.json": 97,
     "device-canonical.json": 8,
     "gemini-canonical.json": 874,
-    "gpt-canonical.json": 498,
+    "gpt-canonical.json": 534,
     "hard-cases-canonical.json": 66,
     "io-canonical.json": 8,
     "lab-canonical.json": 20,
@@ -571,10 +572,10 @@
     "vitals-canonical.json": 10
   },
   "visuals": {
-    "total": 160,
+    "total": 196,
     "byKind": {
       "burn_map": 11,
-      "capnography": 7,
+      "capnography": 25,
       "device_screen": 12,
       "fetal_monitoring": 6,
       "injection_site": 8,
@@ -583,7 +584,7 @@
       "mar": 11,
       "medication_label": 13,
       "rhythm_strip": 50,
-      "vitals_trend": 11
+      "vitals_trend": 29
     },
     "rhythmSubtypes": {
       "afib": 6,
@@ -622,7 +623,25 @@
         "cap_04",
         "cap_05",
         "cap_08",
-        "cap_10"
+        "cap_10",
+        "cap_gpt_2026_07_02_t01_001",
+        "cap_gpt_2026_07_02_t01_002",
+        "cap_gpt_2026_07_02_t01_003",
+        "cap_gpt_2026_07_02_t01_004",
+        "cap_gpt_2026_07_02_t01_005",
+        "cap_gpt_2026_07_02_t01_006",
+        "cap_gpt_2026_07_02_t02_001",
+        "cap_gpt_2026_07_02_t02_002",
+        "cap_gpt_2026_07_02_t02_003",
+        "cap_gpt_2026_07_02_t02_004",
+        "cap_gpt_2026_07_02_t02_005",
+        "cap_gpt_2026_07_02_t02_006",
+        "cap_gpt_2026_07_02_t03_001",
+        "cap_gpt_2026_07_02_t03_002",
+        "cap_gpt_2026_07_02_t03_003",
+        "cap_gpt_2026_07_02_t03_004",
+        "cap_gpt_2026_07_02_t03_005",
+        "cap_gpt_2026_07_02_t03_006"
       ],
       "device_screen": [
         "dev_enteral_volume_shift_01",
@@ -782,7 +801,25 @@
         "vit_07",
         "vit_08",
         "vit_09",
-        "vit_10"
+        "vit_10",
+        "vit_gpt_2026_07_02_t01_001",
+        "vit_gpt_2026_07_02_t01_002",
+        "vit_gpt_2026_07_02_t01_003",
+        "vit_gpt_2026_07_02_t01_004",
+        "vit_gpt_2026_07_02_t01_005",
+        "vit_gpt_2026_07_02_t01_006",
+        "vit_gpt_2026_07_02_t02_001",
+        "vit_gpt_2026_07_02_t02_002",
+        "vit_gpt_2026_07_02_t02_003",
+        "vit_gpt_2026_07_02_t02_004",
+        "vit_gpt_2026_07_02_t02_005",
+        "vit_gpt_2026_07_02_t02_006",
+        "vit_gpt_2026_07_02_t03_001",
+        "vit_gpt_2026_07_02_t03_002",
+        "vit_gpt_2026_07_02_t03_003",
+        "vit_gpt_2026_07_02_t03_004",
+        "vit_gpt_2026_07_02_t03_005",
+        "vit_gpt_2026_07_02_t03_006"
       ]
     }
   },
@@ -1653,38 +1690,38 @@
     "categoryTargets": [
       [
         "Management of Care",
-        299.7
+        306.18
       ],
       [
         "Safety and Infection Control",
-        216.45000000000002
+        221.13
       ],
       [
         "Health Promotion and Maintenance",
-        149.85
+        153.09
       ],
       [
         "Psychosocial Integrity",
-        149.85
+        153.09
       ],
       [
         "Basic Care and Comfort",
-        149.85
+        153.09
       ],
       [
         "Pharmacological and Parenteral Therapies",
-        266.4
+        272.16
       ],
       [
         "Reduction of Risk Potential",
-        199.79999999999998
+        204.12
       ],
       [
         "Physiological Adaptation",
-        233.10000000000002
+        238.14000000000001
       ]
     ],
-    "itemTypeAvg": 185,
+    "itemTypeAvg": 189,
     "underCategories": [],
     "overCategories": [],
     "underItemTypes": [
@@ -1711,10 +1748,6 @@
       [
         "ordered_response",
         161
-      ],
-      [
-        "matrix",
-        177
       ]
     ]
   },
@@ -1737,13 +1770,13 @@
     "Electroconvulsive Therapy (ECT) — add: select_all, fill_in_blank, matrix, dropdown_cloze, highlight, bowtie",
     "intrapartum fetal monitoring — add: ordered_response, fill_in_blank, dropdown_cloze, highlight",
     "Reproductive & Endocrine Health — add: ordered_response, fill_in_blank, bowtie",
-    "bowtie (110 vs target 185.0)",
-    "highlight (112 vs target 185.0)",
-    "case_study (143 vs target 185.0)",
-    "fill_in_blank (157 vs target 185.0)",
-    "dropdown_cloze (159 vs target 185.0)",
-    "ordered_response (161 vs target 185.0)",
-    "matrix (177 vs target 185.0)",
+    "bowtie (110 vs target 189.0)",
+    "highlight (112 vs target 189.0)",
+    "case_study (143 vs target 189.0)",
+    "fill_in_blank (157 vs target 189.0)",
+    "dropdown_cloze (159 vs target 189.0)",
+    "ordered_response (161 vs target 189.0)",
+    "accidental tracheostomy dislodgement",
     "Acute decompensated heart failure",
     "Acute Decompensated Heart Failure (ADHF)",
     "Acute gallstone pancreatitis with cholangitis",
