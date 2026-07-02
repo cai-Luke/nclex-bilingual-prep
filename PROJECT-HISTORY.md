@@ -14,7 +14,7 @@ The app is a static offline Vite + React + TypeScript NCLEX-RN practice tool. It
 
 Core learning features are implemented: all schema item types render and grade, case studies are supported, sessions are resumable, custom sessions can be built from filters, the dashboard summarizes performance, flags feed review pools, glossary flashcards have their own SRS progress, and adaptive exam-condition practice is available without any pass/fail readiness claim.
 
-Current canonical banks (see [BANK-CENSUS.md](BANK-CENSUS.md); 1,665 top-level, 721 embedded parts, 161 visuals as of 2026-07-01):
+Current canonical banks (see [BANK-CENSUS.md](BANK-CENSUS.md); 1,665 top-level, 721 embedded parts, 160 visuals as of 2026-07-01):
 
 - `banks/burn-canonical.json` (8 schema v1.2 burn-map visual items)
 - `banks/capnography-canonical.json` (7 schema v1.2 capnography visual items; dedicated home for capnography kind)
@@ -61,6 +61,21 @@ Verification:
 - `npm run test:translation-telemetry` passed.
 - `npx tsc -b --pretty false` passed.
 - `npm run build` passed with the existing Vite chunk-size warning.
+
+### Pacemaker / Bucket 1B Closeout — Content Review Flags Resolved (Jul 1)
+
+Completed:
+- Pacemaker arc end-to-end closed: Spec E (Phases 0–3 + Bucket 1B) → Gemini flag-only review → Claude Code final review + meta-assessment → two Principle 6 flags resolved by Luke.
+- **Stroke case `baseline_assessment` exhibit (`hard-cases-canonical.json`):** rewrote `q1` matrix row `r5` from "Irregularly irregular heart rhythm with atrial fibrillation history" to "Cardiac rhythm pattern on the baseline telemetry strip" — makes the AFib strip load-bearing; correct mapping (`r5 → c1`) and rationale unchanged.
+- **ADHF case `ed_assessment` exhibit (`hard-cases-canonical.json`):** removed the decorative `rhythm_strip` visual added by Bucket 1B; restored verbatim original content (`Heart Rate: 128 beats/minute, irregularly irregular` / `心率：128次/分钟，不规则且不规律`) recovered from git history at commit `b32e14f`.
+- Census: `rhythm_strip` visuals 161 → 160 (one decorative strip removed).
+
+Verification:
+- `npm run validate-bank -- banks/hard-cases-canonical.json` passed (66 questions).
+- `npm run test-visuals` passed (all 11 kind renderers + conformance + parity + session sampler).
+- `npm run audit` GATE PASSED (existing advisory non-MCQ distribution warnings unchanged).
+- `npm run census` → 1,665 top-level / 721 embedded / 160 visuals.
+- `npm run build` green.
 
 ### Rhythm Strip Bucket 1B Conversions (Jul 1)
 

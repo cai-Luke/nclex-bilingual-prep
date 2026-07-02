@@ -2,8 +2,8 @@
 
 # NCLEX Bank Census
 
-Generated: 2026-07-01T17:18:33.748Z
-Git SHA: 7567c79123c18c49386217df9a70870729ba8d2e
+Generated: 2026-07-02T00:08:05.913Z
+Git SHA: c78cb4ecabd2e46eb07031daa12989e37ceb1f24
 
 ## Per-File Summary
 
@@ -81,7 +81,7 @@ Visual kinds: burn_map (5), capnography (1), device_screen (3), fetal_monitoring
 ### Physiological Adaptation
 
 Top topics: Cardiovascular Disorders (74), Endocrine & Neurological Disorders (35), Renal & Gastrointestinal Disorders (34), Electrolyte Imbalances (26), Burn Management (15), Diabetic Ketoacidosis (DKA) (13), Respiratory & Infectious Disorders (13), Sepsis & Septic Shock (8), Oncology & Immunotherapy Complications (6), ABG & Acid-Base Interpretation (2)
-Visual kinds: burn_map (5), capnography (4), io_record (2), lab_trend (7), rhythm_strip (38), vitals_trend (7)
+Visual kinds: burn_map (5), capnography (4), io_record (2), lab_trend (7), rhythm_strip (37), vitals_trend (7)
 
 ## By Item Type
 
@@ -125,7 +125,7 @@ Visual kinds: burn_map (5), capnography (4), io_record (2), lab_trend (7), rhyth
 
 ## Visuals
 
-Total visuals: 161
+Total visuals: 160
 
 ### By Kind
 
@@ -138,12 +138,12 @@ Total visuals: 161
 - lab_trend: 20 (gpt_u3_labtrend_2026_06_09_b_cloze_inr_amiodarone_09, gpt_u3_labtrend_2026_06_09_b_cloze_sodium_overcorrection_08, gpt_u3_labtrend_2026_06_09_b_fib_creatinine_increase_10, gpt_u3_labtrend_2026_06_09_b_matrix_dka_potassium_glucose_04, gpt_u3_labtrend_2026_06_09_b_matrix_neutropenia_wbc_05, …+15)
 - mar: 11 (gpt_fresh_2026_06_22_vis_01, gpt_fresh_2026_06_22_vis_05, gpt_fresh_2026_06_22_vis_06, mar_acetaminophen_duplicate_products_04, mar_av_nodal_blockers_1600_01, …+6)
 - medication_label: 13 (gpt_fresh_2026_06_22_vis_02, gpt_fresh_2026_06_22_vis_03, gpt_fresh_2026_06_22_vis_07, gpt_visual_smoke_2026_06_12_fib_medlabel_heparin_rate_07, gpt_visual_smoke_2026_06_12_mc_medlabel_tablet_quantity_08, …+8)
-- rhythm_strip: 51 (cs_adhf_pulm_edema_01, ekg_b1_matrix_09, ekg_b1_mc_01, ekg_b1_mc_02, ekg_b1_mc_04, …+46)
+- rhythm_strip: 50 (ekg_b1_matrix_09, ekg_b1_mc_01, ekg_b1_mc_02, ekg_b1_mc_04, ekg_b1_mc_05, …+45)
 - vitals_trend: 11 (cs_thyroid_storm_main, vit_01, vit_02, vit_03, vit_04, …+6)
 
 ### Rhythm Subtypes
 
-- afib: 7
+- afib: 6
 - aflutter: 2
 - asystole: 4
 - avb_1: 3

@@ -626,6 +626,27 @@ Result: **0 contradictions; all 266 rows DISMISS; `needsHumanReview` 0.** Every 
 
 Artifacts: merged findings `ADVERSARIAL-AUDIT-FINDINGS-2026-06-25.md`; merged manifest `audit/early-bank-semantic/coherence/ADVERSARIAL-AUDIT-2026-06-25.manifest.jsonl`; lane files `lanes/{claude,codex,gemini}.phaseB.*`. Architect quality finding on the Gemini lane: `Archive/root-cleanup-2026-06-26/CLAUDE-ARCHITECT-GEMINI-AUDIT-QUALITY-HANDOFF-2026-06-26.md` (decision recorded in `DECISIONS.md`).
 
+### 2026-07-01 — Pacemaker overlay + Bucket 1B content review (7 items across 3 canonical banks)
+
+Status: mixed — 5 items `content-reviewed`, 2 items `needs-human-clinical-review`.
+
+This pass covered items whose learner-facing content was authored or rewritten in the rhythm-strip pacemaker overlay work (Spec E, Phases 0–3 + Bucket 1B addendum). Independent review by Claude Code + Gemini flag-only lane (with meta-assessment); report at `GEMINI-PACEMAKER-BUCKET1B-META-ASSESSMENT-2026-07-01.md`.
+
+**Content-reviewed (both reviewers PASS; visual load-bearing confirmed):**
+- `ekg_pacer_failure_to_capture_2026_07_01` (`visual-canonical.json`) — alternating captured/uncaptured spikes; FTC correctly rendered and keyed
+- `ekg_pacer_failure_to_sense_2026_07_01` (`visual-canonical.json`) — spike at ~1.02s during T-wave repolarization; undersensing + R-on-T risk correctly taught
+- `ekg_pacer_failure_to_pace_2026_07_01` (`visual-canonical.json`) — 3-second gap at 60/min set rate; FTP correctly rendered and keyed
+- `opus26_case_refeeding_syndrome_01_q3` (`claude-canonical.json`) — PVC rhythm cue load-bearing (not named in stem; option A references "new PVCs")
+- `opus26_case_refeeding_syndrome_01_q5` (`claude-canonical.json`) — sinus strip corroborates "electrolytes improved" case trajectory; borderline Principle 6 but accepted in case-study context
+
+**Needs-human-clinical-review → RESOLVED (both dispositions approved by Luke per `CLAUDE-CODE-HANDOFF-PACEMAKER-BUCKET1B-CLOSEOUT-2026-07-01.md`):**
+- `cs_adhf_pulm_edema_01` exhibit `ed_assessment` (`hard-cases-canonical.json`) — AFib strip removed (Option B: revert); content restored verbatim from git at commit `b32e14f` (`Heart Rate: 128 beats/minute, irregularly irregular` / `心率：128次/分钟，不规则且不规律`). Visual count: 161 → 160. Status: **fixed-and-validated**.
+- `gpt_stroke_2026_06_16_case_acute_ischemic_stroke_warfarin_01` exhibit `baseline_assessment` (`hard-cases-canonical.json`) — Matrix `q1` row `r5` rewritten from "Irregularly irregular heart rhythm with atrial fibrillation history" to "Cardiac rhythm pattern on the baseline telemetry strip" (ZH: "基线遥测心律条上显示的心律模式"); correct mapping `r5 → c1` and rationale unchanged. AFib strip is now load-bearing for the matrix classify task. Status: **fixed-and-validated**.
+
+Post-fix verification: `validate-bank` clean (66 questions); `test-visuals` passed; `audit` GATE PASSED; census 160 visuals; build green.
+
+Minor non-blocking notes (no action needed without Luke's direction): `ekg_pacer_failure_to_capture_2026_07_01` has `topic: "Electrolyte Imbalances"` where the other two pacer items use `"Cardiovascular Disorders"`; same item's glossary ZH mentions "P波" (P-wave) which overgeneralizes to atrial pacing for a ventricular pacemaker item.
+
 ## Next Planned Review
 
 - Next GPT/Gemini batch: prioritize Physiological Adaptation singleton topics (ADHF, AKI, acute pancreatitis, Reduction of Risk Potential) using case_study format to close the 93-item case_study gap (71 vs 164 target).
