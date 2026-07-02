@@ -48,6 +48,7 @@ import {
   getAnswerCompleteness,
   getCorrectAnswer,
   getInitialAnswer,
+  gradeStandaloneQuestion,
   gradeQuestion,
   scoreQuestion,
 } from "./grading";
@@ -90,7 +91,7 @@ import {
 import { buildTargetedReviewPool, buildWeightedSession, seedFromString } from "./sessionSampler";
 import { buildSessionState, type SessionState } from "./sessionState";
 import { formatItemType } from "./itemTypes";
-import { buildReviewPromptText } from "./reviewPrompt";
+import { buildQuestionRescuePromptText } from "./reviewPrompt";
 import { summarizeTranslationRevealEvents } from "./translationTelemetry";
 import { VisualStimulus } from "./visuals";
 import { mulberry32 } from "./visuals/primitives/prng";
@@ -99,6 +100,7 @@ import type {
   AdaptiveSessionSnapshot,
   AnswerEvent,
   Category,
+  CaseStudyQuestion,
   CaseStudyExhibit,
   Difficulty,
   FlashcardProgress,
@@ -120,6 +122,7 @@ import type {
   SessionOrder,
   SessionStatusFilter,
   Settings,
+  StandaloneQuestion,
   StudyMode,
   StoredSessionSnapshot,
   TextSizeMode,
@@ -156,6 +159,42 @@ type RevealTrackingContextValue = {
 };
 
 const RevealTrackingContext = createContext<RevealTrackingContextValue | null>(null);
+
+type GptRescuePrompt = {
+  label: string;
+  text: string;
+  prominent?: boolean;
+};
+
+const standaloneRescueLabel = "Ask GPT about this question / 让 GPT 讲讲这道题";
+const casePartRescueLabel = "Ask GPT about this case part / 让 GPT 讲讲这个案例部分";
+
+const makeRescuePrompt = (
+  question: StandaloneQuestion,
+  answer: AnswerState,
+  prominent: boolean,
+  parentCase?: CaseStudyQuestion,
+): GptRescuePrompt => ({
+  label: parentCase ? casePartRescueLabel : standaloneRescueLabel,
+  prominent,
+  text: buildQuestionRescuePromptText({ question, answer, parentCase }),
+});
+
+const makeCasePartRescuePrompts = (
+  parentCase: CaseStudyQuestion,
+  answer: AnswerState,
+  prominent: boolean,
+): Record<string, GptRescuePrompt> => {
+  const caseAnswers = answer.caseStudy ?? {};
+  return Object.fromEntries(
+    parentCase.caseStudy.questions.flatMap((part) => {
+      const partAnswer = caseAnswers[part.id] ?? getInitialAnswer(part);
+      return gradeStandaloneQuestion(part, partAnswer)
+        ? []
+        : [[part.id, makeRescuePrompt(part, partAnswer, prominent, parentCase)]];
+    }),
+  );
+};
 
 const recordRevealFromContext = (ctx: RevealTrackingContextValue | null, block: RevealBlock) => {
   if (!ctx) return;
@@ -2777,6 +2816,14 @@ function SessionView({
   const answer = session.answers[question.id] ?? getInitialAnswer(question);
   const submitted = Object.prototype.hasOwnProperty.call(session.results, question.id);
   const result = session.results[question.id];
+  const rescuePrompt =
+    submitted && result === false && question.itemType !== "case_study"
+      ? makeRescuePrompt(question, answer, true)
+      : undefined;
+  const casePartRescuePrompts =
+    submitted && question.itemType === "case_study"
+      ? makeCasePartRescuePrompts(question, answer, true)
+      : undefined;
   const totalTarget = session.adaptive?.targetCount ?? session.questions.length;
   const isLast =
     session.mode === "adaptive"
@@ -2827,6 +2874,8 @@ function SessionView({
         onToggleLanguageMiss={() => onToggleLanguageMiss(question.id)}
         sessionId={session.mode === "study" ? session.id : undefined}
         onTranslationReveal={session.mode === "study" ? onTranslationReveal : undefined}
+        rescuePrompt={rescuePrompt}
+        casePartRescuePrompts={casePartRescuePrompts}
       />
 
       <div className="session-actions">
@@ -2887,6 +2936,8 @@ function QuestionCard({
   onControlledCasePartChange,
   showAllCaseStages = false,
   showQuestionActions = true,
+  rescuePrompt,
+  casePartRescuePrompts,
 }: {
   question: Question;
   answer: AnswerState;
@@ -2912,6 +2963,8 @@ function QuestionCard({
   onControlledCasePartChange?: (partId: string) => void;
   showAllCaseStages?: boolean;
   showQuestionActions?: boolean;
+  rescuePrompt?: GptRescuePrompt;
+  casePartRescuePrompts?: Record<string, GptRescuePrompt>;
 }) {
   const cardRef = useRef<HTMLElement | null>(null);
   const [activeTerm, setActiveTerm] = useState<ActiveTermPopover | null>(null);
@@ -3031,6 +3084,7 @@ function QuestionCard({
         controlledCasePartId={controlledCasePartId}
         onControlledCasePartChange={onControlledCasePartChange}
         showAllCaseStages={showAllCaseStages}
+        casePartRescuePrompts={casePartRescuePrompts}
       />
 
       {!submitted && !reviewMode && question.itemType !== "case_study" && (
@@ -3072,6 +3126,8 @@ function QuestionCard({
           </p>
         </div>
       )}
+
+      {submitted && rescuePrompt && <GptRescueButton prompt={rescuePrompt} />}
 
       {submitted && <RationalePanel question={question} voiceEnabled={voiceEnabled} languageMode={languageMode} />}
     </>
@@ -3138,6 +3194,7 @@ function QuestionAnswerControl({
   controlledCasePartId,
   onControlledCasePartChange,
   showAllCaseStages = false,
+  casePartRescuePrompts,
 }: {
   question: Question;
   answer: AnswerState;
@@ -3154,6 +3211,7 @@ function QuestionAnswerControl({
   controlledCasePartId?: string;
   onControlledCasePartChange?: (partId: string) => void;
   showAllCaseStages?: boolean;
+  casePartRescuePrompts?: Record<string, GptRescuePrompt>;
 }) {
   if (
     question.itemType === "multiple_choice" ||
@@ -3236,6 +3294,7 @@ function QuestionAnswerControl({
         controlledActivePartId={controlledCasePartId}
         onControlledActivePartChange={onControlledCasePartChange}
         showAllStages={showAllCaseStages}
+        casePartRescuePrompts={casePartRescuePrompts}
       />
     );
   }
@@ -3852,6 +3911,7 @@ function CaseStudyControl({
   controlledActivePartId,
   onControlledActivePartChange,
   showAllStages = false,
+  casePartRescuePrompts,
 }: {
   question: Extract<Question, { itemType: "case_study" }>;
   answer: AnswerState;
@@ -3868,6 +3928,7 @@ function CaseStudyControl({
   controlledActivePartId?: string;
   onControlledActivePartChange?: (partId: string) => void;
   showAllStages?: boolean;
+  casePartRescuePrompts?: Record<string, GptRescuePrompt>;
 }) {
   const caseAnswers = answer.caseStudy ?? {};
   const caseQuestions = question.caseStudy.questions;
@@ -3942,6 +4003,7 @@ function CaseStudyControl({
         stagesOverride={controlledPartIsValid || showAllStages ? visibleStages : undefined}
         onTerm={onTerm}
         onCaseAnswer={updateCaseAnswer}
+        casePartRescuePrompts={casePartRescuePrompts}
       />
     );
   }
@@ -3991,6 +4053,7 @@ function CaseStudyControl({
             hidden={caseQuestion.id !== activeQuestion?.id}
             onTerm={onTerm}
             onAnswer={(nextAnswer) => updateCaseAnswer(caseQuestion.id, nextAnswer)}
+            rescuePrompt={casePartRescuePrompts?.[caseQuestion.id]}
           />
         ))}
       </div>
@@ -4008,6 +4071,7 @@ function CaseStudyStackedLayout({
   stagesOverride,
   onTerm,
   onCaseAnswer,
+  casePartRescuePrompts,
 }: {
   question: Extract<Question, { itemType: "case_study" }>;
   caseAnswers: Record<string, AnswerState>;
@@ -4018,6 +4082,7 @@ function CaseStudyStackedLayout({
   stagesOverride?: Extract<Question, { itemType: "case_study" }>["caseStudy"]["stages"];
   onTerm: TermSelectHandler;
   onCaseAnswer: (questionId: string, answer: AnswerState) => void;
+  casePartRescuePrompts?: Record<string, GptRescuePrompt>;
 }) {
   return (
     <div className="case-study-panel">
@@ -4041,6 +4106,7 @@ function CaseStudyStackedLayout({
             focused={focusedPartId === caseQuestion.id}
             onTerm={onTerm}
             onAnswer={(nextAnswer) => onCaseAnswer(caseQuestion.id, nextAnswer)}
+            rescuePrompt={casePartRescuePrompts?.[caseQuestion.id]}
           />
         ))}
       </div>
@@ -4211,6 +4277,7 @@ function CaseActivePart({
   hidden = false,
   onTerm,
   onAnswer,
+  rescuePrompt,
 }: {
   caseQuestion: Extract<Question, { itemType: "case_study" }>["caseStudy"]["questions"][number];
   index: number;
@@ -4223,6 +4290,7 @@ function CaseActivePart({
   hidden?: boolean;
   onTerm: TermSelectHandler;
   onAnswer: (answer: AnswerState) => void;
+  rescuePrompt?: GptRescuePrompt;
 }) {
   const parentRevealTracking = useContext(RevealTrackingContext);
   const caseResult = submitted ? gradeQuestion(caseQuestion, answer) : undefined;
@@ -4283,6 +4351,7 @@ function CaseActivePart({
         onTerm={onTerm}
         onAnswer={onAnswer}
       />
+      {submitted && rescuePrompt && <GptRescueButton prompt={rescuePrompt} />}
       {submitted && <RationalePanel question={caseQuestion} title="Part rationale" voiceEnabled={voiceEnabled} languageMode={languageMode} />}
     </section>
   );
@@ -4454,6 +4523,39 @@ function ReadAllButton({ question, enabled }: { question: Question; enabled: boo
   );
 }
 
+function GptRescueButton({ prompt }: { prompt: GptRescuePrompt }) {
+  const [copyState, setCopyState] = useState<"idle" | "copied" | "manual">("idle");
+  const handleCopy = async () => {
+    try {
+      if (!navigator.clipboard) throw new Error("Clipboard unavailable");
+      await navigator.clipboard.writeText(prompt.text);
+      setCopyState("copied");
+      setTimeout(() => setCopyState("idle"), 2400);
+    } catch {
+      setCopyState("manual");
+    }
+  };
+
+  return (
+    <div className={prompt.prominent ? "gpt-rescue-action prominent" : "gpt-rescue-action"}>
+      <button
+        className={prompt.prominent ? "primary-action gpt-rescue-button" : "secondary-action gpt-rescue-button"}
+        type="button"
+        onClick={handleCopy}
+      >
+        {copyState === "copied" ? <Check aria-hidden="true" /> : <Copy aria-hidden="true" />}
+        <span>{copyState === "copied" ? "已复制，粘贴到 GPT。/ Copied. Paste into GPT." : prompt.label}</span>
+      </button>
+      {copyState === "manual" && (
+        <div className="review-prompt-fallback">
+          <p className="muted-copy">Clipboard access isn't available here — select the text below and copy manually.</p>
+          <textarea readOnly value={prompt.text} onFocus={(event) => event.currentTarget.select()} />
+        </div>
+      )}
+    </div>
+  );
+}
+
 function RationalePanel({
   question,
   title = "Rationale",
@@ -4550,7 +4652,6 @@ function SummaryView({
   const [expandedIds, setExpandedIds] = useState<Set<string>>(() => new Set());
   const [reviewScope, setReviewScope] = useState<"missed" | "answered" | "flagged">("missed");
   const [languageMode, setLanguageMode] = useState<LanguageMode>(defaultLanguageMode);
-  const [copyState, setCopyState] = useState<"idle" | "copied" | "manual">("idle");
   const answered = Object.keys(session.results).length;
   const correct = Object.values(session.results).filter(Boolean).length;
   const incorrect = answered - correct;
@@ -4573,7 +4674,6 @@ function SummaryView({
     Object.prototype.hasOwnProperty.call(session.results, question.id),
   );
   const missed = session.questions.filter((question) => session.results[question.id] === false);
-  const reviewPromptText = useMemo(() => buildReviewPromptText({ session }), [session]);
   const byCategory = answeredQuestions.reduce<Record<string, { total: number; correct: number }>>((acc, question) => {
     const current = acc[question.category] ?? { total: 0, correct: 0 };
     current.total += 1;
@@ -4603,15 +4703,6 @@ function SummaryView({
   const flaggedQuestions = answeredQuestions.filter((question) => flags[question.id]?.flagged);
   const reviewQuestions =
     reviewScope === "missed" ? missed : reviewScope === "answered" ? answeredQuestions : flaggedQuestions;
-  const handleCopyPrompt = async () => {
-    try {
-      await navigator.clipboard.writeText(reviewPromptText);
-      setCopyState("copied");
-      setTimeout(() => setCopyState("idle"), 2000);
-    } catch {
-      setCopyState("manual");
-    }
-  };
   const toggleExpanded = (id: string) => {
     setExpandedIds((prev) => {
       const next = new Set(prev);
@@ -4648,21 +4739,11 @@ function SummaryView({
             <RotateCcw aria-hidden="true" />
             <span>Practice related</span>
           </button>
-          <button type="button" onClick={handleCopyPrompt} disabled={missed.length === 0}>
-            {copyState === "copied" ? <Check aria-hidden="true" /> : <Copy aria-hidden="true" />}
-            <span>{copyState === "copied" ? "Copied!" : "Copy review prompt"}</span>
-          </button>
           <button type="button" onClick={() => onReviewTerms(sessionMissedTermIds)} disabled={sessionMissedTermIds.length === 0}>
             <Brain aria-hidden="true" />
             <span>Review missed terms</span>
           </button>
         </div>
-        {copyState === "manual" && (
-          <div className="review-prompt-fallback">
-            <p className="muted-copy">Clipboard access isn't available here — select the text below and copy manually.</p>
-            <textarea readOnly value={reviewPromptText} onFocus={(event) => event.currentTarget.select()} />
-          </div>
-        )}
         {sessionMissedTermIds.length > 0 && (
           <p className="muted-copy">Vocab Rescue · {sessionMissedTermIds.length} terms from questions you missed.</p>
         )}
@@ -4770,6 +4851,15 @@ function SummaryView({
           {reviewQuestions.map((question) => {
             const expanded = expandedIds.has(question.id);
             const result = session.results[question.id];
+            const answer = session.answers[question.id] ?? getInitialAnswer(question);
+            const rescuePrompt =
+              result === false && question.itemType !== "case_study"
+                ? makeRescuePrompt(question, answer, false)
+                : undefined;
+            const casePartRescuePrompts =
+              result === false && question.itemType === "case_study"
+                ? makeCasePartRescuePrompts(question, answer, false)
+                : undefined;
             return (
               <article className="summary-review-item" key={question.id}>
                 <button
@@ -4799,7 +4889,7 @@ function SummaryView({
                   >
                     <QuestionCard
                       question={question}
-                      answer={session.answers[question.id] ?? getInitialAnswer(question)}
+                      answer={answer}
                       submitted
                       result={result}
                       languageMode={languageMode}
@@ -4813,6 +4903,8 @@ function SummaryView({
                       onToggleLanguageMiss={() => onToggleLanguageMiss(question.id)}
                       caseStudyLayout="stacked"
                       standaloneVisualLayout="stacked"
+                      rescuePrompt={rescuePrompt}
+                      casePartRescuePrompts={casePartRescuePrompts}
                     />
                   </div>
                 )}

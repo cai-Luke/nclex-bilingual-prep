@@ -49,6 +49,20 @@ The committed NGN item-type set is complete. Rationale/dyad scoring and an expli
 
 > Milestones dated **2026-06-23 and earlier** are archived in [`Archive/PROJECT-HISTORY-ARCHIVE.md`](Archive/PROJECT-HISTORY-ARCHIVE.md). Only the current arc (2026-06-24 onward) is kept here.
 
+### GPT Rescue Prompt (Jul 2)
+
+Completed:
+- Replaced the Summary batch GPT review export with single-question / single-case-part rescue prompts for missed or partially correct items.
+- Added a prominent learner-facing rescue action on live post-submit missed-item surfaces, with the same shared clipboard/fallback component used quietly inside expanded Summary missed-item review blocks.
+- Kept the rescue affordance explicitly injected from learner Study/Summary call sites, so Preview Lab and Developer Review do not inherit GPT buttons from shared rationale rendering.
+- Updated prompt generation to include learner answer, correct answer, EN/ZH stem and rationale, glossary terms, case title/summary, global exhibits, visible-stage exhibits, and structured visual JSON with recursive `meta`/`selfCheck` stripping.
+- Removed the top-level Summary "Copy review prompt" action; Summary now offers GPT rescue only per expanded missed item.
+
+Verification:
+- `npm run test:review-prompt` passed.
+- `npx tsc -b --pretty false` passed.
+- `npm run build` passed with the existing Vite chunk-size warning.
+
 ### Rhythm Strip Placement Widening (Jul 1)
 
 Completed:
@@ -668,6 +682,7 @@ Representative fetal-monitoring fixtures were also inspected through the in-app 
 - Import accepts wrapped bank objects or bare arrays and skips invalid individual questions.
 - The production build rewrites module script output to a classic deferred script for better `file://` compatibility.
 - The app no longer shows a persistent AI warning footer; question provenance and caveats are handled outside the study UI.
+- External-GPT handoff is per-question at the rationale moment, plus per-expanded missed item at Summary; it is never a session-batch export.
 
 ## Candidate next work
 

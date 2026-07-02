@@ -1,12 +1,9 @@
-import {
-  type AnswerState,
-  getInitialAnswer,
-  gradeStandaloneQuestion,
-} from "./grading";
+import type { AnswerState } from "./grading";
+import { getVisibleCaseStages } from "./examLayout";
 import { formatItemType } from "./itemTypes";
-import type { SessionState } from "./sessionState";
 import type {
   BowtieQuestion,
+  CaseStudyExhibit,
   CaseStudyQuestion,
   DropdownClozeQuestion,
   FillInBlankQuestion,
@@ -15,25 +12,21 @@ import type {
   Option,
   OptionQuestion,
   OrderedResponseQuestion,
+  QuestionVisual,
   RationaleChoice,
   StandaloneQuestion,
-  TextPair,
 } from "./types";
 
-type ReviewLeaf = {
+type PromptLeaf = {
   standalone: StandaloneQuestion;
   answer: AnswerState;
-  parentCaseId?: string;
-  parentCaseTitle?: TextPair;
-  parentCaseSummary?: TextPair;
-  visualKinds: string[];
 };
 
-const PREAMBLE = `你正在帮助一位准备 NCLEX-RN 的中文母语学习者复习她刚做错的题目。
+const PREAMBLE = `你正在帮助一位准备 NCLEX-RN 的中文母语学习者复习她刚做错的一道题或一个案例部分。
 
 请主要用简体中文解释，但重要的医学、护理、药物、症状、诊断和考试关键词请保留英文原词。目标不是翻译整题，而是帮助她理解临床逻辑，并能开口读出关键英文术语。
 
-请按每道错题这样讲解：
+请按这道题这样讲解：
 
 1. 先用中文说明这题在临床上对应什么情况，也就是为什么护士需要关心这个问题。
 2. 用中文解释为什么正确答案对；必要时简短解释为什么其他选择不优先或不安全。
@@ -44,9 +37,7 @@ const PREAMBLE = `你正在帮助一位准备 NCLEX-RN 的中文母语学习者�
    - 一个很短的英文例句，帮助她知道临床对话中怎么说
 4. 最后用中文问 1 个检查理解的小问题。
 
-语气要鼓励、耐心、具体。不要评价她是否会通过考试，不要使用羞辱、吓人或 pass/fail readiness 语言。`;
-
-const uniqueSorted = (values: string[]) => Array.from(new Set(values)).sort((left, right) => left.localeCompare(right));
+语气要鼓励、耐心、具体。不要评价她是否会通过考试，不要羞辱、吓唬或暗示她已经不适合继续学习。`;
 
 const optionLabel = (option: Option) => `${option.en} — ${option.zh}`;
 
@@ -70,46 +61,6 @@ const answerIds = (answer: AnswerState) => answer.optionIds ?? [];
 
 const numericAnswerValue = (blank: FillInBlankQuestion["blanks"][number]) =>
   blank.numeric ? `${blank.numeric.value}${blank.numeric.unit ?? ""}` : (blank.acceptable?.[0] ?? "");
-
-const parentVisualKinds = (question: CaseStudyQuestion) => {
-  const exhibitKinds = question.caseStudy.exhibits.flatMap((exhibit) => exhibit.visual ? [exhibit.visual.kind] : []);
-  const stageKinds = (question.caseStudy.stages ?? []).flatMap((stage) =>
-    stage.exhibits.flatMap((exhibit) => exhibit.visual ? [exhibit.visual.kind] : []),
-  );
-  return uniqueSorted([...exhibitKinds, ...stageKinds]);
-};
-
-const directVisualKinds = (question: StandaloneQuestion): string[] => question.visual ? [question.visual.kind] : [];
-
-const flattenMissedLeaves = (session: SessionState): ReviewLeaf[] =>
-  session.questions.flatMap<ReviewLeaf>((question): ReviewLeaf[] => {
-    if (session.results[question.id] !== false) return [];
-
-    if (question.itemType !== "case_study") {
-      return [{
-        standalone: question,
-        answer: session.answers[question.id] ?? getInitialAnswer(question),
-        visualKinds: directVisualKinds(question),
-      }];
-    }
-
-    const parentKinds = parentVisualKinds(question);
-    const caseAnswer = session.answers[question.id];
-    return question.caseStudy.questions.flatMap((part) => {
-      const partAnswer = caseAnswer?.caseStudy?.[part.id] ?? getInitialAnswer(part);
-      if (gradeStandaloneQuestion(part, partAnswer)) return [];
-      return [{
-        standalone: part,
-        answer: partAnswer,
-        parentCaseId: question.id,
-        parentCaseTitle: question.caseStudy.title,
-        parentCaseSummary: question.caseStudy.summary,
-        visualKinds: uniqueSorted([...directVisualKinds(part), ...parentKinds]),
-      }];
-    });
-  });
-
-const isVisualLeaf = (leaf: ReviewLeaf) => leaf.visualKinds.length > 0;
 
 const choiceRationalesForOptionQuestion = (question: OptionQuestion, answer: AnswerState) => {
   const selected = new Set(answerIds(answer));
@@ -221,7 +172,7 @@ const describeBowtie = (question: BowtieQuestion, answer: AnswerState) => {
   ].join("\n");
 };
 
-const describeChoiceBreakdown = ({ standalone, answer }: ReviewLeaf): string => {
+const describeChoiceBreakdown = ({ standalone, answer }: PromptLeaf): string => {
   if (standalone.itemType === "multiple_choice" || standalone.itemType === "select_all") {
     return describeOptionQuestion(standalone, answer);
   }
@@ -238,22 +189,63 @@ const glossaryLine = (question: StandaloneQuestion) =>
     ? `\n**English terms to practice:** ${question.glossary.map((term) => `${term.termEn} (${term.termZh} — ${term.defZh})`).join("; ")}`
     : "";
 
-const renderDetailedLeaf = (leaf: ReviewLeaf, index: number) => {
+const stripAuditFields = (value: unknown, seen = new WeakSet<object>()): unknown => {
+  if (value === null || typeof value !== "object") return value;
+  if (seen.has(value)) throw new Error("Cannot serialize circular visual data");
+  seen.add(value);
+  const stripped = Array.isArray(value)
+    ? value.map((entry) => stripAuditFields(entry, seen))
+    : Object.fromEntries(
+      Object.entries(value)
+        .filter(([key]) => key !== "selfCheck" && key !== "meta")
+        .map(([key, entry]) => [key, stripAuditFields(entry, seen)]),
+    );
+  seen.delete(value);
+  return stripped;
+};
+
+const renderVisualData = (visual: QuestionVisual, owner = "这道题") => {
+  const framing = `${owner}包含应用内绘制的图形（kind: ${visual.kind}）。以下是生成该图形的结构化数据，请据此理解图形内容：`;
+  try {
+    return `${framing}\n\`\`\`json\n${JSON.stringify(stripAuditFields(visual), null, 2)}\n\`\`\``;
+  } catch {
+    return `${framing}\n（无法附上图形数据 — 我会自己描述我看到的内容。）`;
+  }
+};
+
+const renderExhibit = (exhibit: CaseStudyExhibit, label: string) => [
+  `### ${label}: ${exhibit.title.en} / ${exhibit.title.zh}`,
+  `**Exhibit content — EN:** ${exhibit.content.en}`,
+  `**病例资料 — ZH:** ${exhibit.content.zh}`,
+  exhibit.visual ? renderVisualData(exhibit.visual, "这份病例资料") : "",
+].filter(Boolean).join("\n\n");
+
+const renderCaseContext = (parentCase: CaseStudyQuestion, part: StandaloneQuestion) => {
+  const visibleStages = getVisibleCaseStages(parentCase, part);
+  const globalExhibits = parentCase.caseStudy.exhibits.map((exhibit) => renderExhibit(exhibit, "Global exhibit"));
+  const stageExhibits = visibleStages.flatMap((stage) =>
+    stage.exhibits.map((exhibit) => renderExhibit(exhibit, `Visible stage exhibit (${stage.title.en} / ${stage.title.zh})`)),
+  );
+
+  return [
+    "## Case context / 案例背景",
+    `**Case title — EN:** ${parentCase.caseStudy.title.en}`,
+    `**案例标题 — ZH:** ${parentCase.caseStudy.title.zh}`,
+    parentCase.caseStudy.summary ? `**Case summary — EN:** ${parentCase.caseStudy.summary.en}` : "",
+    parentCase.caseStudy.summary ? `**案例摘要 — ZH:** ${parentCase.caseStudy.summary.zh}` : "",
+    [...globalExhibits, ...stageExhibits].join("\n\n"),
+  ].filter(Boolean).join("\n\n");
+};
+
+const renderDetailedLeaf = (leaf: PromptLeaf, generatedAt: Date, parentCase?: CaseStudyQuestion) => {
   const { standalone } = leaf;
   const lines = [
-    `### ${index + 1}. ${formatItemType(standalone.itemType)} · ${standalone.category} · ${standalone.topic}${
-      leaf.parentCaseTitle ? ` · from case: ${leaf.parentCaseTitle.en}` : ""
+    `## ${formatItemType(standalone.itemType)} · ${standalone.category} · ${standalone.topic}${
+      parentCase ? ` · from case: ${parentCase.caseStudy.title.en}` : ""
     }`,
-  ];
-
-  if (leaf.parentCaseSummary) {
-    lines.push(`*Case context: ${leaf.parentCaseSummary.en} — ${leaf.parentCaseSummary.zh}*`);
-  }
-
-  lines.push(
     `**Question source — EN:** ${standalone.stem.en}`,
     `**题目原文 — ZH:** ${standalone.stem.zh}`,
-  );
+  ];
 
   if (standalone.itemType === "dropdown_cloze") {
     lines.push(
@@ -269,50 +261,32 @@ const renderDetailedLeaf = (leaf: ReviewLeaf, index: number) => {
     );
   }
 
+  if (standalone.visual) {
+    lines.push(renderVisualData(standalone.visual));
+  }
+
   lines.push(
     `**Answer breakdown / 答题详情:**\n${describeChoiceBreakdown(leaf)}`,
     `**Rationale source — EN:** ${standalone.rationale.correct.en}`,
     `**解析原文 — ZH:** ${standalone.rationale.correct.zh}${glossaryLine(standalone)}`,
+    `**Generated at / 生成时间:** ${generatedAt.toLocaleString()}`,
   );
 
   return lines.join("\n\n");
 };
 
-const visualPointer = (leaf: ReviewLeaf) =>
-  `${formatItemType(leaf.standalone.itemType)} · ${leaf.standalone.topic} · ${leaf.visualKinds.join(", ")}${
-    leaf.parentCaseTitle ? ` · from case: ${leaf.parentCaseTitle.en}` : ""
-  }`;
-
-export const buildReviewPromptText = ({
-  session,
+export const buildQuestionRescuePromptText = ({
+  question,
+  answer,
+  parentCase,
   generatedAt = new Date(),
 }: {
-  session: SessionState;
+  question: StandaloneQuestion;
+  answer: AnswerState;
+  parentCase?: CaseStudyQuestion;
   generatedAt?: Date;
-}): string => {
-  const leaves = flattenMissedLeaves(session);
-  const detailedLeaves = leaves.filter((leaf) => !isVisualLeaf(leaf));
-  const visualLeaves = leaves.filter(isVisualLeaf);
-  const answered = Object.keys(session.results).length;
-  const missed = session.questions.filter((question) => session.results[question.id] === false);
-  const categories = uniqueSorted(leaves.map((leaf) => leaf.standalone.category));
-  const visualLine = visualLeaves.length > 0
-    ? `\n- 另有 ${visualLeaves.length} 道题包含图表/心电图等视觉资料，需要在软件内查看，此处未展开：${visualLeaves.map(visualPointer).join("; ")}`
-    : "";
-  const allVisualLine = detailedLeaves.length === 0 && visualLeaves.length > 0
-    ? "\n- **本次做错的题目全部依赖图表/心电图等视觉资料，以上仅列出题号和类别，没有可展开的详细内容 — 请直接在软件内复习这些题目。**"
-    : "";
-  const detailHeading = `## 错题详情（共 ${detailedLeaves.length} 处${visualLeaves.length > 0 ? `，另 ${visualLeaves.length} 处见上方图表提示` : ""}）`;
-  const detailBlocks = detailedLeaves.map(renderDetailedLeaf).join("\n\n---\n\n");
-
-  return [
-    PREAMBLE,
-    `## 本次练习摘要
-- 模式：${session.mode}
-- 已作答：${answered} · 做错：${missed.length} 题 · 跳过：${session.skippedQuestionIds.length}
-- 错题涉及的类别：${categories.length > 0 ? categories.join(", ") : "none"}
-- 生成时间：${generatedAt.toLocaleString()}${visualLine}${allVisualLine}`,
-    detailHeading,
-    detailBlocks,
-  ].filter((section) => section.length > 0).join("\n\n");
-};
+}): string => [
+  PREAMBLE,
+  parentCase ? renderCaseContext(parentCase, question) : "",
+  renderDetailedLeaf({ standalone: question, answer }, generatedAt, parentCase),
+].filter(Boolean).join("\n\n---\n\n");

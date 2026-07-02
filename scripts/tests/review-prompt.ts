@@ -1,8 +1,7 @@
 import assert from "node:assert/strict";
-import { buildReviewPromptText } from "../../src/reviewPrompt";
+import { buildQuestionRescuePromptText } from "../../src/reviewPrompt";
 import type { AnswerState } from "../../src/grading";
-import type { CaseStudyQuestion, QuestionVisual, StandaloneQuestion } from "../../src/types";
-import type { SessionState } from "../../src/sessionState";
+import type { CaseStudyQuestion, CaseSubQuestion, QuestionVisual, StandaloneQuestion } from "../../src/types";
 
 const pair = (value: string) => ({ en: value, zh: `${value} zh` });
 
@@ -15,26 +14,6 @@ const base = {
   testTakingStrategy: pair("Fixture strategy"),
   glossary: [],
 };
-
-const sessionFor = (
-  questions: StandaloneQuestion[] | CaseStudyQuestion[],
-  answers: Record<string, AnswerState>,
-  results?: Record<string, boolean>,
-): SessionState => ({
-  id: "review_prompt_session",
-  mode: "study",
-  questions,
-  poolIds: questions.map((question) => question.id),
-  index: 0,
-  answers,
-  results: results ?? Object.fromEntries(questions.map((question) => [question.id, false])),
-  scores: {},
-  skippedQuestionIds: [],
-  phase: "questions",
-  languageMode: "always",
-  title: "Review prompt test",
-  startedAt: "2026-01-02T03:04:05.000Z",
-});
 
 const mc: StandaloneQuestion = {
   ...base,
@@ -191,22 +170,23 @@ const bowtie: StandaloneQuestion = {
   },
 };
 
-const allTypesOutput = buildReviewPromptText({
-  session: sessionFor(
-    [mc, sata, ordered, blank, matrix, dropdown, highlight, bowtie],
-    {
-      review_mc: { optionIds: ["a"] },
-      review_sata: { optionIds: ["a", "c"] },
-      review_ordered: { optionIds: ["c", "b", "a"] },
-      review_blank: { blanks: { term: "" } },
-      review_matrix: { matrix: { r1: ["c2"] } },
-      review_dropdown: { dropdowns: { d1: "b" } },
-      review_highlight: { segments: [] },
-      review_bowtie: { bowtie: { condition: ["cond2"], actions: ["act1"], parameters: [] } },
-    },
-  ),
-  generatedAt: new Date("2026-01-02T03:04:05.000Z"),
-});
+const promptFor = (question: StandaloneQuestion, answer: AnswerState) =>
+  buildQuestionRescuePromptText({
+    question,
+    answer,
+    generatedAt: new Date("2026-01-02T03:04:05.000Z"),
+  });
+
+const allTypesOutput = [
+  promptFor(mc, { optionIds: ["a"] }),
+  promptFor(sata, { optionIds: ["a", "c"] }),
+  promptFor(ordered, { optionIds: ["c", "b", "a"] }),
+  promptFor(blank, { blanks: { term: "" } }),
+  promptFor(matrix, { matrix: { r1: ["c2"] } }),
+  promptFor(dropdown, { dropdowns: { d1: "b" } }),
+  promptFor(highlight, { segments: [] }),
+  promptFor(bowtie, { bowtie: { condition: ["cond2"], actions: ["act1"], parameters: [] } }),
+].join("\n\n---\n\n");
 
 assert.match(allTypesOutput, /\[✓\] Open the airway/);
 assert.match(allTypesOutput, /\[→\] Call the provider/);
@@ -223,12 +203,51 @@ assert.match(allTypesOutput, /\*\*Fill-in sentence — EN:\*\* First \{\{d1\}\},
 assert.match(allTypesOutput, /\*\*Passage — EN:\*\* Skin warm\. Stridor present\./);
 assert.match(allTypesOutput, /Condition — token pool: Shock — 休克, Anxiety — 焦虑/);
 assert.ok(allTypesOutput.includes("airway (气道 — 呼吸通道)"));
+assert.match(allTypesOutput, /简体中文/);
+assert.match(allTypesOutput, /发音提示/);
+assert.doesNotMatch(allTypesOutput, /本次练习摘要/);
+
+const visualWithAuditFields = {
+  kind: "lab_trend",
+  time: { unit: "hr", values: [0, 4, 8] },
+  series: [
+    {
+      analyte: "potassium",
+      values: [3.1, 4.2, 5.8],
+      meta: { keyed_answer: "hidden nested answer" },
+    },
+  ],
+  selfCheck: { expected: "hidden check" },
+  meta: { keyed_answer: "hidden answer" },
+} as unknown as QuestionVisual;
+
+const visualPrompt = buildQuestionRescuePromptText({
+  question: { ...mc, id: "visual_mc", visual: visualWithAuditFields },
+  answer: { optionIds: ["a"] },
+  generatedAt: new Date("2026-01-02T03:04:05.000Z"),
+});
+
+assert.match(visualPrompt, /```json\n/);
+assert.match(visualPrompt, /"kind": "lab_trend"/);
+assert.match(visualPrompt, /"analyte": "potassium"/);
+assert.doesNotMatch(visualPrompt, /selfCheck/);
+assert.doesNotMatch(visualPrompt, /meta/);
+assert.doesNotMatch(visualPrompt, /hidden answer/);
+
+const circularVisual = { kind: "lab_trend" } as unknown as QuestionVisual & { circular?: unknown };
+circularVisual.circular = circularVisual;
+const fallbackPrompt = buildQuestionRescuePromptText({
+  question: { ...mc, id: "fallback_visual_mc", visual: circularVisual },
+  answer: { optionIds: ["a"] },
+  generatedAt: new Date("2026-01-02T03:04:05.000Z"),
+});
+assert.match(fallbackPrompt, /无法附上图形数据/);
 
 const casePart: StandaloneQuestion = {
   ...base,
   id: "review_case_part",
   itemType: "multiple_choice",
-  stem: pair("Visual-dependent case part stem"),
+  stem: pair("Case part stem"),
   options: [
     { id: "a", en: "Wrong", zh: "错误" },
     { id: "b", en: "Right", zh: "正确" },
@@ -242,17 +261,35 @@ const visualCase: CaseStudyQuestion = {
   itemType: "case_study",
   caseStudy: {
     title: pair("Visual case"),
-    exhibits: [],
+    summary: pair("Case summary"),
+    exhibits: [
+      {
+        id: "global_exhibit",
+        title: pair("Admission note"),
+        content: pair("Global exhibit content"),
+      },
+    ],
     stages: [
       {
         id: "stage1",
         title: pair("Stage 1"),
         exhibits: [
           {
+            id: "stage1_exhibit",
+            title: pair("First update"),
+            content: pair("Stage 1 content"),
+          },
+        ],
+      },
+      {
+        id: "stage2",
+        title: pair("Stage 2"),
+        exhibits: [
+          {
             id: "visual_exhibit",
             title: pair("Trend"),
             content: pair("Trend content"),
-            visual: { kind: "lab_trend" } as QuestionVisual,
+            visual: visualWithAuditFields,
           },
         ],
       },
@@ -261,16 +298,31 @@ const visualCase: CaseStudyQuestion = {
   },
 };
 
-const visualOnlyOutput = buildReviewPromptText({
-  session: sessionFor(
-    [visualCase],
-    { review_visual_case: { caseStudy: { review_case_part: { optionIds: ["a"] } } } },
-  ),
+const noRefCasePrompt = buildQuestionRescuePromptText({
+  question: casePart,
+  answer: { optionIds: ["a"] },
+  parentCase: visualCase,
   generatedAt: new Date("2026-01-02T03:04:05.000Z"),
 });
 
-assert.match(visualOnlyOutput, /lab_trend/);
-assert.match(visualOnlyOutput, /本次做错的题目全部依赖图表/);
-assert.doesNotMatch(visualOnlyOutput, /Visual-dependent case part stem/);
+assert.match(noRefCasePrompt, /Visual case/);
+assert.match(noRefCasePrompt, /Case summary/);
+assert.match(noRefCasePrompt, /Global exhibit content/);
+assert.match(noRefCasePrompt, /Stage 1 content/);
+assert.match(noRefCasePrompt, /Trend content/);
+assert.match(noRefCasePrompt, /"kind": "lab_trend"/);
+assert.match(noRefCasePrompt, /Case part stem/);
+
+const stageLimitedPart: CaseSubQuestion = { ...casePart, id: "stage_limited_part", stageId: "stage1" };
+const stageLimitedPrompt = buildQuestionRescuePromptText({
+  question: stageLimitedPart,
+  answer: { optionIds: ["a"] },
+  parentCase: visualCase,
+  generatedAt: new Date("2026-01-02T03:04:05.000Z"),
+});
+
+assert.match(stageLimitedPrompt, /Global exhibit content/);
+assert.match(stageLimitedPrompt, /Stage 1 content/);
+assert.doesNotMatch(stageLimitedPrompt, /Trend content/);
 
 console.log("review-prompt tests passed");

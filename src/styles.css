@@ -1945,6 +1945,29 @@ h4 {
   margin: 0;
 }
 
+.gpt-rescue-action {
+  display: grid;
+  gap: 0.65rem;
+  justify-items: start;
+  margin: 0.2rem 0 0.35rem;
+}
+
+.gpt-rescue-action.prominent {
+  padding: 0.9rem;
+  border: 1px solid var(--accent);
+  border-radius: 8px;
+  background: var(--surface-muted);
+}
+
+.gpt-rescue-button {
+  max-width: 100%;
+  justify-content: flex-start;
+}
+
+.gpt-rescue-action.prominent .gpt-rescue-button {
+  font-weight: 800;
+}
+
 .rationale-panel {
   display: grid;
   gap: 0.65rem;
