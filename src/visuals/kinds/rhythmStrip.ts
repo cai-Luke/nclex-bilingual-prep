@@ -669,12 +669,17 @@ const fixtures: VisualKindModule<RhythmStripVisual>["fixtures"] = {
 
 export const rhythmStripModule: VisualKindModule<RhythmStripVisual> = {
   kind: "rhythm_strip",
+  allowedItemTypes: ["multiple_choice", "select_all", "matrix", "ordered_response", "dropdown_cloze"],
   validate: validateRhythmStrip,
   selfCheck: selfCheckRhythmStrip,
   renderSvg: renderRhythmStripSvg,
   fixtures,
 };
 
-// `allowedItemTypes` / `requiredSchemaVersion` omitted → registry defaults
-// (multiple_choice, select_all, matrix; schema "1.2"), matching current behavior.
+// `requiredSchemaVersion` omitted -> registry default ("1.2"), matching current
+// behavior for non-pacer strips. Pacer-bearing strips still require schema "1.7"
+// via `hasPacerRhythmStrip` in schema.ts.
+// `allowedItemTypes` widened 2026-07-01 to add ordered_response/dropdown_cloze,
+// matching the existing lab_trend placement-override pattern. Permission only:
+// this does not convert any existing item.
 registerVisual(rhythmStripModule as VisualKindModule);

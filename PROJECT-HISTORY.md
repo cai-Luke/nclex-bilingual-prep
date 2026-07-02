@@ -49,6 +49,21 @@ The committed NGN item-type set is complete. Rationale/dyad scoring and an expli
 
 > Milestones dated **2026-06-23 and earlier** are archived in [`Archive/PROJECT-HISTORY-ARCHIVE.md`](Archive/PROJECT-HISTORY-ARCHIVE.md). Only the current arc (2026-06-24 onward) is kept here.
 
+### Rhythm Strip Placement Widening (Jul 1)
+
+Completed:
+- Implemented `rhythm_strip` item-type placement widening from `rhythm-strip-item-type-placement-widening-codex-spec.md`, resolving the deferred placement-policy question from the pacemaker-overlay addendum without converting any content.
+- Added `ordered_response` and `dropdown_cloze` to `rhythm_strip`'s explicit `allowedItemTypes` override; left `fill_in_blank` unsupported.
+- Updated `NCLEX-Question-Schema.md` to document the new `rhythm_strip` placements and the pre-existing `lab_trend` placement override.
+- Extended the generic visual conformance test to exercise each registered kind's declared placements, and updated the rhythm-strip visual-parity placement fixture to use still-unsupported `fill_in_blank`.
+- No canonical bank files changed.
+
+Verification:
+- `npx tsc -b --pretty false` passed.
+- `npm run test-visuals` passed.
+- `npm run validate-bank -- banks/*.json` passed with the same canonical bank set and counts.
+- `npm run build` passed with the existing Vite chunk-size warning.
+
 ### Translation Telemetry V1.2a Attempt History (Jul 1)
 
 Completed:

@@ -2,8 +2,9 @@
 // its own colocated fixtures. When a future kind is added with fixtures, it is
 // covered here automatically — no new test code.
 import "../../src/visuals/kinds"; // register all production kinds (React-free barrel)
-import { allVisualModules } from "../../src/visuals/registry";
-import type { Question } from "../../src/types";
+import { validateVisual } from "../../src/schema";
+import { allVisualModules, VISUAL_ITEM_TYPES } from "../../src/visuals/registry";
+import type { ItemType, Question } from "../../src/types";
 
 const assert = (condition: unknown, message: string) => {
   if (!condition) throw new Error(message);
@@ -11,6 +12,18 @@ const assert = (condition: unknown, message: string) => {
 
 const modules = allVisualModules();
 assert(modules.length > 0, "no visual kinds registered");
+
+const visualPlacementItemTypes: ItemType[] = [
+  "multiple_choice",
+  "select_all",
+  "ordered_response",
+  "fill_in_blank",
+  "matrix",
+  "dropdown_cloze",
+  "highlight",
+  "bowtie",
+  "case_study",
+];
 
 // A throwaway Question for selfCheck smoke-runs (no kind in U0 uses it).
 const dummyQuestion = {
@@ -46,6 +59,25 @@ for (const mod of modules) {
     // selfCheck, if present, runs without throwing on valid fixtures
     if (mod.selfCheck) {
       mod.selfCheck(spec as never, dummyQuestion);
+    }
+  }
+
+  // Placement declarations are exercised generically through schema validation.
+  const placementSpec = mod.fixtures.valid[0];
+  const allowedItemTypes = mod.allowedItemTypes ?? VISUAL_ITEM_TYPES;
+  for (const itemType of visualPlacementItemTypes) {
+    const reasons: string[] = [];
+    validateVisual(placementSpec, "visual", reasons, { itemType });
+    if (allowedItemTypes.includes(itemType)) {
+      assert(
+        reasons.length === 0,
+        `${mod.kind} placement should allow ${itemType}, got ${JSON.stringify(reasons)}`,
+      );
+    } else {
+      assert(
+        reasons.some((reason) => reason.includes("not allowed on") || reason.includes("visual is only supported")),
+        `${mod.kind} placement should reject ${itemType}, got ${JSON.stringify(reasons)}`,
+      );
     }
   }
 

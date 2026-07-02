@@ -195,7 +195,10 @@ Default supported locations:
 - Top-level or embedded `multiple_choice`, `select_all`, and `matrix` questions.
 - `case_study.caseStudy.exhibits[]` and `caseStudy.stages[].exhibits[]`.
 
-Some arithmetic kinds, including `io_record`, `medication_label`, `device_screen`, and `burn_map`, also opt into top-level or embedded `fill_in_blank`.
+Some visual kinds opt into additional top-level or embedded placements:
+- `rhythm_strip`: `ordered_response`, `dropdown_cloze`.
+- `lab_trend`: `ordered_response`, `dropdown_cloze`, `fill_in_blank`.
+- Arithmetic kinds, including `io_record`, `medication_label`, `device_screen`, and `burn_map`: `fill_in_blank`.
 
 Unsupported unless a kind explicitly opts in:
 - `ordered_response`, `fill_in_blank`, `dropdown_cloze`, and the `case_study` parent object itself.
@@ -255,6 +258,8 @@ If a step requires editing `App.tsx`, `schema.ts`, `validate-bank.ts`, or `cover
 
 `rhythm` controlled vocabulary:
 `sinus`, `sinus_brady`, `sinus_tach`, `afib`, `aflutter`, `svt`, `avb_1`, `avb_2_mobitz1`, `avb_2_mobitz2`, `avb_3`, `pvc`, `vtach`, `vfib`, `asystole`.
+
+Unlike the global visual default, `rhythm_strip` is also allowed on `ordered_response` and `dropdown_cloze` (as of 2026-07-01).
 
 Validation rules:
 - `kind` must be `"rhythm_strip"`.
@@ -344,6 +349,8 @@ Validation rules:
 ### Kind: `lab_trend`
 
 Renders serial laboratory values for 1–2 analytes across ≥3 timepoints, reusing the `lineChart` primitive with per-analyte reference bands. Load-bearing only when the answer turns on the *trajectory over time*, not a single snapshot value. Items that can be answered from a single final value are invalid.
+
+Unlike the global visual default, `lab_trend` is also allowed on `ordered_response`, `dropdown_cloze`, and `fill_in_blank`.
 
 ```json
 {

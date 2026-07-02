@@ -73,6 +73,9 @@ const mkBank = (visual: unknown, itemType: string) => ({
       glossary: [],
       options: [{ id: "A", en: "a", zh: "a" }, { id: "B", en: "b", zh: "b" }],
       correct: ["A"],
+      ...(itemType === "fill_in_blank"
+        ? { blanks: [{ id: "b1", prompt: { en: "p", zh: "p" }, acceptable: ["x"] }] }
+        : {}),
       visual,
     },
   ],

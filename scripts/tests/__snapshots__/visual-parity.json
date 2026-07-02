@@ -1,5 +1,5 @@
 {
-  "note": "Pre-refactor parity baseline for U0 (renderer registry). Captured from the schema-1.2 inline rhythm-strip implementation before the registry refactor. The registry path MUST reproduce these byte-for-byte (SVG sha256) and reason-for-reason (validation strings). Do not regenerate casually: a diff here means behavior changed.",
+  "note": "Pre-refactor parity baseline for U0 (renderer registry). Captured from the schema-1.2 inline rhythm-strip implementation before the registry refactor. The registry path MUST reproduce these byte-for-byte (SVG sha256) and reason-for-reason (validation strings), except for intentional placement-policy widenings recorded in PROJECT-HISTORY.md. Do not regenerate casually: a diff here means behavior changed.",
   "svgHashes": [
     { "id": "rhy_sinus_brady_001", "rhythm": "sinus_brady", "svgHash": "c6d7580602c34bf39a6d8472a02d7d55d5f5c646666d0530fda7261d95597acb" },
     { "id": "rhy_vtach_001", "rhythm": "vtach", "svgHash": "ef4067e5f1f1cc9afb0df5adc4d5eb0b66a29fc7e025fcf9967515b05ca55617" },
@@ -12,7 +12,7 @@
     { "name": "badRhythm", "itemType": "multiple_choice", "visual": { "kind": "rhythm_strip", "rhythm": "nope", "rateBpm": 75 }, "reasons": ["questions[0]: visual.rhythm is invalid"] },
     { "name": "badKind", "itemType": "multiple_choice", "visual": { "kind": "nope", "rateBpm": 75 }, "reasons": ["questions[0]: visual.kind is invalid"] },
     { "name": "notObject", "itemType": "multiple_choice", "visual": "string", "reasons": ["questions[0]: visual must be an object"] },
-    { "name": "badPlacement", "itemType": "ordered_response", "visual": { "kind": "rhythm_strip", "rhythm": "sinus", "rateBpm": 75 }, "reasons": ["questions[0]: visual is only supported on multiple_choice, select_all, matrix, and case-study exhibits"] },
+    { "name": "badPlacement", "itemType": "fill_in_blank", "visual": { "kind": "rhythm_strip", "rhythm": "sinus", "rateBpm": 75 }, "reasons": ["questions[0]: visual of kind rhythm_strip is not allowed on fill_in_blank"] },
     { "name": "missingRate", "itemType": "multiple_choice", "visual": { "kind": "rhythm_strip", "rhythm": "sinus" }, "reasons": ["questions[0]: visual.rateBpm is required"] },
     { "name": "badCaption", "itemType": "multiple_choice", "visual": { "kind": "rhythm_strip", "rhythm": "sinus", "rateBpm": 75, "caption": { "en": "" } }, "reasons": ["questions[0]: visual.caption.en is required when caption is present"] },
     { "name": "badCaptionZh", "itemType": "multiple_choice", "visual": { "kind": "rhythm_strip", "rhythm": "sinus", "rateBpm": 75, "caption": { "en": "ok", "zh": "" } }, "reasons": ["questions[0]: visual.caption.zh must be non-empty when present"] },
