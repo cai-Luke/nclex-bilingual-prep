@@ -65,6 +65,7 @@ import {
   isDueForReview,
   loadActiveSession,
   loadAnswerEvents,
+  loadCaseAnswerPartEvents,
   loadFlags,
   loadFlashcardProgress,
   loadLanguageMisses,
@@ -92,7 +93,11 @@ import { buildTargetedReviewPool, buildWeightedSession, seedFromString } from ".
 import { buildSessionState, type SessionState } from "./sessionState";
 import { formatItemType } from "./itemTypes";
 import { buildQuestionRescuePromptText } from "./reviewPrompt";
-import { summarizeTranslationRevealEvents } from "./translationTelemetry";
+import {
+  normalizeTranslationFrictionAttempts,
+  summarizeTranslationFriction,
+  summarizeTranslationRevealEvents,
+} from "./translationTelemetry";
 import { VisualStimulus } from "./visuals";
 import { mulberry32 } from "./visuals/primitives/prng";
 import { STANDALONE_SPLIT_VISUAL_KINDS, getVisibleCaseStages, usesStandaloneVisualSplit } from "./examLayout";
@@ -100,6 +105,7 @@ import type {
   AdaptiveSessionSnapshot,
   AnswerEvent,
   Category,
+  CaseAnswerPartEvent,
   CaseStudyQuestion,
   CaseStudyExhibit,
   Difficulty,
@@ -295,6 +301,7 @@ export default function App() {
   const [flags, setFlags] = useState<Record<string, QuestionFlag>>({});
   const [languageMisses, setLanguageMisses] = useState<Record<string, LanguageMiss>>({});
   const [answerEvents, setAnswerEvents] = useState<AnswerEvent[]>([]);
+  const [caseAnswerPartEvents, setCaseAnswerPartEvents] = useState<CaseAnswerPartEvent[]>([]);
   const [translationRevealEvents, setTranslationRevealEvents] = useState<TranslationRevealEvent[]>([]);
   const [flashcardProgress, setFlashcardProgress] = useState<Record<string, FlashcardProgress>>({});
   const [settings, setSettings] = useState<Settings>(() => loadSettings());
@@ -321,6 +328,7 @@ export default function App() {
       loadFlags(),
       loadLanguageMisses(),
       loadAnswerEvents(),
+      loadCaseAnswerPartEvents(),
       loadTranslationRevealEvents(),
       loadFlashcardProgress(),
     ]).then(
@@ -330,6 +338,7 @@ export default function App() {
         nextFlags,
         nextLanguageMisses,
         nextAnswerEvents,
+        nextCaseAnswerPartEvents,
         nextTranslationRevealEvents,
         nextFlashcardProgress,
       ]) => {
@@ -338,6 +347,7 @@ export default function App() {
         setFlags(nextFlags);
         setLanguageMisses(nextLanguageMisses);
         setAnswerEvents(nextAnswerEvents);
+        setCaseAnswerPartEvents(nextCaseAnswerPartEvents);
         setTranslationRevealEvents(nextTranslationRevealEvents);
         setFlashcardProgress(nextFlashcardProgress);
         setUploadedLoaded(true);
@@ -543,6 +553,7 @@ export default function App() {
     }
     setProgress((current) => ({ ...current, [question.id]: nextProgress }));
     setAnswerEvents(await loadAnswerEvents());
+    setCaseAnswerPartEvents(await loadCaseAnswerPartEvents());
     setSession((current) => {
       if (!current) return current;
       if (Object.prototype.hasOwnProperty.call(current.results, question.id)) return current;
@@ -923,7 +934,12 @@ export default function App() {
         )}
 
         {view === "telemetry" && devStartup.enabled && (
-          <TranslationTelemetryPanel events={translationRevealEvents} />
+          <TranslationTelemetryPanel
+            events={translationRevealEvents}
+            answerEvents={answerEvents}
+            caseAnswerPartEvents={caseAnswerPartEvents}
+            records={allRecords}
+          />
         )}
 
         {view === "session" && session && (
@@ -2243,8 +2259,32 @@ const formatTelemetryElapsed = (elapsedMs: number | undefined) => {
 
 const formatTelemetryPercent = (value: number) => `${Math.round(value * 100)}%`;
 
-function TranslationTelemetryPanel({ events }: { events: TranslationRevealEvent[] }) {
+function TranslationTelemetryPanel({
+  events,
+  answerEvents,
+  caseAnswerPartEvents,
+  records,
+}: {
+  events: TranslationRevealEvent[];
+  answerEvents: AnswerEvent[];
+  caseAnswerPartEvents: CaseAnswerPartEvent[];
+  records: QuestionRecord[];
+}) {
   const summary = useMemo(() => summarizeTranslationRevealEvents(events), [events]);
+  const frictionSummary = useMemo(() => {
+    const questions = records.map((record) => record.question);
+    const normalized = normalizeTranslationFrictionAttempts({
+      answerEvents,
+      caseAnswerPartEvents,
+      questions,
+    });
+    return summarizeTranslationFriction({
+      attempts: normalized.attempts,
+      events,
+      questions,
+      normalizationDiagnostics: normalized.diagnostics,
+    });
+  }, [answerEvents, caseAnswerPartEvents, events, records]);
 
   const exportTelemetry = () => {
     const blob = new Blob(
@@ -2266,6 +2306,29 @@ function TranslationTelemetryPanel({ events }: { events: TranslationRevealEvent[
     const anchor = document.createElement("a");
     anchor.href = url;
     anchor.download = `shrimp-translation-telemetry-${new Date().toISOString().slice(0, 10)}.json`;
+    anchor.click();
+    URL.revokeObjectURL(url);
+  };
+
+  const exportFrictionSummary = () => {
+    const blob = new Blob(
+      [
+        JSON.stringify(
+          {
+            exportFormatVersion: 2,
+            exportedAt: new Date().toISOString(),
+            ...frictionSummary,
+          },
+          null,
+          2,
+        ),
+      ],
+      { type: "application/json" },
+    );
+    const url = URL.createObjectURL(blob);
+    const anchor = document.createElement("a");
+    anchor.href = url;
+    anchor.download = `shrimp-translation-friction-${new Date().toISOString().slice(0, 10)}.json`;
     anchor.click();
     URL.revokeObjectURL(url);
   };
@@ -2326,6 +2389,10 @@ function TranslationTelemetryPanel({ events }: { events: TranslationRevealEvent[
           <button type="button" onClick={exportTelemetry}>
             <Download aria-hidden="true" />
             <span>Export telemetry</span>
+          </button>
+          <button type="button" onClick={exportFrictionSummary} disabled={frictionSummary.diagnostics.attemptCount === 0}>
+            <Download aria-hidden="true" />
+            <span>Export joined</span>
           </button>
         </div>
       </div>

@@ -78,6 +78,20 @@ Verification:
 - `npm run validate-bank -- banks/*.json` passed with the same canonical bank set and counts.
 - `npm run build` passed with the existing Vite chunk-size warning.
 
+### Translation Telemetry V1.2b Correctness Join (Jul 2)
+
+Completed:
+- Implemented the V1.2b analytic correctness join from `translation-telemetry-v1-2-correctness-join-audit-candidates-spec.md` without adding learner-facing UI, sampler weighting, or new instrumentation.
+- Completed discovery against `src/storage.ts`, `src/types.ts`, `src/grading.ts`, and the `submitCurrent` path: V1.2a persists `sessionId`, `sessionMode`, and `languageModeAtAnswer`; on-demand reveal is `"on-tap"`; case-part joins use the same embedded part id for `CaseAnswerPartEvent.partId` and `TranslationRevealEvent.partId`; standalone joins use `sessionId + questionId`.
+- Added pure `summarizeTranslationFriction` support for eligible attempt buckets, pre-submit reveal aggregation, deterministic revealed-block ordering, part-level case-study audit candidates, fade trend rows, unresolved-current-bank handling, and join diagnostics.
+- Added a normalization adapter that excludes legacy answer rows and top-level case-study `AnswerEvent` rows before the pure summary, carrying both exclusion counts into diagnostics.
+- Extended the existing dev-only translation telemetry panel with a joined JSON export while keeping the existing raw reveal export.
+
+Verification:
+- `npm run test:translation-telemetry` passed.
+- `npx tsc -b --pretty false` passed.
+- `npm run build` passed with the existing Vite chunk-size warning.
+
 ### Translation Telemetry V1.2a Attempt History (Jul 1)
 
 Completed:
