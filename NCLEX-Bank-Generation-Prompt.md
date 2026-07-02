@@ -12,7 +12,7 @@
 - Some models still wrap output in ```json fences or add a sentence of preamble despite instructions. The app's importer is built to tolerate that (strips fences, finds the JSON), so don't worry if it isn't pristine.
 - **Source label comes from the filename**, so don't ask the model which model it is (self-ID is unreliable) — just save it under the right `<source>-<date>` name. However, the app stores progress by `question.id`, so use source/batch-prefixed IDs that stay unique after accepted questions are merged into top-level bundled banks.
 - `PRIORITIZE_TOPICS` / `AVOID_TOPICS` are optional and only matter once you have a sizable bank. The coverage tool reads top-level `/banks/*.json` and fills these in for you to steer generation toward gaps; until then, leave them blank.
-- `NCLEX-Question-Schema.md` is authoritative. This portable prompt is a compact authoring aid, not a replacement for the schema doc or validator. Current authoring should use `schemaVersion: "1.6"`; older `1.0`–`1.5` banks remain import-compatible for their historical shapes.
+- `NCLEX-Question-Schema.md` is authoritative. This portable prompt is a compact authoring aid, not a replacement for the schema doc or validator. Current authoring should use the schema version declared current in `NCLEX-Question-Schema.md` — currently `1.7`; older `1.0`–`1.6` banks remain import-compatible for their historical shapes.
 - **Gemini caution:** Gemini can be fast and useful for raw volume, but recent hard-case output showed it needs strict guard rails: it may produce placeholder distractors, generic rationales, broad/wrong topic labels, or noncanonical shapes if asked loosely. Keep Gemini batches small, save them only under `banks-raw/`, and never let Gemini append directly to canonical `banks/*.json`. Use a non-generator reviewer before promotion. Other models can contribute too — save each under its own `<source>-<date>` file. Don't use the same model to both generate and review a batch.
 
 ---
@@ -55,11 +55,11 @@ Generate COUNT original NCLEX-RN practice questions matching the parameters abov
 - Do NOT wrap it in markdown code fences. Do NOT write any text before or after the JSON.
 - Use standard ASCII double quotes for all keys and string delimiters. No trailing commas. No comments. The output must be valid, parseable JSON.
 
-## SCHEMA (schemaVersion 1.6 — follow exactly; `NCLEX-Question-Schema.md` is authoritative)
+## SCHEMA (author at the current schemaVersion from `NCLEX-Question-Schema.md` — currently 1.7 — follow shape exactly; `NCLEX-Question-Schema.md` is authoritative)
 
 Top-level object:
 {
-  "meta": { "schemaVersion": "1.6", "exam": "NCLEX-RN", "topic": "<echo TOPIC>", "category": "<echo CATEGORY>", "difficulty": "<echo DIFFICULTY>", "count": <number generated> },
+  "meta": { "schemaVersion": "1.7", "exam": "NCLEX-RN", "topic": "<echo TOPIC>", "category": "<echo CATEGORY>", "difficulty": "<echo DIFFICULTY>", "count": <number generated> },
   "questions": [ <Question>, ... ]
 }
 

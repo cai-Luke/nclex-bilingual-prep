@@ -24,7 +24,9 @@ Two disjoint sub-batches, one file each, saved under `banks/banks-raw/`. Keep ea
 | A | `bowtie` (standalone) | 6 | `banks-raw/<source>-bowtie-2026-07-02.json` | model-origin canonical by source prefix |
 | B | `highlight` (standalone) | 6 | `banks-raw/<source>-highlight-2026-07-02.json` | model-origin canonical by source prefix |
 
-`<source>` is the generating model's lane prefix (`gpt-`, `gemini-`, `claude-`) per `CANONICAL_PREFIXES` in `lib/canonical-routing.ts` — routing is by filename prefix, so name the file for whichever lane generates it. Do **not** route these to any visual-kind canonical; neither item type carries a load-bearing `question.visual` (bowtie is never split and has no stimulus visual; these highlights are text-passage items).
+`<source>` is the generating model's lane prefix (`gpt-`, `gemini-`, `claude-`) per `CANONICAL_PREFIXES` in `lib/canonical-routing.ts` — routing is by filename prefix, so name the file for whichever lane generates it. **Do not use `claude-` as the generator for this batch.** §6 fixes Claude as the promotion gate; if Claude also generates, the same role is producer and checker on its own output, violating the standing invariant (`DECISIONS.md` principle 2/5). Generate with GPT or Gemini — Gemini is permitted to generate (principle 5, raw-volume lane) but its output must still route to a non-Gemini reviewer at §6's cross-model review step, same as always.
+
+Do **not** route these to any visual-kind canonical; neither item type carries a load-bearing `question.visual` (bowtie is never split and has no stimulus visual; these highlights are text-passage items).
 
 If a batch truncates mid-JSON, re-run for fewer items rather than repairing by hand. Two clean 6-item batches beat one truncated 12.
 
@@ -40,21 +42,28 @@ Weight generation toward the `PRIORITIZE_TOPICS` double-gaps in `BANK-CENSUS.md`
 - Diabetic Ketoacidosis (DKA)
 - Patient & Environment Safety
 - Standard Precautions & Hygiene
+- Electroconvulsive Therapy (ECT)
+- Injection route recognition from skin cross-section
 
 **Highlight priority topics** (census lists `highlight` in their add-set):
 - Burn Management
 - Dosage Calculations
 - Diabetic Ketoacidosis (DKA)
 - intrapartum fetal monitoring
+- Electroconvulsive Therapy (ECT)
+- Injection route recognition from skin cross-section
+
+Injection route recognition is included as a **text-only** vignette topic here (route selection reasoned from a described insertion site/technique, not a rendered diagram) — this batch has `INCLUDE_VISUALS: no`, so it does not touch the `injection_site` visual-kind canonical or its closed-set review tier.
 
 Spread the 6 items of each sub-batch across at least 4 distinct priority topics — do not stack 6 bowties on one topic. Respect `AVOID_TOPICS` (Cardiovascular Disorders, Mental Health Disorders, Medication Safety & Admin, Prioritization & Delegation, Legal & Ethical Principles, Transmission-Based Precautions, Procedural Complications & Dialysis) as a **soft** de-emphasis, not a ban. Re-pull `npm run coverage-report` at generation time if this batch is written more than a few days out — the priority/avoid sets drift as content lands.
+
+**Topic-fit overrides double-gap arithmetic.** A topic appearing above does not guarantee a natural bowtie or highlight. Do not force a bowtie where the condition differential, action pair, or parameter pair would be artificial for that topic — Dosage Calculations and Therapeutic Communication are the likeliest to strain into a tortured differential — skip to the next priority topic instead. Same for highlight: skip a topic if there is no natural passage with a real distractor sentence.
 
 ## 3. Shape: defer to the schema, do not restate it
 
 Per `DECISIONS.md` principle 21, the generating instances read the repo, so the prompt carries the semantic floor, not the schema shape. Use the existing portable prompt `NCLEX-Bank-Generation-Prompt.md` with the PARAMETERS block set for each sub-batch (`ITEM_TYPES: bowtie` / `ITEM_TYPES: highlight`, `INCLUDE_VISUALS: no`, priority/avoid topics from §2). Shape authority is `NCLEX-Question-Schema.md`:
 
-- Standalone `bowtie` requires `schemaVersion "1.4"` or later; author at the current `"1.6"` unless a batch has a specific reason otherwise (`meta.schemaVersion` is validated at the floor, not pinned to exactly 1.4).
-- `highlight` (including the Tier-0 structural gate) requires `"1.3"` or later; likewise author at `"1.6"`.
+- Standalone `bowtie` requires `schemaVersion "1.4"` or later; `highlight` (including the Tier-0 structural gate) requires `"1.3"` or later. For new authoring, use the current schemaVersion declared in `NCLEX-Question-Schema.md` — currently `"1.7"` — unless there is a specific documented reason to target an older supported floor. Validators enforce the minimum floor by feature; authoring guidance should track the current schema, not the historical floor.
 - Do not restate field shapes in the generation prompt — the schema doc and the validator own them.
 
 ## 4. Format-specific semantic floor (the part review actually gates)
@@ -85,24 +94,26 @@ Per the 2026-07-02 correction in `DECISIONS.md`, the SATA-count and ordered-resp
 
 Standard pipeline, no shortcuts. The generating model **never** reviews its own batch (`DECISIONS.md` principle 2/5). Route each raw file:
 
-1. **Generate** → save raw under `banks/banks-raw/` with the correct source-prefixed filename (§1).
+1. **Generate** → save raw under `banks/banks-raw/` with the correct source-prefixed filename (§1). Generator excluded per §1: not Claude.
 2. **Normalize** → `npm run normalize-raw-bank -- banks/banks-raw/<file>.json` (dry-run; `--write` only after reviewing the report).
 3. **Validate** → `npm run validate-bank -- banks/banks-raw/<file>.json`.
 4. **Cross-model review** → a non-generating model flags per the §4 floor. Not Gemini for content-judgment review (standing restriction; Gemini is raw-volume/flag-only). If Gemini *generated* a sub-batch, route its review to GPT or Claude; if GPT generated it, route to Claude.
-5. **Claude promotion gate** → I adjudicate the §4 clinical-validity floor, especially the bowtie differential/parameter pools, before anything lands. This is the last step before promotion.
-6. **Promote** → `npm run promote` (shuffle + validate → `banks/_promoted/`).
-7. **Audit** → `npm run audit` (raw draft + staged promoted file both present for `audit:integrity`).
-8. **Consolidate** → `npm run consolidate -- --dry-run` then `npm run consolidate` (route, ID-collision gate, recount).
-9. **Census + docs** → `npm run census` (regenerates `census.json` + `BANK-CENSUS.md`), commit both alongside the bank change or `census:check` fails CI.
-10. **Ledger** → update `BANK-REVIEW-LEDGER.md`: status, and the deleted raw source filename under Merged Source Batches. `Chain:` line names the generate + non-generating-reviewer + Claude-gate roles (no case-skeleton fact-check step applies here — these are direct standalone items, not skeleton-derived, so do **not** write the forward-case `Opus → GPT compile → Gemini review` chain; write the direct-lane chain actually used).
-11. **Delete raw** only after merge + audit pass + ledger update.
+5. **Source-check / currency** (`AGENTS.md`: "validate, audit, and source-check generated content … be especially strict with medication, lab, dosage, prioritization, and delegation items"). Several §2 priority topics sit in or adjacent to that heightened-strictness set — Dosage Calculations, Diabetic Ketoacidosis (DKA), Burn Management, Electroconvulsive Therapy (ECT), Suicide & Crisis Intervention. Any item on these topics gets a currency check against an authoritative source (professional guideline, drug label, or established clinical reference) as part of cross-model review or the Claude gate — flag stale or non-standard clinical claims before promotion, not after.
+6. **Claude promotion gate** → I adjudicate the §4 clinical-validity floor, especially the bowtie differential/parameter pools, plus any flags from the source-check step above, before anything lands. This is the last step before promotion.
+7. **Promote** → `npm run promote` (shuffle + validate → `banks/_promoted/`).
+8. **Audit** → `npm run audit` (raw draft + staged promoted file both present for `audit:integrity`).
+9. **Consolidate** → `npm run consolidate -- --dry-run` then `npm run consolidate` (route, ID-collision gate, recount).
+10. **Census + docs** → `npm run census` (regenerates `census.json` + `BANK-CENSUS.md`), commit both alongside the bank change or `census:check` fails CI.
+11. **Ledger** → update `BANK-REVIEW-LEDGER.md`: status, and the deleted raw source filename under Merged Source Batches. `Chain:` line names the generate + non-generating-reviewer + source-check + Claude-gate roles (no case-skeleton fact-check step applies here — these are direct standalone items, not skeleton-derived, so do **not** write the forward-case `Opus → GPT compile → Gemini review` chain; write the direct-lane chain actually used).
+12. **Delete raw** only after merge + audit pass + ledger update.
 
 ## 7. Acceptance
 
-- [ ] Two raw batches generated (6 bowtie, 6 highlight), each spread across ≥4 §2 priority topics
+- [ ] Two raw batches generated (6 bowtie, 6 highlight), neither generated by Claude, each spread across ≥4 §2 priority topics
 - [ ] Each sub-batch reviewed by a non-generating model, then Claude-gated on the §4 floor
 - [ ] Bowtie differentials confirmed genuinely-competing; "irrelevant" parameters confirmed truly orthogonal — the direct-lane clinical-validity conditions
 - [ ] Highlight correct-sets confirmed bounded (not "highlight everything"); distractor segments confirmed real near-misses
+- [ ] Dosage/DKA/burn/ECT/suicide-adjacent items source-checked against an authoritative reference per the §6 source-check step
 - [ ] `validate-bank`, `promote`, `audit`, `consolidate` all green; no ID collisions
 - [ ] `npm run census` regenerated and committed; `BANK-CENSUS.md` shows bowtie/highlight counts moved up
 - [ ] `BANK-REVIEW-LEDGER.md` updated with correct direct-lane `Chain:` line and deleted raw filenames
