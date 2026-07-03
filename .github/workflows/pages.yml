@@ -30,6 +30,12 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Typecheck
+        run: npx tsc -b --pretty false
+
+      - name: Validate banks
+        run: npm run validate-bank -- banks/*.json
+
       - name: Build
         run: npm run build
 

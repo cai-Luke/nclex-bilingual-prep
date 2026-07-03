@@ -14,14 +14,14 @@ The app is a static offline Vite + React + TypeScript NCLEX-RN practice tool. It
 
 Core learning features are implemented: all schema item types render and grade, case studies are supported, sessions are resumable, custom sessions can be built from filters, the dashboard summarizes performance, flags feed review pools, glossary flashcards have their own SRS progress, and adaptive exam-condition practice is available without any pass/fail readiness claim.
 
-Current canonical banks (see [BANK-CENSUS.md](BANK-CENSUS.md); 1,665 top-level, 721 embedded parts, 160 visuals as of 2026-07-01):
+Current canonical banks (see [BANK-CENSUS.md](BANK-CENSUS.md); 1,701 top-level, 721 embedded parts, 196 visuals as of 2026-07-02):
 
 - `banks/burn-canonical.json` (8 schema v1.2 burn-map visual items)
 - `banks/capnography-canonical.json` (7 schema v1.2 capnography visual items; dedicated home for capnography kind)
 - `banks/claude-canonical.json` (97 bilingual Claude/Opus-source questions; ledgered content review complete; schema v1.6 for typed unfolding-case metadata)
 - `banks/device-canonical.json` (8 schema v1.2 device-screen visual items)
 - `banks/gemini-canonical.json` (874 bilingual Gemini-source questions; includes original + pending batches + traditional/easy/gap-fill/format-backfill/standalone NGN consolidations minus redundant/flawed questions; schema v1.6)
-- `banks/gpt-canonical.json` (498 bilingual GPT-source questions; ledgered content review complete; schema v1.6 for typed unfolding-case metadata)
+- `banks/gpt-canonical.json` (534 bilingual GPT-source questions; ledgered content review complete; schema v1.7 for visual-capable GPT content)
 - `banks/hard-cases-canonical.json` (66 top-level hard/NGN items; ledgered content review complete; schema v1.6 for typed unfolding-case metadata)
 - `banks/io-canonical.json` (8 schema v1.2 intake/output record visual items)
 - `banks/lab-canonical.json` (20 schema v1.2 lab_trend visual items; dedicated home for lab_trend kind)
@@ -49,12 +49,22 @@ The committed NGN item-type set is complete. Rationale/dyad scoring and an expli
 
 > Milestones dated **2026-06-23 and earlier** are archived in [`Archive/PROJECT-HISTORY-ARCHIVE.md`](Archive/PROJECT-HISTORY-ARCHIVE.md). Only the current arc (2026-06-24 onward) is kept here.
 
+### GPT Evergreen Generation Prompt (Jul 3)
+
+Completed:
+- Added `gpt-evergreen-generation-prompt.md` as a reusable maintenance-mode content-generation handoff for spare GPT usage.
+- Scoped the prompt to self-target against the committed census, exclude visual/case-study/pediatric-burn lanes, and output raw `gpt-` prefixed batches for the existing review and promotion pipeline.
+
+Verification:
+- Documentation-only prompt addition; no bank content or app runtime behavior changed.
+
 ### Case Footer + Option Marker UI Polish (Jul 2)
 
 Completed:
 - Replaced raw option-id display in MC/SATA option rows, option audio labels, and option-mapped per-choice rationales with stable A/B/C/D markers while preserving raw `refId` fallback for non-option rationale entries.
 - Moved the split case-study part navigator and "Submit all parts" control out of the top of the work pane into a desktop sticky footer rendered after the active part content.
 - Added desktop-only footer flex styling with full case-content width, compact wrapping at narrower desktop widths, and a mobile safety override that leaves <=820px behavior static.
+- Added a deploy quality gate to `.github/workflows/pages.yml`: the Pages build job now runs `npx tsc -b --pretty false` and `npm run validate-bank -- banks/*.json` before `npm run build`, so direct pushes to `main` cannot deploy type errors or invalid bank JSON (Vite's esbuild build transpiles without typechecking; the PR promotion gate does not cover direct pushes).
 
 Verification:
 - `npx tsc -b --pretty false` passed.
