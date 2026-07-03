@@ -49,6 +49,18 @@ The committed NGN item-type set is complete. Rationale/dyad scoring and an expli
 
 > Milestones dated **2026-06-23 and earlier** are archived in [`Archive/PROJECT-HISTORY-ARCHIVE.md`](Archive/PROJECT-HISTORY-ARCHIVE.md). Only the current arc (2026-06-24 onward) is kept here.
 
+### Case Footer + Option Marker UI Polish (Jul 2)
+
+Completed:
+- Replaced raw option-id display in MC/SATA option rows, option audio labels, and option-mapped per-choice rationales with stable A/B/C/D markers while preserving raw `refId` fallback for non-option rationale entries.
+- Moved the split case-study part navigator and "Submit all parts" control out of the top of the work pane into a desktop sticky footer rendered after the active part content.
+- Added desktop-only footer flex styling with full case-content width, compact wrapping at narrower desktop widths, and a mobile safety override that leaves <=820px behavior static.
+
+Verification:
+- `npx tsc -b --pretty false` passed.
+- `npm run build` passed with the existing Vite chunk-size warning.
+- Browser smoke in Preview Lab passed at 1280x800, 1000x800, and 800x800: desktop footer pinned full-width at bottom, chart and active question were visible together with no toolbar between them, option markers/audio labels/rationale labels used A-D with no raw `opt_*` leak, and mobile stacked mode remained footer-free.
+
 ### GPT Visual Content Prompt Split (Jul 2)
 
 Completed:

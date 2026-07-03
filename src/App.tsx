@@ -172,6 +172,10 @@ type GptRescuePrompt = {
   prominent?: boolean;
 };
 
+function optionMarker(index: number): string {
+  return index < 26 ? String.fromCharCode(65 + index) : String(index + 1);
+}
+
 const standaloneRescueLabel = "Ask GPT about this question / 让 GPT 讲讲这道题";
 const casePartRescueLabel = "Ask GPT about this case part / 让 GPT 讲讲这个案例部分";
 
@@ -3634,6 +3638,7 @@ function OptionAnswerControl({
 }) {
   const selectedIds = answer.optionIds ?? (question.itemType === "ordered_response" ? question.options.map((option) => option.id) : []);
   const optionsById = new Map(question.options.map((option) => [option.id, option]));
+  const optionIndexById = new Map(question.options.map((option, index) => [option.id, index] as const));
 
   const toggleOption = (optionId: string) => {
     if (submitted || question.itemType === "ordered_response") return;
@@ -3678,7 +3683,11 @@ function OptionAnswerControl({
                 onTerm={onTerm}
                 revealOnEnglishClick={false}
               />
-              <SpeakButton text={option.en} enabled={voiceEnabled} label={`Read option ${option.id}`} />
+              <SpeakButton
+                text={option.en}
+                enabled={voiceEnabled}
+                label={`Read option ${optionMarker(optionIndexById.get(option.id) ?? index)}`}
+              />
               <div className="order-buttons">
                 <button type="button" onClick={() => moveOrderedOption(option.id, -1)} disabled={submitted || index === 0}>
                   <MoveUp aria-hidden="true" />
@@ -3702,7 +3711,7 @@ function OptionAnswerControl({
 
   return (
     <div className="options-list">
-      {question.options.map((option) => {
+      {question.options.map((option, optionIndex) => {
         const selected = selectedIds.includes(option.id);
         const correct = question.correct.includes(option.id);
         const statusClass = submitted ? (correct ? "correct" : selected ? "incorrect" : "") : selected ? "selected" : "";
@@ -3725,7 +3734,7 @@ function OptionAnswerControl({
             <span className="option-control" aria-hidden="true">
               {question.itemType === "multiple_choice" ? (selected ? "●" : "○") : selected ? "☑" : "☐"}
             </span>
-            <span className="option-id">{option.id}</span>
+            <span className="option-id">{optionMarker(optionIndex)}</span>
             <BilingualText
               pair={option}
               mode={languageMode}
@@ -3735,7 +3744,7 @@ function OptionAnswerControl({
               revealOnEnglishClick={false}
             />
             <span className="option-audio-control" onClick={(event) => event.stopPropagation()}>
-              <SpeakButton text={option.en} enabled={voiceEnabled} label={`Read option ${option.id}`} />
+              <SpeakButton text={option.en} enabled={voiceEnabled} label={`Read option ${optionMarker(optionIndex)}`} />
             </span>
           </div>
         );
@@ -4085,7 +4094,24 @@ function CaseStudyControl({
       />
 
       <div className="exam-split-work-pane" ref={workPaneRef}>
-        <div className="case-work-toolbar">
+        {caseQuestions.map((caseQuestion, index) => (
+          <CaseActivePart
+            key={caseQuestion.id}
+            caseQuestion={caseQuestion}
+            index={index}
+            total={caseQuestions.length}
+            answer={caseAnswers[caseQuestion.id] ?? getInitialAnswer(caseQuestion)}
+            submitted={submitted}
+            languageMode={languageMode}
+            voiceEnabled={voiceEnabled}
+            focused={focusedPartId === caseQuestion.id}
+            hidden={caseQuestion.id !== activeQuestion?.id}
+            onTerm={onTerm}
+            onAnswer={(nextAnswer) => updateCaseAnswer(caseQuestion.id, nextAnswer)}
+            rescuePrompt={casePartRescuePrompts?.[caseQuestion.id]}
+          />
+        ))}
+        <div className="case-work-toolbar case-work-footer">
           <CasePartNavigator
             question={question}
             caseAnswers={caseAnswers}
@@ -4106,23 +4132,6 @@ function CaseStudyControl({
             </button>
           )}
         </div>
-        {caseQuestions.map((caseQuestion, index) => (
-          <CaseActivePart
-            key={caseQuestion.id}
-            caseQuestion={caseQuestion}
-            index={index}
-            total={caseQuestions.length}
-            answer={caseAnswers[caseQuestion.id] ?? getInitialAnswer(caseQuestion)}
-            submitted={submitted}
-            languageMode={languageMode}
-            voiceEnabled={voiceEnabled}
-            focused={focusedPartId === caseQuestion.id}
-            hidden={caseQuestion.id !== activeQuestion?.id}
-            onTerm={onTerm}
-            onAnswer={(nextAnswer) => updateCaseAnswer(caseQuestion.id, nextAnswer)}
-            rescuePrompt={casePartRescuePrompts?.[caseQuestion.id]}
-          />
-        ))}
       </div>
     </div>
   );
@@ -4635,6 +4644,9 @@ function RationalePanel({
   languageMode: LanguageMode;
 }) {
   const choiceRationales = question.rationale.byChoice ?? [];
+  const optionIndexById = new Map<string, number>(
+    ("options" in question ? question.options : []).map((option, index) => [option.id, index] as const),
+  );
   return (
     <section className="rationale-panel">
       <div className="rationale-heading">
@@ -4657,7 +4669,7 @@ function RationalePanel({
           <div className="choice-rationales">
             {choiceRationales.map((choice) => (
               <div key={choice.refId}>
-                <strong>{choice.refId}</strong>
+                <strong>{optionIndexById.has(choice.refId) ? optionMarker(optionIndexById.get(choice.refId)!) : choice.refId}</strong>
                 <BilingualText pair={choice} mode={languageMode} block="rationale" />
               </div>
             ))}
