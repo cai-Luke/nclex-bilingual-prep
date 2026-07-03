@@ -14,14 +14,14 @@ The app is a static offline Vite + React + TypeScript NCLEX-RN practice tool. It
 
 Core learning features are implemented: all schema item types render and grade, case studies are supported, sessions are resumable, custom sessions can be built from filters, the dashboard summarizes performance, flags feed review pools, glossary flashcards have their own SRS progress, and adaptive exam-condition practice is available without any pass/fail readiness claim.
 
-Current canonical banks (see [BANK-CENSUS.md](BANK-CENSUS.md); 1,701 top-level, 721 embedded parts, 196 visuals as of 2026-07-02):
+Current canonical banks (see [BANK-CENSUS.md](BANK-CENSUS.md); 1,707 top-level, 721 embedded parts, 196 visuals as of 2026-07-03):
 
 - `banks/burn-canonical.json` (8 schema v1.2 burn-map visual items)
 - `banks/capnography-canonical.json` (7 schema v1.2 capnography visual items; dedicated home for capnography kind)
 - `banks/claude-canonical.json` (97 bilingual Claude/Opus-source questions; ledgered content review complete; schema v1.6 for typed unfolding-case metadata)
 - `banks/device-canonical.json` (8 schema v1.2 device-screen visual items)
 - `banks/gemini-canonical.json` (874 bilingual Gemini-source questions; includes original + pending batches + traditional/easy/gap-fill/format-backfill/standalone NGN consolidations minus redundant/flawed questions; schema v1.6)
-- `banks/gpt-canonical.json` (534 bilingual GPT-source questions; ledgered content review complete; schema v1.7 for visual-capable GPT content)
+- `banks/gpt-canonical.json` (540 bilingual GPT-source questions; ledgered content review complete; schema v1.7 for visual-capable GPT content)
 - `banks/hard-cases-canonical.json` (66 top-level hard/NGN items; ledgered content review complete; schema v1.6 for typed unfolding-case metadata)
 - `banks/io-canonical.json` (8 schema v1.2 intake/output record visual items)
 - `banks/lab-canonical.json` (20 schema v1.2 lab_trend visual items; dedicated home for lab_trend kind)
@@ -55,9 +55,13 @@ Completed:
 - Added `gpt-evergreen-generation-prompt.md` as a reusable maintenance-mode content-generation handoff for spare GPT usage.
 - Scoped the prompt to self-target against the committed census, exclude visual/case-study/pediatric-burn lanes, and output raw `gpt-` prefixed batches for the existing review and promotion pipeline.
 - Revised the prompt after initial litigation with fail-closed repo access, flexible topic-fit format selection, matrix-specific quality floors, non-under-served format justification, and timestamped batch/file IDs for same-day parallel chats.
+- Promoted the first 6-item evergreen smoke batch (`gpt-2026-07-03-1344-t1.json`) into `banks/gpt-canonical.json` after Claude Architect review and one ordered-response semantic remediation; `gpt-canonical.json` moved 534→540.
 
 Verification:
-- Documentation-only prompt addition; no bank content or app runtime behavior changed.
+- `npm run normalize-raw-bank -- banks/banks-raw/gpt-2026-07-03-1344-t1.json` reported 0 structural changes after remediation.
+- `npm run validate-bank -- banks/banks-raw/gpt-2026-07-03-1344-t1.json` passed.
+- `npm run promote`, `npm run audit`, `npm run consolidate -- --dry-run`, and `npm run consolidate` passed.
+- `npm run census` regenerated `census.json` and `BANK-CENSUS.md`.
 
 ### Case Footer + Option Marker UI Polish (Jul 2)
 

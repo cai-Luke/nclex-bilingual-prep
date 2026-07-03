@@ -1,7 +1,7 @@
 {
   "meta": {
     "schemaVersion": "1.7",
-    "count": 534,
+    "count": 540,
     "exam": "NCLEX-RN",
     "topic": "assorted NCLEX-RN GPT canonical bank",
     "category": "mixed",
@@ -99891,6 +99891,676 @@
           "new lower back and flank pain"
         ]
       }
+    },
+    {
+      "id": "gpt_2026_07_03_1344_t1_01",
+      "itemType": "bowtie",
+      "category": "Physiological Adaptation",
+      "topic": "Diabetic Ketoacidosis (DKA)",
+      "difficulty": "hard",
+      "ngnSkill": "take_action",
+      "stem": {
+        "en": "A 22-year-old client with type 1 diabetes arrives with vomiting, abdominal pain, deep rapid respirations, and dry mucous membranes. Laboratory results: glucose 428 mg/dL, pH 7.22, bicarbonate 12 mEq/L, beta-hydroxybutyrate positive, potassium 5.6 mEq/L, sodium 132 mEq/L. The client is alert but weak. Complete the diagram.",
+        "zh": "一名22岁1型糖尿病患者因呕吐、腹痛、深而快的呼吸和黏膜干燥就诊。实验室结果：血糖428 mg/dL，pH 7.22，碳酸氢盐12 mEq/L，β-羟丁酸阳性，血钾5.6 mEq/L，血钠132 mEq/L。患者清醒但虚弱。完成图示。"
+      },
+      "bowtie": {
+        "condition": {
+          "prompt": {
+            "en": "Most likely condition",
+            "zh": "最可能的病情"
+          },
+          "tokens": [
+            {
+              "id": "c_dka",
+              "en": "Diabetic ketoacidosis",
+              "zh": "糖尿病酮症酸中毒"
+            },
+            {
+              "id": "c_hhs",
+              "en": "Hyperosmolar hyperglycemic state",
+              "zh": "高渗高血糖状态"
+            },
+            {
+              "id": "c_resp_alk",
+              "en": "Respiratory alkalosis from anxiety",
+              "zh": "焦虑导致的呼吸性碱中毒"
+            }
+          ],
+          "correct": "c_dka"
+        },
+        "actions": {
+          "prompt": {
+            "en": "Actions to take",
+            "zh": "应采取的措施"
+          },
+          "tokens": [
+            {
+              "id": "a_restrict",
+              "en": "Restrict oral and IV fluids until glucose normalizes",
+              "zh": "在血糖恢复正常前限制口服和静脉液体"
+            },
+            {
+              "id": "a_insulin",
+              "en": "Prepare the prescribed regular insulin infusion",
+              "zh": "准备医嘱的常规胰岛素输注"
+            },
+            {
+              "id": "a_bicarb",
+              "en": "Administer sodium bicarbonate routinely before fluids",
+              "zh": "在补液前常规给予碳酸氢钠"
+            },
+            {
+              "id": "a_fluids",
+              "en": "Start isotonic IV fluid replacement as prescribed",
+              "zh": "按医嘱开始等渗静脉补液"
+            }
+          ],
+          "correct": [
+            "a_fluids",
+            "a_insulin"
+          ]
+        },
+        "parameters": {
+          "prompt": {
+            "en": "Parameters to monitor",
+            "zh": "应监测的指标"
+          },
+          "tokens": [
+            {
+              "id": "p_lipase",
+              "en": "Serum lipase alone",
+              "zh": "仅监测血清脂肪酶"
+            },
+            {
+              "id": "p_peak_flow",
+              "en": "Peak expiratory flow",
+              "zh": "呼气峰流速"
+            },
+            {
+              "id": "p_k",
+              "en": "Serum potassium",
+              "zh": "血清钾"
+            },
+            {
+              "id": "p_gap_glucose",
+              "en": "Glucose trend and anion gap",
+              "zh": "血糖趋势和阴离子间隙"
+            }
+          ],
+          "correct": [
+            "p_k",
+            "p_gap_glucose"
+          ]
+        }
+      },
+      "rationale": {
+        "correct": {
+          "en": "Hyperglycemia with metabolic acidosis, low bicarbonate, ketones, dehydration, abdominal pain, and Kussmaul-type respirations supports diabetic ketoacidosis. Initial management includes isotonic fluid replacement and insulin therapy while closely monitoring potassium and closure of the anion gap.",
+          "zh": "高血糖伴代谢性酸中毒、碳酸氢盐降低、酮体阳性、脱水、腹痛和库斯莫尔样呼吸，支持糖尿病酮症酸中毒。初始处理包括等渗补液和胰岛素治疗，同时密切监测血钾以及阴离子间隙是否闭合。"
+        },
+        "byChoice": [
+          {
+            "refId": "c_dka",
+            "en": "Ketones plus metabolic acidosis distinguish diabetic ketoacidosis from isolated hyperglycemia.",
+            "zh": "酮体阳性合并代谢性酸中毒，可将糖尿病酮症酸中毒与单纯高血糖区分开。"
+          },
+          {
+            "refId": "c_hhs",
+            "en": "Hyperosmolar hyperglycemic state usually has more severe hyperglycemia and little or no ketoacidosis.",
+            "zh": "高渗高血糖状态通常血糖更高，且很少或没有酮症酸中毒。"
+          },
+          {
+            "refId": "c_resp_alk",
+            "en": "Deep rapid respirations here are compensation for metabolic acidosis, not the primary problem.",
+            "zh": "此处深快呼吸是对代谢性酸中毒的代偿，不是原发问题。"
+          },
+          {
+            "refId": "a_fluids",
+            "en": "Fluid replacement treats the dehydration and supports perfusion before and during insulin therapy.",
+            "zh": "补液可纠正脱水并在胰岛素治疗前后支持灌注。"
+          },
+          {
+            "refId": "a_insulin",
+            "en": "Insulin is needed to stop ketone production and lower glucose, with potassium surveillance.",
+            "zh": "需要胰岛素来停止酮体生成并降低血糖，同时监测血钾。"
+          },
+          {
+            "refId": "a_bicarb",
+            "en": "Routine bicarbonate is not a first action for the data given and should not replace fluids and insulin.",
+            "zh": "根据所给资料，常规使用碳酸氢钠不是首要措施，也不能替代补液和胰岛素。"
+          },
+          {
+            "refId": "a_restrict",
+            "en": "Fluid restriction worsens dehydration and perfusion in this presentation.",
+            "zh": "限制液体会加重此表现中的脱水和灌注不足。"
+          },
+          {
+            "refId": "p_k",
+            "en": "Potassium can fall quickly after insulin begins even when the initial value is elevated.",
+            "zh": "即使初始血钾升高，开始胰岛素后血钾也可能迅速下降。"
+          },
+          {
+            "refId": "p_gap_glucose",
+            "en": "Glucose and anion gap trends show response to therapy and resolution of ketoacidosis.",
+            "zh": "血糖和阴离子间隙趋势可显示治疗反应及酮症酸中毒是否缓解。"
+          },
+          {
+            "refId": "p_lipase",
+            "en": "Lipase may be relevant if pancreatitis is suspected, but it does not monitor DKA response.",
+            "zh": "若怀疑胰腺炎，脂肪酶可能相关，但不能监测DKA治疗反应。"
+          },
+          {
+            "refId": "p_peak_flow",
+            "en": "Peak flow assesses bronchospasm, not this metabolic emergency.",
+            "zh": "呼气峰流速用于评估支气管痉挛，而不是此代谢急症。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Match the acid-base pattern to the action: ketones plus low bicarbonate point to DKA, then think fluids, insulin, potassium, and gap closure.",
+        "zh": "将酸碱模式与措施相匹配：酮体阳性加碳酸氢盐降低指向DKA，然后考虑补液、胰岛素、钾和阴离子间隙闭合。"
+      },
+      "glossary": [
+        {
+          "termEn": "anion gap",
+          "termZh": "阴离子间隙",
+          "defZh": "用于反映未测量阴离子增多的计算值，DKA治疗反应中常用于观察酸中毒是否改善"
+        },
+        {
+          "termEn": "Kussmaul respirations",
+          "termZh": "库斯莫尔呼吸",
+          "defZh": "深而快的代偿性呼吸，常见于代谢性酸中毒"
+        }
+      ]
+    },
+    {
+      "id": "gpt_2026_07_03_1344_t1_02",
+      "itemType": "highlight",
+      "category": "Reduction of Risk Potential",
+      "topic": "Renal & Gastrointestinal Disorders",
+      "difficulty": "medium",
+      "ngnSkill": "analyze_cues",
+      "stem": {
+        "en": "Highlight the findings in the nurse's note that require prompt follow-up for possible acute kidney injury or electrolyte complication.",
+        "zh": "标出护士记录中需要及时跟进、提示可能急性肾损伤或电解质并发症的发现。"
+      },
+      "highlight": {
+        "segments": [
+          {
+            "id": "s1",
+            "en": "0730 note: Client is 12 hours after a colectomy.",
+            "zh": "0730记录：患者结肠切除术后12小时。"
+          },
+          {
+            "id": "s2",
+            "en": "Urine output has been 18 mL total over the last 3 hours.",
+            "zh": "过去3小时总尿量为18毫升。",
+            "selectable": true
+          },
+          {
+            "id": "s3",
+            "en": "Serum creatinine increased from 0.9 to 1.8 mg/dL since admission.",
+            "zh": "血清肌酐自入院以来从0.9升至1.8 mg/dL。",
+            "selectable": true
+          },
+          {
+            "id": "s4",
+            "en": "Potassium is 5.9 mEq/L.",
+            "zh": "血钾为5.9 mEq/L。",
+            "selectable": true
+          },
+          {
+            "id": "s5",
+            "en": "The abdominal dressing has a 2 cm area of dried serosanguineous drainage.",
+            "zh": "腹部敷料有2厘米范围的干燥浆血性渗液。",
+            "selectable": true
+          },
+          {
+            "id": "s6",
+            "en": "The client reports incisional pain of 4 out of 10 after repositioning.",
+            "zh": "翻身后患者报告切口疼痛4/10。",
+            "selectable": true
+          }
+        ],
+        "correct": [
+          "s2",
+          "s3",
+          "s4"
+        ]
+      },
+      "rationale": {
+        "correct": {
+          "en": "Very low urine output, a doubled creatinine, and hyperkalemia are concerning for acute kidney injury with an electrolyte complication. A small area of dried postoperative drainage and moderate incisional pain after repositioning require routine assessment but are not the urgent renal cues.",
+          "zh": "尿量明显减少、肌酐翻倍和高钾血症提示急性肾损伤并伴电解质并发症风险。少量干燥术后渗液和翻身后的中等切口疼痛需要常规评估，但不是紧急肾脏线索。"
+        },
+        "byChoice": [
+          {
+            "refId": "s2",
+            "en": "Oliguria over several hours is a key cue for impaired kidney perfusion or kidney injury.",
+            "zh": "数小时少尿是肾灌注受损或肾损伤的重要线索。"
+          },
+          {
+            "refId": "s3",
+            "en": "The creatinine rise supports a decline in kidney filtration compared with baseline.",
+            "zh": "肌酐升高支持与基线相比肾滤过功能下降。"
+          },
+          {
+            "refId": "s4",
+            "en": "Hyperkalemia can become life-threatening and requires prompt follow-up.",
+            "zh": "高钾血症可能危及生命，需要及时跟进。"
+          },
+          {
+            "refId": "s5",
+            "en": "A small dried drainage area is not the urgent renal or electrolyte cue in this note.",
+            "zh": "少量干燥渗液不是本记录中的紧急肾脏或电解质线索。"
+          },
+          {
+            "refId": "s6",
+            "en": "Moderate incisional pain after movement is expected to assess and treat, but it does not indicate AKI.",
+            "zh": "活动后中等切口疼痛需要评估和处理，但并不提示急性肾损伤。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "In highlight items, separate urgent physiologic trend cues from expected postoperative findings.",
+        "zh": "做标记题时，将紧急生理趋势线索与预期术后发现区分开。"
+      },
+      "glossary": [
+        {
+          "termEn": "oliguria",
+          "termZh": "少尿",
+          "defZh": "尿量异常减少，可能提示肾灌注不足或肾功能受损"
+        },
+        {
+          "termEn": "creatinine",
+          "termZh": "肌酐",
+          "defZh": "常用于评估肾脏滤过功能的血液指标"
+        }
+      ]
+    },
+    {
+      "id": "gpt_2026_07_03_1344_t1_03",
+      "itemType": "ordered_response",
+      "category": "Psychosocial Integrity",
+      "topic": "Suicide & Crisis Intervention",
+      "difficulty": "hard",
+      "ngnSkill": "take_action",
+      "stem": {
+        "en": "A client in the emergency department said, 'I am going to take all these pills when I leave.' The nurse stayed with the client, called for help, and the pill bottle has been removed from the client's access. The facility protocol says that after immediate safety is secured, the nurse should complete a focused suicide risk assessment, activate suicide safety precautions, notify the provider or crisis team with the assessed risk, give a safety handoff to the observation staff, and then document. Place the next nursing actions in protocol order.",
+        "zh": "急诊科一名患者曾说：“我离开后就把这些药全吃了。”护士已留在患者身边、呼叫协助，并且药瓶已从患者可接触范围内移除。机构流程规定，在即时安全得到保障后，护士应先完成重点自杀风险评估，启动自杀安全预防措施，将评估出的风险通知医护提供者或危机团队，向负责观察的工作人员进行安全交接，然后记录。请按流程顺序排列接下来的护理措施。"
+      },
+      "options": [
+        {
+          "id": "E",
+          "en": "Document the assessment findings, safety precautions, notifications, handoff, and client response.",
+          "zh": "记录评估发现、安全预防措施、通知情况、交接内容和患者反应。"
+        },
+        {
+          "id": "A",
+          "en": "Ask directly about current intent, plan details, access to additional means, prior attempts, substance use, and protective supports.",
+          "zh": "直接询问目前意图、计划细节、是否还能接触其他手段、既往尝试、物质使用以及保护性支持。"
+        },
+        {
+          "id": "B",
+          "en": "Activate suicide safety precautions, including continuous observation and environmental safety measures.",
+          "zh": "启动自杀安全预防措施，包括持续观察和环境安全措施。"
+        },
+        {
+          "id": "D",
+          "en": "Give a safety handoff to the observation staff, including statements, means removed, and cues that require escalation.",
+          "zh": "向负责观察的工作人员进行安全交接，包括患者陈述、已移除的手段以及需要升级处理的线索。"
+        },
+        {
+          "id": "C",
+          "en": "Notify the provider or crisis evaluation team of the assessed risk and actions already taken.",
+          "zh": "将评估出的风险和已采取的措施通知医护提供者或危机评估团队。"
+        }
+      ],
+      "correct": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ],
+      "rationale": {
+        "correct": {
+          "en": "The stem states that immediate safety has already been secured and gives the facility's next-step protocol. The nurse first completes the focused suicide risk assessment, then activates safety precautions, notifies the provider or crisis team with the assessed risk, gives the safety handoff to observation staff, and documents the assessment and actions.",
+          "zh": "题干说明即时安全已经得到保障，并给出了机构后续步骤流程。护士先完成重点自杀风险评估，然后启动安全预防措施，将评估出的风险通知医护提供者或危机团队，向观察工作人员进行安全交接，最后记录评估和措施。"
+        },
+        "byChoice": [
+          {
+            "refId": "E",
+            "en": "Documentation follows the assessment, precautions, notifications, and handoff so the record reflects the complete safety response.",
+            "zh": "记录应在评估、预防措施、通知和交接之后进行，以便病历反映完整的安全应对过程。"
+          },
+          {
+            "refId": "D",
+            "en": "The observation staff need a safety handoff before assuming monitoring responsibility.",
+            "zh": "观察工作人员在承担监测责任前需要获得安全交接。"
+          },
+          {
+            "refId": "C",
+            "en": "The provider or crisis team needs the assessed risk and actions already taken to determine urgent orders and disposition.",
+            "zh": "医护提供者或危机团队需要评估出的风险和已采取的措施，以决定紧急医嘱和处置去向。"
+          },
+          {
+            "refId": "A",
+            "en": "The focused risk assessment comes first because the remaining actions depend on the client's current intent, plan, means, history, and protective supports.",
+            "zh": "重点风险评估排在第一，因为后续措施取决于患者当前意图、计划、手段、病史和保护性支持。"
+          },
+          {
+            "refId": "B",
+            "en": "Safety precautions and continuous observation are activated after the focused risk is identified and while urgent evaluation is arranged.",
+            "zh": "识别重点风险后，在安排紧急评估的同时启动安全预防和持续观察。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "For ordered-response safety items, identify what has already been done in the stem, then follow the stated protocol before documenting.",
+        "zh": "做安全类排序题时，先确认题干中哪些措施已经完成，再按给出的流程执行，最后记录。"
+      },
+      "glossary": [
+        {
+          "termEn": "lethal means",
+          "termZh": "致命手段",
+          "defZh": "患者可用于自伤或自杀的物品或方法，例如药物、武器或绳索"
+        },
+        {
+          "termEn": "continuous observation",
+          "termZh": "持续观察",
+          "defZh": "按机构流程对高风险患者进行不间断观察以维持安全"
+        }
+      ]
+    },
+    {
+      "id": "gpt_2026_07_03_1344_t1_04",
+      "itemType": "fill_in_blank",
+      "category": "Pharmacological and Parenteral Therapies",
+      "topic": "Dosage Calculations",
+      "difficulty": "medium",
+      "ngnSkill": "analyze_cues",
+      "stem": {
+        "en": "The prescription is heparin 1,200 units/hour IV. The infusion bag contains heparin 25,000 units in 500 mL of D5W. At how many mL/hour should the nurse program the infusion pump? Round to the nearest whole number.",
+        "zh": "医嘱为肝素每小时1,200单位静脉输注。输液袋含肝素25,000单位，溶于500毫升D5W。护士应将输液泵设为每小时多少毫升？四舍五入到最接近的整数。"
+      },
+      "blanks": [
+        {
+          "id": "rate",
+          "prompt": {
+            "en": "mL/hour",
+            "zh": "毫升/小时"
+          },
+          "acceptable": [
+            "24",
+            "24 mL/hour",
+            "24 mL/hr"
+          ],
+          "numeric": {
+            "value": 24,
+            "tolerance": 0,
+            "unit": "mL/hour"
+          }
+        }
+      ],
+      "rationale": {
+        "correct": {
+          "en": "The concentration is 25,000 units/500 mL = 50 units/mL. The ordered rate is 1,200 units/hour. 1,200 divided by 50 = 24 mL/hour.",
+          "zh": "浓度为25,000单位/500毫升 = 50单位/毫升。医嘱速率为每小时1,200单位。1,200除以50 = 每小时24毫升。"
+        },
+        "byChoice": [
+          {
+            "refId": "rate",
+            "en": "The blank asks for the pump rate in mL/hour after converting units/hour through the bag concentration.",
+            "zh": "该空要求先通过输液袋浓度将单位/小时换算为毫升/小时的泵速。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Find units per mL first, then divide the ordered units per hour by that concentration.",
+        "zh": "先求每毫升含多少单位，再用每小时医嘱单位数除以该浓度。"
+      },
+      "glossary": [
+        {
+          "termEn": "infusion concentration",
+          "termZh": "输注浓度",
+          "defZh": "每单位体积溶液中所含药物剂量"
+        },
+        {
+          "termEn": "heparin",
+          "termZh": "肝素",
+          "defZh": "一种抗凝药，输注剂量通常需要严密核对"
+        }
+      ]
+    },
+    {
+      "id": "gpt_2026_07_03_1344_t1_05",
+      "itemType": "dropdown_cloze",
+      "category": "Physiological Adaptation",
+      "topic": "Burn Management",
+      "difficulty": "hard",
+      "ngnSkill": "analyze_cues",
+      "stem": {
+        "en": "An adult client weighing 70 kg has partial-thickness and full-thickness burns over 30% total body surface area. The burns occurred at 1400, and the client arrives at 1500. The provider's order says: use the traditional Parkland formula, 4 mL lactated Ringer's x kg body weight x percent TBSA burned; give half of the calculated volume during the first 8 hours from the time of burn injury and the rest over the next 16 hours.",
+        "zh": "一名体重70 kg的成人患者有占体表总面积30%的浅二度及深度烧伤。烧伤发生于1400，患者1500到达。医嘱写明：使用传统Parkland公式，乳酸林格液4 mL x 体重kg x 烧伤TBSA百分比；从烧伤发生时间起前8小时给予计算总量的一半，其余在接下来的16小时给予。"
+      },
+      "clozeStem": {
+        "en": "The nurse should plan for a total first-24-hour fluid volume of {{1}} and recognize that the first-half timing begins at {{2}}.",
+        "zh": "护士应计划首24小时总补液量为 {{1}}，并认识到前一半液体的计时从 {{2}} 开始。"
+      },
+      "dropdowns": [
+        {
+          "id": "1",
+          "options": [
+            {
+              "id": "vol_4200",
+              "en": "4,200 mL",
+              "zh": "4,200毫升"
+            },
+            {
+              "id": "vol_12600",
+              "en": "12,600 mL",
+              "zh": "12,600毫升"
+            },
+            {
+              "id": "vol_8400",
+              "en": "8,400 mL",
+              "zh": "8,400毫升"
+            }
+          ],
+          "correct": "vol_8400"
+        },
+        {
+          "id": "2",
+          "options": [
+            {
+              "id": "time_order",
+              "en": "the time the IV order is entered",
+              "zh": "静脉补液医嘱录入时间"
+            },
+            {
+              "id": "time_arrival",
+              "en": "1500, the time of arrival",
+              "zh": "1500，即到达时间"
+            },
+            {
+              "id": "time_burn",
+              "en": "1400, the time the burns occurred",
+              "zh": "1400，即烧伤发生时间"
+            }
+          ],
+          "correct": "time_burn"
+        }
+      ],
+      "rationale": {
+        "correct": {
+          "en": "Using the stated traditional Parkland formula: 4 mL x 70 kg x 30 = 8,400 mL for the first 24 hours. Half is timed from the burn injury, not arrival, so the first-half window began at 1400.",
+          "zh": "按题干给出的传统Parkland公式计算：4 mL x 70 kg x 30 = 首24小时8,400毫升。一半液体从烧伤发生时间开始计时，而不是从到达时间开始，因此前一半液体的时间窗从1400开始。"
+        },
+        "byChoice": [
+          {
+            "refId": "1",
+            "en": "The first dropdown asks for the total 24-hour calculated volume, not only the first half.",
+            "zh": "第一个下拉空询问的是计算出的24小时总量，而不是仅前一半。"
+          },
+          {
+            "refId": "2",
+            "en": "The second dropdown asks when the first-half clock starts; the stem states it starts at burn injury.",
+            "zh": "第二个下拉空询问前一半液体的计时起点；题干说明从烧伤发生时开始。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "For burn calculations, read the formula and timing rule in the stem before calculating.",
+        "zh": "做烧伤计算题时，先阅读题干中的公式和计时规则，再进行计算。"
+      },
+      "glossary": [
+        {
+          "termEn": "Parkland formula",
+          "termZh": "Parkland公式",
+          "defZh": "用于估算烧伤早期液体复苏量的传统公式，具体常数应以题干给出的规则为准"
+        },
+        {
+          "termEn": "TBSA",
+          "termZh": "体表总面积",
+          "defZh": "total body surface area的缩写，表示烧伤面积占全身体表面积的百分比"
+        }
+      ]
+    },
+    {
+      "id": "gpt_2026_07_03_1344_t1_06",
+      "itemType": "matrix",
+      "category": "Psychosocial Integrity",
+      "topic": "Electroconvulsive Therapy (ECT)",
+      "difficulty": "medium",
+      "ngnSkill": "recognize_cues",
+      "stem": {
+        "en": "A client is scheduled for electroconvulsive therapy at 0900. For each finding or action, classify whether it is expected preprocedure nursing care or whether it requires holding the procedure and notifying the anesthesia or ECT team before treatment.",
+        "zh": "一名患者计划于0900接受电休克治疗。请将每项发现或措施分类为预期的术前护理，或需要暂停治疗并在治疗前通知麻醉或ECT团队。"
+      },
+      "matrix": {
+        "rows": [
+          {
+            "id": "r_npo",
+            "en": "Verify that the client has been NPO as required by the facility protocol.",
+            "zh": "确认患者已按机构流程禁食禁饮。"
+          },
+          {
+            "id": "r_consent",
+            "en": "Confirm that informed consent is present before transport.",
+            "zh": "转运前确认已取得知情同意。"
+          },
+          {
+            "id": "r_dentures",
+            "en": "Remove dentures and loose removable oral appliances.",
+            "zh": "取下假牙和松动的可摘口腔装置。"
+          },
+          {
+            "id": "r_fever",
+            "en": "Temperature is 38.6 C with a new productive cough.",
+            "zh": "体温38.6 C，并出现新的咳痰。"
+          },
+          {
+            "id": "r_chest_pain",
+            "en": "The client reports new crushing chest pain.",
+            "zh": "患者报告新发压榨样胸痛。"
+          }
+        ],
+        "columns": [
+          {
+            "id": "c_expected",
+            "en": "Expected preprocedure care",
+            "zh": "预期的术前护理"
+          },
+          {
+            "id": "c_hold_notify",
+            "en": "Hold and notify team",
+            "zh": "暂停并通知团队"
+          }
+        ],
+        "selectionMode": "single_per_row"
+      },
+      "correct": [
+        {
+          "rowId": "r_npo",
+          "columnIds": [
+            "c_expected"
+          ]
+        },
+        {
+          "rowId": "r_consent",
+          "columnIds": [
+            "c_expected"
+          ]
+        },
+        {
+          "rowId": "r_dentures",
+          "columnIds": [
+            "c_expected"
+          ]
+        },
+        {
+          "rowId": "r_fever",
+          "columnIds": [
+            "c_hold_notify"
+          ]
+        },
+        {
+          "rowId": "r_chest_pain",
+          "columnIds": [
+            "c_hold_notify"
+          ]
+        }
+      ],
+      "rationale": {
+        "correct": {
+          "en": "Routine ECT preparation includes verifying NPO status, consent, and removal of dentures or loose oral appliances. Fever with a new productive cough and new crushing chest pain may affect anesthesia and cardiovascular risk, so the procedure should be held until the team evaluates the client.",
+          "zh": "常规ECT准备包括确认禁食禁饮状态、知情同意，以及取下假牙或松动口腔装置。发热伴新发咳痰和新发压榨样胸痛可能影响麻醉和心血管风险，因此应暂停治疗，等待团队评估。"
+        },
+        "byChoice": [
+          {
+            "refId": "r_npo",
+            "en": "NPO verification is expected because ECT involves anesthesia.",
+            "zh": "由于ECT涉及麻醉，确认禁食禁饮是预期护理。"
+          },
+          {
+            "refId": "r_consent",
+            "en": "Consent must be confirmed before treatment and transport.",
+            "zh": "治疗和转运前必须确认知情同意。"
+          },
+          {
+            "refId": "r_dentures",
+            "en": "Removing dentures and loose oral appliances reduces airway and injury risk.",
+            "zh": "取下假牙和松动口腔装置可降低气道和损伤风险。"
+          },
+          {
+            "refId": "r_fever",
+            "en": "Fever with a productive cough raises concern for an acute respiratory infection before anesthesia.",
+            "zh": "发热伴咳痰提示麻醉前可能存在急性呼吸道感染。"
+          },
+          {
+            "refId": "r_chest_pain",
+            "en": "New crushing chest pain requires evaluation before an elective anesthetic procedure.",
+            "zh": "新发压榨样胸痛需要在择期麻醉操作前评估。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "For preprocedure matrix items, separate routine preparation steps from new findings that change anesthesia or cardiovascular risk.",
+        "zh": "做术前矩阵题时，将常规准备步骤与会改变麻醉或心血管风险的新发现区分开。"
+      },
+      "glossary": [
+        {
+          "termEn": "ECT",
+          "termZh": "电休克治疗",
+          "defZh": "在麻醉下诱发短暂治疗性癫痫发作的一种精神科治疗"
+        },
+        {
+          "termEn": "NPO",
+          "termZh": "禁食禁饮",
+          "defZh": "术前或麻醉前按规定不进食、不饮水"
+        }
+      ]
     }
   ]
 }

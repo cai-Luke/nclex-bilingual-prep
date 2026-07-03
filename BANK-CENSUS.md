@@ -2,8 +2,8 @@
 
 # NCLEX Bank Census
 
-Generated: 2026-07-02T22:05:13.919Z
-Git SHA: 6d44e963a0339dcda9fb66593d3b33b1edf9e70f
+Generated: 2026-07-03T18:38:56.695Z
+Git SHA: 8a6aabb428ed37ee0da9e4244ad57743f1dac8e4
 
 ## Per-File Summary
 
@@ -14,7 +14,7 @@ Git SHA: 6d44e963a0339dcda9fb66593d3b33b1edf9e70f
 | claude-canonical.json | 1.6 | 97 | 97 | — |
 | device-canonical.json | 1.2 | 8 | 8 | — |
 | gemini-canonical.json | 1.6 | 874 | 874 | — |
-| gpt-canonical.json | 1.7 | 534 | 534 | — |
+| gpt-canonical.json | 1.7 | 540 | 540 | — |
 | hard-cases-canonical.json | 1.6 | 66 | 66 | — |
 | io-canonical.json | 1.2 | 8 | 8 | — |
 | lab-canonical.json | 1.2 | 20 | 20 | — |
@@ -25,21 +25,21 @@ Git SHA: 6d44e963a0339dcda9fb66593d3b33b1edf9e70f
 
 ## Totals
 
-- Top-level questions: 1701
+- Top-level questions: 1707
 - Case study top-level: 143
 - Embedded parts: 721
-- Graded total: 2422
+- Graded total: 2428
 
 ## By Category
 
-- Psychosocial Integrity: 158
+- Psychosocial Integrity: 160
 - Health Promotion and Maintenance: 162
 - Basic Care and Comfort: 165
-- Reduction of Risk Potential: 200
+- Reduction of Risk Potential: 201
 - Safety and Infection Control: 210
-- Pharmacological and Parenteral Therapies: 261
+- Pharmacological and Parenteral Therapies: 262
 - Management of Care: 265
-- Physiological Adaptation: 280
+- Physiological Adaptation: 282
 
 ## Within-Category Concentration
 
@@ -60,7 +60,7 @@ Visual kinds: none
 
 ### Psychosocial Integrity
 
-Top topics: Mental Health Disorders (63), Therapeutic Communication (27), Suicide & Crisis Intervention (23), Substance Use & Withdrawal (18), Caregiver Role Strain & Family Coping (6), Electroconvulsive Therapy (ECT) (4), caregiver burden and family adaptation (3), Bipolar I - Acute Manic Episode (1), Caregiver burden after dementia discharge (1), caregiver strain (1)
+Top topics: Mental Health Disorders (63), Therapeutic Communication (27), Suicide & Crisis Intervention (24), Substance Use & Withdrawal (18), Caregiver Role Strain & Family Coping (6), Electroconvulsive Therapy (ECT) (5), caregiver burden and family adaptation (3), Bipolar I - Acute Manic Episode (1), Caregiver burden after dementia discharge (1), caregiver strain (1)
 Visual kinds: none
 
 ### Basic Care and Comfort
@@ -70,7 +70,7 @@ Visual kinds: burn_map (1), device_screen (1), io_record (4)
 
 ### Pharmacological and Parenteral Therapies
 
-Top topics: Medication Safety & Admin (54), Dosage Calculations (53), Anticoagulant Therapy (43), Cardiovascular & Endocrine Medications (32), Psychotropic Medications (15), Parenteral Nutrition (10), High-Alert Medication Safety (6), Nutritional & Fluid Support (3), Antibiotic Allergy Screening (2), Cardiovascular Disorders (2)
+Top topics: Dosage Calculations (54), Medication Safety & Admin (54), Anticoagulant Therapy (43), Cardiovascular & Endocrine Medications (32), Psychotropic Medications (15), Parenteral Nutrition (10), High-Alert Medication Safety (6), Nutritional & Fluid Support (3), Antibiotic Allergy Screening (2), Cardiovascular Disorders (2)
 Visual kinds: capnography (3), device_screen (6), lab_trend (6), mar (9), medication_label (12), rhythm_strip (10), vitals_trend (8)
 
 ### Reduction of Risk Potential
@@ -80,32 +80,32 @@ Visual kinds: burn_map (5), capnography (6), device_screen (3), fetal_monitoring
 
 ### Physiological Adaptation
 
-Top topics: Cardiovascular Disorders (74), Endocrine & Neurological Disorders (35), Renal & Gastrointestinal Disorders (34), Electrolyte Imbalances (26), Burn Management (15), Diabetic Ketoacidosis (DKA) (13), Respiratory & Infectious Disorders (13), Sepsis & Septic Shock (8), Oncology & Immunotherapy Complications (6), ABG & Acid-Base Interpretation (2)
+Top topics: Cardiovascular Disorders (74), Endocrine & Neurological Disorders (35), Renal & Gastrointestinal Disorders (34), Electrolyte Imbalances (26), Burn Management (16), Diabetic Ketoacidosis (DKA) (14), Respiratory & Infectious Disorders (13), Sepsis & Septic Shock (8), Oncology & Immunotherapy Complications (6), ABG & Acid-Base Interpretation (2)
 Visual kinds: burn_map (5), capnography (11), io_record (2), lab_trend (7), rhythm_strip (37), vitals_trend (12)
 
 ## By Item Type
 
-- bowtie: 110
-- highlight: 112
+- bowtie: 111
+- highlight: 113
 - case_study: 143
-- fill_in_blank: 157
-- dropdown_cloze: 159
-- ordered_response: 161
-- matrix: 189
+- fill_in_blank: 158
+- dropdown_cloze: 160
+- ordered_response: 162
+- matrix: 190
 - select_all: 217
 - multiple_choice: 453
 
 ## By Difficulty
 
 - easy: 226
-- hard: 583
-- medium: 892
+- hard: 586
+- medium: 895
 
 ## By Schema Version
 
 - v1.2: 77 questions (burn-canonical.json, capnography-canonical.json, device-canonical.json, io-canonical.json, lab-canonical.json, mar-canonical.json, medlabel-canonical.json, vitals-canonical.json)
 - v1.6: 1037 questions (claude-canonical.json, gemini-canonical.json, hard-cases-canonical.json)
-- v1.7: 587 questions (gpt-canonical.json, visual-canonical.json)
+- v1.7: 593 questions (gpt-canonical.json, visual-canonical.json)
 
 ## By Source File
 
@@ -114,7 +114,7 @@ Visual kinds: burn_map (5), capnography (11), io_record (2), lab_trend (7), rhyt
 - claude-canonical.json: 97
 - device-canonical.json: 8
 - gemini-canonical.json: 874
-- gpt-canonical.json: 534
+- gpt-canonical.json: 540
 - hard-cases-canonical.json: 66
 - io-canonical.json: 8
 - lab-canonical.json: 20
@@ -313,23 +313,23 @@ No duplicates detected.
 ## Targets
 
 Category targets (2026 NCLEX-RN test-plan weights):
-- Management of Care: 306.2
-- Safety and Infection Control: 221.1
-- Health Promotion and Maintenance: 153.1
-- Psychosocial Integrity: 153.1
-- Basic Care and Comfort: 153.1
-- Pharmacological and Parenteral Therapies: 272.2
-- Reduction of Risk Potential: 204.1
-- Physiological Adaptation: 238.1
-Item type average: 189.0
+- Management of Care: 307.3
+- Safety and Infection Control: 221.9
+- Health Promotion and Maintenance: 153.6
+- Psychosocial Integrity: 153.6
+- Basic Care and Comfort: 153.6
+- Pharmacological and Parenteral Therapies: 273.1
+- Reduction of Risk Potential: 204.8
+- Physiological Adaptation: 239.0
+Item type average: 189.7
 
 Under-served item types:
-- bowtie: 110
-- highlight: 112
+- bowtie: 111
+- highlight: 113
 - case_study: 143
-- fill_in_blank: 157
-- dropdown_cloze: 159
-- ordered_response: 161
+- fill_in_blank: 158
+- dropdown_cloze: 160
+- ordered_response: 162
 
 ## Prompt Parameters
 
@@ -341,23 +341,23 @@ PRIORITIZE_TOPICS:
 - Substance Use & Withdrawal — add: ordered_response, fill_in_blank
 - Endocrine & Neurological Disorders — add: fill_in_blank
 - Suicide & Crisis Intervention — add: fill_in_blank, bowtie
-- Burn Management — add: ordered_response, dropdown_cloze, highlight
+- Burn Management — add: ordered_response, highlight
 - Electrolyte Imbalances — add: fill_in_blank
 - Standard Precautions & Hygiene — add: bowtie
-- Diabetic Ketoacidosis (DKA) — add: fill_in_blank, highlight, bowtie
+- Diabetic Ketoacidosis (DKA) — add: fill_in_blank, highlight
 - Injection route recognition from skin cross-section — add: select_all, ordered_response, fill_in_blank, matrix, dropdown_cloze, highlight, bowtie
 - Palliative & Supportive Care — add: select_all, dropdown_cloze
 - Pediatric & Toddler Safety — add: ordered_response
 - Client Advocacy — add: select_all, matrix
-- Electroconvulsive Therapy (ECT) — add: select_all, fill_in_blank, matrix, dropdown_cloze, highlight, bowtie
+- Electroconvulsive Therapy (ECT) — add: select_all, fill_in_blank, dropdown_cloze, highlight, bowtie
 - intrapartum fetal monitoring — add: ordered_response, fill_in_blank, dropdown_cloze, highlight
 - Reproductive & Endocrine Health — add: ordered_response, fill_in_blank, bowtie
-- bowtie (110 vs target 189.0)
-- highlight (112 vs target 189.0)
-- case_study (143 vs target 189.0)
-- fill_in_blank (157 vs target 189.0)
-- dropdown_cloze (159 vs target 189.0)
-- ordered_response (161 vs target 189.0)
+- bowtie (111 vs target 189.7)
+- highlight (113 vs target 189.7)
+- case_study (143 vs target 189.7)
+- fill_in_blank (158 vs target 189.7)
+- dropdown_cloze (160 vs target 189.7)
+- ordered_response (162 vs target 189.7)
 - accidental tracheostomy dislodgement
 - Acute decompensated heart failure
 - Acute Decompensated Heart Failure (ADHF)
