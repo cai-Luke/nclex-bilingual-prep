@@ -21,11 +21,13 @@ Read these from `https://github.com/cai-Luke/nclex-bilingual-prep` (main branch)
 2. `BANK-CENSUS.md` — the live gap map. Check its `Generated:` timestamp: if it is more than ~2 weeks old, stop and tell Luke the census looks stale instead of generating against it.
 3. `AGENTS.md` § Question Bank Workflow — the pipeline your output enters.
 
+**Fail closed on repo access.** If you cannot actually fetch and read these files right now, stop and say so — ask Luke to re-run this in a repo-enabled chat or paste the current files. Do not generate from memory, stale uploads, or inferred schema knowledge, and do not pretend a fetch succeeded. A batch authored blind wastes a review slot and Luke's usage.
+
 ## SELF-TARGETING RULES
 
 Derive your own batch allocation from `BANK-CENSUS.md`:
 
-- **Formats:** draw only from the census's "Under-served item types" list, excluding `case_study` (it has a separate pipeline). Weight toward the largest gaps first.
+- **Formats:** weight toward the census's "Under-served item types" list, largest gaps first, excluding `case_study` (it has a separate pipeline). Other standalone formats are permitted when a priority topic's `add:` list names them or topic-fit clearly favors them — over-generating a well-stocked format is acceptable; forcing a strained item into an under-served format is not.
 - **Topics:** prefer the `PRIORITIZE_TOPICS` entries whose "add:" list names a format you are generating — those close two gaps at once. Treat `AVOID_TOPICS` as soft de-emphasis, never a ban.
 - **Topic-fit overrides gap arithmetic.** If a priority topic does not yield a natural item in the chosen format — a bowtie whose differential would be artificial, a highlight passage with no real distractor sentence — skip to the next priority topic rather than forcing it. A strained item wastes a review slot.
 - Spread each 6-item batch across at least 4 distinct topics and at least 2 formats. Do not repeat a differential structure or stem template within a batch.
@@ -51,13 +53,14 @@ Derive your own batch allocation from `BANK-CENSUS.md`:
 - **select_all:** spread correct counts across the legal 2…N−1 range within the batch; no single count on more than half your SATA items.
 - **ordered_response:** vary framing across the batch (prioritization vs. procedure sequence vs. escalation sequence) and vary option counts (4/5/6).
 - **fill_in_blank:** blanks must be gradeable — a finite `acceptable[]` set and/or a `numeric` spec. No open-ended prose blanks.
+- **matrix:** every row must be unambiguously assignable from the vignette — no row where two columns are clinically defensible. The column set must apply meaningfully to every row; a row for which a column is nonsensical is filler. Use `multiple_per_row` only when rows genuinely take multiple answers.
 - **dropdown_cloze:** `{{id}}` placeholders present and matching in both language versions of the cloze stem.
 
 ## WORKFLOW PER BATCH
 
-1. **Plan first, in chat:** a short table of the 6 items — topic × format × the clinical decision each item tests (for bowties: the planned differential). Sanity-check the plan against the self-targeting rules before writing any JSON.
-2. **Then author the batch** as one JSON object per the schema doc, 6 questions, `meta.count` accurate, IDs prefixed `gpt_<YYYY_MM_DD>_t<TURN>_` and unique.
-3. **Self-check in chat** (do not claim validation — you cannot run the validator): no filler text, every `correct`/`refId` resolves, SATA count manifest for the batch, topics ≥4, formats ≥2, bilingual fields all non-empty.
-4. **Deliver as a downloadable file** named `gpt-<YYYY-MM-DD>-t<TURN>.json`. Do not paste the JSON into the chat body. If the file would truncate, reduce the item count for this turn rather than delivering a broken file.
+1. **Plan first, in chat:** a short table of the 6 items — topic × format × the clinical decision each item tests (for bowties: the planned differential). If any planned item uses a format not on the census's under-served list, that row carries a one-line justification for why the format fits the topic better than an under-served one. Sanity-check the plan against the self-targeting rules before writing any JSON.
+2. **Then author the batch** as one JSON object per the schema doc, 6 questions, `meta.count` accurate, IDs prefixed `gpt_<YYYY_MM_DD>_<HHMM>_t<TURN>_` and unique. `<HHMM>` is a session token: fix it at your first batch in this chat (use the current clock time) and keep it constant for every turn here. It exists because a second chat the same day — concurrent or later — restarts the turn counter at t1; never assume you own the day's turn counter, and never omit the token.
+3. **Self-check in chat** (do not claim validation — you cannot run the validator): no filler text, every `correct`/`refId` resolves, a SATA count manifest if the batch contains any `select_all` items (otherwise state "no SATA"), topics ≥4, formats ≥2, bilingual fields all non-empty.
+4. **Deliver as a downloadable file** named `gpt-<YYYY-MM-DD>-<HHMM>-t<TURN>.json` (same session token as the IDs). Do not paste the JSON into the chat body. If the file would truncate, reduce the item count for this turn rather than delivering a broken file.
 
 Each subsequent "next batch" request is a new turn: increment the turn suffix in filenames and IDs, re-derive the allocation (do not repeat the previous turn's topics if alternatives remain in the priority list), and keep every floor above in force.

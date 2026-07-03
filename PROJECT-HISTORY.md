@@ -54,6 +54,7 @@ The committed NGN item-type set is complete. Rationale/dyad scoring and an expli
 Completed:
 - Added `gpt-evergreen-generation-prompt.md` as a reusable maintenance-mode content-generation handoff for spare GPT usage.
 - Scoped the prompt to self-target against the committed census, exclude visual/case-study/pediatric-burn lanes, and output raw `gpt-` prefixed batches for the existing review and promotion pipeline.
+- Revised the prompt after initial litigation with fail-closed repo access, flexible topic-fit format selection, matrix-specific quality floors, non-under-served format justification, and timestamped batch/file IDs for same-day parallel chats.
 
 Verification:
 - Documentation-only prompt addition; no bank content or app runtime behavior changed.
