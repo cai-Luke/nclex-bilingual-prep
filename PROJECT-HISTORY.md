@@ -49,6 +49,16 @@ The committed NGN item-type set is complete. Rationale/dyad scoring and an expli
 
 > Milestones dated **2026-06-23 and earlier** are archived in [`Archive/PROJECT-HISTORY-ARCHIVE.md`](Archive/PROJECT-HISTORY-ARCHIVE.md). Only the current arc (2026-06-24 onward) is kept here.
 
+### Root Markdown Cleanup (Jul 3)
+
+Completed:
+- Archived completed root reports/specs into `Archive/root-cleanup-2026-07-03/`: adversarial audit findings from Jun 24/25, the split-screen feasibility investigation, the Vocab Rescue Phase 1 walkthrough, and the implemented Translation Telemetry V1.2b spec.
+- Kept live root guidance and active/reusable prompts in place, including `case-footer-and-option-marker-codex-spec.md`, `bowtie-highlight-topup-batch-spec.md`, and the generation prompts.
+- Added the Claude-authored `case-footer-and-option-marker-codex-spec.md` to version control.
+
+Verification:
+- `rg` reference scan updated current root/history/ledger/audit pointers to the archived paths.
+
 ### GPT Evergreen Generation Prompt (Jul 3)
 
 Completed:
@@ -103,7 +113,7 @@ Verification:
 
 Completed:
 - `gpt_deepen_2026_06_22_bow_12` adjudicated by Claude: stem narrates "frequent premature ventricular contractions," but both dropdown answers resolve without it — `action` (a1: notify provider, prepare K+ replacement) follows from symptomatic hypokalemia (K 2.9, cramps, weakness) alone, and `parameter` (p1: serum potassium + cardiac rhythm) is justified in the rationale by hypokalemia's general dysrhythmia risk, not the observed PVCs specifically. Converting to a `rhythm_strip` visual with a trimmed stem would leave both blanks unchanged — decorative under Principle 6. Confirmed keep-as-text, same disposition as `gemini_backfill_or_cardio_01` and `gemini_c10_07`. Closes the three-item deferral opened in "Rhythm Strip Bucket 1B Conversions (Jul 1)." No canonical bank content changed.
-- Archived implemented root specs and handoff notes into `Archive/root-cleanup-2026-07-02/`, leaving `translation-telemetry-v1-2-correctness-join-audit-candidates-spec.md` at root as the active Task 1 spec until implementation closeout.
+- Archived implemented root specs and handoff notes into `Archive/root-cleanup-2026-07-02/`, leaving `translation-telemetry-v1-2-correctness-join-audit-candidates-spec.md` at root as the active Task 1 spec until implementation closeout. The spec was archived after implementation closeout in `Archive/root-cleanup-2026-07-03/`.
 
 ### Rhythm Strip Placement Widening (Jul 1)
 
@@ -123,7 +133,7 @@ Verification:
 ### Translation Telemetry V1.2b Correctness Join (Jul 2)
 
 Completed:
-- Implemented the V1.2b analytic correctness join from `translation-telemetry-v1-2-correctness-join-audit-candidates-spec.md` without adding learner-facing UI, sampler weighting, or new instrumentation.
+- Implemented the V1.2b analytic correctness join from `Archive/root-cleanup-2026-07-03/translation-telemetry-v1-2-correctness-join-audit-candidates-spec.md` without adding learner-facing UI, sampler weighting, or new instrumentation.
 - Completed discovery against `src/storage.ts`, `src/types.ts`, `src/grading.ts`, and the `submitCurrent` path: V1.2a persists `sessionId`, `sessionMode`, and `languageModeAtAnswer`; on-demand reveal is `"on-tap"`; case-part joins use the same embedded part id for `CaseAnswerPartEvent.partId` and `TranslationRevealEvent.partId`; standalone joins use `sessionId + questionId`.
 - Added pure `summarizeTranslationFriction` support for eligible attempt buckets, pre-submit reveal aggregation, deterministic revealed-block ordering, part-level case-study audit candidates, fade trend rows, unresolved-current-bank handling, and join diagnostics.
 - Added a normalization adapter that excludes legacy answer rows and top-level case-study `AnswerEvent` rows before the pure summary, carrying both exclusion counts into diagnostics.
@@ -455,7 +465,7 @@ Verification:
 
 Completed:
 - Audited the current case-study, visual-stimulus, renderer, grading, session, storage, and CSS surfaces for an NCLEX/Pearson-style split-screen testing layout.
-- Added [`SPLIT-SCREEN-LAYOUT-INVESTIGATION-2026-06-28.md`](SPLIT-SCREEN-LAYOUT-INVESTIGATION-2026-06-28.md) with feasibility findings, bank-shape counts, risky stage-mapping IDs, renderer insertion points, and a phased implementation recommendation.
+- Added [`SPLIT-SCREEN-LAYOUT-INVESTIGATION-2026-06-28.md`](Archive/root-cleanup-2026-07-03/SPLIT-SCREEN-LAYOUT-INVESTIGATION-2026-06-28.md) with feasibility findings, bank-shape counts, risky stage-mapping IDs, renderer insertion points, and a phased implementation recommendation.
 - Recommended a renderer-only case-study split layout as PR #1, preserving top-level session identity and aggregate submit behavior, with conservative all-stage fallback for absent or invalid stage mappings.
 
 Verification:
@@ -573,7 +583,7 @@ Completed:
 - Added durable Vocab Rescue term derivation from missed questions plus manually language-tagged questions, using the existing glossary aggregation and flashcard SRS.
 - Added a Summary "Review missed terms" handoff that opens Vocab in a one-shot session-focused Rescue scope, with stale focus cleared on normal Vocab entry or after leaving the Flashcards view.
 - Added a `Rescue | All` scope control to Vocab and a `Vocab Rescue` chip for terms tied to manually language-tagged questions.
-- Added [`VOCAB-RESCUE-PHASE1-WALKTHROUGH.md`](VOCAB-RESCUE-PHASE1-WALKTHROUGH.md) in the project root to document the unfinished product state, manual QA flow, and future interview questions.
+- Added [`VOCAB-RESCUE-PHASE1-WALKTHROUGH.md`](Archive/root-cleanup-2026-07-03/VOCAB-RESCUE-PHASE1-WALKTHROUGH.md), originally in the project root, to document the unfinished product state, manual QA flow, and future interview questions.
 
 Verification:
 - `npx tsc -b --pretty false` passed.
@@ -603,7 +613,7 @@ Completed:
 
 Verification:
 - Parsed the merged manifest `audit/early-bank-semantic/coherence/ADVERSARIAL-AUDIT-2026-06-25.manifest.jsonl` (266 rows, 17 fields each, every line parses, all DISMISS, `needsHumanReview` 0).
-- Merged findings report: `ADVERSARIAL-AUDIT-FINDINGS-2026-06-25.md`; lane files `lanes/{claude,codex,gemini}.phaseB.*`.
+- Merged findings report: `Archive/root-cleanup-2026-07-03/ADVERSARIAL-AUDIT-FINDINGS-2026-06-25.md`; lane files `lanes/{claude,codex,gemini}.phaseB.*`.
 - No bank content changed, so counts are unchanged from the 2026-06-25 census regeneration (1,665 top-level / 721 embedded / 2,386 graded).
 
 ### Non-MCQ Bias Gate Phase 1 (Jun 26)
@@ -642,7 +652,7 @@ Verification:
 
 Completed:
 - Opened the Phase A adversarial semantic audit pilot for the regenerated coherence slice at `audit/early-bank-semantic/coherence/2026-06-24.slice.json`.
-- Completed the Gemini-flagged / Luke-adjudicated straggler review for the two Claude × GPT delegation pairs. Both candidate contradictions were dismissed/kept; the shared report and manifest are recorded in `ADVERSARIAL-AUDIT-FINDINGS-2026-06-24.md` and `audit/early-bank-semantic/coherence/ADVERSARIAL-AUDIT-2026-06-24.manifest.jsonl`.
+- Completed the Gemini-flagged / Luke-adjudicated straggler review for the two Claude × GPT delegation pairs. Both candidate contradictions were dismissed/kept; the shared report and manifest are recorded in `Archive/root-cleanup-2026-07-03/ADVERSARIAL-AUDIT-FINDINGS-2026-06-24.md` and `audit/early-bank-semantic/coherence/ADVERSARIAL-AUDIT-2026-06-24.manifest.jsonl`.
 - Completed the GPT-5/Codex assigned lane and wrote lane-scoped artifacts under `audit/early-bank-semantic/coherence/lanes/`: 5 coherence pairs plus 7 source-checked currency rows, with zero actionable findings and 14 DISMISS/keep manifest rows.
 - Completed the Claude coherence lane and the five-row Claude Opus currency exception. The merged pilot covers 109 unique items / 156 candidate pairs, with 117 DISMISS rows and 2 minor FIX rows.
 - Applied the two key-preserving Phase A coherence-polish corrections to `banks/gemini-canonical.json`: `gemini_c9_01` rationale summary option letter B→A in EN and ZH, and `gap_50_sic_03` ZH `流液`→`流感`.

@@ -597,7 +597,7 @@ Gate results: `npm run audit` **GATE PASSED** (references clean / positions χ²
 
 Status: `fixed-and-validated`. Applied the Phase A adversarial semantic audit's
 two minor, key-preserving FIX findings from
-`ADVERSARIAL-AUDIT-FINDINGS-2026-06-24.md`:
+`Archive/root-cleanup-2026-07-03/ADVERSARIAL-AUDIT-FINDINGS-2026-06-24.md`:
 
 - CONCERN #1, `gemini_c9_01`: corrected the `rationale.correct` summary option
   letter from B to A in both English and Chinese. The keyed answer remains
@@ -629,7 +629,7 @@ Status: `audit-complete` (advisory; no canonical content changed). Relational co
 
 Result: **0 contradictions; all 266 rows DISMISS; `needsHumanReview` 0.** Every pair resolved to a coherent shared-decision dismissal or NULL-COHERENCE no-shared-decision dismissal. All lanes are flag-only, so no `banks/*.json` file was mutated, no schema/promote/consolidate cycle ran, and all bank counts are unchanged. Luke independently reviewed all three lanes and concurs.
 
-Artifacts: merged findings `ADVERSARIAL-AUDIT-FINDINGS-2026-06-25.md`; merged manifest `audit/early-bank-semantic/coherence/ADVERSARIAL-AUDIT-2026-06-25.manifest.jsonl`; lane files `lanes/{claude,codex,gemini}.phaseB.*`. Architect quality finding on the Gemini lane: `Archive/root-cleanup-2026-06-26/CLAUDE-ARCHITECT-GEMINI-AUDIT-QUALITY-HANDOFF-2026-06-26.md` (decision recorded in `DECISIONS.md`).
+Artifacts: merged findings `Archive/root-cleanup-2026-07-03/ADVERSARIAL-AUDIT-FINDINGS-2026-06-25.md`; merged manifest `audit/early-bank-semantic/coherence/ADVERSARIAL-AUDIT-2026-06-25.manifest.jsonl`; lane files `lanes/{claude,codex,gemini}.phaseB.*`. Architect quality finding on the Gemini lane: `Archive/root-cleanup-2026-06-26/CLAUDE-ARCHITECT-GEMINI-AUDIT-QUALITY-HANDOFF-2026-06-26.md` (decision recorded in `DECISIONS.md`).
 
 ### 2026-07-01 — Pacemaker overlay + Bucket 1B content review (7 items across 3 canonical banks)
 
