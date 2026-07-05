@@ -64,6 +64,13 @@ Completed:
 - Added the source-unit-laundering gate WARN requested by Claude review: conflicting explicit vital units such as `RR 24 bpm` or `HR 118/min` now remain passable but surface as prose-normalization candidates instead of silently passing through the implicit-unit path.
 - Staged `EXHIBIT-FLOWSHEET-MIGRATION-BATCH-03-prose_embedded-2026-07-05.json` for prose-embedded manifest panels 21-40 and prepared `EXHIBIT-FLOWSHEET-MIGRATION-BATCH-03-ADJUDICATION-2026-07-05.md`; no canonical bank/schema/render writes.
 - After Batch 03 adjudicated clean in the checker seat, staged `EXHIBIT-FLOWSHEET-MIGRATION-BATCH-04-prose_embedded-2026-07-05.json` for prose-embedded manifest panels 41-60 and prepared tapered-sample `EXHIBIT-FLOWSHEET-MIGRATION-BATCH-04-ADJUDICATION-2026-07-05.md`; no canonical bank/schema/render writes.
+- After Batch 04 adjudicated clean, staged two additional tapered `prose_embedded` artifacts without
+  widening individual artifact size: Batch 05 covers manifest panels 61-80 with a 10-record checker
+  queue, and Batch 06 covers panels 81-100 with a 9-record checker queue; no canonical
+  bank/schema/render writes.
+- Closed the Batch 04 code-note by widening the serial timestamp detector to recognize relative
+  `hour N`, `day N`, and `N hours later/after` narration, while tightening the HR label pattern so
+  lowercase duration/rate `hr` does not masquerade as heart rate; added regression coverage.
 
 Verification:
 - `npm run test:measurement-allowlist` passed.
@@ -77,7 +84,12 @@ Verification:
 - The staged clean-KV batch gates with 0 FAIL / 0 WARN after keying magnesium `1.4 mEq/L` under the refined unit policy.
 - The staged prose-embedded Batch 02 gates with 0 FAIL / 9 WARN after the source-unit-laundering gate fix; independent Opus adjudication found no selection errors, making it the first clean full-adjudication prose batch.
 - The staged prose-embedded Batch 03 gates with 0 FAIL / 6 WARN and is pending the required 100% checker-seat adjudication.
-- The staged prose-embedded Batch 04 gates with 0 FAIL / 13 WARN and has a 10-record checker queue (5 seeded random + always-sampled).
+- The staged prose-embedded Batch 04 gates with 0 FAIL / 13 WARN and adjudicated clean on its
+  10-record tapered checker queue.
+- The staged prose-embedded Batch 05 gates with 0 FAIL / 9 WARN and has a 10-record checker queue
+  (5 seeded random + always-sampled).
+- The staged prose-embedded Batch 06 gates with 0 FAIL / 9 WARN and has a 9-record checker queue
+  (5 seeded random + always-sampled).
 
 ### Root Markdown Cleanup (Jul 3)
 

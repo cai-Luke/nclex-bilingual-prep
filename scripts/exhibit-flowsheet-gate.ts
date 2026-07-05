@@ -106,7 +106,7 @@ const IMPLICIT_SOURCE_UNITS: Record<string, Set<string>> = {
 const LABEL_PATTERNS: Array<{ key: string; re: RegExp }> = [
   { key: "bp",              re: /\bBP\b|blood pressure/gi }, // pseudo-key: expands to sbp+dbp downstream
   { key: "map",            re: /\bMAP\b/g },
-  { key: "hr",             re: /\bHR\b|heart rate|\bpulse\b/gi },
+  { key: "hr",             re: /\bHR\b|[Hh]eart rate|\b[Pp]ulse\b/g },
   { key: "rr",             re: /\bRR\b|respiratory rate/gi },
   { key: "spo2",           re: /\bSpO₂\b|\bSpO2\b|\bSaO2\b|O2 sat|oxygen saturation/gi },
   { key: "temp",           re: /\btemperature\b|\btemp\b/gi },
@@ -247,7 +247,7 @@ const buildBlindIndex = async (casesPath: string): Promise<ExhibitIndex> => {
 // set of parameter keys that look serial (empty = not serial).
 // ----------------------------------------------------------------------------
 
-const TIMESTAMP = /\b([01]?\d|2[0-3]):[0-5]\d\b|\b\d{1,2}:\d{2}\s?(?:AM|PM)\b|\b\d{1,2}\s?(?:AM|PM)\b|\b(?:[01]\d|2[0-3])[0-5]\d\b/gi;
+const TIMESTAMP = /\b([01]?\d|2[0-3]):[0-5]\d\b|\b\d{1,2}:\d{2}\s?(?:AM|PM)\b|\b\d{1,2}\s?(?:AM|PM)\b|\b(?:[01]\d|2[0-3])[0-5]\d\b|\bhour\s+\d+\b|\bday\s+\d+\b|\b\d+\s*(?:hr|hours?)\s+(?:later|after)\b/gi;
 
 const serialParams = (source: string): string[] => {
   const times = source.match(TIMESTAMP) ?? [];

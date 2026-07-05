@@ -198,6 +198,9 @@ const run = (record: ExtractionRecord, src = source): Finding[] => gateRecord(re
 {
   const serialSource = "At 0800 creatinine 1.1 mg/dL. At 1200 creatinine 1.4 mg/dL.";
   assert(serialParams(serialSource).includes("creatinine"), "serialParams should detect non-BP serial creatinine");
+  const hourSerialSource = "At hour 8, RR 18 and SpO2 97% on room air. At hour 12, RR 20 and SpO2 96% on room air.";
+  assert(serialParams(hourSerialSource).includes("rr"), "serialParams should detect relative-hour serial RR");
+  assert(serialParams(hourSerialSource).includes("spo2"), "serialParams should detect relative-hour serial SpO2");
   const cleanSkip: ExtractionRecord = { exhibitRef: "test/serial", lane: "skip_serial" };
   assert(!hasFinding(run(cleanSkip, serialSource), "FAIL", "extra keys"), "well-formed skip_serial should pass shape check");
   const dirtySkip: ExtractionRecord = { exhibitRef: "test/serial", lane: "skip_serial", panel: [] };
