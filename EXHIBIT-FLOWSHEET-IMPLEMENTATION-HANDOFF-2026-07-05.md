@@ -48,6 +48,12 @@ banks or schema fields were written.
   - Gate result: 0 FAIL, 6 WARN.
   - `EXHIBIT-FLOWSHEET-MIGRATION-BATCH-03-ADJUDICATION-2026-07-05.md` is prepared for the required
     100% checker-seat adjudication.
+- `EXHIBIT-FLOWSHEET-MIGRATION-BATCH-04-prose_embedded-2026-07-05.json`
+  - 20 records from the third `prose_embedded` manifest slice.
+  - Gate result: 0 FAIL, 13 WARN.
+  - Because Batch 02 and Batch 03 both adjudicated clean, Batch 04 uses tapered sampling:
+    5 seeded-random records plus always-sampled records, documented in
+    `EXHIBIT-FLOWSHEET-MIGRATION-BATCH-04-ADJUDICATION-2026-07-05.md`.
 - `EXHIBIT-FLOWSHEET-MIGRATION-LEDGER-2026-07-05.md`
   - Tracks Batch 01 proof status and Batch 02 staged/pending-adjudication status.
 
@@ -88,6 +94,9 @@ Update after Claude green light: Batch 02 stages the first 20 `prose_embedded` r
 
 Batch 03 is now staged and gate-clean; it is the second required 100% `prose_embedded` batch and is
 pending checker-seat adjudication.
+
+Update after checker-seat review: Batch 03 adjudicated clean, so Batch 04 is staged with the tapered
+sample protocol.
 
 ## Verification Run
 

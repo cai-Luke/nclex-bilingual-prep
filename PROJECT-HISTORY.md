@@ -63,6 +63,7 @@ Completed:
 - Widened source-unit handling uncovered by the first prose batch: CBC count source units now accept ASCII `/mm3` alongside `/mm³`, PTT `sec` converts to canonical seconds, and unitless/ratio-style measurements such as pH/INR can pass Rule C without a literal unit token in source prose.
 - Added the source-unit-laundering gate WARN requested by Claude review: conflicting explicit vital units such as `RR 24 bpm` or `HR 118/min` now remain passable but surface as prose-normalization candidates instead of silently passing through the implicit-unit path.
 - Staged `EXHIBIT-FLOWSHEET-MIGRATION-BATCH-03-prose_embedded-2026-07-05.json` for prose-embedded manifest panels 21-40 and prepared `EXHIBIT-FLOWSHEET-MIGRATION-BATCH-03-ADJUDICATION-2026-07-05.md`; no canonical bank/schema/render writes.
+- After Batch 03 adjudicated clean in the checker seat, staged `EXHIBIT-FLOWSHEET-MIGRATION-BATCH-04-prose_embedded-2026-07-05.json` for prose-embedded manifest panels 41-60 and prepared tapered-sample `EXHIBIT-FLOWSHEET-MIGRATION-BATCH-04-ADJUDICATION-2026-07-05.md`; no canonical bank/schema/render writes.
 
 Verification:
 - `npm run test:measurement-allowlist` passed.
@@ -76,6 +77,7 @@ Verification:
 - The staged clean-KV batch gates with 0 FAIL / 0 WARN after keying magnesium `1.4 mEq/L` under the refined unit policy.
 - The staged prose-embedded Batch 02 gates with 0 FAIL / 9 WARN after the source-unit-laundering gate fix; independent Opus adjudication found no selection errors, making it the first clean full-adjudication prose batch.
 - The staged prose-embedded Batch 03 gates with 0 FAIL / 6 WARN and is pending the required 100% checker-seat adjudication.
+- The staged prose-embedded Batch 04 gates with 0 FAIL / 13 WARN and has a 10-record checker queue (5 seeded random + always-sampled).
 
 ### Root Markdown Cleanup (Jul 3)
 
