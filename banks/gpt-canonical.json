@@ -1,7 +1,7 @@
 {
   "meta": {
     "schemaVersion": "1.7",
-    "count": 540,
+    "count": 558,
     "exam": "NCLEX-RN",
     "topic": "assorted NCLEX-RN GPT canonical bank",
     "category": "mixed",
@@ -100559,6 +100559,2056 @@
           "termEn": "NPO",
           "termZh": "禁食禁饮",
           "defZh": "术前或麻醉前按规定不进食、不饮水"
+        }
+      ]
+    },
+    {
+      "id": "gpt_2026_07_03_2114_t1_01_co_exposure_bowtie",
+      "itemType": "bowtie",
+      "category": "Safety and Infection Control",
+      "topic": "Patient & Environment Safety",
+      "difficulty": "hard",
+      "ngnSkill": "take_action",
+      "stem": {
+        "en": "A school nurse is called to a closed maintenance room where two staff members who were using a gas-powered floor buffer report headache, nausea, and dizziness. One staff member is confused. The pulse oximeter reads 99%. A wall carbon monoxide alarm is sounding. Complete the diagram.",
+        "zh": "学校护士被叫到一间关闭的维修室。两名工作人员刚使用燃气地板打磨机后出现头痛、恶心和头晕，其中一人意识混乱。脉搏血氧仪显示 99%。墙上的一氧化碳报警器正在响。请完成图示。"
+      },
+      "bowtie": {
+        "condition": {
+          "prompt": {
+            "en": "Most likely condition",
+            "zh": "最可能的情况"
+          },
+          "tokens": [
+            {
+              "id": "c_panic",
+              "en": "Panic attack",
+              "zh": "惊恐发作"
+            },
+            {
+              "id": "c_opioid",
+              "en": "Opioid toxicity",
+              "zh": "阿片类药物中毒"
+            },
+            {
+              "id": "c_co",
+              "en": "Carbon monoxide exposure",
+              "zh": "一氧化碳暴露"
+            }
+          ],
+          "correct": "c_co"
+        },
+        "actions": {
+          "prompt": {
+            "en": "Actions to take",
+            "zh": "应采取的措施"
+          },
+          "tokens": [
+            {
+              "id": "a_oxygen",
+              "en": "Administer high-flow oxygen by nonrebreather mask per emergency protocol",
+              "zh": "按紧急预案使用非再呼吸面罩给予高流量氧气"
+            },
+            {
+              "id": "a_finish_report",
+              "en": "Keep the clients in the room until the incident report is completed",
+              "zh": "让患者留在房间内直到事件报告完成"
+            },
+            {
+              "id": "a_paper_bag",
+              "en": "Coach the clients to breathe into a paper bag",
+              "zh": "指导患者对着纸袋呼吸"
+            },
+            {
+              "id": "a_fresh_air",
+              "en": "Move the clients to fresh air and activate emergency response",
+              "zh": "将患者转移到新鲜空气处并启动紧急应急流程"
+            }
+          ],
+          "correct": [
+            "a_fresh_air",
+            "a_oxygen"
+          ]
+        },
+        "parameters": {
+          "prompt": {
+            "en": "Parameters to monitor",
+            "zh": "应监测的指标"
+          },
+          "tokens": [
+            {
+              "id": "p_spo2",
+              "en": "Pulse oximeter saturation as the main indicator of oxygenation",
+              "zh": "将脉搏血氧饱和度作为氧合的主要指标"
+            },
+            {
+              "id": "p_glucose",
+              "en": "Capillary blood glucose every 15 minutes",
+              "zh": "每 15 分钟测一次毛细血糖"
+            },
+            {
+              "id": "p_cohb",
+              "en": "Carboxyhemoglobin level",
+              "zh": "碳氧血红蛋白水平"
+            },
+            {
+              "id": "p_neuro",
+              "en": "Level of consciousness and neurologic status",
+              "zh": "意识水平和神经系统状态"
+            }
+          ],
+          "correct": [
+            "p_cohb",
+            "p_neuro"
+          ]
+        }
+      },
+      "rationale": {
+        "correct": {
+          "en": "The shared headache, nausea, dizziness, confusion, closed room, gas-powered equipment, and sounding carbon monoxide alarm point to carbon monoxide exposure. The nurse should remove the clients from the exposure, activate emergency response, give high-flow oxygen per protocol, and monitor carboxyhemoglobin and neurologic status. A normal pulse oximeter reading does not rule out this exposure.",
+          "zh": "两人同时出现头痛、恶心、头晕，一人意识混乱，加上关闭空间、燃气设备和一氧化碳报警器响，最符合一氧化碳暴露。护士应立即脱离暴露环境、启动紧急应急流程、按预案给予高流量氧气，并监测碳氧血红蛋白和神经系统状态。脉搏血氧仪读数正常不能排除此类暴露。"
+        },
+        "byChoice": [
+          {
+            "refId": "c_co",
+            "en": "Carbon monoxide exposure matches the environmental cue and the cluster of nonspecific neurologic and gastrointestinal symptoms.",
+            "zh": "一氧化碳暴露与环境线索以及非特异性的神经和胃肠症状组合相符。"
+          },
+          {
+            "refId": "c_panic",
+            "en": "Panic attack can cause dizziness and distress, but it does not explain the gas equipment, alarm, and simultaneous symptoms in two people.",
+            "zh": "惊恐发作可导致头晕和不适，但不能解释燃气设备、报警器以及两人同时出现症状。"
+          },
+          {
+            "refId": "c_opioid",
+            "en": "Opioid toxicity would more strongly suggest respiratory depression and decreased responsiveness without the environmental alarm cue.",
+            "zh": "阿片类药物中毒更常提示呼吸抑制和反应下降，且缺少环境报警线索。"
+          },
+          {
+            "refId": "a_fresh_air",
+            "en": "Removing the clients from the contaminated room stops ongoing exposure and is an immediate safety action.",
+            "zh": "将患者移出污染房间可以停止继续暴露，是立即的安全措施。"
+          },
+          {
+            "refId": "a_oxygen",
+            "en": "High-flow oxygen helps displace carbon monoxide from hemoglobin and is appropriate when the emergency protocol authorizes it.",
+            "zh": "高流量氧气有助于使一氧化碳从血红蛋白上解离；在紧急预案授权时是合适措施。"
+          },
+          {
+            "refId": "a_paper_bag",
+            "en": "Paper-bag breathing treats a presumed anxiety episode and would delay treatment of a hazardous exposure.",
+            "zh": "纸袋呼吸是假设为焦虑发作的处理，会延误危险暴露的治疗。"
+          },
+          {
+            "refId": "a_finish_report",
+            "en": "Documentation is important after safety is addressed, but keeping clients in the exposure area is unsafe.",
+            "zh": "安全处理后需要记录，但让患者继续留在暴露区域是不安全的。"
+          },
+          {
+            "refId": "p_cohb",
+            "en": "Carboxyhemoglobin directly supports the diagnosis and helps guide severity assessment.",
+            "zh": "碳氧血红蛋白能直接支持诊断，并帮助评估严重程度。"
+          },
+          {
+            "refId": "p_neuro",
+            "en": "Neurologic status tracks severity because confusion can indicate significant tissue hypoxia despite a normal pulse oximeter number.",
+            "zh": "神经系统状态可反映严重程度，因为即使脉搏血氧数字正常，意识混乱也可能提示组织缺氧明显。"
+          },
+          {
+            "refId": "p_spo2",
+            "en": "Pulse oximetry can appear falsely reassuring in carbon monoxide exposure and should not be the main indicator.",
+            "zh": "一氧化碳暴露时脉搏血氧可能呈现假性正常，不能作为主要判断指标。"
+          },
+          {
+            "refId": "p_glucose",
+            "en": "Frequent glucose checks are not the priority parameter for this exposure unless a separate diabetic emergency is suspected.",
+            "zh": "除非另有糖尿病急症疑虑，频繁测血糖不是此类暴露的优先监测指标。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "When several people become ill in the same enclosed space, prioritize an environmental exposure before assuming a primary psychiatric cause.",
+        "zh": "多人在同一密闭空间同时不适时，先考虑环境暴露，而不要先假设为单纯心理原因。"
+      },
+      "glossary": [
+        {
+          "termEn": "carbon monoxide",
+          "termZh": "一氧化碳",
+          "defZh": "一种无色无味气体，可与血红蛋白结合并影响氧气输送"
+        },
+        {
+          "termEn": "carboxyhemoglobin",
+          "termZh": "碳氧血红蛋白",
+          "defZh": "一氧化碳与血红蛋白结合形成的复合物"
+        },
+        {
+          "termEn": "nonrebreather mask",
+          "termZh": "非再呼吸面罩",
+          "defZh": "用于给予高浓度氧气的面罩"
+        }
+      ]
+    },
+    {
+      "id": "gpt_2026_07_03_2114_t1_02_refusal_communication_or",
+      "itemType": "ordered_response",
+      "category": "Psychosocial Integrity",
+      "topic": "Therapeutic Communication",
+      "difficulty": "medium",
+      "ngnSkill": "take_action",
+      "stem": {
+        "en": "An adult client scheduled for a wound dressing change says, “No one listens to me. I do not want anyone touching this dressing.” The dressing is intact with no active bleeding, and the nurse has time to respond before the scheduled change. Put the nursing responses in the best order.",
+        "zh": "一名成人患者原定更换伤口敷料时说：“没有人听我说。我不想让任何人碰这个敷料。”敷料完整、没有活动性出血，护士在预定换药前有时间回应。请按最佳顺序排列护士的回应。"
+      },
+      "options": [
+        {
+          "id": "A",
+          "en": "Pause the task and sit at the client’s eye level.",
+          "zh": "暂停操作，并坐到与患者视线平齐的位置。"
+        },
+        {
+          "id": "E",
+          "en": "Agree on the next step and document the client’s preferences and ongoing refusal if it continues.",
+          "zh": "共同确定下一步，并记录患者偏好；若仍拒绝，也记录持续拒绝情况。"
+        },
+        {
+          "id": "C",
+          "en": "Ask, “Tell me what worries you most about the dressing change.”",
+          "zh": "询问：“请告诉我，关于换药您最担心的是什么？”"
+        },
+        {
+          "id": "D",
+          "en": "Ask permission to explain the steps and offer choices that preserve wound safety.",
+          "zh": "征得同意后解释步骤，并在不影响伤口安全的前提下提供选择。"
+        },
+        {
+          "id": "B",
+          "en": "Acknowledge the concern: “It sounds like you felt dismissed.”",
+          "zh": "回应患者的担忧：“听起来您觉得自己的感受没有被重视。”"
+        }
+      ],
+      "correct": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ],
+      "rationale": {
+        "correct": {
+          "en": "The nurse first stops the task and creates a respectful setting, then validates the emotion, explores the concern with an open-ended question, asks permission to teach and offers safe choices, and finally agrees on and documents the plan. This preserves autonomy without abandoning wound safety.",
+          "zh": "护士先暂停操作并建立尊重的交流环境，再确认患者情绪，用开放式问题探索担忧，然后征得同意进行解释并提供安全范围内的选择，最后共同确定并记录计划。这样既尊重自主权，也不放弃伤口安全。"
+        },
+        "byChoice": [
+          {
+            "refId": "D",
+            "en": "Teaching and choices are most effective after the concern is understood and the client has given permission to continue the discussion.",
+            "zh": "了解担忧并获得患者同意后，再进行解释和提供选择最有效。"
+          },
+          {
+            "refId": "E",
+            "en": "The final plan and documentation come after assessment and shared decision-making, not before the client has been heard.",
+            "zh": "最终计划和记录应在评估与共同决策之后进行，而不是在尚未倾听患者前完成。"
+          },
+          {
+            "refId": "C",
+            "en": "An open-ended question identifies the specific barrier, such as pain, fear of appearance, or mistrust.",
+            "zh": "开放式问题能找出具体障碍，例如疼痛、担心外观或不信任。"
+          },
+          {
+            "refId": "B",
+            "en": "Acknowledging the feeling validates the client’s experience without arguing about whether the previous care team listened.",
+            "zh": "确认患者感受可以接纳其体验，而不是争辩之前团队是否真的倾听。"
+          },
+          {
+            "refId": "A",
+            "en": "Pausing and moving to eye level reduces threat and signals that the nurse is listening before trying to teach or persuade.",
+            "zh": "暂停并与患者视线平齐能降低威胁感，表明护士愿意倾听，然后再进行解释或劝导。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "For communication sequences, move from safety and presence, to validation, to exploration, to education or planning.",
+        "zh": "遇到沟通排序题，可按“安全与陪伴 → 确认感受 → 探索原因 → 教育或计划”的顺序思考。"
+      },
+      "glossary": [
+        {
+          "termEn": "therapeutic communication",
+          "termZh": "治疗性沟通",
+          "defZh": "有目的地帮助患者表达感受、理解信息并参与护理决策的沟通方式"
+        },
+        {
+          "termEn": "open-ended question",
+          "termZh": "开放式问题",
+          "defZh": "鼓励患者用自己的话详细说明的问题"
+        },
+        {
+          "termEn": "autonomy",
+          "termZh": "自主权",
+          "defZh": "患者参与并决定自身护理的权利"
+        }
+      ]
+    },
+    {
+      "id": "gpt_2026_07_03_2114_t1_03_urine_output_fib",
+      "itemType": "fill_in_blank",
+      "category": "Physiological Adaptation",
+      "topic": "Renal & Gastrointestinal Disorders",
+      "difficulty": "medium",
+      "ngnSkill": "analyze_cues",
+      "stem": {
+        "en": "A facility policy flags adult urine output below 0.5 mL/kg/hr for nurse follow-up. A client weighs 76 kg. What is the minimum total urine output, in mL, that would meet this policy over a 4-hour period? Round to the nearest whole mL.",
+        "zh": "某机构规定：成人尿量低于 0.5 mL/kg/hr 需要护士跟进。患者体重 76 kg。按此规定，4 小时内最低总尿量应达到多少 mL 才不需要按低尿量跟进？四舍五入到最接近的整数 mL。"
+      },
+      "blanks": [
+        {
+          "id": "b1",
+          "prompt": {
+            "en": "minimum urine output in mL",
+            "zh": "最低尿量（mL）"
+          },
+          "acceptable": [
+            "152",
+            "152 mL"
+          ],
+          "numeric": {
+            "value": 152,
+            "tolerance": 0,
+            "unit": "mL"
+          }
+        }
+      ],
+      "rationale": {
+        "correct": {
+          "en": "Use the rule stated in the stem: 0.5 mL × 76 kg × 4 hr = 152 mL. The answer is a total volume for the 4-hour window, not an hourly rate.",
+          "zh": "使用题干给出的规则：0.5 mL × 76 kg × 4 hr = 152 mL。答案是 4 小时内的总尿量，不是每小时尿量。"
+        },
+        "byChoice": [
+          {
+            "refId": "b1",
+            "en": "The blank asks for the total 4-hour output. Multiplying by weight and by time gives 152 mL.",
+            "zh": "空格要求填写 4 小时总尿量。用标准值乘以体重再乘以时间，得到 152 mL。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Check whether a calculation asks for a rate or a total over time; include the time multiplier only for a total.",
+        "zh": "计算题先判断问的是速率还是一段时间内的总量；若问总量，才要乘以时间。"
+      },
+      "glossary": [
+        {
+          "termEn": "urine output",
+          "termZh": "尿量",
+          "defZh": "一定时间内排出的尿液量"
+        },
+        {
+          "termEn": "mL/kg/hr",
+          "termZh": "毫升/公斤/小时",
+          "defZh": "按体重和时间标准化的液体量单位"
+        },
+        {
+          "termEn": "follow-up",
+          "termZh": "跟进",
+          "defZh": "发现异常后进行复查、评估或报告"
+        }
+      ]
+    },
+    {
+      "id": "gpt_2026_07_03_2114_t1_04_heparin_rate_highlight",
+      "itemType": "highlight",
+      "category": "Pharmacological and Parenteral Therapies",
+      "topic": "Dosage Calculations",
+      "difficulty": "medium",
+      "ngnSkill": "recognize_cues",
+      "stem": {
+        "en": "Highlight the details needed to calculate the initial IV pump rate in mL/hr for this weight-based heparin infusion. Do not highlight details that are used for later monitoring only.",
+        "zh": "请标出计算此按体重给药的 heparin 静脉输注初始输液泵速率（mL/hr）所需的信息。不要标出仅用于后续监测的信息。"
+      },
+      "highlight": {
+        "segments": [
+          {
+            "id": "s1",
+            "en": "Medication order: heparin infusion 18 units/kg/hr.",
+            "zh": "用药医嘱：heparin 输注 18 units/kg/hr。",
+            "selectable": true
+          },
+          {
+            "id": "s2",
+            "en": "Client weight: 72 kg.",
+            "zh": "患者体重：72 kg。",
+            "selectable": true
+          },
+          {
+            "id": "s3",
+            "en": "Pharmacy label: heparin 25,000 units in 500 mL D5W.",
+            "zh": "药房标签：heparin 25,000 units 溶于 500 mL D5W。",
+            "selectable": true
+          },
+          {
+            "id": "s4",
+            "en": "The 0600 aPTT is 51 seconds.",
+            "zh": "0600 的 aPTT 为 51 秒。",
+            "selectable": true
+          },
+          {
+            "id": "s5",
+            "en": "The client has a patent peripheral IV in the left forearm.",
+            "zh": "患者左前臂有一条通畅的外周静脉通路。",
+            "selectable": true
+          },
+          {
+            "id": "s6",
+            "en": "The current bag was hung 4 hours ago.",
+            "zh": "当前输液袋是在 4 小时前挂上的。",
+            "selectable": true
+          }
+        ],
+        "correct": [
+          "s1",
+          "s2",
+          "s3"
+        ]
+      },
+      "rationale": {
+        "correct": {
+          "en": "The pump-rate calculation requires the ordered dose in units/kg/hr, the client’s weight, and the medication concentration from the bag. Monitoring data such as aPTT, IV patency, and bag start time can matter clinically but are not needed to calculate the initial mL/hr rate from this order.",
+          "zh": "计算输液泵速率需要医嘱剂量 units/kg/hr、患者体重以及输液袋的药物浓度。aPTT、静脉通路通畅性和挂袋时间在临床上可能重要，但不是根据此医嘱计算初始 mL/hr 速率所必需的信息。"
+        },
+        "byChoice": [
+          {
+            "refId": "s1",
+            "en": "The ordered units/kg/hr dose is required to determine units per hour.",
+            "zh": "医嘱中的 units/kg/hr 剂量是计算每小时单位数所必需的。"
+          },
+          {
+            "refId": "s2",
+            "en": "The client’s weight is required because the dose is weight-based.",
+            "zh": "因为剂量按体重计算，所以必须知道患者体重。"
+          },
+          {
+            "refId": "s3",
+            "en": "The bag concentration is required to convert units per hour into mL per hour.",
+            "zh": "输液袋浓度是把每小时单位数换算成每小时毫升数所必需的。"
+          },
+          {
+            "refId": "s4",
+            "en": "The aPTT is used for anticoagulation monitoring and titration, not for the initial arithmetic requested here.",
+            "zh": "aPTT 用于抗凝监测和调整剂量，不是此处初始计算所需的算术信息。"
+          },
+          {
+            "refId": "s5",
+            "en": "A patent IV is needed to safely infuse the medication, but it does not change the pump-rate calculation.",
+            "zh": "静脉通路通畅是安全输注的条件，但不会改变泵速率计算。"
+          },
+          {
+            "refId": "s6",
+            "en": "Bag start time may help track volume infused, but it is not needed to calculate the initial prescribed rate.",
+            "zh": "挂袋时间可帮助追踪已输注量，但不用于计算初始医嘱速率。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "For dosage highlights, separate calculation inputs from clinical monitoring cues. Highlight only the data needed for the requested math.",
+        "zh": "剂量计算类 highlight 题要区分“计算输入”和“临床监测线索”；只标出完成题目要求计算所需的数据。"
+      },
+      "glossary": [
+        {
+          "termEn": "heparin",
+          "termZh": "肝素",
+          "defZh": "一种抗凝药，用于预防或治疗血栓"
+        },
+        {
+          "termEn": "aPTT",
+          "termZh": "活化部分凝血活酶时间",
+          "defZh": "用于监测某些抗凝治疗效果的实验室指标"
+        },
+        {
+          "termEn": "IV pump rate",
+          "termZh": "静脉输液泵速率",
+          "defZh": "输液泵每小时输注的体积，常用 mL/hr 表示"
+        }
+      ]
+    },
+    {
+      "id": "gpt_2026_07_03_2114_t1_05_alcohol_withdrawal_dropdown",
+      "itemType": "dropdown_cloze",
+      "category": "Psychosocial Integrity",
+      "topic": "Substance Use & Withdrawal",
+      "difficulty": "hard",
+      "ngnSkill": "prioritize_hypotheses",
+      "stem": {
+        "en": "A client was admitted 8 hours after the last alcohol intake. The client reports daily liquor use and a previous withdrawal seizure. Assessment findings include tremors, BP 158/96 mm Hg, HR 112/min, nausea, and the statement, “There are bugs crawling on the blanket.” The facility alcohol-withdrawal protocol states that hallucinations or a history of withdrawal seizures indicates high risk and requires seizure precautions plus the prescribed benzodiazepine protocol before unsupervised ambulation.",
+        "zh": "患者在最后一次饮酒后 8 小时入院。患者报告每日饮用烈酒，且曾有 withdrawal seizure。评估发现震颤、血压 158/96 mm Hg、心率 112/min、恶心，并说：“毯子上有虫子在爬。”机构 alcohol-withdrawal protocol 规定：出现幻觉或有 withdrawal seizure 史属于高风险，需要先实施 seizure precautions，并按医嘱 benzodiazepine protocol 处理，然后再考虑无人陪同下床活动。"
+      },
+      "clozeStem": {
+        "en": "The client is at greatest risk for {{risk}}; the priority action is to {{action}}.",
+        "zh": "该患者最主要的风险是 {{risk}}；优先措施是 {{action}}。"
+      },
+      "dropdowns": [
+        {
+          "id": "risk",
+          "options": [
+            {
+              "id": "o3",
+              "en": "hypoglycemia from missed meals",
+              "zh": "漏餐导致低血糖"
+            },
+            {
+              "id": "o2",
+              "en": "opioid overdose with respiratory arrest risk",
+              "zh": "阿片类药物过量，伴呼吸停止风险"
+            },
+            {
+              "id": "o4",
+              "en": "uncomplicated anxiety related to hospitalization",
+              "zh": "住院相关的单纯焦虑"
+            },
+            {
+              "id": "o1",
+              "en": "severe alcohol withdrawal with seizure or delirium risk",
+              "zh": "严重酒精戒断，伴癫痫发作或谵妄风险"
+            }
+          ],
+          "correct": "o1"
+        },
+        {
+          "id": "action",
+          "options": [
+            {
+              "id": "o2",
+              "en": "encourage independent ambulation to reduce agitation",
+              "zh": "鼓励患者独自下床活动以减轻烦躁"
+            },
+            {
+              "id": "o4",
+              "en": "reorient the client and reassess at the end of the shift",
+              "zh": "重新定向患者，并在班末再评估"
+            },
+            {
+              "id": "o1",
+              "en": "initiate seizure precautions and administer the prescribed benzodiazepine protocol",
+              "zh": "实施癫痫发作预防措施，并按医嘱执行 benzodiazepine protocol"
+            },
+            {
+              "id": "o3",
+              "en": "withhold medication until the client has a witnessed seizure",
+              "zh": "等患者出现被目击的癫痫发作后再给药"
+            }
+          ],
+          "correct": "o1"
+        }
+      ],
+      "rationale": {
+        "correct": {
+          "en": "The stem provides the governing protocol: hallucinations and a prior withdrawal seizure history make the client high risk. Tremors, autonomic elevation, nausea, and visual hallucinations support severe alcohol withdrawal. The priority is seizure precautions and the prescribed benzodiazepine protocol before allowing unsupervised ambulation.",
+          "zh": "题干给出适用的机构规则：幻觉和既往 withdrawal seizure 史提示高风险。震颤、自主神经兴奋、恶心和视幻觉支持严重酒精戒断。优先措施是在允许无人陪同活动前实施癫痫发作预防措施，并按医嘱执行 benzodiazepine protocol。"
+        },
+        "byChoice": [
+          {
+            "refId": "risk",
+            "en": "The risk dropdown is keyed by the protocol cues: hallucinations plus prior withdrawal seizure history indicate severe withdrawal risk.",
+            "zh": "风险下拉项由题干中的预案线索决定：幻觉加既往 withdrawal seizure 史提示严重戒断风险。"
+          },
+          {
+            "refId": "action",
+            "en": "The action dropdown follows the stated protocol: protect from seizure injury and administer the prescribed withdrawal medication plan before unsupervised ambulation.",
+            "zh": "措施下拉项遵循题干给出的预案：先预防癫痫发作伤害，并执行医嘱戒断用药方案，再考虑无人陪同活动。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "When a stem states the facility protocol, apply that rule instead of relying on vague memory of withdrawal timelines.",
+        "zh": "题干明确给出机构预案时，应直接套用该规则，而不是凭模糊的戒断时间线记忆作答。"
+      },
+      "glossary": [
+        {
+          "termEn": "alcohol withdrawal",
+          "termZh": "酒精戒断",
+          "defZh": "长期大量饮酒停止或减少后出现的自主神经、精神和神经系统症状"
+        },
+        {
+          "termEn": "benzodiazepine",
+          "termZh": "苯二氮䓬类药物",
+          "defZh": "常用于酒精戒断症状控制的药物类别"
+        },
+        {
+          "termEn": "seizure precautions",
+          "termZh": "癫痫发作预防措施",
+          "defZh": "降低发作时受伤风险的安全措施"
+        }
+      ]
+    },
+    {
+      "id": "gpt_2026_07_03_2114_t1_06_dka_fluid_fib",
+      "itemType": "fill_in_blank",
+      "category": "Physiological Adaptation",
+      "topic": "Diabetic Ketoacidosis (DKA)",
+      "difficulty": "medium",
+      "ngnSkill": "take_action",
+      "stem": {
+        "en": "A facility DKA order set states: “For adults without fluid-volume contraindications, infuse 0.9% sodium chloride at 15 mL/kg during the first hour.” A client with DKA weighs 64 kg and has no contraindication listed. How many mL should be infused during the first hour?",
+        "zh": "某机构 DKA 医嘱集规定：“成人如无液体容量相关禁忌，第一小时输注 0.9% sodium chloride 15 mL/kg。”一名 DKA 患者体重 64 kg，未列出禁忌。第一小时应输注多少 mL？"
+      },
+      "blanks": [
+        {
+          "id": "b1",
+          "prompt": {
+            "en": "first-hour infusion volume in mL",
+            "zh": "第一小时输注量（mL）"
+          },
+          "acceptable": [
+            "960",
+            "960 mL"
+          ],
+          "numeric": {
+            "value": 960,
+            "tolerance": 0,
+            "unit": "mL"
+          }
+        }
+      ],
+      "rationale": {
+        "correct": {
+          "en": "Use the closed-world order set: 15 mL/kg × 64 kg = 960 mL during the first hour. The item asks for volume, not mL/hr beyond the first-hour order.",
+          "zh": "使用题干中的医嘱集：15 mL/kg × 64 kg = 960 mL，表示第一小时输注量。本题问的是输注体积，不是第一小时以外的 mL/hr 速率。"
+        },
+        "byChoice": [
+          {
+            "refId": "b1",
+            "en": "The blank is solved by multiplying the stated mL/kg order by the client’s weight: 15 × 64 = 960.",
+            "zh": "空格通过将题干给出的 mL/kg 医嘱乘以体重来计算：15 × 64 = 960。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "When a protocol value is written in the stem, use that exact value and unit; do not substitute another memorized DKA fluid rate.",
+        "zh": "当题干写明预案数值时，使用该准确数值和单位；不要替换成记忆中的其他 DKA 补液速率。"
+      },
+      "glossary": [
+        {
+          "termEn": "Diabetic Ketoacidosis (DKA)",
+          "termZh": "糖尿病酮症酸中毒",
+          "defZh": "胰岛素不足导致高血糖、酮体生成和代谢性酸中毒的急症"
+        },
+        {
+          "termEn": "0.9% sodium chloride",
+          "termZh": "0.9% 氯化钠",
+          "defZh": "常称为 normal saline 的等渗静脉液体"
+        },
+        {
+          "termEn": "contraindication",
+          "termZh": "禁忌证",
+          "defZh": "某治疗不应使用或需避免的情况"
+        }
+      ]
+    },
+    {
+      "id": "gpt_2026_07_03_2114_t2_01_cdiff_spores_bowtie",
+      "itemType": "bowtie",
+      "category": "Safety and Infection Control",
+      "topic": "Standard Precautions & Hygiene",
+      "difficulty": "hard",
+      "ngnSkill": "take_action",
+      "stem": {
+        "en": "A client who completed a 10-day course of clindamycin has had 8 watery stools in the past 12 hours with abdominal cramping and a temperature of 38.1°C (100.6°F). The client is alert but weak. A stool assay is positive for C. difficile toxin. Complete the bow-tie diagram for the nurse's priority focus.",
+        "zh": "一名患者完成 10 天 clindamycin 疗程后，过去 12 小时有 8 次水样便，伴腹部绞痛，体温 38.1°C（100.6°F）。患者清醒但虚弱。粪便检测 C. difficile toxin 阳性。完成图示，确定护士的优先关注点。"
+      },
+      "bowtie": {
+        "condition": {
+          "prompt": {
+            "en": "Most likely condition",
+            "zh": "最可能的情况"
+          },
+          "tokens": [
+            {
+              "id": "c_cdiff",
+              "en": "C. difficile infection with spore contamination risk",
+              "zh": "C. difficile 感染并有芽孢污染风险"
+            },
+            {
+              "id": "c_viral",
+              "en": "Uncomplicated viral gastroenteritis",
+              "zh": "单纯病毒性胃肠炎"
+            },
+            {
+              "id": "c_uti",
+              "en": "Uncomplicated urinary tract infection",
+              "zh": "单纯尿路感染"
+            }
+          ],
+          "correct": "c_cdiff"
+        },
+        "actions": {
+          "prompt": {
+            "en": "Actions to take",
+            "zh": "应采取的措施"
+          },
+          "tokens": [
+            {
+              "id": "a_alcohol_only",
+              "en": "Rely on alcohol-based hand sanitizer after all client contact",
+              "zh": "所有接触后只依赖含酒精免洗手消毒液"
+            },
+            {
+              "id": "a_airborne",
+              "en": "Place the client in airborne isolation with an N95 respirator",
+              "zh": "将患者置于空气隔离并使用 N95 呼吸器"
+            },
+            {
+              "id": "a_sporicidal",
+              "en": "Clean shared equipment with a facility-approved sporicidal disinfectant",
+              "zh": "使用机构批准的杀芽孢消毒剂清洁共用设备"
+            },
+            {
+              "id": "a_contact",
+              "en": "Use contact precautions with gown and gloves before room entry",
+              "zh": "进房前执行接触隔离，穿隔离衣并戴手套"
+            }
+          ],
+          "correct": [
+            "a_contact",
+            "a_sporicidal"
+          ]
+        },
+        "parameters": {
+          "prompt": {
+            "en": "Parameters to monitor",
+            "zh": "应监测的指标"
+          },
+          "tokens": [
+            {
+              "id": "p_hydration",
+              "en": "Hydration status and electrolyte imbalance cues",
+              "zh": "水合状态和电解质失衡线索"
+            },
+            {
+              "id": "p_stool",
+              "en": "Stool frequency and volume",
+              "zh": "排便次数和粪便量"
+            },
+            {
+              "id": "p_urineculture",
+              "en": "Urine culture colony count",
+              "zh": "尿培养菌落计数"
+            },
+            {
+              "id": "p_peakflow",
+              "en": "Peak expiratory flow before meals",
+              "zh": "餐前峰值呼气流速"
+            }
+          ],
+          "correct": [
+            "p_stool",
+            "p_hydration"
+          ]
+        }
+      },
+      "rationale": {
+        "correct": {
+          "en": "Recent clindamycin use, profuse watery diarrhea, fever, abdominal cramping, and a positive toxin assay point to C. difficile. The nursing priority is preventing spore spread and monitoring for fluid and electrolyte complications.",
+          "zh": "近期使用 clindamycin、大量水样便、发热、腹部绞痛以及 toxin 检测阳性，均支持 C. difficile。护理优先事项是防止芽孢传播，并监测脱水和电解质并发症。"
+        },
+        "byChoice": [
+          {
+            "refId": "c_cdiff",
+            "en": "This condition is supported by antibiotic exposure, watery diarrhea, fever, cramping, and the positive toxin result.",
+            "zh": "抗生素暴露、水样便、发热、绞痛以及 toxin 阳性都支持这一诊断。"
+          },
+          {
+            "refId": "c_viral",
+            "en": "Viral gastroenteritis can cause diarrhea, but the positive toxin result and antibiotic exposure make it less likely than C. difficile.",
+            "zh": "病毒性胃肠炎也可导致腹泻，但 toxin 阳性和抗生素暴露使 C. difficile 更符合。"
+          },
+          {
+            "refId": "c_uti",
+            "en": "A urinary tract infection does not explain toxin-positive watery diarrhea and abdominal cramping.",
+            "zh": "尿路感染不能解释 toxin 阳性的水样便和腹部绞痛。"
+          },
+          {
+            "refId": "a_contact",
+            "en": "Gown and gloves reduce environmental and hand contamination from stoolborne spores.",
+            "zh": "隔离衣和手套可减少粪便中芽孢造成的环境和手部污染。"
+          },
+          {
+            "refId": "a_sporicidal",
+            "en": "Sporicidal cleaning is needed because C. difficile spores can persist on equipment and surfaces.",
+            "zh": "需要杀芽孢清洁，因为 C. difficile 芽孢可在设备和表面存留。"
+          },
+          {
+            "refId": "a_alcohol_only",
+            "en": "Alcohol sanitizer alone is an unsafe shortcut for spore contamination; soap-and-water hand hygiene is important when caring for this client.",
+            "zh": "仅用含酒精免洗手液处理芽孢污染是不安全的捷径；照护此类患者时肥皂和清水洗手很重要。"
+          },
+          {
+            "refId": "a_airborne",
+            "en": "Airborne isolation and N95 respirators target airborne pathogens, not stoolborne C. difficile spores.",
+            "zh": "空气隔离和 N95 主要针对空气传播病原体，不是粪便传播的 C. difficile 芽孢。"
+          },
+          {
+            "refId": "p_stool",
+            "en": "Tracking stool frequency and volume helps evaluate ongoing fluid losses and treatment response.",
+            "zh": "记录排便次数和粪便量有助于评估持续体液丢失和治疗反应。"
+          },
+          {
+            "refId": "p_hydration",
+            "en": "Weakness and frequent diarrhea make dehydration and electrolyte imbalance priority nursing concerns.",
+            "zh": "虚弱和频繁腹泻使脱水和电解质失衡成为护理优先关注点。"
+          },
+          {
+            "refId": "p_peakflow",
+            "en": "Peak flow is useful for obstructive airway assessment, not for this diarrheal infection problem.",
+            "zh": "峰值呼气流速用于阻塞性气道评估，不适用于此腹泻感染问题。"
+          },
+          {
+            "refId": "p_urineculture",
+            "en": "Urine culture results do not monitor the toxin-positive diarrheal illness or the immediate complication risk.",
+            "zh": "尿培养结果不能监测 toxin 阳性腹泻疾病或其直接并发症风险。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "When a question names C. difficile toxin, think stoolborne spores: contact precautions, soap-and-water hand hygiene, sporicidal cleaning, and dehydration monitoring.",
+        "zh": "题干明确 C. difficile toxin 时，要想到粪便传播的芽孢：接触隔离、肥皂和清水洗手、杀芽孢清洁，以及监测脱水。"
+      },
+      "glossary": [
+        {
+          "termEn": "C. difficile",
+          "termZh": "艰难梭菌",
+          "defZh": "可在抗生素使用后引起腹泻和结肠炎的细菌"
+        },
+        {
+          "termEn": "sporicidal disinfectant",
+          "termZh": "杀芽孢消毒剂",
+          "defZh": "能杀灭或灭活细菌芽孢的消毒剂"
+        },
+        {
+          "termEn": "contact precautions",
+          "termZh": "接触隔离",
+          "defZh": "用于减少接触传播病原体扩散的隔离措施"
+        }
+      ]
+    },
+    {
+      "id": "gpt_2026_07_03_2114_t2_02_imminent_suicide_bowtie",
+      "itemType": "bowtie",
+      "category": "Psychosocial Integrity",
+      "topic": "Suicide & Crisis Intervention",
+      "difficulty": "hard",
+      "ngnSkill": "prioritize_hypotheses",
+      "stem": {
+        "en": "A client seen in the outpatient clinic says, \"I cannot keep doing this. Tonight I am going to take the old oxycodone tablets in my backpack with alcohol so I do not wake up.\" The client avoids eye contact and says, \"Do not call anyone. I just needed to tell somebody.\" Complete the bow-tie diagram for the nurse's priority focus.",
+        "zh": "一名门诊患者说：“我真的撑不下去了。今晚我要把背包里的旧 oxycodone 药片和酒一起吃，这样就不会醒来了。”患者回避目光并说：“不要叫任何人。我只是想告诉一个人。”完成图示，确定护士的优先关注点。"
+      },
+      "bowtie": {
+        "condition": {
+          "prompt": {
+            "en": "Most likely priority problem",
+            "zh": "最可能的优先问题"
+          },
+          "tokens": [
+            {
+              "id": "c_anxiety",
+              "en": "Situational anxiety without immediate safety threat",
+              "zh": "无立即安全威胁的情境性焦虑"
+            },
+            {
+              "id": "c_imminent",
+              "en": "Imminent suicide risk",
+              "zh": "迫在眉睫的自杀风险"
+            },
+            {
+              "id": "c_nssi",
+              "en": "Nonsuicidal self-injury without current intent",
+              "zh": "无当前自杀意图的非自杀性自伤"
+            }
+          ],
+          "correct": "c_imminent"
+        },
+        "actions": {
+          "prompt": {
+            "en": "Actions to take",
+            "zh": "应采取的措施"
+          },
+          "tokens": [
+            {
+              "id": "a_wait",
+              "en": "Schedule a routine counseling visit for next week",
+              "zh": "安排下周常规心理咨询"
+            },
+            {
+              "id": "a_contract",
+              "en": "Ask the client to sign a no-suicide contract and return home",
+              "zh": "要求患者签署不自杀协议后回家"
+            },
+            {
+              "id": "a_remove_means",
+              "en": "Activate the suicide safety protocol and remove access to the pills",
+              "zh": "启动自杀安全流程并移除患者接触药片的机会"
+            },
+            {
+              "id": "a_stay",
+              "en": "Stay with the client and maintain direct observation",
+              "zh": "留在患者身边并保持直接观察"
+            }
+          ],
+          "correct": [
+            "a_stay",
+            "a_remove_means"
+          ]
+        },
+        "parameters": {
+          "prompt": {
+            "en": "Parameters to monitor",
+            "zh": "应监测的指标"
+          },
+          "tokens": [
+            {
+              "id": "p_intent",
+              "en": "Current intent, plan, and ability to maintain safety",
+              "zh": "当前意图、计划以及维持安全的能力"
+            },
+            {
+              "id": "p_sleep",
+              "en": "Usual bedtime routine before discharge",
+              "zh": "出院前的日常睡前习惯"
+            },
+            {
+              "id": "p_means",
+              "en": "Access to lethal means",
+              "zh": "接触致命手段的可能性"
+            },
+            {
+              "id": "p_appetite",
+              "en": "Daily calorie intake as the main safety marker",
+              "zh": "将每日热量摄入作为主要安全指标"
+            }
+          ],
+          "correct": [
+            "p_means",
+            "p_intent"
+          ]
+        }
+      },
+      "rationale": {
+        "correct": {
+          "en": "A specific plan, stated timing, lethal means already present, intent to die, and a request for secrecy indicate imminent suicide risk. The nurse must not leave the client alone and must activate emergency safety measures.",
+          "zh": "具体计划、明确时间、已经携带致命手段、表达死亡意图以及要求保密，都提示迫在眉睫的自杀风险。护士不能让患者独处，必须启动紧急安全措施。"
+        },
+        "byChoice": [
+          {
+            "refId": "c_imminent",
+            "en": "The client's stated plan, timing, and pills in the backpack make immediate suicide risk the priority problem.",
+            "zh": "患者明确计划、时间和背包中的药片，使立即自杀风险成为优先问题。"
+          },
+          {
+            "refId": "c_nssi",
+            "en": "Nonsuicidal self-injury does not fit because the client describes intent to die using a potentially lethal method.",
+            "zh": "非自杀性自伤不符合，因为患者描述了用潜在致命方式结束生命的意图。"
+          },
+          {
+            "refId": "c_anxiety",
+            "en": "Anxiety may coexist, but the direct suicidal statement and lethal means create an immediate safety threat.",
+            "zh": "焦虑可能同时存在，但直接自杀表述和致命手段构成了立即安全威胁。"
+          },
+          {
+            "refId": "a_stay",
+            "en": "Direct observation prevents the client from acting on the plan while emergency safety steps are initiated.",
+            "zh": "直接观察可在启动紧急安全措施时防止患者实施计划。"
+          },
+          {
+            "refId": "a_remove_means",
+            "en": "Removing access to pills and activating the protocol addresses the immediate lethal means and mobilizes help.",
+            "zh": "移除药片并启动流程可处理眼前的致命手段并调动帮助。"
+          },
+          {
+            "refId": "a_contract",
+            "en": "A no-suicide contract is not a substitute for observation and emergency intervention when intent and means are present.",
+            "zh": "当存在意图和手段时，不自杀协议不能替代观察和紧急干预。"
+          },
+          {
+            "refId": "a_wait",
+            "en": "A routine future appointment delays care despite an immediate risk disclosed in the visit.",
+            "zh": "常规未来预约会延误护理，因为患者在本次就诊中已经透露立即风险。"
+          },
+          {
+            "refId": "p_means",
+            "en": "Means access is a key safety parameter because the pills are already available to the client.",
+            "zh": "接触手段是关键安全指标，因为药片已经在患者可及范围内。"
+          },
+          {
+            "refId": "p_intent",
+            "en": "Intent, plan, and inability to maintain safety guide the level of emergency supervision and intervention.",
+            "zh": "意图、计划和无法维持安全决定紧急监督和干预等级。"
+          },
+          {
+            "refId": "p_appetite",
+            "en": "Nutrition may matter later, but it is not the main safety marker when a lethal plan is active.",
+            "zh": "营养状况以后可能重要，但在致命计划正在进行时不是主要安全指标。"
+          },
+          {
+            "refId": "p_sleep",
+            "en": "Bedtime routine does not address the immediate risk of using pills and alcohol tonight.",
+            "zh": "睡前习惯不能处理今晚使用药片和酒的立即风险。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Specific plan plus means plus timing means immediate safety. Do not choose reassurance, contracts, or delayed follow-up as the priority.",
+        "zh": "有具体计划、手段和时间，就是立即安全问题。不要把安慰、不自杀协议或延后随访作为优先答案。"
+      },
+      "glossary": [
+        {
+          "termEn": "suicide safety protocol",
+          "termZh": "自杀安全流程",
+          "defZh": "用于保护有自杀风险患者并启动紧急评估和监护的机构流程"
+        },
+        {
+          "termEn": "lethal means",
+          "termZh": "致命手段",
+          "defZh": "可用于造成死亡的工具、药物或其他途径"
+        },
+        {
+          "termEn": "direct observation",
+          "termZh": "直接观察",
+          "defZh": "护理人员持续看护患者以维持安全"
+        }
+      ]
+    },
+    {
+      "id": "gpt_2026_07_03_2114_t2_03_ect_recovery_dropdown",
+      "itemType": "dropdown_cloze",
+      "category": "Psychosocial Integrity",
+      "topic": "Electroconvulsive Therapy (ECT)",
+      "difficulty": "medium",
+      "ngnSkill": "analyze_cues",
+      "stem": {
+        "en": "A client returns to the postanesthesia area 15 minutes after electroconvulsive therapy. The client is awake, respirations are 16/min, oxygen saturation is 97%, and the gag reflex is present. The client asks, \"Where am I? What day is it?\" and reports a mild headache.",
+        "zh": "一名患者接受 electroconvulsive therapy 后 15 分钟返回麻醉后恢复区。患者清醒，呼吸 16 次/分，氧饱和度 97%，gag reflex 存在。患者问：“我在哪里？今天星期几？”并诉轻度头痛。"
+      },
+      "clozeStem": {
+        "en": "The nurse should interpret the confusion as {{finding}} and should first {{action}}.",
+        "zh": "护士应将这种意识混乱理解为 {{finding}}，并应首先 {{action}}。"
+      },
+      "dropdowns": [
+        {
+          "id": "finding",
+          "options": [
+            {
+              "id": "o1",
+              "en": "an expected short-term effect after ECT",
+              "zh": "ECT 后预期的短期反应"
+            },
+            {
+              "id": "o2",
+              "en": "evidence of acute stroke until proven otherwise",
+              "zh": "除非证明不是，否则视为急性中风证据"
+            },
+            {
+              "id": "o3",
+              "en": "a sign that the ECT treatment failed",
+              "zh": "ECT 治疗失败的表现"
+            }
+          ],
+          "correct": "o1"
+        },
+        {
+          "id": "action",
+          "options": [
+            {
+              "id": "o1",
+              "en": "reorient calmly and continue recovery safety precautions",
+              "zh": "平静地重新定向，并继续恢复期安全防护"
+            },
+            {
+              "id": "o3",
+              "en": "start oral fluids immediately to relieve the headache",
+              "zh": "立即开始口服液体以缓解头痛"
+            },
+            {
+              "id": "o2",
+              "en": "leave the client alone to sleep until fully oriented",
+              "zh": "让患者独自睡觉直到完全定向"
+            }
+          ],
+          "correct": "o1"
+        }
+      ],
+      "rationale": {
+        "correct": {
+          "en": "Brief confusion, disorientation, and mild headache are expected after ECT and anesthesia when airway and vital signs are stable. The nurse should reorient calmly, maintain fall and recovery precautions, and continue monitoring.",
+          "zh": "在气道和生命体征稳定时，ECT 和麻醉后短暂意识混乱、定向障碍和轻度头痛是预期反应。护士应平静重新定向，维持跌倒和恢复期防护，并继续监测。"
+        },
+        "byChoice": [
+          {
+            "refId": "finding",
+            "en": "The finding dropdown turns on recognizing common short-term post-ECT confusion rather than overcalling stable recovery signs as treatment failure.",
+            "zh": "此空考查识别 ECT 后常见短期意识混乱，而不是把稳定恢复期表现误判为治疗失败。"
+          },
+          {
+            "refId": "action",
+            "en": "The action dropdown turns on choosing calm reorientation and safety precautions before oral intake or leaving the client unattended.",
+            "zh": "此空考查在口服进食或让患者无人看护前，先选择平静重新定向和安全防护。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "After ECT, first separate expected recovery effects from red flags. Stable airway and vital signs make reorientation and safety the best first action.",
+        "zh": "ECT 后先区分预期恢复反应和危险信号。气道与生命体征稳定时，重新定向和安全防护是最佳第一步。"
+      },
+      "glossary": [
+        {
+          "termEn": "electroconvulsive therapy",
+          "termZh": "电休克治疗",
+          "defZh": "在麻醉下通过控制性电刺激诱发短暂癫痫样发作的精神科治疗"
+        },
+        {
+          "termEn": "gag reflex",
+          "termZh": "咽反射",
+          "defZh": "刺激咽部时出现的保护性反射，提示吞咽和气道保护能力"
+        },
+        {
+          "termEn": "reorient",
+          "termZh": "重新定向",
+          "defZh": "提醒患者时间、地点、人物和当前情况"
+        }
+      ]
+    },
+    {
+      "id": "gpt_2026_07_03_2114_t2_04_kcl_duration_fib",
+      "itemType": "fill_in_blank",
+      "category": "Pharmacological and Parenteral Therapies",
+      "topic": "Electrolyte Imbalances",
+      "difficulty": "medium",
+      "ngnSkill": "take_action",
+      "stem": {
+        "en": "The provider prescribes potassium chloride 40 mEq IV to replace a low potassium level. The client has a peripheral IV. Facility policy states: potassium chloride through a peripheral IV must not infuse faster than 10 mEq/hr. If the nurse uses the fastest allowed peripheral rate, administer the 40 mEq dose over at least how many hours?",
+        "zh": "医嘱 potassium chloride 40 mEq IV，用于纠正低钾。患者使用外周静脉通路。机构规定：potassium chloride 经外周静脉输注速度不得超过 10 mEq/hr。若护士使用外周静脉允许的最快速度，40 mEq 至少应输注多少小时？"
+      },
+      "blanks": [
+        {
+          "id": "b1",
+          "prompt": {
+            "en": "hours",
+            "zh": "小时"
+          },
+          "acceptable": [
+            "4",
+            "4 hr",
+            "4 hrs",
+            "4 hours",
+            "4小时",
+            "4 小时"
+          ],
+          "numeric": {
+            "value": 4,
+            "tolerance": 0,
+            "unit": "hours"
+          }
+        }
+      ],
+      "rationale": {
+        "correct": {
+          "en": "Using the stated policy, divide the total dose by the maximum peripheral rate: 40 mEq ÷ 10 mEq/hr = 4 hours. Faster administration would exceed the closed-world safety rule in the stem.",
+          "zh": "根据题干给出的规定，总剂量除以外周静脉最高速度：40 mEq ÷ 10 mEq/hr = 4 小时。更快输注会超过题干中的安全规则。"
+        },
+        "byChoice": [
+          {
+            "refId": "b1",
+            "en": "This blank is a rate-limit calculation: total mEq divided by allowed mEq per hour.",
+            "zh": "此空是限速计算：总 mEq 除以每小时允许的 mEq。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "For rate-limit items, do not start with the IV bag volume. First use the safety limit: total dose divided by maximum dose per hour.",
+        "zh": "遇到限速题，不要先从输液袋容量入手。先用安全限制：总剂量除以每小时最高剂量。"
+      },
+      "glossary": [
+        {
+          "termEn": "potassium chloride",
+          "termZh": "氯化钾",
+          "defZh": "用于补充钾的药物，静脉给药时需要严格控制速度"
+        },
+        {
+          "termEn": "peripheral IV",
+          "termZh": "外周静脉通路",
+          "defZh": "置于手臂或手部等外周静脉的静脉通路"
+        },
+        {
+          "termEn": "mEq/hr",
+          "termZh": "毫当量/小时",
+          "defZh": "表示每小时给药的电解质量"
+        }
+      ]
+    },
+    {
+      "id": "gpt_2026_07_03_2114_t2_05_palliative_dyspnea_dropdown",
+      "itemType": "dropdown_cloze",
+      "category": "Basic Care and Comfort",
+      "topic": "Palliative & Supportive Care",
+      "difficulty": "medium",
+      "ngnSkill": "take_action",
+      "stem": {
+        "en": "A client with end-stage lung disease is receiving comfort-focused care. The care plan states: prioritize relief of dyspnea over achieving a target oxygen saturation. A PRN order is available for morphine oral solution 2 mg every 1 hour for dyspnea. The client is sitting upright, anxious, and says, \"I cannot catch my breath.\" Respirations are 28/min and oxygen saturation is 85% on the client's usual oxygen flow. The family asks whether morphine means the nurse is \"giving up.\"",
+        "zh": "一名终末期肺病患者正在接受以舒适为目标的护理。护理计划写明：优先缓解 dyspnea，而不是追求目标氧饱和度。已有 PRN 医嘱：morphine 口服液 2 mg，每 1 小时按需用于 dyspnea。患者端坐、焦虑，并说：“我喘不上气。”呼吸 28 次/分，在平时氧流量下氧饱和度 85%。家属询问使用 morphine 是否表示护士“放弃治疗”。"
+      },
+      "clozeStem": {
+        "en": "The nurse should recognize the priority problem as {{problem}} and should {{action}}.",
+        "zh": "护士应将优先问题识别为 {{problem}}，并应 {{action}}。"
+      },
+      "dropdowns": [
+        {
+          "id": "problem",
+          "options": [
+            {
+              "id": "o1",
+              "en": "distressing dyspnea requiring comfort-focused intervention",
+              "zh": "需要舒适护理干预的痛苦性呼吸困难"
+            },
+            {
+              "id": "o2",
+              "en": "oxygen saturation below target despite curative escalation",
+              "zh": "需以治愈性升级处理的氧饱和度未达标"
+            },
+            {
+              "id": "o3",
+              "en": "family misunderstanding that overrides the client's symptoms",
+              "zh": "家属误解优先于患者症状"
+            }
+          ],
+          "correct": "o1"
+        },
+        {
+          "id": "action",
+          "options": [
+            {
+              "id": "o1",
+              "en": "administer the prescribed morphine and explain that it is being used to relieve dyspnea",
+              "zh": "给予医嘱的 morphine，并解释其用途是缓解呼吸困难"
+            },
+            {
+              "id": "o3",
+              "en": "tell the family that morphine is only used when death is expected within minutes",
+              "zh": "告诉家属 morphine 只在预计数分钟内死亡时使用"
+            },
+            {
+              "id": "o2",
+              "en": "withhold morphine until the oxygen saturation is above 94%",
+              "zh": "等氧饱和度升至 94% 以上后再给予 morphine"
+            }
+          ],
+          "correct": "o1"
+        }
+      ],
+      "rationale": {
+        "correct": {
+          "en": "The closed-world care plan prioritizes dyspnea relief over numeric oxygen targets. Prescribed low-dose morphine can be used for end-of-life dyspnea while the nurse explains the comfort goal and monitors the client's response.",
+          "zh": "题干中的护理计划明确优先缓解呼吸困难，而不是追求氧饱和度数字。医嘱的低剂量 morphine 可用于临终期 dyspnea，护士同时解释舒适目标并监测患者反应。"
+        },
+        "byChoice": [
+          {
+            "refId": "problem",
+            "en": "The problem dropdown turns on honoring the stated comfort-focused plan and the client's current symptom distress.",
+            "zh": "此空考查遵循题干给出的舒适护理计划，并关注患者当前症状痛苦。"
+          },
+          {
+            "refId": "action",
+            "en": "The action dropdown turns on using the available PRN order for dyspnea and teaching the family accurately, rather than withholding comfort medication because of a saturation number.",
+            "zh": "此空考查使用已有 PRN 医嘱缓解 dyspnea，并准确教育家属，而不是因氧饱和度数字而延迟舒适用药。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "In palliative questions, read the goals-of-care statement. If comfort is the goal, treat distressing symptoms and teach the family what the medication is for.",
+        "zh": "姑息护理题要先看照护目标。如果目标是舒适，就处理痛苦症状，并向家属说明药物用途。"
+      },
+      "glossary": [
+        {
+          "termEn": "dyspnea",
+          "termZh": "呼吸困难",
+          "defZh": "主观感到喘不过气或呼吸费力"
+        },
+        {
+          "termEn": "comfort-focused care",
+          "termZh": "以舒适为目标的护理",
+          "defZh": "以缓解痛苦和提高舒适度为主要目标的照护"
+        },
+        {
+          "termEn": "PRN",
+          "termZh": "按需",
+          "defZh": "根据患者症状或情况需要时给药"
+        }
+      ]
+    },
+    {
+      "id": "gpt_2026_07_03_2114_t2_06_pph_sequence_or",
+      "itemType": "ordered_response",
+      "category": "Physiological Adaptation",
+      "topic": "Reproductive & Endocrine Health",
+      "difficulty": "hard",
+      "ngnSkill": "take_action",
+      "stem": {
+        "en": "A client is 1 hour postpartum after a vaginal birth. The nurse notes a boggy uterus displaced to the right, a saturated perineal pad, and several large clots. Blood pressure is 92/58 mm Hg and pulse is 118/min. The postpartum hemorrhage protocol includes oxytocin infusion and straight catheterization if bladder distention is present. Place the nursing actions in the best order.",
+        "zh": "一名患者阴道分娩后 1 小时。护士发现子宫松软并偏向右侧，会阴垫湿透，有数个大血块。血压 92/58 mm Hg，脉搏 118 次/分。postpartum hemorrhage 流程包括 oxytocin 输注，以及如有膀胱胀满则行直导尿。请按最佳顺序排列护理措施。"
+      },
+      "options": [
+        {
+          "id": "D",
+          "en": "Assess for bladder distention and perform straight catheterization if indicated by the protocol.",
+          "zh": "评估膀胱胀满；如流程指示，执行直导尿。"
+        },
+        {
+          "id": "E",
+          "en": "Quantify blood loss and continue frequent vital-sign and fundal reassessment.",
+          "zh": "量化失血量，并继续频繁复查生命体征和子宫底。"
+        },
+        {
+          "id": "B",
+          "en": "Massage the uterine fundus firmly until it becomes firm.",
+          "zh": "有力按摩子宫底，直到子宫变硬。"
+        },
+        {
+          "id": "A",
+          "en": "Activate the postpartum hemorrhage protocol and call for additional help.",
+          "zh": "启动 postpartum hemorrhage 流程并呼叫额外帮助。"
+        },
+        {
+          "id": "C",
+          "en": "Increase or start the oxytocin infusion according to the standing protocol.",
+          "zh": "按常规流程增加或开始 oxytocin 输注。"
+        }
+      ],
+      "correct": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ],
+      "rationale": {
+        "correct": {
+          "en": "The unstable postpartum client needs immediate escalation and help, then direct treatment of uterine atony with fundal massage and the ordered oxytocin protocol. A right-displaced boggy uterus suggests bladder distention, so bladder management supports uterine contraction. Quantifying blood loss and reassessing continue after immediate hemorrhage-control actions begin.",
+          "zh": "这名产后不稳定患者需要立即升级处理并呼叫帮助，随后直接处理 uterine atony：按摩子宫底并按医嘱流程使用 oxytocin。子宫松软且偏右提示膀胱胀满，因此处理膀胱有助于子宫收缩。量化失血和复查应在立即止血措施开始后持续进行。"
+        },
+        "byChoice": [
+          {
+            "refId": "E",
+            "en": "Quantifying blood loss and reassessing are necessary ongoing steps, but they should not delay the first hemorrhage-control actions.",
+            "zh": "量化失血和复查是必要的持续措施，但不能延误最先的控血措施。"
+          },
+          {
+            "refId": "A",
+            "en": "Calling for help and activating the protocol brings personnel, medications, IV support, and hemorrhage resources to an unstable postpartum client.",
+            "zh": "呼叫帮助并启动流程可为不稳定的产后患者调动人员、药物、静脉支持和出血处理资源。"
+          },
+          {
+            "refId": "C",
+            "en": "The standing oxytocin protocol supports uterine contraction after massage is underway.",
+            "zh": "常规 oxytocin 流程在子宫按摩开始后帮助子宫收缩。"
+          },
+          {
+            "refId": "B",
+            "en": "Fundal massage directly addresses the boggy uterus, the immediate likely source of heavy bleeding.",
+            "zh": "按摩子宫底直接处理松软子宫，这是大量出血最可能的直接来源。"
+          },
+          {
+            "refId": "D",
+            "en": "A displaced uterus suggests a full bladder; bladder emptying helps the uterus stay midline and contracted.",
+            "zh": "子宫偏移提示膀胱充盈；排空膀胱有助于子宫回到中线并保持收缩。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "For a postpartum boggy uterus with shock cues, prioritize help and hemorrhage control first; measurement and documentation follow without delaying treatment.",
+        "zh": "产后子宫松软并有休克线索时，先呼叫帮助并控制出血；测量和记录要做，但不能延误治疗。"
+      },
+      "glossary": [
+        {
+          "termEn": "postpartum hemorrhage",
+          "termZh": "产后出血",
+          "defZh": "分娩后异常或大量出血，可导致低血容量和休克"
+        },
+        {
+          "termEn": "boggy uterus",
+          "termZh": "子宫松软",
+          "defZh": "子宫收缩不良，常见于子宫乏力"
+        },
+        {
+          "termEn": "oxytocin",
+          "termZh": "催产素",
+          "defZh": "促进子宫收缩、用于处理或预防产后出血的药物"
+        }
+      ]
+    },
+    {
+      "id": "gpt_2026_07_03_2114_t3_dka_highlight_acid_base_01",
+      "itemType": "highlight",
+      "category": "Physiological Adaptation",
+      "topic": "Diabetic Ketoacidosis (DKA)",
+      "difficulty": "hard",
+      "ngnSkill": "analyze_cues",
+      "stem": {
+        "en": "Highlight the findings that require immediate follow-up because they show worsening perfusion or acid-base compromise in the client with suspected DKA.",
+        "zh": "请标出需要立即跟进的发现，因为这些发现显示疑似 DKA 患者的灌注或酸碱状态正在恶化。"
+      },
+      "highlight": {
+        "segments": [
+          {
+            "id": "s1",
+            "en": "Emergency department note, 0815:",
+            "zh": "急诊记录，0815："
+          },
+          {
+            "id": "s2",
+            "en": "The client has type 1 diabetes and has had vomiting for 2 days.",
+            "zh": "患者有 type 1 diabetes，已呕吐 2 天。",
+            "selectable": true
+          },
+          {
+            "id": "s3",
+            "en": "Blood glucose is 482 mg/dL.",
+            "zh": "血糖为 482 mg/dL。",
+            "selectable": true
+          },
+          {
+            "id": "s4",
+            "en": "Urine ketones are large.",
+            "zh": "尿酮体为大量阳性。",
+            "selectable": true
+          },
+          {
+            "id": "s5",
+            "en": "Respirations are deep at 32/min with a fruity odor on the breath.",
+            "zh": "呼吸深大，32 次/分，呼气有水果味。",
+            "selectable": true
+          },
+          {
+            "id": "s6",
+            "en": "Blood pressure is 86/50 mm Hg and heart rate is 132/min.",
+            "zh": "血压 86/50 mm Hg，心率 132 次/分。",
+            "selectable": true
+          },
+          {
+            "id": "s7",
+            "en": "Venous pH is 7.18 and bicarbonate is 10 mEq/L.",
+            "zh": "静脉 pH 为 7.18，bicarbonate 为 10 mEq/L。",
+            "selectable": true
+          },
+          {
+            "id": "s8",
+            "en": "The client is newly difficult to arouse.",
+            "zh": "患者新出现不易唤醒。",
+            "selectable": true
+          },
+          {
+            "id": "s9",
+            "en": "The client states, “I missed my insulin yesterday.”",
+            "zh": "患者说：“我昨天漏打了 insulin。”",
+            "selectable": true
+          }
+        ],
+        "correct": [
+          "s5",
+          "s6",
+          "s7",
+          "s8"
+        ]
+      },
+      "rationale": {
+        "correct": {
+          "en": "Deep, rapid respirations with fruity breath suggest compensatory Kussmaul respirations from metabolic acidosis. Hypotension with tachycardia indicates volume depletion and poor perfusion. A pH of 7.18 with bicarbonate 10 mEq/L confirms significant acidosis, and new decreased arousability is a neurologic deterioration that requires urgent follow-up.",
+          "zh": "深大快速呼吸并伴水果味呼气提示 metabolic acidosis 引起的 Kussmaul respirations。低血压合并心动过速说明容量不足和灌注不良。pH 7.18、bicarbonate 10 mEq/L 证实明显酸中毒；新出现不易唤醒属于神经状态恶化，需要立即跟进。"
+        },
+        "byChoice": [
+          {
+            "refId": "s2",
+            "en": "Vomiting and type 1 diabetes support the DKA context, but this segment does not by itself show current perfusion failure or acid-base compromise requiring the most immediate follow-up.",
+            "zh": "呕吐和 type 1 diabetes 支持 DKA 背景，但这句话本身没有显示当前灌注衰竭或酸碱失衡已经恶化到最需要立即跟进。"
+          },
+          {
+            "refId": "s3",
+            "en": "Marked hyperglycemia helps establish suspected DKA, but glucose alone is less urgent than the current hypotension, acidosis, respiratory compensation, and neurologic decline.",
+            "zh": "明显高血糖有助于判断疑似 DKA，但单独血糖值不如当前低血压、酸中毒、代偿性呼吸和神经状态下降紧急。"
+          },
+          {
+            "refId": "s4",
+            "en": "Large urine ketones support the diagnosis, but the segment is a diagnostic cue rather than the strongest evidence of worsening perfusion or acid-base compromise.",
+            "zh": "大量尿酮体支持诊断，但它主要是诊断线索，不是最能说明灌注或酸碱状态正在恶化的证据。"
+          },
+          {
+            "refId": "s5",
+            "en": "Deep respirations at 32/min with fruity breath are consistent with Kussmaul respirations and significant metabolic acidosis, so this finding requires immediate follow-up.",
+            "zh": "32 次/分深大呼吸伴水果味呼气符合 Kussmaul respirations 和明显 metabolic acidosis，因此需要立即跟进。"
+          },
+          {
+            "refId": "s6",
+            "en": "Hypotension with tachycardia indicates severe dehydration and impaired perfusion in DKA, making this an urgent cue.",
+            "zh": "低血压合并心动过速提示 DKA 中严重脱水和灌注不足，是紧急线索。"
+          },
+          {
+            "refId": "s7",
+            "en": "The low pH and bicarbonate directly show clinically important acidosis, which is part of the immediate risk in DKA.",
+            "zh": "低 pH 和低 bicarbonate 直接显示有临床意义的酸中毒，是 DKA 立即风险的一部分。"
+          },
+          {
+            "refId": "s8",
+            "en": "New difficulty arousing the client is a change in level of consciousness and may reflect worsening dehydration, acidosis, or cerebral risk.",
+            "zh": "新出现不易唤醒代表意识水平改变，可能反映脱水、酸中毒或脑部风险正在恶化。"
+          },
+          {
+            "refId": "s9",
+            "en": "A missed insulin dose is a plausible trigger, but it is historical information rather than a current unstable assessment finding.",
+            "zh": "漏用 insulin 是可能诱因，但这是病史信息，不是当前不稳定的评估发现。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "For highlight items, separate background diagnostic support from unstable assessment cues. Key the findings that change immediate nursing priority.",
+        "zh": "做 highlight 题时，要把诊断背景线索和不稳定评估线索分开；选择会改变立即护理优先级的发现。"
+      },
+      "glossary": [
+        {
+          "termEn": "Diabetic ketoacidosis",
+          "termZh": "糖尿病酮症酸中毒",
+          "defZh": "胰岛素不足导致高血糖、酮体生成和代谢性酸中毒。"
+        },
+        {
+          "termEn": "Kussmaul respirations",
+          "termZh": "库斯莫尔呼吸",
+          "defZh": "代谢性酸中毒时出现的深大、快速呼吸。"
+        },
+        {
+          "termEn": "Bicarbonate",
+          "termZh": "碳酸氢盐",
+          "defZh": "反映代谢性酸碱平衡的重要指标。"
+        }
+      ]
+    },
+    {
+      "id": "gpt_2026_07_03_2114_t3_clozapine_infection_highlight_02",
+      "itemType": "highlight",
+      "category": "Pharmacological and Parenteral Therapies",
+      "topic": "Antipsychotic Safety Monitoring",
+      "difficulty": "medium",
+      "ngnSkill": "recognize_cues",
+      "stem": {
+        "en": "The medication record shows clozapine 200 mg by mouth at bedtime. The facility protocol states to hold clozapine and notify the prescriber for signs of infection or an absolute neutrophil count below 1,000/uL. Highlight the findings that require follow-up before giving tonight's dose.",
+        "zh": "给药记录显示 clozapine 200 mg 睡前口服。机构 protocol 规定：若出现感染迹象或 absolute neutrophil count 低于 1,000/uL，应暂缓 clozapine 并通知开方者。请标出今晚给药前需要跟进的发现。"
+      },
+      "highlight": {
+        "segments": [
+          {
+            "id": "s1",
+            "en": "Evening assessment and laboratory results:",
+            "zh": "晚间评估和实验室结果："
+          },
+          {
+            "id": "s2",
+            "en": "The client takes clozapine for treatment-resistant schizophrenia.",
+            "zh": "患者因 treatment-resistant schizophrenia 服用 clozapine。",
+            "selectable": true
+          },
+          {
+            "id": "s3",
+            "en": "Temperature is 38.6 C (101.5 F) with chills.",
+            "zh": "体温 38.6 C (101.5 F)，伴寒战。",
+            "selectable": true
+          },
+          {
+            "id": "s4",
+            "en": "The client reports a new sore throat and painful mouth ulcers.",
+            "zh": "患者报告新出现 sore throat 和疼痛性口腔溃疡。",
+            "selectable": true
+          },
+          {
+            "id": "s5",
+            "en": "Absolute neutrophil count is 850/uL.",
+            "zh": "absolute neutrophil count 为 850/uL。",
+            "selectable": true
+          },
+          {
+            "id": "s6",
+            "en": "The client reports mild nighttime drooling.",
+            "zh": "患者报告夜间轻度流口水。",
+            "selectable": true
+          },
+          {
+            "id": "s7",
+            "en": "The last bowel movement was yesterday morning.",
+            "zh": "上次排便是昨天早晨。",
+            "selectable": true
+          },
+          {
+            "id": "s8",
+            "en": "The client asks whether the bedtime dose can be taken with water.",
+            "zh": "患者询问睡前剂量是否可以用水送服。",
+            "selectable": true
+          }
+        ],
+        "correct": [
+          "s3",
+          "s4",
+          "s5"
+        ]
+      },
+      "rationale": {
+        "correct": {
+          "en": "Clozapine can cause severe neutropenia and serious infection risk. Under the stated protocol, fever with chills, new sore throat or mouth ulcers, and an ANC of 850/uL require holding the dose and notifying the prescriber before administration.",
+          "zh": "clozapine 可导致 severe neutropenia，并增加严重感染风险。根据题干给出的 protocol，发热伴寒战、新发 sore throat 或口腔溃疡，以及 ANC 850/uL 都要求给药前暂缓剂量并通知开方者。"
+        },
+        "byChoice": [
+          {
+            "refId": "s2",
+            "en": "The indication explains why the medication is prescribed, but it is not a safety finding requiring the dose to be held.",
+            "zh": "适应证说明为何开立该药，但不是需要暂缓给药的安全发现。"
+          },
+          {
+            "refId": "s3",
+            "en": "Fever with chills is a possible infection cue and meets the protocol trigger for follow-up before giving clozapine.",
+            "zh": "发热伴寒战可能提示感染，符合 protocol 中给 clozapine 前需跟进的触发条件。"
+          },
+          {
+            "refId": "s4",
+            "en": "A new sore throat and mouth ulcers may signal infection in a client at risk for neutropenia.",
+            "zh": "新发 sore throat 和口腔溃疡可能提示有 neutropenia 风险患者发生感染。"
+          },
+          {
+            "refId": "s5",
+            "en": "An ANC below 1,000/uL meets the stated hold-and-notify threshold.",
+            "zh": "ANC 低于 1,000/uL，达到题干规定的暂缓并通知阈值。"
+          },
+          {
+            "refId": "s6",
+            "en": "Mild drooling can occur with clozapine and should be monitored, but it is not the infection or ANC trigger in this protocol.",
+            "zh": "轻度流口水可见于 clozapine，用药中需监测，但不是此 protocol 中感染或 ANC 的触发条件。"
+          },
+          {
+            "refId": "s7",
+            "en": "Bowel function should be monitored because clozapine can cause constipation, but a bowel movement yesterday is not the urgent protocol trigger here.",
+            "zh": "因 clozapine 可导致便秘，应监测排便；但昨天排便本身不是此处紧急 protocol 触发条件。"
+          },
+          {
+            "refId": "s8",
+            "en": "Asking how to take the dose is a teaching opportunity, not evidence that the dose is unsafe.",
+            "zh": "询问如何服药是健康教育机会，并不说明该剂量不安全。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "For high-risk medication questions, match the assessment finding to the safety hold parameter stated in the stem.",
+        "zh": "高风险用药题要把评估发现与题干给出的安全暂缓参数配对。"
+      },
+      "glossary": [
+        {
+          "termEn": "Clozapine",
+          "termZh": "氯氮平",
+          "defZh": "一种抗精神病药，可能导致严重中性粒细胞减少。"
+        },
+        {
+          "termEn": "Absolute neutrophil count",
+          "termZh": "绝对中性粒细胞计数",
+          "defZh": "衡量抵抗细菌感染能力的重要白细胞指标。"
+        },
+        {
+          "termEn": "Neutropenia",
+          "termZh": "中性粒细胞减少",
+          "defZh": "中性粒细胞过低，感染风险增加。"
+        }
+      ]
+    },
+    {
+      "id": "gpt_2026_07_03_2114_t3_post_thyroidectomy_hypocalcemia_highlight_03",
+      "itemType": "highlight",
+      "category": "Reduction of Risk Potential",
+      "topic": "Postoperative Thyroidectomy Care",
+      "difficulty": "medium",
+      "ngnSkill": "analyze_cues",
+      "stem": {
+        "en": "A client is 8 hours postoperative after a total thyroidectomy. Highlight the findings that require immediate nursing follow-up.",
+        "zh": "一名患者 total thyroidectomy 术后 8 小时。请标出需要护士立即跟进的发现。"
+      },
+      "highlight": {
+        "segments": [
+          {
+            "id": "s1",
+            "en": "Postoperative assessment:",
+            "zh": "术后评估："
+          },
+          {
+            "id": "s2",
+            "en": "The dressing has a 2-cm area of dry serosanguineous drainage.",
+            "zh": "敷料上有 2 cm 干燥的浆血性渗液。",
+            "selectable": true
+          },
+          {
+            "id": "s3",
+            "en": "The client reports mild throat soreness when swallowing.",
+            "zh": "患者吞咽时报告轻度咽喉疼痛。",
+            "selectable": true
+          },
+          {
+            "id": "s4",
+            "en": "The client has new inspiratory stridor.",
+            "zh": "患者新出现吸气性 stridor。",
+            "selectable": true
+          },
+          {
+            "id": "s5",
+            "en": "The client reports tingling around the mouth and fingertips.",
+            "zh": "患者报告口周和指尖 tingling。",
+            "selectable": true
+          },
+          {
+            "id": "s6",
+            "en": "The client's hand spasms when the blood pressure cuff inflates.",
+            "zh": "血压袖带充气时患者手部出现痉挛。",
+            "selectable": true
+          },
+          {
+            "id": "s7",
+            "en": "Serum calcium is 7.1 mg/dL.",
+            "zh": "血清 calcium 为 7.1 mg/dL。",
+            "selectable": true
+          },
+          {
+            "id": "s8",
+            "en": "The client is using a call light before getting out of bed.",
+            "zh": "患者下床前使用呼叫铃。",
+            "selectable": true
+          }
+        ],
+        "correct": [
+          "s4",
+          "s5",
+          "s6",
+          "s7"
+        ]
+      },
+      "rationale": {
+        "correct": {
+          "en": "New stridor after neck surgery is an airway warning sign. Perioral and fingertip tingling, carpal spasm with cuff inflation, and low calcium are consistent with postoperative hypocalcemia from parathyroid disruption and require prompt follow-up.",
+          "zh": "颈部手术后新出现 stridor 是 airway 危险信号。口周和指尖 tingling、袖带充气诱发手部痉挛以及低 calcium 符合甲状旁腺受影响后的术后 hypocalcemia，需要及时跟进。"
+        },
+        "byChoice": [
+          {
+            "refId": "s2",
+            "en": "A small area of dry serosanguineous drainage can be expected early after surgery and is not the immediate priority.",
+            "zh": "术后早期少量干燥浆血性渗液可见，并非最需要立即处理。"
+          },
+          {
+            "refId": "s3",
+            "en": "Mild throat soreness can occur after intubation and neck surgery; it is less urgent than airway compromise or hypocalcemia signs.",
+            "zh": "插管和颈部手术后可有轻度咽喉疼痛；与 airway 受威胁或 hypocalcemia 征象相比不紧急。"
+          },
+          {
+            "refId": "s4",
+            "en": "Stridor suggests upper-airway narrowing and requires immediate assessment and escalation.",
+            "zh": "stridor 提示上 airway 狭窄，需要立即评估并升级处理。"
+          },
+          {
+            "refId": "s5",
+            "en": "Perioral and fingertip tingling are neuromuscular irritability cues associated with hypocalcemia.",
+            "zh": "口周和指尖 tingling 是与 hypocalcemia 相关的神经肌肉兴奋性线索。"
+          },
+          {
+            "refId": "s6",
+            "en": "Carpal spasm with cuff inflation is a hypocalcemia cue and requires follow-up.",
+            "zh": "袖带充气诱发手部痉挛是 hypocalcemia 线索，需要跟进。"
+          },
+          {
+            "refId": "s7",
+            "en": "A calcium of 7.1 mg/dL is low and supports symptomatic hypocalcemia.",
+            "zh": "calcium 7.1 mg/dL 偏低，支持有症状 hypocalcemia。"
+          },
+          {
+            "refId": "s8",
+            "en": "Using the call light supports fall prevention and does not require urgent follow-up.",
+            "zh": "使用呼叫铃有助于预防跌倒，不需要紧急跟进。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "After thyroidectomy, prioritize airway cues first, then look for hypocalcemia signs caused by parathyroid disruption.",
+        "zh": "thyroidectomy 术后先优先处理 airway 线索，再寻找甲状旁腺受影响导致的 hypocalcemia 征象。"
+      },
+      "glossary": [
+        {
+          "termEn": "Stridor",
+          "termZh": "喘鸣",
+          "defZh": "上气道狭窄时出现的高调呼吸音。"
+        },
+        {
+          "termEn": "Hypocalcemia",
+          "termZh": "低钙血症",
+          "defZh": "血钙低于正常范围，可导致麻木、刺痛和肌肉痉挛。"
+        },
+        {
+          "termEn": "Total thyroidectomy",
+          "termZh": "甲状腺全切除术",
+          "defZh": "切除全部甲状腺的手术，术后需监测气道和血钙。"
+        }
+      ]
+    },
+    {
+      "id": "gpt_2026_07_03_2114_t3_insulin_correction_fib_04",
+      "itemType": "fill_in_blank",
+      "category": "Pharmacological and Parenteral Therapies",
+      "topic": "Insulin Dose Calculation",
+      "difficulty": "medium",
+      "ngnSkill": "take_action",
+      "stem": {
+        "en": "A premeal correction-scale order reads: blood glucose 151-200 mg/dL = 2 units insulin lispro; 201-250 = 4 units; 251-300 = 6 units; 301-350 = 8 units; notify the provider if above 350. The client's premeal blood glucose is 312 mg/dL, and the meal tray is present. How many units of insulin lispro should the nurse administer?",
+        "zh": "餐前 correction-scale 医嘱写明：blood glucose 151-200 mg/dL = insulin lispro 2 units；201-250 = 4 units；251-300 = 6 units；301-350 = 8 units；若高于 350 需通知 provider。患者餐前血糖为 312 mg/dL，餐盘已到。护士应给予多少 units 的 insulin lispro？"
+      },
+      "blanks": [
+        {
+          "id": "b1",
+          "prompt": {
+            "en": "units of insulin lispro",
+            "zh": "insulin lispro units"
+          },
+          "acceptable": [
+            "8",
+            "8 units",
+            "8 unit",
+            "8 单位"
+          ],
+          "numeric": {
+            "value": 8,
+            "tolerance": 0,
+            "unit": "units"
+          }
+        }
+      ],
+      "rationale": {
+        "correct": {
+          "en": "The blood glucose value of 312 mg/dL falls in the 301-350 mg/dL correction-scale range, so the nurse administers 8 units of insulin lispro according to the closed-world order.",
+          "zh": "血糖 312 mg/dL 落在 correction-scale 的 301-350 mg/dL 范围内，因此护士按题干医嘱给予 insulin lispro 8 units。"
+        },
+        "byChoice": [
+          {
+            "refId": "b1",
+            "en": "Use the range that contains 312 mg/dL. It is above 301 and not above 350, so the ordered dose is 8 units.",
+            "zh": "选择包含 312 mg/dL 的范围。该数值高于 301 且未超过 350，因此医嘱剂量为 8 units。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "For sliding-scale items, do not interpolate between ranges. Find the row that contains the measured glucose value.",
+        "zh": "做 sliding-scale 题时不要在范围之间自行插值；找到包含该血糖值的那一行即可。"
+      },
+      "glossary": [
+        {
+          "termEn": "Correction-scale insulin",
+          "termZh": "校正量胰岛素",
+          "defZh": "根据当前血糖范围追加的短效或速效胰岛素剂量。"
+        },
+        {
+          "termEn": "Insulin lispro",
+          "termZh": "赖脯胰岛素",
+          "defZh": "速效胰岛素，常与餐食时间相关。"
+        },
+        {
+          "termEn": "Premeal blood glucose",
+          "termZh": "餐前血糖",
+          "defZh": "进餐前测得的血糖值。"
+        }
+      ]
+    },
+    {
+      "id": "gpt_2026_07_03_2114_t3_fetal_cloze_late_deceleration_05",
+      "itemType": "dropdown_cloze",
+      "category": "Reduction of Risk Potential",
+      "topic": "intrapartum fetal monitoring",
+      "difficulty": "medium",
+      "ngnSkill": "analyze_cues",
+      "stem": {
+        "en": "During oxytocin augmentation, the fetal heart rate baseline is 140/min with moderate variability. With the last four contractions, the fetal heart rate gradually decreased after each contraction began, reached the lowest point after the contraction peak, and returned to baseline after the contraction ended.",
+        "zh": "在 oxytocin 加强宫缩期间，胎心率基线为 140 次/分，变异性 moderate。最近四次宫缩中，胎心率均在宫缩开始后逐渐下降，在宫缩峰值之后达到最低点，并在宫缩结束后才回到基线。"
+      },
+      "clozeStem": {
+        "en": "This pattern is most consistent with {{pattern}}, so the nurse should first {{action}}.",
+        "zh": "这种模式最符合 {{pattern}}，因此护士应首先 {{action}}。"
+      },
+      "dropdowns": [
+        {
+          "id": "pattern",
+          "options": [
+            {
+              "id": "variable",
+              "en": "variable decelerations from umbilical cord compression",
+              "zh": "由脐带受压引起的 variable decelerations"
+            },
+            {
+              "id": "late",
+              "en": "late decelerations related to uteroplacental insufficiency",
+              "zh": "与 uteroplacental insufficiency 相关的 late decelerations"
+            },
+            {
+              "id": "early",
+              "en": "early decelerations from fetal head compression",
+              "zh": "由胎头受压引起的 early decelerations"
+            }
+          ],
+          "correct": "late"
+        },
+        {
+          "id": "action",
+          "options": [
+            {
+              "id": "push",
+              "en": "coach the client to begin pushing with each contraction",
+              "zh": "指导产妇每次宫缩时开始用力屏气"
+            },
+            {
+              "id": "reposition",
+              "en": "reposition the client laterally and assess the response",
+              "zh": "协助产妇侧卧并评估反应"
+            },
+            {
+              "id": "increase_oxytocin",
+              "en": "increase the oxytocin rate to improve labor progress",
+              "zh": "增加 oxytocin 速度以促进产程进展"
+            }
+          ],
+          "correct": "reposition"
+        }
+      ],
+      "rationale": {
+        "correct": {
+          "en": "A gradual deceleration whose nadir occurs after the contraction peak and whose recovery occurs after the contraction ends is a late deceleration pattern. The first nursing action is intrauterine resuscitation such as lateral repositioning and reassessment; increasing oxytocin can worsen uteroplacental stress.",
+          "zh": "胎心率逐渐下降、最低点出现在宫缩峰值之后，并在宫缩结束后才恢复，符合 late deceleration。护士首先进行宫内复苏措施，如协助侧卧并复评；增加 oxytocin 可能加重子宫胎盘压力。"
+        },
+        "byChoice": [
+          {
+            "refId": "pattern",
+            "en": "Timing distinguishes the pattern: the lowest fetal heart rate occurs after the contraction peak, which identifies late rather than early or variable decelerations.",
+            "zh": "模式由时间关系区分：胎心率最低点出现在宫缩峰值之后，说明是 late decelerations，而不是 early 或 variable decelerations。"
+          },
+          {
+            "refId": "action",
+            "en": "Lateral repositioning is an immediate nursing action to improve uteroplacental perfusion and then reassess the fetal response.",
+            "zh": "侧卧位是立即可做的护理措施，可改善 uteroplacental perfusion，并随后复评胎儿反应。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "For deceleration questions, match the timing of the nadir to the contraction before choosing the action.",
+        "zh": "做胎心减速题时，先把最低点与宫缩时间关系配对，再选择护理措施。"
+      },
+      "glossary": [
+        {
+          "termEn": "Late decelerations",
+          "termZh": "晚期减速",
+          "defZh": "胎心率下降的最低点晚于宫缩峰值，提示子宫胎盘灌注不足风险。"
+        },
+        {
+          "termEn": "Uteroplacental insufficiency",
+          "termZh": "子宫胎盘灌注不足",
+          "defZh": "子宫和胎盘供血供氧不足，可能影响胎儿氧合。"
+        },
+        {
+          "termEn": "Oxytocin",
+          "termZh": "催产素",
+          "defZh": "用于诱导或加强宫缩的药物，需要监测宫缩和胎心。"
+        }
+      ]
+    },
+    {
+      "id": "gpt_2026_07_03_2114_t3_hypoglycemia_cloze_rule15_06",
+      "itemType": "dropdown_cloze",
+      "category": "Physiological Adaptation",
+      "topic": "Hypoglycemia Management",
+      "difficulty": "medium",
+      "ngnSkill": "take_action",
+      "stem": {
+        "en": "A client with type 1 diabetes is awake, able to swallow, shaky, and diaphoretic before lunch. Capillary blood glucose is 58 mg/dL. A meal tray will arrive in 25 minutes.",
+        "zh": "一名 type 1 diabetes 患者午餐前清醒、能吞咽，出现发抖和出汗。指尖血糖为 58 mg/dL。餐盘将在 25 分钟后送达。"
+      },
+      "clozeStem": {
+        "en": "The nurse should first give {{carbohydrate}} and then {{recheck}}.",
+        "zh": "护士应首先给予 {{carbohydrate}}，然后 {{recheck}}。"
+      },
+      "dropdowns": [
+        {
+          "id": "carbohydrate",
+          "options": [
+            {
+              "id": "protein",
+              "en": "a high-protein snack without carbohydrate",
+              "zh": "不含 carbohydrate 的高蛋白点心"
+            },
+            {
+              "id": "wait_meal",
+              "en": "no treatment until the meal tray arrives",
+              "zh": "等餐盘送达后再处理"
+            },
+            {
+              "id": "fast15",
+              "en": "15 g of fast-acting carbohydrate",
+              "zh": "15 g 快速起效 carbohydrate"
+            }
+          ],
+          "correct": "fast15"
+        },
+        {
+          "id": "recheck",
+          "options": [
+            {
+              "id": "hour",
+              "en": "recheck the blood glucose in 1 hour",
+              "zh": "1 小时后复查血糖"
+            },
+            {
+              "id": "bedtime",
+              "en": "wait until the bedtime glucose check",
+              "zh": "等到睡前血糖检查"
+            },
+            {
+              "id": "fifteen",
+              "en": "recheck the blood glucose in 15 minutes",
+              "zh": "15 分钟后复查血糖"
+            }
+          ],
+          "correct": "fifteen"
+        }
+      ],
+      "rationale": {
+        "correct": {
+          "en": "A conscious client who can swallow and has blood glucose below 70 mg/dL should receive fast-acting carbohydrate promptly, then have glucose rechecked in 15 minutes. Waiting for the meal tray delays treatment of symptomatic hypoglycemia.",
+          "zh": "清醒且能吞咽、血糖低于 70 mg/dL 的患者，应立即给予快速起效 carbohydrate，然后 15 分钟后复查血糖。等待餐盘会延误对有症状 hypoglycemia 的处理。"
+        },
+        "byChoice": [
+          {
+            "refId": "carbohydrate",
+            "en": "Because the client can swallow, oral fast-acting carbohydrate is the first treatment.",
+            "zh": "因为患者能吞咽，口服快速起效 carbohydrate 是首要处理。"
+          },
+          {
+            "refId": "recheck",
+            "en": "Rechecking in 15 minutes determines whether additional carbohydrate or escalation is needed.",
+            "zh": "15 分钟后复查可判断是否需要追加 carbohydrate 或升级处理。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "For hypoglycemia, first decide whether the client can safely swallow. If yes, treat promptly with fast carbohydrate and reassess soon.",
+        "zh": "hypoglycemia 题先判断患者是否能安全吞咽；若可以，立即用快速 carbohydrate 处理并尽快复评。"
+      },
+      "glossary": [
+        {
+          "termEn": "Hypoglycemia",
+          "termZh": "低血糖",
+          "defZh": "血糖低于正常范围，常见出汗、发抖、心慌或意识改变。"
+        },
+        {
+          "termEn": "Fast-acting carbohydrate",
+          "termZh": "快速起效碳水化合物",
+          "defZh": "能较快升高血糖的糖类来源，如葡萄糖片或果汁。"
+        },
+        {
+          "termEn": "Capillary blood glucose",
+          "termZh": "指尖血糖",
+          "defZh": "用床旁血糖仪检测的毛细血管血糖。"
         }
       ]
     }
