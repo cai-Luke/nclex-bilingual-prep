@@ -68,9 +68,15 @@ Completed:
   widening individual artifact size: Batch 05 covers manifest panels 61-80 with a 10-record checker
   queue, and Batch 06 covers panels 81-100 with a 9-record checker queue; no canonical
   bank/schema/render writes.
+- After Batches 05 and 06 adjudicated clean, staged the remaining current-manifest `prose_embedded`
+  panels: Batch 07 covers panels 101-120 with a 9-record checker queue, Batch 08 covers panels
+  121-140 with a 12-record checker queue, and Batch 09 closes panels 141-145 with a 3-record checker
+  queue; no canonical bank/schema/render writes.
 - Closed the Batch 04 code-note by widening the serial timestamp detector to recognize relative
   `hour N`, `day N`, and `N hours later/after` narration, while tightening the HR label pattern so
   lowercase duration/rate `hr` does not masquerade as heart rate; added regression coverage.
+- Fixed another serial-detector edge found while staging Batch 08: Unicode `SpO₂` with subscript `₂`
+  now counts as an SpO2 label for mechanical `skip_serial` re-confirmation.
 
 Verification:
 - `npm run test:measurement-allowlist` passed.
@@ -90,6 +96,12 @@ Verification:
   (5 seeded random + always-sampled).
 - The staged prose-embedded Batch 06 gates with 0 FAIL / 9 WARN and has a 9-record checker queue
   (5 seeded random + always-sampled).
+- The staged prose-embedded Batch 07 gates with 0 FAIL / 2 WARN and has a 9-record checker queue
+  (5 seeded random + always-sampled).
+- The staged prose-embedded Batch 08 gates with 0 FAIL / 9 WARN and has a 12-record checker queue
+  (5 seeded random + always-sampled).
+- The staged prose-embedded Batch 09 gates with 0 FAIL / 5 WARN and has a 3-record checker queue
+  (2 seeded random + always-sampled for the final 5-record partial batch).
 
 ### Root Markdown Cleanup (Jul 3)
 

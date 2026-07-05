@@ -201,6 +201,8 @@ const run = (record: ExtractionRecord, src = source): Finding[] => gateRecord(re
   const hourSerialSource = "At hour 8, RR 18 and SpO2 97% on room air. At hour 12, RR 20 and SpO2 96% on room air.";
   assert(serialParams(hourSerialSource).includes("rr"), "serialParams should detect relative-hour serial RR");
   assert(serialParams(hourSerialSource).includes("spo2"), "serialParams should detect relative-hour serial SpO2");
+  const subscriptSerialSource = "At 0945, SpO₂ 88% on 3 L. At 1030, SpO₂ is 89% on 6 L.";
+  assert(serialParams(subscriptSerialSource).includes("spo2"), "serialParams should detect serial SpO₂ with subscript ₂");
   const cleanSkip: ExtractionRecord = { exhibitRef: "test/serial", lane: "skip_serial" };
   assert(!hasFinding(run(cleanSkip, serialSource), "FAIL", "extra keys"), "well-formed skip_serial should pass shape check");
   const dirtySkip: ExtractionRecord = { exhibitRef: "test/serial", lane: "skip_serial", panel: [] };

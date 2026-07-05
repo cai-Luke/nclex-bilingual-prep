@@ -64,6 +64,21 @@ banks or schema fields were written.
   - Gate result: 0 FAIL, 9 WARN.
   - Tapered checker queue: 9 records, documented in
     `EXHIBIT-FLOWSHEET-MIGRATION-BATCH-06-ADJUDICATION-2026-07-05.md`.
+- `EXHIBIT-FLOWSHEET-MIGRATION-BATCH-07-prose_embedded-2026-07-05.json`
+  - 20 records from the sixth `prose_embedded` manifest slice.
+  - Gate result: 0 FAIL, 2 WARN.
+  - Tapered checker queue: 9 records, documented in
+    `EXHIBIT-FLOWSHEET-MIGRATION-BATCH-07-ADJUDICATION-2026-07-05.md`.
+- `EXHIBIT-FLOWSHEET-MIGRATION-BATCH-08-prose_embedded-2026-07-05.json`
+  - 20 records from the seventh `prose_embedded` manifest slice.
+  - Gate result: 0 FAIL, 9 WARN.
+  - Tapered checker queue: 12 records, documented in
+    `EXHIBIT-FLOWSHEET-MIGRATION-BATCH-08-ADJUDICATION-2026-07-05.md`.
+- `EXHIBIT-FLOWSHEET-MIGRATION-BATCH-09-prose_embedded-2026-07-05.json`
+  - 5 records from the final current-manifest `prose_embedded` slice.
+  - Gate result: 0 FAIL, 5 WARN.
+  - Tapered checker queue: 3 records, documented in
+    `EXHIBIT-FLOWSHEET-MIGRATION-BATCH-09-ADJUDICATION-2026-07-05.md`.
 - `EXHIBIT-FLOWSHEET-MIGRATION-LEDGER-2026-07-05.md`
   - Tracks Batch 01 proof status and Batch 02 staged/pending-adjudication status.
 
@@ -108,12 +123,18 @@ pending checker-seat adjudication.
 Update after checker-seat review: Batch 03 adjudicated clean, so Batch 04 was staged with the tapered
 sample protocol. Batch 04 also adjudicated clean, so Batches 05 and 06 were staged together while
 staying at 20 records per artifact; their checker queues are pending independent adjudication.
+After Batches 05 and 06 adjudicated clean, Batches 07-09 were staged to close the remaining
+current-manifest `prose_embedded` panels (101-145). The repo manifest currently has 145
+`prose_embedded` panels, not 217; if a newer count is expected, regenerate or replace
+`EXHIBIT-FLOWSHEET-MANIFEST-2026-07-05.json` before continuing.
 
 Code-note closeout: Claude's Batch 04 advisory about the serial detector missing `hour N` narration
 has been addressed in `scripts/exhibit-flowsheet-gate.ts`; the timestamp detector now recognizes
 relative `hour N`, `day N`, and `N hours later/after` phrasing, and the HR label pattern no longer
 counts lowercase duration/rate `hr` as heart rate. Regression assertions live in
 `scripts/tests/exhibit-flowsheet-gate.ts`.
+Additional detector fix: `SpO₂` with subscript `₂` now counts reliably in the serial detector; Batch
+08's code-status `skip_serial` record mechanically re-confirms after this fix.
 
 ## Verification Run
 
@@ -129,3 +150,6 @@ counts lowercase duration/rate `hr` as heart rate. Regression assertions live in
 - Clean-KV staged gate: 2 records, 0 FAIL, 0 WARN
 - Batch 05 staged gate: 20 records, 0 FAIL, 9 WARN
 - Batch 06 staged gate: 20 records, 0 FAIL, 9 WARN
+- Batch 07 staged gate: 20 records, 0 FAIL, 2 WARN
+- Batch 08 staged gate: 20 records, 0 FAIL, 9 WARN
+- Batch 09 staged gate: 5 records, 0 FAIL, 5 WARN

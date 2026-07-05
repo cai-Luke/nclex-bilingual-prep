@@ -108,7 +108,7 @@ const LABEL_PATTERNS: Array<{ key: string; re: RegExp }> = [
   { key: "map",            re: /\bMAP\b/g },
   { key: "hr",             re: /\bHR\b|[Hh]eart rate|\b[Pp]ulse\b/g },
   { key: "rr",             re: /\bRR\b|respiratory rate/gi },
-  { key: "spo2",           re: /\bSpO₂\b|\bSpO2\b|\bSaO2\b|O2 sat|oxygen saturation/gi },
+  { key: "spo2",           re: /\bSpO₂|\bSpO2\b|\bSaO2\b|O₂ sat|O2 sat|oxygen saturation/gi },
   { key: "temp",           re: /\btemperature\b|\btemp\b/gi },
   { key: "sodium",         re: /\bsodium\b|\bNa\b/g },
   { key: "potassium",      re: /\bpotassium\b|\bK\b/g },

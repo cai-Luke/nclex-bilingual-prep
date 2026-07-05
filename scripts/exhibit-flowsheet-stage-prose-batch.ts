@@ -1213,6 +1213,562 @@ const batch06Records: ExtractionRecord[] = [
   }
 ];
 
+const batch07Records: ExtractionRecord[] = [
+  {
+    exhibitRef: "gpt_gap_2026_06_12_nonmcq_balanced_b_case_wound_teachback_04/teachback_wound",
+    lane: "extract",
+    panel: [
+      { label: "temp", value: "37.9", sourceUnit: "°C", sourceSpan: "Temperature is 37.9°C." }
+    ],
+    excludedValues: [],
+    unitAliases: []
+  },
+  {
+    exhibitRef: "gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01/baseline",
+    lane: "extract",
+    panel: [
+      { label: "spo2", value: "92", sourceUnit: "%", sourceSpan: "SpO2 92% on 2 L/min after walking 30 feet." }
+    ],
+    excludedValues: [],
+    unitAliases: []
+  },
+  {
+    exhibitRef: "gpt_gap_2026_06_12_nonmcq_balanced_case_delirium_family_04/acute_change",
+    lane: "extract",
+    panel: [
+      { label: "temp", value: "37.9", sourceUnit: "C", sourceSpan: "Temperature 37.9 C." }
+    ],
+    excludedValues: [],
+    unitAliases: []
+  },
+  {
+    exhibitRef: "gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02/assessment",
+    lane: "extract",
+    panel: [
+      { label: "sbp", value: "148", sourceUnit: "mmHg", sourceSpan: "BP 148/86, HR 96 irregular, RR 18, SpO2 95% room air." },
+      { label: "dbp", value: "86", sourceUnit: "mmHg", sourceSpan: "BP 148/86, HR 96 irregular, RR 18, SpO2 95% room air." },
+      { label: "hr", value: "96", sourceUnit: "bpm", sourceSpan: "BP 148/86, HR 96 irregular, RR 18, SpO2 95% room air." },
+      { label: "rr", value: "18", sourceUnit: "/min", sourceSpan: "BP 148/86, HR 96 irregular, RR 18, SpO2 95% room air." },
+      { label: "spo2", value: "95", sourceUnit: "%", sourceSpan: "BP 148/86, HR 96 irregular, RR 18, SpO2 95% room air." }
+    ],
+    excludedValues: [],
+    unitAliases: []
+  },
+  {
+    exhibitRef: "gpt_opus21_case_colostomy_lep_discharge_01/stage2_woc_teaching",
+    lane: "extract",
+    panel: [
+      { label: "temp", value: "37.1", sourceUnit: "C", sourceSpan: "Vitals: T 37.1 C, HR 74, BP 130/78, RR 14, SpO2 98%." },
+      { label: "hr", value: "74", sourceUnit: "bpm", sourceSpan: "Vitals: T 37.1 C, HR 74, BP 130/78, RR 14, SpO2 98%." },
+      { label: "sbp", value: "130", sourceUnit: "mmHg", sourceSpan: "Vitals: T 37.1 C, HR 74, BP 130/78, RR 14, SpO2 98%." },
+      { label: "dbp", value: "78", sourceUnit: "mmHg", sourceSpan: "Vitals: T 37.1 C, HR 74, BP 130/78, RR 14, SpO2 98%." },
+      { label: "rr", value: "14", sourceUnit: "/min", sourceSpan: "Vitals: T 37.1 C, HR 74, BP 130/78, RR 14, SpO2 98%." },
+      { label: "spo2", value: "98", sourceUnit: "%", sourceSpan: "Vitals: T 37.1 C, HR 74, BP 130/78, RR 14, SpO2 98%." }
+    ],
+    excludedValues: [],
+    unitAliases: []
+  },
+  {
+    exhibitRef: "gpt_pph_2026_06_16_case_01/ex_background",
+    lane: "extract",
+    panel: [],
+    excludedValues: [
+      { label: "sbp", value: "148", reason: "prior", sourceSpan: "Admission BP 148/94 mmHg." },
+      { label: "dbp", value: "94", reason: "prior", sourceSpan: "Admission BP 148/94 mmHg." },
+      { label: "hemoglobin", value: "11.8", reason: "prior", sourceSpan: "Admission Hgb 11.8 g/dL, Hct 35.2%." },
+      { label: "hematocrit", value: "35.2", reason: "prior", sourceSpan: "Admission Hgb 11.8 g/dL, Hct 35.2%." }
+    ],
+    unitAliases: []
+  },
+  {
+    exhibitRef: "gpt_pph_2026_06_16_case_01/ex_baseline_labs",
+    lane: "extract",
+    panel: [
+      { label: "hemoglobin", value: "11.8", sourceUnit: "g/dL", sourceSpan: "Hgb 11.8 g/dL, Hct 35.2%, platelets 188,000/µL, fibrinogen 410 mg/dL, INR 1.0, aPTT 28 sec. Sodium 138 mEq/L, potassium 3.9 mEq/L, creatinine 0.7 mg/dL, glucose 92 mg/dL." },
+      { label: "hematocrit", value: "35.2", sourceUnit: "%", sourceSpan: "Hgb 11.8 g/dL, Hct 35.2%, platelets 188,000/µL, fibrinogen 410 mg/dL, INR 1.0, aPTT 28 sec. Sodium 138 mEq/L, potassium 3.9 mEq/L, creatinine 0.7 mg/dL, glucose 92 mg/dL." },
+      { label: "platelets", value: "188,000", sourceUnit: "/µL", sourceSpan: "Hgb 11.8 g/dL, Hct 35.2%, platelets 188,000/µL, fibrinogen 410 mg/dL, INR 1.0, aPTT 28 sec. Sodium 138 mEq/L, potassium 3.9 mEq/L, creatinine 0.7 mg/dL, glucose 92 mg/dL." },
+      { label: "inr", value: "1.0", sourceUnit: "(ratio)", sourceSpan: "Hgb 11.8 g/dL, Hct 35.2%, platelets 188,000/µL, fibrinogen 410 mg/dL, INR 1.0, aPTT 28 sec. Sodium 138 mEq/L, potassium 3.9 mEq/L, creatinine 0.7 mg/dL, glucose 92 mg/dL." },
+      { label: "ptt", value: "28", sourceUnit: "sec", sourceSpan: "Hgb 11.8 g/dL, Hct 35.2%, platelets 188,000/µL, fibrinogen 410 mg/dL, INR 1.0, aPTT 28 sec. Sodium 138 mEq/L, potassium 3.9 mEq/L, creatinine 0.7 mg/dL, glucose 92 mg/dL." },
+      { label: "sodium", value: "138", sourceUnit: "mEq/L", sourceSpan: "Hgb 11.8 g/dL, Hct 35.2%, platelets 188,000/µL, fibrinogen 410 mg/dL, INR 1.0, aPTT 28 sec. Sodium 138 mEq/L, potassium 3.9 mEq/L, creatinine 0.7 mg/dL, glucose 92 mg/dL." },
+      { label: "potassium", value: "3.9", sourceUnit: "mEq/L", sourceSpan: "Hgb 11.8 g/dL, Hct 35.2%, platelets 188,000/µL, fibrinogen 410 mg/dL, INR 1.0, aPTT 28 sec. Sodium 138 mEq/L, potassium 3.9 mEq/L, creatinine 0.7 mg/dL, glucose 92 mg/dL." },
+      { label: "creatinine", value: "0.7", sourceUnit: "mg/dL", sourceSpan: "Hgb 11.8 g/dL, Hct 35.2%, platelets 188,000/µL, fibrinogen 410 mg/dL, INR 1.0, aPTT 28 sec. Sodium 138 mEq/L, potassium 3.9 mEq/L, creatinine 0.7 mg/dL, glucose 92 mg/dL." },
+      { label: "glucose", value: "92", sourceUnit: "mg/dL", sourceSpan: "Hgb 11.8 g/dL, Hct 35.2%, platelets 188,000/µL, fibrinogen 410 mg/dL, INR 1.0, aPTT 28 sec. Sodium 138 mEq/L, potassium 3.9 mEq/L, creatinine 0.7 mg/dL, glucose 92 mg/dL." }
+    ],
+    excludedValues: [],
+    unitAliases: []
+  },
+  {
+    exhibitRef: "gpt_pph_2026_06_16_case_01/ex_initial_assessment",
+    lane: "extract",
+    panel: [
+      { label: "temp", value: "36.8", sourceUnit: "°C", sourceSpan: "Vital signs: T 36.8 °C, HR 118, BP 90/62 mmHg, RR 22, SpO2 97% on room air." },
+      { label: "hr", value: "118", sourceUnit: "bpm", sourceSpan: "Vital signs: T 36.8 °C, HR 118, BP 90/62 mmHg, RR 22, SpO2 97% on room air." },
+      { label: "sbp", value: "90", sourceUnit: "mmHg", sourceSpan: "Vital signs: T 36.8 °C, HR 118, BP 90/62 mmHg, RR 22, SpO2 97% on room air." },
+      { label: "dbp", value: "62", sourceUnit: "mmHg", sourceSpan: "Vital signs: T 36.8 °C, HR 118, BP 90/62 mmHg, RR 22, SpO2 97% on room air." },
+      { label: "rr", value: "22", sourceUnit: "/min", sourceSpan: "Vital signs: T 36.8 °C, HR 118, BP 90/62 mmHg, RR 22, SpO2 97% on room air." },
+      { label: "spo2", value: "97", sourceUnit: "%", sourceSpan: "Vital signs: T 36.8 °C, HR 118, BP 90/62 mmHg, RR 22, SpO2 97% on room air." }
+    ],
+    excludedValues: [],
+    unitAliases: []
+  },
+  {
+    exhibitRef: "gpt_pph_2026_06_16_case_01/stage_1_update",
+    lane: "extract",
+    panel: [
+      { label: "hr", value: "124", sourceUnit: "bpm", sourceSpan: "Vital signs: HR 124, BP 86/58, RR 24, SpO2 96% on room air.", context: "post_intervention" },
+      { label: "sbp", value: "86", sourceUnit: "mmHg", sourceSpan: "Vital signs: HR 124, BP 86/58, RR 24, SpO2 96% on room air.", context: "post_intervention" },
+      { label: "dbp", value: "58", sourceUnit: "mmHg", sourceSpan: "Vital signs: HR 124, BP 86/58, RR 24, SpO2 96% on room air.", context: "post_intervention" },
+      { label: "rr", value: "24", sourceUnit: "/min", sourceSpan: "Vital signs: HR 124, BP 86/58, RR 24, SpO2 96% on room air.", context: "post_intervention" },
+      { label: "spo2", value: "96", sourceUnit: "%", sourceSpan: "Vital signs: HR 124, BP 86/58, RR 24, SpO2 96% on room air.", context: "post_intervention" }
+    ],
+    excludedValues: [],
+    unitAliases: []
+  },
+  {
+    exhibitRef: "gpt_r1_regen_case_celiac_01/stage3_update",
+    lane: "extract",
+    panel: [
+      { label: "hemoglobin", value: "12.1", sourceUnit: "g/dL", sourceSpan: "Labs: Hgb 12.1 g/dL, MCV 82 fL, ferritin 22 ng/mL, folate 8.6 ng/mL, vitamin D 32 ng/mL, calcium 8.6 mg/dL, PTH 42 pg/mL, albumin 3.8 g/dL, tTG-IgA 38 U/mL." },
+      { label: "calcium", value: "8.6", sourceUnit: "mg/dL", sourceSpan: "Labs: Hgb 12.1 g/dL, MCV 82 fL, ferritin 22 ng/mL, folate 8.6 ng/mL, vitamin D 32 ng/mL, calcium 8.6 mg/dL, PTH 42 pg/mL, albumin 3.8 g/dL, tTG-IgA 38 U/mL." }
+    ],
+    excludedValues: [],
+    unitAliases: []
+  },
+  {
+    exhibitRef: "gpt_stroke_2026_06_16_case_acute_ischemic_stroke_warfarin_01/initial_ed_record",
+    lane: "extract",
+    panel: [],
+    excludedValues: [
+      { label: "inr", value: "2.3", reason: "prior", sourceSpan: "Anticoagulation clinic INR five days ago was 2.3." }
+    ],
+    unitAliases: []
+  },
+  {
+    exhibitRef: "gpt_stroke_2026_06_16_case_acute_ischemic_stroke_warfarin_01/stage_2_thrombectomy_preparation",
+    lane: "extract",
+    panel: [
+      { label: "sbp", value: "168", sourceUnit: "mmHg", sourceSpan: "After 20 minutes, BP is 168/94 mmHg.", context: "post_intervention" },
+      { label: "dbp", value: "94", sourceUnit: "mmHg", sourceSpan: "After 20 minutes, BP is 168/94 mmHg.", context: "post_intervention" }
+    ],
+    excludedValues: [],
+    unitAliases: []
+  },
+  {
+    exhibitRef: "gpt_stroke_2026_06_16_case_acute_ischemic_stroke_warfarin_01/stage_3_deterioration",
+    lane: "extract",
+    panel: [
+      { label: "sbp", value: "174", sourceUnit: "mmHg", sourceSpan: "BP 174/96 mmHg. HR 72/min regular." },
+      { label: "dbp", value: "96", sourceUnit: "mmHg", sourceSpan: "BP 174/96 mmHg. HR 72/min regular." },
+      { label: "hr", value: "72", sourceUnit: "bpm", sourceSpan: "BP 174/96 mmHg. HR 72/min regular." }
+    ],
+    excludedValues: [],
+    unitAliases: []
+  },
+  {
+    exhibitRef: "opus_car_t_crs_2026_06_11_case_01/ex1",
+    lane: "extract",
+    panel: [],
+    excludedValues: [],
+    unitAliases: []
+  },
+  {
+    exhibitRef: "opus_car_t_crs_2026_06_11_case_01/ex2",
+    lane: "extract",
+    panel: [
+      { label: "temp", value: "36.8", sourceUnit: "°C", sourceSpan: "Baseline vital signs at 1200: Temperature 36.8 °C (oral), heart rate 78 and regular sinus rhythm on telemetry, blood pressure 132/78, respiratory rate 14, SpO₂ 98% on room air." },
+      { label: "hr", value: "78", sourceUnit: "bpm", sourceSpan: "Baseline vital signs at 1200: Temperature 36.8 °C (oral), heart rate 78 and regular sinus rhythm on telemetry, blood pressure 132/78, respiratory rate 14, SpO₂ 98% on room air." },
+      { label: "sbp", value: "132", sourceUnit: "mmHg", sourceSpan: "Baseline vital signs at 1200: Temperature 36.8 °C (oral), heart rate 78 and regular sinus rhythm on telemetry, blood pressure 132/78, respiratory rate 14, SpO₂ 98% on room air." },
+      { label: "dbp", value: "78", sourceUnit: "mmHg", sourceSpan: "Baseline vital signs at 1200: Temperature 36.8 °C (oral), heart rate 78 and regular sinus rhythm on telemetry, blood pressure 132/78, respiratory rate 14, SpO₂ 98% on room air." },
+      { label: "rr", value: "14", sourceUnit: "/min", sourceSpan: "Baseline vital signs at 1200: Temperature 36.8 °C (oral), heart rate 78 and regular sinus rhythm on telemetry, blood pressure 132/78, respiratory rate 14, SpO₂ 98% on room air." },
+      { label: "spo2", value: "98", sourceUnit: "%", sourceSpan: "Baseline vital signs at 1200: Temperature 36.8 °C (oral), heart rate 78 and regular sinus rhythm on telemetry, blood pressure 132/78, respiratory rate 14, SpO₂ 98% on room air." }
+    ],
+    excludedValues: [],
+    unitAliases: []
+  },
+  {
+    exhibitRef: "opus_case_warfarin_bridge_01/exh_stage1",
+    lane: "extract",
+    panel: [
+      { label: "inr", value: "1.9", sourceUnit: "(ratio)", sourceSpan: "The INR result of 1.9 returns while the nurse is reviewing the discharge medication list with the patient and his wife." }
+    ],
+    excludedValues: [],
+    unitAliases: []
+  },
+  {
+    exhibitRef: "opus_case_warfarin_bridge_01/exh_stage2",
+    lane: "extract",
+    panel: [
+      { label: "inr", value: "1.9", sourceUnit: "(ratio)", sourceSpan: "The provider confirms that the INR of 1.9 does not meet the therapeutic threshold and that the enoxaparin bridge must continue at home" }
+    ],
+    excludedValues: [],
+    unitAliases: []
+  },
+  {
+    exhibitRef: "opus_case_warfarin_bridge_01/exh_stage3",
+    lane: "extract",
+    panel: [
+      { label: "temp", value: "37.0", sourceUnit: "°C", sourceSpan: "The patient's final set of vitals before discharge: T 37.0 °C, HR 72, BP 130/76, RR 14, SpO₂ 98%." },
+      { label: "hr", value: "72", sourceUnit: "bpm", sourceSpan: "The patient's final set of vitals before discharge: T 37.0 °C, HR 72, BP 130/76, RR 14, SpO₂ 98%." },
+      { label: "sbp", value: "130", sourceUnit: "mmHg", sourceSpan: "The patient's final set of vitals before discharge: T 37.0 °C, HR 72, BP 130/76, RR 14, SpO₂ 98%." },
+      { label: "dbp", value: "76", sourceUnit: "mmHg", sourceSpan: "The patient's final set of vitals before discharge: T 37.0 °C, HR 72, BP 130/76, RR 14, SpO₂ 98%." },
+      { label: "rr", value: "14", sourceUnit: "/min", sourceSpan: "The patient's final set of vitals before discharge: T 37.0 °C, HR 72, BP 130/76, RR 14, SpO₂ 98%." },
+      { label: "spo2", value: "98", sourceUnit: "%", sourceSpan: "The patient's final set of vitals before discharge: T 37.0 °C, HR 72, BP 130/76, RR 14, SpO₂ 98%." }
+    ],
+    excludedValues: [],
+    unitAliases: []
+  },
+  {
+    exhibitRef: "opus_scc_case_01/exh_stage1",
+    lane: "extract",
+    panel: [
+      { label: "temp", value: "37.2", sourceUnit: "°C", sourceSpan: "Vital signs: temperature 37.2 °C, heart rate 98, blood pressure 142/86, respiratory rate 20, SpO₂ 95% on room air." },
+      { label: "hr", value: "98", sourceUnit: "bpm", sourceSpan: "Vital signs: temperature 37.2 °C, heart rate 98, blood pressure 142/86, respiratory rate 20, SpO₂ 95% on room air." },
+      { label: "sbp", value: "142", sourceUnit: "mmHg", sourceSpan: "Vital signs: temperature 37.2 °C, heart rate 98, blood pressure 142/86, respiratory rate 20, SpO₂ 95% on room air." },
+      { label: "dbp", value: "86", sourceUnit: "mmHg", sourceSpan: "Vital signs: temperature 37.2 °C, heart rate 98, blood pressure 142/86, respiratory rate 20, SpO₂ 95% on room air." },
+      { label: "rr", value: "20", sourceUnit: "/min", sourceSpan: "Vital signs: temperature 37.2 °C, heart rate 98, blood pressure 142/86, respiratory rate 20, SpO₂ 95% on room air." },
+      { label: "spo2", value: "95", sourceUnit: "%", sourceSpan: "Vital signs: temperature 37.2 °C, heart rate 98, blood pressure 142/86, respiratory rate 20, SpO₂ 95% on room air." }
+    ],
+    excludedValues: [],
+    unitAliases: []
+  },
+  {
+    exhibitRef: "opus_vanco_case_01/stage_1_assessment",
+    lane: "extract",
+    panel: [
+      { label: "hr", value: "118", sourceUnit: "bpm", sourceSpan: "Vital signs: heart rate 118/min, blood pressure 108/62 mm Hg, respiratory rate 20/min, SpO2 96% on room air." },
+      { label: "sbp", value: "108", sourceUnit: "mm Hg", sourceSpan: "Vital signs: heart rate 118/min, blood pressure 108/62 mm Hg, respiratory rate 20/min, SpO2 96% on room air." },
+      { label: "dbp", value: "62", sourceUnit: "mm Hg", sourceSpan: "Vital signs: heart rate 118/min, blood pressure 108/62 mm Hg, respiratory rate 20/min, SpO2 96% on room air." },
+      { label: "rr", value: "20", sourceUnit: "/min", sourceSpan: "Vital signs: heart rate 118/min, blood pressure 108/62 mm Hg, respiratory rate 20/min, SpO2 96% on room air." },
+      { label: "spo2", value: "96", sourceUnit: "%", sourceSpan: "Vital signs: heart rate 118/min, blood pressure 108/62 mm Hg, respiratory rate 20/min, SpO2 96% on room air." }
+    ],
+    excludedValues: [],
+    unitAliases: []
+  }
+];
+
+const batch08Records: ExtractionRecord[] = [
+  {
+    exhibitRef: "opus_vanco_case_01/stage_2_data",
+    lane: "extract",
+    panel: [
+      { label: "wbc", value: "12,200", sourceUnit: "/µL", sourceSpan: "Morning labs: WBC 12,200/µL, creatinine 1.7 mg/dL, BUN 28 mg/dL, potassium 4.4 mEq/L, lactate 1.4 mmol/L, glucose 164 mg/dL." },
+      { label: "creatinine", value: "1.7", sourceUnit: "mg/dL", sourceSpan: "Morning labs: WBC 12,200/µL, creatinine 1.7 mg/dL, BUN 28 mg/dL, potassium 4.4 mEq/L, lactate 1.4 mmol/L, glucose 164 mg/dL." },
+      { label: "bun", value: "28", sourceUnit: "mg/dL", sourceSpan: "Morning labs: WBC 12,200/µL, creatinine 1.7 mg/dL, BUN 28 mg/dL, potassium 4.4 mEq/L, lactate 1.4 mmol/L, glucose 164 mg/dL." },
+      { label: "potassium", value: "4.4", sourceUnit: "mEq/L", sourceSpan: "Morning labs: WBC 12,200/µL, creatinine 1.7 mg/dL, BUN 28 mg/dL, potassium 4.4 mEq/L, lactate 1.4 mmol/L, glucose 164 mg/dL." },
+      { label: "lactate", value: "1.4", sourceUnit: "mmol/L", sourceSpan: "Morning labs: WBC 12,200/µL, creatinine 1.7 mg/dL, BUN 28 mg/dL, potassium 4.4 mEq/L, lactate 1.4 mmol/L, glucose 164 mg/dL." },
+      { label: "glucose", value: "164", sourceUnit: "mg/dL", sourceSpan: "Morning labs: WBC 12,200/µL, creatinine 1.7 mg/dL, BUN 28 mg/dL, potassium 4.4 mEq/L, lactate 1.4 mmol/L, glucose 164 mg/dL." }
+    ],
+    excludedValues: [],
+    unitAliases: []
+  },
+  {
+    exhibitRef: "opus_vanco_case_01/stage_3_data",
+    lane: "extract",
+    panel: [
+      { label: "temp", value: "37.4", sourceUnit: "°C", sourceSpan: "Vital signs: temperature 37.4 °C, heart rate 82/min, blood pressure 148/88 mm Hg, respiratory rate 18/min, SpO2 96% on room air." },
+      { label: "hr", value: "82", sourceUnit: "bpm", sourceSpan: "Vital signs: temperature 37.4 °C, heart rate 82/min, blood pressure 148/88 mm Hg, respiratory rate 18/min, SpO2 96% on room air." },
+      { label: "sbp", value: "148", sourceUnit: "mm Hg", sourceSpan: "Vital signs: temperature 37.4 °C, heart rate 82/min, blood pressure 148/88 mm Hg, respiratory rate 18/min, SpO2 96% on room air." },
+      { label: "dbp", value: "88", sourceUnit: "mm Hg", sourceSpan: "Vital signs: temperature 37.4 °C, heart rate 82/min, blood pressure 148/88 mm Hg, respiratory rate 18/min, SpO2 96% on room air." },
+      { label: "rr", value: "18", sourceUnit: "/min", sourceSpan: "Vital signs: temperature 37.4 °C, heart rate 82/min, blood pressure 148/88 mm Hg, respiratory rate 18/min, SpO2 96% on room air." },
+      { label: "spo2", value: "96", sourceUnit: "%", sourceSpan: "Vital signs: temperature 37.4 °C, heart rate 82/min, blood pressure 148/88 mm Hg, respiratory rate 18/min, SpO2 96% on room air." },
+      { label: "creatinine", value: "2.4", sourceUnit: "mg/dL", sourceSpan: "Morning labs: creatinine 2.4 mg/dL, BUN 44 mg/dL, potassium 5.1 mEq/L, bicarbonate 19 mEq/L, eGFR 26 mL/min." },
+      { label: "bun", value: "44", sourceUnit: "mg/dL", sourceSpan: "Morning labs: creatinine 2.4 mg/dL, BUN 44 mg/dL, potassium 5.1 mEq/L, bicarbonate 19 mEq/L, eGFR 26 mL/min." },
+      { label: "potassium", value: "5.1", sourceUnit: "mEq/L", sourceSpan: "Morning labs: creatinine 2.4 mg/dL, BUN 44 mg/dL, potassium 5.1 mEq/L, bicarbonate 19 mEq/L, eGFR 26 mL/min." },
+      { label: "bicarbonate", value: "19", sourceUnit: "mEq/L", sourceSpan: "Morning labs: creatinine 2.4 mg/dL, BUN 44 mg/dL, potassium 5.1 mEq/L, bicarbonate 19 mEq/L, eGFR 26 mL/min." }
+    ],
+    excludedValues: [],
+    unitAliases: []
+  },
+  {
+    exhibitRef: "opus1_case_discharge_med_rec_anticoag_01/clarification_note",
+    lane: "extract",
+    panel: [],
+    excludedValues: [],
+    unitAliases: []
+  },
+  {
+    exhibitRef: "opus1_case_discharge_med_rec_anticoag_01/teaching_note",
+    lane: "extract",
+    panel: [],
+    excludedValues: [],
+    unitAliases: []
+  },
+  {
+    exhibitRef: "opus12_case_inpatient_suicide_risk_01/admission_labs",
+    lane: "extract",
+    panel: [
+      { label: "wbc", value: "14,200", sourceUnit: "/µL", sourceSpan: "WBC 14,200/µL, hemoglobin 11.8 g/dL, platelets 210,000/µL, BUN 28 mg/dL, creatinine 1.3 mg/dL, eGFR 56 mL/min/1.73 m², sodium 139 mEq/L, potassium 4.4 mEq/L, glucose 238 mg/dL, HbA1c 9.4%, albumin 2.9 g/dL, ESR 62 mm/hr, CRP 8.4 mg/dL, wound culture pending." },
+      { label: "hemoglobin", value: "11.8", sourceUnit: "g/dL", sourceSpan: "WBC 14,200/µL, hemoglobin 11.8 g/dL, platelets 210,000/µL, BUN 28 mg/dL, creatinine 1.3 mg/dL, eGFR 56 mL/min/1.73 m², sodium 139 mEq/L, potassium 4.4 mEq/L, glucose 238 mg/dL, HbA1c 9.4%, albumin 2.9 g/dL, ESR 62 mm/hr, CRP 8.4 mg/dL, wound culture pending." },
+      { label: "platelets", value: "210,000", sourceUnit: "/µL", sourceSpan: "WBC 14,200/µL, hemoglobin 11.8 g/dL, platelets 210,000/µL, BUN 28 mg/dL, creatinine 1.3 mg/dL, eGFR 56 mL/min/1.73 m², sodium 139 mEq/L, potassium 4.4 mEq/L, glucose 238 mg/dL, HbA1c 9.4%, albumin 2.9 g/dL, ESR 62 mm/hr, CRP 8.4 mg/dL, wound culture pending." },
+      { label: "bun", value: "28", sourceUnit: "mg/dL", sourceSpan: "WBC 14,200/µL, hemoglobin 11.8 g/dL, platelets 210,000/µL, BUN 28 mg/dL, creatinine 1.3 mg/dL, eGFR 56 mL/min/1.73 m², sodium 139 mEq/L, potassium 4.4 mEq/L, glucose 238 mg/dL, HbA1c 9.4%, albumin 2.9 g/dL, ESR 62 mm/hr, CRP 8.4 mg/dL, wound culture pending." },
+      { label: "creatinine", value: "1.3", sourceUnit: "mg/dL", sourceSpan: "WBC 14,200/µL, hemoglobin 11.8 g/dL, platelets 210,000/µL, BUN 28 mg/dL, creatinine 1.3 mg/dL, eGFR 56 mL/min/1.73 m², sodium 139 mEq/L, potassium 4.4 mEq/L, glucose 238 mg/dL, HbA1c 9.4%, albumin 2.9 g/dL, ESR 62 mm/hr, CRP 8.4 mg/dL, wound culture pending." },
+      { label: "sodium", value: "139", sourceUnit: "mEq/L", sourceSpan: "WBC 14,200/µL, hemoglobin 11.8 g/dL, platelets 210,000/µL, BUN 28 mg/dL, creatinine 1.3 mg/dL, eGFR 56 mL/min/1.73 m², sodium 139 mEq/L, potassium 4.4 mEq/L, glucose 238 mg/dL, HbA1c 9.4%, albumin 2.9 g/dL, ESR 62 mm/hr, CRP 8.4 mg/dL, wound culture pending." },
+      { label: "potassium", value: "4.4", sourceUnit: "mEq/L", sourceSpan: "WBC 14,200/µL, hemoglobin 11.8 g/dL, platelets 210,000/µL, BUN 28 mg/dL, creatinine 1.3 mg/dL, eGFR 56 mL/min/1.73 m², sodium 139 mEq/L, potassium 4.4 mEq/L, glucose 238 mg/dL, HbA1c 9.4%, albumin 2.9 g/dL, ESR 62 mm/hr, CRP 8.4 mg/dL, wound culture pending." },
+      { label: "glucose", value: "238", sourceUnit: "mg/dL", sourceSpan: "WBC 14,200/µL, hemoglobin 11.8 g/dL, platelets 210,000/µL, BUN 28 mg/dL, creatinine 1.3 mg/dL, eGFR 56 mL/min/1.73 m², sodium 139 mEq/L, potassium 4.4 mEq/L, glucose 238 mg/dL, HbA1c 9.4%, albumin 2.9 g/dL, ESR 62 mm/hr, CRP 8.4 mg/dL, wound culture pending." }
+    ],
+    excludedValues: [],
+    unitAliases: []
+  },
+  {
+    exhibitRef: "opus12_case_inpatient_suicide_risk_01/morning_assessment",
+    lane: "extract",
+    panel: [
+      { label: "temp", value: "37.6", sourceUnit: "°C", sourceSpan: "Vital signs: T 37.6 °C, HR 82, BP 138/86, RR 16, SpO₂ 96% on room air." },
+      { label: "hr", value: "82", sourceUnit: "bpm", sourceSpan: "Vital signs: T 37.6 °C, HR 82, BP 138/86, RR 16, SpO₂ 96% on room air." },
+      { label: "sbp", value: "138", sourceUnit: "mmHg", sourceSpan: "Vital signs: T 37.6 °C, HR 82, BP 138/86, RR 16, SpO₂ 96% on room air." },
+      { label: "dbp", value: "86", sourceUnit: "mmHg", sourceSpan: "Vital signs: T 37.6 °C, HR 82, BP 138/86, RR 16, SpO₂ 96% on room air." },
+      { label: "rr", value: "16", sourceUnit: "/min", sourceSpan: "Vital signs: T 37.6 °C, HR 82, BP 138/86, RR 16, SpO₂ 96% on room air." },
+      { label: "spo2", value: "96", sourceUnit: "%", sourceSpan: "Vital signs: T 37.6 °C, HR 82, BP 138/86, RR 16, SpO₂ 96% on room air." }
+    ],
+    excludedValues: [],
+    unitAliases: []
+  },
+  {
+    exhibitRef: "opus2_case_code_status_01/exhibit_stage2",
+    lane: "skip_serial"
+  },
+  {
+    exhibitRef: "opus2_case_postop_opioid_respiratory_depression_01/stage_0838_findings",
+    lane: "extract",
+    panel: [
+      { label: "hr", value: "62", sourceUnit: "bpm", sourceSpan: "Vital signs: HR 62/min, BP 108/66 mm Hg, RR 7/min, SpO2 91% on 2 L/min nasal cannula.", context: "post_intervention" },
+      { label: "sbp", value: "108", sourceUnit: "mm Hg", sourceSpan: "Vital signs: HR 62/min, BP 108/66 mm Hg, RR 7/min, SpO2 91% on 2 L/min nasal cannula.", context: "post_intervention" },
+      { label: "dbp", value: "66", sourceUnit: "mm Hg", sourceSpan: "Vital signs: HR 62/min, BP 108/66 mm Hg, RR 7/min, SpO2 91% on 2 L/min nasal cannula.", context: "post_intervention" },
+      { label: "rr", value: "7", sourceUnit: "/min", sourceSpan: "Vital signs: HR 62/min, BP 108/66 mm Hg, RR 7/min, SpO2 91% on 2 L/min nasal cannula.", context: "post_intervention" },
+      { label: "spo2", value: "91", sourceUnit: "%", sourceSpan: "Vital signs: HR 62/min, BP 108/66 mm Hg, RR 7/min, SpO2 91% on 2 L/min nasal cannula.", context: "post_intervention" }
+    ],
+    excludedValues: [],
+    unitAliases: []
+  },
+  {
+    exhibitRef: "opus2_case_postop_opioid_respiratory_depression_01/stage_0855_findings",
+    lane: "extract",
+    panel: [
+      { label: "hr", value: "78", sourceUnit: "bpm", sourceSpan: "0855 vital signs: HR 78/min, BP 126/78 mm Hg, RR 14/min, SpO2 94% on 2 L/min nasal cannula.", context: "post_intervention" },
+      { label: "sbp", value: "126", sourceUnit: "mm Hg", sourceSpan: "0855 vital signs: HR 78/min, BP 126/78 mm Hg, RR 14/min, SpO2 94% on 2 L/min nasal cannula.", context: "post_intervention" },
+      { label: "dbp", value: "78", sourceUnit: "mm Hg", sourceSpan: "0855 vital signs: HR 78/min, BP 126/78 mm Hg, RR 14/min, SpO2 94% on 2 L/min nasal cannula.", context: "post_intervention" },
+      { label: "rr", value: "14", sourceUnit: "/min", sourceSpan: "0855 vital signs: HR 78/min, BP 126/78 mm Hg, RR 14/min, SpO2 94% on 2 L/min nasal cannula.", context: "post_intervention" },
+      { label: "spo2", value: "94", sourceUnit: "%", sourceSpan: "0855 vital signs: HR 78/min, BP 126/78 mm Hg, RR 14/min, SpO2 94% on 2 L/min nasal cannula.", context: "post_intervention" }
+    ],
+    excludedValues: [],
+    unitAliases: []
+  },
+  {
+    exhibitRef: "opus20_case_cdiff_01/exhibit_stage2",
+    lane: "extract",
+    panel: [
+      { label: "potassium", value: "3.6", sourceUnit: "mEq/L", sourceSpan: "Repeat labs: potassium 3.6 mEq/L (post-replacement), creatinine 1.9 mg/dL, BUN 34 mg/dL, lactate 1.8 mmol/L.", context: "post_intervention" },
+      { label: "creatinine", value: "1.9", sourceUnit: "mg/dL", sourceSpan: "Repeat labs: potassium 3.6 mEq/L (post-replacement), creatinine 1.9 mg/dL, BUN 34 mg/dL, lactate 1.8 mmol/L." },
+      { label: "bun", value: "34", sourceUnit: "mg/dL", sourceSpan: "Repeat labs: potassium 3.6 mEq/L (post-replacement), creatinine 1.9 mg/dL, BUN 34 mg/dL, lactate 1.8 mmol/L." },
+      { label: "lactate", value: "1.8", sourceUnit: "mmol/L", sourceSpan: "Repeat labs: potassium 3.6 mEq/L (post-replacement), creatinine 1.9 mg/dL, BUN 34 mg/dL, lactate 1.8 mmol/L." },
+      { label: "temp", value: "37.6", sourceUnit: "°C", sourceSpan: "Vitals: T 37.6 °C, HR 92, BP 108/68, RR 16, SpO₂ 97%." },
+      { label: "hr", value: "92", sourceUnit: "bpm", sourceSpan: "Vitals: T 37.6 °C, HR 92, BP 108/68, RR 16, SpO₂ 97%." },
+      { label: "sbp", value: "108", sourceUnit: "mmHg", sourceSpan: "Vitals: T 37.6 °C, HR 92, BP 108/68, RR 16, SpO₂ 97%." },
+      { label: "dbp", value: "68", sourceUnit: "mmHg", sourceSpan: "Vitals: T 37.6 °C, HR 92, BP 108/68, RR 16, SpO₂ 97%." },
+      { label: "rr", value: "16", sourceUnit: "/min", sourceSpan: "Vitals: T 37.6 °C, HR 92, BP 108/68, RR 16, SpO₂ 97%." },
+      { label: "spo2", value: "97", sourceUnit: "%", sourceSpan: "Vitals: T 37.6 °C, HR 92, BP 108/68, RR 16, SpO₂ 97%." }
+    ],
+    excludedValues: [],
+    unitAliases: []
+  },
+  {
+    exhibitRef: "opus22_case_postpartum_intrusive_thoughts_01/assessment_labs",
+    lane: "extract",
+    panel: [
+      { label: "temp", value: "36.8", sourceUnit: "C", sourceSpan: "Vital signs: T 36.8 C, HR 78, BP 118/72, RR 16, SpO2 99% on room air." },
+      { label: "hr", value: "78", sourceUnit: "bpm", sourceSpan: "Vital signs: T 36.8 C, HR 78, BP 118/72, RR 16, SpO2 99% on room air." },
+      { label: "sbp", value: "118", sourceUnit: "mmHg", sourceSpan: "Vital signs: T 36.8 C, HR 78, BP 118/72, RR 16, SpO2 99% on room air." },
+      { label: "dbp", value: "72", sourceUnit: "mmHg", sourceSpan: "Vital signs: T 36.8 C, HR 78, BP 118/72, RR 16, SpO2 99% on room air." },
+      { label: "rr", value: "16", sourceUnit: "/min", sourceSpan: "Vital signs: T 36.8 C, HR 78, BP 118/72, RR 16, SpO2 99% on room air." },
+      { label: "spo2", value: "99", sourceUnit: "%", sourceSpan: "Vital signs: T 36.8 C, HR 78, BP 118/72, RR 16, SpO2 99% on room air." },
+      { label: "hemoglobin", value: "12.1", sourceUnit: "g/dL", sourceSpan: "Laboratory results from postpartum visit: TSH 2.4 mIU/L, hemoglobin 12.1 g/dL, CBC within normal limits, CMP unremarkable." }
+    ],
+    excludedValues: [],
+    unitAliases: []
+  },
+  {
+    exhibitRef: "opus22_case_postpartum_intrusive_thoughts_01/stage_2_symptoms",
+    lane: "extract",
+    panel: [
+      { label: "temp", value: "36.9", sourceUnit: "C", sourceSpan: "Vital signs: T 36.9 C, HR 84, BP 122/76, RR 18, SpO2 99%." },
+      { label: "hr", value: "84", sourceUnit: "bpm", sourceSpan: "Vital signs: T 36.9 C, HR 84, BP 122/76, RR 18, SpO2 99%." },
+      { label: "sbp", value: "122", sourceUnit: "mmHg", sourceSpan: "Vital signs: T 36.9 C, HR 84, BP 122/76, RR 18, SpO2 99%." },
+      { label: "dbp", value: "76", sourceUnit: "mmHg", sourceSpan: "Vital signs: T 36.9 C, HR 84, BP 122/76, RR 18, SpO2 99%." },
+      { label: "rr", value: "18", sourceUnit: "/min", sourceSpan: "Vital signs: T 36.9 C, HR 84, BP 122/76, RR 18, SpO2 99%." },
+      { label: "spo2", value: "99", sourceUnit: "%", sourceSpan: "Vital signs: T 36.9 C, HR 84, BP 122/76, RR 18, SpO2 99%." }
+    ],
+    excludedValues: [],
+    unitAliases: []
+  },
+  {
+    exhibitRef: "opus22_case_postpartum_intrusive_thoughts_01/stage_3_improvement",
+    lane: "extract",
+    panel: [
+      { label: "temp", value: "36.7", sourceUnit: "C", sourceSpan: "Vital signs: T 36.7 C, HR 74, BP 116/70, RR 14, SpO2 99%." },
+      { label: "hr", value: "74", sourceUnit: "bpm", sourceSpan: "Vital signs: T 36.7 C, HR 74, BP 116/70, RR 14, SpO2 99%." },
+      { label: "sbp", value: "116", sourceUnit: "mmHg", sourceSpan: "Vital signs: T 36.7 C, HR 74, BP 116/70, RR 14, SpO2 99%." },
+      { label: "dbp", value: "70", sourceUnit: "mmHg", sourceSpan: "Vital signs: T 36.7 C, HR 74, BP 116/70, RR 14, SpO2 99%." },
+      { label: "rr", value: "14", sourceUnit: "/min", sourceSpan: "Vital signs: T 36.7 C, HR 74, BP 116/70, RR 14, SpO2 99%." },
+      { label: "spo2", value: "99", sourceUnit: "%", sourceSpan: "Vital signs: T 36.7 C, HR 74, BP 116/70, RR 14, SpO2 99%." }
+    ],
+    excludedValues: [],
+    unitAliases: []
+  },
+  {
+    exhibitRef: "opus25_case_tb_airborne_treatment_monitoring_01/initial_assessment",
+    lane: "extract",
+    panel: [
+      { label: "temp", value: "38.3", sourceUnit: "C", sourceSpan: "Vital signs: T 38.3 C (101.0 F), HR 92/min, BP 118/74 mm Hg, RR 20/min, SpO2 95% on room air." },
+      { label: "hr", value: "92", sourceUnit: "bpm", sourceSpan: "Vital signs: T 38.3 C (101.0 F), HR 92/min, BP 118/74 mm Hg, RR 20/min, SpO2 95% on room air." },
+      { label: "sbp", value: "118", sourceUnit: "mm Hg", sourceSpan: "Vital signs: T 38.3 C (101.0 F), HR 92/min, BP 118/74 mm Hg, RR 20/min, SpO2 95% on room air." },
+      { label: "dbp", value: "74", sourceUnit: "mm Hg", sourceSpan: "Vital signs: T 38.3 C (101.0 F), HR 92/min, BP 118/74 mm Hg, RR 20/min, SpO2 95% on room air." },
+      { label: "rr", value: "20", sourceUnit: "/min", sourceSpan: "Vital signs: T 38.3 C (101.0 F), HR 92/min, BP 118/74 mm Hg, RR 20/min, SpO2 95% on room air." },
+      { label: "spo2", value: "95", sourceUnit: "%", sourceSpan: "Vital signs: T 38.3 C (101.0 F), HR 92/min, BP 118/74 mm Hg, RR 20/min, SpO2 95% on room air." }
+    ],
+    excludedValues: [],
+    unitAliases: []
+  },
+  {
+    exhibitRef: "opus25_case_tb_airborne_treatment_monitoring_01/orders_and_baseline_labs",
+    lane: "extract",
+    panel: [
+      { label: "wbc", value: "11,200", sourceUnit: "/uL", sourceSpan: "Baseline labs: WBC 11,200/uL, hemoglobin 11.4 g/dL, hematocrit 34.2%, platelets 410,000/uL, sodium 136 mEq/L, potassium 4.1 mEq/L, BUN 14 mg/dL, creatinine 0.9 mg/dL, AST 42 U/L, ALT 48 U/L, ESR 68 mm/hr." },
+      { label: "hemoglobin", value: "11.4", sourceUnit: "g/dL", sourceSpan: "Baseline labs: WBC 11,200/uL, hemoglobin 11.4 g/dL, hematocrit 34.2%, platelets 410,000/uL, sodium 136 mEq/L, potassium 4.1 mEq/L, BUN 14 mg/dL, creatinine 0.9 mg/dL, AST 42 U/L, ALT 48 U/L, ESR 68 mm/hr." },
+      { label: "hematocrit", value: "34.2", sourceUnit: "%", sourceSpan: "Baseline labs: WBC 11,200/uL, hemoglobin 11.4 g/dL, hematocrit 34.2%, platelets 410,000/uL, sodium 136 mEq/L, potassium 4.1 mEq/L, BUN 14 mg/dL, creatinine 0.9 mg/dL, AST 42 U/L, ALT 48 U/L, ESR 68 mm/hr." },
+      { label: "platelets", value: "410,000", sourceUnit: "/uL", sourceSpan: "Baseline labs: WBC 11,200/uL, hemoglobin 11.4 g/dL, hematocrit 34.2%, platelets 410,000/uL, sodium 136 mEq/L, potassium 4.1 mEq/L, BUN 14 mg/dL, creatinine 0.9 mg/dL, AST 42 U/L, ALT 48 U/L, ESR 68 mm/hr." },
+      { label: "sodium", value: "136", sourceUnit: "mEq/L", sourceSpan: "Baseline labs: WBC 11,200/uL, hemoglobin 11.4 g/dL, hematocrit 34.2%, platelets 410,000/uL, sodium 136 mEq/L, potassium 4.1 mEq/L, BUN 14 mg/dL, creatinine 0.9 mg/dL, AST 42 U/L, ALT 48 U/L, ESR 68 mm/hr." },
+      { label: "potassium", value: "4.1", sourceUnit: "mEq/L", sourceSpan: "Baseline labs: WBC 11,200/uL, hemoglobin 11.4 g/dL, hematocrit 34.2%, platelets 410,000/uL, sodium 136 mEq/L, potassium 4.1 mEq/L, BUN 14 mg/dL, creatinine 0.9 mg/dL, AST 42 U/L, ALT 48 U/L, ESR 68 mm/hr." },
+      { label: "bun", value: "14", sourceUnit: "mg/dL", sourceSpan: "Baseline labs: WBC 11,200/uL, hemoglobin 11.4 g/dL, hematocrit 34.2%, platelets 410,000/uL, sodium 136 mEq/L, potassium 4.1 mEq/L, BUN 14 mg/dL, creatinine 0.9 mg/dL, AST 42 U/L, ALT 48 U/L, ESR 68 mm/hr." },
+      { label: "creatinine", value: "0.9", sourceUnit: "mg/dL", sourceSpan: "Baseline labs: WBC 11,200/uL, hemoglobin 11.4 g/dL, hematocrit 34.2%, platelets 410,000/uL, sodium 136 mEq/L, potassium 4.1 mEq/L, BUN 14 mg/dL, creatinine 0.9 mg/dL, AST 42 U/L, ALT 48 U/L, ESR 68 mm/hr." },
+      { label: "ast", value: "42", sourceUnit: "U/L", sourceSpan: "Baseline labs: WBC 11,200/uL, hemoglobin 11.4 g/dL, hematocrit 34.2%, platelets 410,000/uL, sodium 136 mEq/L, potassium 4.1 mEq/L, BUN 14 mg/dL, creatinine 0.9 mg/dL, AST 42 U/L, ALT 48 U/L, ESR 68 mm/hr." },
+      { label: "alt", value: "48", sourceUnit: "U/L", sourceSpan: "Baseline labs: WBC 11,200/uL, hemoglobin 11.4 g/dL, hematocrit 34.2%, platelets 410,000/uL, sodium 136 mEq/L, potassium 4.1 mEq/L, BUN 14 mg/dL, creatinine 0.9 mg/dL, AST 42 U/L, ALT 48 U/L, ESR 68 mm/hr." }
+    ],
+    excludedValues: [],
+    unitAliases: []
+  },
+  {
+    exhibitRef: "opus25_case_tb_airborne_treatment_monitoring_01/stage1_progress",
+    lane: "extract",
+    panel: [
+      { label: "temp", value: "38.9", sourceUnit: "C", sourceSpan: "The patient has drenching night sweats and a temperature spike to 38.9 C." }
+    ],
+    excludedValues: [],
+    unitAliases: []
+  },
+  {
+    exhibitRef: "opus25_case_tb_airborne_treatment_monitoring_01/stage3_progress",
+    lane: "extract",
+    panel: [
+      { label: "temp", value: "37.8", sourceUnit: "C", sourceSpan: "After three doses of the four-drug TB regimen, the patient reports nausea. Temperature is 37.8 C. Labs at 48 hours: AST 58 U/L, ALT 72 U/L.", context: "post_intervention" },
+      { label: "ast", value: "58", sourceUnit: "U/L", sourceSpan: "After three doses of the four-drug TB regimen, the patient reports nausea. Temperature is 37.8 C. Labs at 48 hours: AST 58 U/L, ALT 72 U/L.", context: "post_intervention" },
+      { label: "alt", value: "72", sourceUnit: "U/L", sourceSpan: "After three doses of the four-drug TB regimen, the patient reports nausea. Temperature is 37.8 C. Labs at 48 hours: AST 58 U/L, ALT 72 U/L.", context: "post_intervention" }
+    ],
+    excludedValues: [],
+    unitAliases: []
+  },
+  {
+    exhibitRef: "opus25_case_tb_airborne_treatment_monitoring_01/stage4_progress",
+    lane: "extract",
+    panel: [
+      { label: "ast", value: "86", sourceUnit: "U/L", sourceSpan: "Repeat labs: AST 86 U/L, ALT 104 U/L, total bilirubin 1.8 mg/dL." },
+      { label: "alt", value: "104", sourceUnit: "U/L", sourceSpan: "Repeat labs: AST 86 U/L, ALT 104 U/L, total bilirubin 1.8 mg/dL." },
+      { label: "total_bilirubin", value: "1.8", sourceUnit: "mg/dL", sourceSpan: "Repeat labs: AST 86 U/L, ALT 104 U/L, total bilirubin 1.8 mg/dL." }
+    ],
+    excludedValues: [],
+    unitAliases: []
+  },
+  {
+    exhibitRef: "opus3_iv_potassium_safety_case_01/exhibit_stage1_nursing_note",
+    lane: "extract",
+    panel: [],
+    excludedValues: [],
+    unitAliases: []
+  },
+  {
+    exhibitRef: "opus4_case_postop_sbar_01/morning_labs_0600",
+    lane: "extract",
+    panel: [
+      { label: "wbc", value: "13,800", sourceUnit: "/µL", sourceSpan: "WBC 13,800/µL; hemoglobin 11.2 g/dL; platelets 188,000/µL; sodium 138 mEq/L; potassium 4.2 mEq/L; chloride 101 mEq/L; bicarbonate 24 mEq/L; BUN 24 mg/dL; creatinine 1.5 mg/dL; glucose 162 mg/dL; lactate 1.2 mmol/L; INR 1.1." },
+      { label: "hemoglobin", value: "11.2", sourceUnit: "g/dL", sourceSpan: "WBC 13,800/µL; hemoglobin 11.2 g/dL; platelets 188,000/µL; sodium 138 mEq/L; potassium 4.2 mEq/L; chloride 101 mEq/L; bicarbonate 24 mEq/L; BUN 24 mg/dL; creatinine 1.5 mg/dL; glucose 162 mg/dL; lactate 1.2 mmol/L; INR 1.1." },
+      { label: "platelets", value: "188,000", sourceUnit: "/µL", sourceSpan: "WBC 13,800/µL; hemoglobin 11.2 g/dL; platelets 188,000/µL; sodium 138 mEq/L; potassium 4.2 mEq/L; chloride 101 mEq/L; bicarbonate 24 mEq/L; BUN 24 mg/dL; creatinine 1.5 mg/dL; glucose 162 mg/dL; lactate 1.2 mmol/L; INR 1.1." },
+      { label: "sodium", value: "138", sourceUnit: "mEq/L", sourceSpan: "WBC 13,800/µL; hemoglobin 11.2 g/dL; platelets 188,000/µL; sodium 138 mEq/L; potassium 4.2 mEq/L; chloride 101 mEq/L; bicarbonate 24 mEq/L; BUN 24 mg/dL; creatinine 1.5 mg/dL; glucose 162 mg/dL; lactate 1.2 mmol/L; INR 1.1." },
+      { label: "potassium", value: "4.2", sourceUnit: "mEq/L", sourceSpan: "WBC 13,800/µL; hemoglobin 11.2 g/dL; platelets 188,000/µL; sodium 138 mEq/L; potassium 4.2 mEq/L; chloride 101 mEq/L; bicarbonate 24 mEq/L; BUN 24 mg/dL; creatinine 1.5 mg/dL; glucose 162 mg/dL; lactate 1.2 mmol/L; INR 1.1." },
+      { label: "chloride", value: "101", sourceUnit: "mEq/L", sourceSpan: "WBC 13,800/µL; hemoglobin 11.2 g/dL; platelets 188,000/µL; sodium 138 mEq/L; potassium 4.2 mEq/L; chloride 101 mEq/L; bicarbonate 24 mEq/L; BUN 24 mg/dL; creatinine 1.5 mg/dL; glucose 162 mg/dL; lactate 1.2 mmol/L; INR 1.1." },
+      { label: "bicarbonate", value: "24", sourceUnit: "mEq/L", sourceSpan: "WBC 13,800/µL; hemoglobin 11.2 g/dL; platelets 188,000/µL; sodium 138 mEq/L; potassium 4.2 mEq/L; chloride 101 mEq/L; bicarbonate 24 mEq/L; BUN 24 mg/dL; creatinine 1.5 mg/dL; glucose 162 mg/dL; lactate 1.2 mmol/L; INR 1.1." },
+      { label: "bun", value: "24", sourceUnit: "mg/dL", sourceSpan: "WBC 13,800/µL; hemoglobin 11.2 g/dL; platelets 188,000/µL; sodium 138 mEq/L; potassium 4.2 mEq/L; chloride 101 mEq/L; bicarbonate 24 mEq/L; BUN 24 mg/dL; creatinine 1.5 mg/dL; glucose 162 mg/dL; lactate 1.2 mmol/L; INR 1.1." },
+      { label: "creatinine", value: "1.5", sourceUnit: "mg/dL", sourceSpan: "WBC 13,800/µL; hemoglobin 11.2 g/dL; platelets 188,000/µL; sodium 138 mEq/L; potassium 4.2 mEq/L; chloride 101 mEq/L; bicarbonate 24 mEq/L; BUN 24 mg/dL; creatinine 1.5 mg/dL; glucose 162 mg/dL; lactate 1.2 mmol/L; INR 1.1." },
+      { label: "glucose", value: "162", sourceUnit: "mg/dL", sourceSpan: "WBC 13,800/µL; hemoglobin 11.2 g/dL; platelets 188,000/µL; sodium 138 mEq/L; potassium 4.2 mEq/L; chloride 101 mEq/L; bicarbonate 24 mEq/L; BUN 24 mg/dL; creatinine 1.5 mg/dL; glucose 162 mg/dL; lactate 1.2 mmol/L; INR 1.1." },
+      { label: "lactate", value: "1.2", sourceUnit: "mmol/L", sourceSpan: "WBC 13,800/µL; hemoglobin 11.2 g/dL; platelets 188,000/µL; sodium 138 mEq/L; potassium 4.2 mEq/L; chloride 101 mEq/L; bicarbonate 24 mEq/L; BUN 24 mg/dL; creatinine 1.5 mg/dL; glucose 162 mg/dL; lactate 1.2 mmol/L; INR 1.1." },
+      { label: "inr", value: "1.1", sourceUnit: "(ratio)", sourceSpan: "WBC 13,800/µL; hemoglobin 11.2 g/dL; platelets 188,000/µL; sodium 138 mEq/L; potassium 4.2 mEq/L; chloride 101 mEq/L; bicarbonate 24 mEq/L; BUN 24 mg/dL; creatinine 1.5 mg/dL; glucose 162 mg/dL; lactate 1.2 mmol/L; INR 1.1." }
+    ],
+    excludedValues: [],
+    unitAliases: []
+  }
+];
+
+const batch09Records: ExtractionRecord[] = [
+  {
+    exhibitRef: "opus4_case_postop_sbar_01/stage3_interventions",
+    lane: "extract",
+    panel: [
+      { label: "temp", value: "38.4", sourceUnit: "°C", sourceSpan: "Pre-transport status: T 38.4 °C, HR 116 irregular, BP 98/58, RR 26, SpO₂ 93% on 4 L nasal cannula after oxygen was applied for SpO₂ below 92%.", context: "post_intervention" },
+      { label: "hr", value: "116", sourceUnit: "bpm", sourceSpan: "Pre-transport status: T 38.4 °C, HR 116 irregular, BP 98/58, RR 26, SpO₂ 93% on 4 L nasal cannula after oxygen was applied for SpO₂ below 92%.", context: "post_intervention" },
+      { label: "sbp", value: "98", sourceUnit: "mmHg", sourceSpan: "Pre-transport status: T 38.4 °C, HR 116 irregular, BP 98/58, RR 26, SpO₂ 93% on 4 L nasal cannula after oxygen was applied for SpO₂ below 92%.", context: "post_intervention" },
+      { label: "dbp", value: "58", sourceUnit: "mmHg", sourceSpan: "Pre-transport status: T 38.4 °C, HR 116 irregular, BP 98/58, RR 26, SpO₂ 93% on 4 L nasal cannula after oxygen was applied for SpO₂ below 92%.", context: "post_intervention" },
+      { label: "rr", value: "26", sourceUnit: "/min", sourceSpan: "Pre-transport status: T 38.4 °C, HR 116 irregular, BP 98/58, RR 26, SpO₂ 93% on 4 L nasal cannula after oxygen was applied for SpO₂ below 92%.", context: "post_intervention" },
+      { label: "spo2", value: "93", sourceUnit: "%", sourceSpan: "Pre-transport status: T 38.4 °C, HR 116 irregular, BP 98/58, RR 26, SpO₂ 93% on 4 L nasal cannula after oxygen was applied for SpO₂ below 92%.", context: "post_intervention" }
+    ],
+    excludedValues: [],
+    unitAliases: []
+  },
+  {
+    exhibitRef: "opus5_case_consent_interpreter_01/background",
+    lane: "extract",
+    panel: [],
+    excludedValues: [],
+    unitAliases: []
+  },
+  {
+    exhibitRef: "opus5_case_consent_interpreter_01/preop_labs",
+    lane: "extract",
+    panel: [
+      { label: "wbc", value: "7,200", sourceUnit: "/µL", sourceSpan: "Labs drawn the previous day: WBC 7,200/µL; Hgb 13.1 g/dL; platelets 238,000/µL; INR 1.0; BUN 18 mg/dL; creatinine 0.9 mg/dL; potassium 4.2 mEq/L; fasting glucose 148 mg/dL; HbA1c 7.1%." },
+      { label: "hemoglobin", value: "13.1", sourceUnit: "g/dL", sourceSpan: "Labs drawn the previous day: WBC 7,200/µL; Hgb 13.1 g/dL; platelets 238,000/µL; INR 1.0; BUN 18 mg/dL; creatinine 0.9 mg/dL; potassium 4.2 mEq/L; fasting glucose 148 mg/dL; HbA1c 7.1%." },
+      { label: "platelets", value: "238,000", sourceUnit: "/µL", sourceSpan: "Labs drawn the previous day: WBC 7,200/µL; Hgb 13.1 g/dL; platelets 238,000/µL; INR 1.0; BUN 18 mg/dL; creatinine 0.9 mg/dL; potassium 4.2 mEq/L; fasting glucose 148 mg/dL; HbA1c 7.1%." },
+      { label: "inr", value: "1.0", sourceUnit: "(ratio)", sourceSpan: "Labs drawn the previous day: WBC 7,200/µL; Hgb 13.1 g/dL; platelets 238,000/µL; INR 1.0; BUN 18 mg/dL; creatinine 0.9 mg/dL; potassium 4.2 mEq/L; fasting glucose 148 mg/dL; HbA1c 7.1%." },
+      { label: "bun", value: "18", sourceUnit: "mg/dL", sourceSpan: "Labs drawn the previous day: WBC 7,200/µL; Hgb 13.1 g/dL; platelets 238,000/µL; INR 1.0; BUN 18 mg/dL; creatinine 0.9 mg/dL; potassium 4.2 mEq/L; fasting glucose 148 mg/dL; HbA1c 7.1%." },
+      { label: "creatinine", value: "0.9", sourceUnit: "mg/dL", sourceSpan: "Labs drawn the previous day: WBC 7,200/µL; Hgb 13.1 g/dL; platelets 238,000/µL; INR 1.0; BUN 18 mg/dL; creatinine 0.9 mg/dL; potassium 4.2 mEq/L; fasting glucose 148 mg/dL; HbA1c 7.1%." },
+      { label: "potassium", value: "4.2", sourceUnit: "mEq/L", sourceSpan: "Labs drawn the previous day: WBC 7,200/µL; Hgb 13.1 g/dL; platelets 238,000/µL; INR 1.0; BUN 18 mg/dL; creatinine 0.9 mg/dL; potassium 4.2 mEq/L; fasting glucose 148 mg/dL; HbA1c 7.1%." },
+      { label: "glucose", value: "148", sourceUnit: "mg/dL", sourceSpan: "Labs drawn the previous day: WBC 7,200/µL; Hgb 13.1 g/dL; platelets 238,000/µL; INR 1.0; BUN 18 mg/dL; creatinine 0.9 mg/dL; potassium 4.2 mEq/L; fasting glucose 148 mg/dL; HbA1c 7.1%." }
+    ],
+    excludedValues: [],
+    unitAliases: []
+  },
+  {
+    exhibitRef: "opus5_case_consent_interpreter_01/stage_2_note",
+    lane: "extract",
+    panel: [
+      { label: "sbp", value: "148", sourceUnit: "mm Hg", sourceSpan: "BP 148/90 mm Hg, HR 86/min." },
+      { label: "dbp", value: "90", sourceUnit: "mm Hg", sourceSpan: "BP 148/90 mm Hg, HR 86/min." },
+      { label: "hr", value: "86", sourceUnit: "bpm", sourceSpan: "BP 148/90 mm Hg, HR 86/min." }
+    ],
+    excludedValues: [],
+    unitAliases: []
+  },
+  {
+    exhibitRef: "opus5_case_consent_interpreter_01/stage_3_note",
+    lane: "extract",
+    panel: [
+      { label: "sbp", value: "136", sourceUnit: "mm Hg", sourceSpan: "BP 136/84 mm Hg, HR 78/min, SpO₂ 99% on room air." },
+      { label: "dbp", value: "84", sourceUnit: "mm Hg", sourceSpan: "BP 136/84 mm Hg, HR 78/min, SpO₂ 99% on room air." },
+      { label: "hr", value: "78", sourceUnit: "bpm", sourceSpan: "BP 136/84 mm Hg, HR 78/min, SpO₂ 99% on room air." },
+      { label: "spo2", value: "99", sourceUnit: "%", sourceSpan: "BP 136/84 mm Hg, HR 78/min, SpO₂ 99% on room air." }
+    ],
+    excludedValues: [],
+    unitAliases: []
+  }
+];
+
 writeFileSync(
   "EXHIBIT-FLOWSHEET-MIGRATION-BATCH-02-prose_embedded-2026-07-05.json",
   `${JSON.stringify(batch02Records, null, 2)}\n`,
@@ -1238,4 +1794,19 @@ writeFileSync(
   `${JSON.stringify(batch06Records, null, 2)}\n`,
 );
 
-console.log(`Wrote ${batch02Records.length} Batch 02 records, ${batch03Records.length} Batch 03 records, ${batch04Records.length} Batch 04 records, ${batch05Records.length} Batch 05 records, and ${batch06Records.length} Batch 06 records.`);
+writeFileSync(
+  "EXHIBIT-FLOWSHEET-MIGRATION-BATCH-07-prose_embedded-2026-07-05.json",
+  `${JSON.stringify(batch07Records, null, 2)}\n`,
+);
+
+writeFileSync(
+  "EXHIBIT-FLOWSHEET-MIGRATION-BATCH-08-prose_embedded-2026-07-05.json",
+  `${JSON.stringify(batch08Records, null, 2)}\n`,
+);
+
+writeFileSync(
+  "EXHIBIT-FLOWSHEET-MIGRATION-BATCH-09-prose_embedded-2026-07-05.json",
+  `${JSON.stringify(batch09Records, null, 2)}\n`,
+);
+
+console.log(`Wrote ${batch02Records.length} Batch 02 records, ${batch03Records.length} Batch 03 records, ${batch04Records.length} Batch 04 records, ${batch05Records.length} Batch 05 records, ${batch06Records.length} Batch 06 records, ${batch07Records.length} Batch 07 records, ${batch08Records.length} Batch 08 records, and ${batch09Records.length} Batch 09 records.`);
