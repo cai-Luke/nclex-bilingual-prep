@@ -3,10 +3,11 @@
 Date: 2026-07-04
 Adjudicator: Claude (architect seat). Scope: semantic scoring of the blind extraction against the
 held-back answer key — the layer the deterministic gate structurally cannot check.
-Inputs: `EXHIBIT-FLOWSHEET-BLIND-EXTRACTION-2026-07-04.json` (extractor output),
-`EXHIBIT-FLOWSHEET-BLIND-ANSWERKEY-2026-07-04.json` (held-back ground truth),
-`EXHIBIT-FLOWSHEET-BLIND-CASES-2026-07-04.json` (source prose).
-Companion to Codex's `EXHIBIT-FLOWSHEET-CODEX-TO-CLAUDE-2026-07-04.md` (gate ran clean: 12 records,
+Inputs: `Archive/root-cleanup-2026-07-05/EXHIBIT-FLOWSHEET-BLIND-EXTRACTION-2026-07-04.json`
+(extractor output), `Archive/root-cleanup-2026-07-05/EXHIBIT-FLOWSHEET-BLIND-ANSWERKEY-2026-07-04.json`
+(held-back ground truth), `Archive/root-cleanup-2026-07-05/EXHIBIT-FLOWSHEET-BLIND-CASES-2026-07-04.json`
+(source prose).
+Companion to Codex's `Archive/root-cleanup-2026-07-05/EXHIBIT-FLOWSHEET-CODEX-TO-CLAUDE-2026-07-04.md` (gate ran clean: 12 records,
 0 FAIL, 0 WARN on the blind set; 6 records, 0 FAIL, 0 WARN on smoke v2).
 
 ## Method
@@ -138,7 +139,7 @@ they were never expected to flow through this pipeline.
 
 ## Status
 
-- Smoke batch 1: adjudicated (`EXHIBIT-FLOWSHEET-SMOKE-ADJUDICATION-2026-07-04.md`), 2 defects folded
+- Smoke batch 1: adjudicated (`Archive/root-cleanup-2026-07-05/EXHIBIT-FLOWSHEET-SMOKE-ADJUDICATION-2026-07-04.md`), 2 defects folded
   into the contract (sourceUnit + GATE 4; Rule F).
 - Smoke batch 2: gate clean, both targeted regressions (platelet sourceUnit, post-intervention BP)
   confirmed fixed.

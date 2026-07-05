@@ -53,8 +53,8 @@ The committed NGN item-type set is complete. Rationale/dyad scoring and an expli
 
 Completed:
 - Archived completed root reports/specs into `Archive/root-cleanup-2026-07-03/`: adversarial audit findings from Jun 24/25, the split-screen feasibility investigation, the Vocab Rescue Phase 1 walkthrough, and the implemented Translation Telemetry V1.2b spec.
-- Kept live root guidance and active/reusable prompts in place, including `case-footer-and-option-marker-codex-spec.md`, `bowtie-highlight-topup-batch-spec.md`, and the generation prompts.
-- Added the Claude-authored `case-footer-and-option-marker-codex-spec.md` to version control.
+- Kept live root guidance and active/reusable prompts in place, including `bowtie-highlight-topup-batch-spec.md` and the generation prompts.
+- Added the Claude-authored `case-footer-and-option-marker-codex-spec.md` to version control, then archived it under `Archive/root-cleanup-2026-07-04/` after the active UI polish pass closed.
 
 Verification:
 - `rg` reference scan updated current root/history/ledger/audit pointers to the archived paths.

@@ -4,8 +4,9 @@ Date: 2026-07-03 (amended 2026-07-04 after smoke batch 1)
 Status: proposal for litigation. No schema, bank, renderer, or grading change made. This spec
 defines (1) the deterministic extraction contract and gate, and (2) a deliberately worst-case
 6-panel smoke batch for Luke's hand-adjudication before any migration windows are spent.
-Companion to `CHART-FIDELITY-INVESTIGATION-2026-07-03.md`; smoke-batch-1 results in
-`EXHIBIT-FLOWSHEET-SMOKE-ADJUDICATION-2026-07-04.md`.
+Companion to `Archive/root-cleanup-2026-07-05/CHART-FIDELITY-INVESTIGATION-2026-07-03.md`;
+smoke-batch-1 results in
+`Archive/root-cleanup-2026-07-05/EXHIBIT-FLOWSHEET-SMOKE-ADJUDICATION-2026-07-04.md`.
 
 **Amendment log.** 2026-07-04, after smoke batch 1 (all 6 panels passed the gate; prior/trend/
 serial selection and out-of-scope discipline were clean, but two gaps surfaced): (1) Rule C now

@@ -1,0 +1,246 @@
+[
+  {
+    "exhibitRef": "blind_01/triage-note",
+    "bucket": "clean_woven",
+    "expectedKeyed": [
+      { "label": "temp", "value": "38.1", "sourceUnit": "°C" },
+      { "label": "hr", "value": "104", "sourceUnit": "bpm" },
+      { "label": "sbp", "value": "118", "sourceUnit": "mmHg" },
+      { "label": "dbp", "value": "76", "sourceUnit": "mmHg" },
+      { "label": "rr", "value": "20", "sourceUnit": "/min" },
+      { "label": "spo2", "value": "96", "sourceUnit": "%" },
+      { "label": "glucose", "value": "132", "sourceUnit": "mg/dL" }
+    ],
+    "expectedExcluded": [],
+    "expectedContext": [],
+    "expectedSkipSerial": false,
+    "expectedOutOfScope": []
+  },
+  {
+    "exhibitRef": "blind_02/postop-check",
+    "bucket": "clean_woven",
+    "expectedKeyed": [
+      { "label": "hr", "value": "86", "sourceUnit": "bpm" },
+      { "label": "sbp", "value": "126", "sourceUnit": "mm Hg" },
+      { "label": "dbp", "value": "70", "sourceUnit": "mm Hg" },
+      { "label": "rr", "value": "18", "sourceUnit": "/min" },
+      { "label": "spo2", "value": "98", "sourceUnit": "%" },
+      { "label": "temp", "value": "36.8", "sourceUnit": "°C" },
+      { "label": "sodium", "value": "139", "sourceUnit": "mEq/L" },
+      { "label": "potassium", "value": "4.0", "sourceUnit": "mEq/L" },
+      { "label": "creatinine", "value": "0.8", "sourceUnit": "mg/dL" }
+    ],
+    "expectedExcluded": [],
+    "expectedContext": [],
+    "expectedSkipSerial": false,
+    "expectedOutOfScope": []
+  },
+  {
+    "exhibitRef": "blind_03/clinic-recheck",
+    "bucket": "clean_woven",
+    "expectedKeyed": [
+      { "label": "temp", "value": "37.6", "sourceUnit": "°C" },
+      { "label": "hr", "value": "92", "sourceUnit": "bpm" },
+      { "label": "sbp", "value": "110", "sourceUnit": "mmHg" },
+      { "label": "dbp", "value": "68", "sourceUnit": "mmHg" },
+      { "label": "rr", "value": "16", "sourceUnit": "/min" },
+      { "label": "spo2", "value": "99", "sourceUnit": "%" },
+      { "label": "bun", "value": "16", "sourceUnit": "mg/dL" },
+      { "label": "creatinine", "value": "0.7", "sourceUnit": "mg/dL" },
+      { "label": "sodium", "value": "136", "sourceUnit": "mEq/L" },
+      { "label": "bicarbonate", "value": "24", "sourceUnit": "mEq/L" }
+    ],
+    "expectedExcluded": [],
+    "expectedContext": [],
+    "expectedSkipSerial": false,
+    "expectedOutOfScope": []
+  },
+  {
+    "exhibitRef": "blind_04/dehydration-update",
+    "bucket": "prior_trend",
+    "expectedKeyed": [
+      { "label": "sbp", "value": "102", "sourceUnit": "mmHg" },
+      { "label": "dbp", "value": "64", "sourceUnit": "mmHg" },
+      { "label": "hr", "value": "108", "sourceUnit": "bpm" },
+      { "label": "rr", "value": "19", "sourceUnit": "/min" },
+      { "label": "temp", "value": "37.4", "sourceUnit": "°C" },
+      { "label": "spo2", "value": "97", "sourceUnit": "%" },
+      { "label": "sodium", "value": "146", "sourceUnit": "mEq/L" },
+      { "label": "potassium", "value": "3.3", "sourceUnit": "mEq/L" },
+      { "label": "bun", "value": "28", "sourceUnit": "mg/dL" },
+      { "label": "creatinine", "value": "1.2", "sourceUnit": "mg/dL" }
+    ],
+    "expectedExcluded": [
+      { "label": "sbp", "value": "118", "reason": "prior" },
+      { "label": "dbp", "value": "72", "reason": "prior" },
+      { "label": "hr", "value": "82", "reason": "prior" },
+      { "label": "creatinine", "value": "0.8", "reason": "prior" }
+    ],
+    "expectedContext": [],
+    "expectedSkipSerial": false,
+    "expectedOutOfScope": []
+  },
+  {
+    "exhibitRef": "blind_05/anemia-observation",
+    "bucket": "prior_trend",
+    "expectedKeyed": [
+      { "label": "temp", "value": "36.7", "sourceUnit": "°C" },
+      { "label": "hr", "value": "98", "sourceUnit": "bpm" },
+      { "label": "sbp", "value": "104", "sourceUnit": "mm Hg" },
+      { "label": "dbp", "value": "66", "sourceUnit": "mm Hg" },
+      { "label": "rr", "value": "17", "sourceUnit": "/min" },
+      { "label": "spo2", "value": "100", "sourceUnit": "%" },
+      { "label": "hemoglobin", "value": "8.9", "sourceUnit": "g/dL" },
+      { "label": "hematocrit", "value": "27", "sourceUnit": "%" },
+      { "label": "potassium", "value": "3.8", "sourceUnit": "mEq/L" },
+      { "label": "glucose", "value": "118", "sourceUnit": "mg/dL" }
+    ],
+    "expectedExcluded": [
+      { "label": "hemoglobin", "value": "11.4", "reason": "prior" }
+    ],
+    "expectedContext": [],
+    "expectedSkipSerial": false,
+    "expectedOutOfScope": []
+  },
+  {
+    "exhibitRef": "blind_06/cellulitis-reassessment",
+    "bucket": "unit_scale",
+    "expectedKeyed": [
+      { "label": "temp", "value": "38.4", "sourceUnit": "°C" },
+      { "label": "hr", "value": "112", "sourceUnit": "bpm" },
+      { "label": "sbp", "value": "116", "sourceUnit": "mmHg" },
+      { "label": "dbp", "value": "74", "sourceUnit": "mmHg" },
+      { "label": "rr", "value": "21", "sourceUnit": "/min" },
+      { "label": "spo2", "value": "95", "sourceUnit": "%" },
+      { "label": "wbc", "value": "12.4", "sourceUnit": "× 10³/µL" },
+      { "label": "hemoglobin", "value": "13.1", "sourceUnit": "g/dL" },
+      { "label": "platelets", "value": "145,000", "sourceUnit": "/µL" },
+      { "label": "sodium", "value": "137", "sourceUnit": "mEq/L" },
+      { "label": "potassium", "value": "4.2", "sourceUnit": "mEq/L" },
+      { "label": "creatinine", "value": "0.9", "sourceUnit": "mg/dL" }
+    ],
+    "expectedExcluded": [],
+    "expectedContext": [],
+    "expectedSkipSerial": false,
+    "expectedOutOfScope": []
+  },
+  {
+    "exhibitRef": "blind_07/oncology-phone",
+    "bucket": "unit_scale",
+    "expectedKeyed": [
+      { "label": "hr", "value": "90", "sourceUnit": "bpm" },
+      { "label": "sbp", "value": "122", "sourceUnit": "mmHg" },
+      { "label": "dbp", "value": "78", "sourceUnit": "mmHg" },
+      { "label": "rr", "value": "16", "sourceUnit": "/min" },
+      { "label": "temp", "value": "37.0", "sourceUnit": "°C" },
+      { "label": "spo2", "value": "99", "sourceUnit": "%" },
+      { "label": "wbc", "value": "4.8", "sourceUnit": "×10³/µL" },
+      { "label": "hemoglobin", "value": "10.2", "sourceUnit": "g/dL" },
+      { "label": "hematocrit", "value": "31", "sourceUnit": "%" },
+      { "label": "platelets", "value": "88,000", "sourceUnit": "/µL" },
+      { "label": "creatinine", "value": "0.8", "sourceUnit": "mg/dL" },
+      { "label": "sodium", "value": "140", "sourceUnit": "mEq/L" }
+    ],
+    "expectedExcluded": [],
+    "expectedContext": [],
+    "expectedSkipSerial": false,
+    "expectedOutOfScope": []
+  },
+  {
+    "exhibitRef": "blind_08/contrast-observation",
+    "bucket": "serial",
+    "expectedKeyed": [],
+    "expectedExcluded": [],
+    "expectedContext": [],
+    "expectedSkipSerial": true,
+    "expectedOutOfScope": []
+  },
+  {
+    "exhibitRef": "blind_09/viral-reassessment",
+    "bucket": "serial",
+    "expectedKeyed": [],
+    "expectedExcluded": [],
+    "expectedContext": [],
+    "expectedSkipSerial": true,
+    "expectedOutOfScope": []
+  },
+  {
+    "exhibitRef": "blind_10/postpartum-reassessment",
+    "bucket": "post_intervention",
+    "expectedKeyed": [
+      { "label": "rr", "value": "18", "sourceUnit": "/min" },
+      { "label": "spo2", "value": "96", "sourceUnit": "%" },
+      { "label": "hr", "value": "88", "sourceUnit": "bpm" },
+      { "label": "temp", "value": "37.2", "sourceUnit": "°C" },
+      { "label": "sbp", "value": "150", "sourceUnit": "mm Hg" },
+      { "label": "dbp", "value": "92", "sourceUnit": "mm Hg" }
+    ],
+    "expectedExcluded": [],
+    "expectedContext": [
+      { "label": "sbp", "value": "150", "context": "post_intervention" },
+      { "label": "dbp", "value": "92", "context": "post_intervention" }
+    ],
+    "expectedSkipSerial": false,
+    "expectedOutOfScope": []
+  },
+  {
+    "exhibitRef": "blind_11/renal-lab-review",
+    "bucket": "out_of_scope",
+    "expectedKeyed": [
+      { "label": "hr", "value": "96", "sourceUnit": "bpm" },
+      { "label": "sbp", "value": "134", "sourceUnit": "mmHg" },
+      { "label": "dbp", "value": "82", "sourceUnit": "mmHg" },
+      { "label": "rr", "value": "18", "sourceUnit": "/min" },
+      { "label": "spo2", "value": "98", "sourceUnit": "%" },
+      { "label": "temp", "value": "37.1", "sourceUnit": "°C" },
+      { "label": "sodium", "value": "132", "sourceUnit": "mEq/L" },
+      { "label": "potassium", "value": "5.2", "sourceUnit": "mEq/L" },
+      { "label": "bun", "value": "42", "sourceUnit": "mg/dL" },
+      { "label": "creatinine", "value": "2.1", "sourceUnit": "mg/dL" },
+      { "label": "glucose", "value": "154", "sourceUnit": "mg/dL" }
+    ],
+    "expectedExcluded": [],
+    "expectedContext": [],
+    "expectedSkipSerial": false,
+    "expectedOutOfScope": [
+      "lithium 1.4",
+      "eGFR 31",
+      "albumin 3.0",
+      "CRP 9.8",
+      "osmolality 304",
+      "alkaline phosphatase 180",
+      "weight 71"
+    ]
+  },
+  {
+    "exhibitRef": "blind_12/pneumonia-admission",
+    "bucket": "mixed",
+    "expectedKeyed": [
+      { "label": "temp", "value": "38.3", "sourceUnit": "°C" },
+      { "label": "hr", "value": "118", "sourceUnit": "bpm" },
+      { "label": "sbp", "value": "104", "sourceUnit": "mmHg" },
+      { "label": "dbp", "value": "60", "sourceUnit": "mmHg" },
+      { "label": "rr", "value": "24", "sourceUnit": "/min" },
+      { "label": "spo2", "value": "92", "sourceUnit": "%" },
+      { "label": "wbc", "value": "18.6", "sourceUnit": "×10³/µL" },
+      { "label": "hemoglobin", "value": "11.6", "sourceUnit": "g/dL" },
+      { "label": "platelets", "value": "52,000", "sourceUnit": "/µL" },
+      { "label": "sodium", "value": "134", "sourceUnit": "mEq/L" },
+      { "label": "potassium", "value": "3.6", "sourceUnit": "mEq/L" },
+      { "label": "bun", "value": "30", "sourceUnit": "mg/dL" },
+      { "label": "creatinine", "value": "1.4", "sourceUnit": "mg/dL" },
+      { "label": "lactate", "value": "2.6", "sourceUnit": "mmol/L" }
+    ],
+    "expectedExcluded": [
+      { "label": "sbp", "value": "128", "reason": "prior" },
+      { "label": "dbp", "value": "78", "reason": "prior" },
+      { "label": "creatinine", "value": "0.9", "reason": "prior" }
+    ],
+    "expectedContext": [],
+    "expectedSkipSerial": false,
+    "expectedOutOfScope": [
+      "albumin 2.8",
+      "eGFR 46"
+    ]
+  }
+]
