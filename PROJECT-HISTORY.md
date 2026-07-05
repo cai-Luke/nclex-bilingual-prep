@@ -49,6 +49,34 @@ The committed NGN item-type set is complete. Rationale/dyad scoring and an expli
 
 > Milestones dated **2026-06-23 and earlier** are archived in [`Archive/PROJECT-HISTORY-ARCHIVE.md`](Archive/PROJECT-HISTORY-ARCHIVE.md). Only the current arc (2026-06-24 onward) is kept here.
 
+### Exhibit Flowsheet Allowlist + Manifest (Jul 5)
+
+Completed:
+- Implemented the shared measurement allowlist foundation from `measurement-allowlist-codex-spec.md`: pure lab/vitals registry defs, derived frozen `src/measurementAllowlist.ts`, CBC conventional-canonical/source-permissive policy (`wbc`/`platelets` canonical `×10³/µL`, source alternates `K/µL`, `/µL`, `/uL`, `/mcL`, `/mm³`, `×10⁹/L`), and a drift-guard test.
+- Added `src/measurementUnitPolicy.ts` for analyte-keyed conversion factors and first-pass display policy metadata; magnesium, total calcium, and ionized calcium now accept source `mEq/L`.
+- Refactored the exhibit-flowsheet gate to consume the shared allowlist/unit policy while keeping extraction-source concerns (`LABEL_PATTERNS`, implicit vital units, temp affine conversion) in the gate; added total-vs-ionized calcium identity checks.
+- Added deterministic manifest tooling (`npm run flowsheet-manifest`) and generated `EXHIBIT-FLOWSHEET-MANIFEST-2026-07-05.json`: 337 de-duplicated allowlist-hit panels, with conservative buckets `clean_kv` 2, `prose_embedded` 145, `scattered` 160, `serial` 30.
+- Produced the first conservative staged clean-KV artifact, `EXHIBIT-FLOWSHEET-MIGRATION-BATCH-01-clean_kv-2026-07-05.json`, without canonical bank/schema/render writes.
+- Added `EXHIBIT-FLOWSHEET-IMPLEMENTATION-HANDOFF-2026-07-05.md` for Luke/Claude decisions before widening the run: magnesium `mEq/L` disposition, clean-bucket strictness, and adjudication/prose-bucket go/no-go.
+- Added `EXHIBIT-FLOWSHEET-CLAUDE-HANDOFF-2026-07-05.md` after Luke's initial decisions: keep strict clean-KV, fix duplicate manifest refs before prose, proceed next to `prose_embedded`, and investigate a unit-policy reversal toward conventional-first/SI-parenthetical display.
+- After Claude's prose-bucket green light, staged `EXHIBIT-FLOWSHEET-MIGRATION-BATCH-02-prose_embedded-2026-07-05.json` for the first 20 prose-embedded manifest panels and added `EXHIBIT-FLOWSHEET-MIGRATION-BATCH-02-ADJUDICATION-2026-07-05.md` plus `EXHIBIT-FLOWSHEET-MIGRATION-LEDGER-2026-07-05.md`; no canonical bank/schema/render writes.
+- Widened source-unit handling uncovered by the first prose batch: CBC count source units now accept ASCII `/mm3` alongside `/mm³`, PTT `sec` converts to canonical seconds, and unitless/ratio-style measurements such as pH/INR can pass Rule C without a literal unit token in source prose.
+- Added the source-unit-laundering gate WARN requested by Claude review: conflicting explicit vital units such as `RR 24 bpm` or `HR 118/min` now remain passable but surface as prose-normalization candidates instead of silently passing through the implicit-unit path.
+- Staged `EXHIBIT-FLOWSHEET-MIGRATION-BATCH-03-prose_embedded-2026-07-05.json` for prose-embedded manifest panels 21-40 and prepared `EXHIBIT-FLOWSHEET-MIGRATION-BATCH-03-ADJUDICATION-2026-07-05.md`; no canonical bank/schema/render writes.
+
+Verification:
+- `npm run test:measurement-allowlist` passed.
+- `npm run test:flowsheet-gate` passed.
+- `npx tsc -b --pretty false` passed.
+- `npm run test-visuals` passed.
+- `npm run flowsheet-blind-score` passed (12/12).
+- `npm run validate-bank -- banks/*.json` passed.
+- `npm run build` passed with the existing Vite chunk-size warning.
+- Archived smoke and blind extraction artifacts still gate clean after the refactor (smoke 6 records 0 FAIL/0 WARN; blind 12 records 0 FAIL/0 WARN).
+- The staged clean-KV batch gates with 0 FAIL / 0 WARN after keying magnesium `1.4 mEq/L` under the refined unit policy.
+- The staged prose-embedded Batch 02 gates with 0 FAIL / 9 WARN after the source-unit-laundering gate fix; independent Opus adjudication found no selection errors, making it the first clean full-adjudication prose batch.
+- The staged prose-embedded Batch 03 gates with 0 FAIL / 6 WARN and is pending the required 100% checker-seat adjudication.
+
 ### Root Markdown Cleanup (Jul 3)
 
 Completed:

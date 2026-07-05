@@ -8,6 +8,12 @@ gate (`scripts/exhibit-flowsheet-gate.ts`) currently hand-mirrors the measuremen
 sanity bounds from the two visual registries, so a registry edit that doesn't reach the gate silently
 changes what the gate accepts.
 
+**Supersession note (2026-07-05):** the shared-allowlist architecture in this spec was implemented, but
+the CBC unit policy below is historical. `DECISIONS.md` now refines the ruling to conventional-canonical
+and source-permissive: `wbc`/`platelets` remain canonical `×10³/µL`, while accepted source units include
+`K/µL`, `/µL`, `/uL`, `/mcL`, `/mm³`, and `×10⁹/L`. Magnesium, total calcium, and ionized calcium also
+accept `mEq/L` with analyte-keyed conversion factors in `src/measurementUnitPolicy.ts`.
+
 ## Goal
 
 Create `src/measurementAllowlist.ts` as the **single source of truth** for the flowsheet-extraction

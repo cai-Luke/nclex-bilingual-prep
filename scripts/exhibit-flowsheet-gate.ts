@@ -51,13 +51,15 @@ import { readFile } from "node:fs/promises";
 import { basename, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { parseBankText, getRawQuestions } from "../src/bankImport";
+import { ALLOWLIST_KEYS, MEASUREMENT_ALLOWLIST } from "../src/measurementAllowlist";
+import { normalizeUnit, toCanonicalMeasurementValue } from "../src/measurementUnitPolicy";
 import type { Question, CaseStudyExhibit, TextPair } from "../src/types";
+import { ANALYTE_DEFS } from "../src/visuals/kinds/lab_trend/defs";
 
 // ----------------------------------------------------------------------------
-// Allowlist + units, mirrored from the live registries. The proposal calls for a
-// shared measurementAllowlist module; until that lands, this table is derived by
-// hand from VITAL_DEFS (vitals_trend/index.ts) and ANALYTE_DEFS (lab_trend/index.ts).
-// Keep in sync until the shared module exists; a drift guard test asserts equality.
+// Allowlist + units, derived from the live visual registries through
+// src/measurementAllowlist.ts. Label patterns stay here because they are
+// extraction-source concerns, not renderer registry data.
 // ----------------------------------------------------------------------------
 
 type Allow = {
@@ -67,50 +69,21 @@ type Allow = {
   sanity: { min: number; max: number };
 };
 
-const VITALS: Record<string, Allow> = {
-  hr:   { canonicalUnit: "bpm",  altUnits: [], sanity: { min: 10, max: 300 } },
-  sbp:  { canonicalUnit: "mmHg", altUnits: [], sanity: { min: 40, max: 300 } },
-  dbp:  { canonicalUnit: "mmHg", altUnits: [], sanity: { min: 20, max: 200 } },
-  map:  { canonicalUnit: "mmHg", altUnits: [], sanity: { min: 30, max: 250 } },
-  rr:   { canonicalUnit: "/min", altUnits: [], sanity: { min: 2,  max: 80 } },
-  spo2: { canonicalUnit: "%",    altUnits: [], sanity: { min: 50, max: 100 } },
-  temp: { canonicalUnit: "°C",   altUnits: ["°F", "F", "C"], sanity: { min: 30, max: 110 } },
+const EXTRA_SOURCE_UNITS: Record<string, string[]> = {
+  temp: ["°F", "F", "C"],
 };
 
-const LABS: Record<string, Allow> = {
-  sodium:          { canonicalUnit: "mEq/L", altUnits: ["mmol/L"], sanity: { min: 90, max: 200 } },
-  potassium:       { canonicalUnit: "mEq/L", altUnits: ["mmol/L"], sanity: { min: 1.0, max: 10.0 } },
-  chloride:        { canonicalUnit: "mEq/L", altUnits: ["mmol/L"], sanity: { min: 60, max: 160 } },
-  bicarbonate:     { canonicalUnit: "mEq/L", altUnits: ["mmol/L"], sanity: { min: 3, max: 60 } },
-  anion_gap:       { canonicalUnit: "mEq/L", altUnits: [], sanity: { min: 0, max: 50 } },
-  bun:             { canonicalUnit: "mg/dL", altUnits: ["mmol/L"], sanity: { min: 1, max: 250 } },
-  creatinine:      { canonicalUnit: "mg/dL", altUnits: ["µmol/L"], sanity: { min: 0.1, max: 25 } },
-  glucose:         { canonicalUnit: "mg/dL", altUnits: ["mmol/L"], sanity: { min: 10, max: 1500 } },
-  calcium:         { canonicalUnit: "mg/dL", altUnits: ["mmol/L"], sanity: { min: 3, max: 20 } },
-  ionized_calcium: { canonicalUnit: "mmol/L", altUnits: ["mg/dL"], sanity: { min: 0.3, max: 5.0 } },
-  magnesium:       { canonicalUnit: "mg/dL", altUnits: ["mmol/L"], sanity: { min: 0.3, max: 10 } },
-  phosphate:       { canonicalUnit: "mg/dL", altUnits: ["mmol/L"], sanity: { min: 0.2, max: 20 } },
-  lactate:         { canonicalUnit: "mmol/L", altUnits: [], sanity: { min: 0.1, max: 30 } },
-  troponin_t:      { canonicalUnit: "ng/mL", altUnits: ["µg/L"], sanity: { min: 0, max: 50 } },
-  bnp:             { canonicalUnit: "pg/mL", altUnits: [], sanity: { min: 0, max: 10000 } },
-  wbc:             { canonicalUnit: "×10⁹/L", altUnits: ["K/µL", "×10³/µL", "/µL"], sanity: { min: 0, max: 200 } },
-  hemoglobin:      { canonicalUnit: "g/dL", altUnits: ["g/L"], sanity: { min: 2, max: 25 } },
-  hematocrit:      { canonicalUnit: "%", altUnits: [], sanity: { min: 5, max: 80 } },
-  platelets:       { canonicalUnit: "×10⁹/L", altUnits: ["K/µL", "×10³/µL", "/µL"], sanity: { min: 0, max: 2000 } },
-  inr:             { canonicalUnit: "(ratio)", altUnits: [], sanity: { min: 0.5, max: 12 } },
-  ptt:             { canonicalUnit: "seconds", altUnits: ["sec"], sanity: { min: 10, max: 200 } },
-  ph:              { canonicalUnit: "(unitless)", altUnits: [], sanity: { min: 6.5, max: 8.0 } },
-  paco2:           { canonicalUnit: "mmHg", altUnits: [], sanity: { min: 5, max: 100 } },
-  pao2:            { canonicalUnit: "mmHg", altUnits: [], sanity: { min: 10, max: 600 } },
-  hco3_abg:        { canonicalUnit: "mEq/L", altUnits: ["mmol/L"], sanity: { min: 5, max: 50 } },
-  ast:             { canonicalUnit: "U/L", altUnits: [], sanity: { min: 0, max: 10000 } },
-  alt:             { canonicalUnit: "U/L", altUnits: [], sanity: { min: 0, max: 10000 } },
-  total_bilirubin: { canonicalUnit: "mg/dL", altUnits: [], sanity: { min: 0, max: 60 } },
-  ammonia:         { canonicalUnit: "µmol/L", altUnits: ["µg/dL"], sanity: { min: 0, max: 500 } },
-};
-
-const ALLOW: Record<string, Allow> = { ...VITALS, ...LABS };
-const ALLOW_KEYS = new Set(Object.keys(ALLOW));
+const ALLOW: Record<string, Allow> = Object.fromEntries(
+  Object.entries(MEASUREMENT_ALLOWLIST).map(([key, def]) => {
+    const altUnits = def.acceptedSourceUnits.filter((unit) => unit !== def.canonicalUnit);
+    return [key, {
+      canonicalUnit: def.canonicalUnit,
+      altUnits: [...altUnits, ...(EXTRA_SOURCE_UNITS[key] ?? [])],
+      sanity: { ...def.sanity },
+    }];
+  }),
+);
+const ALLOW_KEYS = ALLOWLIST_KEYS;
 
 const EXCLUSION_REASONS = new Set(["prior", "trend", "serial"]);
 const CONTEXT_TAGS = new Set(["post_intervention"]);
@@ -140,11 +113,12 @@ const LABEL_PATTERNS: Array<{ key: string; re: RegExp }> = [
   { key: "sodium",         re: /\bsodium\b|\bNa\b/g },
   { key: "potassium",      re: /\bpotassium\b|\bK\b/g },
   { key: "chloride",       re: /\bchloride\b|\bCl\b/g },
-  { key: "bicarbonate",    re: /\bbicarbonate\b/gi },
+  { key: "bicarbonate",    re: /\bbicarbonate\b|\bCO2\b|\bCO₂\b/gi },
   { key: "bun",            re: /\bBUN\b/g },
   { key: "creatinine",     re: /\bcreatinine\b/gi },
   { key: "glucose",        re: /\bglucose\b/gi },
-  { key: "calcium",        re: /\bcalcium\b/gi },
+  { key: "ionized_calcium", re: /\bionized\s+calcium\b|\biCa(?:l)?\b|\bfree\s+calcium\b|离子钙|游离钙/gi },
+  { key: "calcium",        re: /\btotal\s+calcium\b|\bserum\s+calcium\b|(?<!ionized\s)(?<!free\s)\bcalcium\b/gi },
   { key: "magnesium",      re: /\bmagnesium\b/gi },
   { key: "phosphate",      re: /\bphosphate\b|\bphosphorus\b/gi },
   { key: "lactate",        re: /\blactate\b/gi },
@@ -170,19 +144,15 @@ const labelHitCount = (source: string, re: RegExp): number =>
   (source.match(new RegExp(re.source, re.flags.includes("g") ? re.flags : re.flags + "g")) ?? []).length;
 
 // ----------------------------------------------------------------------------
-// Unit conversion to canonical, for GATE 4. Only scale factors that actually
-// appear in the allowlist alt/variant units are encoded; an unrecognized unit is
-// a Rule C failure (reported separately) and skips GATE 4 rather than guessing.
-// The map key is `${analyteKey}|${normalizedSourceUnit}` → multiply source value
-// by factor to get canonical. Temp is handled specially (affine, not linear).
+// Unit conversion to canonical, for GATE 4. Source-unit factors live in
+// src/measurementUnitPolicy.ts so extraction, display, and later prose
+// normalization do not grow separate conversion truth tables.
 // ----------------------------------------------------------------------------
-
-const normalizeUnit = (u: string): string =>
-  u.normalize("NFC").replace(/\s+/g, "").replace(/·/g, "").toLowerCase();
 
 const sourceContainsUnit = (source: string, sourceUnit: string): boolean => {
   const compactSource = normalizeUnit(source);
   const compactUnit = normalizeUnit(sourceUnit);
+  if (compactUnit === "(unitless)" || compactUnit === "(ratio)") return true;
   if (compactSource.includes(compactUnit)) return true;
   if (compactUnit === "mmhg" && /\bmm\s*hg\b/i.test(source)) return true;
   return false;
@@ -191,50 +161,26 @@ const sourceContainsUnit = (source: string, sourceUnit: string): boolean => {
 const isImplicitUnitAllowed = (key: string, sourceUnit: string): boolean =>
   IMPLICIT_SOURCE_UNITS[key]?.has(normalizeUnit(sourceUnit)) ?? false;
 
-// factor to convert SOURCE value → CANONICAL value (linear analytes only)
-const LINEAR_FACTORS: Record<string, number> = {
-  // CBC counts: registry canonical is ×10⁹/L.
-  //   ×10³/µL == ×10⁹/L  (same scale) → factor 1
-  //   K/µL    == ×10⁹/L  (same scale) → factor 1
-  //   /µL (plain per-microliter): 1 /µL = 1e6 /L = 1e-3 ×10⁹/L.
-  //     So 18,000 /µL = 18 ×10⁹/L → factor 1e-3. This is the platelet-defect catch:
-  //     if the extractor mislabels 18,000 as sourceUnit ×10⁹/L (factor 1), GATE 4
-  //     sees 18,000 ×10⁹/L, which exceeds the platelets sanity max of 2000 → WARN.
-  "wbc|/µl": 1e-3,
-  "wbc|×10³/µl": 1,
-  "wbc|k/µl": 1,
-  "wbc|×10⁹/l": 1,
-  "platelets|/µl": 1e-3,
-  "platelets|×10³/µl": 1,
-  "platelets|k/µl": 1,
-  "platelets|×10⁹/l": 1,
+const escapeRegExp = (value: string): string => value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+
+const EXPLICIT_IMPLICIT_UNIT_TOKENS: Record<string, RegExp> = {
+  hr: /\b(?:bpm|beats?\s*\/\s*min(?:ute)?|\/\s*min)\b/i,
+  rr: /\b(?:bpm|breaths?\s*\/\s*min(?:ute)?|respirations?\s*\/\s*min(?:ute)?|\/\s*min)\b/i,
+  sbp: /\bmm\s*hg\b/i,
+  dbp: /\bmm\s*hg\b/i,
+  map: /\bmm\s*hg\b/i,
 };
 
-const toCanonical = (key: string, rawValue: string, sourceUnit: string): number | null => {
-  const cleaned = rawValue.replace(/,/g, "").replace(/[<>]/g, "").trim();
-  const num = Number(cleaned);
-  if (!Number.isFinite(num)) return null;
-  const nu = normalizeUnit(sourceUnit);
-
-  if (key === "temp") {
-    // canonical is °C. Convert if source is Fahrenheit.
-    if (nu === "°f" || nu === "f") return (num - 32) * (5 / 9);
-    return num; // °C or C
-  }
-
-  const override = LINEAR_FACTORS[`${key}|${nu}`];
-  if (override !== undefined) return num * override;
-
-  const def = ALLOW[key];
-  const canon = normalizeUnit(def.canonicalUnit);
-  const alts = def.altUnits.map(normalizeUnit);
-  if (nu === canon) return num;
-  // Alt unit with no encoded factor: numeric scale may differ (e.g. glucose mg/dL
-  // vs mmol/L is ~18×). Rather than assert a possibly-wrong bound, return null so
-  // GATE 4 is skipped and the entry is surfaced as a unit ambiguity for review.
-  if (alts.includes(nu)) return null;
-  return null;
+const explicitImplicitSourceUnit = (key: string, rawValue: string, source: string): string | null => {
+  const tokenRe = EXPLICIT_IMPLICIT_UNIT_TOKENS[key];
+  if (!tokenRe) return null;
+  const valueRe = new RegExp(`${escapeRegExp(rawValue)}\\s*(${tokenRe.source})`, "i");
+  const match = source.match(valueRe);
+  return match?.[1] ?? null;
 };
+
+const toCanonical = (key: string, rawValue: string, sourceUnit: string): number | null =>
+  toCanonicalMeasurementValue(key, rawValue, sourceUnit);
 
 // ----------------------------------------------------------------------------
 // Bank loading + exhibit resolution
@@ -335,6 +281,22 @@ type Finding = { level: "FAIL" | "WARN"; ref: string; msg: string };
 
 const nfc = (s: string): string => s.normalize("NFC");
 
+const IONIZED_CALCIUM_RE = /\bionized\s+calcium\b|\biCa(?:l)?\b|\bfree\s+calcium\b|离子钙|游离钙/i;
+const TOTAL_CALCIUM_RE = /\btotal\s+calcium\b|\bserum\s+calcium\b/i;
+const BARE_CALCIUM_RE = /(?<!ionized\s)(?<!free\s)\bcalcium\b/i;
+
+const calciumQualifier = (text: string): "ionized" | "total" | "bare" | null => {
+  if (IONIZED_CALCIUM_RE.test(text)) return "ionized";
+  if (TOTAL_CALCIUM_RE.test(text)) return "total";
+  if (BARE_CALCIUM_RE.test(text)) return "bare";
+  return null;
+};
+
+const inAdultRefBand = (key: "calcium" | "ionized_calcium", canonicalValue: number): boolean => {
+  const band = ANALYTE_DEFS[key].refBand.adult;
+  return canonicalValue >= band.low && canonicalValue <= band.high;
+};
+
 // ----------------------------------------------------------------------------
 // Core gate
 // ----------------------------------------------------------------------------
@@ -387,12 +349,39 @@ const gateRecord = (rec: ExtractionRecord, source: string | undefined): Finding[
         push("FAIL", `${at}: sourceUnit '${e.sourceUnit}' not recognized for ${e.label} (canonical ${def.canonicalUnit}, alts [${def.altUnits.join(", ")}])`);
       }
       const unitSource = e.sourceSpan ? nfc(e.sourceSpan) : src;
-      if (!sourceContainsUnit(unitSource, e.sourceUnit) && !isImplicitUnitAllowed(e.label, e.sourceUnit)) {
-        push("FAIL", `${at}: sourceUnit '${e.sourceUnit}' is not a verbatim source unit in sourceSpan/source and is not an allowed implicit vital unit`);
+      if (!sourceContainsUnit(unitSource, e.sourceUnit)) {
+        if (isImplicitUnitAllowed(e.label, e.sourceUnit)) {
+          const explicitUnit = explicitImplicitSourceUnit(e.label, e.value, unitSource);
+          if (explicitUnit) {
+            push("WARN", `${at}: source carries nonstandard/conflicting unit '${explicitUnit}' for ${e.label}; staged as '${e.sourceUnit}' (prose-normalization candidate)`);
+          }
+        } else {
+          push("FAIL", `${at}: sourceUnit '${e.sourceUnit}' is not a verbatim source unit in sourceSpan/source and is not an allowed implicit vital unit`);
+        }
       }
     }
     // Rule F: context tag, if present, is in the closed set
     if (e.context && !CONTEXT_TAGS.has(e.context)) push("FAIL", `${at}: context '${e.context}' not a recognized tag`);
+    if ((e.label === "calcium" || e.label === "ionized_calcium") && e.sourceSpan) {
+      const qualifier = calciumQualifier(e.sourceSpan);
+      if (qualifier === "ionized" && e.label !== "ionized_calcium") {
+        push("FAIL", `${at}: explicit ionized calcium source must be labeled ionized_calcium`);
+      } else if (qualifier === "total" && e.label !== "calcium") {
+        push("FAIL", `${at}: explicit total/serum calcium source must be labeled calcium`);
+      } else if (qualifier === "bare" && e.sourceUnit) {
+        const otherKey = e.label === "calcium" ? "ionized_calcium" : "calcium";
+        const currentValue = toCanonical(e.label, e.value, e.sourceUnit);
+        const otherValue = toCanonical(otherKey, e.value, e.sourceUnit);
+        if (
+          currentValue !== null &&
+          otherValue !== null &&
+          !inAdultRefBand(e.label, currentValue) &&
+          inAdultRefBand(otherKey, otherValue)
+        ) {
+          push("WARN", `${at}: bare calcium value is out of normal band for ${e.label} but in band for ${otherKey}; verify total vs ionized identity`);
+        }
+      }
+    }
     // GATE 4: dimensional sanity
     if (ALLOW_KEYS.has(e.label) && e.sourceUnit) {
       const canonVal = toCanonical(e.label, e.value, e.sourceUnit);
@@ -517,6 +506,7 @@ export {
   looksSerial,
   buildExhibitIndex,
   buildBlindIndex,
+  LABEL_PATTERNS,
   ALLOW,
   ALLOW_KEYS,
 };
