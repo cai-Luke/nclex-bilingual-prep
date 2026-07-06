@@ -97,8 +97,14 @@ banks or schema fields were written.
     records, and the same-value dual-modality HR escalation resolved to `extract` for clozapine
     `day18_assessment`. The ramp counter resets to 0. Queue and resolution documented in
     `EXHIBIT-FLOWSHEET-MIGRATION-BATCH-12-ADJUDICATION-2026-07-05.md`.
+- `EXHIBIT-FLOWSHEET-MIGRATION-BATCH-13-scattered-2026-07-05.json`
+  - 20 records from the fourth `scattered` manifest slice.
+  - Gate result: 0 FAIL, 38 WARN.
+  - Because Batch 12 reset the `scattered` ramp, Batch 13 is queued for 100% checker-seat
+    adjudication as fresh clean-ramp candidate 1 of 2, documented in
+    `EXHIBIT-FLOWSHEET-MIGRATION-BATCH-13-ADJUDICATION-2026-07-05.md`.
 - `EXHIBIT-FLOWSHEET-MIGRATION-LEDGER-2026-07-05.md`
-  - Tracks staged artifacts and adjudication status through Batch 12.
+  - Tracks staged artifacts and adjudication status through Batch 13.
 
 ## Current Gate Result
 
@@ -176,6 +182,11 @@ count clean because adjudication found the gallstone WBC/Hct omission; the cloza
 vitals-HR/ECG-rate escalation resolved as not Rule D and the record now stages as `extract`. The
 `scattered` ramp counter resets to 0; 60/160 scattered panels are staged and 100 remain.
 
+Update after Batch 13 staging: the fourth `scattered` artifact covers manifest scattered panels 61-80
+and gates at 0 FAIL / 38 WARN. It is queued for 100% checker-seat adjudication as fresh clean-ramp
+candidate 1 of 2 after the Batch 12 reset. After this artifact, 80/160 scattered panels are staged and
+80 remain.
+
 ## Verification Run
 
 - `npm run test:measurement-allowlist`
@@ -196,3 +207,4 @@ vitals-HR/ECG-rate escalation resolved as not Rule D and the record now stages a
 - Batch 10 staged gate: 20 records, 0 FAIL, 13 WARN
 - Batch 11 staged gate: 20 records, 0 FAIL, 18 WARN
 - Batch 12 staged gate: 20 records, 0 FAIL, 32 WARN after producer re-extraction
+- Batch 13 staged gate: 20 records, 0 FAIL, 38 WARN

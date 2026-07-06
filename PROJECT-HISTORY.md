@@ -88,6 +88,9 @@ Completed:
   found a confirmed WBC/Hct omission in two gallstone records; the clozapine same-value vitals-HR/ECG
   rate escalation resolved as not Rule D and now stages as `extract`. The `scattered` ramp counter
   resets to 0; 100 of 160 scattered panels remain unstaged.
+- Staged the fourth `scattered` artifact: Batch 13 covers scattered panels 61-80, gates at
+  0 FAIL / 38 WARN, and is queued for 100% checker-seat adjudication as fresh clean-ramp candidate
+  1 of 2 after the Batch 12 reset; 80 of 160 scattered panels remain unstaged.
 - Closed the Batch 04 code-note by widening the serial timestamp detector to recognize relative
   `hour N`, `day N`, and `N hours later/after` narration, while tightening the HR label pattern so
   lowercase duration/rate `hr` does not masquerade as heart rate; added regression coverage.
@@ -124,6 +127,8 @@ Verification:
   (100% ramp after the Batch 10 Rule D reset).
 - The staged scattered Batch 12 gates with 0 FAIL / 32 WARN after producer re-extraction and has a
   completed 20-record checker queue; it does not count clean.
+- The staged scattered Batch 13 gates with 0 FAIL / 38 WARN and has a 20-record checker queue
+  (fresh clean-ramp candidate 1 of 2).
 
 ### Root Markdown Cleanup (Jul 3)
 
