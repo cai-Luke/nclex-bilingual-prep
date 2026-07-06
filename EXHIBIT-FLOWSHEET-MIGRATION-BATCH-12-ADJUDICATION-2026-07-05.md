@@ -17,7 +17,7 @@ Result:
 
 - 20 records
 - 0 FAIL
-- 36 WARN
+- 32 WARN after producer re-extraction
 
 WARN classes:
 
@@ -26,15 +26,15 @@ WARN classes:
     readings.
   - `gpt_case_clozapine_toxicity_01/day10_update` is `skip_serial` for sitting/standing current BP
     readings.
-  - `gpt_case_clozapine_toxicity_01/day18_assessment` is `skip_serial` for duplicate current HR
-    information in the vitals and ECG-rate prose.
 - Rule C / unit-source discipline:
   - `gpt_case_gallstone_pancreatitis_01/stage_2_update` and
-    `gpt_case_gallstone_pancreatitis_01/stage_3_update` contain many lab values without explicit
-    source units. Those labs are left in prose rather than assigning guessed conventional units.
+    `gpt_case_gallstone_pancreatitis_01/stage_3_update` contain mixed lab lists: WBC/Hct now key
+    because they carry explicit units; the remaining unitless labs stay prose rather than assigning
+    guessed conventional units.
 - Same-name / different-analyte discipline:
   - Clozapine records report Troponin I; the registry key is `troponin_t`, so Troponin I is not keyed
-    as Troponin T.
+    as Troponin T. `day18_assessment` now keys the current vitals/CBC/BNP/AST/ALT/glucose panel after
+    the same-value HR escalation resolved as not Rule D.
   - `gpt_case_gbs_respiratory_compromise_01/ex_diagnostics` keys only the serum glucose comparator;
     CSF glucose and CSF WBC are not keyed as serum glucose or blood WBC.
 - Prose-normalization candidates:
@@ -52,10 +52,9 @@ WARN classes:
 
 Sampling mode: `scattered` bucket ramp, second 100% batch.
 
-Batch 11 adjudicated clean and counts as clean scattered batch 1 of 2. Batch 12 is therefore queued
-for 100% independent checker-seat adjudication. If no selection errors or re-dispositions are found,
-it becomes clean scattered batch 2 of 2 and future `scattered` batches may taper to 25% +
-always-sampled.
+Batch 11 adjudicated clean and counts as clean scattered batch 1 of 2. Batch 12 was therefore queued
+for 100% independent checker-seat adjudication. Because adjudication found a confirmed selection error,
+Batch 12 does not count clean and the `scattered` ramp counter resets to 0.
 
 Total checker-seat sample: 20 of 20 records.
 
@@ -65,11 +64,11 @@ Total checker-seat sample: 20 of 20 records.
 |---:|---|---|---|---|
 | 1 | `gpt_case_clozapine_toxicity_01/baseline_record` | `skip_serial` | WARN | Sitting and standing current BP readings trigger Rule D. |
 | 2 | `gpt_case_clozapine_toxicity_01/day10_update` | `skip_serial` | WARN | Sitting and standing current BP readings trigger Rule D. |
-| 3 | `gpt_case_clozapine_toxicity_01/day18_assessment` | `skip_serial` | WARN | Current HR appears in vitals and ECG-rate prose; Troponin I is not mapped to Troponin T. |
+| 3 | `gpt_case_clozapine_toxicity_01/day18_assessment` | Keyed current vitals/CBC/BNP/AST/ALT/glucose | WARN | Resolved escalation: same-value vitals HR/ECG rate is not Rule D; Troponin I is not mapped to Troponin T. |
 | 4 | `gpt_case_clozapine_toxicity_01/four_hour_update` | Keyed repeat vitals | WARN | Values carry `post_intervention`; ANC/CRP out of scope, Troponin I not mapped to Troponin T. |
 | 5 | `gpt_case_gallstone_pancreatitis_01/stage_1_update` | Empty panel | WARN | Calcium gluconate is a medication dose; sinus tachycardia has no numeric HR. |
-| 6 | `gpt_case_gallstone_pancreatitis_01/stage_2_update` | Keyed hour-16 vitals only | WARN | Hour-18 labs lack explicit source units; urine output/lipase/CRP/imaging out of scope. |
-| 7 | `gpt_case_gallstone_pancreatitis_01/stage_3_update` | Keyed hour-40 vitals only | WARN | Values carry `post_intervention`; hour-42 labs lack explicit source units. |
+| 6 | `gpt_case_gallstone_pancreatitis_01/stage_2_update` | Keyed hour-16 vitals plus WBC/Hct | WARN | WBC/Hct carry explicit units and are now keyed; remaining abbreviated labs lack source units. |
+| 7 | `gpt_case_gallstone_pancreatitis_01/stage_3_update` | Keyed hour-40 vitals plus WBC/Hct | WARN | Values carry `post_intervention`; WBC/Hct carry explicit units and are now keyed; remaining abbreviated labs lack source units. |
 | 8 | `gpt_case_gap_2026_06_11_case_adrenal_crisis_04/adrenal_deterioration` | Keyed BP/HR/glucose | WARN | HR `/min` prose-normalization candidate; PVCs have no allowlisted numeric key. |
 | 9 | `gpt_case_gap_2026_06_11_case_adrenal_crisis_04/adrenal_response` | Keyed response BP/HR/glucose/K/Na | WARN | Values carry `post_intervention`; HR `/min` candidate. |
 | 10 | `gpt_case_gap_2026_06_11_case_aki_02/aki_initial` | Keyed admission temp/HR/BP | WARN | Urine output out of allowlist scope; HR `/min` candidate. |
@@ -90,7 +89,7 @@ Codex staged the third `scattered` values-only artifact and deterministic gate r
 checker-seat adjudication (Claude Code) of all 20 records is complete. **This batch does not qualify
 as clean scattered batch 2 of 2** — one confirmed selection error and one fresh escalation surfaced.
 
-Re-ran the gate against current `main`: 20 records, 0 FAIL, 36 WARN — matches the result recorded
+Re-ran the gate after producer re-extraction: 20 records, 0 FAIL, 32 WARN — matches the result recorded
 above.
 
 ### Confirmed selection error: WBC/Hct omitted despite explicit source units
@@ -115,7 +114,7 @@ need re-extraction to add `wbc` (19,200/mcL; 11,800/mcL) and `hematocrit` (38%; 
 
 ### New escalation: same-value HR via vitals + ECG in the clozapine case
 
-`gpt_case_clozapine_toxicity_01/day18_assessment` is staged `skip_serial` because HR is mentioned
+`gpt_case_clozapine_toxicity_01/day18_assessment` was originally staged `skip_serial` because HR is mentioned
 twice — "HR 118 at rest" in vitals and "sinus tachycardia at 118 bpm" on ECG — both the **same
 number**, not a repeat-measurement protocol or distinct timepoint framing like the case's own
 `baseline_record`/`day10_update` orthostatic sitting/standing pairs. This looks more like Rule C's
@@ -152,3 +151,40 @@ confirmed omission, one open escalation) — the `scattered` ramp counter resets
 WBC/Hct omission is fixed and the dual-modality escalation is resolved, the next fully-adjudicated
 batch with zero selection errors and zero re-dispositions becomes batch 1 of a fresh 2-batch clean
 streak.
+
+## Update (2026-07-05, architect resolution)
+
+The open rule question is resolved: `gpt_case_clozapine_toxicity_01/day18_assessment` is **not** Rule
+D. Same value (118) via vitals HR and concurrent ECG rate is one reading from two corroborating
+modalities in one assessment window, not two differing current values. The producer flips the record
+from `skip_serial` to `extract`, keys HR once from the vitals sentence, and leaves the ECG rate
+unkeyed as redundant corroboration. Troponin I, ANC, and CRP remain unkeyed.
+
+Target `day18_assessment` panel:
+
+| label | value | sourceUnit | sourceSpan |
+|---|---:|---|---|
+| `temp` | 38.7 | `°C` | `Vital signs and exam: T 38.7 °C, HR 118 at rest, BP 110/70 sitting, RR 22, SpO2 95% on room air.` |
+| `hr` | 118 | `bpm` | same vitals sentence |
+| `sbp` | 110 | `mmHg` | same vitals sentence |
+| `dbp` | 70 | `mmHg` | same vitals sentence |
+| `rr` | 22 | `/min` | same vitals sentence |
+| `spo2` | 95 | `%` | same vitals sentence |
+| `wbc` | 3,100 | `/µL` | `Stat labs: WBC 3,100/µL, ANC 980/µL, Hgb 14.2 g/dL, platelets 210,000/µL.` |
+| `hemoglobin` | 14.2 | `g/dL` | same CBC sentence |
+| `platelets` | 210,000 | `/µL` | same CBC sentence |
+| `bnp` | 420 | `pg/mL` | `Troponin I 0.48 ng/mL, CRP 68 mg/L, BNP 420 pg/mL, AST 52 U/L, ALT 48 U/L, fasting glucose 124 mg/dL.` |
+| `ast` | 52 | `U/L` | same chemistry sentence |
+| `alt` | 48 | `U/L` | same chemistry sentence |
+| `glucose` | 124 | `mg/dL` | same chemistry sentence |
+
+The confirmed gallstone omission is producer-fixed by adding the explicit-unit values only:
+
+- `gpt_case_gallstone_pancreatitis_01/stage_2_update`: add `wbc` `19,200` `/mcL` and `hematocrit`
+  `38` `%` from `Hour 18 labs: WBC 19,200/mcL, Hct 38%, ...`.
+- `gpt_case_gallstone_pancreatitis_01/stage_3_update`: add `wbc` `11,800` `/mcL` and `hematocrit`
+  `36` `%` from `Hour 42 labs: WBC 11,800/mcL, ... Hct 36%.`.
+
+The other abbreviated gallstone labs in those sentences remain unkeyed because their source units are
+absent. Batch 12 still does **not** count clean; the confirmed selection error broke the streak, so
+the `scattered` ramp counter remains 0 and the next clean 100% batch becomes fresh 1 of 2.

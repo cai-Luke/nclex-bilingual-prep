@@ -62,9 +62,12 @@ producer that **kept one and silently dropped the other** (record passes Guard 1
 entry, but the source still shows two current BP readings and the exhibit should have been
 `skip_serial`). Both are needed.
 
-- **Signal:** for an allowlisted parameter, >=2 distinct numeric readings present in the source, none
-  of them disambiguated by a history marker (`down from`, `was`, `baseline`, `earlier`, `prior`,
-  `up from`, `previously`).
+- **Signal:** for an allowlisted parameter, >=2 current readings **with different values** present in
+  the source, none disambiguated by a history marker (`down from`, `was`, `baseline`, `earlier`,
+  `prior`, `up from`, `previously`). Repeated *identical* values (same number restated by a
+  corroborating modality — a vitals HR and an ECG rate both `118`) are **one reading**, keyed once per
+  Rule C, and must **not** fire Guard 2. Guard 1 still catches the case where a producer keys the
+  identical value twice (duplicate label → FAIL, key once).
 - **Firing:** on an `extract` record, WARN — `source shows >=2 current readings of <key>; should this
   be skip_serial? (Rule D)`. Route to always-sampled human adjudication. **Never a FAIL** and **never
   an auto-flip of lane** — serial-vs-not-serial authority stays with the checker seat (producer≠checker).
@@ -85,6 +88,10 @@ Must **NOT WARN / FAIL** (these are legitimate `extract` shapes):
   readings (`\d+/\d+`), **not** the literal word `readings` or the count `2`. One reading present → no fire.
 - Dual-unit temperature `101.2 F (38.4 C)` — one reading in two units (Rule C same-measurement
   conversion), not two readings. The parenthetical conversion must not count as a second reading.
+- **Same-value dual-modality:** `HR 118 at rest ... ECG: sinus tachycardia at 118 bpm` (batch-12
+  clozapine `day18_assessment`) — one HR reading corroborated by two instruments, not two readings.
+  Count distinct *values*, not label occurrences; identical value → no fire. Correct disposition is
+  `extract`, HR keyed once.
 - **Fetal vs maternal heart rate:** `Fetal heart rate baseline 140/min ... HR 92/min` — `heart rate`
   matches the `hr` label pattern, so a naive count sees two `hr` readings. Exclude fetal contexts
   (`fetal`, `\bFHR\b`, `胎心`) from the `hr` count via negative lookaround, mirroring the existing

@@ -83,10 +83,11 @@ Completed:
 - Staged and adjudicated the second `scattered` ramp artifact: Batch 11 covers scattered panels 21-40,
   gates at 0 FAIL / 18 WARN, and adjudicated clean with no selection errors or re-dispositions. It is
   clean scattered batch 1 of 2.
-- Staged the third `scattered` ramp artifact: Batch 12 covers scattered panels 41-60, gates at
-  0 FAIL / 36 WARN, and is queued for 100% checker-seat adjudication as clean-ramp candidate 2 of 2.
-  If clean, future `scattered` batches may taper to 25% + always-sampled; 100 of 160 scattered panels
-  remain unstaged.
+- Staged and adjudicated the third `scattered` artifact: Batch 12 covers scattered panels 41-60 and
+  gates at 0 FAIL / 32 WARN after producer re-extraction. It does not count clean because adjudication
+  found a confirmed WBC/Hct omission in two gallstone records; the clozapine same-value vitals-HR/ECG
+  rate escalation resolved as not Rule D and now stages as `extract`. The `scattered` ramp counter
+  resets to 0; 100 of 160 scattered panels remain unstaged.
 - Closed the Batch 04 code-note by widening the serial timestamp detector to recognize relative
   `hour N`, `day N`, and `N hours later/after` narration, while tightening the HR label pattern so
   lowercase duration/rate `hr` does not masquerade as heart rate; added regression coverage.
@@ -121,8 +122,8 @@ Verification:
   (100% ramp reset for the first scattered batch).
 - The staged scattered Batch 11 gates with 0 FAIL / 18 WARN and has a 20-record checker queue
   (100% ramp after the Batch 10 Rule D reset).
-- The staged scattered Batch 12 gates with 0 FAIL / 36 WARN and has a 20-record checker queue
-  (clean-ramp candidate 2 of 2).
+- The staged scattered Batch 12 gates with 0 FAIL / 32 WARN after producer re-extraction and has a
+  completed 20-record checker queue; it does not count clean.
 
 ### Root Markdown Cleanup (Jul 3)
 

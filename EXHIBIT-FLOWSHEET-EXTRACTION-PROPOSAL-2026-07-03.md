@@ -174,7 +174,14 @@ When a measurement appears with a parenthetical unit conversion (`38.9 °C (102.
 `WBC 0.3 × 10³/µL`), the canonical value is keyed once and the alternate-unit form is neither keyed
 nor an excluded value — it is suppressed as a `unit_alias`. Keying both double-counts; forcing the
 conversion into `excludedValues` with a prior/trend reason mislabels it (it is the same reading, not
-a prior one).
+a prior one). The same "one measurement, key once" principle covers a value restated by a second
+**modality** in one assessment window — a vitals `HR 118` and the concurrent ECG's `sinus tachycardia
+at 118 bpm`, the same number from two corroborating instruments. Key it once from the primary
+(vitals) mention; the modality restatement is neither keyed again nor an `excludedValues` entry,
+exactly like a unit alias. This is distinct from Rule D, which excludes an exhibit only when a
+parameter carries two **different** current values a single cell cannot hold; identical values from
+corroborating modalities carry no such ambiguity and stay in `extract`. (Amended 2026-07-05 after the
+batch-12 clozapine `day18_assessment` escalation.)
 
 *The keyed value is byte-exact; the keyed `unit` is the source's unit, not the registry's.* This is
 the fix for the smoke-batch platelet defect (`platelets 18,000/µL` keyed as `18,000 ×10⁹/L` — a
@@ -202,9 +209,12 @@ The flowsheet lane emits at most one current value per allowlisted parameter per
 same client / same flowsheet subject**. Set prior/trend history aside first: a value explicitly marked
 superseded ("down from", "was", "baseline N", "earlier", "prior") is excluded with reason
 `prior`/`trend` (Rule handled) and does not count here. If, for one client, an allowlisted parameter
-still carries **>=2 current readings** in one exhibit, the exhibit is flagged `serial` and **excluded
-from flowsheet extraction entirely** — it stays prose. This reaches two shapes: (i) a time series
-across distinct timepoints (Panel 5: BP at 1:00/1:30/2:00/2:30 PM), and (ii) a **closely-spaced
+still carries **>=2 current readings with differing values** in one exhibit, the exhibit is flagged
+`serial` and **excluded from flowsheet extraction entirely** — it stays prose. (Two mentions of the
+*same* value via corroborating modalities — a vitals HR and the concurrent ECG rate both `118` — are
+**one reading, keyed once** per Rule C, not a serial trigger: identical values carry none of the
+choose-among-differing-values ambiguity Rule D exists to prevent.) This reaches two shapes: (i) a time
+series across distinct timepoints (Panel 5: BP at 1:00/1:30/2:00/2:30 PM), and (ii) a **closely-spaced
 confirmatory repeat** where two current readings jointly establish one clinical state ("166/112 and
 164/110 mm Hg 20 minutes apart" — the ACOG severe-range confirmation), neither reading marked
 historical. Rationale: a single-column flowsheet has one cell per parameter and no timepoint axis, so

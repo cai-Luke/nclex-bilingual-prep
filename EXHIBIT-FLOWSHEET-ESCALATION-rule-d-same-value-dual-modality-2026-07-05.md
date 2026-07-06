@@ -59,3 +59,12 @@ Not blocking batch 12's other 19 records — see
 `EXHIBIT-FLOWSHEET-MIGRATION-BATCH-12-ADJUDICATION-2026-07-05.md`. This batch also contains a separate,
 unambiguous selection error (WBC/Hct omission in the gallstone pancreatitis case) that already breaks
 its clean-batch eligibility regardless of how this question resolves.
+
+## Resolution (2026-07-05, architect seat)
+
+**RESOLVED. Not Rule D. Flip `skip_serial` → `extract`; key HR once.** Same value (118) via two
+corroborating modalities in one window is one reading (Rule C), not the differing-value ambiguity Rule
+D prevents. Verified at source: BP appears once ("110/70 sitting"), no orthostatic pair, so no
+independent trigger. Rule D trigger tightened to ">=2 current readings **with differing values**"; Rule
+C extended to same-value cross-modality restatement; Guard 2 boundary case added. Full day18 panel
+re-extraction spec'd in the batch-12 adjudication update. Producer re-extracts; gate + checker verify.

@@ -92,10 +92,11 @@ banks or schema fields were written.
     `EXHIBIT-FLOWSHEET-MIGRATION-BATCH-11-ADJUDICATION-2026-07-05.md`.
 - `EXHIBIT-FLOWSHEET-MIGRATION-BATCH-12-scattered-2026-07-05.json`
   - 20 records from the third `scattered` manifest slice.
-  - Gate result: 0 FAIL, 36 WARN.
-  - Because Batch 11 is clean scattered batch 1 of 2, Batch 12 remains a 100% checker-seat queue. If
-    it adjudicates clean, future `scattered` batches may taper to 25% + always-sampled. Queue
-    documented in `EXHIBIT-FLOWSHEET-MIGRATION-BATCH-12-ADJUDICATION-2026-07-05.md`.
+  - Gate result: 0 FAIL, 32 WARN after producer re-extraction.
+  - Batch 12 does not count clean: adjudication found a confirmed WBC/Hct omission in two gallstone
+    records, and the same-value dual-modality HR escalation resolved to `extract` for clozapine
+    `day18_assessment`. The ramp counter resets to 0. Queue and resolution documented in
+    `EXHIBIT-FLOWSHEET-MIGRATION-BATCH-12-ADJUDICATION-2026-07-05.md`.
 - `EXHIBIT-FLOWSHEET-MIGRATION-LEDGER-2026-07-05.md`
   - Tracks staged artifacts and adjudication status through Batch 12.
 
@@ -169,10 +170,11 @@ Update after Batch 11 adjudication: the second `scattered` artifact covers manif
 21-40, gates at 0 FAIL / 18 WARN, and adjudicated clean with no selection errors or re-dispositions.
 It is clean scattered batch 1 of 2.
 
-Update after Batch 12 staging: the third `scattered` artifact covers manifest scattered panels 41-60
-and gates at 0 FAIL / 36 WARN. It is queued for 100% checker-seat adjudication as clean-ramp candidate
-2 of 2. If clean, future `scattered` batches may taper to 25% + always-sampled. After this artifact,
-60/160 scattered panels are staged and 100 remain.
+Update after Batch 12 adjudication/resolution: the third `scattered` artifact covers manifest
+scattered panels 41-60 and gates at 0 FAIL / 32 WARN after producer re-extraction. Batch 12 does not
+count clean because adjudication found the gallstone WBC/Hct omission; the clozapine same-value
+vitals-HR/ECG-rate escalation resolved as not Rule D and the record now stages as `extract`. The
+`scattered` ramp counter resets to 0; 60/160 scattered panels are staged and 100 remain.
 
 ## Verification Run
 
@@ -193,4 +195,4 @@ and gates at 0 FAIL / 36 WARN. It is queued for 100% checker-seat adjudication a
 - Batch 09 staged gate: 5 records, 0 FAIL, 5 WARN
 - Batch 10 staged gate: 20 records, 0 FAIL, 13 WARN
 - Batch 11 staged gate: 20 records, 0 FAIL, 18 WARN
-- Batch 12 staged gate: 20 records, 0 FAIL, 36 WARN
+- Batch 12 staged gate: 20 records, 0 FAIL, 32 WARN after producer re-extraction

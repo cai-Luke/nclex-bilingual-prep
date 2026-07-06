@@ -583,7 +583,24 @@ const batch12Records: ExtractionRecord[] = [
   },
   {
     exhibitRef: "gpt_case_clozapine_toxicity_01/day18_assessment",
-    lane: "skip_serial"
+    lane: "extract",
+    panel: [
+      { label: "temp", value: "38.7", sourceUnit: "°C", sourceSpan: "Vital signs and exam: T 38.7 °C, HR 118 at rest, BP 110/70 sitting, RR 22, SpO2 95% on room air." },
+      { label: "hr", value: "118", sourceUnit: "bpm", sourceSpan: "Vital signs and exam: T 38.7 °C, HR 118 at rest, BP 110/70 sitting, RR 22, SpO2 95% on room air." },
+      { label: "sbp", value: "110", sourceUnit: "mmHg", sourceSpan: "Vital signs and exam: T 38.7 °C, HR 118 at rest, BP 110/70 sitting, RR 22, SpO2 95% on room air." },
+      { label: "dbp", value: "70", sourceUnit: "mmHg", sourceSpan: "Vital signs and exam: T 38.7 °C, HR 118 at rest, BP 110/70 sitting, RR 22, SpO2 95% on room air." },
+      { label: "rr", value: "22", sourceUnit: "/min", sourceSpan: "Vital signs and exam: T 38.7 °C, HR 118 at rest, BP 110/70 sitting, RR 22, SpO2 95% on room air." },
+      { label: "spo2", value: "95", sourceUnit: "%", sourceSpan: "Vital signs and exam: T 38.7 °C, HR 118 at rest, BP 110/70 sitting, RR 22, SpO2 95% on room air." },
+      { label: "wbc", value: "3,100", sourceUnit: "/µL", sourceSpan: "Stat labs: WBC 3,100/µL, ANC 980/µL, Hgb 14.2 g/dL, platelets 210,000/µL." },
+      { label: "hemoglobin", value: "14.2", sourceUnit: "g/dL", sourceSpan: "Stat labs: WBC 3,100/µL, ANC 980/µL, Hgb 14.2 g/dL, platelets 210,000/µL." },
+      { label: "platelets", value: "210,000", sourceUnit: "/µL", sourceSpan: "Stat labs: WBC 3,100/µL, ANC 980/µL, Hgb 14.2 g/dL, platelets 210,000/µL." },
+      { label: "bnp", value: "420", sourceUnit: "pg/mL", sourceSpan: "Troponin I 0.48 ng/mL, CRP 68 mg/L, BNP 420 pg/mL, AST 52 U/L, ALT 48 U/L, fasting glucose 124 mg/dL." },
+      { label: "ast", value: "52", sourceUnit: "U/L", sourceSpan: "Troponin I 0.48 ng/mL, CRP 68 mg/L, BNP 420 pg/mL, AST 52 U/L, ALT 48 U/L, fasting glucose 124 mg/dL." },
+      { label: "alt", value: "48", sourceUnit: "U/L", sourceSpan: "Troponin I 0.48 ng/mL, CRP 68 mg/L, BNP 420 pg/mL, AST 52 U/L, ALT 48 U/L, fasting glucose 124 mg/dL." },
+      { label: "glucose", value: "124", sourceUnit: "mg/dL", sourceSpan: "Troponin I 0.48 ng/mL, CRP 68 mg/L, BNP 420 pg/mL, AST 52 U/L, ALT 48 U/L, fasting glucose 124 mg/dL." }
+    ],
+    excludedValues: [],
+    unitAliases: []
   },
   {
     exhibitRef: "gpt_case_clozapine_toxicity_01/four_hour_update",
@@ -615,7 +632,9 @@ const batch12Records: ExtractionRecord[] = [
       { label: "sbp", value: "108", sourceUnit: "mmHg", sourceSpan: "At hour 16: T 38.4 C, HR 118, BP 108/62, RR 26, SpO2 94% on 2 L NC." },
       { label: "dbp", value: "62", sourceUnit: "mmHg", sourceSpan: "At hour 16: T 38.4 C, HR 118, BP 108/62, RR 26, SpO2 94% on 2 L NC." },
       { label: "rr", value: "26", sourceUnit: "/min", sourceSpan: "At hour 16: T 38.4 C, HR 118, BP 108/62, RR 26, SpO2 94% on 2 L NC." },
-      { label: "spo2", value: "94", sourceUnit: "%", sourceSpan: "At hour 16: T 38.4 C, HR 118, BP 108/62, RR 26, SpO2 94% on 2 L NC." }
+      { label: "spo2", value: "94", sourceUnit: "%", sourceSpan: "At hour 16: T 38.4 C, HR 118, BP 108/62, RR 26, SpO2 94% on 2 L NC." },
+      { label: "wbc", value: "19,200", sourceUnit: "/mcL", sourceSpan: "Hour 18 labs: WBC 19,200/mcL, Hct 38%, BUN 18, Cr 0.8, calcium 7.9, ionized calcium 4.0, lipase 2,640, glucose 220, lactate 2.6, CRP 285." },
+      { label: "hematocrit", value: "38", sourceUnit: "%", sourceSpan: "Hour 18 labs: WBC 19,200/mcL, Hct 38%, BUN 18, Cr 0.8, calcium 7.9, ionized calcium 4.0, lipase 2,640, glucose 220, lactate 2.6, CRP 285." }
     ],
     excludedValues: [],
     unitAliases: []
@@ -629,7 +648,9 @@ const batch12Records: ExtractionRecord[] = [
       { label: "sbp", value: "124", sourceUnit: "mmHg", sourceSpan: "At hour 40: T 37.6 C, HR 92, BP 124/76, RR 18, SpO2 96% room air.", context: "post_intervention" },
       { label: "dbp", value: "76", sourceUnit: "mmHg", sourceSpan: "At hour 40: T 37.6 C, HR 92, BP 124/76, RR 18, SpO2 96% room air.", context: "post_intervention" },
       { label: "rr", value: "18", sourceUnit: "/min", sourceSpan: "At hour 40: T 37.6 C, HR 92, BP 124/76, RR 18, SpO2 96% room air.", context: "post_intervention" },
-      { label: "spo2", value: "96", sourceUnit: "%", sourceSpan: "At hour 40: T 37.6 C, HR 92, BP 124/76, RR 18, SpO2 96% room air.", context: "post_intervention" }
+      { label: "spo2", value: "96", sourceUnit: "%", sourceSpan: "At hour 40: T 37.6 C, HR 92, BP 124/76, RR 18, SpO2 96% room air.", context: "post_intervention" },
+      { label: "wbc", value: "11,800", sourceUnit: "/mcL", sourceSpan: "Hour 42 labs: WBC 11,800/mcL, lipase 980, total bilirubin 1.8, AST 88, ALT 140, calcium 8.4, ionized calcium 4.4, glucose 148, CRP 190, lactate 1.2, Hct 36%.", context: "post_intervention" },
+      { label: "hematocrit", value: "36", sourceUnit: "%", sourceSpan: "Hour 42 labs: WBC 11,800/mcL, lipase 980, total bilirubin 1.8, AST 88, ALT 140, calcium 8.4, ionized calcium 4.4, glucose 148, CRP 190, lactate 1.2, Hct 36%.", context: "post_intervention" }
     ],
     excludedValues: [],
     unitAliases: []
