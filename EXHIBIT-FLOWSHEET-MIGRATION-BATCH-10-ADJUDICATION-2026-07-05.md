@@ -23,10 +23,12 @@ WARN classes:
 
 - Prose-normalization candidates:
   - HR values written as `/min` or `beats/minute` but staged as `bpm` in
-    `case_preeclampsia_magnesium_01/admission`, `case_sepsis_pneumonia_01/after_500_ml`,
-    `case_sepsis_pneumonia_01/after_resuscitation`, `cs_adhf_pulm_edema_01/ed_assessment`,
-    `cs_sepsis_shock_01/triage_vitals`, `cs_sepsis_shock_01/vitals_1600`, and
-    `cs_stemi_vfib_04/triage_1400`.
+    `case_sepsis_pneumonia_01/after_500_ml`, `case_sepsis_pneumonia_01/after_resuscitation`,
+    `cs_adhf_pulm_edema_01/ed_assessment`, `cs_sepsis_shock_01/triage_vitals`,
+    `cs_sepsis_shock_01/vitals_1600`, and `cs_stemi_vfib_04/triage_1400`.
+- Serial-lane advisory:
+  - `case_preeclampsia_magnesium_01/admission` is now `skip_serial` after Rule D resolution; the
+    current detector does not yet mechanically re-confirm closely-spaced confirmatory readings.
 - No-value / name-collision advisory mentions:
   - `cs_sepsis_shock_01/vitals_1600`: `0.9% sodium chloride` IV fluid name; no serum sodium/chloride.
   - `cs_stemi_vfib_04/triage_1400`: troponin pending; no numeric troponin value.
@@ -51,7 +53,7 @@ Total checker-seat sample: 20 of 20 records.
 | # | exhibitRef | Extractor disposition | Gate | Review note |
 |---:|---|---|---|---|
 | 1 | `case_dka_01/ex_labs_0815` | Keyed DKA labs including anion gap and pH | OK | Ketones are out of allowlist scope. |
-| 2 | `case_preeclampsia_magnesium_01/admission` | Keyed both severe-range BP readings plus HR/RR | WARN | Important adjudication point: paired admission BP readings 20 minutes apart are keyed as a current severe-BP cluster, not `skip_serial`. |
+| 2 | `case_preeclampsia_magnesium_01/admission` | `skip_serial` | WARN | Resolved Rule D escalation: paired same-client current BP readings 20 minutes apart stay prose; current detector does not yet re-confirm this shape. |
 | 3 | `case_preeclampsia_magnesium_01/labs` | Keyed platelets/AST/ALT/Cr | OK | Always notable due to platelet `/mm3`; urine protein out of allowlist scope. |
 | 4 | `case_preeclampsia_magnesium_01/toxicity_assessment` | Keyed RR/SpO2 and post-labetalol BP | OK | BP carries `post_intervention`; reflexes/urine output out of allowlist scope. |
 | 5 | `case_sepsis_pneumonia_01/after_500_ml` | Keyed post-fluid BP/MAP/HR/SpO2 | WARN | `post_intervention` context on all keyed values; HR `/min` prose-normalization candidate. |
@@ -112,3 +114,17 @@ beyond routine current/prior/scope verification:
 **No selection errors found.** One item escalated (Rule D scope for closely-spaced confirmatory
 readings) rather than adjudicated either way — see the escalation note. Per the sampling ramp, a new
 bucket resets to 100% adjudication for its first two batches; batch 10 (this one) is the first.
+
+**Update (2026-07-05, architect resolution).** The escalation resolved that this pattern **is** serial:
+`case_preeclampsia_magnesium_01/admission` is re-dispositioned `extract` → `skip_serial` and Rule D was
+amended (>=2 current readings of one parameter, same client = serial; confirmatory repeats included;
+same-subject guard keeps multi-victim scenes as empty-panel `extract`). Because a disposition changed on
+adjudication, **batch 10 does not count as a clean ramp batch** — the `scattered` two-consecutive-clean
+counter resets to 0, and the next fully-adjudicated batch with zero re-dispositions becomes batch 1 of 2.
+The staged artifact and scattered staging script have been updated (the admission record is now a
+bare `skip_serial`); a gate re-run surfaces the expected `skip_serial` serial-re-confirm WARN (the
+source detector is blind to this shape until Guard 2 lands —
+`EXHIBIT-FLOWSHEET-CODEX-NOTE-serial-confirmatory-readings-2026-07-05.md`). Guard 1, the duplicate
+current-label structural FAIL, is implemented in the gate. See
+`EXHIBIT-FLOWSHEET-ESCALATION-rule-d-closely-spaced-readings-2026-07-05.md` → Resolution. The other 19
+records stand as adjudicated above.

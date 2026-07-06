@@ -38,8 +38,6 @@ const baseRecord = (): ExtractionRecord => ({
     { label: "spo2", value: "97", sourceUnit: "%", sourceSpan: "Temperature 37.1 °C, heart rate 88, blood pressure 118/72, respiratory rate 18, SpO2 97% on room air." },
     { label: "platelets", value: "18,000", sourceUnit: "/µL", sourceSpan: "Platelets 18,000/µL and creatinine 1.2 mg/dL were reported." },
     { label: "creatinine", value: "1.2", sourceUnit: "mg/dL", sourceSpan: "Platelets 18,000/µL and creatinine 1.2 mg/dL were reported." },
-    { label: "sbp", value: "148", sourceUnit: "mm Hg", sourceSpan: "Blood pressure after labetalol: 148/94 mm Hg.", context: "post_intervention" },
-    { label: "dbp", value: "94", sourceUnit: "mm Hg", sourceSpan: "Blood pressure after labetalol: 148/94 mm Hg.", context: "post_intervention" },
   ],
   excludedValues: [],
   unitAliases: [{ aliasOf: "platelets", value: "18,000/µL" }],
@@ -182,6 +180,13 @@ const run = (record: ExtractionRecord, src = source): Finding[] => gateRecord(re
 
 {
   const record = baseRecord();
+  record.panel!.push({ label: "sbp", value: "148", sourceUnit: "mm Hg", sourceSpan: "Blood pressure after labetalol: 148/94 mm Hg.", context: "post_intervention" });
+  const findings = run(record);
+  assert(hasFinding(findings, "FAIL", "duplicate current label"), "duplicate current panel label should fail Rule D");
+}
+
+{
+  const record = baseRecord();
   record.excludedValues = [{ label: "sbp", value: "148", reason: "post_intervention", sourceSpan: "Blood pressure after labetalol: 148/94 mm Hg." }];
   const findings = run(record);
   assert(hasFinding(findings, "FAIL", "post_intervention is a keyed context"), "post_intervention exclusion should fail Rule F");
@@ -189,10 +194,12 @@ const run = (record: ExtractionRecord, src = source): Finding[] => gateRecord(re
 
 {
   const record = baseRecord();
-  record.panel = record.panel!.filter((entry) => entry.context !== "post_intervention");
+  record.panel = record.panel!.filter((entry) => entry.label !== "sbp" && entry.label !== "dbp");
   record.panel.push({ label: "sbp", value: "148", sourceUnit: "mm Hg", sourceSpan: "Blood pressure after labetalol: 148/94 mm Hg.", context: "post_intervention" });
+  record.panel.push({ label: "dbp", value: "94", sourceUnit: "mm Hg", sourceSpan: "Blood pressure after labetalol: 148/94 mm Hg.", context: "post_intervention" });
   const findings = run(record);
   assert(noFinding(findings, "context 'post_intervention'"), "post_intervention panel context should pass Rule F");
+  assert(noFinding(findings, "duplicate current label"), "single post-intervention BP pair should not trip duplicate label guard");
 }
 
 {

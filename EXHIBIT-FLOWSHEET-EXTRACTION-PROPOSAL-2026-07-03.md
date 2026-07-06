@@ -197,15 +197,43 @@ records the byte-exact source unit expression for audit visibility, in addition 
 gate recognizes a token as a unit alias only when it is a same-measurement conversion adjacent to a
 keyed value; anything else remains accountable.
 
-**Rule D — serial-timepoint exhibits are OUT of the extraction lane in v1 (deterministic exclusion).**
-If any single allowlisted parameter appears **>=2 times with distinct timepoints** in one exhibit
-(Panel 5: BP at 1:00/1:30/2:00/2:30 PM), the exhibit is deterministically flagged `serial` and
-**excluded from flowsheet extraction entirely** — it stays prose. Rationale: a static single-column
-flowsheet cannot represent a time series without either dropping timepoints or misrepresenting one
-reading as "the" value; a genuine time series is what `vitals_trend`/`lab_trend` exist for, reachable
-only through the load-bearing-visual gate (Principle 6). This converts Panel 5 from an open product
-question into a mechanical skip. The serial detector is deterministic (repeated allowlisted label +
-distinct adjacent timepoint token), so no model judgment decides lane membership.
+**Rule D — an exhibit with >=2 current readings of one parameter (same client) is OUT of the extraction lane (deterministic exclusion; amended 2026-07-05).**
+The flowsheet lane emits at most one current value per allowlisted parameter per exhibit, **for the
+same client / same flowsheet subject**. Set prior/trend history aside first: a value explicitly marked
+superseded ("down from", "was", "baseline N", "earlier", "prior") is excluded with reason
+`prior`/`trend` (Rule handled) and does not count here. If, for one client, an allowlisted parameter
+still carries **>=2 current readings** in one exhibit, the exhibit is flagged `serial` and **excluded
+from flowsheet extraction entirely** — it stays prose. This reaches two shapes: (i) a time series
+across distinct timepoints (Panel 5: BP at 1:00/1:30/2:00/2:30 PM), and (ii) a **closely-spaced
+confirmatory repeat** where two current readings jointly establish one clinical state ("166/112 and
+164/110 mm Hg 20 minutes apart" — the ACOG severe-range confirmation), neither reading marked
+historical. Rationale: a single-column flowsheet has one cell per parameter and no timepoint axis, so
+two current readings can only flatten into an ambiguous two-value cell or drop silently to one — the
+misrepresent/drop failure this rule prevents — and in the confirmatory case the untouched prose ("...
+20 minutes apart") represents the pattern *better* than a single-column flowsheet could, so
+`skip_serial` preserves clinical fidelity rather than sacrificing it. A genuine series is what
+`vitals_trend`/`lab_trend` exist for, reachable only through the load-bearing-visual gate (Principle
+6). **No confirmatory carve-out:** the confirmation-vs-trend distinction is clinically real but has no
+deterministic separator (both are low-delta, same-parameter, multi-reading shapes), so admitting
+confirmatory repeats to `extract` would require model judgment on lane membership, which this rule
+forbids by design.
+
+*Same-subject guard (resolves the multi-victim over-capture).* The ">=2 current readings" trigger is
+scoped to **one client**. A multi-victim scene (mass-casualty triage) that carries several patients'
+vitals in one exhibit is **not** `serial` — it is `extract` with an **empty `panel[]`**, because the
+record shape has no per-victim attribution field and keying any single victim's vitals would
+misattribute them to "the" client (batch 10 `#17` `disaster_triage`). Multiple readings of one
+parameter across *different subjects* never make an exhibit serial; only >=2 current readings of one
+parameter for *the same subject* do.
+
+*Detector status (advisory, not authority).* The independent mechanical serial re-check keys on >=2
+distinct timepoint tokens plus >=2 label occurrences. The confirmatory shape defeats both halves — "20
+minutes apart" is one relative-gap token (not two timepoints), and "Blood pressure readings: ..." is a
+single label occurrence carrying two values — so the detector can neither re-confirm the skip nor flag
+the mislabel. A value-pair-count branch and a direct duplicate-current-label record guard are queued
+for Codex (`EXHIBIT-FLOWSHEET-CODEX-NOTE-serial-confirmatory-readings-2026-07-05.md`). Lane-membership
+authority remains the checker seat + adjudication, per producer≠checker; the detector only routes
+candidates.
 
 **Rule E — values are byte-identical after one NFC pass; `sourceSpan` is the exact enclosing sentence.**
 GATE 1 containment is byte-exact: each keyed `value` must be a verbatim substring of `content.en`

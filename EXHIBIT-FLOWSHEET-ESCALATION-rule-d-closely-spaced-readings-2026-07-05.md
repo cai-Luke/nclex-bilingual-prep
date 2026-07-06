@@ -67,3 +67,43 @@ Not blocking batch 10 — no FAIL, and the values themselves are accurate and sa
 the fetal heart rate mentioned in the same sentence (140/min, correctly never keyed as `hr`, since
 `fhr` is not in the vitals registry — a real clinical-safety distinction the extractor got right).
 Batch 10 is otherwise clean; see `EXHIBIT-FLOWSHEET-MIGRATION-BATCH-10-ADJUDICATION-2026-07-05.md`.
+
+## Resolution (2026-07-05, architect seat)
+
+**RESOLVED. Verdict: serial → `skip_serial`. No carve-out. The `extract` disposition was wrong under
+the clarified rule.**
+
+The key observation is the staged record, not the prose: it keyed four panel entries — `sbp` 166,
+`dbp` 112, `sbp` 164, `dbp` 110 — i.e. **two current values per parameter, one `sourceSpan`, no
+timepoint axis**. That is exactly the shape a single-column flowsheet cannot hold: it flattens two
+confirmatory readings into an ambiguous two-value cell (reads as a mini-trend, misrepresenting a
+confirmation as a change) or silently drops one. So the intuition in this note inverts — `extract`
+**mangles** the confirmatory pattern; `skip_serial` **preserves** it, because the untouched prose
+("166/112 and 164/110 mm Hg 20 minutes apart") states the ACOG severe-range confirmation better than
+any flowsheet cell could (GATE 3 keeps it intact). Dropping the whole exhibit's HR/RR too is correct,
+not collateral damage: a flowsheet showing HR/RR but conspicuously missing BP on a hypertensive
+emergency reads as if BP weren't taken (same logic as Rule F — a BP-less flowsheet is worse than
+none). Nothing is lost; it stays prose.
+
+**No deterministic carve-out** because confirmation-vs-trend has no deterministic separator (both are
+low-delta, same-parameter, multi-reading shapes; a time-gap threshold misfires — the Panel 5 trend is
+30 min apart, ACOG confirmation can be up to 4 h). A carve-out would reintroduce model judgment on
+lane membership, which Rule D forbids. Instead Rule D's *statement* was tightened to match its own
+rationale: the invariant is **one current reading per parameter per exhibit, for the same client**;
+this case was always on the wrong side of it. This is a rubric clarification, so the extractor's
+disposition was **not** a stop-rule selection error — escalating rather than adjudicating was correct.
+
+Actions taken (all on disk):
+- Rule D amended in `EXHIBIT-FLOWSHEET-EXTRACTION-PROPOSAL-2026-07-03.md` (adds the ≥-2-current-readings
+  trigger, the confirmatory shape, the **same-client / same-flowsheet-subject** guard so multi-victim
+  scenes stay `extract` empty-panel, and the no-carve-out rationale).
+- `case_preeclampsia_magnesium_01/admission` flipped `extract` → `skip_serial` in
+  `EXHIBIT-FLOWSHEET-MIGRATION-BATCH-10-scattered-2026-07-05.json`.
+- Detector work queued: `EXHIBIT-FLOWSHEET-CODEX-NOTE-serial-confirmatory-readings-2026-07-05.md`
+  (Guard 1: duplicate-current-label record check, recommended FAIL; Guard 2: source >=2-current-readings
+  WARN; full must-WARN / must-not-WARN boundary set including FHR-vs-maternal-HR and multi-victim).
+- Batch 10 does **not** count as a clean ramp batch; `scattered` two-consecutive-clean-100% counter
+  reset to 0 (ledger updated).
+
+Contributing review: Codex added the same-client guard (multi-victim over-capture) and the separate
+duplicate-panel structural guard; both folded in.

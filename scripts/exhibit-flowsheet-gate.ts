@@ -315,7 +315,7 @@ const gateRecord = (rec: ExtractionRecord, source: string | undefined): Finding[
   if (rec.lane === "skip_serial") {
     const extra = Object.keys(rec).filter((k) => k !== "exhibitRef" && k !== "lane");
     if (extra.length) push("FAIL", `skip_serial record carries extra keys: ${extra.join(", ")}`);
-    if (!looksSerial(src)) push("WARN", "lane=skip_serial but serial detector did not re-confirm ≥2 timepoints; verify");
+    if (!looksSerial(src)) push("WARN", "lane=skip_serial but serial detector did not re-confirm a Rule D serial pattern; verify");
     return f;
   }
 
@@ -326,6 +326,15 @@ const gateRecord = (rec: ExtractionRecord, source: string | undefined): Finding[
   const panel = rec.panel ?? [];
   const excluded = rec.excludedValues ?? [];
   const aliases = rec.unitAliases ?? [];
+  const seenPanelLabels = new Map<string, number>();
+  for (const [i, e] of panel.entries()) {
+    const previous = seenPanelLabels.get(e.label);
+    if (previous !== undefined) {
+      push("FAIL", `panel[${i}] ${e.label}=${e.value}: duplicate current label also appears at panel[${previous}] (Rule D: extract lane allows at most one current value per parameter)`);
+    } else {
+      seenPanelLabels.set(e.label, i);
+    }
+  }
 
   for (const [i, e] of panel.entries()) {
     const at = `panel[${i}] ${e.label}=${e.value}`;

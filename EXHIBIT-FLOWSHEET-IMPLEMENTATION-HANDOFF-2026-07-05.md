@@ -146,6 +146,13 @@ Update after prose closeout: Batches 07-09 adjudicated clean, closing the curren
 and intentionally returns to 100% checker-seat adjudication for the first two clean batches before any
 new-bucket taper is considered.
 
+Update after Batch 10 escalation: the paired severe-range BP confirmation in
+`case_preeclampsia_magnesium_01/admission` is resolved as Rule D serial, and the staged artifact plus
+`scripts/exhibit-flowsheet-stage-scattered-batch.ts` now emit a bare `skip_serial`. The gate now FAILs
+duplicate current `panel[]` labels in `extract` records (Guard 1 from
+`EXHIBIT-FLOWSHEET-CODEX-NOTE-serial-confirmatory-readings-2026-07-05.md`); Guard 2, the source-prose
+current-reading-count WARN heuristic, remains queued.
+
 ## Verification Run
 
 - `npm run test:measurement-allowlist`

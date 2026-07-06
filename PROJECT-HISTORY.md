@@ -76,6 +76,10 @@ Completed:
   at 145/145 with zero selection errors and staged the first `scattered` ramp batch: Batch 10 covers
   scattered panels 1-20, gates at 0 FAIL / 13 WARN, and is queued for 100% checker-seat adjudication;
   no canonical bank/schema/render writes.
+- Resolved the Batch 10 Rule D escalation: paired same-client current BP readings in
+  `case_preeclampsia_magnesium_01/admission` are serial and now stage as bare `skip_serial`; the
+  `scattered` ramp counter reset to 0. Added a gate hard FAIL for duplicate current `panel[]` labels
+  in `extract` records, while leaving the source-prose current-reading-count WARN heuristic queued.
 - Closed the Batch 04 code-note by widening the serial timestamp detector to recognize relative
   `hour N`, `day N`, and `N hours later/after` narration, while tightening the HR label pattern so
   lowercase duration/rate `hr` does not masquerade as heart rate; added regression coverage.

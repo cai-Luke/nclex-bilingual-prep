@@ -40,17 +40,7 @@ const batch10Records: ExtractionRecord[] = [
   },
   {
     exhibitRef: "case_preeclampsia_magnesium_01/admission",
-    lane: "extract",
-    panel: [
-      { label: "sbp", value: "166", sourceUnit: "mm Hg", sourceSpan: "Blood pressure readings: 166/112 and 164/110 mm Hg 20 minutes apart." },
-      { label: "dbp", value: "112", sourceUnit: "mm Hg", sourceSpan: "Blood pressure readings: 166/112 and 164/110 mm Hg 20 minutes apart." },
-      { label: "sbp", value: "164", sourceUnit: "mm Hg", sourceSpan: "Blood pressure readings: 166/112 and 164/110 mm Hg 20 minutes apart." },
-      { label: "dbp", value: "110", sourceUnit: "mm Hg", sourceSpan: "Blood pressure readings: 166/112 and 164/110 mm Hg 20 minutes apart." },
-      { label: "hr", value: "92", sourceUnit: "bpm", sourceSpan: "HR 92/min, RR 18/min." },
-      { label: "rr", value: "18", sourceUnit: "/min", sourceSpan: "HR 92/min, RR 18/min." }
-    ],
-    excludedValues: [],
-    unitAliases: []
+    lane: "skip_serial"
   },
   {
     exhibitRef: "case_preeclampsia_magnesium_01/labs",
