@@ -30,11 +30,12 @@ banks or schema fields were written.
 ## Generated Staged Artifacts
 
 - `EXHIBIT-FLOWSHEET-MANIFEST-2026-07-05.json`
-  - Total allowlist-hit panels: 337 after de-duping repeated exhibit refs
+  - Total allowlist-hit panels: 336 after de-duping repeated exhibit refs and adding ABG completeness
+    patterns
   - `clean_kv`: 2
-  - `prose_embedded`: 145
-  - `scattered`: 160
-  - `serial`: 30
+  - `prose_embedded`: 149
+  - `scattered`: 152
+  - `serial`: 33
 - `EXHIBIT-FLOWSHEET-MIGRATION-BATCH-01-clean_kv-2026-07-05.json`
   - 2 records from the conservative `clean_kv` bucket.
   - Gate result: 0 FAIL, 0 WARN.
@@ -99,12 +100,51 @@ banks or schema fields were written.
     `EXHIBIT-FLOWSHEET-MIGRATION-BATCH-12-ADJUDICATION-2026-07-05.md`.
 - `EXHIBIT-FLOWSHEET-MIGRATION-BATCH-13-scattered-2026-07-05.json`
   - 20 records from the fourth `scattered` manifest slice.
-  - Gate result: 0 FAIL, 38 WARN.
-  - Because Batch 12 reset the `scattered` ramp, Batch 13 is queued for 100% checker-seat
-    adjudication as fresh clean-ramp candidate 1 of 2, documented in
+  - Gate result: 0 FAIL, 38 WARN after PaO2 re-extraction.
+  - Batch 13 does not count clean: adjudication found an omitted in-scope `pao2=68 mmHg` in
+    `gpt_case_major_burn_inhalation_fluid_creep_01/baseline_labs`. Codex re-extracted the value and
+    added ABG completeness-pattern coverage, documented in
     `EXHIBIT-FLOWSHEET-MIGRATION-BATCH-13-ADJUDICATION-2026-07-05.md`.
+- `EXHIBIT-FLOWSHEET-MIGRATION-BATCH-14-scattered-2026-07-06.json`
+  - 20 records from the first uncovered refreshed-`scattered` slice after the ABG manifest refresh.
+  - Gate result: 0 FAIL, 27 WARN.
+  - 100% checker-seat adjudication found no selection errors or re-dispositions, making Batch 14 clean
+    scattered batch 1 of 2 for the fresh post-PaO2-fix ramp.
+- `EXHIBIT-FLOWSHEET-MIGRATION-BATCH-15-scattered-2026-07-06.json`
+  - 20 records from the next uncovered refreshed-`scattered` slice.
+  - Gate result: 0 FAIL, 16 WARN.
+  - 100% checker-seat adjudication found no selection errors or re-dispositions, making Batch 15 clean
+    scattered batch 2 of 2 and closing the fresh post-PaO2-fix ramp.
+- `EXHIBIT-FLOWSHEET-MIGRATION-BATCH-16-scattered-2026-07-06.json`
+  - 20 records from the first tapered refreshed-`scattered` slice after the Batch 14-15 clean ramp.
+  - Gate result: 0 FAIL, 9 WARN.
+  - Tapered checker queue prepared in
+    `EXHIBIT-FLOWSHEET-MIGRATION-BATCH-16-ADJUDICATION-2026-07-06.md`: 18 of 20 records (25% seeded
+    random + always-sampled risk surfaces).
+- `EXHIBIT-FLOWSHEET-MIGRATION-BATCH-17-scattered-2026-07-06.json`
+  - 17 records from the final uncovered refreshed-`scattered` slice.
+  - Gate result: 0 FAIL, 27 WARN.
+  - 17-record checker-seat adjudication found no selection errors or re-dispositions, closing the
+    refreshed `scattered` bucket at 152/152 covered.
+- `EXHIBIT-FLOWSHEET-MIGRATION-BATCH-18-prose_embedded-2026-07-06.json`
+  - 6 records from the final refreshed `prose_embedded` tail created by the ABG completeness-pattern
+    refresh.
+  - Gate result: 0 FAIL, 2 WARN.
+  - 6-record checker-seat adjudication found no selection errors or re-dispositions, closing the
+    refreshed `prose_embedded` bucket at 149/149 covered.
+- `EXHIBIT-FLOWSHEET-MIGRATION-BATCH-19-serial-2026-07-06.json`
+  - 28 records from the final refreshed `serial` tail.
+  - Gate result: 0 FAIL, 0 WARN.
+  - 28-record checker-seat adjudication found 14 confirmed misclassifications, so this batch does not
+    count clean and does not close `serial`.
+- `EXHIBIT-FLOWSHEET-MIGRATION-BATCH-20-serial-redo-2026-07-06.json`
+  - Redo of the same 28 refreshed `serial` tail refs after the Batch 19 miss.
+  - Gate result: 0 FAIL, 32 WARN.
+  - 28-record checker-seat adjudication (Antigravity Claude, 2026-07-06) found no selection errors or
+    re-dispositions, closing `serial`. Dispositions are 14 true `skip_serial`, 10 real current-panel
+    extracts, and 4 intentionally empty extracts.
 - `EXHIBIT-FLOWSHEET-MIGRATION-LEDGER-2026-07-05.md`
-  - Tracks staged artifacts and adjudication status through Batch 13.
+  - Tracks staged artifacts and adjudication status through Batch 20.
 
 ## Current Gate Result
 
@@ -160,10 +200,11 @@ counts lowercase duration/rate `hr` as heart rate. Regression assertions live in
 Additional detector fix: `SpO₂` with subscript `₂` now counts reliably in the serial detector; Batch
 08's code-status `skip_serial` record mechanically re-confirms after this fix.
 
-Update after prose closeout: Batches 07-09 adjudicated clean, closing the current-manifest
-`prose_embedded` bucket at 145/145 with zero selection errors. Batch 10 starts the `scattered` bucket
-and intentionally returns to 100% checker-seat adjudication for the first two clean batches before any
-new-bucket taper is considered.
+Update after prose closeout: Batches 07-09 adjudicated clean, closing the then-current-manifest
+`prose_embedded` bucket at 145/145 with zero selection errors. The later ABG completeness-pattern
+refresh regenerated the manifest to 149 `prose_embedded` refs, leaving 6 refreshed prose refs uncovered
+before final lane closure. Batch 10 starts the `scattered` bucket and intentionally returns to 100%
+checker-seat adjudication for the first two clean batches before any new-bucket taper is considered.
 
 Update after Batch 10 escalation: the paired severe-range BP confirmation in
 `case_preeclampsia_magnesium_01/admission` is resolved as Rule D serial, and the staged artifact plus
@@ -182,10 +223,48 @@ count clean because adjudication found the gallstone WBC/Hct omission; the cloza
 vitals-HR/ECG-rate escalation resolved as not Rule D and the record now stages as `extract`. The
 `scattered` ramp counter resets to 0; 60/160 scattered panels are staged and 100 remain.
 
-Update after Batch 13 staging: the fourth `scattered` artifact covers manifest scattered panels 61-80
-and gates at 0 FAIL / 38 WARN. It is queued for 100% checker-seat adjudication as fresh clean-ramp
-candidate 1 of 2 after the Batch 12 reset. After this artifact, 80/160 scattered panels are staged and
-80 remain.
+Update after Batch 13 adjudication/resolution: the fourth `scattered` artifact gates at 0 FAIL / 38
+WARN after adding omitted `pao2=68 mmHg`. It does not count clean; scattered needs a fresh 2-batch
+clean streak starting after the PaO2 fix. After the ABG completeness-pattern refresh, the regenerated
+manifest has 152 `scattered` refs; existing staged artifacts cover 75/152 and 77 remain uncovered.
+
+Update after Batch 15 adjudication and Batch 16 staging: Batch 15 adjudicated clean with no selection
+errors or re-dispositions, making it clean scattered batch 2 of 2 and closing the fresh post-PaO2-fix
+ramp. Batch 16 is the first tapered scattered batch: it covers the next 20 refreshed `scattered` refs
+and gates at 0 FAIL / 9 WARN, with an 18-record checker queue because the slice is risk-dense.
+Refreshed scattered coverage is 135/152, with 17 uncovered. Batch 15 also added `/μL` as a
+WBC/platelet source-unit alias after the aGVHD baseline labs used Greek-mu CBC units.
+
+Update after Batch 16 adjudication and Batch 17 staging: Batch 16 adjudicated clean with no selection
+errors or re-dispositions, so the tapered scattered lane held. Batch 17 covers the remaining 17
+refreshed `scattered` refs and gates at 0 FAIL / 27 WARN. All 17 are queued for checker-seat review
+because this is the final partial scattered closure batch and includes empty no-value/order records,
+medication/protocol name collisions, refeeding trend restatements, prior-value exclusions,
+`post_intervention` context, and HR `/min` prose-normalization candidates. Refreshed scattered
+coverage is now 152/152, with 0 uncovered, pending Batch 17 adjudication. The refreshed
+`prose_embedded` tail still has 6 uncovered refs and `serial` has 28 uncovered.
+
+Update after Batch 17 adjudication and Batch 18 staging: Batch 17 adjudicated clean and closes
+`scattered` at 152/152 covered. Batch 18 now stages the 6 refreshed `prose_embedded` tail refs and
+gates at 0 FAIL / 2 WARN. All 6 are queued for checker-seat review, with attention to serum-chemistry
+HCO3 being staged as `bicarbonate` rather than `hco3_abg`, an empty no-current-HR opioid background
+record, a prior baseline-creatinine exclusion, and C. difficile recovery values tagged
+`post_intervention`. Refreshed `prose_embedded` coverage is now 149/149, pending Batch 18
+adjudication; only `serial` remains open at 5/33 covered, 28 uncovered.
+
+Update after Batch 18 adjudication and Batch 19 staging: Batch 18 adjudicated clean and closes
+`prose_embedded` at 149/149 covered. Batch 19 staged the remaining 28 refreshed `serial` refs as bare
+`skip_serial` records and gated at 0 FAIL / 0 WARN, but 100% checker-seat adjudication found 14 of 28
+records misclassified. Batch 19 does not count clean and does not close `serial`.
+
+Update after Batch 19 adjudication and Batch 20 staging/adjudication: Batch 20 re-derives the same 28
+serial-tail refs from source content rather than manifest membership. It gates at 0 FAIL / 32 WARN and
+has a completed 28-record Antigravity Claude checker-seat adjudication with zero selection errors and
+zero re-dispositions. The redo stages 14 true `skip_serial` preservation records, 10 real current-panel
+extracts, and 4 intentionally empty extracts for multi-client/no-current-value surfaces. This closes
+the `serial` lane by content-reviewed disposition. Non-blocking carry-forward note: the PE row source
+says troponin I while the current allowlist label remains `troponin_t`, matching the existing
+troponin-I-vs-T schema gap.
 
 ## Verification Run
 
@@ -208,3 +287,10 @@ candidate 1 of 2 after the Batch 12 reset. After this artifact, 80/160 scattered
 - Batch 11 staged gate: 20 records, 0 FAIL, 18 WARN
 - Batch 12 staged gate: 20 records, 0 FAIL, 32 WARN after producer re-extraction
 - Batch 13 staged gate: 20 records, 0 FAIL, 38 WARN
+- Batch 14 staged gate: 20 records, 0 FAIL, 27 WARN
+- Batch 15 staged gate: 20 records, 0 FAIL, 16 WARN
+- Batch 16 staged gate: 20 records, 0 FAIL, 9 WARN
+- Batch 17 staged gate: 17 records, 0 FAIL, 27 WARN
+- Batch 18 staged gate: 6 records, 0 FAIL, 2 WARN
+- Batch 19 staged gate: 28 records, 0 FAIL, 0 WARN
+- Batch 20 staged gate: 28 records, 0 FAIL, 32 WARN

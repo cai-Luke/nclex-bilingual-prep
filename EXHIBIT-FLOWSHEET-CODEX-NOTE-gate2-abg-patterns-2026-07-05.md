@@ -1,6 +1,8 @@
 # Exhibit Flowsheet — Codex Note: GATE 2 has no completeness patterns for ABG keys
 
 Date: 2026-07-05. From: Claude (batch-13 adjudication). For: Codex (gate/code seat).
+Status: Resolved 2026-07-06 by adding GATE 2 patterns for `ph`, `paco2`, `pao2`, and `hco3_abg`
+plus regression coverage.
 
 ## Finding
 
@@ -15,9 +17,11 @@ mechanical signal to prompt a second look.
 
 ## Fix
 
-Add label patterns for the three ABG keys, mirroring the existing `ph`/`lactate` entries:
+Add label patterns for ABG keys. Codex also found that `ph` did not actually have a GATE 2 pattern
+yet, despite the assumption in this note, so the implemented patch should include it too:
 
 ```
+{ key: "ph",       re: /\bpH\b/g },
 { key: "paco2",    re: /\bPaCO2\b|\bPaCO₂\b/gi },
 { key: "pao2",     re: /\bPaO2\b|\bPaO₂\b/gi },
 { key: "hco3_abg", re: /\bHCO3\b|\bHCO₃\b/gi },

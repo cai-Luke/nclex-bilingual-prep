@@ -64,7 +64,7 @@ Total checker-seat sample: 20 of 20 records.
 | 1 | `gpt_case_hipaa_disclosure_breach_01/baseline_assessment_labs` | Keyed 0715 vitals and 0600 Hgb/Cr/glucose | WARN | HR `/min` prose-normalization candidate; eGFR out of scope. |
 | 2 | `gpt_case_lateral_incivility_01/baseline_assessment_labs` | Keyed 1930 vitals only | WARN | 0600 chemistry/CBC/BNP values lack source units; UA and telemetry narrative out of scope. |
 | 3 | `gpt_case_lateral_incivility_01/baseline_client_record` | Empty panel with prior/trend BP/Cr excluded | OK | Arrival BP, baseline creatinine, and BP trend are not current values. |
-| 4 | `gpt_case_major_burn_inhalation_fluid_creep_01/baseline_labs` | Keyed CBC/BMP/ABG/lactate values | OK | PaO2, carboxyhemoglobin, urinalysis out of current allowlist scope. |
+| 4 | `gpt_case_major_burn_inhalation_fluid_creep_01/baseline_labs` | Keyed CBC/BMP/ABG/lactate values | ERROR, fixed post-adjudication | PaO2 68 mmHg is in scope and was omitted; Codex re-extracted it. Carboxyhemoglobin and urinalysis remain out of current allowlist scope. |
 | 5 | `gpt_case_mass_casualty_start_triage_01/triage_point_findings` | Empty panel | WARN | Multi-victim scene; no single-client attribution field, so no values are keyed. |
 | 6 | `gpt_case_neutropenic_fever_nadir_01/initial_assessment_labs` | Keyed vitals, explicit-unit CBC values, lactate | WARN | BMP values are unitless; ANC/UA/urine output out of scope. |
 | 7 | `gpt_case_neutropenic_fever_nadir_01/stage_2_course` | Keyed 1745 vitals and 1800 lactate | OK | Prior lactate 1.4 excluded; intervention starts after these values. |
@@ -99,14 +99,14 @@ from "ABG on room air: pH 7.32, PaCO2 32 mmHg, **PaO2 68 mmHg**, HCO3 20 mEq/L, 
 but not PaO2, even though it carries an explicit unit (`mmHg`) identical in form to the PaCO2 entry
 right next to it, and `pao2` is a registry key (`src/visuals/kinds/lab_trend/defs.ts`). This is not a
 judgment call — same class as batch 12's WBC/Hct omission, just isolated to one value in one record
-this time. **Needs re-extraction to add `pao2` (68 mmHg).**
+this time. **Codex re-extracted this record to add `pao2` (68 mmHg).**
 
-Notably, GATE 2's `LABEL_PATTERNS` table has no entries for `pao2`, `paco2`, or `hco3_abg` at all, so
+Notably, pre-fix GATE 2's `LABEL_PATTERNS` table had no entries for `pao2`, `paco2`, or `hco3_abg`, so
 the mechanical completeness sweep couldn't have flagged this one the way it flagged the gallstone
-WBC/Hct mentions in batch 12 — there was no advisory WARN to catch on review. Filed as a small,
-non-blocking Codex note (`EXHIBIT-FLOWSHEET-CODEX-NOTE-gate2-abg-patterns-2026-07-05.md`) since adding
-these three patterns would strengthen the mechanical net against this exact class of miss going
-forward.
+WBC/Hct mentions in batch 12 — there was no advisory WARN to catch on review. Codex resolved the
+follow-up note (`EXHIBIT-FLOWSHEET-CODEX-NOTE-gate2-abg-patterns-2026-07-05.md`) by adding
+completeness patterns for `ph`, `paco2`, `pao2`, and `hco3_abg`, plus regression coverage that an
+omitted PaO2 now emits an advisory WARN.
 
 ### Everything else checked out, including good confirmatory tests of the Rule C/D refinement
 

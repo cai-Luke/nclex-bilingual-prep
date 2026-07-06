@@ -217,6 +217,43 @@ const run = (record: ExtractionRecord, src = source): Finding[] => gateRecord(re
 }
 
 {
+  const abgSource = "ABG on room air: pH 7.32, PaCO2 32 mmHg, PaO2 68 mmHg, HCO3 20 mEq/L, lactate 4.2 mmol/L.";
+  const record: ExtractionRecord = {
+    exhibitRef: "test/abg",
+    lane: "extract",
+    panel: [
+      { label: "ph", value: "7.32", sourceUnit: "(unitless)", sourceSpan: abgSource },
+      { label: "paco2", value: "32", sourceUnit: "mmHg", sourceSpan: abgSource },
+      { label: "hco3_abg", value: "20", sourceUnit: "mEq/L", sourceSpan: abgSource },
+      { label: "lactate", value: "4.2", sourceUnit: "mmol/L", sourceSpan: abgSource },
+    ],
+    excludedValues: [],
+    unitAliases: [],
+  };
+  const findings = run(record, abgSource);
+  assert(hasFinding(findings, "WARN", "source mentions 'pao2'"), "GATE 2 should warn when PaO2 is omitted from an ABG panel");
+}
+
+{
+  const abgSource = "ABG on room air: pH 7.32, PaCO2 32 mmHg, PaO2 68 mmHg, HCO3 20 mEq/L, lactate 4.2 mmol/L.";
+  const record: ExtractionRecord = {
+    exhibitRef: "test/abg",
+    lane: "extract",
+    panel: [
+      { label: "ph", value: "7.32", sourceUnit: "(unitless)", sourceSpan: abgSource },
+      { label: "paco2", value: "32", sourceUnit: "mmHg", sourceSpan: abgSource },
+      { label: "pao2", value: "68", sourceUnit: "mmHg", sourceSpan: abgSource },
+      { label: "hco3_abg", value: "20", sourceUnit: "mEq/L", sourceSpan: abgSource },
+      { label: "lactate", value: "4.2", sourceUnit: "mmol/L", sourceSpan: abgSource },
+    ],
+    excludedValues: [],
+    unitAliases: [],
+  };
+  const findings = run(record, abgSource);
+  assert(noFinding(findings, "source mentions 'pao2'"), "complete ABG panel should not warn for PaO2");
+}
+
+{
   const record = baseRecord();
   record.unitAliases = [{ aliasOf: "wbc", value: "18,000/µL" }];
   const findings = run(record);

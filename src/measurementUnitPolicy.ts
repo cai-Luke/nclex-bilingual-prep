@@ -36,6 +36,7 @@ export const LINEAR_UNIT_FACTORS: Readonly<Record<string, number>> = Object.free
   // CBC counts: ×10³/µL, K/µL, and ×10⁹/L carry the same plotted magnitude.
   // Plain per-microliter-style counts scale by 1e-3.
   [factorKey("wbc", "/µL")]: 1e-3,
+  [factorKey("wbc", "/μL")]: 1e-3,
   [factorKey("wbc", "/uL")]: 1e-3,
   [factorKey("wbc", "/mcL")]: 1e-3,
   [factorKey("wbc", "/mm3")]: 1e-3,
@@ -45,6 +46,7 @@ export const LINEAR_UNIT_FACTORS: Readonly<Record<string, number>> = Object.free
   [factorKey("wbc", "K/µL")]: 1,
   [factorKey("wbc", "×10⁹/L")]: 1,
   [factorKey("platelets", "/µL")]: 1e-3,
+  [factorKey("platelets", "/μL")]: 1e-3,
   [factorKey("platelets", "/uL")]: 1e-3,
   [factorKey("platelets", "/mcL")]: 1e-3,
   [factorKey("platelets", "/mm3")]: 1e-3,

@@ -36,12 +36,12 @@ assert.throws(() => {
 
 assert.deepEqual(
   MEASUREMENT_ALLOWLIST.wbc.acceptedSourceUnits,
-  ["×10³/µL", "K/µL", "/µL", "/uL", "/mcL", "/mm3", "/mm³", "x 10^3/uL", "×10⁹/L"],
+  ["×10³/µL", "K/µL", "/µL", "/μL", "/uL", "/mcL", "/mm3", "/mm³", "x 10^3/uL", "×10⁹/L"],
   "WBC units should pin conventional-canonical, source-permissive CBC policy",
 );
 assert.deepEqual(
   MEASUREMENT_ALLOWLIST.platelets.acceptedSourceUnits,
-  ["×10³/µL", "K/µL", "/µL", "/uL", "/mcL", "/mm3", "/mm³", "x 10^3/uL", "×10⁹/L"],
+  ["×10³/µL", "K/µL", "/µL", "/μL", "/uL", "/mcL", "/mm3", "/mm³", "x 10^3/uL", "×10⁹/L"],
   "platelet units should pin conventional-canonical, source-permissive CBC policy",
 );
 assert.equal(MEASUREMENT_ALLOWLIST.wbc.canonicalUnit, "×10³/µL", "WBC display canonical should remain compact conventional");

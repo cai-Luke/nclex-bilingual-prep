@@ -97,7 +97,7 @@ export const ANALYTE_DEFS: Record<LabAnalyteKey, AnalyteDef> = {
     sanity: { min: 0, max: 10000 }, stableEps: 0.10,
   },
   wbc: {
-    label: "WBC", canonicalUnit: "×10³/µL", altUnits: ["K/µL", "/µL", "/uL", "/mcL", "/mm3", "/mm³", "x 10^3/uL", "×10⁹/L"],
+    label: "WBC", canonicalUnit: "×10³/µL", altUnits: ["K/µL", "/µL", "/μL", "/uL", "/mcL", "/mm3", "/mm³", "x 10^3/uL", "×10⁹/L"],
     refBand: { adult: { low: 4.0, high: 11.0 }, peds_child: { low: 5.0, high: 13.0 }, peds_infant: { low: 6.0, high: 17.5 } },
     sanity: { min: 0, max: 200 }, stableEps: 0.10,
   },
@@ -112,7 +112,7 @@ export const ANALYTE_DEFS: Record<LabAnalyteKey, AnalyteDef> = {
     sanity: { min: 5, max: 80 }, stableEps: 0.10,
   },
   platelets: {
-    label: "Platelets", canonicalUnit: "×10³/µL", altUnits: ["K/µL", "/µL", "/uL", "/mcL", "/mm3", "/mm³", "x 10^3/uL", "×10⁹/L"],
+    label: "Platelets", canonicalUnit: "×10³/µL", altUnits: ["K/µL", "/µL", "/μL", "/uL", "/mcL", "/mm3", "/mm³", "x 10^3/uL", "×10⁹/L"],
     refBand: { adult: { low: 150, high: 400 }, peds_child: { low: 150, high: 400 }, peds_infant: { low: 150, high: 400 } },
     sanity: { min: 0, max: 2000 }, stableEps: 0.10,
   },

@@ -49,11 +49,11 @@ Codex found six duplicate manifest refs caused by scanning the same case exhibit
 Regenerated manifest:
 
 - `EXHIBIT-FLOWSHEET-MANIFEST-2026-07-05.json`
-- Total: 337 panels
+- Total: 336 panels after the ABG completeness-pattern refresh
 - `clean_kv`: 2
-- `prose_embedded`: 145
-- `scattered`: 160
-- `serial`: 30
+- `prose_embedded`: 149
+- `scattered`: 152
+- `serial`: 33
 - Duplicate exhibit refs after patch: 0
 
 The "same measurement-key profile" clusters are **not** duplicates; they are expected common shapes
@@ -75,6 +75,54 @@ npm run flowsheet-gate -- EXHIBIT-FLOWSHEET-MIGRATION-BATCH-01-clean_kv-2026-07-
 
 The earlier WARN is resolved. `opus24_case_elder_neglect_med_mismanagement_01/home_visit_labs_returned`
 now keys magnesium `1.4 mEq/L` as `magnesium`, preserving the source unit byte-exact.
+
+## Migration Status Update (2026-07-06)
+
+Values-only staged extraction has continued without canonical bank/schema/render writes.
+
+Current refreshed manifest coverage after Batch 20 adjudication:
+
+- `clean_kv`: 2/2 covered
+- `prose_embedded`: 149/149 covered, 0 uncovered; Batch 18 adjudicated clean
+- `scattered`: 152/152 covered, 0 uncovered
+- `serial`: 33/33 covered, 0 uncovered; Batch 20 adjudicated clean after redoing the failed Batch 19
+  tail
+
+Recent migration status:
+
+- Batch 14: clean 100% checker-seat adjudication, fresh post-PaO2-fix streak 1 of 2.
+- Batch 15: clean 100% checker-seat adjudication, fresh post-PaO2-fix streak 2 of 2; scattered taper
+  reopened.
+- Batch 16: clean first tapered batch, 18/20 sampled. Non-blocking schema/content note recorded:
+  `measurementAllowlist` has only `troponin_t`, while `opus_icit_case_01` states troponin I with a
+  different source normal cutoff. This belongs to deferred reference-range verification, not extraction
+  error handling.
+- Batch 17: final refreshed `scattered` closure artifact adjudicated clean, closing `scattered` at
+  152/152 covered.
+- Batch 18: final refreshed `prose_embedded` closure artifact adjudicated clean, closing
+  `prose_embedded` at 149/149 covered.
+- Batch 19: final refreshed `serial` closure artifact staged all 28 remaining refs as bare
+  `skip_serial`, gated at 0 FAIL / 0 WARN, then failed 100% checker-seat adjudication. Claude found 14
+  of 28 records misclassified: cross-client conflations, protocol/order/medication-name collisions,
+  prior/baseline-vs-current pairs, one same-value restatement, and records with no second/current value.
+- Batch 20: redo of the same 28 refs using content-aware source review. It gates at 0 FAIL / 32 WARN
+  and adjudicated clean in a 100% Antigravity Claude checker-seat pass: zero confirmed selection errors
+  and zero re-dispositions. Dispositions confirmed: 14 true `skip_serial`, 10 real current-panel
+  extracts, and 4 intentionally empty extracts for multi-client/no-current-value surfaces. This closes
+  `serial` by content-reviewed disposition.
+- Non-blocking carry-forward note from Batch 20: the pulmonary-embolism row source says troponin I, but
+  the current allowlist label remains `troponin_t`. This matches the already-recorded troponin-I-vs-T
+  schema gap and is not a Batch 20 extraction/disposition error.
+
+Historical Batch 18 adjudication asks, now resolved clean:
+
+- Confirm pyloric-stenosis serum chemistry `Carbon Dioxide (HCO3)` should be `bicarbonate`, not
+  `hco3_abg`, despite the ABG-pattern WARN.
+- Confirm `opus2_case_postop_opioid_respiratory_depression_01/background_orders` has no current HR and
+  should remain an empty extract.
+- Confirm `opus_vanco_case_01/background_orders` baseline creatinine stays excluded as `prior`.
+- Confirm `opus20_case_cdiff_01/exhibit_stage3` repeat recovery labs/vitals are acceptable with
+  `post_intervention` context.
 
 ## Unit-Policy Investigation
 

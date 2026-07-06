@@ -8,10 +8,10 @@
   ],
   "summary": {
     "clean_kv": 2,
-    "prose_embedded": 145,
-    "scattered": 160,
-    "serial": 30,
-    "total": 337
+    "prose_embedded": 149,
+    "scattered": 152,
+    "serial": 33,
+    "total": 336
   },
   "panels": [
     {
@@ -29,10 +29,11 @@
     {
       "exhibitRef": "case_dka_01/ex_labs_0815",
       "bucket": "scattered",
-      "measurementCount": 2,
+      "measurementCount": 3,
       "measurementKeys": [
         "bicarbonate",
-        "glucose"
+        "glucose",
+        "ph"
       ],
       "bankFile": "banks/hard-cases-canonical.json"
     },
@@ -77,9 +78,8 @@
     {
       "exhibitRef": "case_preeclampsia_magnesium_01/orders",
       "bucket": "prose_embedded",
-      "measurementCount": 2,
+      "measurementCount": 1,
       "measurementKeys": [
-        "hr",
         "magnesium"
       ],
       "bankFile": "banks/hard-cases-canonical.json"
@@ -186,10 +186,9 @@
     {
       "exhibitRef": "cs_adhf_pulm_edema_01/ed_assessment",
       "bucket": "scattered",
-      "measurementCount": 6,
+      "measurementCount": 5,
       "measurementKeys": [
         "dbp",
-        "hr",
         "rr",
         "sbp",
         "spo2",
@@ -222,9 +221,13 @@
     },
     {
       "exhibitRef": "cs_copd_01/labs",
-      "bucket": "prose_embedded",
-      "measurementCount": 1,
+      "bucket": "scattered",
+      "measurementCount": 5,
       "measurementKeys": [
+        "hco3_abg",
+        "paco2",
+        "pao2",
+        "ph",
         "spo2"
       ],
       "bankFile": "banks/hard-cases-canonical.json"
@@ -318,10 +321,9 @@
     {
       "exhibitRef": "cs_sepsis_shock_01/triage_vitals",
       "bucket": "scattered",
-      "measurementCount": 6,
+      "measurementCount": 5,
       "measurementKeys": [
         "dbp",
-        "hr",
         "rr",
         "sbp",
         "spo2",
@@ -332,11 +334,10 @@
     {
       "exhibitRef": "cs_sepsis_shock_01/vitals_1600",
       "bucket": "scattered",
-      "measurementCount": 7,
+      "measurementCount": 6,
       "measurementKeys": [
         "chloride",
         "dbp",
-        "hr",
         "map",
         "rr",
         "sbp",
@@ -356,10 +357,9 @@
     {
       "exhibitRef": "cs_stemi_vfib_04/triage_1400",
       "bucket": "scattered",
-      "measurementCount": 6,
+      "measurementCount": 5,
       "measurementKeys": [
         "dbp",
-        "hr",
         "rr",
         "sbp",
         "spo2",
@@ -369,7 +369,7 @@
     },
     {
       "exhibitRef": "cs_thyroid_storm_main/ex_orders_0830",
-      "bucket": "scattered",
+      "bucket": "prose_embedded",
       "measurementCount": 1,
       "measurementKeys": [
         "hr"
@@ -379,10 +379,9 @@
     {
       "exhibitRef": "cs_thyroid_storm_main/ex_triage_0800",
       "bucket": "scattered",
-      "measurementCount": 6,
+      "measurementCount": 5,
       "measurementKeys": [
         "dbp",
-        "hr",
         "rr",
         "sbp",
         "spo2",
@@ -494,6 +493,16 @@
       "bankFile": "banks/gemini-canonical.json"
     },
     {
+      "exhibitRef": "gemini_gap_case_pyloric_stenosis_01/ex2_labs",
+      "bucket": "prose_embedded",
+      "measurementCount": 2,
+      "measurementKeys": [
+        "hco3_abg",
+        "ph"
+      ],
+      "bankFile": "banks/gemini-canonical.json"
+    },
+    {
       "exhibitRef": "gemini_gapfill_case_2026_06_10_case_caregiver_08/history",
       "bucket": "prose_embedded",
       "measurementCount": 2,
@@ -514,10 +523,9 @@
     },
     {
       "exhibitRef": "gpt_2026_06_13_case_delirium_uti_01/agitation_prn_protocol",
-      "bucket": "scattered",
-      "measurementCount": 3,
+      "bucket": "prose_embedded",
+      "measurementCount": 2,
       "measurementKeys": [
-        "hr",
         "magnesium",
         "potassium"
       ],
@@ -526,7 +534,7 @@
     {
       "exhibitRef": "gpt_2026_06_13_case_delirium_uti_01/ed_assessment_labs",
       "bucket": "scattered",
-      "measurementCount": 14,
+      "measurementCount": 15,
       "measurementKeys": [
         "bun",
         "chloride",
@@ -541,6 +549,7 @@
         "rr",
         "sbp",
         "sodium",
+        "spo2",
         "wbc"
       ],
       "bankFile": "banks/gpt-canonical.json"
@@ -548,30 +557,22 @@
     {
       "exhibitRef": "gpt_2026_06_13_case_delirium_uti_01/ed_course",
       "bucket": "scattered",
-      "measurementCount": 6,
+      "measurementCount": 7,
       "measurementKeys": [
         "chloride",
         "dbp",
         "hr",
         "rr",
         "sbp",
-        "sodium"
-      ],
-      "bankFile": "banks/gpt-canonical.json"
-    },
-    {
-      "exhibitRef": "gpt_2026_06_13_case_delirium_uti_01/initial_history",
-      "bucket": "prose_embedded",
-      "measurementCount": 1,
-      "measurementKeys": [
-        "hr"
+        "sodium",
+        "spo2"
       ],
       "bankFile": "banks/gpt-canonical.json"
     },
     {
       "exhibitRef": "gpt_2026_06_13_case_delirium_uti_01/med_surg_update",
       "bucket": "scattered",
-      "measurementCount": 9,
+      "measurementCount": 10,
       "measurementKeys": [
         "bun",
         "creatinine",
@@ -581,6 +582,7 @@
         "rr",
         "sbp",
         "sodium",
+        "spo2",
         "wbc"
       ],
       "bankFile": "banks/gpt-canonical.json"
@@ -588,7 +590,7 @@
     {
       "exhibitRef": "gpt_2026_06_13_case_delirium_uti_01/recovery_update",
       "bucket": "scattered",
-      "measurementCount": 9,
+      "measurementCount": 10,
       "measurementKeys": [
         "bun",
         "creatinine",
@@ -598,6 +600,7 @@
         "rr",
         "sbp",
         "sodium",
+        "spo2",
         "wbc"
       ],
       "bankFile": "banks/gpt-canonical.json"
@@ -676,10 +679,9 @@
     {
       "exhibitRef": "gpt_2026_06_16_case_postpartum_preeclampsia_severe_01/stage2_orders",
       "bucket": "serial",
-      "measurementCount": 4,
+      "measurementCount": 3,
       "measurementKeys": [
         "dbp",
-        "hr",
         "magnesium",
         "sbp"
       ],
@@ -692,10 +694,9 @@
     {
       "exhibitRef": "gpt_2026_06_16_case_postpartum_preeclampsia_severe_01/stage3_reassessment",
       "bucket": "serial",
-      "measurementCount": 5,
+      "measurementCount": 4,
       "measurementKeys": [
         "dbp",
-        "hr",
         "magnesium",
         "rr",
         "sbp"
@@ -758,11 +759,14 @@
     },
     {
       "exhibitRef": "gpt_2026_06_19_case_ici_pneumonitis_01/stage_2_diagnostics",
-      "bucket": "prose_embedded",
-      "measurementCount": 5,
+      "bucket": "scattered",
+      "measurementCount": 8,
       "measurementKeys": [
         "dbp",
         "hr",
+        "paco2",
+        "pao2",
+        "ph",
         "rr",
         "sbp",
         "spo2"
@@ -781,11 +785,14 @@
     },
     {
       "exhibitRef": "gpt_2026_06_19_case_ici_pneumonitis_01/stage_3_response",
-      "bucket": "prose_embedded",
-      "measurementCount": 5,
+      "bucket": "scattered",
+      "measurementCount": 8,
       "measurementKeys": [
         "dbp",
         "hr",
+        "paco2",
+        "pao2",
+        "ph",
         "rr",
         "sbp",
         "spo2"
@@ -872,12 +879,13 @@
     {
       "exhibitRef": "gpt_case_aki_2026_06_16_case_prerenal_aki_hyperkalemia_01/admission_assessment",
       "bucket": "prose_embedded",
-      "measurementCount": 4,
+      "measurementCount": 5,
       "measurementKeys": [
         "dbp",
         "hr",
         "rr",
-        "sbp"
+        "sbp",
+        "spo2"
       ],
       "bankFile": "banks/hard-cases-canonical.json"
     },
@@ -894,7 +902,7 @@
     {
       "exhibitRef": "gpt_case_aki_2026_06_16_case_prerenal_aki_hyperkalemia_01/admission_labs",
       "bucket": "scattered",
-      "measurementCount": 13,
+      "measurementCount": 14,
       "measurementKeys": [
         "bun",
         "calcium",
@@ -904,6 +912,7 @@
         "hemoglobin",
         "lactate",
         "magnesium",
+        "ph",
         "phosphate",
         "platelets",
         "potassium",
@@ -914,27 +923,27 @@
     },
     {
       "exhibitRef": "gpt_case_aki_2026_06_16_case_prerenal_aki_hyperkalemia_01/stage1_course",
-      "bucket": "scattered",
-      "measurementCount": 4,
+      "bucket": "prose_embedded",
+      "measurementCount": 5,
       "measurementKeys": [
         "dbp",
         "hr",
         "rr",
-        "sbp"
+        "sbp",
+        "spo2"
       ],
       "bankFile": "banks/hard-cases-canonical.json"
     },
     {
       "exhibitRef": "gpt_case_aki_2026_06_16_case_prerenal_aki_hyperkalemia_01/stage2_course",
       "bucket": "scattered",
-      "measurementCount": 9,
+      "measurementCount": 8,
       "measurementKeys": [
         "bicarbonate",
         "bun",
         "calcium",
         "creatinine",
         "glucose",
-        "hr",
         "lactate",
         "potassium",
         "sodium"
@@ -943,7 +952,7 @@
     },
     {
       "exhibitRef": "gpt_case_aki_2026_06_16_case_prerenal_aki_hyperkalemia_01/stage3_course",
-      "bucket": "scattered",
+      "bucket": "serial",
       "measurementCount": 9,
       "measurementKeys": [
         "bun",
@@ -956,12 +965,18 @@
         "potassium",
         "sbp"
       ],
-      "bankFile": "banks/hard-cases-canonical.json"
+      "bankFile": "banks/hard-cases-canonical.json",
+      "serialParams": [
+        "sbp/dbp",
+        "hr",
+        "potassium",
+        "creatinine"
+      ]
     },
     {
       "exhibitRef": "gpt_case_caregiver_role_strain_dementia_01/baseline_assessment_and_labs",
       "bucket": "scattered",
-      "measurementCount": 13,
+      "measurementCount": 14,
       "measurementKeys": [
         "bun",
         "creatinine",
@@ -975,6 +990,7 @@
         "rr",
         "sbp",
         "sodium",
+        "spo2",
         "wbc"
       ],
       "bankFile": "banks/gpt-canonical.json"
@@ -994,12 +1010,13 @@
     {
       "exhibitRef": "gpt_case_caregiver_role_strain_dementia_01/stage_3_follow_up",
       "bucket": "serial",
-      "measurementCount": 4,
+      "measurementCount": 5,
       "measurementKeys": [
         "dbp",
         "hr",
         "rr",
-        "sbp"
+        "sbp",
+        "spo2"
       ],
       "bankFile": "banks/gpt-canonical.json",
       "serialParams": [
@@ -1179,11 +1196,10 @@
     },
     {
       "exhibitRef": "gpt_case_gallstone_pancreatitis_01/stage_1_update",
-      "bucket": "scattered",
-      "measurementCount": 2,
+      "bucket": "prose_embedded",
+      "measurementCount": 1,
       "measurementKeys": [
-        "calcium",
-        "hr"
+        "calcium"
       ],
       "bankFile": "banks/hard-cases-canonical.json"
     },
@@ -1339,7 +1355,7 @@
     },
     {
       "exhibitRef": "gpt_case_gap_2026_06_11_case_aki_02/aki_initial",
-      "bucket": "scattered",
+      "bucket": "prose_embedded",
       "measurementCount": 3,
       "measurementKeys": [
         "dbp",
@@ -1363,10 +1379,9 @@
     {
       "exhibitRef": "gpt_case_gap_2026_06_11_case_aki_02/aki_response",
       "bucket": "prose_embedded",
-      "measurementCount": 3,
+      "measurementCount": 2,
       "measurementKeys": [
         "dbp",
-        "hr",
         "sbp"
       ],
       "bankFile": "banks/gpt-canonical.json"
@@ -1608,37 +1623,54 @@
     },
     {
       "exhibitRef": "gpt_case_gbs_respiratory_compromise_01/stage1_0_12h_update",
-      "bucket": "prose_embedded",
+      "bucket": "serial",
       "measurementCount": 2,
       "measurementKeys": [
         "rr",
         "spo2"
       ],
-      "bankFile": "banks/hard-cases-canonical.json"
+      "bankFile": "banks/hard-cases-canonical.json",
+      "serialParams": [
+        "rr",
+        "spo2"
+      ]
     },
     {
       "exhibitRef": "gpt_case_gbs_respiratory_compromise_01/stage2_12_24h_update",
-      "bucket": "scattered",
-      "measurementCount": 5,
+      "bucket": "serial",
+      "measurementCount": 9,
       "measurementKeys": [
         "dbp",
+        "hco3_abg",
         "hr",
+        "paco2",
+        "pao2",
+        "ph",
         "rr",
         "sbp",
         "spo2"
       ],
-      "bankFile": "banks/hard-cases-canonical.json"
+      "bankFile": "banks/hard-cases-canonical.json",
+      "serialParams": [
+        "sbp/dbp",
+        "hr",
+        "rr"
+      ]
     },
     {
       "exhibitRef": "gpt_case_gbs_respiratory_compromise_01/stage3_icu_days2_5_update",
-      "bucket": "scattered",
+      "bucket": "serial",
       "measurementCount": 3,
       "measurementKeys": [
         "dbp",
         "hr",
         "sbp"
       ],
-      "bankFile": "banks/hard-cases-canonical.json"
+      "bankFile": "banks/hard-cases-canonical.json",
+      "serialParams": [
+        "sbp/dbp",
+        "hr"
+      ]
     },
     {
       "exhibitRef": "gpt_case_hipaa_disclosure_breach_01/baseline_assessment_labs",
@@ -1776,16 +1808,20 @@
     {
       "exhibitRef": "gpt_case_major_burn_inhalation_fluid_creep_01/baseline_labs",
       "bucket": "scattered",
-      "measurementCount": 12,
+      "measurementCount": 16,
       "measurementKeys": [
         "bicarbonate",
         "bun",
         "chloride",
         "creatinine",
         "glucose",
+        "hco3_abg",
         "hematocrit",
         "hemoglobin",
         "lactate",
+        "paco2",
+        "pao2",
+        "ph",
         "platelets",
         "potassium",
         "sodium",
@@ -1795,39 +1831,37 @@
     },
     {
       "exhibitRef": "gpt_case_major_burn_inhalation_fluid_creep_01/stage1_course",
-      "bucket": "serial",
-      "measurementCount": 2,
+      "bucket": "prose_embedded",
+      "measurementCount": 1,
       "measurementKeys": [
-        "hr",
         "spo2"
       ],
-      "bankFile": "banks/hard-cases-canonical.json",
-      "serialParams": [
-        "hr"
-      ]
+      "bankFile": "banks/hard-cases-canonical.json"
     },
     {
       "exhibitRef": "gpt_case_major_burn_inhalation_fluid_creep_01/stage2_course",
       "bucket": "serial",
-      "measurementCount": 7,
+      "measurementCount": 10,
       "measurementKeys": [
         "creatinine",
         "dbp",
         "hematocrit",
         "hr",
         "lactate",
+        "paco2",
+        "pao2",
+        "ph",
         "potassium",
         "sbp"
       ],
       "bankFile": "banks/hard-cases-canonical.json",
       "serialParams": [
-        "hr",
         "lactate"
       ]
     },
     {
       "exhibitRef": "gpt_case_major_burn_inhalation_fluid_creep_01/stage3_course",
-      "bucket": "serial",
+      "bucket": "scattered",
       "measurementCount": 7,
       "measurementKeys": [
         "creatinine",
@@ -1838,10 +1872,7 @@
         "sbp",
         "sodium"
       ],
-      "bankFile": "banks/hard-cases-canonical.json",
-      "serialParams": [
-        "hr"
-      ]
+      "bankFile": "banks/hard-cases-canonical.json"
     },
     {
       "exhibitRef": "gpt_case_mass_casualty_start_triage_01/baseline_protocol_resources",
@@ -1921,12 +1952,13 @@
     {
       "exhibitRef": "gpt_case_neutropenic_fever_nadir_01/baseline_orders",
       "bucket": "prose_embedded",
-      "measurementCount": 5,
+      "measurementCount": 6,
       "measurementKeys": [
         "dbp",
         "hr",
         "rr",
         "sbp",
+        "spo2",
         "temp"
       ],
       "bankFile": "banks/gpt-canonical.json"
@@ -1934,7 +1966,7 @@
     {
       "exhibitRef": "gpt_case_neutropenic_fever_nadir_01/initial_assessment_labs",
       "bucket": "scattered",
-      "measurementCount": 14,
+      "measurementCount": 15,
       "measurementKeys": [
         "bun",
         "chloride",
@@ -1949,6 +1981,7 @@
         "rr",
         "sbp",
         "sodium",
+        "spo2",
         "wbc"
       ],
       "bankFile": "banks/gpt-canonical.json"
@@ -1956,9 +1989,8 @@
     {
       "exhibitRef": "gpt_case_neutropenic_fever_nadir_01/stage_1_course",
       "bucket": "prose_embedded",
-      "measurementCount": 2,
+      "measurementCount": 1,
       "measurementKeys": [
-        "hr",
         "lactate"
       ],
       "bankFile": "banks/gpt-canonical.json"
@@ -1966,32 +1998,35 @@
     {
       "exhibitRef": "gpt_case_neutropenic_fever_nadir_01/stage_2_course",
       "bucket": "scattered",
-      "measurementCount": 5,
+      "measurementCount": 6,
       "measurementKeys": [
         "dbp",
         "hr",
         "lactate",
         "rr",
-        "sbp"
+        "sbp",
+        "spo2"
       ],
       "bankFile": "banks/gpt-canonical.json"
     },
     {
       "exhibitRef": "gpt_case_neutropenic_fever_nadir_01/stage_3_course",
       "bucket": "serial",
-      "measurementCount": 5,
+      "measurementCount": 6,
       "measurementKeys": [
         "dbp",
         "hr",
         "lactate",
         "rr",
-        "sbp"
+        "sbp",
+        "spo2"
       ],
       "bankFile": "banks/gpt-canonical.json",
       "serialParams": [
         "sbp/dbp",
         "hr",
-        "rr"
+        "rr",
+        "spo2"
       ]
     },
     {
@@ -2010,13 +2045,14 @@
     {
       "exhibitRef": "gpt_case_nurse_provider_conflict_01/baseline_record",
       "bucket": "serial",
-      "measurementCount": 15,
+      "measurementCount": 16,
       "measurementKeys": [
         "bun",
         "chloride",
         "creatinine",
         "dbp",
         "glucose",
+        "hco3_abg",
         "hemoglobin",
         "hr",
         "phosphate",
@@ -2030,7 +2066,6 @@
       ],
       "bankFile": "banks/gpt-canonical.json",
       "serialParams": [
-        "hr",
         "potassium",
         "chloride",
         "creatinine"
@@ -2207,12 +2242,13 @@
     {
       "exhibitRef": "gpt_case_opus5_cdi_immunocompromised_01/exhibit_stage1_assessment",
       "bucket": "prose_embedded",
-      "measurementCount": 4,
+      "measurementCount": 5,
       "measurementKeys": [
         "dbp",
         "hr",
         "rr",
-        "sbp"
+        "sbp",
+        "spo2"
       ],
       "bankFile": "banks/gpt-canonical.json"
     },
@@ -2238,10 +2274,9 @@
     {
       "exhibitRef": "gpt_case_opus5_cdi_immunocompromised_01/exhibit_stage1_orders",
       "bucket": "prose_embedded",
-      "measurementCount": 3,
+      "measurementCount": 2,
       "measurementKeys": [
         "chloride",
-        "hr",
         "potassium"
       ],
       "bankFile": "banks/gpt-canonical.json"
@@ -2249,7 +2284,7 @@
     {
       "exhibitRef": "gpt_case_opus5_cdi_immunocompromised_01/exhibit_stage2_status",
       "bucket": "prose_embedded",
-      "measurementCount": 10,
+      "measurementCount": 11,
       "measurementKeys": [
         "bicarbonate",
         "bun",
@@ -2260,6 +2295,7 @@
         "potassium",
         "rr",
         "sbp",
+        "spo2",
         "wbc"
       ],
       "bankFile": "banks/gpt-canonical.json"
@@ -2267,7 +2303,7 @@
     {
       "exhibitRef": "gpt_case_opus5_cdi_immunocompromised_01/exhibit_stage3_discharge",
       "bucket": "prose_embedded",
-      "measurementCount": 10,
+      "measurementCount": 11,
       "measurementKeys": [
         "bicarbonate",
         "bun",
@@ -2278,6 +2314,7 @@
         "potassium",
         "rr",
         "sbp",
+        "spo2",
         "wbc"
       ],
       "bankFile": "banks/gpt-canonical.json"
@@ -2345,15 +2382,19 @@
     {
       "exhibitRef": "gpt_case_pe_2026_06_16_case_pulmonary_embolism_01/stage2_update",
       "bucket": "serial",
-      "measurementCount": 14,
+      "measurementCount": 18,
       "measurementKeys": [
         "bnp",
         "creatinine",
         "dbp",
+        "hco3_abg",
         "hemoglobin",
         "hr",
         "inr",
         "lactate",
+        "paco2",
+        "pao2",
+        "ph",
         "platelets",
         "potassium",
         "ptt",
@@ -2364,7 +2405,6 @@
       ],
       "bankFile": "banks/hard-cases-canonical.json",
       "serialParams": [
-        "hr",
         "spo2",
         "ptt"
       ]
@@ -2587,14 +2627,18 @@
     {
       "exhibitRef": "gpt_case_svc_syndrome_01/baseline_record",
       "bucket": "scattered",
-      "measurementCount": 14,
+      "measurementCount": 18,
       "measurementKeys": [
         "bun",
         "creatinine",
         "dbp",
+        "hco3_abg",
         "hemoglobin",
         "hr",
         "inr",
+        "paco2",
+        "pao2",
+        "ph",
         "platelets",
         "potassium",
         "ptt",
@@ -2622,10 +2666,14 @@
     {
       "exhibitRef": "gpt_case_svc_syndrome_01/stage_2_update",
       "bucket": "scattered",
-      "measurementCount": 5,
+      "measurementCount": 9,
       "measurementKeys": [
         "dbp",
+        "hco3_abg",
         "hr",
+        "paco2",
+        "pao2",
+        "ph",
         "rr",
         "sbp",
         "spo2"
@@ -2745,23 +2793,23 @@
     {
       "exhibitRef": "gpt_case_unsafe_assignment_01/baseline_assessment",
       "bucket": "scattered",
-      "measurementCount": 5,
+      "measurementCount": 6,
       "measurementKeys": [
         "dbp",
         "hr",
         "map",
         "rr",
-        "sbp"
+        "sbp",
+        "spo2"
       ],
       "bankFile": "banks/gpt-canonical.json"
     },
     {
       "exhibitRef": "gpt_case_unsafe_assignment_01/baseline_assignment",
       "bucket": "scattered",
-      "measurementCount": 4,
+      "measurementCount": 3,
       "measurementKeys": [
         "dbp",
-        "hr",
         "map",
         "sbp"
       ],
@@ -2980,9 +3028,8 @@
     {
       "exhibitRef": "gpt_case_warfarin_mvr_2026_06_11_01/stage_1_orders_response",
       "bucket": "serial",
-      "measurementCount": 3,
+      "measurementCount": 2,
       "measurementKeys": [
-        "hr",
         "inr",
         "potassium"
       ],
@@ -3164,7 +3211,7 @@
     },
     {
       "exhibitRef": "gpt_opus21_case_colostomy_lep_discharge_01/initial_record",
-      "bucket": "scattered",
+      "bucket": "serial",
       "measurementCount": 13,
       "measurementKeys": [
         "bun",
@@ -3181,7 +3228,10 @@
         "spo2",
         "wbc"
       ],
-      "bankFile": "banks/gpt-canonical.json"
+      "bankFile": "banks/gpt-canonical.json",
+      "serialParams": [
+        "creatinine"
+      ]
     },
     {
       "exhibitRef": "gpt_opus21_case_colostomy_lep_discharge_01/stage2_woc_teaching",
@@ -3302,13 +3352,12 @@
     },
     {
       "exhibitRef": "gpt_r1_regen_case_celiac_01/initial_labs",
-      "bucket": "scattered",
-      "measurementCount": 6,
+      "bucket": "prose_embedded",
+      "measurementCount": 5,
       "measurementKeys": [
         "calcium",
         "creatinine",
         "hemoglobin",
-        "hr",
         "platelets",
         "wbc"
       ],
@@ -3367,10 +3416,9 @@
     {
       "exhibitRef": "gpt_stroke_2026_06_16_case_acute_ischemic_stroke_warfarin_01/stage_2_thrombectomy_preparation",
       "bucket": "prose_embedded",
-      "measurementCount": 3,
+      "measurementCount": 2,
       "measurementKeys": [
         "dbp",
-        "hr",
         "sbp"
       ],
       "bankFile": "banks/hard-cases-canonical.json"
@@ -3503,23 +3551,15 @@
       "bankFile": "banks/gemini-canonical.json"
     },
     {
-      "exhibitRef": "opus_car_t_crs_2026_06_11_case_01/ex1",
-      "bucket": "prose_embedded",
-      "measurementCount": 1,
-      "measurementKeys": [
-        "hr"
-      ],
-      "bankFile": "banks/hard-cases-canonical.json"
-    },
-    {
       "exhibitRef": "opus_car_t_crs_2026_06_11_case_01/ex2",
       "bucket": "prose_embedded",
-      "measurementCount": 5,
+      "measurementCount": 6,
       "measurementKeys": [
         "dbp",
         "hr",
         "rr",
         "sbp",
+        "spo2",
         "temp"
       ],
       "bankFile": "banks/hard-cases-canonical.json"
@@ -3545,7 +3585,7 @@
     {
       "exhibitRef": "opus_car_t_crs_2026_06_11_case_01/ex4",
       "bucket": "scattered",
-      "measurementCount": 8,
+      "measurementCount": 9,
       "measurementKeys": [
         "alt",
         "ast",
@@ -3554,6 +3594,7 @@
         "hr",
         "rr",
         "sbp",
+        "spo2",
         "temp"
       ],
       "bankFile": "banks/hard-cases-canonical.json"
@@ -3561,7 +3602,7 @@
     {
       "exhibitRef": "opus_car_t_crs_2026_06_11_case_01/ex5",
       "bucket": "scattered",
-      "measurementCount": 9,
+      "measurementCount": 10,
       "measurementKeys": [
         "alt",
         "ast",
@@ -3571,6 +3612,7 @@
         "potassium",
         "rr",
         "sbp",
+        "spo2",
         "total_bilirubin"
       ],
       "bankFile": "banks/hard-cases-canonical.json"
@@ -3578,7 +3620,7 @@
     {
       "exhibitRef": "opus_car_t_crs_2026_06_11_case_01/ex6",
       "bucket": "scattered",
-      "measurementCount": 9,
+      "measurementCount": 10,
       "measurementKeys": [
         "alt",
         "ast",
@@ -3588,6 +3630,7 @@
         "potassium",
         "rr",
         "sbp",
+        "spo2",
         "temp"
       ],
       "bankFile": "banks/hard-cases-canonical.json"
@@ -3595,7 +3638,7 @@
     {
       "exhibitRef": "opus_case_lithium_toxicity_01/exhibit_admission",
       "bucket": "scattered",
-      "measurementCount": 14,
+      "measurementCount": 15,
       "measurementKeys": [
         "bicarbonate",
         "bun",
@@ -3610,6 +3653,7 @@
         "potassium",
         "rr",
         "sbp",
+        "spo2",
         "temp"
       ],
       "bankFile": "banks/claude-canonical.json"
@@ -3625,19 +3669,17 @@
       ],
       "bankFile": "banks/claude-canonical.json",
       "serialParams": [
-        "sbp/dbp",
-        "hr"
+        "sbp/dbp"
       ]
     },
     {
       "exhibitRef": "opus_case_lithium_toxicity_01/exhibit_stage2",
       "bucket": "scattered",
-      "measurementCount": 6,
+      "measurementCount": 5,
       "measurementKeys": [
         "bun",
         "chloride",
         "creatinine",
-        "hr",
         "potassium",
         "sodium"
       ],
@@ -3665,7 +3707,7 @@
     {
       "exhibitRef": "opus_case_se_01/exhibit_baseline",
       "bucket": "scattered",
-      "measurementCount": 18,
+      "measurementCount": 20,
       "measurementKeys": [
         "bicarbonate",
         "bun",
@@ -3678,11 +3720,13 @@
         "hr",
         "lactate",
         "magnesium",
+        "ph",
         "phosphate",
         "platelets",
         "potassium",
         "rr",
         "sbp",
+        "spo2",
         "temp",
         "wbc"
       ],
@@ -3691,50 +3735,55 @@
     {
       "exhibitRef": "opus_case_se_01/exhibit_stage_1",
       "bucket": "scattered",
-      "measurementCount": 5,
+      "measurementCount": 6,
       "measurementKeys": [
         "dbp",
         "glucose",
         "hr",
         "rr",
-        "sbp"
+        "sbp",
+        "spo2"
       ],
       "bankFile": "banks/hard-cases-canonical.json"
     },
     {
       "exhibitRef": "opus_case_se_01/exhibit_stage_2",
       "bucket": "scattered",
-      "measurementCount": 6,
+      "measurementCount": 8,
       "measurementKeys": [
         "bicarbonate",
         "dbp",
         "hr",
         "lactate",
+        "ph",
         "rr",
-        "sbp"
+        "sbp",
+        "spo2"
       ],
       "bankFile": "banks/hard-cases-canonical.json"
     },
     {
       "exhibitRef": "opus_case_se_01/exhibit_stage_3",
       "bucket": "scattered",
-      "measurementCount": 8,
+      "measurementCount": 10,
       "measurementKeys": [
         "bicarbonate",
         "creatinine",
         "dbp",
         "hr",
         "lactate",
+        "ph",
         "potassium",
         "rr",
-        "sbp"
+        "sbp",
+        "spo2"
       ],
       "bankFile": "banks/hard-cases-canonical.json"
     },
     {
       "exhibitRef": "opus_case_warfarin_bridge_01/exh_1",
-      "bucket": "scattered",
-      "measurementCount": 9,
+      "bucket": "serial",
+      "measurementCount": 10,
       "measurementKeys": [
         "creatinine",
         "dbp",
@@ -3744,9 +3793,16 @@
         "platelets",
         "ptt",
         "rr",
-        "sbp"
+        "sbp",
+        "spo2"
       ],
-      "bankFile": "banks/claude-canonical.json"
+      "bankFile": "banks/claude-canonical.json",
+      "serialParams": [
+        "hr",
+        "hemoglobin",
+        "platelets",
+        "inr"
+      ]
     },
     {
       "exhibitRef": "opus_case_warfarin_bridge_01/exh_stage1",
@@ -3769,19 +3825,20 @@
     {
       "exhibitRef": "opus_case_warfarin_bridge_01/exh_stage3",
       "bucket": "prose_embedded",
-      "measurementCount": 4,
+      "measurementCount": 5,
       "measurementKeys": [
         "dbp",
         "hr",
         "rr",
-        "sbp"
+        "sbp",
+        "spo2"
       ],
       "bankFile": "banks/claude-canonical.json"
     },
     {
       "exhibitRef": "opus_icit_case_01/opus_icit_exhibit_baseline",
       "bucket": "scattered",
-      "measurementCount": 20,
+      "measurementCount": 21,
       "measurementKeys": [
         "alt",
         "ast",
@@ -3799,6 +3856,7 @@
         "rr",
         "sbp",
         "sodium",
+        "spo2",
         "temp",
         "total_bilirubin",
         "troponin_t",
@@ -3809,7 +3867,7 @@
     {
       "exhibitRef": "opus_icit_case_01/opus_icit_exhibit_stage_1",
       "bucket": "scattered",
-      "measurementCount": 8,
+      "measurementCount": 9,
       "measurementKeys": [
         "alt",
         "ast",
@@ -3818,6 +3876,7 @@
         "hr",
         "rr",
         "sbp",
+        "spo2",
         "troponin_t"
       ],
       "bankFile": "banks/hard-cases-canonical.json"
@@ -3825,7 +3884,7 @@
     {
       "exhibitRef": "opus_icit_case_01/opus_icit_exhibit_stage_2",
       "bucket": "scattered",
-      "measurementCount": 10,
+      "measurementCount": 11,
       "measurementKeys": [
         "alt",
         "ast",
@@ -3835,6 +3894,7 @@
         "hr",
         "rr",
         "sbp",
+        "spo2",
         "total_bilirubin",
         "troponin_t"
       ],
@@ -3843,7 +3903,7 @@
     {
       "exhibitRef": "opus_icit_case_01/opus_icit_exhibit_stage_3",
       "bucket": "scattered",
-      "measurementCount": 11,
+      "measurementCount": 12,
       "measurementKeys": [
         "alt",
         "ast",
@@ -3854,6 +3914,7 @@
         "hr",
         "rr",
         "sbp",
+        "spo2",
         "total_bilirubin",
         "troponin_t"
       ],
@@ -3862,7 +3923,7 @@
     {
       "exhibitRef": "opus_scc_case_01/exh_baseline",
       "bucket": "scattered",
-      "measurementCount": 20,
+      "measurementCount": 21,
       "measurementKeys": [
         "alt",
         "ast",
@@ -3882,6 +3943,7 @@
         "rr",
         "sbp",
         "sodium",
+        "spo2",
         "temp",
         "wbc"
       ],
@@ -3890,12 +3952,13 @@
     {
       "exhibitRef": "opus_scc_case_01/exh_stage1",
       "bucket": "prose_embedded",
-      "measurementCount": 5,
+      "measurementCount": 6,
       "measurementKeys": [
         "dbp",
         "hr",
         "rr",
         "sbp",
+        "spo2",
         "temp"
       ],
       "bankFile": "banks/hard-cases-canonical.json"
@@ -3903,7 +3966,7 @@
     {
       "exhibitRef": "opus_scc_case_01/exh_stage2",
       "bucket": "scattered",
-      "measurementCount": 7,
+      "measurementCount": 8,
       "measurementKeys": [
         "calcium",
         "dbp",
@@ -3911,6 +3974,7 @@
         "hr",
         "rr",
         "sbp",
+        "spo2",
         "temp"
       ],
       "bankFile": "banks/hard-cases-canonical.json"
@@ -3918,7 +3982,7 @@
     {
       "exhibitRef": "opus_scc_case_01/exh_stage3",
       "bucket": "scattered",
-      "measurementCount": 9,
+      "measurementCount": 10,
       "measurementKeys": [
         "calcium",
         "creatinine",
@@ -3928,6 +3992,7 @@
         "hr",
         "rr",
         "sbp",
+        "spo2",
         "temp"
       ],
       "bankFile": "banks/hard-cases-canonical.json"
@@ -3935,7 +4000,7 @@
     {
       "exhibitRef": "opus_tpn_case_mucositis_01/exhibit_baseline",
       "bucket": "scattered",
-      "measurementCount": 22,
+      "measurementCount": 23,
       "measurementKeys": [
         "alt",
         "ast",
@@ -3956,6 +4021,7 @@
         "rr",
         "sbp",
         "sodium",
+        "spo2",
         "temp",
         "total_bilirubin",
         "wbc"
@@ -3965,7 +4031,7 @@
     {
       "exhibitRef": "opus_tpn_case_mucositis_01/exhibit_stage1",
       "bucket": "scattered",
-      "measurementCount": 11,
+      "measurementCount": 12,
       "measurementKeys": [
         "chloride",
         "creatinine",
@@ -3977,6 +4043,7 @@
         "potassium",
         "rr",
         "sbp",
+        "spo2",
         "temp"
       ],
       "bankFile": "banks/hard-cases-canonical.json"
@@ -3984,13 +4051,14 @@
     {
       "exhibitRef": "opus_tpn_case_mucositis_01/exhibit_stage2",
       "bucket": "scattered",
-      "measurementCount": 6,
+      "measurementCount": 7,
       "measurementKeys": [
         "dbp",
         "glucose",
         "hr",
         "rr",
         "sbp",
+        "spo2",
         "temp"
       ],
       "bankFile": "banks/hard-cases-canonical.json"
@@ -3998,7 +4066,7 @@
     {
       "exhibitRef": "opus_tpn_case_mucositis_01/exhibit_stage3",
       "bucket": "scattered",
-      "measurementCount": 12,
+      "measurementCount": 13,
       "measurementKeys": [
         "bicarbonate",
         "creatinine",
@@ -4011,17 +4079,17 @@
         "rr",
         "sbp",
         "sodium",
+        "spo2",
         "temp"
       ],
       "bankFile": "banks/hard-cases-canonical.json"
     },
     {
       "exhibitRef": "opus_vanco_case_01/background_orders",
-      "bucket": "scattered",
-      "measurementCount": 2,
+      "bucket": "prose_embedded",
+      "measurementCount": 1,
       "measurementKeys": [
-        "creatinine",
-        "hr"
+        "creatinine"
       ],
       "bankFile": "banks/claude-canonical.json"
     },
@@ -4137,7 +4205,7 @@
     {
       "exhibitRef": "opus1_case_tha_discharge_lep_01/baseline_record",
       "bucket": "serial",
-      "measurementCount": 15,
+      "measurementCount": 16,
       "measurementKeys": [
         "bun",
         "creatinine",
@@ -4153,6 +4221,7 @@
         "rr",
         "sbp",
         "sodium",
+        "spo2",
         "wbc"
       ],
       "bankFile": "banks/claude-canonical.json",
@@ -4164,7 +4233,7 @@
     {
       "exhibitRef": "opus1_case_tha_discharge_lep_01/pod1_update",
       "bucket": "scattered",
-      "measurementCount": 7,
+      "measurementCount": 8,
       "measurementKeys": [
         "creatinine",
         "dbp",
@@ -4172,28 +4241,30 @@
         "hemoglobin",
         "hr",
         "rr",
-        "sbp"
+        "sbp",
+        "spo2"
       ],
       "bankFile": "banks/claude-canonical.json"
     },
     {
       "exhibitRef": "opus1_case_tha_discharge_lep_01/pod2_update",
       "bucket": "scattered",
-      "measurementCount": 6,
+      "measurementCount": 7,
       "measurementKeys": [
         "creatinine",
         "dbp",
         "hemoglobin",
         "hr",
         "rr",
-        "sbp"
+        "sbp",
+        "spo2"
       ],
       "bankFile": "banks/claude-canonical.json"
     },
     {
       "exhibitRef": "opus1_case_tha_discharge_lep_01/pod3_update",
-      "bucket": "serial",
-      "measurementCount": 7,
+      "bucket": "scattered",
+      "measurementCount": 8,
       "measurementKeys": [
         "creatinine",
         "dbp",
@@ -4201,23 +4272,20 @@
         "hemoglobin",
         "hr",
         "rr",
-        "sbp"
+        "sbp",
+        "spo2"
       ],
-      "bankFile": "banks/claude-canonical.json",
-      "serialParams": [
-        "hr"
-      ]
+      "bankFile": "banks/claude-canonical.json"
     },
     {
       "exhibitRef": "opus12_case_inpatient_suicide_risk_01/admission_labs",
       "bucket": "prose_embedded",
-      "measurementCount": 9,
+      "measurementCount": 8,
       "measurementKeys": [
         "bun",
         "creatinine",
         "glucose",
         "hemoglobin",
-        "hr",
         "platelets",
         "potassium",
         "sodium",
@@ -4228,31 +4296,33 @@
     {
       "exhibitRef": "opus12_case_inpatient_suicide_risk_01/morning_assessment",
       "bucket": "prose_embedded",
-      "measurementCount": 4,
+      "measurementCount": 5,
       "measurementKeys": [
         "dbp",
         "hr",
         "rr",
-        "sbp"
+        "sbp",
+        "spo2"
       ],
       "bankFile": "banks/hard-cases-canonical.json"
     },
     {
       "exhibitRef": "opus12_case_inpatient_suicide_risk_01/stage2_precautions_sweep",
       "bucket": "scattered",
-      "measurementCount": 4,
+      "measurementCount": 5,
       "measurementKeys": [
         "dbp",
         "hr",
         "rr",
-        "sbp"
+        "sbp",
+        "spo2"
       ],
       "bankFile": "banks/hard-cases-canonical.json"
     },
     {
       "exhibitRef": "opus2_case_code_status_01/exhibit_baseline",
       "bucket": "scattered",
-      "measurementCount": 9,
+      "measurementCount": 10,
       "measurementKeys": [
         "bun",
         "creatinine",
@@ -4261,6 +4331,7 @@
         "platelets",
         "rr",
         "sbp",
+        "spo2",
         "temp",
         "wbc"
       ],
@@ -4268,27 +4339,28 @@
     },
     {
       "exhibitRef": "opus2_case_code_status_01/exhibit_stage2",
-      "bucket": "prose_embedded",
-      "measurementCount": 4,
+      "bucket": "serial",
+      "measurementCount": 5,
       "measurementKeys": [
         "dbp",
         "hr",
         "rr",
-        "sbp"
+        "sbp",
+        "spo2"
       ],
-      "bankFile": "banks/claude-canonical.json"
+      "bankFile": "banks/claude-canonical.json",
+      "serialParams": [
+        "spo2"
+      ]
     },
     {
       "exhibitRef": "opus2_case_postop_opioid_respiratory_depression_01/background_orders",
-      "bucket": "serial",
+      "bucket": "prose_embedded",
       "measurementCount": 1,
       "measurementKeys": [
         "hr"
       ],
-      "bankFile": "banks/hard-cases-canonical.json",
-      "serialParams": [
-        "hr"
-      ]
+      "bankFile": "banks/hard-cases-canonical.json"
     },
     {
       "exhibitRef": "opus2_case_postop_opioid_respiratory_depression_01/handoff_assessment_labs",
@@ -4357,7 +4429,7 @@
     {
       "exhibitRef": "opus20_case_cdiff_01/exhibit_baseline",
       "bucket": "scattered",
-      "measurementCount": 15,
+      "measurementCount": 16,
       "measurementKeys": [
         "bicarbonate",
         "bun",
@@ -4372,6 +4444,7 @@
         "potassium",
         "rr",
         "sbp",
+        "spo2",
         "temp",
         "wbc"
       ],
@@ -4393,22 +4466,6 @@
     {
       "exhibitRef": "opus20_case_cdiff_01/exhibit_stage2",
       "bucket": "prose_embedded",
-      "measurementCount": 8,
-      "measurementKeys": [
-        "bun",
-        "creatinine",
-        "dbp",
-        "hr",
-        "lactate",
-        "potassium",
-        "rr",
-        "sbp"
-      ],
-      "bankFile": "banks/claude-canonical.json"
-    },
-    {
-      "exhibitRef": "opus20_case_cdiff_01/exhibit_stage3",
-      "bucket": "scattered",
       "measurementCount": 9,
       "measurementKeys": [
         "bun",
@@ -4419,6 +4476,24 @@
         "potassium",
         "rr",
         "sbp",
+        "spo2"
+      ],
+      "bankFile": "banks/claude-canonical.json"
+    },
+    {
+      "exhibitRef": "opus20_case_cdiff_01/exhibit_stage3",
+      "bucket": "prose_embedded",
+      "measurementCount": 10,
+      "measurementKeys": [
+        "bun",
+        "creatinine",
+        "dbp",
+        "hr",
+        "lactate",
+        "potassium",
+        "rr",
+        "sbp",
+        "spo2",
         "wbc"
       ],
       "bankFile": "banks/claude-canonical.json"
@@ -4558,7 +4633,7 @@
     {
       "exhibitRef": "opus25_case_tb_airborne_treatment_monitoring_01/orders_and_baseline_labs",
       "bucket": "prose_embedded",
-      "measurementCount": 11,
+      "measurementCount": 10,
       "measurementKeys": [
         "alt",
         "ast",
@@ -4566,7 +4641,6 @@
         "creatinine",
         "hematocrit",
         "hemoglobin",
-        "hr",
         "platelets",
         "potassium",
         "sodium",
@@ -4608,10 +4682,9 @@
     {
       "exhibitRef": "opus26_case_refeeding_syndrome_01/admission_orders",
       "bucket": "scattered",
-      "measurementCount": 5,
+      "measurementCount": 4,
       "measurementKeys": [
         "chloride",
-        "hr",
         "phosphate",
         "potassium",
         "sodium"
@@ -4728,10 +4801,9 @@
     {
       "exhibitRef": "opus3_iv_potassium_safety_case_01/exhibit_stage1_nursing_note",
       "bucket": "prose_embedded",
-      "measurementCount": 3,
+      "measurementCount": 2,
       "measurementKeys": [
         "chloride",
-        "hr",
         "sodium"
       ],
       "bankFile": "banks/hard-cases-canonical.json"
@@ -4761,14 +4833,15 @@
     {
       "exhibitRef": "opus4_case_postop_sbar_01/baseline_0700",
       "bucket": "scattered",
-      "measurementCount": 6,
+      "measurementCount": 7,
       "measurementKeys": [
         "creatinine",
         "dbp",
         "glucose",
         "hr",
         "rr",
-        "sbp"
+        "sbp",
+        "spo2"
       ],
       "bankFile": "banks/hard-cases-canonical.json"
     },
@@ -4795,25 +4868,27 @@
     {
       "exhibitRef": "opus4_case_postop_sbar_01/stage1_progression",
       "bucket": "serial",
-      "measurementCount": 5,
+      "measurementCount": 6,
       "measurementKeys": [
         "dbp",
         "glucose",
         "hr",
         "rr",
-        "sbp"
+        "sbp",
+        "spo2"
       ],
       "bankFile": "banks/hard-cases-canonical.json",
       "serialParams": [
         "sbp/dbp",
         "hr",
-        "rr"
+        "rr",
+        "spo2"
       ]
     },
     {
       "exhibitRef": "opus4_case_postop_sbar_01/stage2_provider_response",
       "bucket": "serial",
-      "measurementCount": 7,
+      "measurementCount": 8,
       "measurementKeys": [
         "dbp",
         "hemoglobin",
@@ -4821,6 +4896,7 @@
         "lactate",
         "rr",
         "sbp",
+        "spo2",
         "wbc"
       ],
       "bankFile": "banks/hard-cases-canonical.json",
@@ -4831,23 +4907,23 @@
     {
       "exhibitRef": "opus4_case_postop_sbar_01/stage3_interventions",
       "bucket": "prose_embedded",
-      "measurementCount": 4,
+      "measurementCount": 5,
       "measurementKeys": [
         "dbp",
         "hr",
         "rr",
-        "sbp"
+        "sbp",
+        "spo2"
       ],
       "bankFile": "banks/hard-cases-canonical.json"
     },
     {
       "exhibitRef": "opus5_case_consent_interpreter_01/background",
       "bucket": "prose_embedded",
-      "measurementCount": 4,
+      "measurementCount": 3,
       "measurementKeys": [
         "chloride",
         "glucose",
-        "hr",
         "sodium"
       ],
       "bankFile": "banks/hard-cases-canonical.json"
@@ -4855,13 +4931,14 @@
     {
       "exhibitRef": "opus5_case_consent_interpreter_01/initial_assessment",
       "bucket": "scattered",
-      "measurementCount": 5,
+      "measurementCount": 6,
       "measurementKeys": [
         "dbp",
         "glucose",
         "hr",
         "rr",
-        "sbp"
+        "sbp",
+        "spo2"
       ],
       "bankFile": "banks/hard-cases-canonical.json"
     },
@@ -4895,11 +4972,12 @@
     {
       "exhibitRef": "opus5_case_consent_interpreter_01/stage_3_note",
       "bucket": "prose_embedded",
-      "measurementCount": 3,
+      "measurementCount": 4,
       "measurementKeys": [
         "dbp",
         "hr",
-        "sbp"
+        "sbp",
+        "spo2"
       ],
       "bankFile": "banks/hard-cases-canonical.json"
     }

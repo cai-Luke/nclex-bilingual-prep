@@ -55,7 +55,7 @@ Completed:
 - Implemented the shared measurement allowlist foundation from `measurement-allowlist-codex-spec.md`: pure lab/vitals registry defs, derived frozen `src/measurementAllowlist.ts`, CBC conventional-canonical/source-permissive policy (`wbc`/`platelets` canonical `×10³/µL`, source alternates `K/µL`, `/µL`, `/uL`, `/mcL`, `/mm³`, `×10⁹/L`), and a drift-guard test.
 - Added `src/measurementUnitPolicy.ts` for analyte-keyed conversion factors and first-pass display policy metadata; magnesium, total calcium, and ionized calcium now accept source `mEq/L`.
 - Refactored the exhibit-flowsheet gate to consume the shared allowlist/unit policy while keeping extraction-source concerns (`LABEL_PATTERNS`, implicit vital units, temp affine conversion) in the gate; added total-vs-ionized calcium identity checks.
-- Added deterministic manifest tooling (`npm run flowsheet-manifest`) and generated `EXHIBIT-FLOWSHEET-MANIFEST-2026-07-05.json`: 337 de-duplicated allowlist-hit panels, with conservative buckets `clean_kv` 2, `prose_embedded` 145, `scattered` 160, `serial` 30.
+- Added deterministic manifest tooling (`npm run flowsheet-manifest`) and generated `EXHIBIT-FLOWSHEET-MANIFEST-2026-07-05.json`: 336 de-duplicated allowlist-hit panels after the ABG completeness-pattern refresh, with conservative buckets `clean_kv` 2, `prose_embedded` 149, `scattered` 152, `serial` 33.
 - Produced the first conservative staged clean-KV artifact, `EXHIBIT-FLOWSHEET-MIGRATION-BATCH-01-clean_kv-2026-07-05.json`, without canonical bank/schema/render writes.
 - Added `EXHIBIT-FLOWSHEET-IMPLEMENTATION-HANDOFF-2026-07-05.md` for Luke/Claude decisions before widening the run: magnesium `mEq/L` disposition, clean-bucket strictness, and adjudication/prose-bucket go/no-go.
 - Added `EXHIBIT-FLOWSHEET-CLAUDE-HANDOFF-2026-07-05.md` after Luke's initial decisions: keep strict clean-KV, fix duplicate manifest refs before prose, proceed next to `prose_embedded`, and investigate a unit-policy reversal toward conventional-first/SI-parenthetical display.
@@ -72,10 +72,11 @@ Completed:
   panels: Batch 07 covers panels 101-120 with a 9-record checker queue, Batch 08 covers panels
   121-140 with a 12-record checker queue, and Batch 09 closes panels 141-145 with a 3-record checker
   queue; no canonical bank/schema/render writes.
-- After Batches 07-09 adjudicated clean, marked the current-manifest `prose_embedded` bucket complete
+- After Batches 07-09 adjudicated clean, marked the then-current `prose_embedded` bucket complete
   at 145/145 with zero selection errors and staged the first `scattered` ramp batch: Batch 10 covers
-  scattered panels 1-20, gates at 0 FAIL / 13 WARN, and is queued for 100% checker-seat adjudication;
-  no canonical bank/schema/render writes.
+  scattered panels 1-20 and gates at 0 FAIL / 13 WARN. The later ABG completeness-pattern refresh
+  regenerated the manifest to 149 `prose_embedded` refs, leaving 6 refreshed prose refs uncovered
+  before final lane closure; no canonical bank/schema/render writes.
 - Resolved the Batch 10 Rule D escalation: paired same-client current BP readings in
   `case_preeclampsia_magnesium_01/admission` are serial and now stage as bare `skip_serial`; the
   `scattered` ramp counter reset to 0. Added a gate hard FAIL for duplicate current `panel[]` labels
@@ -88,9 +89,94 @@ Completed:
   found a confirmed WBC/Hct omission in two gallstone records; the clozapine same-value vitals-HR/ECG
   rate escalation resolved as not Rule D and now stages as `extract`. The `scattered` ramp counter
   resets to 0; 100 of 160 scattered panels remain unstaged.
-- Staged the fourth `scattered` artifact: Batch 13 covers scattered panels 61-80, gates at
-  0 FAIL / 38 WARN, and is queued for 100% checker-seat adjudication as fresh clean-ramp candidate
-  1 of 2 after the Batch 12 reset; 80 of 160 scattered panels remain unstaged.
+- Staged and re-extracted the fourth `scattered` artifact: Batch 13 covers 20 records and gates at
+  0 FAIL / 38 WARN after adding omitted `pao2=68 mmHg` for
+  `gpt_case_major_burn_inhalation_fluid_creep_01/baseline_labs`. Checker adjudication found that
+  confirmed omission, so Batch 13 does **not** count clean; scattered needs a fresh 2-batch clean streak
+  starting after the PaO2 fix. The ABG GATE 2 pattern refresh also regenerated the manifest to 152
+  `scattered` refs; existing staged artifacts cover 75/152 refreshed scattered refs, with 77 uncovered.
+- Closed the Batch 13 code-note by adding GATE 2 completeness patterns for `ph`, `paco2`, `pao2`, and
+  `hco3_abg`, plus regression coverage that an omitted PaO2 now raises an advisory WARN.
+- Staged the fifth `scattered` artifact: Batch 14 covers the first 20 uncovered refreshed-`scattered`
+  refs after Batches 10-13 and gates at 0 FAIL / 27 WARN. 100% independent checker-seat adjudication
+  (Claude, 2026-07-06) found zero confirmed selection errors and zero re-dispositions, making it clean
+  scattered batch 1 of 2 for the fresh post-PaO2-fix ramp. Two non-blocking notes for Codex: `context:
+  post_intervention` was applied inconsistently within one narrative window
+  (`gpt_pph_2026_06_16_case_01/stage_2_update`), and the gate's `spo2` synonym pattern also matches
+  `SaO2`, which could mask a future ABG/pulse-ox divergence in a later batch. Refreshed scattered
+  coverage is now 95/152, with 57 uncovered.
+- Staged the sixth `scattered` artifact: Batch 15 covers the next 20 uncovered refreshed-`scattered`
+  refs and gates at 0 FAIL / 16 WARN. 100% independent checker-seat adjudication (Claude, 2026-07-06)
+  found zero confirmed selection errors and zero re-dispositions, closing the fresh post-PaO2-fix
+  2-batch clean streak (clean scattered batch 2 of 2). Future scattered batches may now taper from
+  100% checker-seat sampling, per the `prose_embedded` precedent. This batch also exposed Greek-mu CBC
+  units (`/μL`) in the aGVHD baseline labs, so WBC and platelets now accept `/μL` as a byte-exact
+  source unit with conversion/test coverage. Refreshed scattered coverage is now 115/152, with 37
+  uncovered.
+- Staged the first tapered `scattered` artifact: Batch 16 covers the next 20 uncovered refreshed refs
+  and gates at 0 FAIL / 9 WARN. Because this slice is risk-dense, the tapered checker queue is still
+  18 of 20 records under the 25% seeded-random + always-sampled rule (`skip_serial`, `excludedValues`,
+  `post_intervention`, unit aliases/CBC source units, and scalar-omitted range advisory). 100%
+  independent checker-seat adjudication (Claude, 2026-07-06) of the sampled records found zero
+  confirmed selection errors and zero re-dispositions, so it counts clean; the taper continues for
+  future batches. Recorded one non-blocking content-semantics note: `measurementAllowlist` has only a
+  single `troponin_t` key used for every troponin reference in the repo, though `opus_icit_case_01`
+  states "troponin I" with its own normal cutoff — background for the already-deferred
+  reference-range-verification decision, not a Batch 16 defect. Refreshed scattered coverage is now
+  135/152, with 17 uncovered.
+- Staged the final refreshed `scattered` closure artifact: Batch 17 covers the remaining 17 uncovered
+  scattered refs and gates at 0 FAIL / 27 WARN. All 17 records were checker-seat adjudicated (Claude,
+  2026-07-06) with zero confirmed selection errors and zero re-dispositions — this closes the
+  `scattered` bucket at 152/152 covered, 0 uncovered. Confirmed correct: three refeeding-syndrome
+  trend/prior exclusions across consecutive stage updates (including the subtle case where a restated
+  phosphorus value serves only as protocol-trigger context, not a new measurement), three empty-panel
+  order/history/care-plan exhibits, a CKD baseline-creatinine `prior` exclusion, and fetal heart tones
+  correctly kept separate from maternal HR in the IPV prenatal case.
+- Staged the refreshed `prose_embedded` closure artifact: Batch 18 covers the 6 prose refs left
+  uncovered by the ABG completeness-pattern refresh and gates at 0 FAIL / 2 WARN. All 6 records were
+  checker-seat adjudicated (Claude, 2026-07-06) with zero confirmed selection errors and zero
+  re-dispositions — confirmed correct: serum-chemistry `Carbon Dioxide (HCO3)` correctly staged as
+  `bicarbonate` rather than `hco3_abg` (no ABG context anywhere in the exhibit), the opioid
+  background/order record correctly has no current HR/lab/vital value at all, the vancomycin case's
+  baseline creatinine is correctly excluded as `prior` chronic-CKD history, and the C. difficile recovery
+  update's `post_intervention` context is appropriate. This closes `prose_embedded` at 149/149 covered,
+  0 uncovered. **Combined with Batch 17 closing `scattered` at 152/152, both the `prose_embedded` and
+  `scattered` buckets are now fully covered.** `serial` remains the sole open bucket at 5/33 covered,
+  28 uncovered.
+- Staged the final refreshed `serial` closure artifact: Batch 19 covers the remaining 28 serial refs as
+  bare `skip_serial` records and gates at 0 FAIL / 0 WARN. 100% checker-seat adjudication (Claude,
+  2026-07-06) found **this batch does NOT count clean**: 14 of 28 records are confirmed misclassified.
+  The bare `skip_serial` manifest bucket was never content-verified before this pass — the gate's
+  "0 FAIL / 0 WARN" only re-confirmed the mechanical detector against its own earlier classification,
+  not against source prose. Confirmed error categories: cross-client conflation in multi-client exhibits
+  (3 records — different clients' readings counted as one repeated parameter; should get the
+  already-established multi-client empty-panel treatment instead), protocol/order/medication-name text
+  mistaken for a lab result (4 records, including a recurrence of the known SaO2/SpO2 synonym
+  collision from Batch 14), explicit prior/baseline-vs-current pairs misread as ambiguous (2 records,
+  the same `prior`-exclusion pattern established across earlier batches), a same-value restatement
+  misread as a duplicate (1 record), and single-value records with no second reading at all (4 records,
+  one of which — `gpt_case_warfarin_mvr_2026_06_11_01/stage_1_orders_response` — has zero current INR
+  value anywhere and needs an empty panel, not extraction). The 14 confirmed-correct records include one
+  good edge case (orthostatic vitals) that is legitimately un-flattenable for a different reason than
+  temporal ambiguity. Recommend Codex re-derive all 28 dispositions using the same
+  extraction/exclusion/multi-client logic already established for `scattered`/`prose_embedded`, rather
+  than bulk-staging manifest membership as bare `skip_serial`. **The `serial` bucket is not closed**:
+  raw manifest coverage (33/33) is not the same as verified-correct disposition; only 16/33 refreshed
+  serial refs currently have a confirmed-correct disposition on record.
+- Staged and adjudicated the Batch 20 serial redo artifact after the Batch 19 miss:
+  `EXHIBIT-FLOWSHEET-MIGRATION-BATCH-20-serial-redo-2026-07-06.json` re-derives the same 28 refs using
+  content-aware source review rather than manifest membership. It gates at 0 FAIL / 32 WARN and 100%
+  checker-seat adjudication (Antigravity Claude, 2026-07-06) found zero confirmed selection errors and
+  zero re-dispositions. The redo stages 14 true `skip_serial` preservation records, 10 real
+  current-panel extracts, and 4 intentionally empty extracts for multi-client/no-current-value surfaces.
+  The WARNs were confirmed as mechanical false positives or review prompts around the same classes that
+  caused Batch 19 to fail: cross-client repeated labels, protocol/order collisions, prior/baseline
+  comparisons, same-value restatement, SaO2/SpO2 synonym overlap, and single-value/no-current-value
+  records. Non-blocking content-semantics note: the pulmonary-embolism row source says troponin I while
+  the current allowlist label remains `troponin_t`, matching the already-recorded troponin-I-vs-T schema
+  gap. **Batch 20 closes `serial` by content-reviewed disposition.** With `scattered` and
+  `prose_embedded` already closed, the refreshed exhibit-flowsheet values-only migration is now fully
+  staged and adjudicated.
 - Closed the Batch 04 code-note by widening the serial timestamp detector to recognize relative
   `hour N`, `day N`, and `N hours later/after` narration, while tightening the HR label pattern so
   lowercase duration/rate `hr` does not masquerade as heart rate; added regression coverage.
@@ -127,8 +213,27 @@ Verification:
   (100% ramp after the Batch 10 Rule D reset).
 - The staged scattered Batch 12 gates with 0 FAIL / 32 WARN after producer re-extraction and has a
   completed 20-record checker queue; it does not count clean.
-- The staged scattered Batch 13 gates with 0 FAIL / 38 WARN and has a 20-record checker queue
-  (fresh clean-ramp candidate 1 of 2).
+- The staged scattered Batch 13 gates with 0 FAIL / 38 WARN after PaO2 re-extraction; adjudication found
+  one confirmed omission, so it does not count clean.
+- The staged scattered Batch 14 gates with 0 FAIL / 27 WARN and has a completed 20-record checker
+  queue; it counts clean (`EXHIBIT-FLOWSHEET-MIGRATION-BATCH-14-ADJUDICATION-2026-07-06.md`).
+- The staged scattered Batch 15 gates with 0 FAIL / 16 WARN and has a completed 20-record checker
+  queue; it counts clean and closes the fresh 2-batch streak
+  (`EXHIBIT-FLOWSHEET-MIGRATION-BATCH-15-ADJUDICATION-2026-07-06.md`).
+- The staged scattered Batch 16 gates with 0 FAIL / 9 WARN and has an 18-record tapered checker queue;
+  it counts clean (`EXHIBIT-FLOWSHEET-MIGRATION-BATCH-16-ADJUDICATION-2026-07-06.md`).
+- The staged scattered Batch 17 gates with 0 FAIL / 27 WARN and has a 17-record checker queue; it
+  counts clean and closes the `scattered` bucket at 152/152 covered
+  (`EXHIBIT-FLOWSHEET-MIGRATION-BATCH-17-ADJUDICATION-2026-07-06.md`).
+- The staged prose-embedded Batch 18 gates with 0 FAIL / 2 WARN and has a 6-record checker queue; it
+  counts clean and closes the `prose_embedded` bucket at 149/149 covered
+  (`EXHIBIT-FLOWSHEET-MIGRATION-BATCH-18-ADJUDICATION-2026-07-06.md`).
+- The staged serial Batch 19 gates with 0 FAIL / 0 WARN and has a 28-record checker queue; it does
+  **not** count clean — 14 of 28 records are confirmed misclassified
+  (`EXHIBIT-FLOWSHEET-MIGRATION-BATCH-19-ADJUDICATION-2026-07-06.md`).
+- The staged serial-redo Batch 20 gates with 0 FAIL / 32 WARN and has a completed 28-record
+  checker-seat adjudication; it counts clean and closes the `serial` bucket
+  (`EXHIBIT-FLOWSHEET-MIGRATION-BATCH-20-ADJUDICATION-2026-07-06.md`).
 
 ### Root Markdown Cleanup (Jul 3)
 
