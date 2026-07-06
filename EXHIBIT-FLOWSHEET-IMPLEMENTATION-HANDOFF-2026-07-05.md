@@ -79,6 +79,11 @@ banks or schema fields were written.
   - Gate result: 0 FAIL, 5 WARN.
   - Tapered checker queue: 3 records, documented in
     `EXHIBIT-FLOWSHEET-MIGRATION-BATCH-09-ADJUDICATION-2026-07-05.md`.
+- `EXHIBIT-FLOWSHEET-MIGRATION-BATCH-10-scattered-2026-07-05.json`
+  - 20 records from the first `scattered` manifest slice.
+  - Gate result: 0 FAIL, 13 WARN.
+  - Because this starts a new higher-risk bucket, the checker queue resets to 100%, documented in
+    `EXHIBIT-FLOWSHEET-MIGRATION-BATCH-10-ADJUDICATION-2026-07-05.md`.
 - `EXHIBIT-FLOWSHEET-MIGRATION-LEDGER-2026-07-05.md`
   - Tracks Batch 01 proof status and Batch 02 staged/pending-adjudication status.
 
@@ -136,6 +141,11 @@ counts lowercase duration/rate `hr` as heart rate. Regression assertions live in
 Additional detector fix: `SpO₂` with subscript `₂` now counts reliably in the serial detector; Batch
 08's code-status `skip_serial` record mechanically re-confirms after this fix.
 
+Update after prose closeout: Batches 07-09 adjudicated clean, closing the current-manifest
+`prose_embedded` bucket at 145/145 with zero selection errors. Batch 10 starts the `scattered` bucket
+and intentionally returns to 100% checker-seat adjudication for the first two clean batches before any
+new-bucket taper is considered.
+
 ## Verification Run
 
 - `npm run test:measurement-allowlist`
@@ -153,3 +163,4 @@ Additional detector fix: `SpO₂` with subscript `₂` now counts reliably in th
 - Batch 07 staged gate: 20 records, 0 FAIL, 2 WARN
 - Batch 08 staged gate: 20 records, 0 FAIL, 9 WARN
 - Batch 09 staged gate: 5 records, 0 FAIL, 5 WARN
+- Batch 10 staged gate: 20 records, 0 FAIL, 13 WARN
