@@ -87,11 +87,17 @@ banks or schema fields were written.
 - `EXHIBIT-FLOWSHEET-MIGRATION-BATCH-11-scattered-2026-07-05.json`
   - 20 records from the second `scattered` manifest slice.
   - Gate result: 0 FAIL, 18 WARN.
-  - Because Batch 10 did not count clean after the Rule D re-disposition, Batch 11 remains a 100%
-    checker-seat queue, documented in
+  - 100% checker-seat adjudication found no selection errors or re-dispositions, making Batch 11 clean
+    scattered batch 1 of 2, documented in
     `EXHIBIT-FLOWSHEET-MIGRATION-BATCH-11-ADJUDICATION-2026-07-05.md`.
+- `EXHIBIT-FLOWSHEET-MIGRATION-BATCH-12-scattered-2026-07-05.json`
+  - 20 records from the third `scattered` manifest slice.
+  - Gate result: 0 FAIL, 36 WARN.
+  - Because Batch 11 is clean scattered batch 1 of 2, Batch 12 remains a 100% checker-seat queue. If
+    it adjudicates clean, future `scattered` batches may taper to 25% + always-sampled. Queue
+    documented in `EXHIBIT-FLOWSHEET-MIGRATION-BATCH-12-ADJUDICATION-2026-07-05.md`.
 - `EXHIBIT-FLOWSHEET-MIGRATION-LEDGER-2026-07-05.md`
-  - Tracks staged artifacts and adjudication status through Batch 11.
+  - Tracks staged artifacts and adjudication status through Batch 12.
 
 ## Current Gate Result
 
@@ -159,10 +165,14 @@ duplicate current `panel[]` labels in `extract` records (Guard 1 from
 `EXHIBIT-FLOWSHEET-CODEX-NOTE-serial-confirmatory-readings-2026-07-05.md`); Guard 2, the source-prose
 current-reading-count WARN heuristic, remains queued.
 
-Update after Batch 11 staging: the second `scattered` artifact covers manifest scattered panels 21-40
-and gates at 0 FAIL / 18 WARN. It is queued for 100% checker-seat adjudication because the Batch 10
-Rule D re-disposition reset the `scattered` ramp counter to 0. If clean, Batch 11 becomes clean
-scattered batch 1 of 2. After this artifact, 40/160 scattered panels are staged and 120 remain.
+Update after Batch 11 adjudication: the second `scattered` artifact covers manifest scattered panels
+21-40, gates at 0 FAIL / 18 WARN, and adjudicated clean with no selection errors or re-dispositions.
+It is clean scattered batch 1 of 2.
+
+Update after Batch 12 staging: the third `scattered` artifact covers manifest scattered panels 41-60
+and gates at 0 FAIL / 36 WARN. It is queued for 100% checker-seat adjudication as clean-ramp candidate
+2 of 2. If clean, future `scattered` batches may taper to 25% + always-sampled. After this artifact,
+60/160 scattered panels are staged and 100 remain.
 
 ## Verification Run
 
@@ -183,3 +193,4 @@ scattered batch 1 of 2. After this artifact, 40/160 scattered panels are staged 
 - Batch 09 staged gate: 5 records, 0 FAIL, 5 WARN
 - Batch 10 staged gate: 20 records, 0 FAIL, 13 WARN
 - Batch 11 staged gate: 20 records, 0 FAIL, 18 WARN
+- Batch 12 staged gate: 20 records, 0 FAIL, 36 WARN
