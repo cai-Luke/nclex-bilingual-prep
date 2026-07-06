@@ -84,8 +84,14 @@ banks or schema fields were written.
   - Gate result: 0 FAIL, 13 WARN.
   - Because this starts a new higher-risk bucket, the checker queue resets to 100%, documented in
     `EXHIBIT-FLOWSHEET-MIGRATION-BATCH-10-ADJUDICATION-2026-07-05.md`.
+- `EXHIBIT-FLOWSHEET-MIGRATION-BATCH-11-scattered-2026-07-05.json`
+  - 20 records from the second `scattered` manifest slice.
+  - Gate result: 0 FAIL, 18 WARN.
+  - Because Batch 10 did not count clean after the Rule D re-disposition, Batch 11 remains a 100%
+    checker-seat queue, documented in
+    `EXHIBIT-FLOWSHEET-MIGRATION-BATCH-11-ADJUDICATION-2026-07-05.md`.
 - `EXHIBIT-FLOWSHEET-MIGRATION-LEDGER-2026-07-05.md`
-  - Tracks Batch 01 proof status and Batch 02 staged/pending-adjudication status.
+  - Tracks staged artifacts and adjudication status through Batch 11.
 
 ## Current Gate Result
 
@@ -153,6 +159,11 @@ duplicate current `panel[]` labels in `extract` records (Guard 1 from
 `EXHIBIT-FLOWSHEET-CODEX-NOTE-serial-confirmatory-readings-2026-07-05.md`); Guard 2, the source-prose
 current-reading-count WARN heuristic, remains queued.
 
+Update after Batch 11 staging: the second `scattered` artifact covers manifest scattered panels 21-40
+and gates at 0 FAIL / 18 WARN. It is queued for 100% checker-seat adjudication because the Batch 10
+Rule D re-disposition reset the `scattered` ramp counter to 0. If clean, Batch 11 becomes clean
+scattered batch 1 of 2. After this artifact, 40/160 scattered panels are staged and 120 remain.
+
 ## Verification Run
 
 - `npm run test:measurement-allowlist`
@@ -171,3 +182,4 @@ current-reading-count WARN heuristic, remains queued.
 - Batch 08 staged gate: 20 records, 0 FAIL, 9 WARN
 - Batch 09 staged gate: 5 records, 0 FAIL, 5 WARN
 - Batch 10 staged gate: 20 records, 0 FAIL, 13 WARN
+- Batch 11 staged gate: 20 records, 0 FAIL, 18 WARN

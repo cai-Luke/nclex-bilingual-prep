@@ -80,6 +80,10 @@ Completed:
   `case_preeclampsia_magnesium_01/admission` are serial and now stage as bare `skip_serial`; the
   `scattered` ramp counter reset to 0. Added a gate hard FAIL for duplicate current `panel[]` labels
   in `extract` records, while leaving the source-prose current-reading-count WARN heuristic queued.
+- Staged the second `scattered` ramp artifact: Batch 11 covers scattered panels 21-40, gates at
+  0 FAIL / 18 WARN, and is queued for 100% checker-seat adjudication because Batch 10 reset the
+  scattered ramp counter. If it adjudicates clean, it becomes clean scattered batch 1 of 2; 120 of 160
+  scattered panels remain unstaged.
 - Closed the Batch 04 code-note by widening the serial timestamp detector to recognize relative
   `hour N`, `day N`, and `N hours later/after` narration, while tightening the HR label pattern so
   lowercase duration/rate `hr` does not masquerade as heart rate; added regression coverage.
@@ -112,6 +116,8 @@ Verification:
   (2 seeded random + always-sampled for the final 5-record partial batch).
 - The staged scattered Batch 10 gates with 0 FAIL / 13 WARN and has a 20-record checker queue
   (100% ramp reset for the first scattered batch).
+- The staged scattered Batch 11 gates with 0 FAIL / 18 WARN and has a 20-record checker queue
+  (100% ramp after the Batch 10 Rule D reset).
 
 ### Root Markdown Cleanup (Jul 3)
 
