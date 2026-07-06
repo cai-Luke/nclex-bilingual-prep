@@ -85,5 +85,62 @@ Total checker-seat sample: 20 of 20 records.
 ## Status
 
 Codex staged the fourth `scattered` values-only artifact and deterministic gate result. Independent
-checker-seat adjudication of all 20 records is pending. Because Batch 12 reset the ramp, this batch
-must adjudicate clean before it can count as clean scattered batch 1 of 2.
+checker-seat adjudication (Claude Code) of all 20 records is complete. **This batch does not qualify
+as clean scattered batch 1 of 2** — one confirmed selection error surfaced (smaller in scope than
+batch 12's, but the same class: an explicit-unit, in-scope value silently dropped).
+
+Re-ran the gate against current `main`: 20 records, 0 FAIL, 38 WARN — matches the result recorded
+above.
+
+### Confirmed selection error: PaO2 omitted from an ABG panel despite explicit unit
+
+`gpt_case_major_burn_inhalation_fluid_creep_01/baseline_labs` keys `ph`/`paco2`/`hco3_abg`/`lactate`
+from "ABG on room air: pH 7.32, PaCO2 32 mmHg, **PaO2 68 mmHg**, HCO3 20 mEq/L, lactate 4.2 mmol/L" —
+but not PaO2, even though it carries an explicit unit (`mmHg`) identical in form to the PaCO2 entry
+right next to it, and `pao2` is a registry key (`src/visuals/kinds/lab_trend/defs.ts`). This is not a
+judgment call — same class as batch 12's WBC/Hct omission, just isolated to one value in one record
+this time. **Needs re-extraction to add `pao2` (68 mmHg).**
+
+Notably, GATE 2's `LABEL_PATTERNS` table has no entries for `pao2`, `paco2`, or `hco3_abg` at all, so
+the mechanical completeness sweep couldn't have flagged this one the way it flagged the gallstone
+WBC/Hct mentions in batch 12 — there was no advisory WARN to catch on review. Filed as a small,
+non-blocking Codex note (`EXHIBIT-FLOWSHEET-CODEX-NOTE-gate2-abg-patterns-2026-07-05.md`) since adding
+these three patterns would strengthen the mechanical net against this exact class of miss going
+forward.
+
+### Everything else checked out, including good confirmatory tests of the Rule C/D refinement
+
+- `gpt_case_refeeding_syndrome_tpn_01/stage_1_update`: glucose is mentioned twice with **differing**
+  values — repeat-lab 198 mg/dL vs. point-of-care 204 mg/dL — correctly `skip_serial`. This is the
+  mirror-image test of the resolved clozapine escalation: same shape (two modalities, one parameter),
+  but here the values genuinely differ, so it *is* the ambiguity Rule D exists to prevent, unlike the
+  same-value HR case. Confirms the tightened Rule D ("differing values") and extended Rule C
+  ("same-value modality restatement") are being distinguished correctly on a fresh case.
+- `gpt_case_lateral_incivility_01/baseline_assessment_labs`,
+  `gpt_case_neutropenic_fever_nadir_01/initial_assessment_labs`, and
+  `gpt_case_pressure_injury_prevention_mobility_01/baseline_assessment_labs` all handle abbreviated lab
+  lists correctly — the first two have chemistry values that are genuinely unitless throughout (all
+  correctly left in prose), the third is a mixed list where the extractor correctly keyed only the
+  items that actually carry units (Hgb/WBC/platelets/INR) and left the unitless ones (Na/K/BUN/Cr/
+  glucose) in prose. This is the batch-12 mistake done right three times over — good sign the fix
+  generalized rather than being a one-off patch.
+- `gpt_case_lateral_incivility_01/baseline_client_record`: a BP trend range ("168-174/92-96") is
+  correctly excluded with reason `trend` (not `prior`) — the right enum member for a described range
+  rather than a single superseded reading.
+- `gpt_case_nurse_provider_conflict_01/stage_1_order_conflict`: "Her potassium is 3.1" (no unit in
+  this exhibit's own text, though the same 1600-labs value appears with a unit in a sibling exhibit)
+  is correctly left unkeyed — Rule C requires the source unit from *this* exhibit's own prose, not
+  borrowed from elsewhere in the case. "potassium chloride 40 mEq" (the order) and "sodium phosphate"
+  (in `refeeding_syndrome_tpn`'s stage_2/stage_3) are correctly recognized as medication names, not lab
+  values.
+- `gpt_case_mass_casualty_start_triage_01/triage_point_findings`: another multi-victim scene correctly
+  staged `extract` with an empty panel (not `skip_serial`), consistent with the same-subject guard.
+- `gpt_case_pressure_injury_prevention_mobility_01/stage_3_update`: a genuine orthostatic BP/HR pair
+  (supine vs. standing, differing values) correctly triggers `skip_serial`, taking the exhibit's other
+  current values (Hgb, albumin, a separate later vitals set) with it — the same all-or-nothing cost
+  as previous confirmatory-pair instances, not a new issue.
+
+### Disposition
+
+One confirmed omission (PaO2) breaks this batch's clean-batch eligibility. Once re-extracted, the next
+fully-adjudicated batch with zero selection errors becomes batch 1 of a fresh 2-batch clean streak.
