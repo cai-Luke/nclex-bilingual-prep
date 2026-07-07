@@ -1,6 +1,6 @@
 {
   "meta": {
-    "schemaVersion": "1.6",
+    "schemaVersion": "1.8",
     "count": 97,
     "exam": "NCLEX-RN",
     "topic": "assorted NCLEX-RN Claude canonical bank",
@@ -10561,6 +10561,136 @@
             "content": {
               "en": "Fingerstick blood glucose at visit: 268 mg/dL.\nSerum labs: sodium 149 mEq/L, potassium 2.9 mEq/L, chloride 98 mEq/L, CO2 30 mEq/L, BUN 48 mg/dL, creatinine 1.8 mg/dL with baseline 1.2, eGFR 28 mL/min/1.73 m2, magnesium 1.4 mEq/L, albumin 2.6 g/dL, prealbumin 11 mg/dL. A1c drawn at discharge was 8.4%.",
               "zh": "随访时指尖血糖：268 mg/dL。\n血液化验：钠149 mEq/L，钾2.9 mEq/L，氯98 mEq/L，CO2 30 mEq/L，BUN 48 mg/dL，肌酐1.8 mg/dL，基线1.2，eGFR 28 mL/min/1.73 m2，镁1.4 mEq/L，白蛋白2.6 g/dL，前白蛋白11 mg/dL。出院时糖化血红蛋白8.4%。"
+            },
+            "structuredMeasurements": {
+              "panels": [
+                {
+                  "kind": "labs",
+                  "columns": [
+                    {
+                      "id": "current",
+                      "label": {
+                        "en": "Current",
+                        "zh": "当前"
+                      }
+                    }
+                  ],
+                  "rows": [
+                    {
+                      "key": "glucose",
+                      "label": {
+                        "en": "Glucose",
+                        "zh": "血糖"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "268",
+                          "unit": "mg/dL"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "sodium",
+                      "label": {
+                        "en": "Sodium",
+                        "zh": "血钠"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "149",
+                          "unit": "mEq/L"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "potassium",
+                      "label": {
+                        "en": "Potassium",
+                        "zh": "血钾"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "2.9",
+                          "unit": "mEq/L"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "chloride",
+                      "label": {
+                        "en": "Chloride",
+                        "zh": "血氯"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "98",
+                          "unit": "mEq/L"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "bicarbonate",
+                      "label": {
+                        "en": "Bicarbonate",
+                        "zh": "碳酸氢盐"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "30",
+                          "unit": "mEq/L"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "bun",
+                      "label": {
+                        "en": "BUN",
+                        "zh": "尿素氮"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "48",
+                          "unit": "mg/dL"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "creatinine",
+                      "label": {
+                        "en": "Creatinine",
+                        "zh": "肌酐"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "1.8",
+                          "unit": "mg/dL"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "magnesium",
+                      "label": {
+                        "en": "Magnesium",
+                        "zh": "血镁"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "1.4",
+                          "unit": "mEq/L"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
             }
           }
         ],

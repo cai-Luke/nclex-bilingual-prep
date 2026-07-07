@@ -57,6 +57,8 @@ Completed:
 - Corrected `sao2` panel classification to labs/ABG only and pinned the positive split with `spo2` in vitals plus `sao2` in labs.
 - Added shared structured-measurement formatting/serialization/rendering: conventional-primary display with optional SI parentheses, TTS and review-prompt text serialization, and inline flat table rendering in case exhibits using existing deterministic table primitives.
 - Added focused regression coverage: schema/floor/strict-key cases, measurement allowlist drift guard, flowsheet gate de-conflation cases, structured measurement formatter/serializer/SVG test.
+- Added deterministic proof applicator `npm run structured-measurements:apply -- --proof <artifacts>` and promoted seven reviewed proof exhibits into canonical banks: both Batch 01 clean-KV records plus five simple Batch 02 supplement records. The first proof write deliberately keeps all original prose intact because the clean-KV records contain useful non-table facts outside v1 structured fields (for example oxygen delivery, respiratory character, eGFR, and non-allowlisted nutrition labs).
+- Widened structured temperature source-unit acceptance to include Fahrenheit (`°F`/`F`) and bare `C`, matching existing conversion/display behavior and allowing the DKA proof record to preserve its source value/unit.
 
 Verified:
 - `npm run test:schema-bank`
@@ -66,6 +68,7 @@ Verified:
 - `npm run validate-bank -- banks/*.json`
 - `npm run test:review-prompt`
 - `npm run scan-unknown-keys` (0 off-schema key occurrences; generated report was not kept)
+- `npm run census`
 - `npm run test-visuals`
 - `npm run coverage-report`
 - `npm run flowsheet-gate -- EXHIBIT-FLOWSHEET-MIGRATION-BATCH-20-serial-redo-2026-07-06.json` (0 FAIL / 34 WARN after `sao2` + `troponin_i` de-conflation)

@@ -21,7 +21,7 @@ const vitalEntries = Object.entries(VITAL_DEFS).map(([key, def]) => [
   freezeDef({
     key,
     canonicalUnit: def.unit,
-    acceptedSourceUnits: [def.unit],
+    acceptedSourceUnits: key === "temp" ? [def.unit, "°F", "F", "C"] : [def.unit],
     sanity: def.range,
     kind: "vital",
   }),

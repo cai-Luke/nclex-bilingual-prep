@@ -9,7 +9,8 @@ for (const [key, def] of Object.entries(VITAL_DEFS)) {
   assert.equal(got.kind, "vital", `${key} should be vital`);
   assert.equal(got.canonicalUnit, def.unit, `${key} canonicalUnit drift`);
   assert.deepEqual(got.sanity, def.range, `${key} sanity drift`);
-  assert.deepEqual(got.acceptedSourceUnits, [def.unit], `${key} acceptedSourceUnits drift`);
+  const expectedSourceUnits = key === "temp" ? [def.unit, "°F", "F", "C"] : [def.unit];
+  assert.deepEqual(got.acceptedSourceUnits, expectedSourceUnits, `${key} acceptedSourceUnits drift`);
 }
 
 for (const [key, def] of Object.entries(ANALYTE_DEFS)) {
@@ -49,6 +50,7 @@ assert.equal(MEASUREMENT_ALLOWLIST.platelets.canonicalUnit, "×10³/µL", "plate
 assert.ok(MEASUREMENT_ALLOWLIST.magnesium.acceptedSourceUnits.includes("mEq/L"), "magnesium should accept mEq/L as a source unit");
 assert.ok(MEASUREMENT_ALLOWLIST.calcium.acceptedSourceUnits.includes("mEq/L"), "total calcium should accept mEq/L as a source unit");
 assert.ok(MEASUREMENT_ALLOWLIST.ionized_calcium.acceptedSourceUnits.includes("mEq/L"), "ionized calcium should accept mEq/L as a source unit");
+assert.ok(MEASUREMENT_ALLOWLIST.temp.acceptedSourceUnits.includes("°F"), "temperature should accept Fahrenheit source values");
 assert.equal(MEASUREMENT_ALLOWLIST.troponin_i.kind, "lab", "troponin_i should be structured-only lab measurement");
 assert.equal(MEASUREMENT_ALLOWLIST.troponin_i.canonicalUnit, "ng/mL", "troponin_i canonical unit should be ng/mL");
 assert.deepEqual(MEASUREMENT_ALLOWLIST.troponin_i.acceptedSourceUnits, ["ng/mL", "µg/L"], "troponin_i accepted units should be pinned");

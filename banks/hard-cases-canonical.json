@@ -1,6 +1,6 @@
 {
   "meta": {
-    "schemaVersion": "1.6",
+    "schemaVersion": "1.8",
     "exam": "NCLEX-RN",
     "topic": "hard and NGN case studies",
     "category": "mixed",
@@ -70,6 +70,108 @@
             "content": {
               "en": "Reports 3 days of productive cough and fever. Daughter states the client is usually oriented but is now confused.\nVital signs: T 39.2 C, HR 118/min, RR 30/min, BP 92/54 mm Hg, SpO2 90% on room air.\nSkin cool and mottled at knees. Capillary refill 5 seconds.",
               "zh": "诉咳脓痰、发热3天。女儿表示患者平时定向力正常，现在出现意识混乱。\n生命体征：体温39.2 C，心率118次/分，呼吸30次/分，血压92/54 mm Hg，室内空气SpO2 90%。\n皮肤发凉，膝部花斑样改变。毛细血管再充盈5秒。"
+            },
+            "structuredMeasurements": {
+              "panels": [
+                {
+                  "kind": "vitals",
+                  "columns": [
+                    {
+                      "id": "current",
+                      "label": {
+                        "en": "0730",
+                        "zh": "0730"
+                      }
+                    }
+                  ],
+                  "rows": [
+                    {
+                      "key": "temp",
+                      "label": {
+                        "en": "Temperature",
+                        "zh": "体温"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "39.2",
+                          "unit": "°C"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "hr",
+                      "label": {
+                        "en": "Heart rate",
+                        "zh": "心率"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "118",
+                          "unit": "bpm"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "rr",
+                      "label": {
+                        "en": "Respiratory rate",
+                        "zh": "呼吸频率"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "30",
+                          "unit": "/min"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "sbp",
+                      "label": {
+                        "en": "Systolic BP",
+                        "zh": "收缩压"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "92",
+                          "unit": "mmHg"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "dbp",
+                      "label": {
+                        "en": "Diastolic BP",
+                        "zh": "舒张压"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "54",
+                          "unit": "mmHg"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "spo2",
+                      "label": {
+                        "en": "SpO2",
+                        "zh": "脉搏血氧饱和度"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "90",
+                          "unit": "%"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
             }
           },
           {
@@ -1527,6 +1629,52 @@
             "content": {
               "en": "Weight: 72 kg (Dry weight: 69 kg). BP: 162/94 mmHg. Pitted edema 2+ in bilateral lower extremities. Left arm AV fistula: audible bruit and palpable thrill present.",
               "zh": "体重：72 kg（干重：69 kg）。血压：162/94 mmHg。双下肢2+凹陷性水肿。左臂动静脉内瘘（AVF）：可听到血管杂音并触及震颤。"
+            },
+            "structuredMeasurements": {
+              "panels": [
+                {
+                  "kind": "vitals",
+                  "columns": [
+                    {
+                      "id": "current",
+                      "label": {
+                        "en": "Current",
+                        "zh": "当前"
+                      }
+                    }
+                  ],
+                  "rows": [
+                    {
+                      "key": "sbp",
+                      "label": {
+                        "en": "Systolic BP",
+                        "zh": "收缩压"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "162",
+                          "unit": "mmHg"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "dbp",
+                      "label": {
+                        "en": "Diastolic BP",
+                        "zh": "舒张压"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "94",
+                          "unit": "mmHg"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
             }
           }
         ],
@@ -3221,6 +3369,108 @@
             "content": {
               "en": "Temp: 99.1°F (37.3°C)\nHR: 118 bpm\nRR: 28/min (deep and rapid)\nBP: 92/58 mmHg\nSpO2: 96% on room air",
               "zh": "体温: 99.1°F (37.3°C)\n心率: 118 次/分\n呼吸: 28 次/分 (深快)\n血压: 92/58 mmHg\n血氧饱和度: 室内空气下 96%"
+            },
+            "structuredMeasurements": {
+              "panels": [
+                {
+                  "kind": "vitals",
+                  "columns": [
+                    {
+                      "id": "current",
+                      "label": {
+                        "en": "0800",
+                        "zh": "0800"
+                      }
+                    }
+                  ],
+                  "rows": [
+                    {
+                      "key": "temp",
+                      "label": {
+                        "en": "Temperature",
+                        "zh": "体温"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "99.1",
+                          "unit": "°F"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "hr",
+                      "label": {
+                        "en": "Heart rate",
+                        "zh": "心率"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "118",
+                          "unit": "bpm"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "rr",
+                      "label": {
+                        "en": "Respiratory rate",
+                        "zh": "呼吸频率"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "28",
+                          "unit": "/min"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "sbp",
+                      "label": {
+                        "en": "Systolic BP",
+                        "zh": "收缩压"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "92",
+                          "unit": "mmHg"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "dbp",
+                      "label": {
+                        "en": "Diastolic BP",
+                        "zh": "舒张压"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "58",
+                          "unit": "mmHg"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "spo2",
+                      "label": {
+                        "en": "SpO2",
+                        "zh": "脉搏血氧饱和度"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "96",
+                          "unit": "%"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
             }
           },
           {
@@ -3664,6 +3914,80 @@
                 "content": {
                   "en": "BP: 80/50 mmHg, HR: 110 bpm, RR: 24 bpm, Crackles in all lung fields.",
                   "zh": "血压: 80/50 mmHg，心率: 110 bpm，呼吸: 24 bpm，双肺满布湿啰音。"
+                },
+                "structuredMeasurements": {
+                  "panels": [
+                    {
+                      "kind": "vitals",
+                      "columns": [
+                        {
+                          "id": "current",
+                          "label": {
+                            "en": "Current",
+                            "zh": "当前"
+                          }
+                        }
+                      ],
+                      "rows": [
+                        {
+                          "key": "sbp",
+                          "label": {
+                            "en": "Systolic BP",
+                            "zh": "收缩压"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "80",
+                              "unit": "mmHg"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "dbp",
+                          "label": {
+                            "en": "Diastolic BP",
+                            "zh": "舒张压"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "50",
+                              "unit": "mmHg"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "hr",
+                          "label": {
+                            "en": "Heart rate",
+                            "zh": "心率"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "110",
+                              "unit": "bpm"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "rr",
+                          "label": {
+                            "en": "Respiratory rate",
+                            "zh": "呼吸频率"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "24",
+                              "unit": "/min"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
                 }
               }
             ]
@@ -8451,6 +8775,38 @@
             "content": {
               "en": "Water-seal chamber: water level rises and falls with respiration (tidaling). Intermittent bubbling in the water-seal chamber. Suction-control chamber: gentle continuous bubbling. Collection chamber: 30 mL serosanguineous fluid since insertion. No subcutaneous crepitus. SpO2 95% on 2 L nasal cannula.",
               "zh": "水封腔:水位随呼吸上下波动(潮汐样波动)。水封腔间歇性气泡。负压控制腔:轻柔持续冒泡。收集腔:置管以来引流30 mL淡血性液体。无皮下捻发感。鼻导管2 L/min吸氧下SpO2 95%。"
+            },
+            "structuredMeasurements": {
+              "panels": [
+                {
+                  "kind": "vitals",
+                  "columns": [
+                    {
+                      "id": "current",
+                      "label": {
+                        "en": "1000",
+                        "zh": "1000"
+                      }
+                    }
+                  ],
+                  "rows": [
+                    {
+                      "key": "spo2",
+                      "label": {
+                        "en": "SpO2",
+                        "zh": "脉搏血氧饱和度"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "95",
+                          "unit": "%"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
             }
           }
         ],
@@ -8471,6 +8827,38 @@
                 "content": {
                   "en": "While repositioning the client, the nurse finds the chest tube has become disconnected from the drainage tubing. The client reports increasing shortness of breath. SpO2 is now 89%.",
                   "zh": "在为患者翻身时,护士发现胸腔引流管与引流管路脱开连接。患者诉呼吸困难加重。此时SpO2为89%。"
+                },
+                "structuredMeasurements": {
+                  "panels": [
+                    {
+                      "kind": "vitals",
+                      "columns": [
+                        {
+                          "id": "current",
+                          "label": {
+                            "en": "1330",
+                            "zh": "1330"
+                          }
+                        }
+                      ],
+                      "rows": [
+                        {
+                          "key": "spo2",
+                          "label": {
+                            "en": "SpO2",
+                            "zh": "脉搏血氧饱和度"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "89",
+                              "unit": "%"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
                 }
               }
             ]
