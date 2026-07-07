@@ -169,6 +169,93 @@ after a separate reference-range verification pass?
 
 Recommendation: first renderer should omit reference ranges or treat them as opt-in per verified key.
 
+### 8. Snapshot Panel Presentation (Fishbone Layout) — Override Recorded 2026-07-07
+
+Luke's ruling (2026-07-07 planning session): a fishbone-style **current-panel snapshot** layout — the
+CBC / BMP "skeleton" view clinicians see first on Epic chart review — is preferred over the flat
+list/tabular rendering for point-in-time panel data. Principle 6's necessity bar is **explicitly waived**
+for this surface. Luke accepts it as presentation/decoration, justified by workflow familiarity (it
+matches how nurses actually read these panels at work), not by load-bearing necessity. This is a
+deliberate, stated override, not an oversight.
+
+Preference rule as stated:
+
+- Prefer the fishbone snapshot when it **saves vertical space** vs. the current flat list.
+- When **space-neutral**, still prefer it (better presentation).
+- No rule was given for the case where the fishbone costs *more* space than the flat list — treat that
+  as open; likely fall back to flat, but confirm with Luke before implementing.
+
+Scope and entanglements to litigate next session:
+
+- This is the **snapshot** surface (single point-in-time CBC/BMP), distinct from `lab_trend` serial/trend
+  rendering (≥3 timepoints), which stays flat/tabular and is unchanged. The values-only extraction
+  pipeline's trend data is not affected by this decision.
+- It is a **new visual kind** regardless of the necessity override. No existing primitive renders the
+  X-layout (`renderFieldPanel` is key→value, not fishbone), so the renderer + `selfCheck` + registry
+  conformance build is required either way. The override removes *only* the necessity gate on top of
+  that build — it does not save the build.
+- It is **entangled with Decision #1 (schema shape) and Decision #3 (rendering policy)** above: whether
+  the `structuredMeasurements` current-panel render *is* the fishbone, and how snapshot-panel semantics
+  differ from the mixed-panel/trend column contract, is part of what #1/#3 must resolve. Decide
+  snapshot-fishbone scope explicitly; do not let it fold into the trend-column work implicitly.
+- **Principle-6-compliant fallback if the override is later reversed:** schema 1.5 `rationale.visuals`
+  is necessity-exempt by design (principle 19) and would host a post-answer *teaching-figure* version of
+  the fishbone with no override needed. Luke's stated preference here is the in-exhibit display path
+  (the override), so the override stands unless next-session litigation reverses it.
+
+Not written to `DECISIONS.md` this session, deliberately: the override's correct standing-principle form
+depends on the schema-1.8 resolution, and `DECISIONS.md` entries are not re-litigated once written. This
+note is the forward-pointer; the standing entry gets authored once #1/#3/#8 settle together.
+
+## Pre-Litigation Audit Addendum
+
+Codex ran a narrow blocker-risk audit on 2026-07-07 against the staged batches, current repo schema,
+gate, allowlist, unit policy, and renderer-adjacent files. This did **not** reopen migration
+adjudication; it only identifies facts tomorrow's schema-lane litigation should freeze before code
+or promotion.
+
+Blocker facts:
+
+- Failed Batch 19 must stay excluded from promotion input. It is useful as a failure record only.
+  It still gates 0 FAIL / 0 WARN because it contains bare `skip_serial` records, but adjudication found
+  14/28 misclassified. Batch 20 is the clean serial-redo artifact to consume.
+- Promotion tooling must not glob every staged JSON artifact blindly. Historical pre-refresh artifacts
+  remain on disk, and the manifest/ledger establish which refreshed refs are current. Use the refreshed
+  manifest plus clean adjudicated artifacts, with explicit Batch 20 substitution for Batch 19.
+- Current canonical schema does not yet allow `structuredMeasurements`. `CaseStudyExhibit` is still
+  `id/type/title/content/visual` only in `src/types.ts`, `src/schema.ts`, and `src/allowedKeys.ts`.
+- Troponin identity is not render-safe as-is. Batch 20 row 14 source says `troponin I 0.38 ng/mL`, but
+  the current allowlist/registry stores it as `troponin_t`.
+- SaO2 and SpO2 are distinct. Batch 20 correctly did not duplicate ABG `SaO2 93%` into pulse-ox `SpO2`,
+  but the gate's current `spo2` synonym pattern still matches `SaO2`.
+- Staged `sourceUnit` is sometimes an extraction-valid normalized source unit, not the byte-exact unit
+  token. Example: source `HR 118/min` staged as `hr` with `sourceUnit: "bpm"` and a prose-normalization
+  WARN. The schema must distinguish source token, canonical unit, and display unit if those concepts
+  matter downstream.
+- Staged records can mix clinical panels in one `panel[]` array: vitals, stat labs, ABG values, CBC,
+  and post-intervention values may coexist. A canonical table contract needs explicit panel/column
+  identity instead of inferring it later from `sourceSpan`.
+- Empty extracts are intentional in the staged artifacts for multi-client or no-current-value surfaces;
+  they must either remain ledger-only or become no-render canonical metadata. They must never render
+  a blank learner-facing table.
+- `skip_serial` covers several preservation classes, not just simple time trends: serial vitals/labs,
+  orthostatic vitals, ambulation/recovery sequences, and multi-day trend tables. Do not flatten these
+  into one-column current panels.
+
+Spec questions to freeze:
+
+- Is canonical `structuredMeasurements` one generic measurement table, separate `labs_flowsheet` /
+  `vitals_flowsheet`, or a wrapper that supports multiple typed panels per exhibit?
+- Are `skip_serial`, empty extracts, `excludedValues`, `unitAliases`, and source-span audit data
+  canonical metadata or ledger-only promotion evidence?
+- What fields distinguish `sourceValue`, `sourceUnitToken`, `acceptedSourceUnit`, `canonicalValue`,
+  and `displayUnit`? Values-only v1 can keep this small, but the names should not paint the renderer
+  into a corner.
+- Are timestamps/column labels required in canonical data when a staged record combines separate
+  clinical panels, or does the first proof batch deliberately avoid mixed-panel records?
+- Should reference ranges and H/L flags be rejected in v1 validation? Recommendation remains yes:
+  no reference ranges or flags until the separate reference-range lane verifies them.
+
 ## Separate Prose-Normalization Lane
 
 Luke's product ruling: source prose is editable when measurement formatting hurts learner readability,
@@ -207,12 +294,12 @@ Defer:
 
 ## Recommended Next Codex Sequence
 
-1. Architect decides schema shape and whether empty/skip dispositions are canonical metadata or ledger-only.
-2. Codex implements schema/types validation for a tiny proof shape.
-3. Codex writes a deterministic dry-run applicator for staged extraction artifacts.
-4. Promote a tiny proof batch, validate, and render behind conservative UI.
-5. Add formatter tests for conventional-first display.
-6. Resolve or explicitly defer troponin I/T and SaO2/SpO2 before broad promotion.
+1. Architect freezes the small migration contract: schema shape, empty/skip disposition, source/canonical/display unit naming, mixed-panel handling, and v1 no-range/no-flag rule.
+2. Architect explicitly resolves or defers troponin I/T and SaO2/SpO2 before any broad rendering.
+3. Codex implements schema/types validation for a tiny proof shape.
+4. Codex writes a deterministic dry-run applicator for staged extraction artifacts, explicitly excluding Batch 19 and consuming Batch 20 for the serial redo.
+5. Promote a tiny proof batch, validate, and render behind conservative UI.
+6. Add formatter tests for conventional-first display.
 7. After proof UI is good, promote the rest of the clean extracted panels.
 8. Start prose-normalization manifest tooling as a separate lane.
 

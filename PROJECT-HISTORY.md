@@ -177,6 +177,12 @@ Completed:
   gap. **Batch 20 closes `serial` by content-reviewed disposition.** With `scattered` and
   `prose_embedded` already closed, the refreshed exhibit-flowsheet values-only migration is now fully
   staged and adjudicated.
+- Added a narrow pre-litigation audit addendum to
+  `EXHIBIT-FLOWSHEET-NEXT-LANES-HANDOFF-2026-07-06.md` so the next schema-lane pass starts from the
+  known blocker facts: exclude failed Batch 19 from promotion input, consume Batch 20 for serial redo,
+  decide empty/skip canonical-vs-ledger handling, separate troponin I/T and SaO2/SpO2 decisions from
+  rendering, distinguish source/canonical/display units, and freeze mixed-panel column semantics before
+  implementing `structuredMeasurements`.
 - Closed the Batch 04 code-note by widening the serial timestamp detector to recognize relative
   `hour N`, `day N`, and `N hours later/after` narration, while tightening the HR label pattern so
   lowercase duration/rate `hr` does not masquerade as heart rate; added regression coverage.
