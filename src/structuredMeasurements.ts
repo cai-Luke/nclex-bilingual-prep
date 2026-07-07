@@ -41,7 +41,7 @@ const labelForMode = (pair: TextPair | undefined, languageMode: LanguageMode): s
 
 const trimNumber = (value: number): string => {
   if (!Number.isFinite(value)) return "";
-  if (Math.abs(value) >= 100) return Number(value.toFixed(0)).toString();
+  if (Math.abs(value) >= 100) return Number(value.toFixed(Number.isInteger(value) ? 0 : 1)).toString();
   if (Math.abs(value) >= 10) return Number(value.toFixed(1)).toString();
   if (Math.abs(value) >= 1) return Number(value.toFixed(2)).toString();
   return Number(value.toPrecision(2)).toString();

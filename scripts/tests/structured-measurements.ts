@@ -37,6 +37,18 @@ assert.equal(
   "magnesium mEq/L should render conventional first with mmol/L in parentheses",
 );
 
+assert.equal(
+  formatStructuredMeasurementValue("temp", { columnId: "ed", value: "99.1", unit: "°F" }),
+  "99.1 °F (37.3 °C)",
+  "Fahrenheit source temperatures should stay US-conventional first with Celsius in parentheses",
+);
+
+assert.equal(
+  formatStructuredMeasurementValue("temp", { columnId: "ed", value: "39.2", unit: "C" }),
+  "102.6 °F (39.2 °C)",
+  "Celsius source temperatures should render Fahrenheit first with Celsius in parentheses",
+);
+
 const serialized = serializeStructuredMeasurements(measurements);
 assert(serialized, "structured measurements should serialize");
 assert(serialized.en.includes("Platelets (ED): 18 ×10³/µL (18 ×10⁹/L)"));

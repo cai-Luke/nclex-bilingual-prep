@@ -79,6 +79,7 @@ export const LINEAR_UNIT_FACTORS: Readonly<Record<string, number>> = Object.free
 });
 
 export const MEASUREMENT_DISPLAY_POLICIES: Readonly<Record<string, MeasurementDisplayPolicy>> = Object.freeze({
+  temp: Object.freeze({ primaryUnit: "°F", secondaryUnit: "°C", secondaryMode: "paren" }),
   wbc: Object.freeze({ primaryUnit: "×10³/µL", secondaryUnit: "×10⁹/L", secondaryMode: "paren" }),
   platelets: Object.freeze({ primaryUnit: "×10³/µL", secondaryUnit: "×10⁹/L", secondaryMode: "paren" }),
   calcium: Object.freeze({ primaryUnit: "mg/dL", secondaryUnit: "mmol/L", secondaryMode: "paren" }),
@@ -129,6 +130,12 @@ export const toMeasurementDisplayValue = (
   const def = MEASUREMENT_ALLOWLIST[key];
   if (!def) return null;
   const normalizedDisplayUnit = normalizeUnit(displayUnit);
+
+  if (key === "temp") {
+    if (normalizedDisplayUnit === normalizeUnit(def.canonicalUnit)) return canonicalValue;
+    if (normalizedDisplayUnit === "°f" || normalizedDisplayUnit === "f") return (canonicalValue * (9 / 5)) + 32;
+  }
+
   if (normalizedDisplayUnit === normalizeUnit(def.canonicalUnit)) return canonicalValue;
 
   const canonicalFromDisplayFactor = LINEAR_UNIT_FACTORS[factorKey(key, displayUnit)];

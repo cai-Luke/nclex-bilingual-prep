@@ -59,6 +59,9 @@ Completed:
 - Added focused regression coverage: schema/floor/strict-key cases, measurement allowlist drift guard, flowsheet gate de-conflation cases, structured measurement formatter/serializer/SVG test.
 - Added deterministic proof applicator `npm run structured-measurements:apply -- --proof <artifacts>` and promoted seven reviewed proof exhibits into canonical banks: both Batch 01 clean-KV records plus five simple Batch 02 supplement records. The first proof write deliberately keeps all original prose intact because the clean-KV records contain useful non-table facts outside v1 structured fields (for example oxygen delivery, respiratory character, eGFR, and non-allowlisted nutrition labs).
 - Widened structured temperature source-unit acceptance to include Fahrenheit (`°F`/`F`) and bare `C`, matching existing conversion/display behavior and allowing the DKA proof record to preserve its source value/unit.
+- Amended the migration ledger to distinguish staged artifacts from canonical structured-measurements promotions and recorded proof commit `959a5f0`.
+- Changed structured temperature display to US-conventional Fahrenheit-first with Celsius in parentheses, and added explicit-ref applicator dry-run mode (`--refs`) for future promotion-gate batches.
+- Prepared Candidate 02A for Claude Code gate review: five still-unpromoted Batch 02 supplement records, current-bank flowsheet gate `0 FAIL / 0 WARN`, applicator dry-run green, and no canonical bank write.
 
 Verified:
 - `npm run test:schema-bank`

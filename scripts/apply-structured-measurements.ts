@@ -41,9 +41,25 @@ type LocatedExhibit = {
 
 const root = resolve(import.meta.dirname, "..");
 const banksDir = resolve(root, "banks");
-const writeMode = process.argv.includes("--write");
-const proofMode = process.argv.includes("--proof");
-const artifactArgs = process.argv.slice(2).filter((arg) => !arg.startsWith("--"));
+const args = process.argv.slice(2);
+const writeMode = args.includes("--write");
+const proofMode = args.includes("--proof");
+const artifactArgs: string[] = [];
+const explicitRefs: string[] = [];
+
+for (let index = 0; index < args.length; index += 1) {
+  const arg = args[index];
+  if (arg === "--write" || arg === "--proof") continue;
+  if (arg === "--refs") {
+    const rawRefs = args[index + 1];
+    if (!rawRefs || rawRefs.startsWith("--")) throw new Error("--refs requires a comma-separated ref list");
+    explicitRefs.push(...rawRefs.split(",").map((ref) => ref.trim()).filter(Boolean));
+    index += 1;
+    continue;
+  }
+  if (arg.startsWith("--")) throw new Error(`Unknown option: ${arg}`);
+  artifactArgs.push(arg);
+}
 
 const PROOF_REFS = new Set([
   "case_dka_01/ex_vitals_0800",
@@ -97,8 +113,11 @@ const readJson = async <T>(path: string): Promise<T> =>
   JSON.parse(await readFile(path, "utf8")) as T;
 
 const ensureUsage = () => {
-  if (!proofMode) {
-    throw new Error("Pass --proof for the first tiny structured-measurements promotion.");
+  if (proofMode && explicitRefs.length > 0) {
+    throw new Error("Use either --proof or --refs, not both.");
+  }
+  if (!proofMode && explicitRefs.length === 0) {
+    throw new Error("Pass --proof or an explicit --refs comma-separated list; blind promotion is not allowed.");
   }
   if (artifactArgs.length === 0) {
     throw new Error("Pass one or more explicit staged artifact paths; blind globbing is not allowed.");
@@ -215,23 +234,24 @@ const toPanels = (record: StagedRecord, exhibit: CaseStudyExhibit): StructuredMe
 
 ensureUsage();
 
+const targetRefs = proofMode ? PROOF_REFS : new Set(explicitRefs);
 const stagedRecords: Array<StagedRecord & { bucket: string }> = [];
 for (const artifactArg of artifactArgs) {
   const artifactPath = resolve(root, artifactArg);
   const bucket = basename(artifactPath).includes("clean_kv") ? "clean_kv" : "supplement";
   const records = await readJson<StagedRecord[]>(artifactPath);
   for (const record of records) {
-    if (PROOF_REFS.has(record.exhibitRef)) stagedRecords.push({ ...record, bucket });
+    if (targetRefs.has(record.exhibitRef)) stagedRecords.push({ ...record, bucket });
   }
 }
 
 const foundRefs = new Set(stagedRecords.map((record) => record.exhibitRef));
-const missingRefs = [...PROOF_REFS].filter((ref) => !foundRefs.has(ref));
+const missingRefs = [...targetRefs].filter((ref) => !foundRefs.has(ref));
 if (missingRefs.length > 0) {
-  throw new Error(`Proof artifact set is missing ${missingRefs.length} ref(s): ${missingRefs.join(", ")}`);
+  throw new Error(`Artifact set is missing ${missingRefs.length} ref(s): ${missingRefs.join(", ")}`);
 }
-if (stagedRecords.length !== PROOF_REFS.size) {
-  throw new Error(`Expected ${PROOF_REFS.size} proof records, found ${stagedRecords.length}`);
+if (stagedRecords.length !== targetRefs.size) {
+  throw new Error(`Expected ${targetRefs.size} selected records, found ${stagedRecords.length}`);
 }
 
 const banks = await loadBanks();
@@ -273,9 +293,9 @@ const summary = [...touchedBanks]
   .sort((left, right) => left.filename.localeCompare(right.filename))
   .map((bank) => `${bank.filename} (${touchedCounts.get(bank.filename) ?? 0} exhibit refs)`);
 
-console.log(`${writeMode ? "Applied" : "Dry-run validated"} ${stagedRecords.length} structured-measurements proof records.`);
+console.log(`${writeMode ? "Applied" : "Dry-run validated"} ${stagedRecords.length} structured-measurements ${proofMode ? "proof" : "selected"} records.`);
 console.log(`Touched banks: ${summary.join(", ")}`);
-console.log("Proof refs:");
+console.log(`${proofMode ? "Proof" : "Selected"} refs:`);
 for (const record of stagedRecords.sort((left, right) => left.exhibitRef.localeCompare(right.exhibitRef))) {
   console.log(`- ${record.exhibitRef} [${record.bucket}]`);
 }
