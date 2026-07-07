@@ -52,9 +52,10 @@ assert.ok(MEASUREMENT_ALLOWLIST.ionized_calcium.acceptedSourceUnits.includes("mE
 assert.equal(MEASUREMENT_ALLOWLIST.troponin_i.kind, "lab", "troponin_i should be structured-only lab measurement");
 assert.equal(MEASUREMENT_ALLOWLIST.troponin_i.canonicalUnit, "ng/mL", "troponin_i canonical unit should be ng/mL");
 assert.deepEqual(MEASUREMENT_ALLOWLIST.troponin_i.acceptedSourceUnits, ["ng/mL", "µg/L"], "troponin_i accepted units should be pinned");
-assert.equal(MEASUREMENT_ALLOWLIST.sao2.kind, "vital", "sao2 should be structured-only vital measurement");
+assert.equal(MEASUREMENT_ALLOWLIST.sao2.kind, "lab", "sao2 should be structured-only lab/ABG measurement");
 assert.deepEqual(MEASUREMENT_ALLOWLIST.sao2.acceptedSourceUnits, ["%"], "sao2 accepted units should be pinned");
 assert.equal("troponin_i" in ANALYTE_DEFS, false, "troponin_i must not widen lab_trend analytes");
+assert.equal("sao2" in ANALYTE_DEFS, false, "sao2 must not widen lab_trend analytes");
 assert.equal("sao2" in VITAL_DEFS, false, "sao2 must not widen vitals_trend keys");
 
 console.log("measurement allowlist tests passed");

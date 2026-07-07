@@ -51,7 +51,7 @@ const structuredOnlyEntries = [
     canonicalUnit: "%",
     acceptedSourceUnits: ["%"],
     sanity: { min: 50, max: 100 },
-    kind: "vital",
+    kind: "lab",
   })],
 ] as const;
 

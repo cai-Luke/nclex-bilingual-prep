@@ -407,6 +407,11 @@ const structuredMeasurementsCase = {
                 label: pair("Troponin I"),
                 values: [{ columnId: "ed", value: "0.18", unit: "ng/mL" }],
               },
+              {
+                key: "sao2",
+                label: pair("SaO2"),
+                values: [{ columnId: "ed", value: "85", unit: "%" }],
+              },
             ],
           },
           {
@@ -414,9 +419,9 @@ const structuredMeasurementsCase = {
             columns: [{ id: "arrival", label: pair("Arrival") }],
             rows: [
               {
-                key: "sao2",
-                label: pair("SaO2"),
-                values: [{ columnId: "arrival", value: "85", unit: "%" }],
+                key: "spo2",
+                label: pair("SpO2"),
+                values: [{ columnId: "arrival", value: "88", unit: "%" }],
               },
             ],
           },
@@ -482,6 +487,18 @@ const badKindResult = validateBankObject({
 assert.equal(badKindResult.ok, false);
 if (!badKindResult.ok) {
   assert(badKindResult.reasons.some((reason) => reason.includes("troponin_i") && reason.includes("cannot appear in a vitals panel")));
+}
+
+const badSao2Vitals = structuredClone(structuredMeasurementsCase);
+badSao2Vitals.caseStudy.exhibits[0].structuredMeasurements.panels[1].rows[0].key = "sao2";
+badSao2Vitals.caseStudy.exhibits[0].structuredMeasurements.panels[1].rows[0].label = pair("SaO2");
+const badSao2VitalsResult = validateBankObject({
+  meta: { schemaVersion: "1.8", count: 1 },
+  questions: [badSao2Vitals],
+});
+assert.equal(badSao2VitalsResult.ok, false);
+if (!badSao2VitalsResult.ok) {
+  assert(badSao2VitalsResult.reasons.some((reason) => reason.includes("sao2") && reason.includes("cannot appear in a vitals panel")));
 }
 
 const strictStructuredClean = validateBankObject({

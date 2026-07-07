@@ -53,7 +53,8 @@ The committed NGN item-type set is complete. Rationale/dyad scoring and an expli
 
 Completed:
 - Added schema `1.8` support for optional case-study exhibit `structuredMeasurements`, with typed `panels[]`, lab/vital panel-kind checks, same-panel `columnId` integrity, measurement allowlist/unit validation, values-only flag/range rejection, strict unknown-key recursion, and export-envelope version inference.
-- Added structured-measurement-only allowlist entries for `troponin_i` and `sao2` without widening the `lab_trend`/`vitals_trend` key unions, and de-conflated the flowsheet gate so `SaO2` no longer matches `spo2` and bare troponin no longer maps to `troponin_t`.
+- Added structured-measurement-only allowlist entries for `troponin_i` and lab/ABG `sao2` without widening the `lab_trend`/`vitals_trend` key unions, and de-conflated the flowsheet gate so `SaO2` no longer matches `spo2` and bare troponin no longer maps to `troponin_t`.
+- Corrected `sao2` panel classification to labs/ABG only and pinned the positive split with `spo2` in vitals plus `sao2` in labs.
 - Added shared structured-measurement formatting/serialization/rendering: conventional-primary display with optional SI parentheses, TTS and review-prompt text serialization, and inline flat table rendering in case exhibits using existing deterministic table primitives.
 - Added focused regression coverage: schema/floor/strict-key cases, measurement allowlist drift guard, flowsheet gate de-conflation cases, structured measurement formatter/serializer/SVG test.
 
