@@ -23,8 +23,8 @@ for (const [key, def] of Object.entries(ANALYTE_DEFS)) {
 
 assert.equal(
   ALLOWLIST_KEYS.size,
-  Object.keys(VITAL_DEFS).length + Object.keys(ANALYTE_DEFS).length,
-  "ALLOWLIST_KEYS should contain every registry key and no extras",
+  Object.keys(VITAL_DEFS).length + Object.keys(ANALYTE_DEFS).length + 2,
+  "ALLOWLIST_KEYS should contain every registry key plus structured-only keys",
 );
 
 assert.ok(Object.isFrozen(MEASUREMENT_ALLOWLIST), "allowlist table should be frozen");
@@ -49,5 +49,12 @@ assert.equal(MEASUREMENT_ALLOWLIST.platelets.canonicalUnit, "×10³/µL", "plate
 assert.ok(MEASUREMENT_ALLOWLIST.magnesium.acceptedSourceUnits.includes("mEq/L"), "magnesium should accept mEq/L as a source unit");
 assert.ok(MEASUREMENT_ALLOWLIST.calcium.acceptedSourceUnits.includes("mEq/L"), "total calcium should accept mEq/L as a source unit");
 assert.ok(MEASUREMENT_ALLOWLIST.ionized_calcium.acceptedSourceUnits.includes("mEq/L"), "ionized calcium should accept mEq/L as a source unit");
+assert.equal(MEASUREMENT_ALLOWLIST.troponin_i.kind, "lab", "troponin_i should be structured-only lab measurement");
+assert.equal(MEASUREMENT_ALLOWLIST.troponin_i.canonicalUnit, "ng/mL", "troponin_i canonical unit should be ng/mL");
+assert.deepEqual(MEASUREMENT_ALLOWLIST.troponin_i.acceptedSourceUnits, ["ng/mL", "µg/L"], "troponin_i accepted units should be pinned");
+assert.equal(MEASUREMENT_ALLOWLIST.sao2.kind, "vital", "sao2 should be structured-only vital measurement");
+assert.deepEqual(MEASUREMENT_ALLOWLIST.sao2.acceptedSourceUnits, ["%"], "sao2 accepted units should be pinned");
+assert.equal("troponin_i" in ANALYTE_DEFS, false, "troponin_i must not widen lab_trend analytes");
+assert.equal("sao2" in VITAL_DEFS, false, "sao2 must not widen vitals_trend keys");
 
 console.log("measurement allowlist tests passed");

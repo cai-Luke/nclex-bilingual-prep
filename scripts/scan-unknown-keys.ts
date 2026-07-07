@@ -441,12 +441,45 @@ const scanQuestion = (ctx: ScanContext, value: unknown, path: string, fallbackId
   }
 };
 
+const scanStructuredMeasurements = (ctx: ScanContext, value: unknown, path: string, objectId: string) => {
+  recordUnknowns(ctx.findings, ctx.bank, objectId, path, "structuredMeasurements", value, standardKeySet("structuredMeasurements"));
+  if (!isRecord(value) || !Array.isArray(value.panels)) return;
+  value.panels.forEach((panel, panelIndex) => {
+    const panelPath = `${path}.panels[${panelIndex}]`;
+    recordUnknowns(ctx.findings, ctx.bank, objectId, panelPath, "structuredMeasurementPanel", panel, standardKeySet("structuredMeasurementPanel"));
+    if (!isRecord(panel)) return;
+    if (Array.isArray(panel.columns)) {
+      panel.columns.forEach((column, columnIndex) => {
+        const columnPath = `${panelPath}.columns[${columnIndex}]`;
+        recordUnknowns(ctx.findings, ctx.bank, objectId, columnPath, "structuredMeasurementColumn", column, standardKeySet("structuredMeasurementColumn"));
+        if (isRecord(column) && column.label !== undefined) scanTextPair(ctx, column.label, `${columnPath}.label`, objectId);
+      });
+    }
+    if (Array.isArray(panel.rows)) {
+      panel.rows.forEach((row, rowIndex) => {
+        const rowPath = `${panelPath}.rows[${rowIndex}]`;
+        recordUnknowns(ctx.findings, ctx.bank, objectId, rowPath, "structuredMeasurementRow", row, standardKeySet("structuredMeasurementRow"));
+        if (!isRecord(row)) return;
+        scanTextPair(ctx, row.label, `${rowPath}.label`, objectId);
+        if (Array.isArray(row.values)) {
+          row.values.forEach((entry, valueIndex) =>
+            recordUnknowns(ctx.findings, ctx.bank, objectId, `${rowPath}.values[${valueIndex}]`, "structuredMeasurementValue", entry, standardKeySet("structuredMeasurementValue")),
+          );
+        }
+      });
+    }
+  });
+};
+
 const scanCaseStudyExhibit = (ctx: ScanContext, value: unknown, path: string, objectId: string) => {
   recordUnknowns(ctx.findings, ctx.bank, objectId, path, "caseStudyExhibit", value, standardKeySet("caseStudyExhibit"));
   if (!isRecord(value)) return;
   scanTextPair(ctx, value.title, `${path}.title`, objectId);
   scanTextPair(ctx, value.content, `${path}.content`, objectId);
   if (value.visual !== undefined) scanVisual(ctx, value.visual, `${path}.visual`, objectId);
+  if (value.structuredMeasurements !== undefined) {
+    scanStructuredMeasurements(ctx, value.structuredMeasurements, `${path}.structuredMeasurements`, objectId);
+  }
 };
 
 const scanBank = (bank: string, text: string, raw: unknown) => {

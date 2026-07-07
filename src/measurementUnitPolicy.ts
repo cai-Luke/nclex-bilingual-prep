@@ -74,6 +74,7 @@ export const LINEAR_UNIT_FACTORS: Readonly<Record<string, number>> = Object.free
   [factorKey("phosphate", "mmol/L")]: 3.097,
   [factorKey("hemoglobin", "g/L")]: 0.1,
   [factorKey("troponin_t", "µg/L")]: 1,
+  [factorKey("troponin_i", "µg/L")]: 1,
   [factorKey("ptt", "sec")]: 1,
 });
 
@@ -114,5 +115,25 @@ export const toCanonicalMeasurementValue = (key: string, rawValue: string, sourc
   if (!def) return null;
   if (normalizedUnit === normalizeUnit(def.canonicalUnit)) return value;
   if (def.acceptedSourceUnits.map(normalizeUnit).includes(normalizedUnit)) return null;
+  return null;
+};
+
+export const toMeasurementDisplayValue = (
+  key: string,
+  rawValue: string,
+  sourceUnit: string,
+  displayUnit: string,
+): number | null => {
+  const canonicalValue = toCanonicalMeasurementValue(key, rawValue, sourceUnit);
+  if (canonicalValue === null) return null;
+  const def = MEASUREMENT_ALLOWLIST[key];
+  if (!def) return null;
+  const normalizedDisplayUnit = normalizeUnit(displayUnit);
+  if (normalizedDisplayUnit === normalizeUnit(def.canonicalUnit)) return canonicalValue;
+
+  const canonicalFromDisplayFactor = LINEAR_UNIT_FACTORS[factorKey(key, displayUnit)];
+  if (canonicalFromDisplayFactor !== undefined) return canonicalValue / canonicalFromDisplayFactor;
+
+  if (normalizedDisplayUnit === normalizeUnit(sourceUnit)) return parseMeasurementValue(rawValue);
   return null;
 };

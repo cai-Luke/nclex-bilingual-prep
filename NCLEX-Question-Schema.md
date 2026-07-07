@@ -1,6 +1,6 @@
 # NCLEX Bank — Canonical Question Schema
 
-**schemaVersion: `1.7` — current.** This document is the canonical authoring and review contract; runtime behavior is implemented by `src/types.ts`, `src/schema.ts`, and the registered modules under `src/visuals/`. `1.0` standalone-question banks, `1.1` case-study banks, `1.2` visual banks, `1.3` highlight banks, `1.4` bowtie banks, `1.5` rationale-visual banks, and `1.6` unfolding case-study metadata banks remain supported. Do not change shapes without bumping `schemaVersion` and writing a migration.
+**schemaVersion: `1.8` — current.** This document is the canonical authoring and review contract; runtime behavior is implemented by `src/types.ts`, `src/schema.ts`, and the registered modules under `src/visuals/`. `1.0` standalone-question banks, `1.1` case-study banks, `1.2` visual banks, `1.3` highlight banks, `1.4` bowtie banks, `1.5` rationale-visual banks, `1.6` unfolding case-study metadata banks, and `1.7` pacer-bearing rhythm-strip banks remain supported. Do not change shapes without bumping `schemaVersion` and writing a migration.
 
 ---
 
@@ -25,7 +25,7 @@ A generated bank is one JSON object:
 ```json
 {
   "meta": {
-    "schemaVersion": "1.7",
+    "schemaVersion": "1.8",
     "exam": "NCLEX-RN",
     "topic": "echo of the requested topic",
     "category": "echo of the requested category, or 'mixed'",
@@ -36,7 +36,7 @@ A generated bank is one JSON object:
 }
 ```
 
-The importer also accepts a bare `[ ... ]` array of Question objects (no envelope). When present, `meta.schemaVersion` must be `"1.0"`, `"1.1"`, `"1.2"`, `"1.3"`, `"1.4"`, `"1.5"`, `"1.6"`, or `"1.7"`. `case_study` requires `"1.1"` or later. `visual` requires `"1.2"` or later. `highlight`, including a highlight embedded in a case study, requires `"1.3"`. Standalone `bowtie` requires `"1.4"`. `rationale.visuals` (explanation visuals) requires `"1.5"`. Case-study unfolding metadata fields (`stageId`, `answerableAfterStageId`, stage `trigger`/`narrative`/`timeOffset`, and exhibit `type`) require `"1.6"`. Pacer-bearing `rhythm_strip` visuals require `"1.7"`.
+The importer also accepts a bare `[ ... ]` array of Question objects (no envelope). When present, `meta.schemaVersion` must be `"1.0"`, `"1.1"`, `"1.2"`, `"1.3"`, `"1.4"`, `"1.5"`, `"1.6"`, `"1.7"`, or `"1.8"`. `case_study` requires `"1.1"` or later. `visual` requires `"1.2"` or later. `highlight`, including a highlight embedded in a case study, requires `"1.3"`. Standalone `bowtie` requires `"1.4"`. `rationale.visuals` (explanation visuals) requires `"1.5"`. Case-study unfolding metadata fields (`stageId`, `answerableAfterStageId`, stage `trigger`/`narrative`/`timeOffset`, and exhibit `type`) require `"1.6"`. Pacer-bearing `rhythm_strip` visuals require `"1.7"`. Case-study exhibit `structuredMeasurements` requires `"1.8"`.
 
 ---
 
@@ -933,6 +933,21 @@ Rows are statements/findings; columns are categories. Each row gets a selection.
         "id": "triage",
         "title": { "en": "0730 triage note", "zh": "..." },
         "content": { "en": "Vital signs, history, labs, etc.", "zh": "..." },
+        "structuredMeasurements": {
+          "panels": [
+            {
+              "kind": "vitals",
+              "columns": [{ "id": "arrival", "label": { "en": "Arrival", "zh": "到达时" } }],
+              "rows": [
+                {
+                  "key": "spo2",
+                  "label": { "en": "SpO2", "zh": "血氧饱和度" },
+                  "values": [{ "columnId": "arrival", "value": "88", "unit": "%" }]
+                }
+              ]
+            }
+          ]
+        },
         "visual": { "kind": "rhythm_strip", "rhythm": "sinus", "rateBpm": 75 }
       }
     ],
@@ -967,6 +982,11 @@ Rows are statements/findings; columns are categories. Each row gets a selection.
 - `caseStudy.exhibits`: required, at least one exhibit. Use concise chart-like content; newline-separated vitals/labs are allowed.
 - `caseStudy.exhibits[].type`: optional schema `1.6` discriminator string. Current renderer does not consume it; observed canonical value is `"text"`.
 - `caseStudy.exhibits[].visual`: optional schema `1.2` visual stimulus. Exhibit `title` and `content` remain required even when a visual is present.
+- `caseStudy.exhibits[].structuredMeasurements`: optional schema `1.8` structured table stimulus for validated labs/vitals snapshots. It is additive to `content`; prose stays intact except for pure key-value exhibits handled by the deterministic applicator.
+- `structuredMeasurements.panels`: required non-empty array. Each panel has `kind: "labs" | "vitals"`, non-empty `columns`, and non-empty `rows`. One exhibit may carry both labs and vitals panels.
+- `structuredMeasurements.panels[].columns[]`: applicator-authored column ids and optional bilingual labels such as `"ED"`, `"1600"`, or `"on admission"`. The renderer never infers columns from source prose.
+- `structuredMeasurements.panels[].rows[]`: each row has an allowlist `key`, bilingual `label`, and non-empty `values`. Lab keys must appear in `labs` panels; vital keys must appear in `vitals` panels. The allowlist lives in `src/measurementAllowlist.ts`.
+- `structuredMeasurements.panels[].rows[].values[]`: each value has `columnId`, byte-exact source `value`, accepted input `unit`, and optional `context: "post_intervention"`. `columnId` must resolve within the same panel. Flags and reference ranges are out of scope for v1 and must not be stored.
 - `caseStudy.stages`: optional unfolding updates, each with at least one exhibit. Schema `1.6` adds optional `trigger` and `narrative` (`{ en, zh }`) plus optional plain string `timeOffset`; these are metadata today and are not rendered as separate controls.
 - `caseStudy.questions`: 2–6 embedded questions using any current standalone item type except `bowtie`. Each must include its own full common fields, rationale, strategy, and glossary. An embedded `highlight` requires the enclosing bank to declare schema `1.3`. Schema `1.6` adds optional opaque string `stageId` and `answerableAfterStageId`; validators do not enforce that these match `caseStudy.stages[].id` because current canonical also uses baseline/admission labels.
 - Embedded question ids must be unique within the case and differ from the parent case id.
@@ -1083,7 +1103,7 @@ An item is **invalid → skipped and reported** (never partially rendered) if an
 - **dropdown_cloze:** a `{{id}}` in `clozeStem` with no matching dropdown (or vice versa); a dropdown `correct` not among its options; placeholders missing from `zh`.
 - **highlight:** missing `segments`/`correct`; duplicate segment ids; no selectable segment; a keyed id that is absent or non-selectable; duplicate keyed ids; every selectable segment is keyed; empty segment `en`/`zh`; or a `rationale.byChoice.refId` that is duplicated or does not resolve to a selectable segment.
 - **bowtie:** missing zones/tokens; wrong fixed correct counts; a key outside its zone; duplicate key ids; token ids duplicated across zones; duplicate `en` or `zh` display text within a zone; empty token text; no distractor in a zone; an unresolved or duplicate `rationale.byChoice.refId`; embedding in a case study; or use below schema `1.4`.
-- **case_study:** `meta.schemaVersion` is `"1.0"`; missing `caseStudy.exhibits`; fewer than 2 or more than 6 embedded questions; an embedded question is another `case_study` or a `bowtie`; embedded ids are duplicated.
+- **case_study:** `meta.schemaVersion` is `"1.0"`; missing `caseStudy.exhibits`; fewer than 2 or more than 6 embedded questions; an embedded question is another `case_study` or a `bowtie`; embedded ids are duplicated; `structuredMeasurements` present below schema `"1.8"`; malformed structured panels/columns/rows/values; value `columnId` not resolving to the same panel; row key not in the measurement allowlist; unit not accepted for the row key; lab/vital key in the wrong panel kind; or any authored flag/reference-range field in structured measurements.
 - **visual:** present in a versioned bank below schema `"1.2"`; pacer-bearing `rhythm_strip` present below schema `"1.7"`; placed on an unsupported item type; unknown visual `kind`; invalid rhythm class; out-of-range rate, duration, interval, seed, atrial rate, or conduction ratio.
 
 Report format: `"imported N of M; skipped K (reasons...)"`.
@@ -1109,8 +1129,8 @@ Scoring is polytomous (partial credit), matching the NGN. Each item yields `{ ea
 
 ## Notes
 
-- `highlight` text items are supported in schema `1.3`; standalone bowtie items are supported in schema `1.4`; rationale explanation visuals are supported in schema `1.5`; additive unfolding case-study metadata is supported in schema `1.6`; pacer-bearing `rhythm_strip` visuals are supported in schema `1.7`. The current NGN item-type set is complete. Highlight: Table remains deferred.
-- Migration from `1.6` to `1.7` requires no content changes. Only banks containing pacer-bearing `rhythm_strip` visuals need to declare `meta.schemaVersion: "1.7"`.
+- `highlight` text items are supported in schema `1.3`; standalone bowtie items are supported in schema `1.4`; rationale explanation visuals are supported in schema `1.5`; additive unfolding case-study metadata is supported in schema `1.6`; pacer-bearing `rhythm_strip` visuals are supported in schema `1.7`; case-study exhibit `structuredMeasurements` are supported in schema `1.8`. The current NGN item-type set is complete. Highlight: Table remains deferred.
+- Migration from `1.7` to `1.8` requires no content changes. Only banks containing case-study exhibit `structuredMeasurements` need to declare `meta.schemaVersion: "1.8"`.
 - Rationale/dyad scoring and any explicit linked “X as evidenced by Y” item type remain out of scope; no current item type requires them.
 - `case_study` is the v1.1 hard-mode container for multi-part unfolding practice. It deliberately reuses v1.0 embedded item types instead of introducing new grading rules.
 - IDs: any unique string is fine. A readable convention like `<type>_<topicslug>_<n>` helps debugging but isn't required.

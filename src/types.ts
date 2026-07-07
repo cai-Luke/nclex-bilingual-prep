@@ -3,7 +3,7 @@ export type TextPair = {
   zh: string;
 };
 
-export type SchemaVersion = "1.0" | "1.1" | "1.2" | "1.3" | "1.4" | "1.5" | "1.6" | "1.7";
+export type SchemaVersion = "1.0" | "1.1" | "1.2" | "1.3" | "1.4" | "1.5" | "1.6" | "1.7" | "1.8";
 
 export type StandaloneItemType =
   | "multiple_choice"
@@ -184,12 +184,41 @@ export type StandaloneQuestion =
   | HighlightQuestion
   | BowtieQuestion;
 
+export type StructuredMeasurementValue = {
+  columnId: string;
+  value: string;
+  unit: string;
+  context?: "post_intervention";
+};
+
+export type StructuredMeasurementRow = {
+  key: string;
+  label: TextPair;
+  values: StructuredMeasurementValue[];
+};
+
+export type StructuredMeasurementColumn = {
+  id: string;
+  label?: TextPair;
+};
+
+export type StructuredMeasurementPanel = {
+  kind: "labs" | "vitals";
+  columns: StructuredMeasurementColumn[];
+  rows: StructuredMeasurementRow[];
+};
+
+export type StructuredMeasurements = {
+  panels: StructuredMeasurementPanel[];
+};
+
 export type CaseStudyExhibit = {
   id: string;
   type?: string;
   title: TextPair;
   content: TextPair;
   visual?: QuestionVisual;
+  structuredMeasurements?: StructuredMeasurements;
 };
 
 export type CaseStudyStage = {

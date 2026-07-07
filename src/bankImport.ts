@@ -172,9 +172,20 @@ const hasPacerRhythmStrip = (question: Question) => {
   );
 };
 
+const hasStructuredMeasurements = (question: Question) => {
+  if (question.itemType !== "case_study") return false;
+  return (
+    question.caseStudy.exhibits.some((exhibit) => exhibit.structuredMeasurements !== undefined) ||
+    question.caseStudy.stages?.some((stage) => stage.exhibits.some((exhibit) => exhibit.structuredMeasurements !== undefined)) ||
+    false
+  );
+};
+
 export const toExportEnvelope = (questions: Question[]): BankEnvelope => ({
   meta: {
-    schemaVersion: questions.some(hasPacerRhythmStrip)
+    schemaVersion: questions.some(hasStructuredMeasurements)
+      ? "1.8"
+      : questions.some(hasPacerRhythmStrip)
       ? "1.7"
       : questions.some(hasSchema16CaseFields)
       ? "1.6"

@@ -382,6 +382,128 @@ assert.equal(schema16ExportEnvelope.meta?.schemaVersion, "1.6");
 const schema17ExportEnvelope = toExportEnvelope([pacerQuestion as unknown as Question]);
 assert.equal(schema17ExportEnvelope.meta?.schemaVersion, "1.7");
 
+const structuredMeasurementsCase = {
+  ...embeddedCaseStudy,
+  id: "schema_18_structured_measurements_case",
+  caseStudy: {
+    ...embeddedCaseStudy.caseStudy,
+    exhibits: [{
+      id: "labs_vitals",
+      title: pair("Labs and vitals"),
+      content: pair("Structured measurements are shown below."),
+      structuredMeasurements: {
+        panels: [
+          {
+            kind: "labs",
+            columns: [{ id: "ed", label: pair("ED") }],
+            rows: [
+              {
+                key: "potassium",
+                label: pair("Potassium"),
+                values: [{ columnId: "ed", value: "6.2", unit: "mEq/L" }],
+              },
+              {
+                key: "troponin_i",
+                label: pair("Troponin I"),
+                values: [{ columnId: "ed", value: "0.18", unit: "ng/mL" }],
+              },
+            ],
+          },
+          {
+            kind: "vitals",
+            columns: [{ id: "arrival", label: pair("Arrival") }],
+            rows: [
+              {
+                key: "sao2",
+                label: pair("SaO2"),
+                values: [{ columnId: "arrival", value: "85", unit: "%" }],
+              },
+            ],
+          },
+        ],
+      },
+    }],
+  },
+};
+
+assert.equal(validateBankObject({
+  meta: { schemaVersion: "1.8", count: 1 },
+  questions: [structuredMeasurementsCase],
+}).ok, true);
+
+const stale18Floor = validateBankObject({
+  meta: { schemaVersion: "1.7", count: 1 },
+  questions: [structuredMeasurementsCase],
+});
+assert.equal(stale18Floor.ok, false);
+if (!stale18Floor.ok) {
+  assert(stale18Floor.reasons.includes("questions[0]: structuredMeasurements requires meta.schemaVersion 1.8"));
+}
+
+const badStructuredColumn = structuredClone(structuredMeasurementsCase);
+badStructuredColumn.caseStudy.exhibits[0].structuredMeasurements.panels[0].rows[0].values[0].columnId = "missing";
+const badColumnResult = validateBankObject({
+  meta: { schemaVersion: "1.8", count: 1 },
+  questions: [badStructuredColumn],
+});
+assert.equal(badColumnResult.ok, false);
+if (!badColumnResult.ok) {
+  assert(badColumnResult.reasons.some((reason) => reason.includes("columnId 'missing' does not match a column id")));
+}
+
+const badStructuredUnit = structuredClone(structuredMeasurementsCase);
+badStructuredUnit.caseStudy.exhibits[0].structuredMeasurements.panels[0].rows[0].values[0].unit = "mg/dL";
+const badUnitResult = validateBankObject({
+  meta: { schemaVersion: "1.8", count: 1 },
+  questions: [badStructuredUnit],
+});
+assert.equal(badUnitResult.ok, false);
+if (!badUnitResult.ok) {
+  assert(badUnitResult.reasons.some((reason) => reason.includes("unit 'mg/dL' is not accepted for measurement key 'potassium'")));
+}
+
+const badStructuredFlag = structuredClone(structuredMeasurementsCase);
+(badStructuredFlag.caseStudy.exhibits[0].structuredMeasurements.panels[0].rows[0].values[0] as Record<string, unknown>).flag = "H";
+const badFlagResult = validateBankObject({
+  meta: { schemaVersion: "1.8", count: 1 },
+  questions: [badStructuredFlag],
+});
+assert.equal(badFlagResult.ok, false);
+if (!badFlagResult.ok) {
+  assert(badFlagResult.reasons.some((reason) => reason.includes("flag is not allowed in structuredMeasurements v1")));
+}
+
+const badStructuredKind = structuredClone(structuredMeasurementsCase);
+badStructuredKind.caseStudy.exhibits[0].structuredMeasurements.panels[1].rows[0].key = "troponin_i";
+const badKindResult = validateBankObject({
+  meta: { schemaVersion: "1.8", count: 1 },
+  questions: [badStructuredKind],
+});
+assert.equal(badKindResult.ok, false);
+if (!badKindResult.ok) {
+  assert(badKindResult.reasons.some((reason) => reason.includes("troponin_i") && reason.includes("cannot appear in a vitals panel")));
+}
+
+const strictStructuredClean = validateBankObject({
+  meta: { schemaVersion: "1.8", count: 1 },
+  questions: [structuredMeasurementsCase],
+}, { rejectUnknownKeys: true });
+assert.equal(strictStructuredClean.ok, true);
+
+const strictStructuredExtra = structuredClone(structuredMeasurementsCase);
+(strictStructuredExtra.caseStudy.exhibits[0].structuredMeasurements.panels[0].rows[0].values[0] as Record<string, unknown>).sourceUnit = "mEq/L";
+const strictStructuredExtraResult = validateBankObject({
+  meta: { schemaVersion: "1.8", count: 1 },
+  questions: [strictStructuredExtra],
+}, { rejectUnknownKeys: true });
+assert.equal(strictStructuredExtraResult.ok, false);
+if (!strictStructuredExtraResult.ok) {
+  assert(strictStructuredExtraResult.reasons.some((reason) => reason.includes("has unknown key 'sourceUnit'")));
+}
+
+const schema18ExportEnvelope = toExportEnvelope([structuredMeasurementsCase as unknown as Question]);
+assert.equal(schema18ExportEnvelope.meta?.schemaVersion, "1.8");
+
 const strictClean = validateBankObject({
   meta: { schemaVersion: "1.5", count: 1 },
   questions: [withRationaleVisuals([rationaleVisual])],

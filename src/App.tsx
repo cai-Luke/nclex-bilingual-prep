@@ -98,6 +98,7 @@ import {
   summarizeTranslationFriction,
   summarizeTranslationRevealEvents,
 } from "./translationTelemetry";
+import { StructuredMeasurementsStimulus } from "./StructuredMeasurementsStimulus";
 import { VisualStimulus } from "./visuals";
 import { mulberry32 } from "./visuals/primitives/prng";
 import { STANDALONE_SPLIT_VISUAL_KINDS, getVisibleCaseStages, usesStandaloneVisualSplit } from "./examLayout";
@@ -4460,6 +4461,7 @@ function CaseExhibit({
         onTerm={onTerm}
       />
       <VisualStimulus visual={exhibit.visual} languageMode={languageMode} />
+      <StructuredMeasurementsStimulus measurements={exhibit.structuredMeasurements} languageMode={languageMode} />
       <BilingualText
         pair={exhibit.content}
         mode={languageMode}

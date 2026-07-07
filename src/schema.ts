@@ -17,13 +17,15 @@ import type {
   TextPair,
 } from "./types";
 import { allowedKeySets } from "./allowedKeys";
+import { ALLOWLIST_KEYS, MEASUREMENT_ALLOWLIST } from "./measurementAllowlist";
+import { normalizeUnit } from "./measurementUnitPolicy";
 import { getVisual, VISUAL_ITEM_TYPES, type VisualError } from "./visuals/registry";
 import "./visuals/kinds"; // register every visual kind for validation (React-free)
 export { rhythmClasses } from "./visuals/kinds/rhythmStrip";
 
-export const SCHEMA_VERSION = "1.7";
+export const SCHEMA_VERSION = "1.8";
 
-export const supportedSchemaVersions = ["1.0", "1.1", "1.2", "1.3", "1.4", "1.5", "1.6", "1.7"] as const satisfies readonly SchemaVersion[];
+export const supportedSchemaVersions = ["1.0", "1.1", "1.2", "1.3", "1.4", "1.5", "1.6", "1.7", "1.8"] as const satisfies readonly SchemaVersion[];
 
 export const categories = [
   "Management of Care",
@@ -275,6 +277,38 @@ const collectRationaleUnknownKeys = (value: unknown, path: string, reasons: stri
   }
 };
 
+const collectStructuredMeasurementsUnknownKeys = (value: unknown, path: string, reasons: string[]) => {
+  unknownKeys(value, path, "structuredMeasurements", keySet(allowedKeySets.structuredMeasurements), reasons);
+  if (!isRecord(value) || !Array.isArray(value.panels)) return;
+  value.panels.forEach((panel, panelIndex) => {
+    const panelPath = `${path}.panels[${panelIndex}]`;
+    unknownKeys(panel, panelPath, "structuredMeasurementPanel", keySet(allowedKeySets.structuredMeasurementPanel), reasons);
+    if (!isRecord(panel)) return;
+    if (Array.isArray(panel.columns)) {
+      panel.columns.forEach((column, columnIndex) => {
+        const columnPath = `${panelPath}.columns[${columnIndex}]`;
+        unknownKeys(column, columnPath, "structuredMeasurementColumn", keySet(allowedKeySets.structuredMeasurementColumn), reasons);
+        if (isRecord(column) && column.label !== undefined) {
+          collectTextPairUnknownKeys(column.label, `${columnPath}.label`, reasons);
+        }
+      });
+    }
+    if (Array.isArray(panel.rows)) {
+      panel.rows.forEach((row, rowIndex) => {
+        const rowPath = `${panelPath}.rows[${rowIndex}]`;
+        unknownKeys(row, rowPath, "structuredMeasurementRow", keySet(allowedKeySets.structuredMeasurementRow), reasons);
+        if (!isRecord(row)) return;
+        collectTextPairUnknownKeys(row.label, `${rowPath}.label`, reasons);
+        if (Array.isArray(row.values)) {
+          row.values.forEach((entry, valueIndex) =>
+            unknownKeys(entry, `${rowPath}.values[${valueIndex}]`, "structuredMeasurementValue", keySet(allowedKeySets.structuredMeasurementValue), reasons),
+          );
+        }
+      });
+    }
+  });
+};
+
 const collectOptionsUnknownKeys = (value: unknown, path: string, reasons: string[]) => {
   if (!Array.isArray(value)) return;
   value.forEach((option, index) => unknownKeys(option, `${path}[${index}]`, "option", keySet(allowedKeySets.option), reasons));
@@ -286,6 +320,9 @@ const collectCaseStudyExhibitUnknownKeys = (value: unknown, path: string, reason
   collectTextPairUnknownKeys(value.title, `${path}.title`, reasons);
   collectTextPairUnknownKeys(value.content, `${path}.content`, reasons);
   if (value.visual !== undefined) collectVisualUnknownKeys(value.visual, `${path}.visual`, reasons);
+  if (value.structuredMeasurements !== undefined) {
+    collectStructuredMeasurementsUnknownKeys(value.structuredMeasurements, `${path}.structuredMeasurements`, reasons);
+  }
 };
 
 const collectQuestionUnknownKeys = (
@@ -453,6 +490,140 @@ export const validateVisual = (
   if (mod.selfCheck && options.question && reasons.length === initialReasonsLen) {
     for (const err of mod.selfCheck(value as never, options.question)) reasons.push(formatVisualError(basePath, err));
   }
+};
+
+const forbiddenStructuredMeasurementKeys = new Set([
+  "flag",
+  "referenceRange",
+  "reference_range",
+  "refRange",
+  "refBand",
+  "referenceBand",
+  "low",
+  "high",
+  "range",
+  "normalRange",
+]);
+
+const collectForbiddenStructuredMeasurementFields = (value: unknown, path: string, reasons: string[]): void => {
+  if (Array.isArray(value)) {
+    value.forEach((item, index) => collectForbiddenStructuredMeasurementFields(item, `${path}[${index}]`, reasons));
+    return;
+  }
+  if (!isRecord(value)) return;
+  for (const [key, child] of Object.entries(value)) {
+    if (forbiddenStructuredMeasurementKeys.has(key)) {
+      reasons.push(`${path}.${key} is not allowed in structuredMeasurements v1 (values-only; omit flags and reference ranges)`);
+    }
+    collectForbiddenStructuredMeasurementFields(child, `${path}.${key}`, reasons);
+  }
+};
+
+const isAcceptedMeasurementUnit = (key: string, unit: string) => {
+  const def = MEASUREMENT_ALLOWLIST[key];
+  if (!def) return false;
+  const normalized = normalizeUnit(unit);
+  return def.acceptedSourceUnits.map(normalizeUnit).includes(normalized);
+};
+
+const validateStructuredMeasurements = (value: unknown, path: string, reasons: string[]) => {
+  if (!isRecord(value)) {
+    reasons.push(`${path} must be an object`);
+    return;
+  }
+  collectForbiddenStructuredMeasurementFields(value, path, reasons);
+  if (!Array.isArray(value.panels) || value.panels.length === 0) {
+    reasons.push(`${path}.panels must be a non-empty array`);
+    return;
+  }
+
+  value.panels.forEach((panel, panelIndex) => {
+    const panelPath = `${path}.panels[${panelIndex}]`;
+    if (!isRecord(panel)) {
+      reasons.push(`${panelPath} must be an object`);
+      return;
+    }
+    if (panel.kind !== "labs" && panel.kind !== "vitals") {
+      reasons.push(`${panelPath}.kind must be labs or vitals`);
+    }
+    if (!Array.isArray(panel.columns) || panel.columns.length === 0) {
+      reasons.push(`${panelPath}.columns must be a non-empty array`);
+    }
+    if (!Array.isArray(panel.rows) || panel.rows.length === 0) {
+      reasons.push(`${panelPath}.rows must be a non-empty array`);
+    }
+
+    const columnIds = new Set<string>();
+    if (Array.isArray(panel.columns)) {
+      panel.columns.forEach((column, columnIndex) => {
+        const columnPath = `${panelPath}.columns[${columnIndex}]`;
+        if (!isRecord(column)) {
+          reasons.push(`${columnPath} must be an object`);
+          return;
+        }
+        if (!nonEmptyString(column.id)) {
+          reasons.push(`${columnPath}.id is required`);
+        } else if (columnIds.has(column.id)) {
+          reasons.push(`${columnPath}.id duplicates column id ${column.id}`);
+        } else {
+          columnIds.add(column.id);
+        }
+        if (column.label !== undefined) addTextPairError(column.label, `${columnPath}.label`, reasons);
+      });
+    }
+
+    const rowKeys = new Set<string>();
+    if (Array.isArray(panel.rows)) {
+      panel.rows.forEach((row, rowIndex) => {
+        const rowPath = `${panelPath}.rows[${rowIndex}]`;
+        if (!isRecord(row)) {
+          reasons.push(`${rowPath} must be an object`);
+          return;
+        }
+        if (!nonEmptyString(row.key)) {
+          reasons.push(`${rowPath}.key is required`);
+        } else {
+          if (!ALLOWLIST_KEYS.has(row.key)) {
+            reasons.push(`${rowPath}.key '${row.key}' is not in the measurement allowlist`);
+          } else {
+            const def = MEASUREMENT_ALLOWLIST[row.key];
+            const expectedKind = panel.kind === "labs" ? "lab" : "vital";
+            if (def.kind !== expectedKind) {
+              reasons.push(`${rowPath}.key '${row.key}' is a ${def.kind} measurement and cannot appear in a ${panel.kind} panel`);
+            }
+          }
+          if (rowKeys.has(row.key)) reasons.push(`${rowPath}.key duplicates row key ${row.key}`);
+          rowKeys.add(row.key);
+        }
+        addTextPairError(row.label, `${rowPath}.label`, reasons);
+        if (!Array.isArray(row.values) || row.values.length === 0) {
+          reasons.push(`${rowPath}.values must be a non-empty array`);
+          return;
+        }
+        row.values.forEach((entry, valueIndex) => {
+          const valuePath = `${rowPath}.values[${valueIndex}]`;
+          if (!isRecord(entry)) {
+            reasons.push(`${valuePath} must be an object`);
+            return;
+          }
+          if (!nonEmptyString(entry.columnId)) {
+            reasons.push(`${valuePath}.columnId is required`);
+          } else if (!columnIds.has(entry.columnId)) {
+            reasons.push(`${valuePath}.columnId '${entry.columnId}' does not match a column id in the same panel`);
+          }
+          if (!nonEmptyString(entry.value)) reasons.push(`${valuePath}.value is required`);
+          if (!nonEmptyString(entry.unit)) {
+            reasons.push(`${valuePath}.unit is required`);
+          } else if (nonEmptyString(row.key) && ALLOWLIST_KEYS.has(row.key) && !isAcceptedMeasurementUnit(row.key, entry.unit)) {
+            reasons.push(`${valuePath}.unit '${entry.unit}' is not accepted for measurement key '${row.key}'`);
+          }
+          if (entry.context !== undefined && entry.context !== "post_intervention") {
+            reasons.push(`${valuePath}.context must be post_intervention when present`);
+          }
+        });
+      });
+    }
+  });
 };
 
 export const validateQuestion = (raw: unknown, options: ValidateQuestionOptions = {}): ValidationResult<Question> => {
@@ -888,6 +1059,9 @@ const validateCaseStudyExhibit = (value: unknown, path: string, seenIds: Set<str
   addTextPairError(value.title, `${path}.title`, reasons);
   addTextPairError(value.content, `${path}.content`, reasons);
   if (value.visual !== undefined) validateVisual(value.visual, `${path}.visual`, reasons);
+  if (value.structuredMeasurements !== undefined) {
+    validateStructuredMeasurements(value.structuredMeasurements, `${path}.structuredMeasurements`, reasons);
+  }
 };
 
 const validateCaseStudy = (question: CaseStudyQuestion, reasons: string[]) => {
@@ -1029,6 +1203,14 @@ const hasPacerRhythmStrip = (question: Question): boolean => {
   return question.caseStudy.questions.some((caseQuestion) => hasPacerRhythmVisual(caseQuestion.visual));
 };
 
+const hasStructuredMeasurements = (question: Question): boolean => {
+  if (question.itemType !== "case_study") return false;
+  if (question.caseStudy.exhibits.some((exhibit) => exhibit.structuredMeasurements !== undefined)) return true;
+  return question.caseStudy.stages?.some((stage) =>
+    stage.exhibits.some((exhibit) => exhibit.structuredMeasurements !== undefined)
+  ) ?? false;
+};
+
 export const validateBankObject = (raw: unknown, options: ValidateBankOptions = {}): ValidationResult<BankEnvelope> => {
   const reasons: string[] = [];
   const payload = Array.isArray(raw) ? { questions: raw } : raw;
@@ -1136,6 +1318,14 @@ export const validateBankObject = (raw: unknown, options: ValidateBankOptions = 
       hasPacerRhythmStrip(result.value)
     ) {
       reasons.push(`questions[${index}]: pacer rhythm_strip requires meta.schemaVersion 1.7`);
+      return;
+    }
+    if (
+      schemaVersion !== undefined &&
+      cmpSchema(schemaVersion, "1.8") < 0 &&
+      hasStructuredMeasurements(result.value)
+    ) {
+      reasons.push(`questions[${index}]: structuredMeasurements requires meta.schemaVersion 1.8`);
       return;
     }
     if (seen.has(result.value.id)) {

@@ -10,6 +10,7 @@ import { createHash } from "node:crypto";
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { getBankFiles, loadBank } from "../census";
 import { normalizeForTts } from "../../src/audio/normalizeForTts";
+import { serializeStructuredMeasurements } from "../../src/structuredMeasurements";
 import type {
   CaseStudyExhibit,
   Question,
@@ -159,6 +160,7 @@ const walkCommon = (rows: ClipRow[], itemId: string, q: Question): void => {
 const walkExhibit = (rows: ClipRow[], itemId: string, prefix: string, exhibit: CaseStudyExhibit): void => {
   emitPair(rows, itemId, `${prefix}.${exhibit.id}.title`, exhibit.title);
   emitPair(rows, itemId, `${prefix}.${exhibit.id}.content`, exhibit.content);
+  emitPair(rows, itemId, `${prefix}.${exhibit.id}.structuredMeasurements`, serializeStructuredMeasurements(exhibit.structuredMeasurements));
 };
 
 const walkQuestion = (rows: ClipRow[], q: Question): void => {

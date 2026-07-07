@@ -1,6 +1,7 @@
 import type { AnswerState } from "./grading";
 import { getVisibleCaseStages } from "./examLayout";
 import { formatItemType } from "./itemTypes";
+import { serializeStructuredMeasurements } from "./structuredMeasurements";
 import type {
   BowtieQuestion,
   CaseStudyExhibit,
@@ -213,12 +214,17 @@ const renderVisualData = (visual: QuestionVisual, owner = "这道题") => {
   }
 };
 
-const renderExhibit = (exhibit: CaseStudyExhibit, label: string) => [
-  `### ${label}: ${exhibit.title.en} / ${exhibit.title.zh}`,
-  `**Exhibit content — EN:** ${exhibit.content.en}`,
-  `**病例资料 — ZH:** ${exhibit.content.zh}`,
-  exhibit.visual ? renderVisualData(exhibit.visual, "这份病例资料") : "",
-].filter(Boolean).join("\n\n");
+const renderExhibit = (exhibit: CaseStudyExhibit, label: string) => {
+  const structuredText = serializeStructuredMeasurements(exhibit.structuredMeasurements);
+  return [
+    `### ${label}: ${exhibit.title.en} / ${exhibit.title.zh}`,
+    `**Exhibit content — EN:** ${exhibit.content.en}`,
+    `**病例资料 — ZH:** ${exhibit.content.zh}`,
+    structuredText ? `**Structured measurements — EN:**\n${structuredText.en}` : "",
+    structuredText ? `**结构化测量 — ZH:**\n${structuredText.zh}` : "",
+    exhibit.visual ? renderVisualData(exhibit.visual, "这份病例资料") : "",
+  ].filter(Boolean).join("\n\n");
+};
 
 const renderCaseContext = (parentCase: CaseStudyQuestion, part: StandaloneQuestion) => {
   const visibleStages = getVisibleCaseStages(parentCase, part);

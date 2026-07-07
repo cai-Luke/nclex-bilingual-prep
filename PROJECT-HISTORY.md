@@ -29,7 +29,7 @@ Current canonical banks (see [BANK-CENSUS.md](BANK-CENSUS.md); 1,707 top-level, 
 - `banks/medlabel-canonical.json` (8 schema v1.2 medication-label visual items)
 - `banks/visual-canonical.json` (53 reviewed rhythm/EKG items; 47 carry `rhythm_strip` visuals; schema v1.7 for pacer-overlay rhythm strips; the dedicated home for rhythm_strip kind, formerly `banks/rhythm-canonical`)
 - `banks/vitals-canonical.json` (10 reviewed schema v1.2 vitals-trend visual items; dedicated home for vitals_trend kind)
-- Schema version `1.7` current; `1.0` standalone, `1.1` case-study, `1.2` visual, `1.3` highlight, `1.4` bowtie, `1.5` rationale-visual, and `1.6` unfolding case-study metadata banks remain supported
+- Schema version `1.8` current; `1.0` standalone, `1.1` case-study, `1.2` visual, `1.3` highlight, `1.4` bowtie, `1.5` rationale-visual, `1.6` unfolding case-study metadata, and `1.7` pacer-bearing rhythm-strip banks remain supported
 
 Current schema item types:
 
@@ -48,6 +48,27 @@ The committed NGN item-type set is complete. Rationale/dyad scoring and an expli
 ## Milestones
 
 > Milestones dated **2026-06-23 and earlier** are archived in [`Archive/PROJECT-HISTORY-ARCHIVE.md`](Archive/PROJECT-HISTORY-ARCHIVE.md). Only the current arc (2026-06-24 onward) is kept here.
+
+### Structured Measurements Schema 1.8 Proof (Jul 7)
+
+Completed:
+- Added schema `1.8` support for optional case-study exhibit `structuredMeasurements`, with typed `panels[]`, lab/vital panel-kind checks, same-panel `columnId` integrity, measurement allowlist/unit validation, values-only flag/range rejection, strict unknown-key recursion, and export-envelope version inference.
+- Added structured-measurement-only allowlist entries for `troponin_i` and `sao2` without widening the `lab_trend`/`vitals_trend` key unions, and de-conflated the flowsheet gate so `SaO2` no longer matches `spo2` and bare troponin no longer maps to `troponin_t`.
+- Added shared structured-measurement formatting/serialization/rendering: conventional-primary display with optional SI parentheses, TTS and review-prompt text serialization, and inline flat table rendering in case exhibits using existing deterministic table primitives.
+- Added focused regression coverage: schema/floor/strict-key cases, measurement allowlist drift guard, flowsheet gate de-conflation cases, structured measurement formatter/serializer/SVG test.
+
+Verified:
+- `npm run test:schema-bank`
+- `npm run test:measurement-allowlist`
+- `npm run test:flowsheet-gate`
+- `npm run test:structured-measurements`
+- `npm run validate-bank -- banks/*.json`
+- `npm run test:review-prompt`
+- `npm run scan-unknown-keys` (0 off-schema key occurrences; generated report was not kept)
+- `npm run test-visuals`
+- `npm run coverage-report`
+- `npm run flowsheet-gate -- EXHIBIT-FLOWSHEET-MIGRATION-BATCH-20-serial-redo-2026-07-06.json` (0 FAIL / 34 WARN after `sao2` + `troponin_i` de-conflation)
+- `npm run build`
 
 ### Exhibit Flowsheet Allowlist + Manifest (Jul 5)
 

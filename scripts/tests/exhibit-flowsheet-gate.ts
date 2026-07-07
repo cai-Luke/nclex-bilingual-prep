@@ -254,6 +254,62 @@ const run = (record: ExtractionRecord, src = source): Finding[] => gateRecord(re
 }
 
 {
+  const sao2Source = "ABG results: pH 7.31, PaCO2 58 mmHg, PaO2 54 mmHg, arterial oxygen saturation SaO2 85%.";
+  const record: ExtractionRecord = {
+    exhibitRef: "test/sao2",
+    lane: "extract",
+    panel: [{ label: "sao2", value: "85", sourceUnit: "%", sourceSpan: "SaO2 85%" }],
+    excludedValues: [],
+    unitAliases: [],
+  };
+  const findings = run(record, sao2Source);
+  assert(noFinding(findings, "not recognized"), "sao2 should be an accepted structured-only key");
+  assert(noFinding(findings, "source mentions 'spo2'"), "SaO2 should not be swept as SpO2");
+}
+
+{
+  const sao2Source = "ABG results: SaO2 85%.";
+  const record: ExtractionRecord = {
+    exhibitRef: "test/sao2_missing",
+    lane: "extract",
+    panel: [],
+    excludedValues: [],
+    unitAliases: [],
+  };
+  const findings = run(record, sao2Source);
+  assert(hasFinding(findings, "WARN", "source mentions 'sao2'"), "SaO2 should sweep as sao2 when unaccounted");
+  assert(noFinding(findings, "source mentions 'spo2'"), "SaO2 should not sweep as spo2 when unaccounted");
+}
+
+{
+  const troponinSource = "Cardiac markers: troponin I 0.18 ng/mL and BNP 420 pg/mL.";
+  const record: ExtractionRecord = {
+    exhibitRef: "test/troponin_i",
+    lane: "extract",
+    panel: [{ label: "troponin_i", value: "0.18", sourceUnit: "ng/mL", sourceSpan: "troponin I 0.18 ng/mL" }],
+    excludedValues: [],
+    unitAliases: [],
+  };
+  const findings = run(record, troponinSource);
+  assert(noFinding(findings, "not recognized"), "troponin_i should be an accepted structured-only key");
+  assert(noFinding(findings, "source mentions 'troponin_t'"), "troponin I should not sweep as troponin_t");
+}
+
+{
+  const bareTroponinSource = "Cardiac markers: troponin 0.18 ng/mL.";
+  const record: ExtractionRecord = {
+    exhibitRef: "test/bare_troponin",
+    lane: "extract",
+    panel: [],
+    excludedValues: [],
+    unitAliases: [],
+  };
+  const findings = run(record, bareTroponinSource);
+  assert(noFinding(findings, "source mentions 'troponin_i'"), "bare troponin should not infer troponin_i");
+  assert(noFinding(findings, "source mentions 'troponin_t'"), "bare troponin should not infer troponin_t");
+}
+
+{
   const record = baseRecord();
   record.unitAliases = [{ aliasOf: "wbc", value: "18,000/µL" }];
   const findings = run(record);
