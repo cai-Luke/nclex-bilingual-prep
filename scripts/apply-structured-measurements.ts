@@ -99,14 +99,28 @@ const LABELS: Record<string, TextPair> = {
   bun: { en: "BUN", zh: "尿素氮" },
   creatinine: { en: "Creatinine", zh: "肌酐" },
   magnesium: { en: "Magnesium", zh: "血镁" },
+  phosphate: { en: "Phosphate", zh: "血磷" },
+  calcium: { en: "Calcium", zh: "总钙" },
+  ionized_calcium: { en: "Ionized calcium", zh: "离子钙" },
+  anion_gap: { en: "Anion gap", zh: "阴离子间隙" },
+  lactate: { en: "Lactate", zh: "乳酸" },
   wbc: { en: "WBC", zh: "白细胞" },
   hemoglobin: { en: "Hemoglobin", zh: "血红蛋白" },
   hematocrit: { en: "Hematocrit", zh: "血细胞比容" },
   platelets: { en: "Platelets", zh: "血小板" },
+  inr: { en: "INR", zh: "国际标准化比值" },
+  ptt: { en: "PTT", zh: "部分凝血活酶时间" },
   ph: { en: "pH", zh: "酸碱度" },
   paco2: { en: "PaCO2", zh: "动脉二氧化碳分压" },
   pao2: { en: "PaO2", zh: "动脉氧分压" },
   hco3_abg: { en: "HCO3 (ABG)", zh: "碳酸氢盐（动脉血气）" },
+  ast: { en: "AST", zh: "谷草转氨酶" },
+  alt: { en: "ALT", zh: "谷丙转氨酶" },
+  total_bilirubin: { en: "Total bilirubin", zh: "总胆红素" },
+  ammonia: { en: "Ammonia", zh: "血氨" },
+  troponin_i: { en: "Troponin I", zh: "肌钙蛋白I" },
+  troponin_t: { en: "Troponin T", zh: "肌钙蛋白T" },
+  bnp: { en: "BNP", zh: "脑钠肽" },
 };
 
 const readJson = async <T>(path: string): Promise<T> =>
@@ -180,8 +194,11 @@ const inferColumnLabel = (exhibit: CaseStudyExhibit): TextPair => {
   return { en: "Current", zh: "当前" };
 };
 
-const labelFor = (key: string): TextPair =>
-  LABELS[key] ?? { en: key, zh: key };
+const labelFor = (key: string): TextPair => {
+  const label = LABELS[key];
+  if (!label) throw new Error(`No bilingual label registered for measurement key '${key}'`);
+  return label;
+};
 
 const storedUnitFor = (key: string, sourceUnit: string): string => {
   if (key === "temp") {
