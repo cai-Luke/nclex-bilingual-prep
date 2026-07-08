@@ -80,6 +80,7 @@ Completed:
 - Prepared Candidate 03B for Claude Code gate review: five additional safe Batch 03 supplement records routed to `gpt-canonical.json`/`hard-cases-canonical.json`, including two mixed vitals+ABG surfaces, current-bank flowsheet gate `0 FAIL / 0 WARN`, applicator dry-run green, and no canonical bank write.
 - Corrected the deferred `cs_copd_01/labs` SaO2 extraction from `spo2` to `sao2` in Batch 02 source artifacts and prepared Candidate SAO2 for Claude Code gate review: one ABG/labs supplement record routed to `hard-cases-canonical.json`, current-bank flowsheet gate `0 FAIL / 0 WARN`, applicator dry-run green, and no canonical bank write.
 - Prepared Candidate 04A for Claude Code gate review: five low-noise Batch 04 supplement records routed to `gpt-canonical.json`/`hard-cases-canonical.json`, with rows carrying `excludedValues`, empty/range panels, `skip_serial`, or WARN-only prose-normalization issues deferred; current-bank flowsheet gate `0 FAIL / 0 WARN`, applicator dry-run green, and no canonical bank write.
+- Candidate 04A was promoted by Claude Code (`bace6b6`) and recorded in the migration ledger (`b9ba11e`). Prepared Candidate 04B for Claude Code gate review: five additional Batch 04 supplement records routed to `gpt-canonical.json`, including two adjudicated prior-creatinine exclusions and review notes for qualitative troponin, urine output, and urine WBC/hpf non-extractions; current-bank flowsheet gate `0 FAIL / 0 WARN`, applicator dry-run green, and no canonical bank write.
 
 Verified:
 - `npm run test:schema-bank`

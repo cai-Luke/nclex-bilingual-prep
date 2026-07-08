@@ -1,0 +1,152 @@
+[
+  {
+    "exhibitRef": "gpt_case_gap_2026_06_11_case_adhf_01/adhf_labs",
+    "lane": "extract",
+    "panel": [
+      {
+        "label": "bnp",
+        "value": "1,240",
+        "sourceUnit": "pg/mL",
+        "sourceSpan": "BNP 1,240 pg/mL."
+      },
+      {
+        "label": "sodium",
+        "value": "132",
+        "sourceUnit": "mEq/L",
+        "sourceSpan": "Sodium 132 mEq/L, potassium 3.7 mEq/L, creatinine 1.1 mg/dL, troponin not elevated."
+      },
+      {
+        "label": "potassium",
+        "value": "3.7",
+        "sourceUnit": "mEq/L",
+        "sourceSpan": "Sodium 132 mEq/L, potassium 3.7 mEq/L, creatinine 1.1 mg/dL, troponin not elevated."
+      },
+      {
+        "label": "creatinine",
+        "value": "1.1",
+        "sourceUnit": "mg/dL",
+        "sourceSpan": "Sodium 132 mEq/L, potassium 3.7 mEq/L, creatinine 1.1 mg/dL, troponin not elevated."
+      }
+    ],
+    "excludedValues": [],
+    "unitAliases": []
+  },
+  {
+    "exhibitRef": "gpt_case_gap_2026_06_11_case_adhf_01/adhf_response",
+    "lane": "extract",
+    "panel": [
+      {
+        "label": "spo2",
+        "value": "93",
+        "sourceUnit": "%",
+        "sourceSpan": "SpO2 is 93% with noninvasive positive-pressure ventilation; RR 22/min; crackles are decreased."
+      },
+      {
+        "label": "rr",
+        "value": "22",
+        "sourceUnit": "/min",
+        "sourceSpan": "SpO2 is 93% with noninvasive positive-pressure ventilation; RR 22/min; crackles are decreased."
+      }
+    ],
+    "excludedValues": [],
+    "unitAliases": []
+  },
+  {
+    "exhibitRef": "gpt_case_gap_2026_06_11_case_aki_02/aki_labs",
+    "lane": "extract",
+    "panel": [
+      {
+        "label": "bun",
+        "value": "48",
+        "sourceUnit": "mg/dL",
+        "sourceSpan": "BUN 48 mg/dL, creatinine 2.6 mg/dL (baseline 0.9), potassium 5.6 mEq/L, bicarbonate 18 mEq/L."
+      },
+      {
+        "label": "creatinine",
+        "value": "2.6",
+        "sourceUnit": "mg/dL",
+        "sourceSpan": "BUN 48 mg/dL, creatinine 2.6 mg/dL (baseline 0.9), potassium 5.6 mEq/L, bicarbonate 18 mEq/L."
+      },
+      {
+        "label": "potassium",
+        "value": "5.6",
+        "sourceUnit": "mEq/L",
+        "sourceSpan": "BUN 48 mg/dL, creatinine 2.6 mg/dL (baseline 0.9), potassium 5.6 mEq/L, bicarbonate 18 mEq/L."
+      },
+      {
+        "label": "bicarbonate",
+        "value": "18",
+        "sourceUnit": "mEq/L",
+        "sourceSpan": "BUN 48 mg/dL, creatinine 2.6 mg/dL (baseline 0.9), potassium 5.6 mEq/L, bicarbonate 18 mEq/L."
+      }
+    ],
+    "excludedValues": [
+      {
+        "label": "creatinine",
+        "value": "0.9",
+        "reason": "prior",
+        "sourceSpan": "BUN 48 mg/dL, creatinine 2.6 mg/dL (baseline 0.9), potassium 5.6 mEq/L, bicarbonate 18 mEq/L."
+      }
+    ],
+    "unitAliases": []
+  },
+  {
+    "exhibitRef": "gpt_case_gap_2026_06_11_case_aki_02/aki_response",
+    "lane": "extract",
+    "panel": [
+      {
+        "label": "potassium",
+        "value": "5.3",
+        "sourceUnit": "mEq/L",
+        "sourceSpan": "Potassium 5.3 mEq/L."
+      },
+      {
+        "label": "sbp",
+        "value": "104",
+        "sourceUnit": "mm Hg",
+        "sourceSpan": "BP 104/62 mm Hg."
+      },
+      {
+        "label": "dbp",
+        "value": "62",
+        "sourceUnit": "mm Hg",
+        "sourceSpan": "BP 104/62 mm Hg."
+      }
+    ],
+    "excludedValues": [],
+    "unitAliases": []
+  },
+  {
+    "exhibitRef": "gpt_case_gap_2026_06_11_case_urosepsis_05/sepsis_labs",
+    "lane": "extract",
+    "panel": [
+      {
+        "label": "wbc",
+        "value": "22,400",
+        "sourceUnit": "/mm3",
+        "sourceSpan": "WBC 22,400/mm3 with 14% bands"
+      },
+      {
+        "label": "lactate",
+        "value": "3.8",
+        "sourceUnit": "mmol/L",
+        "sourceSpan": "lactate 3.8 mmol/L"
+      },
+      {
+        "label": "creatinine",
+        "value": "1.8",
+        "sourceUnit": "mg/dL",
+        "sourceSpan": "creatinine 1.8 mg/dL (baseline 0.9)"
+      }
+    ],
+    "excludedValues": [
+      {
+        "label": "creatinine",
+        "value": "0.9",
+        "reason": "prior",
+        "sourceSpan": "creatinine 1.8 mg/dL (baseline 0.9)"
+      }
+    ],
+    "unitAliases": []
+  }
+]
