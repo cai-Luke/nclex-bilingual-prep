@@ -110,7 +110,7 @@ const batch02Records: ExtractionRecord[] = [
       { label: "paco2", value: "58", sourceUnit: "mmHg", sourceSpan: "PaCO2: 58 mmHg" },
       { label: "pao2", value: "54", sourceUnit: "mmHg", sourceSpan: "PaO2: 54 mmHg" },
       { label: "hco3_abg", value: "28", sourceUnit: "mEq/L", sourceSpan: "HCO3: 28 mEq/L" },
-      { label: "spo2", value: "85", sourceUnit: "%", sourceSpan: "SaO2: 85%" }
+      { label: "sao2", value: "85", sourceUnit: "%", sourceSpan: "SaO2: 85%" }
     ],
     excludedValues: [],
     unitAliases: []
