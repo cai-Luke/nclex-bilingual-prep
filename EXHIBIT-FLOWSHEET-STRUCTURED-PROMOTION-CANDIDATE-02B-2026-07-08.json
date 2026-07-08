@@ -1,0 +1,87 @@
+[
+  {
+    "exhibitRef": "gemini_gap_case_chronic_hf_05/ex1_hf_clinic_visit",
+    "lane": "extract",
+    "panel": [
+      {
+        "label": "sbp",
+        "value": "116",
+        "sourceUnit": "mmHg",
+        "sourceSpan": "- Blood pressure: 116/70 mmHg"
+      },
+      {
+        "label": "dbp",
+        "value": "70",
+        "sourceUnit": "mmHg",
+        "sourceSpan": "- Blood pressure: 116/70 mmHg"
+      },
+      {
+        "label": "hr",
+        "value": "64",
+        "sourceUnit": "bpm",
+        "sourceSpan": "- Heart rate: 64 bpm"
+      }
+    ],
+    "excludedValues": [],
+    "unitAliases": []
+  },
+  {
+    "exhibitRef": "gemini_gap_case_cirrhosis_homecare_04/ex1_cirrhosis_clinic_note",
+    "lane": "extract",
+    "panel": [
+      {
+        "label": "sbp",
+        "value": "112",
+        "sourceUnit": "mmHg",
+        "sourceSpan": "- Blood pressure: 112/68 mmHg"
+      },
+      {
+        "label": "dbp",
+        "value": "68",
+        "sourceUnit": "mmHg",
+        "sourceSpan": "- Blood pressure: 112/68 mmHg"
+      },
+      {
+        "label": "hr",
+        "value": "76",
+        "sourceUnit": "bpm",
+        "sourceSpan": "- Heart rate: 76 bpm"
+      }
+    ],
+    "excludedValues": [],
+    "unitAliases": []
+  },
+  {
+    "exhibitRef": "gemini_gap_case_hypertension_lifestyle_02/ex1_htn_baseline",
+    "lane": "extract",
+    "panel": [
+      {
+        "label": "sbp",
+        "value": "136",
+        "sourceUnit": "mmHg",
+        "sourceSpan": "- Blood pressure: 136/88 mmHg (seated, average of 2 readings; prior visit was 138/86 mmHg)."
+      },
+      {
+        "label": "dbp",
+        "value": "88",
+        "sourceUnit": "mmHg",
+        "sourceSpan": "- Blood pressure: 136/88 mmHg (seated, average of 2 readings; prior visit was 138/86 mmHg)."
+      }
+    ],
+    "excludedValues": [
+      {
+        "label": "sbp",
+        "value": "138",
+        "reason": "prior",
+        "sourceSpan": "- Blood pressure: 136/88 mmHg (seated, average of 2 readings; prior visit was 138/86 mmHg)."
+      },
+      {
+        "label": "dbp",
+        "value": "86",
+        "reason": "prior",
+        "sourceSpan": "- Blood pressure: 136/88 mmHg (seated, average of 2 readings; prior visit was 138/86 mmHg)."
+      }
+    ],
+    "unitAliases": []
+  }
+]
