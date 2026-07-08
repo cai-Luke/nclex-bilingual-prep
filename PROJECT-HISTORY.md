@@ -64,6 +64,7 @@ Completed:
 - Prepared Candidate 02A for Claude Code gate review: five still-unpromoted Batch 02 supplement records, current-bank flowsheet gate `0 FAIL / 0 WARN`, applicator dry-run green, and no canonical bank write.
 - Candidate 02A was promoted by Claude Code (`ab2b180`) and recorded in the migration ledger (`fc68fd2`) after a gate-seat fix for missing applicator bilingual labels. Prepared Candidate 02B for Claude Code gate review: three remaining safe Batch 02 supplement records routed to `gemini-canonical.json`, current-bank flowsheet gate `0 FAIL / 0 WARN`, applicator dry-run green, and no canonical bank write.
 - Candidate 02B was promoted by Claude Code (`d19b1b4`) and recorded in the migration ledger (`77c596d`). Prepared Candidate 03A for Claude Code gate review: five safe Batch 03 supplement records routed to `gemini-canonical.json`/`gpt-canonical.json`, current-bank flowsheet gate `0 FAIL / 0 WARN`, applicator dry-run green, and no canonical bank write.
+- Prepared Candidate 03B for Claude Code gate review: five additional safe Batch 03 supplement records routed to `gpt-canonical.json`/`hard-cases-canonical.json`, including two mixed vitals+ABG surfaces, current-bank flowsheet gate `0 FAIL / 0 WARN`, applicator dry-run green, and no canonical bank write.
 
 Verified:
 - `npm run test:schema-bank`
