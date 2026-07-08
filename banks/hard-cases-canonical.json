@@ -1172,6 +1172,94 @@
             "content": {
               "en": "pH: 7.31\nPaCO2: 58 mmHg\nPaO2: 54 mmHg\nHCO3: 28 mEq/L\nSaO2: 85%",
               "zh": "pH: 7.31\nPaCO2: 58 mmHg\nPaO2: 54 mmHg\nHCO3: 28 mEq/L\nSaO2: 85%"
+            },
+            "structuredMeasurements": {
+              "panels": [
+                {
+                  "kind": "labs",
+                  "columns": [
+                    {
+                      "id": "current",
+                      "label": {
+                        "en": "1030",
+                        "zh": "1030"
+                      }
+                    }
+                  ],
+                  "rows": [
+                    {
+                      "key": "ph",
+                      "label": {
+                        "en": "pH",
+                        "zh": "酸碱度"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "7.31",
+                          "unit": "(unitless)"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "paco2",
+                      "label": {
+                        "en": "PaCO2",
+                        "zh": "动脉二氧化碳分压"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "58",
+                          "unit": "mmHg"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "pao2",
+                      "label": {
+                        "en": "PaO2",
+                        "zh": "动脉氧分压"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "54",
+                          "unit": "mmHg"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "hco3_abg",
+                      "label": {
+                        "en": "HCO3 (ABG)",
+                        "zh": "碳酸氢盐（动脉血气）"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "28",
+                          "unit": "mEq/L"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "sao2",
+                      "label": {
+                        "en": "SaO2",
+                        "zh": "动脉血氧饱和度"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "85",
+                          "unit": "%"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
             }
           }
         ],
