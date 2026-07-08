@@ -1,0 +1,128 @@
+[
+  {
+    "exhibitRef": "gpt_case_taco_vs_trali_01/baseline_history_protocol",
+    "lane": "extract",
+    "panel": [
+      {
+        "label": "hemoglobin",
+        "value": "6.4",
+        "sourceUnit": "g/dL",
+        "sourceSpan": "outpatient hemoglobin 6.4 g/dL"
+      }
+    ],
+    "excludedValues": [],
+    "unitAliases": []
+  },
+  {
+    "exhibitRef": "gpt_case_taco_vs_trali_01/stage_3_diagnostics",
+    "lane": "extract",
+    "panel": [
+      {
+        "label": "bnp",
+        "value": "890",
+        "sourceUnit": "pg/mL",
+        "sourceSpan": "BNP: 890 pg/mL, up from 280 pg/mL baseline."
+      },
+      {
+        "label": "hemoglobin",
+        "value": "8.1",
+        "sourceUnit": "g/dL",
+        "sourceSpan": "Post-transfusion hemoglobin: 8.1 g/dL."
+      }
+    ],
+    "excludedValues": [
+      {
+        "label": "bnp",
+        "value": "280",
+        "reason": "prior",
+        "sourceSpan": "BNP: 890 pg/mL, up from 280 pg/mL baseline."
+      }
+    ],
+    "unitAliases": []
+  },
+  {
+    "exhibitRef": "gpt_case_taco_vs_trali_01/stage_3_interventions",
+    "lane": "extract",
+    "panel": [
+      {
+        "label": "temp",
+        "value": "37.1",
+        "sourceUnit": "C",
+        "sourceSpan": "Thirty minutes later: T 37.1 C, HR 98, BP 152/88, RR 22, SpO2 94% on non-rebreather.",
+        "context": "post_intervention"
+      },
+      {
+        "label": "hr",
+        "value": "98",
+        "sourceUnit": "bpm",
+        "sourceSpan": "Thirty minutes later: T 37.1 C, HR 98, BP 152/88, RR 22, SpO2 94% on non-rebreather.",
+        "context": "post_intervention"
+      },
+      {
+        "label": "sbp",
+        "value": "152",
+        "sourceUnit": "mmHg",
+        "sourceSpan": "Thirty minutes later: T 37.1 C, HR 98, BP 152/88, RR 22, SpO2 94% on non-rebreather.",
+        "context": "post_intervention"
+      },
+      {
+        "label": "dbp",
+        "value": "88",
+        "sourceUnit": "mmHg",
+        "sourceSpan": "Thirty minutes later: T 37.1 C, HR 98, BP 152/88, RR 22, SpO2 94% on non-rebreather.",
+        "context": "post_intervention"
+      },
+      {
+        "label": "rr",
+        "value": "22",
+        "sourceUnit": "/min",
+        "sourceSpan": "Thirty minutes later: T 37.1 C, HR 98, BP 152/88, RR 22, SpO2 94% on non-rebreather.",
+        "context": "post_intervention"
+      },
+      {
+        "label": "spo2",
+        "value": "94",
+        "sourceUnit": "%",
+        "sourceSpan": "Thirty minutes later: T 37.1 C, HR 98, BP 152/88, RR 22, SpO2 94% on non-rebreather.",
+        "context": "post_intervention"
+      }
+    ],
+    "excludedValues": [],
+    "unitAliases": []
+  },
+  {
+    "exhibitRef": "gpt_case_unsafe_assignment_01/stage_3_resolution",
+    "lane": "extract",
+    "panel": [
+      {
+        "label": "sbp",
+        "value": "148",
+        "sourceUnit": "mmHg",
+        "sourceSpan": "Systolic blood pressure is 148 after the nicardipine increase.",
+        "context": "post_intervention"
+      }
+    ],
+    "excludedValues": [],
+    "unitAliases": []
+  },
+  {
+    "exhibitRef": "gpt_gap_2026_06_12_nonmcq_balanced_b_case_opioid_safety_01/post_dose",
+    "lane": "extract",
+    "panel": [
+      {
+        "label": "rr",
+        "value": "10",
+        "sourceUnit": "/min",
+        "sourceSpan": "Respiratory rate 10/min, SpO2 90% on room air."
+      },
+      {
+        "label": "spo2",
+        "value": "90",
+        "sourceUnit": "%",
+        "sourceSpan": "Respiratory rate 10/min, SpO2 90% on room air."
+      }
+    ],
+    "excludedValues": [],
+    "unitAliases": []
+  }
+]
