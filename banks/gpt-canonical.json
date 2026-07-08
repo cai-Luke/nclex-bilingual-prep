@@ -28011,6 +28011,80 @@
             "content": {
               "en": "Chest x-ray: pulmonary vascular congestion. BNP 1,240 pg/mL. Sodium 132 mEq/L, potassium 3.7 mEq/L, creatinine 1.1 mg/dL, troponin not elevated. Weight today 84 kg; clinic weight last week 80.8 kg.",
               "zh": "胸片：肺血管充血。BNP 1,240 pg/mL。钠132 mEq/L，钾3.7 mEq/L，肌酐1.1 mg/dL，肌钙蛋白未升高。今日体重84 kg；上周门诊体重80.8 kg。"
+            },
+            "structuredMeasurements": {
+              "panels": [
+                {
+                  "kind": "labs",
+                  "columns": [
+                    {
+                      "id": "current",
+                      "label": {
+                        "en": "Current",
+                        "zh": "当前"
+                      }
+                    }
+                  ],
+                  "rows": [
+                    {
+                      "key": "bnp",
+                      "label": {
+                        "en": "BNP",
+                        "zh": "脑钠肽"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "1,240",
+                          "unit": "pg/mL"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "sodium",
+                      "label": {
+                        "en": "Sodium",
+                        "zh": "血钠"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "132",
+                          "unit": "mEq/L"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "potassium",
+                      "label": {
+                        "en": "Potassium",
+                        "zh": "血钾"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "3.7",
+                          "unit": "mEq/L"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "creatinine",
+                      "label": {
+                        "en": "Creatinine",
+                        "zh": "肌酐"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "1.1",
+                          "unit": "mg/dL"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
             }
           }
         ],
@@ -28059,6 +28133,52 @@
                 "content": {
                   "en": "The client received furosemide 40 mg IV. Intake since arrival: 920 mL. Urine output since arrival: 2,100 mL. SpO2 is 93% with noninvasive positive-pressure ventilation; RR 22/min; crackles are decreased.",
                   "zh": "患者已接受呋塞米40 mg静脉给药。到院后摄入量：920 mL。到院后尿量：2,100 mL。无创正压通气下SpO2 93%；RR 22次/分；湿啰音减少。"
+                },
+                "structuredMeasurements": {
+                  "panels": [
+                    {
+                      "kind": "vitals",
+                      "columns": [
+                        {
+                          "id": "current",
+                          "label": {
+                            "en": "Current",
+                            "zh": "当前"
+                          }
+                        }
+                      ],
+                      "rows": [
+                        {
+                          "key": "spo2",
+                          "label": {
+                            "en": "SpO2",
+                            "zh": "脉搏血氧饱和度"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "93",
+                              "unit": "%"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "rr",
+                          "label": {
+                            "en": "Respiratory rate",
+                            "zh": "呼吸频率"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "22",
+                              "unit": "/min"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
                 }
               }
             ]
@@ -28543,6 +28663,80 @@
             "content": {
               "en": "BUN 48 mg/dL, creatinine 2.6 mg/dL (baseline 0.9), potassium 5.6 mEq/L, bicarbonate 18 mEq/L. Urinalysis: specific gravity 1.030, no nitrites, no casts reported.",
               "zh": "BUN 48 mg/dL，肌酐2.6 mg/dL（基线0.9），钾5.6 mEq/L，碳酸氢盐18 mEq/L。尿检：比重1.030，亚硝酸盐阴性，未报告管型。"
+            },
+            "structuredMeasurements": {
+              "panels": [
+                {
+                  "kind": "labs",
+                  "columns": [
+                    {
+                      "id": "current",
+                      "label": {
+                        "en": "Current",
+                        "zh": "当前"
+                      }
+                    }
+                  ],
+                  "rows": [
+                    {
+                      "key": "bun",
+                      "label": {
+                        "en": "BUN",
+                        "zh": "尿素氮"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "48",
+                          "unit": "mg/dL"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "creatinine",
+                      "label": {
+                        "en": "Creatinine",
+                        "zh": "肌酐"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "2.6",
+                          "unit": "mg/dL"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "potassium",
+                      "label": {
+                        "en": "Potassium",
+                        "zh": "血钾"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "5.6",
+                          "unit": "mEq/L"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "bicarbonate",
+                      "label": {
+                        "en": "Bicarbonate",
+                        "zh": "碳酸氢盐"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "18",
+                          "unit": "mEq/L"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
             }
           }
         ],
@@ -28591,6 +28785,80 @@
                 "content": {
                   "en": "Potassium 5.3 mEq/L. ECG T waves are less peaked. BP 104/62 mm Hg. Urine output has increased to 45 mL/hr for the last 2 hr.",
                   "zh": "钾5.3 mEq/L。心电图T波高尖程度减轻。BP 104/62 mm Hg。过去2小时尿量增至45 mL/hr。"
+                },
+                "structuredMeasurements": {
+                  "panels": [
+                    {
+                      "kind": "vitals",
+                      "columns": [
+                        {
+                          "id": "current",
+                          "label": {
+                            "en": "Current",
+                            "zh": "当前"
+                          }
+                        }
+                      ],
+                      "rows": [
+                        {
+                          "key": "sbp",
+                          "label": {
+                            "en": "Systolic BP",
+                            "zh": "收缩压"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "104",
+                              "unit": "mmHg"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "dbp",
+                          "label": {
+                            "en": "Diastolic BP",
+                            "zh": "舒张压"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "62",
+                              "unit": "mmHg"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "labs",
+                      "columns": [
+                        {
+                          "id": "current",
+                          "label": {
+                            "en": "Current",
+                            "zh": "当前"
+                          }
+                        }
+                      ],
+                      "rows": [
+                        {
+                          "key": "potassium",
+                          "label": {
+                            "en": "Potassium",
+                            "zh": "血钾"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "5.3",
+                              "unit": "mEq/L"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
                 }
               }
             ]
@@ -30315,6 +30583,66 @@
             "content": {
               "en": "WBC 22,400/mm3 with 14% bands, lactate 3.8 mmol/L, creatinine 1.8 mg/dL (baseline 0.9). Urinalysis: positive leukocyte esterase, >50 WBC/hpf, bacteria present. CT abdomen: 8 mm obstructing right ureteral stone with hydronephrosis.",
               "zh": "WBC 22,400/mm3，杆状核14%，乳酸3.8 mmol/L，肌酐1.8 mg/dL（基线0.9）。尿检：白细胞酯酶阳性，>50 WBC/hpf，有细菌。腹部CT：右输尿管8 mm梗阻性结石伴肾积水。"
+            },
+            "structuredMeasurements": {
+              "panels": [
+                {
+                  "kind": "labs",
+                  "columns": [
+                    {
+                      "id": "current",
+                      "label": {
+                        "en": "Current",
+                        "zh": "当前"
+                      }
+                    }
+                  ],
+                  "rows": [
+                    {
+                      "key": "wbc",
+                      "label": {
+                        "en": "WBC",
+                        "zh": "白细胞"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "22,400",
+                          "unit": "/mm3"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "lactate",
+                      "label": {
+                        "en": "Lactate",
+                        "zh": "乳酸"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "3.8",
+                          "unit": "mmol/L"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "creatinine",
+                      "label": {
+                        "en": "Creatinine",
+                        "zh": "肌酐"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "1.8",
+                          "unit": "mg/dL"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
             }
           }
         ],
