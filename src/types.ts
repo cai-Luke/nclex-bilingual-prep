@@ -383,6 +383,7 @@ export type TranslationRevealEvent = {
   questionId: string;
   partId?: string;
   block: RevealBlock;
+  fullQuestionReveal?: boolean;
   itemType: ItemType;
   category: Category;
   topic: string;

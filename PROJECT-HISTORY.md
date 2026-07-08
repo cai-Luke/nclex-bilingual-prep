@@ -49,6 +49,19 @@ The committed NGN item-type set is complete. Rationale/dyad scoring and an expli
 
 > Milestones dated **2026-06-23 and earlier** are archived in [`Archive/PROJECT-HISTORY-ARCHIVE.md`](Archive/PROJECT-HISTORY-ARCHIVE.md). Only the current arc (2026-06-24 onward) is kept here.
 
+### Translate-All Post-Submit Reveal (Jul 8)
+
+Completed:
+- Added a live-study, standalone-only post-submit `Show full Chinese / 显示完整中文` action above the rationale, with GPT rescue moved below the rationale in the standalone answer flow.
+- Added a reveal-all context signal so `BilingualText`, highlight, and dropdown-cloze reveal consumers can silently open remaining on-tap Chinese text without emitting per-block telemetry.
+- Added aggregate `fullQuestionReveal` telemetry, a developer-panel full-reveal count, and summary/friction regression coverage that keeps aggregate post-submit reveals out of per-block and pre-submit friction buckets.
+
+Verified:
+- `npm run test:translation-telemetry`
+- `npx tsc -b --pretty false`
+- `npm run build` (passed with the expected Vite chunk-size warning)
+- Browser smoke on local Vite study session: Tap ZH post-submit order is answer banner → language-miss action → translate-all → rationale → GPT rescue; one translate-all click hides the button and reveals rationale Chinese.
+
 ### Structured Measurements Schema 1.8 Proof (Jul 7)
 
 Completed:

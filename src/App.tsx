@@ -160,6 +160,7 @@ type RevealTrackingContextValue = {
   topic: string;
   submitted: boolean;
   answeredBeforeReveal: boolean;
+  revealAllSignal: number;
   questionLoadedAtRef: MutableRefObject<number>;
   revealCountRef: MutableRefObject<number>;
   recordEvent: (event: Omit<TranslationRevealEvent, "id" | "revealedAt">) => void;
@@ -215,6 +216,25 @@ const recordRevealFromContext = (ctx: RevealTrackingContextValue | null, block: 
     questionId: ctx.questionId,
     partId: ctx.partId,
     block,
+    itemType: ctx.itemType,
+    category: ctx.category,
+    topic: ctx.topic,
+    elapsedMsOnQuestion: Date.now() - ctx.questionLoadedAtRef.current,
+    answeredBeforeReveal: ctx.answeredBeforeReveal,
+    submittedBeforeReveal: ctx.submitted,
+    revealCountForQuestion: ctx.revealCountRef.current,
+  });
+};
+
+const recordFullReveal = (ctx: RevealTrackingContextValue | null) => {
+  if (!ctx) return;
+  ctx.revealCountRef.current += 1;
+  ctx.recordEvent({
+    sessionId: ctx.sessionId,
+    questionId: ctx.questionId,
+    partId: ctx.partId,
+    block: "other",
+    fullQuestionReveal: true,
     itemType: ctx.itemType,
     category: ctx.category,
     topic: ctx.topic,
@@ -2413,6 +2433,10 @@ function TranslationTelemetryPanel({
               <span>Total reveals</span>
               <strong>{summary.totalCount}</strong>
             </div>
+            <div>
+              <span>Full-question reveals</span>
+              <strong>{summary.fullRevealCount}</strong>
+            </div>
             <p className="muted-copy">
               {formatTelemetryDate(summary.earliest)} to {formatTelemetryDate(summary.latest)} · {summary.sessionCount} sessions
             </p>
@@ -3040,6 +3064,8 @@ function QuestionCard({
 }) {
   const cardRef = useRef<HTMLElement | null>(null);
   const [activeTerm, setActiveTerm] = useState<ActiveTermPopover | null>(null);
+  const [revealAllSignal, setRevealAllSignal] = useState(0);
+  const [fullRevealed, setFullRevealed] = useState(false);
   const questionLoadedAtRef = useRef(Date.now());
   const revealCountRef = useRef(0);
   const handleTermSelect = useCallback<TermSelectHandler>((term, anchor) => {
@@ -3087,6 +3113,8 @@ function QuestionCard({
   useEffect(() => {
     questionLoadedAtRef.current = Date.now();
     revealCountRef.current = 0;
+    setRevealAllSignal(0);
+    setFullRevealed(false);
   }, [question.id]);
   const revealTrackingContext = useMemo<RevealTrackingContextValue | null>(() => {
     if (!sessionId || !onTranslationReveal) return null;
@@ -3098,6 +3126,7 @@ function QuestionCard({
       topic: question.topic,
       submitted,
       answeredBeforeReveal: readyToSubmit,
+      revealAllSignal,
       questionLoadedAtRef,
       revealCountRef,
       recordEvent: onTranslationReveal,
@@ -3111,7 +3140,22 @@ function QuestionCard({
     question.topic,
     submitted,
     readyToSubmit,
+    revealAllSignal,
   ]);
+  const questionHasZh = useMemo(() => hasQuestionLevelZh(question), [question]);
+  const showTranslateAll =
+    submitted &&
+    languageMode === "on-tap" &&
+    questionHasZh &&
+    !fullRevealed &&
+    question.itemType !== "case_study" &&
+    Boolean(revealTrackingContext);
+  const handleTranslateAll = useCallback(() => {
+    if (fullRevealed || !revealTrackingContext) return;
+    recordFullReveal(revealTrackingContext);
+    setRevealAllSignal((current) => current + 1);
+    setFullRevealed(true);
+  }, [fullRevealed, revealTrackingContext]);
 
   const answerBody = (
     <>
@@ -3199,9 +3243,11 @@ function QuestionCard({
         </div>
       )}
 
-      {submitted && rescuePrompt && <GptRescueButton prompt={rescuePrompt} />}
+      {showTranslateAll && <TranslateAllButton onClick={handleTranslateAll} />}
 
       {submitted && <RationalePanel question={question} voiceEnabled={voiceEnabled} languageMode={languageMode} />}
+
+      {submitted && rescuePrompt && <GptRescueButton prompt={rescuePrompt} />}
     </>
   );
   const trackedAnswerBody = revealTrackingContext ? (
@@ -3540,10 +3586,17 @@ function HighlightControl({
 }) {
   const [revealed, setRevealed] = useState(false);
   const revealTracking = useContext(RevealTrackingContext);
+  const revealAllSignal = revealTracking?.revealAllSignal ?? 0;
+  const lastRevealAllSignalRef = useRef(revealAllSignal);
   const selectedIds = answer.segments ?? [];
   const correctIds = new Set(question.highlight.correct);
   const hasZh = question.highlight.segments.some((segment) => (segment.zh ?? "").trim().length > 0);
   const showZh = hasZh && (languageMode === "always" || (languageMode === "on-tap" && revealed));
+  useEffect(() => {
+    if (revealAllSignal === lastRevealAllSignalRef.current) return;
+    lastRevealAllSignalRef.current = revealAllSignal;
+    if (languageMode === "on-tap" && !revealed && hasZh) setRevealed(true);
+  }, [hasZh, languageMode, revealAllSignal, revealed]);
   const handleReveal = (event: MouseEvent<HTMLButtonElement>) => {
     event.stopPropagation();
     if (revealed || languageMode !== "on-tap" || !hasZh) return;
@@ -3876,9 +3929,16 @@ function DropdownClozeControl({
 }) {
   const [revealed, setRevealed] = useState(false);
   const revealTracking = useContext(RevealTrackingContext);
+  const revealAllSignal = revealTracking?.revealAllSignal ?? 0;
+  const lastRevealAllSignalRef = useRef(revealAllSignal);
   const dropdowns = answer.dropdowns ?? {};
   const hasZh = (question.clozeStem.zh ?? "").trim().length > 0;
   const showZh = hasZh && (languageMode === "always" || (languageMode === "on-tap" && revealed));
+  useEffect(() => {
+    if (revealAllSignal === lastRevealAllSignalRef.current) return;
+    lastRevealAllSignalRef.current = revealAllSignal;
+    if (languageMode === "on-tap" && !revealed && hasZh) setRevealed(true);
+  }, [hasZh, languageMode, revealAllSignal, revealed]);
   const handleReveal = (event: MouseEvent<HTMLButtonElement>) => {
     event.stopPropagation();
     if (revealed || languageMode !== "on-tap" || !hasZh) return;
@@ -4493,8 +4553,15 @@ function BilingualText({
 }) {
   const [revealed, setRevealed] = useState(false);
   const revealTracking = useContext(RevealTrackingContext);
+  const revealAllSignal = revealTracking?.revealAllSignal ?? 0;
+  const lastRevealAllSignalRef = useRef(revealAllSignal);
   const hasZh = (pair.zh ?? "").trim().length > 0;
   const showZh = hasZh && (mode === "always" || (mode === "on-tap" && revealed));
+  useEffect(() => {
+    if (revealAllSignal === lastRevealAllSignalRef.current) return;
+    lastRevealAllSignalRef.current = revealAllSignal;
+    if (mode === "on-tap" && !revealed && hasZh) setRevealed(true);
+  }, [hasZh, mode, revealAllSignal, revealed]);
   const handleReveal = (event?: MouseEvent<HTMLElement>) => {
     event?.stopPropagation();
     if (revealed || mode !== "on-tap" || !hasZh) return;
@@ -4560,6 +4627,28 @@ function SpeakButton({ text, enabled, label }: { text: string; enabled: boolean;
   );
 }
 
+const hasZhText = (value?: string) => (value ?? "").trim().length > 0;
+const hasZhPair = (pair?: { zh?: string }) => hasZhText(pair?.zh);
+const hasZhPairs = (pairs: Array<{ zh?: string }>) => pairs.some(hasZhPair);
+
+const hasQuestionLevelZh = (question: Question): boolean => {
+  if (question.itemType === "case_study") return false;
+  if (hasZhPair(question.stem)) return true;
+  if ("options" in question && hasZhPairs(question.options)) return true;
+  if (question.itemType === "fill_in_blank") return hasZhPairs(question.blanks.map((blank) => blank.prompt));
+  if (question.itemType === "matrix") return hasZhPairs([...question.matrix.rows, ...question.matrix.columns]);
+  if (question.itemType === "dropdown_cloze") {
+    return hasZhPair(question.clozeStem) || question.dropdowns.some((dropdown) => hasZhPairs(dropdown.options));
+  }
+  if (question.itemType === "highlight") return hasZhPairs(question.highlight.segments);
+  if (question.itemType === "bowtie") {
+    return [question.bowtie.condition, question.bowtie.actions, question.bowtie.parameters].some(
+      (zone) => hasZhPair(zone.prompt) || hasZhPairs(zone.tokens),
+    );
+  }
+  return false;
+};
+
 // Collects the English text to read aloud for a "read all" pass: the stem,
 // followed by each answer option (when the item type has them).
 function collectReadableEnglish(question: Question): string[] {
@@ -4598,6 +4687,18 @@ function ReadAllButton({ question, enabled }: { question: Question; enabled: boo
       <AudioLines aria-hidden="true" />
       <span>All</span>
     </button>
+  );
+}
+
+function TranslateAllButton({ onClick }: { onClick: () => void }) {
+  return (
+    <div className="language-miss-action translate-all-action">
+      <button className="secondary-action" type="button" onClick={onClick}>
+        <BookOpen aria-hidden="true" />
+        <span>Show full Chinese</span>
+        <span lang="zh-Hans">显示完整中文</span>
+      </button>
+    </div>
   );
 }
 
