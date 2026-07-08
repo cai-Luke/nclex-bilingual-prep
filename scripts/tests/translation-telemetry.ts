@@ -44,6 +44,7 @@ assert.deepEqual(
   empty,
   {
     totalCount: 0,
+    fullRevealCount: 0,
     sessionCount: 0,
     earliest: undefined,
     latest: undefined,
@@ -100,10 +101,21 @@ const summary = summarizeTranslationRevealEvents([
     sessionId: "session-c",
     revealedAt: "2026-07-01T00:00:04.000Z",
   }),
+  eventOf("full-1", {
+    block: "other",
+    fullQuestionReveal: true,
+    category: "Management of Care",
+    topic: "ZZ Full reveal",
+    elapsedMsOnQuestion: 3000,
+    submittedBeforeReveal: true,
+    sessionId: "session-a",
+    revealedAt: "2026-07-01T00:00:05.000Z",
+  }),
   ...manyTopics,
 ]);
 
-assert.equal(summary.totalCount, 20, "total count should include every event");
+assert.equal(summary.totalCount, 21, "total count should include every event");
+assert.equal(summary.fullRevealCount, 1, "full-question reveal events should be counted separately");
 assert.equal(summary.sessionCount, 3, "session count should count distinct sessions");
 assert.equal(summary.earliest, "2026-07-01T00:00:00.000Z", "earliest should not depend on input order");
 assert.equal(summary.latest, "2026-07-01T00:00:15.000Z", "latest should not depend on input order");
@@ -112,6 +124,11 @@ assert.deepEqual(
   summary.byBlock.map((row) => `${row.block}:${row.count}`),
   ["stem:17", "choices:2", "case_stage:1"],
   "blocks should sort count descending then label ascending",
+);
+assert.equal(
+  summary.byBlock.some((row) => row.block === "other"),
+  false,
+  "full-question reveal events should not inflate the per-block breakdown",
 );
 
 const physiological = summary.byCategory.find((row) => row.category === "Physiological Adaptation");
@@ -277,6 +294,17 @@ const frictionEvents = [
     answeredBeforeReveal: true,
     submittedBeforeReveal: false,
   }),
+  eventOf("missed-no-full-reveal", {
+    questionId: "q-missed-no",
+    block: "other",
+    fullQuestionReveal: true,
+    category: "Physiological Adaptation",
+    topic: "Missed no reveal topic",
+    sessionId: "session-a",
+    revealedAt: "2026-07-02T00:03:30.000Z",
+    answeredBeforeReveal: true,
+    submittedBeforeReveal: true,
+  }),
   eventOf("case-reveal", {
     questionId: "case-1",
     partId: "part-1",
@@ -382,14 +410,27 @@ assert.deepEqual(
   "revealed blocks should be deterministically ordered by first occurrence with stable tie fallback",
 );
 
+const missedNoRevealRow = frictionSummary.enrichedRows.find((row) => row.questionId === "q-missed-no");
+assert.ok(missedNoRevealRow, "post-submit full-reveal row should remain joined to its attempt");
+assert.equal(
+  missedNoRevealRow.hadRevealBeforeSubmit,
+  false,
+  "post-submit full-question reveal should not enter pre-submit friction buckets",
+);
+assert.equal(
+  missedNoRevealRow.revealBeforeSubmitCount,
+  0,
+  "post-submit full-question reveal should not count as a reveal-before-submit event",
+);
+
 const caseCandidate = frictionSummary.auditCandidates.find((row) => row.questionId === "case-1");
 assert.ok(caseCandidate, "case-study candidates should rank at part level");
 assert.equal(caseCandidate.partId, "part-1", "case-study audit candidate should retain partId");
 assert.equal(caseCandidate.itemType, "case_part", "case-study audit candidate should use case_part item type");
 assert.equal(caseCandidate.stem_excerpt, "Stem for part-1", "stem excerpt should resolve from current bank content");
 
-assert.equal(frictionSummary.diagnostics.revealEventCount, 6, "diagnostics should include raw reveal count");
-assert.equal(frictionSummary.diagnostics.joinedEventCount, 5, "diagnostics should count joined reveal events");
+assert.equal(frictionSummary.diagnostics.revealEventCount, 7, "diagnostics should include raw reveal count");
+assert.equal(frictionSummary.diagnostics.joinedEventCount, 6, "diagnostics should count joined reveal events");
 assert.equal(frictionSummary.diagnostics.unjoinedRevealEventCount, 1, "diagnostics should count unjoined reveal events");
 assert.equal(frictionSummary.diagnostics.ineligibleAttemptCount, 1, "test/adaptive or non-on-tap attempts should be ineligible");
 assert.deepEqual(

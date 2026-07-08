@@ -11,6 +11,7 @@ import type {
 
 export type TranslationTelemetrySummary = {
   totalCount: number;
+  fullRevealCount: number;
   sessionCount: number;
   earliest?: string;
   latest?: string;
@@ -163,6 +164,7 @@ export const summarizeTranslationRevealEvents = (
   const categoryGroups = new Map<Category, Aggregate<Category>>();
   const topicGroups = new Map<string, Aggregate<string>>();
   const sessionIds = new Set<string>();
+  let fullRevealCount = 0;
   let earliest: string | undefined;
   let latest: string | undefined;
 
@@ -171,7 +173,11 @@ export const summarizeTranslationRevealEvents = (
     if (!earliest || event.revealedAt < earliest) earliest = event.revealedAt;
     if (!latest || event.revealedAt > latest) latest = event.revealedAt;
 
-    pushAggregate(blockGroups, event.block, event);
+    if (event.fullQuestionReveal) {
+      fullRevealCount += 1;
+    } else {
+      pushAggregate(blockGroups, event.block, event);
+    }
     pushAggregate(categoryGroups, event.category, event);
     pushAggregate(topicGroups, event.topic.trim() || "Unknown topic", event);
   }
@@ -201,6 +207,7 @@ export const summarizeTranslationRevealEvents = (
 
   return {
     totalCount: events.length,
+    fullRevealCount,
     sessionCount: sessionIds.size,
     earliest,
     latest,
@@ -349,7 +356,10 @@ type RevealAggregate = {
 
 const aggregateReveals = (events: TranslationRevealEvent[]): RevealAggregate => {
   const matchingRevealEvents = [...events].sort(compareRevealEvents);
-  const preSubmitEvents = matchingRevealEvents.filter((event) => event.submittedBeforeReveal === false);
+  // Full-question reveal is a post-submit comprehension signal, not a pre-submit friction block.
+  const preSubmitEvents = matchingRevealEvents.filter(
+    (event) => event.submittedBeforeReveal === false && !event.fullQuestionReveal,
+  );
   const firstSeenByBlock = new Map<RevealBlock, TranslationRevealEvent>();
   for (const event of matchingRevealEvents) {
     if (!firstSeenByBlock.has(event.block)) firstSeenByBlock.set(event.block, event);
