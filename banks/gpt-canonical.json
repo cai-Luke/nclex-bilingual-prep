@@ -1,6 +1,6 @@
 {
   "meta": {
-    "schemaVersion": "1.7",
+    "schemaVersion": "1.8",
     "count": 558,
     "exam": "NCLEX-RN",
     "topic": "assorted NCLEX-RN GPT canonical bank",
@@ -48559,6 +48559,108 @@
             "content": {
               "en": "Hemoglobin 11.8 g/dL; hematocrit 35%; platelets 238,000/µL; AST 22 U/L; ALT 18 U/L; creatinine 0.7 mg/dL; uric acid 4.1 mg/dL; LDH 162 U/L; urinalysis negative for protein.",
               "zh": "血红蛋白 11.8 g/dL；血细胞比容 35%；血小板 238,000/µL；AST 22 U/L；ALT 18 U/L；肌酐 0.7 mg/dL；尿酸 4.1 mg/dL；LDH 162 U/L；尿检蛋白阴性。"
+            },
+            "structuredMeasurements": {
+              "panels": [
+                {
+                  "kind": "labs",
+                  "columns": [
+                    {
+                      "id": "current",
+                      "label": {
+                        "en": "Current",
+                        "zh": "当前"
+                      }
+                    }
+                  ],
+                  "rows": [
+                    {
+                      "key": "hemoglobin",
+                      "label": {
+                        "en": "Hemoglobin",
+                        "zh": "血红蛋白"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "11.8",
+                          "unit": "g/dL"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "hematocrit",
+                      "label": {
+                        "en": "Hematocrit",
+                        "zh": "血细胞比容"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "35",
+                          "unit": "%"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "platelets",
+                      "label": {
+                        "en": "Platelets",
+                        "zh": "血小板"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "238,000",
+                          "unit": "/µL"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "ast",
+                      "label": {
+                        "en": "AST",
+                        "zh": "谷草转氨酶"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "22",
+                          "unit": "U/L"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "alt",
+                      "label": {
+                        "en": "ALT",
+                        "zh": "谷丙转氨酶"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "18",
+                          "unit": "U/L"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "creatinine",
+                      "label": {
+                        "en": "Creatinine",
+                        "zh": "肌酐"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "0.7",
+                          "unit": "mg/dL"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
             }
           }
         ],
@@ -48579,6 +48681,52 @@
                 "content": {
                   "en": "At 10:15 AM, the patient reports severe frontal headache 8/10 unrelieved by ibuprofen, intermittent visual spots, new facial/periorbital puffiness, and home BP 162/108 twice, five minutes apart. She denies chest pain, shortness of breath, epigastric/RUQ pain, nausea, vomiting, seizure activity, focal weakness, and confusion. Lochia is light serosa and she is voiding without difficulty.",
                   "zh": "10:15 AM，患者报告严重额部头痛 8/10，布洛芬后未缓解；间歇性眼前有斑点；新出现面部/眼周浮肿；家庭 BP 两次均为 162/108，间隔 5 分钟。她否认胸痛、气短、上腹/右上腹痛、恶心、呕吐、癫痫发作、局灶无力和意识混乱。恶露为少量浆液性，排尿无困难。"
+                },
+                "structuredMeasurements": {
+                  "panels": [
+                    {
+                      "kind": "vitals",
+                      "columns": [
+                        {
+                          "id": "current",
+                          "label": {
+                            "en": "10:15",
+                            "zh": "10:15"
+                          }
+                        }
+                      ],
+                      "rows": [
+                        {
+                          "key": "sbp",
+                          "label": {
+                            "en": "Systolic BP",
+                            "zh": "收缩压"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "162",
+                              "unit": "mmHg"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "dbp",
+                          "label": {
+                            "en": "Diastolic BP",
+                            "zh": "舒张压"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "108",
+                              "unit": "mmHg"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
                 }
               },
               {
@@ -48621,6 +48769,122 @@
                 "content": {
                   "en": "Hemoglobin 12.0 g/dL; hematocrit 36%; platelets 195,000/µL; AST 34 U/L; ALT 28 U/L; creatinine 0.9 mg/dL; uric acid 6.8 mg/dL; LDH 198 U/L; INR 1.0; fibrinogen 380 mg/dL; urine protein-to-creatinine ratio 0.42.",
                   "zh": "血红蛋白 12.0 g/dL；血细胞比容 36%；血小板 195,000/µL；AST 34 U/L；ALT 28 U/L；肌酐 0.9 mg/dL；尿酸 6.8 mg/dL；LDH 198 U/L；INR 1.0；纤维蛋白原 380 mg/dL；尿蛋白/肌酐比值 0.42。"
+                },
+                "structuredMeasurements": {
+                  "panels": [
+                    {
+                      "kind": "labs",
+                      "columns": [
+                        {
+                          "id": "current",
+                          "label": {
+                            "en": "12:15",
+                            "zh": "12:15"
+                          }
+                        }
+                      ],
+                      "rows": [
+                        {
+                          "key": "hemoglobin",
+                          "label": {
+                            "en": "Hemoglobin",
+                            "zh": "血红蛋白"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "12.0",
+                              "unit": "g/dL"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "hematocrit",
+                          "label": {
+                            "en": "Hematocrit",
+                            "zh": "血细胞比容"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "36",
+                              "unit": "%"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "platelets",
+                          "label": {
+                            "en": "Platelets",
+                            "zh": "血小板"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "195,000",
+                              "unit": "/µL"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "ast",
+                          "label": {
+                            "en": "AST",
+                            "zh": "谷草转氨酶"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "34",
+                              "unit": "U/L"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "alt",
+                          "label": {
+                            "en": "ALT",
+                            "zh": "谷丙转氨酶"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "28",
+                              "unit": "U/L"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "creatinine",
+                          "label": {
+                            "en": "Creatinine",
+                            "zh": "肌酐"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "0.9",
+                              "unit": "mg/dL"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "inr",
+                          "label": {
+                            "en": "INR",
+                            "zh": "国际标准化比值"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "1.0",
+                              "unit": "(ratio)"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
                 }
               },
               {
@@ -51674,6 +51938,108 @@
             "content": {
               "en": "The client reports a new dry cough for 4 days and feels more winded walking from the parking lot. She denies fever, hemoptysis, and chest pain. Vital signs: T 37.1 C, HR 92, BP 134/78, RR 20, SpO2 93% on room air. Lung sounds: faint bilateral inspiratory crackles at the bases; no wheezing, rhonchi, or stridor. No peripheral edema or JVD. Mucosa moist, capillary refill <2 seconds, bowel sounds present, skin warm and dry. She speaks in full sentences but pauses after longer phrases to breathe.",
               "zh": "患者报告新发干咳4天，从停车场走来时比平时更气促。否认发热、咯血和胸痛。生命体征：T 37.1 C，HR 92，BP 134/78，RR 20，室内空气SpO2 93%。肺部听诊：双侧肺底可闻及轻微吸气性爆裂音；无哮鸣音、干湿啰音或喘鸣。无外周水肿或颈静脉怒张。口腔黏膜湿润，毛细血管再充盈<2秒，肠鸣音存在，皮肤温暖干燥。她能说完整句子，但较长语句后会短暂停顿换气。"
+            },
+            "structuredMeasurements": {
+              "panels": [
+                {
+                  "kind": "vitals",
+                  "columns": [
+                    {
+                      "id": "current",
+                      "label": {
+                        "en": "Current",
+                        "zh": "当前"
+                      }
+                    }
+                  ],
+                  "rows": [
+                    {
+                      "key": "temp",
+                      "label": {
+                        "en": "Temperature",
+                        "zh": "体温"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "37.1",
+                          "unit": "°C"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "hr",
+                      "label": {
+                        "en": "Heart rate",
+                        "zh": "心率"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "92",
+                          "unit": "bpm"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "sbp",
+                      "label": {
+                        "en": "Systolic BP",
+                        "zh": "收缩压"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "134",
+                          "unit": "mmHg"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "dbp",
+                      "label": {
+                        "en": "Diastolic BP",
+                        "zh": "舒张压"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "78",
+                          "unit": "mmHg"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "rr",
+                      "label": {
+                        "en": "Respiratory rate",
+                        "zh": "呼吸频率"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "20",
+                          "unit": "/min"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "spo2",
+                      "label": {
+                        "en": "SpO2",
+                        "zh": "脉搏血氧饱和度"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "93",
+                          "unit": "%"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
             }
           },
           {
@@ -51725,6 +52091,164 @@
                 "content": {
                   "en": "After nurse notification, the oncologist orders stat chest CT with contrast and ABG. CT: new bilateral ground-glass opacities, predominantly lower lobes; no pleural effusion, pulmonary embolism, or lymphangitic carcinomatosis. ABG on room air: pH 7.44, PaCO2 36 mmHg, PaO2 68 mmHg. Repeat vitals: T 37.2 C, HR 98, BP 130/82, RR 22, SpO2 91% on room air. The oncologist states findings are consistent with immune-related pneumonitis and orders: hold pembrolizumab, admit for observation, start supplemental oxygen to maintain SpO2 >=94%, initiate methylprednisolone per the facility irAE pneumonitis protocol, repeat pulse oximetry every 2 hours, and consult pulmonology.",
                   "zh": "护士通知医师后，肿瘤科医师开立急诊增强胸部CT和ABG。CT：新发双侧磨玻璃影，以下肺叶为主；无胸腔积液、肺栓塞或淋巴管性癌病。室内空气ABG：pH 7.44，PaCO2 36 mmHg，PaO2 68 mmHg。复测生命体征：T 37.2 C，HR 98，BP 130/82，RR 22，室内空气SpO2 91%。肿瘤科医师说明结果符合免疫相关性肺炎，并开立医嘱：暂停pembrolizumab，收入院观察，开始吸氧以维持SpO2 >=94%，按院内irAE肺炎方案给予methylprednisolone，每2小时复测脉搏血氧，并请肺科会诊。"
+                },
+                "structuredMeasurements": {
+                  "panels": [
+                    {
+                      "kind": "vitals",
+                      "columns": [
+                        {
+                          "id": "current",
+                          "label": {
+                            "en": "Current",
+                            "zh": "当前"
+                          }
+                        }
+                      ],
+                      "rows": [
+                        {
+                          "key": "temp",
+                          "label": {
+                            "en": "Temperature",
+                            "zh": "体温"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "37.2",
+                              "unit": "°C"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "hr",
+                          "label": {
+                            "en": "Heart rate",
+                            "zh": "心率"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "98",
+                              "unit": "bpm"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "sbp",
+                          "label": {
+                            "en": "Systolic BP",
+                            "zh": "收缩压"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "130",
+                              "unit": "mmHg"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "dbp",
+                          "label": {
+                            "en": "Diastolic BP",
+                            "zh": "舒张压"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "82",
+                              "unit": "mmHg"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "rr",
+                          "label": {
+                            "en": "Respiratory rate",
+                            "zh": "呼吸频率"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "22",
+                              "unit": "/min"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "spo2",
+                          "label": {
+                            "en": "SpO2",
+                            "zh": "脉搏血氧饱和度"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "91",
+                              "unit": "%"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "labs",
+                      "columns": [
+                        {
+                          "id": "current",
+                          "label": {
+                            "en": "Current",
+                            "zh": "当前"
+                          }
+                        }
+                      ],
+                      "rows": [
+                        {
+                          "key": "ph",
+                          "label": {
+                            "en": "pH",
+                            "zh": "酸碱度"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "7.44",
+                              "unit": "(unitless)"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "paco2",
+                          "label": {
+                            "en": "PaCO2",
+                            "zh": "动脉二氧化碳分压"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "36",
+                              "unit": "mmHg"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "pao2",
+                          "label": {
+                            "en": "PaO2",
+                            "zh": "动脉氧分压"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "68",
+                              "unit": "mmHg"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
                 }
               },
               {
@@ -51756,6 +52280,164 @@
                 "content": {
                   "en": "The client has received methylprednisolone per protocol and oxygen by nasal cannula at 3 L/min. Vitals: T 37.0 C, HR 86, BP 126/76, RR 18, SpO2 96% on 3 L nasal cannula. She reports the cough is about the same but she is not as short of breath. Crackles remain bilaterally but are similar to slightly less prominent. ABG on 3 L nasal cannula: pH 7.42, PaCO2 38 mmHg, PaO2 82 mmHg. CRP has decreased from 18 to 11 mg/L.",
                   "zh": "患者已按方案接受methylprednisolone，并通过鼻导管3 L/min吸氧。生命体征：T 37.0 C，HR 86，BP 126/76，RR 18，鼻导管3 L/min下SpO2 96%。她表示咳嗽差不多，但没有那么气促。双侧仍有爆裂音，但相似或略减轻。鼻导管3 L/min下ABG：pH 7.42，PaCO2 38 mmHg，PaO2 82 mmHg。CRP从18降至11 mg/L。"
+                },
+                "structuredMeasurements": {
+                  "panels": [
+                    {
+                      "kind": "vitals",
+                      "columns": [
+                        {
+                          "id": "current",
+                          "label": {
+                            "en": "Current",
+                            "zh": "当前"
+                          }
+                        }
+                      ],
+                      "rows": [
+                        {
+                          "key": "temp",
+                          "label": {
+                            "en": "Temperature",
+                            "zh": "体温"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "37.0",
+                              "unit": "°C"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "hr",
+                          "label": {
+                            "en": "Heart rate",
+                            "zh": "心率"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "86",
+                              "unit": "bpm"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "sbp",
+                          "label": {
+                            "en": "Systolic BP",
+                            "zh": "收缩压"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "126",
+                              "unit": "mmHg"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "dbp",
+                          "label": {
+                            "en": "Diastolic BP",
+                            "zh": "舒张压"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "76",
+                              "unit": "mmHg"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "rr",
+                          "label": {
+                            "en": "Respiratory rate",
+                            "zh": "呼吸频率"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "18",
+                              "unit": "/min"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "spo2",
+                          "label": {
+                            "en": "SpO2",
+                            "zh": "脉搏血氧饱和度"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "96",
+                              "unit": "%"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "labs",
+                      "columns": [
+                        {
+                          "id": "current",
+                          "label": {
+                            "en": "Current",
+                            "zh": "当前"
+                          }
+                        }
+                      ],
+                      "rows": [
+                        {
+                          "key": "ph",
+                          "label": {
+                            "en": "pH",
+                            "zh": "酸碱度"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "7.42",
+                              "unit": "(unitless)"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "paco2",
+                          "label": {
+                            "en": "PaCO2",
+                            "zh": "动脉二氧化碳分压"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "38",
+                              "unit": "mmHg"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "pao2",
+                          "label": {
+                            "en": "PaO2",
+                            "zh": "动脉氧分压"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "82",
+                              "unit": "mmHg"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
                 }
               },
               {
@@ -59849,6 +60531,94 @@
                 "content": {
                   "en": "The attending physician discusses progressive dysphagia and poor nutritional status with the family and recommends PEG tube placement to maintain nutrition and hydration. Mrs. Ellison listens to the explanation and asks, \"Will the tube cure my heart?\" and \"Will I still be able to eat anything by mouth?\" She then states, \"I understand what you're telling me. I don't want a feeding tube. I want to eat what I can and be comfortable.\"\nPhysician documentation: \"Patient demonstrates understanding of risks and benefits of PEG placement, including that PEG does not necessarily eliminate aspiration risk, and continued weight loss without it. She articulates her values and reasoning clearly. Decision-making capacity intact. Patient declines PEG at this time.\"\nSon David tells the nurse: \"She doesn't know what she's saying. She's old and she's giving up. You need to talk some sense into her. I'm her power of attorney — I want the tube placed.\" Daughter Karen calls and says, \"My brother and I agree. We want everything done. She's just scared. Can't you convince her?\" The nurse confirms that the advance directive activates the son's authority only if Mrs. Ellison loses decisional capacity.\nVitals: HR 88, BP 108/64, RR 20, SpO2 94% on 2 L. Weight 67.8 kg. She is resting comfortably, tolerating small amounts of pureed food and nectar-thick liquids. Telemetry: atrial fibrillation with controlled ventricular rate.",
                   "zh": "主治医师与家属讨论患者进行性吞咽困难和营养状况不佳，并建议放置 PEG 管以维持营养和水分。Ellison 太太听完解释后问：“这个管子能治好我的心脏吗？”以及“我以后还能不能吃一点东西？”随后她说：“我理解你们说的内容。我不想要喂食管。我想吃多少算多少，并且舒服一点。”\n医师记录：“患者表现出理解 PEG 置管风险与获益的能力，包括 PEG 不一定能消除误吸风险，以及不置管可能继续体重下降。她能清楚表达自己的价值观和理由。决策能力完整。患者此时拒绝 PEG。”\n儿子 David 对护士说：“她不知道自己在说什么。她老了，只是在放弃。你们要劝醒她。我是她的授权代理人——我要放这个管子。” 女儿 Karen 打电话到病区说：“我和我哥哥意见一致。我们希望什么都做。她只是害怕。你不能说服她吗？” 护士确认预立医疗指示规定：只有在 Ellison 太太丧失决策能力时，儿子的代理权才生效。\n生命体征：HR 88 次/分，BP 108/64，RR 20 次/分，SpO2 94%，吸氧 2 L/min。体重 67.8 kg。患者安静休息，可少量耐受糊状食物和花蜜稠液。遥测：心房颤动，心室率受控。"
+                },
+                "structuredMeasurements": {
+                  "panels": [
+                    {
+                      "kind": "vitals",
+                      "columns": [
+                        {
+                          "id": "current",
+                          "label": {
+                            "en": "Current",
+                            "zh": "当前"
+                          }
+                        }
+                      ],
+                      "rows": [
+                        {
+                          "key": "hr",
+                          "label": {
+                            "en": "Heart rate",
+                            "zh": "心率"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "88",
+                              "unit": "bpm"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "sbp",
+                          "label": {
+                            "en": "Systolic BP",
+                            "zh": "收缩压"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "108",
+                              "unit": "mmHg"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "dbp",
+                          "label": {
+                            "en": "Diastolic BP",
+                            "zh": "舒张压"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "64",
+                              "unit": "mmHg"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "rr",
+                          "label": {
+                            "en": "Respiratory rate",
+                            "zh": "呼吸频率"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "20",
+                              "unit": "/min"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "spo2",
+                          "label": {
+                            "en": "SpO2",
+                            "zh": "脉搏血氧饱和度"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "94",
+                              "unit": "%"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
                 }
               }
             ]
@@ -59889,6 +60659,94 @@
                 "content": {
                   "en": "The nurse has documented Mrs. Ellison's repeated, consistent refusal with direct quotes and capacity observations; informed the charge nurse of the ethical concern; requested palliative care; and arranged a family meeting for the next morning with the attending physician, palliative care team, social worker, and both adult children. David states he has contacted a lawyer and \"will get a court order\" to have the PEG placed.\nMrs. Ellison is resting and tells the nurse she is glad someone is listening to her. She asks about hospice options at home. Vitals: HR 86, BP 102/58, RR 18, SpO2 95% on 2 L. Weight 66.8 kg. She tolerated small amounts of pureed lunch. Telemetry unchanged.\nPalliative-care nurse practitioner note: \"Mrs. Ellison demonstrates intact decisional capacity, consistent values-based reasoning, and an informed, voluntary refusal of PEG tube placement. Recommend goals-of-care meeting with family, comfort-focused plan of care, and hospice referral per patient's expressed wishes.\"",
                   "zh": "护士已在护理记录中记录 Ellison 太太反复且一致的拒绝，包括直接引语和决策能力相关观察；已告知护士长存在伦理问题；已申请姑息治疗；并安排次日上午由主治医师、姑息治疗团队、社工和两名成年子女参加家庭会议。David 表示他已联系律师，并“会拿到法院命令”要求放置 PEG。\nEllison 太太正在休息，并告诉护士，很高兴有人在听她说话。她询问在家接受临终关怀的选择。生命体征：HR 86 次/分，BP 102/58，RR 18 次/分，SpO2 95%，吸氧 2 L/min。体重 66.8 kg。午餐少量糊状食物可耐受。遥测无变化。\n姑息治疗护士执业者记录：“Ellison 太太表现出完整的决策能力，基于一致价值观进行推理，并对 PEG 置管作出知情、自愿的拒绝。建议与家属进行照护目标会议，制定以舒适为重点的照护计划，并根据患者明确表达的意愿转介临终关怀。”"
+                },
+                "structuredMeasurements": {
+                  "panels": [
+                    {
+                      "kind": "vitals",
+                      "columns": [
+                        {
+                          "id": "current",
+                          "label": {
+                            "en": "Current",
+                            "zh": "当前"
+                          }
+                        }
+                      ],
+                      "rows": [
+                        {
+                          "key": "hr",
+                          "label": {
+                            "en": "Heart rate",
+                            "zh": "心率"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "86",
+                              "unit": "bpm"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "sbp",
+                          "label": {
+                            "en": "Systolic BP",
+                            "zh": "收缩压"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "102",
+                              "unit": "mmHg"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "dbp",
+                          "label": {
+                            "en": "Diastolic BP",
+                            "zh": "舒张压"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "58",
+                              "unit": "mmHg"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "rr",
+                          "label": {
+                            "en": "Respiratory rate",
+                            "zh": "呼吸频率"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "18",
+                              "unit": "/min"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "spo2",
+                          "label": {
+                            "en": "SpO2",
+                            "zh": "脉搏血氧饱和度"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "95",
+                              "unit": "%"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
                 }
               }
             ]

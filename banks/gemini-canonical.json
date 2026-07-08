@@ -63455,6 +63455,38 @@
             "content": {
               "en": "Hemoglobin A1C: 7.6%. Fasting blood glucose: 145 mg/dL.",
               "zh": "糖化血红蛋白(HbA1C)：7.6%。空腹血糖：145 mg/dL。"
+            },
+            "structuredMeasurements": {
+              "panels": [
+                {
+                  "kind": "labs",
+                  "columns": [
+                    {
+                      "id": "current",
+                      "label": {
+                        "en": "Current",
+                        "zh": "当前"
+                      }
+                    }
+                  ],
+                  "rows": [
+                    {
+                      "key": "glucose",
+                      "label": {
+                        "en": "Glucose",
+                        "zh": "血糖"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "145",
+                          "unit": "mg/dL"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
             }
           }
         ],
