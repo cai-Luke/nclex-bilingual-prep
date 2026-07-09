@@ -467,6 +467,17 @@ if (!badUnitResult.ok) {
   assert(badUnitResult.reasons.some((reason) => reason.includes("unit 'mg/dL' is not accepted for measurement key 'potassium'")));
 }
 
+const badStructuredComparator = structuredClone(structuredMeasurementsCase);
+badStructuredComparator.caseStudy.exhibits[0].structuredMeasurements.panels[0].rows[0].values[0].value = ">6.2";
+const badComparatorResult = validateBankObject({
+  meta: { schemaVersion: "1.8", count: 1 },
+  questions: [badStructuredComparator],
+});
+assert.equal(badComparatorResult.ok, false);
+if (!badComparatorResult.ok) {
+  assert(badComparatorResult.reasons.some((reason) => reason.includes("exact scalar without comparator symbols")));
+}
+
 const badStructuredFlag = structuredClone(structuredMeasurementsCase);
 (badStructuredFlag.caseStudy.exhibits[0].structuredMeasurements.panels[0].rows[0].values[0] as Record<string, unknown>).flag = "H";
 const badFlagResult = validateBankObject({

@@ -3,6 +3,16 @@ import { MEASUREMENT_ALLOWLIST, ALLOWLIST_KEYS } from "../../src/measurementAllo
 import { ANALYTE_DEFS } from "../../src/visuals/kinds/lab_trend/defs";
 import { VITAL_DEFS } from "../../src/visuals/kinds/vitals_trend/defs";
 
+const inferredUnits: Record<string, string> = {
+  bun: "mg/dL",
+  creatinine: "mg/dL",
+  glucose: "mg/dL",
+  lactate: "mmol/L",
+  ast: "U/L",
+  alt: "U/L",
+  total_bilirubin: "mg/dL",
+};
+
 for (const [key, def] of Object.entries(VITAL_DEFS)) {
   const got = MEASUREMENT_ALLOWLIST[key];
   assert.ok(got, `${key} missing from measurement allowlist`);
@@ -20,11 +30,12 @@ for (const [key, def] of Object.entries(ANALYTE_DEFS)) {
   assert.equal(got.canonicalUnit, def.canonicalUnit, `${key} canonicalUnit drift`);
   assert.deepEqual(got.sanity, def.sanity, `${key} sanity drift`);
   assert.deepEqual(got.acceptedSourceUnits, [def.canonicalUnit, ...def.altUnits], `${key} acceptedSourceUnits drift`);
+  assert.equal(got.inferredUnit, inferredUnits[key], `${key} inferredUnit drift`);
 }
 
 assert.equal(
   ALLOWLIST_KEYS.size,
-  Object.keys(VITAL_DEFS).length + Object.keys(ANALYTE_DEFS).length + 2,
+  Object.keys(VITAL_DEFS).length + Object.keys(ANALYTE_DEFS).length + 3,
   "ALLOWLIST_KEYS should contain every registry key plus structured-only keys",
 );
 
@@ -56,8 +67,14 @@ assert.equal(MEASUREMENT_ALLOWLIST.troponin_i.canonicalUnit, "ng/mL", "troponin_
 assert.deepEqual(MEASUREMENT_ALLOWLIST.troponin_i.acceptedSourceUnits, ["ng/mL", "µg/L"], "troponin_i accepted units should be pinned");
 assert.equal(MEASUREMENT_ALLOWLIST.sao2.kind, "lab", "sao2 should be structured-only lab/ABG measurement");
 assert.deepEqual(MEASUREMENT_ALLOWLIST.sao2.acceptedSourceUnits, ["%"], "sao2 accepted units should be pinned");
+assert.equal(MEASUREMENT_ALLOWLIST.uric_acid.kind, "lab", "uric_acid should be structured-only lab measurement");
+assert.equal(MEASUREMENT_ALLOWLIST.uric_acid.canonicalUnit, "mg/dL", "uric_acid canonical unit should be mg/dL");
+assert.deepEqual(MEASUREMENT_ALLOWLIST.uric_acid.acceptedSourceUnits, ["mg/dL"], "uric_acid accepted units should be pinned");
+assert.equal(MEASUREMENT_ALLOWLIST.calcium.inferredUnit, undefined, "bare calcium must not infer a unit");
+assert.equal(MEASUREMENT_ALLOWLIST.ionized_calcium.inferredUnit, undefined, "bare ionized calcium must not infer a unit");
 assert.equal("troponin_i" in ANALYTE_DEFS, false, "troponin_i must not widen lab_trend analytes");
 assert.equal("sao2" in ANALYTE_DEFS, false, "sao2 must not widen lab_trend analytes");
+assert.equal("uric_acid" in ANALYTE_DEFS, false, "uric_acid must not widen lab_trend analytes");
 assert.equal("sao2" in VITAL_DEFS, false, "sao2 must not widen vitals_trend keys");
 
 console.log("measurement allowlist tests passed");

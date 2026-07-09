@@ -94,7 +94,8 @@ export const displayPolicyFor = (key: string): MeasurementDisplayPolicy => {
 };
 
 export const parseMeasurementValue = (rawValue: string): number | null => {
-  const cleaned = rawValue.replace(/,/g, "").replace(/[<>]/g, "").trim();
+  if (/[<>≤≥]/.test(rawValue)) return null;
+  const cleaned = rawValue.replace(/,/g, "").trim();
   const value = Number(cleaned);
   return Number.isFinite(value) ? value : null;
 };

@@ -5,6 +5,7 @@ export interface MeasurementDef {
   key: string;
   canonicalUnit: string;
   acceptedSourceUnits: readonly string[];
+  inferredUnit?: string;
   sanity: Readonly<{ min: number; max: number }>;
   kind: "vital" | "lab";
 }
@@ -15,6 +16,16 @@ const freezeDef = (def: MeasurementDef): MeasurementDef =>
     acceptedSourceUnits: Object.freeze([...def.acceptedSourceUnits]),
     sanity: Object.freeze({ ...def.sanity }),
   });
+
+const INFERRED_UNITS: Readonly<Record<string, string>> = Object.freeze({
+  bun: "mg/dL",
+  creatinine: "mg/dL",
+  glucose: "mg/dL",
+  lactate: "mmol/L",
+  ast: "U/L",
+  alt: "U/L",
+  total_bilirubin: "mg/dL",
+});
 
 const vitalEntries = Object.entries(VITAL_DEFS).map(([key, def]) => [
   key,
@@ -33,6 +44,7 @@ const labEntries = Object.entries(ANALYTE_DEFS).map(([key, def]) => [
     key,
     canonicalUnit: def.canonicalUnit,
     acceptedSourceUnits: [def.canonicalUnit, ...def.altUnits],
+    ...(INFERRED_UNITS[key] ? { inferredUnit: INFERRED_UNITS[key] } : {}),
     sanity: def.sanity,
     kind: "lab",
   }),
@@ -51,6 +63,13 @@ const structuredOnlyEntries = [
     canonicalUnit: "%",
     acceptedSourceUnits: ["%"],
     sanity: { min: 50, max: 100 },
+    kind: "lab",
+  })],
+  ["uric_acid", freezeDef({
+    key: "uric_acid",
+    canonicalUnit: "mg/dL",
+    acceptedSourceUnits: ["mg/dL"],
+    sanity: { min: 0, max: 30 },
     kind: "lab",
   })],
 ] as const;

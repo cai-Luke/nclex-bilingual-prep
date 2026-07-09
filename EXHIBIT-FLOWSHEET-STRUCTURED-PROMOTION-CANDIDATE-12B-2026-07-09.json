@@ -38,15 +38,16 @@
         "value": "96,000",
         "sourceUnit": "/mm3",
         "sourceSpan": "Stat labs: hemoglobin 9.8 g/dL, platelet count 96,000/mm3, aPTT >150 seconds."
-      },
+      }
+    ],
+    "excludedValues": [
       {
         "label": "ptt",
         "value": ">150",
-        "sourceUnit": "seconds",
+        "reason": "comparator",
         "sourceSpan": "Stat labs: hemoglobin 9.8 g/dL, platelet count 96,000/mm3, aPTT >150 seconds."
       }
     ],
-    "excludedValues": [],
     "unitAliases": []
   },
   {
@@ -129,166 +130,6 @@
         "value": "6.8",
         "sourceUnit": "mg/dL",
         "sourceSpan": "Hematocrit 52%, BUN 39 mg/dL, calcium 6.8 mg/dL."
-      }
-    ],
-    "excludedValues": [],
-    "unitAliases": []
-  },
-  {
-    "exhibitRef": "gpt_case_gap_2026_06_11_case_tls_01/baseline_exhibit",
-    "lane": "extract",
-    "panel": [
-      {
-        "label": "temp",
-        "value": "37.0",
-        "sourceUnit": "°C",
-        "sourceSpan": "Assessment: T 37.0°C, HR 88/min, BP 128/80 mm Hg, RR 16/min, SpO2 98% on room air."
-      },
-      {
-        "label": "hr",
-        "value": "88",
-        "sourceUnit": "bpm",
-        "sourceSpan": "Assessment: T 37.0°C, HR 88/min, BP 128/80 mm Hg, RR 16/min, SpO2 98% on room air."
-      },
-      {
-        "label": "sbp",
-        "value": "128",
-        "sourceUnit": "mm Hg",
-        "sourceSpan": "Assessment: T 37.0°C, HR 88/min, BP 128/80 mm Hg, RR 16/min, SpO2 98% on room air."
-      },
-      {
-        "label": "dbp",
-        "value": "80",
-        "sourceUnit": "mm Hg",
-        "sourceSpan": "Assessment: T 37.0°C, HR 88/min, BP 128/80 mm Hg, RR 16/min, SpO2 98% on room air."
-      },
-      {
-        "label": "rr",
-        "value": "16",
-        "sourceUnit": "/min",
-        "sourceSpan": "Assessment: T 37.0°C, HR 88/min, BP 128/80 mm Hg, RR 16/min, SpO2 98% on room air."
-      },
-      {
-        "label": "spo2",
-        "value": "98",
-        "sourceUnit": "%",
-        "sourceSpan": "Assessment: T 37.0°C, HR 88/min, BP 128/80 mm Hg, RR 16/min, SpO2 98% on room air."
-      },
-      {
-        "label": "wbc",
-        "value": "48,000",
-        "sourceUnit": "/µL",
-        "sourceSpan": "Labs: WBC 48,000/µL, hemoglobin 10.2 g/dL, platelets 98,000/µL, BUN 22 mg/dL, creatinine 1.1 mg/dL, potassium 4.8 mEq/L, phosphorus 4.9 mg/dL, calcium 8.9 mg/dL, uric acid 9.2 mg/dL, LDH 1,450 U/L."
-      },
-      {
-        "label": "hemoglobin",
-        "value": "10.2",
-        "sourceUnit": "g/dL",
-        "sourceSpan": "Labs: WBC 48,000/µL, hemoglobin 10.2 g/dL, platelets 98,000/µL, BUN 22 mg/dL, creatinine 1.1 mg/dL, potassium 4.8 mEq/L, phosphorus 4.9 mg/dL, calcium 8.9 mg/dL, uric acid 9.2 mg/dL, LDH 1,450 U/L."
-      },
-      {
-        "label": "platelets",
-        "value": "98,000",
-        "sourceUnit": "/µL",
-        "sourceSpan": "Labs: WBC 48,000/µL, hemoglobin 10.2 g/dL, platelets 98,000/µL, BUN 22 mg/dL, creatinine 1.1 mg/dL, potassium 4.8 mEq/L, phosphorus 4.9 mg/dL, calcium 8.9 mg/dL, uric acid 9.2 mg/dL, LDH 1,450 U/L."
-      },
-      {
-        "label": "bun",
-        "value": "22",
-        "sourceUnit": "mg/dL",
-        "sourceSpan": "Labs: WBC 48,000/µL, hemoglobin 10.2 g/dL, platelets 98,000/µL, BUN 22 mg/dL, creatinine 1.1 mg/dL, potassium 4.8 mEq/L, phosphorus 4.9 mg/dL, calcium 8.9 mg/dL, uric acid 9.2 mg/dL, LDH 1,450 U/L."
-      },
-      {
-        "label": "creatinine",
-        "value": "1.1",
-        "sourceUnit": "mg/dL",
-        "sourceSpan": "Labs: WBC 48,000/µL, hemoglobin 10.2 g/dL, platelets 98,000/µL, BUN 22 mg/dL, creatinine 1.1 mg/dL, potassium 4.8 mEq/L, phosphorus 4.9 mg/dL, calcium 8.9 mg/dL, uric acid 9.2 mg/dL, LDH 1,450 U/L."
-      },
-      {
-        "label": "potassium",
-        "value": "4.8",
-        "sourceUnit": "mEq/L",
-        "sourceSpan": "Labs: WBC 48,000/µL, hemoglobin 10.2 g/dL, platelets 98,000/µL, BUN 22 mg/dL, creatinine 1.1 mg/dL, potassium 4.8 mEq/L, phosphorus 4.9 mg/dL, calcium 8.9 mg/dL, uric acid 9.2 mg/dL, LDH 1,450 U/L."
-      },
-      {
-        "label": "phosphate",
-        "value": "4.9",
-        "sourceUnit": "mg/dL",
-        "sourceSpan": "Labs: WBC 48,000/µL, hemoglobin 10.2 g/dL, platelets 98,000/µL, BUN 22 mg/dL, creatinine 1.1 mg/dL, potassium 4.8 mEq/L, phosphorus 4.9 mg/dL, calcium 8.9 mg/dL, uric acid 9.2 mg/dL, LDH 1,450 U/L."
-      },
-      {
-        "label": "calcium",
-        "value": "8.9",
-        "sourceUnit": "mg/dL",
-        "sourceSpan": "Labs: WBC 48,000/µL, hemoglobin 10.2 g/dL, platelets 98,000/µL, BUN 22 mg/dL, creatinine 1.1 mg/dL, potassium 4.8 mEq/L, phosphorus 4.9 mg/dL, calcium 8.9 mg/dL, uric acid 9.2 mg/dL, LDH 1,450 U/L."
-      }
-    ],
-    "excludedValues": [],
-    "unitAliases": []
-  },
-  {
-    "exhibitRef": "gpt_case_gap_2026_06_11_case_tls_01/stage1_exhibit",
-    "lane": "extract",
-    "panel": [
-      {
-        "label": "temp",
-        "value": "37.4",
-        "sourceUnit": "°C",
-        "sourceSpan": "T 37.4°C, HR 108/min, BP 132/88 mm Hg, RR 22/min, SpO2 97% on room air."
-      },
-      {
-        "label": "hr",
-        "value": "108",
-        "sourceUnit": "bpm",
-        "sourceSpan": "T 37.4°C, HR 108/min, BP 132/88 mm Hg, RR 22/min, SpO2 97% on room air."
-      },
-      {
-        "label": "sbp",
-        "value": "132",
-        "sourceUnit": "mm Hg",
-        "sourceSpan": "T 37.4°C, HR 108/min, BP 132/88 mm Hg, RR 22/min, SpO2 97% on room air."
-      },
-      {
-        "label": "dbp",
-        "value": "88",
-        "sourceUnit": "mm Hg",
-        "sourceSpan": "T 37.4°C, HR 108/min, BP 132/88 mm Hg, RR 22/min, SpO2 97% on room air."
-      },
-      {
-        "label": "rr",
-        "value": "22",
-        "sourceUnit": "/min",
-        "sourceSpan": "T 37.4°C, HR 108/min, BP 132/88 mm Hg, RR 22/min, SpO2 97% on room air."
-      },
-      {
-        "label": "spo2",
-        "value": "97",
-        "sourceUnit": "%",
-        "sourceSpan": "T 37.4°C, HR 108/min, BP 132/88 mm Hg, RR 22/min, SpO2 97% on room air."
-      },
-      {
-        "label": "potassium",
-        "value": "7.1",
-        "sourceUnit": "mEq/L",
-        "sourceSpan": "Repeat labs: potassium 7.1 mEq/L, phosphorus 8.4 mg/dL, calcium 6.8 mg/dL, uric acid 4.1 mg/dL, creatinine 2.4 mg/dL, LDH 3,200 U/L."
-      },
-      {
-        "label": "phosphate",
-        "value": "8.4",
-        "sourceUnit": "mg/dL",
-        "sourceSpan": "Repeat labs: potassium 7.1 mEq/L, phosphorus 8.4 mg/dL, calcium 6.8 mg/dL, uric acid 4.1 mg/dL, creatinine 2.4 mg/dL, LDH 3,200 U/L."
-      },
-      {
-        "label": "calcium",
-        "value": "6.8",
-        "sourceUnit": "mg/dL",
-        "sourceSpan": "Repeat labs: potassium 7.1 mEq/L, phosphorus 8.4 mg/dL, calcium 6.8 mg/dL, uric acid 4.1 mg/dL, creatinine 2.4 mg/dL, LDH 3,200 U/L."
-      },
-      {
-        "label": "creatinine",
-        "value": "2.4",
-        "sourceUnit": "mg/dL",
-        "sourceSpan": "Repeat labs: potassium 7.1 mEq/L, phosphorus 8.4 mg/dL, calcium 6.8 mg/dL, uric acid 4.1 mg/dL, creatinine 2.4 mg/dL, LDH 3,200 U/L."
       }
     ],
     "excludedValues": [],

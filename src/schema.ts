@@ -611,7 +611,11 @@ const validateStructuredMeasurements = (value: unknown, path: string, reasons: s
           } else if (!columnIds.has(entry.columnId)) {
             reasons.push(`${valuePath}.columnId '${entry.columnId}' does not match a column id in the same panel`);
           }
-          if (!nonEmptyString(entry.value)) reasons.push(`${valuePath}.value is required`);
+          if (!nonEmptyString(entry.value)) {
+            reasons.push(`${valuePath}.value is required`);
+          } else if (/[<>≤≥]/.test(entry.value)) {
+            reasons.push(`${valuePath}.value must be an exact scalar without comparator symbols`);
+          }
           if (!nonEmptyString(entry.unit)) {
             reasons.push(`${valuePath}.unit is required`);
           } else if (nonEmptyString(row.key) && ALLOWLIST_KEYS.has(row.key) && !isAcceptedMeasurementUnit(row.key, entry.unit)) {

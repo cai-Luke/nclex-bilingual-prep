@@ -65,6 +65,7 @@ import { ANALYTE_DEFS } from "../src/visuals/kinds/lab_trend/defs";
 type Allow = {
   canonicalUnit: string;
   altUnits: string[];
+  inferredUnit?: string;
   // sanity bounds are expressed in the CANONICAL unit
   sanity: { min: number; max: number };
 };
@@ -79,13 +80,14 @@ const ALLOW: Record<string, Allow> = Object.fromEntries(
     return [key, {
       canonicalUnit: def.canonicalUnit,
       altUnits: [...altUnits, ...(EXTRA_SOURCE_UNITS[key] ?? [])],
+      inferredUnit: def.inferredUnit,
       sanity: { ...def.sanity },
     }];
   }),
 );
 const ALLOW_KEYS = ALLOWLIST_KEYS;
 
-const EXCLUSION_REASONS = new Set(["prior", "trend", "serial"]);
+const EXCLUSION_REASONS = new Set(["prior", "trend", "serial", "comparator"]);
 const CONTEXT_TAGS = new Set(["post_intervention"]);
 const IMPLICIT_SOURCE_UNITS: Record<string, Set<string>> = {
   hr: new Set(["bpm"]),
@@ -116,7 +118,7 @@ const LABEL_PATTERNS: Array<{ key: string; re: RegExp }> = [
   { key: "chloride",       re: /\bchloride\b|\bCl\b/g },
   { key: "bicarbonate",    re: /\bbicarbonate\b|\bCO2\b|\bCO₂\b/gi },
   { key: "bun",            re: /\bBUN\b/g },
-  { key: "creatinine",     re: /\bcreatinine\b/gi },
+  { key: "creatinine",     re: /\bcreatinine\b|\bCr\b/g },
   { key: "glucose",        re: /\bglucose\b/gi },
   { key: "ionized_calcium", re: /\bionized\s+calcium\b|\biCa(?:l)?\b|\bfree\s+calcium\b|离子钙|游离钙/gi },
   { key: "calcium",        re: /\btotal\s+calcium\b|\bserum\s+calcium\b|(?<!ionized\s)(?<!free\s)\bcalcium\b/gi },
@@ -140,6 +142,7 @@ const LABEL_PATTERNS: Array<{ key: string; re: RegExp }> = [
   { key: "alt",            re: /\bALT\b/g },
   { key: "total_bilirubin", re: /\btotal bilirubin\b|\bbilirubin\b/gi },
   { key: "ammonia",        re: /\bammonia\b/gi },
+  { key: "uric_acid",      re: /\buric\s+acid\b/gi },
 ];
 
 // Count how many distinct timepoint-adjacent occurrences a label pattern has in the
@@ -164,6 +167,35 @@ const sourceContainsUnit = (source: string, sourceUnit: string): boolean => {
   return false;
 };
 
+const ADJACENT_UNIT_TOKEN = /^\s*(?:mg\/dL|mmol\/L|mEq\/L|U\/L|ng\/mL|pg\/mL|g\/dL|g\/L|seconds?|sec|mm\s*Hg|bpm|\/\s*(?:min|µL|μL|uL|mcL|mm3|mm³)|%|K\/µL|x\s*10\^3\/uL|×\s*10³\/µL|×\s*10⁹\/L)\b/i;
+
+const valueHasAdjacentUnitToken = (source: string, rawValue: string): boolean => {
+  const valueRe = new RegExp(escapeRegExp(rawValue), "g");
+  let match: RegExpExecArray | null;
+  while ((match = valueRe.exec(source)) !== null) {
+    const after = source.slice(match.index + match[0].length);
+    if (ADJACENT_UNIT_TOKEN.test(after)) return true;
+  }
+  return false;
+};
+
+const isInferredUnitUse = (key: string, sourceUnit: string, rawValue: string, source: string): boolean => {
+  const inferred = ALLOW[key]?.inferredUnit;
+  return inferred !== undefined &&
+    normalizeUnit(sourceUnit) === normalizeUnit(inferred) &&
+    !valueHasAdjacentUnitToken(source, rawValue);
+};
+
+const plausibleAcceptedUnits = (key: string, rawValue: string): string[] => {
+  const def = ALLOW[key];
+  if (!def) return [];
+  const units = [def.canonicalUnit, ...def.altUnits];
+  return units.filter((unit) => {
+    const value = toCanonical(key, rawValue, unit);
+    return value !== null && value >= def.sanity.min && value <= def.sanity.max;
+  });
+};
+
 const isImplicitUnitAllowed = (key: string, sourceUnit: string): boolean =>
   IMPLICIT_SOURCE_UNITS[key]?.has(normalizeUnit(sourceUnit)) ?? false;
 
@@ -183,6 +215,21 @@ const explicitImplicitSourceUnit = (key: string, rawValue: string, source: strin
   const valueRe = new RegExp(`${escapeRegExp(rawValue)}\\s*(${tokenRe.source})`, "i");
   const match = source.match(valueRe);
   return match?.[1] ?? null;
+};
+
+const sourceHasUnitlessNumericLabel = (source: string, key: string, re: RegExp): boolean => {
+  const def = MEASUREMENT_ALLOWLIST[key];
+  if (!def || def.kind !== "lab") return false;
+  const global = new RegExp(re.source, re.flags.includes("g") ? re.flags : `${re.flags}g`);
+  let match: RegExpExecArray | null;
+  while ((match = global.exec(source)) !== null) {
+    const afterLabel = source.slice(match.index + match[0].length, match.index + match[0].length + 50);
+    const value = afterLabel.match(/^\s*(?:[:=]?\s*)?([<>≤≥]?\d[\d,.]*)/);
+    if (!value) continue;
+    const afterValue = afterLabel.slice(value.index! + value[0].length);
+    if (!ADJACENT_UNIT_TOKEN.test(afterValue)) return true;
+  }
+  return false;
 };
 
 const toCanonical = (key: string, rawValue: string, sourceUnit: string): number | null =>
@@ -365,7 +412,12 @@ const gateRecord = (rec: ExtractionRecord, source: string | undefined): Finding[
       }
       const unitSource = e.sourceSpan ? nfc(e.sourceSpan) : src;
       if (!sourceContainsUnit(unitSource, e.sourceUnit)) {
-        if (isImplicitUnitAllowed(e.label, e.sourceUnit)) {
+        if (isInferredUnitUse(e.label, e.sourceUnit, e.value, unitSource)) {
+          const plausibleUnits = plausibleAcceptedUnits(e.label, e.value);
+          if (plausibleUnits.length > 1) {
+            push("WARN", `${at}: sourceUnit '${e.sourceUnit}' is inferred and value is plausible under multiple accepted units [${plausibleUnits.join(", ")}]; verify US-reporting inference`);
+          }
+        } else if (isImplicitUnitAllowed(e.label, e.sourceUnit)) {
           const explicitUnit = explicitImplicitSourceUnit(e.label, e.value, unitSource);
           if (explicitUnit) {
             push("WARN", `${at}: source carries nonstandard/conflicting unit '${explicitUnit}' for ${e.label}; staged as '${e.sourceUnit}' (prose-normalization candidate)`);
@@ -423,7 +475,7 @@ const gateRecord = (rec: ExtractionRecord, source: string | undefined): Finding[
     }
     // Rule F: post_intervention must not appear as an exclusion reason
     if (e.reason === "post_intervention") push("FAIL", `${at}: post_intervention is a keyed context, not an exclusion reason (Rule F)`);
-    else if (!EXCLUSION_REASONS.has(e.reason)) push("FAIL", `${at}: reason '${e.reason}' not in {prior, trend, serial}`);
+    else if (!EXCLUSION_REASONS.has(e.reason)) push("FAIL", `${at}: reason '${e.reason}' not in {prior, trend, serial, comparator}`);
   }
 
   for (const [i, a] of aliases.entries()) {
@@ -452,7 +504,11 @@ const gateRecord = (rec: ExtractionRecord, source: string | undefined): Finding[
       continue;
     }
     if (!accounted.has(key)) {
-      push("WARN", `GATE 2 (advisory): source mentions '${key}' but it is neither keyed nor excluded; verify completeness (may be a reference range or name collision)`);
+      if (sourceHasUnitlessNumericLabel(src, key, re)) {
+        push("WARN", `GATE 2 (advisory): source mentions '${key}' with a numeric value but no adjacent unit; verify inferred-unit eligibility or leave prose with reason`);
+      } else {
+        push("WARN", `GATE 2 (advisory): source mentions '${key}' but it is neither keyed nor excluded; verify completeness (may be a reference range or name collision)`);
+      }
     }
   }
 

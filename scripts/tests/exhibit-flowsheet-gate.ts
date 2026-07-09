@@ -108,6 +108,68 @@ const run = (record: ExtractionRecord, src = source): Finding[] => gateRecord(re
 }
 
 {
+  const source = "Hour 18 labs: BUN 18, Cr 0.8, calcium 7.9, glucose 220, lactate 2.6.";
+  const record: ExtractionRecord = {
+    exhibitRef: "test/inferred_units",
+    lane: "extract",
+    panel: [
+      { label: "bun", value: "18", sourceUnit: "mg/dL", sourceSpan: "BUN 18" },
+      { label: "creatinine", value: "0.8", sourceUnit: "mg/dL", sourceSpan: "Cr 0.8" },
+      { label: "glucose", value: "220", sourceUnit: "mg/dL", sourceSpan: "glucose 220" },
+      { label: "lactate", value: "2.6", sourceUnit: "mmol/L", sourceSpan: "lactate 2.6" },
+    ],
+    excludedValues: [],
+    unitAliases: [],
+  };
+  const findings = run(record, source);
+  assert(noFinding(findings, "sourceUnit 'mg/dL' is not a verbatim source unit"), "opt-in inferred units should pass Rule C when the value has no adjacent unit");
+  assert(hasFinding(findings, "WARN", "sourceUnit 'mg/dL' is inferred and value is plausible under multiple accepted units"), "ambiguous inferred BUN should warn");
+  assert(hasFinding(findings, "WARN", "source mentions 'calcium' with a numeric value but no adjacent unit"), "unitless numeric calcium should get the GATE 2 subclass warning");
+}
+
+{
+  const source = "Hour 18 labs: calcium 7.9.";
+  const record: ExtractionRecord = {
+    exhibitRef: "test/no_calcium_inference",
+    lane: "extract",
+    panel: [{ label: "calcium", value: "7.9", sourceUnit: "mg/dL", sourceSpan: "calcium 7.9" }],
+    excludedValues: [],
+    unitAliases: [],
+  };
+  const findings = run(record, source);
+  assert(hasFinding(findings, "FAIL", "sourceUnit 'mg/dL' is not a verbatim source unit"), "bare calcium must not infer mg/dL");
+}
+
+{
+  const source = "Repeat labs: Cr 2.4 mg/dL.";
+  const omitted: ExtractionRecord = { exhibitRef: "test/cr_omitted", lane: "extract", panel: [], excludedValues: [], unitAliases: [] };
+  assert(hasFinding(run(omitted, source), "WARN", "source mentions 'creatinine'"), "GATE 2 should recognize Cr abbreviation");
+
+  const keyed: ExtractionRecord = {
+    exhibitRef: "test/cr_keyed",
+    lane: "extract",
+    panel: [{ label: "creatinine", value: "2.4", sourceUnit: "mg/dL", sourceSpan: "Cr 2.4 mg/dL" }],
+    excludedValues: [],
+    unitAliases: [],
+  };
+  assert(noFinding(run(keyed, source), "source mentions 'creatinine'"), "Cr 2.4 mg/dL must be accountably keyable");
+}
+
+{
+  const source = "Labs: aPTT >150 seconds.";
+  const record: ExtractionRecord = {
+    exhibitRef: "test/comparator_exclusion",
+    lane: "extract",
+    panel: [],
+    excludedValues: [{ label: "ptt", value: ">150", reason: "comparator", sourceSpan: "aPTT >150 seconds" }],
+    unitAliases: [],
+  };
+  const findings = run(record, source);
+  assert(noFinding(findings, "reason 'comparator'"), "comparator exclusion reason should be accepted");
+  assert(noFinding(findings, "source mentions 'ptt'"), "comparator exclusion should account for the ptt label");
+}
+
+{
   const record: ExtractionRecord = {
     exhibitRef: "test/calcium",
     lane: "extract",

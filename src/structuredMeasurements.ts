@@ -70,7 +70,10 @@ export const formatStructuredMeasurementValue = (
   const secondaryValue = policy.secondaryUnit
     ? toMeasurementDisplayValue(key, entry.value, entry.unit, policy.secondaryUnit)
     : null;
-  const secondaryText = policy.secondaryUnit && secondaryValue !== null
+  const duplicateScaleDisplay = primaryValue !== null && secondaryValue !== null
+    ? Math.abs(primaryValue - secondaryValue) < 1e-9
+    : false;
+  const secondaryText = policy.secondaryUnit && secondaryValue !== null && !duplicateScaleDisplay
     ? ` (${trimNumber(secondaryValue)} ${policy.secondaryUnit})`
     : "";
 

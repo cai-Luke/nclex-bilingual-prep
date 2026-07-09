@@ -1024,7 +1024,7 @@ Representative fetal-monitoring fixtures were also inspected through the in-app 
 
 ## Candidate next work
 
-- Candidates 11A/11B were promoted by Claude Code (`91bcca2`) and recorded in the migration ledger (`02d7045`). Prepared Candidates 12A and 12B for Claude Code gate review: ten Batch 12 scattered supplement records routed across `gpt-canonical.json` and `hard-cases-canonical.json`; 12A gates `0 FAIL / 15 WARN`, 12B gates `0 FAIL / 6 WARN`, applicator dry-runs green, timestamp sanity labels all `Current`, and no canonical bank write. Troponin-I clozapine Batch 12 rows were deliberately deferred for fresh `troponin_i` re-extraction under the current structured-only allowlist.
+- Candidates 11A/11B were promoted by Claude Code (`91bcca2`) and recorded in the migration ledger (`02d7045`). Prepared and then patched Candidates 12A/12B after comparator and inferred-unit review: promotion-ready 12A now contains three GPT refs (`0 FAIL / 3 WARN`), promotion-ready 12B contains three GPT refs with `anticoag_deterioration`'s comparator ptt moved to `excludedValues` (`0 FAIL / 4 WARN`), gallstone and TLS rows moved to explicit HOLD re-extraction artifacts, applicator dry-runs green, and no canonical bank write. Troponin-I clozapine Batch 12 rows remain deliberately deferred for fresh `troponin_i` re-extraction under the current structured-only allowlist.
 - Add browser automation to the verification baseline when Playwright or the in-app browser tool is available.
 - Extend shared grading regressions when new item types are added.
 - Continue bank expansion guided by `npm run census` (structured) and `npm run coverage-report` (Markdown prompt parameters).

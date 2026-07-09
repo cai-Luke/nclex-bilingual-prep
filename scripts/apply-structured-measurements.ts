@@ -118,6 +118,7 @@ const LABELS: Record<string, TextPair> = {
   alt: { en: "ALT", zh: "谷丙转氨酶" },
   total_bilirubin: { en: "Total bilirubin", zh: "总胆红素" },
   ammonia: { en: "Ammonia", zh: "血氨" },
+  uric_acid: { en: "Uric acid", zh: "尿酸" },
   troponin_i: { en: "Troponin I", zh: "肌钙蛋白I" },
   troponin_t: { en: "Troponin T", zh: "肌钙蛋白T" },
   bnp: { en: "BNP", zh: "脑钠肽" },
@@ -185,12 +186,26 @@ const locateExhibit = (banks: LoadedBank[], exhibitRef: string): LocatedExhibit 
   return matches[0];
 };
 
-const inferColumnLabel = (exhibit: CaseStudyExhibit): TextPair => {
+const relativeTimeLabel = (raw: string): TextPair => {
+  const hour = raw.match(/\bhour\s+(\d+)\b/i);
+  if (hour) return { en: `Hour ${hour[1]}`, zh: `${hour[1]}小时` };
+  const day = raw.match(/\bday\s+(\d+)\b/i);
+  if (day) return { en: `Day ${day[1]}`, zh: `第${day[1]}天` };
+  return { en: raw, zh: raw };
+};
+
+const inferColumnLabel = (exhibit: CaseStudyExhibit, entries: StagedEntry[] = []): TextPair => {
+  const sourceSpanHaystack = entries.map((entry) => entry.sourceSpan ?? "").join("\n");
+  const relativeFromSpan = sourceSpanHaystack.match(/\b(?:hour|day)\s+\d+\b/i)?.[0];
+  if (relativeFromSpan) return relativeTimeLabel(relativeFromSpan);
+
   const haystack = `${exhibit.title.en}\n${exhibit.content.en}\n${exhibit.id}`;
   const clock = haystack.match(/\b(?:[01]?\d|2[0-3]):[0-5]\d\b/)?.[0];
   if (clock) return { en: clock, zh: clock };
   const military = haystack.match(/\b(?:[01]\d|2[0-3])[0-5]\d\b/)?.[0];
   if (military) return { en: military, zh: military };
+  const relative = haystack.match(/\b(?:hour|day)\s+\d+\b/i)?.[0];
+  if (relative) return relativeTimeLabel(relative);
   return { en: "Current", zh: "当前" };
 };
 
@@ -226,11 +241,11 @@ const toPanels = (record: StagedRecord, exhibit: CaseStudyExhibit): StructuredMe
     grouped[def.kind === "lab" ? "labs" : "vitals"].push(entry);
   }
 
-  const column = { id: "current", label: inferColumnLabel(exhibit) };
   const panels: StructuredMeasurementPanel[] = [];
   for (const kind of ["vitals", "labs"] as const) {
     const entries = grouped[kind];
     if (entries.length === 0) continue;
+    const column = { id: "current", label: inferColumnLabel(exhibit, entries) };
     panels.push({
       kind,
       columns: [column],
