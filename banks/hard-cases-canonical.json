@@ -19212,6 +19212,114 @@
                 "content": {
                   "en": "After the nurse invokes the chain of command, the attending surgeon arrives at 1315 and examines the client. Orders include CT abdomen with IV contrast; type and crossmatch for 2 units packed red blood cells; 500 mL normal saline bolus; broaden antibiotics to piperacillin-tazobactam; and transfer to the surgical intermediate care unit while preparing for operative management. CT shows moderate hemoperitoneum with active extravasation near the cystic artery stump, and the client is taken to the operating room for re-exploration.\nPre-transport status: T 38.4 °C, HR 116 irregular, BP 98/58, RR 26, SpO₂ 93% on 4 L nasal cannula after oxygen was applied for SpO₂ below 92%. Foley output for the past hour is 5 mL. The client responds only to voice and cannot state his name. The nurse verifies that the surgeon has initiated the appropriate consent, surrogate, or emergency-consent process per policy; verifies blood-product availability; and gives the OR nurse an SBAR handoff with the documented trends.",
                   "zh": "护士按指挥链升级后，主治外科医师于 1315 到床旁评估。医嘱包括：腹部 CT 增强；交叉配血备 2 单位浓缩红细胞；0.9% 氯化钠 500 mL 快速输注；抗生素升级为哌拉西林-他唑巴坦；转入外科中级监护单元，同时准备手术处理。CT 显示中等量血腹，胆囊管动脉残端附近有活动性外渗，患者被送往手术室再次探查。\n转运前状态：T 38.4 °C，心率 116 次/分且不规则，血压 98/58，呼吸 26 次/分；因 SpO₂ 低于 92% 已给予氧气，现鼻导管 4 L/min 下 SpO₂ 93%。过去 1 小时 Foley 尿量 5 mL。患者仅对声音有反应，不能说出自己的姓名。护士核实外科医师已按政策启动合适的知情同意、代理人同意或紧急同意流程；核实血制品可用；并用 SBAR 向手术室护士交接记录完整的趋势。"
+                },
+                "structuredMeasurements": {
+                  "panels": [
+                    {
+                      "kind": "vitals",
+                      "columns": [
+                        {
+                          "id": "current",
+                          "label": {
+                            "en": "1315",
+                            "zh": "1315"
+                          }
+                        }
+                      ],
+                      "rows": [
+                        {
+                          "key": "temp",
+                          "label": {
+                            "en": "Temperature",
+                            "zh": "体温"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "38.4",
+                              "unit": "°C",
+                              "context": "post_intervention"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "hr",
+                          "label": {
+                            "en": "Heart rate",
+                            "zh": "心率"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "116",
+                              "unit": "bpm",
+                              "context": "post_intervention"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "sbp",
+                          "label": {
+                            "en": "Systolic BP",
+                            "zh": "收缩压"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "98",
+                              "unit": "mmHg",
+                              "context": "post_intervention"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "dbp",
+                          "label": {
+                            "en": "Diastolic BP",
+                            "zh": "舒张压"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "58",
+                              "unit": "mmHg",
+                              "context": "post_intervention"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "rr",
+                          "label": {
+                            "en": "Respiratory rate",
+                            "zh": "呼吸频率"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "26",
+                              "unit": "/min",
+                              "context": "post_intervention"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "spo2",
+                          "label": {
+                            "en": "SpO2",
+                            "zh": "脉搏血氧饱和度"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "93",
+                              "unit": "%",
+                              "context": "post_intervention"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
                 }
               }
             ]
@@ -19987,6 +20095,136 @@
             "content": {
               "en": "Labs drawn the previous day: WBC 7,200/µL; Hgb 13.1 g/dL; platelets 238,000/µL; INR 1.0; BUN 18 mg/dL; creatinine 0.9 mg/dL; potassium 4.2 mEq/L; fasting glucose 148 mg/dL; HbA1c 7.1%.",
               "zh": "前一日抽血结果：白细胞7,200/µL；血红蛋白13.1 g/dL；血小板238,000/µL；INR 1.0；BUN 18 mg/dL；肌酐0.9 mg/dL；钾4.2 mEq/L；空腹血糖148 mg/dL；HbA1c 7.1%。"
+            },
+            "structuredMeasurements": {
+              "panels": [
+                {
+                  "kind": "labs",
+                  "columns": [
+                    {
+                      "id": "current",
+                      "label": {
+                        "en": "Current",
+                        "zh": "当前"
+                      }
+                    }
+                  ],
+                  "rows": [
+                    {
+                      "key": "wbc",
+                      "label": {
+                        "en": "WBC",
+                        "zh": "白细胞"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "7,200",
+                          "unit": "/µL"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "hemoglobin",
+                      "label": {
+                        "en": "Hemoglobin",
+                        "zh": "血红蛋白"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "13.1",
+                          "unit": "g/dL"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "platelets",
+                      "label": {
+                        "en": "Platelets",
+                        "zh": "血小板"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "238,000",
+                          "unit": "/µL"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "inr",
+                      "label": {
+                        "en": "INR",
+                        "zh": "国际标准化比值"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "1.0",
+                          "unit": "(ratio)"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "bun",
+                      "label": {
+                        "en": "BUN",
+                        "zh": "尿素氮"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "18",
+                          "unit": "mg/dL"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "creatinine",
+                      "label": {
+                        "en": "Creatinine",
+                        "zh": "肌酐"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "0.9",
+                          "unit": "mg/dL"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "potassium",
+                      "label": {
+                        "en": "Potassium",
+                        "zh": "血钾"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "4.2",
+                          "unit": "mEq/L"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "glucose",
+                      "label": {
+                        "en": "Glucose",
+                        "zh": "血糖"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "148",
+                          "unit": "mg/dL"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
             }
           }
         ],
