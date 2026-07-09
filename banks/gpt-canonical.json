@@ -43135,6 +43135,52 @@
             "content": {
               "en": "Age 72. Open reduction and internal fixation of hip fracture this morning. Opioid-naive. History of obstructive sleep apnea; home CPAP is at bedside. Order: morphine 2 mg IV every 2 hours PRN severe pain. Current pain 8/10. Respiratory rate 16/min, SpO2 95% on room air, sedation score 1 (awake and alert). Last opioid dose was 5 hours ago.",
               "zh": "72 岁。今晨行髋部骨折切开复位内固定术。既往未长期使用阿片类药物。有阻塞性睡眠呼吸暂停病史；家用 CPAP 在床旁。医嘱：吗啡 2 mg 静脉注射，每 2 小时按需用于重度疼痛。目前疼痛 8/10。呼吸频率 16 次/分，室内空气 SpO2 95%，镇静评分 1（清醒警觉）。上次使用阿片类药物为 5 小时前。"
+            },
+            "structuredMeasurements": {
+              "panels": [
+                {
+                  "kind": "vitals",
+                  "columns": [
+                    {
+                      "id": "current",
+                      "label": {
+                        "en": "Current",
+                        "zh": "当前"
+                      }
+                    }
+                  ],
+                  "rows": [
+                    {
+                      "key": "rr",
+                      "label": {
+                        "en": "Respiratory rate",
+                        "zh": "呼吸频率"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "16",
+                          "unit": "/min"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "spo2",
+                      "label": {
+                        "en": "SpO2",
+                        "zh": "脉搏血氧饱和度"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "95",
+                          "unit": "%"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
             }
           }
         ],
@@ -43155,6 +43201,80 @@
                 "content": {
                   "en": "Client reports sharp incisional pain 8/10 and splints the hip when turning. Respiratory rate 16/min, SpO2 95% on room air, blood pressure 132/76 mm Hg. Sedation score 1. Client says, 'I have never taken strong pain medicine before.' CPAP mask is clean and available.",
                   "zh": "患者诉切口锐痛 8/10，翻身时保护髋部。呼吸频率 16 次/分，室内空气 SpO2 95%，血压 132/76 mm Hg。镇静评分 1。患者说：“我以前从没用过强效止痛药。”CPAP 面罩清洁且可用。"
+                },
+                "structuredMeasurements": {
+                  "panels": [
+                    {
+                      "kind": "vitals",
+                      "columns": [
+                        {
+                          "id": "current",
+                          "label": {
+                            "en": "Current",
+                            "zh": "当前"
+                          }
+                        }
+                      ],
+                      "rows": [
+                        {
+                          "key": "rr",
+                          "label": {
+                            "en": "Respiratory rate",
+                            "zh": "呼吸频率"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "16",
+                              "unit": "/min"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "spo2",
+                          "label": {
+                            "en": "SpO2",
+                            "zh": "脉搏血氧饱和度"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "95",
+                              "unit": "%"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "sbp",
+                          "label": {
+                            "en": "Systolic BP",
+                            "zh": "收缩压"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "132",
+                              "unit": "mmHg"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "dbp",
+                          "label": {
+                            "en": "Diastolic BP",
+                            "zh": "舒张压"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "76",
+                              "unit": "mmHg"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
                 }
               }
             ]
@@ -43175,6 +43295,52 @@
                 "content": {
                   "en": "Morphine 2 mg IV was given at 0900. At 0930, pain is 4/10. Respiratory rate 10/min, SpO2 90% on room air. The client drifts to sleep during conversation and needs repeated verbal stimulation to answer. Sedation score 3 (frequently drowsy, arousable, drifts off during conversation).",
                   "zh": "0900 静脉给吗啡 2 mg。0930 疼痛 4/10。呼吸频率 10 次/分，室内空气 SpO2 90%。患者交谈中不断入睡，需要反复言语刺激才回答。镇静评分 3（频繁嗜睡，可唤醒，交谈中又睡着）。"
+                },
+                "structuredMeasurements": {
+                  "panels": [
+                    {
+                      "kind": "vitals",
+                      "columns": [
+                        {
+                          "id": "current",
+                          "label": {
+                            "en": "0900",
+                            "zh": "0900"
+                          }
+                        }
+                      ],
+                      "rows": [
+                        {
+                          "key": "rr",
+                          "label": {
+                            "en": "Respiratory rate",
+                            "zh": "呼吸频率"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "10",
+                              "unit": "/min"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "spo2",
+                          "label": {
+                            "en": "SpO2",
+                            "zh": "脉搏血氧饱和度"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "90",
+                              "unit": "%"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
                 }
               }
             ]
@@ -55855,6 +56021,38 @@
             "content": {
               "en": "History: chronic kidney disease stage 3b with baseline eGFR 38 mL/min/1.73 m2; compensated heart failure with preserved ejection fraction, EF 52%, grade I diastolic dysfunction; type 2 diabetes. Home medications include furosemide 40 mg daily, lisinopril 10 mg daily, metformin 500 mg twice daily, and insulin glargine 18 units at bedtime.\n\nReason for admission: progressive fatigue, exertional dyspnea on one flight of stairs, lightheadedness, outpatient hemoglobin 6.4 g/dL. No prior transfusion reactions.\n\nOrders/protocol: two units packed red blood cells sequentially; each unit over 2 hours, not to exceed 4 hours per unit. Vital signs at baseline, 15 minutes after initiation, every 30 minutes during infusion, and at completion. Furosemide 20 mg IV between units if signs of fluid overload occur. Blood product verification by two RNs: client identity, ABO/Rh, unit number, crossmatch information, and expiration date.",
               "zh": "病史：3b期慢性肾病，基线eGFR 38 mL/min/1.73 m2；代偿期射血分数保留型心力衰竭，EF 52%，I级舒张功能障碍；2型糖尿病。居家用药包括呋塞米40 mg每日一次、赖诺普利10 mg每日一次、二甲双胍500 mg每日两次、甘精胰岛素睡前18单位。\n\n入院原因：进行性疲乏、上一层楼即活动后气短、头晕，门诊血红蛋白6.4 g/dL。无既往输血反应史。\n\n医嘱/流程：连续输注2单位浓缩红细胞；每单位输注2小时，单单位不得超过4小时。生命体征在基线、开始后15分钟、输注期间每30分钟和输注结束时测量。若出现液体负荷过重表现，单位间给予呋塞米20 mg IV。由两名RN核对血制品：患者身份、ABO/Rh、单位号、交叉配血信息和有效期。"
+            },
+            "structuredMeasurements": {
+              "panels": [
+                {
+                  "kind": "labs",
+                  "columns": [
+                    {
+                      "id": "current",
+                      "label": {
+                        "en": "Current",
+                        "zh": "当前"
+                      }
+                    }
+                  ],
+                  "rows": [
+                    {
+                      "key": "hemoglobin",
+                      "label": {
+                        "en": "Hemoglobin",
+                        "zh": "血红蛋白"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "6.4",
+                          "unit": "g/dL"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
             }
           },
           {
@@ -55906,6 +56104,108 @@
                 "content": {
                   "en": "The client uses the call light and reports shortness of breath and that she cannot get comfortable. She is sitting upright, gripping the side rails. Vital signs: T 37.2 C, HR 110, BP 168/96, RR 28, SpO2 89% on room air. New bilateral crackles extend from the bases to the mid-lung fields, markedly different from baseline. A new S3 gallop is audible. JVD is visible at 45 degrees. Lower-extremity edema has increased to 2+ bilateral pitting. Face is flushed, but there is no urticaria, hives, angioedema, or wheezing. She denies itching, throat tightness, and abdominal cramping. She has a new nonproductive cough. Urine output over the past 45 minutes is 15 mL. She says, 'I feel like I am drowning.'",
                   "zh": "患者按铃，诉气短并表示怎么都不舒服。她坐直，抓着床栏。生命体征：T 37.2 C，HR 110，BP 168/96，RR 28，室内空气SpO2 89%。新出现双侧湿啰音，从肺底延伸至中肺野，与基线明显不同。可闻及新的S3奔马律。床头45度时可见颈静脉怒张。下肢水肿增至双侧2+凹陷性水肿。面部潮红，但无荨麻疹、风团、血管性水肿或喘鸣。否认瘙痒、喉咙发紧和腹部绞痛。新出现干咳。过去45分钟尿量15 mL。患者说：“我感觉像要被淹死。”"
+                },
+                "structuredMeasurements": {
+                  "panels": [
+                    {
+                      "kind": "vitals",
+                      "columns": [
+                        {
+                          "id": "current",
+                          "label": {
+                            "en": "Current",
+                            "zh": "当前"
+                          }
+                        }
+                      ],
+                      "rows": [
+                        {
+                          "key": "temp",
+                          "label": {
+                            "en": "Temperature",
+                            "zh": "体温"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "37.2",
+                              "unit": "°C"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "hr",
+                          "label": {
+                            "en": "Heart rate",
+                            "zh": "心率"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "110",
+                              "unit": "bpm"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "sbp",
+                          "label": {
+                            "en": "Systolic BP",
+                            "zh": "收缩压"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "168",
+                              "unit": "mmHg"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "dbp",
+                          "label": {
+                            "en": "Diastolic BP",
+                            "zh": "舒张压"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "96",
+                              "unit": "mmHg"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "rr",
+                          "label": {
+                            "en": "Respiratory rate",
+                            "zh": "呼吸频率"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "28",
+                              "unit": "/min"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "spo2",
+                          "label": {
+                            "en": "SpO2",
+                            "zh": "脉搏血氧饱和度"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "89",
+                              "unit": "%"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
                 }
               }
             ]
@@ -55926,6 +56226,114 @@
                 "content": {
                   "en": "The transfusion was stopped immediately. The IV line was kept patent with normal saline using new tubing at a keep-vein-open rate. The client was placed in high Fowler's position. Oxygen was applied by non-rebreather mask at 15 L/min. The provider was notified and arrived at the bedside. Furosemide 40 mg IV was administered by stat order. The blood bank was notified; the remaining blood bag and old tubing were sent with a post-transfusion blood sample and urine sample per protocol.\n\nThirty minutes later: T 37.1 C, HR 98, BP 152/88, RR 22, SpO2 94% on non-rebreather. The client reports feeling a little better and less like drowning. Crackles are still present at the bases and lower-mid fields but have receded. JVD is less prominent. Urine output since furosemide: 180 mL clear yellow urine. S3 remains but is softer. Edema remains 2+ and is not worsening.",
                   "zh": "立即停止输血。更换新输液管，以生理盐水维持静脉通路通畅，速度为KVO。患者取高Fowler体位。给予非再呼吸面罩15 L/min吸氧。通知医嘱者，医嘱者到床旁。按立即医嘱给予呋塞米40 mg IV。通知血库；按流程将剩余血袋、旧输血管、输血后血样和尿样送检。\n\n30分钟后：T 37.1 C，HR 98，BP 152/88，RR 22，非再呼吸面罩下SpO2 94%。患者表示稍好一些，不再那么像被淹死。肺底和中下肺野仍有湿啰音，但范围已缩小。颈静脉怒张减轻。呋塞米后尿量：清黄色尿180 mL。S3仍可闻及但较轻。水肿仍为2+，未继续加重。"
+                },
+                "structuredMeasurements": {
+                  "panels": [
+                    {
+                      "kind": "vitals",
+                      "columns": [
+                        {
+                          "id": "current",
+                          "label": {
+                            "en": "Current",
+                            "zh": "当前"
+                          }
+                        }
+                      ],
+                      "rows": [
+                        {
+                          "key": "temp",
+                          "label": {
+                            "en": "Temperature",
+                            "zh": "体温"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "37.1",
+                              "unit": "°C",
+                              "context": "post_intervention"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "hr",
+                          "label": {
+                            "en": "Heart rate",
+                            "zh": "心率"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "98",
+                              "unit": "bpm",
+                              "context": "post_intervention"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "sbp",
+                          "label": {
+                            "en": "Systolic BP",
+                            "zh": "收缩压"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "152",
+                              "unit": "mmHg",
+                              "context": "post_intervention"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "dbp",
+                          "label": {
+                            "en": "Diastolic BP",
+                            "zh": "舒张压"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "88",
+                              "unit": "mmHg",
+                              "context": "post_intervention"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "rr",
+                          "label": {
+                            "en": "Respiratory rate",
+                            "zh": "呼吸频率"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "22",
+                              "unit": "/min",
+                              "context": "post_intervention"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "spo2",
+                          "label": {
+                            "en": "SpO2",
+                            "zh": "脉搏血氧饱和度"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "94",
+                              "unit": "%",
+                              "context": "post_intervention"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
                 }
               },
               {
@@ -55937,6 +56345,52 @@
                 "content": {
                   "en": "Portable chest X-ray: bilateral pulmonary vascular congestion, small bilateral pleural effusions, cardiomegaly, and widened vascular pedicle, consistent with hydrostatic pulmonary edema. No bilateral patchy infiltrates characteristic of non-cardiogenic pulmonary edema are seen. BNP: 890 pg/mL, up from 280 pg/mL baseline. Post-transfusion hemoglobin: 8.1 g/dL.",
                   "zh": "床旁胸片：双肺肺血管淤血、双侧少量胸腔积液、心影增大、血管蒂增宽，符合静水压性肺水肿。未见非心源性肺水肿常见的双侧斑片状浸润。BNP 890 pg/mL，较基线280 pg/mL升高。输血后血红蛋白8.1 g/dL。"
+                },
+                "structuredMeasurements": {
+                  "panels": [
+                    {
+                      "kind": "labs",
+                      "columns": [
+                        {
+                          "id": "current",
+                          "label": {
+                            "en": "Current",
+                            "zh": "当前"
+                          }
+                        }
+                      ],
+                      "rows": [
+                        {
+                          "key": "bnp",
+                          "label": {
+                            "en": "BNP",
+                            "zh": "脑钠肽"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "890",
+                              "unit": "pg/mL"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "hemoglobin",
+                          "label": {
+                            "en": "Hemoglobin",
+                            "zh": "血红蛋白"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "8.1",
+                              "unit": "g/dL"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
                 }
               }
             ]
@@ -57060,6 +57514,39 @@
                 "content": {
                   "en": "At 2115, Supervisor Huang arrives on the unit. She reviews the assignment board, confirms Nurse Okonkwo's competency file does not include vasoactive titration or step-down neuro protocols, and restructures the assignments: a step-down-validated nurse, Keisha Williams, RN, takes over primary responsibility for Clients A and B. Nurse Okonkwo retains Client C and picks up a fourth patient — a stable post-operative cholecystectomy patient whose care needs are within Nurse Okonkwo's validated competencies.\n\nAt 2130, Nurse Okonkwo gives a bedside handoff report to Keisha for Clients A and B.\n\nAt 2145, Keisha reassesses Client B. She notes that Client B's speech now has a definite slurring quality compared to the immediate post-operative baseline documented in the recovery room note. Systolic blood pressure is 148 after the nicardipine increase. Keisha immediately notifies the surgeon per the post-carotid protocol and a STAT CT of the head is ordered.\n\nAt 2200, Nurse Okonkwo documents the events of the evening in a factual, objective manner according to the facility's assignment-objection and incident-reporting policies.\n\nAt 2230, Nurse Okonkwo completes an incident report per facility policy.",
                   "zh": "在2115，主管Huang到达病房。她查看了排班板，确认了Okonkwo护士的胜任力档案不包括血管活性药物滴定或降级病房神经方案，并重新调整了排班：由具备降级病房资格的护士Keisha Williams (RN) 接管患者A和B的主要责任。Okonkwo护士继续负责患者C，并接手了第四名患者——一名病情稳定的胆囊切除术后患者，其护理需求在Okonkwo护士已验证的胜任力范围内。\n\n在2130，Okonkwo护士在床边向Keisha进行了患者A和B的交接报告。\n\n在2145，Keisha重新评估了患者B。她注意到，与复苏室记录中的即刻术后基线相比，患者B的言语现在有明显的含糊不清。增加尼卡地平后收缩压为148。Keisha根据颈动脉术后方案立即通知了外科医生，并下达了头部STAT CT的医嘱。\n\n在2200，Okonkwo护士根据机构的排班异议和事件报告政策，以事实和客观的方式记录了当晚的事件。\n\n在2230，Okonkwo护士根据机构政策完成了一份事件报告。"
+                },
+                "structuredMeasurements": {
+                  "panels": [
+                    {
+                      "kind": "vitals",
+                      "columns": [
+                        {
+                          "id": "current",
+                          "label": {
+                            "en": "2115",
+                            "zh": "2115"
+                          }
+                        }
+                      ],
+                      "rows": [
+                        {
+                          "key": "sbp",
+                          "label": {
+                            "en": "Systolic BP",
+                            "zh": "收缩压"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "148",
+                              "unit": "mmHg",
+                              "context": "post_intervention"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
                 }
               }
             ]
@@ -75753,6 +76240,94 @@
                 "content": {
                   "en": "The nurse gives hydromorphone 0.5 mg IV for 7/10 pain. Thirty minutes later pain is 4/10, but she is more sedated and drifts off mid-sentence. HR 76, BP 130/72, RR 12, SpO2 94% on 2 L nasal cannula. She has not used the incentive spirometer. The nurse repositions her to a 30-degree left lateral tilt with pillows while maintaining hip precautions; pain briefly rises to 6/10 then settles to 4/10. Coccygeal non-blanchable erythema is unchanged. Barrier cream is applied; pressure-redistribution foam overlay is placed; heels are floated using a right heel-suspension boot and a pillow under the left calf. Foley output totals 350 mL since surgery, about 5 hours. She took two sips of ginger ale and declined broth and gelatin.",
                   "zh": "护士因7/10疼痛给予氢吗啡酮0.5 mg IV。30分钟后疼痛为4/10，但患者更嗜睡，说话中途会睡着。HR 76，BP 130/72，RR 12，鼻导管2 L吸氧下SpO2 94%。患者尚未使用激励式肺量计。护士在维持髋关节注意事项的同时，用枕头将患者摆成左侧30度倾斜位；疼痛短暂升至6/10后回落至4/10。尾骨不可褪色红斑无变化。已涂屏障霜，放置压力再分布泡沫垫；右足跟使用足跟悬吊靴、左小腿下放枕头以悬空足跟。术后约5小时尿管总尿量350 mL。患者只喝了两口姜汁汽水，拒绝肉汤和明胶。"
+                },
+                "structuredMeasurements": {
+                  "panels": [
+                    {
+                      "kind": "vitals",
+                      "columns": [
+                        {
+                          "id": "current",
+                          "label": {
+                            "en": "Current",
+                            "zh": "当前"
+                          }
+                        }
+                      ],
+                      "rows": [
+                        {
+                          "key": "hr",
+                          "label": {
+                            "en": "Heart rate",
+                            "zh": "心率"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "76",
+                              "unit": "bpm"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "sbp",
+                          "label": {
+                            "en": "Systolic BP",
+                            "zh": "收缩压"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "130",
+                              "unit": "mmHg"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "dbp",
+                          "label": {
+                            "en": "Diastolic BP",
+                            "zh": "舒张压"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "72",
+                              "unit": "mmHg"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "rr",
+                          "label": {
+                            "en": "Respiratory rate",
+                            "zh": "呼吸频率"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "12",
+                              "unit": "/min"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "spo2",
+                          "label": {
+                            "en": "SpO2",
+                            "zh": "脉搏血氧饱和度"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "94",
+                              "unit": "%"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
                 }
               }
             ]
