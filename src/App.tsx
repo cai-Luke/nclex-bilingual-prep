@@ -152,7 +152,7 @@ type View =
   | "summary";
 
 type RevealTrackingContextValue = {
-  sessionId: string;
+  sessionId?: string;
   questionId: string;
   partId?: string;
   itemType: ItemType;
@@ -163,7 +163,7 @@ type RevealTrackingContextValue = {
   revealAllSignal: number;
   questionLoadedAtRef: MutableRefObject<number>;
   revealCountRef: MutableRefObject<number>;
-  recordEvent: (event: Omit<TranslationRevealEvent, "id" | "revealedAt">) => void;
+  recordEvent?: (event: Omit<TranslationRevealEvent, "id" | "revealedAt">) => void;
 };
 
 const RevealTrackingContext = createContext<RevealTrackingContextValue | null>(null);
@@ -209,7 +209,7 @@ const makeCasePartRescuePrompts = (
 };
 
 const recordRevealFromContext = (ctx: RevealTrackingContextValue | null, block: RevealBlock) => {
-  if (!ctx) return;
+  if (!ctx?.sessionId || !ctx.recordEvent) return;
   ctx.revealCountRef.current += 1;
   ctx.recordEvent({
     sessionId: ctx.sessionId,
@@ -227,7 +227,7 @@ const recordRevealFromContext = (ctx: RevealTrackingContextValue | null, block: 
 };
 
 const recordFullReveal = (ctx: RevealTrackingContextValue | null) => {
-  if (!ctx) return;
+  if (!ctx?.sessionId || !ctx.recordEvent) return;
   ctx.revealCountRef.current += 1;
   ctx.recordEvent({
     sessionId: ctx.sessionId,
@@ -3117,7 +3117,6 @@ function QuestionCard({
     setFullRevealed(false);
   }, [question.id]);
   const revealTrackingContext = useMemo<RevealTrackingContextValue | null>(() => {
-    if (!sessionId || !onTranslationReveal) return null;
     return {
       sessionId,
       questionId: question.id,
@@ -3129,7 +3128,7 @@ function QuestionCard({
       revealAllSignal,
       questionLoadedAtRef,
       revealCountRef,
-      recordEvent: onTranslationReveal,
+      recordEvent: sessionId ? onTranslationReveal : undefined,
     };
   }, [
     sessionId,
@@ -3148,7 +3147,6 @@ function QuestionCard({
     languageMode === "on-tap" &&
     questionHasZh &&
     !fullRevealed &&
-    question.itemType !== "case_study" &&
     Boolean(revealTrackingContext);
   const handleTranslateAll = useCallback(() => {
     if (fullRevealed || !revealTrackingContext) return;
@@ -4632,7 +4630,18 @@ const hasZhPair = (pair?: { zh?: string }) => hasZhText(pair?.zh);
 const hasZhPairs = (pairs: Array<{ zh?: string }>) => pairs.some(hasZhPair);
 
 const hasQuestionLevelZh = (question: Question): boolean => {
-  if (question.itemType === "case_study") return false;
+  if (question.itemType === "case_study") {
+    if (hasZhPair(question.stem) || hasZhPair(question.caseStudy.title)) return true;
+    if (question.caseStudy.exhibits.some((exhibit) => hasZhPair(exhibit.title) || hasZhPair(exhibit.content))) {
+      return true;
+    }
+    if (question.caseStudy.stages?.some((stage) =>
+      hasZhPair(stage.title) || stage.exhibits.some((exhibit) => hasZhPair(exhibit.title) || hasZhPair(exhibit.content))
+    )) {
+      return true;
+    }
+    return question.caseStudy.questions.some(hasQuestionLevelZh);
+  }
   if (hasZhPair(question.stem)) return true;
   if ("options" in question && hasZhPairs(question.options)) return true;
   if (question.itemType === "fill_in_blank") return hasZhPairs(question.blanks.map((blank) => blank.prompt));

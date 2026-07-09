@@ -52,15 +52,17 @@ The committed NGN item-type set is complete. Rationale/dyad scoring and an expli
 ### Translate-All Post-Submit Reveal (Jul 8)
 
 Completed:
-- Added a live-study, standalone-only post-submit `Show full Chinese / 显示完整中文` action above the rationale, with GPT rescue moved below the rationale in the standalone answer flow.
+- Added a post-submit `Show full Chinese / 显示完整中文` action above the rationale, with GPT rescue moved below the rationale in the standalone answer flow.
 - Added a reveal-all context signal so `BilingualText`, highlight, and dropdown-cloze reveal consumers can silently open remaining on-tap Chinese text without emitting per-block telemetry.
 - Added aggregate `fullQuestionReveal` telemetry, a developer-panel full-reveal count, and summary/friction regression coverage that keeps aggregate post-submit reveals out of per-block and pre-submit friction buckets.
+- Follow-up scope correction: decoupled the reveal-all UI broadcast from telemetry availability so review/preview contexts can still reveal Chinese without recording, extended the post-submit control to rendered case-study surfaces when Chinese text is present, kept aggregate full reveals out of `revealedBlocks`, and gave the button a subdued display-toggle style.
 
 Verified:
 - `npm run test:translation-telemetry`
 - `npx tsc -b --pretty false`
 - `npm run build` (passed with the expected Vite chunk-size warning)
 - Browser smoke on local Vite study session: Tap ZH post-submit order is answer banner → language-miss action → translate-all → rationale → GPT rescue; one translate-all click hides the button and reveals rationale Chinese.
+- Browser smoke on local production preview after follow-up: a case-study Summary/review surface now shows translate-all; one click hides the button, removes all per-block `需要中文` buttons on the rendered surface, and reveals Chinese text without requiring telemetry.
 
 ### Structured Measurements Schema 1.8 Proof (Jul 7)
 
@@ -85,6 +87,7 @@ Completed:
 - Candidate 05A was promoted by Claude Code (`bd27eb2`) and recorded in the migration ledger (`a9c238b`). Prepared Candidate 05B for Claude Code gate review: five additional Batch 05 supplement records routed to `gpt-canonical.json`, including the CDI stage-1 lab triple prior/current split and two mixed CDI vitals+labs follow-up surfaces; current-bank flowsheet gate `0 FAIL / 0 WARN`, applicator dry-run green, and no canonical bank write.
 - Candidate 05B was promoted by Claude Code (`744f869`) and recorded in the migration ledger (`7c894e4`). Prepared Candidate 06A for Claude Code gate review: five sampled-clean Batch 06 supplement records routed to `gpt-canonical.json`, including the TACO/TRALI BNP baseline split and two post-intervention context surfaces; current-bank flowsheet gate `0 FAIL / 0 WARN`, applicator dry-run green, and no canonical bank write.
 - Prepared Candidate 06B for Claude Code gate review: five additional Batch 06 supplement records routed to `gpt-canonical.json`/`hard-cases-canonical.json`, excluding Candidate 06A refs and deferring empty, `skip_serial`, HR `/min` WARN, and larger variceal lab surfaces; current-bank flowsheet gate `0 FAIL / 0 WARN`, applicator dry-run green, and no canonical bank write.
+- Prepared Candidate 07A for Claude Code gate review: five sampled-clean Batch 07 supplement records routed to `hard-cases-canonical.json`, deferring empty/excluded-only rows, HR `/min` WARN rows, and the warfarin-bridge INR restatement with a duplicate-display note; current-bank flowsheet gate `0 FAIL / 0 WARN`, applicator dry-run green, and no canonical bank write.
 
 Verified:
 - `npm run test:schema-bank`

@@ -422,6 +422,16 @@ assert.equal(
   0,
   "post-submit full-question reveal should not count as a reveal-before-submit event",
 );
+assert.deepEqual(
+  missedNoRevealRow.revealedBlocks,
+  [],
+  "post-submit full-question reveal should not add a synthetic other block to revealedBlocks",
+);
+assert.equal(
+  missedNoRevealRow.matchingRevealEvents.length,
+  1,
+  "post-submit full-question reveal should remain available in the raw joined event list",
+);
 
 const caseCandidate = frictionSummary.auditCandidates.find((row) => row.questionId === "case-1");
 assert.ok(caseCandidate, "case-study candidates should rank at part level");

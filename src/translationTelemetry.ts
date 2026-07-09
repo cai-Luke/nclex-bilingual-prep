@@ -362,6 +362,7 @@ const aggregateReveals = (events: TranslationRevealEvent[]): RevealAggregate => 
   );
   const firstSeenByBlock = new Map<RevealBlock, TranslationRevealEvent>();
   for (const event of matchingRevealEvents) {
+    if (event.fullQuestionReveal) continue;
     if (!firstSeenByBlock.has(event.block)) firstSeenByBlock.set(event.block, event);
   }
   const revealedBlocks = [...firstSeenByBlock.entries()]
