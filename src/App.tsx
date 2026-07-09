@@ -3305,11 +3305,14 @@ function QuestionCard({
         </div>
       )}
 
-      {showTranslateAll && <TranslateAllButton onClick={handleTranslateAll} />}
-
       {submitted && <RationalePanel question={question} voiceEnabled={voiceEnabled} languageMode={languageMode} />}
 
-      {submitted && rescuePrompt && <GptRescueButton prompt={rescuePrompt} />}
+      {(showTranslateAll || (submitted && rescuePrompt)) && (
+        <div className="post-rationale-actions">
+          {showTranslateAll && <TranslateAllButton onClick={handleTranslateAll} />}
+          {submitted && rescuePrompt && <GptRescueButton prompt={rescuePrompt} />}
+        </div>
+      )}
     </>
   );
   const trackedAnswerBody = revealTrackingContext ? (
