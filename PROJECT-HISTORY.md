@@ -49,6 +49,27 @@ The committed NGN item-type set is complete. Rationale/dyad scoring and an expli
 
 > Milestones dated **2026-06-23 and earlier** are archived in [`Archive/PROJECT-HISTORY-ARCHIVE.md`](Archive/PROJECT-HISTORY-ARCHIVE.md). Only the current arc (2026-06-24 onward) is kept here.
 
+### Default Session Mode Repoint + Translate-All Fix-Up (Jul 9)
+
+Completed:
+- Repointed the home splash's recommended zero-configuration session from `mode: "test"` to `mode: "study"`, keeping the NCLEX-weighted `{ count, weighting: "nclex" }` draw. Copy moved to `Start practice · N questions` / `Practice · N questions`. `mode: "test"` is retained, unchanged, reachable from the custom session builder. Identifiers (`onTest`, `testCount`) deliberately not renamed.
+- The repoint restores three instruments on the learner's primary path: the language tabs open on `on-tap` (saved preference) instead of EN-only, the Vocab Rescue "Missed because of the English" toggle appears on missed items, and reveal telemetry records. Because `isTranslationRevealEligible` is `study && on-tap`, the previous default path was excluded from the entire translation-friction analytic.
+- Translate-all Part A: deleted the dead `Boolean(revealTrackingContext)` clause from `showTranslateAll` (the memo never returns `null`); extended `hasQuestionLevelZh` to fall through to rationale/strategy/glossary Chinese (`hasExplanationZh`) by converting the per-item-type terminal returns into `if (...) return true` guards; threaded `sessionId` / `sessionMode` / `onTranslationReveal` to `QuestionCard` for every live session mode; added optional `sessionMode` / `languageModeAtReveal` to `TranslationRevealEvent` (additive, no `DB_VERSION` bump).
+- Translate-all Part B: added `buildChoiceMarkerMap`, replacing the raw `choice.refId` fallback that leaked internal ids (`c_valid_dnr_arrest`, `p_last_meal`) to the learner on every item type without `options` — bowtie, matrix, dropdown_cloze, highlight, fill_in_blank. Markers are zone-scoped for bowtie (`S1`/`A2`/`P3`), dropdown-level `D{n}` per the schema's `byChoice.refId → dropdownId` contract, `R{n}` for matrix rows, `H{n}` over selectable highlight segments only, `B{n}` for blanks. An unresolved refId now renders **no marker** and the rationale spans the full row; a raw id is never displayed.
+- Fixed the `.choice-rationales` grid: `2rem` was sized for a single letter, so a long refId overflowed column 1 and painted on top of the rationale text. Now `minmax(2rem, max-content) minmax(0, 1fr)` with `overflow-wrap: anywhere`, a `.no-marker` single-column variant, and the dead `grid-row: span 2` rule removed.
+- Bowtie post-submit no longer renders `.bowtie-token-pool` at all (conditional render, not CSS hiding), removing the disabled duplicate tokens from the DOM and the tab order; slots and the `bowtie-key` list remain.
+
+Notes:
+- Known scope correction: threading the recorder through every live mode is currently a **no-op**. Both `test` and `adaptive` force `languageMode: "off"` at session creation, and no reveal can fire in `off`. See the `DECISIONS.md` correction under *Default recommended session is Study, not Test*.
+- Process: the Part B branch was pushed directly to `origin/main` rather than merged through the architect gate, and carried an unrelated structured-measurements commit with it. Nothing was lost (fast-forward), but branch protection on `main` is warranted before the next large batch lane.
+- Still open: the case-part GPT rescue action renders *above* its part rationale, inverting the standalone order ratified in this pass.
+
+Verified:
+- `npm run test:translation-telemetry` (incl. new adaptive-ineligibility case)
+- `npx tsc -b --pretty false`
+- `npm run build`
+- Browser smoke: clean `S1`–`P4` bowtie markers, no raw refId leaks, no overlapping text, token pool absent from the DOM post-submit.
+
 ### Translate-All Post-Submit Reveal (Jul 8)
 
 Completed:
@@ -989,7 +1010,8 @@ Representative fetal-monitoring fixtures were also inspected through the in-app 
 
 ## Product decisions
 
-- Chinese is off by default in Test mode.
+- The home splash's recommended practice session runs in Study mode with the saved Chinese display preference (`on-tap` by default). Test mode is reachable only from the custom session builder.
+- Chinese is off by default in Test mode and in Adaptive mode. Both are non-default exam-condition placeholders pending a real exam-simulator spec; both still reveal the answer and rationale immediately after each submit.
 - Study mode uses the saved Chinese display preference.
 - Missed-question clearing currently requires two consecutive correct answers after a miss.
 - Uploaded banks are stored question-by-question in IndexedDB.
