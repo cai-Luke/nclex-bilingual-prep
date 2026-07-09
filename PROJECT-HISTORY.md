@@ -14,22 +14,22 @@ The app is a static offline Vite + React + TypeScript NCLEX-RN practice tool. It
 
 Core learning features are implemented: all schema item types render and grade, case studies are supported, sessions are resumable, custom sessions can be built from filters, the dashboard summarizes performance, flags feed review pools, glossary flashcards have their own SRS progress, and adaptive exam-condition practice is available without any pass/fail readiness claim.
 
-Current canonical banks (see [BANK-CENSUS.md](BANK-CENSUS.md); 1,707 top-level, 721 embedded parts, 196 visuals as of 2026-07-03):
+Current canonical banks (see [BANK-CENSUS.md](BANK-CENSUS.md); 1,725 top-level, 721 embedded parts, 196 visuals as of 2026-07-09):
 
 - `banks/burn-canonical.json` (8 schema v1.2 burn-map visual items)
 - `banks/capnography-canonical.json` (7 schema v1.2 capnography visual items; dedicated home for capnography kind)
-- `banks/claude-canonical.json` (97 bilingual Claude/Opus-source questions; ledgered content review complete; schema v1.6 for typed unfolding-case metadata)
+- `banks/claude-canonical.json` (97 bilingual Claude/Opus-source questions; ledgered content review complete; schema v1.8)
 - `banks/device-canonical.json` (8 schema v1.2 device-screen visual items)
-- `banks/gemini-canonical.json` (874 bilingual Gemini-source questions; includes original + pending batches + traditional/easy/gap-fill/format-backfill/standalone NGN consolidations minus redundant/flawed questions; schema v1.6)
-- `banks/gpt-canonical.json` (540 bilingual GPT-source questions; ledgered content review complete; schema v1.7 for visual-capable GPT content)
-- `banks/hard-cases-canonical.json` (66 top-level hard/NGN items; ledgered content review complete; schema v1.6 for typed unfolding-case metadata)
+- `banks/gemini-canonical.json` (874 bilingual Gemini-source questions; includes original + pending batches + traditional/easy/gap-fill/format-backfill/standalone NGN consolidations minus redundant/flawed questions; schema v1.8)
+- `banks/gpt-canonical.json` (558 bilingual GPT-source questions; ledgered content review complete; schema v1.8)
+- `banks/hard-cases-canonical.json` (66 top-level hard/NGN items; ledgered content review complete; schema v1.8)
 - `banks/io-canonical.json` (8 schema v1.2 intake/output record visual items)
 - `banks/lab-canonical.json` (20 schema v1.2 lab_trend visual items; dedicated home for lab_trend kind)
 - `banks/mar-canonical.json` (8 schema v1.2 mar visual items; dedicated home for mar kind)
 - `banks/medlabel-canonical.json` (8 schema v1.2 medication-label visual items)
 - `banks/visual-canonical.json` (53 reviewed rhythm/EKG items; 47 carry `rhythm_strip` visuals; schema v1.7 for pacer-overlay rhythm strips; the dedicated home for rhythm_strip kind, formerly `banks/rhythm-canonical`)
 - `banks/vitals-canonical.json` (10 reviewed schema v1.2 vitals-trend visual items; dedicated home for vitals_trend kind)
-- Schema version `1.8` current; `1.0` standalone, `1.1` case-study, `1.2` visual, `1.3` highlight, `1.4` bowtie, `1.5` rationale-visual, `1.6` unfolding case-study metadata, and `1.7` pacer-bearing rhythm-strip banks remain supported
+- Schema version `1.9` current; `1.0` standalone, `1.1` case-study, `1.2` visual, `1.3` highlight, `1.4` bowtie, `1.5` rationale-visual, `1.6` unfolding case-study metadata, `1.7` pacer-bearing rhythm-strip, and `1.8` structured-measurement banks remain supported
 
 Current schema item types:
 
@@ -48,6 +48,21 @@ The committed NGN item-type set is complete. Rationale/dyad scoring and an expli
 ## Milestones
 
 > Milestones dated **2026-06-23 and earlier** are archived in [`Archive/PROJECT-HISTORY-ARCHIVE.md`](Archive/PROJECT-HISTORY-ARCHIVE.md). Only the current arc (2026-06-24 onward) is kept here.
+
+### Intake/Output Trend Visual Schema 1.9 (Jul 9)
+
+Completed:
+- Added the `io_trend` visual lane at schema `1.9`: serial interval intake/output bars, optional cumulative-net overlay, derived table, strict validation, and self-checks for visual justification, collapse test, interval/cumulative/final net arithmetic, trend assertions, and adjacent sign crossovers.
+- Added shared `renderDivergingBars` and reused the shared measured document-table primitive so the composite SVG height is deterministic. `io_record` remains byte-pinned through pre-refactor SVG hashes after the shared `measureDocTable` extraction.
+- Kept the implementation narrow: no app-renderer special casing, no canonical bank/routing change, no `fill_in_blank` placement for `io_trend`, and no changes to the existing pacer/rationale schema-floor behavior outside the new `collectAllVisuals` use for `io_trend`.
+
+Verified:
+- `npm run test-visuals`
+- `npm run validate-bank -- banks/*.json`
+- `npm run census`
+- `npm run census:check`
+- `npx tsc -b --pretty false`
+- `npm run build`
 
 ### Default Session Mode Repoint + Translate-All Fix-Up (Jul 9)
 

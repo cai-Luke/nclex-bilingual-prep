@@ -1,6 +1,6 @@
 # NCLEX Bank — Canonical Question Schema
 
-**schemaVersion: `1.8` — current.** This document is the canonical authoring and review contract; runtime behavior is implemented by `src/types.ts`, `src/schema.ts`, and the registered modules under `src/visuals/`. `1.0` standalone-question banks, `1.1` case-study banks, `1.2` visual banks, `1.3` highlight banks, `1.4` bowtie banks, `1.5` rationale-visual banks, `1.6` unfolding case-study metadata banks, and `1.7` pacer-bearing rhythm-strip banks remain supported. Do not change shapes without bumping `schemaVersion` and writing a migration.
+**schemaVersion: `1.9` — current.** This document is the canonical authoring and review contract; runtime behavior is implemented by `src/types.ts`, `src/schema.ts`, and the registered modules under `src/visuals/`. `1.0` standalone-question banks, `1.1` case-study banks, `1.2` visual banks, `1.3` highlight banks, `1.4` bowtie banks, `1.5` rationale-visual banks, `1.6` unfolding case-study metadata banks, `1.7` pacer-bearing rhythm-strip banks, and `1.8` structured-measurement banks remain supported. Do not change shapes without bumping `schemaVersion` and writing a migration.
 
 ---
 
@@ -25,7 +25,7 @@ A generated bank is one JSON object:
 ```json
 {
   "meta": {
-    "schemaVersion": "1.8",
+    "schemaVersion": "1.9",
     "exam": "NCLEX-RN",
     "topic": "echo of the requested topic",
     "category": "echo of the requested category, or 'mixed'",
@@ -36,7 +36,7 @@ A generated bank is one JSON object:
 }
 ```
 
-The importer also accepts a bare `[ ... ]` array of Question objects (no envelope). When present, `meta.schemaVersion` must be `"1.0"`, `"1.1"`, `"1.2"`, `"1.3"`, `"1.4"`, `"1.5"`, `"1.6"`, `"1.7"`, or `"1.8"`. `case_study` requires `"1.1"` or later. `visual` requires `"1.2"` or later. `highlight`, including a highlight embedded in a case study, requires `"1.3"`. Standalone `bowtie` requires `"1.4"`. `rationale.visuals` (explanation visuals) requires `"1.5"`. Case-study unfolding metadata fields (`stageId`, `answerableAfterStageId`, stage `trigger`/`narrative`/`timeOffset`, and exhibit `type`) require `"1.6"`. Pacer-bearing `rhythm_strip` visuals require `"1.7"`. Case-study exhibit `structuredMeasurements` requires `"1.8"`.
+The importer also accepts a bare `[ ... ]` array of Question objects (no envelope). When present, `meta.schemaVersion` must be `"1.0"`, `"1.1"`, `"1.2"`, `"1.3"`, `"1.4"`, `"1.5"`, `"1.6"`, `"1.7"`, `"1.8"`, or `"1.9"`. `case_study` requires `"1.1"` or later. `visual` requires `"1.2"` or later. `highlight`, including a highlight embedded in a case study, requires `"1.3"`. Standalone `bowtie` requires `"1.4"`. `rationale.visuals` (explanation visuals) requires `"1.5"`. Case-study unfolding metadata fields (`stageId`, `answerableAfterStageId`, stage `trigger`/`narrative`/`timeOffset`, and exhibit `type`) require `"1.6"`. Pacer-bearing `rhythm_strip` visuals require `"1.7"`. Case-study exhibit `structuredMeasurements` requires `"1.8"`. `io_trend` visuals require `"1.9"`.
 
 ---
 
@@ -120,6 +120,7 @@ Committed visual lanes (append-only). The per-kind sections below are canonical 
 | `lab_trend` | Serial laboratory values (1–2 analytes, ≥3 timepoints) |
 | `mar` | Medication Administration Record |
 | `io_record` | Intake and output flowsheet with derived totals and net balance |
+| `io_trend` | Serial intake/output trend with interval net and cumulative net balance |
 | `medication_label` | Synthetic medication product label with structured strength |
 | `device_screen` | PCA, infusion, or enteral pump settings display |
 | `fetal_monitoring` | Synchronized fetal heart rate and uterine activity tracing |
@@ -130,7 +131,7 @@ Committed visual lanes (append-only). The per-kind sections below are canonical 
 
 Some visual kinds require a question-level `meta` block that exists **for validation and audit only** — it must never be displayed to learners. This is distinct from the bank-envelope `meta` (schemaVersion, topic, etc.).
 
-Supported visual `meta` keys include (requirements are kind-specific): `visual_justification`, `derived_values_keyed`, `expected_trend`, `expected_flags`, `expected_pattern`, `expected`, `reference_bands`, `keyed_cells`, `keyed_relationship`, `keyed_settings`, `source`, `tier`, `skill_signature`, `stem_disambiguators`, `order`, `weight_kg`, `round`, and `shift_hours`.
+Supported visual `meta` keys include (requirements are kind-specific): `visual_justification`, `derived_values_keyed`, `expected_trend`, `expected_flags`, `expected_pattern`, `expected`, `reference_bands`, `collapse_test`, `crossover`, `keyed_cells`, `keyed_relationship`, `keyed_settings`, `source`, `tier`, `skill_signature`, `stem_disambiguators`, `order`, `weight_kg`, `round`, and `shift_hours`.
 
 ```jsonc
 // Sibling of `visual`, at the QUESTION level. Audit-only. Never displayed.
@@ -155,7 +156,7 @@ Supported visual `meta` keys include (requirements are kind-specific): `visual_j
 }
 ```
 
-For arithmetic visual lanes (`io_record`, `medication_label`, `device_screen`, and `burn_map`), `derived_values_keyed` is instead an object that maps each derivation key to its computed number:
+For arithmetic visual lanes (`io_record`, `io_trend`, `medication_label`, `device_screen`, and `burn_map`), `derived_values_keyed` is instead an object that maps each derivation key to its computed number or exact numeric array:
 
 ```json
 {
@@ -513,6 +514,72 @@ Validation rules:
 - Supported keyed values are `intake_total_ml`, `output_total_ml`, and signed `net_balance_ml`. Each declared value must exactly equal the integer total recomputed from entries.
 - **Caption rule:** `caption` and `periodLabel` must not reveal the answer or clinical interpretation.
 - Human review must verify that deriving the value is genuinely required and that the rationale interprets it correctly.
+
+### Kind: `io_trend`
+
+Renders a serial intake/output trend: a diverging interval bar chart (intake above baseline, output below baseline), optional cumulative-net overlay, and a derived table of intake, output, interval net, and cumulative net. The visual is load-bearing only when the learner must compare time-binned values, derive net balance by interval, or identify a cumulative-net trend/crossover that is not restated in the stem.
+
+Unlike `io_record`, `io_trend` is allowed only on `multiple_choice`, `select_all`, and `matrix`. It does **not** opt into `fill_in_blank`.
+
+`io_trend` requires bank schema `1.9`.
+
+```json
+{
+  "visual": {
+    "kind": "io_trend",
+    "time": { "unit": "hr", "values": [4, 8, 12, 16] },
+    "binLabels": [
+      { "en": "0400", "zh": "0400" },
+      { "en": "0800", "zh": "0800" },
+      { "en": "1200", "zh": "1200" },
+      { "en": "1600", "zh": "1600" }
+    ],
+    "intervals": [
+      { "intakeMl": 300, "outputMl": 150 },
+      { "intakeMl": 250, "outputMl": 220 },
+      { "intakeMl": 200, "outputMl": 400 },
+      { "intakeMl": 200, "outputMl": 480 }
+    ],
+    "showCumulativeNet": true,
+    "periodLabel": { "en": "Postoperative I/O trend", "zh": "术后出入量趋势" },
+    "caption": { "en": "Intake and output trend across the shift", "zh": "班次内出入量趋势" }
+  },
+  "meta": {
+    "visual_justification": "The learner must derive the interval and cumulative net balance from the trend.",
+    "collapse_test": "Removing the visual removes the cumulative negative crossover.",
+    "derived_values_keyed": {
+      "net_by_interval_ml": [150, 30, -200, -280],
+      "cumulative_net_ml": [150, 180, -20, -300],
+      "final_cumulative_net_ml": -300
+    },
+    "expected_trend": [
+      { "series": "output", "direction": "up", "window": [8, 16] }
+    ],
+    "crossover": {
+      "series": "cumulative_net",
+      "index": 2,
+      "from": "positive",
+      "to": "negative"
+    },
+    "skill_signature": "io_trend:cumulative-negative-crossover/post-op"
+  }
+}
+```
+
+Validation rules:
+- `kind` must be `"io_trend"`.
+- `time` must be an object with `unit: "hr" | "shift"` and strictly increasing finite numeric `values`; at least two timepoints are required.
+- `intervals` must be an array with the same length as `time.values`. Each interval has non-negative integer `intakeMl` and `outputMl` values no greater than 10,000 mL. At least one interval volume must be non-zero.
+- `binLabels` is an optional sibling of `time`, not a child of `time`. When present, it must match `time.values.length`; every label requires non-empty `en`, and optional `zh` must be non-empty.
+- `showCumulativeNet`, if present, must be boolean.
+- `periodLabel.en` and `caption.en` are required when their objects are present. Optional `zh` values must be non-empty when present.
+- `selfCheck` returns `[]` for malformed non-structural inputs, but validates structurally present volumes before arithmetic.
+- `selfCheck` requires `visual_justification`, `collapse_test`, and at least three intervals for trend/crossover assertions.
+- Supported keyed values are `net_by_interval_ml`, `cumulative_net_ml`, and `final_cumulative_net_ml`. Arrays must match interval length and exact computed values.
+- `expected_trend[].series` supports `"intake"`, `"output"`, `"net"`, and `"cumulative_net"` with `"up"` or `"down"` over a two-point `window` resolved against `time.values`.
+- Optional `crossover` asserts an adjacent sign transition for one supported series. `index` is the target interval index (`1..n-1`) whose previous value has sign `from` and current value has sign `to`; zero counts as neither sign.
+- **Caption rule:** `caption`, `periodLabel`, and visible labels must not reveal a clinical verdict, the keyed answer, or an interpretation such as "worsening."
+- Human review must verify that the trend/crossover is genuinely needed and that the stem does not restate the computed values.
 
 ### Kind: `medication_label`
 
@@ -1104,7 +1171,7 @@ An item is **invalid → skipped and reported** (never partially rendered) if an
 - **highlight:** missing `segments`/`correct`; duplicate segment ids; no selectable segment; a keyed id that is absent or non-selectable; duplicate keyed ids; every selectable segment is keyed; empty segment `en`/`zh`; or a `rationale.byChoice.refId` that is duplicated or does not resolve to a selectable segment.
 - **bowtie:** missing zones/tokens; wrong fixed correct counts; a key outside its zone; duplicate key ids; token ids duplicated across zones; duplicate `en` or `zh` display text within a zone; empty token text; no distractor in a zone; an unresolved or duplicate `rationale.byChoice.refId`; embedding in a case study; or use below schema `1.4`.
 - **case_study:** `meta.schemaVersion` is `"1.0"`; missing `caseStudy.exhibits`; fewer than 2 or more than 6 embedded questions; an embedded question is another `case_study` or a `bowtie`; embedded ids are duplicated; `structuredMeasurements` present below schema `"1.8"`; malformed structured panels/columns/rows/values; value `columnId` not resolving to the same panel; row key not in the measurement allowlist; unit not accepted for the row key; lab/vital key in the wrong panel kind; or any authored flag/reference-range field in structured measurements.
-- **visual:** present in a versioned bank below schema `"1.2"`; pacer-bearing `rhythm_strip` present below schema `"1.7"`; placed on an unsupported item type; unknown visual `kind`; invalid rhythm class; out-of-range rate, duration, interval, seed, atrial rate, or conduction ratio.
+- **visual:** present in a versioned bank below schema `"1.2"`; pacer-bearing `rhythm_strip` present below schema `"1.7"`; `io_trend` present below schema `"1.9"`; placed on an unsupported item type; unknown visual `kind`; invalid rhythm class; out-of-range rate, duration, interval, seed, atrial rate, or conduction ratio.
 
 Report format: `"imported N of M; skipped K (reasons...)"`.
 
@@ -1129,8 +1196,8 @@ Scoring is polytomous (partial credit), matching the NGN. Each item yields `{ ea
 
 ## Notes
 
-- `highlight` text items are supported in schema `1.3`; standalone bowtie items are supported in schema `1.4`; rationale explanation visuals are supported in schema `1.5`; additive unfolding case-study metadata is supported in schema `1.6`; pacer-bearing `rhythm_strip` visuals are supported in schema `1.7`; case-study exhibit `structuredMeasurements` are supported in schema `1.8`. The current NGN item-type set is complete. Highlight: Table remains deferred.
-- Migration from `1.7` to `1.8` requires no content changes. Only banks containing case-study exhibit `structuredMeasurements` need to declare `meta.schemaVersion: "1.8"`.
+- `highlight` text items are supported in schema `1.3`; standalone bowtie items are supported in schema `1.4`; rationale explanation visuals are supported in schema `1.5`; additive unfolding case-study metadata is supported in schema `1.6`; pacer-bearing `rhythm_strip` visuals are supported in schema `1.7`; case-study exhibit `structuredMeasurements` are supported in schema `1.8`; `io_trend` visuals are supported in schema `1.9`. The current NGN item-type set is complete. Highlight: Table remains deferred.
+- Migration from `1.8` to `1.9` requires no content changes. Only banks containing `io_trend` visuals need to declare `meta.schemaVersion: "1.9"`.
 - Rationale/dyad scoring and any explicit linked “X as evidenced by Y” item type remain out of scope; no current item type requires them.
 - `case_study` is the v1.1 hard-mode container for multi-part unfolding practice. It deliberately reuses v1.0 embedded item types instead of introducing new grading rules.
 - IDs: any unique string is fine. A readable convention like `<type>_<topicslug>_<n>` helps debugging but isn't required.
