@@ -71553,6 +71553,66 @@
             "content": {
               "en": "Subjective: Client reports severe breathlessness at rest. Feels like he 'cannot catch his breath' and expresses anxiety about suffocating. Denies pain. Comfort is the primary goal of care.\n\nObjective:\n- Respiratory rate: 28 breaths/min, shallow.\n- Heart rate: 96 bpm.\n- Oxygen saturation: 92% on room air.\n- Lungs: Crackles audible in bilateral bases.\n- General: Anxious facial expression, using intercostal accessory muscles for breathing. Alert and able to swallow.",
               "zh": "主观资料：患者诉静息时严重气促。感觉“喘不过气来”，并对窒息感到焦虑。否认疼痛。舒适是主要的护理目标。\n\n客观资料：\n- 呼吸频率：28次/分，浅快。\n- 心率：96次/分。\n- 血氧饱和度：吸入空气下为 92%。\n- 肺部：双侧肺底可闻及湿啰音。\n- 一般状况：表情焦虑，呼吸时使用肋间辅助肌。神志清楚，能够吞咽。"
+            },
+            "structuredMeasurements": {
+              "panels": [
+                {
+                  "kind": "vitals",
+                  "columns": [
+                    {
+                      "id": "current",
+                      "label": {
+                        "en": "Current",
+                        "zh": "当前"
+                      }
+                    }
+                  ],
+                  "rows": [
+                    {
+                      "key": "rr",
+                      "label": {
+                        "en": "Respiratory rate",
+                        "zh": "呼吸频率"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "28",
+                          "unit": "/min"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "hr",
+                      "label": {
+                        "en": "Heart rate",
+                        "zh": "心率"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "96",
+                          "unit": "bpm"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "spo2",
+                      "label": {
+                        "en": "SpO2",
+                        "zh": "脉搏血氧饱和度"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "92",
+                          "unit": "%"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
             }
           }
         ],
@@ -74743,6 +74803,80 @@
             "content": {
               "en": "Subjective: Parents state the child had mild cold symptoms for two days. Tonight, he woke up with a loud barking cough and sounds like he is struggling to breathe. \n\nObjective:\n- Temperature: 101.1°F (38.4°C)\n- Heart rate: 138 bpm\n- Respiratory rate: 32 breaths/min\n- Oxygen saturation: 94% on room air\n- Auscultation: Mild inspiratory stridor audible at rest, clear chest bilaterally.\n- Inspection: Agitated and crying; mild subcostal and intercostal retractions visible.",
               "zh": "主观资料：父母陈述孩子有两天的轻微感冒症状。今晚，他醒来时伴有大声的犬吠样咳嗽，听起来像是呼吸困难。\n\n客观资料：\n- 体温：101.1°F (38.4°C)\n- 心率：138次/分\n- 呼吸频率：32次/分\n- 氧饱和度：室内空气下为 94%\n- 听诊：静息时可听到轻度吸气性喉鸣，双侧肺部呼吸音清。\n- 视诊：烦躁且哭闹；可见轻度肋下和肋间凹陷。"
+            },
+            "structuredMeasurements": {
+              "panels": [
+                {
+                  "kind": "vitals",
+                  "columns": [
+                    {
+                      "id": "current",
+                      "label": {
+                        "en": "Current",
+                        "zh": "当前"
+                      }
+                    }
+                  ],
+                  "rows": [
+                    {
+                      "key": "temp",
+                      "label": {
+                        "en": "Temperature",
+                        "zh": "体温"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "101.1",
+                          "unit": "°F"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "hr",
+                      "label": {
+                        "en": "Heart rate",
+                        "zh": "心率"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "138",
+                          "unit": "bpm"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "rr",
+                      "label": {
+                        "en": "Respiratory rate",
+                        "zh": "呼吸频率"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "32",
+                          "unit": "/min"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "spo2",
+                      "label": {
+                        "en": "SpO2",
+                        "zh": "脉搏血氧饱和度"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "94",
+                          "unit": "%"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
             }
           }
         ],

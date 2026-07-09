@@ -183,6 +183,66 @@
             "content": {
               "en": "Chest x-ray: right lower-lobe infiltrate.\nWBC 18,400/mm3. Lactate 4.6 mmol/L. Creatinine 1.4 mg/dL.\nNo known heart failure. Takes metformin and lisinopril at home.",
               "zh": "胸片：右下肺叶浸润影。\n白细胞18,400/mm3。乳酸4.6 mmol/L。肌酐1.4 mg/dL。\n无已知心力衰竭。居家服用二甲双胍和赖诺普利。"
+            },
+            "structuredMeasurements": {
+              "panels": [
+                {
+                  "kind": "labs",
+                  "columns": [
+                    {
+                      "id": "current",
+                      "label": {
+                        "en": "Current",
+                        "zh": "当前"
+                      }
+                    }
+                  ],
+                  "rows": [
+                    {
+                      "key": "wbc",
+                      "label": {
+                        "en": "WBC",
+                        "zh": "白细胞"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "18,400",
+                          "unit": "/mm3"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "lactate",
+                      "label": {
+                        "en": "Lactate",
+                        "zh": "乳酸"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "4.6",
+                          "unit": "mmol/L"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "creatinine",
+                      "label": {
+                        "en": "Creatinine",
+                        "zh": "肌酐"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "1.4",
+                          "unit": "mg/dL"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
             }
           }
         ],
@@ -678,6 +738,80 @@
             "content": {
               "en": "Urine protein: 2+.\nPlatelets: 92,000/mm3. AST 94 U/L, ALT 88 U/L. Creatinine 1.2 mg/dL.\nNo history of chronic hypertension or seizure disorder.",
               "zh": "尿蛋白：2+。\n血小板：92,000/mm3。AST 94 U/L，ALT 88 U/L。肌酐1.2 mg/dL。\n无慢性高血压或癫痫病史。"
+            },
+            "structuredMeasurements": {
+              "panels": [
+                {
+                  "kind": "labs",
+                  "columns": [
+                    {
+                      "id": "current",
+                      "label": {
+                        "en": "Current",
+                        "zh": "当前"
+                      }
+                    }
+                  ],
+                  "rows": [
+                    {
+                      "key": "platelets",
+                      "label": {
+                        "en": "Platelets",
+                        "zh": "血小板"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "92,000",
+                          "unit": "/mm3"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "ast",
+                      "label": {
+                        "en": "AST",
+                        "zh": "谷草转氨酶"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "94",
+                          "unit": "U/L"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "alt",
+                      "label": {
+                        "en": "ALT",
+                        "zh": "谷丙转氨酶"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "88",
+                          "unit": "U/L"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "creatinine",
+                      "label": {
+                        "en": "Creatinine",
+                        "zh": "肌酐"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "1.2",
+                          "unit": "mg/dL"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
             }
           }
         ],
@@ -718,6 +852,82 @@
                 "content": {
                   "en": "Client is difficult to arouse. RR 10/min. SpO2 93% on room air. Patellar reflexes absent. Urine output 20 mL in the past hour.\nBlood pressure after labetalol: 148/94 mm Hg.",
                   "zh": "患者难以唤醒。呼吸10次/分。室内空气SpO2 93%。髌腱反射消失。过去1小时尿量20 mL。\n拉贝洛尔后血压：148/94 mm Hg。"
+                },
+                "structuredMeasurements": {
+                  "panels": [
+                    {
+                      "kind": "vitals",
+                      "columns": [
+                        {
+                          "id": "current",
+                          "label": {
+                            "en": "Current",
+                            "zh": "当前"
+                          }
+                        }
+                      ],
+                      "rows": [
+                        {
+                          "key": "rr",
+                          "label": {
+                            "en": "Respiratory rate",
+                            "zh": "呼吸频率"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "10",
+                              "unit": "/min"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "spo2",
+                          "label": {
+                            "en": "SpO2",
+                            "zh": "脉搏血氧饱和度"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "93",
+                              "unit": "%"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "sbp",
+                          "label": {
+                            "en": "Systolic BP",
+                            "zh": "收缩压"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "148",
+                              "unit": "mmHg",
+                              "context": "post_intervention"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "dbp",
+                          "label": {
+                            "en": "Diastolic BP",
+                            "zh": "舒张压"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "94",
+                              "unit": "mmHg",
+                              "context": "post_intervention"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
                 }
               }
             ]
@@ -1161,6 +1371,108 @@
             "content": {
               "en": "T: 101.2 F (38.4 C)\nHR: 112 bpm\nRR: 28/min, shallow\nBP: 148/92 mmHg\nSpO2: 86% on room air",
               "zh": "体温：38.4 C\n心率：112 次/分\n呼吸：28 次/分，表浅\n血压：148/92 mmHg\n血氧饱和度：室内空气下 86%"
+            },
+            "structuredMeasurements": {
+              "panels": [
+                {
+                  "kind": "vitals",
+                  "columns": [
+                    {
+                      "id": "current",
+                      "label": {
+                        "en": "1000",
+                        "zh": "1000"
+                      }
+                    }
+                  ],
+                  "rows": [
+                    {
+                      "key": "temp",
+                      "label": {
+                        "en": "Temperature",
+                        "zh": "体温"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "101.2",
+                          "unit": "°F"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "hr",
+                      "label": {
+                        "en": "Heart rate",
+                        "zh": "心率"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "112",
+                          "unit": "bpm"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "rr",
+                      "label": {
+                        "en": "Respiratory rate",
+                        "zh": "呼吸频率"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "28",
+                          "unit": "/min"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "sbp",
+                      "label": {
+                        "en": "Systolic BP",
+                        "zh": "收缩压"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "148",
+                          "unit": "mmHg"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "dbp",
+                      "label": {
+                        "en": "Diastolic BP",
+                        "zh": "舒张压"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "92",
+                          "unit": "mmHg"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "spo2",
+                      "label": {
+                        "en": "SpO2",
+                        "zh": "脉搏血氧饱和度"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "86",
+                          "unit": "%"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
             }
           },
           {
@@ -1706,6 +2018,108 @@
             "content": {
               "en": "BUN: 82 mg/dL\nCreatinine: 7.4 mg/dL\nPotassium: 6.2 mEq/L\nCalcium: 8.1 mg/dL\nPhosphorus: 5.8 mg/dL\nHgb: 9.1 g/dL",
               "zh": "BUN: 82 mg/dL\n肌酐: 7.4 mg/dL\n钾: 6.2 mEq/L\n钙: 8.1 mg/dL\n磷: 5.8 mg/dL\n血红蛋白: 9.1 g/dL"
+            },
+            "structuredMeasurements": {
+              "panels": [
+                {
+                  "kind": "labs",
+                  "columns": [
+                    {
+                      "id": "current",
+                      "label": {
+                        "en": "Current",
+                        "zh": "当前"
+                      }
+                    }
+                  ],
+                  "rows": [
+                    {
+                      "key": "bun",
+                      "label": {
+                        "en": "BUN",
+                        "zh": "尿素氮"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "82",
+                          "unit": "mg/dL"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "creatinine",
+                      "label": {
+                        "en": "Creatinine",
+                        "zh": "肌酐"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "7.4",
+                          "unit": "mg/dL"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "potassium",
+                      "label": {
+                        "en": "Potassium",
+                        "zh": "血钾"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "6.2",
+                          "unit": "mEq/L"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "calcium",
+                      "label": {
+                        "en": "Calcium",
+                        "zh": "总钙"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "8.1",
+                          "unit": "mg/dL"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "phosphate",
+                      "label": {
+                        "en": "Phosphate",
+                        "zh": "血磷"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "5.8",
+                          "unit": "mg/dL"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "hemoglobin",
+                      "label": {
+                        "en": "Hemoglobin",
+                        "zh": "血红蛋白"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "9.1",
+                          "unit": "g/dL"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
             }
           },
           {
@@ -3570,6 +3984,108 @@
             "content": {
               "en": "Glucose: 540 mg/dL\nSodium: 132 mEq/L\nPotassium: 3.4 mEq/L\nBicarbonate: 12 mEq/L\nArterial pH: 7.15\nAnion Gap: 20 mEq/L\nKetones: Positive",
               "zh": "血糖: 540 mg/dL\n血钠: 132 mEq/L\n血钾: 3.4 mEq/L\n重碳酸盐: 12 mEq/L\n动脉血pH: 7.15\n阴离子间隙: 20 mEq/L\n酮体: 阳性"
+            },
+            "structuredMeasurements": {
+              "panels": [
+                {
+                  "kind": "labs",
+                  "columns": [
+                    {
+                      "id": "current",
+                      "label": {
+                        "en": "0815",
+                        "zh": "0815"
+                      }
+                    }
+                  ],
+                  "rows": [
+                    {
+                      "key": "glucose",
+                      "label": {
+                        "en": "Glucose",
+                        "zh": "血糖"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "540",
+                          "unit": "mg/dL"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "sodium",
+                      "label": {
+                        "en": "Sodium",
+                        "zh": "血钠"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "132",
+                          "unit": "mEq/L"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "potassium",
+                      "label": {
+                        "en": "Potassium",
+                        "zh": "血钾"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "3.4",
+                          "unit": "mEq/L"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "bicarbonate",
+                      "label": {
+                        "en": "Bicarbonate",
+                        "zh": "碳酸氢盐"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "12",
+                          "unit": "mEq/L"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "ph",
+                      "label": {
+                        "en": "pH",
+                        "zh": "酸碱度"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "7.15",
+                          "unit": "(unitless)"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "anion_gap",
+                      "label": {
+                        "en": "Anion gap",
+                        "zh": "阴离子间隙"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "20",
+                          "unit": "mEq/L"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
             }
           }
         ],
@@ -11442,6 +11958,108 @@
             "content": {
               "en": "Vital Signs:\nTemperature: 104.2 °F (40.1 °C)\nHeart Rate: 152 bpm (irregular)\nBlood Pressure: 168/94 mm Hg\nRespiratory Rate: 28 breaths/min\nSpO2: 95% on room air\n\nNursing Assessment:\nNeurological: Extremely agitated, tremors present in bilateral upper extremities, oriented to person only.\nCardiovascular: Tachycardic, palpable bounding pulses.\nSkin: Flushed, hot, and profusely diaphoretic.\nNeck: Diffuse anterior neck enlargement (goiter) noted.",
               "zh": "生命体征：\n体温：104.2 °F (40.1 °C)\n心率：152 次/分 (不规则)\n血压：168/94 mm Hg\n呼吸频率：28 次/分\nSpO2：室内空气下95%\n\n护理评估：\n神经系统：极度烦躁，双上肢可见震颤，仅对人有定向力。\n心血管系统：心动过速，可触及洪脉。\n皮肤：潮红、发烫、大量出汗。\n颈部：可见颈前弥漫性肿大（甲状腺肿）。"
+            },
+            "structuredMeasurements": {
+              "panels": [
+                {
+                  "kind": "vitals",
+                  "columns": [
+                    {
+                      "id": "current",
+                      "label": {
+                        "en": "0800",
+                        "zh": "0800"
+                      }
+                    }
+                  ],
+                  "rows": [
+                    {
+                      "key": "temp",
+                      "label": {
+                        "en": "Temperature",
+                        "zh": "体温"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "104.2",
+                          "unit": "°F"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "hr",
+                      "label": {
+                        "en": "Heart rate",
+                        "zh": "心率"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "152",
+                          "unit": "bpm"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "sbp",
+                      "label": {
+                        "en": "Systolic BP",
+                        "zh": "收缩压"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "168",
+                          "unit": "mmHg"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "dbp",
+                      "label": {
+                        "en": "Diastolic BP",
+                        "zh": "舒张压"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "94",
+                          "unit": "mmHg"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "rr",
+                      "label": {
+                        "en": "Respiratory rate",
+                        "zh": "呼吸频率"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "28",
+                          "unit": "/min"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "spo2",
+                      "label": {
+                        "en": "SpO2",
+                        "zh": "脉搏血氧饱和度"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "95",
+                          "unit": "%"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
             }
           }
         ],
@@ -12870,6 +13488,80 @@
                 "content": {
                   "en": "- White Blood Cell (WBC) Count: 18,500/mm³\n- Lactate: 4.2 mmol/L\n- Serum Creatinine: 1.8 mg/dL\n- Blood Glucose: 210 mg/dL\n- C-Reactive Protein (CRP): 150 mg/L",
                   "zh": "- 白细胞（WBC）计数：18,500/mm³\n- 乳酸：4.2 mmol/L\n- 血清肌酐：1.8 mg/dL\n- 血糖：210 mg/dL\n- C反应蛋白（CRP）：150 mg/L"
+                },
+                "structuredMeasurements": {
+                  "panels": [
+                    {
+                      "kind": "labs",
+                      "columns": [
+                        {
+                          "id": "current",
+                          "label": {
+                            "en": "Current",
+                            "zh": "当前"
+                          }
+                        }
+                      ],
+                      "rows": [
+                        {
+                          "key": "wbc",
+                          "label": {
+                            "en": "WBC",
+                            "zh": "白细胞"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "18,500",
+                              "unit": "/mm³"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "lactate",
+                          "label": {
+                            "en": "Lactate",
+                            "zh": "乳酸"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "4.2",
+                              "unit": "mmol/L"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "creatinine",
+                          "label": {
+                            "en": "Creatinine",
+                            "zh": "肌酐"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "1.8",
+                              "unit": "mg/dL"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "glucose",
+                          "label": {
+                            "en": "Glucose",
+                            "zh": "血糖"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "210",
+                              "unit": "mg/dL"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
                 }
               },
               {
