@@ -39924,6 +39924,38 @@
             "content": {
               "en": "Age 69. COPD. New order: oxygen 2 L/min by nasal cannula with activity and sleep. Lives with spouse in a small apartment. Uses a cane. SpO2 92% on 2 L/min after walking 30 feet.",
               "zh": "69 岁。COPD。新医嘱：活动和睡眠时鼻导管吸氧 2 L/分。与配偶住在小公寓。使用手杖。步行 30 英尺后吸氧 2 L/分时 SpO2 为 92%。"
+            },
+            "structuredMeasurements": {
+              "panels": [
+                {
+                  "kind": "vitals",
+                  "columns": [
+                    {
+                      "id": "current",
+                      "label": {
+                        "en": "Current",
+                        "zh": "当前"
+                      }
+                    }
+                  ],
+                  "rows": [
+                    {
+                      "key": "spo2",
+                      "label": {
+                        "en": "SpO2",
+                        "zh": "脉搏血氧饱和度"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "92",
+                          "unit": "%"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
             }
           }
         ],
@@ -40539,6 +40571,94 @@
                 "content": {
                   "en": "BP 148/86, HR 96 irregular, RR 18, SpO2 95% room air. Oriented to person only. Vomited once. Right pupil 5 mm, left pupil 3 mm. Right leg shortened and externally rotated. 2-cm elbow abrasion without active bleeding.",
                   "zh": "血压 148/86，心率 96 次/分且不规则，呼吸 18 次/分，室内空气 SpO2 95%。仅能辨认本人。呕吐一次。右瞳孔 5 mm，左瞳孔 3 mm。右腿短缩并外旋。肘部 2 cm 擦伤，无活动性出血。"
+                },
+                "structuredMeasurements": {
+                  "panels": [
+                    {
+                      "kind": "vitals",
+                      "columns": [
+                        {
+                          "id": "current",
+                          "label": {
+                            "en": "0240",
+                            "zh": "0240"
+                          }
+                        }
+                      ],
+                      "rows": [
+                        {
+                          "key": "sbp",
+                          "label": {
+                            "en": "Systolic BP",
+                            "zh": "收缩压"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "148",
+                              "unit": "mmHg"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "dbp",
+                          "label": {
+                            "en": "Diastolic BP",
+                            "zh": "舒张压"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "86",
+                              "unit": "mmHg"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "hr",
+                          "label": {
+                            "en": "Heart rate",
+                            "zh": "心率"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "96",
+                              "unit": "bpm"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "rr",
+                          "label": {
+                            "en": "Respiratory rate",
+                            "zh": "呼吸频率"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "18",
+                              "unit": "/min"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "spo2",
+                          "label": {
+                            "en": "SpO2",
+                            "zh": "脉搏血氧饱和度"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "95",
+                              "unit": "%"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
                 }
               }
             ]
@@ -41789,6 +41909,38 @@
                 "content": {
                   "en": "At 1900, client is suddenly unable to follow a two-step direction, pulls at blanket, and says insects are on the wall. Attention improves briefly when daughter speaks calmly, then worsens again. Temperature 37.9 C. Oral intake low today.",
                   "zh": "1900 患者突然不能完成两步指令，拉扯毯子，并说墙上有虫子。女儿平静说话时注意力短暂改善，随后又变差。体温 37.9°C。今日口服摄入少。"
+                },
+                "structuredMeasurements": {
+                  "panels": [
+                    {
+                      "kind": "vitals",
+                      "columns": [
+                        {
+                          "id": "current",
+                          "label": {
+                            "en": "1900",
+                            "zh": "1900"
+                          }
+                        }
+                      ],
+                      "rows": [
+                        {
+                          "key": "temp",
+                          "label": {
+                            "en": "Temperature",
+                            "zh": "体温"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "37.9",
+                              "unit": "°C"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
                 }
               }
             ]
@@ -45185,6 +45337,38 @@
                 "content": {
                   "en": "After teaching, spouse states, 'If it looks dirty, I will clean it with hydrogen peroxide and pack the gauze tightly so it closes faster.' The wound has a new foul odor and increased yellow drainage. Periwound skin is warm. Temperature is 37.9°C. Client says the boot is uncomfortable and asks whether walking barefoot indoors is acceptable.",
                   "zh": "宣教后，配偶说：“如果看起来脏，我会用双氧水清洁，并把纱布塞紧，这样能更快闭合。”伤口出现新的恶臭和黄色渗液增多。伤口周围皮肤发热。体温 37.9°C。患者说减压靴不舒服，询问在室内赤脚走路是否可以。"
+                },
+                "structuredMeasurements": {
+                  "panels": [
+                    {
+                      "kind": "vitals",
+                      "columns": [
+                        {
+                          "id": "current",
+                          "label": {
+                            "en": "Current",
+                            "zh": "当前"
+                          }
+                        }
+                      ],
+                      "rows": [
+                        {
+                          "key": "temp",
+                          "label": {
+                            "en": "Temperature",
+                            "zh": "体温"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "37.9",
+                              "unit": "°C"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
                 }
               }
             ]
@@ -48085,6 +48269,108 @@
                 "content": {
                   "en": "The WOC nurse teaches with the qualified video interpreter. The patient asks new questions about showering, odor, and eating beans and rice. She says she has been afraid to look at the stoma and has let her daughter handle all pouch care. The WOC nurse supports a gradual first look, then guides independent pouch emptying; the patient performs it correctly on the second attempt. The patient removes the old wafer, inspects intact peristomal skin, cleans the area, and applies a new demonstration wafer with verbal coaching only. Output has increased: the pouch is emptied twice in two hours and output is thinner, yellow-green. Vitals: T 37.1 C, HR 74, BP 130/78, RR 14, SpO2 98%. Pain 2/10. Written ostomy instructions in Spanish and an insurance-compatible vendor list are provided. The nurse documents interpreter ID/language, teaching, return demonstration, and patient verbalization through the interpreter of three warning signs: stoma changes from red to dark purple or black, peristomal skin breakdown, and no output for more than 6 hours with cramping or distension.",
                   "zh": "造口伤口护理护士通过合格视频口译员进行宣教。患者提出新的问题：是否能淋浴、造口袋是否会有气味、是否能吃豆类和米饭。她说自己一直害怕看造口，并让女儿处理所有造口袋护理。造口伤口护理护士支持她循序渐进地第一次观察造口，然后指导她独立排空造口袋；患者第二次尝试时操作正确。患者取下旧底盘，检查完整的造口周围皮肤，清洁该区域，并仅在口头提示下贴上新的演示底盘。排出量增加：2小时内排空造口袋两次，排出物较稀、呈黄绿色。生命体征：T 37.1 C，HR 74，BP 130/78，RR 14，SpO2 98%。疼痛2/10。提供西班牙语书面造口护理说明和保险可接受的供应商清单。护士记录口译员编号/语言、宣教内容、回示演示，以及患者通过口译员说出的三个警示表现：造口由红色变成深紫色或黑色、造口周围皮肤破损、超过6小时无排出并伴腹部绞痛或腹胀。"
+                },
+                "structuredMeasurements": {
+                  "panels": [
+                    {
+                      "kind": "vitals",
+                      "columns": [
+                        {
+                          "id": "current",
+                          "label": {
+                            "en": "Current",
+                            "zh": "当前"
+                          }
+                        }
+                      ],
+                      "rows": [
+                        {
+                          "key": "temp",
+                          "label": {
+                            "en": "Temperature",
+                            "zh": "体温"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "37.1",
+                              "unit": "°C"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "hr",
+                          "label": {
+                            "en": "Heart rate",
+                            "zh": "心率"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "74",
+                              "unit": "bpm"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "sbp",
+                          "label": {
+                            "en": "Systolic BP",
+                            "zh": "收缩压"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "130",
+                              "unit": "mmHg"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "dbp",
+                          "label": {
+                            "en": "Diastolic BP",
+                            "zh": "舒张压"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "78",
+                              "unit": "mmHg"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "rr",
+                          "label": {
+                            "en": "Respiratory rate",
+                            "zh": "呼吸频率"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "14",
+                              "unit": "/min"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "spo2",
+                          "label": {
+                            "en": "SpO2",
+                            "zh": "脉搏血氧饱和度"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "98",
+                              "unit": "%"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
                 }
               }
             ]
