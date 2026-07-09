@@ -5,6 +5,15 @@ Author: Claude (architect). Target: Codex. Companion to
 
 Surface: `src/App.tsx` only. No schema, bank, grading, or telemetry-contract changes.
 
+**Baseline: work from live HEAD.** Commit hashes in these specs are stale — `main` was
+`1bde3c3` when the fixup spec was drafted, `974b054` at GPT review, and `03a66e1` at last read.
+Codex confirmed `1bde3c3` touched only structured-measurement handoff/artifact/history files, so
+no telemetry or UI change was swept into it. Do not rewrite history. Line numbers below are
+approximate; verify against the file.
+
+**Do not commit to or push `main`.** Stage on `codex/default-session-mode-repoint` and stop.
+Promotion is the architect gate, not Codex's call (DECISIONS.md).
+
 ## Motivation
 
 The home splash fires a **Test** session:
@@ -108,6 +117,10 @@ Note it in the handoff so it is not later mistaken for a behavior change in the 
   - Post-submit: translate-all button present (requires the fixup spec).
   - Tapping a per-block `需要中文` records a `translationRevealEvent` with
     `sessionMode: "study"`.
+  - **End-of-session transition (GPT review, accepted).** Skip 2–3 items, answer the rest, and
+    confirm the session advances into the skipped-review phase and then to the summary. `isLast`
+    is computed differently for `study` (~2927) and the skipped-phase machine (~5319, 5324) runs
+    only for `study`. This transition is where mode repoints break; smoke it explicitly.
   - Builder → Test still starts an EN-only session with no skip and no reveal telemetry.
   - Resume of an in-flight pre-cutover `test` session still behaves as `test`.
 

@@ -7,11 +7,14 @@ mode the default splash button fires, and this spec assumes it lands).
 Surface: `src/App.tsx`, `src/styles.css`, `src/types.ts`, `src/translationTelemetry.ts`,
 `scripts/tests/translation-telemetry.ts`.
 
-Context: the feature was implemented but **never committed**. Tip of `main` (= `origin/main`)
-is `1bde3c3 "Prepare structured measurements candidate 06B"`; `src/App.tsx` carries
-uncommitted changes written ~21 min after the last index write. `pages.yml` deploys by
-checking out pushed `main` and running `npm run build` — local `dist/` is never uploaded.
-Net effect: the button exists locally and is absent from the deployed app.
+Context: **the baseline commit hashes in earlier drafts of this spec are stale.** Codex verified
+that `1bde3c3` touched only structured-measurement handoff/artifact/history files, so the
+telemetry and UI changes were **not** swept into it. `main` has since moved (it was `974b054`
+during review and `03a66e1` at last read). The translate-all feature has already landed on
+`main` — see the "Translate-All Post-Submit Reveal (Jul 8)" milestone in `PROJECT-HISTORY.md`.
+
+**Read HEAD live. Do not trust any commit hash written in this document.** `pages.yml` deploys
+by checking out pushed `main` and running `npm run build`; local `dist/` is never uploaded.
 
 Ratified by Luke:
 - Translate-all should be visible in as many environments as possible. A stricter
@@ -22,11 +25,15 @@ Ratified by Luke:
 
 ## 0. Pre-flight (do this first, report before changing code)
 
-- `git status --short` and `git log --oneline -1`.
-- `git show --stat 1bde3c3` — determine whether the `fullQuestionReveal` (`src/types.ts`) and
-  `fullRevealCount` (`src/translationTelemetry.ts`) changes were **swept into that unrelated
-  structured-measurements commit**. If so, `main` currently carries the event-contract and
-  summarizer changes with **no UI emitting them**. Report this; do not rewrite history.
+- `git status --short` and `git log --oneline -1`. Work from live HEAD, not from hashes in this
+  spec.
+- **Several Part A items have already landed.** Placement (A1b), the `.translate-all-action`
+  style (A6), the panel `fullRevealCount` row (A7), and the `revealedBlocks` skip (A5) are
+  reported present in current code. Verify each and **no-op** where already satisfied; do not
+  re-implement or churn the diff. The remaining substantive work is: the repoint (separate
+  spec), the dead-gate deletion (A1), the `hasQuestionLevelZh` rationale/strategy/glossary
+  fallback (A1a), unconditional live-session recorder threading (A3), and the optional
+  `sessionMode` / `languageModeAtReveal` fields (A4).
 - Do **not** commit to or push `main`. Stage on branch `codex/translate-all-reveal` and stop.
   Promotion to `main` is the architect gate, not Codex's call (DECISIONS.md).
 
@@ -56,14 +63,23 @@ const showTranslateAll =
   submitted &&
   languageMode === "on-tap" &&
   questionHasZh &&
-  !fullRevealed &&
-  question.itemType !== "case_study"; // v1 scope, unchanged
+  !fullRevealed;
 ```
 
+This is a **pure deletion of the dead clause**. Nothing else in the predicate moves.
+
+**Do not add a `case_study` exclusion.** An earlier draft of this spec called for
+`question.itemType !== "case_study"`. That was written against a stale assumption that "reveal
+all" is ambiguous on a multi-part case. The shipped implementation already resolved the
+ambiguity — the broadcast reaches whatever consumers are currently mounted, i.e. "all Chinese on
+this rendered surface" — and `PROJECT-HISTORY.md` records the case-study extension as completed
+and browser-smoke-verified. Adding the exclusion would delete documented, verified behavior.
+The exclusion is **withdrawn**.
+
 Consequences (intended): the button renders post-submit wherever `languageMode` is `on-tap` —
-Study (incl. the repointed default splash session), Adaptive, the session Summary Review, and
-the Preview Lab. Never pre-submit, never in `always` (ZH already on screen), never in `off`
-(nothing would be revealed — see A2), never on case studies.
+Study (incl. the repointed default splash session), Adaptive, the session Summary Review, the
+Preview Lab, and rendered case-study surfaces. Never pre-submit, never in `always` (ZH already
+on screen), never in `off` (nothing would be revealed — see A2).
 
 `on-tap` is required, not merely preferred: `BilingualText` computes
 `showZh = hasZh && (mode === "always" || (mode === "on-tap" && revealed))`, so in `off` the
@@ -72,6 +88,40 @@ worse than no button.
 
 Do **not** change the `revealTrackingContext` memo to return `null` — other consumers read
 `revealAllSignal` off it via `?? 0`, and `recordEvent` is already correctly gated on `sessionId`.
+
+### A1a. `questionHasZh` — narrow extension only
+
+`hasQuestionLevelZh` already covers every item type (stem, options, `fill_in_blank` blank
+prompts, `matrix` rows **and** columns, `dropdown_cloze` cloze stem + dropdown options,
+`highlight` segments, `bowtie` zone prompts + tokens, with `case_study` recursion). **Do not
+rewrite it.** A GPT spec review proposed broadening it; rejected as already satisfied.
+
+One gap is real: the predicate does not consider `rationale`, `testTakingStrategy`, or
+`glossary`. Since translate-all reveals those blocks, an item with an untranslated stem but a
+translated rationale would hide a button that has work to do. Add them as a final fallback
+clause. Defensive — `TextPair.zh` is required, so `hasZhPair(question.stem)` short-circuits in
+practice — and it must not disturb the existing early returns.
+
+### A1b. Placement (verify, do not regress)
+
+Already shipped per `PROJECT-HISTORY.md`. Restated so a rebase or rewrite cannot silently drop
+it. In `QuestionCard`'s `answerBody`, render in this order:
+
+1. answer banner
+2. `language-miss-action`
+3. **`<TranslateAllButton />`**
+4. `<RationalePanel />`
+5. **`{submitted && rescuePrompt && <GptRescueButton />}`**
+
+Translate-all is a reading toggle and belongs at the reading entry point, so the learner turns
+Chinese on and reads straight down through a revealed rationale. GPT rescue is an escalation
+CTA and belongs below the rationale, because escalating only makes sense after the authored
+rationale has been read and found insufficient.
+
+Both must stay **inside `answerBody`**, within the `RevealTrackingContext.Provider`
+(`trackedAnswerBody`). Do not move either to the section-level `session-actions` footer — that
+is outside the provider and reveal recording would break. No shared wrapper row; each is its
+own element. `GptRescueButton`'s render condition (`submitted && rescuePrompt`) is unchanged.
 
 ## A2. [DEFERRED — do not implement]
 
@@ -194,10 +244,14 @@ Replace with `buildChoiceMarkerMap(question): Map<string, string>` resolving ref
   `{ condition: "S", actions: "A", parameters: "P" }` — matching the headings the learner sees
   ("Situation to recognize" / "Actions to take" / "Parameters to assess/document") — plus a
   1-based index over `zone.tokens` order → `S1`, `A2`, `P3`.
-- `dropdown_cloze`: `D{dropdownIndex+1}.{optionIndex+1}`.
-- `matrix`: `R{rowIndex+1}`.
-- `highlight`: `H{segmentIndex+1}`.
-- `fill_in_blank`: `B{blankIndex+1}`.
+- `dropdown_cloze`: `D{dropdownIndex+1}` — **dropdown-level, not option-level.**
+  `NCLEX-Question-Schema.md` specifies `byChoice[].refId` → `dropdownId` for this type, and
+  canonical banks use ids like `"1"`, `"2"`. Rationales are authored one-per-dropdown. Do **not**
+  introduce an option-level `D{n}.{m}` marker; that would require a schema and content change.
+- `matrix`: `R{rowIndex+1}` (refId → `rowId`).
+- `highlight`: `H{n}`, indexed over **selectable** segments in passage order (refId → selectable
+  `segmentId`; static segments are never keyed, so raw segment index would misnumber).
+- `fill_in_blank`: `B{blankIndex+1}` (refId → `blankId`).
 
 **Hard rule: never render a raw refId.** If a refId does not resolve, render **no marker** and
 let the rationale text occupy the full width. An internal ID must never reach the learner.
@@ -218,7 +272,13 @@ refId and `Correct. The` occupying the same pixels. Real overlap, not a PDF arti
 
 Post-submit, each token renders up to three times: in its filled slot, again as a disabled pool
 token, and again in the `bowtie-key` "Correct:" list. The pool has no function after grading.
-Hide `.bowtie-token-pool` when `submitted` is true. Slots and the key list remain.
+
+**Do not hide it with CSS.** Conditionally skip rendering `.bowtie-token-pool` entirely when
+`submitted` is true. A CSS-hidden pool leaves a dozen disabled buttons in the accessibility
+tree and the tab order, and a global `.bowtie-token-pool { display: none }` under any
+submitted-like ancestor would fire in contexts we did not intend. Slots and the `bowtie-key`
+list remain. (GPT review asked for a submitted-state class; conditional render is the stronger
+form of the same fix.)
 
 ---
 
@@ -245,9 +305,14 @@ Hide `.bowtie-token-pool` when `submitted` is true. Slots and the key list remai
     `languageModeAtReveal: "on-tap"`.
   - **`always` and `off`:** no button, any mode.
   - **Summary Review / Preview Lab (on-tap):** button visible, reveals correctly, records nothing.
-  - **Case study:** no button.
+  - **Case study (post-submit, on-tap):** button present on the rendered surface; one click
+    reveals the rendered parts' Chinese and removes their per-block `需要中文` controls. This is
+    existing shipped behavior — confirm it did **not** regress.
   - **Bowtie rationale:** markers read `S1`/`A2`/`P3`; no raw refIds anywhere; no overlapping
-    text; token pool gone after submit.
+    text; token pool absent from the DOM after submit (not merely invisible).
+  - **Unresolved-refId fallback:** force one `byChoice` entry whose `refId` matches no token,
+    option, row, dropdown, blank, or selectable segment. Confirm no raw ID appears, no empty
+    marker column is reserved, and the rationale text spans the full row.
 
 ## Handoff
 
@@ -262,8 +327,9 @@ Report `git status --short` (clean) and the §0 pre-flight findings. Stop. Do no
 
 - No pre-submit translate-all variant.
 - No A2 (`revealed` overriding `off`).
+- No `case_study` exclusion — withdrawn; the shipped case-study behavior stays.
+- No option-level `dropdown_cloze` rationale markers, and no schema/content change to support them.
 - No removal of the Test-mode `"off"` language force.
 - No `scoreTargetedReviewCandidate` / `buildTargetedReviewPool` change.
 - No `DB_VERSION` bump.
-- No history rewrite of `1bde3c3`.
 - No exam-simulator strict-mode feature (future, separate).
