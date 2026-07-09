@@ -153,6 +153,8 @@ type View =
 
 type RevealTrackingContextValue = {
   sessionId?: string;
+  sessionMode?: SessionMode;
+  languageMode: LanguageMode;
   questionId: string;
   partId?: string;
   itemType: ItemType;
@@ -213,6 +215,8 @@ const recordRevealFromContext = (ctx: RevealTrackingContextValue | null, block: 
   ctx.revealCountRef.current += 1;
   ctx.recordEvent({
     sessionId: ctx.sessionId,
+    sessionMode: ctx.sessionMode,
+    languageModeAtReveal: ctx.languageMode,
     questionId: ctx.questionId,
     partId: ctx.partId,
     block,
@@ -227,10 +231,13 @@ const recordRevealFromContext = (ctx: RevealTrackingContextValue | null, block: 
 };
 
 const recordFullReveal = (ctx: RevealTrackingContextValue | null) => {
+  // Review and preview surfaces can reveal all Chinese without recording telemetry.
   if (!ctx?.sessionId || !ctx.recordEvent) return;
   ctx.revealCountRef.current += 1;
   ctx.recordEvent({
     sessionId: ctx.sessionId,
+    sessionMode: ctx.sessionMode,
+    languageModeAtReveal: ctx.languageMode,
     questionId: ctx.questionId,
     partId: ctx.partId,
     block: "other",
@@ -2968,8 +2975,9 @@ function SessionView({
         onSubmit={onSubmit}
         onToggleFlag={() => onToggleFlag(question.id)}
         onToggleLanguageMiss={() => onToggleLanguageMiss(question.id)}
-        sessionId={session.mode === "study" ? session.id : undefined}
-        onTranslationReveal={session.mode === "study" ? onTranslationReveal : undefined}
+        sessionId={session.id}
+        sessionMode={session.mode}
+        onTranslationReveal={onTranslationReveal}
         rescuePrompt={rescuePrompt}
         casePartRescuePrompts={casePartRescuePrompts}
       />
@@ -3023,6 +3031,7 @@ function QuestionCard({
   onToggleFlag,
   onToggleLanguageMiss,
   sessionId,
+  sessionMode,
   onTranslationReveal,
   reviewMode = false,
   focusedPartId,
@@ -3050,6 +3059,7 @@ function QuestionCard({
   onToggleFlag: () => void;
   onToggleLanguageMiss?: () => void;
   sessionId?: string;
+  sessionMode?: SessionMode;
   onTranslationReveal?: (event: Omit<TranslationRevealEvent, "id" | "revealedAt">) => void;
   reviewMode?: boolean;
   focusedPartId?: string;
@@ -3119,6 +3129,8 @@ function QuestionCard({
   const revealTrackingContext = useMemo<RevealTrackingContextValue | null>(() => {
     return {
       sessionId,
+      sessionMode,
+      languageMode,
       questionId: question.id,
       itemType: question.itemType,
       category: question.category,
@@ -3132,6 +3144,8 @@ function QuestionCard({
     };
   }, [
     sessionId,
+    sessionMode,
+    languageMode,
     onTranslationReveal,
     question.id,
     question.itemType,
@@ -3146,8 +3160,7 @@ function QuestionCard({
     submitted &&
     languageMode === "on-tap" &&
     questionHasZh &&
-    !fullRevealed &&
-    Boolean(revealTrackingContext);
+    !fullRevealed;
   const handleTranslateAll = useCallback(() => {
     if (fullRevealed || !revealTrackingContext) return;
     recordFullReveal(revealTrackingContext);
@@ -4628,6 +4641,12 @@ function SpeakButton({ text, enabled, label }: { text: string; enabled: boolean;
 const hasZhText = (value?: string) => (value ?? "").trim().length > 0;
 const hasZhPair = (pair?: { zh?: string }) => hasZhText(pair?.zh);
 const hasZhPairs = (pairs: Array<{ zh?: string }>) => pairs.some(hasZhPair);
+const hasRationaleZh = (question: Question) =>
+  hasZhPair(question.rationale.correct) || (question.rationale.byChoice ?? []).some(hasZhPair);
+const hasGlossaryZh = (question: Question) =>
+  question.glossary.some((term) => hasZhText(term.termZh) || hasZhText(term.defZh));
+const hasExplanationZh = (question: Question) =>
+  hasRationaleZh(question) || hasZhPair(question.testTakingStrategy) || hasGlossaryZh(question);
 
 const hasQuestionLevelZh = (question: Question): boolean => {
   if (question.itemType === "case_study") {
@@ -4640,22 +4659,26 @@ const hasQuestionLevelZh = (question: Question): boolean => {
     )) {
       return true;
     }
-    return question.caseStudy.questions.some(hasQuestionLevelZh);
+    return hasExplanationZh(question) || question.caseStudy.questions.some(hasQuestionLevelZh);
   }
   if (hasZhPair(question.stem)) return true;
   if ("options" in question && hasZhPairs(question.options)) return true;
-  if (question.itemType === "fill_in_blank") return hasZhPairs(question.blanks.map((blank) => blank.prompt));
-  if (question.itemType === "matrix") return hasZhPairs([...question.matrix.rows, ...question.matrix.columns]);
+  if (question.itemType === "fill_in_blank" && hasZhPairs(question.blanks.map((blank) => blank.prompt))) return true;
+  if (question.itemType === "matrix" && hasZhPairs([...question.matrix.rows, ...question.matrix.columns])) return true;
   if (question.itemType === "dropdown_cloze") {
-    return hasZhPair(question.clozeStem) || question.dropdowns.some((dropdown) => hasZhPairs(dropdown.options));
+    if (hasZhPair(question.clozeStem) || question.dropdowns.some((dropdown) => hasZhPairs(dropdown.options))) {
+      return true;
+    }
   }
-  if (question.itemType === "highlight") return hasZhPairs(question.highlight.segments);
+  if (question.itemType === "highlight" && hasZhPairs(question.highlight.segments)) return true;
   if (question.itemType === "bowtie") {
-    return [question.bowtie.condition, question.bowtie.actions, question.bowtie.parameters].some(
+    if ([question.bowtie.condition, question.bowtie.actions, question.bowtie.parameters].some(
       (zone) => hasZhPair(zone.prompt) || hasZhPairs(zone.tokens),
-    );
+    )) {
+      return true;
+    }
   }
-  return false;
+  return hasExplanationZh(question);
 };
 
 // Collects the English text to read aloud for a "read all" pass: the stem,
