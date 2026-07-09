@@ -852,7 +852,7 @@ export default function App() {
             onResume={() => setView("session")}
             onStudy={() => startSession(allRecords, "study", "Study all questions")}
             onTest={(count) =>
-              startSession(allRecords, "test", `Test · ${count} questions`, { count, weighting: "nclex" })
+              startSession(allRecords, "study", `Practice · ${count} questions`, { count, weighting: "nclex" })
             }
             onMistakes={() => startSession(missedRecords, "study", "Review mistakes")}
             onAnswered={() => startSession(answeredRecords, "study", "Review answered questions")}
@@ -1104,7 +1104,7 @@ function HomeView({
           </div>
           <button className="primary-action test-start" type="button" onClick={() => onTest(testCount)} disabled={total === 0}>
             <CheckCircle2 aria-hidden="true" />
-            <span>Start test · {testCount} questions</span>
+            <span>Start practice · {testCount} questions</span>
           </button>
         </div>
 
