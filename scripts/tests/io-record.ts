@@ -1,3 +1,4 @@
+import { createHash } from "node:crypto";
 import type { Question } from "../../src/types";
 import {
   ioRecordModule,
@@ -10,6 +11,8 @@ import type { IoRecordSpec } from "../../src/visuals/kinds/io_record/types";
 const assert = (condition: unknown, message: string) => {
   if (!condition) throw new Error(message);
 };
+
+const sha256 = (value: string) => createHash("sha256").update(value).digest("hex");
 
 const fixture: IoRecordSpec = {
   kind: "io_record",
@@ -105,6 +108,19 @@ assert(renderIoRecordSvg(fixture) === svg, "rendering must be deterministic");
 assert(svg.includes(">1580<"), "render must include computed intake total");
 assert(svg.includes(">750<"), "render must include computed output total");
 assert(svg.includes(">+830<"), "render must include signed computed net balance");
+
+const expectedFixtureHashes = [
+  "867af95e916f520be3ad741b717545eba2774710209b4b957ac06f095cfdbd74",
+  "c061a8b04c1b87bb20d50ee33dd09bea28ed6e96983e71bc1ba2671350bb7e62",
+];
+ioRecordModule.fixtures.valid.forEach((spec, index) => {
+  const actual = sha256(renderIoRecordSvg(spec));
+  assert(
+    actual === expectedFixtureHashes[index],
+    `io_record fixture[${index}] SVG hash drift: expected ${expectedFixtureHashes[index]}, got ${actual}`,
+  );
+});
+
 assert(
   JSON.stringify(ioRecordModule.allowedItemTypes) ===
     JSON.stringify(["multiple_choice", "select_all", "matrix", "fill_in_blank"]),
