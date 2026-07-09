@@ -74897,6 +74897,54 @@
                 "content": {
                   "en": "The child was administered prescribed nebulized racemic epinephrine and oral dexamethasone (0.6 mg/kg). Currently, the child is resting quietly in his mother's arms. Stridor is no longer audible at rest. Oxygen saturation is 98% on room air. Retractions are resolved. Heart rate has decreased to 110 bpm.",
                   "zh": "给孩子使用了医嘱的雾化吸入外消旋肾上腺素和口服地塞米松 (0.6 mg/kg)。目前，孩子在母亲怀里安静地休息。静息时已听不到喉鸣。室内空气下氧饱和度为 98%。呼吸凹陷消失。心率降至 110次/分。"
+                },
+                "structuredMeasurements": {
+                  "panels": [
+                    {
+                      "kind": "vitals",
+                      "columns": [
+                        {
+                          "id": "current",
+                          "label": {
+                            "en": "0330",
+                            "zh": "0330"
+                          }
+                        }
+                      ],
+                      "rows": [
+                        {
+                          "key": "spo2",
+                          "label": {
+                            "en": "SpO2",
+                            "zh": "脉搏血氧饱和度"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "98",
+                              "unit": "%",
+                              "context": "post_intervention"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "hr",
+                          "label": {
+                            "en": "Heart rate",
+                            "zh": "心率"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "110",
+                              "unit": "bpm",
+                              "context": "post_intervention"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
                 }
               }
             ]
