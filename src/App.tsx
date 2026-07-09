@@ -180,6 +180,57 @@ function optionMarker(index: number): string {
   return index < 26 ? String.fromCharCode(65 + index) : String(index + 1);
 }
 
+function buildChoiceMarkerMap(question: Question): Map<string, string> {
+  const markers = new Map<string, string>();
+
+  switch (question.itemType) {
+    case "multiple_choice":
+    case "select_all":
+    case "ordered_response":
+      question.options.forEach((option, index) => {
+        markers.set(option.id, optionMarker(index));
+      });
+      break;
+    case "bowtie":
+      ([
+        ["condition", "S"],
+        ["actions", "A"],
+        ["parameters", "P"],
+      ] as const).forEach(([zoneName, prefix]) => {
+        question.bowtie[zoneName].tokens.forEach((token, index) => {
+          markers.set(token.id, `${prefix}${index + 1}`);
+        });
+      });
+      break;
+    case "dropdown_cloze":
+      question.dropdowns.forEach((dropdown, index) => {
+        markers.set(dropdown.id, `D${index + 1}`);
+      });
+      break;
+    case "matrix":
+      question.matrix.rows.forEach((row, index) => {
+        markers.set(row.id, `R${index + 1}`);
+      });
+      break;
+    case "highlight":
+      question.highlight.segments
+        .filter((segment) => segment.selectable)
+        .forEach((segment, index) => {
+          markers.set(segment.id, `H${index + 1}`);
+        });
+      break;
+    case "fill_in_blank":
+      question.blanks.forEach((blank, index) => {
+        markers.set(blank.id, `B${index + 1}`);
+      });
+      break;
+    case "case_study":
+      break;
+  }
+
+  return markers;
+}
+
 const standaloneRescueLabel = "Ask GPT about this question / 让 GPT 讲讲这道题";
 const casePartRescueLabel = "Ask GPT about this case part / 让 GPT 讲讲这个案例部分";
 
@@ -3532,31 +3583,33 @@ function BowtieControl({
                 );
               })}
             </div>
-            <div className="bowtie-token-pool" aria-label={`${label} token choices`}>
-              {zone.tokens.map((token) => {
-                const selected = current.includes(token.id);
-                return (
-                  <button
-                    className={`bowtie-token ${selected ? "selected" : ""}`}
-                    type="button"
-                    key={token.id}
-                    disabled={submitted || selected || current.length >= targetCount}
-                    aria-pressed={selected}
-                    aria-label={`${token.en}${selected ? ", placed" : ""}`}
-                    onClick={() => placeToken(token.id)}
-                  >
-                    <BilingualText
-                      pair={token}
-                      mode={languageMode}
-                      block="choices"
-                      glossary={question.glossary}
-                      onTerm={onTerm}
-                      revealOnEnglishClick={false}
-                    />
-                  </button>
-                );
-              })}
-            </div>
+            {!submitted && (
+              <div className="bowtie-token-pool" aria-label={`${label} token choices`}>
+                {zone.tokens.map((token) => {
+                  const selected = current.includes(token.id);
+                  return (
+                    <button
+                      className={`bowtie-token ${selected ? "selected" : ""}`}
+                      type="button"
+                      key={token.id}
+                      disabled={selected || current.length >= targetCount}
+                      aria-pressed={selected}
+                      aria-label={`${token.en}${selected ? ", placed" : ""}`}
+                      onClick={() => placeToken(token.id)}
+                    >
+                      <BilingualText
+                        pair={token}
+                        mode={languageMode}
+                        block="choices"
+                        glossary={question.glossary}
+                        onTerm={onTerm}
+                        revealOnEnglishClick={false}
+                      />
+                    </button>
+                  );
+                })}
+              </div>
+            )}
             {submitted && (
               <div className="bowtie-key">
                 <strong>Correct:</strong>
@@ -4779,9 +4832,7 @@ function RationalePanel({
   languageMode: LanguageMode;
 }) {
   const choiceRationales = question.rationale.byChoice ?? [];
-  const optionIndexById = new Map<string, number>(
-    ("options" in question ? question.options : []).map((option, index) => [option.id, index] as const),
-  );
+  const choiceMarkerByRefId = buildChoiceMarkerMap(question);
   return (
     <section className="rationale-panel">
       <div className="rationale-heading">
@@ -4802,12 +4853,16 @@ function RationalePanel({
         <>
           <h4>Per choice</h4>
           <div className="choice-rationales">
-            {choiceRationales.map((choice) => (
-              <div key={choice.refId}>
-                <strong>{optionIndexById.has(choice.refId) ? optionMarker(optionIndexById.get(choice.refId)!) : choice.refId}</strong>
-                <BilingualText pair={choice} mode={languageMode} block="rationale" />
-              </div>
-            ))}
+            {choiceRationales.map((choice) => {
+              const marker = choiceMarkerByRefId.get(choice.refId);
+              const rowClassName = marker ? "choice-rationale-row" : "choice-rationale-row no-marker";
+              return (
+                <div className={rowClassName} key={choice.refId}>
+                  {marker && <strong>{marker}</strong>}
+                  <BilingualText pair={choice} mode={languageMode} block="rationale" />
+                </div>
+              );
+            })}
           </div>
         </>
       )}

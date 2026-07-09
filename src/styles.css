@@ -2097,17 +2097,21 @@ h4 {
   font-size: calc(1rem * var(--font-scale));
 }
 
-.choice-rationales div {
+.choice-rationales .choice-rationale-row {
   display: grid;
-  grid-template-columns: 2rem minmax(0, 1fr);
+  grid-template-columns: minmax(2rem, max-content) minmax(0, 1fr);
   gap: 0 0.75rem;
   padding: 0.75rem;
   border: 1px solid var(--border);
   border-radius: 8px;
 }
 
+.choice-rationales .choice-rationale-row.no-marker {
+  grid-template-columns: minmax(0, 1fr);
+}
+
 .choice-rationales strong {
-  grid-row: span 2;
+  overflow-wrap: anywhere;
 }
 
 .glossary-strip {
