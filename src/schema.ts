@@ -23,9 +23,9 @@ import { getVisual, VISUAL_ITEM_TYPES, type VisualError } from "./visuals/regist
 import "./visuals/kinds"; // register every visual kind for validation (React-free)
 export { rhythmClasses } from "./visuals/kinds/rhythmStrip";
 
-export const SCHEMA_VERSION = "1.8";
+export const SCHEMA_VERSION = "1.9";
 
-export const supportedSchemaVersions = ["1.0", "1.1", "1.2", "1.3", "1.4", "1.5", "1.6", "1.7", "1.8"] as const satisfies readonly SchemaVersion[];
+export const supportedSchemaVersions = ["1.0", "1.1", "1.2", "1.3", "1.4", "1.5", "1.6", "1.7", "1.8", "1.9"] as const satisfies readonly SchemaVersion[];
 
 export const categories = [
   "Management of Care",
@@ -218,6 +218,16 @@ const collectVisualUnknownKeys = (value: unknown, path: string, reasons: string[
       );
     }
   }
+  if (Array.isArray(value.intervals)) {
+    value.intervals.forEach((interval, index) =>
+      unknownKeys(interval, `${path}.intervals[${index}]`, "ioTrendInterval", keySet(allowedKeySets.ioTrendInterval), reasons),
+    );
+  }
+  if (Array.isArray(value.binLabels)) {
+    value.binLabels.forEach((label, index) =>
+      collectTextPairUnknownKeys(label, `${path}.binLabels[${index}]`, reasons),
+    );
+  }
   if (value.periodLabel !== undefined) collectTextPairUnknownKeys(value.periodLabel, `${path}.periodLabel`, reasons);
   if (value.title !== undefined) collectTextPairUnknownKeys(value.title, `${path}.title`, reasons);
   if (Array.isArray(value.fields)) {
@@ -260,6 +270,9 @@ const collectQuestionMetaUnknownKeys = (value: unknown, path: string, reasons: s
     value.reference_bands.forEach((entry, index) =>
       unknownKeys(entry, `${path}.reference_bands[${index}]`, "referenceBand", keySet(allowedKeySets.referenceBand), reasons),
     );
+  }
+  if (isRecord(value.crossover)) {
+    unknownKeys(value.crossover, `${path}.crossover`, "crossoverAssertion", keySet(allowedKeySets.crossoverAssertion), reasons);
   }
 };
 
@@ -1175,6 +1188,33 @@ const hasRationaleVisuals = (question: Question): boolean => {
   return false;
 };
 
+type VisualCarrier = {
+  visual?: NonNullable<Question["visual"]>;
+  rationale: { visuals?: NonNullable<Question["visual"]>[] };
+};
+
+export const collectAllVisuals = (question: Question): NonNullable<Question["visual"]>[] => {
+  const visuals: NonNullable<Question["visual"]>[] = [];
+  const add = (visual: Question["visual"]) => {
+    if (visual !== undefined) visuals.push(visual);
+  };
+  const addCarrier = (carrier: VisualCarrier) => {
+    add(carrier.visual);
+    carrier.rationale.visuals?.forEach(add);
+  };
+
+  addCarrier(question);
+  if (question.itemType !== "case_study") return visuals;
+
+  question.caseStudy.exhibits.forEach((exhibit) => add(exhibit.visual));
+  question.caseStudy.stages?.forEach((stage) =>
+    stage.exhibits.forEach((exhibit) => add(exhibit.visual)),
+  );
+  question.caseStudy.questions.forEach((caseQuestion) => addCarrier(caseQuestion));
+
+  return visuals;
+};
+
 const hasSchema16CaseFields = (question: Question): boolean => {
   if (question.itemType !== "case_study") return false;
   if (question.caseStudy.exhibits.some((exhibit) => exhibit.type !== undefined)) return true;
@@ -1214,6 +1254,9 @@ const hasStructuredMeasurements = (question: Question): boolean => {
     stage.exhibits.some((exhibit) => exhibit.structuredMeasurements !== undefined)
   ) ?? false;
 };
+
+const hasIoTrend = (question: Question): boolean =>
+  collectAllVisuals(question).some((visual) => visual.kind === "io_trend");
 
 export const validateBankObject = (raw: unknown, options: ValidateBankOptions = {}): ValidationResult<BankEnvelope> => {
   const reasons: string[] = [];
@@ -1330,6 +1373,14 @@ export const validateBankObject = (raw: unknown, options: ValidateBankOptions = 
       hasStructuredMeasurements(result.value)
     ) {
       reasons.push(`questions[${index}]: structuredMeasurements requires meta.schemaVersion 1.8`);
+      return;
+    }
+    if (
+      schemaVersion !== undefined &&
+      cmpSchema(schemaVersion, "1.9") < 0 &&
+      hasIoTrend(result.value)
+    ) {
+      reasons.push(`questions[${index}]: io_trend visual requires meta.schemaVersion 1.9`);
       return;
     }
     if (seen.has(result.value.id)) {

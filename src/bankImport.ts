@@ -1,4 +1,4 @@
-import { validateQuestion } from "./schema";
+import { collectAllVisuals, validateQuestion } from "./schema";
 import type { BankEnvelope, ImportSummary, Question, QuestionRecord } from "./types";
 
 const isObject = (value: unknown): value is Record<string, unknown> =>
@@ -181,9 +181,14 @@ const hasStructuredMeasurements = (question: Question) => {
   );
 };
 
+const hasIoTrend = (question: Question) =>
+  collectAllVisuals(question).some((visual) => visual.kind === "io_trend");
+
 export const toExportEnvelope = (questions: Question[]): BankEnvelope => ({
   meta: {
-    schemaVersion: questions.some(hasStructuredMeasurements)
+    schemaVersion: questions.some(hasIoTrend)
+      ? "1.9"
+      : questions.some(hasStructuredMeasurements)
       ? "1.8"
       : questions.some(hasPacerRhythmStrip)
       ? "1.7"
