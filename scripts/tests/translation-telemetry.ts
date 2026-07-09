@@ -323,7 +323,31 @@ const frictionEvents = [
     sessionId: "session-z",
     revealedAt: "2026-07-02T00:05:00.000Z",
   }),
+  eventOf("adaptive-full-reveal", {
+    questionId: "q-adaptive",
+    block: "other",
+    fullQuestionReveal: true,
+    category: "Management of Care",
+    topic: "Adaptive raw reveal",
+    sessionId: "session-adaptive",
+    sessionMode: "adaptive",
+    languageModeAtReveal: "on-tap",
+    revealedAt: "2026-07-02T00:06:00.000Z",
+    submittedBeforeReveal: true,
+  }),
 ];
+
+const frictionRevealSummary = summarizeTranslationRevealEvents(frictionEvents);
+assert.equal(
+  frictionRevealSummary.totalCount,
+  8,
+  "raw reveal summary should count adaptive reveal events",
+);
+assert.equal(
+  frictionRevealSummary.fullRevealCount,
+  2,
+  "raw reveal summary should count adaptive full-question reveals",
+);
 
 const frictionSummary = summarizeTranslationFriction({
   attempts: [
@@ -382,6 +406,15 @@ const frictionSummary = summarizeTranslationFriction({
       languageModeAtAnswer: "on-tap",
       answeredAt: "2026-07-02T00:04:00.000Z",
     },
+    {
+      questionId: "q-adaptive",
+      itemType: "standalone",
+      wasCorrect: true,
+      sessionId: "session-adaptive",
+      sessionMode: "adaptive",
+      languageModeAtAnswer: "on-tap",
+      answeredAt: "2026-07-02T00:05:30.000Z",
+    },
   ],
   events: frictionEvents,
   questions: frictionQuestions,
@@ -439,13 +472,24 @@ assert.equal(caseCandidate.partId, "part-1", "case-study audit candidate should 
 assert.equal(caseCandidate.itemType, "case_part", "case-study audit candidate should use case_part item type");
 assert.equal(caseCandidate.stem_excerpt, "Stem for part-1", "stem excerpt should resolve from current bank content");
 
-assert.equal(frictionSummary.diagnostics.revealEventCount, 7, "diagnostics should include raw reveal count");
-assert.equal(frictionSummary.diagnostics.joinedEventCount, 6, "diagnostics should count joined reveal events");
+assert.equal(
+  frictionSummary.enrichedRows.some((row) => row.questionId === "q-adaptive"),
+  false,
+  "adaptive reveal attempts should stay out of friction rows",
+);
+assert.equal(
+  frictionSummary.auditCandidates.some((row) => row.questionId === "q-adaptive"),
+  false,
+  "adaptive reveal attempts should stay out of audit candidates",
+);
+
+assert.equal(frictionSummary.diagnostics.revealEventCount, 8, "diagnostics should include raw reveal count");
+assert.equal(frictionSummary.diagnostics.joinedEventCount, 7, "diagnostics should count joined reveal events");
 assert.equal(frictionSummary.diagnostics.unjoinedRevealEventCount, 1, "diagnostics should count unjoined reveal events");
-assert.equal(frictionSummary.diagnostics.ineligibleAttemptCount, 1, "test/adaptive or non-on-tap attempts should be ineligible");
+assert.equal(frictionSummary.diagnostics.ineligibleAttemptCount, 2, "test/adaptive or non-on-tap attempts should be ineligible");
 assert.deepEqual(
   frictionSummary.diagnostics.attemptSourceBreakdown,
-  { standalone: 5, casePart: 1 },
+  { standalone: 6, casePart: 1 },
   "diagnostics should include source breakdown across normalized attempt sources",
 );
 assert.equal(

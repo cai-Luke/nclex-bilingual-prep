@@ -384,6 +384,8 @@ export type TranslationRevealEvent = {
   partId?: string;
   block: RevealBlock;
   fullQuestionReveal?: boolean;
+  sessionMode?: SessionMode;
+  languageModeAtReveal?: LanguageMode;
   itemType: ItemType;
   category: Category;
   topic: string;
