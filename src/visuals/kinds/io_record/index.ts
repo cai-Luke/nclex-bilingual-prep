@@ -1,6 +1,6 @@
 import { fmt } from "../../primitives/graphPaper";
 import { escapeXml } from "../../primitives/escapeXml";
-import { renderDocTable, type DocTableRow } from "../../primitives/table";
+import { measureDocTable, renderDocTable, type DocTableInput, type DocTableRow } from "../../primitives/table";
 import { type VisualError, type VisualKindModule, registerVisual } from "../../registry";
 import type { IoEntry, IoRecordSpec } from "./types";
 
@@ -235,10 +235,8 @@ export const renderIoRecordSvg = (spec: IoRecordSpec): string => {
 
   const rowHeight = 24;
   const headerHeight = 28;
-  const titleHeight = 32;
-  const totalHeight = titleHeight + headerHeight + rows.length * rowHeight;
   const title = spec.periodLabel?.en ?? "Intake & Output Record";
-  const table = renderDocTable({
+  const tableInput: DocTableInput = {
     title,
     columns: [
       { key: "item", label: "", widthFr: 3, align: "left" },
@@ -248,7 +246,9 @@ export const renderIoRecordSvg = (spec: IoRecordSpec): string => {
     width: 420,
     rowHeight,
     headerHeight,
-  });
+  };
+  const totalHeight = measureDocTable(tableInput);
+  const table = renderDocTable(tableInput);
   const ariaLabel = escapeXml(
     spec.caption?.en ?? spec.periodLabel?.en ?? "Intake and Output Record",
   );

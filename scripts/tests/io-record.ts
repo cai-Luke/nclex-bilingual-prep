@@ -6,6 +6,7 @@ import {
   selfCheckIoRecord,
   validateIoRecord,
 } from "../../src/visuals/kinds/io_record";
+import { measureDocTable, renderDocTable, type DocTableInput } from "../../src/visuals/primitives/table";
 import type { IoRecordSpec } from "../../src/visuals/kinds/io_record/types";
 
 const assert = (condition: unknown, message: string) => {
@@ -13,6 +14,12 @@ const assert = (condition: unknown, message: string) => {
 };
 
 const sha256 = (value: string) => createHash("sha256").update(value).digest("hex");
+
+const docTableHeight = (svgFragment: string): number => {
+  const match = svgFragment.match(/<rect x="0" y="0" width="[^"]+" height="([^"]+)"/);
+  if (!match) throw new Error("doc table outer rect height not found");
+  return Number(match[1]);
+};
 
 const fixture: IoRecordSpec = {
   kind: "io_record",
@@ -108,6 +115,22 @@ assert(renderIoRecordSvg(fixture) === svg, "rendering must be deterministic");
 assert(svg.includes(">1580<"), "render must include computed intake total");
 assert(svg.includes(">750<"), "render must include computed output total");
 assert(svg.includes(">+830<"), "render must include signed computed net balance");
+
+const tableInput: DocTableInput = {
+  title: "Intake & Output Record",
+  columns: [
+    { key: "item", label: "", widthFr: 3, align: "left" },
+    { key: "vol", label: "Volume (mL)", widthFr: 1.4, align: "right" },
+  ],
+  rows: [{ cells: { item: "Intake" }, rowHeader: true }, { cells: { item: "Total", vol: "100" } }],
+  width: 420,
+  rowHeight: 24,
+  headerHeight: 28,
+};
+assert(
+  measureDocTable(tableInput) === docTableHeight(renderDocTable(tableInput)),
+  "measureDocTable must match rendered doc-table height",
+);
 
 const expectedFixtureHashes = [
   "867af95e916f520be3ad741b717545eba2774710209b4b957ac06f095cfdbd74",

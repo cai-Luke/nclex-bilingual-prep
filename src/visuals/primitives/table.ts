@@ -26,6 +26,15 @@ export interface DocTableInput {
   headerHeight?: number;
 }
 
+export function measureDocTable(input: DocTableInput): number {
+  const rowHeight = input.rowHeight ?? 28;
+  const headerHeight = input.headerHeight ?? 32;
+  const titleHeight = 32;
+  const hasTitleRow = typeof input.title === "string" && input.title.length > 0;
+
+  return (hasTitleRow ? titleHeight : 0) + headerHeight + input.rows.length * rowHeight;
+}
+
 const colorForStyleRole = (role?: string): string => {
   switch (role) {
     case "red":    return "#ef4444";
@@ -56,10 +65,7 @@ export function renderDocTable(input: DocTableInput): string {
     xAcc += w;
   }
 
-  const totalHeight =
-    (hasTitleRow ? TITLE_HEIGHT : 0) +
-    headerHeight +
-    input.rows.length * rowHeight;
+  const totalHeight = measureDocTable(input);
 
   const els: string[] = [];
 
