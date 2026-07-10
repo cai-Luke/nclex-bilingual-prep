@@ -159,6 +159,37 @@ enum vocabulary of each, with `file:line`. The architect rules on alignment-vers
 before `StructuredMeasurementPopulation` is ratified. Separately: pediatric `burn_map` content is under
 a standing content block; the detector must not be wired to interact with it.
 
+**R10 amendment (2026-07-10, implementer objection sustained — runtime, not types).** "Import one
+exported union" is insufficient: **TypeScript unions erase at runtime**, which is exactly why
+`vitals_trend` accepts arbitrary JSON `population` strings today while its type says otherwise. The
+Phase 1 obligation is therefore:
+
+1. One exported **runtime** vocabulary — `export const POPULATIONS = ["adult", "peds_child",
+   "peds_infant"] as const;`
+2. The type **derived from it** — `export type Population = typeof POPULATIONS[number];`
+3. `vitals_trend`, `lab_trend`, and the structured-measurement validator all consume that one runtime
+   vocabulary, and each **FAILs on a value outside it**. An unknown population is invalid, not adult.
+4. **Two existing fixtures must flip in the same commit, not be deleted.** `scripts/tests/schema-bank.ts`
+   currently asserts that a `peds_child` `structuredMeasurements` fixture FAILs the interim 2.0 gate; at
+   2.0 it must PASS, and FAIL against the 2.0 floor when declared `1.9`. And the `vitals_trend` module's
+   `population: null` **valid** fixture (added 2026-07-10, correct under today's unvalidated field) becomes
+   **invalid** once `POPULATIONS` is enforced. Whoever lands `POPULATIONS` will meet a red "valid" fixture,
+   and the path of least resistance is to admit `null` to the vocabulary. Do not. Flip the fixture. A
+   deleted gate that takes its fixture with it leaves the floor untested; a widened vocabulary that
+   accommodates a stale fixture loosens the ratchet by accident (principle 27).
+
+Home it in a **leaf module with no imports** (`src/population.ts`), consumed by `src/types.ts`,
+`src/schema.ts`, and the two kind modules. A leaf placement is not fastidiousness: `src/types.ts`
+re-exports from `src/visuals/types.ts`, so a runtime constant homed there risks an import cycle that a
+type-only re-export currently hides. Same single-definition discipline as `roundTo` in
+`primitives/graphPaper.ts` (principle 11), applied to a vocabulary rather than to arithmetic.
+
+`burn_map`'s `adult | pediatric` keeps its own vocabulary — the geometry has two region tables, not
+three — and the divergence is documented as deliberate so no later cleanup pass "harmonizes" it into a
+`peds_infant` Rule-of-Nines table that does not exist and that the standing content block forbids
+authoring. `referenceBand.population` is dormant: admitted by the strict-key manifest, no type, no
+validation, no consumer. Do not type it in 2.0; reserve it for the reference-range lane.
+
 **R11 — `CLAUDE.md` is fixed now, by deletion, not by updating the number.** It went stale because it
 restates a fact that `PROJECT-HISTORY.md` owns. Single definition applied to documentation. Replace the
 sentence beginning `Schema \`1.7\` is current:` and its feature-ladder recital with:
