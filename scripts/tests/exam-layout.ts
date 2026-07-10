@@ -57,6 +57,7 @@ assert.equal(usesStandaloneVisualSplit(mc("capnography")), false, "capnography e
 assert.equal(usesStandaloneVisualSplit(mc("fetal_monitoring")), false, "fetal_monitoring excluded");
 assert.equal(usesStandaloneVisualSplit(mc("mar")), false, "mar excluded");
 assert.equal(usesStandaloneVisualSplit(mc("io_record")), true, "io_record splits");
+assert.equal(usesStandaloneVisualSplit(mc("io_trend")), true, "io_trend splits");
 assert.equal(usesStandaloneVisualSplit(mc()), false, "no visual -> no split");
 assert.equal(
   usesStandaloneVisualSplit({ itemType: "case_study", visual: { kind: "lab_trend" } } as unknown as Question),
@@ -64,6 +65,6 @@ assert.equal(
   "case_study never standalone-splits",
 );
 
-assert.equal(STANDALONE_SPLIT_VISUAL_KINDS.size, 7, "exactly seven standalone split kinds");
+assert.equal(STANDALONE_SPLIT_VISUAL_KINDS.size, 8, "exactly eight standalone split kinds");
 
 console.log("exam layout tests passed");

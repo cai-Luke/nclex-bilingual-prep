@@ -10,6 +10,10 @@ import type {
 // Excluded by design: rhythm_strip, capnography, fetal_monitoring, and mar —
 // their geometry or density does not fit the narrow pane. io_record rejoined
 // after compacting its SVG geometry (see visuals/kinds/io_record/index.ts).
+// io_trend joined after the U11 proof render measured 600x452 (4 intervals)
+// and 600x504 (6 intervals) — squarer than the already-allowed 600x300
+// vitals_trend/lab_trend charts, so no density cap is needed (DECISIONS.md
+// principle 23).
 export const STANDALONE_SPLIT_VISUAL_KINDS: ReadonlySet<QuestionVisual["kind"]> = new Set([
   "vitals_trend",
   "lab_trend",
@@ -18,6 +22,7 @@ export const STANDALONE_SPLIT_VISUAL_KINDS: ReadonlySet<QuestionVisual["kind"]> 
   "burn_map",
   "injection_site",
   "io_record",
+  "io_trend",
 ]);
 
 export const usesStandaloneVisualSplit = (question: Question): boolean =>
