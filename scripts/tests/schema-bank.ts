@@ -392,6 +392,7 @@ const structuredMeasurementsCase = {
       title: pair("Labs and vitals"),
       content: pair("Structured measurements are shown below."),
       structuredMeasurements: {
+        population: "adult",
         panels: [
           {
             kind: "labs",
@@ -510,6 +511,24 @@ const badSao2VitalsResult = validateBankObject({
 assert.equal(badSao2VitalsResult.ok, false);
 if (!badSao2VitalsResult.ok) {
   assert(badSao2VitalsResult.reasons.some((reason) => reason.includes("sao2") && reason.includes("cannot appear in a vitals panel")));
+}
+
+const pedsStructuredPopulation = structuredClone(structuredMeasurementsCase);
+pedsStructuredPopulation.caseStudy.exhibits[0].structuredMeasurements.population = "peds_child";
+assert.equal(validateBankObject({
+  meta: { schemaVersion: "1.8", count: 1 },
+  questions: [pedsStructuredPopulation],
+}).ok, true);
+
+const badStructuredPopulation = structuredClone(structuredMeasurementsCase);
+badStructuredPopulation.caseStudy.exhibits[0].structuredMeasurements.population = "neonate";
+const badPopulationResult = validateBankObject({
+  meta: { schemaVersion: "1.8", count: 1 },
+  questions: [badStructuredPopulation],
+});
+assert.equal(badPopulationResult.ok, false);
+if (!badPopulationResult.ok) {
+  assert(badPopulationResult.reasons.some((reason) => reason.includes("population must be adult, peds_child, or peds_infant")));
 }
 
 const strictStructuredClean = validateBankObject({

@@ -235,6 +235,21 @@ const run = (record: ExtractionRecord, src = source): Finding[] => gateRecord(re
 
 {
   const record = baseRecord();
+  record.excludedValues = [{ label: "creatinine", value: "1.2", reason: "prior", sourceSpan: "creatinine 1.2 mg/dL" }];
+  const findings = run(record);
+  assert(noFinding(findings, "reason 'prior' requires a current panel value"), "prior exclusion should pass when the same label has a current panel value");
+}
+
+{
+  const record = baseRecord();
+  record.panel = record.panel!.filter((entry) => entry.label !== "creatinine");
+  record.excludedValues = [{ label: "creatinine", value: "1.2", reason: "prior", sourceSpan: "creatinine 1.2 mg/dL" }];
+  const findings = run(record);
+  assert(hasFinding(findings, "FAIL", "reason 'prior' requires a current panel value"), "prior-only exclusions should fail instead of deleting baseline values");
+}
+
+{
+  const record = baseRecord();
   record.panel![0] = { ...record.panel![0], sourceSpan: "Temperature was 37.1 C." };
   const findings = run(record);
   assert(hasFinding(findings, "FAIL", "sourceSpan not a verbatim substring"), "non-verbatim sourceSpan should fail Rule E");

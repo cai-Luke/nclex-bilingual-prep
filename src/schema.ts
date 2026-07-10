@@ -545,6 +545,14 @@ const validateStructuredMeasurements = (value: unknown, path: string, reasons: s
     return;
   }
   collectForbiddenStructuredMeasurementFields(value, path, reasons);
+  if (
+    value.population !== undefined &&
+    value.population !== "adult" &&
+    value.population !== "peds_child" &&
+    value.population !== "peds_infant"
+  ) {
+    reasons.push(`${path}.population must be adult, peds_child, or peds_infant when present`);
+  }
   if (!Array.isArray(value.panels) || value.panels.length === 0) {
     reasons.push(`${path}.panels must be a non-empty array`);
     return;

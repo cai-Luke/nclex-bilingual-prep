@@ -208,7 +208,10 @@ export type StructuredMeasurementPanel = {
   rows: StructuredMeasurementRow[];
 };
 
+export type StructuredMeasurementPopulation = "adult" | "peds_child" | "peds_infant";
+
 export type StructuredMeasurements = {
+  population?: StructuredMeasurementPopulation;
   panels: StructuredMeasurementPanel[];
 };
 

@@ -47,8 +47,11 @@ const trimNumber = (value: number): string => {
   return Number(value.toPrecision(2)).toString();
 };
 
+const displayUnitText = (unit: string): string =>
+  normalizeUnit(unit) === "(unitless)" || normalizeUnit(unit) === "(ratio)" ? "" : unit;
+
 const formatRawMeasurement = (value: string, unit: string): string =>
-  unit ? `${value} ${unit}` : value;
+  displayUnitText(unit) ? `${value} ${displayUnitText(unit)}` : value;
 
 export const formatStructuredMeasurementValue = (
   key: string,
@@ -63,9 +66,11 @@ export const formatStructuredMeasurementValue = (
   const primaryValue = inputIsPrimary
     ? parseMeasurementValue(entry.value)
     : toMeasurementDisplayValue(key, entry.value, entry.unit, policy.primaryUnit);
+  const primaryUnit = displayUnitText(policy.primaryUnit);
+  const primaryDisplayValue = inputIsPrimary ? entry.value.replace(/,/g, "").trim() : (primaryValue === null ? "" : trimNumber(primaryValue));
   const primaryText = primaryValue === null
     ? formatRawMeasurement(entry.value, entry.unit)
-    : formatRawMeasurement(trimNumber(primaryValue), policy.primaryUnit);
+    : formatRawMeasurement(primaryDisplayValue, primaryUnit);
 
   const secondaryValue = policy.secondaryUnit
     ? toMeasurementDisplayValue(key, entry.value, entry.unit, policy.secondaryUnit)
@@ -74,7 +79,7 @@ export const formatStructuredMeasurementValue = (
     ? Math.abs(primaryValue - secondaryValue) < 1e-9
     : false;
   const secondaryText = policy.secondaryUnit && secondaryValue !== null && !duplicateScaleDisplay
-    ? ` (${trimNumber(secondaryValue)} ${policy.secondaryUnit})`
+    ? ` (${formatRawMeasurement(trimNumber(secondaryValue), policy.secondaryUnit)})`
     : "";
 
   const converted = toCanonicalMeasurementValue(key, entry.value, entry.unit);

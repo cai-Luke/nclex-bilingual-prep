@@ -47,7 +47,7 @@ export const allowedKeySets = {
   caseStudy: ["title", "summary", "exhibits", "stages", "questions"],
   caseStudyExhibit: ["id", "type", "title", "content", "visual", "structuredMeasurements"],
   caseStudyStage: ["id", "title", "trigger", "narrative", "timeOffset", "exhibits"],
-  structuredMeasurements: ["panels"],
+  structuredMeasurements: ["population", "panels"],
   structuredMeasurementPanel: ["kind", "columns", "rows"],
   structuredMeasurementColumn: ["id", "label"],
   structuredMeasurementRow: ["key", "label", "values"],

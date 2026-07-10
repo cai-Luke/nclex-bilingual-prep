@@ -476,6 +476,9 @@ const gateRecord = (rec: ExtractionRecord, source: string | undefined): Finding[
     // Rule F: post_intervention must not appear as an exclusion reason
     if (e.reason === "post_intervention") push("FAIL", `${at}: post_intervention is a keyed context, not an exclusion reason (Rule F)`);
     else if (!EXCLUSION_REASONS.has(e.reason)) push("FAIL", `${at}: reason '${e.reason}' not in {prior, trend, serial, comparator}`);
+    else if (e.reason === "prior" && !seenPanelLabels.has(e.label)) {
+      push("FAIL", `${at}: reason 'prior' requires a current panel value for the same label in this record`);
+    }
   }
 
   for (const [i, a] of aliases.entries()) {

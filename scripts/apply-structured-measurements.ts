@@ -9,6 +9,8 @@ import type {
   CaseStudyExhibit,
   Question,
   StructuredMeasurementPanel,
+  StructuredMeasurements,
+  StructuredMeasurementPopulation,
   TextPair,
 } from "../src/types";
 import { serializeBank } from "../lib/presentation-normalization";
@@ -24,6 +26,7 @@ type StagedEntry = {
 type StagedRecord = {
   exhibitRef: string;
   lane: string;
+  population?: StructuredMeasurementPopulation;
   panel?: StagedEntry[];
 };
 
@@ -294,7 +297,11 @@ for (const record of stagedRecords) {
   if (location.exhibit.structuredMeasurements) {
     throw new Error(`${record.exhibitRef}: exhibit already has structuredMeasurements`);
   }
-  location.exhibit.structuredMeasurements = { panels: toPanels(record, location.exhibit) };
+  const structuredMeasurements: StructuredMeasurements = {
+    ...(record.population ? { population: record.population } : {}),
+    panels: toPanels(record, location.exhibit),
+  };
+  location.exhibit.structuredMeasurements = structuredMeasurements;
   if (record.bucket === "clean_kv" && REPLACE_REFS.has(record.exhibitRef)) {
     location.exhibit.content = POINTER_CONTENT;
   }

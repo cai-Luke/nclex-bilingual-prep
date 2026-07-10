@@ -1,159 +1,85 @@
-# Exhibit Flowsheet Structured Promotion Candidates 13A + 13B - Codex to Claude Code
+# Exhibit Flowsheet Candidates 13A + 13B Patch - Codex to Claude Code
 
-Date: 2026-07-09
+Date: 2026-07-10
 Producer: Codex
 Promotion gate: Claude Code
 
-## Scope
+## Status
 
-Candidate artifacts:
+Claude's review found real blockers in the original 13A/13B candidate set. The original promotion framing is superseded.
 
-- `EXHIBIT-FLOWSHEET-STRUCTURED-PROMOTION-CANDIDATE-13A-2026-07-09.json`
-- `EXHIBIT-FLOWSHEET-STRUCTURED-PROMOTION-CANDIDATE-13B-2026-07-09.json`
+- `EXHIBIT-FLOWSHEET-STRUCTURED-PROMOTION-CANDIDATE-13A-2026-07-09.json` now contains only the two accepted 13A records.
+- `EXHIBIT-FLOWSHEET-STRUCTURED-PROMOTION-CANDIDATE-13B-2026-07-09.json` now contains only the one accepted 13B record.
+- `EXHIBIT-FLOWSHEET-STRUCTURED-PROMOTION-CANDIDATE-13H-HOLD-2026-07-10.json` contains the seven held/flagged records for provenance and later rework.
+- No canonical bank write was performed by Codex.
 
-Source artifact:
+The three accepted refs are preserved, but this is intentionally a small accepted subset rather than a promotion-ready batch.
 
-- `EXHIBIT-FLOWSHEET-MIGRATION-BATCH-13-scattered-2026-07-05.json`
-
-No canonical bank write was performed by Codex.
-
-## Selected Refs
+## Accepted Subset
 
 Candidate 13A:
 
 - `gpt_case_major_burn_inhalation_fluid_creep_01/baseline_labs`
 - `gpt_case_opioid_recovery_relapse_risk_01/baseline_assessment_labs`
-- `gpt_case_opus23_nat_toddler_01/initial_assessment_labs`
-- `gpt_case_overdue_preventive_screening_01/baseline_assessment`
-- `gpt_case_overdue_preventive_screening_01/stage_3_followup`
 
 Candidate 13B:
 
-- `gpt_case_nine_month_well_child_safety_01/baseline_record`
 - `gpt_case_nurse_provider_conflict_01/stage_2_escalation`
+
+Expected routing if the gate seat later chooses to write the accepted subset:
+
+- `gpt_case_major_burn_inhalation_fluid_creep_01/baseline_labs` routes to `banks/hard-cases-canonical.json`.
+- `gpt_case_opioid_recovery_relapse_risk_01/baseline_assessment_labs` and `gpt_case_nurse_provider_conflict_01/stage_2_escalation` route to `banks/gpt-canonical.json`.
+
+## Held Refs
+
+Pediatric hold pending explicit population review:
+
+- `gpt_case_opus23_nat_toddler_01/initial_assessment_labs`
+- `gpt_case_nine_month_well_child_safety_01/baseline_record`
+
+Refeeding hold pending baseline re-extraction and post-intervention ruling:
+
 - `gpt_case_refeeding_syndrome_tpn_01/baseline_record`
 - `gpt_case_refeeding_syndrome_tpn_01/stage_2_update`
 - `gpt_case_refeeding_syndrome_tpn_01/stage_3_update`
 
-## Routing
+Reference-range / thin-panel hold:
 
-- Candidate 13A routes four refs to `banks/gpt-canonical.json` and one ref to `banks/hard-cases-canonical.json`.
-- Candidate 13B routes all five refs to `banks/gpt-canonical.json`.
+- `gpt_case_overdue_preventive_screening_01/baseline_assessment`
+- `gpt_case_overdue_preventive_screening_01/stage_3_followup`
 
-## Gate Shape
+## Code Patches Landed With This Restage
 
-- Candidate 13A: `0 FAIL / 0 WARN`.
-- Candidate 13B: `0 FAIL / 4 WARN`.
-- Candidate 13B WARNs are disclosed review surfaces:
-  - one HR `/min` to `bpm` prose-normalization WARN in the nine-month well-child baseline;
-  - one potassium order/action text advisory in the nurse-provider conflict escalation;
-  - two sodium phosphate order-name advisories in refeeding syndrome stage 2/stage 3.
+- Added optional `structuredMeasurements.population?: "adult" | "peds_child" | "peds_infant"` with strict schema and unknown-key support. The deterministic applicator passes this through when a staged record supplies it.
+- Added a flowsheet-gate hard FAIL for `excludedValues[].reason === "prior"` when the same label has no current panel value in the same record. This catches the refeeding baseline defect where a whole baseline panel was hidden as `prior` exclusions.
+- Fixed structured measurement display so primary-unit values preserve significant trailing zeros, e.g. creatinine `1.0 mg/dL` and INR `1.0`.
+- Suppressed placeholder display units for `(unitless)` and `(ratio)`, e.g. pH renders `7.32` and INR renders `1.0`.
+- Re-pinned CBC display suppression so identical-scale SI parentheses stay hidden, e.g. `14,200/uL` renders `14.2 ×10³/µL`, not `14.2 ×10³/µL (14.2 ×10⁹/L)`.
 
-## Selection Notes
+## Suggested Gate Commands
 
-- Codex deliberately skipped Batch 13 rows with mixed-clock panel labels or newly noisy unitless-chemistry surfaces after the comparator/inferred-unit patch. Those can be revisited in a later targeted pass.
-- `major_burn_inhalation_fluid_creep_01/baseline_labs` includes the Batch 13 adjudication fix: PaO2 68 mmHg is keyed with the ABG panel.
-- `refeeding_syndrome_tpn_01/baseline_record` includes 16 `excludedValues` from PACU/prior labs; promotion review should verify they do not appear in canonical `structuredMeasurements`.
-- `stage_2_update` and `stage_3_update` in the refeeding case carry `post_intervention` on all selected values.
-- No selected ref contains SaO2, Troponin I, comparator values, or `unitAliases`.
-- All selected refs should remain supplement-only with prose preserved.
-
-## Timestamp Sanity
-
-Column-label sanity pass:
-
-- Candidate 13A labels: `0645`, `Current`, `Current`, `Current`, `Current`.
-- Candidate 13B labels: `Current`, `Current`, `Current`, `Current`, `Current`.
-- No selected ref has a competing clock/military body-text decoy timestamp for the values being promoted.
-- The burn ref's `0645` label comes from the exhibit title: `Baseline laboratory data at 0645`.
-
-## Gate Output
-
-Candidate 13A:
+Accepted subset only:
 
 ```sh
 npm run flowsheet-gate -- EXHIBIT-FLOWSHEET-STRUCTURED-PROMOTION-CANDIDATE-13A-2026-07-09.json --bank banks/gpt-canonical.json --bank banks/hard-cases-canonical.json
-```
-
-Result:
-
-```text
-EXHIBIT-FLOWSHEET-STRUCTURED-PROMOTION-CANDIDATE-13A-2026-07-09.json: 5 records, 0 FAIL, 0 WARN
-```
-
-Candidate 13B:
-
-```sh
 npm run flowsheet-gate -- EXHIBIT-FLOWSHEET-STRUCTURED-PROMOTION-CANDIDATE-13B-2026-07-09.json --bank banks/gpt-canonical.json --bank banks/hard-cases-canonical.json
 ```
 
-Result:
-
-```text
-EXHIBIT-FLOWSHEET-STRUCTURED-PROMOTION-CANDIDATE-13B-2026-07-09.json: 5 records, 0 FAIL, 4 WARN
-```
-
-## Applicator Dry-Runs
-
-Candidate 13A:
-
-```sh
-npm run structured-measurements:apply -- --refs gpt_case_major_burn_inhalation_fluid_creep_01/baseline_labs,gpt_case_opioid_recovery_relapse_risk_01/baseline_assessment_labs,gpt_case_opus23_nat_toddler_01/initial_assessment_labs,gpt_case_overdue_preventive_screening_01/baseline_assessment,gpt_case_overdue_preventive_screening_01/stage_3_followup EXHIBIT-FLOWSHEET-STRUCTURED-PROMOTION-CANDIDATE-13A-2026-07-09.json
-```
-
-Result:
-
-```text
-Dry-run validated 5 structured-measurements selected records.
-Touched banks: gpt-canonical.json (4 exhibit refs), hard-cases-canonical.json (1 exhibit refs)
-```
-
-Candidate 13B:
-
-```sh
-npm run structured-measurements:apply -- --refs gpt_case_nine_month_well_child_safety_01/baseline_record,gpt_case_nurse_provider_conflict_01/stage_2_escalation,gpt_case_refeeding_syndrome_tpn_01/baseline_record,gpt_case_refeeding_syndrome_tpn_01/stage_2_update,gpt_case_refeeding_syndrome_tpn_01/stage_3_update EXHIBIT-FLOWSHEET-STRUCTURED-PROMOTION-CANDIDATE-13B-2026-07-09.json
-```
-
-Result:
-
-```text
-Dry-run validated 5 structured-measurements selected records.
-Touched banks: gpt-canonical.json (5 exhibit refs)
-```
+The hold artifact is not promotion-ready. Running the gate over it is expected to surface review findings, including the new `prior` hard FAIL on the refeeding baseline until that case is re-extracted.
 
 ## Mechanical Suite
 
-Codex ran:
+Codex reran the relevant mechanical suite after patching:
 
 ```sh
-npm run validate-bank -- banks/*.json
-npm run scan-unknown-keys
 npm run test:structured-measurements
-npm run test:measurement-allowlist
-npm run census:check
-npm run build
 npm run test:schema-bank
 npm run test:flowsheet-gate
+npm run validate-bank -- banks/*.json
+npm run scan-unknown-keys
+npm run census:check
+npm run build
 ```
 
-Results:
-
-- All passed.
-- `scan-unknown-keys` reported 0 off-schema key occurrences; generated report was removed.
-- `build` passed with the existing Vite large-chunk warning.
-
-## Write Commands For Gate Seat
-
-After content review, Claude Code can apply Candidate 13A with:
-
-```sh
-npm run structured-measurements:apply -- --write --refs gpt_case_major_burn_inhalation_fluid_creep_01/baseline_labs,gpt_case_opioid_recovery_relapse_risk_01/baseline_assessment_labs,gpt_case_opus23_nat_toddler_01/initial_assessment_labs,gpt_case_overdue_preventive_screening_01/baseline_assessment,gpt_case_overdue_preventive_screening_01/stage_3_followup EXHIBIT-FLOWSHEET-STRUCTURED-PROMOTION-CANDIDATE-13A-2026-07-09.json
-```
-
-After content review, Claude Code can apply Candidate 13B with:
-
-```sh
-npm run structured-measurements:apply -- --write --refs gpt_case_nine_month_well_child_safety_01/baseline_record,gpt_case_nurse_provider_conflict_01/stage_2_escalation,gpt_case_refeeding_syndrome_tpn_01/baseline_record,gpt_case_refeeding_syndrome_tpn_01/stage_2_update,gpt_case_refeeding_syndrome_tpn_01/stage_3_update EXHIBIT-FLOWSHEET-STRUCTURED-PROMOTION-CANDIDATE-13B-2026-07-09.json
-```
-
-Then rerun the mechanical suite, regenerate census after any bank write, update the promotion ledger, and commit from the gate seat.
+See the commit message for final pass/fail status.

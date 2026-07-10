@@ -32,6 +32,30 @@ assert.equal(
   "CBC raw counts should suppress same-magnitude SI parentheses",
 );
 
+assert.equal(
+  formatStructuredMeasurementValue("wbc", { columnId: "ed", value: "14,200", unit: "/uL" }),
+  "14.2 ×10³/µL",
+  "CBC display should suppress same-magnitude SI parentheses for /uL aliases too",
+);
+
+assert.equal(
+  formatStructuredMeasurementValue("creatinine", { columnId: "ed", value: "1.0", unit: "mg/dL" }),
+  "1.0 mg/dL",
+  "primary-unit values should preserve significant trailing zeros",
+);
+
+assert.equal(
+  formatStructuredMeasurementValue("inr", { columnId: "ed", value: "1.0", unit: "(ratio)" }),
+  "1.0",
+  "ratio placeholder units should not render and significant zeros should remain",
+);
+
+assert.equal(
+  formatStructuredMeasurementValue("ph", { columnId: "ed", value: "7.32", unit: "(unitless)" }),
+  "7.32",
+  "unitless placeholder units should not render",
+);
+
 assert.equal(parseMeasurementValue(">150"), null, "comparator values must not parse as scalar measurements");
 assert.equal(parseMeasurementValue("18,000"), 18000, "comma stripping should remain supported");
 
