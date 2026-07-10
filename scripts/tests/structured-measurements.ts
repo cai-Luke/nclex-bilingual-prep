@@ -4,7 +4,7 @@ import {
   renderStructuredMeasurementsSvg,
   serializeStructuredMeasurements,
 } from "../../src/structuredMeasurements";
-import { parseMeasurementValue } from "../../src/measurementUnitPolicy";
+import { isIdentityScale, parseMeasurementValue } from "../../src/measurementUnitPolicy";
 import type { StructuredMeasurements } from "../../src/types";
 
 const measurements: StructuredMeasurements = {
@@ -55,6 +55,16 @@ assert.equal(
   "7.32",
   "unitless placeholder units should not render",
 );
+
+assert.equal(
+  formatStructuredMeasurementValue("temp", { columnId: "ed", value: "-40", unit: "°F" }),
+  "-40 °F (-40 °C)",
+  "coincident numeric values must not suppress an affine conversion",
+);
+
+assert.equal(isIdentityScale("wbc", "×10³/µL", "×10⁹/L"), true);
+assert.equal(isIdentityScale("temp", "°F", "°C"), false);
+assert.equal(isIdentityScale("calcium", "mg/dL", "mmol/L"), false);
 
 assert.equal(parseMeasurementValue(">150"), null, "comparator values must not parse as scalar measurements");
 assert.equal(parseMeasurementValue("18,000"), 18000, "comma stripping should remain supported");

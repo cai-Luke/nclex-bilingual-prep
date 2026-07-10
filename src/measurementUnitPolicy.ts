@@ -78,6 +78,22 @@ export const LINEAR_UNIT_FACTORS: Readonly<Record<string, number>> = Object.free
   [factorKey("ptt", "sec")]: 1,
 });
 
+const AFFINE_KEYS: ReadonlySet<string> = new Set(["temp"]);
+
+const unitScaleFactor = (key: string, unit: string): number | null => {
+  if (AFFINE_KEYS.has(key)) return null;
+  const def = MEASUREMENT_ALLOWLIST[key];
+  if (!def) return null;
+  if (normalizeUnit(unit) === normalizeUnit(def.canonicalUnit)) return 1;
+  return LINEAR_UNIT_FACTORS[factorKey(key, unit)] ?? null;
+};
+
+export const isIdentityScale = (key: string, unitA: string, unitB: string): boolean => {
+  const factorA = unitScaleFactor(key, unitA);
+  const factorB = unitScaleFactor(key, unitB);
+  return factorA !== null && factorB !== null && factorA === factorB;
+};
+
 export const MEASUREMENT_DISPLAY_POLICIES: Readonly<Record<string, MeasurementDisplayPolicy>> = Object.freeze({
   temp: Object.freeze({ primaryUnit: "°F", secondaryUnit: "°C", secondaryMode: "paren" }),
   wbc: Object.freeze({ primaryUnit: "×10³/µL", secondaryUnit: "×10⁹/L", secondaryMode: "paren" }),

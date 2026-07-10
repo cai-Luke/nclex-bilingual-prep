@@ -8,6 +8,7 @@ import type {
 import { MEASUREMENT_ALLOWLIST } from "./measurementAllowlist";
 import {
   displayPolicyFor,
+  isIdentityScale,
   normalizeUnit,
   parseMeasurementValue,
   toCanonicalMeasurementValue,
@@ -75,8 +76,8 @@ export const formatStructuredMeasurementValue = (
   const secondaryValue = policy.secondaryUnit
     ? toMeasurementDisplayValue(key, entry.value, entry.unit, policy.secondaryUnit)
     : null;
-  const duplicateScaleDisplay = primaryValue !== null && secondaryValue !== null
-    ? Math.abs(primaryValue - secondaryValue) < 1e-9
+  const duplicateScaleDisplay = policy.secondaryUnit
+    ? isIdentityScale(key, policy.primaryUnit, policy.secondaryUnit)
     : false;
   const secondaryText = policy.secondaryUnit && secondaryValue !== null && !duplicateScaleDisplay
     ? ` (${formatRawMeasurement(trimNumber(secondaryValue), policy.secondaryUnit)})`
