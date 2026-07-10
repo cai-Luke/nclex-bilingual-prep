@@ -18,6 +18,243 @@ Nothing here authorizes a canonical bank write. All bank changes stage and gate 
 
 ---
 
+# AMENDMENT 0A — 2026-07-10 (governing)
+
+Author: Claude (architect seat). Status: **ratified by Luke, 2026-07-10.**
+Trigger: Codex's read-only pre-implementation gate report, plus a non-binding architect-seat review by
+GPT-5.6 Sol. **Where this amendment conflicts with the body below, the amendment governs.**
+
+The block Codex placed on implementation is **upheld**. Its central finding is correct and is not
+ordinary spec drift: **one 2.0 field has already escaped into the 1.9 contract.**
+
+## A0.1 Verified disk state (architect read live, 2026-07-10)
+
+- `src/types.ts` — `SchemaVersion` stops at `"1.9"`. `StructuredMeasurementPopulation` and
+  `StructuredMeasurements.population?` exist. `StructuredMeasurementValue` has no `bound`.
+- `src/allowedKeys.ts` — `structuredMeasurements: ["population", "panels"]`. No `bound`.
+- `src/schema.ts` — `SCHEMA_VERSION = "1.9"`; `supportedSchemaVersions` ends at `1.9`; the floor ladder in
+  `validateBankObject` runs 1.1 → 1.9 with **no `population` floor**.
+- `scripts/apply-structured-measurements.ts` — writes `population` conditionally from the staged record
+  (`...(record.population ? { population: record.population } : {})`) and then **hard-pins**
+  `meta.schemaVersion = "1.8"` on every touched bank, then runs post-apply `validateBankObject`, which
+  passes because no floor exists.
+- `PROJECT-HISTORY.md` — already declares `1.9` (line 32) and already carries the `io_trend` milestone
+  (line 52). **The body of this spec is wrong about that.**
+- `CLAUDE.md` — genuinely stale at `1.7`.
+
+The fourth bullet is the point. `population` is not an inert type declaration awaiting a feature. There
+is a tool on disk today that will write a 2.0 field into a canonical bank, stamp that bank `1.8`, and
+pass every gate.
+
+## A0.2 Rulings
+
+**R1 — Forward-reconcile `population`; do not remove it.** The shape is right. Rollback is churn that
+restores no safety. What is missing is the version boundary and the promised enforcement.
+
+**R2 — The boundary is mechanical *now*, not on delivery of 2.0.** "Do not promote `population` content
+until 2.0 lands" is a promise enforced by nothing, which is the same half-state this spec exists to
+prevent. Land an interim guard in 0A: `validateBankObject` **FAILs on the presence of
+`structuredMeasurements.population`**, with a message naming schema 2.0 as the gate. One condition, one
+fixture, fail-loud (principle 3). Phase 1 deletes it and replaces it with the 2.0 presence floor in the
+same commit. Under this guard the applicator's post-apply validation fails loudly the moment a staged
+record carries `population` — which is the behavior we wanted all along.
+
+**R3 — The applicator's pinned `"1.8"` is a defect independent of the sweep result, and it is fixed in
+0B.** It stamps a literal, not a floor: it downgrades a bank declared above `1.8` and bumps a bank
+(`visual-canonical.json`, `1.7`) that has no `1.8` content. Post-apply `validateBankObject` catches the
+case where the stamped literal falls below an actual content floor — so this cannot produce a bank whose
+declaration is beneath its content — but a *declaration* downgrade passes silently, because `declared >
+inferred` is legal. **Amended (A0.5): do not leave this live between 0B and Phase 1.** Once
+`schemaVersionAtLeast` exists, the pin becomes one line and needs no new export:
+
+```ts
+meta.schemaVersion = schemaVersionAtLeast(existing, "1.8") ? existing : "1.8";
+```
+
+Phase 1 replaces the `"1.8"` literal with the floor inferred from what was actually applied.
+
+**R4 — Sweep before Phase 1. Report only, no writes.** Inventory every existing occurrence of
+`structuredMeasurements.population` **and** of `record.population` across: `banks/*.json`;
+`banks/_promoted/`; `banks/banks-raw/`; the staged extraction artifacts (both `clean_kv` and
+`supplement` buckets); the held artifacts `12G` / `12T` / `13H`; fixtures and tests. Deliverable is a
+table of file, ref, field, current declared version. Then: any bank or staged artifact carrying the
+field is declared `2.0` when 2.0 lands; artifacts that cannot migrate have `population` removed or stay
+held; **banks with no 2.0 feature are never bumped merely because 2.0 exists.**
+
+**R5 — Phase 3 and Phase 2 items 1, 4, 5 are already on disk. They become a verification checkpoint.**
+They are backward-compatible formatting and auditing fixes. They change no accepted bank-data contract
+and take no schema floor. **Do not reimplement them.** Run the Phase 3 and Phase 2 tests listed below;
+commit code only if verification reveals a defect. Verification results route to the architect seat,
+which owns the corresponding `DECISIONS.md` open-thread closeouts — Codex does not edit `DECISIONS.md`.
+
+**R6 — Bare arrays bypass the entire floor ladder, and the fix belongs in one place.** Every floor in
+`validateBankObject` is guarded on `schemaVersion !== undefined`; the two that are not (case-study 1.1,
+visual 1.2) test equality against `"1.0"`/`"1.1"`. A bare array yields `meta === undefined`, so **no
+floor fires at all** — this is broader than "conditional feature-floor enforcement." Ruling:
+
+- **The learner import boundary is version-agnostic and stays that way.** *(Corrected by A0.5 — the
+  original wording claimed bare arrays are "enveloped with an inferred schema version" at import. They
+  are not.)* `importQuestionsFromText` calls `validateQuestion` per question and never constructs or
+  validates an envelope, so no version is inferred and no floor is consulted. That is correct and
+  deliberate: `validateQuestion` is version-free by design, uploaded questions are learner-local, and
+  they never promote, consolidate, or become repository material. Version inference exists only on the
+  **export** side, in `toExportEnvelope`. **Consequence, stated plainly so it is not later read as an
+  oversight:** the interim `population` guard does not govern uploads. It is not supposed to.
+- **`validateBankObject` gains a `requireMeta` option, and it is on wherever content is repository
+  material.** *(Expanded by A0.5.)* Call sites passing `requireMeta: true`: `scripts/promote.ts`,
+  `scripts/consolidate.ts`, `scripts/audit/validate-bank.ts` (Tier 0, globs `banks/`), `src/banks.ts`
+  (bundled load), and `scripts/validate-bank.ts` for every non-raw path — that file already computes an
+  `isRaw` discriminator, so the change is `requireMeta: !isRaw`. Raw drafts under `banks/banks-raw/`
+  stay exempt: they are pre-repository, and `promote` is the boundary. Missing metadata **never** ranks
+  as `1.0` anywhere content becomes repository material.
+
+**R7 — Unknown and missing versions must throw, not rank zero.** Today there are three behaviors for the
+same malformed input: `schema.ts`'s private `cmpSchema` uses `indexOf`, so an unknown version ranks
+**−1**; `promote.ts` and `consolidate.ts` each build a rank map and fall back to **0**. That divergence,
+not the duplication, is the argument for Phase 0B. Note this is **implementation of a ratified rule, not
+a new decision**: `DECISIONS.md`'s version-token invariant already mandates `schemaVersionAtLeast` over a
+**private** index, throwing on unknown, with no exported rank. Nothing to adjudicate; build it.
+
+**R8 — Traversal work in 2.0 is scope-fenced to 2.0 features.** `structuredMeasurements` exists only on
+`CaseStudyExhibit` (`src/types.ts`), so its traversal surface is case exhibits and stage exhibits — not
+"every visual location." Phase 1 ships inference/floor tests for `population` and `bound` across those
+surfaces and nothing else. The `hasPacerRhythmStrip` double-copy, the third copy in
+`scripts/tests/visual-parity.ts`, and the `rationale.visuals` omission are a **separate, standing
+deferral** in `DECISIONS.md`: tightening a floor can newly reject an existing bank, so the retrofit
+requires its own bank-impact survey, its own gate, and its own review. **Do not add a test to the 2.0
+pass that would force that retrofit.** A private shared feature-inference helper is welcome; only
+`schemaVersionAtLeast` becomes public.
+
+**R9 — The pediatric detector is deterministic, bilingual, subject-scoped, and marker-triggered.**
+
+- **Bilingual or it does not exist.** Every rule that touches text covers EN and zh-CN. A detector that
+  reads `18-month-old` but not `18月龄`, or `infant` but not `婴儿`, is incomplete. Cover at minimum:
+  `岁`, `个月`/`月龄`, `新生儿`, `婴儿`, `幼儿`, `儿童`, `学龄前`.
+- **Weight-based dosing is not a marker.** *(Corrected by A0.5 — the original bullet listed it, and that
+  was unsafe.)* Adult heparin (`units/kg/hr`), dopamine and other vasopressors (`mcg/kg/min`),
+  enoxaparin, chemotherapy, and CAR-T protocols are all weight-dosed; the live bank already carries an
+  adult 80-kg dopamine calculation. Weight-based dosing is **corroborating context only** — it may raise
+  confidence in a marker already present, and it independently triggers neither FAIL nor WARN. A WARN
+  that fires on every adult heparin drip trains the checker seat to dismiss it, which is worse than no
+  WARN at all.
+- **Subject-scoped.** The marker must attach to the client (`9-month-old presents…`, `该患儿…`), not to
+  any occurrence anywhere in prose. A postpartum adult case that mentions her infant is the forcing
+  counterexample: an unscoped detector FAILs it, and the author cannot escape by declaring `"adult"`.
+- **FAIL condition:** subject-scoped pediatric marker present **and** `population` absent or `"adult"`.
+- **WARN condition:** an unscoped pediatric **age or noun** marker anywhere in the record. Routes to the
+  checker-seat sampling queue alongside the existing triggers. Never a FAIL, never an auto-pass.
+- **The detector never infers, never auto-assigns, and never overrides the author.** Disagreement
+  escalates to the architect seat. Same shape as the bare-calcium identity WARN, escalated where the
+  failure mode is worse.
+- Regression fixtures must include adult false positives: `18-year-old`, `pediatric ICU nurse`,
+  `the patient's infant`, `infant formula`, `儿科`, and — per A0.5 — adult weight-based-dosing items:
+  heparin `units/kg/hr`, the existing 80-kg dopamine `mcg/kg/min` calculation, and a weight-dosed
+  oncology item.
+
+**R10 — Reconcile the `population` vocabulary before Phase 1 ratifies it.** `population` already appears
+four other places in the schema: `vitals_trend`, `lab_trend`, `burn_map`, and `referenceBand`
+(`src/allowedKeys.ts`). A fifth definition of "population" in one schema is the shape of a future
+correctness bug — the argument that gives us a single `roundTo`. **0A deliverable (report only):** the
+enum vocabulary of each, with `file:line`. The architect rules on alignment-versus-deliberate-divergence
+before `StructuredMeasurementPopulation` is ratified. Separately: pediatric `burn_map` content is under
+a standing content block; the detector must not be wired to interact with it.
+
+**R11 — `CLAUDE.md` is fixed now, by deletion, not by updating the number.** It went stale because it
+restates a fact that `PROJECT-HISTORY.md` owns. Single definition applied to documentation. Replace the
+sentence beginning `Schema \`1.7\` is current:` and its feature-ladder recital with:
+
+> The current schema version and its feature ladder are declared in `PROJECT-HISTORY.md` and
+> `NCLEX-Question-Schema.md`. This file does not restate them.
+
+This is the one documentation change that does not wait for 2.0: `CLAUDE.md` is the session-start entry
+point, and four models reason about floors from prose without ever calling a comparator.
+
+**R12 — Corrections to the body of this spec.** The Step 0 premise is false; `PROJECT-HISTORY.md` is
+already at `1.9` with the milestone in place. "Three files claim three different versions" is wrong —
+`CLAUDE.md` is stale, and `NCLEX-Question-Schema.md` describes `population` as current 1.9 behavior,
+which the 2.0 pass corrects. The `AGENTS.md` `1.6` glossary-migration reference still wants checking.
+
+## A0.3 Revised phase order
+
+| Phase | Contents | Code? |
+|---|---|---|
+| **0A** | This amendment. Interim `population` FAIL + fixture (R2), one commit. `CLAUDE.md` deletion (R11), one commit. Sweep report (R4), applicator report (R3), `population`-vocabulary report (R10) — **response-only, no repo files.** | Guard + doc only |
+| **0B** | `schemaVersionAtLeast` public, rank private, throw on unknown (R7). Replace both script rank maps. `requireMeta` at every repository-material call site (R6). Applicator version pin fixed (R3). Public-export regression test. Lands while `SCHEMA_VERSION` stays `1.9`. | Yes |
+| **3** | Verification checkpoint (R5). Code only on a verified defect. | Probably none |
+| **1** | **Atomic.** `2.0` token; `population` ratified with its presence floor; `bound` with its presence floor; one-sided sanity; comparator message names `bound`; pediatric detector + FAIL (R9); applicator pin replaced (R3); affected artifacts migrated or held (R4); traversal tests scope-fenced (R8). | Yes |
+| **2** | Only the Phase 2 items genuinely absent (2, 3). Preserve and test 1, 4, 5. | Yes |
+| **Docs** | One pass, after 2.0 is green: `NCLEX-Question-Schema.md`, `PROJECT-HISTORY.md` 2.0 milestone, `AGENTS.md`, and the architect's `DECISIONS.md` closeouts. | Docs |
+
+**Phase 1 does not land the version token first and promise the detector afterward.** The nine items in
+its row are one commit or none.
+
+0A and 0B are separate commits with an architect gate between them. Each later phase stays separable.
+
+## A0.4 Governance
+
+Codex's audit was correct to stop and correct in substance; two imprecisions are recorded so the next
+reader does not inherit them. `promote.ts` and `consolidate.ts` do not maintain "separate public-version
+rank maps" — both derive from the exported `supportedSchemaVersions`. And the bare-array finding was
+under-called, per R6.
+
+GPT-5.6 Sol's architect memo is **advisory and non-binding**, and is retained for reference only. It
+reached the right classification (premature `population` versus benign formatter fixes) without reading
+the repository — it wrote that the implementation shape is *"apparently"* already there. **Producer ≠
+checker is load-bearing here:** `population` reached `types.ts`, `allowedKeys.ts`, the applicator, and
+the schema document without a version boundary precisely because nothing independent stood between the
+implementer's judgment and `main`. Seating the implementer's own model family in the architect chair to
+rule on that implementer's audit reproduces the same topology one level up. The implementer seat may
+review, object, and escalate. **Adjudication stays in the architect seat, and `main` stays behind
+Luke's gate.**
+
+## A0.5 Adjudication of implementer objections (2026-07-10)
+
+The implementer seat returned five objections against Amendment 0A. **Four are sustained and one is
+sustained with a tightening.** All five were verified against live disk before ruling; none is a style
+note, and the first is a factual correction the architect owed.
+
+**1. Import boundary — SUSTAINED. The amendment was wrong.** `src/bankImport.ts` calls `validateQuestion`
+per question and never envelopes. Ruling: **keep uploads version-agnostic.** `validateQuestion` is
+version-free by construction, uploads are learner-local, and an import adapter that infers a version is
+exactly the redesign that must not enter 0B by implication. R6 is corrected above. The interim guard does
+not reach uploads, deliberately — and Phase 1 must add `population`/`bound` to the `toExportEnvelope`
+inference ladder, so an uploaded population-bearing question that is later exported produces an envelope
+that fails `validate-bank` loudly rather than one that declares `1.8` and lies.
+
+**2. `requireMeta` call sites — SUSTAINED.** Two sites confirmed on disk: `scripts/audit/validate-bank.ts`
+globs `banks/` with no `requireMeta`, and `src/banks.ts` validates every bundled canonical without it.
+Without them the invariant is a slogan. R6 is expanded above. `scripts/validate-bank.ts` already computes
+`isRaw`, so it costs one expression; raw drafts stay exempt because `promote` is the boundary.
+
+**3. Weight-based dosing — SUSTAINED, and tightened past what was asked.** The objection is correct and
+the clinical examples are correct. The implementer proposed demoting it to corroborating evidence *or* an
+unscoped WARN. **Rejected in part: it is corroborating context only, and triggers no WARN either.**
+Weight-based dosing appears across a large fraction of pharmacology items; a WARN that fires on every
+adult heparin drip floods the checker-seat queue and trains the seat to dismiss the signal — the failure
+mode principle 3 exists to prevent, arriving through noise rather than silence. Fixtures extended.
+
+**4. Applicator pin — SUSTAINED.** Deferring a known version-downgrade path to Phase 1 was the same
+mistake as deferring the `population` boundary: a defect kept alive by a promise. It moves to 0B, where
+the primitive that fixes it is already being built. Note for the record that the blast radius is narrower
+than "hard-downgrades every touched bank": post-apply `validateBankObject` still catches any stamp that
+falls below a real content floor, so the live defect is a *declaration* downgrade and an unearned bump of
+`visual-canonical.json`. Narrower, not acceptable. Freezing the applicator is unnecessary once the one-
+line fix lands in 0B.
+
+**5. Commit granularity — SUSTAINED.** The 0A guard is one commit; the `CLAUDE.md` deletion is a second.
+The three reports are **response-only and write no repository files.** The phase table above says so now.
+
+**Recorded finding.** The implementer reports that a sweep of promoted canonical found zero
+`structuredMeasurements.population`. That is consistent with the architect's reading and means the interim
+guard breaks no canonical validation. It also means the guard is self-verifying: if `validate-bank` fails
+on a canonical bank after R2 lands, the sweep was wrong and the migration is a content question. R4 still
+stands for `_promoted/`, raw, staged artifacts, and the holds — the canonical sweep does not cover them.
+
+This is what the implementer seat is for. Objections of this quality are the reason adjudication and
+implementation sit in different chairs, and the reason the architect reads disk before ruling on either.
+
+---
+
 ## Why `2.0` and not `1.10`
 
 `"1.10"` sorts correctly under exactly one of the three comparison strategies a version string meets
@@ -262,18 +499,21 @@ All three predate Candidates 12/13 and affect already-promoted rows. Every fix l
 - `NCLEX-Question-Schema.md` — **authoritative.** Both fields, `2.0`, the one-sided sanity rule, the
   never-banded rule, the pediatric FAIL, the derived-vs-irrecoverable field test, and the version-token
   invariant (minor never exceeds 9; major is an overflow digit).
-- `PROJECT-HISTORY.md` — currently claims schema `1.8` is current while `src/schema.ts` reads `1.9` with
-  `io_trend` landed. **Fix the 1.9 drift before adding 2.0.** Do not stack a new version onto a stale
-  statement. When adding `2.0`, state in the same line that the major bump is additive.
-- `CLAUDE.md` — claims schema `1.7` is current. Same fix.
+- `PROJECT-HISTORY.md` — **corrected by Amendment 0A (R12):** already declares `1.9` and already carries
+  the `io_trend` milestone. Nothing to fix before 2.0. Add the 2.0 milestone in the post-2.0
+  documentation pass, stating in the same line that the major bump is additive.
+- `CLAUDE.md` — claims schema `1.7` is current. **Amendment 0A (R11): delete the claim rather than update
+  the number**, and do it in 0A rather than in the post-2.0 pass.
 - `AGENTS.md` — the normalize-raw-bank section still references schema `1.6` glossary migration; check
   whether it wants version-agnostic phrasing.
 - `DECISIONS.md` — **already written.** Principle 26, the 2026-07-09 amendment, and the version-token
   invariant are on disk. Do not re-litigate or re-word them; if implementation forces a change to a
   ratified rule, stop and escalate to the architect seat rather than editing the principle.
 
-Three files currently claim three different current schema versions. That is the drift that sends every
-fresh agent down the read-order into a contradiction. One commit to fix, and it is a precondition.
+Two documents misstate the schema state, in different directions: `CLAUDE.md` is stale at `1.7`, and
+`NCLEX-Question-Schema.md` documents `population` as current `1.9` behavior when the ratified ladder puts
+it at `2.0`. That is the drift that sends every fresh agent down the read-order into a contradiction.
+Amendment 0A splits the fix: `CLAUDE.md` now (R11), the schema contract with the 2.0 pass (R12).
 
 ---
 
@@ -334,7 +574,9 @@ npm run build
 
 ## Sequencing and gates
 
-**Execution order is 0 → 3 → 1 → 2, not 0 → 1 → 2 → 3.** The phase *numbering* below is unchanged; only
+**Execution order is `0A → 0B → 3 → 1 → 2`** (Amendment 0A supersedes the original `0 → 3 → 1 → 2`; the
+reasoning below for hoisting Phase 3 ahead of Phase 1 stands, but Phase 3 is now a verification
+checkpoint, not a code phase). The phase *numbering* below is unchanged; only
 the order in which they land is. Phase 3 is hoisted ahead of Phase 1 for two reasons. Both Phase 3 and
 Phase 1b's bound-aware rendering live inside `formatStructuredMeasurementValue`, so running Phase 1
 first means editing the same function twice, the second time on top of known-wrong output. And
