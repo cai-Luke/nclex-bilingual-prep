@@ -73,6 +73,29 @@ await withDirs(async (dirs) => {
 });
 
 await withDirs(async (dirs) => {
+  await writeFile(
+    join(dirs.stagingDir, "gemini-new.json"),
+    JSON.stringify({ questions: [question("missing_meta")] }),
+    "utf8",
+  );
+  const result = await consolidateInto(dirs, "gemini-new.json");
+  assert.equal(result.ok, false);
+  assert.match(result.reason, /meta with schemaVersion is required/);
+});
+
+await withDirs(async (dirs) => {
+  await writeBank(join(dirs.stagingDir, "gemini-new.json"), bank([question("added")]));
+  await writeFile(
+    join(dirs.canonicalDir, "gemini-canonical.json"),
+    JSON.stringify({ meta: { schemaVersion: "2.0", count: 1 }, questions: [question("existing")] }),
+    "utf8",
+  );
+  const result = await consolidateInto(dirs, "gemini-new.json");
+  assert.equal(result.ok, false);
+  assert.match(result.reason, /meta\.schemaVersion must be one of/);
+});
+
+await withDirs(async (dirs) => {
   await writeBank(join(dirs.canonicalDir, "gemini-canonical.json"), bank([question("dup")]));
   await writeBank(join(dirs.stagingDir, "gemini-new.json"), bank([question("dup")]));
   const result = await consolidateInto(dirs, "gemini-new.json");

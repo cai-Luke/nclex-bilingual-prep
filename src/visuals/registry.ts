@@ -1,4 +1,4 @@
-import type { ItemType, Question } from "../types";
+import type { ItemType, Question, SchemaVersion } from "../types";
 
 export interface VisualError {
   /** Path relative to the visual object, e.g. "rateBpm" or "caption.en". "" means the visual itself. */
@@ -12,7 +12,7 @@ export interface VisualError {
 export interface VisualKindModule<S extends { kind: string } = { kind: string }> {
   kind: S["kind"];
   /** Minimum bank schemaVersion that may carry this kind. Default "1.2". */
-  requiredSchemaVersion?: string;
+  requiredSchemaVersion?: SchemaVersion;
   /** Item types this kind may attach to. Default: the global visual-supporting set. */
   allowedItemTypes?: ItemType[];
   /** Structural + range validation of the spec ALONE. Maps to the schema doc's validation rules. */

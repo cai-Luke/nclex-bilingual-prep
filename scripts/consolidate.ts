@@ -9,16 +9,12 @@ import { mkdir, readFile, readdir, unlink, writeFile } from "node:fs/promises";
 import { basename, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { parseBankText } from "../src/bankImport";
-import { supportedSchemaVersions, validateBankObject } from "../src/schema";
+import { schemaVersionAtLeast, validateBankObject } from "../src/schema";
 import { serializeBank } from "../lib/presentation-normalization";
 import { routeCanonical } from "../lib/canonical-routing";
 import { CANONICAL_DIR, STAGING_DIR } from "../lib/pipeline-paths";
 import { collectQuestionIds, type IdLocation } from "../lib/id-index";
 import type { BankEnvelope } from "../src/types";
-
-const SCHEMA_RANK = Object.fromEntries(
-  supportedSchemaVersions.map((version, index) => [version, index]),
-) as Record<string, number>;
 
 export type ConsolidateDirs = {
   stagingDir: string;
@@ -29,7 +25,6 @@ export type ConsolidateResult =
   | { ok: true; filename: string; canonical: string; mergedCount: number; dryRun: boolean; detail: string }
   | { ok: false; filename: string; canonical?: string; reason: string; details?: string[] };
 
-const versionRank = (version: string | undefined) => SCHEMA_RANK[version ?? "1.0"] ?? 0;
 const defaultMeta = (): NonNullable<BankEnvelope["meta"]> => ({
   schemaVersion: "1.0",
   count: 0,
@@ -37,7 +32,7 @@ const defaultMeta = (): NonNullable<BankEnvelope["meta"]> => ({
 
 const loadValidatedBank = async (path: string, label: string): Promise<BankEnvelope> => {
   const raw = parseBankText(await readFile(path, "utf8"));
-  const result = validateBankObject(raw, { rejectUnknownKeys: true });
+  const result = validateBankObject(raw, { rejectUnknownKeys: true, requireMeta: true });
   if (!result.ok) {
     throw new Error(`${label} failed validation:\n${result.reasons.join("\n")}`);
   }
@@ -104,12 +99,14 @@ export async function consolidateInto(
     };
   }
 
-  if (versionRank(staging.meta?.schemaVersion) > versionRank(canonicalBank.meta?.schemaVersion)) {
+  const stagingVersion = staging.meta!.schemaVersion;
+  const canonicalVersion = canonicalBank.meta!.schemaVersion;
+  if (stagingVersion !== canonicalVersion && schemaVersionAtLeast(stagingVersion, canonicalVersion)) {
     return {
       ok: false,
       filename,
       canonical,
-      reason: `${filename} schemaVersion ${staging.meta?.schemaVersion ?? "1.0"} is higher than ${canonical} ${canonicalBank.meta?.schemaVersion ?? "1.0"}; bump the canonical deliberately before consolidating.`,
+      reason: `${filename} schemaVersion ${stagingVersion} is higher than ${canonical} ${canonicalVersion}; bump the canonical deliberately before consolidating.`,
     };
   }
 
@@ -137,7 +134,7 @@ export async function consolidateInto(
     questions: [...canonicalBank.questions, ...staging.questions],
   };
 
-  const mergedResult = validateBankObject(merged, { rejectUnknownKeys: true });
+  const mergedResult = validateBankObject(merged, { rejectUnknownKeys: true, requireMeta: true });
   if (!mergedResult.ok) {
     return {
       ok: false,

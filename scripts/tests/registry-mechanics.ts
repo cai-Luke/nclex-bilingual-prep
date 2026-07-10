@@ -4,14 +4,14 @@
 // and duplicate-registration protection. Node-level only (no Playwright).
 import { validateVisual } from "../../src/schema";
 import { getVisual, listVisualKinds, registerVisual, type VisualKindModule } from "../../src/visuals/registry";
-import type { ItemType, Question } from "../../src/types";
+import type { ItemType, Question, SchemaVersion } from "../../src/types";
 
 const assert = (condition: unknown, message: string) => {
   if (!condition) throw new Error(message);
 };
 const reasonsFor = (
   visual: unknown,
-  options: { itemType?: ItemType; schemaVersion?: string; question?: Question },
+  options: { itemType?: ItemType; schemaVersion?: SchemaVersion; question?: Question },
 ) => {
   const reasons: string[] = [];
   validateVisual(visual, "visual", reasons, options);
@@ -70,6 +70,20 @@ assert(threw, "duplicate registration must throw");
 {
   const reasons = reasonsFor({ kind: "__test_only" }, { itemType: "multiple_choice", schemaVersion: "1.0" });
   assert(reasons.includes("visual requires schema 1.2"), `schema gate should fire, got ${JSON.stringify(reasons)}`);
+}
+
+// unknown schema versions throw at the former registry cmpSchema call site
+{
+  let schemaThrew = false;
+  try {
+    reasonsFor(
+      { kind: "__test_only" },
+      { itemType: "multiple_choice", schemaVersion: "2.0" as SchemaVersion },
+    );
+  } catch (error) {
+    schemaThrew = error instanceof Error && error.message.includes("Unsupported schema version: 2.0");
+  }
+  assert(schemaThrew, "registry schema comparison must throw on an unknown version");
 }
 
 // selfCheck invocation + error propagation (only when a question is supplied)

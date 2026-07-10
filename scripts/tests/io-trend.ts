@@ -1,6 +1,6 @@
 import type { Question } from "../../src/types";
 import { toExportEnvelope } from "../../src/bankImport";
-import { collectAllVisuals, validateBankObject } from "../../src/schema";
+import { collectAllVisuals, schemaVersionAtLeast, validateBankObject } from "../../src/schema";
 import {
   ioTrendModule,
   renderIoTrendSvg,
@@ -218,6 +218,13 @@ const minimalQuestion = {
 
 const exported = toExportEnvelope([minimalQuestion]);
 assert(exported.meta?.schemaVersion === "1.9", "export envelope must lift io_trend to schema 1.9");
+const postApplySchemaVersion = schemaVersionAtLeast("1.9", "1.8") ? "1.9" : "1.8";
+const postApplyIoTrendBank = {
+  meta: { schemaVersion: postApplySchemaVersion, count: 1 },
+  questions: [minimalQuestion],
+};
+assert(postApplyIoTrendBank.meta.schemaVersion === "1.9", "structured-measurements apply must preserve schema 1.9");
+assert(validateBankObject(postApplyIoTrendBank, { requireMeta: true }).ok, "preserved schema 1.9 io_trend bank must validate after apply");
 const lowVersion = validateBankObject({ meta: { schemaVersion: "1.8", count: 1 }, questions: [minimalQuestion] });
 if (lowVersion.ok) throw new Error("bank validation must reject io_trend below schema 1.9");
 assert(lowVersion.reasons.some((reason) => reason.includes("io_trend visual requires meta.schemaVersion 1.9")), "bank validation must enforce io_trend schema floor");

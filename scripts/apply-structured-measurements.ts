@@ -3,7 +3,7 @@ import { basename, join, resolve } from "node:path";
 import { parseBankText } from "../src/bankImport";
 import { MEASUREMENT_ALLOWLIST } from "../src/measurementAllowlist";
 import { normalizeUnit } from "../src/measurementUnitPolicy";
-import { validateBankObject } from "../src/schema";
+import { schemaVersionAtLeast, validateBankObject } from "../src/schema";
 import type {
   BankEnvelope,
   CaseStudyExhibit,
@@ -162,7 +162,7 @@ const loadBanks = async (): Promise<LoadedBank[]> => {
   return Promise.all(filenames.map(async (filename) => {
     const path = join(banksDir, filename);
     const bank = parseBankText(await readFile(path, "utf8"));
-    const result = validateBankObject(bank, { rejectUnknownKeys: true });
+    const result = validateBankObject(bank, { rejectUnknownKeys: true, requireMeta: true });
     if (!result.ok) {
       throw new Error(`${filename} failed pre-apply validation:\n${result.reasons.join("\n")}`);
     }
@@ -305,9 +305,12 @@ for (const record of stagedRecords) {
   if (record.bucket === "clean_kv" && REPLACE_REFS.has(record.exhibitRef)) {
     location.exhibit.content = POINTER_CONTENT;
   }
+  const existingSchemaVersion = location.bank.bank.meta!.schemaVersion;
   location.bank.bank.meta = {
     ...location.bank.bank.meta,
-    schemaVersion: "1.8",
+    schemaVersion: schemaVersionAtLeast(existingSchemaVersion, "1.8")
+      ? existingSchemaVersion
+      : "1.8",
     count: location.bank.bank.questions.length,
   };
   location.bank.dirty = true;
@@ -316,7 +319,7 @@ for (const record of stagedRecords) {
 }
 
 for (const bank of touchedBanks) {
-  const result = validateBankObject(bank.bank, { rejectUnknownKeys: true });
+  const result = validateBankObject(bank.bank, { rejectUnknownKeys: true, requireMeta: true });
   if (!result.ok) {
     throw new Error(`${bank.filename} failed post-apply validation:\n${result.reasons.join("\n")}`);
   }

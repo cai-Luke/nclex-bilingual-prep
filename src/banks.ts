@@ -7,7 +7,7 @@ export const loadBundledRecords = (): { records: QuestionRecord[]; errors: strin
   const records: QuestionRecord[] = [];
   const errors: string[] = [];
   for (const [path, raw] of Object.entries(modules)) {
-    const result = validateBankObject(raw);
+    const result = validateBankObject(raw, { requireMeta: true });
     if (!result.ok) {
       errors.push(`${path}: ${result.reasons.join("; ")}`);
       continue;

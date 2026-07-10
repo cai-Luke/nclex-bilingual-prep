@@ -11,7 +11,7 @@
 import { mkdir, readFile, readdir, writeFile } from "node:fs/promises";
 import { join, basename } from "node:path";
 import { parseBankText } from "../src/bankImport";
-import { supportedSchemaVersions, validateBankObject } from "../src/schema";
+import { schemaVersionAtLeast, supportedSchemaVersions, validateBankObject } from "../src/schema";
 import { shuffle } from "../lib/shuffle";
 import { checkCaseCompileManifests, stripCompileManifests } from "../lib/case-completeness";
 import { normalizeBankPresentations, serializeBank } from "../lib/presentation-normalization";
@@ -19,11 +19,20 @@ import { routeCanonical } from "../lib/canonical-routing";
 import { CANONICAL_DIR, DRAFT_DIR, STAGING_DIR } from "../lib/pipeline-paths";
 import { runAuditNonMcqBiasOnBanks } from "./audit/audit-non-mcq-bias";
 import { isMechanicalBiasEnforced } from "./audit/audit-verdict";
-import type { BankEnvelope } from "../src/types";
+import type { BankEnvelope, SchemaVersion } from "../src/types";
 
-const SCHEMA_RANK = Object.fromEntries(
-  supportedSchemaVersions.map((version, index) => [version, index]),
-) as Record<string, number>;
+const requireSupportedSchemaVersion = (value: unknown, label: string): SchemaVersion => {
+  if (
+    typeof value !== "string" ||
+    !(supportedSchemaVersions as readonly string[]).includes(value)
+  ) {
+    throw new Error(`${label} meta.schemaVersion must be one of ${supportedSchemaVersions.join(", ")}`);
+  }
+  return value as SchemaVersion;
+};
+
+const isEnoent = (error: unknown): error is NodeJS.ErrnoException =>
+  error instanceof Error && "code" in error && error.code === "ENOENT";
 
 const files = await readdir(DRAFT_DIR);
 const jsonFiles = files.filter((f) => f.endsWith(".json")).sort();
@@ -53,7 +62,10 @@ for (const filename of jsonFiles) {
       anyFailed = true;
       continue;
     }
-    const result = validateBankObject(stripCompileManifests(raw), { rejectUnknownKeys: true });
+    const result = validateBankObject(stripCompileManifests(raw), {
+      rejectUnknownKeys: true,
+      requireMeta: true,
+    });
 
     if (!result.ok) {
       console.error(`\n${filename}: draft validation failed — fix these before promoting:`);
@@ -73,16 +85,18 @@ for (const filename of jsonFiles) {
       const existing = JSON.parse(await readFile(comparisonPath, "utf8")) as {
         meta?: { schemaVersion?: string };
       };
-      const existingVersion = existing.meta?.schemaVersion ?? "1.0";
-      const existingRank = SCHEMA_RANK[existingVersion] ?? 0;
-      const draftVersion = bank.meta?.schemaVersion ?? "1.0";
-      const draftRank = SCHEMA_RANK[draftVersion] ?? 0;
-      if (draftRank > existingRank) {
+      const existingVersion = requireSupportedSchemaVersion(
+        existing.meta?.schemaVersion,
+        canonicalName ?? basename(comparisonPath),
+      );
+      const draftVersion = requireSupportedSchemaVersion(bank.meta?.schemaVersion, filename);
+      if (draftVersion !== existingVersion && schemaVersionAtLeast(draftVersion, existingVersion)) {
         console.warn(
           `[warn] ${filename}: schemaVersion ${draftVersion} > ${canonicalName ?? basename(comparisonPath)} ${existingVersion} — canonical will need a version bump before merge`
         );
       }
-    } catch {
+    } catch (error) {
+      if (!isEnoent(error)) throw error;
       // canonical not yet present (new bank) — skip silently
     }
 

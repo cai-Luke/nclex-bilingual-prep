@@ -1,7 +1,9 @@
 import assert from "node:assert/strict";
-import { validateBankObject, validateQuestion } from "../../src/schema";
+import { readFileSync } from "node:fs";
+import * as schemaModule from "../../src/schema";
+import { schemaVersionAtLeast, supportedSchemaVersions, validateBankObject, validateQuestion } from "../../src/schema";
 import { toExportEnvelope } from "../../src/bankImport";
-import type { Question } from "../../src/types";
+import type { Question, SchemaVersion } from "../../src/types";
 
 const validEmptyBank = {
   meta: {
@@ -13,6 +15,47 @@ const validEmptyBank = {
 
 assert.equal(validateBankObject(validEmptyBank).ok, true);
 assert.equal(validateBankObject([]).ok, true);
+assert.equal(validateBankObject(validEmptyBank, { requireMeta: true }).ok, true);
+
+const requiredBareArray = validateBankObject([], { requireMeta: true });
+assert.equal(requiredBareArray.ok, false);
+if (!requiredBareArray.ok) {
+  assert(requiredBareArray.reasons.some((reason) => reason.includes("meta with schemaVersion is required")));
+}
+
+const requiredMissingVersion = validateBankObject({ meta: { count: 0 }, questions: [] }, { requireMeta: true });
+assert.equal(requiredMissingVersion.ok, false);
+if (!requiredMissingVersion.ok) {
+  assert(requiredMissingVersion.reasons.some((reason) => reason.includes("meta.schemaVersion must be one of")));
+}
+
+assert.equal(schemaVersionAtLeast("1.9", "1.2"), true);
+assert.equal(schemaVersionAtLeast("1.2", "1.7"), false);
+assert.throws(() => schemaVersionAtLeast("2.0" as SchemaVersion, "1.9"), /Unsupported schema version: 2\.0/);
+assert.throws(() => schemaVersionAtLeast(undefined as unknown as SchemaVersion, "1.9"), /Unsupported schema version/);
+assert.throws(() => schemaVersionAtLeast("1.9", "2.0" as SchemaVersion), /Unsupported schema version: 2\.0/);
+
+for (const version of supportedSchemaVersions) {
+  const [, minor] = version.split(".");
+  assert(Number(minor) <= 9, `schema version ${version} exceeds the single-digit minor invariant`);
+}
+assert.deepEqual(
+  Object.keys(schemaModule).filter((name) => /rank|index/i.test(name)),
+  [],
+  "schema module must not publicly export a version rank or index",
+);
+
+const applySource = readFileSync(new URL("../apply-structured-measurements.ts", import.meta.url), "utf8");
+assert(!applySource.includes('schemaVersion: "1.8",'), "applicator must not hard-pin schemaVersion 1.8");
+assert(
+  applySource.includes('schemaVersionAtLeast(existingSchemaVersion, "1.8")'),
+  "applicator must ratchet the existing schema version against the 1.8 floor",
+);
+const appliedVersion = (existing: SchemaVersion): SchemaVersion =>
+  schemaVersionAtLeast(existing, "1.8") ? existing : "1.8";
+assert.equal(appliedVersion("1.7"), "1.8");
+assert.equal(appliedVersion("1.8"), "1.8");
+assert.equal(appliedVersion("1.9"), "1.9");
 
 const staleCount = validateBankObject({
   ...validEmptyBank,
@@ -83,6 +126,28 @@ const withRationaleVisuals = (visuals: unknown[]) => ({
     visuals,
   },
 });
+
+const schema12VisualQuestion = {
+  ...baseOptionQuestion,
+  id: "schema_12_visual_question",
+  visual: rationaleVisual,
+  meta: {
+    visual_justification: "The waveform is required to identify the ventilation pattern.",
+    collapse_test: "Removing the waveform removes the tested pattern.",
+  },
+};
+const stale12Floor = validateBankObject({
+  meta: { schemaVersion: "1.1", count: 1 },
+  questions: [schema12VisualQuestion],
+});
+assert.equal(stale12Floor.ok, false);
+if (!stale12Floor.ok) {
+  assert(stale12Floor.reasons.includes("questions[0]: visual requires meta.schemaVersion 1.2"));
+}
+assert.equal(validateBankObject({
+  meta: { schemaVersion: "1.2", count: 1 },
+  questions: [schema12VisualQuestion],
+}).ok, true);
 
 assert.equal(validateBankObject({
   meta: { schemaVersion: "1.5", count: 1 },
@@ -184,6 +249,30 @@ const embeddedCaseStudy = {
     ],
   },
 };
+
+const schema11CaseStudy = {
+  ...embeddedCaseStudy,
+  id: "schema_11_case",
+  caseStudy: {
+    ...embeddedCaseStudy.caseStudy,
+    questions: [
+      { ...baseOptionQuestion, id: "schema_11_case_part_1" },
+      { ...baseOptionQuestion, id: "schema_11_case_part_2" },
+    ],
+  },
+};
+const stale11Floor = validateBankObject({
+  meta: { schemaVersion: "1.0", count: 1 },
+  questions: [schema11CaseStudy],
+});
+assert.equal(stale11Floor.ok, false);
+if (!stale11Floor.ok) {
+  assert(stale11Floor.reasons.includes("questions[0]: case_study requires meta.schemaVersion 1.1"));
+}
+assert.equal(validateBankObject({
+  meta: { schemaVersion: "1.1", count: 1 },
+  questions: [schema11CaseStudy],
+}).ok, true);
 
 const embeddedFloor14 = validateBankObject({
   meta: { schemaVersion: "1.4", count: 1 },

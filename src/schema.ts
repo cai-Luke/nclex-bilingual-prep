@@ -148,8 +148,14 @@ const extractPlaceholders = (value: string) => {
   return Array.from(matches, (match) => match[1].trim());
 };
 
-const schemaOrder: readonly string[] = supportedSchemaVersions;
-const cmpSchema = (a: string, b: string) => schemaOrder.indexOf(a) - schemaOrder.indexOf(b);
+const schemaVersionIndex = (version: SchemaVersion): number => {
+  const index = supportedSchemaVersions.indexOf(version);
+  if (index === -1) throw new Error(`Unsupported schema version: ${version}`);
+  return index;
+};
+
+export const schemaVersionAtLeast = (version: SchemaVersion, floor: SchemaVersion): boolean =>
+  schemaVersionIndex(version) >= schemaVersionIndex(floor);
 
 const formatVisualError = (basePath: string, err: VisualError) =>
   err.path ? `${basePath}.${err.path} ${err.message}` : `${basePath} ${err.message}`;
@@ -161,6 +167,7 @@ type ValidateQuestionOptions = {
 
 type ValidateBankOptions = {
   rejectUnknownKeys?: boolean;
+  requireMeta?: boolean;
 };
 
 const keySet = (keys: readonly string[]) => new Set<string>(keys);
@@ -473,7 +480,7 @@ export const validateVisual = (
   value: unknown,
   basePath: string,
   reasons: string[],
-  options: { itemType?: ItemType; schemaVersion?: string; question?: Question } = {},
+  options: { itemType?: ItemType; schemaVersion?: SchemaVersion; question?: Question } = {},
 ) => {
   if (!isRecord(value)) {
     reasons.push(`${basePath} must be an object`);
@@ -495,7 +502,10 @@ export const validateVisual = (
       return;
     }
   }
-  if (options.schemaVersion !== undefined && cmpSchema(options.schemaVersion, mod.requiredSchemaVersion ?? "1.2") < 0) {
+  if (
+    options.schemaVersion !== undefined &&
+    !schemaVersionAtLeast(options.schemaVersion, mod.requiredSchemaVersion ?? "1.2")
+  ) {
     reasons.push(`${basePath} requires schema ${mod.requiredSchemaVersion ?? "1.2"}`);
   }
   const initialReasonsLen = reasons.length;
@@ -1280,6 +1290,10 @@ export const validateBankObject = (raw: unknown, options: ValidateBankOptions = 
 
   if (!isRecord(payload)) return { ok: false, reasons: ["bank must be an object or array"] };
 
+  if (options.requireMeta === true && payload.meta === undefined) {
+    reasons.push("meta with schemaVersion is required; normalize bare arrays to a bank envelope before repository use");
+  }
+
   if (options.rejectUnknownKeys === true) {
     unknownKeys(payload, "$", "bank", keySet(allowedKeySets.bank), reasons);
     if (payload.meta !== undefined) {
@@ -1327,13 +1341,17 @@ export const validateBankObject = (raw: unknown, options: ValidateBankOptions = 
       reasons.push(`questions[${index}]: ${result.reasons.join("; ")}`);
       return;
     }
-    if (schemaVersion === "1.0" && result.value.itemType === "case_study") {
+    if (
+      schemaVersion !== undefined &&
+      !schemaVersionAtLeast(schemaVersion, "1.1") &&
+      result.value.itemType === "case_study"
+    ) {
       reasons.push(`questions[${index}]: case_study requires meta.schemaVersion 1.1`);
       return;
     }
     if (
       schemaVersion !== undefined &&
-      cmpSchema(schemaVersion, "1.3") < 0 &&
+      !schemaVersionAtLeast(schemaVersion, "1.3") &&
       (result.value.itemType === "highlight" ||
         (result.value.itemType === "case_study" &&
           result.value.caseStudy.questions.some((caseQuestion) => caseQuestion.itemType === "highlight")))
@@ -1343,7 +1361,7 @@ export const validateBankObject = (raw: unknown, options: ValidateBankOptions = 
     }
     if (
       schemaVersion !== undefined &&
-      cmpSchema(schemaVersion, "1.4") < 0 &&
+      !schemaVersionAtLeast(schemaVersion, "1.4") &&
       result.value.itemType === "bowtie"
     ) {
       reasons.push(`questions[${index}]: bowtie requires meta.schemaVersion 1.4`);
@@ -1351,14 +1369,15 @@ export const validateBankObject = (raw: unknown, options: ValidateBankOptions = 
     }
     if (
       schemaVersion !== undefined &&
-      cmpSchema(schemaVersion, "1.5") < 0 &&
+      !schemaVersionAtLeast(schemaVersion, "1.5") &&
       hasRationaleVisuals(result.value)
     ) {
       reasons.push(`questions[${index}]: rationale.visuals requires meta.schemaVersion 1.5`);
       return;
     }
     if (
-      (schemaVersion === "1.0" || schemaVersion === "1.1") &&
+      schemaVersion !== undefined &&
+      !schemaVersionAtLeast(schemaVersion, "1.2") &&
       (result.value.visual !== undefined ||
         (result.value.itemType === "case_study" &&
           (result.value.caseStudy.exhibits.some((exhibit) => exhibit.visual !== undefined) ||
@@ -1369,7 +1388,7 @@ export const validateBankObject = (raw: unknown, options: ValidateBankOptions = 
     }
     if (
       schemaVersion !== undefined &&
-      cmpSchema(schemaVersion, "1.6") < 0 &&
+      !schemaVersionAtLeast(schemaVersion, "1.6") &&
       hasSchema16CaseFields(result.value)
     ) {
       reasons.push(`questions[${index}]: unfolding case-study metadata requires meta.schemaVersion 1.6`);
@@ -1377,7 +1396,7 @@ export const validateBankObject = (raw: unknown, options: ValidateBankOptions = 
     }
     if (
       schemaVersion !== undefined &&
-      cmpSchema(schemaVersion, "1.7") < 0 &&
+      !schemaVersionAtLeast(schemaVersion, "1.7") &&
       hasPacerRhythmStrip(result.value)
     ) {
       reasons.push(`questions[${index}]: pacer rhythm_strip requires meta.schemaVersion 1.7`);
@@ -1385,7 +1404,7 @@ export const validateBankObject = (raw: unknown, options: ValidateBankOptions = 
     }
     if (
       schemaVersion !== undefined &&
-      cmpSchema(schemaVersion, "1.8") < 0 &&
+      !schemaVersionAtLeast(schemaVersion, "1.8") &&
       hasStructuredMeasurements(result.value)
     ) {
       reasons.push(`questions[${index}]: structuredMeasurements requires meta.schemaVersion 1.8`);
@@ -1397,7 +1416,7 @@ export const validateBankObject = (raw: unknown, options: ValidateBankOptions = 
     }
     if (
       schemaVersion !== undefined &&
-      cmpSchema(schemaVersion, "1.9") < 0 &&
+      !schemaVersionAtLeast(schemaVersion, "1.9") &&
       hasIoTrend(result.value)
     ) {
       reasons.push(`questions[${index}]: io_trend visual requires meta.schemaVersion 1.9`);
