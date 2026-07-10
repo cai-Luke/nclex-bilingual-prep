@@ -96,6 +96,17 @@ await withDirs(async (dirs) => {
 });
 
 await withDirs(async (dirs) => {
+  await writeBank(join(dirs.stagingDir, "gemini-new.json"), bank([question("added")]));
+  await writeBank(
+    join(dirs.canonicalDir, "gemini-canonical.json"),
+    bank([question("ENOENT"), question("ENOENT")]),
+  );
+  const result = await consolidateInto(dirs, "gemini-new.json");
+  assert.equal(result.ok, false);
+  assert.match(result.reason, /duplicate question id ENOENT/);
+});
+
+await withDirs(async (dirs) => {
   await writeBank(join(dirs.canonicalDir, "gemini-canonical.json"), bank([question("dup")]));
   await writeBank(join(dirs.stagingDir, "gemini-new.json"), bank([question("dup")]));
   const result = await consolidateInto(dirs, "gemini-new.json");

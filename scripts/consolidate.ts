@@ -12,6 +12,7 @@ import { parseBankText } from "../src/bankImport";
 import { schemaVersionAtLeast, validateBankObject } from "../src/schema";
 import { serializeBank } from "../lib/presentation-normalization";
 import { routeCanonical } from "../lib/canonical-routing";
+import { isEnoent } from "../lib/fs-errors";
 import { CANONICAL_DIR, STAGING_DIR } from "../lib/pipeline-paths";
 import { collectQuestionIds, type IdLocation } from "../lib/id-index";
 import type { BankEnvelope } from "../src/types";
@@ -24,11 +25,6 @@ export type ConsolidateDirs = {
 export type ConsolidateResult =
   | { ok: true; filename: string; canonical: string; mergedCount: number; dryRun: boolean; detail: string }
   | { ok: false; filename: string; canonical?: string; reason: string; details?: string[] };
-
-const defaultMeta = (): NonNullable<BankEnvelope["meta"]> => ({
-  schemaVersion: "1.0",
-  count: 0,
-});
 
 const loadValidatedBank = async (path: string, label: string): Promise<BankEnvelope> => {
   const raw = parseBankText(await readFile(path, "utf8"));
@@ -89,12 +85,12 @@ export async function consolidateInto(
     canonicalBank = await loadValidatedBank(canonicalPath, canonical);
   } catch (error) {
     const message = error instanceof Error ? error.message : String(error);
-    if (!message.includes("ENOENT")) {
+    if (!isEnoent(error)) {
       return { ok: false, filename, canonical, reason: message };
     }
     canonicalBank = {
       ...staging,
-      meta: { ...defaultMeta(), ...staging.meta, count: 0 },
+      meta: { ...staging.meta!, count: 0 },
       questions: [],
     };
   }
@@ -127,8 +123,7 @@ export async function consolidateInto(
   const merged: BankEnvelope = {
     ...canonicalBank,
     meta: {
-      ...defaultMeta(),
-      ...canonicalBank.meta,
+      ...canonicalBank.meta!,
       count: canonicalBank.questions.length + staging.questions.length,
     },
     questions: [...canonicalBank.questions, ...staging.questions],
@@ -182,7 +177,7 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
       { dryRun, files: files.length > 0 ? files : undefined },
     );
   } catch (error) {
-    if (error instanceof Error && "code" in error && error.code === "ENOENT") {
+    if (isEnoent(error)) {
       console.log(`No staged files found in ${STAGING_DIR}.`);
       process.exit(0);
     }

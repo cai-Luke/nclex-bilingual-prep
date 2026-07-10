@@ -16,6 +16,7 @@ import { shuffle } from "../lib/shuffle";
 import { checkCaseCompileManifests, stripCompileManifests } from "../lib/case-completeness";
 import { normalizeBankPresentations, serializeBank } from "../lib/presentation-normalization";
 import { routeCanonical } from "../lib/canonical-routing";
+import { isEnoent } from "../lib/fs-errors";
 import { CANONICAL_DIR, DRAFT_DIR, STAGING_DIR } from "../lib/pipeline-paths";
 import { runAuditNonMcqBiasOnBanks } from "./audit/audit-non-mcq-bias";
 import { isMechanicalBiasEnforced } from "./audit/audit-verdict";
@@ -30,9 +31,6 @@ const requireSupportedSchemaVersion = (value: unknown, label: string): SchemaVer
   }
   return value as SchemaVersion;
 };
-
-const isEnoent = (error: unknown): error is NodeJS.ErrnoException =>
-  error instanceof Error && "code" in error && error.code === "ENOENT";
 
 const files = await readdir(DRAFT_DIR);
 const jsonFiles = files.filter((f) => f.endsWith(".json")).sort();
