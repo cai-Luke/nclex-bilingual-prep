@@ -46,9 +46,32 @@ Keep it general: it is a bar chart around a zero baseline, with no I/O vocabular
 
 **3. Append-only registration** — `src/visuals/types.ts` (union + import), `src/visuals/kinds/index.ts` (`import "./io_trend";`).
 
-**4. Two minimal, unavoidable edits.** A new schema version cannot be registry-driven.
-- `src/schema.ts`: add `"1.9"` to the accepted `schemaVersion` set. **Nothing else.**
-- `lib/canonical-routing.ts`: add `CANONICAL_PREFIXES` row `iotrend-` → `iotrend-canonical.json`. Do **not** reuse `io-` (that routes to U5's closed set).
+**4. Schema-version wiring — more than one file.** Read spec §2 in full; it was rewritten on 2026-07-09 after your pre-implementation review, which was correct on every count.
+
+`requiredSchemaVersion: "1.9"` on the module does **not** enforce the bank floor. `validateVisual`'s own docblock says `schemaVersion` is accepted only for the registry-mechanics test and that production enforcement lives in `validateBankObject` — which never passes it. Ship `requiredSchemaVersion` for registry-contract parity, but the real gate is the hard-coded floor block.
+
+Required: `src/types.ts` (`SchemaVersion` union — without it the `satisfies` clause fails the build), `src/schema.ts` (`supportedSchemaVersions`, the `validateBankObject` floor, `collectVisualUnknownKeys` branches for `intervals[]`/`binLabels[]`, a `collectQuestionMetaUnknownKeys` branch for `crossover`), `src/allowedKeys.ts` (`visualByKind.io_trend`, `ioTrendInterval`, `crossoverAssertion`, plus `collapse_test`/`crossover` on `questionMeta`), and `src/bankImport.ts` (§2.2).
+
+Three rulings you do **not** get to re-decide:
+- **`visualTime` is not modified.** Your suggestion to add `labels` there would loosen the shared key set that `vitals_trend` and `lab_trend` also consume, permitting `time.labels` on two kinds where nothing validates or renders it. Labels move to a sibling **`binLabels`** on `io_trend`'s own key set. (Also conceptually right: per spec §1.3 this kind's x is categorical bins, not the instants those kinds sample.)
+- **`toExportEnvelope` is a blocker, not a follow-up.** An `io_trend` falls through the ladder to `"1.2"`, and `validate-bank` then *rejects that exported file*. Add the `"1.9"` rung.
+- **The floor and the export ladder share one traversal.** You are right that `validateBankObject`'s floor needs the same `rationale.visuals` coverage as `hasIoTrend`. The fix is **not** to write the walk twice: export a single `collectAllVisuals(question)` and derive `hasIoTrend` from it in both files. Those two files already keep *separate* copies of the pacer traversal, which is exactly why they drifted — do not add a third pair. Spec §2.2.
+
+**`SCHEMA_VERSION` — resolved, act on it.** Your `rg` found no consumer beyond the definition, so the mass-re-declaration risk does not exist. Bump it to `"1.9"`; an exported constant with zero consumers that holds a stale value is a trap for whatever imports it next. Put the `rg` output in the PR as evidence.
+
+**Do not touch `lib/canonical-routing.ts`, and do not create a canonical bank.** `io_trend` mints no `iotrend-canonical.json` and adds no `CANONICAL_PREFIXES` row. The eight per-kind visual canonicals are historical closed sets frozen at schema `1.2`; every kind added since — `rhythm_strip`, `fetal_monitoring` (U7), `injection_site` (U10) — promotes through the existing `visual-` prefix into the live `visual-canonical.json`, which is why no `rhythm-`/`fetal-`/`inj-` row exists. `io_trend` follows them. (An earlier draft of the spec said otherwise; it was corrected on 2026-07-09 after GPT flagged the doc conflict. If you find a stale `iotrend-` reference anywhere, that is the bug — flag it, do not implement it.)
+
+**4b. `measureDocTable`, and a proof that actually proves something.** You are right on both counts: `renderDocTable` has no measurement helper, and `visual-parity.ts` hashes **rhythm strips only**, so "the parity snapshot stays green" would have been a vacuous proof for `io_record`. My earlier wording was wrong.
+
+Export `measureDocTable(input): number` from `primitives/table.ts`; have `renderDocTable` call it internally so they cannot disagree (precedent: `measureFieldPanel`, U6). Do **not** open-code the formula a second time — that is the duplicated-arithmetic hazard the single `roundTo` exists to prevent (principle 11).
+
+**The refactor proof is the commit order**, two commits:
+1. On the **pre-refactor** tree, pin `sha256(renderIoRecordSvg(fixture))` for both `io_record` fixtures into `scripts/tests/io-record.ts`. Commit. It must pass against the *unmodified* renderer.
+2. Then add `measureDocTable`, refactor `io_record` onto it, commit. The pinned hashes must be unchanged.
+
+A hash captured after the refactor proves only that the code equals itself. If the hashes move in step 2, stop.
+
+**4c. A pre-existing defect you surfaced — report, do not fix.** `hasPacerRhythmStrip` in *both* `schema.ts` and `bankImport.ts` omits `rationale.visuals`, so a pacer `rhythm_strip` used only as an explanation figure evades the `1.7` floor today. Same family as your finding, older than `io_trend`. **Out of scope for U11:** tightening that floor can newly *reject* an existing bank, which is a content-affecting validation change needing its own gate. In this pass, run a read-only check for any bank with a pacer `rhythm_strip` in `rationale.visuals` at `schemaVersion < 1.7` and **report the count** (expected: zero). Leave `hasPacerRhythmStrip` alone. Recorded as an open thread in `DECISIONS.md`.
 
 **5. Tests** — spec §10. `scripts/tests/diverging-bars.ts` and `scripts/tests/io-trend.ts`, both registered in `test-visuals`. The arithmetic gate, the trend assertion, the crossover assertion, the two fence checks.
 
@@ -65,10 +88,11 @@ src/App.tsx
 scripts/validate-bank.ts
 scripts/coverage-report.ts
 scripts/census.ts
+lib/canonical-routing.ts
 banks/*.json
 ```
 
-`src/schema.ts` and `lib/canonical-routing.ts` get exactly the two additions in step 4.
+`src/types.ts`, `src/schema.ts`, `src/allowedKeys.ts`, `src/bankImport.ts` get exactly the changes in step 4 — no more. `src/visuals/primitives/table.ts` gains `measureDocTable`; `src/visuals/kinds/io_record/index.ts` is refactored onto it, parity-snapshot-gated.
 
 ---
 
@@ -92,6 +116,8 @@ npm run build
 
 All green. Then report, explicitly:
 - the measured composite render dimensions (for the §12 split ruling);
+- the `rg SCHEMA_VERSION` output (evidence for the zero-consumer claim);
+- the count of banks carrying a pacer `rhythm_strip` in `rationale.visuals` below schema `1.7` (§4c — read-only);
 - any place the spec was underspecified and you made a judgment call;
 - confirmation that `fill_in_blank` is absent from `allowedItemTypes` and that a test asserts it.
 
@@ -108,7 +134,13 @@ Claude's review will independently re-derive, from the live files rather than fr
 - that `allowedItemTypes` excludes `fill_in_blank`, and a test enforces it;
 - that no bar, cell, or line carries a clinical flag color;
 - that `selfCheck({} as IoTrendSpec, {})` returns `[]` and does not throw;
-- that `src/schema.ts` gained one string and nothing else.
+- that the `io_trend` floor is enforced in `validateBankObject`, not merely declared via `requiredSchemaVersion`;
+- that `collectAllVisuals` is a **single** definition consumed by both the floor and `toExportEnvelope`, and that it walks `rationale.visuals`;
+- that `hasPacerRhythmStrip` is **unchanged**;
+- that `allowedKeySets.visualTime` is **unchanged**, and `binLabels` lives under `visualByKind.io_trend`;
+- that the pinned `io_record` hashes were committed *before* the refactor commit (check the history, not just the final tree);
+- that `measureDocTable` is the single definition of table height;
+- that `lib/canonical-routing.ts` is untouched and no new canonical bank exists.
 
 ---
 

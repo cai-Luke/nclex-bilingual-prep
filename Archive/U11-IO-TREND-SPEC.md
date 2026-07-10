@@ -64,11 +64,71 @@ Append-only shared lines:
 - `src/visuals/types.ts`: `import type { IoTrendSpec } from "./kinds/io_trend/types";` and `export type QuestionVisual = … | IoTrendSpec;`
 - `src/visuals/kinds/index.ts`: `import "./io_trend";`
 
-Minimal, unavoidable edits (a new schema version cannot be registry-driven):
-- `src/schema.ts`: add `"1.9"` to the accepted `schemaVersion` set. Nothing else. `requiredSchemaVersion: "1.9"` on the module handles the floor.
-- `lib/canonical-routing.ts`: add `CANONICAL_PREFIXES` row `iotrend-` → `iotrend-canonical.json`. (`io-` already routes to `io-canonical.json`, the U5 set; do not reuse it.)
+**Schema-version touch points — `requiredSchemaVersion` alone does NOT enforce the floor.**
 
-Do **not** touch `src/App.tsx`, `scripts/validate-bank.ts`, `scripts/coverage-report.ts`, `scripts/census.ts` unless a failing test demonstrates a required change.
+Verified against live source 2026-07-09. `validateVisual`'s own docblock says it outright: `schemaVersion` *"is accepted for the registry-mechanics test; production schema-floor enforcement stays at the bank level in `validateBankObject`."* And `validateBankObject` never passes it. Setting `requiredSchemaVersion: "1.9"` on the module is therefore **necessary but not sufficient**, and an earlier draft of this spec was wrong to claim `src/schema.ts` needs a single addition. The complete set:
+
+| File | Change | Why |
+|---|---|---|
+| `src/types.ts` | add `"1.9"` to the `SchemaVersion` union | `supportedSchemaVersions` is `... satisfies readonly SchemaVersion[]`; without this, TypeScript fails |
+| `src/schema.ts` | add `"1.9"` to `supportedSchemaVersions` | drives `schemaOrder` / `cmpSchema` ordering |
+| `src/schema.ts` | add the `io_trend` floor to the hard-coded floor block in `validateBankObject`, via the shared traversal of §2.2 | **the only place the floor is actually enforced** |
+| `src/schema.ts` | `SCHEMA_VERSION` → `"1.9"` (§2.1 — resolved; zero consumers) | it has tracked the newest schema through every prior bump |
+| `src/schema.ts` / `src/bankImport.ts` | one shared `collectAllVisuals(question)` traversal (§2.2) | the floor and the export ladder must not disagree |
+| `src/schema.ts` | `collectVisualUnknownKeys`: add `intervals[]` and `binLabels[]` branches | strict unknown-key rejection |
+| `src/schema.ts` | `collectQuestionMetaUnknownKeys`: add a `crossover` branch | ditto |
+| `src/allowedKeys.ts` | `visualByKind.io_trend`; new `ioTrendInterval` and `crossoverAssertion` sets; `questionMeta` gains `collapse_test` + `crossover` | ditto |
+| `src/bankImport.ts` | `toExportEnvelope` gains an `io_trend` rung above `"1.8"` (§2.2) | otherwise exports declare `1.2` and fail our own gate |
+| `src/visuals/kinds/io_trend/index.ts` | `requiredSchemaVersion: "1.9"` | registry-contract parity; **never relied on as the production gate** |
+
+Key sets to add in `src/allowedKeys.ts`:
+
+```ts
+io_trend: ["periodLabel", "time", "intervals", "binLabels", "showCumulativeNet"],  // under visualByKind
+ioTrendInterval: ["intakeMl", "outputMl"],
+crossoverAssertion: ["series", "index", "from", "to"],
+```
+
+`questionMeta` gains `"collapse_test"` and `"crossover"`. `expectedTrend` already permits a `series` key — **no change needed there**; `io_trend` reuses it with `series ∈ {intake, output, net, cumulative_net}`.
+
+**`visualTime` is NOT modified.** See §4's `binLabels` note for why.
+
+### 2.1 `SCHEMA_VERSION` — resolved: bump to `"1.9"`
+
+`src/schema.ts` exports `SCHEMA_VERSION = "1.8"`. The concern was that a promote/stamp path might write it into `meta.schemaVersion`, in which case bumping it would silently re-declare every canonical bank. Codex's `rg SCHEMA_VERSION` (2026-07-09) found **no consumer beyond its own definition**, so that risk does not materialize.
+
+**Ruling: bump it to `"1.9"`.** An exported constant with zero consumers is a latent trap — whatever imports it next inherits whatever value it holds — and leaving it at `"1.8"` while the current schema is `1.9` makes it actively wrong. It is the documented "current schema version" and must stay true. Include the `rg` output in the PR as the evidence for the zero-consumer claim; do not assert it from memory.
+
+### 2.2 `toExportEnvelope` — this is a blocker, not a follow-up
+
+`toExportEnvelope` is a descending ladder that terminates in `questions.some(hasVisual) → "1.2"`. An `io_trend` question falls straight through to `"1.2"`. The exported bank then declares `1.2` while carrying an `io_trend`, and **`validate-bank` rejects that file** — we would ship an export path that emits artifacts our own Tier-0 gate refuses. That is a broken round-trip, not a fidelity nit, and it is one rung on a ladder you are already editing.
+
+Add `questions.some(hasIoTrend) → "1.9"` as the new top rung.
+
+**`hasIoTrend` is one shared traversal with two consumers — not two copies.** The export ladder in `bankImport.ts` and the production floor in `validateBankObject` must agree, or an `io_trend` used only as an answer-revealed explanation figure declares `1.5` on export *and* slips past the `1.9` floor on validate. Today those two files each keep their **own** copy of the pacer traversal, which is precisely why they drifted (§2.3).
+
+Therefore: define **`collectAllVisuals(question): QuestionVisual[]`** once — exported from `src/schema.ts` (or a small `src/visuals/collect.ts`), imported by `bankImport.ts` — and derive `hasIoTrend` from it in both places. It must cover every slot a visual can occupy:
+
+- `question.visual`
+- `question.rationale.visuals[]`
+- `caseStudy.exhibits[].visual`
+- `caseStudy.stages[].exhibits[].visual`
+- `caseStudy.questions[].visual`
+- `caseStudy.questions[].rationale.visuals[]`
+
+This is the single-definition discipline (principle 11) applied to traversal rather than arithmetic: one walk, so two gates cannot disagree about where a visual lives.
+
+### 2.3 Pre-existing floor-traversal defect — report, do not fix in this pass
+
+Verified on live source 2026-07-09 while specifying §2.2. `hasPacerRhythmStrip` in **both** `src/schema.ts` and `src/bankImport.ts` traverses `question.visual`, case exhibits, stage exhibits, and embedded questions — but **not `rationale.visuals`**. A pacer-bearing `rhythm_strip` used only as an explanation figure therefore declares `1.5` on export and passes the `1.7` floor on validate, while carrying a `1.7`-only field. The `1.2` visual floor has a narrower version of the same hole (it never inspects `caseStudy.questions[].visual` or `rationale.visuals`).
+
+This is a **latent defect that predates `io_trend`**, in the same family Codex correctly identified. It is **out of scope for U11** and must not be silently repaired here: tightening the pacer floor can newly *reject* an existing bank, which is a content-affecting validation change that needs its own gate and its own review.
+
+What Codex does in this pass: **report only.** Run a read-only check for any bank carrying a pacer `rhythm_strip` inside `rationale.visuals` with `meta.schemaVersion < 1.7`, and state the count (expected: zero). Do not change `hasPacerRhythmStrip`. Building `collectAllVisuals` (§2.2) is what makes the eventual fix a one-line retrofit rather than a third copy.
+
+**No routing change.** `lib/canonical-routing.ts` is **not** edited and `io_trend` does **not** mint a canonical. Per the `DECISIONS.md` canonical-routing invariant, the eight per-kind visual canonicals are historical closed sets frozen at schema `1.2`; every visual kind added after the original roadmap promotes through the `visual-` prefix into the live `visual-canonical.json`. `rhythm_strip`, `fetal_monitoring` (U7), and `injection_site` (U10) all shipped this way — none has a prefix row. `io_trend` follows them. (An earlier draft of this spec proposed an `iotrend-canonical.json`; that was wrong and is corrected here.)
+
+Do **not** touch `src/App.tsx`, `scripts/validate-bank.ts`, `scripts/coverage-report.ts`, `scripts/census.ts`, `lib/canonical-routing.ts` unless a failing test demonstrates a required change.
 
 ---
 
@@ -106,11 +166,11 @@ export interface IoTrendSpec {
     unit: "hr" | "shift";
     /** Strictly increasing. Length === intervals.length. Minimum length 3. */
     values: number[];
-    /** Optional per-bin display label, e.g. "0700–1500". Length must match values. */
-    labels?: { en: string; zh?: string }[];
   };
   /** One entry per bin, aligned to time.values by index. */
   intervals: IoTrendInterval[];
+  /** Optional per-bin display label, e.g. "0700–1500". Length must match time.values. */
+  binLabels?: { en: string; zh?: string }[];
   /** Overlay the derived cumulative-net line. Default false. */
   showCumulativeNet?: boolean;
   /** Display-only label for the charted span. No arithmetic. */
@@ -125,6 +185,7 @@ Design notes:
 - **Integers, so equality is exact.** No epsilon, no `roundTo`. Charted volumes are whole mL.
 - **`>= 0`, not `> 0`.** Unlike `io_record`'s per-entry rule, a zero is clinically meaningful here (anuria; an interval with no oral intake). Zero must be representable.
 - **Gross totals only.** No itemized sources (§1). If an item needs to know *what* the intake was, it is an `io_record` item.
+- **`binLabels` is a sibling of `time`, deliberately not `time.labels`.** `src/schema.ts`'s `collectVisualUnknownKeys` validates any visual's `time` object against the **shared** `allowedKeySets.visualTime` set, which `vitals_trend` and `lab_trend` also consume. Adding `labels` there to serve one kind would silently permit `time.labels` on those two kinds, where nothing validates or renders it — widening a shared contract for a single consumer, which is the failure mode the single-definition invariant exists to prevent. It is also conceptually wrong: per §1.3 this kind's x-axis is a sequence of **categorical bins**, not the instants `vitals_trend` and `lab_trend` sample. Labelling a bin is not labelling a time axis. `visualTime` stays untouched; `binLabels` lives in `visualByKind.io_trend`.
 - **`unit: "shift"`** exists because I/O is very often charted per shift, and forcing shift data onto an hour axis produces misleading bar spacing.
 
 ---
@@ -146,8 +207,8 @@ Defensive style throughout — never throw; guard every access. Mirror `validate
 | each `intakeMl` / `outputMl` is a finite integer `>= 0` | `invalid_volume` |
 | each `intakeMl` / `outputMl` `<= MAX_INTERVAL_ML` | `volume_out_of_range` |
 | at least one interval has `intakeMl + outputMl > 0` | `no_volumes` |
-| `time.labels` (if present) length matches `time.values` | `time_labels_length_mismatch` |
-| each label: `en` non-empty; `zh` non-empty if present | `time_label_en_required` / `time_label_zh_empty` |
+| `binLabels` (if present) length matches `time.values` | `bin_labels_length_mismatch` |
+| each bin label: `en` non-empty; `zh` non-empty if present | `bin_label_en_required` / `bin_label_zh_empty` |
 | `showCumulativeNet` boolean if present | `invalid_show_cumulative_net` |
 | `periodLabel` en required / zh non-empty if present | `period_label_en_required` / `period_label_zh_empty` |
 | `caption` en required / zh non-empty if present | `caption_en_required` / `caption_zh_empty` |
@@ -272,7 +333,7 @@ Rules:
 A single SVG containing, stacked vertically:
 
 1. **The diverging bar chart** via `renderDivergingBars`, one bin per interval.
-   - `label` = `time.labels[i].en` if present, else `` `${fmt(time.values[i])}${unit === "hr" ? " hr" : ""}` `` (for `"shift"`, `` `Shift ${fmt(v)}` ``).
+   - `label` = `binLabels[i].en` if present, else `` `${fmt(time.values[i])}${unit === "hr" ? " hr" : ""}` `` (for `"shift"`, `` `Shift ${fmt(v)}` ``).
    - `positive` = `intakeMl`, `negative` = `outputMl`.
    - `overlay` present iff `showCumulativeNet === true`, carrying the derived cumulative net.
 2. **The value table** via `renderDocTable`, directly beneath, sharing the SVG's coordinate space.
@@ -282,11 +343,21 @@ A single SVG containing, stacked vertically:
    - `signed(n)` renders `+n` for `n >= 0`, `−|n|` (U+2212) otherwise, exactly as U5.
    - The `net` and `cum` cells carry **no flag color**, for the reason in §7.
 
-Wrapper: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 <h>" role="img" aria-label="<escaped>" data-kind="io_trend"> … </svg>` where `<h>` is derived deterministically as `chartHeight + tableHeight` (`renderDocTable`'s existing height math: title + header + rowCount·rowHeight, `rowCount = intervals.length + 1`), and `aria-label` = escaped `caption.en` ?? `periodLabel.en` ?? `"Intake and Output Trend"`.
+Wrapper: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 <h>" role="img" aria-label="<escaped>" data-kind="io_trend"> … </svg>`.
+
+**Height is measured, not re-derived — add `measureDocTable`.** `primitives/table.ts` exports `renderDocTable` but **no measurement helper**, so `io_record` currently open-codes the height formula (`titleHeight + headerHeight + rows·rowHeight`) at its call site. A composite needs that number twice — once to offset the table, once for the viewBox — and open-coding it a second time is the same duplicated-arithmetic hazard the single `roundTo` exists to prevent (`DECISIONS.md` principle 11). There is already precedent for the sibling shape: `renderFieldPanel` ships with `measureFieldPanel` (U6).
+
+Therefore:
+- Export `measureDocTable(input: DocTableInput): number` from `primitives/table.ts`, returning exactly the height `renderDocTable` produces. `renderDocTable` calls it internally, so the two can never disagree.
+- `io_trend` consumes it: table offset = `chartHeight`, `<h>` = `chartHeight + measureDocTable(tableInput)`.
+- **Refactor `io_record` to consume it too**, deleting its open-coded formula. This is behavior-preserving, and the proof must be **a hash pinned from the pre-refactor tree**. Note that `scripts/tests/visual-parity.ts` covers **rhythm-strip hashes only** — its snapshot rows are `{id, rhythm, svgHash}`, keyed to bank items — so "the parity snapshot stays green" proves *nothing* about `io_record`. See §10 for the required proof and its commit order.
+- `renderDocTable` returns an SVG *fragment* (not a full `<svg>`), so the table is placed with `<g transform="translate(0, ${fmt(chartHeight)})">…</g>`.
+
+`aria-label` = escaped `caption.en` ?? `periodLabel.en` ?? `"Intake and Output Trend"`. Table `rowCount = intervals.length + 1` (per-interval rows plus the bold Total row).
 
 Title = `periodLabel?.en ?? "Intake & Output Trend"`.
 
-**Caption rule:** `caption` / `periodLabel` / `time.labels` must never reveal the answer. Do not caption a trend "Fluid volume overload" or label a bin "diuresis begins."
+**Caption rule:** `caption` / `periodLabel` / `binLabels` must never reveal the answer. Do not caption a trend "Fluid volume overload" or label a bin "diuresis begins."
 
 ---
 
@@ -294,10 +365,10 @@ Title = `periodLabel?.en ?? "Intake & Output Trend"`.
 
 `valid` (≥2, drawn from §11 so the fixtures and the proof batch cannot drift apart):
 
-1. **Diuresis with crossover** (`showCumulativeNet: true`, full labels, en+zh caption): `time.unit "hr"`, `values [4,8,12,16]`; intervals `(300,150) (250,220) (200,400) (200,480)`. Derived net `[150, 30, −200, −280]`; cumulative `[150, 180, −20, −300]`.
+1. **Diuresis with crossover** (`showCumulativeNet: true`, full `binLabels`, en+zh caption): `time.unit "hr"`, `values [4,8,12,16]`; intervals `(300,150) (250,220) (200,400) (200,480)`. Derived net `[150, 30, −200, −280]`; cumulative `[150, 180, −20, −300]`.
 2. **Serial negative, no crossover** (minimal — no caption, no labels, no overlay): `values [8,16,24]`; intervals `(250,300) (200,280) (150,250)`. Derived net `[−50, −80, −100]`; cumulative `[−50, −130, −230]`.
 
-`invalid` (assert each `code`): `too_few_timepoints` (2 intervals); `intervals_length_mismatch` (3 times, 2 intervals); `timepoints_not_increasing`; `invalid_volume` (negative or non-integer `outputMl`); `volume_out_of_range` (`intakeMl: 50_000`); `no_volumes` (all zeros); `invalid_kind` (`kind: "io_record"`); `time_invalid` (`time: null`); `invalid_time_unit` (`unit: "min"`); `time_labels_length_mismatch`; `caption_en_required` (`caption: { en: "" }`); `caption_zh_empty`; `period_label_en_required`; `period_label_zh_empty`.
+`invalid` (assert each `code`): `too_few_timepoints` (2 intervals); `intervals_length_mismatch` (3 times, 2 intervals); `timepoints_not_increasing`; `invalid_volume` (negative or non-integer `outputMl`); `volume_out_of_range` (`intakeMl: 50_000`); `no_volumes` (all zeros); `invalid_kind` (`kind: "io_record"`); `time_invalid` (`time: null`); `invalid_time_unit` (`unit: "min"`); `bin_labels_length_mismatch`; `caption_en_required` (`caption: { en: "" }`); `caption_zh_empty`; `period_label_en_required`; `period_label_zh_empty`.
 
 The conformance harness runs these automatically (valid → 0 validate errors, well-formed `<svg>…</svg>`, no `NaN`/`undefined`, deterministic ×2, `selfCheck` no-throw).
 
@@ -307,6 +378,12 @@ The conformance harness runs these automatically (valid → 0 validate errors, w
 
 - **Conformance (automatic):** fixtures + determinism across all kinds (`visuals-conformance.ts`).
 - **Primitive** (`scripts/tests/diverging-bars.ts`): determinism ×2; symmetric zero-baseline tick math; a bin with `negative: 0` renders no downward bar; overlay omitted when absent; `escapeXml` applied to labels.
+- **`measureDocTable` + the `io_record` refactor — the proof is the commit order.** `scripts/tests/visual-parity.ts` hashes **rhythm strips only**, so it cannot witness an `io_record` regression. Required sequence, as two commits:
+  1. **On the pre-refactor tree**, compute `sha256(renderIoRecordSvg(fixture))` for both `io_record` fixtures and pin those hashes into `scripts/tests/io-record.ts`. Commit. This commit must pass on the *unmodified* renderer — that is what makes the hash a witness rather than a tautology.
+  2. Then add `measureDocTable`, refactor `io_record` onto it, and commit. The pinned hashes must still pass, unchanged.
+  A hash captured *after* the refactor proves only that the code equals itself. If the hashes move in step 2, stop: `measureDocTable` does not reproduce the existing formula.
+- Also assert `measureDocTable(input)` equals the height `renderDocTable(input)` actually occupies, for an `io_record` input and a 5-column `io_trend` input.
+- *Follow-up, explicitly out of U11 scope:* `visual-parity.ts` should eventually hash every kind's fixtures (generalizing its `{id, rhythm, svgHash}` row to a `kind` field), so the next primitive refactor gets this proof for free instead of hand-pinning. Note it; do not build it here.
 - **Kind-specific** (`scripts/tests/io-trend.ts`, registered in `test-visuals`):
   - representative validation codes (`too_few_timepoints`, `intervals_length_mismatch`, `invalid_volume`, `no_volumes`, `invalid_time_unit`);
   - render determinism ×2;
@@ -372,9 +449,9 @@ intervals_length_mismatch
 invalid_volume
 volume_out_of_range
 no_volumes
-time_labels_length_mismatch
-time_label_en_required
-time_label_zh_empty
+bin_labels_length_mismatch
+bin_label_en_required
+bin_label_zh_empty
 invalid_show_cumulative_net
 period_label_en_required
 period_label_zh_empty
@@ -449,23 +526,24 @@ src/App.tsx
 scripts/validate-bank.ts
 scripts/coverage-report.ts
 scripts/census.ts
+lib/canonical-routing.ts
 banks/*.json
 ```
 
-`src/schema.ts` and `lib/canonical-routing.ts` get the two minimal additions named in §2 and nothing more.
+`src/types.ts`, `src/schema.ts`, `src/allowedKeys.ts`, and `src/bankImport.ts` get exactly the changes enumerated in §2 — no more. `src/visuals/primitives/table.ts` gains `measureDocTable` (§8), and `src/visuals/kinds/io_record/index.ts` is refactored to consume it, gated on a byte-identical visual-parity snapshot.
 
 ---
 
 ## 17. Content lane (after the renderer and proof batch land — separate pass)
 
 - ID prefix `iot_*`, disjoint from `io_*` (U5) and every other kind.
-- Raw draft filename prefix `iotrend-` → routes to `banks/iotrend-canonical.json`.
+- Raw draft filename prefix **`visual-`** (e.g. `visual-iotrend-2026-07-XX.json`) → routes to the live `banks/visual-canonical.json`. Do **not** create an `iotrend-canonical.json` and do **not** reuse `io-` (U5's closed set). `visual-canonical.json` currently declares schema `1.7`; merging the first `io_trend` items bumps its `meta.schemaVersion` to `1.9`, which `npm run consolidate`'s schema-version guard expects — that bump is the normal, deliberate consequence of a new kind landing, not a workaround.
 - Pipeline: generate → `banks/banks-raw/` → cross-model review (**the generating model never reviews its own batch**) → source-check → visual audit → human content review → `npm run promote` → `npm run audit` → `npm run consolidate` → ledger entry → delete raw.
 - The arithmetic and the trend/crossover assertions are machine-checked by `selfCheck`. Human review therefore concentrates on the three things the machine cannot see:
   1. **Does the item survive the collapse test?** Is `meta.collapse_test`'s counterfactual answer genuinely different from the keyed answer — or is it a restatement?
   2. **Is the trend clinically real?** Are these plausible charted volumes for the stated frame, and is the keyed interpretation right?
   3. **Does the stem leak the pattern?** If the stem says "output has been increasing," the visual is decorative.
-- Bilingual parity on `caption`, `periodLabel`, and every `time.labels[i]`.
+- Bilingual parity on `caption`, `periodLabel`, and every `binLabels[i]`.
 
 ---
 
