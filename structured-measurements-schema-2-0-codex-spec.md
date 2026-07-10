@@ -211,7 +211,7 @@ which the 2.0 pass corrects. The `AGENTS.md` `1.6` glossary-migration reference 
 |---|---|---|
 | **0A** | This amendment. Interim `population` FAIL + fixture (R2), one commit. `CLAUDE.md` deletion (R11), one commit. Sweep report (R4), applicator report (R3), `population`-vocabulary report (R10) — **response-only, no repo files.** | Guard + doc only |
 | **0B** | `schemaVersionAtLeast` public, rank private, throw on unknown (R7). Replace both script rank maps. `requireMeta` at every repository-material call site (R6). Applicator version pin fixed (R3). Public-export regression test. Lands while `SCHEMA_VERSION` stays `1.9`. | Yes |
-| **3** | Verification checkpoint (R5). Code only on a verified defect. | Probably none |
+| **3** | Verification checkpoint (R5). **One verified defect — now a code commit.** See Amendment 3A. | Yes, one commit |
 | **1** | **Atomic.** `2.0` token; `population` ratified with its presence floor; `bound` with its presence floor; one-sided sanity; comparator message names `bound`; pediatric detector + FAIL (R9); applicator pin replaced (R3); affected artifacts migrated or held (R4); traversal tests scope-fenced (R8). | Yes |
 | **2** | Only the Phase 2 items genuinely absent (2, 3). Preserve and test 1, 4, 5. | Yes |
 | **Docs** | One pass, after 2.0 is green: `NCLEX-Question-Schema.md`, `PROJECT-HISTORY.md` 2.0 milestone, `AGENTS.md`, and the architect's `DECISIONS.md` closeouts. | Docs |
@@ -361,6 +361,126 @@ Also required in 0B:
   version → promote **fails**; canonical absent (ENOENT) → still skips silently.
 - **Unknown-version throw is asserted at every former call site**, not once. The point of 0B is that
   `cmpSchema`'s `−1`, `promote`'s `?? 0`, and `consolidate`'s `?? 0` collapse into one behavior.
+
+---
+
+# AMENDMENT 3A — 2026-07-10 (governing)
+
+Author: Claude (architect seat). Status: **ratified by Luke, 2026-07-10.**
+Trigger: Codex's Phase 3 verification report, and its objections to the architect's first ruling on that
+report. **Where this amendment conflicts with PHASE 3 below, the amendment governs.**
+
+Under R5, Phase 3 was a verification checkpoint with code authorized only on a verified defect. **One
+defect is verified.** Phase 3 becomes a single code commit, scoped to `src/measurementUnitPolicy.ts`,
+`src/structuredMeasurements.ts`, and `scripts/tests/structured-measurements.ts`. No schema floor, no
+`types.ts`, no `allowedKeys.ts`, no bank write.
+
+## A3.1 Verified disk state (architect read live, 2026-07-10)
+
+- **Item 1 (significant zeros) — present.** `formatStructuredMeasurementValue` emits
+  `entry.value.replace(/,/g, "").trim()` on the `inputIsPrimary` path. `trimNumber` survives and is
+  still correct for converted values and for the secondary parenthetical.
+- **Item 2 (placeholder units) — present, at a different layer than this spec prescribed.** Suppression
+  lives in `displayUnitText` inside `structuredMeasurements.ts`, not in `displayPolicyFor`.
+- **Item 3 (CBC parenthetical) — implemented, but it does not enforce the specified invariant.**
+  `duplicateScaleDisplay` is `Math.abs(primaryValue - secondaryValue) < 1e-9`: a test on rendered values,
+  not on unit scales. It suppresses any coincidence. `temp` `-40 °F` renders `-40 °F`, swallowing the
+  equally-valued `(-40 °C)` across a real affine conversion; `calcium` `0 mg/dL` swallows `(0 mmol/L)`
+  across a factor of 4.008. Both sit outside current `sanity` bounds, so no promoted row is affected —
+  which is not the reason the fix is ordered.
+
+## A3.2 Rulings
+
+**R13 — Suppression is a property of the display policy, not of the entry.** The predicate is computed
+from `policy.primaryUnit` and `policy.secondaryUnit` alone; no entry value appears in it. Home it in
+`measurementUnitPolicy.ts`, beside the table that governs conversion:
+
+- private `unitScaleFactor(key, unit): number | null` — `null` for affine keys; `1` when the unit
+  normalizes to `def.canonicalUnit`; otherwise the `LINEAR_UNIT_FACTORS` entry, or `null`.
+- exported `isIdentityScale(key, unitA, unitB): boolean` — true iff both factors resolve non-null and
+  are exactly equal. No epsilon: these are table constants, not computed quantities. The `1e-9`
+  tolerance is deleted, not relocated.
+- an explicit `AFFINE_KEYS = new Set(["temp"])` early return. **Do not rely on `°F`'s absence from
+  `LINEAR_UNIT_FACTORS` to produce the abstention incidentally.** A later hand adding
+  `factorKey("temp", "°F")` would silently restore the bug. The exclusion is named.
+
+Unknown or affine scale relationships **fail toward displaying both units**. Abstention preserves
+information; suppression destroys it. Default to the safe direction.
+
+**R14 — "Conversion factor of exactly 1" is a special case, not the rule.** The rule is *equal known
+linear source-to-canonical factors*. Two non-canonical units can already share a factor that is not 1:
+`LINEAR_UNIT_FACTORS` carries `wbc|/µL` and `wbc|/mm³` at `1e-3`. Phase 3 item 3 is reworded below.
+Implementation is unaffected — factor equality is the general predicate, and CBC is its instance.
+
+**R15 — Placeholder suppression stays at the rendering edge. The spec's prescription is rejected; disk
+is ratified.** "Map both to an empty display unit" names a location where it should have named a
+behavior, and the location is wrong. With `policy.primaryUnit = ""`, `inputIsPrimary` (a unit-equality
+test) goes false for the promoted shape — the applicator stores `unit: "(ratio)"` / `"(unitless)"`,
+confirmed by the live fixtures — and `toMeasurementDisplayValue(key, "1.0", "(ratio)", "")` returns
+`null`, because the empty display unit matches neither the canonical unit, nor a factor key, nor
+`sourceUnit`. The formatter falls through to `formatRawMeasurement`, and with `displayUnitText` also
+removed the learner sees `1.0 (ratio)`.
+
+`primaryUnit` is a unit-*identity* token, consumed by `inputIsPrimary` and, after R13, by
+`isIdentityScale`. Emptying it corrupts two scale comparisons to fix a text problem. Placeholder
+suppression is a rendering concern and belongs at the rendering edge, where it also covers the fallback
+path. This is `DECISIONS.md`'s 2026-07-05 amendment one layer out: `canonicalUnit` stays a pure
+validation/numeric-identity string, and display resolves at the edges (principle 24). **No code change.**
+
+**R16 — `DECISIONS.md` ratifies layer ownership and behavior; it never freezes a helper name.** This spec
+may name `displayUnitText` and `isIdentityScale`. The principles file may not, or a harmless rename reads
+to a future agent as policy drift. Single definition applied to prose (principle 27(d)): the helper name
+lives in exactly one place, the code.
+
+The closeout text, to be applied to the open thread **on merge and not before**:
+
+> **RESOLVED — structured-measurements display formatting.** Primary-unit source values preserve
+> authorial precision by rendering the comma-stripped source string; converted values continue to use
+> numeric formatting. Validation/numeric-identity tokens such as `(unitless)` and `(ratio)` remain intact
+> in policy and are suppressed only at the learner-facing rendering edge, including the fallback path. A
+> secondary-unit parenthetical is suppressed only when both units resolve to the same known linear
+> source-to-canonical scale factor, determined from the conversion table independently of the entry's
+> value. Affine conversions (°F/°C) and unknown scale relationships fail toward displaying both. No bank
+> or schema change was required.
+
+The thread stays open until code, regressions, and verification land. A thread closed on an intention is
+an invariant softened by a promise (principle 27).
+
+**R17 — The temperature finding is a measurement-sanity defect, not a reference-range defect. The
+architect's first characterization was wrong and is corrected on the record.** `VITAL_DEFS[key].range` is
+not a plot-axis bound: `validateVitalsTrend` consumes it as the `value_out_of_range` validation envelope,
+and for `temp` it discards `range` outright in favor of the unit-specific `30–43 °C` / `86–109 °F` bounds.
+`renderVitalsTrendSvg` derives both axes from data plus bands and never reads `range`.
+
+`measurementAllowlist.ts` nevertheless copies `range` verbatim into `MeasurementDef.sanity`, which
+`exhibit-flowsheet-gate.ts` documents and consumes as a **canonical-unit** bound. For `temp` that copy is
+the un-overridden union of the two unit envelopes, `{30, 110}`. The forcing example is the false
+admission, and it is sharper than either seat first stated: GATE 4 out-of-band is **WARN, not FAIL**
+absent `--strict`, so `-40 °F` canonicalizes to `-40 °C`, falls below 30, and WARNs — a correct outcome by
+a correct mechanism. `101 °C` sits inside `{30, 110}` and produces **no signal at all**. The true
+rejection is soft; the false admission is silent.
+
+Reference bands, physiologic plausibility bounds, renderer validation envelopes, and chart axes are four
+distinct concepts. The copy collapses the third into the second. The reference-range lane may source the
+clinical numbers; it does not own this. Routed to its own thread under *Deferred, deliberately* — **not a
+ride-along on Phase 3, and not blocking it.**
+
+## A3.3 Regressions (Phase 3 commit)
+
+Retain both existing CBC assertions unchanged. Add:
+
+- **Coincident-value regression.** `formatStructuredMeasurementValue("temp", { value: "-40", unit: "°F" })`
+  renders `-40 °F (-40 °C)`. Equal numeric values alone must not suppress a real conversion.
+- **Helper-level assertions.** `isIdentityScale("wbc", "×10³/µL", "×10⁹/L")` is true;
+  `isIdentityScale("temp", "°F", "°C")` is false; `isIdentityScale("calcium", "mg/dL", "mmol/L")` is false.
+  The invariant is a property of the policy, and a value-level test alone cannot distinguish the old
+  implementation from the new one at any argument except `-40`.
+
+## A3.4 Carry-forward into Phase 1b
+
+The bound-aware formatter suppresses the SI parenthetical for censored values. After this commit the
+predicate reads `!policy.secondaryUnit || isIdentityScale(key, policy.primaryUnit, policy.secondaryUnit)
+|| entry.bound !== undefined`. Do not build a Phase 3 shape that fights the third disjunct.
 
 ---
 
@@ -581,10 +701,18 @@ All three predate Candidates 12/13 and affect already-promoted rows. Every fix l
    renders `1 mg/dL` and `INR 1.0` renders `1`. On the `inputIsPrimary` path, emit `entry.value` verbatim
    (thousands separators stripped) instead of parse → round → stringify.
 2. **Placeholder units leak to the learner.** `displayPolicyFor` falls back to `def.canonicalUnit`, so pH
-   renders `7.32 (unitless)` and INR renders `1 (ratio)`. Map both to an empty display unit.
+   renders `7.32 (unitless)` and INR renders `1 (ratio)`. **Amended by A3.2/R15:** suppress the
+   placeholder token at the rendering edge (`displayUnitText`), which also covers the fallback path. Do
+   **not** empty `policy.primaryUnit` — it is a unit-identity token consumed by `inputIsPrimary` and by
+   `isIdentityScale`, and emptying it corrupts two scale comparisons to fix a text problem. Verified
+   present on disk; no code change.
 3. **CBC SI parenthetical is a numeric no-op.** `wbc`/`platelets` carry `primaryUnit ×10³/µL` against
-   `secondaryUnit ×10⁹/L` at a conversion factor of exactly 1, so every promoted CBC row renders
-   `19.2 ×10³/µL (19.2 ×10⁹/L)`. Suppress the parenthetical when the factor is 1.
+   `secondaryUnit ×10⁹/L` at the same source-to-canonical scale, so every promoted CBC row renders
+   `19.2 ×10³/µL (19.2 ×10⁹/L)`. **Amended by A3.2/R13–R14:** suppress the parenthetical when the primary
+   and secondary units resolve to **equal known linear source-to-canonical factors**, determined from the
+   conversion table **independently of the entry's value**. Factor 1 is the CBC instance, not the rule —
+   `wbc|/µL` and `wbc|/mm³` already share a factor of `1e-3`. Affine keys (`temp`) and unknown scale
+   relationships never suppress. Comparing rendered values is **not** an acceptable implementation.
 
 ---
 
@@ -671,6 +799,10 @@ Phase 3
 - `creatinine` `"1.0"` `mg/dL` renders `1.0 mg/dL`, not `1 mg/dL`.
 - `ph` `"7.32"` renders `7.32`, no `(unitless)`.
 - `wbc` `"14,200"` `/uL` renders `14.2 ×10³/µL`, no parenthetical.
+- `temp` `"-40"` `°F` renders `-40 °F (-40 °C)`. Coincident numeric values do not suppress a real
+  conversion.
+- `isIdentityScale("wbc", "×10³/µL", "×10⁹/L")` true; `isIdentityScale("temp", "°F", "°C")` false;
+  `isIdentityScale("calcium", "mg/dL", "mmol/L")` false.
 
 Full suite before calling the pass complete:
 
@@ -738,3 +870,16 @@ the rank function is written.
 - **Gallstone / TLS holds (12G, 12T).** TLS unblocks on `uric_acid`, already landed. Gallstone unblocks
   on the Phase 2 unitless subclass plus `inferredUnit`, both of which change what it extracts. Re-stage
   after, not during.
+- **Vital-sign `sanity` bounds are copied renderer validation envelopes (found 2026-07-10, A3.2/R17).**
+  `measurementAllowlist.ts` derives every vital's `sanity` from `VITAL_DEFS[key].range` — the envelope
+  `validateVitalsTrend` uses for `value_out_of_range` — while `MeasurementDef.sanity` is contractually a
+  **canonical-unit plausibility bound** consumed by GATE 4. For `temp` the validator overrides `range`
+  per unit (`30–43 °C` / `86–109 °F`) and the allowlist copy does not, so canonical-°C sanity is the union
+  `{30, 110}` and `101 °C` passes silently. The defect is not temp-scoped in principle: every vital's
+  `sanity` is a copied renderer envelope, and `temp` is only where the renderer visibly disagrees with
+  itself. **The survey states, per vital key, whether the copied envelope is defensible as a
+  canonical-unit plausibility bound**, and sweeps the staged and held artifacts (`12G`, `12T`, `13H`, both
+  extraction buckets) before any bound moves — tightening `temp` to `30–43 °C` can newly WARN, or FAIL
+  under `--strict`. Reference bands, physiologic plausibility bounds, renderer validation envelopes, and
+  chart axes are four distinct concepts; the reference-range lane may source the clinical numbers but does
+  not own this. Own thread, own gate, own review.
