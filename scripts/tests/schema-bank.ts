@@ -392,7 +392,6 @@ const structuredMeasurementsCase = {
       title: pair("Labs and vitals"),
       content: pair("Structured measurements are shown below."),
       structuredMeasurements: {
-        population: "adult",
         panels: [
           {
             kind: "labs",
@@ -514,14 +513,24 @@ if (!badSao2VitalsResult.ok) {
 }
 
 const pedsStructuredPopulation = structuredClone(structuredMeasurementsCase);
-pedsStructuredPopulation.caseStudy.exhibits[0].structuredMeasurements.population = "peds_child";
-assert.equal(validateBankObject({
+(pedsStructuredPopulation.caseStudy.exhibits[0].structuredMeasurements as {
+  population?: string;
+}).population = "peds_child";
+const gatedStructuredPopulation = validateBankObject({
   meta: { schemaVersion: "1.8", count: 1 },
   questions: [pedsStructuredPopulation],
-}).ok, true);
+});
+assert.equal(gatedStructuredPopulation.ok, false);
+if (!gatedStructuredPopulation.ok) {
+  assert(gatedStructuredPopulation.reasons.includes(
+    "questions[0]: structuredMeasurements.population is gated until schema 2.0",
+  ));
+}
 
 const badStructuredPopulation = structuredClone(structuredMeasurementsCase);
-badStructuredPopulation.caseStudy.exhibits[0].structuredMeasurements.population = "neonate";
+(badStructuredPopulation.caseStudy.exhibits[0].structuredMeasurements as {
+  population?: string;
+}).population = "neonate";
 const badPopulationResult = validateBankObject({
   meta: { schemaVersion: "1.8", count: 1 },
   questions: [badStructuredPopulation],

@@ -1263,6 +1263,14 @@ const hasStructuredMeasurements = (question: Question): boolean => {
   ) ?? false;
 };
 
+const hasStructuredMeasurementPopulation = (question: Question): boolean => {
+  if (question.itemType !== "case_study") return false;
+  if (question.caseStudy.exhibits.some((exhibit) => exhibit.structuredMeasurements?.population !== undefined)) return true;
+  return question.caseStudy.stages?.some((stage) =>
+    stage.exhibits.some((exhibit) => exhibit.structuredMeasurements?.population !== undefined)
+  ) ?? false;
+};
+
 const hasIoTrend = (question: Question): boolean =>
   collectAllVisuals(question).some((visual) => visual.kind === "io_trend");
 
@@ -1381,6 +1389,10 @@ export const validateBankObject = (raw: unknown, options: ValidateBankOptions = 
       hasStructuredMeasurements(result.value)
     ) {
       reasons.push(`questions[${index}]: structuredMeasurements requires meta.schemaVersion 1.8`);
+      return;
+    }
+    if (hasStructuredMeasurementPopulation(result.value)) {
+      reasons.push(`questions[${index}]: structuredMeasurements.population is gated until schema 2.0`);
       return;
     }
     if (
