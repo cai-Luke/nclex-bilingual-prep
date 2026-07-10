@@ -83,6 +83,13 @@ export const validateVitalsTrend = (spec: VitalsTrendSpec): VisualError[] => {
     if (s.showReferenceBand !== undefined && typeof s.showReferenceBand !== "boolean") {
       errs.push({ path: `series[${idx}].showReferenceBand`, code: "invalid_show_reference_band", message: "must be a boolean" });
     }
+    if (value.population !== undefined && value.population !== "adult" && s.showReferenceBand === true) {
+      errs.push({
+        path: `series[${idx}].showReferenceBand`,
+        code: "reference_band_population_unsupported",
+        message: 'reference bands are only available for population "adult"; omit showReferenceBand or set it to false',
+      });
+    }
 
     s.values.forEach((v, vidx) => {
       if (typeof v !== "number" || !Number.isFinite(v)) {
@@ -182,6 +189,7 @@ export const selfCheckVitalsTrend = (spec: VitalsTrendSpec, _question: any): Vis
 export const renderVitalsTrendSvg = (spec: VitalsTrendSpec): string => {
   const times = spec.time?.values ?? spec.timepointsHr ?? [];
   const timeUnit = spec.time?.unit ?? "hr";
+  const population = spec.population === undefined ? "adult" : spec.population;
 
   const chartSeries: ChartSeries[] = spec.series.map(s => {
     const def = VITAL_DEFS[s.vital];
@@ -192,7 +200,7 @@ export const renderVitalsTrendSvg = (spec: VitalsTrendSpec): string => {
       axis: def.axis,
       styleRole: def.styleRole,
       points: s.values.map((v, i) => ({ x: times[i], y: v })),
-      referenceBand: s.showReferenceBand !== false ? def.normal(spec.tempUnit) : undefined,
+      referenceBand: population === "adult" && s.showReferenceBand !== false ? def.normal(spec.tempUnit) : undefined,
     };
   });
 
@@ -292,7 +300,25 @@ const fixtures: VisualKindModule<VitalsTrendSpec>["fixtures"] = {
         { vital: "spo2", values: [98, 96, 92] }
       ],
       tempUnit: "C"
-    }
+    },
+    {
+      kind: "vitals_trend",
+      population: "peds_child",
+      timepointsHr: [0, 1],
+      series: [{ vital: "hr", values: [110, 105] }],
+    },
+    {
+      kind: "vitals_trend",
+      population: "peds_infant",
+      timepointsHr: [0, 1],
+      series: [{ vital: "hr", values: [140, 135], showReferenceBand: false }],
+    },
+    {
+      kind: "vitals_trend",
+      population: null as unknown as VitalsTrendSpec["population"],
+      timepointsHr: [0, 1],
+      series: [{ vital: "hr", values: [80, 85] }],
+    },
   ],
   invalid: [
     { spec: { kind: "vitals_trend", timepointsHr: [0, 1], series: [] }, expectCode: "series_empty" },
@@ -301,6 +327,7 @@ const fixtures: VisualKindModule<VitalsTrendSpec>["fixtures"] = {
     { spec: { kind: "vitals_trend", timepointsHr: [0, 1], series: [{ vital: "hr", values: [80, 90] }, { vital: "hr", values: [85, 95] }] }, expectCode: "duplicate_vital" },
     { spec: { kind: "vitals_trend", timepointsHr: [0, 1], series: [{ vital: "hr", values: [999, 90] }] }, expectCode: "value_out_of_range" },
     { spec: { kind: "vitals_trend", timepointsHr: [0, 1], series: [{ vital: "sbp", values: [100, 100] }, { vital: "dbp", values: [60, 60] }, { vital: "map", values: [200, 200] }] }, expectCode: "map_bounds_violation" },
+    { spec: { kind: "vitals_trend", population: "peds_child", timepointsHr: [0, 1], series: [{ vital: "hr", values: [110, 105], showReferenceBand: true }] }, expectCode: "reference_band_population_unsupported" },
   ],
 };
 

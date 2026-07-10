@@ -19,6 +19,17 @@ const canonical: VitalsTrendSpec = {
 const svgA = renderVitalsTrendSvg(canonical);
 assert(svgA === renderVitalsTrendSvg(canonical), "same vitals_trend spec must render byte-identical SVG");
 
+const pediatricSvg = renderVitalsTrendSvg({ ...canonical, population: "peds_child" });
+assert(svgA !== pediatricSvg, "adult and pediatric populations must render different SVG when bands default on");
+assert(svgA.includes('fill="#f1f5f9" opacity="0.6"'), "adult population must retain its reference bands");
+assert(!pediatricSvg.includes('fill="#f1f5f9" opacity="0.6"'), "pediatric population must suppress reference bands");
+
+const nullPopulationSvg = renderVitalsTrendSvg({
+  ...canonical,
+  population: null as unknown as VitalsTrendSpec["population"],
+});
+assert(!nullPopulationSvg.includes('fill="#f1f5f9" opacity="0.6"'), "null population must suppress reference bands");
+
 // --- Validation ----------------------------------------------
 const errs = validateVitalsTrend({
   kind: "vitals_trend",
@@ -129,6 +140,28 @@ const refBandErrs = validateVitalsTrend({
   series: [{ vital: "hr", values: [80], showReferenceBand: "yes" as any }]
 });
 assert(refBandErrs.some(e => e.code === "invalid_show_reference_band"), "should reject non-boolean showReferenceBand");
+
+const pediatricExplicitBandErrs = validateVitalsTrend({
+  kind: "vitals_trend",
+  population: "peds_child",
+  timepointsHr: [0],
+  series: [{ vital: "hr", values: [110], showReferenceBand: true }],
+});
+assert(
+  pediatricExplicitBandErrs.some(e => e.code === "reference_band_population_unsupported"),
+  "should reject an explicitly enabled pediatric reference band",
+);
+
+const pediatricImplicitBandErrs = validateVitalsTrend({
+  kind: "vitals_trend",
+  population: "peds_infant",
+  timepointsHr: [0],
+  series: [{ vital: "hr", values: [140] }],
+});
+assert(
+  !pediatricImplicitBandErrs.some(e => e.code === "reference_band_population_unsupported"),
+  "should accept an omitted pediatric reference-band flag",
+);
 
 // --- XSS Escaping -------------------------------
 const xssSvg = renderLineChart({
