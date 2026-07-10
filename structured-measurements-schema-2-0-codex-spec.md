@@ -284,6 +284,84 @@ stands for `_promoted/`, raw, staged artifacts, and the holds — the canonical 
 This is what the implementer seat is for. Objections of this quality are the reason adjudication and
 implementation sit in different chairs, and the reason the architect reads disk before ruling on either.
 
+## A0.6 Adjudication of the 0B pre-implementation flags (2026-07-10)
+
+Four flags returned before 0B. **All four sustained**, two of them hard contradictions in this spec.
+One addition the implementer did not raise. Verified against live disk before ruling.
+
+**F1 — `2.0` cannot be unsupported and comparable at once. SUSTAINED.** The Tests block demands
+`atLeast("2.0", "1.9") === true`; R7 demands unknown versions throw; A0.3 keeps `supportedSchemaVersions`
+at `1.9` through 0B. Ruling: **`2.0` stays unknown during 0B, and the test asserts it throws.** All
+positive `2.0` comparisons move into the atomic Phase 1 commit, where the token enters the supported
+vocabulary. The tempting alternative — seat `2.0` in `supportedSchemaVersions` early, leave
+`SCHEMA_VERSION` at `1.9` — is **rejected**: it makes `2.0` *declarable* by a bank before its presence
+floors, `bound`, and pediatric enforcement exist, which is exactly the half-state R2 and clause 7 of the
+Phase 1 row forbid. **No hidden future-version table**, no "known but unsupported" side list; that is the
+same defect wearing a different hat. Note the typing consequence, which is the seam rather than a
+workaround: `schemaVersionAtLeast` is typed over `SchemaVersion`, so the throw-test must cast at the call
+site. JSON-facing code narrows before calling. That is the rule, demonstrated.
+
+**F2 — `promote.ts` would swallow the required exception. SUSTAINED, and it is worse than a swallow.**
+The canonical read sits inside a bare `catch {}` annotated *"canonical not yet present (new bank) — skip
+silently"*, so malformed JSON, missing metadata, and any throw from `schemaVersionAtLeast` all resolve to
+silence. 0B must:
+
+- narrow the catch to **ENOENT only**; every other error is fatal;
+- delete both `?? "1.0"` defaults (`existingVersion`, `draftVersion`);
+- treat a canonical whose `meta.schemaVersion` is missing or unsupported as a **hard promote failure**,
+  not a warning.
+
+Two things to get right. This block is currently a *warn* path, so 0B converts it into a *fail* path —
+before landing, confirm all 13 canonicals declare a supported version, and report. And do **not**
+full-validate the canonical here merely to read its version; parse it, narrow its `meta.schemaVersion`,
+and fail on anything that is not a supported token. The full-bank gate is Tier 0's job.
+
+**F2a — an ambiguity the implementer did not raise.** R6 says raw drafts under `banks/banks-raw/` stay
+exempt from `requireMeta` "because `promote` is the boundary," *and* lists `promote` among the call sites
+passing `requireMeta: true`. `promote` reads `banks/banks-raw/`. Both are correct and the pairing reads
+like a contradiction. To be explicit: the exemption belongs to **`scripts/validate-bank.ts`'s `isRaw`
+path only** — the standalone linter, run on drafts before they are offered for promotion. `promote`
+validates its own input with `requireMeta: true` and rejects a bare-array draft with a normalization
+instruction. That rejection *is* the boundary.
+
+**F3 — `requireMeta` scope is ambiguous, and my list was wrong. SUSTAINED.** "Wherever content is
+repository material" followed by five call sites omits
+`scripts/apply-structured-measurements.ts`, which reads and writes canonical banks. That is repository
+material by any reading. The enforcement boundary is now a **closed list of six**:
+
+1. `scripts/promote.ts`
+2. `scripts/consolidate.ts`
+3. `scripts/audit/validate-bank.ts` (Tier 0)
+4. `src/banks.ts` (bundled load)
+5. `scripts/validate-bank.ts`, non-raw paths (`requireMeta: !isRaw`)
+6. `scripts/apply-structured-measurements.ts`, **both** its pre-read and post-apply validation
+
+**Do not expand this list opportunistically.** Census, coverage, ID audits, and normalization are
+reporting and maintenance surfaces: they do not rank versions, and a report that refuses to run against a
+bare array is a worse failure than the one it prevents. Adding a seventh boundary requires an architect
+ruling, not an implementer's judgment that a script "looks canonical."
+
+**F4 — Verification obligations are stale. SUSTAINED, with one addition.** The floor regression must
+cover **1.1 through 1.9**, not 1.2 through 1.7. And the two floors that do not use index comparison are
+the highest-risk part of 0B, which neither the spec nor the flag names: the case-study floor tests
+`schemaVersion === "1.0"` exactly, and the visual floor tests enumerated equality against `"1.0"`/`"1.1"`.
+Rewriting those two into `schemaVersionAtLeast` is where a behavior change will hide. Give them their own
+regression, and state in the report what each admitted and rejected before and after.
+
+Also required in 0B:
+
+- `npm run test:consolidate` joins the verification block. 0B replaces the logic it covers.
+- **Applicator regressions:** a bank declared `1.9` carrying `io_trend` stays `1.9` after apply and still
+  validates; a bank declared `1.7` is raised to **exactly** `1.8`, not higher; a bank declared `1.8` stays
+  `1.8`.
+- **`requireMeta` regressions:** bare array accepted by default; bare array rejected under
+  `requireMeta: true`; envelope with `meta` but no `schemaVersion` rejected under `requireMeta: true`;
+  valid metadata accepted.
+- **`promote` regressions:** canonical missing `meta` → promote **fails**; canonical with an unknown
+  version → promote **fails**; canonical absent (ENOENT) → still skips silently.
+- **Unknown-version throw is asserted at every former call site**, not once. The point of 0B is that
+  `cmpSchema`'s `−1`, `promote`'s `?? 0`, and `consolidate`'s `?? 0` collapse into one behavior.
+
 ---
 
 ## Why `2.0` and not `1.10`
@@ -550,13 +628,21 @@ Amendment 0A splits the fix: `CLAUDE.md` now (R11), the schema contract with the
 
 ## Tests
 
-`schemaVersionAtLeast` (Phase 0)
-- `atLeast("2.0", "1.9")` and `atLeast("2.0", "1.2")` are true; `atLeast("1.2", "1.7")` is false.
-- Every existing floor (1.2 / 1.3 / 1.4 / 1.5 / 1.6 / 1.7) admits and rejects exactly the banks it did
-  before. **The regression that proves Phase 0 was behavior-preserving.**
-- Unknown version throws.
+`schemaVersionAtLeast` (Phase 0B)
+- **Unknown version throws.** `atLeast("2.0" as SchemaVersion, "1.9")` **throws** during 0B — `2.0` is not
+  in `supportedSchemaVersions` until Phase 1. *(Corrected by A0.6: an earlier draft asserted this was
+  `true`, which contradicted R7 and A0.3.)* Missing version where metadata is required throws. The throw
+  is asserted at every former call site: `cmpSchema`, `promote`, `consolidate`.
+- `atLeast("1.2", "1.7")` is false; `atLeast("1.9", "1.2")` is true.
+- Every existing floor — **1.1 through 1.9** — admits and rejects exactly the banks it did before.
+  **The regression that proves 0B was behavior-preserving.** Give separate coverage to the two floors
+  that do not use index comparison today: the case-study floor (`=== "1.0"`) and the visual floor
+  (enumerated equality against `"1.0"`/`"1.1"`). That is where a behavior change will hide.
 - Guard test: no version string in `supportedSchemaVersions` has a minor component above 9.
 - No public export exposes a version index or rank.
+
+`schemaVersionAtLeast` (Phase 1, once `2.0` is a supported token)
+- `atLeast("2.0", "1.9")` and `atLeast("2.0", "1.2")` are true.
 
 `bound`
 - Comparator in `value` (`">150"`) → FAIL, message names `bound`.
@@ -594,6 +680,7 @@ npm run test:schema-bank
 npm run test:structured-measurements
 npm run test:measurement-allowlist
 npm run test:flowsheet-gate
+npm run test:consolidate
 npm run scan-unknown-keys
 npm run validate-bank -- banks/*.json
 npm run test-visuals
@@ -615,10 +702,11 @@ Candidates `07B`/`08A` promoted ABG surfaces, so `pH 7.32 (unitless)` is very li
 live bank right now, alongside every `creatinine 1.0` reading `1 mg/dL`. Phase 3 is three formatter
 fixes with zero dependencies and it is the only work in this plan the learner can see.
 
-Phase 0 lands as its own commit with its own regression, before any field exists — not because `2.0`
-requires it, but because the audit finding is worth having and it makes the `2.0` tests mean something.
-The audit (report-only) and the `schemaVersionAtLeast` implementation are **separate commits with an
-architect gate between them**. Keep every later phase a separable commit too.
+Phase 0B lands as its own commit with its own regression. *(Corrected by A0.6: the original sentence said
+"before any field exists" — stale, since `population` is already on disk. See Amendment 0A.)* It lands
+not because `2.0` requires it, but because the audit finding is worth having and it makes the `2.0` tests
+mean something. The audit (report-only) and the `schemaVersionAtLeast` implementation are **separate
+commits with an architect gate between them**. Keep every later phase a separable commit too.
 
 Phase 2's `prior_no_current` and `post_intervention` rules unblock the `13H` hold artifact; nothing in
 `13H` re-stages until Phases 1 and 2 are both green.
