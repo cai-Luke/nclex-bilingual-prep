@@ -48,4 +48,27 @@ assert(escaped.includes("In &lt;mL&gt;"), "legend labels must be XML-escaped");
 assert(escaped.includes("mL &lt;net&gt;"), "axis labels must be XML-escaped");
 assert(escaped.includes('data-role="overlay-line"'), "overlay line should render when overlay is present");
 
+const highCumulative = renderDivergingBars({
+  bins: [
+    { label: "1", positive: 900, negative: 100 },
+    { label: "2", positive: 900, negative: 100 },
+    { label: "3", positive: 900, negative: 100 },
+  ],
+  positiveLabel: "Intake",
+  negativeLabel: "Output",
+  yAxisLabel: "mL by interval",
+  overlay: {
+    label: "Cumulative net",
+    axisLabel: "net mL",
+    points: [
+      { binIndex: 0, value: 800 },
+      { binIndex: 1, value: 1500 },
+      { binIndex: 2, value: 2200 },
+    ],
+  },
+});
+assert(highCumulative.includes('data-axis-max="1000"'), "bar axis must ignore cumulative overlay magnitude");
+assert(highCumulative.includes('data-overlay-axis-max="5000"'), "overlay must expose its independent right-axis scale");
+assert(highCumulative.includes('data-overlay-zero-y="123"'), "overlay zero should align with the diverging bar baseline");
+
 console.log("diverging-bars tests passed");

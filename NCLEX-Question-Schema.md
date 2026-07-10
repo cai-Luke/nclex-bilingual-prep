@@ -568,7 +568,7 @@ Unlike `io_record`, `io_trend` is allowed only on `multiple_choice`, `select_all
 
 Validation rules:
 - `kind` must be `"io_trend"`.
-- `time` must be an object with `unit: "hr" | "shift"` and strictly increasing finite numeric `values`; at least two timepoints are required.
+- `time` must be an object with `unit: "hr" | "shift"` and strictly increasing finite numeric `values`; at least three timepoints are required.
 - `intervals` must be an array with the same length as `time.values`. Each interval has non-negative integer `intakeMl` and `outputMl` values no greater than 10,000 mL. At least one interval volume must be non-zero.
 - `binLabels` is an optional sibling of `time`, not a child of `time`. When present, it must match `time.values.length`; every label requires non-empty `en`, and optional `zh` must be non-empty.
 - `showCumulativeNet`, if present, must be boolean.

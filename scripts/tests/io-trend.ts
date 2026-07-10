@@ -31,27 +31,36 @@ const spec: IoTrendSpec = {
 };
 
 const questionWithMeta = (meta: Record<string, unknown>) => ({ meta }) as unknown as Question;
+const invalidBase = {
+  kind: "io_trend",
+  time: { unit: "hr", values: [1, 2, 3] },
+  intervals: [
+    { intakeMl: 1, outputMl: 0 },
+    { intakeMl: 0, outputMl: 1 },
+    { intakeMl: 1, outputMl: 0 },
+  ],
+};
 
 for (const { malformed, code } of [
-  { malformed: { kind: "io_record", time: { unit: "hr", values: [1, 2] }, intervals: [{ intakeMl: 1, outputMl: 0 }, { intakeMl: 0, outputMl: 1 }] }, code: "invalid_kind" },
+  { malformed: { ...invalidBase, kind: "io_record" }, code: "invalid_kind" },
   { malformed: { kind: "io_trend", intervals: [] }, code: "time_invalid" },
-  { malformed: { kind: "io_trend", time: { unit: "day", values: [1, 2] }, intervals: [{ intakeMl: 1, outputMl: 0 }, { intakeMl: 0, outputMl: 1 }] }, code: "invalid_time_unit" },
-  { malformed: { kind: "io_trend", time: { unit: "hr", values: [1, "x"] }, intervals: [{ intakeMl: 1, outputMl: 0 }, { intakeMl: 0, outputMl: 1 }] }, code: "timepoint_not_number" },
-  { malformed: { kind: "io_trend", time: { unit: "hr", values: [2, 1] }, intervals: [{ intakeMl: 1, outputMl: 0 }, { intakeMl: 0, outputMl: 1 }] }, code: "timepoints_not_increasing" },
-  { malformed: { kind: "io_trend", time: { unit: "hr", values: [1] }, intervals: [{ intakeMl: 1, outputMl: 0 }] }, code: "too_few_timepoints" },
-  { malformed: { kind: "io_trend", time: { unit: "hr", values: [1, 2] }, intervals: null }, code: "intervals_invalid" },
-  { malformed: { kind: "io_trend", time: { unit: "hr", values: [1, 2] }, intervals: [{ intakeMl: 1, outputMl: 0 }] }, code: "intervals_length_mismatch" },
-  { malformed: { kind: "io_trend", time: { unit: "hr", values: [1, 2] }, intervals: [{ intakeMl: 1.5, outputMl: 0 }, { intakeMl: 0, outputMl: 1 }] }, code: "invalid_volume" },
-  { malformed: { kind: "io_trend", time: { unit: "hr", values: [1, 2] }, intervals: [{ intakeMl: 20_000, outputMl: 0 }, { intakeMl: 0, outputMl: 1 }] }, code: "volume_out_of_range" },
-  { malformed: { kind: "io_trend", time: { unit: "hr", values: [1, 2] }, intervals: [{ intakeMl: 0, outputMl: 0 }, { intakeMl: 0, outputMl: 0 }] }, code: "no_volumes" },
-  { malformed: { kind: "io_trend", time: { unit: "hr", values: [1, 2] }, intervals: [{ intakeMl: 1, outputMl: 0 }, { intakeMl: 0, outputMl: 1 }], binLabels: [{ en: "1" }] }, code: "bin_labels_length_mismatch" },
-  { malformed: { kind: "io_trend", time: { unit: "hr", values: [1, 2] }, intervals: [{ intakeMl: 1, outputMl: 0 }, { intakeMl: 0, outputMl: 1 }], binLabels: [{ en: "1" }, { en: "" }] }, code: "bin_label_en_required" },
-  { malformed: { kind: "io_trend", time: { unit: "hr", values: [1, 2] }, intervals: [{ intakeMl: 1, outputMl: 0 }, { intakeMl: 0, outputMl: 1 }], binLabels: [{ en: "1" }, { en: "2", zh: "" }] }, code: "bin_label_zh_empty" },
-  { malformed: { kind: "io_trend", time: { unit: "hr", values: [1, 2] }, intervals: [{ intakeMl: 1, outputMl: 0 }, { intakeMl: 0, outputMl: 1 }], showCumulativeNet: "yes" }, code: "invalid_show_cumulative_net" },
-  { malformed: { kind: "io_trend", time: { unit: "hr", values: [1, 2] }, intervals: [{ intakeMl: 1, outputMl: 0 }, { intakeMl: 0, outputMl: 1 }], periodLabel: { en: "" } }, code: "period_label_en_required" },
-  { malformed: { kind: "io_trend", time: { unit: "hr", values: [1, 2] }, intervals: [{ intakeMl: 1, outputMl: 0 }, { intakeMl: 0, outputMl: 1 }], periodLabel: { en: "x", zh: "" } }, code: "period_label_zh_empty" },
-  { malformed: { kind: "io_trend", time: { unit: "hr", values: [1, 2] }, intervals: [{ intakeMl: 1, outputMl: 0 }, { intakeMl: 0, outputMl: 1 }], caption: { en: "" } }, code: "caption_en_required" },
-  { malformed: { kind: "io_trend", time: { unit: "hr", values: [1, 2] }, intervals: [{ intakeMl: 1, outputMl: 0 }, { intakeMl: 0, outputMl: 1 }], caption: { en: "x", zh: "" } }, code: "caption_zh_empty" },
+  { malformed: { ...invalidBase, time: { unit: "day", values: [1, 2, 3] } }, code: "invalid_time_unit" },
+  { malformed: { ...invalidBase, time: { unit: "hr", values: [1, "x", 3] } }, code: "timepoint_not_number" },
+  { malformed: { ...invalidBase, time: { unit: "hr", values: [2, 1, 3] } }, code: "timepoints_not_increasing" },
+  { malformed: { ...invalidBase, time: { unit: "hr", values: [1, 2] }, intervals: [{ intakeMl: 1, outputMl: 0 }, { intakeMl: 0, outputMl: 1 }] }, code: "too_few_timepoints" },
+  { malformed: { ...invalidBase, intervals: null }, code: "intervals_invalid" },
+  { malformed: { ...invalidBase, intervals: [{ intakeMl: 1, outputMl: 0 }] }, code: "intervals_length_mismatch" },
+  { malformed: { ...invalidBase, intervals: [{ intakeMl: 1.5, outputMl: 0 }, { intakeMl: 0, outputMl: 1 }, { intakeMl: 1, outputMl: 0 }] }, code: "invalid_volume" },
+  { malformed: { ...invalidBase, intervals: [{ intakeMl: 20_000, outputMl: 0 }, { intakeMl: 0, outputMl: 1 }, { intakeMl: 1, outputMl: 0 }] }, code: "volume_out_of_range" },
+  { malformed: { ...invalidBase, intervals: [{ intakeMl: 0, outputMl: 0 }, { intakeMl: 0, outputMl: 0 }, { intakeMl: 0, outputMl: 0 }] }, code: "no_volumes" },
+  { malformed: { ...invalidBase, binLabels: [{ en: "1" }] }, code: "bin_labels_length_mismatch" },
+  { malformed: { ...invalidBase, binLabels: [{ en: "1" }, { en: "" }, { en: "3" }] }, code: "bin_label_en_required" },
+  { malformed: { ...invalidBase, binLabels: [{ en: "1" }, { en: "2", zh: "" }, { en: "3" }] }, code: "bin_label_zh_empty" },
+  { malformed: { ...invalidBase, showCumulativeNet: "yes" }, code: "invalid_show_cumulative_net" },
+  { malformed: { ...invalidBase, periodLabel: { en: "" } }, code: "period_label_en_required" },
+  { malformed: { ...invalidBase, periodLabel: { en: "x", zh: "" } }, code: "period_label_zh_empty" },
+  { malformed: { ...invalidBase, caption: { en: "" } }, code: "caption_en_required" },
+  { malformed: { ...invalidBase, caption: { en: "x", zh: "" } }, code: "caption_zh_empty" },
 ] as const) {
   assert(codes(validateIoTrend(malformed as unknown as IoTrendSpec)).includes(code), `expected validation code ${code}`);
 }
@@ -250,6 +259,36 @@ const carrierQuestion = {
 assert(
   collectAllVisuals(carrierQuestion).filter((visual) => visual.kind === "io_trend").length === 6,
   "collectAllVisuals must traverse top-level, rationale, exhibits, staged exhibits, embedded visuals, and embedded rationale visuals",
+);
+
+const twoBinSpec = {
+  ...spec,
+  time: { unit: "hr", values: [1, 2] },
+  intervals: [
+    { intakeMl: 100, outputMl: 50 },
+    { intakeMl: 120, outputMl: 60 },
+  ],
+} as IoTrendSpec;
+const twoBinExhibitQuestion = {
+  ...minimalQuestion,
+  visual: undefined,
+  itemType: "case_study",
+  caseStudy: {
+    title: { en: "Case", zh: "病例" },
+    exhibits: [
+      { id: "trend", title: { en: "Trend", zh: "趋势" }, content: { en: "I/O", zh: "出入量" }, visual: twoBinSpec },
+    ],
+    questions: [
+      { ...minimalQuestion, id: "case-part-a" },
+      { ...minimalQuestion, id: "case-part-b" },
+    ],
+  },
+} as unknown as Question;
+const twoBinExhibit = validateBankObject({ meta: { schemaVersion: "1.9", count: 1 }, questions: [twoBinExhibitQuestion] });
+if (twoBinExhibit.ok) throw new Error("two-bin io_trend exhibit must fail structural validation");
+assert(
+  twoBinExhibit.reasons.some((reason) => reason.includes("too_few_timepoints") || reason.includes("at least three timepoints")),
+  "case-study exhibit io_trend must enforce the three-timepoint floor without relying on selfCheck",
 );
 
 console.log("io-trend tests passed");

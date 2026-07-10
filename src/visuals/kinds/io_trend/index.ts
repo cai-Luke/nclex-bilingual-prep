@@ -85,8 +85,8 @@ export const validateIoTrend = (spec: IoTrendSpec): VisualError[] => {
         errors.push({ path: `time.values[${index}]`, code: "timepoints_not_increasing", message: "must be strictly increasing" });
       }
     });
-    if (times.length < 2) {
-      errors.push({ path: "time.values", code: "too_few_timepoints", message: "must contain at least two timepoints" });
+    if (times.length < 3) {
+      errors.push({ path: "time.values", code: "too_few_timepoints", message: "must contain at least three timepoints" });
     }
   }
 
@@ -385,6 +385,16 @@ export const renderIoTrendSvg = (spec: IoTrendSpec): string => {
   return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 ${fmt(totalHeight)}" role="img" aria-label="${ariaLabel}" data-kind="io_trend">\n${chart}\n<g transform="translate(0 ${fmt(chartHeight)})">\n${table}\n</g>\n</svg>`;
 };
 
+const invalidBase = {
+  kind: "io_trend",
+  time: { unit: "hr", values: [1, 2, 3] },
+  intervals: [
+    { intakeMl: 1, outputMl: 0 },
+    { intakeMl: 0, outputMl: 1 },
+    { intakeMl: 1, outputMl: 0 },
+  ],
+};
+
 const fixtures: VisualKindModule<IoTrendSpec>["fixtures"] = {
   valid: [
     {
@@ -417,25 +427,25 @@ const fixtures: VisualKindModule<IoTrendSpec>["fixtures"] = {
     },
   ],
   invalid: [
-    { spec: { kind: "io_record", time: { unit: "hr", values: [1, 2] }, intervals: [{ intakeMl: 1, outputMl: 0 }, { intakeMl: 0, outputMl: 1 }] }, expectCode: "invalid_kind" },
+    { spec: { ...invalidBase, kind: "io_record" }, expectCode: "invalid_kind" },
     { spec: { kind: "io_trend", intervals: [] }, expectCode: "time_invalid" },
-    { spec: { kind: "io_trend", time: { unit: "day", values: [1, 2] }, intervals: [{ intakeMl: 1, outputMl: 0 }, { intakeMl: 0, outputMl: 1 }] }, expectCode: "invalid_time_unit" },
-    { spec: { kind: "io_trend", time: { unit: "hr", values: [1, "x"] }, intervals: [{ intakeMl: 1, outputMl: 0 }, { intakeMl: 0, outputMl: 1 }] }, expectCode: "timepoint_not_number" },
-    { spec: { kind: "io_trend", time: { unit: "hr", values: [1, 1] }, intervals: [{ intakeMl: 1, outputMl: 0 }, { intakeMl: 0, outputMl: 1 }] }, expectCode: "timepoints_not_increasing" },
-    { spec: { kind: "io_trend", time: { unit: "hr", values: [1] }, intervals: [{ intakeMl: 1, outputMl: 0 }] }, expectCode: "too_few_timepoints" },
-    { spec: { kind: "io_trend", time: { unit: "hr", values: [1, 2] }, intervals: null }, expectCode: "intervals_invalid" },
-    { spec: { kind: "io_trend", time: { unit: "hr", values: [1, 2] }, intervals: [{ intakeMl: 1, outputMl: 0 }] }, expectCode: "intervals_length_mismatch" },
-    { spec: { kind: "io_trend", time: { unit: "hr", values: [1, 2] }, intervals: [{ intakeMl: -1, outputMl: 0 }, { intakeMl: 0, outputMl: 1 }] }, expectCode: "invalid_volume" },
-    { spec: { kind: "io_trend", time: { unit: "hr", values: [1, 2] }, intervals: [{ intakeMl: 20_000, outputMl: 0 }, { intakeMl: 0, outputMl: 1 }] }, expectCode: "volume_out_of_range" },
-    { spec: { kind: "io_trend", time: { unit: "hr", values: [1, 2] }, intervals: [{ intakeMl: 0, outputMl: 0 }, { intakeMl: 0, outputMl: 0 }] }, expectCode: "no_volumes" },
-    { spec: { kind: "io_trend", time: { unit: "hr", values: [1, 2] }, intervals: [{ intakeMl: 1, outputMl: 0 }, { intakeMl: 0, outputMl: 1 }], binLabels: [{ en: "1" }] }, expectCode: "bin_labels_length_mismatch" },
-    { spec: { kind: "io_trend", time: { unit: "hr", values: [1, 2] }, intervals: [{ intakeMl: 1, outputMl: 0 }, { intakeMl: 0, outputMl: 1 }], binLabels: [{ en: "1" }, { en: "" }] }, expectCode: "bin_label_en_required" },
-    { spec: { kind: "io_trend", time: { unit: "hr", values: [1, 2] }, intervals: [{ intakeMl: 1, outputMl: 0 }, { intakeMl: 0, outputMl: 1 }], binLabels: [{ en: "1" }, { en: "2", zh: "" }] }, expectCode: "bin_label_zh_empty" },
-    { spec: { kind: "io_trend", time: { unit: "hr", values: [1, 2] }, intervals: [{ intakeMl: 1, outputMl: 0 }, { intakeMl: 0, outputMl: 1 }], showCumulativeNet: "yes" }, expectCode: "invalid_show_cumulative_net" },
-    { spec: { kind: "io_trend", time: { unit: "hr", values: [1, 2] }, intervals: [{ intakeMl: 1, outputMl: 0 }, { intakeMl: 0, outputMl: 1 }], periodLabel: { en: "" } }, expectCode: "period_label_en_required" },
-    { spec: { kind: "io_trend", time: { unit: "hr", values: [1, 2] }, intervals: [{ intakeMl: 1, outputMl: 0 }, { intakeMl: 0, outputMl: 1 }], periodLabel: { en: "x", zh: "" } }, expectCode: "period_label_zh_empty" },
-    { spec: { kind: "io_trend", time: { unit: "hr", values: [1, 2] }, intervals: [{ intakeMl: 1, outputMl: 0 }, { intakeMl: 0, outputMl: 1 }], caption: { en: "" } }, expectCode: "caption_en_required" },
-    { spec: { kind: "io_trend", time: { unit: "hr", values: [1, 2] }, intervals: [{ intakeMl: 1, outputMl: 0 }, { intakeMl: 0, outputMl: 1 }], caption: { en: "x", zh: "" } }, expectCode: "caption_zh_empty" },
+    { spec: { ...invalidBase, time: { unit: "day", values: [1, 2, 3] } }, expectCode: "invalid_time_unit" },
+    { spec: { ...invalidBase, time: { unit: "hr", values: [1, "x", 3] } }, expectCode: "timepoint_not_number" },
+    { spec: { ...invalidBase, time: { unit: "hr", values: [1, 1, 3] } }, expectCode: "timepoints_not_increasing" },
+    { spec: { ...invalidBase, time: { unit: "hr", values: [1, 2] }, intervals: [{ intakeMl: 1, outputMl: 0 }, { intakeMl: 0, outputMl: 1 }] }, expectCode: "too_few_timepoints" },
+    { spec: { ...invalidBase, intervals: null }, expectCode: "intervals_invalid" },
+    { spec: { ...invalidBase, intervals: [{ intakeMl: 1, outputMl: 0 }] }, expectCode: "intervals_length_mismatch" },
+    { spec: { ...invalidBase, intervals: [{ intakeMl: -1, outputMl: 0 }, { intakeMl: 0, outputMl: 1 }, { intakeMl: 1, outputMl: 0 }] }, expectCode: "invalid_volume" },
+    { spec: { ...invalidBase, intervals: [{ intakeMl: 20_000, outputMl: 0 }, { intakeMl: 0, outputMl: 1 }, { intakeMl: 1, outputMl: 0 }] }, expectCode: "volume_out_of_range" },
+    { spec: { ...invalidBase, intervals: [{ intakeMl: 0, outputMl: 0 }, { intakeMl: 0, outputMl: 0 }, { intakeMl: 0, outputMl: 0 }] }, expectCode: "no_volumes" },
+    { spec: { ...invalidBase, binLabels: [{ en: "1" }] }, expectCode: "bin_labels_length_mismatch" },
+    { spec: { ...invalidBase, binLabels: [{ en: "1" }, { en: "" }, { en: "3" }] }, expectCode: "bin_label_en_required" },
+    { spec: { ...invalidBase, binLabels: [{ en: "1" }, { en: "2", zh: "" }, { en: "3" }] }, expectCode: "bin_label_zh_empty" },
+    { spec: { ...invalidBase, showCumulativeNet: "yes" }, expectCode: "invalid_show_cumulative_net" },
+    { spec: { ...invalidBase, periodLabel: { en: "" } }, expectCode: "period_label_en_required" },
+    { spec: { ...invalidBase, periodLabel: { en: "x", zh: "" } }, expectCode: "period_label_zh_empty" },
+    { spec: { ...invalidBase, caption: { en: "" } }, expectCode: "caption_en_required" },
+    { spec: { ...invalidBase, caption: { en: "x", zh: "" } }, expectCode: "caption_zh_empty" },
   ],
 };
 

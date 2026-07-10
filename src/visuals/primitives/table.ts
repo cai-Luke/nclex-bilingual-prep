@@ -26,13 +26,16 @@ export interface DocTableInput {
   headerHeight?: number;
 }
 
+const DOC_TABLE_DEFAULT_ROW_HEIGHT = 28;
+const DOC_TABLE_DEFAULT_HEADER_HEIGHT = 32;
+const DOC_TABLE_TITLE_HEIGHT = 32;
+
 export function measureDocTable(input: DocTableInput): number {
-  const rowHeight = input.rowHeight ?? 28;
-  const headerHeight = input.headerHeight ?? 32;
-  const titleHeight = 32;
+  const rowHeight = input.rowHeight ?? DOC_TABLE_DEFAULT_ROW_HEIGHT;
+  const headerHeight = input.headerHeight ?? DOC_TABLE_DEFAULT_HEADER_HEIGHT;
   const hasTitleRow = typeof input.title === "string" && input.title.length > 0;
 
-  return (hasTitleRow ? titleHeight : 0) + headerHeight + input.rows.length * rowHeight;
+  return (hasTitleRow ? DOC_TABLE_TITLE_HEIGHT : 0) + headerHeight + input.rows.length * rowHeight;
 }
 
 const colorForStyleRole = (role?: string): string => {
@@ -49,9 +52,8 @@ const colorForStyleRole = (role?: string): string => {
 
 export function renderDocTable(input: DocTableInput): string {
   const width = input.width ?? 600;
-  const rowHeight = input.rowHeight ?? 28;
-  const headerHeight = input.headerHeight ?? 32;
-  const TITLE_HEIGHT = 32;
+  const rowHeight = input.rowHeight ?? DOC_TABLE_DEFAULT_ROW_HEIGHT;
+  const headerHeight = input.headerHeight ?? DOC_TABLE_DEFAULT_HEADER_HEIGHT;
   const CELL_PAD = 8;
 
   const hasTitleRow = typeof input.title === "string" && input.title.length > 0;
@@ -74,10 +76,10 @@ export function renderDocTable(input: DocTableInput): string {
   let yOff = 0;
 
   if (hasTitleRow) {
-    els.push(`<rect x="0" y="${fmt(yOff)}" width="${fmt(width)}" height="${fmt(TITLE_HEIGHT)}" fill="#e2e8f0" rx="2"/>`);
-    els.push(`<text x="${fmt(width / 2)}" y="${fmt(yOff + TITLE_HEIGHT * 0.65)}" font-family="sans-serif" font-size="13" font-weight="600" fill="#1e293b" text-anchor="middle">${escapeXml(input.title!)}</text>`);
-    els.push(`<line x1="0" y1="${fmt(yOff + TITLE_HEIGHT)}" x2="${fmt(width)}" y2="${fmt(yOff + TITLE_HEIGHT)}" stroke="#94a3b8" stroke-width="1"/>`);
-    yOff += TITLE_HEIGHT;
+    els.push(`<rect x="0" y="${fmt(yOff)}" width="${fmt(width)}" height="${fmt(DOC_TABLE_TITLE_HEIGHT)}" fill="#e2e8f0" rx="2"/>`);
+    els.push(`<text x="${fmt(width / 2)}" y="${fmt(yOff + DOC_TABLE_TITLE_HEIGHT * 0.65)}" font-family="sans-serif" font-size="13" font-weight="600" fill="#1e293b" text-anchor="middle">${escapeXml(input.title!)}</text>`);
+    els.push(`<line x1="0" y1="${fmt(yOff + DOC_TABLE_TITLE_HEIGHT)}" x2="${fmt(width)}" y2="${fmt(yOff + DOC_TABLE_TITLE_HEIGHT)}" stroke="#94a3b8" stroke-width="1"/>`);
+    yOff += DOC_TABLE_TITLE_HEIGHT;
   }
 
   // Header row
@@ -127,7 +129,7 @@ export function renderDocTable(input: DocTableInput): string {
   });
 
   // Column dividers
-  const dividerTop = hasTitleRow ? TITLE_HEIGHT : 0;
+  const dividerTop = hasTitleRow ? DOC_TABLE_TITLE_HEIGHT : 0;
   for (let i = 1; i < input.columns.length; i++) {
     els.push(`<line x1="${fmt(colXs[i])}" y1="${fmt(dividerTop)}" x2="${fmt(colXs[i])}" y2="${fmt(totalHeight)}" stroke="#e2e8f0" stroke-width="1"/>`);
   }
