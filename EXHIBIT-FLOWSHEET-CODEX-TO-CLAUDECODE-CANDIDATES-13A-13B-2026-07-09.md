@@ -10,7 +10,11 @@ Claude's review found real blockers in the original 13A/13B candidate set. The o
 
 - `EXHIBIT-FLOWSHEET-STRUCTURED-PROMOTION-CANDIDATE-13A-2026-07-09.json` now contains only the two accepted 13A records.
 - `EXHIBIT-FLOWSHEET-STRUCTURED-PROMOTION-CANDIDATE-13B-2026-07-09.json` now contains only the one accepted 13B record.
-- `EXHIBIT-FLOWSHEET-STRUCTURED-PROMOTION-CANDIDATE-13H-HOLD-2026-07-10.json` contains the seven held/flagged records for provenance and later rework.
+- `EXHIBIT-FLOWSHEET-STRUCTURED-PROMOTION-CANDIDATE-13H-HOLD-2026-07-10.json` is superseded as an
+  actionable promotion unit. It is retained temporarily as the immutable seven-record split source.
+- The seven refs now live exactly once across three review candidates plus one baseline hold:
+  `13H-PEDS`, `13H-SCREENING`, `13H-REFEEDING-FOLLOWUP`, and
+  `13H-REFEEDING-BASELINE-HOLD` (all dated 2026-07-11).
 - No canonical bank write was performed by Codex.
 
 The three accepted refs are preserved, but this is intentionally a small accepted subset rather than a promotion-ready batch.
@@ -49,6 +53,27 @@ Reference-range / thin-panel hold:
 - `gpt_case_overdue_preventive_screening_01/baseline_assessment`
 - `gpt_case_overdue_preventive_screening_01/stage_3_followup`
 
+## 2026-07-11 13H Successor Split
+
+- `EXHIBIT-FLOWSHEET-STRUCTURED-PROMOTION-CANDIDATE-13H-PEDS-2026-07-11.json` — two pediatric
+  records with source-supported `peds_child` / `peds_infant` population declarations.
+- `EXHIBIT-FLOWSHEET-STRUCTURED-PROMOTION-CANDIDATE-13H-SCREENING-2026-07-11.json` — two
+  vitals-only screening records; the one-row glucose labs remain only in intact prose.
+- `EXHIBIT-FLOWSHEET-STRUCTURED-PROMOTION-CANDIDATE-13H-REFEEDING-FOLLOWUP-2026-07-11.json` —
+  Stage 2/3 follow-ups preserving the ratified measurement-level Rule F split.
+- `EXHIBIT-FLOWSHEET-STRUCTURED-PROMOTION-CANDIDATE-13H-REFEEDING-BASELINE-HOLD-2026-07-11.json`
+  — baseline remains held for a deferred multi-column temporal-panel authoring lane.
+
+The required staged-and-held comparator sweep is complete with zero comparator-bearing staged
+`value` hits and zero records needing a new `bound`. Exact separate gate totals, WARN adjudications,
+applicator dry-runs, seven-ref coverage, and transformation-whitelist verification are recorded in
+`EXHIBIT-FLOWSHEET-13H-SPLIT-VERIFICATION-2026-07-11.md`.
+
+The original seven-record file has not been deleted: two population additions and two owner-directed
+glucose-row omissions mean transformed successors cannot literally recompose it byte-for-byte. It is
+non-actionable and retained only until the deletion-gate interpretation is confirmed. `DECISIONS.md`
+remains architect-owned and needs its 13H pointer repointed to these four successors.
+
 ## Code Patches Landed With This Restage
 
 - Added optional `structuredMeasurements.population?: "adult" | "peds_child" | "peds_infant"` with strict schema and unknown-key support. The deterministic applicator passes this through when a staged record supplies it.
@@ -66,7 +91,8 @@ npm run flowsheet-gate -- EXHIBIT-FLOWSHEET-STRUCTURED-PROMOTION-CANDIDATE-13A-2
 npm run flowsheet-gate -- EXHIBIT-FLOWSHEET-STRUCTURED-PROMOTION-CANDIDATE-13B-2026-07-09.json --bank banks/gpt-canonical.json --bank banks/hard-cases-canonical.json
 ```
 
-The hold artifact is not promotion-ready. Running the gate over it is expected to surface review findings, including the new `prior` hard FAIL on the refeeding baseline until that case is re-extracted.
+The original hold artifact is superseded and must not be promoted as one unit. Use the successor
+commands and exact results in `EXHIBIT-FLOWSHEET-13H-SPLIT-VERIFICATION-2026-07-11.md`.
 
 ## Mechanical Suite
 
