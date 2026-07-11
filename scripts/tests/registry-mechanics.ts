@@ -78,10 +78,10 @@ assert(threw, "duplicate registration must throw");
   try {
     reasonsFor(
       { kind: "__test_only" },
-      { itemType: "multiple_choice", schemaVersion: "2.0" as SchemaVersion },
+      { itemType: "multiple_choice", schemaVersion: "2.1" as SchemaVersion },
     );
   } catch (error) {
-    schemaThrew = error instanceof Error && error.message.includes("Unsupported schema version: 2.0");
+    schemaThrew = error instanceof Error && error.message.includes("Unsupported schema version: 2.1");
   }
   assert(schemaThrew, "registry schema comparison must throw on an unknown version");
 }

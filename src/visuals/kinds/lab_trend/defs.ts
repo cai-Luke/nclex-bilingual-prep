@@ -7,14 +7,13 @@
 // in the U3 audit report.
 
 import type { LabAnalyteKey } from "./types";
-
-export type PopKey = "adult" | "peds_child" | "peds_infant";
+import type { Population } from "../../../population";
 
 export interface AnalyteDef {
   label: string;
   canonicalUnit: string;
   altUnits: string[];
-  refBand: Record<PopKey, { low: number; high: number }>;
+  refBand: Record<Population, { low: number; high: number }>;
   sanity: { min: number; max: number };
   /** Fraction of (refBand.high - refBand.low) within which direction="stable" passes. */
   stableEps: number;

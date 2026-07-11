@@ -53,6 +53,7 @@ import { fileURLToPath } from "node:url";
 import { parseBankText, getRawQuestions } from "../src/bankImport";
 import { ALLOWLIST_KEYS, MEASUREMENT_ALLOWLIST } from "../src/measurementAllowlist";
 import { normalizeUnit, toCanonicalMeasurementValue } from "../src/measurementUnitPolicy";
+import { isPopulation } from "../src/population";
 import type { Question, CaseStudyExhibit, TextPair } from "../src/types";
 import { ANALYTE_DEFS } from "../src/visuals/kinds/lab_trend/defs";
 
@@ -248,15 +249,17 @@ const DEFAULT_BANKS = [
 
 const en = (t: TextPair | undefined): string => (t?.en ?? "");
 
-const allExhibits = (q: Question): CaseStudyExhibit[] => {
-  if (q.itemType !== "case_study") return [];
-  const cs = q.caseStudy;
-  const out: CaseStudyExhibit[] = [...(cs.exhibits ?? [])];
-  for (const st of cs.stages ?? []) out.push(...(st.exhibits ?? []));
-  return out;
+type ExhibitSource = {
+  contentEn: string;
+  contentZh: string;
+  contextEn: string;
+  contextZh: string;
 };
 
-type ExhibitIndex = Map<string, string>; // "caseId/exhibitId" → content.en
+type ExhibitIndex = Map<string, ExhibitSource>; // "caseId/exhibitId" → exhibit content + case-wide context
+
+const pairText = (pairs: Array<TextPair | undefined>, locale: "en" | "zh"): string =>
+  pairs.map((pair) => pair?.[locale] ?? "").filter(Boolean).join("\n").normalize("NFC");
 
 const buildExhibitIndex = async (bankPaths: string[]): Promise<ExhibitIndex> => {
   const idx: ExhibitIndex = new Map();
@@ -270,8 +273,33 @@ const buildExhibitIndex = async (bankPaths: string[]): Promise<ExhibitIndex> => 
     }
     const questions = getRawQuestions(parseBankText(text)) as Question[];
     for (const q of questions) {
-      for (const ex of allExhibits(q)) {
-        idx.set(`${q.id}/${ex.id}`, en(ex.content).normalize("NFC"));
+      if (q.itemType !== "case_study") continue;
+      const casePairs: Array<TextPair | undefined> = [
+        q.stem,
+        q.caseStudy.title,
+        q.caseStudy.summary,
+        ...q.caseStudy.exhibits.flatMap((exhibit) => [exhibit.title, exhibit.content]),
+        ...(q.caseStudy.stages ?? []).flatMap((stage) => [
+          stage.title,
+          stage.trigger,
+          stage.narrative,
+          ...stage.exhibits.flatMap((exhibit) => [exhibit.title, exhibit.content]),
+        ]),
+        ...q.caseStudy.questions.map((question) => question.stem),
+      ];
+      const contextEn = pairText(casePairs, "en");
+      const contextZh = pairText(casePairs, "zh");
+      const exhibits: CaseStudyExhibit[] = [
+        ...q.caseStudy.exhibits,
+        ...(q.caseStudy.stages ?? []).flatMap((stage) => stage.exhibits),
+      ];
+      for (const ex of exhibits) {
+        idx.set(`${q.id}/${ex.id}`, {
+          contentEn: en(ex.content).normalize("NFC"),
+          contentZh: ex.content.zh.normalize("NFC"),
+          contextEn,
+          contextZh,
+        });
       }
     }
   }
@@ -288,7 +316,9 @@ const buildBlindIndex = async (casesPath: string): Promise<ExhibitIndex> => {
   const cases = JSON.parse(raw) as BlindCase[];
   for (const c of cases) {
     if (!c.exhibitRef) continue;
-    idx.set(c.exhibitRef, en(c.content).normalize("NFC"));
+    const contentEn = en(c.content).normalize("NFC");
+    const contentZh = (c.content?.zh ?? "").normalize("NFC");
+    idx.set(c.exhibitRef, { contentEn, contentZh, contextEn: contentEn, contextZh: contentZh });
   }
   return idx;
 };
@@ -319,7 +349,7 @@ const looksSerial = (source: string): boolean => serialParams(source).length > 0
 // Extraction record types (mirror the proposal's emitted shape)
 // ----------------------------------------------------------------------------
 
-type PanelEntry = { label: string; value: string; sourceUnit?: string; sourceSpan?: string; context?: string };
+type PanelEntry = { label: string; value: string; sourceUnit?: string; sourceSpan?: string; context?: string; bound?: unknown };
 type ExcludedEntry = { label: string; value: string; reason: string; sourceSpan?: string };
 type AliasEntry = { aliasOf: string; value: string };
 type ExtractionRecord = {
@@ -328,6 +358,7 @@ type ExtractionRecord = {
   panel?: PanelEntry[];
   excludedValues?: ExcludedEntry[];
   unitAliases?: AliasEntry[];
+  population?: unknown;
 };
 
 type Finding = { level: "FAIL" | "WARN"; ref: string; msg: string };
@@ -350,11 +381,102 @@ const inAdultRefBand = (key: "calcium" | "ionized_calcium", canonicalValue: numb
   return canonicalValue >= band.low && canonicalValue <= band.high;
 };
 
+type PediatricDetection = {
+  subjectScoped: boolean;
+  unscoped: boolean;
+};
+
+type AgeMarker = { index: number; length: number };
+
+const englishPediatricAgeMarkers = (text: string): AgeMarker[] => {
+  const markers: AgeMarker[] = [];
+  const re = /\b(\d{1,3})\s*(?:-\s*)?(years?|yrs?|months?|mos?)(?:\s*-\s*old|\s+old)?\b/gi;
+  let match: RegExpExecArray | null;
+  while ((match = re.exec(text)) !== null) {
+    const age = Number(match[1]);
+    const unit = match[2].toLowerCase();
+    const pediatric = unit.startsWith("month") || unit.startsWith("mo") ? age < 216 : age < 18;
+    if (pediatric) markers.push({ index: match.index, length: match[0].length });
+  }
+  return markers;
+};
+
+const chinesePediatricAgeMarkers = (text: string): AgeMarker[] => {
+  const markers: AgeMarker[] = [];
+  const re = /(\d{1,3})\s*(岁|个月|月龄)/g;
+  let match: RegExpExecArray | null;
+  while ((match = re.exec(text)) !== null) {
+    const age = Number(match[1]);
+    const pediatric = match[2] === "岁" ? age < 18 : age < 216;
+    if (pediatric) markers.push({ index: match.index, length: match[0].length });
+  }
+  return markers;
+};
+
+const englishAgeIsSubjectScoped = (text: string, marker: AgeMarker): boolean => {
+  const before = text.slice(Math.max(0, marker.index - 70), marker.index);
+  const after = text.slice(marker.index + marker.length, marker.index + marker.length + 70);
+  const window = `${before}${text.slice(marker.index, marker.index + marker.length)}${after}`;
+  if (/\b(?:patient|client)'s\s+(?:infant|toddler|newborn|neonate|child)\b/i.test(window)) return false;
+  if (/^\s*(?:patient|client|infant|toddler|newborn|neonate|child|adolescent|boy|girl)\b/i.test(after)) return true;
+  if (/^\s*[,;:-]?\s*(?:presents|arrives|is\s+admitted|was\s+admitted|is\s+brought|was\s+brought|has|weighs|reports|is\s+seen)\b/i.test(after)) return true;
+  return /\b(?:patient|client)\s+(?:is|was|aged)\s+(?:an?\s+)?$/i.test(before);
+};
+
+const chineseAgeIsSubjectScoped = (text: string, marker: AgeMarker): boolean => {
+  const before = text.slice(Math.max(0, marker.index - 35), marker.index);
+  const after = text.slice(marker.index + marker.length, marker.index + marker.length + 35);
+  if (/患者的(?:新生儿|婴儿|幼儿|儿童)/.test(`${before}${after}`)) return false;
+  if (/^\s*的?\s*(?:患儿|患者|男婴|女婴|男童|女童|男孩|女孩|新生儿|婴儿|幼儿|儿童)/.test(after)) return true;
+  if (/^\s*[,，；;：:]?\s*(?:因|来诊|就诊|入院|被送|送至|表现|出现|体重)/.test(after)) return true;
+  return /(?:患儿|患者|男婴|女婴|男童|女童|男孩|女孩)\s*[,，：:]?\s*$/.test(before);
+};
+
+const hasSubjectScopedEnglishNoun = (text: string): boolean => {
+  if (/\bpediatric\s+(?:patient|client)\b/i.test(text)) return true;
+  if (/\b(?:patient|client)\s+(?:is|was)\s+(?:an?\s+)?(?:infant|toddler|newborn|neonate|child|adolescent)\b/i.test(text)) return true;
+  const re = /\b(infant|toddler|newborn|neonate|child|adolescent|boy|girl)\s+(presents|arrives|is|was|has|weighs|reports)\b/gi;
+  let match: RegExpExecArray | null;
+  while ((match = re.exec(text)) !== null) {
+    const before = text.slice(Math.max(0, match.index - 24), match.index);
+    if (!/\b(?:patient|client)'s\s*$/i.test(before)) return true;
+  }
+  return false;
+};
+
+const hasSubjectScopedChineseNoun = (text: string): boolean =>
+  /患儿/.test(text) ||
+  /(?:患者为|患者是)\s*(?:一名)?\s*(?:新生儿|婴儿|幼儿|儿童)/.test(text) ||
+  /(?:新生儿|婴儿|幼儿|儿童|学龄前儿童)(?:患者)?\s*(?:因|来诊|就诊|入院|被送|送至|出现|患有|体重)/.test(text);
+
+const detectPediatricContext = (source: ExhibitSource): PediatricDetection => {
+  const enText = `${source.contentEn}\n${source.contextEn}`;
+  const zhText = `${source.contentZh}\n${source.contextZh}`;
+  const enAges = englishPediatricAgeMarkers(enText);
+  const zhAges = chinesePediatricAgeMarkers(zhText);
+  const subjectScoped =
+    enAges.some((marker) => englishAgeIsSubjectScoped(enText, marker)) ||
+    zhAges.some((marker) => chineseAgeIsSubjectScoped(zhText, marker)) ||
+    hasSubjectScopedEnglishNoun(enText) ||
+    hasSubjectScopedChineseNoun(zhText);
+  const unscoped =
+    enAges.length > 0 ||
+    zhAges.length > 0 ||
+    /\b(?:infant|toddler|newborn|neonate|child|adolescent|pediatric|paediatric|peds|well-child)\b/i.test(enText) ||
+    /(?:新生儿|婴儿|幼儿|儿童|学龄前|儿科)/.test(zhText);
+  return { subjectScoped, unscoped: unscoped && !subjectScoped };
+};
+
+const normalizeExhibitSource = (source: string | ExhibitSource): ExhibitSource =>
+  typeof source === "string"
+    ? { contentEn: source, contentZh: "", contextEn: source, contextZh: "" }
+    : source;
+
 // ----------------------------------------------------------------------------
 // Core gate
 // ----------------------------------------------------------------------------
 
-const gateRecord = (rec: ExtractionRecord, source: string | undefined): Finding[] => {
+const gateRecord = (rec: ExtractionRecord, source: string | ExhibitSource | undefined): Finding[] => {
   const f: Finding[] = [];
   const ref = rec.exhibitRef;
   const push = (level: Finding["level"], msg: string) => f.push({ level, ref, msg });
@@ -363,13 +485,25 @@ const gateRecord = (rec: ExtractionRecord, source: string | undefined): Finding[
     push("FAIL", "exhibitRef not found in any scanned bank");
     return f;
   }
-  const src = nfc(source);
+  const exhibitSource = normalizeExhibitSource(source);
+  const src = nfc(exhibitSource.contentEn);
 
   if (rec.lane === "skip_serial") {
     const extra = Object.keys(rec).filter((k) => k !== "exhibitRef" && k !== "lane");
     if (extra.length) push("FAIL", `skip_serial record carries extra keys: ${extra.join(", ")}`);
     if (!looksSerial(src)) push("WARN", "lane=skip_serial but serial detector did not re-confirm a Rule D serial pattern; verify");
     return f;
+  }
+
+  const population = isPopulation(rec.population) ? rec.population : undefined;
+  if (rec.population !== undefined && population === undefined) {
+    push("FAIL", "population must be adult, peds_child, or peds_infant when present");
+  }
+  const pediatric = detectPediatricContext(exhibitSource);
+  if (pediatric.subjectScoped && (population === undefined || population === "adult")) {
+    push("FAIL", "subject-scoped pediatric context requires population peds_child or peds_infant");
+  } else if (pediatric.unscoped) {
+    push("WARN", "unscoped pediatric age or noun marker found; verify that population describes the client");
   }
 
   // Rule D negative check: an extract record must NOT be a serial exhibit.
@@ -395,11 +529,21 @@ const gateRecord = (rec: ExtractionRecord, source: string | undefined): Finding[
     if (!ALLOW_KEYS.has(e.label)) push("FAIL", `${at}: label not in allowlist`);
     // GATE 1: value verbatim
     if (!src.includes(nfc(e.value))) push("FAIL", `${at}: value not a verbatim substring of source`);
+    if (/[<>≤≥]/.test(e.value)) push("FAIL", `${at}: value must be an exact scalar; store the comparator in bound`);
+    const bound: ">" | "<" | undefined = e.bound === ">" || e.bound === "<" ? e.bound : undefined;
+    if (e.bound !== undefined && bound === undefined) push("FAIL", `${at}: bound must be '>' or '<' when present`);
     // Rule E: sourceSpan REQUIRED and verbatim
     if (!e.sourceSpan) {
       push("FAIL", `${at}: missing sourceSpan (Rule E: required)`);
     } else if (!src.includes(nfc(e.sourceSpan))) {
       push("FAIL", `${at}: sourceSpan not a verbatim substring`);
+    } else {
+      const sourceComparator = e.sourceSpan.match(new RegExp(`([<>≤≥])\\s*${escapeRegExp(e.value)}`))?.[1];
+      if (bound === undefined && sourceComparator !== undefined) {
+        push("FAIL", `${at}: sourceSpan carries comparator '${sourceComparator}'; store it in bound`);
+      } else if (bound !== undefined && sourceComparator !== bound) {
+        push("FAIL", `${at}: bound '${bound}' is not transcribed beside the value in sourceSpan`);
+      }
     }
     // Rule C: sourceUnit present + recognized
     if (!e.sourceUnit) {
@@ -456,8 +600,10 @@ const gateRecord = (rec: ExtractionRecord, source: string | undefined): Finding[
         push("WARN", `${at}: could not convert '${e.value} ${e.sourceUnit}' to canonical; GATE 4 skipped (verify unit)`);
       } else {
         const { min, max } = ALLOW[e.label].sanity;
-        if (canonVal < min || canonVal > max) {
-          push("WARN", `${at}: GATE 4 out of band — ${e.value} ${e.sourceUnit} = ${canonVal.toPrecision(4)} ${ALLOW[e.label].canonicalUnit}, sanity [${min}, ${max}] (likely value+unit mismatch)`);
+        const outOfBand = bound === ">" ? canonVal < min : bound === "<" ? canonVal > max : canonVal < min || canonVal > max;
+        if (outOfBand) {
+          const checkedRange = bound === ">" ? `[${min}, ∞)` : bound === "<" ? `(-∞, ${max}]` : `[${min}, ${max}]`;
+          push("WARN", `${at}: GATE 4 out of band — ${bound ?? ""}${e.value} ${e.sourceUnit} = ${bound ?? ""}${canonVal.toPrecision(4)} ${ALLOW[e.label].canonicalUnit}, sanity ${checkedRange} (likely value+unit mismatch)`);
         }
       }
     }
@@ -580,11 +726,12 @@ export {
   looksSerial,
   buildExhibitIndex,
   buildBlindIndex,
+  detectPediatricContext,
   LABEL_PATTERNS,
   ALLOW,
   ALLOW_KEYS,
 };
-export type { ExtractionRecord, PanelEntry, ExcludedEntry, AliasEntry, Finding };
+export type { ExtractionRecord, PanelEntry, ExcludedEntry, AliasEntry, Finding, ExhibitSource, PediatricDetection };
 
 // Run the CLI only when invoked directly (tsx/node entry), not when imported.
 // Matches the repo idiom (see scripts/census.ts).

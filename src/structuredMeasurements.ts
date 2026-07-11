@@ -79,14 +79,15 @@ export const formatStructuredMeasurementValue = (
   const duplicateScaleDisplay = policy.secondaryUnit
     ? isIdentityScale(key, policy.primaryUnit, policy.secondaryUnit)
     : false;
-  const secondaryText = policy.secondaryUnit && secondaryValue !== null && !duplicateScaleDisplay
+  const secondaryText = policy.secondaryUnit && secondaryValue !== null && !duplicateScaleDisplay && entry.bound === undefined
     ? ` (${formatRawMeasurement(trimNumber(secondaryValue), policy.secondaryUnit)})`
     : "";
 
   const converted = toCanonicalMeasurementValue(key, entry.value, entry.unit);
   const base = converted === null ? formatRawMeasurement(entry.value, entry.unit) : `${primaryText}${secondaryText}`;
+  const bound = entry.bound === ">" || entry.bound === "<" ? entry.bound : "";
   const context = entry.context === "post_intervention" ? ` [${POST_INTERVENTION_LABEL[locale]}]` : "";
-  return `${base}${context}`;
+  return `${bound}${base}${context}`;
 };
 
 export const serializeStructuredMeasurements = (

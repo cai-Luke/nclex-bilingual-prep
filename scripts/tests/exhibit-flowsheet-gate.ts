@@ -4,6 +4,7 @@ import {
   serialParams,
   toCanonical,
   type ExtractionRecord,
+  type ExhibitSource,
   type Finding,
 } from "../exhibit-flowsheet-gate";
 import { mkdtemp, rm, writeFile } from "node:fs/promises";
@@ -167,6 +168,117 @@ const run = (record: ExtractionRecord, src = source): Finding[] => gateRecord(re
   const findings = run(record, source);
   assert(noFinding(findings, "reason 'comparator'"), "comparator exclusion reason should be accepted");
   assert(noFinding(findings, "source mentions 'ptt'"), "comparator exclusion should account for the ptt label");
+}
+
+{
+  const source = "Labs: aPTT >50000 seconds.";
+  const bounded: ExtractionRecord = {
+    exhibitRef: "test/bounded_high",
+    lane: "extract",
+    panel: [{ label: "ptt", value: "50000", sourceUnit: "seconds", sourceSpan: "aPTT >50000 seconds", bound: ">" }],
+    excludedValues: [],
+    unitAliases: [],
+  };
+  assert(noFinding(run(bounded, source), "GATE 4 out of band"), "greater-than bound should ignore the sanity maximum");
+  const exact = structuredClone(bounded);
+  delete exact.panel![0].bound;
+  assert(hasFinding(run(exact, source), "FAIL", "store it in bound"), "dropping a source comparator should fail loudly");
+  assert(hasFinding(run(exact, source), "WARN", "GATE 4 out of band"), "same high value without a bound should warn");
+}
+
+{
+  const source = "Creatinine <0.01 mg/dL.";
+  const bounded: ExtractionRecord = {
+    exhibitRef: "test/bounded_low",
+    lane: "extract",
+    panel: [{ label: "creatinine", value: "0.01", sourceUnit: "mg/dL", sourceSpan: "Creatinine <0.01 mg/dL", bound: "<" }],
+    excludedValues: [],
+    unitAliases: [],
+  };
+  assert(noFinding(run(bounded, source), "GATE 4 out of band"), "less-than bound should ignore the sanity minimum");
+  const exact = structuredClone(bounded);
+  delete exact.panel![0].bound;
+  assert(hasFinding(run(exact, source), "FAIL", "store it in bound"), "dropping a source comparator should fail loudly");
+  assert(hasFinding(run(exact, source), "WARN", "GATE 4 out of band"), "same low value without a bound should warn");
+}
+
+{
+  const source = "Labs: aPTT >150 seconds.";
+  const comparatorInValue: ExtractionRecord = {
+    exhibitRef: "test/comparator_value",
+    lane: "extract",
+    panel: [{ label: "ptt", value: ">150", sourceUnit: "seconds", sourceSpan: "aPTT >150 seconds" }],
+    excludedValues: [],
+    unitAliases: [],
+  };
+  assert(hasFinding(run(comparatorInValue, source), "FAIL", "store the comparator in bound"), "comparator-bearing values should fail with bound guidance");
+}
+
+const pediatricSource = (enText: string, zhText = ""): ExhibitSource => ({
+  contentEn: enText,
+  contentZh: zhText,
+  contextEn: enText,
+  contextZh: zhText,
+});
+
+const populationRecord = (population?: unknown): ExtractionRecord => ({
+  exhibitRef: "test/population",
+  lane: "extract",
+  ...(population !== undefined ? { population } : {}),
+  panel: [],
+  excludedValues: [],
+  unitAliases: [],
+});
+
+{
+  const source = pediatricSource("A 9-month-old client presents with fever.");
+  assert(hasFinding(gateRecord(populationRecord(), source), "FAIL", "subject-scoped pediatric context"), "English pediatric client age should require population");
+  assert(hasFinding(gateRecord(populationRecord("adult"), source), "FAIL", "subject-scoped pediatric context"), "adult declaration should fail for a pediatric client");
+  assert(noFinding(gateRecord(populationRecord("peds_infant"), source), "subject-scoped pediatric context"), "peds_infant should satisfy the pediatric detector");
+}
+
+for (const zhText of [
+  "9月龄患儿因发热入院。",
+  "9个月大的患儿因发热入院。",
+  "2岁患儿因咳嗽就诊。",
+  "新生儿因呼吸困难入院。",
+  "婴儿因发热来诊。",
+  "幼儿因呕吐就诊。",
+  "儿童因皮疹入院。",
+  "学龄前儿童因喘息来诊。",
+]) {
+  const findings = gateRecord(populationRecord(), pediatricSource("Assessment available.", zhText));
+  assert(hasFinding(findings, "FAIL", "subject-scoped pediatric context"), `Chinese pediatric subject marker should require population: ${zhText}`);
+}
+
+{
+  const adultAge = gateRecord(populationRecord(), pediatricSource("An 18-year-old client presents for follow-up."));
+  assert(noFinding(adultAge, "pediatric"), "18-year-old must not trigger pediatric FAIL or WARN");
+}
+
+for (const text of [
+  "The adult client's pediatric ICU nurse reviews the plan.",
+  "The patient's infant is visiting with the family.",
+  "The adult client asks how to prepare infant formula.",
+]) {
+  const findings = gateRecord(populationRecord("adult"), pediatricSource(text));
+  assert(noFinding(findings, "subject-scoped pediatric context"), `adult false positive must not FAIL: ${text}`);
+  assert(hasFinding(findings, "WARN", "unscoped pediatric"), `unscoped pediatric noun should WARN: ${text}`);
+}
+
+{
+  const findings = gateRecord(populationRecord("adult"), pediatricSource("成人患者由专科护士评估。", "成人患者由儿科护士评估。"));
+  assert(noFinding(findings, "subject-scoped pediatric context"), "儿科 must not create a pediatric-client FAIL");
+  assert(hasFinding(findings, "WARN", "unscoped pediatric"), "儿科 should route to unscoped review");
+}
+
+for (const text of [
+  "The 80-kg adult receives dopamine at 5 mcg/kg/min.",
+  "The adult receives heparin at 18 units/kg/hr.",
+  "The adult oncology client receives chemotherapy dosed by body weight.",
+]) {
+  const findings = gateRecord(populationRecord("adult"), pediatricSource(text));
+  assert(noFinding(findings, "pediatric"), `weight-based dosing must trigger neither pediatric FAIL nor WARN: ${text}`);
 }
 
 {
@@ -399,7 +511,7 @@ const run = (record: ExtractionRecord, src = source): Finding[] => gateRecord(re
     const casesPath = join(dir, "cases.json");
     await writeFile(casesPath, JSON.stringify([{ exhibitRef: "blind_01/assessment", content: { en: "Temperature 37.0 °C.", zh: "体温37.0°C。" } }]), "utf8");
     const index = await buildBlindIndex(casesPath);
-    assert(index.get("blind_01/assessment") === "Temperature 37.0 °C.", "buildBlindIndex should resolve flat blind cases");
+    assert(index.get("blind_01/assessment")?.contentEn === "Temperature 37.0 °C.", "buildBlindIndex should resolve flat blind cases");
   } finally {
     await rm(dir, { recursive: true, force: true });
   }

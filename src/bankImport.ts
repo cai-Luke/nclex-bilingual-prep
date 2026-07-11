@@ -181,12 +181,31 @@ const hasStructuredMeasurements = (question: Question) => {
   );
 };
 
+const hasStructuredMeasurementV2Feature = (question: Question) => {
+  if (question.itemType !== "case_study") return false;
+  const exhibits = [
+    ...question.caseStudy.exhibits,
+    ...(question.caseStudy.stages ?? []).flatMap((stage) => stage.exhibits),
+  ];
+  return exhibits.some((exhibit) => {
+    const measurements = exhibit.structuredMeasurements;
+    return measurements !== undefined && (
+      measurements.population !== undefined ||
+      measurements.panels.some((panel) =>
+        panel.rows.some((row) => row.values.some((entry) => entry.bound !== undefined))
+      )
+    );
+  });
+};
+
 const hasIoTrend = (question: Question) =>
   collectAllVisuals(question).some((visual) => visual.kind === "io_trend");
 
 export const toExportEnvelope = (questions: Question[]): BankEnvelope => ({
   meta: {
-    schemaVersion: questions.some(hasIoTrend)
+    schemaVersion: questions.some(hasStructuredMeasurementV2Feature)
+      ? "2.0"
+      : questions.some(hasIoTrend)
       ? "1.9"
       : questions.some(hasStructuredMeasurements)
       ? "1.8"

@@ -1,3 +1,5 @@
+import type { Population } from "../../../population";
+
 export type VitalKey = "hr" | "sbp" | "dbp" | "map" | "rr" | "spo2" | "temp";
 
 export interface VitalsTrendSpec {
@@ -10,7 +12,7 @@ export interface VitalsTrendSpec {
     values: number[];
   };
   /** Reference-range population. Default "adult". */
-  population?: "adult" | "peds_child" | "peds_infant";
+  population?: Population;
   series: {
     vital: VitalKey;
     /** Same length as timepointsHr; one value per timepoint. */

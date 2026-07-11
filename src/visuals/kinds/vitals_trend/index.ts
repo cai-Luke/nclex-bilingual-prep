@@ -3,6 +3,7 @@ import { type ChartSeries, type LineChartInput, renderLineChart } from "../../pr
 import { type VitalKey, type VitalsTrendSpec } from "./types";
 import { fmt } from "../../primitives/graphPaper";
 import { VITAL_DEFS } from "./defs";
+import { isPopulation } from "../../../population";
 
 const isRecord = (value: unknown): value is Record<string, unknown> =>
   typeof value === "object" && value !== null && !Array.isArray(value);
@@ -36,6 +37,10 @@ export const validateVitalsTrend = (spec: VitalsTrendSpec): VisualError[] => {
     if (i > 0 && times[i] <= times[i - 1]) {
       errs.push({ path: `time.values[${i}]`, code: "timepoints_not_increasing", message: "must be strictly increasing" });
     }
+  }
+
+  if (value.population !== undefined && !isPopulation(value.population)) {
+    errs.push({ path: "population", code: "invalid_population", message: "must be 'adult', 'peds_child', or 'peds_infant'" });
   }
 
   if (!Array.isArray(value.series) || value.series.length === 0) {
@@ -313,14 +318,9 @@ const fixtures: VisualKindModule<VitalsTrendSpec>["fixtures"] = {
       timepointsHr: [0, 1],
       series: [{ vital: "hr", values: [140, 135], showReferenceBand: false }],
     },
-    {
-      kind: "vitals_trend",
-      population: null as unknown as VitalsTrendSpec["population"],
-      timepointsHr: [0, 1],
-      series: [{ vital: "hr", values: [80, 85] }],
-    },
   ],
   invalid: [
+    { spec: { kind: "vitals_trend", population: null, timepointsHr: [0, 1], series: [{ vital: "hr", values: [80, 85] }] }, expectCode: "invalid_population" },
     { spec: { kind: "vitals_trend", timepointsHr: [0, 1], series: [] }, expectCode: "series_empty" },
     { spec: { kind: "vitals_trend", timepointsHr: [1, 0], series: [{ vital: "hr", values: [80, 90] }] }, expectCode: "timepoints_not_increasing" },
     { spec: { kind: "vitals_trend", timepointsHr: [0, 1], series: [{ vital: "hr", values: [80] }] }, expectCode: "values_length_mismatch" },

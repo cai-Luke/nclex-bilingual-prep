@@ -177,7 +177,7 @@ const main = async () => {
   console.log("=".repeat(72));
   for (const k of key) {
     bucketCounts[k.bucket] = (bucketCounts[k.bucket] ?? 0) + 1;
-    const issues = scoreRecord(k, extByRef.get(k.exhibitRef), sourceIndex.get(k.exhibitRef));
+    const issues = scoreRecord(k, extByRef.get(k.exhibitRef), sourceIndex.get(k.exhibitRef)?.contentEn);
     if (issues.length === 0) {
       console.log(`OK  ${k.exhibitRef.padEnd(40)} [${k.bucket}]`);
     } else {

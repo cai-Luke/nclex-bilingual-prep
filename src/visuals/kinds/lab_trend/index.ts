@@ -3,7 +3,8 @@ import { type ChartSeries, type LineChartInput, renderLineChart } from "../../pr
 import { type LabAnalyteKey, type LabTrendSpec } from "./types";
 import { fmt } from "../../primitives/graphPaper";
 import { escapeXml } from "../../primitives/escapeXml";
-import { ANALYTE_DEFS, type PopKey } from "./defs";
+import { ANALYTE_DEFS } from "./defs";
+import { isPopulation, type Population } from "../../../population";
 
 const ANALYTE_KEYS = new Set<string>(Object.keys(ANALYTE_DEFS));
 
@@ -54,7 +55,7 @@ export const validateLabTrend = (spec: LabTrendSpec): VisualError[] => {
   }
 
   // population
-  if (value.population !== undefined && value.population !== "adult" && value.population !== "peds_child" && value.population !== "peds_infant") {
+  if (value.population !== undefined && !isPopulation(value.population)) {
     errs.push({ path: "population", code: "invalid_population", message: "must be 'adult', 'peds_child', or 'peds_infant'" });
   }
 
@@ -67,7 +68,7 @@ export const validateLabTrend = (spec: LabTrendSpec): VisualError[] => {
     errs.push({ path: "series", code: "too_many_series", message: "must have at most 2 series" });
   }
 
-  const pop: PopKey = (value.population as PopKey) ?? "adult";
+  const pop: Population = isPopulation(value.population) ? value.population : "adult";
   const seenAnalytes = new Set<string>();
   const seriesArr = value.series as Record<string, unknown>[];
 
@@ -141,7 +142,7 @@ export const selfCheckLabTrend = (spec: LabTrendSpec, question: unknown): Visual
   const times = Array.isArray(spec.time?.values) ? spec.time.values : [];
   if (times.length === 0 || !Array.isArray(spec.series)) return errs;
 
-  const pop: PopKey = spec.population ?? "adult";
+  const pop: Population = spec.population ?? "adult";
 
   // 1. Render fidelity: every plotted point equals series.values
   spec.series.forEach((s, idx) => {
@@ -241,7 +242,7 @@ export const selfCheckLabTrend = (spec: LabTrendSpec, question: unknown): Visual
 export const renderLabTrendSvg = (spec: LabTrendSpec): string => {
   const times = spec.time?.values ?? [];
   const timeUnit = spec.time?.unit ?? "hr";
-  const pop: PopKey = spec.population ?? "adult";
+  const pop: Population = spec.population ?? "adult";
 
   const xAxisLabel =
     timeUnit === "min" ? "Time (Minutes)" :

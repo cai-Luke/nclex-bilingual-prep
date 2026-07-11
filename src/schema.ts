@@ -14,18 +14,20 @@ import type {
   SchemaVersion,
   StandaloneQuestion,
   StandaloneItemType,
+  StructuredMeasurements,
   TextPair,
 } from "./types";
 import { allowedKeySets } from "./allowedKeys";
 import { ALLOWLIST_KEYS, MEASUREMENT_ALLOWLIST } from "./measurementAllowlist";
 import { normalizeUnit } from "./measurementUnitPolicy";
+import { isPopulation, POPULATIONS } from "./population";
 import { getVisual, VISUAL_ITEM_TYPES, type VisualError } from "./visuals/registry";
 import "./visuals/kinds"; // register every visual kind for validation (React-free)
 export { rhythmClasses } from "./visuals/kinds/rhythmStrip";
 
-export const SCHEMA_VERSION = "1.9";
+export const SCHEMA_VERSION = "2.0";
 
-export const supportedSchemaVersions = ["1.0", "1.1", "1.2", "1.3", "1.4", "1.5", "1.6", "1.7", "1.8", "1.9"] as const satisfies readonly SchemaVersion[];
+export const supportedSchemaVersions = ["1.0", "1.1", "1.2", "1.3", "1.4", "1.5", "1.6", "1.7", "1.8", "1.9", "2.0"] as const satisfies readonly SchemaVersion[];
 
 export const categories = [
   "Management of Care",
@@ -555,13 +557,8 @@ const validateStructuredMeasurements = (value: unknown, path: string, reasons: s
     return;
   }
   collectForbiddenStructuredMeasurementFields(value, path, reasons);
-  if (
-    value.population !== undefined &&
-    value.population !== "adult" &&
-    value.population !== "peds_child" &&
-    value.population !== "peds_infant"
-  ) {
-    reasons.push(`${path}.population must be adult, peds_child, or peds_infant when present`);
+  if (value.population !== undefined && !isPopulation(value.population)) {
+    reasons.push(`${path}.population must be ${POPULATIONS.join(", ")} when present`);
   }
   if (!Array.isArray(value.panels) || value.panels.length === 0) {
     reasons.push(`${path}.panels must be a non-empty array`);
@@ -645,7 +642,7 @@ const validateStructuredMeasurements = (value: unknown, path: string, reasons: s
           if (!nonEmptyString(entry.value)) {
             reasons.push(`${valuePath}.value is required`);
           } else if (/[<>≤≥]/.test(entry.value)) {
-            reasons.push(`${valuePath}.value must be an exact scalar without comparator symbols`);
+            reasons.push(`${valuePath}.value must be an exact scalar without comparator symbols; store the comparator in bound`);
           }
           if (!nonEmptyString(entry.unit)) {
             reasons.push(`${valuePath}.unit is required`);
@@ -654,6 +651,9 @@ const validateStructuredMeasurements = (value: unknown, path: string, reasons: s
           }
           if (entry.context !== undefined && entry.context !== "post_intervention") {
             reasons.push(`${valuePath}.context must be post_intervention when present`);
+          }
+          if (entry.bound !== undefined && entry.bound !== ">" && entry.bound !== "<") {
+            reasons.push(`${valuePath}.bound must be > or < when present`);
           }
         });
       });
@@ -1265,21 +1265,30 @@ const hasPacerRhythmStrip = (question: Question): boolean => {
   return question.caseStudy.questions.some((caseQuestion) => hasPacerRhythmVisual(caseQuestion.visual));
 };
 
-const hasStructuredMeasurements = (question: Question): boolean => {
-  if (question.itemType !== "case_study") return false;
-  if (question.caseStudy.exhibits.some((exhibit) => exhibit.structuredMeasurements !== undefined)) return true;
-  return question.caseStudy.stages?.some((stage) =>
-    stage.exhibits.some((exhibit) => exhibit.structuredMeasurements !== undefined)
-  ) ?? false;
+const collectStructuredMeasurements = (question: Question): StructuredMeasurements[] => {
+  if (question.itemType !== "case_study") return [];
+  const measurements = question.caseStudy.exhibits.flatMap((exhibit) =>
+    exhibit.structuredMeasurements ? [exhibit.structuredMeasurements] : []
+  );
+  for (const stage of question.caseStudy.stages ?? []) {
+    for (const exhibit of stage.exhibits) {
+      if (exhibit.structuredMeasurements) measurements.push(exhibit.structuredMeasurements);
+    }
+  }
+  return measurements;
 };
 
-const hasStructuredMeasurementPopulation = (question: Question): boolean => {
-  if (question.itemType !== "case_study") return false;
-  if (question.caseStudy.exhibits.some((exhibit) => exhibit.structuredMeasurements?.population !== undefined)) return true;
-  return question.caseStudy.stages?.some((stage) =>
-    stage.exhibits.some((exhibit) => exhibit.structuredMeasurements?.population !== undefined)
-  ) ?? false;
-};
+const hasStructuredMeasurements = (question: Question): boolean => collectStructuredMeasurements(question).length > 0;
+
+const hasStructuredMeasurementPopulation = (question: Question): boolean =>
+  collectStructuredMeasurements(question).some((measurements) => measurements.population !== undefined);
+
+const hasStructuredMeasurementBound = (question: Question): boolean =>
+  collectStructuredMeasurements(question).some((measurements) =>
+    measurements.panels.some((panel) =>
+      panel.rows.some((row) => row.values.some((entry) => entry.bound !== undefined))
+    )
+  );
 
 const hasIoTrend = (question: Question): boolean =>
   collectAllVisuals(question).some((visual) => visual.kind === "io_trend");
@@ -1410,16 +1419,28 @@ export const validateBankObject = (raw: unknown, options: ValidateBankOptions = 
       reasons.push(`questions[${index}]: structuredMeasurements requires meta.schemaVersion 1.8`);
       return;
     }
-    if (hasStructuredMeasurementPopulation(result.value)) {
-      reasons.push(`questions[${index}]: structuredMeasurements.population is gated until schema 2.0`);
-      return;
-    }
     if (
       schemaVersion !== undefined &&
       !schemaVersionAtLeast(schemaVersion, "1.9") &&
       hasIoTrend(result.value)
     ) {
       reasons.push(`questions[${index}]: io_trend visual requires meta.schemaVersion 1.9`);
+      return;
+    }
+    if (
+      schemaVersion !== undefined &&
+      !schemaVersionAtLeast(schemaVersion, "2.0") &&
+      hasStructuredMeasurementPopulation(result.value)
+    ) {
+      reasons.push(`questions[${index}]: structuredMeasurements.population requires meta.schemaVersion 2.0`);
+      return;
+    }
+    if (
+      schemaVersion !== undefined &&
+      !schemaVersionAtLeast(schemaVersion, "2.0") &&
+      hasStructuredMeasurementBound(result.value)
+    ) {
+      reasons.push(`questions[${index}]: structuredMeasurements bound requires meta.schemaVersion 2.0`);
       return;
     }
     if (seen.has(result.value.id)) {

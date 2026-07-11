@@ -79,7 +79,7 @@ await withRoot(async (root) => {
   await writeFile(
     join(root, "banks/gemini-canonical.json"),
     JSON.stringify({
-      meta: { schemaVersion: "2.0", count: 1 },
+      meta: { schemaVersion: "2.1", count: 1 },
       questions: [question("canonical_question")],
     }),
     "utf8",

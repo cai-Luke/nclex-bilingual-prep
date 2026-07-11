@@ -51,7 +51,7 @@ export const allowedKeySets = {
   structuredMeasurementPanel: ["kind", "columns", "rows"],
   structuredMeasurementColumn: ["id", "label"],
   structuredMeasurementRow: ["key", "label", "values"],
-  structuredMeasurementValue: ["columnId", "value", "unit", "context"],
+  structuredMeasurementValue: ["columnId", "value", "unit", "bound", "context"],
   questionMeta: [
     "visual_justification",
     "derived_values_keyed",

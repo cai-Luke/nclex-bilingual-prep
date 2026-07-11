@@ -8,11 +8,13 @@ import type {
   BankEnvelope,
   CaseStudyExhibit,
   Question,
+  SchemaVersion,
   StructuredMeasurementPanel,
   StructuredMeasurements,
-  StructuredMeasurementPopulation,
+  StructuredMeasurementValue,
   TextPair,
 } from "../src/types";
+import type { Population } from "../src/population";
 import { serializeBank } from "../lib/presentation-normalization";
 
 type StagedEntry = {
@@ -21,12 +23,13 @@ type StagedEntry = {
   sourceUnit?: string;
   sourceSpan?: string;
   context?: string;
+  bound?: StructuredMeasurementValue["bound"];
 };
 
 type StagedRecord = {
   exhibitRef: string;
   lane: string;
-  population?: StructuredMeasurementPopulation;
+  population?: Population;
   panel?: StagedEntry[];
 };
 
@@ -259,6 +262,7 @@ const toPanels = (record: StagedRecord, exhibit: CaseStudyExhibit): StructuredMe
           columnId: column.id,
           value: entry.value,
           unit: storedUnitFor(entry.label, entry.sourceUnit!),
+          ...(entry.bound !== undefined ? { bound: entry.bound } : {}),
           ...(entry.context === "post_intervention" ? { context: "post_intervention" as const } : {}),
         }],
       })),
@@ -298,7 +302,7 @@ for (const record of stagedRecords) {
     throw new Error(`${record.exhibitRef}: exhibit already has structuredMeasurements`);
   }
   const structuredMeasurements: StructuredMeasurements = {
-    ...(record.population ? { population: record.population } : {}),
+    ...(record.population !== undefined ? { population: record.population } : {}),
     panels: toPanels(record, location.exhibit),
   };
   location.exhibit.structuredMeasurements = structuredMeasurements;
@@ -306,11 +310,14 @@ for (const record of stagedRecords) {
     location.exhibit.content = POINTER_CONTENT;
   }
   const existingSchemaVersion = location.bank.bank.meta!.schemaVersion;
+  const requiredSchemaVersion: SchemaVersion = record.population !== undefined || record.panel?.some((entry) => entry.bound !== undefined)
+    ? "2.0"
+    : "1.8";
   location.bank.bank.meta = {
     ...location.bank.bank.meta,
-    schemaVersion: schemaVersionAtLeast(existingSchemaVersion, "1.8")
+    schemaVersion: schemaVersionAtLeast(existingSchemaVersion, requiredSchemaVersion)
       ? existingSchemaVersion
-      : "1.8",
+      : requiredSchemaVersion,
     count: location.bank.bank.questions.length,
   };
   location.bank.dirty = true;

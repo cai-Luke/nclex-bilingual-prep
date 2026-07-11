@@ -30,6 +30,18 @@ const nullPopulationSvg = renderVitalsTrendSvg({
 });
 assert(!nullPopulationSvg.includes('fill="#f1f5f9" opacity="0.6"'), "null population must suppress reference bands");
 
+const nullPopulationErrs = validateVitalsTrend({
+  ...canonical,
+  population: null as unknown as VitalsTrendSpec["population"],
+});
+assert(nullPopulationErrs.some(e => e.code === "invalid_population"), "null population must fail runtime vocabulary validation");
+
+const unknownPopulationErrs = validateVitalsTrend({
+  ...canonical,
+  population: "geriatric" as VitalsTrendSpec["population"],
+});
+assert(unknownPopulationErrs.some(e => e.code === "invalid_population"), "unknown population must fail runtime vocabulary validation");
+
 // --- Validation ----------------------------------------------
 const errs = validateVitalsTrend({
   kind: "vitals_trend",

@@ -1,3 +1,5 @@
+import type { Population } from "../../../population";
+
 // PLACEHOLDER ranges — every numeric value in the analyte registry (index.ts) must be
 // source-verified against authoritative clinical references before the content lane opens.
 
@@ -15,7 +17,7 @@ export interface LabTrendSpec {
   /** Hour/min/day offsets; strictly increasing; length >= 3. */
   time: { unit: "hr" | "min" | "day"; values: number[] };
   /** Reference-range population. Default "adult". */
-  population?: "adult" | "peds_child" | "peds_infant";
+  population?: Population;
   /** 1–2 analytes. Plot only the load-bearing analyte(s). */
   series: {
     analyte: LabAnalyteKey;

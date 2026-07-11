@@ -87,7 +87,7 @@ await withDirs(async (dirs) => {
   await writeBank(join(dirs.stagingDir, "gemini-new.json"), bank([question("added")]));
   await writeFile(
     join(dirs.canonicalDir, "gemini-canonical.json"),
-    JSON.stringify({ meta: { schemaVersion: "2.0", count: 1 }, questions: [question("existing")] }),
+    JSON.stringify({ meta: { schemaVersion: "2.1", count: 1 }, questions: [question("existing")] }),
     "utf8",
   );
   const result = await consolidateInto(dirs, "gemini-new.json");

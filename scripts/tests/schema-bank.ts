@@ -31,9 +31,11 @@ if (!requiredMissingVersion.ok) {
 
 assert.equal(schemaVersionAtLeast("1.9", "1.2"), true);
 assert.equal(schemaVersionAtLeast("1.2", "1.7"), false);
-assert.throws(() => schemaVersionAtLeast("2.0" as SchemaVersion, "1.9"), /Unsupported schema version: 2\.0/);
+assert.equal(schemaVersionAtLeast("2.0", "1.9"), true);
+assert.equal(schemaVersionAtLeast("2.0", "1.2"), true);
+assert.throws(() => schemaVersionAtLeast("2.1" as SchemaVersion, "1.9"), /Unsupported schema version: 2\.1/);
 assert.throws(() => schemaVersionAtLeast(undefined as unknown as SchemaVersion, "1.9"), /Unsupported schema version/);
-assert.throws(() => schemaVersionAtLeast("1.9", "2.0" as SchemaVersion), /Unsupported schema version: 2\.0/);
+assert.throws(() => schemaVersionAtLeast("1.9", "2.1" as SchemaVersion), /Unsupported schema version: 2\.1/);
 
 for (const version of supportedSchemaVersions) {
   const [, minor] = version.split(".");
@@ -48,14 +50,16 @@ assert.deepEqual(
 const applySource = readFileSync(new URL("../apply-structured-measurements.ts", import.meta.url), "utf8");
 assert(!applySource.includes('schemaVersion: "1.8",'), "applicator must not hard-pin schemaVersion 1.8");
 assert(
-  applySource.includes('schemaVersionAtLeast(existingSchemaVersion, "1.8")'),
-  "applicator must ratchet the existing schema version against the 1.8 floor",
+  applySource.includes('schemaVersionAtLeast(existingSchemaVersion, requiredSchemaVersion)'),
+  "applicator must ratchet the existing schema version against the applied feature floor",
 );
-const appliedVersion = (existing: SchemaVersion): SchemaVersion =>
-  schemaVersionAtLeast(existing, "1.8") ? existing : "1.8";
-assert.equal(appliedVersion("1.7"), "1.8");
-assert.equal(appliedVersion("1.8"), "1.8");
-assert.equal(appliedVersion("1.9"), "1.9");
+const appliedVersion = (existing: SchemaVersion, floor: SchemaVersion): SchemaVersion =>
+  schemaVersionAtLeast(existing, floor) ? existing : floor;
+assert.equal(appliedVersion("1.7", "1.8"), "1.8");
+assert.equal(appliedVersion("1.8", "1.8"), "1.8");
+assert.equal(appliedVersion("1.9", "1.8"), "1.9");
+assert.equal(appliedVersion("1.9", "2.0"), "2.0");
+assert.equal(appliedVersion("2.0", "2.0"), "2.0");
 
 const staleCount = validateBankObject({
   ...validEmptyBank,
@@ -605,14 +609,20 @@ const pedsStructuredPopulation = structuredClone(structuredMeasurementsCase);
 (pedsStructuredPopulation.caseStudy.exhibits[0].structuredMeasurements as {
   population?: string;
 }).population = "peds_child";
-const gatedStructuredPopulation = validateBankObject({
-  meta: { schemaVersion: "1.8", count: 1 },
+const acceptedStructuredPopulation = validateBankObject({
+  meta: { schemaVersion: "2.0", count: 1 },
   questions: [pedsStructuredPopulation],
 });
-assert.equal(gatedStructuredPopulation.ok, false);
-if (!gatedStructuredPopulation.ok) {
-  assert(gatedStructuredPopulation.reasons.includes(
-    "questions[0]: structuredMeasurements.population is gated until schema 2.0",
+assert.equal(acceptedStructuredPopulation.ok, true);
+
+const staleStructuredPopulation = validateBankObject({
+  meta: { schemaVersion: "1.9", count: 1 },
+  questions: [pedsStructuredPopulation],
+});
+assert.equal(staleStructuredPopulation.ok, false);
+if (!staleStructuredPopulation.ok) {
+  assert(staleStructuredPopulation.reasons.includes(
+    "questions[0]: structuredMeasurements.population requires meta.schemaVersion 2.0",
   ));
 }
 
@@ -621,13 +631,67 @@ const badStructuredPopulation = structuredClone(structuredMeasurementsCase);
   population?: string;
 }).population = "neonate";
 const badPopulationResult = validateBankObject({
-  meta: { schemaVersion: "1.8", count: 1 },
+  meta: { schemaVersion: "2.0", count: 1 },
   questions: [badStructuredPopulation],
 });
 assert.equal(badPopulationResult.ok, false);
 if (!badPopulationResult.ok) {
-  assert(badPopulationResult.reasons.some((reason) => reason.includes("population must be adult, peds_child, or peds_infant")));
+  assert(badPopulationResult.reasons.some((reason) =>
+    reason.includes("population must be") && reason.includes("adult") && reason.includes("peds_child") && reason.includes("peds_infant")
+  ));
 }
+
+const boundedStructuredMeasurement = structuredClone(structuredMeasurementsCase);
+const boundedValue = boundedStructuredMeasurement.caseStudy.exhibits[0].structuredMeasurements.panels[0].rows[0].values[0] as Record<string, unknown>;
+boundedValue.bound = ">";
+const acceptedBound = validateBankObject({ meta: { schemaVersion: "2.0", count: 1 }, questions: [boundedStructuredMeasurement] });
+assert.equal(acceptedBound.ok, true);
+
+const staleBound = validateBankObject({ meta: { schemaVersion: "1.9", count: 1 }, questions: [boundedStructuredMeasurement] });
+assert.equal(staleBound.ok, false);
+if (!staleBound.ok) {
+  assert(staleBound.reasons.includes("questions[0]: structuredMeasurements bound requires meta.schemaVersion 2.0"));
+}
+
+const comparatorInValue = structuredClone(boundedStructuredMeasurement);
+const comparatorValue = comparatorInValue.caseStudy.exhibits[0].structuredMeasurements.panels[0].rows[0].values[0] as Record<string, unknown>;
+delete comparatorValue.bound;
+comparatorValue.value = ">6.2";
+const comparatorResult = validateBankObject({ meta: { schemaVersion: "2.0", count: 1 }, questions: [comparatorInValue] });
+assert.equal(comparatorResult.ok, false);
+if (!comparatorResult.ok) {
+  assert(comparatorResult.reasons.some((reason) => reason.includes("store the comparator in bound")));
+}
+
+const invalidBoundValue = structuredClone(boundedStructuredMeasurement);
+(invalidBoundValue.caseStudy.exhibits[0].structuredMeasurements.panels[0].rows[0].values[0] as Record<string, unknown>).bound = ">=";
+const invalidBoundResult = validateBankObject({ meta: { schemaVersion: "2.0", count: 1 }, questions: [invalidBoundValue] });
+assert.equal(invalidBoundResult.ok, false);
+if (!invalidBoundResult.ok) {
+  assert(invalidBoundResult.reasons.some((reason) => reason.includes("bound must be > or <")));
+}
+
+const stagePopulation = structuredClone(pedsStructuredPopulation) as any;
+const populationExhibit = { ...stagePopulation.caseStudy.exhibits[0], id: "stage_population" };
+delete stagePopulation.caseStudy.exhibits[0].structuredMeasurements;
+stagePopulation.caseStudy.stages = [{ id: "population_stage", title: pair("Population stage"), exhibits: [populationExhibit] }];
+const staleStagePopulation = validateBankObject({ meta: { schemaVersion: "1.9", count: 1 }, questions: [stagePopulation] });
+assert.equal(staleStagePopulation.ok, false);
+if (!staleStagePopulation.ok) {
+  assert(staleStagePopulation.reasons.includes("questions[0]: structuredMeasurements.population requires meta.schemaVersion 2.0"));
+}
+assert.equal(toExportEnvelope([stagePopulation as Question]).meta?.schemaVersion, "2.0");
+
+const stageBound = structuredClone(boundedStructuredMeasurement) as any;
+const boundExhibit = { ...stageBound.caseStudy.exhibits[0], id: "stage_bound" };
+delete stageBound.caseStudy.exhibits[0].structuredMeasurements;
+stageBound.caseStudy.stages = [{ id: "bound_stage", title: pair("Bound stage"), exhibits: [boundExhibit] }];
+const staleStageBound = validateBankObject({ meta: { schemaVersion: "1.9", count: 1 }, questions: [stageBound] });
+assert.equal(staleStageBound.ok, false);
+if (!staleStageBound.ok) {
+  assert(staleStageBound.reasons.includes("questions[0]: structuredMeasurements bound requires meta.schemaVersion 2.0"));
+}
+assert.equal(toExportEnvelope([stageBound as Question]).meta?.schemaVersion, "2.0");
 
 const strictStructuredClean = validateBankObject({
   meta: { schemaVersion: "1.8", count: 1 },
@@ -648,6 +712,8 @@ if (!strictStructuredExtraResult.ok) {
 
 const schema18ExportEnvelope = toExportEnvelope([structuredMeasurementsCase as unknown as Question]);
 assert.equal(schema18ExportEnvelope.meta?.schemaVersion, "1.8");
+assert.equal(toExportEnvelope([pedsStructuredPopulation as unknown as Question]).meta?.schemaVersion, "2.0");
+assert.equal(toExportEnvelope([boundedStructuredMeasurement as unknown as Question]).meta?.schemaVersion, "2.0");
 
 const strictClean = validateBankObject({
   meta: { schemaVersion: "1.5", count: 1 },

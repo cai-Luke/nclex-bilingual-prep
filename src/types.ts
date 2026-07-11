@@ -3,7 +3,7 @@ export type TextPair = {
   zh: string;
 };
 
-export type SchemaVersion = "1.0" | "1.1" | "1.2" | "1.3" | "1.4" | "1.5" | "1.6" | "1.7" | "1.8" | "1.9";
+export type SchemaVersion = "1.0" | "1.1" | "1.2" | "1.3" | "1.4" | "1.5" | "1.6" | "1.7" | "1.8" | "1.9" | "2.0";
 
 export type StandaloneItemType =
   | "multiple_choice"
@@ -62,6 +62,7 @@ export type { QuestionVisual } from "./visuals/types";
 export type { RhythmClass, RhythmStripVisual } from "./visuals/kinds/rhythmStrip";
 
 import type { QuestionVisual } from "./visuals/types";
+import type { Population } from "./population";
 
 export type CommonQuestion = {
   id: string;
@@ -188,6 +189,7 @@ export type StructuredMeasurementValue = {
   columnId: string;
   value: string;
   unit: string;
+  bound?: ">" | "<";
   context?: "post_intervention";
 };
 
@@ -208,7 +210,7 @@ export type StructuredMeasurementPanel = {
   rows: StructuredMeasurementRow[];
 };
 
-export type StructuredMeasurementPopulation = "adult" | "peds_child" | "peds_infant";
+export type StructuredMeasurementPopulation = Population;
 
 export type StructuredMeasurements = {
   population?: StructuredMeasurementPopulation;

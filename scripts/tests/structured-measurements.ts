@@ -70,6 +70,18 @@ assert.equal(parseMeasurementValue(">150"), null, "comparator values must not pa
 assert.equal(parseMeasurementValue("18,000"), 18000, "comma stripping should remain supported");
 
 assert.equal(
+  formatStructuredMeasurementValue("ptt", { columnId: "ed", value: "150", unit: "seconds", bound: ">" }),
+  ">150 seconds",
+  "bounded values should render their comparator from the typed bound field",
+);
+
+assert.equal(
+  formatStructuredMeasurementValue("magnesium", { columnId: "ed", value: "1.4", unit: "mEq/L", bound: ">" }),
+  ">1.7 mg/dL",
+  "bounded values should suppress the secondary-unit parenthetical",
+);
+
+assert.equal(
   formatStructuredMeasurementValue("magnesium", { columnId: "ed", value: "1.4", unit: "mEq/L" }),
   "1.7 mg/dL (0.7 mmol/L)",
   "magnesium mEq/L should render conventional first with mmol/L in parentheses",
