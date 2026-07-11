@@ -361,6 +361,56 @@ for (const text of [
 }
 
 {
+  const pacuSpan = "PACU labs 6 hours earlier: Na 138, K 3.5, Cl 102, bicarbonate 24, BUN 18, creatinine 0.8, glucose 156, calcium 8.4, phosphorus 2.8, magnesium 1.8, albumin 2.1, prealbumin 8, WBC 9,200, Hgb 11.0, platelets 210,000.";
+  const liverSpan = "AST 28, ALT 22, total bilirubin 0.6.";
+  const vitalsSpan = "Vital signs: T 36.8 C, HR 92, BP 108/64, RR 16, SpO2 97% on room air.";
+  const pocSpan = "Point-of-care glucose 142 mg/dL.";
+  const refeedingSource = [vitalsSpan, pocSpan, pacuSpan, liverSpan].join(" ");
+  const refeedingBaseline: ExtractionRecord = {
+    exhibitRef: "gpt_case_refeeding_syndrome_tpn_01/baseline_record",
+    lane: "extract",
+    panel: [
+      { label: "temp", value: "36.8", sourceUnit: "C", sourceSpan: vitalsSpan },
+      { label: "hr", value: "92", sourceUnit: "bpm", sourceSpan: vitalsSpan },
+      { label: "sbp", value: "108", sourceUnit: "mmHg", sourceSpan: vitalsSpan },
+      { label: "dbp", value: "64", sourceUnit: "mmHg", sourceSpan: vitalsSpan },
+      { label: "rr", value: "16", sourceUnit: "/min", sourceSpan: vitalsSpan },
+      { label: "spo2", value: "97", sourceUnit: "%", sourceSpan: vitalsSpan },
+      { label: "glucose", value: "142", sourceUnit: "mg/dL", sourceSpan: pocSpan },
+    ],
+    excludedValues: [
+      { label: "sodium", value: "138", reason: "prior", sourceSpan: pacuSpan },
+      { label: "potassium", value: "3.5", reason: "prior", sourceSpan: pacuSpan },
+      { label: "chloride", value: "102", reason: "prior", sourceSpan: pacuSpan },
+      { label: "bicarbonate", value: "24", reason: "prior", sourceSpan: pacuSpan },
+      { label: "bun", value: "18", reason: "prior", sourceSpan: pacuSpan },
+      { label: "creatinine", value: "0.8", reason: "prior", sourceSpan: pacuSpan },
+      { label: "glucose", value: "156", reason: "prior", sourceSpan: pacuSpan },
+      { label: "calcium", value: "8.4", reason: "prior", sourceSpan: pacuSpan },
+      { label: "phosphate", value: "2.8", reason: "prior", sourceSpan: pacuSpan },
+      { label: "magnesium", value: "1.8", reason: "prior", sourceSpan: pacuSpan },
+      { label: "wbc", value: "9,200", reason: "prior", sourceSpan: pacuSpan },
+      { label: "hemoglobin", value: "11.0", reason: "prior", sourceSpan: pacuSpan },
+      { label: "platelets", value: "210,000", reason: "prior", sourceSpan: pacuSpan },
+      { label: "ast", value: "28", reason: "prior", sourceSpan: liverSpan },
+      { label: "alt", value: "22", reason: "prior", sourceSpan: liverSpan },
+      { label: "total_bilirubin", value: "0.6", reason: "prior", sourceSpan: liverSpan },
+    ],
+    unitAliases: [],
+  };
+  const findings = run(refeedingBaseline, refeedingSource);
+  const priorNoCurrent = findings.filter(
+    (finding) => finding.level === "FAIL" && finding.msg.includes("reason 'prior' requires a current panel value"),
+  );
+  assert(refeedingBaseline.excludedValues?.length === 16, "origin fixture should retain all 16 prior exclusions");
+  assert(priorNoCurrent.length === 15, `origin fixture should produce exactly 15 prior_no_current failures, got ${priorNoCurrent.length}`);
+  assert(
+    !priorNoCurrent.some((finding) => finding.msg.includes("glucose=156")),
+    "prior glucose 156 should be accepted because current POC glucose 142 supplies the same normalized key",
+  );
+}
+
+{
   const record = baseRecord();
   record.panel![0] = { ...record.panel![0], sourceSpan: "Temperature was 37.1 C." };
   const findings = run(record);

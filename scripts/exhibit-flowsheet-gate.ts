@@ -12,12 +12,14 @@
  *           substring of the source content.en after NFC normalization.
  *   GATE 2  exclusion accounting — ADVISORY here. The gate validates that every SUPPLIED
  *           exclusion is well-formed (allowlisted label, verbatim value, reason ∈
- *           {prior,trend,serial}), and runs a best-effort source sweep that WARNs when an
+ *           {prior,trend,serial,comparator}), and runs a best-effort source sweep that WARNs when an
  *           allowlisted-looking measurement token in the source is neither keyed nor
  *           excluded. That sweep is heuristic (free-prose tokenizing is not deterministic),
  *           so its misses/false-positives are WARN, never FAIL. Authoritative
  *           completeness/selection is owned by the answer key + Claude adjudication, not by
- *           this gate. (post_intervention is NOT an exclusion reason — Rule F.)
+ *           this gate. `comparator` is accepted only for legacy/pre-2.0 staged-artifact
+ *           compatibility; current Schema 2.0 extraction keys censored values with typed
+ *           `bound`. (post_intervention is NOT an exclusion reason — Rule F.)
  *   GATE 3  narrative preservation — the gate never mutates the bank; it only reads.
  *           (Enforced by construction: this script has no write path.)
  *   GATE 4  dimensional sanity — each keyed value, interpreted in its sourceUnit and
@@ -88,6 +90,9 @@ const ALLOW: Record<string, Allow> = Object.fromEntries(
 );
 const ALLOW_KEYS = ALLOWLIST_KEYS;
 
+// Gate-accepted compatibility vocabulary. Current Schema 2.0 authoring uses
+// {prior, trend, serial} here and keys censored values with panel[].bound;
+// `comparator` remains readable only for legacy/pre-2.0 staged artifacts.
 const EXCLUSION_REASONS = new Set(["prior", "trend", "serial", "comparator"]);
 const CONTEXT_TAGS = new Set(["post_intervention"]);
 const IMPLICIT_SOURCE_UNITS: Record<string, Set<string>> = {
