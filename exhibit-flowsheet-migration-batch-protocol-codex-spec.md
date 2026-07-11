@@ -57,8 +57,10 @@ For each batch of 20:
 
 1. **Extract** (extractor model). Produce `EXHIBIT-FLOWSHEET-MIGRATION-BATCH-<NN>-<bucket>-<date>.json`
    in the amended record shape (`panel[]` with `sourceUnit`/`sourceSpan`/optional `context`,
-   `excludedValues[]` reason ∈ {prior,trend,serial}, `unitAliases[]`, or `skip_serial`). The extractor
-   never sees the adjudication (below).
+   `excludedValues[]` reason ∈ {prior,trend,serial}, `unitAliases[]`, or `skip_serial`). Under Schema
+   2.0, censored values are keyed with typed `bound`; the gate's acceptance of an excluded
+   `comparator` reason is compatibility-only for legacy/pre-2.0 staged artifacts and is not a current
+   authoring alternative. The extractor never sees the adjudication (below).
 2. **Gate** (deterministic, required). `npm run flowsheet-gate -- <batch>.json`. Any **FAIL** blocks
    the whole batch — fix the cause and re-extract; do not hand-patch a failing record past the gate.
    **GATE 4 WARN** and serial-mismatch WARN route to adjudication (they can be legitimate).

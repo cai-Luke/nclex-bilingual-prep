@@ -18,6 +18,8 @@ deterministically instead of relying on senior review; (3) new **Rule F** reclas
 so a post-intervention reading (the current value) is no longer discarded. The smoke-batch templates
 below are updated to the amended record shape for a confirmatory second run.
 
+**2026-07-11 — Rule F refined (Luke ruling, architect-ratified).** Added the operative test for *when* `context: "post_intervention"` applies (directed-measurement or measurement-domain + temporal linkage via explicit language or unambiguous narrative/exhibit sequencing; co-location insufficient), with the `gpt_case_refeeding_syndrome_tpn_01` stages 2-3 worked example. Disposition-model refinement only; no schema, gate-logic, bank, or renderer change. Separately, Schema 2.0 makes the typed panel `bound` field the current authoring contract for censored values. The gate continues accepting the `comparator` exclusion reason only for compatibility with legacy/pre-2.0 staged artifacts; it is not a current authoring alternative to `bound`.
+
 ## What the probe changed
 
 The investigation's "only ~9% convertible" number measured pre-formatted *layout* (`clean_kv`
@@ -52,7 +54,10 @@ that is a derived view of the prose**, and a deterministic gate reconciles it to
   is auto-rejected. Catches hallucination and transposition.
 - **GATE 2 — exclusion accounting (advisory source sweep + hard supplied-exclusion validation).**
   Every supplied `excludedValues[]` entry must be an allowlisted label, must round-trip verbatim,
-  and must use a reason from the closed enum `{prior, trend, serial}`. The gate also runs a
+  and must use a gate-accepted reason. Current Schema 2.0 extraction authors exclusions only for
+  `{prior, trend, serial}`; censored values are keyed with `bound`. The gate additionally accepts
+  legacy/pre-2.0 `comparator` exclusions so already-staged artifacts remain inspectable, but new
+  extraction must not author `comparator` as an alternative to `bound`. The gate also runs a
   best-effort source sweep that WARNs when an allowlisted-looking measurement label appears in the
   source but is neither keyed nor excluded. That sweep is advisory rather than fail-closed because
   free-prose tokenizing cannot deterministically distinguish patient measurements from reference
@@ -263,10 +268,14 @@ live reading and the only one for that parameter in the exhibit. Excluding it di
 data: in the smoke batch it produced a flowsheet for a magnesium-toxicity / severe-hypertension
 patient with **no blood pressure at all**, which is worse than showing the reading. Corrected rule:
 a post-intervention reading is **keyed in `panel[]`** with an optional `context: "post_intervention"`
-annotation on the entry, and `post_intervention` is removed from the `excludedValues` reason enum
-(now `{prior, trend, serial}`). Whether the `context` annotation renders as a footnote ("after
+annotation on the entry, and `post_intervention` is removed from the current-authoring
+`excludedValues` reason enum (now `{prior, trend, serial}`). Whether the `context` annotation renders as a footnote ("after
 labetalol") or is audit-only is a renderer decision, not an extraction one. This was **not** a Codex
 error — Codex applied the enum as written; it is a gap in the spec's disposition model, now closed.
+
+*Operative test — when `context: "post_intervention"` applies (added 2026-07-11, Luke ruling, architect-ratified).* Keying a post-intervention reading (above) is not the same as *tagging* it. `context: "post_intervention"` applies to a keyed current measurement only when the source establishes that the measurement occurred **after an intervention directed at that measurement or measurement domain.** Temporal linkage may be explicit language ("after," "following") or unambiguous narrative/exhibit sequencing; **mere co-location in the same exhibit, panel, or timestamp is insufficient.** A background cause of the whole panel (TPN initiation, an evolving disease process) is not a directed intervention and tags nothing. This is an **adjudication rule, not a gate check**: whether an intervention targets a given analyte is the irreducibly semantic call the deterministic gate cannot make (the gate validates only that any supplied `context` is in the closed tag set). Its enforcement is the always-sampled 100% review of every `post_intervention` tag (migration batch protocol), never a deterministic heuristic.
+
+Worked example (`gpt_case_refeeding_syndrome_tpn_01`, stages 2-3). Stage 2 prose: "the nurse administered KCl … sodium phosphate … magnesium sulfate … per protocol … Sliding-scale regular insulin was added … Repeat labs now: potassium 2.9, phosphorus 1.3, magnesium 1.3, glucose 226, creatinine 0.9." **Potassium, phosphate, magnesium** (electrolyte-repletion domain) and **glucose** (insulin) are directed reassessments → tagged. **Creatinine** (no directed intervention) and **all six vitals** (no directed agent) are current values → **not** tagged. Stage 3 ("After interventions, repeat labs …") is identical. The rule closes two symmetric errors this record surfaced: (a) TPN initiation — the true cause of the falling electrolytes — occurs in **stage 1** (already `skip_serial`), so "untag stage 2 because TPN is the cause" misattributes stage 1's causation to stage 2; (b) uniformly tagging the whole stage-2 panel over-applies the tag to creatinine and vitals. The directed-measurement test yields the correct split where both blanket dispositions fail.
 
 **Emitted record shape (updated).** The per-exhibit object has an explicit top-level field for each
 of the four dispositions:
@@ -276,7 +285,7 @@ of the four dispositions:
   "exhibitRef": "<case>/<exhibit>",
   "lane": "extract",
   "panel": [
-    { "label": "<allowlist key>", "value": "<byte-exact substring>", "sourceUnit": "<byte-exact source unit expr>", "sourceSpan": "<verbatim enclosing sentence>", "context": "post_intervention (optional; omit if none)" }
+    { "label": "<allowlist key>", "value": "<byte-exact scalar substring without comparator>", "sourceUnit": "<byte-exact source unit expr>", "sourceSpan": "<verbatim enclosing sentence>", "bound": "> or < (optional; Schema 2.0 censored values only)", "context": "post_intervention (optional; omit if none)" }
   ],
   "excludedValues": [
     { "label": "<allowlist key>", "value": "<byte-exact substring>", "reason": "prior|trend|serial", "sourceSpan": "<verbatim enclosing sentence>" }
@@ -290,10 +299,12 @@ of the four dispositions:
 - `panel[]` — keyed current measurements (allowlisted only). Each entry carries `sourceUnit` (the
   byte-exact unit expression from the prose, per Rule C — the renderer canonicalizes, not the
   extractor) and `sourceSpan`. BP splits to `sbp`/`dbp` per Rule A. The optional `context` field
-  carries `"post_intervention"` for a post-intervention current reading (Rule F); omit it otherwise.
+  carries `"post_intervention"` only when Rule F's operative test is met; omit it otherwise. Under
+  Schema 2.0, a censored value stores its scalar in `value` and its comparator in typed `bound`.
 - `excludedValues[]` — allowlisted measurements that are genuinely *not current*, with `reason` from
   the closed enum `{prior, trend, serial}`. Off-allowlist tokens never appear here, and a
-  post-intervention value is **keyed with `context`**, not excluded (Rule F).
+  post-intervention value is **keyed**, not excluded (Rule F). The gate's additional acceptance of
+  legacy/pre-2.0 `comparator` exclusions is compatibility-only and does not expand this authoring enum.
 - `unitAliases[]` — alternate-unit conversions of a keyed measurement (Rule C); audit-visible,
   neither keyed nor excluded.
 - `lane` — `"extract"` for a normal panel, or `"skip_serial"` for a Rule D serial exhibit. A
@@ -511,6 +522,8 @@ For each panel, mark:
 - **Containment:** did every keyed value round-trip verbatim? (deterministic — the gate answers this)
 - **Selection correctness:** is every keyed value the *current* reading, not a prior/trend value? (human)
 - **Exclusion correctness:** was every non-keyed measurement correctly excluded with the right reason? (human)
+- **Context correctness:** `post_intervention` disposition follows Rule F's operative test; reference
+  Rule F rather than restating its semantics here. (human)
 - **Residual integrity:** if this panel were rendered as a flowsheet alongside the untouched prose,
   does the combination read cleanly or is the duplication distracting? (human — the product-design call)
 - **Cost signal:** subjective note on junior-model effort and senior-audit effort, for the

@@ -40,6 +40,8 @@ For each 20-panel batch, in manifest order:
 2. **Adjudicate the sample (your selection check):** for each sampled panel, independently determine
    the correct disposition from `content.en` — current vs prior/trend/serial exclusion, out-of-scope
    silence, post-intervention context, total/ionized calcium identity — and compare to the extractor.
+   `post_intervention` disposition follows Rule F's operative test; reference Rule F rather than
+   restating its semantics here.
    This is the check the gate structurally cannot do. Read the staged values yourself; do not
    rubber-stamp the producer's self-report.
 3. **Ledger:** record batch, sample rate, sample size, selection errors, disposition in
@@ -53,6 +55,10 @@ For each 20-panel batch, in manifest order:
 - Always-sampled (100%, every batch, on top of the random draw): every GATE 4 WARN; every
   `skip_serial`; every non-canonical CBC `sourceUnit`; every `post_intervention` context; every record
   with an `excludedValues` entry; every calcium-identity WARN.
+
+For current Schema 2.0 extraction, censored values are keyed with typed `bound`. The gate accepts an
+excluded `comparator` reason only for compatibility with legacy/pre-2.0 staged artifacts; do not
+author it as an alternative to `bound`, and do not migrate unrelated legacy artifacts in this loop.
 
 ### Stop rule
 Any selection error (wrong current-vs-prior key, out-of-scope leak, mis-tagged post-intervention,
