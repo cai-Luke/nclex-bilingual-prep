@@ -3,6 +3,7 @@ import { writeFileSync } from "node:fs";
 type PanelEntry = {
   label: string;
   value: string;
+  bound?: ">" | "<";
   sourceUnit?: string;
   sourceSpan?: string;
   context?: string;
@@ -701,9 +702,9 @@ const batch12Records: ExtractionRecord[] = [
       { label: "sbp", value: "88", sourceUnit: "mm Hg", sourceSpan: "HR 128/min, BP 88/52 mm Hg, RR 24/min." },
       { label: "dbp", value: "52", sourceUnit: "mm Hg", sourceSpan: "HR 128/min, BP 88/52 mm Hg, RR 24/min." },
       { label: "rr", value: "24", sourceUnit: "/min", sourceSpan: "HR 128/min, BP 88/52 mm Hg, RR 24/min." },
-      { label: "hemoglobin", value: "9.8", sourceUnit: "g/dL", sourceSpan: "Stat labs: hemoglobin 9.8 g/dL, platelet count 96,000/mm3, aPTT >150 seconds." },
-      { label: "platelets", value: "96,000", sourceUnit: "/mm3", sourceSpan: "Stat labs: hemoglobin 9.8 g/dL, platelet count 96,000/mm3, aPTT >150 seconds." },
-      { label: "ptt", value: ">150", sourceUnit: "seconds", sourceSpan: "Stat labs: hemoglobin 9.8 g/dL, platelet count 96,000/mm3, aPTT >150 seconds." }
+      { label: "hemoglobin", value: "9.8", sourceUnit: "g/dL", sourceSpan: "Stat labs: hemoglobin 9.8 g/dL, platelet count 96,000/mm3, aPTT >200 seconds." },
+      { label: "platelets", value: "96,000", sourceUnit: "/mm3", sourceSpan: "Stat labs: hemoglobin 9.8 g/dL, platelet count 96,000/mm3, aPTT >200 seconds." },
+      { label: "ptt", value: "200", bound: ">", sourceUnit: "seconds", sourceSpan: "Stat labs: hemoglobin 9.8 g/dL, platelet count 96,000/mm3, aPTT >200 seconds." }
     ],
     excludedValues: [],
     unitAliases: []

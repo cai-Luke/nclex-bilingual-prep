@@ -72,7 +72,7 @@ Total checker-seat sample: 20 of 20 records.
 | 8 | `gpt_case_gap_2026_06_11_case_adrenal_crisis_04/adrenal_deterioration` | Keyed BP/HR/glucose | WARN | HR `/min` prose-normalization candidate; PVCs have no allowlisted numeric key. |
 | 9 | `gpt_case_gap_2026_06_11_case_adrenal_crisis_04/adrenal_response` | Keyed response BP/HR/glucose/K/Na | WARN | Values carry `post_intervention`; HR `/min` candidate. |
 | 10 | `gpt_case_gap_2026_06_11_case_aki_02/aki_initial` | Keyed admission temp/HR/BP | WARN | Urine output out of allowlist scope; HR `/min` candidate. |
-| 11 | `gpt_case_gap_2026_06_11_case_anticoag_bleeding_06/anticoag_deterioration` | Keyed vitals/Hgb/platelets/aPTT | WARN | aPTT `>150 seconds` preserved with comparator; HR `/min` candidate. |
+| 11 | `gpt_case_gap_2026_06_11_case_anticoag_bleeding_06/anticoag_deterioration` | Keyed vitals/Hgb/platelets/aPTT | WARN | aPTT `>200 seconds` preserved with comparator; HR `/min` candidate. Reporting ceiling corrected from 150 to 200 on 2026-07-11. |
 | 12 | `gpt_case_gap_2026_06_11_case_anticoag_bleeding_06/anticoag_response` | Keyed post-fluid BP/HR | WARN | Platelet decline is qualitative, not a current platelet result. |
 | 13 | `gpt_case_gap_2026_06_11_case_pancreatitis_03/panc_deterioration` | Keyed vitals/Hct/BUN/Ca | WARN | Urine output out of scope; HR `/min` candidate. |
 | 14 | `gpt_case_gap_2026_06_11_case_tls_01/baseline_exhibit` | Keyed baseline vitals/labs | WARN | Uric acid and LDH out of scope; HR `/min` candidate. |

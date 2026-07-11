@@ -5,6 +5,10 @@ Author: Claude (architect seat). This is primarily a **clinical-content + sourci
 lane — Codex's role is limited to applying verified numbers to the registry once adjudicated. The
 heavy lift is sourcing and adjudication, owned by the content models + Claude + Luke.
 
+Revisions:
+- 2026-07-11 — logged the first migration-surfaced finding (ptt sanity ceiling) and a
+  censored-value blind-spot note. See "Feedback loop from the migration → Logged findings."
+
 ## Why this lane exists
 
 `src/visuals/kinds/lab_trend/index.ts` opens with an explicit warning: **all reference bands and
@@ -74,6 +78,39 @@ adjudication finds to be legitimate extreme-but-real values, those are evidence 
 too tight**. Fold them into this lane: they are the empirically-surfaced cases where the placeholder
 magnitude limit was wrong. This gives the sanity-bound verification real test cases rather than
 armchair bounds.
+
+### Logged findings
+
+**ptt sanity ceiling — `ptt.sanity = {min:10, max:200}` (logged 2026-07-11, migration Batch 12).**
+
+Trigger: the Batch-12 `anticoag_deterioration` exhibit reports "aPTT >200 seconds," carried into the
+staged panel as a censored value (`value:"200", bound:">"`) per the bound disposition
+(`EXHIBIT-FLOWSHEET-BATCH-12-PTT-BOUND-WORKORDER-2026-07-11.md`). Luke (lab technologist; facility
+context) flagged that aPTT values in the ~120–200 s range carry baseline-relative clinical weight and
+can be reported at or above the current `sanity.max = 200`.
+
+The sanity question for this lane is narrow and must not be widened: **is an exact transcribed aPTT so
+large that it is almost certainly a typo or unit error?** That, and only that, is what `sanity.max`
+encodes. Three distinct concepts must stay separate and must not be folded into the sanity number:
+
+- **Reporting ceiling** (for this case, ">200 s"): a censored-report artifact,
+  represented in content as a `bound`, not as a sanity edge.
+- **Critical / high threshold**: facility- and clinical-context interpretation; drives criticality
+  cueing, not validation.
+- **Sanity `{min, max}`**: the implausibility tripwire; drives GATE 4 / `value_out_of_range`.
+
+Reporting ceilings and critical thresholds are **separate authored reference-range metadata** (part of
+the H/L-flag / range-column feature this lane unblocks) — they are not inputs to the sanity bound. The
+verifier's task on this finding is only to confirm or widen `ptt.sanity.max` as a transcription
+tripwire against an authoritative source (the highest plausible real, non-censored aPTT), with a
+citation. The bounded `>200` does not consult the sanity ceiling.
+
+**Blind-spot note (applies beyond ptt).** Censored values are stored one-sided (`bound: ">"` → GATE 4
+checks only the lower edge), so a too-tight *upper* sanity ceiling on a frequently-censored-high
+analyte will **not** surface as a GATE 4 WARN. The feedback loop above catches too-tight bounds via
+legitimate WARNs, but it is blind to upper ceilings on censored-prone analytes (aPTT, troponin,
+D-dimer, and similar). Those need **proactive** ceiling review, not WARN-driven review — add them to
+the verification worklist explicitly.
 
 ## Output
 

@@ -11,4 +11,4 @@ Result: **0 hits**.
 Notes:
 
 - No canonical repair was performed.
-- Candidate 12B's staged `ptt` value `>150` was not canonical at the time of this sweep and is now moved to `excludedValues` with `reason: "comparator"` in the patched Candidate 12B artifact.
+- Candidate 12B's staged `ptt` value `>200` was not canonical at the time of this sweep and was moved to `excludedValues` with `reason: "comparator"` in the then-current Candidate 12B artifact. Schema 2.0 later superseded that exclusion with a typed `bound` entry.

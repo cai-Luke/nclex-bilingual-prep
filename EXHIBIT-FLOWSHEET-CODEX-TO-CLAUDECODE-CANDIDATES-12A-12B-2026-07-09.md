@@ -42,7 +42,7 @@ All six promotion-ready refs route to `banks/gpt-canonical.json`.
 
 ## Patch Notes
 
-- `anticoag_deterioration` no longer stores `ptt=>150` as a structured value. The ptt entry was moved to `excludedValues` with `reason: "comparator"` because v1 has no censored/comparator value representation. The six scalar rows remain promotable.
+- `anticoag_deterioration` no longer stores `ptt=>200` as a structured value. The ptt entry was moved to `excludedValues` with `reason: "comparator"` because v1 has no censored/comparator value representation. The six scalar rows remain promotable. This historical disposition was later superseded by schema 2.0's typed `bound` representation.
 - Gallstone `stage_2_update` and `stage_3_update` were removed from promotion-ready 12A and moved to the explicit gallstone HOLD artifact after the inferred-unit ruling.
 - TLS `baseline_exhibit` and `stage1_exhibit` were removed from promotion-ready 12B and moved to the explicit TLS HOLD artifact. The TLS HOLD re-extraction now includes `uric_acid` so the criterion analyte is not omitted.
 - No selected promotion-ready ref contains SaO2 or Troponin I.
