@@ -1,6 +1,6 @@
 {
   "meta": {
-    "schemaVersion": "1.8",
+    "schemaVersion": "2.0",
     "count": 558,
     "exam": "NCLEX-RN",
     "topic": "assorted NCLEX-RN GPT canonical bank",
@@ -28652,6 +28652,80 @@
             "content": {
               "en": "A 66-year-old client is admitted after 4 days of vomiting and poor oral intake from viral gastroenteritis. History: hypertension and osteoarthritis. Home medications include lisinopril and ibuprofen 600 mg three times daily for knee pain. Vital signs: T 37.6° C, HR 108/min, BP 96/58 mm Hg. Mucous membranes are dry. Urine output in the ED: 60 mL over 4 hr.",
               "zh": "66岁患者因病毒性胃肠炎导致呕吐和进食差4天后入院。病史：高血压、骨关节炎。居家用药包括赖诺普利和布洛芬600 mg每日3次用于膝痛。生命体征：T 37.6°C，HR 108次/分，BP 96/58 mm Hg。黏膜干燥。急诊4小时尿量60 mL。"
+            },
+            "structuredMeasurements": {
+              "panels": [
+                {
+                  "kind": "vitals",
+                  "columns": [
+                    {
+                      "id": "current",
+                      "label": {
+                        "en": "Current",
+                        "zh": "当前"
+                      }
+                    }
+                  ],
+                  "rows": [
+                    {
+                      "key": "temp",
+                      "label": {
+                        "en": "Temperature",
+                        "zh": "体温"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "37.6",
+                          "unit": "°C"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "hr",
+                      "label": {
+                        "en": "Heart rate",
+                        "zh": "心率"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "108",
+                          "unit": "bpm"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "sbp",
+                      "label": {
+                        "en": "Systolic BP",
+                        "zh": "收缩压"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "96",
+                          "unit": "mmHg"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "dbp",
+                      "label": {
+                        "en": "Diastolic BP",
+                        "zh": "舒张压"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "58",
+                          "unit": "mmHg"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
             }
           },
           {
@@ -29455,6 +29529,150 @@
                 "content": {
                   "en": "HR 132/min, RR 30/min, BP 86/48 mm Hg, SpO2 90% on 4 L/min nasal cannula. Urine output: 20 mL/hr for 3 hr. Abdomen remains distended. New flank ecchymosis is noted. Hematocrit 52%, BUN 39 mg/dL, calcium 6.8 mg/dL.",
                   "zh": "HR 132次/分，RR 30次/分，BP 86/48 mm Hg，鼻导管4 L/min时SpO2 90%。过去3小时尿量20 mL/hr。腹部仍膨隆。新见侧腹瘀斑。血细胞比容52%，BUN 39 mg/dL，钙6.8 mg/dL。"
+                },
+                "structuredMeasurements": {
+                  "panels": [
+                    {
+                      "kind": "vitals",
+                      "columns": [
+                        {
+                          "id": "current",
+                          "label": {
+                            "en": "Current",
+                            "zh": "当前"
+                          }
+                        }
+                      ],
+                      "rows": [
+                        {
+                          "key": "hr",
+                          "label": {
+                            "en": "Heart rate",
+                            "zh": "心率"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "132",
+                              "unit": "bpm"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "rr",
+                          "label": {
+                            "en": "Respiratory rate",
+                            "zh": "呼吸频率"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "30",
+                              "unit": "/min"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "sbp",
+                          "label": {
+                            "en": "Systolic BP",
+                            "zh": "收缩压"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "86",
+                              "unit": "mmHg"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "dbp",
+                          "label": {
+                            "en": "Diastolic BP",
+                            "zh": "舒张压"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "48",
+                              "unit": "mmHg"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "spo2",
+                          "label": {
+                            "en": "SpO2",
+                            "zh": "脉搏血氧饱和度"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "90",
+                              "unit": "%"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "labs",
+                      "columns": [
+                        {
+                          "id": "current",
+                          "label": {
+                            "en": "Current",
+                            "zh": "当前"
+                          }
+                        }
+                      ],
+                      "rows": [
+                        {
+                          "key": "hematocrit",
+                          "label": {
+                            "en": "Hematocrit",
+                            "zh": "血细胞比容"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "52",
+                              "unit": "%"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "bun",
+                          "label": {
+                            "en": "BUN",
+                            "zh": "尿素氮"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "39",
+                              "unit": "mg/dL"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "calcium",
+                          "label": {
+                            "en": "Calcium",
+                            "zh": "总钙"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "6.8",
+                              "unit": "mg/dL"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
                 }
               }
             ]
@@ -30075,6 +30293,94 @@
                 "content": {
                   "en": "BP 78/40 mm Hg, HR 132/min. The client is diaphoretic and difficult to arouse. Capillary glucose is 48 mg/dL. Cardiac monitor shows sinus tachycardia with occasional premature ventricular contractions.",
                   "zh": "BP 78/40 mm Hg，HR 132次/分。患者大汗，难以唤醒。床旁血糖48 mg/dL。心电监护显示窦性心动过速伴偶发室性早搏。"
+                },
+                "structuredMeasurements": {
+                  "panels": [
+                    {
+                      "kind": "vitals",
+                      "columns": [
+                        {
+                          "id": "current",
+                          "label": {
+                            "en": "Current",
+                            "zh": "当前"
+                          }
+                        }
+                      ],
+                      "rows": [
+                        {
+                          "key": "sbp",
+                          "label": {
+                            "en": "Systolic BP",
+                            "zh": "收缩压"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "78",
+                              "unit": "mmHg"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "dbp",
+                          "label": {
+                            "en": "Diastolic BP",
+                            "zh": "舒张压"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "40",
+                              "unit": "mmHg"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "hr",
+                          "label": {
+                            "en": "Heart rate",
+                            "zh": "心率"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "132",
+                              "unit": "bpm"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "labs",
+                      "columns": [
+                        {
+                          "id": "current",
+                          "label": {
+                            "en": "Current",
+                            "zh": "当前"
+                          }
+                        }
+                      ],
+                      "rows": [
+                        {
+                          "key": "glucose",
+                          "label": {
+                            "en": "Glucose",
+                            "zh": "血糖"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "48",
+                              "unit": "mg/dL"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
                 }
               }
             ]
@@ -30099,6 +30405,128 @@
                 "content": {
                   "en": "BP 96/58 mm Hg, HR 108/min, capillary glucose 92 mg/dL. The client is awake but still weak. Potassium is 5.4 mEq/L and sodium is 128 mEq/L.",
                   "zh": "BP 96/58 mm Hg，HR 108次/分，床旁血糖92 mg/dL。患者清醒但仍虚弱。钾5.4 mEq/L，钠128 mEq/L。"
+                },
+                "structuredMeasurements": {
+                  "panels": [
+                    {
+                      "kind": "vitals",
+                      "columns": [
+                        {
+                          "id": "current",
+                          "label": {
+                            "en": "Current",
+                            "zh": "当前"
+                          }
+                        }
+                      ],
+                      "rows": [
+                        {
+                          "key": "sbp",
+                          "label": {
+                            "en": "Systolic BP",
+                            "zh": "收缩压"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "96",
+                              "unit": "mmHg",
+                              "context": "post_intervention"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "dbp",
+                          "label": {
+                            "en": "Diastolic BP",
+                            "zh": "舒张压"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "58",
+                              "unit": "mmHg",
+                              "context": "post_intervention"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "hr",
+                          "label": {
+                            "en": "Heart rate",
+                            "zh": "心率"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "108",
+                              "unit": "bpm",
+                              "context": "post_intervention"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "labs",
+                      "columns": [
+                        {
+                          "id": "current",
+                          "label": {
+                            "en": "Current",
+                            "zh": "当前"
+                          }
+                        }
+                      ],
+                      "rows": [
+                        {
+                          "key": "glucose",
+                          "label": {
+                            "en": "Glucose",
+                            "zh": "血糖"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "92",
+                              "unit": "mg/dL",
+                              "context": "post_intervention"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "potassium",
+                          "label": {
+                            "en": "Potassium",
+                            "zh": "血钾"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "5.4",
+                              "unit": "mEq/L",
+                              "context": "post_intervention"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "sodium",
+                          "label": {
+                            "en": "Sodium",
+                            "zh": "血钠"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "128",
+                              "unit": "mEq/L",
+                              "context": "post_intervention"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
                 }
               }
             ]
@@ -31259,6 +31687,137 @@
                 "content": {
                   "en": "Pain 8/10. HR 128/min, BP 88/52 mm Hg, RR 24/min. Skin is pale and clammy. The client feels lightheaded. No external bleeding is visible. Stat labs: hemoglobin 9.8 g/dL, platelet count 96,000/mm3, aPTT >200 seconds.",
                   "zh": "疼痛8/10。HR 128次/分，BP 88/52 mm Hg，RR 24次/分。皮肤苍白湿冷。患者感到头晕。未见外出血。急查实验室：血红蛋白9.8 g/dL，血小板96,000/mm3，aPTT >200秒。"
+                },
+                "structuredMeasurements": {
+                  "panels": [
+                    {
+                      "kind": "vitals",
+                      "columns": [
+                        {
+                          "id": "current",
+                          "label": {
+                            "en": "Current",
+                            "zh": "当前"
+                          }
+                        }
+                      ],
+                      "rows": [
+                        {
+                          "key": "hr",
+                          "label": {
+                            "en": "Heart rate",
+                            "zh": "心率"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "128",
+                              "unit": "bpm"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "sbp",
+                          "label": {
+                            "en": "Systolic BP",
+                            "zh": "收缩压"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "88",
+                              "unit": "mmHg"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "dbp",
+                          "label": {
+                            "en": "Diastolic BP",
+                            "zh": "舒张压"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "52",
+                              "unit": "mmHg"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "rr",
+                          "label": {
+                            "en": "Respiratory rate",
+                            "zh": "呼吸频率"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "24",
+                              "unit": "/min"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "labs",
+                      "columns": [
+                        {
+                          "id": "current",
+                          "label": {
+                            "en": "Current",
+                            "zh": "当前"
+                          }
+                        }
+                      ],
+                      "rows": [
+                        {
+                          "key": "hemoglobin",
+                          "label": {
+                            "en": "Hemoglobin",
+                            "zh": "血红蛋白"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "9.8",
+                              "unit": "g/dL"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "platelets",
+                          "label": {
+                            "en": "Platelets",
+                            "zh": "血小板"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "96,000",
+                              "unit": "/mm3"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "ptt",
+                          "label": {
+                            "en": "PTT",
+                            "zh": "部分凝血活酶时间"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "200",
+                              "unit": "seconds",
+                              "bound": ">"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
                 }
               }
             ]
@@ -31283,6 +31842,69 @@
                 "content": {
                   "en": "BP 94/56 mm Hg after fluid bolus, HR 116/min. Type and screen sent. CT is being prepared to evaluate suspected retroperitoneal bleeding. The team is also evaluating for heparin-induced thrombocytopenia because of the platelet decline.",
                   "zh": "补液后BP 94/56 mm Hg，HR 116次/分。已送交叉配血前检查。正在准备CT以评估疑似腹膜后出血。因血小板下降，团队也在评估肝素诱导性血小板减少症。"
+                },
+                "structuredMeasurements": {
+                  "panels": [
+                    {
+                      "kind": "vitals",
+                      "columns": [
+                        {
+                          "id": "current",
+                          "label": {
+                            "en": "Current",
+                            "zh": "当前"
+                          }
+                        }
+                      ],
+                      "rows": [
+                        {
+                          "key": "sbp",
+                          "label": {
+                            "en": "Systolic BP",
+                            "zh": "收缩压"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "94",
+                              "unit": "mmHg",
+                              "context": "post_intervention"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "dbp",
+                          "label": {
+                            "en": "Diastolic BP",
+                            "zh": "舒张压"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "56",
+                              "unit": "mmHg",
+                              "context": "post_intervention"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "hr",
+                          "label": {
+                            "en": "Heart rate",
+                            "zh": "心率"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "116",
+                              "unit": "bpm",
+                              "context": "post_intervention"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
                 }
               }
             ]
