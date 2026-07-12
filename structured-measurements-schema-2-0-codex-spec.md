@@ -867,9 +867,17 @@ the rank function is written.
 - **Single-row labs panels.** `gpt_case_overdue_preventive_screening_01` renders a labs panel of exactly
   one row. A two-row floor is proposed, not ruled.
 - **Fishbone renderer.** Still a fast-follow. Nothing here changes that.
-- **Gallstone / TLS holds (12G, 12T).** TLS unblocks on `uric_acid`, already landed. Gallstone unblocks
-  on the Phase 2 unitless subclass plus `inferredUnit`, both of which change what it extracts. Re-stage
-  after, not during.
+- **Gallstone / TLS holds (12G, 12T) — TLS resolved 2026-07-11, gallstone still held.** TLS unblocked on
+  `uric_acid` as predicted; gate re-run against current banks reproduced the exact expected-warnings note
+  (0 FAIL/2 WARN, HR prose-normalization only) with no new pediatric/GATE-2 findings, and it promoted
+  (`EXHIBIT-FLOWSHEET-MIGRATION-LEDGER-2026-07-05.md`). Gallstone's blocker was more specific than
+  originally framed: the Phase 2 unitless-subclass and `inferredUnit` machinery are both live in code
+  (confirmed — the gate now names the advisory instead of silently dropping the value), but the staged
+  artifact was never re-extracted to use them, so `calcium`/`ionized_calcium` in `stage_2_update`/
+  `stage_3_update` still sit unkeyed against a source sentence with no unit token for any of six analytes.
+  Re-extracting those two values is a producer-seat judgment call (confidently inferring `mg/dL` for a
+  4x-scale-risk analyte), not a promotion-gate decision — see the dedicated note in the migration ledger.
+  Gallstone remains held pending that re-extraction.
 - **Vital-sign `sanity` bounds are copied renderer validation envelopes (found 2026-07-10, A3.2/R17).**
   `measurementAllowlist.ts` derives every vital's `sanity` from `VITAL_DEFS[key].range` — the envelope
   `validateVitalsTrend` uses for `value_out_of_range` — while `MeasurementDef.sanity` is contractually a
