@@ -1,0 +1,1131 @@
+{
+  "sourceFile": "EXHIBIT-FLOWSHEET-MIGRATION-BATCH-16-scattered-2026-07-06.json",
+  "excludedNonRendering": [
+    {
+      "exhibitRef": "opus_icit_case_01/opus_icit_exhibit_stage_1",
+      "reason": "skip_serial: ECG/telemetry HR 104 and repeat-vitals HR 106 are distinct current readings"
+    }
+  ],
+  "candidates": [
+    {
+      "id": "16A-ICIT",
+      "file": "EXHIBIT-FLOWSHEET-STRUCTURED-PROMOTION-CANDIDATE-16A-ICIT-2026-07-12.json",
+      "refs": [
+        {
+          "exhibitRef": "opus_icit_case_01/opus_icit_exhibit_baseline",
+          "changes": [
+            {
+              "path": "panel.19.label",
+              "before": "troponin_t",
+              "after": "troponin_i"
+            }
+          ]
+        },
+        {
+          "exhibitRef": "opus_icit_case_01/opus_icit_exhibit_stage_2",
+          "changes": [
+            {
+              "path": "excludedValues.0.label",
+              "before": "troponin_t",
+              "after": "troponin_i"
+            },
+            {
+              "path": "panel.0.label",
+              "before": "troponin_t",
+              "after": "troponin_i"
+            }
+          ]
+        },
+        {
+          "exhibitRef": "opus_icit_case_01/opus_icit_exhibit_stage_3",
+          "changes": [
+            {
+              "path": "excludedValues.0.label",
+              "before": "troponin_t",
+              "after": "troponin_i"
+            },
+            {
+              "path": "panel.0.context",
+              "before": "post_intervention",
+              "after": null
+            },
+            {
+              "path": "panel.6.label",
+              "before": "troponin_t",
+              "after": "troponin_i"
+            },
+            {
+              "path": "panel.11.context",
+              "before": "post_intervention",
+              "after": null
+            },
+            {
+              "path": "panel.12.context",
+              "before": "post_intervention",
+              "after": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "16B-SCC",
+      "file": "EXHIBIT-FLOWSHEET-STRUCTURED-PROMOTION-CANDIDATE-16B-SCC-2026-07-12.json",
+      "refs": [
+        {
+          "exhibitRef": "opus_scc_case_01/exh_baseline",
+          "changes": []
+        },
+        {
+          "exhibitRef": "opus_scc_case_01/exh_stage2",
+          "changes": [
+            {
+              "path": "panel.0.context",
+              "before": "post_intervention",
+              "after": null
+            },
+            {
+              "path": "panel.2.context",
+              "before": "post_intervention",
+              "after": null
+            },
+            {
+              "path": "panel.3.context",
+              "before": "post_intervention",
+              "after": null
+            },
+            {
+              "path": "panel.4.context",
+              "before": "post_intervention",
+              "after": null
+            },
+            {
+              "path": "panel.5.context",
+              "before": "post_intervention",
+              "after": null
+            },
+            {
+              "path": "panel.6.context",
+              "before": "post_intervention",
+              "after": null
+            },
+            {
+              "path": "panel.7.context",
+              "before": "post_intervention",
+              "after": null
+            }
+          ]
+        },
+        {
+          "exhibitRef": "opus_scc_case_01/exh_stage3",
+          "changes": [
+            {
+              "path": "panel.0.context",
+              "before": "post_intervention",
+              "after": null
+            },
+            {
+              "path": "panel.1.context",
+              "before": "post_intervention",
+              "after": null
+            },
+            {
+              "path": "panel.2.context",
+              "before": "post_intervention",
+              "after": null
+            },
+            {
+              "path": "panel.3.context",
+              "before": "post_intervention",
+              "after": null
+            },
+            {
+              "path": "panel.4.context",
+              "before": "post_intervention",
+              "after": null
+            },
+            {
+              "path": "panel.5.context",
+              "before": "post_intervention",
+              "after": null
+            },
+            {
+              "path": "panel.6.context",
+              "before": "post_intervention",
+              "after": null
+            },
+            {
+              "path": "panel.7.context",
+              "before": "post_intervention",
+              "after": null
+            },
+            {
+              "path": "panel.8.context",
+              "before": "post_intervention",
+              "after": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "16C-TPN-MUCOSITIS",
+      "file": "EXHIBIT-FLOWSHEET-STRUCTURED-PROMOTION-CANDIDATE-16C-TPN-MUCOSITIS-2026-07-12.json",
+      "refs": [
+        {
+          "exhibitRef": "opus_tpn_case_mucositis_01/exhibit_baseline",
+          "changes": [
+            {
+              "path": "columns",
+              "before": null,
+              "after": [
+                {
+                  "id": "labs_6h_prior",
+                  "panelKind": "labs",
+                  "label": {
+                    "en": "6 h prior",
+                    "zh": "6 小时前"
+                  },
+                  "evidence": "Baseline labs drawn 6 hours prior to the nurse's shift:"
+                }
+              ]
+            },
+            {
+              "path": "panel.6.columnId",
+              "before": null,
+              "after": "labs_6h_prior"
+            },
+            {
+              "path": "panel.7.columnId",
+              "before": null,
+              "after": "labs_6h_prior"
+            },
+            {
+              "path": "panel.8.columnId",
+              "before": null,
+              "after": "labs_6h_prior"
+            },
+            {
+              "path": "panel.9.columnId",
+              "before": null,
+              "after": "labs_6h_prior"
+            },
+            {
+              "path": "panel.10.columnId",
+              "before": null,
+              "after": "labs_6h_prior"
+            },
+            {
+              "path": "panel.11.columnId",
+              "before": null,
+              "after": "labs_6h_prior"
+            },
+            {
+              "path": "panel.12.columnId",
+              "before": null,
+              "after": "labs_6h_prior"
+            },
+            {
+              "path": "panel.13.columnId",
+              "before": null,
+              "after": "labs_6h_prior"
+            },
+            {
+              "path": "panel.14.columnId",
+              "before": null,
+              "after": "labs_6h_prior"
+            },
+            {
+              "path": "panel.15.columnId",
+              "before": null,
+              "after": "labs_6h_prior"
+            },
+            {
+              "path": "panel.16.columnId",
+              "before": null,
+              "after": "labs_6h_prior"
+            },
+            {
+              "path": "panel.17.columnId",
+              "before": null,
+              "after": "labs_6h_prior"
+            },
+            {
+              "path": "panel.18.columnId",
+              "before": null,
+              "after": "labs_6h_prior"
+            },
+            {
+              "path": "panel.19.columnId",
+              "before": null,
+              "after": "labs_6h_prior"
+            },
+            {
+              "path": "panel.20.columnId",
+              "before": null,
+              "after": "labs_6h_prior"
+            },
+            {
+              "path": "panel.21.columnId",
+              "before": null,
+              "after": "labs_6h_prior"
+            },
+            {
+              "path": "panel.22.columnId",
+              "before": null,
+              "after": "labs_6h_prior"
+            }
+          ]
+        },
+        {
+          "exhibitRef": "opus_tpn_case_mucositis_01/exhibit_stage1",
+          "changes": [
+            {
+              "path": "panel.0.context",
+              "before": "post_intervention",
+              "after": null
+            },
+            {
+              "path": "panel.4.context",
+              "before": "post_intervention",
+              "after": null
+            },
+            {
+              "path": "panel.5.context",
+              "before": "post_intervention",
+              "after": null
+            },
+            {
+              "path": "panel.9.context",
+              "before": "post_intervention",
+              "after": null
+            }
+          ]
+        },
+        {
+          "exhibitRef": "opus_tpn_case_mucositis_01/exhibit_stage2",
+          "changes": []
+        },
+        {
+          "exhibitRef": "opus_tpn_case_mucositis_01/exhibit_stage3",
+          "changes": []
+        }
+      ]
+    },
+    {
+      "id": "16D-BASELINES",
+      "file": "EXHIBIT-FLOWSHEET-STRUCTURED-PROMOTION-CANDIDATE-16D-BASELINES-2026-07-12.json",
+      "refs": [
+        {
+          "exhibitRef": "opus_vanco_case_01/baseline_assessment_labs",
+          "changes": [
+            {
+              "path": "columns",
+              "before": null,
+              "after": [
+                {
+                  "id": "vitals_current",
+                  "panelKind": "vitals",
+                  "label": {
+                    "en": "Current",
+                    "zh": "当前"
+                  },
+                  "evidence": "Vital signs: temperature 38.6 °C, heart rate 96/min regular, blood pressure 142/84 mm Hg, respiratory rate 18/min, SpO2 96% on room air."
+                },
+                {
+                  "id": "labs_1200",
+                  "panelKind": "labs",
+                  "label": {
+                    "en": "1200",
+                    "zh": "1200"
+                  },
+                  "evidence": "Labs drawn at 1200:"
+                }
+              ]
+            },
+            {
+              "path": "panel.0.columnId",
+              "before": null,
+              "after": "vitals_current"
+            },
+            {
+              "path": "panel.1.columnId",
+              "before": null,
+              "after": "vitals_current"
+            },
+            {
+              "path": "panel.2.columnId",
+              "before": null,
+              "after": "vitals_current"
+            },
+            {
+              "path": "panel.3.columnId",
+              "before": null,
+              "after": "vitals_current"
+            },
+            {
+              "path": "panel.4.columnId",
+              "before": null,
+              "after": "vitals_current"
+            },
+            {
+              "path": "panel.5.columnId",
+              "before": null,
+              "after": "vitals_current"
+            },
+            {
+              "path": "panel.6.columnId",
+              "before": null,
+              "after": "labs_1200"
+            },
+            {
+              "path": "panel.7.columnId",
+              "before": null,
+              "after": "labs_1200"
+            },
+            {
+              "path": "panel.8.columnId",
+              "before": null,
+              "after": "labs_1200"
+            },
+            {
+              "path": "panel.9.columnId",
+              "before": null,
+              "after": "labs_1200"
+            },
+            {
+              "path": "panel.10.columnId",
+              "before": null,
+              "after": "labs_1200"
+            },
+            {
+              "path": "panel.11.columnId",
+              "before": null,
+              "after": "labs_1200"
+            },
+            {
+              "path": "panel.12.columnId",
+              "before": null,
+              "after": "labs_1200"
+            },
+            {
+              "path": "panel.13.columnId",
+              "before": null,
+              "after": "labs_1200"
+            },
+            {
+              "path": "panel.14.columnId",
+              "before": null,
+              "after": "labs_1200"
+            },
+            {
+              "path": "panel.15.columnId",
+              "before": null,
+              "after": "labs_1200"
+            }
+          ]
+        },
+        {
+          "exhibitRef": "opus1_case_discharge_med_rec_anticoag_01/baseline_record",
+          "changes": [
+            {
+              "path": "columns",
+              "before": null,
+              "after": [
+                {
+                  "id": "vitals_current",
+                  "panelKind": "vitals",
+                  "label": {
+                    "en": "Current",
+                    "zh": "当前"
+                  },
+                  "evidence": "Assessment:"
+                },
+                {
+                  "id": "labs_current",
+                  "panelKind": "labs",
+                  "label": {
+                    "en": "Current",
+                    "zh": "当前"
+                  },
+                  "evidence": "Laboratory results:"
+                }
+              ]
+            },
+            {
+              "path": "panel.0.columnId",
+              "before": null,
+              "after": "vitals_current"
+            },
+            {
+              "path": "panel.1.columnId",
+              "before": null,
+              "after": "vitals_current"
+            },
+            {
+              "path": "panel.2.columnId",
+              "before": null,
+              "after": "vitals_current"
+            },
+            {
+              "path": "panel.3.columnId",
+              "before": null,
+              "after": "vitals_current"
+            },
+            {
+              "path": "panel.4.columnId",
+              "before": null,
+              "after": "vitals_current"
+            },
+            {
+              "path": "panel.5.columnId",
+              "before": null,
+              "after": "vitals_current"
+            },
+            {
+              "path": "panel.6.columnId",
+              "before": null,
+              "after": "labs_current"
+            },
+            {
+              "path": "panel.7.columnId",
+              "before": null,
+              "after": "labs_current"
+            },
+            {
+              "path": "panel.8.columnId",
+              "before": null,
+              "after": "labs_current"
+            },
+            {
+              "path": "panel.9.columnId",
+              "before": null,
+              "after": "labs_current"
+            },
+            {
+              "path": "panel.10.columnId",
+              "before": null,
+              "after": "labs_current"
+            },
+            {
+              "path": "panel.11.columnId",
+              "before": null,
+              "after": "labs_current"
+            },
+            {
+              "path": "panel.12.columnId",
+              "before": null,
+              "after": "labs_current"
+            },
+            {
+              "path": "panel.13.columnId",
+              "before": null,
+              "after": "labs_current"
+            }
+          ]
+        },
+        {
+          "exhibitRef": "opus12_case_inpatient_suicide_risk_01/stage2_precautions_sweep",
+          "changes": []
+        },
+        {
+          "exhibitRef": "opus2_case_code_status_01/exhibit_baseline",
+          "changes": [
+            {
+              "path": "columns",
+              "before": null,
+              "after": [
+                {
+                  "id": "vitals_current",
+                  "panelKind": "vitals",
+                  "label": {
+                    "en": "Current",
+                    "zh": "当前"
+                  },
+                  "evidence": "Vital Signs:"
+                },
+                {
+                  "id": "labs_0530",
+                  "panelKind": "labs",
+                  "label": {
+                    "en": "0530",
+                    "zh": "0530"
+                  },
+                  "evidence": "Labs (0530):"
+                }
+              ]
+            },
+            {
+              "path": "panel.0.columnId",
+              "before": null,
+              "after": "vitals_current"
+            },
+            {
+              "path": "panel.1.columnId",
+              "before": null,
+              "after": "vitals_current"
+            },
+            {
+              "path": "panel.2.columnId",
+              "before": null,
+              "after": "vitals_current"
+            },
+            {
+              "path": "panel.3.columnId",
+              "before": null,
+              "after": "vitals_current"
+            },
+            {
+              "path": "panel.4.columnId",
+              "before": null,
+              "after": "vitals_current"
+            },
+            {
+              "path": "panel.5.columnId",
+              "before": null,
+              "after": "vitals_current"
+            },
+            {
+              "path": "panel.6.columnId",
+              "before": null,
+              "after": "labs_0530"
+            },
+            {
+              "path": "panel.7.columnId",
+              "before": null,
+              "after": "labs_0530"
+            },
+            {
+              "path": "panel.8.columnId",
+              "before": null,
+              "after": "labs_0530"
+            },
+            {
+              "path": "panel.9.columnId",
+              "before": null,
+              "after": "labs_0530"
+            },
+            {
+              "path": "panel.10.columnId",
+              "before": null,
+              "after": "labs_0530"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "16E-THA",
+      "file": "EXHIBIT-FLOWSHEET-STRUCTURED-PROMOTION-CANDIDATE-16E-THA-2026-07-12.json",
+      "refs": [
+        {
+          "exhibitRef": "opus1_case_tha_discharge_lep_01/pod1_update",
+          "changes": [
+            {
+              "path": "columns",
+              "before": null,
+              "after": [
+                {
+                  "id": "vitals_18h_postop",
+                  "panelKind": "vitals",
+                  "label": {
+                    "en": "18 h postoperative",
+                    "zh": "术后18小时"
+                  },
+                  "evidence": "About 18 hr after surgery:"
+                },
+                {
+                  "id": "labs_18h_postop",
+                  "panelKind": "labs",
+                  "label": {
+                    "en": "18 h postoperative",
+                    "zh": "术后18小时"
+                  },
+                  "evidence": "About 18 hr after surgery:"
+                }
+              ]
+            },
+            {
+              "path": "panel.0.columnId",
+              "before": null,
+              "after": "vitals_18h_postop"
+            },
+            {
+              "path": "panel.0.context",
+              "before": "post_intervention",
+              "after": null
+            },
+            {
+              "path": "panel.1.columnId",
+              "before": null,
+              "after": "vitals_18h_postop"
+            },
+            {
+              "path": "panel.1.context",
+              "before": "post_intervention",
+              "after": null
+            },
+            {
+              "path": "panel.2.columnId",
+              "before": null,
+              "after": "vitals_18h_postop"
+            },
+            {
+              "path": "panel.2.context",
+              "before": "post_intervention",
+              "after": null
+            },
+            {
+              "path": "panel.3.columnId",
+              "before": null,
+              "after": "vitals_18h_postop"
+            },
+            {
+              "path": "panel.3.context",
+              "before": "post_intervention",
+              "after": null
+            },
+            {
+              "path": "panel.4.columnId",
+              "before": null,
+              "after": "vitals_18h_postop"
+            },
+            {
+              "path": "panel.4.context",
+              "before": "post_intervention",
+              "after": null
+            },
+            {
+              "path": "panel.5.columnId",
+              "before": null,
+              "after": "vitals_18h_postop"
+            },
+            {
+              "path": "panel.5.context",
+              "before": "post_intervention",
+              "after": null
+            },
+            {
+              "path": "panel.6.columnId",
+              "before": null,
+              "after": "labs_18h_postop"
+            },
+            {
+              "path": "panel.6.context",
+              "before": "post_intervention",
+              "after": null
+            },
+            {
+              "path": "panel.7.columnId",
+              "before": null,
+              "after": "labs_18h_postop"
+            },
+            {
+              "path": "panel.7.context",
+              "before": "post_intervention",
+              "after": null
+            },
+            {
+              "path": "panel.8.columnId",
+              "before": null,
+              "after": "labs_18h_postop"
+            },
+            {
+              "path": "panel.8.context",
+              "before": "post_intervention",
+              "after": null
+            }
+          ]
+        },
+        {
+          "exhibitRef": "opus1_case_tha_discharge_lep_01/pod2_update",
+          "changes": [
+            {
+              "path": "columns",
+              "before": null,
+              "after": [
+                {
+                  "id": "vitals_42h_postop",
+                  "panelKind": "vitals",
+                  "label": {
+                    "en": "42 h postoperative",
+                    "zh": "术后42小时"
+                  },
+                  "evidence": "About 42 hr after surgery:"
+                },
+                {
+                  "id": "labs_42h_postop",
+                  "panelKind": "labs",
+                  "label": {
+                    "en": "42 h postoperative",
+                    "zh": "术后42小时"
+                  },
+                  "evidence": "About 42 hr after surgery:"
+                }
+              ]
+            },
+            {
+              "path": "panel.0.columnId",
+              "before": null,
+              "after": "vitals_42h_postop"
+            },
+            {
+              "path": "panel.0.context",
+              "before": "post_intervention",
+              "after": null
+            },
+            {
+              "path": "panel.1.columnId",
+              "before": null,
+              "after": "vitals_42h_postop"
+            },
+            {
+              "path": "panel.1.context",
+              "before": "post_intervention",
+              "after": null
+            },
+            {
+              "path": "panel.2.columnId",
+              "before": null,
+              "after": "vitals_42h_postop"
+            },
+            {
+              "path": "panel.2.context",
+              "before": "post_intervention",
+              "after": null
+            },
+            {
+              "path": "panel.3.columnId",
+              "before": null,
+              "after": "vitals_42h_postop"
+            },
+            {
+              "path": "panel.3.context",
+              "before": "post_intervention",
+              "after": null
+            },
+            {
+              "path": "panel.4.columnId",
+              "before": null,
+              "after": "vitals_42h_postop"
+            },
+            {
+              "path": "panel.4.context",
+              "before": "post_intervention",
+              "after": null
+            },
+            {
+              "path": "panel.5.columnId",
+              "before": null,
+              "after": "vitals_42h_postop"
+            },
+            {
+              "path": "panel.5.context",
+              "before": "post_intervention",
+              "after": null
+            },
+            {
+              "path": "panel.6.columnId",
+              "before": null,
+              "after": "labs_42h_postop"
+            },
+            {
+              "path": "panel.7.columnId",
+              "before": null,
+              "after": "labs_42h_postop"
+            },
+            {
+              "path": "panel.7.context",
+              "before": "post_intervention",
+              "after": null
+            }
+          ]
+        },
+        {
+          "exhibitRef": "opus1_case_tha_discharge_lep_01/pod3_update",
+          "changes": [
+            {
+              "path": "columns",
+              "before": null,
+              "after": [
+                {
+                  "id": "vitals_66h_postop",
+                  "panelKind": "vitals",
+                  "label": {
+                    "en": "66 h postoperative",
+                    "zh": "术后66小时"
+                  },
+                  "evidence": "About 66 hr after surgery:"
+                },
+                {
+                  "id": "labs_66h_postop",
+                  "panelKind": "labs",
+                  "label": {
+                    "en": "66 h postoperative",
+                    "zh": "术后66小时"
+                  },
+                  "evidence": "About 66 hr after surgery:"
+                }
+              ]
+            },
+            {
+              "path": "panel.0.columnId",
+              "before": null,
+              "after": "vitals_66h_postop"
+            },
+            {
+              "path": "panel.0.context",
+              "before": "post_intervention",
+              "after": null
+            },
+            {
+              "path": "panel.1.columnId",
+              "before": null,
+              "after": "vitals_66h_postop"
+            },
+            {
+              "path": "panel.1.context",
+              "before": "post_intervention",
+              "after": null
+            },
+            {
+              "path": "panel.2.columnId",
+              "before": null,
+              "after": "vitals_66h_postop"
+            },
+            {
+              "path": "panel.2.context",
+              "before": "post_intervention",
+              "after": null
+            },
+            {
+              "path": "panel.3.columnId",
+              "before": null,
+              "after": "vitals_66h_postop"
+            },
+            {
+              "path": "panel.3.context",
+              "before": "post_intervention",
+              "after": null
+            },
+            {
+              "path": "panel.4.columnId",
+              "before": null,
+              "after": "vitals_66h_postop"
+            },
+            {
+              "path": "panel.4.context",
+              "before": "post_intervention",
+              "after": null
+            },
+            {
+              "path": "panel.5.columnId",
+              "before": null,
+              "after": "vitals_66h_postop"
+            },
+            {
+              "path": "panel.5.context",
+              "before": "post_intervention",
+              "after": null
+            },
+            {
+              "path": "panel.6.columnId",
+              "before": null,
+              "after": "labs_66h_postop"
+            },
+            {
+              "path": "panel.7.columnId",
+              "before": null,
+              "after": "labs_66h_postop"
+            },
+            {
+              "path": "panel.7.context",
+              "before": "post_intervention",
+              "after": null
+            },
+            {
+              "path": "panel.8.columnId",
+              "before": null,
+              "after": "labs_66h_postop"
+            },
+            {
+              "path": "panel.8.context",
+              "before": "post_intervention",
+              "after": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "16F-OPIOID",
+      "file": "EXHIBIT-FLOWSHEET-STRUCTURED-PROMOTION-CANDIDATE-16F-OPIOID-2026-07-12.json",
+      "refs": [
+        {
+          "exhibitRef": "opus2_case_postop_opioid_respiratory_depression_01/handoff_assessment_labs",
+          "changes": [
+            {
+              "path": "columns",
+              "before": null,
+              "after": [
+                {
+                  "id": "vitals_0715",
+                  "panelKind": "vitals",
+                  "label": {
+                    "en": "0715",
+                    "zh": "0715"
+                  },
+                  "evidence": "0715 handoff:"
+                },
+                {
+                  "id": "labs_0600",
+                  "panelKind": "labs",
+                  "label": {
+                    "en": "0600",
+                    "zh": "0600"
+                  },
+                  "evidence": "0600 labs:"
+                }
+              ]
+            },
+            {
+              "path": "panel.0.columnId",
+              "before": null,
+              "after": "vitals_0715"
+            },
+            {
+              "path": "panel.1.columnId",
+              "before": null,
+              "after": "vitals_0715"
+            },
+            {
+              "path": "panel.2.columnId",
+              "before": null,
+              "after": "vitals_0715"
+            },
+            {
+              "path": "panel.3.columnId",
+              "before": null,
+              "after": "vitals_0715"
+            },
+            {
+              "path": "panel.4.columnId",
+              "before": null,
+              "after": "vitals_0715"
+            },
+            {
+              "path": "panel.5.columnId",
+              "before": null,
+              "after": "vitals_0715"
+            },
+            {
+              "path": "panel.6.columnId",
+              "before": null,
+              "after": "labs_0600"
+            },
+            {
+              "path": "panel.7.columnId",
+              "before": null,
+              "after": "labs_0600"
+            },
+            {
+              "path": "panel.8.columnId",
+              "before": null,
+              "after": "labs_0600"
+            },
+            {
+              "path": "panel.9.columnId",
+              "before": null,
+              "after": "labs_0600"
+            },
+            {
+              "path": "panel.10.columnId",
+              "before": null,
+              "after": "labs_0600"
+            },
+            {
+              "path": "panel.11.columnId",
+              "before": null,
+              "after": "labs_0600"
+            },
+            {
+              "path": "panel.12.columnId",
+              "before": null,
+              "after": "labs_0600"
+            },
+            {
+              "path": "panel.13.columnId",
+              "before": null,
+              "after": "labs_0600"
+            },
+            {
+              "path": "panel.14.columnId",
+              "before": null,
+              "after": "labs_0600"
+            },
+            {
+              "path": "panel.15.columnId",
+              "before": null,
+              "after": "labs_0600"
+            },
+            {
+              "path": "panel.16.columnId",
+              "before": null,
+              "after": "labs_0600"
+            },
+            {
+              "path": "panel.17.columnId",
+              "before": null,
+              "after": "labs_0600"
+            }
+          ]
+        },
+        {
+          "exhibitRef": "opus2_case_postop_opioid_respiratory_depression_01/stage_0830_findings",
+          "changes": [
+            {
+              "path": "columns",
+              "before": null,
+              "after": [
+                {
+                  "id": "vitals_current",
+                  "panelKind": "vitals",
+                  "label": {
+                    "en": "Current",
+                    "zh": "当前"
+                  },
+                  "evidence": "Vital signs:"
+                }
+              ]
+            },
+            {
+              "path": "panel.0.columnId",
+              "before": null,
+              "after": "vitals_current"
+            },
+            {
+              "path": "panel.1.columnId",
+              "before": null,
+              "after": "vitals_current"
+            },
+            {
+              "path": "panel.2.columnId",
+              "before": null,
+              "after": "vitals_current"
+            },
+            {
+              "path": "panel.3.columnId",
+              "before": null,
+              "after": "vitals_current"
+            },
+            {
+              "path": "panel.4.columnId",
+              "before": null,
+              "after": "vitals_current"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
