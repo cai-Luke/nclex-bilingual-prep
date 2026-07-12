@@ -53,14 +53,15 @@ exact exhibit ref as its fixture, so the promotion permanently broke it via the 
 guard; the fixture was relocated to a different currently-unpromoted exhibit with a comment flagging
 the coupling risk, since the applicator has no isolated-bank override.
 
-All ten actionable Batch 14 refs remaining after Candidate 14A are staged as six bounded successors
-(`14B`-`14G`) for independent review, each at 0 FAIL under the current gate. Candidate 14B contains
-the TACO/TRALI resolution record, with Rule F narrowed measurement by measurement so temperature is
-untagged while the hemodynamic, respiratory, and BNP reassessments remain post-intervention. The
-other slices separately contain SVC SaO2/SpO2 identity, three-stage variceal Rule F chronology,
-burn/PPH resuscitation, warfarin failed reversal, and the unsafe-discharge unitless panel. No
-canonical write has occurred; six other Batch 14 dispositions are intentionally non-rendering
-(`skip_serial`, empty narrative, or stale exclusion-only).
+Batch 14 is promoted and closed: Candidate 14A plus successors `14B`-`14G` added all fourteen
+actionable refs under the current gate/applicator contract. Six other Batch 14 dispositions remain
+intentionally non-rendering (`skip_serial`, empty narrative, or stale exclusion-only).
+
+Batch 15's seventeen actionable refs are staged as five bounded candidates (`15A`-`15E`) for
+independent review, each at 0 FAIL under the current gate. Rule F was re-derived measurement by
+measurement; one CAR-T record uses source-evidenced explicit `Current` columns to prevent the legacy
+label heuristic from borrowing an incidental historical `1600`. No canonical write has occurred;
+three genuine differing-current-value records remain non-rendering `skip_serial` dispositions.
 
 Current schema item types:
 

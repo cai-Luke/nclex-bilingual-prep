@@ -1,0 +1,319 @@
+{
+  "sourceFile": "EXHIBIT-FLOWSHEET-MIGRATION-BATCH-15-scattered-2026-07-06.json",
+  "excludedNonRendering": [
+    {
+      "exhibitRef": "gpt_stroke_2026_06_16_case_acute_ischemic_stroke_warfarin_01/baseline_assessment",
+      "reason": "skip_serial: two distinct current BP readings"
+    },
+    {
+      "exhibitRef": "opus_case_se_01/exhibit_baseline",
+      "reason": "skip_serial: two distinct current glucose readings"
+    },
+    {
+      "exhibitRef": "opus_case_se_01/exhibit_stage_1",
+      "reason": "skip_serial: two distinct current SpO2 readings"
+    }
+  ],
+  "candidates": [
+    {
+      "id": "15A-PPH-STROKE",
+      "file": "EXHIBIT-FLOWSHEET-STRUCTURED-PROMOTION-CANDIDATE-15A-PPH-STROKE-2026-07-12.json",
+      "refs": [
+        {
+          "exhibitRef": "gpt_pph_2026_06_16_case_01/stage_3_update",
+          "changes": [
+            {
+              "path": "panel.3.context",
+              "before": "post_intervention",
+              "after": null
+            },
+            {
+              "path": "panel.4.context",
+              "before": "post_intervention",
+              "after": null
+            },
+            {
+              "path": "panel.7.context",
+              "before": "post_intervention",
+              "after": null
+            },
+            {
+              "path": "panel.8.context",
+              "before": "post_intervention",
+              "after": null
+            },
+            {
+              "path": "panel.9.context",
+              "before": "post_intervention",
+              "after": null
+            }
+          ]
+        },
+        {
+          "exhibitRef": "gpt_stroke_2026_06_16_case_acute_ischemic_stroke_warfarin_01/stage_1_stroke_team",
+          "changes": []
+        },
+        {
+          "exhibitRef": "gpt_stroke_2026_06_16_case_acute_ischemic_stroke_warfarin_01/stage_3_post_procedure_baseline",
+          "changes": [
+            {
+              "path": "panel.0.context",
+              "before": "post_intervention",
+              "after": null
+            },
+            {
+              "path": "panel.1.context",
+              "before": "post_intervention",
+              "after": null
+            },
+            {
+              "path": "panel.4.context",
+              "before": "post_intervention",
+              "after": null
+            },
+            {
+              "path": "panel.5.context",
+              "before": "post_intervention",
+              "after": null
+            }
+          ]
+        },
+        {
+          "exhibitRef": "gpt_stroke_2026_06_16_case_acute_ischemic_stroke_warfarin_01/stage_4_ich_management",
+          "changes": []
+        }
+      ]
+    },
+    {
+      "id": "15B-AGVHD",
+      "file": "EXHIBIT-FLOWSHEET-STRUCTURED-PROMOTION-CANDIDATE-15B-AGVHD-2026-07-12.json",
+      "refs": [
+        {
+          "exhibitRef": "opus_agvd_case_agvhd_01/exhibit_labs_01",
+          "changes": []
+        },
+        {
+          "exhibitRef": "opus_agvd_case_agvhd_01/exhibit_presentation_01",
+          "changes": []
+        },
+        {
+          "exhibitRef": "opus_agvd_case_agvhd_01/exhibit_stage1_01",
+          "changes": []
+        },
+        {
+          "exhibitRef": "opus_agvd_case_agvhd_01/exhibit_stage2_01",
+          "changes": [
+            {
+              "path": "panel.0.context",
+              "before": "post_intervention",
+              "after": null
+            },
+            {
+              "path": "panel.4.context",
+              "before": "post_intervention",
+              "after": null
+            },
+            {
+              "path": "panel.5.context",
+              "before": "post_intervention",
+              "after": null
+            },
+            {
+              "path": "panel.6.context",
+              "before": "post_intervention",
+              "after": null
+            },
+            {
+              "path": "panel.7.context",
+              "before": "post_intervention",
+              "after": null
+            },
+            {
+              "path": "panel.8.context",
+              "before": "post_intervention",
+              "after": null
+            },
+            {
+              "path": "panel.14.context",
+              "before": "post_intervention",
+              "after": null
+            },
+            {
+              "path": "panel.15.context",
+              "before": "post_intervention",
+              "after": null
+            }
+          ]
+        },
+        {
+          "exhibitRef": "opus_agvd_case_agvhd_01/exhibit_stage3_01",
+          "changes": [
+            {
+              "path": "panel.4.context",
+              "before": "post_intervention",
+              "after": null
+            },
+            {
+              "path": "panel.5.context",
+              "before": "post_intervention",
+              "after": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "15C-CAR-T",
+      "file": "EXHIBIT-FLOWSHEET-STRUCTURED-PROMOTION-CANDIDATE-15C-CAR-T-2026-07-12.json",
+      "refs": [
+        {
+          "exhibitRef": "opus_car_t_crs_2026_06_11_case_01/ex3",
+          "changes": []
+        },
+        {
+          "exhibitRef": "opus_car_t_crs_2026_06_11_case_01/ex4",
+          "changes": [
+            {
+              "path": "columns",
+              "before": null,
+              "after": [
+                {
+                  "id": "vitals_current",
+                  "panelKind": "vitals",
+                  "label": {
+                    "en": "Current",
+                    "zh": "当前"
+                  },
+                  "evidence": "Vital signs: temperature 38.9 °C (oral), heart rate 104 and sinus tachycardia on telemetry, blood pressure 118/72, respiratory rate 20, SpO₂ 96% on room air."
+                },
+                {
+                  "id": "labs_current",
+                  "panelKind": "labs",
+                  "label": {
+                    "en": "Current",
+                    "zh": "当前"
+                  },
+                  "evidence": "The provider is notified and orders stat labs: CRP 86 mg/L, ferritin 1,450 ng/mL, fibrinogen 280 mg/dL, LDH 380 U/L, creatinine 1.0 mg/dL, AST 40 U/L, ALT 38 U/L."
+                }
+              ]
+            },
+            {
+              "path": "panel.0.columnId",
+              "before": null,
+              "after": "vitals_current"
+            },
+            {
+              "path": "panel.1.columnId",
+              "before": null,
+              "after": "vitals_current"
+            },
+            {
+              "path": "panel.2.columnId",
+              "before": null,
+              "after": "vitals_current"
+            },
+            {
+              "path": "panel.3.columnId",
+              "before": null,
+              "after": "vitals_current"
+            },
+            {
+              "path": "panel.4.columnId",
+              "before": null,
+              "after": "vitals_current"
+            },
+            {
+              "path": "panel.5.columnId",
+              "before": null,
+              "after": "vitals_current"
+            },
+            {
+              "path": "panel.6.columnId",
+              "before": null,
+              "after": "labs_current"
+            },
+            {
+              "path": "panel.7.columnId",
+              "before": null,
+              "after": "labs_current"
+            },
+            {
+              "path": "panel.8.columnId",
+              "before": null,
+              "after": "labs_current"
+            }
+          ]
+        },
+        {
+          "exhibitRef": "opus_car_t_crs_2026_06_11_case_01/ex5",
+          "changes": []
+        },
+        {
+          "exhibitRef": "opus_car_t_crs_2026_06_11_case_01/ex6",
+          "changes": [
+            {
+              "path": "panel.9.context",
+              "before": "post_intervention",
+              "after": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "15D-LITHIUM",
+      "file": "EXHIBIT-FLOWSHEET-STRUCTURED-PROMOTION-CANDIDATE-15D-LITHIUM-2026-07-12.json",
+      "refs": [
+        {
+          "exhibitRef": "opus_case_lithium_toxicity_01/exhibit_admission",
+          "changes": []
+        },
+        {
+          "exhibitRef": "opus_case_lithium_toxicity_01/exhibit_stage2",
+          "changes": [
+            {
+              "path": "panel.1.context",
+              "before": "post_intervention",
+              "after": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "15E-STATUS-EPILEPTICUS",
+      "file": "EXHIBIT-FLOWSHEET-STRUCTURED-PROMOTION-CANDIDATE-15E-STATUS-EPILEPTICUS-2026-07-12.json",
+      "refs": [
+        {
+          "exhibitRef": "opus_case_se_01/exhibit_stage_2",
+          "changes": []
+        },
+        {
+          "exhibitRef": "opus_case_se_01/exhibit_stage_3",
+          "changes": [
+            {
+              "path": "panel.1.context",
+              "before": "post_intervention",
+              "after": null
+            },
+            {
+              "path": "panel.2.context",
+              "before": "post_intervention",
+              "after": null
+            },
+            {
+              "path": "panel.3.context",
+              "before": "post_intervention",
+              "after": null
+            },
+            {
+              "path": "panel.7.context",
+              "before": "post_intervention",
+              "after": null
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
