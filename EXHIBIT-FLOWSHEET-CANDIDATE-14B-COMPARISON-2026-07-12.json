@@ -1,0 +1,18 @@
+{
+  "lineage": {
+    "sourceBank": "banks/gpt-canonical.json",
+    "batchSource": "EXHIBIT-FLOWSHEET-MIGRATION-BATCH-14-scattered-2026-07-06.json",
+    "candidate": "EXHIBIT-FLOWSHEET-STRUCTURED-PROMOTION-CANDIDATE-14B-2026-07-12.json"
+  },
+  "sourcePreconditions": [
+    "Current vital signs: T 36.9 C, HR 84, BP 136/78, RR 18, SpO2 96% on 4 L nasal cannula after weaning from the non-rebreather.",
+    "Repeat BNP: 420 pg/mL."
+  ],
+  "changes": [
+    {
+      "path": "$[0].panel[0].context",
+      "before": "post_intervention",
+      "after": null
+    }
+  ]
+}

@@ -53,6 +53,12 @@ exact exhibit ref as its fixture, so the promotion permanently broke it via the 
 guard; the fixture was relocated to a different currently-unpromoted exhibit with a comment flagging
 the coupling risk, since the applicator has no isolated-bank override.
 
+The promotion sweep has resumed with Candidate 14B, a one-record bounded Batch 14 successor for
+`gpt_case_taco_vs_trali_01/stage_4_resolution`, staged for independent review with no canonical
+write. Current gate result is 0 FAIL / 1 advisory WARN; Rule F was narrowed measurement by
+measurement so temperature is untagged while the hemodynamic, respiratory, and BNP reassessments
+remain post-intervention.
+
 Current schema item types:
 
 - `multiple_choice`
