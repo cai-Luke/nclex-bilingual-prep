@@ -6,7 +6,11 @@ import { join, resolve } from "node:path";
 import type { StructuredMeasurements } from "../../src/types";
 
 const root = resolve(import.meta.dirname, "../..");
-const ref = "gpt_case_refeeding_syndrome_tpn_01/baseline_record";
+// This test spawns the real applicator CLI against the bundled canonical banks (the applicator has
+// no isolated-bank override), so `ref` must name a real exhibit with no structuredMeasurements yet —
+// the applicator's double-application guard throws otherwise. If a future promotion targets this
+// exact ref, swap in a different currently-unpromoted case_study exhibit.
+const ref = "opus_psi_caregiver_2026_06_10_01/ex1";
 
 const runApplicator = async (record: unknown): Promise<StructuredMeasurements> => {
   const dir = await mkdtemp(join(tmpdir(), "structured-applicator-"));
