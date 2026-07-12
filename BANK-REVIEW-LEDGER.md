@@ -70,6 +70,20 @@ Canonical source banks (see [BANK-CENSUS.md](BANK-CENSUS.md) for current counts;
 - `banks/visual-canonical.json` (rhythm_strip visual items; formerly `banks/rhythm-canonical`)
 - `banks/vitals-canonical.json` (vitals_trend visual items)
 
+### 2026-07-12 — Refeeding PACU bilingual unit clarification (`banks/gpt-canonical.json`)
+
+Status: `fixed-and-validated`, pending independent Claude/Sonnet review. Applied the owner-adjudicated
+18-unit clarification to only
+`gpt_case_refeeding_syndrome_tpn_01/baseline_record.content.en` and `.zh` through
+`scripts/patches/2026-07-12-refeeding-pacu-units.ts` using canonical
+`patch-raw --allow-canonical` mode. Patch reason: "Owner-adjudicated bilingual PACU baseline unit
+clarification for gpt_case_refeeding_syndrome_tpn_01/baseline_record; values, analyte wording,
+ordering, and answer content unchanged." Exact before/after fields and both 18-entry
+analyte-value-unit sequences are recorded in
+`REFEEDING-PACU-UNIT-CLARIFICATION-MANIFEST-2026-07-12.json`. No question, answer, rationale,
+stage, `structuredMeasurements`, unrelated exhibit prose, or bank count changed. Canonical
+validation and census checks passed.
+
 Future Gemini output should arrive as a separate raw/review batch file, for example `banks-raw/gemini-2026-06-05-b.json`. After review and validation, the accepted questions can be deliberately consolidated into `banks/gemini-canonical.json`.
 
 Only top-level `banks/*.json` files are bundled by the app. `banks/Pending cases/` is a holding/rejected/archive area, not a bundled source.

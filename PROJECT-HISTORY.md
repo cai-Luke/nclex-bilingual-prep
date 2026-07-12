@@ -32,6 +32,11 @@ Current canonical banks and their roles. Per-file counts and schema versions are
 
 Current schema version is `2.0` (`bound` and structured-measurement `population`, PR #23, merged 2026-07-11) — also generated per-bank in `BANK-CENSUS.md`. `NCLEX-Question-Schema.md` owns the complete feature-floor ladder; this file does not restate it.
 
+The refeeding-syndrome case's named PACU baseline panel now carries owner-approved conventional
+units in both learner-facing locales. The deterministic canonical patch changed only the two
+`baseline_record.content` locale strings; its exact manifest and independent-review evidence ship
+with the open 12G/PR-B review candidate. No structured measurements were authored by this edit.
+
 Current schema item types:
 
 - `multiple_choice`
