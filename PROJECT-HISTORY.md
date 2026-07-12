@@ -53,6 +53,15 @@ exact exhibit ref as its fixture, so the promotion permanently broke it via the 
 guard; the fixture was relocated to a different currently-unpromoted exhibit with a comment flagging
 the coupling risk, since the applicator has no isolated-bank override.
 
+All ten actionable Batch 14 refs remaining after Candidate 14A are staged as six bounded successors
+(`14B`-`14G`) for independent review, each at 0 FAIL under the current gate. Candidate 14B contains
+the TACO/TRALI resolution record, with Rule F narrowed measurement by measurement so temperature is
+untagged while the hemodynamic, respiratory, and BNP reassessments remain post-intervention. The
+other slices separately contain SVC SaO2/SpO2 identity, three-stage variceal Rule F chronology,
+burn/PPH resuscitation, warfarin failed reversal, and the unsafe-discharge unitless panel. No
+canonical write has occurred; six other Batch 14 dispositions are intentionally non-rendering
+(`skip_serial`, empty narrative, or stale exclusion-only).
+
 Current schema item types:
 
 - `multiple_choice`

@@ -1,0 +1,130 @@
+[
+  {
+    "exhibitRef": "gpt_case_warfarin_mvr_2026_06_11_01/stage_3_deterioration",
+    "lane": "extract",
+    "panel": [
+      {
+        "label": "temp",
+        "value": "37.1",
+        "sourceUnit": "C",
+        "sourceSpan": "0600 vital signs: T 37.1 C, HR 98, BP 100/60, RR 20, SpO2 95% on room air.",
+        "columnId": "vitals_0600"
+      },
+      {
+        "label": "hr",
+        "value": "98",
+        "sourceUnit": "bpm",
+        "sourceSpan": "0600 vital signs: T 37.1 C, HR 98, BP 100/60, RR 20, SpO2 95% on room air.",
+        "context": "post_intervention",
+        "columnId": "vitals_0600"
+      },
+      {
+        "label": "sbp",
+        "value": "100",
+        "sourceUnit": "mmHg",
+        "sourceSpan": "0600 vital signs: T 37.1 C, HR 98, BP 100/60, RR 20, SpO2 95% on room air.",
+        "context": "post_intervention",
+        "columnId": "vitals_0600"
+      },
+      {
+        "label": "dbp",
+        "value": "60",
+        "sourceUnit": "mmHg",
+        "sourceSpan": "0600 vital signs: T 37.1 C, HR 98, BP 100/60, RR 20, SpO2 95% on room air.",
+        "context": "post_intervention",
+        "columnId": "vitals_0600"
+      },
+      {
+        "label": "rr",
+        "value": "20",
+        "sourceUnit": "/min",
+        "sourceSpan": "0600 vital signs: T 37.1 C, HR 98, BP 100/60, RR 20, SpO2 95% on room air.",
+        "columnId": "vitals_0600"
+      },
+      {
+        "label": "spo2",
+        "value": "95",
+        "sourceUnit": "%",
+        "sourceSpan": "0600 vital signs: T 37.1 C, HR 98, BP 100/60, RR 20, SpO2 95% on room air.",
+        "columnId": "vitals_0600"
+      },
+      {
+        "label": "inr",
+        "value": "6.8",
+        "sourceUnit": "(ratio)",
+        "sourceSpan": "0645 stat labs: INR 6.8, PT 76.2 seconds, hemoglobin 9.2 g/dL, hematocrit 27.6%, platelets 174,000/uL, BUN 42 mg/dL, creatinine 1.5 mg/dL, lactate 2.4 mmol/L.",
+        "context": "post_intervention",
+        "columnId": "labs_0645"
+      },
+      {
+        "label": "hemoglobin",
+        "value": "9.2",
+        "sourceUnit": "g/dL",
+        "sourceSpan": "0645 stat labs: INR 6.8, PT 76.2 seconds, hemoglobin 9.2 g/dL, hematocrit 27.6%, platelets 174,000/uL, BUN 42 mg/dL, creatinine 1.5 mg/dL, lactate 2.4 mmol/L.",
+        "context": "post_intervention",
+        "columnId": "labs_0645"
+      },
+      {
+        "label": "hematocrit",
+        "value": "27.6",
+        "sourceUnit": "%",
+        "sourceSpan": "0645 stat labs: INR 6.8, PT 76.2 seconds, hemoglobin 9.2 g/dL, hematocrit 27.6%, platelets 174,000/uL, BUN 42 mg/dL, creatinine 1.5 mg/dL, lactate 2.4 mmol/L.",
+        "context": "post_intervention",
+        "columnId": "labs_0645"
+      },
+      {
+        "label": "platelets",
+        "value": "174,000",
+        "sourceUnit": "/uL",
+        "sourceSpan": "0645 stat labs: INR 6.8, PT 76.2 seconds, hemoglobin 9.2 g/dL, hematocrit 27.6%, platelets 174,000/uL, BUN 42 mg/dL, creatinine 1.5 mg/dL, lactate 2.4 mmol/L.",
+        "columnId": "labs_0645"
+      },
+      {
+        "label": "bun",
+        "value": "42",
+        "sourceUnit": "mg/dL",
+        "sourceSpan": "0645 stat labs: INR 6.8, PT 76.2 seconds, hemoglobin 9.2 g/dL, hematocrit 27.6%, platelets 174,000/uL, BUN 42 mg/dL, creatinine 1.5 mg/dL, lactate 2.4 mmol/L.",
+        "context": "post_intervention",
+        "columnId": "labs_0645"
+      },
+      {
+        "label": "creatinine",
+        "value": "1.5",
+        "sourceUnit": "mg/dL",
+        "sourceSpan": "0645 stat labs: INR 6.8, PT 76.2 seconds, hemoglobin 9.2 g/dL, hematocrit 27.6%, platelets 174,000/uL, BUN 42 mg/dL, creatinine 1.5 mg/dL, lactate 2.4 mmol/L.",
+        "context": "post_intervention",
+        "columnId": "labs_0645"
+      },
+      {
+        "label": "lactate",
+        "value": "2.4",
+        "sourceUnit": "mmol/L",
+        "sourceSpan": "0645 stat labs: INR 6.8, PT 76.2 seconds, hemoglobin 9.2 g/dL, hematocrit 27.6%, platelets 174,000/uL, BUN 42 mg/dL, creatinine 1.5 mg/dL, lactate 2.4 mmol/L.",
+        "context": "post_intervention",
+        "columnId": "labs_0645"
+      }
+    ],
+    "excludedValues": [],
+    "unitAliases": [],
+    "columns": [
+      {
+        "id": "vitals_0600",
+        "panelKind": "vitals",
+        "label": {
+          "en": "0600",
+          "zh": "0600"
+        },
+        "evidence": "0600 vital signs: T 37.1 C, HR 98, BP 100/60, RR 20, SpO2 95% on room air."
+      },
+      {
+        "id": "labs_0645",
+        "panelKind": "labs",
+        "label": {
+          "en": "0645",
+          "zh": "0645"
+        },
+        "evidence": "0645 stat labs: INR 6.8, PT 76.2 seconds, hemoglobin 9.2 g/dL, hematocrit 27.6%, platelets 174,000/uL, BUN 42 mg/dL, creatinine 1.5 mg/dL, lactate 2.4 mmol/L."
+      }
+    ]
+  }
+]

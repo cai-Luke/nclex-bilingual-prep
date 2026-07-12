@@ -1,0 +1,109 @@
+[
+  {
+    "exhibitRef": "gpt_case_unsafe_premature_discharge_01/baseline_assessment_labs",
+    "lane": "extract",
+    "panel": [
+      {
+        "label": "temp",
+        "value": "36.8",
+        "sourceUnit": "C",
+        "sourceSpan": "Vital signs: T 36.8 C, HR 92 regular, BP 108/68, RR 22, SpO2 93% on room air."
+      },
+      {
+        "label": "hr",
+        "value": "92",
+        "sourceUnit": "bpm",
+        "sourceSpan": "Vital signs: T 36.8 C, HR 92 regular, BP 108/68, RR 22, SpO2 93% on room air.",
+        "context": "post_intervention"
+      },
+      {
+        "label": "sbp",
+        "value": "108",
+        "sourceUnit": "mmHg",
+        "sourceSpan": "Vital signs: T 36.8 C, HR 92 regular, BP 108/68, RR 22, SpO2 93% on room air.",
+        "context": "post_intervention"
+      },
+      {
+        "label": "dbp",
+        "value": "68",
+        "sourceUnit": "mmHg",
+        "sourceSpan": "Vital signs: T 36.8 C, HR 92 regular, BP 108/68, RR 22, SpO2 93% on room air.",
+        "context": "post_intervention"
+      },
+      {
+        "label": "rr",
+        "value": "22",
+        "sourceUnit": "/min",
+        "sourceSpan": "Vital signs: T 36.8 C, HR 92 regular, BP 108/68, RR 22, SpO2 93% on room air.",
+        "context": "post_intervention"
+      },
+      {
+        "label": "spo2",
+        "value": "93",
+        "sourceUnit": "%",
+        "sourceSpan": "Vital signs: T 36.8 C, HR 92 regular, BP 108/68, RR 22, SpO2 93% on room air.",
+        "context": "post_intervention"
+      },
+      {
+        "label": "bun",
+        "value": "38",
+        "sourceUnit": "mg/dL",
+        "sourceSpan": "Labs: Na 138, K 3.4, Cl 96, CO2 30, BUN 38, creatinine 1.8 mg/dL (baseline outpatient 1.4; admission 1.6), glucose 142, BNP 680 pg/mL (admission 2,400; yesterday 820), Hgb 11.4, WBC 7.2, platelets 210, Mg 1.7, INR 1.0, albumin 3.0.",
+        "context": "post_intervention"
+      },
+      {
+        "label": "creatinine",
+        "value": "1.8",
+        "sourceUnit": "mg/dL",
+        "sourceSpan": "Labs: Na 138, K 3.4, Cl 96, CO2 30, BUN 38, creatinine 1.8 mg/dL (baseline outpatient 1.4; admission 1.6), glucose 142, BNP 680 pg/mL (admission 2,400; yesterday 820), Hgb 11.4, WBC 7.2, platelets 210, Mg 1.7, INR 1.0, albumin 3.0.",
+        "context": "post_intervention"
+      },
+      {
+        "label": "glucose",
+        "value": "142",
+        "sourceUnit": "mg/dL",
+        "sourceSpan": "Labs: Na 138, K 3.4, Cl 96, CO2 30, BUN 38, creatinine 1.8 mg/dL (baseline outpatient 1.4; admission 1.6), glucose 142, BNP 680 pg/mL (admission 2,400; yesterday 820), Hgb 11.4, WBC 7.2, platelets 210, Mg 1.7, INR 1.0, albumin 3.0."
+      },
+      {
+        "label": "bnp",
+        "value": "680",
+        "sourceUnit": "pg/mL",
+        "sourceSpan": "Labs: Na 138, K 3.4, Cl 96, CO2 30, BUN 38, creatinine 1.8 mg/dL (baseline outpatient 1.4; admission 1.6), glucose 142, BNP 680 pg/mL (admission 2,400; yesterday 820), Hgb 11.4, WBC 7.2, platelets 210, Mg 1.7, INR 1.0, albumin 3.0.",
+        "context": "post_intervention"
+      },
+      {
+        "label": "inr",
+        "value": "1.0",
+        "sourceUnit": "(ratio)",
+        "sourceSpan": "Labs: Na 138, K 3.4, Cl 96, CO2 30, BUN 38, creatinine 1.8 mg/dL (baseline outpatient 1.4; admission 1.6), glucose 142, BNP 680 pg/mL (admission 2,400; yesterday 820), Hgb 11.4, WBC 7.2, platelets 210, Mg 1.7, INR 1.0, albumin 3.0."
+      }
+    ],
+    "excludedValues": [
+      {
+        "label": "creatinine",
+        "value": "1.4",
+        "reason": "prior",
+        "sourceSpan": "Labs: Na 138, K 3.4, Cl 96, CO2 30, BUN 38, creatinine 1.8 mg/dL (baseline outpatient 1.4; admission 1.6), glucose 142, BNP 680 pg/mL (admission 2,400; yesterday 820), Hgb 11.4, WBC 7.2, platelets 210, Mg 1.7, INR 1.0, albumin 3.0."
+      },
+      {
+        "label": "creatinine",
+        "value": "1.6",
+        "reason": "prior",
+        "sourceSpan": "Labs: Na 138, K 3.4, Cl 96, CO2 30, BUN 38, creatinine 1.8 mg/dL (baseline outpatient 1.4; admission 1.6), glucose 142, BNP 680 pg/mL (admission 2,400; yesterday 820), Hgb 11.4, WBC 7.2, platelets 210, Mg 1.7, INR 1.0, albumin 3.0."
+      },
+      {
+        "label": "bnp",
+        "value": "2,400",
+        "reason": "prior",
+        "sourceSpan": "Labs: Na 138, K 3.4, Cl 96, CO2 30, BUN 38, creatinine 1.8 mg/dL (baseline outpatient 1.4; admission 1.6), glucose 142, BNP 680 pg/mL (admission 2,400; yesterday 820), Hgb 11.4, WBC 7.2, platelets 210, Mg 1.7, INR 1.0, albumin 3.0."
+      },
+      {
+        "label": "bnp",
+        "value": "820",
+        "reason": "prior",
+        "sourceSpan": "Labs: Na 138, K 3.4, Cl 96, CO2 30, BUN 38, creatinine 1.8 mg/dL (baseline outpatient 1.4; admission 1.6), glucose 142, BNP 680 pg/mL (admission 2,400; yesterday 820), Hgb 11.4, WBC 7.2, platelets 210, Mg 1.7, INR 1.0, albumin 3.0."
+      }
+    ],
+    "unitAliases": []
+  }
+]

@@ -1,0 +1,459 @@
+{
+  "lineage": {
+    "batchSource": "EXHIBIT-FLOWSHEET-MIGRATION-BATCH-14-scattered-2026-07-06.json",
+    "sourceBanks": [
+      "banks/gpt-canonical.json",
+      "banks/hard-cases-canonical.json"
+    ]
+  },
+  "candidates": [
+    {
+      "candidate": "EXHIBIT-FLOWSHEET-STRUCTURED-PROMOTION-CANDIDATE-14C-SVC-2026-07-12.json",
+      "refs": [
+        "gpt_case_svc_syndrome_01/baseline_record",
+        "gpt_case_svc_syndrome_01/stage_2_update"
+      ],
+      "changes": [
+        {
+          "path": "$[0].panel[19]",
+          "before": null,
+          "after": {
+            "label": "sao2",
+            "value": "94",
+            "sourceUnit": "%",
+            "sourceSpan": "ABG on 2 L nasal cannula: pH 7.42, PaCO2 36 mmHg, PaO2 72 mmHg, HCO3 23 mEq/L, SaO2 94%."
+          }
+        },
+        {
+          "path": "$[1].panel[10]",
+          "before": null,
+          "after": {
+            "label": "sao2",
+            "value": "90",
+            "sourceUnit": "%",
+            "sourceSpan": "ABG on 2 L nasal cannula: pH 7.38, PaCO2 42 mmHg, PaO2 62 mmHg, HCO3 24 mEq/L, SaO2 90%."
+          }
+        }
+      ]
+    },
+    {
+      "candidate": "EXHIBIT-FLOWSHEET-STRUCTURED-PROMOTION-CANDIDATE-14D-VARICEAL-2026-07-12.json",
+      "refs": [
+        "gpt_case_variceal_hemorrhage_cirrhosis_2026_06_16_01/stage1_update",
+        "gpt_case_variceal_hemorrhage_cirrhosis_2026_06_16_01/stage2_update",
+        "gpt_case_variceal_hemorrhage_cirrhosis_2026_06_16_01/stage3_update"
+      ],
+      "changes": [
+        {
+          "path": "$[0].panel[3].context",
+          "before": "post_intervention",
+          "after": null
+        },
+        {
+          "path": "$[1].panel[8].context",
+          "before": "post_intervention",
+          "after": null
+        },
+        {
+          "path": "$[1].panel[9].context",
+          "before": "post_intervention",
+          "after": null
+        },
+        {
+          "path": "$[1].panel[10].context",
+          "before": "post_intervention",
+          "after": null
+        },
+        {
+          "path": "$[2].panel[0].context",
+          "before": null,
+          "after": "post_intervention"
+        },
+        {
+          "path": "$[2].panel[1].context",
+          "before": null,
+          "after": "post_intervention"
+        },
+        {
+          "path": "$[2].panel[2].context",
+          "before": null,
+          "after": "post_intervention"
+        },
+        {
+          "path": "$[2].panel[3].context",
+          "before": null,
+          "after": "post_intervention"
+        },
+        {
+          "path": "$[2].panel[4].context",
+          "before": null,
+          "after": "post_intervention"
+        },
+        {
+          "path": "$[2].panel[6].context",
+          "before": null,
+          "after": "post_intervention"
+        },
+        {
+          "path": "$[2].panel[7].context",
+          "before": null,
+          "after": "post_intervention"
+        },
+        {
+          "path": "$[2].panel[9].context",
+          "before": null,
+          "after": "post_intervention"
+        }
+      ]
+    },
+    {
+      "candidate": "EXHIBIT-FLOWSHEET-STRUCTURED-PROMOTION-CANDIDATE-14E-RESUSCITATION-2026-07-12.json",
+      "refs": [
+        "gpt_case_major_burn_inhalation_fluid_creep_01/stage3_course",
+        "gpt_pph_2026_06_16_case_01/stage_2_update"
+      ],
+      "changes": [
+        {
+          "path": "$[0].panel[0].context",
+          "before": null,
+          "after": "post_intervention"
+        },
+        {
+          "path": "$[0].panel[0].columnId",
+          "before": null,
+          "after": "vitals_1600"
+        },
+        {
+          "path": "$[0].panel[1].context",
+          "before": null,
+          "after": "post_intervention"
+        },
+        {
+          "path": "$[0].panel[1].columnId",
+          "before": null,
+          "after": "vitals_1600"
+        },
+        {
+          "path": "$[0].panel[2].context",
+          "before": null,
+          "after": "post_intervention"
+        },
+        {
+          "path": "$[0].panel[2].columnId",
+          "before": null,
+          "after": "vitals_1600"
+        },
+        {
+          "path": "$[0].panel[3].columnId",
+          "before": null,
+          "after": "current_labs"
+        },
+        {
+          "path": "$[0].panel[4].columnId",
+          "before": null,
+          "after": "current_labs"
+        },
+        {
+          "path": "$[0].panel[5].context",
+          "before": null,
+          "after": "post_intervention"
+        },
+        {
+          "path": "$[0].panel[5].columnId",
+          "before": null,
+          "after": "current_labs"
+        },
+        {
+          "path": "$[0].panel[6].context",
+          "before": null,
+          "after": "post_intervention"
+        },
+        {
+          "path": "$[0].panel[6].columnId",
+          "before": null,
+          "after": "current_labs"
+        },
+        {
+          "path": "$[0].columns",
+          "before": null,
+          "after": [
+            {
+              "id": "vitals_1600",
+              "panelKind": "vitals",
+              "label": {
+                "en": "1600",
+                "zh": "1600"
+              },
+              "evidence": "At 1600, urine output is 55 mL/hr, HR 100/min, BP 112/72 mmHg, and the patient is hemodynamically improving."
+            },
+            {
+              "id": "current_labs",
+              "panelKind": "labs",
+              "label": {
+                "en": "Current",
+                "zh": "当前"
+              },
+              "evidence": "Labs: sodium 134 mEq/L, potassium 4.2 mEq/L, creatinine 0.9 mg/dL, hematocrit 38%, albumin 2.1 g/dL."
+            }
+          ]
+        },
+        {
+          "path": "$[1].panel[3].context",
+          "before": "post_intervention",
+          "after": null
+        },
+        {
+          "path": "$[1].panel[4].context",
+          "before": "post_intervention",
+          "after": null
+        }
+      ]
+    },
+    {
+      "candidate": "EXHIBIT-FLOWSHEET-STRUCTURED-PROMOTION-CANDIDATE-14F-WARFARIN-2026-07-12.json",
+      "refs": [
+        "gpt_case_warfarin_mvr_2026_06_11_01/stage_3_deterioration"
+      ],
+      "changes": [
+        {
+          "path": "$[0].panel[0].columnId",
+          "before": null,
+          "after": "vitals_0600"
+        },
+        {
+          "path": "$[0].panel[1].context",
+          "before": null,
+          "after": "post_intervention"
+        },
+        {
+          "path": "$[0].panel[1].columnId",
+          "before": null,
+          "after": "vitals_0600"
+        },
+        {
+          "path": "$[0].panel[2].context",
+          "before": null,
+          "after": "post_intervention"
+        },
+        {
+          "path": "$[0].panel[2].columnId",
+          "before": null,
+          "after": "vitals_0600"
+        },
+        {
+          "path": "$[0].panel[3].context",
+          "before": null,
+          "after": "post_intervention"
+        },
+        {
+          "path": "$[0].panel[3].columnId",
+          "before": null,
+          "after": "vitals_0600"
+        },
+        {
+          "path": "$[0].panel[4].columnId",
+          "before": null,
+          "after": "vitals_0600"
+        },
+        {
+          "path": "$[0].panel[5].columnId",
+          "before": null,
+          "after": "vitals_0600"
+        },
+        {
+          "path": "$[0].panel[6].context",
+          "before": null,
+          "after": "post_intervention"
+        },
+        {
+          "path": "$[0].panel[6].columnId",
+          "before": null,
+          "after": "labs_0645"
+        },
+        {
+          "path": "$[0].panel[7].context",
+          "before": null,
+          "after": "post_intervention"
+        },
+        {
+          "path": "$[0].panel[7].columnId",
+          "before": null,
+          "after": "labs_0645"
+        },
+        {
+          "path": "$[0].panel[8].context",
+          "before": null,
+          "after": "post_intervention"
+        },
+        {
+          "path": "$[0].panel[8].columnId",
+          "before": null,
+          "after": "labs_0645"
+        },
+        {
+          "path": "$[0].panel[9].columnId",
+          "before": null,
+          "after": "labs_0645"
+        },
+        {
+          "path": "$[0].panel[10].context",
+          "before": null,
+          "after": "post_intervention"
+        },
+        {
+          "path": "$[0].panel[10].columnId",
+          "before": null,
+          "after": "labs_0645"
+        },
+        {
+          "path": "$[0].panel[11].context",
+          "before": null,
+          "after": "post_intervention"
+        },
+        {
+          "path": "$[0].panel[11].columnId",
+          "before": null,
+          "after": "labs_0645"
+        },
+        {
+          "path": "$[0].panel[12].context",
+          "before": null,
+          "after": "post_intervention"
+        },
+        {
+          "path": "$[0].panel[12].columnId",
+          "before": null,
+          "after": "labs_0645"
+        },
+        {
+          "path": "$[0].columns",
+          "before": null,
+          "after": [
+            {
+              "id": "vitals_0600",
+              "panelKind": "vitals",
+              "label": {
+                "en": "0600",
+                "zh": "0600"
+              },
+              "evidence": "0600 vital signs: T 37.1 C, HR 98, BP 100/60, RR 20, SpO2 95% on room air."
+            },
+            {
+              "id": "labs_0645",
+              "panelKind": "labs",
+              "label": {
+                "en": "0645",
+                "zh": "0645"
+              },
+              "evidence": "0645 stat labs: INR 6.8, PT 76.2 seconds, hemoglobin 9.2 g/dL, hematocrit 27.6%, platelets 174,000/uL, BUN 42 mg/dL, creatinine 1.5 mg/dL, lactate 2.4 mmol/L."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "candidate": "EXHIBIT-FLOWSHEET-STRUCTURED-PROMOTION-CANDIDATE-14G-UNITLESS-2026-07-12.json",
+      "refs": [
+        "gpt_case_unsafe_premature_discharge_01/baseline_assessment_labs"
+      ],
+      "changes": [
+        {
+          "path": "$[0].panel[1].context",
+          "before": null,
+          "after": "post_intervention"
+        },
+        {
+          "path": "$[0].panel[2].context",
+          "before": null,
+          "after": "post_intervention"
+        },
+        {
+          "path": "$[0].panel[3].context",
+          "before": null,
+          "after": "post_intervention"
+        },
+        {
+          "path": "$[0].panel[4].context",
+          "before": null,
+          "after": "post_intervention"
+        },
+        {
+          "path": "$[0].panel[5].context",
+          "before": null,
+          "after": "post_intervention"
+        },
+        {
+          "path": "$[0].panel[6].label",
+          "before": "creatinine",
+          "after": "bun"
+        },
+        {
+          "path": "$[0].panel[6].value",
+          "before": "1.8",
+          "after": "38"
+        },
+        {
+          "path": "$[0].panel[6].context",
+          "before": null,
+          "after": "post_intervention"
+        },
+        {
+          "path": "$[0].panel[7].label",
+          "before": "bnp",
+          "after": "creatinine"
+        },
+        {
+          "path": "$[0].panel[7].value",
+          "before": "680",
+          "after": "1.8"
+        },
+        {
+          "path": "$[0].panel[7].sourceUnit",
+          "before": "pg/mL",
+          "after": "mg/dL"
+        },
+        {
+          "path": "$[0].panel[7].context",
+          "before": null,
+          "after": "post_intervention"
+        },
+        {
+          "path": "$[0].panel[8].label",
+          "before": "inr",
+          "after": "glucose"
+        },
+        {
+          "path": "$[0].panel[8].value",
+          "before": "1.0",
+          "after": "142"
+        },
+        {
+          "path": "$[0].panel[8].sourceUnit",
+          "before": "(ratio)",
+          "after": "mg/dL"
+        },
+        {
+          "path": "$[0].panel[9]",
+          "before": null,
+          "after": {
+            "label": "bnp",
+            "value": "680",
+            "sourceUnit": "pg/mL",
+            "sourceSpan": "Labs: Na 138, K 3.4, Cl 96, CO2 30, BUN 38, creatinine 1.8 mg/dL (baseline outpatient 1.4; admission 1.6), glucose 142, BNP 680 pg/mL (admission 2,400; yesterday 820), Hgb 11.4, WBC 7.2, platelets 210, Mg 1.7, INR 1.0, albumin 3.0.",
+            "context": "post_intervention"
+          }
+        },
+        {
+          "path": "$[0].panel[10]",
+          "before": null,
+          "after": {
+            "label": "inr",
+            "value": "1.0",
+            "sourceUnit": "(ratio)",
+            "sourceSpan": "Labs: Na 138, K 3.4, Cl 96, CO2 30, BUN 38, creatinine 1.8 mg/dL (baseline outpatient 1.4; admission 1.6), glucose 142, BNP 680 pg/mL (admission 2,400; yesterday 820), Hgb 11.4, WBC 7.2, platelets 210, Mg 1.7, INR 1.0, albumin 3.0."
+          }
+        }
+      ]
+    }
+  ]
+}
