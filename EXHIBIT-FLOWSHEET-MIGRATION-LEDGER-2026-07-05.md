@@ -34,6 +34,22 @@ future staging should use the refreshed manifest and avoid re-staging already-co
 | 19 | `serial` | 28 | 0 FAIL / 0 WARN | 28-record checker-seat adjudication (Claude, 2026-07-06): **14 confirmed misclassified**, 14 confirmed correct (`EXHIBIT-FLOWSHEET-MIGRATION-BATCH-19-ADJUDICATION-2026-07-06.md`) | **Does NOT count clean.** The bare `skip_serial` manifest classification was never content-verified before this pass; the gate's "0 FAIL/0 WARN" only re-confirmed the detector against its own earlier classification. Confirmed error categories: cross-client conflation in multi-client exhibits (3 records, should get the established empty-panel treatment instead), protocol/order/medication-name text mistaken for a lab result (4 records, incl. the known SaO2/SpO2 synonym collision), explicit prior/baseline-vs-current pairs misread as ambiguous (2 records), a same-value restatement misread as a duplicate (1 record), and single-value records with no second reading at all (4 records, one of which — warfarin `stage_1_orders_response` — has zero current INR value anywhere and needs an empty panel, not extraction). Recommend Codex re-derive all 28 dispositions using the same extraction/exclusion/multi-client logic already established for `scattered`/`prose_embedded`, rather than bulk-staging manifest membership. **`serial` is not closed**: only 16/33 refreshed serial refs currently have a confirmed-correct disposition on record. |
 | 20 | `serial-redo` | 28 | 0 FAIL / 32 WARN | 28-record checker-seat adjudication (Antigravity Claude, 2026-07-06) clean; no selection errors, no re-dispositions (`EXHIBIT-FLOWSHEET-MIGRATION-BATCH-20-ADJUDICATION-2026-07-06.md`) | **Clean — final `serial` closure redo after failed Batch 19.** Re-derived the same 28 refs from source content instead of trusting manifest membership: 14 true `skip_serial` preservation records, 10 real current-panel extracts, and 4 intentionally empty extracts for multi-client/no-current-value surfaces. All WARNs were confirmed as mechanical false positives or review prompts, not content errors. Non-blocking note: row 14 source says troponin I while the current allowlist label remains `troponin_t`, matching the already-recorded troponin-I-vs-T schema gap. `serial` is now closed by content-reviewed disposition. |
 
+### 13H hold reconciliation — 2026-07-11
+
+The former seven-record `13H-HOLD` artifact is superseded as an indivisible promotion unit. Its refs
+were deterministically partitioned exactly once into `13H-PEDS` (2), `13H-SCREENING` (2),
+`13H-REFEEDING-FOLLOWUP` (2), and `13H-REFEEDING-BASELINE-HOLD` (1). The first three are staged review
+candidates only; the baseline remains held. Separate gates: PEDS `0 FAIL / 1 WARN`, SCREENING
+`0 FAIL / 4 WARN`, REFEEDING-FOLLOWUP `0 FAIL / 4 WARN`; each actionable candidate passed its scoped
+applicator dry-run. All WARNs are enumerated and adjudicated in
+`EXHIBIT-FLOWSHEET-13H-SPLIT-VERIFICATION-2026-07-11.md`. No canonical write occurred.
+
+The required comparator extension scanned Batch 01, supplement Batches 02–20, and holds 12G/12T/13H:
+zero comparator-bearing staged `value` hits and zero records need a new `bound`; the one existing
+Batch 12 bound is already correctly encoded. The architect corrected the deletion criterion to exact
+ref coverage plus traced owner-ruled edits, independently verified both prerequisites, and authorized
+deletion of the superseded original 13H file. The four successors are the only live 13H units.
+
 ## Canonical structured-measurements promotions
 
 | Date | Commit | Records | Source artifacts | Gate verdict | Promoted refs | Notes |
