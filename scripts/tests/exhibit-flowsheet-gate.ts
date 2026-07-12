@@ -648,6 +648,15 @@ const multiColumnRecord = (): ExtractionRecord => ({
 }
 
 {
+  const malformedLegacy = baseRecord();
+  malformedLegacy.panel![0].columnId = "current";
+  assert(
+    hasFinding(run(malformedLegacy), "FAIL", "panel entries with columnId require declared columns (G2)"),
+    "free-floating columnId without columns must fail the gate before the applicator",
+  );
+}
+
+{
   const dir = await mkdtemp(join(tmpdir(), "flowsheet-gate-"));
   try {
     const casesPath = join(dir, "cases.json");

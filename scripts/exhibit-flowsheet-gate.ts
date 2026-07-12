@@ -537,6 +537,9 @@ const gateRecord = (rec: ExtractionRecord, source: string | ExhibitSource | unde
   const excluded = rec.excludedValues ?? [];
   const aliases = rec.unitAliases ?? [];
   const explicitColumns = rec.columns;
+  if (explicitColumns === undefined && panel.some((entry) => entry.columnId !== undefined)) {
+    push("FAIL", "panel entries with columnId require declared columns (G2)");
+  }
   const columnsByKind: Record<PanelKind, StagedColumn[]> = { labs: [], vitals: [] };
   if (explicitColumns !== undefined) {
     if (!Array.isArray(explicitColumns) || explicitColumns.length === 0) {

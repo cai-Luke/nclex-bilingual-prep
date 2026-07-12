@@ -28,6 +28,23 @@ const runApplicator = async (record: unknown): Promise<StructuredMeasurements> =
   }
 };
 
+const runApplicatorFailure = async (record: unknown): Promise<string> => {
+  const dir = await mkdtemp(join(tmpdir(), "structured-applicator-fail-"));
+  try {
+    const artifact = join(dir, "fixture.json");
+    await writeFile(artifact, `${JSON.stringify([record], null, 2)}\n`, "utf8");
+    const result = spawnSync(
+      "npx",
+      ["tsx", "scripts/apply-structured-measurements.ts", "--refs", ref, artifact],
+      { cwd: root, encoding: "utf8" },
+    );
+    assert.notEqual(result.status, 0, "malformed explicit linkage should fail applicator defensively");
+    return `${result.stdout}\n${result.stderr}`;
+  } finally {
+    await rm(dir, { recursive: true, force: true });
+  }
+};
+
 const sourceVitals = "Vital signs: T 36.8 C, HR 92, BP 108/64, RR 16, SpO2 97% on room air.";
 const priorLabs = "PACU labs 6 hours earlier: Na 138 mEq/L, glucose 156 mg/dL, phosphorus 2.8 mg/dL.";
 
@@ -80,5 +97,15 @@ assert.deepEqual(legacy, {
     },
   ],
 }, "legacy implicit-column canonical output must remain byte-shape identical");
+
+const freeFloatingColumnError = await runApplicatorFailure({
+  exhibitRef: ref,
+  lane: "extract",
+  panel: [{ label: "glucose", value: "142", sourceUnit: "mg/dL", sourceSpan: "Point-of-care glucose 142 mg/dL.", columnId: "current" }],
+});
+assert(
+  freeFloatingColumnError.includes("explicit columnId entries require declared columns"),
+  "applicator should retain its defensive free-floating columnId rejection",
+);
 
 console.log("structured measurements applicator tests passed");

@@ -31,6 +31,12 @@ jobs:
       - name: Test bank schema invariants
         run: npm run test:schema-bank
 
+      - name: Test structured-measurement staging and application
+        run: |
+          npm run test:flowsheet-gate
+          npm run test:structured-measurements
+          npm run test:structured-measurements-applicator
+
       - name: Test coverage targeting
         run: npm run test:coverage-report
 
