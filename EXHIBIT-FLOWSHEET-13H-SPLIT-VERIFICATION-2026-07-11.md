@@ -12,10 +12,9 @@ Status: staged review candidates only; no canonical bank write
 - `EXHIBIT-FLOWSHEET-STRUCTURED-PROMOTION-CANDIDATE-13H-REFEEDING-BASELINE-HOLD-2026-07-11.json`
 
 The original seven-record
-`EXHIBIT-FLOWSHEET-STRUCTURED-PROMOTION-CANDIDATE-13H-HOLD-2026-07-10.json` is superseded as an
-actionable promotion unit but retained temporarily as the immutable split source. The four successors
-cover all seven original exhibit refs exactly once. Independent whitelist comparison found only the
-owner-ruled transformations:
+`EXHIBIT-FLOWSHEET-STRUCTURED-PROMOTION-CANDIDATE-13H-HOLD-2026-07-10.json` was superseded and deleted
+after the architect independently verified the split. The four successors cover all seven original
+exhibit refs exactly once. Independent whitelist comparison found only the owner-ruled transformations:
 
 - toddler: add `population: "peds_child"`;
 - nine-month infant: add `population: "peds_infant"`;
@@ -24,9 +23,9 @@ owner-ruled transformations:
 - both refeeding follow-ups and the refeeding baseline hold: byte-identical to the current source artifact.
 
 Because the first four transformations intentionally change records, the transformed successors cannot
-also recompose the source byte-for-byte. The source artifact is therefore retained pending confirmation
-that exact seven-ref coverage plus this whitelist proof satisfies the deletion gate. `DECISIONS.md`
-remains architect-owned and still needs its 13H path repointed after the successor set is accepted.
+also recompose the source byte-for-byte. The architect corrected the operative deletion criterion to
+exact seven-ref coverage plus edits traced to named rulings, verified both conditions, repointed
+`DECISIONS.md`, and authorized deletion. The four successors are now the sole live 13H artifacts.
 
 ## Comparator prerequisite
 

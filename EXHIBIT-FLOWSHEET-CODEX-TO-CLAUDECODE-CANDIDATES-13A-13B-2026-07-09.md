@@ -10,8 +10,9 @@ Claude's review found real blockers in the original 13A/13B candidate set. The o
 
 - `EXHIBIT-FLOWSHEET-STRUCTURED-PROMOTION-CANDIDATE-13A-2026-07-09.json` now contains only the two accepted 13A records.
 - `EXHIBIT-FLOWSHEET-STRUCTURED-PROMOTION-CANDIDATE-13B-2026-07-09.json` now contains only the one accepted 13B record.
-- `EXHIBIT-FLOWSHEET-STRUCTURED-PROMOTION-CANDIDATE-13H-HOLD-2026-07-10.json` is superseded as an
-  actionable promotion unit. It is retained temporarily as the immutable seven-record split source.
+- `EXHIBIT-FLOWSHEET-STRUCTURED-PROMOTION-CANDIDATE-13H-HOLD-2026-07-10.json` was superseded as an
+  actionable promotion unit and deleted after architect verification of exact ref coverage, traced
+  transformations, and the completed comparator sweep.
 - The seven refs now live exactly once across three review candidates plus one baseline hold:
   `13H-PEDS`, `13H-SCREENING`, `13H-REFEEDING-FOLLOWUP`, and
   `13H-REFEEDING-BASELINE-HOLD` (all dated 2026-07-11).
@@ -69,10 +70,10 @@ The required staged-and-held comparator sweep is complete with zero comparator-b
 applicator dry-runs, seven-ref coverage, and transformation-whitelist verification are recorded in
 `EXHIBIT-FLOWSHEET-13H-SPLIT-VERIFICATION-2026-07-11.md`.
 
-The original seven-record file has not been deleted: two population additions and two owner-directed
-glucose-row omissions mean transformed successors cannot literally recompose it byte-for-byte. It is
-non-actionable and retained only until the deletion-gate interpretation is confirmed. `DECISIONS.md`
-remains architect-owned and needs its 13H pointer repointed to these four successors.
+The architect corrected the deletion criterion from literal byte identity to exact seven-ref coverage
+plus traced owner-ruled edits, independently verified the split and comparator sweep, repointed
+`DECISIONS.md`, and authorized deletion of the original seven-record artifact. The four successors are
+now the only live 13H units.
 
 ## Code Patches Landed With This Restage
 

@@ -46,9 +46,9 @@ applicator dry-run. All WARNs are enumerated and adjudicated in
 
 The required comparator extension scanned Batch 01, supplement Batches 02–20, and holds 12G/12T/13H:
 zero comparator-bearing staged `value` hits and zero records need a new `bound`; the one existing
-Batch 12 bound is already correctly encoded. The original 13H file remains temporarily as the immutable
-split source because the transformed successors cannot also be byte-for-byte identical; it is not an
-actionable candidate.
+Batch 12 bound is already correctly encoded. The architect corrected the deletion criterion to exact
+ref coverage plus traced owner-ruled edits, independently verified both prerequisites, and authorized
+deletion of the superseded original 13H file. The four successors are the only live 13H units.
 
 ## Canonical structured-measurements promotions
 
