@@ -72,7 +72,7 @@ Canonical source banks (see [BANK-CENSUS.md](BANK-CENSUS.md) for current counts;
 
 ### 2026-07-12 — Refeeding PACU bilingual unit clarification (`banks/gpt-canonical.json`)
 
-Status: `fixed-and-validated`, pending independent Claude/Sonnet review. Applied the owner-adjudicated
+Status: `fixed-and-validated`, independently reviewed by Claude/Sonnet — PASS. Applied the owner-adjudicated
 18-unit clarification to only
 `gpt_case_refeeding_syndrome_tpn_01/baseline_record.content.en` and `.zh` through
 `scripts/patches/2026-07-12-refeeding-pacu-units.ts` using canonical
@@ -82,7 +82,13 @@ ordering, and answer content unchanged." Exact before/after fields and both 18-e
 analyte-value-unit sequences are recorded in
 `REFEEDING-PACU-UNIT-CLARIFICATION-MANIFEST-2026-07-12.json`. No question, answer, rationale,
 stage, `structuredMeasurements`, unrelated exhibit prose, or bank count changed. Canonical
-validation and census checks passed.
+validation and census checks passed. Independent review deep-diffed the entire 558-question bank
+leaf-by-leaf (not the manifest's self-report) and confirmed exactly these two paths changed and
+nothing else; verified the manifest's before/after strings byte-for-byte against `main`'s pre-patch
+content and the actual post-patch bank on disk; confirmed all 18 EN/ZH unit pairs are clinically
+standard and internally consistent with units already established elsewhere in this same exhibit's
+electrolyte-protocol paragraph; and confirmed no rationale/question text elsewhere in the case quotes
+the pre-patch bare-number phrasing.
 
 Future Gemini output should arrive as a separate raw/review batch file, for example `banks-raw/gemini-2026-06-05-b.json`. After review and validation, the accepted questions can be deliberately consolidated into `banks/gemini-canonical.json`.
 
