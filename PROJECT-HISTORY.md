@@ -37,6 +37,12 @@ units in both learner-facing locales. The deterministic canonical patch changed 
 `baseline_record.content` locale strings; its exact manifest and independent-review evidence are
 committed. No structured measurements were authored by that edit.
 
+Batch 16's nineteen actionable refs are staged as six bounded candidates (`16A`-`16F`) for
+independent review, each at 0 FAIL under the current gate. The re-derivation corrects historical
+troponin-I identity, narrows Rule F measurement by measurement, and authors source-evidenced columns
+for historical/split-time datasets and several decoy-prone single-timepoint labels. No canonical
+write has occurred; one genuine differing-current-HR record remains non-rendering `skip_serial`.
+
 PR A's staging-layer multi-column machinery is merged: the
 flowsheet gate enforces the ratified G1-G8 explicit-column invariants, and the applicator preserves
 authored bilingual columns plus per-value `columnId` while leaving the legacy inferred single-column
