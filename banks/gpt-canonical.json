@@ -37959,6 +37959,229 @@
                 "content": {
                   "en": "At 0500, the client reports bright pink urine. Foley bag contains pink to light-red urine without visible clots. Urine output over previous 8 hours: 480 mL.\n0600 vital signs: T 37.1 C, HR 98, BP 100/60, RR 20, SpO2 95% on room air. Client reports lightheadedness when sitting up and mild diffuse abdominal discomfort. No headache, confusion, visual changes, or focal neurologic symptoms. Abdomen soft with mild suprapubic and bilateral flank tenderness, no guarding or rebound. Stool guaiac overnight: positive.\n0645 stat labs: INR 6.8, PT 76.2 seconds, hemoglobin 9.2 g/dL, hematocrit 27.6%, platelets 174,000/uL, BUN 42 mg/dL, creatinine 1.5 mg/dL, lactate 2.4 mmol/L. Urinalysis: large blood, RBCs too numerous to count, no bacteria, no casts.",
                   "zh": "0500，患者报告尿液呈鲜粉红色。导尿袋内尿液呈粉红至浅红色，无肉眼可见血块。过去8小时尿量480 mL。\n0600生命体征：体温37.1°C，心率98次/分，血压100/60 mmHg，呼吸20次/分，室内空气SpO2 95%。患者诉坐起时头晕，并有轻度弥漫性腹部不适。无头痛、意识混乱、视物改变或局灶性神经症状。腹部软，耻骨上及双侧腰腹部轻压痛，无肌紧张或反跳痛。夜间粪便隐血：阳性。\n0645急查化验：INR 6.8，PT 76.2秒，血红蛋白9.2 g/dL，红细胞压积27.6%，血小板174,000/uL，BUN 42 mg/dL，肌酐1.5 mg/dL，乳酸2.4 mmol/L。尿检：大量血，红细胞多到无法计数，无细菌，无管型。"
+                },
+                "structuredMeasurements": {
+                  "panels": [
+                    {
+                      "kind": "vitals",
+                      "columns": [
+                        {
+                          "id": "vitals_0600",
+                          "label": {
+                            "en": "0600",
+                            "zh": "0600"
+                          }
+                        }
+                      ],
+                      "rows": [
+                        {
+                          "key": "temp",
+                          "label": {
+                            "en": "Temperature",
+                            "zh": "体温"
+                          },
+                          "values": [
+                            {
+                              "columnId": "vitals_0600",
+                              "value": "37.1",
+                              "unit": "°C"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "hr",
+                          "label": {
+                            "en": "Heart rate",
+                            "zh": "心率"
+                          },
+                          "values": [
+                            {
+                              "columnId": "vitals_0600",
+                              "value": "98",
+                              "unit": "bpm",
+                              "context": "post_intervention"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "sbp",
+                          "label": {
+                            "en": "Systolic BP",
+                            "zh": "收缩压"
+                          },
+                          "values": [
+                            {
+                              "columnId": "vitals_0600",
+                              "value": "100",
+                              "unit": "mmHg",
+                              "context": "post_intervention"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "dbp",
+                          "label": {
+                            "en": "Diastolic BP",
+                            "zh": "舒张压"
+                          },
+                          "values": [
+                            {
+                              "columnId": "vitals_0600",
+                              "value": "60",
+                              "unit": "mmHg",
+                              "context": "post_intervention"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "rr",
+                          "label": {
+                            "en": "Respiratory rate",
+                            "zh": "呼吸频率"
+                          },
+                          "values": [
+                            {
+                              "columnId": "vitals_0600",
+                              "value": "20",
+                              "unit": "/min"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "spo2",
+                          "label": {
+                            "en": "SpO2",
+                            "zh": "脉搏血氧饱和度"
+                          },
+                          "values": [
+                            {
+                              "columnId": "vitals_0600",
+                              "value": "95",
+                              "unit": "%"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "labs",
+                      "columns": [
+                        {
+                          "id": "labs_0645",
+                          "label": {
+                            "en": "0645",
+                            "zh": "0645"
+                          }
+                        }
+                      ],
+                      "rows": [
+                        {
+                          "key": "inr",
+                          "label": {
+                            "en": "INR",
+                            "zh": "国际标准化比值"
+                          },
+                          "values": [
+                            {
+                              "columnId": "labs_0645",
+                              "value": "6.8",
+                              "unit": "(ratio)",
+                              "context": "post_intervention"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "hemoglobin",
+                          "label": {
+                            "en": "Hemoglobin",
+                            "zh": "血红蛋白"
+                          },
+                          "values": [
+                            {
+                              "columnId": "labs_0645",
+                              "value": "9.2",
+                              "unit": "g/dL",
+                              "context": "post_intervention"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "hematocrit",
+                          "label": {
+                            "en": "Hematocrit",
+                            "zh": "血细胞比容"
+                          },
+                          "values": [
+                            {
+                              "columnId": "labs_0645",
+                              "value": "27.6",
+                              "unit": "%",
+                              "context": "post_intervention"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "platelets",
+                          "label": {
+                            "en": "Platelets",
+                            "zh": "血小板"
+                          },
+                          "values": [
+                            {
+                              "columnId": "labs_0645",
+                              "value": "174,000",
+                              "unit": "/uL"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "bun",
+                          "label": {
+                            "en": "BUN",
+                            "zh": "尿素氮"
+                          },
+                          "values": [
+                            {
+                              "columnId": "labs_0645",
+                              "value": "42",
+                              "unit": "mg/dL",
+                              "context": "post_intervention"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "creatinine",
+                          "label": {
+                            "en": "Creatinine",
+                            "zh": "肌酐"
+                          },
+                          "values": [
+                            {
+                              "columnId": "labs_0645",
+                              "value": "1.5",
+                              "unit": "mg/dL",
+                              "context": "post_intervention"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "lactate",
+                          "label": {
+                            "en": "Lactate",
+                            "zh": "乳酸"
+                          },
+                          "values": [
+                            {
+                              "columnId": "labs_0645",
+                              "value": "2.4",
+                              "unit": "mmol/L",
+                              "context": "post_intervention"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
                 }
               }
             ]
@@ -55116,6 +55339,318 @@
             "content": {
               "en": "Background: 58-year-old man with a 40-pack-year smoking history and non-small cell lung cancer with a large right mediastinal mass. No history of DVT or heart failure. Orders include normal saline at 75 mL/hr, oxygen by nasal cannula to maintain SpO2 above 92%, head of bed at least 45 degrees, twice-daily weights, strict intake and output, and oncology consult. A right forearm peripheral IV is present.\n\nPresentation and assessment: progressive facial puffiness for two weeks, worse in the morning; dyspnea on exertion; shirt collars feel tight; wedding ring still fits. Alert and oriented, speaking in full sentences, mild respiratory effort. Facial plethora and bilateral periorbital edema. Bilateral external jugular veins are distended and do not collapse with inspiration or with the head of bed at 45 degrees. Faint dilated superficial venous collaterals are present across the anterior chest wall. No lower-extremity edema. Hands and fingers are not edematous. Lung sounds are diminished in the right upper lobe with no wheezes, crackles, or stridor. Neurologic assessment is normal. Neck circumference at the cricoid cartilage is 44 cm.\n\nVital signs/labs: T 37.1 °C, HR 92/min, BP 138/82 mmHg, RR 20/min, SpO2 94% on 2 L nasal cannula. WBC 11,200/µL, Hgb 13.8 g/dL, platelets 268,000/µL, Na 139 mEq/L, K 4.2 mEq/L, BUN 18 mg/dL, creatinine 0.9 mg/dL, INR 1.0, PTT 28 seconds, D-dimer 0.8 µg/mL. ABG on 2 L nasal cannula: pH 7.42, PaCO2 36 mmHg, PaO2 72 mmHg, HCO3 23 mEq/L, SaO2 94%.",
               "zh": "背景：58岁男性，有40包年吸烟史，患非小细胞肺癌，并有较大的右纵隔肿块。无DVT或心力衰竭病史。医嘱包括0.9%氯化钠75 mL/hr、鼻导管给氧维持SpO2高于92%、床头至少抬高45度、每日两次体重、严格出入量记录和肿瘤科会诊。右前臂有外周IV。\n\n主诉与评估：面部发胀进行性加重两周，早晨更明显；活动后呼吸困难；衬衫领口感觉变紧；婚戒仍可佩戴。患者清醒定向，能说完整句子，有轻度呼吸费力。面部潮红，双侧眶周水肿。双侧颈外静脉扩张，吸气或床头抬高45度后仍不塌陷。前胸壁可见轻度扩张的浅表侧支静脉。无下肢水肿。双手和手指无水肿。右上肺呼吸音减弱，无哮鸣音、湿啰音或喘鸣。神经系统评估正常。环状软骨水平颈围44 cm。\n\n生命体征/化验：T 37.1 °C，HR 92次/分，BP 138/82 mmHg，RR 20次/分，鼻导管2 L时SpO2 94%。WBC 11,200/µL，Hgb 13.8 g/dL，血小板268,000/µL，Na 139 mEq/L，K 4.2 mEq/L，BUN 18 mg/dL，肌酐0.9 mg/dL，INR 1.0，PTT 28秒，D-二聚体0.8 µg/mL。鼻导管2 L下ABG：pH 7.42，PaCO2 36 mmHg，PaO2 72 mmHg，HCO3 23 mEq/L，SaO2 94%。"
+            },
+            "structuredMeasurements": {
+              "panels": [
+                {
+                  "kind": "vitals",
+                  "columns": [
+                    {
+                      "id": "current",
+                      "label": {
+                        "en": "Current",
+                        "zh": "当前"
+                      }
+                    }
+                  ],
+                  "rows": [
+                    {
+                      "key": "temp",
+                      "label": {
+                        "en": "Temperature",
+                        "zh": "体温"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "37.1",
+                          "unit": "°C"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "hr",
+                      "label": {
+                        "en": "Heart rate",
+                        "zh": "心率"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "92",
+                          "unit": "bpm"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "sbp",
+                      "label": {
+                        "en": "Systolic BP",
+                        "zh": "收缩压"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "138",
+                          "unit": "mmHg"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "dbp",
+                      "label": {
+                        "en": "Diastolic BP",
+                        "zh": "舒张压"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "82",
+                          "unit": "mmHg"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "rr",
+                      "label": {
+                        "en": "Respiratory rate",
+                        "zh": "呼吸频率"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "20",
+                          "unit": "/min"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "spo2",
+                      "label": {
+                        "en": "SpO2",
+                        "zh": "脉搏血氧饱和度"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "94",
+                          "unit": "%"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "kind": "labs",
+                  "columns": [
+                    {
+                      "id": "current",
+                      "label": {
+                        "en": "Current",
+                        "zh": "当前"
+                      }
+                    }
+                  ],
+                  "rows": [
+                    {
+                      "key": "wbc",
+                      "label": {
+                        "en": "WBC",
+                        "zh": "白细胞"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "11,200",
+                          "unit": "/µL"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "hemoglobin",
+                      "label": {
+                        "en": "Hemoglobin",
+                        "zh": "血红蛋白"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "13.8",
+                          "unit": "g/dL"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "platelets",
+                      "label": {
+                        "en": "Platelets",
+                        "zh": "血小板"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "268,000",
+                          "unit": "/µL"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "sodium",
+                      "label": {
+                        "en": "Sodium",
+                        "zh": "血钠"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "139",
+                          "unit": "mEq/L"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "potassium",
+                      "label": {
+                        "en": "Potassium",
+                        "zh": "血钾"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "4.2",
+                          "unit": "mEq/L"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "bun",
+                      "label": {
+                        "en": "BUN",
+                        "zh": "尿素氮"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "18",
+                          "unit": "mg/dL"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "creatinine",
+                      "label": {
+                        "en": "Creatinine",
+                        "zh": "肌酐"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "0.9",
+                          "unit": "mg/dL"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "inr",
+                      "label": {
+                        "en": "INR",
+                        "zh": "国际标准化比值"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "1.0",
+                          "unit": "(ratio)"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "ptt",
+                      "label": {
+                        "en": "PTT",
+                        "zh": "部分凝血活酶时间"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "28",
+                          "unit": "seconds"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "ph",
+                      "label": {
+                        "en": "pH",
+                        "zh": "酸碱度"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "7.42",
+                          "unit": "(unitless)"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "paco2",
+                      "label": {
+                        "en": "PaCO2",
+                        "zh": "动脉二氧化碳分压"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "36",
+                          "unit": "mmHg"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "pao2",
+                      "label": {
+                        "en": "PaO2",
+                        "zh": "动脉氧分压"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "72",
+                          "unit": "mmHg"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "hco3_abg",
+                      "label": {
+                        "en": "HCO3 (ABG)",
+                        "zh": "碳酸氢盐（动脉血气）"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "23",
+                          "unit": "mEq/L"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "sao2",
+                      "label": {
+                        "en": "SaO2",
+                        "zh": "动脉血氧饱和度"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "94",
+                          "unit": "%"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
             }
           }
         ],
@@ -55156,6 +55691,192 @@
                 "content": {
                   "en": "At hour 12, the client reports worsening shortness of breath while sitting upright. He speaks in short phrases and his voice is slightly hoarse. Facial and periorbital edema have increased; the neck appears more swollen. Neck circumference is 47 cm, up from 44 cm. Chest-wall venous collaterals are more prominent. Both upper extremities now have pitting edema to the mid-forearm. The right forearm IV has infiltrated and is discontinued. Vital signs: T 37.3 °C, HR 110/min, BP 134/86 mmHg, RR 28/min, SpO2 90% on 2 L nasal cannula. Lung sounds are diminished in the right upper and middle lobes; faint inspiratory stridor is audible over the trachea with the bell. No wheezes or crackles. ABG on 2 L nasal cannula: pH 7.38, PaCO2 42 mmHg, PaO2 62 mmHg, HCO3 24 mEq/L, SaO2 90%. The admitting provider is available on the floor.",
                   "zh": "第12小时，患者坐高位时仍诉呼吸困难加重。只能短语交流，声音较入院时略嘶哑。面部和眶周水肿增加，颈部看起来更肿。颈围47 cm，高于基线44 cm。胸壁侧支静脉更加明显。双上肢现在有至前臂中部的凹陷性水肿。右前臂IV已渗出并停止使用。生命体征：T 37.3 °C，HR 110次/分，BP 134/86 mmHg，RR 28次/分，鼻导管2 L时SpO2 90%。右上肺和右中肺呼吸音减弱；用听诊器钟型胸件在气管上方可闻及轻微吸气性喘鸣。无哮鸣音或湿啰音。鼻导管2 L下ABG：pH 7.38，PaCO2 42 mmHg，PaO2 62 mmHg，HCO3 24 mEq/L，SaO2 90%。收治医护人员在病区可立即联系。"
+                },
+                "structuredMeasurements": {
+                  "panels": [
+                    {
+                      "kind": "vitals",
+                      "columns": [
+                        {
+                          "id": "current",
+                          "label": {
+                            "en": "Hour 12",
+                            "zh": "12小时"
+                          }
+                        }
+                      ],
+                      "rows": [
+                        {
+                          "key": "temp",
+                          "label": {
+                            "en": "Temperature",
+                            "zh": "体温"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "37.3",
+                              "unit": "°C"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "hr",
+                          "label": {
+                            "en": "Heart rate",
+                            "zh": "心率"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "110",
+                              "unit": "bpm"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "sbp",
+                          "label": {
+                            "en": "Systolic BP",
+                            "zh": "收缩压"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "134",
+                              "unit": "mmHg"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "dbp",
+                          "label": {
+                            "en": "Diastolic BP",
+                            "zh": "舒张压"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "86",
+                              "unit": "mmHg"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "rr",
+                          "label": {
+                            "en": "Respiratory rate",
+                            "zh": "呼吸频率"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "28",
+                              "unit": "/min"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "spo2",
+                          "label": {
+                            "en": "SpO2",
+                            "zh": "脉搏血氧饱和度"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "90",
+                              "unit": "%"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "labs",
+                      "columns": [
+                        {
+                          "id": "current",
+                          "label": {
+                            "en": "Hour 12",
+                            "zh": "12小时"
+                          }
+                        }
+                      ],
+                      "rows": [
+                        {
+                          "key": "ph",
+                          "label": {
+                            "en": "pH",
+                            "zh": "酸碱度"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "7.38",
+                              "unit": "(unitless)"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "paco2",
+                          "label": {
+                            "en": "PaCO2",
+                            "zh": "动脉二氧化碳分压"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "42",
+                              "unit": "mmHg"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "pao2",
+                          "label": {
+                            "en": "PaO2",
+                            "zh": "动脉氧分压"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "62",
+                              "unit": "mmHg"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "hco3_abg",
+                          "label": {
+                            "en": "HCO3 (ABG)",
+                            "zh": "碳酸氢盐（动脉血气）"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "24",
+                              "unit": "mEq/L"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "sao2",
+                          "label": {
+                            "en": "SaO2",
+                            "zh": "动脉血氧饱和度"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "90",
+                              "unit": "%"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
                 }
               }
             ]
@@ -59438,6 +60159,142 @@
                 "content": {
                   "en": "A second dose of furosemide 20 mg IV was given 2 hours after the first dose for continued but improving fluid overload. Current vital signs: T 36.9 C, HR 84, BP 136/78, RR 18, SpO2 96% on 4 L nasal cannula after weaning from the non-rebreather. The client is resting comfortably at 45 degrees and says she can breathe much more easily. Lung sounds have returned to faint bibasilar crackles only, similar to admission baseline. JVD is no longer visible. Edema has returned to trace bilaterally. S3 is no longer audible. Total urine output since the initial furosemide dose: 1,400 mL over 4 hours. Repeat BNP: 420 pg/mL. Provider documentation: transfusion-associated circulatory overload; hold remaining packed red blood cells pending reassessment; repeat hemoglobin in 6 hours; consult nephrology for future transfusion planning such as slower rate, pre-transfusion diuretic, and single-unit strategy. Transfusion reaction report completed per policy.",
                   "zh": "因液体超负荷仍存在但正在改善，在首次呋塞米后2小时给予第二剂呋塞米20 mg IV。当前生命体征：T 36.9 C，HR 84，BP 136/78，RR 18；已从非再呼吸面罩降至鼻导管4 L，SpO2 96%。患者以床头45度安静休息，表示呼吸轻松很多。肺音恢复为仅有轻微双肺底湿啰音，类似入院基线。颈静脉怒张消失。双侧水肿恢复至轻度。S3不再可闻及。首次呋塞米后4小时总尿量1,400 mL。复查BNP 420 pg/mL。医嘱者记录为输血相关循环超负荷；暂停剩余浓缩红细胞，待重新评估；6小时后复查血红蛋白；请肾内科会诊规划后续输血，如更慢速度、输血前利尿剂和单单位策略。已按政策完成输血反应报告。"
+                },
+                "structuredMeasurements": {
+                  "panels": [
+                    {
+                      "kind": "vitals",
+                      "columns": [
+                        {
+                          "id": "current",
+                          "label": {
+                            "en": "Current",
+                            "zh": "当前"
+                          }
+                        }
+                      ],
+                      "rows": [
+                        {
+                          "key": "temp",
+                          "label": {
+                            "en": "Temperature",
+                            "zh": "体温"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "36.9",
+                              "unit": "°C"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "hr",
+                          "label": {
+                            "en": "Heart rate",
+                            "zh": "心率"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "84",
+                              "unit": "bpm",
+                              "context": "post_intervention"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "sbp",
+                          "label": {
+                            "en": "Systolic BP",
+                            "zh": "收缩压"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "136",
+                              "unit": "mmHg",
+                              "context": "post_intervention"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "dbp",
+                          "label": {
+                            "en": "Diastolic BP",
+                            "zh": "舒张压"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "78",
+                              "unit": "mmHg",
+                              "context": "post_intervention"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "rr",
+                          "label": {
+                            "en": "Respiratory rate",
+                            "zh": "呼吸频率"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "18",
+                              "unit": "/min",
+                              "context": "post_intervention"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "spo2",
+                          "label": {
+                            "en": "SpO2",
+                            "zh": "脉搏血氧饱和度"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "96",
+                              "unit": "%",
+                              "context": "post_intervention"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "labs",
+                      "columns": [
+                        {
+                          "id": "current",
+                          "label": {
+                            "en": "Current",
+                            "zh": "当前"
+                          }
+                        }
+                      ],
+                      "rows": [
+                        {
+                          "key": "bnp",
+                          "label": {
+                            "en": "BNP",
+                            "zh": "脑钠肽"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "420",
+                              "unit": "pg/mL",
+                              "context": "post_intervention"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
                 }
               }
             ]
@@ -63299,6 +64156,200 @@
             "content": {
               "en": "The client is fatigued and slightly short of breath while talking. Vital signs: T 36.8 C, HR 92 regular, BP 108/68, RR 22, SpO2 93% on room air. Weight today 78.2 kg; admission weight 84.6 kg; yesterday 79.0 kg. Fine crackles remain at the lung bases, trace bilateral pedal edema, no visible JVD at 45 degrees, warm/dry skin, capillary refill 2 seconds. She reports mild dizziness after sitting up to use the commode. No chest pain; alert and oriented. Labs: Na 138, K 3.4, Cl 96, CO2 30, BUN 38, creatinine 1.8 mg/dL (baseline outpatient 1.4; admission 1.6), glucose 142, BNP 680 pg/mL (admission 2,400; yesterday 820), Hgb 11.4, WBC 7.2, platelets 210, Mg 1.7, INR 1.0, albumin 3.0.",
               "zh": "患者疲惫，讲话时略感气短。生命体征：T 36.8 C，HR 92 次/分且规则，BP 108/68，RR 22 次/分，室内空气 SpO2 93%。今日体重 78.2 kg；入院 84.6 kg；昨日 79.0 kg。双肺底仍有细湿啰音，双足轻微水肿，45 度时无可见颈静脉怒张，皮肤温暖干燥，毛细血管再充盈 2 秒。她报告坐起使用便盆后有轻度头晕。无胸痛；意识清楚，定向力正常。实验室：Na 138，K 3.4，Cl 96，CO2 30，BUN 38，肌酐 1.8 mg/dL（门诊基线 1.4；入院 1.6），葡萄糖 142，BNP 680 pg/mL（入院 2,400；昨日 820），Hgb 11.4，WBC 7.2，血小板 210，Mg 1.7，INR 1.0，白蛋白 3.0。"
+            },
+            "structuredMeasurements": {
+              "panels": [
+                {
+                  "kind": "vitals",
+                  "columns": [
+                    {
+                      "id": "current",
+                      "label": {
+                        "en": "07:15",
+                        "zh": "07:15"
+                      }
+                    }
+                  ],
+                  "rows": [
+                    {
+                      "key": "temp",
+                      "label": {
+                        "en": "Temperature",
+                        "zh": "体温"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "36.8",
+                          "unit": "°C"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "hr",
+                      "label": {
+                        "en": "Heart rate",
+                        "zh": "心率"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "92",
+                          "unit": "bpm",
+                          "context": "post_intervention"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "sbp",
+                      "label": {
+                        "en": "Systolic BP",
+                        "zh": "收缩压"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "108",
+                          "unit": "mmHg",
+                          "context": "post_intervention"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "dbp",
+                      "label": {
+                        "en": "Diastolic BP",
+                        "zh": "舒张压"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "68",
+                          "unit": "mmHg",
+                          "context": "post_intervention"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "rr",
+                      "label": {
+                        "en": "Respiratory rate",
+                        "zh": "呼吸频率"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "22",
+                          "unit": "/min",
+                          "context": "post_intervention"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "spo2",
+                      "label": {
+                        "en": "SpO2",
+                        "zh": "脉搏血氧饱和度"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "93",
+                          "unit": "%",
+                          "context": "post_intervention"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "kind": "labs",
+                  "columns": [
+                    {
+                      "id": "current",
+                      "label": {
+                        "en": "07:15",
+                        "zh": "07:15"
+                      }
+                    }
+                  ],
+                  "rows": [
+                    {
+                      "key": "bun",
+                      "label": {
+                        "en": "BUN",
+                        "zh": "尿素氮"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "38",
+                          "unit": "mg/dL",
+                          "context": "post_intervention"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "creatinine",
+                      "label": {
+                        "en": "Creatinine",
+                        "zh": "肌酐"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "1.8",
+                          "unit": "mg/dL",
+                          "context": "post_intervention"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "glucose",
+                      "label": {
+                        "en": "Glucose",
+                        "zh": "血糖"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "142",
+                          "unit": "mg/dL"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "bnp",
+                      "label": {
+                        "en": "BNP",
+                        "zh": "脑钠肽"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "680",
+                          "unit": "pg/mL",
+                          "context": "post_intervention"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "inr",
+                      "label": {
+                        "en": "INR",
+                        "zh": "国际标准化比值"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "1.0",
+                          "unit": "(ratio)"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
             }
           }
         ],
