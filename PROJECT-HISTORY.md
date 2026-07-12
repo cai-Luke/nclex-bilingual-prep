@@ -34,16 +34,18 @@ Current schema version is `2.0` (`bound` and structured-measurement `population`
 
 The refeeding-syndrome case's named PACU baseline panel now carries owner-approved conventional
 units in both learner-facing locales. The deterministic canonical patch changed only the two
-`baseline_record.content` locale strings; its exact manifest and independent-review evidence ship
-with the open 12G/PR-B review candidate. No structured measurements were authored by this edit.
+`baseline_record.content` locale strings; its exact manifest and independent-review evidence are
+committed. No structured measurements were authored by that edit.
 
-PR A's staging-layer multi-column machinery is implemented pending independent review: the
+PR A's staging-layer multi-column machinery is merged: the
 flowsheet gate enforces the ratified G1-G8 explicit-column invariants, and the applicator preserves
 authored bilingual columns plus per-value `columnId` while leaving the legacy inferred single-column
 path unchanged. Focused coverage includes mixed explicit-labs/implicit-vitals records, sparse rows,
 historical-only columns, every hard invariant, canonical-preview parity, and legacy output. This
-implementation does not author or apply the deferred refeeding-baseline successor and does not
-change canonical schema, renderers, banks, or census.
+implementation did not change canonical schema, renderers, banks, or census. The fresh
+refeeding-baseline successor is now staged from the PR B prose for independent review: current
+vitals remain implicit, labs use authored PACU-prior/current columns, and no canonical write has
+occurred.
 
 Current schema item types:
 
