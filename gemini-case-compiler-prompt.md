@@ -41,7 +41,7 @@ Check these layers:
 1. **Structural**
    - JSON parses.
    - Top-level shape is `{ meta, questions }`.
-   - `meta.schemaVersion` is `"1.5"` or later as the current schema contract allows (case-study unfolding metadata requires `"1.6"`); do not flag a current-version (`"1.6"`) case artifact as a version defect.
+   - `meta.schemaVersion` is a version supported by the current schema contract. Case-study unfolding metadata requires `"1.6"` or later; `"2.0"` is the current authoring version. Do not flag an otherwise compatible `"1.6"` artifact solely for using that supported historical floor, but do flag any `bound` or structured-measurement `population` field below `"2.0"`.
    - `meta.count` equals the number of top-level questions.
    - Exactly one top-level `case_study` exists.
    - A sibling `bowtie` exists only when `_compileManifest.emittedBowtie` is true.

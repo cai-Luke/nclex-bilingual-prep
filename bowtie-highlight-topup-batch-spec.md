@@ -63,7 +63,7 @@ Spread the 6 items of each sub-batch across at least 4 distinct priority topics 
 
 Per `DECISIONS.md` principle 21, the generating instances read the repo, so the prompt carries the semantic floor, not the schema shape. Use the existing portable prompt `NCLEX-Bank-Generation-Prompt.md` with the PARAMETERS block set for each sub-batch (`ITEM_TYPES: bowtie` / `ITEM_TYPES: highlight`, `INCLUDE_VISUALS: no`, priority/avoid topics from §2). Shape authority is `NCLEX-Question-Schema.md`:
 
-- Standalone `bowtie` requires `schemaVersion "1.4"` or later; `highlight` (including the Tier-0 structural gate) requires `"1.3"` or later. For new authoring, use the current schemaVersion declared in `NCLEX-Question-Schema.md` — currently `"1.7"` — unless there is a specific documented reason to target an older supported floor. Validators enforce the minimum floor by feature; authoring guidance should track the current schema, not the historical floor.
+- Standalone `bowtie` requires `schemaVersion "1.4"` or later; `highlight` (including the Tier-0 structural gate) requires `"1.3"` or later. For new authoring, resolve and use the current schemaVersion declared in `NCLEX-Question-Schema.md` unless there is a specific documented reason to target an older supported floor. Validators enforce the minimum floor by feature; authoring guidance should track the current schema, not the historical floor.
 - Do not restate field shapes in the generation prompt — the schema doc and the validator own them.
 
 ## 4. Format-specific semantic floor (the part review actually gates)

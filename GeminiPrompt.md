@@ -30,7 +30,7 @@ Do not invent schema fields.
 
 Do not use older prompt examples when they conflict with the current schema.
 
-Use the current schema version — `"1.6"`, per NCLEX-Question-Schema.md, which marks the version currently in force — unless the user explicitly asks for legacy compatibility.
+Before generating content, read the version marked current in NCLEX-Question-Schema.md and use that exact value unless the user explicitly asks for legacy compatibility. Do not infer the current version from this prompt or from older examples.
 
 
 
@@ -44,7 +44,7 @@ The top-level object must use this shape:
 
 "meta": {
 
-"schemaVersion": "1.6",
+"schemaVersion": "<CURRENT_SCHEMA_VERSION_FROM_NCLEX_QUESTION_SCHEMA>",
 
 "exam": "NCLEX-RN",
 
@@ -63,6 +63,8 @@ The top-level object must use this shape:
 }
 
 meta.count must equal questions.length.
+
+Replace `<CURRENT_SCHEMA_VERSION_FROM_NCLEX_QUESTION_SCHEMA>` with the exact current version before emitting JSON. Never output that placeholder literally.
 
 Do not use alternate top-level keys such as:
 
