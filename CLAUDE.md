@@ -18,6 +18,7 @@ You can reach the repo working tree directly through the configured filesystem M
 - `src/visuals/` — the visual kind registry, `primitives/`, and per-kind renderers.
 - `src/schema.ts`, `src/types.ts`, `src/grading.ts` — validation, the visual union, grading.
 - `scripts/validate-bank.ts`, `scripts/coverage-report.ts` — the verification path.
+- `docs/AGENTS-RUNBOOK.md` — commands, quote-repair mechanics, promotion routing, and ledger timing; `AGENTS.md` states the rule, this file gives the exact invocation.
 - `banks/*.json` — canonical banks (read-only; never hand-edit).
 - Visual-stimuli unit specs and superseded drafts in `Archive/` (the `U*-*-SPEC.md` per-kind specs).
 
@@ -36,7 +37,7 @@ The division of labor (per `PROJECT-HISTORY.md`):
 
 ### When a raw bank won't parse — curly-quote recovery
 
-A `validate-bank` JSON parse error on a `banks/banks-raw/*.json` file is almost always smart-quote corruption from a prior hand-edit. Don't hand-diagnose — run `tsx scripts/fix-bank-quotes.ts banks/banks-raw/<file>.json` (add `--in-place` once you trust the diff). The full quote-safety rules and recovery semantics live in `AGENTS.md` → *Editing raw bank JSON (quote safety)*; the rationale is `DECISIONS.md`'s JSON-quote-hygiene invariant.
+A `validate-bank` JSON parse error on a `banks/banks-raw/*.json` file is almost always smart-quote corruption from a prior hand-edit. Don't hand-diagnose — run `tsx scripts/fix-bank-quotes.ts banks/banks-raw/<file>.json` (add `--in-place` once you trust the diff). The full quote-safety rules and recovery semantics live in `docs/AGENTS-RUNBOOK.md` → *Editing raw bank JSON (quote safety)*; the rationale is `DECISIONS.md`'s JSON-quote-hygiene invariant.
 
 Work spec-first: plan and specify here, hand implementation to Codex or Claude Code, PR to GitHub. Prefer small, well-scoped changes that match existing patterns; do not rewrite app architecture during feature work.
 
@@ -48,7 +49,7 @@ Work spec-first: plan and specify here, hand implementation to Codex or Claude C
 
 ## JSON authoring: curly-quote hazard
 
-Editing bank JSON risks smart-quote corruption — structural delimiters upgraded to curly quotes, or in-string Chinese speech marks downgraded to bare ASCII `"`. The full rules (ASCII `"` for all structure; Chinese quotation marks valid only inside `zh` values; escape a literal in-string `"` as `\"`) and the migrate-via-serializer discipline live in `AGENTS.md` → *Editing raw bank JSON (quote safety)*, with the why in `DECISIONS.md`'s JSON-quote-hygiene invariant. Don't retype JSON shape by hand — load → mutate → re-serialize, or use `scripts/patch-raw.ts`.
+Editing bank JSON risks smart-quote corruption — structural delimiters upgraded to curly quotes, or in-string Chinese speech marks downgraded to bare ASCII `"`. The full rules (ASCII `"` for all structure; Chinese quotation marks valid only inside `zh` values; escape a literal in-string `"` as `\"`) and the migrate-via-serializer discipline live in `docs/AGENTS-RUNBOOK.md` → *Editing raw bank JSON (quote safety)*, with the why in `DECISIONS.md`'s JSON-quote-hygiene invariant. Don't retype JSON shape by hand — load → mutate → re-serialize, or use `scripts/patch-raw.ts`.
 
 ## Current task surface: visual taxonomy open; most lanes are content work
 
