@@ -1,0 +1,518 @@
+{
+  "sourceFile": "EXHIBIT-FLOWSHEET-MIGRATION-BATCH-17-scattered-2026-07-06.json",
+  "excludedNonRendering": [
+    {
+      "exhibitRef": "opus24_case_elder_neglect_med_mismanagement_01/background_discharge_plan",
+      "reason": "empty extract: history/medications/teaching only"
+    },
+    {
+      "exhibitRef": "opus26_case_refeeding_syndrome_01/admission_orders",
+      "reason": "empty extract: orders/protocol thresholds only"
+    },
+    {
+      "exhibitRef": "opus3_iv_potassium_safety_case_01/exhibit_stage2_revised_plan",
+      "reason": "empty extract: revised orders/future labs only"
+    }
+  ],
+  "held": [
+    {
+      "exhibitRef": "opus27_case_ipv_prenatal_care_01/ex2_initial_assessment",
+      "reason": "current R9 hard FAIL treats fetal context as client pediatric population; adult population would still fail and pediatric population would be false"
+    },
+    {
+      "exhibitRef": "opus3_iv_potassium_safety_case_01/exhibit_stage1_labs_orders",
+      "reason": "applicator hard error: duplicate canonical exhibit ID exists in baseline and stage arrays"
+    },
+    {
+      "exhibitRef": "opus3_iv_potassium_safety_case_01/exhibit_stage3_status",
+      "reason": "applicator hard error: duplicate canonical exhibit ID exists in baseline and stage arrays"
+    }
+  ],
+  "candidates": [
+    {
+      "id": "17A-CDIFF",
+      "file": "EXHIBIT-FLOWSHEET-STRUCTURED-PROMOTION-CANDIDATE-17A-CDIFF-2026-07-12.json",
+      "refs": [
+        {
+          "exhibitRef": "opus20_case_cdiff_01/exhibit_baseline",
+          "changes": []
+        },
+        {
+          "exhibitRef": "opus20_case_cdiff_01/exhibit_stage1",
+          "changes": []
+        }
+      ]
+    },
+    {
+      "id": "17B-ELDER-NEGLECT",
+      "file": "EXHIBIT-FLOWSHEET-STRUCTURED-PROMOTION-CANDIDATE-17B-ELDER-NEGLECT-2026-07-12.json",
+      "refs": [
+        {
+          "exhibitRef": "opus24_case_elder_neglect_med_mismanagement_01/ed_initial_findings_orders",
+          "changes": []
+        },
+        {
+          "exhibitRef": "opus24_case_elder_neglect_med_mismanagement_01/home_visit_day10_assessment",
+          "changes": []
+        },
+        {
+          "exhibitRef": "opus24_case_elder_neglect_med_mismanagement_01/six_hour_response",
+          "changes": [
+            {
+              "path": "panel.4.context",
+              "before": "post_intervention",
+              "after": null
+            },
+            {
+              "path": "panel.5.context",
+              "before": "post_intervention",
+              "after": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "17C-REFEEDING",
+      "file": "EXHIBIT-FLOWSHEET-STRUCTURED-PROMOTION-CANDIDATE-17C-REFEEDING-2026-07-12.json",
+      "refs": [
+        {
+          "exhibitRef": "opus26_case_refeeding_syndrome_01/baseline_record",
+          "changes": []
+        },
+        {
+          "exhibitRef": "opus26_case_refeeding_syndrome_01/stage_18h_update",
+          "changes": [
+            {
+              "path": "columns",
+              "before": null,
+              "after": [
+                {
+                  "id": "vitals_current",
+                  "panelKind": "vitals",
+                  "label": {
+                    "en": "Current",
+                    "zh": "当前"
+                  },
+                  "evidence": "Vital signs:"
+                },
+                {
+                  "id": "labs_12h",
+                  "panelKind": "labs",
+                  "label": {
+                    "en": "12 h",
+                    "zh": "12小时"
+                  },
+                  "evidence": "12-hour repeat labs:"
+                }
+              ]
+            },
+            {
+              "path": "panel.0.columnId",
+              "before": null,
+              "after": "vitals_current"
+            },
+            {
+              "path": "panel.0.context",
+              "before": "post_intervention",
+              "after": null
+            },
+            {
+              "path": "panel.1.columnId",
+              "before": null,
+              "after": "vitals_current"
+            },
+            {
+              "path": "panel.1.context",
+              "before": "post_intervention",
+              "after": null
+            },
+            {
+              "path": "panel.2.columnId",
+              "before": null,
+              "after": "vitals_current"
+            },
+            {
+              "path": "panel.2.context",
+              "before": "post_intervention",
+              "after": null
+            },
+            {
+              "path": "panel.3.columnId",
+              "before": null,
+              "after": "vitals_current"
+            },
+            {
+              "path": "panel.3.context",
+              "before": "post_intervention",
+              "after": null
+            },
+            {
+              "path": "panel.4.columnId",
+              "before": null,
+              "after": "vitals_current"
+            },
+            {
+              "path": "panel.4.context",
+              "before": "post_intervention",
+              "after": null
+            },
+            {
+              "path": "panel.5.columnId",
+              "before": null,
+              "after": "vitals_current"
+            },
+            {
+              "path": "panel.5.context",
+              "before": "post_intervention",
+              "after": null
+            },
+            {
+              "path": "panel.6.columnId",
+              "before": null,
+              "after": "labs_12h"
+            },
+            {
+              "path": "panel.6.context",
+              "before": "post_intervention",
+              "after": null
+            },
+            {
+              "path": "panel.7.columnId",
+              "before": null,
+              "after": "labs_12h"
+            },
+            {
+              "path": "panel.7.context",
+              "before": "post_intervention",
+              "after": null
+            },
+            {
+              "path": "panel.8.columnId",
+              "before": null,
+              "after": "labs_12h"
+            },
+            {
+              "path": "panel.8.context",
+              "before": "post_intervention",
+              "after": null
+            },
+            {
+              "path": "panel.9.columnId",
+              "before": null,
+              "after": "labs_12h"
+            },
+            {
+              "path": "panel.9.context",
+              "before": "post_intervention",
+              "after": null
+            },
+            {
+              "path": "panel.10.columnId",
+              "before": null,
+              "after": "labs_12h"
+            },
+            {
+              "path": "panel.10.context",
+              "before": "post_intervention",
+              "after": null
+            }
+          ]
+        },
+        {
+          "exhibitRef": "opus26_case_refeeding_syndrome_01/stage_36h_update",
+          "changes": [
+            {
+              "path": "columns",
+              "before": null,
+              "after": [
+                {
+                  "id": "vitals_current",
+                  "panelKind": "vitals",
+                  "label": {
+                    "en": "Current",
+                    "zh": "当前"
+                  },
+                  "evidence": "Vital signs:"
+                },
+                {
+                  "id": "labs_36h",
+                  "panelKind": "labs",
+                  "label": {
+                    "en": "36 h",
+                    "zh": "36小时"
+                  },
+                  "evidence": "36-hour labs:"
+                }
+              ]
+            },
+            {
+              "path": "panel.0.columnId",
+              "before": null,
+              "after": "vitals_current"
+            },
+            {
+              "path": "panel.0.context",
+              "before": "post_intervention",
+              "after": null
+            },
+            {
+              "path": "panel.1.columnId",
+              "before": null,
+              "after": "vitals_current"
+            },
+            {
+              "path": "panel.1.context",
+              "before": "post_intervention",
+              "after": null
+            },
+            {
+              "path": "panel.2.columnId",
+              "before": null,
+              "after": "vitals_current"
+            },
+            {
+              "path": "panel.2.context",
+              "before": "post_intervention",
+              "after": null
+            },
+            {
+              "path": "panel.3.columnId",
+              "before": null,
+              "after": "vitals_current"
+            },
+            {
+              "path": "panel.3.context",
+              "before": "post_intervention",
+              "after": null
+            },
+            {
+              "path": "panel.4.columnId",
+              "before": null,
+              "after": "vitals_current"
+            },
+            {
+              "path": "panel.4.context",
+              "before": "post_intervention",
+              "after": null
+            },
+            {
+              "path": "panel.5.columnId",
+              "before": null,
+              "after": "vitals_current"
+            },
+            {
+              "path": "panel.5.context",
+              "before": "post_intervention",
+              "after": null
+            },
+            {
+              "path": "panel.6.columnId",
+              "before": null,
+              "after": "labs_36h"
+            },
+            {
+              "path": "panel.6.context",
+              "before": "post_intervention",
+              "after": null
+            },
+            {
+              "path": "panel.7.columnId",
+              "before": null,
+              "after": "labs_36h"
+            },
+            {
+              "path": "panel.8.columnId",
+              "before": null,
+              "after": "labs_36h"
+            },
+            {
+              "path": "panel.8.context",
+              "before": "post_intervention",
+              "after": null
+            },
+            {
+              "path": "panel.9.columnId",
+              "before": null,
+              "after": "labs_36h"
+            },
+            {
+              "path": "panel.9.context",
+              "before": "post_intervention",
+              "after": null
+            },
+            {
+              "path": "panel.10.columnId",
+              "before": null,
+              "after": "labs_36h"
+            },
+            {
+              "path": "panel.10.context",
+              "before": "post_intervention",
+              "after": null
+            }
+          ]
+        },
+        {
+          "exhibitRef": "opus26_case_refeeding_syndrome_01/stage_60h_update",
+          "changes": [
+            {
+              "path": "columns",
+              "before": null,
+              "after": [
+                {
+                  "id": "vitals_current",
+                  "panelKind": "vitals",
+                  "label": {
+                    "en": "Current",
+                    "zh": "当前"
+                  },
+                  "evidence": "Vital signs:"
+                },
+                {
+                  "id": "labs_60h",
+                  "panelKind": "labs",
+                  "label": {
+                    "en": "60 h",
+                    "zh": "60小时"
+                  },
+                  "evidence": "60-hour labs:"
+                }
+              ]
+            },
+            {
+              "path": "panel.0.columnId",
+              "before": null,
+              "after": "vitals_current"
+            },
+            {
+              "path": "panel.0.context",
+              "before": "post_intervention",
+              "after": null
+            },
+            {
+              "path": "panel.1.columnId",
+              "before": null,
+              "after": "vitals_current"
+            },
+            {
+              "path": "panel.1.context",
+              "before": "post_intervention",
+              "after": null
+            },
+            {
+              "path": "panel.2.columnId",
+              "before": null,
+              "after": "vitals_current"
+            },
+            {
+              "path": "panel.2.context",
+              "before": "post_intervention",
+              "after": null
+            },
+            {
+              "path": "panel.3.columnId",
+              "before": null,
+              "after": "vitals_current"
+            },
+            {
+              "path": "panel.3.context",
+              "before": "post_intervention",
+              "after": null
+            },
+            {
+              "path": "panel.4.columnId",
+              "before": null,
+              "after": "vitals_current"
+            },
+            {
+              "path": "panel.4.context",
+              "before": "post_intervention",
+              "after": null
+            },
+            {
+              "path": "panel.5.columnId",
+              "before": null,
+              "after": "vitals_current"
+            },
+            {
+              "path": "panel.5.context",
+              "before": "post_intervention",
+              "after": null
+            },
+            {
+              "path": "panel.6.columnId",
+              "before": null,
+              "after": "labs_60h"
+            },
+            {
+              "path": "panel.6.context",
+              "before": "post_intervention",
+              "after": null
+            },
+            {
+              "path": "panel.7.columnId",
+              "before": null,
+              "after": "labs_60h"
+            },
+            {
+              "path": "panel.8.columnId",
+              "before": null,
+              "after": "labs_60h"
+            },
+            {
+              "path": "panel.8.context",
+              "before": "post_intervention",
+              "after": null
+            },
+            {
+              "path": "panel.9.columnId",
+              "before": null,
+              "after": "labs_60h"
+            },
+            {
+              "path": "panel.9.context",
+              "before": "post_intervention",
+              "after": null
+            },
+            {
+              "path": "panel.10.columnId",
+              "before": null,
+              "after": "labs_60h"
+            },
+            {
+              "path": "panel.10.context",
+              "before": "post_intervention",
+              "after": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "17D-BASELINES",
+      "file": "EXHIBIT-FLOWSHEET-STRUCTURED-PROMOTION-CANDIDATE-17D-BASELINES-2026-07-12.json",
+      "refs": [
+        {
+          "exhibitRef": "opus4_case_postop_sbar_01/baseline_0700",
+          "changes": [
+            {
+              "path": "excludedValues.0",
+              "before": {
+                "label": "creatinine",
+                "value": "1.4",
+                "reason": "prior",
+                "sourceSpan": "mild chronic kidney disease with baseline creatinine 1.4 mg/dL"
+              },
+              "after": null
+            }
+          ]
+        },
+        {
+          "exhibitRef": "opus5_case_consent_interpreter_01/initial_assessment",
+          "changes": []
+        }
+      ]
+    }
+  ]
+}
