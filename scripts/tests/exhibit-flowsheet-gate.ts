@@ -555,6 +555,98 @@ for (const text of [
   assert(hasFinding(findings, "FAIL", "unit alias has no keyed panel entry"), "unit alias without keyed panel entry should fail");
 }
 
+const multiColumnSource = "PACU labs 6 hours earlier: glucose 156 mg/dL, phosphorus 2.8 mg/dL. Current point-of-care glucose 142 mg/dL. Vital signs: HR 92.";
+const multiColumnRecord = (): ExtractionRecord => ({
+  exhibitRef: "test/multi_column",
+  lane: "extract",
+  columns: [
+    { id: "pacu", panelKind: "labs", label: { en: "PACU (6 h prior)", zh: "麻醉恢复室（6小时前）" }, evidence: "PACU labs 6 hours earlier" },
+    { id: "current", panelKind: "labs", label: { en: "Current", zh: "当前" }, evidence: "Current point-of-care glucose 142 mg/dL." },
+  ],
+  panel: [
+    { label: "glucose", value: "156", sourceUnit: "mg/dL", sourceSpan: "glucose 156 mg/dL", columnId: "pacu" },
+    { label: "phosphate", value: "2.8", sourceUnit: "mg/dL", sourceSpan: "phosphorus 2.8 mg/dL", columnId: "pacu" },
+    { label: "glucose", value: "142", sourceUnit: "mg/dL", sourceSpan: "point-of-care glucose 142 mg/dL", columnId: "current" },
+    { label: "hr", value: "92", sourceUnit: "bpm", sourceSpan: "Vital signs: HR 92." },
+  ],
+  excludedValues: [],
+  unitAliases: [],
+});
+
+{
+  const findings = run(multiColumnRecord(), multiColumnSource);
+  assert(noFinding(findings, "(G1)"), "qualifying multi-column record should have unique ids");
+  assert(noFinding(findings, "(G2)"), "all explicit entries should resolve by panel kind");
+  assert(noFinding(findings, "(G3)"), "labs may be explicit while vitals remain implicit");
+  assert(noFinding(findings, "(G4)"), "both declared columns are used");
+  assert(noFinding(findings, "(G5)"), "same analyte in different columns is valid");
+  assert(noFinding(findings, "(G6)"), "column evidence should be source-contained");
+  assert(noFinding(findings, "(G7)"), "required explicit-column fields should pass");
+}
+
+{
+  const record = multiColumnRecord();
+  record.columns![1].id = "pacu";
+  assert(hasFinding(run(record, multiColumnSource), "FAIL", "duplicate id 'pacu' within labs (G1)"), "duplicate column ids should fail G1");
+}
+
+{
+  const record = multiColumnRecord();
+  record.panel![2].columnId = "missing";
+  assert(hasFinding(run(record, multiColumnSource), "FAIL", "does not resolve in labs (G2)"), "unknown columnId should fail G2");
+}
+
+{
+  const record = multiColumnRecord();
+  delete record.panel![2].columnId;
+  assert(hasFinding(run(record, multiColumnSource), "FAIL", "requires columnId on the explicit path (G3)"), "mixed explicit/implicit labs should fail G3");
+}
+
+{
+  const record = multiColumnRecord();
+  record.panel = record.panel!.filter((entry) => entry.columnId !== "current");
+  assert(hasFinding(run(record, multiColumnSource), "FAIL", "column 'current' has no referencing panel entry (G4)"), "unused authored column should fail G4");
+}
+
+{
+  const record = multiColumnRecord();
+  record.panel!.splice(1, 0, { label: "glucose", value: "156", sourceUnit: "mg/dL", sourceSpan: "glucose 156 mg/dL", columnId: "pacu" });
+  assert(hasFinding(run(record, multiColumnSource), "FAIL", "duplicate (glucose, pacu) cell (G5)"), "duplicate row/column cell should fail G5");
+}
+
+{
+  const record = multiColumnRecord();
+  record.columns![0].evidence = "PACU dataset yesterday";
+  assert(hasFinding(run(record, multiColumnSource), "FAIL", "evidence not a verbatim substring of source (G6)"), "mismatched evidence should fail G6");
+}
+
+{
+  const record = multiColumnRecord();
+  record.columns![0].label = { en: "", zh: "麻醉恢复室" };
+  assert(hasFinding(run(record, multiColumnSource), "FAIL", "label.en must be a non-empty string (G7)"), "empty bilingual labels should fail G7");
+}
+
+{
+  const historicalOnly: ExtractionRecord = {
+    exhibitRef: "test/historical_only",
+    lane: "extract",
+    columns: [{ id: "pacu", panelKind: "labs", label: { en: "PACU (6 h prior)", zh: "麻醉恢复室（6小时前）" }, evidence: "PACU labs 6 hours earlier" }],
+    panel: [{ label: "glucose", value: "156", sourceUnit: "mg/dL", sourceSpan: "glucose 156 mg/dL", columnId: "pacu" }],
+    excludedValues: [],
+    unitAliases: [],
+  };
+  const findings = run(historicalOnly, multiColumnSource);
+  assert(noFinding(findings, "(G1)"), "one explicit historical-only column should be valid");
+  assert(noFinding(findings, "(G4)"), "historical-only records must not fabricate a current column");
+}
+
+{
+  const legacy = baseRecord();
+  assert(legacy.columns === undefined, "legacy fixture should not opt into explicit columns");
+  assert(noFinding(run(legacy), "(G1)"), "legacy records stay outside G1-G7");
+  assert(noFinding(run(legacy), "(G7)"), "legacy records stay outside G1-G7");
+}
+
 {
   const dir = await mkdtemp(join(tmpdir(), "flowsheet-gate-"));
   try {

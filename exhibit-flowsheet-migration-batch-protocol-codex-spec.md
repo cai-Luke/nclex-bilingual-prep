@@ -60,7 +60,13 @@ For each batch of 20:
    `excludedValues[]` reason ∈ {prior,trend,serial}, `unitAliases[]`, or `skip_serial`). Under Schema
    2.0, censored values are keyed with typed `bound`; the gate's acceptance of an excluded
    `comparator` reason is compatibility-only for legacy/pre-2.0 staged artifacts and is not a current
-   authoring alternative. The extractor never sees the adjudication (below).
+   authoring alternative. The extractor never sees the adjudication (below). The legacy shape
+   remains the default. Only a source with distinct named/timepoint datasets meeting
+   `EXHIBIT-FLOWSHEET-MULTI-COLUMN-STAGING-CONTRACT-2026-07-12.md` may additionally carry
+   staging-only `columns[]`; entries in each opted-in panel kind then carry `columnId`. Those columns
+   require authored bilingual labels and verbatim source evidence and never use inferred labels. A
+   different panel kind in the same record may remain implicit. Incidental historical comparisons
+   do not qualify for explicit columns.
 2. **Gate** (deterministic, required). `npm run flowsheet-gate -- <batch>.json`. Any **FAIL** blocks
    the whole batch — fix the cause and re-extract; do not hand-patch a failing record past the gate.
    **GATE 4 WARN** and serial-mismatch WARN route to adjudication (they can be legitimate).

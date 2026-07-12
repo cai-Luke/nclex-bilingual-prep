@@ -37,6 +37,14 @@ units in both learner-facing locales. The deterministic canonical patch changed 
 `baseline_record.content` locale strings; its exact manifest and independent-review evidence ship
 with the open 12G/PR-B review candidate. No structured measurements were authored by this edit.
 
+PR A's staging-layer multi-column machinery is implemented pending independent review: the
+flowsheet gate enforces the ratified G1-G8 explicit-column invariants, and the applicator preserves
+authored bilingual columns plus per-value `columnId` while leaving the legacy inferred single-column
+path unchanged. Focused coverage includes mixed explicit-labs/implicit-vitals records, sparse rows,
+historical-only columns, every hard invariant, canonical-preview parity, and legacy output. This
+implementation does not author or apply the deferred refeeding-baseline successor and does not
+change canonical schema, renderers, banks, or census.
+
 Current schema item types:
 
 - `multiple_choice`

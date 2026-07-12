@@ -24,6 +24,14 @@ type StagedEntry = {
   sourceSpan?: string;
   context?: string;
   bound?: StructuredMeasurementValue["bound"];
+  columnId?: string;
+};
+
+type StagedColumn = {
+  id: string;
+  panelKind: "labs" | "vitals";
+  label: TextPair;
+  evidence: string;
 };
 
 type StagedRecord = {
@@ -31,6 +39,7 @@ type StagedRecord = {
   lane: string;
   population?: Population;
   panel?: StagedEntry[];
+  columns?: StagedColumn[];
 };
 
 type LoadedBank = {
@@ -251,6 +260,42 @@ const toPanels = (record: StagedRecord, exhibit: CaseStudyExhibit): StructuredMe
   for (const kind of ["vitals", "labs"] as const) {
     const entries = grouped[kind];
     if (entries.length === 0) continue;
+    const stagedColumns = record.columns?.filter((column) => column.panelKind === kind) ?? [];
+    const explicit = stagedColumns.length > 0 || entries.some((entry) => entry.columnId !== undefined);
+    if (explicit) {
+      if (stagedColumns.length === 0) {
+        throw new Error(`${record.exhibitRef}/${kind}: explicit columnId entries require declared columns`);
+      }
+      const columnIds = new Set(stagedColumns.map((column) => column.id));
+      const rows = new Map<string, StructuredMeasurementPanel["rows"][number]>();
+      for (const entry of entries) {
+        if (!entry.columnId || !columnIds.has(entry.columnId)) {
+          throw new Error(`${record.exhibitRef}/${kind}/${entry.label}: columnId must resolve on the explicit path`);
+        }
+        const value = {
+          columnId: entry.columnId,
+          value: entry.value,
+          unit: storedUnitFor(entry.label, entry.sourceUnit!),
+          ...(entry.bound !== undefined ? { bound: entry.bound } : {}),
+          ...(entry.context === "post_intervention" ? { context: "post_intervention" as const } : {}),
+        };
+        const existing = rows.get(entry.label);
+        if (existing) {
+          if (existing.values.some((candidate) => candidate.columnId === entry.columnId)) {
+            throw new Error(`${record.exhibitRef}/${kind}/${entry.label}: duplicate value for column '${entry.columnId}'`);
+          }
+          existing.values.push(value);
+        } else {
+          rows.set(entry.label, { key: entry.label, label: labelFor(entry.label), values: [value] });
+        }
+      }
+      panels.push({
+        kind,
+        columns: stagedColumns.map((column) => ({ id: column.id, label: column.label })),
+        rows: [...rows.values()],
+      });
+      continue;
+    }
     const column = { id: "current", label: inferColumnLabel(exhibit, entries) };
     panels.push({
       kind,
@@ -296,6 +341,7 @@ if (stagedRecords.length !== targetRefs.size) {
 const banks = await loadBanks();
 const touchedBanks = new Set<LoadedBank>();
 const touchedCounts = new Map<string, number>();
+const previews: Array<{ exhibitRef: string; structuredMeasurements: StructuredMeasurements }> = [];
 for (const record of stagedRecords) {
   const location = locateExhibit(banks, record.exhibitRef);
   if (location.exhibit.structuredMeasurements) {
@@ -305,6 +351,9 @@ for (const record of stagedRecords) {
     ...(record.population !== undefined ? { population: record.population } : {}),
     panels: toPanels(record, location.exhibit),
   };
+  if (!writeMode) {
+    previews.push({ exhibitRef: record.exhibitRef, structuredMeasurements });
+  }
   location.exhibit.structuredMeasurements = structuredMeasurements;
   if (record.bucket === "clean_kv" && REPLACE_REFS.has(record.exhibitRef)) {
     location.exhibit.content = POINTER_CONTENT;
@@ -347,4 +396,7 @@ console.log(`Touched banks: ${summary.join(", ")}`);
 console.log(`${proofMode ? "Proof" : "Selected"} refs:`);
 for (const record of stagedRecords.sort((left, right) => left.exhibitRef.localeCompare(right.exhibitRef))) {
   console.log(`- ${record.exhibitRef} [${record.bucket}]`);
+}
+for (const preview of previews.sort((left, right) => left.exhibitRef.localeCompare(right.exhibitRef))) {
+  console.log(`Canonical preview ${preview.exhibitRef}: ${JSON.stringify(preview.structuredMeasurements)}`);
 }

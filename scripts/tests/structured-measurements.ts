@@ -112,4 +112,26 @@ assert(svg.includes("Platelets / 血小板"), "always mode should include biling
 assert(svg.includes("18 ×10³/µL"), "renderer should include formatted values");
 assert(!svg.includes("18 ×10⁹/L"), "renderer should suppress same-magnitude SI parentheses");
 
+const sparse: StructuredMeasurements = {
+  panels: [{
+    kind: "labs",
+    columns: [
+      { id: "prior", label: { en: "PACU (6 h prior)", zh: "麻醉恢复室（6小时前）" } },
+      { id: "current", label: { en: "Current", zh: "当前" } },
+    ],
+    rows: [
+      { key: "phosphate", label: { en: "Phosphate", zh: "血磷" }, values: [{ columnId: "prior", value: "2.8", unit: "mg/dL" }] },
+      { key: "glucose", label: { en: "Glucose", zh: "血糖" }, values: [
+        { columnId: "prior", value: "156", unit: "mg/dL" },
+        { columnId: "current", value: "142", unit: "mg/dL" },
+      ] },
+    ],
+  }],
+};
+const sparseSvg = renderStructuredMeasurementsSvg(sparse, "always");
+assert(sparseSvg.includes("PACU (6 h prior)"), "explicit prior column label should render");
+assert(sparseSvg.includes("Current / 当前"), "explicit current column label should render");
+assert(sparseSvg.includes("Phosphate / 血磷"), "sparse prior-only row should render");
+assert(!sparseSvg.includes("undefined"), "missing current sparse cell must remain blank rather than render undefined");
+
 console.log("structured measurements tests passed");

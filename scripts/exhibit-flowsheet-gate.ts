@@ -36,6 +36,8 @@
  *   Rule E  sourceSpan is REQUIRED on every panel[] and excludedValues[] entry and must be
  *           a verbatim substring of the source. Missing or non-verbatim → FAIL.
  *   Rule F  post_intervention is a keyed panel context tag, never an excluded reason.
+ *   G1-G8   explicit staging columns are unique, source-evidenced, fully linked per panel kind,
+ *           non-empty, and duplicate-cell-free; legacy records without columns stay unchanged.
  *
  * USAGE:
  *   npx tsx scripts/exhibit-flowsheet-gate.ts <extraction.json> [--bank <bank.json> ...]
@@ -354,7 +356,9 @@ const looksSerial = (source: string): boolean => serialParams(source).length > 0
 // Extraction record types (mirror the proposal's emitted shape)
 // ----------------------------------------------------------------------------
 
-type PanelEntry = { label: string; value: string; sourceUnit?: string; sourceSpan?: string; context?: string; bound?: unknown };
+type PanelKind = "labs" | "vitals";
+type StagedColumn = { id?: unknown; panelKind?: unknown; label?: unknown; evidence?: unknown };
+type PanelEntry = { label: string; value: string; sourceUnit?: string; sourceSpan?: string; context?: string; bound?: unknown; columnId?: unknown };
 type ExcludedEntry = { label: string; value: string; reason: string; sourceSpan?: string };
 type AliasEntry = { aliasOf: string; value: string };
 type ExtractionRecord = {
@@ -364,6 +368,7 @@ type ExtractionRecord = {
   excludedValues?: ExcludedEntry[];
   unitAliases?: AliasEntry[];
   population?: unknown;
+  columns?: StagedColumn[];
 };
 
 type Finding = { level: "FAIL" | "WARN"; ref: string; msg: string };
@@ -477,6 +482,19 @@ const normalizeExhibitSource = (source: string | ExhibitSource): ExhibitSource =
     ? { contentEn: source, contentZh: "", contextEn: source, contextZh: "" }
     : source;
 
+const panelKindFor = (label: string): PanelKind | undefined => {
+  const kind = MEASUREMENT_ALLOWLIST[label]?.kind;
+  return kind === "lab" ? "labs" : kind === "vital" ? "vitals" : undefined;
+};
+
+const isNonEmptyString = (value: unknown): value is string =>
+  typeof value === "string" && value.trim().length > 0;
+
+const stagedLabel = (value: unknown): { en?: unknown; zh?: unknown } | undefined =>
+  typeof value === "object" && value !== null && !Array.isArray(value)
+    ? value as { en?: unknown; zh?: unknown }
+    : undefined;
+
 // ----------------------------------------------------------------------------
 // Core gate
 // ----------------------------------------------------------------------------
@@ -518,13 +536,91 @@ const gateRecord = (rec: ExtractionRecord, source: string | ExhibitSource | unde
   const panel = rec.panel ?? [];
   const excluded = rec.excludedValues ?? [];
   const aliases = rec.unitAliases ?? [];
+  const explicitColumns = rec.columns;
+  const columnsByKind: Record<PanelKind, StagedColumn[]> = { labs: [], vitals: [] };
+  if (explicitColumns !== undefined) {
+    if (!Array.isArray(explicitColumns) || explicitColumns.length === 0) {
+      push("FAIL", "columns must be a non-empty array when present (G7)");
+    } else {
+      for (const [i, column] of explicitColumns.entries()) {
+        const at = `columns[${i}]`;
+        if (typeof column !== "object" || column === null || Array.isArray(column)) {
+          push("FAIL", `${at}: column must be an object (G7)`);
+          continue;
+        }
+        const label = stagedLabel(column.label);
+        if (!isNonEmptyString(column.id)) push("FAIL", `${at}: id must be a non-empty string (G7)`);
+        if (column.panelKind !== "labs" && column.panelKind !== "vitals") {
+          push("FAIL", `${at}: panelKind must be 'labs' or 'vitals' (G7)`);
+        } else {
+          columnsByKind[column.panelKind].push(column);
+        }
+        if (!isNonEmptyString(label?.en)) push("FAIL", `${at}: label.en must be a non-empty string (G7)`);
+        if (!isNonEmptyString(label?.zh)) push("FAIL", `${at}: label.zh must be a non-empty string (G7)`);
+        if (!isNonEmptyString(column.evidence)) {
+          push("FAIL", `${at}: evidence must be a non-empty string (G7)`);
+        } else if (!src.includes(nfc(column.evidence))) {
+          push("FAIL", `${at}: evidence not a verbatim substring of source (G6)`);
+        }
+      }
+
+      for (const kind of ["labs", "vitals"] as const) {
+        const declared = columnsByKind[kind];
+        const seenIds = new Map<string, number>();
+        for (const column of declared) {
+          if (!isNonEmptyString(column.id)) continue;
+          const previous = seenIds.get(column.id);
+          if (previous !== undefined) {
+            push("FAIL", `columns: duplicate id '${column.id}' within ${kind} (G1)`);
+          } else {
+            seenIds.set(column.id, 1);
+          }
+        }
+
+        const entries = panel.filter((entry) => panelKindFor(entry.label) === kind);
+        const explicitForKind = declared.length > 0 || entries.some((entry) => entry.columnId !== undefined);
+        if (!explicitForKind) continue;
+        const declaredIds = new Set(declared.flatMap((column) => isNonEmptyString(column.id) ? [column.id] : []));
+        const referencedIds = new Set<string>();
+        const seenCells = new Set<string>();
+        for (const [panelIndex, entry] of panel.entries()) {
+          if (panelKindFor(entry.label) !== kind) continue;
+          if (!isNonEmptyString(entry.columnId)) {
+            push("FAIL", `panel[${panelIndex}] ${entry.label}=${entry.value}: every ${kind} entry requires columnId on the explicit path (G3)`);
+            continue;
+          }
+          referencedIds.add(entry.columnId);
+          if (!declaredIds.has(entry.columnId)) {
+            push("FAIL", `panel[${panelIndex}] ${entry.label}=${entry.value}: columnId '${entry.columnId}' does not resolve in ${kind} (G2)`);
+          }
+          const cell = `${entry.label}\u0000${entry.columnId}`;
+          if (seenCells.has(cell)) {
+            push("FAIL", `panel[${panelIndex}] ${entry.label}=${entry.value}: duplicate (${entry.label}, ${entry.columnId}) cell (G5)`);
+          } else {
+            seenCells.add(cell);
+          }
+        }
+        for (const column of declared) {
+          if (isNonEmptyString(column.id) && !referencedIds.has(column.id)) {
+            push("FAIL", `columns: ${kind} column '${column.id}' has no referencing panel entry (G4)`);
+          }
+        }
+      }
+    }
+  }
+
   const seenPanelLabels = new Map<string, number>();
   for (const [i, e] of panel.entries()) {
-    const previous = seenPanelLabels.get(e.label);
+    const kind = panelKindFor(e.label);
+    const kindUsesExplicitColumns = explicitColumns !== undefined && kind !== undefined &&
+      (columnsByKind[kind].length > 0 || panel.some((entry) => panelKindFor(entry.label) === kind && entry.columnId !== undefined));
+    if (kindUsesExplicitColumns) continue;
+    const key = `${kind ?? "unknown"}\u0000${e.label}`;
+    const previous = seenPanelLabels.get(key);
     if (previous !== undefined) {
       push("FAIL", `panel[${i}] ${e.label}=${e.value}: duplicate current label also appears at panel[${previous}] (Rule D: extract lane allows at most one current value per parameter)`);
     } else {
-      seenPanelLabels.set(e.label, i);
+      seenPanelLabels.set(key, i);
     }
   }
 
@@ -627,7 +723,7 @@ const gateRecord = (rec: ExtractionRecord, source: string | ExhibitSource | unde
     // Rule F: post_intervention must not appear as an exclusion reason
     if (e.reason === "post_intervention") push("FAIL", `${at}: post_intervention is a keyed context, not an exclusion reason (Rule F)`);
     else if (!EXCLUSION_REASONS.has(e.reason)) push("FAIL", `${at}: reason '${e.reason}' not in {prior, trend, serial, comparator}`);
-    else if (e.reason === "prior" && !seenPanelLabels.has(e.label)) {
+    else if (e.reason === "prior" && !panel.some((entry) => entry.label === e.label)) {
       push("FAIL", `${at}: reason 'prior' requires a current panel value for the same label in this record`);
     }
   }
