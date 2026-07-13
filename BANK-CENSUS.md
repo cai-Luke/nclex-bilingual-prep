@@ -2,8 +2,8 @@
 
 # NCLEX Bank Census
 
-Generated: 2026-07-13T01:57:54.129Z
-Git SHA: a9a654621269b6a94d5a81efb11b83f0bbbc1939
+Generated: 2026-07-13T02:02:41.806Z
+Git SHA: 4a44549e18dceecc15cdfb5422627ab572615e3a
 
 ## Per-File Summary
 
@@ -11,7 +11,7 @@ Git SHA: a9a654621269b6a94d5a81efb11b83f0bbbc1939
 |------|--------|-----------|-----------|---------|
 | burn-canonical.json | 1.2 | 8 | 8 | — |
 | capnography-canonical.json | 1.2 | 7 | 7 | — |
-| claude-canonical.json | 1.8 | 97 | 97 | — |
+| claude-canonical.json | 2.0 | 97 | 97 | — |
 | device-canonical.json | 1.2 | 8 | 8 | — |
 | gemini-canonical.json | 1.8 | 874 | 874 | — |
 | gpt-canonical.json | 2.0 | 558 | 558 | — |
@@ -104,8 +104,8 @@ Visual kinds: burn_map (5), capnography (11), io_record (2), lab_trend (7), rhyt
 ## By Schema Version
 
 - v1.2: 77 questions (burn-canonical.json, capnography-canonical.json, device-canonical.json, io-canonical.json, lab-canonical.json, mar-canonical.json, medlabel-canonical.json, vitals-canonical.json)
-- v1.8: 1037 questions (claude-canonical.json, gemini-canonical.json, hard-cases-canonical.json)
-- v2.0: 558 questions (gpt-canonical.json)
+- v2.0: 655 questions (claude-canonical.json, gpt-canonical.json)
+- v1.8: 940 questions (gemini-canonical.json, hard-cases-canonical.json)
 - v1.7: 53 questions (visual-canonical.json)
 
 ## By Source File

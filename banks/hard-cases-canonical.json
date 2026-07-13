@@ -22945,6 +22945,108 @@
                 "content": {
                   "en": "Laboratory results: potassium 2.8 mEq/L, magnesium 1.4 mg/dL, sodium 137 mEq/L, creatinine 1.1 mg/dL, BUN 20 mg/dL, glucose 108 mg/dL. New electronic order: potassium chloride 40 mEq in 0.9% sodium chloride 250 mL IV over 2 hours via peripheral IV; magnesium sulfate 2 g IV over 2 hours; continue telemetry; repeat basic metabolic panel and magnesium after replacement. The potassium infusion has not been started.",
                   "zh": "实验室结果：钾2.8 mEq/L，镁1.4 mg/dL，钠137 mEq/L，肌酐1.1 mg/dL，尿素氮20 mg/dL，血糖108 mg/dL。新的电子医嘱：氯化钾40 mEq加入0.9%氯化钠250毫升，经外周静脉2小时输完；硫酸镁2克静脉输注2小时；继续心电监护；补充后复查基础代谢面板和镁。氯化钾尚未开始输注。"
+                },
+                "structuredMeasurements": {
+                  "panels": [
+                    {
+                      "kind": "labs",
+                      "columns": [
+                        {
+                          "id": "current",
+                          "label": {
+                            "en": "Current",
+                            "zh": "当前"
+                          }
+                        }
+                      ],
+                      "rows": [
+                        {
+                          "key": "potassium",
+                          "label": {
+                            "en": "Potassium",
+                            "zh": "血钾"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "2.8",
+                              "unit": "mEq/L"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "magnesium",
+                          "label": {
+                            "en": "Magnesium",
+                            "zh": "血镁"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "1.4",
+                              "unit": "mg/dL"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "sodium",
+                          "label": {
+                            "en": "Sodium",
+                            "zh": "血钠"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "137",
+                              "unit": "mEq/L"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "creatinine",
+                          "label": {
+                            "en": "Creatinine",
+                            "zh": "肌酐"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "1.1",
+                              "unit": "mg/dL"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "bun",
+                          "label": {
+                            "en": "BUN",
+                            "zh": "尿素氮"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "20",
+                              "unit": "mg/dL"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "glucose",
+                          "label": {
+                            "en": "Glucose",
+                            "zh": "血糖"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "108",
+                              "unit": "mg/dL"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
                 }
               }
             ]
@@ -22985,6 +23087,39 @@
                 "content": {
                   "en": "After magnesium sulfate and two revised potassium infusions, the client states, \"My weakness is a little better.\" Telemetry shows fewer PVCs. Repeat point-of-care potassium drawn early during replacement is 3.2 mEq/L. While the third potassium infusion is running through the peripheral IV, the client reports burning at the left forearm IV site. The nurse sees mild redness along the vein but no respiratory distress or chest pain.",
                   "zh": "输注硫酸镁并完成两袋修改后的氯化钾后，患者说：“我的无力感稍微好些了。”心电监护显示室性早搏减少。补钾过程中提前抽取的床旁钾为3.2 mEq/L。第三袋氯化钾经外周静脉输注时，患者诉左前臂静脉部位灼痛。护士看到沿静脉有轻度发红，但患者无呼吸窘迫或胸痛。"
+                },
+                "structuredMeasurements": {
+                  "panels": [
+                    {
+                      "kind": "labs",
+                      "columns": [
+                        {
+                          "id": "current",
+                          "label": {
+                            "en": "Current",
+                            "zh": "当前"
+                          }
+                        }
+                      ],
+                      "rows": [
+                        {
+                          "key": "potassium",
+                          "label": {
+                            "en": "Potassium",
+                            "zh": "血钾"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "3.2",
+                              "unit": "mEq/L",
+                              "context": "post_intervention"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
                 }
               }
             ]
@@ -23639,6 +23774,108 @@
             "content": {
               "en": "Postoperative day 1 after open cholecystectomy for acute cholecystitis with gangrenous changes noted intraoperatively. History: type 2 diabetes mellitus; benign prostatic hyperplasia; mild chronic kidney disease with baseline creatinine 1.4 mg/dL; well-controlled atrial fibrillation. Metformin and apixaban are held perioperatively.\nOrders include: normal saline IV at 100 mL/hr; hydromorphone 0.5 mg IV every 4 hours as needed for pain; cefazolin IV; subcutaneous heparin prophylaxis; blood glucose checks with sliding-scale insulin; incentive spirometry; ambulation; Jackson-Pratt drain to bulb suction from the gallbladder fossa.\n0700 assessment: pleasant, conversational, oriented x4; incisional pain 4/10; mild nausea without vomiting; reports feeling a little foggy after sleeping poorly.\nVital signs: T 37.6 °C oral, HR 82 irregular, BP 134/78, RR 16, SpO₂ 95% on room air. Lungs diminished at right base. Abdomen soft and mildly distended with expected incisional tenderness; dressing dry and intact. Jackson-Pratt drain has 40 mL serosanguineous output from the past 8 hours. Foley output for the past 8 hours is 320 mL amber clear urine. Skin warm and dry; capillary refill 2 seconds; no calf tenderness or edema.",
               "zh": "术后第 1 天，患者因急性胆囊炎伴术中发现坏疽性改变接受开腹胆囊切除术。病史：2 型糖尿病、良性前列腺增生、轻度慢性肾病（基线肌酐 1.4 mg/dL）、控制良好的心房颤动。围手术期暂停二甲双胍和阿哌沙班。\n医嘱包括：0.9% 氯化钠静脉输注 100 mL/hr；氢吗啡酮 0.5 mg IV 每 4 小时按需止痛；头孢唑林静脉给药；皮下肝素预防；血糖监测并按滑动量表使用胰岛素；激励性肺量计；下床活动；胆囊窝 Jackson-Pratt 引流管接负压球。\n0700 评估：患者态度友好、能交谈、定向力 x4；切口痛 4/10；轻度恶心但无呕吐；睡眠差后自述“有点迷糊”。\n生命体征：口温 37.6 °C，心率 82 次/分且不规则，血压 134/78，呼吸 16 次/分，室内空气 SpO₂ 95%。右肺底呼吸音减低。腹部柔软、轻度胀气，切口有预期压痛；敷料干燥完整。Jackson-Pratt 引流过去 8 小时为 40 mL 血清样液体。Foley 尿管过去 8 小时尿量 320 mL，清亮琥珀色。皮肤温暖干燥；毛细血管再充盈 2 秒；无小腿压痛或水肿。"
+            },
+            "structuredMeasurements": {
+              "panels": [
+                {
+                  "kind": "vitals",
+                  "columns": [
+                    {
+                      "id": "current",
+                      "label": {
+                        "en": "0700",
+                        "zh": "0700"
+                      }
+                    }
+                  ],
+                  "rows": [
+                    {
+                      "key": "temp",
+                      "label": {
+                        "en": "Temperature",
+                        "zh": "体温"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "37.6",
+                          "unit": "°C"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "hr",
+                      "label": {
+                        "en": "Heart rate",
+                        "zh": "心率"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "82",
+                          "unit": "bpm"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "sbp",
+                      "label": {
+                        "en": "Systolic BP",
+                        "zh": "收缩压"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "134",
+                          "unit": "mmHg"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "dbp",
+                      "label": {
+                        "en": "Diastolic BP",
+                        "zh": "舒张压"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "78",
+                          "unit": "mmHg"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "rr",
+                      "label": {
+                        "en": "Respiratory rate",
+                        "zh": "呼吸频率"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "16",
+                          "unit": "/min"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "spo2",
+                      "label": {
+                        "en": "SpO2",
+                        "zh": "脉搏血氧饱和度"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "95",
+                          "unit": "%"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
             }
           },
           {
@@ -24768,6 +25005,136 @@
             "content": {
               "en": "The nurse enters the preoperative bay to complete pre-procedure verification. The client is upright on the stretcher, calm, and greets the nurse in English. Her adult daughter, who is fluently bilingual, is at the bedside and has been helping communicate with staff. Baseline findings: T 36.8 °C, HR 78/min, BP 138/82 mm Hg, RR 14/min, SpO₂ 99% on room air. Alert and oriented x4. Abdomen soft with mild right upper quadrant tenderness; no rebound or guarding. Surgical site marked on the right upper abdomen. Left forearm IV patent and infusing without redness or swelling. Capillary blood glucose 142 mg/dL.",
               "zh": "护士进入术前隔间完成操作前核对。患者端坐在担架上，表现平静，并用英语向护士打招呼。其成年女儿在床旁，能流利使用双语，整个上午一直协助患者与工作人员沟通。基线评估：体温36.8 °C，心率78次/分，血压138/82 mm Hg，呼吸14次/分，室内空气下SpO₂ 99%。神志清楚，定向力（人、地点、时间、情况）均正常。腹部柔软，右上腹轻度压痛，无反跳痛或肌紧张。右上腹已做手术部位标记。左前臂静脉通路通畅，正在输液，无发红或肿胀。指尖血糖142 mg/dL。"
+            },
+            "structuredMeasurements": {
+              "panels": [
+                {
+                  "kind": "vitals",
+                  "columns": [
+                    {
+                      "id": "current",
+                      "label": {
+                        "en": "Current",
+                        "zh": "当前"
+                      }
+                    }
+                  ],
+                  "rows": [
+                    {
+                      "key": "temp",
+                      "label": {
+                        "en": "Temperature",
+                        "zh": "体温"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "36.8",
+                          "unit": "°C"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "hr",
+                      "label": {
+                        "en": "Heart rate",
+                        "zh": "心率"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "78",
+                          "unit": "bpm"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "sbp",
+                      "label": {
+                        "en": "Systolic BP",
+                        "zh": "收缩压"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "138",
+                          "unit": "mmHg"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "dbp",
+                      "label": {
+                        "en": "Diastolic BP",
+                        "zh": "舒张压"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "82",
+                          "unit": "mmHg"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "rr",
+                      "label": {
+                        "en": "Respiratory rate",
+                        "zh": "呼吸频率"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "14",
+                          "unit": "/min"
+                        }
+                      ]
+                    },
+                    {
+                      "key": "spo2",
+                      "label": {
+                        "en": "SpO2",
+                        "zh": "脉搏血氧饱和度"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "99",
+                          "unit": "%"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "kind": "labs",
+                  "columns": [
+                    {
+                      "id": "current",
+                      "label": {
+                        "en": "Current",
+                        "zh": "当前"
+                      }
+                    }
+                  ],
+                  "rows": [
+                    {
+                      "key": "glucose",
+                      "label": {
+                        "en": "Glucose",
+                        "zh": "血糖"
+                      },
+                      "values": [
+                        {
+                          "columnId": "current",
+                          "value": "142",
+                          "unit": "mg/dL"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
             }
           },
           {
