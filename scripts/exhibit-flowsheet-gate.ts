@@ -408,6 +408,17 @@ type PediatricDetection = {
 
 type AgeMarker = { index: number; length: number };
 
+const englishDayAgeMarkers = (text: string): AgeMarker[] => {
+  const markers: AgeMarker[] = [];
+  const re = /\b(\d{1,4})\s*(?:-\s*)?days?(?:\s*-\s*old|\s+old)\b/gi;
+  let match: RegExpExecArray | null;
+  while ((match = re.exec(text)) !== null) {
+    const age = Number(match[1]);
+    if (age < 6570) markers.push({ index: match.index, length: match[0].length });
+  }
+  return markers;
+};
+
 const englishPediatricAgeMarkers = (text: string): AgeMarker[] => {
   const markers: AgeMarker[] = [];
   const re = /\b(\d{1,3})\s*(?:-\s*)?(years?|yrs?|months?|mos?|weeks?|wks?)(?:\s*-\s*old|\s+old)?\b/gi;
@@ -421,6 +432,18 @@ const englishPediatricAgeMarkers = (text: string): AgeMarker[] => {
         ? age < 936
         : age < 18;
     if (pediatric) markers.push({ index: match.index, length: match[0].length });
+  }
+  markers.push(...englishDayAgeMarkers(text));
+  return markers;
+};
+
+const chineseDayAgeMarkers = (text: string): AgeMarker[] => {
+  const markers: AgeMarker[] = [];
+  const re = /(\d{1,4})\s*(日龄|天龄|天大(?:的)?)/g;
+  let match: RegExpExecArray | null;
+  while ((match = re.exec(text)) !== null) {
+    const age = Number(match[1]);
+    if (age < 6570) markers.push({ index: match.index, length: match[0].length });
   }
   return markers;
 };
@@ -439,6 +462,7 @@ const chinesePediatricAgeMarkers = (text: string): AgeMarker[] => {
         : age < 216;
     if (pediatric) markers.push({ index: match.index, length: match[0].length });
   }
+  markers.push(...chineseDayAgeMarkers(text));
   return markers;
 };
 

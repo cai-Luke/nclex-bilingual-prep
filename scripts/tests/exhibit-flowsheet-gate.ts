@@ -258,6 +258,57 @@ const populationRecord = (population?: unknown): ExtractionRecord => ({
 }
 
 {
+  const localEn = "Laboratory results are available.";
+  const contextEn = "A 3-day-old male newborn is admitted with poor feeding.";
+  const source: ExhibitSource = {
+    contentEn: localEn,
+    contentZh: "",
+    contextEn: `${contextEn}\n${localEn}`,
+    contextZh: "",
+  };
+  assert(hasFinding(gateRecord(populationRecord(), source), "FAIL", "subject-scoped pediatric context"), "a context-only 3-day-old male newborn should require population");
+  assert(hasFinding(gateRecord(populationRecord("adult"), source), "FAIL", "subject-scoped pediatric context"), "adult declaration should fail for a context-only 3-day-old male newborn");
+  assert(noFinding(gateRecord(populationRecord("peds_infant"), source), "subject-scoped pediatric context"), "peds_infant should satisfy a context-only 3-day-old male newborn marker");
+}
+
+for (const text of [
+  "A 3 days old client is admitted with poor feeding.",
+  "A 3 day old client is admitted with poor feeding.",
+  "A 1000-day-old child is admitted with poor feeding.",
+  "A 6569-day-old client is admitted with poor feeding.",
+]) {
+  assert(hasFinding(gateRecord(populationRecord(), pediatricSource(text)), "FAIL", "subject-scoped pediatric context"), `day-old age below 6570 should require population: ${text}`);
+}
+
+{
+  const findings = gateRecord(populationRecord(), pediatricSource("A 6570-day-old client is admitted with poor feeding."));
+  assert(noFinding(findings, "pediatric"), "6570-day-old must not trigger pediatric FAIL or WARN at the exclusive threshold");
+}
+
+{
+  const localEn = "The adult client's vital signs are documented.";
+  const relatedPersonEn = "The adult client's 3-day-old infant is brought in for follow-up.";
+  const source: ExhibitSource = {
+    contentEn: localEn,
+    contentZh: "",
+    contextEn: `${localEn}\n${relatedPersonEn}`,
+    contextZh: "",
+  };
+  const findings = gateRecord(populationRecord("adult"), source);
+  assert(noFinding(findings, "subject-scoped pediatric context"), "a client's 3-day-old infant is a related person, not the adult measurement subject");
+  assert(hasFinding(findings, "WARN", "unscoped pediatric"), "a related 3-day-old infant should retain the unscoped review WARN");
+}
+
+for (const text of [
+  "The adult client is postoperative day 3 after surgery.",
+  "The adult client is POD 3 after surgery.",
+  "The adult client has had fever for 3 days.",
+  "The adult client is completing a 3-day antibiotic course.",
+]) {
+  assert(noFinding(gateRecord(populationRecord("adult"), pediatricSource(text)), "pediatric"), `ordinary day chronology must not create a pediatric signal: ${text}`);
+}
+
+{
   const localEn = "The adult client's vital signs are documented.";
   const relatedPersonEn = "The adult client's 6-week-old infant is brought in for a well-child visit.";
   const source: ExhibitSource = {
@@ -289,6 +340,42 @@ for (const zhText of [
   const zhText = "6周龄患儿因发热入院。";
   const findings = gateRecord(populationRecord(), pediatricSource("Assessment available.", zhText));
   assert(hasFinding(findings, "FAIL", "subject-scoped pediatric context"), "Chinese week-age subject marker should require population");
+}
+
+for (const zhText of [
+  "3日龄新生儿因喂养不良入院。",
+  "3天龄婴儿因喂养不良入院。",
+  "3天大的婴儿因发热入院。",
+  "6569日龄患者因喂养不良入院。",
+]) {
+  const findings = gateRecord(populationRecord(), pediatricSource("Assessment available.", zhText));
+  assert(hasFinding(findings, "FAIL", "subject-scoped pediatric context"), `Chinese day-age subject marker should require population: ${zhText}`);
+}
+
+{
+  const findings = gateRecord(populationRecord(), pediatricSource("Assessment available.", "6570日龄患者因喂养不良入院。"));
+  assert(noFinding(findings, "pediatric"), "6570日龄 must not trigger pediatric FAIL or WARN at the exclusive threshold");
+}
+
+for (const zhText of [
+  "成人患者术后第3天恢复良好。",
+  "成人患者发热3天。",
+]) {
+  assert(noFinding(gateRecord(populationRecord("adult"), pediatricSource("Adult assessment available.", zhText)), "pediatric"), `ordinary Chinese day chronology must not create a pediatric signal: ${zhText}`);
+}
+
+{
+  const localZh = "记录成人患者的生命体征。";
+  const relatedPersonZh = "成人患者的3日龄新生儿因喂养不良入院。";
+  const source: ExhibitSource = {
+    contentEn: "Adult assessment available.",
+    contentZh: localZh,
+    contextEn: "Adult assessment available.",
+    contextZh: `${localZh}\n${relatedPersonZh}`,
+  };
+  const findings = gateRecord(populationRecord("adult"), source);
+  assert(noFinding(findings, "subject-scoped pediatric context"), "an adult patient's 3-day-old newborn is a related person, not the adult measurement subject");
+  assert(hasFinding(findings, "WARN", "unscoped pediatric"), "a related Chinese day-age newborn should retain the unscoped review WARN");
 }
 
 {
