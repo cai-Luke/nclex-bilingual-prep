@@ -37,11 +37,13 @@ units in both learner-facing locales. The deterministic canonical patch changed 
 `baseline_record.content` locale strings; its exact manifest and independent-review evidence are
 committed. No structured measurements were authored by that edit.
 
-Batch 18's four actionable refs are staged as two bounded candidates (`18A`/`18B`), each at 0 FAIL
-under the current gate. The re-derivation authors the true infant population, keeps serum-chemistry
-HCO3 distinct from ABG bicarbonate, and applies the ratified Rule F no-carry-forward boundary to the
-C. difficile recovery record. Two background-order/history records remain non-rendering. No
-canonical write has occurred.
+Batch 20, the authoritative serial redo, is staged as five bounded candidates (`20A`-`20E`): all
+ten actionable refs gate at 0 FAIL and pass explicit-ref applicator dry-runs. Failed Batch 19 is
+excluded in full. The other eighteen Batch 20 refs remain intentionally non-rendering (fourteen
+genuine same-client serial/preservation records plus four empty, multi-client, or no-current-value
+records). The PE slice corrects troponin identity, preserves distinct SaO2/SpO2 measurements, and
+isolates its five measurement-level Rule F dispositions for independent review. No canonical write
+has occurred.
 
 PR A's staging-layer multi-column machinery is merged: the
 flowsheet gate enforces the ratified G1-G8 explicit-column invariants, and the applicator preserves

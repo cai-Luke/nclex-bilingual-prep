@@ -1,0 +1,774 @@
+{
+  "sourceFile": "EXHIBIT-FLOWSHEET-MIGRATION-BATCH-20-serial-redo-2026-07-06.json",
+  "excludedBatch": "EXHIBIT-FLOWSHEET-MIGRATION-BATCH-19-serial-2026-07-06.json",
+  "excludedNonRendering": [
+    {
+      "exhibitRef": "cs_ngn_006_tbi/ex_006_vitals",
+      "reason": "genuine same-client serial/preservation record"
+    },
+    {
+      "exhibitRef": "gpt_2026_06_16_case_postpartum_preeclampsia_severe_01/stage2_orders",
+      "reason": "genuine same-client serial/preservation record"
+    },
+    {
+      "exhibitRef": "gpt_2026_06_16_case_postpartum_preeclampsia_severe_01/stage3_reassessment",
+      "reason": "genuine same-client serial/preservation record"
+    },
+    {
+      "exhibitRef": "gpt_case_lateral_incivility_01/stage_3_intervention",
+      "reason": "genuine same-client serial/preservation record"
+    },
+    {
+      "exhibitRef": "gpt_case_major_burn_inhalation_fluid_creep_01/stage2_course",
+      "reason": "genuine same-client serial/preservation record"
+    },
+    {
+      "exhibitRef": "gpt_case_mass_casualty_start_triage_01/stage_1_update",
+      "reason": "empty or multi-client/no-current-value record"
+    },
+    {
+      "exhibitRef": "gpt_case_mass_casualty_start_triage_01/stage_2_update",
+      "reason": "genuine same-client serial/preservation record"
+    },
+    {
+      "exhibitRef": "gpt_case_mass_casualty_start_triage_01/stage_3_update",
+      "reason": "empty or multi-client/no-current-value record"
+    },
+    {
+      "exhibitRef": "gpt_case_neutropenic_fever_nadir_01/stage_3_course",
+      "reason": "genuine same-client serial/preservation record"
+    },
+    {
+      "exhibitRef": "gpt_case_pe_2026_06_16_case_pulmonary_embolism_01/stage3_update",
+      "reason": "genuine same-client serial/preservation record"
+    },
+    {
+      "exhibitRef": "gpt_case_pressure_injury_prevention_mobility_01/stage_2_update",
+      "reason": "genuine same-client serial/preservation record"
+    },
+    {
+      "exhibitRef": "gpt_case_unsafe_assignment_01/stage_2_deterioration",
+      "reason": "empty or multi-client/no-current-value record"
+    },
+    {
+      "exhibitRef": "gpt_case_unsafe_premature_discharge_01/stage_1_teaching_ambulation",
+      "reason": "genuine same-client serial/preservation record"
+    },
+    {
+      "exhibitRef": "gpt_case_warfarin_mvr_2026_06_11_01/stage_1_orders_response",
+      "reason": "empty or multi-client/no-current-value record"
+    },
+    {
+      "exhibitRef": "gpt_case_warfarin_mvr_2026_06_11_01/stage_2_update",
+      "reason": "genuine same-client serial/preservation record"
+    },
+    {
+      "exhibitRef": "opus_case_lithium_toxicity_01/exhibit_stage3",
+      "reason": "genuine same-client serial/preservation record"
+    },
+    {
+      "exhibitRef": "opus_case_warfarin_bridge_01/exh_1",
+      "reason": "genuine same-client serial/preservation record"
+    },
+    {
+      "exhibitRef": "opus4_case_postop_sbar_01/stage1_progression",
+      "reason": "genuine same-client serial/preservation record"
+    }
+  ],
+  "candidates": [
+    {
+      "id": "20A-SIMPLE-CURRENT",
+      "file": "EXHIBIT-FLOWSHEET-STRUCTURED-PROMOTION-CANDIDATE-20A-SIMPLE-CURRENT-2026-07-13.json",
+      "refs": [
+        {
+          "exhibitRef": "gpt_case_caregiver_role_strain_dementia_01/stage_3_follow_up",
+          "changes": []
+        },
+        {
+          "exhibitRef": "gpt_case_lateral_incivility_01/stage_2_bp_spike",
+          "changes": []
+        },
+        {
+          "exhibitRef": "gpt_opus21_case_colostomy_lep_discharge_01/initial_record",
+          "changes": []
+        }
+      ]
+    },
+    {
+      "id": "20B-NURSE-CONFLICT",
+      "file": "EXHIBIT-FLOWSHEET-STRUCTURED-PROMOTION-CANDIDATE-20B-NURSE-CONFLICT-2026-07-13.json",
+      "refs": [
+        {
+          "exhibitRef": "gpt_case_nurse_provider_conflict_01/baseline_record",
+          "changes": [
+            {
+              "path": "columns",
+              "before": null,
+              "after": [
+                {
+                  "id": "vitals_1900",
+                  "panelKind": "vitals",
+                  "label": {
+                    "en": "1900",
+                    "zh": "1900"
+                  },
+                  "evidence": "1900 assessment:"
+                },
+                {
+                  "id": "labs_1600",
+                  "panelKind": "labs",
+                  "label": {
+                    "en": "1600",
+                    "zh": "1600"
+                  },
+                  "evidence": "1600 labs:"
+                }
+              ]
+            },
+            {
+              "path": "panel.0.columnId",
+              "before": null,
+              "after": "vitals_1900"
+            },
+            {
+              "path": "panel.1.columnId",
+              "before": null,
+              "after": "vitals_1900"
+            },
+            {
+              "path": "panel.2.columnId",
+              "before": null,
+              "after": "vitals_1900"
+            },
+            {
+              "path": "panel.3.columnId",
+              "before": null,
+              "after": "vitals_1900"
+            },
+            {
+              "path": "panel.4.columnId",
+              "before": null,
+              "after": "vitals_1900"
+            },
+            {
+              "path": "panel.5.columnId",
+              "before": null,
+              "after": "vitals_1900"
+            },
+            {
+              "path": "panel.6.columnId",
+              "before": null,
+              "after": "labs_1600"
+            },
+            {
+              "path": "panel.7.columnId",
+              "before": null,
+              "after": "labs_1600"
+            },
+            {
+              "path": "panel.8.columnId",
+              "before": null,
+              "after": "labs_1600"
+            },
+            {
+              "path": "panel.9.columnId",
+              "before": null,
+              "after": "labs_1600"
+            },
+            {
+              "path": "panel.10.columnId",
+              "before": null,
+              "after": "labs_1600"
+            },
+            {
+              "path": "panel.11.columnId",
+              "before": null,
+              "after": "labs_1600"
+            },
+            {
+              "path": "panel.12.columnId",
+              "before": null,
+              "after": "labs_1600"
+            },
+            {
+              "path": "panel.13.columnId",
+              "before": null,
+              "after": "labs_1600"
+            },
+            {
+              "path": "panel.14.columnId",
+              "before": null,
+              "after": "labs_1600"
+            },
+            {
+              "path": "panel.15.columnId",
+              "before": null,
+              "after": "labs_1600"
+            },
+            {
+              "path": "panel.16.columnId",
+              "before": null,
+              "after": "labs_1600"
+            },
+            {
+              "path": "panel.17.columnId",
+              "before": null,
+              "after": "labs_1600"
+            }
+          ]
+        },
+        {
+          "exhibitRef": "gpt_case_nurse_provider_conflict_01/stage_3_resolution",
+          "changes": [
+            {
+              "path": "columns",
+              "before": null,
+              "after": [
+                {
+                  "id": "labs_2245",
+                  "panelKind": "labs",
+                  "label": {
+                    "en": "2245",
+                    "zh": "2245"
+                  },
+                  "evidence": "At 2245, after the second dose, a stat potassium drawn from the opposite arm returns at 3.4 mEq/L."
+                }
+              ]
+            },
+            {
+              "path": "panel.0.columnId",
+              "before": null,
+              "after": "labs_2245"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "20C-PE",
+      "file": "EXHIBIT-FLOWSHEET-STRUCTURED-PROMOTION-CANDIDATE-20C-PE-2026-07-13.json",
+      "refs": [
+        {
+          "exhibitRef": "gpt_case_pe_2026_06_16_case_pulmonary_embolism_01/stage2_update",
+          "changes": [
+            {
+              "path": "columns",
+              "before": null,
+              "after": [
+                {
+                  "id": "labs_stat",
+                  "panelKind": "labs",
+                  "label": {
+                    "en": "Stat",
+                    "zh": "急查"
+                  },
+                  "evidence": "Stat results:"
+                },
+                {
+                  "id": "vitals_0930",
+                  "panelKind": "vitals",
+                  "label": {
+                    "en": "0930",
+                    "zh": "0930"
+                  },
+                  "evidence": "Repeat vital signs at 0930:"
+                }
+              ]
+            },
+            {
+              "path": "panel.0.columnId",
+              "before": null,
+              "after": "labs_stat"
+            },
+            {
+              "path": "panel.0.label",
+              "before": "troponin_t",
+              "after": "troponin_i"
+            },
+            {
+              "path": "panel.1.columnId",
+              "before": null,
+              "after": "labs_stat"
+            },
+            {
+              "path": "panel.2.columnId",
+              "before": null,
+              "after": "labs_stat"
+            },
+            {
+              "path": "panel.3.columnId",
+              "before": null,
+              "after": "labs_stat"
+            },
+            {
+              "path": "panel.4.columnId",
+              "before": null,
+              "after": "labs_stat"
+            },
+            {
+              "path": "panel.5.columnId",
+              "before": null,
+              "after": "labs_stat"
+            },
+            {
+              "path": "panel.6.columnId",
+              "before": null,
+              "after": "labs_stat"
+            },
+            {
+              "path": "panel.7.columnId",
+              "before": null,
+              "after": "labs_stat"
+            },
+            {
+              "path": "panel.8.columnId",
+              "before": null,
+              "after": "labs_stat"
+            },
+            {
+              "path": "panel.9.columnId",
+              "before": null,
+              "after": "labs_stat"
+            },
+            {
+              "path": "panel.10.columnId",
+              "before": null,
+              "after": "labs_stat"
+            },
+            {
+              "path": "panel.11.columnId",
+              "before": null,
+              "after": "labs_stat"
+            },
+            {
+              "path": "panel.12.columnId",
+              "before": null,
+              "after": "labs_stat"
+            },
+            {
+              "path": "panel.13.columnId",
+              "before": null,
+              "after": "labs_stat"
+            },
+            {
+              "path": "panel.13.context",
+              "before": "post_intervention",
+              "after": null
+            },
+            {
+              "path": "panel.13.label",
+              "before": "hr",
+              "after": "sao2"
+            },
+            {
+              "path": "panel.13.sourceSpan",
+              "before": "Repeat vital signs at 0930: HR 118/min, BP 98/66 mmHg, RR 28/min, SpO2 93% on non-rebreather.",
+              "after": "ABG on non-rebreather: pH 7.47, PaCO2 28 mmHg, PaO2 68 mmHg, HCO3 20 mEq/L, SaO2 93%."
+            },
+            {
+              "path": "panel.13.sourceUnit",
+              "before": "bpm",
+              "after": "%"
+            },
+            {
+              "path": "panel.13.value",
+              "before": "118",
+              "after": "93"
+            },
+            {
+              "path": "panel.14.columnId",
+              "before": null,
+              "after": "vitals_0930"
+            },
+            {
+              "path": "panel.14.label",
+              "before": "sbp",
+              "after": "hr"
+            },
+            {
+              "path": "panel.14.sourceUnit",
+              "before": "mmHg",
+              "after": "bpm"
+            },
+            {
+              "path": "panel.14.value",
+              "before": "98",
+              "after": "118"
+            },
+            {
+              "path": "panel.15.columnId",
+              "before": null,
+              "after": "vitals_0930"
+            },
+            {
+              "path": "panel.15.label",
+              "before": "dbp",
+              "after": "sbp"
+            },
+            {
+              "path": "panel.15.value",
+              "before": "66",
+              "after": "98"
+            },
+            {
+              "path": "panel.16.columnId",
+              "before": null,
+              "after": "vitals_0930"
+            },
+            {
+              "path": "panel.16.label",
+              "before": "rr",
+              "after": "dbp"
+            },
+            {
+              "path": "panel.16.sourceUnit",
+              "before": "/min",
+              "after": "mmHg"
+            },
+            {
+              "path": "panel.16.value",
+              "before": "28",
+              "after": "66"
+            },
+            {
+              "path": "panel.17.columnId",
+              "before": null,
+              "after": "vitals_0930"
+            },
+            {
+              "path": "panel.17.label",
+              "before": "spo2",
+              "after": "rr"
+            },
+            {
+              "path": "panel.17.sourceUnit",
+              "before": "%",
+              "after": "/min"
+            },
+            {
+              "path": "panel.17.value",
+              "before": "93",
+              "after": "28"
+            },
+            {
+              "path": "panel.18",
+              "before": null,
+              "after": {
+                "label": "spo2",
+                "value": "93",
+                "sourceUnit": "%",
+                "sourceSpan": "Repeat vital signs at 0930: HR 118/min, BP 98/66 mmHg, RR 28/min, SpO2 93% on non-rebreather.",
+                "context": "post_intervention",
+                "columnId": "vitals_0930"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "20D-TREATMENT",
+      "file": "EXHIBIT-FLOWSHEET-STRUCTURED-PROMOTION-CANDIDATE-20D-TREATMENT-2026-07-13.json",
+      "refs": [
+        {
+          "exhibitRef": "gpt_case_warfarin_mvr_2026_06_11_01/stage_3_orders_outcomes",
+          "changes": [
+            {
+              "path": "columns",
+              "before": null,
+              "after": [
+                {
+                  "id": "vitals_1100_1200",
+                  "panelKind": "vitals",
+                  "label": {
+                    "en": "1100–1200",
+                    "zh": "1100–1200"
+                  },
+                  "evidence": "1100-1200 status:"
+                },
+                {
+                  "id": "labs_1100_1200",
+                  "panelKind": "labs",
+                  "label": {
+                    "en": "1100–1200",
+                    "zh": "1100–1200"
+                  },
+                  "evidence": "1100-1200 status:"
+                }
+              ]
+            },
+            {
+              "path": "panel.0.columnId",
+              "before": null,
+              "after": "vitals_1100_1200"
+            },
+            {
+              "path": "panel.1.columnId",
+              "before": null,
+              "after": "vitals_1100_1200"
+            },
+            {
+              "path": "panel.2.columnId",
+              "before": null,
+              "after": "vitals_1100_1200"
+            },
+            {
+              "path": "panel.3.columnId",
+              "before": null,
+              "after": "labs_1100_1200"
+            },
+            {
+              "path": "panel.4.columnId",
+              "before": null,
+              "after": "labs_1100_1200"
+            }
+          ]
+        },
+        {
+          "exhibitRef": "opus_case_lithium_toxicity_01/exhibit_stage1",
+          "changes": [
+            {
+              "path": "columns",
+              "before": null,
+              "after": [
+                {
+                  "id": "vitals_0930",
+                  "panelKind": "vitals",
+                  "label": {
+                    "en": "0930",
+                    "zh": "0930"
+                  },
+                  "evidence": "At 0930 the patient vomits 150 mL of bilious fluid and becomes more lethargic; she now opens her eyes only to loud verbal stimulation and her verbal responses are inappropriate words. Heart rate rises to 112, blood pressure 94/58."
+                }
+              ]
+            },
+            {
+              "path": "panel.0.columnId",
+              "before": null,
+              "after": "vitals_0930"
+            },
+            {
+              "path": "panel.0.context",
+              "before": null,
+              "after": "post_intervention"
+            },
+            {
+              "path": "panel.1.columnId",
+              "before": null,
+              "after": "vitals_0930"
+            },
+            {
+              "path": "panel.1.context",
+              "before": null,
+              "after": "post_intervention"
+            },
+            {
+              "path": "panel.2.columnId",
+              "before": null,
+              "after": "vitals_0930"
+            },
+            {
+              "path": "panel.2.context",
+              "before": null,
+              "after": "post_intervention"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "20E-POSTOP",
+      "file": "EXHIBIT-FLOWSHEET-STRUCTURED-PROMOTION-CANDIDATE-20E-POSTOP-2026-07-13.json",
+      "refs": [
+        {
+          "exhibitRef": "opus1_case_tha_discharge_lep_01/baseline_record",
+          "changes": [
+            {
+              "path": "columns",
+              "before": null,
+              "after": [
+                {
+                  "id": "vitals_1600",
+                  "panelKind": "vitals",
+                  "label": {
+                    "en": "1600",
+                    "zh": "1600"
+                  },
+                  "evidence": "Initial findings at 1600:"
+                },
+                {
+                  "id": "labs_current",
+                  "panelKind": "labs",
+                  "label": {
+                    "en": "Current",
+                    "zh": "当前"
+                  },
+                  "evidence": "Baseline labs:"
+                }
+              ]
+            },
+            {
+              "path": "panel.0.columnId",
+              "before": null,
+              "after": "vitals_1600"
+            },
+            {
+              "path": "panel.1.columnId",
+              "before": null,
+              "after": "vitals_1600"
+            },
+            {
+              "path": "panel.2.columnId",
+              "before": null,
+              "after": "vitals_1600"
+            },
+            {
+              "path": "panel.3.columnId",
+              "before": null,
+              "after": "vitals_1600"
+            },
+            {
+              "path": "panel.4.columnId",
+              "before": null,
+              "after": "vitals_1600"
+            },
+            {
+              "path": "panel.5.columnId",
+              "before": null,
+              "after": "vitals_1600"
+            },
+            {
+              "path": "panel.6.columnId",
+              "before": null,
+              "after": "labs_current"
+            },
+            {
+              "path": "panel.7.columnId",
+              "before": null,
+              "after": "labs_current"
+            },
+            {
+              "path": "panel.8.columnId",
+              "before": null,
+              "after": "labs_current"
+            },
+            {
+              "path": "panel.9.columnId",
+              "before": null,
+              "after": "labs_current"
+            },
+            {
+              "path": "panel.10.columnId",
+              "before": null,
+              "after": "labs_current"
+            },
+            {
+              "path": "panel.11.columnId",
+              "before": null,
+              "after": "labs_current"
+            },
+            {
+              "path": "panel.12.columnId",
+              "before": null,
+              "after": "labs_current"
+            },
+            {
+              "path": "panel.13.columnId",
+              "before": null,
+              "after": "labs_current"
+            },
+            {
+              "path": "panel.14.columnId",
+              "before": null,
+              "after": "labs_current"
+            },
+            {
+              "path": "panel.15.columnId",
+              "before": null,
+              "after": "labs_current"
+            },
+            {
+              "path": "panel.16.columnId",
+              "before": null,
+              "after": "labs_current"
+            }
+          ]
+        },
+        {
+          "exhibitRef": "opus4_case_postop_sbar_01/stage2_provider_response",
+          "changes": [
+            {
+              "path": "columns",
+              "before": null,
+              "after": [
+                {
+                  "id": "vitals_1200",
+                  "panelKind": "vitals",
+                  "label": {
+                    "en": "1200",
+                    "zh": "1200"
+                  },
+                  "evidence": "1200 reassessment:"
+                },
+                {
+                  "id": "labs_1200",
+                  "panelKind": "labs",
+                  "label": {
+                    "en": "1200",
+                    "zh": "1200"
+                  },
+                  "evidence": "1200 reassessment:"
+                }
+              ]
+            },
+            {
+              "path": "panel.0.columnId",
+              "before": null,
+              "after": "vitals_1200"
+            },
+            {
+              "path": "panel.1.columnId",
+              "before": null,
+              "after": "vitals_1200"
+            },
+            {
+              "path": "panel.2.columnId",
+              "before": null,
+              "after": "vitals_1200"
+            },
+            {
+              "path": "panel.3.columnId",
+              "before": null,
+              "after": "vitals_1200"
+            },
+            {
+              "path": "panel.4.columnId",
+              "before": null,
+              "after": "vitals_1200"
+            },
+            {
+              "path": "panel.5.columnId",
+              "before": null,
+              "after": "vitals_1200"
+            },
+            {
+              "path": "panel.6.columnId",
+              "before": null,
+              "after": "labs_1200"
+            },
+            {
+              "path": "panel.7.columnId",
+              "before": null,
+              "after": "labs_1200"
+            },
+            {
+              "path": "panel.8.columnId",
+              "before": null,
+              "after": "labs_1200"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
