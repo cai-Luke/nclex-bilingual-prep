@@ -1,9 +1,9 @@
 # U11 `io_trend` — §11 Proof Batch Brief V3 — PRODUCER COPY (GPT-5.6 Sol)
 
 **Date:** 2026-07-13 (V3). **Item author:** GPT-5.6 Sol.
-**This file contains no intended keys.** Everything you need for Pass 1 and Pass 2 is here. A separate architect-only file holds the intended clinical directions; you will not see it until after Pass 1 is recorded.
+**This file contains no intended keys.** Everything you need for Pass 1 is here. A separate architect-only file holds the intended clinical directions and the approved Pass-2 source packet; you will not see either until after Pass 1 is recorded.
 
-**Session hygiene — read this first.** This task must run in a chat with no other context: no repository browsing, no PR history, no prior conversation about this project. Everything you need is pasted below. If you have tool access that could fetch files (GitHub, web, file search), do not use it for this task — do not fetch `DECISIONS.md`, `PROJECT-HISTORY.md`, or any file with "KEY-REVEAL" or "ARCHITECT-ONLY" in its name. This document is fully self-contained.
+**Session hygiene — read this first.** This task must run in a chat with no other context: no repository browsing, no PR history, no prior conversation about this project. Everything you need for Pass 1 is pasted below. If you have tool access that could fetch files (GitHub, web, file search), do not use it for this task — do not fetch `DECISIONS.md`, `PROJECT-HISTORY.md`, or any file with "KEY-REVEAL" or "ARCHITECT-ONLY" in its name. The architect will paste the withheld directions and approved source packet into the same chat only after Pass 1 is recorded.
 
 **Governing documents (for the architect's own reference, not needed by you to complete this task):** `Archive/U11-IO-TREND-SPEC.md`, `DECISIONS.md` principles 6, 11, 12, 22, 25, `NCLEX-Question-Schema.md`. `io_trend` requires schema `1.9` minimum; author the raw envelope at `2.0`.
 **Renderer status:** `io_trend` shipped and promoted to `main`. Zero `io_trend` items exist in any canonical bank as of this brief. This is content work; no code changes.
@@ -21,21 +21,22 @@ Frames 2 and 4 are additionally built as a matched pair: identical context, iden
 ## 1. Two-pass protocol
 
 **Pass 1 — blind derivation.** For each of the four datasets in §4, using only the dataset and its context line, state:
-1. the single best answer to the question that dataset's frame will ultimately ask (see the framing note under each frame — you're deriving the answer to that kind of question, not authoring the item yet);
+1. the answer direction to the question that dataset's frame will ultimately ask, including every supported selection or classification when the framing is `select_all` or `matrix` (see the framing note under each frame — you're deriving the answer to that kind of question, not authoring the item yet);
 2. your confidence, and the single strongest competing answer;
 3. the **counterfactual answer under collapse** — holding the stem, context, and options fixed, what would the answer be if the only information about intake/output were the single `final_cumulative_net_ml` number (no interval breakdown, no chart)?
 
 Return Pass 1 as a plain table. Do not author items yet.
 
-**Pass 2 — authoring.** After you submit Pass 1, the architect will share the intended directions and adjudicate any divergence with Luke. Only then do you author the four items in full, per §6.
+**Pass 2 — authoring.** After you submit Pass 1, the architect will share the intended directions and approved source packet, then adjudicate any divergence with Luke. Only then do you author the four items in full, per §6.
 
 ## 2. Hard constraints
 
 - **`itemType` ∈ `multiple_choice` | `select_all` | `matrix`.** `fill_in_blank` is excluded from the registry for this kind.
 - **Pattern-only items.** Direction, divergence, crossover, response-to-intervention, or trend interpretation. **No exact-value items.** "What was the net balance at 1200?" is an `io_record` item.
 - **The stem must not state the trend.** The stem supplies clinical context; the visual supplies the pattern.
-- **Closed-world stems.** If an item's correct answer requires a stated threshold or protocol rule that isn't given to you in §4, do not invent one — flag it back rather than authoring a plausible-sounding rule from general knowledge. (This is why Frames 2–4 below are framed as *trend interpretation* rather than *management action*: interpreting what a chart shows doesn't need an external threshold the way "hold this dose" or "stop this bolus" would.)
+- **Closed-world stems.** If an item's correct answer requires a stated threshold or protocol rule that isn't given to you in §4, do not invent one — flag it back rather than authoring a plausible-sounding rule from general knowledge. (This is why all four frames below are framed as *trend interpretation* rather than *management action*: interpreting what a chart shows doesn't need an external threshold the way "hold this dose" or "stop this bolus" would.)
 - **No answer leakage in `caption`, `periodLabel`, or `binLabels`.**
+- **A collapse result may be indeterminate.** "Indeterminate / no offered interpretation is supportable from the final net alone" counts as a divergent collapse result when the full trend supports a keyed interpretation. Do not force a different offered option when the collapsed data support none.
 - **No outcome or shape words in context lines beyond exactly what §4 gives you.** Do not add adjectives characterizing the trend ("improving," "accelerating," "failing to respond," etc.) anywhere in the stem you write.
 - **Bilingual parity** (en + zh) on every learner-facing field.
 - **Deterministic core, no invented clinical content.** Every volume below is fixed.
@@ -47,7 +48,7 @@ Return Pass 1 as a plain table. Do not author items yet.
   "visual_justification": "REQUIRED. What the learner must read off the trend that the stem does not state.",
   "collapse_test": "REQUIRED. The counterfactual answer under collapse — what a learner would answer if shown ONLY the final cumulative net, stem/context/options otherwise unchanged. It MUST differ from the keyed answer.",
   "tier": "standard",
-  "source": "<attributable source>",
+  "source": "REQUIRED. Use the exact approved source string supplied by the architect after Pass 1; do not browse for, invent, or leave a placeholder citation.",
   "skill_signature": "io_trend:<frame>/<what-is-tested>",
   "stem_disambiguators": ["intake and output", "trend"],
   "derived_values_keyed": { "net_by_interval_ml": [...], "cumulative_net_ml": [...], "final_cumulative_net_ml": N },
@@ -71,7 +72,7 @@ All four: `kind: "io_trend"`, `showCumulativeNet: true`, four intervals. Derived
 
 Totals: intake 1200, output 800, final cumulative **+400**.
 Context (verbatim): "An adult client with heart failure and chronic kidney disease is receiving scheduled maintenance IV fluids."
-**Framing:** an independent-nursing-action item — what should the nurse do in response to this trend, within scope that doesn't require a stated escalation threshold (i.e., an assessment-level action, not a provider-notification or order-change action).
+**Framing:** a `select_all` trend-interpretation item — which statements about the client's intake and output trend are supported by the record. Derive the supported interval-by-interval findings from the dataset; do not treat the final cumulative number alone as evidence of the series' shape or driver.
 
 ### Frame 2 *(matched pair, half A)*
 `time: { unit: "hr", values: [4, 8, 12, 16] }`
@@ -122,7 +123,7 @@ Not in this file. Revealed after you submit Pass 1.
 ## 6. Item construction (for Pass 2, after keys are revealed)
 
 - **Frames 2 and 4 must be `multiple_choice` with an identical option set — verbatim, in both languages — differing only in which option is correct.**
-- Frame 1: `select_all`, independent-assessment-scope action item. Frame 3: `matrix`, trend-interpretation.
+- Frame 1: `select_all`, trend-interpretation. Frame 3: `matrix`, trend-interpretation.
 - Distractors clinically plausible, within scope, no straw men.
 - `id` prefix **`iot_*`**.
 - `visual_justification` and `collapse_test` on all four. `derived_values_keyed` on all four. `crossover` on Frame 4. `expected_trend` on all four.
