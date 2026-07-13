@@ -346,9 +346,15 @@ for (const zhText of [
   "3日龄新生儿因喂养不良入院。",
   "3天龄婴儿因喂养不良入院。",
   "3天大的婴儿因发热入院。",
+  "6569日龄患者因喂养不良入院。",
 ]) {
   const findings = gateRecord(populationRecord(), pediatricSource("Assessment available.", zhText));
   assert(hasFinding(findings, "FAIL", "subject-scoped pediatric context"), `Chinese day-age subject marker should require population: ${zhText}`);
+}
+
+{
+  const findings = gateRecord(populationRecord(), pediatricSource("Assessment available.", "6570日龄患者因喂养不良入院。"));
+  assert(noFinding(findings, "pediatric"), "6570日龄 must not trigger pediatric FAIL or WARN at the exclusive threshold");
 }
 
 for (const zhText of [
