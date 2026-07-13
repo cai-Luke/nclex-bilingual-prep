@@ -1,6 +1,6 @@
 {
   "meta": {
-    "schemaVersion": "1.8",
+    "schemaVersion": "2.0",
     "count": 874,
     "exam": "NCLEX-RN",
     "topic": "assorted NCLEX-RN",
@@ -75382,6 +75382,95 @@
                 "content": {
                   "en": "- Sodium: 133 mEq/L (Reference: 135-145 mEq/L)\n- Potassium: 3.1 mEq/L (Reference: 3.5-5.0 mEq/L)\n- Chloride: 88 mEq/L (Reference: 96-106 mEq/L)\n- Carbon Dioxide (HCO3): 34 mEq/L (Reference: 22-26 mEq/L)\n- pH: 7.51 (Reference: 7.35-7.45)",
                   "zh": "- 钠：133 mEq/L（参考值：135-145 mEq/L）\n- 钾：3.1 mEq/L（参考值：3.5-5.0 mEq/L）\n- 氯：88 mEq/L（参考值：96-106 mEq/L）\n- 二氧化碳 (HCO3)：34 mEq/L（参考值：22-26 mEq/L）\n- pH值：7.51（参考值：7.35-7.45）"
+                },
+                "structuredMeasurements": {
+                  "population": "peds_infant",
+                  "panels": [
+                    {
+                      "kind": "labs",
+                      "columns": [
+                        {
+                          "id": "current",
+                          "label": {
+                            "en": "Current",
+                            "zh": "当前"
+                          }
+                        }
+                      ],
+                      "rows": [
+                        {
+                          "key": "sodium",
+                          "label": {
+                            "en": "Sodium",
+                            "zh": "血钠"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "133",
+                              "unit": "mEq/L"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "potassium",
+                          "label": {
+                            "en": "Potassium",
+                            "zh": "血钾"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "3.1",
+                              "unit": "mEq/L"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "chloride",
+                          "label": {
+                            "en": "Chloride",
+                            "zh": "血氯"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "88",
+                              "unit": "mEq/L"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "bicarbonate",
+                          "label": {
+                            "en": "Bicarbonate",
+                            "zh": "碳酸氢盐"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "34",
+                              "unit": "mEq/L"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "ph",
+                          "label": {
+                            "en": "pH",
+                            "zh": "酸碱度"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "7.51",
+                              "unit": "(unitless)"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
                 }
               }
             ]

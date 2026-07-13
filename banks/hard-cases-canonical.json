@@ -27236,6 +27236,39 @@
                 "content": {
                   "en": "The patient is placed on 100% oxygen by non-rebreather mask. Two 16-gauge peripheral IVs are established in the dorsal veins of both feet because the bilateral arm burns preclude upper-extremity access. Lactated Ringer's solution is initiated. A rapid Rule of Nines assessment documents burns to the entire face/anterior scalp, entire anterior trunk, and both anterior arms from shoulders to wrists; posterior trunk, posterior arms, legs, and perineum are unburned. The provider orders lactated Ringer's using the commonly taught Parkland estimate: 4 mL x weight in kg x %TBSA burned, half in the first 8 hours from the burn time of 0600 and the remainder over the next 16 hours. Urine output target is 0.5 to 1 mL/kg/hr, or 40 to 80 mL/hr. Over the next 30 minutes hoarseness worsens, the patient drools, inspiratory stridor becomes audible without a stethoscope, SpO2 is 94% on the non-rebreather, and facial/lip edema progresses. The provider orders emergent intubation for impending airway obstruction; intubation is successful at 0725. Urine output from 0640 to 0740 is 15 mL of dark amber urine.",
                   "zh": "患者使用非再呼吸面罩给予100%氧气。由于双臂烧伤不适合上肢静脉通路，在双足背静脉建立两条16号外周静脉通路，并开始输注乳酸林格液。按九分法快速评估：烧伤累及整个面部/前头皮、整个前躯干，以及双侧肩至腕的前臂；后躯干、双上臂后侧、双腿和会阴未烧伤。医嘱按常用Parkland估算给予乳酸林格液：4 mL x 体重kg x 烧伤%TBSA；自0600烧伤时间起，前8小时给一半，其余16小时给另一半。尿量目标为0.5至1 mL/kg/hr，即40至80 mL/hr。随后30分钟内，声音嘶哑加重，患者流涎，不用听诊器即可听到吸气性喘鸣，非再呼吸面罩下SpO2为94%，面部和口唇水肿加重。医嘱因即将发生气道阻塞而紧急气管插管；0725插管成功。0640至0740尿量为15 mL深琥珀色尿。"
+                },
+                "structuredMeasurements": {
+                  "panels": [
+                    {
+                      "kind": "vitals",
+                      "columns": [
+                        {
+                          "id": "vitals_current",
+                          "label": {
+                            "en": "Current",
+                            "zh": "当前"
+                          }
+                        }
+                      ],
+                      "rows": [
+                        {
+                          "key": "spo2",
+                          "label": {
+                            "en": "SpO2",
+                            "zh": "脉搏血氧饱和度"
+                          },
+                          "values": [
+                            {
+                              "columnId": "vitals_current",
+                              "value": "94",
+                              "unit": "%",
+                              "context": "post_intervention"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
                 }
               }
             ]
@@ -35817,6 +35850,94 @@
                 "content": {
                   "en": "Hgb 10.4 g/dL, MCV 74 fL, WBC 6,200/µL, platelets 310,000/µL. Calcium 7.6 mg/dL, albumin 3.3 g/dL, alkaline phosphatase 142 U/L, creatinine 0.7 mg/dL. Total IgA 245 mg/dL; tTG-IgA pending. ESR 12 mm/hr, CRP 0.4 mg/dL. Qualitative fecal fat positive; stool occult blood negative; no ova or parasites identified.",
                   "zh": "血红蛋白10.4 g/dL，MCV 74 fL，WBC 6,200/µL，血小板310,000/µL。钙7.6 mg/dL，白蛋白3.3 g/dL，碱性磷酸酶142 U/L，肌酐0.7 mg/dL。总IgA 245 mg/dL；tTG-IgA待回报。ESR 12 mm/hr，CRP 0.4 mg/dL。定性粪脂阳性；粪便隐血阴性；未发现虫卵或寄生虫。"
+                },
+                "structuredMeasurements": {
+                  "panels": [
+                    {
+                      "kind": "labs",
+                      "columns": [
+                        {
+                          "id": "current",
+                          "label": {
+                            "en": "Current",
+                            "zh": "当前"
+                          }
+                        }
+                      ],
+                      "rows": [
+                        {
+                          "key": "hemoglobin",
+                          "label": {
+                            "en": "Hemoglobin",
+                            "zh": "血红蛋白"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "10.4",
+                              "unit": "g/dL"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "wbc",
+                          "label": {
+                            "en": "WBC",
+                            "zh": "白细胞"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "6,200",
+                              "unit": "/µL"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "platelets",
+                          "label": {
+                            "en": "Platelets",
+                            "zh": "血小板"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "310,000",
+                              "unit": "/µL"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "calcium",
+                          "label": {
+                            "en": "Calcium",
+                            "zh": "总钙"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "7.6",
+                              "unit": "mg/dL"
+                            }
+                          ]
+                        },
+                        {
+                          "key": "creatinine",
+                          "label": {
+                            "en": "Creatinine",
+                            "zh": "肌酐"
+                          },
+                          "values": [
+                            {
+                              "columnId": "current",
+                              "value": "0.7",
+                              "unit": "mg/dL"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
                 }
               }
             ]
