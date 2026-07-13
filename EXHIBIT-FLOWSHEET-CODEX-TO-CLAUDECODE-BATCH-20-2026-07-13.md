@@ -20,11 +20,11 @@ The ten actionable refs are staged once across five bounded candidates. Every ca
 
 | Candidate | Refs | Banks | Gate |
 |---|---:|---|---:|
-| `20A-SIMPLE-CURRENT` | 3 | GPT | 0 FAIL / 4 WARN |
+| `20A-SIMPLE-CURRENT` | 3 | GPT | 0 FAIL / 5 WARN |
 | `20B-NURSE-CONFLICT` | 2 | GPT | 0 FAIL / 4 WARN |
 | `20C-PE` | 1 | hard cases | 0 FAIL / 3 WARN |
 | `20D-TREATMENT` | 2 | GPT + Claude | 0 FAIL / 3 WARN |
-| `20E-POSTOP` | 2 | Claude + hard cases | 0 FAIL / 2 WARN |
+| `20E-POSTOP` | 2 | Claude + hard cases | 0 FAIL / 3 WARN |
 
 ## 20A — simple current records
 
@@ -35,7 +35,9 @@ The ten actionable refs are staged once across five bounded candidates. Every ca
 - `gpt_case_lateral_incivility_01/stage_2_bp_spike`: 2200 vitals, no Rule F tags. The serial WARN is
   the order threshold `SBP > 180`, not a second observed BP dataset.
 - `gpt_opus21_case_colostomy_lep_discharge_01/initial_record`: 0700 vitals and labs, no Rule F tags.
-  The serial WARN is the same creatinine 0.9 restated in prose, not differing serial values.
+  Its R9 WARN is an elapsed-time false positive from follow-up in 1–2 weeks and a six-week lifting
+  restriction elsewhere in the case; the client is explicitly 62. The serial WARN is the same
+  creatinine 0.9 restated in prose, not differing serial values.
 
 ## 20B — nurse/provider conflict
 
@@ -88,7 +90,9 @@ age; the serial heuristic mistakes the target aPTT 60–80 for a second observed
 - `opus1_case_tha_discharge_lep_01/baseline_record` uses explicit vitals `1600` and labs `Current`
   columns so the admission time 1530 is not promoted as a measurement label. Prior creatinine 1.3
   and hemoglobin 12.1 exclusions remain eligible because current same-key values exist. No Rule F
-  tags occur. The serial WARN comes from historical HR/creatinine prose.
+  tags occur. Its R9 WARN is an elapsed-time false positive from the two-week follow-up appointment
+  elsewhere in the case; the client is explicitly 82. The serial WARN comes from historical
+  HR/creatinine prose.
 - `opus4_case_postop_sbar_01/stage2_provider_response` uses explicit vitals/labs `1200` columns so
   the 1115 call time is not used as the measurement label. No Rule F tags occur because the
   resident gave no new order or intervention. The serial WARN comes from narrative trend language
