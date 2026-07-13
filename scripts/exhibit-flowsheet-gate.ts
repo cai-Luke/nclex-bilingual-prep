@@ -410,12 +410,16 @@ type AgeMarker = { index: number; length: number };
 
 const englishPediatricAgeMarkers = (text: string): AgeMarker[] => {
   const markers: AgeMarker[] = [];
-  const re = /\b(\d{1,3})\s*(?:-\s*)?(years?|yrs?|months?|mos?)(?:\s*-\s*old|\s+old)?\b/gi;
+  const re = /\b(\d{1,3})\s*(?:-\s*)?(years?|yrs?|months?|mos?|weeks?|wks?)(?:\s*-\s*old|\s+old)?\b/gi;
   let match: RegExpExecArray | null;
   while ((match = re.exec(text)) !== null) {
     const age = Number(match[1]);
     const unit = match[2].toLowerCase();
-    const pediatric = unit.startsWith("month") || unit.startsWith("mo") ? age < 216 : age < 18;
+    const pediatric = unit.startsWith("month") || unit.startsWith("mo")
+      ? age < 216
+      : unit.startsWith("week") || unit.startsWith("wk")
+        ? age < 936
+        : age < 18;
     if (pediatric) markers.push({ index: match.index, length: match[0].length });
   }
   return markers;
@@ -423,11 +427,16 @@ const englishPediatricAgeMarkers = (text: string): AgeMarker[] => {
 
 const chinesePediatricAgeMarkers = (text: string): AgeMarker[] => {
   const markers: AgeMarker[] = [];
-  const re = /(\d{1,3})\s*(岁|个月|月龄)/g;
+  const re = /(\d{1,3})\s*(岁|个月|月龄|周|周龄)/g;
   let match: RegExpExecArray | null;
   while ((match = re.exec(text)) !== null) {
     const age = Number(match[1]);
-    const pediatric = match[2] === "岁" ? age < 18 : age < 216;
+    const unit = match[2];
+    const pediatric = unit === "岁"
+      ? age < 18
+      : unit === "周" || unit === "周龄"
+        ? age < 936
+        : age < 216;
     if (pediatric) markers.push({ index: match.index, length: match[0].length });
   }
   return markers;
@@ -438,7 +447,8 @@ const englishAgeIsSubjectScoped = (text: string, marker: AgeMarker): boolean => 
   const after = text.slice(marker.index + marker.length, marker.index + marker.length + 70);
   const window = `${before}${text.slice(marker.index, marker.index + marker.length)}${after}`;
   if (/\b(?:patient|client)'s\s+(?:infant|toddler|newborn|neonate|child)\b/i.test(window)) return false;
-  if (/^\s*(?:patient|client|infant|toddler|newborn|neonate|child|adolescent|boy|girl)\b/i.test(after)) return true;
+  if (/\b(?:patient|client)'s\s*$/i.test(before) && /^\s*(?:male\s+|female\s+)?(?:infant|toddler|newborn|neonate|child)\b/i.test(after)) return false;
+  if (/^\s*(?:male\s+|female\s+)?(?:patient|client|infant|toddler|newborn|neonate|child|adolescent|boy|girl)\b/i.test(after)) return true;
   if (/^\s*[,;:-]?\s*(?:presents|arrives|is\s+admitted|was\s+admitted|is\s+brought|was\s+brought|has|weighs|reports|is\s+seen)\b/i.test(after)) return true;
   return /\b(?:patient|client)\s+(?:is|was|aged)\s+(?:an?\s+)?$/i.test(before);
 };

@@ -238,6 +238,39 @@ const populationRecord = (population?: unknown): ExtractionRecord => ({
   assert(noFinding(gateRecord(populationRecord("peds_infant"), source), "subject-scoped pediatric context"), "peds_infant should satisfy the pediatric detector");
 }
 
+{
+  const localEn = "Serum chemistries are available.";
+  const contextEn = "A 6-week-old male infant is brought to the pediatric clinic by his mother.";
+  const source: ExhibitSource = {
+    contentEn: localEn,
+    contentZh: "",
+    contextEn: `${contextEn}\n${localEn}`,
+    contextZh: "",
+  };
+  assert(hasFinding(gateRecord(populationRecord(), source), "FAIL", "subject-scoped pediatric context"), "a context-only 6-week-old male infant should require population");
+  assert(hasFinding(gateRecord(populationRecord("adult"), source), "FAIL", "subject-scoped pediatric context"), "adult declaration should fail for a context-only 6-week-old male infant");
+  assert(noFinding(gateRecord(populationRecord("peds_infant"), source), "subject-scoped pediatric context"), "peds_infant should satisfy a context-only 6-week-old male infant marker");
+}
+
+{
+  const source = pediatricSource("A 20-week-old infant is admitted with poor feeding.");
+  assert(hasFinding(gateRecord(populationRecord(), source), "FAIL", "subject-scoped pediatric context"), "20-week-old must use the week threshold rather than the year threshold");
+}
+
+{
+  const localEn = "The adult client's vital signs are documented.";
+  const relatedPersonEn = "The adult client's 6-week-old infant is brought in for a well-child visit.";
+  const source: ExhibitSource = {
+    contentEn: localEn,
+    contentZh: "",
+    contextEn: `${localEn}\n${relatedPersonEn}`,
+    contextZh: "",
+  };
+  const findings = gateRecord(populationRecord("adult"), source);
+  assert(noFinding(findings, "subject-scoped pediatric context"), "a client's 6-week-old infant is a related person, not the adult measurement subject");
+  assert(hasFinding(findings, "WARN", "unscoped pediatric"), "a related 6-week-old infant should retain the unscoped review WARN");
+}
+
 for (const zhText of [
   "9月龄患儿因发热入院。",
   "9个月大的患儿因发热入院。",
@@ -250,6 +283,12 @@ for (const zhText of [
 ]) {
   const findings = gateRecord(populationRecord(), pediatricSource("Assessment available.", zhText));
   assert(hasFinding(findings, "FAIL", "subject-scoped pediatric context"), `Chinese pediatric subject marker should require population: ${zhText}`);
+}
+
+{
+  const zhText = "6周龄患儿因发热入院。";
+  const findings = gateRecord(populationRecord(), pediatricSource("Assessment available.", zhText));
+  assert(hasFinding(findings, "FAIL", "subject-scoped pediatric context"), "Chinese week-age subject marker should require population");
 }
 
 {
