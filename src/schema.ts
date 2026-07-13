@@ -1108,14 +1108,25 @@ const validateCaseStudy = (question: CaseStudyQuestion, reasons: string[]) => {
   if (question.caseStudy.summary !== undefined) addTextPairError(question.caseStudy.summary, "caseStudy.summary", reasons);
 
   const seenExhibitIds = new Set<string>();
-  if (!Array.isArray(question.caseStudy.exhibits) || question.caseStudy.exhibits.length === 0) {
-    reasons.push("caseStudy.exhibits must include at least one exhibit");
+  // caseStudy.exhibits renders unconditionally in the "Client record" panel from the start of the
+  // case (App.tsx CaseChartPane), separate from the progressively-revealed caseStudy.stages
+  // "Updates" timeline. A case whose entire opening content is meant to be stage-gated (nothing
+  // permanently visible before any stage unlocks) can legitimately have zero top-level exhibits —
+  // the renderer already handles that (`exhibits.length > 0 &&`). What must never happen is an
+  // exhibit id repeating between the top-level array and a stage (or between two stages): the
+  // flowsheet gate/applicator index canonical exhibits by "caseId/exhibitId" alone, so a repeated id
+  // is unresolvable there even though the schema previously allowed it via per-array uniqueness
+  // checks. Overall exhibit-content presence (top-level or staged) is enforced below, once stages
+  // are known.
+  if (!Array.isArray(question.caseStudy.exhibits)) {
+    reasons.push("caseStudy.exhibits must be an array");
   } else {
     question.caseStudy.exhibits.forEach((exhibit, index) =>
       validateCaseStudyExhibit(exhibit, `caseStudy.exhibits[${index}]`, seenExhibitIds, reasons),
     );
   }
 
+  let hasAnyStageExhibit = false;
   if (question.caseStudy.stages !== undefined) {
     if (!Array.isArray(question.caseStudy.stages)) {
       reasons.push("caseStudy.stages must be an array when present");
@@ -1142,18 +1153,28 @@ const validateCaseStudy = (question: CaseStudyQuestion, reasons: string[]) => {
         if (!Array.isArray(stage.exhibits) || stage.exhibits.length === 0) {
           reasons.push(`caseStudy.stages[${stageIndex}].exhibits must include at least one exhibit`);
         } else {
-          const stageExhibitIds = new Set<string>();
+          hasAnyStageExhibit = true;
+          // Share seenExhibitIds with the top-level exhibits array and every other stage, not a
+          // fresh set per stage — exhibit ids must be unique across the whole case, since the
+          // flowsheet gate/applicator index canonical exhibits by "caseId/exhibitId" alone. A
+          // per-stage set let the same id repeat between a stage and the top-level array (or
+          // between two stages) undetected.
           stage.exhibits.forEach((exhibit, exhibitIndex) =>
             validateCaseStudyExhibit(
               exhibit,
               `caseStudy.stages[${stageIndex}].exhibits[${exhibitIndex}]`,
-              stageExhibitIds,
+              seenExhibitIds,
               reasons,
             ),
           );
         }
       });
     }
+  }
+
+  const hasTopLevelExhibit = Array.isArray(question.caseStudy.exhibits) && question.caseStudy.exhibits.length > 0;
+  if (!hasTopLevelExhibit && !hasAnyStageExhibit) {
+    reasons.push("caseStudy must include at least one exhibit, in either the top-level exhibits array or a stage");
   }
 
   if (!Array.isArray(question.caseStudy.questions) || question.caseStudy.questions.length < 2) {

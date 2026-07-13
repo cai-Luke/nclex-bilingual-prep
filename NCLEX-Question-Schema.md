@@ -1046,7 +1046,8 @@ Rows are statements/findings; columns are categories. Each row gets a selection.
 }
 ```
 
-- `caseStudy.exhibits`: required, at least one exhibit. Use concise chart-like content; newline-separated vitals/labs are allowed.
+- `caseStudy.exhibits`: array, may be empty when a case's opening content is entirely stage-gated (nothing permanently visible before any stage unlocks) — the exam renderer's "Client record" panel skips cleanly when this array is empty. The case as a whole must still carry at least one exhibit somewhere, either here or inside a `caseStudy.stages[].exhibits`. Use concise chart-like content; newline-separated vitals/labs are allowed.
+- Exhibit `id` must be unique across the *entire* case — the top-level `exhibits` array and every `caseStudy.stages[].exhibits` array share one namespace, not one each. The flowsheet gate/applicator index canonical exhibits by `caseId/exhibitId` alone, so a repeated id across arrays is unresolvable there (the applicator hard-rejects multiple matches) even though it would otherwise look like two harmless copies. Do not duplicate an exhibit into both the top-level array and a stage as a way to make its content "always visible" — that duplication is also a spoiler risk, since the top-level copy renders unconditionally from the start of the case, ahead of the stage that's supposed to gate it.
 - `caseStudy.exhibits[].type`: optional schema `1.6` discriminator string. Current renderer does not consume it; observed canonical value is `"text"`.
 - `caseStudy.exhibits[].visual`: optional schema `1.2` visual stimulus. Exhibit `title` and `content` remain required even when a visual is present.
 - `caseStudy.exhibits[].structuredMeasurements`: optional schema `1.8` structured table stimulus for validated labs/vitals snapshots. It is additive to `content`; prose stays intact except for pure key-value exhibits handled by the deterministic applicator.

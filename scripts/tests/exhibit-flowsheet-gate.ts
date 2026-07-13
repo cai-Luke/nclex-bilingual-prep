@@ -1,5 +1,6 @@
 import {
   buildBlindIndex,
+  buildExhibitIndex,
   gateRecord,
   serialParams,
   toCanonical,
@@ -291,6 +292,49 @@ for (const text of [
   };
   const findings = run(record, "Ionized calcium 1.20 mmol/L.");
   assert(hasFinding(findings, "FAIL", "explicit ionized calcium source must be labeled ionized_calcium"), "explicit ionized calcium should not be keyed as total calcium");
+}
+
+// R9 context-provenance regression: a bare pediatric noun appearing only in a *different* exhibit's
+// case-wide context (a related person, not the subject) must not override an explicit adult
+// population — it should route to an unscoped WARN instead. Modeled on
+// opus27_case_ipv_prenatal_care_01/ex2_initial_assessment, where a different exhibit's "the child
+// has witnessed..." (anaphorically referring to the client's own 3-year-old son, introduced
+// elsewhere) previously forced a false subject-scoped FAIL on the adult client's own vitals/labs
+// exhibit.
+{
+  const localEn =
+    "Vital signs: T 36.8 C, HR 82/min, BP 118/74 mm Hg, RR 16/min, SpO2 99% on room air. Hemoglobin is 11.4 g/dL, hematocrit 34%, and platelets 218,000/mcL.";
+  const otherExhibitEn =
+    "She reports that the partner has never directly harmed the 3-year-old, but the child has witnessed pushing and grabbing on at least two occasions.";
+  const source: ExhibitSource = {
+    contentEn: localEn,
+    contentZh: "",
+    contextEn: `${localEn}\n${otherExhibitEn}`,
+    contextZh: "",
+  };
+  const adultFindings = gateRecord(populationRecord("adult"), source);
+  assert(noFinding(adultFindings, "subject-scoped pediatric context"), "a related person's pediatric noun in another exhibit must not FAIL an explicit adult population");
+  assert(hasFinding(adultFindings, "WARN", "unscoped pediatric"), "the bare pediatric noun elsewhere in the case should still route to an unscoped WARN");
+  const undeclaredFindings = gateRecord(populationRecord(), source);
+  assert(noFinding(undeclaredFindings, "subject-scoped pediatric context"), "a related person's pediatric noun in another exhibit must not force a subject-scoped FAIL even with population undeclared");
+}
+
+// Negative fixture for the same repair: a genuinely pediatric client whose age is stated only in
+// case-level background (a different exhibit) — not in the exhibit's own local text — must still
+// hard-FAIL. Explicit subject-identity phrasing ("A N-year-old client/patient is admitted...") stays
+// in scope for case-wide context; only the loose bare-noun heuristic was narrowed to local text.
+{
+  const localEn = "Vital signs: T 37.1 °C, HR 102, BP 118/74, RR 20, SpO2 96% on room air.";
+  const backgroundEn = "A 5-year-old client is admitted with acute gastroenteritis and dehydration.";
+  const source: ExhibitSource = {
+    contentEn: localEn,
+    contentZh: "",
+    contextEn: `${backgroundEn}\n${localEn}`,
+    contextZh: "",
+  };
+  assert(hasFinding(gateRecord(populationRecord(), source), "FAIL", "subject-scoped pediatric context"), "a genuine pediatric client identified only in case-level background must still FAIL");
+  assert(hasFinding(gateRecord(populationRecord("adult"), source), "FAIL", "subject-scoped pediatric context"), "an incorrect adult declaration must still FAIL against case-level pediatric identity evidence");
+  assert(noFinding(gateRecord(populationRecord("peds_child"), source), "subject-scoped pediatric context"), "peds_child should satisfy the pediatric detector for case-level identity evidence");
 }
 
 {
@@ -663,6 +707,90 @@ const multiColumnRecord = (): ExtractionRecord => ({
     await writeFile(casesPath, JSON.stringify([{ exhibitRef: "blind_01/assessment", content: { en: "Temperature 37.0 °C.", zh: "体温37.0°C。" } }]), "utf8");
     const index = await buildBlindIndex(casesPath);
     assert(index.get("blind_01/assessment")?.contentEn === "Temperature 37.0 °C.", "buildBlindIndex should resolve flat blind cases");
+  } finally {
+    await rm(dir, { recursive: true, force: true });
+  }
+}
+
+// Duplicate canonical exhibit identity: the same exhibit id present in both a case's top-level
+// `exhibits` array and a `stages[].exhibits` array (opus3_iv_potassium_safety_case_01's shape)
+// previously let buildExhibitIndex silently overwrite the first occurrence via Map.set, so the gate
+// could PASS a ref the applicator's independent locateExhibit then hard-rejects for having more than
+// one match. The gate must now fail the same candidate up front instead of indexing silently.
+{
+  const dir = await mkdtemp(join(tmpdir(), "flowsheet-gate-"));
+  try {
+    const bankPath = join(dir, "bank.json");
+    const duplicatedCase = {
+      id: "dup_case_01",
+      itemType: "case_study",
+      stem: { en: "stem", zh: "stem" },
+      caseStudy: {
+        title: { en: "title", zh: "title" },
+        summary: { en: "summary", zh: "summary" },
+        exhibits: [
+          {
+            id: "exhibit_labs",
+            title: { en: "Labs", zh: "化验" },
+            content: { en: "Potassium 2.8 mEq/L.", zh: "钾2.8 mEq/L。" },
+          },
+        ],
+        stages: [
+          {
+            id: "stage1",
+            title: { en: "Stage 1", zh: "阶段1" },
+            exhibits: [
+              {
+                id: "exhibit_labs",
+                title: { en: "Labs", zh: "化验" },
+                content: { en: "Potassium 2.8 mEq/L.", zh: "钾2.8 mEq/L。" },
+              },
+            ],
+          },
+        ],
+        questions: [],
+      },
+    };
+    const uniqueCase = {
+      id: "unique_case_01",
+      itemType: "case_study",
+      stem: { en: "stem", zh: "stem" },
+      caseStudy: {
+        title: { en: "title", zh: "title" },
+        summary: { en: "summary", zh: "summary" },
+        exhibits: [
+          {
+            id: "exhibit_labs",
+            title: { en: "Labs", zh: "化验" },
+            content: { en: "Sodium 137 mEq/L.", zh: "钠137 mEq/L。" },
+          },
+        ],
+        stages: [],
+        questions: [],
+      },
+    };
+    await writeFile(bankPath, JSON.stringify([duplicatedCase, uniqueCase]), "utf8");
+    const index = await buildExhibitIndex([bankPath]);
+    assert(index.get("dup_case_01/exhibit_labs")?.duplicate === true, "buildExhibitIndex should mark a repeated caseId/exhibitId key as duplicate");
+    assert(index.get("unique_case_01/exhibit_labs")?.duplicate === undefined, "a genuinely unique exhibit id must not be flagged duplicate");
+
+    const dupRecord: ExtractionRecord = {
+      exhibitRef: "dup_case_01/exhibit_labs",
+      lane: "extract",
+      panel: [{ label: "potassium", value: "2.8", sourceUnit: "mEq/L", sourceSpan: "Potassium 2.8 mEq/L." }],
+      excludedValues: [],
+      unitAliases: [],
+    };
+    assert(hasFinding(gateRecord(dupRecord, index.get(dupRecord.exhibitRef)), "FAIL", "duplicate canonical exhibit identity"), "gate must hard-fail a ref whose canonical exhibit id is duplicated");
+
+    const uniqueRecord: ExtractionRecord = {
+      exhibitRef: "unique_case_01/exhibit_labs",
+      lane: "extract",
+      panel: [{ label: "sodium", value: "137", sourceUnit: "mEq/L", sourceSpan: "Sodium 137 mEq/L." }],
+      excludedValues: [],
+      unitAliases: [],
+    };
+    assert(noFinding(gateRecord(uniqueRecord, index.get(uniqueRecord.exhibitRef)), "duplicate canonical exhibit identity"), "a genuinely unique exhibit id must not trigger the duplicate-identity FAIL");
   } finally {
     await rm(dir, { recursive: true, force: true });
   }

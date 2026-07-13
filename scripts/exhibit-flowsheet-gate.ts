@@ -261,6 +261,13 @@ type ExhibitSource = {
   contentZh: string;
   contextEn: string;
   contextZh: string;
+  // True when this "caseId/exhibitId" key was written more than once while building the index —
+  // e.g. the same exhibit id present in both a case's top-level `exhibits` array and a
+  // `stages[].exhibits` array. The applicator's `locateExhibit` independently rejects any ref with
+  // more than one canonical match (a deliberate fail-safe, never weakened); this flag lets the gate
+  // fail the same candidate up front instead of silently indexing whichever occurrence was written
+  // last, which previously let a gate PASS ship a ref the applicator could never apply.
+  duplicate?: boolean;
 };
 
 type ExhibitIndex = Map<string, ExhibitSource>; // "caseId/exhibitId" → exhibit content + case-wide context
@@ -301,11 +308,14 @@ const buildExhibitIndex = async (bankPaths: string[]): Promise<ExhibitIndex> => 
         ...(q.caseStudy.stages ?? []).flatMap((stage) => stage.exhibits),
       ];
       for (const ex of exhibits) {
-        idx.set(`${q.id}/${ex.id}`, {
+        const key = `${q.id}/${ex.id}`;
+        const duplicate = idx.has(key);
+        idx.set(key, {
           contentEn: en(ex.content).normalize("NFC"),
           contentZh: ex.content.zh.normalize("NFC"),
           contextEn,
           contextZh,
+          ...(duplicate ? { duplicate: true } : {}),
         });
       }
     }
@@ -459,19 +469,54 @@ const hasSubjectScopedChineseNoun = (text: string): boolean =>
   /(?:患者为|患者是)\s*(?:一名)?\s*(?:新生儿|婴儿|幼儿|儿童)/.test(text) ||
   /(?:新生儿|婴儿|幼儿|儿童|学龄前儿童)(?:患者)?\s*(?:因|来诊|就诊|入院|被送|送至|出现|患有|体重)/.test(text);
 
+// Case-wide `context` text spans every exhibit, stage, and question stem in the case — it can
+// legitimately describe pediatric people who are not the structured-measurement subject (a
+// client's child, a fetus, a sibling elsewhere in the narrative). The bare noun+verb heuristic in
+// `hasSubjectScopedEnglishNoun`/`hasSubjectScopedChineseNoun` ("the child has...", "患儿"-adjacent
+// bare nouns) has no memory of who a pronoun/definite-article noun anaphorically refers to, so it
+// misreads a related person introduced in one exhibit and referenced in another as the subject.
+// Context text therefore only hard-triggers on explicit patient/client identity phrasing, never on
+// the loose noun+verb pattern; local exhibit text keeps the full detector since a noun appearing in
+// the exhibit's own text is far more likely to genuinely describe that exhibit's subject.
+const hasExplicitSubjectIdentityEnglish = (text: string): boolean => {
+  if (/\bpediatric\s+(?:patient|client)\b/i.test(text)) return true;
+  return /\b(?:patient|client)\s+(?:is|was)\s+(?:an?\s+)?(?:infant|toddler|newborn|neonate|child|adolescent)\b/i.test(text);
+};
+
+const hasExplicitSubjectIdentityChinese = (text: string): boolean =>
+  /患儿/.test(text) || /(?:患者为|患者是)\s*(?:一名)?\s*(?:新生儿|婴儿|幼儿|儿童)/.test(text);
+
 const detectPediatricContext = (source: ExhibitSource): PediatricDetection => {
-  const enText = `${source.contentEn}\n${source.contextEn}`;
-  const zhText = `${source.contentZh}\n${source.contextZh}`;
-  const enAges = englishPediatricAgeMarkers(enText);
-  const zhAges = chinesePediatricAgeMarkers(zhText);
-  const subjectScoped =
-    enAges.some((marker) => englishAgeIsSubjectScoped(enText, marker)) ||
-    zhAges.some((marker) => chineseAgeIsSubjectScoped(zhText, marker)) ||
-    hasSubjectScopedEnglishNoun(enText) ||
-    hasSubjectScopedChineseNoun(zhText);
+  const localEn = source.contentEn;
+  const localZh = source.contentZh;
+  const contextEn = source.contextEn;
+  const contextZh = source.contextZh;
+
+  const localEnAges = englishPediatricAgeMarkers(localEn);
+  const localZhAges = chinesePediatricAgeMarkers(localZh);
+  const localSubjectScoped =
+    localEnAges.some((marker) => englishAgeIsSubjectScoped(localEn, marker)) ||
+    localZhAges.some((marker) => chineseAgeIsSubjectScoped(localZh, marker)) ||
+    hasSubjectScopedEnglishNoun(localEn) ||
+    hasSubjectScopedChineseNoun(localZh);
+
+  const contextEnAges = englishPediatricAgeMarkers(contextEn);
+  const contextZhAges = chinesePediatricAgeMarkers(contextZh);
+  const contextSubjectScoped =
+    contextEnAges.some((marker) => englishAgeIsSubjectScoped(contextEn, marker)) ||
+    contextZhAges.some((marker) => chineseAgeIsSubjectScoped(contextZh, marker)) ||
+    hasExplicitSubjectIdentityEnglish(contextEn) ||
+    hasExplicitSubjectIdentityChinese(contextZh);
+
+  const subjectScoped = localSubjectScoped || contextSubjectScoped;
+
+  const enText = `${localEn}\n${contextEn}`;
+  const zhText = `${localZh}\n${contextZh}`;
   const unscoped =
-    enAges.length > 0 ||
-    zhAges.length > 0 ||
+    localEnAges.length > 0 ||
+    contextEnAges.length > 0 ||
+    localZhAges.length > 0 ||
+    contextZhAges.length > 0 ||
     /\b(?:infant|toddler|newborn|neonate|child|adolescent|pediatric|paediatric|peds|well-child)\b/i.test(enText) ||
     /(?:新生儿|婴儿|幼儿|儿童|学龄前|儿科)/.test(zhText);
   return { subjectScoped, unscoped: unscoped && !subjectScoped };
@@ -509,6 +554,9 @@ const gateRecord = (rec: ExtractionRecord, source: string | ExhibitSource | unde
     return f;
   }
   const exhibitSource = normalizeExhibitSource(source);
+  if (exhibitSource.duplicate) {
+    push("FAIL", "duplicate canonical exhibit identity — this caseId/exhibitId is present more than once across the scanned banks; the applicator's locateExhibit rejects any ref with more than one match, so a gate PASS here would not be applicable. Deduplicate the canonical case (or path-qualify identity if the duplication is genuinely intentional) before restaging");
+  }
   const src = nfc(exhibitSource.contentEn);
 
   if (rec.lane === "skip_serial") {

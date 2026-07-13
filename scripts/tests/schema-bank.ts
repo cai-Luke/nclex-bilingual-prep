@@ -760,4 +760,84 @@ const forgivingQuestionImport = validateQuestion({
 });
 assert.equal(forgivingQuestionImport.ok, true);
 
+// Exhibit-id uniqueness must span the whole case (top-level exhibits + every stage), not just each
+// array in isolation — opus3_iv_potassium_safety_case_01 shipped the same exhibit id in both the
+// top-level array and a stage, undetected, because each array previously got its own fresh
+// duplicate-tracking set.
+const caseWithTopLevelStageIdCollision = {
+  ...caseStudy16,
+  id: "dup_id_top_vs_stage_case",
+  caseStudy: {
+    ...caseStudy16.caseStudy,
+    exhibits: [{ id: "shared_id", type: "text", title: pair("Baseline"), content: pair("Baseline exhibit.") }],
+    stages: [{
+      ...caseStudy16.caseStudy.stages[0],
+      exhibits: [{ id: "shared_id", type: "text", title: pair("Stage note"), content: pair("Stage exhibit.") }],
+    }],
+  },
+};
+const topVsStageCollision = validateBankObject({
+  meta: { schemaVersion: "1.6", count: 1 },
+  questions: [caseWithTopLevelStageIdCollision],
+});
+assert.equal(topVsStageCollision.ok, false);
+if (!topVsStageCollision.ok) {
+  assert(topVsStageCollision.reasons.includes("questions[0]: duplicate case exhibit id shared_id"));
+}
+
+const caseWithCrossStageIdCollision = {
+  ...caseStudy16,
+  id: "dup_id_stage_vs_stage_case",
+  caseStudy: {
+    ...caseStudy16.caseStudy,
+    stages: [
+      { ...caseStudy16.caseStudy.stages[0], id: "stage_1", exhibits: [{ id: "shared_stage_id", type: "text", title: pair("Stage 1 note"), content: pair("Stage 1 exhibit.") }] },
+      { ...caseStudy16.caseStudy.stages[0], id: "stage_2", exhibits: [{ id: "shared_stage_id", type: "text", title: pair("Stage 2 note"), content: pair("Stage 2 exhibit.") }] },
+    ],
+  },
+};
+const crossStageCollision = validateBankObject({
+  meta: { schemaVersion: "1.6", count: 1 },
+  questions: [caseWithCrossStageIdCollision],
+});
+assert.equal(crossStageCollision.ok, false);
+if (!crossStageCollision.ok) {
+  assert(crossStageCollision.reasons.includes("questions[0]: duplicate case exhibit id shared_stage_id"));
+}
+
+// A case whose opening content is entirely stage-gated may have zero top-level exhibits — the
+// renderer already handles an empty "Client record" panel gracefully — as long as at least one
+// stage carries real exhibit content.
+const caseWithEmptyTopLevelExhibits = {
+  ...caseStudy16,
+  id: "empty_top_level_exhibits_case",
+  caseStudy: {
+    ...caseStudy16.caseStudy,
+    exhibits: [],
+  },
+};
+assert.equal(validateBankObject({
+  meta: { schemaVersion: "1.6", count: 1 },
+  questions: [caseWithEmptyTopLevelExhibits],
+}).ok, true);
+
+// But a case with no exhibit content anywhere (empty top-level and no stages at all) must still fail.
+const caseWithNoExhibitsAnywhere = {
+  ...caseStudy16,
+  id: "no_exhibits_anywhere_case",
+  caseStudy: {
+    ...caseStudy16.caseStudy,
+    exhibits: [],
+    stages: undefined,
+  },
+};
+const noExhibitsAnywhere = validateBankObject({
+  meta: { schemaVersion: "1.6", count: 1 },
+  questions: [caseWithNoExhibitsAnywhere],
+});
+assert.equal(noExhibitsAnywhere.ok, false);
+if (!noExhibitsAnywhere.ok) {
+  assert(noExhibitsAnywhere.reasons.includes("questions[0]: caseStudy must include at least one exhibit, in either the top-level exhibits array or a stage"));
+}
+
 console.log("bank schema tests passed");
