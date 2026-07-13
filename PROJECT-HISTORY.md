@@ -37,12 +37,11 @@ units in both learner-facing locales. The deterministic canonical patch changed 
 `baseline_record.content` locale strings; its exact manifest and independent-review evidence are
 committed. No structured measurements were authored by that edit.
 
-Batch 17's eleven currently promotable refs are staged as four bounded candidates (`17A`-`17D`),
-each at 0 FAIL under the current gate. Three pure order/history records remain non-rendering. Three
-additional refs are held on concrete current-pipeline blockers: one adult prenatal case hard-fails
-population detection because its separate 3-year-old child is case-wide context, and two IV-potassium
-refs gate clean but applicator-fail because duplicate exhibit IDs exist in baseline and stage arrays.
-No canonical write has occurred.
+Batch 18's four actionable refs are staged as two bounded candidates (`18A`/`18B`), each at 0 FAIL
+under the current gate. The re-derivation authors the true infant population, keeps serum-chemistry
+HCO3 distinct from ABG bicarbonate, and applies the ratified Rule F no-carry-forward boundary to the
+C. difficile recovery record. Two background-order/history records remain non-rendering. No
+canonical write has occurred.
 
 PR A's staging-layer multi-column machinery is merged: the
 flowsheet gate enforces the ratified G1-G8 explicit-column invariants, and the applicator preserves

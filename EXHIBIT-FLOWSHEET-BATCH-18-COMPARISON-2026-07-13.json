@@ -1,0 +1,126 @@
+{
+  "sourceFile": "EXHIBIT-FLOWSHEET-MIGRATION-BATCH-18-prose_embedded-2026-07-06.json",
+  "excludedNonRendering": [
+    {
+      "exhibitRef": "opus_vanco_case_01/background_orders",
+      "reason": "empty extract with prior-only creatinine; historical value remains prose-only under prior_no_current"
+    },
+    {
+      "exhibitRef": "opus2_case_postop_opioid_respiratory_depression_01/background_orders",
+      "reason": "empty extract: history/orders/timestamps only, no current measurement"
+    }
+  ],
+  "candidates": [
+    {
+      "id": "18A-LABS",
+      "file": "EXHIBIT-FLOWSHEET-STRUCTURED-PROMOTION-CANDIDATE-18A-LABS-2026-07-13.json",
+      "refs": [
+        {
+          "exhibitRef": "gemini_gap_case_pyloric_stenosis_01/ex2_labs",
+          "changes": [
+            {
+              "path": "population",
+              "before": null,
+              "after": "peds_infant"
+            }
+          ]
+        },
+        {
+          "exhibitRef": "gpt_r1_regen_case_celiac_01/initial_labs",
+          "changes": []
+        }
+      ]
+    },
+    {
+      "id": "18B-RESPONSE",
+      "file": "EXHIBIT-FLOWSHEET-STRUCTURED-PROMOTION-CANDIDATE-18B-RESPONSE-2026-07-13.json",
+      "refs": [
+        {
+          "exhibitRef": "gpt_case_major_burn_inhalation_fluid_creep_01/stage1_course",
+          "changes": [
+            {
+              "path": "columns",
+              "before": null,
+              "after": [
+                {
+                  "id": "vitals_current",
+                  "panelKind": "vitals",
+                  "label": {
+                    "en": "Current",
+                    "zh": "当前"
+                  },
+                  "evidence": "SpO2 is 94% on the non-rebreather"
+                }
+              ]
+            },
+            {
+              "path": "panel.0.columnId",
+              "before": null,
+              "after": "vitals_current"
+            }
+          ]
+        },
+        {
+          "exhibitRef": "opus20_case_cdiff_01/exhibit_stage3",
+          "changes": [
+            {
+              "path": "panel.0.context",
+              "before": "post_intervention",
+              "after": null
+            },
+            {
+              "path": "panel.1.context",
+              "before": "post_intervention",
+              "after": null
+            },
+            {
+              "path": "panel.2.context",
+              "before": "post_intervention",
+              "after": null
+            },
+            {
+              "path": "panel.3.context",
+              "before": "post_intervention",
+              "after": null
+            },
+            {
+              "path": "panel.4.context",
+              "before": "post_intervention",
+              "after": null
+            },
+            {
+              "path": "panel.5.context",
+              "before": "post_intervention",
+              "after": null
+            },
+            {
+              "path": "panel.6.context",
+              "before": "post_intervention",
+              "after": null
+            },
+            {
+              "path": "panel.7.context",
+              "before": "post_intervention",
+              "after": null
+            },
+            {
+              "path": "panel.8.context",
+              "before": "post_intervention",
+              "after": null
+            },
+            {
+              "path": "panel.9.context",
+              "before": "post_intervention",
+              "after": null
+            },
+            {
+              "path": "panel.10.context",
+              "before": "post_intervention",
+              "after": null
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
