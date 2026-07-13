@@ -1,9 +1,11 @@
 # Exhibit Flowsheet Extraction — Deterministic Proposal + Worst-Case Smoke Batch
 
 Date: 2026-07-03 (amended 2026-07-04 after smoke batch 1)
-Status: proposal for litigation. No schema, bank, renderer, or grading change made. This spec
-defines (1) the deterministic extraction contract and gate, and (2) a deliberately worst-case
-6-panel smoke batch for Luke's hand-adjudication before any migration windows are spent.
+Status: implemented migration contract; the migration closed 2026-07-13. Rule F remains active as
+the normative disposition rule referenced by `DECISIONS.md`; the smoke-batch and migration-history
+sections below are retained as provenance. This spec originally defined (1) the deterministic
+extraction contract and gate, and (2) a deliberately worst-case 6-panel smoke batch for Luke's
+hand-adjudication before any migration windows were spent.
 Companion to `Archive/root-cleanup-2026-07-05/CHART-FIDELITY-INVESTIGATION-2026-07-03.md`;
 smoke-batch-1 results in
 `Archive/root-cleanup-2026-07-05/EXHIBIT-FLOWSHEET-SMOKE-ADJUDICATION-2026-07-04.md`.

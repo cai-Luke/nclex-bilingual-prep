@@ -1,9 +1,9 @@
 # Multi-Column Structured-Measurement Staging Contract (PR A)
 
 Date: 2026-07-12
-Status: architect-ratified; ready for Codex implementation
+Status: architect-ratified, implemented, and exercised by the promoted refeeding baseline
 Author: Claude (architect seat)
-Governs: `EXHIBIT-FLOWSHEET-NEXT-WORK-HANDOFF-2026-07-12.md`, queue item 3
+Originally governed queue item 3 in the archived `EXHIBIT-FLOWSHEET-NEXT-WORK-HANDOFF-2026-07-12.md`
 
 ## Scope boundary — item #9 closed
 

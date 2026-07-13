@@ -2,6 +2,8 @@
 
 Date: 2026-07-04
 Author: Claude (architect seat). Implementer: Codex.
+Status: completed 2026-07-13; retained as the reproducible staging protocol. Historical outputs are
+archived under `Archive/exhibit-flowsheet-migration-2026-07-13/`.
 Scope of this spec: how to produce **staged** flowsheet-extraction artifacts for the
 mechanically-recoverable case-study panels, gated and sample-adjudicated. Per the bounded GO in
 `EXHIBIT-FLOWSHEET-BLIND-ADJUDICATION-2026-07-04.md`, this produces staged artifacts only — it does

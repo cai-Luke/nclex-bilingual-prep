@@ -127,6 +127,13 @@ related-person scoping unchanged. Regressions cover English and Chinese `6569`/`
 context-only pediatric subjects, four-digit ages, possessive related persons, and ordinary day
 durations/chronology. The approved work order is `r9-age-marker-day-unit-codex-spec.md`.
 
+The closed flowsheet lane's generated manifests, batch artifacts, adjudications, promotion
+candidates, comparisons, and handoffs are archived under
+`Archive/exhibit-flowsheet-migration-2026-07-13/`. The root retains only the ledger of record, the
+active Rule F extraction contract, the implemented multi-column contract, and the completed batch
+protocol; current behavior remains owned by the gate/applicator sources. Batch 19 remains archived
+as failed provenance, with Batch 20 explicitly authoritative.
+
 Current schema item types:
 
 - `multiple_choice`
