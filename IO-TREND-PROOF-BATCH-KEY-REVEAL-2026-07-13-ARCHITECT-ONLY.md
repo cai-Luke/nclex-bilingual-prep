@@ -1,0 +1,25 @@
+# U11 `io_trend` — §11 Proof Batch — Key Reveal (ARCHITECT / LUKE ONLY)
+
+**Do not paste this file, or any part of it, into the GPT-5.6 Sol chat before Pass 1 is submitted.** Once Sol has returned its Pass 1 table (four rows: correct action, confidence + strongest competitor, collapse counterfactual), compare its answers against this file yourself, adjudicate any divergence with Luke, and only then reveal the relevant parts to Sol for Pass 2 authoring.
+
+Companion file: `IO-TREND-PROOF-BATCH-BRIEF-2026-07-13-V2-PRODUCER-GPT56SOL.md` (what Sol actually sees).
+
+---
+
+## Intended keyed directions
+
+- **Frame 1 (HF/CKD, accelerating retention, final net +400):** the *rate* of retention is accelerating (net roughly doubling each interval: +20 → +40 → +120 → +220) even though the cumulative total is modest. Keyed: reassess for developing fluid overload and notify the provider of the trend. **Counterfactual under collapse:** shown only "+400 mL net over 16 h" in an HF/CKD patient on maintenance fluids, +400 mL alone reads as unremarkable — a learner would likely continue routine monitoring without flagging anything. Diverges from the keyed action.
+
+- **Frame 2 (furosemide, tapering output, final net −300):** output starts high and tapers down as the diuretic response completes and volume status normalizes — the classic *expected, self-limiting* therapeutic response. Keyed: continue the current schedule and reassess at the next interval; no escalation. **Counterfactual under collapse:** "−300 mL net over 16 h" alone is also consistent with the concerning shape (Frame 4) — a net negative balance doesn't by itself distinguish "diuresis completed and stabilizing" from "diuresis still accelerating, unresolved." A learner shown only the number has no principled way to choose between "continue" and "hold/reassess." Diverges from (or at minimum, does not confidently reach) the keyed action.
+
+- **Frame 3 (hypotension, non-responsive fluid challenge, final net +1860):** intake escalates steeply across the challenge (400→600→700→700) while output stays flat-to-slightly-declining (150→140→130→120) — the kidneys are not responding despite growing bolus volumes. Keyed: the fluid challenge has failed to increase output; hold further boluses and notify the provider for reassessment rather than continue escalating. **Counterfactual under collapse:** "+1860 mL net over 16 h" during an ordered fluid challenge reads as substantial volume given as ordered — expected initial oliguria during resuscitation looks the same in the final number as true non-response. A learner shown only the net would plausibly read this as "challenge in progress, continue as ordered," not "failed, escalate to the provider." Diverges from the keyed action.
+
+- **Frame 4 (furosemide, accelerating output, final net −300):** output starts low and accelerates upward late (150→220→400→480) with no deceleration through the last interval — an ongoing, still-escalating diuresis that has not shown signs of leveling off. Keyed: hold the next scheduled dose and notify the provider for volume status reassessment before continuing therapy. **Counterfactual under collapse:** same as Frame 2's reasoning in reverse — "−300 mL net over 16 h" alone doesn't distinguish this from Frame 2's tapering, resolved picture. A learner shown only the number has no principled basis to choose "hold and reassess" over "continue."
+
+**The Frame 2/4 pair:** identical context, options, intake schedule, and final net; the only data difference anywhere is whether the output series is tapering (deceleration, response completing) or accelerating (no deceleration, response ongoing/unresolved). If Sol's Pass 1 derivation reaches the same action for both frames, or reaches for something in the context sentence rather than the output shape to distinguish them, that is the batch failing on its own terms — report it plainly rather than authoring around it. The context sentences are now identical between the two frames by construction, so there is nothing in the prose left to lean on.
+
+## What "pass" actually requires
+
+Per the V2 producer brief's §0 and §9: **every frame must individually survive its own collapse test** — Sol's Pass 1 collapse counterfactual for that frame must genuinely diverge from the intended keyed action above, not merely restate it in different words. The matched pair converging on opposite answers is strong corroborating evidence when the individual tests already hold, but is not sufficient on its own; a frame whose collapse counterfactual looks like a paraphrase of the keyed action should be flagged and reworked, not forced into the batch.
+
+If Sol's independent Pass 1 reasoning disagrees with an intended direction above (not just the collapse counterfactual, but the primary keyed action itself), that is exactly what Pass 1 exists to surface — adjudicate with Luke before revealing anything for Pass 2, and be willing to revise the intended key rather than defend it by default.
