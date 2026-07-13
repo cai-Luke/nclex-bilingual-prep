@@ -4555,8 +4555,8 @@ function CaseActivePart({
         onTerm={onTerm}
         onAnswer={onAnswer}
       />
-      {submitted && rescuePrompt && <GptRescueButton prompt={rescuePrompt} />}
       {submitted && <RationalePanel question={caseQuestion} title="Part rationale" voiceEnabled={voiceEnabled} languageMode={languageMode} />}
+      {submitted && rescuePrompt && <GptRescueButton prompt={rescuePrompt} />}
     </section>
   );
   return revealTrackingContext ? (
