@@ -1,7 +1,7 @@
 {
   "meta": {
-    "schemaVersion": "1.7",
-    "count": 53,
+    "schemaVersion": "2.0",
+    "count": 57,
     "exam": "NCLEX-RN",
     "topic": "dysrhythmia and EKG recognition and response",
     "category": "mixed",
@@ -5267,6 +5267,742 @@
           "pacerFinding": "failure_to_pace"
         },
         "source": "Retires and replaces ekg_b5_matrix_10; narrows the former three-row matching item to the previously unrenderable failure-to-pace cue."
+      }
+    },
+    {
+      "id": "iot_hf_ckd_declining_output",
+      "itemType": "select_all",
+      "category": "Physiological Adaptation",
+      "topic": "Fluid and Electrolyte Balance",
+      "difficulty": "medium",
+      "stem": {
+        "en": "An adult client with heart failure and chronic kidney disease is receiving scheduled maintenance IV fluids. Which statements about the client's intake and output trend are supported by the record? Select all that apply.",
+        "zh": "一名患有心力衰竭和慢性肾病的成人患者正在按计划接受维持性静脉输液。根据记录，哪些关于该患者液体摄入与排出趋势的陈述有依据？请选择所有适用项。"
+      },
+      "visual": {
+        "kind": "io_trend",
+        "caption": {
+          "en": "Four-interval intake and output record",
+          "zh": "四个时间段的液体摄入与排出记录"
+        },
+        "time": {
+          "unit": "hr",
+          "values": [
+            4,
+            8,
+            12,
+            16
+          ]
+        },
+        "intervals": [
+          {
+            "intakeMl": 300,
+            "outputMl": 280
+          },
+          {
+            "intakeMl": 300,
+            "outputMl": 260
+          },
+          {
+            "intakeMl": 300,
+            "outputMl": 180
+          },
+          {
+            "intakeMl": 300,
+            "outputMl": 80
+          }
+        ],
+        "binLabels": [
+          {
+            "en": "4 hr",
+            "zh": "4 小时"
+          },
+          {
+            "en": "8 hr",
+            "zh": "8 小时"
+          },
+          {
+            "en": "12 hr",
+            "zh": "12 小时"
+          },
+          {
+            "en": "16 hr",
+            "zh": "16 小时"
+          }
+        ],
+        "showCumulativeNet": true,
+        "periodLabel": {
+          "en": "Elapsed time",
+          "zh": "经过时间"
+        }
+      },
+      "options": [
+        {
+          "id": "d",
+          "en": "Intake rises at each successive interval.",
+          "zh": "摄入量在每个后续时间段均上升。"
+        },
+        {
+          "id": "a",
+          "en": "The intake amount is unchanged across the four intervals.",
+          "zh": "四个时间段的摄入量保持不变。"
+        },
+        {
+          "id": "e",
+          "en": "Output increases after the 8-hour interval.",
+          "zh": "排出量在 8 小时时间段之后增加。"
+        },
+        {
+          "id": "c",
+          "en": "The positive interval fluid balance becomes larger over time.",
+          "zh": "每个时间段的正液体平衡随时间逐渐扩大。"
+        },
+        {
+          "id": "f",
+          "en": "The interval fluid balance changes from positive to negative.",
+          "zh": "分段液体平衡由正转为负。"
+        },
+        {
+          "id": "b",
+          "en": "Output decreases at each successive interval.",
+          "zh": "排出量在每个后续时间段均下降。"
+        }
+      ],
+      "correct": [
+        "a",
+        "b",
+        "c"
+      ],
+      "rationale": {
+        "correct": {
+          "en": "Intake is 300 mL in every interval. Output falls from 280 mL to 260 mL, 180 mL, and 80 mL. Because intake remains constant while output falls, the positive interval balance widens from +20 mL to +220 mL. Intake does not rise, output does not recover after 8 hours, and no interval has a negative balance.",
+          "zh": "每个时间段的摄入量均为 300 mL。排出量依次从 280 mL 降至 260 mL、180 mL 和 80 mL。由于摄入量保持不变而排出量下降，每个时间段的正液体平衡从 +20 mL 扩大至 +220 mL。摄入量并未上升，8 小时后排出量也未恢复，并且没有任何时间段出现负平衡。"
+        },
+        "byChoice": [
+          {
+            "refId": "d",
+            "en": "Incorrect. Intake stays at 300 mL every interval; it never rises.",
+            "zh": "错误。摄入量每个时间段均为 300 mL，并未上升。"
+          },
+          {
+            "refId": "a",
+            "en": "Correct. Intake is 300 mL in every one of the four intervals.",
+            "zh": "正确。四个时间段的摄入量均为 300 mL，保持不变。"
+          },
+          {
+            "refId": "c",
+            "en": "Correct. The interval net rises from +20 mL to +40, +120, and +220 mL as output keeps falling against unchanged intake.",
+            "zh": "正确。由于摄入量不变而排出量持续下降，分段净值从 +20 mL 依次扩大至 +40、+120、+220 mL。"
+          },
+          {
+            "refId": "f",
+            "en": "Incorrect. Every interval net stays positive (+20 to +220 mL); none turns negative.",
+            "zh": "错误。每个时间段的分段净值均为正值（+20 至 +220 mL），没有任何时间段转为负值。"
+          },
+          {
+            "refId": "b",
+            "en": "Correct. Output falls at every successive interval: 280, 260, 180, then 80 mL.",
+            "zh": "正确。排出量在每个后续时间段均下降：依次为 280、260、180、80 mL。"
+          },
+          {
+            "refId": "e",
+            "en": "Incorrect. Output continues to fall after 8 hours, from 260 mL to 180 mL and then 80 mL; it does not increase.",
+            "zh": "错误。8 小时后排出量继续下降，从 260 mL 降至 180 mL，再降至 80 mL，并未增加。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "For a select-all trend item, compute the interval net (intake minus output) for each time block before judging any option; do not infer the shape from the stem's diagnosis. Check each candidate statement against the actual per-interval numbers rather than the cumulative total, and reject any statement that only fits the final number, not the interval-by-interval pattern.",
+        "zh": "对于全选式趋势题，应先算出每个时间段的分段净值（摄入量减排出量），再判断各选项，不要仅凭题干中的诊断推测趋势形态。用逐段的实际数值而非累积总量来核对每条陈述，凡是只符合最终总量、而不符合逐段变化规律的陈述均应排除。"
+      },
+      "glossary": [
+        {
+          "termEn": "cumulative net balance",
+          "termZh": "累积净平衡",
+          "defZh": "自记录起始时间点起，将各时间段摄入量与排出量之差逐段累加所得的净值。"
+        },
+        {
+          "termEn": "interval fluid balance",
+          "termZh": "分段液体平衡",
+          "defZh": "某一时间段内摄入量与排出量之差，仅反映该时间段单独的体液平衡情况。"
+        }
+      ],
+      "meta": {
+        "visual_justification": "The learner must compare the interval series to identify constant intake, progressively falling output, and a widening positive interval net; the stem does not state any of those patterns.",
+        "collapse_test": "If the record is collapsed to only final_cumulative_net_ml = +400, the learner can identify only an overall positive balance. None of the offered interval-shape statements is supportable, so the select-all result becomes no supported selections / indeterminate rather than [a, b, c].",
+        "tier": "standard",
+        "source": "NICE CG174, Intravenous fluid therapy in adults in hospital, recommendations 1.1.3–1.2.4, https://www.nice.org.uk/guidance/cg174/chapter/Recommendations",
+        "skill_signature": "io_trend:declining-output/driver-identification",
+        "stem_disambiguators": [
+          "intake and output",
+          "trend"
+        ],
+        "derived_values_keyed": {
+          "net_by_interval_ml": [
+            20,
+            40,
+            120,
+            220
+          ],
+          "cumulative_net_ml": [
+            20,
+            60,
+            180,
+            400
+          ],
+          "final_cumulative_net_ml": 400
+        },
+        "expected_trend": [
+          {
+            "series": "output",
+            "direction": "down",
+            "window": [
+              4,
+              16
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "iot_furosemide_late_partial_reversal",
+      "itemType": "multiple_choice",
+      "category": "Pharmacological and Parenteral Therapies",
+      "topic": "Diuretic Therapy",
+      "difficulty": "hard",
+      "stem": {
+        "en": "An adult client is receiving scheduled IV furosemide doses for volume overload management. Which statement about the shape of the client's fluid balance over the period is best supported by the record?",
+        "zh": "一名成人患者正在按计划接受静脉注射 furosemide，以管理容量负荷过多。根据记录，哪项陈述最能说明该患者在此期间液体平衡的变化形态？"
+      },
+      "visual": {
+        "kind": "io_trend",
+        "caption": {
+          "en": "Four-interval intake and output record",
+          "zh": "四个时间段的液体摄入与排出记录"
+        },
+        "time": {
+          "unit": "hr",
+          "values": [
+            4,
+            8,
+            12,
+            16
+          ]
+        },
+        "intervals": [
+          {
+            "intakeMl": 300,
+            "outputMl": 500
+          },
+          {
+            "intakeMl": 250,
+            "outputMl": 400
+          },
+          {
+            "intakeMl": 200,
+            "outputMl": 250
+          },
+          {
+            "intakeMl": 200,
+            "outputMl": 100
+          }
+        ],
+        "binLabels": [
+          {
+            "en": "4 hr",
+            "zh": "4 小时"
+          },
+          {
+            "en": "8 hr",
+            "zh": "8 小时"
+          },
+          {
+            "en": "12 hr",
+            "zh": "12 小时"
+          },
+          {
+            "en": "16 hr",
+            "zh": "16 小时"
+          }
+        ],
+        "showCumulativeNet": true,
+        "periodLabel": {
+          "en": "Elapsed time",
+          "zh": "经过时间"
+        }
+      },
+      "options": [
+        {
+          "id": "c",
+          "en": "The client maintains a negative interval fluid balance during all four intervals.",
+          "zh": "患者在全部四个时间段内均保持负的分段液体平衡。"
+        },
+        {
+          "id": "a",
+          "en": "The cumulative fluid deficit deepens through 12 hours, then partially reverses as the final interval becomes positive.",
+          "zh": "累积液体负平衡持续加深至 12 小时，随后因最后一个时间段转为正平衡而部分逆转。"
+        },
+        {
+          "id": "b",
+          "en": "The cumulative balance begins positive, crosses below zero between 8 and 12 hours, and becomes more negative thereafter.",
+          "zh": "累积液体平衡起初为正，在 8 至 12 小时之间降至零以下，之后负平衡进一步加深。"
+        },
+        {
+          "id": "d",
+          "en": "The interval fluid balance remains unchanged while the cumulative balance declines steadily.",
+          "zh": "各时间段的液体平衡保持不变，而累积液体平衡持续下降。"
+        }
+      ],
+      "correct": [
+        "a"
+      ],
+      "rationale": {
+        "correct": {
+          "en": "The interval balances are −200 mL, −150 mL, −50 mL, and then +100 mL. The cumulative deficit therefore deepens from −200 mL to −400 mL through 12 hours, then partially reverses to −300 mL during the final interval. The final interval is positive, so the client does not maintain a negative interval balance throughout.",
+          "zh": "各时间段的液体平衡依次为 −200 mL、−150 mL、−50 mL，最后为 +100 mL。因此，累积负平衡从 −200 mL 持续加深至 12 小时时的 −400 mL，随后在最后一个时间段部分逆转至 −300 mL。最后一个时间段为正平衡，所以患者并非全程都保持负的分段液体平衡。"
+        },
+        "byChoice": [
+          {
+            "refId": "a",
+            "en": "Correct. The interval balances are -200, -150, -50, then +100 mL, so the cumulative deficit deepens to -400 mL through 12 hours and then partially reverses to -300 mL in the final interval.",
+            "zh": "正确。各时间段液体平衡依次为 -200、-150、-50，最后为 +100 mL，因此累积负平衡持续加深至 12 小时时的 -400 mL，随后在最后一个时间段部分逆转至 -300 mL。"
+          },
+          {
+            "refId": "b",
+            "en": "Incorrect. The cumulative balance is negative from the first interval onward (-200 mL at 4 hours); it never begins positive.",
+            "zh": "错误。累积液体平衡从第一个时间段起即为负值（4 小时时为 -200 mL），并非起初为正。"
+          },
+          {
+            "refId": "c",
+            "en": "Incorrect. The final interval balance is +100 mL, not negative, so the client does not stay negative through all four intervals.",
+            "zh": "错误。最后一个时间段的分段液体平衡为 +100 mL，并非负值，因此患者并非全部四个时间段均保持负平衡。"
+          },
+          {
+            "refId": "d",
+            "en": "Incorrect. The interval balance changes every period (-200, -150, -50, +100 mL); it does not remain unchanged.",
+            "zh": "错误。分段液体平衡每个时间段都在变化（-200、-150、-50、+100 mL），并非保持不变。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "When an item's final cumulative net cannot by itself distinguish the offered shapes, trace the cumulative balance interval by interval and note where it deepens, levels off, or reverses, rather than anchoring on the ending total or the stem's drug name.",
+        "zh": "当最终累积净值本身不足以区分各选项所描述的形态时，应逐段追踪累积液体平衡，注意其在何处加深、趋于平稳或发生逆转，而不要只依据最终总量或题干中提到的药物名称做判断。"
+      },
+      "glossary": [
+        {
+          "termEn": "furosemide",
+          "termZh": "呋塞米",
+          "defZh": "一种袢利尿剂，通过抑制肾小管对钠、氯的重吸收增加尿量，常用于治疗容量负荷过多。"
+        },
+        {
+          "termEn": "diuresis",
+          "termZh": "利尿",
+          "defZh": "药物或生理机制促使肾脏排出更多尿液的过程。"
+        }
+      ],
+      "meta": {
+        "visual_justification": "The learner must see that the cumulative deficit deepens through 12 hours and then partially reverses when the final interval net becomes positive; the final cumulative number alone does not reveal this shape.",
+        "collapse_test": "If the record is collapsed to only final_cumulative_net_ml = −300, no offered shape interpretation is supportable. The learner cannot distinguish option a from option b, so the answer becomes indeterminate rather than a.",
+        "tier": "standard",
+        "source": "DailyMed, Furosemide injection prescribing information, Clinical Pharmacology 12.2, https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=3747bbcd-783d-4baa-bb5b-b6827bf390e3",
+        "skill_signature": "io_trend:matched-diuretic-a/late-partial-reversal",
+        "stem_disambiguators": [
+          "intake and output",
+          "trend"
+        ],
+        "derived_values_keyed": {
+          "net_by_interval_ml": [
+            -200,
+            -150,
+            -50,
+            100
+          ],
+          "cumulative_net_ml": [
+            -200,
+            -350,
+            -400,
+            -300
+          ],
+          "final_cumulative_net_ml": -300
+        },
+        "expected_trend": [
+          {
+            "series": "output",
+            "direction": "down",
+            "window": [
+              4,
+              16
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "iot_fluid_challenge_output_divergence",
+      "itemType": "matrix",
+      "category": "Physiological Adaptation",
+      "topic": "Renal & Gastrointestinal Disorders",
+      "difficulty": "hard",
+      "stem": {
+        "en": "An adult with hypotension and rising creatinine is receiving a fluid challenge per protocol, with urine output reassessed at each interval. For each statement, indicate whether it is supported or not supported by the record.",
+        "zh": "一名伴有低血压和 creatinine 升高的成人正按方案接受液体负荷试验，并在每个时间段重新评估尿量。请判断以下每项陈述是否得到记录支持。"
+      },
+      "visual": {
+        "kind": "io_trend",
+        "caption": {
+          "en": "Four-interval intake and output record",
+          "zh": "四个时间段的液体摄入与排出记录"
+        },
+        "time": {
+          "unit": "hr",
+          "values": [
+            4,
+            8,
+            12,
+            16
+          ]
+        },
+        "intervals": [
+          {
+            "intakeMl": 400,
+            "outputMl": 150
+          },
+          {
+            "intakeMl": 600,
+            "outputMl": 140
+          },
+          {
+            "intakeMl": 700,
+            "outputMl": 130
+          },
+          {
+            "intakeMl": 700,
+            "outputMl": 120
+          }
+        ],
+        "binLabels": [
+          {
+            "en": "4 hr",
+            "zh": "4 小时"
+          },
+          {
+            "en": "8 hr",
+            "zh": "8 小时"
+          },
+          {
+            "en": "12 hr",
+            "zh": "12 小时"
+          },
+          {
+            "en": "16 hr",
+            "zh": "16 小时"
+          }
+        ],
+        "showCumulativeNet": true,
+        "periodLabel": {
+          "en": "Elapsed time",
+          "zh": "经过时间"
+        }
+      },
+      "matrix": {
+        "rows": [
+          {
+            "id": "r1",
+            "en": "Intake increases through 12 hours and then remains unchanged in the final interval.",
+            "zh": "摄入量持续增加至 12 小时，随后在最后一个时间段保持不变。"
+          },
+          {
+            "id": "r2",
+            "en": "Output decreases at every interval while intake increases or remains at its higher level.",
+            "zh": "在摄入量增加或维持于较高水平的同时，排出量在每个时间段均下降。"
+          },
+          {
+            "id": "r3",
+            "en": "The positive interval fluid balance widens across the record.",
+            "zh": "记录中的正分段液体平衡逐步扩大。"
+          },
+          {
+            "id": "r4",
+            "en": "Output rises in parallel with the escalating intake.",
+            "zh": "排出量随不断增加的摄入量同步上升。"
+          }
+        ],
+        "columns": [
+          {
+            "id": "not_supported",
+            "en": "Not supported",
+            "zh": "无依据"
+          },
+          {
+            "id": "supported",
+            "en": "Supported",
+            "zh": "有依据"
+          }
+        ],
+        "selectionMode": "single_per_row"
+      },
+      "correct": [
+        {
+          "rowId": "r1",
+          "columnIds": [
+            "supported"
+          ]
+        },
+        {
+          "rowId": "r2",
+          "columnIds": [
+            "supported"
+          ]
+        },
+        {
+          "rowId": "r3",
+          "columnIds": [
+            "supported"
+          ]
+        },
+        {
+          "rowId": "r4",
+          "columnIds": [
+            "not_supported"
+          ]
+        }
+      ],
+      "rationale": {
+        "correct": {
+          "en": "Intake rises from 400 mL to 600 mL and 700 mL, then remains at 700 mL. Output moves in the opposite direction, decreasing from 150 mL to 120 mL. The positive interval balance therefore widens from +250 mL to +580 mL. The record does not show output rising in parallel with intake.",
+          "zh": "摄入量从 400 mL 增至 600 mL 和 700 mL，随后维持在 700 mL。排出量则向相反方向变化，从 150 mL 降至 120 mL。因此，正分段液体平衡从 +250 mL 扩大至 +580 mL。记录并未显示排出量随摄入量同步上升。"
+        }
+      },
+      "testTakingStrategy": {
+        "en": "For a matrix item classifying several statements against one dataset, evaluate the intake series and the output series independently across every interval before judging any row; mark a statement supported only when the exact recorded numbers confirm it interval by interval, not merely because the final cumulative number is consistent with it.",
+        "zh": "对于依据同一组数据判断多条陈述的矩阵题，应分别在每个时间段独立核查摄入量序列与排出量序列，再判断每一行；只有当逐段的确切记录数值证实某条陈述时，才判定其为有依据，而不能仅因最终累积数值与之相符就判定有依据。"
+      },
+      "glossary": [
+        {
+          "termEn": "fluid challenge",
+          "termZh": "液体负荷试验",
+          "defZh": "在短时间内静脉输入一定量液体，用以评估患者对容量的反应，常用于低血压或疑似容量不足的患者。"
+        },
+        {
+          "termEn": "oliguria",
+          "termZh": "少尿",
+          "defZh": "尿量持续低于正常水平的状态，通常提示肾灌注不足或肾功能受损。"
+        }
+      ],
+      "meta": {
+        "visual_justification": "The learner must compare the escalating intake series with the progressively decreasing output series and classify the resulting widening positive interval balance; the stem does not state this relationship.",
+        "collapse_test": "If the record is collapsed to only final_cumulative_net_ml = +1860, the learner can identify only an overall positive balance. The intake trajectory, output trajectory, and their divergence cannot be classified, so the matrix answer becomes indeterminate rather than the keyed row pattern.",
+        "tier": "standard",
+        "source": "NICE CG174, Intravenous fluid therapy in adults in hospital, recommendations 1.1.3–1.2.4, https://www.nice.org.uk/guidance/cg174/chapter/Recommendations",
+        "skill_signature": "io_trend:fluid-challenge/intake-output-divergence",
+        "stem_disambiguators": [
+          "intake and output",
+          "trend"
+        ],
+        "derived_values_keyed": {
+          "net_by_interval_ml": [
+            250,
+            460,
+            570,
+            580
+          ],
+          "cumulative_net_ml": [
+            250,
+            710,
+            1280,
+            1860
+          ],
+          "final_cumulative_net_ml": 1860
+        },
+        "expected_trend": [
+          {
+            "series": "output",
+            "direction": "down",
+            "window": [
+              4,
+              16
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "iot_furosemide_positive_to_negative_crossover",
+      "itemType": "multiple_choice",
+      "category": "Pharmacological and Parenteral Therapies",
+      "topic": "Diuretic Therapy",
+      "difficulty": "hard",
+      "stem": {
+        "en": "An adult client is receiving scheduled IV furosemide doses for volume overload management. Which statement about the shape of the client's fluid balance over the period is best supported by the record?",
+        "zh": "一名成人患者正在按计划接受静脉注射 furosemide，以管理容量负荷过多。根据记录，哪项陈述最能说明该患者在此期间液体平衡的变化形态？"
+      },
+      "visual": {
+        "kind": "io_trend",
+        "caption": {
+          "en": "Four-interval intake and output record",
+          "zh": "四个时间段的液体摄入与排出记录"
+        },
+        "time": {
+          "unit": "hr",
+          "values": [
+            4,
+            8,
+            12,
+            16
+          ]
+        },
+        "intervals": [
+          {
+            "intakeMl": 300,
+            "outputMl": 150
+          },
+          {
+            "intakeMl": 250,
+            "outputMl": 220
+          },
+          {
+            "intakeMl": 200,
+            "outputMl": 400
+          },
+          {
+            "intakeMl": 200,
+            "outputMl": 480
+          }
+        ],
+        "binLabels": [
+          {
+            "en": "4 hr",
+            "zh": "4 小时"
+          },
+          {
+            "en": "8 hr",
+            "zh": "8 小时"
+          },
+          {
+            "en": "12 hr",
+            "zh": "12 小时"
+          },
+          {
+            "en": "16 hr",
+            "zh": "16 小时"
+          }
+        ],
+        "showCumulativeNet": true,
+        "periodLabel": {
+          "en": "Elapsed time",
+          "zh": "经过时间"
+        }
+      },
+      "options": [
+        {
+          "id": "c",
+          "en": "The client maintains a negative interval fluid balance during all four intervals.",
+          "zh": "患者在全部四个时间段内均保持负的分段液体平衡。"
+        },
+        {
+          "id": "a",
+          "en": "The cumulative fluid deficit deepens through 12 hours, then partially reverses as the final interval becomes positive.",
+          "zh": "累积液体负平衡持续加深至 12 小时，随后因最后一个时间段转为正平衡而部分逆转。"
+        },
+        {
+          "id": "b",
+          "en": "The cumulative balance begins positive, crosses below zero between 8 and 12 hours, and becomes more negative thereafter.",
+          "zh": "累积液体平衡起初为正，在 8 至 12 小时之间降至零以下，之后负平衡进一步加深。"
+        },
+        {
+          "id": "d",
+          "en": "The interval fluid balance remains unchanged while the cumulative balance declines steadily.",
+          "zh": "各时间段的液体平衡保持不变，而累积液体平衡持续下降。"
+        }
+      ],
+      "correct": [
+        "b"
+      ],
+      "rationale": {
+        "correct": {
+          "en": "The interval balances are +150 mL, +30 mL, −200 mL, and −280 mL. Cumulative balance therefore begins positive, rises to +180 mL at 8 hours, crosses below zero by 12 hours, and becomes more negative to −300 mL at 16 hours. The record does not show an initially deepening deficit followed by a late positive interval.",
+          "zh": "各时间段的液体平衡依次为 +150 mL、+30 mL、−200 mL 和 −280 mL。因此，累积液体平衡起初为正，在 8 小时时升至 +180 mL，到 12 小时时降至零以下，并在 16 小时时进一步降至 −300 mL。记录并未显示负平衡先持续加深、随后在最后一个时间段转为正平衡。"
+        },
+        "byChoice": [
+          {
+            "refId": "c",
+            "en": "Incorrect. The first two interval balances are positive (+150 mL and +30 mL), so the client does not stay negative throughout.",
+            "zh": "错误。前两个时间段的分段液体平衡均为正值（+150 mL 和 +30 mL），因此患者并非全程保持负平衡。"
+          },
+          {
+            "refId": "a",
+            "en": "Incorrect. The cumulative balance never deepens from a negative start; it begins positive and only turns negative later.",
+            "zh": "错误。累积液体平衡并非从负值开始并持续加深，而是起初为正，之后才转为负值。"
+          },
+          {
+            "refId": "d",
+            "en": "Incorrect. The interval balance changes every period (+150, +30, -200, -280 mL); it does not remain unchanged.",
+            "zh": "错误。分段液体平衡每个时间段都在变化（+150、+30、-200、-280 mL），并非保持不变。"
+          },
+          {
+            "refId": "b",
+            "en": "Correct. Cumulative balance is +150 mL at 4 hours, rises to +180 mL at 8 hours, crosses below zero to -20 mL at 12 hours, and reaches -300 mL at 16 hours.",
+            "zh": "正确。累积液体平衡在 4 小时时为 +150 mL，8 小时时升至 +180 mL，12 小时时降至零以下的 -20 mL，16 小时时进一步降至 -300 mL。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "When an item's final cumulative net cannot by itself distinguish the offered shapes, trace the cumulative balance interval by interval and identify where it crosses from positive to negative, rather than anchoring on the ending total or the stem's drug name.",
+        "zh": "当最终累积净值本身不足以区分各选项所描述的形态时，应逐段追踪累积液体平衡，找出其由正转负的具体时间段，而不要只依据最终总量或题干中提到的药物名称做判断。"
+      },
+      "glossary": [
+        {
+          "termEn": "furosemide",
+          "termZh": "呋塞米",
+          "defZh": "一种袢利尿剂，通过抑制肾小管对钠、氯的重吸收增加尿量，常用于治疗容量负荷过多。"
+        },
+        {
+          "termEn": "crossover point",
+          "termZh": "交叉点",
+          "defZh": "累积液体平衡由正值转为负值（或相反）所对应的时间段。"
+        }
+      ],
+      "meta": {
+        "visual_justification": "The learner must see that cumulative balance begins positive, crosses below zero between 8 and 12 hours, and becomes progressively more negative as output rises; the final cumulative number alone does not reveal the crossover.",
+        "collapse_test": "If the record is collapsed to only final_cumulative_net_ml = −300, no offered shape interpretation is supportable. The learner cannot distinguish option b from option a, so the answer becomes indeterminate rather than b.",
+        "tier": "standard",
+        "source": "DailyMed, Furosemide injection prescribing information, Clinical Pharmacology 12.2, https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=3747bbcd-783d-4baa-bb5b-b6827bf390e3",
+        "skill_signature": "io_trend:matched-diuretic-b/positive-negative-crossover",
+        "stem_disambiguators": [
+          "intake and output",
+          "trend"
+        ],
+        "derived_values_keyed": {
+          "net_by_interval_ml": [
+            150,
+            30,
+            -200,
+            -280
+          ],
+          "cumulative_net_ml": [
+            150,
+            180,
+            -20,
+            -300
+          ],
+          "final_cumulative_net_ml": -300
+        },
+        "expected_trend": [
+          {
+            "series": "output",
+            "direction": "up",
+            "window": [
+              4,
+              16
+            ]
+          }
+        ],
+        "crossover": {
+          "series": "cumulative_net",
+          "index": 2,
+          "from": "positive",
+          "to": "negative"
+        }
       }
     }
   ]

@@ -2,8 +2,8 @@
 
 # NCLEX Bank Census
 
-Generated: 2026-07-13T03:26:17.035Z
-Git SHA: 240437d3dbd5f72e7f775a6a0f219c9b872f65c9
+Generated: 2026-07-14T23:34:38.274Z
+Git SHA: 6cdd0df238743a39cd30a329eb84ee07eb3773be
 
 ## Per-File Summary
 
@@ -20,15 +20,15 @@ Git SHA: 240437d3dbd5f72e7f775a6a0f219c9b872f65c9
 | lab-canonical.json | 1.2 | 20 | 20 | — |
 | mar-canonical.json | 1.2 | 8 | 8 | — |
 | medlabel-canonical.json | 1.2 | 8 | 8 | — |
-| visual-canonical.json | 1.7 | 53 | 53 | — |
+| visual-canonical.json | 2.0 | 57 | 57 | — |
 | vitals-canonical.json | 1.2 | 10 | 10 | — |
 
 ## Totals
 
-- Top-level questions: 1725
+- Top-level questions: 1729
 - Case study top-level: 143
 - Embedded parts: 721
-- Graded total: 2446
+- Graded total: 2450
 
 ## By Category
 
@@ -38,8 +38,8 @@ Git SHA: 240437d3dbd5f72e7f775a6a0f219c9b872f65c9
 - Reduction of Risk Potential: 203
 - Safety and Infection Control: 212
 - Management of Care: 265
-- Pharmacological and Parenteral Therapies: 266
-- Physiological Adaptation: 287
+- Pharmacological and Parenteral Therapies: 268
+- Physiological Adaptation: 289
 
 ## Within-Category Concentration
 
@@ -71,7 +71,7 @@ Visual kinds: burn_map (1), device_screen (1), io_record (4)
 ### Pharmacological and Parenteral Therapies
 
 Top topics: Dosage Calculations (55), Medication Safety & Admin (54), Anticoagulant Therapy (43), Cardiovascular & Endocrine Medications (32), Psychotropic Medications (15), Parenteral Nutrition (10), High-Alert Medication Safety (6), Nutritional & Fluid Support (3), Antibiotic Allergy Screening (2), Cardiovascular Disorders (2)
-Visual kinds: capnography (3), device_screen (6), lab_trend (6), mar (9), medication_label (12), rhythm_strip (10), vitals_trend (8)
+Visual kinds: capnography (3), device_screen (6), io_trend (2), lab_trend (6), mar (9), medication_label (12), rhythm_strip (10), vitals_trend (8)
 
 ### Reduction of Risk Potential
 
@@ -80,8 +80,8 @@ Visual kinds: burn_map (5), capnography (6), device_screen (3), fetal_monitoring
 
 ### Physiological Adaptation
 
-Top topics: Cardiovascular Disorders (74), Endocrine & Neurological Disorders (35), Renal & Gastrointestinal Disorders (35), Electrolyte Imbalances (26), Burn Management (16), Diabetic Ketoacidosis (DKA) (16), Respiratory & Infectious Disorders (13), Sepsis & Septic Shock (8), Oncology & Immunotherapy Complications (6), ABG & Acid-Base Interpretation (2)
-Visual kinds: burn_map (5), capnography (11), io_record (2), lab_trend (7), rhythm_strip (37), vitals_trend (12)
+Top topics: Cardiovascular Disorders (74), Renal & Gastrointestinal Disorders (36), Endocrine & Neurological Disorders (35), Electrolyte Imbalances (26), Burn Management (16), Diabetic Ketoacidosis (DKA) (16), Respiratory & Infectious Disorders (13), Sepsis & Septic Shock (8), Oncology & Immunotherapy Complications (6), ABG & Acid-Base Interpretation (2)
+Visual kinds: burn_map (5), capnography (11), io_record (2), io_trend (2), lab_trend (7), rhythm_strip (37), vitals_trend (12)
 
 ## By Item Type
 
@@ -91,22 +91,21 @@ Visual kinds: burn_map (5), capnography (11), io_record (2), lab_trend (7), rhyt
 - fill_in_blank: 162
 - ordered_response: 164
 - dropdown_cloze: 165
-- matrix: 190
-- select_all: 217
-- multiple_choice: 453
+- matrix: 191
+- select_all: 218
+- multiple_choice: 455
 
 ## By Difficulty
 
 - easy: 226
-- hard: 592
-- medium: 907
+- hard: 595
+- medium: 908
 
 ## By Schema Version
 
 - v1.2: 77 questions (burn-canonical.json, capnography-canonical.json, device-canonical.json, io-canonical.json, lab-canonical.json, mar-canonical.json, medlabel-canonical.json, vitals-canonical.json)
-- v2.0: 1529 questions (claude-canonical.json, gemini-canonical.json, gpt-canonical.json)
+- v2.0: 1586 questions (claude-canonical.json, gemini-canonical.json, gpt-canonical.json, visual-canonical.json)
 - v1.8: 66 questions (hard-cases-canonical.json)
-- v1.7: 53 questions (visual-canonical.json)
 
 ## By Source File
 
@@ -121,12 +120,12 @@ Visual kinds: burn_map (5), capnography (11), io_record (2), lab_trend (7), rhyt
 - lab-canonical.json: 20
 - mar-canonical.json: 8
 - medlabel-canonical.json: 8
-- visual-canonical.json: 53
+- visual-canonical.json: 57
 - vitals-canonical.json: 10
 
 ## Visuals
 
-Total visuals: 196
+Total visuals: 200
 
 ### By Kind
 
@@ -136,7 +135,7 @@ Total visuals: 196
 - fetal_monitoring: 6 (fhr_gemini_smoke_2026_06_13_01, fhr_gemini_smoke_2026_06_13_02, fhr_gemini_smoke_2026_06_13_03, fhr_gemini_smoke_2026_06_13_04, fhr_gemini_smoke_2026_06_13_05, …+1)
 - injection_site: 8 (gpt_injection_smoke_2026_06_15_matrix_route_match_08, gpt_injection_smoke_2026_06_15_matrix_subq_cues_07, gpt_injection_smoke_2026_06_15_mc_intradermal_01, gpt_injection_smoke_2026_06_15_mc_intramuscular_03, gpt_injection_smoke_2026_06_15_mc_intravenous_04, …+3)
 - io_record: 11 (gpt_visual_smoke_2026_06_12_fib_io_net_balance_04, gpt_visual_smoke_2026_06_12_matrix_io_totals_06, gpt_visual_smoke_2026_06_12_mc_io_output_total_05, io_fib_hf_net_balance_01, io_fib_postop_output_total_06, …+6)
-- io_trend: 0
+- io_trend: 4 (iot_fluid_challenge_output_divergence, iot_furosemide_late_partial_reversal, iot_furosemide_positive_to_negative_crossover, iot_hf_ckd_declining_output)
 - lab_trend: 20 (gpt_u3_labtrend_2026_06_09_b_cloze_inr_amiodarone_09, gpt_u3_labtrend_2026_06_09_b_cloze_sodium_overcorrection_08, gpt_u3_labtrend_2026_06_09_b_fib_creatinine_increase_10, gpt_u3_labtrend_2026_06_09_b_matrix_dka_potassium_glucose_04, gpt_u3_labtrend_2026_06_09_b_matrix_neutropenia_wbc_05, …+15)
 - mar: 11 (gpt_fresh_2026_06_22_vis_01, gpt_fresh_2026_06_22_vis_05, gpt_fresh_2026_06_22_vis_06, mar_acetaminophen_duplicate_products_04, mar_av_nodal_blockers_1600_01, …+6)
 - medication_label: 13 (gpt_fresh_2026_06_22_vis_02, gpt_fresh_2026_06_22_vis_03, gpt_fresh_2026_06_22_vis_07, gpt_visual_smoke_2026_06_12_fib_medlabel_heparin_rate_07, gpt_visual_smoke_2026_06_12_mc_medlabel_tablet_quantity_08, …+8)
@@ -315,15 +314,15 @@ No duplicates detected.
 ## Targets
 
 Category targets (2026 NCLEX-RN test-plan weights):
-- Management of Care: 310.5
-- Safety and Infection Control: 224.3
-- Health Promotion and Maintenance: 155.3
-- Psychosocial Integrity: 155.3
-- Basic Care and Comfort: 155.3
-- Pharmacological and Parenteral Therapies: 276.0
-- Reduction of Risk Potential: 207.0
-- Physiological Adaptation: 241.5
-Item type average: 191.7
+- Management of Care: 311.2
+- Safety and Infection Control: 224.8
+- Health Promotion and Maintenance: 155.6
+- Psychosocial Integrity: 155.6
+- Basic Care and Comfort: 155.6
+- Pharmacological and Parenteral Therapies: 276.6
+- Reduction of Risk Potential: 207.5
+- Physiological Adaptation: 242.1
+Item type average: 192.1
 
 Under-served item types:
 - bowtie: 114
@@ -332,7 +331,7 @@ Under-served item types:
 - fill_in_blank: 162
 - ordered_response: 164
 - dropdown_cloze: 165
-- matrix: 190
+- matrix: 191
 
 ## Prompt Parameters
 
@@ -351,13 +350,13 @@ PRIORITIZE_TOPICS:
 - Electroconvulsive Therapy (ECT) — add: select_all, fill_in_blank, highlight, bowtie
 - intrapartum fetal monitoring — add: ordered_response, fill_in_blank, highlight
 - Reproductive & Endocrine Health — add: fill_in_blank, bowtie
-- bowtie (114 vs target 191.7)
-- highlight (117 vs target 191.7)
-- case_study (143 vs target 191.7)
-- fill_in_blank (162 vs target 191.7)
-- ordered_response (164 vs target 191.7)
-- dropdown_cloze (165 vs target 191.7)
-- matrix (190 vs target 191.7)
+- bowtie (114 vs target 192.1)
+- highlight (117 vs target 192.1)
+- case_study (143 vs target 192.1)
+- fill_in_blank (162 vs target 192.1)
+- ordered_response (164 vs target 192.1)
+- dropdown_cloze (165 vs target 192.1)
+- matrix (191 vs target 192.1)
 - accidental tracheostomy dislodgement
 - Acute decompensated heart failure
 - Acute Decompensated Heart Failure (ADHF)

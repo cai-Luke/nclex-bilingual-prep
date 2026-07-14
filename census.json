@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-07-13T03:26:17.035Z",
-  "gitSha": "240437d3dbd5f72e7f775a6a0f219c9b872f65c9",
+  "generatedAt": "2026-07-14T23:34:38.274Z",
+  "gitSha": "6cdd0df238743a39cd30a329eb84ee07eb3773be",
   "perFile": [
     {
       "file": "burn-canonical.json",
@@ -81,9 +81,9 @@
     },
     {
       "file": "visual-canonical.json",
-      "schemaVersion": "1.7",
-      "metaCount": 53,
-      "questionsLength": 53,
+      "schemaVersion": "2.0",
+      "metaCount": 57,
+      "questionsLength": 57,
       "mismatch": false
     },
     {
@@ -95,10 +95,10 @@
     }
   ],
   "totals": {
-    "topLevel": 1725,
+    "topLevel": 1729,
     "caseStudyTopLevel": 143,
     "embeddedParts": 721,
-    "gradedTotal": 2446
+    "gradedTotal": 2450
   },
   "byItemType": {
     "bowtie": 114,
@@ -107,9 +107,9 @@
     "fill_in_blank": 162,
     "ordered_response": 164,
     "dropdown_cloze": 165,
-    "matrix": 190,
-    "select_all": 217,
-    "multiple_choice": 453
+    "matrix": 191,
+    "select_all": 218,
+    "multiple_choice": 455
   },
   "byCategory": {
     "Health Promotion and Maintenance": 162,
@@ -118,8 +118,8 @@
     "Reduction of Risk Potential": 203,
     "Safety and Infection Control": 212,
     "Management of Care": 265,
-    "Pharmacological and Parenteral Therapies": 266,
-    "Physiological Adaptation": 287
+    "Pharmacological and Parenteral Therapies": 268,
+    "Physiological Adaptation": 289
   },
   "withinCategory": {
     "Management of Care": {
@@ -406,6 +406,7 @@
       "visualKinds": {
         "capnography": 3,
         "device_screen": 6,
+        "io_trend": 2,
         "lab_trend": 6,
         "mar": 9,
         "medication_label": 12,
@@ -475,11 +476,11 @@
           "count": 74
         },
         {
-          "topic": "Endocrine & Neurological Disorders",
-          "count": 35
+          "topic": "Renal & Gastrointestinal Disorders",
+          "count": 36
         },
         {
-          "topic": "Renal & Gastrointestinal Disorders",
+          "topic": "Endocrine & Neurological Disorders",
           "count": 35
         },
         {
@@ -515,6 +516,7 @@
         "burn_map": 5,
         "capnography": 11,
         "io_record": 2,
+        "io_trend": 2,
         "lab_trend": 7,
         "rhythm_strip": 37,
         "vitals_trend": 12
@@ -523,8 +525,8 @@
   },
   "byDifficulty": {
     "easy": 226,
-    "hard": 592,
-    "medium": 907
+    "hard": 595,
+    "medium": 908
   },
   "bySchemaVersion": {
     "1.2": {
@@ -541,23 +543,18 @@
       ]
     },
     "2.0": {
-      "questions": 1529,
+      "questions": 1586,
       "files": [
         "claude-canonical.json",
         "gemini-canonical.json",
-        "gpt-canonical.json"
+        "gpt-canonical.json",
+        "visual-canonical.json"
       ]
     },
     "1.8": {
       "questions": 66,
       "files": [
         "hard-cases-canonical.json"
-      ]
-    },
-    "1.7": {
-      "questions": 53,
-      "files": [
-        "visual-canonical.json"
       ]
     }
   },
@@ -573,11 +570,11 @@
     "lab-canonical.json": 20,
     "mar-canonical.json": 8,
     "medlabel-canonical.json": 8,
-    "visual-canonical.json": 53,
+    "visual-canonical.json": 57,
     "vitals-canonical.json": 10
   },
   "visuals": {
-    "total": 196,
+    "total": 200,
     "byKind": {
       "burn_map": 11,
       "capnography": 25,
@@ -585,7 +582,7 @@
       "fetal_monitoring": 6,
       "injection_site": 8,
       "io_record": 11,
-      "io_trend": 0,
+      "io_trend": 4,
       "lab_trend": 20,
       "mar": 11,
       "medication_label": 13,
@@ -694,7 +691,12 @@
         "io_sata_ckd_fluid_overload_07",
         "io_sata_gastroenteritis_deficit_03"
       ],
-      "io_trend": [],
+      "io_trend": [
+        "iot_fluid_challenge_output_divergence",
+        "iot_furosemide_late_partial_reversal",
+        "iot_furosemide_positive_to_negative_crossover",
+        "iot_hf_ckd_declining_output"
+      ],
       "lab_trend": [
         "gpt_u3_labtrend_2026_06_09_b_cloze_inr_amiodarone_09",
         "gpt_u3_labtrend_2026_06_09_b_cloze_sodium_overcorrection_08",
@@ -1697,38 +1699,38 @@
     "categoryTargets": [
       [
         "Management of Care",
-        310.5
+        311.21999999999997
       ],
       [
         "Safety and Infection Control",
-        224.25
+        224.77
       ],
       [
         "Health Promotion and Maintenance",
-        155.25
+        155.60999999999999
       ],
       [
         "Psychosocial Integrity",
-        155.25
+        155.60999999999999
       ],
       [
         "Basic Care and Comfort",
-        155.25
+        155.60999999999999
       ],
       [
         "Pharmacological and Parenteral Therapies",
-        276
+        276.64
       ],
       [
         "Reduction of Risk Potential",
-        207
+        207.48
       ],
       [
         "Physiological Adaptation",
-        241.50000000000003
+        242.06000000000003
       ]
     ],
-    "itemTypeAvg": 191.66666666666666,
+    "itemTypeAvg": 192.11111111111111,
     "underCategories": [],
     "overCategories": [],
     "underItemTypes": [
@@ -1758,7 +1760,7 @@
       ],
       [
         "matrix",
-        190
+        191
       ]
     ]
   },
@@ -1777,13 +1779,13 @@
     "Electroconvulsive Therapy (ECT) — add: select_all, fill_in_blank, highlight, bowtie",
     "intrapartum fetal monitoring — add: ordered_response, fill_in_blank, highlight",
     "Reproductive & Endocrine Health — add: fill_in_blank, bowtie",
-    "bowtie (114 vs target 191.7)",
-    "highlight (117 vs target 191.7)",
-    "case_study (143 vs target 191.7)",
-    "fill_in_blank (162 vs target 191.7)",
-    "ordered_response (164 vs target 191.7)",
-    "dropdown_cloze (165 vs target 191.7)",
-    "matrix (190 vs target 191.7)",
+    "bowtie (114 vs target 192.1)",
+    "highlight (117 vs target 192.1)",
+    "case_study (143 vs target 192.1)",
+    "fill_in_blank (162 vs target 192.1)",
+    "ordered_response (164 vs target 192.1)",
+    "dropdown_cloze (165 vs target 192.1)",
+    "matrix (191 vs target 192.1)",
     "accidental tracheostomy dislodgement",
     "Acute decompensated heart failure",
     "Acute Decompensated Heart Failure (ADHF)",
