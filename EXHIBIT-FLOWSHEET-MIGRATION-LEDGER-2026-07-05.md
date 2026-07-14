@@ -1,5 +1,12 @@
 # Exhibit Flowsheet Migration Ledger
 
+**Status: the migration is closed (2026-07-13), no open holds or flagged tag disputes remain.** This
+ledger is retained as the historical record of record and as a reusable structure for any future
+structured-measurement expansion. Every row below documents a completed, already-adjudicated action;
+none represents in-flight work. "Staged" in a row's language describes that batch's state at the time
+it was written, not the current state of the repo — current behavior is owned by
+`scripts/exhibit-flowsheet-gate.ts` and `scripts/apply-structured-measurements.ts`.
+
 This ledger tracks staged values-only extraction batches and canonical structured-measurements
 promotion batches. Staged extraction artifacts are not canonical bank content by themselves; only rows
 listed under "Canonical structured-measurements promotions" have been written to bundled banks and now
