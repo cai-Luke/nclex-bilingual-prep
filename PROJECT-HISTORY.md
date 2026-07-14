@@ -32,107 +32,7 @@ Current canonical banks and their roles. Per-file counts and schema versions are
 
 Current schema version is `2.0` (`bound` and structured-measurement `population`, PR #23, merged 2026-07-11) — also generated per-bank in `BANK-CENSUS.md`. `NCLEX-Question-Schema.md` owns the complete feature-floor ladder; this file does not restate it.
 
-The refeeding-syndrome case's named PACU baseline panel now carries owner-approved conventional
-units in both learner-facing locales. The deterministic canonical patch changed only the two
-`baseline_record.content` locale strings; its exact manifest and independent-review evidence are
-committed. No structured measurements were authored by that edit.
-
-Batch 20, the authoritative serial redo, is staged as five bounded candidates (`20A`-`20E`): all
-ten actionable refs gate at 0 FAIL and pass explicit-ref applicator dry-runs. Failed Batch 19 is
-excluded in full. The other eighteen Batch 20 refs remain intentionally non-rendering (fourteen
-genuine same-client serial/preservation records plus four empty, multi-client, or no-current-value
-records). The PE slice corrects troponin identity, preserves distinct SaO2/SpO2 measurements, and
-isolates its five measurement-level Rule F dispositions for independent review. No canonical write
-has occurred.
-
-PR A's staging-layer multi-column machinery is merged: the
-flowsheet gate enforces the ratified G1-G8 explicit-column invariants, and the applicator preserves
-authored bilingual columns plus per-value `columnId` while leaving the legacy inferred single-column
-path unchanged. Focused coverage includes mixed explicit-labs/implicit-vitals records, sparse rows,
-historical-only columns, every hard invariant, canonical-preview parity, and legacy output. This
-implementation did not change canonical schema, renderers, banks, or census. **The refeeding-baseline
-successor is promoted (2026-07-12), closing the last open flowsheet hold.** Current vitals stayed on
-the implicit single-column path; labs authored two source-evidenced columns (`PACU (6 h prior)`,
-`Current`). This recovered the potassium/phosphate/magnesium/CBC/LFT data that Principle 26's
-forcing incident had flagged as silently dropped by a prior-only exclusion with no current sibling —
-those 16 values are now real PACU-column rows instead of an `excludedValues` entry. Independent
-review caught and fixed one regression in the process: PR26's new applicator test hardcoded this
-exact exhibit ref as its fixture, so the promotion permanently broke it via the double-application
-guard; the fixture was relocated to a different currently-unpromoted exhibit with a comment flagging
-the coupling risk, since the applicator has no isolated-bank override.
-
-Batch 14 is promoted and closed: Candidate 14A plus successors `14B`-`14G` added all fourteen
-actionable refs under the current gate/applicator contract. Six other Batch 14 dispositions remain
-intentionally non-rendering (`skip_serial`, empty narrative, or stale exclusion-only).
-
-Batch 15 is promoted and closed: all seventeen actionable refs across five bounded candidates
-(`15A`-`15E`) landed, each independently re-gated at 0 FAIL before writing. Three genuine
-differing-current-value records remain intentionally non-rendering `skip_serial` dispositions.
-
-Batch 16 is promoted and closed in full: nineteen of nineteen staged refs across candidates
-`16A`-`16F` landed, each independently re-gated at 0 FAIL before writing (16A's `troponin_i`
-analyte identity and stage-3 Rule F cluster verified individually rather than approved as a group;
-16C's Rule F tags on worsening/unchanged potassium, magnesium, creatinine, and lactate confirmed
-correct under the ratified directed-intervention-plus-temporal-linkage test, which does not require
-the intervention to have succeeded). `16E-THA`'s original disputed tag — POD3's creatinine carrying
-a `post_intervention` tag whose causal language ("after hydration and adequate oral intake") appears
-only in POD2's own sentence, not POD3's — was resolved under the ratified rule that Rule F carries no
-automatic carry-forward across stages; the corrected successor promotes cleanly (0 FAIL / 0 WARN).
-
-Batch 17 is promoted and closed, along with both of its tooling holds: fourteen refs landed —
-eleven across candidates `17A`-`17D`, plus a prenatal `population: "adult"` restage and two
-IV-potassium refs unblocked by a pair of tooling fixes. The R9 pediatric detector now scores
-case-wide `context` text (which spans every exhibit, stage, and question stem in a case) more
-strictly than the staged exhibit's own local text — case-wide text hard-triggers only on explicit
-patient/client identity evidence, not the loose bare-noun heuristic that previously misread a
-different exhibit's anaphoric reference to a related person as the measurement subject. Separately,
-`validateCaseStudy` now tracks exhibit-id uniqueness with one set shared across the whole case
-instead of a fresh set per array, which surfaced and fixed byte-for-byte exhibit duplication (a
-stage's content copied into the top-level array — also an exam-facing spoiler risk, since the
-top-level array renders unconditionally ahead of the stage gate) in three canonical cases, not just
-the one originally flagged. `17C-REFEEDING`'s already-promoted `stage_60h_update` phosphate tag was
-also corrected under the same Rule F no-carry-forward ruling that closed `16E-THA`: its
-"never stated as discontinued" justification was owner-ruled automatic carry-forward and the tag
-was pulled (stage-36 phosphate's own-record tag is unaffected). Rule F's boundary is now refined
-(`DECISIONS.md`): an earlier record may establish administration, but a later record must explicitly
-or unambiguously connect its own measurement to that intervention — mere stage chronology, clinical
-plausibility, or the absence of a discontinuation statement no longer suffices. No open flowsheet
-holds or flagged tag disputes remain.
-
-Batch 18 is promoted and closed in full: all four actionable refs across candidates `18A`-`18B`
-landed, each independently re-gated at 0 FAIL before writing. This closes the entire
-`prose_embedded` lane's original closure tail. A burn SpO2 tag is a textbook match for the
-refined Rule F boundary ("on the non-rebreather," explicit same-record device framing), and a
-C. difficile follow-up record correctly carries zero Rule F tags under the no-carry-forward rule.
-Tracing a WARN in this batch surfaced a real (non-blocking) gap in the R9 context-provenance fix:
-the age-marker regex doesn't recognize `weeks?` as a unit, so a genuinely pediatric case stated
-only in weeks, only in case-wide context, with population left unset, could WARN rather than
-hard-FAIL. That was the finding at Batch 18 close; the week-unit fix landed before Batch 20 and is
-recorded immediately below.
-
-The flagged R9 week-unit gap is fixed and Batch 20 is promoted and closed in full: all ten
-actionable refs across candidates `20A`-`20E` landed, each independently re-gated at 0 FAIL before
-writing — the complete authoritative serial-lane redo after Batch 19 failed. The R9 fix adds a
-week-scaled threshold (not a raw comparison against the years threshold) and a male/female subject-
-noun modifier, in both English and Chinese; it immediately validated against real content in this
-same batch (follow-up-interval phrases like "in 1 week"/"in 6 weeks" now correctly WARN instead of
-staying invisible). A pulmonary-embolism record's five repeat vitals/labs were adjudicated
-individually rather than as one cluster, each tracing to an explicit same-record reassessment frame
-or device framing. No open flowsheet holds remain.
-
-The R9 day-age follow-on is also landed. A separate English expression requires an explicit `old`
-suffix (`3-day-old`, `3 days old`) and accepts four digits; Chinese recognizes `日龄`, `天龄`, and
-`天大/天大的`. Both use the exclusive scaled boundary `age < 6570` and feed the existing subject and
-related-person scoping unchanged. Regressions cover English and Chinese `6569`/`6570` boundaries,
-context-only pediatric subjects, four-digit ages, possessive related persons, and ordinary day
-durations/chronology. The approved work order is `r9-age-marker-day-unit-codex-spec.md`.
-
-The closed flowsheet lane's generated manifests, batch artifacts, adjudications, promotion
-candidates, comparisons, and handoffs are archived under
-`Archive/exhibit-flowsheet-migration-2026-07-13/`. The root retains only the ledger of record, the
-active Rule F extraction contract, the implemented multi-column contract, and the completed batch
-protocol; current behavior remains owned by the gate/applicator sources. Batch 19 remains archived
-as failed provenance, with Batch 20 explicitly authoritative.
+Schema 2.0 is current. The structured-measurement flowsheet migration — including the refeeding-syndrome PACU baseline unit clarification, the multi-column staging contract, and the authoritative Batch 20 serial redo with its R9 age-marker fixes (week-unit and day-unit) — is closed with no open holds or flagged tag disputes. Failed Batch 19 is retained only as failure provenance; Batch 20 is the authoritative serial-lane redo. Detailed batch-by-batch chronology lives in the dated archive (`Archive/exhibit-flowsheet-migration-2026-07-13/`) and `EXHIBIT-FLOWSHEET-MIGRATION-LEDGER-2026-07-05.md`; the executable gate (`scripts/exhibit-flowsheet-gate.ts`) and applicator (`scripts/apply-structured-measurements.ts`) own current behavior.
 
 Current schema item types:
 
@@ -180,7 +80,7 @@ Completed:
 Notes:
 - Known scope correction: threading the recorder through every live mode is currently a **no-op**. Both `test` and `adaptive` force `languageMode: "off"` at session creation, and no reveal can fire in `off`. See the `DECISIONS.md` correction under *Default recommended session is Study, not Test*.
 - Process: the Part B branch was pushed directly to `origin/main` rather than merged through the architect gate, and carried an unrelated structured-measurements commit with it. Nothing was lost (fast-forward), but branch protection on `main` is warranted before the next large batch lane.
-- Still open: the case-part GPT rescue action renders *above* its part rationale, inverting the standalone order ratified in this pass.
+- Resolved by PR #45 (2026-07-13): the case-part GPT rescue action now renders below its part rationale in the shared `CaseActivePart` component, matching the standalone order ratified in this pass.
 
 Verified:
 - `npm run test:translation-telemetry` (incl. new adaptive-ineligibility case)

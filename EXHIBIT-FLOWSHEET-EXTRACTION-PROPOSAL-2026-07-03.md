@@ -1,4 +1,4 @@
-# Exhibit Flowsheet Extraction — Deterministic Proposal + Worst-Case Smoke Batch
+# Exhibit Flowsheet Extraction — Deterministic Contract (Rules A–F)
 
 Date: 2026-07-03 (amended 2026-07-04 after smoke batch 1)
 Status: implemented migration contract; the migration closed 2026-07-13. Rule F remains active as
@@ -315,208 +315,17 @@ of the four dispositions:
 - Every keyed entry must additionally pass **GATE 4** (dimensional sanity): value-in-`sourceUnit`,
   converted to canonical, falls within the analyte's `sanity{min,max}`.
 
-## Worst-case smoke batch (6 panels for hand-adjudication)
+## Worst-case smoke batch — archived
 
-These are **not** representative — they are the deliberately hardest panels, chosen to surface every
-failure mode: two parenthetical prior-value traps, the two highest-residual woven panels, one
-serial-timepoint exhibit (multiple readings over time), and one scattered post-intervention panel
-where the extractor recovered only 2 canonical parameters. If junior extraction + senior audit hold
-up here, the easy 96% is trivial. Fill the `panel[]` and `excludedValues[]` for each, then Luke
-adjudicates whether every keyed value is the clinically-current one and every excluded value was
-correctly set aside. Each template below is pre-populated with its `exhibitRef` and `lane`; the
-junior model fills `panel[]` (with `sourceUnit` and optional `context` per Rules C/F),
-`excludedValues[]` (reason enum `{prior, trend, serial}`), and `unitAliases[]` per the record shape
-above (Panel 5 is pre-set to `skip_serial` and should be left as-is if the serial detector agrees).
-
-### Panel 1: `opus_tpn_case_mucositis_01/exhibit_baseline` (hard-cases)
-
-**Why this is worst-case:** prior-value trap + 23 params + heavy residual
-
-Source exhibit title (EN): Assessment & Baseline Labs (Start of Shift)
-
-Source `content.en`:
-```
-Baseline assessment at start of night shift: Temperature 38.9 °C (102.0 °F) orally (elevated from 37.2 °C twelve hours earlier), heart rate 112 and regular, blood pressure 96/58 (down from 118/72 earlier in the day), respiratory rate 22, SpO₂ 95% on room air. Weight is 64.2 kg, up 1.8 kg from admission weight of 62.4 kg. The patient is alert but appears fatigued and in significant distress from pain. Oral examination reveals confluent, deep ulcerations across the buccal mucosa, tongue, and soft palate with white-yellow pseudomembranes and areas of bleeding — consistent with World Health Organization grade IV mucositis. Lips are cracked and bleeding. Thick, ropy saliva pools in the oropharynx. The patient gags and winces when attempting to open her mouth fully. Skin is warm, flushed, and dry. The right upper arm PICC dressing is intact but the insertion site shows new erythema extending approximately 2 cm from the insertion point, with mild tenderness on palpation; no purulent drainage is visible, but the area was not erythematous at the previous dressing assessment 48 hours ago. Abdomen is soft, mildly distended, with hypoactive bowel sounds. No stool in 3 days. Peripheral edema is trace bilateral in the lower extremities. Urine output has been 120 mL over the last 8 hours (approximately 15 mL/hr), decreased from 40–50 mL/hr the day prior.
-
-Baseline labs drawn 6 hours prior to the nurse's shift: WBC 0.3 × 10³/µL (ANC less than 100/µL), hemoglobin 7.8 g/dL, platelets 18,000/µL, BUN 32 mg/dL, creatinine 1.6 mg/dL (up from baseline 1.3), sodium 138 mEq/L, potassium 3.2 mEq/L (low), chloride 101 mEq/L, bicarbonate 22 mEq/L, magnesium 1.4 mg/dL (low), phosphorus 2.8 mg/dL, calcium 8.0 mg/dL, albumin 2.1 g/dL (low), prealbumin 8 mg/dL (low, marking nutrition risk and inflammation alongside elevated CRP), blood glucose 268 mg/dL (elevated; was 312 mg/dL four hours before that), AST 42 U/L, ALT 38 U/L, total bilirubin 1.0 mg/dL, triglycerides 310 mg/dL (elevated), lactate 2.8 mmol/L (mildly elevated), C-reactive protein 14.2 mg/dL (elevated). Blood cultures were drawn from the PICC and peripherally at the time of the temperature spike but results are pending.
-```
-
-Source `content.zh` is present in-bank; extraction operates on `content.en` (values are language-neutral tokens), and the ZH prose is left untouched under GATE 3.
-
-Expected output (fill `panel[]` / `excludedValues[]` / `unitAliases[]` per the record shape; empty arrays are valid if a disposition has no members):
-```json
-{
-  "exhibitRef": "opus_tpn_case_mucositis_01/exhibit_baseline",
-  "lane": "extract",
-  "panel": [
-    { "label": "", "value": "", "sourceUnit": "", "sourceSpan": "" }
-  ],
-  "excludedValues": [
-    { "label": "", "value": "", "reason": "", "sourceSpan": "" }
-  ],
-  "unitAliases": [
-    { "aliasOf": "", "value": "" }
-  ]
-}
-```
-
-### Panel 2: `opus_case_lithium_toxicity_01/exhibit_admission` (claude)
-
-**Why this is worst-case:** prior-value trap (weight 4wk ago; creatinine baseline)
-
-Source exhibit title (EN): Admission Assessment & Labs (0800)
-
-Source `content.en`:
-```
-ASSESSMENT FINDINGS
-Temperature 37.1 °C, heart rate 102 and regular, blood pressure 98/62, respiratory rate 18, SpO₂ 96% on room air. Weight 64 kg (her documented outpatient weight four weeks ago was 68 kg). Mucous membranes dry and tacky. Skin turgor decreased, with tenting over the sternum lasting three seconds. Pupils equal, round, reactive, 3 mm bilaterally. Coarse, irregular tremor in both hands at rest and with intention; no tremor at her last outpatient visit per psychiatry notes. Deep tendon reflexes 3+ bilaterally at the patellar and Achilles tendons with three beats of non-sustained ankle clonus. Gait not assessed because of unsteadiness; the patient is placed on fall precautions. Bowel sounds hyperactive in all four quadrants. Abdomen soft, non-tender. Lungs clear bilaterally. Heart sounds regular, no murmur. Peripheral pulses palpable but thready. Capillary refill 3 seconds in the fingernail beds. Foley catheter inserted per ED; urine output in the ED over the preceding two hours was 40 mL total (approximately 0.3 mL/kg/hr). The patient is able to follow simple commands but drifts off between questions. Glasgow Coma Scale: eye opening to voice (3), confused verbal responses (4), localizes to pain (5) — total 12.
-
-LABORATORY DATA
-Serum lithium level: 2.8 mEq/L (therapeutic range per clinic protocol: 0.6–1.2 mEq/L; levels above 1.5 mEq/L are considered toxic). Sodium 148 mEq/L, potassium 3.1 mEq/L, chloride 96 mEq/L, bicarbonate 30 mEq/L, BUN 38 mg/dL, creatinine 1.9 mg/dL (baseline 0.9 mg/dL), glucose 142 mg/dL, calcium 9.4 mg/dL, magnesium 1.6 mg/dL (reference 1.7–2.2 mg/dL), phosphorus 3.8 mg/dL. eGFR calculated at 28 mL/min/1.73 m². Serum osmolality 312 mOsm/kg (reference 275–295). ECG: sinus tachycardia at 102 bpm, flattened T waves in leads V4–V6, no ST changes, QTc 460 ms.
-```
-
-Source `content.zh` is present in-bank; extraction operates on `content.en`, ZH prose untouched under GATE 3.
-
-Expected output (fill `panel[]` / `excludedValues[]` / `unitAliases[]` per the record shape; empty arrays are valid if a disposition has no members):
-```json
-{
-  "exhibitRef": "opus_case_lithium_toxicity_01/exhibit_admission",
-  "lane": "extract",
-  "panel": [
-    { "label": "", "value": "", "sourceUnit": "", "sourceSpan": "" }
-  ],
-  "excludedValues": [
-    { "label": "", "value": "", "reason": "", "sourceSpan": "" }
-  ],
-  "unitAliases": [
-    { "aliasOf": "", "value": "" }
-  ]
-}
-```
-
-### Panel 3: `opus_scc_case_01/exh_stage3` (hard-cases)
-
-**Why this is worst-case:** highest residual (301 words) — 8 vitals embedded in surgical narrative with several trend values
-
-Source exhibit title (EN): Clinical Course — Postoperative Day 1
-
-Source `content.en`:
-```
-Approximately 30 hours after admission (roughly 18 hours after posterior laminectomy): The patient is transferred back to the oncology unit from the PACU. She is awake, alert, and oriented. Surgical site dressing at the posterior thoracic spine is clean, dry, and intact with a Jackson-Pratt drain in place with 40 mL of serosanguineous output over the past 8 hours. Vital signs: temperature 37.8 °C, heart rate 78, blood pressure 124/74, respiratory rate 16, SpO₂ 97% on 2 L nasal cannula. Pain is 5 out of 10 at the surgical site, managed on IV hydromorphone. On neurological reassessment: lower extremity motor strength is now 3 out of 5 bilaterally in hip flexors and quadriceps — improved from the 2 out of 5 seen preoperatively. Ankle dorsiflexion is 2 out of 5 bilaterally (improved on the left from 1 out of 5). She can wiggle all toes weakly on command. Deep tendon reflexes remain hyperreflexic (3+) but clonus is no longer sustained — only 1 beat at the left ankle, absent on the right. Babinski sign remains positive bilaterally. Sensory level has improved: she now perceives light touch beginning at T8 and pinprick at T9. Perineal sensation remains absent. The indwelling urinary catheter remains in place, draining clear yellow urine at 60 mL per hour. Blood glucose is 210 mg/dL; a sliding-scale insulin order is in place. Repeat labs: hemoglobin 9.6 g/dL (dropped from 10.8, expected surgical loss), creatinine 0.9 mg/dL (stable), corrected calcium 10.4 mg/dL (slightly improved from 10.8, bisphosphonate and steroids helping), alkaline phosphatase 298 U/L (stable). The dexamethasone is continued at 4 mg IV every 6 hours with a planned taper over the coming weeks. Radiation oncology plans to initiate adjuvant radiation to the T6–T8 field in 10 to 14 days once the surgical wound has begun to heal. The patient's mood is cautiously hopeful. She asks the nurse, "Will I need to learn to use a wheelchair?"
-```
-
-Source `content.zh` is present in-bank; extraction operates on `content.en`, ZH prose untouched under GATE 3.
-
-Expected output (fill `panel[]` / `excludedValues[]` / `unitAliases[]` per the record shape; empty arrays are valid if a disposition has no members):
-```json
-{
-  "exhibitRef": "opus_scc_case_01/exh_stage3",
-  "lane": "extract",
-  "panel": [
-    { "label": "", "value": "", "sourceUnit": "", "sourceSpan": "" }
-  ],
-  "excludedValues": [
-    { "label": "", "value": "", "reason": "", "sourceSpan": "" }
-  ],
-  "unitAliases": [
-    { "aliasOf": "", "value": "" }
-  ]
-}
-```
-
-### Panel 4: `opus1_case_tha_discharge_lep_01/pod2_update` (claude)
-
-**Why this is worst-case:** woven labs+vitals with serial creatinine + heavy social/discharge prose
-
-Source exhibit title (EN): Coordination update, renal trend, and teach-back session
-
-Source `content.en`:
-```
-About 42 hr after surgery: T 36.9 °C, HR 74, BP 128/72, RR 14, SpO₂ 98% on room air. Pain 3/10 at rest and 5/10 with movement. Incision clean with staples intact and no signs of infection. Repeat creatinine 1.4 mg/dL after hydration and adequate oral intake; eGFR 39 mL/min. Hgb 10.0 g/dL.
-
-Social work/case management interviews the client using a telephone interpreter. Her son can be present on the day of discharge and the following day, but not beyond that. She receives Meals on Wheels and has Medicare with a supplemental plan. Case management determines that she qualifies for Medicare home health services because she is homebound and requires skilled nursing plus home PT. The home health referral is initiated.
-
-PT session: Client demonstrates safe walker use on level ground with standby assistance and can perform sit-to-stand from a raised toilet seat independently. Stairs have not yet been attempted. Afternoon PT stair training is planned.
-
-Interpreter-mediated education: A certified in-person Mandarin interpreter is present. The nurse teaches posterior hip precautions, rivaroxaban purpose and 10 mg once-daily schedule for 35 days, bleeding signs, missed-dose instructions, pain medication safety, and when to call the surgeon or seek emergency care. The client accurately repeats key points in Mandarin, demonstrates hip precautions with a model, and identifies the rivaroxaban pill. She states she would need her son to call the surgeon because she cannot navigate the English phone tree alone. The nurse flags this as a remaining barrier.
-
-Afternoon PT: Client negotiates four stairs up and down with a walker and one handrail with standby assistance. PT clears her for discharge home with home PT, front-wheeled walker, raised toilet seat, and reacher/grabber. The nurse requests a Mandarin-translated home exercise program. The surgeon writes a discharge order for postoperative day 3 morning pending nursing confirmation of discharge readiness.
-```
-
-Source `content.zh` is present in-bank; extraction operates on `content.en`, ZH prose untouched under GATE 3.
-
-Expected output (fill `panel[]` / `excludedValues[]` / `unitAliases[]` per the record shape; empty arrays are valid if a disposition has no members):
-```json
-{
-  "exhibitRef": "opus1_case_tha_discharge_lep_01/pod2_update",
-  "lane": "extract",
-  "panel": [
-    { "label": "", "value": "", "sourceUnit": "", "sourceSpan": "" }
-  ],
-  "excludedValues": [
-    { "label": "", "value": "", "reason": "", "sourceSpan": "" }
-  ],
-  "unitAliases": [
-    { "aliasOf": "", "value": "" }
-  ]
-}
-```
-
-### Panel 5: `gpt_2026_06_16_case_postpartum_preeclampsia_severe_01/stage3_reassessment` (gpt)
-
-**Why this is worst-case:** SERIAL timepoints — four BP readings over 90 min, no single "current" value. **Under Rule D this exhibit is now a deterministic `skip_serial` — it is excluded from extraction and stays prose.** It remains in the smoke batch as the ground-truth check that the serial detector fires here and the junior model correctly emits `{ lane: "skip_serial" }` rather than inventing a single BP. Adjudicate: did the detector catch it, or did the model try to extract anyway?
-
-Source exhibit title (EN): Reassessment findings
-
-Source `content.en`:
-```
-At 1:00 PM BP is 142/90. At 1:30 PM BP is 138/88; headache is 4/10; visual spots have resolved; facial edema is unchanged; DTRs are 2+ with no clonus; RR 16/min; patient is alert. Urine output second hour is 45 mL. Magnesium continues at 2 g/hr. Later BP: 140/86 at 2:00 PM and 136/84 at 2:30 PM. Provider plan: continue magnesium for 24 hours from the loading dose, start nifedipine ER 30 mg every 12 hours for maintenance BP control, and repeat HELLP panel in 6 hours.
-```
-
-Source `content.zh` is present in-bank; extraction operates on `content.en`, ZH prose untouched under GATE 3.
-
-Expected output (serial exhibit — Rule D; the junior model should reproduce this `skip_serial` object and emit no arrays):
-```json
-{
-  "exhibitRef": "gpt_2026_06_16_case_postpartum_preeclampsia_severe_01/stage3_reassessment",
-  "lane": "skip_serial"
-}
-```
-
-BP recurs at four distinct timepoints, so the serial detector fires and no
-`panel`/`excludedValues`/`unitAliases` arrays are emitted. If the junior model returns a populated
-`panel[]` here, that is the failure this panel is designed to catch.
-
-### Panel 6: `case_preeclampsia_magnesium_01/toxicity_assessment` (hard-cases)
-
-**Why this is worst-case:** short + scattered; only 2 canonical params recovered mechanically; the BP is a **post-intervention** value (`after labetalol`). Under **Rule F** this is the current (and only) BP in the exhibit, so it must be **keyed in `panel[]` with `context: "post_intervention"`**, not excluded. The first smoke batch excluded it (per the then-current enum), which left the flowsheet with no blood pressure at all — the defect Rule F now closes. Adjudicate: did the model key sbp/dbp 148/94 with the context tag rather than dropping them?
-
-Source exhibit title (EN): Focused assessment
-
-Source `content.en`:
-```
-Client is difficult to arouse. RR 10/min. SpO2 93% on room air. Patellar reflexes absent. Urine output 20 mL in the past hour.
-Blood pressure after labetalol: 148/94 mm Hg.
-```
-
-Source `content.zh` is present in-bank; extraction operates on `content.en`, ZH prose untouched under GATE 3.
-
-Expected output (fill `panel[]` / `excludedValues[]` / `unitAliases[]` per the record shape; empty arrays are valid if a disposition has no members):
-```json
-{
-  "exhibitRef": "case_preeclampsia_magnesium_01/toxicity_assessment",
-  "lane": "extract",
-  "panel": [
-    { "label": "", "value": "", "sourceUnit": "", "sourceSpan": "", "context": "post_intervention" }
-  ],
-  "excludedValues": [
-    { "label": "", "value": "", "reason": "", "sourceSpan": "" }
-  ],
-  "unitAliases": [
-    { "aliasOf": "", "value": "" }
-  ]
-}
-```
+The original 6-panel worst-case smoke batch (deliberately the hardest panels: two prior-value
+traps, the two highest-residual woven panels, one serial-timepoint exhibit, and one
+post-intervention panel) was used for Luke's hand-adjudication before the migration opened. Its
+source templates, and the resulting scope decision to proceed with the full 232-panel migration,
+are provenance-only now that the migration has closed. Results are recorded in
+`Archive/root-cleanup-2026-07-05/EXHIBIT-FLOWSHEET-SMOKE-ADJUDICATION-2026-07-04.md`; the
+batch-by-batch migration record is `EXHIBIT-FLOWSHEET-MIGRATION-LEDGER-2026-07-05.md`. The
+adjudication rubric below remains the active reference for reviewing any future extraction work
+under this contract.
 
 ## Adjudication rubric (what Luke records per panel)
 
@@ -531,17 +340,11 @@ For each panel, mark:
 - **Cost signal:** subjective note on junior-model effort and senior-audit effort, for the
   windows-cost estimate.
 
-## Decision this smoke batch informs
+## Outcome
 
-- If selection + exclusion correctness are high on these worst-case panels → junior extraction with
-  the deterministic gate + senior semantic pass is trustworthy; scope the full 232-panel migration.
-- If the prior/trend/serial panels show mis-selection the gate can't catch → restrict the migration
-  to the non-trap subset and hand-author the traps, or pivot to structured-first authoring for new
-  content only (leave legacy prose alone).
-- Either way, the residual-integrity calls decide replace-vs-supplement, which is the actual schema
-  shape question.
-
-## What this did not do
-
-No schema change, no bank edit, no renderer, no new visual kind, no windows spent. Read-only scan +
-this proposal only.
+Selection and exclusion correctness held up on the worst-case panels, and the residual-integrity
+calls resolved toward supplement (prose stays intact; the structured panel is additive), matching
+principle 24's "values-only exhibit presentation" ruling in `DECISIONS.md`. The full 232-panel
+migration proceeded on that basis and closed 2026-07-13 with no open holds. This contract (GATE
+1–4, Rules A–F, and the record shape above) remains the governing extraction policy for any future
+structured-measurement work; it is not scoped to the closed migration alone.

@@ -12,6 +12,89 @@ Formalized per principle 27(c). Every principle and open-thread entry carries—
 
 **Retrofit status (2026-07-12 docs-consolidation pass):** principles 1–27 are active as of this pass. None of the numbered principles is itself superseded; only narrower amendments or extensions within some principles are, and those carry inline history. The open-thread entries most likely to be mistaken for settled are tagged below. Mechanically tagging every remaining amendment and extension is unowned follow-up work, not a blocker for this pass.
 
+## Decision index (2026-07-13)
+
+Navigation aid only — restates no ruling and settles nothing new; it links to the entries below by
+their existing headings/labels and states the trigger where one is already recorded. Read the
+target entry for the actual reasoning.
+
+### REVISIT now
+
+Entries explicitly tagged `Status: REVISIT` below — a next step is pending, not settled behavior.
+
+- **Visual parity coverage is 3 of ~196** (found 2026-07-10) — unowned; extending the pinned-snapshot
+  baseline to the promoted surface is a gate change needing its own scope and review.
+- **Vital-sign `sanity` bounds are copied renderer validation envelopes** (Amendment 3A / R17, found
+  2026-07-10) — survey and pre-move sweep complete (2026-07-11); the `temp` tripwire itself remains
+  unrepaired and no bound is ratified. Next step: clinical sourcing through the reference-range lane,
+  Luke's sign-off, then architect ratification.
+- **Single-row labs panels** (2026-07-09) — open design question (floor a labs panel below two keyed
+  rows?); no live harm since v1 renders no bands; logged against the reference-range lane.
+- **Governance markdown has no encoding gate** — the specific 2026-07-09 alarm was a connector-read
+  artifact, not disk corruption (false positive, closed); extending `scanForReplacementChar` to root
+  markdown in CI remains open and unowned.
+- **Schema-floor traversal omits `rationale.visuals`** (found 2026-07-09) — `hasPacerRhythmStrip`'s two
+  copies (plus a third in `visual-parity.ts`) don't walk `rationale.visuals`; the shared
+  `collectAllVisuals` traversal that would fix it already exists, but retrofitting the floor is
+  deliberately deferred pending a bank-impact survey, since tightening a floor can newly reject an
+  existing bank.
+
+### Parked until trigger
+
+Deliberately shelved, not abandoned — each has a named resumption condition.
+
+- **Translation-friction scoring** (Jul 1) — folding reveal-tap friction into
+  `scoreTargetedReviewCandidate` / `buildTargetedReviewPool` stays open until real dogfooding
+  sessions show reveal concentration that is genuinely topic/category-specific and miss-predictive
+  beyond the existing missed-topic signal.
+- **`test` and `adaptive` exam-condition modes** — both are non-default half-exam placeholders (force
+  `languageMode: "off"`, still reveal immediately post-submit) pending a decision to spec each as a
+  real exam simulator or remove it. Deferred sub-question: whether a strict exam environment should
+  ever permit a post-submit full translation reveal.
+- **Audio generation** (deprioritized 2026-06-22) — shelved on real user feedback (the GPT-conversation
+  workaround currently suffices), not killed. Resumes on: the workaround stops sufficing, integrated
+  bilingual audio becomes wanted, or Flushing scale. The queue/cost/per-field-clip machinery is fully
+  built; restart is a lane decision, not a re-derivation.
+
+### Active principles
+
+Numbered 1–27. Per the 2026-07-12 retrofit, no numbered principle is itself superseded — only
+amendments/extensions within a principle are, and those carry inline history under the parent
+number. Principles 13–14 do not exist in the current numbering; that is not a transcription gap.
+
+1. Answer placement is owned by code, not the model.
+2. The producer is never the checker (+ spec-conformance-is-not-content-review extension).
+3. Deterministic core; LLM only for the capped semantic residual (+ proposal-only in-harness GPT-5 extension).
+4. Rationales are position-agnostic — bilingual.
+5. Generated ≠ reviewed.
+6. Visuals are deterministic, data-derived, and necessary.
+7. Precision over volume.
+8. Clinical truth is authored once, upstream, read-only downstream (+ bowtie-synthesis, case-completion-accounted, Gemini-is-review extensions).
+9. Case-skeleton is English-only; bilingual generation concentrates in the compiler.
+10. Study sessions mirror exam content distribution; difficulty is exam-sim-only.
+11. Visual arithmetic is a machine-checked gate, not a trusted assertion — no conversion engine.
+12. Author-side currency: closed-world construction + routed flags, never a changelog.
+15. Bank patches are raw-scoped and declarative.
+16. Answer-pattern bias is presentation-layer first, content-layer only where shuffling can't reach.
+17. Scoring is exam-style polytomous; retention is full-marks.
+18. The clinical fact-check/currency and review-layer steps are part of the chain, not asides.
+19. Rationale visuals are explanation figures, not stimuli.
+20. Pronunciation/audio is pre-generated, local-first, resolved by asset presence.
+21. Generation prompts for repo-reading instances carry the semantic floor, not the schema.
+22. Opus skeleton cases are GPT-provenance for review-conflict purposes.
+23. Exam-like presentation is a renderer concern; case identity and grading are not.
+24. Structured measurements are values-only exhibit presentation; identity/display resolve at the edges.
+25. Necessity is a property of the artifact, not of every element in it (additive-over-value-complete waiver).
+26. A disposition that suppresses a check must itself be checked.
+27. An invariant softens only by naming the incident it was minted from and showing the condition is gone.
+
+### Superseded history
+
+- **CBC lab units are American conventional, not SI** (2026-07-04). Status: SUPERSEDED — do not follow
+  its "never SI" / "`×10⁹/L` dropped" claims. The governing rule is the **Amendment (2026-07-05)**
+  immediately below it in this file: conventional-first display + SI-in-parentheses, analyte-aware,
+  source-faithful extraction (`×10⁹/L` restored as an accepted *source* unit).
+
 ## Standing principles
 
 **1. Answer placement is owned by code, not the model.**
