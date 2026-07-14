@@ -52,6 +52,21 @@ The committed NGN item-type set is complete. Rationale/dyad scoring and an expli
 
 > Milestones dated **2026-06-23 and earlier** are archived in [`Archive/PROJECT-HISTORY-ARCHIVE.md`](Archive/PROJECT-HISTORY-ARCHIVE.md). Only the current arc (2026-06-24 onward) is kept here.
 
+### Documentation Architecture Pass: `DECISIONS.md` Constitution (Jul 14)
+
+Completed:
+- Reworked `DECISIONS.md` into an architectural constitution: expanded the status vocabulary to ACTIVE / CONDITIONAL / PARKED / REVISIT / SUPERSEDED, tagged every numbered principle (1–27, excluding the intentionally unused 13–14) with exactly one status, and rebuilt the decision index around the five buckets.
+- Narrowed principles 2, 5, 6, 10, 16, 21, 23, 24, and 26 to their durable constitutional core, moving exact metrics, field shapes, and closed chronology owned by code or by the (already-reconciled) exhibit-flowsheet extraction contract out of the principle bodies.
+- Grouped principles 8, 9, 12, 18, and 22 as one "Conditional lane contracts" section describing the forward case-generation pipeline, binding only while that lane is active, with the current GPT-5.6 Sol producer assignment stated once so a future producer swap touches one line instead of five principles.
+- Parked principle 20 (pronunciation/audio) to its safety-boundary core plus resumption triggers, moving the full distribution/pricing/codec architecture to archive.
+- Resolved principle 6's direct conflict with `AGENTS.md`: both now agree that curated licensed clinical imagery is permitted through a separate provenance/licensing/review lane, not banned outright.
+- Archived the full condensed history — forcing incidents, exact historical metrics, superseded prior wordings, and closed flowsheet-extraction rulings now owned by the extraction contract — to [`Archive/DECISIONS-ARCHIVE-2026-07-14.md`](Archive/DECISIONS-ARCHIVE-2026-07-14.md).
+- `AGENTS.md` required no edits: its principle 5 / 27(a) / `CANONICAL_PREFIXES` references, curated-licensed-image allowance, and risk-tiered verification table already agreed with the new rulings.
+
+Verified:
+- Every numeric/field claim retained in the narrowed principles (`NCLEX_CATEGORY_WEIGHTS`, `STANDALONE_SPLIT_VISUAL_KINDS`, `max_cell_deviation_pp`/`template_repeat_max_share`, `SchemaVersion` union, `CANONICAL_PREFIXES`, the `/^opus\d*_/` routing matcher) checked directly against `src/schema.ts`, `src/examLayout.ts`, `scripts/audit/non-mcq-bias-lib.ts`, `src/types.ts`, `lib/canonical-routing.ts`, and `scripts/audit/early-bank-semantic-layer-a.ts`.
+- `git diff --check` passed; no code, bank, schema, or clinical content changed.
+
 ### Intake/Output Trend Visual Schema 1.9 (Jul 9)
 
 Completed:
