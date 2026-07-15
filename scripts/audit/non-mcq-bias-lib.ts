@@ -11,17 +11,21 @@ import type {
 import { checkQuestionReferences } from "./audit-references";
 
 export const NON_MCQ_BIAS_CONFIG = {
-  audit_version: "2.0.0",
+  audit_version: "2.1.0",
   min_expected_count: 5,
   chi2_alpha: 0.01,
   max_cell_deviation_pp: 8,
   sata_count_degeneracy: 0.70,
-  sata_missing_count_fails: true,
+  sata_count_min_n: 8,
   ordered_min_mean_kendall: 0.35,
   scramble_min_n: 8,
   template_repeat_max_share: 0.15,
   example_cap: 3,
 } as const;
+
+export const ORDERED_TEMPLATE_MIN_N = Math.ceil(
+  1 / NON_MCQ_BIAS_CONFIG.template_repeat_max_share,
+);
 
 const CONFIG_TEXT = JSON.stringify(NON_MCQ_BIAS_CONFIG);
 export const NON_MCQ_BIAS_CONFIG_HASH = createHash("sha256").update(CONFIG_TEXT).digest("hex");
@@ -302,12 +306,14 @@ function sataRecords(
       (_, index) => index + 1,
     ).filter((count) => !observed.has(count));
   }
-  const hasMissing = Object.values(missingByOptionCount).some((counts) => counts.length > 0);
-  const countFail =
-    questions.length > 0 &&
-    (topShare > NON_MCQ_BIAS_CONFIG.sata_count_degeneracy ||
-      (NON_MCQ_BIAS_CONFIG.sata_missing_count_fails && hasMissing));
-  const countVerdict = questions.length === 0 ? "INSUFFICIENT" : countFail ? "FAIL" : "PASS";
+  const countVerdict: BiasVerdict =
+    questions.length === 0
+      ? "INSUFFICIENT"
+      : questions.length < NON_MCQ_BIAS_CONFIG.sata_count_min_n
+        ? "INSUFFICIENT"
+        : topShare > NON_MCQ_BIAS_CONFIG.sata_count_degeneracy
+          ? "FAIL"
+          : "PASS";
   const countExamples = questions
     .filter((question) => question.correct.length === [...countHistogram.entries()]
       .sort((left, right) => right[1] - left[1] || left[0] - right[0])[0]?.[0])
@@ -412,9 +418,11 @@ function orderedRecords(bank: string, questions: OrderedResponseQuestion[]): Bia
   const templateVerdict =
     questions.length === 0
       ? "INSUFFICIENT"
-      : topTemplateShare > NON_MCQ_BIAS_CONFIG.template_repeat_max_share
-        ? "FAIL"
-        : "PASS";
+      : questions.length < ORDERED_TEMPLATE_MIN_N
+        ? "INSUFFICIENT"
+        : topTemplateShare > NON_MCQ_BIAS_CONFIG.template_repeat_max_share
+          ? "FAIL"
+          : "PASS";
 
   return [
     baseRecord(bank, "ordered_response", "scramble_depth", {
@@ -674,7 +682,13 @@ export function auditNonMcqBias(inputs: BiasBankInput[]): BiasReport {
   };
 
   const perBank = banks.flatMap((bank) => analyzeOneBank(bank.id, bank.questions, shapes));
+  const nonInheritedDistributionChecks = new Set([
+    "select_all:correct_count_distribution",
+    "ordered_response:template_repetition",
+  ]);
   const global = analyzeOneBank("global", globalQuestions, shapes).map((record) => {
+    const recordKey = `${record.item_type}:${record.check}`;
+    if (nonInheritedDistributionChecks.has(recordKey)) return record;
     const matching = perBank.filter(
       (candidate) => candidate.item_type === record.item_type && candidate.check === record.check,
     );

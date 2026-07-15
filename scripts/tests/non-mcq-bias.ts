@@ -10,7 +10,9 @@ import type {
 } from "../../src/types";
 import {
   auditNonMcqBias,
+  NON_MCQ_BIAS_CONFIG,
   NON_MCQ_BIAS_CONFIG_HASH,
+  ORDERED_TEMPLATE_MIN_N,
   type BiasRecord,
 } from "../audit/non-mcq-bias-lib";
 import {
@@ -95,6 +97,15 @@ function find(records: BiasRecord[], bank: string, check: string): BiasRecord {
   return record;
 }
 
+assert.equal(NON_MCQ_BIAS_CONFIG.audit_version, "2.1.0");
+assert.equal(NON_MCQ_BIAS_CONFIG.sata_count_min_n, 8);
+assert.equal("sata_missing_count_fails" in NON_MCQ_BIAS_CONFIG, false);
+assert.equal(ORDERED_TEMPLATE_MIN_N, 7);
+assert.equal(
+  ORDERED_TEMPLATE_MIN_N,
+  Math.ceil(1 / NON_MCQ_BIAS_CONFIG.template_repeat_max_share),
+);
+
 const biasedQuestions: Question[] = [
   ...Array.from({ length: 20 }, (_, index) =>
     sata(`sata-biased-${index}`, [0, 1], index === 0 ? "Option A is correct." : undefined)),
@@ -136,6 +147,71 @@ const tinyOrdered = auditNonMcqBias([{
 }]);
 assert.equal(find(tinyOrdered.records, "tiny-ordered", "scramble_depth").verdict, "INSUFFICIENT");
 
+const sataN7Degenerate = auditNonMcqBias([{
+  id: "sata-n7-degenerate",
+  questions: Array.from({ length: 7 }, (_, index) => sata(`sata-n7-${index}`, [0, 1])),
+}]);
+assert.equal(
+  find(sataN7Degenerate.records, "sata-n7-degenerate", "correct_count_distribution").verdict,
+  "INSUFFICIENT",
+);
+
+const sataN8Concentrated = auditNonMcqBias([{
+  id: "sata-n8-concentrated",
+  questions: Array.from({ length: 8 }, (_, index) =>
+    sata(`sata-n8-concentrated-${index}`, index < 6 ? [0, 1] : [0, 1, 2])),
+}]);
+assert.equal(
+  find(sataN8Concentrated.records, "sata-n8-concentrated", "correct_count_distribution").verdict,
+  "FAIL",
+);
+
+const sataN8MissingBins = auditNonMcqBias([{
+  id: "sata-n8-missing-bins",
+  questions: Array.from({ length: 8 }, (_, index) =>
+    sata(`sata-n8-missing-${index}`, index < 4 ? [0, 1] : [0, 1, 2])),
+}]);
+const sataN8MissingBinsRecord = find(
+  sataN8MissingBins.records,
+  "sata-n8-missing-bins",
+  "correct_count_distribution",
+);
+assert.equal(sataN8MissingBinsRecord.verdict, "PASS");
+assert.deepEqual(sataN8MissingBinsRecord.metrics.missing_by_option_count, { 5: [1, 4, 5] });
+
+const uniqueOrderedPermutations = [
+  [0, 1, 2, 3],
+  [0, 1, 3, 2],
+  [0, 2, 1, 3],
+  [0, 2, 3, 1],
+  [0, 3, 1, 2],
+  [0, 3, 2, 1],
+  [1, 0, 2, 3],
+];
+const orderedN6 = auditNonMcqBias([{
+  id: "ordered-n6",
+  questions: uniqueOrderedPermutations.slice(0, 6).map((permutation, index) =>
+    ordered(`ordered-n6-${index}`, permutation)),
+}]);
+assert.equal(find(orderedN6.records, "ordered-n6", "template_repetition").verdict, "INSUFFICIENT");
+
+const orderedN7Unique = auditNonMcqBias([{
+  id: "ordered-n7-unique",
+  questions: uniqueOrderedPermutations.map((permutation, index) =>
+    ordered(`ordered-n7-unique-${index}`, permutation)),
+}]);
+assert.equal(find(orderedN7Unique.records, "ordered-n7-unique", "template_repetition").verdict, "PASS");
+
+const orderedN7Repeated = auditNonMcqBias([{
+  id: "ordered-n7-repeated",
+  questions: [
+    uniqueOrderedPermutations[0],
+    uniqueOrderedPermutations[0],
+    ...uniqueOrderedPermutations.slice(1, 6),
+  ].map((permutation, index) => ordered(`ordered-n7-repeated-${index}`, permutation)),
+}]);
+assert.equal(find(orderedN7Repeated.records, "ordered-n7-repeated", "template_repetition").verdict, "FAIL");
+
 const absent = auditNonMcqBias([{ id: "empty", questions: [] }]);
 assert.equal(find(absent.records, "empty", "correct_option_position").verdict, "INSUFFICIENT");
 assert.equal(find(absent.records, "empty", "correct_index").verdict, "INSUFFICIENT");
@@ -155,6 +231,61 @@ const inherited = auditNonMcqBias([
 const globalDropdown = find(inherited.records, "global", "correct_index_n4");
 assert.equal(globalDropdown.verdict, "FAIL");
 assert.deepEqual(globalDropdown.metrics.inherited_per_bank_failures, ["biased-bank"]);
+
+const distributionNotInherited = auditNonMcqBias([
+  {
+    id: "concentrated-bank",
+    questions: Array.from({ length: 8 }, (_, index) =>
+      sata(`concentrated-${index}`, index < 6 ? [0, 1] : [0, 1, 2])),
+  },
+  {
+    id: "distributed-bank",
+    questions: Array.from({ length: 72 }, (_, index) => {
+      const correctCount = index % 5 + 1;
+      return sata(`distributed-${index}`, Array.from({ length: correctCount }, (_, position) => position));
+    }),
+  },
+]);
+assert.equal(
+  find(distributionNotInherited.records, "concentrated-bank", "correct_count_distribution").verdict,
+  "FAIL",
+);
+const globalSataDistribution = find(
+  distributionNotInherited.records,
+  "global",
+  "correct_count_distribution",
+);
+assert.equal(globalSataDistribution.verdict, "PASS");
+assert.equal("inherited_per_bank_failures" in globalSataDistribution.metrics, false);
+
+const orderedDistributionNotInherited = auditNonMcqBias([
+  {
+    id: "repeated-template-bank",
+    questions: [
+      uniqueOrderedPermutations[0],
+      uniqueOrderedPermutations[0],
+      ...uniqueOrderedPermutations.slice(1, 6),
+    ].map((permutation, index) => ordered(`repeated-template-${index}`, permutation)),
+  },
+  {
+    id: "unique-template-bank",
+    questions: [
+      ...uniqueOrderedPermutations.slice(1),
+      [1, 0, 3, 2],
+    ].map((permutation, index) => ordered(`unique-template-${index}`, permutation)),
+  },
+]);
+assert.equal(
+  find(orderedDistributionNotInherited.records, "repeated-template-bank", "template_repetition").verdict,
+  "FAIL",
+);
+const globalOrderedDistribution = find(
+  orderedDistributionNotInherited.records,
+  "global",
+  "template_repetition",
+);
+assert.equal(globalOrderedDistribution.verdict, "PASS");
+assert.equal("inherited_per_bank_failures" in globalOrderedDistribution.metrics, false);
 
 const first = JSON.stringify(auditNonMcqBias([{ id: "biased", questions: biasedQuestions }]));
 const second = JSON.stringify(auditNonMcqBias([{ id: "biased", questions: [...biasedQuestions].reverse() }]));
@@ -245,6 +376,8 @@ const handoffReport = auditNonMcqBias(handoffInputs);
 const queue = buildLayerBQueue(handoffInputs, handoffReport);
 const reversedQueue = buildLayerBQueue([...handoffInputs].reverse(), handoffReport);
 assert.equal(JSON.stringify(queue), JSON.stringify(reversedQueue));
+assert(queue.length > 0);
+assert(queue.every((row) => row.audit_version === handoffReport.audit_version));
 assert(queue.some((row) =>
   row.qid === "case-part" &&
   row.layer_b_task === "case_inferability" &&
