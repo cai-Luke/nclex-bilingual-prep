@@ -8,12 +8,10 @@ That sequence is load-bearing (DECISIONS.md principle 2, producer != checker) â€
 re-run, re-author, or "fix up" the inventory. If the artifacts are inadequate, the ruling is that they
 are inadequate, and the remedy is a corrected Codex pass.
 
-**Why this file lives here and not at repo root.** Dated handoffs normally sit at repo root, but the
-spec's Operational-sequence step 2 requires no pre-existing change *outside*
-`audit/content-demand-2026-07-14/`. An untracked handoff at root would trip Codex's own baseline stop
-condition and halt the run before it begins. Step 2's third bullet records pre-existing paths *under*
-this directory as baseline, so this location is safe. Do not move it to root while the Codex run is
-pending.
+**Why this file is now at repo root.** It was authored under `audit/content-demand-2026-07-14/` while
+the Codex run was pending so the spec's clean-start condition remained satisfiable. After Codex
+completed and committed the scoped audit artifacts, this handoff was moved to the normal root-level
+handoff location as a separate mechanical step.
 
 ---
 
@@ -25,7 +23,7 @@ pending.
 4. `DECISIONS.md`
 5. `NCLEX-Question-Schema.md`
 
-Then, in this directory:
+Then, under `audit/content-demand-2026-07-14/`:
 
 6. `BANK-DEMAND-DISTRIBUTION-INVENTORY-SPEC.md` â€” the executable contract (read the **live** file; see
    "Spec amendment status" below)
