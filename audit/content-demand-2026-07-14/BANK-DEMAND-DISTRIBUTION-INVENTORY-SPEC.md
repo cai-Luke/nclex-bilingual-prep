@@ -11,10 +11,6 @@ Produce a reproducible, machine-grounded inventory that separates:
 
 This is an analysis-only task with scoped artifact writes. Do not generate questions, change audit code, edit any bank, retire content, promote content, consolidate content, update a ledger, or regenerate the census.
 
-Replace the phrase "exact targeted regeneration" with:
-
-«exact mechanical demand envelopes and conditional simulations»
-
 Codex may establish counts, distributions, constraints, routing consequences, and review priorities. It may not make final clinical retirement decisions or final audit-policy rulings.
 
 ---
@@ -30,13 +26,15 @@ Read current live disk in this order:
 5. "BANK-CENSUS.md"
 6. "scripts/census.ts"
 7. "scripts/coverage-report.ts"
-8. "scripts/audit/non-mcq-bias-lib.ts"
-9. "scripts/audit/audit-non-mcq-bias.ts"
-10. "scripts/audit-non-mcq-bias.ts"
-11. "lib/shuffle.ts"
-12. "lib/canonical-routing.ts"
-13. "audit/non-mcq-bias-report.md"
-14. all canonical banks needed to reproduce the findings
+8. "src/schema.ts"
+9. "src/visuals/registry.ts"
+10. "scripts/audit/non-mcq-bias-lib.ts"
+11. "scripts/audit/audit-non-mcq-bias.ts"
+12. "scripts/audit-non-mcq-bias.ts"
+13. "lib/shuffle.ts"
+14. "lib/canonical-routing.ts"
+15. "audit/non-mcq-bias-report.md"
+16. all canonical banks needed to reproduce the findings
 
 Verify every operative claim against live source rather than treating this task text or an existing generated report as authoritative.
 
@@ -88,6 +86,8 @@ Excludes:
 - every top-level "case_study" parent container.
 
 This mirrors the population flattened by the current non-MCQ bias audit.
+
+This population intentionally differs from the census field "gradedTotal": the census adds every top-level record, including case parents, to embedded parts, while this task excludes case parents from "graded_leaves". Record both totals and this definition; do not treat their difference as a reconciliation failure.
 
 Do not label this an exposure-weighted population. A standalone question and an embedded case part are not necessarily sampled with equal frequency.
 
@@ -176,7 +176,10 @@ A mismatch is a task failure.
    - The standing distributional warnings are advisory and may coexist with a successful aggregate gate.
 6. Do not run "npm run census".
 7. Avoid running the standalone bias command if doing so rewrites shared "audit/non-mcq-bias-*" artifacts.
-8. Implement a reproducible generator under the designated directory that imports or faithfully reproduces the live audit computations without changing shared generated reports. The generator must itself run and capture "npm run census:check" and "npm run audit" so the provenance command exit codes are machine-recorded rather than hand-entered.
+   - Treat the committed "audit/non-mcq-bias-report.md" and sibling shared artifacts as historical snapshots that may be stale. "npm run audit" does not rewrite them. The generated inventory must state any disagreement with the live audit as expected input drift, not as an analysis failure.
+8. Implement a reproducible generator under the designated directory that imports the live audit computations without changing shared generated reports. The generator must itself run and capture "npm run census:check" and "npm run audit" so the provenance command exit codes are machine-recorded rather than hand-entered.
+8a. Obtain every "nativeVerdict" through the live library's public API only. "analyzeOneBank" is not exported and must not be exported, and the audit computations must not be re-implemented. For any scope S, including the native global scope and every diagnostic cohort, call "auditNonMcqBias([{ id: S.scopeId, questions: S.questions }])" and read the per-bank record for "S.scopeId". Inheritance is inert for the per-bank record of a single-bank input, so that record is the native record. Obtain official canonical-bank and global "effectiveVerdict" values from the unmodified full-corpus call "auditNonMcqBias(allBanks)"; for its "global" record, read "metrics.inherited_per_bank_failures" into "inheritedFrom" when present. Diagnostic scopes have no repository effective record, so assign "effectiveVerdict = nativeVerdict" under this contract. If a required native value cannot be obtained this way, stop and report rather than re-implementing an audit computation.
+8b. Obtain per-item ordered-response template and Kendall values through single-item synthetic-scope calls to the same public API, reading "template_histogram" and "mean_normalized_kendall" from the resulting per-bank records. Do not re-implement the private "permutationTemplate" or "normalizedKendall" functions. Diagnostic summaries may aggregate values returned by the public API.
 9. Run that generator with "npx tsx".
 10. Run "git diff --check".
 11. Confirm every changed path is under "audit/content-demand-2026-07-14/".
@@ -257,7 +260,9 @@ Use this deterministic disposition mapping:
 
 1. native "PASS" or "INSUFFICIENT" with no inherited failure → "no_action";
 2. otherwise-native non-failing global converted by inheritance → "audit_policy_review", or "routing_blocked" when the responsible bank is frozen and ordinary routing cannot affect it;
-3. native failure caused solely by mechanical low-n impossibility or a missing SATA boundary bin → "audit_policy_review";
+3. native failure in which every independently sufficient cause is non-content in character → "audit_policy_review". A cause is non-content when it is mechanical low-n impossibility or a missing SATA correct-count bin of any value, boundary or interior. Evaluate causes independently: a failure is still "audit_policy_review" when a missing-bin condition alone would fail the scope, regardless of how many other bins are also absent. Record every contributing cause in "metrics.failureCauses" as a sorted array drawn from ["low_n_impossible", "missing_boundary_bin", "missing_interior_bin", "concentration"];
+3a. a native failure whose causes include "concentration", meaning top share is strictly greater than the applicable live threshold, is evaluated under rule 4 whether or not bins are also missing;
+3b. do not infer from a missing interior bin that content is owed. Bin-population demand is an audit-policy question reserved to Claude;
 4. native non-low-n concentration that can be affected by content within an authorized route → "content_candidate";
 5. any embedded-part candidate → "case_level_review";
 6. any proposed content action against a frozen bank → "routing_blocked".
@@ -275,7 +280,7 @@ For both SATA and ordered response, calculate:
 1. all "graded_leaves" globally;
 2. each canonical bank over its graded leaves;
 3. each category over "graded_leaves";
-4. each mechanically normalized topic over "graded_leaves";
+4. each mechanically normalized topic over "graded_leaves" where the audited item type has "n >= 1";
 5. each difficulty over "graded_leaves";
 6. "commissionable_standalone" globally;
 7. "embedded_case_parts" globally.
@@ -305,7 +310,7 @@ type SataCohort = {
   optionCount: number;
   n: number;
   histogram: Record<string, number>;
-  topCount: number | null;
+  dominantCorrectCount: number | null;
   dominantCorrectCounts: number[];
   topFrequency: number;
   topShare: number | null;
@@ -329,14 +334,14 @@ type SataCohort = {
 Rules:
 
 - "minimumNToPopulateAllCurrentRuleBins = optionCount".
-- "dominantCorrectCounts" contains every tied maximum-frequency correct-count bin in numeric order; "topCount" is its first member, or null when "n == 0". "topFrequency" is the maximum cell frequency.
+- "dominantCorrectCounts" contains every tied maximum-frequency correct-count bin in numeric order; "dominantCorrectCount" is its first member, or null when "n == 0". "topFrequency" is the maximum cell frequency. This naming deliberately avoids the live audit's internal "topCount", which means maximum frequency rather than bin value.
 - When "n < optionCount", mark the cohort mechanically incapable of satisfying the current missing-bin rule.
 - "SataCohort" is a diagnostic option-count subdivision. It must not be presented as the repository's native audit record, because the live audit computes one combined correct-count histogram and top share per scope while splitting only missing bins by option count.
 - For a current-audit scope containing more than one observed option count, also report "minimumTotalNToPopulateAllObservedOptionCountBins = sum(observed option counts)". For the current five- and six-option shapes, that minimum is 11.
 - Do not derive a production commission from a low-n per-bank SATA failure.
 - Do not prescribe one-correct or all-correct SATA questions merely to populate a bin.
 - Missing boundary counts "1" or "N" require architect review of whether those are desirable NCLEX-style SATA forms.
-- A missing boundary bin always maps to "audit_policy_review", not "content_candidate". A SATA content candidate may arise only from a non-low-n concentration independent of boundary-bin absence.
+- A missing correct-count bin of any value maps to "audit_policy_review" when missing bins are independently sufficient to fail the scope; an interior missing bin is not automatic content debt. A SATA content candidate may arise only when non-low-n concentration independently exceeds the live concentration threshold, whether or not bins are also missing.
 - Report tiny-bank failures as audit behavior, not automatic content debt.
 - Keep global/native and per-bank findings separate.
 
@@ -520,7 +525,7 @@ type ItemRef = {
   promotedTemplate: string | null;
 
   visualKinds: string[];
-  skillSignature: string | null;
+  ngnSkill: string | null;
 };
 ```
 
@@ -530,8 +535,8 @@ For embedded parts, "parentTopic" and "parentCategory" must also be non-null. Th
 
 Define:
 
-- "skillSignature = question.ngnSkill ?? null";
-- "visualKinds" as the sorted unique kinds from the leaf's direct load-bearing "question.visual" only;
+- "ngnSkill = question.ngnSkill ?? null";
+- "visualKinds" as an empty array when the leaf has no direct load-bearing "question.visual", otherwise a one-element array containing that visual's kind;
 - do not include "rationale.visuals" or shared parent-case exhibits in a leaf's "visualKinds";
 - "topicLabelVariants" as the sorted raw variants in the same mechanical topic bucket across "graded_leaves".
 
@@ -565,7 +570,7 @@ Preserve all of:
 - embedded-part count;
 - total graded-leaf count.
 
-Mechanical topic normalization must match the current executable normalization unless the artifact explicitly declares and tests a different one.
+Mechanical topic normalization is "normalizeTopic", exported from "scripts/coverage-report.ts", imported directly and never re-implemented or altered. "scripts/census.ts" deliberately buckets raw "question.topic" without normalization; that raw census behavior is not the normalization referenced here. The inventory's mechanically normalized topic counts may therefore differ from "BANK-CENSUS.md"'s raw per-category topic lists. Record this divergence rather than reconciling it. Any alternative normalization requires an explicit declaration plus a test and is out of scope for this task.
 
 Do not silently merge semantic synonyms.
 
@@ -602,11 +607,17 @@ Calculate against the current "NCLEX_CATEGORY_WEIGHTS" applied to the relevant d
 Use the signed ratio:
 
 ```
+categoryTargetGradedLeaves =
+  NCLEX_CATEGORY_WEIGHTS[category] * graded_leaves.length
+
 categorySurplusRatio =
-  (currentCategoryCount - categoryTarget) / categoryTarget
+  (currentCategoryCountGradedLeaves - categoryTargetGradedLeaves)
+  / categoryTargetGradedLeaves
 ```
 
 Positive values are surplus and negative values are shortfall. For retirement-review ordering, calculate this over "graded_leaves".
+
+"categoryTargetGradedLeaves" is distinct from "categoryTarget" in the lexicographic target function, which is bound to "commissionable_standalone". The two denominators are never interchangeable. Emit both denominators in the artifact.
 
 ### Topic saturation
 
@@ -647,7 +658,7 @@ For each hypothetical removal, calculate whether it would reduce any exact bucke
 - category × item type;
 - topic × difficulty;
 - visual kind;
-- skill signature, when present.
+- NGN skill, when present.
 
 Calculate removal coverage over "graded_leaves". For an embedded part, only its direct leaf visual may disappear; shared parent-case exhibits remain and must not be counted as removed.
 
@@ -660,7 +671,7 @@ type CoverageImpact = {
     | "category_item_type"
     | "topic_difficulty"
     | "visual_kind"
-    | "skill_signature";
+    | "ngn_skill";
   value: string;
   beforeCount: number;
   afterRemovalCount: number;
@@ -758,7 +769,7 @@ A simulation must not claim to clear an effective global finding unless it accou
 
 ## Ordinary standalone commission ranking
 
-The ordinary expansion manifest must contain exactly 15 commissioned units, which satisfies the allowed 12–18 range, where:
+The ordinary expansion manifest must contain exactly 15 commissioned units, where:
 
 "sum(count for purpose == "bank_expansion") == 15".
 
@@ -789,10 +800,9 @@ Reject a proposed cell before ranking when:
 - the item type is invalid for the proposed visual kind;
 - the proposal depends on a visual placement not supported by the current registry/schema;
 - the proposal requires writing to a frozen canonical bank;
-- the topic exists only through an unreviewed semantic merge;
-- the requested format is mechanically shown to be incompatible with the topic's existing content.
+- the topic exists only through an unreviewed semantic merge.
 
-When a closed-world, gradeable use is not mechanically established, retain the row only as a conditional opportunity with "requiresContentJudgment: true" and "requiresClaudeRuling: true". Do not invent the clinical scenario and do not include the row in a production-ready subset.
+No mechanical format/topic compatibility test exists in this repository. Format fit is a content judgment. When a closed-world, gradeable use or format fit is not mechanically established, retain the row as a conditional opportunity with "requiresContentJudgment: true" and "requiresClaudeRuling: true" and exclude it from any production-ready subset. Never reject it pre-ranking on an invented compatibility rule, and do not invent the clinical scenario.
 
 ### Candidate universe and allocation
 
@@ -882,6 +892,8 @@ For an otherwise identical topic × item-type cell:
 - use lexical order only as the final tie-break.
 
 Apply this selection within the exact "topicNormalized × category × itemType" candidate before the main candidate sort. This rule selects one difficulty; it does not create three separately rankable rows.
+
+When all three difficulties are absent from an otherwise identical cell, the final lexical tie-break selects "easy" under the current enum strings. Record this deterministic consequence; do not reinterpret it as a preference for easy content.
 
 Do not infer that "hard" is inherently more valuable.
 
