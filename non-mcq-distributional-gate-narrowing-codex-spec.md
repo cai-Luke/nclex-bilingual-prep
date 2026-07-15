@@ -12,7 +12,8 @@ Implement the ratified A2/A3 audit-policy change in `scripts/audit/non-mcq-bias-
 3. remove the `sata_missing_count_fails` rule entirely;
 4. narrow global inheritance so the two distributional checks no longer inherit canonical-bank
    failures, while every other check continues to inherit;
-5. bump `audit_version` and regenerate the shared audit artifacts.
+5. bump `audit_version`, repair the Layer B queue's hard-coded version, and regenerate the shared audit
+   artifacts.
 
 This is an audit-code change. **No bank content changes.** No item is authored, retired, replaced, or
 regenerated in this PR.
@@ -23,8 +24,9 @@ The evidence is `audit/content-demand-2026-07-14/` (PR #48), adjudicated PASS. I
 current FAILs are overwhelmingly artifacts, not learner-facing bias: `lab-canonical` ordered response
 carries four items with four *distinct* templates and fails only because the smallest achievable top
 share at n=4 is 0.25 against a 0.15 limit; the global ordered record passes natively and fails only by
-inheritance from that one frozen bank; and the small SATA banks fail on a missing-bin rule that fails
-100% of non-empty SATA banks by construction. **Do not read, modify, or regenerate anything under
+inheritance from that one frozen bank; and the small SATA banks fail on a missing-bin rule that failed
+every non-empty SATA bank in the live corpus, because every bank lacked at least one demanded bin —
+including banks with no meaningful concentration. **Do not read, modify, or regenerate anything under
 `audit/content-demand-2026-07-14/`.** It is a frozen evidence snapshot, and its numbers are pinned to a
 prior HEAD.
 
@@ -157,7 +159,24 @@ tell in the bundled corpus regardless of which file carries it.
   separately.
 - `audit/content-demand-2026-07-14/**`.
 
-## Change 5 — regenerate shared artifacts
+## Change 5 — repair the Layer B queue's hard-coded audit version
+
+`scripts/audit/non-mcq-bias-layer-b.ts` hard-codes `audit_version: "2.0.0"` in `queueRow`. Verified on
+live disk 2026-07-15. Left alone, a 2.1.0 report would regenerate queue rows falsely labeled 2.0.0 — a
+provenance lie in an artifact whose entire job is to carry provenance to an external reviewer.
+
+Smallest repair, and no larger:
+
+- `buildLayerBQueue(inputs, report)` already receives the report. Thread `report.audit_version` through
+  to `queueRow` as a parameter.
+- **Do not import `NON_MCQ_BIAS_CONFIG` into this file, and do not otherwise resolve the version
+  independently.** The queue's version must be the version of the report it was built *from*, not a
+  separately-resolved constant that could later disagree with it. That is the same duplicate-constant
+  failure mode this spec forbids for the ordered minimum.
+- Change nothing else in the file. `mergeLayerBResults` already reads `artifact.audit_version` and is
+  already correct.
+
+## Change 6 — regenerate shared artifacts
 
 Run `npm run audit:non-mcq-bias` and commit what it rewrites:
 
@@ -178,7 +197,8 @@ is part of this task, and the `n` values will move. The new header must carry
    change the exit-code logic, and do not touch `visual-canonical`. The aggregate `npm run audit` must
    still report GATE PASSED with distributional warnings present.
 2. **The Layer B queue will shrink.** `buildLayerBQueue` keys off the report, so removing FAILs removes
-   queue rows. Report the row-count delta in the PR description; do not treat it as a regression.
+   queue rows. Report the row-count delta in the PR description; do not treat it as a regression. Every
+   regenerated row must carry `audit_version: "2.1.0"` per Change 5.
 
 ## Required tests — extend `scripts/tests/non-mcq-bias.ts`
 
@@ -218,6 +238,12 @@ canonical bank may be read by a test.
 - `scramble_min_n === 8` and `sata_count_min_n === 8` are distinct keys (guards against the collapse
   this spec forbids).
 
+**Layer B version threading:**
+
+- Every row returned by `buildLayerBQueue` satisfies `row.audit_version === report.audit_version`.
+  Assert it against the report object, **not** against the literal `"2.1.0"` — a test that hard-codes
+  the version reintroduces the same defect one layer up and would pass forever while drifting.
+
 ## Expected live result after the change
 
 State these in the PR description as observed output, not as predictions restated from this spec:
@@ -248,11 +274,14 @@ the verdicts downstream consumers read), so it takes the full path minus the ban
 - `npm run audit:non-mcq-bias` — expected exit 1, artifacts regenerated
 - `npm run test:promote` and `npm run test:audit-integrity` — the promote path calls the in-memory gate;
   prove it is unaffected
+- `npm run census:check` — as a no-escape / stale-state check, not because the census should move. No
+  bank content changes here, so it must pass unchanged. A failure means either something escaped scope
+  or the tree was already stale; both are stop conditions.
 - `npm run build`
 - `git diff --check`
 
-No `npm run census` / `census:check` is required: no bank content changes, so the census cannot move.
-If it does, stop — something escaped scope.
+**Do not run `npm run census`.** `census:check` is diagnostic here; regenerating the census in this PR
+would mask exactly the escape it exists to detect.
 
 ## Stop conditions
 
@@ -262,8 +291,11 @@ Stop and report rather than proceeding when:
 - the live result disagrees with the expected-result table above;
 - `npm run audit` stops being GATE PASSED;
 - a promote-path test moves;
-- any changed path falls outside `scripts/audit/non-mcq-bias-lib.ts`, `scripts/tests/non-mcq-bias.ts`,
-  and the four regenerated `audit/non-mcq-bias-*` artifacts;
+- any changed path falls outside this permitted set:
+  - `scripts/audit/non-mcq-bias-lib.ts`
+  - `scripts/audit/non-mcq-bias-layer-b.ts` (Change 5 only)
+  - `scripts/tests/non-mcq-bias.ts`
+  - the four regenerated `audit/non-mcq-bias-*` artifacts;
 - the change appears to require reusing `scramble_min_n` for SATA or storing the ordered minimum as an
   independent constant.
 
