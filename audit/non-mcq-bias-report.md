@@ -1,9 +1,9 @@
-Non-MCQ Structural Bias Audit v2.0.0
-CONFIG sha256: 0de1f0b1467dfe03d0ade981ef5feb09c3b91e89bdce861f109e0138e97ce2af
+Non-MCQ Structural Bias Audit v2.1.0
+CONFIG sha256: 0058ac615392330c55a28d146c4cc154842884259e1f9c3fa5bb456281d83d9e
 
 Bank / item type / check                         Verdict       n   Fix
 --------------------------------------------------------------------------
-burn-canonical / select_all / correct_count_distribution FAIL            1  REGENERATE
+burn-canonical / select_all / correct_count_distribution INSUFFICIENT    1  NONE
 burn-canonical / select_all / correct_option_position_n5 INSUFFICIENT    0  NONE
 burn-canonical / select_all / correct_option_position_n6 INSUFFICIENT    4  NONE
 burn-canonical / select_all / rationale_shuffle_hazard PASS            1  NONE
@@ -55,7 +55,7 @@ capnography-canonical / matrix / correct_row_n7     INSUFFICIENT    0  NONE
 capnography-canonical / matrix / correct_row_n8     INSUFFICIENT    0  NONE
 capnography-canonical / matrix / correct_row_n9     INSUFFICIENT    0  NONE
 capnography-canonical / matrix / rationale_shuffle_hazard INSUFFICIENT    0  NONE
-claude-canonical / select_all / correct_count_distribution FAIL           30  REGENERATE
+claude-canonical / select_all / correct_count_distribution PASS           30  NONE
 claude-canonical / select_all / correct_option_position_n5 INSUFFICIENT    7  NONE
 claude-canonical / select_all / correct_option_position_n6 PASS          114  NONE
 claude-canonical / select_all / rationale_shuffle_hazard PASS           30  NONE
@@ -85,7 +85,7 @@ claude-canonical / bowtie / actions_correct_position_n4 INSUFFICIENT   14  NONE
 claude-canonical / bowtie / condition_correct_position_n3 INSUFFICIENT    7  NONE
 claude-canonical / bowtie / parameters_correct_position_n4 INSUFFICIENT   14  NONE
 claude-canonical / bowtie / rationale_shuffle_hazard PASS            7  NONE
-device-canonical / select_all / correct_count_distribution FAIL            1  REGENERATE
+device-canonical / select_all / correct_count_distribution INSUFFICIENT    1  NONE
 device-canonical / select_all / correct_option_position_n5 INSUFFICIENT    0  NONE
 device-canonical / select_all / correct_option_position_n6 INSUFFICIENT    3  NONE
 device-canonical / select_all / rationale_shuffle_hazard PASS            1  NONE
@@ -111,7 +111,7 @@ device-canonical / matrix / correct_row_n7          INSUFFICIENT    0  NONE
 device-canonical / matrix / correct_row_n8          INSUFFICIENT    0  NONE
 device-canonical / matrix / correct_row_n9          INSUFFICIENT    0  NONE
 device-canonical / matrix / rationale_shuffle_hazard INSUFFICIENT    0  NONE
-gemini-canonical / select_all / correct_count_distribution FAIL          168  REGENERATE
+gemini-canonical / select_all / correct_count_distribution PASS          168  NONE
 gemini-canonical / select_all / correct_option_position_n5 PASS          439  NONE
 gemini-canonical / select_all / correct_option_position_n6 PASS          164  NONE
 gemini-canonical / select_all / rationale_shuffle_hazard PASS          168  NONE
@@ -141,40 +141,40 @@ gemini-canonical / bowtie / actions_correct_position_n4 PASS           46  NONE
 gemini-canonical / bowtie / condition_correct_position_n3 PASS           23  NONE
 gemini-canonical / bowtie / parameters_correct_position_n4 PASS           46  NONE
 gemini-canonical / bowtie / rationale_shuffle_hazard PASS           23  NONE
-gpt-canonical / select_all / correct_count_distribution FAIL           93  REGENERATE
-gpt-canonical / select_all / correct_option_position_n5 PASS           55  NONE
-gpt-canonical / select_all / correct_option_position_n6 PASS          324  NONE
-gpt-canonical / select_all / rationale_shuffle_hazard PASS           93  NONE
-gpt-canonical / ordered_response / rationale_shuffle_hazard PASS          106  NONE
-gpt-canonical / ordered_response / scramble_depth   PASS          106  NONE
-gpt-canonical / ordered_response / template_repetition PASS          106  NONE
+gpt-canonical / select_all / correct_count_distribution PASS          105  NONE
+gpt-canonical / select_all / correct_option_position_n5 PASS           64  NONE
+gpt-canonical / select_all / correct_option_position_n6 PASS          352  NONE
+gpt-canonical / select_all / rationale_shuffle_hazard PASS          105  NONE
+gpt-canonical / ordered_response / rationale_shuffle_hazard PASS          109  NONE
+gpt-canonical / ordered_response / scramble_depth   PASS          109  NONE
+gpt-canonical / ordered_response / template_repetition PASS          109  NONE
 gpt-canonical / dropdown_cloze / correct_index_n2   INSUFFICIENT    0  NONE
-gpt-canonical / dropdown_cloze / correct_index_n3   PASS          212  NONE
-gpt-canonical / dropdown_cloze / correct_index_n4   INSUFFICIENT   16  NONE
-gpt-canonical / dropdown_cloze / rationale_shuffle_hazard PASS           93  NONE
-gpt-canonical / matrix / all_rows_same_column       PASS          114  NONE
-gpt-canonical / matrix / correct_column_n2          PASS          413  NONE
+gpt-canonical / dropdown_cloze / correct_index_n3   PASS          222  NONE
+gpt-canonical / dropdown_cloze / correct_index_n4   INSUFFICIENT   18  NONE
+gpt-canonical / dropdown_cloze / rationale_shuffle_hazard PASS           99  NONE
+gpt-canonical / matrix / all_rows_same_column       PASS          127  NONE
+gpt-canonical / matrix / correct_column_n2          PASS          472  NONE
 gpt-canonical / matrix / correct_column_n3          PASS          158  NONE
 gpt-canonical / matrix / correct_column_n4          PASS           34  NONE
 gpt-canonical / matrix / correct_column_n5          INSUFFICIENT    0  NONE
 gpt-canonical / matrix / correct_row_n10            INSUFFICIENT   10  NONE
 gpt-canonical / matrix / correct_row_n2             INSUFFICIENT    0  NONE
 gpt-canonical / matrix / correct_row_n3             INSUFFICIENT    0  NONE
-gpt-canonical / matrix / correct_row_n4             PASS          116  NONE
-gpt-canonical / matrix / correct_row_n5             PASS          333  NONE
+gpt-canonical / matrix / correct_row_n4             PASS          140  NONE
+gpt-canonical / matrix / correct_row_n5             PASS          368  NONE
 gpt-canonical / matrix / correct_row_n6             PASS          108  NONE
 gpt-canonical / matrix / correct_row_n7             INSUFFICIENT   21  NONE
 gpt-canonical / matrix / correct_row_n8             INSUFFICIENT    8  NONE
 gpt-canonical / matrix / correct_row_n9             INSUFFICIENT    9  NONE
-gpt-canonical / matrix / rationale_shuffle_hazard   PASS          118  NONE
-gpt-canonical / bowtie / actions_correct_position_n4 PASS           90  NONE
+gpt-canonical / matrix / rationale_shuffle_hazard   PASS          131  NONE
+gpt-canonical / bowtie / actions_correct_position_n4 PASS           98  NONE
 gpt-canonical / bowtie / actions_correct_position_n5 PASS           52  NONE
-gpt-canonical / bowtie / condition_correct_position_n3 PASS           42  NONE
+gpt-canonical / bowtie / condition_correct_position_n3 PASS           46  NONE
 gpt-canonical / bowtie / condition_correct_position_n4 PASS           29  NONE
-gpt-canonical / bowtie / parameters_correct_position_n4 PASS          108  NONE
+gpt-canonical / bowtie / parameters_correct_position_n4 PASS          116  NONE
 gpt-canonical / bowtie / parameters_correct_position_n5 PASS           34  NONE
-gpt-canonical / bowtie / rationale_shuffle_hazard   PASS           71  NONE
-hard-cases-canonical / select_all / correct_count_distribution FAIL           55  REGENERATE
+gpt-canonical / bowtie / rationale_shuffle_hazard   PASS           75  NONE
+hard-cases-canonical / select_all / correct_count_distribution PASS           55  NONE
 hard-cases-canonical / select_all / correct_option_position_n5 PASS           75  NONE
 hard-cases-canonical / select_all / correct_option_position_n6 PASS          143  NONE
 hard-cases-canonical / select_all / rationale_shuffle_hazard PASS           55  NONE
@@ -204,7 +204,7 @@ hard-cases-canonical / bowtie / actions_correct_position_n4 INSUFFICIENT   18  N
 hard-cases-canonical / bowtie / condition_correct_position_n3 INSUFFICIENT    9  NONE
 hard-cases-canonical / bowtie / parameters_correct_position_n4 INSUFFICIENT   18  NONE
 hard-cases-canonical / bowtie / rationale_shuffle_hazard PASS            9  NONE
-io-canonical / select_all / correct_count_distribution FAIL            2  REGENERATE
+io-canonical / select_all / correct_count_distribution INSUFFICIENT    2  NONE
 io-canonical / select_all / correct_option_position_n5 INSUFFICIENT    0  NONE
 io-canonical / select_all / correct_option_position_n6 INSUFFICIENT    8  NONE
 io-canonical / select_all / rationale_shuffle_hazard PASS            2  NONE
@@ -236,7 +236,7 @@ lab-canonical / select_all / correct_option_position_n6 INSUFFICIENT    0  NONE
 lab-canonical / select_all / rationale_shuffle_hazard INSUFFICIENT    0  NONE
 lab-canonical / ordered_response / rationale_shuffle_hazard PASS            4  NONE
 lab-canonical / ordered_response / scramble_depth   INSUFFICIENT    4  NONE
-lab-canonical / ordered_response / template_repetition FAIL            4  REGENERATE
+lab-canonical / ordered_response / template_repetition INSUFFICIENT    4  NONE
 lab-canonical / dropdown_cloze / correct_index_n2   INSUFFICIENT    0  NONE
 lab-canonical / dropdown_cloze / correct_index_n3   INSUFFICIENT    8  NONE
 lab-canonical / dropdown_cloze / correct_index_n4   INSUFFICIENT    0  NONE
@@ -256,7 +256,7 @@ lab-canonical / matrix / correct_row_n7             INSUFFICIENT    0  NONE
 lab-canonical / matrix / correct_row_n8             INSUFFICIENT    0  NONE
 lab-canonical / matrix / correct_row_n9             INSUFFICIENT    0  NONE
 lab-canonical / matrix / rationale_shuffle_hazard   PASS            4  NONE
-mar-canonical / select_all / correct_count_distribution FAIL            1  REGENERATE
+mar-canonical / select_all / correct_count_distribution INSUFFICIENT    1  NONE
 mar-canonical / select_all / correct_option_position_n5 INSUFFICIENT    0  NONE
 mar-canonical / select_all / correct_option_position_n6 INSUFFICIENT    3  NONE
 mar-canonical / select_all / rationale_shuffle_hazard PASS            1  NONE
@@ -308,10 +308,10 @@ medlabel-canonical / matrix / correct_row_n7        INSUFFICIENT    0  NONE
 medlabel-canonical / matrix / correct_row_n8        INSUFFICIENT    0  NONE
 medlabel-canonical / matrix / correct_row_n9        INSUFFICIENT    0  NONE
 medlabel-canonical / matrix / rationale_shuffle_hazard PASS            1  NONE
-visual-canonical / select_all / correct_count_distribution FAIL           10  REGENERATE
+visual-canonical / select_all / correct_count_distribution FAIL           11  REGENERATE
 visual-canonical / select_all / correct_option_position_n5 INSUFFICIENT    0  NONE
-visual-canonical / select_all / correct_option_position_n6 PASS           40  NONE
-visual-canonical / select_all / rationale_shuffle_hazard PASS           10  NONE
+visual-canonical / select_all / correct_option_position_n6 PASS           43  NONE
+visual-canonical / select_all / rationale_shuffle_hazard PASS           11  NONE
 visual-canonical / ordered_response / rationale_shuffle_hazard INSUFFICIENT    0  NONE
 visual-canonical / ordered_response / scramble_depth INSUFFICIENT    0  NONE
 visual-canonical / ordered_response / template_repetition INSUFFICIENT    0  NONE
@@ -320,14 +320,14 @@ visual-canonical / dropdown_cloze / correct_index_n3 INSUFFICIENT    0  NONE
 visual-canonical / dropdown_cloze / correct_index_n4 INSUFFICIENT    0  NONE
 visual-canonical / dropdown_cloze / rationale_shuffle_hazard INSUFFICIENT    0  NONE
 visual-canonical / matrix / all_rows_same_column    INSUFFICIENT    6  NONE
-visual-canonical / matrix / correct_column_n2       INSUFFICIENT    9  NONE
-visual-canonical / matrix / correct_column_n3       INSUFFICIENT   12  NONE
+visual-canonical / matrix / correct_column_n2       PASS           13  NONE
+visual-canonical / matrix / correct_column_n3       INSUFFICIENT    9  NONE
 visual-canonical / matrix / correct_column_n4       INSUFFICIENT    0  NONE
 visual-canonical / matrix / correct_column_n5       INSUFFICIENT    0  NONE
 visual-canonical / matrix / correct_row_n10         INSUFFICIENT    0  NONE
 visual-canonical / matrix / correct_row_n2          INSUFFICIENT    0  NONE
-visual-canonical / matrix / correct_row_n3          INSUFFICIENT   12  NONE
-visual-canonical / matrix / correct_row_n4          INSUFFICIENT    4  NONE
+visual-canonical / matrix / correct_row_n3          INSUFFICIENT    9  NONE
+visual-canonical / matrix / correct_row_n4          INSUFFICIENT    8  NONE
 visual-canonical / matrix / correct_row_n5          INSUFFICIENT    5  NONE
 visual-canonical / matrix / correct_row_n6          INSUFFICIENT    0  NONE
 visual-canonical / matrix / correct_row_n7          INSUFFICIENT    0  NONE
@@ -360,52 +360,41 @@ vitals-canonical / matrix / correct_row_n7          INSUFFICIENT    0  NONE
 vitals-canonical / matrix / correct_row_n8          INSUFFICIENT    0  NONE
 vitals-canonical / matrix / correct_row_n9          INSUFFICIENT    0  NONE
 vitals-canonical / matrix / rationale_shuffle_hazard INSUFFICIENT    0  NONE
-global / select_all / correct_count_distribution    FAIL          361  REGENERATE
-global / select_all / correct_option_position_n5    PASS          576  NONE
-global / select_all / correct_option_position_n6    PASS          803  NONE
-global / select_all / rationale_shuffle_hazard      PASS          361  NONE
-global / ordered_response / scramble_depth          PASS          217  NONE
-global / ordered_response / template_repetition     FAIL          217  REGENERATE
-global / ordered_response / rationale_shuffle_hazard PASS          217  NONE
+global / select_all / correct_count_distribution    PASS          374  NONE
+global / select_all / correct_option_position_n5    PASS          585  NONE
+global / select_all / correct_option_position_n6    PASS          834  NONE
+global / select_all / rationale_shuffle_hazard      PASS          374  NONE
+global / ordered_response / scramble_depth          PASS          220  NONE
+global / ordered_response / template_repetition     PASS          220  NONE
+global / ordered_response / rationale_shuffle_hazard PASS          220  NONE
 global / dropdown_cloze / correct_index_n2          PASS           78  NONE
-global / dropdown_cloze / correct_index_n3          PASS          467  NONE
-global / dropdown_cloze / correct_index_n4          PASS           29  NONE
-global / dropdown_cloze / rationale_shuffle_hazard  PASS          249  NONE
-global / matrix / correct_column_n2                 PASS         1025  NONE
-global / matrix / correct_column_n3                 PASS          314  NONE
+global / dropdown_cloze / correct_index_n3          PASS          477  NONE
+global / dropdown_cloze / correct_index_n4          PASS           31  NONE
+global / dropdown_cloze / rationale_shuffle_hazard  PASS          255  NONE
+global / matrix / correct_column_n2                 PASS         1088  NONE
+global / matrix / correct_column_n3                 PASS          311  NONE
 global / matrix / correct_column_n4                 PASS          120  NONE
 global / matrix / correct_column_n5                 INSUFFICIENT    5  NONE
 global / matrix / correct_row_n2                    INSUFFICIENT    4  NONE
-global / matrix / correct_row_n3                    PASS          120  NONE
-global / matrix / correct_row_n4                    PASS          544  NONE
-global / matrix / correct_row_n5                    PASS          490  NONE
+global / matrix / correct_row_n3                    PASS          117  NONE
+global / matrix / correct_row_n4                    PASS          572  NONE
+global / matrix / correct_row_n5                    PASS          525  NONE
 global / matrix / correct_row_n6                    PASS          204  NONE
 global / matrix / correct_row_n7                    INSUFFICIENT   28  NONE
 global / matrix / correct_row_n8                    INSUFFICIENT   36  NONE
 global / matrix / correct_row_n9                    INSUFFICIENT   18  NONE
 global / matrix / correct_row_n10                   INSUFFICIENT   20  NONE
-global / matrix / all_rows_same_column              PASS          310  NONE
-global / matrix / rationale_shuffle_hazard          PASS          319  NONE
-global / bowtie / condition_correct_position_n3     PASS           81  NONE
+global / matrix / all_rows_same_column              PASS          323  NONE
+global / matrix / rationale_shuffle_hazard          PASS          332  NONE
+global / bowtie / condition_correct_position_n3     PASS           85  NONE
 global / bowtie / condition_correct_position_n4     PASS           29  NONE
-global / bowtie / actions_correct_position_n4       PASS          168  NONE
+global / bowtie / actions_correct_position_n4       PASS          176  NONE
 global / bowtie / actions_correct_position_n5       PASS           52  NONE
-global / bowtie / parameters_correct_position_n4    PASS          186  NONE
+global / bowtie / parameters_correct_position_n4    PASS          194  NONE
 global / bowtie / parameters_correct_position_n5    PASS           34  NONE
-global / bowtie / rationale_shuffle_hazard          PASS          110  NONE
+global / bowtie / rationale_shuffle_hazard          PASS          114  NONE
 
-Findings: 12 FAIL, 262 INSUFFICIENT
+Findings: 1 FAIL, 266 INSUFFICIENT
 
 REGENERATE:
-  burn-canonical / select_all / correct_count_distribution [burn_sata_parkland_chain_06]
-  claude-canonical / select_all / correct_count_distribution [claude_a_sata_cultural_eol_38, claude_a_sata_delirium_features_32, claude_a_sata_eps_haloperidol_12]
-  device-canonical / select_all / correct_count_distribution [dev_high_alert_kcl_pump_mismatch_01]
-  gemini-canonical / select_all / correct_count_distribution [gemini_b1_04, gemini_b1_06, gemini_b2_05]
-  gpt-canonical / select_all / correct_count_distribution [gpt_2026_06_13_case_delirium_uti_01_q3, gpt_2026_06_13_case_delirium_uti_01_q6, gpt_2026_06_16_case_postpartum_preeclampsia_severe_01_q5]
-  hard-cases-canonical / select_all / correct_count_distribution [case_ami_01_q3, case_dka_01_q4, claude_cs_jun06_adult_immunization_hpm_01_part_4]
-  io-canonical / select_all / correct_count_distribution [io_sata_ckd_fluid_overload_07, io_sata_gastroenteritis_deficit_03]
-  lab-canonical / ordered_response / template_repetition [gpt_u3_labtrend_2026_06_09_or_hyperkalemia_progression_06]
-  mar-canonical / select_all / correct_count_distribution [mar_lispro_meal_delayed_02]
   visual-canonical / select_all / correct_count_distribution [ekg_b1_sata_03, ekg_b1_sata_07, ekg_b2_sata_06]
-  global / select_all / correct_count_distribution [burn_sata_parkland_chain_06, case_ami_01_q3, case_dka_01_q4]
-  global / ordered_response / template_repetition [gpt_u3_labtrend_2026_06_09_or_hyperkalemia_progression_06]

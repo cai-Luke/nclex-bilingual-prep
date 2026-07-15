@@ -192,6 +192,7 @@ function queueRow(
   task: LayerBTask,
   checks: string[],
   variant: RedactionVariant,
+  auditVersion: string,
 ): LayerBQueueRow {
   const evidence = context.parent ? caseEvidence(context.parent) : [];
   const visibleEvidence =
@@ -201,7 +202,7 @@ function queueRow(
         ? evidence.slice(-1)
         : evidence;
   return {
-    audit_version: "2.0.0",
+    audit_version: auditVersion,
     qid: context.question.id,
     parent_qid: context.parent?.id ?? null,
     source_bank: context.bank,
@@ -234,8 +235,8 @@ export function buildLayerBQueue(inputs: BiasBankInput[], report: BiasReport): L
   const rows: LayerBQueueRow[] = [];
 
   for (const context of contexts.filter((item) => item.parent !== null)) {
-    rows.push(queueRow(context, "case_inferability", [], "first_row_only"));
-    rows.push(queueRow(context, "case_inferability", [], "last_row_only"));
+    rows.push(queueRow(context, "case_inferability", [], "first_row_only", report.audit_version));
+    rows.push(queueRow(context, "case_inferability", [], "last_row_only", report.audit_version));
   }
 
   const failedByItem = new Map<string, Set<string>>();
@@ -256,10 +257,10 @@ export function buildLayerBQueue(inputs: BiasBankInput[], report: BiasReport): L
     const rationaleChecks = checkList.filter((check) => check === "rationale_shuffle_hazard");
     const structuralChecks = checkList.filter((check) => check !== "rationale_shuffle_hazard");
     if (rationaleChecks.length > 0) {
-      rows.push(queueRow(context, "rationale_semantic_review", rationaleChecks, null));
+      rows.push(queueRow(context, "rationale_semantic_review", rationaleChecks, null, report.audit_version));
     }
     if (structuralChecks.length > 0) {
-      rows.push(queueRow(context, "distractor_plausibility", structuralChecks, null));
+      rows.push(queueRow(context, "distractor_plausibility", structuralChecks, null, report.audit_version));
     }
   }
 
