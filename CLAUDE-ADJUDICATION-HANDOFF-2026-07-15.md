@@ -1,5 +1,13 @@
 # Claude Adjudication Handoff — Non-MCQ Distribution Remediation Evidence Review
 
+> **Closure status — 2026-07-15.** The evidence under `audit/content-demand-2026-07-14/` was adjudicated
+> PASS and is permanently frozen at HEAD `ebf85258139b2f3d4f4f64c015204a2ef9c0cef6` under audit v2.0.0.
+> Audit v2.1.0 was subsequently implemented in the same PR. `generate-content-demand.ts` is therefore a
+> historical reproducer, not a live-HEAD utility: when run against v2.1.0 it intentionally stops because
+> required conclusion 2 was retired by the adjudicated narrowing. Reproduce the snapshot only by
+> checking out its pinned HEAD; do not regenerate or repair the evidence directory under later audit
+> semantics.
+
 Authored by Claude (architect seat), 2026-07-15. Written before the Codex inventory run.
 
 **Purpose.** Adjudicate the evidence artifacts Codex produces under `audit/content-demand-2026-07-14/`
