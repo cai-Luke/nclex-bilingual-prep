@@ -260,8 +260,8 @@ Use this deterministic disposition mapping:
 
 1. native "PASS" or "INSUFFICIENT" with no inherited failure → "no_action";
 2. otherwise-native non-failing global converted by inheritance → "audit_policy_review", or "routing_blocked" when the responsible bank is frozen and ordinary routing cannot affect it;
-3. native failure in which every independently sufficient cause is non-content in character → "audit_policy_review". A cause is non-content when it is mechanical low-n impossibility or a missing SATA correct-count bin of any value, boundary or interior. Evaluate causes independently: a failure is still "audit_policy_review" when a missing-bin condition alone would fail the scope, regardless of how many other bins are also absent. Record every contributing cause in "metrics.failureCauses" as a sorted array drawn from ["low_n_impossible", "missing_boundary_bin", "missing_interior_bin", "concentration"];
-3a. a native failure whose causes include "concentration", meaning top share is strictly greater than the applicable live threshold, is evaluated under rule 4 whether or not bins are also missing;
+3. native failure in which every independently sufficient cause is non-content in character → "audit_policy_review". A cause is non-content when it is mechanical low-n impossibility, a missing SATA correct-count bin of any value, boundary or interior, or a concentration that is mechanically forced at the cohort's "n", meaning the minimum achievable top share at that "n" — "ceil(n / number_of_available_bins) / n" — already exceeds the applicable live concentration threshold. When concentration is forced in this sense, record the cause as "low_n_impossible" rather than "concentration", and do not let rule 3a divert the scope to rule 4. Evaluate causes independently: a failure is still "audit_policy_review" when a missing-bin condition alone would fail the scope, regardless of how many other bins are also absent. Record every contributing cause in "metrics.failureCauses" as a sorted array drawn from ["low_n_impossible", "missing_boundary_bin", "missing_interior_bin", "concentration"];
+3a. a native failure whose causes include "concentration", meaning top share is strictly greater than the applicable live threshold and is not mechanically forced under rule 3, is evaluated under rule 4 whether or not bins are also missing;
 3b. do not infer from a missing interior bin that content is owed. Bin-population demand is an audit-policy question reserved to Claude;
 4. native non-low-n concentration that can be affected by content within an authorized route → "content_candidate";
 5. any embedded-part candidate → "case_level_review";
@@ -405,7 +405,7 @@ Do not issue a lab ordered-response production commission solely from that low-n
 
 Ordered-response final templates depend on the deterministic promotion shuffle.
 
-Current canonical banks already contain the promoted presentation order. Compute their "promotedTemplate" directly from the stored canonical "options" and "correct" arrays. Never call "shuffle()" on a canonical item: the live shuffle is not idempotent, and a second application would produce a false template.
+Current canonical banks already contain the promoted presentation order. Obtain their "promotedTemplate" value from the stored canonical "options" and "correct" arrays through the public-API procedure in Operational-sequence step 8b. Never call "shuffle()" on a canonical item: the live shuffle is not idempotent, and a second application would produce a false template.
 
 Therefore:
 
