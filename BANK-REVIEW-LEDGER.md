@@ -759,3 +759,33 @@ The three raw drafts arrived already carrying a completed pre-checker pass (see 
 **Post-consolidation audit fix.** After merge, `audit:references` flagged a positional-language hazard on `gpt_balance3_2026_07_16_fib_confidentiality_hipaa_04`'s `rationale.byChoice[0].zh` — a false positive from the `\([A-Da-d]\)` hazard pattern matching the `(b)` in an inline-repeated `45 CFR § 164.524(b)(2)(i)` citation, not an actual option-letter reference. No other item in any canonical bank repeats a CFR subsection citation inside rationale text (the citation lives in `meta.source` everywhere else), so this was the one outlier. Applied `scripts/patches/2026-07-16-gpt-balance3-cfr-citation-hazard-fix.ts` via `patch-raw --allow-canonical` to drop the inline `(b)(2)(i)` citation from both `en` and `zh` byChoice rationale, matching the established sibling-item style; `meta.source` remains the sole holder of the exact pin cite. No answer key, stem, or clinical claim changed.
 
 Verification: `normalize-raw-bank` on all three raw files — 0 structural changes; `promote` staged 18+18+18; `npm run audit` **GATE PASSED** after the rename and the CFR-citation patch (Tier 0/1 all pass; 2520 IDs globally unique; 4-opt MC χ²=0.288, n=455; only the pre-existing advisory distributional warning — visual-canonical select_all `correct_count_distribution`, n=11 — no new finding class); `consolidate -- --dry-run` confirmed route to `gpt-canonical.json` for all three; `consolidate` merged sequentially 574 → 592 → 610 → 628; `validate-bank -- banks/*.json` passed on all 13 bundled banks; `test:topic-vocabulary` passed (50 canonical topics, 114 aliases, no new topic outside the canonical set); `npx tsc -b --pretty false` clean; `census` regenerated (1799 top-level / 721 embedded / 200 visuals); `census:check` confirmed up to date; `npm run build` green. All three raw drafts deleted from `banks/banks-raw/` (now empty).
+
+### 2026-07-16 — Burn Management 42-row metadata reconciliation and SHARED license
+
+Status: `independently-adjudicated` and applied. The architect review artifact expanded the original
+29-item exact-topic worklist to 42 candidates by including six embedded case leaves, six off-canonical
+topic-drift items, and one semantic counterexample. Gemini independently reviewed the population;
+the gate seat then re-read all 42 live stems, keys, rationales, and case context against the verified
+official NCSBN 2026 Appendix A pages. Final gate disposition: 40 architect/Gemini routes accepted,
+row 23 held for removal/quarantine as a renderer-smoke-style non-nursing item, and row 34 revised to
+PA / `Cardiovascular Disorders` because its three keyed rows span burn, septic, and cardiogenic shock.
+
+Applied 27 metadata corrections across `banks/burn-canonical.json`,
+`banks/gemini-canonical.json`, `banks/gpt-canonical.json`, and
+`banks/hard-cases-canonical.json`. The deterministic producer-seat applicator is
+`scripts/Gemini-apply-manifest.ts`; the gate override for row 34 was applied with
+`scripts/patches/2026-07-16-burn-gate-row34-topic-reroute.ts` through `patch-raw --allow-canonical`.
+No stem, option, answer key, rationale, clinical claim, visual data, or derived value changed. Row 23
+was deliberately left untouched pending a separate removal/quarantine decision.
+
+`Burn Management` is now SHARED across Pharmacological and Parenteral Therapies, Reduction of Risk
+Potential, and Physiological Adaptation. After route-outs and the hold, its 36 exact-topic items are
+Pharm 17 / RRP 8 / PA 11. The durable keyed-construct boundary and all route-outs are recorded in
+`TOPIC-VOCABULARY-DECISIONS.md` and
+`BURN-MANAGEMENT-TOPIC-AUDIT-GATE-HANDOFF-2026-07-16.md`.
+
+Verification: `validate-bank` passed all 13 bundled banks; `npm run audit` **GATE PASSED** (2520
+globally unique IDs; only the pre-existing advisory non-MCQ distribution warning); topic vocabulary,
+migration-guard, residual-proposal, and residual-rerun tests passed; `test-visuals` passed including
+burn-map self-check/conformance/parity; `npx tsc -b --pretty false` passed; census regenerated at
+1799 top-level / 721 embedded / 200 visuals and `census:check` passed; production build passed.

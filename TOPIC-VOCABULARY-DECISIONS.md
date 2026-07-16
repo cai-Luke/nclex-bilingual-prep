@@ -195,6 +195,29 @@ rather than the producer's own summary of them:
   A scenario label is not a coverage domain; minting one here would recreate the fragmentation the
   canonical system exists to remove.
 
+## Burn Management full-population gate resolution (Jul 16)
+
+The Jul 15 deferral is resolved. The architect review artifact enumerated a corrected 42-row
+candidate population, and an independent gate seat re-read all live stems, keys, rationales, case
+context, and the cited NCSBN 2026 Appendix A pages. The accepted execution manifest and reconciliation
+are recorded in `BURN-MANAGEMENT-TOPIC-AUDIT-GATE-HANDOFF-2026-07-16.md`.
+
+**Ruling:** `Burn Management` becomes SHARED across `[Pharmacological and Parenteral Therapies,
+Reduction of Risk Potential, Physiological Adaptation]`. Category follows the keyed nursing activity;
+topic follows the stable burn-management rollup:
+
+- prescribed burn-resuscitation IV volume/rate computation or arithmetic verification → Pharm;
+- TBSA estimation, focused assessment, unactioned potential-complication recognition, or treatment-
+  response evaluation → RRP;
+- emergency intervention, acute pathophysiology, resuscitation initiation/titration, or management of
+  airway compromise, shock, fluid creep, or another established complication → PA.
+
+Five candidates route out: row 34 (`gemini_d9_10`) to PA / `Cardiovascular Disorders`; row 39 to
+Safety / `Patient & Environment Safety`; row 40 to Safety / `Standard Precautions & Hygiene`; row 41
+remains BCC / `Nutritional & Fluid Support`; and row 42 moves to PA / `Endocrine & Neurological
+Disorders`. Row 23 remains held on its off-canonical visual-smoke topic pending removal/quarantine and
+does not establish license scope. The retained rollup is 36 items: Pharm 17, RRP 8, PA 11.
+
 **Root cause, for future producer commissions:** the commission spec conflated "clinical focus the
 item should test" with "the literal canonical value that belongs in `question.topic`." Future
 commission tables should carry both columns separately, and producer instructions should add
@@ -204,11 +227,6 @@ runtime schema rule — the runtime intentionally allows free-text topics) but i
 for Codex if pursued.
 
 ## Open structural questions (optional, for next chat)
-
-- **Burn Management RRP/PA split** (added Jul 15): should the producer's assessment-vs-management
-  construct boundary be adopted as SHARED, requiring a re-audit of the 26 live items (9 RRP, 16 PA,
-  1 Pharmacological, 1 Safety and Infection Control) against it? Held at STRICT PA pending an
-  explicit call.
 
 - Is the ~45-topic granularity right, or too coarse/fine anywhere? (e.g. should rhythm-strip / EKG
   content have its own topic, or stay under Cardiovascular Disorders?)

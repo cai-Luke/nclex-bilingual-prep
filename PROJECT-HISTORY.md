@@ -52,6 +52,62 @@ The committed NGN item-type set is complete. Rationale/dyad scoring and an expli
 
 > Milestones dated **2026-06-23 and earlier** are archived in [`Archive/PROJECT-HISTORY-ARCHIVE.md`](Archive/PROJECT-HISTORY-ARCHIVE.md). Only the current arc (2026-06-24 onward) is kept here.
 
+### Burn Management Full-Population Gate and SHARED License (Jul 16)
+
+Completed:
+- Reconciled the corrected 42-row candidate population against all bundled banks and embedded case
+  leaves: 42 unique IDs, all present exactly once.
+- Independently adjudicated every live stem, key, rationale, and applicable case exhibit against the
+  official NCSBN 2026 Appendix A category pages. The gate accepted 40 architect/Gemini routes, held
+  the visual-smoke-only row 23 for removal/quarantine, and revised row 34 to PA /
+  `Cardiovascular Disorders` because its matrix spans burn, septic, and cardiogenic shock.
+- Applied 27 category/topic metadata corrections across `burn-canonical.json`,
+  `gemini-canonical.json`, `gpt-canonical.json`, and `hard-cases-canonical.json`; no stem, answer,
+  rationale, clinical claim, visual payload, or derived value changed.
+- Changed `Burn Management` from STRICT PA to SHARED `[Pharmacological and Parenteral Therapies,
+  Reduction of Risk Potential, Physiological Adaptation]`. The retained exact-topic rollup is 36
+  items: Pharm 17, RRP 8, PA 11.
+- Added the architect review artifact, Gemini report/manifest/applicator, independent gate handoff,
+  and deterministic row-34 canonical patch record. Updated the dated taxonomy ruling, source record,
+  topic export, review ledger, migration report, and census.
+
+Verified:
+- `npm run validate-bank -- banks/*.json`
+- `npm run audit` (gate passed; only the pre-existing advisory distribution warning)
+- `npm run test:topic-vocabulary`, `test:topic-migration-guards`,
+  `test:topic-residual-proposals`, and `test:residual-rerun`
+- `npm run test-visuals`
+- `npx tsc -b --pretty false`
+- `npm run census && npm run census:check`
+- `npm run build`
+
+### GPT Coverage Balance Batch 5 Commission (Jul 16)
+
+Prepared:
+- Added `GPT-COVERAGE-BALANCE-BATCH-5-SPEC-2026-07-16.md`, an 18-item standalone GPT producer
+  commission planned from the 1,799-question canonical baseline after promotion of Batches 1–3.
+- Allocated 8 Management of Care, 4 Pharmacological and Parenteral Therapies, 3 Safety and Infection
+  Control, and 3 Reduction of Risk Potential items, with 7 easy / 8 medium / 3 hard and an exact mix
+  of 7 highlights, 5 bowties, 3 dropdown clozes, and 3 matrices.
+- Replaced the prior topic-level assignment style with an affirmative row-level manifest: every row
+  now fixes the scenario and load-bearing decision, with targeted collision boundaries and a precise
+  source lane supplied by the commission. Ordered responses, fill-in-the-blank items, visuals, and
+  case-study repair are excluded because the selected targets do not support those formats as cleanly.
+- Corrected the requested raw filename at commission time to the routable
+  `gpt-balance5-coverage-batch-2026-07-16.json` convention while retaining `gpt_balance5_*` question
+  IDs. Added a citation-placement guard against repeating CFR subsection labels inside choice
+  rationales.
+- Marked archived Batch 4 as discarded process history. Its rejected Gemini generation is not
+  pending and receives no coverage credit.
+
+Verification:
+- Re-ran `npm run coverage-report` against all 13 current canonical banks.
+- Confirmed canonical topic/category strings against `src/topics.ts`, schema `2.0` against
+  `src/types.ts` and `src/schema.ts`, and the `gpt-` filename route against
+  `lib/canonical-routing.ts`.
+- Performed targeted canonical-bank premise searches for the 18 assigned scenarios and anchored each
+  load-bearing rule to a specific government, professional-guideline, or current drug-label source.
+
 ### GPT MOC/SIC + Coverage Balance Batches 2/3 — Promoted (Jul 16)
 
 The three raw drafts covered by the "Raw Gate Preparation" and "Commission" entries below (`gpt-mocsic-coverage-batch-2026-07-15.json`, `gpt-balance2-coverage-batch-2026-07-15.json`, `gpt-balance3-coverage-batch-2026-07-16.json`) cleared independent Claude content review and are now promoted: 54 standalone items merged into `banks/gpt-canonical.json` (574→628). All raw drafts had originally been named with an underscore after `gpt` rather than the `gpt-` hyphen prefix `lib/canonical-routing.ts` requires for `gpt-canonical.json` routing; renamed both the raw and staged-promoted copies before consolidating (question `id` values, already `gpt_*`-prefixed, were untouched). One post-consolidation `audit:references` false positive — an inline-repeated `45 CFR § 164.524(b)(2)(i)` citation whose `(b)` tripped the option-letter hazard pattern — was corrected via `scripts/patches/2026-07-16-gpt-balance3-cfr-citation-hazard-fix.ts` (`patch-raw --allow-canonical`). `banks/banks-raw/` is now empty. Full verification (`normalize-raw-bank`, `promote`, `npm run audit` GATE PASSED, `consolidate`, `validate-bank` on all 13 banks, `test:topic-vocabulary`, `tsc -b`, `census`/`census:check`, `npm run build`) and per-batch content notes are recorded in `BANK-REVIEW-LEDGER.md`'s 2026-07-16 entry.

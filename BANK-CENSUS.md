@@ -2,8 +2,8 @@
 
 # NCLEX Bank Census
 
-Generated: 2026-07-16T04:38:37.981Z
-Git SHA: 467f398bcb57828e7d15414399127256ef978bcd
+Generated: 2026-07-16T13:07:11.465Z
+Git SHA: a7ac207d6f09d64cb5d2f30b0727f667440171dd
 
 ## Per-File Summary
 
@@ -33,13 +33,13 @@ Git SHA: 467f398bcb57828e7d15414399127256ef978bcd
 ## By Category
 
 - Health Promotion and Maintenance: 164
-- Basic Care and Comfort: 166
+- Basic Care and Comfort: 165
 - Psychosocial Integrity: 171
-- Reduction of Risk Potential: 210
-- Safety and Infection Control: 227
-- Pharmacological and Parenteral Therapies: 276
+- Reduction of Risk Potential: 204
+- Safety and Infection Control: 228
+- Physiological Adaptation: 285
 - Management of Care: 291
-- Physiological Adaptation: 294
+- Pharmacological and Parenteral Therapies: 291
 
 ## Within-Category Concentration
 
@@ -50,7 +50,7 @@ Visual kinds: capnography (1), device_screen (1), mar (2)
 
 ### Safety and Infection Control
 
-Top topics: Patient & Environment Safety (46), Transmission-Based Precautions (43), Standard Precautions & Hygiene (30), PPE & Sterile Technique (29), Disaster & Emergency Preparedness (13), Environmental safety and equipment checks (8), Fall prevention (6), Medication Safety & Admin (4), Transfusion & Blood Products (4), Endocrine & Neurological Disorders (2)
+Top topics: Patient & Environment Safety (47), Transmission-Based Precautions (43), Standard Precautions & Hygiene (31), PPE & Sterile Technique (29), Disaster & Emergency Preparedness (13), Environmental safety and equipment checks (8), Fall prevention (6), Medication Safety & Admin (4), Transfusion & Blood Products (4), Endocrine & Neurological Disorders (2)
 Visual kinds: capnography (4), device_screen (1), medication_label (1), vitals_trend (3)
 
 ### Health Promotion and Maintenance
@@ -66,22 +66,22 @@ Visual kinds: none
 ### Basic Care and Comfort
 
 Top topics: Nutritional & Fluid Support (37), Elimination & Comfort (32), Mobility & Immobility (29), Sleep & Rest (19), Palliative & Supportive Care (15), Dosage Calculations (10), Skin & Wound Care (3), Transmission-Based Precautions (3), Adult Health & Wellness (2), Perioperative Care (2)
-Visual kinds: burn_map (1), device_screen (1), io_record (4)
+Visual kinds: device_screen (1), io_record (4)
 
 ### Pharmacological and Parenteral Therapies
 
-Top topics: Dosage Calculations (56), Medication Safety & Admin (54), Anticoagulant Therapy (44), Cardiovascular & Endocrine Medications (33), Psychotropic Medications (18), Parenteral Nutrition (12), High-Alert Medication Safety (6), Nutritional & Fluid Support (3), Antibiotic Allergy Screening (2), Cardiovascular Disorders (2)
-Visual kinds: capnography (3), device_screen (6), io_trend (2), lab_trend (6), mar (9), medication_label (12), rhythm_strip (10), vitals_trend (8)
+Top topics: Dosage Calculations (56), Medication Safety & Admin (54), Anticoagulant Therapy (44), Cardiovascular & Endocrine Medications (33), Psychotropic Medications (18), Burn Management (16), Parenteral Nutrition (12), High-Alert Medication Safety (6), Nutritional & Fluid Support (3), Antibiotic Allergy Screening (2)
+Visual kinds: burn_map (6), capnography (3), device_screen (6), io_trend (2), lab_trend (6), mar (9), medication_label (12), rhythm_strip (10), vitals_trend (8)
 
 ### Reduction of Risk Potential
 
-Top topics: Procedural Complications & Dialysis (45), Laboratory & Diagnostic Tests (31), Perioperative Care (30), Intrapartum Fetal Monitoring (12), Burn Management (9), Maternal-Newborn Care & Teaching (7), ABG & Acid-Base Interpretation (5), Injection route recognition from skin cross-section (4), PPE & Sterile Technique (4), Endocrine & Neurological Disorders (3)
-Visual kinds: burn_map (5), capnography (6), device_screen (3), fetal_monitoring (6), injection_site (8), io_record (5), lab_trend (7), rhythm_strip (3), vitals_trend (6)
+Top topics: Procedural Complications & Dialysis (45), Laboratory & Diagnostic Tests (31), Perioperative Care (30), Intrapartum Fetal Monitoring (12), Burn Management (7), Maternal-Newborn Care & Teaching (7), ABG & Acid-Base Interpretation (5), Injection route recognition from skin cross-section (4), PPE & Sterile Technique (4), Endocrine & Neurological Disorders (3)
+Visual kinds: burn_map (4), capnography (6), device_screen (3), fetal_monitoring (6), injection_site (8), io_record (5), lab_trend (7), rhythm_strip (3), vitals_trend (6)
 
 ### Physiological Adaptation
 
-Top topics: Cardiovascular Disorders (74), Renal & Gastrointestinal Disorders (37), Endocrine & Neurological Disorders (36), Electrolyte Imbalances (26), Burn Management (18), Diabetic Ketoacidosis (DKA) (16), Respiratory & Infectious Disorders (14), Sepsis & Septic Shock (8), Oncology & Immunotherapy Complications (6), ABG & Acid-Base Interpretation (2)
-Visual kinds: burn_map (5), capnography (11), io_record (2), io_trend (2), lab_trend (7), rhythm_strip (37), vitals_trend (12)
+Top topics: Cardiovascular Disorders (75), Renal & Gastrointestinal Disorders (37), Endocrine & Neurological Disorders (36), Electrolyte Imbalances (26), Diabetic Ketoacidosis (DKA) (16), Respiratory & Infectious Disorders (14), Burn Management (8), Sepsis & Septic Shock (8), Oncology & Immunotherapy Complications (6), ABG & Acid-Base Interpretation (2)
+Visual kinds: burn_map (1), capnography (11), io_record (2), io_trend (2), lab_trend (7), rhythm_strip (37), vitals_trend (12)
 
 ## By Item Type
 
@@ -338,6 +338,7 @@ Under-served item types:
 PRIORITIZE_TOPICS:
 - Dosage Calculations — add: ordered_response
 - Substance Use & Withdrawal — add: ordered_response
+- Burn Management — add: ordered_response
 - Injection route recognition from skin cross-section — add: select_all, ordered_response, fill_in_blank, matrix, dropdown_cloze, highlight, bowtie
 - Palliative & Supportive Care — add: select_all
 - Electroconvulsive Therapy (ECT) — add: select_all, fill_in_blank
@@ -363,13 +364,13 @@ PRIORITIZE_TOPICS:
 - Adrenal crisis
 
 AVOID_TOPICS:
-- Cardiovascular Disorders (78)
+- Cardiovascular Disorders (79)
 - Mental Health Disorders (64)
 - Medication Safety & Admin (60)
 - Prioritization & Delegation (56)
 - Legal & Ethical Principles (51)
+- Patient & Environment Safety (49)
 - Transmission-Based Precautions (48)
-- Patient & Environment Safety (48)
 
 ## Docs Drift
 

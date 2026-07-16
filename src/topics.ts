@@ -123,11 +123,15 @@ export const STRICT_TOPIC_CATEGORY: Record<Category, readonly string[]> = {
     TOPICS.ELECTROLYTE_IMBALANCES,
     TOPICS.DIABETIC_KETOACIDOSIS,
     TOPICS.SEPSIS_SEPTIC_SHOCK,
-    TOPICS.BURN_MANAGEMENT,
   ],
 };
 
 export const SHARED_TOPIC_CATEGORY: Record<string, readonly Category[]> = {
+  [TOPICS.BURN_MANAGEMENT]: [
+    "Pharmacological and Parenteral Therapies",
+    "Reduction of Risk Potential",
+    "Physiological Adaptation",
+  ],
   [TOPICS.MEDICATION_SAFETY_ADMIN]: [
     "Pharmacological and Parenteral Therapies",
     "Safety and Infection Control",

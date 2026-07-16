@@ -15,7 +15,7 @@ Created 2026-07-16 (architect seat). First consumer: Burn Management topic audit
 |---|---|
 | Official URL | https://www.nclex.com/files/2026_RN_Test%20Plan_English-F.pdf |
 | Publisher hub | https://www.ncsbn.org/publications/2026-nclex-rn-test-plan |
-| Effective date | **April 1, 2026** (supersedes the 2023 test plan, in force through 2026-03-31) |
+| Effective date | **April 1, 2026**; supersedes the 2023 NCLEX-RN Test Plan |
 | Retrieved | 2026-07-16 |
 | SHA-256 | `e64ae95732a5be03d31bc29ccad20461a171085883b88760a21ee6bd4cc1edf3` |
 | Size / pages | 758,491 bytes / 56 pages |
@@ -69,8 +69,9 @@ only place carrying the sub-headings that distinguish constructs within a catego
 | **Reduction of Risk Potential** | p. 13 | **pp. 42–44** |
 | **Physiological Adaptation** | p. 14 | **pp. 46–49** |
 
-Category definitions (one line each) appear at the head of both listings. **The definitions, not the
-activity verbs, carry the boundary** — see "Adjudication note" below.
+Category definitions (one line each) appear at the head of both listings. **The definitions establish
+scope — and they overlap; the exact keyed activity resolves the overlap** — see "Adjudication note"
+below. Do not classify from the activity verb alone.
 
 ### Sub-headings that matter for fluid/calculation adjudication
 
@@ -93,22 +94,33 @@ Assessments (p. 44), Therapeutic Procedures (p. 44).
 Under **Physiological Adaptation** (Appendix A): Alterations in Body Systems (pp. 46–47), Fluid and
 Electrolyte Imbalances (p. 47), Hemodynamics (p. 48), and further sub-headings through p. 49.
 
-## Adjudication note — the boundary is in the definitions
+## Adjudication note — definitions establish scope; the keyed activity resolves overlap
 
 A recognition-vs-management verb test **does not** separate RRP from PA. Both categories contain
-"recognize … and intervene" activity statements (RRP p. 42; PA p. 46). The separating principle is
-each category's own one-line definition:
+"recognize … and intervene" activity statements (RRP p. 42; PA p. 46), and their definitions
+**overlap by design**:
 
-- **Reduction of Risk Potential** is scoped to complications/health problems arising from *existing
-  conditions, treatments or procedures* — i.e. treatment- and procedure-related risk, surveillance,
-  and response evaluation.
-- **Physiological Adaptation** is scoped to *acute, chronic or life-threatening physical health
-  conditions* themselves — including recognizing complications of that condition, emergency care, and
-  managing hemodynamics/fluid-electrolyte alterations.
+- **Reduction of Risk Potential** — reducing the likelihood that clients will develop complications or
+  health problems related to *existing conditions, treatments or procedures* (pp. 13, 42). The scope
+  includes complications of an **existing condition** — not only treatment- and procedure-related
+  risk. Narrowing it to the latter is a misreading, and one that will pull recognition items toward
+  PA that do not belong there.
+- **Physiological Adaptation** — managing and providing care for clients with *acute, chronic or
+  life-threatening physical health conditions* (pp. 14, 46).
 
-So: evaluating whether a *treatment* is working → RRP. Recognizing and acting on a life-threatening
-complication of the *condition* → PA. Applying the verb test instead misroutes emergency-recognition
-items into RRP.
+A complication of a life-threatening burn injury therefore sits **inside both definitions**. The
+definitions establish **scope**; they do not resolve the overlap. **The exact keyed nursing activity
+resolves it:**
+
+- Assessment, focused assessment, or recognition of a **potential** complication, **without keyed
+  management** → tends **RRP**.
+- Emergency treatment, or active management of the acute or life-threatening condition → tends **PA**.
+
+"Tends," not "is." **Do not classify from the verb alone.** A stem verb ("recognize", "highlight",
+"manage") is not the keyed activity — read what the key actually scores. An item may recognize cues
+in service of a keyed management discrimination, or key an action inside a recognition frame. And the
+severity of the underlying condition does **not** by itself pull an item to PA: a focused assessment
+remains a focused assessment when the condition is life-threatening.
 
 ## Distribution of content (pp. 5, target percentages; ±3% tolerance per exam)
 
@@ -147,5 +159,5 @@ curl -sL -o /tmp/testplan.pdf "https://www.nclex.com/files/2026_RN_Test%20Plan_E
 sha256sum /tmp/testplan.pdf   # expect e64ae95732a5be03d31bc29ccad20461a171085883b88760a21ee6bd4cc1edf3
 ```
 
-Next scheduled NCSBN test-plan revision: 2029 (three-year cycle). Re-check this record then, or
-whenever the hash drifts.
+NCSBN reviews and approves the test plan on a three-year cycle (p. 1). No expiration date is asserted
+here — re-check this record whenever the hash drifts or NCSBN announces a revision.
