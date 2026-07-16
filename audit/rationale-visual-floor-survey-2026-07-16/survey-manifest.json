@@ -1,0 +1,168 @@
+{
+  "survey": "rationale-visual-schema-floor-bank-impact-survey",
+  "date": "2026-07-16",
+  "authoredBy": "Claude (architect seat)",
+  "status": "COMPLETE",
+  "purpose": "Pre-move bank-impact evidence for the P0 rationale.visuals schema-floor retrofit. Answers: does moving the pacer floor from the hand-written walkers onto the shared full-visual traversal change the required schema floor for any live record?",
+  "verdict": "ZERO IMPACT. No bundled record changes its required floor. The rationale.visuals feature is entirely unpopulated.",
+
+  "population": {
+    "banks": 13,
+    "bankSet": "banks/*-canonical.json",
+    "topLevelRecords": 1852,
+    "rawDrafts": 0,
+    "rawNote": "banks/banks-raw/ contained only .DS_Store; banks/_promoted/ was empty. There is no raw or staging lane to survey.",
+    "totalVisualArtifacts": 199
+  },
+
+  "crossChecks": [
+    {
+      "name": "artifact-basis reconciliation",
+      "claim": "This survey's four NON-rationale locations reconcile with the ratified visualArtifacts basis.",
+      "expected": 199,
+      "observed": 199,
+      "result": "PASS",
+      "proves": "That the survey's question / caseExhibit / caseStageExhibit / caseQuestion counts (195 + 1 + 1 + 2) agree exactly with lib/question-population.ts collectVisualArtifacts, whose four sources are question | case_exhibit | case_stage_exhibit | embedded_leaf. The survey is not missing a NON-rationale location.",
+      "doesNotProve": "That the rationale locations were traversed at all. collectVisualArtifacts EXCLUDES rationale figures by ratification, so a 199 match is equally consistent with (a) traversing rationale and finding zero, or (b) not traversing rationale. This check cannot distinguish them. The zero-rationale finding rests entirely on the two direct checks below.",
+      "narrowedBy": "Codex review 2026-07-16 - accepted. The earlier wording claimed this established no location was missing; that overclaimed."
+    },
+    {
+      "name": "parsed rationale count (LOAD-BEARING)",
+      "claim": "No record in any canonical bank carries a non-empty rationale.visuals array.",
+      "method": "recursive structural parse over every nested object, independent of the survey traversal",
+      "observed": 0,
+      "result": "PASS",
+      "proves": "The zero-rationale population directly. This is one of the two checks the verdict actually rests on."
+    },
+    {
+      "name": "literal-key null (LOAD-BEARING)",
+      "claim": "The literal string \"visuals\" does not occur in any canonical bank.",
+      "method": "raw grep, independent of JSON parsing AND of any traversal",
+      "result": "PASS",
+      "proves": "The zero-rationale population with no dependence on traversal correctness at all: rationale.visuals is the only schema slot in which that key appears, so its total absence is conclusive. This is the strongest single check in the survey."
+    },
+    {
+      "name": "history corroboration",
+      "claim": "The four non-question-slot visuals match records independently named in PROJECT-HISTORY.md.",
+      "result": "PASS",
+      "why": "opus26_case_refeeding_syndrome_01 is described as the two-rhythm-strip review case (2 found at caseQuestion); gpt_stroke_2026_06_16_case_acute_ischemic_stroke_warfarin_01/baseline_assessment appears in the Bucket 1B entry (caseExhibit); cs_thyroid_storm_main appears in split-layout smoke (caseStageExhibit)."
+    }
+  ],
+
+  "kindCounts": {
+    "rhythm_strip": 50,
+    "vitals_trend": 29,
+    "capnography": 25,
+    "lab_trend": 20,
+    "medication_label": 13,
+    "device_screen": 12,
+    "io_record": 11,
+    "mar": 11,
+    "burn_map": 10,
+    "injection_site": 8,
+    "fetal_monitoring": 6,
+    "io_trend": 4
+  },
+
+  "locationCounts": {
+    "question": 195,
+    "questionRationale": 0,
+    "caseExhibit": 1,
+    "caseStageExhibit": 1,
+    "caseQuestion": 2,
+    "caseQuestionRationale": 0
+  },
+
+  "locationFinding": "195 of 199 artifacts (98.0%) sit at question.visual. Only 4 live anywhere else. BOTH rationale locations are empty: there is no visual of any kind, pacer or otherwise, in any rationale.visuals slot anywhere in the corpus.",
+
+  "pacerBearingRecords": [
+    {
+      "bank": "visual-canonical.json",
+      "questionId": "ekg_pacer_failure_to_capture_2026_07_01",
+      "location": "question",
+      "bankSchemaVersion": "2.0",
+      "requiredFloor": "1.7",
+      "floorSatisfied": true,
+      "currentWalkerDetects": true,
+      "proposedPredicateDetects": true,
+      "flips": false
+    },
+    {
+      "bank": "visual-canonical.json",
+      "questionId": "ekg_pacer_failure_to_sense_2026_07_01",
+      "location": "question",
+      "bankSchemaVersion": "2.0",
+      "requiredFloor": "1.7",
+      "floorSatisfied": true,
+      "currentWalkerDetects": true,
+      "proposedPredicateDetects": true,
+      "flips": false
+    },
+    {
+      "bank": "visual-canonical.json",
+      "questionId": "ekg_pacer_failure_to_pace_2026_07_01",
+      "location": "question",
+      "bankSchemaVersion": "2.0",
+      "requiredFloor": "1.7",
+      "floorSatisfied": true,
+      "currentWalkerDetects": true,
+      "proposedPredicateDetects": true,
+      "flips": false
+    }
+  ],
+
+  "nonQuestionSlotVisuals": [
+    {
+      "bank": "claude-canonical.json",
+      "kind": "rhythm_strip",
+      "location": "caseQuestion",
+      "parentQuestionId": "opus26_case_refeeding_syndrome_01",
+      "ownerId": "opus26_case_refeeding_syndrome_01_q3",
+      "pacer": false
+    },
+    {
+      "bank": "claude-canonical.json",
+      "kind": "rhythm_strip",
+      "location": "caseQuestion",
+      "parentQuestionId": "opus26_case_refeeding_syndrome_01",
+      "ownerId": "opus26_case_refeeding_syndrome_01_q5",
+      "pacer": false
+    },
+    {
+      "bank": "hard-cases-canonical.json",
+      "kind": "vitals_trend",
+      "location": "caseStageExhibit",
+      "parentQuestionId": "cs_thyroid_storm_main",
+      "ownerId": "cs_thyroid_storm_main",
+      "pacer": false
+    },
+    {
+      "bank": "hard-cases-canonical.json",
+      "kind": "rhythm_strip",
+      "location": "caseExhibit",
+      "parentQuestionId": "gpt_stroke_2026_06_16_case_acute_ischemic_stroke_warfarin_01",
+      "ownerId": "gpt_stroke_2026_06_16_case_acute_ischemic_stroke_warfarin_01",
+      "pacer": false
+    }
+  ],
+
+  "reportByCategory": {
+    "bundledBankValidationFlips": 0,
+    "rawStagingFlips": 0,
+    "rawStagingNote": "No raw lane exists to flip.",
+    "exportEnvelopeVersionChanges": 0,
+    "exportEnvelopeNote": "toExportEnvelope infers 1.7 from hasPacerRhythmStrip. All three pacer records sit at question.visual, which the current walker already detects. No inferred envelope version changes under the proposed predicate.",
+    "zeroImpactPopulations": "The entire questionRationale and caseQuestionRationale populations are empty (0 of 199). The defect is real in code but unreachable from any current content."
+  },
+
+  "consequenceForP0": [
+    "The defect is latent, not live. No record currently under-declares its floor.",
+    "This makes the retrofit strictly safer to land now than later: the handoff hazard 'do not silently bump canonical metadata to make the test pass' is presently unreachable, because there is no canonical metadata that would need bumping.",
+    "Every rationale-location regression case must be SYNTHETIC. There is no corpus record to fixture from, and no committed browser fixture (PROJECT-HISTORY's Visual Focus Dialog entry independently records this same gap).",
+    "Corpus proof and synthetic proof are different claims and must be labelled as such: the corpus proves zero flips today; the synthetic fixtures prove the traversal covers every supported location tomorrow."
+  ],
+
+  "plannedRegenerationCommand": "npm run survey:rationale-visual-floor",
+  "plannedRegenerationCommandStatus": "DOES NOT EXIST YET. This manifest was hand-derived by the architect seat; the generator script is commissioned by RATIONALE-VISUAL-SCHEMA-FLOOR-RETROFIT-CODEX-SPEC-2026-07-16.md and lands with the retrofit. Rename this field to regenerationCommand once the script exists and reproduces this manifest. Flagged by Codex review 2026-07-16 - accepted.",
+  "regenerationPolicy": "This manifest is a DATED assertion, not a constitutional constant. totalVisualArtifacts (199) will legitimately change the moment any visual content is promoted (io_trend generation is queued and will move it). Regenerate deliberately when that happens. The durable invariants that must NOT drift silently are locationCounts.questionRationale === 0 and locationCounts.caseQuestionRationale === 0: if either becomes non-zero, the pacer floor is live and this evidence must be re-derived before it is trusted."
+}

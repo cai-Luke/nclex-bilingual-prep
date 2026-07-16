@@ -52,6 +52,24 @@ The committed NGN item-type set is complete. Rationale/dyad scoring and an expli
 
 > Milestones dated **2026-06-23 and earlier** are archived in [`Archive/PROJECT-HISTORY-ARCHIVE.md`](Archive/PROJECT-HISTORY-ARCHIVE.md). Only the current arc (2026-06-24 onward) is kept here.
 
+### Post-PR #52 Format Commission and Deterministic Handoff (Jul 16)
+
+PR #52 merged after the architect's pass and the local-only unresolved-root-file check. The
+census-denominator/topic-license arc is closed. The authoritative scored-leaf report has no category
+outside tolerance and no standalone delivery-capacity shortfall, so no generic category-balance batch
+was commissioned.
+
+The next content order is instead the active 18-item, three-file scored-format commission in
+[`GPT-SCORED-FORMAT-BATCH-7-SPEC-2026-07-16.md`](GPT-SCORED-FORMAT-BATCH-7-SPEC-2026-07-16.md),
+targeting only topic/format combinations named by the scored-leaf report. The deterministic revisit
+queue and recommended sequencing are handed to the next architecture seat in
+[`NEXT-ARCHITECT-DETERMINISTIC-HANDOFF-2026-07-16.md`](NEXT-ARCHITECT-DETERMINISTIC-HANDOFF-2026-07-16.md):
+schema-floor coverage for `rationale.visuals` first, with visual parity, vital-sign sanity evidence,
+single-row lab policy, and CI hardening kept as separate workstreams. The proposed active-governance
+encoding gate was withdrawn by Luke on 2026-07-16 after every reported corruption was traced to the
+connector read path rather than repository bytes; the durable replacement control lives in
+`CLAUDE.md` and the withdrawal rationale in `DECISIONS.md` §8.
+
 ### Census Denominator Authority Closeout (Jul 16)
 
 PR #51 introduced separate top-level/session-unit and scored-leaf populations but deliberately left
