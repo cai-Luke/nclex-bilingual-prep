@@ -18,7 +18,20 @@ for (const [key, def] of Object.entries(VITAL_DEFS)) {
   assert.ok(got, `${key} missing from measurement allowlist`);
   assert.equal(got.kind, "vital", `${key} should be vital`);
   assert.equal(got.canonicalUnit, def.unit, `${key} canonicalUnit drift`);
-  assert.deepEqual(got.sanity, def.range, `${key} sanity drift`);
+  if (key === "temp") {
+    assert.equal(
+      got.sanity.min,
+      def.range.min,
+      "temp sanity floor must remain inherited from VITAL_DEFS pending separate review",
+    );
+    assert.equal(
+      got.sanity.max,
+      46.5,
+      "temp sanity ceiling must equal the sourced and ratified canonical-Celsius tripwire",
+    );
+  } else {
+    assert.deepEqual(got.sanity, def.range, `${key} sanity drift`);
+  }
   const expectedSourceUnits = key === "temp" ? [def.unit, "°F", "F", "C"] : [def.unit];
   assert.deepEqual(got.acceptedSourceUnits, expectedSourceUnits, `${key} acceptedSourceUnits drift`);
 }
