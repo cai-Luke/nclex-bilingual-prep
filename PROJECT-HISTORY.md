@@ -52,6 +52,54 @@ The committed NGN item-type set is complete. Rationale/dyad scoring and an expli
 
 > Milestones dated **2026-06-23 and earlier** are archived in [`Archive/PROJECT-HISTORY-ARCHIVE.md`](Archive/PROJECT-HISTORY-ARCHIVE.md). Only the current arc (2026-06-24 onward) is kept here.
 
+### GPT Scored-Format Batch 7 Promoted (Jul 16)
+
+17 of 18 candidates promoted into `banks/gpt-canonical.json` (681→698); the confirmed-duplicate
+18th was dropped, not promoted. Independent review (Claude, producer≠checker against GPT's own
+self-review below) recomputed all six fill-in-blank keys from first principles, verified the five
+ordered-response `correct` arrays as full permutations, verified both bowtie 1/2/2 key structures
+and both highlight bounded-correct sets, read every bilingual pair inline, and cross-checked every
+cited guideline source against the tested clinical decision — no inaccuracies found. Confirmed
+GPT's held-item finding for `gpt_format7b_dry_chemical_skin_decontamination` (duplicate of
+`gpt_fmtgap_2026_07_14_or_dry_chemical_burn_15` and `gemini_b4_06`) and dropped it via
+`scripts/patches/2026-07-16-gpt-format7b-drop-duplicate.ts`; its exact payload is preserved in
+`Archive/retired-bank-items-2026-07-16/` since `banks/banks-raw/` is gitignored and carries no git
+provenance of its own. Full detail in `BANK-REVIEW-LEDGER.md`'s 2026-07-16 Batch 7 promotion entry.
+
+GPT's original staging-only self-review, preserved as-is below:
+
+Completed in staging only:
+- Reviewed all 18 standalone questions in the three Batch 7 raw files against the row-level
+  commission, current schema/grading contracts, bundled-bank inventory, bilingual content, and
+  load-bearing clinical sources. The drafts remain raw and have not been independently approved,
+  promoted, consolidated, ledgered, or counted by the census.
+- Recomputed all six fill-in-the-blank keys from the supplied data: corrected sodium 136 mEq/L,
+  effective serum osmolality 344 mOsm/kg, CURB-65 score 4, renal SOFA component 3, initial PRBC
+  rate 100 mL/hr, and revised PRBC rate 131 mL/hr. Stored numeric answers, accepted strings,
+  units, and tolerances agree with those results.
+- Corrected Batch 7C's mislabeled ADA hypoglycemia section and tightened the two 2026 Surviving
+  Sepsis Campaign links to the current guideline and named recommendation lanes. The declarative
+  raw-stage record is `scripts/patches/2026-07-16-gpt-format7c-final-review.ts`; learner-facing
+  content and answer keys were unchanged.
+- Placed `gpt_format7b_dry_chemical_skin_decontamination` on hold because it materially duplicates
+  the already bundled ordered-response items `gpt_fmtgap_2026_07_14_or_dry_chemical_burn_15` and
+  `gemini_b4_06`: all three test the same remove/brush/irrigate decontamination sequence. The item
+  must be replaced or explicitly adjudicated before Batch 7 can be presented as an 18-item
+  promotion-ready set; the raw file is intentionally left intact so the six-row manifest is not
+  silently altered.
+
+Verification:
+- All three raw files normalize with zero structural changes and pass `validate-bank`; the exact
+  commissioned 18-row category, topic, item-type, and difficulty distribution is preserved.
+- No raw-versus-bundled ID collision was found. Targeted premise and similarity review found no
+  other material duplicate; common PRBC arithmetic, home-PN transition, heart-failure action-plan,
+  and sepsis vocabulary represented different tested decisions.
+- The six ordered-response keys are full permutations, both bowties retain exact 1/2/2 keys, and
+  all four highlights have bounded correct sets plus near-miss distractors. English/Chinese choice
+  and rationale-reference coverage is complete.
+- Formal independent producer≠checker clinical/source review, resolution of the held duplicate,
+  and the complete promotion pipeline are now complete — see the note above this section.
+
 ### Post-PR #52 Format Commission and Deterministic Handoff (Jul 16)
 
 PR #52 merged after the architect's pass and the local-only unresolved-root-file check. The

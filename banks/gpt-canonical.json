@@ -1,7 +1,7 @@
 {
   "meta": {
     "schemaVersion": "2.0",
-    "count": 681,
+    "count": 698,
     "exam": "NCLEX-RN",
     "topic": "assorted NCLEX-RN GPT canonical bank",
     "category": "mixed",
@@ -129644,6 +129644,1943 @@
           "reusable ultrasound probe",
           "intact skin vs mucous membrane vs nonintact skin vs sterile tissue",
           "probe cover does not replace reprocessing"
+        ]
+      }
+    },
+    {
+      "id": "gpt_format7a_corrected_sodium",
+      "itemType": "fill_in_blank",
+      "category": "Physiological Adaptation",
+      "topic": "Electrolyte Imbalances",
+      "difficulty": "medium",
+      "ngnSkill": "analyze_cues",
+      "stem": {
+        "en": "An adult with severe hyperglycemia has a measured serum sodium of 128 mEq/L and a serum glucose of 600 mg/dL. For this item, use the following equation:\n\nCorrected sodium (mEq/L) = measured sodium + 1.6 × [(glucose − 100) ÷ 100]\n\nCalculate the corrected sodium. Round to the nearest whole mEq/L. Enter the number only.",
+        "zh": "一名严重高血糖的成人，实测血清钠为 128 mEq/L，血糖为 600 mg/dL。本题使用以下公式：\n\n校正血清钠（mEq/L）= 实测血清钠 + 1.6 ×［（血糖 − 100）÷ 100］\n\n计算校正后的血清钠。四舍五入到最接近的整数 mEq/L。只输入数字。"
+      },
+      "rationale": {
+        "correct": {
+          "en": "The glucose is 500 mg/dL above 100 mg/dL, which is five 100-mg/dL increments. The correction is 1.6 × 5 = 8 mEq/L. Therefore, 128 + 8 = 136 mEq/L.",
+          "zh": "血糖比 100 mg/dL 高 500 mg/dL，即 5 个 100 mg/dL 的增量。校正值为 1.6 × 5 = 8 mEq/L。因此，128 + 8 = 136 mEq/L。"
+        },
+        "byChoice": [
+          {
+            "refId": "corrected_sodium",
+            "en": "128 + 1.6 × [(600 − 100) ÷ 100] = 128 + 8 = 136.",
+            "zh": "128 + 1.6 ×［（600 − 100）÷ 100］= 128 + 8 = 136。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Use only the equation supplied in the stem. Count the number of 100-mg/dL glucose increments before adding the sodium correction.",
+        "zh": "只使用题干给出的公式。先计算血糖超过 100 mg/dL 后有几个 100 mg/dL 的增量，再加上钠校正值。"
+      },
+      "glossary": [
+        {
+          "termEn": "corrected sodium",
+          "termZh": "校正血清钠",
+          "defZh": "根据高血糖造成的水分移动，对实测血清钠进行估算校正后的数值。"
+        },
+        {
+          "termEn": "hyperglycemia",
+          "termZh": "高血糖",
+          "defZh": "血液中的葡萄糖浓度高于正常范围。"
+        },
+        {
+          "termEn": "mEq/L",
+          "termZh": "毫当量/升",
+          "defZh": "常用于表示电解质浓度的单位。"
+        }
+      ],
+      "meta": {
+        "source": "Endotext, Hyperglycemic Crises, updated January 31, 2026, Fluid Replacement section (1.6 mmol/L sodium change per 100 mg/dL glucose change), https://www.ncbi.nlm.nih.gov/books/NBK620700/",
+        "tier": "strictest",
+        "skill_signature": "calc:corrected-sodium/explicit-1.6-factor",
+        "stem_disambiguators": [
+          "measured sodium 128 mEq/L",
+          "glucose 600 mg/dL",
+          "equation supplied",
+          "nearest whole mEq/L"
+        ]
+      },
+      "blanks": [
+        {
+          "id": "corrected_sodium",
+          "prompt": {
+            "en": "Corrected sodium",
+            "zh": "校正血清钠"
+          },
+          "acceptable": [
+            "136"
+          ],
+          "numeric": {
+            "value": 136,
+            "tolerance": 0,
+            "unit": "mEq/L"
+          }
+        }
+      ]
+    },
+    {
+      "id": "gpt_format7a_effective_osmolality",
+      "itemType": "fill_in_blank",
+      "category": "Physiological Adaptation",
+      "topic": "Electrolyte Imbalances",
+      "difficulty": "hard",
+      "ngnSkill": "analyze_cues",
+      "stem": {
+        "en": "An adult has a measured serum sodium of 152 mEq/L and a serum glucose of 720 mg/dL. For this item, calculate effective serum osmolality using conventional units:\n\nEffective serum osmolality (mOsm/kg) = 2 × sodium (mEq/L) + glucose (mg/dL) ÷ 18\n\nDo not include blood urea nitrogen. Round to the nearest whole mOsm/kg. Enter the number only.",
+        "zh": "一名成人的实测血清钠为 152 mEq/L，血糖为 720 mg/dL。本题按传统单位使用以下公式计算有效血清渗透压：\n\n有效血清渗透压（mOsm/kg）= 2 × 血清钠（mEq/L）+ 血糖（mg/dL）÷ 18\n\n不要计入血尿素氮。四舍五入到最接近的整数 mOsm/kg。只输入数字。"
+      },
+      "rationale": {
+        "correct": {
+          "en": "Twice the sodium is 304. Glucose divided by 18 is 40. Effective serum osmolality is 304 + 40 = 344 mOsm/kg. Blood urea nitrogen is excluded because this item asks for effective, not total, osmolality.",
+          "zh": "血清钠的 2 倍为 304；血糖除以 18 为 40。有效血清渗透压为 304 + 40 = 344 mOsm/kg。本题计算的是有效渗透压而不是总渗透压，因此不计入血尿素氮。"
+        },
+        "byChoice": [
+          {
+            "refId": "effective_osmolality",
+            "en": "2 × 152 + 720 ÷ 18 = 304 + 40 = 344.",
+            "zh": "2 × 152 + 720 ÷ 18 = 304 + 40 = 344。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Distinguish effective osmolality from total osmolality. Follow the supplied equation exactly and exclude urea.",
+        "zh": "区分有效渗透压与总渗透压。严格按题干公式计算，并排除尿素。"
+      },
+      "glossary": [
+        {
+          "termEn": "effective serum osmolality",
+          "termZh": "有效血清渗透压",
+          "defZh": "反映不能自由跨细胞膜移动、因而能造成水分转移的主要溶质效应。"
+        },
+        {
+          "termEn": "total osmolality",
+          "termZh": "总血清渗透压",
+          "defZh": "包括尿素等所有测得或计算的渗透性溶质。"
+        },
+        {
+          "termEn": "mOsm/kg",
+          "termZh": "毫渗摩尔/千克",
+          "defZh": "表示每千克溶剂中渗透活性颗粒数量的单位。"
+        }
+      ],
+      "meta": {
+        "source": "Endotext, Hyperglycemic Crises, HHS diagnostic criteria, https://www.ncbi.nlm.nih.gov/books/NBK620700/; ADA Standards of Care in Diabetes—2026, Section 16, Table 16.1 (effective osmolality formula), https://pmc.ncbi.nlm.nih.gov/articles/PMC12690180/",
+        "tier": "strictest",
+        "skill_signature": "calc:effective-osmolality/conventional-units",
+        "stem_disambiguators": [
+          "sodium 152 mEq/L",
+          "glucose 720 mg/dL",
+          "effective osmolality equation supplied",
+          "BUN excluded"
+        ]
+      },
+      "blanks": [
+        {
+          "id": "effective_osmolality",
+          "prompt": {
+            "en": "Effective serum osmolality",
+            "zh": "有效血清渗透压"
+          },
+          "acceptable": [
+            "344"
+          ],
+          "numeric": {
+            "value": 344,
+            "tolerance": 0,
+            "unit": "mOsm/kg"
+          }
+        }
+      ]
+    },
+    {
+      "id": "gpt_format7a_curb65_score",
+      "itemType": "fill_in_blank",
+      "category": "Physiological Adaptation",
+      "topic": "Respiratory & Infectious Disorders",
+      "difficulty": "medium",
+      "ngnSkill": "analyze_cues",
+      "stem": {
+        "en": "An adult with community-acquired pneumonia has the following findings:\n\n• New disorientation to place\n• Serum urea: 8.2 mmol/L\n• Respiratory rate: 28/min\n• Blood pressure: 92/58 mm Hg\n• Age: 72 years\n\nUse CURB65, assigning 1 point for each of the following: new confusion; serum urea above 7 mmol/L; respiratory rate 30/min or greater; diastolic blood pressure 60 mm Hg or less or systolic blood pressure below 90 mm Hg; age 65 years or older.\n\nCalculate the total CURB65 score. Enter the number only.",
+        "zh": "一名患有社区获得性肺炎的成人有以下表现：\n\n• 新出现地点定向障碍\n• 血清尿素：8.2 mmol/L\n• 呼吸频率：28 次/分\n• 血压：92/58 mm Hg\n• 年龄：72 岁\n\n使用 CURB65，每满足以下一项计 1 分：新出现意识混乱；血清尿素高于 7 mmol/L；呼吸频率至少 30 次/分；舒张压不高于 60 mm Hg 或收缩压低于 90 mm Hg；年龄至少 65 岁。\n\n计算 CURB65 总分。只输入数字。"
+      },
+      "rationale": {
+        "correct": {
+          "en": "The client scores for confusion, serum urea above 7 mmol/L, diastolic pressure of 58 mm Hg, and age 72. The respiratory rate is below 30/min, and the systolic pressure is not below 90 mm Hg. Total: 4 points. CURB65 supports assessment but does not replace clinical judgment.",
+          "zh": "该患者在意识混乱、血清尿素高于 7 mmol/L、舒张压 58 mm Hg 和年龄 72 岁四项各得 1 分。呼吸频率低于 30 次/分，收缩压也不低于 90 mm Hg。总分为 4 分。CURB65 可辅助评估，但不能替代临床判断。"
+        },
+        "byChoice": [
+          {
+            "refId": "curb65_total",
+            "en": "Confusion 1 + urea 1 + respiratory rate 0 + blood pressure 1 + age 1 = 4.",
+            "zh": "意识混乱 1 分 + 尿素 1 分 + 呼吸频率 0 分 + 血压 1 分 + 年龄 1 分 = 4 分。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Score each criterion independently. For the blood-pressure criterion, either qualifying systolic or qualifying diastolic pressure earns one point, not two.",
+        "zh": "逐项独立评分。血压项目中，收缩压或舒张压任一达到标准只计 1 分，不是 2 分。"
+      },
+      "glossary": [
+        {
+          "termEn": "CURB65",
+          "termZh": "CURB65 评分",
+          "defZh": "用于成人社区获得性肺炎严重程度评估的五项评分工具。"
+        },
+        {
+          "termEn": "confusion",
+          "termZh": "意识混乱",
+          "defZh": "新出现的定向障碍或认知状态改变。"
+        },
+        {
+          "termEn": "community-acquired pneumonia",
+          "termZh": "社区获得性肺炎",
+          "defZh": "在医院外获得或入院早期出现的肺部感染。"
+        }
+      ],
+      "meta": {
+        "source": "NICE NG250, Pneumonia: diagnosis and management, recommendations 1.2.7–1.2.9 and Box 2 CURB65 score, https://www.nice.org.uk/guidance/ng250/chapter/Recommendations",
+        "tier": "strictest",
+        "skill_signature": "score:curb65/all-inputs-explicit",
+        "stem_disambiguators": [
+          "community-acquired pneumonia",
+          "new confusion",
+          "serum urea 8.2 mmol/L",
+          "RR 28/min",
+          "BP 92/58 mm Hg",
+          "age 72"
+        ]
+      },
+      "blanks": [
+        {
+          "id": "curb65_total",
+          "prompt": {
+            "en": "CURB65 total score",
+            "zh": "CURB65 总分"
+          },
+          "acceptable": [
+            "4"
+          ],
+          "numeric": {
+            "value": 4,
+            "tolerance": 0,
+            "unit": "points"
+          }
+        }
+      ]
+    },
+    {
+      "id": "gpt_format7a_renal_sofa_component",
+      "itemType": "fill_in_blank",
+      "category": "Physiological Adaptation",
+      "topic": "Sepsis & Septic Shock",
+      "difficulty": "hard",
+      "ngnSkill": "analyze_cues",
+      "stem": {
+        "en": "An adult with suspected sepsis has a serum creatinine of 3.8 mg/dL and urine output of 620 mL during the previous 24 hours.\n\nUse this renal SOFA component excerpt:\n• Score 0: creatinine below 1.2 mg/dL\n• Score 1: creatinine 1.2–1.9 mg/dL\n• Score 2: creatinine 2.0–3.4 mg/dL\n• Score 3: creatinine 3.5–4.9 mg/dL OR urine output below 500 mL/day\n• Score 4: creatinine above 5.0 mg/dL OR urine output below 200 mL/day\n\nWhen creatinine and urine output indicate different scores, use the higher score. Calculate the renal SOFA component score. Enter the number only.",
+        "zh": "一名疑似脓毒症的成人，血清肌酐为 3.8 mg/dL，过去 24 小时尿量为 620 mL。\n\n使用以下肾脏 SOFA 分项评分表：\n• 0 分：肌酐低于 1.2 mg/dL\n• 1 分：肌酐 1.2–1.9 mg/dL\n• 2 分：肌酐 2.0–3.4 mg/dL\n• 3 分：肌酐 3.5–4.9 mg/dL，或每日尿量低于 500 mL\n• 4 分：肌酐高于 5.0 mg/dL，或每日尿量低于 200 mL\n\n当肌酐与尿量对应不同分数时，取较高分。计算肾脏 SOFA 分项得分。只输入数字。"
+      },
+      "rationale": {
+        "correct": {
+          "en": "A creatinine of 3.8 mg/dL meets the score-3 range. Urine output of 620 mL/day does not meet the score-3 or score-4 urine-output thresholds. The higher applicable score is therefore 3.",
+          "zh": "肌酐 3.8 mg/dL 属于 3 分范围。每日尿量 620 mL 未达到 3 分或 4 分的尿量阈值。因此，适用的较高分为 3 分。"
+        },
+        "byChoice": [
+          {
+            "refId": "renal_sofa_score",
+            "en": "Creatinine 3.8 mg/dL maps to 3 points; urine output 620 mL/day does not produce a higher score.",
+            "zh": "肌酐 3.8 mg/dL 对应 3 分；每日尿量 620 mL 不会产生更高分。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Use the supplied component table rather than recalling SOFA. Evaluate both creatinine and urine output, then choose the higher applicable score.",
+        "zh": "使用题干提供的分项评分表，不要依赖记忆。分别判断肌酐和尿量，再取适用的较高分。"
+      },
+      "glossary": [
+        {
+          "termEn": "SOFA",
+          "termZh": "SOFA 评分",
+          "defZh": "序贯器官衰竭评估，用于量化多个器官系统的功能障碍。"
+        },
+        {
+          "termEn": "creatinine",
+          "termZh": "肌酐",
+          "defZh": "用于评估肾功能的血液检测指标。"
+        },
+        {
+          "termEn": "organ dysfunction",
+          "termZh": "器官功能障碍",
+          "defZh": "器官无法维持正常生理功能的状态。"
+        }
+      ],
+      "meta": {
+        "source": "Surviving Sepsis Campaign: International Guidelines for Management of Sepsis and Septic Shock 2026, screening/diagnosis statements, https://www.sccm.org/survivingsepsiscampaign/guidelines-and-resources/surviving-sepsis-campaign-adult-guidelines; Singer et al., Sepsis-3, Table 1 Sequential Organ Failure Assessment Score, https://pmc.ncbi.nlm.nih.gov/articles/PMC4968574/",
+        "tier": "strictest",
+        "skill_signature": "score:sofa/renal-component-table-supplied",
+        "stem_disambiguators": [
+          "suspected sepsis",
+          "creatinine 3.8 mg/dL",
+          "urine output 620 mL/24 h",
+          "renal SOFA excerpt supplied"
+        ]
+      },
+      "blanks": [
+        {
+          "id": "renal_sofa_score",
+          "prompt": {
+            "en": "Renal SOFA component score",
+            "zh": "肾脏 SOFA 分项得分"
+          },
+          "acceptable": [
+            "3"
+          ],
+          "numeric": {
+            "value": 3,
+            "tolerance": 0,
+            "unit": "points"
+          }
+        }
+      ]
+    },
+    {
+      "id": "gpt_format7a_prbc_basic_rate",
+      "itemType": "fill_in_blank",
+      "category": "Pharmacological and Parenteral Therapies",
+      "topic": "Transfusion & Blood Products",
+      "difficulty": "easy",
+      "ngnSkill": "take_action",
+      "stem": {
+        "en": "A prescription directs the nurse to transfuse 300 mL of packed red blood cells over 3 hours. Calculate the pump rate in mL/hr. Round to the nearest whole mL/hr. Enter the number only.",
+        "zh": "医嘱要求护士在 3 小时内输注 300 mL 浓缩红细胞。计算输液泵速度（mL/hr）。四舍五入到最接近的整数 mL/hr。只输入数字。"
+      },
+      "rationale": {
+        "correct": {
+          "en": "Rate equals volume divided by time: 300 mL ÷ 3 hr = 100 mL/hr.",
+          "zh": "速度等于容量除以时间：300 mL ÷ 3 小时 = 100 mL/hr。"
+        },
+        "byChoice": [
+          {
+            "refId": "prbc_rate",
+            "en": "300 mL ÷ 3 hr = 100 mL/hr.",
+            "zh": "300 mL ÷ 3 小时 = 100 mL/hr。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "For a one-step rate problem, divide the prescribed blood-product volume by the prescribed administration time.",
+        "zh": "对于一步式速度计算，用医嘱规定的血液制品容量除以规定的输注时间。"
+      },
+      "glossary": [
+        {
+          "termEn": "packed red blood cells",
+          "termZh": "浓缩红细胞",
+          "defZh": "用于补充红细胞量和提高携氧能力的血液成分。"
+        },
+        {
+          "termEn": "pump rate",
+          "termZh": "输液泵速度",
+          "defZh": "输液泵每小时输送的液体容量。"
+        },
+        {
+          "termEn": "mL/hr",
+          "termZh": "毫升/小时",
+          "defZh": "表示每小时输注容量的单位。"
+        }
+      ],
+      "meta": {
+        "source": "AABB, Circular of Information for the Use of Human Blood and Blood Components, June 2024, Notice to All Users and Red Blood Cell Components; administration duration is the explicit prescription supplied in the stem, https://www.aabb.org/news-resources/resources/circular-of-information",
+        "tier": "strictest",
+        "skill_signature": "calc:blood-product/rate-volume-time",
+        "stem_disambiguators": [
+          "PRBC volume 300 mL",
+          "prescribed time 3 hours",
+          "nearest whole mL/hr"
+        ]
+      },
+      "blanks": [
+        {
+          "id": "prbc_rate",
+          "prompt": {
+            "en": "Pump rate",
+            "zh": "输液泵速度"
+          },
+          "acceptable": [
+            "100"
+          ],
+          "numeric": {
+            "value": 100,
+            "tolerance": 0,
+            "unit": "mL/hr"
+          }
+        }
+      ]
+    },
+    {
+      "id": "gpt_format7a_prbc_revised_rate",
+      "itemType": "fill_in_blank",
+      "category": "Pharmacological and Parenteral Therapies",
+      "topic": "Transfusion & Blood Products",
+      "difficulty": "medium",
+      "ngnSkill": "take_action",
+      "stem": {
+        "en": "A unit of packed red blood cells has a labeled volume of 320 mL. The transfusion began at 1400. At 1510, the pump shows that 80 mL has infused. The prescription and facility policy for this client require this unit to be completed by 1700.\n\nCalculate the revised pump rate needed from 1510 to 1700. Round to the nearest whole mL/hr. Enter the number only.",
+        "zh": "一袋浓缩红细胞的标签容量为 320 mL。输注于 14:00 开始。15:10 时，输液泵显示已输注 80 mL。该患者的医嘱和机构政策要求这袋血必须在 17:00 前输完。\n\n计算从 15:10 到 17:00 所需的调整后输液泵速度。四舍五入到最接近的整数 mL/hr。只输入数字。"
+      },
+      "rationale": {
+        "correct": {
+          "en": "The remaining volume is 320 − 80 = 240 mL. From 1510 to 1700 is 1 hour 50 minutes, or 110 minutes = 1.833 hours. The required rate is 240 ÷ 1.833 = 130.9 mL/hr, which rounds to 131 mL/hr.",
+          "zh": "剩余容量为 320 − 80 = 240 mL。15:10 到 17:00 为 1 小时 50 分钟，即 110 分钟 = 1.833 小时。所需速度为 240 ÷ 1.833 = 130.9 mL/hr，四舍五入为 131 mL/hr。"
+        },
+        "byChoice": [
+          {
+            "refId": "revised_prbc_rate",
+            "en": "(320 − 80) mL ÷ (110/60 hr) = 130.9 mL/hr, rounded to 131 mL/hr.",
+            "zh": "（320 − 80）mL ÷（110/60 小时）= 130.9 mL/hr，四舍五入为 131 mL/hr。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "First calculate the remaining volume. Then convert the remaining clock time to hours before dividing.",
+        "zh": "先计算剩余容量，再把剩余时间换算为小时后相除。"
+      },
+      "glossary": [
+        {
+          "termEn": "remaining volume",
+          "termZh": "剩余容量",
+          "defZh": "总容量减去已输注容量后尚未输入的部分。"
+        },
+        {
+          "termEn": "completion deadline",
+          "termZh": "完成截止时间",
+          "defZh": "医嘱或机构政策规定输注必须结束的时间。"
+        },
+        {
+          "termEn": "packed red blood cells",
+          "termZh": "浓缩红细胞",
+          "defZh": "用于补充红细胞量的血液成分。"
+        }
+      ],
+      "meta": {
+        "source": "AABB, Circular of Information for the Use of Human Blood and Blood Components, June 2024, Notice to All Users and Red Blood Cell Components; the 1700 completion deadline is the explicit prescription/facility policy supplied in the stem, https://www.aabb.org/news-resources/resources/circular-of-information",
+        "tier": "strictest",
+        "skill_signature": "calc:blood-product/revised-rate-deadline",
+        "stem_disambiguators": [
+          "total volume 320 mL",
+          "start 1400",
+          "80 mL infused at 1510",
+          "explicit completion deadline 1700"
+        ]
+      },
+      "blanks": [
+        {
+          "id": "revised_prbc_rate",
+          "prompt": {
+            "en": "Revised pump rate",
+            "zh": "调整后输液泵速度"
+          },
+          "acceptable": [
+            "131"
+          ],
+          "numeric": {
+            "value": 131,
+            "tolerance": 0,
+            "unit": "mL/hr"
+          }
+        }
+      ]
+    },
+    {
+      "id": "gpt_format7b_inpatient_alcohol_withdrawal_pathway",
+      "itemType": "ordered_response",
+      "category": "Psychosocial Integrity",
+      "topic": "Substance Use & Withdrawal",
+      "difficulty": "medium",
+      "ngnSkill": "take_action",
+      "stem": {
+        "en": "A hospitalized adult reports abruptly stopping heavy daily alcohol use yesterday. The client is tremulous and anxious but has no seizure, hallucinations, or delirium. The hospital pathway directs the nurse to complete the following actions in operational order. Place all actions in the correct sequence.",
+        "zh": "一名住院成人表示，昨天突然停止了长期大量饮酒。患者有手抖和焦虑，但目前没有癫痫发作、幻觉或谵妄。医院流程要求护士按操作顺序完成以下措施。请将所有措施按正确顺序排列。"
+      },
+      "rationale": {
+        "correct": {
+          "en": "The pathway begins with a focused withdrawal severity and complication-risk assessment. The nurse then communicates the findings and initiates the prescribed protocol, provides the ordered supportive monitoring and safety measures, and finally reassesses response and escalates care if findings worsen.",
+          "zh": "该流程先进行针对性的戒断严重程度和并发症风险评估；随后报告评估结果并启动已开立的戒断流程；接着实施医嘱规定的支持性监测和安全措施；最后根据反应重新评估，若病情恶化则升级照护。"
+        },
+        "byChoice": [
+          {
+            "refId": "reassess_escalate",
+            "en": "Reassessment determines whether the current plan is effective or whether a higher level of care is needed.",
+            "zh": "重新评估用于判断当前方案是否有效以及是否需要更高级别照护。"
+          },
+          {
+            "refId": "focused_assessment",
+            "en": "This establishes current severity, risk for complicated withdrawal, and conditions that may mimic or worsen withdrawal.",
+            "zh": "此步骤用于确定当前严重程度、复杂性戒断风险及可能模仿或加重戒断的合并情况。"
+          },
+          {
+            "refId": "notify_start_protocol",
+            "en": "Once assessed, findings are communicated and the existing prescribed protocol is activated without inventing a medication dose.",
+            "zh": "完成评估后报告结果并启动已有医嘱流程，不自行编造药物剂量。"
+          },
+          {
+            "refId": "monitor_support",
+            "en": "Supportive care and serial monitoring follow protocol initiation and provide data for response assessment.",
+            "zh": "启动流程后实施支持性照护和连续监测，为评价疗效提供数据。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Follow the closed-world pathway in the stem: assess first, activate the prescribed plan, implement monitoring/support, then evaluate the response.",
+        "zh": "按照题干给出的封闭式流程：先评估，再启动已开立的方案，然后实施监测和支持，最后评价反应。"
+      },
+      "glossary": [
+        {
+          "termEn": "alcohol withdrawal",
+          "termZh": "酒精戒断",
+          "defZh": "长期大量饮酒后突然减少或停止饮酒所出现的症状群。"
+        },
+        {
+          "termEn": "severity assessment",
+          "termZh": "严重程度评估",
+          "defZh": "使用病史、生命体征和有效量表判断当前症状及并发症风险。"
+        },
+        {
+          "termEn": "escalation",
+          "termZh": "升级照护",
+          "defZh": "病情恶化时转至更高监护或治疗级别。"
+        }
+      ],
+      "meta": {
+        "source": "ASAM Clinical Practice Guideline on Alcohol Withdrawal Management (2020), Recommendations II.1–II.13, V.1–V.5, and VII.12–VII.15, https://www.asam.org/quality-care/clinical-guidelines/alcohol-withdrawal-management-guideline",
+        "tier": "strictest",
+        "skill_signature": "order:alcohol-withdrawal/inpatient-assess-treat-monitor-reassess",
+        "stem_disambiguators": [
+          "hospitalized adult",
+          "suspected alcohol withdrawal",
+          "no current seizure or delirium",
+          "facility pathway imposes sequence"
+        ]
+      },
+      "options": [
+        {
+          "id": "focused_assessment",
+          "en": "Perform a focused assessment of last alcohol use, prior complicated withdrawal, current findings, concurrent illness, and withdrawal severity using the facility’s validated tools.",
+          "zh": "使用机构认可的工具，针对末次饮酒时间、既往复杂性戒断、当前表现、合并疾病及戒断严重程度进行重点评估。"
+        },
+        {
+          "id": "notify_start_protocol",
+          "en": "Report the assessment findings to the prescribing clinician and initiate the prescribed alcohol-withdrawal protocol.",
+          "zh": "向开立医嘱的临床人员报告评估结果，并启动已开立的酒精戒断流程。"
+        },
+        {
+          "id": "reassess_escalate",
+          "en": "Repeat the validated withdrawal assessment at the specified interval and escalate the level of care if symptoms or vital signs worsen.",
+          "zh": "按规定时间再次使用有效戒断量表评估；若症状或生命体征恶化，则升级照护级别。"
+        },
+        {
+          "id": "monitor_support",
+          "en": "Begin the pathway’s prescribed supportive monitoring and safety measures, including serial vital signs, hydration status, orientation, and fall/seizure precautions.",
+          "zh": "开始执行流程规定的支持性监测和安全措施，包括连续生命体征、液体状态、定向力以及跌倒/癫痫防护。"
+        }
+      ],
+      "correct": [
+        "focused_assessment",
+        "notify_start_protocol",
+        "monitor_support",
+        "reassess_escalate"
+      ]
+    },
+    {
+      "id": "gpt_format7b_ambulatory_withdrawal_transfer",
+      "itemType": "ordered_response",
+      "category": "Psychosocial Integrity",
+      "topic": "Substance Use & Withdrawal",
+      "difficulty": "hard",
+      "ngnSkill": "take_action",
+      "stem": {
+        "en": "An adult is receiving ambulatory alcohol-withdrawal management with daily check-ins. The written pathway requires transfer to a higher level of care for persistent vomiting, new confusion or hallucinations, seizure, worsening medical illness, oversedation, return to alcohol use, or syncope/unstable vital signs. At today’s visit, the client is newly confused, has persistent vomiting, and has a blood pressure of 84/50 mm Hg.\n\nThe clinic transfer protocol directs the following operational sequence. Place all actions in the correct order.",
+        "zh": "一名成人正在接受门诊酒精戒断管理，并每日复诊。书面流程规定，若出现持续呕吐、新发意识混乱或幻觉、癫痫、合并疾病恶化、过度镇静、再次饮酒，或晕厥/生命体征不稳定，应转至更高级别照护。今天复诊时，患者新出现意识混乱、持续呕吐，血压为 84/50 mm Hg。\n\n门诊转运流程规定以下操作顺序。请将所有措施按正确顺序排列。"
+      },
+      "rationale": {
+        "correct": {
+          "en": "The nurse first repeats a focused assessment to verify the transfer criteria and immediate risks. Because explicit criteria are met, urgent transfer is activated. The client then receives continuous observation and supportive stabilization while transport occurs, followed by a structured handoff of withdrawal history, serial findings, and treatments already given.",
+          "zh": "护士先进行重点复评，以确认转诊标准和当前风险。由于患者已达到明确的转诊标准，应立即启动紧急转运。在等待及转运过程中持续观察并给予支持性稳定措施，最后向接收团队完整交接戒断史、连续评估结果以及已给予的治疗。"
+        },
+        "byChoice": [
+          {
+            "refId": "repeat_assessment",
+            "en": "This confirms the supplied transfer triggers and identifies immediate stabilization needs.",
+            "zh": "此步骤确认题干所列转诊触发条件，并识别立即稳定处理的需要。"
+          },
+          {
+            "refId": "support_during_transfer",
+            "en": "Supportive stabilization and continuous observation reduce risk while definitive higher-level care is being reached.",
+            "zh": "在到达更高级别治疗前，支持性稳定措施和持续观察可降低风险。"
+          },
+          {
+            "refId": "urgent_transfer",
+            "en": "New confusion, persistent vomiting, and unstable blood pressure make the ambulatory setting unsafe.",
+            "zh": "新发意识混乱、持续呕吐和血压不稳定说明门诊环境已不安全。"
+          },
+          {
+            "refId": "structured_handoff",
+            "en": "The receiving team needs the withdrawal course and treatment already given to continue care safely.",
+            "zh": "接收团队需要了解戒断进程和已给予的治疗，才能安全继续照护。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Do not continue an unsafe ambulatory plan. Once the supplied transfer criteria are confirmed, move from reassessment to urgent transfer, support during transfer, and handoff.",
+        "zh": "不要继续不安全的门诊方案。确认题干给出的转诊标准后，依次进行复评、紧急转运、转运期间支持和交接。"
+      },
+      "glossary": [
+        {
+          "termEn": "ambulatory withdrawal management",
+          "termZh": "门诊戒断管理",
+          "defZh": "患者不住院、在定期临床随访下接受戒断照护的模式。"
+        },
+        {
+          "termEn": "transfer criteria",
+          "termZh": "转诊标准",
+          "defZh": "提示当前照护级别不再安全或有效的明确临床条件。"
+        },
+        {
+          "termEn": "handoff",
+          "termZh": "交接",
+          "defZh": "向接收团队准确传递病史、评估结果和已实施治疗。"
+        }
+      ],
+      "meta": {
+        "source": "ASAM Clinical Practice Guideline on Alcohol Withdrawal Management (2020), Recommendations IV.2, IV.5, IV.6, and IV.11 (ambulatory reassessment, transfer indications, supportive care, agreement to transfer), https://www.asam.org/quality-care/clinical-guidelines/alcohol-withdrawal-management-guideline",
+        "tier": "strictest",
+        "skill_signature": "order:alcohol-withdrawal/ambulatory-unsafe-transfer",
+        "stem_disambiguators": [
+          "ambulatory alcohol withdrawal",
+          "explicit transfer criteria supplied",
+          "new confusion",
+          "persistent vomiting",
+          "BP 84/50 mm Hg"
+        ]
+      },
+      "options": [
+        {
+          "id": "support_during_transfer",
+          "en": "Maintain direct observation and provide airway, positioning, fall-protection, and other supportive stabilization measures while emergency transport is arranged and underway.",
+          "zh": "在安排及进行紧急转运期间持续直接观察，并给予气道、体位、跌倒防护及其他支持性稳定措施。"
+        },
+        {
+          "id": "structured_handoff",
+          "en": "Give the receiving team a structured handoff of the alcohol-use and withdrawal history, serial findings, medications and times already given, and the client’s response.",
+          "zh": "向接收团队结构化交接饮酒及戒断史、连续评估结果、已给予药物及时间，以及患者反应。"
+        },
+        {
+          "id": "repeat_assessment",
+          "en": "Immediately repeat the focused withdrawal assessment and vital signs to confirm the criteria and identify threats requiring stabilization during transfer.",
+          "zh": "立即重复重点戒断评估和生命体征，确认转诊标准，并识别转运期间需要稳定处理的威胁。"
+        },
+        {
+          "id": "urgent_transfer",
+          "en": "Activate emergency transfer to the designated higher level of care and notify the receiving service that the pathway’s transfer criteria have been met.",
+          "zh": "启动紧急转运至指定的更高级别照护，并通知接收机构患者已达到流程规定的转诊标准。"
+        }
+      ],
+      "correct": [
+        "repeat_assessment",
+        "urgent_transfer",
+        "support_during_transfer",
+        "structured_handoff"
+      ]
+    },
+    {
+      "id": "gpt_format7b_circumferential_burn_perfusion",
+      "itemType": "ordered_response",
+      "category": "Physiological Adaptation",
+      "topic": "Burn Management",
+      "difficulty": "hard",
+      "ngnSkill": "take_action",
+      "stem": {
+        "en": "An adult with a circumferential full-thickness forearm burn develops increasing pain, delayed capillary refill, cool fingers, diminished sensation, and a weaker Doppler signal than one hour ago. The burn service pathway directs the bedside team to complete the following actions in operational order.\n\nPlace all actions in the correct sequence.",
+        "zh": "一名成人前臂有环周全层烧伤，现出现疼痛加重、毛细血管再充盈延迟、手指发凉、感觉减退，并且多普勒信号较 1 小时前减弱。烧伤团队流程要求床旁人员按操作顺序完成以下措施。\n\n请将所有措施按正确顺序排列。"
+      },
+      "rationale": {
+        "correct": {
+          "en": "Worsening distal perfusion requires immediate focused neurovascular reassessment and removal of external contributors while positioning the limb as directed. The nurse then urgently notifies the burn team, prepares for the prescribed decompressive intervention, and repeats the same perfusion assessment after the intervention to evaluate response.",
+          "zh": "远端灌注恶化时，应立即进行重点神经血管复评，排除外部压迫因素，并按流程调整肢体位置。随后紧急通知烧伤团队，准备执行已开立的减压干预，并在干预后用同样指标再次评估灌注，以判断疗效。"
+        },
+        "byChoice": [
+          {
+            "refId": "prepare_intervention",
+            "en": "The nurse prepares to assist with the intervention prescribed by the burn team rather than independently performing or ordering it.",
+            "zh": "护士为烧伤团队已开立的干预做准备，而不是自行决定或实施手术。"
+          },
+          {
+            "refId": "notify_burn_team",
+            "en": "Progressive perfusion compromise under circumferential eschar requires urgent burn-team evaluation.",
+            "zh": "环周焦痂下进行性灌注受损需要烧伤团队紧急评估。"
+          },
+          {
+            "refId": "immediate_reassessment",
+            "en": "This confirms a real deterioration, compares both sides, and removes reversible external contributors without delaying escalation.",
+            "zh": "此步骤确认真实恶化、进行双侧比较，并排除可逆的外部压迫因素，同时不延误升级处理。"
+          },
+          {
+            "refId": "post_reassessment",
+            "en": "Repeating the same perfusion measures determines whether circulation improved after decompression.",
+            "zh": "干预后重复相同灌注指标，可判断减压后循环是否改善。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Use the trend: worsening neurovascular findings require reassessment, urgent specialty escalation, preparation for the ordered intervention, then outcome reassessment.",
+        "zh": "根据趋势判断：神经血管表现恶化时，先复评，再紧急升级至专科，准备执行医嘱干预，最后重新评价结局。"
+      },
+      "glossary": [
+        {
+          "termEn": "circumferential burn",
+          "termZh": "环周烧伤",
+          "defZh": "烧伤组织完全或几乎完全环绕肢体或躯干。"
+        },
+        {
+          "termEn": "distal perfusion",
+          "termZh": "远端灌注",
+          "defZh": "血液到达损伤部位以远组织的情况。"
+        },
+        {
+          "termEn": "escharotomy",
+          "termZh": "焦痂切开术",
+          "defZh": "切开僵硬焦痂以解除压迫、恢复循环或通气的操作。"
+        }
+      ],
+      "meta": {
+        "source": "American Burn Association, Orgill and Piccolo, Escharotomy and Decompressive Therapies in Burns, Journal of Burn Care & Research 2009;30(5):759–768, doi:10.1097/BCR.0b013e3181b47cd3, https://academic.oup.com/jbcr/article/30/5/759/4598380; ISBI Practice Guidelines for Burn Care, section 6 Escharotomy and fasciotomy, doi:10.1016/j.burns.2016.05.013",
+        "tier": "strictest",
+        "skill_signature": "order:burn/circumferential-extremity-perfusion-escalation",
+        "stem_disambiguators": [
+          "circumferential full-thickness forearm burn",
+          "worsening distal perfusion",
+          "weaker Doppler signal",
+          "burn service pathway imposes sequence"
+        ]
+      },
+      "options": [
+        {
+          "id": "prepare_intervention",
+          "en": "Prepare the client, monitoring, analgesia supplies, and equipment to assist with the prescribed escharotomy or other burn-team intervention.",
+          "zh": "准备患者、监测、镇痛用品和器械，以协助执行已开立的焦痂切开术或其他烧伤团队干预。"
+        },
+        {
+          "id": "immediate_reassessment",
+          "en": "Immediately repeat a bilateral focused neurovascular assessment with Doppler, remove external constriction, and position the limb as the burn-service pathway directs without delaying escalation.",
+          "zh": "立即进行双侧重点神经血管复评并使用多普勒，移除外部压迫物，并按烧伤团队流程调整肢体位置，同时不得延误升级处理。"
+        },
+        {
+          "id": "notify_burn_team",
+          "en": "Urgently notify the burn surgeon or burn team and report the change from the previous neurovascular assessment.",
+          "zh": "紧急通知烧伤外科医生或烧伤团队，并报告与前次神经血管评估相比的变化。"
+        },
+        {
+          "id": "post_reassessment",
+          "en": "After the intervention, repeat and document Doppler signals, capillary refill, color, temperature, sensation, movement, and pain using the same comparison points.",
+          "zh": "干预后用相同的比较点再次评估并记录多普勒信号、毛细血管再充盈、颜色、温度、感觉、活动和疼痛。"
+        }
+      ],
+      "correct": [
+        "immediate_reassessment",
+        "notify_burn_team",
+        "prepare_intervention",
+        "post_reassessment"
+      ]
+    },
+    {
+      "id": "gpt_format7b_pn_administration_safety",
+      "itemType": "ordered_response",
+      "category": "Pharmacological and Parenteral Therapies",
+      "topic": "Parenteral Nutrition",
+      "difficulty": "medium",
+      "ngnSkill": "take_action",
+      "stem": {
+        "en": "A hospital’s parenteral nutrition (PN) administration checklist specifies that this adult’s total nutrient admixture must run through a dedicated central-lumen line, a new administration set with a 1.2-micron filter, and an electronic pump. Place all checklist actions in the correct operational order.",
+        "zh": "医院的肠外营养（PN）给药核对表规定：该成人的全营养混合液必须经专用中心静脉腔路，使用带 1.2 微米过滤器的新输液管路，并通过电子输液泵输注。请将核对表中的所有措施按正确操作顺序排列。"
+      },
+      "rationale": {
+        "correct": {
+          "en": "Safe PN administration begins by verifying the current order against the product label. The nurse then inspects the bag and dedicated access, assembles the explicitly specified tubing, filter, and pump, initiates the infusion at the prescribed rate, and monitors the supplied metabolic, fluid, and access parameters.",
+          "zh": "安全输注 PN 首先要把当前医嘱与产品标签核对一致；然后检查输液袋和专用静脉通路；按题干明确规定安装管路、过滤器和输液泵；按医嘱速度开始输注；最后监测代谢、液体和静脉通路相关指标。"
+        },
+        "byChoice": [
+          {
+            "refId": "inspect",
+            "en": "The product and dedicated access must be safe and usable before the administration set is connected.",
+            "zh": "连接输液管路前，必须确认产品和专用通路安全可用。"
+          },
+          {
+            "refId": "setup",
+            "en": "The stem supplies the exact filter and equipment requirements; these are assembled before connection and initiation.",
+            "zh": "题干已给出准确的过滤器和设备要求，应在连接和启动前完成安装。"
+          },
+          {
+            "refId": "initiate",
+            "en": "Only after verification, inspection, and setup is the PN started at the current prescribed rate.",
+            "zh": "只有完成核对、检查和设备设置后，才按当前医嘱速度开始 PN。"
+          },
+          {
+            "refId": "verify_order_label",
+            "en": "Order-to-label verification prevents wrong-patient, wrong-formula, route, rate, and timing errors.",
+            "zh": "医嘱与标签核对可防止患者、配方、途径、速度和时间错误。"
+          },
+          {
+            "refId": "monitor",
+            "en": "Monitoring follows initiation and detects metabolic, fluid, catheter, or tolerance problems.",
+            "zh": "开始输注后持续监测，以发现代谢、液体、导管或耐受性问题。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "The safe sequence moves from order verification to product/access inspection, equipment setup, initiation, and monitoring.",
+        "zh": "安全顺序是：核对医嘱、检查产品和通路、设置设备、开始输注、持续监测。"
+      },
+      "glossary": [
+        {
+          "termEn": "parenteral nutrition",
+          "termZh": "肠外营养",
+          "defZh": "通过静脉提供葡萄糖、氨基酸、脂肪、电解质和其他营养素。"
+        },
+        {
+          "termEn": "dedicated lumen",
+          "termZh": "专用腔路",
+          "defZh": "仅用于指定输液、避免不相容药物混入的静脉导管腔路。"
+        },
+        {
+          "termEn": "in-line filter",
+          "termZh": "在线过滤器",
+          "defZh": "连接在输液管路上，用于减少颗粒或其他输注风险的过滤装置。"
+        }
+      ],
+      "meta": {
+        "source": "ASPEN Parenteral Nutrition Care Pathway, Step 8 Administer PN Safely and Appropriately and Step 9 Monitor and Reevaluate Patient, https://nutritioncare.org/clinical-resources/enteral-nutrition/aspen-parenteral-nutrition-care-pathway/; ASPEN, Update on the Use of Filters for Parenteral Nutrition and PN Administration Checklist, https://nutritioncare.org/clinical-resources/parenteral-nutrition/pn-preparation-administration/",
+        "tier": "strictest",
+        "skill_signature": "order:pn/verify-inspect-setup-initiate-monitor",
+        "stem_disambiguators": [
+          "total nutrient admixture",
+          "dedicated central lumen",
+          "1.2-micron filter supplied",
+          "electronic pump",
+          "facility checklist imposes sequence"
+        ]
+      },
+      "options": [
+        {
+          "id": "initiate",
+          "en": "Connect to the dedicated lumen and initiate PN on the electronic pump at the rate and schedule in the current order.",
+          "zh": "连接专用腔路，并按当前医嘱规定的速度和时间通过电子输液泵开始 PN 输注。"
+        },
+        {
+          "id": "setup",
+          "en": "Using aseptic technique, attach the new administration set and the specified 1.2-micron filter, prime the tubing, and load it into the electronic pump.",
+          "zh": "采用无菌技术连接新输液管路和规定的 1.2 微米过滤器，预充管路并装入电子输液泵。"
+        },
+        {
+          "id": "monitor",
+          "en": "Monitor blood glucose, ordered laboratory values, fluid balance, clinical tolerance, and the catheter site according to the PN monitoring protocol.",
+          "zh": "根据 PN 监测流程，监测血糖、医嘱化验、液体平衡、临床耐受性和导管部位。"
+        },
+        {
+          "id": "verify_order_label",
+          "en": "Verify the current PN order, client identifiers, formula, route, total volume, rate, start time, and beyond-use information against the pharmacy label.",
+          "zh": "将当前 PN 医嘱与药房标签核对，包括患者身份、配方、途径、总容量、速度、开始时间和使用期限。"
+        },
+        {
+          "id": "inspect",
+          "en": "Inspect the bag for integrity, abnormal separation or precipitate, and expiration; then verify that the designated central lumen is patent and reserved for PN.",
+          "zh": "检查输液袋完整性、异常分层或沉淀及有效期；随后确认指定中心静脉腔路通畅且专用于 PN。"
+        }
+      ],
+      "correct": [
+        "verify_order_label",
+        "inspect",
+        "setup",
+        "initiate",
+        "monitor"
+      ]
+    },
+    {
+      "id": "gpt_format7b_home_pn_transition",
+      "itemType": "ordered_response",
+      "category": "Pharmacological and Parenteral Therapies",
+      "topic": "Parenteral Nutrition",
+      "difficulty": "medium",
+      "ngnSkill": "take_action",
+      "stem": {
+        "en": "An adult will be discharged on home parenteral nutrition (PN). The health system’s PN transition pathway requires the following steps to be completed in sequence before discharge. Place all actions in the correct order.",
+        "zh": "一名成人即将出院并在家中继续肠外营养（PN）。医疗系统的 PN 转衔流程要求在出院前按顺序完成以下步骤。请将所有措施按正确顺序排列。"
+      },
+      "rationale": {
+        "correct": {
+          "en": "The transition starts by naming the clinician/team responsible for PN after discharge. The finalized PN order and laboratory monitoring plan are then reconciled and transmitted. Next, the team verifies supplies, access-care and pump competence, and emergency contacts. Finally, follow-up and ownership of laboratory results and order changes are confirmed.",
+          "zh": "转衔首先要明确出院后负责 PN 的临床人员或团队；随后核对并传送最终 PN 医嘱和实验室监测计划；接着确认用品、导管护理与输液泵操作能力以及紧急联系人；最后确认随访安排及由谁负责查看化验结果和修改医嘱。"
+        },
+        "byChoice": [
+          {
+            "refId": "identify_team",
+            "en": "A safe transition begins with named clinical and infusion-service ownership.",
+            "zh": "安全转衔首先要明确临床团队和输液服务机构的责任归属。"
+          },
+          {
+            "refId": "reconcile_transmit",
+            "en": "The responsible teams must receive one reconciled PN order and the complete monitoring plan.",
+            "zh": "负责团队必须收到一份已核对一致的 PN 医嘱和完整监测计划。"
+          },
+          {
+            "refId": "confirm_followup",
+            "en": "The final step closes the loop by assigning follow-up and result-review responsibility.",
+            "zh": "最后一步通过明确随访和结果查看责任，完成闭环。"
+          },
+          {
+            "refId": "verify_competence",
+            "en": "Supplies and demonstrated access/pump competence must be in place before the client leaves.",
+            "zh": "患者离院前必须备齐用品，并确认其已掌握导管和输液泵操作。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Safe transition requires clear ownership before information is transmitted, competence is verified, and follow-up responsibility is closed.",
+        "zh": "安全转衔应先明确责任归属，再传送信息、验证能力，最后闭环确认随访责任。"
+      },
+      "glossary": [
+        {
+          "termEn": "home parenteral nutrition",
+          "termZh": "家庭肠外营养",
+          "defZh": "患者在家中通过静脉接受营养支持。"
+        },
+        {
+          "termEn": "transition of care",
+          "termZh": "照护转衔",
+          "defZh": "患者从一个照护场所或团队转移到另一个场所或团队的过程。"
+        },
+        {
+          "termEn": "result ownership",
+          "termZh": "结果责任归属",
+          "defZh": "明确由谁查看化验结果、联系患者并决定后续调整。"
+        }
+      ],
+      "meta": {
+        "source": "ASPEN Parenteral Nutrition Care Pathway, Step 10 Initiate Discharge Planning for Transition of Care, https://nutritioncare.org/clinical-resources/enteral-nutrition/aspen-parenteral-nutrition-care-pathway/; ASPEN Safe Care Transitions for Patients Receiving Parenteral Nutrition, 2022, https://nutritioncare.org/clinical-resources/parenteral-nutrition/pn-safety/",
+        "tier": "strictest",
+        "skill_signature": "order:pn/home-transition-ownership-transmit-competence-followup",
+        "stem_disambiguators": [
+          "home PN discharge",
+          "responsible prescriber/team",
+          "PN order and laboratory plan",
+          "supplies and competence",
+          "follow-up and result ownership"
+        ]
+      },
+      "options": [
+        {
+          "id": "identify_team",
+          "en": "Identify and document the outpatient PN prescriber or nutrition-support team and the home-infusion provider responsible after discharge.",
+          "zh": "明确并记录出院后负责的门诊 PN 开立者或营养支持团队，以及家庭输液服务机构。"
+        },
+        {
+          "id": "verify_competence",
+          "en": "Confirm delivery of PN, pump, filters, dressings, and other supplies; have the client or caregiver demonstrate pump setup and access care; and provide routine and emergency contact numbers.",
+          "zh": "确认 PN、输液泵、过滤器、敷料及其他用品已送达；让患者或照护者回示输液泵设置和导管护理；提供日常及紧急联系电话。"
+        },
+        {
+          "id": "reconcile_transmit",
+          "en": "Reconcile the final PN prescription and transmit the current order, formula, infusion schedule, laboratory tests, frequency, and monitoring parameters to the responsible outpatient team and home-infusion provider.",
+          "zh": "核对最终 PN 处方，并向负责的门诊团队和家庭输液机构传送当前医嘱、配方、输注时间表、化验项目、频率和监测参数。"
+        },
+        {
+          "id": "confirm_followup",
+          "en": "Confirm the first follow-up appointment and document exactly who will review each laboratory result, contact the client, and authorize any PN-order change.",
+          "zh": "确认首次随访，并明确记录由谁查看每项化验结果、联系患者以及批准任何 PN 医嘱变更。"
+        }
+      ],
+      "correct": [
+        "identify_team",
+        "reconcile_transmit",
+        "verify_competence",
+        "confirm_followup"
+      ]
+    },
+    {
+      "id": "gpt_format7c_exercise_hypoglycemia_bowtie",
+      "itemType": "bowtie",
+      "category": "Health Promotion and Maintenance",
+      "topic": "Chronic Disease Management & Lifestyle",
+      "difficulty": "medium",
+      "ngnSkill": "generate_solutions",
+      "stem": {
+        "en": "A client with type 1 diabetes began a new 45-minute cycling routine after work. On three cycling days, the client developed sweating, tremor, and difficulty concentrating during the ride or within one hour afterward; continuous glucose monitor readings were 58–64 mg/dL. On noncycling days, fasting and premeal glucose readings remain 95–140 mg/dL. The client has no fever, vomiting, ketones, or recent illness and has continued the preexisting meal and insulin plan without an exercise-day adjustment.\n\nComplete the bowtie by selecting the most likely condition, the 2 priority actions, and the 2 parameters to monitor. Do not independently prescribe an insulin dose.",
+        "zh": "一名 1 型糖尿病患者开始在下班后进行新的 45 分钟骑车锻炼。在 3 个骑车日中，患者在骑行中或结束后 1 小时内出现出汗、手抖和注意力难以集中，连续血糖监测值为 58–64 mg/dL。非骑车日的空腹及餐前血糖仍为 95–140 mg/dL。患者无发热、呕吐、酮体或近期疾病，并且一直沿用原有饮食和胰岛素方案，没有针对锻炼日进行调整。\n\n完成蝴蝶结题：选择最可能的状况、2 项优先措施和 2 项需要监测的指标。不要自行开立胰岛素剂量。"
+      },
+      "rationale": {
+        "correct": {
+          "en": "The repeated low-glucose episodes occur specifically during or shortly after the new exercise routine, while nonexercise readings remain in the stated range and illness cues are absent. This supports activity-associated hypoglycemia caused by a self-management plan that has not yet been aligned with the new routine. Priority actions are to involve the diabetes prescriber/DSMES team in an individualized exercise-day plan and to use the existing hypoglycemia safety plan with rapid carbohydrate readily available. Glucose around exercise and recurrence/timing of symptoms show whether the revised plan works.",
+          "zh": "低血糖反复发生在新锻炼过程中或结束后不久，而非锻炼日血糖仍处于题干范围，并且没有疾病线索，因此最符合“自我管理方案尚未与新锻炼习惯协调”所导致的运动相关低血糖。优先措施是请糖尿病开立者/DSMES 团队共同制定个体化锻炼日方案，并执行已有低血糖安全方案、随身携带速效碳水化合物。监测锻炼前后血糖以及症状/低血糖是否再次出现，可判断调整后的方案是否有效。"
+        },
+        "byChoice": [
+          {
+            "refId": "cond_exercise_hypo",
+            "en": "Correct: the low readings and symptoms consistently track the new exercise routine.",
+            "zh": "正确：低血糖读数和症状始终与新锻炼习惯相对应。"
+          },
+          {
+            "refId": "cond_inadequate_insulin",
+            "en": "Incorrect: the documented problem is recurrent low glucose, not persistent hyperglycemia.",
+            "zh": "错误：题干记录的是反复低血糖，而不是持续高血糖。"
+          },
+          {
+            "refId": "cond_intercurrent_illness",
+            "en": "Incorrect: the stem supplies no illness cues, and the episodes are exercise-linked.",
+            "zh": "错误：题干没有疾病线索，而且每次发作都与运动相关。"
+          },
+          {
+            "refId": "act_team_plan",
+            "en": "Correct: exercise-related carbohydrate and medication adjustments must be individualized with the prescribing/education team.",
+            "zh": "正确：运动相关的碳水化合物和药物调整应由开立者/教育团队进行个体化设计。"
+          },
+          {
+            "refId": "act_hypo_safety",
+            "en": "Correct: immediate safety requires ready access to rapid carbohydrate and prompt use of the existing low-glucose plan.",
+            "zh": "正确：近期安全需要随时可获得速效碳水化合物，并及时执行已有低血糖方案。"
+          },
+          {
+            "refId": "act_raise_insulin",
+            "en": "Incorrect: increasing insulin can worsen exercise-associated hypoglycemia and is not an independent nursing or client decision.",
+            "zh": "错误：增加胰岛素可能加重运动相关低血糖，而且不应由护士或患者自行决定。"
+          },
+          {
+            "refId": "act_stop_activity",
+            "en": "Incorrect: the goal is safe individualized activity, not permanent avoidance.",
+            "zh": "错误：目标是安全、个体化地活动，而不是永久停止运动。"
+          },
+          {
+            "refId": "param_glucose_pattern",
+            "en": "Correct: peri-exercise glucose shows the direction and duration of the exercise effect.",
+            "zh": "正确：围绕运动时段的血糖可显示运动影响的方向和持续时间。"
+          },
+          {
+            "refId": "param_recurrence",
+            "en": "Correct: fewer or absent episodes indicate that the revised plan is working.",
+            "zh": "正确：发作减少或消失说明调整后的方案有效。"
+          },
+          {
+            "refId": "param_resting_bp",
+            "en": "Incorrect: resting blood pressure does not specifically evaluate the exercise-linked glucose problem.",
+            "zh": "错误：静息血压不能特异性评价运动相关血糖问题。"
+          },
+          {
+            "refId": "param_daily_ketones",
+            "en": "Incorrect: routine ketone checks without hyperglycemia or illness do not measure response to this plan.",
+            "zh": "错误：在无高血糖或疾病时每日测尿酮体不能评价本方案的效果。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Resolve the condition by matching timing and glucose pattern. Choose actions that align the existing plan with exercise without independently changing a prescription.",
+        "zh": "根据症状发生时间和血糖模式判断状况。选择能让现有方案与锻炼协调、但不由患者或护士自行更改处方的措施。"
+      },
+      "glossary": [
+        {
+          "termEn": "activity-associated hypoglycemia",
+          "termZh": "运动相关低血糖",
+          "defZh": "运动中或运动后因葡萄糖利用增加和胰岛素作用而发生的低血糖。"
+        },
+        {
+          "termEn": "DSMES",
+          "termZh": "糖尿病自我管理教育与支持",
+          "defZh": "帮助患者把监测、饮食、活动和药物管理融入日常生活的个体化服务。"
+        },
+        {
+          "termEn": "rapid-acting carbohydrate",
+          "termZh": "速效碳水化合物",
+          "defZh": "可较快升高血糖、用于处理低血糖的含糖食物或饮料。"
+        }
+      ],
+      "meta": {
+        "source": "CDC, About Diabetes Self-Management Education and Support, 7 self-care behaviors and personalized planning, https://www.cdc.gov/diabetes/education-support-programs/index.html; ADA Standards of Care in Diabetes—2026, Section 5 Physical Activity and Exercise, https://diabetesjournals.org/care/article/49/Supplement_1/S89/163932/5-Facilitating-Positive-Health-Behaviors-and-Well; Section 6 Recommendations 6.10 and 6.14–6.15, recurrent hypoglycemia review, glucose treatment, and CGM, https://diabetesjournals.org/care/article/49/Supplement_1/S132/163927/6-Glycemic-Goals-Hypoglycemia-and-Hyperglycemic; Section 7 Recommendation 7.11, glucose monitoring before, during, and after exercise, https://diabetesjournals.org/care/article/49/Supplement_1/S150/163922/7-Diabetes-Technology-Standards-of-Care-in",
+        "tier": "strictest",
+        "skill_signature": "bowtie:diabetes/exercise-associated-hypoglycemia-plan-alignment",
+        "stem_disambiguators": [
+          "new cycling routine",
+          "symptoms during or within 1 hour after cycling",
+          "CGM 58–64 mg/dL",
+          "noncycling glucose 95–140 mg/dL",
+          "no illness or ketones"
+        ]
+      },
+      "bowtie": {
+        "condition": {
+          "prompt": {
+            "en": "Most likely condition",
+            "zh": "最可能的状况"
+          },
+          "tokens": [
+            {
+              "id": "cond_intercurrent_illness",
+              "en": "Intercurrent illness causing unstable glucose",
+              "zh": "合并急性疾病导致血糖不稳定"
+            },
+            {
+              "id": "cond_inadequate_insulin",
+              "en": "Persistent hyperglycemia from insufficient insulin",
+              "zh": "胰岛素不足导致的持续高血糖"
+            },
+            {
+              "id": "cond_exercise_hypo",
+              "en": "Activity-associated hypoglycemia from a plan not aligned with the new exercise routine",
+              "zh": "因现有方案未与新锻炼习惯协调而发生的运动相关低血糖"
+            }
+          ],
+          "correct": "cond_exercise_hypo"
+        },
+        "actions": {
+          "prompt": {
+            "en": "Priority actions — select 2",
+            "zh": "优先措施——选择 2 项"
+          },
+          "tokens": [
+            {
+              "id": "act_raise_insulin",
+              "en": "Increase the pre-exercise insulin dose independently.",
+              "zh": "自行增加锻炼前胰岛素剂量。"
+            },
+            {
+              "id": "act_team_plan",
+              "en": "Contact the diabetes prescriber or DSMES team to create an individualized exercise-day carbohydrate and medication plan before the next ride.",
+              "zh": "在下次骑车前联系糖尿病开立者或 DSMES 团队，共同制定个体化锻炼日碳水化合物和用药方案。"
+            },
+            {
+              "id": "act_hypo_safety",
+              "en": "Carry rapid-acting carbohydrate and immediately follow the existing hypoglycemia treatment plan when symptoms or a low reading occurs.",
+              "zh": "随身携带速效碳水化合物，并在出现症状或低血糖读数时立即执行已有低血糖处理方案。"
+            },
+            {
+              "id": "act_stop_activity",
+              "en": "Stop all physical activity permanently.",
+              "zh": "永久停止所有身体活动。"
+            }
+          ],
+          "correct": [
+            "act_team_plan",
+            "act_hypo_safety"
+          ]
+        },
+        "parameters": {
+          "prompt": {
+            "en": "Parameters to monitor — select 2",
+            "zh": "需要监测的指标——选择 2 项"
+          },
+          "tokens": [
+            {
+              "id": "param_recurrence",
+              "en": "Timing and recurrence of hypoglycemia symptoms or readings below the client’s action threshold",
+              "zh": "低血糖症状或低于个人行动阈值读数的发生时间及是否复发"
+            },
+            {
+              "id": "param_glucose_pattern",
+              "en": "Glucose immediately before, during, and for several hours after cycling",
+              "zh": "骑车前、骑车中以及结束后数小时的血糖"
+            },
+            {
+              "id": "param_daily_ketones",
+              "en": "Daily urine ketones despite normal glucose and no illness",
+              "zh": "在血糖正常且无疾病时每日检测尿酮体"
+            },
+            {
+              "id": "param_resting_bp",
+              "en": "Resting blood pressure on nonexercise mornings",
+              "zh": "非锻炼日早晨的静息血压"
+            }
+          ],
+          "correct": [
+            "param_glucose_pattern",
+            "param_recurrence"
+          ]
+        }
+      }
+    },
+    {
+      "id": "gpt_format7c_heart_failure_action_plan_bowtie",
+      "itemType": "bowtie",
+      "category": "Health Promotion and Maintenance",
+      "topic": "Chronic Disease Management & Lifestyle",
+      "difficulty": "hard",
+      "ngnSkill": "generate_solutions",
+      "stem": {
+        "en": "A client with chronic heart failure uses an individualized home action plan. The plan defines the yellow zone as a morning weight gain of at least 2 lb in 24 hours together with new swelling or increased exertional dyspnea. Yellow-zone instructions are to call the heart-failure team the same day, follow the agreed sodium/fluid limits, and take the already prescribed one-time extra diuretic dose only after the team confirms it.\n\nFor the past 3 weeks, the client’s morning weight has varied by less than 1 lb. Today the weight is 3 lb above yesterday’s value. The client has new bilateral ankle edema and becomes short of breath walking from the bedroom to the kitchen. There is no chest pain, syncope, or dyspnea at rest.\n\nComplete the bowtie by selecting the most likely condition, the 2 priority actions, and the 2 parameters to monitor.",
+        "zh": "一名慢性心力衰竭患者使用个体化家庭行动计划。计划规定：若晨起体重在 24 小时内增加至少 2 磅，并伴有新出现的水肿或活动后呼吸困难加重，则属于黄色区域。黄色区域指示为：当天联系心衰团队，遵守已经商定的钠和液体限制，并且只有在团队确认后才服用医嘱中预先规定的一次额外利尿剂。\n\n过去 3 周，患者晨起体重波动均小于 1 磅。今天体重比昨天增加 3 磅，出现新的双侧踝部水肿，并且从卧室走到厨房就会气短。无胸痛、晕厥或静息时呼吸困难。\n\n完成蝴蝶结题：选择最可能的状况、2 项优先措施和 2 项需要监测的指标。"
+      },
+      "rationale": {
+        "correct": {
+          "en": "The client has crossed the supplied yellow-zone threshold and has corroborating edema and worsening exertional dyspnea, making worsening fluid retention more likely than ordinary day-to-day weight fluctuation. The priority is to contact the heart-failure team and, after confirmation, take the already prescribed one-time extra diuretic dose while continuing the agreed sodium/fluid limits. Morning weight and congestion symptoms/diuretic response are the most direct outcome measures.",
+          "zh": "患者已超过题干规定的黄色区域阈值，并同时出现水肿和活动后呼吸困难加重，因此比普通日常体重波动更符合液体潴留恶化。优先措施是联系心衰团队，并在团队确认后服用医嘱中已预先规定的一次额外利尿剂，同时继续遵守已商定的钠和液体限制。晨起体重以及充血症状和利尿反应，是最直接的结局指标。"
+        },
+        "byChoice": [
+          {
+            "refId": "cond_fluid_retention",
+            "en": "Correct: the supplied threshold is crossed and is supported by new edema and exertional dyspnea.",
+            "zh": "正确：患者超过题干给出的阈值，并有新发水肿和活动后呼吸困难支持。"
+          },
+          {
+            "refId": "cond_normal_variation",
+            "en": "Incorrect: prior variation was under 1 lb; the current 3-lb change plus symptoms exceeds the client’s normal pattern.",
+            "zh": "错误：过去波动小于 1 磅；本次增加 3 磅并伴症状，超出患者平常模式。"
+          },
+          {
+            "refId": "cond_deconditioning",
+            "en": "Incorrect: new edema and rapid weight gain indicate congestion rather than isolated conditioning.",
+            "zh": "错误：新发水肿和快速增重提示充血，而不是单纯体能下降。"
+          },
+          {
+            "refId": "act_call_hf",
+            "en": "Correct: the individualized yellow-zone plan directs same-day contact.",
+            "zh": "正确：个体化黄色区域计划要求当天联系团队。"
+          },
+          {
+            "refId": "act_follow_plan",
+            "en": "Correct: the dose is already prescribed and is taken only after the team confirms the plan condition.",
+            "zh": "正确：该剂量已在医嘱中预先规定，并且只有团队确认计划条件后才服用。"
+          },
+          {
+            "refId": "act_double_diuretic",
+            "en": "Incorrect: unapproved dose escalation can cause hypotension, kidney injury, and electrolyte imbalance.",
+            "zh": "错误：未经批准加量可能导致低血压、肾损伤和电解质紊乱。"
+          },
+          {
+            "refId": "act_wait_week",
+            "en": "Incorrect: the client has already crossed the plan’s same-day action threshold.",
+            "zh": "错误：患者已达到计划规定的当天行动阈值。"
+          },
+          {
+            "refId": "param_weight",
+            "en": "Correct: standardized daily weight directly tracks short-term fluid change.",
+            "zh": "正确：标准化每日体重可直接反映短期液体变化。"
+          },
+          {
+            "refId": "param_congestion",
+            "en": "Correct: edema, dyspnea, and urine response show improvement or worsening congestion.",
+            "zh": "正确：水肿、呼吸困难和尿量反应可显示充血改善或恶化。"
+          },
+          {
+            "refId": "param_a1c",
+            "en": "Incorrect: A1c does not measure short-term heart-failure fluid response.",
+            "zh": "错误：糖化血红蛋白不能评价短期心衰液体反应。"
+          },
+          {
+            "refId": "param_bowel",
+            "en": "Incorrect: bowel frequency is not a direct response parameter for this congestion plan.",
+            "zh": "错误：排便次数不是该充血计划的直接反应指标。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Use the client-specific threshold in the stem, not a universal cutoff. Choose only actions already authorized by that plan.",
+        "zh": "使用题干中的患者个体化阈值，不要套用通用界值。只选择该行动计划中已经授权的措施。"
+      },
+      "glossary": [
+        {
+          "termEn": "fluid retention",
+          "termZh": "液体潴留",
+          "defZh": "体内钠和水积聚，可表现为体重上升、水肿和呼吸困难。"
+        },
+        {
+          "termEn": "heart-failure action plan",
+          "termZh": "心力衰竭行动计划",
+          "defZh": "根据个人症状和监测阈值规定何时自我处理、联系团队或紧急就医的计划。"
+        },
+        {
+          "termEn": "diuretic response",
+          "termZh": "利尿反应",
+          "defZh": "利尿剂后尿量、体重和充血症状的变化。"
+        }
+      ],
+      "meta": {
+        "source": "American Heart Association, Physical Changes to Report for Heart Failure and Managing Heart Failure Symptoms, reviewed June 2025 (daily weight, rapid weight gain, swelling, dyspnea, contact the care team), https://www.heart.org/en/health-topics/heart-failure/living-with-heart-failure-and-managing-advanced-hf/physical-changes-to-report-for-heart-failure; the exact 2-lb threshold and conditional medication instruction are individualized plan data supplied in the stem",
+        "tier": "strictest",
+        "skill_signature": "bowtie:heart-failure/yellow-zone-fluid-retention",
+        "stem_disambiguators": [
+          "personalized yellow-zone threshold supplied",
+          "3-lb overnight gain",
+          "new bilateral ankle edema",
+          "increased exertional dyspnea",
+          "no acute red-zone symptoms"
+        ]
+      },
+      "bowtie": {
+        "condition": {
+          "prompt": {
+            "en": "Most likely condition",
+            "zh": "最可能的状况"
+          },
+          "tokens": [
+            {
+              "id": "cond_normal_variation",
+              "en": "Stable day-to-day weight fluctuation",
+              "zh": "稳定的日常体重波动"
+            },
+            {
+              "id": "cond_fluid_retention",
+              "en": "Worsening fluid retention crossing the client’s yellow-zone threshold",
+              "zh": "液体潴留恶化并超过患者的黄色区域阈值"
+            },
+            {
+              "id": "cond_deconditioning",
+              "en": "Isolated physical deconditioning without congestion",
+              "zh": "无充血的单纯体能下降"
+            }
+          ],
+          "correct": "cond_fluid_retention"
+        },
+        "actions": {
+          "prompt": {
+            "en": "Priority actions — select 2",
+            "zh": "优先措施——选择 2 项"
+          },
+          "tokens": [
+            {
+              "id": "act_wait_week",
+              "en": "Wait one week to see whether the weight returns to baseline.",
+              "zh": "等待一周，观察体重是否自行恢复到基线。"
+            },
+            {
+              "id": "act_double_diuretic",
+              "en": "Double all diuretic doses immediately without contacting the team.",
+              "zh": "不联系团队，立即把所有利尿剂剂量加倍。"
+            },
+            {
+              "id": "act_follow_plan",
+              "en": "After the heart-failure team confirms the yellow-zone instruction, take the already prescribed one-time extra diuretic dose.",
+              "zh": "心衰团队确认黄色区域指示后，服用医嘱中已预先规定的一次额外利尿剂。"
+            },
+            {
+              "id": "act_call_hf",
+              "en": "Call the heart-failure team today and report the weight change, edema, and exertional dyspnea.",
+              "zh": "今天联系心衰团队，报告体重变化、水肿和活动后呼吸困难。"
+            }
+          ],
+          "correct": [
+            "act_call_hf",
+            "act_follow_plan"
+          ]
+        },
+        "parameters": {
+          "prompt": {
+            "en": "Parameters to monitor — select 2",
+            "zh": "需要监测的指标——选择 2 项"
+          },
+          "tokens": [
+            {
+              "id": "param_bowel",
+              "en": "Daily bowel-movement frequency",
+              "zh": "每日排便次数"
+            },
+            {
+              "id": "param_weight",
+              "en": "Morning weight on the same scale after urination",
+              "zh": "排尿后使用同一台体重秤测得的晨起体重"
+            },
+            {
+              "id": "param_congestion",
+              "en": "Dyspnea, ankle edema, and urine response after the plan is implemented",
+              "zh": "执行计划后的呼吸困难、踝部水肿和尿量反应"
+            },
+            {
+              "id": "param_a1c",
+              "en": "Hemoglobin A1c",
+              "zh": "糖化血红蛋白"
+            }
+          ],
+          "correct": [
+            "param_weight",
+            "param_congestion"
+          ]
+        }
+      }
+    },
+    {
+      "id": "gpt_format7c_actionable_diabetes_plan_highlight",
+      "itemType": "highlight",
+      "category": "Health Promotion and Maintenance",
+      "topic": "Chronic Disease Management & Lifestyle",
+      "difficulty": "easy",
+      "ngnSkill": "recognize_cues",
+      "stem": {
+        "en": "Review the diabetes self-management note. Highlight the elements that make the plan actionable and individualized.",
+        "zh": "阅读糖尿病自我管理记录。突出显示使该计划具有可执行性和个体化的内容。"
+      },
+      "rationale": {
+        "correct": {
+          "en": "An actionable individualized plan uses a specific shared goal, defines what and when to monitor, gives a concrete problem-solving response, and connects the client with ongoing education/support and a review date. Generic exhortations, overly restrictive advice, and vague monitoring are not actionable.",
+          "zh": "可执行的个体化计划应包括具体的共同目标、明确监测内容和时间、具体的问题解决措施，以及持续教育/支持和复评日期。泛泛要求、过度限制性建议和模糊监测都不具备可执行性。"
+        },
+        "byChoice": [
+          {
+            "refId": "h15_goal",
+            "en": "Correct: it is specific, scheduled, and chosen with the client.",
+            "zh": "正确：目标具体、有时间安排，并由患者共同选择。"
+          },
+          {
+            "refId": "h15_generic_effort",
+            "en": "Not selected: this is vague and does not define an action.",
+            "zh": "不选择：表述模糊，没有规定具体行动。"
+          },
+          {
+            "refId": "h15_monitor",
+            "en": "Correct: it defines exactly what data to collect and when.",
+            "zh": "正确：明确了要收集什么数据以及何时收集。"
+          },
+          {
+            "refId": "h15_vague_check",
+            "en": "Not selected: “whenever convenient” does not create a usable monitoring schedule.",
+            "zh": "不选择：“方便时”不能形成可使用的监测计划。"
+          },
+          {
+            "refId": "h15_problem",
+            "en": "Correct: it links a foreseeable problem to the client’s existing written response plan.",
+            "zh": "正确：把可预见的问题与患者已有的书面应对方案连接起来。"
+          },
+          {
+            "refId": "h15_restrict",
+            "en": "Not selected: blanket carbohydrate avoidance is neither individualized nor appropriate self-management guidance.",
+            "zh": "不选择：完全避免碳水化合物既不个体化，也不是恰当的自我管理指导。"
+          },
+          {
+            "refId": "h15_support",
+            "en": "Correct: it connects the client to skilled support and creates a date to evaluate the plan.",
+            "zh": "正确：连接专业支持，并规定评价计划的时间。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Select statements that specify who will do what, when, how response will be checked, and where support will come from.",
+        "zh": "选择能够说明“由谁、做什么、何时做、如何检查效果、从哪里获得支持”的陈述。"
+      },
+      "glossary": [
+        {
+          "termEn": "actionable goal",
+          "termZh": "可执行目标",
+          "defZh": "具体、可观察并能在日常生活中实施的目标。"
+        },
+        {
+          "termEn": "problem solving",
+          "termZh": "问题解决",
+          "defZh": "识别障碍、选择措施并根据结果调整计划。"
+        },
+        {
+          "termEn": "DSMES",
+          "termZh": "糖尿病自我管理教育与支持",
+          "defZh": "提供个体化技能训练和持续支持的服务。"
+        }
+      ],
+      "meta": {
+        "source": "CDC, Living with Diabetes, Healthy habits and Resources and support, updated January 1, 2026, https://www.cdc.gov/diabetes/living-with/index.html; CDC, About DSMES, 7 self-care behaviors, https://www.cdc.gov/diabetes/education-support-programs/index.html",
+        "tier": "strictest",
+        "skill_signature": "highlight:diabetes/actionable-individualized-plan",
+        "stem_disambiguators": [
+          "specific shared goal",
+          "defined monitoring",
+          "problem-solving response",
+          "DSMES referral and review"
+        ]
+      },
+      "highlight": {
+        "segments": [
+          {
+            "id": "h15_goal",
+            "en": "The client chose a goal to walk for 20 minutes after dinner on Monday, Wednesday, and Friday.",
+            "zh": "患者选择的目标是每周一、周三和周五晚餐后步行 20 分钟。",
+            "selectable": true
+          },
+          {
+            "id": "h15_generic_effort",
+            "en": "The nurse wrote, “Try harder to control your diabetes.”",
+            "zh": "护士写道：“要更努力地控制糖尿病。”",
+            "selectable": true
+          },
+          {
+            "id": "h15_monitor",
+            "en": "The client will record glucose before and after each planned walk and note any symptoms.",
+            "zh": "患者将在每次计划步行前后记录血糖，并注明任何症状。",
+            "selectable": true
+          },
+          {
+            "id": "h15_vague_check",
+            "en": "The client should check glucose whenever it is convenient.",
+            "zh": "患者应在方便时检查血糖。",
+            "selectable": true
+          },
+          {
+            "id": "h15_problem",
+            "en": "If glucose is below the client’s written exercise threshold, the client will follow the existing low-glucose action plan and postpone the walk until the plan’s recheck criterion is met.",
+            "zh": "如果血糖低于个人书面锻炼阈值，患者将执行已有低血糖行动计划，并推迟步行，直到达到计划规定的复测标准。",
+            "selectable": true
+          },
+          {
+            "id": "h15_restrict",
+            "en": "The client was told to avoid all carbohydrates.",
+            "zh": "患者被告知要避免所有碳水化合物。",
+            "selectable": true
+          },
+          {
+            "id": "h15_support",
+            "en": "A DSMES referral was placed, and the client and nurse scheduled a two-week review of the glucose and activity log.",
+            "zh": "已转介至 DSMES，患者和护士安排在两周后复查血糖与活动记录。",
+            "selectable": true
+          }
+        ],
+        "correct": [
+          "h15_goal",
+          "h15_monitor",
+          "h15_problem",
+          "h15_support"
+        ]
+      }
+    },
+    {
+      "id": "gpt_format7c_life_change_plan_revision_highlight",
+      "itemType": "highlight",
+      "category": "Health Promotion and Maintenance",
+      "topic": "Chronic Disease Management & Lifestyle",
+      "difficulty": "easy",
+      "ngnSkill": "recognize_cues",
+      "stem": {
+        "en": "Review the chronic-condition follow-up note. Highlight the cues and actions that support reassessment, shared goal revision, teach-back, and connection to self-management support.",
+        "zh": "阅读慢性病随访记录。突出显示支持重新评估、共同修改目标、回授确认以及连接自我管理支持的线索和措施。"
+      },
+      "rationale": {
+        "correct": {
+          "en": "A major work-schedule change and missed meals show that the old plan is no longer feasible. The nurse should reassess barriers, revise goals with the client, use teach-back, and connect the client to accessible support. Repeating the old plan, blaming the client, or labeling the client noncompliant does not support effective self-management.",
+          "zh": "工作时间发生重大变化并出现漏餐，说明旧计划已不可行。护士应重新评估障碍、与患者共同修改目标、使用回授法，并把患者连接到可获得的支持。重复旧计划、责备患者或给患者贴“不依从”标签，都不能促进有效自我管理。"
+        },
+        "byChoice": [
+          {
+            "refId": "h16_shift",
+            "en": "Correct: the new work schedule is a life transition that makes the old routine inaccessible.",
+            "zh": "正确：新的工作时间属于生活变化，使旧日程无法继续执行。"
+          },
+          {
+            "refId": "h16_missed",
+            "en": "Correct: missed meals are direct evidence that the old plan no longer fits the client’s circumstances.",
+            "zh": "正确：漏餐直接说明旧计划已不符合患者当前情况。"
+          },
+          {
+            "refId": "h16_blame",
+            "en": "Not selected: blame does not identify barriers or create a workable plan.",
+            "zh": "不选择：责备不能识别障碍，也不能形成可执行计划。"
+          },
+          {
+            "refId": "h16_shared",
+            "en": "Correct: the revised goal is specific, feasible, and selected collaboratively.",
+            "zh": "正确：修改后的目标具体、可行，并由双方共同选择。"
+          },
+          {
+            "refId": "h16_old_handout",
+            "en": "Not selected: repeating an infeasible plan does not address the changed circumstance.",
+            "zh": "不选择：重复不可行的旧计划无法解决情况变化。"
+          },
+          {
+            "refId": "h16_teachback",
+            "en": "Correct: explaining the plan in the client’s own words verifies understanding.",
+            "zh": "正确：让患者用自己的话解释计划可验证其理解。"
+          },
+          {
+            "refId": "h16_support",
+            "en": "Correct: the evening virtual option matches the client’s new schedule and provides ongoing support.",
+            "zh": "正确：晚间线上项目符合新的工作时间，并提供持续支持。"
+          },
+          {
+            "refId": "h16_label",
+            "en": "Not selected: a judgmental label without barrier assessment does not support self-management.",
+            "zh": "不选择：在未评估障碍时使用评判性标签，不利于自我管理。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Select both the life-change cues and the collaborative actions that make the revised plan usable.",
+        "zh": "同时选择提示生活变化的线索，以及使修改后计划可实施的协作措施。"
+      },
+      "glossary": [
+        {
+          "termEn": "shared goal setting",
+          "termZh": "共同目标设定",
+          "defZh": "患者与医疗团队一起选择符合个人情况和优先事项的目标。"
+        },
+        {
+          "termEn": "teach-back",
+          "termZh": "回授法",
+          "defZh": "让患者用自己的话说明计划，以确认理解。"
+        },
+        {
+          "termEn": "life transition",
+          "termZh": "生活变化",
+          "defZh": "工作、家庭、住房或其他情况改变，可能使原计划难以执行。"
+        }
+      ],
+      "meta": {
+        "source": "CDC, About Diabetes Self-Management Education and Support, four key times including life changes that make management harder, https://www.cdc.gov/diabetes/education-support-programs/index.html; CDC, Living with Diabetes, Healthy habits and Resources and support, updated January 1, 2026, https://www.cdc.gov/diabetes/living-with/index.html",
+        "tier": "strictest",
+        "skill_signature": "highlight:chronic-care/life-change-shared-plan-revision",
+        "stem_disambiguators": [
+          "night-shift change",
+          "old plan infeasible",
+          "shared revision",
+          "teach-back",
+          "accessible support"
+        ]
+      },
+      "highlight": {
+        "segments": [
+          {
+            "id": "h16_shift",
+            "en": "The client started a permanent night shift three weeks ago and can no longer attend the morning exercise group.",
+            "zh": "患者在 3 周前开始长期夜班，无法再参加早晨锻炼小组。",
+            "selectable": true
+          },
+          {
+            "id": "h16_missed",
+            "en": "The client reports missing planned meals because the old meal schedule conflicts with overnight work breaks.",
+            "zh": "患者表示，旧的进餐时间与夜班休息时间冲突，因此经常漏掉计划中的餐次。",
+            "selectable": true
+          },
+          {
+            "id": "h16_blame",
+            "en": "The nurse said, “You need to be more disciplined.”",
+            "zh": "护士说：“你需要更自律。”",
+            "selectable": true
+          },
+          {
+            "id": "h16_shared",
+            "en": "The nurse asked which changes felt realistic, and the client chose a revised first goal of packing a balanced meal for three night shifts each week.",
+            "zh": "护士询问哪些改变对患者来说可行，患者选择的首个修改目标是每周为 3 个夜班准备一份均衡餐。",
+            "selectable": true
+          },
+          {
+            "id": "h16_old_handout",
+            "en": "The nurse reprinted the unchanged morning schedule and instructed the client to follow it exactly.",
+            "zh": "护士重新打印未修改的早晨时间表，并要求患者完全照做。",
+            "selectable": true
+          },
+          {
+            "id": "h16_teachback",
+            "en": "The client explained in their own words when the packed meal would be eaten and how progress would be recorded.",
+            "zh": "患者用自己的话说明将在何时吃准备好的餐食，以及如何记录进展。",
+            "selectable": true
+          },
+          {
+            "id": "h16_support",
+            "en": "The nurse connected the client with an evening virtual self-management program and confirmed the referral contact information.",
+            "zh": "护士将患者连接到晚间线上自我管理项目，并确认了转介联系信息。",
+            "selectable": true
+          },
+          {
+            "id": "h16_label",
+            "en": "The note labels the client “noncompliant” without documenting barriers.",
+            "zh": "记录在未说明障碍的情况下给患者贴上“不依从”标签。",
+            "selectable": true
+          }
+        ],
+        "correct": [
+          "h16_shift",
+          "h16_missed",
+          "h16_shared",
+          "h16_teachback",
+          "h16_support"
+        ]
+      }
+    },
+    {
+      "id": "gpt_format7c_sepsis_triage_cues_highlight",
+      "itemType": "highlight",
+      "category": "Physiological Adaptation",
+      "topic": "Sepsis & Septic Shock",
+      "difficulty": "medium",
+      "ngnSkill": "recognize_cues",
+      "stem": {
+        "en": "An adult arrives at triage. Highlight only the cues that, in combination, require immediate sepsis evaluation and escalation. Do not use any single screening score as the diagnosis.",
+        "zh": "一名成人到达分诊区。仅突出显示那些组合起来需要立即进行脓毒症评估并升级处理的线索。不要把任何单一筛查评分当作诊断。"
+      },
+      "rationale": {
+        "correct": {
+          "en": "Fever with urinary symptoms provides a plausible infection source. New confusion, hypotension, prolonged capillary refill with mottling, and elevated lactate are evolving organ-dysfunction or hypoperfusion cues requiring immediate sepsis evaluation and escalation. Stable chronic knee pain and a mildly elevated glucose after juice do not contribute to the acute sepsis pattern.",
+          "zh": "发热伴尿路症状提示可能的感染来源。新发意识混乱、低血压、毛细血管再充盈延长伴皮肤花斑，以及乳酸升高，均属于正在发展的器官功能障碍或低灌注线索，需要立即进行脓毒症评估并升级处理。稳定的慢性膝痛和喝果汁后轻度血糖升高与本次急性脓毒症模式无关。"
+        },
+        "byChoice": [
+          {
+            "refId": "h17_infection",
+            "en": "Selected: fever plus urinary symptoms provides a plausible acute infection source.",
+            "zh": "选择：发热伴尿路症状提示可能的急性感染来源。"
+          },
+          {
+            "refId": "h17_confusion",
+            "en": "Selected: new altered mentation is an acute organ-dysfunction cue.",
+            "zh": "选择：新发精神状态改变是急性器官功能障碍线索。"
+          },
+          {
+            "refId": "h17_hypotension",
+            "en": "Selected: marked hypotension indicates circulatory compromise.",
+            "zh": "选择：明显低血压提示循环受损。"
+          },
+          {
+            "refId": "h17_perfusion",
+            "en": "Selected: delayed refill and new mottling are bedside hypoperfusion findings.",
+            "zh": "选择：再充盈延迟和新发花斑是床旁低灌注表现。"
+          },
+          {
+            "refId": "h17_lactate",
+            "en": "Selected: elevated lactate supports concern for impaired perfusion and should be trended in context.",
+            "zh": "选择：乳酸升高支持低灌注担忧，应结合临床连续监测。"
+          },
+          {
+            "refId": "h17_knee",
+            "en": "Not selected: stable chronic pain is unrelated to the acute deterioration.",
+            "zh": "不选择：稳定的慢性疼痛与本次急性恶化无关。"
+          },
+          {
+            "refId": "h17_glucose",
+            "en": "Not selected: this post-juice glucose does not explain or establish the acute sepsis pattern.",
+            "zh": "不选择：喝果汁后的该血糖值不能解释或确立本次急性脓毒症模式。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Look for a plausible infection plus acute organ dysfunction or hypoperfusion. Exclude unrelated chronic or benign findings.",
+        "zh": "寻找“可能感染”加上“急性器官功能障碍或低灌注”的组合，排除无关的慢性或良性表现。"
+      },
+      "glossary": [
+        {
+          "termEn": "sepsis",
+          "termZh": "脓毒症",
+          "defZh": "机体对感染反应失调所导致的危及生命的器官功能障碍。"
+        },
+        {
+          "termEn": "hypoperfusion",
+          "termZh": "低灌注",
+          "defZh": "组织获得的血流和氧输送不足。"
+        },
+        {
+          "termEn": "capillary refill",
+          "termZh": "毛细血管再充盈",
+          "defZh": "按压皮肤后颜色恢复所需时间，用于辅助评估末梢灌注。"
+        }
+      ],
+      "meta": {
+        "source": "Surviving Sepsis Campaign: International Guidelines for Management of Sepsis and Septic Shock 2026, screening and biomarkers statements, blood lactate recommendation, and medical-emergency/resuscitation good-practice statement, https://sccm.org/clinical-resources/guidelines/guidelines/surviving-sepsis-campaign-international-guidelines-for-management-of-sepsis-and-septic-shock-2026",
+        "tier": "strictest",
+        "skill_signature": "highlight:sepsis/triage-infection-organ-dysfunction-hypoperfusion",
+        "stem_disambiguators": [
+          "possible urinary infection",
+          "new confusion",
+          "MAP 61 mm Hg",
+          "capillary refill 4 seconds with mottling",
+          "lactate 3.6 mmol/L"
+        ]
+      },
+      "highlight": {
+        "segments": [
+          {
+            "id": "h17_infection",
+            "en": "Temperature is 38.7°C (101.7°F), and the client reports dysuria and urinary frequency for two days.",
+            "zh": "体温为 38.7°C（101.7°F），患者诉排尿疼痛和尿频已 2 天。",
+            "selectable": true
+          },
+          {
+            "id": "h17_confusion",
+            "en": "The family reports new confusion beginning this morning.",
+            "zh": "家属报告患者从今天早晨开始新出现意识混乱。",
+            "selectable": true
+          },
+          {
+            "id": "h17_hypotension",
+            "en": "Blood pressure is 84/50 mm Hg, with a calculated mean arterial pressure of 61 mm Hg.",
+            "zh": "血压为 84/50 mm Hg，计算平均动脉压为 61 mm Hg。",
+            "selectable": true
+          },
+          {
+            "id": "h17_perfusion",
+            "en": "Capillary refill is 4 seconds, and the knees are newly mottled.",
+            "zh": "毛细血管再充盈为 4 秒，膝部新出现皮肤花斑。",
+            "selectable": true
+          },
+          {
+            "id": "h17_lactate",
+            "en": "Serum lactate is 3.6 mmol/L.",
+            "zh": "血清乳酸为 3.6 mmol/L。",
+            "selectable": true
+          },
+          {
+            "id": "h17_knee",
+            "en": "The client has unchanged chronic knee pain rated 3/10.",
+            "zh": "患者有长期膝痛，仍为 3/10，与平时相同。",
+            "selectable": true
+          },
+          {
+            "id": "h17_glucose",
+            "en": "Glucose is 142 mg/dL after the client drank juice.",
+            "zh": "患者喝果汁后血糖为 142 mg/dL。",
+            "selectable": true
+          }
+        ],
+        "correct": [
+          "h17_infection",
+          "h17_confusion",
+          "h17_hypotension",
+          "h17_perfusion",
+          "h17_lactate"
+        ]
+      }
+    },
+    {
+      "id": "gpt_format7c_sepsis_reassessment_highlight",
+      "itemType": "highlight",
+      "category": "Physiological Adaptation",
+      "topic": "Sepsis & Septic Shock",
+      "difficulty": "medium",
+      "ngnSkill": "evaluate_outcomes",
+      "stem": {
+        "en": "Two hours after sepsis treatment began, the nurse reviews the serial reassessment note. Highlight the findings that require continued escalation or treatment reassessment.",
+        "zh": "脓毒症治疗开始 2 小时后，护士查看连续复评记录。突出显示需要继续升级处理或重新评估治疗方案的表现。"
+      },
+      "rationale": {
+        "correct": {
+          "en": "Persistent hypotension, rising lactate, severe oliguria, and worsening confusion show ongoing hypoperfusion or organ dysfunction and require continued escalation and treatment reassessment. A falling temperature and heart rate are favorable trends but do not cancel the persistent danger cues. Stable oxygen saturation and unchanged chronic pain are not reasons for escalation in this context.",
+          "zh": "持续低血压、乳酸上升、严重少尿和意识混乱恶化提示低灌注或器官功能障碍仍在继续，需要持续升级处理并重新评估治疗。体温和心率下降属于改善趋势，但不能抵消仍存在的危险线索。稳定的血氧饱和度和未变化的慢性疼痛在本情境下不是升级处理的原因。"
+        },
+        "byChoice": [
+          {
+            "refId": "h18_temp",
+            "en": "Not selected: the temperature trend is improving, although it does not by itself prove resolution.",
+            "zh": "不选择：体温趋势在改善，但单独这一点不能证明脓毒症已经解决。"
+          },
+          {
+            "refId": "h18_hr",
+            "en": "Not selected: the heart-rate trend is improving and is not the persistent danger cue asked for.",
+            "zh": "不选择：心率趋势在改善，不是题目所问的持续危险线索。"
+          },
+          {
+            "refId": "h18_map",
+            "en": "Selected: persistent low MAP indicates ongoing circulatory compromise.",
+            "zh": "选择：平均动脉压持续偏低提示循环受损仍存在。"
+          },
+          {
+            "refId": "h18_lactate",
+            "en": "Selected: rising rather than falling lactate supports persistent hypoperfusion and need for reassessment.",
+            "zh": "选择：乳酸不降反升支持低灌注持续，需要重新评估。"
+          },
+          {
+            "refId": "h18_urine",
+            "en": "Selected: severe oliguria indicates ongoing kidney hypoperfusion or organ dysfunction.",
+            "zh": "选择：严重少尿提示肾低灌注或器官功能障碍仍在继续。"
+          },
+          {
+            "refId": "h18_mental",
+            "en": "Selected: worsening level of consciousness is ongoing neurological organ dysfunction.",
+            "zh": "选择：意识水平恶化属于持续的神经系统器官功能障碍。"
+          },
+          {
+            "refId": "h18_spo2",
+            "en": "Not selected: oxygenation is stable on unchanged support in this note.",
+            "zh": "不选择：记录显示在支持方式未变时氧合稳定。"
+          },
+          {
+            "refId": "h18_back",
+            "en": "Not selected: unchanged chronic pain is unrelated to the acute treatment response.",
+            "zh": "不选择：未变化的慢性疼痛与急性治疗反应无关。"
+          }
+        ]
+      },
+      "testTakingStrategy": {
+        "en": "Separate improving trends from persistent or worsening perfusion and organ-function findings.",
+        "zh": "区分改善趋势与持续或恶化的灌注及器官功能表现。"
+      },
+      "glossary": [
+        {
+          "termEn": "serial lactate",
+          "termZh": "连续乳酸",
+          "defZh": "按时间重复测量乳酸，以结合临床趋势评估灌注和治疗反应。"
+        },
+        {
+          "termEn": "oliguria",
+          "termZh": "少尿",
+          "defZh": "尿量明显减少，可能提示肾灌注不足或肾功能障碍。"
+        },
+        {
+          "termEn": "treatment reassessment",
+          "termZh": "治疗复评",
+          "defZh": "根据患者反应重新判断当前治疗是否足够或需要调整。"
+        }
+      ],
+      "meta": {
+        "source": "Surviving Sepsis Campaign: International Guidelines for Management of Sepsis and Septic Shock 2026, fluid-resuscitation reassessment remarks, serial lactate recommendation, capillary-refill adjunct recommendation, and initial MAP target recommendation, https://sccm.org/clinical-resources/guidelines/guidelines/surviving-sepsis-campaign-international-guidelines-for-management-of-sepsis-and-septic-shock-2026",
+        "tier": "strictest",
+        "skill_signature": "highlight:sepsis/reassessment-persistent-hypoperfusion",
+        "stem_disambiguators": [
+          "persistent MAP 58 mm Hg",
+          "lactate 4.6 to 5.2 mmol/L",
+          "urine output 15 mL/2 h",
+          "worsening confusion"
+        ]
+      },
+      "highlight": {
+        "segments": [
+          {
+            "id": "h18_temp",
+            "en": "Temperature decreased from 39.1°C to 38.2°C.",
+            "zh": "体温从 39.1°C 降至 38.2°C。",
+            "selectable": true
+          },
+          {
+            "id": "h18_hr",
+            "en": "Heart rate decreased from 122/min to 106/min.",
+            "zh": "心率从 122 次/分降至 106 次/分。",
+            "selectable": true
+          },
+          {
+            "id": "h18_map",
+            "en": "Mean arterial pressure remains 58 mm Hg after the initial resuscitation steps.",
+            "zh": "完成初始复苏措施后，平均动脉压仍为 58 mm Hg。",
+            "selectable": true
+          },
+          {
+            "id": "h18_lactate",
+            "en": "Lactate increased from 4.6 mmol/L to 5.2 mmol/L.",
+            "zh": "乳酸从 4.6 mmol/L 升至 5.2 mmol/L。",
+            "selectable": true
+          },
+          {
+            "id": "h18_urine",
+            "en": "Urine output totals 15 mL during the past 2 hours.",
+            "zh": "过去 2 小时尿量总计 15 mL。",
+            "selectable": true
+          },
+          {
+            "id": "h18_mental",
+            "en": "The client is now difficult to arouse and is more confused than at treatment initiation.",
+            "zh": "患者现在难以唤醒，且比治疗开始时更加意识混乱。",
+            "selectable": true
+          },
+          {
+            "id": "h18_spo2",
+            "en": "Oxygen saturation remains 96% on the unchanged nasal-cannula setting.",
+            "zh": "在鼻导管设置未变的情况下，血氧饱和度仍为 96%。",
+            "selectable": true
+          },
+          {
+            "id": "h18_back",
+            "en": "Chronic low-back pain remains unchanged at 2/10.",
+            "zh": "慢性下背痛仍为 2/10，与平时相同。",
+            "selectable": true
+          }
+        ],
+        "correct": [
+          "h18_map",
+          "h18_lactate",
+          "h18_urine",
+          "h18_mental"
         ]
       }
     }

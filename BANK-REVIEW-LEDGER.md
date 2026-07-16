@@ -848,3 +848,49 @@ storage-migration, and coverage-report tests passed; `npx tsc -b --pretty false`
 coverage artifacts were regenerated at 1,798 top-level records, 143 case containers, 721 embedded
 parts, and 2,376 scored leaves; Safety remains 228 top-level / 277 scored leaves, while
 `IV Fluid Calculations` is 8 top-level / 9 scored leaves. `census:check` and the production build passed.
+
+### 2026-07-16 — GPT Scored-Format Batch 7 promotion (`gpt-canonical.json`, 681→698)
+
+Status: `promoted`. Independent review (Claude, producer≠checker against GPT's own self-review pass)
+of all 18 Batch 7 candidates across the three raw files (`gpt-format7a-fib-2026-07-16.json`,
+`gpt-format7b-ordered-2026-07-16.json`, `gpt-format7c-bowtie-highlight-2026-07-16.json`). Independently
+recomputed all six fill-in-the-blank keys from first principles against the supplied equations/tables
+(corrected sodium 136 mEq/L, effective osmolality 344 mOsm/kg, CURB65 4, renal SOFA component 3, PRBC
+rates 100 and 131 mL/hr) — all matched the stored keys. Verified the five ordered-response `correct`
+arrays are full permutations of their `options` ids. Verified both bowtie items' 1/2/2 key structure
+and both highlight items' bounded correct sets against their stems. Read every bilingual pair inline;
+found no parity gaps. Cross-checked all cited guideline sources (Endotext, ADA Standards of Care 2026,
+NICE NG250, Surviving Sepsis Campaign 2026, Sepsis-3, ASAM AWM 2020, ASPEN PN Care Pathway, AABB
+Circular of Information, ABA burn-care guidelines) against the tested clinical decisions; no
+inaccuracies found. Checked all 18 raw IDs against every canonical bank; no collisions.
+
+Confirmed GPT's own held-item finding: `gpt_format7b_dry_chemical_skin_decontamination` materially
+duplicates two already-bundled ordered-response items — `gpt_fmtgap_2026_07_14_or_dry_chemical_burn_15`
+(`banks/gpt-canonical.json`) and `gemini_b4_06` (`banks/gemini-canonical.json`) — all three test the
+identical PPE → remove clothing → brush powder → irrigate → reassess dry-chemical decontamination
+sequence with only cosmetic stem variation. Adjudicated as a confirmed duplicate (not a replace
+candidate) and dropped rather than promoted. Because `banks/banks-raw/` is gitignored and has no git
+provenance, the exact payload was preserved before the drop at
+`Archive/retired-bank-items-2026-07-16/gpt_format7b_dry_chemical_skin_decontamination.json`
+(`payloadSha256` `1e88e6f522627a1e2708154738a67580a5d521f5c014238b102569694eb7e86f`, method
+`sha256(JSON.stringify(question, null, 2))`). The drop itself was applied via the raw-scoped
+`removeQuestion` primitive in `scripts/patches/2026-07-16-gpt-format7b-drop-duplicate.ts`
+(`gpt-format7b-ordered-2026-07-16.json` 6→5), leaving the other 17 items unchanged. The Batch 7C
+producer-side source-pin corrections recorded in
+`scripts/patches/2026-07-16-gpt-format7c-final-review.ts` (mislabeled ADA hypoglycemia section;
+current Surviving Sepsis Campaign 2026 guideline links for both sepsis items) were already baked into
+the raw file at review time and are unchanged by this promotion.
+
+Promoted the resulting 17 items (6 fill-in-blank + 5 ordered-response + 6 bowtie/highlight) via
+`npm run promote` → `npm run consolidate`: `gpt-format7a-fib-2026-07-16.json` (+6),
+`gpt-format7b-ordered-2026-07-16.json` (+5), `gpt-format7c-bowtie-highlight-2026-07-16.json` (+6) all
+routed into `gpt-canonical.json`, 681→698. No metadata reroute beyond standard consolidation.
+
+Verification: `validate-bank` passed all three raw files pre-promotion with zero normalization drift;
+`npm run audit` **GATE PASSED** post-consolidation with all 2,590 bundled IDs globally unique (13 bank
+files) and only the pre-existing advisory non-MCQ distributional warning on unrelated
+`visual-canonical` select_all items; `test:grading`, `test:highlight`, `test:bowtie`, and
+`test:schema-bank` passed both pre- and post-consolidation; `npx tsc -b` passed; census regenerated at
+1,869 session units / 2,447 scored leaves / 199 visual artifacts and `census:check` passed; production
+build passed. The three raw drafts remain in `banks/banks-raw/` pending this ledger update, per
+`audit:integrity`'s draft-retention contract.

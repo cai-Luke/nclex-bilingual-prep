@@ -1,0 +1,119 @@
+{
+  "retiredAt": "2026-07-16",
+  "sourceBank": "banks/banks-raw/gpt-format7b-ordered-2026-07-16.json",
+  "reason": "Never promoted. Independent review (Claude, producer≠checker) confirmed GPT's own self-review hold: this item materially duplicates two already-bundled ordered-response items — gpt_fmtgap_2026_07_14_or_dry_chemical_burn_15 (banks/gpt-canonical.json) and gemini_b4_06 (banks/gemini-canonical.json). All three test the identical PPE → remove contaminated clothing → brush dry powder → irrigate → reassess dry-chemical decontamination sequence with only cosmetic stem variation. Dropped from the raw Batch 7B file via scripts/patches/2026-07-16-gpt-format7b-drop-duplicate.ts (removeQuestion) rather than promoted; the other 17 Batch 7 items (6 fill-in-blank, 5 ordered-response, 6 bowtie/highlight) were promoted.",
+  "payloadSha256Method": "sha256(JSON.stringify(question, null, 2), 'utf8')",
+  "payloadSha256": "1e88e6f522627a1e2708154738a67580a5d521f5c014238b102569694eb7e86f",
+  "question": {
+    "id": "gpt_format7b_dry_chemical_skin_decontamination",
+    "itemType": "ordered_response",
+    "category": "Reduction of Risk Potential",
+    "topic": "Burn Management",
+    "difficulty": "easy",
+    "ngnSkill": "take_action",
+    "stem": {
+      "en": "A stable client has a dry powdered chemical on the forearm. The product has been identified, and poison control confirms that it is not a reactive metal or another substance for which water is contraindicated. The facility pathway directs staff to use protective equipment, remove contaminated material, irrigate with cool running water for at least 20 minutes, and then reassess.\n\nPlace all actions in the correct order.",
+      "zh": "一名生命体征稳定的患者前臂沾有干燥粉末状化学物质。已确认该产品，毒物控制中心也确认它不是活泼金属或其他禁用水冲洗的物质。机构流程要求工作人员先使用防护用品，移除污染物，再用凉的流动水冲洗至少 20 分钟，之后重新评估。\n\n请将所有措施按正确顺序排列。"
+    },
+    "rationale": {
+      "correct": {
+        "en": "Staff protection comes first. Contaminated clothing or jewelry is removed, then loose dry powder is brushed away before water is applied. Because poison control confirmed that water is appropriate, the area is irrigated for the supplied duration. The nurse then reassesses the injury and escalates if it is worsening or meets burn-center criteria.",
+        "zh": "首先保护工作人员。先移除受污染的衣物或饰品，再在用水前刷去松散的干粉。由于毒物控制中心已确认可以用水，应按规定时间冲洗。最后重新评估损伤；若恶化或达到烧伤中心标准，则升级处理。"
+      },
+      "byChoice": [
+        {
+          "refId": "irrigate",
+          "en": "The product was specifically confirmed to be water-compatible, so the supplied irrigation pathway applies.",
+          "zh": "该产品已明确确认可用水处理，因此适用题干给出的冲洗流程。"
+        },
+        {
+          "refId": "remove_clothing",
+          "en": "Contaminated items can trap or spread the chemical and should be removed before irrigation.",
+          "zh": "污染衣物和饰品会滞留或扩散化学物质，应在冲洗前移除。"
+        },
+        {
+          "refId": "reassess",
+          "en": "Reassessment identifies ongoing injury or the need for burn-center escalation.",
+          "zh": "重新评估可识别持续性损伤或是否需要转至烧伤中心。"
+        },
+        {
+          "refId": "ppe",
+          "en": "PPE prevents secondary exposure of staff.",
+          "zh": "个人防护用品可防止工作人员发生继发暴露。"
+        },
+        {
+          "refId": "brush_powder",
+          "en": "Dry powder is removed before irrigation to reduce continued contact and avoid an avoidable reaction with the initial water.",
+          "zh": "冲洗前先去除干粉，以减少持续接触并避免初始加水时发生可避免的反应。"
+        }
+      ]
+    },
+    "testTakingStrategy": {
+      "en": "For a dry, water-compatible chemical, protect yourself, remove contaminated items, brush off powder, irrigate, then reassess.",
+      "zh": "对于可用水处理的干燥化学物质，顺序是：先自我防护，移除污染物，刷去粉末，冲洗，再重新评估。"
+    },
+    "glossary": [
+      {
+        "termEn": "chemical burn",
+        "termZh": "化学烧伤",
+        "defZh": "皮肤或组织接触腐蚀性化学物质后造成的损伤。"
+      },
+      {
+        "termEn": "dry decontamination",
+        "termZh": "干式去污",
+        "defZh": "在加水前刷除或移除干燥粉末状污染物。"
+      },
+      {
+        "termEn": "irrigation",
+        "termZh": "冲洗",
+        "defZh": "使用大量流动液体稀释并移除化学物质。"
+      }
+    ],
+    "meta": {
+      "source": "American Burn Association, Guidelines for Burn Care Under Austere Conditions: Special Etiologies: Blast, Radiation, and Chemical Injuries, Journal of Burn Care & Research 2017, doi:10.1097/BCR.0000000000000367, https://academic.oup.com/jbcr/article/38/1/e482/4568967; American Heart Association/American Red Cross 2024 First Aid Guidelines, Chemical Exposure recommendations 1–6, https://cpr.heart.org/en/resuscitation-science/2024-first-aid-guidelines",
+      "tier": "strictest",
+      "skill_signature": "order:burn/dry-chemical-decontamination",
+      "stem_disambiguators": [
+        "dry powdered chemical",
+        "skin only",
+        "client stable",
+        "poison control confirms water is appropriate",
+        "20-minute irrigation supplied"
+      ]
+    },
+    "options": [
+      {
+        "id": "irrigate",
+        "en": "Irrigate the exposed skin with cool running water for at least 20 minutes as directed by poison control and facility policy.",
+        "zh": "按毒物控制中心和机构流程，用凉的流动水冲洗暴露皮肤至少 20 分钟。"
+      },
+      {
+        "id": "remove_clothing",
+        "en": "Remove contaminated clothing, jewelry, and the client’s watch without spreading the powder to unaffected skin.",
+        "zh": "移除受污染的衣物、饰品和手表，避免把粉末扩散到未受影响的皮肤。"
+      },
+      {
+        "id": "reassess",
+        "en": "Reassess pain, skin appearance, distal circulation, and vital signs; contact the burn center or emergency service if findings progress or meet the supplied escalation criteria.",
+        "zh": "重新评估疼痛、皮肤外观、远端循环和生命体征；若表现加重或达到流程中的升级标准，则联系烧伤中心或急救服务。"
+      },
+      {
+        "id": "ppe",
+        "en": "Don the chemical-protection equipment specified by the safety data sheet before touching the client or contaminated items.",
+        "zh": "在接触患者或污染物前，穿戴安全数据表规定的化学防护用品。"
+      },
+      {
+        "id": "brush_powder",
+        "en": "Gently brush away the remaining loose dry powder with the approved dry tool, directing it away from the client and staff.",
+        "zh": "使用批准的干燥工具轻轻刷去残留的松散粉末，并使其远离患者和工作人员。"
+      }
+    ],
+    "correct": [
+      "ppe",
+      "remove_clothing",
+      "brush_powder",
+      "irrigate",
+      "reassess"
+    ]
+  }
+}
