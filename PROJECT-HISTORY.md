@@ -52,6 +52,114 @@ The committed NGN item-type set is complete. Rationale/dyad scoring and an expli
 
 > Milestones dated **2026-06-23 and earlier** are archived in [`Archive/PROJECT-HISTORY-ARCHIVE.md`](Archive/PROJECT-HISTORY-ARCHIVE.md). Only the current arc (2026-06-24 onward) is kept here.
 
+### GPT MOC/SIC + Coverage Balance Batches 2/3 — Promoted (Jul 16)
+
+The three raw drafts covered by the "Raw Gate Preparation" and "Commission" entries below (`gpt-mocsic-coverage-batch-2026-07-15.json`, `gpt-balance2-coverage-batch-2026-07-15.json`, `gpt-balance3-coverage-batch-2026-07-16.json`) cleared independent Claude content review and are now promoted: 54 standalone items merged into `banks/gpt-canonical.json` (574→628). All raw drafts had originally been named with an underscore after `gpt` rather than the `gpt-` hyphen prefix `lib/canonical-routing.ts` requires for `gpt-canonical.json` routing; renamed both the raw and staged-promoted copies before consolidating (question `id` values, already `gpt_*`-prefixed, were untouched). One post-consolidation `audit:references` false positive — an inline-repeated `45 CFR § 164.524(b)(2)(i)` citation whose `(b)` tripped the option-letter hazard pattern — was corrected via `scripts/patches/2026-07-16-gpt-balance3-cfr-citation-hazard-fix.ts` (`patch-raw --allow-canonical`). `banks/banks-raw/` is now empty. Full verification (`normalize-raw-bank`, `promote`, `npm run audit` GATE PASSED, `consolidate`, `validate-bank` on all 13 banks, `test:topic-vocabulary`, `tsc -b`, `census`/`census:check`, `npm run build`) and per-batch content notes are recorded in `BANK-REVIEW-LEDGER.md`'s 2026-07-16 entry.
+
+### GPT MOC/SIC Raw Gate Preparation (Jul 15)
+
+Completed in staging only:
+- Performed the final pre-checker review of
+  `banks/banks-raw/gpt_mocsic_coverage_batch_2026_07_15.json`; the 18-item draft remains raw and
+  has not been promoted, consolidated, or ledgered.
+- Replaced one material semantic collision: the float-nurse/vasoactive-infusion conflict bowtie
+  duplicated a live unsafe-assignment premise, so it now uses an interdisciplinary postoperative
+  mobilization conflict with an inline reassessment policy.
+- Removed one local fire-door motif overlap, clarified the correctional-client advocacy matrix,
+  strengthened weak distractors in four items, and replaced broad topic-level references with
+  sources that support each load-bearing rule.
+- Added `scripts/patches/2026-07-15-gpt-mocsic-final-review.ts` as the declarative record of the raw
+  transformations.
+- Archived the completed producer order as
+  `Archive/GPT-MOC-SIC-COVERAGE-BATCH-SPEC-2026-07-15.md`; the next commission remains active at the
+  repo root.
+
+Verification:
+- Raw normalization: 0 structural changes; validation passed for all 18 questions.
+- Strict bilingual parity: no warnings.
+- `npm run audit`: gate passed with the pre-existing advisory non-MCQ distribution warning only.
+- Explicit bundled-versus-raw ID intersection: 0 collisions.
+- `npm run test:topic-vocabulary`: passed.
+
+### GPT Coverage Balance Batch 2 Raw Gate Preparation (Jul 15)
+
+Completed in staging only:
+- Performed the final pre-checker review of
+  `banks/banks-raw/gpt_balance2_coverage_batch_2026_07_15.json`; the 18-item draft remains raw and
+  has not been promoted, consolidated, or ledgered.
+- Replaced three material semantic collisions: a shared-infusion-pump conflict item became a
+  family/quiet-hours conflict, a teach-back fill-in-the-blank became a transparent warm handoff, and
+  an opioid-apnea ABG bowtie became residual neuromuscular blockade after rocuronium.
+- Tightened load-bearing references for sickle-cell pain response, DESC conflict communication,
+  closed-loop test-result follow-up, linezolid/SSRI serotonin syndrome, euglycemic ketoacidosis,
+  utility failure, and postoperative neuromuscular-blockade recovery.
+- Added `scripts/patches/2026-07-15-gpt-balance2-final-review.ts` as the declarative record of the raw
+  transformations.
+
+Verification:
+- Raw normalization: 0 structural changes; validation passed for all 18 questions.
+- Exact commissioned category/topic/item-type/difficulty assignment: 18 of 18 rows matched.
+- Explicit bundled/other-raw ID intersection: 0 collisions; targeted final premise search found no
+  duplicate quiet-hours, warm-handoff, or residual-neuromuscular-blockade scenario.
+- `npm run audit`: gate passed with the pre-existing advisory non-MCQ distribution warning only.
+- `npm run audit:references`, `npm run audit:positions`, `npm run test:topic-vocabulary`,
+  `npx tsc -b --pretty false`, `npm run census:check`, and `git diff --check`: passed.
+
+### GPT Coverage Balance Batch 3 Raw Gate Preparation (Jul 16)
+
+Completed in staging only:
+- Performed the final pre-checker review of
+  `banks/banks-raw/gpt_balance3_coverage_batch_2026_07_16.json`; the 18-item draft remains raw and
+  has not been promoted, consolidated, or ledgered. Removed the browser-added `(1)` filename suffix
+  so the staging name matches the producer order.
+- Replaced three material semantic collisions: the spontaneous-breathing-trial conflict bowtie
+  duplicated the earlier interdisciplinary mobility-conflict structure, the interruption-response
+  highlight repeated the earlier DESC-like behavior/impact/request pattern, and the elevated
+  anti-Xa heparin sequence reskinned a live elevated-aPTT protocol. The replacements cover an
+  interpersonal dispute compromising handoff, respectful reception of formative feedback, and
+  neuraxial-catheter timing for prophylactic enoxaparin.
+- Tightened load-bearing support for medication reconciliation and handoff closure, doxorubicin BSA
+  dosing, SMOFlipid hypertriglyceridemia and pancreatitis cues, hazardous-drug spill PPE and skin
+  decontamination, dialysis access-related hand ischemia, and suspected intraamniotic infection.
+  Added the missing lipase reference interval, current NIOSH respiratory protection for spill
+  cleanup, and KDOQI-aligned prompt referral language.
+- Added `scripts/patches/2026-07-16-gpt-balance3-final-review.ts` as the declarative record of all raw
+  transformations.
+- Archived the completed Batch 2 and Batch 3 producer orders as
+  `Archive/GPT-COVERAGE-BALANCE-BATCH-2-SPEC-2026-07-15.md` and
+  `Archive/GPT-COVERAGE-BALANCE-BATCH-3-SPEC-2026-07-16.md`.
+
+Verification:
+- Raw normalization: 0 structural changes; validation passed for all 18 questions.
+- Strict bilingual parity: no warnings.
+- Exact commissioned category/topic/item-type/difficulty assignment: 18 of 18 rows matched; format
+  totals are 6 bowties, 5 highlights, 3 dropdown clozes, 2 ordered responses, and 2 fill-in-the-blank
+  items; difficulty totals are 7 easy, 8 medium, and 3 hard.
+- Explicit bundled/other-raw ID intersection: 0 collisions across 15 peer files. Targeted phrase and
+  same-topic similarity review found no remaining semantic duplicate.
+- `npm run audit`: gate passed with the pre-existing advisory non-MCQ distribution warning only.
+- `npm run test:topic-vocabulary`, `npx tsc -b --pretty false`, `npm run census:check`,
+  `npm run build`, and `git diff --check`: passed.
+
+### GPT Coverage Balance Batch 2 Commission (Jul 15)
+
+Prepared:
+- Added `Archive/GPT-COVERAGE-BALANCE-BATCH-2-SPEC-2026-07-15.md`, an 18-item standalone producer order
+  planned against the bundled banks plus the assumed-promoted
+  `gpt_mocsic_coverage_batch_2026_07_15.json` draft.
+- Allocated 8 Management of Care, 4 Pharmacological and Parenteral Therapies, 3 Safety and Infection
+  Control, and 3 Reduction of Risk Potential items so every projected under-target category improves
+  after denominator growth.
+- Assigned 6 bowties, 4 highlights, 3 fill-in-the-blank, 3 ordered-response, and 2 dropdown-cloze
+  items, with exact STRICT category/topic strings, bank-derived premise exclusions, full rationale-
+  reference coverage, and the producer-requested load-bearing source-granularity rule.
+
+Planning verification:
+- `npm run validate-bank -- banks/banks-raw/gpt_mocsic_coverage_batch_2026_07_15.json`
+- `npm run coverage-report -- banks/banks-raw/gpt_mocsic_coverage_batch_2026_07_15.json`
+- Confirmed current schema version and item-type contracts directly against `src/types.ts` and
+  `src/schema.ts`; confirmed every commissioned category/topic pair against `src/topics.ts`.
+
 ### Visual Focus Dialog (Jul 15)
 
 Completed:
