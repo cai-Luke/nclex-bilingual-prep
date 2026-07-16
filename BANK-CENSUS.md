@@ -2,8 +2,8 @@
 
 # NCLEX Bank Census
 
-Generated: 2026-07-14T23:34:38.274Z
-Git SHA: 6cdd0df238743a39cd30a329eb84ee07eb3773be
+Generated: 2026-07-16T00:34:55.905Z
+Git SHA: b4fcd487ff91c5de3e2e805c29633bc4adad58fe
 
 ## Per-File Summary
 
@@ -14,7 +14,7 @@ Git SHA: 6cdd0df238743a39cd30a329eb84ee07eb3773be
 | claude-canonical.json | 2.0 | 97 | 97 | — |
 | device-canonical.json | 1.2 | 8 | 8 | — |
 | gemini-canonical.json | 2.0 | 874 | 874 | — |
-| gpt-canonical.json | 2.0 | 558 | 558 | — |
+| gpt-canonical.json | 2.0 | 574 | 574 | — |
 | hard-cases-canonical.json | 1.8 | 66 | 66 | — |
 | io-canonical.json | 1.2 | 8 | 8 | — |
 | lab-canonical.json | 1.2 | 20 | 20 | — |
@@ -25,42 +25,42 @@ Git SHA: 6cdd0df238743a39cd30a329eb84ee07eb3773be
 
 ## Totals
 
-- Top-level questions: 1729
+- Top-level questions: 1745
 - Case study top-level: 143
 - Embedded parts: 721
-- Graded total: 2450
+- Graded total: 2466
 
 ## By Category
 
-- Health Promotion and Maintenance: 162
-- Psychosocial Integrity: 164
+- Health Promotion and Maintenance: 164
 - Basic Care and Comfort: 166
-- Reduction of Risk Potential: 203
+- Psychosocial Integrity: 171
+- Reduction of Risk Potential: 204
 - Safety and Infection Control: 212
-- Management of Care: 265
+- Management of Care: 266
 - Pharmacological and Parenteral Therapies: 268
-- Physiological Adaptation: 289
+- Physiological Adaptation: 294
 
 ## Within-Category Concentration
 
 ### Management of Care
 
-Top topics: Prioritization & Delegation (55), Legal & Ethical Principles (51), Discharge Planning & Handoff (35), Confidentiality & HIPAA (22), Client Advocacy (16), Conflict Resolution (12), Chain of Command & Escalation (9), Disaster & Emergency Preparedness (9), Advance Directives / DNR (8), Medication Safety & Admin (2)
+Top topics: Prioritization & Delegation (55), Legal & Ethical Principles (51), Discharge Planning & Handoff (35), Confidentiality & HIPAA (22), Client Advocacy (17), Conflict Resolution (12), Chain of Command & Escalation (9), Disaster & Emergency Preparedness (9), Advance Directives / DNR (8), Medication Safety & Admin (2)
 Visual kinds: capnography (1), device_screen (1), mar (2)
 
 ### Safety and Infection Control
 
-Top topics: Patient & Environment Safety (45), Transmission-Based Precautions (42), Standard Precautions & Hygiene (25), PPE & Sterile Technique (24), Disaster & Emergency Preparedness (8), Environmental safety and equipment checks (8), Fall prevention (6), Medication Safety & Admin (4), Transfusion & Blood Products (4), Endocrine & Neurological Disorders (2)
+Top topics: Patient & Environment Safety (46), Transmission-Based Precautions (43), Standard Precautions & Hygiene (25), PPE & Sterile Technique (24), Disaster & Emergency Preparedness (8), Environmental safety and equipment checks (8), Fall prevention (6), Medication Safety & Admin (4), Transfusion & Blood Products (4), Endocrine & Neurological Disorders (2)
 Visual kinds: capnography (4), device_screen (1), medication_label (1), vitals_trend (3)
 
 ### Health Promotion and Maintenance
 
-Top topics: Adult Health & Wellness (39), Maternal-Newborn Care & Teaching (35), Pediatric & Adolescent Health (33), Chronic Disease Management & Lifestyle (16), Pediatric & Toddler Safety (14), Reproductive & Endocrine Health (11), Respiratory & Infectious Disorders (2), Adult Immunization and Preventive Screening (1), adult preventive screening (1), adult preventive screening and vaccination counseling (1)
+Top topics: Adult Health & Wellness (39), Maternal-Newborn Care & Teaching (35), Pediatric & Adolescent Health (33), Chronic Disease Management & Lifestyle (16), Pediatric & Toddler Safety (15), Reproductive & Endocrine Health (12), Respiratory & Infectious Disorders (2), Adult Immunization and Preventive Screening (1), adult preventive screening (1), adult preventive screening and vaccination counseling (1)
 Visual kinds: none
 
 ### Psychosocial Integrity
 
-Top topics: Mental Health Disorders (63), Therapeutic Communication (28), Suicide & Crisis Intervention (25), Substance Use & Withdrawal (19), Caregiver Role Strain & Family Coping (6), Electroconvulsive Therapy (ECT) (6), caregiver burden and family adaptation (3), Bipolar I - Acute Manic Episode (1), Caregiver burden after dementia discharge (1), caregiver strain (1)
+Top topics: Mental Health Disorders (63), Therapeutic Communication (30), Suicide & Crisis Intervention (26), Substance Use & Withdrawal (21), Caregiver Role Strain & Family Coping (11), Electroconvulsive Therapy (ECT) (8), Bipolar I - Acute Manic Episode (1), Caregiver burden after dementia discharge (1), delirium prevention and family education after hospitalization (1), Depression and grief safety screening (1)
 Visual kinds: none
 
 ### Basic Care and Comfort
@@ -75,22 +75,22 @@ Visual kinds: capnography (3), device_screen (6), io_trend (2), lab_trend (6), m
 
 ### Reduction of Risk Potential
 
-Top topics: Procedural Complications & Dialysis (44), Laboratory & Diagnostic Tests (31), Perioperative Care (28), Burn Management (9), intrapartum fetal monitoring (8), Maternal-Newborn Care & Teaching (7), ABG & Acid-Base Interpretation (4), Injection route recognition from skin cross-section (4), PPE & Sterile Technique (4), Endocrine & Neurological Disorders (3)
+Top topics: Procedural Complications & Dialysis (44), Laboratory & Diagnostic Tests (31), Perioperative Care (29), Burn Management (9), Intrapartum Fetal Monitoring (9), Maternal-Newborn Care & Teaching (7), ABG & Acid-Base Interpretation (4), Injection route recognition from skin cross-section (4), PPE & Sterile Technique (4), Endocrine & Neurological Disorders (3)
 Visual kinds: burn_map (5), capnography (6), device_screen (3), fetal_monitoring (6), injection_site (8), io_record (5), lab_trend (7), rhythm_strip (3), vitals_trend (6)
 
 ### Physiological Adaptation
 
-Top topics: Cardiovascular Disorders (74), Renal & Gastrointestinal Disorders (36), Endocrine & Neurological Disorders (35), Electrolyte Imbalances (26), Burn Management (16), Diabetic Ketoacidosis (DKA) (16), Respiratory & Infectious Disorders (13), Sepsis & Septic Shock (8), Oncology & Immunotherapy Complications (6), ABG & Acid-Base Interpretation (2)
+Top topics: Cardiovascular Disorders (74), Renal & Gastrointestinal Disorders (37), Endocrine & Neurological Disorders (36), Electrolyte Imbalances (26), Burn Management (18), Diabetic Ketoacidosis (DKA) (16), Respiratory & Infectious Disorders (14), Sepsis & Septic Shock (8), Oncology & Immunotherapy Complications (6), ABG & Acid-Base Interpretation (2)
 Visual kinds: burn_map (5), capnography (11), io_record (2), io_trend (2), lab_trend (7), rhythm_strip (37), vitals_trend (12)
 
 ## By Item Type
 
-- bowtie: 114
-- highlight: 117
+- bowtie: 119
+- highlight: 121
 - case_study: 143
-- fill_in_blank: 162
-- ordered_response: 164
 - dropdown_cloze: 165
+- fill_in_blank: 166
+- ordered_response: 167
 - matrix: 191
 - select_all: 218
 - multiple_choice: 455
@@ -98,13 +98,13 @@ Visual kinds: burn_map (5), capnography (11), io_record (2), io_trend (2), lab_t
 ## By Difficulty
 
 - easy: 226
-- hard: 595
-- medium: 908
+- hard: 604
+- medium: 915
 
 ## By Schema Version
 
 - v1.2: 77 questions (burn-canonical.json, capnography-canonical.json, device-canonical.json, io-canonical.json, lab-canonical.json, mar-canonical.json, medlabel-canonical.json, vitals-canonical.json)
-- v2.0: 1586 questions (claude-canonical.json, gemini-canonical.json, gpt-canonical.json, visual-canonical.json)
+- v2.0: 1602 questions (claude-canonical.json, gemini-canonical.json, gpt-canonical.json, visual-canonical.json)
 - v1.8: 66 questions (hard-cases-canonical.json)
 
 ## By Source File
@@ -114,7 +114,7 @@ Visual kinds: burn_map (5), capnography (11), io_record (2), io_trend (2), lab_t
 - claude-canonical.json: 97
 - device-canonical.json: 8
 - gemini-canonical.json: 874
-- gpt-canonical.json: 558
+- gpt-canonical.json: 574
 - hard-cases-canonical.json: 66
 - io-canonical.json: 8
 - lab-canonical.json: 20
@@ -163,7 +163,7 @@ Total visuals: 200
 
 | ID | Topic | Parts | Bank |
 |----|-------|-------|------|
-| opus_psi_caregiver_2026_06_10_01 | caregiver burden and family adaptation | 6 | claude-canonical.json |
+| opus_psi_caregiver_2026_06_10_01 | Caregiver Role Strain & Family Coping | 6 | claude-canonical.json |
 | opus2_case_code_status_01 | code status escalation | 5 | claude-canonical.json |
 | opus_vanco_case_01 | vancomycin infusion reaction and nephrotoxicity | 6 | claude-canonical.json |
 | opus1_case_tha_discharge_lep_01 | discharge coordination after hip arthroplasty | 6 | claude-canonical.json |
@@ -182,7 +182,7 @@ Total visuals: 200
 | gemini_gapfill_case_2026_06_10_case_sleep_05 | Sleep & Rest | 4 | gemini-canonical.json |
 | gemini_gapfill_case_2026_06_10_case_bowel_06 | Elimination & Comfort | 4 | gemini-canonical.json |
 | gemini_gapfill_case_2026_06_10_case_mobility_07 | Mobility & Immobility | 4 | gemini-canonical.json |
-| gemini_gapfill_case_2026_06_10_case_caregiver_08 | caregiver strain | 4 | gemini-canonical.json |
+| gemini_gapfill_case_2026_06_10_case_caregiver_08 | Caregiver Role Strain & Family Coping | 4 | gemini-canonical.json |
 | gemini_gapfill_case_2026_06_10_case_grief_09 | Mental Health Disorders | 4 | gemini-canonical.json |
 | gemini_gapfill_case_2026_06_10_case_adapt_10 | Therapeutic Communication | 4 | gemini-canonical.json |
 | opus_agvd_case_agvhd_01 | Acute Graft-Versus-Host Disease | 6 | gemini-canonical.json |
@@ -197,14 +197,14 @@ Total visuals: 200
 | gemini_gap_case_cirrhosis_homecare_04 | Renal & Gastrointestinal Disorders | 4 | gemini-canonical.json |
 | gemini_gap_case_chronic_hf_05 | Cardiovascular Disorders | 4 | gemini-canonical.json |
 | gpt_case_premium_2026_06_10_case01_preventive_screening | adult preventive screening | 5 | gpt-canonical.json |
-| gpt_case_premium_2026_06_10_case02_caregiver_burden | caregiver burden and family adaptation | 5 | gpt-canonical.json |
+| gpt_case_premium_2026_06_10_case02_caregiver_burden | Caregiver Role Strain & Family Coping | 5 | gpt-canonical.json |
 | gpt_case_premium_2026_06_10_case03_chronic_self_management | chronic illness self-management | 5 | gpt-canonical.json |
 | gpt_case_premium_2026_06_10_case04_pressure_injury_rehab | pressure injury prevention in rehabilitation | 5 | gpt-canonical.json |
 | gpt_case_premium_2026_06_10_case05_health_literacy_adherence | health literacy and medication adherence | 5 | gpt-canonical.json |
 | gpt_case_gap_2026_06_11_case_post_stroke_outpatient_rehab_09 | Post-stroke outpatient rehabilitation and safe feeding | 4 | gpt-canonical.json |
 | gpt_case_gap_2026_06_11_case_grief_depression_safety_10 | Depression and grief safety screening | 4 | gpt-canonical.json |
 | gpt_case_gap_2026_06_11_case_chronic_self_management_07 | Chronic illness self-management with symptom tracking | 4 | gpt-canonical.json |
-| gpt_case_gap_2026_06_11_case_family_coping_chronic_diagnosis_08 | Family coping after new chronic illness diagnosis | 4 | gpt-canonical.json |
+| gpt_case_gap_2026_06_11_case_family_coping_chronic_diagnosis_08 | Caregiver Role Strain & Family Coping | 4 | gpt-canonical.json |
 | gpt_case_gap_2026_06_11_case_community_resource_discharge_05 | Community resource planning for safe discharge | 4 | gpt-canonical.json |
 | gpt_case_gap_2026_06_11_case_preventive_screening_navigation_06 | Adult preventive screening follow-up navigation | 4 | gpt-canonical.json |
 | gpt_case_gap_2026_06_11_case_rehab_mobility_falls_03 | Rehabilitation mobility progression and fall prevention | 4 | gpt-canonical.json |
@@ -213,7 +213,7 @@ Total visuals: 200
 | gpt_case_gap_2026_06_11_case_ostomy_health_literacy_02 | New ostomy discharge teaching with health literacy barriers | 4 | gpt-canonical.json |
 | gpt_case_premium_next_case_health_literacy_diabetes_01 | chronic illness self-management and health literacy | 5 | gpt-canonical.json |
 | gpt_case_premium_next_case_rehab_pressure_bowel_02 | rehabilitation pressure injury prevention and bowel management | 5 | gpt-canonical.json |
-| gpt_case_premium_next_case_caregiver_adaptation_dementia_03 | caregiver burden and family adaptation | 5 | gpt-canonical.json |
+| gpt_case_premium_next_case_caregiver_adaptation_dementia_03 | Caregiver Role Strain & Family Coping | 5 | gpt-canonical.json |
 | gpt_case_premium_next_case_occupational_exposure_vaccine_04 | occupational exposure and sharps safety | 5 | gpt-canonical.json |
 | gpt_case_premium_next_case_preventive_screening_vaccine_05 | adult preventive screening and vaccination counseling | 5 | gpt-canonical.json |
 | gpt_case_premium_next_case_ipv_safety_planning_06 | intimate partner violence screening and safety planning | 5 | gpt-canonical.json |
@@ -314,49 +314,43 @@ No duplicates detected.
 ## Targets
 
 Category targets (2026 NCLEX-RN test-plan weights):
-- Management of Care: 311.2
-- Safety and Infection Control: 224.8
-- Health Promotion and Maintenance: 155.6
-- Psychosocial Integrity: 155.6
-- Basic Care and Comfort: 155.6
-- Pharmacological and Parenteral Therapies: 276.6
-- Reduction of Risk Potential: 207.5
-- Physiological Adaptation: 242.1
-Item type average: 192.1
+- Management of Care: 314.1
+- Safety and Infection Control: 226.8
+- Health Promotion and Maintenance: 157.0
+- Psychosocial Integrity: 157.0
+- Basic Care and Comfort: 157.0
+- Pharmacological and Parenteral Therapies: 279.2
+- Reduction of Risk Potential: 209.4
+- Physiological Adaptation: 244.3
+Item type average: 193.9
 
 Under-served item types:
-- bowtie: 114
-- highlight: 117
+- bowtie: 119
+- highlight: 121
 - case_study: 143
-- fill_in_blank: 162
-- ordered_response: 164
 - dropdown_cloze: 165
+- fill_in_blank: 166
+- ordered_response: 167
 - matrix: 191
 
 ## Prompt Parameters
 
 PRIORITIZE_TOPICS:
-- Therapeutic Communication — add: fill_in_blank, bowtie
-- Renal & Gastrointestinal Disorders — add: ordered_response
 - Dosage Calculations — add: ordered_response, bowtie
-- Substance Use & Withdrawal — add: ordered_response, fill_in_blank
-- Endocrine & Neurological Disorders — add: fill_in_blank
-- Suicide & Crisis Intervention — add: fill_in_blank
-- Burn Management — add: ordered_response, highlight
+- Substance Use & Withdrawal — add: ordered_response
 - Injection route recognition from skin cross-section — add: select_all, ordered_response, fill_in_blank, matrix, dropdown_cloze, highlight, bowtie
 - Palliative & Supportive Care — add: select_all
-- Pediatric & Toddler Safety — add: ordered_response
 - Client Advocacy — add: select_all, matrix
-- Electroconvulsive Therapy (ECT) — add: select_all, fill_in_blank, highlight, bowtie
-- intrapartum fetal monitoring — add: ordered_response, fill_in_blank, highlight
-- Reproductive & Endocrine Health — add: fill_in_blank, bowtie
-- bowtie (114 vs target 192.1)
-- highlight (117 vs target 192.1)
-- case_study (143 vs target 192.1)
-- fill_in_blank (162 vs target 192.1)
-- ordered_response (164 vs target 192.1)
-- dropdown_cloze (165 vs target 192.1)
-- matrix (191 vs target 192.1)
+- Electroconvulsive Therapy (ECT) — add: select_all, fill_in_blank
+- Intrapartum Fetal Monitoring — add: ordered_response, fill_in_blank
+- Reproductive & Endocrine Health — add: fill_in_blank
+- bowtie (119 vs target 193.9)
+- highlight (121 vs target 193.9)
+- case_study (143 vs target 193.9)
+- dropdown_cloze (165 vs target 193.9)
+- fill_in_blank (166 vs target 193.9)
+- ordered_response (167 vs target 193.9)
+- matrix (191 vs target 193.9)
 - accidental tracheostomy dislodgement
 - Acute decompensated heart failure
 - Acute Decompensated Heart Failure (ADHF)
@@ -368,6 +362,7 @@ PRIORITIZE_TOPICS:
 - Acute pancreatitis complications
 - Acute variceal hemorrhage in cirrhosis
 - Adenosine Side Effects
+- Adrenal crisis
 
 AVOID_TOPICS:
 - Cardiovascular Disorders (78)
@@ -375,8 +370,8 @@ AVOID_TOPICS:
 - Medication Safety & Admin (60)
 - Prioritization & Delegation (56)
 - Legal & Ethical Principles (51)
-- Transmission-Based Precautions (47)
-- Patient & Environment Safety (47)
+- Transmission-Based Precautions (48)
+- Patient & Environment Safety (48)
 
 ## Docs Drift
 

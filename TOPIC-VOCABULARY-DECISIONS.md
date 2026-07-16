@@ -159,7 +159,56 @@ walkthrough and wired into `src/topics.ts`.**
   Adaptation. Use it for transfusion reactions, blood-product indications, and product-role
   questions that otherwise scatter into cardiovascular, lab, or procedural catchalls.
 
+## GPT-5.6 Sol format-gap batch review (Jul 15)
+
+Triggered by 3 of 16 items in `gpt-production-standalone-format-gap-batch-2026-07-14.json` carrying
+topics outside the canonical set (producer commission mixed "clinical focus" with "literal canonical
+topic string" — see root-cause note below). Three separate calls, litigated against live bank counts
+rather than the producer's own summary of them:
+
+- **`Intrapartum Fetal Monitoring` — approved; locked.** STRICT `Reduction of Risk Potential`. 8
+  existing items already carried the identical lowercase string `intrapartum fetal monitoring`,
+  100% consistently under Reduction of Risk Potential, backed by a dedicated `fetal_monitoring`
+  visual kind (`src/visuals/kinds/fetal_monitoring/`) — a genuine durable skill cluster, not a
+  one-off scenario label. Migrated the 8 existing rows to the title-cased canonical value via
+  `cleanup-topic-metadata.ts --allow-canonical` (same pass also swept 18 pre-existing
+  already-approved exact aliases — caregiver-strain casing, Restraint Safety, Airborne Precautions,
+  Postoperative Complications — that had never been written).
+- **`Burn Management` — declined SHARED, reaffirmed STRICT `Physiological Adaptation`.** The
+  producer proposed widening to SHARED `[Reduction of Risk Potential, Physiological Adaptation]`,
+  citing a 9 RRP / 16 PA live-bank split as evidence of "a stable cross-category cluster." Recount
+  found the split is actually four categories, not two — 9 RRP, 16 PA, 1 Pharmacological
+  (`gemini_p6_burn_02`), 1 Safety and Infection Control (`easy_burns_03`) — and the Jun 16 Gemini
+  review hold above already adjudicated this exact question once, correcting
+  `gemini_u5_fib_or_2026_06_09_fib_tbsa_04` **into** Physiological Adaptation specifically because
+  "topic resolves to Burn Management." Widening to SHARED now would ratify unaudited historical
+  drift rather than build on that ruling. The RRP-vs-PA construct boundary the producer proposed
+  (assessment/recognition/decon/prevention → RRP; shock/resuscitation/established-complication
+  management → PA) is plausible NCLEX Client Needs framing and worth a real look — but it implies
+  re-auditing 26 existing items against a boundary nobody has checked them against yet, including the
+  Pharmacological and Safety outliers this memo didn't mention. Deferred as an open question (below),
+  not decided today. The batch's two Burn Management items were recategorized to Physiological
+  Adaptation instead (topic unchanged), which cost nothing and matches the standing precedent.
+- **`Accidental tracheostomy dislodgement` — declined as a new topic.** Retagged to the existing
+  STRICT-PA topic `Respiratory & Infectious Disorders`, which already carries 12+ items including
+  directly comparable acute-airway-emergency items (tension pneumothorax, epiglottitis, PE bowties).
+  A scenario label is not a coverage domain; minting one here would recreate the fragmentation the
+  canonical system exists to remove.
+
+**Root cause, for future producer commissions:** the commission spec conflated "clinical focus the
+item should test" with "the literal canonical value that belongs in `question.topic`." Future
+commission tables should carry both columns separately, and producer instructions should add
+`src/topics.ts` and this file to the mandatory read list. `CANONICAL_TOPICS.has(topic) &&
+topicCategories(topic).includes(category)` is a candidate raw-bank/promotion gate check (not a
+runtime schema rule — the runtime intentionally allows free-text topics) but is not implemented; flag
+for Codex if pursued.
+
 ## Open structural questions (optional, for next chat)
+
+- **Burn Management RRP/PA split** (added Jul 15): should the producer's assessment-vs-management
+  construct boundary be adopted as SHARED, requiring a re-audit of the 26 live items (9 RRP, 16 PA,
+  1 Pharmacological, 1 Safety and Infection Control) against it? Held at STRICT PA pending an
+  explicit call.
 
 - Is the ~45-topic granularity right, or too coarse/fine anywhere? (e.g. should rhythm-strip / EKG
   content have its own topic, or stay under Cardiovascular Disorders?)

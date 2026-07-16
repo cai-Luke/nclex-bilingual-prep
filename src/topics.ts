@@ -31,6 +31,7 @@ export const TOPICS = {
   ELECTROLYTE_IMBALANCES: "Electrolyte Imbalances",
   ELIMINATION_COMFORT: "Elimination & Comfort",
   ENDOCRINE_NEUROLOGICAL_DISORDERS: "Endocrine & Neurological Disorders",
+  INTRAPARTUM_FETAL_MONITORING: "Intrapartum Fetal Monitoring",
   LAB_DIAGNOSTIC_TESTS: "Laboratory & Diagnostic Tests",
   LEGAL_ETHICAL: "Legal & Ethical Principles",
   MATERNAL_NEWBORN: "Maternal-Newborn Care & Teaching",
@@ -112,6 +113,7 @@ export const STRICT_TOPIC_CATEGORY: Record<Category, readonly string[]> = {
     TOPICS.ABG_ACID_BASE,
     TOPICS.PERIOPERATIVE_CARE,
     TOPICS.PROCEDURAL_COMPLICATIONS_DIALYSIS,
+    TOPICS.INTRAPARTUM_FETAL_MONITORING,
   ],
   "Physiological Adaptation": [
     TOPICS.CARDIOVASCULAR_DISORDERS,
