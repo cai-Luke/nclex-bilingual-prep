@@ -1,6 +1,7 @@
 # Topic-License Hygiene Report
 
 Status: report-only advisory generated from the current canonical banks.
+Input Git SHA: 43a1087d48e1f622922abdd271d6d82f5f4a2b62
 
 This gate validates exact canonical topic vocabulary membership and declared topic/category licenses. It cannot enforce the clinical boundary among categories licensed for a SHARED topic; that remains semantic-review work.
 

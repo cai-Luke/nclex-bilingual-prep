@@ -1,6 +1,7 @@
 # Topic Metadata Cleanup
 
 Date: 2026-06-16
+Input Git SHA: 43a1087d48e1f622922abdd271d6d82f5f4a2b62
 Mode: dry run
 Write reason: none; canonical banks were not modified
 
