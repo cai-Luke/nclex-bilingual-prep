@@ -87,6 +87,9 @@ Verified:
 
 ### GPT Coverage Balance Batch 5 Commission (Jul 16)
 
+The completed producer order is now archived; see the raw-gate entry immediately below for the
+arriving draft's current staging status.
+
 Prepared:
 - Added `GPT-COVERAGE-BALANCE-BATCH-5-SPEC-2026-07-16.md`, an 18-item standalone GPT producer
   commission planned from the 1,799-question canonical baseline after promotion of Batches 1–3.
@@ -111,6 +114,39 @@ Verification:
   `lib/canonical-routing.ts`.
 - Performed targeted canonical-bank premise searches for the 18 assigned scenarios and anchored each
   load-bearing rule to a specific government, professional-guideline, or current drug-label source.
+
+### GPT Coverage Balance Batch 5 Raw Gate Preparation (Jul 16)
+
+Completed in staging only:
+- Performed the final producer-side pre-checker read of
+  `banks/banks-raw/gpt-balance5-coverage-batch-2026-07-16.json`; all 18 answer keys, distractors,
+  rationales, bilingual pairs, and closed-world rules were retained. The draft remains raw and has
+  not been promoted, consolidated, or ledgered.
+- Tightened four load-bearing source pins without changing learner-facing content: replaced the
+  research-withdrawal guidance's historical pre-2018 paragraph number with current 45 CFR
+  § 46.116(b)(8), replaced broad dialysis pages with the exact ESRD record-transfer rule and a
+  destination-treatment/record checklist, added FDA's oxygen/fuel/ignition surgical-fire guidance,
+  and extended the NICE fetal-monitoring pin to transducer repositioning and second-stage cautions.
+- Added `scripts/patches/2026-07-16-gpt-balance5-final-review.ts` as the declarative record of the
+  four raw-stage provenance corrections.
+- Archived the completed producer order as
+  `Archive/GPT-COVERAGE-BALANCE-BATCH-5-SPEC-2026-07-16.md`.
+
+Verification:
+- Raw normalization: 0 structural changes; validation passed for all 18 questions; strict bilingual
+  parity produced no warnings.
+- Exact commissioned category/topic/item-type/difficulty assignment remained 18 of 18. The bank has
+  8 Management of Care, 4 Pharmacological and Parenteral Therapies, 3 Safety and Infection Control,
+  and 3 Reduction of Risk Potential items; 7 highlights, 5 bowties, 3 dropdown clozes, and 3
+  matrices; 7 easy, 8 medium, and 3 hard.
+- Explicit raw-versus-bundled ID comparison found 0 collisions. Targeted phrase search and a
+  stem/prompt/rationale similarity sweep found no material semantic duplicate; the largest lexical
+  matches were expected shared vocabulary for anion-gap calculation and fetal monitoring, with
+  different premises and tested decisions.
+- `npm run audit`: gate passed with the pre-existing advisory non-MCQ visual distribution warning
+  only; the integrity lane correctly reports one raw draft not yet promoted.
+- `npm run test:topic-vocabulary`, `npx tsc -b --pretty false`, `npm run census:check`, `npm run
+  build`, and `git diff --check`: passed.
 
 ### GPT MOC/SIC + Coverage Balance Batches 2/3 — Promoted (Jul 16)
 
