@@ -30,13 +30,14 @@ capacity shortfall. The active Batch 7 producer commission is format-targeted, n
 | Priority | Work | Nature | Why now |
 |---|---|---|---|
 | P0 | **Zero-impact retrofit** of schema-floor traversal for `rationale.visuals` — survey **complete**, implementation **authorized** by [`RATIONALE-VISUAL-SCHEMA-FLOOR-RETROFIT-CODEX-SPEC-2026-07-16.md`](RATIONALE-VISUAL-SCHEMA-FLOOR-RETROFIT-CODEX-SPEC-2026-07-16.md) | Bounded deterministic correction; survey returned zero live-bank impact | The defect is real but **latent**: zero visuals occupy any `rationale.visuals` slot, so nothing under-declares today. Land it while the blast radius is provably zero. |
-| P1 | Add an active-governance Markdown U+FFFD gate — preflight **clean**, gate-only branch, implementation **authorized** by [`GOVERNANCE-MARKDOWN-ENCODING-GATE-CODEX-SPEC-2026-07-16.md`](GOVERNANCE-MARKDOWN-ENCODING-GATE-CODEX-SPEC-2026-07-16.md) | Small deterministic hardening; no remediation needed | Bank JSON already rejects the replacement character; governance files have no equivalent check. |
+| ~~P1~~ | ~~Active-governance Markdown U+FFFD gate~~ — **DROPPED 2026-07-16 (Luke's ruling).** Every mojibake alarm has been a connector-read artifact, not disk corruption; a repo gate guards the wrong surface. See `DECISIONS.md` §8. | — | — |
 | P2 | Expand promoted visual parity beyond three pinned SVGs | Larger deterministic regression project | High-value renderer protection, but baseline ownership and review policy need a deliberate design. |
 | P3 | Produce the six-vital deterministic inventory for sanity-bound ratification | Deterministic evidence, followed by clinical judgment | The inventory is bounded; selecting new clinical tripwires is not mechanical and must remain separately ratified. |
 | P4 | Inventory single-row lab panels, then obtain an architecture ruling | Deterministic survey followed by product decision | No implementation rule exists yet; a two-row floor must not be inferred. |
 | P5 | Consider CI coverage hardening | Engineering policy | The PR gate omits several locally required commands; useful, but not a reason to mix unrelated suites into P0. |
 
-P0 is the best next implementation candidate. P1 is the best small follow-up. Do not combine P2–P4
+P0 is the best next implementation candidate. **P1 is dropped** (see below); P2 is the next candidate
+after P0. Do not combine P2–P4
 into the same PR: their evidence, review seats, and reversal costs differ.
 
 ## P0 — `rationale.visuals` schema-floor retrofit
@@ -143,20 +144,28 @@ Add a focused export-envelope regression if the existing schema-bank suite does 
 - No new traversal is added.
 - DECISIONS revisit entry is closed or narrowed to any explicitly deferred parity work.
 
-## P1 — active-governance encoding gate
+## P1 — active-governance encoding gate — **DROPPED, DO NOT IMPLEMENT**
 
-> **STATUS UPDATE 2026-07-16 — superseded in part.** Preflight ran (Luke; Codex, independently) and is
-> **clean**: no U+FFFD in any repository Markdown including untracked files, no mojibake signatures in
-> active Markdown, all Markdown valid UTF-8. The **gate-only** branch is confirmed — no remediation
-> inventory. Implementation is authorized by
-> [`GOVERNANCE-MARKDOWN-ENCODING-GATE-CODEX-SPEC-2026-07-16.md`](GOVERNANCE-MARKDOWN-ENCODING-GATE-CODEX-SPEC-2026-07-16.md),
-> which governs where it differs from this section. Two rulings settle open questions below:
+> **RULING 2026-07-16 (Luke). This entire section is withdrawn. Nothing below is authorized.**
 >
-> 1. **Scope is derived, not allowlisted:** every tracked Markdown file outside `Archive/`, via
->    `git ls-files`. An allowlist would decay exactly the way the CLAUDE.md connector paragraph just
->    did — silently, with nothing announcing the gap.
-> 2. **Active producer prompts are in scope** — the explicit decision this section asks for. They fall
->    in automatically under the derived rule, and that is intended.
+> Preflight ran three times and came back clean every time (2026-07-09; 2026-07-16 × 2, the latter
+> covering untracked files and confirming all repository Markdown is valid UTF-8). The reason it is
+> always clean: **every mojibake alarm this project has raised has been a connector-read artifact.**
+> The corruption is in the path Claude reads through, never on disk.
+>
+> A repo-side gate is therefore the wrong instrument — it would scan clean files indefinitely, never
+> fire, and falsely imply the read path had been validated. The `banks/*.json` analogy that motivated
+> this item does not transfer: bank JSON is machine-consumed and a U+FFFD there ships silently to a
+> learner, whereas governance Markdown is read by humans and models, so corruption is visible at the
+> point of use and has been caught by the reader every time.
+>
+> Replacement control: the `CLAUDE.md` connector rule now tells the reading seat to suspect its own
+> connector before the repo. Write-path residual is covered by a one-time `grep` at commit time by a
+> non-connector tool.
+>
+> Full reasoning and the closed REVISIT thread: `DECISIONS.md` §8. **Do not re-open this by citing
+> "banks are gated but markdown isn't."** The original section is retained below only as the record of
+> what was considered.
 
 ### Narrow first pass
 
@@ -260,6 +269,6 @@ choice rather than an unambiguous bug fix.
 
 ## Handoff summary
 
-Start with the P0 survey. If it reports zero bundled flips, the retrofit is likely a small, high-value
-schema/import correction. Follow with P1 as a quiet hardening PR. Keep parity expansion, clinical
-vital-bound ratification, and the single-row lab decision in separate workstreams.
+Implement the authorized P0 zero-impact schema/import retrofit from its completed survey. P1 is
+dropped and must not be implemented. After P0, keep parity expansion, clinical vital-bound
+ratification, and the single-row lab decision in separate workstreams.

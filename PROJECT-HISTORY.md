@@ -64,9 +64,11 @@ The next content order is instead the active 18-item, three-file scored-format c
 targeting only topic/format combinations named by the scored-leaf report. The deterministic revisit
 queue and recommended sequencing are handed to the next architecture seat in
 [`NEXT-ARCHITECT-DETERMINISTIC-HANDOFF-2026-07-16.md`](NEXT-ARCHITECT-DETERMINISTIC-HANDOFF-2026-07-16.md):
-schema-floor coverage for `rationale.visuals` first, then the active-governance encoding gate, with
-visual parity, vital-sign sanity evidence, single-row lab policy, and CI hardening kept as separate
-workstreams.
+schema-floor coverage for `rationale.visuals` first, with visual parity, vital-sign sanity evidence,
+single-row lab policy, and CI hardening kept as separate workstreams. The proposed active-governance
+encoding gate was withdrawn by Luke on 2026-07-16 after every reported corruption was traced to the
+connector read path rather than repository bytes; the durable replacement control lives in
+`CLAUDE.md` and the withdrawal rationale in `DECISIONS.md` §8.
 
 ### Census Denominator Authority Closeout (Jul 16)
 
