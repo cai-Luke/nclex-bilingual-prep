@@ -950,6 +950,29 @@ h4 {
   margin: 0;
 }
 
+.visual-stimulus {
+  display: grid;
+  gap: 0.35rem;
+  min-width: 0;
+  align-content: start;
+}
+
+.visual-enlarge-button {
+  justify-self: end;
+  min-height: 2rem;
+  padding: 0.3rem 0.6rem;
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.visual-enlarge-target {
+  cursor: zoom-in;
+}
+
+.visual-enlarge-target:hover .rhythm-strip-svg {
+  border-color: var(--control-hover-border);
+}
+
 .rhythm-strip-svg {
   color-scheme: light;
   overflow-x: auto;
@@ -1005,6 +1028,103 @@ h4 {
   color: var(--text-muted);
   font-size: 0.88rem;
   font-weight: 650;
+}
+
+.visual-focus-dialog {
+  width: 100vw;
+  max-width: none;
+  height: 100vh;
+  height: 100dvh;
+  max-height: none;
+  margin: 0;
+  border: 0;
+  padding: clamp(0.5rem, 2vw, 1.25rem);
+  color: var(--text);
+  background: transparent;
+  overflow: hidden;
+}
+
+.visual-focus-dialog::backdrop {
+  background: rgba(10, 17, 24, 0.72);
+  backdrop-filter: blur(4px);
+}
+
+.visual-focus-panel {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+  border: 1px solid var(--border-strong);
+  border-radius: 12px;
+  background: var(--surface);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.38);
+  overflow: hidden;
+}
+
+.visual-focus-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  border-bottom: 1px solid var(--border);
+  padding: 0.65rem 0.8rem;
+  background: var(--surface-muted);
+}
+
+.visual-focus-header h2 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.visual-focus-close {
+  min-height: 2.15rem;
+  padding: 0.35rem 0.65rem;
+  white-space: nowrap;
+}
+
+.visual-focus-body {
+  min-width: 0;
+  min-height: 0;
+  padding: clamp(0.5rem, 2vw, 1.25rem);
+  background: var(--surface);
+  overflow: auto;
+  overscroll-behavior: contain;
+}
+
+.visual-focus-body .rhythm-strip-svg {
+  overflow: auto;
+}
+
+.visual-focus-body .rhythm-strip-svg svg {
+  width: 100%;
+  max-width: none;
+  margin-inline: 0;
+}
+
+.visual-focus-body .rhythm-strip-svg.vis-device_screen svg,
+.visual-focus-body .rhythm-strip-svg.vis-medication_label svg {
+  min-width: 22.5rem;
+}
+
+.visual-focus-body .rhythm-strip-svg.vis-burn_map svg,
+.visual-focus-body .rhythm-strip-svg.vis-injection_site svg {
+  min-width: 30rem;
+}
+
+.visual-focus-body .rhythm-strip-svg.vis-mar svg,
+.visual-focus-body .rhythm-strip-svg.vis-io_record svg,
+.visual-focus-body .rhythm-strip-svg.vis-vitals_trend svg,
+.visual-focus-body .rhythm-strip-svg.vis-lab_trend svg,
+.visual-focus-body .rhythm-strip-svg.vis-io_trend svg {
+  min-width: 37.5rem;
+}
+
+@media print {
+  .visual-enlarge-button {
+    display: none;
+  }
 }
 
 .speak-button {
