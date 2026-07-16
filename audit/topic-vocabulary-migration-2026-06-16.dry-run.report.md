@@ -6,7 +6,7 @@ Write reason: none; canonical banks were not modified
 
 Exact topic updates: 0
 Suggestions requiring review: 8
-Unresolved noncanonical topics: 458
+Unresolved noncanonical topics: 457
 Category untrusted rows: 0
 Blocked cross-category lexical aliases: 0
 
@@ -188,7 +188,6 @@ Blocked cross-category lexical aliases: 0
 | `gpt_case_warfarin_mvr_2026_06_11_01_q4` | Physiological Adaptation | matrix | acute hemorrhage prioritization | (unresolved) | no exact alias matched; no suggestion available |
 | `gpt_case_warfarin_mvr_2026_06_11_01_q6` | Reduction of Risk Potential | multiple_choice | anticoagulation reversal outcome evaluation | (unresolved) | no exact alias matched; no suggestion available |
 | `gpt_gap_jun12_matrix_pressure_injury_staging_01` | Reduction of Risk Potential | matrix | Pressure injury staging | (unresolved) | no exact alias matched; no suggestion available |
-| `gpt_visual_smoke_2026_06_12_matrix_burn_regions_03` | Reduction of Risk Potential | matrix | adult Rule of Nines region recognition | (unresolved) | no exact alias matched; no suggestion available |
 | `gpt_visual_smoke_2026_06_12_fib_device_enteral_duration_10` | Management of Care | fill_in_blank | enteral pump duration calculation | (unresolved) | no exact alias matched; no suggestion available |
 | `gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01` | Safety and Infection Control | case_study | home oxygen safety and COPD discharge teaching | (unresolved) | no exact alias matched; no suggestion available |
 | `gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2` | Health Promotion and Maintenance | dropdown_cloze | COPD discharge teaching | (unresolved) | no exact alias matched; no suggestion available |

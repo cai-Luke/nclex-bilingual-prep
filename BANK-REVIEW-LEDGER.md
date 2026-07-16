@@ -789,3 +789,31 @@ globally unique IDs; only the pre-existing advisory non-MCQ distribution warning
 migration-guard, residual-proposal, and residual-rerun tests passed; `test-visuals` passed including
 burn-map self-check/conformance/parity; `npx tsc -b --pretty false` passed; census regenerated at
 1799 top-level / 721 embedded / 200 visuals and `census:check` passed; production build passed.
+
+### 2026-07-16 — Architect-ratified row-23 retirement (`gpt-canonical.json`, 628→627)
+
+Status: `retired-from-delivery`. Following architect ratification of the independent Burn Management
+gate, removed `gpt_visual_smoke_2026_06_12_matrix_burn_regions_03` from learner-facing canonical
+content. The schema-valid matrix tested only whether named regions were visibly shaded; it did not
+test TBSA computation, assessment interpretation, or nursing judgment. No metadata reroute was
+performed, and the retirement does not change the retained 36-item Burn Management rollup (Pharm 17
+/ RRP 8 / PA 11).
+
+Preservation and application: before removal, the exact question object was written to the
+non-bundled archive
+`Archive/retired-bank-items-2026-07-16/gpt_visual_smoke_2026_06_12_matrix_burn_regions_03.json`.
+Its recorded and independently recomputed payload SHA-256 is
+`312dd633059f1a33e064e118ca204c59d1666e2780bd1c6443d09154fa36daa0`. The deterministic applicator
+`scripts/patches/2026-07-16-retire-burn-region-smoke-item.ts` used the canonical-mode `removeQuestion`
+primitive, recomputed `meta.count` from 628 to 627, and made no change to any retained bank item.
+Also corrected the stale primary `Burn Management` row in `TOPIC-VOCABULARY-DECISIONS.md` from
+STRICT to the already-executable SHARED Pharm / RRP / PA license.
+
+Verification: the retired ID is absent from every bundled top-level bank; the archive payload hash
+round-trip passed; recursive exact-topic recount remains Pharm 17 / RRP 8 / PA 11; `validate-bank`
+passed all 13 bundled banks; `npm run audit` **GATE PASSED** with all 2,519 bundled IDs globally unique
+and only the pre-existing advisory distribution warning; topic-vocabulary, migration-guard,
+residual-proposal, and residual-rerun tests passed; `test-visuals` passed including burn-map
+self-check/conformance/parity; `npx tsc -b --pretty false` passed; topic dry-run artifacts were
+regenerated; coverage report is 1,798 total questions / 199 visuals / 10 burn maps; census regenerated
+at 1,798 top-level / 721 embedded / 199 visuals and `census:check` passed; production build passed.

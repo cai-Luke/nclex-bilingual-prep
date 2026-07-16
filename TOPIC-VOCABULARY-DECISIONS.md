@@ -99,7 +99,7 @@ reviewed and approved into an execution manifest. See `Archive/root-specs-2026-0
 | Electrolyte Imbalances | STRICT | keep; STRICT |
 | Diabetic Ketoacidosis (DKA) | STRICT | keep; STRICT |
 | Sepsis & Septic Shock | STRICT | keep; STRICT |
-| Burn Management | STRICT | keep; STRICT |
+| Burn Management | SHARED — see judgment calls | keep; SHARED Pharmacological + Reduction of Risk Potential + Physiological Adaptation |
 
 ## Judgment calls (the only ones that aren't near-automatic)
 
@@ -215,8 +215,10 @@ topic follows the stable burn-management rollup:
 Five candidates route out: row 34 (`gemini_d9_10`) to PA / `Cardiovascular Disorders`; row 39 to
 Safety / `Patient & Environment Safety`; row 40 to Safety / `Standard Precautions & Hygiene`; row 41
 remains BCC / `Nutritional & Fluid Support`; and row 42 moves to PA / `Endocrine & Neurological
-Disorders`. Row 23 remains held on its off-canonical visual-smoke topic pending removal/quarantine and
-does not establish license scope. The retained rollup is 36 items: Pharm 17, RRP 8, PA 11.
+Disorders`. Row 23 was held at the gate and, after architect ratification, removed from the bundled
+bank because it tested visible shading recognition rather than TBSA, interpretation, or nursing
+judgment. Its exact payload is preserved only under `Archive/retired-bank-items-2026-07-16/` and does
+not establish license scope. The retained rollup is 36 items: Pharm 17, RRP 8, PA 11.
 
 **Root cause, for future producer commissions:** the commission spec conflated "clinical focus the
 item should test" with "the literal canonical value that belongs in `question.topic`." Future

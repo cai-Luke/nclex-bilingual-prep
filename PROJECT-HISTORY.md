@@ -67,6 +67,9 @@ Completed:
 - Changed `Burn Management` from STRICT PA to SHARED `[Pharmacological and Parenteral Therapies,
   Reduction of Risk Potential, Physiological Adaptation]`. The retained exact-topic rollup is 36
   items: Pharm 17, RRP 8, PA 11.
+- Closed the architect hold by retiring row 23 from learner-facing `gpt-canonical.json` (628 → 627)
+  while preserving its exact question payload in a non-bundled archive. Corrected the stale primary
+  decision-table row so it now agrees with the ratified SHARED license.
 - Added the architect review artifact, Gemini report/manifest/applicator, independent gate handoff,
   and deterministic row-34 canonical patch record. Updated the dated taxonomy ruling, source record,
   topic export, review ledger, migration report, and census.
@@ -78,7 +81,8 @@ Verified:
   `test:topic-residual-proposals`, and `test:residual-rerun`
 - `npm run test-visuals`
 - `npx tsc -b --pretty false`
-- `npm run census && npm run census:check`
+- `npm run census && npm run census:check` (1,798 top-level / 721 embedded / 199 visuals after
+  architect-directed row-23 retirement)
 - `npm run build`
 
 ### GPT Coverage Balance Batch 5 Commission (Jul 16)

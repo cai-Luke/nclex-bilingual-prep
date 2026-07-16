@@ -2,8 +2,8 @@
 
 # NCLEX Bank Census
 
-Generated: 2026-07-16T13:07:11.465Z
-Git SHA: a7ac207d6f09d64cb5d2f30b0727f667440171dd
+Generated: 2026-07-16T13:29:19.101Z
+Git SHA: cbf7f38fd1b90b8b6425aab758ee11bf4566cf23
 
 ## Per-File Summary
 
@@ -14,7 +14,7 @@ Git SHA: a7ac207d6f09d64cb5d2f30b0727f667440171dd
 | claude-canonical.json | 2.0 | 97 | 97 | — |
 | device-canonical.json | 1.2 | 8 | 8 | — |
 | gemini-canonical.json | 2.0 | 874 | 874 | — |
-| gpt-canonical.json | 2.0 | 628 | 628 | — |
+| gpt-canonical.json | 2.0 | 627 | 627 | — |
 | hard-cases-canonical.json | 1.8 | 66 | 66 | — |
 | io-canonical.json | 1.2 | 8 | 8 | — |
 | lab-canonical.json | 1.2 | 20 | 20 | — |
@@ -25,17 +25,17 @@ Git SHA: a7ac207d6f09d64cb5d2f30b0727f667440171dd
 
 ## Totals
 
-- Top-level questions: 1799
+- Top-level questions: 1798
 - Case study top-level: 143
 - Embedded parts: 721
-- Graded total: 2520
+- Graded total: 2519
 
 ## By Category
 
 - Health Promotion and Maintenance: 164
 - Basic Care and Comfort: 165
 - Psychosocial Integrity: 171
-- Reduction of Risk Potential: 204
+- Reduction of Risk Potential: 203
 - Safety and Infection Control: 228
 - Physiological Adaptation: 285
 - Management of Care: 291
@@ -76,7 +76,7 @@ Visual kinds: burn_map (6), capnography (3), device_screen (6), io_trend (2), la
 ### Reduction of Risk Potential
 
 Top topics: Procedural Complications & Dialysis (45), Laboratory & Diagnostic Tests (31), Perioperative Care (30), Intrapartum Fetal Monitoring (12), Burn Management (7), Maternal-Newborn Care & Teaching (7), ABG & Acid-Base Interpretation (5), Injection route recognition from skin cross-section (4), PPE & Sterile Technique (4), Endocrine & Neurological Disorders (3)
-Visual kinds: burn_map (4), capnography (6), device_screen (3), fetal_monitoring (6), injection_site (8), io_record (5), lab_trend (7), rhythm_strip (3), vitals_trend (6)
+Visual kinds: burn_map (3), capnography (6), device_screen (3), fetal_monitoring (6), injection_site (8), io_record (5), lab_trend (7), rhythm_strip (3), vitals_trend (6)
 
 ### Physiological Adaptation
 
@@ -91,20 +91,20 @@ Visual kinds: burn_map (1), capnography (11), io_record (2), io_trend (2), lab_t
 - dropdown_cloze: 172
 - ordered_response: 173
 - fill_in_blank: 175
-- matrix: 193
+- matrix: 192
 - select_all: 220
 - multiple_choice: 455
 
 ## By Difficulty
 
-- easy: 246
+- easy: 245
 - hard: 613
 - medium: 940
 
 ## By Schema Version
 
 - v1.2: 77 questions (burn-canonical.json, capnography-canonical.json, device-canonical.json, io-canonical.json, lab-canonical.json, mar-canonical.json, medlabel-canonical.json, vitals-canonical.json)
-- v2.0: 1656 questions (claude-canonical.json, gemini-canonical.json, gpt-canonical.json, visual-canonical.json)
+- v2.0: 1655 questions (claude-canonical.json, gemini-canonical.json, gpt-canonical.json, visual-canonical.json)
 - v1.8: 66 questions (hard-cases-canonical.json)
 
 ## By Source File
@@ -114,7 +114,7 @@ Visual kinds: burn_map (1), capnography (11), io_record (2), io_trend (2), lab_t
 - claude-canonical.json: 97
 - device-canonical.json: 8
 - gemini-canonical.json: 874
-- gpt-canonical.json: 628
+- gpt-canonical.json: 627
 - hard-cases-canonical.json: 66
 - io-canonical.json: 8
 - lab-canonical.json: 20
@@ -125,11 +125,11 @@ Visual kinds: burn_map (1), capnography (11), io_record (2), io_trend (2), lab_t
 
 ## Visuals
 
-Total visuals: 200
+Total visuals: 199
 
 ### By Kind
 
-- burn_map: 11 (burn_fib_parkland_first8h_leg_arm_08, burn_fib_parkland_rate_arm_trunk_genitalia_04, burn_fib_parkland_total_posterior_03, burn_fib_tbsa_anterior_mix_01, burn_matrix_parkland_values_05, …+6)
+- burn_map: 10 (burn_fib_parkland_first8h_leg_arm_08, burn_fib_parkland_rate_arm_trunk_genitalia_04, burn_fib_parkland_total_posterior_03, burn_fib_tbsa_anterior_mix_01, burn_matrix_parkland_values_05, …+5)
 - capnography: 25 (cap_01, cap_02, cap_03, cap_04, cap_05, …+20)
 - device_screen: 12 (dev_enteral_volume_shift_01, dev_high_alert_kcl_pump_mismatch_01, dev_infusion_duration_vtbi_01, dev_pca_basal_opioid_naive_01, dev_pca_delivered_total_basal_01, …+7)
 - fetal_monitoring: 6 (fhr_gemini_smoke_2026_06_13_01, fhr_gemini_smoke_2026_06_13_02, fhr_gemini_smoke_2026_06_13_03, fhr_gemini_smoke_2026_06_13_04, fhr_gemini_smoke_2026_06_13_05, …+1)
@@ -314,15 +314,15 @@ No duplicates detected.
 ## Targets
 
 Category targets (2026 NCLEX-RN test-plan weights):
-- Management of Care: 323.8
-- Safety and Infection Control: 233.9
-- Health Promotion and Maintenance: 161.9
-- Psychosocial Integrity: 161.9
-- Basic Care and Comfort: 161.9
-- Pharmacological and Parenteral Therapies: 287.8
-- Reduction of Risk Potential: 215.9
-- Physiological Adaptation: 251.9
-Item type average: 199.9
+- Management of Care: 323.6
+- Safety and Infection Control: 233.7
+- Health Promotion and Maintenance: 161.8
+- Psychosocial Integrity: 161.8
+- Basic Care and Comfort: 161.8
+- Pharmacological and Parenteral Therapies: 287.7
+- Reduction of Risk Potential: 215.8
+- Physiological Adaptation: 251.7
+Item type average: 199.8
 
 Under-served item types:
 - highlight: 133
@@ -331,7 +331,7 @@ Under-served item types:
 - dropdown_cloze: 172
 - ordered_response: 173
 - fill_in_blank: 175
-- matrix: 193
+- matrix: 192
 
 ## Prompt Parameters
 
@@ -343,13 +343,13 @@ PRIORITIZE_TOPICS:
 - Palliative & Supportive Care — add: select_all
 - Electroconvulsive Therapy (ECT) — add: select_all, fill_in_blank
 - Reproductive & Endocrine Health — add: fill_in_blank
-- highlight (133 vs target 199.9)
-- bowtie (135 vs target 199.9)
-- case_study (143 vs target 199.9)
-- dropdown_cloze (172 vs target 199.9)
-- ordered_response (173 vs target 199.9)
-- fill_in_blank (175 vs target 199.9)
-- matrix (193 vs target 199.9)
+- highlight (133 vs target 199.8)
+- bowtie (135 vs target 199.8)
+- case_study (143 vs target 199.8)
+- dropdown_cloze (172 vs target 199.8)
+- ordered_response (173 vs target 199.8)
+- fill_in_blank (175 vs target 199.8)
+- matrix (192 vs target 199.8)
 - accidental tracheostomy dislodgement
 - Acute decompensated heart failure
 - Acute Decompensated Heart Failure (ADHF)

@@ -1,6 +1,6 @@
 # Burn Management Topic Audit — Independent Gate Handoff to Architect
 
-Status: **independent gate-seat adjudication complete; returned to the architect seat for ratification and execution planning.**
+Status: **independent gate-seat adjudication ratified; execution and architect-directed closeout complete.**
 
 Date: 2026-07-16
 
@@ -8,7 +8,9 @@ Input artifact: [`BURN-MANAGEMENT-TOPIC-AUDIT-ARTIFACT.md`](BURN-MANAGEMENT-TOPI
 
 Category authority: [`docs/source-records/NCSBN-2026-NCLEX-RN-TEST-PLAN.md`](docs/source-records/NCSBN-2026-NCLEX-RN-TEST-PLAN.md)
 
-This handoff records the gate ruling. It is not an execution receipt: bank edits, topic-license changes, ledger updates, census regeneration, and promotion verification remain separate work.
+This handoff records the original gate ruling and the subsequent execution receipt. The historical
+accepted/held/revised counts remain the gate-seat disposition; the architect later resolved the one
+hold by retiring row 23 from delivered study material.
 
 ## Outcome
 
@@ -60,7 +62,7 @@ The NCSBN 2026 rename to `Safety and Infection Prevention and Control` remains a
 | 20 | `burn_fib_tbsa_anterior_mix_01` | Accepted | RRP / Burn Management | in | topic reroute |
 | 21 | `burn_mc_posterior_tbsa_07` | Accepted | RRP / Burn Management | in | topic reroute |
 | 22 | `gpt_visual_smoke_2026_06_12_mc_burn_tbsa_02` | Accepted | RRP / Burn Management | in | category + topic reroute |
-| 23 | `gpt_visual_smoke_2026_06_12_matrix_burn_regions_03` | **Held** | RRP / Burn Management only if retained | hold | no metadata patch; removal/quarantine decision |
+| 23 | `gpt_visual_smoke_2026_06_12_matrix_burn_regions_03` | **Held at gate → retired** | no learner-facing category/topic | out | removed after architect ratification; exact payload archived |
 | 24 | `gemini_b7_05` | Accepted | RRP / Burn Management | in | keep |
 | 25 | `gemini_b7_08` | Accepted | RRP / Burn Management | in | keep |
 | 26 | `gpt_fmtgap_2026_07_14_hl_burn_inhalation_06` | Accepted—resolved | RRP / Burn Management | in | category retag |
@@ -94,6 +96,10 @@ The Jun 16 PA correction was topic-license-driven. It should be deliberately rev
 `gpt_visual_smoke_2026_06_12_matrix_burn_regions_03` is a real, schema-valid bank object, but it scores only whether named regions are visibly shaded. It does not score TBSA computation, assessment interpretation, or a nursing decision. Its `visual_smoke` lineage accurately describes its function.
 
 **Gate disposition:** do not execute a metadata reroute. Hold for removal or quarantine from delivered study material. If the architect deliberately retains it, RRP / Burn Management is the least-wrong metadata classification, but retention is not recommended.
+
+**Architect closeout:** removal was ratified. The item was deleted from `banks/gpt-canonical.json`
+and its field-for-field-identical question object was preserved in the non-bundled archive at
+`Archive/retired-bank-items-2026-07-16/gpt_visual_smoke_2026_06_12_matrix_burn_regions_03.json`.
 
 ### Rows 26 + 27 — adjudicate together; split
 
@@ -147,6 +153,7 @@ All population and execution tallies independently sum to 42:
 - **Final classifications:** Pharm 17 · RRP 9 · PA 13 · Safety 2 · BCC 1 = **42**.
 - **Final status:** accepted 40 · held 1 · revised 1 = **42**.
 - **Final disposition:** Burn rollup 36 · routed out 5 · held 1 = **42**.
+- **Architect closeout disposition:** Burn rollup 36 · routed out 5 · retired from delivery 1 = **42**.
 - **Final actions:** category retag 17 · category retag plus source note 1 · keep 13 · category plus topic reroute 4 · topic-only reroute 5 · hold 1 · no-change/excluded 1 = **42**.
 
 ## Post-Route-Out License Recommendation
@@ -168,12 +175,17 @@ All three categories are materially exercised. Safety and BCC disappear after co
 
 ## Execution Status
 
-The manifest was subsequently implemented and verified on 2026-07-16. Bank metadata, the SHARED
-topic license, taxonomy decision, generated topic export, audit artifacts, review ledger, census, and
-project history were updated. Row 23 remains deliberately unchanged on hold.
+The manifest was implemented and verified on 2026-07-16. Bank metadata, the SHARED topic license,
+taxonomy decision, generated topic export, audit artifacts, review ledger, census, and project
+history were updated. The architect subsequently ratified the gate and directed row 23's removal.
+That separate canonical-bank pass reduced `gpt-canonical.json` from 628 to 627 questions, preserved
+the exact retired payload outside the bundled-bank path, and regenerated the affected audit/census
+artifacts. It does not change the 36-item Burn Management rollup or its Pharm 17 / RRP 8 / PA 11
+license evidence.
 
-## Architect-Seat Follow-up
+## Architect-Seat Closeout
 
 1. Treat this manifest and the dated taxonomy decision as the active Burn Management boundary.
-2. Decide whether row 23 should be removed or quarantined from delivered study material.
+2. Row 23 is no longer delivered study material; use the non-bundled archive only for historical
+   renderer inspection if needed.
 3. Preserve the row 34 gate override if the historical Gemini manifest is inspected later.
