@@ -1,3 +1,4 @@
+import { execSync } from "node:child_process";
 import { mkdir, readFile, readdir, writeFile } from "node:fs/promises";
 import { basename, join } from "node:path";
 import { parseBankText } from "../src/bankImport";
@@ -24,6 +25,14 @@ const reasonIndex = process.argv.indexOf("--reason");
 const writeReason = reasonIndex >= 0 ? process.argv[reasonIndex + 1] : undefined;
 const reportLabelIndex = process.argv.indexOf("--report-label");
 const reportLabel = reportLabelIndex >= 0 ? process.argv[reportLabelIndex + 1] : undefined;
+
+const getGitSha = (): string => {
+  try {
+    return execSync("git rev-parse HEAD", { encoding: "utf8" }).trim();
+  } catch {
+    return "unknown";
+  }
+};
 
 if (allowCanonicalWrite && !writeReason) {
   throw new Error('Canonical topic cleanup writes require --reason "..."');
@@ -272,6 +281,7 @@ const formatReport = (changes: ProposedChange[], unresolved: ProposedChange[], s
     "# Topic Metadata Cleanup",
     "",
     `Date: ${reportDate}`,
+    `Input Git SHA: ${getGitSha()}`,
     `Mode: ${dryRun ? "dry run" : "applied"}`,
     allowCanonicalWrite ? `Write reason: ${writeReason}` : "Write reason: none; canonical banks were not modified",
     "",

@@ -52,6 +52,23 @@ The committed NGN item-type set is complete. Rationale/dyad scoring and an expli
 
 > Milestones dated **2026-06-23 and earlier** are archived in [`Archive/PROJECT-HISTORY-ARCHIVE.md`](Archive/PROJECT-HISTORY-ARCHIVE.md). Only the current arc (2026-06-24 onward) is kept here.
 
+### Census Denominator Authority Closeout (Jul 16)
+
+PR #51 introduced separate top-level/session-unit and scored-leaf populations but deliberately left
+their planning authority unresolved. PR #52 then established the accepted post-promotion bank state:
+the three GPT coverage-balance batches were promoted and the complete 556-record topic/license
+residual was adjudicated and applied. This closeout made scored leaves authoritative for category,
+topic, difficulty, item-type, target, and generation-prompt planning, while retaining session units as
+the authority for inventory, standalone draw capacity, case-container supply, and session
+constructibility.
+
+The census now exposes explicit `sessionUnits`, `scoredLeaves`, and `visualArtifacts` lanes. The
+legacy root aliases, including `gradedTotal`, were removed after migrating the only real consumer.
+`case_study` remains visible as session-unit inventory but cannot enter scored-format targets; the
+human census and CLI coverage report each emit one canonical scored-leaf target/prompt block. A
+deterministic mixed-parent/leaf regression proves the two denominators, leaf-owned metadata,
+standalone delivery capacity, prompt singularity, and fail-closed reconciliation.
+
 ### GPT Coverage Balance Batches 5/6A/6B — Promoted (Jul 16)
 
 Independent (Claude, non-producer) content review and promotion of the three raw drafts staged by the
@@ -98,9 +115,8 @@ Verification:
   count/last-validated fields bumped to 681 / 2026-07-16.
 
 Note: these 54 additions are all standalone, so their top-level and scored-leaf increments agree.
-The denominator question formerly recorded in `CENSUS-DENOMINATOR-DESIGN-QUESTION.md` was resolved by
-the dual-lane census implementation below; the final post-promotion/post-migration regeneration now
-reports both views from one bank state.
+Their promotion established PR #52's final bank state; the separate denominator closeout above then
+selected scored leaves as the planning authority and removed the competing top-level prompt output.
 
 ### Topic/License Semantic Residual Closeout (Jul 16)
 
@@ -145,11 +161,11 @@ Verification:
 
 ### Dual-Lane Census, Recursive Topic Population, and IV-Fluid Audit (Jul 16)
 
-Completed:
-- Preserved the existing top-level census/coverage fields and added a separate scored-leaf lane:
-  2,376 standalone top-level plus embedded questions, excluding 143 case-study containers. Retained
-  legacy `gradedTotal` as a compatibility alias for the 2,519 question-shaped inventory records and
-  labeled it explicitly so it is not mistaken for scored-leaf coverage.
+Completed in PR #51 (with the final authority settled later by the PR #52 closeout above):
+- Introduced separate top-level/session-unit and scored-leaf census views so case containers and
+  scored leaves were no longer combined. The first pass preserved legacy root fields and
+  `gradedTotal` for compatibility; PR #52 later retired those aliases after selecting scored leaves
+  as the sole content-planning denominator.
 - Added one shared question-population traversal and moved global ID indexing onto it. The same
   traversal now powers exact-topic audits, preventing embedded case leaves from disappearing from
   future worklists.

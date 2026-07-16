@@ -1,4 +1,4 @@
-import type { BankEnvelope, Question, StandaloneQuestion } from "../src/types";
+import type { BankEnvelope, Question, QuestionVisual, StandaloneQuestion } from "../src/types";
 
 export type QuestionPopulationKind =
   | "top_level_case_container"
@@ -10,6 +10,19 @@ export type QuestionPopulationRecord = {
   kind: QuestionPopulationKind;
   parentId: string | null;
   path: string;
+};
+
+export type VisualArtifactSource =
+  | "question"
+  | "case_exhibit"
+  | "case_stage_exhibit"
+  | "embedded_leaf";
+
+export type VisualArtifactRecord = {
+  visual: QuestionVisual;
+  ownerId: string;
+  parentSessionUnitId: string;
+  source: VisualArtifactSource;
 };
 
 /**
@@ -55,3 +68,59 @@ export const collectScoredLeaves = (questions: readonly Question[]): StandaloneQ
   questions.flatMap((question) =>
     question.itemType === "case_study" ? question.caseStudy.questions : [question],
   );
+
+/**
+ * Enumerates visual artifacts recursively. This population is independent of
+ * both session units and scored leaves: case exhibits and staged exhibits are
+ * artifacts even though they are not question records.
+ */
+export const collectVisualArtifacts = (questions: readonly Question[]): VisualArtifactRecord[] => {
+  const artifacts: VisualArtifactRecord[] = [];
+
+  for (const question of questions) {
+    if (question.visual) {
+      artifacts.push({
+        visual: question.visual,
+        ownerId: question.id,
+        parentSessionUnitId: question.id,
+        source: "question",
+      });
+    }
+    if (question.itemType !== "case_study") continue;
+
+    for (const exhibit of question.caseStudy.exhibits) {
+      if (exhibit.visual) {
+        artifacts.push({
+          visual: exhibit.visual,
+          ownerId: question.id,
+          parentSessionUnitId: question.id,
+          source: "case_exhibit",
+        });
+      }
+    }
+    for (const stage of question.caseStudy.stages ?? []) {
+      for (const exhibit of stage.exhibits) {
+        if (exhibit.visual) {
+          artifacts.push({
+            visual: exhibit.visual,
+            ownerId: question.id,
+            parentSessionUnitId: question.id,
+            source: "case_stage_exhibit",
+          });
+        }
+      }
+    }
+    for (const leaf of question.caseStudy.questions) {
+      if (leaf.visual) {
+        artifacts.push({
+          visual: leaf.visual,
+          ownerId: leaf.id,
+          parentSessionUnitId: question.id,
+          source: "embedded_leaf",
+        });
+      }
+    }
+  }
+
+  return artifacts;
+};
