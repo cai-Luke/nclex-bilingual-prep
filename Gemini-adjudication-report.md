@@ -17,7 +17,7 @@ This report presents the independent adjudication of the 42 burn-related questio
    - **Row 26 (`gpt_fmtgap_2026_07_14_hl_burn_inhalation_06`)** is retagged to **RRP**. It is a standalone highlight question where the key only scores the recognition of cues (singed nasal hair, soot in mouth, etc.). No clinical management is keyed.
    - **Row 27 (`gpt_case_major_burn_inhalation_fluid_creep_01_q2`)** is kept in **PA**. Although the action is highlight, the stem specifically frames the recognition in service of a management decision (discriminating between emergent intubation vs continued observation on non-rebreather mask).
 4. **Row 28 (`gpt_deepen_2026_06_23_bow_03`)**: Retagged to **PA** (overriding GPT's proposed RRP). The bowtie item's key includes active emergency airway interventions (high-flow oxygen, airway team involvement) for an acute, life-threatening airway compromise, placing it squarely in *Alterations in Body Systems* (p. 46) under PA.
-5. **Row 39 (`gpt_fmtgap_2026_07_14_or_dry_chemical_burn_15`)**: Retagged to **Safety and Infection Control** and rerouted out of the Burn Management rollup. This item orders the steps of dry chemical decontamination (PPE -> dry brush -> irrigate). Decontamination of hazardous materials is a Safety construct (*Handling Hazardous and Infectious Materials*, p. 25). This moves the item which was promoted on July 15 under PA.
+5. **Row 39 (`gpt_fmtgap_2026_07_14_or_dry_chemical_burn_15`)**: Retagged to **Safety and Infection Prevention and Control** and rerouted out of the Burn Management rollup. This item orders the steps of dry chemical decontamination (PPE -> dry brush -> irrigate). Decontamination of hazardous materials is a Safety construct (*Handling Hazardous and Infectious Materials*, p. 25). This moves the item which was promoted on July 15 under PA.
 
 ## Topic License Recommendation
 
@@ -69,8 +69,8 @@ All other items containing burn keywords are routed to generic topics (e.g., sta
 | 36 | `gpt_case_major_burn_inhalation_fluid_creep_01_q4` | Physiological Adaptation | **Physiological Adaptation** | `Burn Management` | yes | keep |
 | 37 | `gpt_case_major_burn_inhalation_fluid_creep_01_q5` | Physiological Adaptation | **Physiological Adaptation** | `Burn Management` | yes | keep |
 | 38 | `gpt_case_major_burn_inhalation_fluid_creep_01_bowtie` | Physiological Adaptation | **Physiological Adaptation** | `Burn Management` | yes | keep |
-| 39 | `gpt_fmtgap_2026_07_14_or_dry_chemical_burn_15` | Physiological Adaptation | **Safety and Infection Control** | `Patient & Environment Safety` | no | cat retag + topic reroute |
-| 40 | `easy_burns_03` | Safety and Infection Control | **Safety and Infection Control** | `Standard Precautions & Hygiene` | no | topic reroute |
+| 39 | `gpt_fmtgap_2026_07_14_or_dry_chemical_burn_15` | Physiological Adaptation | **Safety and Infection Prevention and Control** | `Patient & Environment Safety` | no | cat retag + topic reroute |
+| 40 | `easy_burns_03` | Safety and Infection Prevention and Control | **Safety and Infection Prevention and Control** | `Standard Precautions & Hygiene` | no | topic reroute |
 | 41 | `trad_batchD_19` | Basic Care and Comfort | **Basic Care and Comfort** | `Nutritional & Fluid Support` | no | no change |
 | 42 | `gpt_case_gbs_respiratory_compromise_01_q1` | Physiological Adaptation | **Physiological Adaptation** | `Endocrine & Neurological Disorders` | no | topic reroute |
 
@@ -82,7 +82,7 @@ All other items containing burn keywords are routed to generic topics (e.g., sta
   - Pharmacological and Parenteral Therapies: **17**
   - Physiological Adaptation: **13**
   - Reduction of Risk Potential: **9**
-  - Safety and Infection Control: **2**
+  - Safety and Infection Prevention and Control: **2**
   - Basic Care and Comfort: **1**
 - **Rollup Membership (Burn Management):**
   - Active Rollup (`Elig: yes`): **37**
@@ -285,12 +285,12 @@ All other items containing burn keywords are routed to generic topics (e.g., sta
 
 ### Row 39: `gpt_fmtgap_2026_07_14_or_dry_chemical_burn_15`
 - **Current:** Category: `Physiological Adaptation` | Topic: `Burn Management`
-- **Proposed:** Category: `Safety and Infection Control` | Topic: `Patient & Environment Safety` | Rollup: `no`
-- **Ruling:** Explicit ruling: moves item promoted July 15. Sequence of dry chemical decontamination (PPE -> dry brush -> water flush). Tests hazardous materials procedures (Safety and Infection Control, p. 25). Rerouted out of Burn Management.
+- **Proposed:** Category: `Safety and Infection Prevention and Control` | Topic: `Patient & Environment Safety` | Rollup: `no`
+- **Ruling:** Explicit ruling: moves item promoted July 15. Sequence of dry chemical decontamination (PPE -> dry brush -> water flush). Tests hazardous materials procedures (Safety and Infection Prevention and Control, p. 25). Rerouted out of Burn Management.
 
 ### Row 40: `easy_burns_03`
-- **Current:** Category: `Safety and Infection Control` | Topic: `Burn Management`
-- **Proposed:** Category: `Safety and Infection Control` | Topic: `Standard Precautions & Hygiene` | Rollup: `no`
+- **Current:** Category: `Safety and Infection Prevention and Control` | Topic: `Burn Management`
+- **Proposed:** Category: `Safety and Infection Prevention and Control` | Topic: `Standard Precautions & Hygiene` | Rollup: `no`
 - **Ruling:** Meticulous hand hygiene to prevent infection in burn patient. Core construct is standard precautions/infection control (Safety, p. 26). Rerouted out of Burn Management.
 
 ### Row 41: `trad_batchD_19`

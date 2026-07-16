@@ -67,7 +67,7 @@ Every Question has these COMMON fields:
 {
   "id": "unique string",
   "itemType": "one of: multiple_choice | select_all | ordered_response | fill_in_blank | matrix | dropdown_cloze | highlight | bowtie | case_study",
-  "category": "EXACTLY one of: Management of Care | Safety and Infection Control | Health Promotion and Maintenance | Psychosocial Integrity | Basic Care and Comfort | Pharmacological and Parenteral Therapies | Reduction of Risk Potential | Physiological Adaptation",
+  "category": "EXACTLY one of: Management of Care | Safety and Infection Prevention and Control | Health Promotion and Maintenance | Psychosocial Integrity | Basic Care and Comfort | Pharmacological and Parenteral Therapies | Reduction of Risk Potential | Physiological Adaptation",
   "topic": "concise reusable label, e.g. heart failure",
   "difficulty": "easy | medium | hard",
   "ngnSkill": "optional, one of: recognize_cues | analyze_cues | prioritize_hypotheses | generate_solutions | take_action | evaluate_outcomes",

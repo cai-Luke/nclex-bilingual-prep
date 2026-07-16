@@ -55,7 +55,7 @@ const idTopicOverrides = new Map<string, string>([
   ["gemini_jun05_b_cloze_dysphagia_19", TOPICS.NUTRITIONAL_FLUID_SUPPORT],
   ["gemini_jun05_b_fib_dosage_01", TOPICS.DOSAGE_CALCULATIONS],
   ["gemini_jun05_b_fib_dosage_02", TOPICS.DOSAGE_CALCULATIONS],
-  ["gemini_jun05_b_fib_fluid_03", TOPICS.DOSAGE_CALCULATIONS],
+  ["gemini_jun05_b_fib_fluid_03", TOPICS.NUTRITIONAL_FLUID_SUPPORT],
   ["gemini_jun05_b_fib_vital_08", TOPICS.CARDIOVASCULAR_DISORDERS],
   ["gemini_jun05_b_cloze_aki_13", TOPICS.RENAL_GASTROINTESTINAL_DISORDERS],
   ["gemini_jun05_b_cloze_depression_14", TOPICS.SUICIDE_CRISIS_INTERVENTION],

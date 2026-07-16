@@ -21,7 +21,7 @@ export type Difficulty = "easy" | "medium" | "hard";
 
 export type Category =
   | "Management of Care"
-  | "Safety and Infection Control"
+  | "Safety and Infection Prevention and Control"
   | "Health Promotion and Maintenance"
   | "Psychosocial Integrity"
   | "Basic Care and Comfort"

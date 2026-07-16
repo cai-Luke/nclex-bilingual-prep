@@ -73,12 +73,32 @@ Completed:
   `Dosage Calculations` topic, and 3 require both category and topic correction. One adjacent
   intake/output balance item also needs a topic correction but is not IV-therapy arithmetic.
 
-Held before implementation:
-- The repo has no accurate canonical topic for non-medication IV-therapy mathematics. The audit
-  recommends a new STRICT Pharmacological topic such as `IV Therapy Calculations`; an architect
-  taxonomy ruling on the name/boundary is required before the nine-row metadata migration. The
-  later report-only topic-license gate, Safety category rename, and substance-misuse wording cleanup
-  remain queued in the user's requested order behind this hold.
+Architect ruling implemented:
+- Added STRICT `IV Fluid Calculations` under Pharmacological and Parenteral Therapies and applied
+  the exact nine-item manifest: six topic-only and three category-plus-topic corrections. Routed the
+  separate generic net-fluid-balance residual to Basic Care and Comfort / `Nutritional & Fluid
+  Support`; it is not counted in the nine. Burn Management remained closed at 36 retained records.
+- Added the recursive report-only topic-license hygiene gate. It separately reports top-level and
+  scored-leaf populations/findings, labels case containers versus embedded parts, and explicitly
+  limits itself to vocabulary membership and declared licenses; SHARED-topic clinical boundaries
+  remain semantic-review work. Current report: 1,798 top-level / 2,376 scored leaves, with 366
+  top-level and 465 scored-leaf findings (556 unique records because the lanes overlap at standalone
+  scored leaves).
+- Completed the quiet controlled-category rename to `Safety and Infection Prevention and Control`
+  without changing the 13% weight, topic licenses, clinical meaning, or 228 top-level / 277
+  scored-leaf population. Legacy bank imports and stored upload/telemetry records normalize the
+  retired label at their compatibility boundaries.
+- Folded the two identified English `substance abuse` strings into the same cleanup as `substance
+  misuse`; no separate terminology audit was commissioned. Regenerated topic vocabulary, residual,
+  topic-license, coverage, Burn-population, and dual-lane census artifacts from the live banks.
+
+Verified:
+- All 13 canonical banks plus the current raw balance-5 draft validate.
+- `npm run audit` passes Tier 0/1 with the new topic-license report-only warning and the pre-existing
+  non-MCQ distribution warning.
+- Topic vocabulary/migration/residual/population/license, IV-manifest, schema, storage compatibility,
+  translation telemetry, and coverage tests pass.
+- `npx tsc -b --pretty false`, `npm run census && npm run census:check`, and `npm run build` pass.
 
 ### Burn Management Full-Population Gate and SHARED License (Jul 16)
 

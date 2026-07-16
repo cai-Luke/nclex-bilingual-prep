@@ -4,6 +4,22 @@ import type { BankEnvelope, ImportSummary, Question, QuestionRecord } from "./ty
 const isObject = (value: unknown): value is Record<string, unknown> =>
   typeof value === "object" && value !== null && !Array.isArray(value);
 
+const LEGACY_SAFETY_CATEGORY = "Safety and Infection Control";
+const SAFETY_CATEGORY = "Safety and Infection Prevention and Control";
+
+export const normalizeLegacyImportedCategory = (value: unknown): unknown => {
+  if (Array.isArray(value)) return value.map(normalizeLegacyImportedCategory);
+  if (!isObject(value)) return value;
+  return Object.fromEntries(
+    Object.entries(value).map(([key, child]) => [
+      key,
+      key === "category" && child === LEGACY_SAFETY_CATEGORY
+        ? SAFETY_CATEGORY
+        : normalizeLegacyImportedCategory(child),
+    ]),
+  );
+};
+
 export const extractJsonCandidate = (input: string) => {
   const trimmed = input.trim();
   const unfenced = trimmed
@@ -74,7 +90,8 @@ export const importQuestionsFromText = (
   };
 
   questions.forEach((rawQuestion, index) => {
-    const result = validateQuestion(rawQuestion);
+    const normalizedQuestion = normalizeLegacyImportedCategory(rawQuestion);
+    const result = validateQuestion(normalizedQuestion);
     const rawId = isObject(rawQuestion) && typeof rawQuestion.id === "string" ? rawQuestion.id : undefined;
     if (!result.ok) {
       summary.skipped.push({ index, id: rawId, reasons: result.reasons });

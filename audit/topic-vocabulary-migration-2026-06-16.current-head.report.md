@@ -26,13 +26,13 @@ Blocked cross-category lexical aliases: 0
 | `opus1_case_tha_discharge_lep_01_q2` | Health Promotion and Maintenance | multiple_choice | teach-back discharge education | (unresolved) | no exact alias matched; no suggestion available |
 | `opus1_case_tha_discharge_lep_01_q4` | Pharmacological and Parenteral Therapies | matrix | rivaroxaban renal function monitoring | (unresolved) | no exact alias matched; no suggestion available |
 | `opus20_case_cdiff_01` | Physiological Adaptation | case_study | C. difficile colitis and dehydration | (unresolved) | no exact alias matched; no suggestion available |
-| `opus20_case_cdiff_01_q2` | Safety and Infection Control | multiple_choice | C. difficile colitis and dehydration | (unresolved) | no exact alias matched; no suggestion available |
-| `opus20_case_cdiff_01_q3` | Safety and Infection Control | multiple_choice | C. difficile colitis and dehydration | (unresolved) | no exact alias matched; no suggestion available |
+| `opus20_case_cdiff_01_q2` | Safety and Infection Prevention and Control | multiple_choice | C. difficile colitis and dehydration | (unresolved) | no exact alias matched; no suggestion available |
+| `opus20_case_cdiff_01_q3` | Safety and Infection Prevention and Control | multiple_choice | C. difficile colitis and dehydration | (unresolved) | no exact alias matched; no suggestion available |
 | `opus20_case_cdiff_01_q4` | Basic Care and Comfort | multiple_choice | C. difficile colitis and dehydration | (unresolved) | no exact alias matched; no suggestion available |
 | `opus20_case_cdiff_01_q5` | Pharmacological and Parenteral Therapies | multiple_choice | C. difficile colitis and dehydration | (unresolved) | no exact alias matched; no suggestion available |
 | `opus_case_warfarin_bridge_01` | Pharmacological and Parenteral Therapies | case_study | warfarin-enoxaparin-bridge | (unresolved) | no exact alias matched; no suggestion available |
-| `opus_case_warfarin_bridge_q2` | Safety and Infection Control | multiple_choice | warfarin-enoxaparin-bridge | (unresolved) | no exact alias matched; no suggestion available |
-| `opus_case_warfarin_bridge_q4` | Safety and Infection Control | matrix | warfarin-enoxaparin-bridge | (unresolved) | no exact alias matched; no suggestion available |
+| `opus_case_warfarin_bridge_q2` | Safety and Infection Prevention and Control | multiple_choice | warfarin-enoxaparin-bridge | (unresolved) | no exact alias matched; no suggestion available |
+| `opus_case_warfarin_bridge_q4` | Safety and Infection Prevention and Control | matrix | warfarin-enoxaparin-bridge | (unresolved) | no exact alias matched; no suggestion available |
 | `opus_case_warfarin_bridge_q5` | Basic Care and Comfort | multiple_choice | warfarin-enoxaparin-bridge | (unresolved) | no exact alias matched; no suggestion available |
 | `opus_case_warfarin_bridge_q6` | Management of Care | multiple_choice | warfarin-enoxaparin-bridge | (unresolved) | no exact alias matched; no suggestion available |
 | `opus22_case_postpartum_intrusive_thoughts_01` | Psychosocial Integrity | case_study | postpartum depression with intrusive thoughts | (unresolved) | no exact alias matched; no suggestion available |
@@ -48,7 +48,7 @@ Blocked cross-category lexical aliases: 0
 | `opus24_case_elder_neglect_med_mismanagement_01_q4` | Pharmacological and Parenteral Therapies | select_all | safe IV potassium administration | (unresolved) | no exact alias matched; no suggestion available |
 | `opus24_case_elder_neglect_med_mismanagement_01_q5` | Pharmacological and Parenteral Therapies | multiple_choice | metformin renal safety | (unresolved) | no exact alias matched; no suggestion available |
 | `opus24_case_elder_neglect_med_mismanagement_01_q6` | Management of Care | select_all | interdisciplinary discharge safety planning | (unresolved) | no exact alias matched; no suggestion available |
-| `opus25_case_tb_airborne_treatment_monitoring_01` | Safety and Infection Control | case_study | Tuberculosis airborne precautions and treatment monitoring | (unresolved) | no exact alias matched; no suggestion available |
+| `opus25_case_tb_airborne_treatment_monitoring_01` | Safety and Infection Prevention and Control | case_study | Tuberculosis airborne precautions and treatment monitoring | (unresolved) | no exact alias matched; no suggestion available |
 | `opus25_case_tb_airborne_treatment_monitoring_01_q2` | Management of Care | multiple_choice | Tuberculosis contact investigation | (unresolved) | no exact alias matched; no suggestion available |
 | `opus25_case_tb_airborne_treatment_monitoring_01_q3` | Pharmacological and Parenteral Therapies | multiple_choice | Ethambutol baseline assessment | (unresolved) | no exact alias matched; no suggestion available |
 | `opus25_case_tb_airborne_treatment_monitoring_01_q4` | Pharmacological and Parenteral Therapies | dropdown_cloze | Chronic corticosteroid tapering | (unresolved) | no exact alias matched; no suggestion available |
@@ -100,22 +100,22 @@ Blocked cross-category lexical aliases: 0
 | `gemini_ppt_ngn_2026_06_22_q6` | Pharmacological and Parenteral Therapies | bowtie | Antimicrobial Therapy | (unresolved) | no exact alias matched; no suggestion available |
 | `gemini_ppt_ngn_2026_06_22_q7` | Pharmacological and Parenteral Therapies | dropdown_cloze | Respiratory Medications | (unresolved) | no exact alias matched; no suggestion available |
 | `gemini_moc_ngn_2026_06_22_q6` | Management of Care | bowtie | Chain of Command & Escalation | (unresolved) | no exact alias matched; no suggestion available |
-| `gemini_sic_ngn_2026_06_21_q1` | Safety and Infection Control | ordered_response | PPE donning and doffing | (unresolved) | no exact alias matched; no suggestion available |
-| `gemini_sic_ngn_2026_06_21_q2` | Safety and Infection Control | multiple_choice | Fire safety / oxygen safety | (unresolved) | no exact alias matched; no suggestion available |
-| `gemini_sic_ngn_2026_06_21_q4` | Safety and Infection Control | select_all | Sharps safety / exposure response | (unresolved) | no exact alias matched; no suggestion available |
-| `gemini_sic_ngn_2026_06_21_q6` | Safety and Infection Control | highlight | Standard / contact / droplet / airborne precautions | (unresolved) | no exact alias matched; no suggestion available |
-| `gemini_sic_ngn_2026_06_21_q7` | Safety and Infection Control | highlight | Restraint alternatives and restraint safety | (unresolved) | no exact alias matched; no suggestion available |
-| `gemini_sic_ngn_2026_06_21_q8` | Safety and Infection Control | matrix | Transmission-based room placement | (unresolved) | no exact alias matched; no suggestion available |
-| `gemini_sic_ngn_2026_06_21_q9` | Safety and Infection Control | bowtie | Isolation teaching for families | (unresolved) | no exact alias matched; no suggestion available |
-| `gemini_sic_ngn_2026_06_21_q10` | Safety and Infection Control | bowtie | Environmental safety and equipment checks | (unresolved) | no exact alias matched; no suggestion available |
-| `gemini_sic_ngn_2026_06_21_q11` | Safety and Infection Control | ordered_response | Sterile technique / sterile gloving | (unresolved) | no exact alias matched; no suggestion available |
-| `gemini_sic_ngn_2026_06_21_q12` | Safety and Infection Control | multiple_choice | Environmental safety and equipment checks | (unresolved) | no exact alias matched; no suggestion available |
-| `gemini_sic_ngn_2026_06_21_q15` | Safety and Infection Control | select_all | Standard / contact / droplet / airborne precautions | (unresolved) | no exact alias matched; no suggestion available |
-| `gemini_sic_ngn_2026_06_21_q16` | Safety and Infection Control | select_all | Restraint alternatives and restraint safety | (unresolved) | no exact alias matched; no suggestion available |
-| `gemini_sic_ngn_2026_06_21_q17` | Safety and Infection Control | highlight | Fire safety / oxygen safety | (unresolved) | no exact alias matched; no suggestion available |
-| `gemini_sic_ngn_2026_06_21_q18` | Safety and Infection Control | highlight | Sharps safety / exposure response | (unresolved) | no exact alias matched; no suggestion available |
-| `gemini_sic_ngn_2026_06_21_q19` | Safety and Infection Control | bowtie | Isolation teaching for families | (unresolved) | no exact alias matched; no suggestion available |
-| `gemini_sic_ngn_2026_06_21_q20` | Safety and Infection Control | bowtie | Environmental safety and equipment checks | (unresolved) | no exact alias matched; no suggestion available |
+| `gemini_sic_ngn_2026_06_21_q1` | Safety and Infection Prevention and Control | ordered_response | PPE donning and doffing | (unresolved) | no exact alias matched; no suggestion available |
+| `gemini_sic_ngn_2026_06_21_q2` | Safety and Infection Prevention and Control | multiple_choice | Fire safety / oxygen safety | (unresolved) | no exact alias matched; no suggestion available |
+| `gemini_sic_ngn_2026_06_21_q4` | Safety and Infection Prevention and Control | select_all | Sharps safety / exposure response | (unresolved) | no exact alias matched; no suggestion available |
+| `gemini_sic_ngn_2026_06_21_q6` | Safety and Infection Prevention and Control | highlight | Standard / contact / droplet / airborne precautions | (unresolved) | no exact alias matched; no suggestion available |
+| `gemini_sic_ngn_2026_06_21_q7` | Safety and Infection Prevention and Control | highlight | Restraint alternatives and restraint safety | (unresolved) | no exact alias matched; no suggestion available |
+| `gemini_sic_ngn_2026_06_21_q8` | Safety and Infection Prevention and Control | matrix | Transmission-based room placement | (unresolved) | no exact alias matched; no suggestion available |
+| `gemini_sic_ngn_2026_06_21_q9` | Safety and Infection Prevention and Control | bowtie | Isolation teaching for families | (unresolved) | no exact alias matched; no suggestion available |
+| `gemini_sic_ngn_2026_06_21_q10` | Safety and Infection Prevention and Control | bowtie | Environmental safety and equipment checks | (unresolved) | no exact alias matched; no suggestion available |
+| `gemini_sic_ngn_2026_06_21_q11` | Safety and Infection Prevention and Control | ordered_response | Sterile technique / sterile gloving | (unresolved) | no exact alias matched; no suggestion available |
+| `gemini_sic_ngn_2026_06_21_q12` | Safety and Infection Prevention and Control | multiple_choice | Environmental safety and equipment checks | (unresolved) | no exact alias matched; no suggestion available |
+| `gemini_sic_ngn_2026_06_21_q15` | Safety and Infection Prevention and Control | select_all | Standard / contact / droplet / airborne precautions | (unresolved) | no exact alias matched; no suggestion available |
+| `gemini_sic_ngn_2026_06_21_q16` | Safety and Infection Prevention and Control | select_all | Restraint alternatives and restraint safety | (unresolved) | no exact alias matched; no suggestion available |
+| `gemini_sic_ngn_2026_06_21_q17` | Safety and Infection Prevention and Control | highlight | Fire safety / oxygen safety | (unresolved) | no exact alias matched; no suggestion available |
+| `gemini_sic_ngn_2026_06_21_q18` | Safety and Infection Prevention and Control | highlight | Sharps safety / exposure response | (unresolved) | no exact alias matched; no suggestion available |
+| `gemini_sic_ngn_2026_06_21_q19` | Safety and Infection Prevention and Control | bowtie | Isolation teaching for families | (unresolved) | no exact alias matched; no suggestion available |
+| `gemini_sic_ngn_2026_06_21_q20` | Safety and Infection Prevention and Control | bowtie | Environmental safety and equipment checks | (unresolved) | no exact alias matched; no suggestion available |
 | `gpt_u6_matrix_cloze_2026_06_09_cloze_preeclampsia_magnesium_20` | Reduction of Risk Potential | dropdown_cloze | Magnesium sulfate toxicity in preeclampsia | (unresolved) | no exact alias matched; no suggestion available |
 | `gpt_case_premium_2026_06_10_case01_preventive_screening` | Health Promotion and Maintenance | case_study | adult preventive screening | (unresolved) | no exact alias matched; no suggestion available |
 | `gpt_case_premium_2026_06_10_case03_chronic_self_management` | Health Promotion and Maintenance | case_study | chronic illness self-management | (unresolved) | no exact alias matched; no suggestion available |
@@ -125,7 +125,7 @@ Blocked cross-category lexical aliases: 0
 | `gpt_case_premium_2026_06_10_case05_health_literacy_adherence` | Psychosocial Integrity | case_study | health literacy and medication adherence | (unresolved) | no exact alias matched; no suggestion available |
 | `gpt_case_premium_2026_06_10_case05_cloze_teaching_03` | Psychosocial Integrity | dropdown_cloze | health literacy teaching plan | (unresolved) | no exact alias matched; no suggestion available |
 | `gpt_case_premium_2026_06_10_case05_sata_adherence_04` | Psychosocial Integrity | select_all | medication adherence support | (unresolved) | no exact alias matched; no suggestion available |
-| `gpt_gap_2026_06_10_or_pressure_injury_prevention_04` | Safety and Infection Control | ordered_response | Pressure injury prevention in rehabilitation | (unresolved) | no exact alias matched; no suggestion available |
+| `gpt_gap_2026_06_10_or_pressure_injury_prevention_04` | Safety and Infection Prevention and Control | ordered_response | Pressure injury prevention in rehabilitation | (unresolved) | no exact alias matched; no suggestion available |
 | `gpt_gap_2026_06_10_fib_daily_skin_inspection_07` | Basic Care and Comfort | fill_in_blank | Home skin inspection for pressure injury prevention | (unresolved) | no exact alias matched; no suggestion available |
 | `gpt_case_gap_2026_06_11_case_post_stroke_outpatient_rehab_09` | Basic Care and Comfort | case_study | Post-stroke outpatient rehabilitation and safe feeding | (unresolved) | no exact alias matched; no suggestion available |
 | `gpt_case_gap_2026_06_11_post_stroke_rehab_part_4_cloze_priority` | Management of Care | dropdown_cloze | Post-stroke outpatient rehabilitation and safe feeding | (unresolved) | no exact alias matched; no suggestion available |
@@ -134,12 +134,12 @@ Blocked cross-category lexical aliases: 0
 | `gpt_case_gap_2026_06_11_case_community_resource_discharge_05` | Management of Care | case_study | Community resource planning for safe discharge | (unresolved) | no exact alias matched; no suggestion available |
 | `gpt_case_gap_2026_06_11_case_preventive_screening_navigation_06` | Health Promotion and Maintenance | case_study | Adult preventive screening follow-up navigation | (unresolved) | no exact alias matched; no suggestion available |
 | `gpt_case_gap_2026_06_11_case_rehab_mobility_falls_03` | Basic Care and Comfort | case_study | Rehabilitation mobility progression and fall prevention | (unresolved) | no exact alias matched; no suggestion available |
-| `gpt_case_gap_2026_06_11_case_pressure_injury_ltc_04` | Safety and Infection Control | case_study | Pressure injury prevention in long-term care | (unresolved) | no exact alias matched; no suggestion available |
-| `gpt_case_gap_2026_06_11_pressure_ltc_part_1_matrix_risk` | Safety and Infection Control | matrix | Pressure injury prevention in long-term care | (unresolved) | no exact alias matched; no suggestion available |
-| `gpt_case_gap_2026_06_11_pressure_ltc_part_2_sata_plan` | Safety and Infection Control | select_all | Pressure injury prevention in long-term care | (unresolved) | no exact alias matched; no suggestion available |
-| `gpt_case_gap_2026_06_11_pressure_ltc_part_3_mc_delegate` | Safety and Infection Control | multiple_choice | Pressure injury prevention in long-term care | (unresolved) | no exact alias matched; no suggestion available |
-| `gpt_case_gap_2026_06_11_pressure_ltc_part_4_cloze_outcome` | Safety and Infection Control | dropdown_cloze | Pressure injury prevention in long-term care | (unresolved) | no exact alias matched; no suggestion available |
-| `gpt_gap_2026_06_10_b_or_moisture_pressure_prevention_04` | Safety and Infection Control | ordered_response | Moisture management for pressure injury prevention | (unresolved) | no exact alias matched; no suggestion available |
+| `gpt_case_gap_2026_06_11_case_pressure_injury_ltc_04` | Safety and Infection Prevention and Control | case_study | Pressure injury prevention in long-term care | (unresolved) | no exact alias matched; no suggestion available |
+| `gpt_case_gap_2026_06_11_pressure_ltc_part_1_matrix_risk` | Safety and Infection Prevention and Control | matrix | Pressure injury prevention in long-term care | (unresolved) | no exact alias matched; no suggestion available |
+| `gpt_case_gap_2026_06_11_pressure_ltc_part_2_sata_plan` | Safety and Infection Prevention and Control | select_all | Pressure injury prevention in long-term care | (unresolved) | no exact alias matched; no suggestion available |
+| `gpt_case_gap_2026_06_11_pressure_ltc_part_3_mc_delegate` | Safety and Infection Prevention and Control | multiple_choice | Pressure injury prevention in long-term care | (unresolved) | no exact alias matched; no suggestion available |
+| `gpt_case_gap_2026_06_11_pressure_ltc_part_4_cloze_outcome` | Safety and Infection Prevention and Control | dropdown_cloze | Pressure injury prevention in long-term care | (unresolved) | no exact alias matched; no suggestion available |
+| `gpt_gap_2026_06_10_b_or_moisture_pressure_prevention_04` | Safety and Infection Prevention and Control | ordered_response | Moisture management for pressure injury prevention | (unresolved) | no exact alias matched; no suggestion available |
 | `gpt_gap_2026_06_10_b_fib_bed_repositioning_08` | Basic Care and Comfort | fill_in_blank | Repositioning schedule for pressure injury prevention | (unresolved) | no exact alias matched; no suggestion available |
 | `gpt_case_gap_2026_06_11_case_dementia_caregiver_burden_01` | Psychosocial Integrity | case_study | Caregiver burden after dementia discharge | (unresolved) | no exact alias matched; no suggestion available |
 | `gpt_case_gap_2026_06_11_case_ostomy_health_literacy_02` | Basic Care and Comfort | case_study | New ostomy discharge teaching with health literacy barriers | (unresolved) | no exact alias matched; no suggestion available |
@@ -147,12 +147,12 @@ Blocked cross-category lexical aliases: 0
 | `gpt_case_premium_next_case_health_literacy_diabetes_01` | Health Promotion and Maintenance | case_study | chronic illness self-management and health literacy | (unresolved) | no exact alias matched; no suggestion available |
 | `gpt_case_premium_next_case_health_literacy_diabetes_01_sata_referrals` | Management of Care | select_all | interprofessional diabetes care coordination | (unresolved) | no exact alias matched; no suggestion available |
 | `gpt_case_premium_next_case_rehab_pressure_bowel_02` | Basic Care and Comfort | case_study | rehabilitation pressure injury prevention and bowel management | (unresolved) | no exact alias matched; no suggestion available |
-| `gpt_case_premium_next_case_rehab_pressure_bowel_02_or_transfer` | Safety and Infection Control | ordered_response | safe mobility and fall prevention | (unresolved) | no exact alias matched; no suggestion available |
+| `gpt_case_premium_next_case_rehab_pressure_bowel_02_or_transfer` | Safety and Infection Prevention and Control | ordered_response | safe mobility and fall prevention | (unresolved) | no exact alias matched; no suggestion available |
 | `gpt_case_premium_next_case_rehab_pressure_bowel_02_matrix_delegation` | Management of Care | matrix | delegation and interprofessional rehabilitation coordination | (unresolved) | no exact alias matched; no suggestion available |
 | `gpt_case_premium_next_case_caregiver_adaptation_dementia_03_matrix_cues` | Psychosocial Integrity | matrix | caregiver burden and safety cue recognition | (unresolved) | no exact alias matched; no suggestion available |
 | `gpt_case_premium_next_case_caregiver_adaptation_dementia_03_or_plan` | Management of Care | ordered_response | caregiver safety planning and care coordination | (unresolved) | no exact alias matched; no suggestion available |
 | `gpt_case_premium_next_case_caregiver_adaptation_dementia_03_fib_respite` | Management of Care | fill_in_blank | resource planning for caregiver respite | (unresolved) | no exact alias matched; no suggestion available |
-| `gpt_case_premium_next_case_occupational_exposure_vaccine_04` | Safety and Infection Control | case_study | occupational exposure and sharps safety | (unresolved) | no exact alias matched; no suggestion available |
+| `gpt_case_premium_next_case_occupational_exposure_vaccine_04` | Safety and Infection Prevention and Control | case_study | occupational exposure and sharps safety | (unresolved) | no exact alias matched; no suggestion available |
 | `gpt_case_premium_next_case_occupational_exposure_vaccine_04_fib_supplies` | Management of Care | fill_in_blank | resource management for vaccination clinic supplies | (unresolved) | no exact alias matched; no suggestion available |
 | `gpt_case_premium_next_case_preventive_screening_vaccine_05` | Health Promotion and Maintenance | case_study | adult preventive screening and vaccination counseling | (unresolved) | no exact alias matched; no suggestion available |
 | `gpt_case_premium_next_case_preventive_screening_vaccine_05_sata_plan` | Management of Care | select_all | resource coordination for preventive care | (unresolved) | no exact alias matched; no suggestion available |
@@ -169,16 +169,16 @@ Blocked cross-category lexical aliases: 0
 | `gpt_case_gap_2026_06_11_panc_or_03` | Management of Care | ordered_response | Pancreatitis deterioration response | (unresolved) | no exact alias matched; no suggestion available |
 | `gpt_case_gap_2026_06_11_case_adrenal_crisis_04` | Reduction of Risk Potential | case_study | Adrenal crisis | (unresolved) | no exact alias matched; no suggestion available |
 | `gpt_case_gap_2026_06_11_adrenal_or_03` | Management of Care | ordered_response | Adrenal crisis emergency response | (unresolved) | no exact alias matched; no suggestion available |
-| `gpt_case_gap_2026_06_11_case_urosepsis_05` | Safety and Infection Control | case_study | Sepsis from obstructed urinary source | (unresolved) | no exact alias matched; no suggestion available |
-| `gpt_case_gap_2026_06_11_sepsis_matrix_01` | Safety and Infection Control | matrix | Sepsis from urinary source | (unresolved) | no exact alias matched; no suggestion available |
+| `gpt_case_gap_2026_06_11_case_urosepsis_05` | Safety and Infection Prevention and Control | case_study | Sepsis from obstructed urinary source | (unresolved) | no exact alias matched; no suggestion available |
+| `gpt_case_gap_2026_06_11_sepsis_matrix_01` | Safety and Infection Prevention and Control | matrix | Sepsis from urinary source | (unresolved) | no exact alias matched; no suggestion available |
 | `gpt_case_gap_2026_06_11_sepsis_cloze_02` | Reduction of Risk Potential | dropdown_cloze | Septic shock recognition | (unresolved) | no exact alias matched; no suggestion available |
 | `gpt_case_gap_2026_06_11_sepsis_or_03` | Management of Care | ordered_response | Sepsis bundle nursing priorities | (unresolved) | no exact alias matched; no suggestion available |
 | `gpt_case_gap_2026_06_11_sepsis_fib_04` | Reduction of Risk Potential | fill_in_blank | Urine output target in sepsis | (unresolved) | no exact alias matched; no suggestion available |
 | `gpt_case_gap_2026_06_11_case_anticoag_bleeding_06` | Reduction of Risk Potential | case_study | Anticoagulation monitoring complication | (unresolved) | no exact alias matched; no suggestion available |
 | `gpt_case_gap_2026_06_11_anticoag_or_03` | Management of Care | ordered_response | Response to heparin-associated bleeding | (unresolved) | no exact alias matched; no suggestion available |
-| `gpt_gap_jun11_fib_cauti_prevention_01` | Safety and Infection Control | fill_in_blank | CAUTI Prevention Bundle | (unresolved) | no exact alias matched; no suggestion available |
+| `gpt_gap_jun11_fib_cauti_prevention_01` | Safety and Infection Prevention and Control | fill_in_blank | CAUTI Prevention Bundle | (unresolved) | no exact alias matched; no suggestion available |
 | `gpt_gap_jun11_or_nonpharm_pain_01` | Basic Care and Comfort | ordered_response | Nonpharmacological Musculoskeletal Pain Management | (unresolved) | no exact alias matched; no suggestion available |
-| `gpt_case_opus5_cdi_immunocompromised_01` | Safety and Infection Control | case_study | Clostridioides difficile infection control and treatment | (unresolved) | no exact alias matched; no suggestion available |
+| `gpt_case_opus5_cdi_immunocompromised_01` | Safety and Infection Prevention and Control | case_study | Clostridioides difficile infection control and treatment | (unresolved) | no exact alias matched; no suggestion available |
 | `gpt_case_opus5_cdi_immunocompromised_01_q1` | Pharmacological and Parenteral Therapies | multiple_choice | Antimotility agents in suspected C. difficile infection | (unresolved) | no exact alias matched; no suggestion available |
 | `gpt_case_opus5_cdi_immunocompromised_01_q3` | Pharmacological and Parenteral Therapies | dropdown_cloze | Oral vancomycin route for C. difficile infection | (unresolved) | no exact alias matched; no suggestion available |
 | `gpt_case_opus5_cdi_immunocompromised_01_q4` | Reduction of Risk Potential | matrix | Monitoring for fulminant C. difficile infection and toxic megacolon | (unresolved) | no exact alias matched; no suggestion available |
@@ -189,13 +189,13 @@ Blocked cross-category lexical aliases: 0
 | `gpt_case_warfarin_mvr_2026_06_11_01_q6` | Reduction of Risk Potential | multiple_choice | anticoagulation reversal outcome evaluation | (unresolved) | no exact alias matched; no suggestion available |
 | `gpt_gap_jun12_matrix_pressure_injury_staging_01` | Reduction of Risk Potential | matrix | Pressure injury staging | (unresolved) | no exact alias matched; no suggestion available |
 | `gpt_visual_smoke_2026_06_12_fib_device_enteral_duration_10` | Management of Care | fill_in_blank | enteral pump duration calculation | (unresolved) | no exact alias matched; no suggestion available |
-| `gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01` | Safety and Infection Control | case_study | home oxygen safety and COPD discharge teaching | (unresolved) | no exact alias matched; no suggestion available |
+| `gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01` | Safety and Infection Prevention and Control | case_study | home oxygen safety and COPD discharge teaching | (unresolved) | no exact alias matched; no suggestion available |
 | `gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q2` | Health Promotion and Maintenance | dropdown_cloze | COPD discharge teaching | (unresolved) | no exact alias matched; no suggestion available |
 | `gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q3` | Management of Care | ordered_response | home oxygen discharge coordination | (unresolved) | no exact alias matched; no suggestion available |
 | `gpt_gap_2026_06_12_nonmcq_balanced_case_copd_home_oxygen_01_q5` | Reduction of Risk Potential | fill_in_blank | portable oxygen planning | (unresolved) | no exact alias matched; no suggestion available |
 | `gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02` | Reduction of Risk Potential | case_study | post-fall assessment and escalation in long-term care | (unresolved) | no exact alias matched; no suggestion available |
 | `gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q3` | Management of Care | dropdown_cloze | post-fall escalation | (unresolved) | no exact alias matched; no suggestion available |
-| `gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q4` | Safety and Infection Control | ordered_response | post-fall monitoring sequence | (unresolved) | no exact alias matched; no suggestion available |
+| `gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q4` | Safety and Infection Prevention and Control | ordered_response | post-fall monitoring sequence | (unresolved) | no exact alias matched; no suggestion available |
 | `gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q5` | Health Promotion and Maintenance | matrix | fall prevention plan | (unresolved) | no exact alias matched; no suggestion available |
 | `gpt_gap_2026_06_12_nonmcq_balanced_case_pressure_injury_nutrition_03` | Basic Care and Comfort | case_study | pressure injury prevention with poor nutrition | (unresolved) | no exact alias matched; no suggestion available |
 | `gpt_gap_2026_06_12_nonmcq_balanced_case_pressure_injury_nutrition_03_q5` | Reduction of Risk Potential | fill_in_blank | wound measurement trend | (unresolved) | no exact alias matched; no suggestion available |
@@ -211,11 +211,11 @@ Blocked cross-category lexical aliases: 0
 | `gpt_gap_2026_06_12_nonmcq_balanced_b_case_peds_dehydration_03` | Health Promotion and Maintenance | case_study | pediatric dehydration oral rehydration teaching | (unresolved) | no exact alias matched; no suggestion available |
 | `gpt_gap_2026_06_12_nonmcq_balanced_b_case_peds_dehydration_03_q1` | Reduction of Risk Potential | matrix | pediatric dehydration cue recognition | (unresolved) | no exact alias matched; no suggestion available |
 | `gpt_gap_2026_06_12_nonmcq_balanced_b_case_wound_teachback_04` | Reduction of Risk Potential | case_study | home health wound-care teaching with teach-back failure | (unresolved) | no exact alias matched; no suggestion available |
-| `gpt_gap_2026_06_12_nonmcq_balanced_b_case_wound_teachback_04_q1` | Safety and Infection Control | matrix | home wound-care infection prevention | (unresolved) | no exact alias matched; no suggestion available |
+| `gpt_gap_2026_06_12_nonmcq_balanced_b_case_wound_teachback_04_q1` | Safety and Infection Prevention and Control | matrix | home wound-care infection prevention | (unresolved) | no exact alias matched; no suggestion available |
 | `gpt_gap_2026_06_12_nonmcq_balanced_b_case_wound_teachback_04_q2` | Basic Care and Comfort | dropdown_cloze | wound-care teach-back failure | (unresolved) | no exact alias matched; no suggestion available |
 | `gpt_gap_2026_06_12_nonmcq_balanced_b_case_wound_teachback_04_q5` | Management of Care | ordered_response | home wound-care teach-back sequence | (unresolved) | no exact alias matched; no suggestion available |
 | `gpt_2026_06_13_case_delirium_uti_01` | Physiological Adaptation | case_study | delirium superimposed on dementia | (unresolved) | no exact alias matched; no suggestion available |
-| `gpt_2026_06_13_case_delirium_uti_01_q2` | Safety and Infection Control | multiple_choice | hyperactive delirium safety | (unresolved) | no exact alias matched; no suggestion available |
+| `gpt_2026_06_13_case_delirium_uti_01_q2` | Safety and Infection Prevention and Control | multiple_choice | hyperactive delirium safety | (unresolved) | no exact alias matched; no suggestion available |
 | `gpt_2026_06_13_case_delirium_uti_01_q3` | Pharmacological and Parenteral Therapies | select_all | haloperidol safety in delirium | (unresolved) | no exact alias matched; no suggestion available |
 | `gpt_2026_06_13_case_delirium_uti_01_q4` | Reduction of Risk Potential | matrix | renal and delirium trend evaluation | (unresolved) | no exact alias matched; no suggestion available |
 | `gpt_2026_06_13_case_delirium_uti_01_q5` | Psychosocial Integrity | multiple_choice | family teaching about delirium recovery | (unresolved) | no exact alias matched; no suggestion available |
@@ -248,7 +248,7 @@ Blocked cross-category lexical aliases: 0
 | `gpt_hl_moc_code_status_03` | Management of Care | highlight | Advance Directives & Code Status | (unresolved) | no exact alias matched; no suggestion available |
 | `gpt_hl_moc_incident_doc_04` | Management of Care | highlight | Documentation & Incident Reporting | (unresolved) | no exact alias matched; no suggestion available |
 | `gpt_hl_moc_lpn_scope_05` | Management of Care | highlight | Scope of Practice & Assignment | (unresolved) | no exact alias matched; no suggestion available |
-| `gpt_hl_sic_fire_oxygen_07` | Safety and Infection Control | highlight | Oxygen & Fire Safety | (unresolved) | no exact alias matched; no suggestion available |
+| `gpt_hl_sic_fire_oxygen_07` | Safety and Infection Prevention and Control | highlight | Oxygen & Fire Safety | (unresolved) | no exact alias matched; no suggestion available |
 | `gpt_hl_pharm_kcl_order_09` | Pharmacological and Parenteral Therapies | highlight | High-Alert Medication Safety | (unresolved) | no exact alias matched; no suggestion available |
 | `gpt_hl_pharm_maoi_10` | Pharmacological and Parenteral Therapies | highlight | Psychotropic Medication Safety | (unresolved) | no exact alias matched; no suggestion available |
 | `gpt_hl_hpm_immunization_12` | Health Promotion and Maintenance | highlight | Immunizations & Immunosuppression | (unresolved) | no exact alias matched; no suggestion available |
@@ -274,7 +274,7 @@ Blocked cross-category lexical aliases: 0
 | `gpt_fresh_2026_06_22_moc_04` | Management of Care | highlight | Advance Directives / DNR | (unresolved) | no exact alias matched; no suggestion available |
 | `gpt_fresh_2026_06_22_moc_09` | Management of Care | highlight | Chain of Command & Escalation | (unresolved) | no exact alias matched; no suggestion available |
 | `gpt_fresh_2026_06_22_pharm_05` | Pharmacological and Parenteral Therapies | bowtie | High-Alert Medication Safety | (unresolved) | no exact alias matched; no suggestion available |
-| `gpt_fresh_2026_06_22_sic_03` | Safety and Infection Control | highlight | Environmental safety and equipment checks | (unresolved) | no exact alias matched; no suggestion available |
+| `gpt_fresh_2026_06_22_sic_03` | Safety and Infection Prevention and Control | highlight | Environmental safety and equipment checks | (unresolved) | no exact alias matched; no suggestion available |
 | `gpt_fresh_2026_06_22_vis_03` | Pharmacological and Parenteral Therapies | multiple_choice | High-Alert Medication Safety | (unresolved) | no exact alias matched; no suggestion available |
 | `gpt_fresh_2026_06_22_vis_07` | Pharmacological and Parenteral Therapies | fill_in_blank | High-Alert Medication Safety | (unresolved) | no exact alias matched; no suggestion available |
 | `gpt_fresh_2026_06_22_vis_08` | Reduction of Risk Potential | fill_in_blank | High-Alert Medication Safety | (unresolved) | no exact alias matched; no suggestion available |
@@ -284,10 +284,10 @@ Blocked cross-category lexical aliases: 0
 | `gpt_deepen_2026_06_22_esc_06` | Management of Care | bowtie | Advance Directives / DNR | (unresolved) | no exact alias matched; no suggestion available |
 | `gpt_deepen_2026_06_22_esc_07` | Management of Care | ordered_response | Chain of Command & Escalation | (unresolved) | no exact alias matched; no suggestion available |
 | `gpt_deepen_2026_06_22_esc_10` | Management of Care | ordered_response | Advance Directives / DNR | (unresolved) | no exact alias matched; no suggestion available |
-| `gpt_deepen_2026_06_22_sic_04` | Safety and Infection Control | highlight | Environmental safety and equipment checks | (unresolved) | no exact alias matched; no suggestion available |
-| `gpt_deepen_2026_06_22_sic_08` | Safety and Infection Control | bowtie | Environmental safety and equipment checks | (unresolved) | no exact alias matched; no suggestion available |
-| `gpt_deepen_2026_06_22_sic_12` | Safety and Infection Control | ordered_response | Environmental safety and equipment checks | (unresolved) | no exact alias matched; no suggestion available |
-| `gpt_deepen_2026_06_22_sic_14` | Safety and Infection Control | bowtie | Environmental safety and equipment checks | (unresolved) | no exact alias matched; no suggestion available |
+| `gpt_deepen_2026_06_22_sic_04` | Safety and Infection Prevention and Control | highlight | Environmental safety and equipment checks | (unresolved) | no exact alias matched; no suggestion available |
+| `gpt_deepen_2026_06_22_sic_08` | Safety and Infection Prevention and Control | bowtie | Environmental safety and equipment checks | (unresolved) | no exact alias matched; no suggestion available |
+| `gpt_deepen_2026_06_22_sic_12` | Safety and Infection Prevention and Control | ordered_response | Environmental safety and equipment checks | (unresolved) | no exact alias matched; no suggestion available |
+| `gpt_deepen_2026_06_22_sic_14` | Safety and Infection Prevention and Control | bowtie | Environmental safety and equipment checks | (unresolved) | no exact alias matched; no suggestion available |
 | `gpt_deepen_2026_06_22_b_moc1_01` | Management of Care | bowtie | Chain of Command & Escalation | (unresolved) | no exact alias matched; no suggestion available |
 | `gpt_deepen_2026_06_22_b_moc1_02` | Management of Care | bowtie | Advance Directives / DNR | (unresolved) | no exact alias matched; no suggestion available |
 | `gpt_deepen_2026_06_22_b_moc1_04` | Management of Care | bowtie | Advance Directives / DNR | (unresolved) | no exact alias matched; no suggestion available |
@@ -298,28 +298,28 @@ Blocked cross-category lexical aliases: 0
 | `cap_gpt_2026_07_02_t01_002` | Reduction of Risk Potential | select_all | capnography after intubation | (unresolved) | no exact alias matched; no suggestion available |
 | `cap_gpt_2026_07_02_t01_003` | Physiological Adaptation | multiple_choice | ROSC during CPR | (unresolved) | no exact alias matched; no suggestion available |
 | `cap_gpt_2026_07_02_t01_004` | Reduction of Risk Potential | matrix | rebreathing on anesthesia circuit | (unresolved) | no exact alias matched; no suggestion available |
-| `cap_gpt_2026_07_02_t01_005` | Safety and Infection Control | select_all | tracheal tube monitoring during transfer | (unresolved) | no exact alias matched; no suggestion available |
+| `cap_gpt_2026_07_02_t01_005` | Safety and Infection Prevention and Control | select_all | tracheal tube monitoring during transfer | (unresolved) | no exact alias matched; no suggestion available |
 | `cap_gpt_2026_07_02_t01_006` | Pharmacological and Parenteral Therapies | matrix | opioid oversedation with apnea | (unresolved) | no exact alias matched; no suggestion available |
 | `vit_gpt_2026_07_02_t01_001` | Physiological Adaptation | multiple_choice | septic shock progression | (unresolved) | no exact alias matched; no suggestion available |
 | `vit_gpt_2026_07_02_t01_002` | Reduction of Risk Potential | select_all | postoperative hemorrhage | (unresolved) | no exact alias matched; no suggestion available |
 | `vit_gpt_2026_07_02_t01_003` | Physiological Adaptation | matrix | compensated hypovolemic shock | (unresolved) | no exact alias matched; no suggestion available |
 | `vit_gpt_2026_07_02_t01_004` | Pharmacological and Parenteral Therapies | multiple_choice | response to fluid bolus | (unresolved) | no exact alias matched; no suggestion available |
 | `vit_gpt_2026_07_02_t01_005` | Pharmacological and Parenteral Therapies | matrix | septic shock response to fluids | (unresolved) | no exact alias matched; no suggestion available |
-| `vit_gpt_2026_07_02_t01_006` | Safety and Infection Control | select_all | atypical sepsis deterioration | (unresolved) | no exact alias matched; no suggestion available |
+| `vit_gpt_2026_07_02_t01_006` | Safety and Infection Prevention and Control | select_all | atypical sepsis deterioration | (unresolved) | no exact alias matched; no suggestion available |
 | `cap_gpt_2026_07_02_t02_001` | Reduction of Risk Potential | multiple_choice | ventilator circuit disconnection | (unresolved) | no exact alias matched; no suggestion available |
 | `cap_gpt_2026_07_02_t02_002` | Reduction of Risk Potential | select_all | rebreathing on anesthesia circuit | (unresolved) | no exact alias matched; no suggestion available |
 | `cap_gpt_2026_07_02_t02_003` | Physiological Adaptation | matrix | ROSC recognition during CPR | (unresolved) | no exact alias matched; no suggestion available |
 | `cap_gpt_2026_07_02_t02_004` | Physiological Adaptation | multiple_choice | endotracheal tube placement confirmation | (unresolved) | no exact alias matched; no suggestion available |
 | `cap_gpt_2026_07_02_t02_005` | Physiological Adaptation | select_all | COPD exacerbation with obstructive capnogram | (unresolved) | no exact alias matched; no suggestion available |
-| `cap_gpt_2026_07_02_t02_006` | Safety and Infection Control | matrix | tube displacement during transport | (unresolved) | no exact alias matched; no suggestion available |
+| `cap_gpt_2026_07_02_t02_006` | Safety and Infection Prevention and Control | matrix | tube displacement during transport | (unresolved) | no exact alias matched; no suggestion available |
 | `cap_gpt_2026_07_02_t03_001` | Physiological Adaptation | multiple_choice | bronchospasm during allergic reaction | (unresolved) | no exact alias matched; no suggestion available |
 | `cap_gpt_2026_07_02_t03_002` | Reduction of Risk Potential | select_all | accidental tracheostomy dislodgement | (unresolved) | no exact alias matched; no suggestion available |
 | `cap_gpt_2026_07_02_t03_003` | Management of Care | matrix | ROSC during code team resuscitation | (unresolved) | no exact alias matched; no suggestion available |
-| `cap_gpt_2026_07_02_t03_004` | Safety and Infection Control | multiple_choice | rebreathing during monitored anesthesia care | (unresolved) | no exact alias matched; no suggestion available |
+| `cap_gpt_2026_07_02_t03_004` | Safety and Infection Prevention and Control | multiple_choice | rebreathing during monitored anesthesia care | (unresolved) | no exact alias matched; no suggestion available |
 | `cap_gpt_2026_07_02_t03_005` | Pharmacological and Parenteral Therapies | matrix | sedation ventilation assessment | (unresolved) | no exact alias matched; no suggestion available |
 | `cap_gpt_2026_07_02_t03_006` | Physiological Adaptation | select_all | mainstem intubation versus bronchospasm | (unresolved) | no exact alias matched; no suggestion available |
 | `vit_gpt_2026_07_02_t02_001` | Reduction of Risk Potential | multiple_choice | postoperative hemorrhage | (unresolved) | no exact alias matched; no suggestion available |
-| `vit_gpt_2026_07_02_t02_002` | Safety and Infection Control | select_all | urosepsis deterioration | (unresolved) | no exact alias matched; no suggestion available |
+| `vit_gpt_2026_07_02_t02_002` | Safety and Infection Prevention and Control | select_all | urosepsis deterioration | (unresolved) | no exact alias matched; no suggestion available |
 | `vit_gpt_2026_07_02_t02_003` | Pharmacological and Parenteral Therapies | matrix | response to fluid bolus in pancreatitis | (unresolved) | no exact alias matched; no suggestion available |
 | `vit_gpt_2026_07_02_t02_004` | Pharmacological and Parenteral Therapies | multiple_choice | anaphylaxis response to epinephrine | (unresolved) | no exact alias matched; no suggestion available |
 | `vit_gpt_2026_07_02_t02_005` | Physiological Adaptation | select_all | cardiogenic shock deterioration | (unresolved) | no exact alias matched; no suggestion available |
@@ -335,18 +335,18 @@ Blocked cross-category lexical aliases: 0
 | `gpt_2026_07_03_2114_t3_insulin_correction_fib_04` | Pharmacological and Parenteral Therapies | fill_in_blank | Insulin Dose Calculation | (unresolved) | no exact alias matched; no suggestion available |
 | `gpt_2026_07_03_2114_t3_hypoglycemia_cloze_rule15_06` | Physiological Adaptation | dropdown_cloze | Hypoglycemia Management | (unresolved) | no exact alias matched; no suggestion available |
 | `cs_ngn_001_anorexia` | Physiological Adaptation | case_study | Anorexia Nervosa / Refeeding Syndrome | (unresolved) | no exact alias matched; no suggestion available |
-| `cs_ngn_002_disaster` | Safety and Infection Control | case_study | Disaster Triage / Chemical Exposure | (unresolved) | no exact alias matched; no suggestion available |
+| `cs_ngn_002_disaster` | Safety and Infection Prevention and Control | case_study | Disaster Triage / Chemical Exposure | (unresolved) | no exact alias matched; no suggestion available |
 | `q2_4` | Pharmacological and Parenteral Therapies | select_all | Organophosphate Antidotes | (unresolved) | no exact alias matched; no suggestion available |
 | `q2_5` | Pharmacological and Parenteral Therapies | multiple_choice | Atropine Evaluation | (unresolved) | no exact alias matched; no suggestion available |
-| `cs_ngn_003_child_abuse` | Safety and Infection Control | case_study | Child Abuse / Non-Accidental Trauma | (unresolved) | no exact alias matched; no suggestion available |
-| `q3_1` | Safety and Infection Control | multiple_choice | Shaken Baby Syndrome Signs | (unresolved) | no exact alias matched; no suggestion available |
+| `cs_ngn_003_child_abuse` | Safety and Infection Prevention and Control | case_study | Child Abuse / Non-Accidental Trauma | (unresolved) | no exact alias matched; no suggestion available |
+| `q3_1` | Safety and Infection Prevention and Control | multiple_choice | Shaken Baby Syndrome Signs | (unresolved) | no exact alias matched; no suggestion available |
 | `q3_3` | Management of Care | multiple_choice | Mandated Reporting | (unresolved) | no exact alias matched; no suggestion available |
-| `q3_4` | Safety and Infection Control | select_all | Child Abuse Interventions | (unresolved) | no exact alias matched; no suggestion available |
+| `q3_4` | Safety and Infection Prevention and Control | select_all | Child Abuse Interventions | (unresolved) | no exact alias matched; no suggestion available |
 | `q3_5` | Physiological Adaptation | multiple_choice | Infant ICP Signs | (unresolved) | no exact alias matched; no suggestion available |
 | `cs_ngn_004_blood` | Physiological Adaptation | case_study | Blood Transfusion Reaction (Hemolytic/TRALI) | (unresolved) | no exact alias matched; no suggestion available |
-| `q4_1` | Safety and Infection Control | multiple_choice | Transfusion Reaction Priority | (unresolved) | no exact alias matched; no suggestion available |
+| `q4_1` | Safety and Infection Prevention and Control | multiple_choice | Transfusion Reaction Priority | (unresolved) | no exact alias matched; no suggestion available |
 | `q4_2` | Physiological Adaptation | multiple_choice | Hemolytic Reaction Identification | (unresolved) | no exact alias matched; no suggestion available |
-| `q4_4` | Safety and Infection Control | select_all | Transfusion Reaction Protocol | (unresolved) | no exact alias matched; no suggestion available |
+| `q4_4` | Safety and Infection Prevention and Control | select_all | Transfusion Reaction Protocol | (unresolved) | no exact alias matched; no suggestion available |
 | `q4_5` | Physiological Adaptation | multiple_choice | Hemolytic Reaction Confirmation | (unresolved) | no exact alias matched; no suggestion available |
 | `cs_ngn_005_bipolar` | Psychosocial Integrity | case_study | Bipolar I - Acute Manic Episode | (unresolved) | no exact alias matched; no suggestion available |
 | `q5_3` | Basic Care and Comfort | multiple_choice | Mania Nutritional Support | (unresolved) | no exact alias matched; no suggestion available |
@@ -358,7 +358,7 @@ Blocked cross-category lexical aliases: 0
 | `q6_4` | Physiological Adaptation | select_all | ICP Management Interventions | (unresolved) | no exact alias matched; no suggestion available |
 | `cs_ngn_007_dic` | Physiological Adaptation | case_study | Disseminated Intravascular Coagulation (DIC) | (unresolved) | no exact alias matched; no suggestion available |
 | `q7_3` | Pharmacological and Parenteral Therapies | multiple_choice | Cryoprecipitate Role | (unresolved) | no exact alias matched; no suggestion available |
-| `q7_4` | Safety and Infection Control | select_all | DIC Nursing Interventions | (unresolved) | no exact alias matched; no suggestion available |
+| `q7_4` | Safety and Infection Prevention and Control | select_all | DIC Nursing Interventions | (unresolved) | no exact alias matched; no suggestion available |
 | `cs_ngn_008_peds` | Physiological Adaptation | case_study | Pyloric Stenosis vs. Intussusception | (unresolved) | no exact alias matched; no suggestion available |
 | `q8_1` | Physiological Adaptation | multiple_choice | Pyloric Stenosis Recognition | (unresolved) | no exact alias matched; no suggestion available |
 | `q8_2` | Physiological Adaptation | multiple_choice | Intussusception Recognition | (unresolved) | no exact alias matched; no suggestion available |
@@ -377,7 +377,7 @@ Blocked cross-category lexical aliases: 0
 | `claude_cs_jun06_pressure_injury_bcc_01` | Basic Care and Comfort | case_study | Pressure Injury Staging and Prevention | (unresolved) | no exact alias matched; no suggestion available |
 | `claude_cs_jun06_pressure_injury_bcc_01_part_1` | Basic Care and Comfort | matrix | Pressure Injury Staging and Prevention | (unresolved) | no exact alias matched; no suggestion available |
 | `claude_cs_jun06_pressure_injury_bcc_01_part_4` | Basic Care and Comfort | multiple_choice | Pressure Injury Staging and Prevention | (unresolved) | no exact alias matched; no suggestion available |
-| `claude_cs_jun06_cdiff_sic_01` | Safety and Infection Control | case_study | Clostridioides difficile and Contact Precautions | (unresolved) | no exact alias matched; no suggestion available |
+| `claude_cs_jun06_cdiff_sic_01` | Safety and Infection Prevention and Control | case_study | Clostridioides difficile and Contact Precautions | (unresolved) | no exact alias matched; no suggestion available |
 | `claude_cs_jun06_adult_immunization_hpm_01` | Health Promotion and Maintenance | case_study | Adult Immunization and Preventive Screening | (unresolved) | no exact alias matched; no suggestion available |
 | `claude_cs_jun06_ipv_screening_psi_01` | Psychosocial Integrity | case_study | Intimate Partner Violence Screening and Support | (unresolved) | no exact alias matched; no suggestion available |
 | `cs_thyroid_storm_main` | Physiological Adaptation | case_study | Thyroid Storm | (unresolved) | no exact alias matched; no suggestion available |
@@ -475,17 +475,17 @@ Blocked cross-category lexical aliases: 0
 | `iot_furosemide_positive_to_negative_crossover` | Pharmacological and Parenteral Therapies | multiple_choice | Diuretic Therapy | (unresolved) | no exact alias matched; no suggestion available |
 | `vit_04` | Pharmacological and Parenteral Therapies | multiple_choice | fluid resuscitation | (unresolved) | no exact alias matched; no suggestion available |
 | `vit_05` | Reduction of Risk Potential | multiple_choice | increased intracranial pressure | (unresolved) | no exact alias matched; no suggestion available |
-| `vit_10` | Safety and Infection Control | multiple_choice | malignant hyperthermia | (unresolved) | no exact alias matched; no suggestion available |
+| `vit_10` | Safety and Infection Prevention and Control | multiple_choice | malignant hyperthermia | (unresolved) | no exact alias matched; no suggestion available |
 
 ## Suggestions Requiring Review
 
 | Question ID | Category | Type | Current topic | Suggested topic | Reason |
 |---|---|---|---|---|---|
-| `gemini_sic_ngn_2026_06_21_q3` | Safety and Infection Control | select_all | Seizure precautions | Endocrine & Neurological Disorders | semantic alias suggestion |
-| `gemini_sic_ngn_2026_06_21_q5` | Safety and Infection Control | highlight | Fall prevention | Patient & Environment Safety | semantic alias suggestion |
-| `gemini_sic_ngn_2026_06_21_q13` | Safety and Infection Control | dropdown_cloze | Fall prevention | Patient & Environment Safety | semantic alias suggestion |
-| `gemini_sic_ngn_2026_06_21_q14` | Safety and Infection Control | dropdown_cloze | Seizure precautions | Endocrine & Neurological Disorders | semantic alias suggestion |
-| `gpt_fresh_2026_06_22_sic_05` | Safety and Infection Control | highlight | Fall prevention | Patient & Environment Safety | semantic alias suggestion |
-| `gpt_fresh_2026_06_22_sic_07` | Safety and Infection Control | ordered_response | Fall prevention | Patient & Environment Safety | semantic alias suggestion |
-| `gpt_deepen_2026_06_22_sic_03` | Safety and Infection Control | highlight | Fall prevention | Patient & Environment Safety | semantic alias suggestion |
-| `gpt_deepen_2026_06_22_sic_11` | Safety and Infection Control | ordered_response | Fall prevention | Patient & Environment Safety | semantic alias suggestion |
+| `gemini_sic_ngn_2026_06_21_q3` | Safety and Infection Prevention and Control | select_all | Seizure precautions | Endocrine & Neurological Disorders | semantic alias suggestion |
+| `gemini_sic_ngn_2026_06_21_q5` | Safety and Infection Prevention and Control | highlight | Fall prevention | Patient & Environment Safety | semantic alias suggestion |
+| `gemini_sic_ngn_2026_06_21_q13` | Safety and Infection Prevention and Control | dropdown_cloze | Fall prevention | Patient & Environment Safety | semantic alias suggestion |
+| `gemini_sic_ngn_2026_06_21_q14` | Safety and Infection Prevention and Control | dropdown_cloze | Seizure precautions | Endocrine & Neurological Disorders | semantic alias suggestion |
+| `gpt_fresh_2026_06_22_sic_05` | Safety and Infection Prevention and Control | highlight | Fall prevention | Patient & Environment Safety | semantic alias suggestion |
+| `gpt_fresh_2026_06_22_sic_07` | Safety and Infection Prevention and Control | ordered_response | Fall prevention | Patient & Environment Safety | semantic alias suggestion |
+| `gpt_deepen_2026_06_22_sic_03` | Safety and Infection Prevention and Control | highlight | Fall prevention | Patient & Environment Safety | semantic alias suggestion |
+| `gpt_deepen_2026_06_22_sic_11` | Safety and Infection Prevention and Control | ordered_response | Fall prevention | Patient & Environment Safety | semantic alias suggestion |

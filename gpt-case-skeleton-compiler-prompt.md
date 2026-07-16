@@ -180,7 +180,7 @@ bare `content` inside a stage. Timing belongs in the stage title or in a stage e
 Use exactly one of these eight category strings wherever a category is required:
 
 - `Management of Care`
-- `Safety and Infection Control`
+- `Safety and Infection Prevention and Control`
 - `Health Promotion and Maintenance`
 - `Psychosocial Integrity`
 - `Basic Care and Comfort`
@@ -188,7 +188,7 @@ Use exactly one of these eight category strings wherever a category is required:
 - `Reduction of Risk Potential`
 - `Physiological Adaptation`
 
-Do not use `mixed`. Do not use revised wording such as `Safety and Infection Prevention and Control` if the Project Shrimp schema requires the older exact string.
+Do not use `mixed` or the retired label `Safety and Infection Control`.
 
 `topic` is English-only. Never put Chinese characters in `topic`.
 
@@ -205,16 +205,16 @@ the case's primary clinical framing — not every category the topic can appear 
 category unless that is the case's actual focus. (E.g. a febrile-neutropenia case keyed on recognizing and
 treating the emergency is `Oncology & Immunotherapy Complications` under `Physiological Adaptation`; a
 hemolytic-transfusion-reaction case keyed on stopping the infusion and reaction workup is
-`Transfusion & Blood Products` under `Safety and Infection Control`.)
+`Transfusion & Blood Products` under `Safety and Infection Prevention and Control`.)
 
 | Category | Allowed topics |
 |---|---|
 | Management of Care | Prioritization & Delegation; Legal & Ethical Principles; Client Advocacy; Confidentiality & HIPAA; Discharge Planning & Handoff; Conflict Resolution; Caregiver Role Strain & Family Coping |
-| Safety and Infection Control | Patient & Environment Safety; Transmission-Based Precautions; Standard Precautions & Hygiene; PPE & Sterile Technique; Disaster & Emergency Preparedness; Medication Safety & Admin; Skin & Wound Care; Transfusion & Blood Products |
+| Safety and Infection Prevention and Control | Patient & Environment Safety; Transmission-Based Precautions; Standard Precautions & Hygiene; PPE & Sterile Technique; Disaster & Emergency Preparedness; Medication Safety & Admin; Skin & Wound Care; Transfusion & Blood Products |
 | Health Promotion and Maintenance | Maternal-Newborn Care & Teaching; Pediatric & Adolescent Health; Pediatric & Toddler Safety; Adult Health & Wellness; Reproductive & Endocrine Health; Chronic Disease Management & Lifestyle |
 | Psychosocial Integrity | Therapeutic Communication; Mental Health Disorders; Substance Use & Withdrawal; Suicide & Crisis Intervention; Electroconvulsive Therapy (ECT); Caregiver Role Strain & Family Coping |
 | Basic Care and Comfort | Nutritional & Fluid Support; Mobility & Immobility; Elimination & Comfort; Sleep & Rest; Palliative & Supportive Care; Skin & Wound Care |
-| Pharmacological and Parenteral Therapies | Dosage Calculations; Anticoagulant Therapy; Cardiovascular & Endocrine Medications; Psychotropic Medications; Parenteral Nutrition; Medication Safety & Admin; Laboratory & Diagnostic Tests; Transfusion & Blood Products |
+| Pharmacological and Parenteral Therapies | Dosage Calculations; IV Fluid Calculations; Anticoagulant Therapy; Cardiovascular & Endocrine Medications; Psychotropic Medications; Parenteral Nutrition; Medication Safety & Admin; Laboratory & Diagnostic Tests; Transfusion & Blood Products |
 | Reduction of Risk Potential | ABG & Acid-Base Interpretation; Perioperative Care; Procedural Complications & Dialysis; Laboratory & Diagnostic Tests; Oncology & Immunotherapy Complications; Skin & Wound Care; Transfusion & Blood Products |
 | Physiological Adaptation | Cardiovascular Disorders; Respiratory & Infectious Disorders; Renal & Gastrointestinal Disorders; Endocrine & Neurological Disorders; Electrolyte Imbalances; Diabetic Ketoacidosis (DKA); Sepsis & Septic Shock; Burn Management; Oncology & Immunotherapy Complications; Transfusion & Blood Products |
 

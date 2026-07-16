@@ -31,7 +31,7 @@ export const supportedSchemaVersions = ["1.0", "1.1", "1.2", "1.3", "1.4", "1.5"
 
 export const categories = [
   "Management of Care",
-  "Safety and Infection Control",
+  "Safety and Infection Prevention and Control",
   "Health Promotion and Maintenance",
   "Psychosocial Integrity",
   "Basic Care and Comfort",
@@ -44,7 +44,7 @@ export const NCLEX_CATEGORY_WEIGHTS: Record<Category, number> = {
   "Management of Care": 0.18,
   "Pharmacological and Parenteral Therapies": 0.16,
   "Physiological Adaptation": 0.14,
-  "Safety and Infection Control": 0.13,
+  "Safety and Infection Prevention and Control": 0.13,
   "Reduction of Risk Potential": 0.12,
   "Health Promotion and Maintenance": 0.09,
   "Psychosocial Integrity": 0.09,

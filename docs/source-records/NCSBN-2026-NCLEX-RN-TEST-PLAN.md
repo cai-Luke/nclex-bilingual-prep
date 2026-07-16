@@ -138,19 +138,19 @@ remains a focused assessment when the condition is life-threatening.
 Ranges are unchanged from the 2023 plan. Clinical judgment is measured additionally by 18 case-study
 items (three sets of six) plus ~10% stand-alone items, counted independently of category quotas.
 
-## Findings on first use (flagged, not actioned)
+## Findings on first use
 
 1. **Category rename — project-wide.** The 2026 plan renames the subcategory
    `Safety and Infection Control` → **`Safety and Infection Prevention and Control`** (pp. 3, 8, 24).
-   Project Shrimp's `category` enum carries the superseded 2023 name. Every Safety-category item is
-   tagged against a retired label. Not adjudicated here — raised for the architect/gate seats. Note
-   this is a rename of an existing subcategory, not a new category; item-level category *semantics*
-   are unaffected, so this is a vocabulary migration, not a reclassification.
+   Project Shrimp migrated the enum and exact category fields on 2026-07-16. This is a rename of an
+   existing subcategory, not a new category; item-level category *semantics* are unaffected.
 2. **`Dosage Calculations` is medication-scoped at source** (p. 39), but the repo's topic of the same
    name currently holds non-medication IV fluid math. That is a `Parenteral/Intravenous Therapies`
-   construct (p. 40). See `IV-FLUID-CALCULATION-CATEGORY-AUDIT-HANDOFF.md` (pending).
+   construct (p. 40). The architect ratified the STRICT `IV Fluid Calculations` topic and its
+   nine-item migration on 2026-07-16.
 3. **`Substance abuse` → `substance misuse`** terminology update appears throughout Psychosocial
-   Integrity (pp. 10, 31) and Safety (pp. 8, 24). Not audited.
+   Integrity (pp. 10, 31) and Safety (pp. 8, 24). The two identified live English strings were
+   folded into the 2026-07-16 cleanup.
 
 ## Re-verification
 

@@ -31,10 +31,10 @@ Category abbreviations below resolve to current executable `Category` values:
 | PA | `Physiological Adaptation` |
 | RRP | `Reduction of Risk Potential` |
 | Pharm | `Pharmacological and Parenteral Therapies` |
-| Safety | `Safety and Infection Control` |
+| Safety | `Safety and Infection Prevention and Control` |
 | BCC | `Basic Care and Comfort` |
 
-The NCSBN 2026 rename to `Safety and Infection Prevention and Control` remains a separate project-wide vocabulary migration. This manifest writes the current project enum value if executed before that migration.
+The separate project-wide NCSBN 2026 Safety-label migration was completed on 2026-07-16. It did not reopen or re-adjudicate this manifest.
 
 ## Accepted / Held / Revised Execution Manifest
 

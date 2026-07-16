@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-07-16T14:17:19.414Z",
-  "gitSha": "1a483807e5ea475dd65868680117965903ec3e0f",
+  "generatedAt": "2026-07-16T14:44:38.425Z",
+  "gitSha": "1c5f4ecc7890d29999adf99616e9c9e78de51d97",
   "perFile": [
     {
       "file": "burn-canonical.json",
@@ -116,13 +116,13 @@
   },
   "byCategory": {
     "Health Promotion and Maintenance": 164,
-    "Basic Care and Comfort": 165,
+    "Basic Care and Comfort": 166,
     "Psychosocial Integrity": 171,
-    "Reduction of Risk Potential": 203,
-    "Safety and Infection Control": 228,
-    "Physiological Adaptation": 285,
+    "Reduction of Risk Potential": 202,
+    "Safety and Infection Prevention and Control": 228,
+    "Physiological Adaptation": 283,
     "Management of Care": 291,
-    "Pharmacological and Parenteral Therapies": 291
+    "Pharmacological and Parenteral Therapies": 293
   },
   "withinCategory": {
     "Management of Care": {
@@ -174,7 +174,7 @@
         "mar": 2
       }
     },
-    "Safety and Infection Control": {
+    "Safety and Infection Prevention and Control": {
       "topTopics": [
         {
           "topic": "Patient & Environment Safety",
@@ -318,7 +318,7 @@
       "topTopics": [
         {
           "topic": "Nutritional & Fluid Support",
-          "count": 37
+          "count": 38
         },
         {
           "topic": "Elimination & Comfort",
@@ -365,12 +365,12 @@
     "Pharmacological and Parenteral Therapies": {
       "topTopics": [
         {
-          "topic": "Dosage Calculations",
-          "count": 56
-        },
-        {
           "topic": "Medication Safety & Admin",
           "count": 54
+        },
+        {
+          "topic": "Dosage Calculations",
+          "count": 50
         },
         {
           "topic": "Anticoagulant Therapy",
@@ -393,16 +393,16 @@
           "count": 12
         },
         {
+          "topic": "IV Fluid Calculations",
+          "count": 8
+        },
+        {
           "topic": "High-Alert Medication Safety",
           "count": 6
         },
         {
           "topic": "Nutritional & Fluid Support",
           "count": 3
-        },
-        {
-          "topic": "Antibiotic Allergy Screening",
-          "count": 2
         }
       ],
       "visualKinds": {
@@ -492,7 +492,7 @@
         },
         {
           "topic": "Diabetic Ketoacidosis (DKA)",
-          "count": 16
+          "count": 15
         },
         {
           "topic": "Respiratory & Infectious Disorders",
@@ -544,14 +544,14 @@
       "multiple_choice": 686
     },
     "byCategory": {
-      "Basic Care and Comfort": 214,
+      "Basic Care and Comfort": 215,
       "Health Promotion and Maintenance": 232,
       "Psychosocial Integrity": 249,
-      "Reduction of Risk Potential": 252,
-      "Safety and Infection Control": 277,
-      "Pharmacological and Parenteral Therapies": 368,
+      "Reduction of Risk Potential": 251,
+      "Safety and Infection Prevention and Control": 277,
+      "Pharmacological and Parenteral Therapies": 371,
       "Management of Care": 382,
-      "Physiological Adaptation": 402
+      "Physiological Adaptation": 399
     },
     "withinCategory": {
       "Management of Care": {
@@ -598,7 +598,7 @@
           }
         ]
       },
-      "Safety and Infection Control": {
+      "Safety and Infection Prevention and Control": {
         "topTopics": [
           {
             "topic": "Transmission-Based Precautions",
@@ -738,7 +738,7 @@
           },
           {
             "topic": "Nutritional & Fluid Support",
-            "count": 41
+            "count": 42
           },
           {
             "topic": "Elimination & Comfort",
@@ -778,7 +778,7 @@
         "topTopics": [
           {
             "topic": "Dosage Calculations",
-            "count": 71
+            "count": 65
           },
           {
             "topic": "Medication Safety & Admin",
@@ -805,15 +805,15 @@
             "count": 17
           },
           {
+            "topic": "IV Fluid Calculations",
+            "count": 9
+          },
+          {
             "topic": "High-Alert Medication Safety",
             "count": 6
           },
           {
             "topic": "Nutritional & Fluid Support",
-            "count": 3
-          },
-          {
-            "topic": "Prerenal acute kidney injury with hyperkalemia",
             "count": 3
           }
         ]
@@ -890,11 +890,11 @@
           },
           {
             "topic": "Diabetic Ketoacidosis (DKA)",
-            "count": 19
+            "count": 18
           },
           {
             "topic": "Sepsis & Septic Shock",
-            "count": 18
+            "count": 17
           },
           {
             "topic": "Burn Management",
@@ -919,7 +919,7 @@
           427.68
         ],
         [
-          "Safety and Infection Control",
+          "Safety and Infection Prevention and Control",
           308.88
         ],
         [
@@ -976,8 +976,9 @@
     "prioritizeTopics": [
       "Substance Use & Withdrawal — add: ordered_response",
       "Burn Management — add: ordered_response",
-      "Sepsis & Septic Shock — add: select_all, highlight",
+      "Sepsis & Septic Shock — add: select_all, fill_in_blank, highlight",
       "Chronic Disease Management & Lifestyle — add: highlight, bowtie",
+      "Diabetic Ketoacidosis (DKA) — add: fill_in_blank",
       "Psychotropic Medications — add: fill_in_blank",
       "C. difficile colitis and dehydration — add: select_all, ordered_response, fill_in_blank, matrix, dropdown_cloze, highlight, bowtie",
       "Injection route recognition from skin cross-section — add: select_all, ordered_response, fill_in_blank, matrix, dropdown_cloze, highlight, bowtie",
@@ -1004,12 +1005,11 @@
       "Adrenal crisis emergency response",
       "Advance Directives & Code Status",
       "Advocacy / Informed Refusal",
-      "anaphylaxis response to epinephrine",
-      "Anti-tuberculosis hepatotoxicity monitoring"
+      "anaphylaxis response to epinephrine"
     ],
     "avoidTopics": [
       "Cardiovascular Disorders (97)",
-      "Dosage Calculations (83)",
+      "Dosage Calculations (76)",
       "Adult Health & Wellness (75)",
       "Mental Health Disorders (74)",
       "Medication Safety & Admin (70)",
@@ -2191,7 +2191,7 @@
         323.64
       ],
       [
-        "Safety and Infection Control",
+        "Safety and Infection Prevention and Control",
         233.74
       ],
       [
@@ -2257,6 +2257,7 @@
     "Dosage Calculations — add: ordered_response",
     "Substance Use & Withdrawal — add: ordered_response",
     "Burn Management — add: ordered_response",
+    "Diabetic Ketoacidosis (DKA) — add: fill_in_blank",
     "Injection route recognition from skin cross-section — add: select_all, ordered_response, fill_in_blank, matrix, dropdown_cloze, highlight, bowtie",
     "Palliative & Supportive Care — add: select_all",
     "Electroconvulsive Therapy (ECT) — add: select_all, fill_in_blank",

@@ -233,11 +233,11 @@ export const assertPostS01Topics = (): void => {
   for (const category of ["Physiological Adaptation", "Reduction of Risk Potential"] as const) {
     if (!oncology.includes(category)) missing.push(`Oncology & Immunotherapy Complications lacks ${category}`);
   }
-  for (const category of ["Basic Care and Comfort", "Reduction of Risk Potential", "Safety and Infection Control"] as const) {
+  for (const category of ["Basic Care and Comfort", "Reduction of Risk Potential", "Safety and Infection Prevention and Control"] as const) {
     if (!wound.includes(category)) missing.push(`Skin & Wound Care lacks ${category}`);
   }
   for (const category of [
-    "Safety and Infection Control",
+    "Safety and Infection Prevention and Control",
     "Pharmacological and Parenteral Therapies",
     "Reduction of Risk Potential",
     "Physiological Adaptation",

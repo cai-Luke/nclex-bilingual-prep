@@ -11,7 +11,7 @@ import { collectScoredLeaves } from "../../lib/question-population";
 
 const counts: Record<Category, number> = {
   "Management of Care": 140,
-  "Safety and Infection Control": 139,
+  "Safety and Infection Prevention and Control": 139,
   "Health Promotion and Maintenance": 138,
   "Psychosocial Integrity": 137,
   "Basic Care and Comfort": 145,
