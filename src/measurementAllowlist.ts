@@ -1,5 +1,6 @@
 import { ANALYTE_DEFS } from "./visuals/kinds/lab_trend/defs";
 import { VITAL_DEFS } from "./visuals/kinds/vitals_trend/defs";
+import type { VitalKey } from "./visuals/kinds/vitals_trend/types";
 
 export interface MeasurementDef {
   key: string;
@@ -27,16 +28,47 @@ const INFERRED_UNITS: Readonly<Record<string, string>> = Object.freeze({
   total_bilirubin: "mg/dL",
 });
 
-const vitalEntries = Object.entries(VITAL_DEFS).map(([key, def]) => [
-  key,
-  freezeDef({
+/**
+ * Authored canonical-unit sanity ceilings that intentionally diverge from the
+ * vital registry ranges.
+ *
+ * VITAL_DEFS[key].range supplies the renderer validation envelope for most
+ * vitals. Temperature is different: its active validator bypasses the legacy
+ * registry range and uses separate source-unit-specific bounds.
+ *
+ * MeasurementDef.sanity is a warning-only unit/value-mismatch tripwire used by
+ * the flowsheet gate after conversion to the canonical unit. Temperature's
+ * sourced and ratified ceiling is recorded in DECISIONS.md §7; its floor
+ * continues to inherit VITAL_DEFS.temp.range.min pending separate review.
+ *
+ * The remaining six vitals currently inherit their full registry ranges
+ * pending the separate REVISIT inventory. That inheritance is provisional,
+ * not a suitability finding.
+ *
+ * Adding another key is a data-contract change requiring a consumer trace,
+ * bank-impact survey, sourcing where clinically applicable, and the full
+ * schema verification path. Do not quietly retune ceilings here.
+ */
+const VITAL_SANITY_MAX_OVERRIDES: Readonly<Partial<Record<VitalKey, number>>> =
+  Object.freeze({
+    temp: 46.5, // Ratified 2026-07-15; sourced to Slovis CM et al. 1982 (DECISIONS.md §7).
+  });
+
+const vitalEntries = Object.entries(VITAL_DEFS).map(([key, def]) => {
+  const maxOverride = VITAL_SANITY_MAX_OVERRIDES[key as VitalKey];
+  return [
     key,
-    canonicalUnit: def.unit,
-    acceptedSourceUnits: key === "temp" ? [def.unit, "°F", "F", "C"] : [def.unit],
-    sanity: def.range,
-    kind: "vital",
-  }),
-] as const);
+    freezeDef({
+      key,
+      canonicalUnit: def.unit,
+      acceptedSourceUnits: key === "temp" ? [def.unit, "°F", "F", "C"] : [def.unit],
+      sanity: maxOverride === undefined
+        ? def.range
+        : { min: def.range.min, max: maxOverride },
+      kind: "vital",
+    }),
+  ] as const;
+});
 
 const labEntries = Object.entries(ANALYTE_DEFS).map(([key, def]) => [
   key,

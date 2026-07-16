@@ -308,6 +308,12 @@ const fixtures: VisualKindModule<VitalsTrendSpec>["fixtures"] = {
     },
     {
       kind: "vitals_trend",
+      timepointsHr: [0, 1],
+      series: [{ vital: "temp", values: [108, 109] }],
+      tempUnit: "F",
+    },
+    {
+      kind: "vitals_trend",
       population: "peds_child",
       timepointsHr: [0, 1],
       series: [{ vital: "hr", values: [110, 105] }],
@@ -326,6 +332,7 @@ const fixtures: VisualKindModule<VitalsTrendSpec>["fixtures"] = {
     { spec: { kind: "vitals_trend", timepointsHr: [0, 1], series: [{ vital: "hr", values: [80] }] }, expectCode: "values_length_mismatch" },
     { spec: { kind: "vitals_trend", timepointsHr: [0, 1], series: [{ vital: "hr", values: [80, 90] }, { vital: "hr", values: [85, 95] }] }, expectCode: "duplicate_vital" },
     { spec: { kind: "vitals_trend", timepointsHr: [0, 1], series: [{ vital: "hr", values: [999, 90] }] }, expectCode: "value_out_of_range" },
+    { spec: { kind: "vitals_trend", timepointsHr: [0], tempUnit: "C", series: [{ vital: "temp", values: [43.1] }] }, expectCode: "value_out_of_range" },
     { spec: { kind: "vitals_trend", timepointsHr: [0, 1], series: [{ vital: "sbp", values: [100, 100] }, { vital: "dbp", values: [60, 60] }, { vital: "map", values: [200, 200] }] }, expectCode: "map_bounds_violation" },
     { spec: { kind: "vitals_trend", population: "peds_child", timepointsHr: [0, 1], series: [{ vital: "hr", values: [110, 105], showReferenceBand: true }] }, expectCode: "reference_band_population_unsupported" },
   ],

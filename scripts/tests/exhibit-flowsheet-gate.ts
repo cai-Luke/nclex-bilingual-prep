@@ -47,6 +47,17 @@ const baseRecord = (): ExtractionRecord => ({
 
 const run = (record: ExtractionRecord, src = source): Finding[] => gateRecord(record, src);
 
+const runTemperature = (value: string, sourceUnit: string): Finding[] => {
+  const sourceSpan = `Temperature ${value} ${sourceUnit}.`;
+  return run({
+    exhibitRef: `test/temp_${value}_${sourceUnit}`,
+    lane: "extract",
+    panel: [{ label: "temp", value, sourceUnit, sourceSpan }],
+    excludedValues: [],
+    unitAliases: [],
+  }, sourceSpan);
+};
+
 {
   const findings = run(baseRecord());
   assert(noFinding(findings, "value not a verbatim substring"), "present values should not trip GATE 1");
@@ -94,6 +105,34 @@ const run = (record: ExtractionRecord, src = source): Finding[] => gateRecord(re
   assert(toCanonical("temp", "102.0", "°F") !== null, "Fahrenheit temperature should convert");
   const tempC = toCanonical("temp", "102.0", "°F")!;
   assert(tempC > 38.8 && tempC < 39.0, "102.0 °F should convert to approximately 38.9 °C");
+}
+
+{
+  const cases = [
+    { value: "101.2", sourceUnit: "°F", shouldWarn: false, reason: "correctly staged Fahrenheit fever" },
+    { value: "101.2", sourceUnit: "°C", shouldWarn: true, reason: "Fahrenheit magnitude mis-staged as Celsius" },
+    { value: "101.2", sourceUnit: "C", shouldWarn: true, reason: "Fahrenheit magnitude mis-staged with bare-C spelling" },
+    { value: "86", sourceUnit: "°C", shouldWarn: true, reason: "lowest renderer-admissible Fahrenheit magnitude mis-staged as Celsius" },
+    { value: "46.5", sourceUnit: "°C", shouldWarn: false, reason: "ratified Celsius ceiling is inclusive" },
+    { value: "46.6", sourceUnit: "°C", shouldWarn: true, reason: "value just above the ratified Celsius ceiling" },
+    { value: "109", sourceUnit: "°F", shouldWarn: false, reason: "renderer Fahrenheit ceiling remains admissible after conversion" },
+    { value: "86", sourceUnit: "°F", shouldWarn: false, reason: "renderer Fahrenheit floor remains admissible after conversion" },
+  ];
+
+  for (const testCase of cases) {
+    const findings = runTemperature(testCase.value, testCase.sourceUnit);
+    if (testCase.shouldWarn) {
+      assert(
+        hasFinding(findings, "WARN", "GATE 4 out of band"),
+        `${testCase.reason} should produce a GATE 4 WARN`,
+      );
+    } else {
+      assert(
+        noFinding(findings, "GATE 4 out of band"),
+        `${testCase.reason} should not produce a GATE 4 finding`,
+      );
+    }
+  }
 }
 
 {

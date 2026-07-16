@@ -52,6 +52,38 @@ The committed NGN item-type set is complete. Rationale/dyad scoring and an expli
 
 > Milestones dated **2026-06-23 and earlier** are archived in [`Archive/PROJECT-HISTORY-ARCHIVE.md`](Archive/PROJECT-HISTORY-ARCHIVE.md). Only the current arc (2026-06-24 onward) is kept here.
 
+### R9 Temperature Sanity Decoupling (Jul 15)
+
+Completed:
+- Decoupled the structured-measurement temperature tripwire from the legacy `VITAL_DEFS.temp.range`
+  ceiling with a private, ceiling-only allowlist override. The temperature floor remains inherited and
+  explicitly unratified; all six non-temperature vital sanity ranges remain unchanged and
+  drift-guarded against `VITAL_DEFS`.
+- Implemented the sourced and ratified canonical-Celsius ceiling from
+  `r9-temperature-sanity-decoupling-codex-spec.md`, preserving GATE 4's warning-only semantics and the
+  renderer's independent source-unit-specific authoring envelopes.
+- Added focused GATE 4 regressions for correctly staged Fahrenheit values, Fahrenheit magnitudes
+  mis-staged as `°C` and bare `C`, the inclusive ceiling, the first value above it, and both ends of
+  the renderer-admissible Fahrenheit interval.
+- Added colocated `vitals_trend` fixtures that pin `109 °F` as valid and `43.1 °C` as outside the
+  unchanged renderer envelope. Generic visual conformance supplies the fixture render smoke.
+- Re-ran the exhaustive survey after the GPT format-gap promotion: 104 structured temperature values
+  across 13 canonical banks, canonical range 35.8–40.111 °C, zero unrecognized or unconvertible
+  units, and zero values newly warned by the ratified ceiling.
+- Regenerated the census after the promotion; bank counts were already current, while the generated
+  timestamp and embedded Git SHA advanced to the promotion commit.
+
+Verified:
+- `npm run test:measurement-allowlist`
+- `npm run test:flowsheet-gate`
+- `npm run test:structured-measurements`
+- `npm run test-visuals` (including kind-specific vitals tests, fixture render smoke, and visual parity)
+- `npm run validate-bank -- banks/*.json`
+- `npm run audit` (gate passed; existing advisory distributional warning remains)
+- `npx tsc -b --pretty false`
+- `npm run census && npm run census:check`
+- `npm run build`
+
 ### Documentation Architecture Pass: `DECISIONS.md` Constitution (Jul 14)
 
 Completed:
