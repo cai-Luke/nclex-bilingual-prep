@@ -7,6 +7,7 @@
  * licensed for a SHARED topic.
  */
 
+import { execSync } from "node:child_process";
 import { mkdir, readFile, readdir, writeFile } from "node:fs/promises";
 import { basename, dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -179,12 +180,24 @@ export async function runAuditTopicLicense(): Promise<AuditResult> {
 
 const escapeCell = (value: string | null): string => (value ?? "—").replace(/\|/g, "\\|").replace(/\n/g, "<br>");
 
-export const renderTopicLicenseReport = (analysis: TopicLicenseAnalysis): string => {
+const getGitSha = (): string => {
+  try {
+    return execSync("git rev-parse HEAD", { encoding: "utf8" }).trim();
+  } catch {
+    return "unknown";
+  }
+};
+
+export const renderTopicLicenseReport = (
+  analysis: TopicLicenseAnalysis,
+  options: { inputGitSha?: string } = {},
+): string => {
   const { metrics, findings } = analysis;
   const lines = [
     "# Topic-License Hygiene Report",
     "",
     "Status: report-only advisory generated from the current canonical banks.",
+    `Input Git SHA: ${options.inputGitSha ?? "not-recorded"}`,
     "",
     "This gate validates exact canonical topic vocabulary membership and declared topic/category licenses. It cannot enforce the clinical boundary among categories licensed for a SHARED topic; that remains semantic-review work.",
     "",
@@ -230,7 +243,7 @@ const runCli = async (): Promise<void> => {
   if (outputArg) {
     const outputPath = outputArg.slice("--output=".length);
     await mkdir(dirname(outputPath), { recursive: true });
-    await writeFile(outputPath, renderTopicLicenseReport(analysis), "utf8");
+    await writeFile(outputPath, renderTopicLicenseReport(analysis, { inputGitSha: getGitSha() }), "utf8");
     console.log(`Topic-license report written: ${outputPath}`);
   }
   const result = await runAuditTopicLicense();

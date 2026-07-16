@@ -2,15 +2,16 @@ import { execSync } from "node:child_process";
 import { readFile, readdir, writeFile } from "node:fs/promises";
 import { basename, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
+import {
+  collectQuestionPopulation,
+  collectScoredLeaves,
+  collectVisualArtifacts,
+} from "../lib/question-population";
 import { parseBankText } from "../src/bankImport";
-import { validateBankObject } from "../src/schema";
-import { categories, standaloneItemTypes } from "../src/schema";
+import { categories, standaloneItemTypes, validateBankObject } from "../src/schema";
 import { listVisualKinds } from "../src/visuals/registry";
-import type { Question, QuestionVisual, RhythmStripVisual } from "../src/types";
-import { computeCoverage } from "./coverage-report";
-import { collectScoredLeaves } from "../lib/question-population";
-
-// ---- Types ----
+import type { Question, RhythmStripVisual, StandaloneQuestion } from "../src/types";
+import { computeCoverage, SESSION_SIZE, type CoverageData } from "./coverage-report";
 
 type PerFileEntry = {
   file: string;
@@ -20,68 +21,84 @@ type PerFileEntry = {
   mismatch: boolean;
 };
 
-type CensusData = {
+type TopicConcentration = Record<string, { topTopics: Array<{ topic: string; count: number }> }>;
+
+type PlanningTargets = {
+  categoryTargets: [string, number][];
+  itemTypeAverage: number;
+  underCategories: [string, number][];
+  overCategories: [string, number][];
+  underItemTypes: [string, number][];
+};
+
+export type CensusData = {
   generatedAt: string;
-  gitSha: string;
-  perFile: PerFileEntry[];
-  totals: {
-    topLevel: number;
-    caseStudyTopLevel: number;
-    standaloneTopLevel: number;
-    embeddedParts: number;
-    scoredLeaves: number;
-    inventoryRecords: number;
-    /** @deprecated Compatibility alias for inventoryRecords; includes case containers. */
-    gradedTotal: number;
-  };
-  byItemType: Record<string, number>;
-  byCategory: Record<string, number>;
-  withinCategory: Record<string, {
-    topTopics: Array<{ topic: string; count: number }>;
-    visualKinds: Record<string, number>;
-  }>;
-  byDifficulty: Record<string, number>;
-  scoredLeaves: {
+  inputGitSha: string;
+  sessionUnits: {
+    populationBasis: "top_level_session_units";
     total: number;
+    standalone: number;
+    caseContainers: number;
+    embeddedParts: number;
+    inventoryRecords: number;
+    perFile: PerFileEntry[];
     byItemType: Record<string, number>;
     byCategory: Record<string, number>;
-    withinCategory: Record<string, {
-      topTopics: Array<{ topic: string; count: number }>;
-    }>;
+    withinCategory: TopicConcentration;
     byDifficulty: Record<string, number>;
-    targets: {
-      categoryTargets: [string, number][];
-      itemTypeAvg: number;
-      underCategories: [string, number][];
-      overCategories: [string, number][];
-      underItemTypes: [string, number][];
+    deliveryCapacity: {
+      requestedSessionSize: number;
+      standaloneDrawEligible: number;
+      insufficientForFullSession: boolean;
+      byCategory: [string, number][];
+      requestedCategoryTargets: [string, number][];
+      shortfalls: [string, number][];
     };
+    bySchemaVersion: Record<string, { questions: number; files: string[] }>;
+    bySourceFile: Record<string, number>;
+    caseStudies: Array<{ id: string; topic: string; parts: number; bank: string }>;
+  };
+  scoredLeaves: {
+    populationBasis: "standalone_top_level_plus_embedded_leaves";
+    total: number;
+    standalone: number;
+    embedded: number;
+    byItemType: Record<string, number>;
+    byCategory: Record<string, number>;
+    withinCategory: TopicConcentration;
+    byDifficulty: Record<string, number>;
+    targets: PlanningTargets;
     prioritizeTopics: string[];
     avoidTopics: string[];
   };
-  bySchemaVersion: Record<string, { questions: number; files: string[] }>;
-  bySourceFile: Record<string, number>;
-  visuals: {
+  visualArtifacts: {
+    populationBasis: "recursive_visual_artifacts";
     total: number;
     byKind: Record<string, number>;
     rhythmSubtypes: Record<string, number>;
     idsByKind: Record<string, string[]>;
   };
-  caseStudies: Array<{ id: string; topic: string; parts: number; bank: string }>;
   idUniqueness: { duplicates: Array<{ id: string; files: string[] }> };
-  targets: {
-    categoryTargets: [string, number][];
-    itemTypeAvg: number;
-    underCategories: [string, number][];
-    overCategories: [string, number][];
-    underItemTypes: [string, number][];
-  };
-  prioritizeTopics: string[];
-  avoidTopics: string[];
   docsDrift: { ok: boolean; findings: string[] };
 };
 
-// ---- File loading ----
+export type CensusPopulationAnalysis = {
+  sessionUnits: {
+    total: number;
+    standalone: number;
+    caseContainers: number;
+    embeddedParts: number;
+    inventoryRecords: number;
+    coverage: CoverageData;
+  };
+  scoredLeaves: {
+    total: number;
+    standalone: number;
+    embedded: number;
+    questions: StandaloneQuestion[];
+    coverage: CoverageData;
+  };
+};
 
 export const getBankFiles = async () => {
   const bankFiles = await readdir("banks").then((files) =>
@@ -98,12 +115,10 @@ export const loadBank = async (file: string) => {
   const raw = parseBankText(text);
   const result = validateBankObject(raw);
   if (!result.ok) {
-    throw new Error(`${basename(file)} failed validation:\n${result.reasons.map((r) => `- ${r}`).join("\n")}`);
+    throw new Error(`${basename(file)} failed validation:\n${result.reasons.map((reason) => `- ${reason}`).join("\n")}`);
   }
   return result.value;
 };
-
-// ---- Git SHA ----
 
 const getGitSha = (): string => {
   try {
@@ -113,35 +128,162 @@ const getGitSha = (): string => {
   }
 };
 
-// ---- Visual traversal with owner ID ----
+const sumCounts = (rows: readonly (readonly [string, number])[]) =>
+  rows.reduce((sum, [, count]) => sum + count, 0);
 
-type VisualWithOwner = { visual: QuestionVisual; ownerId: string };
-
-const collectVisualsWithOwner = (question: Question): VisualWithOwner[] => {
-  const results: VisualWithOwner[] = [];
-  if (question.visual) results.push({ visual: question.visual, ownerId: question.id });
-  if (question.itemType === "case_study") {
-    question.caseStudy.exhibits.forEach((exhibit) => {
-      if (exhibit.visual) results.push({ visual: exhibit.visual, ownerId: question.id });
-    });
-    question.caseStudy.stages?.forEach((stage) => {
-      stage.exhibits.forEach((exhibit) => {
-        if (exhibit.visual) results.push({ visual: exhibit.visual, ownerId: question.id });
-      });
-    });
-    question.caseStudy.questions.forEach((caseQuestion) => {
-      if (caseQuestion.visual) results.push({ visual: caseQuestion.visual, ownerId: caseQuestion.id });
-    });
+export const assertCensusPopulationReconciliation = (analysis: CensusPopulationAnalysis): void => {
+  const session = analysis.sessionUnits;
+  const leaves = analysis.scoredLeaves;
+  const sessionTotals = [
+    session.coverage.totalQuestions,
+    sumCounts(session.coverage.byCategory),
+    sumCounts(session.coverage.byItemType),
+    sumCounts(session.coverage.byDifficulty),
+  ];
+  if (
+    session.standalone + session.caseContainers !== session.total ||
+    sessionTotals.some((count) => count !== session.total)
+  ) {
+    throw new Error(`Session-unit reconciliation failed: totals=${sessionTotals.join(",")}, declared=${session.total}.`);
   }
-  return results;
+  const scoredTotals = [
+    leaves.coverage.totalQuestions,
+    sumCounts(leaves.coverage.byCategory),
+    sumCounts(leaves.coverage.byItemType),
+    sumCounts(leaves.coverage.byDifficulty),
+  ];
+  if (
+    leaves.standalone + leaves.embedded !== leaves.total ||
+    leaves.questions.length !== leaves.total ||
+    scoredTotals.some((count) => count !== leaves.total)
+  ) {
+    throw new Error(`Scored-leaf reconciliation failed: totals=${scoredTotals.join(",")}, declared=${leaves.total}.`);
+  }
+  if (
+    leaves.coverage.byItemType.some(([itemType]) => itemType === "case_study") ||
+    leaves.coverage.underItemTypes.some(([itemType]) => itemType === "case_study")
+  ) {
+    throw new Error("Scored-leaf reconciliation failed: case_study entered a scored item-type distribution.");
+  }
+  if (session.coverage.totalEligible !== session.standalone) {
+    throw new Error(
+      `Session-unit delivery-capacity reconciliation failed: eligible=${session.coverage.totalEligible}, standalone=${session.standalone}.`,
+    );
+  }
 };
 
-// ---- Docs drift check (advisory, best-effort) ----
+const assertSameIds = (expected: readonly StandaloneQuestion[], actual: readonly StandaloneQuestion[]) => {
+  const expectedIds = expected.map(({ id }) => id);
+  const actualIds = actual.map(({ id }) => id);
+  if (expectedIds.length !== actualIds.length || expectedIds.some((id, index) => id !== actualIds[index])) {
+    throw new Error(
+      `Scored-leaf population drift: shared traversal produced [${expectedIds.join(", ")}], supplied population was [${actualIds.join(", ")}].`,
+    );
+  }
+};
+
+/**
+ * Builds and reconciles the two question populations. The optional second
+ * argument exists only to make denominator drift fail deterministically in
+ * focused regressions and future call sites.
+ */
+export const analyzeCensusPopulations = (
+  sessionQuestions: readonly Question[],
+  suppliedScoredLeaves?: readonly StandaloneQuestion[],
+): CensusPopulationAnalysis => {
+  const expectedScoredLeaves = collectScoredLeaves(sessionQuestions);
+  const scoredLeafQuestions = [...(suppliedScoredLeaves ?? expectedScoredLeaves)];
+  assertSameIds(expectedScoredLeaves, scoredLeafQuestions);
+
+  const caseContainers = sessionQuestions.filter((question) => question.itemType === "case_study").length;
+  const standalone = sessionQuestions.length - caseContainers;
+  const embeddedParts = sessionQuestions.reduce(
+    (sum, question) => sum + (question.itemType === "case_study" ? question.caseStudy.questions.length : 0),
+    0,
+  );
+  const scoredTotal = standalone + embeddedParts;
+  const sessionCoverage = computeCoverage([...sessionQuestions]);
+  const scoredCoverage = computeCoverage(scoredLeafQuestions, undefined, {
+    itemTypePopulation: standaloneItemTypes,
+  });
+
+  const sessionReconciliations = [
+    sessionCoverage.totalQuestions,
+    sumCounts(sessionCoverage.byCategory),
+    sumCounts(sessionCoverage.byItemType),
+    sumCounts(sessionCoverage.byDifficulty),
+  ];
+  if (sessionReconciliations.some((count) => count !== sessionQuestions.length)) {
+    throw new Error(
+      `Session-unit reconciliation failed: totals=${sessionReconciliations.join(",")}, expected=${sessionQuestions.length}.`,
+    );
+  }
+
+  const scoredReconciliations = [
+    scoredCoverage.totalQuestions,
+    sumCounts(scoredCoverage.byCategory),
+    sumCounts(scoredCoverage.byItemType),
+    sumCounts(scoredCoverage.byDifficulty),
+  ];
+  if (scoredTotal !== scoredLeafQuestions.length || scoredReconciliations.some((count) => count !== scoredTotal)) {
+    throw new Error(
+      `Scored-leaf reconciliation failed: totals=${scoredReconciliations.join(",")}, structural=${scoredTotal}.`,
+    );
+  }
+  if (
+    scoredCoverage.byItemType.some(([itemType]) => itemType === "case_study") ||
+    scoredCoverage.underItemTypes.some(([itemType]) => itemType === "case_study")
+  ) {
+    throw new Error("Scored-leaf reconciliation failed: case_study entered a scored item-type distribution.");
+  }
+  if (sessionCoverage.totalEligible !== standalone) {
+    throw new Error(
+      `Session-unit delivery-capacity reconciliation failed: eligible=${sessionCoverage.totalEligible}, standalone=${standalone}.`,
+    );
+  }
+
+  const analysis: CensusPopulationAnalysis = {
+    sessionUnits: {
+      total: sessionQuestions.length,
+      standalone,
+      caseContainers,
+      embeddedParts,
+      inventoryRecords: sessionQuestions.length + embeddedParts,
+      coverage: sessionCoverage,
+    },
+    scoredLeaves: {
+      total: scoredTotal,
+      standalone,
+      embedded: embeddedParts,
+      questions: scoredLeafQuestions,
+      coverage: scoredCoverage,
+    },
+  };
+  assertCensusPopulationReconciliation(analysis);
+  return analysis;
+};
+
+const topicConcentration = (questions: readonly Question[]): TopicConcentration => {
+  const result: TopicConcentration = {};
+  for (const category of categories) {
+    const counts = new Map<string, number>();
+    for (const question of questions.filter((candidate) => candidate.category === category)) {
+      counts.set(question.topic, (counts.get(question.topic) ?? 0) + 1);
+    }
+    result[category] = {
+      topTopics: [...counts.entries()]
+        .sort(([leftTopic, leftCount], [rightTopic, rightCount]) =>
+          rightCount - leftCount || leftTopic.localeCompare(rightTopic))
+        .slice(0, 10)
+        .map(([topic, count]) => ({ topic, count })),
+    };
+  }
+  return result;
+};
 
 const checkDocsDrift = async (loadedFileBasenames: string[]): Promise<{ ok: boolean; findings: string[] }> => {
   const findings: string[] = [];
   const loadedFiles = new Set(loadedFileBasenames);
-
   const checkDoc = async (docPath: string) => {
     let text: string;
     try {
@@ -149,29 +291,19 @@ const checkDocsDrift = async (loadedFileBasenames: string[]): Promise<{ ok: bool
     } catch {
       return;
     }
-    const matches = text.match(/\b[\w-]+-canonical\.json\b/g) ?? [];
-    const mentioned = new Set(matches);
-    for (const name of mentioned) {
-      if (!loadedFiles.has(name)) {
-        findings.push(`${basename(docPath)} references "${name}" but it is not in banks/`);
-      }
+    for (const name of new Set(text.match(/\b[\w-]+-canonical\.json\b/g) ?? [])) {
+      if (!loadedFiles.has(name)) findings.push(`${basename(docPath)} references "${name}" but it is not in banks/`);
     }
   };
-
   await Promise.all([checkDoc("PROJECT-HISTORY.md"), checkDoc("BANK-REVIEW-LEDGER.md")]);
   return { ok: findings.length === 0, findings };
 };
 
-// ---- Core census computation ----
-
-const computeCensus = async (): Promise<CensusData> => {
+export const computeCensus = async (): Promise<CensusData> => {
   const files = await getBankFiles();
   const banks: Array<{ file: string; envelope: Awaited<ReturnType<typeof loadBank>> }> = [];
-  for (const file of files) {
-    banks.push({ file, envelope: await loadBank(file) });
-  }
+  for (const file of files) banks.push({ file, envelope: await loadBank(file) });
 
-  // Per-file metadata
   const perFile: PerFileEntry[] = banks.map(({ file, envelope }) => {
     const schemaVersion = envelope.meta?.schemaVersion ?? null;
     const metaCount = envelope.meta?.count ?? null;
@@ -184,129 +316,48 @@ const computeCensus = async (): Promise<CensusData> => {
       mismatch: metaCount !== null && metaCount !== questionsLength,
     };
   });
-
-  // Flat question list
   const allQuestions: Question[] = banks.flatMap(({ envelope }) => envelope.questions);
-  const scoredLeafQuestions = collectScoredLeaves(allQuestions);
+  const populations = analyzeCensusPopulations(allQuestions);
+  const sessionCoverage = populations.sessionUnits.coverage;
+  const scoredCoverage = populations.scoredLeaves.coverage;
 
-  const withinCategory: CensusData["withinCategory"] = {};
-  for (const category of categories) {
-    const questions = allQuestions.filter((question) => question.category === category);
-    const topicCounts = new Map<string, number>();
-    const visualCounts = new Map<string, number>();
-    for (const question of questions) {
-      topicCounts.set(question.topic, (topicCounts.get(question.topic) ?? 0) + 1);
-      for (const { visual } of collectVisualsWithOwner(question)) {
-        visualCounts.set(visual.kind, (visualCounts.get(visual.kind) ?? 0) + 1);
-      }
-    }
-    withinCategory[category] = {
-      topTopics: [...topicCounts.entries()]
-        .sort(([leftTopic, leftCount], [rightTopic, rightCount]) =>
-          rightCount - leftCount || leftTopic.localeCompare(rightTopic))
-        .slice(0, 10)
-        .map(([topic, count]) => ({ topic, count })),
-      visualKinds: Object.fromEntries(
-        [...visualCounts.entries()].sort(([left], [right]) => left.localeCompare(right)),
-      ),
-    };
-  }
-
-  // Top-level vs embedded split
-  let topLevel = 0;
-  let caseStudyTopLevel = 0;
-  let embeddedParts = 0;
-  for (const q of allQuestions) {
-    topLevel += 1;
-    if (q.itemType === "case_study") {
-      caseStudyTopLevel += 1;
-      embeddedParts += q.caseStudy.questions.length;
-    }
-  }
-  const standaloneTopLevel = topLevel - caseStudyTopLevel;
-  const scoredLeaves = standaloneTopLevel + embeddedParts;
-  const inventoryRecords = topLevel + embeddedParts;
-
-  // Coverage (reuses coverage-report logic)
-  const coverage = computeCoverage(allQuestions);
-  const scoredLeafCoverage = computeCoverage(scoredLeafQuestions, undefined, {
-    itemTypePopulation: standaloneItemTypes,
-  });
-  if (coverage.totalQuestions !== topLevel) {
-    throw new Error(`Top-level coverage drift: counted ${coverage.totalQuestions}, expected ${topLevel}.`);
-  }
-  if (scoredLeafCoverage.totalQuestions !== scoredLeaves) {
-    throw new Error(`Scored-leaf coverage drift: counted ${scoredLeafCoverage.totalQuestions}, expected ${scoredLeaves}.`);
-  }
-  const scoredLeafCategoryTotal = scoredLeafCoverage.byCategory.reduce((sum, [, count]) => sum + count, 0);
-  const scoredLeafItemTypeTotal = scoredLeafCoverage.byItemType.reduce((sum, [, count]) => sum + count, 0);
-  if (scoredLeafCategoryTotal !== scoredLeaves || scoredLeafItemTypeTotal !== scoredLeaves) {
-    throw new Error(
-      `Scored-leaf reconciliation failed: categories=${scoredLeafCategoryTotal}, itemTypes=${scoredLeafItemTypeTotal}, expected=${scoredLeaves}.`,
-    );
-  }
-
-  const scoredLeafWithinCategory: CensusData["scoredLeaves"]["withinCategory"] = {};
-  for (const category of categories) {
-    const topicCounts = new Map<string, number>();
-    for (const question of scoredLeafQuestions.filter((candidate) => candidate.category === category)) {
-      topicCounts.set(question.topic, (topicCounts.get(question.topic) ?? 0) + 1);
-    }
-    scoredLeafWithinCategory[category] = {
-      topTopics: [...topicCounts.entries()]
-        .sort(([leftTopic, leftCount], [rightTopic, rightCount]) =>
-          rightCount - leftCount || leftTopic.localeCompare(rightTopic))
-        .slice(0, 10)
-        .map(([topic, count]) => ({ topic, count })),
-    };
-  }
-
-  // bySchemaVersion
   const bySchemaVersion: Record<string, { questions: number; files: string[] }> = {};
   for (const entry of perFile) {
-    const ver = entry.schemaVersion ?? "unknown";
-    if (!bySchemaVersion[ver]) bySchemaVersion[ver] = { questions: 0, files: [] };
-    bySchemaVersion[ver].questions += entry.questionsLength;
-    bySchemaVersion[ver].files.push(entry.file);
+    const version = entry.schemaVersion ?? "unknown";
+    if (!bySchemaVersion[version]) bySchemaVersion[version] = { questions: 0, files: [] };
+    bySchemaVersion[version].questions += entry.questionsLength;
+    bySchemaVersion[version].files.push(entry.file);
   }
+  const bySourceFile = Object.fromEntries(perFile.map(({ file, questionsLength }) => [file, questionsLength]));
 
-  // bySourceFile
-  const bySourceFile: Record<string, number> = Object.fromEntries(
-    perFile.map(({ file, questionsLength }) => [file, questionsLength]),
-  );
-
-  // Visual counts + ID enumeration
+  const artifacts = collectVisualArtifacts(allQuestions);
   const visualKindCounts = new Map<string, number>();
   const visualIdsByKind = new Map<string, string[]>();
   const rhythmSubtypeCounts = new Map<string, number>();
-
-  for (const question of allQuestions) {
-    for (const { visual, ownerId } of collectVisualsWithOwner(question)) {
-      const kind = visual.kind;
-      visualKindCounts.set(kind, (visualKindCounts.get(kind) ?? 0) + 1);
-      const ids = visualIdsByKind.get(kind) ?? [];
-      ids.push(ownerId);
-      visualIdsByKind.set(kind, ids);
-      if (visual.kind === "rhythm_strip") {
-        const rhythm = (visual as RhythmStripVisual).rhythm;
-        rhythmSubtypeCounts.set(rhythm, (rhythmSubtypeCounts.get(rhythm) ?? 0) + 1);
-      }
+  for (const { visual, ownerId } of artifacts) {
+    visualKindCounts.set(visual.kind, (visualKindCounts.get(visual.kind) ?? 0) + 1);
+    visualIdsByKind.set(visual.kind, [...(visualIdsByKind.get(visual.kind) ?? []), ownerId]);
+    if (visual.kind === "rhythm_strip") {
+      const rhythm = (visual as RhythmStripVisual).rhythm;
+      rhythmSubtypeCounts.set(rhythm, (rhythmSubtypeCounts.get(rhythm) ?? 0) + 1);
     }
   }
-
   const allKinds = [...listVisualKinds()].sort();
-  const byKind: Record<string, number> = Object.fromEntries(
-    allKinds.map((kind) => [kind, visualKindCounts.get(kind) ?? 0]),
-  );
-  const idsByKind: Record<string, string[]> = Object.fromEntries(
+  const byKind = Object.fromEntries(allKinds.map((kind) => [kind, visualKindCounts.get(kind) ?? 0]));
+  const idsByKind = Object.fromEntries(
     allKinds.map((kind) => [kind, [...new Set(visualIdsByKind.get(kind) ?? [])].sort()]),
   );
-  const rhythmSubtypes: Record<string, number> = Object.fromEntries(
-    [...rhythmSubtypeCounts.entries()].sort(([a], [b]) => a.localeCompare(b)),
+  const rhythmSubtypes = Object.fromEntries(
+    [...rhythmSubtypeCounts.entries()].sort(([left], [right]) => left.localeCompare(right)),
   );
+  const artifactTotalFromKinds = Object.values(byKind).reduce((sum, count) => sum + count, 0);
+  if (artifactTotalFromKinds !== artifacts.length || sessionCoverage.totalVisuals !== artifacts.length) {
+    throw new Error(
+      `Visual-artifact reconciliation failed: traversal=${artifacts.length}, kinds=${artifactTotalFromKinds}, coverage=${sessionCoverage.totalVisuals}.`,
+    );
+  }
 
-  // Case study inventory
-  const caseStudies: CensusData["caseStudies"] = [];
+  const caseStudies: CensusData["sessionUnits"]["caseStudies"] = [];
   for (const { file, envelope } of banks) {
     for (const question of envelope.questions) {
       if (question.itemType === "case_study") {
@@ -320,413 +371,280 @@ const computeCensus = async (): Promise<CensusData> => {
     }
   }
 
-  // Cross-bank ID uniqueness
   const idToFiles = new Map<string, string[]>();
   for (const { file, envelope } of banks) {
-    const b = basename(file);
-    for (const question of envelope.questions) {
-      const ids = [question.id];
-      if (question.itemType === "case_study") {
-        question.caseStudy.questions.forEach((eq) => ids.push(eq.id));
-      }
-      for (const id of ids) {
-        const existing = idToFiles.get(id) ?? [];
-        existing.push(b);
-        idToFiles.set(id, existing);
-      }
+    for (const { question } of collectQuestionPopulation(envelope)) {
+      idToFiles.set(question.id, [...(idToFiles.get(question.id) ?? []), basename(file)]);
     }
   }
   const duplicates = [...idToFiles.entries()]
-    .filter(([, fs]) => fs.length > 1)
-    .sort(([a], [b]) => a.localeCompare(b))
-    .map(([id, fs]) => ({ id, files: fs }));
-
-  const docsDrift = await checkDocsDrift(perFile.map((e) => e.file));
+    .filter(([, recordFiles]) => recordFiles.length > 1)
+    .sort(([left], [right]) => left.localeCompare(right))
+    .map(([id, recordFiles]) => ({ id, files: recordFiles }));
 
   return {
     generatedAt: new Date().toISOString(),
-    gitSha: getGitSha(),
-    perFile,
-    totals: {
-      topLevel,
-      caseStudyTopLevel,
-      standaloneTopLevel,
-      embeddedParts,
-      scoredLeaves,
-      inventoryRecords,
-      gradedTotal: inventoryRecords,
-    },
-    byItemType: Object.fromEntries(coverage.byItemType),
-    byCategory: Object.fromEntries(coverage.byCategory),
-    withinCategory,
-    byDifficulty: Object.fromEntries(coverage.byDifficulty),
-    scoredLeaves: {
-      total: scoredLeafCoverage.totalQuestions,
-      byItemType: Object.fromEntries(scoredLeafCoverage.byItemType),
-      byCategory: Object.fromEntries(scoredLeafCoverage.byCategory),
-      withinCategory: scoredLeafWithinCategory,
-      byDifficulty: Object.fromEntries(scoredLeafCoverage.byDifficulty),
-      targets: {
-        categoryTargets: scoredLeafCoverage.categoryTargets,
-        itemTypeAvg: scoredLeafCoverage.itemTypeAverage,
-        underCategories: scoredLeafCoverage.underCategories,
-        overCategories: scoredLeafCoverage.overCategories,
-        underItemTypes: scoredLeafCoverage.underItemTypes,
+    inputGitSha: getGitSha(),
+    sessionUnits: {
+      populationBasis: "top_level_session_units",
+      total: populations.sessionUnits.total,
+      standalone: populations.sessionUnits.standalone,
+      caseContainers: populations.sessionUnits.caseContainers,
+      embeddedParts: populations.sessionUnits.embeddedParts,
+      inventoryRecords: populations.sessionUnits.inventoryRecords,
+      perFile,
+      byItemType: Object.fromEntries(sessionCoverage.byItemType),
+      byCategory: Object.fromEntries(sessionCoverage.byCategory),
+      withinCategory: topicConcentration(allQuestions),
+      byDifficulty: Object.fromEntries(sessionCoverage.byDifficulty),
+      deliveryCapacity: {
+        requestedSessionSize: sessionCoverage.sessionSize,
+        standaloneDrawEligible: sessionCoverage.totalEligible,
+        insufficientForFullSession: sessionCoverage.insufficientForFullSession,
+        byCategory: sessionCoverage.eligibleByCategory,
+        requestedCategoryTargets: sessionCoverage.eligibleCategoryTargets,
+        shortfalls: sessionCoverage.eligibilityShortfalls,
       },
-      prioritizeTopics: scoredLeafCoverage.prioritizeTopics,
-      avoidTopics: scoredLeafCoverage.avoidTopics,
+      bySchemaVersion,
+      bySourceFile,
+      caseStudies,
     },
-    bySchemaVersion,
-    bySourceFile,
-    visuals: { total: coverage.totalVisuals, byKind, rhythmSubtypes, idsByKind },
-    caseStudies,
+    scoredLeaves: {
+      populationBasis: "standalone_top_level_plus_embedded_leaves",
+      total: populations.scoredLeaves.total,
+      standalone: populations.scoredLeaves.standalone,
+      embedded: populations.scoredLeaves.embedded,
+      byItemType: Object.fromEntries(scoredCoverage.byItemType),
+      byCategory: Object.fromEntries(scoredCoverage.byCategory),
+      withinCategory: topicConcentration(populations.scoredLeaves.questions),
+      byDifficulty: Object.fromEntries(scoredCoverage.byDifficulty),
+      targets: {
+        categoryTargets: scoredCoverage.categoryTargets,
+        itemTypeAverage: scoredCoverage.itemTypeAverage,
+        underCategories: scoredCoverage.underCategories,
+        overCategories: scoredCoverage.overCategories,
+        underItemTypes: scoredCoverage.underItemTypes,
+      },
+      prioritizeTopics: scoredCoverage.prioritizeTopics,
+      avoidTopics: scoredCoverage.avoidTopics,
+    },
+    visualArtifacts: {
+      populationBasis: "recursive_visual_artifacts",
+      total: artifacts.length,
+      byKind,
+      rhythmSubtypes,
+      idsByKind,
+    },
     idUniqueness: { duplicates },
-    targets: {
-      categoryTargets: coverage.categoryTargets,
-      itemTypeAvg: coverage.itemTypeAverage,
-      underCategories: coverage.underCategories,
-      overCategories: coverage.overCategories,
-      underItemTypes: coverage.underItemTypes,
-    },
-    prioritizeTopics: coverage.prioritizeTopics,
-    avoidTopics: coverage.avoidTopics,
-    docsDrift,
+    docsDrift: await checkDocsDrift(perFile.map(({ file }) => file)),
   };
 };
 
-// ---- Markdown rendering ----
+const pushCountMap = (lines: string[], values: Record<string, number>) => {
+  for (const [label, count] of Object.entries(values)) lines.push(`- ${label}: ${count}`);
+};
 
-const renderCensus = (census: CensusData): string => {
-  const lines: string[] = [];
-  lines.push("<!-- GENERATED by `npm run census`. Do not hand-edit. -->");
-  lines.push("");
-  lines.push("# NCLEX Bank Census");
-  lines.push("");
-  lines.push(`Generated: ${census.generatedAt}`);
-  lines.push(`Git SHA: ${census.gitSha}`);
-  lines.push("");
+const pushTopicConcentration = (lines: string[], values: TopicConcentration) => {
+  for (const [category, detail] of Object.entries(values)) {
+    const topics = detail.topTopics.map(({ topic, count }) => `${topic} (${count})`).join(", ") || "none";
+    lines.push(`- ${category}: ${topics}`);
+  }
+};
 
-  lines.push("## Per-File Summary");
-  lines.push("");
-  lines.push("| File | Schema | meta.count | questions | Mismatch |");
-  lines.push("|------|--------|-----------|-----------|---------|");
-  for (const entry of census.perFile) {
-    const mismatch = entry.mismatch ? "YES" : "—";
-    lines.push(`| ${entry.file} | ${entry.schemaVersion ?? "—"} | ${entry.metaCount ?? "—"} | ${entry.questionsLength} | ${mismatch} |`);
+export const renderCensus = (census: CensusData): string => {
+  const lines: string[] = [
+    "<!-- GENERATED by `npm run census`. Do not hand-edit. -->",
+    "",
+    "# NCLEX Bank Census",
+    "",
+    `Generated: ${census.generatedAt}`,
+    `Input Git SHA: ${census.inputGitSha}`,
+    "",
+    "## Session-Unit Inventory and Delivery Capacity",
+    "",
+    "Population basis: top-level delivery units. Category, topic, item-type, and difficulty distributions in this section are inventory comparisons, not content-planning targets.",
+    "",
+    `- Total session units: ${census.sessionUnits.total}`,
+    `- Standalone top-level supply: ${census.sessionUnits.standalone}`,
+    `- Case-container supply: ${census.sessionUnits.caseContainers}`,
+    `- Embedded-part inventory (not session units): ${census.sessionUnits.embeddedParts}`,
+    `- Question-shaped inventory records: ${census.sessionUnits.inventoryRecords}`,
+    "",
+    "### Per-File Session-Unit Inventory",
+    "",
+    "| File | Schema | meta.count | Session Units | Mismatch |",
+    "|------|--------|-----------|---------------|----------|",
+  ];
+  for (const entry of census.sessionUnits.perFile) {
+    lines.push(`| ${entry.file} | ${entry.schemaVersion ?? "—"} | ${entry.metaCount ?? "—"} | ${entry.questionsLength} | ${entry.mismatch ? "YES" : "—"} |`);
   }
-  lines.push("");
+  lines.push("", "### Session-Unit Category Inventory", "");
+  pushCountMap(lines, census.sessionUnits.byCategory);
+  lines.push("", "### Session-Unit Topic Concentration", "");
+  pushTopicConcentration(lines, census.sessionUnits.withinCategory);
+  lines.push("", "### Session-Unit Item-Type Inventory", "");
+  pushCountMap(lines, census.sessionUnits.byItemType);
+  lines.push("", "`case_study` is a delivery container here, not a scored item type.", "", "### Session-Unit Difficulty Inventory", "");
+  pushCountMap(lines, census.sessionUnits.byDifficulty);
 
-  lines.push("## Totals");
-  lines.push("");
-  lines.push(`- Top-level questions: ${census.totals.topLevel}`);
-  lines.push(`- Case study top-level: ${census.totals.caseStudyTopLevel}`);
-  lines.push(`- Standalone top-level: ${census.totals.standaloneTopLevel}`);
-  lines.push(`- Embedded parts: ${census.totals.embeddedParts}`);
-  lines.push(`- Scored leaves: ${census.totals.scoredLeaves} (standalone top-level + embedded parts; case containers excluded)`);
-  lines.push(`- Inventory records: ${census.totals.inventoryRecords} (top-level + embedded parts)`);
-  lines.push(`- Legacy \`gradedTotal\`: ${census.totals.gradedTotal} (compatibility alias for inventory records; do not use for scored-leaf coverage)`);
-  lines.push("");
+  const capacity = census.sessionUnits.deliveryCapacity;
+  lines.push(
+    "",
+    `### Standalone Draw Capacity (requested session size ${capacity.requestedSessionSize})`,
+    "",
+    `- Total standalone draw-eligible supply: ${capacity.standaloneDrawEligible}`,
+    `- Full requested session constructible: ${capacity.insufficientForFullSession ? "no" : "yes"}`,
+    "",
+    "| Category | Standalone Supply | Requested Seats | Gap |",
+    "|----------|------------------:|----------------:|----:|",
+  );
+  const capacityTargets = new Map(capacity.requestedCategoryTargets);
+  for (const [category, count] of capacity.byCategory) {
+    const target = capacityTargets.get(category) ?? 0;
+    lines.push(`| ${category} | ${count} | ${target.toFixed(1)} | ${(count - target).toFixed(1)} |`);
+  }
+  lines.push("", "Operational shortfalls:");
+  if (capacity.shortfalls.length === 0) lines.push("- none");
+  for (const [category, gap] of capacity.shortfalls) lines.push(`- ${category}: short ${Math.abs(gap).toFixed(1)}`);
 
-  lines.push("## By Category");
-  lines.push("");
-  for (const [cat, cnt] of Object.entries(census.byCategory)) {
-    lines.push(`- ${cat}: ${cnt}`);
+  lines.push("", "### Session-Unit Schema and Source Inventory", "");
+  for (const [version, data] of Object.entries(census.sessionUnits.bySchemaVersion)) {
+    lines.push(`- Schema v${version}: ${data.questions} session units (${data.files.join(", ")})`);
   }
-  lines.push("");
+  for (const [file, count] of Object.entries(census.sessionUnits.bySourceFile)) lines.push(`- ${file}: ${count}`);
 
-  lines.push("## Within-Category Concentration");
-  lines.push("");
-  for (const [category, detail] of Object.entries(census.withinCategory)) {
-    lines.push(`### ${category}`);
-    lines.push("");
-    lines.push(`Top topics: ${detail.topTopics.map(({ topic, count }) => `${topic} (${count})`).join(", ") || "none"}`);
-    const visuals = Object.entries(detail.visualKinds);
-    lines.push(`Visual kinds: ${visuals.map(([kind, count]) => `${kind} (${count})`).join(", ") || "none"}`);
-    lines.push("");
-  }
-
-  lines.push("## By Item Type");
-  lines.push("");
-  for (const [it, cnt] of Object.entries(census.byItemType)) {
-    lines.push(`- ${it}: ${cnt}`);
-  }
-  lines.push("");
-
-  lines.push("## By Difficulty");
-  lines.push("");
-  for (const [d, cnt] of Object.entries(census.byDifficulty)) {
-    lines.push(`- ${d}: ${cnt}`);
-  }
-  lines.push("");
-
-  lines.push("## Scored-Leaf Coverage");
-  lines.push("");
-  lines.push("This lane counts standalone top-level questions plus embedded case parts. Case-study containers are excluded.");
-  lines.push("");
-  lines.push(`Total scored leaves: ${census.scoredLeaves.total}`);
-  lines.push("");
-  lines.push("### By Category");
-  lines.push("");
-  for (const [category, count] of Object.entries(census.scoredLeaves.byCategory)) {
-    lines.push(`- ${category}: ${count}`);
-  }
-  lines.push("");
-  lines.push("### Within-Category Concentration");
-  lines.push("");
-  for (const [category, detail] of Object.entries(census.scoredLeaves.withinCategory)) {
-    lines.push(`- ${category}: ${detail.topTopics.map(({ topic, count }) => `${topic} (${count})`).join(", ") || "none"}`);
-  }
-  lines.push("");
-  lines.push("### By Item Type");
-  lines.push("");
-  for (const [itemType, count] of Object.entries(census.scoredLeaves.byItemType)) {
-    lines.push(`- ${itemType}: ${count}`);
-  }
-  lines.push("");
-  lines.push("### By Difficulty");
-  lines.push("");
-  for (const [difficulty, count] of Object.entries(census.scoredLeaves.byDifficulty)) {
-    lines.push(`- ${difficulty}: ${count}`);
-  }
-  lines.push("");
-  lines.push("### Targets");
-  lines.push("");
-  lines.push("Category targets (2026 NCLEX-RN test-plan weights, scored-leaf denominator):");
-  for (const [category, target] of census.scoredLeaves.targets.categoryTargets) {
-    lines.push(`- ${category}: ${target.toFixed(1)}`);
-  }
-  lines.push(`Item type average: ${census.scoredLeaves.targets.itemTypeAvg.toFixed(1)}`);
-  lines.push("");
-  lines.push("Under-served categories:");
-  if (census.scoredLeaves.targets.underCategories.length === 0) lines.push("- none");
-  for (const [category, count] of census.scoredLeaves.targets.underCategories) lines.push(`- ${category}: ${count}`);
-  lines.push("");
-  lines.push("Over-served categories:");
-  if (census.scoredLeaves.targets.overCategories.length === 0) lines.push("- none");
-  for (const [category, count] of census.scoredLeaves.targets.overCategories) lines.push(`- ${category}: ${count}`);
-  lines.push("");
-  lines.push("Under-served item types:");
-  if (census.scoredLeaves.targets.underItemTypes.length === 0) lines.push("- none");
-  for (const [itemType, count] of census.scoredLeaves.targets.underItemTypes) lines.push(`- ${itemType}: ${count}`);
-  lines.push("");
-  lines.push("### Prompt Parameters");
-  lines.push("");
-  lines.push("PRIORITIZE_TOPICS:");
-  for (const item of census.scoredLeaves.prioritizeTopics) lines.push(`- ${item}`);
-  lines.push("");
-  lines.push("AVOID_TOPICS:");
-  if (census.scoredLeaves.avoidTopics.length === 0) lines.push("- none");
-  for (const item of census.scoredLeaves.avoidTopics) lines.push(`- ${item}`);
-  lines.push("");
-
-  lines.push("## By Schema Version");
-  lines.push("");
-  for (const [ver, data] of Object.entries(census.bySchemaVersion)) {
-    lines.push(`- v${ver}: ${data.questions} questions (${data.files.join(", ")})`);
-  }
-  lines.push("");
-
-  lines.push("## By Source File");
-  lines.push("");
-  for (const [file, cnt] of Object.entries(census.bySourceFile)) {
-    lines.push(`- ${file}: ${cnt}`);
-  }
-  lines.push("");
-
-  lines.push("## Visuals");
-  lines.push("");
-  lines.push(`Total visuals: ${census.visuals.total}`);
-  lines.push("");
-  lines.push("### By Kind");
-  lines.push("");
-  for (const [kind, cnt] of Object.entries(census.visuals.byKind)) {
-    const ids = census.visuals.idsByKind[kind] ?? [];
-    const idSnippet =
-      ids.length > 0
-        ? ` (${ids.slice(0, 5).join(", ")}${ids.length > 5 ? `, …+${ids.length - 5}` : ""})`
-        : "";
-    lines.push(`- ${kind}: ${cnt}${idSnippet}`);
-  }
-  lines.push("");
-  lines.push("### Rhythm Subtypes");
-  lines.push("");
-  const rhythmEntries = Object.entries(census.visuals.rhythmSubtypes);
-  if (rhythmEntries.length === 0) {
-    lines.push("- (none)");
-  } else {
-    for (const [rhythm, cnt] of rhythmEntries) {
-      lines.push(`- ${rhythm}: ${cnt}`);
-    }
-  }
-  lines.push("");
-
-  lines.push("## Case Studies");
-  lines.push("");
-  if (census.caseStudies.length === 0) {
+  lines.push("", "### Case-Container Inventory", "");
+  if (census.sessionUnits.caseStudies.length === 0) {
     lines.push("None.");
   } else {
-    lines.push("| ID | Topic | Parts | Bank |");
-    lines.push("|----|-------|-------|------|");
-    for (const cs of census.caseStudies) {
-      lines.push(`| ${cs.id} | ${cs.topic} | ${cs.parts} | ${cs.bank} |`);
+    lines.push("| ID | Parent Topic | Embedded Parts | Bank |", "|----|--------------|---------------:|------|");
+    for (const caseStudy of census.sessionUnits.caseStudies) {
+      lines.push(`| ${caseStudy.id} | ${caseStudy.topic} | ${caseStudy.parts} | ${caseStudy.bank} |`);
     }
-  }
-  lines.push("");
-
-  lines.push("## ID Uniqueness");
-  lines.push("");
-  if (census.idUniqueness.duplicates.length === 0) {
-    lines.push("No duplicates detected.");
-  } else {
-    lines.push("Duplicates found:");
-    for (const dup of census.idUniqueness.duplicates) {
-      lines.push(`- \`${dup.id}\`: appears in ${dup.files.join(", ")}`);
-    }
-  }
-  lines.push("");
-
-  lines.push("## Targets");
-  lines.push("");
-  lines.push("Category targets (2026 NCLEX-RN test-plan weights):");
-  for (const [category, target] of census.targets.categoryTargets) {
-    lines.push(`- ${category}: ${target.toFixed(1)}`);
-  }
-  lines.push(`Item type average: ${census.targets.itemTypeAvg.toFixed(1)}`);
-  lines.push("");
-  if (census.targets.underCategories.length > 0) {
-    lines.push("Under-served categories:");
-    for (const [cat, cnt] of census.targets.underCategories) {
-      lines.push(`- ${cat}: ${cnt}`);
-    }
-    lines.push("");
-  }
-  if (census.targets.overCategories.length > 0) {
-    lines.push("Over-served categories:");
-    for (const [cat, cnt] of census.targets.overCategories) {
-      lines.push(`- ${cat}: ${cnt}`);
-    }
-    lines.push("");
-  }
-  if (census.targets.underItemTypes.length > 0) {
-    lines.push("Under-served item types:");
-    for (const [it, cnt] of census.targets.underItemTypes) {
-      lines.push(`- ${it}: ${cnt}`);
-    }
-    lines.push("");
   }
 
-  lines.push("## Prompt Parameters");
-  lines.push("");
-  lines.push("PRIORITIZE_TOPICS:");
-  for (const item of census.prioritizeTopics) {
-    lines.push(`- ${item}`);
-  }
-  lines.push("");
-  lines.push("AVOID_TOPICS:");
-  if (census.avoidTopics.length > 0) {
-    for (const item of census.avoidTopics) {
-      lines.push(`- ${item}`);
-    }
-  } else {
-    lines.push("- none");
-  }
-  lines.push("");
+  lines.push(
+    "",
+    "## Canonical Content-Planning Coverage — Scored Leaves",
+    "",
+    "Population basis: standalone top-level questions plus embedded case-study questions, excluding case containers. Each leaf contributes its own category, topic, item type, and difficulty. This is the authoritative planning lane.",
+    "",
+    `- Total scored leaves: ${census.scoredLeaves.total}`,
+    `- Standalone scored leaves: ${census.scoredLeaves.standalone}`,
+    `- Embedded scored leaves: ${census.scoredLeaves.embedded}`,
+    "",
+    "### Scored-Leaf Category Distribution",
+    "",
+  );
+  pushCountMap(lines, census.scoredLeaves.byCategory);
+  lines.push("", "### Scored-Leaf Topic Concentration", "");
+  pushTopicConcentration(lines, census.scoredLeaves.withinCategory);
+  lines.push("", "### Scored-Leaf Item-Type Distribution", "");
+  pushCountMap(lines, census.scoredLeaves.byItemType);
+  lines.push("", "### Scored-Leaf Difficulty Distribution", "");
+  pushCountMap(lines, census.scoredLeaves.byDifficulty);
 
-  lines.push("## Docs Drift");
-  lines.push("");
-  if (census.docsDrift.ok) {
-    lines.push("All references in project docs match the bank.");
-  } else {
-    lines.push("Warnings:");
-    for (const finding of census.docsDrift.findings) {
-      lines.push(`- ${finding}`);
-    }
+  const targets = census.scoredLeaves.targets;
+  lines.push("", "### Targets", "", "Category targets (scored-leaf denominator):");
+  for (const [category, target] of targets.categoryTargets) lines.push(`- ${category}: ${target.toFixed(1)}`);
+  lines.push("", `Equal-average scored item-type target: ${targets.itemTypeAverage.toFixed(1)}`, "", "Under-served categories:");
+  if (targets.underCategories.length === 0) lines.push("- none");
+  for (const [category, count] of targets.underCategories) lines.push(`- ${category}: ${count}`);
+  lines.push("", "Over-served categories:");
+  if (targets.overCategories.length === 0) lines.push("- none");
+  for (const [category, count] of targets.overCategories) lines.push(`- ${category}: ${count}`);
+  lines.push("", "Under-served scored item types:");
+  if (targets.underItemTypes.length === 0) lines.push("- none");
+  for (const [itemType, count] of targets.underItemTypes) lines.push(`- ${itemType}: ${count}`);
+
+  lines.push("", "### Prompt Parameters", "", "PRIORITIZE_TOPICS:");
+  if (census.scoredLeaves.prioritizeTopics.length === 0) lines.push("- none");
+  for (const item of census.scoredLeaves.prioritizeTopics) lines.push(`- ${item}`);
+  lines.push("", "AVOID_TOPICS:");
+  if (census.scoredLeaves.avoidTopics.length === 0) lines.push("- none");
+  for (const item of census.scoredLeaves.avoidTopics) lines.push(`- ${item}`);
+
+  lines.push(
+    "",
+    "## Recursive Visual Artifact Inventory",
+    "",
+    "Population basis: independent recursive traversal of question-level visuals, case exhibits, staged case exhibits, and embedded-leaf visuals. This section uses neither the session-unit nor scored-leaf denominator.",
+    "",
+    `Total visual artifacts: ${census.visualArtifacts.total}`,
+    "",
+    "### Visual Artifacts by Kind",
+    "",
+  );
+  for (const [kind, count] of Object.entries(census.visualArtifacts.byKind)) {
+    const ids = census.visualArtifacts.idsByKind[kind] ?? [];
+    const owners = ids.length > 0 ? ` (${ids.slice(0, 5).join(", ")}${ids.length > 5 ? `, …+${ids.length - 5}` : ""})` : "";
+    lines.push(`- ${kind}: ${count}${owners}`);
   }
+  lines.push("", "### Rhythm Subtype Artifacts", "");
+  if (Object.keys(census.visualArtifacts.rhythmSubtypes).length === 0) lines.push("- none");
+  for (const [rhythm, count] of Object.entries(census.visualArtifacts.rhythmSubtypes)) lines.push(`- ${rhythm}: ${count}`);
+
+  lines.push("", "## Integrity and Documentation Checks", "", "### ID Uniqueness", "");
+  if (census.idUniqueness.duplicates.length === 0) lines.push("No duplicates detected.");
+  for (const duplicate of census.idUniqueness.duplicates) lines.push(`- \`${duplicate.id}\`: ${duplicate.files.join(", ")}`);
+  lines.push("", "### Docs Drift", "");
+  if (census.docsDrift.ok) lines.push("All canonical-bank references in checked project docs match the bank directory.");
+  for (const finding of census.docsDrift.findings) lines.push(`- ${finding}`);
   lines.push("");
 
   return lines.join("\n");
 };
 
-// ---- Check mode ----
-
-const strip = ({ generatedAt: _a, gitSha: _b, ...rest }: CensusData) => rest;
+const stripVolatile = ({ generatedAt: _generatedAt, inputGitSha: _inputGitSha, ...stable }: CensusData) => stable;
 
 const checkDrift = async (): Promise<void> => {
   let committed: CensusData;
   try {
-    const text = await readFile("census.json", "utf8");
-    committed = JSON.parse(text) as CensusData;
+    committed = JSON.parse(await readFile("census.json", "utf8")) as CensusData;
   } catch {
     console.error("census.json not found — run `npm run census` to generate it first.");
     process.exit(1);
   }
-
   const fresh = await computeCensus();
-
-  const committedStr = JSON.stringify(strip(committed), null, 2);
-  const freshStr = JSON.stringify(strip(fresh), null, 2);
-
-  if (committedStr === freshStr) {
+  const committedText = JSON.stringify(stripVolatile(committed), null, 2);
+  const freshText = JSON.stringify(stripVolatile(fresh), null, 2);
+  if (committedText === freshText) {
     console.log("census.json is up to date.");
-    if (!fresh.docsDrift.ok) {
-      console.warn("Docs drift warnings (advisory):");
-      for (const finding of fresh.docsDrift.findings) {
-        console.warn(`  - ${finding}`);
-      }
-    }
     return;
   }
-
   console.error("census.json is stale. Run `npm run census` to regenerate.");
-  const committedLines = committedStr.split("\n");
-  const freshLines = freshStr.split("\n");
-  const maxLen = Math.max(committedLines.length, freshLines.length);
+  const committedLines = committedText.split("\n");
+  const freshLines = freshText.split("\n");
   let shown = 0;
   let total = 0;
-  for (let i = 0; i < maxLen; i++) {
-    const old = committedLines[i] ?? "";
-    const neo = freshLines[i] ?? "";
-    if (old !== neo) {
-      total++;
-      if (shown < 20) {
-        console.error(`  line ${i + 1} - ${old}`);
-        console.error(`  line ${i + 1} + ${neo}`);
-        shown++;
-      }
+  for (let index = 0; index < Math.max(committedLines.length, freshLines.length); index += 1) {
+    if ((committedLines[index] ?? "") === (freshLines[index] ?? "")) continue;
+    total += 1;
+    if (shown < 20) {
+      console.error(`  line ${index + 1} - ${committedLines[index] ?? ""}`);
+      console.error(`  line ${index + 1} + ${freshLines[index] ?? ""}`);
+      shown += 1;
     }
   }
   if (total > shown) console.error(`  … and ${total - shown} more differences`);
   process.exit(1);
 };
 
-// ---- Entry point ----
-//
-// Guard the side-effecting run so this module can be imported for its exported
-// helpers (e.g. by scripts/audio/build-tts-queue.ts) without regenerating
-// census.json / BANK-CENSUS.md.
-
 const isMain = process.argv[1] !== undefined && resolve(process.argv[1]) === fileURLToPath(import.meta.url);
 
 if (isMain) {
-  const isCheck = process.argv.includes("--check");
-
-  if (isCheck) {
+  if (process.argv.includes("--check")) {
     await checkDrift();
   } else {
     const census = await computeCensus();
-    await writeFile("census.json", JSON.stringify(census, null, 2) + "\n", "utf8");
+    await writeFile("census.json", `${JSON.stringify(census, null, 2)}\n`, "utf8");
     await writeFile("BANK-CENSUS.md", renderCensus(census), "utf8");
-    const { topLevel, embeddedParts, scoredLeaves } = census.totals;
-    console.log(`Census written to census.json and BANK-CENSUS.md`);
-    console.log(`  ${topLevel} top-level, ${embeddedParts} embedded parts, ${scoredLeaves} scored leaves, ${census.visuals.total} visuals`);
+    console.log("Census written to census.json and BANK-CENSUS.md");
+    console.log(
+      `  ${census.sessionUnits.total} session units, ${census.scoredLeaves.total} scored leaves, ${census.visualArtifacts.total} visual artifacts`,
+    );
     if (census.idUniqueness.duplicates.length > 0) {
       console.warn(`  ${census.idUniqueness.duplicates.length} ID collision(s) detected`);
-    }
-    if (!census.docsDrift.ok) {
-      console.warn("  Docs drift warnings:");
-      for (const finding of census.docsDrift.findings) {
-        console.warn(`    - ${finding}`);
-      }
     }
   }
 }

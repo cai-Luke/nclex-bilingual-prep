@@ -1,3 +1,4 @@
+import { execSync } from "node:child_process";
 import { readFile, readdir, writeFile } from "node:fs/promises";
 import { basename, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -13,7 +14,7 @@ import {
 } from "../src/schema";
 import { listVisualKinds } from "../src/visuals/registry";
 import type { Category, Question, QuestionVisual, RhythmStripVisual } from "../src/types";
-import { collectScoredLeaves } from "../lib/question-population";
+import { collectScoredLeaves, collectVisualArtifacts } from "../lib/question-population";
 
 export type TopicBucket = {
   label: string;
@@ -170,22 +171,7 @@ const formatBackfillRows = (coverage: CoverageData) => {
 };
 
 export const collectVisuals = (question: Question): QuestionVisual[] => {
-  const visuals: QuestionVisual[] = [];
-  if (question.visual) visuals.push(question.visual);
-  if (question.itemType === "case_study") {
-    question.caseStudy.exhibits.forEach((exhibit) => {
-      if (exhibit.visual) visuals.push(exhibit.visual);
-    });
-    question.caseStudy.stages?.forEach((stage) => {
-      stage.exhibits.forEach((exhibit) => {
-        if (exhibit.visual) visuals.push(exhibit.visual);
-      });
-    });
-    question.caseStudy.questions.forEach((caseQuestion) => {
-      if (caseQuestion.visual) visuals.push(caseQuestion.visual);
-    });
-  }
-  return visuals;
+  return collectVisualArtifacts([question]).map(({ visual }) => visual);
 };
 
 const itemTypeCount = (rows: readonly (readonly [string, number])[], itemType: string) =>
@@ -401,6 +387,144 @@ const readQuestions = async (file: string) => {
   return result.value.questions;
 };
 
+const getGitSha = (): string => {
+  try {
+    return execSync("git rev-parse HEAD", { encoding: "utf8" }).trim();
+  } catch {
+    return "unknown";
+  }
+};
+
+export type CoverageViews = {
+  sessionUnits: CoverageData;
+  scoredLeaves: CoverageData;
+};
+
+export const buildCoverageViews = (
+  questions: Question[],
+  sessionSize = SESSION_SIZE,
+): CoverageViews => ({
+  sessionUnits: computeCoverage(questions, sessionSize),
+  scoredLeaves: computeCoverage(collectScoredLeaves(questions), sessionSize, {
+    itemTypePopulation: standaloneItemTypes,
+  }),
+});
+
+export const renderCoverageReport = (
+  questions: Question[],
+  options: { sessionSize?: number; files?: string[]; inputGitSha?: string } = {},
+): string => {
+  const { sessionUnits, scoredLeaves } = buildCoverageViews(
+    questions,
+    options.sessionSize ?? SESSION_SIZE,
+  );
+  const caseContainerSupply = questions.filter((question) => question.itemType === "case_study").length;
+  const embeddedPartTotal = questions.reduce(
+    (sum, question) => sum + (question.itemType === "case_study" ? question.caseStudy.questions.length : 0),
+    0,
+  );
+  const standaloneSupply = sessionUnits.totalQuestions - caseContainerSupply;
+  const lines: string[] = [];
+  const emit = (...values: string[]) => lines.push(...values);
+
+  emit("# NCLEX Bank Coverage Report");
+  emit("");
+  emit(`Input Git SHA: ${options.inputGitSha ?? "not-recorded"}`);
+  if (options.files) emit(`Files scanned (${options.files.length}): ${options.files.join(", ")}`);
+  emit("");
+
+  emit("## Session-Unit Inventory and Delivery Capacity");
+  emit("");
+  emit("This population is top-level delivery units only. Its distributions are inventory comparisons, not content-generation targets.");
+  emit("");
+  emit(`- Total session units: ${sessionUnits.totalQuestions}`);
+  emit(`- Standalone top-level supply: ${standaloneSupply}`);
+  emit(`- Case-container supply: ${caseContainerSupply}`);
+  emit(`- Embedded-part inventory (not session units): ${embeddedPartTotal}`);
+  emit(`- Unique normalized session-unit topics: ${sessionUnits.topics.length}`);
+  emit("");
+  emit("### Session-Unit Category Inventory (not planning targets)");
+  emit(formatCountRows(sessionUnits.byCategory));
+  emit("");
+  emit(`### Standalone Draw-Eligible Capacity (requested session size ${sessionUnits.sessionSize})`);
+  emit(formatEligibleRows(sessionUnits));
+  emit("");
+  emit("### Session-Unit Item-Type Inventory");
+  emit(formatCountRows(sessionUnits.byItemType));
+  emit("");
+  emit("`case_study` above is a delivery-container count. It is not a scored-format target.");
+  emit("");
+  emit("### Session-Unit Difficulty Inventory");
+  emit(formatCountRows(sessionUnits.byDifficulty));
+  emit("");
+  emit("### Session-Unit Topic Inventory — Lowest Counts (not generation instructions)");
+  emit(
+    sessionUnits.lowTopics
+      .map((topic) => `- ${topic.label}: ${topic.count} (${topic.categories.join(", ")}; ${topic.itemTypes.join(", ")})`)
+      .join("\n"),
+  );
+  emit("");
+
+  emit("## Canonical Content-Planning Coverage — Scored Leaves");
+  emit("");
+  emit("This authoritative planning population is standalone top-level questions plus embedded case parts. Case-study containers are excluded, and each embedded leaf contributes its own metadata.");
+  emit("");
+  emit(`- Total scored leaves: ${scoredLeaves.totalQuestions}`);
+  emit(`- Unique normalized scored-leaf topics: ${scoredLeaves.topics.length}`);
+  emit("");
+  emit("### Scored-Leaf Category Counts and Targets");
+  emit(formatCategoryRows(scoredLeaves.byCategory, scoredLeaves.categoryTargets));
+  emit("");
+  emit("### Scored-Leaf Item-Type Counts");
+  emit(formatCountRows(scoredLeaves.byItemType));
+  emit("");
+  emit("### Scored-Leaf Difficulty Counts");
+  emit(formatCountRows(scoredLeaves.byDifficulty));
+  emit("");
+  emit("### Scored-Leaf Lowest-Covered Topics");
+  emit(
+    scoredLeaves.lowTopics
+      .map((topic) => `- ${topic.label}: ${topic.count} (${topic.categories.join(", ")}; ${topic.itemTypes.join(", ")})`)
+      .join("\n"),
+  );
+  emit("");
+  emit("### Scored-Leaf Format Backfill Opportunities");
+  emit(formatBackfillRows(scoredLeaves));
+  emit("");
+  emit("### Targets");
+  emit("");
+  emit("Under-served categories:");
+  emit(scoredLeaves.underCategories.length > 0 ? formatCountRows(scoredLeaves.underCategories) : "- none");
+  emit("");
+  emit("Over-served categories:");
+  emit(scoredLeaves.overCategories.length > 0 ? formatCountRows(scoredLeaves.overCategories) : "- none");
+  emit("");
+  emit(`Equal-average scored item-type target: ${scoredLeaves.itemTypeAverage.toFixed(1)}`);
+  emit("Under-served scored item types:");
+  emit(scoredLeaves.underItemTypes.length > 0 ? formatCountRows(scoredLeaves.underItemTypes) : "- none");
+  emit("");
+  emit("### Prompt Parameters");
+  emit("");
+  emit("PRIORITIZE_TOPICS:");
+  emit(scoredLeaves.prioritizeTopics.length > 0 ? scoredLeaves.prioritizeTopics.map((item) => `- ${item}`).join("\n") : "- none");
+  emit("");
+  emit("AVOID_TOPICS:");
+  emit(scoredLeaves.avoidTopics.length > 0 ? scoredLeaves.avoidTopics.map((item) => `- ${item}`).join("\n") : "- none");
+  emit("");
+
+  emit("## Recursive Visual Artifact Inventory");
+  emit("");
+  emit("This is an independent recursive artifact traversal across question visuals, case exhibits, staged exhibits, and embedded-leaf visuals. It uses neither the session-unit nor scored-leaf denominator.");
+  emit("");
+  emit(`Total visual artifacts: ${sessionUnits.totalVisuals}`);
+  emit(formatCountRows(sessionUnits.byVisualKind));
+  emit("");
+  emit("### Rhythm Strip Artifacts");
+  emit(formatCountRows(sessionUnits.byRhythmClass));
+
+  return `${lines.join("\n")}\n`;
+};
+
 // --- CLI entry point (only runs when executed directly, not when imported) ---
 
 const runCli = async () => {
@@ -411,88 +535,11 @@ const runCli = async () => {
     questions.push(...(await readQuestions(file)));
   }
 
-  const coverage = computeCoverage(questions, parseSessionSize(argv));
-  const scoredLeafCoverage = computeCoverage(collectScoredLeaves(questions), parseSessionSize(argv), {
-    itemTypePopulation: standaloneItemTypes,
+  const output = renderCoverageReport(questions, {
+    sessionSize: parseSessionSize(argv),
+    files: files.map((file) => basename(file)),
+    inputGitSha: getGitSha(),
   });
-  const lines: string[] = [];
-  const emit = (...values: string[]) => lines.push(...values);
-
-  emit(`# NCLEX Bank Coverage Report`);
-  emit("");
-  emit(`Files scanned: ${files.map((file) => basename(file)).join(", ")}`);
-  emit(`Total questions: ${coverage.totalQuestions}`);
-  emit(`Scored leaves: ${scoredLeafCoverage.totalQuestions} (standalone top-level + embedded case parts; case containers excluded)`);
-  emit(`Unique normalized topics: ${coverage.topics.length}`);
-  emit("");
-  emit("## Category Counts");
-  emit(formatCategoryRows(coverage.byCategory, coverage.categoryTargets));
-  emit("");
-  emit(`## Draw-Eligible Capacity per Category (requested session size ${coverage.sessionSize})`);
-  emit(formatEligibleRows(coverage));
-  emit("");
-  emit("## Item Type Counts");
-  emit(formatCountRows(coverage.byItemType));
-  emit("");
-  emit("## Difficulty Counts");
-  emit(formatCountRows(coverage.byDifficulty));
-  emit("");
-  emit("## Visual Counts");
-  emit(`Total visuals: ${coverage.totalVisuals}`);
-  emit(formatCountRows(coverage.byVisualKind));
-  emit("");
-  emit("## Rhythm Strip Counts");
-  emit(formatCountRows(coverage.byRhythmClass));
-  emit("");
-  emit("## Lowest-Covered Topics");
-  emit(
-    coverage.lowTopics
-      .map((topic) => `- ${topic.label}: ${topic.count} (${topic.categories.join(", ")}; ${topic.itemTypes.join(", ")})`)
-      .join("\n"),
-  );
-  emit("");
-  emit("## Format Backfill Opportunities");
-  emit(formatBackfillRows(coverage));
-  emit("");
-  emit("## Prompt Parameters");
-  emit("PRIORITIZE_TOPICS:");
-  emit(coverage.prioritizeTopics.map((item) => `- ${item}`).join("\n"));
-  emit("");
-  emit("AVOID_TOPICS:");
-  emit(coverage.avoidTopics.length > 0 ? coverage.avoidTopics.map((item) => `- ${item}`).join("\n") : "- none");
-  emit("");
-  emit("## Scored-Leaf Coverage (case containers excluded)");
-  emit("");
-  emit(`Total scored leaves: ${scoredLeafCoverage.totalQuestions}`);
-  emit(`Unique normalized topics: ${scoredLeafCoverage.topics.length}`);
-  emit("");
-  emit("### Category Counts");
-  emit(formatCategoryRows(scoredLeafCoverage.byCategory, scoredLeafCoverage.categoryTargets));
-  emit("");
-  emit("### Item Type Counts");
-  emit(formatCountRows(scoredLeafCoverage.byItemType));
-  emit("");
-  emit("### Difficulty Counts");
-  emit(formatCountRows(scoredLeafCoverage.byDifficulty));
-  emit("");
-  emit("### Lowest-Covered Topics");
-  emit(
-    scoredLeafCoverage.lowTopics
-      .map((topic) => `- ${topic.label}: ${topic.count} (${topic.categories.join(", ")}; ${topic.itemTypes.join(", ")})`)
-      .join("\n"),
-  );
-  emit("");
-  emit("### Prompt Parameters");
-  emit("PRIORITIZE_TOPICS:");
-  emit(scoredLeafCoverage.prioritizeTopics.map((item) => `- ${item}`).join("\n"));
-  emit("");
-  emit("AVOID_TOPICS:");
-  emit(
-    scoredLeafCoverage.avoidTopics.length > 0
-      ? scoredLeafCoverage.avoidTopics.map((item) => `- ${item}`).join("\n")
-      : "- none",
-  );
-  const output = `${lines.join("\n")}\n`;
   const outputPath = argv.find((arg) => arg.startsWith("--output="))?.slice("--output=".length);
   if (outputPath) {
     await writeFile(outputPath, output, "utf8");
@@ -502,6 +549,6 @@ const runCli = async () => {
   }
 };
 
-if (fileURLToPath(import.meta.url) === resolve(process.argv[1])) {
+if (process.argv[1] !== undefined && fileURLToPath(import.meta.url) === resolve(process.argv[1])) {
   await runCli();
 }

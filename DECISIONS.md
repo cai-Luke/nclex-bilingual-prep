@@ -18,11 +18,11 @@ Every numbered principle below carries exactly one of these five statuses, state
 - **REVISIT** — unresolved; further evidence, a source-check, a bank-impact survey, or an explicit ratification is pending. Do not treat the described behavior as settled.
 - **SUPERSEDED** — replaced by a later, cited ruling. Retained verbatim for history; do not follow its claims.
 
-## 3. Decision index (2026-07-14)
+## 3. Decision index (2026-07-16)
 
-Navigation aid only — restates no ruling and settles nothing new. Read the target entry for the actual reasoning. Every numbered principle (1–27, excluding the intentionally unused 13–14) appears in exactly one bucket below, matching its heading's tag.
+Navigation aid only — restates no ruling and settles nothing new. Read the target entry for the actual reasoning. Every numbered principle (1–28, excluding the intentionally unused 13–14) appears in exactly one bucket below, matching its heading's tag.
 
-### ACTIVE (19)
+### ACTIVE (20)
 
 | # | One-line rule |
 |---|---|
@@ -45,6 +45,7 @@ Navigation aid only — restates no ruling and settles nothing new. Read the tar
 | 25 | Necessity is a property of the artifact, not of every element inside it. |
 | 26 | A disposition that removes material from a checked surface needs its own independently enforced precondition. |
 | 27 | An invariant softens only by naming its forcing incident and showing the condition is gone. |
+| 28 | Scored leaves govern content planning; session units govern delivery capacity and inventory. |
 
 ### CONDITIONAL — forward case-generation lane (5)
 
@@ -173,6 +174,13 @@ Forcing incident (kept, compact): a staged flowsheet record's sixteen `reason: "
 Every rule in this repo was minted by a failure — positional integrity from the D-correct-at-3% finding, quote hygiene from two independent corruption incidents, the single-definition `roundTo` from two kinds resolving the same dose math differently, producer≠checker from a field reaching four files without a version boundary. The endgame is exactly when ceremony feels most expensive and the memory of *why* is thinnest, so the ratchet needs a procedure, not a mood: **to relax an invariant, name the incident it was minted from and argue that the condition which produced it no longer holds.** "This feels heavy now" is not that argument. A rule that no longer earns its keep is retired on the record, with its incident cited, and marked `SUPERSEDED` rather than deleted.
 
 Most recent application (2026-07-12 pass, kept as the standing precedent this current pass follows): risk-tiered verification replaced an undifferentiated ritual (`AGENTS.md`'s change-class matrix — docs-only is *not* the safe tier, since stale version prose has repeatedly misrouted reasoning about schema floors); `AGENTS.md` became constitutional with a runbook carrying the operational load; this file's entries gained the explicit status tag now formalized further in §2 above; and single-definition discipline was applied to prose the same way it applies to code (a duplicated routing table was cut in favor of one owner plus a link). The alternatives that pass rejected — fresh-context review counting as independence, shortening the read order, demoting `PROJECT-HISTORY.md`'s override authority, compressing the quote-safety two-mode summary to one line — still stand; full reasoning for each rejection is archived.
+
+**28. Scored leaves govern content planning; session units govern delivery capacity and inventory. Status: ACTIVE (ratified 2026-07-16).**
+Content-planning reports measure what is scored: standalone top-level questions plus embedded case-study questions, excluding case-study containers. Each embedded leaf contributes its own category, topic, item type, and difficulty; parent-case metadata is not evidence about the leaf. Category and topic distributions, difficulty and item-type distributions, target gaps, and generation prompt parameters therefore use only this scored-leaf population. `case_study` is a delivery container and cannot enter equal-average scored-item-type targets absent a separately ratified case-cadence target.
+
+Delivery and inventory reports measure what can be served: top-level session units, separated into standalone questions and case containers, with case lengths and embedded-part totals reported alongside them. Standalone draw capacity and weighted-session constructibility stay on that operational population and may emit clearly labelled capacity warnings; those warnings never change the content-planning denominator. Visual inventory is a third, recursive artifact population rather than an alias for either question denominator.
+
+Reason: the dual traversal introduced in PR #51 made both populations visible but did not establish which one governed planning, leaving competing target and prompt blocks that could direct generation from incompatible denominators. PR #52 makes the authority singular while retaining both legitimate analytical views. Executable owners: `lib/question-population.ts` (shared population and visual-artifact traversal), `scripts/census.ts` (canonical census shape and reconciliation), and `scripts/coverage-report.ts` (explicit call-site coverage views and the single scored-leaf planning output).
 
 ## 5. Conditional lane contracts — forward case-generation pipeline
 

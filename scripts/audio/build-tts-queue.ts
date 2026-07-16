@@ -206,9 +206,9 @@ const getGitSha = (): string => {
 };
 
 type CensusTotals = {
-  topLevel: number;
+  total: number;
   embeddedParts: number;
-  gradedTotal: number;
+  inventoryRecords: number;
 };
 
 const readCensusTotals = async (): Promise<CensusTotals> => {
@@ -218,17 +218,21 @@ const readCensusTotals = async (): Promise<CensusTotals> => {
   } catch {
     throw new Error("census.json not found — run `npm run census` first (the queue cross-checks against it).");
   }
-  const parsed = JSON.parse(text) as { totals?: Partial<CensusTotals> };
-  const totals = parsed.totals;
+  const parsed = JSON.parse(text) as { sessionUnits?: Partial<CensusTotals> };
+  const totals = parsed.sessionUnits;
   if (
     !totals ||
-    typeof totals.topLevel !== "number" ||
+    typeof totals.total !== "number" ||
     typeof totals.embeddedParts !== "number" ||
-    typeof totals.gradedTotal !== "number"
+    typeof totals.inventoryRecords !== "number"
   ) {
-    throw new Error("census.json is missing totals.{topLevel,embeddedParts,gradedTotal}.");
+    throw new Error("census.json is missing sessionUnits.{total,embeddedParts,inventoryRecords}.");
   }
-  return { topLevel: totals.topLevel, embeddedParts: totals.embeddedParts, gradedTotal: totals.gradedTotal };
+  return {
+    total: totals.total,
+    embeddedParts: totals.embeddedParts,
+    inventoryRecords: totals.inventoryRecords,
+  };
 };
 
 // ---- Main ----
@@ -248,15 +252,17 @@ const main = async (): Promise<void> => {
       walkQuestion(rows, q);
     }
   }
-  const graded = topLevel + embedded;
+  const inventoryRecords = topLevel + embedded;
 
   // Cross-check the traversal against census.json — this is the built-in proof
   // the item set is identical. Fail loud on any mismatch.
   const census = await readCensusTotals();
   const mismatches: string[] = [];
-  if (topLevel !== census.topLevel) mismatches.push(`topLevel: queue ${topLevel} vs census ${census.topLevel}`);
+  if (topLevel !== census.total) mismatches.push(`topLevel: queue ${topLevel} vs census ${census.total}`);
   if (embedded !== census.embeddedParts) mismatches.push(`embedded: queue ${embedded} vs census ${census.embeddedParts}`);
-  if (graded !== census.gradedTotal) mismatches.push(`graded: queue ${graded} vs census ${census.gradedTotal}`);
+  if (inventoryRecords !== census.inventoryRecords) {
+    mismatches.push(`inventoryRecords: queue ${inventoryRecords} vs census ${census.inventoryRecords}`);
+  }
   if (mismatches.length > 0) {
     throw new Error(
       `Item-count mismatch with census.json (traversal drift):\n  ${mismatches.join("\n  ")}\n` +
@@ -309,7 +315,7 @@ const main = async (): Promise<void> => {
   };
 
   const summary = {
-    items: { topLevel, embedded, graded },
+    items: { topLevel, embedded, inventoryRecords },
     keysTotal: keys.length,
     distinctClips: clips.length,
     distinctClipsByLang,
@@ -336,7 +342,7 @@ const main = async (): Promise<void> => {
     `${summary.distinctClips} clips · ~${minutes} min audio · ~${estMB.opus_24k}–${estMB.opus_32k} MB Opus`,
   );
   console.log(
-    `  items: ${topLevel} top-level / ${embedded} embedded / ${graded} graded (matches census)` +
+    `  items: ${topLevel} top-level / ${embedded} embedded / ${inventoryRecords} inventory records (matches census)` +
       ` · keys: ${summary.keysTotal} · distinct: en ${distinctClipsByLang.en} / zh ${distinctClipsByLang.zh}`,
   );
 };

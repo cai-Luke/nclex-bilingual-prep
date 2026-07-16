@@ -261,6 +261,32 @@ is a vocabulary-only migration: the category's clinical semantics, weight, topic
 population are unchanged. Stored uploads and translation-reveal telemetry using the retired label
 are normalized on read, and legacy bank uploads are normalized before validation.
 
+## Full semantic residual migration (Jul 16)
+
+The remaining current-HEAD population was closed by controlled semantic adjudication rather than a
+bulk lexical rewrite. The source residual contained 556 unique records: 465 noncanonical topics and
+91 canonical topic/category license mismatches. Record kinds were kept explicit throughout: 91
+case-study containers, 275 standalone scored leaves, and 190 embedded scored leaves. Containers were
+inspected and migrated as records but never counted as scored leaves.
+
+The fail-closed execution manifest is
+`audit/topic-license-adjudication-2026-07-16.manifest.json`; its issue- and record-kind-separated
+human report is `audit/topic-license-adjudication-2026-07-16.report.md`. The applicator verifies the
+complete 465/91 issue split, the 91/275/190 kind split, record identity and before-values, canonical
+target membership, and target-category licensing before writing. All 91 license mismatches carry
+explicit item-level decisions. Category changes are used only when the tested construct cannot be
+faithfully represented under the legacy category; scenario labels are rolled into the stable
+clinical domains above.
+
+After migration, the recursive hygiene report covers 1,852 top-level records (143 case containers +
+1,709 standalone leaves) and 721 embedded leaves, or 2,430 scored leaves, with zero noncanonical
+topics and zero license mismatches. The conservative residual generator likewise returns zero exact
+writes, suggestions, unresolved rows, untrusted categories, or cross-category blocks.
+
+The report-only limitation remains binding: exact vocabulary and declared licenses are mechanically
+checkable, but the gate cannot enforce the clinical boundary among categories licensed for a SHARED
+topic. That boundary remains semantic-review work.
+
 ## Open structural questions (optional, for next chat)
 
 - Is the ~45-topic granularity right, or too coarse/fine anywhere? (e.g. should rhythm-strip / EKG

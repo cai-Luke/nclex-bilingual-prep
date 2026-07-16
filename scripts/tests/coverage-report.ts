@@ -1,13 +1,28 @@
 import assert from "node:assert/strict";
 import {
   BACKFILL_TYPES,
+  buildCoverageViews,
   computeCoverage,
   parseSessionSize,
+  renderCoverageReport,
   SESSION_SIZE,
 } from "../coverage-report";
 import { itemTypes, NCLEX_CATEGORY_WEIGHTS, standaloneItemTypes } from "../../src/schema";
-import type { Category, ItemType, MultipleChoiceQuestion, Question, StandaloneItemType } from "../../src/types";
+import type {
+  Category,
+  ItemType,
+  MultipleChoiceQuestion,
+  Question,
+  StandaloneItemType,
+  StandaloneQuestion,
+} from "../../src/types";
 import { collectScoredLeaves } from "../../lib/question-population";
+import {
+  analyzeCensusPopulations,
+  assertCensusPopulationReconciliation,
+  renderCensus,
+  type CensusData,
+} from "../census";
 
 const counts: Record<Category, number> = {
   "Management of Care": 140,
@@ -199,19 +214,34 @@ assert.equal(
 const embeddedLeaf = makeQuestion("Psychosocial Integrity", 99, {
   itemType: "multiple_choice",
   topic: "Embedded leaf fixture",
+  difficulty: "easy",
+});
+const embeddedMatrixLeaf = makeQuestion("Pharmacological and Parenteral Therapies", 100, {
+  itemType: "matrix",
+  topic: "Embedded matrix fixture",
+  difficulty: "hard",
 });
 const caseWithLeaf = makeQuestion("Management of Care", 98, {
   itemType: "case_study",
   topic: "Case container fixture",
+  difficulty: "medium",
 }) as Extract<Question, { itemType: "case_study" }>;
-caseWithLeaf.caseStudy.questions = [embeddedLeaf as Exclude<Question, { itemType: "case_study" }>];
-const scoredLeaves = collectScoredLeaves([
-  makeQuestion("Basic Care and Comfort", 97, { itemType: "multiple_choice" }),
+caseWithLeaf.caseStudy.questions = [
+  embeddedLeaf as StandaloneQuestion,
+  embeddedMatrixLeaf as StandaloneQuestion,
+];
+const denominatorFixture = [
+  makeQuestion("Basic Care and Comfort", 97, {
+    itemType: "select_all",
+    topic: "Standalone denominator fixture",
+    difficulty: "medium",
+  }),
   caseWithLeaf,
-]);
+] as Question[];
+const scoredLeaves = collectScoredLeaves(denominatorFixture);
 assert.deepEqual(
   scoredLeaves.map((question) => question.id),
-  ["Basic Care and Comfort-multiple_choice-97", embeddedLeaf.id],
+  ["Basic Care and Comfort-select_all-97", embeddedLeaf.id, embeddedMatrixLeaf.id],
   "scored-leaf traversal must include standalone and embedded questions while excluding the case container",
 );
 const scoredLeafCoverage = computeCoverage(scoredLeaves, SESSION_SIZE, {
@@ -227,6 +257,166 @@ assert.equal(
   scoredLeaves.length / standaloneItemTypes.length,
   "scored-leaf format targets must use only scored standalone item types as the denominator",
 );
+
+const denominatorViews = buildCoverageViews(denominatorFixture, 10);
+assert.equal(denominatorViews.sessionUnits.totalQuestions, 2, "session units must count the standalone and case container");
+assert.equal(denominatorViews.scoredLeaves.totalQuestions, 3, "scored leaves must count the standalone and two embedded leaves");
+assert.equal(denominatorViews.sessionUnits.totalEligible, 1, "delivery capacity must remain the standalone top-level supply");
+assert.equal(
+  denominatorViews.scoredLeaves.byCategory.find(([category]) => category === "Management of Care")?.[1],
+  0,
+  "the parent case category must not be inherited by embedded leaves",
+);
+assert.equal(
+  denominatorViews.scoredLeaves.byCategory.find(([category]) => category === "Psychosocial Integrity")?.[1],
+  1,
+  "an embedded leaf must contribute its own category",
+);
+assert.equal(
+  denominatorViews.scoredLeaves.byItemType.find(([itemType]) => itemType === "matrix")?.[1],
+  1,
+  "an embedded leaf must contribute its own item type",
+);
+assert.equal(
+  denominatorViews.scoredLeaves.byDifficulty.find(([difficulty]) => difficulty === "hard")?.[1],
+  1,
+  "an embedded leaf must contribute its own difficulty",
+);
+assert.equal(
+  denominatorViews.scoredLeaves.topics.some((topic) => topic.label === "Case container fixture"),
+  false,
+  "the parent case topic must not enter scored-leaf topic coverage",
+);
+assert.equal(
+  denominatorViews.scoredLeaves.underItemTypes.some(([itemType]) => itemType === "case_study"),
+  false,
+  "case_study must never appear in scored-leaf under-item-type targets",
+);
+
+const denominatorReport = renderCoverageReport(denominatorFixture, {
+  sessionSize: 10,
+  files: ["denominator-fixture.json"],
+  inputGitSha: "fixture-sha",
+});
+assert.equal(
+  denominatorReport.match(/^### Prompt Parameters$/gm)?.length ?? 0,
+  1,
+  "coverage output must emit exactly one canonical prompt-parameter block",
+);
+assert.equal(
+  denominatorReport.match(/^PRIORITIZE_TOPICS:$/gm)?.length ?? 0,
+  1,
+  "coverage output must emit PRIORITIZE_TOPICS once",
+);
+for (const promptEntry of denominatorViews.scoredLeaves.prioritizeTopics) {
+  assert.equal(
+    denominatorReport.includes(`- ${promptEntry}`),
+    true,
+    `canonical prompt output must come from scored leaves: ${promptEntry}`,
+  );
+}
+
+const censusPopulations = analyzeCensusPopulations(denominatorFixture);
+assert.equal(censusPopulations.sessionUnits.total, 2, "census session-unit reconciliation must use top-level units");
+assert.equal(censusPopulations.scoredLeaves.total, 3, "census scored-leaf reconciliation must exclude the case container");
+assert.throws(
+  () => analyzeCensusPopulations(denominatorFixture, denominatorFixture as StandaloneQuestion[]),
+  /Scored-leaf population drift/,
+  "census reconciliation must fail if session units are supplied as scored leaves",
+);
+const sessionMixedWithLeafTotal = structuredClone(censusPopulations);
+sessionMixedWithLeafTotal.sessionUnits.total = censusPopulations.scoredLeaves.total;
+assert.throws(
+  () => assertCensusPopulationReconciliation(sessionMixedWithLeafTotal),
+  /Session-unit reconciliation failed/,
+  "census reconciliation must fail when the scored-leaf total is used for session units",
+);
+const leavesMixedWithSessionTotal = structuredClone(censusPopulations);
+leavesMixedWithSessionTotal.scoredLeaves.total = censusPopulations.sessionUnits.total;
+assert.throws(
+  () => assertCensusPopulationReconciliation(leavesMixedWithSessionTotal),
+  /Scored-leaf reconciliation failed/,
+  "census reconciliation must fail when the session-unit total is used for scored leaves",
+);
+
+const topicRows = (coverageRows: typeof denominatorViews.scoredLeaves.topics) => ({
+  fixture: {
+    topTopics: coverageRows.slice(0, 10).map(({ label, count }) => ({ topic: label, count })),
+  },
+});
+const censusRenderFixture: CensusData = {
+  generatedAt: "2026-07-16T00:00:00.000Z",
+  inputGitSha: "fixture-sha",
+  sessionUnits: {
+    populationBasis: "top_level_session_units",
+    total: censusPopulations.sessionUnits.total,
+    standalone: censusPopulations.sessionUnits.standalone,
+    caseContainers: censusPopulations.sessionUnits.caseContainers,
+    embeddedParts: censusPopulations.sessionUnits.embeddedParts,
+    inventoryRecords: censusPopulations.sessionUnits.inventoryRecords,
+    perFile: [{ file: "fixture.json", schemaVersion: "2.0", metaCount: 2, questionsLength: 2, mismatch: false }],
+    byItemType: Object.fromEntries(denominatorViews.sessionUnits.byItemType),
+    byCategory: Object.fromEntries(denominatorViews.sessionUnits.byCategory),
+    withinCategory: topicRows(denominatorViews.sessionUnits.topics),
+    byDifficulty: Object.fromEntries(denominatorViews.sessionUnits.byDifficulty),
+    deliveryCapacity: {
+      requestedSessionSize: denominatorViews.sessionUnits.sessionSize,
+      standaloneDrawEligible: denominatorViews.sessionUnits.totalEligible,
+      insufficientForFullSession: denominatorViews.sessionUnits.insufficientForFullSession,
+      byCategory: denominatorViews.sessionUnits.eligibleByCategory,
+      requestedCategoryTargets: denominatorViews.sessionUnits.eligibleCategoryTargets,
+      shortfalls: denominatorViews.sessionUnits.eligibilityShortfalls,
+    },
+    bySchemaVersion: { "2.0": { questions: 2, files: ["fixture.json"] } },
+    bySourceFile: { "fixture.json": 2 },
+    caseStudies: [{ id: caseWithLeaf.id, topic: caseWithLeaf.topic, parts: 2, bank: "fixture.json" }],
+  },
+  scoredLeaves: {
+    populationBasis: "standalone_top_level_plus_embedded_leaves",
+    total: censusPopulations.scoredLeaves.total,
+    standalone: censusPopulations.scoredLeaves.standalone,
+    embedded: censusPopulations.scoredLeaves.embedded,
+    byItemType: Object.fromEntries(denominatorViews.scoredLeaves.byItemType),
+    byCategory: Object.fromEntries(denominatorViews.scoredLeaves.byCategory),
+    withinCategory: topicRows(denominatorViews.scoredLeaves.topics),
+    byDifficulty: Object.fromEntries(denominatorViews.scoredLeaves.byDifficulty),
+    targets: {
+      categoryTargets: denominatorViews.scoredLeaves.categoryTargets,
+      itemTypeAverage: denominatorViews.scoredLeaves.itemTypeAverage,
+      underCategories: denominatorViews.scoredLeaves.underCategories,
+      overCategories: denominatorViews.scoredLeaves.overCategories,
+      underItemTypes: denominatorViews.scoredLeaves.underItemTypes,
+    },
+    prioritizeTopics: denominatorViews.scoredLeaves.prioritizeTopics,
+    avoidTopics: denominatorViews.scoredLeaves.avoidTopics,
+  },
+  visualArtifacts: {
+    populationBasis: "recursive_visual_artifacts",
+    total: 0,
+    byKind: {},
+    rhythmSubtypes: {},
+    idsByKind: {},
+  },
+  idUniqueness: { duplicates: [] },
+  docsDrift: { ok: true, findings: [] },
+};
+const censusMarkdown = renderCensus(censusRenderFixture);
+for (const heading of [
+  "## Session-Unit Inventory and Delivery Capacity",
+  "## Canonical Content-Planning Coverage — Scored Leaves",
+  "## Recursive Visual Artifact Inventory",
+  "### Targets",
+  "### Prompt Parameters",
+  "PRIORITIZE_TOPICS:",
+  "AVOID_TOPICS:",
+]) {
+  assert.equal(censusMarkdown.split(heading).length - 1, 1, `census must emit ${heading} exactly once`);
+}
+const censusTargetBlock = censusMarkdown.slice(
+  censusMarkdown.indexOf("### Targets"),
+  censusMarkdown.indexOf("### Prompt Parameters"),
+);
+assert.equal(censusTargetBlock.includes("case_study"), false, "case_study must not enter census scored-format targets");
 
 const backfillFixture = [
   ...Array.from({ length: 4 }, (_, index) =>
