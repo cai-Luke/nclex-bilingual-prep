@@ -65,7 +65,7 @@ export const TOPICS = {
   TRANSFUSION_BLOOD_PRODUCTS: "Transfusion & Blood Products",
 } as const;
 
-// Canonical vocabulary pending a reviewed live-bank migration.
+// Canonical vocabulary; the reviewed live-bank migration completed on 2026-07-16.
 export const STRICT_TOPIC_CATEGORY: Record<Category, readonly string[]> = {
   "Management of Care": [
     TOPICS.PRIORITIZATION_DELEGATION,

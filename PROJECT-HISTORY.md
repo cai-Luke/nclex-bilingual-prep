@@ -52,6 +52,97 @@ The committed NGN item-type set is complete. Rationale/dyad scoring and an expli
 
 > Milestones dated **2026-06-23 and earlier** are archived in [`Archive/PROJECT-HISTORY-ARCHIVE.md`](Archive/PROJECT-HISTORY-ARCHIVE.md). Only the current arc (2026-06-24 onward) is kept here.
 
+### GPT Coverage Balance Batches 5/6A/6B — Promoted (Jul 16)
+
+Independent (Claude, non-producer) content review and promotion of the three raw drafts staged by the
+raw-gate preparation entries below: `gpt-balance5-coverage-batch-2026-07-16.json`,
+`gpt-balance6a-coverage-batch-2026-07-16.json`, and `gpt-balance6b-coverage-batch-2026-07-16.json`
+(18 items each, 54 total).
+
+Review:
+- Read all 54 items in full. Every category/format/difficulty distribution matched its commissioned
+  manifest exactly: Batch 5 is 8 Management of Care / 4 Pharmacological and Parenteral Therapies / 3
+  Safety and Infection Prevention and Control / 3 Reduction of Risk Potential, 7 highlights / 5
+  bowties / 3 dropdown clozes / 3 matrices, 7 easy / 8 medium / 3 hard. Batches 6A and 6B each are 11
+  Management of Care / 4 Reduction of Risk Potential / 3 Safety and Infection Prevention and Control,
+  6 highlights / 4 bowties / 3 dropdown clozes / 3 matrices / 2 ordered responses, 7 easy / 8 medium /
+  3 hard.
+- Hand-reverified every calculation: Batch 5's anion-gap/Winter's-formula ileostomy item; 6A's
+  chloride-responsive metabolic-alkalosis item using the raw-gate-supplied 40 mm Hg PaCO2 reference;
+  6B's DKA-plus-vomiting item (anion gap 31, expected PaCO2 25.5–29.5 mm Hg against a measured 27,
+  delta-gap-corrected HCO3 32 mEq/L identifying a concurrent metabolic alkalosis). All arithmetic
+  checks out.
+- Spot-verified the 6B in-line repairs applied by `scripts/patches/2026-07-16-gpt-balance6-inline-repair.ts`:
+  the Safety-category rename, the cleaned `meta.source`/`meta.skill_signature` fields, and the restored
+  sterilization boundary and CDC nail-length source pin both read correctly in the promoted content.
+- No clinical, bilingual-parity, or answer-key ambiguity issues found across any of the 54 items;
+  no fixes were required beyond the raw-gate provenance work already recorded below.
+
+Verification:
+- `npm run validate-bank` passed all three raw drafts, then all 13 bundled banks post-merge.
+- Confirmed 0 ID collisions — raw-vs-raw and raw-vs-canonical (54 raw IDs, 1798 pre-merge canonical
+  IDs, no overlap).
+- `npm run promote` staged all three to `banks/_promoted/`; `npm run audit` **GATE PASSED** before and
+  after merge (2573 bundled IDs globally unique post-merge; only the pre-existing advisory
+  topic-license vocabulary warning and the pre-existing visual non-MCQ distributional advisory, both
+  unrelated to this batch).
+- `npm run consolidate` routed all three `gpt-` drafts into `gpt-canonical.json` sequentially
+  (627→645→663→681); staged files auto-consumed. Raw drafts deleted after the merge and audit passed.
+- `npm run census && npm run census:check` — 1852 top-level / 721 embedded parts / 2430 scored leaves
+  / 199 visuals (unchanged visual count; both batches are text-only). `npm run coverage-report`
+  regenerated cleanly.
+- `npm run test:topic-vocabulary`, `test:topic-migration-guards`, `test:topic-residual-proposals`,
+  `test:residual-rerun`, and `npm run test-visuals` all passed.
+- `npx tsc -b --pretty false` and `npm run build` both passed.
+- `BANK-REVIEW-LEDGER.md` updated: new Merged Source Batches entry, and the `gpt-canonical.json` row's
+  count/last-validated fields bumped to 681 / 2026-07-16.
+
+Note: these 54 additions are all standalone, so their top-level and scored-leaf increments agree.
+The denominator question formerly recorded in `CENSUS-DENOMINATOR-DESIGN-QUESTION.md` was resolved by
+the dual-lane census implementation below; the final post-promotion/post-migration regeneration now
+reports both views from one bank state.
+
+### Topic/License Semantic Residual Closeout (Jul 16)
+
+Completed:
+- Semantically adjudicated the complete 556-record topic/license residual: 465 noncanonical-topic
+  findings plus 91 canonical topic/category license mismatches.
+- Preserved record kinds in the controlled manifest and report: 91 case-study containers, 275
+  standalone scored leaves, and 190 embedded scored leaves. Containers were migrated as records but
+  were not counted as scored leaves.
+- Materialized deterministic per-record before/after decisions in
+  `audit/topic-license-adjudication-2026-07-16.manifest.json` and grouped the review report first by
+  issue type, then by record kind. All 91 license mismatches have explicit item-level decisions.
+- Applied 556 metadata-only changes through a fail-closed applicator that verifies the exact source
+  population, record identity and before-values, canonical target membership, and category license
+  before writing. No stems, exhibits, keys, rationales, sources, difficulty labels, or grading data
+  changed.
+- Regenerated the recursive topic-license report and conservative residual outputs. Current result:
+  1,852 top-level records (143 case containers + 1,709 standalone leaves), 721 embedded leaves, and
+  2,430 scored leaves with zero noncanonical topics and zero category-license mismatches; the legacy
+  residual pass also has zero suggestions, unresolveds, untrusted rows, and cross-category blocks.
+- Kept the report-only limitation explicit: vocabulary membership and declared licenses are
+  mechanically enforceable, while clinical boundaries inside SHARED licenses remain semantic-review
+  work.
+
+Verification:
+- `npx tsx scripts/patches/2026-07-16-topic-license-adjudication.ts --verify` confirmed all 556
+  manifest rows at their expected paths/kinds/parents and zero residual findings.
+- A `HEAD`-to-worktree bank-impact comparison confirmed all 556 migrated records and all 1,963 other
+  pre-existing records are unchanged outside recursive `category`/`topic` fields; 54 separately
+  promoted new records are additive, and no record was removed.
+- `npm run validate-bank -- banks/*.json` passed all 13 bundled banks.
+- `npm run audit` passed Tier 0/1 and the topic-license advisory with 2,573 globally unique IDs;
+  only the standing visual `select_all` distribution advisory remains. Integrity was insufficient
+  because the already-promoted raw directory is empty.
+- Topic vocabulary, migration-guard, residual-proposal, residual-rerun, recursive-population,
+  topic-license, IV-fluid-taxonomy, and coverage-report tests passed.
+- `npm run test-visuals` passed all 12 registered kinds and shared conformance/parity checks.
+- `npx tsc -b --pretty false` passed.
+- `npm run census && npm run census:check` passed at 1,852 top-level / 721 embedded / 2,430 scored
+  leaves / 199 visuals. `npm run coverage-report` regenerated against the same state.
+- `npm run build` passed with only the standing Vite chunk-size warning.
+
 ### Dual-Lane Census, Recursive Topic Population, and IV-Fluid Audit (Jul 16)
 
 Completed:
@@ -171,6 +262,37 @@ Verification:
 - Performed targeted canonical-bank premise searches and checked the load-bearing source lanes
   against current CMS, HHS/OCR, DOJ/ADA/OVW, AHRQ, CDC, OSHA, SAMHSA, NICE, IDSA, ISPD, ASRA, ATS,
   Merck, and ASPR TRACIE materials.
+
+### GPT Coverage Balance Batch 6 Raw Gate Preparation (Jul 16)
+
+Completed in staging only:
+- Received both 18-item drafts in `banks/banks-raw/` and restored the shortened 6B filename to the
+  routable `gpt-balance6b-coverage-batch-2026-07-16.json`. Both drafts remain raw; neither has been
+  independently approved, promoted, consolidated, or ledgered.
+- Applied the canonical `Safety and Infection Prevention and Control` label to the final three items
+  in each draft. The archived commissions predated the controlled-category rename and still carried
+  the retired label.
+- Repaired inline-rendering corruption in all 18 6B `meta.source` and `meta.skill_signature` fields.
+  The copied response had interpreted source URLs as Markdown; the artifact scan confirmed that no
+  stem, option, answer key, rationale, glossary, or bilingual learner-facing field was affected.
+- Added the missing 40 mm Hg reference used by 6A's closed-world metabolic-alkalosis compensation
+  calculation. In 6B, pinned the CDC guideline section supporting the supplied 1/4-inch nail limit
+  and restored the sterile-tissue ultrasound-probe row to the commission's explicit sterilization
+  boundary. The deterministic repair record is
+  `scripts/patches/2026-07-16-gpt-balance6-inline-repair.ts`.
+
+Verified:
+- Both drafts contain exactly 18 standalone items and match their assignment manifests apart from
+  the ratified Safety-category rename: each has the required 11/4/3 category, 6/4/3/3/2 format, and
+  7/8/3 difficulty distribution.
+- Batch 5 plus both Batch 6 drafts pass `validate-bank`; Batch 6 needs zero normalizer changes.
+- No canonical/Batch-5/Batch-6 ID collisions, topic-license findings, rationale-reference hazards,
+  or mechanical non-MCQ bias findings were found.
+- The provisional combined coverage report is 1,852 top-level questions, with remaining top-level
+  category gaps of Management of Care -12, Reduction of Risk Potential -9, Safety and Infection
+  Prevention and Control -4, Health Promotion and Maintenance -3, and Basic Care and Comfort -1.
+- Independent clinical/source adjudication, collision review, promotion, consolidation, ledger entry,
+  census regeneration, and the full bank-content verification path remain required.
 
 ### GPT Coverage Balance Batch 5 Commission (Jul 16)
 
