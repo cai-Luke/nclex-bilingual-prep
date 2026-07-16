@@ -5,12 +5,13 @@ import {
   parseSessionSize,
   SESSION_SIZE,
 } from "../coverage-report";
-import { itemTypes, NCLEX_CATEGORY_WEIGHTS } from "../../src/schema";
+import { itemTypes, NCLEX_CATEGORY_WEIGHTS, standaloneItemTypes } from "../../src/schema";
 import type { Category, ItemType, MultipleChoiceQuestion, Question, StandaloneItemType } from "../../src/types";
+import { collectScoredLeaves } from "../../lib/question-population";
 
 const counts: Record<Category, number> = {
   "Management of Care": 140,
-  "Safety and Infection Control": 139,
+  "Safety and Infection Prevention and Control": 139,
   "Health Promotion and Maintenance": 138,
   "Psychosocial Integrity": 137,
   "Basic Care and Comfort": 145,
@@ -193,6 +194,38 @@ assert.equal(
   eligibleCoverage.eligibilityShortfalls.some(([category]) => category === "Physiological Adaptation"),
   false,
   "a category with enough eligible items should not be marked short",
+);
+
+const embeddedLeaf = makeQuestion("Psychosocial Integrity", 99, {
+  itemType: "multiple_choice",
+  topic: "Embedded leaf fixture",
+});
+const caseWithLeaf = makeQuestion("Management of Care", 98, {
+  itemType: "case_study",
+  topic: "Case container fixture",
+}) as Extract<Question, { itemType: "case_study" }>;
+caseWithLeaf.caseStudy.questions = [embeddedLeaf as Exclude<Question, { itemType: "case_study" }>];
+const scoredLeaves = collectScoredLeaves([
+  makeQuestion("Basic Care and Comfort", 97, { itemType: "multiple_choice" }),
+  caseWithLeaf,
+]);
+assert.deepEqual(
+  scoredLeaves.map((question) => question.id),
+  ["Basic Care and Comfort-multiple_choice-97", embeddedLeaf.id],
+  "scored-leaf traversal must include standalone and embedded questions while excluding the case container",
+);
+const scoredLeafCoverage = computeCoverage(scoredLeaves, SESSION_SIZE, {
+  itemTypePopulation: standaloneItemTypes,
+});
+assert.equal(
+  scoredLeafCoverage.byItemType.some(([itemType]) => itemType === "case_study"),
+  false,
+  "case-study containers must not appear as a zero-count format target in scored-leaf coverage",
+);
+assert.equal(
+  scoredLeafCoverage.itemTypeAverage,
+  scoredLeaves.length / standaloneItemTypes.length,
+  "scored-leaf format targets must use only scored standalone item types as the denominator",
 );
 
 const backfillFixture = [

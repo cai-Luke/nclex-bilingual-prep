@@ -27,7 +27,7 @@ reviewed and approved into an execution manifest. See `Archive/root-specs-2026-0
 | Discharge Planning & Handoff | STRICT — see judgment calls | keep; STRICT |
 | Conflict Resolution | STRICT | keep; STRICT |
 
-## Safety and Infection Control
+## Safety and Infection Prevention and Control
 
 | Topic | Proposed class | Call |
 |---|---|---|
@@ -105,7 +105,7 @@ reviewed and approved into an execution manifest. See `Archive/root-specs-2026-0
 
 These were the topics where a single clinical concept legitimately spans categories. Final calls:
 
-1. **Medication Safety & Admin** — SHARED `[Pharmacological, Safety and Infection Control]`.
+1. **Medication Safety & Admin** — SHARED `[Pharmacological, Safety and Infection Prevention and Control]`.
    High-alert med safety surfaces under Safety; admin/effects under Pharmacological.
 2. **Laboratory & Diagnostic Tests** — SHARED `[Reduction of Risk Potential, Pharmacological]`.
    Drug-level labs (INR, lithium, vancomycin trough) are keyed here from pharm items.
@@ -113,11 +113,12 @@ These were the topics where a single clinical concept legitimately spans categor
    safety/toxicity routes to Medication Safety & Admin; comfort/goals-of-care route here.
 4. **Discharge Planning & Handoff** — STRICT `Management of Care`. Discharge teaching routes to the
    clinical topic, not here.
-5. **Patient & Environment Safety** — STRICT `Safety and Infection Control`.
+5. **Patient & Environment Safety** — STRICT `Safety and Infection Prevention and Control`.
 6. **Therapeutic Communication** — STRICT `Psychosocial Integrity`. Handoff/interpreter communication
    routes to Management of Care topics when that is the actual tested construct.
 7. **Dosage Calculations** — STRICT `Pharmacological and Parenteral Therapies`. Classifier should
-   reserve this for actual calculation/numeric dose work, not broad medication safety.
+   reserve this for medication calculation/numeric dose work, not broad medication safety or
+   non-medication IV-fluid arithmetic.
 
 ## Approved additions (locked)
 
@@ -139,7 +140,7 @@ walkthrough and wired into `src/topics.ts`.**
 
 ## Review holds from Gemini semantic pass (Jun 16)
 
-- `gemini_u5_fib_or_2026_06_09_fib_tbsa_04`: corrected category from Safety and Infection Control to
+- `gemini_u5_fib_or_2026_06_09_fib_tbsa_04`: corrected category from Safety and Infection Prevention and Control to
   Physiological Adaptation; topic resolves to **Burn Management**.
 - `gemini_u5_fib_or_2026_06_09_fib_gcs_01`: **Laboratory & Diagnostic Tests** is a licensed
   Reduction of Risk Potential compromise for GCS scoring, but the fit is weak and should be reviewed
@@ -151,10 +152,10 @@ walkthrough and wired into `src/topics.ts`.**
 ## Residual rerun decisions (Jun 18)
 
 - **Skin & Wound Care sharing:** share across Basic Care and Comfort, Reduction of Risk Potential,
-  and Safety and Infection Control. The residual rerun produced eight wound/pressure-injury
+  and Safety and Infection Prevention and Control. The residual rerun produced eight wound/pressure-injury
   vocabulary-gap flags where moving rows to BCC solely to reach the topic would distort the tested
   Client Needs category.
-- **Transfusion & Blood Products:** add a shared topic across Safety and Infection Control,
+- **Transfusion & Blood Products:** add a shared topic across Safety and Infection Prevention and Control,
   Pharmacological and Parenteral Therapies, Reduction of Risk Potential, and Physiological
   Adaptation. Use it for transfusion reactions, blood-product indications, and product-role
   questions that otherwise scatter into cardiovascular, lab, or procedural catchalls.
@@ -178,7 +179,7 @@ rather than the producer's own summary of them:
   producer proposed widening to SHARED `[Reduction of Risk Potential, Physiological Adaptation]`,
   citing a 9 RRP / 16 PA live-bank split as evidence of "a stable cross-category cluster." Recount
   found the split is actually four categories, not two — 9 RRP, 16 PA, 1 Pharmacological
-  (`gemini_p6_burn_02`), 1 Safety and Infection Control (`easy_burns_03`) — and the Jun 16 Gemini
+  (`gemini_p6_burn_02`), 1 Safety and Infection Prevention and Control (`easy_burns_03`) — and the Jun 16 Gemini
   review hold above already adjudicated this exact question once, correcting
   `gemini_u5_fib_or_2026_06_09_fib_tbsa_04` **into** Physiological Adaptation specifically because
   "topic resolves to Burn Management." Widening to SHARED now would ratify unaudited historical
@@ -200,7 +201,8 @@ rather than the producer's own summary of them:
 The Jul 15 deferral is resolved. The architect review artifact enumerated a corrected 42-row
 candidate population, and an independent gate seat re-read all live stems, keys, rationales, case
 context, and the cited NCSBN 2026 Appendix A pages. The accepted execution manifest and reconciliation
-are recorded in `BURN-MANAGEMENT-TOPIC-AUDIT-GATE-HANDOFF-2026-07-16.md`.
+are recorded in
+`Archive/burn-management-topic-audit-2026-07-16/BURN-MANAGEMENT-TOPIC-AUDIT-GATE-HANDOFF-2026-07-16.md`.
 
 **Ruling:** `Burn Management` becomes SHARED across `[Pharmacological and Parenteral Therapies,
 Reduction of Risk Potential, Physiological Adaptation]`. Category follows the keyed nursing activity;
@@ -224,9 +226,40 @@ not establish license scope. The retained rollup is 36 items: Pharm 17, RRP 8, P
 item should test" with "the literal canonical value that belongs in `question.topic`." Future
 commission tables should carry both columns separately, and producer instructions should add
 `src/topics.ts` and this file to the mandatory read list. `CANONICAL_TOPICS.has(topic) &&
-topicCategories(topic).includes(category)` is a candidate raw-bank/promotion gate check (not a
-runtime schema rule — the runtime intentionally allows free-text topics) but is not implemented; flag
-for Codex if pursued.
+topicCategories(topic).includes(category)` now runs as a report-only Tier 2 hygiene check (not a
+runtime schema rule — the runtime intentionally allows free-text topics). It reports vocabulary and
+declared-license mismatches but cannot enforce the semantic boundary among categories licensed for a
+SHARED topic.
+
+## IV-fluid calculation taxonomy (Jul 16)
+
+Architect-ratified ruling: `IV Fluid Calculations` is a STRICT topic licensed only under
+`Pharmacological and Parenteral Therapies`. The broader proposed name `IV Therapy Calculations` was
+declined because IV therapy includes administration and safety constructs already routed elsewhere.
+
+`IV Fluid Calculations` is reserved for prescribed **non-medication** IV-fluid arithmetic whose key
+calculates total volume, mL/hr, gtt/min, infusion duration/completion time, volume remaining, or a
+revised fluid rate. `Dosage Calculations` remains medication-only: medication doses, concentrations,
+dilutions, weight-based dosing, medication infusion rates, titrations, and safe-dose calculations.
+The presence of an IV is not sufficient; access care, compatibility, tubing, infiltration or
+extravasation, administration safety, and monitoring route by their actual clinical construct.
+
+Stable domain rollups take precedence over the generic arithmetic topic. Burn-resuscitation
+calculations remain `Burn Management`; parenteral-nutrition calculations remain `Parenteral
+Nutrition`; blood-product calculations remain `Transfusion & Blood Products`; and intake/output or
+net-fluid-balance items remain `Nutritional & Fluid Support` or their applicable clinical domain.
+
+Execution scope is the audited nine-item manifest: six topic-only corrections and three category plus
+topic corrections. The separate AKI net-fluid-balance residual is not part of that nine-item set and
+routes by its intake/output construct.
+
+## Safety category label migration (Jul 16)
+
+The controlled category string was renamed project-wide from `Safety and Infection Control` to
+`Safety and Infection Prevention and Control`, matching the verified 2026 NCLEX-RN test plan. This
+is a vocabulary-only migration: the category's clinical semantics, weight, topic licenses, and item
+population are unchanged. Stored uploads and translation-reveal telemetry using the retired label
+are normalized on read, and legacy bank uploads are normalized before validation.
 
 ## Open structural questions (optional, for next chat)
 

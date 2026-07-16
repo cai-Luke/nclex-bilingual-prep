@@ -4,7 +4,7 @@
  * but kept the cross-shock matrix under Burn Management. The gate seat routed
  * it to Cardiovascular Disorders because only one of three keyed rows is burn-specific.
  */
-import { runPatch, setValue } from "../patch-raw";
+import { runPatch, setValue } from "../../scripts/patch-raw";
 
 runPatch([
   setValue({

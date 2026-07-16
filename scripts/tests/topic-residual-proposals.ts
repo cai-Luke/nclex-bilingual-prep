@@ -43,7 +43,7 @@ await writeJson(join(banksDir, "fixture-canonical.json"), {
     {
       ...baseQuestion,
       id: "q_already",
-      category: "Safety and Infection Control",
+      category: "Safety and Infection Prevention and Control",
       topic: "Patient & Environment Safety",
     },
     {
@@ -74,7 +74,7 @@ await writeJson(join(banksDir, "fixture-canonical.json"), {
 
 await writeJson(inputFile, [
   { id: "q_queued", category: "Management of Care", oldTopic: "client rights", context: { stem: "stale", correctOptionText: "", rationale: "", parentContext: "" } },
-  { id: "q_already", category: "Safety and Infection Control", oldTopic: "patient & environment safety", context: { stem: "stale", correctOptionText: "", rationale: "", parentContext: "" } },
+  { id: "q_already", category: "Safety and Infection Prevention and Control", oldTopic: "patient & environment safety", context: { stem: "stale", correctOptionText: "", rationale: "", parentContext: "" } },
   { id: "q_conflict", category: "Management of Care", oldTopic: "handoff", context: { stem: "stale", correctOptionText: "", rationale: "", parentContext: "stale" } },
   { id: "q_missing", category: "Management of Care", oldTopic: "unknown", context: { stem: "bare stem", correctOptionText: "", rationale: "", parentContext: "" } },
 ]);

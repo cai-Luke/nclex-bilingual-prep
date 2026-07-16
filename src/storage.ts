@@ -1,4 +1,8 @@
 import { openDB, type DBSchema, type IDBPDatabase } from "idb";
+import {
+  normalizeStoredQuestionRecord,
+  normalizeStoredTranslationRevealEvent,
+} from "./categoryMigration";
 import type {
   AnswerEvent,
   CaseAnswerPartEvent,
@@ -101,9 +105,10 @@ const getDb = () => {
 export const loadUploadedRecords = async (): Promise<QuestionRecord[]> => {
   try {
     const db = await getDb();
-    return (await db.getAll("uploadedQuestions")).map(({ id: _id, ...record }) => record);
+    return (await db.getAll("uploadedQuestions"))
+      .map(({ id: _id, ...record }) => normalizeStoredQuestionRecord(record));
   } catch {
-    return memoryUploadedRecords;
+    return memoryUploadedRecords.map(normalizeStoredQuestionRecord);
   }
 };
 
@@ -371,9 +376,11 @@ export const loadTranslationRevealEvents = async (): Promise<TranslationRevealEv
   try {
     const db = await getDb();
     const records = await db.getAll("translationRevealEvents");
-    return records.sort((left, right) => left.revealedAt.localeCompare(right.revealedAt));
+    return records
+      .map(normalizeStoredTranslationRevealEvent)
+      .sort((left, right) => left.revealedAt.localeCompare(right.revealedAt));
   } catch {
-    return memoryTranslationRevealEvents;
+    return memoryTranslationRevealEvents.map(normalizeStoredTranslationRevealEvent);
   }
 };
 

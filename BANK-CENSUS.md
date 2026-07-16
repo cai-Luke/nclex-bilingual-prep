@@ -2,8 +2,8 @@
 
 # NCLEX Bank Census
 
-Generated: 2026-07-16T13:29:19.101Z
-Git SHA: cbf7f38fd1b90b8b6425aab758ee11bf4566cf23
+Generated: 2026-07-16T14:44:38.425Z
+Git SHA: 1c5f4ecc7890d29999adf99616e9c9e78de51d97
 
 ## Per-File Summary
 
@@ -27,19 +27,22 @@ Git SHA: cbf7f38fd1b90b8b6425aab758ee11bf4566cf23
 
 - Top-level questions: 1798
 - Case study top-level: 143
+- Standalone top-level: 1655
 - Embedded parts: 721
-- Graded total: 2519
+- Scored leaves: 2376 (standalone top-level + embedded parts; case containers excluded)
+- Inventory records: 2519 (top-level + embedded parts)
+- Legacy `gradedTotal`: 2519 (compatibility alias for inventory records; do not use for scored-leaf coverage)
 
 ## By Category
 
 - Health Promotion and Maintenance: 164
-- Basic Care and Comfort: 165
+- Basic Care and Comfort: 166
 - Psychosocial Integrity: 171
-- Reduction of Risk Potential: 203
-- Safety and Infection Control: 228
-- Physiological Adaptation: 285
+- Reduction of Risk Potential: 202
+- Safety and Infection Prevention and Control: 228
+- Physiological Adaptation: 283
 - Management of Care: 291
-- Pharmacological and Parenteral Therapies: 291
+- Pharmacological and Parenteral Therapies: 293
 
 ## Within-Category Concentration
 
@@ -48,7 +51,7 @@ Git SHA: cbf7f38fd1b90b8b6425aab758ee11bf4566cf23
 Top topics: Prioritization & Delegation (55), Legal & Ethical Principles (51), Discharge Planning & Handoff (39), Confidentiality & HIPAA (29), Client Advocacy (24), Conflict Resolution (19), Chain of Command & Escalation (9), Disaster & Emergency Preparedness (9), Advance Directives / DNR (8), Medication Safety & Admin (2)
 Visual kinds: capnography (1), device_screen (1), mar (2)
 
-### Safety and Infection Control
+### Safety and Infection Prevention and Control
 
 Top topics: Patient & Environment Safety (47), Transmission-Based Precautions (43), Standard Precautions & Hygiene (31), PPE & Sterile Technique (29), Disaster & Emergency Preparedness (13), Environmental safety and equipment checks (8), Fall prevention (6), Medication Safety & Admin (4), Transfusion & Blood Products (4), Endocrine & Neurological Disorders (2)
 Visual kinds: capnography (4), device_screen (1), medication_label (1), vitals_trend (3)
@@ -65,12 +68,12 @@ Visual kinds: none
 
 ### Basic Care and Comfort
 
-Top topics: Nutritional & Fluid Support (37), Elimination & Comfort (32), Mobility & Immobility (29), Sleep & Rest (19), Palliative & Supportive Care (15), Dosage Calculations (10), Skin & Wound Care (3), Transmission-Based Precautions (3), Adult Health & Wellness (2), Perioperative Care (2)
+Top topics: Nutritional & Fluid Support (38), Elimination & Comfort (32), Mobility & Immobility (29), Sleep & Rest (19), Palliative & Supportive Care (15), Dosage Calculations (10), Skin & Wound Care (3), Transmission-Based Precautions (3), Adult Health & Wellness (2), Perioperative Care (2)
 Visual kinds: device_screen (1), io_record (4)
 
 ### Pharmacological and Parenteral Therapies
 
-Top topics: Dosage Calculations (56), Medication Safety & Admin (54), Anticoagulant Therapy (44), Cardiovascular & Endocrine Medications (33), Psychotropic Medications (18), Burn Management (16), Parenteral Nutrition (12), High-Alert Medication Safety (6), Nutritional & Fluid Support (3), Antibiotic Allergy Screening (2)
+Top topics: Medication Safety & Admin (54), Dosage Calculations (50), Anticoagulant Therapy (44), Cardiovascular & Endocrine Medications (33), Psychotropic Medications (18), Burn Management (16), Parenteral Nutrition (12), IV Fluid Calculations (8), High-Alert Medication Safety (6), Nutritional & Fluid Support (3)
 Visual kinds: burn_map (6), capnography (3), device_screen (6), io_trend (2), lab_trend (6), mar (9), medication_label (12), rhythm_strip (10), vitals_trend (8)
 
 ### Reduction of Risk Potential
@@ -80,7 +83,7 @@ Visual kinds: burn_map (3), capnography (6), device_screen (3), fetal_monitoring
 
 ### Physiological Adaptation
 
-Top topics: Cardiovascular Disorders (75), Renal & Gastrointestinal Disorders (37), Endocrine & Neurological Disorders (36), Electrolyte Imbalances (26), Diabetic Ketoacidosis (DKA) (16), Respiratory & Infectious Disorders (14), Burn Management (8), Sepsis & Septic Shock (8), Oncology & Immunotherapy Complications (6), ABG & Acid-Base Interpretation (2)
+Top topics: Cardiovascular Disorders (75), Renal & Gastrointestinal Disorders (37), Endocrine & Neurological Disorders (36), Electrolyte Imbalances (26), Diabetic Ketoacidosis (DKA) (15), Respiratory & Infectious Disorders (14), Burn Management (8), Sepsis & Septic Shock (8), Oncology & Immunotherapy Complications (6), ABG & Acid-Base Interpretation (2)
 Visual kinds: burn_map (1), capnography (11), io_record (2), io_trend (2), lab_trend (7), rhythm_strip (37), vitals_trend (12)
 
 ## By Item Type
@@ -100,6 +103,123 @@ Visual kinds: burn_map (1), capnography (11), io_record (2), io_trend (2), lab_t
 - easy: 245
 - hard: 613
 - medium: 940
+
+## Scored-Leaf Coverage
+
+This lane counts standalone top-level questions plus embedded case parts. Case-study containers are excluded.
+
+Total scored leaves: 2376
+
+### By Category
+
+- Basic Care and Comfort: 215
+- Health Promotion and Maintenance: 232
+- Psychosocial Integrity: 249
+- Reduction of Risk Potential: 251
+- Safety and Infection Prevention and Control: 277
+- Pharmacological and Parenteral Therapies: 371
+- Management of Care: 382
+- Physiological Adaptation: 399
+
+### Within-Category Concentration
+
+- Management of Care: Legal & Ethical Principles (65), Discharge Planning & Handoff (64), Prioritization & Delegation (60), Confidentiality & HIPAA (34), Client Advocacy (29), Conflict Resolution (29), Chain of Command & Escalation (9), Disaster & Emergency Preparedness (9), Advance Directives / DNR (8), Acute Graft-Versus-Host Disease (2)
+- Safety and Infection Prevention and Control: Transmission-Based Precautions (54), Patient & Environment Safety (51), Standard Precautions & Hygiene (34), PPE & Sterile Technique (30), Disaster & Emergency Preparedness (24), Transfusion & Blood Products (14), Environmental safety and equipment checks (8), Fall prevention (6), Medication Safety & Admin (4), Pressure injury prevention in long-term care (4)
+- Health Promotion and Maintenance: Adult Health & Wellness (70), Chronic Disease Management & Lifestyle (38), Maternal-Newborn Care & Teaching (37), Pediatric & Adolescent Health (36), Pediatric & Toddler Safety (22), Reproductive & Endocrine Health (12), Celiac disease with dermatitis herpetiformis (2), Respiratory & Infectious Disorders (2), COPD discharge teaching (1), Discharge Planning & Handoff (1)
+- Psychosocial Integrity: Mental Health Disorders (73), Suicide & Crisis Intervention (56), Therapeutic Communication (39), Caregiver Role Strain & Family Coping (32), Substance Use & Withdrawal (26), Electroconvulsive Therapy (ECT) (8), caregiver burden and safety cue recognition (1), domestic violence disclosure during child safety planning (1), elder neglect recognition (1), family teaching about delirium recovery (1)
+- Basic Care and Comfort: Mobility & Immobility (44), Nutritional & Fluid Support (42), Elimination & Comfort (40), Sleep & Rest (26), Palliative & Supportive Care (19), Dosage Calculations (10), Skin & Wound Care (8), Transmission-Based Precautions (3), Adult Health & Wellness (2), Mucositis TPN and CRBSI (2)
+- Pharmacological and Parenteral Therapies: Dosage Calculations (65), Medication Safety & Admin (63), Anticoagulant Therapy (50), Cardiovascular & Endocrine Medications (35), Psychotropic Medications (25), Burn Management (17), Parenteral Nutrition (17), IV Fluid Calculations (9), High-Alert Medication Safety (6), Nutritional & Fluid Support (3)
+- Reduction of Risk Potential: Laboratory & Diagnostic Tests (50), Procedural Complications & Dialysis (48), Perioperative Care (38), Intrapartum Fetal Monitoring (12), Burn Management (8), Maternal-Newborn Care & Teaching (7), ABG & Acid-Base Interpretation (5), Late postpartum preeclampsia with severe features (5), Injection route recognition from skin cross-section (4), Oncology & Immunotherapy Complications (4)
+- Physiological Adaptation: Cardiovascular Disorders (93), Renal & Gastrointestinal Disorders (53), Endocrine & Neurological Disorders (51), Electrolyte Imbalances (49), Respiratory & Infectious Disorders (22), Oncology & Immunotherapy Complications (21), Diabetic Ketoacidosis (DKA) (18), Sepsis & Septic Shock (17), Burn Management (11), Postpartum hemorrhage due to uterine atony (7)
+
+### By Item Type
+
+- bowtie: 135
+- highlight: 154
+- fill_in_blank: 201
+- ordered_response: 229
+- dropdown_cloze: 262
+- matrix: 333
+- select_all: 376
+- multiple_choice: 686
+
+### By Difficulty
+
+- easy: 248
+- hard: 944
+- medium: 1184
+
+### Targets
+
+Category targets (2026 NCLEX-RN test-plan weights, scored-leaf denominator):
+- Management of Care: 427.7
+- Safety and Infection Prevention and Control: 308.9
+- Health Promotion and Maintenance: 213.8
+- Psychosocial Integrity: 213.8
+- Basic Care and Comfort: 213.8
+- Pharmacological and Parenteral Therapies: 380.2
+- Reduction of Risk Potential: 285.1
+- Physiological Adaptation: 332.6
+Item type average: 297.0
+
+Under-served categories:
+- none
+
+Over-served categories:
+- none
+
+Under-served item types:
+- bowtie: 135
+- highlight: 154
+- fill_in_blank: 201
+- ordered_response: 229
+- dropdown_cloze: 262
+
+### Prompt Parameters
+
+PRIORITIZE_TOPICS:
+- Substance Use & Withdrawal — add: ordered_response
+- Burn Management — add: ordered_response
+- Sepsis & Septic Shock — add: select_all, fill_in_blank, highlight
+- Chronic Disease Management & Lifestyle — add: highlight, bowtie
+- Diabetic Ketoacidosis (DKA) — add: fill_in_blank
+- Psychotropic Medications — add: fill_in_blank
+- C. difficile colitis and dehydration — add: select_all, ordered_response, fill_in_blank, matrix, dropdown_cloze, highlight, bowtie
+- Injection route recognition from skin cross-section — add: select_all, ordered_response, fill_in_blank, matrix, dropdown_cloze, highlight, bowtie
+- Oncology & Immunotherapy Complications — add: fill_in_blank
+- Transfusion & Blood Products — add: ordered_response, fill_in_blank
+- Acute Graft-Versus-Host Disease — add: select_all, ordered_response, fill_in_blank, dropdown_cloze, highlight, bowtie
+- Electroconvulsive Therapy (ECT) — add: select_all, fill_in_blank
+- lithium toxicity — add: ordered_response, fill_in_blank, matrix, dropdown_cloze, highlight, bowtie
+- Mucositis TPN and CRBSI — add: select_all, fill_in_blank, matrix, dropdown_cloze, highlight, bowtie
+- Reproductive & Endocrine Health — add: fill_in_blank
+- warfarin-enoxaparin-bridge — add: select_all, ordered_response, fill_in_blank, dropdown_cloze, highlight, bowtie
+- bowtie (135 vs target 297.0)
+- highlight (154 vs target 297.0)
+- fill_in_blank (201 vs target 297.0)
+- ordered_response (229 vs target 297.0)
+- dropdown_cloze (262 vs target 297.0)
+- accidental tracheostomy dislodgement
+- acute hemorrhage prioritization
+- acute kidney injury fluid response
+- Acute variceal hemorrhage in cirrhosis
+- AD Cause Identification
+- Adenosine Side Effects
+- ADHF Pathophysiology
+- Adrenal crisis emergency response
+- Advance Directives & Code Status
+- Advocacy / Informed Refusal
+- anaphylaxis response to epinephrine
+
+AVOID_TOPICS:
+- Cardiovascular Disorders (97)
+- Dosage Calculations (76)
+- Adult Health & Wellness (75)
+- Mental Health Disorders (74)
+- Medication Safety & Admin (70)
+- Legal & Ethical Principles (65)
+- Discharge Planning & Handoff (65)
+- Prioritization & Delegation (62)
 
 ## By Schema Version
 
@@ -315,7 +435,7 @@ No duplicates detected.
 
 Category targets (2026 NCLEX-RN test-plan weights):
 - Management of Care: 323.6
-- Safety and Infection Control: 233.7
+- Safety and Infection Prevention and Control: 233.7
 - Health Promotion and Maintenance: 161.8
 - Psychosocial Integrity: 161.8
 - Basic Care and Comfort: 161.8
@@ -339,6 +459,7 @@ PRIORITIZE_TOPICS:
 - Dosage Calculations — add: ordered_response
 - Substance Use & Withdrawal — add: ordered_response
 - Burn Management — add: ordered_response
+- Diabetic Ketoacidosis (DKA) — add: fill_in_blank
 - Injection route recognition from skin cross-section — add: select_all, ordered_response, fill_in_blank, matrix, dropdown_cloze, highlight, bowtie
 - Palliative & Supportive Care — add: select_all
 - Electroconvulsive Therapy (ECT) — add: select_all, fill_in_blank

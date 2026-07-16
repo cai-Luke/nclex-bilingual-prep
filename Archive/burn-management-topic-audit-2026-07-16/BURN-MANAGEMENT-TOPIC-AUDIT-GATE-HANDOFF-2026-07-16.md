@@ -6,7 +6,7 @@ Date: 2026-07-16
 
 Input artifact: [`BURN-MANAGEMENT-TOPIC-AUDIT-ARTIFACT.md`](BURN-MANAGEMENT-TOPIC-AUDIT-ARTIFACT.md)
 
-Category authority: [`docs/source-records/NCSBN-2026-NCLEX-RN-TEST-PLAN.md`](docs/source-records/NCSBN-2026-NCLEX-RN-TEST-PLAN.md)
+Category authority: [`docs/source-records/NCSBN-2026-NCLEX-RN-TEST-PLAN.md`](../../docs/source-records/NCSBN-2026-NCLEX-RN-TEST-PLAN.md)
 
 This handoff records the original gate ruling and the subsequent execution receipt. The historical
 accepted/held/revised counts remain the gate-seat disposition; the architect later resolved the one
@@ -31,10 +31,10 @@ Category abbreviations below resolve to current executable `Category` values:
 | PA | `Physiological Adaptation` |
 | RRP | `Reduction of Risk Potential` |
 | Pharm | `Pharmacological and Parenteral Therapies` |
-| Safety | `Safety and Infection Control` |
+| Safety | `Safety and Infection Prevention and Control` |
 | BCC | `Basic Care and Comfort` |
 
-The NCSBN 2026 rename to `Safety and Infection Prevention and Control` remains a separate project-wide vocabulary migration. This manifest writes the current project enum value if executed before that migration.
+The separate project-wide NCSBN 2026 Safety-label migration was completed on 2026-07-16. It did not reopen or re-adjudicate this manifest.
 
 ## Accepted / Held / Revised Execution Manifest
 

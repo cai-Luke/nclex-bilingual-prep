@@ -52,6 +52,54 @@ The committed NGN item-type set is complete. Rationale/dyad scoring and an expli
 
 > Milestones dated **2026-06-23 and earlier** are archived in [`Archive/PROJECT-HISTORY-ARCHIVE.md`](Archive/PROJECT-HISTORY-ARCHIVE.md). Only the current arc (2026-06-24 onward) is kept here.
 
+### Dual-Lane Census, Recursive Topic Population, and IV-Fluid Audit (Jul 16)
+
+Completed:
+- Preserved the existing top-level census/coverage fields and added a separate scored-leaf lane:
+  2,376 standalone top-level plus embedded questions, excluding 143 case-study containers. Retained
+  legacy `gradedTotal` as a compatibility alias for the 2,519 question-shaped inventory records and
+  labeled it explicitly so it is not mistaken for scored-leaf coverage.
+- Added one shared question-population traversal and moved global ID indexing onto it. The same
+  traversal now powers exact-topic audits, preventing embedded case leaves from disappearing from
+  future worklists.
+- Added a generic two-stage topic-population reporter: recursive exact-topic enumeration plus a
+  required dated human semantic-residual manifest. Regenerated Burn Management at current HEAD as
+  36 exact records plus 4 reviewed exclusions, final population 36; no keyword detector was added.
+- Regenerated current-HEAD coverage and topic-vocabulary residual artifacts from live banks. The
+  deterministic topic pass reports 0 exact writes, 8 review suggestions, and 457 unresolved
+  noncanonical assignments.
+- Completed the non-burn IV-fluid calculation collateral audit. Nine prescribed non-medication IV
+  arithmetic items were found: 6 have the correct Pharmacological category but the medication-scoped
+  `Dosage Calculations` topic, and 3 require both category and topic correction. One adjacent
+  intake/output balance item also needs a topic correction but is not IV-therapy arithmetic.
+
+Architect ruling implemented:
+- Added STRICT `IV Fluid Calculations` under Pharmacological and Parenteral Therapies and applied
+  the exact nine-item manifest: six topic-only and three category-plus-topic corrections. Routed the
+  separate generic net-fluid-balance residual to Basic Care and Comfort / `Nutritional & Fluid
+  Support`; it is not counted in the nine. Burn Management remained closed at 36 retained records.
+- Added the recursive report-only topic-license hygiene gate. It separately reports top-level and
+  scored-leaf populations/findings, labels case containers versus embedded parts, and explicitly
+  limits itself to vocabulary membership and declared licenses; SHARED-topic clinical boundaries
+  remain semantic-review work. Current report: 1,798 top-level / 2,376 scored leaves, with 366
+  top-level and 465 scored-leaf findings (556 unique records because the lanes overlap at standalone
+  scored leaves).
+- Completed the quiet controlled-category rename to `Safety and Infection Prevention and Control`
+  without changing the 13% weight, topic licenses, clinical meaning, or 228 top-level / 277
+  scored-leaf population. Legacy bank imports and stored upload/telemetry records normalize the
+  retired label at their compatibility boundaries.
+- Folded the two identified English `substance abuse` strings into the same cleanup as `substance
+  misuse`; no separate terminology audit was commissioned. Regenerated topic vocabulary, residual,
+  topic-license, coverage, Burn-population, and dual-lane census artifacts from the live banks.
+
+Verified:
+- All 13 canonical banks plus the current raw balance-5 draft validate.
+- `npm run audit` passes Tier 0/1 with the new topic-license report-only warning and the pre-existing
+  non-MCQ distribution warning.
+- Topic vocabulary/migration/residual/population/license, IV-manifest, schema, storage compatibility,
+  translation telemetry, and coverage tests pass.
+- `npx tsc -b --pretty false`, `npm run census && npm run census:check`, and `npm run build` pass.
+
 ### Burn Management Full-Population Gate and SHARED License (Jul 16)
 
 Completed:
@@ -73,6 +121,9 @@ Completed:
 - Added the architect review artifact, Gemini report/manifest/applicator, independent gate handoff,
   and deterministic row-34 canonical patch record. Updated the dated taxonomy ruling, source record,
   topic export, review ledger, migration report, and census.
+- Archived the completed audit bundle under
+  `Archive/burn-management-topic-audit-2026-07-16/`; the canonical bank, active taxonomy, and generic
+  audit/regression tooling remain live.
 
 Verified:
 - `npm run validate-bank -- banks/*.json`
@@ -84,6 +135,42 @@ Verified:
 - `npm run census && npm run census:check` (1,798 top-level / 721 embedded / 199 visuals after
   architect-directed row-23 retirement)
 - `npm run build`
+
+### GPT Coverage Balance Batch 6 Split Commission (Jul 16)
+
+Prepared and archived after content delivery:
+- Added two independently runnable 18-item commissions,
+  `Archive/coverage-balance-batch-6-2026-07-16/GPT-COVERAGE-BALANCE-BATCH-6A-SPEC-2026-07-16.md`
+  and
+  `Archive/coverage-balance-batch-6-2026-07-16/GPT-COVERAGE-BALANCE-BATCH-6B-SPEC-2026-07-16.md`,
+  for a coordinated 36-item expansion. Each
+  producer returns a separate raw bank and does not depend on the companion packet.
+- Provisionally counted the reviewed Batch 5 raw bank for planning while continuing to exclude the
+  rejected Batch 4 Gemini output. The post-Batch-5 baseline is 1,816 top-level items; the remaining
+  under-target categories are Management of Care (-28), Reduction of Risk Potential (-12), and
+  Safety and Infection Prevention and Control (-5).
+- Allocated the aggregate order 22/8/6 across those categories. Each lane receives the same 11/4/3
+  category burden, 6 highlights / 4 bowties / 3 dropdown clozes / 3 matrices / 2 ordered responses,
+  and 7 easy / 8 medium / 3 hard items.
+- Expanded Management of Care through the explicitly SHARED `Caregiver Role Strain & Family Coping`
+  license as well as advocacy, conflict, confidentiality, and concrete transition failures. Every row
+  fixes an affirmative premise and load-bearing decision; source-heavy and hard items are divided
+  evenly between the two lanes.
+- Preserved the minimal-commission design while adding two producer-facing improvements: each packet
+  states its relationship to the aggregate order without requiring cross-packet context, and each
+  source table pins the exact guideline section or rule supporting the keyed decision rather than a
+  topic homepage.
+
+Verification:
+- Re-ran the coverage report against the 13 canonical banks plus provisional Batch 5 and confirmed
+  the 1,816-item baseline and category/format/difficulty counts.
+- Programmatically parsed both assignment tables and confirmed 18 rows per packet with exact
+  11/4/3 category, 6/4/3/3/2 format, and 7/8/3 difficulty totals.
+- Confirmed all assigned category/topic strings against `src/topics.ts`, schema version `2.0`
+  against `src/types.ts`, and unused `gpt_balance6a_*` / `gpt_balance6b_*` ID namespaces.
+- Performed targeted canonical-bank premise searches and checked the load-bearing source lanes
+  against current CMS, HHS/OCR, DOJ/ADA/OVW, AHRQ, CDC, OSHA, SAMHSA, NICE, IDSA, ISPD, ASRA, ATS,
+  Merck, and ASPR TRACIE materials.
 
 ### GPT Coverage Balance Batch 5 Commission (Jul 16)
 

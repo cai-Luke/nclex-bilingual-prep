@@ -22,7 +22,7 @@ const workspaceRoot = path.resolve(process.cwd());
 if (!fs.existsSync(path.join(workspaceRoot, 'package.json'))) {
   throw new Error('Run this script from the repository root.');
 }
-const manifestPath = path.join(workspaceRoot, 'Gemini-manifest.json');
+const manifestPath = path.join(workspaceRoot, 'Archive', 'burn-management-topic-audit-2026-07-16', 'Gemini-manifest.json');
 const manifest: Row[] = JSON.parse(fs.readFileSync(manifestPath, 'utf-8'));
 
 // We need to load the json files:

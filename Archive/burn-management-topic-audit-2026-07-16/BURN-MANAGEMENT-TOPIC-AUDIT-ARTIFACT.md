@@ -1,12 +1,35 @@
 # Burn Management Topic Audit — Review Artifact (42-row candidate population)
 
-Status: **REVIEW ARTIFACT — awaiting independent gate-seat check. Not a ruling. Not an execution
-authorization.** No bank patch, no `src/topics.ts` change, and no dated vocabulary ruling may proceed
-from this file until every row below has been independently adjudicated and Luke has ratified the
-resulting manifest.
+Status: **SUPERSEDED — historical record. Do not execute from this file.**
 
-Produced 2026-07-16 (architect seat). Supersedes the worklist in
-`BURN-MANAGEMENT-TOPIC-AUDIT-HANDOFF.md`, which enumerated 29 items (see "Worklist defects").
+Superseded 2026-07-16 by
+[`BURN-MANAGEMENT-TOPIC-AUDIT-GATE-HANDOFF-2026-07-16.md`](BURN-MANAGEMENT-TOPIC-AUDIT-GATE-HANDOFF-2026-07-16.md),
+which carries the independent gate ruling (40 accepted · 1 held · 1 revised), the architect closeout,
+and the execution receipt. **That handoff is the active Burn Management boundary. This file is the
+proposal it adjudicated**, retained for provenance.
+
+**What survives.** The 42-row population and its per-row adjudication — independently re-derived by
+the gate seat from live stems, keys, and rationales across a recursive traversal of all bundled banks.
+Also the worklist-defect analysis (traversal_miss 6 · topic_drift_miss 6) and the two-stage
+population-helper contract.
+
+**What does not survive.**
+
+- **Row 23** (`gpt_visual_smoke_2026_06_12_matrix_burn_regions_03`) was held at the gate and then
+  **retired from delivered study material** by architect ratification. It is no longer in
+  `banks/gpt-canonical.json`; the exact payload is archived outside the bundled-bank path. This file's
+  proposed topic reroute for it was not executed.
+- **Row 34** (`gemini_d9_10`) was **revised** by the gate — routed out to `Cardiovascular Disorders`
+  rather than retained under Burn Management as proposed here.
+- **The corpus-wide SHARED-topic comparison** in "Proposed license" below — the claim that Burn
+  Management would be the first genuinely exercised construct-boundary SHARED topic, and the
+  accompanying Transfusion / Skin & Wound / Oncology usage figures — was derived from a **partial
+  6-of-13-bank working copy**. It was contextual, not dispositive, and fed no row ruling, but its
+  provenance is inadequate. **Do not rely on it.** Any corpus-wide topic/license figure must be
+  regenerated from a single named HEAD across all 13 bundled banks.
+
+Produced 2026-07-16 (architect seat). Superseded the 29-item worklist in
+`BURN-MANAGEMENT-TOPIC-AUDIT-HANDOFF.md` (see "Worklist defects").
 
 Category authority: `docs/source-records/NCSBN-2026-NCLEX-RN-TEST-PLAN.md`. Every
 `test_plan_activity_basis` below is a page pointer into that record's linked PDF. **Adjudicators
@@ -46,12 +69,16 @@ stable clinical rollup; clinical context alone does not determine category. This
 `TOPIC-VOCABULARY-DECISIONS.md` as taxonomy policy, **not** `DECISIONS.md` — it is an application
 record, not a constitutional principle.
 
-Note for the gate seat: if ratified, this becomes the project's **first genuinely exercised
-construct-boundary SHARED topic**. `Transfusion & Blood Products` is licensed for 4 categories and
-uses 1; `Skin & Wound Care` licensed for 3, uses 1; `Oncology & Immunotherapy Complications` is
-licensed `[PA, RRP]` but its RRP items are all leaves of a single CAR-T case — whole-case tagging,
-not a construct boundary. There is **no precedent to lean on**. The boundary wording above will be
-cited by every future SHARED proposal, so it warrants more scrutiny than the verdict.
+> **[SUPERSEDED — PARTIAL-CORPUS PROVENANCE. Do not rely on this paragraph.]** The figures below were
+> computed over a 6-of-13-bank working copy and must not be cited. Regenerate from a single named HEAD
+> across all 13 bundled banks before reusing any of it.
+>
+> Note for the gate seat: if ratified, this becomes the project's **first genuinely exercised
+> construct-boundary SHARED topic**. `Transfusion & Blood Products` is licensed for 4 categories and
+> uses 1; `Skin & Wound Care` licensed for 3, uses 1; `Oncology & Immunotherapy Complications` is
+> licensed `[PA, RRP]` but its RRP items are all leaves of a single CAR-T case — whole-case tagging,
+> not a construct boundary. There is **no precedent to lean on**. The boundary wording above will be
+> cited by every future SHARED proposal, so it warrants more scrutiny than the verdict.
 
 ## Worklist defects (root cause — flagged, repair is out of scope here)
 
@@ -83,8 +110,8 @@ in executable form.
    `Safety and Infection Prevention and Control`. Project enum carries the retired 2023 name. Affects
    rows 39–40 below only in label, not semantics.
 2. **Substance-misuse terminology update.**
-3. **IV-fluid calculation collateral audit** → `IV-FLUID-CALCULATION-CATEGORY-AUDIT-HANDOFF.md`
-   (pending). See non-dispositive appendix.
+3. **IV-fluid calculation category audit** — planned; handoff not yet commissioned. To be scoped by
+   Codex from freshly regenerated reports at a single named HEAD. See non-dispositive appendix.
 4. **Recursive worklist tooling repair** → Codex, mechanical.
 
 ---
@@ -406,8 +433,12 @@ pathophysiology related to an acute condition.
 ## Appendix — collateral evidence (NON-DISPOSITIVE, not part of this execution manifest)
 
 Per architect ruling 2026-07-16, these are **not** burn rows and must not be executed from this file.
-They exist because the keyed-task rule clarified here applies elsewhere. Follow-up:
-`IV-FLUID-CALCULATION-CATEGORY-AUDIT-HANDOFF.md` (pending).
+They exist because the keyed-task rule clarified here applies elsewhere. Follow-up: **IV-fluid
+calculation category audit — planned, handoff not yet commissioned.**
+
+> **[PARTIAL-CORPUS PROVENANCE.]** The counts in this appendix were computed over a 6-of-13-bank
+> working copy. The three named IDs are **leads to re-measure**, not findings. The off-license count
+> must be regenerated from a single named HEAD across all 13 bundled banks.
 
 | id | current | note |
 |---|---|---|

@@ -20,7 +20,7 @@ const reclaimManifest = {
   records: [
     { id: "a", status: "proposed", canonicalCategory: "Reduction of Risk Potential", proposedTopic: "Laboratory & Diagnostic Tests" },
     { id: "c", status: "unresolved", canonicalCategory: "Management of Care", proposedTopic: null },
-    { id: "d", status: "blocked-cross-category", canonicalCategory: "Safety and Infection Control", proposedTopic: "Patient & Environment Safety" },
+    { id: "d", status: "blocked-cross-category", canonicalCategory: "Safety and Infection Prevention and Control", proposedTopic: "Patient & Environment Safety" },
     { id: "e", status: "proposed", canonicalCategory: "Basic Care and Comfort", proposedTopic: "Skin & Wound Care" },
     { id: "settled_s01", status: "proposed", canonicalCategory: "Reduction of Risk Potential", proposedTopic: "Oncology & Immunotherapy Complications" },
   ],

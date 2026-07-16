@@ -2,7 +2,7 @@ import type { Category } from "./types";
 
 export const TOPIC_CATEGORY_ORDER = [
   "Management of Care",
-  "Safety and Infection Control",
+  "Safety and Infection Prevention and Control",
   "Health Promotion and Maintenance",
   "Psychosocial Integrity",
   "Basic Care and Comfort",
@@ -32,6 +32,7 @@ export const TOPICS = {
   ELIMINATION_COMFORT: "Elimination & Comfort",
   ENDOCRINE_NEUROLOGICAL_DISORDERS: "Endocrine & Neurological Disorders",
   INTRAPARTUM_FETAL_MONITORING: "Intrapartum Fetal Monitoring",
+  IV_FLUID_CALCULATIONS: "IV Fluid Calculations",
   LAB_DIAGNOSTIC_TESTS: "Laboratory & Diagnostic Tests",
   LEGAL_ETHICAL: "Legal & Ethical Principles",
   MATERNAL_NEWBORN: "Maternal-Newborn Care & Teaching",
@@ -74,7 +75,7 @@ export const STRICT_TOPIC_CATEGORY: Record<Category, readonly string[]> = {
     TOPICS.DISCHARGE_HANDOFF,
     TOPICS.CONFLICT_RESOLUTION,
   ],
-  "Safety and Infection Control": [
+  "Safety and Infection Prevention and Control": [
     TOPICS.PATIENT_ENVIRONMENT_SAFETY,
     TOPICS.TRANSMISSION_BASED_PRECAUTIONS,
     TOPICS.STANDARD_PRECAUTIONS_HYGIENE,
@@ -104,6 +105,7 @@ export const STRICT_TOPIC_CATEGORY: Record<Category, readonly string[]> = {
   ],
   "Pharmacological and Parenteral Therapies": [
     TOPICS.DOSAGE_CALCULATIONS,
+    TOPICS.IV_FLUID_CALCULATIONS,
     TOPICS.ANTICOAGULANT_THERAPY,
     TOPICS.CARDIOVASCULAR_ENDOCRINE_MEDICATIONS,
     TOPICS.PSYCHOTROPIC_MEDICATIONS,
@@ -134,7 +136,7 @@ export const SHARED_TOPIC_CATEGORY: Record<string, readonly Category[]> = {
   ],
   [TOPICS.MEDICATION_SAFETY_ADMIN]: [
     "Pharmacological and Parenteral Therapies",
-    "Safety and Infection Control",
+    "Safety and Infection Prevention and Control",
   ],
   [TOPICS.LAB_DIAGNOSTIC_TESTS]: [
     "Reduction of Risk Potential",
@@ -156,10 +158,10 @@ export const SHARED_TOPIC_CATEGORY: Record<string, readonly Category[]> = {
   [TOPICS.SKIN_WOUND_CARE]: [
     "Basic Care and Comfort",
     "Reduction of Risk Potential",
-    "Safety and Infection Control",
+    "Safety and Infection Prevention and Control",
   ],
   [TOPICS.TRANSFUSION_BLOOD_PRODUCTS]: [
-    "Safety and Infection Control",
+    "Safety and Infection Prevention and Control",
     "Pharmacological and Parenteral Therapies",
     "Reduction of Risk Potential",
     "Physiological Adaptation",

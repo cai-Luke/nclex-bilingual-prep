@@ -57,7 +57,7 @@ The importer also accepts a bare `[ ... ]` array of Question objects (no envelop
 | `visual` | object | optional | schema `1.2`; placement is per visual kind; renders above the stem |
 
 **`category` controlled vocabulary (use these exact strings):**
-`Management of Care`, `Safety and Infection Control`, `Health Promotion and Maintenance`, `Psychosocial Integrity`, `Basic Care and Comfort`, `Pharmacological and Parenteral Therapies`, `Reduction of Risk Potential`, `Physiological Adaptation`.
+`Management of Care`, `Safety and Infection Prevention and Control`, `Health Promotion and Maintenance`, `Psychosocial Integrity`, `Basic Care and Comfort`, `Pharmacological and Parenteral Therapies`, `Reduction of Risk Potential`, `Physiological Adaptation`.
 
 **`rationale` shape:**
 ```json

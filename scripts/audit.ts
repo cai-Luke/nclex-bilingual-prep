@@ -19,6 +19,7 @@ import { runAuditIntegrity } from "./audit/audit-integrity";
 import { runAuditIds } from "./audit/audit-ids";
 import { runAuditNonMcqBias } from "./audit/audit-non-mcq-bias";
 import { runAuditStageRefs } from "./audit/audit-stage-refs";
+import { runAuditTopicLicense } from "./audit/audit-topic-license";
 import { gateVerdict, isMechanicalBiasEnforced } from "./audit/audit-verdict";
 import type { AuditResult } from "./audit/types";
 
@@ -56,12 +57,13 @@ async function main(): Promise<number> {
   // ---------------------------------------------------------------------------
   console.log("\n── Tier 1: standing audits ──");
 
-  const [references, positions, integrity, ids, stageRefs, nonMcqBias] = await Promise.all([
+  const [references, positions, integrity, ids, stageRefs, topicLicense, nonMcqBias] = await Promise.all([
     runAuditReferences(),
     runAuditPositions(),
     runAuditIntegrity(),
     runAuditIds(),
     runAuditStageRefs(),
+    runAuditTopicLicense(),
     runAuditNonMcqBias(),
   ]);
 
@@ -73,6 +75,7 @@ async function main(): Promise<number> {
   // ---------------------------------------------------------------------------
   console.log("\n── Tier 2: advisory audits ──");
   printResult(stageRefs);
+  printResult(topicLicense);
   for (const r of nonMcqBias) printResult(r);
 
   // ---------------------------------------------------------------------------
@@ -82,7 +85,7 @@ async function main(): Promise<number> {
   const blockingResults = isMechanicalBiasEnforced() && mechanicalBias
     ? [...tier1Results, mechanicalBias]
     : tier1Results;
-  const allResults = [...tier1Results, stageRefs, ...nonMcqBias];
+  const allResults = [...tier1Results, stageRefs, topicLicense, ...nonMcqBias];
   const verdict = gateVerdict(allResults, blockingResults);
 
   console.log("\n══════════════════════");

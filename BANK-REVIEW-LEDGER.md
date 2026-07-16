@@ -773,8 +773,10 @@ PA / `Cardiovascular Disorders` because its three keyed rows span burn, septic, 
 Applied 27 metadata corrections across `banks/burn-canonical.json`,
 `banks/gemini-canonical.json`, `banks/gpt-canonical.json`, and
 `banks/hard-cases-canonical.json`. The deterministic producer-seat applicator is
-`scripts/Gemini-apply-manifest.ts`; the gate override for row 34 was applied with
-`scripts/patches/2026-07-16-burn-gate-row34-topic-reroute.ts` through `patch-raw --allow-canonical`.
+`Archive/burn-management-topic-audit-2026-07-16/Gemini-apply-manifest.ts`; the gate override for row
+34 was applied with
+`Archive/burn-management-topic-audit-2026-07-16/2026-07-16-burn-gate-row34-topic-reroute.ts`
+through `patch-raw --allow-canonical`.
 No stem, option, answer key, rationale, clinical claim, visual data, or derived value changed. Row 23
 was deliberately left untouched pending a separate removal/quarantine decision.
 
@@ -782,7 +784,7 @@ was deliberately left untouched pending a separate removal/quarantine decision.
 Potential, and Physiological Adaptation. After route-outs and the hold, its 36 exact-topic items are
 Pharm 17 / RRP 8 / PA 11. The durable keyed-construct boundary and all route-outs are recorded in
 `TOPIC-VOCABULARY-DECISIONS.md` and
-`BURN-MANAGEMENT-TOPIC-AUDIT-GATE-HANDOFF-2026-07-16.md`.
+`Archive/burn-management-topic-audit-2026-07-16/BURN-MANAGEMENT-TOPIC-AUDIT-GATE-HANDOFF-2026-07-16.md`.
 
 Verification: `validate-bank` passed all 13 bundled banks; `npm run audit` **GATE PASSED** (2520
 globally unique IDs; only the pre-existing advisory non-MCQ distribution warning); topic vocabulary,
@@ -804,7 +806,8 @@ non-bundled archive
 `Archive/retired-bank-items-2026-07-16/gpt_visual_smoke_2026_06_12_matrix_burn_regions_03.json`.
 Its recorded and independently recomputed payload SHA-256 is
 `312dd633059f1a33e064e118ca204c59d1666e2780bd1c6443d09154fa36daa0`. The deterministic applicator
-`scripts/patches/2026-07-16-retire-burn-region-smoke-item.ts` used the canonical-mode `removeQuestion`
+`Archive/burn-management-topic-audit-2026-07-16/2026-07-16-retire-burn-region-smoke-item.ts` used
+the canonical-mode `removeQuestion`
 primitive, recomputed `meta.count` from 628 to 627, and made no change to any retained bank item.
 Also corrected the stale primary `Burn Management` row in `TOPIC-VOCABULARY-DECISIONS.md` from
 STRICT to the already-executable SHARED Pharm / RRP / PA license.
@@ -817,3 +820,30 @@ residual-proposal, and residual-rerun tests passed; `test-visuals` passed includ
 self-check/conformance/parity; `npx tsc -b --pretty false` passed; topic dry-run artifacts were
 regenerated; coverage report is 1,798 total questions / 199 visuals / 10 burn maps; census regenerated
 at 1,798 top-level / 721 embedded / 199 visuals and `census:check` passed; production build passed.
+
+### 2026-07-16 — IV-fluid taxonomy, Safety label, and substance terminology cleanup
+
+Status: `architect-ratified metadata migration`. Added the STRICT Pharmacological and Parenteral
+Therapies topic `IV Fluid Calculations` and applied the exact nine-item audit manifest: six topic-only
+corrections and three category-plus-topic corrections, including the embedded
+`sepsis_pneumonia_fluid_calc` leaf. The separate `gemini_jun05_b_fib_fluid_03` residual was not counted
+in the nine; its keyed generic intake/output net-balance construct moved to Basic Care and Comfort /
+`Nutritional & Fluid Support`. Burn Management remained closed and its retained 36-item population was
+not re-adjudicated.
+
+The separate quiet migration renamed the controlled category `Safety and Infection Control` to
+`Safety and Infection Prevention and Control` across the enum, all 291 canonical-bank category fields,
+active generation/schema documentation, topic licenses, and generated reports. The 13% category
+weight, semantics, and population were unchanged. Legacy uploaded banks are normalized before
+validation; existing stored uploads and translation-reveal events are normalized on read. Finally,
+the two identified live English `substance abuse` strings in `gemini_b3_02` and `gemini_b3_10` were
+changed to `substance misuse`; Chinese wording, keys, and clinical claims were unchanged.
+
+Verification: `validate-bank` passed all 13 bundled banks and the current raw balance-5 draft;
+`npm run audit` passed Tier 0/1 with 2,519 globally unique IDs and report-only topic-license plus the
+pre-existing non-MCQ distribution advisories; topic vocabulary, topic migration guards, residual
+proposal/rerun, recursive population, topic-license, IV-manifest, schema-bank, translation-telemetry,
+storage-migration, and coverage-report tests passed; `npx tsc -b --pretty false` passed. Census and
+coverage artifacts were regenerated at 1,798 top-level records, 143 case containers, 721 embedded
+parts, and 2,376 scored leaves; Safety remains 228 top-level / 277 scored leaves, while
+`IV Fluid Calculations` is 8 top-level / 9 scored leaves. `census:check` and the production build passed.
