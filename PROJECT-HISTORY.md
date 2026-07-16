@@ -52,6 +52,25 @@ The committed NGN item-type set is complete. Rationale/dyad scoring and an expli
 
 > Milestones dated **2026-06-23 and earlier** are archived in [`Archive/PROJECT-HISTORY-ARCHIVE.md`](Archive/PROJECT-HISTORY-ARCHIVE.md). Only the current arc (2026-06-24 onward) is kept here.
 
+### Visual Focus Dialog (Jul 15)
+
+Completed:
+- Added a shared focus mode to `VisualStimulus`, automatically covering standalone question visuals, case-part visuals, case exhibits, and rationale visuals without changing any visual kind contract or bank data.
+- Added bilingual `Enlarge visual / 放大图像` and `Close / 关闭` controls. The explicit button and the visual itself open a native top-layer dialog; Close, Escape, and backdrop dismissal all return focus to the trigger and preserve the underlying answer state and page position.
+- Kept exactly one rendered visual SVG mounted while the dialog is open, with a same-height source placeholder. This prevents duplicate fixed SVG ids such as `burn_map`'s clip paths while preserving layout and scroll state.
+- Expanded vector visuals to the available dialog width. Tall visuals scroll vertically inside the dialog; wide calibrated tracings retain a readable minimum width and scroll horizontally on narrow screens. Structured-measurement exhibit tables remain a separate, unchanged stimulus path.
+- Kept the first pass narrow: no custom zoom/pan controls, telemetry, storage changes, renderer changes, schema changes, or bank changes.
+
+Verified:
+- Pre-change and post-change `npm run test-visuals` passed, including the numeric `selfCheck` cases for `io_record`, `medication_label`, `device_screen`, and `burn_map`; `src/visuals/kinds/**` has no diff.
+- `npm run test:exam-layout`
+- `npm run validate-bank -- banks/*.json`
+- `npx tsc -b --pretty false`
+- `npm run build`
+- Browser smoke at 1280x800 and 390x844 covered `lab_trend`, `vitals_trend`, `io_trend`, `rhythm_strip`, `capnography`, `fetal_monitoring`, and `burn_map`; answer preservation, one-SVG mounting, focus return, Close/Escape/backdrop dismissal, mobile horizontal scrolling, and fixed clip-path ids passed.
+- Repeated-instance smoke used the two-rhythm-strip review rendering in `opus26_case_refeeding_syndrome_01`: opening one visual left the sibling instance intact. No bundled question currently has multiple `rationale.visuals`, so that exact loop has no committed browser fixture.
+- Production-preview smoke passed with the built assets and no browser console warnings or errors.
+
 ### R9 Temperature Sanity Decoupling (Jul 15)
 
 Completed:
