@@ -121,6 +121,9 @@ Completed:
 - Added the architect review artifact, Gemini report/manifest/applicator, independent gate handoff,
   and deterministic row-34 canonical patch record. Updated the dated taxonomy ruling, source record,
   topic export, review ledger, migration report, and census.
+- Archived the completed audit bundle under
+  `Archive/burn-management-topic-audit-2026-07-16/`; the canonical bank, active taxonomy, and generic
+  audit/regression tooling remain live.
 
 Verified:
 - `npm run validate-bank -- banks/*.json`
@@ -132,6 +135,42 @@ Verified:
 - `npm run census && npm run census:check` (1,798 top-level / 721 embedded / 199 visuals after
   architect-directed row-23 retirement)
 - `npm run build`
+
+### GPT Coverage Balance Batch 6 Split Commission (Jul 16)
+
+Prepared and archived after content delivery:
+- Added two independently runnable 18-item commissions,
+  `Archive/coverage-balance-batch-6-2026-07-16/GPT-COVERAGE-BALANCE-BATCH-6A-SPEC-2026-07-16.md`
+  and
+  `Archive/coverage-balance-batch-6-2026-07-16/GPT-COVERAGE-BALANCE-BATCH-6B-SPEC-2026-07-16.md`,
+  for a coordinated 36-item expansion. Each
+  producer returns a separate raw bank and does not depend on the companion packet.
+- Provisionally counted the reviewed Batch 5 raw bank for planning while continuing to exclude the
+  rejected Batch 4 Gemini output. The post-Batch-5 baseline is 1,816 top-level items; the remaining
+  under-target categories are Management of Care (-28), Reduction of Risk Potential (-12), and
+  Safety and Infection Prevention and Control (-5).
+- Allocated the aggregate order 22/8/6 across those categories. Each lane receives the same 11/4/3
+  category burden, 6 highlights / 4 bowties / 3 dropdown clozes / 3 matrices / 2 ordered responses,
+  and 7 easy / 8 medium / 3 hard items.
+- Expanded Management of Care through the explicitly SHARED `Caregiver Role Strain & Family Coping`
+  license as well as advocacy, conflict, confidentiality, and concrete transition failures. Every row
+  fixes an affirmative premise and load-bearing decision; source-heavy and hard items are divided
+  evenly between the two lanes.
+- Preserved the minimal-commission design while adding two producer-facing improvements: each packet
+  states its relationship to the aggregate order without requiring cross-packet context, and each
+  source table pins the exact guideline section or rule supporting the keyed decision rather than a
+  topic homepage.
+
+Verification:
+- Re-ran the coverage report against the 13 canonical banks plus provisional Batch 5 and confirmed
+  the 1,816-item baseline and category/format/difficulty counts.
+- Programmatically parsed both assignment tables and confirmed 18 rows per packet with exact
+  11/4/3 category, 6/4/3/3/2 format, and 7/8/3 difficulty totals.
+- Confirmed all assigned category/topic strings against `src/topics.ts`, schema version `2.0`
+  against `src/types.ts`, and unused `gpt_balance6a_*` / `gpt_balance6b_*` ID namespaces.
+- Performed targeted canonical-bank premise searches and checked the load-bearing source lanes
+  against current CMS, HHS/OCR, DOJ/ADA/OVW, AHRQ, CDC, OSHA, SAMHSA, NICE, IDSA, ISPD, ASRA, ATS,
+  Merck, and ASPR TRACIE materials.
 
 ### GPT Coverage Balance Batch 5 Commission (Jul 16)
 

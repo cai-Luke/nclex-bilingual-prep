@@ -201,7 +201,8 @@ rather than the producer's own summary of them:
 The Jul 15 deferral is resolved. The architect review artifact enumerated a corrected 42-row
 candidate population, and an independent gate seat re-read all live stems, keys, rationales, case
 context, and the cited NCSBN 2026 Appendix A pages. The accepted execution manifest and reconciliation
-are recorded in `BURN-MANAGEMENT-TOPIC-AUDIT-GATE-HANDOFF-2026-07-16.md`.
+are recorded in
+`Archive/burn-management-topic-audit-2026-07-16/BURN-MANAGEMENT-TOPIC-AUDIT-GATE-HANDOFF-2026-07-16.md`.
 
 **Ruling:** `Burn Management` becomes SHARED across `[Pharmacological and Parenteral Therapies,
 Reduction of Risk Potential, Physiological Adaptation]`. Category follows the keyed nursing activity;

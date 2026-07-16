@@ -2,7 +2,7 @@
 
 Topic: `Burn Management`
 Git SHA: `1c5f4ecc7890d29999adf99616e9c9e78de51d97`
-Semantic residual review: `audit/topic-populations/burn-management.semantic-review.json`
+Semantic residual review: `Archive/burn-management-topic-audit-2026-07-16/burn-management.semantic-review.json`
 
 ## Population Contract
 

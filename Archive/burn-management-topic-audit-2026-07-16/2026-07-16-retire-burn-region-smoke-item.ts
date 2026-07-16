@@ -9,7 +9,7 @@ import fs from "node:fs";
 import path from "node:path";
 import crypto from "node:crypto";
 
-import { removeQuestion, runPatch } from "../patch-raw";
+import { removeQuestion, runPatch } from "../../scripts/patch-raw";
 
 const ID = "gpt_visual_smoke_2026_06_12_matrix_burn_regions_03";
 const SOURCE_RELATIVE = "banks/gpt-canonical.json";

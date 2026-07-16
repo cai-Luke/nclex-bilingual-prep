@@ -6,7 +6,7 @@ Date: 2026-07-16
 
 Input artifact: [`BURN-MANAGEMENT-TOPIC-AUDIT-ARTIFACT.md`](BURN-MANAGEMENT-TOPIC-AUDIT-ARTIFACT.md)
 
-Category authority: [`docs/source-records/NCSBN-2026-NCLEX-RN-TEST-PLAN.md`](docs/source-records/NCSBN-2026-NCLEX-RN-TEST-PLAN.md)
+Category authority: [`docs/source-records/NCSBN-2026-NCLEX-RN-TEST-PLAN.md`](../../docs/source-records/NCSBN-2026-NCLEX-RN-TEST-PLAN.md)
 
 This handoff records the original gate ruling and the subsequent execution receipt. The historical
 accepted/held/revised counts remain the gate-seat disposition; the architect later resolved the one

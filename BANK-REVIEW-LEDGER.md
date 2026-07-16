@@ -773,8 +773,10 @@ PA / `Cardiovascular Disorders` because its three keyed rows span burn, septic, 
 Applied 27 metadata corrections across `banks/burn-canonical.json`,
 `banks/gemini-canonical.json`, `banks/gpt-canonical.json`, and
 `banks/hard-cases-canonical.json`. The deterministic producer-seat applicator is
-`scripts/Gemini-apply-manifest.ts`; the gate override for row 34 was applied with
-`scripts/patches/2026-07-16-burn-gate-row34-topic-reroute.ts` through `patch-raw --allow-canonical`.
+`Archive/burn-management-topic-audit-2026-07-16/Gemini-apply-manifest.ts`; the gate override for row
+34 was applied with
+`Archive/burn-management-topic-audit-2026-07-16/2026-07-16-burn-gate-row34-topic-reroute.ts`
+through `patch-raw --allow-canonical`.
 No stem, option, answer key, rationale, clinical claim, visual data, or derived value changed. Row 23
 was deliberately left untouched pending a separate removal/quarantine decision.
 
@@ -782,7 +784,7 @@ was deliberately left untouched pending a separate removal/quarantine decision.
 Potential, and Physiological Adaptation. After route-outs and the hold, its 36 exact-topic items are
 Pharm 17 / RRP 8 / PA 11. The durable keyed-construct boundary and all route-outs are recorded in
 `TOPIC-VOCABULARY-DECISIONS.md` and
-`BURN-MANAGEMENT-TOPIC-AUDIT-GATE-HANDOFF-2026-07-16.md`.
+`Archive/burn-management-topic-audit-2026-07-16/BURN-MANAGEMENT-TOPIC-AUDIT-GATE-HANDOFF-2026-07-16.md`.
 
 Verification: `validate-bank` passed all 13 bundled banks; `npm run audit` **GATE PASSED** (2520
 globally unique IDs; only the pre-existing advisory non-MCQ distribution warning); topic vocabulary,
@@ -804,7 +806,8 @@ non-bundled archive
 `Archive/retired-bank-items-2026-07-16/gpt_visual_smoke_2026_06_12_matrix_burn_regions_03.json`.
 Its recorded and independently recomputed payload SHA-256 is
 `312dd633059f1a33e064e118ca204c59d1666e2780bd1c6443d09154fa36daa0`. The deterministic applicator
-`scripts/patches/2026-07-16-retire-burn-region-smoke-item.ts` used the canonical-mode `removeQuestion`
+`Archive/burn-management-topic-audit-2026-07-16/2026-07-16-retire-burn-region-smoke-item.ts` used
+the canonical-mode `removeQuestion`
 primitive, recomputed `meta.count` from 628 to 627, and made no change to any retained bank item.
 Also corrected the stale primary `Burn Management` row in `TOPIC-VOCABULARY-DECISIONS.md` from
 STRICT to the already-executable SHARED Pharm / RRP / PA license.
