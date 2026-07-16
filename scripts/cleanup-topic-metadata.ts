@@ -438,14 +438,17 @@ await writeFile(reportPath, formatReport(allChanges, unresolved, suggestions, un
 const unresolvedGemini = fullUnresolvedList.filter(q => q.id && q.id.startsWith("gemini"));
 const unresolvedGptClaude = fullUnresolvedList.filter(q => !q.id || !q.id.startsWith("gemini"));
 
-await writeFile(`audit/unresolved_gemini.json`, JSON.stringify(unresolvedGemini, null, 2));
-await writeFile(`audit/unresolved_gpt_claude.json`, JSON.stringify(unresolvedGptClaude, null, 2));
+const residualSuffix = reportLabel ? `.${reportLabel}` : "";
+const unresolvedGeminiPath = `audit/unresolved_gemini${residualSuffix}.json`;
+const unresolvedGptClaudePath = `audit/unresolved_gpt_claude${residualSuffix}.json`;
+await writeFile(unresolvedGeminiPath, JSON.stringify(unresolvedGemini, null, 2));
+await writeFile(unresolvedGptClaudePath, JSON.stringify(unresolvedGptClaude, null, 2));
 
 console.log(`${dryRun ? "Would update" : "Updated"} ${allChanges.length} topic assignments across ${bankFiles.length} bank files.`);
 console.log(`${suggestions.length} noncanonical topic assignments have suggestions requiring review.`);
 console.log(`${untrusted.length} noncanonical topic assignments are category-untrusted.`);
 console.log(`${crossCategoryBlocks.length} noncanonical topic assignments were blocked due to cross-category rules.`);
 console.log(`${unresolved.length} noncanonical topic assignments require human decisions.`);
-console.log(`Generated audit/unresolved_gemini.json with ${unresolvedGemini.length} rows.`);
-console.log(`Generated audit/unresolved_gpt_claude.json with ${unresolvedGptClaude.length} rows.`);
+console.log(`Generated ${unresolvedGeminiPath} with ${unresolvedGemini.length} rows.`);
+console.log(`Generated ${unresolvedGptClaudePath} with ${unresolvedGptClaude.length} rows.`);
 console.log(`Report: ${reportPath}`);

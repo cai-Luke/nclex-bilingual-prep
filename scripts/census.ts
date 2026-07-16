@@ -4,10 +4,11 @@ import { basename, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { parseBankText } from "../src/bankImport";
 import { validateBankObject } from "../src/schema";
-import { categories } from "../src/schema";
+import { categories, standaloneItemTypes } from "../src/schema";
 import { listVisualKinds } from "../src/visuals/registry";
 import type { Question, QuestionVisual, RhythmStripVisual } from "../src/types";
 import { computeCoverage } from "./coverage-report";
+import { collectScoredLeaves } from "../lib/question-population";
 
 // ---- Types ----
 
@@ -26,7 +27,11 @@ type CensusData = {
   totals: {
     topLevel: number;
     caseStudyTopLevel: number;
+    standaloneTopLevel: number;
     embeddedParts: number;
+    scoredLeaves: number;
+    inventoryRecords: number;
+    /** @deprecated Compatibility alias for inventoryRecords; includes case containers. */
     gradedTotal: number;
   };
   byItemType: Record<string, number>;
@@ -36,6 +41,24 @@ type CensusData = {
     visualKinds: Record<string, number>;
   }>;
   byDifficulty: Record<string, number>;
+  scoredLeaves: {
+    total: number;
+    byItemType: Record<string, number>;
+    byCategory: Record<string, number>;
+    withinCategory: Record<string, {
+      topTopics: Array<{ topic: string; count: number }>;
+    }>;
+    byDifficulty: Record<string, number>;
+    targets: {
+      categoryTargets: [string, number][];
+      itemTypeAvg: number;
+      underCategories: [string, number][];
+      overCategories: [string, number][];
+      underItemTypes: [string, number][];
+    };
+    prioritizeTopics: string[];
+    avoidTopics: string[];
+  };
   bySchemaVersion: Record<string, { questions: number; files: string[] }>;
   bySourceFile: Record<string, number>;
   visuals: {
@@ -164,6 +187,7 @@ const computeCensus = async (): Promise<CensusData> => {
 
   // Flat question list
   const allQuestions: Question[] = banks.flatMap(({ envelope }) => envelope.questions);
+  const scoredLeafQuestions = collectScoredLeaves(allQuestions);
 
   const withinCategory: CensusData["withinCategory"] = {};
   for (const category of categories) {
@@ -199,9 +223,43 @@ const computeCensus = async (): Promise<CensusData> => {
       embeddedParts += q.caseStudy.questions.length;
     }
   }
+  const standaloneTopLevel = topLevel - caseStudyTopLevel;
+  const scoredLeaves = standaloneTopLevel + embeddedParts;
+  const inventoryRecords = topLevel + embeddedParts;
 
   // Coverage (reuses coverage-report logic)
   const coverage = computeCoverage(allQuestions);
+  const scoredLeafCoverage = computeCoverage(scoredLeafQuestions, undefined, {
+    itemTypePopulation: standaloneItemTypes,
+  });
+  if (coverage.totalQuestions !== topLevel) {
+    throw new Error(`Top-level coverage drift: counted ${coverage.totalQuestions}, expected ${topLevel}.`);
+  }
+  if (scoredLeafCoverage.totalQuestions !== scoredLeaves) {
+    throw new Error(`Scored-leaf coverage drift: counted ${scoredLeafCoverage.totalQuestions}, expected ${scoredLeaves}.`);
+  }
+  const scoredLeafCategoryTotal = scoredLeafCoverage.byCategory.reduce((sum, [, count]) => sum + count, 0);
+  const scoredLeafItemTypeTotal = scoredLeafCoverage.byItemType.reduce((sum, [, count]) => sum + count, 0);
+  if (scoredLeafCategoryTotal !== scoredLeaves || scoredLeafItemTypeTotal !== scoredLeaves) {
+    throw new Error(
+      `Scored-leaf reconciliation failed: categories=${scoredLeafCategoryTotal}, itemTypes=${scoredLeafItemTypeTotal}, expected=${scoredLeaves}.`,
+    );
+  }
+
+  const scoredLeafWithinCategory: CensusData["scoredLeaves"]["withinCategory"] = {};
+  for (const category of categories) {
+    const topicCounts = new Map<string, number>();
+    for (const question of scoredLeafQuestions.filter((candidate) => candidate.category === category)) {
+      topicCounts.set(question.topic, (topicCounts.get(question.topic) ?? 0) + 1);
+    }
+    scoredLeafWithinCategory[category] = {
+      topTopics: [...topicCounts.entries()]
+        .sort(([leftTopic, leftCount], [rightTopic, rightCount]) =>
+          rightCount - leftCount || leftTopic.localeCompare(rightTopic))
+        .slice(0, 10)
+        .map(([topic, count]) => ({ topic, count })),
+    };
+  }
 
   // bySchemaVersion
   const bySchemaVersion: Record<string, { questions: number; files: string[] }> = {};
@@ -289,11 +347,35 @@ const computeCensus = async (): Promise<CensusData> => {
     generatedAt: new Date().toISOString(),
     gitSha: getGitSha(),
     perFile,
-    totals: { topLevel, caseStudyTopLevel, embeddedParts, gradedTotal: topLevel + embeddedParts },
+    totals: {
+      topLevel,
+      caseStudyTopLevel,
+      standaloneTopLevel,
+      embeddedParts,
+      scoredLeaves,
+      inventoryRecords,
+      gradedTotal: inventoryRecords,
+    },
     byItemType: Object.fromEntries(coverage.byItemType),
     byCategory: Object.fromEntries(coverage.byCategory),
     withinCategory,
     byDifficulty: Object.fromEntries(coverage.byDifficulty),
+    scoredLeaves: {
+      total: scoredLeafCoverage.totalQuestions,
+      byItemType: Object.fromEntries(scoredLeafCoverage.byItemType),
+      byCategory: Object.fromEntries(scoredLeafCoverage.byCategory),
+      withinCategory: scoredLeafWithinCategory,
+      byDifficulty: Object.fromEntries(scoredLeafCoverage.byDifficulty),
+      targets: {
+        categoryTargets: scoredLeafCoverage.categoryTargets,
+        itemTypeAvg: scoredLeafCoverage.itemTypeAverage,
+        underCategories: scoredLeafCoverage.underCategories,
+        overCategories: scoredLeafCoverage.overCategories,
+        underItemTypes: scoredLeafCoverage.underItemTypes,
+      },
+      prioritizeTopics: scoredLeafCoverage.prioritizeTopics,
+      avoidTopics: scoredLeafCoverage.avoidTopics,
+    },
     bySchemaVersion,
     bySourceFile,
     visuals: { total: coverage.totalVisuals, byKind, rhythmSubtypes, idsByKind },
@@ -338,8 +420,11 @@ const renderCensus = (census: CensusData): string => {
   lines.push("");
   lines.push(`- Top-level questions: ${census.totals.topLevel}`);
   lines.push(`- Case study top-level: ${census.totals.caseStudyTopLevel}`);
+  lines.push(`- Standalone top-level: ${census.totals.standaloneTopLevel}`);
   lines.push(`- Embedded parts: ${census.totals.embeddedParts}`);
-  lines.push(`- Graded total: ${census.totals.gradedTotal}`);
+  lines.push(`- Scored leaves: ${census.totals.scoredLeaves} (standalone top-level + embedded parts; case containers excluded)`);
+  lines.push(`- Inventory records: ${census.totals.inventoryRecords} (top-level + embedded parts)`);
+  lines.push(`- Legacy \`gradedTotal\`: ${census.totals.gradedTotal} (compatibility alias for inventory records; do not use for scored-leaf coverage)`);
   lines.push("");
 
   lines.push("## By Category");
@@ -372,6 +457,66 @@ const renderCensus = (census: CensusData): string => {
   for (const [d, cnt] of Object.entries(census.byDifficulty)) {
     lines.push(`- ${d}: ${cnt}`);
   }
+  lines.push("");
+
+  lines.push("## Scored-Leaf Coverage");
+  lines.push("");
+  lines.push("This lane counts standalone top-level questions plus embedded case parts. Case-study containers are excluded.");
+  lines.push("");
+  lines.push(`Total scored leaves: ${census.scoredLeaves.total}`);
+  lines.push("");
+  lines.push("### By Category");
+  lines.push("");
+  for (const [category, count] of Object.entries(census.scoredLeaves.byCategory)) {
+    lines.push(`- ${category}: ${count}`);
+  }
+  lines.push("");
+  lines.push("### Within-Category Concentration");
+  lines.push("");
+  for (const [category, detail] of Object.entries(census.scoredLeaves.withinCategory)) {
+    lines.push(`- ${category}: ${detail.topTopics.map(({ topic, count }) => `${topic} (${count})`).join(", ") || "none"}`);
+  }
+  lines.push("");
+  lines.push("### By Item Type");
+  lines.push("");
+  for (const [itemType, count] of Object.entries(census.scoredLeaves.byItemType)) {
+    lines.push(`- ${itemType}: ${count}`);
+  }
+  lines.push("");
+  lines.push("### By Difficulty");
+  lines.push("");
+  for (const [difficulty, count] of Object.entries(census.scoredLeaves.byDifficulty)) {
+    lines.push(`- ${difficulty}: ${count}`);
+  }
+  lines.push("");
+  lines.push("### Targets");
+  lines.push("");
+  lines.push("Category targets (2026 NCLEX-RN test-plan weights, scored-leaf denominator):");
+  for (const [category, target] of census.scoredLeaves.targets.categoryTargets) {
+    lines.push(`- ${category}: ${target.toFixed(1)}`);
+  }
+  lines.push(`Item type average: ${census.scoredLeaves.targets.itemTypeAvg.toFixed(1)}`);
+  lines.push("");
+  lines.push("Under-served categories:");
+  if (census.scoredLeaves.targets.underCategories.length === 0) lines.push("- none");
+  for (const [category, count] of census.scoredLeaves.targets.underCategories) lines.push(`- ${category}: ${count}`);
+  lines.push("");
+  lines.push("Over-served categories:");
+  if (census.scoredLeaves.targets.overCategories.length === 0) lines.push("- none");
+  for (const [category, count] of census.scoredLeaves.targets.overCategories) lines.push(`- ${category}: ${count}`);
+  lines.push("");
+  lines.push("Under-served item types:");
+  if (census.scoredLeaves.targets.underItemTypes.length === 0) lines.push("- none");
+  for (const [itemType, count] of census.scoredLeaves.targets.underItemTypes) lines.push(`- ${itemType}: ${count}`);
+  lines.push("");
+  lines.push("### Prompt Parameters");
+  lines.push("");
+  lines.push("PRIORITIZE_TOPICS:");
+  for (const item of census.scoredLeaves.prioritizeTopics) lines.push(`- ${item}`);
+  lines.push("");
+  lines.push("AVOID_TOPICS:");
+  if (census.scoredLeaves.avoidTopics.length === 0) lines.push("- none");
+  for (const item of census.scoredLeaves.avoidTopics) lines.push(`- ${item}`);
   lines.push("");
 
   lines.push("## By Schema Version");
@@ -571,9 +716,9 @@ if (isMain) {
     const census = await computeCensus();
     await writeFile("census.json", JSON.stringify(census, null, 2) + "\n", "utf8");
     await writeFile("BANK-CENSUS.md", renderCensus(census), "utf8");
-    const { topLevel, embeddedParts } = census.totals;
+    const { topLevel, embeddedParts, scoredLeaves } = census.totals;
     console.log(`Census written to census.json and BANK-CENSUS.md`);
-    console.log(`  ${topLevel} top-level, ${embeddedParts} embedded parts, ${census.visuals.total} visuals`);
+    console.log(`  ${topLevel} top-level, ${embeddedParts} embedded parts, ${scoredLeaves} scored leaves, ${census.visuals.total} visuals`);
     if (census.idUniqueness.duplicates.length > 0) {
       console.warn(`  ${census.idUniqueness.duplicates.length} ID collision(s) detected`);
     }

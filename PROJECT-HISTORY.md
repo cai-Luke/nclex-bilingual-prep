@@ -52,6 +52,34 @@ The committed NGN item-type set is complete. Rationale/dyad scoring and an expli
 
 > Milestones dated **2026-06-23 and earlier** are archived in [`Archive/PROJECT-HISTORY-ARCHIVE.md`](Archive/PROJECT-HISTORY-ARCHIVE.md). Only the current arc (2026-06-24 onward) is kept here.
 
+### Dual-Lane Census, Recursive Topic Population, and IV-Fluid Audit (Jul 16)
+
+Completed:
+- Preserved the existing top-level census/coverage fields and added a separate scored-leaf lane:
+  2,376 standalone top-level plus embedded questions, excluding 143 case-study containers. Retained
+  legacy `gradedTotal` as a compatibility alias for the 2,519 question-shaped inventory records and
+  labeled it explicitly so it is not mistaken for scored-leaf coverage.
+- Added one shared question-population traversal and moved global ID indexing onto it. The same
+  traversal now powers exact-topic audits, preventing embedded case leaves from disappearing from
+  future worklists.
+- Added a generic two-stage topic-population reporter: recursive exact-topic enumeration plus a
+  required dated human semantic-residual manifest. Regenerated Burn Management at current HEAD as
+  36 exact records plus 4 reviewed exclusions, final population 36; no keyword detector was added.
+- Regenerated current-HEAD coverage and topic-vocabulary residual artifacts from live banks. The
+  deterministic topic pass reports 0 exact writes, 8 review suggestions, and 457 unresolved
+  noncanonical assignments.
+- Completed the non-burn IV-fluid calculation collateral audit. Nine prescribed non-medication IV
+  arithmetic items were found: 6 have the correct Pharmacological category but the medication-scoped
+  `Dosage Calculations` topic, and 3 require both category and topic correction. One adjacent
+  intake/output balance item also needs a topic correction but is not IV-therapy arithmetic.
+
+Held before implementation:
+- The repo has no accurate canonical topic for non-medication IV-therapy mathematics. The audit
+  recommends a new STRICT Pharmacological topic such as `IV Therapy Calculations`; an architect
+  taxonomy ruling on the name/boundary is required before the nine-row metadata migration. The
+  later report-only topic-license gate, Safety category rename, and substance-misuse wording cleanup
+  remain queued in the user's requested order behind this hold.
+
 ### Burn Management Full-Population Gate and SHARED License (Jul 16)
 
 Completed:

@@ -1,4 +1,4 @@
-import { readFile, readdir } from "node:fs/promises";
+import { readFile, readdir, writeFile } from "node:fs/promises";
 import { basename, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { parseBankText } from "../src/bankImport";
@@ -13,6 +13,7 @@ import {
 } from "../src/schema";
 import { listVisualKinds } from "../src/visuals/registry";
 import type { Category, Question, QuestionVisual, RhythmStripVisual } from "../src/types";
+import { collectScoredLeaves } from "../lib/question-population";
 
 export type TopicBucket = {
   label: string;
@@ -200,7 +201,16 @@ export const parseSessionSize = (argv: string[]): number => {
   return Number.isInteger(parsed) && parsed > 0 ? parsed : SESSION_SIZE;
 };
 
-export const computeCoverage = (questions: Question[], sessionSize = SESSION_SIZE): CoverageData => {
+export type CoverageOptions = {
+  itemTypePopulation?: readonly string[];
+};
+
+export const computeCoverage = (
+  questions: Question[],
+  sessionSize = SESSION_SIZE,
+  options: CoverageOptions = {},
+): CoverageData => {
+  const itemTypePopulation = options.itemTypePopulation ?? itemTypes;
   const categoryCounts = new Map<Question["category"], number>();
   const eligibleCategoryCounts = new Map<Question["category"], number>();
   const itemTypeCounts = new Map<Question["itemType"], number>();
@@ -254,13 +264,13 @@ export const computeCoverage = (questions: Question[], sessionSize = SESSION_SIZ
       count: b.count,
       categories: [...b.categories].sort(),
       itemTypes: [...b.itemTypes].sort(),
-      itemTypeCounts: orderedCounts(itemTypes, b.itemTypeCounts),
+      itemTypeCounts: orderedCounts(itemTypePopulation, b.itemTypeCounts),
     }));
 
   const overTopics = [...topicRows].reverse().filter((t) => t.count > 1).slice(0, 8);
-  const itemTypeAverage = questions.length / itemTypes.length;
+  const itemTypeAverage = questions.length / itemTypePopulation.length;
   const sortedCategoryRows = sortedCounts(categories, categoryCounts);
-  const sortedItemTypeRows = sortedCounts(itemTypes, itemTypeCounts);
+  const sortedItemTypeRows = sortedCounts(itemTypePopulation, itemTypeCounts);
   const eligibleByCategory = orderedCounts(categories, eligibleCategoryCounts);
   const eligibleCategoryTargets: [string, number][] = categories.map((category) => [
     category,
@@ -273,7 +283,7 @@ export const computeCoverage = (questions: Question[], sessionSize = SESSION_SIZ
     .sort((left, right) => left[1] - right[1] || left[0].localeCompare(right[0]));
   const categoryItemTypeCounts: [string, [string, number][]][] = categories.map((category) => [
     category,
-    orderedCounts(itemTypes, categoryItemTypeMaps.get(category) ?? new Map<string, number>()),
+    orderedCounts(itemTypePopulation, categoryItemTypeMaps.get(category) ?? new Map<string, number>()),
   ]);
 
   // Category targets follow the same 2026 NCLEX-RN test-plan weights as the
@@ -402,48 +412,94 @@ const runCli = async () => {
   }
 
   const coverage = computeCoverage(questions, parseSessionSize(argv));
+  const scoredLeafCoverage = computeCoverage(collectScoredLeaves(questions), parseSessionSize(argv), {
+    itemTypePopulation: standaloneItemTypes,
+  });
+  const lines: string[] = [];
+  const emit = (...values: string[]) => lines.push(...values);
 
-  console.log(`# NCLEX Bank Coverage Report`);
-  console.log("");
-  console.log(`Files scanned: ${files.map((file) => basename(file)).join(", ")}`);
-  console.log(`Total questions: ${coverage.totalQuestions}`);
-  console.log(`Unique normalized topics: ${coverage.topics.length}`);
-  console.log("");
-  console.log("## Category Counts");
-  console.log(formatCategoryRows(coverage.byCategory, coverage.categoryTargets));
-  console.log("");
-  console.log(`## Draw-Eligible Capacity per Category (requested session size ${coverage.sessionSize})`);
-  console.log(formatEligibleRows(coverage));
-  console.log("");
-  console.log("## Item Type Counts");
-  console.log(formatCountRows(coverage.byItemType));
-  console.log("");
-  console.log("## Difficulty Counts");
-  console.log(formatCountRows(coverage.byDifficulty));
-  console.log("");
-  console.log("## Visual Counts");
-  console.log(`Total visuals: ${coverage.totalVisuals}`);
-  console.log(formatCountRows(coverage.byVisualKind));
-  console.log("");
-  console.log("## Rhythm Strip Counts");
-  console.log(formatCountRows(coverage.byRhythmClass));
-  console.log("");
-  console.log("## Lowest-Covered Topics");
-  console.log(
+  emit(`# NCLEX Bank Coverage Report`);
+  emit("");
+  emit(`Files scanned: ${files.map((file) => basename(file)).join(", ")}`);
+  emit(`Total questions: ${coverage.totalQuestions}`);
+  emit(`Scored leaves: ${scoredLeafCoverage.totalQuestions} (standalone top-level + embedded case parts; case containers excluded)`);
+  emit(`Unique normalized topics: ${coverage.topics.length}`);
+  emit("");
+  emit("## Category Counts");
+  emit(formatCategoryRows(coverage.byCategory, coverage.categoryTargets));
+  emit("");
+  emit(`## Draw-Eligible Capacity per Category (requested session size ${coverage.sessionSize})`);
+  emit(formatEligibleRows(coverage));
+  emit("");
+  emit("## Item Type Counts");
+  emit(formatCountRows(coverage.byItemType));
+  emit("");
+  emit("## Difficulty Counts");
+  emit(formatCountRows(coverage.byDifficulty));
+  emit("");
+  emit("## Visual Counts");
+  emit(`Total visuals: ${coverage.totalVisuals}`);
+  emit(formatCountRows(coverage.byVisualKind));
+  emit("");
+  emit("## Rhythm Strip Counts");
+  emit(formatCountRows(coverage.byRhythmClass));
+  emit("");
+  emit("## Lowest-Covered Topics");
+  emit(
     coverage.lowTopics
       .map((topic) => `- ${topic.label}: ${topic.count} (${topic.categories.join(", ")}; ${topic.itemTypes.join(", ")})`)
       .join("\n"),
   );
-  console.log("");
-  console.log("## Format Backfill Opportunities");
-  console.log(formatBackfillRows(coverage));
-  console.log("");
-  console.log("## Prompt Parameters");
-  console.log("PRIORITIZE_TOPICS:");
-  console.log(coverage.prioritizeTopics.map((item) => `- ${item}`).join("\n"));
-  console.log("");
-  console.log("AVOID_TOPICS:");
-  console.log(coverage.avoidTopics.length > 0 ? coverage.avoidTopics.map((item) => `- ${item}`).join("\n") : "- none");
+  emit("");
+  emit("## Format Backfill Opportunities");
+  emit(formatBackfillRows(coverage));
+  emit("");
+  emit("## Prompt Parameters");
+  emit("PRIORITIZE_TOPICS:");
+  emit(coverage.prioritizeTopics.map((item) => `- ${item}`).join("\n"));
+  emit("");
+  emit("AVOID_TOPICS:");
+  emit(coverage.avoidTopics.length > 0 ? coverage.avoidTopics.map((item) => `- ${item}`).join("\n") : "- none");
+  emit("");
+  emit("## Scored-Leaf Coverage (case containers excluded)");
+  emit("");
+  emit(`Total scored leaves: ${scoredLeafCoverage.totalQuestions}`);
+  emit(`Unique normalized topics: ${scoredLeafCoverage.topics.length}`);
+  emit("");
+  emit("### Category Counts");
+  emit(formatCategoryRows(scoredLeafCoverage.byCategory, scoredLeafCoverage.categoryTargets));
+  emit("");
+  emit("### Item Type Counts");
+  emit(formatCountRows(scoredLeafCoverage.byItemType));
+  emit("");
+  emit("### Difficulty Counts");
+  emit(formatCountRows(scoredLeafCoverage.byDifficulty));
+  emit("");
+  emit("### Lowest-Covered Topics");
+  emit(
+    scoredLeafCoverage.lowTopics
+      .map((topic) => `- ${topic.label}: ${topic.count} (${topic.categories.join(", ")}; ${topic.itemTypes.join(", ")})`)
+      .join("\n"),
+  );
+  emit("");
+  emit("### Prompt Parameters");
+  emit("PRIORITIZE_TOPICS:");
+  emit(scoredLeafCoverage.prioritizeTopics.map((item) => `- ${item}`).join("\n"));
+  emit("");
+  emit("AVOID_TOPICS:");
+  emit(
+    scoredLeafCoverage.avoidTopics.length > 0
+      ? scoredLeafCoverage.avoidTopics.map((item) => `- ${item}`).join("\n")
+      : "- none",
+  );
+  const output = `${lines.join("\n")}\n`;
+  const outputPath = argv.find((arg) => arg.startsWith("--output="))?.slice("--output=".length);
+  if (outputPath) {
+    await writeFile(outputPath, output, "utf8");
+    console.log(`Coverage report written: ${outputPath}`);
+  } else {
+    process.stdout.write(output);
+  }
 };
 
 if (fileURLToPath(import.meta.url) === resolve(process.argv[1])) {
