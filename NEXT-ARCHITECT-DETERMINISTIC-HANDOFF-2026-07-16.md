@@ -29,8 +29,8 @@ capacity shortfall. The active Batch 7 producer commission is format-targeted, n
 
 | Priority | Work | Nature | Why now |
 |---|---|---|---|
-| P0 | Survey and retrofit schema-floor traversal for `rationale.visuals` | Bounded deterministic correction after a bank-impact survey | A pacer-bearing explanation visual can currently under-declare schema 1.7. The shared full-visual traversal already exists. |
-| P1 | Add an active-governance Markdown U+FFFD gate | Small deterministic hardening | Bank JSON already rejects the replacement character; governance files have no equivalent check. |
+| P0 | **Zero-impact retrofit** of schema-floor traversal for `rationale.visuals` — survey **complete**, implementation **authorized** by [`RATIONALE-VISUAL-SCHEMA-FLOOR-RETROFIT-CODEX-SPEC-2026-07-16.md`](RATIONALE-VISUAL-SCHEMA-FLOOR-RETROFIT-CODEX-SPEC-2026-07-16.md) | Bounded deterministic correction; survey returned zero live-bank impact | The defect is real but **latent**: zero visuals occupy any `rationale.visuals` slot, so nothing under-declares today. Land it while the blast radius is provably zero. |
+| P1 | Add an active-governance Markdown U+FFFD gate — preflight **clean**, gate-only branch, implementation **authorized** by [`GOVERNANCE-MARKDOWN-ENCODING-GATE-CODEX-SPEC-2026-07-16.md`](GOVERNANCE-MARKDOWN-ENCODING-GATE-CODEX-SPEC-2026-07-16.md) | Small deterministic hardening; no remediation needed | Bank JSON already rejects the replacement character; governance files have no equivalent check. |
 | P2 | Expand promoted visual parity beyond three pinned SVGs | Larger deterministic regression project | High-value renderer protection, but baseline ownership and review policy need a deliberate design. |
 | P3 | Produce the six-vital deterministic inventory for sanity-bound ratification | Deterministic evidence, followed by clinical judgment | The inventory is bounded; selecting new clinical tripwires is not mechanical and must remain separately ratified. |
 | P4 | Inventory single-row lab panels, then obtain an architecture ruling | Deterministic survey followed by product decision | No implementation rule exists yet; a two-row floor must not be inferred. |
@@ -39,7 +39,23 @@ capacity shortfall. The active Batch 7 producer commission is format-targeted, n
 P0 is the best next implementation candidate. P1 is the best small follow-up. Do not combine P2–P4
 into the same PR: their evidence, review seats, and reversal costs differ.
 
-## P0 — `rationale.visuals` schema-floor survey and retrofit
+## P0 — `rationale.visuals` schema-floor retrofit
+
+> **STATUS UPDATE 2026-07-16 — superseded in part.** The survey below is **complete**; its evidence is
+> `audit/rationale-visual-floor-survey-2026-07-16/survey-manifest.json`. Implementation is authorized
+> by [`RATIONALE-VISUAL-SCHEMA-FLOOR-RETROFIT-CODEX-SPEC-2026-07-16.md`](RATIONALE-VISUAL-SCHEMA-FLOOR-RETROFIT-CODEX-SPEC-2026-07-16.md),
+> which governs where it differs from this section. Three changes:
+>
+> 1. **Survey complete, zero live-bank impact.** 199 artifacts / 1,852 records / 13 banks; raw lane
+>    empty. Three pacer strips, all at `question.visual`, all in a bank declaring `2.0`. **Zero**
+>    visuals in any `rationale.visuals` slot. Zero flips, zero envelope changes. The work is a
+>    zero-impact retrofit; **no canonical metadata migration is authorized**.
+> 2. **All three walkers must converge** — `schema.ts`, `bankImport.ts`, *and* `visual-parity.ts`. The
+>    "decide whether" below is decided. Consolidating two of three would replace three
+>    consistent-but-incomplete walkers with two silently disagreeing sources of truth. Traversal
+>    *completeness* closes in P0; parity *coverage* expansion remains P2.
+> 3. **All rationale-location regressions are synthetic.** The corpus contains none, so they prove the
+>    walker, not coverage. Corpus proof and synthetic proof are separate claims.
 
 ### Defect
 
@@ -128,6 +144,19 @@ Add a focused export-envelope regression if the existing schema-bank suite does 
 - DECISIONS revisit entry is closed or narrowed to any explicitly deferred parity work.
 
 ## P1 — active-governance encoding gate
+
+> **STATUS UPDATE 2026-07-16 — superseded in part.** Preflight ran (Luke; Codex, independently) and is
+> **clean**: no U+FFFD in any repository Markdown including untracked files, no mojibake signatures in
+> active Markdown, all Markdown valid UTF-8. The **gate-only** branch is confirmed — no remediation
+> inventory. Implementation is authorized by
+> [`GOVERNANCE-MARKDOWN-ENCODING-GATE-CODEX-SPEC-2026-07-16.md`](GOVERNANCE-MARKDOWN-ENCODING-GATE-CODEX-SPEC-2026-07-16.md),
+> which governs where it differs from this section. Two rulings settle open questions below:
+>
+> 1. **Scope is derived, not allowlisted:** every tracked Markdown file outside `Archive/`, via
+>    `git ls-files`. An allowlist would decay exactly the way the CLAUDE.md connector paragraph just
+>    did — silently, with nothing announcing the gap.
+> 2. **Active producer prompts are in scope** — the explicit decision this section asks for. They fall
+>    in automatically under the derived rule, and that is intended.
 
 ### Narrow first pass
 
