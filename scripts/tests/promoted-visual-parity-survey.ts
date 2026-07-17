@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import type { Question, QuestionVisual } from "../../src/types";
 import {
+  buildPromotedVisualInventory,
   buildPromotedVisualRecords,
   type PromotedVisualRecord,
 } from "../promoted-visual-parity";
@@ -112,6 +113,19 @@ assert.deepEqual(
 assert.equal(fixtureRecords.find((record) => record.parityId === "survey_leaf")?.carrierQuestionId, "survey_leaf");
 assert.equal(fixtureRecords.find((record) => record.parityId === "survey_case#ex0")?.carrierQuestionId, "survey_case");
 
+const inventoryWithZeroVisualBank = buildPromotedVisualInventory([
+  { bank: "visuals.json", raw: fixtureBank },
+  {
+    bank: "zero-visuals.json",
+    raw: {
+      meta: { schemaVersion: "2.0", count: 1 },
+      questions: [optionQuestion("zero_visual_question")],
+    },
+  },
+]);
+assert.deepEqual(inventoryWithZeroVisualBank.scannedBanks, ["visuals.json", "zero-visuals.json"]);
+assert.equal(new Set(inventoryWithZeroVisualBank.records.map((record) => record.bank)).size, 1);
+
 const withUnrelatedQuestion = structuredClone(fixtureBank);
 withUnrelatedQuestion.questions.push(optionQuestion("unrelated_no_visual"));
 withUnrelatedQuestion.meta.count += 1;
@@ -195,7 +209,10 @@ assert.equal(
   committed,
   "survey drift: run npm run survey:promoted-visual-parity",
 );
-assert.equal(survey.population.banks, 13);
+assert.equal(survey.population.scannedBanks, 13);
+assert.equal(survey.population.banksWithVisuals, 13);
+assert.equal(survey.population.scannedBankFiles.length, 13);
+assert.deepEqual(survey.population.scannedBankFiles, [...survey.population.scannedBankFiles].sort());
 assert.equal(survey.population.records, 199);
 assert.equal(survey.population.registeredKinds, 12);
 assert.equal(survey.findings.identityCollisions.length, 0);
@@ -205,12 +222,31 @@ assert.equal(survey.findings.exactArithmeticRecordsWithoutKeyed.length, 0);
 assert.equal(survey.findings.deviceScreenRecordsWithoutProof.length, 0);
 assert.equal(survey.findings.ioTrendRecordsWithoutProof.length, 0);
 assert.deepEqual(survey.findings.unclassifiedKinds, ["mar"]);
+assert.deepEqual(survey.counts.byLocation, {
+  question: 195,
+  questionRationale: 0,
+  caseExhibit: 1,
+  caseStageExhibit: 1,
+  caseQuestion: 2,
+  caseQuestionRationale: 0,
+});
+assert.equal(survey.counts.byKindAndLocation.rhythm_strip?.questionRationale, 0);
+assert.equal(survey.counts.byKindAndLocation.rhythm_strip?.caseQuestionRationale, 0);
 assert.equal(survey.ioTrendPopulation.total, 4);
 assert.equal(survey.ioTrendPopulation.keyedArithmeticAndTrendAssertions, 4);
 assert.equal(survey.ioTrendPopulation.patternOnly, 0);
 assert.equal(survey.u0MigrationReadiness.migrated.length, 3);
 assert.equal(survey.u0MigrationReadiness.allPresent, true);
+assert.equal(survey.u0MigrationReadiness.allStructurallyEligible, true);
 assert.equal(survey.u0MigrationReadiness.allEqual, true);
+assert(survey.u0MigrationReadiness.migrated.every((record) =>
+  record.actualKind === "rhythm_strip" &&
+  record.kindEqual &&
+  record.actualLocation === "question" &&
+  record.locationEqual &&
+  record.hashEqual &&
+  record.equal
+));
 assert.equal(survey.blockers.length, 0);
 assert.equal(survey.automatedNullPassed, true);
 assert(survey.records.every((record) => !("svgHash" in record) && !("_svgHash" in record)));

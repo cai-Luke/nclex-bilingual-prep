@@ -6,7 +6,23 @@
   "purpose": "Survey every promoted visual before authorizing the P2 hash baseline.",
   "population": {
     "bankSet": "banks/*.json",
-    "banks": 13,
+    "scannedBanks": 13,
+    "banksWithVisuals": 13,
+    "scannedBankFiles": [
+      "burn-canonical.json",
+      "capnography-canonical.json",
+      "claude-canonical.json",
+      "device-canonical.json",
+      "gemini-canonical.json",
+      "gpt-canonical.json",
+      "hard-cases-canonical.json",
+      "io-canonical.json",
+      "lab-canonical.json",
+      "mar-canonical.json",
+      "medlabel-canonical.json",
+      "visual-canonical.json",
+      "vitals-canonical.json"
+    ],
     "records": 199,
     "registeredKinds": 12,
     "representedKinds": 12
@@ -27,50 +43,109 @@
       "vitals_trend": 29
     },
     "byLocation": {
+      "question": 195,
+      "questionRationale": 0,
       "caseExhibit": 1,
-      "caseQuestion": 2,
       "caseStageExhibit": 1,
-      "question": 195
+      "caseQuestion": 2,
+      "caseQuestionRationale": 0
     },
     "byKindAndLocation": {
       "burn_map": {
-        "question": 10
+        "question": 10,
+        "questionRationale": 0,
+        "caseExhibit": 0,
+        "caseStageExhibit": 0,
+        "caseQuestion": 0,
+        "caseQuestionRationale": 0
       },
       "capnography": {
-        "question": 25
+        "question": 25,
+        "questionRationale": 0,
+        "caseExhibit": 0,
+        "caseStageExhibit": 0,
+        "caseQuestion": 0,
+        "caseQuestionRationale": 0
       },
       "device_screen": {
-        "question": 12
+        "question": 12,
+        "questionRationale": 0,
+        "caseExhibit": 0,
+        "caseStageExhibit": 0,
+        "caseQuestion": 0,
+        "caseQuestionRationale": 0
       },
       "fetal_monitoring": {
-        "question": 6
+        "question": 6,
+        "questionRationale": 0,
+        "caseExhibit": 0,
+        "caseStageExhibit": 0,
+        "caseQuestion": 0,
+        "caseQuestionRationale": 0
       },
       "injection_site": {
-        "question": 8
+        "question": 8,
+        "questionRationale": 0,
+        "caseExhibit": 0,
+        "caseStageExhibit": 0,
+        "caseQuestion": 0,
+        "caseQuestionRationale": 0
       },
       "io_record": {
-        "question": 11
+        "question": 11,
+        "questionRationale": 0,
+        "caseExhibit": 0,
+        "caseStageExhibit": 0,
+        "caseQuestion": 0,
+        "caseQuestionRationale": 0
       },
       "io_trend": {
-        "question": 4
+        "question": 4,
+        "questionRationale": 0,
+        "caseExhibit": 0,
+        "caseStageExhibit": 0,
+        "caseQuestion": 0,
+        "caseQuestionRationale": 0
       },
       "lab_trend": {
-        "question": 20
+        "question": 20,
+        "questionRationale": 0,
+        "caseExhibit": 0,
+        "caseStageExhibit": 0,
+        "caseQuestion": 0,
+        "caseQuestionRationale": 0
       },
       "mar": {
-        "question": 11
+        "question": 11,
+        "questionRationale": 0,
+        "caseExhibit": 0,
+        "caseStageExhibit": 0,
+        "caseQuestion": 0,
+        "caseQuestionRationale": 0
       },
       "medication_label": {
-        "question": 13
+        "question": 13,
+        "questionRationale": 0,
+        "caseExhibit": 0,
+        "caseStageExhibit": 0,
+        "caseQuestion": 0,
+        "caseQuestionRationale": 0
       },
       "rhythm_strip": {
+        "question": 47,
+        "questionRationale": 0,
         "caseExhibit": 1,
+        "caseStageExhibit": 0,
         "caseQuestion": 2,
-        "question": 47
+        "caseQuestionRationale": 0
       },
       "vitals_trend": {
+        "question": 28,
+        "questionRationale": 0,
+        "caseExhibit": 0,
         "caseStageExhibit": 1,
-        "question": 28
+        "caseQuestion": 0,
+        "caseQuestionRationale": 0
       }
     },
     "byTier": {
@@ -109,6 +184,13 @@
         "parityId": "rhy_sinus_brady_001",
         "oldHash": "c6d7580602c34bf39a6d8472a02d7d55d5f5c646666d0530fda7261d95597acb",
         "newHash": "c6d7580602c34bf39a6d8472a02d7d55d5f5c646666d0530fda7261d95597acb",
+        "expectedKind": "rhythm_strip",
+        "actualKind": "rhythm_strip",
+        "kindEqual": true,
+        "expectedLocation": "question",
+        "actualLocation": "question",
+        "locationEqual": true,
+        "hashEqual": true,
         "equal": true,
         "target": "scripts/tests/__snapshots__/visual-parity-promoted/rhythm_strip.json"
       },
@@ -116,6 +198,13 @@
         "parityId": "rhy_vtach_001",
         "oldHash": "ef4067e5f1f1cc9afb0df5adc4d5eb0b66a29fc7e025fcf9967515b05ca55617",
         "newHash": "ef4067e5f1f1cc9afb0df5adc4d5eb0b66a29fc7e025fcf9967515b05ca55617",
+        "expectedKind": "rhythm_strip",
+        "actualKind": "rhythm_strip",
+        "kindEqual": true,
+        "expectedLocation": "question",
+        "actualLocation": "question",
+        "locationEqual": true,
+        "hashEqual": true,
         "equal": true,
         "target": "scripts/tests/__snapshots__/visual-parity-promoted/rhythm_strip.json"
       },
@@ -123,12 +212,20 @@
         "parityId": "rhy_afib_001",
         "oldHash": "e55cbbf97b8865bc5a848831e4a8c24db60d655553ad578ef035bab9098cae91",
         "newHash": "e55cbbf97b8865bc5a848831e4a8c24db60d655553ad578ef035bab9098cae91",
+        "expectedKind": "rhythm_strip",
+        "actualKind": "rhythm_strip",
+        "kindEqual": true,
+        "expectedLocation": "question",
+        "actualLocation": "question",
+        "locationEqual": true,
+        "hashEqual": true,
         "equal": true,
         "target": "scripts/tests/__snapshots__/visual-parity-promoted/rhythm_strip.json"
       }
     ],
     "unexpectedLegacyIds": [],
     "allPresent": true,
+    "allStructurallyEligible": true,
     "allEqual": true,
     "note": "Readiness evidence only. The survey phase does not write promoted snapshots or remove legacy svgHashes."
   },

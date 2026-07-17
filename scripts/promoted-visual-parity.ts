@@ -3,6 +3,7 @@ import { join } from "node:path";
 import {
   collectVisualRefs,
   validateBankObject,
+  type VisualLocation,
   type VisualRef,
 } from "../src/schema";
 import type { Question } from "../src/types";
@@ -25,6 +26,20 @@ export type PromotedBankInput = {
   bank: string;
   raw: unknown;
 };
+
+export type PromotedVisualInventory = {
+  scannedBanks: string[];
+  records: PromotedVisualRecord[];
+};
+
+export const VISUAL_LOCATIONS: readonly VisualLocation[] = [
+  "question",
+  "questionRationale",
+  "caseExhibit",
+  "caseStageExhibit",
+  "caseQuestion",
+  "caseQuestionRationale",
+];
 
 export const parityId = (ref: VisualRef): string => {
   switch (ref.location) {
@@ -107,9 +122,18 @@ export const buildPromotedVisualRecords = (
   );
 };
 
-export const loadPromotedVisualRecords = async (
+export const buildPromotedVisualInventory = (
+  banks: PromotedBankInput[],
+): PromotedVisualInventory => ({
+  scannedBanks: banks.map(({ bank }) => bank).sort((left, right) =>
+    left < right ? -1 : left > right ? 1 : 0
+  ),
+  records: buildPromotedVisualRecords(banks),
+});
+
+export const loadPromotedVisualInventory = async (
   bankDir: string = "banks",
-): Promise<PromotedVisualRecord[]> => {
+): Promise<PromotedVisualInventory> => {
   const bankFiles = (await readdir(bankDir))
     .filter((file) => file.endsWith(".json"))
     .sort();
@@ -123,5 +147,10 @@ export const loadPromotedVisualRecords = async (
       );
     }
   }));
-  return buildPromotedVisualRecords(banks);
+  return buildPromotedVisualInventory(banks);
 };
+
+export const loadPromotedVisualRecords = async (
+  bankDir: string = "banks",
+): Promise<PromotedVisualRecord[]> =>
+  (await loadPromotedVisualInventory(bankDir)).records;

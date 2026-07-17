@@ -5,7 +5,8 @@ import { fileURLToPath } from "node:url";
 import type { VisualError } from "../src/visuals/registry";
 import { getVisual, listVisualKinds } from "../src/visuals/registry";
 import {
-  loadPromotedVisualRecords,
+  loadPromotedVisualInventory,
+  VISUAL_LOCATIONS,
   type PromotedVisualRecord,
 } from "./promoted-visual-parity";
 
@@ -199,11 +200,29 @@ const countBy = (records: SurveyRecord[], select: (record: SurveyRecord) => stri
   return Object.fromEntries([...counts.entries()].sort(([left], [right]) => byteSort(left, right)));
 };
 
+const countByDomain = (
+  records: SurveyRecord[],
+  domain: readonly string[],
+  select: (record: SurveyRecord) => string,
+): Record<string, number> => {
+  const counts = new Map(domain.map((key) => [key, 0]));
+  for (const record of records) {
+    const key = select(record);
+    if (!counts.has(key)) throw new Error(`count domain is missing key ${key}`);
+    counts.set(key, (counts.get(key) ?? 0) + 1);
+  }
+  return Object.fromEntries(domain.map((key) => [key, counts.get(key) ?? 0]));
+};
+
 const countsByKindAndLocation = (records: SurveyRecord[]): Record<string, Record<string, number>> => {
   const kinds = [...new Set(records.map((record) => record.kind))].sort(byteSort);
   return Object.fromEntries(kinds.map((kind) => [
     kind,
-    countBy(records.filter((record) => record.kind === kind), (record) => record.location),
+    countByDomain(
+      records.filter((record) => record.kind === kind),
+      VISUAL_LOCATIONS,
+      (record) => record.location,
+    ),
   ]));
 };
 
@@ -220,11 +239,23 @@ const readU0MigrationReadiness = async (records: SurveyRecord[]) => {
     const live = liveById.get(id);
     const oldHash = legacyById.get(id) ?? null;
     const newHash = live?._svgHash ?? null;
+    const actualKind = live?.kind ?? null;
+    const actualLocation = live?.location ?? null;
+    const hashEqual = oldHash !== null && newHash === oldHash;
+    const kindEqual = actualKind === "rhythm_strip";
+    const locationEqual = actualLocation === "question";
     return {
       parityId: id,
       oldHash,
       newHash,
-      equal: oldHash !== null && newHash === oldHash,
+      expectedKind: "rhythm_strip",
+      actualKind,
+      kindEqual,
+      expectedLocation: "question",
+      actualLocation,
+      locationEqual,
+      hashEqual,
+      equal: hashEqual && kindEqual && locationEqual,
       target: "scripts/tests/__snapshots__/visual-parity-promoted/rhythm_strip.json",
     };
   });
@@ -237,14 +268,18 @@ const readU0MigrationReadiness = async (records: SurveyRecord[]) => {
     requiredIds: [...REQUIRED_U0_IDS],
     migrated,
     unexpectedLegacyIds,
-    allPresent: migrated.every(({ oldHash, newHash }) => oldHash !== null && newHash !== null),
+    allPresent: migrated.every(({ oldHash, newHash, kindEqual, locationEqual }) =>
+      oldHash !== null && newHash !== null && kindEqual && locationEqual
+    ),
+    allStructurallyEligible: migrated.every(({ kindEqual, locationEqual }) => kindEqual && locationEqual),
     allEqual: migrated.every(({ equal }) => equal) && unexpectedLegacyIds.length === 0,
     note: "Readiness evidence only. The survey phase does not write promoted snapshots or remove legacy svgHashes.",
   };
 };
 
 export const buildPromotedVisualParitySurvey = async (bankDir: string = "banks") => {
-  const promoted = await loadPromotedVisualRecords(bankDir);
+  const inventory = await loadPromotedVisualInventory(bankDir);
+  const promoted = inventory.records;
   const internalRecords = promoted.map(buildSurveyRecord);
   const exactArithmeticRecordsWithoutKeyed = internalRecords
     .filter((record) => EXACT_ARITHMETIC.has(record.kind) && !record.declaredKeyedPresent)
@@ -290,14 +325,16 @@ export const buildPromotedVisualParitySurvey = async (bankDir: string = "banks")
     purpose: "Survey every promoted visual before authorizing the P2 hash baseline.",
     population: {
       bankSet: "banks/*.json",
-      banks: new Set(promoted.map((record) => record.bank)).size,
+      scannedBanks: inventory.scannedBanks.length,
+      banksWithVisuals: new Set(promoted.map((record) => record.bank)).size,
+      scannedBankFiles: inventory.scannedBanks,
       records: records.length,
       registeredKinds: registeredKinds.length,
       representedKinds: representedKinds.length,
     },
     counts: {
       byKind: countBy(internalRecords, (record) => record.kind),
-      byLocation: countBy(internalRecords, (record) => record.location),
+      byLocation: countByDomain(internalRecords, VISUAL_LOCATIONS, (record) => record.location),
       byKindAndLocation: countsByKindAndLocation(internalRecords),
       byTier: Object.fromEntries([
         "calibrated-tracing",
