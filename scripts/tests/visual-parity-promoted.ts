@@ -1,19 +1,22 @@
 import assert from "node:assert/strict";
 import { execFileSync } from "node:child_process";
-import { mkdtemp, mkdir, readFile, rm, writeFile } from "node:fs/promises";
+import { access, mkdtemp, mkdir, readFile, rm, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import type { Question, QuestionVisual } from "../../src/types";
 import {
   buildPromotedVisualRecords,
-  type PromotedVisualRecord,
 } from "../promoted-visual-parity";
 import {
+  assertRecognizedProofSurface,
+  assertRemovedDeltaEvidence,
   buildOrdinaryDeltas,
   buildParityState,
   hasActiveBaseline,
   LEGACY_SNAPSHOT_PATH,
   renderStateAtRef,
+  resolveBeforeRef,
+  selectRebaselineMode,
   serializeSnapshotFiles,
   snapshotRecord,
   stableJson,
@@ -127,6 +130,35 @@ const state = (
 });
 
 const one = state("one");
+assert.throws(
+  () => assertRecognizedProofSurface("exact", "io_record", [], []),
+  /no recognized keyed arithmetic/,
+);
+assert.doesNotThrow(() =>
+  assertRecognizedProofSurface("exact", "io_record", ["derived_values_keyed"], ["intake_total_ml"])
+);
+assert.throws(
+  () => assertRecognizedProofSurface("device", "device_screen", [], []),
+  /device_screen.*no recognized proof surface/,
+);
+assert.doesNotThrow(() =>
+  assertRecognizedProofSurface("device", "device_screen", ["keyed_settings"], [])
+);
+assert.throws(
+  () => assertRecognizedProofSurface("trend", "io_trend", [], []),
+  /io_trend.*no recognized proof surface/,
+);
+assert.doesNotThrow(() =>
+  assertRecognizedProofSurface("trend", "io_trend", ["expected_trend"], [])
+);
+assert.throws(
+  () => assertRecognizedProofSurface("mar", "mar", [], []),
+  /mar.*no recognized proof surface/,
+);
+assert.doesNotThrow(() =>
+  assertRecognizedProofSurface("mar", "mar", ["keyed_cells"], [])
+);
+
 const serializedOnce = serializeSnapshotFiles([one], ["rhythm_strip"]);
 const serializedTwice = serializeSnapshotFiles([one], ["rhythm_strip"]);
 assert.deepEqual([...serializedOnce], [...serializedTwice], "snapshot regeneration must be byte-idempotent");
@@ -176,6 +208,20 @@ const contentDelta = buildOrdinaryDeltas(
   ["banks/visual-canonical.json"],
 );
 assert.equal(contentDelta.changed[0]?.cause, "content");
+const rendererDelta = buildOrdinaryDeltas(
+  [one],
+  [changed],
+  ["rhythm_strip"],
+  ["src/visuals/kinds/rhythmStrip.ts"],
+);
+assert.equal(rendererDelta.changed[0]?.cause, "renderer");
+const addedDelta = buildOrdinaryDeltas(
+  [],
+  [one],
+  ["rhythm_strip"],
+  ["banks/visual-canonical.json"],
+);
+assert.equal(addedDelta.added[0]?.cause, "content");
 assert.throws(
   () => buildOrdinaryDeltas(
     [one],
@@ -212,6 +258,17 @@ const removal = buildOrdinaryDeltas(
 ).removed[0];
 assert.deepEqual(removal?.priorProofSurface, ["derived_values_keyed"]);
 assert.equal(removal?.removalReason, "record removed from banks/io-canonical.json");
+assert.throws(
+  () => assertRemovedDeltaEvidence({ parityId: "removed" }),
+  /lacks prior proof or removal reason/,
+);
+
+assert.equal(selectRebaselineMode(false, null), "bootstrap");
+assert.equal(selectRebaselineMode(true, "initial-receipt.json"), "ordinary");
+assert.throws(
+  () => selectRebaselineMode(false, "initial-receipt.json"),
+  /bootstrap cannot run again/,
+);
 
 assert.deepEqual(
   stripReceiptVolatile({ generatedAt: "first", inputGitSha: "one", stable: true }),
@@ -231,8 +288,10 @@ try {
 
 const worktreesBefore = execFileSync("git", ["worktree", "list", "--porcelain"], { encoding: "utf8" });
 const head = execFileSync("git", ["rev-parse", "HEAD"], { encoding: "utf8" }).trim();
+assert.equal(resolveBeforeRef("HEAD"), head, "before-ref must resolve to an exact commit SHA");
 await assert.rejects(
-  withTemporaryWorktree(head, async () => {
+  withTemporaryWorktree(head, async (worktree) => {
+    await assert.rejects(access(join(worktree, "node_modules")));
     throw new Error("synthetic callback failure");
   }),
   /synthetic callback failure/,

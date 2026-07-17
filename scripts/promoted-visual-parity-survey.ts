@@ -12,6 +12,7 @@ import {
 
 export const OUTPUT_PATH = "audit/promoted-visual-parity-survey-2026-07-16/survey-manifest.json";
 const LEGACY_SNAPSHOT_PATH = "scripts/tests/__snapshots__/visual-parity.json";
+const INITIAL_BASELINE_RECEIPT_PATH = "audit/visual-parity-rebaseline-2026-07-17-initial/receipt.json";
 const SURVEY_DATE = "2026-07-16";
 const REQUIRED_U0_IDS = [
   "rhy_sinus_brady_001",
@@ -272,7 +273,55 @@ const readU0MigrationReadiness = async (records: SurveyRecord[]) => {
     svgHashes?: Array<{ id: string; svgHash: string }>;
   };
   if (!Array.isArray(legacy.svgHashes)) {
-    throw new Error(`${LEGACY_SNAPSHOT_PATH}: svgHashes is missing before the authorized migration`);
+    const receipt = JSON.parse(await readFile(INITIAL_BASELINE_RECEIPT_PATH, "utf8")) as {
+      u0Migration?: {
+        migrated?: Array<{
+          parityId: string;
+          oldHash: string | null;
+          newHash: string | null;
+          expectedKind: string;
+          actualKind: string | null;
+          kindEqual: boolean;
+          expectedLocation: string;
+          actualLocation: string | null;
+          locationEqual: boolean;
+          hashEqual: boolean;
+          equal: boolean;
+        }>;
+        allStructurallyEligible?: boolean;
+        allEqual?: boolean;
+      };
+    };
+    const migrated = receipt.u0Migration?.migrated;
+    if (!Array.isArray(migrated) || migrated.length !== REQUIRED_U0_IDS.length ||
+      receipt.u0Migration?.allStructurallyEligible !== true || receipt.u0Migration.allEqual !== true) {
+      throw new Error(`${INITIAL_BASELINE_RECEIPT_PATH}: completed U0 migration evidence is invalid`);
+    }
+    return {
+      source: LEGACY_SNAPSHOT_PATH,
+      requiredIds: [...REQUIRED_U0_IDS],
+      migrated: migrated.map((record) => ({
+        parityId: record.parityId,
+        oldHash: record.oldHash,
+        newHash: record.newHash,
+        expectedKind: record.expectedKind,
+        actualKind: record.actualKind,
+        kindEqual: record.kindEqual,
+        expectedLocation: record.expectedLocation,
+        actualLocation: record.actualLocation,
+        locationEqual: record.locationEqual,
+        hashEqual: record.hashEqual,
+        equal: record.equal,
+        target: "scripts/tests/__snapshots__/visual-parity-promoted/rhythm_strip.json",
+      })),
+      unexpectedLegacyIds: [],
+      allPresent: migrated.every(({ oldHash, newHash, kindEqual, locationEqual }) =>
+        oldHash !== null && newHash !== null && kindEqual && locationEqual
+      ),
+      allStructurallyEligible: true,
+      allEqual: true,
+      note: "Readiness evidence only. The survey phase does not write promoted snapshots or remove legacy svgHashes.",
+    };
   }
   const liveById = new Map(records.map((record) => [record.parityId, record]));
   const legacyById = new Map(legacy.svgHashes.map((record) => [record.id, record.svgHash]));

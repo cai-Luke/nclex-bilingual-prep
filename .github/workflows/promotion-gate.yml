@@ -19,6 +19,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Test visuals
+        run: npm run test-visuals
+
       - name: Run promotion gate
         run: npm run audit
 

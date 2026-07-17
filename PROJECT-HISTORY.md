@@ -52,11 +52,10 @@ The committed NGN item-type set is complete. Rationale/dyad scoring and an expli
 
 > Milestones dated **2026-06-23 and earlier** are archived in [`Archive/PROJECT-HISTORY-ARCHIVE.md`](Archive/PROJECT-HISTORY-ARCHIVE.md). Only the current arc (2026-06-24 onward) is kept here.
 
-### Promoted Visual Parity P2 Survey Phase — Conditional Adjudication Regenerated (Jul 16)
+### Promoted Visual Parity P2 Baseline Phase — Implemented on Draft PR (Jul 17)
 
 The survey phase authorized by
-`PROMOTED-VISUAL-PARITY-EXPANSION-ARCHITECT-SPEC-2026-07-16.md` is implemented on a draft PR;
-no promoted hash baseline has been generated and the legacy U0 snapshot remains unchanged. A shared,
+`PROMOTED-VISUAL-PARITY-EXPANSION-ARCHITECT-SPEC-2026-07-16.md` is implemented on a draft PR. A shared,
 byte-sorted promoted-visual loader now fails loudly when a top-level bank is invalid or two visuals
 resolve to the same parity identity, closing the two silent-skip/overwrite defects in the legacy
 three-hash parity test. Carrier routing is explicit for all six full-schema locations.
@@ -70,13 +69,22 @@ All 11 `mar` records are now classified in the structured-document/table tier an
 demonstrate a nonempty keyed relationship or a keyed cell resolving to a real medication/time
 administration. Regressions prove that `keyed_cells: [null]` and missing metadata can leave
 `selfCheckErrors` empty without satisfying that proof recognizer.
-The three legacy U0 rhythm hashes are all present and byte-equal to their live promoted renders, so
-the future migration is mechanically ready but has not run.
+After Claude recorded `SURVEY-ADJUDICATION: PASS`, the one-time bootstrap reconciled that committed
+survey byte-for-byte and wrote 199 byte-sorted records across all 12 registered-kind snapshots. Its
+receipt records zero ordinary deltas, the exact merge-base SHA, the complete population/proof null,
+and all three U0 rhythm ids as structurally eligible and byte-equal. The promoted rhythm snapshot
+landed while the legacy hashes still existed; a following commit removed the old `svgHashes` owner.
+The legacy snapshot note, this history, the initial receipt, and git history retain U0 provenance,
+while `visual-parity.json` now owns only its 11 validation-reason cases.
 
-The amended survey now has no unclassified kind, no architect question, and no MAR proof-surface
-gap. Baseline generation, U0 migration, rebaseline receipts, and the CI hook remain blocked until
-Claude reviews this regeneration, records the unconditional survey-adjudication PASS, and opens
-phase 3.
+`parity:rebaseline` now has a permanently one-shot bootstrap and an ordinary steady-state path with
+Git-derived record-local causes, all-delta scope enforcement, ambiguous renderer/content failure,
+keyed-proof preservation, exact before-ref SHA rendering from an always-unregistered clean
+worktree, deterministic per-kind snapshots, one-sided removal evidence, and tracing review-artifact
+generation. `test:visual-parity-promoted` owns fail-closed loading/collisions, universal `selfCheck`,
+proof surfaces, missing/stale/hash failures, bootstrap permanence, delta mechanics, and worktree
+cleanup. The Promotion Gate adds only the authorized `npm run test-visuals` step. The PR remains
+draft pending architect spec-conformance and independent gate-seat review; P3–P5 remain out of scope.
 
 ### Rationale-Visual Schema-Floor Traversal Retrofit (Jul 16)
 

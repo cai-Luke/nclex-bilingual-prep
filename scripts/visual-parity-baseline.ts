@@ -116,27 +116,27 @@ const declaredKeyedFor = (
   ));
 };
 
-const assertProofSurface = (
-  record: PromotedVisualRecord,
+export const assertRecognizedProofSurface = (
+  parityId: string,
+  kind: string,
   recognizedProofSurfaces: string[],
   recognizedDerivedKeys: string[],
 ): void => {
-  const { kind } = record.ref.visual;
   if (EXACT_ARITHMETIC.has(kind) && recognizedDerivedKeys.length === 0) {
-    throw new Error(`promoted visual parity: ${record.parityId} (${kind}) has no recognized keyed arithmetic`);
+    throw new Error(`promoted visual parity: ${parityId} (${kind}) has no recognized keyed arithmetic`);
   }
   if (kind === "device_screen" &&
     !recognizedProofSurfaces.includes("derived_values_keyed") &&
     !recognizedProofSurfaces.includes("keyed_settings")) {
-    throw new Error(`promoted visual parity: ${record.parityId} (device_screen) has no recognized proof surface`);
+    throw new Error(`promoted visual parity: ${parityId} (device_screen) has no recognized proof surface`);
   }
   if (kind === "io_trend" && recognizedProofSurfaces.length === 0) {
-    throw new Error(`promoted visual parity: ${record.parityId} (io_trend) has no recognized proof surface`);
+    throw new Error(`promoted visual parity: ${parityId} (io_trend) has no recognized proof surface`);
   }
   if (kind === "mar" &&
     !recognizedProofSurfaces.includes("keyed_relationship") &&
     !recognizedProofSurfaces.includes("keyed_cells")) {
-    throw new Error(`promoted visual parity: ${record.parityId} (mar) has no recognized proof surface`);
+    throw new Error(`promoted visual parity: ${parityId} (mar) has no recognized proof surface`);
   }
 };
 
@@ -154,7 +154,12 @@ export const buildParityState = (
     throw new Error(`promoted visual parity: selfCheck failed for ${record.parityId}: ${JSON.stringify(selfCheckErrors)}`);
   }
   const proof = extractRecognizedProof(record);
-  assertProofSurface(record, proof.recognizedProofSurfaces, proof.recognizedDerivedKeys);
+  assertRecognizedProofSurface(
+    record.parityId,
+    record.ref.visual.kind,
+    proof.recognizedProofSurfaces,
+    proof.recognizedDerivedKeys,
+  );
   const declaredKeyed = declaredKeyedFor(record, proof.recognizedDerivedKeys);
   return {
     parityId: record.parityId,
@@ -310,7 +315,7 @@ export const withTemporaryWorktree = async <T>(
   try {
     execGit(["worktree", "add", "--detach", worktree, sha]);
     registered = true;
-    await symlink(resolve("node_modules"), join(worktree, "node_modules"), "dir");
+    await symlink(resolve("node_modules"), join(root, "node_modules"), "dir");
     return await callback(worktree);
   } finally {
     if (registered) {
@@ -326,7 +331,7 @@ export const withTemporaryWorktree = async <T>(
 
 export const renderStateAtRef = async (sha: string): Promise<ParityStateRecord[]> =>
   withTemporaryWorktree(sha, async (worktree) => {
-    const tsx = join(worktree, "node_modules", ".bin", "tsx");
+    const tsx = join(dirname(worktree), "node_modules", ".bin", "tsx");
     const output = execFileSync(tsx, ["scripts/visual-parity-baseline.ts", "--print-state"], {
       cwd: worktree,
       encoding: "utf8",
@@ -375,6 +380,15 @@ const priorProofSurface = (record: ParityStateRecord): string[] =>
   record.recognizedProofSurfaces.length > 0
     ? [...record.recognizedProofSurfaces]
     : ["universal_self_check"];
+
+export const assertRemovedDeltaEvidence = (
+  record: Pick<DeltaRecord, "parityId" | "priorProofSurface" | "removalReason">,
+): void => {
+  if (!Array.isArray(record.priorProofSurface) || record.priorProofSurface.length === 0 ||
+    typeof record.removalReason !== "string" || record.removalReason.trim().length === 0) {
+    throw new Error(`promoted visual parity: removed record ${record.parityId} lacks prior proof or removal reason`);
+  }
+};
 
 const keyedEqual = (before: JsonValue | undefined, after: JsonValue | undefined): boolean =>
   stableJson(before ?? null) === stableJson(after ?? null);
@@ -444,10 +458,7 @@ export const buildOrdinaryDeltas = (
     } else {
       const proof = priorProofSurface(before!);
       const removalReason = `record removed from ${bankPath(before!.bank)}`;
-      if (proof.length === 0 || removalReason.length === 0) {
-        throw new Error(`promoted visual parity: removed record ${parityId} lacks prior proof or removal reason`);
-      }
-      removed.push({
+      const removedRecord: DeltaRecord = {
         parityId,
         kind: record.kind,
         location: record.location,
@@ -456,7 +467,9 @@ export const buildOrdinaryDeltas = (
         cause,
         priorProofSurface: proof,
         removalReason,
-      });
+      };
+      assertRemovedDeltaEvidence(removedRecord);
+      removed.push(removedRecord);
       if (EXACT_ARITHMETIC.has(record.kind) || HYBRID_PROOF_KINDS.has(record.kind)) {
         arithmeticEvidence.push({
           parityId,
@@ -621,6 +634,16 @@ export const stripReceiptVolatile = <T extends { generatedAt?: unknown; inputGit
   return stable;
 };
 
+export const selectRebaselineMode = (
+  activeBaseline: boolean,
+  initialReceipt: string | null,
+): "bootstrap" | "ordinary" => {
+  if (!activeBaseline && initialReceipt !== null) {
+    throw new Error(`promoted visual parity: active baseline is missing after bootstrap ${initialReceipt}; bootstrap cannot run again`);
+  }
+  return activeBaseline ? "ordinary" : "bootstrap";
+};
+
 type CliOptions = { reason: string; scope: string[]; beforeRef?: string };
 
 const parseArgs = (args: string[]): CliOptions => {
@@ -771,11 +794,9 @@ const runOrdinaryRebaseline = async (options: CliOptions, beforeRef: string): Pr
 export const runRebaseline = async (options: CliOptions): Promise<string> => {
   const active = await hasActiveBaseline();
   const priorReceipt = await findInitialReceipt();
-  if (!active && priorReceipt !== null) {
-    throw new Error(`promoted visual parity: active baseline is missing after bootstrap ${priorReceipt}; bootstrap cannot run again`);
-  }
+  const mode = selectRebaselineMode(active, priorReceipt);
   const beforeRef = resolveBeforeRef(options.beforeRef);
-  return active ? runOrdinaryRebaseline(options, beforeRef) : runBootstrap(options, beforeRef);
+  return mode === "ordinary" ? runOrdinaryRebaseline(options, beforeRef) : runBootstrap(options, beforeRef);
 };
 
 const isMain = process.argv[1] !== undefined && resolve(process.argv[1]) === fileURLToPath(import.meta.url);
