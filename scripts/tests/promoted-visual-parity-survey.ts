@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import type { Question, QuestionVisual } from "../../src/types";
+import { selfCheckMar } from "../../src/visuals/kinds/mar";
 import {
   buildPromotedVisualInventory,
   buildPromotedVisualRecords,
@@ -152,7 +153,7 @@ assert.throws(
 
 const proofRecord = (
   visualValue: Record<string, unknown>,
-  meta: Record<string, unknown>,
+  meta?: Record<string, unknown>,
 ): PromotedVisualRecord => ({
   parityId: "proof",
   bank: "proof.json",
@@ -162,7 +163,10 @@ const proofRecord = (
     parentQuestionId: "proof",
     ownerId: "proof",
   },
-  carrierQuestion: { ...optionQuestion("proof"), meta } as unknown as Question,
+  carrierQuestion: {
+    ...optionQuestion("proof"),
+    ...(meta === undefined ? {} : { meta }),
+  } as unknown as Question,
   carrierQuestionId: "proof",
   carrierRoute: "top-level-question",
 });
@@ -202,6 +206,51 @@ const patternOnlyIoTrend = extractRecognizedProof(proofRecord(
 assert.deepEqual(patternOnlyIoTrend.recognizedProofSurfaces, ["expected_trend"]);
 assert.equal(patternOnlyIoTrend.declaredKeyedPresent, false);
 
+const marVisual = {
+  kind: "mar",
+  timeGrid: ["0900"],
+  medications: [{
+    name: "Medication A",
+    dose: "1 tablet",
+    route: "PO",
+    frequency: "daily",
+    administrations: [{ time: "0900", status: "given" }],
+  }],
+};
+const marRelationshipProof = extractRecognizedProof(proofRecord(
+  marVisual,
+  { keyed_relationship: "Medication A was administered at 0900." },
+));
+assert.deepEqual(marRelationshipProof.recognizedProofSurfaces, ["keyed_relationship"]);
+
+const marCellProof = extractRecognizedProof(proofRecord(
+  marVisual,
+  { keyed_cells: [{ medication: "Medication A", time: "0900" }] },
+));
+assert.deepEqual(marCellProof.recognizedProofSurfaces, ["keyed_cells"]);
+assert.deepEqual(marCellProof.recognizedKeyedCells, [{ medication: "Medication A", time: "0900" }]);
+
+const malformedMarMeta = {
+  visual_justification: "The MAR is necessary to answer the item.",
+  keyed_cells: [null],
+};
+const malformedMarProof = extractRecognizedProof(proofRecord(marVisual, malformedMarMeta));
+assert.deepEqual(malformedMarProof.recognizedProofSurfaces, []);
+assert.deepEqual(malformedMarProof.recognizedKeyedCells, []);
+assert.deepEqual(
+  selfCheckMar(marVisual as never, { meta: malformedMarMeta }),
+  [],
+  "keyed_cells:[null] must expose the selfCheck escape hatch without satisfying survey proof",
+);
+
+const noMetaMarProof = extractRecognizedProof(proofRecord(marVisual));
+assert.deepEqual(noMetaMarProof.recognizedProofSurfaces, []);
+assert.deepEqual(
+  selfCheckMar(marVisual as never, optionQuestion("mar_without_meta")),
+  [],
+  "missing meta must expose the selfCheck escape hatch without satisfying survey proof",
+);
+
 const survey = await buildPromotedVisualParitySurvey();
 const committed = await readFile(OUTPUT_PATH, "utf8");
 assert.equal(
@@ -221,7 +270,8 @@ assert.equal(survey.findings.nondeterministicRenders.length, 0);
 assert.equal(survey.findings.exactArithmeticRecordsWithoutKeyed.length, 0);
 assert.equal(survey.findings.deviceScreenRecordsWithoutProof.length, 0);
 assert.equal(survey.findings.ioTrendRecordsWithoutProof.length, 0);
-assert.deepEqual(survey.findings.unclassifiedKinds, ["mar"]);
+assert.equal(survey.findings.marRecordsWithoutProof.length, 0);
+assert.deepEqual(survey.findings.unclassifiedKinds, []);
 assert.deepEqual(survey.counts.byLocation, {
   question: 195,
   questionRationale: 0,
@@ -235,6 +285,13 @@ assert.equal(survey.counts.byKindAndLocation.rhythm_strip?.caseQuestionRationale
 assert.equal(survey.ioTrendPopulation.total, 4);
 assert.equal(survey.ioTrendPopulation.keyedArithmeticAndTrendAssertions, 4);
 assert.equal(survey.ioTrendPopulation.patternOnly, 0);
+assert.equal(survey.counts.byTier["structured-document"], 11);
+assert.equal(survey.marPopulation.total, 11);
+assert.equal(survey.marPopulation.withKeyedRelationship, 7);
+assert.equal(survey.marPopulation.withResolvingKeyedCells, 7);
+assert.equal(survey.marPopulation.withBoth, 3);
+assert.equal(survey.marPopulation.withRecognizedProof, 11);
+assert.equal(survey.marPopulation.withoutRecognizedProof, 0);
 assert.equal(survey.u0MigrationReadiness.migrated.length, 3);
 assert.equal(survey.u0MigrationReadiness.allPresent, true);
 assert.equal(survey.u0MigrationReadiness.allStructurallyEligible, true);
@@ -249,6 +306,7 @@ assert(survey.u0MigrationReadiness.migrated.every((record) =>
 ));
 assert.equal(survey.blockers.length, 0);
 assert.equal(survey.automatedNullPassed, true);
+assert.deepEqual(survey.architectQuestions, []);
 assert(survey.records.every((record) => !("svgHash" in record) && !("_svgHash" in record)));
 
 console.log("promoted visual parity survey tests passed (defect fixes, six-location routing, proof surfaces, corpus null)");

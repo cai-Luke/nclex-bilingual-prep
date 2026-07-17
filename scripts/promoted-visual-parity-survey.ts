@@ -29,6 +29,7 @@ const LOAD_BEARING_ARITHMETIC = new Set([
 ]);
 const CHART_TREND = new Set(["vitals_trend", "lab_trend", "io_trend"]);
 const SPATIAL_ANATOMICAL = new Set(["injection_site", "burn_map"]);
+const STRUCTURED_DOCUMENT = new Set(["mar"]);
 const EXACT_ARITHMETIC = new Set(["io_record", "medication_label", "burn_map"]);
 
 const RECOGNIZED_DERIVATIONS: Record<string, readonly string[]> = {
@@ -100,6 +101,40 @@ const recognizedCrossover = (meta: Record<string, unknown>, record: PromotedVisu
     crossover.from !== crossover.to;
 };
 
+const recognizedMarProof = (meta: Record<string, unknown>, record: PromotedVisualRecord) => {
+  if (record.ref.visual.kind !== "mar") {
+    return { keyedRelationship: false, keyedCells: [] as Array<{ medication: string; time: string }> };
+  }
+
+  const visual = record.ref.visual as unknown as Record<string, unknown>;
+  const timeGrid = new Set(
+    Array.isArray(visual.timeGrid)
+      ? visual.timeGrid.filter((value): value is string => typeof value === "string")
+      : [],
+  );
+  const medications = Array.isArray(visual.medications) ? visual.medications : [];
+  const keyedCells = Array.isArray(meta.keyed_cells) ? meta.keyed_cells : [];
+  const recognizedKeyedCells = keyedCells.flatMap((entry) => {
+    if (!isRecord(entry) || typeof entry.medication !== "string" || entry.medication.trim().length === 0 ||
+      typeof entry.time !== "string" || entry.time.trim().length === 0 || !timeGrid.has(entry.time)) {
+      return [];
+    }
+    const medication = medications.find((value) =>
+      isRecord(value) && value.name === entry.medication
+    );
+    if (!isRecord(medication) || !Array.isArray(medication.administrations)) return [];
+    const resolves = medication.administrations.some((administration) =>
+      isRecord(administration) && administration.time === entry.time
+    );
+    return resolves ? [{ medication: entry.medication, time: entry.time }] : [];
+  });
+
+  return {
+    keyedRelationship: typeof meta.keyed_relationship === "string" && meta.keyed_relationship.trim().length > 0,
+    keyedCells: recognizedKeyedCells,
+  };
+};
+
 export const extractRecognizedProof = (record: PromotedVisualRecord) => {
   const meta = questionMeta(record);
   const keyed = isRecord(meta.derived_values_keyed) ? meta.derived_values_keyed : {};
@@ -119,11 +154,14 @@ export const extractRecognizedProof = (record: PromotedVisualRecord) => {
   ).sort(byteSort);
   const expectedTrendCount = recognizedExpectedTrends(meta, record);
   const crossover = recognizedCrossover(meta, record);
+  const marProof = recognizedMarProof(meta, record);
   const recognizedProofSurfaces = [
     ...(recognizedDerivedKeys.length > 0 ? ["derived_values_keyed"] : []),
     ...(recognizedKeyedSettings.length > 0 ? ["keyed_settings"] : []),
     ...(expectedTrendCount > 0 ? ["expected_trend"] : []),
     ...(crossover ? ["crossover"] : []),
+    ...(marProof.keyedRelationship ? ["keyed_relationship"] : []),
+    ...(marProof.keyedCells.length > 0 ? ["keyed_cells"] : []),
   ];
 
   return {
@@ -133,6 +171,8 @@ export const extractRecognizedProof = (record: PromotedVisualRecord) => {
     recognizedKeyedSettings,
     recognizedExpectedTrendCount: expectedTrendCount,
     recognizedCrossover: crossover,
+    recognizedKeyedRelationship: marProof.keyedRelationship,
+    recognizedKeyedCells: marProof.keyedCells,
   };
 };
 
@@ -141,6 +181,7 @@ const tiersFor = (kind: string): string[] => [
   ...(LOAD_BEARING_ARITHMETIC.has(kind) ? ["load-bearing-arithmetic"] : []),
   ...(CHART_TREND.has(kind) ? ["chart-trend"] : []),
   ...(SPATIAL_ANATOMICAL.has(kind) ? ["spatial-anatomical"] : []),
+  ...(STRUCTURED_DOCUMENT.has(kind) ? ["structured-document"] : []),
 ];
 
 const rendererModuleFor = (kind: string): string => {
@@ -297,6 +338,13 @@ export const buildPromotedVisualParitySurvey = async (bankDir: string = "banks")
     record.recognizedProofSurfaces.includes("derived_values_keyed") &&
     record.recognizedProofSurfaces.includes("expected_trend")
   );
+  const marRecords = internalRecords.filter((record) => record.kind === "mar");
+  const marRecordsWithoutProof = marRecords
+    .filter((record) =>
+      !record.recognizedProofSurfaces.includes("keyed_relationship") &&
+      !record.recognizedProofSurfaces.includes("keyed_cells")
+    )
+    .map((record) => record.parityId);
   const selfCheckFailures = internalRecords
     .filter((record) => record.selfCheckErrors.length > 0)
     .map((record) => ({ parityId: record.parityId, errors: record.selfCheckErrors }));
@@ -313,6 +361,7 @@ export const buildPromotedVisualParitySurvey = async (bankDir: string = "banks")
     ...(exactArithmeticRecordsWithoutKeyed.length > 0 ? ["exact-arithmetic-without-keyed-values"] : []),
     ...(deviceScreenRecordsWithoutProof.length > 0 ? ["device-screen-without-proof"] : []),
     ...(ioTrendRecordsWithoutProof.length > 0 ? ["io-trend-without-proof"] : []),
+    ...(marRecordsWithoutProof.length > 0 ? ["mar-without-proof"] : []),
     ...(!u0MigrationReadiness.allPresent || !u0MigrationReadiness.allEqual ? ["u0-migration-not-lossless"] : []),
   ];
 
@@ -341,6 +390,7 @@ export const buildPromotedVisualParitySurvey = async (bankDir: string = "banks")
         "load-bearing-arithmetic",
         "chart-trend",
         "spatial-anatomical",
+        "structured-document",
       ].map((tier) => [tier, internalRecords.filter((record) => record.proposedTiers.includes(tier)).length])),
     },
     findings: {
@@ -350,6 +400,7 @@ export const buildPromotedVisualParitySurvey = async (bankDir: string = "banks")
       exactArithmeticRecordsWithoutKeyed,
       deviceScreenRecordsWithoutProof,
       ioTrendRecordsWithoutProof,
+      marRecordsWithoutProof,
       unclassifiedKinds,
     },
     ioTrendPopulation: {
@@ -357,6 +408,22 @@ export const buildPromotedVisualParitySurvey = async (bankDir: string = "banks")
       keyedArithmeticAndTrendAssertions: ioTrendKeyedAndTrend.length,
       patternOnly: ioTrendRecords.filter((record) => !record.declaredKeyedPresent).length,
       statement: "All four current io_trend records carry both keyed arithmetic and trend assertions; the pattern-only allowance has no live population.",
+    },
+    marPopulation: {
+      total: marRecords.length,
+      withKeyedRelationship: marRecords.filter((record) =>
+        record.recognizedProofSurfaces.includes("keyed_relationship")
+      ).length,
+      withResolvingKeyedCells: marRecords.filter((record) =>
+        record.recognizedProofSurfaces.includes("keyed_cells")
+      ).length,
+      withBoth: marRecords.filter((record) =>
+        record.recognizedProofSurfaces.includes("keyed_relationship") &&
+        record.recognizedProofSurfaces.includes("keyed_cells")
+      ).length,
+      withRecognizedProof: marRecords.length - marRecordsWithoutProof.length,
+      withoutRecognizedProof: marRecordsWithoutProof.length,
+      statement: "MAR proof is recognized independently of selfCheck only from a nonempty keyed_relationship or a structurally valid keyed_cells entry resolving to a real medication/time administration.",
     },
     u0MigrationReadiness,
     blockers,

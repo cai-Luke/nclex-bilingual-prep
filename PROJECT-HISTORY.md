@@ -52,7 +52,7 @@ The committed NGN item-type set is complete. Rationale/dyad scoring and an expli
 
 > Milestones dated **2026-06-23 and earlier** are archived in [`Archive/PROJECT-HISTORY-ARCHIVE.md`](Archive/PROJECT-HISTORY-ARCHIVE.md). Only the current arc (2026-06-24 onward) is kept here.
 
-### Promoted Visual Parity P2 Survey Phase — Awaiting Architect Adjudication (Jul 16)
+### Promoted Visual Parity P2 Survey Phase — Conditional Adjudication Regenerated (Jul 16)
 
 The survey phase authorized by
 `PROMOTED-VISUAL-PARITY-EXPANSION-ARCHITECT-SPEC-2026-07-16.md` is implemented on a draft PR;
@@ -66,14 +66,17 @@ zero identity collisions, nondeterministic renders, `selfCheck` failures, exact-
 without keyed values, `device_screen` records without a checked keyed-setting/arithmetic surface, or
 `io_trend` records without a checked keyed/trend/crossover surface. All four live `io_trend` records
 carry both keyed arithmetic and trend assertions; the pattern-only allowance has no live population.
+All 11 `mar` records are now classified in the structured-document/table tier and independently
+demonstrate a nonempty keyed relationship or a keyed cell resolving to a real medication/time
+administration. Regressions prove that `keyed_cells: [null]` and missing metadata can leave
+`selfCheckErrors` empty without satisfying that proof recognizer.
 The three legacy U0 rhythm hashes are all present and byte-equal to their live promoted renders, so
 the future migration is mechanically ready but has not run.
 
-One architect decision remains for the mandatory survey-adjudication stop: `mar` is the only
-registered kind omitted from every review tier in the ratified table. The manifest reports it as an
-unclassified tier rather than inferring whether it belongs to a default hash-only or table/document
-review lane. Baseline generation, U0 migration, rebaseline receipts, and the CI hook remain blocked
-until Claude records PASS and resolves that tier ownership.
+The amended survey now has no unclassified kind, no architect question, and no MAR proof-surface
+gap. Baseline generation, U0 migration, rebaseline receipts, and the CI hook remain blocked until
+Claude reviews this regeneration, records the unconditional survey-adjudication PASS, and opens
+phase 3.
 
 ### Rationale-Visual Schema-Floor Traversal Retrofit (Jul 16)
 

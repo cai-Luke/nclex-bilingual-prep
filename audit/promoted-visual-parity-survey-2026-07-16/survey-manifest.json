@@ -152,7 +152,8 @@
       "calibrated-tracing": 81,
       "load-bearing-arithmetic": 50,
       "chart-trend": 53,
-      "spatial-anatomical": 18
+      "spatial-anatomical": 18,
+      "structured-document": 11
     }
   },
   "findings": {
@@ -162,15 +163,23 @@
     "exactArithmeticRecordsWithoutKeyed": [],
     "deviceScreenRecordsWithoutProof": [],
     "ioTrendRecordsWithoutProof": [],
-    "unclassifiedKinds": [
-      "mar"
-    ]
+    "marRecordsWithoutProof": [],
+    "unclassifiedKinds": []
   },
   "ioTrendPopulation": {
     "total": 4,
     "keyedArithmeticAndTrendAssertions": 4,
     "patternOnly": 0,
     "statement": "All four current io_trend records carry both keyed arithmetic and trend assertions; the pattern-only allowance has no live population."
+  },
+  "marPopulation": {
+    "total": 11,
+    "withKeyedRelationship": 7,
+    "withResolvingKeyedCells": 7,
+    "withBoth": 3,
+    "withRecognizedProof": 11,
+    "withoutRecognizedProof": 0,
+    "statement": "MAR proof is recognized independently of selfCheck only from a nonempty keyed_relationship or a structurally valid keyed_cells entry resolving to a real medication/time administration."
   },
   "u0MigrationReadiness": {
     "source": "scripts/tests/__snapshots__/visual-parity.json",
@@ -231,15 +240,7 @@
   },
   "blockers": [],
   "automatedNullPassed": true,
-  "architectQuestions": [
-    {
-      "code": "unclassified-review-tier",
-      "kinds": [
-        "mar"
-      ],
-      "question": "Which review tier owns a hash change for each listed kind? The survey does not infer architecture."
-    }
-  ],
+  "architectQuestions": [],
   "architectAdjudicationRequired": true,
   "records": [
     {
@@ -270,7 +271,9 @@
       ],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "burn_fib_parkland_rate_arm_trunk_genitalia_04",
@@ -301,7 +304,9 @@
       ],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "burn_fib_parkland_total_posterior_03",
@@ -330,7 +335,9 @@
       ],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "burn_fib_tbsa_anterior_mix_01",
@@ -358,7 +365,9 @@
       ],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "burn_matrix_parkland_values_05",
@@ -389,7 +398,9 @@
       ],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "burn_mc_posterior_tbsa_07",
@@ -417,7 +428,9 @@
       ],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "burn_mc_resuscitation_threshold_02",
@@ -445,7 +458,9 @@
       ],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "burn_sata_parkland_chain_06",
@@ -476,7 +491,9 @@
       ],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "cap_01",
@@ -499,7 +516,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "cap_02",
@@ -522,7 +541,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "cap_03",
@@ -545,7 +566,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "cap_04",
@@ -568,7 +591,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "cap_05",
@@ -591,7 +616,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "cap_08",
@@ -614,7 +641,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "cap_10",
@@ -637,7 +666,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "cap_gpt_2026_07_02_t01_001",
@@ -660,7 +691,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "cap_gpt_2026_07_02_t01_002",
@@ -683,7 +716,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "cap_gpt_2026_07_02_t01_003",
@@ -706,7 +741,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "cap_gpt_2026_07_02_t01_004",
@@ -729,7 +766,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "cap_gpt_2026_07_02_t01_005",
@@ -752,7 +791,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "cap_gpt_2026_07_02_t01_006",
@@ -775,7 +816,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "cap_gpt_2026_07_02_t02_001",
@@ -798,7 +841,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "cap_gpt_2026_07_02_t02_002",
@@ -821,7 +866,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "cap_gpt_2026_07_02_t02_003",
@@ -844,7 +891,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "cap_gpt_2026_07_02_t02_004",
@@ -867,7 +916,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "cap_gpt_2026_07_02_t02_005",
@@ -890,7 +941,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "cap_gpt_2026_07_02_t02_006",
@@ -913,7 +966,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "cap_gpt_2026_07_02_t03_001",
@@ -936,7 +991,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "cap_gpt_2026_07_02_t03_002",
@@ -959,7 +1016,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "cap_gpt_2026_07_02_t03_003",
@@ -982,7 +1041,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "cap_gpt_2026_07_02_t03_004",
@@ -1005,7 +1066,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "cap_gpt_2026_07_02_t03_005",
@@ -1028,7 +1091,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "cap_gpt_2026_07_02_t03_006",
@@ -1051,7 +1116,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "cs_thyroid_storm_main#st1ex0",
@@ -1074,7 +1141,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "dev_enteral_volume_shift_01",
@@ -1101,7 +1170,9 @@
       ],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "dev_high_alert_kcl_pump_mismatch_01",
@@ -1130,7 +1201,9 @@
         "vtbi_ml"
       ],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "dev_infusion_duration_vtbi_01",
@@ -1157,7 +1230,9 @@
       ],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "dev_pca_basal_opioid_naive_01",
@@ -1185,7 +1260,9 @@
         "mode"
       ],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "dev_pca_delivered_total_basal_01",
@@ -1212,7 +1289,9 @@
       ],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "dev_pca_delivered_total_no_basal_01",
@@ -1239,7 +1318,9 @@
       ],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "dev_pca_lockout_max_demands_01",
@@ -1266,7 +1347,9 @@
       ],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "dev_pca_max_dose_basal_01",
@@ -1294,7 +1377,9 @@
       ],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "ekg_b1_matrix_09",
@@ -1317,7 +1402,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "ekg_b1_mc_01",
@@ -1340,7 +1427,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "ekg_b1_mc_02",
@@ -1363,7 +1452,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "ekg_b1_mc_04",
@@ -1386,7 +1477,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "ekg_b1_mc_05",
@@ -1409,7 +1502,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "ekg_b1_mc_06",
@@ -1432,7 +1527,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "ekg_b1_mc_08",
@@ -1455,7 +1552,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "ekg_b1_mc_10",
@@ -1478,7 +1577,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "ekg_b1_sata_03",
@@ -1501,7 +1602,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "ekg_b1_sata_07",
@@ -1524,7 +1627,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "ekg_b2_matrix_10",
@@ -1547,7 +1652,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "ekg_b2_mc_01",
@@ -1570,7 +1677,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "ekg_b2_mc_02",
@@ -1593,7 +1702,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "ekg_b2_mc_03",
@@ -1616,7 +1727,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "ekg_b2_mc_04",
@@ -1639,7 +1752,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "ekg_b2_mc_05",
@@ -1662,7 +1777,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "ekg_b2_mc_07",
@@ -1685,7 +1802,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "ekg_b2_mc_08",
@@ -1708,7 +1827,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "ekg_b2_sata_06",
@@ -1731,7 +1852,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "ekg_b2_sata_09",
@@ -1754,7 +1877,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "ekg_b3_matrix_10",
@@ -1777,7 +1902,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "ekg_b3_mc_01",
@@ -1800,7 +1927,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "ekg_b3_mc_02",
@@ -1823,7 +1952,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "ekg_b3_mc_03",
@@ -1846,7 +1977,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "ekg_b3_mc_04",
@@ -1869,7 +2002,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "ekg_b3_mc_05",
@@ -1892,7 +2027,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "ekg_b3_mc_06",
@@ -1915,7 +2052,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "ekg_b3_mc_07",
@@ -1938,7 +2077,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "ekg_b3_mc_09",
@@ -1961,7 +2102,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "ekg_b3_sata_08",
@@ -1984,7 +2127,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "ekg_b4_matrix_10",
@@ -2007,7 +2152,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "ekg_b4_mc_01",
@@ -2030,7 +2177,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "ekg_b4_mc_02",
@@ -2053,7 +2202,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "ekg_b4_mc_03",
@@ -2076,7 +2227,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "ekg_b4_mc_04",
@@ -2099,7 +2252,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "ekg_b4_mc_05",
@@ -2122,7 +2277,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "ekg_b4_mc_06",
@@ -2145,7 +2302,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "ekg_b4_mc_08",
@@ -2168,7 +2327,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "ekg_b4_sata_07",
@@ -2191,7 +2352,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "ekg_b4_sata_09",
@@ -2214,7 +2377,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "ekg_b5_mc_02",
@@ -2237,7 +2402,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "ekg_pacer_failure_to_capture_2026_07_01",
@@ -2260,7 +2427,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "ekg_pacer_failure_to_pace_2026_07_01",
@@ -2283,7 +2452,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "ekg_pacer_failure_to_sense_2026_07_01",
@@ -2306,7 +2477,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "fhr_gemini_smoke_2026_06_13_01",
@@ -2329,7 +2502,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "fhr_gemini_smoke_2026_06_13_02",
@@ -2352,7 +2527,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "fhr_gemini_smoke_2026_06_13_03",
@@ -2375,7 +2552,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "fhr_gemini_smoke_2026_06_13_04",
@@ -2398,7 +2577,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "fhr_gemini_smoke_2026_06_13_05",
@@ -2421,7 +2602,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "fhr_gemini_smoke_2026_06_13_06",
@@ -2444,7 +2627,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "gpt_fresh_2026_06_22_vis_01",
@@ -2456,16 +2641,32 @@
       "carrierQuestionId": "gpt_fresh_2026_06_22_vis_01",
       "carrierRoute": "top-level-question",
       "rendererModule": "src/visuals/kinds/mar/index.ts",
-      "proposedTiers": [],
+      "proposedTiers": [
+        "structured-document"
+      ],
       "renderDeterministic": true,
       "renderError": null,
       "selfCheckErrors": [],
       "declaredKeyedPresent": false,
-      "recognizedProofSurfaces": [],
+      "recognizedProofSurfaces": [
+        "keyed_relationship",
+        "keyed_cells"
+      ],
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": true,
+      "recognizedKeyedCells": [
+        {
+          "medication": "warfarin",
+          "time": "2100"
+        },
+        {
+          "medication": "INR (Lab Result)",
+          "time": "1700"
+        }
+      ]
     },
     {
       "parityId": "gpt_fresh_2026_06_22_vis_02",
@@ -2493,7 +2694,9 @@
       ],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "gpt_fresh_2026_06_22_vis_03",
@@ -2521,7 +2724,9 @@
       ],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "gpt_fresh_2026_06_22_vis_04",
@@ -2548,7 +2753,9 @@
       ],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "gpt_fresh_2026_06_22_vis_05",
@@ -2560,16 +2767,36 @@
       "carrierQuestionId": "gpt_fresh_2026_06_22_vis_05",
       "carrierRoute": "top-level-question",
       "rendererModule": "src/visuals/kinds/mar/index.ts",
-      "proposedTiers": [],
+      "proposedTiers": [
+        "structured-document"
+      ],
       "renderDeterministic": true,
       "renderError": null,
       "selfCheckErrors": [],
       "declaredKeyedPresent": false,
-      "recognizedProofSurfaces": [],
+      "recognizedProofSurfaces": [
+        "keyed_relationship",
+        "keyed_cells"
+      ],
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": true,
+      "recognizedKeyedCells": [
+        {
+          "medication": "Parenteral Nutrition",
+          "time": "1800"
+        },
+        {
+          "medication": "Regular Insulin",
+          "time": "1800"
+        },
+        {
+          "medication": "Dextrose 10% in Water",
+          "time": "1800"
+        }
+      ]
     },
     {
       "parityId": "gpt_fresh_2026_06_22_vis_06",
@@ -2581,16 +2808,36 @@
       "carrierQuestionId": "gpt_fresh_2026_06_22_vis_06",
       "carrierRoute": "top-level-question",
       "rendererModule": "src/visuals/kinds/mar/index.ts",
-      "proposedTiers": [],
+      "proposedTiers": [
+        "structured-document"
+      ],
       "renderDeterministic": true,
       "renderError": null,
       "selfCheckErrors": [],
       "declaredKeyedPresent": false,
-      "recognizedProofSurfaces": [],
+      "recognizedProofSurfaces": [
+        "keyed_relationship",
+        "keyed_cells"
+      ],
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": true,
+      "recognizedKeyedCells": [
+        {
+          "medication": "Heparin Infusion",
+          "time": "0800"
+        },
+        {
+          "medication": "Apixaban",
+          "time": "0900"
+        },
+        {
+          "medication": "Heparin Discontinue Order",
+          "time": "1000"
+        }
+      ]
     },
     {
       "parityId": "gpt_fresh_2026_06_22_vis_07",
@@ -2617,7 +2864,9 @@
       ],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "gpt_fresh_2026_06_22_vis_08",
@@ -2645,7 +2894,9 @@
       ],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "gpt_injection_smoke_2026_06_15_matrix_route_match_08",
@@ -2668,7 +2919,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "gpt_injection_smoke_2026_06_15_matrix_subq_cues_07",
@@ -2691,7 +2944,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "gpt_injection_smoke_2026_06_15_mc_intradermal_01",
@@ -2714,7 +2969,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "gpt_injection_smoke_2026_06_15_mc_intramuscular_03",
@@ -2737,7 +2994,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "gpt_injection_smoke_2026_06_15_mc_intravenous_04",
@@ -2760,7 +3019,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "gpt_injection_smoke_2026_06_15_mc_layer_highlight_05",
@@ -2783,7 +3044,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "gpt_injection_smoke_2026_06_15_mc_subcutaneous_02",
@@ -2806,7 +3069,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "gpt_injection_smoke_2026_06_15_sata_im_cues_06",
@@ -2829,7 +3094,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "gpt_stroke_2026_06_16_case_acute_ischemic_stroke_warfarin_01#ex1",
@@ -2852,7 +3119,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "gpt_u3_labtrend_2026_06_09_b_cloze_inr_amiodarone_09",
@@ -2875,7 +3144,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "gpt_u3_labtrend_2026_06_09_b_cloze_sodium_overcorrection_08",
@@ -2898,7 +3169,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "gpt_u3_labtrend_2026_06_09_b_fib_creatinine_increase_10",
@@ -2921,7 +3194,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "gpt_u3_labtrend_2026_06_09_b_matrix_dka_potassium_glucose_04",
@@ -2944,7 +3219,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "gpt_u3_labtrend_2026_06_09_b_matrix_neutropenia_wbc_05",
@@ -2967,7 +3244,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "gpt_u3_labtrend_2026_06_09_b_mc_lactate_worsening_03",
@@ -2990,7 +3269,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "gpt_u3_labtrend_2026_06_09_b_mc_platelets_heparin_01",
@@ -3013,7 +3294,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "gpt_u3_labtrend_2026_06_09_b_mc_ptt_heparin_infusion_02",
@@ -3036,7 +3319,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "gpt_u3_labtrend_2026_06_09_b_or_gi_bleed_hgb_06",
@@ -3059,7 +3344,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "gpt_u3_labtrend_2026_06_09_b_or_hypercalcemia_progression_07",
@@ -3082,7 +3369,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "gpt_u3_labtrend_2026_06_09_cloze_calcium_thyroidectomy_09",
@@ -3105,7 +3394,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "gpt_u3_labtrend_2026_06_09_cloze_magnesium_decline_08",
@@ -3128,7 +3419,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "gpt_u3_labtrend_2026_06_09_fib_hemoglobin_drop_10",
@@ -3151,7 +3444,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "gpt_u3_labtrend_2026_06_09_matrix_inr_platelets_warfarin_05",
@@ -3174,7 +3469,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "gpt_u3_labtrend_2026_06_09_matrix_sepsis_lactate_wbc_04",
@@ -3197,7 +3494,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "gpt_u3_labtrend_2026_06_09_mc_creatinine_gentamicin_03",
@@ -3220,7 +3519,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "gpt_u3_labtrend_2026_06_09_mc_potassium_furosemide_01",
@@ -3243,7 +3544,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "gpt_u3_labtrend_2026_06_09_mc_sodium_decline_02",
@@ -3266,7 +3569,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "gpt_u3_labtrend_2026_06_09_or_aki_fluid_response_07",
@@ -3289,7 +3594,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "gpt_u3_labtrend_2026_06_09_or_hyperkalemia_progression_06",
@@ -3312,7 +3619,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "gpt_visual_smoke_2026_06_12_fib_burn_parkland_rate_01",
@@ -3343,7 +3652,9 @@
       ],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "gpt_visual_smoke_2026_06_12_fib_device_enteral_duration_10",
@@ -3374,7 +3685,9 @@
         "vtbi_ml"
       ],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "gpt_visual_smoke_2026_06_12_fib_io_net_balance_04",
@@ -3403,7 +3716,9 @@
       ],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "gpt_visual_smoke_2026_06_12_fib_medlabel_heparin_rate_07",
@@ -3431,7 +3746,9 @@
       ],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "gpt_visual_smoke_2026_06_12_matrix_device_pca_basal_09",
@@ -3462,7 +3779,9 @@
         "basal_rate"
       ],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "gpt_visual_smoke_2026_06_12_matrix_io_totals_06",
@@ -3491,7 +3810,9 @@
       ],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "gpt_visual_smoke_2026_06_12_mc_burn_tbsa_02",
@@ -3519,7 +3840,9 @@
       ],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "gpt_visual_smoke_2026_06_12_mc_io_output_total_05",
@@ -3548,7 +3871,9 @@
       ],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "gpt_visual_smoke_2026_06_12_mc_medlabel_tablet_quantity_08",
@@ -3575,7 +3900,9 @@
       ],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "io_fib_hf_net_balance_01",
@@ -3604,7 +3931,9 @@
       ],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "io_fib_postop_output_total_06",
@@ -3633,7 +3962,9 @@
       ],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "io_matrix_bowel_prep_deficit_08",
@@ -3662,7 +3993,9 @@
       ],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "io_matrix_prerenal_aki_recheck_04",
@@ -3691,7 +4024,9 @@
       ],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "io_mc_postop_retention_priority_05",
@@ -3720,7 +4055,9 @@
       ],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "io_mc_pulmonary_edema_diuresis_02",
@@ -3749,7 +4086,9 @@
       ],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "io_sata_ckd_fluid_overload_07",
@@ -3778,7 +4117,9 @@
       ],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "io_sata_gastroenteritis_deficit_03",
@@ -3807,7 +4148,9 @@
       ],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "iot_fluid_challenge_output_divergence",
@@ -3838,7 +4181,9 @@
       ],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 1,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "iot_furosemide_late_partial_reversal",
@@ -3869,7 +4214,9 @@
       ],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 1,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "iot_furosemide_positive_to_negative_crossover",
@@ -3901,7 +4248,9 @@
       ],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 1,
-      "recognizedCrossover": true
+      "recognizedCrossover": true,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "iot_hf_ckd_declining_output",
@@ -3932,7 +4281,9 @@
       ],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 1,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "mar_acetaminophen_duplicate_products_04",
@@ -3944,16 +4295,22 @@
       "carrierQuestionId": "mar_acetaminophen_duplicate_products_04",
       "carrierRoute": "top-level-question",
       "rendererModule": "src/visuals/kinds/mar/index.ts",
-      "proposedTiers": [],
+      "proposedTiers": [
+        "structured-document"
+      ],
       "renderDeterministic": true,
       "renderError": null,
       "selfCheckErrors": [],
       "declaredKeyedPresent": false,
-      "recognizedProofSurfaces": [],
+      "recognizedProofSurfaces": [
+        "keyed_relationship"
+      ],
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": true,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "mar_av_nodal_blockers_1600_01",
@@ -3965,16 +4322,22 @@
       "carrierQuestionId": "mar_av_nodal_blockers_1600_01",
       "carrierRoute": "top-level-question",
       "rendererModule": "src/visuals/kinds/mar/index.ts",
-      "proposedTiers": [],
+      "proposedTiers": [
+        "structured-document"
+      ],
       "renderDeterministic": true,
       "renderError": null,
       "selfCheckErrors": [],
       "declaredKeyedPresent": false,
-      "recognizedProofSurfaces": [],
+      "recognizedProofSurfaces": [
+        "keyed_relationship"
+      ],
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": true,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "mar_digoxin_low_pulse_due_08",
@@ -3986,16 +4349,27 @@
       "carrierQuestionId": "mar_digoxin_low_pulse_due_08",
       "carrierRoute": "top-level-question",
       "rendererModule": "src/visuals/kinds/mar/index.ts",
-      "proposedTiers": [],
+      "proposedTiers": [
+        "structured-document"
+      ],
       "renderDeterministic": true,
       "renderError": null,
       "selfCheckErrors": [],
       "declaredKeyedPresent": false,
-      "recognizedProofSurfaces": [],
+      "recognizedProofSurfaces": [
+        "keyed_cells"
+      ],
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": [
+        {
+          "medication": "digoxin",
+          "time": "0900"
+        }
+      ]
     },
     {
       "parityId": "mar_enoxaparin_prior_held_03",
@@ -4007,16 +4381,31 @@
       "carrierQuestionId": "mar_enoxaparin_prior_held_03",
       "carrierRoute": "top-level-question",
       "rendererModule": "src/visuals/kinds/mar/index.ts",
-      "proposedTiers": [],
+      "proposedTiers": [
+        "structured-document"
+      ],
       "renderDeterministic": true,
       "renderError": null,
       "selfCheckErrors": [],
       "declaredKeyedPresent": false,
-      "recognizedProofSurfaces": [],
+      "recognizedProofSurfaces": [
+        "keyed_cells"
+      ],
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": [
+        {
+          "medication": "enoxaparin",
+          "time": "0600"
+        },
+        {
+          "medication": "enoxaparin",
+          "time": "1800"
+        }
+      ]
     },
     {
       "parityId": "mar_lispro_meal_delayed_02",
@@ -4028,16 +4417,27 @@
       "carrierQuestionId": "mar_lispro_meal_delayed_02",
       "carrierRoute": "top-level-question",
       "rendererModule": "src/visuals/kinds/mar/index.ts",
-      "proposedTiers": [],
+      "proposedTiers": [
+        "structured-document"
+      ],
       "renderDeterministic": true,
       "renderError": null,
       "selfCheckErrors": [],
       "declaredKeyedPresent": false,
-      "recognizedProofSurfaces": [],
+      "recognizedProofSurfaces": [
+        "keyed_cells"
+      ],
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": [
+        {
+          "medication": "insulin lispro",
+          "time": "0730"
+        }
+      ]
     },
     {
       "parityId": "mar_missed_antibiotic_followup_07",
@@ -4049,16 +4449,27 @@
       "carrierQuestionId": "mar_missed_antibiotic_followup_07",
       "carrierRoute": "top-level-question",
       "rendererModule": "src/visuals/kinds/mar/index.ts",
-      "proposedTiers": [],
+      "proposedTiers": [
+        "structured-document"
+      ],
       "renderDeterministic": true,
       "renderError": null,
       "selfCheckErrors": [],
       "declaredKeyedPresent": false,
-      "recognizedProofSurfaces": [],
+      "recognizedProofSurfaces": [
+        "keyed_cells"
+      ],
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": [
+        {
+          "medication": "cefepime",
+          "time": "0600"
+        }
+      ]
     },
     {
       "parityId": "mar_opioid_benzodiazepine_due_05",
@@ -4070,16 +4481,22 @@
       "carrierQuestionId": "mar_opioid_benzodiazepine_due_05",
       "carrierRoute": "top-level-question",
       "rendererModule": "src/visuals/kinds/mar/index.ts",
-      "proposedTiers": [],
+      "proposedTiers": [
+        "structured-document"
+      ],
       "renderDeterministic": true,
       "renderError": null,
       "selfCheckErrors": [],
       "declaredKeyedPresent": false,
-      "recognizedProofSurfaces": [],
+      "recognizedProofSurfaces": [
+        "keyed_relationship"
+      ],
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": true,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "mar_warfarin_antibiotic_bleeding_06",
@@ -4091,16 +4508,22 @@
       "carrierQuestionId": "mar_warfarin_antibiotic_bleeding_06",
       "carrierRoute": "top-level-question",
       "rendererModule": "src/visuals/kinds/mar/index.ts",
-      "proposedTiers": [],
+      "proposedTiers": [
+        "structured-document"
+      ],
       "renderDeterministic": true,
       "renderError": null,
       "selfCheckErrors": [],
       "declaredKeyedPresent": false,
-      "recognizedProofSurfaces": [],
+      "recognizedProofSurfaces": [
+        "keyed_relationship"
+      ],
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": true,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "medlbl_cephalexin_capsules_006",
@@ -4127,7 +4550,9 @@
       ],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "medlbl_digoxin_tablets_005",
@@ -4154,7 +4579,9 @@
       ],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "medlbl_enoxaparin_volume_004",
@@ -4182,7 +4609,9 @@
       ],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "medlbl_furosemide_matrix_007",
@@ -4210,7 +4639,9 @@
       ],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "medlbl_heparin_infusion_rate_001",
@@ -4238,7 +4669,9 @@
       ],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "medlbl_morphine_iv_volume_002",
@@ -4266,7 +4699,9 @@
       ],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "medlbl_potassium_chloride_rate_003",
@@ -4293,7 +4728,9 @@
       ],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "medlbl_regular_insulin_volume_008",
@@ -4321,7 +4758,9 @@
       ],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "opus26_case_refeeding_syndrome_01_q3",
@@ -4344,7 +4783,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "opus26_case_refeeding_syndrome_01_q5",
@@ -4367,7 +4808,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "rhy_afib_001",
@@ -4390,7 +4833,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "rhy_sinus_brady_001",
@@ -4413,7 +4858,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "rhy_vtach_001",
@@ -4436,7 +4883,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "vit_01",
@@ -4459,7 +4908,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "vit_02",
@@ -4482,7 +4933,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "vit_03",
@@ -4505,7 +4958,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "vit_04",
@@ -4528,7 +4983,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "vit_05",
@@ -4551,7 +5008,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "vit_06",
@@ -4574,7 +5033,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "vit_07",
@@ -4597,7 +5058,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "vit_08",
@@ -4620,7 +5083,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "vit_09",
@@ -4643,7 +5108,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "vit_10",
@@ -4666,7 +5133,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "vit_gpt_2026_07_02_t01_001",
@@ -4689,7 +5158,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "vit_gpt_2026_07_02_t01_002",
@@ -4712,7 +5183,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "vit_gpt_2026_07_02_t01_003",
@@ -4735,7 +5208,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "vit_gpt_2026_07_02_t01_004",
@@ -4758,7 +5233,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "vit_gpt_2026_07_02_t01_005",
@@ -4781,7 +5258,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "vit_gpt_2026_07_02_t01_006",
@@ -4804,7 +5283,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "vit_gpt_2026_07_02_t02_001",
@@ -4827,7 +5308,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "vit_gpt_2026_07_02_t02_002",
@@ -4850,7 +5333,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "vit_gpt_2026_07_02_t02_003",
@@ -4873,7 +5358,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "vit_gpt_2026_07_02_t02_004",
@@ -4896,7 +5383,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "vit_gpt_2026_07_02_t02_005",
@@ -4919,7 +5408,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "vit_gpt_2026_07_02_t02_006",
@@ -4942,7 +5433,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "vit_gpt_2026_07_02_t03_001",
@@ -4965,7 +5458,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "vit_gpt_2026_07_02_t03_002",
@@ -4988,7 +5483,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "vit_gpt_2026_07_02_t03_003",
@@ -5011,7 +5508,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "vit_gpt_2026_07_02_t03_004",
@@ -5034,7 +5533,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "vit_gpt_2026_07_02_t03_005",
@@ -5057,7 +5558,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     },
     {
       "parityId": "vit_gpt_2026_07_02_t03_006",
@@ -5080,7 +5583,9 @@
       "recognizedDerivedKeys": [],
       "recognizedKeyedSettings": [],
       "recognizedExpectedTrendCount": 0,
-      "recognizedCrossover": false
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
     }
   ],
   "regenerationCommand": "npm run survey:promoted-visual-parity",
