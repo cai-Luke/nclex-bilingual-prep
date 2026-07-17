@@ -274,5 +274,19 @@ and delta-cause enforcement (§4, ruling 12); the §9 regression floor; and the 
 Claude's baseline spec-conformance verdict was **`CONFORMS`**, accepted by Luke. Before independent
 gate-seat routing, the accepted closeout amendments wired P0's rationale-floor regression into
 `test-visuals`, retired the undefined colocated-fixture phrase without adding fixture machinery, and
-preflighted the two local tracing-artifact commands before any evidence directory is created. The
-independent gate seat approved the result, and PR #55 merged as `7792caf` on 2026-07-17.
+preflighted the two local tracing-artifact commands before any evidence directory is created.
+
+**Merge and the §10 seat residual (2026-07-17).** PR #55 merged as `7792caf` on Luke's merge
+authority. §10's seat order placed an independent gate-seat review before merge; that review did not
+occur, and none has been performed by a qualifying seat. A post-merge read by Gemini returned no
+findings, but Gemini is demoted from every content-judgment lane under `DECISIONS.md`'s standing
+restrictions and is therefore not a gate seat — it does not discharge the obligation. Accepted as a
+closed residual rather than remediated: the bootstrap changed no bank content and recorded zero
+deltas, there were no tracing deltas and so no §5 visual smoke was owed, the baseline hashes a corpus
+whose proof surfaces §8's survey measured independently, and `test-visuals` now runs in the Promotion
+Gate. Recorded rather than ruled on, per ruling 13's precedent: a single deviation by the
+merge-authority holder with a clean result mints no new rule, and principle 2 is unrelaxed.
+
+The standing invariant this spec produced is recorded in `DECISIONS.md`'s Reference appendices; this
+spec remains the owner of the review tiers, proof surfaces, and rebaseline procedure. The ratified
+rulings above are historical provenance, not open work.

@@ -112,9 +112,16 @@ receipt/evidence directory and fails clearly when either local-only tool is abse
 Gate adds only the authorized `npm run test-visuals` step, while that package command now genuinely
 includes P0's six-location `rationale-visual-floor` regression. That P0 survey treats absent optional
 raw/promoted staging directories as an empty population in clean Git checkouts while preserving all
-other filesystem failures. Claude's baseline spec-conformance verdict was `CONFORMS`; the
-independent gate seat approved the PR and it merged. P3, P4, and the remaining P5 policy work remain
-separate follow-up scopes.
+other filesystem failures. Claude's baseline spec-conformance verdict was `CONFORMS`.
+
+Merged as `7792caf` on Luke's merge authority. The spec's §10 seat order placed an independent
+gate-seat review before merge; that review did not occur, and none has been performed by a
+qualifying seat. A post-merge read by Gemini returned no findings, but under Gemini's standing
+restrictions (`DECISIONS.md`, Reference appendices) it is not a gate seat and does not discharge the
+obligation. Accepted as a closed residual rather than remediated: the bootstrap changed no bank
+content and recorded zero deltas, the baseline hashes a corpus whose proof surfaces the survey
+measured independently, and `test-visuals` now runs in the Promotion Gate. P3, P4, and the remaining
+P5 policy work remain separate follow-up scopes.
 
 ### Rationale-Visual Schema-Floor Traversal Retrofit (Jul 16)
 
@@ -1455,6 +1462,16 @@ Verification:
 - Browser spot checks in the dev review console confirmed capped visuals fit mobile width without page overflow, while rhythm strip and capnography still keep their horizontal scroll behavior.
 
 ## Verification baseline
+
+> **STALE as of 2026-07-17.** This baseline has not been re-executed since 2026-06-15 and predates
+> schema 2.0, the `io_trend` kind, and the closed flowsheet migration. The list below is a historical
+> record of that run — **not** a statement of current green status. Known structural drift: the
+> registry now holds **12** kinds (`listVisualKinds()` in `src/visuals/registry.ts`; confirmed against
+> `src/visuals/kinds/` — `burn_map`, `capnography`, `device_screen`, `fetal_monitoring`,
+> `injection_site`, `io_record`, `io_trend`, `lab_trend`, `mar`, `medication_label`, `rhythm_strip`,
+> `vitals_trend`), not the 11 that were green on 2026-06-15. Refreshing this section requires actually
+> executing the commands; the architect seat cannot run them and has not claimed a re-verification
+> here. The per-line entries below remain accurate *for their date*.
 
 Last verified on 2026-06-15:
 

@@ -460,22 +460,34 @@ passes with them untouched, because it ignores exactly the two fields that chang
 that `inputGitSha` is weak provenance is correct — committing a regenerated census immediately
 invalidates the SHA it recorded, which is why the tool ignores it.
 
-**Two findings neither reviewer raised.**
+**Two findings neither reviewer raised** (the second is corrected below — it did not survive contact
+with the artifact):
 
 1. `checkDrift` reads **only `census.json`**. `BANK-CENSUS.md` is never drift-checked, though
    `renderCensus` stamps `Generated:` and `Input Git SHA:` into it. "`census:check` is authoritative"
    is true for `census.json` only; the md file's freshness rests on its "do not hand-edit" header
    convention, not on a gate. Reverting it is safe here because nothing substantive changed. **Flagged
    to the checker seat as a standing observation; not P3's to fix.**
-2. **The reported null is partly structural and must not be pooled.** The survey reports zero
-   violations across ~1,317 governed vital records, but the two collectors answer to *different*
-   contracts: GATE 4's `sanity` governs structured-measurement rows, while `vitals_trend` series are
-   governed by the renderer envelope. For the six aliased vitals, a `vitals_trend` value outside
-   `VITAL_DEFS.range` could never have been authored — `validateVitalsTrend` would have rejected it at
-   authoring time. A zero result on that surface is **structurally guaranteed, not evidential.** It is
-   informative only for structured-measurement rows (which bypass the renderer validator) and for
-   `temp` (decoupled). A pooled "zero across 1,317" reads as corroboration when part of it is
-   tautology.
+2. **The reported null is partly structural and must not be pooled.** The two collectors answer to
+   *different* contracts: GATE 4's `sanity` governs structured-measurement rows, while `vitals_trend`
+   series are governed by the renderer envelope. For the six aliased vitals, a `vitals_trend` value
+   outside `VITAL_DEFS.range` could never have been authored — `validateVitalsTrend` would have
+   rejected it at authoring time. A zero result on that surface is **structurally guaranteed, not
+   evidential.** It is informative only for structured-measurement rows (which bypass the renderer
+   validator) and for `temp` (decoupled).
+
+   **Correction, same day — this finding was raised against the wrong artifact.** It was written from
+   the producer's *chat summary*, which reported "1,317 governed vital records; zero unit/conversion
+   failures, GATE 4 warnings, or MAP violations" as one pooled figure. The committed manifest does not
+   pool: `counts.bySurface` splits 766 structured-measurement rows from 551 `vitals_trend` values, and
+   the `PROJECT-HISTORY.md` entry states in terms that the structured rows are the live GATE 4
+   population while the `vitals_trend` clean validation and MAP null are "structural, not evidence
+   that the `sanity` tripwires are clinically suitable." The artifact was already correct. The
+   architect seat made a finding about a manifest it had not read, on the strength of a producer's
+   summary — the same error class this spec exists to prevent. Recorded rather than deleted, because
+   the pattern is the point: **a producer's prose summary is not the artifact, and neither is a
+   reviewer's reading of that summary.** The checker item below stands as a verification obligation,
+   not as an allegation.
 
 **The survey result remains non-dispositive**, as §4 and §14 already require. A clean corpus under the
 current contracts does not establish that the current bounds are clinically suitable — the §4
