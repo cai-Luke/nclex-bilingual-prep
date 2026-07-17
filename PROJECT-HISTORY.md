@@ -52,6 +52,29 @@ The committed NGN item-type set is complete. Rationale/dyad scoring and an expli
 
 > Milestones dated **2026-06-23 and earlier** are archived in [`Archive/PROJECT-HISTORY-ARCHIVE.md`](Archive/PROJECT-HISTORY-ARCHIVE.md). Only the current arc (2026-06-24 onward) is kept here.
 
+### Promoted Visual Parity P2 Survey Phase — Awaiting Architect Adjudication (Jul 16)
+
+The survey phase authorized by
+`PROMOTED-VISUAL-PARITY-EXPANSION-ARCHITECT-SPEC-2026-07-16.md` is implemented on a draft PR;
+no promoted hash baseline has been generated and the legacy U0 snapshot remains unchanged. A shared,
+byte-sorted promoted-visual loader now fails loudly when a top-level bank is invalid or two visuals
+resolve to the same parity identity, closing the two silent-skip/overwrite defects in the legacy
+three-hash parity test. Carrier routing is explicit for all six full-schema locations.
+
+The generated dated survey covers 13 banks and 199 visuals across all 12 registered kinds. It found
+zero identity collisions, nondeterministic renders, `selfCheck` failures, exact-arithmetic records
+without keyed values, `device_screen` records without a checked keyed-setting/arithmetic surface, or
+`io_trend` records without a checked keyed/trend/crossover surface. All four live `io_trend` records
+carry both keyed arithmetic and trend assertions; the pattern-only allowance has no live population.
+The three legacy U0 rhythm hashes are all present and byte-equal to their live promoted renders, so
+the future migration is mechanically ready but has not run.
+
+One architect decision remains for the mandatory survey-adjudication stop: `mar` is the only
+registered kind omitted from every review tier in the ratified table. The manifest reports it as an
+unclassified tier rather than inferring whether it belongs to a default hash-only or table/document
+review lane. Baseline generation, U0 migration, rebaseline receipts, and the CI hook remain blocked
+until Claude records PASS and resolves that tier ownership.
+
 ### Rationale-Visual Schema-Floor Traversal Retrofit (Jul 16)
 
 P0 of the deterministic revisit queue is implemented. `src/schema.ts` now owns one location-aware,
