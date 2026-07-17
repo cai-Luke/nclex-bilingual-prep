@@ -1,9 +1,9 @@
 # Next Architect Handoff — Deterministic Revisit Queue
 
-Date: 2026-07-16  
+Date: 2026-07-16; status refreshed 2026-07-17
 Status: **planning handoff; no implementation authorized by this file**  
-Starting point: merged PR #52, merge commit
-`33a04339662c26979ab6c4d8793708234afa701e`
+Starting point: merged PR #55, merge commit
+`7792caf3743c45740ad37d7c4c61adda5b17a236`
 
 ## Closed context — do not reopen
 
@@ -29,15 +29,16 @@ capacity shortfall. The active Batch 7 producer commission is format-targeted, n
 
 | Priority | Work | Nature | Why now |
 |---|---|---|---|
-| ~~P0~~ | **IMPLEMENTED** — shared six-location schema/export/parity traversal, generated survey, and regressions. See [`RATIONALE-VISUAL-SCHEMA-FLOOR-RETROFIT-CODEX-SPEC-2026-07-16.md`](RATIONALE-VISUAL-SCHEMA-FLOOR-RETROFIT-CODEX-SPEC-2026-07-16.md). | Closed deterministic correction; zero live-bank impact | The full-schema and census-artifact traversals remain intentionally separate. |
+| ~~P0~~ | **IMPLEMENTED AND MERGED IN PR #54** — shared six-location schema/export/parity traversal, generated survey, and regressions. See [`RATIONALE-VISUAL-SCHEMA-FLOOR-RETROFIT-CODEX-SPEC-2026-07-16.md`](RATIONALE-VISUAL-SCHEMA-FLOOR-RETROFIT-CODEX-SPEC-2026-07-16.md). | Closed deterministic correction; zero live-bank impact | The full-schema and census-artifact traversals remain intentionally separate. |
 | ~~P1~~ | ~~Active-governance Markdown U+FFFD gate~~ — **DROPPED 2026-07-16 (Luke's ruling).** Every mojibake alarm has been a connector-read artifact, not disk corruption; a repo gate guards the wrong surface. See `DECISIONS.md` §8. | — | — |
-| P2 | Expand promoted visual parity beyond three pinned SVGs | Larger deterministic regression project | High-value renderer protection, but baseline ownership and review policy need a deliberate design. |
+| ~~P2~~ | **IMPLEMENTED AND MERGED IN PR #55** — promoted visual parity survey, 12-kind baseline, rebaseline mechanics, U0 migration, and visual CI command | Closed deterministic regression project | The accepted architecture and evidence are preserved in [`PROMOTED-VISUAL-PARITY-EXPANSION-ARCHITECT-SPEC-2026-07-16.md`](PROMOTED-VISUAL-PARITY-EXPANSION-ARCHITECT-SPEC-2026-07-16.md). |
 | P3 | Produce the six-vital deterministic inventory for sanity-bound ratification | Deterministic evidence, followed by clinical judgment | The inventory is bounded; selecting new clinical tripwires is not mechanical and must remain separately ratified. |
 | P4 | Inventory single-row lab panels, then obtain an architecture ruling | Deterministic survey followed by product decision | No implementation rule exists yet; a two-row floor must not be inferred. |
-| P5 | Consider CI coverage hardening | Engineering policy | The PR gate omits several locally required commands; useful, but not a reason to mix unrelated suites into P0. |
+| P5 | Consider remaining CI coverage hardening | Engineering policy | PR #55 added the single authorized `npm run test-visuals` step; broader typecheck/build/checksum policy remains unratified. |
 
-P0 is implemented. **P1 is dropped** (see below); P2 is the next candidate. Do not combine P2–P4
-into the same PR: their evidence, review seats, and reversal costs differ.
+P0 and P2 are implemented and merged. **P1 is dropped** (see below). P3 and P4 are the remaining
+evidence-first candidates and should stay separate: their evidence, review seats, and reversal costs
+differ. P5 is only partially addressed and remains a separate policy decision.
 
 ## P0 — `rationale.visuals` schema-floor retrofit
 
@@ -200,6 +201,13 @@ documented scope owner.
 
 ## P2 — promoted visual parity expansion
 
+> **STATUS UPDATE 2026-07-17 — IMPLEMENTED AND MERGED IN PR #55.** The survey, adjudication,
+> initial-baseline bootstrap, U0 ownership migration, steady-state rebaseline mechanics, promoted
+> parity regression, and the authorized `test-visuals` CI hook are complete. The ratified design and
+> provenance remain in
+> [`PROMOTED-VISUAL-PARITY-EXPANSION-ARCHITECT-SPEC-2026-07-16.md`](PROMOTED-VISUAL-PARITY-EXPANSION-ARCHITECT-SPEC-2026-07-16.md).
+> The pre-implementation framing below is retained as historical context, not an open work order.
+
 Current `scripts/tests/visual-parity.ts` pins three rhythm-strip SVG hashes plus validation-reason
 cases. It does not protect the broader promoted visual surface. The latest recursive census reports
 199 visual artifacts, but that is an inventory number, not automatically the correct snapshot
@@ -253,12 +261,12 @@ Do not implement a floor until the architect chooses among them.
 
 ## P5 — CI hardening candidate
 
-The PR promotion gate currently runs the broad audit, schema invariants, denominator regression, and
-census drift, but the local verification matrix is wider. A future CI-design pass may consider adding:
+PR #55 added the one authorized `npm run test-visuals` promotion-gate step; that command includes
+P0's six-location schema-floor regression. The local verification matrix remains wider. A future
+CI-design pass may consider adding:
 
 - TypeScript compilation;
 - the topic population/license/vocabulary regressions;
-- `test-visuals` or a risk-tiered visual subset;
 - production build; and
 - checksum verification for workflows that commit generated receipts.
 
@@ -268,5 +276,5 @@ choice rather than an unambiguous bug fix.
 
 ## Handoff summary
 
-P0 is implemented and P1 is dropped. Keep parity expansion, clinical vital-bound
-ratification, and the single-row lab decision in separate workstreams.
+P0 and P2 are implemented and merged; P1 is dropped. Keep clinical vital-bound ratification,
+the single-row lab decision, and any remaining CI policy in separate workstreams.

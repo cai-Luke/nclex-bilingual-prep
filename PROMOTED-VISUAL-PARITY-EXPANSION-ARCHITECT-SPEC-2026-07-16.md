@@ -1,6 +1,6 @@
 # PROMOTED-VISUAL-PARITY-EXPANSION-ARCHITECT-SPEC-2026-07-16
 
-Author: Claude (architect seat). Status: **ARCHITECTURE RATIFIED — READY FOR CODEX, SURVEY-FIRST**. Implements P2 of `NEXT-ARCHITECT-DETERMINISTIC-HANDOFF-2026-07-16.md`. Closes on merge: the `DECISIONS.md` §7 REVISIT thread *"Visual parity coverage is 3 of ~196 promoted items."*
+Author: Claude (architect seat). Status: **IMPLEMENTED AND MERGED — PR #55, 2026-07-17**. Implements P2 of `NEXT-ARCHITECT-DETERMINISTIC-HANDOFF-2026-07-16.md`. The merge closed the `DECISIONS.md` §7 REVISIT thread *"Visual parity coverage is 3 of ~196 promoted items."*
 
 Luke rulings, 2026-07-16:
 
@@ -218,9 +218,11 @@ Seats: **producer** Claude (this spec + §8 survey design and adjudication) → 
 
 ---
 
-## P2 READY FOR CODEX — SURVEY-FIRST
+## Historical implementation authorization — completed
 
-Architecture is settled. Codex is authorized to implement the survey phase in one draft PR, including the two existing parity-defect fixes and the focused survey regressions. The promoted hash baseline is **not** authorized until Claude records a survey-adjudication PASS in that PR.
+The following authorization governed the two-phase implementation in PR #55. The survey phase landed
+first, Claude recorded the required adjudication PASS, and the baseline phase then completed. This is
+retained as execution provenance, not an open work order.
 
 Ratified implementation rules:
 
@@ -259,10 +261,18 @@ The PASS therefore rests on a **measured** null, not one inferred from an empty 
 
 **On the manifest's `status` field.** The generator hardcodes `AWAITING ARCHITECT ADJUDICATION` and must keep doing so. An earlier architect note listed a status flip to `PASS` as expected churn; that was wrong. A generator that writes its own verdict is precisely the self-authorization the two-phase structure exists to prevent. The producer's artifact records what it measured; the architect's artifact records the verdict. Two owners, two facts.
 
-**Baseline phase (§8 phase 3) is open.** Codex may proceed in the same draft PR with: the baseline generator and per-kind snapshots (§7); the lossless U0 migration and the `svgHashes` removal (ruling 7); the rebaseline command with `--scope`, `--before-ref`, receipts, and delta-cause enforcement (§4, ruling 12); the §9 regression floor; and the single `npm run test-visuals` CI hook (§10). Architect spec-conformance verification and the independent gate seat's review both remain outstanding before merge.
+**The baseline phase (§8 phase 3) opened after this PASS and is now complete.** It proceeded in the
+same draft PR with the baseline generator and per-kind snapshots (§7); the lossless U0 migration and
+the `svgHashes` removal (ruling 7); the rebaseline command with `--scope`, `--before-ref`, receipts,
+and delta-cause enforcement (§4, ruling 12); the §9 regression floor; and the single
+`npm run test-visuals` CI hook (§10).
 
 ---
 
 ## Baseline closeout — PR #55, 2026-07-17
 
-Claude's baseline spec-conformance verdict is **`CONFORMS`**, accepted by Luke. Before independent gate-seat routing, the accepted closeout amendments wire P0's rationale-floor regression into `test-visuals`, retire the undefined colocated-fixture phrase without adding fixture machinery, and preflight the two local tracing-artifact commands before any evidence directory is created. Architect verification is closed; the draft PR proceeds next to the independent gate seat and remains unmerged.
+Claude's baseline spec-conformance verdict was **`CONFORMS`**, accepted by Luke. Before independent
+gate-seat routing, the accepted closeout amendments wired P0's rationale-floor regression into
+`test-visuals`, retired the undefined colocated-fixture phrase without adding fixture machinery, and
+preflighted the two local tracing-artifact commands before any evidence directory is created. The
+independent gate seat approved the result, and PR #55 merged as `7792caf` on 2026-07-17.
