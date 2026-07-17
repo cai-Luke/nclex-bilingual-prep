@@ -52,6 +52,22 @@ The committed NGN item-type set is complete. Rationale/dyad scoring and an expli
 
 > Milestones dated **2026-06-23 and earlier** are archived in [`Archive/PROJECT-HISTORY-ARCHIVE.md`](Archive/PROJECT-HISTORY-ARCHIVE.md). Only the current arc (2026-06-24 onward) is kept here.
 
+### Rationale-Visual Schema-Floor Traversal Retrofit (Jul 16)
+
+P0 of the deterministic revisit queue is implemented. `src/schema.ts` now owns one location-aware,
+six-location full-schema visual projection covering question visuals, rationale figures, case
+exhibits, staged exhibits, embedded-leaf visuals, and embedded rationale figures. Validator schema
+floors, export-envelope inference, and visual parity all derive from it; the two hand-written pacer
+walkers and the parity walk are removed. The separately ratified census artifact traversal remains
+four-location and continues to exclude rationale figures.
+
+Synthetic regressions prove top-level and embedded rationale pacer strips require schema `1.7`,
+non-pacer rationale strips do not, validator and exporter agree at every supported location, and
+every location is emitted with its own metadata. The deterministic survey generator refreshes the dated corpus proof after the
+Batch 7 promotion: 13 banks, 1,869 top-level records, 199 visual refs, zero rationale visuals, three
+pacer strips already satisfying the floor, zero bank flips, and zero export-envelope changes. Bank
+content and the three-item visual-parity snapshot are unchanged.
+
 ### GPT Scored-Format Batch 7 Promoted (Jul 16)
 
 17 of 18 candidates promoted into `banks/gpt-canonical.json` (681→698); the confirmed-duplicate

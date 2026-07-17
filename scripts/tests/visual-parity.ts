@@ -5,9 +5,8 @@ import { createHash } from "node:crypto";
 import { readFile, readdir } from "node:fs/promises";
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";
-import { validateBankObject } from "../../src/schema";
+import { collectVisualRefs, validateBankObject, type VisualRef } from "../../src/schema";
 import { getVisual } from "../../src/visuals/registry";
-import type { Question } from "../../src/types";
 
 const assert = (condition: unknown, message: string) => {
   if (!condition) throw new Error(message);
@@ -21,17 +20,15 @@ const snapshot = JSON.parse(await readFile(snapshotPath, "utf8")) as {
 };
 
 // --- SVG byte-parity: render the live items through the registry --------------
-const collectVisuals = (q: Question): { id: string; visual: any }[] => {
-  const out: { id: string; visual: any }[] = [];
-  if (q.visual) out.push({ id: q.id, visual: q.visual });
-  if (q.itemType === "case_study") {
-    q.caseStudy.exhibits.forEach((e, i) => e.visual && out.push({ id: `${q.id}#ex${i}`, visual: e.visual }));
-    q.caseStudy.stages?.forEach((s, si) =>
-      s.exhibits.forEach((e, ei) => e.visual && out.push({ id: `${q.id}#st${si}ex${ei}`, visual: e.visual })),
-    );
-    q.caseStudy.questions.forEach((cq) => cq.visual && out.push({ id: cq.id, visual: cq.visual }));
+const parityId = (ref: VisualRef): string => {
+  switch (ref.location) {
+    case "question": return ref.parentQuestionId;
+    case "questionRationale": return `${ref.parentQuestionId}#rat${ref.locationIndex}`;
+    case "caseExhibit": return `${ref.parentQuestionId}#ex${ref.locationIndex}`;
+    case "caseStageExhibit": return `${ref.parentQuestionId}#st${ref.stageIndex}ex${ref.locationIndex}`;
+    case "caseQuestion": return ref.ownerId;
+    case "caseQuestionRationale": return `${ref.ownerId}#rat${ref.locationIndex}`;
   }
-  return out;
 };
 
 const byId = new Map<string, any>();
@@ -41,7 +38,7 @@ for (const file of bankFiles) {
   const result = validateBankObject(raw);
   if (!result.ok) continue;
   for (const q of result.value.questions) {
-    for (const { id, visual } of collectVisuals(q)) byId.set(id, visual);
+    for (const ref of collectVisualRefs(q)) byId.set(parityId(ref), ref.visual);
   }
 }
 

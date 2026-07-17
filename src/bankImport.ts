@@ -176,18 +176,8 @@ const hasSchema16CaseFields = (question: Question) => {
   );
 };
 
-const hasPacerRhythmVisual = (visual: Question["visual"]) =>
-  visual?.kind === "rhythm_strip" && "pacer" in visual && visual.pacer !== undefined;
-
-const hasPacerRhythmStrip = (question: Question) => {
-  if (hasPacerRhythmVisual(question.visual)) return true;
-  if (question.itemType !== "case_study") return false;
-  return (
-    question.caseStudy.exhibits.some((exhibit) => hasPacerRhythmVisual(exhibit.visual)) ||
-    question.caseStudy.stages?.some((stage) => stage.exhibits.some((exhibit) => hasPacerRhythmVisual(exhibit.visual))) ||
-    question.caseStudy.questions.some((caseQuestion) => hasPacerRhythmVisual(caseQuestion.visual))
-  );
-};
+const hasPacerRhythmVisual = (visual: NonNullable<Question["visual"]>) =>
+  visual.kind === "rhythm_strip" && "pacer" in visual && visual.pacer !== undefined;
 
 const hasStructuredMeasurements = (question: Question) => {
   if (question.itemType !== "case_study") return false;
@@ -226,7 +216,7 @@ export const toExportEnvelope = (questions: Question[]): BankEnvelope => ({
       ? "1.9"
       : questions.some(hasStructuredMeasurements)
       ? "1.8"
-      : questions.some(hasPacerRhythmStrip)
+      : questions.some((question) => collectAllVisuals(question).some(hasPacerRhythmVisual))
       ? "1.7"
       : questions.some(hasSchema16CaseFields)
       ? "1.6"

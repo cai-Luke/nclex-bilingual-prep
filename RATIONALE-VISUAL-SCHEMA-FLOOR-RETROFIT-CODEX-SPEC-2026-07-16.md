@@ -2,9 +2,13 @@
 
 Date: 2026-07-16
 Author: Claude (architect seat)
-Status: **implementation authorized**
+Status: **IMPLEMENTED**
 Implements: P0 of [`NEXT-ARCHITECT-DETERMINISTIC-HANDOFF-2026-07-16.md`](NEXT-ARCHITECT-DETERMINISTIC-HANDOFF-2026-07-16.md)
 Closes on merge: the DECISIONS.md REVISIT thread *"Schema-floor traversal omits `rationale.visuals` in two independent copies."*
+
+> **Implementation note:** descriptions of the walkers below preserve the pre-implementation
+> baseline. The retrofit is complete on this branch; `PROJECT-HISTORY.md` and `DECISIONS.md`
+> record the resulting durable architecture.
 
 ## What this spec supersedes
 
@@ -23,8 +27,8 @@ The work is therefore no longer "survey and retrofit." It is a **zero-impact ret
 | Fact | Value |
 |---|---|
 | Banks surveyed | 13 (`banks/*-canonical.json`) |
-| Raw / staging lane | **empty** — nothing to survey |
-| Top-level records | 1,852 |
+| Raw draft / promoted staging lanes | **empty** — both `banks/banks-raw/` and `banks/_promoted/` were enumerated |
+| Top-level records | 1,869 after the Batch 7 promotion refresh |
 | Total visual artifacts | **199** — exact match to the PR #52 recursive census |
 | Pacer-bearing `rhythm_strip` | **3**, all at `question.visual`, all in `visual-canonical.json`, bank declares `2.0` (floor is `1.7`) |
 | Visuals in **any** `rationale.visuals` slot | **0** |
@@ -216,17 +220,17 @@ directly. Confirm `git diff` shows **no change** to `banks/**` or to
 
 ## Exit conditions
 
-- [ ] Exactly one **full-schema** visual traversal exists, shared by validation, export inference, and
+- [x] Exactly one **full-schema** visual traversal exists, shared by validation, export inference, and
       parity; the three in-scope walkers are deleted. This is *not* a claim that only one traversal
       exists in the codebase: `lib/question-population.ts`'s `collectVisualArtifacts` remains a
       separate, deliberately narrower traversal and must be untouched.
-- [ ] Both traversal definitions carry the cross-reference comment required by §4.
-- [ ] Validator and exporter agree on the `1.7` floor for all six locations.
-- [ ] `visual-parity.ts` consumes the shared projection; its snapshot is unchanged.
-- [ ] Zero bank flips; `banks/**` untouched.
-- [ ] Corpus and synthetic proofs are present and labelled distinctly.
-- [ ] `S7` fails if a location is dropped.
-- [ ] Survey manifest committed as deterministic evidence, and the generator reproduces it. On
+- [x] Both traversal definitions carry the cross-reference comment required by §4.
+- [x] Validator and exporter agree on the `1.7` floor for all six locations.
+- [x] `visual-parity.ts` consumes the shared projection; its snapshot is unchanged.
+- [x] Zero bank flips; `banks/**` untouched.
+- [x] Corpus and synthetic proofs are present and labelled distinctly.
+- [x] `S7` fails if a location is dropped.
+- [x] Survey manifest committed as deterministic evidence, and the generator reproduces it. On
       landing, rename its `plannedRegenerationCommand` field to `regenerationCommand` and delete
       `plannedRegenerationCommandStatus` — the manifest currently and correctly declares that the
       script does not yet exist.

@@ -1232,27 +1232,81 @@ type VisualCarrier = {
   rationale: { visuals?: NonNullable<Question["visual"]>[] };
 };
 
-export const collectAllVisuals = (question: Question): NonNullable<Question["visual"]>[] => {
-  const visuals: NonNullable<Question["visual"]>[] = [];
-  const add = (visual: Question["visual"]) => {
-    if (visual !== undefined) visuals.push(visual);
-  };
-  const addCarrier = (carrier: VisualCarrier) => {
-    add(carrier.visual);
-    carrier.rationale.visuals?.forEach(add);
-  };
+export type VisualLocation =
+  | "question"
+  | "questionRationale"
+  | "caseExhibit"
+  | "caseStageExhibit"
+  | "caseQuestion"
+  | "caseQuestionRationale";
 
-  addCarrier(question);
-  if (question.itemType !== "case_study") return visuals;
-
-  question.caseStudy.exhibits.forEach((exhibit) => add(exhibit.visual));
-  question.caseStudy.stages?.forEach((stage) =>
-    stage.exhibits.forEach((exhibit) => add(exhibit.visual)),
-  );
-  question.caseStudy.questions.forEach((caseQuestion) => addCarrier(caseQuestion));
-
-  return visuals;
+export type VisualRef = {
+  visual: NonNullable<Question["visual"]>;
+  location: VisualLocation;
+  parentQuestionId: string;
+  ownerId: string;
+  locationIndex?: number;
+  stageIndex?: number;
 };
+
+/**
+ * Full-schema visual traversal for validation, export inference, and parity.
+ * It intentionally includes rationale figures. The independently ratified
+ * artifact-inventory traversal in lib/question-population.ts intentionally
+ * excludes them; keep the two populations separate. See
+ * RATIONALE-VISUAL-SCHEMA-FLOOR-RETROFIT-CODEX-SPEC-2026-07-16.md.
+ */
+export const collectVisualRefs = (question: Question): VisualRef[] => {
+  const refs: VisualRef[] = [];
+  const add = (
+    visual: Question["visual"],
+    location: VisualLocation,
+    ownerId: string,
+    locationIndex?: number,
+    stageIndex?: number,
+  ) => {
+    if (visual === undefined) return;
+    refs.push({
+      visual,
+      location,
+      parentQuestionId: question.id,
+      ownerId,
+      ...(locationIndex === undefined ? {} : { locationIndex }),
+      ...(stageIndex === undefined ? {} : { stageIndex }),
+    });
+  };
+  const addCarrier = (
+    carrier: VisualCarrier,
+    ownerId: string,
+    visualLocation: "question" | "caseQuestion",
+    rationaleLocation: "questionRationale" | "caseQuestionRationale",
+  ) => {
+    add(carrier.visual, visualLocation, ownerId);
+    carrier.rationale.visuals?.forEach((visual, index) =>
+      add(visual, rationaleLocation, ownerId, index)
+    );
+  };
+
+  addCarrier(question, question.id, "question", "questionRationale");
+  if (question.itemType !== "case_study") return refs;
+
+  question.caseStudy.exhibits.forEach((exhibit, index) =>
+    add(exhibit.visual, "caseExhibit", question.id, index)
+  );
+  question.caseStudy.stages?.forEach((stage, stageIndex) =>
+    stage.exhibits.forEach((exhibit, index) =>
+      add(exhibit.visual, "caseStageExhibit", question.id, index, stageIndex)
+    )
+  );
+  question.caseStudy.questions.forEach((caseQuestion) =>
+    addCarrier(caseQuestion, caseQuestion.id, "caseQuestion", "caseQuestionRationale")
+  );
+
+  return refs;
+};
+
+export const collectAllVisuals = (question: Question): NonNullable<Question["visual"]>[] =>
+  collectVisualRefs(question).map(({ visual }) => visual);
 
 const hasSchema16CaseFields = (question: Question): boolean => {
   if (question.itemType !== "case_study") return false;
@@ -1271,20 +1325,8 @@ const hasSchema16CaseFields = (question: Question): boolean => {
   );
 };
 
-const hasPacerRhythmVisual = (visual: Question["visual"]): boolean =>
-  visual?.kind === "rhythm_strip" && "pacer" in visual && visual.pacer !== undefined;
-
-const hasPacerRhythmStrip = (question: Question): boolean => {
-  if (hasPacerRhythmVisual(question.visual)) return true;
-  if (question.itemType !== "case_study") return false;
-  if (question.caseStudy.exhibits.some((exhibit) => hasPacerRhythmVisual(exhibit.visual))) return true;
-  if (question.caseStudy.stages?.some((stage) =>
-    stage.exhibits.some((exhibit) => hasPacerRhythmVisual(exhibit.visual))
-  )) {
-    return true;
-  }
-  return question.caseStudy.questions.some((caseQuestion) => hasPacerRhythmVisual(caseQuestion.visual));
-};
+const hasPacerRhythmVisual = (visual: NonNullable<Question["visual"]>): boolean =>
+  visual.kind === "rhythm_strip" && "pacer" in visual && visual.pacer !== undefined;
 
 const collectStructuredMeasurements = (question: Question): StructuredMeasurements[] => {
   if (question.itemType !== "case_study") return [];
@@ -1427,7 +1469,7 @@ export const validateBankObject = (raw: unknown, options: ValidateBankOptions = 
     if (
       schemaVersion !== undefined &&
       !schemaVersionAtLeast(schemaVersion, "1.7") &&
-      hasPacerRhythmStrip(result.value)
+      collectAllVisuals(result.value).some(hasPacerRhythmVisual)
     ) {
       reasons.push(`questions[${index}]: pacer rhythm_strip requires meta.schemaVersion 1.7`);
       return;
