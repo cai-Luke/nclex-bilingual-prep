@@ -10,6 +10,7 @@ import {
 import {
   assertRecognizedProofSurface,
   assertRemovedDeltaEvidence,
+  assertTracingToolsAvailable,
   buildOrdinaryDeltas,
   buildParityState,
   hasActiveBaseline,
@@ -24,6 +25,7 @@ import {
   verifyCommittedPromotedBaseline,
   verifySnapshotParity,
   withTemporaryWorktree,
+  writeTracingArtifacts,
   type ParityStateRecord,
 } from "../visual-parity-baseline";
 
@@ -269,6 +271,40 @@ assert.throws(
   () => selectRebaselineMode(false, "initial-receipt.json"),
   /bootstrap cannot run again/,
 );
+
+await assert.rejects(
+  assertTracingToolsAvailable(""),
+  /missing tracing artifact command\(s\): rsvg-convert, magick.*required only for tracing rebaseline artifacts/,
+);
+const tracingPreflightRoot = await mkdtemp(join(tmpdir(), "promoted-parity-tracing-preflight-"));
+try {
+  const receiptDirectory = join(tracingPreflightRoot, "receipt");
+  await assert.rejects(
+    writeTracingArtifacts(
+      receiptDirectory,
+      {
+        changed: [{
+          parityId: "one",
+          kind: "rhythm_strip",
+          location: "question",
+          bank: "visual-canonical.json",
+          before: one.svgHash,
+          after: changed.svgHash,
+          cause: "renderer",
+        }],
+        added: [],
+        removed: [],
+      },
+      [one],
+      [changed],
+      "",
+    ),
+    /missing tracing artifact command\(s\): rsvg-convert, magick.*no receipt or partial evidence was written/,
+  );
+  await assert.rejects(access(receiptDirectory));
+} finally {
+  await rm(tracingPreflightRoot, { recursive: true, force: true });
+}
 
 assert.deepEqual(
   stripReceiptVolatile({ generatedAt: "first", inputGitSha: "one", stable: true }),

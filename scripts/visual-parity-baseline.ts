@@ -1,5 +1,6 @@
 import { createHash } from "node:crypto";
 import { execFileSync } from "node:child_process";
+import { constants } from "node:fs";
 import {
   access,
   mkdir,
@@ -12,7 +13,7 @@ import {
   writeFile,
 } from "node:fs/promises";
 import { tmpdir } from "node:os";
-import { basename, dirname, join, resolve } from "node:path";
+import { basename, delimiter, dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import type { VisualError } from "../src/visuals/registry";
 import { getVisual, listVisualKinds } from "../src/visuals/registry";
@@ -666,16 +667,45 @@ const parseArgs = (args: string[]): CliOptions => {
   return { reason: reason.trim(), scope: parsedScope, beforeRef };
 };
 
-const writeTracingArtifacts = async (
+export const assertTracingToolsAvailable = async (
+  pathValue: string = process.env.PATH ?? "",
+): Promise<void> => {
+  const commands = ["rsvg-convert", "magick"];
+  const directories = pathValue.split(delimiter).filter((directory) => directory.length > 0);
+  const missing: string[] = [];
+  for (const command of commands) {
+    let found = false;
+    for (const directory of directories) {
+      try {
+        await access(join(directory, command), constants.X_OK);
+        found = true;
+        break;
+      } catch {
+        // Continue searching PATH without invoking the external command.
+      }
+    }
+    if (!found) missing.push(command);
+  }
+  if (missing.length > 0) {
+    throw new Error(
+      `promoted visual parity: missing tracing artifact command(s): ${missing.join(", ")}. ` +
+      "These external commands are required only for tracing rebaseline artifacts; no receipt or partial evidence was written.",
+    );
+  }
+};
+
+export const writeTracingArtifacts = async (
   receiptDirectory: string,
   deltas: { changed: DeltaRecord[]; added: DeltaRecord[]; removed: DeltaRecord[] },
   beforeState: ParityStateRecord[],
   afterState: ParityStateRecord[],
+  toolsPath: string = process.env.PATH ?? "",
 ): Promise<Record<string, unknown> | undefined> => {
   const candidates = [...deltas.changed, ...deltas.added, ...deltas.removed]
     .filter((record) => TRACING_KINDS.has(record.kind))
     .sort((left, right) => byteSort(left.parityId, right.parityId));
   if (candidates.length === 0) return undefined;
+  await assertTracingToolsAvailable(toolsPath);
   const sampled = candidates.slice(0, 12);
   const renderedDir = join(receiptDirectory, "rendered");
   await mkdir(renderedDir, { recursive: true });

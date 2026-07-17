@@ -83,8 +83,12 @@ keyed-proof preservation, exact before-ref SHA rendering from an always-unregist
 worktree, deterministic per-kind snapshots, one-sided removal evidence, and tracing review-artifact
 generation. `test:visual-parity-promoted` owns fail-closed loading/collisions, universal `selfCheck`,
 proof surfaces, missing/stale/hash failures, bootstrap permanence, delta mechanics, and worktree
-cleanup. The Promotion Gate adds only the authorized `npm run test-visuals` step. The PR remains
-draft pending architect spec-conformance and independent gate-seat review; P3–P5 remain out of scope.
+cleanup. Tracing artifact generation preflights `rsvg-convert` and `magick` before creating any
+receipt/evidence directory and fails clearly when either local-only tool is absent. The Promotion
+Gate adds only the authorized `npm run test-visuals` step, while that package command now genuinely
+includes P0's six-location `rationale-visual-floor` regression. Claude's baseline
+spec-conformance verdict is `CONFORMS` and has been accepted. The PR remains draft pending only the
+independent gate-seat review; P3–P5 remain out of scope.
 
 ### Rationale-Visual Schema-Floor Traversal Retrofit (Jul 16)
 

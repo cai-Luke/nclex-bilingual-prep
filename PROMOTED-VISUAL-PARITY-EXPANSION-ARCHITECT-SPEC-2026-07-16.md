@@ -134,7 +134,9 @@ Minimum artifact, by delta class (ruling 12) — the asymmetry is structural, si
 | `added` | **after-only** render |
 | `removed` | **before-only** render, from the `--before-ref` worktree |
 
-Plus a stacked contact sheet under the rebaseline receipt directory — the established pattern (`audit/rhythm-strip-pacemaker-backfill-2026-07-01/rendered/contact-sheet.png`). Bounded: if the **union** of changed + added + removed tracing records exceeds 12, render the first 12 by `parityId` sort plus every colocated fixture, and record the sampling in the receipt.
+Plus a stacked contact sheet under the rebaseline receipt directory — the established pattern (`audit/rhythm-strip-pacemaker-backfill-2026-07-01/rendered/contact-sheet.png`). Bounded: sample from the **union** of changed + added + removed tracing records, byte-sort by `parityId`, cap the sample at the first 12, and record the sampling rule in the receipt. A controlled renderer-fixture visual suite may be specified separately when a tracing renderer actually changes; P2 does not invent undefined fixture-to-`beforeRef` mapping or evidence-side rules without a live delta.
+
+Before creating the tracing receipt directory or writing any evidence, preflight both external commands used by this local-only artifact path: `rsvg-convert` and `magick`. If either is unavailable, fail with the missing command name and explain that the tool is required only for tracing rebaseline artifacts. Do not add either binary to npm or CI in P2.
 
 **Certifier:** any independent gate seat that did not produce the renderer diff. With Codex implementing, the gate seat may certify; Luke may review additionally and retains merge authority, but Luke-only visual certification is not required.
 
@@ -208,7 +210,7 @@ Full path (`AGENTS.md` *Renderers* row): `npm run test-visuals`; `npm run test:v
 
 Out: P3 vitals bounds, P4 single-row labs, P5 CI redesign.
 
-**Minimal CI hook:** `promotion-gate.yml` runs neither `test-visuals` nor `test:rationale-visual-floor` today — P2 lands unenforced without it. Add **one step**, `npm run test-visuals`, which picks up both the new suite and P0's orphaned regression. That is the whole CI ask; the broader matrix stays P5.
+**Minimal CI hook:** before this PR, `promotion-gate.yml` ran neither the visual suite nor P0's rationale-visual-floor regression. Add **one workflow step**, `npm run test-visuals`, and append `tsx scripts/tests/rationale-visual-floor.ts` to that package command so the one authorized step genuinely covers both P2 and P0's six-location schema-floor regression. That is the whole CI ask; the broader matrix stays P5.
 
 Seats: **producer** Claude (this spec + §8 survey design and adjudication) → **implementation** Codex → **automated check** `test-visuals` in CI → **visual review** an independent gate seat → **merge** Luke. Claude cannot be the sole implementation certifier; architect spec-conformance verification remains a separate check from the gate seat's independent content/visual review.
 
@@ -258,3 +260,9 @@ The PASS therefore rests on a **measured** null, not one inferred from an empty 
 **On the manifest's `status` field.** The generator hardcodes `AWAITING ARCHITECT ADJUDICATION` and must keep doing so. An earlier architect note listed a status flip to `PASS` as expected churn; that was wrong. A generator that writes its own verdict is precisely the self-authorization the two-phase structure exists to prevent. The producer's artifact records what it measured; the architect's artifact records the verdict. Two owners, two facts.
 
 **Baseline phase (§8 phase 3) is open.** Codex may proceed in the same draft PR with: the baseline generator and per-kind snapshots (§7); the lossless U0 migration and the `svgHashes` removal (ruling 7); the rebaseline command with `--scope`, `--before-ref`, receipts, and delta-cause enforcement (§4, ruling 12); the §9 regression floor; and the single `npm run test-visuals` CI hook (§10). Architect spec-conformance verification and the independent gate seat's review both remain outstanding before merge.
+
+---
+
+## Baseline closeout — PR #55, 2026-07-17
+
+Claude's baseline spec-conformance verdict is **`CONFORMS`**, accepted by Luke. Before independent gate-seat routing, the accepted closeout amendments wire P0's rationale-floor regression into `test-visuals`, retire the undefined colocated-fixture phrase without adding fixture machinery, and preflight the two local tracing-artifact commands before any evidence directory is created. Architect verification is closed; the draft PR proceeds next to the independent gate seat and remains unmerged.
