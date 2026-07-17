@@ -13,6 +13,7 @@ import type { BankEnvelope, Question, QuestionVisual, SchemaVersion } from "../s
 
 const BANK_DIR = "banks";
 const RAW_DIR = "banks/banks-raw";
+const PROMOTED_DIR = "banks/_promoted";
 const CENSUS_PATH = "census.json";
 const OUTPUT_PATH = "audit/rationale-visual-floor-survey-2026-07-16/survey-manifest.json";
 const SURVEY_DATE = "2026-07-16";
@@ -116,16 +117,50 @@ const scanFloorChanges = (banks: LoadedBank[]) => {
   return { validationFlips, exportEnvelopeChanges };
 };
 
+type FloorChanges = ReturnType<typeof scanFloorChanges>;
+
+export const listRawStagingJsonFiles = async (
+  rawDir: string = RAW_DIR,
+  promotedDir: string = PROMOTED_DIR,
+) => {
+  const rawNames = (await readdir(rawDir)).filter((name) => name.endsWith(".json")).sort();
+  const promotedNames = (await readdir(promotedDir)).filter((name) => name.endsWith(".json")).sort();
+  return {
+    rawNames,
+    promotedNames,
+    files: [
+      ...rawNames.map((name) => join(rawDir, name)),
+      ...promotedNames.map((name) => join(promotedDir, name)),
+    ],
+  };
+};
+
+export const surveyHasZeroImpact = ({
+  rationaleTotal,
+  parsedRationaleVisuals,
+  bundledChanges,
+  rawStagingChanges,
+}: {
+  rationaleTotal: number;
+  parsedRationaleVisuals: number;
+  bundledChanges: FloorChanges;
+  rawStagingChanges: FloorChanges;
+}): boolean =>
+  rationaleTotal === 0 &&
+  parsedRationaleVisuals === 0 &&
+  bundledChanges.validationFlips === 0 &&
+  bundledChanges.exportEnvelopeChanges === 0 &&
+  rawStagingChanges.validationFlips === 0 &&
+  rawStagingChanges.exportEnvelopeChanges === 0;
+
 export const buildRationaleVisualFloorSurvey = async () => {
   const canonicalNames = (await readdir(BANK_DIR))
     .filter((name) => name.endsWith("-canonical.json"))
     .sort();
   const canonicalBanks = await loadBanks(canonicalNames.map((name) => join(BANK_DIR, name)));
 
-  const rawNames = (await readdir(RAW_DIR))
-    .filter((name) => name.endsWith(".json"))
-    .sort();
-  const rawBanks = await loadBanks(rawNames.map((name) => join(RAW_DIR, name)));
+  const { rawNames, promotedNames, files: rawStagingFiles } = await listRawStagingJsonFiles();
+  const rawStagingBanks = await loadBanks(rawStagingFiles);
 
   const census = JSON.parse(await readFile(CENSUS_PATH, "utf8")) as {
     visualArtifacts?: { total?: number };
@@ -194,12 +229,13 @@ export const buildRationaleVisualFloorSurvey = async () => {
     locationCounts.caseStageExhibit +
     locationCounts.caseQuestion;
   const bundledChanges = scanFloorChanges(canonicalBanks);
-  const rawChanges = scanFloorChanges(rawBanks);
-  const zeroImpact =
-    rationaleTotal === 0 &&
-    parsedRationaleVisuals === 0 &&
-    bundledChanges.validationFlips === 0 &&
-    bundledChanges.exportEnvelopeChanges === 0;
+  const rawStagingChanges = scanFloorChanges(rawStagingBanks);
+  const zeroImpact = surveyHasZeroImpact({
+    rationaleTotal,
+    parsedRationaleVisuals,
+    bundledChanges,
+    rawStagingChanges,
+  });
 
   return {
     survey: "rationale-visual-schema-floor-bank-impact-survey",
@@ -208,16 +244,18 @@ export const buildRationaleVisualFloorSurvey = async () => {
     status: "COMPLETE",
     purpose: "Pre-move bank-impact evidence for the P0 rationale.visuals schema-floor retrofit. Answers: does moving the pacer floor from the hand-written walkers onto the shared full-visual traversal change the required schema floor for any live record?",
     verdict: zeroImpact
-      ? "ZERO IMPACT. No bundled record changes its required floor. The rationale.visuals feature is entirely unpopulated."
+      ? "ZERO IMPACT. No canonical, raw-draft, or promoted-staging record changes its required floor. The canonical rationale.visuals population is empty."
       : "IMPACT DETECTED. Stop and re-adjudicate the survey evidence before relying on this manifest.",
     population: {
       banks: canonicalBanks.length,
       bankSet: "banks/*-canonical.json",
       topLevelRecords,
       rawDrafts: rawNames.length,
-      rawNote: rawNames.length === 0
-        ? "banks/banks-raw/ contained only non-JSON files; banks/_promoted/ was empty. There is no raw or staging JSON lane to survey."
-        : `Surveyed ${rawNames.length} raw JSON file(s): ${rawNames.join(", ")}.`,
+      promotedStagingFiles: promotedNames.length,
+      rawStagingFiles,
+      rawNote: rawStagingFiles.length === 0
+        ? "banks/banks-raw/ and banks/_promoted/ contained no JSON files. There is no raw or promoted-staging JSON to survey."
+        : `Surveyed ${rawStagingFiles.length} raw/promoted JSON file(s): ${rawStagingFiles.join(", ")}.`,
       totalVisualArtifacts,
     },
     crossChecks: [
@@ -260,10 +298,11 @@ export const buildRationaleVisualFloorSurvey = async () => {
     nonQuestionSlotVisuals,
     reportByCategory: {
       bundledBankValidationFlips: bundledChanges.validationFlips,
-      rawStagingFlips: rawChanges.validationFlips,
-      rawStagingNote: rawNames.length === 0
-        ? "No raw JSON lane exists to flip."
-        : `${rawChanges.validationFlips} raw record(s) would newly require schema 1.7.`,
+      rawStagingFlips: rawStagingChanges.validationFlips,
+      rawStagingExportEnvelopeVersionChanges: rawStagingChanges.exportEnvelopeChanges,
+      rawStagingNote: rawStagingFiles.length === 0
+        ? "No raw-draft or promoted-staging JSON exists to flip."
+        : `${rawStagingChanges.validationFlips} raw/staging record(s) would newly require schema 1.7; ${rawStagingChanges.exportEnvelopeChanges} would change inferred export-envelope version.`,
       exportEnvelopeVersionChanges: bundledChanges.exportEnvelopeChanges,
       exportEnvelopeNote: bundledChanges.exportEnvelopeChanges === 0
         ? "No bundled record changes its inferred export-envelope version under the full-schema pacer predicate."

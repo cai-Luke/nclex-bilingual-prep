@@ -4,13 +4,15 @@
   "authoredBy": "Claude (architect seat); deterministic generator implemented by Codex",
   "status": "COMPLETE",
   "purpose": "Pre-move bank-impact evidence for the P0 rationale.visuals schema-floor retrofit. Answers: does moving the pacer floor from the hand-written walkers onto the shared full-visual traversal change the required schema floor for any live record?",
-  "verdict": "ZERO IMPACT. No bundled record changes its required floor. The rationale.visuals feature is entirely unpopulated.",
+  "verdict": "ZERO IMPACT. No canonical, raw-draft, or promoted-staging record changes its required floor. The canonical rationale.visuals population is empty.",
   "population": {
     "banks": 13,
     "bankSet": "banks/*-canonical.json",
     "topLevelRecords": 1869,
     "rawDrafts": 0,
-    "rawNote": "banks/banks-raw/ contained only non-JSON files; banks/_promoted/ was empty. There is no raw or staging JSON lane to survey.",
+    "promotedStagingFiles": 0,
+    "rawStagingFiles": [],
+    "rawNote": "banks/banks-raw/ and banks/_promoted/ contained no JSON files. There is no raw or promoted-staging JSON to survey.",
     "totalVisualArtifacts": 199
   },
   "crossChecks": [
@@ -141,7 +143,8 @@
   "reportByCategory": {
     "bundledBankValidationFlips": 0,
     "rawStagingFlips": 0,
-    "rawStagingNote": "No raw JSON lane exists to flip.",
+    "rawStagingExportEnvelopeVersionChanges": 0,
+    "rawStagingNote": "No raw-draft or promoted-staging JSON exists to flip.",
     "exportEnvelopeVersionChanges": 0,
     "exportEnvelopeNote": "No bundled record changes its inferred export-envelope version under the full-schema pacer predicate.",
     "zeroImpactPopulations": "The entire questionRationale and caseQuestionRationale populations are empty (0 of 199). The defect is real in code but unreachable from current canonical content."

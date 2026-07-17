@@ -27,7 +27,7 @@ The work is therefore no longer "survey and retrofit." It is a **zero-impact ret
 | Fact | Value |
 |---|---|
 | Banks surveyed | 13 (`banks/*-canonical.json`) |
-| Raw / staging lane | **empty** — nothing to survey |
+| Raw draft / promoted staging lanes | **empty** — both `banks/banks-raw/` and `banks/_promoted/` were enumerated |
 | Top-level records | 1,869 after the Batch 7 promotion refresh |
 | Total visual artifacts | **199** — exact match to the PR #52 recursive census |
 | Pacer-bearing `rhythm_strip` | **3**, all at `question.visual`, all in `visual-canonical.json`, bank declares `2.0` (floor is `1.7`) |

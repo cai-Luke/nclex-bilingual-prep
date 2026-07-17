@@ -1,12 +1,16 @@
 import assert from "node:assert/strict";
-import { readFile } from "node:fs/promises";
+import { mkdir, mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
+import { tmpdir } from "node:os";
+import { join } from "node:path";
 import { toExportEnvelope } from "../../src/bankImport";
 import { collectVisualRefs, validateBankObject } from "../../src/schema";
 import type { Question, QuestionVisual } from "../../src/types";
 import {
   buildRationaleVisualFloorSurvey,
+  listRawStagingJsonFiles,
   OUTPUT_PATH,
   serializeRationaleVisualFloorSurvey,
+  surveyHasZeroImpact,
 } from "../rationale-visual-floor-survey";
 
 const pair = (text: string) => ({ en: text, zh: `测试：${text}` });
@@ -262,5 +266,52 @@ assert.equal(survey.pacerBearingRecords.length, 3);
 assert(survey.pacerBearingRecords.every((record) => record.location === "question"));
 assert(survey.pacerBearingRecords.every((record) => record.floorSatisfied === true));
 assert(survey.crossChecks.every((check) => check.result === "PASS"));
+assert.equal(survey.population.rawDrafts, 0);
+assert.equal(survey.population.promotedStagingFiles, 0);
+assert.deepEqual(survey.population.rawStagingFiles, []);
+
+const laneFixtureRoot = await mkdtemp(join(tmpdir(), "rationale-visual-floor-lanes-"));
+try {
+  const rawDir = join(laneFixtureRoot, "banks-raw");
+  const promotedDir = join(laneFixtureRoot, "_promoted");
+  await Promise.all([
+    mkdir(rawDir),
+    mkdir(promotedDir),
+  ]);
+  await Promise.all([
+    writeFile(join(rawDir, "raw.json"), "{}\n", "utf8"),
+    writeFile(join(rawDir, "ignored.txt"), "not JSON\n", "utf8"),
+    writeFile(join(promotedDir, "promoted.json"), "{}\n", "utf8"),
+  ]);
+  const lanes = await listRawStagingJsonFiles(rawDir, promotedDir);
+  assert.deepEqual(lanes.rawNames, ["raw.json"]);
+  assert.deepEqual(lanes.promotedNames, ["promoted.json"]);
+  assert.deepEqual(lanes.files, [
+    join(rawDir, "raw.json"),
+    join(promotedDir, "promoted.json"),
+  ]);
+} finally {
+  await rm(laneFixtureRoot, { recursive: true, force: true });
+}
+
+const noFloorChanges = { validationFlips: 0, exportEnvelopeChanges: 0 };
+assert.equal(surveyHasZeroImpact({
+  rationaleTotal: 0,
+  parsedRationaleVisuals: 0,
+  bundledChanges: noFloorChanges,
+  rawStagingChanges: noFloorChanges,
+}), true);
+assert.equal(surveyHasZeroImpact({
+  rationaleTotal: 0,
+  parsedRationaleVisuals: 0,
+  bundledChanges: noFloorChanges,
+  rawStagingChanges: { validationFlips: 1, exportEnvelopeChanges: 0 },
+}), false, "a raw/staging validation flip must veto ZERO IMPACT");
+assert.equal(surveyHasZeroImpact({
+  rationaleTotal: 0,
+  parsedRationaleVisuals: 0,
+  bundledChanges: noFloorChanges,
+  rawStagingChanges: { validationFlips: 0, exportEnvelopeChanges: 1 },
+}), false, "a raw/staging export-envelope change must veto ZERO IMPACT");
 
 console.log("rationale-visual-floor tests passed (synthetic traversal + dated corpus manifest)");

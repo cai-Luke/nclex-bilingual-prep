@@ -46,8 +46,8 @@ into the same PR: their evidence, review seats, and reversal costs differ.
 > is governed by [`RATIONALE-VISUAL-SCHEMA-FLOOR-RETROFIT-CODEX-SPEC-2026-07-16.md`](RATIONALE-VISUAL-SCHEMA-FLOOR-RETROFIT-CODEX-SPEC-2026-07-16.md).
 > The pre-implementation defect and order remain below as provenance. Three resolved points:
 >
-> 1. **Survey complete, zero live-bank impact.** 199 artifacts / 1,869 records / 13 banks; raw lane
->    empty. Three pacer strips, all at `question.visual`, all in a bank declaring `2.0`. **Zero**
+> 1. **Survey complete, zero live-bank impact.** 199 artifacts / 1,869 records / 13 banks; raw-draft
+>    and promoted-staging lanes empty. Three pacer strips, all at `question.visual`, all in a bank declaring `2.0`. **Zero**
 >    visuals in any `rationale.visuals` slot. Zero flips, zero envelope changes. The work is a
 >    zero-impact retrofit; **no canonical metadata migration is authorized**.
 > 2. **All three walkers must converge** — `schema.ts`, `bankImport.ts`, *and* `visual-parity.ts`. The
