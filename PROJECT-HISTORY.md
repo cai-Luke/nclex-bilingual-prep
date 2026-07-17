@@ -52,10 +52,11 @@ The committed NGN item-type set is complete. Rationale/dyad scoring and an expli
 
 > Milestones dated **2026-06-23 and earlier** are archived in [`Archive/PROJECT-HISTORY-ARCHIVE.md`](Archive/PROJECT-HISTORY-ARCHIVE.md). Only the current arc (2026-06-24 onward) is kept here.
 
-### Promoted Visual Parity P2 Baseline Phase — Implemented on Draft PR (Jul 17)
+### Promoted Visual Parity P2 Baseline Phase — Merged (Jul 17)
 
 The survey phase authorized by
-`PROMOTED-VISUAL-PARITY-EXPANSION-ARCHITECT-SPEC-2026-07-16.md` is implemented on a draft PR. A shared,
+`PROMOTED-VISUAL-PARITY-EXPANSION-ARCHITECT-SPEC-2026-07-16.md` merged in PR #55
+(`7792caf`). A shared,
 byte-sorted promoted-visual loader now fails loudly when a top-level bank is invalid or two visuals
 resolve to the same parity identity, closing the two silent-skip/overwrite defects in the legacy
 three-hash parity test. Carrier routing is explicit for all six full-schema locations.
@@ -88,9 +89,9 @@ receipt/evidence directory and fails clearly when either local-only tool is abse
 Gate adds only the authorized `npm run test-visuals` step, while that package command now genuinely
 includes P0's six-location `rationale-visual-floor` regression. That P0 survey treats absent optional
 raw/promoted staging directories as an empty population in clean Git checkouts while preserving all
-other filesystem failures. Claude's baseline
-spec-conformance verdict is `CONFORMS` and has been accepted. The PR remains draft pending only the
-independent gate-seat review; P3–P5 remain out of scope.
+other filesystem failures. Claude's baseline spec-conformance verdict was `CONFORMS`; the
+independent gate seat approved the PR and it merged. P3, P4, and the remaining P5 policy work remain
+separate follow-up scopes.
 
 ### Rationale-Visual Schema-Floor Traversal Retrofit (Jul 16)
 
