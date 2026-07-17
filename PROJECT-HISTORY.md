@@ -52,6 +52,29 @@ The committed NGN item-type set is complete. Rationale/dyad scoring and an expli
 
 > Milestones dated **2026-06-23 and earlier** are archived in [`Archive/PROJECT-HISTORY-ARCHIVE.md`](Archive/PROJECT-HISTORY-ARCHIVE.md). Only the current arc (2026-06-24 onward) is kept here.
 
+### Vital-Sign Sanity Bounds P3 Deterministic Inventory — Implemented, Classification Review Pending (Jul 17)
+
+The ratified P3 survey is implemented by `scripts/vital-sanity-bounds-survey.ts`, with its dated
+manifest at `audit/vital-sanity-bounds-survey-2026-07-17/survey-manifest.json` and a byte-drift/
+boundary regression at `scripts/tests/vital-sanity-bounds.ts`. `npm run survey:vital-sanity-bounds`
+regenerates the artifact; `npm run test:vital-sanity-bounds` proves its committed bytes, synthetic
+current-bound probes, temperature's affine source-unit behavior, typed-bound semantics, optional
+staging-lane handling, and reusable candidate-interval accounting.
+
+The inventory deterministically discovered 13 top-level canonical banks and 1,317 machine-readable
+vital records. The 766 structured-measurement rows are the live GATE 4 population; they have zero
+warnings, unit failures, and conversion failures. The 551 `vitals_trend` values are renderer-envelope
+records: their clean validation and MAP null are structural, not evidence that the `sanity` tripwires
+are clinically suitable. Temperature documents the decoupled contracts across both lanes but does not
+make the renderer execute GATE 4. The artifact records declared/effective population per record, all
+seven vital contracts, side authorship and override-mechanism cost, exact live canonical ranges, and
+nearest boundary records. The prior 2026-07-11 temperature sweep was located in the archived decisions
+record and is explicitly reconciled as extended, not silently replaced.
+
+No bank, renderer, measurement-unit vocabulary, or `sanity` bound changed. Per the P3 seat split,
+the producing implementation does not certify the manifest's contract-interpretation fields; an
+independent checker seat still owns that classification review.
+
 ### Promoted Visual Parity P2 Baseline Phase — Merged (Jul 17)
 
 The survey phase authorized by
