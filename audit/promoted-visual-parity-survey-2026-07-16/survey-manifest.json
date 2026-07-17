@@ -1,0 +1,5593 @@
+{
+  "survey": "promoted-visual-parity-impact-survey",
+  "date": "2026-07-16",
+  "authoredBy": "Claude (architect seat); deterministic generator implemented by Codex",
+  "status": "AWAITING ARCHITECT ADJUDICATION",
+  "purpose": "Survey every promoted visual before authorizing the P2 hash baseline.",
+  "population": {
+    "bankSet": "banks/*.json",
+    "scannedBanks": 13,
+    "banksWithVisuals": 13,
+    "scannedBankFiles": [
+      "burn-canonical.json",
+      "capnography-canonical.json",
+      "claude-canonical.json",
+      "device-canonical.json",
+      "gemini-canonical.json",
+      "gpt-canonical.json",
+      "hard-cases-canonical.json",
+      "io-canonical.json",
+      "lab-canonical.json",
+      "mar-canonical.json",
+      "medlabel-canonical.json",
+      "visual-canonical.json",
+      "vitals-canonical.json"
+    ],
+    "records": 199,
+    "registeredKinds": 12,
+    "representedKinds": 12
+  },
+  "counts": {
+    "byKind": {
+      "burn_map": 10,
+      "capnography": 25,
+      "device_screen": 12,
+      "fetal_monitoring": 6,
+      "injection_site": 8,
+      "io_record": 11,
+      "io_trend": 4,
+      "lab_trend": 20,
+      "mar": 11,
+      "medication_label": 13,
+      "rhythm_strip": 50,
+      "vitals_trend": 29
+    },
+    "byLocation": {
+      "question": 195,
+      "questionRationale": 0,
+      "caseExhibit": 1,
+      "caseStageExhibit": 1,
+      "caseQuestion": 2,
+      "caseQuestionRationale": 0
+    },
+    "byKindAndLocation": {
+      "burn_map": {
+        "question": 10,
+        "questionRationale": 0,
+        "caseExhibit": 0,
+        "caseStageExhibit": 0,
+        "caseQuestion": 0,
+        "caseQuestionRationale": 0
+      },
+      "capnography": {
+        "question": 25,
+        "questionRationale": 0,
+        "caseExhibit": 0,
+        "caseStageExhibit": 0,
+        "caseQuestion": 0,
+        "caseQuestionRationale": 0
+      },
+      "device_screen": {
+        "question": 12,
+        "questionRationale": 0,
+        "caseExhibit": 0,
+        "caseStageExhibit": 0,
+        "caseQuestion": 0,
+        "caseQuestionRationale": 0
+      },
+      "fetal_monitoring": {
+        "question": 6,
+        "questionRationale": 0,
+        "caseExhibit": 0,
+        "caseStageExhibit": 0,
+        "caseQuestion": 0,
+        "caseQuestionRationale": 0
+      },
+      "injection_site": {
+        "question": 8,
+        "questionRationale": 0,
+        "caseExhibit": 0,
+        "caseStageExhibit": 0,
+        "caseQuestion": 0,
+        "caseQuestionRationale": 0
+      },
+      "io_record": {
+        "question": 11,
+        "questionRationale": 0,
+        "caseExhibit": 0,
+        "caseStageExhibit": 0,
+        "caseQuestion": 0,
+        "caseQuestionRationale": 0
+      },
+      "io_trend": {
+        "question": 4,
+        "questionRationale": 0,
+        "caseExhibit": 0,
+        "caseStageExhibit": 0,
+        "caseQuestion": 0,
+        "caseQuestionRationale": 0
+      },
+      "lab_trend": {
+        "question": 20,
+        "questionRationale": 0,
+        "caseExhibit": 0,
+        "caseStageExhibit": 0,
+        "caseQuestion": 0,
+        "caseQuestionRationale": 0
+      },
+      "mar": {
+        "question": 11,
+        "questionRationale": 0,
+        "caseExhibit": 0,
+        "caseStageExhibit": 0,
+        "caseQuestion": 0,
+        "caseQuestionRationale": 0
+      },
+      "medication_label": {
+        "question": 13,
+        "questionRationale": 0,
+        "caseExhibit": 0,
+        "caseStageExhibit": 0,
+        "caseQuestion": 0,
+        "caseQuestionRationale": 0
+      },
+      "rhythm_strip": {
+        "question": 47,
+        "questionRationale": 0,
+        "caseExhibit": 1,
+        "caseStageExhibit": 0,
+        "caseQuestion": 2,
+        "caseQuestionRationale": 0
+      },
+      "vitals_trend": {
+        "question": 28,
+        "questionRationale": 0,
+        "caseExhibit": 0,
+        "caseStageExhibit": 1,
+        "caseQuestion": 0,
+        "caseQuestionRationale": 0
+      }
+    },
+    "byTier": {
+      "calibrated-tracing": 81,
+      "load-bearing-arithmetic": 50,
+      "chart-trend": 53,
+      "spatial-anatomical": 18,
+      "structured-document": 11
+    }
+  },
+  "findings": {
+    "identityCollisions": [],
+    "selfCheckFailures": [],
+    "nondeterministicRenders": [],
+    "exactArithmeticRecordsWithoutKeyed": [],
+    "deviceScreenRecordsWithoutProof": [],
+    "ioTrendRecordsWithoutProof": [],
+    "marRecordsWithoutProof": [],
+    "unclassifiedKinds": []
+  },
+  "ioTrendPopulation": {
+    "total": 4,
+    "keyedArithmeticAndTrendAssertions": 4,
+    "patternOnly": 0,
+    "statement": "All four current io_trend records carry both keyed arithmetic and trend assertions; the pattern-only allowance has no live population."
+  },
+  "marPopulation": {
+    "total": 11,
+    "withKeyedRelationship": 7,
+    "withResolvingKeyedCells": 7,
+    "withBoth": 3,
+    "withRecognizedProof": 11,
+    "withoutRecognizedProof": 0,
+    "statement": "MAR proof is recognized independently of selfCheck only from a nonempty keyed_relationship or a structurally valid keyed_cells entry resolving to a real medication/time administration."
+  },
+  "u0MigrationReadiness": {
+    "source": "scripts/tests/__snapshots__/visual-parity.json",
+    "requiredIds": [
+      "rhy_sinus_brady_001",
+      "rhy_vtach_001",
+      "rhy_afib_001"
+    ],
+    "migrated": [
+      {
+        "parityId": "rhy_sinus_brady_001",
+        "oldHash": "c6d7580602c34bf39a6d8472a02d7d55d5f5c646666d0530fda7261d95597acb",
+        "newHash": "c6d7580602c34bf39a6d8472a02d7d55d5f5c646666d0530fda7261d95597acb",
+        "expectedKind": "rhythm_strip",
+        "actualKind": "rhythm_strip",
+        "kindEqual": true,
+        "expectedLocation": "question",
+        "actualLocation": "question",
+        "locationEqual": true,
+        "hashEqual": true,
+        "equal": true,
+        "target": "scripts/tests/__snapshots__/visual-parity-promoted/rhythm_strip.json"
+      },
+      {
+        "parityId": "rhy_vtach_001",
+        "oldHash": "ef4067e5f1f1cc9afb0df5adc4d5eb0b66a29fc7e025fcf9967515b05ca55617",
+        "newHash": "ef4067e5f1f1cc9afb0df5adc4d5eb0b66a29fc7e025fcf9967515b05ca55617",
+        "expectedKind": "rhythm_strip",
+        "actualKind": "rhythm_strip",
+        "kindEqual": true,
+        "expectedLocation": "question",
+        "actualLocation": "question",
+        "locationEqual": true,
+        "hashEqual": true,
+        "equal": true,
+        "target": "scripts/tests/__snapshots__/visual-parity-promoted/rhythm_strip.json"
+      },
+      {
+        "parityId": "rhy_afib_001",
+        "oldHash": "e55cbbf97b8865bc5a848831e4a8c24db60d655553ad578ef035bab9098cae91",
+        "newHash": "e55cbbf97b8865bc5a848831e4a8c24db60d655553ad578ef035bab9098cae91",
+        "expectedKind": "rhythm_strip",
+        "actualKind": "rhythm_strip",
+        "kindEqual": true,
+        "expectedLocation": "question",
+        "actualLocation": "question",
+        "locationEqual": true,
+        "hashEqual": true,
+        "equal": true,
+        "target": "scripts/tests/__snapshots__/visual-parity-promoted/rhythm_strip.json"
+      }
+    ],
+    "unexpectedLegacyIds": [],
+    "allPresent": true,
+    "allStructurallyEligible": true,
+    "allEqual": true,
+    "note": "Readiness evidence only. The survey phase does not write promoted snapshots or remove legacy svgHashes."
+  },
+  "blockers": [],
+  "automatedNullPassed": true,
+  "architectQuestions": [],
+  "architectAdjudicationRequired": true,
+  "records": [
+    {
+      "parityId": "burn_fib_parkland_first8h_leg_arm_08",
+      "kind": "burn_map",
+      "location": "question",
+      "bank": "burn-canonical.json",
+      "parentQuestionId": "burn_fib_parkland_first8h_leg_arm_08",
+      "ownerId": "burn_fib_parkland_first8h_leg_arm_08",
+      "carrierQuestionId": "burn_fib_parkland_first8h_leg_arm_08",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/burn_map/index.ts",
+      "proposedTiers": [
+        "load-bearing-arithmetic",
+        "spatial-anatomical"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": true,
+      "recognizedProofSurfaces": [
+        "derived_values_keyed"
+      ],
+      "recognizedDerivedKeys": [
+        "parkland_first8h_ml",
+        "parkland_total_ml",
+        "tbsa_pct"
+      ],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "burn_fib_parkland_rate_arm_trunk_genitalia_04",
+      "kind": "burn_map",
+      "location": "question",
+      "bank": "burn-canonical.json",
+      "parentQuestionId": "burn_fib_parkland_rate_arm_trunk_genitalia_04",
+      "ownerId": "burn_fib_parkland_rate_arm_trunk_genitalia_04",
+      "carrierQuestionId": "burn_fib_parkland_rate_arm_trunk_genitalia_04",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/burn_map/index.ts",
+      "proposedTiers": [
+        "load-bearing-arithmetic",
+        "spatial-anatomical"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": true,
+      "recognizedProofSurfaces": [
+        "derived_values_keyed"
+      ],
+      "recognizedDerivedKeys": [
+        "parkland_first8h_ml",
+        "parkland_rate_first8h_ml_hr",
+        "parkland_total_ml",
+        "tbsa_pct"
+      ],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "burn_fib_parkland_total_posterior_03",
+      "kind": "burn_map",
+      "location": "question",
+      "bank": "burn-canonical.json",
+      "parentQuestionId": "burn_fib_parkland_total_posterior_03",
+      "ownerId": "burn_fib_parkland_total_posterior_03",
+      "carrierQuestionId": "burn_fib_parkland_total_posterior_03",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/burn_map/index.ts",
+      "proposedTiers": [
+        "load-bearing-arithmetic",
+        "spatial-anatomical"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": true,
+      "recognizedProofSurfaces": [
+        "derived_values_keyed"
+      ],
+      "recognizedDerivedKeys": [
+        "parkland_total_ml",
+        "tbsa_pct"
+      ],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "burn_fib_tbsa_anterior_mix_01",
+      "kind": "burn_map",
+      "location": "question",
+      "bank": "burn-canonical.json",
+      "parentQuestionId": "burn_fib_tbsa_anterior_mix_01",
+      "ownerId": "burn_fib_tbsa_anterior_mix_01",
+      "carrierQuestionId": "burn_fib_tbsa_anterior_mix_01",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/burn_map/index.ts",
+      "proposedTiers": [
+        "load-bearing-arithmetic",
+        "spatial-anatomical"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": true,
+      "recognizedProofSurfaces": [
+        "derived_values_keyed"
+      ],
+      "recognizedDerivedKeys": [
+        "tbsa_pct"
+      ],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "burn_matrix_parkland_values_05",
+      "kind": "burn_map",
+      "location": "question",
+      "bank": "burn-canonical.json",
+      "parentQuestionId": "burn_matrix_parkland_values_05",
+      "ownerId": "burn_matrix_parkland_values_05",
+      "carrierQuestionId": "burn_matrix_parkland_values_05",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/burn_map/index.ts",
+      "proposedTiers": [
+        "load-bearing-arithmetic",
+        "spatial-anatomical"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": true,
+      "recognizedProofSurfaces": [
+        "derived_values_keyed"
+      ],
+      "recognizedDerivedKeys": [
+        "parkland_first8h_ml",
+        "parkland_rate_first8h_ml_hr",
+        "parkland_total_ml",
+        "tbsa_pct"
+      ],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "burn_mc_posterior_tbsa_07",
+      "kind": "burn_map",
+      "location": "question",
+      "bank": "burn-canonical.json",
+      "parentQuestionId": "burn_mc_posterior_tbsa_07",
+      "ownerId": "burn_mc_posterior_tbsa_07",
+      "carrierQuestionId": "burn_mc_posterior_tbsa_07",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/burn_map/index.ts",
+      "proposedTiers": [
+        "load-bearing-arithmetic",
+        "spatial-anatomical"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": true,
+      "recognizedProofSurfaces": [
+        "derived_values_keyed"
+      ],
+      "recognizedDerivedKeys": [
+        "tbsa_pct"
+      ],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "burn_mc_resuscitation_threshold_02",
+      "kind": "burn_map",
+      "location": "question",
+      "bank": "burn-canonical.json",
+      "parentQuestionId": "burn_mc_resuscitation_threshold_02",
+      "ownerId": "burn_mc_resuscitation_threshold_02",
+      "carrierQuestionId": "burn_mc_resuscitation_threshold_02",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/burn_map/index.ts",
+      "proposedTiers": [
+        "load-bearing-arithmetic",
+        "spatial-anatomical"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": true,
+      "recognizedProofSurfaces": [
+        "derived_values_keyed"
+      ],
+      "recognizedDerivedKeys": [
+        "tbsa_pct"
+      ],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "burn_sata_parkland_chain_06",
+      "kind": "burn_map",
+      "location": "question",
+      "bank": "burn-canonical.json",
+      "parentQuestionId": "burn_sata_parkland_chain_06",
+      "ownerId": "burn_sata_parkland_chain_06",
+      "carrierQuestionId": "burn_sata_parkland_chain_06",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/burn_map/index.ts",
+      "proposedTiers": [
+        "load-bearing-arithmetic",
+        "spatial-anatomical"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": true,
+      "recognizedProofSurfaces": [
+        "derived_values_keyed"
+      ],
+      "recognizedDerivedKeys": [
+        "parkland_first8h_ml",
+        "parkland_rate_first8h_ml_hr",
+        "parkland_total_ml",
+        "tbsa_pct"
+      ],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "cap_01",
+      "kind": "capnography",
+      "location": "question",
+      "bank": "capnography-canonical.json",
+      "parentQuestionId": "cap_01",
+      "ownerId": "cap_01",
+      "carrierQuestionId": "cap_01",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/capnography/index.ts",
+      "proposedTiers": [
+        "calibrated-tracing"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "cap_02",
+      "kind": "capnography",
+      "location": "question",
+      "bank": "capnography-canonical.json",
+      "parentQuestionId": "cap_02",
+      "ownerId": "cap_02",
+      "carrierQuestionId": "cap_02",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/capnography/index.ts",
+      "proposedTiers": [
+        "calibrated-tracing"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "cap_03",
+      "kind": "capnography",
+      "location": "question",
+      "bank": "capnography-canonical.json",
+      "parentQuestionId": "cap_03",
+      "ownerId": "cap_03",
+      "carrierQuestionId": "cap_03",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/capnography/index.ts",
+      "proposedTiers": [
+        "calibrated-tracing"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "cap_04",
+      "kind": "capnography",
+      "location": "question",
+      "bank": "capnography-canonical.json",
+      "parentQuestionId": "cap_04",
+      "ownerId": "cap_04",
+      "carrierQuestionId": "cap_04",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/capnography/index.ts",
+      "proposedTiers": [
+        "calibrated-tracing"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "cap_05",
+      "kind": "capnography",
+      "location": "question",
+      "bank": "capnography-canonical.json",
+      "parentQuestionId": "cap_05",
+      "ownerId": "cap_05",
+      "carrierQuestionId": "cap_05",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/capnography/index.ts",
+      "proposedTiers": [
+        "calibrated-tracing"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "cap_08",
+      "kind": "capnography",
+      "location": "question",
+      "bank": "capnography-canonical.json",
+      "parentQuestionId": "cap_08",
+      "ownerId": "cap_08",
+      "carrierQuestionId": "cap_08",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/capnography/index.ts",
+      "proposedTiers": [
+        "calibrated-tracing"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "cap_10",
+      "kind": "capnography",
+      "location": "question",
+      "bank": "capnography-canonical.json",
+      "parentQuestionId": "cap_10",
+      "ownerId": "cap_10",
+      "carrierQuestionId": "cap_10",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/capnography/index.ts",
+      "proposedTiers": [
+        "calibrated-tracing"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "cap_gpt_2026_07_02_t01_001",
+      "kind": "capnography",
+      "location": "question",
+      "bank": "gpt-canonical.json",
+      "parentQuestionId": "cap_gpt_2026_07_02_t01_001",
+      "ownerId": "cap_gpt_2026_07_02_t01_001",
+      "carrierQuestionId": "cap_gpt_2026_07_02_t01_001",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/capnography/index.ts",
+      "proposedTiers": [
+        "calibrated-tracing"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "cap_gpt_2026_07_02_t01_002",
+      "kind": "capnography",
+      "location": "question",
+      "bank": "gpt-canonical.json",
+      "parentQuestionId": "cap_gpt_2026_07_02_t01_002",
+      "ownerId": "cap_gpt_2026_07_02_t01_002",
+      "carrierQuestionId": "cap_gpt_2026_07_02_t01_002",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/capnography/index.ts",
+      "proposedTiers": [
+        "calibrated-tracing"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "cap_gpt_2026_07_02_t01_003",
+      "kind": "capnography",
+      "location": "question",
+      "bank": "gpt-canonical.json",
+      "parentQuestionId": "cap_gpt_2026_07_02_t01_003",
+      "ownerId": "cap_gpt_2026_07_02_t01_003",
+      "carrierQuestionId": "cap_gpt_2026_07_02_t01_003",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/capnography/index.ts",
+      "proposedTiers": [
+        "calibrated-tracing"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "cap_gpt_2026_07_02_t01_004",
+      "kind": "capnography",
+      "location": "question",
+      "bank": "gpt-canonical.json",
+      "parentQuestionId": "cap_gpt_2026_07_02_t01_004",
+      "ownerId": "cap_gpt_2026_07_02_t01_004",
+      "carrierQuestionId": "cap_gpt_2026_07_02_t01_004",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/capnography/index.ts",
+      "proposedTiers": [
+        "calibrated-tracing"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "cap_gpt_2026_07_02_t01_005",
+      "kind": "capnography",
+      "location": "question",
+      "bank": "gpt-canonical.json",
+      "parentQuestionId": "cap_gpt_2026_07_02_t01_005",
+      "ownerId": "cap_gpt_2026_07_02_t01_005",
+      "carrierQuestionId": "cap_gpt_2026_07_02_t01_005",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/capnography/index.ts",
+      "proposedTiers": [
+        "calibrated-tracing"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "cap_gpt_2026_07_02_t01_006",
+      "kind": "capnography",
+      "location": "question",
+      "bank": "gpt-canonical.json",
+      "parentQuestionId": "cap_gpt_2026_07_02_t01_006",
+      "ownerId": "cap_gpt_2026_07_02_t01_006",
+      "carrierQuestionId": "cap_gpt_2026_07_02_t01_006",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/capnography/index.ts",
+      "proposedTiers": [
+        "calibrated-tracing"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "cap_gpt_2026_07_02_t02_001",
+      "kind": "capnography",
+      "location": "question",
+      "bank": "gpt-canonical.json",
+      "parentQuestionId": "cap_gpt_2026_07_02_t02_001",
+      "ownerId": "cap_gpt_2026_07_02_t02_001",
+      "carrierQuestionId": "cap_gpt_2026_07_02_t02_001",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/capnography/index.ts",
+      "proposedTiers": [
+        "calibrated-tracing"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "cap_gpt_2026_07_02_t02_002",
+      "kind": "capnography",
+      "location": "question",
+      "bank": "gpt-canonical.json",
+      "parentQuestionId": "cap_gpt_2026_07_02_t02_002",
+      "ownerId": "cap_gpt_2026_07_02_t02_002",
+      "carrierQuestionId": "cap_gpt_2026_07_02_t02_002",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/capnography/index.ts",
+      "proposedTiers": [
+        "calibrated-tracing"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "cap_gpt_2026_07_02_t02_003",
+      "kind": "capnography",
+      "location": "question",
+      "bank": "gpt-canonical.json",
+      "parentQuestionId": "cap_gpt_2026_07_02_t02_003",
+      "ownerId": "cap_gpt_2026_07_02_t02_003",
+      "carrierQuestionId": "cap_gpt_2026_07_02_t02_003",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/capnography/index.ts",
+      "proposedTiers": [
+        "calibrated-tracing"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "cap_gpt_2026_07_02_t02_004",
+      "kind": "capnography",
+      "location": "question",
+      "bank": "gpt-canonical.json",
+      "parentQuestionId": "cap_gpt_2026_07_02_t02_004",
+      "ownerId": "cap_gpt_2026_07_02_t02_004",
+      "carrierQuestionId": "cap_gpt_2026_07_02_t02_004",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/capnography/index.ts",
+      "proposedTiers": [
+        "calibrated-tracing"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "cap_gpt_2026_07_02_t02_005",
+      "kind": "capnography",
+      "location": "question",
+      "bank": "gpt-canonical.json",
+      "parentQuestionId": "cap_gpt_2026_07_02_t02_005",
+      "ownerId": "cap_gpt_2026_07_02_t02_005",
+      "carrierQuestionId": "cap_gpt_2026_07_02_t02_005",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/capnography/index.ts",
+      "proposedTiers": [
+        "calibrated-tracing"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "cap_gpt_2026_07_02_t02_006",
+      "kind": "capnography",
+      "location": "question",
+      "bank": "gpt-canonical.json",
+      "parentQuestionId": "cap_gpt_2026_07_02_t02_006",
+      "ownerId": "cap_gpt_2026_07_02_t02_006",
+      "carrierQuestionId": "cap_gpt_2026_07_02_t02_006",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/capnography/index.ts",
+      "proposedTiers": [
+        "calibrated-tracing"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "cap_gpt_2026_07_02_t03_001",
+      "kind": "capnography",
+      "location": "question",
+      "bank": "gpt-canonical.json",
+      "parentQuestionId": "cap_gpt_2026_07_02_t03_001",
+      "ownerId": "cap_gpt_2026_07_02_t03_001",
+      "carrierQuestionId": "cap_gpt_2026_07_02_t03_001",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/capnography/index.ts",
+      "proposedTiers": [
+        "calibrated-tracing"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "cap_gpt_2026_07_02_t03_002",
+      "kind": "capnography",
+      "location": "question",
+      "bank": "gpt-canonical.json",
+      "parentQuestionId": "cap_gpt_2026_07_02_t03_002",
+      "ownerId": "cap_gpt_2026_07_02_t03_002",
+      "carrierQuestionId": "cap_gpt_2026_07_02_t03_002",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/capnography/index.ts",
+      "proposedTiers": [
+        "calibrated-tracing"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "cap_gpt_2026_07_02_t03_003",
+      "kind": "capnography",
+      "location": "question",
+      "bank": "gpt-canonical.json",
+      "parentQuestionId": "cap_gpt_2026_07_02_t03_003",
+      "ownerId": "cap_gpt_2026_07_02_t03_003",
+      "carrierQuestionId": "cap_gpt_2026_07_02_t03_003",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/capnography/index.ts",
+      "proposedTiers": [
+        "calibrated-tracing"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "cap_gpt_2026_07_02_t03_004",
+      "kind": "capnography",
+      "location": "question",
+      "bank": "gpt-canonical.json",
+      "parentQuestionId": "cap_gpt_2026_07_02_t03_004",
+      "ownerId": "cap_gpt_2026_07_02_t03_004",
+      "carrierQuestionId": "cap_gpt_2026_07_02_t03_004",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/capnography/index.ts",
+      "proposedTiers": [
+        "calibrated-tracing"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "cap_gpt_2026_07_02_t03_005",
+      "kind": "capnography",
+      "location": "question",
+      "bank": "gpt-canonical.json",
+      "parentQuestionId": "cap_gpt_2026_07_02_t03_005",
+      "ownerId": "cap_gpt_2026_07_02_t03_005",
+      "carrierQuestionId": "cap_gpt_2026_07_02_t03_005",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/capnography/index.ts",
+      "proposedTiers": [
+        "calibrated-tracing"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "cap_gpt_2026_07_02_t03_006",
+      "kind": "capnography",
+      "location": "question",
+      "bank": "gpt-canonical.json",
+      "parentQuestionId": "cap_gpt_2026_07_02_t03_006",
+      "ownerId": "cap_gpt_2026_07_02_t03_006",
+      "carrierQuestionId": "cap_gpt_2026_07_02_t03_006",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/capnography/index.ts",
+      "proposedTiers": [
+        "calibrated-tracing"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "cs_thyroid_storm_main#st1ex0",
+      "kind": "vitals_trend",
+      "location": "caseStageExhibit",
+      "bank": "hard-cases-canonical.json",
+      "parentQuestionId": "cs_thyroid_storm_main",
+      "ownerId": "cs_thyroid_storm_main",
+      "carrierQuestionId": "cs_thyroid_storm_main",
+      "carrierRoute": "parent-case-container",
+      "rendererModule": "src/visuals/kinds/vitals_trend/index.ts",
+      "proposedTiers": [
+        "chart-trend"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "dev_enteral_volume_shift_01",
+      "kind": "device_screen",
+      "location": "question",
+      "bank": "device-canonical.json",
+      "parentQuestionId": "dev_enteral_volume_shift_01",
+      "ownerId": "dev_enteral_volume_shift_01",
+      "carrierQuestionId": "dev_enteral_volume_shift_01",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/device_screen/index.ts",
+      "proposedTiers": [
+        "load-bearing-arithmetic"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": true,
+      "recognizedProofSurfaces": [
+        "derived_values_keyed"
+      ],
+      "recognizedDerivedKeys": [
+        "infusion_volume_ml"
+      ],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "dev_high_alert_kcl_pump_mismatch_01",
+      "kind": "device_screen",
+      "location": "question",
+      "bank": "device-canonical.json",
+      "parentQuestionId": "dev_high_alert_kcl_pump_mismatch_01",
+      "ownerId": "dev_high_alert_kcl_pump_mismatch_01",
+      "carrierQuestionId": "dev_high_alert_kcl_pump_mismatch_01",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/device_screen/index.ts",
+      "proposedTiers": [
+        "load-bearing-arithmetic"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [
+        "keyed_settings"
+      ],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [
+        "duration_min",
+        "rate_ml_hr",
+        "vtbi_ml"
+      ],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "dev_infusion_duration_vtbi_01",
+      "kind": "device_screen",
+      "location": "question",
+      "bank": "device-canonical.json",
+      "parentQuestionId": "dev_infusion_duration_vtbi_01",
+      "ownerId": "dev_infusion_duration_vtbi_01",
+      "carrierQuestionId": "dev_infusion_duration_vtbi_01",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/device_screen/index.ts",
+      "proposedTiers": [
+        "load-bearing-arithmetic"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": true,
+      "recognizedProofSurfaces": [
+        "derived_values_keyed"
+      ],
+      "recognizedDerivedKeys": [
+        "infusion_duration_min"
+      ],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "dev_pca_basal_opioid_naive_01",
+      "kind": "device_screen",
+      "location": "question",
+      "bank": "device-canonical.json",
+      "parentQuestionId": "dev_pca_basal_opioid_naive_01",
+      "ownerId": "dev_pca_basal_opioid_naive_01",
+      "carrierQuestionId": "dev_pca_basal_opioid_naive_01",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/device_screen/index.ts",
+      "proposedTiers": [
+        "load-bearing-arithmetic"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [
+        "keyed_settings"
+      ],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [
+        "basal_rate",
+        "mode"
+      ],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "dev_pca_delivered_total_basal_01",
+      "kind": "device_screen",
+      "location": "question",
+      "bank": "device-canonical.json",
+      "parentQuestionId": "dev_pca_delivered_total_basal_01",
+      "ownerId": "dev_pca_delivered_total_basal_01",
+      "carrierQuestionId": "dev_pca_delivered_total_basal_01",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/device_screen/index.ts",
+      "proposedTiers": [
+        "load-bearing-arithmetic"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": true,
+      "recognizedProofSurfaces": [
+        "derived_values_keyed"
+      ],
+      "recognizedDerivedKeys": [
+        "delivered_dose_total_mg"
+      ],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "dev_pca_delivered_total_no_basal_01",
+      "kind": "device_screen",
+      "location": "question",
+      "bank": "device-canonical.json",
+      "parentQuestionId": "dev_pca_delivered_total_no_basal_01",
+      "ownerId": "dev_pca_delivered_total_no_basal_01",
+      "carrierQuestionId": "dev_pca_delivered_total_no_basal_01",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/device_screen/index.ts",
+      "proposedTiers": [
+        "load-bearing-arithmetic"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": true,
+      "recognizedProofSurfaces": [
+        "derived_values_keyed"
+      ],
+      "recognizedDerivedKeys": [
+        "delivered_dose_total_mg"
+      ],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "dev_pca_lockout_max_demands_01",
+      "kind": "device_screen",
+      "location": "question",
+      "bank": "device-canonical.json",
+      "parentQuestionId": "dev_pca_lockout_max_demands_01",
+      "ownerId": "dev_pca_lockout_max_demands_01",
+      "carrierQuestionId": "dev_pca_lockout_max_demands_01",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/device_screen/index.ts",
+      "proposedTiers": [
+        "load-bearing-arithmetic"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": true,
+      "recognizedProofSurfaces": [
+        "derived_values_keyed"
+      ],
+      "recognizedDerivedKeys": [
+        "max_demands_1h"
+      ],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "dev_pca_max_dose_basal_01",
+      "kind": "device_screen",
+      "location": "question",
+      "bank": "device-canonical.json",
+      "parentQuestionId": "dev_pca_max_dose_basal_01",
+      "ownerId": "dev_pca_max_dose_basal_01",
+      "carrierQuestionId": "dev_pca_max_dose_basal_01",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/device_screen/index.ts",
+      "proposedTiers": [
+        "load-bearing-arithmetic"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": true,
+      "recognizedProofSurfaces": [
+        "derived_values_keyed"
+      ],
+      "recognizedDerivedKeys": [
+        "max_demands_1h",
+        "max_dose_1h_mg"
+      ],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "ekg_b1_matrix_09",
+      "kind": "rhythm_strip",
+      "location": "question",
+      "bank": "visual-canonical.json",
+      "parentQuestionId": "ekg_b1_matrix_09",
+      "ownerId": "ekg_b1_matrix_09",
+      "carrierQuestionId": "ekg_b1_matrix_09",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/rhythmStrip/index.ts",
+      "proposedTiers": [
+        "calibrated-tracing"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "ekg_b1_mc_01",
+      "kind": "rhythm_strip",
+      "location": "question",
+      "bank": "visual-canonical.json",
+      "parentQuestionId": "ekg_b1_mc_01",
+      "ownerId": "ekg_b1_mc_01",
+      "carrierQuestionId": "ekg_b1_mc_01",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/rhythmStrip/index.ts",
+      "proposedTiers": [
+        "calibrated-tracing"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "ekg_b1_mc_02",
+      "kind": "rhythm_strip",
+      "location": "question",
+      "bank": "visual-canonical.json",
+      "parentQuestionId": "ekg_b1_mc_02",
+      "ownerId": "ekg_b1_mc_02",
+      "carrierQuestionId": "ekg_b1_mc_02",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/rhythmStrip/index.ts",
+      "proposedTiers": [
+        "calibrated-tracing"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "ekg_b1_mc_04",
+      "kind": "rhythm_strip",
+      "location": "question",
+      "bank": "visual-canonical.json",
+      "parentQuestionId": "ekg_b1_mc_04",
+      "ownerId": "ekg_b1_mc_04",
+      "carrierQuestionId": "ekg_b1_mc_04",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/rhythmStrip/index.ts",
+      "proposedTiers": [
+        "calibrated-tracing"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "ekg_b1_mc_05",
+      "kind": "rhythm_strip",
+      "location": "question",
+      "bank": "visual-canonical.json",
+      "parentQuestionId": "ekg_b1_mc_05",
+      "ownerId": "ekg_b1_mc_05",
+      "carrierQuestionId": "ekg_b1_mc_05",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/rhythmStrip/index.ts",
+      "proposedTiers": [
+        "calibrated-tracing"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "ekg_b1_mc_06",
+      "kind": "rhythm_strip",
+      "location": "question",
+      "bank": "visual-canonical.json",
+      "parentQuestionId": "ekg_b1_mc_06",
+      "ownerId": "ekg_b1_mc_06",
+      "carrierQuestionId": "ekg_b1_mc_06",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/rhythmStrip/index.ts",
+      "proposedTiers": [
+        "calibrated-tracing"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "ekg_b1_mc_08",
+      "kind": "rhythm_strip",
+      "location": "question",
+      "bank": "visual-canonical.json",
+      "parentQuestionId": "ekg_b1_mc_08",
+      "ownerId": "ekg_b1_mc_08",
+      "carrierQuestionId": "ekg_b1_mc_08",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/rhythmStrip/index.ts",
+      "proposedTiers": [
+        "calibrated-tracing"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "ekg_b1_mc_10",
+      "kind": "rhythm_strip",
+      "location": "question",
+      "bank": "visual-canonical.json",
+      "parentQuestionId": "ekg_b1_mc_10",
+      "ownerId": "ekg_b1_mc_10",
+      "carrierQuestionId": "ekg_b1_mc_10",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/rhythmStrip/index.ts",
+      "proposedTiers": [
+        "calibrated-tracing"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "ekg_b1_sata_03",
+      "kind": "rhythm_strip",
+      "location": "question",
+      "bank": "visual-canonical.json",
+      "parentQuestionId": "ekg_b1_sata_03",
+      "ownerId": "ekg_b1_sata_03",
+      "carrierQuestionId": "ekg_b1_sata_03",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/rhythmStrip/index.ts",
+      "proposedTiers": [
+        "calibrated-tracing"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "ekg_b1_sata_07",
+      "kind": "rhythm_strip",
+      "location": "question",
+      "bank": "visual-canonical.json",
+      "parentQuestionId": "ekg_b1_sata_07",
+      "ownerId": "ekg_b1_sata_07",
+      "carrierQuestionId": "ekg_b1_sata_07",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/rhythmStrip/index.ts",
+      "proposedTiers": [
+        "calibrated-tracing"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "ekg_b2_matrix_10",
+      "kind": "rhythm_strip",
+      "location": "question",
+      "bank": "visual-canonical.json",
+      "parentQuestionId": "ekg_b2_matrix_10",
+      "ownerId": "ekg_b2_matrix_10",
+      "carrierQuestionId": "ekg_b2_matrix_10",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/rhythmStrip/index.ts",
+      "proposedTiers": [
+        "calibrated-tracing"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "ekg_b2_mc_01",
+      "kind": "rhythm_strip",
+      "location": "question",
+      "bank": "visual-canonical.json",
+      "parentQuestionId": "ekg_b2_mc_01",
+      "ownerId": "ekg_b2_mc_01",
+      "carrierQuestionId": "ekg_b2_mc_01",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/rhythmStrip/index.ts",
+      "proposedTiers": [
+        "calibrated-tracing"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "ekg_b2_mc_02",
+      "kind": "rhythm_strip",
+      "location": "question",
+      "bank": "visual-canonical.json",
+      "parentQuestionId": "ekg_b2_mc_02",
+      "ownerId": "ekg_b2_mc_02",
+      "carrierQuestionId": "ekg_b2_mc_02",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/rhythmStrip/index.ts",
+      "proposedTiers": [
+        "calibrated-tracing"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "ekg_b2_mc_03",
+      "kind": "rhythm_strip",
+      "location": "question",
+      "bank": "visual-canonical.json",
+      "parentQuestionId": "ekg_b2_mc_03",
+      "ownerId": "ekg_b2_mc_03",
+      "carrierQuestionId": "ekg_b2_mc_03",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/rhythmStrip/index.ts",
+      "proposedTiers": [
+        "calibrated-tracing"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "ekg_b2_mc_04",
+      "kind": "rhythm_strip",
+      "location": "question",
+      "bank": "visual-canonical.json",
+      "parentQuestionId": "ekg_b2_mc_04",
+      "ownerId": "ekg_b2_mc_04",
+      "carrierQuestionId": "ekg_b2_mc_04",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/rhythmStrip/index.ts",
+      "proposedTiers": [
+        "calibrated-tracing"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "ekg_b2_mc_05",
+      "kind": "rhythm_strip",
+      "location": "question",
+      "bank": "visual-canonical.json",
+      "parentQuestionId": "ekg_b2_mc_05",
+      "ownerId": "ekg_b2_mc_05",
+      "carrierQuestionId": "ekg_b2_mc_05",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/rhythmStrip/index.ts",
+      "proposedTiers": [
+        "calibrated-tracing"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "ekg_b2_mc_07",
+      "kind": "rhythm_strip",
+      "location": "question",
+      "bank": "visual-canonical.json",
+      "parentQuestionId": "ekg_b2_mc_07",
+      "ownerId": "ekg_b2_mc_07",
+      "carrierQuestionId": "ekg_b2_mc_07",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/rhythmStrip/index.ts",
+      "proposedTiers": [
+        "calibrated-tracing"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "ekg_b2_mc_08",
+      "kind": "rhythm_strip",
+      "location": "question",
+      "bank": "visual-canonical.json",
+      "parentQuestionId": "ekg_b2_mc_08",
+      "ownerId": "ekg_b2_mc_08",
+      "carrierQuestionId": "ekg_b2_mc_08",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/rhythmStrip/index.ts",
+      "proposedTiers": [
+        "calibrated-tracing"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "ekg_b2_sata_06",
+      "kind": "rhythm_strip",
+      "location": "question",
+      "bank": "visual-canonical.json",
+      "parentQuestionId": "ekg_b2_sata_06",
+      "ownerId": "ekg_b2_sata_06",
+      "carrierQuestionId": "ekg_b2_sata_06",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/rhythmStrip/index.ts",
+      "proposedTiers": [
+        "calibrated-tracing"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "ekg_b2_sata_09",
+      "kind": "rhythm_strip",
+      "location": "question",
+      "bank": "visual-canonical.json",
+      "parentQuestionId": "ekg_b2_sata_09",
+      "ownerId": "ekg_b2_sata_09",
+      "carrierQuestionId": "ekg_b2_sata_09",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/rhythmStrip/index.ts",
+      "proposedTiers": [
+        "calibrated-tracing"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "ekg_b3_matrix_10",
+      "kind": "rhythm_strip",
+      "location": "question",
+      "bank": "visual-canonical.json",
+      "parentQuestionId": "ekg_b3_matrix_10",
+      "ownerId": "ekg_b3_matrix_10",
+      "carrierQuestionId": "ekg_b3_matrix_10",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/rhythmStrip/index.ts",
+      "proposedTiers": [
+        "calibrated-tracing"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "ekg_b3_mc_01",
+      "kind": "rhythm_strip",
+      "location": "question",
+      "bank": "visual-canonical.json",
+      "parentQuestionId": "ekg_b3_mc_01",
+      "ownerId": "ekg_b3_mc_01",
+      "carrierQuestionId": "ekg_b3_mc_01",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/rhythmStrip/index.ts",
+      "proposedTiers": [
+        "calibrated-tracing"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "ekg_b3_mc_02",
+      "kind": "rhythm_strip",
+      "location": "question",
+      "bank": "visual-canonical.json",
+      "parentQuestionId": "ekg_b3_mc_02",
+      "ownerId": "ekg_b3_mc_02",
+      "carrierQuestionId": "ekg_b3_mc_02",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/rhythmStrip/index.ts",
+      "proposedTiers": [
+        "calibrated-tracing"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "ekg_b3_mc_03",
+      "kind": "rhythm_strip",
+      "location": "question",
+      "bank": "visual-canonical.json",
+      "parentQuestionId": "ekg_b3_mc_03",
+      "ownerId": "ekg_b3_mc_03",
+      "carrierQuestionId": "ekg_b3_mc_03",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/rhythmStrip/index.ts",
+      "proposedTiers": [
+        "calibrated-tracing"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "ekg_b3_mc_04",
+      "kind": "rhythm_strip",
+      "location": "question",
+      "bank": "visual-canonical.json",
+      "parentQuestionId": "ekg_b3_mc_04",
+      "ownerId": "ekg_b3_mc_04",
+      "carrierQuestionId": "ekg_b3_mc_04",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/rhythmStrip/index.ts",
+      "proposedTiers": [
+        "calibrated-tracing"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "ekg_b3_mc_05",
+      "kind": "rhythm_strip",
+      "location": "question",
+      "bank": "visual-canonical.json",
+      "parentQuestionId": "ekg_b3_mc_05",
+      "ownerId": "ekg_b3_mc_05",
+      "carrierQuestionId": "ekg_b3_mc_05",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/rhythmStrip/index.ts",
+      "proposedTiers": [
+        "calibrated-tracing"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "ekg_b3_mc_06",
+      "kind": "rhythm_strip",
+      "location": "question",
+      "bank": "visual-canonical.json",
+      "parentQuestionId": "ekg_b3_mc_06",
+      "ownerId": "ekg_b3_mc_06",
+      "carrierQuestionId": "ekg_b3_mc_06",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/rhythmStrip/index.ts",
+      "proposedTiers": [
+        "calibrated-tracing"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "ekg_b3_mc_07",
+      "kind": "rhythm_strip",
+      "location": "question",
+      "bank": "visual-canonical.json",
+      "parentQuestionId": "ekg_b3_mc_07",
+      "ownerId": "ekg_b3_mc_07",
+      "carrierQuestionId": "ekg_b3_mc_07",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/rhythmStrip/index.ts",
+      "proposedTiers": [
+        "calibrated-tracing"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "ekg_b3_mc_09",
+      "kind": "rhythm_strip",
+      "location": "question",
+      "bank": "visual-canonical.json",
+      "parentQuestionId": "ekg_b3_mc_09",
+      "ownerId": "ekg_b3_mc_09",
+      "carrierQuestionId": "ekg_b3_mc_09",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/rhythmStrip/index.ts",
+      "proposedTiers": [
+        "calibrated-tracing"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "ekg_b3_sata_08",
+      "kind": "rhythm_strip",
+      "location": "question",
+      "bank": "visual-canonical.json",
+      "parentQuestionId": "ekg_b3_sata_08",
+      "ownerId": "ekg_b3_sata_08",
+      "carrierQuestionId": "ekg_b3_sata_08",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/rhythmStrip/index.ts",
+      "proposedTiers": [
+        "calibrated-tracing"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "ekg_b4_matrix_10",
+      "kind": "rhythm_strip",
+      "location": "question",
+      "bank": "visual-canonical.json",
+      "parentQuestionId": "ekg_b4_matrix_10",
+      "ownerId": "ekg_b4_matrix_10",
+      "carrierQuestionId": "ekg_b4_matrix_10",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/rhythmStrip/index.ts",
+      "proposedTiers": [
+        "calibrated-tracing"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "ekg_b4_mc_01",
+      "kind": "rhythm_strip",
+      "location": "question",
+      "bank": "visual-canonical.json",
+      "parentQuestionId": "ekg_b4_mc_01",
+      "ownerId": "ekg_b4_mc_01",
+      "carrierQuestionId": "ekg_b4_mc_01",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/rhythmStrip/index.ts",
+      "proposedTiers": [
+        "calibrated-tracing"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "ekg_b4_mc_02",
+      "kind": "rhythm_strip",
+      "location": "question",
+      "bank": "visual-canonical.json",
+      "parentQuestionId": "ekg_b4_mc_02",
+      "ownerId": "ekg_b4_mc_02",
+      "carrierQuestionId": "ekg_b4_mc_02",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/rhythmStrip/index.ts",
+      "proposedTiers": [
+        "calibrated-tracing"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "ekg_b4_mc_03",
+      "kind": "rhythm_strip",
+      "location": "question",
+      "bank": "visual-canonical.json",
+      "parentQuestionId": "ekg_b4_mc_03",
+      "ownerId": "ekg_b4_mc_03",
+      "carrierQuestionId": "ekg_b4_mc_03",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/rhythmStrip/index.ts",
+      "proposedTiers": [
+        "calibrated-tracing"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "ekg_b4_mc_04",
+      "kind": "rhythm_strip",
+      "location": "question",
+      "bank": "visual-canonical.json",
+      "parentQuestionId": "ekg_b4_mc_04",
+      "ownerId": "ekg_b4_mc_04",
+      "carrierQuestionId": "ekg_b4_mc_04",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/rhythmStrip/index.ts",
+      "proposedTiers": [
+        "calibrated-tracing"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "ekg_b4_mc_05",
+      "kind": "rhythm_strip",
+      "location": "question",
+      "bank": "visual-canonical.json",
+      "parentQuestionId": "ekg_b4_mc_05",
+      "ownerId": "ekg_b4_mc_05",
+      "carrierQuestionId": "ekg_b4_mc_05",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/rhythmStrip/index.ts",
+      "proposedTiers": [
+        "calibrated-tracing"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "ekg_b4_mc_06",
+      "kind": "rhythm_strip",
+      "location": "question",
+      "bank": "visual-canonical.json",
+      "parentQuestionId": "ekg_b4_mc_06",
+      "ownerId": "ekg_b4_mc_06",
+      "carrierQuestionId": "ekg_b4_mc_06",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/rhythmStrip/index.ts",
+      "proposedTiers": [
+        "calibrated-tracing"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "ekg_b4_mc_08",
+      "kind": "rhythm_strip",
+      "location": "question",
+      "bank": "visual-canonical.json",
+      "parentQuestionId": "ekg_b4_mc_08",
+      "ownerId": "ekg_b4_mc_08",
+      "carrierQuestionId": "ekg_b4_mc_08",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/rhythmStrip/index.ts",
+      "proposedTiers": [
+        "calibrated-tracing"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "ekg_b4_sata_07",
+      "kind": "rhythm_strip",
+      "location": "question",
+      "bank": "visual-canonical.json",
+      "parentQuestionId": "ekg_b4_sata_07",
+      "ownerId": "ekg_b4_sata_07",
+      "carrierQuestionId": "ekg_b4_sata_07",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/rhythmStrip/index.ts",
+      "proposedTiers": [
+        "calibrated-tracing"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "ekg_b4_sata_09",
+      "kind": "rhythm_strip",
+      "location": "question",
+      "bank": "visual-canonical.json",
+      "parentQuestionId": "ekg_b4_sata_09",
+      "ownerId": "ekg_b4_sata_09",
+      "carrierQuestionId": "ekg_b4_sata_09",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/rhythmStrip/index.ts",
+      "proposedTiers": [
+        "calibrated-tracing"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "ekg_b5_mc_02",
+      "kind": "rhythm_strip",
+      "location": "question",
+      "bank": "visual-canonical.json",
+      "parentQuestionId": "ekg_b5_mc_02",
+      "ownerId": "ekg_b5_mc_02",
+      "carrierQuestionId": "ekg_b5_mc_02",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/rhythmStrip/index.ts",
+      "proposedTiers": [
+        "calibrated-tracing"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "ekg_pacer_failure_to_capture_2026_07_01",
+      "kind": "rhythm_strip",
+      "location": "question",
+      "bank": "visual-canonical.json",
+      "parentQuestionId": "ekg_pacer_failure_to_capture_2026_07_01",
+      "ownerId": "ekg_pacer_failure_to_capture_2026_07_01",
+      "carrierQuestionId": "ekg_pacer_failure_to_capture_2026_07_01",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/rhythmStrip/index.ts",
+      "proposedTiers": [
+        "calibrated-tracing"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "ekg_pacer_failure_to_pace_2026_07_01",
+      "kind": "rhythm_strip",
+      "location": "question",
+      "bank": "visual-canonical.json",
+      "parentQuestionId": "ekg_pacer_failure_to_pace_2026_07_01",
+      "ownerId": "ekg_pacer_failure_to_pace_2026_07_01",
+      "carrierQuestionId": "ekg_pacer_failure_to_pace_2026_07_01",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/rhythmStrip/index.ts",
+      "proposedTiers": [
+        "calibrated-tracing"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "ekg_pacer_failure_to_sense_2026_07_01",
+      "kind": "rhythm_strip",
+      "location": "question",
+      "bank": "visual-canonical.json",
+      "parentQuestionId": "ekg_pacer_failure_to_sense_2026_07_01",
+      "ownerId": "ekg_pacer_failure_to_sense_2026_07_01",
+      "carrierQuestionId": "ekg_pacer_failure_to_sense_2026_07_01",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/rhythmStrip/index.ts",
+      "proposedTiers": [
+        "calibrated-tracing"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "fhr_gemini_smoke_2026_06_13_01",
+      "kind": "fetal_monitoring",
+      "location": "question",
+      "bank": "gemini-canonical.json",
+      "parentQuestionId": "fhr_gemini_smoke_2026_06_13_01",
+      "ownerId": "fhr_gemini_smoke_2026_06_13_01",
+      "carrierQuestionId": "fhr_gemini_smoke_2026_06_13_01",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/fetal_monitoring/index.ts",
+      "proposedTiers": [
+        "calibrated-tracing"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "fhr_gemini_smoke_2026_06_13_02",
+      "kind": "fetal_monitoring",
+      "location": "question",
+      "bank": "gemini-canonical.json",
+      "parentQuestionId": "fhr_gemini_smoke_2026_06_13_02",
+      "ownerId": "fhr_gemini_smoke_2026_06_13_02",
+      "carrierQuestionId": "fhr_gemini_smoke_2026_06_13_02",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/fetal_monitoring/index.ts",
+      "proposedTiers": [
+        "calibrated-tracing"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "fhr_gemini_smoke_2026_06_13_03",
+      "kind": "fetal_monitoring",
+      "location": "question",
+      "bank": "gemini-canonical.json",
+      "parentQuestionId": "fhr_gemini_smoke_2026_06_13_03",
+      "ownerId": "fhr_gemini_smoke_2026_06_13_03",
+      "carrierQuestionId": "fhr_gemini_smoke_2026_06_13_03",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/fetal_monitoring/index.ts",
+      "proposedTiers": [
+        "calibrated-tracing"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "fhr_gemini_smoke_2026_06_13_04",
+      "kind": "fetal_monitoring",
+      "location": "question",
+      "bank": "gemini-canonical.json",
+      "parentQuestionId": "fhr_gemini_smoke_2026_06_13_04",
+      "ownerId": "fhr_gemini_smoke_2026_06_13_04",
+      "carrierQuestionId": "fhr_gemini_smoke_2026_06_13_04",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/fetal_monitoring/index.ts",
+      "proposedTiers": [
+        "calibrated-tracing"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "fhr_gemini_smoke_2026_06_13_05",
+      "kind": "fetal_monitoring",
+      "location": "question",
+      "bank": "gemini-canonical.json",
+      "parentQuestionId": "fhr_gemini_smoke_2026_06_13_05",
+      "ownerId": "fhr_gemini_smoke_2026_06_13_05",
+      "carrierQuestionId": "fhr_gemini_smoke_2026_06_13_05",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/fetal_monitoring/index.ts",
+      "proposedTiers": [
+        "calibrated-tracing"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "fhr_gemini_smoke_2026_06_13_06",
+      "kind": "fetal_monitoring",
+      "location": "question",
+      "bank": "gemini-canonical.json",
+      "parentQuestionId": "fhr_gemini_smoke_2026_06_13_06",
+      "ownerId": "fhr_gemini_smoke_2026_06_13_06",
+      "carrierQuestionId": "fhr_gemini_smoke_2026_06_13_06",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/fetal_monitoring/index.ts",
+      "proposedTiers": [
+        "calibrated-tracing"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "gpt_fresh_2026_06_22_vis_01",
+      "kind": "mar",
+      "location": "question",
+      "bank": "gpt-canonical.json",
+      "parentQuestionId": "gpt_fresh_2026_06_22_vis_01",
+      "ownerId": "gpt_fresh_2026_06_22_vis_01",
+      "carrierQuestionId": "gpt_fresh_2026_06_22_vis_01",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/mar/index.ts",
+      "proposedTiers": [
+        "structured-document"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [
+        "keyed_relationship",
+        "keyed_cells"
+      ],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": true,
+      "recognizedKeyedCells": [
+        {
+          "medication": "warfarin",
+          "time": "2100"
+        },
+        {
+          "medication": "INR (Lab Result)",
+          "time": "1700"
+        }
+      ]
+    },
+    {
+      "parityId": "gpt_fresh_2026_06_22_vis_02",
+      "kind": "medication_label",
+      "location": "question",
+      "bank": "gpt-canonical.json",
+      "parentQuestionId": "gpt_fresh_2026_06_22_vis_02",
+      "ownerId": "gpt_fresh_2026_06_22_vis_02",
+      "carrierQuestionId": "gpt_fresh_2026_06_22_vis_02",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/medication_label/index.ts",
+      "proposedTiers": [
+        "load-bearing-arithmetic"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": true,
+      "recognizedProofSurfaces": [
+        "derived_values_keyed"
+      ],
+      "recognizedDerivedKeys": [
+        "concentration_per_ml",
+        "rate_ml_per_hr"
+      ],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "gpt_fresh_2026_06_22_vis_03",
+      "kind": "medication_label",
+      "location": "question",
+      "bank": "gpt-canonical.json",
+      "parentQuestionId": "gpt_fresh_2026_06_22_vis_03",
+      "ownerId": "gpt_fresh_2026_06_22_vis_03",
+      "carrierQuestionId": "gpt_fresh_2026_06_22_vis_03",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/medication_label/index.ts",
+      "proposedTiers": [
+        "load-bearing-arithmetic"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": true,
+      "recognizedProofSurfaces": [
+        "derived_values_keyed"
+      ],
+      "recognizedDerivedKeys": [
+        "concentration_per_ml",
+        "volume_to_administer_ml"
+      ],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "gpt_fresh_2026_06_22_vis_04",
+      "kind": "device_screen",
+      "location": "question",
+      "bank": "gpt-canonical.json",
+      "parentQuestionId": "gpt_fresh_2026_06_22_vis_04",
+      "ownerId": "gpt_fresh_2026_06_22_vis_04",
+      "carrierQuestionId": "gpt_fresh_2026_06_22_vis_04",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/device_screen/index.ts",
+      "proposedTiers": [
+        "load-bearing-arithmetic"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": true,
+      "recognizedProofSurfaces": [
+        "derived_values_keyed"
+      ],
+      "recognizedDerivedKeys": [
+        "infusion_duration_min"
+      ],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "gpt_fresh_2026_06_22_vis_05",
+      "kind": "mar",
+      "location": "question",
+      "bank": "gpt-canonical.json",
+      "parentQuestionId": "gpt_fresh_2026_06_22_vis_05",
+      "ownerId": "gpt_fresh_2026_06_22_vis_05",
+      "carrierQuestionId": "gpt_fresh_2026_06_22_vis_05",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/mar/index.ts",
+      "proposedTiers": [
+        "structured-document"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [
+        "keyed_relationship",
+        "keyed_cells"
+      ],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": true,
+      "recognizedKeyedCells": [
+        {
+          "medication": "Parenteral Nutrition",
+          "time": "1800"
+        },
+        {
+          "medication": "Regular Insulin",
+          "time": "1800"
+        },
+        {
+          "medication": "Dextrose 10% in Water",
+          "time": "1800"
+        }
+      ]
+    },
+    {
+      "parityId": "gpt_fresh_2026_06_22_vis_06",
+      "kind": "mar",
+      "location": "question",
+      "bank": "gpt-canonical.json",
+      "parentQuestionId": "gpt_fresh_2026_06_22_vis_06",
+      "ownerId": "gpt_fresh_2026_06_22_vis_06",
+      "carrierQuestionId": "gpt_fresh_2026_06_22_vis_06",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/mar/index.ts",
+      "proposedTiers": [
+        "structured-document"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [
+        "keyed_relationship",
+        "keyed_cells"
+      ],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": true,
+      "recognizedKeyedCells": [
+        {
+          "medication": "Heparin Infusion",
+          "time": "0800"
+        },
+        {
+          "medication": "Apixaban",
+          "time": "0900"
+        },
+        {
+          "medication": "Heparin Discontinue Order",
+          "time": "1000"
+        }
+      ]
+    },
+    {
+      "parityId": "gpt_fresh_2026_06_22_vis_07",
+      "kind": "medication_label",
+      "location": "question",
+      "bank": "gpt-canonical.json",
+      "parentQuestionId": "gpt_fresh_2026_06_22_vis_07",
+      "ownerId": "gpt_fresh_2026_06_22_vis_07",
+      "carrierQuestionId": "gpt_fresh_2026_06_22_vis_07",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/medication_label/index.ts",
+      "proposedTiers": [
+        "load-bearing-arithmetic"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": true,
+      "recognizedProofSurfaces": [
+        "derived_values_keyed"
+      ],
+      "recognizedDerivedKeys": [
+        "rate_ml_per_hr"
+      ],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "gpt_fresh_2026_06_22_vis_08",
+      "kind": "device_screen",
+      "location": "question",
+      "bank": "gpt-canonical.json",
+      "parentQuestionId": "gpt_fresh_2026_06_22_vis_08",
+      "ownerId": "gpt_fresh_2026_06_22_vis_08",
+      "carrierQuestionId": "gpt_fresh_2026_06_22_vis_08",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/device_screen/index.ts",
+      "proposedTiers": [
+        "load-bearing-arithmetic"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": true,
+      "recognizedProofSurfaces": [
+        "derived_values_keyed"
+      ],
+      "recognizedDerivedKeys": [
+        "max_demands_1h",
+        "max_dose_1h_mg"
+      ],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "gpt_injection_smoke_2026_06_15_matrix_route_match_08",
+      "kind": "injection_site",
+      "location": "question",
+      "bank": "gpt-canonical.json",
+      "parentQuestionId": "gpt_injection_smoke_2026_06_15_matrix_route_match_08",
+      "ownerId": "gpt_injection_smoke_2026_06_15_matrix_route_match_08",
+      "carrierQuestionId": "gpt_injection_smoke_2026_06_15_matrix_route_match_08",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/injection_site/index.ts",
+      "proposedTiers": [
+        "spatial-anatomical"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "gpt_injection_smoke_2026_06_15_matrix_subq_cues_07",
+      "kind": "injection_site",
+      "location": "question",
+      "bank": "gpt-canonical.json",
+      "parentQuestionId": "gpt_injection_smoke_2026_06_15_matrix_subq_cues_07",
+      "ownerId": "gpt_injection_smoke_2026_06_15_matrix_subq_cues_07",
+      "carrierQuestionId": "gpt_injection_smoke_2026_06_15_matrix_subq_cues_07",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/injection_site/index.ts",
+      "proposedTiers": [
+        "spatial-anatomical"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "gpt_injection_smoke_2026_06_15_mc_intradermal_01",
+      "kind": "injection_site",
+      "location": "question",
+      "bank": "gpt-canonical.json",
+      "parentQuestionId": "gpt_injection_smoke_2026_06_15_mc_intradermal_01",
+      "ownerId": "gpt_injection_smoke_2026_06_15_mc_intradermal_01",
+      "carrierQuestionId": "gpt_injection_smoke_2026_06_15_mc_intradermal_01",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/injection_site/index.ts",
+      "proposedTiers": [
+        "spatial-anatomical"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "gpt_injection_smoke_2026_06_15_mc_intramuscular_03",
+      "kind": "injection_site",
+      "location": "question",
+      "bank": "gpt-canonical.json",
+      "parentQuestionId": "gpt_injection_smoke_2026_06_15_mc_intramuscular_03",
+      "ownerId": "gpt_injection_smoke_2026_06_15_mc_intramuscular_03",
+      "carrierQuestionId": "gpt_injection_smoke_2026_06_15_mc_intramuscular_03",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/injection_site/index.ts",
+      "proposedTiers": [
+        "spatial-anatomical"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "gpt_injection_smoke_2026_06_15_mc_intravenous_04",
+      "kind": "injection_site",
+      "location": "question",
+      "bank": "gpt-canonical.json",
+      "parentQuestionId": "gpt_injection_smoke_2026_06_15_mc_intravenous_04",
+      "ownerId": "gpt_injection_smoke_2026_06_15_mc_intravenous_04",
+      "carrierQuestionId": "gpt_injection_smoke_2026_06_15_mc_intravenous_04",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/injection_site/index.ts",
+      "proposedTiers": [
+        "spatial-anatomical"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "gpt_injection_smoke_2026_06_15_mc_layer_highlight_05",
+      "kind": "injection_site",
+      "location": "question",
+      "bank": "gpt-canonical.json",
+      "parentQuestionId": "gpt_injection_smoke_2026_06_15_mc_layer_highlight_05",
+      "ownerId": "gpt_injection_smoke_2026_06_15_mc_layer_highlight_05",
+      "carrierQuestionId": "gpt_injection_smoke_2026_06_15_mc_layer_highlight_05",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/injection_site/index.ts",
+      "proposedTiers": [
+        "spatial-anatomical"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "gpt_injection_smoke_2026_06_15_mc_subcutaneous_02",
+      "kind": "injection_site",
+      "location": "question",
+      "bank": "gpt-canonical.json",
+      "parentQuestionId": "gpt_injection_smoke_2026_06_15_mc_subcutaneous_02",
+      "ownerId": "gpt_injection_smoke_2026_06_15_mc_subcutaneous_02",
+      "carrierQuestionId": "gpt_injection_smoke_2026_06_15_mc_subcutaneous_02",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/injection_site/index.ts",
+      "proposedTiers": [
+        "spatial-anatomical"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "gpt_injection_smoke_2026_06_15_sata_im_cues_06",
+      "kind": "injection_site",
+      "location": "question",
+      "bank": "gpt-canonical.json",
+      "parentQuestionId": "gpt_injection_smoke_2026_06_15_sata_im_cues_06",
+      "ownerId": "gpt_injection_smoke_2026_06_15_sata_im_cues_06",
+      "carrierQuestionId": "gpt_injection_smoke_2026_06_15_sata_im_cues_06",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/injection_site/index.ts",
+      "proposedTiers": [
+        "spatial-anatomical"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "gpt_stroke_2026_06_16_case_acute_ischemic_stroke_warfarin_01#ex1",
+      "kind": "rhythm_strip",
+      "location": "caseExhibit",
+      "bank": "hard-cases-canonical.json",
+      "parentQuestionId": "gpt_stroke_2026_06_16_case_acute_ischemic_stroke_warfarin_01",
+      "ownerId": "gpt_stroke_2026_06_16_case_acute_ischemic_stroke_warfarin_01",
+      "carrierQuestionId": "gpt_stroke_2026_06_16_case_acute_ischemic_stroke_warfarin_01",
+      "carrierRoute": "parent-case-container",
+      "rendererModule": "src/visuals/kinds/rhythmStrip/index.ts",
+      "proposedTiers": [
+        "calibrated-tracing"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "gpt_u3_labtrend_2026_06_09_b_cloze_inr_amiodarone_09",
+      "kind": "lab_trend",
+      "location": "question",
+      "bank": "lab-canonical.json",
+      "parentQuestionId": "gpt_u3_labtrend_2026_06_09_b_cloze_inr_amiodarone_09",
+      "ownerId": "gpt_u3_labtrend_2026_06_09_b_cloze_inr_amiodarone_09",
+      "carrierQuestionId": "gpt_u3_labtrend_2026_06_09_b_cloze_inr_amiodarone_09",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/lab_trend/index.ts",
+      "proposedTiers": [
+        "chart-trend"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "gpt_u3_labtrend_2026_06_09_b_cloze_sodium_overcorrection_08",
+      "kind": "lab_trend",
+      "location": "question",
+      "bank": "lab-canonical.json",
+      "parentQuestionId": "gpt_u3_labtrend_2026_06_09_b_cloze_sodium_overcorrection_08",
+      "ownerId": "gpt_u3_labtrend_2026_06_09_b_cloze_sodium_overcorrection_08",
+      "carrierQuestionId": "gpt_u3_labtrend_2026_06_09_b_cloze_sodium_overcorrection_08",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/lab_trend/index.ts",
+      "proposedTiers": [
+        "chart-trend"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "gpt_u3_labtrend_2026_06_09_b_fib_creatinine_increase_10",
+      "kind": "lab_trend",
+      "location": "question",
+      "bank": "lab-canonical.json",
+      "parentQuestionId": "gpt_u3_labtrend_2026_06_09_b_fib_creatinine_increase_10",
+      "ownerId": "gpt_u3_labtrend_2026_06_09_b_fib_creatinine_increase_10",
+      "carrierQuestionId": "gpt_u3_labtrend_2026_06_09_b_fib_creatinine_increase_10",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/lab_trend/index.ts",
+      "proposedTiers": [
+        "chart-trend"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "gpt_u3_labtrend_2026_06_09_b_matrix_dka_potassium_glucose_04",
+      "kind": "lab_trend",
+      "location": "question",
+      "bank": "lab-canonical.json",
+      "parentQuestionId": "gpt_u3_labtrend_2026_06_09_b_matrix_dka_potassium_glucose_04",
+      "ownerId": "gpt_u3_labtrend_2026_06_09_b_matrix_dka_potassium_glucose_04",
+      "carrierQuestionId": "gpt_u3_labtrend_2026_06_09_b_matrix_dka_potassium_glucose_04",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/lab_trend/index.ts",
+      "proposedTiers": [
+        "chart-trend"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "gpt_u3_labtrend_2026_06_09_b_matrix_neutropenia_wbc_05",
+      "kind": "lab_trend",
+      "location": "question",
+      "bank": "lab-canonical.json",
+      "parentQuestionId": "gpt_u3_labtrend_2026_06_09_b_matrix_neutropenia_wbc_05",
+      "ownerId": "gpt_u3_labtrend_2026_06_09_b_matrix_neutropenia_wbc_05",
+      "carrierQuestionId": "gpt_u3_labtrend_2026_06_09_b_matrix_neutropenia_wbc_05",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/lab_trend/index.ts",
+      "proposedTiers": [
+        "chart-trend"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "gpt_u3_labtrend_2026_06_09_b_mc_lactate_worsening_03",
+      "kind": "lab_trend",
+      "location": "question",
+      "bank": "lab-canonical.json",
+      "parentQuestionId": "gpt_u3_labtrend_2026_06_09_b_mc_lactate_worsening_03",
+      "ownerId": "gpt_u3_labtrend_2026_06_09_b_mc_lactate_worsening_03",
+      "carrierQuestionId": "gpt_u3_labtrend_2026_06_09_b_mc_lactate_worsening_03",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/lab_trend/index.ts",
+      "proposedTiers": [
+        "chart-trend"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "gpt_u3_labtrend_2026_06_09_b_mc_platelets_heparin_01",
+      "kind": "lab_trend",
+      "location": "question",
+      "bank": "lab-canonical.json",
+      "parentQuestionId": "gpt_u3_labtrend_2026_06_09_b_mc_platelets_heparin_01",
+      "ownerId": "gpt_u3_labtrend_2026_06_09_b_mc_platelets_heparin_01",
+      "carrierQuestionId": "gpt_u3_labtrend_2026_06_09_b_mc_platelets_heparin_01",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/lab_trend/index.ts",
+      "proposedTiers": [
+        "chart-trend"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "gpt_u3_labtrend_2026_06_09_b_mc_ptt_heparin_infusion_02",
+      "kind": "lab_trend",
+      "location": "question",
+      "bank": "lab-canonical.json",
+      "parentQuestionId": "gpt_u3_labtrend_2026_06_09_b_mc_ptt_heparin_infusion_02",
+      "ownerId": "gpt_u3_labtrend_2026_06_09_b_mc_ptt_heparin_infusion_02",
+      "carrierQuestionId": "gpt_u3_labtrend_2026_06_09_b_mc_ptt_heparin_infusion_02",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/lab_trend/index.ts",
+      "proposedTiers": [
+        "chart-trend"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "gpt_u3_labtrend_2026_06_09_b_or_gi_bleed_hgb_06",
+      "kind": "lab_trend",
+      "location": "question",
+      "bank": "lab-canonical.json",
+      "parentQuestionId": "gpt_u3_labtrend_2026_06_09_b_or_gi_bleed_hgb_06",
+      "ownerId": "gpt_u3_labtrend_2026_06_09_b_or_gi_bleed_hgb_06",
+      "carrierQuestionId": "gpt_u3_labtrend_2026_06_09_b_or_gi_bleed_hgb_06",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/lab_trend/index.ts",
+      "proposedTiers": [
+        "chart-trend"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "gpt_u3_labtrend_2026_06_09_b_or_hypercalcemia_progression_07",
+      "kind": "lab_trend",
+      "location": "question",
+      "bank": "lab-canonical.json",
+      "parentQuestionId": "gpt_u3_labtrend_2026_06_09_b_or_hypercalcemia_progression_07",
+      "ownerId": "gpt_u3_labtrend_2026_06_09_b_or_hypercalcemia_progression_07",
+      "carrierQuestionId": "gpt_u3_labtrend_2026_06_09_b_or_hypercalcemia_progression_07",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/lab_trend/index.ts",
+      "proposedTiers": [
+        "chart-trend"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "gpt_u3_labtrend_2026_06_09_cloze_calcium_thyroidectomy_09",
+      "kind": "lab_trend",
+      "location": "question",
+      "bank": "lab-canonical.json",
+      "parentQuestionId": "gpt_u3_labtrend_2026_06_09_cloze_calcium_thyroidectomy_09",
+      "ownerId": "gpt_u3_labtrend_2026_06_09_cloze_calcium_thyroidectomy_09",
+      "carrierQuestionId": "gpt_u3_labtrend_2026_06_09_cloze_calcium_thyroidectomy_09",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/lab_trend/index.ts",
+      "proposedTiers": [
+        "chart-trend"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "gpt_u3_labtrend_2026_06_09_cloze_magnesium_decline_08",
+      "kind": "lab_trend",
+      "location": "question",
+      "bank": "lab-canonical.json",
+      "parentQuestionId": "gpt_u3_labtrend_2026_06_09_cloze_magnesium_decline_08",
+      "ownerId": "gpt_u3_labtrend_2026_06_09_cloze_magnesium_decline_08",
+      "carrierQuestionId": "gpt_u3_labtrend_2026_06_09_cloze_magnesium_decline_08",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/lab_trend/index.ts",
+      "proposedTiers": [
+        "chart-trend"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "gpt_u3_labtrend_2026_06_09_fib_hemoglobin_drop_10",
+      "kind": "lab_trend",
+      "location": "question",
+      "bank": "lab-canonical.json",
+      "parentQuestionId": "gpt_u3_labtrend_2026_06_09_fib_hemoglobin_drop_10",
+      "ownerId": "gpt_u3_labtrend_2026_06_09_fib_hemoglobin_drop_10",
+      "carrierQuestionId": "gpt_u3_labtrend_2026_06_09_fib_hemoglobin_drop_10",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/lab_trend/index.ts",
+      "proposedTiers": [
+        "chart-trend"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "gpt_u3_labtrend_2026_06_09_matrix_inr_platelets_warfarin_05",
+      "kind": "lab_trend",
+      "location": "question",
+      "bank": "lab-canonical.json",
+      "parentQuestionId": "gpt_u3_labtrend_2026_06_09_matrix_inr_platelets_warfarin_05",
+      "ownerId": "gpt_u3_labtrend_2026_06_09_matrix_inr_platelets_warfarin_05",
+      "carrierQuestionId": "gpt_u3_labtrend_2026_06_09_matrix_inr_platelets_warfarin_05",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/lab_trend/index.ts",
+      "proposedTiers": [
+        "chart-trend"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "gpt_u3_labtrend_2026_06_09_matrix_sepsis_lactate_wbc_04",
+      "kind": "lab_trend",
+      "location": "question",
+      "bank": "lab-canonical.json",
+      "parentQuestionId": "gpt_u3_labtrend_2026_06_09_matrix_sepsis_lactate_wbc_04",
+      "ownerId": "gpt_u3_labtrend_2026_06_09_matrix_sepsis_lactate_wbc_04",
+      "carrierQuestionId": "gpt_u3_labtrend_2026_06_09_matrix_sepsis_lactate_wbc_04",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/lab_trend/index.ts",
+      "proposedTiers": [
+        "chart-trend"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "gpt_u3_labtrend_2026_06_09_mc_creatinine_gentamicin_03",
+      "kind": "lab_trend",
+      "location": "question",
+      "bank": "lab-canonical.json",
+      "parentQuestionId": "gpt_u3_labtrend_2026_06_09_mc_creatinine_gentamicin_03",
+      "ownerId": "gpt_u3_labtrend_2026_06_09_mc_creatinine_gentamicin_03",
+      "carrierQuestionId": "gpt_u3_labtrend_2026_06_09_mc_creatinine_gentamicin_03",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/lab_trend/index.ts",
+      "proposedTiers": [
+        "chart-trend"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "gpt_u3_labtrend_2026_06_09_mc_potassium_furosemide_01",
+      "kind": "lab_trend",
+      "location": "question",
+      "bank": "lab-canonical.json",
+      "parentQuestionId": "gpt_u3_labtrend_2026_06_09_mc_potassium_furosemide_01",
+      "ownerId": "gpt_u3_labtrend_2026_06_09_mc_potassium_furosemide_01",
+      "carrierQuestionId": "gpt_u3_labtrend_2026_06_09_mc_potassium_furosemide_01",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/lab_trend/index.ts",
+      "proposedTiers": [
+        "chart-trend"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "gpt_u3_labtrend_2026_06_09_mc_sodium_decline_02",
+      "kind": "lab_trend",
+      "location": "question",
+      "bank": "lab-canonical.json",
+      "parentQuestionId": "gpt_u3_labtrend_2026_06_09_mc_sodium_decline_02",
+      "ownerId": "gpt_u3_labtrend_2026_06_09_mc_sodium_decline_02",
+      "carrierQuestionId": "gpt_u3_labtrend_2026_06_09_mc_sodium_decline_02",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/lab_trend/index.ts",
+      "proposedTiers": [
+        "chart-trend"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "gpt_u3_labtrend_2026_06_09_or_aki_fluid_response_07",
+      "kind": "lab_trend",
+      "location": "question",
+      "bank": "lab-canonical.json",
+      "parentQuestionId": "gpt_u3_labtrend_2026_06_09_or_aki_fluid_response_07",
+      "ownerId": "gpt_u3_labtrend_2026_06_09_or_aki_fluid_response_07",
+      "carrierQuestionId": "gpt_u3_labtrend_2026_06_09_or_aki_fluid_response_07",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/lab_trend/index.ts",
+      "proposedTiers": [
+        "chart-trend"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "gpt_u3_labtrend_2026_06_09_or_hyperkalemia_progression_06",
+      "kind": "lab_trend",
+      "location": "question",
+      "bank": "lab-canonical.json",
+      "parentQuestionId": "gpt_u3_labtrend_2026_06_09_or_hyperkalemia_progression_06",
+      "ownerId": "gpt_u3_labtrend_2026_06_09_or_hyperkalemia_progression_06",
+      "carrierQuestionId": "gpt_u3_labtrend_2026_06_09_or_hyperkalemia_progression_06",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/lab_trend/index.ts",
+      "proposedTiers": [
+        "chart-trend"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "gpt_visual_smoke_2026_06_12_fib_burn_parkland_rate_01",
+      "kind": "burn_map",
+      "location": "question",
+      "bank": "gpt-canonical.json",
+      "parentQuestionId": "gpt_visual_smoke_2026_06_12_fib_burn_parkland_rate_01",
+      "ownerId": "gpt_visual_smoke_2026_06_12_fib_burn_parkland_rate_01",
+      "carrierQuestionId": "gpt_visual_smoke_2026_06_12_fib_burn_parkland_rate_01",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/burn_map/index.ts",
+      "proposedTiers": [
+        "load-bearing-arithmetic",
+        "spatial-anatomical"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": true,
+      "recognizedProofSurfaces": [
+        "derived_values_keyed"
+      ],
+      "recognizedDerivedKeys": [
+        "parkland_first8h_ml",
+        "parkland_rate_first8h_ml_hr",
+        "parkland_total_ml",
+        "tbsa_pct"
+      ],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "gpt_visual_smoke_2026_06_12_fib_device_enteral_duration_10",
+      "kind": "device_screen",
+      "location": "question",
+      "bank": "gpt-canonical.json",
+      "parentQuestionId": "gpt_visual_smoke_2026_06_12_fib_device_enteral_duration_10",
+      "ownerId": "gpt_visual_smoke_2026_06_12_fib_device_enteral_duration_10",
+      "carrierQuestionId": "gpt_visual_smoke_2026_06_12_fib_device_enteral_duration_10",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/device_screen/index.ts",
+      "proposedTiers": [
+        "load-bearing-arithmetic"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": true,
+      "recognizedProofSurfaces": [
+        "derived_values_keyed",
+        "keyed_settings"
+      ],
+      "recognizedDerivedKeys": [
+        "infusion_duration_min"
+      ],
+      "recognizedKeyedSettings": [
+        "rate_ml_hr",
+        "vtbi_ml"
+      ],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "gpt_visual_smoke_2026_06_12_fib_io_net_balance_04",
+      "kind": "io_record",
+      "location": "question",
+      "bank": "gpt-canonical.json",
+      "parentQuestionId": "gpt_visual_smoke_2026_06_12_fib_io_net_balance_04",
+      "ownerId": "gpt_visual_smoke_2026_06_12_fib_io_net_balance_04",
+      "carrierQuestionId": "gpt_visual_smoke_2026_06_12_fib_io_net_balance_04",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/io_record/index.ts",
+      "proposedTiers": [
+        "load-bearing-arithmetic"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": true,
+      "recognizedProofSurfaces": [
+        "derived_values_keyed"
+      ],
+      "recognizedDerivedKeys": [
+        "intake_total_ml",
+        "net_balance_ml",
+        "output_total_ml"
+      ],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "gpt_visual_smoke_2026_06_12_fib_medlabel_heparin_rate_07",
+      "kind": "medication_label",
+      "location": "question",
+      "bank": "gpt-canonical.json",
+      "parentQuestionId": "gpt_visual_smoke_2026_06_12_fib_medlabel_heparin_rate_07",
+      "ownerId": "gpt_visual_smoke_2026_06_12_fib_medlabel_heparin_rate_07",
+      "carrierQuestionId": "gpt_visual_smoke_2026_06_12_fib_medlabel_heparin_rate_07",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/medication_label/index.ts",
+      "proposedTiers": [
+        "load-bearing-arithmetic"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": true,
+      "recognizedProofSurfaces": [
+        "derived_values_keyed"
+      ],
+      "recognizedDerivedKeys": [
+        "concentration_per_ml",
+        "rate_ml_per_hr"
+      ],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "gpt_visual_smoke_2026_06_12_matrix_device_pca_basal_09",
+      "kind": "device_screen",
+      "location": "question",
+      "bank": "gpt-canonical.json",
+      "parentQuestionId": "gpt_visual_smoke_2026_06_12_matrix_device_pca_basal_09",
+      "ownerId": "gpt_visual_smoke_2026_06_12_matrix_device_pca_basal_09",
+      "carrierQuestionId": "gpt_visual_smoke_2026_06_12_matrix_device_pca_basal_09",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/device_screen/index.ts",
+      "proposedTiers": [
+        "load-bearing-arithmetic"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": true,
+      "recognizedProofSurfaces": [
+        "derived_values_keyed",
+        "keyed_settings"
+      ],
+      "recognizedDerivedKeys": [
+        "max_demands_1h",
+        "max_dose_1h_mg"
+      ],
+      "recognizedKeyedSettings": [
+        "basal_rate"
+      ],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "gpt_visual_smoke_2026_06_12_matrix_io_totals_06",
+      "kind": "io_record",
+      "location": "question",
+      "bank": "gpt-canonical.json",
+      "parentQuestionId": "gpt_visual_smoke_2026_06_12_matrix_io_totals_06",
+      "ownerId": "gpt_visual_smoke_2026_06_12_matrix_io_totals_06",
+      "carrierQuestionId": "gpt_visual_smoke_2026_06_12_matrix_io_totals_06",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/io_record/index.ts",
+      "proposedTiers": [
+        "load-bearing-arithmetic"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": true,
+      "recognizedProofSurfaces": [
+        "derived_values_keyed"
+      ],
+      "recognizedDerivedKeys": [
+        "intake_total_ml",
+        "net_balance_ml",
+        "output_total_ml"
+      ],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "gpt_visual_smoke_2026_06_12_mc_burn_tbsa_02",
+      "kind": "burn_map",
+      "location": "question",
+      "bank": "gpt-canonical.json",
+      "parentQuestionId": "gpt_visual_smoke_2026_06_12_mc_burn_tbsa_02",
+      "ownerId": "gpt_visual_smoke_2026_06_12_mc_burn_tbsa_02",
+      "carrierQuestionId": "gpt_visual_smoke_2026_06_12_mc_burn_tbsa_02",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/burn_map/index.ts",
+      "proposedTiers": [
+        "load-bearing-arithmetic",
+        "spatial-anatomical"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": true,
+      "recognizedProofSurfaces": [
+        "derived_values_keyed"
+      ],
+      "recognizedDerivedKeys": [
+        "tbsa_pct"
+      ],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "gpt_visual_smoke_2026_06_12_mc_io_output_total_05",
+      "kind": "io_record",
+      "location": "question",
+      "bank": "gpt-canonical.json",
+      "parentQuestionId": "gpt_visual_smoke_2026_06_12_mc_io_output_total_05",
+      "ownerId": "gpt_visual_smoke_2026_06_12_mc_io_output_total_05",
+      "carrierQuestionId": "gpt_visual_smoke_2026_06_12_mc_io_output_total_05",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/io_record/index.ts",
+      "proposedTiers": [
+        "load-bearing-arithmetic"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": true,
+      "recognizedProofSurfaces": [
+        "derived_values_keyed"
+      ],
+      "recognizedDerivedKeys": [
+        "intake_total_ml",
+        "net_balance_ml",
+        "output_total_ml"
+      ],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "gpt_visual_smoke_2026_06_12_mc_medlabel_tablet_quantity_08",
+      "kind": "medication_label",
+      "location": "question",
+      "bank": "gpt-canonical.json",
+      "parentQuestionId": "gpt_visual_smoke_2026_06_12_mc_medlabel_tablet_quantity_08",
+      "ownerId": "gpt_visual_smoke_2026_06_12_mc_medlabel_tablet_quantity_08",
+      "carrierQuestionId": "gpt_visual_smoke_2026_06_12_mc_medlabel_tablet_quantity_08",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/medication_label/index.ts",
+      "proposedTiers": [
+        "load-bearing-arithmetic"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": true,
+      "recognizedProofSurfaces": [
+        "derived_values_keyed"
+      ],
+      "recognizedDerivedKeys": [
+        "quantity_to_administer_tablets"
+      ],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "io_fib_hf_net_balance_01",
+      "kind": "io_record",
+      "location": "question",
+      "bank": "io-canonical.json",
+      "parentQuestionId": "io_fib_hf_net_balance_01",
+      "ownerId": "io_fib_hf_net_balance_01",
+      "carrierQuestionId": "io_fib_hf_net_balance_01",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/io_record/index.ts",
+      "proposedTiers": [
+        "load-bearing-arithmetic"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": true,
+      "recognizedProofSurfaces": [
+        "derived_values_keyed"
+      ],
+      "recognizedDerivedKeys": [
+        "intake_total_ml",
+        "net_balance_ml",
+        "output_total_ml"
+      ],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "io_fib_postop_output_total_06",
+      "kind": "io_record",
+      "location": "question",
+      "bank": "io-canonical.json",
+      "parentQuestionId": "io_fib_postop_output_total_06",
+      "ownerId": "io_fib_postop_output_total_06",
+      "carrierQuestionId": "io_fib_postop_output_total_06",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/io_record/index.ts",
+      "proposedTiers": [
+        "load-bearing-arithmetic"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": true,
+      "recognizedProofSurfaces": [
+        "derived_values_keyed"
+      ],
+      "recognizedDerivedKeys": [
+        "intake_total_ml",
+        "net_balance_ml",
+        "output_total_ml"
+      ],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "io_matrix_bowel_prep_deficit_08",
+      "kind": "io_record",
+      "location": "question",
+      "bank": "io-canonical.json",
+      "parentQuestionId": "io_matrix_bowel_prep_deficit_08",
+      "ownerId": "io_matrix_bowel_prep_deficit_08",
+      "carrierQuestionId": "io_matrix_bowel_prep_deficit_08",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/io_record/index.ts",
+      "proposedTiers": [
+        "load-bearing-arithmetic"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": true,
+      "recognizedProofSurfaces": [
+        "derived_values_keyed"
+      ],
+      "recognizedDerivedKeys": [
+        "intake_total_ml",
+        "net_balance_ml",
+        "output_total_ml"
+      ],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "io_matrix_prerenal_aki_recheck_04",
+      "kind": "io_record",
+      "location": "question",
+      "bank": "io-canonical.json",
+      "parentQuestionId": "io_matrix_prerenal_aki_recheck_04",
+      "ownerId": "io_matrix_prerenal_aki_recheck_04",
+      "carrierQuestionId": "io_matrix_prerenal_aki_recheck_04",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/io_record/index.ts",
+      "proposedTiers": [
+        "load-bearing-arithmetic"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": true,
+      "recognizedProofSurfaces": [
+        "derived_values_keyed"
+      ],
+      "recognizedDerivedKeys": [
+        "intake_total_ml",
+        "net_balance_ml",
+        "output_total_ml"
+      ],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "io_mc_postop_retention_priority_05",
+      "kind": "io_record",
+      "location": "question",
+      "bank": "io-canonical.json",
+      "parentQuestionId": "io_mc_postop_retention_priority_05",
+      "ownerId": "io_mc_postop_retention_priority_05",
+      "carrierQuestionId": "io_mc_postop_retention_priority_05",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/io_record/index.ts",
+      "proposedTiers": [
+        "load-bearing-arithmetic"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": true,
+      "recognizedProofSurfaces": [
+        "derived_values_keyed"
+      ],
+      "recognizedDerivedKeys": [
+        "intake_total_ml",
+        "net_balance_ml",
+        "output_total_ml"
+      ],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "io_mc_pulmonary_edema_diuresis_02",
+      "kind": "io_record",
+      "location": "question",
+      "bank": "io-canonical.json",
+      "parentQuestionId": "io_mc_pulmonary_edema_diuresis_02",
+      "ownerId": "io_mc_pulmonary_edema_diuresis_02",
+      "carrierQuestionId": "io_mc_pulmonary_edema_diuresis_02",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/io_record/index.ts",
+      "proposedTiers": [
+        "load-bearing-arithmetic"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": true,
+      "recognizedProofSurfaces": [
+        "derived_values_keyed"
+      ],
+      "recognizedDerivedKeys": [
+        "intake_total_ml",
+        "net_balance_ml",
+        "output_total_ml"
+      ],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "io_sata_ckd_fluid_overload_07",
+      "kind": "io_record",
+      "location": "question",
+      "bank": "io-canonical.json",
+      "parentQuestionId": "io_sata_ckd_fluid_overload_07",
+      "ownerId": "io_sata_ckd_fluid_overload_07",
+      "carrierQuestionId": "io_sata_ckd_fluid_overload_07",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/io_record/index.ts",
+      "proposedTiers": [
+        "load-bearing-arithmetic"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": true,
+      "recognizedProofSurfaces": [
+        "derived_values_keyed"
+      ],
+      "recognizedDerivedKeys": [
+        "intake_total_ml",
+        "net_balance_ml",
+        "output_total_ml"
+      ],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "io_sata_gastroenteritis_deficit_03",
+      "kind": "io_record",
+      "location": "question",
+      "bank": "io-canonical.json",
+      "parentQuestionId": "io_sata_gastroenteritis_deficit_03",
+      "ownerId": "io_sata_gastroenteritis_deficit_03",
+      "carrierQuestionId": "io_sata_gastroenteritis_deficit_03",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/io_record/index.ts",
+      "proposedTiers": [
+        "load-bearing-arithmetic"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": true,
+      "recognizedProofSurfaces": [
+        "derived_values_keyed"
+      ],
+      "recognizedDerivedKeys": [
+        "intake_total_ml",
+        "net_balance_ml",
+        "output_total_ml"
+      ],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "iot_fluid_challenge_output_divergence",
+      "kind": "io_trend",
+      "location": "question",
+      "bank": "visual-canonical.json",
+      "parentQuestionId": "iot_fluid_challenge_output_divergence",
+      "ownerId": "iot_fluid_challenge_output_divergence",
+      "carrierQuestionId": "iot_fluid_challenge_output_divergence",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/io_trend/index.ts",
+      "proposedTiers": [
+        "load-bearing-arithmetic",
+        "chart-trend"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": true,
+      "recognizedProofSurfaces": [
+        "derived_values_keyed",
+        "expected_trend"
+      ],
+      "recognizedDerivedKeys": [
+        "cumulative_net_ml",
+        "final_cumulative_net_ml",
+        "net_by_interval_ml"
+      ],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 1,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "iot_furosemide_late_partial_reversal",
+      "kind": "io_trend",
+      "location": "question",
+      "bank": "visual-canonical.json",
+      "parentQuestionId": "iot_furosemide_late_partial_reversal",
+      "ownerId": "iot_furosemide_late_partial_reversal",
+      "carrierQuestionId": "iot_furosemide_late_partial_reversal",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/io_trend/index.ts",
+      "proposedTiers": [
+        "load-bearing-arithmetic",
+        "chart-trend"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": true,
+      "recognizedProofSurfaces": [
+        "derived_values_keyed",
+        "expected_trend"
+      ],
+      "recognizedDerivedKeys": [
+        "cumulative_net_ml",
+        "final_cumulative_net_ml",
+        "net_by_interval_ml"
+      ],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 1,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "iot_furosemide_positive_to_negative_crossover",
+      "kind": "io_trend",
+      "location": "question",
+      "bank": "visual-canonical.json",
+      "parentQuestionId": "iot_furosemide_positive_to_negative_crossover",
+      "ownerId": "iot_furosemide_positive_to_negative_crossover",
+      "carrierQuestionId": "iot_furosemide_positive_to_negative_crossover",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/io_trend/index.ts",
+      "proposedTiers": [
+        "load-bearing-arithmetic",
+        "chart-trend"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": true,
+      "recognizedProofSurfaces": [
+        "derived_values_keyed",
+        "expected_trend",
+        "crossover"
+      ],
+      "recognizedDerivedKeys": [
+        "cumulative_net_ml",
+        "final_cumulative_net_ml",
+        "net_by_interval_ml"
+      ],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 1,
+      "recognizedCrossover": true,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "iot_hf_ckd_declining_output",
+      "kind": "io_trend",
+      "location": "question",
+      "bank": "visual-canonical.json",
+      "parentQuestionId": "iot_hf_ckd_declining_output",
+      "ownerId": "iot_hf_ckd_declining_output",
+      "carrierQuestionId": "iot_hf_ckd_declining_output",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/io_trend/index.ts",
+      "proposedTiers": [
+        "load-bearing-arithmetic",
+        "chart-trend"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": true,
+      "recognizedProofSurfaces": [
+        "derived_values_keyed",
+        "expected_trend"
+      ],
+      "recognizedDerivedKeys": [
+        "cumulative_net_ml",
+        "final_cumulative_net_ml",
+        "net_by_interval_ml"
+      ],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 1,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "mar_acetaminophen_duplicate_products_04",
+      "kind": "mar",
+      "location": "question",
+      "bank": "mar-canonical.json",
+      "parentQuestionId": "mar_acetaminophen_duplicate_products_04",
+      "ownerId": "mar_acetaminophen_duplicate_products_04",
+      "carrierQuestionId": "mar_acetaminophen_duplicate_products_04",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/mar/index.ts",
+      "proposedTiers": [
+        "structured-document"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [
+        "keyed_relationship"
+      ],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": true,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "mar_av_nodal_blockers_1600_01",
+      "kind": "mar",
+      "location": "question",
+      "bank": "mar-canonical.json",
+      "parentQuestionId": "mar_av_nodal_blockers_1600_01",
+      "ownerId": "mar_av_nodal_blockers_1600_01",
+      "carrierQuestionId": "mar_av_nodal_blockers_1600_01",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/mar/index.ts",
+      "proposedTiers": [
+        "structured-document"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [
+        "keyed_relationship"
+      ],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": true,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "mar_digoxin_low_pulse_due_08",
+      "kind": "mar",
+      "location": "question",
+      "bank": "mar-canonical.json",
+      "parentQuestionId": "mar_digoxin_low_pulse_due_08",
+      "ownerId": "mar_digoxin_low_pulse_due_08",
+      "carrierQuestionId": "mar_digoxin_low_pulse_due_08",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/mar/index.ts",
+      "proposedTiers": [
+        "structured-document"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [
+        "keyed_cells"
+      ],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": [
+        {
+          "medication": "digoxin",
+          "time": "0900"
+        }
+      ]
+    },
+    {
+      "parityId": "mar_enoxaparin_prior_held_03",
+      "kind": "mar",
+      "location": "question",
+      "bank": "mar-canonical.json",
+      "parentQuestionId": "mar_enoxaparin_prior_held_03",
+      "ownerId": "mar_enoxaparin_prior_held_03",
+      "carrierQuestionId": "mar_enoxaparin_prior_held_03",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/mar/index.ts",
+      "proposedTiers": [
+        "structured-document"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [
+        "keyed_cells"
+      ],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": [
+        {
+          "medication": "enoxaparin",
+          "time": "0600"
+        },
+        {
+          "medication": "enoxaparin",
+          "time": "1800"
+        }
+      ]
+    },
+    {
+      "parityId": "mar_lispro_meal_delayed_02",
+      "kind": "mar",
+      "location": "question",
+      "bank": "mar-canonical.json",
+      "parentQuestionId": "mar_lispro_meal_delayed_02",
+      "ownerId": "mar_lispro_meal_delayed_02",
+      "carrierQuestionId": "mar_lispro_meal_delayed_02",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/mar/index.ts",
+      "proposedTiers": [
+        "structured-document"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [
+        "keyed_cells"
+      ],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": [
+        {
+          "medication": "insulin lispro",
+          "time": "0730"
+        }
+      ]
+    },
+    {
+      "parityId": "mar_missed_antibiotic_followup_07",
+      "kind": "mar",
+      "location": "question",
+      "bank": "mar-canonical.json",
+      "parentQuestionId": "mar_missed_antibiotic_followup_07",
+      "ownerId": "mar_missed_antibiotic_followup_07",
+      "carrierQuestionId": "mar_missed_antibiotic_followup_07",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/mar/index.ts",
+      "proposedTiers": [
+        "structured-document"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [
+        "keyed_cells"
+      ],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": [
+        {
+          "medication": "cefepime",
+          "time": "0600"
+        }
+      ]
+    },
+    {
+      "parityId": "mar_opioid_benzodiazepine_due_05",
+      "kind": "mar",
+      "location": "question",
+      "bank": "mar-canonical.json",
+      "parentQuestionId": "mar_opioid_benzodiazepine_due_05",
+      "ownerId": "mar_opioid_benzodiazepine_due_05",
+      "carrierQuestionId": "mar_opioid_benzodiazepine_due_05",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/mar/index.ts",
+      "proposedTiers": [
+        "structured-document"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [
+        "keyed_relationship"
+      ],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": true,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "mar_warfarin_antibiotic_bleeding_06",
+      "kind": "mar",
+      "location": "question",
+      "bank": "mar-canonical.json",
+      "parentQuestionId": "mar_warfarin_antibiotic_bleeding_06",
+      "ownerId": "mar_warfarin_antibiotic_bleeding_06",
+      "carrierQuestionId": "mar_warfarin_antibiotic_bleeding_06",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/mar/index.ts",
+      "proposedTiers": [
+        "structured-document"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [
+        "keyed_relationship"
+      ],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": true,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "medlbl_cephalexin_capsules_006",
+      "kind": "medication_label",
+      "location": "question",
+      "bank": "medlabel-canonical.json",
+      "parentQuestionId": "medlbl_cephalexin_capsules_006",
+      "ownerId": "medlbl_cephalexin_capsules_006",
+      "carrierQuestionId": "medlbl_cephalexin_capsules_006",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/medication_label/index.ts",
+      "proposedTiers": [
+        "load-bearing-arithmetic"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": true,
+      "recognizedProofSurfaces": [
+        "derived_values_keyed"
+      ],
+      "recognizedDerivedKeys": [
+        "quantity_to_administer_capsules"
+      ],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "medlbl_digoxin_tablets_005",
+      "kind": "medication_label",
+      "location": "question",
+      "bank": "medlabel-canonical.json",
+      "parentQuestionId": "medlbl_digoxin_tablets_005",
+      "ownerId": "medlbl_digoxin_tablets_005",
+      "carrierQuestionId": "medlbl_digoxin_tablets_005",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/medication_label/index.ts",
+      "proposedTiers": [
+        "load-bearing-arithmetic"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": true,
+      "recognizedProofSurfaces": [
+        "derived_values_keyed"
+      ],
+      "recognizedDerivedKeys": [
+        "quantity_to_administer_tablets"
+      ],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "medlbl_enoxaparin_volume_004",
+      "kind": "medication_label",
+      "location": "question",
+      "bank": "medlabel-canonical.json",
+      "parentQuestionId": "medlbl_enoxaparin_volume_004",
+      "ownerId": "medlbl_enoxaparin_volume_004",
+      "carrierQuestionId": "medlbl_enoxaparin_volume_004",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/medication_label/index.ts",
+      "proposedTiers": [
+        "load-bearing-arithmetic"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": true,
+      "recognizedProofSurfaces": [
+        "derived_values_keyed"
+      ],
+      "recognizedDerivedKeys": [
+        "concentration_per_ml",
+        "volume_to_administer_ml"
+      ],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "medlbl_furosemide_matrix_007",
+      "kind": "medication_label",
+      "location": "question",
+      "bank": "medlabel-canonical.json",
+      "parentQuestionId": "medlbl_furosemide_matrix_007",
+      "ownerId": "medlbl_furosemide_matrix_007",
+      "carrierQuestionId": "medlbl_furosemide_matrix_007",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/medication_label/index.ts",
+      "proposedTiers": [
+        "load-bearing-arithmetic"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": true,
+      "recognizedProofSurfaces": [
+        "derived_values_keyed"
+      ],
+      "recognizedDerivedKeys": [
+        "concentration_per_ml",
+        "volume_to_administer_ml"
+      ],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "medlbl_heparin_infusion_rate_001",
+      "kind": "medication_label",
+      "location": "question",
+      "bank": "medlabel-canonical.json",
+      "parentQuestionId": "medlbl_heparin_infusion_rate_001",
+      "ownerId": "medlbl_heparin_infusion_rate_001",
+      "carrierQuestionId": "medlbl_heparin_infusion_rate_001",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/medication_label/index.ts",
+      "proposedTiers": [
+        "load-bearing-arithmetic"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": true,
+      "recognizedProofSurfaces": [
+        "derived_values_keyed"
+      ],
+      "recognizedDerivedKeys": [
+        "concentration_per_ml",
+        "rate_ml_per_hr"
+      ],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "medlbl_morphine_iv_volume_002",
+      "kind": "medication_label",
+      "location": "question",
+      "bank": "medlabel-canonical.json",
+      "parentQuestionId": "medlbl_morphine_iv_volume_002",
+      "ownerId": "medlbl_morphine_iv_volume_002",
+      "carrierQuestionId": "medlbl_morphine_iv_volume_002",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/medication_label/index.ts",
+      "proposedTiers": [
+        "load-bearing-arithmetic"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": true,
+      "recognizedProofSurfaces": [
+        "derived_values_keyed"
+      ],
+      "recognizedDerivedKeys": [
+        "concentration_per_ml",
+        "volume_to_administer_ml"
+      ],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "medlbl_potassium_chloride_rate_003",
+      "kind": "medication_label",
+      "location": "question",
+      "bank": "medlabel-canonical.json",
+      "parentQuestionId": "medlbl_potassium_chloride_rate_003",
+      "ownerId": "medlbl_potassium_chloride_rate_003",
+      "carrierQuestionId": "medlbl_potassium_chloride_rate_003",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/medication_label/index.ts",
+      "proposedTiers": [
+        "load-bearing-arithmetic"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": true,
+      "recognizedProofSurfaces": [
+        "derived_values_keyed"
+      ],
+      "recognizedDerivedKeys": [
+        "rate_ml_per_hr"
+      ],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "medlbl_regular_insulin_volume_008",
+      "kind": "medication_label",
+      "location": "question",
+      "bank": "medlabel-canonical.json",
+      "parentQuestionId": "medlbl_regular_insulin_volume_008",
+      "ownerId": "medlbl_regular_insulin_volume_008",
+      "carrierQuestionId": "medlbl_regular_insulin_volume_008",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/medication_label/index.ts",
+      "proposedTiers": [
+        "load-bearing-arithmetic"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": true,
+      "recognizedProofSurfaces": [
+        "derived_values_keyed"
+      ],
+      "recognizedDerivedKeys": [
+        "concentration_per_ml",
+        "volume_to_administer_ml"
+      ],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "opus26_case_refeeding_syndrome_01_q3",
+      "kind": "rhythm_strip",
+      "location": "caseQuestion",
+      "bank": "claude-canonical.json",
+      "parentQuestionId": "opus26_case_refeeding_syndrome_01",
+      "ownerId": "opus26_case_refeeding_syndrome_01_q3",
+      "carrierQuestionId": "opus26_case_refeeding_syndrome_01_q3",
+      "carrierRoute": "embedded-leaf",
+      "rendererModule": "src/visuals/kinds/rhythmStrip/index.ts",
+      "proposedTiers": [
+        "calibrated-tracing"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "opus26_case_refeeding_syndrome_01_q5",
+      "kind": "rhythm_strip",
+      "location": "caseQuestion",
+      "bank": "claude-canonical.json",
+      "parentQuestionId": "opus26_case_refeeding_syndrome_01",
+      "ownerId": "opus26_case_refeeding_syndrome_01_q5",
+      "carrierQuestionId": "opus26_case_refeeding_syndrome_01_q5",
+      "carrierRoute": "embedded-leaf",
+      "rendererModule": "src/visuals/kinds/rhythmStrip/index.ts",
+      "proposedTiers": [
+        "calibrated-tracing"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "rhy_afib_001",
+      "kind": "rhythm_strip",
+      "location": "question",
+      "bank": "visual-canonical.json",
+      "parentQuestionId": "rhy_afib_001",
+      "ownerId": "rhy_afib_001",
+      "carrierQuestionId": "rhy_afib_001",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/rhythmStrip/index.ts",
+      "proposedTiers": [
+        "calibrated-tracing"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "rhy_sinus_brady_001",
+      "kind": "rhythm_strip",
+      "location": "question",
+      "bank": "visual-canonical.json",
+      "parentQuestionId": "rhy_sinus_brady_001",
+      "ownerId": "rhy_sinus_brady_001",
+      "carrierQuestionId": "rhy_sinus_brady_001",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/rhythmStrip/index.ts",
+      "proposedTiers": [
+        "calibrated-tracing"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "rhy_vtach_001",
+      "kind": "rhythm_strip",
+      "location": "question",
+      "bank": "visual-canonical.json",
+      "parentQuestionId": "rhy_vtach_001",
+      "ownerId": "rhy_vtach_001",
+      "carrierQuestionId": "rhy_vtach_001",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/rhythmStrip/index.ts",
+      "proposedTiers": [
+        "calibrated-tracing"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "vit_01",
+      "kind": "vitals_trend",
+      "location": "question",
+      "bank": "vitals-canonical.json",
+      "parentQuestionId": "vit_01",
+      "ownerId": "vit_01",
+      "carrierQuestionId": "vit_01",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/vitals_trend/index.ts",
+      "proposedTiers": [
+        "chart-trend"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "vit_02",
+      "kind": "vitals_trend",
+      "location": "question",
+      "bank": "vitals-canonical.json",
+      "parentQuestionId": "vit_02",
+      "ownerId": "vit_02",
+      "carrierQuestionId": "vit_02",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/vitals_trend/index.ts",
+      "proposedTiers": [
+        "chart-trend"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "vit_03",
+      "kind": "vitals_trend",
+      "location": "question",
+      "bank": "vitals-canonical.json",
+      "parentQuestionId": "vit_03",
+      "ownerId": "vit_03",
+      "carrierQuestionId": "vit_03",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/vitals_trend/index.ts",
+      "proposedTiers": [
+        "chart-trend"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "vit_04",
+      "kind": "vitals_trend",
+      "location": "question",
+      "bank": "vitals-canonical.json",
+      "parentQuestionId": "vit_04",
+      "ownerId": "vit_04",
+      "carrierQuestionId": "vit_04",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/vitals_trend/index.ts",
+      "proposedTiers": [
+        "chart-trend"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "vit_05",
+      "kind": "vitals_trend",
+      "location": "question",
+      "bank": "vitals-canonical.json",
+      "parentQuestionId": "vit_05",
+      "ownerId": "vit_05",
+      "carrierQuestionId": "vit_05",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/vitals_trend/index.ts",
+      "proposedTiers": [
+        "chart-trend"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "vit_06",
+      "kind": "vitals_trend",
+      "location": "question",
+      "bank": "vitals-canonical.json",
+      "parentQuestionId": "vit_06",
+      "ownerId": "vit_06",
+      "carrierQuestionId": "vit_06",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/vitals_trend/index.ts",
+      "proposedTiers": [
+        "chart-trend"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "vit_07",
+      "kind": "vitals_trend",
+      "location": "question",
+      "bank": "vitals-canonical.json",
+      "parentQuestionId": "vit_07",
+      "ownerId": "vit_07",
+      "carrierQuestionId": "vit_07",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/vitals_trend/index.ts",
+      "proposedTiers": [
+        "chart-trend"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "vit_08",
+      "kind": "vitals_trend",
+      "location": "question",
+      "bank": "vitals-canonical.json",
+      "parentQuestionId": "vit_08",
+      "ownerId": "vit_08",
+      "carrierQuestionId": "vit_08",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/vitals_trend/index.ts",
+      "proposedTiers": [
+        "chart-trend"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "vit_09",
+      "kind": "vitals_trend",
+      "location": "question",
+      "bank": "vitals-canonical.json",
+      "parentQuestionId": "vit_09",
+      "ownerId": "vit_09",
+      "carrierQuestionId": "vit_09",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/vitals_trend/index.ts",
+      "proposedTiers": [
+        "chart-trend"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "vit_10",
+      "kind": "vitals_trend",
+      "location": "question",
+      "bank": "vitals-canonical.json",
+      "parentQuestionId": "vit_10",
+      "ownerId": "vit_10",
+      "carrierQuestionId": "vit_10",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/vitals_trend/index.ts",
+      "proposedTiers": [
+        "chart-trend"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "vit_gpt_2026_07_02_t01_001",
+      "kind": "vitals_trend",
+      "location": "question",
+      "bank": "gpt-canonical.json",
+      "parentQuestionId": "vit_gpt_2026_07_02_t01_001",
+      "ownerId": "vit_gpt_2026_07_02_t01_001",
+      "carrierQuestionId": "vit_gpt_2026_07_02_t01_001",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/vitals_trend/index.ts",
+      "proposedTiers": [
+        "chart-trend"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "vit_gpt_2026_07_02_t01_002",
+      "kind": "vitals_trend",
+      "location": "question",
+      "bank": "gpt-canonical.json",
+      "parentQuestionId": "vit_gpt_2026_07_02_t01_002",
+      "ownerId": "vit_gpt_2026_07_02_t01_002",
+      "carrierQuestionId": "vit_gpt_2026_07_02_t01_002",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/vitals_trend/index.ts",
+      "proposedTiers": [
+        "chart-trend"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "vit_gpt_2026_07_02_t01_003",
+      "kind": "vitals_trend",
+      "location": "question",
+      "bank": "gpt-canonical.json",
+      "parentQuestionId": "vit_gpt_2026_07_02_t01_003",
+      "ownerId": "vit_gpt_2026_07_02_t01_003",
+      "carrierQuestionId": "vit_gpt_2026_07_02_t01_003",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/vitals_trend/index.ts",
+      "proposedTiers": [
+        "chart-trend"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "vit_gpt_2026_07_02_t01_004",
+      "kind": "vitals_trend",
+      "location": "question",
+      "bank": "gpt-canonical.json",
+      "parentQuestionId": "vit_gpt_2026_07_02_t01_004",
+      "ownerId": "vit_gpt_2026_07_02_t01_004",
+      "carrierQuestionId": "vit_gpt_2026_07_02_t01_004",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/vitals_trend/index.ts",
+      "proposedTiers": [
+        "chart-trend"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "vit_gpt_2026_07_02_t01_005",
+      "kind": "vitals_trend",
+      "location": "question",
+      "bank": "gpt-canonical.json",
+      "parentQuestionId": "vit_gpt_2026_07_02_t01_005",
+      "ownerId": "vit_gpt_2026_07_02_t01_005",
+      "carrierQuestionId": "vit_gpt_2026_07_02_t01_005",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/vitals_trend/index.ts",
+      "proposedTiers": [
+        "chart-trend"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "vit_gpt_2026_07_02_t01_006",
+      "kind": "vitals_trend",
+      "location": "question",
+      "bank": "gpt-canonical.json",
+      "parentQuestionId": "vit_gpt_2026_07_02_t01_006",
+      "ownerId": "vit_gpt_2026_07_02_t01_006",
+      "carrierQuestionId": "vit_gpt_2026_07_02_t01_006",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/vitals_trend/index.ts",
+      "proposedTiers": [
+        "chart-trend"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "vit_gpt_2026_07_02_t02_001",
+      "kind": "vitals_trend",
+      "location": "question",
+      "bank": "gpt-canonical.json",
+      "parentQuestionId": "vit_gpt_2026_07_02_t02_001",
+      "ownerId": "vit_gpt_2026_07_02_t02_001",
+      "carrierQuestionId": "vit_gpt_2026_07_02_t02_001",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/vitals_trend/index.ts",
+      "proposedTiers": [
+        "chart-trend"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "vit_gpt_2026_07_02_t02_002",
+      "kind": "vitals_trend",
+      "location": "question",
+      "bank": "gpt-canonical.json",
+      "parentQuestionId": "vit_gpt_2026_07_02_t02_002",
+      "ownerId": "vit_gpt_2026_07_02_t02_002",
+      "carrierQuestionId": "vit_gpt_2026_07_02_t02_002",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/vitals_trend/index.ts",
+      "proposedTiers": [
+        "chart-trend"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "vit_gpt_2026_07_02_t02_003",
+      "kind": "vitals_trend",
+      "location": "question",
+      "bank": "gpt-canonical.json",
+      "parentQuestionId": "vit_gpt_2026_07_02_t02_003",
+      "ownerId": "vit_gpt_2026_07_02_t02_003",
+      "carrierQuestionId": "vit_gpt_2026_07_02_t02_003",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/vitals_trend/index.ts",
+      "proposedTiers": [
+        "chart-trend"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "vit_gpt_2026_07_02_t02_004",
+      "kind": "vitals_trend",
+      "location": "question",
+      "bank": "gpt-canonical.json",
+      "parentQuestionId": "vit_gpt_2026_07_02_t02_004",
+      "ownerId": "vit_gpt_2026_07_02_t02_004",
+      "carrierQuestionId": "vit_gpt_2026_07_02_t02_004",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/vitals_trend/index.ts",
+      "proposedTiers": [
+        "chart-trend"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "vit_gpt_2026_07_02_t02_005",
+      "kind": "vitals_trend",
+      "location": "question",
+      "bank": "gpt-canonical.json",
+      "parentQuestionId": "vit_gpt_2026_07_02_t02_005",
+      "ownerId": "vit_gpt_2026_07_02_t02_005",
+      "carrierQuestionId": "vit_gpt_2026_07_02_t02_005",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/vitals_trend/index.ts",
+      "proposedTiers": [
+        "chart-trend"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "vit_gpt_2026_07_02_t02_006",
+      "kind": "vitals_trend",
+      "location": "question",
+      "bank": "gpt-canonical.json",
+      "parentQuestionId": "vit_gpt_2026_07_02_t02_006",
+      "ownerId": "vit_gpt_2026_07_02_t02_006",
+      "carrierQuestionId": "vit_gpt_2026_07_02_t02_006",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/vitals_trend/index.ts",
+      "proposedTiers": [
+        "chart-trend"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "vit_gpt_2026_07_02_t03_001",
+      "kind": "vitals_trend",
+      "location": "question",
+      "bank": "gpt-canonical.json",
+      "parentQuestionId": "vit_gpt_2026_07_02_t03_001",
+      "ownerId": "vit_gpt_2026_07_02_t03_001",
+      "carrierQuestionId": "vit_gpt_2026_07_02_t03_001",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/vitals_trend/index.ts",
+      "proposedTiers": [
+        "chart-trend"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "vit_gpt_2026_07_02_t03_002",
+      "kind": "vitals_trend",
+      "location": "question",
+      "bank": "gpt-canonical.json",
+      "parentQuestionId": "vit_gpt_2026_07_02_t03_002",
+      "ownerId": "vit_gpt_2026_07_02_t03_002",
+      "carrierQuestionId": "vit_gpt_2026_07_02_t03_002",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/vitals_trend/index.ts",
+      "proposedTiers": [
+        "chart-trend"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "vit_gpt_2026_07_02_t03_003",
+      "kind": "vitals_trend",
+      "location": "question",
+      "bank": "gpt-canonical.json",
+      "parentQuestionId": "vit_gpt_2026_07_02_t03_003",
+      "ownerId": "vit_gpt_2026_07_02_t03_003",
+      "carrierQuestionId": "vit_gpt_2026_07_02_t03_003",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/vitals_trend/index.ts",
+      "proposedTiers": [
+        "chart-trend"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "vit_gpt_2026_07_02_t03_004",
+      "kind": "vitals_trend",
+      "location": "question",
+      "bank": "gpt-canonical.json",
+      "parentQuestionId": "vit_gpt_2026_07_02_t03_004",
+      "ownerId": "vit_gpt_2026_07_02_t03_004",
+      "carrierQuestionId": "vit_gpt_2026_07_02_t03_004",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/vitals_trend/index.ts",
+      "proposedTiers": [
+        "chart-trend"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "vit_gpt_2026_07_02_t03_005",
+      "kind": "vitals_trend",
+      "location": "question",
+      "bank": "gpt-canonical.json",
+      "parentQuestionId": "vit_gpt_2026_07_02_t03_005",
+      "ownerId": "vit_gpt_2026_07_02_t03_005",
+      "carrierQuestionId": "vit_gpt_2026_07_02_t03_005",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/vitals_trend/index.ts",
+      "proposedTiers": [
+        "chart-trend"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    },
+    {
+      "parityId": "vit_gpt_2026_07_02_t03_006",
+      "kind": "vitals_trend",
+      "location": "question",
+      "bank": "gpt-canonical.json",
+      "parentQuestionId": "vit_gpt_2026_07_02_t03_006",
+      "ownerId": "vit_gpt_2026_07_02_t03_006",
+      "carrierQuestionId": "vit_gpt_2026_07_02_t03_006",
+      "carrierRoute": "top-level-question",
+      "rendererModule": "src/visuals/kinds/vitals_trend/index.ts",
+      "proposedTiers": [
+        "chart-trend"
+      ],
+      "renderDeterministic": true,
+      "renderError": null,
+      "selfCheckErrors": [],
+      "declaredKeyedPresent": false,
+      "recognizedProofSurfaces": [],
+      "recognizedDerivedKeys": [],
+      "recognizedKeyedSettings": [],
+      "recognizedExpectedTrendCount": 0,
+      "recognizedCrossover": false,
+      "recognizedKeyedRelationship": false,
+      "recognizedKeyedCells": []
+    }
+  ],
+  "regenerationCommand": "npm run survey:promoted-visual-parity",
+  "phaseBoundary": "Do not generate promoted snapshot hashes or migrate U0 until Claude records survey-adjudication PASS."
+}

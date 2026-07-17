@@ -272,6 +272,14 @@ assert.deepEqual(survey.population.rawStagingFiles, []);
 
 const laneFixtureRoot = await mkdtemp(join(tmpdir(), "rationale-visual-floor-lanes-"));
 try {
+  assert.deepEqual(
+    await listRawStagingJsonFiles(
+      join(laneFixtureRoot, "missing-raw"),
+      join(laneFixtureRoot, "missing-promoted"),
+    ),
+    { rawNames: [], promotedNames: [], files: [] },
+    "absent optional staging lanes must behave as an empty population in clean Git checkouts",
+  );
   const rawDir = join(laneFixtureRoot, "banks-raw");
   const promotedDir = join(laneFixtureRoot, "_promoted");
   await Promise.all([

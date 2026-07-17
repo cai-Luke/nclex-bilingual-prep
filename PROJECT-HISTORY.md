@@ -52,6 +52,46 @@ The committed NGN item-type set is complete. Rationale/dyad scoring and an expli
 
 > Milestones dated **2026-06-23 and earlier** are archived in [`Archive/PROJECT-HISTORY-ARCHIVE.md`](Archive/PROJECT-HISTORY-ARCHIVE.md). Only the current arc (2026-06-24 onward) is kept here.
 
+### Promoted Visual Parity P2 Baseline Phase — Implemented on Draft PR (Jul 17)
+
+The survey phase authorized by
+`PROMOTED-VISUAL-PARITY-EXPANSION-ARCHITECT-SPEC-2026-07-16.md` is implemented on a draft PR. A shared,
+byte-sorted promoted-visual loader now fails loudly when a top-level bank is invalid or two visuals
+resolve to the same parity identity, closing the two silent-skip/overwrite defects in the legacy
+three-hash parity test. Carrier routing is explicit for all six full-schema locations.
+
+The generated dated survey covers 13 banks and 199 visuals across all 12 registered kinds. It found
+zero identity collisions, nondeterministic renders, `selfCheck` failures, exact-arithmetic records
+without keyed values, `device_screen` records without a checked keyed-setting/arithmetic surface, or
+`io_trend` records without a checked keyed/trend/crossover surface. All four live `io_trend` records
+carry both keyed arithmetic and trend assertions; the pattern-only allowance has no live population.
+All 11 `mar` records are now classified in the structured-document/table tier and independently
+demonstrate a nonempty keyed relationship or a keyed cell resolving to a real medication/time
+administration. Regressions prove that `keyed_cells: [null]` and missing metadata can leave
+`selfCheckErrors` empty without satisfying that proof recognizer.
+After Claude recorded `SURVEY-ADJUDICATION: PASS`, the one-time bootstrap reconciled that committed
+survey byte-for-byte and wrote 199 byte-sorted records across all 12 registered-kind snapshots. Its
+receipt records zero ordinary deltas, the exact merge-base SHA, the complete population/proof null,
+and all three U0 rhythm ids as structurally eligible and byte-equal. The promoted rhythm snapshot
+landed while the legacy hashes still existed; a following commit removed the old `svgHashes` owner.
+The legacy snapshot note, this history, the initial receipt, and git history retain U0 provenance,
+while `visual-parity.json` now owns only its 11 validation-reason cases.
+
+`parity:rebaseline` now has a permanently one-shot bootstrap and an ordinary steady-state path with
+Git-derived record-local causes, all-delta scope enforcement, ambiguous renderer/content failure,
+keyed-proof preservation, exact before-ref SHA rendering from an always-unregistered clean
+worktree, deterministic per-kind snapshots, one-sided removal evidence, and tracing review-artifact
+generation. `test:visual-parity-promoted` owns fail-closed loading/collisions, universal `selfCheck`,
+proof surfaces, missing/stale/hash failures, bootstrap permanence, delta mechanics, and worktree
+cleanup. Tracing artifact generation preflights `rsvg-convert` and `magick` before creating any
+receipt/evidence directory and fails clearly when either local-only tool is absent. The Promotion
+Gate adds only the authorized `npm run test-visuals` step, while that package command now genuinely
+includes P0's six-location `rationale-visual-floor` regression. That P0 survey treats absent optional
+raw/promoted staging directories as an empty population in clean Git checkouts while preserving all
+other filesystem failures. Claude's baseline
+spec-conformance verdict is `CONFORMS` and has been accepted. The PR remains draft pending only the
+independent gate-seat review; P3–P5 remain out of scope.
+
 ### Rationale-Visual Schema-Floor Traversal Retrofit (Jul 16)
 
 P0 of the deterministic revisit queue is implemented. `src/schema.ts` now owns one location-aware,
