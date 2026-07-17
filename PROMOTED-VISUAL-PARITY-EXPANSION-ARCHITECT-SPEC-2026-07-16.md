@@ -18,6 +18,12 @@ Luke rulings, 2026-07-16 (second pass — raised by Codex pre-implementation rev
 9. Snapshot regeneration — not the receipt — is the byte-idempotent surface (§9).
 10. Carrier-question routing is explicit (§3).
 
+Luke rulings, 2026-07-16 (third pass — survey adjudication of PR #55 @ `b09b508`):
+
+11. `mar` is a **structured-document / table** tier: exact SVG hash + universal `selfCheck`-empty, ordinary gate-seat diff review on a hash change; no arithmetic-equality proof and no calibrated-tracing visual smoke (§3). The survey must additionally recognize `mar`'s **semantic** proof surface independently (§6, §8).
+12. Added / removed delta evidence is one-sided by construction; added or removed records with no corresponding `banks/**` change are identity drift and **fail** (§4, §5, §6).
+13. No `AGENTS.md` governance rule is added for Codex's §4 spec edit. It mechanically applied an explicit ratified ruling and received independent architect verification — that is the existing separation working. Provenance is recorded in §10. Revisit only if implementers repeatedly originate unratified architecture.
+
 ## 0. Two live defects this PR must fix
 
 Found while reading `scripts/tests/visual-parity.ts` at `d80105d`; both are load-bearing for any expansion:
@@ -69,6 +75,7 @@ What differs is what a changed hash **obligates**. Tiers may overlap; counts are
 | **Load-bearing arithmetic** | `io_record`, `medication_label`, `device_screen`, `burn_map`, `io_trend` | 50 | Hash + **arithmetic / semantic proof** (§6). `io_trend` is an arithmetic / trend hybrid; `device_screen` is a keyed-settings / arithmetic hybrid. |
 | **Chart / trend** | `vitals_trend`, `lab_trend`, `io_trend` | 53 | Hash; `io_trend` additionally inherits the arithmetic / semantic proof tier. |
 | **Spatial / anatomical** | `injection_site`, `burn_map` | 18 | Hash only (`burn_map` inherits arithmetic tier). `injection_site` carries vessel-intersection `selfCheck`; assert empty. |
+| **Structured document / table** | `mar` | 11 | Hash + universal `selfCheck`-empty; **ordinary gate-seat diff review** on a hash change. No arithmetic proof, no visual smoke. `mar` fails every other tier's defining property: no calibrated unit contract (`renderMarSvg` maps statuses to glyphs through `renderDocTable`, and `fmt` appears only for layout height, so a byte change is a layout change and is diff-reviewable), no renderer arithmetic, no plotted series. |
 
 Update the `AGENTS.md` renderer verification row so its explicit load-bearing-arithmetic list includes `io_trend`. Principle 11 already states the governing functional rule; this is an operational-list correction, not a new principle.
 
@@ -96,19 +103,30 @@ It writes snapshots **and** a receipt at `audit/visual-parity-rebaseline-<ISO-da
 
 ```
 { reason, scope: [kinds], generatedAt, inputGitSha, beforeRef,
-  changed: [{ parityId, kind, location, before: sha, after: sha }],
-  added: [...], removed: [...],
+  changed: [{ parityId, kind, location, before: sha, after: sha, cause }],
+  added:   [{ parityId, kind, location, after: sha, cause }],
+  removed: [{ parityId, kind, location, before: sha, cause, priorProofSurface, removalReason }],
   totals: { changed, added, removed, unchangedTotal },
   u0Migration?: { migrated: [{ parityId, oldHash, newHash, equal: true }], allEqual: true } }
 ```
 
 `beforeRef` is the resolved `--before-ref`. `u0Migration` appears **only** in the initial baseline-phase receipt (§7) and is absent thereafter.
 
+**Delta causes and the identity-drift null (ruling 12).** Every delta record declares `cause`: `renderer` or `content`. There is no `identity` cause — identity movement is a failure, not a category. `parityId` is a pure function of ids, locations, and indexes, so **added or removed records with no corresponding `banks/**` change in the same diff are identity drift and fail the run**: the traversal or the identity scheme moved under a stable corpus, which is exactly what the scheme exists to prevent and would otherwise present as an innocuous pair of added/removed lines. This null is **not** symmetric with `changed`: a content promotion that edits an existing visual legitimately produces `changed` records with no renderer diff, so only added/removed are identity-bearing.
+
 **The rule that makes "regenerate and accept everything" insufficient:** the PR declares `--scope` up front, and rebaseline **fails** if any `changed`, `added`, or `removed` record's kind is outside the declared scope (ruling 6). All three delta classes are enforced: scoping only `changed` would let a renderer PR silently absorb a promotion or a retirement. Unrelated hash churn is therefore detected mechanically, not by a reviewer noticing 199 lines moved. A bulk rebaseline is acceptable only when (a) every `changed`, `added`, or `removed` record's kind is in scope, (b) the receipt's delta count is consistent with the renderer diff's blast radius, (c) tracing changes carry §5 artifacts, (d) arithmetic changes carry §6 proof. Reviewer: the gate seat, not the renderer's author.
 
 ## 5. Human visual review (tracing kinds)
 
-Minimum artifact: rendered SVG + PNG **before/after pairs** for every changed tracing record, plus a stacked contact sheet, under the rebaseline receipt directory — the established pattern (`audit/rhythm-strip-pacemaker-backfill-2026-07-01/rendered/contact-sheet.png`). Bounded: if changed tracing records exceed 12, render the first 12 by `parityId` sort plus every colocated fixture, and record the sampling in the receipt.
+Minimum artifact, by delta class (ruling 12) — the asymmetry is structural, since an added record has no *before* and a removed one has no *after*:
+
+| Delta | Tracing evidence |
+|---|---|
+| `changed` | rendered SVG + PNG **before/after pair** |
+| `added` | **after-only** render |
+| `removed` | **before-only** render, from the `--before-ref` worktree |
+
+Plus a stacked contact sheet under the rebaseline receipt directory — the established pattern (`audit/rhythm-strip-pacemaker-backfill-2026-07-01/rendered/contact-sheet.png`). Bounded: if the **union** of changed + added + removed tracing records exceeds 12, render the first 12 by `parityId` sort plus every colocated fixture, and record the sampling in the receipt.
 
 **Certifier:** any independent gate seat that did not produce the renderer diff. With Codex implementing, the gate seat may certify; Luke may review additionally and retains merge authority, but Luke-only visual certification is not required.
 
@@ -130,6 +148,17 @@ The proof requirement is kind-sensitive:
 - `device_screen` is a **keyed-settings / arithmetic hybrid** (ruling 5). Its `selfCheck` accepts `meta.keyed_settings` **or** `meta.derived_values_keyed`, erroring (`self_check_no_keyed_cue`) only when both are absent; `keyed_settings` is independently checked, since `self_check_keyed_setting_absent` requires every entry to resolve to a setting present on the screen. It is therefore a genuine checked proof surface. Require **either** ≥1 recognized `keyed_settings` entry **or** ≥1 recognized `derived_values_keyed` derivation; neither present is a survey blocker. Apply numeric before/after equality **only** when `derived_values_keyed` is present. Rationale: `dev_pca_basal_opioid_naive_01` is pure pump-setting recognition and `dev_high_alert_kcl_pump_mismatch_01` is protected today by keyed settings; demanding arithmetic of them would manufacture numbers to satisfy a spec, which is the failure mode principle 11 exists to prevent — `selfCheck` recomputes *the answer*, and a recognition item has no answer to recompute.
 - `io_trend` is an arithmetic / trend hybrid. It must expose at least one checked proof surface: a recognized `derived_values_keyed` array/scalar, a non-empty supported `expected_trend`, or a supported `crossover`. A pattern-only record may therefore omit exact keyed totals when its load-bearing trend/crossover assertion is present and passes `selfCheck`. An `io_trend` record with none of those proof surfaces is a survey blocker.
 - When an `io_trend` record does carry keyed arithmetic, the same before/after keyed-map equality rule applies.
+- `mar` carries a **semantic** proof surface, not an arithmetic one (ruling 11). No numeric equality applies. The survey must nonetheless recognize the surface **independently**: a nonempty supported `keyed_relationship`, **or** at least one *structurally valid* `keyed_cells` entry that resolves to a real (medication, time) administration. Neither present is a survey blocker.
+
+**Why an empty `selfCheckErrors` array is not proof of coverage.** `selfCheckMar` gates its necessity check on `meta !== null`, so a record with no metadata returns an empty array — indistinguishable, within that array, from a record that passed. Its presence test is also `keyed_cells.length > 0`, evaluated before entry validation, while the resolution loop skips non-object entries and entries whose `medication` / `time` are not strings; `keyed_cells: [null]` therefore satisfies presence and validates nothing. An empty error array is evidence that nothing was *detected*, not that the property *holds*. This is the same reason §8 detects absent proof for `io_record`, `device_screen`, and `io_trend` independently rather than reading `selfCheckErrors`, and the rule now extends to `mar` for the same reason. The live count is expected to be zero; a measured null and an inferred null are different objects, and only the measured one authorizes a baseline.
+
+**Delta-class proof requirements (ruling 12):**
+
+| Delta | Arithmetic / hybrid evidence |
+|---|---|
+| `changed` | `declaredKeyed` before/after equality |
+| `added` | `declaredKeyed` after + `selfCheck` empty |
+| `removed` | **no** numeric comparison; the receipt must record `priorProofSurface` (the surface type the record carried) and `removalReason`, established by the normal successful render / `selfCheck` at `beforeRef`. Without this, a removal silently erases the record of what was previously protected. |
 
 `selfCheckIoRecord` does not literally return early merely because `question.meta` is absent; it computes totals but has no keyed declaration to compare and can therefore return no error. When metadata exists with no recognized keyed values it already emits `self_check_no_keyed_values`. The promoted-parity survey must detect both forms of missing protection rather than relying only on returned errors.
 
@@ -148,7 +177,7 @@ The proof requirement is kind-sensitive:
 
 Precedent: the P0 manifest's own `authoredBy` is *"Claude (architect seat); deterministic generator implemented by Codex."* Same shape here.
 
-`npm run survey:promoted-visual-parity` → `audit/promoted-visual-parity-survey-2026-07-16/survey-manifest.json`, per record: `parityId`, kind, location, bank, renderer module, proposed tier, resolved carrier-question id and its routing rule, `renderDeterministic` (double-render equality), `selfCheckErrors`, `declaredKeyedPresent`, and the **named recognized proof surface** for hybrid / arithmetic / trend kinds (`derived_values_keyed`, `keyed_settings`, `expected_trend`, or `crossover`). Plus rollups: counts by kind × location; **identity collisions**; **`selfCheck` failures**; **non-deterministic renders**; **exact-arithmetic records with no keyed values**; **`device_screen` records with neither keyed settings nor arithmetic**; and **`io_trend` records with no keyed, trend, or crossover assertion**.
+`npm run survey:promoted-visual-parity` → `audit/promoted-visual-parity-survey-2026-07-16/survey-manifest.json`, per record: `parityId`, kind, location, bank, renderer module, proposed tier, resolved carrier-question id and its routing rule, `renderDeterministic` (double-render equality), `selfCheckErrors`, `declaredKeyedPresent`, and the **named recognized proof surface** for hybrid / arithmetic / trend / structured-document kinds (`derived_values_keyed`, `keyed_settings`, `expected_trend`, `crossover`, `keyed_relationship`, or `keyed_cells`). Plus rollups: counts by kind × location; counts by tier, including `structured-document`; **identity collisions**; **`selfCheck` failures**; **non-deterministic renders**; **exact-arithmetic records with no keyed values**; **`device_screen` records with neither keyed settings nor arithmetic**; **`io_trend` records with no keyed, trend, or crossover assertion**; and **`mar` records with neither a nonempty `keyed_relationship` nor a structurally valid resolving `keyed_cells` entry**. `unclassifiedKinds` must be empty once the `mar` tier lands.
 
 **Live-population note the manifest must record:** all four current `io_trend` records carry **both** keyed arithmetic and trend assertions. The pattern-only allowance of ruling 2 therefore has **no live population** and is forward-looking only. State this explicitly so a future seat does not read the allowance as covering something it currently protects.
 
@@ -162,7 +191,7 @@ Baselining a broken record pins the breakage; a generated manifest is never self
 
 ## 9. Regression floor
 
-Focused cases: (1) each of the six locations yields a snapshot record — synthetic fixture, since four locations have ≤2 corpus records and two have zero; (2) identity stability across a synthetic unrelated bank addition; (3) missing record fails; (4) extra record fails; (5) mutated hash fails; (6) duplicate `parityId` throws (§0.2); (7) invalid bank throws (§0.1); (8) **snapshot** regeneration is idempotent — run twice, byte-identical (ruling 9). The idempotent surface is the snapshot files only; the receipt is a dated artifact whose volatile `generatedAt` / `inputGitSha` are excluded from comparison, following `scripts/census.ts`'s existing `stripVolatile` pattern; (9) out-of-scope `changed`, `added`, **and** `removed` records each fail rebaseline; (10) `declaredKeyed` delta fails; (11) missing required arithmetic/trend proof surfaces fail, and a `device_screen` record with keyed settings but no arithmetic **passes**; (12) carrier routing resolves the right question per location, proven on a synthetic case fixture; (13) the U0 migration is lossless — the three migrated hashes equal the pre-migration values, and `visual-parity.json` still validates with its 11 reason cases and no `svgHashes` key; (14) `census.json` `visualArtifacts.total` **unchanged** by this PR — the separate-denominator tripwire.
+Focused cases: (1) each of the six locations yields a snapshot record — synthetic fixture, since four locations have ≤2 corpus records and two have zero; (2) identity stability across a synthetic unrelated bank addition; (3) missing record fails; (4) extra record fails; (5) mutated hash fails; (6) duplicate `parityId` throws (§0.2); (7) invalid bank throws (§0.1); (8) **snapshot** regeneration is idempotent — run twice, byte-identical (ruling 9). The idempotent surface is the snapshot files only; the receipt is a dated artifact whose volatile `generatedAt` / `inputGitSha` are excluded from comparison, following `scripts/census.ts`'s existing `stripVolatile` pattern; (9) out-of-scope `changed`, `added`, **and** `removed` records each fail rebaseline; (10) `declaredKeyed` delta fails; (11) missing required arithmetic/trend proof surfaces fail, and a `device_screen` record with keyed settings but no arithmetic **passes**; a `mar` record with `keyed_cells: [null]`, or with no `meta`, **fails** the proof-surface check despite an empty `selfCheckErrors`; (11a) added/removed records with no `banks/**` change fail as identity drift, while a `changed` record with no renderer diff **passes** as content; (11b) a removed record with no `priorProofSurface` or `removalReason` fails; (12) carrier routing resolves the right question per location, proven on a synthetic case fixture; (13) the U0 migration is lossless — the three migrated hashes equal the pre-migration values, and `visual-parity.json` still validates with its 11 reason cases and no `svgHashes` key; (14) `census.json` `visualArtifacts.total` **unchanged** by this PR — the separate-denominator tripwire.
 
 Full path (`AGENTS.md` *Renderers* row): `npm run test-visuals`; `npm run test:visual-parity-promoted`; `selfCheck` regressions; visual smoke; `npm run validate-bank -- banks/*.json`; `npm run build`. Plus `npx tsc -b --pretty false`; `npm run census && npm run census:check`; `git diff --check`. Confirm `git diff` shows **no change** to `banks/**` or `census.json`, except that a separately adjudicated content-backfill repair must be isolated and reviewed under the bank-content path rather than hidden inside baseline generation. `visual-parity.json` changes exactly once, in the baseline phase, and only to remove its `svgHashes` array under the lossless U0 migration check.
 
@@ -173,6 +202,8 @@ Out: P3 vitals bounds, P4 single-row labs, P5 CI redesign.
 **Minimal CI hook:** `promotion-gate.yml` runs neither `test-visuals` nor `test:rationale-visual-floor` today — P2 lands unenforced without it. Add **one step**, `npm run test-visuals`, which picks up both the new suite and P0's orphaned regression. That is the whole CI ask; the broader matrix stays P5.
 
 Seats: **producer** Claude (this spec + §8 survey design and adjudication) → **implementation** Codex → **automated check** `test-visuals` in CI → **visual review** an independent gate seat → **merge** Luke. Claude cannot be the sole implementation certifier; architect spec-conformance verification remains a separate check from the gate seat's independent content/visual review.
+
+**Provenance note (ruling 13).** During the survey phase Codex edited §4's acceptance bullets to cover all three delta classes. The edit was a mechanical application of ratified ruling 6 — it corrected an inconsistency the architect left when rewriting the rule sentence but not the bullets — and the architect verified it against the ruling before accepting. Recorded here rather than escalated to `AGENTS.md`: the existing authority and independent-review rules already cover it, and a constitutional rule from a benign, verified, conforming edit would mostly duplicate them. Revisit only on a pattern of implementers originating unratified semantic change.
 
 ---
 
@@ -192,5 +223,18 @@ Ratified implementation rules:
 8. `--before-ref` defaults to the PR merge base; before artifacts render from a temporary clean worktree at that ref.
 9. Snapshots are the byte-idempotent surface; receipts exclude `generatedAt` / `inputGitSha` from comparison.
 10. Carrier-question routing is explicit per location.
+11. `mar` is a structured-document / table tier: hash + universal `selfCheck`, ordinary diff review; no arithmetic proof, no visual smoke. The survey measures its semantic proof surface independently.
+12. Added/removed evidence is one-sided; added/removed with no `banks/**` change is identity drift and fails. Removed arithmetic/hybrid records record `priorProofSurface` and `removalReason`, with no numeric comparison.
+13. No `AGENTS.md` rule for Codex's conforming §4 edit; provenance recorded in §10.
 
 The architect's survey-adjudication PASS now additionally requires the lossless U0 migration check to hold.
+
+---
+
+## Survey adjudication — PR #55 @ `b09b508`, 2026-07-16
+
+Architect verification against live disk: counts reconcile (199; tiers 81 + 50 + 53 + 18 = 202 less `burn_map` 10 and `io_trend` 4 double-counted = 188, + `mar` 11 = 199, so `mar` was provably the only unclassified kind); U0 hashes in `visual-parity.json` match the manifest's `oldHash`/`newHash` byte-for-byte; both §0 defects are eliminated by construction in `scripts/promoted-visual-parity.ts` rather than patched, and `visual-parity.ts` inherits the nulls through `loadPromotedVisualRecords`; carrier routing matches §3 and throws rather than degrading on an unresolvable leaf; the phase boundary is machine-enforced (no record may carry `svgHash`).
+
+Findings: zero identity collisions, zero `selfCheck` failures, zero non-deterministic renders, zero missing arithmetic/hybrid proof surfaces, U0 lossless check green.
+
+**Status: SURVEY-ADJUDICATION CONDITIONAL — one amendment outstanding.** The `mar` proof-surface rollup (ruling 11, §6/§8) must be implemented and the manifest regenerated cleanly — including `byTier.structured-document`, an empty `unclassifiedKinds`, an empty `architectQuestions`, and the new `mar` rollup at zero. The architect records the unconditional `SURVEY-ADJUDICATION: PASS` and authorizes the baseline phase on that regeneration. The live count is expected to be zero; the amendment exists so the PASS asserts a measured null rather than one inferred from an empty error array.
