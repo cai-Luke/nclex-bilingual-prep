@@ -9,6 +9,15 @@ Luke rulings, 2026-07-16:
 3. Calibrated-tracing visual smoke may be certified by any independent gate seat; Luke-only certification is not required.
 4. The survey and baseline implementation use one draft PR with an explicit survey-adjudication stop before hashes are authorized.
 
+Luke rulings, 2026-07-16 (second pass — raised by Codex pre-implementation review, verified by the architect against live disk):
+
+5. `device_screen` is a keyed-settings / arithmetic hybrid proof kind (§6).
+6. `--scope` enforcement covers `changed`, `added`, and `removed` (§4).
+7. **U0 migration:** the three legacy rhythm-strip SVG hashes migrate into the promoted baseline; `visual-parity.json` retains its 11 `validationReasons` cases only (§7). This reverses the first-pass "byte-frozen" decision — the freeze created a permanent contradiction with any ratified rhythm-strip rebaseline, and two files owning one fact violates single-definition discipline.
+8. Rebaseline takes `--before-ref <git-ref>`, defaulting to the PR merge base (§4, §5).
+9. Snapshot regeneration — not the receipt — is the byte-idempotent surface (§9).
+10. Carrier-question routing is explicit (§3).
+
 ## 0. Two live defects this PR must fix
 
 Found while reading `scripts/tests/visual-parity.ts` at `d80105d`; both are load-bearing for any expansion:
@@ -57,11 +66,21 @@ What differs is what a changed hash **obligates**. Tiers may overlap; counts are
 | Tier | Kinds | Count | On hash change |
 |---|---|---|---|
 | **Calibrated tracing** | `rhythm_strip`, `capnography`, `fetal_monitoring` | 81 | Hash + **human visual smoke** (§5). Geometry is calibrated to grid units (`pxPerSec`, `pxPerMmHg`, `CTG_PX_PER_SEC`); a byte change is a geometry change and cannot be reviewed by reading a diff. |
-| **Load-bearing arithmetic** | `io_record`, `medication_label`, `device_screen`, `burn_map`, `io_trend` | 50 | Hash + **arithmetic / semantic proof** (§6). `io_trend` is an arithmetic / trend hybrid. |
+| **Load-bearing arithmetic** | `io_record`, `medication_label`, `device_screen`, `burn_map`, `io_trend` | 50 | Hash + **arithmetic / semantic proof** (§6). `io_trend` is an arithmetic / trend hybrid; `device_screen` is a keyed-settings / arithmetic hybrid. |
 | **Chart / trend** | `vitals_trend`, `lab_trend`, `io_trend` | 53 | Hash; `io_trend` additionally inherits the arithmetic / semantic proof tier. |
 | **Spatial / anatomical** | `injection_site`, `burn_map` | 18 | Hash only (`burn_map` inherits arithmetic tier). `injection_site` carries vessel-intersection `selfCheck`; assert empty. |
 
 Update the `AGENTS.md` renderer verification row so its explicit load-bearing-arithmetic list includes `io_trend`. Principle 11 already states the governing functional rule; this is an operational-list correction, not a new principle.
+
+**Carrier routing (ruling 10).** `VisualRef` carries ids, not the carrier object. The carrier passed to `selfCheck` resolves by location:
+
+| Location | Carrier question |
+|---|---|
+| `question`, `questionRationale` | the top-level question |
+| `caseQuestion`, `caseQuestionRationale` | the embedded leaf |
+| `caseExhibit`, `caseStageExhibit` | the parent case container |
+
+This is load-bearing: `selfCheck` reads `question.meta`, so a mis-routed carrier yields a silent empty-meta pass. No live record is masked today — both exhibit-location visuals are non-arithmetic (`rhythm_strip`, `vitals_trend`) — but the first arithmetic exhibit would be.
 
 **All 12 registered kinds define `selfCheck`.** So: **assert `selfCheck(spec, carrierQuestion) === []` for every promoted record, every kind.** This is new coverage — `visuals-conformance.ts` calls `selfCheck` on *fixtures* and discards the result. Cheap, universal, and it is the tripwire that makes §6 work.
 
@@ -69,18 +88,23 @@ Update the `AGENTS.md` renderer verification row so its explicit load-bearing-ar
 
 ## 4. Intentional rebaseline
 
-One command: `npm run parity:rebaseline -- --reason "<text>" --scope <kind>[,<kind>...]`.
+One command: `npm run parity:rebaseline -- --reason "<text>" --scope <kind>[,<kind>...] [--before-ref <git-ref>]`.
+
+`--before-ref` (ruling 8) defaults to the PR merge base and names the ref the *before* evidence is rendered from. The snapshot stores hashes only, so old output can only come from old code: render it from a temporary clean `git worktree` checkout at that ref, and remove the worktree afterward. Record the resolved ref in the receipt.
 
 It writes snapshots **and** a receipt at `audit/visual-parity-rebaseline-<ISO-date>/receipt.json`, committed with the PR:
 
 ```
-{ reason, scope: [kinds], generatedAt, inputGitSha,
+{ reason, scope: [kinds], generatedAt, inputGitSha, beforeRef,
   changed: [{ parityId, kind, location, before: sha, after: sha }],
   added: [...], removed: [...],
-  totals: { changed, added, removed, unchangedTotal } }
+  totals: { changed, added, removed, unchangedTotal },
+  u0Migration?: { migrated: [{ parityId, oldHash, newHash, equal: true }], allEqual: true } }
 ```
 
-**The rule that makes "regenerate and accept everything" insufficient:** the PR declares `--scope` up front, and rebaseline **fails** if any `changed` record's kind is outside the declared scope. Unrelated hash churn is therefore detected mechanically, not by a reviewer noticing 199 lines moved. A bulk rebaseline is acceptable only when (a) every changed record's kind is in scope, (b) the receipt's `changed` count is consistent with the renderer diff's blast radius, (c) tracing changes carry §5 artifacts, (d) arithmetic changes carry §6 proof. Reviewer: the gate seat, not the renderer's author.
+`beforeRef` is the resolved `--before-ref`. `u0Migration` appears **only** in the initial baseline-phase receipt (§7) and is absent thereafter.
+
+**The rule that makes "regenerate and accept everything" insufficient:** the PR declares `--scope` up front, and rebaseline **fails** if any `changed`, `added`, or `removed` record's kind is outside the declared scope (ruling 6). All three delta classes are enforced: scoping only `changed` would let a renderer PR silently absorb a promotion or a retirement. Unrelated hash churn is therefore detected mechanically, not by a reviewer noticing 199 lines moved. A bulk rebaseline is acceptable only when (a) every changed record's kind is in scope, (b) the receipt's `changed` count is consistent with the renderer diff's blast radius, (c) tracing changes carry §5 artifacts, (d) arithmetic changes carry §6 proof. Reviewer: the gate seat, not the renderer's author.
 
 ## 5. Human visual review (tracing kinds)
 
@@ -102,7 +126,8 @@ Snapshot each arithmetic record's `declaredKeyed` alongside its hash when keyed 
 
 The proof requirement is kind-sensitive:
 
-- `io_record`, `medication_label`, `device_screen`, and `burn_map` must declare at least one recognized keyed arithmetic value. A promoted record with no such value is a survey blocker and requires content backfill before baseline authorization.
+- `io_record`, `medication_label`, and `burn_map` must declare at least one recognized keyed arithmetic value. A promoted record with no such value is a survey blocker and requires content backfill before baseline authorization.
+- `device_screen` is a **keyed-settings / arithmetic hybrid** (ruling 5). Its `selfCheck` accepts `meta.keyed_settings` **or** `meta.derived_values_keyed`, erroring (`self_check_no_keyed_cue`) only when both are absent; `keyed_settings` is independently checked, since `self_check_keyed_setting_absent` requires every entry to resolve to a setting present on the screen. It is therefore a genuine checked proof surface. Require **either** ≥1 recognized `keyed_settings` entry **or** ≥1 recognized `derived_values_keyed` derivation; neither present is a survey blocker. Apply numeric before/after equality **only** when `derived_values_keyed` is present. Rationale: `dev_pca_basal_opioid_naive_01` is pure pump-setting recognition and `dev_high_alert_kcl_pump_mismatch_01` is protected today by keyed settings; demanding arithmetic of them would manufacture numbers to satisfy a spec, which is the failure mode principle 11 exists to prevent — `selfCheck` recomputes *the answer*, and a recognition item has no answer to recompute.
 - `io_trend` is an arithmetic / trend hybrid. It must expose at least one checked proof surface: a recognized `derived_values_keyed` array/scalar, a non-empty supported `expected_trend`, or a supported `crossover`. A pattern-only record may therefore omit exact keyed totals when its load-bearing trend/crossover assertion is present and passes `selfCheck`. An `io_trend` record with none of those proof surfaces is a survey blocker.
 - When an `io_trend` record does carry keyed arithmetic, the same before/after keyed-map equality rule applies.
 
@@ -113,7 +138,7 @@ The proof requirement is kind-sensitive:
 ## 7. Baseline architecture
 
 - **Location:** `scripts/tests/__snapshots__/visual-parity-promoted/<kind>.json`, one file per kind. Split, not monolithic: diffs localize, and receipts name kinds.
-- **`scripts/tests/__snapshots__/visual-parity.json` is untouched.** It is the U0 pre-refactor baseline plus 11 validation-reason cases; it stays byte-frozen and `visual-parity.ts` keeps consuming it. Zero compatibility risk.
+- **U0 migration (ruling 7).** The three legacy rhythm-strip SVG hashes (`rhy_sinus_brady_001`, `rhy_vtach_001`, `rhy_afib_001`) migrate into `visual-parity-promoted/rhythm_strip.json`; the `svgHashes` array is then removed from `scripts/tests/__snapshots__/visual-parity.json`, which remains the owner of its 11 `validationReasons` cases only. All three are `question`-location records the promoted baseline hashes identically through the same registry path, so the freeze created a permanent contradiction: a ratified rhythm-strip rebaseline would pass the scoped command and still fail the frozen test. The migration must be **mechanically lossless**, in this order: (a) all three ids appear in the new promoted rhythm snapshot; (b) their hashes equal the current U0 hashes **byte-for-byte** — deletion of the old array is not permitted until this passes; (c) the initial receipt carries a dedicated `u0Migration` section recording each id's old hash, new hash, and equality result; (d) U0 provenance is preserved in the legacy snapshot's `note` field, in `PROJECT-HISTORY.md`, and in git history. **Do not retain a permanent cross-file equality test after migration** — that would recreate two active owners for one fact, which is exactly what this ruling removes.
 - **Generator:** `scripts/visual-parity-baseline.ts`, `npm run parity:rebaseline`. Test: `scripts/tests/visual-parity-promoted.ts`, `npm run test:visual-parity-promoted`, appended to `test-visuals`.
 - **Record:** `{ parityId, kind, location, bank, parentQuestionId, ownerId, svgHash, declaredKeyed? }`. Hash covers `renderSvg` output only — which already embeds viewBox, dimensions, captions, and the EN `aria-label`. No separate metadata hashing.
 - **Stale/missing both fail:** snapshot record with no live visual → FAIL (removed/renamed); live visual with no snapshot record → FAIL naming the new `parityId` and the regen command. Newly promoted visuals are thus surfaced by the gate, not discovered later.
@@ -123,7 +148,9 @@ The proof requirement is kind-sensitive:
 
 Precedent: the P0 manifest's own `authoredBy` is *"Claude (architect seat); deterministic generator implemented by Codex."* Same shape here.
 
-`npm run survey:promoted-visual-parity` → `audit/promoted-visual-parity-survey-2026-07-16/survey-manifest.json`, per record: `parityId`, kind, location, bank, renderer module, proposed tier, `renderDeterministic` (double-render equality), `selfCheckErrors`, `declaredKeyedPresent`, and the recognized proof surface for arithmetic / trend kinds. Plus rollups: counts by kind × location; **identity collisions**; **`selfCheck` failures**; **non-deterministic renders**; **exact-arithmetic records with no keyed values**; and **`io_trend` records with no keyed, trend, or crossover assertion**.
+`npm run survey:promoted-visual-parity` → `audit/promoted-visual-parity-survey-2026-07-16/survey-manifest.json`, per record: `parityId`, kind, location, bank, renderer module, proposed tier, resolved carrier-question id and its routing rule, `renderDeterministic` (double-render equality), `selfCheckErrors`, `declaredKeyedPresent`, and the **named recognized proof surface** for hybrid / arithmetic / trend kinds (`derived_values_keyed`, `keyed_settings`, `expected_trend`, or `crossover`). Plus rollups: counts by kind × location; **identity collisions**; **`selfCheck` failures**; **non-deterministic renders**; **exact-arithmetic records with no keyed values**; **`device_screen` records with neither keyed settings nor arithmetic**; and **`io_trend` records with no keyed, trend, or crossover assertion**.
+
+**Live-population note the manifest must record:** all four current `io_trend` records carry **both** keyed arithmetic and trend assertions. The pattern-only allowance of ruling 2 therefore has **no live population** and is forward-looking only. State this explicitly so a future seat does not read the allowance as covering something it currently protects.
 
 **This is evidence, not permission.** The work uses one draft PR in two phases:
 
@@ -135,9 +162,9 @@ Baselining a broken record pins the breakage; a generated manifest is never self
 
 ## 9. Regression floor
 
-Focused cases: (1) each of the six locations yields a snapshot record — synthetic fixture, since four locations have ≤2 corpus records and two have zero; (2) identity stability across a synthetic unrelated bank addition; (3) missing record fails; (4) extra record fails; (5) mutated hash fails; (6) duplicate `parityId` throws (§0.2); (7) invalid bank throws (§0.1); (8) regeneration is idempotent — run twice, byte-identical; (9) out-of-scope change fails rebaseline; (10) `declaredKeyed` delta fails; (11) missing required arithmetic/trend proof surfaces fail; (12) `census.json` `visualArtifacts.total` **unchanged** by this PR — the separate-denominator tripwire.
+Focused cases: (1) each of the six locations yields a snapshot record — synthetic fixture, since four locations have ≤2 corpus records and two have zero; (2) identity stability across a synthetic unrelated bank addition; (3) missing record fails; (4) extra record fails; (5) mutated hash fails; (6) duplicate `parityId` throws (§0.2); (7) invalid bank throws (§0.1); (8) **snapshot** regeneration is idempotent — run twice, byte-identical (ruling 9). The idempotent surface is the snapshot files only; the receipt is a dated artifact whose volatile `generatedAt` / `inputGitSha` are excluded from comparison, following `scripts/census.ts`'s existing `stripVolatile` pattern; (9) out-of-scope `changed`, `added`, **and** `removed` records each fail rebaseline; (10) `declaredKeyed` delta fails; (11) missing required arithmetic/trend proof surfaces fail, and a `device_screen` record with keyed settings but no arithmetic **passes**; (12) carrier routing resolves the right question per location, proven on a synthetic case fixture; (13) the U0 migration is lossless — the three migrated hashes equal the pre-migration values, and `visual-parity.json` still validates with its 11 reason cases and no `svgHashes` key; (14) `census.json` `visualArtifacts.total` **unchanged** by this PR — the separate-denominator tripwire.
 
-Full path (`AGENTS.md` *Renderers* row): `npm run test-visuals`; `npm run test:visual-parity-promoted`; `selfCheck` regressions; visual smoke; `npm run validate-bank -- banks/*.json`; `npm run build`. Plus `npx tsc -b --pretty false`; `npm run census && npm run census:check`; `git diff --check`. Confirm `git diff` shows **no change** to `banks/**`, `census.json`, or `visual-parity.json`, except that a separately adjudicated content-backfill repair must be isolated and reviewed under the bank-content path rather than hidden inside baseline generation.
+Full path (`AGENTS.md` *Renderers* row): `npm run test-visuals`; `npm run test:visual-parity-promoted`; `selfCheck` regressions; visual smoke; `npm run validate-bank -- banks/*.json`; `npm run build`. Plus `npx tsc -b --pretty false`; `npm run census && npm run census:check`; `git diff --check`. Confirm `git diff` shows **no change** to `banks/**` or `census.json`, except that a separately adjudicated content-backfill repair must be isolated and reviewed under the bank-content path rather than hidden inside baseline generation. `visual-parity.json` changes exactly once, in the baseline phase, and only to remove its `svgHashes` array under the lossless U0 migration check.
 
 ## 10. Scope and seats
 
@@ -159,3 +186,11 @@ Ratified implementation rules:
 2. Exact-arithmetic records without recognized keyed assertions fail; pattern-only `io_trend` may satisfy the gate through a checked trend or crossover assertion.
 3. Any independent non-producer gate seat may certify calibrated-tracing visual smoke.
 4. Survey and baseline remain in one draft PR with a mandatory adjudication stop between phases.
+5. `device_screen` is a keyed-settings / arithmetic hybrid; numeric equality applies only where arithmetic is keyed.
+6. `--scope` enforcement covers `changed`, `added`, and `removed`.
+7. The three U0 rhythm-strip hashes migrate into the promoted baseline under a lossless-migration check; `visual-parity.json` keeps its `validationReasons` only, and no permanent cross-file equality test survives.
+8. `--before-ref` defaults to the PR merge base; before artifacts render from a temporary clean worktree at that ref.
+9. Snapshots are the byte-idempotent surface; receipts exclude `generatedAt` / `inputGitSha` from comparison.
+10. Carrier-question routing is explicit per location.
+
+The architect's survey-adjudication PASS now additionally requires the lossless U0 migration check to hold.
