@@ -86,7 +86,9 @@ proof surfaces, missing/stale/hash failures, bootstrap permanence, delta mechani
 cleanup. Tracing artifact generation preflights `rsvg-convert` and `magick` before creating any
 receipt/evidence directory and fails clearly when either local-only tool is absent. The Promotion
 Gate adds only the authorized `npm run test-visuals` step, while that package command now genuinely
-includes P0's six-location `rationale-visual-floor` regression. Claude's baseline
+includes P0's six-location `rationale-visual-floor` regression. That P0 survey treats absent optional
+raw/promoted staging directories as an empty population in clean Git checkouts while preserving all
+other filesystem failures. Claude's baseline
 spec-conformance verdict is `CONFORMS` and has been accepted. The PR remains draft pending only the
 independent gate-seat review; P3–P5 remain out of scope.
 

@@ -123,8 +123,16 @@ export const listRawStagingJsonFiles = async (
   rawDir: string = RAW_DIR,
   promotedDir: string = PROMOTED_DIR,
 ) => {
-  const rawNames = (await readdir(rawDir)).filter((name) => name.endsWith(".json")).sort();
-  const promotedNames = (await readdir(promotedDir)).filter((name) => name.endsWith(".json")).sort();
+  const listJsonNames = async (directory: string): Promise<string[]> => {
+    try {
+      return (await readdir(directory)).filter((name) => name.endsWith(".json")).sort();
+    } catch (error) {
+      if ((error as NodeJS.ErrnoException).code === "ENOENT") return [];
+      throw error;
+    }
+  };
+  const rawNames = await listJsonNames(rawDir);
+  const promotedNames = await listJsonNames(promotedDir);
   return {
     rawNames,
     promotedNames,
