@@ -678,7 +678,7 @@ export const rhythmStripModule: VisualKindModule<RhythmStripVisual> = {
 
 // `requiredSchemaVersion` omitted -> registry default ("1.2"), matching current
 // behavior for non-pacer strips. Pacer-bearing strips still require schema "1.7"
-// via `hasPacerRhythmStrip` in schema.ts.
+// via the full-schema visual traversal and explicit pacer predicate in schema.ts.
 // `allowedItemTypes` widened 2026-07-01 to add ordered_response/dropdown_cloze,
 // matching the existing lab_trend placement-override pattern. Permission only:
 // this does not convert any existing item.

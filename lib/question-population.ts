@@ -72,7 +72,11 @@ export const collectScoredLeaves = (questions: readonly Question[]): StandaloneQ
 /**
  * Enumerates visual artifacts recursively. This population is independent of
  * both session units and scored leaves: case exhibits and staged exhibits are
- * artifacts even though they are not question records.
+ * artifacts even though they are not question records. It intentionally omits
+ * rationale figures under the PR #52 census ruling. The full-schema traversal
+ * in src/schema.ts intentionally includes those figures for validation, export
+ * inference, and parity; do not merge or widen this population. See
+ * RATIONALE-VISUAL-SCHEMA-FLOOR-RETROFIT-CODEX-SPEC-2026-07-16.md.
  */
 export const collectVisualArtifacts = (questions: readonly Question[]): VisualArtifactRecord[] => {
   const artifacts: VisualArtifactRecord[] = [];

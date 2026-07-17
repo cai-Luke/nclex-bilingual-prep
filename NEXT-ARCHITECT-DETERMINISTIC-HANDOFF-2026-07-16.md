@@ -29,25 +29,24 @@ capacity shortfall. The active Batch 7 producer commission is format-targeted, n
 
 | Priority | Work | Nature | Why now |
 |---|---|---|---|
-| P0 | **Zero-impact retrofit** of schema-floor traversal for `rationale.visuals` — survey **complete**, implementation **authorized** by [`RATIONALE-VISUAL-SCHEMA-FLOOR-RETROFIT-CODEX-SPEC-2026-07-16.md`](RATIONALE-VISUAL-SCHEMA-FLOOR-RETROFIT-CODEX-SPEC-2026-07-16.md) | Bounded deterministic correction; survey returned zero live-bank impact | The defect is real but **latent**: zero visuals occupy any `rationale.visuals` slot, so nothing under-declares today. Land it while the blast radius is provably zero. |
+| ~~P0~~ | **IMPLEMENTED** — shared six-location schema/export/parity traversal, generated survey, and regressions. See [`RATIONALE-VISUAL-SCHEMA-FLOOR-RETROFIT-CODEX-SPEC-2026-07-16.md`](RATIONALE-VISUAL-SCHEMA-FLOOR-RETROFIT-CODEX-SPEC-2026-07-16.md). | Closed deterministic correction; zero live-bank impact | The full-schema and census-artifact traversals remain intentionally separate. |
 | ~~P1~~ | ~~Active-governance Markdown U+FFFD gate~~ — **DROPPED 2026-07-16 (Luke's ruling).** Every mojibake alarm has been a connector-read artifact, not disk corruption; a repo gate guards the wrong surface. See `DECISIONS.md` §8. | — | — |
 | P2 | Expand promoted visual parity beyond three pinned SVGs | Larger deterministic regression project | High-value renderer protection, but baseline ownership and review policy need a deliberate design. |
 | P3 | Produce the six-vital deterministic inventory for sanity-bound ratification | Deterministic evidence, followed by clinical judgment | The inventory is bounded; selecting new clinical tripwires is not mechanical and must remain separately ratified. |
 | P4 | Inventory single-row lab panels, then obtain an architecture ruling | Deterministic survey followed by product decision | No implementation rule exists yet; a two-row floor must not be inferred. |
 | P5 | Consider CI coverage hardening | Engineering policy | The PR gate omits several locally required commands; useful, but not a reason to mix unrelated suites into P0. |
 
-P0 is the best next implementation candidate. **P1 is dropped** (see below); P2 is the next candidate
-after P0. Do not combine P2–P4
+P0 is implemented. **P1 is dropped** (see below); P2 is the next candidate. Do not combine P2–P4
 into the same PR: their evidence, review seats, and reversal costs differ.
 
 ## P0 — `rationale.visuals` schema-floor retrofit
 
-> **STATUS UPDATE 2026-07-16 — superseded in part.** The survey below is **complete**; its evidence is
-> `audit/rationale-visual-floor-survey-2026-07-16/survey-manifest.json`. Implementation is authorized
-> by [`RATIONALE-VISUAL-SCHEMA-FLOOR-RETROFIT-CODEX-SPEC-2026-07-16.md`](RATIONALE-VISUAL-SCHEMA-FLOOR-RETROFIT-CODEX-SPEC-2026-07-16.md),
-> which governs where it differs from this section. Three changes:
+> **STATUS UPDATE 2026-07-16 — IMPLEMENTED.** The survey evidence is
+> `audit/rationale-visual-floor-survey-2026-07-16/survey-manifest.json`; the completed implementation
+> is governed by [`RATIONALE-VISUAL-SCHEMA-FLOOR-RETROFIT-CODEX-SPEC-2026-07-16.md`](RATIONALE-VISUAL-SCHEMA-FLOOR-RETROFIT-CODEX-SPEC-2026-07-16.md).
+> The pre-implementation defect and order remain below as provenance. Three resolved points:
 >
-> 1. **Survey complete, zero live-bank impact.** 199 artifacts / 1,852 records / 13 banks; raw lane
+> 1. **Survey complete, zero live-bank impact.** 199 artifacts / 1,869 records / 13 banks; raw lane
 >    empty. Three pacer strips, all at `question.visual`, all in a bank declaring `2.0`. **Zero**
 >    visuals in any `rationale.visuals` slot. Zero flips, zero envelope changes. The work is a
 >    zero-impact retrofit; **no canonical metadata migration is authorized**.
@@ -269,6 +268,5 @@ choice rather than an unambiguous bug fix.
 
 ## Handoff summary
 
-Implement the authorized P0 zero-impact schema/import retrofit from its completed survey. P1 is
-dropped and must not be implemented. After P0, keep parity expansion, clinical vital-bound
+P0 is implemented and P1 is dropped. Keep parity expansion, clinical vital-bound
 ratification, and the single-row lab decision in separate workstreams.
