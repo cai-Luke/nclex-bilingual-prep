@@ -3,12 +3,15 @@
 Date: 2026-07-17
 Author: Claude (architect seat)
 Preliminary notes: GPT-5.6 Sol (accepted with five corrections, see §16)
-Implementer: Codex
-Survey-manifest content gate: checker seat (not the producer of the generator; see §11)
-Ratification: not applicable — **this spec ratifies no bound and authorizes no bound change.**
+Spec review: GPT-5.6 Sol (three clarifications, folded in — §17); GPT-5.6 Terra, implementing seat (no notes — §17)
+Implementer: the producing seat named in §11 (GPT-5.6 Terra as of 2026-07-17)
+Survey-manifest content gate: checker seat, never the producing seat (see §11)
+Spec status: **RATIFIED for P3 survey implementation — Luke, 2026-07-17.** Amended 2026-07-17 (§18).
+Bound status: **no vital-sign bound is ratified, selected, or authorized to change by this spec.**
 
-Status: **draft — pending implementer review.** Luke has approved authoring this spec to disk and
-wants the implementer's read before anything proceeds.
+These are two separate decisions and must not be collapsed. Ratifying the survey ratifies no number.
+A fresh agent reading this file should treat the survey as authorized work and every bound in §3 as
+still open under `DECISIONS.md` §7.
 
 Governing thread: `DECISIONS.md` §7, first REVISIT entry ("Vital-sign `sanity` bounds are copied
 renderer validation envelopes, not authored plausibility bounds"). Its stated next step is *"the
@@ -146,7 +149,8 @@ propose a population-aware tripwire and does not author pediatric bands.
   traversal (P0 closed that; `DECISIONS.md` principle 19);
 - every structured-measurement `vitals`-panel row whose `key` is one of the seven, across
   `caseStudy.exhibits[].structuredMeasurements` and `caseStudy.stages[].exhibits[].structuredMeasurements`;
-- all 13 canonical `banks/*.json`;
+- all deterministically discovered top-level canonical `banks/*.json` — record the observed file list
+  and count in the manifest rather than asserting a fixed number;
 - `banks/banks-raw/` and promoted-staging, **where those directories exist**.
 
 **Two collectors, not one loose value walker.** `vitals_trend` values are `number` with unit implied
@@ -195,9 +199,20 @@ deterministic across runs. Per vital:
 - adult normal band, labelled `governing: false`;
 - `acceptedSourceUnits`;
 - conversion mode: `identity | linear | affine`;
-- counts by surface, population, bank, and location;
+- counts by surface, population, bank, and location — carrying **`populationDeclared` and
+  `populationEffective` as separate per-record fields.** These do not share a rule across surfaces and
+  must not be normalized to one. For `vitals_trend`, an absent `population` has effective value
+  `adult`: `renderVitalsTrendSvg` applies that default explicitly, and `validateVitalsTrend`'s
+  reference-band restriction only fires when `population` is present and non-adult. For structured
+  measurements, an absent `population` stays `unspecified` — verified 2026-07-17 that no executable
+  default exists; the type merely makes the field optional, and neither `formatStructuredMeasurementValue`
+  nor `renderStructuredMeasurementsSvg` reads it;
 - exact live min and max (canonical units);
-- sorted records at or near each current boundary;
+- **records at or near each current boundary**, defined deterministically as: every exact boundary
+  hit, plus the five nearest numeric records on each side, ranked by absolute canonical-unit distance
+  from the bound, with bank path, then record path, then value as tie-breakers. Censored and
+  typed-bound records have no canonical value and are excluded from this ranking — they surface under
+  the typed-bound finding instead;
 - unrecognized / unconvertible units — explicit findings, never silently skipped;
 - censored values and typed `bound` entries — reported separately from numeric values;
 - current GATE 4 classification;
@@ -246,14 +261,29 @@ thread is about. It is still a data-contract change requiring the full path.
 
 ## 11. Seats
 
+Stated by **role**. The named assignments are current as of 2026-07-17 and change without amending
+the rule; do not read a model name here as part of the contract.
+
 - **Generator:** mechanical, deterministic, with an independent null → may self-certify under
   `DECISIONS.md` principle 2 (narrowed 2026-07-14).
 - **Manifest classification fields** — `inherited` vs. `independently_authored`, GATE 4
   classification, the §4 reconciliation verdict — are **contract interpretation**. Principle 2 keeps
   those under strict independent review. They go to the checker seat.
-- **Producer≠checker:** GPT-5.6 Sol authored the preliminary notes this spec adjudicates. Sol may
-  produce the generator. Sol does **not** gate the manifest.
-- Codex does not merge, does not push to `main`, and does not write `DECISIONS.md`.
+- **Producer≠checker binds whichever model actually produces the generator and manifest**, not a
+  specific named model. That seat does not gate its own output.
+- **Spec-conformance and content review stay split** (principle 2's 2026-07-09 extension). The
+  architect seat authored this spec and so verifies conformance to it but cannot content-review the
+  manifest; the checker seat re-derives the classification fields from live source and standing rules
+  rather than from this document.
+- The producing seat does not merge, does not push to `main`, and does not write `DECISIONS.md`.
+
+**Current assignment (2026-07-17).** GPT-5.6 Sol is at capacity in the Codex harness, so **GPT-5.6
+Terra is the implementing producer** — the producer prohibition above attaches to Terra, not to Sol.
+Sol authored the preliminary notes and reviewed this spec; both are design-source roles, so Sol is
+conflicted for the manifest content gate as well. Neither Sol nor Terra both produces and gates.
+Terra is a different capability tier than Sol; per `DECISIONS.md` principle 2 that changes nothing
+about the seat rule, and per the standing re-verify-on-the-merits rule it licenses no assumption
+either way about Terra's output quality.
 
 ## 12. Probes and regressions
 
@@ -270,6 +300,28 @@ counts.
 
 ## 13. Verification path
 
+### 13.1 Manifest-drift gate
+
+Register two commands, matching the survey/drift pair already established in `package.json`
+(`survey:rationale-visual-floor` + `test:rationale-visual-floor`; `survey:promoted-visual-parity` +
+`test:promoted-visual-parity-survey`):
+
+```sh
+npm run survey:vital-sanity-bounds
+npm run test:vital-sanity-bounds
+```
+
+`test:vital-sanity-bounds` **regenerates the manifest and byte-compares it against the committed
+artifact, failing on any drift.** It must also exercise the candidate-interval parameter (§9) even
+though P3 supplies no candidates — an unexercised parameter is an unproven one, and stage 3 depends on
+it working without a second generator being written.
+
+Do **not** wire either command into `npm run test-visuals` or the Promotion Gate. Broader CI scope is
+P5 policy and is unratified; PR #55 added the single authorized `test-visuals` step and nothing here
+extends it.
+
+### 13.2 Full path
+
 Read-only survey plus new script and regressions:
 
 ```sh
@@ -280,14 +332,27 @@ npm run test-visuals
 npm run validate-bank -- banks/*.json
 npm run audit
 npx tsc -b --pretty false
-npm run census && npm run census:check
+npm run census:check
 npm run build
 git diff --check
 ```
 
+**Do not run `npm run census` as part of P3.** P3 changes no bank content, so there is nothing to
+regenerate. `census:check` computes a fresh census in memory and compares it to the committed one; it
+never needs the write. Running the generator only rewrites `census.json` and `BANK-CENSUS.md` with a
+new `generatedAt` and `inputGitSha` and produces metadata-only churn in the diff.
+
+The census requirement is **stable-payload identity, not literal file identity**: no counts,
+distributions, per-file inventory, bank inventory, visual inventory, duplicate-ID findings, or
+documentation-drift findings may change. `generatedAt` and `inputGitSha` are volatile metadata and are
+excluded by `stripVolatile` before comparison. `npm run census:check` is authoritative **for
+`census.json`** — note that `checkDrift` reads only that file and never compares `BANK-CENSUS.md`,
+whose freshness rests on the "do not hand-edit" convention rather than on a gate.
+
 The PR body records: the §4 reconciliation verdict against the 2026-07-11 sweep; the manifest path;
-the §10 mechanism-gap statement; confirmation that no bank content, no bound, and no renderer changed.
-Census should remain byte-identical.
+the observed bank file list and count (§7.1); the §10 mechanism-gap statement; confirmation that no
+bank content, no bound, and no renderer changed; and that `census:check` passes with `census.json` and
+`BANK-CENSUS.md` untouched.
 
 ## 14. Exit condition
 
@@ -296,6 +361,8 @@ Census should remain byte-identical.
 - The §4 prior findings are carried and the 2026-07-11 sweep is explicitly superseded or extended.
 - The §7.2 prose limitation is stated in the artifact.
 - The §10 mechanism gap is stated per candidate side.
+- `npm run test:vital-sanity-bounds` fails on seeded manifest drift and passes on the committed
+  artifact.
 - **Zero bound changes.**
 - A **mixed verdict is an acceptable and expected outcome** — e.g. "SBP ceiling ready for sourcing;
   SpO₂ floor requires device/reporting-limit evidence; HR remains provisional." Do not manufacture one
@@ -337,3 +404,95 @@ are regressions, not survey rows (§12); absent staging directories reuse the P0
 handling (§7.1); seat split between generator and manifest classification (§11).
 
 Nothing in the preliminary notes was rejected.
+
+## 17. Ratification pass — 2026-07-17
+
+GPT-5.6 Sol reviewed this spec and returned three clarifications and two cleanup notes, all folded in
+before Luke's ratification. Each disk-dependent claim was independently re-derived rather than
+accepted on its face:
+
+| Sol's note | Verification | Disposition |
+|---|---|---|
+| Split spec status from bound status | n/a — drafting | Accepted — header |
+| Define "at or near each current boundary" | n/a — drafting | Accepted — §9, with censored/typed-bound records excluded from the ranking since they have no canonical value |
+| Record declared *and* effective population | **Verified.** `renderVitalsTrendSvg` applies `population === undefined ? "adult"` explicitly; `validateVitalsTrend`'s band restriction fires only when population is present and non-adult. For structured measurements, checked for an executable default rather than assuming one: `StructuredMeasurements.population?` is optional and neither `formatStructuredMeasurementValue` nor `renderStructuredMeasurementsSvg` reads it. No default exists. | Accepted — §9 |
+| Name an explicit manifest-drift gate; "P0 already uses exactly that pattern" | **Verified** against `package.json`: `survey:rationale-visual-floor` + `test:rationale-visual-floor`, and `survey:promoted-visual-parity` + `test:promoted-visual-parity-survey`. The pattern is real. | Accepted — §13.1, with the added fence that neither command enters `test-visuals` or the Promotion Gate (P5 policy, unratified) |
+| Do not structurally hardcode 13 banks | Consistent with `PROJECT-HISTORY.md`'s rule that per-file counts are generated, not hand-maintained | Accepted — §7.1 |
+| Producer prohibition attaches to the actual producer, not a named model | n/a — drafting | Accepted — §11 rewritten role-first |
+
+**PR-body premise — corrected 2026-07-17.** An earlier draft of this section recorded Sol's reference
+to a PR body as an unverified premise, reasoning that no PR was visible on disk. **That framing was
+wrong and is withdrawn.** `CLAUDE.md` already documents that the GPT chat instances read the **repo**,
+not the disk; Luke pushed this spec, so Sol was reading a real PR through its documented access path.
+Disk absence was never evidence of anything about a GitHub artifact, and the architect seat had read
+that rule in the same session. The error was the architect seat's, not a defect in Sol's review. The
+specific "implementer-reviewed" wording remains unverified *by this seat* only because no GitHub
+connector was reachable to it — a limitation of the seat, not a finding about the artifact.
+
+**Implementer review.** GPT-5.6 Terra reviewed this spec before ratification and returned no notes.
+That discharges the implementer-feasibility check: the producing seat has read the spec and can
+implement it as written. It is **not** a spec-correctness certification and moves nothing in §11 — a
+review by the seat that will adopt the spec has no independent null to fail against, so the manifest
+classification gate stays with the checker seat regardless.
+
+The zero-note review also did not hold up: Terra found a genuine spec defect during implementation
+(§18). Recorded as evidence that a null spec review buys less than it appears to.
+
+## 18. Amendment — census verification defect, 2026-07-17
+
+Raised by GPT-5.6 Terra during implementation, analyzed by GPT-5.6 Sol, adjudicated here against live
+`scripts/census.ts`. **The defect was the architect seat's, not the implementation's.**
+
+**What was wrong.** §13.2 required `npm run census && npm run census:check` and then asserted "census
+should remain byte-identical." Those cannot both hold. `computeCensus` stamps
+`generatedAt: new Date().toISOString()` and `inputGitSha: getGitSha()` on every run, so the generator
+cannot produce a byte-identical file. The deeper error was requiring the regeneration **write** at
+all: P3 changes no bank content, so there is nothing to regenerate, and the spec ordered a rewrite and
+then demanded byte-identity of the rewritten file.
+
+**What the executable contract actually is.** `stripVolatile` destructures out exactly `generatedAt`
+and `inputGitSha`; `checkDrift` compares the stripped committed payload against a stripped fresh one.
+The contract is stable-payload identity. §13.2 now says so, and drops the `census` write.
+
+**Disposition of the implementation.** Terra's report is accepted. The refreshed `census.json` and
+`BANK-CENSUS.md` are metadata-only churn and are to be **reverted from the diff**; `census:check` still
+passes with them untouched, because it ignores exactly the two fields that changed. Sol's observation
+that `inputGitSha` is weak provenance is correct — committing a regenerated census immediately
+invalidates the SHA it recorded, which is why the tool ignores it.
+
+**Two findings neither reviewer raised.**
+
+1. `checkDrift` reads **only `census.json`**. `BANK-CENSUS.md` is never drift-checked, though
+   `renderCensus` stamps `Generated:` and `Input Git SHA:` into it. "`census:check` is authoritative"
+   is true for `census.json` only; the md file's freshness rests on its "do not hand-edit" header
+   convention, not on a gate. Reverting it is safe here because nothing substantive changed. **Flagged
+   to the checker seat as a standing observation; not P3's to fix.**
+2. **The reported null is partly structural and must not be pooled.** The survey reports zero
+   violations across ~1,317 governed vital records, but the two collectors answer to *different*
+   contracts: GATE 4's `sanity` governs structured-measurement rows, while `vitals_trend` series are
+   governed by the renderer envelope. For the six aliased vitals, a `vitals_trend` value outside
+   `VITAL_DEFS.range` could never have been authored — `validateVitalsTrend` would have rejected it at
+   authoring time. A zero result on that surface is **structurally guaranteed, not evidential.** It is
+   informative only for structured-measurement rows (which bypass the renderer validator) and for
+   `temp` (decoupled). A pooled "zero across 1,317" reads as corroboration when part of it is
+   tautology.
+
+**The survey result remains non-dispositive**, as §4 and §14 already require. A clean corpus under the
+current contracts does not establish that the current bounds are clinically suitable — the §4
+counterexamples (SBP ~370, RR at `80` with no margin, displayable SpO₂ below 50) bear on values the
+live corpus may simply not contain. Zero warnings is consistent with bounds that are too wide, and the
+REVISIT thread does not close on this evidence.
+
+**Checker-seat scope (narrow).** The mechanical outputs are covered by the deterministic generator and
+the drift regression; the checker does not recount records. Re-derive only:
+
+1. `inherited` vs. `independently_authored`, per vital and per side;
+2. the GATE 4 contract classification;
+3. the claim that the 2026-07-11 sweep is *extended* rather than *superseded*;
+4. the mechanism-cost statements for candidate floors and ceilings (§10);
+5. that the manifest does not convert zero corpus warnings into a suitability verdict;
+6. that the manifest does not pool the two surfaces' nulls, per finding 2 above — the structurally
+   guaranteed result and the evidential one must be reported separately.
+
+The architect seat performs spec-conformance review only and is not the manifest-classification
+checker, having authored the spec (§11).
