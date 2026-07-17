@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { execFileSync } from "node:child_process";
-import { mkdtemp, mkdir, rm, writeFile } from "node:fs/promises";
+import { mkdtemp, mkdir, readFile, rm, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import type { Question, QuestionVisual } from "../../src/types";
@@ -12,6 +12,7 @@ import {
   buildOrdinaryDeltas,
   buildParityState,
   hasActiveBaseline,
+  LEGACY_SNAPSHOT_PATH,
   renderStateAtRef,
   serializeSnapshotFiles,
   snapshotRecord,
@@ -246,5 +247,20 @@ assert.equal(worktreesAfterSuccess, worktreesBefore, "successful renders must no
 
 const liveCount = await verifyCommittedPromotedBaseline();
 assert.equal(liveCount, 199);
+
+const legacySnapshot = JSON.parse(await readFile(LEGACY_SNAPSHOT_PATH, "utf8")) as Record<string, unknown>;
+assert.equal(Object.hasOwn(legacySnapshot, "svgHashes"), false);
+assert.equal(Array.isArray(legacySnapshot.validationReasons) ? legacySnapshot.validationReasons.length : 0, 11);
+const initialReceipt = JSON.parse(
+  await readFile("audit/visual-parity-rebaseline-2026-07-17-initial/receipt.json", "utf8"),
+) as {
+  initialBaseline?: { bootstrap?: boolean };
+  u0Migration?: { allEqual?: boolean; allStructurallyEligible?: boolean; migrated?: Array<{ equal?: boolean }> };
+};
+assert.equal(initialReceipt.initialBaseline?.bootstrap, true);
+assert.equal(initialReceipt.u0Migration?.allEqual, true);
+assert.equal(initialReceipt.u0Migration?.allStructurallyEligible, true);
+assert.equal(initialReceipt.u0Migration?.migrated?.length, 3);
+assert(initialReceipt.u0Migration?.migrated?.every((record) => record.equal === true));
 
 console.log("promoted visual parity tests passed (199 snapshots, bootstrap/steady-state mechanics, clean before-ref worktree)");

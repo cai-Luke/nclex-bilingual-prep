@@ -1,41 +1,16 @@
-// Parity guarantee for U0: the registry path must reproduce the pre-refactor
-// rhythm-strip behavior byte-for-byte (SVG sha256) and reason-for-reason
-// (validation strings). Baseline lives in __snapshots__/visual-parity.json.
-import { createHash } from "node:crypto";
+// Historical U0 validation-reason parity. The three SVG hashes migrated
+// losslessly to the promoted rhythm-strip baseline on 2026-07-17.
 import { readFile } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
 import { validateBankObject } from "../../src/schema";
-import { getVisual } from "../../src/visuals/registry";
-import { loadPromotedVisualRecords } from "../promoted-visual-parity";
 
 const assert = (condition: unknown, message: string) => {
   if (!condition) throw new Error(message);
 };
-const sha = (s: string) => createHash("sha256").update(s).digest("hex");
-
 const snapshotPath = fileURLToPath(new URL("./__snapshots__/visual-parity.json", import.meta.url));
 const snapshot = JSON.parse(await readFile(snapshotPath, "utf8")) as {
-  svgHashes: { id: string; rhythm: string; svgHash: string }[];
   validationReasons: { name: string; itemType: string; visual: unknown; reasons: string[] }[];
 };
-
-// --- SVG byte-parity: render the live items through the registry --------------
-const byId = new Map<string, any>();
-for (const record of await loadPromotedVisualRecords()) {
-  byId.set(record.parityId, record.ref.visual);
-}
-
-for (const expected of snapshot.svgHashes) {
-  const visual = byId.get(expected.id);
-  assert(visual, `parity item ${expected.id} not found in any bank`);
-  const mod = getVisual(visual.kind);
-  assert(mod, `no registered module for kind ${visual.kind}`);
-  const actual = sha(mod!.renderSvg(visual));
-  assert(
-    actual === expected.svgHash,
-    `SVG hash drift for ${expected.id}: expected ${expected.svgHash}, got ${actual}`,
-  );
-}
 
 // --- Validation reason-parity ------------------------------------------------
 const mkBank = (visual: unknown, itemType: string) => ({
@@ -68,4 +43,4 @@ for (const c of snapshot.validationReasons) {
   assert(same, `validation reason drift for ${c.name}:\n  expected ${JSON.stringify(c.reasons)}\n  got      ${JSON.stringify(actual)}`);
 }
 
-console.log(`visual-parity tests passed (${snapshot.svgHashes.length} SVG hashes, ${snapshot.validationReasons.length} reason cases)`);
+console.log(`visual-parity tests passed (${snapshot.validationReasons.length} reason cases)`);
