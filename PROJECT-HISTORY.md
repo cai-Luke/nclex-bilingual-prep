@@ -52,6 +52,32 @@ The committed NGN item-type set is complete. Rationale/dyad scoring and an expli
 
 > Milestones dated **2026-06-23 and earlier** are archived in [`Archive/PROJECT-HISTORY-ARCHIVE.md`](Archive/PROJECT-HISTORY-ARCHIVE.md). Only the current arc (2026-06-24 onward) is kept here.
 
+### Vital-Sign Sanity Bounds P3 Deterministic Inventory — Implemented, Classification Review Pending (Jul 17)
+
+The ratified P3 survey is implemented by `scripts/vital-sanity-bounds-survey.ts`, with its dated
+manifest at `audit/vital-sanity-bounds-survey-2026-07-17/survey-manifest.json` and a byte-drift/
+boundary regression at `scripts/tests/vital-sanity-bounds.ts`. `npm run survey:vital-sanity-bounds`
+regenerates the artifact; `npm run test:vital-sanity-bounds` proves its committed bytes, synthetic
+current-bound probes, temperature's affine source-unit behavior, typed-bound semantics, optional
+staging-lane handling, and reusable candidate-interval accounting.
+
+The inventory deterministically discovered 13 top-level canonical banks and 1,317 machine-readable
+vital records. The 766 structured-measurement rows are the live GATE 4 population; they have zero
+warnings, unit failures, and conversion failures. The 551 `vitals_trend` values are renderer-envelope
+records: their clean validation and MAP null are structural, not evidence that the `sanity` tripwires
+are clinically suitable. Temperature documents the decoupled contracts across both lanes but does not
+make the renderer execute GATE 4. The artifact records declared/effective population per record, all
+seven vital contracts, side authorship and override-mechanism cost, exact live canonical ranges, and
+nearest boundary records. The prior 2026-07-11 survey and pre-move sweep is located in Git history at
+`a67476cee75e365dd72c22a589d8e76c6e3ddc6d:DECISIONS.md`, while current `DECISIONS.md` §7 preserves
+its compact zero-flip summary and r9 §6.1 is a separate July 15 re-derivation. P3 explicitly extends
+that limited historical survey/sweep scope; the historical promoted/refreshed temperature spans are
+not directly comparable to P3's pooled two-surface `liveRange`.
+
+No bank, renderer, measurement-unit vocabulary, or `sanity` bound changed. Per the P3 seat split,
+the producing implementation does not certify the manifest's contract-interpretation fields; an
+independent checker seat still owns that classification review.
+
 ### Promoted Visual Parity P2 Baseline Phase — Merged (Jul 17)
 
 The survey phase authorized by
@@ -89,9 +115,16 @@ receipt/evidence directory and fails clearly when either local-only tool is abse
 Gate adds only the authorized `npm run test-visuals` step, while that package command now genuinely
 includes P0's six-location `rationale-visual-floor` regression. That P0 survey treats absent optional
 raw/promoted staging directories as an empty population in clean Git checkouts while preserving all
-other filesystem failures. Claude's baseline spec-conformance verdict was `CONFORMS`; the
-independent gate seat approved the PR and it merged. P3, P4, and the remaining P5 policy work remain
-separate follow-up scopes.
+other filesystem failures. Claude's baseline spec-conformance verdict was `CONFORMS`.
+
+Merged as `7792caf` on Luke's merge authority. The spec's §10 seat order placed an independent
+gate-seat review before merge; that review did not occur, and none has been performed by a
+qualifying seat. A post-merge read by Gemini returned no findings, but under Gemini's standing
+restrictions (`DECISIONS.md`, Reference appendices) it is not a gate seat and does not discharge the
+obligation. Accepted as a closed residual rather than remediated: the bootstrap changed no bank
+content and recorded zero deltas, the baseline hashes a corpus whose proof surfaces the survey
+measured independently, and `test-visuals` now runs in the Promotion Gate. P3, P4, and the remaining
+P5 policy work remain separate follow-up scopes.
 
 ### Rationale-Visual Schema-Floor Traversal Retrofit (Jul 16)
 
@@ -1432,6 +1465,16 @@ Verification:
 - Browser spot checks in the dev review console confirmed capped visuals fit mobile width without page overflow, while rhythm strip and capnography still keep their horizontal scroll behavior.
 
 ## Verification baseline
+
+> **STALE as of 2026-07-17.** This baseline has not been re-executed since 2026-06-15 and predates
+> schema 2.0, the `io_trend` kind, and the closed flowsheet migration. The list below is a historical
+> record of that run — **not** a statement of current green status. Known structural drift: the
+> registry now holds **12** kinds (`listVisualKinds()` in `src/visuals/registry.ts`; confirmed against
+> `src/visuals/kinds/` — `burn_map`, `capnography`, `device_screen`, `fetal_monitoring`,
+> `injection_site`, `io_record`, `io_trend`, `lab_trend`, `mar`, `medication_label`, `rhythm_strip`,
+> `vitals_trend`), not the 11 that were green on 2026-06-15. Refreshing this section requires actually
+> executing the commands; the architect seat cannot run them and has not claimed a re-verification
+> here. The per-line entries below remain accurate *for their date*.
 
 Last verified on 2026-06-15:
 
