@@ -123,7 +123,7 @@ bowtie
 
 case_study
 
-Generate highlight only when the requested mix includes it. Highlight items must use ordered bilingual segments, include at least one selectable distractor, never key every selectable segment, and use `stem` for the selection criterion. Bowtie is a live standalone item type (schema 1.4+), but it is normally authored through the GPT/Opus case-skeleton pipeline; in this raw-volume Gemini lane, generate bowtie only if the user explicitly requests it and provides current schema/skeleton context.
+Generate highlight only when the requested mix includes it. Highlight items must use ordered bilingual segments, include at least one selectable distractor, never key every selectable segment, and use `stem` for the selection criterion. Bowtie is a live standalone item type (schema 1.4+) that may be generated directly as a standalone item (DECISIONS.md, 2026-07-02 addendum); in this raw-volume Gemini lane, generate bowtie only if the user explicitly requests it and provides current schema context.
 
 
 

@@ -31,12 +31,10 @@ This ledger tracks which generated question banks are safe to treat as reviewed 
 8. After merge and successful validation, delete the raw/staging source file unless there is an explicit reason to retain it.
 9. Update this ledger before treating the bank as reviewed, including the deleted source filename in Merged Source Batches.
 
-`Chain:` lines for skeleton-derived cases must name the fact-check/currency and
-review-layer roles explicitly. Forward default:
-`Opus skeleton → GPT fact-check + compile/scaffold (author prose stripped) →
-Gemini flag-only review → Claude final review`. Naming only "compile" or
-"patch" understates the independent checks; Gemini review is a structured flag
-list only and must never rewrite JSON or skeleton prose.
+`Chain:` lines must record the actual producer, independent reviewer, and
+promotion-gate roles used for the batch. Do not reuse a historical chain as a
+forward default; follow the lane's current prompt or spec and the standing
+producer≠checker requirement.
 
 ## Generation Policy
 
