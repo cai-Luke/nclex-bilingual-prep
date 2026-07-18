@@ -48,48 +48,47 @@ No particular temporary-file or atomic-write implementation is required. The req
 final disk state above: complete parseable JSON at the exact paths, with no partial or auxiliary
 files left in `banks/banks-raw/`.
 
-## 3. Capability-aware validation handoff
+## 3. Producer/checker validation handoff
 
-Repository read/write access does not imply shell execution.
+The producer seat for this commission has repository read/write tools but no shell execution. Do
+**not** attempt shell commands and do not treat their absence as a production failure. After writing,
+report `normalization and validation deferred to Codex/checker (no command execution in producer
+seat)`.
 
-- If command execution is available, after writing each file run the following checks and report the
-  results:
+Codex/checker owns these mandatory commands before Claude review:
 
-  ```bash
-  npm run normalize-raw-bank -- banks/banks-raw/<exact-filename>.json
-  npm run validate-bank -- banks/banks-raw/<exact-filename>.json
-  ```
+```bash
+npm run normalize-raw-bank -- banks/banks-raw/<exact-filename>.json
+npm run validate-bank -- banks/banks-raw/<exact-filename>.json
+```
 
-  Normalization is a dry run. Use `--write` only after reviewing deterministic normalizer-owned
-  changes. Any later JSON repair must load, mutate, and re-serialize the object programmatically.
-- If command execution is unavailable, do **not** attempt the commands and do not treat that as a
-  production failure. Report `normalization and validation deferred to Codex/checker (no command
-  execution in producer seat)`. Codex/checker owns mandatory execution before Claude review.
+Normalization is a dry run. Codex/checker uses `--write` only after reviewing deterministic
+normalizer-owned changes. Any later JSON repair must load, mutate, and re-serialize the object
+programmatically.
 
 The final response is a compact receipt: three paths, actual item counts, primary/reserve use,
-collision-preflight result, and either command results or the exact deferred statement above. Do not
-paste question JSON.
+collision-preflight result, and the exact deferred statement above. Do not paste question JSON.
 
 ## 4. Collision preflight, reserves, and blocked-row policy
 
 ### 4.1 Producer preflight
 
-Before authoring prose, and again against completed drafts, inspect:
+Trust the Section 7 spec-author screen register for the canonical corpus and released Batch 8–10
+manifests. Before authoring, confirm that the three target paths are absent and inspect every live
+JSON draft under `banks/banks-raw/`. After drafting, compare the completed items against one another,
+all live raw drafts, and the named comparator for each row. Compare the equation or scoring rule,
+decisive cue cluster, response demand, keyed pathway, and serial template—not just diagnosis words.
 
-1. every standalone question and embedded case-study leaf in top-level `banks/*.json`;
-2. every live JSON draft under `banks/banks-raw/`; and
-3. Batches 8–10 as occupied construct manifests, regardless of review status.
-
-For each primary and reserve row, identify the nearest existing construct. Compare the equation or
-scoring rule, decisive cue cluster, response demand, keyed pathway, and serial template—not just
-diagnosis words. A row is blocked when it repeats the same construct under different values,
-demographics, symptoms, format, category, or wrapper.
+A row is blocked when it repeats the same construct under different values, demographics, symptoms,
+format, category, or wrapper. If direct evidence reveals a canonical collision omitted from the
+register, block the row and report the conflicting ID; do not force it merely because the register
+did not name that collision.
 
 Spec-author preflight for this commission covered current bundled standalone items, embedded leaves,
 and the released Batch 8–10 manifests. By commissioning decision, Batch 10 raw content was not opened
-or clinically reviewed during spec preparation; its promoted items were screened from the current
-canonical bank and all 18 assigned constructs were conservatively treated as occupied. The producer
-must complete the live-raw portion before authoring.
+or clinically reviewed during the original spec pass; its promoted items were screened from the
+current canonical bank and all 18 assigned constructs were conservatively treated as occupied.
+Codex/spec preparation owns the corpus-wide search; Claude owns the independent final collision gate.
 
 ### 4.2 Reserve substitution policy
 
@@ -129,7 +128,7 @@ Aggregate primary distribution:
 | 2 | Physiological Adaptation | Endocrine & Neurological Disorders | bowtie | hard | Distinguish acute primary angle closure from primary open-angle glaucoma, anterior uveitis, and migraine using abrupt pain, visual symptoms, pupil/corneal/anterior-chamber findings, nausea, and measured pressure supplied in the stem. Key two actions in an explicit ophthalmology emergency plan and two ocular/systemic response parameters. Do not ask a nurse to select an unsourced medication sequence or imply that chronic open-angle glaucoma presents this way. |
 | 3 | Physiological Adaptation | Maternal-Newborn Care & Teaching | bowtie | hard | A postpartum client develops fever plus uterine tenderness and malodorous or purulent lochia after delivery. Distinguish postpartum endometritis from mastitis, urinary infection, wound infection, and septic pelvic thrombophlebitis using location and timing cues. Key two actions already ordered under the maternal-infection plan and two response/deterioration parameters. Do not prescribe a dose or claim that one finding alone proves the source. |
 | 4 | Physiological Adaptation | Renal & Gastrointestinal Disorders | bowtie | hard | Distinguish acute mesenteric ischemia from pancreatitis, bowel obstruction, gastroenteritis, and uncomplicated biliary disease using abrupt pain out of proportion, embolic/vascular risk, evolving examination, lactate limitations, and the exact WSES diagnostic lane. Key urgent CTA/surgical-vascular actions already authorized and two perfusion/abdominal response parameters. Do not wait for peritonitis or a high lactate before escalation. |
-| 5 | Physiological Adaptation | Cardiovascular Disorders | bowtie | hard | Distinguish immune thrombotic thrombocytopenic purpura from HIT, DIC, ITP, and HUS using thrombocytopenia, microangiopathic hemolysis, smear, coagulation pattern, renal/neurologic cues, and exposure history. Key the exact ISTH sequence of obtaining the ADAMTS13 sample before blood product/TPE when feasible without delaying urgent TPE/corticosteroid treatment, plus two response parameters. Do not use the historical pentad as a requirement, invent doses, or treat the ADAMTS13 result as a reason to delay a high-probability pathway. |
+| 5 | Physiological Adaptation | Cardiovascular Disorders | bowtie | hard | Distinguish immune thrombotic thrombocytopenic purpura from HIT, DIC, ITP, and HUS using thrombocytopenia, microangiopathic hemolysis, smear, coagulation pattern, renal/neurologic cues, and exposure history. Put the feasibility condition in the stem: the ADAMTS13 sample can be obtained immediately before plasma-containing treatment without delaying it. Use two concise action tokens: (1) obtain the ADAMTS13 sample now before TPE/plasma-containing blood product; and (2) begin the authorized urgent TPE/corticosteroid pathway now without waiting for the result. Do not pack the sequence and exception into one token, use the historical pentad as a requirement, invent doses, or delay a high-probability pathway. Key two response parameters. |
 | 6 | Physiological Adaptation | Cardiovascular Disorders | highlight | hard | A chest/back-pain note mixes nonspecific findings with the exact ACC/AHA history and examination features that raise concern for acute aortic syndrome or branch-vessel malperfusion. Highlight only high-risk cues requiring the named urgent aortic-imaging/specialist pathway. Do not diagnose dissection from pain quality alone or highlight ordinary hypertension without the discriminating cluster. |
 
 ### Batch 11B — highlight and fill-in-the-blank
@@ -139,7 +138,7 @@ input convention, and rounding rule in the stem; recompute the key independently
 
 | # | Category | Canonical topic | itemType | Difficulty | Mandated assessment target |
 |---|---|---|---|---|---|
-| 7 | Physiological Adaptation | Cardiovascular Disorders | highlight | medium | A sudden limb-symptom note mixes chronic PAD findings with acute limb-ischemia cues. Highlight only findings that establish an immediately threatened or irreversibly threatened limb under the selected ESVS/Rutherford lane, including the exact sensory, motor, and Doppler distinctions supplied by the source. Do not turn the six Ps into an unbounded recall list or infer viability from pain alone. |
+| 7 | Physiological Adaptation | Cardiovascular Disorders | highlight | medium | A sudden limb-symptom note mixes chronic PAD findings with acute limb-ischemia cues. Highlight only findings that establish an **immediately threatened limb (Rutherford IIb)**: sensory loss beyond the toes, mild-to-moderate motor deficit, an inaudible arterial Doppler signal, and an audible venous Doppler signal. Do not mix in Rutherford III profound anesthesia/paralysis or absent venous Doppler, turn the six Ps into an unbounded recall list, or infer viability from pain alone. |
 | 8 | Physiological Adaptation | Endocrine & Neurological Disorders | highlight | medium | A new-visual-symptom note mixes benign stable floaters with sudden flashes, a rapid increase in floaters, a curtain/shadow, field loss, or trauma-linked findings requiring urgent retinal evaluation under the NEI lane. Highlight only the retinal-detachment emergency cues. Do not use eye pain as required or substitute chronic cataract/open-angle-glaucoma findings. |
 | 9 | Physiological Adaptation | Endocrine & Neurological Disorders | highlight | medium | An older adult's headache/vision note mixes nonspecific symptoms with giant-cell-arteritis cranial ischemia cues such as new localized headache, scalp tenderness, jaw/tongue claudication, transient or persistent visual symptoms, and compatible inflammatory context. Highlight only findings requiring urgent same-day escalation under the named guideline. Do not diagnose from ESR alone or delay the pathway for a biopsy result. |
 | 10 | Pharmacological and Parenteral Therapies | Laboratory & Diagnostic Tests | fill_in_blank | medium | Supply age, weight, stable serum creatinine, sex coefficient, and the exact Cockcroft–Gault equation in the stem. State which supplied weight to use so no body-size judgment is hidden. Ask only for estimated creatinine clearance in mL/min with a rounding rule; do not choose or adjust a medication dose or equate the result with indexed eGFR. |
@@ -154,11 +153,11 @@ constraint; bundle simultaneous actions instead of inventing an internal rank.
 | # | Category | Canonical topic | itemType | Difficulty | Mandated assessment target |
 |---|---|---|---|---|---|
 | 13 | Health Promotion and Maintenance | Pediatric & Toddler Safety | ordered_response | easy | Order the IADT first-aid pathway for an avulsed permanent tooth: identify that it is permanent, handle only the crown, rinse briefly without scrubbing when contaminated, replant promptly when appropriate or place in an approved storage medium, and obtain immediate dental care. Make contraindications and the primary-tooth exclusion explicit. Do not rank replantation and storage as simultaneous choices; use a closed branch in the stem. |
-| 14 | Reduction of Risk Potential | Laboratory & Diagnostic Tests | ordered_response | easy | Order an adult clean-catch midstream urine collection using a supplied laboratory procedure: hand hygiene and preparation, cleanse without contaminating the cup, begin voiding into the toilet, collect the midstream sample, finish voiding, cap/label, and route promptly as directed. Keep sex-specific cleansing instructions inside the chosen closed pathway. Do not substitute catheter-port collection. |
+| 14 | Reduction of Risk Potential | Laboratory & Diagnostic Tests | ordered_response | easy | Order an adult clean-catch midstream urine collection using exactly six supplied options: (1) perform hand hygiene and prepare the labeled container; (2) cleanse using the supplied sex-specific procedure without touching the container interior; (3) begin voiding into the toilet; (4) move the container into the stream and collect the midstream specimen; (5) finish voiding into the toilet; and (6) cap the container securely, complete labeling, and route it according to the stated timing instructions. Do not split these bundles into a seventh option or substitute catheter-port collection. |
 | 15 | Health Promotion and Maintenance | Chronic Disease Management & Lifestyle | ordered_response | easy | Order correct home peak-flow-meter technique: reset/inspect, assume the stated upright position, inhale fully, seal and blow once hard/fast, record/reset and repeat for three attempts, then record the highest—not the average—in the action plan. Do not ask the learner to choose a treatment zone or medication. |
-| 16 | Physiological Adaptation | Endocrine & Neurological Disorders | dropdown_cloze | medium | Given paired ACTH, cortisol, potassium, renin/aldosterone, and history data, distinguish primary from secondary adrenal insufficiency, identify whether mineralocorticoid deficiency is expected, and select the corresponding localization. Each dropdown tests one inference. Do not reopen adrenal-crisis treatment or claim one random cortisol value is diagnostic. |
+| 16 | Physiological Adaptation | Endocrine & Neurological Disorders | dropdown_cloze | medium | Use three separately labeled, stable mini-records—one per dropdown—so no answer constrains another. Record A supplies paired morning cortisol and ACTH and asks for primary versus central adrenal-insufficiency localization. Record B supplies a different client's potassium, renin, and aldosterone and asks whether the aldosterone response is appropriately preserved or inappropriately low for that physiologic context, without asking for AI localization. Record C supplies a third client's hormone pattern and history cues and asks which etiology best fits: autoimmune adrenal disease, chronic exogenous-glucocorticoid suppression, or pituitary disease. Do not reuse a client across dropdowns, ask both localization and mineralocorticoid status for the same record, reopen adrenal-crisis treatment, or use one random cortisol value diagnostically. |
 | 17 | Reduction of Risk Potential | Laboratory & Diagnostic Tests | dropdown_cloze | medium | Use a bounded CBC/iron-study pattern to distinguish iron-deficiency anemia, anemia of chronic inflammation, and thalassemia trait. Separate ferritin/TIBC/transferrin-saturation inference from RBC-count/HbA2 inference, and identify the next confirmatory lane without treating a screening pattern as a final genetic diagnosis. Do not use ferritin without accounting for inflammation. |
-| 18 | Physiological Adaptation | Endocrine & Neurological Disorders | dropdown_cloze | medium | In a monitored diagnostic record with hypotonic polyuria, use water-deprivation and desmopressin-response data to distinguish complete central DI from complete nephrogenic DI and primary polydipsia, then select the expected urine-osmolality response and sodium-safety implication. Avoid partial/indeterminate patterns. Do not instruct unsupervised water deprivation or turn desmopressin response into a treatment dose. |
+| 18 | Physiological Adaptation | Endocrine & Neurological Disorders | dropdown_cloze | medium | In a monitored diagnostic record with hypotonic polyuria, interpret the **observed** water-deprivation pattern and desmopressin response to (1) classify the urine-concentration response during deprivation; (2) distinguish complete central DI, complete nephrogenic DI, and primary polydipsia; and (3) select the corresponding serum-sodium safety concern. Use only deliberately complete, nonoverlapping response patterns; exclude partial and indeterminate DI. Do not instruct unsupervised water deprivation or turn desmopressin response into a treatment dose. |
 
 ## 6. Matched reserve manifest
 
@@ -168,7 +167,7 @@ Use a reserve only under Section 4.2. Reserve IDs are receipt labels, not requir
 |---|---|---|---|---|---|
 | R-BT-H | Primary 1–5 | Physiological Adaptation / Endocrine & Neurological Disorders | bowtie | hard | Pheochromocytoma multisystem crisis: distinguish catecholamine crisis with extreme blood-pressure lability and organ injury from panic, stimulant toxicity, thyroid storm, and sepsis. Key two actions already authorized by a named expert pathway and two hemodynamic/organ response parameters. Preserve the alpha-before-beta safety rule; do not invent a dose or make immediate unprepared surgery universal. |
 | R-HL-H | Primary 6 | Physiological Adaptation / Renal & Gastrointestinal Disorders | highlight | hard | Acute liver failure without known cirrhosis: highlight the coagulopathy, encephalopathy, hypoglycemia, acidosis, renal injury, and neurologic findings that require ICU/transplant-center escalation under the AASLD lane. Do not substitute chronic decompensated cirrhosis or use ammonia alone. |
-| R-HL-M | Primary 7–9 | Health Promotion and Maintenance / Pediatric & Adolescent Health | highlight | medium | Acute scrotal-pain note: highlight only the sudden-onset, nausea/vomiting, abnormal lie, swelling/tenderness, or intermittent-torsion history cues requiring immediate testicular-torsion evaluation. Include plausible epididymitis/torsed-appendage near-misses. Do not delay a high-suspicion surgical pathway for a routine outpatient ultrasound. |
+| R-HL-M | Primary 7–9 | Physiological Adaptation / Endocrine & Neurological Disorders | highlight | medium | An acute-vision note mixes central-retinal-artery-occlusion findings with retinal-detachment, angle-closure, and chronic-vision near-misses. Highlight only the sudden painless monocular visual loss, relative afferent pupillary defect, and classic retinal-ischemia/funduscopic findings that support suspected CRAO and require immediate emergency-department/stroke-pathway triage under the AHA lane. Do not require a visible embolus, prescribe thrombolysis, or recommend ocular massage. |
 | R-FIB-M | Primary 10–12 | Physiological Adaptation / Respiratory & Infectious Disorders | fill_in_blank | medium | Supply hemoglobin, SaO2 as a decimal, PaO2, and `CaO2 = 1.34 × Hgb × SaO2 + 0.003 × PaO2`. Ask for arterial oxygen content in mL O2/dL rounded to the nearest tenth. Ask only for the calculation; do not prescribe oxygen or infer adequate tissue delivery without cardiac output. |
 | R-OR-E | Primary 13–15 | Health Promotion and Maintenance / Adult Health & Wellness | ordered_response | easy | Order uncomplicated anterior-epistaxis first aid: sit and lean forward, pinch the soft lower nose continuously for the source-specified interval while breathing through the mouth, then reassess and seek care if bleeding persists or red flags apply. Do not tilt the head back, repeatedly release pressure, or invent an ice requirement. |
 | R-DD-M | Primary 16–18 | Reduction of Risk Potential / Laboratory & Diagnostic Tests | dropdown_cloze | medium | Use reticulocyte count, LDH, indirect bilirubin, haptoglobin, and smear pattern to distinguish hemolysis from blood loss and underproduction, then identify the appropriate next etiologic test lane. Keep the scenario nontransfusion. Do not diagnose a specific hemolytic disorder from one marker. |
@@ -196,12 +195,12 @@ preflight.
 | 13 | Batch 8 row 10 swallowed-poison pathway | Dental-trauma crown handling/replant-or-store branch; no ingestion or Poison Control sequence. |
 | 14 | `gemini_d7_04` catheter-port sterile specimen question | Spontaneous-void clean-catch technique; no indwelling-catheter sampling. |
 | 15 | `gpt_format10a_life_threatening_asthma_reduced_air_entry` uses peak flow as one severity datum | Meter technique and highest of three attempts only; no exacerbation, bowtie, or medication-zone decision. |
-| 16 | Batch 8 hypophysitis/secondary-adrenal-risk bowtie and `gemini_b1_08` primary-AI matrix | Paired stable primary-versus-secondary localization using ACTH/mineralocorticoid data; no crisis or hypophysitis treatment. |
+| 16 | Batch 8 hypophysitis/secondary-adrenal-risk bowtie and `gemini_b1_08` primary-AI matrix | Three independent stable mini-record interpretations—HPA localization, aldosterone appropriateness, and etiology—with no same-client mechanical reveal, crisis, or hypophysitis treatment. |
 | 17 | `gemini_d6_toddler_milk_iron_10` iron-deficiency prevention teaching | Adult microcytic-lab differential across IDA/inflammation/thalassemia; no nutrition teaching. |
 | 18 | `gemini_jun05_a_cloze_siadh_di_38` postoperative DI recognition | Complete central-versus-nephrogenic localization from supervised desmopressin response; no generic DI recognition. |
 | R-BT-H | No material pheochromocytoma construct found | Crisis-specific blood-pressure lability/organ injury and alpha-before-beta safety; no routine preoperative teaching. |
 | R-HL-H | `gpt_deepen_2026_06_23_bow_07` cirrhosis with hepatic encephalopathy | New acute liver failure without cirrhosis and transplant-center escalation; no chronic-cirrhosis trigger pathway. |
-| R-HL-M | No material testicular-torsion construct found | Time-critical acute-scrotum cue selection; no generalized pediatric pain or reproductive teaching. |
+| R-HL-M | Primary row 8 retinal-detachment highlight; nearest canonical comparator is `gemini_jun05_a_cloze_glaucoma_48` | Acute painless monocular retinal ischemia with pupillary/funduscopic support and emergency stroke-pathway triage; no flashes/floaters/curtain construct, painful angle closure, or chronic vision loss. |
 | R-FIB-M | Batch 8 row 6 P/F ratio | Arterial oxygen content including hemoglobin-bound and dissolved components; no oxygenation ratio or ARDS classification. |
 | R-OR-E | Anticoagulant and transfusion bleeding pathways | Uncomplicated first-aid positioning plus uninterrupted timed nasal pressure; no reversal, transfusion stop, or medication sequence. |
 | R-DD-M | `gpt_case_acute_hemolytic_transfusion_reaction_01_bowtie` | Nontransfusion laboratory localization of hemolysis versus loss/underproduction; no reaction recognition or transfusion actions. |
@@ -210,14 +209,14 @@ preflight.
 
 Every question needs `meta.source` pinned to the exact section, recommendation, equation, table, or
 procedure supporting its key. The URLs below were opened successfully during spec preparation. The
-producer may copy the corresponding approved source text verbatim into `meta.source`; if a source has
-changed or the exact passage cannot be opened, block the row.
+producer may copy the corresponding approved citation string verbatim into `meta.source`; if a source
+has changed or the exact passage cannot be opened, block the row.
 
 | Rows | Approved `meta.source` pin |
 |---|---|
 | 1 | IDSA, *2014 Skin and Soft Tissue Infection Guideline*, section “Evaluation and Treatment of Necrotizing Fasciitis,” recommendations 1–3 and listed suggestive features: https://www.idsociety.org/practice-guideline/skin-and-soft-tissue-infections/ |
 | 2 | Royal College of Ophthalmologists, *The Management of Angle-Closure Glaucoma* (2022), acute angle-closure presentation, immediate management, referral, and monitoring sections: https://www.rcophth.ac.uk/wp-content/uploads/2021/10/The-Management-of-Angle-Closure-Glaucoma-Clinical-Guidelines.pdf |
-| 3 | WHO, *Recommendations on maternal health* (2nd ed., 2025), Table 65, postpartum-endometritis treatment recommendation and resolution findings: https://www.ncbi.nlm.nih.gov/books/NBK615643/table/part2.tab65/ |
+| 3 | Merck Manual Professional, *Postpartum Endometritis*, “Symptoms and Signs” and “Diagnosis” passages covering timing, uterine localization, competing postpartum fever sources, and persistent-fever reassessment: https://www.merckmanuals.com/en-ca/professional/gynecology-and-obstetrics/postpartum-care-and-associated-disorders/postpartum-endometritis; plus WHO, *Recommendations on maternal health* (2nd ed., 2025), Table 65, postpartum-endometritis treatment recommendation and resolution findings: https://www.ncbi.nlm.nih.gov/books/NBK615643/table/part2.tab65/ |
 | 4 | World Society of Emergency Surgery, *Acute mesenteric ischemia: updated guidelines* (2022), clinical presentation/laboratory limitations, CTA without delay, resuscitation, antibiotics, and revascularization/source-control recommendations: https://pmc.ncbi.nlm.nih.gov/articles/PMC9580452/ |
 | 5 | ISTH, *Guidelines for the diagnosis of TTP* (2020), Recommendation 1 steps 1–4: https://pmc.ncbi.nlm.nih.gov/articles/PMC8146131/; and *Guidelines for treatment of TTP*, first acute iTTP recommendation: https://pmc.ncbi.nlm.nih.gov/articles/PMC8091490/. The 2025 focused update reports no change to the acquired-iTTP recommendations: https://pubmed.ncbi.nlm.nih.gov/40533296/ |
 | 6 | 2022 ACC/AHA *Guideline for the Diagnosis and Management of Aortic Disease*, acute-aortic-syndrome presentation/high-risk examination features and diagnostic-evaluation sections: https://pmc.ncbi.nlm.nih.gov/articles/PMC9860464/ |
@@ -235,7 +234,7 @@ changed or the exact passage cannot be opened, block the row.
 | 18 | Endotext, *Diagnostic Tests for Diabetes Insipidus*, water-deprivation and desmopressin-response interpretation, complete central versus nephrogenic DI passages: https://www.ncbi.nlm.nih.gov/books/NBK537591/ |
 | R-BT-H | Japan Endocrine Society, *Clinical Practice Guideline for Pheochromocytoma and Paraganglioma 2025*, section I-6 on hypertensive crisis/multisystem crisis and alpha-before-beta management: https://www.jstage.jst.go.jp/article/endocrj/73/1/73_EJ25-0165/_html/-char/en |
 | R-HL-H | AASLD, *Defining and Managing Acute Liver Failure*, diagnostic definition, ICU monitoring, and transplant-center transfer passages: https://www.aasld.org/liver-fellow-network/core-series/back-basics/defining-and-managing-acute-liver-failure |
-| R-HL-M | AAFP, *Testicular Torsion: Diagnosis, Evaluation, and Management*, presentation/examination and urgent-surgical-evaluation passages: https://www.aafp.org/pubs/afp/issues/2013/1215/p835.pdf |
+| R-HL-M | AHA, *Management of Central Retinal Artery Occlusion* scientific statement (2021), diagnosis and treatment/triage summary in Table 2 plus the classic examination findings in Supplementary Figure 2: https://professional.heart.org/-/media/PHD-Files-2/Science-News/m/management_of_central_retinal_artery_occlusion_slide_set.pdf |
 | R-FIB-M | NCBI Bookshelf, *Clinical Methods: Arterial Blood Gases*, arterial oxygen-content equation and unit convention: https://www.ncbi.nlm.nih.gov/books/NBK371/ |
 | R-OR-E | NHS, *Nosebleed*, first-aid sequence and 10–15-minute escalation threshold: https://www.nhs.uk/conditions/nosebleed/ |
 | R-DD-M | ARUP Consult, *Hemolytic Anemias*, standard hemolysis workup and confirmatory marker pattern: https://arupconsult.com/content/hemolytic-anemias |
@@ -281,14 +280,18 @@ changed or the exact passage cannot be opened, block the row.
   Chinese parity.
 - Use the manifest's exact category and canonical topic strings.
 - Do not reproduce copyrighted proprietary scoring tools or tables without repository rights.
+- Do not manually optimize correct-option positions. Promotion deterministically shuffles eligible
+  option pools, and the aggregate non-MCQ bias gate owns positional balance.
 
 ## 10. Review handoff and acceptance
 
-The producer is not the content checker. GPT writes the raw files and performs semantic preflight.
-Codex/checker runs normalization and validation when the producer lacks command execution, recomputes
-every calculation, opens every source pin, reviews substitutions, and checks bilingual parity.
-Claude owns the independent clinical/content gate. Promotion, consolidation, ledgering, census
-regeneration, and raw-file deletion remain outside this commission.
+The producer is not the content checker. GPT writes the raw files and performs the scoped semantic
+preflight in Section 4. Codex/checker runs normalization and validation, verifies target counts and
+reserve accounting, recomputes numeric keys, confirms source links resolve to the named passages,
+checks IDs and aggregate non-MCQ bias, and reports mechanical failures. Claude owns independent
+clinical/key adjudication, source-content review, bilingual parity, collision adjudication, and the
+promotion gate. Consolidation, ledgering, census regeneration, and raw-file deletion remain outside
+this commission.
 
 Acceptance:
 
@@ -297,11 +300,12 @@ Acceptance:
 - [ ] The files contain 18 questions if primaries plus available matched reserves clear; otherwise
   the receipt explicitly reports the smaller valid count and every unresolved block.
 - [ ] Every reserve substitution matches item type and difficulty and is reported one-for-one.
-- [ ] Producer preflight covered bundled standalone items, embedded leaves, live raw drafts, and
-  occupied Batch 8–10 constructs.
+- [ ] Producer trusted the spec-author canonical/manifests register, inspected target paths and all
+  live raw drafts before authoring, and compared completed items with one another, live raw, and each
+  named comparator; any directly discovered canonical omission was blocked and reported.
 - [ ] No case study, visual, rationale visual, silent substitution, or category/topic drift.
 - [ ] Every question uses the approved exact source pin or is blocked.
 - [ ] Dropdown rationales use one `byChoice` entry per dropdown ID.
-- [ ] Normalization/validation either ran successfully or were explicitly deferred to Codex/checker
-  because the producer seat lacked command execution.
+- [ ] Normalization/validation were explicitly deferred to Codex/checker because this producer seat
+  lacks command execution.
 - [ ] Producer and checker remain different seats; Claude review remains pending.

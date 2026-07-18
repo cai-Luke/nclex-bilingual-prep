@@ -18,11 +18,11 @@ Every numbered principle below carries exactly one of these five statuses, state
 - **REVISIT** — unresolved; further evidence, a source-check, a bank-impact survey, or an explicit ratification is pending. Do not treat the described behavior as settled.
 - **SUPERSEDED** — replaced by a later, cited ruling. Retained verbatim for history; do not follow its claims.
 
-## 3. Decision index (2026-07-17)
+## 3. Decision index (2026-07-18)
 
-Navigation aid only — restates no ruling and settles nothing new. Read the target entry for the actual reasoning. Every numbered principle (1–28, excluding the intentionally unused 13–14) appears in exactly one bucket below, matching its heading's tag.
+Navigation aid only — restates no ruling and settles nothing new. Read the target entry for the actual reasoning. Every numbered principle (1–29, excluding the intentionally unused 13–14) appears in exactly one bucket below, matching its heading's tag.
 
-### ACTIVE (20)
+### ACTIVE (21)
 
 | # | One-line rule |
 |---|---|
@@ -46,6 +46,7 @@ Navigation aid only — restates no ruling and settles nothing new. Read the tar
 | 26 | A disposition that removes material from a checked surface needs its own independently enforced precondition. |
 | 27 | An invariant softens only by naming its forcing incident and showing the condition is gone. |
 | 28 | Scored leaves govern content planning; session units govern delivery capacity and inventory. |
+| 29 | Sparse laboratory-presentation cardinality is not a validity floor. |
 
 ### CONDITIONAL — forward case-generation lane (5) — LAPSED 2026-07-18
 
@@ -70,7 +71,6 @@ Also parked (open threads, not numbered principles — see §6): translation-fri
 ### REVISIT (open threads, not numbered principles — see §7)
 
 - Vital-sign `sanity` bounds are copied renderer validation envelopes, not authored plausibility bounds; the `temp` ceiling is sourced and ratified (2026-07-15, see §7). The all-seven-vital deterministic inventory (P3) is complete and merged, and its stage-2 adjudication is ratified; the remaining open sides stay under REVISIT pending stage-3 clinical sourcing and per-side ratification for the three sides that advanced (SBP ceiling, RR ceiling, SpO₂ floor).
-- Single-row labs panels — open design floor question.
 
 ### SUPERSEDED (§8)
 
@@ -186,6 +186,23 @@ Delivery and inventory reports measure what can be served: top-level session uni
 
 Reason: the dual traversal introduced in PR #51 made both populations visible but did not establish which one governed planning, leaving competing target and prompt blocks that could direct generation from incompatible denominators. PR #52 makes the authority singular while retaining both legitimate analytical views. Executable owners: `lib/question-population.ts` (shared population and visual-artifact traversal), `scripts/census.ts` (canonical census shape and reconciliation), and `scripts/coverage-report.ts` (explicit call-site coverage views and the single scored-leaf planning output).
 
+**29. Sparse laboratory-presentation cardinality is not a validity floor. Status: ACTIVE (ratified 2026-07-18).**
+A one-series `lab_trend` and a one-row `structured_labs_panel` are valid when that is the clinically appropriate amount of information. Series count and row count are not validity axes layered on top of principles 24 and 25: a single-analyte trajectory still carries the pattern/direction affordance principle 25 waives redundancy for, and a single-row labs panel still supplements source prose exactly as principle 24 requires. A universal second-series/second-row floor would force clinically-unnecessary filler — forbidden by principle 7 (precision over volume) and the anti-ornament fence of 25 — so no cardinality floor is adopted.
+
+Adjudicated from the P4 single-row lab presentation survey (`SINGLE-ROW-LAB-PANELS-P4-SURVEY-SPEC-2026-07-18.md`; manifest `audit/single-row-lab-panels-survey-2026-07-18/survey-manifest.json`), mechanically complete and independently re-derived from the raw banks (24 object paths, population totals 20/11/9 `lab_trend` and 126/13/113 `structured_labs_panel`, and the answer-reference split all reproduced):
+
+- **L1 and S1 ratified** — preserve the current one-or-two-series and nonempty-row contracts.
+- **L2 and S2 rejected** — the survey supplied no evidence of a renderer, comprehension, or safety failure caused by sparse cardinality, and a universal floor incentivizes filler.
+- **L3 rejected as machinery that changes nothing** — on this corpus it is behaviorally identical to L1 (0/11 fail either).
+- **S3 rejected as a mismatched predicate** — its "not exactly duplicated by prose" clause imports a `question.visual` rule into a surface principle 24 designs to coexist with intact prose, so a conforming supplement can never satisfy it.
+- **S4 closed without naming a class** — the only structural shape the evidence offers ("single-value stage-update panel duplicated in prose") also covers the answer-referenced panels, and the discriminating property is a read-the-answer-key judgment, not a deterministic validator predicate.
+
+Framing on the record: the per-datum finding is **answer-referenced vs non-answer-referenced** (whether the value appears in a keyed response), not artifact-level load-bearing. Under the principle-25 collapse test all 13 panels are removable without changing answerability, because prose retains the value by design (principle 24); "non-answer-referenced" is therefore a legitimate, expected category on an additive surface (background, stability, anti-beacon context), not a defect. The nine non-answer-referenced structured rows open no remediation lane.
+
+Any presentation change would require its own measured proof-render commission under principle 23; none is authorized here.
+
+P4 is closed. This ruling authorizes no schema, bank-content, renderer, or runtime change.
+
 ## 5. Conditional lane contracts — forward case-generation pipeline (LAPSED 2026-07-18)
 
 **Lapse note (2026-07-18):** Luke retired the Opus-skeleton → GPT compile/fact-check → Gemini flag-review → Claude gate pipeline in favor of wholesale case_study production in the current GPT model. Per §2, CONDITIONAL principles lapse with their governing lane and need no separate repeal, so principles 8, 9, 12, 18, and 22 below no longer bind. They are retained verbatim for historical reference — do not apply them to any new lane without re-ratifying. The `opus*` case-ID routing in `scripts/audit/early-bank-semantic-layer-a.ts` (principle 22) is unaffected and stays in force, since it routes already-promoted cases already carrying that ID prefix, not new production. A replacement direct-GPT case_study lane has not yet been spec'd; until it is, case_study has no active forward-generation lane (see `gpt-evergreen-generation-prompt.md`, which explicitly excludes case_study from its scope).
@@ -228,7 +245,6 @@ Deprioritized 2026-06-22 on real user feedback (a GPT-conversation workaround cu
 Each entry names its next step; none of these describes settled behavior.
 
 - **Vital-sign `sanity` bounds are copied renderer validation envelopes, not authored plausibility bounds (Amendment 3A/R17, found 2026-07-10; `temp` closed 2026-07-15).** `MeasurementDef.sanity` is derived straight from `VITAL_DEFS[key].range` for six of seven vitals, a renderer validation envelope, not an authored physiologic-plausibility tripwire. For `temp` this is now repaired: the flowsheet gate's GATE 4 sanity ceiling is decoupled from the renderer's legacy `110` range and independently authored at `46.5 °C`, sourced to Slovis CM, Anderson GF, Casolaro A, "Survival in a heat stroke victim with a core temperature in excess of 46.5 C," *Annals of Emergency Medicine* (1982) — the highest of three documented full-recovery hyperthermia cases considered, chosen as the most conservative point within the engineering interval that both preserves the renderer's full `86–109 °F` authoring envelope and catches the full Fahrenheit-mis-staged-as-Celsius defect class. Luke's sign-off and architect ratification: 2026-07-15. Full reasoning, citations, and the engineering-interval derivation: `r9-temperature-sanity-decoupling-codex-spec.md`. Moved to code — verify there, not here: the ratified value is `VITAL_SANITY_MAX_OVERRIDES.temp` in `src/measurementAllowlist.ts`; the floor remains inherited from `VITAL_DEFS.temp.range.min` and is explicitly not ratified by this closure. The remaining six vitals (`hr`, `sbp`, `dbp`, `map`, `rr`, `spo2`) stay open under REVISIT, and `temp`'s own floor remains inherited and unratified: survey and pre-move sweep are complete (2026-07-11: zero flips in the promoted corpus under either tested probe), but no bound beyond the `temp` ceiling is ratified. The deterministic inventory across all seven vitals is now **complete and merged** (P3 survey, `audit/vital-sanity-bounds-survey-2026-07-17/survey-manifest.json`; independent classification review closed, provenance repair `9bf33b2`), and its stage-2 architect adjudication is ratified as §20 of `VITAL-SANITY-BOUNDS-P3-SURVEY-ARCHITECT-SPEC-2026-07-17.md`. Next step is therefore no longer the inventory but the post-inventory sequence, per that §20: stage-3 clinical/device/reporting-limit sourcing for the three ratified sides only (SBP ceiling, RR ceiling, SpO₂ floor), then producer≠checker source-dependent review, then Luke's per-vital/per-side ratification, then an implementation PR carrying only ratified overrides plus any required floor-mechanism extension and a fresh flip survey. The other ten open sides (including the `temp` floor) remain provisional or structural and are not sourced now. No bound is authored from model memory at any stage — own thread, own gate, own review, not blocking anything else.
-- **Single-row labs panels (2026-07-09).** Open design question — should a labs panel floor at two keyed rows rather than rendering a single value beside intact prose? No live harm since v1 renders no reference bands; logged against the reference-range lane, which must also not band `glucose` without a fasting-state qualifier.
 
 ## 8. Superseded rulings and compact forcing-incident history
 

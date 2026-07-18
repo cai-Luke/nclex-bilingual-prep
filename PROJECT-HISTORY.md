@@ -52,6 +52,34 @@ The committed NGN item-type set is complete. Rationale/dyad scoring and an expli
 
 > Milestones dated **2026-06-23 and earlier** are archived in [`Archive/PROJECT-HISTORY-ARCHIVE.md`](Archive/PROJECT-HISTORY-ARCHIVE.md). Only the current arc (2026-06-24 onward) is kept here.
 
+### GPT Scored-Format Batch 11 — Independent Review and Promotion Complete (Jul 18)
+
+All 18 commissioned items cleared independent producer≠checker review and are promoted into
+`gpt-canonical.json` (751→769). Zero clinical, mathematical, or logical defects were found. Full
+findings are in the 2026-07-18 `BANK-REVIEW-LEDGER.md` Batch 11 promotion entry.
+
+Claude reviewed [`GPT-SCORED-FORMAT-BATCH-11-SPEC-2026-07-18.md`](GPT-SCORED-FORMAT-BATCH-11-SPEC-2026-07-18.md)
+before generation and caught a design flaw in row 16: its original `dropdown_cloze` structure tested
+primary-vs-central adrenal insufficiency and mineralocorticoid status from the same client's data —
+clinically near-tautological, since one answer determines the other almost by definition, which would
+have mechanically revealed one dropdown's answer from another's in violation of the spec's own gate.
+Luke fixed the spec (three separately-labeled client records, one per dropdown) before the producer
+ran; independent review of the generated item confirmed the fix holds.
+
+The `dropdown_cloze` correct-first generation habit that caused the Batch 9/10 defect recurred at the
+raw-generation level (all 9 blanks in Batch 11C again keyed the correct option first) — but this time
+it was harmless: the `lib/shuffle.ts` fix from the prior promotion correctly randomized all 9 blanks at
+promotion time, confirmed by direct inspection of the promoted output. The raw-generation pattern
+itself remains uncorrected upstream and is worth feeding back into future producer prompts.
+
+Verification: `npm run audit` **GATE PASSED** post-consolidation with 2,661 bundled IDs globally unique
+across 13 banks (only the pre-existing, unrelated `visual-canonical` distributional advisory);
+`test:grading`, `test:highlight`, `test:bowtie`, `test:schema-bank`, `test:non-mcq-bias`, and
+`test:shuffle` all passed; `npx tsc -b` passed; census regenerated at 1,940 session units / 2,518
+scored leaves / 199 visual artifacts and `census:check` passed; production build passed. The
+`rationale-visual-floor` survey snapshot needed the same regeneration as the prior promotion
+(`topLevelRecords` drift only).
+
 ### GPT Scored-Format Batch 11 Commissioned (Jul 18)
 
 The next producer order is
@@ -68,7 +96,25 @@ valid delivery when reserve capacity is exhausted. Dropdown rationales require o
 per dropdown ID. All approved source URLs were opened during spec preparation. Shell normalization
 and validation are conditional on producer command access and otherwise pass explicitly to
 Codex/checker. The contract specifies the required final disk state without prescribing an atomic
-write mechanism. Generation and independent review remain pending.
+write mechanism.
+
+A producer pre-release critique was accepted before dispatch. Corpus-wide collision screening now
+belongs to spec preparation, while the producer checks live raw drafts, named row comparators,
+intra-batch collisions, and any direct evidence of an omitted canonical match. The revision narrows
+acute limb ischemia to Rutherford IIb, fixes the clean-catch sequence at the schema's six-option
+ceiling, separates the adrenal and DI dropdown inferences, replaces the misclassified testicular-
+torsion reserve with an AHA-sourced CRAO emergency highlight, and adds a diagnostic source to the
+postpartum-endometritis row. Codex's handoff is mechanical/source-resolution preflight; Claude owns
+clinical/key, bilingual, collision, and promotion adjudication. Generation and independent review
+remain pending.
+
+Claude's pre-dispatch review then caught one remaining dependency in row 16: primary-versus-central
+AI mechanically revealed the mineralocorticoid-deficient-versus-preserved blank. Row 16 now uses
+three separate stable mini-records for HPA localization, aldosterone appropriateness, and etiology,
+so no dropdown answer constrains another. Row 5 now mandates two concise TTP action tokens and places
+the ADAMTS13 feasibility/non-delay condition in the stem. Because the current producer seat is known
+to lack shell execution, Section 3 now directly defers normalization and validation to Codex/checker
+instead of inviting a capability probe.
 
 ### GPT Scored-Format Batches 8/9/10 — Independent Review and Promotion Complete (Jul 18)
 
@@ -142,7 +188,7 @@ scoring tool, decision pathway, priority sequence, or cue-response pattern under
 a blocking collision; the producer must report the conflicting ID rather than silently substitute.
 Generation and independent review remain pending.
 
-### P4 Single-Row Laboratory Presentation Survey — Inventory and Independent Adjudication Complete (Jul 18)
+### P4 Single-Row Laboratory Presentation Survey — Closed by Principle 29 (Jul 18)
 
 The isolated report-only P4 pass is implemented by `scripts/single-row-lab-panels-survey.ts`, with its
 dated manifest at `audit/single-row-lab-panels-survey-2026-07-18/survey-manifest.json`, decision packet
@@ -157,15 +203,16 @@ self-checks pass, while all 13 structured panels correctly report
 `NOT_APPLICABLE_BY_CURRENT_CONTRACT`. Absent structured population remains unspecified; undeclared
 bank schema versions remain null.
 
-L1/L2 and S1/S2 are mechanically calculated: preservation changes zero records, a universal
+L1/L2 and S1/S2 were mechanically calculated: preservation changes zero records, a universal
 two-series floor would newly fail 11 visuals, and a universal two-row floor would newly fail 13 panels.
-The producer-independent checker then classified all 24 candidates. The 11 `lab_trend` visuals are
-all load-bearing and none is exactly duplicated by prose, so L1 and L3 are equivalent in the live
-corpus and the evidence does not support a universal L2 floor. All 13 structured panels are exactly
-duplicated by surrounding prose, but only four are load-bearing; S2 and S3 are therefore equivalent
-for this population, while the nine non-load-bearing rows are a separate architecture/content
-question rather than an automatic deletion order. No S4 class or policy is selected. No schema,
-renderer, bank, reference-band, or runtime behavior changed.
+The producer-independent checker then classified all 24 candidates, and Luke closed P4 through
+Principle 29. L1/S1 are ratified; universal floors L2/S2 are rejected; L3 is rejected because it
+changes nothing in the surveyed corpus; S3 is rejected because its nonduplication predicate conflicts
+with Principle 24's additive structured-measurement contract; and S4 is closed without naming a
+context class. The nine non-answer-referenced structured rows open no remediation lane. The ruling
+authorized no schema, bank-content, renderer, or runtime change. Any future presentation work requires
+a new measured proof-render commission under Principle 23 rather than continuing as a deferred P4
+obligation.
 
 ### GPT Scored-Format Batch 8 Commissioned (Jul 18)
 
