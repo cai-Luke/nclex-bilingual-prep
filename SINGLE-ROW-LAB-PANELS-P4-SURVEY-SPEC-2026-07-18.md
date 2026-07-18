@@ -1,11 +1,12 @@
 # P4 Single-Row Laboratory Presentation Survey
 
-Status: **mechanical inventory complete; independent checker adjudication complete (below); architecture
-ruling (policy selection, S4 naming) still pending.**
+Status: **Closed (ratified 2026-07-18 via Principle 29; L1/S1 ratified, L2/L3/S2/S3 rejected, S4 closed without naming a class).**
 
 This is a report-only architecture packet. It authorizes no schema floor, renderer change, bank edit,
 reference-band change, or runtime change. The deterministic source of detailed evidence is
 [`audit/single-row-lab-panels-survey-2026-07-18/survey-manifest.json`](audit/single-row-lab-panels-survey-2026-07-18/survey-manifest.json).
+
+The generated manifest records the producer-pass mechanical state and intentionally retains its original pending semantic-review fields. Those fields are historical evidence of the seat split, not the current architecture status. The completed independent adjudication is recorded below, and the owner disposition is Principle 29.
 
 ## Two independent surfaces
 
