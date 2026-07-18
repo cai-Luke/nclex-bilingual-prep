@@ -119,7 +119,7 @@ sweep20260711: {
     "r9-temperature-sanity-decoupling-codex-spec.md §6.1 (separate 2026-07-15 independent re-derivation)",
   ],
   priorResult:
-    "Git history at a67476cee75e365dd72c22a589d8e76c6e3ddc6d records the 2026-07-11 report-only survey and pre-move sweep: zero flips under the 30-43 C validator and exploratory 10-50 C probes, promoted canonical temperature 36.7-40.11 C, and refreshed extraction artifacts 35.8-40.11 C. Current DECISIONS.md §7 preserves the compact zero-flip summary. Separately, the 2026-07-15 r9 §6.1 survey found 104 temperature values spanning 35.8-40.111111111111114 C and zero flips at the ratified T = 46.5 C.",
+    "Git history at a67476cee75e365dd72c22a589d8e76c6e3ddc6d records the 2026-07-11 report-only survey and pre-move sweep: zero flips under the 30-43 C validator and exploratory 10-50 C probes, promoted canonical temperature 36.7-40.11 C, and refreshed extraction artifacts 35.8-40.11 C. The July 11 spans cover the promoted canonical corpus and refreshed extraction artifacts and are not directly comparable to this survey's pooled per-vital liveRange, which spans both governed surfaces. Current DECISIONS.md §7 preserves the compact zero-flip summary. Separately, the 2026-07-15 r9 §6.1 survey found 104 temperature values spanning 35.8-40.111111111111114 C and zero flips at the ratified T = 46.5 C.",
   reconciliation: "EXTENDS",
   adds: [
     "all seven vital keys, deterministically enumerated",
