@@ -52,7 +52,23 @@ The committed NGN item-type set is complete. Rationale/dyad scoring and an expli
 
 > Milestones dated **2026-06-23 and earlier** are archived in [`Archive/PROJECT-HISTORY-ARCHIVE.md`](Archive/PROJECT-HISTORY-ARCHIVE.md). Only the current arc (2026-06-24 onward) is kept here.
 
-### Vital-Sign Sanity Bounds P3 Deterministic Inventory — Implemented, Classification Review Pending (Jul 17)
+### GPT Scored-Format Batch 8 Commissioned (Jul 18)
+
+The active content order is
+[`GPT-SCORED-FORMAT-BATCH-8-SPEC-2026-07-18.md`](GPT-SCORED-FORMAT-BATCH-8-SPEC-2026-07-18.md):
+18 standalone text-only questions in three independently runnable six-item GPT raw files. It retains
+Batch 7's successful 6 fill-in-blank / 6 ordered-response / 2 bowtie / 4 highlight shape while using
+the current post-promotion scored-leaf report (`INPUT_SHA`
+`9bf33b2e56a5919d3b5b42e0cc54894497a6d5a1`) and current bundled-item inventory. The commission is
+format backfill, not category rescue.
+
+The producer operating contract now reflects GPT's available write tools: create the three exact
+files directly under `banks/banks-raw/`, dry-run normalization and validate each file, modify nothing
+else, and return only a receipt rather than pasting JSON into chat. Explicit duplicate exclusions
+address the one confirmed duplicate dropped from Batch 7. Generation, independent content review,
+promotion, ledgering, and census regeneration remain pending.
+
+### Vital-Sign Sanity Bounds P3 Deterministic Inventory — Closed; Stage-2 Adjudication Ratified (Jul 17–18)
 
 The ratified P3 survey is implemented by `scripts/vital-sanity-bounds-survey.ts`, with its dated
 manifest at `audit/vital-sanity-bounds-survey-2026-07-17/survey-manifest.json` and a byte-drift/
@@ -75,8 +91,27 @@ that limited historical survey/sweep scope; the historical promoted/refreshed te
 not directly comparable to P3's pooled two-surface `liveRange`.
 
 No bank, renderer, measurement-unit vocabulary, or `sanity` bound changed. Per the P3 seat split,
-the producing implementation does not certify the manifest's contract-interpretation fields; an
-independent checker seat still owns that classification review.
+the producing implementation did not certify the manifest's contract-interpretation fields; the
+independent checker seat owned that classification review.
+
+**Closeout (Jul 18).** The independent classification review completed. The item-3 provenance repair
+merged as `9bf33b2` (survey generator, regenerated manifest, `PROJECT-HISTORY.md`, and the
+citation-locking regression moved together), locking the 2026-07-11 sweep citation to the Git-backed
+`a67476cee75e365dd72c22a589d8e76c6e3ddc6d:DECISIONS.md` record and forbidding drift back to the
+unsupported archived-decisions attribution or the overstated "temperature-only flip probes" phrase.
+The full validation suite reran clean. The dated manifest is not rewritten for lifecycle status; its
+`status` field records its production-time state, and current status lives here and in the merge
+commit.
+
+Stage 2 (architect adjudication) is ratified as §20 of
+`VITAL-SANITY-BOUNDS-P3-SURVEY-ARCHITECT-SPEC-2026-07-17.md`. Reading the merged manifest's
+boundary-neighbour and mechanism-cost fields rather than a prose summary, three of the thirteen open
+sides move to stage-3 clinical sourcing — SBP ceiling and RR ceiling to extreme-value sourcing, SpO₂
+floor to device/reporting-limit sourcing — while the other ten (including the temperature floor)
+remain provisional or structural. The SpO₂-floor override-mechanism extension is recorded as a
+contingent implementation prerequisite, not a stage-3 deliverable: it is built only if that floor is
+sourced and ratified. No candidate numbers are selected; no bound, bank, renderer, mechanism, or
+runtime code changed.
 
 ### Promoted Visual Parity P2 Baseline Phase — Merged (Jul 17)
 

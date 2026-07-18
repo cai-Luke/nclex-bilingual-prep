@@ -32,13 +32,15 @@ capacity shortfall. The active Batch 7 producer commission is format-targeted, n
 | ~~P0~~ | **IMPLEMENTED AND MERGED IN PR #54** — shared six-location schema/export/parity traversal, generated survey, and regressions. See [`RATIONALE-VISUAL-SCHEMA-FLOOR-RETROFIT-CODEX-SPEC-2026-07-16.md`](RATIONALE-VISUAL-SCHEMA-FLOOR-RETROFIT-CODEX-SPEC-2026-07-16.md). | Closed deterministic correction; zero live-bank impact | The full-schema and census-artifact traversals remain intentionally separate. |
 | ~~P1~~ | ~~Active-governance Markdown U+FFFD gate~~ — **DROPPED 2026-07-16 (Luke's ruling).** Every mojibake alarm has been a connector-read artifact, not disk corruption; a repo gate guards the wrong surface. See `DECISIONS.md` §8. | — | — |
 | ~~P2~~ | **IMPLEMENTED AND MERGED IN PR #55** — promoted visual parity survey, 12-kind baseline, rebaseline mechanics, U0 migration, and visual CI command | Closed deterministic regression project | The accepted architecture and evidence are preserved in [`PROMOTED-VISUAL-PARITY-EXPANSION-ARCHITECT-SPEC-2026-07-16.md`](PROMOTED-VISUAL-PARITY-EXPANSION-ARCHITECT-SPEC-2026-07-16.md). |
-| P3 | Produce the six-vital deterministic inventory for sanity-bound ratification | Deterministic evidence, followed by clinical judgment | The inventory is bounded; selecting new clinical tripwires is not mechanical and must remain separately ratified. |
+| ~~P3 inventory~~ | **INVENTORY IMPLEMENTED AND MERGED; STAGE-2 ADJUDICATION RATIFIED (Jul 17–18).** The all-seven-vital deterministic inventory shipped and its independent classification review closed (provenance repair `9bf33b2`). Architect stage-2 adjudication is ratified as §20 of [`VITAL-SANITY-BOUNDS-P3-SURVEY-ARCHITECT-SPEC-2026-07-17.md`](VITAL-SANITY-BOUNDS-P3-SURVEY-ARCHITECT-SPEC-2026-07-17.md). **P3 stage 3** (clinical sourcing for the three advanced sides) is the current open step. | Clinical judgment, separately ratified | Selecting new clinical tripwires is not mechanical; three sides advanced, ten remain provisional/structural. |
 | P4 | Inventory single-row lab panels, then obtain an architecture ruling | Deterministic survey followed by product decision | No implementation rule exists yet; a two-row floor must not be inferred. |
 | P5 | Consider remaining CI coverage hardening | Engineering policy | PR #55 added the single authorized `npm run test-visuals` step; broader typecheck/build/checksum policy remains unratified. |
 
-P0 and P2 are implemented and merged. **P1 is dropped** (see below). P3 and P4 are the remaining
-evidence-first candidates and should stay separate: their evidence, review seats, and reversal costs
-differ. P5 is only partially addressed and remains a separate policy decision.
+P0 and P2 are implemented and merged. **P1 is dropped** (see below). **P3's deterministic inventory is
+now also merged and its stage-2 adjudication ratified — P3 has moved from evidence-gathering into
+clinical sourcing (stage 3).** P4 remains the best self-contained deterministic-then-ruling candidate:
+its evidence, review seats, and reversal costs differ from P3's. P5 is only partially addressed and
+remains a separate policy decision.
 
 ## P0 — `rationale.visuals` schema-floor retrofit
 
@@ -227,6 +229,32 @@ regression architecture.
 
 ## P3 — remaining vital-sign sanity bounds
 
+> **STATUS UPDATE 2026-07-18 — INVENTORY MERGED; STAGE 2 RATIFIED; NOW IN STAGE-3 SOURCING.** The
+> deterministic inventory shipped as the P3 survey generator, dated manifest
+> (`audit/vital-sanity-bounds-survey-2026-07-17/survey-manifest.json`), and citation-locking
+> regression. Its independent classification review closed and the item-3 provenance repair merged as
+> `9bf33b2`. Architect stage-2 adjudication is ratified as §20 of
+> [`VITAL-SANITY-BOUNDS-P3-SURVEY-ARCHITECT-SPEC-2026-07-17.md`](VITAL-SANITY-BOUNDS-P3-SURVEY-ARCHITECT-SPEC-2026-07-17.md).
+> The pre-inventory framing below is retained as provenance, not an open work order.
+>
+> **Ratified stage-2 disposition (all thirteen open sides, `temp` floor included).** Read from the
+> merged manifest's boundary-neighbour and mechanism-cost fields, not a prose summary:
+> - **SBP ceiling — proceed to extreme-value sourcing.** Forcing evidence is the carried ~370
+>   counterexample, which is off-surface prose (P3 covers machine-readable values only), so it is
+>   sourced rather than treated as manifest-confirmed.
+> - **RR ceiling — proceed to extreme-value sourcing.** Carried RR-at-`80`-with-no-margin finding.
+> - **SpO₂ floor — proceed to device/reporting-limit sourcing.** Carried displayable-below-50 finding.
+>   The floor override mechanism does not exist, so if this floor is sourced and ratified, extending
+>   `VITAL_SANITY_MAX_OVERRIDES` to floors plus its drift guard is a **contingent implementation
+>   prerequisite**, carried into the stage-5 implementation PR — not a stage-3 deliverable.
+> - **All ten other sides remain provisional or structural**, including the RR floor (a real value at
+>   `6` near floor `2` is a tightening-caution signal, not a demonstrated defect) and the `temp` floor
+>   (inherited, unratified, no named forcing incident). SpO₂ `100` is a physical ceiling.
+>
+> No candidate numbers are selected. Stage 3 sources clinical/device/reporting-limit evidence for the
+> three advanced sides only, routes it producer≠checker, and returns to Luke for per-vital/per-side
+> ratification before any implementation PR.
+
 Only the temperature ceiling has been independently sourced and ratified. The remaining six vital
 tripwires (`hr`, `sbp`, `dbp`, `map`, `rr`, `spo2`) still inherit renderer envelopes.
 
@@ -276,5 +304,9 @@ choice rather than an unambiguous bug fix.
 
 ## Handoff summary
 
-P0 and P2 are implemented and merged; P1 is dropped. Keep clinical vital-bound ratification,
-the single-row lab decision, and any remaining CI policy in separate workstreams.
+P0 and P2 are implemented and merged; P1 is dropped. **P3's deterministic inventory is merged and its
+stage-2 adjudication ratified; P3 is now in stage-3 clinical sourcing for three advanced sides (SBP
+ceiling, RR ceiling, SpO₂ floor), with the SpO₂-floor mechanism extension a contingent implementation
+prerequisite.** Keep the remaining clinical vital-bound sourcing/ratification, the single-row lab
+decision (P4), and any remaining CI policy (P5) in separate workstreams. P4 is the best next
+self-contained deterministic-then-ruling session.

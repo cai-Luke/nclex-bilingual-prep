@@ -617,3 +617,80 @@ renderer, measurement-unit-policy, GATE 4 policy, or population contract is auth
 3 against the corrected generator, manifest, history entry, regression, and cited sources. The other
 five checker items remain accepted unless the repair changes their semantics. PR #57 remains on hold;
 this amendment authorizes no merge.
+
+**Closeout note (2026-07-18).** The item-3 repair merged as `9bf33b2`; the independent checker
+re-ran the same `-S`/`-G` history searches, confirmed `a67476c` is an ancestor of `main` and that its
+`DECISIONS.md` content matches the manifest word-for-word, and the full §13.2 suite reran clean. The
+P3 survey and its independent classification review are closed. Stage 2 follows in §20.
+
+## 20. Stage-2 architect adjudication — ratified 2026-07-18
+
+Stage 2 of §15 ("architect adjudication — which vital sides have enough evidence to proceed").
+Ratified by Luke on 2026-07-18. This section authorizes **stage-3 sourcing scope only**. It selects,
+narrows, and authorizes **no vital-sign bound**, changes no bank, renderer, mechanism, or runtime
+code, and chooses no candidate number. Stage 3 (§15 step 3) sources clinical/device/reporting-limit
+evidence; §15 steps 4–5 (per-side ratification, then implementation) remain downstream and unentered.
+
+### 20.1 Method — adjudicate from the merged manifest, not a summary
+
+The dispositions below were derived by reading the merged manifest's per-vital
+`recordsNearCurrentBoundary` and `mechanismCostByCandidateSide` fields directly, not a producer's or
+reviewer's prose account of them. This is the same discipline §18 and §19 exist to enforce: a summary
+of the artifact is not the artifact. Two rules governed the reading:
+
+1. **A clean corpus is non-dispositive** (§4, §14). Distance between a real transcribed value and the
+   current bound establishes what would flip today and where false-positive risk begins on a
+   *tightening* — it does **not** establish that an inherited envelope has failed to catch a real
+   defect. A value sitting close to a bound is a **tightening-caution** signal, not a forcing
+   incident.
+2. **The §4 carried counterexamples are the forcing evidence, and being off-surface does not void
+   them.** P3's population is machine-readable values only (§7.2); the SBP ~370, RR-at-`80`-with-no-
+   margin, and displayable-SpO₂-below-50 findings were carried into the manifest as prior findings
+   precisely so the narrow survey could not erase them. Off-surface means *sourced separately*, not
+   *irrelevant*. A tripwire's job is to catch values the current corpus may not yet contain.
+
+### 20.2 The thirteen open sides
+
+The adjudication covers **thirteen** open sides, not twelve: the six non-temperature vitals × two
+sides, **plus the temperature floor**, which remains inherited and explicitly unratified even though
+the `temp` ceiling is authored (§2; `DECISIONS.md` §7). Every side is currently `inherited`; every
+floor is `mechanism: missing`; every ceiling is `mechanism: available`; the corpus carries zero typed
+bounds.
+
+| Side | Disposition | Basis |
+|---|---|---|
+| **SBP ceiling** | Proceed to extreme-value sourcing | Carried ~370 counterexample questions the `300` ceiling. Off-surface prose, so the task is to source the extreme-value evidence, not to treat the manifest's near-boundary distance as confirmation. |
+| **RR ceiling** | Proceed to extreme-value sourcing | Carried RR-at-`80`-with-no-margin finding. Not dismissed because the current structured corpus lacks an `80`. |
+| **SpO₂ floor** | Proceed to device/reporting-limit sourcing | Carried displayable-below-50 finding. Floor is unlikely to be answerable from anything but device/reporting-limit evidence (§5.1). **Mechanism note below.** |
+| **RR floor** | Remain provisional (tightening caution) | Real RR `6` near floor `2` constrains a future floor selection; it does not demonstrate a defect in the existing floor. |
+| **Temperature floor** | Remain provisional | Inherited and unratified, but no named forcing incident. Adjudicated on the record rather than omitted. |
+| **HR (both sides), DBP (both sides), MAP (both sides), SBP floor, SpO₂ ceiling** | Remain provisional / structural | No carried counterexample or named defect class. SpO₂ `100` is a physical ceiling with nothing transcribable above it. |
+
+(The three advancing sides are SBP ceiling, RR ceiling, and SpO₂ floor. All other sides, including the
+temperature floor and the RR floor, remain provisional or structural and are not sourced now.)
+
+### 20.3 Contingent implementation prerequisite — the SpO₂ floor mechanism
+
+`VITAL_SANITY_MAX_OVERRIDES` is ceiling-only (§10). SpO₂ floor is `mechanism: missing`. If — and only
+if — stage-3 sourcing produces device/reporting-limit evidence that survives producer≠checker review
+and Luke's per-side ratification, the implementation PR (§15 step 5) must **also** extend the override
+mechanism to floors and add the corresponding drift-guard contract and regression, per `r9` §7.2's
+hardcoded-branch design. This cost is recorded here as a **contingent implementation prerequisite of
+the eventual bound, not a stage-3 deliverable**: stage 3 sources a clinical number and nothing else,
+and if the SpO₂ floor does not clear review or ratification, the mechanism extension is never built.
+Recording it in the stage-2 scope prevents the §18-class defect of discovering a structurally
+guaranteed cost at implementation time.
+
+### 20.4 Stage-2 exit
+
+- One ratified stage-3 sourcing scope: **SBP ceiling and RR ceiling (extreme-value evidence); SpO₂
+  floor (device/reporting-limit evidence)**.
+- Ten sides (including the `temp` floor and the RR floor) remain provisional or structural, adjudicated
+  on the record.
+- The SpO₂-floor mechanism extension is logged as a contingent stage-5 implementation prerequisite.
+- Zero candidate numbers selected; zero bound, bank, renderer, mechanism, or runtime change.
+
+Stage 3 does not begin in this section. It sources evidence for the three advanced sides only, routes
+it producer≠checker (§11 / `DECISIONS.md` principle 2), and returns to Luke for per-vital/per-side
+ratification before any implementation PR is authored. No bound is authored from model memory at any
+stage (§15).
