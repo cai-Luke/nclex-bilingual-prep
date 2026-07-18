@@ -92,46 +92,48 @@ manifest as **prior findings**, source-cited, before any new row is generated:
    evidence*: documented SBP to ~370, RR at the `80` ceiling with no margin, displayable SpO₂ below
    50. Those three counterexamples are the reason this thread exists. They are prior findings, not
    rediscoveries.
-2. **`DECISIONS.md` §7's completed-sweep summary.** "Survey and pre-move sweep are complete
-   (2026-07-11: zero flips in the promoted corpus under either tested probe)." This is the complete
-   verified repository evidence for that dated sweep. The underlying artifact, exact probe
-   intervals, and contemporaneous temperature span were not located on disk or in Git history.
+2. **The 2026-07-11 survey and pre-move sweep.** Current `DECISIONS.md` §7 preserves only the compact
+   summary: "Survey and pre-move sweep are complete (2026-07-11: zero flips in the promoted corpus
+   under either tested probe)." The fuller contemporaneous record was located in Git history at
+   `DECISIONS.md` in commit `a67476cee75e365dd72c22a589d8e76c6e3ddc6d`, which is an ancestor of
+   `main`. That record says the report-only survey tabulated each `VITAL_DEFS` key; identifies the
+   tested temperature probes as the `30–43 °C` validator and exploratory `10–50 °C` interval; records
+   zero flips; and records promoted canonical temperature as `36.7–40.11 °C` and refreshed extraction
+   artifacts as `35.8–40.11 °C`.
 
-The later `r9-temperature-sanity-decoupling-codex-spec.md` §6.1 is a **separate 2026-07-15
+The later `r9-temperature-sanity-decoupling-codex-spec.md` §6.1 remains a **separate 2026-07-15
 re-derivation**. It supports 104 temperature values, a canonical-Celsius span of
-`35.8–40.111111111111114`, and zero flips at the ratified `T = 46.5 °C`. It does not establish the
-missing July 11 probe labels or span. In particular, neither the archived decisions record nor the
-r9 re-derivation supports attributing a `30–43 °C` probe, a `10–50 °C` probe, or a `36.7 °C` minimum
-to the July 11 artifact.
+`35.8–40.111111111111114`, and zero flips at the ratified `T = 46.5 °C`. It corroborates the later
+corpus state but is not the source for the July 11 probe labels or historical spans. The current
+`Archive/DECISIONS-ARCHIVE-2026-07-14.md` does not contain the historical temperature record and must
+not be cited as though it does.
 
-The manifest's `priorFindings.sweep20260711` must therefore use this contract unless an exact
-repository artifact is introduced and cited:
+The manifest's `priorFindings.sweep20260711` must use this contract:
 
 ```ts
 sweep20260711: {
-  located: false,
+  located: true,
   sources: [
-    "DECISIONS.md §7 (2026-07-11 constitutional summary; underlying artifact, exact probes, and contemporaneous span not located)",
+    "DECISIONS.md at commit a67476cee75e365dd72c22a589d8e76c6e3ddc6d (2026-07-11 historical survey and pre-move sweep record)",
+    "DECISIONS.md §7 (current constitutional summary)",
     "r9-temperature-sanity-decoupling-codex-spec.md §6.1 (separate 2026-07-15 independent re-derivation)",
   ],
   priorResult:
-    "DECISIONS.md §7 records that a 2026-07-11 survey and pre-move sweep found zero flips in the promoted corpus under two tested probes. The underlying artifact, exact probe intervals, and contemporaneous temperature span were not located on disk or in Git history. Separately, the 2026-07-15 r9 §6.1 survey found 104 temperature values spanning 35.8-40.111111111111114 C and zero flips at the ratified T = 46.5 C.",
+    "Git history at a67476cee75e365dd72c22a589d8e76c6e3ddc6d records the 2026-07-11 report-only survey and pre-move sweep: zero flips under the 30-43 C validator and exploratory 10-50 C probes, promoted canonical temperature 36.7-40.11 C, and refreshed extraction artifacts 35.8-40.11 C. Current DECISIONS.md §7 preserves the compact zero-flip summary. Separately, the 2026-07-15 r9 §6.1 survey found 104 temperature values spanning 35.8-40.111111111111114 C and zero flips at the ratified T = 46.5 C.",
   reconciliation: "EXTENDS",
   adds: [
-    // retain the truthful P3 additions emitted by the generator
+    "all seven vital keys, deterministically enumerated",
+    // retain the remaining truthful P3 additions emitted by the generator
   ],
 }
 ```
 
 `EXTENDS` remains correct because P3 adds seven-vital coverage, both machine-readable surfaces, all
 six visual locations, population reporting, unit/conversion evidence, side authorship, mechanism
-cost, boundary-neighbor records, and reusable candidate-interval accounting beyond the limited
-zero-flip summary preserved in `DECISIONS.md` §7. It is not proof that the missing July 11 artifact
-or its exact probes were located.
-
-If an actual July 11 artifact is later found, `located: true` is permissible only when the manifest
-cites its exact repository path and commit and every retained probe/range statement appears directly
-in it. A secondary summary or later re-derivation is not a substitute.
+cost, boundary-neighbor records, and reusable candidate-interval accounting beyond the Git-backed
+July 11 record. Here `EXTENDS` means P3 extends that record's limited survey/sweep scope; it does not
+mean that any probe, span, population, or conclusion beyond the exact cited historical text was
+verified.
 
 ## 5. The four separated concepts
 
@@ -533,9 +535,10 @@ the drift regression; the checker does not recount records. Re-derive only:
 
 1. `inherited` vs. `independently_authored`, per vital and per side;
 2. the GATE 4 contract classification;
-3. the §4 provenance contract: `sweep20260711.located === false`, the narrow constitutional summary
-   and separate r9 re-derivation are cited without conflation, unsupported exact July 11 probes or
-   spans are absent, and the limited prior record is correctly reconciled as *extended*;
+3. the §4 provenance contract: `sweep20260711.located === true`, the exact historical
+   `a67476cee75e365dd72c22a589d8e76c6e3ddc6d:DECISIONS.md` record, current constitutional summary,
+   and separate r9 re-derivation are cited without conflation, and the prior record is correctly
+   reconciled as *extended* under §4's narrowed definition;
 4. the mechanism-cost statements for candidate floors and ceilings (§10);
 5. that the manifest does not convert zero corpus warnings into a suitability verdict;
 6. that the manifest does not pool the two surfaces' nulls, per finding 2 above — the structurally
@@ -546,50 +549,66 @@ checker, having authored the spec (§11).
 
 ## 19. Amendment — checker item 3 provenance defect, 2026-07-17
 
-Raised by the independent checker seat during review of PR #57 and accepted by the architect seat.
-This is a reporting-contract defect in the generated prior-finding record, not a defect in the
-survey population or count. The repair direction below is ratified; implementation remains with the
-producing seat, and the independent recheck remains with the same checker seat.
+Raised by the independent checker seat during review of PR #57. The checker correctly established
+that the **cited current files** did not support the generated attribution, but its seat was
+filesystem-only and did not search Git history. The first folded amendment overreached in the
+opposite direction by converting that bounded finding into `located: false`. The producing seat then
+performed the missing history search before any regression could byte-lock the negative.
 
-**What failed.** The committed manifest says the 2026-07-11 artifact was located and attributes a
-`30–43 °C` renderer probe, an exploratory `10–50 °C` probe, a promoted temperature span beginning at
-`36.7 °C`, and a refreshed span beginning at `35.8 °C` to the cited record. Those claims do not
-survive source verification:
+**History search performed at branch head `2e358c7`.** The exact commands were:
 
-- `DECISIONS.md` §7 contains only the narrow zero-flip summary quoted in §4; it names neither probe
-  and states no temperature span;
-- `Archive/DECISIONS-ARCHIVE-2026-07-14.md` contains no temperature record supporting those probes
-  or spans;
-- r9 §6.1 is the separate July 15 re-derivation described in §4 and cannot supply missing July 11
-  provenance;
-- `36.7` is a live corpus value, but no repository source verifies it as the historical July 11
-  minimum.
+```sh
+git log --all --full-history -S '36.7' --format='%H %ad %s' --date=iso-strict --name-only
+git log --all --full-history -S '10-50' --format='%H %ad %s' --date=iso-strict --name-only
+git log --all --full-history -S '10–50' --format='%H %ad %s' --date=iso-strict --name-only
+git log --all --full-history -G '30[-–]43.*probe|probe.*30[-–]43' --format='%H %ad %s' --date=iso-strict --name-only
+git log --all --full-history -G 'temperature-only flip probes|exploratory.*10[-–]50|10[-–]50.*probe' --format='%H %ad %s' --date=iso-strict --name-only
+```
 
-The original §4 already required an explicit not-located finding when the artifact could not be
-found. The implementation instead reconstructed a more specific history than the sources permit.
-Checker item 3 therefore fails, and the hold is correct.
+The searches locate the contemporaneous record at
+`a67476cee75e365dd72c22a589d8e76c6e3ddc6d:DECISIONS.md`, an ancestor of `main`. Its vital-sanity
+entry explicitly records the per-`VITAL_DEFS` report-only survey, the `30–43 °C` validator and
+exploratory `10–50 °C` probes, zero flips, promoted canonical temperature `36.7–40.11 °C`, and
+refreshed extraction artifacts `35.8–40.11 °C`. The search also confirms that the phrase
+"temperature-only flip probes" first appears in the P3 implementation, not in the historical record.
+
+**Revised finding.** The manifest's `located: true` and its probe/span substance survive the required
+history search. Its source attribution does not: the current
+`Archive/DECISIONS-ARCHIVE-2026-07-14.md` contains no supporting temperature record, while the exact
+Git commit that does support the statements is omitted. The current `adds[0]` also overstates the
+historical source by calling it "temperature-only flip probes." Checker item 3 therefore remains a
+valid hold, narrowed to source attribution and reconciliation wording rather than the underlying
+survey figures. This is a reporting-contract defect, not a defect in the survey population or count.
+
+`EXTENDS` now means that P3 extends the limited survey/sweep scope recorded in the exact Git-backed
+July 11 entry. It does **not** mean that any probe, historical span, population, or conclusion beyond
+that cited text was verified.
 
 **Required repair — these files move together in one commit:**
 
 1. `scripts/vital-sanity-bounds-survey.ts`
    - remove the unsupported archive citation;
-   - remove `36.7`, `30-43 C`, and `10-50 C` as asserted July 11 evidence;
-   - emit the corrected `located`, `sources`, `priorResult`, and `EXTENDS` fields in §4.
+   - cite the exact historical commit and keep the current constitutional summary and July 15 r9
+     re-derivation distinct;
+   - retain `located: true` and only the probe/span claims directly supported by the historical text;
+   - replace `adds[0]` with `"all seven vital keys, deterministically enumerated"`;
+   - emit the corrected `sources`, `priorResult`, `adds`, and `EXTENDS` meaning in §4.
 2. `audit/vital-sanity-bounds-survey-2026-07-17/survey-manifest.json`
    - regenerate it from the corrected generator; do not hand-edit the byte-locked artifact.
 3. `PROJECT-HISTORY.md`
    - replace the claim that the prior sweep "was located in the archived decisions record";
-   - carry the limited July 11 summary from `DECISIONS.md` §7, state that the underlying artifact,
-     exact probe intervals, and contemporaneous span were not located, retain `EXTENDS`, and identify
-     the July 15 r9 re-derivation separately.
+   - cite the exact Git-backed July 11 record, retain `EXTENDS` under the narrowed definition above,
+     and identify the current constitutional summary and July 15 r9 re-derivation separately.
 4. `scripts/tests/vital-sanity-bounds.ts`
    - retain the `EXTENDS` assertion;
-   - assert `sweep20260711.located === false` unless an exact artifact is introduced and cited;
-   - prevent `36.7`, `10-50`, and the archived-decisions temperature attribution from re-entering the
-     generated prior-finding record without a source-backed spec amendment.
+   - assert `sweep20260711.located === true` and that its sources include the exact historical commit;
+   - reject the unsupported archived-decisions attribution and the phrase
+     `"temperature-only flip probes"`;
+   - assert the corrected first addition string so reconciliation wording cannot drift back.
 
-Do not modify `DECISIONS.md` to manufacture support for the rejected wording. The constitutional
-summary is deliberately narrower than the unsupported generated claim. No vital-sign bound, bank,
+Do not modify `DECISIONS.md` merely to simplify the generator's citation. Current §7 is deliberately
+compact; Git history owns the detailed contemporaneous record. The PR body and generated manifest
+must record the history-search commands and the exact commit they located. No vital-sign bound, bank,
 renderer, measurement-unit-policy, GATE 4 policy, or population contract is authorized to change.
 
 **Verification and routing.** After the repair, regenerate the manifest, run
