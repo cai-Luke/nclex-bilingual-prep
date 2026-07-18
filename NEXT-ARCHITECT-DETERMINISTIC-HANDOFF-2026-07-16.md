@@ -29,7 +29,7 @@ capacity shortfall. The active Batch 7 producer commission is format-targeted, n
 
 | Priority | Work | Nature | Why now |
 |---|---|---|---|
-| ~~P0~~ | **IMPLEMENTED AND MERGED IN PR #54** — shared six-location schema/export/parity traversal, generated survey, and regressions. See [`RATIONALE-VISUAL-SCHEMA-FLOOR-RETROFIT-CODEX-SPEC-2026-07-16.md`](RATIONALE-VISUAL-SCHEMA-FLOOR-RETROFIT-CODEX-SPEC-2026-07-16.md). | Closed deterministic correction; zero live-bank impact | The full-schema and census-artifact traversals remain intentionally separate. |
+| ~~P0~~ | **IMPLEMENTED AND MERGED IN PR #54** — shared six-location schema/export/parity traversal, generated survey, and regressions. See [`Archive/root-specs-2026-07-18/RATIONALE-VISUAL-SCHEMA-FLOOR-RETROFIT-CODEX-SPEC-2026-07-16.md`](Archive/root-specs-2026-07-18/RATIONALE-VISUAL-SCHEMA-FLOOR-RETROFIT-CODEX-SPEC-2026-07-16.md). | Closed deterministic correction; zero live-bank impact | The full-schema and census-artifact traversals remain intentionally separate. |
 | ~~P1~~ | ~~Active-governance Markdown U+FFFD gate~~ — **DROPPED 2026-07-16 (Luke's ruling).** Every mojibake alarm has been a connector-read artifact, not disk corruption; a repo gate guards the wrong surface. See `DECISIONS.md` §8. | — | — |
 | ~~P2~~ | **IMPLEMENTED AND MERGED IN PR #55** — promoted visual parity survey, 12-kind baseline, rebaseline mechanics, U0 migration, and visual CI command | Closed deterministic regression project | The accepted architecture and evidence are preserved in [`PROMOTED-VISUAL-PARITY-EXPANSION-ARCHITECT-SPEC-2026-07-16.md`](PROMOTED-VISUAL-PARITY-EXPANSION-ARCHITECT-SPEC-2026-07-16.md). |
 | ~~P3 inventory~~ | **INVENTORY IMPLEMENTED AND MERGED; STAGE-2 ADJUDICATION RATIFIED (Jul 17–18).** The all-seven-vital deterministic inventory shipped and its independent classification review closed (provenance repair `9bf33b2`). Architect stage-2 adjudication is ratified as §20 of [`VITAL-SANITY-BOUNDS-P3-SURVEY-ARCHITECT-SPEC-2026-07-17.md`](VITAL-SANITY-BOUNDS-P3-SURVEY-ARCHITECT-SPEC-2026-07-17.md). **P3 stage 3** (clinical sourcing for the three advanced sides) is the current open step. | Clinical judgment, separately ratified | Selecting new clinical tripwires is not mechanical; three sides advanced, ten remain provisional/structural. |
@@ -46,7 +46,7 @@ remains a separate policy decision.
 
 > **STATUS UPDATE 2026-07-16 — IMPLEMENTED.** The survey evidence is
 > `audit/rationale-visual-floor-survey-2026-07-16/survey-manifest.json`; the completed implementation
-> is governed by [`RATIONALE-VISUAL-SCHEMA-FLOOR-RETROFIT-CODEX-SPEC-2026-07-16.md`](RATIONALE-VISUAL-SCHEMA-FLOOR-RETROFIT-CODEX-SPEC-2026-07-16.md).
+> is governed by [`Archive/root-specs-2026-07-18/RATIONALE-VISUAL-SCHEMA-FLOOR-RETROFIT-CODEX-SPEC-2026-07-16.md`](Archive/root-specs-2026-07-18/RATIONALE-VISUAL-SCHEMA-FLOOR-RETROFIT-CODEX-SPEC-2026-07-16.md).
 > The pre-implementation defect and order remain below as provenance. Three resolved points:
 >
 > 1. **Survey complete, zero live-bank impact.** 199 artifacts / 1,869 records / 13 banks; raw-draft

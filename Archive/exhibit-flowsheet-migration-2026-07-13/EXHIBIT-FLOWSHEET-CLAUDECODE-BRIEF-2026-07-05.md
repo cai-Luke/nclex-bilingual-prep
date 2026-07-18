@@ -94,7 +94,7 @@ or the gate is right.** Concretely —
 - Any calcium-identity or GATE 4 WARN you can't resolve cleanly against the source.
 - The stop-rule judgment: is a selection error a one-off or systematic?
 - The schema-1.8 `structuredMeasurements` product pass
-  (`structured-measurements-schema-1.8-codex-spec.md`) — architecture + product decisions, not loop
+  (`Archive/root-specs-2026-07-18/structured-measurements-schema-1.8-codex-spec.md`) — architecture + product decisions, not loop
   work. Do not start it.
 
 ## Do not

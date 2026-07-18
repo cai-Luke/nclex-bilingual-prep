@@ -52,6 +52,51 @@ The committed NGN item-type set is complete. Rationale/dyad scoring and an expli
 
 > Milestones dated **2026-06-23 and earlier** are archived in [`Archive/PROJECT-HISTORY-ARCHIVE.md`](Archive/PROJECT-HISTORY-ARCHIVE.md). Only the current arc (2026-06-24 onward) is kept here.
 
+### GPT Scored-Format Batch 10 Commissioned (Jul 18)
+
+The next producer order is
+[`GPT-SCORED-FORMAT-BATCH-10-SPEC-2026-07-18.md`](GPT-SCORED-FORMAT-BATCH-10-SPEC-2026-07-18.md):
+18 standalone text-only questions in three independently runnable six-item GPT raw files. The planned
+mix is 4 `bowtie`, 4 `highlight`, 4 `fill_in_blank`, 3 `ordered_response`, and 3
+`dropdown_cloze` questions, with direct writes to `banks/banks-raw/` and producer-owned preflight
+against bundled questions, embedded case leaves, and live raw drafts. The commission incorporates
+Batch 9 review lessons by treating cosmetic symptom swaps and artificial ordering of simultaneous
+recommendations as blocking collisions. Generation and independent review remain pending.
+
+### GPT Scored-Format Batch 9 — Checker Pass Ready for Claude (Jul 18)
+
+All 18 Batch 9 questions completed an independent raw-bank checker pass. The review replaced two
+material collisions, repaired a time-sensitive contraception sequence and a contradictory swallowing
+cue, strengthened weak source pins, recomputed all arithmetic keys, and rechecked each item against
+the live bundled and raw inventories. The three final raw files normalize without changes, validate
+6/6, and have globally unique IDs. The untouched producer drafts are preserved under
+`Archive/banks-raw-provenance-2026-07-18/`; deterministic repair scripts are retained under
+`scripts/patches/`. Per the current handoff, promotion, producer-independent clinical adjudication,
+consolidation, ledgering, and census regeneration are deferred to Claude.
+
+### Root Markdown Cleanup (Jul 18)
+
+Moved 17 completed or superseded root-level implementation handoffs, code/content specs, and closed
+proof-batch packets into `Archive/root-specs-2026-07-18/` and repaired
+references to their new paths. The in-flight Batch 8–10 commissions, active generation
+prompts, living ledgers, unresolved clinical/reference work, P3's ratified adjudication, the P5-bearing
+architect handoff, and current operational specs remain at root.
+
+### GPT Scored-Format Batch 9 Commissioned (Jul 18)
+
+The next producer order is
+[`GPT-SCORED-FORMAT-BATCH-9-SPEC-2026-07-18.md`](GPT-SCORED-FORMAT-BATCH-9-SPEC-2026-07-18.md):
+18 standalone text-only questions in three independently runnable six-item GPT raw files. It plans
+against the assumption that most or all of Batch 8 clears review and allocates 17 seats to the five
+lowest scored standalone formats, plus one `select_all` seat for ECT's missing format lane.
+
+The direct-write contract now delegates first-pass semantic collision prevention to the producer.
+Before authoring and again after drafting, the producer must compare every assigned construct against
+all bundled standalone questions, embedded case leaves, and live raw drafts. Reusing the same equation,
+scoring tool, decision pathway, priority sequence, or cue-response pattern under a different wrapper is
+a blocking collision; the producer must report the conflicting ID rather than silently substitute.
+Generation and independent review remain pending.
+
 ### GPT Scored-Format Batch 8 Commissioned (Jul 18)
 
 The active content order is
@@ -820,7 +865,7 @@ Verified:
 ### Exhibit Flowsheet Allowlist + Manifest (Jul 5)
 
 Completed:
-- Implemented the shared measurement allowlist foundation from `measurement-allowlist-codex-spec.md`: pure lab/vitals registry defs, derived frozen `src/measurementAllowlist.ts`, CBC conventional-canonical/source-permissive policy (`wbc`/`platelets` canonical `×10³/µL`, source alternates `K/µL`, `/µL`, `/uL`, `/mcL`, `/mm³`, `×10⁹/L`), and a drift-guard test.
+- Implemented the shared measurement allowlist foundation from `Archive/root-specs-2026-07-18/measurement-allowlist-codex-spec.md`: pure lab/vitals registry defs, derived frozen `src/measurementAllowlist.ts`, CBC conventional-canonical/source-permissive policy (`wbc`/`platelets` canonical `×10³/µL`, source alternates `K/µL`, `/µL`, `/uL`, `/mcL`, `/mm³`, `×10⁹/L`), and a drift-guard test.
 - Added `src/measurementUnitPolicy.ts` for analyte-keyed conversion factors and first-pass display policy metadata; magnesium, total calcium, and ionized calcium now accept source `mEq/L`.
 - Refactored the exhibit-flowsheet gate to consume the shared allowlist/unit policy while keeping extraction-source concerns (`LABEL_PATTERNS`, implicit vital units, temp affine conversion) in the gate; added total-vs-ionized calcium identity checks.
 - Added deterministic manifest tooling (`npm run flowsheet-manifest`) and generated `EXHIBIT-FLOWSHEET-MANIFEST-2026-07-05.json`: 336 de-duplicated allowlist-hit panels after the ABG completeness-pattern refresh, with conservative buckets `clean_kv` 2, `prose_embedded` 149, `scattered` 152, `serial` 33.

@@ -47,9 +47,9 @@ Navigation aid only — restates no ruling and settles nothing new. Read the tar
 | 27 | An invariant softens only by naming its forcing incident and showing the condition is gone. |
 | 28 | Scored leaves govern content planning; session units govern delivery capacity and inventory. |
 
-### CONDITIONAL — forward case-generation lane (5)
+### CONDITIONAL — forward case-generation lane (5) — LAPSED 2026-07-18
 
-Binds only while the Opus-skeleton → GPT compile/fact-check → Gemini flag-review → Claude gate pipeline is the active forward-case lane (see §5).
+Bound only while the Opus-skeleton → GPT compile/fact-check → Gemini flag-review → Claude gate pipeline was the active forward-case lane. Luke retired that lane on 2026-07-18 in favor of wholesale case_study production in the current GPT model; per §2's CONDITIONAL definition these five principles lapse with it and need no separate repeal. Retained below for historical reference — see §5 for the lapse note and current state.
 
 | # | One-line rule |
 |---|---|
@@ -186,9 +186,11 @@ Delivery and inventory reports measure what can be served: top-level session uni
 
 Reason: the dual traversal introduced in PR #51 made both populations visible but did not establish which one governed planning, leaving competing target and prompt blocks that could direct generation from incompatible denominators. PR #52 makes the authority singular while retaining both legitimate analytical views. Executable owners: `lib/question-population.ts` (shared population and visual-artifact traversal), `scripts/census.ts` (canonical census shape and reconciliation), and `scripts/coverage-report.ts` (explicit call-site coverage views and the single scored-leaf planning output).
 
-## 5. Conditional lane contracts — forward case-generation pipeline
+## 5. Conditional lane contracts — forward case-generation pipeline (LAPSED 2026-07-18)
 
-Principles 8, 9, 12, 18, and 22 collectively describe **one** forward case-skeleton pipeline. They are conditional on that lane remaining the active forward-generation path, not five separate universal project principles. Two rules from this group are universal regardless of which lane is active, and are stated once here rather than five times:
+**Lapse note (2026-07-18):** Luke retired the Opus-skeleton → GPT compile/fact-check → Gemini flag-review → Claude gate pipeline in favor of wholesale case_study production in the current GPT model. Per §2, CONDITIONAL principles lapse with their governing lane and need no separate repeal, so principles 8, 9, 12, 18, and 22 below no longer bind. They are retained verbatim for historical reference — do not apply them to any new lane without re-ratifying. The `opus*` case-ID routing in `scripts/audit/early-bank-semantic-layer-a.ts` (principle 22) is unaffected and stays in force, since it routes already-promoted cases already carrying that ID prefix, not new production. A replacement direct-GPT case_study lane has not yet been spec'd; until it is, case_study has no active forward-generation lane (see `gpt-evergreen-generation-prompt.md`, which explicitly excludes case_study from its scope).
+
+Principles 8, 9, 12, 18, and 22 collectively described **one** forward case-skeleton pipeline. They are conditional on that lane remaining the active forward-generation path, not five separate universal project principles. Two rules from this group are universal regardless of which lane is active, and are stated once here rather than five times:
 
 1. Clinical truth and answer logic have an explicit upstream owner; every downstream transformation (translation, schema compilation, formatting) may read but never silently invent or change them.
 2. Every active generation lane declares producer provenance and independent-review routing (principle 2).
