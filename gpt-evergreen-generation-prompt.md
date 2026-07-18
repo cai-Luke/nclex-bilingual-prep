@@ -7,7 +7,7 @@
 - **Generator restriction:** GPT (or Gemini) only. Never a Claude instance — Claude is the review + promotion gate for this lane, and producer≠checker is standing doctrine.
 - **Per turn:** GPT produces one downloadable `banks-raw/`-ready JSON file of 6 items. Say "next batch" for another turn; each turn gets a fresh file and ID suffix. Save each file as delivered (the `gpt-` filename prefix routes it to `gpt-canonical.json`).
 - **After generation:** normal pipeline, no shortcuts — `normalize-raw-bank` (dry-run first) → `validate-bank` → Claude review against the semantic floor below + promotion gate → `promote` → `audit` → `consolidate` → `census` → ledger. Chain line: `GPT generate → Claude review + gate` (direct lane, no skeleton steps).
-- **Out of scope for this prompt:** visuals (all visual-kind canonicals are complete sets), `case_study` (forward skeleton pipeline only), pediatric burn content (blocked), anything touching schema or source.
+- **Out of scope for this prompt:** visuals (all visual-kind canonicals are complete sets), `case_study` (no active generation lane as of 2026-07-18 — the prior Opus-skeleton forward pipeline was retired; a direct-GPT case_study lane has not yet been spec'd), pediatric burn content (blocked), anything touching schema or source.
 
 ===== COPY BELOW THIS LINE =====
 

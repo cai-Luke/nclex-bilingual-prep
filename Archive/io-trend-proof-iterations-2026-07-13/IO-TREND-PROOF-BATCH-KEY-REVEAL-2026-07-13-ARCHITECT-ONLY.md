@@ -1,6 +1,6 @@
 # U11 `io_trend` — §11 Proof Batch — Key Reveal (ARCHITECT / LUKE ONLY)
 
-> **Status: SUPERSEDED 2026-07-13, same day.** Companion V2 producer file had leaking headings/notes and two unsupported action keys (see that file's superseded banner). Superseded by `IO-TREND-PROOF-BATCH-KEY-REVEAL-2026-07-13-V3-ARCHITECT-ONLY.md`. This file was read during the second GPT review pass — harmless since that was a review session, not the producer session, but the actual Pass-1 run must still use a completely fresh chat with zero repo/PR context, per that review's own note.
+> **Status: SUPERSEDED 2026-07-13, same day.** Companion V2 producer file had leaking headings/notes and two unsupported action keys (see that file's superseded banner). Superseded by `Archive/root-specs-2026-07-18/IO-TREND-PROOF-BATCH-KEY-REVEAL-2026-07-13-V3-ARCHITECT-ONLY.md`. This file was read during the second GPT review pass — harmless since that was a review session, not the producer session, but the actual Pass-1 run must still use a completely fresh chat with zero repo/PR context, per that review's own note.
 
 **Do not paste this file, or any part of it, into the GPT-5.6 Sol chat before Pass 1 is submitted.** Once Sol has returned its Pass 1 table (four rows: correct action, confidence + strongest competitor, collapse counterfactual), compare its answers against this file yourself, adjudicate any divergence with Luke, and only then reveal the relevant parts to Sol for Pass 2 authoring.
 

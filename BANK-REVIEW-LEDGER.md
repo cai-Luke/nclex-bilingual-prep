@@ -31,12 +31,10 @@ This ledger tracks which generated question banks are safe to treat as reviewed 
 8. After merge and successful validation, delete the raw/staging source file unless there is an explicit reason to retain it.
 9. Update this ledger before treating the bank as reviewed, including the deleted source filename in Merged Source Batches.
 
-`Chain:` lines for skeleton-derived cases must name the fact-check/currency and
-review-layer roles explicitly. Forward default:
-`Opus skeleton → GPT fact-check + compile/scaffold (author prose stripped) →
-Gemini flag-only review → Claude final review`. Naming only "compile" or
-"patch" understates the independent checks; Gemini review is a structured flag
-list only and must never rewrite JSON or skeleton prose.
+`Chain:` lines must record the actual producer, independent reviewer, and
+promotion-gate roles used for the batch. Do not reuse a historical chain as a
+forward default; follow the lane's current prompt or spec and the standing
+producer≠checker requirement.
 
 ## Generation Policy
 
@@ -729,7 +727,7 @@ Verification: `validate-bank` clean on all 3 raw files; `normalize-raw-bank` rep
 
 ### 2026-07-14 — U11 `io_trend` §11 proof batch (4 items → visual-canonical.json, 53→57)
 
-Status: `content-reviewed` and promoted. Raw draft `visual-iotrend-2026-07-14.json`, authored by GPT-5.6 Sol under the V3 two-pass protocol (`IO-TREND-PROOF-BATCH-BRIEF-2026-07-13-V3-PRODUCER-GPT56SOL.md` / `IO-TREND-PROOF-BATCH-KEY-REVEAL-2026-07-13-V3-ARCHITECT-ONLY.md`). Item mix: 1 `select_all` (`iot_hf_ckd_declining_output`), 2 `multiple_choice` matched pair (`iot_furosemide_late_partial_reversal`, `iot_furosemide_positive_to_negative_crossover`), 1 `matrix` (`iot_fluid_challenge_output_divergence`). This is the executable proof batch for the `io_trend` kind: each item is only valid if collapsing its series to `final_cumulative_net_ml` changes the answer.
+Status: `content-reviewed` and promoted. Raw draft `visual-iotrend-2026-07-14.json`, authored by GPT-5.6 Sol under the V3 two-pass protocol (`Archive/root-specs-2026-07-18/IO-TREND-PROOF-BATCH-BRIEF-2026-07-13-V3-PRODUCER-GPT56SOL.md` / `Archive/root-specs-2026-07-18/IO-TREND-PROOF-BATCH-KEY-REVEAL-2026-07-13-V3-ARCHITECT-ONLY.md`). Item mix: 1 `select_all` (`iot_hf_ckd_declining_output`), 2 `multiple_choice` matched pair (`iot_furosemide_late_partial_reversal`, `iot_furosemide_positive_to_negative_crossover`), 1 `matrix` (`iot_fluid_challenge_output_divergence`). This is the executable proof batch for the `io_trend` kind: each item is only valid if collapsing its series to `final_cumulative_net_ml` changes the answer.
 
 **Two-pass protocol worked as designed, one layer up.** Sol's blind Pass 1 flagged that the architect's own intended Frame 3 key ("essentially unchanged" output) understated a genuine monotonic decline; the architect revised the key before Pass 2 rather than defending it (see KEY-REVEAL doc's 2026-07-14 revision note). Content review confirmed: no leaked headings/shape language anywhere, no management-action leakage into stems/options/rationale (all four frames correctly reframed as trend-interpretation, not action, per the V2→V3 fix), context lines byte-identical to the brief's §4 verbatim strings, and the Frame 2/4 matched pair uses an identical bilingual option set differing only in the keyed letter. All `derived_values_keyed` (interval net, cumulative net, final net, crossover index) reverified by hand against the brief's fixed tables — zero drift. Both source strings copied verbatim and routed correctly per frame (NICE CG174 for Frames 1/3, DailyMed furosemide monograph for Frames 2/4).
 

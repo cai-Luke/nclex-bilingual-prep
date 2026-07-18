@@ -8,11 +8,11 @@ Scope of this spec: how to produce **staged** flowsheet-extraction artifacts for
 mechanically-recoverable case-study panels, gated and sample-adjudicated. Per the bounded GO in
 `EXHIBIT-FLOWSHEET-BLIND-ADJUDICATION-2026-07-04.md`, this produces staged artifacts only — it does
 **not** write to canonical banks and does **not** render. Canonical/render is the separate product
-pass (`structured-measurements-schema-1.8-codex-spec.md`).
+pass (`Archive/root-specs-2026-07-18/structured-measurements-schema-1.8-codex-spec.md`).
 
 ## Prerequisites (must land first, in order)
 
-1. `measurement-allowlist-codex-spec.md` fully implemented: `src/measurementAllowlist.ts` built, the
+1. `Archive/root-specs-2026-07-18/measurement-allowlist-codex-spec.md` fully implemented: `src/measurementAllowlist.ts` built, the
    CBC registry fix (step 0) applied, gate refactored to import the shared module, drift-guard test
    passing. The migration must run against the shared allowlist, not the gate's old hand-mirror.
 2. Gate + scorer on disk and green: `scripts/exhibit-flowsheet-gate.ts`,

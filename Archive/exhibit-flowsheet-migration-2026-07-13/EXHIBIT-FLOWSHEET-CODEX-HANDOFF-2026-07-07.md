@@ -2,7 +2,7 @@
 
 Date: 2026-07-07
 Audience: Codex
-Authoritative contract: `structured-measurements-schema-1.8-codex-spec.md` (Frozen decisions +
+Authoritative contract: `Archive/root-specs-2026-07-18/structured-measurements-schema-1.8-codex-spec.md` (Frozen decisions +
 Implementation constraints) and `DECISIONS.md` principle 24. On conflict, principle 24 wins.
 
 ## Where things stand

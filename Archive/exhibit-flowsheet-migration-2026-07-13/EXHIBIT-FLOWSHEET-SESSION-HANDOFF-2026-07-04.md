@@ -40,7 +40,7 @@ age-band model.
 
 ## Dependency order for Codex
 
-1. **`measurement-allowlist-codex-spec.md`** (already on disk, blocker resolved this session). Build
+1. **`Archive/root-specs-2026-07-18/measurement-allowlist-codex-spec.md`** (already on disk, blocker resolved this session). Build
    `src/measurementAllowlist.ts`; apply the step-0 CBC registry fix (canonical `×10³/µL`, alts
    `[K/µL, /µL]`, drop SI) with the bank-grep precondition; refactor the gate to import it; add the
    drift-guard test. **This is the first build item.**
@@ -50,7 +50,7 @@ age-band model.
 3. **`lab-reference-range-verification-spec.md`**. Runs **in parallel** — it's a
    clinical-content/sourcing lane, not blocked by and not blocking the migration. Unblocks the future
    flag/range feature and de-placeholders the registry bands the migration's GATE 4 leans on.
-4. **`structured-measurements-schema-1.8-codex-spec.md`**. The product pass:
+4. **`Archive/root-specs-2026-07-18/structured-measurements-schema-1.8-codex-spec.md`**. The product pass:
    schema-1.8 `structuredMeasurements` field + renderer (reusing table primitives, not a new visual
    kind). **Do not build until Luke rules on the four product decisions.** Consumes the staged corpus
    from step 2.
@@ -73,12 +73,12 @@ age-band model.
 Live root context (repo root / scripts):
 - `EXHIBIT-FLOWSHEET-EXTRACTION-PROPOSAL-2026-07-03.md` — the contract
 - `EXHIBIT-FLOWSHEET-BLIND-ADJUDICATION-2026-07-04.md` — the GO verdict
-- `measurement-allowlist-codex-spec.md` — step 1
+- `Archive/root-specs-2026-07-18/measurement-allowlist-codex-spec.md` — step 1
 - `scripts/exhibit-flowsheet-gate.ts`, `scripts/exhibit-flowsheet-blind-score.ts` + their tests
 - `DECISIONS.md` — CBC ruling recorded
 - `exhibit-flowsheet-migration-batch-protocol-codex-spec.md` — step 2
 - `lab-reference-range-verification-spec.md` — step 3 (parallel)
-- `structured-measurements-schema-1.8-codex-spec.md` — step 4 (product pass)
+- `Archive/root-specs-2026-07-18/structured-measurements-schema-1.8-codex-spec.md` — step 4 (product pass)
 - `EXHIBIT-FLOWSHEET-SESSION-HANDOFF-2026-07-04.md` — this index
 
 Archived proof/scaffolding artifacts:

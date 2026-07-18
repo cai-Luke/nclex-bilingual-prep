@@ -2,7 +2,7 @@
 
 Date: 2026-07-07
 Audience: Claude Code (promotion-gate seat for structured measurements)
-Authoritative contract: `structured-measurements-schema-1.8-codex-spec.md` and `DECISIONS.md`
+Authoritative contract: `Archive/root-specs-2026-07-18/structured-measurements-schema-1.8-codex-spec.md` and `DECISIONS.md`
 principle 24.
 
 ## Your role
