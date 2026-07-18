@@ -52,6 +52,34 @@ The committed NGN item-type set is complete. Rationale/dyad scoring and an expli
 
 > Milestones dated **2026-06-23 and earlier** are archived in [`Archive/PROJECT-HISTORY-ARCHIVE.md`](Archive/PROJECT-HISTORY-ARCHIVE.md). Only the current arc (2026-06-24 onward) is kept here.
 
+### GPT Scored-Format Batch 11 — Independent Review and Promotion Complete (Jul 18)
+
+All 18 commissioned items cleared independent producer≠checker review and are promoted into
+`gpt-canonical.json` (751→769). Zero clinical, mathematical, or logical defects were found. Full
+findings are in the 2026-07-18 `BANK-REVIEW-LEDGER.md` Batch 11 promotion entry.
+
+Claude reviewed [`GPT-SCORED-FORMAT-BATCH-11-SPEC-2026-07-18.md`](GPT-SCORED-FORMAT-BATCH-11-SPEC-2026-07-18.md)
+before generation and caught a design flaw in row 16: its original `dropdown_cloze` structure tested
+primary-vs-central adrenal insufficiency and mineralocorticoid status from the same client's data —
+clinically near-tautological, since one answer determines the other almost by definition, which would
+have mechanically revealed one dropdown's answer from another's in violation of the spec's own gate.
+Luke fixed the spec (three separately-labeled client records, one per dropdown) before the producer
+ran; independent review of the generated item confirmed the fix holds.
+
+The `dropdown_cloze` correct-first generation habit that caused the Batch 9/10 defect recurred at the
+raw-generation level (all 9 blanks in Batch 11C again keyed the correct option first) — but this time
+it was harmless: the `lib/shuffle.ts` fix from the prior promotion correctly randomized all 9 blanks at
+promotion time, confirmed by direct inspection of the promoted output. The raw-generation pattern
+itself remains uncorrected upstream and is worth feeding back into future producer prompts.
+
+Verification: `npm run audit` **GATE PASSED** post-consolidation with 2,661 bundled IDs globally unique
+across 13 banks (only the pre-existing, unrelated `visual-canonical` distributional advisory);
+`test:grading`, `test:highlight`, `test:bowtie`, `test:schema-bank`, `test:non-mcq-bias`, and
+`test:shuffle` all passed; `npx tsc -b` passed; census regenerated at 1,940 session units / 2,518
+scored leaves / 199 visual artifacts and `census:check` passed; production build passed. The
+`rationale-visual-floor` survey snapshot needed the same regeneration as the prior promotion
+(`topLevelRecords` drift only).
+
 ### GPT Scored-Format Batch 11 Commissioned (Jul 18)
 
 The next producer order is
