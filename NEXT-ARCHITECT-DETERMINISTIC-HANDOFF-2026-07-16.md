@@ -33,14 +33,14 @@ capacity shortfall. The active Batch 7 producer commission is format-targeted, n
 | ~~P1~~ | ~~Active-governance Markdown U+FFFD gate~~ — **DROPPED 2026-07-16 (Luke's ruling).** Every mojibake alarm has been a connector-read artifact, not disk corruption; a repo gate guards the wrong surface. See `DECISIONS.md` §8. | — | — |
 | ~~P2~~ | **IMPLEMENTED AND MERGED IN PR #55** — promoted visual parity survey, 12-kind baseline, rebaseline mechanics, U0 migration, and visual CI command | Closed deterministic regression project | The accepted architecture and evidence are preserved in [`PROMOTED-VISUAL-PARITY-EXPANSION-ARCHITECT-SPEC-2026-07-16.md`](PROMOTED-VISUAL-PARITY-EXPANSION-ARCHITECT-SPEC-2026-07-16.md). |
 | ~~P3 inventory~~ | **INVENTORY IMPLEMENTED AND MERGED; STAGE-2 ADJUDICATION RATIFIED (Jul 17–18).** The all-seven-vital deterministic inventory shipped and its independent classification review closed (provenance repair `9bf33b2`). Architect stage-2 adjudication is ratified as §20 of [`VITAL-SANITY-BOUNDS-P3-SURVEY-ARCHITECT-SPEC-2026-07-17.md`](VITAL-SANITY-BOUNDS-P3-SURVEY-ARCHITECT-SPEC-2026-07-17.md). **P3 stage 3** (clinical sourcing for the three advanced sides) is the current open step. | Clinical judgment, separately ratified | Selecting new clinical tripwires is not mechanical; three sides advanced, ten remain provisional/structural. |
-| P4 adjudication | **MECHANICAL INVENTORY COMPLETE; independent semantic adjudication pending.** No floor is selected or implemented. | Product/architecture decision from deterministic evidence | The producer manifest leaves all semantic classifications null. |
+| P4 ruling | **MECHANICAL INVENTORY AND INDEPENDENT SEMANTIC ADJUDICATION COMPLETE.** No floor is selected or implemented. | Product/architecture decision from completed evidence | All 11 one-series trends are load-bearing and not exactly duplicated; all 13 one-row structured panels are exactly duplicated, but only 4 are load-bearing. |
 | P5 | Consider remaining CI coverage hardening | Engineering policy | PR #55 added the single authorized `npm run test-visuals` step; broader typecheck/build/checksum policy remains unratified. |
 
 P0 and P2 are implemented and merged. **P1 is dropped** (see below). **P3's deterministic inventory is
 now also merged and its stage-2 adjudication ratified — P3 has moved from evidence-gathering into
-clinical sourcing (stage 3).** P4's deterministic phase is complete; its producer-independent
-candidate adjudication is the current step. Its evidence, review seats, and reversal costs differ
-from P3's. P5 is only partially addressed and
+clinical sourcing (stage 3).** P4's deterministic inventory and producer-independent candidate
+adjudication are complete; the architecture policy choice is the current step. Its evidence, review
+seats, and reversal costs differ from P3's. P5 is only partially addressed and
 remains a separate policy decision.
 
 ## P0 — `rationale.visuals` schema-floor retrofit
@@ -275,17 +275,17 @@ the later clinical decision.
 
 ## P4 — single-row lab panels
 
-> **STATUS UPDATE 2026-07-18 — MECHANICAL INVENTORY COMPLETE.** The dated manifest and review packet
-> inventory 11 one-series `lab_trend` visuals and 13 one-row structured labs panels. Independent
-> semantic adjudication is pending; no floor is selected or implemented.
+> **STATUS UPDATE 2026-07-18 — INVENTORY AND INDEPENDENT ADJUDICATION COMPLETE.** The dated manifest
+> and review packet inventory 11 one-series `lab_trend` visuals and 13 one-row structured labs panels.
+> The checker classified every candidate; no floor is selected or implemented.
 
 This remains an architecture question: should either laboratory surface receive a larger minimum?
 No live harm is recorded and no minimum has been ratified. The two surfaces remain separate.
 
 The completed inventory supplies every candidate's question ID, location, values, surrounding prose,
-answer material, current proof surface, and mechanical policy impact. The independent checker now
-classifies whether each presentation is load-bearing, whether prose duplicates it, and whether a
-meaningful second analyte/row exists. Then present alternatives:
+answer material, current proof surface, and mechanical policy impact. Independent review found all 11
+single-series trends load-bearing and not exactly duplicated, while all 13 one-row structured panels
+are exactly duplicated and only four are load-bearing. The remaining architecture alternatives are:
 
 - allow one row;
 - require two rows only for a named visual/panel type; or
@@ -314,5 +314,5 @@ P0 and P2 are implemented and merged; P1 is dropped. **P3's deterministic invent
 stage-2 adjudication ratified; P3 is now in stage-3 clinical sourcing for three advanced sides (SBP
 ceiling, RR ceiling, SpO₂ floor), with the SpO₂-floor mechanism extension a contingent implementation
 prerequisite.** Keep the remaining clinical vital-bound sourcing/ratification, the single-row lab
-decision (P4), and any remaining CI policy (P5) in separate workstreams. P4 is the best next
-self-contained deterministic-then-ruling session.
+policy ruling (P4), and any remaining CI policy (P5) in separate workstreams. P4 now needs only the
+architecture choice; its deterministic evidence and independent checker pass are complete.

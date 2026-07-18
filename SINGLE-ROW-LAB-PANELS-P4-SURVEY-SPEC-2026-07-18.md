@@ -50,16 +50,16 @@ The producer may calculate only the mechanical policies before independent revie
 |---|---|
 | L1 — preserve one or two series | 0 newly failing records |
 | L2 — require two series universally | 11 newly failing records |
-| L3 — conditional one-series exception | Pending independent load-bearing and exact-duplication classifications |
+| L3 — conditional one-series exception | 0 newly failing records; all 11 are load-bearing and not exactly duplicated |
 | S1 — preserve nonempty rows | 0 newly failing panels |
 | S2 — require two rows universally | 13 newly failing panels |
-| S3 — conditional one-row exception | Pending independent load-bearing and exact-duplication classifications |
+| S3 — conditional one-row exception | 13 newly failing panels; all 13 are exactly duplicated by prose |
 | S4 — floor for a named context class | Pending candidate review and an architecture-seat definition of that class |
 
-L2 and S2 have no metadata-only repair. Whether either would force clinically unnecessary filler, or
-whether removing a surface preserves answerability, remains a semantic review question. L3 and S3
-become deterministic after the checker fills the classifications. S4 additionally requires an
-architecture ruling; the producer has inventoried context dimensions but has not named a class.
+L2 and S2 have no metadata-only repair. The checker classifications below make L3 and S3
+deterministic for the current corpus: L1/L3 are equivalent, and S2/S3 are equivalent. S4 still
+requires an architecture ruling; the producer inventoried context dimensions but did not name a
+class.
 
 Every policy also reports subsystem-specific consequences. Preserving either contract changes
 nothing. A universal floor changes validation policy but does not inherently require a renderer
@@ -87,14 +87,15 @@ location, column, stage, exhibit, analyte, and prose facts, but must not invent 
 
 - Preserve each current surface contract (L1 and S1).
 - Adopt a universal floor for only one surface (L2 or S2), accepting the exact listed migration scope.
-- Adopt a semantic exception for only one surface (L3 or S3) after independent adjudication.
+- Adopt a semantic exception for only one surface (L3 or S3), using the completed independent
+  adjudication below.
 - For structured panels only, define a narrow evidence-supported context class and calculate S4 in a
   deterministic second pass.
 - Make no floor change if the review shows that single-analyte trends and single-row panels are valid
   surface-specific uses.
 
-No universal rule is recommended before the independent classifications. Similar laboratory subject
-matter is not evidence that the visual and structured-panel contracts should be collapsed.
+The completed classifications do not themselves select a policy. Similar laboratory subject matter
+is not evidence that the visual and structured-panel contracts should be collapsed.
 
 ## Commands
 
@@ -119,10 +120,10 @@ selection and any S4 naming remain Luke's/architecture's ruling, not this sectio
 
 ### Reviewed artifact
 
-Branch `codex/p4-single-row-labs`, worktree `Project-Shrimp-P4`, commit `673755d` (message: "audit: add
-P4 single-row lab survey"). **No GitHub PR exists for this branch; the commit is local and unpushed.**
-This adjudication is being committed directly onto the same branch so it travels with the commit that
-prompted it, rather than being stranded in chat.
+At review time, the artifact was branch `codex/p4-single-row-labs`, worktree `Project-Shrimp-P4`,
+commit `673755d` (message: "audit: add P4 single-row lab survey"); that branch was local and unpushed.
+The survey and adjudication commits were subsequently consolidated into PR #58 with the related
+July 18 maintenance work.
 
 ### Mechanical verification
 

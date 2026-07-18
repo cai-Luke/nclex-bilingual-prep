@@ -97,7 +97,7 @@ scoring tool, decision pathway, priority sequence, or cue-response pattern under
 a blocking collision; the producer must report the conflicting ID rather than silently substitute.
 Generation and independent review remain pending.
 
-### P4 Single-Row Laboratory Presentation Survey — Mechanical Inventory Complete (Jul 18)
+### P4 Single-Row Laboratory Presentation Survey — Inventory and Independent Adjudication Complete (Jul 18)
 
 The isolated report-only P4 pass is implemented by `scripts/single-row-lab-panels-survey.ts`, with its
 dated manifest at `audit/single-row-lab-panels-survey-2026-07-18/survey-manifest.json`, decision packet
@@ -114,10 +114,13 @@ bank schema versions remain null.
 
 L1/L2 and S1/S2 are mechanically calculated: preservation changes zero records, a universal
 two-series floor would newly fail 11 visuals, and a universal two-row floor would newly fail 13 panels.
-L3/S3 remain pending independent load-bearing and exact-duplication classifications. S4 also remains
-pending an architecture-seat definition of a named evidence-derived context class. Every semantic
-field is null in the producer manifest. No schema, renderer, bank, reference-band, or runtime behavior
-changed. Root-document archival and parallel content-generation work are excluded from this branch.
+The producer-independent checker then classified all 24 candidates. The 11 `lab_trend` visuals are
+all load-bearing and none is exactly duplicated by prose, so L1 and L3 are equivalent in the live
+corpus and the evidence does not support a universal L2 floor. All 13 structured panels are exactly
+duplicated by surrounding prose, but only four are load-bearing; S2 and S3 are therefore equivalent
+for this population, while the nine non-load-bearing rows are a separate architecture/content
+question rather than an automatic deletion order. No S4 class or policy is selected. No schema,
+renderer, bank, reference-band, or runtime behavior changed.
 
 ### GPT Scored-Format Batch 8 Commissioned (Jul 18)
 
