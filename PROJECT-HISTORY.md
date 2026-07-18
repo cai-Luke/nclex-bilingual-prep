@@ -97,6 +97,28 @@ scoring tool, decision pathway, priority sequence, or cue-response pattern under
 a blocking collision; the producer must report the conflicting ID rather than silently substitute.
 Generation and independent review remain pending.
 
+### P4 Single-Row Laboratory Presentation Survey — Mechanical Inventory Complete (Jul 18)
+
+The isolated report-only P4 pass is implemented by `scripts/single-row-lab-panels-survey.ts`, with its
+dated manifest at `audit/single-row-lab-panels-survey-2026-07-18/survey-manifest.json`, decision packet
+at `SINGLE-ROW-LAB-PANELS-P4-SURVEY-SPEC-2026-07-18.md`, and focused byte-drift/contract regression at
+`scripts/tests/single-row-lab-panels.ts`. It reuses the six-location `collectVisualRefs` projection for
+`lab_trend` and the established top-level/staged exhibit traversal for structured measurements.
+
+The canonical inventory found 24 candidates across five banks: 11 of 20 `lab_trend` visuals use one
+series, and 13 of 126 structured labs panels use one row. The remaining nine trends use two series and
+113 panels use multiple rows. Current validation has zero failures; all 11 applicable question-visual
+self-checks pass, while all 13 structured panels correctly report
+`NOT_APPLICABLE_BY_CURRENT_CONTRACT`. Absent structured population remains unspecified; undeclared
+bank schema versions remain null.
+
+L1/L2 and S1/S2 are mechanically calculated: preservation changes zero records, a universal
+two-series floor would newly fail 11 visuals, and a universal two-row floor would newly fail 13 panels.
+L3/S3 remain pending independent load-bearing and exact-duplication classifications. S4 also remains
+pending an architecture-seat definition of a named evidence-derived context class. Every semantic
+field is null in the producer manifest. No schema, renderer, bank, reference-band, or runtime behavior
+changed. Root-document archival and parallel content-generation work are excluded from this branch.
+
 ### GPT Scored-Format Batch 8 Commissioned (Jul 18)
 
 The active content order is
