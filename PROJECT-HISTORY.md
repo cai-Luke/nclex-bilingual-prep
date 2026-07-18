@@ -68,8 +68,11 @@ records: their clean validation and MAP null are structural, not evidence that t
 are clinically suitable. Temperature documents the decoupled contracts across both lanes but does not
 make the renderer execute GATE 4. The artifact records declared/effective population per record, all
 seven vital contracts, side authorship and override-mechanism cost, exact live canonical ranges, and
-nearest boundary records. The prior 2026-07-11 temperature sweep was located in the archived decisions
-record and is explicitly reconciled as extended, not silently replaced.
+nearest boundary records. The prior 2026-07-11 survey and pre-move sweep is located in Git history at
+`a67476cee75e365dd72c22a589d8e76c6e3ddc6d:DECISIONS.md`, while current `DECISIONS.md` §7 preserves
+its compact zero-flip summary and r9 §6.1 is a separate July 15 re-derivation. P3 explicitly extends
+that limited historical survey/sweep scope; the historical promoted/refreshed temperature spans are
+not directly comparable to P3's pooled two-surface `liveRange`.
 
 No bank, renderer, measurement-unit vocabulary, or `sanity` bound changed. Per the P3 seat split,
 the producing implementation does not certify the manifest's contract-interpretation fields; an

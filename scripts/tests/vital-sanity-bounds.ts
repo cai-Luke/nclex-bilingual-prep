@@ -142,7 +142,19 @@ assert.equal(survey.population.canonicalBankCount, survey.population.canonicalBa
 assert.equal(survey.conceptsByVital.length, 7);
 assert.deepEqual(survey.conceptsByVital.map(({ vital }) => vital), VITAL_KEYS);
 assert.equal(survey.ratification.bounds.startsWith("NONE"), true);
-assert.equal(survey.priorFindings.sweep20260711.reconciliation, "EXTENDS");
+const priorSweep = survey.priorFindings.sweep20260711;
+assert.equal(priorSweep.located, true);
+assert.equal(priorSweep.reconciliation, "EXTENDS");
+assert.equal(
+  priorSweep.sources.includes(
+    "DECISIONS.md at commit a67476cee75e365dd72c22a589d8e76c6e3ddc6d (2026-07-11 historical survey and pre-move sweep record)",
+  ),
+  true,
+);
+assert.equal(priorSweep.sources.some((source) => source.includes("Archive/DECISIONS-ARCHIVE-2026-07-14.md")), false);
+assert.equal(priorSweep.adds[0], "all seven vital keys, deterministically enumerated");
+assert.equal(priorSweep.adds.some((addition) => addition.includes("temperature-only flip probes")), false);
+assert.match(priorSweep.priorResult, /not directly comparable to this survey's pooled per-vital liveRange/);
 assert.equal(survey.findings.structuredMeasurementGate4.recordCount, 766);
 assert.equal(survey.findings.structuredMeasurementGate4.warningRecords.length, 0);
 assert.equal(survey.findings.structuredMeasurementGate4.unrecognizedUnitRecords.length, 0);
