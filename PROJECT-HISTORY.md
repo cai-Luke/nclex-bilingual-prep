@@ -52,6 +52,51 @@ The committed NGN item-type set is complete. Rationale/dyad scoring and an expli
 
 > Milestones dated **2026-06-23 and earlier** are archived in [`Archive/PROJECT-HISTORY-ARCHIVE.md`](Archive/PROJECT-HISTORY-ARCHIVE.md). Only the current arc (2026-06-24 onward) is kept here.
 
+### GPT Scored-Format Batch 11 Commissioned (Jul 18)
+
+The next producer order is
+[`GPT-SCORED-FORMAT-BATCH-11-SPEC-2026-07-18.md`](GPT-SCORED-FORMAT-BATCH-11-SPEC-2026-07-18.md):
+18 standalone text-only questions in three raw files, with a planned 5 `bowtie` / 4 `highlight` /
+3 `fill_in_blank` / 3 `ordered_response` / 3 `dropdown_cloze` mix. It uses the promoted
+Batches 8–10 canonical baseline while honoring the commissioning decision not to review Batch 10 raw
+output during this pass.
+
+The operating contract incorporates producer feedback: every primary and reserve records its nearest
+canonical or commissioned comparator and required semantic divergence; six reserves match the six
+item-type/difficulty lanes; blocked primaries use only unused matched reserves and may yield a smaller
+valid delivery when reserve capacity is exhausted. Dropdown rationales require one `byChoice` entry
+per dropdown ID. All approved source URLs were opened during spec preparation. Shell normalization
+and validation are conditional on producer command access and otherwise pass explicitly to
+Codex/checker. The contract specifies the required final disk state without prescribing an atomic
+write mechanism. Generation and independent review remain pending.
+
+### GPT Scored-Format Batches 8/9/10 — Independent Review and Promotion Complete (Jul 18)
+
+All three commissioned batches (53 items: 18 Batch 8, 18 Batch 9, 17 Batch 10 — one short of the
+planned 18) cleared independent producer≠checker review and are promoted into `gpt-canonical.json`
+(681→751). Zero clinical, mathematical, or logical defects were found in any item across all three
+batches. Full findings, item-type composition per raw file, and verification detail are in the
+2026-07-18 `BANK-REVIEW-LEDGER.md` promotion entry.
+
+The one substantive finding was structural rather than clinical: all 18 `dropdown_cloze` blanks split
+across Batch 9C and Batch 10C keyed their correct option as the first-listed option 100% of the time,
+against a ~25–37% baseline in already-promoted content. `lib/shuffle.ts` had never implemented a
+`dropdown_cloze` case, despite the non-MCQ bias audit's own `correct_index_n{N}` check already
+declaring `SHUFFLE_AT_PROMOTION` as this defect's designated repair — the audit could detect the defect
+but nothing at promotion time actually fixed it. Added `shuffleDropdownCloze` to `lib/shuffle.ts`
+(mirrors the existing bowtie per-zone Fisher-Yates pattern) and `scripts/tests/shuffle.ts`
+(`npm run test:shuffle`). This defect appeared identically in Batch 9 (GPT self-check completed before
+handoff) and Batch 10 (no self-check) — the review found no self-check quality difference for either
+defect class it covered, since the one real defect is a cross-item statistical pattern that a per-item
+review pass (human or model) is not positioned to catch regardless of who performs it.
+
+Verification: `validate-bank` passed all nine raw files; `npm run audit` **GATE PASSED**
+post-consolidation with 2,643 bundled IDs globally unique across 13 banks (only the pre-existing,
+unrelated `visual-canonical` distributional advisory); `test:grading`, `test:highlight`, `test:bowtie`,
+`test:schema-bank`, `test:non-mcq-bias`, and the new `test:shuffle` all passed; `npx tsc -b` passed;
+census regenerated at 1,922 session units / 2,500 scored leaves / 199 visual artifacts and
+`census:check` passed; production build passed.
+
 ### GPT Scored-Format Batch 10 Commissioned (Jul 18)
 
 The next producer order is
