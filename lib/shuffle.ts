@@ -1,6 +1,7 @@
 import type {
   BowtieQuestion,
   CaseStudyQuestion,
+  DropdownClozeQuestion,
   OptionQuestion,
   Question,
   StandaloneQuestion,
@@ -95,6 +96,16 @@ function shuffleBowtie(q: BowtieQuestion): BowtieQuestion {
   };
 }
 
+function shuffleDropdownCloze(q: DropdownClozeQuestion): DropdownClozeQuestion {
+  return {
+    ...q,
+    dropdowns: q.dropdowns.map((dropdown) => ({
+      ...dropdown,
+      options: deterministicShuffle(dropdown.options, `${q.id}${dropdown.id}`),
+    })),
+  };
+}
+
 /**
  * Pure, deterministic shuffle of a bank item.
  *
@@ -103,7 +114,9 @@ function shuffleBowtie(q: BowtieQuestion): BowtieQuestion {
  *   array are unchanged — IDs remain tied to their option content.
  * - Case studies: each nested question is recursively shuffled.
  * - Bowtie items: each zone's token pool is shuffled independently.
- * - All other item types (fill_in_blank, matrix, dropdown_cloze, highlight): returned unchanged.
+ * - Dropdown-cloze items: each blank's option pool is shuffled independently,
+ *   seeded by item id + blank id. Option IDs and the `correct` id are unchanged.
+ * - All other item types (fill_in_blank, matrix, highlight): returned unchanged.
  *
  * Idempotent for a given seed: shuffle(shuffle(q)) === shuffle(q).
  * Actually NOT idempotent in general — calling shuffle twice applies the permutation
@@ -122,6 +135,9 @@ export function shuffle(q: Question): Question {
   }
   if (q.itemType === "bowtie") {
     return shuffleBowtie(q);
+  }
+  if (q.itemType === "dropdown_cloze") {
+    return shuffleDropdownCloze(q);
   }
   return q;
 }
