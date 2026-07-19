@@ -110,6 +110,15 @@ asthma/serial-ABG room with criterion-transcription, source-scope, respiratory-s
 timely-escalation, and duplicate-evidence guards. The held A/B specs and raw drafts are explicitly
 excluded as templates and do not occupy the repeated premises for collision purposes.
 
+A pre-dispatch architecture review then narrowed the experiment claim and closed two spec gaps. C/D
+test the thicker shared contract plus private blueprint, not the still-deferred durable manifest or
+mechanical-linter architecture. Acceptance now requires a non-writing programmatic assertion against
+the raw pilot file that rejects both omitted and unresolved `answerableAfterStageId` values; the
+existing bundled-bank `audit:stage-refs` advisory is explicitly insufficient for that purpose. Case D
+also records whether intubation was considered and whether the post-intubation source-scope guard was
+exercised, deliberately avoided, or not applicable, so a pre-intubation endpoint cannot be mistaken
+for proof that the Case B overreach was directly tested.
+
 Generation and independent non-GPT review remain pending. No code, schema, canonical bank, held raw
 draft, ledger, or census file changed in this commissioning pass.
 

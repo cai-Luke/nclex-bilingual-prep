@@ -13,6 +13,12 @@ This contract governs one producer authoring one coherent case in one GPT contex
 explicit design-and-audit phase between the clinical commission and final JSON without restoring the
 retired one-question-per-NCJMM-step skeleton pipeline.
 
+Pilot Cases C and D test whether this thicker shared contract and private blueprint improve the raw
+producer output relative to A and B. They do **not** test the stronger durable-artifact or
+deterministic-linter architecture because this pilot does not yet implement a persisted blueprint,
+raw-only manifest, or complete direct-case gate. A clean C/D result supports the contract-and-blueprint
+hypothesis only; it must not be reported as proof that the deferred mechanical gate exists or works.
+
 The producer owns the patient, episode, progression, exhibits, item formats, distractors, rationales,
 bilingual copy, and final case structure. The producer is not the checker. Generated output remains
 raw and unreviewed until a separate non-GPT checker verifies clinical keys, source support,
@@ -52,6 +58,10 @@ reviewed content.
 This pilot does **not** authorize a new `_caseDesignManifest`, `_compileManifest` mode, sidecar file,
 or other off-schema key. The design artifacts below are producer work products and final-receipt
 claims until a separate code commission adds a supported raw-only manifest and gate.
+
+The existing `audit:stage-refs` command is not that gate: it scans bundled top-level banks, reports
+present-but-unresolved references, and does not fail a staged part that omits both visibility fields.
+Do not cite it alone as evidence that the C/D anchor contract was mechanically enforced.
 
 If the premise cannot clear source, collision, coherence, visibility, response-demand, or leakage
 review, leave the target path absent and return a documented block. Do not silently substitute a new
@@ -314,6 +324,13 @@ Codex/checker runs the exact normalization and validation commands named by the 
 Normalization is a dry run. Use `--write` only after reviewing normalizer-owned deterministic repairs.
 Any JSON repair must load, mutate, and re-serialize the object programmatically.
 
+Before accepting Pilot C or D, the checker must also run or produce a non-writing programmatic
+raw-file assertion that fails when any staged embedded part omits `answerableAfterStageId` or when its
+value does not resolve to a declared stage. `validate-bank` and the current bundled-bank
+`audit:stage-refs` command do not discharge this requirement. A dedicated direct-case linter or a
+raw-mode extension to that audit is the preferred durable implementation; until it lands, the checker
+must record the exact assertion and result in the handoff.
+
 A separate non-GPT checker then independently:
 
 - opens every source pin and verifies each clinical key;
@@ -331,6 +348,7 @@ Acceptance requires:
 - [ ] one complete 5–6-part raw case at the exact path, or an absent path with a documented block;
 - [ ] only the target raw path changed;
 - [ ] explicit baseline stage and a resolving `answerableAfterStageId` on every embedded part;
+- [ ] deterministic raw-file anchor assertion passed; neither omission nor unresolved reference is accepted;
 - [ ] distinct scored construct and response demand for every part;
 - [ ] exact source coverage for every material keyed claim;
 - [ ] clinically legitimate stage transitions;

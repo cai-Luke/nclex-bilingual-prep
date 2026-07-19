@@ -104,6 +104,12 @@ alters the priority and prompts source-supported escalation; subsequent reassess
 The producer chooses the exact trigger, progression, and whether the endpoint remains pre-intubation
 or proceeds to intubation. Do not reproduce the original Pilot B story.
 
+The final receipt must record the airway-path decision: whether intubation was considered, whether the
+case remained pre-intubation or proceeded through intubation, and why. If the case remains
+pre-intubation, distinguish a deliberate clinical-design choice from a source-scope guard that fired
+because adequate post-intubation support was unavailable. This records whether the Case B failure
+class was exercised, avoided by design, or actively blocked by the revised contract.
+
 ## 6. Mandatory serial-context blueprint
 
 In addition to the common blueprint, create an internal row for every ABG or load-bearing respiratory
@@ -198,6 +204,10 @@ Codex/checker must also verify:
 - every keyed serial comparison records support context;
 - escalation occurs at the first stage where the combined findings require it;
 - no current value and containing trajectory are double-counted;
-- the pairwise leakage matrix remains clear under unrestricted navigation.
+- the pairwise leakage matrix remains clear under unrestricted navigation;
+- the receipt records the airway-path decision and whether the post-intubation source-scope guard was
+  exercised, avoided by design, or not applicable;
+- the common contract's non-writing raw-file anchor assertion passes; `validate-bank` and the current
+  bundled-bank `audit:stage-refs` command are not sufficient for omitted anchors in this raw draft.
 
 The producer receipt and final acceptance requirements are those in the common contract.

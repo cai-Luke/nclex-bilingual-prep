@@ -167,6 +167,9 @@ npm run validate-bank -- banks/banks-raw/gpt-direct-case-pilot-case-c-2026-07-19
 
 Codex/checker must also verify that every embedded part has a resolving
 `answerableAfterStageId`, Part 1 sees only the declared baseline stage plus invariant top-level
-content, and no source-defined comparator was transformed.
+content, and no source-defined comparator was transformed. This must include the common contract's
+non-writing raw-file anchor assertion; `validate-bank` and the current bundled-bank
+`audit:stage-refs` command are not sufficient because they do not reject an omitted anchor in this
+raw draft.
 
 The producer receipt and final acceptance requirements are those in the common contract.
