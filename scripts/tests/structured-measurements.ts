@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import {
   formatStructuredMeasurementValue,
+  isCompactStructuredMeasurements,
   renderStructuredMeasurementsSvg,
   serializeStructuredMeasurements,
 } from "../../src/structuredMeasurements";
@@ -111,6 +112,63 @@ assert(svg.startsWith("<svg "), "renderer should emit a standalone SVG");
 assert(svg.includes("Platelets / 血小板"), "always mode should include bilingual row labels");
 assert(svg.includes("18 ×10³/µL"), "renderer should include formatted values");
 assert(!svg.includes("18 ×10⁹/L"), "renderer should suppress same-magnitude SI parentheses");
+assert.equal(isCompactStructuredMeasurements(measurements), false, "two-row payload stays full width");
+assert(svg.includes('viewBox="0 0 600 120"'), "two-row payload should retain the 600-unit canvas");
+assert(!/^<svg[^>]*\swidth=/u.test(svg), "noncompact payload should not acquire intrinsic compact sizing");
+
+const compact: StructuredMeasurements = {
+  panels: [{
+    kind: "labs",
+    columns: [{ id: "current", label: { en: "Current", zh: "当前" } }],
+    rows: [{
+      key: "potassium",
+      label: { en: "Potassium", zh: "血钾" },
+      values: [{
+        columnId: "current",
+        value: "3.2",
+        unit: "mEq/L",
+        context: "post_intervention",
+      }],
+    }],
+  }],
+};
+assert.equal(isCompactStructuredMeasurements(compact), true, "sole 1×1 payload compacts");
+const compactSvg = renderStructuredMeasurementsSvg(compact, "always");
+const compactWidth = Number(compactSvg.match(/viewBox="0 0 ([0-9]+) 92"/)?.[1]);
+assert(Number.isFinite(compactWidth) && compactWidth >= 320 && compactWidth < 600, "compact canvas should use a natural sub-600 width");
+assert(compactSvg.includes(`width="${compactWidth}" height="92"`), "compact SVG should expose its intrinsic figure size");
+assert(compactSvg.includes("Potassium / 血钾"), "compact SVG should preserve the bilingual measurement label");
+assert(compactSvg.includes("3.2 mEq/L"), "compact SVG should preserve the formatted measurement value");
+
+const mixed: StructuredMeasurements = {
+  panels: [
+    compact.panels[0],
+    {
+      kind: "vitals",
+      columns: [{ id: "current", label: { en: "Current", zh: "当前" } }],
+      rows: [{
+        key: "hr",
+        label: { en: "Heart rate", zh: "心率" },
+        values: [{ columnId: "current", value: "100", unit: "bpm" }],
+      }],
+    },
+  ],
+};
+assert.equal(isCompactStructuredMeasurements(mixed), false, "a 1×1 panel beside a sibling stays full width");
+const mixedSvg = renderStructuredMeasurementsSvg(mixed, "always");
+assert(mixedSvg.includes('viewBox="0 0 600 196"'), "mixed payload should retain the 600-unit canvas");
+assert(!/^<svg[^>]*\swidth=/u.test(mixedSvg), "mixed payload should not acquire intrinsic compact sizing");
+
+const twoColumns: StructuredMeasurements = {
+  panels: [{
+    ...compact.panels[0],
+    columns: [
+      { id: "prior", label: { en: "Prior", zh: "先前" } },
+      { id: "current", label: { en: "Current", zh: "当前" } },
+    ],
+  }],
+};
+assert.equal(isCompactStructuredMeasurements(twoColumns), false, "one-row two-column payload stays full width");
 
 const sparse: StructuredMeasurements = {
   panels: [{

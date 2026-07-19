@@ -14,8 +14,10 @@ import type {
 // 1280x727/800 showed that the sticky split stranded the flowsheet below the
 // page's reachable scroll range; it now uses the existing full-width route.
 // io_trend joined after the U11 proof render measured 600x452 (4 intervals)
-// and 600x504 (6 intervals), within the measured split envelope (DECISIONS.md
-// principle 23).
+// and 600x504 (6 intervals), within the measured split envelope. lab_trend
+// remains in the allowlist for two-series payloads, while its one-series shape
+// takes the full-width route after the measured P4 follow-up comparison
+// (DECISIONS.md principle 23).
 export const STANDALONE_SPLIT_VISUAL_KINDS: ReadonlySet<QuestionVisual["kind"]> = new Set([
   "lab_trend",
   "medication_label",
@@ -29,6 +31,7 @@ export const STANDALONE_SPLIT_VISUAL_KINDS: ReadonlySet<QuestionVisual["kind"]> 
 export const usesStandaloneVisualSplit = (question: Question): boolean =>
   question.itemType !== "case_study" &&
   question.visual !== undefined &&
+  !(question.visual.kind === "lab_trend" && question.visual.series.length === 1) &&
   STANDALONE_SPLIT_VISUAL_KINDS.has(question.visual.kind);
 
 // Stage visibility is cumulative and fail-open so the UI never hides clinically

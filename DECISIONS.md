@@ -159,6 +159,15 @@ Stage visibility is cumulative and fail-open: both `stageId` and `answerableAfte
 
 Moved to code/status — verify there, not here: the exact split allowlist is `STANDALONE_SPLIT_VISUAL_KINDS` in `src/examLayout.ts`; exact pixel/viewBox dimensions, proof-render sizes, and the current case-mapping coverage percentage belong to code and `PROJECT-HISTORY.md`'s current-status section, not this principle.
 
+**Application — sparse shape-aware allocation (2026-07-19).** A kind-level split allowlist may be
+refined by payload geometry after the same measured proof this principle requires. The measured
+one-series `lab_trend` shape now takes the full-width route while the two-series shape remains in the
+split. Structured measurements use an independent whole-payload density predicate: only a sole
+one-panel × one-row × one-column payload receives a natural compact figure, while mixed-panel and
+denser payloads retain the established full-width behavior. These are presentation allocations, not
+new content-validity floors; principle 29's sparse-cardinality ruling and principle 24's prose-
+supplement contract remain unchanged.
+
 **24. Structured measurements are values-only exhibit presentation; identity/display resolve at the edges. Status: ACTIVE (narrowed 2026-07-14).**
 Structured measurements supplement source prose — they never replace it except for pure key-value exhibits reduced to a pointer. Clinical identity (which analyte, which population) is resolved before display, never inferred from magnitude alone: total and ionized calcium are distinct registry keys (not unit variants of one value) routed by explicit source label, because a bare "calcium 1.2 mmol/L" is a normal *ionized* value but a critically-low *total* one — identity must resolve before the unit conversion, since the same source unit converts differently per key. Source values and typed bounds (`bound: ">" | "<"`) are stored; canonical and display forms are derived at the rendering edge rather than redundantly persisted, so there is one place — not several — that can drift. Censored values remain typed, never coerced into a bare number. Non-rendering migration dispositions (`skip_serial`, empty extracts, `excludedValues`, `unitAliases`) are ledger/staging-only and never enter canonical banks.
 

@@ -52,6 +52,67 @@ The committed NGN item-type set is complete. Rationale/dyad scoring and an expli
 
 > Milestones dated **2026-06-23 and earlier** are archived in [`Archive/PROJECT-HISTORY-ARCHIVE.md`](Archive/PROJECT-HISTORY-ARCHIVE.md). Only the current arc (2026-06-24 onward) is kept here.
 
+### Shape-Aware Sparse Visual Layout Implemented (Jul 19)
+
+Implemented
+[`SHAPE-AWARE-VISUAL-LAYOUT-P4-FOLLOWUP-SPEC-2026-07-18.md`](SHAPE-AWARE-VISUAL-LAYOUT-P4-FOLLOWUP-SPEC-2026-07-18.md)
+as a presentation-only follow-up with no bank, schema, grading, stage-visibility, answer-coupling,
+case-identity, or clinical-content change.
+
+The required measurement preceded the `lab_trend` policy decision. At 1280×727, the specified
+one-series potassium record measured 382×191 in the 384 px sticky split pane; the proposed full-width
+route measured 800×400 and materially improved axis, marker, and trajectory readability. That evidence
+favored the payload-aware branch, so a standalone one-series `lab_trend` now stacks above the stem and
+uses the 800 px desktop cap. The specified two-series DKA control remains in the split and measured the
+same 382×191 before and after. At 390×844, the one-series surface retains its 600 px design width inside
+an internal scroller with no page-level horizontal overflow; the two-series mobile control retains its
+existing fit-to-column behavior.
+
+Structured measurements now classify only an entire one-panel × one-row × one-column payload as
+compact. Its table and outer SVG widths are computed from the rendered title, headers, row label, and
+formatted value; the component emits a matching density class, removing the former independent
+600-unit panel floor, 600-unit outer floor, and 28 rem CSS minimum only for that shape. The forcing
+`opus3_iv_potassium_safety_case_01` exhibit changed from a 600-unit canvas stretched to 1,075×165 to a
+natural 480×92 bilingual figure. English-first and always-bilingual modes preserve the compact figure;
+the 390×844 fallback keeps native text size in an internal scroller. The mixed
+`opus20_case_cdiff_01` control retains its 600-unit, full-width two-panel figures unchanged.
+
+Verification: `npm run test:exam-layout`, `npm run test:structured-measurements`, `npm run test-visuals`
+(clean checkout with this scoped diff), `npm run validate-bank -- banks/*.json`,
+`npx tsc -b --pretty false`, `npm run build`, and `git diff --check` passed. Browser proof covered the
+specified one-/two-series trends and sole/mixed structured payloads at 1280×727 and 390×844 in
+English-first and always-bilingual presentation. The existing Vite large-chunk advisory remains
+unchanged.
+
+### Direct GPT Case Pilot Revision 1 Commissioned (Jul 19)
+
+Preserved Pilot Cases A/B and their raw outputs as the control for the first direct-case experiment,
+then opened a controlled architecture rerun rather than repairing the drafts in place. The shared
+producer contract is
+[`GPT-DIRECT-CASE-PRODUCER-CONTRACT-2026-07-19.md`](GPT-DIRECT-CASE-PRODUCER-CONTRACT-2026-07-19.md);
+the independently runnable topic commissions are
+[`GPT-DIRECT-CASE-PILOT-CASE-C-SPEC-2026-07-19.md`](GPT-DIRECT-CASE-PILOT-CASE-C-SPEC-2026-07-19.md)
+and
+[`GPT-DIRECT-CASE-PILOT-CASE-D-SPEC-2026-07-19.md`](GPT-DIRECT-CASE-PILOT-CASE-D-SPEC-2026-07-19.md).
+
+The rerun keeps one fresh GPT-5.6 Sol producer per case and preserves producer ownership of the
+patient, progression, exhibits, formats, and distractors. It adds an ordered private blueprint before
+JSON authoring: stage plan, per-part construct/response-demand allocation, claim-level source
+coverage, comparator basis, serial support context when applicable, independent-evidence accounting,
+stage-transition legitimacy, and a pairwise reverse-leakage matrix. The final receipt exposes those
+claims for checker challenge without adding an unsupported raw-only manifest or off-schema key.
+
+The contract corrects the stale opening-part assumption from A/B: the live renderer fails open when
+stage metadata is absent or unresolved, so every staged direct-case part must carry a resolving
+`answerableAfterStageId`, including Part 1 mapped to a real baseline stage. C reruns the intrapartum
+fetal-assessment room with explicit comparator and review/escalation guards; D reruns the severe-
+asthma/serial-ABG room with criterion-transcription, source-scope, respiratory-support-context,
+timely-escalation, and duplicate-evidence guards. The held A/B specs and raw drafts are explicitly
+excluded as templates and do not occupy the repeated premises for collision purposes.
+
+Generation and independent non-GPT review remain pending. No code, schema, canonical bank, held raw
+draft, ledger, or census file changed in this commissioning pass.
+
 ### Vitals-Trend Composite Readability Repair Implemented (Jul 18)
 
 Implemented [`VITALS-TREND-COMPOSITE-READABILITY-ARCHITECT-SPEC-2026-07-18.md`](VITALS-TREND-COMPOSITE-READABILITY-ARCHITECT-SPEC-2026-07-18.md) without changing schema shape, bank content, clinical ranges, grading, or `selfCheck`. `vitals_trend` now renders fixed-order, unit-pure hemodynamic, respiratory/oxygenation, and temperature panels with explicit axis units and a common time alignment. Dense legends are panel-local fixed cells, DBP is dashed in both the line and marker, and adult reference bands appear only in one-series panels. A compact flowsheet derived directly from the same source series provides exact timepoint values, including combined SBP/DBP cells.

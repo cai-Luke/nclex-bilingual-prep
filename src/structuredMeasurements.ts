@@ -114,11 +114,62 @@ export const serializeStructuredMeasurements = (
 const tableHeight = (rowCount: number, hasTitle: boolean): number =>
   (hasTitle ? 32 : 0) + 32 + rowCount * 28;
 
+const approximateTextWidth = (text: string, fontSize: number): number =>
+  Array.from(text).reduce((width, character) => {
+    if (/\s/u.test(character)) return width + fontSize * 0.34;
+    if (/\p{Script=Han}/u.test(character)) return width + fontSize;
+    if (/[MW@#%&]/u.test(character)) return width + fontSize * 0.82;
+    if (/[ilI1.,:;|'`]/u.test(character)) return width + fontSize * 0.32;
+    return width + fontSize * 0.58;
+  }, 0);
+
+export const isCompactStructuredMeasurements = (
+  measurements: StructuredMeasurements | undefined,
+): boolean => {
+  if (measurements?.panels.length !== 1) return false;
+  const [panel] = measurements.panels;
+  return panel.rows.length === 1 && panel.columns.length === 1;
+};
+
+const compactPanelWidth = (
+  panel: StructuredMeasurementPanel,
+  languageMode: LanguageMode,
+): number => {
+  const title = labelForMode(PANEL_TITLES[panel.kind], languageMode);
+  const measurementHeader = labelForMode(MEASUREMENT_HEADER, languageMode);
+  const columnHeader = labelForMode(panel.columns[0]?.label, languageMode) || panel.columns[0]?.id || "";
+  const row = panel.rows[0];
+  const measurement = labelForMode(row?.label, languageMode);
+  const value = row?.values[0]
+    ? formatStructuredMeasurementValue(row.key, row.values[0], "en")
+    : "";
+  const horizontalPadding = 16;
+  const measurementCellWidth = Math.max(
+    approximateTextWidth(measurementHeader, 11),
+    approximateTextWidth(measurement, 12),
+  ) + horizontalPadding;
+  const valueCellWidth = Math.max(
+    approximateTextWidth(columnHeader, 11),
+    approximateTextWidth(value, 12),
+  ) + horizontalPadding;
+  const titleWidth = approximateTextWidth(title, 13) + horizontalPadding * 2;
+
+  // The shared table primitive allocates 1.35fr to the measurement column and
+  // 1fr to the value column. Size the compact canvas so neither column clips.
+  const totalFr = 2.35;
+  const contentWidth = Math.max(
+    titleWidth,
+    measurementCellWidth * totalFr / 1.35,
+    valueCellWidth * totalFr,
+  );
+  return Math.max(320, Math.ceil(contentWidth / 4) * 4);
+};
+
 const panelToTable = (
   panel: StructuredMeasurementPanel,
   languageMode: LanguageMode,
+  width: number,
 ): { svg: string; width: number; height: number } => {
-  const width = 600;
   const title = labelForMode(PANEL_TITLES[panel.kind], languageMode);
   const columns: DocTableColumn[] = [
     { key: "measurement", label: labelForMode(MEASUREMENT_HEADER, languageMode), widthFr: 1.35 },
@@ -152,8 +203,15 @@ export const renderStructuredMeasurementsSvg = (
   languageMode: LanguageMode,
 ): string => {
   const gap = 12;
-  const tables = measurements.panels.map((panel) => panelToTable(panel, languageMode));
-  const width = Math.max(...tables.map((table) => table.width), 600);
+  const compact = isCompactStructuredMeasurements(measurements);
+  const tables = measurements.panels.map((panel) => panelToTable(
+    panel,
+    languageMode,
+    compact ? compactPanelWidth(panel, languageMode) : 600,
+  ));
+  const width = compact
+    ? Math.max(...tables.map((table) => table.width))
+    : Math.max(...tables.map((table) => table.width), 600);
   const height = tables.reduce((sum, table) => sum + table.height, 0) + Math.max(0, tables.length - 1) * gap;
   let y = 0;
   const body = tables.map((table) => {
@@ -161,5 +219,6 @@ export const renderStructuredMeasurementsSvg = (
     y += table.height + gap;
     return translated;
   }).join("\n");
-  return `<svg viewBox="0 0 ${width} ${height}" role="img" aria-label="structured clinical measurements" xmlns="http://www.w3.org/2000/svg">${body}</svg>`;
+  const intrinsicSize = compact ? ` width="${width}" height="${height}"` : "";
+  return `<svg viewBox="0 0 ${width} ${height}"${intrinsicSize} role="img" aria-label="structured clinical measurements" xmlns="http://www.w3.org/2000/svg">${body}</svg>`;
 };

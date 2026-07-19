@@ -1084,6 +1084,10 @@ h4 {
   max-width: 50rem;
 }
 
+.rhythm-strip-svg.vis-lab_trend.vis-lab_trend-single-series svg {
+  max-width: 50rem;
+}
+
 .rhythm-strip figcaption {
   color: var(--text-muted);
   font-size: 0.88rem;
@@ -1528,6 +1532,17 @@ h4 {
   width: 100%;
   min-width: 28rem;
   height: auto;
+}
+
+.structured-measurements.structured-measurements--compact {
+  width: fit-content;
+  max-width: 100%;
+}
+
+.structured-measurements--compact .structured-measurements-svg svg {
+  width: auto;
+  max-width: none;
+  min-width: 0;
 }
 
 .case-question-list {
@@ -1978,6 +1993,18 @@ h4 {
   .standalone-visual-pane .rhythm-strip-svg.vis-io_record,
   .standalone-visual-pane .rhythm-strip-svg.vis-io_trend {
     overflow-x: auto;
+  }
+}
+
+@media (max-width: 780px) {
+  .rhythm-strip-svg.vis-lab_trend.vis-lab_trend-single-series {
+    overflow-x: auto;
+  }
+
+  .rhythm-strip-svg.vis-lab_trend.vis-lab_trend-single-series svg {
+    min-width: 37.5rem;
+    max-width: none;
+    margin-inline: 0;
   }
 }
 

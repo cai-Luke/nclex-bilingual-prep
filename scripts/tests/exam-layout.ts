@@ -49,7 +49,19 @@ assert.deepEqual(
 
 const mc = (kind?: string): Question =>
   ({ itemType: "multiple_choice", ...(kind ? { visual: { kind } } : {}) }) as unknown as Question;
-assert.equal(usesStandaloneVisualSplit(mc("lab_trend")), true, "lab_trend splits");
+const labTrend = (seriesCount: 1 | 2): Question => ({
+  itemType: "multiple_choice",
+  visual: {
+    kind: "lab_trend",
+    time: { unit: "hr", values: [0, 12, 24] },
+    series: Array.from({ length: seriesCount }, (_, index) => ({
+      analyte: index === 0 ? "potassium" : "glucose",
+      values: index === 0 ? [4, 3.5, 3] : [240, 180, 120],
+    })),
+  },
+}) as Question;
+assert.equal(usesStandaloneVisualSplit(labTrend(1)), false, "one-series lab_trend stacks above the stem");
+assert.equal(usesStandaloneVisualSplit(labTrend(2)), true, "two-series lab_trend retains the split");
 assert.equal(
   usesStandaloneVisualSplit(mc("vitals_trend")),
   false,
@@ -64,7 +76,7 @@ assert.equal(usesStandaloneVisualSplit(mc("io_record")), true, "io_record splits
 assert.equal(usesStandaloneVisualSplit(mc("io_trend")), true, "io_trend splits");
 assert.equal(usesStandaloneVisualSplit(mc()), false, "no visual -> no split");
 assert.equal(
-  usesStandaloneVisualSplit({ itemType: "case_study", visual: { kind: "lab_trend" } } as unknown as Question),
+  usesStandaloneVisualSplit({ ...labTrend(1), itemType: "case_study" } as unknown as Question),
   false,
   "case_study never standalone-splits",
 );
