@@ -102,6 +102,9 @@ import { StructuredMeasurementsStimulus } from "./StructuredMeasurementsStimulus
 import { VisualStimulus } from "./visuals";
 import { mulberry32 } from "./visuals/primitives/prng";
 import { STANDALONE_SPLIT_VISUAL_KINDS, getVisibleCaseStages, usesStandaloneVisualSplit } from "./examLayout";
+import { useAppUpdate } from "./appUpdate";
+import { formatAppBuildDiagnostic } from "../lib/app-update-core";
+import type { AppBuildInfo } from "../lib/app-build-info";
 import type {
   AdaptiveSessionSnapshot,
   AnswerEvent,
@@ -377,6 +380,7 @@ const shuffle = <T,>(items: T[]) => {
 
 export default function App() {
   const devStartup = useMemo(readDevStartup, []);
+  const { currentBuild, updateAvailable } = useAppUpdate();
   const bundled = useMemo(() => loadBundledRecords(), []);
   const [uploadedRecords, setUploadedRecords] = useState<QuestionRecord[]>([]);
   const [uploadedLoaded, setUploadedLoaded] = useState(false);
@@ -889,6 +893,8 @@ export default function App() {
       </header>
 
       <main>
+        {updateAvailable && <AppUpdateBanner />}
+
         {bundled.errors.length > 0 && (
           <section className="warning-band">
             <strong>Bundled bank validation issue</strong>
@@ -997,6 +1003,7 @@ export default function App() {
             settings={settings}
             updateSettings={updateSettings}
             onOpenPreviewLab={() => setView("previewLab")}
+            currentBuild={currentBuild}
           />
         )}
 
@@ -1072,6 +1079,29 @@ export default function App() {
       </main>
 
     </div>
+  );
+}
+
+function AppUpdateBanner() {
+  return (
+    <section className="app-update-banner" role="status" aria-live="polite" aria-atomic="true">
+      <div>
+        <h2>
+          <span>New version available</span>
+          <span lang="zh">有新版本</span>
+        </h2>
+        <p>
+          <span>Refresh to load new questions and app improvements.</span>
+          <span lang="zh">刷新后可获取新题目和应用改进。</span>
+        </p>
+      </div>
+      <button type="button" onClick={() => window.location.reload()}>
+        <RotateCcw aria-hidden="true" />
+        <span>
+          Refresh now <span lang="zh">/ 立即刷新</span>
+        </span>
+      </button>
+    </section>
   );
 }
 
@@ -1884,10 +1914,12 @@ function SettingsView({
   settings,
   updateSettings,
   onOpenPreviewLab,
+  currentBuild,
 }: {
   settings: Settings;
   updateSettings: (settings: Settings) => void;
   onOpenPreviewLab: () => void;
+  currentBuild: AppBuildInfo | null;
 }) {
   return (
     <section className="stack narrow">
@@ -1964,6 +1996,9 @@ function SettingsView({
           <span>Open Preview Lab</span>
         </button>
       </section>
+      <p className="app-build-diagnostic">
+        <span>App build / 应用版本:</span> {formatAppBuildDiagnostic(currentBuild)}
+      </p>
     </section>
   );
 }
