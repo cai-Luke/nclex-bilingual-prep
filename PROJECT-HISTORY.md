@@ -52,6 +52,16 @@ The committed NGN item-type set is complete. Rationale/dyad scoring and an expli
 
 > Milestones dated **2026-06-23 and earlier** are archived in [`Archive/PROJECT-HISTORY-ARCHIVE.md`](Archive/PROJECT-HISTORY-ARCHIVE.md). Only the current arc (2026-06-24 onward) is kept here.
 
+### Vitals-Trend Composite Readability Repair Implemented (Jul 18)
+
+Implemented [`VITALS-TREND-COMPOSITE-READABILITY-ARCHITECT-SPEC-2026-07-18.md`](VITALS-TREND-COMPOSITE-READABILITY-ARCHITECT-SPEC-2026-07-18.md) without changing schema shape, bank content, clinical ranges, grading, or `selfCheck`. `vitals_trend` now renders fixed-order, unit-pure hemodynamic, respiratory/oxygenation, and temperature panels with explicit axis units and a common time alignment. Dense legends are panel-local fixed cells, DBP is dashed in both the line and marker, and adult reference bands appear only in one-series panels. A compact flowsheet derived directly from the same source series provides exact timepoint values, including combined SBP/DBP cells.
+
+The forcing record measures 600×1108 and the seven-series record 600×1132. At 1280×727, the former split route squeezed the forcing record to 382 px and its sticky pane stranded the flowsheet below the page's maximum scroll position, so only `vitals_trend` left `STANDALONE_SPLIT_VISUAL_KINDS`. The existing full-width route renders it at a capped 800 px on desktop; focus mode uses the same cap with vertical scrolling and no desktop horizontal overflow. At 390×844, ordinary and focus views retain a readable 600 px minimum surface with internal horizontal scrolling. Browser proof at 1280×727, 1280×800, and 390×844 also covered the forcing item, seven-series minute-unit item, `{hr,temp}` staged exhibit, pediatric band suppression, one-SVG mounting, focus dismissal/restoration, exact-table reachability, and a clean final console.
+
+The scoped promoted parity rebaseline changed exactly 29 `vitals_trend` identities—28 top-level questions and one case-stage exhibit—with zero added or removed records and 170 non-vitals identities unchanged. Receipt: [`audit/visual-parity-rebaseline-2026-07-19T02-38-38-965Z/receipt.json`](audit/visual-parity-rebaseline-2026-07-19T02-38-38-965Z/receipt.json).
+
+Verification: `npm run test-visuals`, `npm run test:exam-layout`, `npm run validate-bank -- banks/*.json`, `npx tsc -b --pretty false`, `npm run build`, and `git diff --check` passed. The existing Vite large-chunk advisory remains unchanged.
+
 ### Standalone I/O Trend Layout and Bar Presentation Fixed (Jul 18)
 
 Implemented [`io_trend_fix.md`](io_trend_fix.md) without changing schema or bank content. Standalone

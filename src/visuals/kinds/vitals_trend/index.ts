@@ -1,7 +1,9 @@
 import { type VisualError, type VisualKindModule } from "../../registry";
 import { type ChartSeries, type LineChartInput, renderLineChart } from "../../primitives/lineChart";
 import { type VitalKey, type VitalsTrendSpec } from "./types";
-import { fmt } from "../../primitives/graphPaper";
+import { fmt, fmtNum } from "../../primitives/graphPaper";
+import { escapeXml } from "../../primitives/escapeXml";
+import { measureDocTable, renderDocTable, type DocTableInput, type DocTableRow } from "../../primitives/table";
 import { VITAL_DEFS } from "./defs";
 import { isPopulation } from "../../../population";
 
@@ -191,100 +193,313 @@ export const selfCheckVitalsTrend = (spec: VitalsTrendSpec, _question: any): Vis
   return errs;
 };
 
+export const VITALS_TREND_LAYOUT = {
+  width: 600,
+  singleAxisChartWidth: 570,
+  headingHeight: 28,
+  legendRowHeight: 20,
+  panelGap: 16,
+  chartTableGap: 24,
+  standardChartHeight: 260,
+  temperatureChartHeight: 220,
+  tableHeaderHeight: 28,
+  tableRowHeight: 24,
+  tableFirstColumnFr: 2.4,
+} as const;
+
+type VitalSeriesSpec = VitalsTrendSpec["series"][number];
+type ScaleFamily = "pressure" | "hr" | "rr" | "spo2" | "temp";
+type VitalsPanelKey = "hemodynamics" | "respiratory-oxygenation" | "temperature";
+
+type PanelSeries = {
+  vital: VitalKey;
+  chart: ChartSeries;
+};
+
+type VitalsPanel = {
+  key: VitalsPanelKey;
+  heading: string;
+  chartHeight: number;
+  series: PanelSeries[];
+  leftFamily: ScaleFamily;
+  leftLabel: string;
+  rightFamily?: ScaleFamily;
+  rightLabel?: string;
+};
+
+const LEGEND_LABELS: Record<VitalKey, string> = {
+  hr: "HR",
+  sbp: "SBP",
+  dbp: "DBP",
+  map: "MAP",
+  rr: "RR",
+  spo2: "SpO₂",
+  temp: "Temperature",
+};
+
+const colorForStyleRole = (role?: string): string => {
+  switch (role) {
+    case "red": return "#ef4444";
+    case "blue": return "#3b82f6";
+    case "green": return "#10b981";
+    case "orange": return "#f97316";
+    case "purple": return "#8b5cf6";
+    case "slate": return "#64748b";
+    default: return "#1f2933";
+  }
+};
+
+const unitForVital = (vital: VitalKey, tempUnit?: "C" | "F"): string =>
+  vital === "temp" ? (tempUnit === "F" ? "°F" : "°C") : VITAL_DEFS[vital].unit;
+
+const buildVitalsPanels = (
+  seriesByVital: Map<VitalKey, VitalSeriesSpec>,
+  times: number[],
+  tempUnit: "C" | "F" | undefined,
+  population: VitalsTrendSpec["population"] | "adult",
+): VitalsPanel[] => {
+  const panels: VitalsPanel[] = [];
+
+  const makeSeries = (
+    vital: VitalKey,
+    axis: "left" | "right",
+    panelSeriesCount: number,
+  ): PanelSeries | undefined => {
+    const source = seriesByVital.get(vital);
+    if (!source) return undefined;
+    const def = VITAL_DEFS[vital];
+    return {
+      vital,
+      chart: {
+        label: LEGEND_LABELS[vital],
+        unit: unitForVital(vital, tempUnit),
+        axis,
+        styleRole: def.styleRole,
+        strokeDash: vital === "dbp",
+        points: source.values.map((value, index) => ({ x: times[index], y: value })),
+        referenceBand:
+          panelSeriesCount === 1 && population === "adult" && source.showReferenceBand !== false
+            ? def.normal(tempUnit)
+            : undefined,
+      },
+    };
+  };
+
+  const hemodynamicKeys = (["hr", "sbp", "dbp", "map"] as const).filter((key) => seriesByVital.has(key));
+  if (hemodynamicKeys.length > 0) {
+    const pressurePresent = (["sbp", "dbp", "map"] as const).some((key) => seriesByVital.has(key));
+    const hrPresent = seriesByVital.has("hr");
+    const series = hemodynamicKeys
+      .map((vital) => makeSeries(vital, vital === "hr" && pressurePresent ? "right" : "left", hemodynamicKeys.length))
+      .filter((entry): entry is PanelSeries => entry !== undefined);
+    panels.push({
+      key: "hemodynamics",
+      heading: "Hemodynamics",
+      chartHeight: VITALS_TREND_LAYOUT.standardChartHeight,
+      series,
+      leftFamily: pressurePresent ? "pressure" : "hr",
+      leftLabel: pressurePresent ? "Blood pressure (mmHg)" : "HR (bpm)",
+      ...(pressurePresent && hrPresent ? { rightFamily: "hr" as const, rightLabel: "HR (bpm)" } : {}),
+    });
+  }
+
+  const respiratoryKeys = (["rr", "spo2"] as const).filter((key) => seriesByVital.has(key));
+  if (respiratoryKeys.length > 0) {
+    const rrPresent = seriesByVital.has("rr");
+    const spo2Present = seriesByVital.has("spo2");
+    const series = respiratoryKeys
+      .map((vital) => makeSeries(vital, vital === "spo2" && rrPresent ? "right" : "left", respiratoryKeys.length))
+      .filter((entry): entry is PanelSeries => entry !== undefined);
+    panels.push({
+      key: "respiratory-oxygenation",
+      heading: "Respiratory / oxygenation",
+      chartHeight: VITALS_TREND_LAYOUT.standardChartHeight,
+      series,
+      leftFamily: rrPresent ? "rr" : "spo2",
+      leftLabel: rrPresent ? "RR (/min)" : "SpO₂ (%)",
+      ...(rrPresent && spo2Present ? { rightFamily: "spo2" as const, rightLabel: "SpO₂ (%)" } : {}),
+    });
+  }
+
+  if (seriesByVital.has("temp")) {
+    const series = makeSeries("temp", "left", 1);
+    if (series) {
+      panels.push({
+        key: "temperature",
+        heading: "Temperature",
+        chartHeight: VITALS_TREND_LAYOUT.temperatureChartHeight,
+        series: [series],
+        leftFamily: "temp",
+        leftLabel: `Temperature (${tempUnit === "F" ? "°F" : "°C"})`,
+      });
+    }
+  }
+
+  return panels;
+};
+
+const scaleForSeries = (series: PanelSeries[], family: ScaleFamily) => {
+  const values = series.flatMap(({ chart }) => [
+    ...chart.points.map((point) => point.y),
+    ...(chart.referenceBand ? [chart.referenceBand.low, chart.referenceBand.high] : []),
+  ]);
+  const rawMin = values.length > 0 ? Math.min(...values) : 0;
+  const rawMax = values.length > 0 ? Math.max(...values) : 100;
+  const fineScale = family === "spo2" || family === "temp";
+  const step = fineScale ? 1 : 10;
+  const padding = Math.max(step, (rawMax - rawMin) * 0.1);
+  let min = Math.floor((rawMin - padding) / step) * step;
+  const max = Math.ceil((rawMax + padding) / step) * step;
+  if (min < 0 && values.every((value) => value >= 0)) min = 0;
+  return { min, max, ticks: [min, min + (max - min) / 2, max] };
+};
+
+const legendRowsForPanel = (panel: VitalsPanel): number => Math.ceil(panel.series.length / 2);
+
+const measureVitalsPanel = (panel: VitalsPanel): number =>
+  VITALS_TREND_LAYOUT.headingHeight +
+  legendRowsForPanel(panel) * VITALS_TREND_LAYOUT.legendRowHeight +
+  panel.chartHeight;
+
+const renderPanelLegend = (panel: VitalsPanel): string => {
+  const elements = panel.series.map(({ vital, chart }, index) => {
+    const cellX = index % 2 === 0 ? 60 : 300;
+    const row = Math.floor(index / 2);
+    const markerY = VITALS_TREND_LAYOUT.headingHeight + row * VITALS_TREND_LAYOUT.legendRowHeight + 8;
+    const color = colorForStyleRole(chart.styleRole);
+    const strokeDash = vital === "dbp" ? ` stroke-dasharray="6 4"` : "";
+    return [
+      `<g class="vitals-legend-entry" data-vital="${vital}" data-axis="${chart.axis ?? "left"}" data-cell-x="${cellX}" data-cell-width="240">`,
+      `<line x1="${cellX}" y1="${fmt(markerY)}" x2="${cellX + 16}" y2="${fmt(markerY)}" stroke="${color}" stroke-width="2"${strokeDash}/>`,
+      `<circle cx="${cellX + 8}" cy="${fmt(markerY)}" r="3" fill="#ffffff" stroke="${color}" stroke-width="2"/>`,
+      `<text x="${cellX + 22}" y="${fmt(markerY + 4)}" font-family="sans-serif" font-size="12" fill="#334155" text-anchor="start">${escapeXml(chart.label)} (${escapeXml(chart.unit)})</text>`,
+      `</g>`,
+    ].join("\n");
+  });
+  return `<g class="vitals-panel-legend">\n${elements.join("\n")}\n</g>`;
+};
+
+const renderVitalsPanel = (
+  panel: VitalsPanel,
+  yOffset: number,
+  times: number[],
+  xMin: number,
+  xMax: number,
+  isLowestPanel: boolean,
+  timeUnit: "hr" | "min",
+): string => {
+  const leftSeries = panel.series.filter(({ chart }) => chart.axis !== "right");
+  const rightSeries = panel.series.filter(({ chart }) => chart.axis === "right");
+  const leftScale = scaleForSeries(leftSeries, panel.leftFamily);
+  const rightScale = panel.rightFamily ? scaleForSeries(rightSeries, panel.rightFamily) : undefined;
+  const chartTop = VITALS_TREND_LAYOUT.headingHeight + legendRowsForPanel(panel) * VITALS_TREND_LAYOUT.legendRowHeight;
+  const input: LineChartInput = {
+    series: panel.series.map(({ chart }) => chart),
+    xAxis: {
+      label: isLowestPanel ? (timeUnit === "min" ? "Time (Minutes)" : "Time (Hours)") : "",
+      min: xMin,
+      max: xMax,
+      ticks: times,
+    },
+    yAxisLeft: { label: panel.leftLabel, ...leftScale },
+    width: rightScale ? VITALS_TREND_LAYOUT.width : VITALS_TREND_LAYOUT.singleAxisChartWidth,
+    height: panel.chartHeight,
+    showLegend: false,
+    ...(rightScale && panel.rightLabel
+      ? { yAxisRight: { label: panel.rightLabel, ...rightScale } }
+      : {}),
+  };
+  return [
+    `<g class="vitals-panel" data-vitals-panel="${panel.key}" transform="translate(0 ${fmt(yOffset)})">`,
+    `<text x="60" y="19" font-family="sans-serif" font-size="15" font-weight="600" fill="#1e293b" text-anchor="start">${escapeXml(panel.heading)}</text>`,
+    renderPanelLegend(panel),
+    `<g class="vitals-panel-chart" transform="translate(0 ${fmt(chartTop)})">`,
+    renderLineChart(input),
+    `</g>`,
+    `</g>`,
+  ].join("\n");
+};
+
+const buildVitalsTable = (
+  seriesByVital: Map<VitalKey, VitalSeriesSpec>,
+  times: number[],
+  timeUnit: "hr" | "min",
+  tempUnit?: "C" | "F",
+): DocTableInput => {
+  const columns: DocTableInput["columns"] = [
+    { key: "vital", label: "Vital sign", widthFr: VITALS_TREND_LAYOUT.tableFirstColumnFr },
+    ...times.map((time, index) => ({
+      key: `time-${index}`,
+      label: `${fmtNum(time)} ${timeUnit === "hr" ? "h" : "min"}`,
+      align: "center" as const,
+    })),
+  ];
+  const rows: DocTableRow[] = [];
+  const addRow = (label: string, values: string[]) => {
+    const cells: DocTableRow["cells"] = { vital: { text: label, emphasis: "bold" } };
+    values.forEach((value, index) => {
+      cells[`time-${index}`] = value;
+    });
+    rows.push({ cells });
+  };
+  const addNumericRow = (vital: VitalKey, label: string) => {
+    const source = seriesByVital.get(vital);
+    if (source) addRow(label, source.values.map(fmtNum));
+  };
+
+  addNumericRow("hr", "HR (bpm)");
+  const sbp = seriesByVital.get("sbp");
+  const dbp = seriesByVital.get("dbp");
+  if (sbp && dbp) {
+    addRow("BP (mmHg)", times.map((_, index) => `${fmtNum(sbp.values[index])}/${fmtNum(dbp.values[index])}`));
+  } else if (sbp) {
+    addRow("SBP (mmHg)", sbp.values.map(fmtNum));
+  } else if (dbp) {
+    addRow("DBP (mmHg)", dbp.values.map(fmtNum));
+  }
+  addNumericRow("map", "MAP (mmHg)");
+  addNumericRow("rr", "RR (/min)");
+  addNumericRow("spo2", "SpO₂ (%)");
+  addNumericRow("temp", `Temperature (${tempUnit === "F" ? "°F" : "°C"})`);
+
+  return {
+    columns,
+    rows,
+    width: VITALS_TREND_LAYOUT.width,
+    rowHeight: VITALS_TREND_LAYOUT.tableRowHeight,
+    headerHeight: VITALS_TREND_LAYOUT.tableHeaderHeight,
+  };
+};
+
 export const renderVitalsTrendSvg = (spec: VitalsTrendSpec): string => {
   const times = spec.time?.values ?? spec.timepointsHr ?? [];
   const timeUnit = spec.time?.unit ?? "hr";
   const population = spec.population === undefined ? "adult" : spec.population;
 
-  const chartSeries: ChartSeries[] = spec.series.map(s => {
-    const def = VITAL_DEFS[s.vital];
-    const unit = s.vital === "temp" && spec.tempUnit === "F" ? "°F" : def.unit;
-    return {
-      label: def.label,
-      unit: unit,
-      axis: def.axis,
-      styleRole: def.styleRole,
-      points: s.values.map((v, i) => ({ x: times[i], y: v })),
-      referenceBand: population === "adult" && s.showReferenceBand !== false ? def.normal(spec.tempUnit) : undefined,
-    };
+  const seriesByVital = new Map(spec.series.map((series) => [series.vital, series] as const));
+  const xMin = times.length > 0 ? Math.min(...times) : 0;
+  const xMax = times.length > 0 ? Math.max(...times) : 1;
+
+  const panels = buildVitalsPanels(seriesByVital, times, spec.tempUnit, population);
+  const table = buildVitalsTable(seriesByVital, times, timeUnit, spec.tempUnit);
+  const tableHeight = measureDocTable(table);
+  const panelsHeight = panels.reduce(
+    (height, panel, index) => height + measureVitalsPanel(panel) + (index > 0 ? VITALS_TREND_LAYOUT.panelGap : 0),
+    0,
+  );
+  const totalHeight = panelsHeight + VITALS_TREND_LAYOUT.chartTableGap + tableHeight;
+
+  const elements: string[] = [];
+  let yOffset = 0;
+  panels.forEach((panel, index) => {
+    if (index > 0) yOffset += VITALS_TREND_LAYOUT.panelGap;
+    elements.push(renderVitalsPanel(panel, yOffset, times, xMin, xMax, index === panels.length - 1, timeUnit));
+    yOffset += measureVitalsPanel(panel);
   });
+  yOffset += VITALS_TREND_LAYOUT.chartTableGap;
+  elements.push(`<g class="vitals-flowsheet" data-vitals-table="true" transform="translate(0 ${fmt(yOffset)})">\n${renderDocTable(table)}\n</g>`);
 
-  const xMin = Math.min(...times);
-  const xMax = Math.max(...times);
-  
-  // Calculate y-axis bounds
-  let leftMin = 9999;
-  let leftMax = -9999;
-  let rightMin = 9999;
-  let rightMax = -9999;
-  
-  let hasLeft = false;
-  let hasRight = false;
-
-  chartSeries.forEach(s => {
-    const vals = s.points.map(p => p.y);
-    if (s.referenceBand) {
-      vals.push(s.referenceBand.low, s.referenceBand.high);
-    }
-    const min = Math.min(...vals);
-    const max = Math.max(...vals);
-    
-    if (s.axis === "left") {
-      hasLeft = true;
-      leftMin = Math.min(leftMin, min);
-      leftMax = Math.max(leftMax, max);
-    } else {
-      hasRight = true;
-      rightMin = Math.min(rightMin, min);
-      rightMax = Math.max(rightMax, max);
-    }
-  });
-  
-  // Padding for y-axes
-  if (hasLeft) {
-    const padding = Math.max(10, (leftMax - leftMin) * 0.1);
-    leftMin = Math.floor((leftMin - padding) / 10) * 10;
-    leftMax = Math.ceil((leftMax + padding) / 10) * 10;
-    if (leftMin < 0 && !chartSeries.some(s => s.points.some(p => p.y < 0))) leftMin = 0;
-  } else {
-    leftMin = 0; leftMax = 100;
-  }
-  
-  if (hasRight) {
-    const padding = Math.max(1, (rightMax - rightMin) * 0.1);
-    rightMin = Math.floor(rightMin - padding);
-    rightMax = Math.ceil(rightMax + padding);
-  }
-
-  const input: LineChartInput = {
-    series: chartSeries,
-    xAxis: {
-      label: timeUnit === "min" ? "Time (Minutes)" : "Time (Hours)",
-      min: xMin,
-      max: xMax,
-      ticks: times,
-    },
-    yAxisLeft: {
-      label: "",
-      min: leftMin,
-      max: leftMax,
-      ticks: [leftMin, leftMin + (leftMax - leftMin) / 2, leftMax],
-    },
-    width: 600,
-    height: 300,
-  };
-
-  if (hasRight) {
-    input.yAxisRight = {
-      label: "",
-      min: rightMin,
-      max: rightMax,
-      ticks: [rightMin, rightMin + (rightMax - rightMin) / 2, rightMax],
-    };
-  }
-
-  const svgBody = renderLineChart(input);
-  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 300" role="img" aria-label="Vitals Trend" data-kind="vitals_trend">\n${svgBody}\n</svg>`;
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${VITALS_TREND_LAYOUT.width} ${fmt(totalHeight)}" role="img" aria-label="Vitals Trend" data-kind="vitals_trend">\n${elements.join("\n")}\n</svg>`;
 };
 
 const fixtures: VisualKindModule<VitalsTrendSpec>["fixtures"] = {

@@ -1,9 +1,37 @@
-import { renderVitalsTrendSvg, validateVitalsTrend, selfCheckVitalsTrend } from "../../src/visuals/kinds/vitals_trend";
+import {
+  renderVitalsTrendSvg,
+  validateVitalsTrend,
+  selfCheckVitalsTrend,
+  VITALS_TREND_LAYOUT,
+} from "../../src/visuals/kinds/vitals_trend";
 import { renderLineChart } from "../../src/visuals/primitives/lineChart";
 import type { VitalsTrendSpec } from "../../src/visuals/kinds/vitals_trend/types";
 
 const assert = (condition: unknown, message: string) => {
   if (!condition) throw new Error(message);
+};
+
+const countOccurrences = (value: string, needle: string): number => value.split(needle).length - 1;
+
+const tableTexts = (svg: string): string[] => {
+  const table = svg.slice(svg.indexOf('data-vitals-table="true"'));
+  return [...table.matchAll(/<text [^>]*>([^<]*)<\/text>/g)].map((match) => match[1]);
+};
+
+const assertLegendCells = (svg: string, expectedEntries: number) => {
+  const entries = [...svg.matchAll(
+    /<g class="vitals-legend-entry" data-vital="([^"]+)" data-axis="[^"]+" data-cell-x="(\d+)" data-cell-width="(\d+)">([^]*?)<\/g>/g,
+  )];
+  assert(entries.length === expectedEntries, `fixture must render ${expectedEntries} panel-local legend entries`);
+  for (const entry of entries) {
+    const cellX = Number(entry[2]);
+    const cellWidth = Number(entry[3]);
+    const body = entry[4];
+    assert(cellX >= 60 && cellX + cellWidth <= 540, `${entry[1]} legend cell must remain inside x=60..540`);
+    assert(body.includes(`<line x1="${cellX}"`) && body.includes(`x2="${cellX + 16}"`), `${entry[1]} marker line must remain inside its cell`);
+    assert(body.includes(`<circle cx="${cellX + 8}"`), `${entry[1]} marker center must remain inside its cell`);
+    assert(body.includes(`<text x="${cellX + 22}"`), `${entry[1]} text anchor must remain inside its cell`);
+  }
 };
 
 // --- Determinism ----------------------------------------------
@@ -19,13 +47,170 @@ const canonical: VitalsTrendSpec = {
 const svgA = renderVitalsTrendSvg(canonical);
 assert(svgA === renderVitalsTrendSvg(canonical), "same vitals_trend spec must render byte-identical SVG");
 
-const pediatricSvg = renderVitalsTrendSvg({ ...canonical, population: "peds_child" });
-assert(svgA !== pediatricSvg, "adult and pediatric populations must render different SVG when bands default on");
-assert(svgA.includes('fill="#f1f5f9" opacity="0.6"'), "adult population must retain its reference bands");
+assert(svgA.includes('data-vitals-panel="hemodynamics"'), "hr/map must render the hemodynamics panel");
+assert(!svgA.includes('data-vitals-panel="respiratory-oxygenation"'), "hr/map must omit the respiratory panel");
+assert(!svgA.includes('data-vitals-panel="temperature"'), "hr/map must omit the temperature panel");
+assert(svgA.includes('data-vital="hr" data-axis="right"'), "HR must use the right axis when pressure is present");
+assert(svgA.includes('data-vital="map" data-axis="left"'), "MAP must use the left pressure axis");
+assert(svgA.includes("Blood pressure (mmHg)"), "hemodynamics must label the pressure axis");
+assert(svgA.includes("HR (bpm)"), "hemodynamics must label the HR axis");
+
+const hrTemp: VitalsTrendSpec = {
+  kind: "vitals_trend",
+  time: { unit: "hr", values: [0, 1, 2, 4] },
+  series: [
+    { vital: "temp", values: [40.1, 39.8, 38.9, 38.2] },
+    { vital: "hr", values: [152, 138, 115, 94] },
+  ],
+};
+const hrTempSvg = renderVitalsTrendSvg(hrTemp);
+assert(
+  hrTempSvg.indexOf('data-vitals-panel="hemodynamics"') < hrTempSvg.indexOf('data-vitals-panel="temperature"'),
+  "hr/temp panels must render in A/C order",
+);
+assert(!hrTempSvg.includes('data-vitals-panel="respiratory-oxygenation"'), "hr/temp must omit Panel B");
+
+const forcingSix: VitalsTrendSpec = {
+  kind: "vitals_trend",
+  time: { unit: "hr", values: [0, 2, 4, 6] },
+  population: "adult",
+  series: [
+    { vital: "hr", values: [96, 110, 122, 130], showReferenceBand: true },
+    { vital: "sbp", values: [126, 114, 100, 92], showReferenceBand: true },
+    { vital: "dbp", values: [78, 72, 64, 58], showReferenceBand: true },
+    { vital: "map", values: [94, 86, 76, 69], showReferenceBand: true },
+    { vital: "rr", values: [20, 24, 28, 30], showReferenceBand: true },
+    { vital: "temp", values: [38.4, 39.1, 39.3, 38.8], showReferenceBand: true },
+  ],
+  caption: { en: "caption must remain external" },
+};
+const forcingSvg = renderVitalsTrendSvg(forcingSix);
+assert(
+  forcingSvg.indexOf('data-vitals-panel="hemodynamics"') <
+    forcingSvg.indexOf('data-vitals-panel="respiratory-oxygenation"') &&
+    forcingSvg.indexOf('data-vitals-panel="respiratory-oxygenation"') <
+    forcingSvg.indexOf('data-vitals-panel="temperature"'),
+  "forcing fixture must render A/B/C in fixed order",
+);
+assert(!forcingSvg.includes("caption must remain external"), "caption text must not be duplicated inside the SVG");
+assert(
+  countOccurrences(forcingSvg, 'fill="#f1f5f9" opacity="0.6"') === 2,
+  "multi-series panels must suppress bands while the one-series temperature and RR panels retain one each",
+);
+assertLegendCells(forcingSvg, 6);
+
+const fullSeven: VitalsTrendSpec = {
+  kind: "vitals_trend",
+  time: { unit: "min", values: [0, 15, 30, 60] },
+  series: [
+    { vital: "hr", values: [124, 112, 98, 88] },
+    { vital: "sbp", values: [90, 100, 112, 118] },
+    { vital: "dbp", values: [54, 60, 66, 72] },
+    { vital: "map", values: [66, 73, 81, 87] },
+    { vital: "rr", values: [26, 24, 20, 18] },
+    { vital: "spo2", values: [97, 98, 98, 99] },
+    { vital: "temp", values: [37.2, 37.15, 37.1, 37.05] },
+  ],
+};
+const fullSvg = renderVitalsTrendSvg(fullSeven);
+assert(fullSvg.includes('data-vital="rr" data-axis="left"'), "RR must use the left respiratory axis");
+assert(fullSvg.includes('data-vital="spo2" data-axis="right"'), "SpO₂ must use the right respiratory axis");
+for (const title of ["Blood pressure (mmHg)", "HR (bpm)", "RR (/min)", "SpO₂ (%)", "Temperature (°C)"]) {
+  assert(fullSvg.includes(title), `full fixture must render axis title ${title}`);
+}
+assert(countOccurrences(fullSvg, 'cx="540"') === 7, "every panel must share plot-right x=540 for final points");
+
+assertLegendCells(fullSvg, 7);
+
+const hemodynamicEnd = fullSvg.indexOf('data-vitals-panel="respiratory-oxygenation"');
+const hemodynamicSvg = fullSvg.slice(fullSvg.indexOf('data-vitals-panel="hemodynamics"'), hemodynamicEnd);
+const pressurePolylines = [...hemodynamicSvg.matchAll(/<polyline [^>]+>/g)].map((match) => match[0]);
+assert(pressurePolylines.length === 4, "hemodynamics must render four ordered polylines");
+assert(!pressurePolylines[1].includes("stroke-dasharray"), "SBP polyline must remain solid");
+assert(pressurePolylines[2].includes('stroke-dasharray="6 4"'), "DBP polyline must use dash 6 4");
+assert(
+  /data-vital="dbp"[^]*?<line [^>]*stroke-dasharray="6 4"/.test(hemodynamicSvg),
+  "DBP legend marker must use dash 6 4",
+);
+
+const fullTableTexts = tableTexts(fullSvg);
+assert(
+  JSON.stringify(fullTableTexts) === JSON.stringify([
+    "Vital sign", "0 min", "15 min", "30 min", "60 min",
+    "HR (bpm)", "124", "112", "98", "88",
+    "BP (mmHg)", "90/54", "100/60", "112/66", "118/72",
+    "MAP (mmHg)", "66", "73", "81", "87",
+    "RR (/min)", "26", "24", "20", "18",
+    "SpO₂ (%)", "97", "98", "98", "99",
+    "Temperature (°C)", "37.2", "37.15", "37.1", "37.05",
+  ]),
+  "flowsheet headers, rows, and source values must render in exact cell order",
+);
+assert(!fullTableTexts.includes("SBP (mmHg)") && !fullTableTexts.includes("DBP (mmHg)"), "combined BP must not emit phantom pressure rows");
+const sparseTableTexts = tableTexts(hrTempSvg);
+for (const absentRow of ["BP (mmHg)", "SBP (mmHg)", "DBP (mmHg)", "MAP (mmHg)", "RR (/min)", "SpO₂ (%)"]) {
+  assert(!sparseTableTexts.includes(absentRow), `sparse hr/temp fixture must omit ${absentRow}`);
+}
+
+const expectedFullHeight =
+  (VITALS_TREND_LAYOUT.headingHeight + 2 * VITALS_TREND_LAYOUT.legendRowHeight + VITALS_TREND_LAYOUT.standardChartHeight) +
+  VITALS_TREND_LAYOUT.panelGap +
+  (VITALS_TREND_LAYOUT.headingHeight + VITALS_TREND_LAYOUT.legendRowHeight + VITALS_TREND_LAYOUT.standardChartHeight) +
+  VITALS_TREND_LAYOUT.panelGap +
+  (VITALS_TREND_LAYOUT.headingHeight + VITALS_TREND_LAYOUT.legendRowHeight + VITALS_TREND_LAYOUT.temperatureChartHeight) +
+  VITALS_TREND_LAYOUT.chartTableGap +
+  VITALS_TREND_LAYOUT.tableHeaderHeight + 6 * VITALS_TREND_LAYOUT.tableRowHeight;
+assert(
+  fullSvg.includes(`viewBox="0 0 600 ${expectedFullHeight}"`),
+  "outer viewBox height must equal the exact measured panel, gap, and table sum",
+);
+
+const adultSingle = renderVitalsTrendSvg({
+  kind: "vitals_trend",
+  timepointsHr: [0, 1],
+  series: [{ vital: "hr", values: [80, 90] }],
+});
+const pediatricSvg = renderVitalsTrendSvg({
+  kind: "vitals_trend",
+  population: "peds_child",
+  timepointsHr: [0, 1],
+  series: [{ vital: "hr", values: [110, 105] }],
+});
+assert(countOccurrences(adultSingle, 'fill="#f1f5f9" opacity="0.6"') === 1, "one-series adult panel must render one band");
 assert(!pediatricSvg.includes('fill="#f1f5f9" opacity="0.6"'), "pediatric population must suppress reference bands");
+assert(!svgA.includes('fill="#f1f5f9" opacity="0.6"'), "any multi-series panel must render zero bands");
+
+const adultMultiExplicit = renderVitalsTrendSvg({
+  ...canonical,
+  series: canonical.series.map((series) => ({ ...series, showReferenceBand: true })),
+});
+assert(!adultMultiExplicit.includes('fill="#f1f5f9" opacity="0.6"'), "explicit true must not override panel exclusivity");
+
+const noBandSingle = renderVitalsTrendSvg({
+  kind: "vitals_trend",
+  timepointsHr: [0, 1],
+  series: [{ vital: "hr", values: [80, 90], showReferenceBand: false }],
+});
+assert(!noBandSingle.includes('fill="#f1f5f9" opacity="0.6"'), "explicit false must suppress a one-series adult band");
+
+const defaultTemp = renderVitalsTrendSvg({
+  kind: "vitals_trend",
+  timepointsHr: [0, 1],
+  series: [{ vital: "temp", values: [37, 38] }],
+});
+const fahrenheitTemp = renderVitalsTrendSvg({
+  kind: "vitals_trend",
+  timepointsHr: [0, 1],
+  tempUnit: "F",
+  series: [{ vital: "temp", values: [98.6, 101.3] }],
+});
+assert(defaultTemp.includes("Temperature (°C)"), "omitted tempUnit must default to Celsius");
+assert(fahrenheitTemp.includes("Temperature (°F)"), "synthetic Fahrenheit fixture must render °F");
 
 const nullPopulationSvg = renderVitalsTrendSvg({
-  ...canonical,
+  kind: "vitals_trend",
+  timepointsHr: [0, 1],
+  series: [{ vital: "hr", values: [80, 90] }],
   population: null as unknown as VitalsTrendSpec["population"],
 });
 assert(!nullPopulationSvg.includes('fill="#f1f5f9" opacity="0.6"'), "null population must suppress reference bands");
@@ -184,6 +369,24 @@ const xssSvg = renderLineChart({
 assert(!xssSvg.includes("<script>"), "script tags must be escaped");
 assert(xssSvg.includes("&lt;script&gt;"), "escaped script tags should be present");
 assert(xssSvg.includes("&lt;svg"), "svg tags in labels must be escaped");
+
+const noLegendSvg = renderLineChart({
+  xAxis: { label: "t", min: 0, max: 1 },
+  yAxisLeft: { label: "y", min: 0, max: 1 },
+  series: [{ label: "Hidden legend", unit: "u", points: [{ x: 0, y: 0 }] }],
+  showLegend: false,
+});
+assert(!noLegendSvg.includes("Hidden legend"), "showLegend=false must suppress only the primitive legend");
+
+const dashedPrimitiveSvg = renderLineChart({
+  xAxis: { label: "t", min: 0, max: 1 },
+  yAxisLeft: { label: "y", min: 0, max: 1 },
+  series: [{ label: "Dashed", unit: "u", points: [{ x: 0, y: 0 }], strokeDash: true }],
+});
+assert(
+  countOccurrences(dashedPrimitiveSvg, 'stroke-dasharray="6 4"') === 2,
+  "strokeDash=true must dash the primitive polyline and enabled legend marker",
+);
 
 // --- Primitive: reference band geometry -------------------------------
 // Single left series, band low=60/high=100 on a 0..100 axis at default 600x300.

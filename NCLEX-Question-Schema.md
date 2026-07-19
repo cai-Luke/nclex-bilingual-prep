@@ -347,6 +347,8 @@ Validation rules:
 - `selfCheck` reads `question.meta.expected_trend` (snake_case array) and verifies each entry's direction holds over its declared window.
 - `caption.en`, if caption is present, is required. `caption.zh` is optional but must be non-empty if present.
 
+The renderer presents the existing series as unit-pure hemodynamic, respiratory/oxygenation, and temperature panels, followed by a renderer-derived flowsheet table from those same values. When both unit families coexist, pressure is left/HR right and RR is left/SpO₂ right; every axis names its unit, DBP is dashed, and adult reference bands appear only in a panel containing exactly one series. This is presentation-only: the authored `vitals_trend` schema shape is unchanged.
+
 ### Kind: `lab_trend`
 
 Renders serial laboratory values for 1–2 analytes across ≥3 timepoints, reusing the `lineChart` primitive with per-analyte reference bands. Load-bearing only when the answer turns on the *trajectory over time*, not a single snapshot value. Items that can be answered from a single final value are invalid.

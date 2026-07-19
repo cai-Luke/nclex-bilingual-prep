@@ -50,7 +50,11 @@ assert.deepEqual(
 const mc = (kind?: string): Question =>
   ({ itemType: "multiple_choice", ...(kind ? { visual: { kind } } : {}) }) as unknown as Question;
 assert.equal(usesStandaloneVisualSplit(mc("lab_trend")), true, "lab_trend splits");
-assert.equal(usesStandaloneVisualSplit(mc("vitals_trend")), true, "vitals_trend splits");
+assert.equal(
+  usesStandaloneVisualSplit(mc("vitals_trend")),
+  false,
+  "600x1108 composite proof removes vitals_trend from the sticky split route",
+);
 assert.equal(usesStandaloneVisualSplit(mc("burn_map")), true, "burn_map splits");
 assert.equal(usesStandaloneVisualSplit(mc("rhythm_strip")), false, "rhythm_strip excluded");
 assert.equal(usesStandaloneVisualSplit(mc("capnography")), false, "capnography excluded");
@@ -65,6 +69,6 @@ assert.equal(
   "case_study never standalone-splits",
 );
 
-assert.equal(STANDALONE_SPLIT_VISUAL_KINDS.size, 8, "exactly eight standalone split kinds");
+assert.equal(STANDALONE_SPLIT_VISUAL_KINDS.size, 7, "exactly seven standalone split kinds");
 
 console.log("exam layout tests passed");
