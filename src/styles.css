@@ -1090,6 +1090,7 @@ h4 {
 
 .vitals-epic-scroll,
 .vitals-epic-readout,
+.vitals-epic-table-scroll,
 .vitals-epic-figure > figcaption {
   width: 100%;
   max-width: 42rem;
@@ -1195,6 +1196,51 @@ h4 {
 
 .vitals-epic-readout dd {
   font-weight: 800;
+}
+
+.vitals-epic-table-scroll {
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+}
+
+.vitals-epic-accessible-table {
+  width: 100%;
+  min-width: max-content;
+  border-collapse: collapse;
+  font-size: 0.8rem;
+}
+
+.vitals-epic-accessible-table caption {
+  padding: 0.55rem 0.7rem;
+  color: var(--text);
+  background: var(--surface-muted);
+  font-weight: 800;
+  text-align: left;
+}
+
+.vitals-epic-accessible-table th,
+.vitals-epic-accessible-table td {
+  border-top: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+  padding: 0.42rem 0.55rem;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.vitals-epic-accessible-table th:last-child,
+.vitals-epic-accessible-table td:last-child {
+  border-right: 0;
+}
+
+.vitals-epic-accessible-table th:first-child {
+  position: sticky;
+  left: 0;
+  z-index: 1;
+  color: var(--text);
+  background: var(--surface-muted);
+  text-align: left;
 }
 
 .rhythm-strip-svg.vis-lab_trend.vis-lab_trend-single-series svg {
@@ -1306,6 +1352,7 @@ h4 {
 
 .vitals-epic-focus-dialog .vitals-epic-scroll,
 .vitals-epic-focus-dialog .vitals-epic-readout,
+.vitals-epic-focus-dialog .vitals-epic-table-scroll,
 .vitals-epic-focus-dialog .vitals-epic-figure > figcaption {
   max-width: 56rem;
 }
@@ -1355,18 +1402,9 @@ h4 {
     display: none;
   }
 
-  .vitals-epic-accessible-surface.sr-only {
-    position: static;
-    width: 100%;
-    height: auto;
-    margin: 0.75rem 0 0;
-    overflow: visible;
-    clip: auto;
-    white-space: normal;
-  }
-
   .vitals-epic-accessible-table {
     width: 100%;
+    min-width: 0;
     border-collapse: collapse;
   }
 
@@ -1378,6 +1416,7 @@ h4 {
   }
 
   .vitals-epic-accessible-table th:first-child {
+    position: static;
     text-align: left;
   }
 }
@@ -1559,7 +1598,7 @@ h4 {
   grid-template-columns: minmax(37.5rem, 0.58fr) minmax(0, 1fr);
 }
 
-.standalone-visual-layout.standalone-epic-vitals-layout {
+.standalone-visual-layout.standalone-vitals-layout {
   grid-template-columns: minmax(37.5rem, 0.58fr) minmax(0, 1fr);
 }
 
@@ -2157,7 +2196,7 @@ h4 {
     grid-template-columns: 1fr;
   }
 
-  .standalone-visual-layout.standalone-epic-vitals-layout {
+  .standalone-visual-layout.standalone-vitals-layout {
     grid-template-columns: 1fr;
   }
 

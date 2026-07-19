@@ -63,16 +63,10 @@ const labTrend = (seriesCount: 1 | 2): Question => ({
 assert.equal(usesStandaloneVisualSplit(labTrend(1)), false, "one-series lab_trend stacks above the stem");
 assert.equal(usesStandaloneVisualSplit(labTrend(2)), true, "two-series lab_trend retains the split");
 assert.equal(
-  usesStandaloneVisualSplit(mc("vitals_trend"), "panels"),
-  false,
-  "600x1108 panels proof keeps vitals_trend out of the sticky split route",
-);
-assert.equal(
-  usesStandaloneVisualSplit(mc("vitals_trend"), "epic"),
+  usesStandaloneVisualSplit(mc("vitals_trend")),
   true,
-  "600x360 Epic proof at 1280x727/800 admits vitals_trend to the split route",
+  "600px unified vitals graph and responsive values table retain the measured split route",
 );
-assert.equal(usesStandaloneVisualSplit(mc("vitals_trend")), false, "omitted style fails closed to full-width");
 assert.equal(usesStandaloneVisualSplit(mc("burn_map")), true, "burn_map splits");
 assert.equal(usesStandaloneVisualSplit(mc("rhythm_strip")), false, "rhythm_strip excluded");
 assert.equal(usesStandaloneVisualSplit(mc("capnography")), false, "capnography excluded");

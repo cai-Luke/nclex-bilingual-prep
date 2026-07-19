@@ -52,6 +52,37 @@ The committed NGN item-type set is complete. Rationale/dyad scoring and an expli
 
 > Milestones dated **2026-06-23 and earlier** are archived in [`Archive/PROJECT-HISTORY-ARCHIVE.md`](Archive/PROJECT-HISTORY-ARCHIVE.md). Only the current arc (2026-06-24 onward) is kept here.
 
+### Unified Vitals Trend Experiment Concluded (Jul 19)
+
+The real-user comparison concluded in favor of the Epic-style unified graph with the original
+presentation's exact-value flowsheet retained beneath it. `vitals_trend` now has one application
+presentation: the deterministic unified graph, interactive timepoint readout and legend emphasis,
+followed by one visible semantic HTML values table derived from the same `buildVitalsTableModel` data.
+The table scrolls within its own rounded frame when narrow and keeps the first vital-sign column visible.
+Print continues to show the graph and complete table while hiding pointer-only controls.
+
+Removed the experiment's `VitalsChartStyle` type, persisted setting/default, bilingual Settings control,
+variant prop chain through all question/case/rationale/review surfaces, variant-aware split condition, and
+Preview Lab comparison bucket. Vitals trends retain the measured 600 px desktop split route and appear in
+Preview Lab with the ordinary split visual candidates. The legacy unit-pure renderer remains an internal
+deterministic renderer/parity surface, not a user-selectable application arm; no bank, schema, grading,
+clinical range, authored visual, or SVG byte contract changed.
+
+Browser proof at 1280×720 measured the ordinary graph at 600×360.8 px, the values table at 598 px,
+the visual/work split at 600 px + 537.8 px, and zero page-level horizontal overflow; the table remained
+fully reachable at maximum page scroll. At a 390×844 viewport (375 px document client width), the graph
+fit its 295.4 px Preview Lab column while the 360.1 px table scrolled only inside a 293 px frame; the
+sticky first column remained aligned at maximum horizontal scroll and the page stayed overflow-free.
+The complete table remained exposed in the accessibility tree in ordinary and focused views. Keyboard
+pinning recovered the exact 6 h values and guide line, focus retained one 600 px SVG, and Escape restored
+body scroll and focus to the enlarge button. The final browser console was clean.
+
+Focused vitals and exam-layout tests, TypeScript, top-level bank validation, the production build, and
+`git diff --check` passed. `npm run test-visuals` passed from a clean detached checkout of the exact
+code commit, including all 12 kind suites, conformance and registry mechanics, 199 promoted
+parity snapshots, the promoted survey, session sampling, and the rationale-visual-floor survey. The
+existing Vite large-chunk advisory remains unchanged.
+
 ### Mobile Graph Fit-to-Width Pass Implemented (Jul 19)
 
 Implemented

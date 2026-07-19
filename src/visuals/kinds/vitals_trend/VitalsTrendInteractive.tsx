@@ -232,7 +232,7 @@ function EpicVitalsGraphic({
         )}
       </div>
 
-      <div className="vitals-epic-accessible-surface sr-only">
+      <div className="vitals-epic-table-scroll">
         <table className="vitals-epic-accessible-table">
           <caption>Vital signs values / <span lang="zh-Hans">生命体征数值</span></caption>
           <thead>

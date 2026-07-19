@@ -26,7 +26,6 @@ export const defaultSettings: Settings = {
   voiceEnabled: false,
   themeMode: "light",
   textSizeMode: "default",
-  vitalsChartStyle: "epic",
 };
 
 type UploadedRecord = QuestionRecord & {
