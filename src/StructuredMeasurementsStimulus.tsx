@@ -1,5 +1,8 @@
 import type { LanguageMode, StructuredMeasurements } from "./types";
-import { renderStructuredMeasurementsSvg } from "./structuredMeasurements";
+import {
+  isCompactStructuredMeasurements,
+  renderStructuredMeasurementsSvg,
+} from "./structuredMeasurements";
 
 export function StructuredMeasurementsStimulus({
   measurements,
@@ -10,8 +13,18 @@ export function StructuredMeasurementsStimulus({
 }) {
   if (!measurements) return null;
   const svg = renderStructuredMeasurementsSvg(measurements, languageMode);
+  const densityClass = isCompactStructuredMeasurements(measurements)
+    ? "structured-measurements--compact"
+    : "";
+  const figureClassName = ["structured-measurements", densityClass]
+    .filter(Boolean)
+    .join(" ");
   return (
-    <figure className="structured-measurements" role="img" aria-label="structured clinical measurements">
+    <figure
+      className={figureClassName}
+      role="img"
+      aria-label="structured clinical measurements"
+    >
       <div className="structured-measurements-svg" dangerouslySetInnerHTML={{ __html: svg }} />
     </figure>
   );

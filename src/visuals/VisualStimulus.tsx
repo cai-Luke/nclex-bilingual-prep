@@ -26,6 +26,13 @@ function VisualGraphic({
   onActivate?: () => void;
 }) {
   const { visual, svg, caption } = rendered;
+  const shapeClass =
+    visual.kind === "lab_trend" && visual.series.length === 1
+      ? "vis-lab_trend-single-series"
+      : "";
+  const svgClassName = ["rhythm-strip-svg", `vis-${visual.kind}`, shapeClass]
+    .filter(Boolean)
+    .join(" ");
   return (
     <figure
       className={`rhythm-strip ${onActivate ? "visual-enlarge-target" : ""}`}
@@ -34,7 +41,10 @@ function VisualGraphic({
       onClick={onActivate}
       title={onActivate ? "Enlarge visual / 放大图像" : undefined}
     >
-      <div className={`rhythm-strip-svg vis-${visual.kind}`} dangerouslySetInnerHTML={{ __html: svg }} />
+      <div
+        className={svgClassName}
+        dangerouslySetInnerHTML={{ __html: svg }}
+      />
       {caption && <figcaption>{caption}</figcaption>}
     </figure>
   );
