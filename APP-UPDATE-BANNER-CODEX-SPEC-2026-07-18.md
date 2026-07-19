@@ -1,7 +1,7 @@
 # App Update Banner + Build Identity — Codex Implementation Spec
 
 **Date:** 2026-07-18
-**Status:** Proposed implementation packet; Claude architecture review may challenge it before Codex executes
+**Status:** Implemented and deployed
 **Implementation owner:** Codex
 **Scope class:** UI/build tooling only; no question-bank, schema, grading, storage, or clinical-content changes
 
