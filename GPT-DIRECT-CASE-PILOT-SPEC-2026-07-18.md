@@ -85,6 +85,11 @@ choice, and stage before answering Part 1.** A later stem, option, exhibit, capt
 prompt, or chart label must not disclose an earlier keyed answer. Top-level `caseStudy.exhibits` are
 visible from the start and must never contain data intended to be stage-gated.
 
+Every `stageId` and `answerableAfterStageId` used by an embedded part must byte-exactly match a
+declared `caseStudy.stages[].id`. An unresolved reference is blocking because the current renderer
+fails open and may expose all stages. Opening parts may omit stage metadata when they depend only on
+permanently visible baseline exhibits.
+
 The producer must perform a final cross-part leakage read from the last part back to Part 1 and report
 the result in the receipt. If leakage cannot be removed without weakening the case, block the premise
 rather than assuming sequential locking.
@@ -158,6 +163,12 @@ learner to synthesize trajectory and response, not to replay eight isolated feta
 - ACOG Clinical Practice Guideline No. 10, *Intrapartum Fetal Heart Rate Monitoring:
   Interpretation and Management* (2025), exact evaluation/management passages; public record:
   <https://pubmed.ncbi.nlm.nih.gov/40966736/>.
+
+  The PubMed record and public
+  [ACOG landing page](https://www.acog.org/clinical/clinical-guidance/clinical-practice-guideline/articles/2025/10/intrapartum-fetal-heart-rate-monitoring-interpretation-and-management)
+  identify the guideline but are not themselves valid passage-level pins. Use ACOG only when the
+  producer can open the exact supporting passage. Do not key a claim solely to inaccessible full
+  text.
 - NICE NG229, *Fetal monitoring in labour*, current recommendations and update record, especially
   whole-picture assessment, change over time, CTG features, escalation, and reassessment:
   <https://www.nice.org.uk/guidance/ng229/chapter/Recommendations>.
@@ -301,6 +312,7 @@ of the raw file occur only after that review and are outside this commission.
 - [ ] Only the target raw path was created or changed by the producer.
 - [ ] Every case earns case form through temporal change, exhibit integration, intervention, and
       reassessment.
+- [ ] Every authored `stageId` and `answerableAfterStageId` byte-exactly resolves to a declared stage.
 - [ ] The reverse-order leakage audit is clear under unrestricted part navigation.
 - [ ] Named comparator and live-raw preflight is complete; no case-wrapped standalone collision
       remains.

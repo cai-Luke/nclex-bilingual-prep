@@ -1,42 +1,71 @@
-# Shape-Aware Visual Layout — P4 Presentation Follow-Up (Codex Work-Order)
+# Shape-Aware Visual Layout — Presentation Commission (Codex Work-Order)
 
 Status: **Open — scoped, not yet commissioned. Not a prerequisite for any other work.**
 
-Provenance: deferred presentation item from `DECISIONS.md` Principle 29 (P4 single-row lab presentation survey). Presentation/renderer-only; authorizes **no** bank, schema, generation, census, grading, stage-visibility, answer-coupling, or case-identity change.
+Provenance: a **new presentation commission prompted by dogfooding**, informed by the closed P4 evidence (`DECISIONS.md` Principle 29; `SINGLE-ROW-LAB-PANELS-P4-SURVEY-SPEC-2026-07-18.md`). Principle 29 authorized no renderer work and left no deferred renderer obligation — P4 ruled the *content* correct and the *shape* valid. This order is new work justified by a later layout observation, not an unfinished P4 task. It authorizes **no** bank, schema, generation, census, grading, stage-visibility, answer-coupling, or case-identity change.
 
 ## Problem (from dogfooding)
 
-Single-series `lab_trend` visuals and single-row `structured_labs_panel` exhibits render awkwardly. A one-series horizontal time-trend is compressed into the left half of the standalone split layout (meant for denser charts), and a one-row labs panel is stretched across a full document-table card. P4 (Principle 29) ruled the *content* correct and the *shape* valid: this is a viewport-allocation problem, not a data-shape problem, and no bank content changes.
+Two presentation observations, both about viewport allocation, not data shape:
 
-## Closed-world inputs (verified against `src/examLayout.ts`)
+- A one-series `lab_trend` is rendered inside the narrow standalone **visual pane** of the split layout (that pane is a minority of the shell width), which is the wrong allocation for a horizontal time-trend the learner reads across time.
+- A one-row `structured_labs_panel` is rendered inside a figure whose width is floored at 600 units regardless of content, so a single 1×1 result is stretched to the same width as a dense multi-row table.
 
-- Split eligibility today: `usesStandaloneVisualSplit(question)` returns true iff `question.itemType !== "case_study"`, `question.visual` is defined, and `question.visual.kind ∈ STANDALONE_SPLIT_VISUAL_KINDS`. `lab_trend` is in that set. The function inspects visual **kind only** — never the payload — so a one-series `lab_trend` is forced into the split identically to a two-series one.
-- `structured_labs_panel` exhibits live inside `case_study` items, which the `itemType !== "case_study"` gate excludes from `usesStandaloneVisualSplit`. Their layout is the case renderer's chart-over-work presentation, **not** the standalone split — so Work Item 2 is a different render path from Work Item 1.
-- Governing rule: `DECISIONS.md` Principle 23 — exam-like presentation is a renderer concern; **standalone/split eligibility is determined by measured visual geometry, not nominal type, and a kind joins or leaves the standalone allowlist only after a MEASURED proof render, never a predicted one.** Exact dimensions and allowlist contents are owned by `src/examLayout.ts`, not by prose. Case identity and grading are out of scope and must not change.
+## Closed-world inputs (verified against live source)
 
-## Work Item 1 — one-series `lab_trend` leaves the split, renders full-width above the stem
+Split layout (`src/examLayout.ts`):
+- `usesStandaloneVisualSplit(question)` returns true iff `question.itemType !== "case_study"`, `question.visual` is defined, and `question.visual.kind ∈ STANDALONE_SPLIT_VISUAL_KINDS`. `lab_trend` is in that set. The function inspects visual **kind only** — never the payload — so a one-series `lab_trend` is treated identically to a two-series one.
+- `structured_labs_panel` exhibits live inside `case_study` items, which the `itemType !== "case_study"` gate excludes from `usesStandaloneVisualSplit`. They render via the case renderer, a different path from the split. Work Items 1 and 2 are therefore independent surfaces.
 
-- Make split eligibility payload-aware: a `lab_trend` whose `visual.series.length === 1` must **not** use the standalone split; it renders full-width above the question stem. Two-series `lab_trend` behavior is unchanged in this pass (revisit only with its own dogfood evidence).
-- The full-width render must be allowed to exceed the current standalone dimension cap for `lab_trend` — moving the same compressed chart above the stem is not an improvement. Choose the new width/height from a measured proof render, not a predicted one.
-- Acceptance: a measured proof render (not a prediction) showing the one-series trend at readable axis scale full-width above the stem; two-series trends visually unchanged; `usesStandaloneVisualSplit` unit coverage extended to the series-count branch; `tsc`, bank validation, and build green.
+Structured-measurement width is fixed by three independent constraints — a CSS-only change cannot compact the figure:
+1. `panelToTable()` in `src/structuredMeasurements.ts` hardcodes `width = 600` per panel.
+2. `renderStructuredMeasurementsSvg()` floors the outer viewBox width at `Math.max(...panelWidths, 600)`.
+3. `.structured-measurements-svg svg` in `src/styles.css` sets `width: 100%; min-width: 28rem;`.
+`StructuredMeasurementsStimulus.tsx` emits a fixed `structured-measurements` class with no row/column-density hook, so CSS has no way to know whether a payload is 1×1, 1×N, or multi-row. Height is computed purely from `title + header + rowCount` (`tableHeight`); there is **no** forced minimum card height — the demonstrated defect is horizontal only.
 
-## Work Item 2 — density-aware sizing for one-row / low-density structured labs panels
+Governing rules: `DECISIONS.md` Principle 23 (exam-like presentation is a renderer concern; standalone/split eligibility is determined by **measured** visual geometry, and a kind joins or leaves the allowlist only after a measured proof render, never a predicted one; case identity and grading are out of scope) and Principle 24 (structured measurements supplement prose; the prose fallback is not removed).
 
-- Locate the structured-measurement panel renderer (the component that renders `structuredMeasurements.panels[]` for case exhibits) and its card/table CSS. (Codex identifies the exact file; not asserted here.)
-- Target: size by rows **and** columns rather than treating every panel as a full document-table card.
-  - 1 row × 1 column → compact result strip near its natural width; no forced full-width card, no unnecessary minimum card height.
-  - 1 row × several columns → full available width, horizontal table.
-  - several rows → existing document-table presentation, unchanged.
-- Lowest-risk first pass is CSS/sizing only (remove forced min-height; stop stretching a 1×1 panel across the whole case chart). A dedicated compact renderer is a follow-up only if sizing alone is insufficient.
-- Do **not** remove the duplicated prose value. The structured renderer is SVG with a generic image label; the prose remains the accessible textual fallback until a semantic-table surface exists (consistent with Principle 24, structured measurements supplement prose).
-- Acceptance: measured proof renders of a 1×1, a 1×N, and an N-row panel showing the intended sizing; multi-row panels unchanged; `tsc` and build green.
+## Population facts (from the P4 survey, re-derived)
+
+Of the 13 one-row structured labs panels, all are 1 row × 1 column. **4** are the sole panel in their `structuredMeasurements` payload (safe compaction targets). **9** sit beside a larger sibling panel in the same payload — compacting those individually while the outer figure stays 600-wide produces a compact inner table inside a non-compact figure, which is not the desired outcome. Pass 1 handles only the 4 sole payloads; the 9 sibling cases are explicitly out of scope until there is evidence that independently-sized nested panels matter.
+
+## Work Item 1 — one-series `lab_trend`: measure before deciding
+
+Measurement precedes the policy decision. Do not assume the outcome.
+1. Capture the **current** one-series layout at the target viewport.
+2. Capture a **proposed** full-width / stacked-above-stem alternative (allowed to exceed the current standalone dimension cap for `lab_trend`; the same chart moved above the stem at the same size is not an improvement).
+3. Compare axis readability, chart width, stem displacement, and overall viewport use.
+4. Implement the payload-aware branch (`visual.kind === "lab_trend" && visual.series.length === 1` leaves the standalone split) **only if** the measured alternative is better. Two-series `lab_trend` is unchanged either way in this pass.
+
+Fixtures: one-series `gpt_u3_labtrend_2026_06_09_mc_potassium_furosemide_01`; two-series control `gpt_u3_labtrend_2026_06_09_b_matrix_dka_potassium_glucose_04`. Use the established M1 Air / Safari target (or its recorded viewport equivalent) plus the mobile fallback.
+
+## Work Item 2 — sole 1×1 structured payloads: compact the figure (TS + CSS)
+
+Required outcome: for a payload that is exactly one panel with one row and one column, the **rendered figure** (not merely the inner table) renders at its natural compact width. A compact inner table inside a retained 600-wide canvas does not satisfy this order.
+- Authorized surface: `src/structuredMeasurements.ts`, `src/StructuredMeasurementsStimulus.tsx`, `src/styles.css`, `scripts/tests/structured-measurements.ts`.
+- First-pass rule: compact **only** when the entire `StructuredMeasurements` payload is one panel × one row × one column (the 4 sole cases). Every mixed-panel or denser payload keeps current behavior. This requires relaxing all three width constraints for the compact case (panel width, outer-width floor, CSS `min-width`) — e.g. by computing width from content and emitting a density class the CSS can key on.
+- Do **not** remove the duplicated prose value: the renderer is SVG with a generic image label, and the prose remains the accessible textual fallback until a semantic-table surface exists (Principle 24).
 
 ## Hard fences
 
 - Presentation-only. No change to any bank, schema, generation prompt, census, coverage report, grading, scoring, stage visibility, answer coupling, or case identity.
-- No allowlist or dimension change lands on a predicted render — a measured proof render is required (Principle 23).
-- Two-series `lab_trend` and multi-row panels are explicitly out of scope for behavior change in this pass.
+- No allowlist, dimension, or split-eligibility change lands on a predicted render — a measured proof render is required (Principle 23), and Work Item 1's branch is contingent on the comparison favoring it.
+- Two-series `lab_trend`, multi-row panels, and one-row panels beside sibling panels are out of scope for behavior change in this pass.
+
+## Verification floor
+
+Commands:
+```
+npm run test:exam-layout
+npm run test:structured-measurements
+npm run test-visuals
+npm run validate-bank -- banks/*.json
+npx tsc -b --pretty false
+npm run build
+git diff --check
+```
+Browser evidence: one-series `lab_trend` before/after; two-series `lab_trend` unchanged; a sole 1×1 structured payload (e.g. `opus3_iv_potassium_safety_case_01`) before/after; a mixed multi-panel exhibit containing a one-row panel (e.g. `opus20_case_cdiff_01`) unchanged; English-first and always-bilingual display; desktop target and mobile fallback.
 
 ## Routing
 
-UI/CSS verification tier. Producer implements; the independent gate is the measured proof renders plus visual smoke and `tsc`/build/bank-validation — not a clinical or content gate, since this work order creates no content to review. Producer ≠ checker by role.
+UI/CSS verification tier. Producer implements; the independent gate is the measured proof renders plus the command floor above — not a clinical or content gate, since this order creates no content to review. Producer ≠ checker by role.
