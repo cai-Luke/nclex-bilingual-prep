@@ -137,6 +137,8 @@ const compactSvg = renderStructuredMeasurementsSvg(compact, "always");
 const compactWidth = Number(compactSvg.match(/viewBox="0 0 ([0-9]+) 92"/)?.[1]);
 assert(Number.isFinite(compactWidth) && compactWidth >= 320 && compactWidth < 600, "compact canvas should use a natural sub-600 width");
 assert(compactSvg.includes(`width="${compactWidth}" height="92"`), "compact SVG should expose its intrinsic figure size");
+assert(compactSvg.includes("Potassium / 血钾"), "compact SVG should preserve the bilingual measurement label");
+assert(compactSvg.includes("3.2 mEq/L"), "compact SVG should preserve the formatted measurement value");
 
 const mixed: StructuredMeasurements = {
   panels: [
