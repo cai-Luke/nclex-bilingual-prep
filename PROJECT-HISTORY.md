@@ -79,9 +79,10 @@ readouts, guide placement, BP opacity, one-SVG mounting, 600 px focused geometry
 dismissal, focus restoration, Preview Lab mobile stacking, the embedded exhibit, lab/panels focus, the
 unchanged tracing scroller, desktop parity, and a clean cold-load console.
 
-Focused vitals and exam-layout tests, promoted visual parity, bank validation, TypeScript, the production
-build, and `git diff --check` passed locally. The local ignored Pilot Case B draft is still discovered by
-the final rationale-floor survey; clean-checkout full-suite verification is pending. The existing Vite
+Focused vitals and exam-layout tests, bank validation, TypeScript, the production build, and
+`git diff --check` passed locally. `npm run test-visuals` passed in a detached clean checkout of the exact
+implementation commit, including all kind tests, conformance, registry mechanics, 199 promoted parity
+snapshots, promoted survey, session sampling, and the rationale-visual-floor survey. The existing Vite
 large-chunk advisory remains unchanged.
 
 ### Epic-Style Vitals Trend A/B Rendering Implemented (Jul 19)
