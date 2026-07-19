@@ -70,6 +70,10 @@ assert(renderIoTrendSvg(spec) === svg, "rendering must be deterministic");
 assert(svg.includes('data-kind="io_trend"'), "render must identify the visual kind");
 assert(svg.includes('data-role="overlay-line"'), "cumulative net overlay should render when requested");
 assert(svg.includes(">−300<"), "render must include signed final cumulative net");
+const firstPositiveX = svg.match(/data-role="positive-bar" x="([^"]+)"/)?.[1];
+const firstNegativeX = svg.match(/data-role="negative-bar" x="([^"]+)"/)?.[1];
+assert(firstPositiveX !== undefined, "intake bar x position must be inspectable");
+assert(firstPositiveX === firstNegativeX, "intake and output bars must share each interval center");
 
 const validSelfCheck = selfCheckIoTrend(spec, questionWithMeta({
   visual_justification: "The learner must compare interval intake and output and track cumulative net balance.",

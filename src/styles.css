@@ -1051,7 +1051,8 @@ h4 {
 .rhythm-strip-svg.vis-burn_map,
 .rhythm-strip-svg.vis-injection_site,
 .rhythm-strip-svg.vis-vitals_trend,
-.rhythm-strip-svg.vis-lab_trend {
+.rhythm-strip-svg.vis-lab_trend,
+.rhythm-strip-svg.vis-io_trend {
   overflow-x: visible;
 }
 
@@ -1072,7 +1073,8 @@ h4 {
 .rhythm-strip-svg.vis-mar svg,
 .rhythm-strip-svg.vis-io_record svg,
 .rhythm-strip-svg.vis-vitals_trend svg,
-.rhythm-strip-svg.vis-lab_trend svg {
+.rhythm-strip-svg.vis-lab_trend svg,
+.rhythm-strip-svg.vis-io_trend svg {
   min-width: 0;
   max-width: 37.5rem;
   margin-inline: auto;
@@ -1350,6 +1352,12 @@ h4 {
 .standalone-visual-layout {
   grid-template-columns: minmax(24rem, 0.46fr) minmax(0, 1fr);
   gap: 1rem;
+}
+
+/* The five-column I/O table needs its 600 px design width in the desktop
+   split. Keep the wider track specific to standalone io_trend questions. */
+.standalone-visual-layout.standalone-io-trend-layout {
+  grid-template-columns: minmax(37.5rem, 0.58fr) minmax(0, 1fr);
 }
 
 .standalone-visual-pane,
@@ -1928,6 +1936,10 @@ h4 {
 
 @media (max-width: 1100px) {
   .standalone-visual-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .standalone-visual-layout.standalone-io-trend-layout {
     grid-template-columns: 1fr;
   }
 

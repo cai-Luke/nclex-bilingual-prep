@@ -1,0 +1,221 @@
+{
+  "added": [],
+  "arithmeticEvidence": [
+    {
+      "declaredKeyed": {
+        "after": {
+          "cumulative_net_ml": [
+            250,
+            710,
+            1280,
+            1860
+          ],
+          "final_cumulative_net_ml": 1860,
+          "net_by_interval_ml": [
+            250,
+            460,
+            570,
+            580
+          ]
+        },
+        "before": {
+          "cumulative_net_ml": [
+            250,
+            710,
+            1280,
+            1860
+          ],
+          "final_cumulative_net_ml": 1860,
+          "net_by_interval_ml": [
+            250,
+            460,
+            570,
+            580
+          ]
+        }
+      },
+      "delta": "changed",
+      "kind": "io_trend",
+      "parityId": "iot_fluid_challenge_output_divergence",
+      "selfCheckErrors": {
+        "after": [],
+        "before": []
+      }
+    },
+    {
+      "declaredKeyed": {
+        "after": {
+          "cumulative_net_ml": [
+            -200,
+            -350,
+            -400,
+            -300
+          ],
+          "final_cumulative_net_ml": -300,
+          "net_by_interval_ml": [
+            -200,
+            -150,
+            -50,
+            100
+          ]
+        },
+        "before": {
+          "cumulative_net_ml": [
+            -200,
+            -350,
+            -400,
+            -300
+          ],
+          "final_cumulative_net_ml": -300,
+          "net_by_interval_ml": [
+            -200,
+            -150,
+            -50,
+            100
+          ]
+        }
+      },
+      "delta": "changed",
+      "kind": "io_trend",
+      "parityId": "iot_furosemide_late_partial_reversal",
+      "selfCheckErrors": {
+        "after": [],
+        "before": []
+      }
+    },
+    {
+      "declaredKeyed": {
+        "after": {
+          "cumulative_net_ml": [
+            150,
+            180,
+            -20,
+            -300
+          ],
+          "final_cumulative_net_ml": -300,
+          "net_by_interval_ml": [
+            150,
+            30,
+            -200,
+            -280
+          ]
+        },
+        "before": {
+          "cumulative_net_ml": [
+            150,
+            180,
+            -20,
+            -300
+          ],
+          "final_cumulative_net_ml": -300,
+          "net_by_interval_ml": [
+            150,
+            30,
+            -200,
+            -280
+          ]
+        }
+      },
+      "delta": "changed",
+      "kind": "io_trend",
+      "parityId": "iot_furosemide_positive_to_negative_crossover",
+      "selfCheckErrors": {
+        "after": [],
+        "before": []
+      }
+    },
+    {
+      "declaredKeyed": {
+        "after": {
+          "cumulative_net_ml": [
+            20,
+            60,
+            180,
+            400
+          ],
+          "final_cumulative_net_ml": 400,
+          "net_by_interval_ml": [
+            20,
+            40,
+            120,
+            220
+          ]
+        },
+        "before": {
+          "cumulative_net_ml": [
+            20,
+            60,
+            180,
+            400
+          ],
+          "final_cumulative_net_ml": 400,
+          "net_by_interval_ml": [
+            20,
+            40,
+            120,
+            220
+          ]
+        }
+      },
+      "delta": "changed",
+      "kind": "io_trend",
+      "parityId": "iot_hf_ckd_declining_output",
+      "selfCheckErrors": {
+        "after": [],
+        "before": []
+      }
+    }
+  ],
+  "beforeRef": "b9b4c086889932d36c80b0cf878325dd159994cd",
+  "changed": [
+    {
+      "after": "e3c52737b08f76197ffe9deb55928e72d42c268b0ccdfd0bd5289d1e91775d0d",
+      "bank": "visual-canonical.json",
+      "before": "1fc06c63b6d62138caaa4cdd4483a8c4b85961122a6ec2040053720bfa41f0f6",
+      "cause": "renderer",
+      "kind": "io_trend",
+      "location": "question",
+      "parityId": "iot_fluid_challenge_output_divergence"
+    },
+    {
+      "after": "39e93a1e3af42cc1e0d1c3f94037d9a82378fa8dab25d2338f8c5c06016597e9",
+      "bank": "visual-canonical.json",
+      "before": "c9cc416e7bb712bc7584b02fdb3cfefa50b90619500012b9e1d21b4ea264ec93",
+      "cause": "renderer",
+      "kind": "io_trend",
+      "location": "question",
+      "parityId": "iot_furosemide_late_partial_reversal"
+    },
+    {
+      "after": "d51a7c6ff87a2ac8707f324d96b08a50f991ecae5cbf90f6a358fe9de2857edd",
+      "bank": "visual-canonical.json",
+      "before": "346d6c9bbb2ff96edbf5edfdffe90308e6f9e64b9211086e972ba519ef763198",
+      "cause": "renderer",
+      "kind": "io_trend",
+      "location": "question",
+      "parityId": "iot_furosemide_positive_to_negative_crossover"
+    },
+    {
+      "after": "44c5ccfef6a3654e4dd9d3a22e138fc775f1d9615c91c6dd1706572b93950655",
+      "bank": "visual-canonical.json",
+      "before": "660af4392e310d05cc13848987ad09bdda0c0850bb72d2b43423f12023e3d6c5",
+      "cause": "renderer",
+      "kind": "io_trend",
+      "location": "question",
+      "parityId": "iot_hf_ckd_declining_output"
+    }
+  ],
+  "generatedAt": "2026-07-19T01:58:42.319Z",
+  "inputGitSha": "b9b4c086889932d36c80b0cf878325dd159994cd",
+  "reason": "Center intake and output diverging bars on each io_trend interval",
+  "removed": [],
+  "scope": [
+    "io_trend"
+  ],
+  "totals": {
+    "added": 0,
+    "changed": 4,
+    "removed": 0,
+    "unchangedTotal": 195
+  }
+}

@@ -3206,6 +3206,8 @@ function QuestionCard({
     collectGlossarySources(question).length > 0;
   const showsStandaloneVisualSplit =
     standaloneVisualLayout !== "stacked" && usesStandaloneVisualSplit(question);
+  const usesStandaloneIoTrendLayout =
+    showsStandaloneVisualSplit && question.visual?.kind === "io_trend";
   useEffect(() => {
     questionLoadedAtRef.current = Date.now();
     revealCountRef.current = 0;
@@ -3380,7 +3382,9 @@ function QuestionCard({
       </div>
 
       {showsStandaloneVisualSplit ? (
-        <div className="exam-split-layout standalone-visual-layout">
+        <div
+          className={`exam-split-layout standalone-visual-layout ${usesStandaloneIoTrendLayout ? "standalone-io-trend-layout" : ""}`}
+        >
           <aside className="standalone-visual-pane" aria-label="Clinical visual">
             <VisualStimulus visual={question.visual} languageMode={languageMode} />
           </aside>

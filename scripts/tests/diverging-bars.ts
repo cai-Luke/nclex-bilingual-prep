@@ -22,6 +22,10 @@ assert(simple.includes('data-axis-min="-500"'), "axis minimum must be symmetric 
 assert(simple.includes('data-axis-max="500"'), "axis maximum must be rounded to a clean symmetric bound");
 assert(simple.includes('data-zero-y="123"'), "zero baseline must be exposed for geometry checks");
 assert(!simple.includes('data-role="overlay-line"'), "overlay line must be omitted when overlay is absent");
+const positiveX = simple.match(/data-role="positive-bar" x="([^"]+)"/)?.[1];
+const negativeX = simple.match(/data-role="negative-bar" x="([^"]+)"/)?.[1];
+assert(positiveX !== undefined, "positive bar x position must be inspectable");
+assert(positiveX === negativeX, "positive and negative bars must share the same interval center");
 
 const zeroNegative = renderDivergingBars({
   bins: [{ label: "0900", positive: 100, negative: 0 }],

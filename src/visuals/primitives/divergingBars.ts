@@ -94,11 +94,11 @@ export function renderDivergingBars(input: DivergingBarsInput): string {
 
     if (bin.positive > 0) {
       const barHeight = bin.positive * yScale;
-      elements.push(`<rect data-role="positive-bar" x="${fmt(x - barWidth)}" y="${fmt(baselineY - barHeight)}" width="${fmt(barWidth)}" height="${fmt(barHeight)}" fill="#2563eb" opacity="0.82" rx="2"/>`);
+      elements.push(`<rect data-role="positive-bar" x="${fmt(x - barWidth / 2)}" y="${fmt(baselineY - barHeight)}" width="${fmt(barWidth)}" height="${fmt(barHeight)}" fill="#2563eb" opacity="0.82" rx="2"/>`);
     }
     if (bin.negative > 0) {
       const barHeight = bin.negative * yScale;
-      elements.push(`<rect data-role="negative-bar" x="${fmt(x)}" y="${fmt(baselineY)}" width="${fmt(barWidth)}" height="${fmt(barHeight)}" fill="#64748b" opacity="0.86" rx="2"/>`);
+      elements.push(`<rect data-role="negative-bar" x="${fmt(x - barWidth / 2)}" y="${fmt(baselineY)}" width="${fmt(barWidth)}" height="${fmt(barHeight)}" fill="#64748b" opacity="0.86" rx="2"/>`);
     }
 
     elements.push(`<text x="${fmt(x)}" y="${fmt(height - 18)}" font-family="sans-serif" font-size="11" fill="#475569" text-anchor="middle">${escapeXml(bin.label)}</text>`);

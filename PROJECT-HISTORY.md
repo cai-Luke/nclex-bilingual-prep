@@ -52,6 +52,27 @@ The committed NGN item-type set is complete. Rationale/dyad scoring and an expli
 
 > Milestones dated **2026-06-23 and earlier** are archived in [`Archive/PROJECT-HISTORY-ARCHIVE.md`](Archive/PROJECT-HISTORY-ARCHIVE.md). Only the current arc (2026-06-24 onward) is kept here.
 
+### Standalone I/O Trend Layout and Bar Presentation Fixed (Jul 18)
+
+Implemented [`io_trend_fix.md`](io_trend_fix.md) without changing schema or bank content. Standalone
+`io_trend` questions retain the live two-pane experience but now receive a dedicated 600 px desktop
+visual track; other standalone visual kinds retain the generic 384 px track. The chart and five-column
+table scale without internal horizontal overflow, while the existing constrained-width breakpoint and
+Preview Lab mobile mode stack the visual above the work area.
+
+The diverging-bar primitive now centers intake and output on the same interval x coordinate, with intake
+above and output below the zero baseline. The cumulative-net line, independent right axis, interval
+labels, legend, table, and focus dialog remain intact. Focused geometry tests assert the shared bar
+coordinate. The scoped promoted-visual rebaseline changed only the four `io_trend` hashes and recorded
+unchanged before/after arithmetic with empty self-check errors in
+[`audit/visual-parity-rebaseline-2026-07-19T01-58-42-319Z/receipt.json`](audit/visual-parity-rebaseline-2026-07-19T01-58-42-319Z/receipt.json).
+
+Verification: `npm run test-visuals`, `npm run test:exam-layout`, `npx tsc -b --pretty false`,
+`npm run validate-bank -- banks/*.json`, and `npm run build` passed. Browser smoke at 1280×800,
+1024×800, and the 400 px mobile Preview canvas verified the targeted 600 px desktop pane, zero visual
+or page horizontal overflow, same-center bars, preserved cumulative line/table/enlarge control, the
+stacked fallback, unchanged 384 px `lab_trend` pane, and no console errors.
+
 ### App Update Banner and Build Identity Implemented (Jul 18)
 
 Implemented the passive update flow commissioned by
@@ -84,17 +105,21 @@ Verification: `npm run test:app-update`, `npx tsc -b --pretty false`, `npm run b
 
 ### Direct GPT Case Pilot Commissioned (Jul 18)
 
-Opened the first episodic direct-case order after retirement of the Opus-skeleton pipeline:
-[`GPT-DIRECT-CASE-PILOT-SPEC-2026-07-18.md`](GPT-DIRECT-CASE-PILOT-SPEC-2026-07-18.md). The commission
-requests exactly two unfolding cases in one raw bank, normally 5–6 embedded parts each, while leaving
-the patient narrative, stages, exhibits, part formats, and most prose to GPT-5.6 Sol.
+Opened the first episodic direct-case pilot after retirement of the Opus-skeleton pipeline as two
+isolated one-case producer orders:
+[`GPT-DIRECT-CASE-PILOT-CASE-A-SPEC-2026-07-18.md`](GPT-DIRECT-CASE-PILOT-CASE-A-SPEC-2026-07-18.md)
+and
+[`GPT-DIRECT-CASE-PILOT-CASE-B-SPEC-2026-07-18.md`](GPT-DIRECT-CASE-PILOT-CASE-B-SPEC-2026-07-18.md).
+Each GPT-5.6 Sol instance owns one 5–6-part case, writes its own raw bank under a dedicated ID
+namespace, and has no dependency on or integration responsibility for the other producer's output.
 
-The two primary clinical rooms are evolving intrapartum fetal assessment and acute severe asthma
+The clinical rooms are evolving intrapartum fetal assessment and acute severe asthma
 with serial ABG/bedside respiratory change. Corpus screening found no existing intrapartum fetal-
 monitoring case container but several occupied fetal-monitoring leaf constructs; the respiratory
 brief is fenced away from the existing life-threatening-asthma bowtie, asthma response matrices,
 intubated-status-asthmaticus capnography item, COPD case, and other respiratory-deterioration cases.
-A compact longitudinal ECT brief is the single reserve if one primary is blocked.
+There is no shared reserve or producer-side integration session. A producer that cannot clear its
+assigned premise returns a documented block; any replacement is a later, separate commission.
 
 The commission makes case affordance and cross-part answer leakage hard gates. Because the learner
 can navigate directly to later parts before aggregate submission, the producer must audit every
