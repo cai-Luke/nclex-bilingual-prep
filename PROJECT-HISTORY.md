@@ -77,6 +77,12 @@ The complete table remained exposed in the accessibility tree in ordinary and fo
 pinning recovered the exact 6 h values and guide line, focus retained one 600 px SVG, and Escape restored
 body scroll and focus to the enlarge button. The final browser console was clean.
 
+Focused vitals and exam-layout tests, TypeScript, top-level bank validation, the production build, and
+`git diff --check` passed. `npm run test-visuals` passed from a clean detached checkout of the exact
+code commit, including all 12 kind suites, conformance and registry mechanics, 199 promoted
+parity snapshots, the promoted survey, session sampling, and the rationale-visual-floor survey. The
+existing Vite large-chunk advisory remains unchanged.
+
 ### Mobile Graph Fit-to-Width Pass Implemented (Jul 19)
 
 Implemented
