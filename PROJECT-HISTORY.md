@@ -52,18 +52,19 @@ The committed NGN item-type set is complete. Rationale/dyad scoring and an expli
 
 > Milestones dated **2026-06-23 and earlier** are archived in [`Archive/PROJECT-HISTORY-ARCHIVE.md`](Archive/PROJECT-HISTORY-ARCHIVE.md). Only the current arc (2026-06-24 onward) is kept here.
 
-### Mobile Vitals Helper Compacted (Jul 19)
+### Responsive Vitals Helper Compacted (Jul 19)
 
-Removed the Epic vitals readout panel's desktop minimum height at the mobile breakpoint. The idle
-bilingual helper now hugs its wrapped text instead of reserving space for a populated desktop readout;
-selected-time values continue to determine their own natural height. Desktop sizing and focused-chart
-geometry are unchanged.
+Removed the Epic vitals readout panel's fixed desktop minimum height at every viewport. The idle
+bilingual helper now hugs its wrapped text instead of reserving space for a populated readout;
+selected-time values continue to determine their own natural height. Graph and focused-chart geometry
+are unchanged.
 
-At the 390×844 proof viewport (375 px document client width), the idle panel measured 86.1 px around
-63.3 px of wrapped bilingual text, while a keyboard-selected five-value readout expanded naturally to
-162.9 px. The page remained free of horizontal overflow and the final console was clean. TypeScript,
-the production build, build identity validation, and `git diff --check` passed; the existing Vite
-large-chunk advisory remains unchanged.
+At 1280×720, the idle panel measured 65 px around 42.2 px of bilingual text, while a keyboard-selected
+five-value readout expanded naturally to 113.7 px. At the 390×844 proof viewport (375 px document client
+width), those measurements were 86.1 px around 63.3 px and 162.9 px populated. Both layouts remained
+free of horizontal overflow and the final console was clean. TypeScript, the production build, build
+identity validation, and `git diff --check` passed; the existing Vite large-chunk advisory remains
+unchanged.
 
 ### Unified Vitals Trend Experiment Concluded (Jul 19)
 
