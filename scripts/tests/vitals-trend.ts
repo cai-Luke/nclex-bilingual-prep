@@ -432,7 +432,7 @@ const dualSvg = renderLineChart({
 assert(dualSvg.includes(`cx="156" cy="140"`), "left-axis point must map on the left scale");
 assert(dualSvg.includes(`cx="444" cy="195"`), "right-axis point must map on the right scale");
 
-// --- Epic A/B arm -------------------------------------------------
+// --- Unified production chart ------------------------------------
 for (const fixture of [canonical, forcingSix, fullSeven, hrTemp, {
   kind: "vitals_trend",
   population: "peds_child",

@@ -4,16 +4,14 @@ import type {
   CaseSubQuestion,
   Question,
   QuestionVisual,
-  VitalsChartStyle,
 } from "./types";
 
 // Standalone visual kinds that render in the exam-style split layout.
 // Excluded by design: rhythm_strip, capnography, fetal_monitoring, and mar —
 // their geometry or density does not fit the narrow pane. io_record rejoined
 // after compacting its SVG geometry (see visuals/kinds/io_record/index.ts).
-// vitals_trend is variant-aware: the 600x360 Epic arm re-enters after measured
-// 1280x727/800 proof, while the 600x1108 panels arm remains full-width because
-// its sticky split stranded the flowsheet below the reachable scroll range.
+// vitals_trend uses the measured 600px unified graph plus responsive values
+// table; it re-entered after 1280x727/800 proof.
 // io_trend joined after the U11 proof render measured 600x452 (4 intervals)
 // and 600x504 (6 intervals), within the measured split envelope. lab_trend
 // remains in the allowlist for two-series payloads, while its one-series shape
@@ -32,10 +30,8 @@ export const STANDALONE_SPLIT_VISUAL_KINDS: ReadonlySet<QuestionVisual["kind"]> 
 
 export const usesStandaloneVisualSplit = (
   question: Question,
-  vitalsChartStyle?: VitalsChartStyle,
 ): boolean => {
   if (question.itemType === "case_study" || question.visual === undefined) return false;
-  if (question.visual.kind === "vitals_trend") return vitalsChartStyle === "epic";
   if (question.visual.kind === "lab_trend" && question.visual.series.length === 1) return false;
   return STANDALONE_SPLIT_VISUAL_KINDS.has(question.visual.kind);
 };
