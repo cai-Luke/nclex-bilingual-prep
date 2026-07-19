@@ -52,6 +52,39 @@ The committed NGN item-type set is complete. Rationale/dyad scoring and an expli
 
 > Milestones dated **2026-06-23 and earlier** are archived in [`Archive/PROJECT-HISTORY-ARCHIVE.md`](Archive/PROJECT-HISTORY-ARCHIVE.md). Only the current arc (2026-06-24 onward) is kept here.
 
+### Mobile Graph Fit-to-Width Pass Implemented (Jul 19)
+
+Implemented
+[`MOBILE-GRAPH-FIT-TO-WIDTH-CODEX-SPEC-2026-07-19.md`](MOBILE-GRAPH-FIT-TO-WIDTH-CODEX-SPEC-2026-07-19.md)
+as a mobile presentation allocation, not an architectural reversal. Ordinary mobile Epic vitals,
+unit-pure vitals panels, and one-series lab trends now scale their existing deterministic SVGs to the
+question column. `io_trend` already fit responsively and gains only the reclaimed shell width. Expanded
+Epic, panel-vitals, and lab views retain the 600 px design width and internal horizontal inspection.
+Calibrated `rhythm_strip`, `capnography`, and `fetal_monitoring` behavior is deliberately unchanged.
+
+At the 390×844 proof viewport (375 px document client width), the forcing Epic chart changed from a
+275→600 px internal scroller to a 313→313 px fitted surface; its embedded thyroid-storm exhibit changed
+from 213→600 px to 252→252 px. The one-series potassium lab chart changed from 273→600 px to 311→311 px,
+and the panel-vitals composite from 273→600 px to 311→311 px. The existing I/O trend expanded from
+273 px to 311 px without introducing overflow. A rhythm-strip control remained 576 px inside a 311 px
+native-width scroller. No surface introduced page-level horizontal overflow. At 1280×800, the Epic
+standalone split remained 600 px + 537.8 px with the chart at its unchanged 600 px design width.
+
+The Epic overlay still scales with the SVG: timepoint and legend buttons align with their geometry,
+Enter/Space and click/tap pin exact readouts without opening focus, and BP emphasis covers both pressure
+series. The mounted-SVG synchronization now runs after every interaction commit so deterministic
+inner-HTML recommits cannot erase guide/emphasis attributes. Overlay controls stop only their activation
+keys, allowing Escape to reach the focus dialog. Browser proof covered exact 6 h and focused 4 h
+readouts, guide placement, BP opacity, one-SVG mounting, 600 px focused geometry, Close/Escape/backdrop
+dismissal, focus restoration, Preview Lab mobile stacking, the embedded exhibit, lab/panels focus, the
+unchanged tracing scroller, desktop parity, and a clean cold-load console.
+
+Focused vitals and exam-layout tests, bank validation, TypeScript, the production build, and
+`git diff --check` passed locally. `npm run test-visuals` passed in a detached clean checkout of the exact
+implementation commit, including all kind tests, conformance, registry mechanics, 199 promoted parity
+snapshots, promoted survey, session sampling, and the rationale-visual-floor survey. The existing Vite
+large-chunk advisory remains unchanged.
+
 ### Epic-Style Vitals Trend A/B Rendering Implemented (Jul 19)
 
 Implemented

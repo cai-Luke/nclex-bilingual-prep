@@ -1317,24 +1317,30 @@ h4 {
 
 @media (max-width: 780px) {
   .rhythm-strip-svg.vis-vitals_trend:not(.vis-vitals_trend-epic) {
-    overflow-x: auto;
+    overflow-x: visible;
   }
 
   .rhythm-strip-svg.vis-vitals_trend:not(.vis-vitals_trend-epic) svg {
+    width: 100%;
+    min-width: 0;
+    max-width: 50rem;
+    margin-inline: auto;
+  }
+
+  .visual-focus-body .rhythm-strip-svg.vis-vitals_trend:not(.vis-vitals_trend-epic) svg {
     min-width: 37.5rem;
-    max-width: none;
-    margin-inline: 0;
   }
 
   .vitals-epic-readout dl {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .vitals-epic-focus-dialog .vitals-epic-stage {
-    min-width: 37.5rem;
+  .vitals-epic-stage {
+    width: 100%;
+    min-width: 0;
   }
 
-  .vitals-epic-stage {
+  .vitals-epic-focus-dialog .vitals-epic-stage {
     min-width: 37.5rem;
   }
 }
@@ -2173,10 +2179,17 @@ h4 {
 
 @media (max-width: 780px) {
   .rhythm-strip-svg.vis-lab_trend.vis-lab_trend-single-series {
-    overflow-x: auto;
+    overflow-x: visible;
   }
 
   .rhythm-strip-svg.vis-lab_trend.vis-lab_trend-single-series svg {
+    width: 100%;
+    min-width: 0;
+    max-width: 50rem;
+    margin-inline: auto;
+  }
+
+  .visual-focus-body .rhythm-strip-svg.vis-lab_trend.vis-lab_trend-single-series svg {
     min-width: 37.5rem;
     max-width: none;
     margin-inline: 0;
@@ -2990,6 +3003,19 @@ h4 {
 }
 
 @media (max-width: 780px) {
+  main,
+  .app-shell.wide-main main {
+    width: min(100%, calc(100% - 1rem));
+  }
+
+  .preview-lab-body {
+    padding: 0.65rem;
+  }
+
+  .preview-lab-body .question-card {
+    padding: 0.75rem 0.65rem;
+  }
+
   .app-shell.session-active {
     grid-template-rows: 1fr;
   }
