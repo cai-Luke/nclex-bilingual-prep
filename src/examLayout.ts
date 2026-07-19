@@ -10,12 +10,13 @@ import type {
 // Excluded by design: rhythm_strip, capnography, fetal_monitoring, and mar —
 // their geometry or density does not fit the narrow pane. io_record rejoined
 // after compacting its SVG geometry (see visuals/kinds/io_record/index.ts).
+// vitals_trend left the allowlist after its 600x1108 composite proof at
+// 1280x727/800 showed that the sticky split stranded the flowsheet below the
+// page's reachable scroll range; it now uses the existing full-width route.
 // io_trend joined after the U11 proof render measured 600x452 (4 intervals)
-// and 600x504 (6 intervals) — squarer than the already-allowed 600x300
-// vitals_trend/lab_trend charts, so no density cap is needed (DECISIONS.md
+// and 600x504 (6 intervals), within the measured split envelope (DECISIONS.md
 // principle 23).
 export const STANDALONE_SPLIT_VISUAL_KINDS: ReadonlySet<QuestionVisual["kind"]> = new Set([
-  "vitals_trend",
   "lab_trend",
   "medication_label",
   "device_screen",

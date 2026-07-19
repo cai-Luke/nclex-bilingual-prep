@@ -9,6 +9,7 @@ export interface ChartSeries {
   /** optional shaded normal band for THIS series, in y-units */
   referenceBand?: { low: number; high: number };
   styleRole?: string;       // maps to a theme color (e.g., 'primary', 'secondary')
+  strokeDash?: boolean;     // dashed polyline/legend marker for monochrome distinction
 }
 
 export interface LineChartInput {
@@ -18,6 +19,7 @@ export interface LineChartInput {
   yAxisRight?: { label: string; min: number; max: number; ticks?: number[] };
   width?: number;
   height?: number;
+  showLegend?: boolean;
 }
 
 const colorForRole = (role?: string) => {
@@ -131,7 +133,8 @@ export function renderLineChart(input: LineChartInput): string {
     const color = colorForRole(s.styleRole);
     
     const svgPts = s.points.map(p => `${fmt(mapX(p.x))},${fmt(mapY(p.y, s.axis))}`).join(" ");
-    elements.push(`<polyline points="${svgPts}" fill="none" stroke="${color}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>`);
+    const strokeDash = s.strokeDash ? ` stroke-dasharray="6 4"` : "";
+    elements.push(`<polyline points="${svgPts}" fill="none" stroke="${color}" stroke-width="2"${strokeDash} stroke-linecap="round" stroke-linejoin="round"/>`);
     
     s.points.forEach(p => {
       elements.push(`<circle cx="${fmt(mapX(p.x))}" cy="${fmt(mapY(p.y, s.axis))}" r="4" fill="#ffffff" stroke="${color}" stroke-width="2"/>`);
@@ -139,15 +142,18 @@ export function renderLineChart(input: LineChartInput): string {
   });
   
   // 4. Draw Legend
-  let legendX = marginLeft;
-  const legendY = 15;
-  input.series.forEach(s => {
-    const color = colorForRole(s.styleRole);
-    elements.push(`<line x1="${fmt(legendX)}" y1="${fmt(legendY - 4)}" x2="${fmt(legendX + 16)}" y2="${fmt(legendY - 4)}" stroke="${color}" stroke-width="2"/>`);
-    elements.push(`<circle cx="${fmt(legendX + 8)}" cy="${fmt(legendY - 4)}" r="3" fill="#ffffff" stroke="${color}" stroke-width="2"/>`);
-    elements.push(`<text x="${fmt(legendX + 22)}" y="${fmt(legendY)}" font-family="sans-serif" font-size="12" fill="#334155" text-anchor="start">${escapeXml(s.label)} (${escapeXml(s.unit)})</text>`);
-    legendX += 100; // rough spacing
-  });
+  if (input.showLegend !== false) {
+    let legendX = marginLeft;
+    const legendY = 15;
+    input.series.forEach(s => {
+      const color = colorForRole(s.styleRole);
+      const strokeDash = s.strokeDash ? ` stroke-dasharray="6 4"` : "";
+      elements.push(`<line x1="${fmt(legendX)}" y1="${fmt(legendY - 4)}" x2="${fmt(legendX + 16)}" y2="${fmt(legendY - 4)}" stroke="${color}" stroke-width="2"${strokeDash}/>`);
+      elements.push(`<circle cx="${fmt(legendX + 8)}" cy="${fmt(legendY - 4)}" r="3" fill="#ffffff" stroke="${color}" stroke-width="2"/>`);
+      elements.push(`<text x="${fmt(legendX + 22)}" y="${fmt(legendY)}" font-family="sans-serif" font-size="12" fill="#334155" text-anchor="start">${escapeXml(s.label)} (${escapeXml(s.unit)})</text>`);
+      legendX += 100; // rough spacing
+    });
+  }
   
   return `<g class="line-chart">${elements.join("\n")}</g>`;
 }
