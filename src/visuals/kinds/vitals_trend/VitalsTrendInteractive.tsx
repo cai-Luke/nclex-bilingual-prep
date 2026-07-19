@@ -2,6 +2,7 @@ import {
   useCallback,
   useEffect,
   useId,
+  useLayoutEffect,
   useMemo,
   useRef,
   useState,
@@ -72,7 +73,9 @@ function EpicVitalsGraphic({
     setInteraction((current) => transitionVitalsTrendInteraction(current, event));
   }, []);
 
-  useEffect(() => {
+  // React may recommit the deterministic innerHTML when pin state changes even
+  // if the resolved hover/pin target is unchanged, so resync after every commit.
+  useLayoutEffect(() => {
     const stage = stageRef.current;
     if (!stage) return;
     stage.querySelectorAll<SVGGElement>("[data-vital]").forEach((group) => {
@@ -89,7 +92,7 @@ function EpicVitalsGraphic({
     guide.setAttribute("x1", String(x));
     guide.setAttribute("x2", String(x));
     guide.setAttribute("opacity", "1");
-  }, [activeLegend, activeTimepoint, model]);
+  });
 
   const handleLegendEnter = (entry: EpicVitalsLegendEntry) =>
     dispatch({ type: "legend-enter", key: entry.key });
@@ -137,8 +140,8 @@ function EpicVitalsGraphic({
                   dispatch({ type: "legend-activate", key: entry.key });
                 }}
                 onKeyDown={(event) => {
-                  stopKeyboardPropagation(event);
                   if (event.key !== "Enter" && event.key !== " ") return;
+                  stopKeyboardPropagation(event);
                   event.preventDefault();
                   dispatch({ type: "legend-activate", key: entry.key });
                 }}
@@ -186,8 +189,8 @@ function EpicVitalsGraphic({
                   dispatch({ type: "timepoint-activate", index: timepoint.index });
                 }}
                 onKeyDown={(event) => {
-                  stopKeyboardPropagation(event);
                   if (event.key !== "Enter" && event.key !== " ") return;
+                  stopKeyboardPropagation(event);
                   event.preventDefault();
                   dispatch({ type: "timepoint-activate", index: timepoint.index });
                 }}
