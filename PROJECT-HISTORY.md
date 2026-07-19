@@ -89,10 +89,9 @@ The fixed Epic snapshot
 pins byte-sorted identities and SVG hashes for all 29 promoted vitals artifacts. Focused vitals tests,
 `npm run test:exam-layout`, `npm run validate-bank -- banks/*.json`, `npm run audit`,
 `npx tsc -b --pretty false`, `npm run census && npm run census:check`, `npm run build`, and
-`git diff --check` passed. `npm run test-visuals` passed every visual-kind, conformance, registry,
-promoted-parity, survey, and session-sampler step before its final rationale-floor survey stopped on the
-pre-existing raw Pilot Case B bilingual dropdown-placeholder defect; the raw file and failing survey
-inputs are unchanged from baseline. The existing Vite large-chunk advisory remains unchanged.
+`git diff --check` passed locally. GitHub's clean-checkout Promotion Gate also passed, including the full
+`npm run test-visuals` suite, promotion audit, sweep/schema/staging/coverage tests, and census-drift check.
+The existing Vite large-chunk advisory remains unchanged.
 
 ### Shape-Aware Sparse Visual Layout Implemented (Jul 19)
 
