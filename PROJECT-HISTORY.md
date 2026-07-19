@@ -52,6 +52,36 @@ The committed NGN item-type set is complete. Rationale/dyad scoring and an expli
 
 > Milestones dated **2026-06-23 and earlier** are archived in [`Archive/PROJECT-HISTORY-ARCHIVE.md`](Archive/PROJECT-HISTORY-ARCHIVE.md). Only the current arc (2026-06-24 onward) is kept here.
 
+### App Update Banner and Build Identity Implemented (Jul 18)
+
+Implemented the passive update flow commissioned by
+[`APP-UPDATE-BANNER-CODEX-SPEC-2026-07-18.md`](APP-UPDATE-BANNER-CODEX-SPEC-2026-07-18.md).
+Each Vite process now computes one build identity, embeds it in the generated `index.html`, and emits
+the same object as `dist/build-info.json`. The production build ends with a deterministic validator
+that runs after the existing `file://` rewrite and fails missing, malformed, empty, invalid-timestamp,
+or mismatched HTML/JSON identities.
+
+Production HTTP(S) pages check the relative same-origin marker on mount, window focus, and return to
+a visible tab. Checks use a cache-busting query and `cache: "no-store"`, are throttled to one per
+minute, do not overlap, stop fetching after a changed identity is latched, and treat offline,
+non-OK, aborted, or malformed responses silently. Vite development, `file:`, and unsupported
+protocols remain ineligible. No service worker, bank synchronization, storage mutation, cache
+clearing, or runtime backend was added.
+
+The learner surface is one bilingual, non-modal status banner in the global content flow with a
+same-page refresh action. Settings now shows a low-prominence embedded App build / 应用版本 diagnostic.
+Production-HTTP browser smoke covered a same-build control, an old HTML/new marker mismatch, a full
+artifact replacement and refresh into the new identity, continued answer interaction while the
+banner was present, resumable session state after refresh, a missing-marker failure with no console
+error, and desktop/mobile light/dark presentation. The available browser controller blocks direct
+`file://` navigation by policy and keeps controlled tabs logically visible, so those two mechanics
+were not overstated as browser proof: final file-artifact structure and zero-fetch `file:`
+eligibility, plus mount/focus/visibility registration and throttling, are covered deterministically.
+
+Verification: `npm run test:app-update`, `npx tsc -b --pretty false`, `npm run build` (including
+`validate:build-info`), final distribution metadata/script inspection, browser smoke at 390×844 and
+1441×1267, and `git diff --check` passed. The existing Vite large-chunk advisory remains unchanged.
+
 ### Direct GPT Case Pilot Commissioned (Jul 18)
 
 Opened the first episodic direct-case order after retirement of the Opus-skeleton pipeline:
