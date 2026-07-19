@@ -4,15 +4,16 @@ import type {
   CaseSubQuestion,
   Question,
   QuestionVisual,
+  VitalsChartStyle,
 } from "./types";
 
 // Standalone visual kinds that render in the exam-style split layout.
 // Excluded by design: rhythm_strip, capnography, fetal_monitoring, and mar —
 // their geometry or density does not fit the narrow pane. io_record rejoined
 // after compacting its SVG geometry (see visuals/kinds/io_record/index.ts).
-// vitals_trend left the allowlist after its 600x1108 composite proof at
-// 1280x727/800 showed that the sticky split stranded the flowsheet below the
-// page's reachable scroll range; it now uses the existing full-width route.
+// vitals_trend is variant-aware: the 600x360 Epic arm re-enters after measured
+// 1280x727/800 proof, while the 600x1108 panels arm remains full-width because
+// its sticky split stranded the flowsheet below the reachable scroll range.
 // io_trend joined after the U11 proof render measured 600x452 (4 intervals)
 // and 600x504 (6 intervals), within the measured split envelope. lab_trend
 // remains in the allowlist for two-series payloads, while its one-series shape
@@ -26,13 +27,18 @@ export const STANDALONE_SPLIT_VISUAL_KINDS: ReadonlySet<QuestionVisual["kind"]> 
   "injection_site",
   "io_record",
   "io_trend",
+  "vitals_trend",
 ]);
 
-export const usesStandaloneVisualSplit = (question: Question): boolean =>
-  question.itemType !== "case_study" &&
-  question.visual !== undefined &&
-  !(question.visual.kind === "lab_trend" && question.visual.series.length === 1) &&
-  STANDALONE_SPLIT_VISUAL_KINDS.has(question.visual.kind);
+export const usesStandaloneVisualSplit = (
+  question: Question,
+  vitalsChartStyle?: VitalsChartStyle,
+): boolean => {
+  if (question.itemType === "case_study" || question.visual === undefined) return false;
+  if (question.visual.kind === "vitals_trend") return vitalsChartStyle === "epic";
+  if (question.visual.kind === "lab_trend" && question.visual.series.length === 1) return false;
+  return STANDALONE_SPLIT_VISUAL_KINDS.has(question.visual.kind);
+};
 
 // Stage visibility is cumulative and fail-open so the UI never hides clinically
 // necessary chart data when staged-case metadata is absent or unresolved.

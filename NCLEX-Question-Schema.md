@@ -347,7 +347,7 @@ Validation rules:
 - `selfCheck` reads `question.meta.expected_trend` (snake_case array) and verifies each entry's direction holds over its declared window.
 - `caption.en`, if caption is present, is required. `caption.zh` is optional but must be non-empty if present.
 
-The renderer presents the existing series as unit-pure hemodynamic, respiratory/oxygenation, and temperature panels, followed by a renderer-derived flowsheet table from those same values. When both unit families coexist, pressure is left/HR right and RR is left/SpO₂ right; every axis names its unit, DBP is dashed, and adult reference bands appear only in a panel containing exactly one series. This is presentation-only: the authored `vitals_trend` schema shape is unchanged.
+The application can present this unchanged authored payload through either a user-selected Epic-style unified chart or the preserved unit-pure panels-plus-flowsheet view. The Epic arm uses one shared numeric axis for multi-series records, a fitted scale and adult reference band for eligible one-series records, grouped SBP/DBP styling, an exact timestamp readout, and a hidden screen-reader/print table. The panels arm retains the hemodynamic, respiratory/oxygenation, and temperature panels and renderer-derived flowsheet described by its committed parity baseline. This A/B selection is presentation-only: `vitalsChartStyle` changes renderer output, not the authored `vitals_trend` schema shape.
 
 ### Kind: `lab_trend`
 

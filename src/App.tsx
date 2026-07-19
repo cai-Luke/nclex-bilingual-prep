@@ -138,6 +138,7 @@ import type {
   TextSizeMode,
   ThemeMode,
   TranslationRevealEvent,
+  VitalsChartStyle,
 } from "./types";
 
 type View =
@@ -1020,6 +1021,7 @@ export default function App() {
             records={allRecords}
             initialIds={devStartup.requestedIds}
             initialLanguageMode={settings.languageMode}
+            vitalsChartStyle={settings.vitalsChartStyle}
           />
         )}
 
@@ -1038,6 +1040,7 @@ export default function App() {
             progress={progress}
             flags={flags}
             voiceEnabled={settings.voiceEnabled}
+            vitalsChartStyle={settings.vitalsChartStyle}
             onAnswer={updateAnswer}
             onSubmit={submitCurrent}
             onSkip={skipCurrent}
@@ -1062,6 +1065,7 @@ export default function App() {
             onToggleFlag={toggleFlag}
             onToggleLanguageMiss={toggleLanguageMiss}
             voiceEnabled={settings.voiceEnabled}
+            vitalsChartStyle={settings.vitalsChartStyle}
             defaultLanguageMode={session.languageMode}
             onHome={() => setView(sessionReturnView)}
             homeLabel={sessionReturnView === "library" ? "Back to Library" : "Home"}
@@ -1942,6 +1946,19 @@ function SettingsView({
           </select>
         </label>
         <label>
+          <span>Vitals chart style / <span lang="zh-Hans">生命体征图表样式</span></span>
+          <select
+            value={settings.vitalsChartStyle}
+            onChange={(event) => updateSettings({
+              ...settings,
+              vitalsChartStyle: event.target.value as VitalsChartStyle,
+            })}
+          >
+            <option value="epic">Epic (unified) / Epic（统一图）</option>
+            <option value="panels">Panels / 分面图</option>
+          </select>
+        </label>
+        <label>
           <span>Default mode</span>
           <select
             value={settings.defaultMode}
@@ -2011,7 +2028,8 @@ type PreviewBucket = {
   matches: (question: Question) => boolean;
 };
 
-const previewSplitKinds: QuestionVisual["kind"][] = Array.from(STANDALONE_SPLIT_VISUAL_KINDS);
+const previewSplitKinds: QuestionVisual["kind"][] = Array.from(STANDALONE_SPLIT_VISUAL_KINDS)
+  .filter((kind) => kind !== "vitals_trend");
 
 const previewFullWidthKinds: QuestionVisual["kind"][] = [
   "rhythm_strip",
@@ -2039,6 +2057,12 @@ const previewBuckets: PreviewBucket[] = [
     group: "Standalone visual exclusions / full-width candidates",
     matches: (question: Question) => question.itemType !== "case_study" && question.visual?.kind === kind,
   })),
+  {
+    id: "vitals-trend-variants",
+    label: "Vitals trend — variant comparison",
+    group: "Visual A/B experiments",
+    matches: (question) => question.itemType !== "case_study" && question.visual?.kind === "vitals_trend",
+  },
   {
     id: "ordered_response",
     label: "Ordered response",
@@ -2276,6 +2300,7 @@ function PreviewLab({
                 submitted={selectedSubmitted}
                 result={result}
                 languageMode={settings.languageMode}
+                vitalsChartStyle={settings.vitalsChartStyle}
                 flagged={false}
                 voiceEnabled={settings.voiceEnabled}
                 onAnswer={updateAnswer}
@@ -2559,10 +2584,12 @@ function DeveloperReviewConsole({
   records,
   initialIds,
   initialLanguageMode,
+  vitalsChartStyle,
 }: {
   records: QuestionRecord[];
   initialIds: string[];
   initialLanguageMode: LanguageMode;
+  vitalsChartStyle: VitalsChartStyle;
 }) {
   const reviewIndex = useMemo(() => buildQuestionReviewIndex(records), [records]);
   const [idInput, setIdInput] = useState(initialIds.join("\n"));
@@ -2837,6 +2864,7 @@ function DeveloperReviewConsole({
                 submitted
                 result
                 languageMode={languageMode}
+                vitalsChartStyle={vitalsChartStyle}
                 flagged={false}
                 voiceEnabled={false}
                 onAnswer={() => undefined}
@@ -2936,6 +2964,7 @@ function SessionView({
   flags,
   languageMisses,
   voiceEnabled,
+  vitalsChartStyle,
   onAnswer,
   onSubmit,
   onSkip,
@@ -2954,6 +2983,7 @@ function SessionView({
   flags: Record<string, QuestionFlag>;
   languageMisses: Record<string, LanguageMiss>;
   voiceEnabled: boolean;
+  vitalsChartStyle: VitalsChartStyle;
   onAnswer: (questionId: string, answer: AnswerState) => void;
   onSubmit: () => void;
   onSkip: () => void;
@@ -3052,6 +3082,7 @@ function SessionView({
         submitted={submitted}
         result={result}
         languageMode={session.languageMode}
+        vitalsChartStyle={vitalsChartStyle}
         progress={progress[question.id]}
         flagged={flags[question.id]?.flagged ?? false}
         languageMissed={Boolean(languageMisses[question.id])}
@@ -3107,6 +3138,7 @@ function QuestionCard({
   submitted,
   result,
   languageMode,
+  vitalsChartStyle,
   progress,
   flagged,
   languageMissed = false,
@@ -3135,6 +3167,7 @@ function QuestionCard({
   submitted: boolean;
   result?: boolean;
   languageMode: LanguageMode;
+  vitalsChartStyle: VitalsChartStyle;
   progress?: QuestionProgress;
   flagged: boolean;
   languageMissed?: boolean;
@@ -3205,9 +3238,11 @@ function QuestionCard({
     onToggleLanguageMiss &&
     collectGlossarySources(question).length > 0;
   const showsStandaloneVisualSplit =
-    standaloneVisualLayout !== "stacked" && usesStandaloneVisualSplit(question);
+    standaloneVisualLayout !== "stacked" && usesStandaloneVisualSplit(question, vitalsChartStyle);
   const usesStandaloneIoTrendLayout =
     showsStandaloneVisualSplit && question.visual?.kind === "io_trend";
+  const usesStandaloneEpicVitalsLayout =
+    showsStandaloneVisualSplit && question.visual?.kind === "vitals_trend" && vitalsChartStyle === "epic";
   useEffect(() => {
     questionLoadedAtRef.current = Date.now();
     revealCountRef.current = 0;
@@ -3288,6 +3323,7 @@ function QuestionCard({
         answer={answer}
         submitted={submitted}
         languageMode={languageMode}
+        vitalsChartStyle={vitalsChartStyle}
         voiceEnabled={voiceEnabled}
         onTerm={handleTermSelect}
         onAnswer={onAnswer}
@@ -3342,7 +3378,14 @@ function QuestionCard({
         </div>
       )}
 
-      {submitted && <RationalePanel question={question} voiceEnabled={voiceEnabled} languageMode={languageMode} />}
+      {submitted && (
+        <RationalePanel
+          question={question}
+          voiceEnabled={voiceEnabled}
+          languageMode={languageMode}
+          vitalsChartStyle={vitalsChartStyle}
+        />
+      )}
 
       {(showTranslateAll || (submitted && rescuePrompt)) && (
         <div className="post-rationale-actions">
@@ -3383,16 +3426,16 @@ function QuestionCard({
 
       {showsStandaloneVisualSplit ? (
         <div
-          className={`exam-split-layout standalone-visual-layout ${usesStandaloneIoTrendLayout ? "standalone-io-trend-layout" : ""}`}
+          className={`exam-split-layout standalone-visual-layout ${usesStandaloneIoTrendLayout ? "standalone-io-trend-layout" : ""} ${usesStandaloneEpicVitalsLayout ? "standalone-epic-vitals-layout" : ""}`}
         >
           <aside className="standalone-visual-pane" aria-label="Clinical visual">
-            <VisualStimulus visual={question.visual} languageMode={languageMode} />
+            <VisualStimulus visual={question.visual} languageMode={languageMode} vitalsChartStyle={vitalsChartStyle} />
           </aside>
           <div className="standalone-work-pane">{trackedAnswerBody}</div>
         </div>
       ) : (
         <>
-          <VisualStimulus visual={question.visual} languageMode={languageMode} />
+          <VisualStimulus visual={question.visual} languageMode={languageMode} vitalsChartStyle={vitalsChartStyle} />
           {trackedAnswerBody}
         </>
       )}
@@ -3405,6 +3448,7 @@ function QuestionAnswerControl({
   answer,
   submitted,
   languageMode,
+  vitalsChartStyle,
   voiceEnabled,
   onTerm,
   onAnswer,
@@ -3422,6 +3466,7 @@ function QuestionAnswerControl({
   answer: AnswerState;
   submitted: boolean;
   languageMode: LanguageMode;
+  vitalsChartStyle: VitalsChartStyle;
   voiceEnabled: boolean;
   onTerm: TermSelectHandler;
   onAnswer: (answer: AnswerState) => void;
@@ -3505,6 +3550,7 @@ function QuestionAnswerControl({
         answer={answer}
         submitted={submitted}
         languageMode={languageMode}
+        vitalsChartStyle={vitalsChartStyle}
         voiceEnabled={voiceEnabled}
         onTerm={onTerm}
         onAnswer={onAnswer}
@@ -4143,6 +4189,7 @@ function CaseStudyControl({
   answer,
   submitted,
   languageMode,
+  vitalsChartStyle,
   voiceEnabled,
   onTerm,
   onAnswer,
@@ -4160,6 +4207,7 @@ function CaseStudyControl({
   answer: AnswerState;
   submitted: boolean;
   languageMode: LanguageMode;
+  vitalsChartStyle: VitalsChartStyle;
   voiceEnabled: boolean;
   onTerm: TermSelectHandler;
   onAnswer: (answer: AnswerState) => void;
@@ -4241,6 +4289,7 @@ function CaseStudyControl({
         caseAnswers={caseAnswers}
         submitted={submitted}
         languageMode={languageMode}
+        vitalsChartStyle={vitalsChartStyle}
         voiceEnabled={voiceEnabled}
         focusedPartId={focusedPartId}
         stagesOverride={controlledPartIsValid || showAllStages ? visibleStages : undefined}
@@ -4257,6 +4306,7 @@ function CaseStudyControl({
         question={question}
         stages={visibleStages}
         languageMode={languageMode}
+        vitalsChartStyle={vitalsChartStyle}
         onTerm={onTerm}
       />
 
@@ -4270,6 +4320,7 @@ function CaseStudyControl({
             answer={caseAnswers[caseQuestion.id] ?? getInitialAnswer(caseQuestion)}
             submitted={submitted}
             languageMode={languageMode}
+            vitalsChartStyle={vitalsChartStyle}
             voiceEnabled={voiceEnabled}
             focused={focusedPartId === caseQuestion.id}
             hidden={caseQuestion.id !== activeQuestion?.id}
@@ -4309,6 +4360,7 @@ function CaseStudyStackedLayout({
   caseAnswers,
   submitted,
   languageMode,
+  vitalsChartStyle,
   voiceEnabled,
   focusedPartId,
   stagesOverride,
@@ -4320,6 +4372,7 @@ function CaseStudyStackedLayout({
   caseAnswers: Record<string, AnswerState>;
   submitted: boolean;
   languageMode: LanguageMode;
+  vitalsChartStyle: VitalsChartStyle;
   voiceEnabled: boolean;
   focusedPartId?: string;
   stagesOverride?: Extract<Question, { itemType: "case_study" }>["caseStudy"]["stages"];
@@ -4333,6 +4386,7 @@ function CaseStudyStackedLayout({
         question={question}
         stages={stagesOverride ?? question.caseStudy.stages ?? []}
         languageMode={languageMode}
+        vitalsChartStyle={vitalsChartStyle}
         onTerm={onTerm}
       />
       <div className="case-question-list">
@@ -4345,6 +4399,7 @@ function CaseStudyStackedLayout({
             answer={caseAnswers[caseQuestion.id] ?? getInitialAnswer(caseQuestion)}
             submitted={submitted}
             languageMode={languageMode}
+            vitalsChartStyle={vitalsChartStyle}
             voiceEnabled={voiceEnabled}
             focused={focusedPartId === caseQuestion.id}
             onTerm={onTerm}
@@ -4361,11 +4416,13 @@ function CaseChartPane({
   question,
   stages,
   languageMode,
+  vitalsChartStyle,
   onTerm,
 }: {
   question: Extract<Question, { itemType: "case_study" }>;
   stages: Extract<Question, { itemType: "case_study" }>["caseStudy"]["stages"];
   languageMode: LanguageMode;
+  vitalsChartStyle: VitalsChartStyle;
   onTerm: TermSelectHandler;
 }) {
   return (
@@ -4394,7 +4451,14 @@ function CaseChartPane({
           <h3>Client record</h3>
           <div className="case-exhibits">
             {question.caseStudy.exhibits.map((exhibit) => (
-              <CaseExhibit key={exhibit.id} exhibit={exhibit} languageMode={languageMode} glossary={question.glossary} onTerm={onTerm} />
+              <CaseExhibit
+                key={exhibit.id}
+                exhibit={exhibit}
+                languageMode={languageMode}
+                vitalsChartStyle={vitalsChartStyle}
+                glossary={question.glossary}
+                onTerm={onTerm}
+              />
             ))}
           </div>
         </section>
@@ -4432,7 +4496,14 @@ function CaseChartPane({
               {stage.exhibits.length > 0 && (
                 <div className="case-exhibits">
                   {stage.exhibits.map((exhibit) => (
-                    <CaseExhibit key={exhibit.id} exhibit={exhibit} languageMode={languageMode} glossary={question.glossary} onTerm={onTerm} />
+                    <CaseExhibit
+                      key={exhibit.id}
+                      exhibit={exhibit}
+                      languageMode={languageMode}
+                      vitalsChartStyle={vitalsChartStyle}
+                      glossary={question.glossary}
+                      onTerm={onTerm}
+                    />
                   ))}
                 </div>
               )}
@@ -4515,6 +4586,7 @@ function CaseActivePart({
   answer,
   submitted,
   languageMode,
+  vitalsChartStyle,
   voiceEnabled,
   focused,
   hidden = false,
@@ -4528,6 +4600,7 @@ function CaseActivePart({
   answer: AnswerState;
   submitted: boolean;
   languageMode: LanguageMode;
+  vitalsChartStyle: VitalsChartStyle;
   voiceEnabled: boolean;
   focused: boolean;
   hidden?: boolean;
@@ -4572,7 +4645,11 @@ function CaseActivePart({
           <span className={complete ? "type-pill" : "missed-pill"}>{complete ? "Complete" : "Incomplete"}</span>
         )}
       </div>
-      <VisualStimulus visual={caseQuestion.visual} languageMode={languageMode} />
+      <VisualStimulus
+        visual={caseQuestion.visual}
+        languageMode={languageMode}
+        vitalsChartStyle={vitalsChartStyle}
+      />
       <div className="stem-row">
         <BilingualText
           pair={caseQuestion.stem}
@@ -4590,11 +4667,20 @@ function CaseActivePart({
         answer={answer}
         submitted={submitted}
         languageMode={languageMode}
+        vitalsChartStyle={vitalsChartStyle}
         voiceEnabled={voiceEnabled}
         onTerm={onTerm}
         onAnswer={onAnswer}
       />
-      {submitted && <RationalePanel question={caseQuestion} title="Part rationale" voiceEnabled={voiceEnabled} languageMode={languageMode} />}
+      {submitted && (
+        <RationalePanel
+          question={caseQuestion}
+          title="Part rationale"
+          voiceEnabled={voiceEnabled}
+          languageMode={languageMode}
+          vitalsChartStyle={vitalsChartStyle}
+        />
+      )}
       {submitted && rescuePrompt && <GptRescueButton prompt={rescuePrompt} />}
     </section>
   );
@@ -4608,11 +4694,13 @@ function CaseActivePart({
 function CaseExhibit({
   exhibit,
   languageMode,
+  vitalsChartStyle,
   glossary,
   onTerm,
 }: {
   exhibit: CaseStudyExhibit;
   languageMode: LanguageMode;
+  vitalsChartStyle: VitalsChartStyle;
   glossary: GlossaryTerm[];
   onTerm: TermSelectHandler;
 }) {
@@ -4626,7 +4714,11 @@ function CaseExhibit({
         glossary={glossary}
         onTerm={onTerm}
       />
-      <VisualStimulus visual={exhibit.visual} languageMode={languageMode} />
+      <VisualStimulus
+        visual={exhibit.visual}
+        languageMode={languageMode}
+        vitalsChartStyle={vitalsChartStyle}
+      />
       <StructuredMeasurementsStimulus measurements={exhibit.structuredMeasurements} languageMode={languageMode} />
       <BilingualText
         pair={exhibit.content}
@@ -4867,11 +4959,13 @@ function RationalePanel({
   title = "Rationale",
   voiceEnabled = false,
   languageMode,
+  vitalsChartStyle,
 }: {
   question: Question;
   title?: string;
   voiceEnabled?: boolean;
   languageMode: LanguageMode;
+  vitalsChartStyle: VitalsChartStyle;
 }) {
   const choiceRationales = question.rationale.byChoice ?? [];
   const choiceMarkerByRefId = buildChoiceMarkerMap(question);
@@ -4887,7 +4981,12 @@ function RationalePanel({
       {question.rationale.visuals && question.rationale.visuals.length > 0 && (
         <div className="rationale-visuals">
           {question.rationale.visuals.map((visual, index) => (
-            <VisualStimulus key={index} visual={visual} languageMode={languageMode} />
+            <VisualStimulus
+              key={index}
+              visual={visual}
+              languageMode={languageMode}
+              vitalsChartStyle={vitalsChartStyle}
+            />
           ))}
         </div>
       )}
@@ -4938,6 +5037,7 @@ function SummaryView({
   onToggleFlag,
   onToggleLanguageMiss,
   voiceEnabled,
+  vitalsChartStyle,
   defaultLanguageMode,
   onHome,
   homeLabel,
@@ -4952,6 +5052,7 @@ function SummaryView({
   onToggleFlag: (questionId: string) => void;
   onToggleLanguageMiss: (questionId: string) => void;
   voiceEnabled: boolean;
+  vitalsChartStyle: VitalsChartStyle;
   defaultLanguageMode: LanguageMode;
   onHome: () => void;
   homeLabel: string;
@@ -5204,6 +5305,7 @@ function SummaryView({
                       submitted
                       result={result}
                       languageMode={languageMode}
+                      vitalsChartStyle={vitalsChartStyle}
                       flagged={flags[question.id]?.flagged ?? false}
                       languageMissed={Boolean(languageMisses[question.id])}
                       allowLanguageMissToggle={result === false}

@@ -63,10 +63,16 @@ const labTrend = (seriesCount: 1 | 2): Question => ({
 assert.equal(usesStandaloneVisualSplit(labTrend(1)), false, "one-series lab_trend stacks above the stem");
 assert.equal(usesStandaloneVisualSplit(labTrend(2)), true, "two-series lab_trend retains the split");
 assert.equal(
-  usesStandaloneVisualSplit(mc("vitals_trend")),
+  usesStandaloneVisualSplit(mc("vitals_trend"), "panels"),
   false,
-  "600x1108 composite proof removes vitals_trend from the sticky split route",
+  "600x1108 panels proof keeps vitals_trend out of the sticky split route",
 );
+assert.equal(
+  usesStandaloneVisualSplit(mc("vitals_trend"), "epic"),
+  true,
+  "600x360 Epic proof at 1280x727/800 admits vitals_trend to the split route",
+);
+assert.equal(usesStandaloneVisualSplit(mc("vitals_trend")), false, "omitted style fails closed to full-width");
 assert.equal(usesStandaloneVisualSplit(mc("burn_map")), true, "burn_map splits");
 assert.equal(usesStandaloneVisualSplit(mc("rhythm_strip")), false, "rhythm_strip excluded");
 assert.equal(usesStandaloneVisualSplit(mc("capnography")), false, "capnography excluded");
@@ -81,6 +87,6 @@ assert.equal(
   "case_study never standalone-splits",
 );
 
-assert.equal(STANDALONE_SPLIT_VISUAL_KINDS.size, 7, "exactly seven standalone split kinds");
+assert.equal(STANDALONE_SPLIT_VISUAL_KINDS.size, 8, "exactly eight standalone split-eligible kinds");
 
 console.log("exam layout tests passed");

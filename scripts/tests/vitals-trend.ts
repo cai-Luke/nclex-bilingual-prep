@@ -1,11 +1,25 @@
+import { createHash } from "node:crypto";
+import { readFile } from "node:fs/promises";
 import {
+  buildEpicModel,
+  buildVitalsTableModel,
+  EPIC_VITALS_LAYOUT,
   renderVitalsTrendSvg,
   validateVitalsTrend,
   selfCheckVitalsTrend,
   VITALS_TREND_LAYOUT,
 } from "../../src/visuals/kinds/vitals_trend";
+import {
+  EMPTY_VITALS_TREND_INTERACTION,
+  opacityForVital,
+  resolveActiveLegend,
+  resolveActiveTimepoint,
+  transitionVitalsTrendInteraction,
+} from "../../src/visuals/kinds/vitals_trend/interaction";
 import { renderLineChart } from "../../src/visuals/primitives/lineChart";
 import type { VitalsTrendSpec } from "../../src/visuals/kinds/vitals_trend/types";
+import { loadPromotedVisualRecords } from "../promoted-visual-parity";
+import "../../src/visuals/kinds";
 
 const assert = (condition: unknown, message: string) => {
   if (!condition) throw new Error(message);
@@ -417,5 +431,152 @@ const dualSvg = renderLineChart({
 });
 assert(dualSvg.includes(`cx="156" cy="140"`), "left-axis point must map on the left scale");
 assert(dualSvg.includes(`cx="444" cy="195"`), "right-axis point must map on the right scale");
+
+// --- Epic A/B arm -------------------------------------------------
+for (const fixture of [canonical, forcingSix, fullSeven, hrTemp, {
+  kind: "vitals_trend",
+  population: "peds_child",
+  timepointsHr: [0, 1],
+  series: [{ vital: "hr", values: [110, 105] }],
+} satisfies VitalsTrendSpec]) {
+  assert(
+    renderVitalsTrendSvg(fixture) === renderVitalsTrendSvg(fixture, { variant: "unit_pure" }),
+    "omitted variant and explicit unit_pure must remain byte-identical",
+  );
+  const firstEpic = renderVitalsTrendSvg(fixture, { variant: "epic" });
+  assert(firstEpic === renderVitalsTrendSvg(fixture, { variant: "epic" }), "Epic render must be byte-identical");
+  assert(firstEpic.includes('data-kind="vitals_trend" data-variant="epic"'), "Epic root must identify its variant");
+  assert(!firstEpic.includes('data-vitals-table="true"'), "Epic SVG must not contain the visible flowsheet");
+}
+
+const ceilingFixture = (maxValue: number): VitalsTrendSpec => ({
+  kind: "vitals_trend",
+  timepointsHr: [0, 1],
+  series: [
+    { vital: "sbp", values: [80, maxValue] },
+    { vital: "rr", values: [10, 10] },
+  ],
+});
+for (const [maxValue, expected] of [[114, 120], [120, 140], [138, 160], [190, 200], [200, 250], [299, 300]] as const) {
+  assert(
+    buildEpicModel(ceilingFixture(maxValue)).yAxis.max === expected,
+    `Epic adaptive ceiling ${maxValue} must select ${expected}`,
+  );
+}
+assert(buildEpicModel(ceilingFixture(300)).yAxis.max === 300, "absolute 300 ceiling may have no headroom");
+
+const adultSingleModel = buildEpicModel({
+  kind: "vitals_trend",
+  timepointsHr: [0, 1],
+  series: [{ vital: "hr", values: [80, 90] }],
+});
+assert(
+  JSON.stringify(adultSingleModel.yAxis) === JSON.stringify({ min: 50, max: 110, ticks: [50, 80, 110] }),
+  "one-series Epic model must keep the existing fitted scale",
+);
+assert(
+  JSON.stringify(adultSingleModel.referenceBand) === JSON.stringify({ low: 60, high: 100 }),
+  "one-series adult Epic model must keep its reference band",
+);
+assert(buildEpicModel(fullSeven).referenceBand === undefined, "multi-series Epic model must suppress all bands");
+assert(
+  buildEpicModel({
+    kind: "vitals_trend",
+    population: "peds_child",
+    timepointsHr: [0, 1],
+    series: [{ vital: "hr", values: [110, 105] }],
+  }).referenceBand === undefined,
+  "pediatric one-series Epic model must suppress the adult band",
+);
+
+const fullModel = buildEpicModel(fullSeven);
+const bpLegend = fullModel.legend.find((entry) => entry.key === "bp");
+assert(JSON.stringify(bpLegend?.vitals) === JSON.stringify(["sbp", "dbp"]), "BP legend must group SBP and DBP");
+assert(fullModel.legend.some((entry) => entry.key === "map" && entry.vitals[0] === "map"), "MAP legend must remain separate");
+const epicFullSvg = renderVitalsTrendSvg(fullSeven, { variant: "epic" });
+assert(/data-vital="sbp"[^]*?<polyline [^>]*stroke-width="2.5" stroke-linecap/.test(epicFullSvg), "SBP must remain solid");
+assert(/data-vital="dbp"[^]*?<polyline [^>]*stroke-dasharray="6 4"/.test(epicFullSvg), "DBP must remain dashed 6 4");
+const epicBpLegend = epicFullSvg.match(/<g class="vitals-epic-legend-entry" data-legend="bp"[^]*?<\/g>/)?.[0] ?? "";
+assert(countOccurrences(epicBpLegend, "<line ") === 2, "combined BP legend must show paired SBP and DBP markers");
+assert(countOccurrences(epicBpLegend, 'stroke-dasharray="6 4"') === 1, "combined BP legend must distinguish DBP with one dashed marker");
+assert(countOccurrences(epicFullSvg, 'data-timepoint-index="') === fullModel.timepoints.length, "every timepoint needs deterministic target geometry");
+assert(countOccurrences(epicFullSvg, 'data-guide-line="true"') === 1, "Epic SVG needs one inert guide line");
+assert(epicFullSvg.includes(`viewBox="0 0 ${EPIC_VITALS_LAYOUT.width} ${EPIC_VITALS_LAYOUT.height}"`), "Epic SVG must use fixed geometry");
+
+const modelTable = buildVitalsTableModel(fullSeven);
+assert(JSON.stringify(modelTable) === JSON.stringify(fullModel.tableModel), "Epic model and shared table builder must agree");
+assert(
+  JSON.stringify(fullModel.readoutByTimepoint[1].rows.map((row) => [row.label, row.valueText])) === JSON.stringify([
+    ["HR (bpm)", "112"],
+    ["BP (mmHg)", "100/60"],
+    ["MAP (mmHg)", "73"],
+    ["RR (/min)", "24"],
+    ["SpO₂ (%)", "98"],
+    ["Temperature (°C)", "37.15"],
+  ]),
+  "readout must contain every present source row with combined BP and separate MAP",
+);
+assert(
+  fullModel.readoutByTimepoint.every((readout) => readout.rows.length === modelTable.rows.length),
+  "every timestamp readout must be complete",
+);
+
+let interaction = EMPTY_VITALS_TREND_INTERACTION;
+interaction = transitionVitalsTrendInteraction(interaction, { type: "timepoint-enter", index: 2 });
+assert(resolveActiveTimepoint(interaction) === 2, "timepoint hover must be transiently active");
+interaction = transitionVitalsTrendInteraction(interaction, { type: "timepoint-activate", index: 2 });
+interaction = transitionVitalsTrendInteraction(interaction, { type: "timepoint-leave", index: 2 });
+assert(resolveActiveTimepoint(interaction) === 2, "timepoint pin must survive hover leave");
+interaction = transitionVitalsTrendInteraction(interaction, { type: "timepoint-activate", index: 2 });
+assert(resolveActiveTimepoint(interaction) === null, "activating a pinned timepoint must toggle it clear");
+interaction = transitionVitalsTrendInteraction(interaction, { type: "legend-activate", key: "bp" });
+assert(resolveActiveLegend(interaction) === "bp", "legend activation must pin emphasis");
+assert(opacityForVital("sbp", "bp", fullModel.legend) === 1, "BP emphasis must retain SBP opacity");
+assert(opacityForVital("dbp", "bp", fullModel.legend) === 1, "BP emphasis must retain DBP opacity");
+assert(opacityForVital("map", "bp", fullModel.legend) < 1, "BP emphasis must lower unrelated MAP opacity");
+assert(fullModel.yAxis.max === buildEpicModel(fullSeven).yAxis.max, "interaction state must not affect scale");
+
+const fahrenheitSpec: VitalsTrendSpec = {
+  kind: "vitals_trend",
+  timepointsHr: [0, 1],
+  tempUnit: "F",
+  series: [
+    { vital: "temp", values: [98.6, 102] },
+    { vital: "hr", values: [88, 110] },
+  ],
+};
+const fahrenheitEpic = renderVitalsTrendSvg(fahrenheitSpec, { variant: "epic" });
+assert(fahrenheitEpic.includes("Temperature (°F)"), "synthetic Fahrenheit Epic legend must keep the source unit");
+assert(fahrenheitEpic.includes('data-vital="temp"'), "synthetic Fahrenheit series must be plotted");
+assert(buildEpicModel(fahrenheitSpec).yAxis.max === 120, "synthetic Fahrenheit must participate in the raw shared scale");
+assert(
+  /data-vital="temp"[^]*?cy="115\.02"[^]*?cy="108\.5"/.test(fahrenheitEpic),
+  "synthetic Fahrenheit points must be coherently positioned from their unchanged source values",
+);
+
+const sha256 = (value: string) => createHash("sha256").update(value).digest("hex");
+const byteSort = (left: string, right: string) => left < right ? -1 : left > right ? 1 : 0;
+const promotedVitals = (await loadPromotedVisualRecords())
+  .filter((record) => record.ref.visual.kind === "vitals_trend")
+  .sort((left, right) => byteSort(left.parityId, right.parityId));
+assert(promotedVitals.length === 29, "Epic snapshot corpus must remain the frozen 29 promoted vitals records");
+assert(promotedVitals.some((record) => record.parityId === "vit_gpt_2026_07_02_t01_001"), "forcing record must remain present");
+assert(promotedVitals.some((record) => record.parityId === "vit_gpt_2026_07_02_t01_004"), "densest record must remain present");
+assert(promotedVitals.some((record) => record.parityId === "cs_thyroid_storm_main#st1ex0"), "staged sparse exhibit must remain present");
+const epicSnapshotRecords = promotedVitals.map((record) => {
+  const visual = record.ref.visual as VitalsTrendSpec;
+  const first = renderVitalsTrendSvg(visual, { variant: "epic" });
+  const second = renderVitalsTrendSvg(visual, { variant: "epic" });
+  assert(first === second, `promoted Epic SVG must be deterministic for ${record.parityId}`);
+  return { parityId: record.parityId, svgHash: sha256(first) };
+});
+const committedEpicSnapshot = JSON.parse(
+  await readFile("scripts/tests/__snapshots__/vitals-trend-epic.json", "utf8"),
+) as { kind: string; variant: string; records: Array<{ parityId: string; svgHash: string }> };
+assert(committedEpicSnapshot.kind === "vitals_trend" && committedEpicSnapshot.variant === "epic", "Epic snapshot header must be exact");
+assert(
+  JSON.stringify(committedEpicSnapshot.records) === JSON.stringify(epicSnapshotRecords),
+  "Epic snapshot must match byte-sorted promoted IDs and SVG hashes",
+);
 
 console.log("vitals-trend tests passed");

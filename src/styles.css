@@ -1084,6 +1084,119 @@ h4 {
   max-width: 50rem;
 }
 
+.vitals-epic-figure {
+  gap: 0.65rem;
+}
+
+.vitals-epic-scroll,
+.vitals-epic-readout,
+.vitals-epic-figure > figcaption {
+  width: 100%;
+  max-width: 42rem;
+  margin-inline: auto;
+}
+
+.vitals-epic-scroll {
+  overflow-x: auto;
+}
+
+.vitals-epic-stage {
+  position: relative;
+}
+
+.rhythm-strip-svg.vis-vitals_trend-epic {
+  overflow: visible;
+}
+
+.rhythm-strip-svg.vis-vitals_trend-epic svg {
+  min-width: 0;
+  max-width: none;
+  pointer-events: none;
+}
+
+.vitals-epic-controls {
+  position: absolute;
+  inset: 0;
+}
+
+.vitals-epic-controls button {
+  position: absolute;
+  min-width: 0;
+  min-height: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  padding: 0;
+  background: transparent;
+}
+
+.vitals-epic-controls button:hover {
+  border-color: rgba(37, 99, 235, 0.35);
+  background: rgba(37, 99, 235, 0.05);
+}
+
+.vitals-epic-controls button:focus-visible {
+  z-index: 1;
+  border-color: var(--focus-ring);
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 1px;
+}
+
+.vitals-epic-readout {
+  min-height: 7.4rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.65rem 0.8rem;
+  background: var(--surface-muted);
+}
+
+.vitals-epic-readout > p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.88rem;
+}
+
+.vitals-epic-readout-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.vitals-epic-readout-heading button {
+  min-height: 1.8rem;
+  padding: 0.2rem 0.5rem;
+  font-size: 0.76rem;
+}
+
+.vitals-epic-readout dl {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.35rem 0.8rem;
+  margin: 0.55rem 0 0;
+}
+
+.vitals-epic-readout dl > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.2rem;
+}
+
+.vitals-epic-readout dt,
+.vitals-epic-readout dd {
+  margin: 0;
+  font-size: 0.82rem;
+}
+
+.vitals-epic-readout dt {
+  color: var(--text-muted);
+}
+
+.vitals-epic-readout dd {
+  font-weight: 800;
+}
+
 .rhythm-strip-svg.vis-lab_trend.vis-lab_trend-single-series svg {
   max-width: 50rem;
 }
@@ -1191,21 +1304,75 @@ h4 {
   margin-inline: auto;
 }
 
+.vitals-epic-focus-dialog .vitals-epic-scroll,
+.vitals-epic-focus-dialog .vitals-epic-readout,
+.vitals-epic-focus-dialog .vitals-epic-figure > figcaption {
+  max-width: 56rem;
+}
+
+.vitals-epic-focus-dialog .rhythm-strip-svg.vis-vitals_trend-epic svg {
+  min-width: 37.5rem;
+  max-width: none;
+}
+
 @media (max-width: 780px) {
-  .rhythm-strip-svg.vis-vitals_trend {
+  .rhythm-strip-svg.vis-vitals_trend:not(.vis-vitals_trend-epic) {
     overflow-x: auto;
   }
 
-  .rhythm-strip-svg.vis-vitals_trend svg {
+  .rhythm-strip-svg.vis-vitals_trend:not(.vis-vitals_trend-epic) svg {
     min-width: 37.5rem;
     max-width: none;
     margin-inline: 0;
+  }
+
+  .vitals-epic-readout dl {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .vitals-epic-focus-dialog .vitals-epic-stage {
+    min-width: 37.5rem;
+  }
+
+  .vitals-epic-stage {
+    min-width: 37.5rem;
   }
 }
 
 @media print {
   .visual-enlarge-button {
     display: none;
+  }
+
+  .vitals-epic-controls,
+  .vitals-epic-readout {
+    display: none;
+  }
+
+  .vitals-epic-accessible-surface.sr-only {
+    position: static;
+    width: 100%;
+    height: auto;
+    margin: 0.75rem 0 0;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+  }
+
+  .vitals-epic-accessible-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .vitals-epic-accessible-table th,
+  .vitals-epic-accessible-table td {
+    border: 1px solid #94a3b8;
+    padding: 0.25rem 0.4rem;
+    text-align: center;
+  }
+
+  .vitals-epic-accessible-table th:first-child {
+    text-align: left;
   }
 }
 
@@ -1383,6 +1550,10 @@ h4 {
 /* The five-column I/O table needs its 600 px design width in the desktop
    split. Keep the wider track specific to standalone io_trend questions. */
 .standalone-visual-layout.standalone-io-trend-layout {
+  grid-template-columns: minmax(37.5rem, 0.58fr) minmax(0, 1fr);
+}
+
+.standalone-visual-layout.standalone-epic-vitals-layout {
   grid-template-columns: minmax(37.5rem, 0.58fr) minmax(0, 1fr);
 }
 
@@ -1977,6 +2148,10 @@ h4 {
   }
 
   .standalone-visual-layout.standalone-io-trend-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .standalone-visual-layout.standalone-epic-vitals-layout {
     grid-template-columns: 1fr;
   }
 
