@@ -52,6 +52,19 @@ The committed NGN item-type set is complete. Rationale/dyad scoring and an expli
 
 > Milestones dated **2026-06-23 and earlier** are archived in [`Archive/PROJECT-HISTORY-ARCHIVE.md`](Archive/PROJECT-HISTORY-ARCHIVE.md). Only the current arc (2026-06-24 onward) is kept here.
 
+### Mobile Vitals Helper Compacted (Jul 19)
+
+Removed the Epic vitals readout panel's desktop minimum height at the mobile breakpoint. The idle
+bilingual helper now hugs its wrapped text instead of reserving space for a populated desktop readout;
+selected-time values continue to determine their own natural height. Desktop sizing and focused-chart
+geometry are unchanged.
+
+At the 390×844 proof viewport (375 px document client width), the idle panel measured 86.1 px around
+63.3 px of wrapped bilingual text, while a keyboard-selected five-value readout expanded naturally to
+162.9 px. The page remained free of horizontal overflow and the final console was clean. TypeScript,
+the production build, build identity validation, and `git diff --check` passed; the existing Vite
+large-chunk advisory remains unchanged.
+
 ### Unified Vitals Trend Experiment Concluded (Jul 19)
 
 The real-user comparison concluded in favor of the Epic-style unified graph with the original
