@@ -52,6 +52,48 @@ The committed NGN item-type set is complete. Rationale/dyad scoring and an expli
 
 > Milestones dated **2026-06-23 and earlier** are archived in [`Archive/PROJECT-HISTORY-ARCHIVE.md`](Archive/PROJECT-HISTORY-ARCHIVE.md). Only the current arc (2026-06-24 onward) is kept here.
 
+### Epic-Style Vitals Trend A/B Rendering Implemented (Jul 19)
+
+Implemented
+[`VITALS-TREND-EPIC-STYLE-UNIFIED-CHART-CODEX-SPEC-2026-07-19.md`](VITALS-TREND-EPIC-STYLE-UNIFIED-CHART-CODEX-SPEC-2026-07-19.md)
+as a presentation-only A/B path with no bank, clinical-content, grading, or authored-visual-shape
+change. The shared `VitalsChartStyle` setting defaults to `epic`, persists through the existing settings
+store, and is required across every render path. The bilingual Settings control can switch back to the
+preserved `panels` arm, whose default SVG output remains byte-identical to the 199-record promoted
+parity baseline.
+
+The Epic arm renders a deterministic 600×360 unified chart. Multi-series records use an adaptive
+zero-based shared scale; eligible one-series adult records retain fitted scaling and a reference band.
+SBP and DBP share one BP legend control while remaining solid and dashed series, MAP stays separate,
+and the legend's paired marker exposes both pressure styles. Transparent HTML buttons above stable SVG
+geometry provide hover, focus, click/tap, Enter, and Space interaction without putting focusable controls
+inside the image role. Timepoint readouts use the same derived table model as the real hidden HTML table,
+which becomes visible for print. A two-level focus owner keeps exactly one SVG mounted, restores focus on
+close, and uses internal horizontal scrolling at narrow widths.
+
+The variant-aware layout measurement passed the split experiment. At 1280×727 and 1280×800, the forcing
+record rendered a 600×360.8 chart in a 600 px visual track with a 537.8 px work track and no page-level
+horizontal overflow. At 390×844, the page remained overflow-free while the 600 px chart stayed readable
+inside a 275 px internal scroller. Browser proof also covered exact pointer/touch readouts, keyboard
+pinning persistence, BP legend emphasis, propagation isolation, focus dialog dismissal/restoration,
+the seven-series record, pediatric band suppression, the staged thyroid-storm exhibit, the panels arm,
+the hidden assistive table, print rules, and a clean cold-load console. Preview Lab now has a dedicated
+variant-comparison bucket regardless of split disposition. On the forcing record, the pinned 6 h
+readout recovered the decision-critical RR rise at 30/min and temperature at 38.8 °C; those same exact
+source-derived rows are present in the table revealed for print.
+A synthetic Fahrenheit proof retained the authored 98.6→102 °F values on the same raw shared axis,
+with an explicit °F legend and coherent source-positioned points; no unit conversion was introduced.
+
+The fixed Epic snapshot
+[`scripts/tests/__snapshots__/vitals-trend-epic.json`](scripts/tests/__snapshots__/vitals-trend-epic.json)
+pins byte-sorted identities and SVG hashes for all 29 promoted vitals artifacts. Focused vitals tests,
+`npm run test:exam-layout`, `npm run validate-bank -- banks/*.json`, `npm run audit`,
+`npx tsc -b --pretty false`, `npm run census && npm run census:check`, `npm run build`, and
+`git diff --check` passed. `npm run test-visuals` passed every visual-kind, conformance, registry,
+promoted-parity, survey, and session-sampler step before its final rationale-floor survey stopped on the
+pre-existing raw Pilot Case B bilingual dropdown-placeholder defect; the raw file and failing survey
+inputs are unchanged from baseline. The existing Vite large-chunk advisory remains unchanged.
+
 ### Shape-Aware Sparse Visual Layout Implemented (Jul 19)
 
 Implemented

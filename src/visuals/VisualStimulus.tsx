@@ -8,9 +8,10 @@ import {
   type MouseEvent,
 } from "react";
 import { Maximize2, X } from "lucide-react";
-import type { LanguageMode } from "../types";
+import type { LanguageMode, VitalsChartStyle } from "../types";
 import { getVisual } from "./registry";
 import type { QuestionVisual } from "./types";
+import { VitalsTrendInteractiveStimulus } from "./kinds/vitals_trend/VitalsTrendInteractive";
 
 type RenderedVisual = {
   visual: QuestionVisual;
@@ -59,20 +60,30 @@ function VisualGraphic({
 export function VisualStimulus({
   visual,
   languageMode,
+  vitalsChartStyle,
 }: {
   visual?: QuestionVisual;
   languageMode: LanguageMode;
+  vitalsChartStyle: VitalsChartStyle;
 }) {
   if (!visual) return null;
   const mod = getVisual(visual.kind);
   if (!mod) return null; // graceful no-op on unknown kind
 
-  const svg = mod.renderSvg(visual); // our own deterministic SVG, not user HTML
   const caption =
     visual.caption &&
     (languageMode === "always" && visual.caption.zh
       ? `${visual.caption.en} / ${visual.caption.zh}`
       : visual.caption.en);
+
+  if (visual.kind === "vitals_trend" && vitalsChartStyle === "epic") {
+    return <VitalsTrendInteractiveStimulus visual={visual} caption={caption} />;
+  }
+
+  const svg = mod.renderSvg(
+    visual,
+    visual.kind === "vitals_trend" ? { variant: "unit_pure" } : undefined,
+  ); // our own deterministic SVG, not user HTML
 
   return <InteractiveVisualStimulus rendered={{ visual, svg, caption }} />;
 }

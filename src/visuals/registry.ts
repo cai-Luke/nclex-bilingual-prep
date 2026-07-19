@@ -9,6 +9,10 @@ export interface VisualError {
   message: string;
 }
 
+export type RenderOptions = {
+  variant?: "unit_pure" | "epic";
+};
+
 export interface VisualKindModule<S extends { kind: string } = { kind: string }> {
   kind: S["kind"];
   /** Minimum bank schemaVersion that may carry this kind. Default "1.2". */
@@ -20,7 +24,7 @@ export interface VisualKindModule<S extends { kind: string } = { kind: string }>
   /** Optional cross-consistency check of render-vs-answer. Arithmetic gates live here. */
   selfCheck?(spec: S, question: Question): VisualError[];
   /** Pure, deterministic, XML-escaped SVG string. No DOM, no Date, no Math.random, no fetch. */
-  renderSvg(spec: S): string;
+  renderSvg(spec: S, options?: RenderOptions): string;
   /** Colocated fixtures the conformance harness runs automatically. */
   fixtures: {
     valid: S[];

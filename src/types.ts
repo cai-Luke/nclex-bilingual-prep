@@ -298,6 +298,7 @@ export type LanguageMode = "off" | "on-tap" | "always";
 export type StudyMode = "study" | "test";
 export type ThemeMode = "light" | "dark";
 export type TextSizeMode = "compact" | "default" | "large";
+export type VitalsChartStyle = "epic" | "panels";
 export type SessionMode = StudyMode | "adaptive";
 export type SessionOrder = "random" | "sequential";
 export type SessionStatusFilter = "all" | "unseen" | "answered" | "incorrect" | "flagged" | "due";
@@ -309,6 +310,7 @@ export type Settings = {
   voiceEnabled: boolean;
   themeMode: ThemeMode;
   textSizeMode: TextSizeMode;
+  vitalsChartStyle: VitalsChartStyle;
 };
 
 export type AdaptiveSessionSnapshot = {
