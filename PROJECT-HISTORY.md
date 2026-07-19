@@ -52,6 +52,27 @@ The committed NGN item-type set is complete. Rationale/dyad scoring and an expli
 
 > Milestones dated **2026-06-23 and earlier** are archived in [`Archive/PROJECT-HISTORY-ARCHIVE.md`](Archive/PROJECT-HISTORY-ARCHIVE.md). Only the current arc (2026-06-24 onward) is kept here.
 
+### Direct GPT Case Pilot Commissioned (Jul 18)
+
+Opened the first episodic direct-case order after retirement of the Opus-skeleton pipeline:
+[`GPT-DIRECT-CASE-PILOT-SPEC-2026-07-18.md`](GPT-DIRECT-CASE-PILOT-SPEC-2026-07-18.md). The commission
+requests exactly two unfolding cases in one raw bank, normally 5–6 embedded parts each, while leaving
+the patient narrative, stages, exhibits, part formats, and most prose to GPT-5.6 Sol.
+
+The two primary clinical rooms are evolving intrapartum fetal assessment and acute severe asthma
+with serial ABG/bedside respiratory change. Corpus screening found no existing intrapartum fetal-
+monitoring case container but several occupied fetal-monitoring leaf constructs; the respiratory
+brief is fenced away from the existing life-threatening-asthma bowtie, asthma response matrices,
+intubated-status-asthmaticus capnography item, COPD case, and other respiratory-deterioration cases.
+A compact longitudinal ECT brief is the single reserve if one primary is blocked.
+
+The commission makes case affordance and cross-part answer leakage hard gates. Because the learner
+can navigate directly to later parts before aggregate submission, the producer must audit every
+stem, option, exhibit, and caption under unrestricted navigation and perform a reverse-order leakage
+read. Direct GPT case production is episodic; no standing multi-model pipeline replaces the retired
+skeleton lane. Generated output remains raw and unreviewed until independent non-GPT source,
+collision, bilingual, leakage, and any visual review clears the normal promotion pipeline.
+
 ### GPT Scored-Format Batch 11 — Independent Review and Promotion Complete (Jul 18)
 
 All 18 commissioned items cleared independent producer≠checker review and are promoted into

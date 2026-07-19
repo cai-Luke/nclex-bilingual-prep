@@ -52,6 +52,8 @@ Navigation aid only — restates no ruling and settles nothing new. Read the tar
 
 Bound only while the Opus-skeleton → GPT compile/fact-check → Gemini flag-review → Claude gate pipeline was the active forward-case lane. Luke retired that lane on 2026-07-18 in favor of wholesale case_study production in the current GPT model; per §2's CONDITIONAL definition these five principles lapse with it and need no separate repeal. Retained below for historical reference — see §5 for the lapse note and current state.
 
+Case studies are now commissioned directly and episodically in the current GPT producer; no standing multi-model forward-case pipeline replaces the retired lane.
+
 | # | One-line rule |
 |---|---|
 | 8 | Clinical truth is authored once, upstream, and read-only downstream. |
@@ -212,7 +214,7 @@ Principles 8, 9, 12, 18, and 22 collectively described **one** forward case-skel
 1. Clinical truth and answer logic have an explicit upstream owner; every downstream transformation (translation, schema compilation, formatting) may read but never silently invent or change them.
 2. Every active generation lane declares producer provenance and independent-review routing (principle 2).
 
-**Current producer assignment (verify against `PROJECT-HISTORY.md`, not assumed timeless from this file):** as of 2026-07-13, GPT-5.6 Sol is the current producer for every `gpt_`-prefixed lane (evergreen standalone items, the case-skeleton compiler, new visual-kind content), replacing the prior GPT producer outright. This is a **producer-identity swap, not a new lane** — GPT-5.6 Sol remains "GPT" for review-routing purposes, so principle 22's routing is unaffected. A future producer substitution updates only this callout, never the principle numbers or their obligations below.
+**Current producer assignment (verify against `PROJECT-HISTORY.md`, not assumed timeless from this file):** as of 2026-07-18, GPT-5.6 Sol is the current producer for every `gpt_`-prefixed lane (evergreen standalone items, episodic direct case-study commissions, and new visual-kind content), replacing the prior GPT producer outright. The retired case-skeleton compiler is not an active lane. GPT-5.6 Sol remains "GPT" for review-routing purposes. A future producer substitution updates only this callout, never the principle numbers or their obligations below.
 
 **8. CONDITIONAL — clinical truth is authored once, upstream, and read-only downstream.**
 The author model (currently Opus) owns the fact pattern, the correct actions, and the rationale; the compiler (currently GPT) translates and shapes into schema but never decides or alters which action is correct and never introduces clinical claims absent from the skeleton. A decision point too underspecified to yield an unambiguous item is dropped, not guessed. Extensions (condensed; full narrative archived): an optional author-supplied bowtie-synthesis zone lets the compiler assemble a standalone `bowtie` alongside the case without inventing the differential or irrelevant-parameter pools itself; case completion is accounted via a `_compileManifest`, never assumed — a genuinely underspecified decision point may be omitted only with a specific manifest entry, and promotion fails if authored points disappear unaccounted; Gemini is a flag-only review layer over the compiler's output, never a compiler itself, and never mutates JSON, prose, ids, answer keys, or Chinese translation.
