@@ -194,7 +194,7 @@ Structured-measurement values are `string` with a required per-value `unit` and 
 `bound`. These do not share a shape; do not force them through one walker.
 
 **Absent staging directories are an empty population**, not an error — reuse the P0 survey's
-handling exactly (`audit/rationale-visual-floor-survey-2026-07-16/`), which treats absent optional
+handling exactly (`Archive/rationale-visual-floor-retirement-2026-07-20/rationale-visual-floor-survey-2026-07-16/` [Retired 2026-07-20: the P0 rationale-visual-floor survey was a completed at-migration snapshot, not a standing gate. The manifest-drift-gate PATTERN this spec adopts remains valid and live in `survey:promoted-visual-parity` + `test:promoted-visual-parity-survey`.]), which treats absent optional
 raw/promoted directories as empty in clean Git checkouts *while preserving every other filesystem
 failure*. Do not invent new handling.
 

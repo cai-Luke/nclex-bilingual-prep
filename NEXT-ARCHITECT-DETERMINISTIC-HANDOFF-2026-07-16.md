@@ -46,7 +46,7 @@ Principle 23. P5 is only partially addressed and remains a separate policy decis
 ## P0 — `rationale.visuals` schema-floor retrofit
 
 > **STATUS UPDATE 2026-07-16 — IMPLEMENTED.** The survey evidence is
-> `audit/rationale-visual-floor-survey-2026-07-16/survey-manifest.json`; the completed implementation
+> `Archive/rationale-visual-floor-retirement-2026-07-20/rationale-visual-floor-survey-2026-07-16/survey-manifest.json`; the completed implementation
 > is governed by [`Archive/root-specs-2026-07-18/RATIONALE-VISUAL-SCHEMA-FLOOR-RETROFIT-CODEX-SPEC-2026-07-16.md`](Archive/root-specs-2026-07-18/RATIONALE-VISUAL-SCHEMA-FLOOR-RETROFIT-CODEX-SPEC-2026-07-16.md).
 > The pre-implementation defect and order remain below as provenance. Three resolved points:
 >

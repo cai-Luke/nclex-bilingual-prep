@@ -52,6 +52,10 @@ The committed NGN item-type set is complete. Rationale/dyad scoring and an expli
 
 > Milestones dated **2026-06-23 and earlier** are archived in [`Archive/PROJECT-HISTORY-ARCHIVE.md`](Archive/PROJECT-HISTORY-ARCHIVE.md). Only the current arc (2026-06-24 onward) is kept here.
 
+### Rationale-Visual-Floor Survey Retired (Jul 20)
+
+Retired the dated 2026-07-16 `rationale-visual-floor-survey` census manifest and generator as completed at-migration snapshots. The live pacer-to-schema floor and six-location traversal invariants are preserved under `scripts/tests/rationale-visual-schema-floor.ts`. The `test-visuals` script no longer byte-compares live content to a frozen census.
+
 ### Lab Reference-Range Verification Implemented (Jul 19)
 
 Closed the placeholder-range state in `ANALYTE_DEFS` with a sourced adult teaching-band table and a
