@@ -59,7 +59,7 @@ Temperature is in scope for three reasons, none of which reopen its ratified cei
 
 1. it is the worked comparison case — the only vital whose sanity contract has been deliberately
    decoupled from the renderer envelope;
-2. its **floor** (`30 °C`) remains inherited and explicitly unratified — `r9-temperature-sanity-decoupling-codex-spec.md`
+2. its **floor** (`30 °C`) remains inherited and explicitly unratified — `Archive/root-cleanup-2026-07-19/r9-temperature-sanity-decoupling-codex-spec.md`
    §7.1 and `DECISIONS.md` §7 both say so;
 3. it is the only vital with multiple accepted source units and affine conversion, which is what
    makes §7's probe requirements non-uniform.
@@ -101,7 +101,7 @@ manifest as **prior findings**, source-cited, before any new row is generated:
    zero flips; and records promoted canonical temperature as `36.7–40.11 °C` and refreshed extraction
    artifacts as `35.8–40.11 °C`.
 
-The later `r9-temperature-sanity-decoupling-codex-spec.md` §6.1 remains a **separate 2026-07-15
+The later `Archive/root-cleanup-2026-07-19/r9-temperature-sanity-decoupling-codex-spec.md` §6.1 remains a **separate 2026-07-15
 re-derivation**. It supports 104 temperature values, a canonical-Celsius span of
 `35.8–40.111111111111114`, and zero flips at the ratified `T = 46.5 °C`. It corroborates the later
 corpus state but is not the source for the July 11 probe labels or historical spans. The current
@@ -285,7 +285,7 @@ override at all.** Consequences the survey must state plainly:
   override mechanism**, not merely supplying a number;
 - `scripts/tests/measurement-allowlist.ts` hardcodes the temperature branch deliberately, so that a
   second override **fails the non-temperature drift guard** until its own contract and regression land
-  (per `r9-temperature-sanity-decoupling-codex-spec.md` §7.2). This is by design and correct;
+  (per `Archive/root-cleanup-2026-07-19/r9-temperature-sanity-decoupling-codex-spec.md` §7.2). This is by design and correct;
 - therefore "narrow only one side" is **asymmetric in cost**, and a mixed per-vital/per-side verdict is
   not free. The survey reports the mechanism cost per candidate side so the later ratification is
   priced honestly.

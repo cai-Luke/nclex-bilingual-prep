@@ -30,7 +30,7 @@ import {
 
 export const SNAPSHOT_DIR = "scripts/tests/__snapshots__/visual-parity-promoted";
 export const LEGACY_SNAPSHOT_PATH = "scripts/tests/__snapshots__/visual-parity.json";
-export const ARCHITECT_SPEC_PATH = "PROMOTED-VISUAL-PARITY-EXPANSION-ARCHITECT-SPEC-2026-07-16.md";
+export const ARCHITECT_SPEC_PATH = "Archive/root-cleanup-2026-07-19/PROMOTED-VISUAL-PARITY-EXPANSION-ARCHITECT-SPEC-2026-07-16.md";
 const EXPECTED_BOOTSTRAP_RECORDS = 199;
 const EXACT_ARITHMETIC = new Set(["io_record", "medication_label", "burn_map"]);
 const HYBRID_PROOF_KINDS = new Set(["device_screen", "io_trend"]);

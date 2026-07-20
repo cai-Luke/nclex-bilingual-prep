@@ -52,6 +52,47 @@ The committed NGN item-type set is complete. Rationale/dyad scoring and an expli
 
 > Milestones dated **2026-06-23 and earlier** are archived in [`Archive/PROJECT-HISTORY-ARCHIVE.md`](Archive/PROJECT-HISTORY-ARCHIVE.md). Only the current arc (2026-06-24 onward) is kept here.
 
+### Root Markdown Cleanup (Jul 19)
+
+Moved 17 completed or superseded root-level implementation specs, work orders, closed survey/
+adjudication packets, and finished pilot-case commissions into
+[`Archive/root-cleanup-2026-07-19/`](Archive/root-cleanup-2026-07-19/) and repaired references to their
+new paths in this file, `BANK-REVIEW-LEDGER.md`, `DECISIONS.md`,
+`NEXT-ARCHITECT-DETERMINISTIC-HANDOFF-2026-07-16.md`, and the one live (if now-unreachable) code
+constant in `scripts/visual-parity-baseline.ts` that names the promoted-visual-parity spec's path. A
+file's own static status header was not trusted alone — several said "ready for generation" or "Open —
+scoped, not yet commissioned" despite the corresponding work already being implemented and merged; each
+was cross-checked against this file (and `DECISIONS.md` for the two vitals-trend files) before moving.
+
+`VITAL-SANITY-BOUNDS-P3-SURVEY-ARCHITECT-SPEC-2026-07-17.md` (P3 stage 3 still open),
+`NEXT-ARCHITECT-DETERMINISTIC-HANDOFF-2026-07-16.md` (P5 still open),
+`EXHIBIT-FLOWSHEET-EXTRACTION-PROPOSAL-2026-07-03.md` (a living authority map, not historical spec
+prose), `lab-reference-range-verification-spec.md` (active — `ANALYTE_DEFS` still carries its
+placeholder-range warning), and `GPT-DIRECT-CASE-PRODUCER-CONTRACT-2026-07-19.md` (the living contract
+for the now-standing episodic direct-case pathway) were surveyed and explicitly kept at root as still
+live. See the archive's `README.md` for the full per-file disposition. No bank, schema, renderer, or
+runtime behavior changed.
+
+### Stage-Reference Audit Extended for Anchor-Omission Leakage (Jul 19)
+
+Merged PR #72, closing the gap the direct-case pilot C/D repair surfaced: `audit:stage-refs` previously
+only flagged a `stageId`/`answerableAfterStageId` value that was present but unresolved, so a part that
+omitted the anchor entirely produced no finding — the case renderer (`getVisibleCaseStages` in
+`src/examLayout.ts`) is cumulative and fail-open, and reveals **all** stages when neither anchor
+resolves. `StageReferenceFinding` is now a `kind`-discriminated union (`unresolved`, the new
+`revealsAllStages` leak check keyed on the renderer's actual resolution path rather than output length,
+and `missingRequiredAnchor` under `--strict`). `runAuditStageRefs(options?)` stayed pure and
+options-driven; `scripts/audit.ts`'s argument-free call is unchanged and can still only return
+`PASS`/`WARN`/`INSUFFICIENT`, so the aggregate gate's fatality is untouched. A new `--file`/`--strict`
+CLI wrapper supports auditing raw drafts directly, with `--file` failing loud on any missing/unreadable/
+schema-invalid selected file.
+
+The extended default sweep over current `banks/` found 451 pre-existing `revealsAllStages` findings
+across 13 files (0 unresolved, 0 missingRequiredAnchor) — legacy `case_study` items authored before the
+anchor system existed. This is recorded as a decision input for a possible later default-fatal flip; no
+bank content was changed or migrated in this pass. Only `scripts/audit/audit-stage-refs.ts` and
+`scripts/tests/audit-stage-refs.ts` changed.
+
 ### Responsive Vitals Helper Compacted (Jul 19)
 
 Removed the Epic vitals readout panel's fixed desktop minimum height at every viewport. The idle
@@ -100,7 +141,7 @@ existing Vite large-chunk advisory remains unchanged.
 ### Mobile Graph Fit-to-Width Pass Implemented (Jul 19)
 
 Implemented
-[`MOBILE-GRAPH-FIT-TO-WIDTH-CODEX-SPEC-2026-07-19.md`](MOBILE-GRAPH-FIT-TO-WIDTH-CODEX-SPEC-2026-07-19.md)
+[`MOBILE-GRAPH-FIT-TO-WIDTH-CODEX-SPEC-2026-07-19.md`](Archive/root-cleanup-2026-07-19/MOBILE-GRAPH-FIT-TO-WIDTH-CODEX-SPEC-2026-07-19.md)
 as a mobile presentation allocation, not an architectural reversal. Ordinary mobile Epic vitals,
 unit-pure vitals panels, and one-series lab trends now scale their existing deterministic SVGs to the
 question column. `io_trend` already fit responsively and gains only the reclaimed shell width. Expanded
@@ -133,7 +174,7 @@ large-chunk advisory remains unchanged.
 ### Epic-Style Vitals Trend A/B Rendering Implemented (Jul 19)
 
 Implemented
-[`VITALS-TREND-EPIC-STYLE-UNIFIED-CHART-CODEX-SPEC-2026-07-19.md`](VITALS-TREND-EPIC-STYLE-UNIFIED-CHART-CODEX-SPEC-2026-07-19.md)
+[`VITALS-TREND-EPIC-STYLE-UNIFIED-CHART-CODEX-SPEC-2026-07-19.md`](Archive/root-cleanup-2026-07-19/VITALS-TREND-EPIC-STYLE-UNIFIED-CHART-CODEX-SPEC-2026-07-19.md)
 as a presentation-only A/B path with no bank, clinical-content, grading, or authored-visual-shape
 change. The shared `VitalsChartStyle` setting defaults to `epic`, persists through the existing settings
 store, and is required across every render path. The bilingual Settings control can switch back to the
@@ -174,7 +215,7 @@ The existing Vite large-chunk advisory remains unchanged.
 ### Shape-Aware Sparse Visual Layout Implemented (Jul 19)
 
 Implemented
-[`SHAPE-AWARE-VISUAL-LAYOUT-P4-FOLLOWUP-SPEC-2026-07-18.md`](SHAPE-AWARE-VISUAL-LAYOUT-P4-FOLLOWUP-SPEC-2026-07-18.md)
+[`SHAPE-AWARE-VISUAL-LAYOUT-P4-FOLLOWUP-SPEC-2026-07-18.md`](Archive/root-cleanup-2026-07-19/SHAPE-AWARE-VISUAL-LAYOUT-P4-FOLLOWUP-SPEC-2026-07-18.md)
 as a presentation-only follow-up with no bank, schema, grading, stage-visibility, answer-coupling,
 case-identity, or clinical-content change.
 
@@ -248,9 +289,9 @@ then opened a controlled architecture rerun rather than repairing the drafts in 
 producer contract is
 [`GPT-DIRECT-CASE-PRODUCER-CONTRACT-2026-07-19.md`](GPT-DIRECT-CASE-PRODUCER-CONTRACT-2026-07-19.md);
 the independently runnable topic commissions are
-[`GPT-DIRECT-CASE-PILOT-CASE-C-SPEC-2026-07-19.md`](GPT-DIRECT-CASE-PILOT-CASE-C-SPEC-2026-07-19.md)
+[`GPT-DIRECT-CASE-PILOT-CASE-C-SPEC-2026-07-19.md`](Archive/root-cleanup-2026-07-19/GPT-DIRECT-CASE-PILOT-CASE-C-SPEC-2026-07-19.md)
 and
-[`GPT-DIRECT-CASE-PILOT-CASE-D-SPEC-2026-07-19.md`](GPT-DIRECT-CASE-PILOT-CASE-D-SPEC-2026-07-19.md).
+[`GPT-DIRECT-CASE-PILOT-CASE-D-SPEC-2026-07-19.md`](Archive/root-cleanup-2026-07-19/GPT-DIRECT-CASE-PILOT-CASE-D-SPEC-2026-07-19.md).
 
 The rerun keeps one fresh GPT-5.6 Sol producer per case and preserves producer ownership of the
 patient, progression, exhibits, formats, and distractors. It adds an ordered private blueprint before
@@ -281,7 +322,7 @@ draft, ledger, or census file changed in this commissioning pass.
 
 ### Vitals-Trend Composite Readability Repair Implemented (Jul 18)
 
-Implemented [`VITALS-TREND-COMPOSITE-READABILITY-ARCHITECT-SPEC-2026-07-18.md`](VITALS-TREND-COMPOSITE-READABILITY-ARCHITECT-SPEC-2026-07-18.md) without changing schema shape, bank content, clinical ranges, grading, or `selfCheck`. `vitals_trend` now renders fixed-order, unit-pure hemodynamic, respiratory/oxygenation, and temperature panels with explicit axis units and a common time alignment. Dense legends are panel-local fixed cells, DBP is dashed in both the line and marker, and adult reference bands appear only in one-series panels. A compact flowsheet derived directly from the same source series provides exact timepoint values, including combined SBP/DBP cells.
+Implemented [`VITALS-TREND-COMPOSITE-READABILITY-ARCHITECT-SPEC-2026-07-18.md`](Archive/root-cleanup-2026-07-19/VITALS-TREND-COMPOSITE-READABILITY-ARCHITECT-SPEC-2026-07-18.md) without changing schema shape, bank content, clinical ranges, grading, or `selfCheck`. `vitals_trend` now renders fixed-order, unit-pure hemodynamic, respiratory/oxygenation, and temperature panels with explicit axis units and a common time alignment. Dense legends are panel-local fixed cells, DBP is dashed in both the line and marker, and adult reference bands appear only in one-series panels. A compact flowsheet derived directly from the same source series provides exact timepoint values, including combined SBP/DBP cells.
 
 The forcing record measures 600×1108 and the seven-series record 600×1132. At 1280×727, the former split route squeezed the forcing record to 382 px and its sticky pane stranded the flowsheet below the page's maximum scroll position, so only `vitals_trend` left `STANDALONE_SPLIT_VISUAL_KINDS`. The existing full-width route renders it at a capped 800 px on desktop; focus mode uses the same cap with vertical scrolling and no desktop horizontal overflow. At 390×844, ordinary and focus views retain a readable 600 px minimum surface with internal horizontal scrolling. Browser proof at 1280×727, 1280×800, and 390×844 also covered the forcing item, seven-series minute-unit item, `{hr,temp}` staged exhibit, pediatric band suppression, one-SVG mounting, focus dismissal/restoration, exact-table reachability, and a clean final console.
 
@@ -291,7 +332,7 @@ Verification: `npm run test-visuals`, `npm run test:exam-layout`, `npm run valid
 
 ### Standalone I/O Trend Layout and Bar Presentation Fixed (Jul 18)
 
-Implemented [`io_trend_fix.md`](io_trend_fix.md) without changing schema or bank content. Standalone
+Implemented [`io_trend_fix.md`](Archive/root-cleanup-2026-07-19/io_trend_fix.md) without changing schema or bank content. Standalone
 `io_trend` questions retain the live two-pane experience but now receive a dedicated 600 px desktop
 visual track; other standalone visual kinds retain the generic 384 px track. The chart and five-column
 table scale without internal horizontal overflow, while the existing constrained-width breakpoint and
@@ -313,7 +354,7 @@ stacked fallback, unchanged 384 px `lab_trend` pane, and no console errors.
 ### App Update Banner and Build Identity Implemented (Jul 18)
 
 Implemented the passive update flow commissioned by
-[`APP-UPDATE-BANNER-CODEX-SPEC-2026-07-18.md`](APP-UPDATE-BANNER-CODEX-SPEC-2026-07-18.md).
+[`APP-UPDATE-BANNER-CODEX-SPEC-2026-07-18.md`](Archive/root-cleanup-2026-07-19/APP-UPDATE-BANNER-CODEX-SPEC-2026-07-18.md).
 Each Vite process now computes one build identity, embeds it in the generated `index.html`, and emits
 the same object as `dist/build-info.json`. The production build ends with a deterministic validator
 that runs after the existing `file://` rewrite and fails missing, malformed, empty, invalid-timestamp,
@@ -371,7 +412,7 @@ All 18 commissioned items cleared independent producer≠checker review and are 
 `gpt-canonical.json` (751→769). Zero clinical, mathematical, or logical defects were found. Full
 findings are in the 2026-07-18 `BANK-REVIEW-LEDGER.md` Batch 11 promotion entry.
 
-Claude reviewed [`GPT-SCORED-FORMAT-BATCH-11-SPEC-2026-07-18.md`](GPT-SCORED-FORMAT-BATCH-11-SPEC-2026-07-18.md)
+Claude reviewed [`GPT-SCORED-FORMAT-BATCH-11-SPEC-2026-07-18.md`](Archive/root-cleanup-2026-07-19/GPT-SCORED-FORMAT-BATCH-11-SPEC-2026-07-18.md)
 before generation and caught a design flaw in row 16: its original `dropdown_cloze` structure tested
 primary-vs-central adrenal insufficiency and mineralocorticoid status from the same client's data —
 clinically near-tautological, since one answer determines the other almost by definition, which would
@@ -396,7 +437,7 @@ scored leaves / 199 visual artifacts and `census:check` passed; production build
 ### GPT Scored-Format Batch 11 Commissioned (Jul 18)
 
 The next producer order is
-[`GPT-SCORED-FORMAT-BATCH-11-SPEC-2026-07-18.md`](GPT-SCORED-FORMAT-BATCH-11-SPEC-2026-07-18.md):
+[`GPT-SCORED-FORMAT-BATCH-11-SPEC-2026-07-18.md`](Archive/root-cleanup-2026-07-19/GPT-SCORED-FORMAT-BATCH-11-SPEC-2026-07-18.md):
 18 standalone text-only questions in three raw files, with a planned 5 `bowtie` / 4 `highlight` /
 3 `fill_in_blank` / 3 `ordered_response` / 3 `dropdown_cloze` mix. It uses the promoted
 Batches 8–10 canonical baseline while honoring the commissioning decision not to review Batch 10 raw
@@ -459,7 +500,7 @@ census regenerated at 1,922 session units / 2,500 scored leaves / 199 visual art
 ### GPT Scored-Format Batch 10 Commissioned (Jul 18)
 
 The next producer order is
-[`GPT-SCORED-FORMAT-BATCH-10-SPEC-2026-07-18.md`](GPT-SCORED-FORMAT-BATCH-10-SPEC-2026-07-18.md):
+[`GPT-SCORED-FORMAT-BATCH-10-SPEC-2026-07-18.md`](Archive/root-cleanup-2026-07-19/GPT-SCORED-FORMAT-BATCH-10-SPEC-2026-07-18.md):
 18 standalone text-only questions in three independently runnable six-item GPT raw files. The planned
 mix is 4 `bowtie`, 4 `highlight`, 4 `fill_in_blank`, 3 `ordered_response`, and 3
 `dropdown_cloze` questions, with direct writes to `banks/banks-raw/` and producer-owned preflight
@@ -489,7 +530,7 @@ architect handoff, and current operational specs remain at root.
 ### GPT Scored-Format Batch 9 Commissioned (Jul 18)
 
 The next producer order is
-[`GPT-SCORED-FORMAT-BATCH-9-SPEC-2026-07-18.md`](GPT-SCORED-FORMAT-BATCH-9-SPEC-2026-07-18.md):
+[`GPT-SCORED-FORMAT-BATCH-9-SPEC-2026-07-18.md`](Archive/root-cleanup-2026-07-19/GPT-SCORED-FORMAT-BATCH-9-SPEC-2026-07-18.md):
 18 standalone text-only questions in three independently runnable six-item GPT raw files. It plans
 against the assumption that most or all of Batch 8 clears review and allocates 17 seats to the five
 lowest scored standalone formats, plus one `select_all` seat for ECT's missing format lane.
@@ -505,7 +546,7 @@ Generation and independent review remain pending.
 
 The isolated report-only P4 pass is implemented by `scripts/single-row-lab-panels-survey.ts`, with its
 dated manifest at `audit/single-row-lab-panels-survey-2026-07-18/survey-manifest.json`, decision packet
-at `SINGLE-ROW-LAB-PANELS-P4-SURVEY-SPEC-2026-07-18.md`, and focused byte-drift/contract regression at
+at `Archive/root-cleanup-2026-07-19/SINGLE-ROW-LAB-PANELS-P4-SURVEY-SPEC-2026-07-18.md`, and focused byte-drift/contract regression at
 `scripts/tests/single-row-lab-panels.ts`. It reuses the six-location `collectVisualRefs` projection for
 `lab_trend` and the established top-level/staged exhibit traversal for structured measurements.
 
@@ -530,7 +571,7 @@ obligation.
 ### GPT Scored-Format Batch 8 Commissioned (Jul 18)
 
 The active content order is
-[`GPT-SCORED-FORMAT-BATCH-8-SPEC-2026-07-18.md`](GPT-SCORED-FORMAT-BATCH-8-SPEC-2026-07-18.md):
+[`GPT-SCORED-FORMAT-BATCH-8-SPEC-2026-07-18.md`](Archive/root-cleanup-2026-07-19/GPT-SCORED-FORMAT-BATCH-8-SPEC-2026-07-18.md):
 18 standalone text-only questions in three independently runnable six-item GPT raw files. It retains
 Batch 7's successful 6 fill-in-blank / 6 ordered-response / 2 bowtie / 4 highlight shape while using
 the current post-promotion scored-leaf report (`INPUT_SHA`
@@ -591,7 +632,7 @@ runtime code changed.
 ### Promoted Visual Parity P2 Baseline Phase — Merged (Jul 17)
 
 The survey phase authorized by
-`PROMOTED-VISUAL-PARITY-EXPANSION-ARCHITECT-SPEC-2026-07-16.md` merged in PR #55
+`Archive/root-cleanup-2026-07-19/PROMOTED-VISUAL-PARITY-EXPANSION-ARCHITECT-SPEC-2026-07-16.md` merged in PR #55
 (`7792caf`). A shared,
 byte-sorted promoted-visual loader now fails loudly when a top-level bank is invalid or two visuals
 resolve to the same parity identity, closing the two silent-skip/overwrite defects in the legacy
@@ -1174,7 +1215,7 @@ Completed:
   explicitly unratified; all six non-temperature vital sanity ranges remain unchanged and
   drift-guarded against `VITAL_DEFS`.
 - Implemented the sourced and ratified canonical-Celsius ceiling from
-  `r9-temperature-sanity-decoupling-codex-spec.md`, preserving GATE 4's warning-only semantics and the
+  `Archive/root-cleanup-2026-07-19/r9-temperature-sanity-decoupling-codex-spec.md`, preserving GATE 4's warning-only semantics and the
   renderer's independent source-unit-specific authoring envelopes.
 - Added focused GATE 4 regressions for correctly staged Fahrenheit values, Fahrenheit magnitudes
   mis-staged as `°C` and bare `C`, the inclusive ceiling, the first value above it, and both ends of
