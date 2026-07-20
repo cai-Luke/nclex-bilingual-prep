@@ -20,9 +20,9 @@ Every numbered principle below carries exactly one of these five statuses, state
 
 ## 3. Decision index (2026-07-18)
 
-Navigation aid only — restates no ruling and settles nothing new. Read the target entry for the actual reasoning. Every numbered principle (1–29, excluding the intentionally unused 13–14) appears in exactly one bucket below, matching its heading's tag.
+Navigation aid only — restates no ruling and settles nothing new. Read the target entry for the actual reasoning. Every numbered principle (1–30, excluding the intentionally unused 13–14) appears in exactly one bucket below, matching its heading's tag.
 
-### ACTIVE (21)
+### ACTIVE (22)
 
 | # | One-line rule |
 |---|---|
@@ -47,6 +47,7 @@ Navigation aid only — restates no ruling and settles nothing new. Read the tar
 | 27 | An invariant softens only by naming its forcing incident and showing the condition is gone. |
 | 28 | Scored leaves govern content planning; session units govern delivery capacity and inventory. |
 | 29 | Sparse laboratory-presentation cardinality is not a validity floor. |
+| 30 | Lab reference bands are source-verified adult-only; pediatric bands fail closed; the learner-visible H/L-flag feature remains unauthorized. |
 
 ### CONDITIONAL — forward case-generation lane (5) — LAPSED 2026-07-18
 
@@ -219,6 +220,60 @@ Framing on the record: the per-datum finding is **answer-referenced vs non-answe
 Any presentation change would require its own measured proof-render commission under principle 23; none is authorized here.
 
 P4 is closed. This ruling authorizes no schema, bank-content, renderer, or runtime change.
+
+**30. Lab reference bands are source-verified adult-only; pediatric bands fail
+closed; the learner-visible H/L-flag feature remains unauthorized.
+Status: ACTIVE (ratified 2026-07-19).**
+
+The 29-analyte × 3-population request is not safely expressible in the current
+peds_infant/peds_child vocabulary — published pediatric intervals split by
+age-in-days/weeks, by sex, and by assay, so a coarse two-bucket band would ship
+silent H/L errors. Resolved to source-verified adult teaching bands only, with
+pediatric reference bands intentionally absent. `ANALYTE_DEFS`
+(`src/visuals/kinds/lab_trend/defs.ts`) carries sourced adult bands plus
+warning-only sanity envelopes; per-analyte provenance ([S1]–[S20]) lives in
+`audit/lab-reference-range-verification-2026-07-19.md`.
+
+Pediatric fail-closed contract (validator, `src/visuals/kinds/lab_trend/index.ts`):
+`reference_band_unavailable` when a peds series leaves the band enabled;
+`self_check_flag_requires_reference_band` for peds H/L; `self_check_stable_requires_reference_band`
+for peds stable (its tolerance needs a band width). Peds up/down trajectory stays
+valid with `showReferenceBand:false`.
+
+Clinical ratifications (Luke, lab professional, final call): magnesium tightened
+to 1.7–2.3 mg/dL, a deliberate override of the sourced UIowa 1.5–2.9 as
+implausibly broad for serum Mg; glucose left at 65–139 mg/dL (random/general
+interval, facility-consistent — the Mayo 70–140 action-threshold framing is
+noted for the future flag feature but not adopted now); sex-inclusive envelopes
+accepted (creatinine, hemoglobin, hematocrit, AST/ALT, ammonia) under the
+standing rule that no answer is keyed to a borderline envelope value; anion gap
+7–15 and BNP 0–100 accepted though their citations ([S5] Mayo, [S15] Labcorp)
+were unverifiable by automated fetch.
+
+Therapeutic-anticoagulation flagging is intended, not a defect: warfarin INR
+(2.0–3.0) and therapeutic aPTT/heparin sit above the healthy-population bands and
+correctly compute "H". Recorded so it is not later "repaired."
+
+Scope boundary: this closes range VERIFICATION, the documented prerequisite. It
+does NOT authorize the learner-visible H/L-flag / reference-range-column feature,
+which remains a separate, unauthorized decision.
+
+Renderer geometry moved (INR band 0.8–1.1 → 0.8–1.2, magnesium 1.5–2.9 → 1.7–2.3,
+and other analyte corrections), so the governed `lab_trend` promoted-visual
+parity baseline was rebaselined via `parity:rebaseline --scope lab_trend`
+(Luke-authorized 2026-07-19/20). Regression: `scripts/tests/lab-trend-reference-bands.ts`,
+wired into `test-visuals`.
+
+Producer≠checker: produced by GPT (connector, no shell), independently checked by
+the shell seat (receipt: `test:lab-reference-ranges`, `test:measurement-allowlist`,
+`validate-bank` ×13, `tsc`, `test-visuals` [green through every lab_trend-relevant
+step and the rebaselined parity survey; one unrelated pre-existing `rationale-visual-floor`
+survey-drift failure, confirmed present on committed `main` before this work, is
+out of this scope], `build`; flowsheet-gate cross-consumer at
+`exhibit-flowsheet-gate.ts:400` confirmed). Architect conformance + citation
+spot-check (INR 0.8–1.2 confirmed verbatim at the UIowa 2023 source) 2026-07-19,
+magnesium override re-verified empty-diff against all 20 promoted `lab-canonical.json`
+items 2026-07-20.
 
 ## 5. Conditional lane contracts — forward case-generation pipeline (LAPSED 2026-07-18)
 

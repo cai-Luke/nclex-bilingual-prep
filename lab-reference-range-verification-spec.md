@@ -1,5 +1,13 @@
 # Lab Reference-Range Verification Lane (Spec)
 
+**Status: IMPLEMENTED 2026-07-19; independent clinical-checker, promoted-visual parity, and local shell receipts pending.**
+
+The clinical table, age-band adjudication, code changes, regression contract, adult-vitals review,
+and full source packet are recorded in
+[`audit/lab-reference-range-verification-2026-07-19.md`](audit/lab-reference-range-verification-2026-07-19.md).
+The governing decision is adult source-verified bands plus pediatric trend-only rendering; the current
+`peds_child` / `peds_infant` vocabulary is not precise enough for automatic pediatric H/L bands.
+
 Date: 2026-07-04
 Author: Claude (architect seat). This is primarily a **clinical-content + sourcing lane**, not a code
 lane — Codex's role is limited to applying verified numbers to the registry once adjudicated. The
@@ -11,10 +19,10 @@ Revisions:
 
 ## Why this lane exists
 
-`src/visuals/kinds/lab_trend/index.ts` opens with an explicit warning: **all reference bands and
-sanity bounds in `ANALYTE_DEFS` are placeholders** pending source-verification against authoritative
-references, and the peds buckets (`peds_child` / `peds_infant`) are "coarse approximations" the
-verifier must confirm or narrow. This lane closes that.
+At commissioning time, `ANALYTE_DEFS` carried an explicit warning that all reference bands and
+sanity bounds were placeholders pending source verification, and that the pediatric buckets were
+coarse approximations. The 2026-07-19 implementation closes that placeholder state for adult teaching
+bands and rejects automatic pediatric bands rather than inventing two unsafe aggregate intervals.
 
 It is **independent of** the exhibit-flowsheet migration and runs in parallel. The values-only
 flowsheet needs only the wide magnitude sanity bounds (adequate as-is for GATE 4's gross-error catch),

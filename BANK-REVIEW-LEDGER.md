@@ -68,6 +68,45 @@ Canonical source banks (see [BANK-CENSUS.md](BANK-CENSUS.md) for current counts;
 - `banks/visual-canonical.json` (rhythm_strip visual items; formerly `banks/rhythm-canonical`)
 - `banks/vitals-canonical.json` (vitals_trend visual items)
 
+### 2026-07-20 — WBC / platelet learner-facing prose unit normalization
+
+Status: `fixed-and-validated`. Applied the canonical patch reason “normalize learner-facing WBC and
+platelet prose to the ratified conventional display policy” to `banks/claude-canonical.json`,
+`banks/gemini-canonical.json`, `banks/gpt-canonical.json`, and `banks/hard-cases-canonical.json`.
+The declarative patches changed 253 exact learner-facing string paths (126 EN, 127 ZH) covering 361
+explicit count occurrences: 150 WBC and 211 platelet occurrences. Raw per-volume forms were divided
+by 1,000 into `×10³/µL`; identity-scale `x 10^3/uL`, spaced `× 10³/µL`, and equivalent SI forms were
+token-normalized without changing magnitude; complete equivalent dual displays were compacted to the
+canonical primary form. Comparators, range endpoints, current/prior timepoints, and surrounding prose
+were preserved. No clinical value, threshold, answer, scoring field, ID, ordering, structured
+measurement, visual payload, or metadata field changed.
+
+The corrected structural inventory used Gemini's 334 rows only as a locator seed, independently
+traversed all learner-facing strings including `rationale.correct`, and rejected Gemini's `COMPLETE`
+verdict. Implicit/unitless expressions were deliberately deferred. Six non-blood paths and five
+non-patient-count paths were excluded. The sole paired natural-language platelet-threshold residual
+(`ten thousand per microliter` / `1万/微升`) was subsequently owner-adjudicated and normalized exactly
+to `10 ×10³/µL` in both locales through a second canonical `patch-raw` applicator. No blocked or
+normalizable residual remains.
+
+Evidence: corrected inventory
+`audit/wbc-platelet-prose-unit-inventory-2026-07-19/codex-corrected-manifest.jsonl`; path-level
+dispositions `audit/wbc-platelet-prose-unit-inventory-2026-07-19/codex-dispositions.jsonl`;
+post-write inventory and dispositions in the corresponding `codex-post-*.jsonl` files; declarative
+applicators `scripts/patches/2026-07-20-wbc-platelet-prose-unit-normalization.ts` and
+`scripts/patches/2026-07-20-wbc-platelet-natural-language-residual.ts`; remediation report
+`audit/wbc-platelet-prose-unit-inventory-2026-07-19/codex-remediation-report.md`.
+
+Verification: focused remediation canaries passed; measurement-allowlist and structured-measurement
+tests passed; all 13 bundled banks validated; the exact parsed-object diff gates proved exactly 253
+changed string paths and no other value or structural changes; the post-scan found zero blocked,
+authorized, or global safe explicit residuals; both patch dry runs required zero writes; `npm run audit` exited
+cleanly with 2,673 globally unique IDs (its pre-existing integrity-insufficient/advisory findings
+remain outside this patch); coverage remained 1,942 session units / 2,528 scored leaves / 199 visual
+artifacts; census regenerated with those unchanged counts and `census:check` passed; TypeScript,
+production build, and `git diff --check` passed. The original Gemini manifest/report and Sonnet check
+remained byte-identical by SHA-256. No raw source batch was promoted or deleted in this correction.
+
 ### 2026-07-18 — GPT Scored-Format Batch 11 promotion (`gpt-canonical.json`, 751→769)
 
 Status: `promoted`. Independent review (Claude, three parallel reviewers, producer≠checker) of all 18

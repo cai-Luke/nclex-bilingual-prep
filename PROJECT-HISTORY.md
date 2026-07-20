@@ -52,6 +52,26 @@ The committed NGN item-type set is complete. Rationale/dyad scoring and an expli
 
 > Milestones dated **2026-06-23 and earlier** are archived in [`Archive/PROJECT-HISTORY-ARCHIVE.md`](Archive/PROJECT-HISTORY-ARCHIVE.md). Only the current arc (2026-06-24 onward) is kept here.
 
+### Lab Reference-Range Verification Implemented (Jul 19)
+
+Closed the placeholder-range state in `ANALYTE_DEFS` with a sourced adult teaching-band table and a
+separate warning-only sanity-envelope review. Full provenance, assay/method caveats, interval-selection
+rules, the adult-vitals audit, and the exact changed ceilings are recorded in
+[`audit/lab-reference-range-verification-2026-07-19.md`](audit/lab-reference-range-verification-2026-07-19.md).
+The registry now carries adult bands only: published pediatric intervals divide by multiple age bands
+and sometimes sex or assay, so the existing `peds_child` / `peds_infant` vocabulary was adjudicated as
+insufficient rather than populated with unsafe aggregate ranges.
+
+`lab_trend` now preserves pediatric trajectory-only use when every series explicitly sets
+`showReferenceBand: false`; leaving the default band enabled fails validation with
+`reference_band_unavailable`. Pediatric H/L assertions and `direction: "stable"` fail closed without a
+verified band, while up/down trajectory assertions remain valid. Added a dedicated regression and
+wired it into `test-visuals`; updated the schema and originating spec to point at the completed source
+packet. Because reference bands affect rendered chart geometry, the governed `lab_trend` promoted-
+visual parity rebaseline is also required before the visual suite can pass. The implementation was
+written through the Desktop repository connector; the independent clinical-checker, parity, and local
+shell receipts listed in the audit report remain pending.
+
 ### Root Markdown Cleanup (Jul 19)
 
 Moved 17 completed or superseded root-level implementation specs, work orders, closed survey/
@@ -67,8 +87,8 @@ was cross-checked against this file (and `DECISIONS.md` for the two vitals-trend
 `VITAL-SANITY-BOUNDS-P3-SURVEY-ARCHITECT-SPEC-2026-07-17.md` (P3 stage 3 still open),
 `NEXT-ARCHITECT-DETERMINISTIC-HANDOFF-2026-07-16.md` (P5 still open),
 `EXHIBIT-FLOWSHEET-EXTRACTION-PROPOSAL-2026-07-03.md` (a living authority map, not historical spec
-prose), `lab-reference-range-verification-spec.md` (active — `ANALYTE_DEFS` still carries its
-placeholder-range warning), and `GPT-DIRECT-CASE-PRODUCER-CONTRACT-2026-07-19.md` (the living contract
+prose), `lab-reference-range-verification-spec.md` (active at the time of this cleanup; subsequently
+implemented by the later Jul 19 milestone above), and `GPT-DIRECT-CASE-PRODUCER-CONTRACT-2026-07-19.md` (the living contract
 for the now-standing episodic direct-case pathway) were surveyed and explicitly kept at root as still
 live. See the archive's `README.md` for the full per-file disposition. No bank, schema, renderer, or
 runtime behavior changed.

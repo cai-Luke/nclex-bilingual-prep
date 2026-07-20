@@ -114,11 +114,20 @@ export const validateLabTrend = (spec: LabTrendSpec): VisualError[] => {
     const { min, max } = def.sanity;
     const refBand = def.refBand[pop];
 
+    if (s.showReferenceBand !== false && !refBand) {
+      errs.push({
+        path: `series[${idx}].showReferenceBand`,
+        code: "reference_band_unavailable",
+        message: `no verified ${pop} reference band exists for ${analyteKey}; set showReferenceBand false for trend-only use`,
+      });
+    }
+
     (s.values as unknown[]).forEach((v, vidx) => {
       if (typeof v !== "number" || !Number.isFinite(v)) {
         errs.push({ path: `series[${idx}].values[${vidx}]`, code: "value_not_number", message: "must be a finite number" });
       } else if (v < min || v > max) {
-        errs.push({ path: `series[${idx}].values[${vidx}]`, code: "value_out_of_range", message: `must be between ${min} and ${max} ${def.canonicalUnit} (sanity bounds for ${analyteKey}; reference band is ${refBand.low}–${refBand.high})` });
+        const bandContext = refBand ? `; reference band is ${refBand.low}–${refBand.high}` : "";
+        errs.push({ path: `series[${idx}].values[${vidx}]`, code: "value_out_of_range", message: `must be between ${min} and ${max} ${def.canonicalUnit} (sanity bounds for ${analyteKey}${bandContext})` });
       }
     });
   });
@@ -197,8 +206,18 @@ export const selfCheckLabTrend = (spec: LabTrendSpec, question: unknown): Visual
     if (typeof valStart !== "number" || typeof valEnd !== "number") continue;
 
     const def = ANALYTE_DEFS[tSeries.analyte];
-    const band = def ? def.refBand[pop] : null;
-    const eps = def ? def.stableEps * (band ? band.high - band.low : 1) : 0;
+    const band = def ? def.refBand[pop] : undefined;
+
+    if (entry.direction === "stable" && !band) {
+      errs.push({
+        path: `meta.expected_trend[series=${seriesKey}]`,
+        code: "self_check_stable_requires_reference_band",
+        message: `stable assertions require a verified ${pop} reference band for ${seriesKey}`,
+      });
+      continue;
+    }
+
+    const eps = def && band ? def.stableEps * (band.high - band.low) : 0;
 
     if (entry.direction === "up" && valEnd <= valStart) {
       errs.push({ path: `series.${seriesKey}`, code: "self_check_trend_failed", message: `expected 'up' but valEnd (${valEnd}) <= valStart (${valStart})` });
@@ -228,6 +247,15 @@ export const selfCheckLabTrend = (spec: LabTrendSpec, question: unknown): Visual
     if (typeof val !== "number") continue;
 
     const band = def.refBand[pop];
+    if (!band) {
+      errs.push({
+        path: `meta.expected_flags[series=${seriesKey}]`,
+        code: "self_check_flag_requires_reference_band",
+        message: `H/L assertions require a verified ${pop} reference band for ${seriesKey}`,
+      });
+      continue;
+    }
+
     const computedFlag = val > band.high ? "H" : val < band.low ? "L" : null;
     if (entry.flag !== computedFlag) {
       errs.push({ path: `series.${seriesKey}[t=${entry.at}]`, code: "self_check_flag_failed", message: `declared flag '${entry.flag}' but computed '${computedFlag ?? "normal"}' (value ${val}, band ${band.low}–${band.high})` });
@@ -351,6 +379,13 @@ const fixtures: VisualKindModule<LabTrendSpec>["fixtures"] = {
         { analyte: "creatinine", values: [0.9, 1.2, 1.6, 2.0] },
       ],
     },
+    // Pediatric trend-only use is allowed when the unavailable coarse-bucket band is suppressed.
+    {
+      kind: "lab_trend",
+      time: { unit: "hr", values: [0, 12, 24] },
+      population: "peds_child",
+      series: [{ analyte: "lactate", values: [4.2, 2.8, 1.9], showReferenceBand: false }],
+    },
   ],
   invalid: [
     // too_few_timepoints: only 2 points
@@ -375,6 +410,8 @@ const fixtures: VisualKindModule<LabTrendSpec>["fixtures"] = {
     { spec: { kind: "lab_trend", time: { unit: "hr", values: [0, "twenty-four", 48] }, series: [{ analyte: "creatinine", values: [1.0, 1.5, 2.0] }] }, expectCode: "timepoint_not_number" },
     // invalid_population
     { spec: { kind: "lab_trend", time: { unit: "hr", values: [0, 24, 48] }, population: "geriatric", series: [{ analyte: "creatinine", values: [1.0, 1.5, 2.0] }] }, expectCode: "invalid_population" },
+    // Coarse pediatric buckets are trend-only unless the band is explicitly suppressed.
+    { spec: { kind: "lab_trend", time: { unit: "hr", values: [0, 24, 48] }, population: "peds_child", series: [{ analyte: "creatinine", values: [0.5, 0.6, 0.7] }] }, expectCode: "reference_band_unavailable" },
     // invalid_unit_for_analyte
     { spec: { kind: "lab_trend", time: { unit: "hr", values: [0, 24, 48] }, series: [{ analyte: "creatinine", unit: "bpm", values: [1.0, 1.5, 2.0] }] }, expectCode: "invalid_unit_for_analyte" },
     // caption_en_required

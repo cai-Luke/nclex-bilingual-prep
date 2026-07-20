@@ -172,8 +172,8 @@ For arithmetic visual lanes (`io_record`, `io_trend`, `medication_label`, `devic
 The kind-specific `selfCheck` invoked by runtime bank validation recomputes declared arithmetic values. A mismatch is a validation failure, not a reviewer preference note.
 
 - `series` — the kind-specific series identifier (`analyte` key for `lab_trend`, `vital` key for `vitals_trend`).
-- `direction` — `"up"` | `"down"` | `"stable"`. `"stable"` passes when `|valEnd − valStart| ≤ stableEps × (refBand.high − refBand.low)` (default 10% per analyte).
-- `expected_flags` — `H`/`L` assertions verified against the registry reference band for the declared `population`.
+- `direction` — `"up"` | `"down"` | `"stable"`. `"stable"` passes when `|valEnd − valStart| ≤ stableEps × (refBand.high − refBand.low)` (default 10% per analyte) and therefore requires an active verified reference band.
+- `expected_flags` — `H`/`L` assertions verified against the registry reference band for the declared `population`; authoring a flag without an active verified band fails closed.
 - `window` — `[t0, t1]` values matched by equality against `time.values`; must span more than one timepoint.
 - `at` — single timepoint for flag assertions, matched by equality against `time.values`.
 
@@ -390,17 +390,17 @@ Unlike the global visual default, `lab_trend` is also allowed on `ordered_respon
 Validation rules:
 - `kind` must be `"lab_trend"`.
 - `time` is required. `time.unit` must be `"hr"`, `"min"`, or `"day"`. `time.values` must be a strictly increasing array of finite numbers with length ≥ 3.
-- `population`, if present, must be `"adult"`, `"peds_child"`, or `"peds_infant"`. Default `"adult"`.
+- `population`, if present, must be `"adult"`, `"peds_child"`, or `"peds_infant"`. Default `"adult"`. The current registry carries verified adult bands only. Pediatric populations are trajectory-only: every series must set `showReferenceBand: false`, or validation emits `reference_band_unavailable`.
 - `series` must have 1–2 entries. No duplicate `analyte` keys.
 - Each `analyte` must be in the `LabAnalyteKey` vocabulary above.
 - Each `series.values` length must equal `time.values` length.
 - Each value must be a finite number within the analyte's absolute physiologic sanity bounds (wide; these are not the reference band).
 - `series.unit`, if given, must be one of the recognized units for that analyte (canonical or accepted alternate).
-- `series.showReferenceBand`, if given, must be boolean.
-- `selfCheck` verifies render fidelity (plotted values equal `series.values`), flag correctness (`expected_flags` H/L recomputed from registry band for the active `population`), trend correctness (`expected_trend` direction over declared window, including `"stable"`), and necessity assertions (`visual_justification` present; at least one `expected_trend` or `expected_flags` entry; every window spans more than one timepoint).
+- `series.showReferenceBand`, if given, must be boolean. It defaults to true only where the active population has a verified band; set it explicitly to false for pediatric trend-only use.
+- `selfCheck` verifies render fidelity (plotted values equal `series.values`), flag correctness (`expected_flags` H/L recomputed from registry band for the active `population`), trend correctness (`expected_trend` direction over declared window, including `"stable"`), and necessity assertions (`visual_justification` present; at least one `expected_trend` or `expected_flags` entry; every window spans more than one timepoint). H/L and `"stable"` assertions fail closed when no verified band exists; `"up"`/`"down"` trajectory assertions remain valid without a band.
 - `caption.en`, if caption is present, is required. `caption.zh` is optional but must be non-empty if present.
 
-> **STRICTEST-TIER accuracy requirement.** All reference ranges and units are placeholders pending source-verification against authoritative clinical references before the content lane opens. Record the source per analyte in the U3 audit report.
+> **Reference-range status (verified 2026-07-19).** `ANALYTE_DEFS` carries sourced adult teaching bands and warning-only sanity envelopes; full provenance, assay caveats, and interval-selection rules are recorded in [`audit/lab-reference-range-verification-2026-07-19.md`](audit/lab-reference-range-verification-2026-07-19.md). Pediatric bands are intentionally absent because the current two pediatric population buckets cannot represent the cited age-, sex-, and assay-specific intervals safely.
 
 ### Kind: `mar`
 

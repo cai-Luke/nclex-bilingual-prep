@@ -1,7 +1,7 @@
 import type { Population } from "../../../population";
 
-// PLACEHOLDER ranges — every numeric value in the analyte registry (index.ts) must be
-// source-verified against authoritative clinical references before the content lane opens.
+// Adult teaching bands are source-verified in defs.ts. Pediatric bands are intentionally
+// unavailable until the population model can represent clinically meaningful age bands.
 
 export type LabAnalyteKey =
   | "sodium" | "potassium" | "chloride" | "bicarbonate" | "anion_gap"
@@ -16,7 +16,7 @@ export interface LabTrendSpec {
   kind: "lab_trend";
   /** Hour/min/day offsets; strictly increasing; length >= 3. */
   time: { unit: "hr" | "min" | "day"; values: number[] };
-  /** Reference-range population. Default "adult". */
+  /** Reference-range population. Default "adult". Pediatric populations are trend-only. */
   population?: Population;
   /** 1–2 analytes. Plot only the load-bearing analyte(s). */
   series: {
@@ -25,7 +25,7 @@ export interface LabTrendSpec {
     values: number[];
     /** Display/validation unit. Defaults to the registry's canonical unit. */
     unit?: string;
-    /** Show the analyte's normal band. Default true. */
+    /** Show the verified band. Default true; must be false for pediatric trend-only use. */
     showReferenceBand?: boolean;
   }[];
   caption?: { en: string; zh?: string };
