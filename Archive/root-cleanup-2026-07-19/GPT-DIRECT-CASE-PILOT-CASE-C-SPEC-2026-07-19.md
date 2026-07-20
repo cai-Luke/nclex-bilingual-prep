@@ -10,7 +10,7 @@ Scope: one hard unfolding `case_study`, normally 5–6 embedded scored parts, wi
 companion item
 
 Governing producer contract:
-[`GPT-DIRECT-CASE-PRODUCER-CONTRACT-2026-07-19.md`](GPT-DIRECT-CASE-PRODUCER-CONTRACT-2026-07-19.md)
+[`GPT-DIRECT-CASE-PRODUCER-CONTRACT-2026-07-19.md`](../../GPT-DIRECT-CASE-PRODUCER-CONTRACT-2026-07-19.md)
 
 ## 1. Experiment purpose
 
