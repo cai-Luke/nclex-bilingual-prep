@@ -1033,3 +1033,70 @@ files) and only the pre-existing advisory non-MCQ distributional warning on unre
 1,869 session units / 2,447 scored leaves / 199 visual artifacts and `census:check` passed; production
 build passed. The three raw drafts remain in `banks/banks-raw/` pending this ledger update, per
 `audit:integrity`'s draft-retention contract.
+
+### 2026-07-19 — GPT Direct-Case Pilot C/D promotion (`gpt-canonical.json`, 769→771)
+
+Status: `promoted`. Pilot Cases C (`gpt-direct-case-pilot-case-c-2026-07-19.json`, intrapartum fetal
+monitoring/CTG) and D (`gpt-direct-case-pilot-case-d-2026-07-19.json`, acute asthma/serial ABGs) were
+authored against `GPT-DIRECT-CASE-PRODUCER-CONTRACT-2026-07-19.md`. Codex ran the checker pass required
+by that contract (normalization, `validate-bank`, stage-reference/collision review) and held both for
+repair rather than clearing them; Claude independently re-derived every blocking finding from the raw
+JSON and the contract text before repairing, rather than accepting the checker report at face value.
+
+Confirmed findings — Case C: (1) reverse leakage into Part 4 — the 10:30 stage narrative stated the
+team reassessed "after continued observation," directly stating Part 4's keyed dd2 action (continue
+CTG, assess sustained improvement), which the contract's §6 non-linear-navigation clause makes a live
+risk, not a theoretical one; Part 5 option D separately leaked Part 4's dd1 classification by naming
+the event "an acceleration ... after stimulation." (2) Baseline-terminology drift — the 10:09 exhibit
+labeled an instantaneous point value "a baseline of 150/min" and folded "the next 5 minutes" of
+observation into an "immediate response" exhibit, while the 10:30 exhibit called a range "145 to
+150/min" the baseline, both inconsistent with the case's own glossary definition of baseline as a
+value over a stable observation period. (3) The producer receipt's file-size claim (28,964 bytes) was
+wrong; actual file size was 40,607 bytes (verified via `ls -la`, not corrected in-file since it was a
+chat-receipt claim, not stored data).
+
+Confirmed findings — Case D: (1) The 10:15 reassessment reported SpO₂ 97% after an oxygen increase
+with no titration, described as "protocol-directed" care; GINA's stated adult target ceiling on
+supplemental oxygen is 95% (verified via web search against the GINA guideline, not 96% as the
+checker's report stated), so the untitrated 97% conflicted with guidance. (2) Part 5's matrix
+rationale asserted specific comparability rules (no positive-pressure ventilation preserves PaCO₂/pH
+comparability; increased oxygen means PaO₂/SpO₂ improvement can't establish improved gas exchange) that
+the cited GINA pages support only in general terms (controlled oxygen, reassessment, ABGs, PEF), not as
+an exact stated rule — a source-scope gap under the contract's §8 criterion-transcription rule.
+
+Repairs applied via the raw-scoped `patch-raw` engine (load → mutate → re-serialize, no hand-edited
+JSON): `scripts/patches/2026-07-19-gpt-casepilot-case-c-final-review.ts` (12 ops — reworded the leaking
+10:30 narrative and Part 5 option D/rationale without collapsing either part's construct; fixed the
+10:09/10:30 exhibits to keep one genuinely immediate response and one determined baseline value; also
+softened Part 2's stem from "increase concern" to "contribute to current concern" since ongoing
+oxytocin was already present at the 09:00 baseline, not newly arising) and
+`scripts/patches/2026-07-19-gpt-casepilot-case-d-final-review.ts` (3 ops — retitrated the 10:15 oxygen
+exhibit to a target-consistent SpO₂ 95% / PaO₂ 80 mm Hg pairing; added an exact additional source,
+Respiratory Therapy Zone's ABG Oxygenation Interpretation article on "corrected hypoxemia" under
+supplemental oxygen, alongside the existing GINA citation for Part 5's `meta.source`). Both raw files
+passed `normalize-raw-bank` with zero structural drift and `validate-bank` after patching.
+
+A post-consolidation `audit:topic-license` pass surfaced one additional pre-existing finding not
+raised by either the checker or the initial repair pass: Case D's Part 4
+(`gpt_casepilot_2026_07_19_d_part_4_order_safety`, a medication-order-safety SATA item) was authored
+with topic "Respiratory & Infectious Disorders," which `src/topics.ts` strictly licenses only under
+category "Physiological Adaptation," while the part declares category "Pharmacological and Parenteral
+Therapies." Retopicked (not recategorized) to "Medication Safety & Admin" — licensed for
+"Pharmacological and Parenteral Therapies" and a better content match for a part that tests clarifying
+IV aminophylline, sedation, and routine-antibiotic orders — via
+`scripts/patches/2026-07-19-case-d-part4-topic-license.ts`, applied in canonical mode directly to
+`gpt-canonical.json` after consolidation.
+
+Promoted via `npm run promote` → `npm run consolidate`: both cases routed into `gpt-canonical.json`,
+769→770→771.
+
+Verification: `validate-bank` passed both raw files pre-promotion with zero normalization drift;
+`npm run audit` **GATE PASSED** post-consolidation and post-topic-fix, with all 2,673 bundled IDs
+globally unique across 13 bank files, `audit:stage-refs` resolving all embedded case-study stage
+references (including both cases' 5/5 `answerableAfterStageId` anchors, manually re-verified since no
+raw-mode anchor linter exists yet per the producer contract's §12 acknowledgment), and
+`audit:topic-license` clean after the Part 4 retopic; only the pre-existing advisory non-MCQ
+distributional warning on unrelated `visual-canonical` select_all items remained. Census regenerated at
+1,942 session units / 2,528 scored leaves / 199 visual artifacts; `census:check` and the production
+build passed. The two raw drafts remain in `banks/banks-raw/` pending this ledger update, per
+`audit:integrity`'s draft-retention contract, and will be deleted next.

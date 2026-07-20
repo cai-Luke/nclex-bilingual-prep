@@ -2,18 +2,18 @@
 
 # NCLEX Bank Census
 
-Generated: 2026-07-18T21:17:41.666Z
-Input Git SHA: 90da6052de7791561bfb452b262166a63d78d0b2
+Generated: 2026-07-20T01:05:41.959Z
+Input Git SHA: f6c0b4f37650417867fef361fe4bc1feff1b41d3
 
 ## Session-Unit Inventory and Delivery Capacity
 
 Population basis: top-level delivery units. Category, topic, item-type, and difficulty distributions in this section are inventory comparisons, not content-planning targets.
 
-- Total session units: 1940
+- Total session units: 1942
 - Standalone top-level supply: 1797
-- Case-container supply: 143
-- Embedded-part inventory (not session units): 721
-- Question-shaped inventory records: 2661
+- Case-container supply: 145
+- Embedded-part inventory (not session units): 731
+- Question-shaped inventory records: 2673
 
 ### Per-File Session-Unit Inventory
 
@@ -24,7 +24,7 @@ Population basis: top-level delivery units. Category, topic, item-type, and diff
 | claude-canonical.json | 2.0 | 97 | 97 | — |
 | device-canonical.json | 1.2 | 8 | 8 | — |
 | gemini-canonical.json | 2.0 | 874 | 874 | — |
-| gpt-canonical.json | 2.0 | 769 | 769 | — |
+| gpt-canonical.json | 2.0 | 771 | 771 | — |
 | hard-cases-canonical.json | 1.8 | 66 | 66 | — |
 | io-canonical.json | 1.2 | 8 | 8 | — |
 | lab-canonical.json | 1.2 | 20 | 20 | — |
@@ -38,10 +38,10 @@ Population basis: top-level delivery units. Category, topic, item-type, and diff
 - Health Promotion and Maintenance: 178
 - Basic Care and Comfort: 179
 - Psychosocial Integrity: 180
-- Reduction of Risk Potential: 212
+- Reduction of Risk Potential: 213
 - Safety and Infection Prevention and Control: 245
 - Management of Care: 309
-- Physiological Adaptation: 317
+- Physiological Adaptation: 318
 - Pharmacological and Parenteral Therapies: 320
 
 ### Session-Unit Topic Concentration
@@ -52,12 +52,12 @@ Population basis: top-level delivery units. Category, topic, item-type, and diff
 - Psychosocial Integrity: Mental Health Disorders (66), Suicide & Crisis Intervention (34), Therapeutic Communication (31), Substance Use & Withdrawal (24), Electroconvulsive Therapy (ECT) (13), Caregiver Role Strain & Family Coping (12)
 - Basic Care and Comfort: Nutritional & Fluid Support (57), Elimination & Comfort (35), Mobility & Immobility (31), Sleep & Rest (22), Palliative & Supportive Care (19), Skin & Wound Care (15)
 - Pharmacological and Parenteral Therapies: Medication Safety & Admin (93), Dosage Calculations (59), Anticoagulant Therapy (48), Cardiovascular & Endocrine Medications (43), Psychotropic Medications (25), Parenteral Nutrition (21), Burn Management (16), IV Fluid Calculations (9), Transfusion & Blood Products (5), Laboratory & Diagnostic Tests (1)
-- Reduction of Risk Potential: Procedural Complications & Dialysis (64), Laboratory & Diagnostic Tests (48), Perioperative Care (43), Intrapartum Fetal Monitoring (17), ABG & Acid-Base Interpretation (13), Maternal-Newborn Care & Teaching (12), Burn Management (7), Oncology & Immunotherapy Complications (4), Skin & Wound Care (4)
-- Physiological Adaptation: Cardiovascular Disorders (91), Endocrine & Neurological Disorders (52), Renal & Gastrointestinal Disorders (50), Electrolyte Imbalances (31), Respiratory & Infectious Disorders (28), Sepsis & Septic Shock (19), Diabetic Ketoacidosis (DKA) (17), Oncology & Immunotherapy Complications (12), Burn Management (10), Maternal-Newborn Care & Teaching (6)
+- Reduction of Risk Potential: Procedural Complications & Dialysis (64), Laboratory & Diagnostic Tests (48), Perioperative Care (43), Intrapartum Fetal Monitoring (18), ABG & Acid-Base Interpretation (13), Maternal-Newborn Care & Teaching (12), Burn Management (7), Oncology & Immunotherapy Complications (4), Skin & Wound Care (4)
+- Physiological Adaptation: Cardiovascular Disorders (91), Endocrine & Neurological Disorders (52), Renal & Gastrointestinal Disorders (50), Electrolyte Imbalances (31), Respiratory & Infectious Disorders (29), Sepsis & Septic Shock (19), Diabetic Ketoacidosis (DKA) (17), Oncology & Immunotherapy Complications (12), Burn Management (10), Maternal-Newborn Care & Teaching (6)
 
 ### Session-Unit Item-Type Inventory
 
-- case_study: 143
+- case_study: 145
 - bowtie: 164
 - highlight: 172
 - dropdown_cloze: 190
@@ -72,7 +72,7 @@ Population basis: top-level delivery units. Category, topic, item-type, and diff
 ### Session-Unit Difficulty Inventory
 
 - easy: 282
-- hard: 650
+- hard: 652
 - medium: 1008
 
 ### Standalone Draw Capacity (requested session size 50)
@@ -97,14 +97,14 @@ Operational shortfalls:
 ### Session-Unit Schema and Source Inventory
 
 - Schema v1.2: 77 session units (burn-canonical.json, capnography-canonical.json, device-canonical.json, io-canonical.json, lab-canonical.json, mar-canonical.json, medlabel-canonical.json, vitals-canonical.json)
-- Schema v2.0: 1797 session units (claude-canonical.json, gemini-canonical.json, gpt-canonical.json, visual-canonical.json)
+- Schema v2.0: 1799 session units (claude-canonical.json, gemini-canonical.json, gpt-canonical.json, visual-canonical.json)
 - Schema v1.8: 66 session units (hard-cases-canonical.json)
 - burn-canonical.json: 8
 - capnography-canonical.json: 7
 - claude-canonical.json: 97
 - device-canonical.json: 8
 - gemini-canonical.json: 874
-- gpt-canonical.json: 769
+- gpt-canonical.json: 771
 - hard-cases-canonical.json: 66
 - io-canonical.json: 8
 - lab-canonical.json: 20
@@ -212,6 +212,8 @@ Operational shortfalls:
 | gpt_case_opioid_recovery_relapse_risk_01 | Substance Use & Withdrawal | 6 | gpt-canonical.json |
 | gpt_case_overdue_preventive_screening_01 | Adult Health & Wellness | 6 | gpt-canonical.json |
 | gpt_case_pressure_injury_prevention_mobility_01 | Skin & Wound Care | 6 | gpt-canonical.json |
+| gpt_casepilot_2026_07_19_c_case | Intrapartum Fetal Monitoring | 5 | gpt-canonical.json |
+| gpt_casepilot_2026_07_19_d_case | Respiratory & Infectious Disorders | 5 | gpt-canonical.json |
 | case_sepsis_pneumonia_01 | Sepsis & Septic Shock | 4 | hard-cases-canonical.json |
 | case_preeclampsia_magnesium_01 | Maternal-Newborn Care & Teaching | 4 | hard-cases-canonical.json |
 | cs_copd_01 | Respiratory & Infectious Disorders | 5 | hard-cases-canonical.json |
@@ -265,19 +267,19 @@ Operational shortfalls:
 
 Population basis: standalone top-level questions plus embedded case-study questions, excluding case containers. Each leaf contributes its own category, topic, item type, and difficulty. This is the authoritative planning lane.
 
-- Total scored leaves: 2518
+- Total scored leaves: 2528
 - Standalone scored leaves: 1797
-- Embedded scored leaves: 721
+- Embedded scored leaves: 731
 
 ### Scored-Leaf Category Distribution
 
 - Basic Care and Comfort: 228
 - Health Promotion and Maintenance: 243
 - Psychosocial Integrity: 257
-- Reduction of Risk Potential: 265
+- Reduction of Risk Potential: 274
 - Safety and Infection Prevention and Control: 293
 - Management of Care: 400
-- Pharmacological and Parenteral Therapies: 404
+- Pharmacological and Parenteral Therapies: 405
 - Physiological Adaptation: 428
 
 ### Scored-Leaf Topic Concentration
@@ -287,40 +289,40 @@ Population basis: standalone top-level questions plus embedded case-study questi
 - Health Promotion and Maintenance: Adult Health & Wellness (77), Chronic Disease Management & Lifestyle (51), Maternal-Newborn Care & Teaching (37), Pediatric & Adolescent Health (36), Pediatric & Toddler Safety (26), Reproductive & Endocrine Health (16)
 - Psychosocial Integrity: Mental Health Disorders (78), Suicide & Crisis Intervention (60), Therapeutic Communication (44), Caregiver Role Strain & Family Coping (33), Substance Use & Withdrawal (29), Electroconvulsive Therapy (ECT) (13)
 - Basic Care and Comfort: Nutritional & Fluid Support (66), Elimination & Comfort (44), Mobility & Immobility (44), Sleep & Rest (29), Palliative & Supportive Care (24), Skin & Wound Care (21)
-- Pharmacological and Parenteral Therapies: Medication Safety & Admin (118), Dosage Calculations (74), Anticoagulant Therapy (58), Cardiovascular & Endocrine Medications (55), Psychotropic Medications (37), Parenteral Nutrition (27), Burn Management (17), IV Fluid Calculations (10), Transfusion & Blood Products (6), Laboratory & Diagnostic Tests (2)
-- Reduction of Risk Potential: Laboratory & Diagnostic Tests (80), Procedural Complications & Dialysis (67), Perioperative Care (54), Intrapartum Fetal Monitoring (17), Maternal-Newborn Care & Teaching (15), ABG & Acid-Base Interpretation (13), Burn Management (8), Oncology & Immunotherapy Complications (7), Skin & Wound Care (4)
+- Pharmacological and Parenteral Therapies: Medication Safety & Admin (119), Dosage Calculations (74), Anticoagulant Therapy (58), Cardiovascular & Endocrine Medications (55), Psychotropic Medications (37), Parenteral Nutrition (27), Burn Management (17), IV Fluid Calculations (10), Transfusion & Blood Products (6), Laboratory & Diagnostic Tests (2)
+- Reduction of Risk Potential: Laboratory & Diagnostic Tests (80), Procedural Complications & Dialysis (67), Perioperative Care (54), Intrapartum Fetal Monitoring (22), ABG & Acid-Base Interpretation (17), Maternal-Newborn Care & Teaching (15), Burn Management (8), Oncology & Immunotherapy Complications (7), Skin & Wound Care (4)
 - Physiological Adaptation: Cardiovascular Disorders (107), Endocrine & Neurological Disorders (67), Renal & Gastrointestinal Disorders (66), Electrolyte Imbalances (53), Respiratory & Infectious Disorders (36), Oncology & Immunotherapy Complications (27), Sepsis & Septic Shock (27), Diabetic Ketoacidosis (DKA) (20), Burn Management (12), Maternal-Newborn Care & Teaching (11)
 
 ### Scored-Leaf Item-Type Distribution
 
 - bowtie: 164
-- highlight: 193
+- highlight: 194
 - fill_in_blank: 223
 - ordered_response: 253
-- dropdown_cloze: 280
-- matrix: 342
-- select_all: 377
-- multiple_choice: 686
+- dropdown_cloze: 282
+- matrix: 343
+- select_all: 379
+- multiple_choice: 690
 
 ### Scored-Leaf Difficulty Distribution
 
 - easy: 285
-- hard: 981
+- hard: 991
 - medium: 1252
 
 ### Targets
 
 Category targets (scored-leaf denominator):
-- Management of Care: 453.2
-- Safety and Infection Prevention and Control: 327.3
-- Health Promotion and Maintenance: 226.6
-- Psychosocial Integrity: 226.6
-- Basic Care and Comfort: 226.6
-- Pharmacological and Parenteral Therapies: 402.9
-- Reduction of Risk Potential: 302.2
-- Physiological Adaptation: 352.5
+- Management of Care: 455.0
+- Safety and Infection Prevention and Control: 328.6
+- Health Promotion and Maintenance: 227.5
+- Psychosocial Integrity: 227.5
+- Basic Care and Comfort: 227.5
+- Pharmacological and Parenteral Therapies: 404.5
+- Reduction of Risk Potential: 303.4
+- Physiological Adaptation: 353.9
 
-Equal-average scored item-type target: 314.8
+Equal-average scored item-type target: 316.0
 
 Under-served categories:
 - none
@@ -330,26 +332,27 @@ Over-served categories:
 
 Under-served scored item types:
 - bowtie: 164
-- highlight: 193
+- highlight: 194
 - fill_in_blank: 223
 - ordered_response: 253
-- dropdown_cloze: 280
+- dropdown_cloze: 282
 
 ### Prompt Parameters
 
 PRIORITIZE_TOPICS:
+- ABG & Acid-Base Interpretation — add: select_all, highlight
 - Reproductive & Endocrine Health — add: fill_in_blank
-- bowtie (164 vs target 314.8)
-- highlight (193 vs target 314.8)
-- fill_in_blank (223 vs target 314.8)
-- ordered_response (253 vs target 314.8)
-- dropdown_cloze (280 vs target 314.8)
+- bowtie (164 vs target 316.0)
+- highlight (194 vs target 316.0)
+- fill_in_blank (223 vs target 316.0)
+- ordered_response (253 vs target 316.0)
+- dropdown_cloze (282 vs target 316.0)
 - IV Fluid Calculations
-- ABG & Acid-Base Interpretation
 - Electroconvulsive Therapy (ECT)
 - Reproductive & Endocrine Health
-- Intrapartum Fetal Monitoring
+- ABG & Acid-Base Interpretation
 - Diabetic Ketoacidosis (DKA)
+- Intrapartum Fetal Monitoring
 - Palliative & Supportive Care
 - Pediatric & Toddler Safety
 - Parenteral Nutrition
@@ -358,7 +361,7 @@ PRIORITIZE_TOPICS:
 - Sleep & Rest
 
 AVOID_TOPICS:
-- Medication Safety & Admin (124)
+- Medication Safety & Admin (125)
 - Prioritization & Delegation (107)
 - Cardiovascular Disorders (107)
 - Legal & Ethical Principles (89)

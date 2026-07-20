@@ -22,8 +22,8 @@ The original Pilot B spec and raw draft remain preserved as the baseline control
 promotion candidates and do not occupy this premise for collision purposes. Do not open or derive
 content from:
 
-- `GPT-DIRECT-CASE-PILOT-CASE-B-SPEC-2026-07-18.md`;
-- `banks/banks-raw/gpt-direct-case-pilot-case-b-2026-07-18.json`.
+- `Archive/direct-case-pilot-controls-2026-07-19/GPT-DIRECT-CASE-PILOT-CASE-B-SPEC-2026-07-18.md`;
+- `Archive/direct-case-pilot-controls-2026-07-19/gpt-direct-case-pilot-case-b-2026-07-18.json`.
 
 Pilot A is also an excluded control. Continue to inspect all other named comparators and live raw
 drafts as required by the common contract.

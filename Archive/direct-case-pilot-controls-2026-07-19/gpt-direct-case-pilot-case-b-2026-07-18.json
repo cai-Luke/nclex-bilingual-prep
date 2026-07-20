@@ -1,0 +1,809 @@
+{
+  "meta": {
+    "schemaVersion": "2.0",
+    "exam": "NCLEX-RN",
+    "topic": "severe asthma with serial arterial blood gases",
+    "category": "Physiological Adaptation",
+    "difficulty": "hard",
+    "count": 1
+  },
+  "questions": [
+    {
+      "id": "gpt_casepilot_2026_07_18_b_case_severe_asthma_serial_abg_01",
+      "itemType": "case_study",
+      "category": "Physiological Adaptation",
+      "topic": "Respiratory & Infectious Disorders",
+      "difficulty": "hard",
+      "ngnSkill": "analyze_cues",
+      "stem": {
+        "en": "Review the unfolding emergency-care record and answer the case-study items.",
+        "zh": "请查看逐步展开的急诊病历，并回答本病例题组。"
+      },
+      "caseStudy": {
+        "title": {
+          "en": "Acute severe asthma with serial ventilation assessment",
+          "zh": "急性重度哮喘的连续通气评估"
+        },
+        "summary": {
+          "en": "A 31-year-old adult with asthma presents to the emergency department with worsening dyspnea despite repeated use of a rescue inhaler. The learner must integrate changing bedside respiratory findings, oxygenation, peak expiratory flow, and serial arterial blood gases while treatment and reassessment proceed.",
+          "zh": "一名31岁哮喘患者因反复使用急救吸入剂后呼吸困难仍加重而到急诊就诊。学习者需要在治疗和复评过程中，整合不断变化的床旁呼吸表现、氧合、呼气峰流量和连续动脉血气结果。"
+        },
+        "exhibits": [],
+        "stages": [
+          {
+            "id": "gpt_casepilot_2026_07_18_b_stage_arrival_1810",
+            "title": {
+              "en": "1810 — Emergency department arrival",
+              "zh": "1810—到达急诊"
+            },
+            "trigger": {
+              "en": "Initial assessment under the facility severe-asthma pathway",
+              "zh": "按本机构重度哮喘流程进行初始评估"
+            },
+            "narrative": {
+              "en": "The facility severe-asthma pathway directs respiratory reassessment every 15 minutes during the first hour, repeat peak expiratory flow at 30 and 60 minutes if the client can perform it, and repeat arterial blood gas testing when fatigue, altered mental status, or clinical deterioration develops.",
+              "zh": "本机构重度哮喘流程规定：最初1小时内每15分钟复评呼吸状态；若患者能够完成，则在30分钟和60分钟复测呼气峰流量；如出现疲劳、意识状态改变或临床恶化，则复查动脉血气。"
+            },
+            "timeOffset": "0 min",
+            "exhibits": [
+              {
+                "id": "gpt_casepilot_2026_07_18_b_exhibit_arrival_history_assessment",
+                "type": "nursing_note",
+                "title": {
+                  "en": "History and bedside respiratory assessment",
+                  "zh": "病史和床旁呼吸评估"
+                },
+                "content": {
+                  "en": "The client reports two days of nasal congestion and cough without fever, followed by rapidly worsening chest tightness and dyspnea today. She has asthma but no COPD history, does not smoke, and has never required intubation. She used her rescue inhaler repeatedly before arrival without sustained relief. She is anxious but alert and oriented, sits upright, and can speak only in short phrases before pausing for breath. T 37.0 °C, HR 118/min, BP 138/82 mmHg, RR 30/min with suprasternal and intercostal retractions, SpO2 92% on room air. Auscultation reveals diffuse expiratory wheezing with reduced air entry at both bases. Peak expiratory flow is 42% of her documented personal best.",
+                  "zh": "患者诉两天来有鼻塞和咳嗽，无发热；今日胸闷和呼吸困难迅速加重。既往有哮喘，无COPD病史，不吸烟，从未需要气管插管。到院前反复使用急救吸入剂，但未获得持续缓解。患者焦虑但清醒、定向力正常，端坐，只能说短句，随后需停顿呼吸。T 37.0°C，HR 118次/分，BP 138/82 mmHg，RR 30次/分，伴胸骨上和肋间凹陷；室内空气SpO2 92%。听诊可闻及弥漫性呼气相哮鸣音，双侧肺底进气减少。呼气峰流量为其已记录个人最佳值的42%。"
+                }
+              },
+              {
+                "id": "gpt_casepilot_2026_07_18_b_exhibit_arrival_abg_orders",
+                "type": "laboratory_and_orders",
+                "title": {
+                  "en": "Initial arterial blood gas and treatment orders",
+                  "zh": "初始动脉血气和治疗医嘱"
+                },
+                "content": {
+                  "en": "Controlled oxygen is started with a target SpO2 of 93% to 95%. Repeated inhaled short-acting bronchodilator therapy, inhaled ipratropium, and a systemic corticosteroid are initiated under the facility pathway. Initial ABG on controlled oxygen: pH 7.47, PaCO2 30 mmHg, PaO2 68 mmHg, HCO3 22 mEq/L.",
+                  "zh": "开始控制性给氧，目标SpO2为93%至95%。按本机构流程启动反复吸入短效支气管扩张剂、吸入异丙托溴铵和全身糖皮质激素治疗。控制性给氧下初始ABG：pH 7.47，PaCO2 30 mmHg，PaO2 68 mmHg，HCO3 22 mEq/L。"
+                }
+              }
+            ]
+          },
+          {
+            "id": "gpt_casepilot_2026_07_18_b_stage_reassess_1840",
+            "title": {
+              "en": "1840 — Thirty-minute reassessment",
+              "zh": "1840—30分钟复评"
+            },
+            "trigger": {
+              "en": "Scheduled reassessment under the facility severe-asthma pathway",
+              "zh": "按本机构重度哮喘流程进行计划复评"
+            },
+            "timeOffset": "30 min",
+            "exhibits": [
+              {
+                "id": "gpt_casepilot_2026_07_18_b_exhibit_reassess_bedside",
+                "type": "nursing_note",
+                "title": {
+                  "en": "Bedside reassessment after initial treatment",
+                  "zh": "初始治疗后的床旁复评"
+                },
+                "content": {
+                  "en": "The client remains upright and follows commands but appears more fatigued. She now speaks one or two words at a time. HR 124/min, BP 142/86 mmHg, RR 34/min with persistent retractions, SpO2 94% on controlled oxygen. Expiratory wheezing persists, and air entry remains reduced. Peak expiratory flow is 35% of personal best. Initial treatment continues while the nurse obtains the pathway-directed repeat ABG because fatigue and the bedside assessment have worsened.",
+                  "zh": "患者仍端坐并能遵循指令，但看起来更加疲劳。现在每次只能说一两个词。HR 124次/分，BP 142/86 mmHg，RR 34次/分，胸壁凹陷持续；控制性给氧下SpO2 94%。呼气相哮鸣音持续，进气仍减少。呼气峰流量为个人最佳值的35%。初始治疗继续进行；由于疲劳和床旁评估恶化，护士按流程采集复查ABG。"
+                }
+              },
+              {
+                "id": "gpt_casepilot_2026_07_18_b_exhibit_reassess_abg",
+                "type": "laboratory_results",
+                "title": {
+                  "en": "Repeat arterial blood gas",
+                  "zh": "复查动脉血气"
+                },
+                "content": {
+                  "en": "ABG on controlled oxygen: pH 7.36, PaCO2 42 mmHg, PaO2 72 mmHg, HCO3 23 mEq/L.",
+                  "zh": "控制性给氧下ABG：pH 7.36，PaCO2 42 mmHg，PaO2 72 mmHg，HCO3 23 mEq/L。"
+                }
+              }
+            ]
+          },
+          {
+            "id": "gpt_casepilot_2026_07_18_b_stage_failure_1855",
+            "title": {
+              "en": "1855 — Acute change during continued treatment",
+              "zh": "1855—持续治疗期间出现急性变化"
+            },
+            "trigger": {
+              "en": "Unscheduled reassessment for new somnolence",
+              "zh": "因新出现嗜睡而进行非计划复评"
+            },
+            "timeOffset": "45 min",
+            "exhibits": [
+              {
+                "id": "gpt_casepilot_2026_07_18_b_exhibit_failure_bedside",
+                "type": "nursing_note",
+                "title": {
+                  "en": "Acute bedside change",
+                  "zh": "床旁急性变化"
+                },
+                "content": {
+                  "en": "Fifteen minutes after the scheduled reassessment, the client becomes somnolent and opens her eyes only briefly to direct verbal stimulation. She cannot sustain speech. Respirations are now shallow at 20/min despite persistent visible effort. HR 110/min, BP 136/78 mmHg, SpO2 90% on controlled oxygen. She is unable to perform peak expiratory flow testing. The nurse activates the critical-care response and obtains an immediate ABG under the facility pathway.",
+                  "zh": "计划复评后15分钟，患者变得嗜睡，直接言语刺激时仅短暂睁眼。她无法持续说话。尽管仍可见明显呼吸用力，呼吸现变浅，RR 20次/分。HR 110次/分，BP 136/78 mmHg，控制性给氧下SpO2 90%。患者无法完成呼气峰流量测试。护士按本机构流程启动重症反应并立即采集ABG。"
+                }
+              },
+              {
+                "id": "gpt_casepilot_2026_07_18_b_exhibit_failure_abg_airway",
+                "type": "laboratory_and_procedure_note",
+                "title": {
+                  "en": "Immediate ABG and airway response",
+                  "zh": "即时ABG和气道处置"
+                },
+                "content": {
+                  "en": "ABG on controlled oxygen: pH 7.24, PaCO2 58 mmHg, PaO2 56 mmHg, HCO3 24 mEq/L. The critical-care clinician activates the emergency airway protocol and performs endotracheal intubation. A provider order directs repeat ABG testing 30 minutes after invasive airway support while asthma treatment and continuous monitoring continue.",
+                  "zh": "控制性给氧下ABG：pH 7.24，PaCO2 58 mmHg，PaO2 56 mmHg，HCO3 24 mEq/L。重症医师启动紧急气道流程并实施气管插管。医师医嘱在有创气道支持30分钟后复查ABG，同时继续哮喘治疗和持续监护。"
+                }
+              }
+            ]
+          },
+          {
+            "id": "gpt_casepilot_2026_07_18_b_stage_post_airway_1925",
+            "title": {
+              "en": "1925 — Reassessment after invasive airway support",
+              "zh": "1925—有创气道支持后复评"
+            },
+            "trigger": {
+              "en": "Provider-ordered thirty-minute post-airway reassessment",
+              "zh": "按医嘱进行气道支持后30分钟复评"
+            },
+            "timeOffset": "75 min",
+            "exhibits": [
+              {
+                "id": "gpt_casepilot_2026_07_18_b_exhibit_post_airway_assessment",
+                "type": "critical_care_note",
+                "title": {
+                  "en": "Critical-care reassessment",
+                  "zh": "重症复评"
+                },
+                "content": {
+                  "en": "Thirty minutes after invasive airway support, the client remains under the emergency airway protocol. Bilateral chest rise is present. HR 104/min, BP 128/76 mmHg, and SpO2 96% on prescribed ventilatory support. Continuous monitoring and asthma treatment continue.",
+                  "zh": "有创气道支持30分钟后，患者仍按紧急气道流程接受治疗。可见双侧胸廓起伏。HR 104次/分，BP 128/76 mmHg，在医嘱通气支持下SpO2 96%。持续监护和哮喘治疗继续进行。"
+                }
+              },
+              {
+                "id": "gpt_casepilot_2026_07_18_b_exhibit_post_airway_abg",
+                "type": "laboratory_results",
+                "title": {
+                  "en": "Post-airway arterial blood gas",
+                  "zh": "气道支持后动脉血气"
+                },
+                "content": {
+                  "en": "ABG: pH 7.34, PaCO2 44 mmHg, PaO2 92 mmHg, HCO3 23 mEq/L.",
+                  "zh": "ABG：pH 7.34，PaCO2 44 mmHg，PaO2 92 mmHg，HCO3 23 mEq/L。"
+                }
+              }
+            ]
+          }
+        ],
+        "questions": [
+          {
+            "id": "gpt_casepilot_2026_07_18_b_q1_abg_indication_cues",
+            "itemType": "highlight",
+            "category": "Reduction of Risk Potential",
+            "topic": "ABG & Acid-Base Interpretation",
+            "difficulty": "hard",
+            "ngnSkill": "recognize_cues",
+            "stageId": "gpt_casepilot_2026_07_18_b_stage_arrival_1810",
+            "answerableAfterStageId": "gpt_casepilot_2026_07_18_b_stage_arrival_1810",
+            "stem": {
+              "en": "Which arrival findings specifically justify the decision to obtain the initial arterial blood gas rather than relying only on pulse oximetry and bedside examination? Highlight the findings.",
+              "zh": "到院时，哪些发现明确支持采集初始动脉血气，而不能只依赖脉搏血氧和床旁检查？请标出这些发现。"
+            },
+            "highlight": {
+              "segments": [
+                {
+                  "id": "gpt_casepilot_2026_07_18_b_q1_s0_poor_response",
+                  "en": "The client repeatedly used her rescue inhaler before arrival without sustained relief.",
+                  "zh": "患者到院前反复使用急救吸入剂，但未获得持续缓解。",
+                  "selectable": true
+                },
+                {
+                  "id": "gpt_casepilot_2026_07_18_b_q1_s1_phrase_speech",
+                  "en": "The client can speak only in short phrases before pausing for breath.",
+                  "zh": "患者只能说短句，随后需停顿呼吸。",
+                  "selectable": true
+                },
+                {
+                  "id": "gpt_casepilot_2026_07_18_b_q1_s2_work_breathing",
+                  "en": "Respiratory rate is 30/min with suprasternal and intercostal retractions.",
+                  "zh": "呼吸频率30次/分，伴胸骨上和肋间凹陷。",
+                  "selectable": true
+                },
+                {
+                  "id": "gpt_casepilot_2026_07_18_b_q1_s3_spo2",
+                  "en": "SpO2 is 92% on room air.",
+                  "zh": "室内空气SpO2为92%。",
+                  "selectable": true
+                },
+                {
+                  "id": "gpt_casepilot_2026_07_18_b_q1_s4_pef",
+                  "en": "Peak expiratory flow is 42% of the documented personal best.",
+                  "zh": "呼气峰流量为已记录个人最佳值的42%。",
+                  "selectable": true
+                },
+                {
+                  "id": "gpt_casepilot_2026_07_18_b_q1_s5_wheeze_air_entry",
+                  "en": "Diffuse expiratory wheezing is present with reduced air entry at both bases.",
+                  "zh": "可闻及弥漫性呼气相哮鸣音，双侧肺底进气减少。",
+                  "selectable": true
+                },
+                {
+                  "id": "gpt_casepilot_2026_07_18_b_q1_s6_alert",
+                  "en": "The client is alert and oriented.",
+                  "zh": "患者清醒且定向力正常。",
+                  "selectable": true
+                },
+                {
+                  "id": "gpt_casepilot_2026_07_18_b_q1_s7_afebrile",
+                  "en": "Temperature is 37.0 °C.",
+                  "zh": "体温为37.0°C。",
+                  "selectable": true
+                },
+                {
+                  "id": "gpt_casepilot_2026_07_18_b_q1_s8_no_prior_intubation",
+                  "en": "The client has never required intubation.",
+                  "zh": "患者从未需要气管插管。",
+                  "selectable": true
+                }
+              ],
+              "correct": [
+                "gpt_casepilot_2026_07_18_b_q1_s0_poor_response",
+                "gpt_casepilot_2026_07_18_b_q1_s4_pef"
+              ]
+            },
+            "rationale": {
+              "correct": {
+                "en": "GINA does not recommend routine ABG testing for every asthma exacerbation, but it advises considering ABG testing when PEF or FEV1 is below 50% of predicted or personal best, or when the client is not responding or is deteriorating. This client has both a PEF of 42% of personal best and persistent symptoms despite repeated rescue-inhaler use. The other findings help grade overall severity, but they are not the two specific ABG-indication cues tested here.",
+                "zh": "GINA不建议每次哮喘发作都常规采集ABG，但当PEF或FEV1低于预计值或个人最佳值的50%，或患者治疗无反应、病情恶化时，应考虑ABG。本患者呼气峰流量仅为个人最佳值的42%，且反复使用急救吸入剂后症状仍持续。这两项是本题要求识别的特定ABG指征；其他发现有助于评估整体严重程度，但不是本题所考的两项特定指征。"
+              },
+              "byChoice": [
+                {
+                  "refId": "gpt_casepilot_2026_07_18_b_q1_s0_poor_response",
+                  "en": "Failure to obtain sustained relief despite repeated rescue-inhaler use is a treatment-response cue supporting ABG assessment.",
+                  "zh": "反复使用急救吸入剂后仍未持续缓解，是支持进行ABG评估的治疗反应线索。"
+                },
+                {
+                  "refId": "gpt_casepilot_2026_07_18_b_q1_s1_phrase_speech",
+                  "en": "Limited speech is an important severity cue, but the source's specific ABG indications are PEF or FEV1 below 50%, lack of response, or deterioration.",
+                  "zh": "说话受限是重要严重程度线索，但该来源列出的特定ABG指征是PEF或FEV1低于50%、治疗无反应或病情恶化。"
+                },
+                {
+                  "refId": "gpt_casepilot_2026_07_18_b_q1_s2_work_breathing",
+                  "en": "Tachypnea with retractions shows increased work of breathing, but it is not one of the two specific ABG-indication cues selected in this record.",
+                  "zh": "呼吸急促伴胸壁凹陷显示呼吸功增加，但不是本病历中所选的两项特定ABG指征之一。"
+                },
+                {
+                  "refId": "gpt_casepilot_2026_07_18_b_q1_s3_spo2",
+                  "en": "Room-air SpO2 of 92% requires oxygen treatment and reassessment, but pulse oximetry does not replace the separate ABG indications supplied by the PEF and poor response.",
+                  "zh": "室内空气SpO2为92%需要给氧和复评，但脉搏血氧不能取代由低PEF和治疗无反应所提供的独立ABG指征。"
+                },
+                {
+                  "refId": "gpt_casepilot_2026_07_18_b_q1_s4_pef",
+                  "en": "Peak expiratory flow below 50% of personal best is an explicit reason to consider ABG testing in acute care.",
+                  "zh": "呼气峰流量低于个人最佳值的50%，是急诊中考虑ABG检测的明确理由。"
+                },
+                {
+                  "refId": "gpt_casepilot_2026_07_18_b_q1_s5_wheeze_air_entry",
+                  "en": "Wheeze and reduced air entry contribute to severity assessment, but this option does not independently match the source's specific ABG indications.",
+                  "zh": "哮鸣音和进气减少有助于评估严重程度，但该选项本身并不对应来源列出的特定ABG指征。"
+                },
+                {
+                  "refId": "gpt_casepilot_2026_07_18_b_q1_s6_alert",
+                  "en": "Normal orientation is reassuring for current mentation but does not cancel the respiratory severity cues.",
+                  "zh": "定向力正常对当前意识状态是相对放心的表现，但不能抵消呼吸严重程度线索。"
+                },
+                {
+                  "refId": "gpt_casepilot_2026_07_18_b_q1_s7_afebrile",
+                  "en": "An afebrile temperature does not measure the severity of airflow obstruction.",
+                  "zh": "无发热不能衡量气流阻塞的严重程度。"
+                },
+                {
+                  "refId": "gpt_casepilot_2026_07_18_b_q1_s8_no_prior_intubation",
+                  "en": "No prior intubation is historical context; current severity is determined by the present examination, oxygenation, and lung function.",
+                  "zh": "既往未插管只是病史背景；当前严重程度由现时检查、氧合和肺功能决定。"
+                }
+              ]
+            },
+            "testTakingStrategy": {
+              "en": "Read the task narrowly: identify the source-defined reasons to add an ABG, not every finding that proves the exacerbation is severe.",
+              "zh": "要严格按题意作答：识别来源所规定的增加ABG检测的理由，而不是选择所有能证明发作严重的发现。"
+            },
+            "glossary": [
+              {
+                "termEn": "Peak expiratory flow",
+                "termZh": "呼气峰流量",
+                "defZh": "用力呼气时达到的最高流速，可与个人最佳值比较以评估气流受限。"
+              },
+              {
+                "termEn": "Arterial blood gas",
+                "termZh": "动脉血气",
+                "defZh": "测量pH、PaCO2、PaO2和HCO3，用于评估酸碱状态、通气和氧合。"
+              },
+              {
+                "termEn": "Treatment response",
+                "termZh": "治疗反应",
+                "defZh": "症状和客观指标在治疗后是否改善；无反应或恶化可提示需要进一步检测和升级评估。"
+              }
+            ],
+            "meta": {
+              "source": "Global Initiative for Asthma (GINA), Global Strategy for Asthma Management and Prevention, 2026 update, Section 9, 'Assessment of exacerbations in acute care settings,' pp. 184-185, and Box 9-6, p. 186, https://ginasthma.org/wp-content/uploads/2026/05/GINA-2026-Strategy-Report-WMS.pdf"
+            }
+          },
+          {
+            "id": "gpt_casepilot_2026_07_18_b_q2_initial_abg_physiology",
+            "itemType": "multiple_choice",
+            "category": "Reduction of Risk Potential",
+            "topic": "ABG & Acid-Base Interpretation",
+            "difficulty": "hard",
+            "ngnSkill": "analyze_cues",
+            "stageId": "gpt_casepilot_2026_07_18_b_stage_arrival_1810",
+            "answerableAfterStageId": "gpt_casepilot_2026_07_18_b_stage_arrival_1810",
+            "stem": {
+              "en": "Which interpretation best integrates the initial ABG with the arrival respiratory assessment?",
+              "zh": "哪项解释最能把初始ABG与到院时呼吸评估整合起来？"
+            },
+            "options": [
+              {
+                "id": "A",
+                "en": "The client is hyperventilating and still eliminating carbon dioxide; the low PaCO2 does not make the severe airflow obstruction mild.",
+                "zh": "患者正在过度通气，仍能排出二氧化碳；PaCO2偏低并不代表重度气流阻塞较轻。"
+              },
+              {
+                "id": "B",
+                "en": "PaCO2 of 30 mmHg confirms ventilatory failure caused by carbon dioxide retention.",
+                "zh": "PaCO2 30 mmHg证实因二氧化碳潴留导致通气衰竭。"
+              },
+              {
+                "id": "C",
+                "en": "HCO3 of 22 mEq/L demonstrates chronic renal compensation for long-standing respiratory acidosis.",
+                "zh": "HCO3 22 mEq/L表明肾脏已对长期呼吸性酸中毒产生慢性代偿。"
+              },
+              {
+                "id": "D",
+                "en": "PaO2 of 68 mmHg means oxygenation is adequate and serial respiratory reassessment can stop.",
+                "zh": "PaO2 68 mmHg表示氧合充分，可以停止连续呼吸复评。"
+              }
+            ],
+            "correct": [
+              "A"
+            ],
+            "rationale": {
+              "correct": {
+                "en": "The initial alkalemia with PaCO2 below 40 mmHg is consistent with vigorous ventilation during an acute asthma exacerbation. It must be interpreted beside the severe bedside findings and trended over time. The client still has hypoxemia and major airflow limitation, so a low PaCO2 is not evidence that the episode is mild.",
+                "zh": "初始存在碱血症且PaCO2低于40 mmHg，符合急性哮喘发作时通气旺盛的表现。该结果必须结合严重床旁表现并连续观察趋势。患者仍有低氧血症和明显气流受限，因此PaCO2偏低不表示发作较轻。"
+              },
+              "byChoice": [
+                {
+                  "refId": "A",
+                  "en": "This choice correctly links low PaCO2 to ongoing hyperventilation while preserving the severe bedside assessment.",
+                  "zh": "该选项正确地把低PaCO2与持续过度通气联系起来，同时保留了床旁重度评估结论。"
+                },
+                {
+                  "refId": "B",
+                  "en": "Carbon dioxide retention would produce a normalizing or elevated PaCO2, not a value of 30 mmHg.",
+                  "zh": "二氧化碳潴留会使PaCO2趋于正常或升高，而不是30 mmHg。"
+                },
+                {
+                  "refId": "C",
+                  "en": "The bicarbonate is near normal and does not establish chronic renal compensation.",
+                  "zh": "碳酸氢盐接近正常，不能证明存在慢性肾脏代偿。"
+                },
+                {
+                  "refId": "D",
+                  "en": "PaO2 of 68 mmHg remains low, and acute severe asthma requires repeated assessment even when oxygen therapy is underway.",
+                  "zh": "PaO2 68 mmHg仍偏低；即使已开始给氧，急性重度哮喘仍需要反复评估。"
+                }
+              ]
+            },
+            "testTakingStrategy": {
+              "en": "Interpret an ABG in context: first decide whether the client is moving carbon dioxide, then compare that finding with work of breathing and oxygenation.",
+              "zh": "解读ABG时要结合情境：先判断患者是否仍能排出二氧化碳，再把该结果与呼吸功和氧合比较。"
+            },
+            "glossary": [
+              {
+                "termEn": "PaCO2",
+                "termZh": "动脉血二氧化碳分压",
+                "defZh": "反映肺泡通气是否能有效排出二氧化碳的动脉血气指标。"
+              },
+              {
+                "termEn": "Alkalemia",
+                "termZh": "碱血症",
+                "defZh": "动脉血pH高于正常范围的状态。"
+              },
+              {
+                "termEn": "Hyperventilation",
+                "termZh": "过度通气",
+                "defZh": "肺泡通气超过二氧化碳产生量，使PaCO2下降。"
+              }
+            ],
+            "meta": {
+              "source": "Global Initiative for Asthma (GINA), Global Strategy for Asthma Management and Prevention, 2026 update, Section 9, 'Assessment of exacerbations in acute care settings,' arterial blood gas passage, p. 185, https://ginasthma.org/wp-content/uploads/2026/05/GINA-2026-Strategy-Report-WMS.pdf"
+            }
+          },
+          {
+            "id": "gpt_casepilot_2026_07_18_b_q3_serial_paco2_trajectory",
+            "itemType": "dropdown_cloze",
+            "category": "Reduction of Risk Potential",
+            "topic": "ABG & Acid-Base Interpretation",
+            "difficulty": "hard",
+            "ngnSkill": "prioritize_hypotheses",
+            "stageId": "gpt_casepilot_2026_07_18_b_stage_reassess_1840",
+            "answerableAfterStageId": "gpt_casepilot_2026_07_18_b_stage_reassess_1840",
+            "stem": {
+              "en": "Complete the interpretation of the thirty-minute reassessment by comparing the two ABGs with the bedside trajectory.",
+              "zh": "请比较两次ABG和床旁变化趋势，完成对30分钟复评的解释。"
+            },
+            "clozeStem": {
+              "en": "The PaCO2 rise from 30 to 42 mmHg while tachypnea and work of breathing persist represents {{1}}. A PaCO2 of 42 mmHg is concerning in this client because {{2}}. The SpO2 of 94% on controlled oxygen should be interpreted as {{3}}.",
+              "zh": "在呼吸急促和呼吸功持续存在时，PaCO2从30升至42 mmHg代表{{1}}。该患者PaCO2为42 mmHg令人担忧，因为{{2}}。控制性给氧下SpO2为94%应解释为{{3}}。"
+            },
+            "dropdowns": [
+              {
+                "id": "gpt_casepilot_2026_07_18_b_q3_dd1",
+                "options": [
+                  {
+                    "id": "gpt_casepilot_2026_07_18_b_q3_dd1_a",
+                    "en": "declining carbon dioxide clearance",
+                    "zh": "二氧化碳清除能力下降"
+                  },
+                  {
+                    "id": "gpt_casepilot_2026_07_18_b_q3_dd1_b",
+                    "en": "definite improvement because 42 mmHg is within a usual reference range",
+                    "zh": "明确改善，因为42 mmHg位于常用参考范围内"
+                  },
+                  {
+                    "id": "gpt_casepilot_2026_07_18_b_q3_dd1_c",
+                    "en": "chronic metabolic compensation developing within thirty minutes",
+                    "zh": "30分钟内形成慢性代谢性代偿"
+                  }
+                ],
+                "correct": "gpt_casepilot_2026_07_18_b_q3_dd1_a"
+              },
+              {
+                "id": "gpt_casepilot_2026_07_18_b_q3_dd2",
+                "options": [
+                  {
+                    "id": "gpt_casepilot_2026_07_18_b_q3_dd2_a",
+                    "en": "the serial rise occurs with increasing fatigue and worsening objective airflow limitation",
+                    "zh": "连续升高同时伴随疲劳加重和客观气流受限恶化"
+                  },
+                  {
+                    "id": "gpt_casepilot_2026_07_18_b_q3_dd2_b",
+                    "en": "oxygen therapy always causes dangerous carbon dioxide retention in asthma",
+                    "zh": "哮喘患者给氧一定会导致危险的二氧化碳潴留"
+                  },
+                  {
+                    "id": "gpt_casepilot_2026_07_18_b_q3_dd2_c",
+                    "en": "a single value within a reference range overrides the bedside assessment",
+                    "zh": "单个处于参考范围内的数值可推翻床旁评估"
+                  }
+                ],
+                "correct": "gpt_casepilot_2026_07_18_b_q3_dd2_a"
+              },
+              {
+                "id": "gpt_casepilot_2026_07_18_b_q3_dd3",
+                "options": [
+                  {
+                    "id": "gpt_casepilot_2026_07_18_b_q3_dd3_a",
+                    "en": "supported oxygenation that does not exclude worsening ventilation",
+                    "zh": "氧合在支持下维持，但不能排除通气恶化"
+                  },
+                  {
+                    "id": "gpt_casepilot_2026_07_18_b_q3_dd3_b",
+                    "en": "proof that the exacerbation has resolved",
+                    "zh": "证明哮喘发作已解决"
+                  },
+                  {
+                    "id": "gpt_casepilot_2026_07_18_b_q3_dd3_c",
+                    "en": "a reason to stop oxygen immediately without reassessment",
+                    "zh": "无需复评即可立即停止给氧的理由"
+                  }
+                ],
+                "correct": "gpt_casepilot_2026_07_18_b_q3_dd3_a"
+              }
+            ],
+            "rationale": {
+              "correct": {
+                "en": "The decisive finding is the trajectory, not whether 42 mmHg falls inside a generic reference interval. PaCO2 has risen by 12 mmHg while the client is more fatigued, speaks fewer words, remains markedly tachypneic, and has a lower peak flow. This indicates that effective ventilation is declining. Oxygen can improve SpO2 while carbon dioxide clearance worsens, so oxygenation and ventilation must be assessed separately.",
+                "zh": "决定性线索是趋势，而不是42 mmHg是否落在一般参考区间内。PaCO2升高了12 mmHg，同时患者更加疲劳、说话更少、仍明显呼吸急促，且呼气峰流量下降。这提示有效通气正在下降。给氧可改善SpO2，但二氧化碳清除仍可能恶化，因此必须分别评估氧合和通气。"
+              },
+              "byChoice": [
+                {
+                  "refId": "gpt_casepilot_2026_07_18_b_q3_dd1",
+                  "en": "The serial PaCO2 rise shows declining carbon dioxide clearance rather than automatic improvement.",
+                  "zh": "连续PaCO2升高显示二氧化碳清除能力下降，而不是自动代表改善。"
+                },
+                {
+                  "refId": "gpt_casepilot_2026_07_18_b_q3_dd2",
+                  "en": "The value becomes dangerous because it moves upward together with fatigue and worsening airflow limitation.",
+                  "zh": "该数值之所以危险，是因为它与疲劳加重和气流受限恶化同时向不良方向变化。"
+                },
+                {
+                  "refId": "gpt_casepilot_2026_07_18_b_q3_dd3",
+                  "en": "A supported SpO2 target does not prove that alveolar ventilation or carbon dioxide clearance is adequate.",
+                  "zh": "在支持下达到SpO2目标，并不能证明肺泡通气或二氧化碳清除充分。"
+                }
+              ]
+            },
+            "testTakingStrategy": {
+              "en": "When a value moves from abnormal toward normal, ask whether the physiology is truly improving. In severe asthma, a rising PaCO2 can be a worsening trend even before it exceeds the reference range.",
+              "zh": "当数值从异常趋向正常时，要判断生理状态是否真的改善。重度哮喘中，即使PaCO2尚未超过参考范围，升高趋势也可能代表恶化。"
+            },
+            "glossary": [
+              {
+                "termEn": "Serial trend",
+                "termZh": "连续趋势",
+                "defZh": "把同一指标在多个时间点进行比较，以判断病情方向。"
+              },
+              {
+                "termEn": "Ventilation",
+                "termZh": "通气",
+                "defZh": "空气进出肺泡并清除二氧化碳的过程。"
+              },
+              {
+                "termEn": "Oxygenation",
+                "termZh": "氧合",
+                "defZh": "氧从肺泡进入血液的过程；可在通气恶化时通过给氧暂时得到支持。"
+              }
+            ],
+            "meta": {
+              "source": "Global Initiative for Asthma (GINA), Global Strategy for Asthma Management and Prevention, 2026 update, Section 9, 'Assessment of exacerbations in acute care settings,' arterial blood gas passage, p. 185, and 'Reviewing response,' p. 189, https://ginasthma.org/wp-content/uploads/2026/05/GINA-2026-Strategy-Report-WMS.pdf"
+            }
+          },
+          {
+            "id": "gpt_casepilot_2026_07_18_b_q4_respiratory_failure_synthesis",
+            "itemType": "select_all",
+            "category": "Reduction of Risk Potential",
+            "topic": "ABG & Acid-Base Interpretation",
+            "difficulty": "hard",
+            "ngnSkill": "take_action",
+            "stageId": "gpt_casepilot_2026_07_18_b_stage_failure_1855",
+            "answerableAfterStageId": "gpt_casepilot_2026_07_18_b_stage_failure_1855",
+            "stem": {
+              "en": "Which findings, taken together at 1855, most strongly establish respiratory failure and support the emergency airway response? Select all that apply.",
+              "zh": "1855时，哪些发现综合起来最有力地证实呼吸衰竭并支持紧急气道处置？选择所有适用项。"
+            },
+            "options": [
+              {
+                "id": "A",
+                "en": "PaO2 is 56 mmHg despite controlled oxygen.",
+                "zh": "尽管已控制性给氧，PaO2仍为56 mmHg。"
+              },
+              {
+                "id": "B",
+                "en": "PaCO2 is 58 mmHg with pH 7.24.",
+                "zh": "PaCO2为58 mmHg，pH为7.24。"
+              },
+              {
+                "id": "C",
+                "en": "The client is newly somnolent and cannot sustain speech.",
+                "zh": "患者新出现嗜睡，且无法持续说话。"
+              },
+              {
+                "id": "D",
+                "en": "PaCO2 has risen from 30 to 42 to 58 mmHg while the bedside pattern progressed from tachypnea to shallow respirations.",
+                "zh": "PaCO2从30升至42再升至58 mmHg，同时床旁模式从呼吸急促进展为浅呼吸。"
+              },
+              {
+                "id": "E",
+                "en": "HCO3 is 24 mEq/L.",
+                "zh": "HCO3为24 mEq/L。"
+              },
+              {
+                "id": "F",
+                "en": "Heart rate is 110/min.",
+                "zh": "心率为110次/分。"
+              }
+            ],
+            "correct": [
+              "A",
+              "B",
+              "C",
+              "D"
+            ],
+            "rationale": {
+              "correct": {
+                "en": "The respiratory-failure synthesis requires both the current ABG and the trajectory: severe hypoxemia despite oxygen, acidemia with PaCO2 above 45 mmHg, new somnolence, and a progressive PaCO2 rise as respiratory effort becomes shallow. A near-normal bicarbonate does not offset the acute ventilatory failure. Tachycardia is nonspecific and is not sufficient by itself to establish respiratory failure.",
+                "zh": "呼吸衰竭的综合判断需要当前ABG和变化趋势共同支持：给氧后仍有严重低氧血症、酸血症伴PaCO2高于45 mmHg、新出现嗜睡，以及随着呼吸变浅而持续升高的PaCO2。接近正常的碳酸氢盐不能抵消急性通气衰竭。心动过速缺乏特异性，单独不足以证实呼吸衰竭。"
+              },
+              "byChoice": [
+                {
+                  "refId": "A",
+                  "en": "PaO2 below 60 mmHg despite oxygen is a major oxygenation failure cue.",
+                  "zh": "给氧后PaO2仍低于60 mmHg，是重要的氧合衰竭线索。"
+                },
+                {
+                  "refId": "B",
+                  "en": "Acidemia with PaCO2 above 45 mmHg indicates acute failure to eliminate carbon dioxide.",
+                  "zh": "酸血症伴PaCO2高于45 mmHg提示急性二氧化碳清除失败。"
+                },
+                {
+                  "refId": "C",
+                  "en": "Somnolence and inability to sustain speech are bedside signs that fatigue and impaired ventilation are affecting neurologic function and airway safety.",
+                  "zh": "嗜睡和无法持续说话是床旁危险表现，提示疲劳和通气受损已影响神经功能及气道安全。"
+                },
+                {
+                  "refId": "D",
+                  "en": "The serial rise while respirations become shallow demonstrates progressive loss of effective ventilation.",
+                  "zh": "PaCO2连续升高且呼吸变浅，显示有效通气进行性丧失。"
+                },
+                {
+                  "refId": "E",
+                  "en": "A bicarbonate of 24 mEq/L is near normal and does not reverse the acute respiratory-failure interpretation.",
+                  "zh": "HCO3 24 mEq/L接近正常，不能推翻急性呼吸衰竭判断。"
+                },
+                {
+                  "refId": "F",
+                  "en": "A heart rate of 110/min can reflect distress or treatment effects but is not a defining respiratory-failure criterion by itself.",
+                  "zh": "心率110次/分可反映应激或治疗作用，但单独不是呼吸衰竭的决定性标准。"
+                }
+              ]
+            },
+            "testTakingStrategy": {
+              "en": "For respiratory failure, combine oxygenation, ventilation, pH, mental status, and trajectory. Do not let one nonspecific vital sign or one near-normal value outweigh the whole pattern.",
+              "zh": "判断呼吸衰竭时，要整合氧合、通气、pH、意识状态和趋势。不要让一个非特异性生命体征或一个接近正常的数值压过整体模式。"
+            },
+            "glossary": [
+              {
+                "termEn": "Respiratory failure",
+                "termZh": "呼吸衰竭",
+                "defZh": "呼吸系统不能维持充分氧合和/或二氧化碳清除的状态。"
+              },
+              {
+                "termEn": "Acidemia",
+                "termZh": "酸血症",
+                "defZh": "动脉血pH低于正常范围。"
+              },
+              {
+                "termEn": "Somnolence",
+                "termZh": "嗜睡",
+                "defZh": "异常困倦，需要刺激才能短暂清醒，可提示通气衰竭加重。"
+              }
+            ],
+            "meta": {
+              "source": "Global Initiative for Asthma (GINA), Global Strategy for Asthma Management and Prevention, 2026 update, Section 9, 'Assessment of exacerbations in acute care settings,' arterial blood gas passage (PaO2 below 60 mmHg with normal or increased PaCO2, especially above 45 mmHg, indicates respiratory failure; fatigue and somnolence may accompany rising PaCO2), p. 185, and 'Reviewing response,' p. 189, https://ginasthma.org/wp-content/uploads/2026/05/GINA-2026-Strategy-Report-WMS.pdf"
+            }
+          },
+          {
+            "id": "gpt_casepilot_2026_07_18_b_q5_post_airway_outcome",
+            "itemType": "multiple_choice",
+            "category": "Physiological Adaptation",
+            "topic": "Respiratory & Infectious Disorders",
+            "difficulty": "hard",
+            "ngnSkill": "evaluate_outcomes",
+            "stageId": "gpt_casepilot_2026_07_18_b_stage_post_airway_1925",
+            "answerableAfterStageId": "gpt_casepilot_2026_07_18_b_stage_post_airway_1925",
+            "stem": {
+              "en": "Which conclusion best evaluates the client's response by comparing the 1855 and 1925 assessments?",
+              "zh": "比较1855和1925的评估，哪项结论最能评价患者的反应？"
+            },
+            "options": [
+              {
+                "id": "A",
+                "en": "Ventilation and oxygenation have improved after airway support, but the client still requires ongoing critical-care monitoring and asthma treatment.",
+                "zh": "气道支持后通气和氧合均改善，但患者仍需继续重症监护和哮喘治疗。"
+              },
+              {
+                "id": "B",
+                "en": "Carbon dioxide retention has worsened because PaCO2 remains above the initial value of 30 mmHg.",
+                "zh": "二氧化碳潴留已加重，因为PaCO2仍高于初始值30 mmHg。"
+              },
+              {
+                "id": "C",
+                "en": "The exacerbation has completely resolved, so invasive support and continuous monitoring can be stopped now.",
+                "zh": "哮喘发作已完全解决，因此现在可停止有创支持和持续监护。"
+              },
+              {
+                "id": "D",
+                "en": "The higher PaO2 alone proves recovery even though pH and PaCO2 trends do not need review.",
+                "zh": "仅PaO2升高就可证明恢复，无需复查pH和PaCO2趋势。"
+              }
+            ],
+            "correct": [
+              "A"
+            ],
+            "rationale": {
+              "correct": {
+                "en": "Compared with the failure point, pH improved from 7.24 to 7.34, PaCO2 decreased from 58 to 44 mmHg, PaO2 increased from 56 to 92 mmHg, and SpO2 increased from 90% to 96%. These changes support improved ventilation and oxygenation after airway support. They do not establish complete resolution of severe asthma or readiness to stop intensive support.",
+                "zh": "与呼吸衰竭时相比，pH从7.24改善至7.34，PaCO2从58降至44 mmHg，PaO2从56升至92 mmHg，SpO2从90%升至96%。这些变化支持气道支持后通气和氧合改善，但不能证明重度哮喘已完全解决，也不能说明可停止强化支持。"
+              },
+              "byChoice": [
+                {
+                  "refId": "A",
+                  "en": "This conclusion uses the direction of pH, PaCO2, PaO2, and SpO2 together and preserves the need for continued critical care.",
+                  "zh": "该结论综合使用pH、PaCO2、PaO2和SpO2的变化方向，同时保留继续重症护理的需要。"
+                },
+                {
+                  "refId": "B",
+                  "en": "The relevant comparison for response is the failure value of 58 mmHg; falling to 44 mmHg shows better carbon dioxide clearance.",
+                  "zh": "评价反应时应与呼吸衰竭时的58 mmHg比较；降至44 mmHg显示二氧化碳清除改善。"
+                },
+                {
+                  "refId": "C",
+                  "en": "One improved reassessment after emergency airway support is not evidence of complete resolution or readiness to discontinue support.",
+                  "zh": "紧急气道支持后一次复评改善，不等于病情完全解决，也不表示可停止支持。"
+                },
+                {
+                  "refId": "D",
+                  "en": "Outcome evaluation must include ventilation and acid-base status, not PaO2 alone.",
+                  "zh": "结局评价必须包括通气和酸碱状态，不能只看PaO2。"
+                }
+              ]
+            },
+            "testTakingStrategy": {
+              "en": "For outcome evaluation, compare the same physiologic domains before and after intervention and avoid equating early improvement with full recovery.",
+              "zh": "评价疗效时，要比较干预前后相同的生理领域，并避免把早期改善等同于完全恢复。"
+            },
+            "glossary": [
+              {
+                "termEn": "Invasive airway support",
+                "termZh": "有创气道支持",
+                "defZh": "通过气管插管和机械通气支持氧合与通气。"
+              },
+              {
+                "termEn": "Carbon dioxide clearance",
+                "termZh": "二氧化碳清除",
+                "defZh": "通过有效肺泡通气将二氧化碳排出体外。"
+              },
+              {
+                "termEn": "Outcome evaluation",
+                "termZh": "结局评价",
+                "defZh": "比较干预前后主观和客观指标，以判断治疗反应。"
+              }
+            ],
+            "meta": {
+              "source": "Global Initiative for Asthma (GINA), Global Strategy for Asthma Management and Prevention, 2026 update, Section 9, 'Reviewing response,' p. 189, with ABG interpretation from 'Assessment of exacerbations in acute care settings,' p. 185, https://ginasthma.org/wp-content/uploads/2026/05/GINA-2026-Strategy-Report-WMS.pdf"
+            }
+          }
+        ]
+      },
+      "rationale": {
+        "correct": {
+          "en": "This unfolding case requires the learner to distinguish oxygenation from ventilation and to interpret serial PaCO2 in context. The client begins with severe airflow limitation and a low PaCO2 from vigorous ventilation. Despite oxygen-supported SpO2, fatigue increases and PaCO2 rises toward normal, then above normal with acidemia, hypoxemia, somnolence, and shallow respirations. The post-airway ABG and bedside reassessment then provide objective evidence of improved gas exchange while ongoing critical-care treatment remains necessary.",
+          "zh": "本展开式病例要求学习者区分氧合与通气，并结合情境解释连续PaCO2。患者起初有重度气流受限，并因通气旺盛而PaCO2偏低。尽管给氧后SpO2得到支持，疲劳仍加重，PaCO2先升向正常，随后升高并伴酸血症、低氧血症、嗜睡和浅呼吸。气道支持后的ABG和床旁复评随后提供气体交换改善的客观证据，同时仍需继续重症治疗。"
+        }
+      },
+      "testTakingStrategy": {
+        "en": "In an unfolding respiratory case, track work of breathing, mental status, oxygenation, and carbon dioxide clearance on separate but connected lines. A supported SpO2 can look acceptable while ventilation is failing.",
+        "zh": "处理展开式呼吸病例时，要分别但相互联系地追踪呼吸功、意识状态、氧合和二氧化碳清除。给氧支持下SpO2看似可接受时，通气仍可能正在衰竭。"
+      },
+      "glossary": [
+        {
+          "termEn": "Acute severe asthma",
+          "termZh": "急性重度哮喘",
+          "defZh": "哮喘症状和气流受限明显加重，需要紧急强化治疗和反复评估。"
+        },
+        {
+          "termEn": "Arterial blood gas",
+          "termZh": "动脉血气",
+          "defZh": "测量pH、PaCO2、PaO2和HCO3等指标，用于评估酸碱状态、通气和氧合。"
+        },
+        {
+          "termEn": "Ventilatory fatigue",
+          "termZh": "通气性疲劳",
+          "defZh": "呼吸肌长期高负荷后无法维持有效肺泡通气的状态。"
+        },
+        {
+          "termEn": "Controlled oxygen",
+          "termZh": "控制性给氧",
+          "defZh": "根据目标氧饱和度调整氧疗，并同时持续复评临床状态。"
+        }
+      ],
+      "meta": {
+        "source": "Global Initiative for Asthma (GINA), Global Strategy for Asthma Management and Prevention, 2026 update, Section 9, 'Management of worsening asthma and exacerbations,' acute-care assessment, treatment, ABG interpretation, and reviewing-response passages, pp. 184-189, https://ginasthma.org/wp-content/uploads/2026/05/GINA-2026-Strategy-Report-WMS.pdf"
+      }
+    }
+  ]
+}

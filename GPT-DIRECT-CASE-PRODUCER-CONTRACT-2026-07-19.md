@@ -1,11 +1,11 @@
-# GPT Direct-Case Producer Contract — Pilot Revision 1
+# GPT Direct-Case Producer Contract
 
 Date: 2026-07-19
 
-Status: **active pilot contract**
+Status: **active episodic direct-case contract**
 
 Applies to: direct GPT-authored unfolding `case_study` commissions that explicitly incorporate this
-contract, beginning with Pilot Cases C and D
+contract; first validated through Pilot Cases C and D
 
 ## 1. Purpose and seat
 
@@ -13,11 +13,12 @@ This contract governs one producer authoring one coherent case in one GPT contex
 explicit design-and-audit phase between the clinical commission and final JSON without restoring the
 retired one-question-per-NCJMM-step skeleton pipeline.
 
-Pilot Cases C and D test whether this thicker shared contract and private blueprint improve the raw
-producer output relative to A and B. They do **not** test the stronger durable-artifact or
-deterministic-linter architecture because this pilot does not yet implement a persisted blueprint,
-raw-only manifest, or complete direct-case gate. A clean C/D result supports the contract-and-blueprint
-hypothesis only; it must not be reported as proof that the deferred mechanical gate exists or works.
+Pilot Cases C and D established that this thicker shared contract and private blueprint can produce
+gate-worthy raw cases with bounded checker repair relative to A and B. They did **not** test the stronger
+durable-artifact or deterministic-linter architecture because the pathway does not yet implement a
+persisted blueprint, raw-only manifest, or complete direct-case gate. Their disposition supports the
+contract-and-blueprint pathway only; it must not be reported as proof that the deferred mechanical gate
+exists or works.
 
 The producer owns the patient, episode, progression, exhibits, item formats, distractors, rationales,
 bilingual copy, and final case structure. The producer is not the checker. Generated output remains
@@ -55,7 +56,7 @@ raw drafts, canonical banks, schema, code, ledgers, census, history, decisions, 
 individual commission. Do not run promotion, consolidation, or any command that treats the draft as
 reviewed content.
 
-This pilot does **not** authorize a new `_caseDesignManifest`, `_compileManifest` mode, sidecar file,
+This contract does **not** authorize a new `_caseDesignManifest`, `_compileManifest` mode, sidecar file,
 or other off-schema key. The design artifacts below are producer work products and final-receipt
 claims until a separate code commission adds a supported raw-only manifest and gate.
 
@@ -206,7 +207,7 @@ Therefore:
   `answerableAfterStageId` that byte-exactly resolves to a declared stage.
 - The first declared stage must be a real baseline stage with at least one exhibit. Part 1 must be
   anchored to that baseline stage; opening parts may not omit visibility metadata.
-- `stageId` is optional descriptive metadata for this pilot. If used, it must also resolve.
+- `stageId` is optional descriptive metadata for this pathway. If used, it must also resolve.
 - Top-level `caseStudy.exhibits` are visible during every part and may contain only genuinely
   invariant information safe under unrestricted navigation.
 - Stage-gated observations, labs, tracings, interventions, and reassessments belong in stages, not in
@@ -324,8 +325,8 @@ Codex/checker runs the exact normalization and validation commands named by the 
 Normalization is a dry run. Use `--write` only after reviewing normalizer-owned deterministic repairs.
 Any JSON repair must load, mutate, and re-serialize the object programmatically.
 
-Before accepting Pilot C or D, the checker must also run or produce a non-writing programmatic
-raw-file assertion that fails when any staged embedded part omits `answerableAfterStageId` or when its
+Before accepting any direct-case draft with declared stages, the checker must also run or produce a
+non-writing programmatic raw-file assertion that fails when any staged embedded part omits `answerableAfterStageId` or when its
 value does not resolve to a declared stage. `validate-bank` and the current bundled-bank
 `audit:stage-refs` command do not discharge this requirement. A dedicated direct-case linter or a
 raw-mode extension to that audit is the preferred durable implementation; until it lands, the checker

@@ -1,7 +1,7 @@
 {
   "meta": {
     "schemaVersion": "2.0",
-    "count": 769,
+    "count": 771,
     "exam": "NCLEX-RN",
     "topic": "assorted NCLEX-RN GPT canonical bank",
     "category": "mixed",
@@ -140488,6 +140488,1480 @@
           "correct": "o1"
         }
       ]
+    },
+    {
+      "id": "gpt_casepilot_2026_07_19_c_case",
+      "itemType": "case_study",
+      "category": "Reduction of Risk Potential",
+      "topic": "Intrapartum Fetal Monitoring",
+      "difficulty": "hard",
+      "ngnSkill": "evaluate_outcomes",
+      "stem": {
+        "en": "Review the unfolding maternal-fetal record and answer each case-study item.",
+        "zh": "查看逐步展开的母胎病历，并回答每一道病例题。"
+      },
+      "rationale": {
+        "correct": {
+          "en": "Interpret each fetal heart rate finding within the maternal condition, labor progress, uterine activity, prior hourly comparison, and response to intervention. A single CTG label is not a substitute for the whole clinical picture.",
+          "zh": "应结合产妇状况、产程进展、宫缩活动、上一小时的比较以及干预后的反应来解释每项胎心发现。单一的胎心监护分类不能替代对整体临床情况的判断。"
+        }
+      },
+      "testTakingStrategy": {
+        "en": "At each stage, first identify what is new, then compare it with the exact prior time point and decide whether the evidence supports observation, review, or escalation.",
+        "zh": "在每个阶段，先找出新出现的信息，再与明确的上一时间点进行比较，判断证据支持继续观察、复核还是升级处理。"
+      },
+      "glossary": [
+        {
+          "termEn": "Cardiotocography (CTG)",
+          "termZh": "胎心宫缩监护（CTG）",
+          "defZh": "同时记录胎儿心率和子宫收缩的连续监护。"
+        },
+        {
+          "termEn": "Baseline fetal heart rate",
+          "termZh": "胎心率基线",
+          "defZh": "在一定观察时段内，除去加速和减速后的平均胎心率。"
+        },
+        {
+          "termEn": "Meconium",
+          "termZh": "胎粪",
+          "defZh": "胎儿排入羊水中的肠内容物；在产程中出现时需结合整体情况评估风险。"
+        },
+        {
+          "termEn": "Digital fetal scalp stimulation",
+          "termZh": "指法胎儿头皮刺激",
+          "defZh": "在阴道检查时用手指短暂刺激胎儿头皮，并观察胎心率是否出现加速。"
+        }
+      ],
+      "meta": {
+        "source": "NICE NG229, Fetal monitoring in labour, recommendations 1.2.1–1.2.3, 1.3.5–1.3.8, 1.4.1–1.4.33, 1.5.2–1.5.6, 1.5.12, and 1.6.1–1.6.2, https://www.nice.org.uk/guidance/ng229/chapter/Recommendations"
+      },
+      "caseStudy": {
+        "title": {
+          "en": "Serial Fetal Assessment During Labor Induction",
+          "zh": "引产期间的连续胎儿评估"
+        },
+        "summary": {
+          "en": "A term client receiving oxytocin induction is monitored with continuous CTG. Use the staged maternal, labor, uterine, and fetal data to judge changes over time.",
+          "zh": "一名足月产妇正在接受缩宫素引产并持续进行胎心宫缩监护。请利用分阶段呈现的产妇、产程、宫缩和胎儿资料判断随时间发生的变化。"
+        },
+        "exhibits": [],
+        "stages": [
+          {
+            "id": "gpt_casepilot_2026_07_19_c_stage_baseline_0900",
+            "title": {
+              "en": "09:00 Hourly assessment",
+              "zh": "09:00 每小时评估"
+            },
+            "trigger": {
+              "en": "Scheduled hourly maternal-fetal review",
+              "zh": "按计划进行每小时母胎评估"
+            },
+            "narrative": {
+              "en": "A G1P0 client at 40 weeks 2 days is undergoing induction of labor. Continuous CTG is in use because an oxytocin infusion is running per protocol.",
+              "zh": "一名孕40周2天、孕1产0的产妇正在接受引产。因按方案输注缩宫素，正在持续进行胎心宫缩监护。"
+            },
+            "timeOffset": "09:00",
+            "exhibits": [
+              {
+                "id": "gpt_casepilot_2026_07_19_c_exhibit_maternal_labor_0900",
+                "type": "nursing_note",
+                "title": {
+                  "en": "Maternal and labor assessment",
+                  "zh": "产妇与产程评估"
+                },
+                "content": {
+                  "en": "Temperature 37.0°C; pulse 82/min; respirations 16/min; blood pressure 118/72 mm Hg; oxygen saturation 99% on room air. Cervix 4 cm dilated, 80% effaced, station −2; membranes intact. Contractions occur 3 times in 10 minutes, last 60 seconds, and have normal resting tone.",
+                  "zh": "体温37.0°C；脉搏82次/分；呼吸16次/分；血压118/72 mm Hg；室内空气下血氧饱和度99%。宫颈扩张4 cm、消退80%、胎先露位置−2；胎膜完整。每10分钟宫缩3次，每次持续60秒，宫缩间歇期张力正常。"
+                }
+              },
+              {
+                "id": "gpt_casepilot_2026_07_19_c_exhibit_ctg_0900",
+                "type": "fetal_monitoring_note",
+                "title": {
+                  "en": "CTG review",
+                  "zh": "胎心宫缩监护复核"
+                },
+                "content": {
+                  "en": "Baseline fetal heart rate 135/min and stable; variability 10 beats/min; accelerations present; no decelerations.",
+                  "zh": "胎心率基线稳定在135次/分；变异幅度10次/分；可见加速；无减速。"
+                }
+              }
+            ]
+          },
+          {
+            "id": "gpt_casepilot_2026_07_19_c_stage_change_1000",
+            "title": {
+              "en": "10:00 New findings",
+              "zh": "10:00 新发现"
+            },
+            "trigger": {
+              "en": "Hourly review after spontaneous rupture of membranes",
+              "zh": "胎膜自破后的每小时复核"
+            },
+            "narrative": {
+              "en": "The membranes ruptured spontaneously at 09:55. The nurse completes the scheduled review exactly 1 hour after the documented 09:00 baseline.",
+              "zh": "胎膜于09:55自破。护士在记录的09:00基线后整整1小时完成计划复核。"
+            },
+            "timeOffset": "10:00",
+            "exhibits": [
+              {
+                "id": "gpt_casepilot_2026_07_19_c_exhibit_maternal_labor_1000",
+                "type": "nursing_note",
+                "title": {
+                  "en": "Maternal and labor assessment",
+                  "zh": "产妇与产程评估"
+                },
+                "content": {
+                  "en": "Temperature 37.1°C; pulse 88/min; blood pressure 116/70 mm Hg; oxygen saturation 99% on room air. Thick meconium is present in the amniotic fluid. Cervix 5 cm dilated, 90% effaced, station −1. Contractions occur 4 times in 10 minutes, last 60 to 70 seconds, and have normal resting tone. The oxytocin infusion remains in use.",
+                  "zh": "体温37.1°C；脉搏88次/分；血压116/70 mm Hg；室内空气下血氧饱和度99%。羊水中可见浓稠胎粪。宫颈扩张5 cm、消退90%、胎先露位置−1。每10分钟宫缩4次，每次持续60至70秒，宫缩间歇期张力正常。缩宫素仍在输注。"
+                }
+              },
+              {
+                "id": "gpt_casepilot_2026_07_19_c_exhibit_ctg_1000",
+                "type": "fetal_monitoring_note",
+                "title": {
+                  "en": "CTG review",
+                  "zh": "胎心宫缩监护复核"
+                },
+                "content": {
+                  "en": "Baseline fetal heart rate 155/min, compared with 135/min at the documented review exactly 1 hour earlier. Variability is 8 beats/min. No accelerations are seen during this review, and no decelerations are present.",
+                  "zh": "胎心率基线为155次/分；整整1小时前记录的复核基线为135次/分。变异幅度8次/分。本次复核期间未见加速，也无减速。"
+                }
+              }
+            ]
+          },
+          {
+            "id": "gpt_casepilot_2026_07_19_c_stage_review_1008",
+            "title": {
+              "en": "10:08 Bedside review",
+              "zh": "10:08 床旁复核"
+            },
+            "trigger": {
+              "en": "Senior and obstetric review",
+              "zh": "高级助产士与产科医生复核"
+            },
+            "narrative": {
+              "en": "The senior midwife and obstetrician arrive and complete a bedside review before any stimulation maneuver. No vaginal bleeding, cord prolapse, or abnormal uterine tenderness is found. The cephalic presenting part is accessible at station −1. After discussing the assessment and options with the client, the obstetrician performs brief finger-performed fetal scalp stimulation during vaginal examination.",
+              "zh": "高级助产士和产科医生到达床旁，并在进行任何刺激操作前完成复核。未发现阴道出血、脐带脱垂或异常子宫压痛。头先露位于−1，检查时可触及。在向产妇说明评估结果和可选方案后，产科医生在阴道检查时进行短暂的指法胎儿头皮刺激。"
+            },
+            "timeOffset": "10:08",
+            "exhibits": [
+              {
+                "id": "gpt_casepilot_2026_07_19_c_exhibit_review_1008",
+                "type": "interprofessional_note",
+                "title": {
+                  "en": "Bedside review note",
+                  "zh": "床旁复核记录"
+                },
+                "content": {
+                  "en": "The senior midwife and obstetrician are present at the bedside. Maternal observations are rechecked and remain stable. No acute event requiring immediate intervention is identified.",
+                  "zh": "高级助产士和产科医生已到达床旁。再次测量产妇生命体征，结果仍稳定。未发现需要立即干预的急性事件。"
+                }
+              }
+            ]
+          },
+          {
+            "id": "gpt_casepilot_2026_07_19_c_stage_response_1009",
+            "title": {
+              "en": "10:09 Immediate response",
+              "zh": "10:09 即刻反应"
+            },
+            "trigger": {
+              "en": "Response after the bedside maneuver",
+              "zh": "床旁操作后的反应"
+            },
+            "narrative": {
+              "en": "The nurse documents the fetal heart rate response immediately after the clinician-performed maneuver.",
+              "zh": "护士记录临床医生完成操作后胎心率的即刻反应。"
+            },
+            "timeOffset": "10:09",
+            "exhibits": [
+              {
+                "id": "gpt_casepilot_2026_07_19_c_exhibit_response_1009",
+                "type": "fetal_monitoring_note",
+                "title": {
+                  "en": "Immediate CTG response",
+                  "zh": "胎心监护即刻反应"
+                },
+                "content": {
+                  "en": "The fetal heart rate rises from 155/min to 175/min for 20 seconds, then returns to 150/min. Variability is 8 to 10 beats/min. No deceleration occurs in this immediate window. Maternal pulse remains 88/min.",
+                  "zh": "胎心率由155次/分升至175次/分，持续20秒后回到150次/分。变异幅度为8至10次/分。此即刻时段内无减速。产妇脉搏仍为88次/分。"
+                }
+              }
+            ]
+          },
+          {
+            "id": "gpt_casepilot_2026_07_19_c_stage_reassessment_1030",
+            "title": {
+              "en": "10:30 Reassessment",
+              "zh": "10:30 再评估"
+            },
+            "trigger": {
+              "en": "Assessment for sustained change",
+              "zh": "评估变化是否持续"
+            },
+            "narrative": {
+              "en": "The team reassesses the maternal-fetal picture at the next scheduled review.",
+              "zh": "团队在下一次计划复核时再次评估母胎整体情况。"
+            },
+            "timeOffset": "10:30",
+            "exhibits": [
+              {
+                "id": "gpt_casepilot_2026_07_19_c_exhibit_maternal_labor_1030",
+                "type": "nursing_note",
+                "title": {
+                  "en": "Maternal and labor reassessment",
+                  "zh": "产妇与产程再评估"
+                },
+                "content": {
+                  "en": "Temperature 37.1°C; pulse 86/min; blood pressure 118/72 mm Hg; oxygen saturation 99% on room air. Contractions remain 4 times in 10 minutes with normal resting tone. Thick meconium remains present. The client reports no new symptoms.",
+                  "zh": "体温37.1°C；脉搏86次/分；血压118/72 mm Hg；室内空气下血氧饱和度99%。每10分钟宫缩仍为4次，宫缩间歇期张力正常。羊水中仍有浓稠胎粪。产妇无新发症状。"
+                }
+              },
+              {
+                "id": "gpt_casepilot_2026_07_19_c_exhibit_ctg_1030",
+                "type": "fetal_monitoring_note",
+                "title": {
+                  "en": "CTG reassessment",
+                  "zh": "胎心宫缩监护再评估"
+                },
+                "content": {
+                  "en": "After the 20-minute observation period, the fetal baseline is reassessed at 148/min, variability remains 10 beats/min, accelerations are present, and no decelerations occur.",
+                  "zh": "经过20分钟观察后，胎心率基线复评为148次/分，变异幅度维持在10次/分，可见加速，且无减速。"
+                }
+              }
+            ]
+          }
+        ],
+        "questions": [
+          {
+            "id": "gpt_casepilot_2026_07_19_c_part_1_baseline",
+            "itemType": "multiple_choice",
+            "category": "Reduction of Risk Potential",
+            "topic": "Intrapartum Fetal Monitoring",
+            "difficulty": "hard",
+            "ngnSkill": "analyze_cues",
+            "stem": {
+              "en": "Based on the 09:00 assessment, how should the nurse categorize the current CTG trace?",
+              "zh": "根据09:00的评估，护士应如何对当前胎心宫缩监护图形进行分类？"
+            },
+            "options": [
+              {
+                "id": "c",
+                "en": "Suspicious, because accelerations are present",
+                "zh": "可疑，因为可见胎心加速"
+              },
+              {
+                "id": "d",
+                "en": "Pathological, because the cervix is only 4 cm dilated",
+                "zh": "病理性，因为宫颈仅扩张4 cm"
+              },
+              {
+                "id": "a",
+                "en": "Normal, because contractions, baseline rate, variability, and decelerations are all in the white range",
+                "zh": "正常，因为宫缩、胎心率基线、变异及减速这4项特征均属于白色范围"
+              },
+              {
+                "id": "b",
+                "en": "Suspicious, because the client is receiving oxytocin",
+                "zh": "可疑，因为产妇正在接受缩宫素输注"
+              }
+            ],
+            "correct": [
+              "a"
+            ],
+            "rationale": {
+              "correct": {
+                "en": "At 09:00, contractions are fewer than 5 in 10 minutes, the stable baseline is 135/min, variability is 10 beats/min, and there are no decelerations. All four CTG features are white, so the trace is normal. Oxytocin is an intrapartum risk factor that supports continued CTG, but it does not itself make the trace suspicious.",
+                "zh": "09:00时，每10分钟宫缩少于5次，胎心率基线稳定在135次/分，变异幅度10次/分，且无减速。4项胎心监护特征均为白色，因此图形属于正常。缩宫素是支持持续监护的产时危险因素，但其本身不会使图形被归为可疑。"
+              },
+              "byChoice": [
+                {
+                  "refId": "c",
+                  "en": "Accelerations are generally reassuring; their presence does not create an amber feature.",
+                  "zh": "胎心加速通常是令人放心的表现；其出现不会构成琥珀色特征。"
+                },
+                {
+                  "refId": "a",
+                  "en": "Correct. All four CTG features meet the white criteria, so the overall trace is normal.",
+                  "zh": "正确。4项胎心监护特征均符合白色标准，因此总体图形为正常。"
+                },
+                {
+                  "refId": "d",
+                  "en": "Cervical dilation is part of the whole clinical picture but is not one of the four CTG features used to categorize the trace.",
+                  "zh": "宫颈扩张属于整体临床情况的一部分，但不是用于分类图形的4项胎心监护特征之一。"
+                },
+                {
+                  "refId": "b",
+                  "en": "Oxytocin supports continuous CTG monitoring, but CTG categorization is based on the four trace features.",
+                  "zh": "缩宫素支持持续胎心监护，但图形分类依据的是4项监护特征。"
+                }
+              ]
+            },
+            "testTakingStrategy": {
+              "en": "Separate CTG feature categorization from the reasons a client needs continuous monitoring.",
+              "zh": "将胎心监护特征分类与需要持续监护的原因区分开来。"
+            },
+            "glossary": [
+              {
+                "termEn": "Normal CTG",
+                "termZh": "正常胎心宫缩监护",
+                "defZh": "4项监护特征均为白色，没有琥珀色或红色特征。"
+              },
+              {
+                "termEn": "Variability",
+                "termZh": "胎心变异",
+                "defZh": "胎心率围绕基线发生的波动。"
+              }
+            ],
+            "meta": {
+              "source": "NICE NG229, recommendations 1.3.8, 1.4.12, 1.4.15, 1.4.18, 1.4.24, 1.4.30–1.4.32, and 1.5.4, https://www.nice.org.uk/guidance/ng229/chapter/Recommendations"
+            },
+            "answerableAfterStageId": "gpt_casepilot_2026_07_19_c_stage_baseline_0900"
+          },
+          {
+            "id": "gpt_casepilot_2026_07_19_c_part_2_escalation_cues",
+            "itemType": "highlight",
+            "category": "Reduction of Risk Potential",
+            "topic": "Intrapartum Fetal Monitoring",
+            "difficulty": "hard",
+            "ngnSkill": "recognize_cues",
+            "stem": {
+              "en": "Highlight the findings from the 10:00 review that contribute to current concern and should be included when requesting urgent senior-midwife or obstetric review.",
+              "zh": "请标出10:00复核中构成当前担忧、并应在请求高级助产士或产科医生紧急复核时报告的发现。"
+            },
+            "highlight": {
+              "segments": [
+                {
+                  "id": "s1",
+                  "en": "The fetal baseline is 155/min, 20 beats/min higher than the documented baseline exactly 1 hour earlier.",
+                  "zh": "胎心率基线为155次/分，比整整1小时前记录的基线上升20次/分。",
+                  "selectable": true
+                },
+                {
+                  "id": "s2",
+                  "en": "Thick meconium is present in the amniotic fluid.",
+                  "zh": "羊水中可见浓稠胎粪。",
+                  "selectable": true
+                },
+                {
+                  "id": "s3",
+                  "en": "The oxytocin infusion remains in use.",
+                  "zh": "缩宫素仍在输注。",
+                  "selectable": true
+                },
+                {
+                  "id": "s4",
+                  "en": "Maternal pulse is 88/min.",
+                  "zh": "产妇脉搏为88次/分。",
+                  "selectable": true
+                },
+                {
+                  "id": "s5",
+                  "en": "Contractions occur 4 times in 10 minutes with normal resting tone.",
+                  "zh": "每10分钟宫缩4次，宫缩间歇期张力正常。",
+                  "selectable": true
+                },
+                {
+                  "id": "s6",
+                  "en": "The cervix has changed from 4 cm to 5 cm dilation.",
+                  "zh": "宫颈扩张由4 cm进展至5 cm。",
+                  "selectable": true
+                }
+              ],
+              "correct": [
+                "s1",
+                "s2",
+                "s3"
+              ]
+            },
+            "rationale": {
+              "correct": {
+                "en": "The 20-beat/min rise from the documented review exactly 1 hour earlier is an amber baseline feature, making the CTG suspicious when the other features remain white. Thick meconium is an additional intrapartum risk factor, so urgent senior-midwife or obstetric review is required. Ongoing oxytocin use is also an intrapartum risk factor that belongs in the whole-picture review. The stable maternal pulse, four contractions in 10 minutes with normal resting tone, and cervical progress do not independently add concern here.",
+                "zh": "与整整1小时前记录的复核相比，胎心率基线上升20次/分，属于琥珀色基线特征；当其余特征仍为白色时，整体图形归为可疑。浓稠胎粪是额外的产时危险因素，因此需要高级助产士或产科医生紧急复核。持续使用缩宫素也是应纳入整体评估的产时危险因素。产妇脉搏稳定、每10分钟宫缩4次且间歇期张力正常，以及宫颈进展，在此并不会单独增加担忧。"
+              },
+              "byChoice": [
+                {
+                  "refId": "s1",
+                  "en": "Correct. The exact 1-hour rise of 20 beats/min is an amber baseline feature.",
+                  "zh": "正确。整整1小时内基线上升20次/分属于琥珀色基线特征。"
+                },
+                {
+                  "refId": "s2",
+                  "en": "Correct. Meconium is an additional intrapartum risk factor that changes management of a suspicious CTG.",
+                  "zh": "正确。胎粪是额外的产时危险因素，会改变对可疑胎心监护图形的处理。"
+                },
+                {
+                  "refId": "s3",
+                  "en": "Correct. Oxytocin use is an intrapartum risk factor and should be included in the whole-picture review.",
+                  "zh": "正确。使用缩宫素属于产时危险因素，应纳入整体情况复核。"
+                },
+                {
+                  "refId": "s4",
+                  "en": "A pulse of 88/min is not an abnormal maternal finding in this record.",
+                  "zh": "本病历中产妇脉搏88次/分并非异常发现。"
+                },
+                {
+                  "refId": "s5",
+                  "en": "Four contractions in 10 minutes with normal resting tone remain in the white contraction range.",
+                  "zh": "每10分钟宫缩4次且间歇期张力正常，仍属于白色宫缩范围。"
+                },
+                {
+                  "refId": "s6",
+                  "en": "Cervical change from 4 cm to 5 cm indicates progress rather than a new risk factor in this record.",
+                  "zh": "宫颈由4 cm进展至5 cm提示产程进展，并非本病历中的新危险因素。"
+                }
+              ]
+            },
+            "testTakingStrategy": {
+              "en": "When a value remains within an absolute range, check whether the guideline also defines a concerning change from the exact prior review.",
+              "zh": "即使某数值仍在绝对范围内，也要检查指南是否将其相对于明确上一复核时间点的变化定义为异常。"
+            },
+            "glossary": [
+              {
+                "termEn": "Suspicious CTG",
+                "termZh": "可疑胎心宫缩监护",
+                "defZh": "4项特征中有1项为琥珀色、且无红色特征的图形。"
+              },
+              {
+                "termEn": "Intrapartum risk factor",
+                "termZh": "产时危险因素",
+                "defZh": "在产程中出现并可能增加胎儿受损风险的情况。"
+              }
+            ],
+            "meta": {
+              "source": "NICE NG229, recommendations 1.3.5–1.3.8, 1.4.1, 1.4.10, 1.4.15, 1.4.31–1.4.33, and 1.5.6, https://www.nice.org.uk/guidance/ng229/chapter/Recommendations"
+            },
+            "answerableAfterStageId": "gpt_casepilot_2026_07_19_c_stage_change_1000"
+          },
+          {
+            "id": "gpt_casepilot_2026_07_19_c_part_3_stimulation_purpose",
+            "itemType": "multiple_choice",
+            "category": "Reduction of Risk Potential",
+            "topic": "Intrapartum Fetal Monitoring",
+            "difficulty": "hard",
+            "ngnSkill": "generate_solutions",
+            "stem": {
+              "en": "Which statement best explains why finger-performed fetal scalp stimulation is appropriate to consider at 10:08?",
+              "zh": "以下哪项最能解释为什么在10:08可以考虑进行指法胎儿头皮刺激？"
+            },
+            "options": [
+              {
+                "id": "c",
+                "en": "The maneuver can replace the urgent senior-midwife or obstetric review",
+                "zh": "该操作可以替代高级助产士或产科医生的紧急复核"
+              },
+              {
+                "id": "a",
+                "en": "The CTG is suspicious and intrapartum risk factors for fetal compromise are present after the required bedside review",
+                "zh": "完成所需床旁复核后，胎心监护图形可疑且存在胎儿受损的产时危险因素"
+              },
+              {
+                "id": "b",
+                "en": "The CTG is normal, so stimulation is routinely required before continuing labor",
+                "zh": "胎心监护图形正常，因此在继续产程前常规需要进行刺激"
+              },
+              {
+                "id": "d",
+                "en": "The maneuver will remove thick meconium from the amniotic fluid",
+                "zh": "该操作能够清除羊水中的浓稠胎粪"
+              }
+            ],
+            "correct": [
+              "a"
+            ],
+            "rationale": {
+              "correct": {
+                "en": "NICE recommends considering digital fetal scalp stimulation when the CTG is suspicious and antenatal or intrapartum risk factors for fetal compromise are present. The required senior-midwife or obstetric review has already occurred before the maneuver. Fetal scalp stimulation is not routine for a normal trace, does not replace review, and does not treat meconium.",
+                "zh": "NICE建议在胎心监护图形可疑且存在胎儿受损的产前或产时危险因素时，考虑指法胎儿头皮刺激。进行该操作前，所需的高级助产士或产科医生复核已经完成。胎儿头皮刺激并非正常图形下的常规操作，不能替代复核，也不能治疗胎粪。"
+              },
+              "byChoice": [
+                {
+                  "refId": "b",
+                  "en": "A normal CTG does not create a routine indication for fetal scalp stimulation.",
+                  "zh": "正常胎心监护图形并不会形成常规进行胎儿头皮刺激的指征。"
+                },
+                {
+                  "refId": "c",
+                  "en": "The required urgent review must occur before the stimulation maneuver in this clinical picture.",
+                  "zh": "在本临床情况下，所需的紧急复核必须先于刺激操作进行。"
+                },
+                {
+                  "refId": "d",
+                  "en": "Fetal scalp stimulation does not remove or treat meconium.",
+                  "zh": "胎儿头皮刺激不能清除或治疗胎粪。"
+                },
+                {
+                  "refId": "a",
+                  "en": "Correct. This is the source-supported context for considering the maneuver after review.",
+                  "zh": "正确。这是完成复核后可考虑该操作的指南支持情境。"
+                }
+              ]
+            },
+            "testTakingStrategy": {
+              "en": "Match a bedside maneuver to the exact guideline-defined clinical context, including any review that must occur first.",
+              "zh": "将床旁操作与指南明确规定的临床情境相匹配，并确认必须先完成的复核。"
+            },
+            "glossary": [
+              {
+                "termEn": "Fetal scalp stimulation",
+                "termZh": "胎儿头皮刺激",
+                "defZh": "通过手指短暂刺激胎儿头皮并观察胎心率反应的床旁操作。"
+              },
+              {
+                "termEn": "Disposition",
+                "termZh": "后续处置",
+                "defZh": "根据评估结果决定继续监护、进一步复核或加快分娩。"
+              }
+            ],
+            "meta": {
+              "source": "NICE NG229, recommendations 1.5.6 and 1.6.1–1.6.2, https://www.nice.org.uk/guidance/ng229/chapter/Recommendations"
+            },
+            "answerableAfterStageId": "gpt_casepilot_2026_07_19_c_stage_review_1008"
+          },
+          {
+            "id": "gpt_casepilot_2026_07_19_c_part_4_immediate_response",
+            "itemType": "dropdown_cloze",
+            "category": "Reduction of Risk Potential",
+            "topic": "Intrapartum Fetal Monitoring",
+            "difficulty": "hard",
+            "ngnSkill": "evaluate_outcomes",
+            "stem": {
+              "en": "Complete the interpretation of the immediate fetal heart rate response.",
+              "zh": "完成对胎心率即刻反应的解释。"
+            },
+            "clozeStem": {
+              "en": "The response is {{dd1}}; the team should {{dd2}} before making a final disposition.",
+              "zh": "该反应属于{{dd1}}；在作出最终处置决定前，团队应{{dd2}}。"
+            },
+            "dropdowns": [
+              {
+                "id": "dd1",
+                "options": [
+                  {
+                    "id": "c",
+                    "en": "evidence that the tracing is maternal pulse artifact",
+                    "zh": "图形为产妇脉搏伪差的证据"
+                  },
+                  {
+                    "id": "b",
+                    "en": "definitive proof of fetal acidemia",
+                    "zh": "胎儿酸血症的确证"
+                  },
+                  {
+                    "id": "a",
+                    "en": "reassuring evidence that current fetal compromise is less likely",
+                    "zh": "提示当前胎儿受损可能性较低的令人放心证据"
+                  }
+                ],
+                "correct": "a"
+              },
+              {
+                "id": "dd2",
+                "options": [
+                  {
+                    "id": "a",
+                    "en": "continue CTG and assess whether the improvement is sustained",
+                    "zh": "继续胎心宫缩监护并评估改善是否持续"
+                  },
+                  {
+                    "id": "c",
+                    "en": "proceed to expedited birth without reassessment",
+                    "zh": "不再评估，直接准备加快分娩"
+                  },
+                  {
+                    "id": "b",
+                    "en": "stop CTG immediately because the test is complete",
+                    "zh": "因检查已完成而立即停止胎心监护"
+                  }
+                ],
+                "correct": "a"
+              }
+            ],
+            "rationale": {
+              "correct": {
+                "en": "The fetal heart rate rises by 20 beats/min for 20 seconds, meeting the definition of an acceleration. An acceleration after fetal scalp stimulation is reassuring, but it is not definitive proof that all risk has resolved. Continued CTG is needed to determine whether improvement is sustained within the whole clinical picture.",
+                "zh": "胎心率上升20次/分并持续20秒，符合胎心加速的定义。胎儿头皮刺激后出现加速是令人放心的表现，但不能确证所有风险均已解除。仍需持续进行胎心宫缩监护，以结合整体临床情况判断改善是否持续。"
+              }
+            },
+            "testTakingStrategy": {
+              "en": "Treat a reassuring response as evidence that modifies probability, not as proof that ends surveillance.",
+              "zh": "把令人放心的反应视为改变风险可能性的证据，而不是可以终止监护的确证。"
+            },
+            "glossary": [
+              {
+                "termEn": "Acceleration",
+                "termZh": "胎心加速",
+                "defZh": "胎心率暂时上升至少15次/分并持续至少15秒。"
+              },
+              {
+                "termEn": "Sustained improvement",
+                "termZh": "持续改善",
+                "defZh": "改善在后续监护中继续存在，而非仅出现一个短暂变化。"
+              }
+            ],
+            "meta": {
+              "source": "NICE NG229, recommendations 1.4.30 and 1.6.1, https://www.nice.org.uk/guidance/ng229/chapter/Recommendations"
+            },
+            "answerableAfterStageId": "gpt_casepilot_2026_07_19_c_stage_response_1009"
+          },
+          {
+            "id": "gpt_casepilot_2026_07_19_c_part_5_closing_plan",
+            "itemType": "select_all",
+            "category": "Reduction of Risk Potential",
+            "topic": "Intrapartum Fetal Monitoring",
+            "difficulty": "hard",
+            "ngnSkill": "evaluate_outcomes",
+            "stem": {
+              "en": "Which actions should be included in the plan after the 10:30 reassessment? Select all that apply.",
+              "zh": "10:30再评估后，护理计划中应包括哪些措施？请选择所有适用项。"
+            },
+            "options": [
+              {
+                "id": "b",
+                "en": "Repeat and document a full maternal-fetal risk assessment at least hourly",
+                "zh": "至少每小时重复并记录一次完整的母胎风险评估"
+              },
+              {
+                "id": "e",
+                "en": "Administer maternal oxygen by face mask despite an oxygen saturation of 99% on room air",
+                "zh": "尽管室内空气下血氧饱和度为99%，仍给予产妇面罩吸氧"
+              },
+              {
+                "id": "c",
+                "en": "Arrange an in-person fresh-eyes review by another clinician before the next hourly assessment",
+                "zh": "在下一次每小时评估前安排另一名临床人员进行床旁“新视角”复核"
+              },
+              {
+                "id": "a",
+                "en": "Continue continuous CTG and monitor the maternal-fetal clinical picture",
+                "zh": "继续持续胎心宫缩监护并监测母胎整体临床情况"
+              },
+              {
+                "id": "f",
+                "en": "Prepare immediate expedited birth solely because meconium remains present despite sustained CTG improvement",
+                "zh": "仅因胎粪仍然存在，即使胎心监护持续改善也立即准备加快分娩"
+              },
+              {
+                "id": "d",
+                "en": "Discontinue CTG because the senior-midwife and obstetric review at 10:08 already assessed the fetal status",
+                "zh": "因10:08已由高级助产士和产科医生完成评估而停止胎心监护"
+              }
+            ],
+            "correct": [
+              "a",
+              "b",
+              "c"
+            ],
+            "rationale": {
+              "correct": {
+                "en": "The acceleration after stimulation is followed by sustained improvement, so continued CTG and monitoring of the clinical picture are appropriate. Meconium remains an intrapartum risk factor, and the client is still in labor; full risk assessment must continue at least hourly, with a fresh-eyes review before the next assessment. The record does not support stopping CTG, routine oxygen in a nonhypoxic client, or immediate expedited birth solely for persistent meconium after sustained improvement.",
+                "zh": "刺激后出现胎心加速，随后监护显示持续改善，因此应继续胎心宫缩监护并观察整体临床情况。胎粪仍是产时危险因素，且产妇仍处于产程中；必须至少每小时继续进行完整风险评估，并在下一次评估前由另一名临床人员进行“新视角”复核。本病历不支持停止胎心监护、不支持在产妇无低氧时常规吸氧，也不支持仅因胎粪持续存在而在监护已持续改善时立即加快分娩。"
+              },
+              "byChoice": [
+                {
+                  "refId": "d",
+                  "en": "The earlier bedside review assessed the clinical picture at that time; it does not substitute for ongoing surveillance while risk factors and labor continue.",
+                  "zh": "此前的床旁复核仅评估了当时的临床情况，并不能替代产程和危险因素持续存在期间的持续监护。"
+                },
+                {
+                  "refId": "e",
+                  "en": "Routine maternal facial oxygen is not recommended when maternal hypoxia is absent.",
+                  "zh": "产妇不存在低氧时，不建议常规给予面罩吸氧。"
+                },
+                {
+                  "refId": "b",
+                  "en": "Correct. The maternal-fetal risk assessment should continue at least hourly and be documented.",
+                  "zh": "正确。应至少每小时继续进行并记录母胎风险评估。"
+                },
+                {
+                  "refId": "f",
+                  "en": "Meconium remains relevant, but the sustained improved CTG does not by itself support immediate expedited birth solely for meconium.",
+                  "zh": "胎粪仍需纳入评估，但胎心监护已持续改善，不能仅因胎粪存在就立即加快分娩。"
+                },
+                {
+                  "refId": "a",
+                  "en": "Correct. Sustained improvement after stimulation supports continued CTG and whole-picture monitoring.",
+                  "zh": "正确。刺激后持续改善支持继续胎心监护并观察整体情况。"
+                },
+                {
+                  "refId": "c",
+                  "en": "Correct. Another clinician should complete an in-person fresh-eyes review before the next hourly assessment.",
+                  "zh": "正确。另一名临床人员应在下一次每小时评估前完成床旁“新视角”复核。"
+                }
+              ]
+            },
+            "testTakingStrategy": {
+              "en": "Choose a closing plan that matches the strongest defensible conclusion: improvement supports surveillance, while persistent risk factors prevent premature de-escalation.",
+              "zh": "选择与证据所能支持的最强结论相符的后续计划：改善支持继续监护，而持续存在的危险因素不允许过早降级。"
+            },
+            "glossary": [
+              {
+                "termEn": "Fresh-eyes review",
+                "termZh": "新视角复核",
+                "defZh": "由另一名临床人员独立进行的床旁复核，以减少遗漏或确认偏差。"
+              },
+              {
+                "termEn": "Expedited birth",
+                "termZh": "加快分娩",
+                "defZh": "因母胎风险需要缩短至分娩的时间。"
+              }
+            ],
+            "meta": {
+              "source": "NICE NG229, recommendations 1.3.5–1.3.8, 1.5.2–1.5.6, 1.5.12, and 1.6.1, https://www.nice.org.uk/guidance/ng229/chapter/Recommendations"
+            },
+            "answerableAfterStageId": "gpt_casepilot_2026_07_19_c_stage_reassessment_1030"
+          }
+        ]
+      }
+    },
+    {
+      "id": "gpt_casepilot_2026_07_19_d_case",
+      "itemType": "case_study",
+      "category": "Physiological Adaptation",
+      "topic": "Respiratory & Infectious Disorders",
+      "difficulty": "hard",
+      "ngnSkill": "analyze_cues",
+      "stem": {
+        "en": "Review the unfolding emergency department record. Answer each question using only the information visible through that stage.",
+        "zh": "查看这份逐步展开的急诊科记录。每道题仅使用截至该阶段可见的信息作答。"
+      },
+      "rationale": {
+        "correct": {
+          "en": "This case requires the learner to connect objective airflow limitation, serial arterial blood gases, bedside fatigue, treatment safety, and reassessment context without treating any single number as the whole clinical picture.",
+          "zh": "本病例要求学习者综合客观气流受限、连续动脉血气、床旁疲劳表现、治疗安全性和复评背景，而不能把任何单一数值当作完整临床结论。"
+        }
+      },
+      "testTakingStrategy": {
+        "en": "Track what changed, whether support conditions stayed comparable, and whether the client is still able to sustain ventilation.",
+        "zh": "追踪发生了什么变化、支持条件是否具有可比性，以及患者是否仍能维持通气。"
+      },
+      "glossary": [
+        {
+          "termEn": "arterial blood gas (ABG)",
+          "termZh": "动脉血气（ABG）",
+          "defZh": "测量动脉血中的酸碱状态、二氧化碳分压和氧分压，用于评估通气与氧合。"
+        },
+        {
+          "termEn": "peak expiratory flow (PEF)",
+          "termZh": "呼气峰流量（PEF）",
+          "defZh": "用力呼气时达到的最大气流速度，可反映气流受限程度。"
+        },
+        {
+          "termEn": "ventilatory fatigue",
+          "termZh": "通气疲劳",
+          "defZh": "呼吸肌逐渐无法维持足够通气的状态，可伴呼吸变浅、意识改变和二氧化碳升高。"
+        }
+      ],
+      "meta": {
+        "source": "Global Initiative for Asthma (GINA), Global Strategy for Asthma Management and Prevention, 2026, Chapter 9 acute-care exacerbation assessment, treatment, arterial blood gases, adjunctive therapies, and reassessment, pp. 170 and 185–189, https://ginasthma.org/wp-content/uploads/2026/05/GINA-2026-Strategy-Report-WMS.pdf",
+        "tier": "strictest",
+        "skill_signature": "case:asthma/serial-abg-ventilation-support-context",
+        "stem_disambiguators": [
+          "PEF below 50% predicted",
+          "serial PaCO2 under documented support conditions",
+          "fatigue and somnolence",
+          "support-limited oxygenation conclusion"
+        ]
+      },
+      "caseStudy": {
+        "title": {
+          "en": "Acute asthma in the emergency department",
+          "zh": "急诊科急性哮喘"
+        },
+        "summary": {
+          "en": "An adult with asthma undergoes repeated assessment and treatment during an acute exacerbation.",
+          "zh": "一名成人哮喘患者在急性加重期间接受连续评估和治疗。"
+        },
+        "exhibits": [],
+        "stages": [
+          {
+            "id": "gpt_casepilot_2026_07_19_d_stage_0910",
+            "title": {
+              "en": "09:10 — Initial acute-care assessment",
+              "zh": "09:10 — 急性期初始评估"
+            },
+            "trigger": {
+              "en": "The client arrives in the emergency department with worsening shortness of breath.",
+              "zh": "患者因呼吸困难加重到达急诊科。"
+            },
+            "narrative": {
+              "en": "The nurse begins the acute-asthma pathway, initiates prescribed controlled oxygen and inhaled reliever therapy, and arranges prompt clinician review.",
+              "zh": "护士启动急性哮喘路径，按医嘱开始控制性氧疗和吸入缓解治疗，并安排临床医生立即评估。"
+            },
+            "timeOffset": "0 min",
+            "exhibits": [
+              {
+                "id": "gpt_casepilot_2026_07_19_d_exhibit_0910_assessment",
+                "type": "Emergency assessment",
+                "title": {
+                  "en": "Assessment and initial treatment",
+                  "zh": "评估与初始治疗"
+                },
+                "content": {
+                  "en": "A 29-year-old client with asthma is alert and oriented. The client speaks in full sentences but pauses for breath. Respiratory rate is 30/min, heart rate is 118/min, and SpO₂ is 90% on room air. Accessory muscles are in use. Diffuse expiratory wheezes are present, and bilateral air entry is clearly audible. Peak expiratory flow is 44% predicted, using the highest of three acceptable efforts. Prescribed controlled oxygen and inhaled short-acting bronchodilator therapy are started; a systemic corticosteroid is prescribed.",
+                  "zh": "一名29岁哮喘患者神志清楚、定向力正常。患者能说完整句子，但需要停顿换气。呼吸频率30次/分，心率118次/分，室内空气下SpO₂为90%。可见辅助呼吸肌参与。双肺有弥漫性呼气性哮鸣音，双侧空气进入清楚可闻。采用3次合格吹气中的最高值，呼气峰流量为预计值的44%。按医嘱开始控制性氧疗和吸入短效支气管扩张剂治疗，并开具全身性糖皮质激素。"
+                }
+              }
+            ]
+          },
+          {
+            "id": "gpt_casepilot_2026_07_19_d_stage_0925",
+            "title": {
+              "en": "09:25 — First reassessment",
+              "zh": "09:25 — 第一次复评"
+            },
+            "trigger": {
+              "en": "The first reassessment and arterial blood gas result become available.",
+              "zh": "第一次复评和动脉血气结果可用。"
+            },
+            "narrative": {
+              "en": "The same controlled low-flow oxygen device remains in use while prescribed inhaled treatment continues. The emergency clinician reviews the response.",
+              "zh": "在继续按医嘱进行吸入治疗期间，患者仍使用同一控制性低流量给氧装置。急诊临床医生评估治疗反应。"
+            },
+            "timeOffset": "15 min",
+            "exhibits": [
+              {
+                "id": "gpt_casepilot_2026_07_19_d_exhibit_0925_abg",
+                "type": "Reassessment and laboratory result",
+                "title": {
+                  "en": "Bedside findings and ABG",
+                  "zh": "床旁表现与动脉血气"
+                },
+                "content": {
+                  "en": "The client now speaks in five- to six-word phrases. Respiratory rate is 32/min; accessory-muscle use persists. Bilateral air entry and expiratory wheezing remain present. SpO₂ is 93% on the same controlled low-flow oxygen device. Peak expiratory flow is 42% predicted. ABG on this support: pH 7.50, PaCO₂ 28 mm Hg, PaO₂ 68 mm Hg, HCO₃⁻ 21 mEq/L.",
+                  "zh": "患者现在每次可说5至6个词。呼吸频率32次/分，仍使用辅助呼吸肌。双侧仍有空气进入并可闻及呼气性哮鸣音。在同一控制性低流量给氧装置下，SpO₂为93%。呼气峰流量为预计值的42%。在该支持条件下的动脉血气：pH 7.50，PaCO₂ 28 mm Hg，PaO₂ 68 mm Hg，HCO₃⁻ 21 mEq/L。"
+                }
+              }
+            ]
+          },
+          {
+            "id": "gpt_casepilot_2026_07_19_d_stage_0945",
+            "title": {
+              "en": "09:45 — Second reassessment",
+              "zh": "09:45 — 第二次复评"
+            },
+            "trigger": {
+              "en": "The nurse notes a change during continued acute-care treatment.",
+              "zh": "在继续急性期治疗期间，护士发现病情变化。"
+            },
+            "narrative": {
+              "en": "At the first recognition of this change, the nurse stays at the bedside, calls the senior emergency clinician and critical-care/airway team, continues prescribed oxygen and inhaled treatment, and prepares airway equipment while reassessment proceeds.",
+              "zh": "护士一发现该变化即留在床旁，呼叫高级急诊临床医生及重症/气道团队，继续按医嘱给予氧疗和吸入治疗，并在复评过程中准备气道设备。"
+            },
+            "timeOffset": "35 min",
+            "exhibits": [
+              {
+                "id": "gpt_casepilot_2026_07_19_d_exhibit_0945_abg",
+                "type": "Serial reassessment",
+                "title": {
+                  "en": "Bedside findings and repeat ABG",
+                  "zh": "床旁表现与复查动脉血气"
+                },
+                "content": {
+                  "en": "The controlled low-flow oxygen device is unchanged from 09:25, and no positive-pressure ventilation has been used. Respiratory rate has fallen to 24/min, but breaths are shallow and the client's respiratory effort appears less forceful. The client speaks only two to three words at a time and is drowsy but responds to voice. Bilateral air entry is reduced but still present, with audible wheezing. SpO₂ is 90% on unchanged support. Peak expiratory flow is 35% predicted using the same meter and technique. ABG: pH 7.29, PaCO₂ 47 mm Hg, PaO₂ 58 mm Hg, HCO₃⁻ 22 mEq/L.",
+                  "zh": "自09:25起，控制性低流量给氧装置未改变，且未使用正压通气。呼吸频率降至24次/分，但呼吸变浅，患者的呼吸用力似乎减弱。患者每次只能说2至3个词，嗜睡但呼唤可应。双侧空气进入减少但仍存在，并可闻及哮鸣音。在支持条件未变时SpO₂为90%。使用同一峰流量计和同样方法，呼气峰流量为预计值的35%。动脉血气：pH 7.29，PaCO₂ 47 mm Hg，PaO₂ 58 mm Hg，HCO₃⁻ 22 mEq/L。"
+                }
+              }
+            ]
+          },
+          {
+            "id": "gpt_casepilot_2026_07_19_d_stage_0950",
+            "title": {
+              "en": "09:50 — Critical-care review",
+              "zh": "09:50 — 重症团队评估"
+            },
+            "trigger": {
+              "en": "The airway team arrives and proposed medication orders are reviewed.",
+              "zh": "气道团队到达，并审核拟议用药医嘱。"
+            },
+            "narrative": {
+              "en": "The team remains at the bedside with airway equipment ready. The client has not been intubated, and no noninvasive ventilation has been started. Prescribed bronchodilator therapy and oxygen continue without delay.",
+              "zh": "团队留在床旁，气道设备已准备就绪。患者尚未插管，也未开始无创通气。按医嘱的支气管扩张治疗和氧疗继续进行，不予延误。"
+            },
+            "timeOffset": "40 min",
+            "exhibits": [
+              {
+                "id": "gpt_casepilot_2026_07_19_d_exhibit_0950_review",
+                "type": "Critical-care assessment",
+                "title": {
+                  "en": "Additional review",
+                  "zh": "补充评估"
+                },
+                "content": {
+                  "en": "There is no fever, purulent sputum, focal crackle, or other documented evidence of lung infection. The severe exacerbation has not responded adequately to initial acute-care treatment, and hypoxemia persists. The nurse reviews six proposed medication orders before implementation.",
+                  "zh": "患者无发热、脓性痰、局灶性湿啰音，也无其他已记录的肺部感染证据。此次重度急性加重对初始急性期治疗反应不足，低氧血症仍存在。护士在执行前审核6项拟议用药医嘱。"
+                }
+              }
+            ]
+          },
+          {
+            "id": "gpt_casepilot_2026_07_19_d_stage_1015",
+            "title": {
+              "en": "10:15 — Third reassessment",
+              "zh": "10:15 — 第三次复评"
+            },
+            "trigger": {
+              "en": "The nurse reassesses the client after continued protocol treatment and critical-care review.",
+              "zh": "在继续按路径治疗并经重症团队评估后，护士再次评估患者。"
+            },
+            "narrative": {
+              "en": "The critical-care/airway team continues bedside observation and maintains airway readiness. No positive-pressure ventilation or intubation has been used.",
+              "zh": "重症/气道团队继续床旁观察并保持气道准备状态。尚未使用正压通气或气管插管。"
+            },
+            "timeOffset": "65 min",
+            "exhibits": [
+              {
+                "id": "gpt_casepilot_2026_07_19_d_exhibit_1015_reassessment",
+                "type": "Treatment reassessment",
+                "title": {
+                  "en": "Current bedside findings and ABG",
+                  "zh": "当前床旁表现与动脉血气"
+                },
+                "content": {
+                  "en": "Protocol-directed acute-asthma treatment has continued under critical-care review. Oxygen delivery was increased from the prior controlled low-flow device to a higher-concentration mask, then titrated down once SpO₂ reached the target range. The client is awake, speaks in full sentences, and uses fewer accessory muscles. Respiratory rate is 26/min with deeper breaths, and bilateral air entry is stronger. Peak expiratory flow is 52% predicted using the same meter and technique. SpO₂ is 95% on the titrated oxygen support. ABG on this oxygen support: pH 7.38, PaCO₂ 38 mm Hg, PaO₂ 80 mm Hg, HCO₃⁻ 22 mEq/L.",
+                  "zh": "在重症团队评估下，已继续按路径进行急性哮喘治疗。给氧方式已从先前的控制性低流量装置提高为较高氧浓度的面罩，待SpO₂达到目标范围后再下调滴定。患者清醒，能说完整句子，辅助呼吸肌使用减少。呼吸频率26次/分，呼吸较深，双侧空气进入增强。使用同一峰流量计和同样方法，呼气峰流量为预计值的52%。在滴定后的氧支持下SpO₂为95%。在该氧支持下的动脉血气：pH 7.38，PaCO₂ 38 mm Hg，PaO₂ 80 mm Hg，HCO₃⁻ 22 mEq/L。"
+                }
+              }
+            ]
+          }
+        ],
+        "questions": [
+          {
+            "id": "gpt_casepilot_2026_07_19_d_part_1_abg_indication",
+            "itemType": "multiple_choice",
+            "category": "Reduction of Risk Potential",
+            "topic": "ABG & Acid-Base Interpretation",
+            "difficulty": "hard",
+            "ngnSkill": "recognize_cues",
+            "stageId": "gpt_casepilot_2026_07_19_d_stage_0910",
+            "answerableAfterStageId": "gpt_casepilot_2026_07_19_d_stage_0910",
+            "stem": {
+              "en": "Which baseline finding independently matches GINA's stated reason to consider arterial blood gas measurement during an asthma exacerbation?",
+              "zh": "哪项基线发现本身符合GINA所述在哮喘急性加重期间考虑进行动脉血气测量的理由？"
+            },
+            "options": [
+              {
+                "id": "C",
+                "en": "Diffuse expiratory wheezes are audible while bilateral air entry remains present.",
+                "zh": "双肺可闻及弥漫性呼气性哮鸣音，但双侧仍有空气进入。"
+              },
+              {
+                "id": "D",
+                "en": "The client has a known diagnosis of asthma.",
+                "zh": "患者已知患有哮喘。"
+              },
+              {
+                "id": "B",
+                "en": "Respiratory rate is 30/min.",
+                "zh": "呼吸频率为30次/分。"
+              },
+              {
+                "id": "A",
+                "en": "Peak expiratory flow is 44% predicted.",
+                "zh": "呼气峰流量为预计值的44%。"
+              }
+            ],
+            "correct": [
+              "A"
+            ],
+            "rationale": {
+              "correct": {
+                "en": "GINA states that ABG measurement should be considered when PEF or FEV₁ is below 50% predicted, when the client does not respond to initial treatment, or when the client is deteriorating. The documented PEF of 44% predicted meets the explicit lung-function criterion. Tachypnea, wheeze, and an asthma history require clinical assessment but are not the stated ABG criterion by themselves.",
+                "zh": "GINA指出，当PEF或FEV₁低于预计值的50%、患者对初始治疗无反应，或病情正在恶化时，应考虑动脉血气测量。记录的PEF为预计值的44%，符合明确的肺功能标准。呼吸急促、哮鸣音和哮喘病史都需要临床评估，但单独并不是该动脉血气标准。"
+              },
+              "byChoice": [
+                {
+                  "refId": "B",
+                  "en": "Not selected: tachypnea contributes to severity assessment but is not the explicit ABG trigger used here.",
+                  "zh": "不选择：呼吸急促有助于严重度评估，但不是本题采用的明确动脉血气触发标准。"
+                },
+                {
+                  "refId": "A",
+                  "en": "Selected: 44% predicted is below the stated 50%-predicted threshold.",
+                  "zh": "选择：预计值的44%低于所述的预计值50%阈值。"
+                },
+                {
+                  "refId": "C",
+                  "en": "Not selected: wheeze with preserved bilateral air entry does not independently meet the stated ABG criterion.",
+                  "zh": "不选择：在双侧仍有空气进入时出现哮鸣音，并不能单独满足所述动脉血气标准。"
+                },
+                {
+                  "refId": "D",
+                  "en": "Not selected: an asthma diagnosis alone does not make ABG testing routine.",
+                  "zh": "不选择：仅有哮喘诊断并不意味着需要常规进行动脉血气检查。"
+                }
+              ]
+            },
+            "testTakingStrategy": {
+              "en": "When a question cites a published criterion, match the exact denominator and comparison operator: below 50% predicted, not personal best.",
+              "zh": "当题目引用公开标准时，应精确匹配分母和比较符号：低于预计值的50%，而不是个人最佳值。"
+            },
+            "glossary": [
+              {
+                "termEn": "predicted value",
+                "termZh": "预计值",
+                "defZh": "根据年龄、身高、性别等推算的正常肺功能参考值。"
+              },
+              {
+                "termEn": "arterial blood gas",
+                "termZh": "动脉血气",
+                "defZh": "用于评估酸碱状态、通气和氧合的动脉血检测。"
+              }
+            ],
+            "meta": {
+              "source": "Global Initiative for Asthma (GINA), Global Strategy for Asthma Management and Prevention, 2026, p. 185, arterial blood gas measurement criteria (PEF or FEV1 <50% predicted, nonresponse, or deterioration), https://ginasthma.org/wp-content/uploads/2026/05/GINA-2026-Strategy-Report-WMS.pdf",
+              "tier": "strictest",
+              "skill_signature": "mc:asthma/abg-indication-predicted-denominator",
+              "stem_disambiguators": [
+                "PEF 44% predicted",
+                "explicit ABG consideration criterion"
+              ]
+            }
+          },
+          {
+            "id": "gpt_casepilot_2026_07_19_d_part_2_initial_abg",
+            "itemType": "dropdown_cloze",
+            "category": "Reduction of Risk Potential",
+            "topic": "ABG & Acid-Base Interpretation",
+            "difficulty": "hard",
+            "ngnSkill": "analyze_cues",
+            "stageId": "gpt_casepilot_2026_07_19_d_stage_0925",
+            "answerableAfterStageId": "gpt_casepilot_2026_07_19_d_stage_0925",
+            "stem": {
+              "en": "Interpret the 09:25 arterial blood gas.",
+              "zh": "解释09:25的动脉血气。"
+            },
+            "clozeStem": {
+              "en": "The primary acid-base disturbance is {{dd1}}.",
+              "zh": "主要酸碱紊乱为{{dd1}}。"
+            },
+            "dropdowns": [
+              {
+                "id": "dd1",
+                "options": [
+                  {
+                    "id": "o2",
+                    "en": "acute respiratory acidosis",
+                    "zh": "急性呼吸性酸中毒"
+                  },
+                  {
+                    "id": "o4",
+                    "en": "metabolic alkalosis",
+                    "zh": "代谢性碱中毒"
+                  },
+                  {
+                    "id": "o1",
+                    "en": "acute respiratory alkalosis",
+                    "zh": "急性呼吸性碱中毒"
+                  },
+                  {
+                    "id": "o3",
+                    "en": "metabolic acidosis",
+                    "zh": "代谢性酸中毒"
+                  }
+                ],
+                "correct": "o1"
+              }
+            ],
+            "rationale": {
+              "correct": {
+                "en": "The pH is alkalemic at 7.50 and PaCO₂ is low at 28 mm Hg, identifying a primary acute respiratory alkalosis. The low PaCO₂ is consistent with the hyperventilation commonly seen earlier in an asthma exacerbation.",
+                "zh": "pH 7.50提示碱血症，PaCO₂ 28 mm Hg偏低，表明主要为急性呼吸性碱中毒。低PaCO₂与哮喘急性加重早期常见的过度通气一致。"
+              },
+              "byChoice": [
+                {
+                  "refId": "o1",
+                  "en": "Correct: alkalemia plus a low PaCO₂ identifies acute respiratory alkalosis.",
+                  "zh": "正确：碱血症加低PaCO₂提示急性呼吸性碱中毒。"
+                },
+                {
+                  "refId": "o2",
+                  "en": "Incorrect: respiratory acidosis would require acidemia with an elevated PaCO₂.",
+                  "zh": "错误：呼吸性酸中毒应表现为酸血症伴PaCO₂升高。"
+                },
+                {
+                  "refId": "o3",
+                  "en": "Incorrect: the bicarbonate is not the primary driver of the alkalemic pH.",
+                  "zh": "错误：碳酸氢根并不是碱性pH的主要驱动因素。"
+                },
+                {
+                  "refId": "o4",
+                  "en": "Incorrect: metabolic alkalosis would be driven by an elevated bicarbonate level.",
+                  "zh": "错误：代谢性碱中毒应由碳酸氢根升高所驱动。"
+                }
+              ]
+            },
+            "testTakingStrategy": {
+              "en": "Start with pH, then identify whether PaCO₂ or bicarbonate moves in the direction that explains the pH.",
+              "zh": "先判断pH，再确定PaCO₂或碳酸氢根中哪一项的变化方向能够解释pH。"
+            },
+            "glossary": [
+              {
+                "termEn": "respiratory alkalosis",
+                "termZh": "呼吸性碱中毒",
+                "defZh": "因通气过度导致PaCO₂下降并使pH升高的酸碱紊乱。"
+              },
+              {
+                "termEn": "PaCO₂",
+                "termZh": "动脉二氧化碳分压",
+                "defZh": "反映肺泡通气是否足以排出二氧化碳的指标。"
+              }
+            ],
+            "meta": {
+              "source": "Global Initiative for Asthma (GINA), Global Strategy for Asthma Management and Prevention, 2026, p. 185, PaCO2 is often below normal during an asthma exacerbation, https://ginasthma.org/wp-content/uploads/2026/05/GINA-2026-Strategy-Report-WMS.pdf",
+              "tier": "strictest",
+              "skill_signature": "dropdown:abg/acute-respiratory-alkalosis-asthma",
+              "stem_disambiguators": [
+                "pH 7.50",
+                "PaCO2 28 mm Hg",
+                "same controlled oxygen support"
+              ]
+            }
+          },
+          {
+            "id": "gpt_casepilot_2026_07_19_d_part_3_ventilation_shift",
+            "itemType": "multiple_choice",
+            "category": "Reduction of Risk Potential",
+            "topic": "ABG & Acid-Base Interpretation",
+            "difficulty": "hard",
+            "ngnSkill": "prioritize_hypotheses",
+            "stageId": "gpt_casepilot_2026_07_19_d_stage_0945",
+            "answerableAfterStageId": "gpt_casepilot_2026_07_19_d_stage_0945",
+            "stem": {
+              "en": "Which physiologic interpretation best explains the change from 09:25 to 09:45?",
+              "zh": "哪项生理学解释最能说明09:25至09:45之间的变化？"
+            },
+            "options": [
+              {
+                "id": "B",
+                "en": "The rise in PaCO₂ from 28 to 47 mm Hg, together with shallower breathing, shorter speech, drowsiness, falling PEF, and worsening hypoxemia, indicates loss of effective ventilation from fatigue and respiratory failure.",
+                "zh": "PaCO₂从28升至47 mm Hg，并伴呼吸变浅、说话更短、嗜睡、PEF下降和低氧恶化，提示因疲劳而失去有效通气并出现呼吸衰竭。"
+              },
+              {
+                "id": "A",
+                "en": "The PaCO₂ moving into the normal range shows that bronchospasm is resolving, despite increasing drowsiness.",
+                "zh": "尽管嗜睡加重，PaCO₂回到正常范围说明支气管痉挛正在缓解。"
+              },
+              {
+                "id": "D",
+                "en": "The PaO₂ decrease is best explained by excessive oxygen administration because oxygen support was unchanged.",
+                "zh": "由于氧支持未改变，PaO₂下降最可能由给氧过多引起。"
+              },
+              {
+                "id": "C",
+                "en": "The falling pH with a nearly unchanged bicarbonate level proves a primary metabolic acidosis caused by corticosteroid therapy.",
+                "zh": "pH下降且碳酸氢根几乎不变，证明糖皮质激素治疗导致原发性代谢性酸中毒。"
+              }
+            ],
+            "correct": [
+              "B"
+            ],
+            "rationale": {
+              "correct": {
+                "en": "In acute asthma, PaCO₂ is often low while the client can sustain hyperventilation. The rise from 28 to 47 mm Hg under unchanged support, together with acidemia, PaO₂ 58 mm Hg, fatigue, somnolence, shallower breathing, worsening speech, and falling PEF, shows loss of effective alveolar ventilation. The serial pattern—not the PaCO₂ endpoint alone—supports respiratory failure and the need for urgent airway intervention.",
+                "zh": "在急性哮喘中，当患者仍能维持过度通气时，PaCO₂常偏低。在支持条件未变时，PaCO₂从28升至47 mm Hg，并伴酸血症、PaO₂ 58 mm Hg、疲劳、嗜睡、呼吸变浅、说话能力恶化和PEF下降，说明有效肺泡通气正在丧失。支持呼吸衰竭和紧急气道干预需要的是连续变化模式，而不是单独的PaCO₂终点。"
+              },
+              "byChoice": [
+                {
+                  "refId": "C",
+                  "en": "Incorrect: the PaCO₂ rise explains the acidemia; the data do not establish a primary metabolic process.",
+                  "zh": "错误：PaCO₂升高可解释酸血症；这些数据不能确立原发性代谢过程。"
+                },
+                {
+                  "refId": "B",
+                  "en": "Correct: the serial ABG and bedside findings converge on loss of effective ventilation and respiratory failure.",
+                  "zh": "正确：连续动脉血气和床旁表现共同指向有效通气丧失和呼吸衰竭。"
+                },
+                {
+                  "refId": "D",
+                  "en": "Incorrect: the oxygen device was unchanged, and excessive oxygen does not explain the complete fatigue-and-ventilation pattern.",
+                  "zh": "错误：给氧装置未改变，且给氧过多不能解释完整的疲劳与通气恶化模式。"
+                },
+                {
+                  "refId": "A",
+                  "en": "Incorrect: a normal PaCO₂ is not reassuring when the client's ability to ventilate is clearly worsening.",
+                  "zh": "错误：当患者维持通气的能力明显恶化时，正常PaCO₂并不令人放心。"
+                }
+              ]
+            },
+            "testTakingStrategy": {
+              "en": "Do not call a number reassuring because it enters the reference range. Interpret the trajectory together with work of breathing, speech, alertness, and PEF.",
+              "zh": "不要因为某个数值进入参考范围就认为它令人放心。应把趋势与呼吸功、说话能力、清醒程度和PEF结合解释。"
+            },
+            "glossary": [
+              {
+                "termEn": "alveolar ventilation",
+                "termZh": "肺泡通气",
+                "defZh": "到达肺泡并参与二氧化碳排出的有效通气量。"
+              },
+              {
+                "termEn": "respiratory failure",
+                "termZh": "呼吸衰竭",
+                "defZh": "肺无法维持足够通气或氧合的危急状态。"
+              },
+              {
+                "termEn": "somnolence",
+                "termZh": "嗜睡",
+                "defZh": "异常困倦、容易入睡但通常仍可被唤醒的意识状态。"
+              }
+            ],
+            "meta": {
+              "source": "Global Initiative for Asthma (GINA), Global Strategy for Asthma Management and Prevention, 2026, p. 185, fatigue/somnolence with increasing PaCO2 and respiratory-failure criteria; p. 189, deterioration despite intensive treatment prompts ICU re-evaluation, https://ginasthma.org/wp-content/uploads/2026/05/GINA-2026-Strategy-Report-WMS.pdf",
+              "tier": "strictest",
+              "skill_signature": "mc:asthma/serial-paco2-fatigue-ventilatory-failure",
+              "stem_disambiguators": [
+                "PaCO2 28 to 47 mm Hg on unchanged support",
+                "pH 7.50 to 7.29",
+                "PaO2 58 mm Hg",
+                "shorter speech and drowsiness",
+                "PEF 42% to 35% predicted"
+              ]
+            }
+          },
+          {
+            "id": "gpt_casepilot_2026_07_19_d_part_4_order_safety",
+            "itemType": "select_all",
+            "category": "Pharmacological and Parenteral Therapies",
+            "topic": "Medication Safety & Admin",
+            "difficulty": "hard",
+            "ngnSkill": "take_action",
+            "stageId": "gpt_casepilot_2026_07_19_d_stage_0950",
+            "answerableAfterStageId": "gpt_casepilot_2026_07_19_d_stage_0950",
+            "stem": {
+              "en": "Which proposed medication orders should the nurse clarify before implementation? Select all that apply.",
+              "zh": "护士在执行前应澄清哪些拟议用药医嘱？选择所有适用项。"
+            },
+            "options": [
+              {
+                "id": "B",
+                "en": "Administer the prescribed systemic corticosteroid.",
+                "zh": "给予医嘱开具的全身性糖皮质激素。"
+              },
+              {
+                "id": "E",
+                "en": "Administer a sedative for distress while the client remains non-intubated.",
+                "zh": "在患者仍未插管时，为缓解不适给予镇静药。"
+              },
+              {
+                "id": "C",
+                "en": "Administer prescribed intravenous magnesium for the severe exacerbation with inadequate initial response and persistent hypoxemia.",
+                "zh": "针对初始治疗反应不足且持续低氧的重度急性加重，按医嘱给予静脉硫酸镁。"
+              },
+              {
+                "id": "D",
+                "en": "Start an intravenous aminophylline infusion as an add-on bronchodilator.",
+                "zh": "开始静脉氨茶碱输注，作为附加支气管扩张治疗。"
+              },
+              {
+                "id": "A",
+                "en": "Continue prescribed repeated inhaled short-acting bronchodilator plus ipratropium.",
+                "zh": "继续按医嘱重复吸入短效支气管扩张剂联合异丙托溴铵。"
+              },
+              {
+                "id": "F",
+                "en": "Start a routine antibiotic solely for the asthma exacerbation despite no evidence of lung infection.",
+                "zh": "尽管无肺部感染证据，仅因哮喘急性加重而常规开始抗生素治疗。"
+              }
+            ],
+            "correct": [
+              "D",
+              "E",
+              "F"
+            ],
+            "rationale": {
+              "correct": {
+                "en": "GINA advises against intravenous aminophylline/theophylline because of poor efficacy and safety, states that sedatives must be avoided because of respiratory depression and preventable deaths, and does not support routine antibiotics without strong evidence of lung infection. Repeated inhaled SABA plus ipratropium and systemic corticosteroids are components of severe-exacerbation treatment. Intravenous magnesium may be considered after inadequate initial response with persistent hypoxemia.",
+                "zh": "GINA因氨茶碱/茶碱疗效差且安全性不佳而不建议静脉使用；由于镇静药可抑制呼吸并与可避免的死亡相关，明确要求避免使用；在没有强烈肺部感染证据时，也不支持常规使用抗生素。重复吸入SABA联合异丙托溴铵和全身性糖皮质激素属于重度急性加重治疗组成部分。初始治疗反应不足并持续低氧时，可考虑静脉硫酸镁。"
+              },
+              "byChoice": [
+                {
+                  "refId": "F",
+                  "en": "Clarify: routine antibiotics are not supported when there is no evidence of lung infection.",
+                  "zh": "应澄清：在无肺部感染证据时，不支持常规使用抗生素。"
+                },
+                {
+                  "refId": "C",
+                  "en": "Do not clarify: intravenous magnesium is a supported consideration in this specific inadequate-response, persistent-hypoxemia context; it is not being used routinely.",
+                  "zh": "无需澄清：在本题所述初始反应不足并持续低氧的特定情境中，可考虑静脉硫酸镁；这并非常规使用。"
+                },
+                {
+                  "refId": "B",
+                  "en": "Do not clarify: systemic corticosteroid treatment is appropriate and should not be delayed.",
+                  "zh": "无需澄清：全身性糖皮质激素治疗适当，不应延误。"
+                },
+                {
+                  "refId": "A",
+                  "en": "Do not clarify: combined inhaled SABA and ipratropium is appropriate in a moderate-to-severe emergency presentation.",
+                  "zh": "无需澄清：在中重度急诊表现中，吸入SABA联合异丙托溴铵是适当治疗。"
+                },
+                {
+                  "refId": "D",
+                  "en": "Clarify: intravenous aminophylline has poor efficacy and a less favorable safety profile and should not be added for an asthma exacerbation.",
+                  "zh": "应澄清：静脉氨茶碱疗效差且安全性较差，不应作为哮喘急性加重的附加治疗。"
+                },
+                {
+                  "refId": "E",
+                  "en": "Clarify: sedation can further depress ventilation and is specifically to be avoided during an asthma exacerbation.",
+                  "zh": "应澄清：镇静可进一步抑制通气，在哮喘急性加重期间应明确避免。"
+                }
+              ]
+            },
+            "testTakingStrategy": {
+              "en": "Separate supported adjuncts used for a defined severe-response problem from drugs that are routinely unsupported or can suppress ventilation.",
+              "zh": "区分针对明确重症反应问题使用的有依据辅助治疗，与常规无依据或可能抑制通气的药物。"
+            },
+            "glossary": [
+              {
+                "termEn": "aminophylline",
+                "termZh": "氨茶碱",
+                "defZh": "茶碱类支气管扩张药，急性哮喘中疗效有限且不良反应风险较高。"
+              },
+              {
+                "termEn": "ipratropium",
+                "termZh": "异丙托溴铵",
+                "defZh": "短效抗胆碱能支气管扩张剂，可与短效β₂受体激动剂联合用于重度急性加重。"
+              },
+              {
+                "termEn": "adjunctive therapy",
+                "termZh": "辅助治疗",
+                "defZh": "在主要治疗基础上增加、用于特定临床情境的治疗。"
+              }
+            ],
+            "meta": {
+              "source": "Global Initiative for Asthma (GINA), Global Strategy for Asthma Management and Prevention, 2026, pp. 185 and 188–189, concurrent acute-care therapy, intravenous magnesium criteria, nonroutine antibiotics, aminophylline/theophylline not recommended, and sedatives must be avoided, https://ginasthma.org/wp-content/uploads/2026/05/GINA-2026-Strategy-Report-WMS.pdf",
+              "tier": "strictest",
+              "skill_signature": "sata:asthma/clarify-unsupported-orders",
+              "stem_disambiguators": [
+                "inadequate initial acute-care response",
+                "persistent hypoxemia",
+                "no evidence of lung infection",
+                "non-intubated client"
+              ]
+            }
+          },
+          {
+            "id": "gpt_casepilot_2026_07_19_d_part_5_support_limited_reassessment",
+            "itemType": "matrix",
+            "category": "Reduction of Risk Potential",
+            "topic": "ABG & Acid-Base Interpretation",
+            "difficulty": "hard",
+            "ngnSkill": "evaluate_outcomes",
+            "stageId": "gpt_casepilot_2026_07_19_d_stage_1015",
+            "answerableAfterStageId": "gpt_casepilot_2026_07_19_d_stage_1015",
+            "stem": {
+              "en": "At 10:15, which serial comparisons can support a treatment-response conclusion without overstating what the changed support conditions prove? Classify each comparison.",
+              "zh": "在10:15，哪些连续比较可用于支持治疗反应结论，而不会夸大支持条件变化所能证明的内容？请对每项比较进行分类。"
+            },
+            "matrix": {
+              "rows": [
+                {
+                  "id": "r1",
+                  "en": "PaCO₂ and pH from 09:45 and 10:15, interpreted together with alertness, speech, and respiratory depth; no positive-pressure ventilation was used at either time.",
+                  "zh": "将09:45与10:15的PaCO₂和pH结合清醒程度、说话能力及呼吸深度解释；两个时间点均未使用正压通气。"
+                },
+                {
+                  "id": "r2",
+                  "en": "PEF from 09:45 and 10:15, measured as percent predicted with the same meter and technique, together with bilateral air entry.",
+                  "zh": "将09:45与10:15的PEF（均以预计值百分比表示，并使用同一仪器和同样方法测量）结合双侧空气进入进行比较。"
+                },
+                {
+                  "id": "r3",
+                  "en": "PaO₂ and SpO₂ from 09:45 and 10:15, when oxygen delivery was increased before the later measurements.",
+                  "zh": "比较09:45与10:15的PaO₂和SpO₂，但在后一次测量前已提高给氧支持。"
+                }
+              ],
+              "columns": [
+                {
+                  "id": "c1",
+                  "en": "Can support a response conclusion",
+                  "zh": "可支持治疗反应结论"
+                },
+                {
+                  "id": "c2",
+                  "en": "Cannot by itself support a response conclusion",
+                  "zh": "单独不能支持治疗反应结论"
+                }
+              ],
+              "selectionMode": "single_per_row"
+            },
+            "correct": [
+              {
+                "rowId": "r1",
+                "columnIds": [
+                  "c1"
+                ]
+              },
+              {
+                "rowId": "r2",
+                "columnIds": [
+                  "c1"
+                ]
+              },
+              {
+                "rowId": "r3",
+                "columnIds": [
+                  "c2"
+                ]
+              }
+            ],
+            "rationale": {
+              "correct": {
+                "en": "The PaCO₂/pH trend can be interpreted with the improved bedside findings because no positive-pressure ventilation changed the ventilation comparison. The PEF trend is also comparable because the predicted denominator, meter, and technique were unchanged. The higher PaO₂ and SpO₂ cannot by themselves establish improved underlying oxygen transfer because oxygen delivery was increased before the final measurements.",
+                "zh": "由于没有正压通气改变通气比较，PaCO₂/pH趋势可结合改善的床旁表现进行解释。PEF趋势也具有可比性，因为预计值分母、仪器和测量方法均未改变。较高的PaO₂和SpO₂本身不能证明基础氧转移改善，因为最终测量前已提高给氧支持。"
+              },
+              "byChoice": [
+                {
+                  "refId": "r1",
+                  "en": "Can support: the ventilation-related comparison is contextualized by bedside findings and was not altered by positive-pressure support.",
+                  "zh": "可支持：通气相关比较有床旁表现作为背景，且未受到正压支持改变的干扰。"
+                },
+                {
+                  "refId": "r2",
+                  "en": "Can support: the PEF comparison preserves the same denominator, device, and technique and is corroborated by examination.",
+                  "zh": "可支持：PEF比较保持相同分母、仪器和方法，并得到体格检查的印证。"
+                },
+                {
+                  "refId": "r3",
+                  "en": "Cannot by itself support: the later oxygenation values were obtained under greater oxygen support.",
+                  "zh": "单独不能支持：后一次氧合数值是在更高氧支持下获得的。"
+                }
+              ]
+            },
+            "testTakingStrategy": {
+              "en": "A better oxygenation number under more oxygen is not a clean before-and-after comparison. Use unchanged-support measures and bedside findings for stronger causal conclusions.",
+              "zh": "在增加给氧后获得更好的氧合数值，并不是干净的前后比较。应使用支持条件未变的指标和床旁表现来得出更可靠的因果结论。"
+            },
+            "glossary": [
+              {
+                "termEn": "support condition",
+                "termZh": "支持条件",
+                "defZh": "测量时所使用的氧疗、通气或其他治疗背景；条件改变会影响数值可比性。"
+              },
+              {
+                "termEn": "gas exchange",
+                "termZh": "气体交换",
+                "defZh": "肺泡与血液之间氧和二氧化碳的交换过程。"
+              },
+              {
+                "termEn": "positive-pressure ventilation",
+                "termZh": "正压通气",
+                "defZh": "以正压将气体送入肺内的通气支持方式。"
+              }
+            ],
+            "meta": {
+              "source": "Global Initiative for Asthma (GINA), Global Strategy for Asthma Management and Prevention, 2026, pp. 185 and 189, controlled oxygen context, frequent reassessment, lung-function measurement, and deterioration/response review, https://ginasthma.org/wp-content/uploads/2026/05/GINA-2026-Strategy-Report-WMS.pdf; Respiratory Therapy Zone, ABG Oxygenation Interpretation: PaO2, SaO2, and Hypoxemia (corrected hypoxemia under supplemental oxygen does not represent true normalization of gas exchange), https://www.respiratorytherapyzone.com/abg-oxygenation-interpretation/",
+              "tier": "strictest",
+              "skill_signature": "matrix:asthma/reassessment-support-context-defensible-conclusions",
+              "stem_disambiguators": [
+                "same-meter PEF 35% to 52% predicted",
+                "PaCO2 47 to 38 mm Hg without positive-pressure ventilation",
+                "oxygen support increased before PaO2/SpO2 improvement"
+              ]
+            }
+          }
+        ]
+      }
     }
   ]
 }

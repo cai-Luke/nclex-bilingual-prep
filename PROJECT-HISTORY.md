@@ -203,6 +203,44 @@ specified one-/two-series trends and sole/mixed structured payloads at 1280×727
 English-first and always-bilingual presentation. The existing Vite large-chunk advisory remains
 unchanged.
 
+### Direct GPT Case Pilot C/D Repaired and Promoted (Jul 19)
+
+Closed the C/D repair-gate opened below. Claude independently re-derived the checker's blocking
+findings from the raw JSON and the producer contract before repairing: Case C's reverse leakage into
+Part 4 (10:30 narrative, Part 5 option D) and baseline-terminology drift (10:09/10:30 CTG exhibits);
+Case D's untitrated 97% SpO₂ against GINA's 95% adult ceiling (verified independently — the checker had
+cited 96%) and the closing matrix's source-scope gap, closed with an additional exact citation rather
+than a redesign. Repairs applied via `scripts/patch-raw` one-off scripts (load → mutate → re-serialize,
+no hand-edited JSON); both raw files re-passed `normalize-raw-bank` and `validate-bank` with zero drift
+after patching. A post-consolidation `audit:topic-license` pass caught one finding neither the checker
+nor the initial repair had flagged — Case D's Part 4 medication-safety item carried a topic licensed
+only under a different category — retopicked (not recategorized) directly in the canonical file.
+
+Promoted via `npm run promote` → `npm run consolidate`: both cases routed into `banks/gpt-canonical.json`,
+769→771. `npm run audit` **GATE PASSED** with all 2,673 bundled IDs globally unique, both cases' 5/5
+`answerableAfterStageId` anchors resolving, and `audit:topic-license` clean; only the pre-existing
+unrelated EKG select_all distributional advisory remained. Census regenerated at 1,942 session units /
+2,528 scored leaves / 199 visual artifacts; `census:check` and the production build passed. Both raw
+drafts were deleted after the ledger entry (`BANK-REVIEW-LEDGER.md`, 2026-07-19) was recorded, per
+`audit:integrity`'s draft-retention contract.
+
+### Direct GPT Case Pilot Disposition — A/B Archived; C/D Repair-Gate Approved (Jul 19)
+
+Closed the direct-case pilot disposition. Cases A and B and their original commissions are preserved
+under [`Archive/direct-case-pilot-controls-2026-07-19/`](Archive/direct-case-pilot-controls-2026-07-19/)
+as held learning-experience controls; neither remains a repair or promotion candidate. Cases C and D
+both passed their mechanical checks and are retained in `banks/banks-raw/` as viable drafts approved
+for bounded checker repair followed by Claude's normal independent promotion gate. C's remaining work
+is limited to reverse-leakage and CTG timing/baseline terminology; D requires the oxygen-target repair,
+a certainty correction, and exact source support or bounded redesign for its closing support-context
+matrix. Neither case warrants regeneration.
+
+Architectural result: the revised direct-case producer contract now constitutes a viable episodic
+case-generation pathway when a topic or load-bearing visual warrants case form. It is not a standing
+bulk-generation pipeline, and its raw outputs remain subject to producer-independent clinical,
+source-scope, leakage, bilingual, promotion, ledger, and census review. No C/D content, canonical bank,
+ledger, census, or promotion state changed in this disposition pass.
+
 ### Direct GPT Case Pilot Revision 1 Commissioned (Jul 19)
 
 Preserved Pilot Cases A/B and their raw outputs as the control for the first direct-case experiment,
@@ -306,9 +344,9 @@ Verification: `npm run test:app-update`, `npx tsc -b --pretty false`, `npm run b
 
 Opened the first episodic direct-case pilot after retirement of the Opus-skeleton pipeline as two
 isolated one-case producer orders:
-[`GPT-DIRECT-CASE-PILOT-CASE-A-SPEC-2026-07-18.md`](GPT-DIRECT-CASE-PILOT-CASE-A-SPEC-2026-07-18.md)
+[`GPT-DIRECT-CASE-PILOT-CASE-A-SPEC-2026-07-18.md`](Archive/direct-case-pilot-controls-2026-07-19/GPT-DIRECT-CASE-PILOT-CASE-A-SPEC-2026-07-18.md)
 and
-[`GPT-DIRECT-CASE-PILOT-CASE-B-SPEC-2026-07-18.md`](GPT-DIRECT-CASE-PILOT-CASE-B-SPEC-2026-07-18.md).
+[`GPT-DIRECT-CASE-PILOT-CASE-B-SPEC-2026-07-18.md`](Archive/direct-case-pilot-controls-2026-07-19/GPT-DIRECT-CASE-PILOT-CASE-B-SPEC-2026-07-18.md).
 Each GPT-5.6 Sol instance owns one 5–6-part case, writes its own raw bank under a dedicated ID
 namespace, and has no dependency on or integration responsibility for the other producer's output.
 
