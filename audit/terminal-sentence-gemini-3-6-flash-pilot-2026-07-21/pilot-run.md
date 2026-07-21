@@ -1,0 +1,29 @@
+# Gemini 3.6 Flash Pilot Execution Log
+
+- **Model selector label:** Gemini 3.6 Flash (High)
+- **Backend / Model ID:** Google Antigravity
+- **Harness:** Google Antigravity
+- **Date:** 2026-07-21
+- **Branch:** main
+- **HEAD:** c0101f55f972863bd38ef0851440f84c055e1b0b
+- **Starting changed paths:**
+  - `GEMINI-3.6-FLASH-TERMINAL-SENTENCE-PILOT-SPEC-2026-07-21.md`
+  - `GEMINI-TERMINAL-SENTENCE-SEMANTIC-CENSUS-SPEC-2026-07-21.md`
+  - `GPT-SCORED-FORMAT-CONSTRUCT-AUDIT-SPEC-2026-07-21.md`
+  - `LAB-TREND-EPIC-STYLE-DUAL-SERIES-MIGRATION-CODEX-SPEC-2026-07-21.md`
+  - `audit/scored-format-construct-audit-2026-07-21/`
+  - `audit/terminal-sentence-semantic-census-2026-07-21/`
+- **Ending changed paths:**
+  - `GEMINI-3.6-FLASH-TERMINAL-SENTENCE-PILOT-SPEC-2026-07-21.md`
+  - `GEMINI-TERMINAL-SENTENCE-SEMANTIC-CENSUS-SPEC-2026-07-21.md`
+  - `GPT-SCORED-FORMAT-CONSTRUCT-AUDIT-SPEC-2026-07-21.md`
+  - `LAB-TREND-EPIC-STYLE-DUAL-SERIES-MIGRATION-CODEX-SPEC-2026-07-21.md`
+  - `audit/scored-format-construct-audit-2026-07-21/`
+  - `audit/terminal-sentence-semantic-census-2026-07-21/`
+  - `audit/terminal-sentence-gemini-3-6-flash-pilot-2026-07-21/`
+- **Input row count:** 64
+- **Output row count:** 64
+- **Output order and identity reconciliation result:** All 64 preselected `queueIndex` rows reconciled in exact input order with 100% matching identity fields (`bankPath`, `topLevelQuestionId`, `embeddedQuestionId`, `recordKind`, `itemType`, `terminalSentenceEn`, `terminalSentenceZh`).
+- **Classifier script confirmation:** Confirmed. No script, automated classifier, prefilter, sweeper, or report generator was written or executed. All 64 items were directly adjudicated by the model.
+- **Scope confirmation:** Confirmed. No file outside `audit/terminal-sentence-gemini-3-6-flash-pilot-2026-07-21/` was modified or created.
+- **Pilot status:** `PILOT_BATCH_COMPLETE`

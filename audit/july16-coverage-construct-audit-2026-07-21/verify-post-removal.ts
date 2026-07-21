@@ -1,0 +1,13 @@
+import { createHash } from "node:crypto";
+import { readFileSync, writeFileSync } from "node:fs";
+import { dirname, join, resolve } from "node:path";
+import { fileURLToPath } from "node:url";
+import { QUARANTINE_FIX_IDS, RETIRE_IDS, REMOVAL_IDS } from "../../scripts/patches/2026-07-21-gpt-july16-construct-disposition-manifest";
+const auditDir=dirname(fileURLToPath(import.meta.url)),repo=resolve(auditDir,"../.."),path=join(repo,"banks/gpt-canonical.json"),bytes=readFileSync(path),bank=JSON.parse(bytes.toString("utf8")),pre=JSON.parse(readFileSync(join(auditDir,"pre-removal-question-hashes.json"),"utf8"));
+const hash=(v:any)=>createHash("sha256").update(JSON.stringify(v,null,2)).digest("hex"),remove=new Set<string>(REMOVAL_IDS),current=new Map(bank.questions.map((q:any,index:number)=>[q.id,{index,payloadSha256:hash(q)}]));
+const missingRetained=pre.questions.filter((x:any)=>!remove.has(x.id)&&!current.has(x.id)),changedRetained=pre.questions.filter((x:any)=>!remove.has(x.id)&&current.get(x.id)?.payloadSha256!==x.payloadSha256),presentRemoved=REMOVAL_IDS.filter(id=>current.has(id));
+const retainedOrder=pre.questions.filter((x:any)=>!remove.has(x.id)).map((x:any)=>x.id),currentOrder=bank.questions.map((q:any)=>q.id),orderMatches=JSON.stringify(retainedOrder)===JSON.stringify(currentOrder);
+const result={verifiedAt:"2026-07-21",beforeBankSha256:pre.bankSha256,afterBankSha256:createHash("sha256").update(bytes).digest("hex"),beforeCount:pre.questionCount,afterCount:bank.questions.length,metaCount:bank.meta.count,retiredCount:RETIRE_IDS.length,quarantinedFixCount:QUARANTINE_FIX_IDS.length,missingRetained:missingRetained.map((x:any)=>x.id),changedRetained:changedRetained.map((x:any)=>x.id),presentRemoved,retainedOrderMatches:orderMatches,status:"PASS"};
+if(bank.questions.length!==721||bank.meta.count!==721||missingRetained.length||changedRetained.length||presentRemoved.length||!orderMatches)throw new Error(JSON.stringify({...result,status:"FAIL"},null,2));
+writeFileSync(join(auditDir,"post-removal-verification.json"),JSON.stringify(result,null,2)+"\n");
+console.log(JSON.stringify(result,null,2));

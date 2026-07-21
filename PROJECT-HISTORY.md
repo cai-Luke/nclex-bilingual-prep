@@ -52,6 +52,40 @@ The committed NGN item-type set is complete. Rationale/dyad scoring and an expli
 
 > Milestones dated **2026-06-23 and earlier** are archived in [`Archive/PROJECT-HISTORY-ARCHIVE.md`](Archive/PROJECT-HISTORY-ARCHIVE.md). Only the current arc (2026-06-24 onward) is kept here.
 
+### Root Work-Order Cleanup (Jul 21)
+
+Moved three closed or superseded July 21 work orders out of the repository root and into
+`Archive/root-cleanup-2026-07-21/`: the completed GPT scored-format construct audit commission, the
+rejected Gemini terminal-sentence census commission, and the completed Gemini 3.6 Flash bounded
+pilot. Their audit evidence remains in the corresponding `audit/` directories, and the July 16
+outer-ring work order now points to the archived construct-audit vocabulary source.
+
+The lab-trend Epic-style dual-series migration, Sonnet terminal-sentence semantic census, and
+post-review terminal-sentence adjudication work orders remain at root because they are still open.
+No runtime or bank behavior changed in this cleanup.
+
+### GPT July 15–16 Construct-Disposition Audit Implemented (Jul 21)
+
+Implemented the owner-accepted disposition from the 108-item GPT coverage-batch outer-ring audit.
+The final ruling was 58 KEEP / 13 FIX / 37 RETIRE: all 37 retirement payloads were removed from the
+live GPT bank and archived, while the 13 FIX payloads were removed from delivery and preserved in a
+separate repair quarantine rather than permanently retired. `gpt-canonical.json` changed from 771 to
+721 questions. Exact pre/post identity proof confirms that all 50 targeted IDs are absent and every
+one of the 721 retained payloads, plus their order, is unchanged.
+
+The exact-removal coverage analysis found no category-topic pair reduced to zero and no operational
+category shortfall for a 50-question session. The 32 replacement-conditional retirements therefore
+resolve to `NO_IMMEDIATE_REPLACEMENT_GENERATION`; ordinary future topic/format priorities remain
+separate planning inputs, not one-for-one obligations. The retired and quarantined payloads are
+recoverable under `Archive/gpt-july16-construct-dispositions-2026-07-21/`, and the complete evidence,
+coverage impact, and implementation closeout live under
+`audit/july16-coverage-construct-audit-2026-07-21/`.
+
+Verification: all 13 banks validated; aggregate audit gates and grading/highlight/bowtie/schema-bank/
+topic-vocabulary/topic-license regressions passed; TypeScript passed; coverage and census regenerated
+at 1,892 session units / 2,478 scored leaves / 199 visual artifacts; `census:check`, production build,
+and `git diff --check` passed.
+
 ### Authorial-Constraint Leakage Survey and Narrow Gate Implemented (Jul 21)
 
 Added a separate learner-surface survey for producer/checker constraints that appear as learner
