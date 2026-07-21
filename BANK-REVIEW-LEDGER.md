@@ -68,6 +68,34 @@ Canonical source banks (see [BANK-CENSUS.md](BANK-CENSUS.md) for current counts;
 - `banks/visual-canonical.json` (rhythm_strip visual items; formerly `banks/rhythm-canonical`)
 - `banks/vitals-canonical.json` (vitals_trend visual items)
 
+### 2026-07-21 — Exercise-hypoglycemia authorial-constraint naturalization
+
+Status: `REVIEWED` and `fixed-and-validated`. Independent non-GPT review completed 2026-07-21 and
+cleared the exact four-field canonical diff, the complete live bowtie answerability/scope logic,
+bilingual parity, the finite blocker and negative tests, governance/prompt hardening, and the full
+verification floor. A separate checker-authored trailing-prohibition scan over every bundled stem,
+strategy, cloze stem, and instruction independently corroborated the adjudicated remediation scope.
+A learner reported the final bowtie-stem sentence “Do not independently prescribe an insulin dose.” A deterministic
+survey traced it and its Chinese counterpart (`不要自行开立胰岛素剂量`) to the active/portable producer
+scope rule in `GeminiPrompt.md` and confirmed 4 learner-facing paths in 1 item:
+`gpt_format7c_exercise_hypoglycemia_bowtie` `stem.en`, `stem.zh`, `testTakingStrategy.en`, and
+`testTakingStrategy.zh`. The redundant stem disclaimers were deleted, and both strategies were
+naturalized to state the existing-plan/immediate-safety and diabetes-team/future-planning logic.
+
+The keyed action set remains unambiguous: use the existing hypoglycemia plan and rapid carbohydrate,
+and collaborate with the diabetes prescriber/DSMES team on an individualized future exercise-day
+plan. The independent insulin increase remains an incorrect token, and the rationale and strategy
+retain the scope explanation. IDs, item type, clinical facts, sources, keys, token/ref IDs, scoring,
+and bank/question counts did not change; English/Chinese response demands and strategies remain
+equivalent. Applied through `scripts/patches/2026-07-21-authorial-constraint-naturalization.ts` and
+`scripts/patch-raw.ts`
+with reason “remove learner-facing authorial constraint leakage while preserving nursing-scope logic
+in choices and rationales.” Survey, adjudication, report, and tests live under
+`audit/authorial-constraint-leakage-2026-07-21/` and
+`scripts/tests/authorial-constraint-leakage.ts`. Chain: GPT original item producer → Codex survey,
+declarative repair, and gate implementation → independent non-GPT checker exact-diff, semantic,
+bilingual, regression, and full-floor review.
+
 ### 2026-07-21 — Hemodialysis-access highlight coherence regeneration
 
 Status: `fixed-and-validated`. Targeted canonical regeneration of

@@ -486,6 +486,8 @@ after assessing
 
 Do not imply that a nurse independently prescribes, diagnoses, performs surgery, inserts invasive provider-level devices, or changes medication orders without protocol/order support.
 
+**Keep authoring constraints off the learner surface.** Enforce nursing scope through the scenario, options, and rationale. Never append a producer instruction such as “Do not independently prescribe/diagnose/change a dose” to a stem. Before delivery, scan every learner-facing field for prompt language copied as an instruction.
+
 
 
 PRIORITIZATION RULES

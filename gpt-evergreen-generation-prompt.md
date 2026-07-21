@@ -41,6 +41,7 @@ Derive your own batch allocation from `BANK-CENSUS.md`:
 - **No lazy "notify the provider" keys.** If escalation is the correct action, the stem must make it non-obvious and the distractors must be genuinely competing nursing actions.
 - **Specific `topic` labels, English-only.** `"Diabetic Ketoacidosis (DKA)"`, not `"Endocrine Disorders"`.
 - **Bilingual parity is an invariant.** Every displayed text field carries natural, clinically accurate Simplified Chinese — meaning-faithful, standard nursing terminology, never word-for-word.
+- **Keep authoring constraints off the learner surface.** Enforce nursing scope through the scenario, options, and rationale. Never append a producer instruction such as “Do not independently prescribe/diagnose/change a dose” to a stem. Before delivery, scan every learner-facing field for prompt language copied as an instruction.
 - **One mechanical hazard is not auto-recoverable:** every id referenced in any `correct` field or `byChoice.refId` must exist exactly. A dangling reference fails the whole item at validation; casing and count drift get repaired automatically, this does not.
 
 ### Per-format floors
