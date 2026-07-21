@@ -18,8 +18,12 @@ import { validateBankObject } from "../src/schema";
 // Types
 // ---------------------------------------------------------------------------
 
-export type PathSegment = string | number | { id: string };
+export type PathSegment = string | number | { id: string } | { refId: string };
 export type JsonPath = PathSegment[];
+
+function selectorDetails(segment: Exclude<PathSegment, string | number>): { key: "id" | "refId"; value: string } {
+  return "id" in segment ? { key: "id", value: segment.id } : { key: "refId", value: segment.refId };
+}
 
 export interface ReplaceTextOp {
   kind: "replaceText";
@@ -102,7 +106,7 @@ function renderPath(pathSegments: JsonPath): string {
     .map((seg, i) => {
       if (typeof seg === "string") return i === 0 ? seg : `.${seg}`;
       if (typeof seg === "number") return `[${seg}]`;
-      return `[${seg.id}]`;
+      return "id" in seg ? `[id=${seg.id}]` : `[refId=${seg.refId}]`;
     })
     .join("");
 }
@@ -130,17 +134,18 @@ function walkSegment(current: unknown, seg: PathSegment, pathSoFar: JsonPath): u
     }
     return (current as unknown[])[seg];
   } else {
-    // { id } selector
+    // Stable object selector ({ id } or { refId })
+    const { key: selectorKey, value: selectorValue } = selectorDetails(seg);
     if (!Array.isArray(current)) {
-      throw `{ id: "${seg.id}" } selector requires an array at ${renderPath(pathSoFar.slice(0, -1))}`;
+      throw `{ ${selectorKey}: "${selectorValue}" } selector requires an array at ${renderPath(pathSoFar.slice(0, -1))}`;
     }
     const arr = current as unknown[];
-    const matches = arr.filter((el) => isRecord(el) && el.id === seg.id);
+    const matches = arr.filter((el) => isRecord(el) && el[selectorKey] === selectorValue);
     if (matches.length === 0) {
-      throw `{ id: "${seg.id}" } selector matched 0 elements at ${renderPath(pathSoFar)}`;
+      throw `{ ${selectorKey}: "${selectorValue}" } selector matched 0 elements at ${renderPath(pathSoFar)}`;
     }
     if (matches.length > 1) {
-      throw `{ id: "${seg.id}" } selector matched ${matches.length} elements at ${renderPath(pathSoFar)} (expected exactly 1)`;
+      throw `{ ${selectorKey}: "${selectorValue}" } selector matched ${matches.length} elements at ${renderPath(pathSoFar)} (expected exactly 1)`;
     }
     return matches[0];
   }
@@ -179,19 +184,20 @@ function resolvePath(
     }
     return { parent: current as unknown[], key: lastSeg };
   } else {
-    // { id } selector
+    // Stable object selector ({ id } or { refId })
+    const { key: selectorKey, value: selectorValue } = selectorDetails(lastSeg);
     if (!Array.isArray(current)) {
-      throw `{ id: "${lastSeg.id}" } selector requires an array at ${renderPath(parentPath)}`;
+      throw `{ ${selectorKey}: "${selectorValue}" } selector requires an array at ${renderPath(parentPath)}`;
     }
     const arr = current as unknown[];
     const matches = arr
       .map((el, idx) => ({ el, idx }))
-      .filter(({ el }) => isRecord(el) && el.id === lastSeg.id);
+      .filter(({ el }) => isRecord(el) && el[selectorKey] === selectorValue);
     if (matches.length === 0) {
-      throw `{ id: "${lastSeg.id}" } selector matched 0 elements at ${renderPath(parentPath)}`;
+      throw `{ ${selectorKey}: "${selectorValue}" } selector matched 0 elements at ${renderPath(parentPath)}`;
     }
     if (matches.length > 1) {
-      throw `{ id: "${lastSeg.id}" } selector matched ${matches.length} elements at ${renderPath(parentPath)} (expected exactly 1)`;
+      throw `{ ${selectorKey}: "${selectorValue}" } selector matched ${matches.length} elements at ${renderPath(parentPath)} (expected exactly 1)`;
     }
     return { parent: current as unknown[], key: matches[0].idx };
   }

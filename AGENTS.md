@@ -68,6 +68,7 @@ Ratified by `DECISIONS.md` principle 27(a). These are floors, not ceilings. Anyt
 - Validate, audit, and source-check generated content before promoting it into `banks/*.json`.
 - After reviewed content is merged into a canonical top-level bank and validation passes, delete the raw/staging file. Record the deleted source file in `BANK-REVIEW-LEDGER.md`.
 - For clinical claims, prefer authoritative sources such as professional guidelines, government health agencies, drug labels, and established clinical references. Be especially strict with medication, lab, dosage, prioritization, and delegation items.
+- In learner-facing prose, present temperatures in US-conventional Fahrenheit first with Celsius in parentheses, preserving source precision (for example, `100.9 °F (38.3 °C)`). Typed visual and structured-measurement payloads continue to follow their renderer/unit contracts.
 - Do not AI-generate medical images. A visual must be deterministic data-derived or a curated licensed image, and it must be load-bearing: if removing it leaves the answer unchanged, it is decorative and the item is invalid.
 - Edit raw bank JSON programmatically; never retype its structure. See the runbook's *Editing raw bank JSON* section for the corruption modes this prevents and the exact commands.
 

@@ -68,6 +68,54 @@ Canonical source banks (see [BANK-CENSUS.md](BANK-CENSUS.md) for current counts;
 - `banks/visual-canonical.json` (rhythm_strip visual items; formerly `banks/rhythm-canonical`)
 - `banks/vitals-canonical.json` (vitals_trend visual items)
 
+### 2026-07-21 — Learner-facing producer-vocabulary naturalization
+
+Status: `REVIEWED`. Independent content review (Claude, non-GPT checker seat) found the five stems,
+three strategies, and ICI-colitis repair correct as delivered, but found 10 additional occurrences
+of the same defect class across 9 items that the finite HIGH lexicon could not self-detect: mostly
+un-mirrored Chinese counterparts (`来源支持`, `封闭式`/`封闭` variants) left in place after the paired
+English field was naturalized, plus two English/Chinese pairs entirely outside the original 30/15
+baseline (`closed scenario`, `closed information pathway`). Three of the nine — `gpt_format7b_...
+_alcohol_withdrawal_pathway`, `gpt_format10c_parenteral_nutrition_discontinuation_plan`, and
+`io_matrix_prerenal_aki_recheck_04` — are explicitly-named stem/strategy items from the original work
+order whose Chinese side had not actually been naturalized. Fixed via
+`scripts/patches/2026-07-21c-producer-vocabulary-parity-followup.ts` (10 ops) and
+`scripts/patches/2026-07-21d-producer-vocabulary-parity-followup-2.ts` (1 op, found on the post-fix
+sweep), both declarative through `scripts/patch-raw.ts --allow-canonical --reason`, dry-run verified
+first. The HIGH lexicon in `lib/producer-vocabulary-leakage.ts` was extended with exact-phrase
+patterns for all 10 confirmed leaks so recurrence is caught mechanically; negative test cases confirm
+no false positives on legitimate clinical Chinese (closed-ended questions, closed drainage systems,
+enclosed-space fires). Full verification floor (tests, audit, validate-bank, coverage-report, census,
+census:check, tsc, build) rerun clean post-fix; same populations, same pre-existing unrelated
+advisories as Codex's original run. See
+`audit/producer-vocabulary-leakage-2026-07-21/independent-review-report.md` for the full adjudication.
+
+A deterministic live-disk sweep reconciled exactly to
+the Claude architect manifest: 1,942 canonical items, 30 HIGH-confidence items (five stem, three
+strategy-only, 22 rationale-only), 42 HIGH occurrences, and 15 advisory bare-`lane` rows. The forcing
+defect was author/checker vocabulary reaching learners, not the use of closed-world construction;
+the stated protocols, thresholds, sequences, and tested constructs were retained.
+
+The declarative canonical patch changed 62 exact bilingual learner-facing string paths across 32
+top-level items in `banks/burn-canonical.json`, `banks/gpt-canonical.json`,
+`banks/hard-cases-canonical.json`, and `banks/io-canonical.json`. It naturalized all five stems, all
+three strategies, the bounded rationale set, and all 15 annex rows. The ICI-colitis item now states a
+baseline of one formed stool daily and six watery stools today (five above baseline), moves the
+infection caveat into the rationale, and displays `100.9 °F (38.3 °C)` in both language surfaces.
+Answer keys, IDs, clinical thresholds, sources, scoring, arrays, and question counts did not change.
+
+Patch reason: “naturalize learner-facing producer vocabulary and repair the ICI-colitis dual-unit
+temperature display.” Applicator: `scripts/patches/2026-07-21-producer-vocabulary-naturalization.ts`.
+Shared traversal/lexicon: `lib/producer-vocabulary-leakage.ts`; blocking Tier-1 check:
+`scripts/audit/audit-producer-vocabulary.ts`. Evidence: architect
+`producer-vocabulary-leakage-manifest.json` (preserved byte-for-byte), Codex baseline and post manifests,
+focused regression, and remediation report under
+`audit/producer-vocabulary-leakage-2026-07-21/`. Post-remediation results are zero HIGH hits, zero bare-
+`lane` residuals, and an idempotent second dry run with zero writes. No raw source batch was promoted or
+deleted in this canonical correction. English/Chinese parity was checked mechanically and by the Codex
+implementation seat for this initial pass; the independent review above found and closed a residual
+parity gap. See the `REVIEWED` status note above for the follow-up patches and final adjudication.
+
 ### 2026-07-20 — WBC / platelet learner-facing prose unit normalization
 
 Status: `fixed-and-validated`. Applied the canonical patch reason “normalize learner-facing WBC and

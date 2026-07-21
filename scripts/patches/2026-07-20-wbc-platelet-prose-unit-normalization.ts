@@ -51,8 +51,10 @@ if (inArgIndex !== -1) {
       if (typeof segment === "string") current = (current as Record<string, unknown>)[segment];
       else if (typeof segment === "number") current = (current as unknown[])[segment];
       else {
-        const matches = (current as unknown[]).filter((item) => item && typeof item === "object" && (item as { id?: unknown }).id === segment.id);
-        if (matches.length !== 1) throw new Error(`Selector ${segment.id} matched ${matches.length} records`);
+        const key = "id" in segment ? "id" : "refId";
+        const value = "id" in segment ? segment.id : segment.refId;
+        const matches = (current as unknown[]).filter((item) => item && typeof item === "object" && (item as Record<string, unknown>)[key] === value);
+        if (matches.length !== 1) throw new Error(`Selector ${key}=${value} matched ${matches.length} records`);
         current = matches[0];
       }
     }
