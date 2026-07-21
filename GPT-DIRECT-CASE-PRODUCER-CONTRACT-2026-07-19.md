@@ -171,6 +171,9 @@ Do not write final JSON until all of the following are true:
 7. No later learner-visible surface answers an earlier part.
 8. No keyed option or row receives separate credit for evidence already fully contained in another
    keyed option or trajectory.
+9. Authoring and checker constraints stay off every learner-facing surface. Nursing scope is encoded
+   through the scenario, choices, and rationale; no producer instruction such as “Do not independently
+   prescribe/diagnose/change a dose” is appended to a stem.
 
 If a part fails, remove or redesign it. Do not preserve it through paraphrase, format substitution, or
 weak distractors.
@@ -196,6 +199,7 @@ After drafting, repeat:
 - reverse-order leakage review from the last part to Part 1;
 - bilingual clinical-parity review;
 - item-type mechanical review against the live schema.
+- learner-surface review for copied producer/checker instructions in both English and Chinese.
 
 ## 6. Binding stage-visibility contract
 

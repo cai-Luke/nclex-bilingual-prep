@@ -21,6 +21,7 @@ import { runAuditNonMcqBias } from "./audit/audit-non-mcq-bias";
 import { runAuditStageRefs } from "./audit/audit-stage-refs";
 import { runAuditTopicLicense } from "./audit/audit-topic-license";
 import { runAuditProducerVocabulary } from "./audit/audit-producer-vocabulary";
+import { runAuditAuthorialConstraintLeakage } from "./audit/audit-authorial-constraint-leakage";
 import { gateVerdict, isMechanicalBiasEnforced } from "./audit/audit-verdict";
 import type { AuditResult } from "./audit/types";
 
@@ -58,18 +59,19 @@ async function main(): Promise<number> {
   // ---------------------------------------------------------------------------
   console.log("\n── Tier 1: standing audits ──");
 
-  const [references, positions, integrity, ids, producerVocabulary, stageRefs, topicLicense, nonMcqBias] = await Promise.all([
+  const [references, positions, integrity, ids, producerVocabulary, authorialConstraintLeakage, stageRefs, topicLicense, nonMcqBias] = await Promise.all([
     runAuditReferences(),
     runAuditPositions(),
     runAuditIntegrity(),
     runAuditIds(),
     runAuditProducerVocabulary(),
+    runAuditAuthorialConstraintLeakage(),
     runAuditStageRefs(),
     runAuditTopicLicense(),
     runAuditNonMcqBias(),
   ]);
 
-  const tier1Results: AuditResult[] = [references, positions, integrity, ids, producerVocabulary];
+  const tier1Results: AuditResult[] = [references, positions, integrity, ids, producerVocabulary, authorialConstraintLeakage];
   for (const r of tier1Results) printResult(r);
 
   // ---------------------------------------------------------------------------

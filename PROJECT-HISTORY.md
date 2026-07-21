@@ -52,6 +52,24 @@ The committed NGN item-type set is complete. Rationale/dyad scoring and an expli
 
 > Milestones dated **2026-06-23 and earlier** are archived in [`Archive/PROJECT-HISTORY-ARCHIVE.md`](Archive/PROJECT-HISTORY-ARCHIVE.md). Only the current arc (2026-06-24 onward) is kept here.
 
+### Authorial-Constraint Leakage Survey and Narrow Gate Implemented (Jul 21)
+
+Added a separate learner-surface survey for producer/checker constraints that appear as learner
+instructions, preserving the existing producer-vocabulary audit unchanged. The 13-bank baseline
+(1,942 top-level questions / 2,528 scored leaves) found exactly one bilingual item with four affected
+paths: the English/Chinese final-sentence disclaimers and paired strategy clauses on the
+exercise-associated-hypoglycemia bowtie. The disclaimers were removed and the strategies were
+naturalized declaratively without changing choices, keys, rationales, scoring, IDs, or populations;
+the existing choices and rationale continue to carry the nursing-scope boundary.
+
+The prospective Tier-1 gate blocks only the confirmed imperative/gerund signatures on task/strategy
+surfaces and the two exact observed Chinese counterparts. Broader scope-shaped instructions remain advisory to
+avoid collisions with legitimate options, rationales, client teaching, and Management of Care items.
+Active/portable producer prompts and governance now explicitly keep authoring constraints off learner
+surfaces. Independent non-GPT review then verified the exact four-field bank diff, complete live
+bowtie answerability and scope preservation, bilingual parity, focused negative tests, governance
+changes, and the full verification floor; the ledger status is now `REVIEWED` / `fixed-and-validated`.
+
 ### Hemodialysis Access Highlight Coherence Regeneration (Jul 21)
 
 Regenerated `gpt_format10b_hemodialysis_access_prompt_followup` after a learner report and GPT
