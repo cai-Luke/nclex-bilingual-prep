@@ -1,6 +1,7 @@
 # Authorial-Constraint Leakage Remediation Report
 
-Final verdict: `REVIEWED_AND_READY_TO_PUBLISH`.
+Final verdict: `FIXED_AND_VALIDATED`. Independent non-GPT review cleared both the original
+exercise-hypoglycemia repair and the post-survey PEP residual repair.
 
 ## Snapshot and scope
 
@@ -19,7 +20,8 @@ Final verdict: `REVIEWED_AND_READY_TO_PUBLISH`.
   `LAB-TREND-EPIC-STYLE-DUAL-SERIES-MIGRATION-CODEX-SPEC-2026-07-21.md`.
 - Bundled population: 13 top-level bank files, 1,942 top-level questions, 2,528 scored leaves
 - Forcing bank starting SHA-256: `cdb2ce9b06c759cf33e0d507904da9de26bbc132e1321d3ba2479d91b095f370`
-- Forcing bank ending SHA-256: `0336d3e52ef809f6194201ba5057832428df814b4e0e6d03a80cd3522ba223f9`
+- Initial forcing repair bank SHA-256: `0336d3e52ef809f6194201ba5057832428df814b4e0e6d03a80cd3522ba223f9`
+- Post-survey PEP residual repair bank SHA-256: `61664a6bef854ec8d7a3a0113779a4773135724aabfdec65b970b7ac6464c5d2`
 
 The shared `collectLearnerFacingFields()` traversal includes standalone and embedded stems, response
 tokens, case/stage/exhibit prose, rationales, strategies, prompts, titles, captions, and glossary
@@ -69,11 +71,15 @@ Baseline results:
 - By language: English 2; Simplified Chinese 2
 - By producer prefix: `gpt_` 4
 - Confirmed leaks: 4 paths in 1 item
-- Ambiguous residuals or blocked rewrites: 0
+- Ambiguous residuals or blocked rewrites found by the configured baseline signatures: 0
 
-Both candidate rows were adjudicated `CONFIRMED_AUTHORIAL_CONSTRAINT_LEAK`. Full field text, sentence
+All four candidate rows were adjudicated `CONFIRMED_AUTHORIAL_CONSTRAINT_LEAK`. Full field text, sentence
 offsets, prompt provenance, evidence, preserved boundary, and exact replacements are recorded in
 `baseline.jsonl` and `adjudication.jsonl`.
+
+This count is not an exhaustive-recall claim. After publication, architect review found one semantic
+post-survey residual in `gpt_format10c_occupational_sharps_hiv_pep_sequence`; see
+`post-survey-residuals.jsonl` and `pep-residual-independent-review-handoff.md`.
 
 ## Exact repair and preservation proof
 
@@ -111,6 +117,43 @@ The dry run succeeded before each canonical application tranche (paired stems, t
 paired strategies). The final post-apply rerun reported “Pending paths: 0; zero writes,” proving patch
 idempotency; on a clean starting snapshot the finalized script declares all four exact operations.
 
+## Post-survey PEP residual and repair
+
+The original PEP ordered-response stem ended with:
+
+> Place the supplied actions in order. Source-patient testing and exposed-worker testing are separate processes; do not delay indicated PEP for a source result.
+
+The clinical no-delay rule is valid, but the sentence functioned as a producer adjudication note.
+Live option B bundled exposed-worker baseline testing with source-patient testing, while option C
+started PEP, thereby forcing urgent/concurrent processes into a serial B→C relationship and then
+explaining that ambiguity to the learner. Architect disposition: `BLOCKED_ITEM_REWRITE`.
+
+Direct verification against the 2025 U.S. Public Health Service guideline confirmed that PEP should
+start as soon as possible, source HIV status should be determined whenever possible, PEP must not be
+delayed for that status, and exposed-HCP baseline tests should be obtained as soon as possible.
+
+Applied 14 exact EN/ZH full-field operations through
+`scripts/patches/2026-07-21-pep-authorial-constraint-residual.ts` with reason:
+
+> repair post-survey PEP authorial-constraint residual and preserve clinically concurrent urgent actions
+
+The repaired stem asks only for the exposed nurse's care. Option B now reports the exposure and begins
+occupational-health evaluation. Option C combines exposed-worker baseline collection and indicated
+PEP initiation as one urgent initial-evaluation step. Source-client testing no longer appears in the
+ordered actions; it remains in the rationale as a concurrent process that must not delay PEP. The
+strategy now orders care by genuine time horizons. The key remains A→B→C→D→E, and no identity,
+metadata, source, scoring, option/ref ID, array order, or population changes.
+
+The patch passed dry-run, strict bilingual parity, post-write bank validation, and a final
+idempotency run with zero pending writes. Independent clinical/bilingual review subsequently cleared
+all 14 changed fields and re-derived the repaired A→B→C→D→E sequence as uniquely defensible.
+
+A recursive parsed-object comparison against merged `origin/main` reported exactly the 14 declared
+paths: paired stem, correct rationale, B/C per-choice rationale, strategy, and B/C option text. No
+other parsed value changed. `gpt-canonical.json` remains 771 questions with `meta.count` 771; its key
+remains exactly A→B→C→D→E. Census regeneration changed only the canonical content hash and preserved
+1,942 session units, 2,528 scored leaves, and 199 visual artifacts.
+
 ## Prospective controls
 
 The Tier-1 blocker is intentionally narrow: on task-stem/instruction or test-strategy surfaces only,
@@ -126,8 +169,11 @@ Governance was updated in `AGENTS.md` and the principle-21 construction-language
 embodied in scenario, choices, and rationale and require a pre-delivery learner-surface scan. The
 existing producer-vocabulary lexicon and audit were not renamed, weakened, or broadened.
 
-Post-remediation results: 0 candidates, 0 blockers, 0 advisory residuals. `post-remediation.jsonl` is
-therefore intentionally empty.
+Post-remediation results for the configured finite signatures were 0 candidates and 0 blockers.
+`post-remediation.jsonl` is intentionally empty for that scan snapshot; it never proved exhaustive
+semantic recall. The PEP item is preserved separately as a post-survey residual, and its three exact
+observed construction phrases are now advisory-only signatures. Broad `do not delay` matching remains
+unauthorized because it would collide with legitimate clinical teaching.
 
 ## Verification
 
@@ -147,6 +193,17 @@ Passed:
 - `npm run build` and build-identity validation
 - `git diff --check`
 
+Post-survey PEP residual rerun also passed:
+
+- `npx tsx scripts/tests/authorial-constraint-pep-residual.ts`
+- existing authorial-constraint and producer-vocabulary focused suites
+- grading and schema-bank regressions
+- post-repair finite-signature survey: 0 candidates / 0 blockers
+- all 13 bundled banks validated
+- aggregate audit: gate passed; only the same pre-existing advisories
+- coverage report and census regeneration/check with unchanged populations
+- TypeScript, production build, build-identity validation, and `git diff --check`
+
 Expected pre-existing/nonblocking audit output remains: no raw drafts for the integrity comparison;
 451 legacy case-stage `revealsAllStages` advisories; and the pre-existing non-MCQ distributional
 advisory. The Vite large-chunk advisory is unchanged.
@@ -163,3 +220,15 @@ ledger is closed as `REVIEWED` / `fixed-and-validated`.
 The checker run temporarily overwrote `baseline.jsonl` with the empty post-fix survey output. Before
 publication, Codex restored the four original deterministic baseline rows from the already-recorded
 exact evidence; `post-remediation.jsonl` remains the intentionally empty live result.
+
+That closure did not establish exhaustive semantic recall. A later architect adjudication found the
+PEP residual outside the checker's trailing-sentence predicate and the configured finite signatures.
+The original bowtie review remains valid.
+
+Independent non-GPT review of the PEP residual then completed all seven handoff checks. The checker
+re-derived the sequence, verified that option C does not serialize baseline testing ahead of PEP,
+confirmed source-patient testing is absent from the ordered actions, reviewed all 14 changed EN/ZH
+fields, verified the three exact residual signatures remain advisory-only, confirmed the report and
+ledger make no exhaustive-recall claim, and personally reran `validate-bank` and the aggregate audit.
+The final record is `pep-independent-review-final.md`; its verdict is `CLINICALLY_CLEARED`, and the
+PEP ledger entry is closed as `fixed-and-validated`.
