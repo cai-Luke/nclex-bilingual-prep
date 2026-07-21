@@ -93,9 +93,17 @@ residual file, and report live under `scripts/audit/`, `scripts/tests/`, and
 [`audit/temperature-prose-unit-survey-2026-07-21/`](audit/temperature-prose-unit-survey-2026-07-21/).
 Focused tests, all-bank validation, TypeScript, census freshness, diff checks, and a byte-identical
 repeat run passed. The survey itself changed no canonical bank, schema, renderer, package script,
-ledger, or census. The next authorized scope is a five-decision residual-adjudication manifest
-followed by a separately commissioned closed declarative migration; this milestone does not authorize
-that bank mutation.
+ledger, or census.
+
+The follow-up residual adjudication is recorded in
+[`residual-adjudication.jsonl`](audit/temperature-prose-unit-survey-2026-07-21/residual-adjudication.jsonl),
+with a deterministic generator and concise report. It consumes all 15 residual occurrences exactly
+once across five decisions and 11 target fields. Each target pins the complete field preimage, owner,
+path, occurrence identity/index, exact replacement or complete rewrite, and resulting field hashes.
+The neutropenic-fever threshold preserves the ASCO/IDSA published `101 °F (38.3 °C)` pair; the
+transfusion delta rewrite uses multiplicative conversion and the AABB `≥1.8 °F (1 °C)` threshold.
+No canonical bank was changed. The next scope is the separately commissioned closed declarative
+migration; this milestone does not authorize that bank mutation.
 
 ### MAR Table Readability Repair (Jul 20–21)
 
