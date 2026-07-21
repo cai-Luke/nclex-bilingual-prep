@@ -1,0 +1,1997 @@
+{
+  "archivedAt": "2026-07-21",
+  "sourceBank": "banks/gpt-canonical.json",
+  "sourceBankSha256": "61664a6bef854ec8d7a3a0113779a4773135724aabfdec65b970b7ac6464c5d2",
+  "auditReport": "audit/july16-coverage-construct-audit-2026-07-21/report.md",
+  "status": "non-bundled repair quarantine; not reviewed study material",
+  "count": 13,
+  "items": [
+    {
+      "id": "gpt_balance2_2026_07_15_dc_client_advocacy_02",
+      "kind": "FIX_QUARANTINE",
+      "ownerClass": "MECHANICAL_CLOZE_DEPENDENCY",
+      "ownerDisposition": "BOUNDED_TEXT_REPAIR",
+      "auditReason": "Blank 2 is a mechanical drop-in due to absurd distractors ('staff convenience during scheduling' and 'public access to the clinical encounter') that require no clinical discrimination. Revising these distractors to plausible ethical/legal concepts (e.g., informed consent, bodily autonomy) makes the second blank an active, independent clinical inference.",
+      "payloadSha256": "34bd5f54481e39f845a8bfbc1607ec4f0f789ffd946b9693ffb2a6745b954721",
+      "question": {
+        "id": "gpt_balance2_2026_07_15_dc_client_advocacy_02",
+        "itemType": "dropdown_cloze",
+        "category": "Management of Care",
+        "topic": "Client Advocacy",
+        "difficulty": "easy",
+        "ngnSkill": "take_action",
+        "stem": {
+          "en": "At a hospital outpatient clinic, a capable adult client says that a nursing student may not observe the client's intimate examination. The licensed clinician can perform the examination without the student.",
+          "zh": "在一家医院门诊，一名有决策能力的成年患者表示，不允许护理学生旁观其私密检查。持证临床人员无需学生在场即可完成检查。"
+        },
+        "rationale": {
+          "correct": {
+            "en": "The nurse should honor the request and ask the student to leave. The client retains rights to personal privacy and meaningful participation in care; the teaching mission does not override those rights.",
+            "zh": "护士应尊重患者要求并请学生离开。患者仍享有个人隐私和参与护理决策的权利；教学需要不能凌驾于这些权利之上。"
+          },
+          "byChoice": [
+            {
+              "refId": "response",
+              "en": "The correct response is to honor the request and remove the student; education does not require the client to accept an observer.",
+              "zh": "正确做法是尊重患者要求并请学生离开；教学不能要求患者必须接受旁观者。"
+            },
+            {
+              "refId": "right",
+              "en": "The governing rights are personal privacy and participation in care, not staff convenience or public reporting.",
+              "zh": "适用的权利是个人隐私和参与护理，而不是工作人员便利或公开报告。"
+            }
+          ]
+        },
+        "testTakingStrategy": {
+          "en": "When a capable client states a preference about who may be present, prioritize privacy and participation unless an immediate safety need requires otherwise.",
+          "zh": "当有决策能力的患者明确表示谁可以在场时，应优先考虑隐私和参与权，除非存在即时安全需要。"
+        },
+        "glossary": [
+          {
+            "termEn": "personal privacy",
+            "termZh": "个人隐私",
+            "defZh": "患者在检查和护理过程中免受不必要暴露或旁观的权利。"
+          },
+          {
+            "termEn": "capable adult",
+            "termZh": "有决策能力的成年人",
+            "defZh": "能够理解信息并表达医疗选择的成年患者。"
+          }
+        ],
+        "meta": {
+          "source": "42 CFR 482.13(b)(2) and 482.13(c)(1), hospital patient rights to participate in care and personal privacy, https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-G/part-482/subpart-B/section-482.13",
+          "tier": "strictest"
+        },
+        "clozeStem": {
+          "en": "The nurse should {{response}} because the client has a right to {{right}}.",
+          "zh": "护士应当{{response}}，因为患者有权享有{{right}}。"
+        },
+        "dropdowns": [
+          {
+            "id": "response",
+            "options": [
+              {
+                "id": "r1",
+                "en": "honor the request and ask the student to leave",
+                "zh": "尊重要求并请学生离开"
+              },
+              {
+                "id": "r2",
+                "en": "ask the student to remain but stand farther away",
+                "zh": "让学生留下但站得更远"
+              },
+              {
+                "id": "r3",
+                "en": "tell the client that observation is required in a teaching hospital",
+                "zh": "告知患者教学医院必须允许旁观"
+              }
+            ],
+            "correct": "r1"
+          },
+          {
+            "id": "right",
+            "options": [
+              {
+                "id": "p3",
+                "en": "public access to the clinical encounter",
+                "zh": "公众接触临床过程"
+              },
+              {
+                "id": "p1",
+                "en": "personal privacy and participation in care",
+                "zh": "个人隐私和参与护理"
+              },
+              {
+                "id": "p2",
+                "en": "staff convenience during scheduling",
+                "zh": "工作人员排班便利"
+              }
+            ],
+            "correct": "p1"
+          }
+        ]
+      }
+    },
+    {
+      "id": "gpt_balance3_2026_07_16_dc_discharge_planning_handoff_08",
+      "kind": "FIX_QUARANTINE",
+      "ownerClass": "MECHANICAL_CLOZE_DEPENDENCY",
+      "ownerDisposition": "BOUNDED_TEXT_REPAIR",
+      "auditReason": "The clinical topic is highly relevant, but the dropdown distractors lack clinical plausibility and include crude qualifiers ('only') and absurd administrative options ('pharmacy's monthly inventory date'). This converts the dropdown blanks into mechanical selections. Bounded text repair is required to revise the options to plausible clinical competitors.",
+      "payloadSha256": "67a4ee96afd2928a4fb2c8184e33c8a31f977f250ef60f9ea1baccecf96c19ea",
+      "question": {
+        "id": "gpt_balance3_2026_07_16_dc_discharge_planning_handoff_08",
+        "itemType": "dropdown_cloze",
+        "category": "Management of Care",
+        "topic": "Discharge Planning & Handoff",
+        "difficulty": "easy",
+        "ngnSkill": "recognize_cues",
+        "stem": {
+          "en": "A client is transferring to a residential treatment program after receiving a long-acting paliperidone injection. The receiving nurse asks what information is essential to prevent a duplicate or missed dose. Complete the statement.",
+          "zh": "一名患者在接受长效帕利哌酮注射后将转入住院式治疗项目。接收护士询问哪些信息对于防止重复或漏打下一剂至关重要。请完成句子。"
+        },
+        "meta": {
+          "source": "Agency for Healthcare Research and Quality, TeamSTEPPS 3.0, Tool: Handoff, transfer of recent treatment information and the continuing plan, https://www.ahrq.gov/teamstepps-program/curriculum/communication/tools/handoff.html; 42 CFR § 482.43(b)(1), transfer or referral of necessary medical information, https://www.ecfr.gov/current/title-42/chapter-IV/subchapter-G/part-482/subpart-C/section-482.43"
+        },
+        "rationale": {
+          "correct": {
+            "en": "The receiving team needs the exact product, dose, route, date of the last administration, and date the next dose is due. These timing details prevent duplicate administration or an unintended gap.",
+            "zh": "接收团队需要知道准确的制剂、剂量、途径、末次给药日期和下次应给药日期。这些时间信息可防止重复给药或意外中断。"
+          },
+          "byChoice": [
+            {
+              "refId": "d1",
+              "en": "The last administered product, dose, route, and date establish what the client already received.",
+              "zh": "末次给药的制剂、剂量、途径和日期可明确患者已经接受了什么治疗。"
+            },
+            {
+              "refId": "d2",
+              "en": "The next due date tells the receiving program when continuation is required.",
+              "zh": "下次应给药日期可告知接收项目何时需要继续治疗。"
+            }
+          ]
+        },
+        "testTakingStrategy": {
+          "en": "For long-acting medications, focus on both sides of continuity: what was already given and when the next dose is due.",
+          "zh": "对于长效药物，要同时关注连续性的两端：已经给过什么，以及下一剂何时到期。"
+        },
+        "glossary": [
+          {
+            "termEn": "long-acting injection",
+            "termZh": "长效注射剂",
+            "defZh": "药效维持较长时间并按较长间隔给药的注射制剂"
+          },
+          {
+            "termEn": "next due date",
+            "termZh": "下次应给药日期",
+            "defZh": "按照治疗方案应给予下一剂药物的日期"
+          }
+        ],
+        "clozeStem": {
+          "en": "The handoff should include {{d1}} and {{d2}}.",
+          "zh": "交接内容应包括{{d1}}以及{{d2}}。"
+        },
+        "dropdowns": [
+          {
+            "id": "d1",
+            "options": [
+              {
+                "id": "o3",
+                "en": "the client’s preferred injection site only",
+                "zh": "仅患者偏好的注射部位"
+              },
+              {
+                "id": "o2",
+                "en": "only the medication class",
+                "zh": "仅药物类别"
+              },
+              {
+                "id": "o1",
+                "en": "the exact last product, dose, route, and administration date",
+                "zh": "准确的末次制剂、剂量、途径及给药日期"
+              }
+            ],
+            "correct": "o1"
+          },
+          {
+            "id": "d2",
+            "options": [
+              {
+                "id": "o2",
+                "en": "the date of the next routine physical examination",
+                "zh": "下次常规体检日期"
+              },
+              {
+                "id": "o3",
+                "en": "the pharmacy’s monthly inventory date",
+                "zh": "药房每月盘点日期"
+              },
+              {
+                "id": "o1",
+                "en": "the date the next injection is due",
+                "zh": "下次注射应给药的日期"
+              }
+            ],
+            "correct": "o1"
+          }
+        ]
+      }
+    },
+    {
+      "id": "gpt_balance3_2026_07_16_dc_psychotropic_medications_11",
+      "kind": "FIX_QUARANTINE",
+      "ownerClass": "MECHANICAL_CLOZE_DEPENDENCY",
+      "ownerDisposition": "BOUNDED_TEXT_REPAIR",
+      "auditReason": "The monitoring concepts are clinically important, but the distractors (e.g., pupil size, hearing acuity, serum copper) are completely irrelevant, turning the question into a mechanical exercise. Bounded text repair is required to replace the distractors with plausible clinical monitoring parameters.",
+      "payloadSha256": "23305ceea0b9ca263fd609583ca1b2e810a68d65944194127a1b897683c2fad2",
+      "question": {
+        "id": "gpt_balance3_2026_07_16_dc_psychotropic_medications_11",
+        "itemType": "dropdown_cloze",
+        "category": "Pharmacological and Parenteral Therapies",
+        "topic": "Psychotropic Medications",
+        "difficulty": "easy",
+        "ngnSkill": "recognize_cues",
+        "stem": {
+          "en": "A client is starting olanzapine. Complete the monitoring statement using the medication’s prescribing information.",
+          "zh": "一名患者即将开始使用奥氮平。请根据药品说明书完成监测句子。"
+        },
+        "meta": {
+          "source": "DailyMed, Olanzapine tablet prescribing information, Warnings and Precautions 5.5 Metabolic Changes, https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=e8626e68-088d-47ff-bf06-489a778815aa"
+        },
+        "rationale": {
+          "correct": {
+            "en": "Olanzapine labeling recommends baseline and periodic fasting blood glucose and lipid monitoring, along with regular weight monitoring, because atypical antipsychotics can cause metabolic changes.",
+            "zh": "奥氮平说明书建议在基线及治疗期间定期监测空腹血糖和血脂，并规律监测体重，因为非典型抗精神病药可能引起代谢变化。"
+          },
+          "byChoice": [
+            {
+              "refId": "d1",
+              "en": "Fasting blood glucose is assessed at baseline and periodically during treatment.",
+              "zh": "应在基线及治疗期间定期评估空腹血糖。"
+            },
+            {
+              "refId": "d2",
+              "en": "A fasting lipid profile is also assessed at baseline and periodically.",
+              "zh": "空腹血脂也应在基线及治疗期间定期评估。"
+            },
+            {
+              "refId": "d3",
+              "en": "Weight should be monitored regularly during therapy.",
+              "zh": "治疗期间应规律监测体重。"
+            }
+          ]
+        },
+        "testTakingStrategy": {
+          "en": "For atypical antipsychotics, think metabolic monitoring: glucose, lipids, and weight.",
+          "zh": "遇到非典型抗精神病药时，想到代谢监测：血糖、血脂和体重。"
+        },
+        "glossary": [
+          {
+            "termEn": "fasting blood glucose",
+            "termZh": "空腹血糖",
+            "defZh": "空腹状态下测得的血糖，用于筛查和监测高血糖"
+          },
+          {
+            "termEn": "lipid profile",
+            "termZh": "血脂谱",
+            "defZh": "包括胆固醇和甘油三酯等指标的血液检测"
+          }
+        ],
+        "clozeStem": {
+          "en": "Before and during therapy, monitor {{d1}} and {{d2}}, and monitor {{d3}} regularly.",
+          "zh": "治疗前及治疗期间，应监测{{d1}}和{{d2}}，并规律监测{{d3}}。"
+        },
+        "dropdowns": [
+          {
+            "id": "d1",
+            "options": [
+              {
+                "id": "o3",
+                "en": "bleeding time",
+                "zh": "出血时间"
+              },
+              {
+                "id": "o2",
+                "en": "serum amylase",
+                "zh": "血清淀粉酶"
+              },
+              {
+                "id": "o1",
+                "en": "fasting blood glucose",
+                "zh": "空腹血糖"
+              }
+            ],
+            "correct": "o1"
+          },
+          {
+            "id": "d2",
+            "options": [
+              {
+                "id": "o1",
+                "en": "a fasting lipid profile",
+                "zh": "空腹血脂谱"
+              },
+              {
+                "id": "o2",
+                "en": "serum copper",
+                "zh": "血清铜"
+              },
+              {
+                "id": "o3",
+                "en": "arterial blood gases",
+                "zh": "动脉血气"
+              }
+            ],
+            "correct": "o1"
+          },
+          {
+            "id": "d3",
+            "options": [
+              {
+                "id": "o1",
+                "en": "body weight",
+                "zh": "体重"
+              },
+              {
+                "id": "o2",
+                "en": "pupil size",
+                "zh": "瞳孔大小"
+              },
+              {
+                "id": "o3",
+                "en": "hearing acuity",
+                "zh": "听力"
+              }
+            ],
+            "correct": "o1"
+          }
+        ]
+      }
+    },
+    {
+      "id": "gpt_balance3_2026_07_16_hl_disaster_emergency_preparedness_13",
+      "kind": "FIX_QUARANTINE",
+      "ownerClass": "ANSWER_TELEGRAPHING_OR_AUTHORIAL_COMPENSATION",
+      "ownerDisposition": "BOUNDED_TEXT_REPAIR",
+      "auditReason": "Every keyed highlight action is enumerated in the preceding plan sentence and then repeated nearly verbatim in the selectable record. Deleting the enumeration would restore an independent downtime-safety judgment without changing the key.",
+      "payloadSha256": "a044a1cf340af41f1d0164cc4a7b780255a679e778307b8d0ea7eb8e7d417cb9",
+      "question": {
+        "id": "gpt_balance3_2026_07_16_hl_disaster_emergency_preparedness_13",
+        "itemType": "highlight",
+        "category": "Safety and Infection Prevention and Control",
+        "topic": "Disaster & Emergency Preparedness",
+        "difficulty": "hard",
+        "ngnSkill": "take_action",
+        "stem": {
+          "en": "A ransomware incident disables the electronic health record and medication-scanning system. The hospital activates its downtime plan. The plan requires pre-numbered paper records, two patient identifiers, read-back of critical verbal results, contemporaneous paper medication documentation, and reconciliation before data are entered after recovery. Highlight the actions consistent with the activated plan.",
+          "zh": "勒索软件事件导致电子健康记录和用药扫码系统停用。医院启动停机计划。计划要求使用预编号纸质记录、核对两项患者身份、对危急口头结果进行复诵确认、实时记录纸质用药信息，并在系统恢复后录入前先完成核对。请标出符合该计划的措施。"
+        },
+        "meta": {
+          "source": "45 CFR § 164.308(a)(7), HIPAA Security Rule contingency plan standard, https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-C/part-164/subpart-C/section-164.308"
+        },
+        "rationale": {
+          "correct": {
+            "en": "The safe response follows the downtime plan stated in the case: use controlled paper records, verify identity without barcode scanning, read back critical results, document medications as they are given, and reconcile before retrospective entry. Personal texting and memory-based reconstruction create privacy and medication-safety risks.",
+            "zh": "安全应对必须遵循题干给出的停机计划：使用受控纸质记录，在无法扫码时核对两项身份，复诵危急结果，给药时实时记录，并在事后补录前完成核对。使用私人短信和凭记忆重建记录会造成隐私及用药安全风险。"
+          },
+          "byChoice": [
+            {
+              "refId": "s2",
+              "en": "Pre-numbered downtime forms preserve traceability and record control.",
+              "zh": "预编号停机表可保持记录可追溯性和受控性。"
+            },
+            {
+              "refId": "s3",
+              "en": "Two identifiers replace the unavailable barcode check and reduce wrong-patient errors.",
+              "zh": "在条码不可用时核对两项身份，可减少错人错误。"
+            },
+            {
+              "refId": "s4",
+              "en": "Read-back verifies the accuracy of a critical verbal result.",
+              "zh": "复诵确认可核实危急口头结果的准确性。"
+            },
+            {
+              "refId": "s5",
+              "en": "Documenting each medication at administration prevents an unrecorded dose or later duplication.",
+              "zh": "给药时逐项记录可防止未记录剂量或之后重复给药。"
+            },
+            {
+              "refId": "s6",
+              "en": "Reconciliation before delayed entry prevents conflicting or duplicate electronic documentation.",
+              "zh": "补录前核对可防止电子记录冲突或重复。"
+            },
+            {
+              "refId": "s7",
+              "en": "Personal text messaging is not an approved secure downtime channel.",
+              "zh": "私人短信不是经批准的安全停机沟通渠道。"
+            },
+            {
+              "refId": "s8",
+              "en": "Reconstructing medication administration from memory is unreliable and unsafe.",
+              "zh": "凭记忆重建用药记录不可靠且不安全。"
+            }
+          ]
+        },
+        "testTakingStrategy": {
+          "en": "Use every operational control explicitly named in the activated plan and reject shortcuts that lose traceability.",
+          "zh": "使用启动计划中明确列出的每项操作控制，排除会失去可追溯性的捷径。"
+        },
+        "glossary": [
+          {
+            "termEn": "downtime plan",
+            "termZh": "停机计划",
+            "defZh": "临床信息系统不可用时维持安全运营和记录的预定流程"
+          },
+          {
+            "termEn": "reconciliation",
+            "termZh": "核对",
+            "defZh": "比较纸质与电子记录并解决不一致或重复"
+          }
+        ],
+        "highlight": {
+          "segments": [
+            {
+              "id": "s1",
+              "en": "During downtime, staff should:",
+              "zh": "停机期间，工作人员应："
+            },
+            {
+              "id": "s2",
+              "en": "use the unit’s pre-numbered paper records;",
+              "zh": "使用科室预编号纸质记录；",
+              "selectable": true
+            },
+            {
+              "id": "s3",
+              "en": "verify two patient identifiers before medication administration;",
+              "zh": "给药前核对两项患者身份；",
+              "selectable": true
+            },
+            {
+              "id": "s4",
+              "en": "read back critical verbal laboratory results;",
+              "zh": "复诵危急口头实验室结果；",
+              "selectable": true
+            },
+            {
+              "id": "s5",
+              "en": "record each medication on the paper MAR at the time it is given;",
+              "zh": "每次给药时立即在纸质 MAR 上记录；",
+              "selectable": true
+            },
+            {
+              "id": "s6",
+              "en": "reconcile paper records before entering delayed data after recovery;",
+              "zh": "系统恢复后补录前先核对纸质记录；",
+              "selectable": true
+            },
+            {
+              "id": "s7",
+              "en": "send client identifiers and orders through personal text messages;",
+              "zh": "通过私人短信发送患者身份信息和医嘱；",
+              "selectable": true
+            },
+            {
+              "id": "s8",
+              "en": "recreate the medication record from memory at the end of the shift.",
+              "zh": "班末凭记忆重建用药记录。",
+              "selectable": true
+            }
+          ],
+          "correct": [
+            "s2",
+            "s3",
+            "s4",
+            "s5",
+            "s6"
+          ]
+        }
+      }
+    },
+    {
+      "id": "gpt_mocsic_2026_07_15_dc_disaster_emergency_preparedness_18",
+      "kind": "FIX_QUARANTINE",
+      "ownerClass": "ANSWER_TELEGRAPHING_OR_AUTHORIAL_COMPENSATION",
+      "ownerDisposition": "BOUNDED_TEXT_REPAIR",
+      "auditReason": "Both dropdown answers are supplied verbatim in the two-sentence stem before the learner completes the same before/after statement.",
+      "payloadSha256": "bc9ee3f16c1ddbf70a8dc1f3060d3edeec088c61e0f1a7614124a3f00d87edff",
+      "question": {
+        "id": "gpt_mocsic_2026_07_15_dc_disaster_emergency_preparedness_18",
+        "itemType": "dropdown_cloze",
+        "category": "Safety and Infection Prevention and Control",
+        "topic": "Disaster & Emergency Preparedness",
+        "difficulty": "easy",
+        "ngnSkill": "take_action",
+        "stem": {
+          "en": "During an active-shooter event, the hospital's emergency plan directs staff in unaffected locked units to secure in place, silence devices, stay away from doors and windows, and wait for an authenticated all-clear. After the all-clear, clinical teams begin triage in the designated safe area. Complete the response.",
+          "zh": "医院发生活跃枪手事件时，应急计划要求未受影响且已上锁的病区就地防护、将设备静音、远离门窗，并等待经验证的解除警报。解除警报后，临床团队在指定安全区域开始分诊。完成应对措施。"
+        },
+        "rationale": {
+          "correct": {
+            "en": "Before an authenticated all-clear, the unit follows secure-in-place actions and does not open the door for an unverified voice. After the all-clear, staff transition to clinical triage in the designated safe area; resuming routine operations would skip the plan's post-event response.",
+            "zh": "在收到经验证的解除警报前，病区应执行就地防护措施，不因未经核实的声音而开门。解除警报后，工作人员转入指定安全区域开展临床分诊；直接恢复常规运行会跳过计划规定的事件后应对。"
+          },
+          "byChoice": [
+            {
+              "refId": "1",
+              "en": "The plan explicitly requires secure-in-place behavior before the all-clear.",
+              "zh": "计划明确要求在解除警报前就地防护。"
+            },
+            {
+              "refId": "2",
+              "en": "The plan directs clinical triage only after the authenticated all-clear.",
+              "zh": "计划要求仅在经验证的解除警报后开展临床分诊。"
+            }
+          ]
+        },
+        "testTakingStrategy": {
+          "en": "Separate the security phase from the clinical-response phase: secure first, triage after the verified all-clear.",
+          "zh": "区分安全阶段和临床应对阶段：先就地防护，经验证解除警报后再分诊。"
+        },
+        "glossary": [
+          {
+            "termEn": "secure in place",
+            "termZh": "就地防护",
+            "defZh": "锁闭并留在受保护区域以避开外部威胁"
+          },
+          {
+            "termEn": "all-clear",
+            "termZh": "解除警报",
+            "defZh": "由授权来源确认威胁已解除的信息"
+          }
+        ],
+        "meta": {
+          "source": "Cybersecurity and Infrastructure Security Agency, Hospitals and Healthcare Facilities Security Action Guide, lockdown, safe-location, patient-security, and device-silencing guidance, https://www.cisa.gov/sites/default/files/publications/19_0515_cisa_action-guide-hospitals-and-healthcare.pdf; the authenticated all-clear and post-event sequence are supplied by the facility plan in the item"
+        },
+        "clozeStem": {
+          "en": "Before the authenticated all-clear, the nurse should {{1}}. After the all-clear, the nurse should {{2}}.",
+          "zh": "在收到经验证的解除警报前，护士应{{1}}。解除警报后，护士应{{2}}。"
+        },
+        "dropdowns": [
+          {
+            "id": "1",
+            "options": [
+              {
+                "id": "o2",
+                "en": "enter the corridor to look for casualties",
+                "zh": "进入走廊寻找伤员"
+              },
+              {
+                "id": "o1",
+                "en": "remain secured and avoid opening the door for an unverified voice",
+                "zh": "保持锁闭，不因未经核实的声音而开门"
+              },
+              {
+                "id": "o3",
+                "en": "announce the unit location over a personal phone",
+                "zh": "用私人手机公布病区位置"
+              }
+            ],
+            "correct": "o1"
+          },
+          {
+            "id": "2",
+            "options": [
+              {
+                "id": "o1",
+                "en": "begin triage in the designated safe area",
+                "zh": "在指定安全区域开始分诊"
+              },
+              {
+                "id": "o3",
+                "en": "resume routine unit operations without reporting to the designated safe area",
+                "zh": "不前往指定安全区域报到，直接恢复病区常规运行"
+              },
+              {
+                "id": "o2",
+                "en": "continue lockdown indefinitely without checking instructions",
+                "zh": "无限期继续封锁且不查看指示"
+              }
+            ],
+            "correct": "o1"
+          }
+        ]
+      }
+    },
+    {
+      "id": "gpt_balance5_2026_07_16_mx_client_advocacy_02",
+      "kind": "FIX_QUARANTINE",
+      "ownerClass": "ANSWER_TELEGRAPHING_OR_AUTHORIAL_COMPENSATION",
+      "ownerDisposition": "BOUNDED_TEXT_REPAIR",
+      "auditReason": "The stem enumerates the ADA rule set and the matrix rows then restate each permitted or prohibited behavior. The current task is rule transcription rather than independent advocacy judgment.",
+      "payloadSha256": "9d3f7777d1a19a01878d7c11221cbbe1f69c6fa5458d9237b2241c9f4d487b65",
+      "question": {
+        "id": "gpt_balance5_2026_07_16_mx_client_advocacy_02",
+        "itemType": "matrix",
+        "category": "Management of Care",
+        "topic": "Client Advocacy",
+        "difficulty": "medium",
+        "ngnSkill": "analyze_cues",
+        "stem": {
+          "en": "A stable medical-surgical inpatient uses a trained service dog that alerts to impending seizures. Classify each proposed staff action. Under the ADA, when the dog's task is not obvious, staff may ask only whether the dog is required because of a disability and what work or task it has been trained to perform. Staff may not demand certification or a task demonstration. The handler is responsible for the animal's care. Exclusion is permitted only for a specific allowed reason, such as a dog being out of control and the handler not taking effective action.",
+          "zh": "一名病情稳定的内外科住院患者使用一只经过训练、可预警即将发生癫痫发作的服务犬。请对每项拟议的工作人员行动进行分类。根据 ADA，当服务犬的任务并不明显时，工作人员只能询问该犬是否因残障而需要，以及它受过训练可执行什么工作或任务。工作人员不得要求出示认证或让犬现场演示任务。服务犬的照护由其引导者负责。只有在特定允许理由下，例如服务犬失控且引导者未采取有效纠正措施时，才可将其排除。"
+        },
+        "matrix": {
+          "rows": [
+            {
+              "id": "q02_r1",
+              "en": "Allow the service dog to remain with the client in ordinary patient areas.",
+              "zh": "允许服务犬在普通患者区域陪伴患者。"
+            },
+            {
+              "id": "q02_r2",
+              "en": "If the task is not obvious, ask the two permitted questions described in the stem.",
+              "zh": "如果服务犬的任务并不明显，询问题干中说明的两个允许问题。"
+            },
+            {
+              "id": "q02_r3",
+              "en": "Require an official service-animal certificate before the dog may stay.",
+              "zh": "要求先出示官方服务动物认证，服务犬才可以留下。"
+            },
+            {
+              "id": "q02_r4",
+              "en": "Ask the client to have the dog demonstrate its seizure-alert task.",
+              "zh": "要求患者让服务犬现场演示癫痫预警任务。"
+            },
+            {
+              "id": "q02_r5",
+              "en": "Let the client arrange feeding, toileting, and other routine care for the dog.",
+              "zh": "由患者安排服务犬的喂食、排泄和其他日常照护。"
+            },
+            {
+              "id": "q02_r6",
+              "en": "If the dog becomes uncontrolled and the handler does not correct it, remove the dog while continuing to offer the client care without the animal present.",
+              "zh": "如果服务犬失控且引导者没有纠正，可将犬带离，同时在服务犬不在场的情况下继续为患者提供护理。"
+            }
+          ],
+          "columns": [
+            {
+              "id": "q02_c1",
+              "en": "Supports client advocacy",
+              "zh": "支持患者权益维护"
+            },
+            {
+              "id": "q02_c2",
+              "en": "Does not support client advocacy",
+              "zh": "不支持患者权益维护"
+            }
+          ],
+          "selectionMode": "single_per_row"
+        },
+        "correct": [
+          {
+            "rowId": "q02_r1",
+            "columnIds": [
+              "q02_c1"
+            ]
+          },
+          {
+            "rowId": "q02_r2",
+            "columnIds": [
+              "q02_c1"
+            ]
+          },
+          {
+            "rowId": "q02_r3",
+            "columnIds": [
+              "q02_c2"
+            ]
+          },
+          {
+            "rowId": "q02_r4",
+            "columnIds": [
+              "q02_c2"
+            ]
+          },
+          {
+            "rowId": "q02_r5",
+            "columnIds": [
+              "q02_c1"
+            ]
+          },
+          {
+            "rowId": "q02_r6",
+            "columnIds": [
+              "q02_c1"
+            ]
+          }
+        ],
+        "rationale": {
+          "correct": {
+            "en": "Advocacy means facilitating the trained service dog's access, limiting inquiries to the two ADA-permitted questions when needed, avoiding documentation or demonstration demands, respecting the handler's responsibility for animal care, and using exclusion only for a permitted, individualized reason.",
+            "zh": "维护患者权益包括允许经过训练的服务犬进入、必要时只询问 ADA 允许的两个问题、不要求证明或演示、尊重引导者负责动物照护，并且只在有允许的个别化理由时排除服务犬。"
+          },
+          "byChoice": [
+            {
+              "refId": "q02_r1",
+              "en": "A service dog generally accompanies its handler in areas open to patients.",
+              "zh": "服务犬通常可以陪同引导者进入向患者开放的区域。"
+            },
+            {
+              "refId": "q02_r2",
+              "en": "These are the only two questions permitted when the service task is not apparent.",
+              "zh": "当服务犬的任务不明显时，只允许询问这两个问题。"
+            },
+            {
+              "refId": "q02_r3",
+              "en": "The ADA does not require service-dog certification or documentation as a condition of access.",
+              "zh": "ADA 不要求以服务犬认证或证明作为进入条件。"
+            },
+            {
+              "refId": "q02_r4",
+              "en": "Staff may not require the dog to demonstrate its trained task.",
+              "zh": "工作人员不得要求服务犬现场演示其受训任务。"
+            },
+            {
+              "refId": "q02_r5",
+              "en": "The handler, not hospital staff, is responsible for feeding, toileting, and supervising the dog.",
+              "zh": "服务犬的喂食、排泄和看护由引导者负责，而不是由医院工作人员负责。"
+            },
+            {
+              "refId": "q02_r6",
+              "en": "Loss of control that the handler does not correct is a permitted reason for removal; the client must still be offered services without the dog.",
+              "zh": "服务犬失控且引导者未纠正属于允许排除的理由；即使犬被带离，仍必须继续向患者提供服务。"
+            }
+          ]
+        },
+        "testTakingStrategy": {
+          "en": "Distinguish access rules from convenience preferences. Certification and demonstrations are not prerequisites, but a specific uncorrected control problem can justify removal.",
+          "zh": "区分法律上的进入规则与工作人员的便利偏好。认证和任务演示不是前提，但具体且未被纠正的失控问题可构成排除理由。"
+        },
+        "glossary": [
+          {
+            "termEn": "service dog",
+            "termZh": "服务犬",
+            "defZh": "经过个别训练、为残障人士执行特定工作或任务的犬"
+          },
+          {
+            "termEn": "handler",
+            "termZh": "引导者",
+            "defZh": "控制并负责服务动物的人"
+          },
+          {
+            "termEn": "reasonable access",
+            "termZh": "合理进入",
+            "defZh": "在没有特定允许排除理由时允许服务动物陪同"
+          }
+        ],
+        "meta": {
+          "source": "U.S. Department of Justice, Frequently Asked Questions about Service Animals and the ADA, Q7, Q9, Q14-Q15, Q17, Q25, and Q28, https://www.ada.gov/resources/service-animals-faqs/",
+          "tier": "strictest",
+          "skill_signature": "advocacy:service-animal/ada-access",
+          "stem_disambiguators": [
+            "trained seizure-alert service dog",
+            "stable inpatient",
+            "two permitted questions",
+            "specific exclusion reason"
+          ]
+        }
+      }
+    },
+    {
+      "id": "gpt_balance5_2026_07_16_hl_disaster_emergency_preparedness_13",
+      "kind": "FIX_QUARANTINE",
+      "ownerClass": "ANSWER_TELEGRAPHING_OR_AUTHORIAL_COMPENSATION",
+      "ownerDisposition": "BOUNDED_TEXT_REPAIR",
+      "auditReason": "The plan sentence lists all four keyed actions, which the highlight record repeats nearly verbatim.",
+      "payloadSha256": "df7e2203e2cb9fef6222f8d56d98b8cf4fcbb4556a69e7b656fbd3120232cb80",
+      "question": {
+        "id": "gpt_balance5_2026_07_16_hl_disaster_emergency_preparedness_13",
+        "itemType": "highlight",
+        "category": "Safety and Infection Prevention and Control",
+        "topic": "Disaster & Emergency Preparedness",
+        "difficulty": "medium",
+        "ngnSkill": "take_action",
+        "stem": {
+          "en": "After a mass-casualty incident, several unidentified clients arrive while families and media crowd the entrance. The activated hospital plan requires temporary unique identifiers, a continuously updated patient-tracking list, a designated family-reunification channel, and media release only through the public-information function. Highlight the actions consistent with this plan.",
+          "zh": "大规模伤亡事件后，多名身份不明的患者到达医院，家属和媒体挤在入口处。已启动的医院计划要求使用临时唯一标识、持续更新患者追踪清单、设立指定的家属团聚渠道，并且只能通过公共信息职能发布媒体信息。请标出符合该计划的行动。"
+        },
+        "highlight": {
+          "segments": [
+            {
+              "id": "q13_s1",
+              "en": "Assign each unidentified client a separate temporary unique identifier.",
+              "zh": "为每名身份不明的患者分别分配一个临时唯一标识。",
+              "selectable": true
+            },
+            {
+              "id": "q13_s2",
+              "en": "Maintain one continuously updated patient-tracking list as clients move through the hospital.",
+              "zh": "患者在院内转移时，持续更新同一份患者追踪清单。",
+              "selectable": true
+            },
+            {
+              "id": "q13_s3",
+              "en": "Route family inquiries to the designated reunification channel.",
+              "zh": "将家属查询引导至指定的团聚渠道。",
+              "selectable": true
+            },
+            {
+              "id": "q13_s4",
+              "en": "Refer media requests to the hospital's public-information function.",
+              "zh": "把媒体请求转交医院的公共信息职能处理。",
+              "selectable": true
+            },
+            {
+              "id": "q13_s5",
+              "en": "Use the same “Unknown Client” identifier for all unidentified arrivals until names are learned.",
+              "zh": "在查明姓名前，对所有身份不明的到院者使用同一个“未知患者”标识。",
+              "selectable": true
+            },
+            {
+              "id": "q13_s6",
+              "en": "Post unidentified-client photographs on the hospital's public social-media account to speed identification.",
+              "zh": "在医院公开社交媒体账号上发布身份不明患者的照片，以加快身份确认。",
+              "selectable": true
+            },
+            {
+              "id": "q13_s7",
+              "en": "Let bedside staff give reporters unverified casualty details to reduce crowding.",
+              "zh": "让床旁工作人员向记者提供未经核实的伤亡信息，以减少拥挤。",
+              "selectable": true
+            },
+            {
+              "id": "q13_s8",
+              "en": "Allow families to search treatment areas independently rather than using the reunification channel.",
+              "zh": "允许家属自行进入治疗区域寻找患者，而不是使用团聚渠道。",
+              "selectable": true
+            }
+          ],
+          "correct": [
+            "q13_s1",
+            "q13_s2",
+            "q13_s3",
+            "q13_s4"
+          ]
+        },
+        "rationale": {
+          "correct": {
+            "en": "The activated plan creates controlled identity, tracking, family, and media pathways. Unique temporary identifiers and a current tracking list reduce misidentification; family inquiries and public information are routed through their designated functions.",
+            "zh": "已启动的计划建立了受控的身份、追踪、家属和媒体信息通道。临时唯一标识和最新追踪清单可减少身份错误；家属查询和公共信息分别通过指定职能处理。"
+          },
+          "byChoice": [
+            {
+              "refId": "q13_s1",
+              "en": "A separate temporary identifier preserves each unidentified client's identity until reconciliation.",
+              "zh": "分别使用临时标识可在正式身份核对前保持每名患者身份的独立性。"
+            },
+            {
+              "refId": "q13_s2",
+              "en": "Continuous tracking supports location awareness and later identity reconciliation.",
+              "zh": "持续追踪有助于掌握患者位置并在之后完成身份核对。"
+            },
+            {
+              "refId": "q13_s3",
+              "en": "The designated reunification channel centralizes family matching and protects treatment areas.",
+              "zh": "指定团聚渠道可集中处理家属匹配，并保护治疗区域。"
+            },
+            {
+              "refId": "q13_s4",
+              "en": "The plan assigns media release to the public-information function, not bedside staff.",
+              "zh": "该计划把媒体信息发布交给公共信息职能，而不是床旁工作人员。"
+            },
+            {
+              "refId": "q13_s5",
+              "en": "A shared identifier would merge records and create a serious misidentification risk.",
+              "zh": "多人共用同一标识会混淆记录，并造成严重身份错误风险。"
+            },
+            {
+              "refId": "q13_s6",
+              "en": "Public posting bypasses the designated reunification and information-management process.",
+              "zh": "公开发布照片绕过了指定的团聚和信息管理流程。"
+            },
+            {
+              "refId": "q13_s7",
+              "en": "Unverified bedside disclosure violates the designated information-management process and may spread misinformation.",
+              "zh": "床旁披露未经核实的信息违反指定的信息管理流程，也可能传播错误信息。"
+            },
+            {
+              "refId": "q13_s8",
+              "en": "Independent searching increases congestion and bypasses the designated family-reunification process.",
+              "zh": "家属自行搜索会增加拥挤，并绕过指定团聚流程。"
+            }
+          ]
+        },
+        "testTakingStrategy": {
+          "en": "Use the activated plan as the governing protocol. Select only actions that preserve unique identity and route information through the named tracking, family, and media functions.",
+          "zh": "把已启动的计划视为应遵循的规程。只选择能够保持唯一身份，并通过指定追踪、家属和媒体职能传递信息的行动。"
+        },
+        "glossary": [
+          {
+            "termEn": "mass-casualty incident",
+            "termZh": "大规模伤亡事件",
+            "defZh": "患者数量或需求可能超过常规资源的突发事件"
+          },
+          {
+            "termEn": "temporary unique identifier",
+            "termZh": "临时唯一标识",
+            "defZh": "在正式身份确认前用于区分单个患者的唯一代号"
+          },
+          {
+            "termEn": "family reunification",
+            "termZh": "家属团聚",
+            "defZh": "安全确认患者身份并将其与家属匹配的组织化流程"
+          },
+          {
+            "termEn": "public-information function",
+            "termZh": "公共信息职能",
+            "defZh": "事件中负责核实并统一发布对外信息的指定部门或角色"
+          }
+        ],
+        "meta": {
+          "source": "ASPR TRACIE, Hospital Mass Casualty Incident Response Plan Considerations, Sections 4 Registration and Documentation, 9 Family Support, and 10 Information Management, https://files.asprtracie.hhs.gov/documents/aspr-tracie-mci-response-plan-considerations.pdf",
+          "tier": "strictest",
+          "skill_signature": "disaster:mci/identity-tracking-information",
+          "stem_disambiguators": [
+            "unidentified clients",
+            "families and media crowding",
+            "temporary unique identifiers",
+            "activated closed-world plan"
+          ]
+        }
+      }
+    },
+    {
+      "id": "gpt_balance5_2026_07_16_mx_standard_precautions_hygiene_15",
+      "kind": "FIX_QUARANTINE",
+      "ownerClass": "ANSWER_TELEGRAPHING_OR_AUTHORIAL_COMPENSATION",
+      "ownerDisposition": "BOUNDED_TEXT_REPAIR",
+      "auditReason": "The stem recites every keyed cleanup step before the matrix rows reproduce those same steps.",
+      "payloadSha256": "197d7be8194f0d36526f3efde17246e7c448a790aab5da6f9c339626fc2c12d9",
+      "question": {
+        "id": "gpt_balance5_2026_07_16_mx_standard_precautions_hygiene_15",
+        "itemType": "matrix",
+        "category": "Safety and Infection Prevention and Control",
+        "topic": "Standard Precautions & Hygiene",
+        "difficulty": "easy",
+        "ngnSkill": "analyze_cues",
+        "stem": {
+          "en": "A blood-containing specimen tube breaks on the floor. The cleanup plan requires suitable PPE, mechanical collection of glass, sharps disposal, cleaning before disinfection, use of the disinfectant for its stated contact time, and hand hygiene. Classify each action.",
+          "zh": "一支含血液的标本管在地面破裂。清理计划要求使用合适的 PPE、用机械方法收集玻璃、放入锐器容器、先清洁后消毒、按消毒剂规定的接触时间使用，并进行手卫生。请对每项行动进行分类。"
+        },
+        "matrix": {
+          "rows": [
+            {
+              "id": "q15_r1",
+              "en": "Put on suitable gloves and any additional PPE needed for splash risk.",
+              "zh": "戴上合适的手套，并根据飞溅风险使用其他所需 PPE。"
+            },
+            {
+              "id": "q15_r2",
+              "en": "Pick up the glass fragments with bare hands to clear the walkway quickly.",
+              "zh": "为了快速清理通道，徒手捡起玻璃碎片。"
+            },
+            {
+              "id": "q15_r3",
+              "en": "Use forceps, tongs, or a brush and dustpan to collect the contaminated glass.",
+              "zh": "使用镊子、夹钳或刷子和簸箕收集受污染玻璃。"
+            },
+            {
+              "id": "q15_r4",
+              "en": "Place the contaminated glass fragments in an appropriate sharps container.",
+              "zh": "将受污染的玻璃碎片放入合适的锐器容器。"
+            },
+            {
+              "id": "q15_r5",
+              "en": "Remove visible soil, then apply the approved disinfectant and keep the surface wet for the product's stated contact time.",
+              "zh": "先去除可见污物，再使用批准的消毒剂，并让表面在产品规定的接触时间内保持湿润。"
+            },
+            {
+              "id": "q15_r6",
+              "en": "Perform hand hygiene after removing PPE.",
+              "zh": "脱去 PPE 后进行手卫生。"
+            },
+            {
+              "id": "q15_r7",
+              "en": "Compress a waste bag by hand to make room for more contaminated material.",
+              "zh": "用手压实废物袋，以便装入更多受污染物品。"
+            },
+            {
+              "id": "q15_r8",
+              "en": "Use a vacuum cleaner to collect the contaminated glass fragments.",
+              "zh": "使用吸尘器收集受污染的玻璃碎片。"
+            }
+          ],
+          "columns": [
+            {
+              "id": "q15_c1",
+              "en": "Appropriate",
+              "zh": "适当"
+            },
+            {
+              "id": "q15_c2",
+              "en": "Unsafe",
+              "zh": "不安全"
+            }
+          ],
+          "selectionMode": "single_per_row"
+        },
+        "correct": [
+          {
+            "rowId": "q15_r1",
+            "columnIds": [
+              "q15_c1"
+            ]
+          },
+          {
+            "rowId": "q15_r2",
+            "columnIds": [
+              "q15_c2"
+            ]
+          },
+          {
+            "rowId": "q15_r3",
+            "columnIds": [
+              "q15_c1"
+            ]
+          },
+          {
+            "rowId": "q15_r4",
+            "columnIds": [
+              "q15_c1"
+            ]
+          },
+          {
+            "rowId": "q15_r5",
+            "columnIds": [
+              "q15_c1"
+            ]
+          },
+          {
+            "rowId": "q15_r6",
+            "columnIds": [
+              "q15_c1"
+            ]
+          },
+          {
+            "rowId": "q15_r7",
+            "columnIds": [
+              "q15_c2"
+            ]
+          },
+          {
+            "rowId": "q15_r8",
+            "columnIds": [
+              "q15_c2"
+            ]
+          }
+        ],
+        "rationale": {
+          "correct": {
+            "en": "Blood-contaminated broken glass is handled with PPE and mechanical tools, never bare hands or a vacuum. Fragments go into a sharps container. The surface is cleaned and then disinfected for the labeled contact time, followed by hand hygiene. Waste bags are not compressed by hand because concealed sharps can cause injury.",
+            "zh": "含血液的破碎玻璃应使用 PPE 和机械工具处理，不能徒手或使用吸尘器。碎片应放入锐器容器。地面先清洁，再按标签规定接触时间消毒，最后进行手卫生。不能用手压实废物袋，因为隐藏锐器可能造成损伤。"
+          },
+          "byChoice": [
+            {
+              "refId": "q15_r1",
+              "en": "PPE reduces skin, mucous-membrane, and splash exposure during cleanup.",
+              "zh": "PPE 可减少清理过程中的皮肤、黏膜和飞溅暴露。"
+            },
+            {
+              "refId": "q15_r2",
+              "en": "Bare-hand pickup creates a percutaneous injury and blood-exposure risk.",
+              "zh": "徒手捡拾会造成经皮损伤和血液暴露风险。"
+            },
+            {
+              "refId": "q15_r3",
+              "en": "Mechanical means keep hands away from contaminated sharp edges.",
+              "zh": "机械工具可使手远离受污染的锋利边缘。"
+            },
+            {
+              "refId": "q15_r4",
+              "en": "Contaminated glass is a sharp and belongs in a puncture-resistant sharps container.",
+              "zh": "受污染玻璃属于锐器，应放入防穿刺锐器容器。"
+            },
+            {
+              "refId": "q15_r5",
+              "en": "Cleaning removes soil that can interfere with disinfection, and the stated contact time is needed for the product to work as intended.",
+              "zh": "清洁可去除妨碍消毒的污物，而规定接触时间是消毒剂按预期发挥作用所必需的。"
+            },
+            {
+              "refId": "q15_r6",
+              "en": "Hand hygiene is required after glove and PPE removal because contamination can occur during removal.",
+              "zh": "脱去手套和 PPE 时可能发生污染，因此之后必须进行手卫生。"
+            },
+            {
+              "refId": "q15_r7",
+              "en": "Hand-compressing waste can expose the worker to concealed glass or other sharps.",
+              "zh": "用手压实废物可能使工作人员接触隐藏的玻璃或其他锐器。"
+            },
+            {
+              "refId": "q15_r8",
+              "en": "A vacuum is not appropriate for contaminated broken glass and can spread contamination or expose equipment and staff.",
+              "zh": "吸尘器不适合清理受污染的碎玻璃，可能扩散污染或使设备和人员暴露。"
+            }
+          ]
+        },
+        "testTakingStrategy": {
+          "en": "For contaminated glass, choose methods that keep hands away from sharps and preserve the clean-then-disinfect sequence.",
+          "zh": "处理受污染玻璃时，选择让双手远离锐器的方法，并保持先清洁后消毒的顺序。"
+        },
+        "glossary": [
+          {
+            "termEn": "mechanical means",
+            "termZh": "机械方法",
+            "defZh": "使用镊子、夹钳、刷子和簸箕等工具，而不是用手"
+          },
+          {
+            "termEn": "sharps container",
+            "termZh": "锐器容器",
+            "defZh": "防穿刺、防泄漏、用于处理锐器的专用容器"
+          },
+          {
+            "termEn": "contact time",
+            "termZh": "接触时间",
+            "defZh": "消毒剂为达到预期效果必须在表面保持湿润的规定时间"
+          }
+        ],
+        "meta": {
+          "source": "OSHA, Enforcement Procedures for the Occupational Exposure to Bloodborne Pathogens, CPL 2-2.44D, contaminated broken glass—mechanical handling, sharps-container disposal, and no vacuum, https://www.osha.gov/enforcement/directives/cpl-2-244d; CDC, Core Infection Prevention and Control Practices, Environmental Cleaning and Disinfection—follow manufacturer instructions including contact time, https://www.cdc.gov/infection-control/hcp/core-practices/index.html",
+          "tier": "strictest",
+          "skill_signature": "standard-precautions:blood-spill/broken-glass",
+          "stem_disambiguators": [
+            "blood-containing tube",
+            "mechanical collection",
+            "sharps disposal",
+            "clean then disinfect",
+            "contact time"
+          ]
+        }
+      }
+    },
+    {
+      "id": "gpt_balance6a_2026_07_16_bt_perioperative_care_13",
+      "kind": "FIX_QUARANTINE",
+      "ownerClass": "ANSWER_TELEGRAPHING_OR_AUTHORIAL_COMPENSATION",
+      "ownerDisposition": "BOUNDED_TEXT_REPAIR",
+      "auditReason": "The clinical cues can support an independent LAST diagnosis, but the stem then names the LAST protocol and supplies both keyed actions before the bowtie. Removing that protocol recital preserves a strong emergency construct.",
+      "payloadSha256": "d9ef64e66090a6a6915215c8d160fe3e2f4453aebff338bed150ed1ce07ffc1d",
+      "question": {
+        "id": "gpt_balance6a_2026_07_16_bt_perioperative_care_13",
+        "itemType": "bowtie",
+        "category": "Reduction of Risk Potential",
+        "topic": "Perioperative Care",
+        "difficulty": "hard",
+        "ngnSkill": "prioritize_hypotheses",
+        "stem": {
+          "en": "Minutes after a peripheral nerve block, a client reports metallic taste and tinnitus, becomes agitated, has a seizure, and then develops hypotension with a wide-complex dysrhythmia. The facility LAST protocol directs staff to stop local-anesthetic administration, activate the LAST rescue pathway, support the airway, treat the seizure, and administer 20% lipid emulsion according to the protocol. Complete the bowtie.",
+          "zh": "周围神经阻滞后数分钟，患者报告金属味和耳鸣，随后躁动、癫痫发作，并出现低血压和宽QRS心律失常。机构的LAST流程要求停止局麻药给药、启动LAST救援流程、支持气道、处理癫痫，并按流程给予20%脂肪乳。完成蝴蝶结题。"
+        },
+        "bowtie": {
+          "condition": {
+            "prompt": {
+              "en": "Likely complication",
+              "zh": "最可能的并发症"
+            },
+            "tokens": [
+              {
+                "id": "q13_c_mh",
+                "en": "Malignant hyperthermia",
+                "zh": "恶性高热"
+              },
+              {
+                "id": "q13_c_block",
+                "en": "Expected peripheral nerve-block effect",
+                "zh": "周围神经阻滞的预期作用"
+              },
+              {
+                "id": "q13_c_last",
+                "en": "Local anesthetic systemic toxicity (LAST)",
+                "zh": "局部麻醉药全身毒性（LAST）"
+              },
+              {
+                "id": "q13_c_anaph",
+                "en": "Isolated anaphylaxis",
+                "zh": "单纯过敏性休克"
+              }
+            ],
+            "correct": "q13_c_last"
+          },
+          "actions": {
+            "prompt": {
+              "en": "Immediate actions",
+              "zh": "立即行动"
+            },
+            "tokens": [
+              {
+                "id": "q13_a_walk",
+                "en": "Ambulate the client to improve circulation",
+                "zh": "让患者下床活动以改善循环"
+              },
+              {
+                "id": "q13_a_stop",
+                "en": "Stop local-anesthetic administration and activate the LAST rescue pathway",
+                "zh": "停止局麻药给药并启动LAST救援流程"
+              },
+              {
+                "id": "q13_a_support",
+                "en": "Provide airway/seizure support and begin 20% lipid emulsion per the supplied protocol",
+                "zh": "提供气道和癫痫支持，并按既定流程开始20%脂肪乳"
+              },
+              {
+                "id": "q13_a_repeat",
+                "en": "Administer another dose of local anesthetic to complete the block",
+                "zh": "再给予一剂局麻药以完成阻滞"
+              },
+              {
+                "id": "q13_a_acls",
+                "en": "Use routine standard-ACLS medication doses without modification",
+                "zh": "不作调整地使用常规标准ACLS药物剂量"
+              },
+              {
+                "id": "q13_a_observe",
+                "en": "Observe for 30 minutes before calling for help",
+                "zh": "观察30分钟后再呼救"
+              }
+            ],
+            "correct": [
+              "q13_a_stop",
+              "q13_a_support"
+            ]
+          },
+          "parameters": {
+            "prompt": {
+              "en": "Outcomes to monitor",
+              "zh": "应监测的结果"
+            },
+            "tokens": [
+              {
+                "id": "q13_p_cv",
+                "en": "Cardiac rhythm and hemodynamic stability",
+                "zh": "心律和血流动力学稳定性"
+              },
+              {
+                "id": "q13_p_taste",
+                "en": "Whether the client still notices the lipid emulsion taste",
+                "zh": "患者是否仍能尝到脂肪乳味道"
+              },
+              {
+                "id": "q13_p_numb",
+                "en": "Persistence of numbness in the blocked limb",
+                "zh": "阻滞肢体麻木是否持续"
+              },
+              {
+                "id": "q13_p_neuro",
+                "en": "Neurologic recovery without recurrent seizure or agitation",
+                "zh": "神经功能恢复且癫痫或躁动不再复发"
+              },
+              {
+                "id": "q13_p_site",
+                "en": "Size of the needle puncture mark",
+                "zh": "针刺痕迹大小"
+              }
+            ],
+            "correct": [
+              "q13_p_cv",
+              "q13_p_neuro"
+            ]
+          }
+        },
+        "rationale": {
+          "correct": {
+            "en": "The rapid sequence of metallic taste, tinnitus, CNS excitation/seizure, hypotension, and wide-complex dysrhythmia after local anesthetic exposure is classic for LAST. Treatment differs from routine ACLS and includes immediate cessation, specialized rescue activation, airway and seizure management, and early 20% lipid emulsion. Monitor cardiovascular stability and neurologic recovery.",
+            "zh": "局麻药暴露后迅速出现金属味、耳鸣、中枢神经兴奋/癫痫、低血压和宽QRS心律失常，是LAST的典型表现。其复苏不同于常规ACLS，包括立即停药、启动专门救援、气道和癫痫处理以及尽早给予20%脂肪乳。应监测心血管稳定和神经功能恢复。"
+          },
+          "byChoice": [
+            {
+              "refId": "q13_c_last",
+              "en": "The neurologic prodrome followed by cardiovascular collapse soon after the block strongly indicates LAST.",
+              "zh": "阻滞后不久出现神经前驱症状并继发心血管崩溃，强烈提示LAST。"
+            },
+            {
+              "refId": "q13_c_mh",
+              "en": "Malignant hyperthermia is associated with hypermetabolism, rigidity, rising carbon dioxide, and hyperthermia rather than this classic local-anesthetic prodrome.",
+              "zh": "恶性高热通常表现为高代谢、肌强直、二氧化碳升高和高热，而不是这种典型局麻药前驱症状。"
+            },
+            {
+              "refId": "q13_c_anaph",
+              "en": "Anaphylaxis does not explain the characteristic metallic taste, tinnitus, seizure, and wide-complex sequence as well as LAST.",
+              "zh": "过敏性休克不能像LAST那样解释特征性的金属味、耳鸣、癫痫和宽QRS演变。"
+            },
+            {
+              "refId": "q13_c_block",
+              "en": "Seizure and cardiovascular instability are not expected block effects.",
+              "zh": "癫痫和心血管不稳定不是阻滞的预期作用。"
+            },
+            {
+              "refId": "q13_a_stop",
+              "en": "Stopping further exposure and mobilizing the dedicated rescue pathway are immediate priorities.",
+              "zh": "停止进一步暴露并启动专门救援流程是首要行动。"
+            },
+            {
+              "refId": "q13_a_support",
+              "en": "Airway/seizure care and early 20% lipid emulsion are central LAST treatments.",
+              "zh": "气道/癫痫处理和尽早给予20%脂肪乳是LAST治疗核心。"
+            },
+            {
+              "refId": "q13_a_acls",
+              "en": "ASRA warns that LAST resuscitation differs from standard ACLS; routine doses can be harmful.",
+              "zh": "ASRA警告LAST复苏不同于标准ACLS；常规剂量可能有害。"
+            },
+            {
+              "refId": "q13_a_observe",
+              "en": "The client has seizures and cardiovascular instability, so observation alone is unsafe.",
+              "zh": "患者已有癫痫和心血管不稳定，单纯观察不安全。"
+            },
+            {
+              "refId": "q13_a_repeat",
+              "en": "Additional local anesthetic worsens the toxic exposure.",
+              "zh": "继续给予局麻药会加重毒性暴露。"
+            },
+            {
+              "refId": "q13_a_walk",
+              "en": "Ambulation is unsafe during seizure and hemodynamic instability.",
+              "zh": "癫痫和血流动力学不稳定时下床活动不安全。"
+            },
+            {
+              "refId": "q13_p_cv",
+              "en": "Rhythm and blood pressure show whether cardiovascular toxicity is resolving.",
+              "zh": "心律和血压显示心血管毒性是否缓解。"
+            },
+            {
+              "refId": "q13_p_neuro",
+              "en": "Neurologic recovery and absence of recurrent seizures evaluate CNS resolution.",
+              "zh": "神经功能恢复和无癫痫复发可评价中枢神经毒性是否缓解。"
+            },
+            {
+              "refId": "q13_p_numb",
+              "en": "Expected regional numbness is not the primary recovery target after systemic toxicity.",
+              "zh": "区域麻木属于预期阻滞效应，不是全身毒性后的主要恢复指标。"
+            },
+            {
+              "refId": "q13_p_taste",
+              "en": "Taste is not a meaningful resuscitation outcome.",
+              "zh": "味觉不是有意义的复苏结果。"
+            },
+            {
+              "refId": "q13_p_site",
+              "en": "The puncture mark does not evaluate systemic toxicity resolution.",
+              "zh": "针刺痕迹不能评价全身毒性是否缓解。"
+            }
+          ]
+        },
+        "testTakingStrategy": {
+          "en": "Link the timing after local-anesthetic exposure with the paired neurologic and cardiovascular manifestations, then choose the specialized LAST pathway rather than routine ACLS.",
+          "zh": "把局麻药暴露后的时间与神经及心血管表现联系起来，然后选择专门LAST流程而不是常规ACLS。"
+        },
+        "glossary": [
+          {
+            "termEn": "LAST",
+            "termZh": "局部麻醉药全身毒性",
+            "defZh": "局麻药进入全身循环后引起的严重神经和心血管毒性。"
+          },
+          {
+            "termEn": "lipid emulsion",
+            "termZh": "脂肪乳",
+            "defZh": "用于LAST救援的20%静脉脂肪制剂。"
+          },
+          {
+            "termEn": "wide-complex dysrhythmia",
+            "termZh": "宽QRS心律失常",
+            "defZh": "QRS波群增宽的异常心律，可提示严重传导或心肌毒性。"
+          }
+        ],
+        "meta": {
+          "source": "American Society of Regional Anesthesia and Pain Medicine (ASRA), Checklist for Treatment of Local Anesthetic Systemic Toxicity (LAST), including calling for help, airway/seizure support, early 20% lipid emulsion, modified resuscitation, and post-stability observation: https://asra.com/docs/default-source/guidelines-articles/local-anesthetic-systemic-toxicity-rgb.pdf"
+        }
+      }
+    },
+    {
+      "id": "gpt_balance6b_2026_07_16_dc_confidentiality_hipaa_05",
+      "kind": "FIX_QUARANTINE",
+      "ownerClass": "WEAK_OR_NONCOMPETING_DIFFERENTIAL",
+      "ownerDisposition": "BOUNDED_TEXT_REPAIR",
+      "auditReason": "Blank 2 contains noncompeting administrative distractors that do not require clinical knowledge to eliminate, leaving treatment as the only plausible answer. Revise distractors to include realistic HIPAA treatment, payment, or healthcare operations (TPO) concepts.",
+      "payloadSha256": "250125129b5d745dd172b90d7da5b11f67d799ad92b634f93b7f8ce1e39676f1",
+      "question": {
+        "id": "gpt_balance6b_2026_07_16_dc_confidentiality_hipaa_05",
+        "itemType": "dropdown_cloze",
+        "category": "Management of Care",
+        "topic": "Confidentiality & HIPAA",
+        "difficulty": "easy",
+        "ngnSkill": "analyze_cues",
+        "stem": {
+          "en": "A consulting psychiatrist requests separately maintained psychotherapy session notes from another clinician. No listed HIPAA exception for use or disclosure of psychotherapy notes applies. Complete the statement.",
+          "zh": "一位会诊精神科医生向另一位临床人员索取单独保存的心理治疗会谈笔记。目前不适用HIPAA列出的任何心理治疗笔记使用或披露例外。请完成陈述。"
+        },
+        "clozeStem": {
+          "en": "Disclosure of these separately maintained notes generally requires the client's {{q05_d01}}; the fact that the requesting psychiatrist will use them for {{q05_d02}} does not by itself remove that requirement.",
+          "zh": "披露这些单独保存的笔记通常需要患者的{{q05_d01}}；请求方精神科医生将其用于{{q05_d02}}这一事实本身并不能取消该要求。"
+        },
+        "dropdowns": [
+          {
+            "id": "q05_d01",
+            "options": [
+              {
+                "id": "q05_d01_o03",
+                "en": "no authorization because both people are clinicians",
+                "zh": "无需授权，因为双方都是临床人员"
+              },
+              {
+                "id": "q05_d01_o02",
+                "en": "verbal permission documented by the requester",
+                "zh": "由请求方记录的口头许可"
+              },
+              {
+                "id": "q05_d01_o01",
+                "en": "valid written authorization",
+                "zh": "有效的书面授权"
+              }
+            ],
+            "correct": "q05_d01_o01"
+          },
+          {
+            "id": "q05_d02",
+            "options": [
+              {
+                "id": "q05_d02_o01",
+                "en": "treatment",
+                "zh": "治疗"
+              },
+              {
+                "id": "q05_d02_o03",
+                "en": "facility directory management",
+                "zh": "机构名录管理"
+              },
+              {
+                "id": "q05_d02_o02",
+                "en": "appointment scheduling",
+                "zh": "预约安排"
+              }
+            ],
+            "correct": "q05_d02_o01"
+          }
+        ],
+        "rationale": {
+          "correct": {
+            "en": "Psychotherapy notes that are maintained separately from the medical record receive special HIPAA protection. With no applicable exception, disclosure requires the client's valid written authorization even when another provider requests the notes for treatment.",
+            "zh": "与普通病历分开保存的心理治疗笔记受到HIPAA的特殊保护。在没有适用例外时，即使另一位医护人员为治疗目的请求这些笔记，也需要患者有效的书面授权。"
+          },
+          "byChoice": [
+            {
+              "refId": "q05_d01",
+              "en": "The correct completion is valid written authorization; verbal permission or the requester's clinician status does not satisfy the rule for separately maintained psychotherapy notes when no exception applies.",
+              "zh": "正确填空是“有效的书面授权”；在没有例外时，口头许可或请求方也是临床人员，都不能满足单独保存的心理治疗笔记披露规则。"
+            },
+            {
+              "refId": "q05_d02",
+              "en": "The correct purpose is treatment. Unlike ordinary treatment records, psychotherapy notes generally still require authorization for this provider-to-provider treatment disclosure.",
+              "zh": "正确用途是“治疗”。与普通治疗记录不同，医护人员之间为治疗目的披露心理治疗笔记通常仍需要授权。"
+            }
+          ]
+        },
+        "testTakingStrategy": {
+          "en": "Identify whether the request concerns ordinary mental-health information or separately maintained psychotherapy notes; the latter have a stricter authorization rule.",
+          "zh": "先判断请求的是普通精神健康信息，还是单独保存的心理治疗笔记；后者适用更严格的授权规则。"
+        },
+        "glossary": [
+          {
+            "termEn": "psychotherapy notes",
+            "termZh": "心理治疗笔记",
+            "defZh": "由心理健康专业人员记录并与其余病历分开保存的会谈内容笔记。"
+          },
+          {
+            "termEn": "written authorization",
+            "termZh": "书面授权",
+            "defZh": "符合HIPAA要求、由患者签署并允许特定使用或披露的文件。"
+          },
+          {
+            "termEn": "treatment disclosure",
+            "termZh": "治疗目的披露",
+            "defZh": "为患者治疗而在医护提供者之间共享健康信息。"
+          }
+        ],
+        "meta": {
+          "source": "HHS Office for Civil Rights, FAQ 558, disclosure of psychotherapy notes through an HIO and the treatment-purpose authorization rule, https://www.hhs.gov/hipaa/for-professionals/faq/558/does-hipaa-permit-a-covered-entity-to-disclose-psychotherapy-notes-to-an-hio/index.html",
+          "tier": "strictest",
+          "skill_signature": "hipaa:psychotherapy-notes/treatment-request-still-needs-authorization",
+          "stem_disambiguators": [
+            "separately maintained psychotherapy notes",
+            "no listed exception",
+            "request by another treating provider"
+          ]
+        }
+      }
+    },
+    {
+      "id": "gpt_balance6b_2026_07_16_dc_confidentiality_hipaa_07",
+      "kind": "FIX_QUARANTINE",
+      "ownerClass": "WEAK_OR_NONCOMPETING_DIFFERENTIAL",
+      "ownerDisposition": "BOUNDED_TEXT_REPAIR",
+      "auditReason": "Blank 2 contains an absurd, fictional distractor (limiting every disclosure to one page) that can be easily eliminated without demonstrating regulatory or clinical knowledge. The distractors should be revised to include plausible HIPAA concepts.",
+      "payloadSha256": "8d7c59c5e0fa0fdf091219d8e610ca0d59b6212494273747418fa06862419d60",
+      "question": {
+        "id": "gpt_balance6b_2026_07_16_dc_confidentiality_hipaa_07",
+        "itemType": "dropdown_cloze",
+        "category": "Management of Care",
+        "topic": "Confidentiality & HIPAA",
+        "difficulty": "easy",
+        "ngnSkill": "analyze_cues",
+        "stem": {
+          "en": "A hospitalist asks whether the hospital may send relevant ordinary medical-record information to the specialist who will treat the same client. The request does not involve separately maintained psychotherapy notes. Complete the statement.",
+          "zh": "一位住院医生询问，医院是否可以把相关的普通病历信息发送给将治疗同一患者的专科医生。该请求不涉及单独保存的心理治疗笔记。请完成陈述。"
+        },
+        "clozeStem": {
+          "en": "HIPAA {{q07_d01}} this provider-to-provider disclosure without the client's authorization, and the minimum-necessary requirement {{q07_d02}} to disclosures or requests between providers for treatment.",
+          "zh": "HIPAA{{q07_d01}}在没有患者授权的情况下进行这种医护提供者之间的披露；对于医护提供者之间为治疗目的进行的披露或请求，最低必要原则{{q07_d02}}。"
+        },
+        "dropdowns": [
+          {
+            "id": "q07_d01",
+            "options": [
+              {
+                "id": "q07_d01_o03",
+                "en": "permits only after a separate written authorization",
+                "zh": "仅在取得单独书面授权后允许"
+              },
+              {
+                "id": "q07_d01_o02",
+                "en": "prohibits",
+                "zh": "禁止"
+              },
+              {
+                "id": "q07_d01_o01",
+                "en": "permits",
+                "zh": "允许"
+              }
+            ],
+            "correct": "q07_d01_o01"
+          },
+          {
+            "id": "q07_d02",
+            "options": [
+              {
+                "id": "q07_d02_o03",
+                "en": "applies only because the specialist is outside the hospital",
+                "zh": "仅因为专科医生不在本院而适用"
+              },
+              {
+                "id": "q07_d02_o02",
+                "en": "requires limiting every disclosure to one page",
+                "zh": "要求每次披露限制为一页"
+              },
+              {
+                "id": "q07_d02_o01",
+                "en": "does not apply",
+                "zh": "不适用"
+              }
+            ],
+            "correct": "q07_d02_o01"
+          }
+        ],
+        "rationale": {
+          "correct": {
+            "en": "HIPAA allows covered providers to disclose relevant protected health information to another provider for treatment without the client's authorization. The minimum-necessary standard does not apply to disclosures or requests between providers for treatment.",
+            "zh": "HIPAA允许受监管的医护提供者在没有患者授权的情况下，为治疗目的向另一位医护提供者披露相关受保护健康信息。最低必要原则不适用于医护提供者之间为治疗目的进行的披露或请求。"
+          },
+          "byChoice": [
+            {
+              "refId": "q07_d01",
+              "en": "The correct completion is permits. Ordinary relevant records may be shared for treatment without a separate client authorization; this is distinct from the special rule for psychotherapy notes.",
+              "zh": "正确填空是“允许”。普通的相关病历可以为治疗目的共享，无需另行取得患者授权；这与心理治疗笔记的特殊规则不同。"
+            },
+            {
+              "refId": "q07_d02",
+              "en": "The correct completion is does not apply. The treatment exception concerns provider-to-provider disclosures and requests, not an arbitrary page limit or the specialist's organizational location.",
+              "zh": "正确填空是“不适用”。治疗例外适用于医护提供者之间的披露和请求，与任意页数限制或专科医生是否属于同一机构无关。"
+            }
+          ]
+        },
+        "testTakingStrategy": {
+          "en": "First identify the purpose and record type: ordinary information for treatment follows a different rule from separately maintained psychotherapy notes.",
+          "zh": "先判断用途和记录类型：为治疗目的共享普通信息，与单独保存的心理治疗笔记适用不同规则。"
+        },
+        "glossary": [
+          {
+            "termEn": "protected health information",
+            "termZh": "受保护健康信息",
+            "defZh": "HIPAA保护的、可识别个人身份的健康信息。"
+          },
+          {
+            "termEn": "minimum necessary",
+            "termZh": "最低必要原则",
+            "defZh": "在适用时，将使用、披露或请求限制在完成目的所需范围。"
+          },
+          {
+            "termEn": "treatment",
+            "termZh": "治疗",
+            "defZh": "为患者提供、协调或管理医疗服务。"
+          }
+        ],
+        "meta": {
+          "source": "HHS Office for Civil Rights, Treatment, Payment, and Health Care Operations Disclosures FAQs and FAQ 208 on provider-to-provider treatment disclosures and the minimum-necessary exception, https://www.hhs.gov/hipaa/for-professionals/faq/treatment-payment-and-health-care-operations-disclosures/index.html; https://www.hhs.gov/hipaa/for-professionals/faq/208/wont-minium-necessary-restriction-impede-delivery/index.html",
+          "tier": "strictest",
+          "skill_signature": "hipaa:treatment-disclosure/provider-to-provider-no-authorization-minimum-necessary-exception",
+          "stem_disambiguators": [
+            "ordinary medical record",
+            "specialist treating same client",
+            "not psychotherapy notes"
+          ]
+        }
+      }
+    },
+    {
+      "id": "gpt_balance6b_2026_07_16_bt_procedural_complications_dialysis_14",
+      "kind": "FIX_QUARANTINE",
+      "ownerClass": "ANSWER_TELEGRAPHING_OR_AUTHORIAL_COMPENSATION",
+      "ownerDisposition": "BOUNDED_TEXT_REPAIR",
+      "auditReason": "The stem names the keyed condition and then recites both keyed actions and the follow-up domain. Removing the answer-bearing program directive would leave a source-grounded PD contamination judgment.",
+      "payloadSha256": "b2a46670274133faf196cac80d6a5096b0a867b9955d4e3245ce5b48044daba7",
+      "question": {
+        "id": "gpt_balance6b_2026_07_16_bt_procedural_complications_dialysis_14",
+        "itemType": "bowtie",
+        "category": "Reduction of Risk Potential",
+        "topic": "Procedural Complications & Dialysis",
+        "difficulty": "hard",
+        "ngnSkill": "take_action",
+        "stem": {
+          "en": "During a home peritoneal-dialysis exchange, the transfer set disconnects proximal to an open clamp and the open system is exposed. The client reconnects it and calls immediately; there is no abdominal pain and the effluent is currently clear. The PD program defines this event as wet contamination and directs the client to stop further use and close the system, contact the PD team for transfer-set management and prescribed prophylaxis, and complete the program's symptom and follow-up checks. Complete the bow-tie.",
+          "zh": "在居家腹膜透析换液过程中，转接管在开放夹的近端脱开，开放系统暴露。患者重新连接后立即来电；目前没有腹痛，流出液清澈。腹膜透析项目将此事件定义为湿性污染，并指示患者停止继续使用并关闭系统，联系腹膜透析团队处理转接管和实施规定的预防措施，同时完成项目规定的症状监测和随访。请完成蝴蝶结题。"
+        },
+        "bowtie": {
+          "condition": {
+            "prompt": {
+              "en": "Most likely complication risk",
+              "zh": "最可能的并发症风险"
+            },
+            "tokens": [
+              {
+                "id": "q14_c02",
+                "en": "Dry contamination with no connection to the open fluid pathway",
+                "zh": "未接触开放液路的干性污染"
+              },
+              {
+                "id": "q14_c01",
+                "en": "Wet peritoneal-dialysis system contamination with peritonitis risk",
+                "zh": "腹膜透析系统湿性污染并有腹膜炎风险"
+              },
+              {
+                "id": "q14_c03",
+                "en": "Dialysis disequilibrium syndrome",
+                "zh": "透析失衡综合征"
+              }
+            ],
+            "correct": "q14_c01"
+          },
+          "actions": {
+            "prompt": {
+              "en": "Actions to take now",
+              "zh": "现在应采取的行动"
+            },
+            "tokens": [
+              {
+                "id": "q14_a04",
+                "en": "Flush several bags through the system before notifying the PD team",
+                "zh": "在通知腹膜透析团队前，先用数袋透析液冲洗系统"
+              },
+              {
+                "id": "q14_a03",
+                "en": "Continue exchanges because the effluent is clear and the client has no symptoms",
+                "zh": "因为流出液清澈且患者无症状，继续换液"
+              },
+              {
+                "id": "q14_a02",
+                "en": "Contact the PD team immediately for transfer-set management and the program's prescribed prophylaxis pathway",
+                "zh": "立即联系腹膜透析团队，处理转接管并执行项目规定的预防流程"
+              },
+              {
+                "id": "q14_a05",
+                "en": "Select an antibiotic, dose, and duration without using the program pathway",
+                "zh": "不按照项目流程，自行选择抗生素、剂量和疗程"
+              },
+              {
+                "id": "q14_a01",
+                "en": "Close or clamp the system and stop further exchanges through the exposed connection",
+                "zh": "关闭或夹闭系统，并停止通过暴露连接继续换液"
+              }
+            ],
+            "correct": [
+              "q14_a01",
+              "q14_a02"
+            ]
+          },
+          "parameters": {
+            "prompt": {
+              "en": "Follow-up findings or completion to monitor",
+              "zh": "需要监测的随访发现或完成情况"
+            },
+            "tokens": [
+              {
+                "id": "q14_p01",
+                "en": "Cloudy effluent or new abdominal pain",
+                "zh": "流出液浑浊或新出现腹痛"
+              },
+              {
+                "id": "q14_p03",
+                "en": "A single normal blood pressure reading",
+                "zh": "单次正常血压读数"
+              },
+              {
+                "id": "q14_p02",
+                "en": "Completion of the PD program's transfer-set, prophylaxis, and follow-up plan",
+                "zh": "完成腹膜透析项目规定的转接管处理、预防措施和随访计划"
+              },
+              {
+                "id": "q14_p04",
+                "en": "Return of appetite before the next exchange",
+                "zh": "下次换液前食欲恢复"
+              },
+              {
+                "id": "q14_p05",
+                "en": "A fixed antibiotic duration chosen by the learner",
+                "zh": "由答题者选择的固定抗生素疗程"
+              }
+            ],
+            "correct": [
+              "q14_p01",
+              "q14_p02"
+            ]
+          }
+        },
+        "rationale": {
+          "correct": {
+            "en": "Exposure of an open PD fluid pathway proximal to an open clamp is wet contamination and carries peritonitis risk even before symptoms develop. The client should stop use, secure the system, and follow the PD team's transfer-set and prophylaxis pathway. Monitoring focuses on early peritonitis symptoms and completion of the program-directed follow-up.",
+            "zh": "开放夹近端的腹膜透析开放液路发生暴露属于湿性污染，即使尚未出现症状，也有腹膜炎风险。患者应停止使用并保护系统，按照腹膜透析团队的转接管处理和预防流程执行。监测重点是早期腹膜炎症状以及是否完成项目规定的随访。"
+          },
+          "byChoice": [
+            {
+              "refId": "q14_c01",
+              "en": "The open fluid pathway was exposed proximal to an open clamp, meeting the stem's definition of wet contamination.",
+              "zh": "开放夹近端的开放液路发生暴露，符合题干给出的湿性污染定义。"
+            },
+            {
+              "refId": "q14_c02",
+              "en": "Dry contamination does not involve the open fluid pathway described in this event.",
+              "zh": "干性污染不涉及本事件所描述的开放液路。"
+            },
+            {
+              "refId": "q14_c03",
+              "en": "Dialysis disequilibrium is a different complication and is not caused by an exposed PD connection.",
+              "zh": "透析失衡是另一种并发症，并非由腹膜透析连接暴露引起。"
+            },
+            {
+              "refId": "q14_a01",
+              "en": "Stopping use and closing the system prevents additional exposure through the contaminated connection.",
+              "zh": "停止使用并关闭系统，可防止通过受污染连接进一步暴露。"
+            },
+            {
+              "refId": "q14_a02",
+              "en": "The PD team directs transfer-set management and prophylaxis after wet contamination.",
+              "zh": "湿性污染后，应由腹膜透析团队指导转接管处理和预防措施。"
+            },
+            {
+              "refId": "q14_a03",
+              "en": "Absence of current symptoms does not eliminate the peritonitis risk created by wet contamination.",
+              "zh": "目前没有症状并不能消除湿性污染造成的腹膜炎风险。"
+            },
+            {
+              "refId": "q14_a04",
+              "en": "Flushing before securing the system and contacting the team may extend use of the contaminated pathway.",
+              "zh": "在保护系统并联系团队前自行冲洗，可能延长对受污染液路的使用。"
+            },
+            {
+              "refId": "q14_a05",
+              "en": "The item intentionally defers drug selection, dose, and duration to the prescribed program pathway.",
+              "zh": "本题明确把药物选择、剂量和疗程交由项目规定流程决定。"
+            },
+            {
+              "refId": "q14_p01",
+              "en": "Cloudy effluent and abdominal pain are key clinical findings that can signal PD-associated peritonitis.",
+              "zh": "流出液浑浊和腹痛是提示腹膜透析相关腹膜炎的重要发现。"
+            },
+            {
+              "refId": "q14_p02",
+              "en": "Completion of the directed transfer-set, prophylaxis, and follow-up plan verifies management of the contamination event.",
+              "zh": "完成规定的转接管处理、预防和随访计划，可核实该污染事件已得到管理。"
+            },
+            {
+              "refId": "q14_p03",
+              "en": "A normal blood pressure does not rule out evolving peritonitis or confirm completion of contamination management.",
+              "zh": "正常血压不能排除正在发展的腹膜炎，也不能确认污染处理已完成。"
+            },
+            {
+              "refId": "q14_p04",
+              "en": "Appetite is nonspecific and does not replace symptom monitoring or program follow-up.",
+              "zh": "食欲缺乏特异性，不能替代症状监测或项目随访。"
+            },
+            {
+              "refId": "q14_p05",
+              "en": "The learner should not invent a fixed prophylactic regimen; the program pathway determines it.",
+              "zh": "答题者不应臆造固定预防方案；具体方案由项目流程决定。"
+            }
+          ]
+        },
+        "testTakingStrategy": {
+          "en": "In a contamination item, use the stated open-versus-closed pathway definition, act before symptoms appear, and avoid inventing an antimicrobial regimen.",
+          "zh": "在污染题中，应使用题干给出的开放/关闭液路定义，在症状出现前采取行动，并避免臆造抗菌药方案。"
+        },
+        "glossary": [
+          {
+            "termEn": "wet contamination",
+            "termZh": "湿性污染",
+            "defZh": "污染接触到开放的腹膜透析液路，使微生物可能进入腹腔。"
+          },
+          {
+            "termEn": "transfer set",
+            "termZh": "转接管",
+            "defZh": "连接腹膜透析导管与换液系统的部件。"
+          },
+          {
+            "termEn": "effluent",
+            "termZh": "流出液",
+            "defZh": "腹膜透析后从腹腔排出的透析液。"
+          }
+        ],
+        "meta": {
+          "source": "International Society for Peritoneal Dialysis, Peritonitis guideline recommendations: 2022 update, dry-versus-wet contamination and prophylaxis discussion, https://journals.sagepub.com/doi/10.1177/08968608221080586",
+          "tier": "strictest",
+          "skill_signature": "dialysis:pd-wet-contamination/secure-system-team-prophylaxis-follow-up",
+          "stem_disambiguators": [
+            "transfer set disconnects proximal to open clamp",
+            "open system exposed",
+            "asymptomatic at call",
+            "program pathway supplied"
+          ]
+        }
+      }
+    },
+    {
+      "id": "gpt_balance6b_2026_07_16_hl_standard_precautions_hygiene_17",
+      "kind": "FIX_QUARANTINE",
+      "ownerClass": "ANSWER_TELEGRAPHING_OR_AUTHORIAL_COMPENSATION",
+      "ownerDisposition": "BOUNDED_TEXT_REPAIR",
+      "auditReason": "The policy sentence gives the central finding and corrective limits, and the highlight record repeats them as keyed selections. Removing the exact rule recital would restore independent infection-control knowledge.",
+      "payloadSha256": "22f56ec6a532fc625c61c0711c61314befa43df2eaee9b4325ba1122514d1f37",
+      "question": {
+        "id": "gpt_balance6b_2026_07_16_hl_standard_precautions_hygiene_17",
+        "itemType": "highlight",
+        "category": "Safety and Infection Prevention and Control",
+        "topic": "Standard Precautions & Hygiene",
+        "difficulty": "easy",
+        "ngnSkill": "take_action",
+        "stem": {
+          "en": "A nurse wearing artificial fingernail extensions is assigned direct care in the ICU. The facility policy states that artificial extensions are not worn for direct contact with high-risk ICU or operating-room patients and that natural nail tips are kept no longer than 1/4 inch (0.64 cm). Highlight the finding and corrective actions supported by the policy and CDC guidance.",
+          "zh": "一名戴有人工指甲延长物的护士被安排在ICU直接照护患者。机构政策规定：与高风险ICU或手术室患者直接接触时不得佩戴人工指甲延长物，自然指甲尖端不得超过1/4英寸（0.64厘米）。请标出符合该政策和CDC指南的发现及纠正行动。"
+        },
+        "highlight": {
+          "segments": [
+            {
+              "id": "q17_s01",
+              "en": "Artificial fingernail extensions are present during an assignment involving direct contact with high-risk ICU patients.",
+              "zh": "在直接接触高风险ICU患者的工作安排中，护士佩戴了人工指甲延长物。",
+              "selectable": true
+            },
+            {
+              "id": "q17_s02",
+              "en": "Remove the artificial extensions before providing this direct care or arrange a compliant assignment until they are removed.",
+              "zh": "在提供此类直接护理前去除人工指甲延长物，或在去除前安排符合政策的工作。",
+              "selectable": true
+            },
+            {
+              "id": "q17_s03",
+              "en": "Follow the facility hand-hygiene and nail policy.",
+              "zh": "遵守机构的手卫生和指甲政策。",
+              "selectable": true
+            },
+            {
+              "id": "q17_s04",
+              "en": "Maintain natural nail tips at or below the stated 1/4-inch limit.",
+              "zh": "自然指甲尖端保持在规定的1/4英寸以内。",
+              "selectable": true
+            },
+            {
+              "id": "q17_s05",
+              "en": "Perform hand hygiene at the indicated moments before and after patient contact.",
+              "zh": "在患者接触前后等规定时机执行手卫生。",
+              "selectable": true
+            },
+            {
+              "id": "q17_s06",
+              "en": "Keep the extensions because wearing gloves replaces the need to follow the nail rule.",
+              "zh": "保留人工延长指甲，因为戴手套可以代替遵守指甲规定。",
+              "selectable": true
+            },
+            {
+              "id": "q17_s07",
+              "en": "Scrub the artificial extensions for extra time and continue the ICU assignment.",
+              "zh": "延长刷洗人工指甲的时间，然后继续ICU工作。",
+              "selectable": true
+            },
+            {
+              "id": "q17_s08",
+              "en": "State that all intact nail polish is universally prohibited in every clinical setting.",
+              "zh": "宣称所有完整无损的指甲油在任何临床环境中都一律禁止。",
+              "selectable": true
+            }
+          ],
+          "correct": [
+            "q17_s01",
+            "q17_s02",
+            "q17_s03",
+            "q17_s04",
+            "q17_s05"
+          ]
+        },
+        "rationale": {
+          "correct": {
+            "en": "Artificial fingernail extensions are not appropriate for direct contact with high-risk ICU or operating-room patients. The nurse should comply with the facility nail policy, keep natural nails within the stated length, and perform indicated hand hygiene. Gloves or longer scrubbing do not replace the restriction, and the cited rule does not establish a universal ban on intact nail polish.",
+            "zh": "与高风险ICU或手术室患者直接接触时，不应佩戴人工指甲延长物。护士应遵守机构指甲政策，把自然指甲保持在规定长度内，并在规定时机执行手卫生。手套或延长刷洗时间不能替代该限制；所引用规则也没有规定完整无损的指甲油在所有环境中一律禁止。"
+          },
+          "byChoice": [
+            {
+              "refId": "q17_s01",
+              "en": "This is the policy violation: artificial extensions are present during direct high-risk ICU care.",
+              "zh": "这就是政策违规点：在高风险ICU直接护理时佩戴人工指甲延长物。"
+            },
+            {
+              "refId": "q17_s02",
+              "en": "The nurse should not provide the restricted direct care while the extensions remain in place.",
+              "zh": "人工延长指甲未去除前，护士不应继续提供受限制的直接护理。"
+            },
+            {
+              "refId": "q17_s03",
+              "en": "Facility policy operationalizes the CDC-supported fingernail and hand-hygiene safety practices.",
+              "zh": "机构政策把CDC支持的指甲和手卫生安全做法落实到实际工作中。"
+            },
+            {
+              "refId": "q17_s04",
+              "en": "The stem supplies the accepted natural-nail length limit that should be followed.",
+              "zh": "题干给出了应遵守的自然指甲长度上限。"
+            },
+            {
+              "refId": "q17_s05",
+              "en": "Appropriate nail care supplements but does not replace hand hygiene at required moments.",
+              "zh": "适当的指甲管理是补充措施，不能替代规定时机的手卫生。"
+            },
+            {
+              "refId": "q17_s06",
+              "en": "Gloves do not cancel the fingernail-extension restriction or the need for hand hygiene.",
+              "zh": "手套不能取消人工指甲限制，也不能取消手卫生要求。"
+            },
+            {
+              "refId": "q17_s07",
+              "en": "Extra scrubbing does not make artificial extensions acceptable for direct high-risk ICU care.",
+              "zh": "延长刷洗时间并不能使人工指甲适用于高风险ICU直接护理。"
+            },
+            {
+              "refId": "q17_s08",
+              "en": "The cited guidance addresses artificial extensions and nail length; it does not establish a universal prohibition on intact polish.",
+              "zh": "所引指南针对人工延长指甲和指甲长度，并未规定完整指甲油在所有环境中一律禁止。"
+            }
+          ]
+        },
+        "testTakingStrategy": {
+          "en": "Use the exact population and rule in the stem: high-risk direct care triggers the artificial-extension restriction, while unrelated universal claims are distractors.",
+          "zh": "使用题干中的具体人群和规则：高风险直接护理触发人工指甲限制，与此无关的一概而论是干扰项。"
+        },
+        "glossary": [
+          {
+            "termEn": "artificial fingernail extensions",
+            "termZh": "人工指甲延长物",
+            "defZh": "粘贴或塑形在自然指甲上的人工延长材料。"
+          },
+          {
+            "termEn": "high-risk patient",
+            "termZh": "高风险患者",
+            "defZh": "感染后果严重或对病原体特别易感的患者。"
+          },
+          {
+            "termEn": "hand hygiene",
+            "termZh": "手卫生",
+            "defZh": "按规定使用肥皂和水或含酒精手消毒剂清洁双手。"
+          }
+        ],
+        "meta": {
+          "source": "CDC, Clinical Safety: Hand Hygiene for Healthcare Workers, fingernail safety section on artificial extensions for high-risk patients, https://www.cdc.gov/clean-hands/hcp/clinical-safety/index.html; CDC, Guideline for Hand Hygiene in Health-Care Settings, Recommendations 6.A–6.B on artificial fingernails and natural nail tips less than 1/4 inch, https://www.cdc.gov/infection-control/media/pdfs/Guideline-Hand-Hygiene-P.pdf",
+          "tier": "strictest",
+          "skill_signature": "hygiene:artificial-nails-high-risk-icu/remove-comply-length-hand-hygiene",
+          "stem_disambiguators": [
+            "artificial fingernail extensions",
+            "direct ICU care",
+            "natural nail limit supplied"
+          ]
+        }
+      }
+    }
+  ]
+}

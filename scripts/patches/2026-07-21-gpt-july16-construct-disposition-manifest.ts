@@ -1,0 +1,61 @@
+export const RETIRE_IDS = [
+  "gpt_balance2_2026_07_15_bt_client_advocacy_01",
+  "gpt_balance2_2026_07_15_or_confidentiality_hipaa_04",
+  "gpt_balance2_2026_07_15_fib_conflict_resolution_05",
+  "gpt_balance2_2026_07_15_bt_discharge_planning_handoff_07",
+  "gpt_balance2_2026_07_15_fib_discharge_planning_handoff_08",
+  "gpt_balance2_2026_07_15_or_psychotropic_medications_10",
+  "gpt_balance2_2026_07_15_bt_disaster_emergency_preparedness_13",
+  "gpt_balance2_2026_07_15_or_intrapartum_fetal_monitoring_16",
+  "gpt_balance2_2026_07_15_fib_intrapartum_fetal_monitoring_17",
+  "gpt_balance3_2026_07_16_or_client_advocacy_03",
+  "gpt_balance3_2026_07_16_fib_confidentiality_hipaa_04",
+  "gpt_balance3_2026_07_16_bt_conflict_resolution_06",
+  "gpt_balance3_2026_07_16_or_anticoagulant_therapy_10",
+  "gpt_balance3_2026_07_16_bt_ppe_sterile_technique_14",
+  "gpt_balance3_2026_07_16_fib_standard_precautions_hygiene_15",
+  "gpt_balance3_2026_07_16_bt_perioperative_care_16",
+  "gpt_mocsic_2026_07_15_fb_conflict_resolution_04",
+  "gpt_mocsic_2026_07_15_or_confidentiality_hipaa_08",
+  "gpt_mocsic_2026_07_15_fb_confidentiality_hipaa_09",
+  "gpt_mocsic_2026_07_15_fb_ppe_sterile_technique_10",
+  "gpt_mocsic_2026_07_15_bt_standard_precautions_hygiene_13",
+  "gpt_mocsic_2026_07_15_fb_disaster_emergency_preparedness_17",
+  "gpt_balance5_2026_07_16_bt_conflict_resolution_04",
+  "gpt_balance5_2026_07_16_dc_confidentiality_hipaa_05",
+  "gpt_balance5_2026_07_16_bt_discharge_handoff_07",
+  "gpt_balance5_2026_07_16_bt_standard_precautions_hygiene_14",
+  "gpt_balance6a_2026_07_16_bt_conflict_resolution_04",
+  "gpt_balance6a_2026_07_16_bt_discharge_planning_handoff_07",
+  "gpt_balance6a_2026_07_16_bt_caregiver_role_strain_family_coping_10",
+  "gpt_balance6a_2026_07_16_or_procedural_complications_dialysis_14",
+  "gpt_balance6a_2026_07_16_or_ppe_sterile_technique_17",
+  "gpt_balance6b_2026_07_16_or_conflict_resolution_04",
+  "gpt_balance6b_2026_07_16_bt_discharge_handoff_08",
+  "gpt_balance6b_2026_07_16_bt_discharge_handoff_09",
+  "gpt_balance6b_2026_07_16_dc_abg_acid_base_12",
+  "gpt_balance6b_2026_07_16_or_perioperative_care_13",
+  "gpt_balance6b_2026_07_16_bt_disaster_emergency_preparedness_16",
+] as const;
+
+export const QUARANTINE_FIX_IDS = [
+  "gpt_balance2_2026_07_15_dc_client_advocacy_02",
+  "gpt_balance3_2026_07_16_dc_discharge_planning_handoff_08",
+  "gpt_balance3_2026_07_16_dc_psychotropic_medications_11",
+  "gpt_balance3_2026_07_16_hl_disaster_emergency_preparedness_13",
+  "gpt_mocsic_2026_07_15_dc_disaster_emergency_preparedness_18",
+  "gpt_balance5_2026_07_16_mx_client_advocacy_02",
+  "gpt_balance5_2026_07_16_hl_disaster_emergency_preparedness_13",
+  "gpt_balance5_2026_07_16_mx_standard_precautions_hygiene_15",
+  "gpt_balance6a_2026_07_16_bt_perioperative_care_13",
+  "gpt_balance6b_2026_07_16_dc_confidentiality_hipaa_05",
+  "gpt_balance6b_2026_07_16_dc_confidentiality_hipaa_07",
+  "gpt_balance6b_2026_07_16_bt_procedural_complications_dialysis_14",
+  "gpt_balance6b_2026_07_16_hl_standard_precautions_hygiene_17",
+] as const;
+
+export const REMOVAL_IDS = [...RETIRE_IDS, ...QUARANTINE_FIX_IDS] as const;
+
+if (new Set(REMOVAL_IDS).size !== 50 || RETIRE_IDS.length !== 37 || QUARANTINE_FIX_IDS.length !== 13) {
+  throw new Error("July 16 construct-disposition manifest reconciliation failed");
+}

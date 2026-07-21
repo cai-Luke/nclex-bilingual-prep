@@ -1311,3 +1311,35 @@ distributional warning on unrelated `visual-canonical` select_all items remained
 1,942 session units / 2,528 scored leaves / 199 visual artifacts; `census:check` and the production
 build passed. The two raw drafts remain in `banks/banks-raw/` pending this ledger update, per
 `audit:integrity`'s draft-retention contract, and will be deleted next.
+
+### 2026-07-21 — GPT July 15–16 construct-disposition removal (`gpt-canonical.json`, 771→721)
+
+Status: `retired-and-repair-quarantined`. The owner accepted the complete disposition from the
+108-item outer-ring construct audit: 58 KEEP, 13 FIX, and 37 RETIRE. The 37 retired questions were
+removed from delivery and preserved at
+`Archive/gpt-july16-construct-dispositions-2026-07-21/retired-items.json`; the 13 FIX questions were
+removed from delivery and preserved for repair/adjudication at
+`Archive/gpt-july16-construct-dispositions-2026-07-21/quarantined-fix-items.json`. They may return only
+through a separate producer/checker repair and the normal promotion pipeline. The archive manifest
+records source-bank and payload hashes.
+
+Applied the declarative 50-ID manifest via
+`scripts/patches/2026-07-21-gpt-july16-construct-dispositions.ts`, reducing
+`banks/gpt-canonical.json` from 771 to 721 questions and updating `meta.count`. The source bank SHA-256
+was `61664a6bef854ec8d7a3a0113779a4773135724aabfdec65b970b7ac6464c5d2`; the resulting bank SHA-256 is
+`2a3bb79809e1407e8c915965e6212898c58dc721ceb54de701e5e2b374e0e389`.
+`audit/july16-coverage-construct-audit-2026-07-21/post-removal-verification.json` proves that all 37
+retired and 13 quarantined IDs are absent, all 721 retained question payload hashes are unchanged,
+and retained order is unchanged.
+
+The exact-removal coverage analysis found 14 affected category-topic pairs but zero pairs reduced to
+zero, and the post-removal 13-bank population retains operational capacity in every category for a
+50-question session. Therefore no immediate replacements were generated for the 32
+replacement-conditional retirements. This is a coverage decision, not a claim that the generated
+forward content-priority list is empty.
+
+Verification: all 13 bundled banks passed `validate-bank`; `npm run audit` passed its gates with the
+expected no-raw-draft integrity notice and pre-existing stage-reference advisory; grading, highlight,
+bowtie, schema-bank, topic-vocabulary, and topic-license regressions passed; TypeScript passed; census
+and coverage artifacts regenerated at 1,892 session units / 2,478 scored leaves / 199 visual
+artifacts; `census:check`, production build, and `git diff --check` passed.
