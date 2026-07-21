@@ -155,6 +155,30 @@ export const AUTHORIAL_CONSTRAINT_PROVENANCE: PromptProvenance[] = [
     intendedRule: "Chinese counterpart of the producer constraint against independently changing a prescription.",
     enforcement: "eligible-for-blocking",
   },
+  {
+    signatureId: "supplied-actions-ordering",
+    sourcePromptPath: null,
+    sourceClause: null,
+    sourceStatus: "unattributed",
+    intendedRule: "Observed producer-style reference to a supplied action set rather than an ordinary learner response demand.",
+    enforcement: "candidate-only",
+  },
+  {
+    signatureId: "parallel-process-ordering-adjudication-note",
+    sourcePromptPath: null,
+    sourceClause: null,
+    sourceStatus: "unattributed",
+    intendedRule: "Observed adjudication-note shape explaining how parallel processes were forced into an ordered response.",
+    enforcement: "candidate-only",
+  },
+  {
+    signatureId: "zh-parallel-process-ordering-adjudication-note",
+    sourcePromptPath: null,
+    sourceClause: null,
+    sourceStatus: "unattributed",
+    intendedRule: "Observed Chinese counterpart of the parallel-process ordering adjudication note.",
+    enforcement: "candidate-only",
+  },
 ];
 
 type Signature = {
@@ -185,6 +209,9 @@ const SIGNATURES: Signature[] = [
   { id: "learner-should-not-be-expected", family: "C_PROMPT_CHECKER_DIRECTIVE", language: "en", regex: /\bthe learner should not be expected to\b/giu, strength: "ADVISORY" },
   { id: "zh-do-not-self-prescribe-insulin-dose", family: "D_CHINESE_COUNTERPART", language: "zh", regex: /不要自行开立胰岛素剂量/gu, strength: "HIGH" },
   { id: "zh-without-self-changing-prescription-measures", family: "D_CHINESE_COUNTERPART", language: "zh", regex: /但不由患者或护士自行更改处方的措施/gu, strength: "HIGH" },
+  { id: "supplied-actions-ordering", family: "C_PROMPT_CHECKER_DIRECTIVE", language: "en", regex: /\bPlace the supplied actions in order\b/giu, strength: "ADVISORY" },
+  { id: "parallel-process-ordering-adjudication-note", family: "C_PROMPT_CHECKER_DIRECTIVE", language: "en", regex: /\bSource-patient testing and exposed-worker testing are separate processes; do not delay indicated PEP for a source result\b/giu, strength: "ADVISORY" },
+  { id: "zh-parallel-process-ordering-adjudication-note", family: "D_CHINESE_COUNTERPART", language: "zh", regex: /来源患者检测和暴露工作人员检测是两个独立过程；不得因等待来源结果而延迟已指征的 PEP/gu, strength: "ADVISORY" },
 ];
 
 const provenanceById = new Map(AUTHORIAL_CONSTRAINT_PROVENANCE.map((entry) => [entry.signatureId, entry]));

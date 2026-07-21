@@ -33,6 +33,14 @@ const pairedStrategy = scan(baseQuestion({ testTakingStrategy: { en: "Choose act
 assert.ok(pairedStrategy.some((row) => row.signatureId === "without-independently-provider-verb" && row.matchedVerb === "change"));
 assert.ok(pairedStrategy.some((row) => row.signatureId === "zh-without-self-changing-prescription-measures"));
 assert.ok(pairedStrategy.every((row) => row.blockingEligible));
+const pepResidual = scan(baseQuestion({ stem: {
+  en: "Place the supplied actions in order. Source-patient testing and exposed-worker testing are separate processes; do not delay indicated PEP for a source result.",
+  zh: "请按顺序排列所给措施。来源患者检测和暴露工作人员检测是两个独立过程；不得因等待来源结果而延迟已指征的 PEP。",
+} }));
+assert.ok(pepResidual.some((row) => row.signatureId === "supplied-actions-ordering" && row.notes.includes("UNATTRIBUTED")));
+assert.ok(pepResidual.some((row) => row.signatureId === "parallel-process-ordering-adjudication-note"));
+assert.ok(pepResidual.some((row) => row.signatureId === "zh-parallel-process-ordering-adjudication-note"));
+assert.equal(pepResidual.some((row) => row.blockingEligible), false, "mixed clinical/construction PEP wording remains advisory, not blocking");
 
 for (const verb of ["prescribe", "diagnose", "change", "adjust", "titrate", "order", "insert", "perform"]) {
   const rows = scan(baseQuestion({ stem: { en: `Do not independently ${verb} treatment.`, zh: "普通题干。" } }));

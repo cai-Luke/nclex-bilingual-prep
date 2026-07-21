@@ -70,6 +70,17 @@ surfaces. Independent non-GPT review then verified the exact four-field bank dif
 bowtie answerability and scope preservation, bilingual parity, focused negative tests, governance
 changes, and the full verification floor; the ledger status is now `REVIEWED` / `fixed-and-validated`.
 
+Post-closeout correction: architect review found a second semantic residual outside the finite
+signatures, so the one-item/zero-residual language is not an exhaustive-recall claim. The occupational
+HIV PEP ordered-response item had exposed an adjudication note and forced source-patient testing,
+exposed-worker baseline testing, and PEP initiation into a misleading serial structure. A declarative
+14-field EN/ZH rewrite now limits the ordered actions to exposed-worker care, combines urgent baseline
+collection and PEP initiation in one step, and keeps source testing only as a concurrent rationale
+fact that cannot delay PEP. Independent non-GPT review subsequently cleared the sequence, all 14
+changed EN/ZH fields, source-testing placement, narrow advisory configuration, governance language,
+and verification floor. The original bowtie review remains closed, and the PEP residual is now
+`fixed-and-validated`.
+
 ### Hemodialysis Access Highlight Coherence Regeneration (Jul 21)
 
 Regenerated `gpt_format10b_hemodialysis_access_prompt_followup` after a learner report and GPT

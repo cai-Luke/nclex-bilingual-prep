@@ -96,6 +96,39 @@ in choices and rationales.” Survey, adjudication, report, and tests live under
 declarative repair, and gate implementation → independent non-GPT checker exact-diff, semantic,
 bilingual, regression, and full-floor review.
 
+Scope correction after closure: this review remains valid for the exercise-hypoglycemia item and the
+finite blocker, but it did not prove exhaustive recall across semantically equivalent construction
+language. The post-survey PEP residual below invalidates any broader one-item/zero-residual claim.
+
+### 2026-07-21 — Occupational HIV PEP authorial-constraint post-survey residual
+
+Status: `fixed-and-validated`. Architect review found a genuine miss in
+`gpt_format10c_occupational_sharps_hiv_pep_sequence`. “Place the supplied actions in order” was mild
+producer phrasing, and the final separate-processes/do-not-delay sentence functioned as an
+adjudication note explaining how parallel source-client and exposed-worker processes had been forced
+into an ordered response. Option B bundled exposed-worker baseline testing with source-patient
+testing, while option C initiated PEP; deletion alone could therefore expose more than one defensible
+sequence. Disposition: `BLOCKED_ITEM_REWRITE`.
+
+Verified directly against the 2025 U.S. Public Health Service occupational HIV guideline:
+source-patient HIV status should be determined when possible; exposed-HCP baseline tests and indicated
+PEP are both urgent; PEP starts as soon as possible and is not delayed for source-status information.
+The exact 14-path bilingual canonical patch
+`scripts/patches/2026-07-21-pep-authorial-constraint-residual.ts` now scopes the ordered actions to the
+exposed nurse, makes B reporting/evaluation only, combines baseline collection plus PEP initiation in
+C, and moves source testing to the rationale as a concurrent process. The key remains A→B→C→D→E;
+IDs, item type, category, topic, difficulty, `ngnSkill`, source, scoring, option/ref IDs, arrays, and
+counts are unchanged. Dry-run, strict parity, post-write validation, and idempotency passed.
+
+Artifacts: `post-survey-residuals.jsonl`, `pep-residual-independent-review-handoff.md`, and
+`pep-independent-review-final.md` under the authorial-constraint audit directory. The configured
+blocker remains narrow; three exact observed PEP construction signatures are advisory only.
+Independent non-GPT checker Antigravity re-derived the A→B→C→D→E sequence, confirmed option C
+does not impose an internal baseline-before-PEP delay, verified source testing is outside the ordered
+actions, reviewed all 14 EN/ZH changed fields, confirmed the advisory/blocker and non-exhaustive-recall
+language, and personally reran `validate-bank` and the aggregate audit. Verdict:
+`CLINICALLY_CLEARED`; no content or process concerns remain open for this item.
+
 ### 2026-07-21 — Hemodialysis-access highlight coherence regeneration
 
 Status: `fixed-and-validated`. Targeted canonical regeneration of
