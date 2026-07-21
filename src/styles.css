@@ -1046,7 +1046,6 @@ h4 {
    column and centered. Tracings keep the base scroll behavior. */
 .rhythm-strip-svg.vis-device_screen,
 .rhythm-strip-svg.vis-medication_label,
-.rhythm-strip-svg.vis-mar,
 .rhythm-strip-svg.vis-io_record,
 .rhythm-strip-svg.vis-burn_map,
 .rhythm-strip-svg.vis-injection_site,
@@ -1070,7 +1069,20 @@ h4 {
   margin-inline: auto;
 }
 
-.rhythm-strip-svg.vis-mar svg,
+.rhythm-strip-svg.vis-mar {
+  overflow-x: auto;
+}
+
+.rhythm-strip-svg.vis-mar svg {
+  width: auto;
+  min-width: 600px;
+  max-width: none;
+  /* No max-width cap: MAR SVG keeps its emitted intrinsic width and scrolls
+     horizontally when the container is narrower. Future wider time grids
+     (>5 slots) remain wider rather than being compressed. */
+  margin-inline: auto;
+}
+
 .rhythm-strip-svg.vis-io_record svg,
 .rhythm-strip-svg.vis-vitals_trend svg,
 .rhythm-strip-svg.vis-lab_trend svg,
@@ -1335,7 +1347,18 @@ h4 {
   min-width: 30rem;
 }
 
-.visual-focus-body .rhythm-strip-svg.vis-mar svg,
+.visual-focus-body .rhythm-strip-svg.vis-mar {
+  overflow-x: auto;
+}
+
+.visual-focus-body .rhythm-strip-svg.vis-mar svg {
+  width: auto;
+  min-width: 600px;
+  max-width: none;
+  /* No max-width cap inside focus mode either: preserve readable MAR width
+     and allow future wider grids to scroll rather than compress. */
+}
+
 .visual-focus-body .rhythm-strip-svg.vis-io_record svg,
 .visual-focus-body .rhythm-strip-svg.vis-vitals_trend svg,
 .visual-focus-body .rhythm-strip-svg.vis-lab_trend svg,

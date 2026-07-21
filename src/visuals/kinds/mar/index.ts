@@ -1,8 +1,148 @@
 import { type VisualError, type VisualKindModule, registerVisual } from "../../registry";
 import { type MarSpec } from "./types";
-import { renderDocTable, type DocTableInput, type DocTableRow } from "../../primitives/table";
+import { renderDocTable, measureDocTable, type DocTableInput, type DocTableRow } from "../../primitives/table";
 import { fmt } from "../../primitives/graphPaper";
 import { escapeXml } from "../../primitives/escapeXml";
+
+// ---------- deterministic word-wrap helper ----------
+
+/**
+ * Estimate the display width of a single Unicode code point in units where
+ * an ordinary ASCII character is 1.0. The four conservative classes are:
+ * CJK/full-width (2.0), wide ASCII (1.7), ordinary (1.0), and narrow (0.55).
+ */
+const cpWidth = (cp: number): number => {
+  // CJK Unified Ideographs and common CJK blocks
+  if (
+    (cp >= 0x4e00 && cp <= 0x9fff) ||
+    (cp >= 0x3400 && cp <= 0x4dbf) ||
+    (cp >= 0xf900 && cp <= 0xfaff) ||
+    (cp >= 0x3000 && cp <= 0x303f) ||
+    (cp >= 0xff00 && cp <= 0xffef)
+  ) return 2.0;
+  if ("MW@%#&QO0".includes(String.fromCodePoint(cp))) return 1.7;
+  if ("- .,;:!'|ijlI()[]{}".includes(String.fromCodePoint(cp))) return 0.55;
+  return 1.0;
+};
+
+/**
+ * Estimate rendered width from class units. `unitEm` converts an ordinary
+ * class unit to em; the 1.7 wide-class weight therefore resolves to 1.054em,
+ * deliberately above representative sans-serif widths for W, @, and %.
+ */
+const estimateWidth = (text: string, fontSize: number, unitEm = 0.62): number => {
+  let w = 0;
+  for (const ch of text) {
+    const cp = ch.codePointAt(0) ?? 0;
+    w += cpWidth(cp);
+  }
+  return w * fontSize * unitEm;
+};
+
+/**
+ * Split `text` into display lines that each fit within `maxWidth` pixels.
+ * Break preferentially at whitespace, then at hyphens (preserving the
+ * hyphen), then hard-break single overlong tokens by code point. Never
+ * truncates or abbreviates any character.
+ */
+export const wrapText = (
+  text: string,
+  maxWidth: number,
+  fontSize: number,
+  unitEm = 0.62,
+): string[] => {
+  if (estimateWidth(text, fontSize, unitEm) <= maxWidth) return [text];
+
+  const lines: string[] = [];
+
+  // Tokenise: whitespace-separated words, each word possibly containing hyphens
+  const words = text.split(/(\s+)/);
+
+  let current = "";
+
+  const flush = () => {
+    if (current.length > 0) {
+      lines.push(current);
+      current = "";
+    }
+  };
+
+  const appendFragment = (fragment: string) => {
+    // Hard-break a fragment that is itself too long
+    if (estimateWidth(fragment, fontSize, unitEm) <= maxWidth) {
+      if (current.length === 0) {
+        current = fragment;
+      } else if (estimateWidth(current + fragment, fontSize, unitEm) <= maxWidth) {
+        current += fragment;
+      } else {
+        flush();
+        current = fragment;
+      }
+      return;
+    }
+    // Fragment alone exceeds maxWidth — hard-break by code point
+    for (const ch of fragment) {
+      if (current.length === 0) {
+        current = ch;
+      } else if (estimateWidth(current + ch, fontSize, unitEm) <= maxWidth) {
+        current += ch;
+      } else {
+        flush();
+        current = ch;
+      }
+    }
+  };
+
+  for (const token of words) {
+    if (/^\s+$/.test(token)) {
+      // Whitespace: only append to current line, never start a new line with it
+      if (current.length > 0) {
+        if (estimateWidth(current + token, fontSize, unitEm) <= maxWidth) {
+          current += token;
+        } else {
+          flush();
+          // discard leading whitespace on a new line
+        }
+      }
+      continue;
+    }
+
+    // Non-whitespace token: may contain hyphens which are break opportunities
+    const subTokens = token.split(/((?<=-)|(?=-))/);
+    // split on hyphen boundary while preserving the hyphen character
+    // (lookbehind keeps hyphen at end of preceding piece; lookahead keeps it at start)
+    for (const sub of subTokens) {
+      if (sub.length === 0) continue;
+      appendFragment(sub);
+    }
+  }
+
+  flush();
+  return lines.length > 0 ? lines : [text];
+};
+
+// MAR body geometry (§4.3)
+const MAR_BODY_FONT_SIZE = 12;
+const MAR_BODY_LINE_H = 14;
+const MAR_BODY_V_PAD = 7; // above and below the line stack
+const MAR_HEADER_FONT_SIZE = 11;
+const MAR_HEADER_LINE_H = 13;
+const MAR_HEADER_V_PAD = 6;
+
+const marRowHeight = (maxLineCount: number): number =>
+  Math.max(28, maxLineCount * MAR_BODY_LINE_H + MAR_BODY_V_PAD * 2);
+
+const marHeaderHeight = (maxLineCount: number): number =>
+  Math.max(32, maxLineCount * MAR_HEADER_LINE_H + MAR_HEADER_V_PAD * 2);
+
+/**
+ * Compute the MAR canvas width deterministically from the spec.
+ * 5.5 = sum of non-time column fractions (2 + 1.5 + 1 + 1).
+ * Each fraction unit is 56 SVG units wide.
+ * Current promoted corpus (≤5 slots) stays at 600.
+ */
+export const marCanvasWidth = (timeGridLength: number): number =>
+  Math.max(600, Math.round(56 * (5.5 + timeGridLength)));
 
 const MAR_ROUTES = new Set<string>([
   "PO", "IV", "IVPB", "IM", "SubQ", "SL", "PR", "topical", "inhaled", "ophthalmic", "NG",
@@ -210,29 +350,77 @@ export const selfCheckMar = (spec: MarSpec, question: unknown): VisualError[] =>
 // ---------- renderSvg ----------
 
 const STATUS_GLYPHS: Record<string, string> = {
-  given:     "✓",
-  held:      "H",
-  due:       "—",
-  missed:    "×",
-  late:      "L",
+  given: "✓",
+  held: "H",
+  due: "—",
+  missed: "×",
+  late: "L",
   not_given: "NG",
 };
 
 const statusNeedsFlag = (status: string): boolean =>
   status === "held" || status === "missed" || status === "late";
 
-export const renderMarSvg = (spec: MarSpec): string => {
+export interface MarTableModel {
+  input: DocTableInput;
+  width: number;
+  height: number;
+}
+
+export const buildMarTableModel = (spec: MarSpec): MarTableModel => {
   const timeGrid = Array.isArray(spec.timeGrid) ? spec.timeGrid : [];
   const medications = Array.isArray(spec.medications) ? spec.medications : [];
 
+  // Canvas width: fixed at 600 for ≤5 slots, grows for denser grids (§4.1)
+  const canvasWidth = marCanvasWidth(timeGrid.length);
+
+  // Column fractions: med 2fr, dose 1.5fr, route 1fr, freq 1fr, each slot 1fr
+  const totalFr = 5.5 + timeGrid.length;
+  const frUnit = canvasWidth / totalFr;
+
+  // Compute column pixel widths for wrapping estimates
+  const medColW = frUnit * 2;
+  const doseColW = frUnit * 1.5;
+  const freqColW = frUnit * 1;
+
+  // §4.2 safety factor baked into wrapText default; use inner width (minus 16px padding)
+  const CELL_INNER_PAD = 16; // 8 each side
+  const medWrapW = medColW - CELL_INNER_PAD;
+  const doseWrapW = doseColW - CELL_INNER_PAD;
+  const freqWrapW = freqColW - CELL_INNER_PAD;
+
+  // Time-label header wrapping: labels may be non-standard strings
+  const timeSlotW = frUnit * 1;
+  const timeWrapW = timeSlotW - CELL_INNER_PAD;
+  const timeHeaderLinesPerCol = timeGrid.map(t =>
+    wrapText(t, timeWrapW, MAR_HEADER_FONT_SIZE),
+  );
+  const maxTimeHeaderLines = timeHeaderLinesPerCol.reduce(
+    (m, ls) => Math.max(m, ls.length), 1,
+  );
+
+  // §4.3 header height
+  const resolvedHeaderHeight = marHeaderHeight(maxTimeHeaderLines);
+
+  // Build columns list
   const columns: DocTableInput["columns"] = [
-    { key: "med",  label: "Medication", widthFr: 2,   align: "left" },
-    { key: "dose", label: "Dose",       widthFr: 1.5, align: "left" },
-    { key: "rte",  label: "Route",      widthFr: 1,   align: "center" },
-    { key: "freq", label: "Freq",       widthFr: 1,   align: "center" },
+    { key: "med", label: "Medication", widthFr: 2, align: "left" },
+    { key: "dose", label: "Dose", widthFr: 1.5, align: "left" },
+    { key: "rte", label: "Route", widthFr: 1, align: "center" },
+    { key: "freq", label: "Freq", widthFr: 1, align: "center" },
     ...timeGrid.map(t => ({ key: `t_${t}`, label: t, widthFr: 1, align: "center" as const })),
   ];
 
+  // Column header lines: static labels for non-time columns, wrapped for time slots
+  const columnHeaderLines: (string[] | undefined)[] = [
+    undefined, // Medication
+    undefined, // Dose
+    undefined, // Route
+    undefined, // Freq
+    ...timeHeaderLinesPerCol,
+  ];
+
+  // Build rows with pre-computed display lines
   const rows: DocTableRow[] = medications.map(med => {
     const adminByTime: Record<string, string> = {};
     if (Array.isArray(med.administrations)) {
@@ -243,11 +431,22 @@ export const renderMarSvg = (spec: MarSpec): string => {
       }
     }
 
+    // Pre-compute wrapped lines for med name, dose, frequency
+    const medLines = wrapText(med.name, medWrapW, MAR_BODY_FONT_SIZE);
+    const doseLines = wrapText(med.dose, doseWrapW, MAR_BODY_FONT_SIZE);
+    const freqLines = wrapText(med.frequency, freqWrapW, MAR_BODY_FONT_SIZE);
+
+    // Row height is driven by the tallest wrapping column (route and status are single-line)
+    const maxLines = Math.max(medLines.length, doseLines.length, freqLines.length, 1);
+    const resolvedRowHeight = marRowHeight(maxLines);
+
     const cells: DocTableRow["cells"] = {
-      med:  med.isHighAlert ? { text: med.name, emphasis: "bold" } : med.name,
-      dose: med.dose,
-      rte:  med.route,
-      freq: med.frequency,
+      med: med.isHighAlert
+        ? { text: med.name, emphasis: "bold", displayLines: medLines }
+        : { text: med.name, displayLines: medLines },
+      dose: { text: med.dose, displayLines: doseLines },
+      rte: med.route,   // single-line center
+      freq: { text: med.frequency, displayLines: freqLines },
     };
 
     for (const t of timeGrid) {
@@ -256,25 +455,39 @@ export const renderMarSvg = (spec: MarSpec): string => {
         cells[`t_${t}`] = {
           text: STATUS_GLYPHS[status] ?? status,
           emphasis: statusNeedsFlag(status) ? "flag" : "normal",
+          // status glyphs are single-line, centered; no displayLines needed
         };
       }
-      // no entry for this slot → blank cell
     }
 
-    return { cells };
+    return { cells, rowHeight: resolvedRowHeight };
   });
 
-  const rowHeight = 28;
-  const headerHeight = 32;
-  const totalHeight = headerHeight + medications.length * rowHeight;
+  const tableInput: DocTableInput = {
+    columns,
+    rows,
+    width: canvasWidth,
+    headerHeight: resolvedHeaderHeight,
+    containCells: true,
+    columnHeaderLines,
+  };
 
-  const tableG = renderDocTable({ columns, rows, width: 600, rowHeight, headerHeight });
+  return {
+    input: tableInput,
+    width: canvasWidth,
+    height: measureDocTable(tableInput),
+  };
+};
+
+export const renderMarSvg = (spec: MarSpec): string => {
+  const model = buildMarTableModel(spec);
+  const tableG = renderDocTable(model.input);
 
   const ariaLabel = spec.caption?.en
     ? escapeXml(spec.caption.en)
     : "Medication Administration Record";
 
-  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 ${fmt(totalHeight)}" role="img" aria-label="${ariaLabel}" data-kind="mar">\n${tableG}\n</svg>`;
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${fmt(model.width)}" height="${fmt(model.height)}" viewBox="0 0 ${fmt(model.width)} ${fmt(model.height)}" role="img" aria-label="${ariaLabel}" data-kind="mar">\n${tableG}\n</svg>`;
 };
 
 // ---------- fixtures ----------

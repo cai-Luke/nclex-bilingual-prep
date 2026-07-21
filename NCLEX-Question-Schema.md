@@ -469,6 +469,8 @@ Validation rules:
 - `selfCheck` verifies: `visual_justification` present and non-empty; at least one `keyed_cells` entry or a non-null `keyed_relationship`; every `keyed_cells` entry resolves to an actual `(medication, time)` administration present in the spec.
 - **STRICTEST tier.** `selfCheck` enforces structure and necessity only. Stage-4 human review must verify that drug/dose/route/frequency are clinically valid and that nothing other than the keyed element is accidentally unsafe.
 
+**Renderer behavior (as of 2026-07-21):** The authoring shape is unchanged. Medication name, dose, and frequency wrap deterministically using a code-point width estimate and whitespace/hyphen break opportunities; rows expand to accommodate the tallest wrapped column (route and status cells remain single-line). Every cell is paint-contained inside a nested SVG viewport (`overflow="hidden"`), so no text can cross a column divider or row boundary. The canvas is 600 SVG units wide for up to five time slots; grids with six or more slots grow the canvas rather than compressing columns. On viewports narrower than the canvas, the visual scrolls horizontally at a readable scale instead of shrinking. No author-supplied layout or line-break fields exist.
+
 ### Kind: `io_record`
 
 Renders a nursing intake and output flowsheet. The visual is load-bearing only when the learner must compute an intake total, output total, or net balance from the individual entries. Totals are never stored in the visual spec; the renderer and `selfCheck` derive them independently.
