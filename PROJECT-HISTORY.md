@@ -52,6 +52,30 @@ The committed NGN item-type set is complete. Rationale/dyad scoring and an expli
 
 > Milestones dated **2026-06-23 and earlier** are archived in [`Archive/PROJECT-HISTORY-ARCHIVE.md`](Archive/PROJECT-HISTORY-ARCHIVE.md). Only the current arc (2026-06-24 onward) is kept here.
 
+### MAR Table Readability Repair (Jul 20–21)
+
+Forcing incident: `gpt_fresh_2026_06_22_vis_06` — learner report of final-row text overflowing into neighboring cells.
+
+**Renderer/primitive boundary:** The shared `table.ts` primitive received opt-in extensions: `containCells` flag, `columnHeaderLines` on DocTableInput, `rowHeight` on DocTableRow, and `displayLines` on DocTableCell. When opt-in is active, every cell renders inside a nested SVG viewport with `overflow="hidden"`; no cell can cross a column divider or row boundary. No global `<clipPath>` IDs are emitted. The legacy call path (all existing non-MAR callers) remains byte-identical.
+
+**MAR renderer policy (`mar/index.ts`):** Added deterministic `wrapText` helper (whitespace breaks, hyphen breaks, Han full-em width, hard-break fallback). Uses a four-class character width estimator to conservatively fit wide glyphs (`M`, `W`, `@`, etc.). Canvas width: `max(600, round(56 × (5.5 + timeGrid.length)))` — 600 units through five slots, wider for denser grids. Body row height: `max(28, N × 14 + 14)`. Header height: `max(32, N × 13 + 12)`. Single `DocTableInput` passed to both `measureDocTable` and `renderDocTable`; root SVG emits intrinsic `width` and `height` from measured values. No schema, selfCheck, validation, or bank file changes.
+
+**CSS:** Removed `.vis-mar` from the shared `overflow-x: visible` group and the shared `max-width: 37.5rem` / `min-width: 37.5rem` ordinary and focus-mode groups. Replaced with MAR-specific `overflow-x: auto` on the wrapper, and `width: auto`, `min-width: 600px`, `max-width: none` on the SVG to strictly preserve emitted intrinsic sizing, in both ordinary and focus mode.
+
+**`scripts/tests/mar.ts` added** — wired into `test-visuals` after `injection-site.ts` and before `visuals-conformance.ts`. Covers §6.1 assertions 1–20 and §6.2 shared primitive non-regression, including tight viewport containment, specific height comparisons against measureDocTable, and wide-glyph lines checked against an independent conservative width bound.
+
+**Verification commands and results:**
+- `npx tsc -b --pretty false` — clean
+- `npx tsx scripts/tests/mar.ts` — all dedicated MAR and shared-table assertions passed
+- `npm run test-visuals` — all stages passed (199 promoted parity snapshots)
+- `npm run validate-bank -- banks/*.json` — all banks OK
+- `npm run build` — clean build
+- `git diff --check` — clean
+
+**Browser proof:** On desktop, ordinary and focus MARs retained a 600 CSS-pixel canvas with no nested scrollbar for current records, no cell overflow, and no page-level horizontal overflow. At a 390×844 viewport, ordinary and focus MARs retained the 600-pixel canvas inside 323/354-pixel scrolling containers, with the final row reachable and no page-level overflow. The forcing record, long combination-drug/PRN rows, long hyphenated antibiotic, and compact control all remained contained. Focus close restored body scrolling and focus to the enlarge control; no browser console warning/error was introduced. The synthetic six-slot model resolved to 644 units with a 56-unit minimum fraction.
+
+**Parity rebaseline:** `--scope mar`; authoritative receipt: `audit/visual-parity-rebaseline-2026-07-21T04-26-37-563Z/receipt.json`. It records 11 changed, 0 added, 0 removed, and 188 unchanged; all 11 `mar` identities remain at `top-level-question`, with zero hash movement for every non-`mar` kind.
+
 ### Rationale-Visual-Floor Survey Retired (Jul 20)
 
 Retired the dated 2026-07-16 `rationale-visual-floor-survey` census manifest and generator as completed at-migration snapshots. The live pacer-to-schema floor and six-location traversal invariants are preserved under `scripts/tests/rationale-visual-schema-floor.ts`. The `test-visuals` script no longer byte-compares live content to a frozen census.
