@@ -52,6 +52,51 @@ The committed NGN item-type set is complete. Rationale/dyad scoring and an expli
 
 > Milestones dated **2026-06-23 and earlier** are archived in [`Archive/PROJECT-HISTORY-ARCHIVE.md`](Archive/PROJECT-HISTORY-ARCHIVE.md). Only the current arc (2026-06-24 onward) is kept here.
 
+### Hemodialysis Access Highlight Coherence Regeneration (Jul 21)
+
+Regenerated `gpt_format10b_hemodialysis_access_prompt_followup` after a learner report and GPT
+architect adjudication identified an internally incoherent checklist-collage scenario. The prior
+passage simultaneously described the fistula's usual continuous thrill and a new weak/discontinuous
+thrill, plus both a warm and a cool access-side hand, while combining stenosis, purulent infection,
+threatened aneurysm skin, severe distal ischemia, and prolonged bleeding into one client.
+
+The replacement remains a medium `highlight` / `recognize_cues` item in Reduction of Risk Potential,
+but now tests only AV fistula stenosis/dysfunction. Four selectable targets are independently stated:
+new abnormal thrill/bruit, failure to reach prescribed target blood flow, new cannulation difficulty,
+and bleeding longer than usual after three consecutive sessions. A warm, well-perfused hand and a
+small resolving cannulation bruise are the two non-targets. All learner-facing English/Chinese text,
+answer references, rationales, strategy, glossary, and source metadata were regenerated together;
+infection, aneurysm, and ischemia content was removed.
+
+The replacement was checked against the National Kidney Foundation KDOQI 2019 clinically significant
+AV-access-lesion implementation tool, pp. 2–3. The declarative canonical patch applied with zero
+bilingual-parity warnings and preserved bank count and identity fields. All 13 banks validated; the
+highlight regression and aggregate audit passed (2,673 globally unique IDs; only the pre-existing
+stage-reference advisory and expected no-raw-draft integrity notice); coverage remained 1,942 session
+units / 2,528 scored leaves / 199 visual artifacts; census regeneration and `census:check`, TypeScript,
+production build, build-identity validation, and `git diff --check` passed.
+
+### Learner-Facing Temperature Prose Survey Accepted (Jul 21)
+
+Completed and architect-accepted the deterministic read-only survey under
+[`TEMPERATURE-PROSE-UNIT-SURVEY-CODEX-SPEC-2026-07-21.md`](TEMPERATURE-PROSE-UNIT-SURVEY-CODEX-SPEC-2026-07-21.md).
+After the separately reviewed hemodialysis-access regeneration removed one bilingual temperature
+display, the stable 13-bank snapshot contains 488 learner-facing temperature-prose occurrences across
+137 owning items: 468 mechanically safe migration rows, five already-canonical rows, and 15 review
+residuals. The residual rows reduce to five semantic decisions: nine dual-display mismatches across
+four contexts and six temperature-delta expressions in one bilingual rationale. Sixteen additional
+`COUNTERPART_MISSING_TEMPERATURE` rows remain classified as pre-existing parity debt, not authority to
+add clinical facts during unit normalization.
+
+The survey implementation, focused traversal/arithmetic regression, full manifest, safe subset,
+residual file, and report live under `scripts/audit/`, `scripts/tests/`, and
+[`audit/temperature-prose-unit-survey-2026-07-21/`](audit/temperature-prose-unit-survey-2026-07-21/).
+Focused tests, all-bank validation, TypeScript, census freshness, diff checks, and a byte-identical
+repeat run passed. The survey itself changed no canonical bank, schema, renderer, package script,
+ledger, or census. The next authorized scope is a five-decision residual-adjudication manifest
+followed by a separately commissioned closed declarative migration; this milestone does not authorize
+that bank mutation.
+
 ### MAR Table Readability Repair (Jul 20–21)
 
 Forcing incident: `gpt_fresh_2026_06_22_vis_06` — learner report of final-row text overflowing into neighboring cells.

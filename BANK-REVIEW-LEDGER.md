@@ -68,6 +68,38 @@ Canonical source banks (see [BANK-CENSUS.md](BANK-CENSUS.md) for current counts;
 - `banks/visual-canonical.json` (rhythm_strip visual items; formerly `banks/rhythm-canonical`)
 - `banks/vitals-canonical.json` (vitals_trend visual items)
 
+### 2026-07-21 — Hemodialysis-access highlight coherence regeneration
+
+Status: `fixed-and-validated`. Targeted canonical regeneration of
+`gpt_format10b_hemodialysis_access_prompt_followup` after a learner reported the item as awkward and
+GPT architect review confirmed a `needs_fix` internal-coherence defect. The original item combined
+simultaneously normal and abnormal thrill/bruit findings, a warm and a cool access-side hand, and four
+different complication pathways (stenosis/dysfunction, infection, aneurysm skin risk, and hand
+ischemia) in one highlight passage. It also collapsed different response horizons into the single
+label “prompt follow-up.”
+
+The replacement preserves the `highlight` / `recognize_cues` construct but limits the scenario to AV
+fistula stenosis or dysfunction. It now keys four coherent findings: a new weak/discontinuous thrill
+with high-pitched systolic bruit, inability to achieve the prescribed target blood flow, new
+cannulation difficulty, and bleeding longer than usual after three consecutive sessions. The warm,
+well-perfused hand and stable fading cannulation bruise are the two non-targets. Stem, bilingual
+passage, answer references, rationales, strategy, glossary, and source metadata were regenerated as a
+unit; the item ID, type, category, topic, difficulty, and NGN skill are unchanged. Infection,
+aneurysm, and ischemia content was removed rather than repurposed inside this item.
+
+Clinical verification used the National Kidney Foundation KDOQI 2019 implementation tool,
+“Detection and Management of Clinically Significant AV Access Lesion (Stenosis/Thrombosis),” pp.
+2–3. The tool lists the four keyed finding classes and the requirement to consider other causes before
+confirmatory evaluation. Applied declaratively through
+`scripts/patches/2026-07-21-gpt-hemodialysis-access-coherence.ts` in canonical mode. The strict-parity
+gate reported no warning. All 13 banks validated; the highlight regression and aggregate audit passed
+(2,673 globally unique IDs; only the pre-existing stage-reference advisory and expected no-raw-draft
+integrity notice); coverage remained 1,942 session units / 2,528 scored leaves / 199 visual artifacts;
+census regeneration and `census:check`, TypeScript, production build, build-identity validation, and
+`git diff --check` passed. No raw source batch was promoted or deleted in this correction. Chain:
+original GPT batch producer → learner/owner defect report + GPT architect adjudication → Codex
+canonical implementation and source check.
+
 ### 2026-07-21 — Learner-facing producer-vocabulary naturalization
 
 Status: `REVIEWED`. Independent content review (Claude, non-GPT checker seat) found the five stems,
