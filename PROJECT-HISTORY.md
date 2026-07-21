@@ -102,8 +102,25 @@ once across five decisions and 11 target fields. Each target pins the complete f
 path, occurrence identity/index, exact replacement or complete rewrite, and resulting field hashes.
 The neutropenic-fever threshold preserves the ASCO/IDSA published `101 °F (38.3 °C)` pair; the
 transfusion delta rewrite uses multiplicative conversion and the AABB `≥1.8 °F (1 °C)` threshold.
-No canonical bank was changed. The next scope is the separately commissioned closed declarative
-migration; this milestone does not authorize that bank mutation.
+The separately commissioned closed migration then consumed only the 468-row safe subset and the
+five-decision adjudication. It changed 483 authorized occurrences across 439 exact string fields in
+`claude-canonical.json`, `gemini-canonical.json`, `gpt-canonical.json`,
+`hard-cases-canonical.json`, and `vitals-canonical.json`. Complete field preimages were verified before
+application, multiple operations were applied right-to-left, and an idempotent rerun required no
+write. Typed/visual/structured temperature payloads remained outside scope, and none of the 16 known
+counterpart-missing rows gained or lost a clinical fact.
+
+The migration receipt is
+[`migration-receipt.json`](audit/temperature-prose-unit-survey-2026-07-21/migration-receipt.json).
+A separate parsed-object checker proved exactly 439 authorized string diffs and 483 occurrence IDs,
+with no structural or extra-value change. The post-scan contains 486 paired expressions: 480 raw
+`ALREADY_CANONICAL`, two scanner `SAFE` labels whose proposals are exact no-ops, and four classifier
+rows in the already-adjudicated bilingual delta rationale (the original six single-unit delta tokens
+collapsed into four paired expressions). Thus zero actionable safe rows and zero unadjudicated
+residuals remain. All 13 banks validated; measurement tests, the aggregate audit, coverage, census,
+TypeScript, production build, build identity, and diff checks passed. Coverage remains 1,942 session
+units / 2,528 scored leaves / 199 visual artifacts; the audit retained only the pre-existing no-raw-
+draft notice and 451 stage-reference advisories.
 
 ### MAR Table Readability Repair (Jul 20–21)
 

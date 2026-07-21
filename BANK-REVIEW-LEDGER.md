@@ -148,6 +148,37 @@ deleted in this canonical correction. English/Chinese parity was checked mechani
 implementation seat for this initial pass; the independent review above found and closed a residual
 parity gap. See the `REVIEWED` status note above for the follow-up patches and final adjudication.
 
+### 2026-07-21 — Learner-facing temperature prose unit normalization
+
+Status: `fixed-and-validated`. Applied the canonical patch reason “normalize existing learner-facing
+temperature prose to Fahrenheit first with Celsius parenthetical, without changing typed renderer
+contracts or adding counterpart clinical facts” to `banks/claude-canonical.json`,
+`banks/gemini-canonical.json`, `banks/gpt-canonical.json`, `banks/hard-cases-canonical.json`, and
+`banks/vitals-canonical.json`. The closed applicator consumed only the architect-accepted 468-row safe
+subset and the five-decision residual adjudication (15 residual occurrences), changing 483 authorized
+occurrences across 439 exact learner-facing string fields. No ID, answer key, scoring field, question
+order, clinical threshold other than the source-adjudicated display pairing/comparator, structured
+measurement, typed visual payload, metadata, or question count changed.
+
+Residual decisions preserved the ASCO/IDSA neutropenic-fever pairing as `101 °F (38.3 °C)`, corrected
+the erroneous TPN counterpart to `102.6 °F (39.2 °C)`, normalized ordinary 38.3 °C measured vitals to
+`100.9 °F (38.3 °C)`, and rewrote one bilingual transfusion rationale with multiplicative delta
+conversion and the AABB `≥1.8 °F (1 °C)` threshold. The 16
+`COUNTERPART_MISSING_TEMPERATURE` rows remain explicit pre-existing parity debt; the migration added
+or removed no counterpart fact.
+
+Evidence: accepted pre-migration survey, safe subset, residual adjudication, and migration receipt
+under `audit/temperature-prose-unit-survey-2026-07-21/`; applicator
+`scripts/patches/2026-07-21-temperature-prose-unit-migration.ts`; independent parsed-object checker
+`scripts/tests/temperature-prose-unit-migration.ts`. The checker proved exactly 439 authorized
+string-only diffs and 483 uniquely consumed occurrence IDs. An idempotent rerun required zero writes;
+the post-scan has zero actionable safe rows and zero unadjudicated residuals. All 13 banks validated;
+measurement regressions and aggregate audit passed (2,673 globally unique IDs; only the pre-existing
+no-raw-draft integrity notice and 451 stage-reference advisories); coverage remained 1,942 session
+units / 2,528 scored leaves / 199 visual artifacts; census regeneration/check, TypeScript, production
+build, build-identity validation, and `git diff --check` passed. No raw/staged source was promoted or
+deleted in this canonical normalization.
+
 ### 2026-07-20 — WBC / platelet learner-facing prose unit normalization
 
 Status: `fixed-and-validated`. Applied the canonical patch reason “normalize learner-facing WBC and
