@@ -351,7 +351,7 @@ The application can present this unchanged authored payload through either a use
 
 ### Kind: `lab_trend`
 
-Renders serial laboratory values for 1–2 analytes across ≥3 timepoints, reusing the `lineChart` primitive with per-analyte reference bands. Load-bearing only when the answer turns on the *trajectory over time*, not a single snapshot value. Items that can be answered from a single final value are invalid.
+Renders serial laboratory values for 1–2 analytes across ≥3 timepoints. One-series records retain the fitted numeric chart and eligible reference band. Two-series learner-facing records use a shared percent-change-from-baseline graph plus a visible semantic exact-value table; a valid zero-baseline record falls back to the legacy dual-axis graph while retaining the table. This routing is presentation-only and does not change the authored payload, validator, or `selfCheck` contract. Load-bearing use still requires the answer to turn on the *trajectory over time*, not a single snapshot value. Items that can be answered from a single final value are invalid.
 
 Unlike the global visual default, `lab_trend` is also allowed on `ordered_response`, `dropdown_cloze`, and `fill_in_blank`.
 
@@ -401,6 +401,8 @@ Validation rules:
 - `caption.en`, if caption is present, is required. `caption.zh` is optional but must be non-empty if present.
 
 > **Reference-range status (verified 2026-07-19).** `ANALYTE_DEFS` carries sourced adult teaching bands and warning-only sanity envelopes; full provenance, assay caveats, and interval-selection rules are recorded in [`audit/lab-reference-range-verification-2026-07-19.md`](audit/lab-reference-range-verification-2026-07-19.md). Pediatric bands are intentionally absent because the current two pediatric population buckets cannot represent the cited age-, sex-, and assay-specific intervals safely.
+
+The two-series exact-value table and timepoint readout are values-only. They display authored values with the authored unit when present, otherwise the analyte's canonical unit; they do not expose H/L badges, normal indicators, reference ranges, or range columns. Learner-visible range interpretation remains outside this presentation contract under active Decision 30.
 
 ### Kind: `mar`
 

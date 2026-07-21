@@ -1,7 +1,7 @@
 # Lab Trend Epic-Style Dual-Series Migration — Codex Specification
 
 **Date:** 2026-07-21
-**Status:** Ready for implementation
+**Status:** Implemented and verified
 **Owner:** Codex implementation seat
 **Change class:** Renderer/UI; no schema, bank-content, grading, or clinical-source migration
 
@@ -83,16 +83,23 @@ where `baselineValue` is the first value in that series.
 
 This makes the graph’s vertical geometry interpretable as relative change while the exact table retains the original measurements.
 
-### 4.2 Baseline guard
+### 4.2 Baseline guard and fallback contract
 
-The live corpus is expected to use nonzero baselines. The model builder must nevertheless fail closed for a zero baseline rather than divide by zero or silently invent a denominator.
+The live nine-record corpus uses nonzero baselines. Imported or future schema-valid records may not: several allowed analytes can legitimately begin at zero.
 
-Acceptable implementation choices:
+Keep exact-value construction independent from normalized graph construction:
 
-1. return a model/result error and fall back to the legacy deterministic renderer for that visual; or
-2. use a documented alternate normalization only after proving and testing it.
+- `buildLabTrendTableModel(spec)` must succeed for every structurally valid `lab_trend` payload.
+- The two-series presentation builder must return a discriminated result, for example `{ mode: "normalized", ... }` or `{ mode: "legacy_fallback", reason: "zero_baseline", ... }`.
 
-The preferred behavior is deterministic fallback to the legacy renderer. Do not reject or skip an otherwise schema-valid imported item because this presentation-only normalization cannot be constructed.
+When either baseline is zero:
+
+- do not divide by zero, substitute an epsilon, reject the item, or invent an alternate scale;
+- render the existing legacy deterministic graph;
+- still render the exact-value table beneath it;
+- expose the fallback mode and reason in deterministic model output and tests.
+
+A documented zero-baseline fallback is conforming behavior, not an acceptance failure.
 
 ### 4.3 Scale construction
 
@@ -147,27 +154,27 @@ type LabTrendTableModel = {
     label: string;
     unit: string;
     values: string[];
-    flags: Array<"H" | "L" | null>;
   }>;
 };
 ```
 
-The exact type may vary, but it must preserve analyte identity, display unit, formatted values, and reference-band-derived flags where an active verified band exists.
+The exact type may vary, but it must preserve analyte identity, display unit, and formatted authored values.
+
+Do not add learner-visible H/L flags, badges, reference-range columns, or alternate-unit range interpretation in this migration. Active Decision 30 continues to reserve that feature for a separate authorization and implementation pass.
 
 ### 5.2 Required behavior
 
 - First column: analyte name plus unit.
 - Remaining columns: exact source timepoints in the authored time unit.
 - Cells: exact authored values formatted deterministically; do not calculate values from plotted coordinates.
-- H/L status: display only when the active population has a verified reference band and that series has not disabled it with `showReferenceBand: false`.
-- A value inside the band has no forced `N` badge.
-- Pediatric trajectory-only records remain supported without flags or bands.
+- Do not display H/L status, normal badges, reference ranges, or range columns.
+- Pediatric trajectory-only records remain supported without any invented interpretation.
 - The table must be visible in ordinary view, not print-only or screen-reader-only.
 - At narrow widths the table scrolls inside its own bounded frame; the page must not gain horizontal overflow.
 - Keep the first analyte column visible while horizontally scrolling when practical, matching the current vitals flowsheet convention.
 - Use real semantic `<table>`, `<thead>`, `<tbody>`, header scopes, and text content. Do not duplicate the table inside SVG.
 
-The visible table is part of the answer stimulus, not an answer reveal. It must contain only values already present in the authored visual payload and mechanically derived H/L flags permitted by the existing reference-band contract.
+The visible table is part of the answer stimulus, not an answer reveal. It must contain only values and units already present in, or deterministically selected for, the authored visual payload.
 
 ## 6. Interaction contract
 
@@ -259,17 +266,16 @@ At minimum, add focused deterministic coverage for:
 5. Zero baseline takes the documented fallback and never emits `Infinity`, `NaN`, or invalid SVG.
 6. Table columns exactly match source timepoints and authored time units.
 7. Table values exactly match source arrays and authored/canonical units.
-8. Adult H/L flags reproduce the registry bands and honor `showReferenceBand: false`.
-9. Pediatric/no-band table emits no invented flags.
-10. Timepoint readout is sourced from the table model.
-11. Legend-to-series and legend-to-row identity mappings are complete and stable.
-12. Two identical normalized trajectories remain truthful and independently addressable.
-13. One-series `renderLabTrendSvg` remains byte-identical to its pre-change output for representative and promoted one-series records.
-14. `validateLabTrend` and `selfCheckLabTrend` before/after results are identical for every promoted `lab_trend` record.
-15. No bank file is modified.
-16. Generic visual conformance and registered rendering still pass.
+8. The table and readout contain no learner-visible H/L flags, badges, reference-range columns, or invented range interpretation.
+9. Timepoint readout is sourced from the table model.
+10. Legend-to-series and legend-to-row identity mappings are complete and stable.
+11. Two identical normalized trajectories remain truthful and independently addressable.
+12. One-series `renderLabTrendSvg` remains byte-identical to its pre-change output for representative and promoted one-series records.
+13. `validateLabTrend` and `selfCheckLabTrend` before/after results are identical for every promoted `lab_trend` record.
+14. No bank file is modified.
+15. Generic visual conformance and registered rendering still pass.
 
-The fixed presentation snapshot should include all nine promoted two-series identities and byte-sorted model/SVG hashes, or another equally deterministic complete-corpus proof. Do not snapshot only the two CBC records.
+The fixed presentation snapshot must include all nine promoted two-series identities. Sort identities deterministically by question ID and visual object path, and record separate SHA-256 hashes for stable-JSON presentation-model output and rendered SVG output. Do not snapshot only the two CBC records.
 
 ## 10. Browser proof matrix
 
@@ -357,10 +363,10 @@ Stop and return for architect adjudication before writing around any of these:
 
 The task passes only when all of the following are true:
 
-- every learner-facing two-series `lab_trend` uses one normalized Epic-style graph plus one visible exact-value table;
+- every current learner-facing two-series `lab_trend` uses one normalized Epic-style graph plus one visible exact-value table; a future or imported valid zero-baseline record may use the documented legacy-graph fallback but must still show the table;
 - one-series lab trends remain unchanged;
 - the normalized graph has an explicit, tested percent-from-baseline meaning;
-- exact values, units, and eligible H/L flags are correct and table-derived;
+- exact values and units are correct and table-derived, and no learner-visible H/L or reference-range feature is introduced;
 - timepoint and legend keyboard/pointer interactions work;
 - the complete nine-record two-series corpus has deterministic proof coverage;
 - desktop, mobile, focus, review, and print surfaces remain usable and overflow-safe;

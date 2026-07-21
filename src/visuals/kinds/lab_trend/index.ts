@@ -1,7 +1,7 @@
 import { type VisualError, type VisualKindModule } from "../../registry";
 import { type ChartSeries, type LineChartInput, renderLineChart } from "../../primitives/lineChart";
 import { type LabAnalyteKey, type LabTrendSpec } from "./types";
-import { fmt } from "../../primitives/graphPaper";
+import { fmt, fmtNum } from "../../primitives/graphPaper";
 import { escapeXml } from "../../primitives/escapeXml";
 import { ANALYTE_DEFS } from "./defs";
 import { isPopulation, type Population } from "../../../population";
@@ -356,6 +356,267 @@ export const renderLabTrendSvg = (spec: LabTrendSpec): string => {
   const captionAttr = spec.caption ? ` aria-label="${escapeXml(spec.caption.en)}"` : ` aria-label="Lab Trend"`;
   return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 300" role="img"${captionAttr} data-kind="lab_trend">\n${svgBody}\n</svg>`;
 };
+
+// ---------- learner-facing two-series presentation ----------
+
+export type LabTrendTableModel = {
+  columns: Array<{ key: string; label: string }>;
+  rows: Array<{
+    key: LabAnalyteKey;
+    label: string;
+    unit: string;
+    values: string[];
+  }>;
+};
+
+export type LabTrendLegendEntry = {
+  key: LabAnalyteKey;
+  label: string;
+  unit: string;
+  colorRole: (typeof SERIES_STYLE_ROLES)[number];
+  dashed: boolean;
+};
+
+type LabTrendPresentationCommon = {
+  timeUnit: LabTrendSpec["time"]["unit"];
+  timepoints: Array<{ index: number; value: number; label: string }>;
+  legend: LabTrendLegendEntry[];
+  readoutByTimepoint: Array<{
+    timeLabel: string;
+    rows: Array<{ key: LabAnalyteKey; label: string; valueText: string }>;
+  }>;
+  tableModel: LabTrendTableModel;
+};
+
+export type NormalizedLabTrendPresentationModel = LabTrendPresentationCommon & {
+  mode: "normalized";
+  yAxis: { min: number; max: number; ticks: number[] };
+  series: Array<{
+    analyte: LabAnalyteKey;
+    label: string;
+    unit: string;
+    colorRole: (typeof SERIES_STYLE_ROLES)[number];
+    dashed: boolean;
+    points: Array<{ timeIndex: number; value: number; normalizedChangePct: number }>;
+  }>;
+};
+
+export type LegacyFallbackLabTrendPresentationModel = LabTrendPresentationCommon & {
+  mode: "legacy_fallback";
+  reason: "zero_baseline";
+};
+
+export type LabTrendPresentationModel =
+  | NormalizedLabTrendPresentationModel
+  | LegacyFallbackLabTrendPresentationModel;
+
+export const LAB_TREND_PRESENTATION_LAYOUT = {
+  width: 600,
+  height: 340,
+  plotLeft: 72,
+  plotRight: 570,
+  plotTop: 72,
+  plotBottom: 286,
+  legendLeft: 72,
+  legendTop: 16,
+  legendCellWidth: 240,
+  legendCellHeight: 28,
+} as const;
+
+const shortTimeUnit = (unit: LabTrendSpec["time"]["unit"]): string =>
+  unit === "hr" ? "hr" : unit === "min" ? "min" : "day";
+
+const timepointLabel = (value: number, unit: LabTrendSpec["time"]["unit"]): string =>
+  unit === "day" ? `Day ${fmtNum(value)}` : `${fmtNum(value)} ${shortTimeUnit(unit)}`;
+
+const timeAxisLabel = (unit: LabTrendSpec["time"]["unit"]): string =>
+  unit === "hr" ? "Time (Hours)" : unit === "min" ? "Time (Minutes)" : "Time (Days)";
+
+export const formatLabTrendLabelWithUnit = (label: string, unit: string): string =>
+  unit.startsWith("(") && unit.endsWith(")") ? `${label} ${unit}` : `${label} (${unit})`;
+
+export const buildLabTrendTableModel = (spec: LabTrendSpec): LabTrendTableModel => ({
+  columns: [
+    { key: "analyte", label: "Laboratory test" },
+    ...spec.time.values.map((time, index) => ({
+      key: `time-${index}`,
+      label: timepointLabel(time, spec.time.unit),
+    })),
+  ],
+  rows: spec.series.map((series) => {
+    const def = ANALYTE_DEFS[series.analyte];
+    return {
+      key: series.analyte,
+      label: def.label,
+      unit: series.unit ?? def.canonicalUnit,
+      values: series.values.map(fmtNum),
+    };
+  }),
+});
+
+const niceStep = (roughStep: number): number => {
+  if (!Number.isFinite(roughStep) || roughStep <= 0) return 10;
+  const exponent = Math.floor(Math.log10(roughStep));
+  const fraction = roughStep / (10 ** exponent);
+  const niceFraction = fraction <= 1 ? 1 : fraction <= 2 ? 2 : fraction <= 5 ? 5 : 10;
+  return niceFraction * (10 ** exponent);
+};
+
+const cleanNumber = (value: number): number => Number(value.toPrecision(12));
+
+const normalizedScale = (values: number[]): { min: number; max: number; ticks: number[] } => {
+  const minValue = Math.min(0, ...values);
+  const maxValue = Math.max(0, ...values);
+  if (minValue === 0 && maxValue === 0) return { min: -10, max: 10, ticks: [-10, 0, 10] };
+
+  const paddedMin = minValue < 0 ? minValue - Math.max((maxValue - minValue) * 0.08, 1) : 0;
+  const paddedMax = maxValue > 0 ? maxValue + Math.max((maxValue - minValue) * 0.08, 1) : 0;
+  const step = niceStep((paddedMax - paddedMin) / 5);
+  const min = paddedMin < 0 ? Math.floor(paddedMin / step) * step : 0;
+  const max = paddedMax > 0 ? Math.ceil(paddedMax / step) * step : 0;
+  const ticks: number[] = [];
+  for (let tick = min; tick <= max + step * 0.001; tick += step) ticks.push(cleanNumber(tick));
+  return { min: cleanNumber(min), max: cleanNumber(max), ticks };
+};
+
+export const buildLabTrendPresentationModel = (spec: LabTrendSpec): LabTrendPresentationModel => {
+  const tableModel = buildLabTrendTableModel(spec);
+  const timeUnit = spec.time.unit;
+  const timepoints = spec.time.values.map((value, index) => ({
+    index,
+    value,
+    label: timepointLabel(value, timeUnit),
+  }));
+  const legend: LabTrendLegendEntry[] = spec.series.map((series, index) => {
+    const def = ANALYTE_DEFS[series.analyte];
+    return {
+      key: series.analyte,
+      label: def.label,
+      unit: series.unit ?? def.canonicalUnit,
+      colorRole: SERIES_STYLE_ROLES[index] ?? "blue",
+      dashed: index === 1,
+    };
+  });
+  const readoutByTimepoint = timepoints.map((timepoint) => ({
+    timeLabel: timepoint.label,
+    rows: tableModel.rows.map((row) => ({
+      key: row.key,
+      label: row.label,
+      valueText: `${row.values[timepoint.index]} ${row.unit}`,
+    })),
+  }));
+  const common: LabTrendPresentationCommon = {
+    timeUnit,
+    timepoints,
+    legend,
+    readoutByTimepoint,
+    tableModel,
+  };
+
+  if (spec.series.some((series) => series.values[0] === 0)) {
+    return { ...common, mode: "legacy_fallback", reason: "zero_baseline" };
+  }
+
+  const series = spec.series.map((source, index) => {
+    const def = ANALYTE_DEFS[source.analyte];
+    const baseline = source.values[0];
+    return {
+      analyte: source.analyte,
+      label: def.label,
+      unit: source.unit ?? def.canonicalUnit,
+      colorRole: SERIES_STYLE_ROLES[index] ?? "blue",
+      dashed: index === 1,
+      points: source.values.map((value, timeIndex) => ({
+        timeIndex,
+        value,
+        normalizedChangePct: cleanNumber(((value - baseline) / Math.abs(baseline)) * 100),
+      })),
+    };
+  });
+  const normalizedValues = series.flatMap((entry) => entry.points.map((point) => point.normalizedChangePct));
+  return { ...common, mode: "normalized", yAxis: normalizedScale(normalizedValues), series };
+};
+
+const colorForLabStyleRole = (role: LabTrendLegendEntry["colorRole"]): string =>
+  role === "green" ? "#047857" : "#2563eb";
+
+export const renderNormalizedLabTrendSvg = (model: NormalizedLabTrendPresentationModel): string => {
+  const layout = LAB_TREND_PRESENTATION_LAYOUT;
+  const plotWidth = layout.plotRight - layout.plotLeft;
+  const plotHeight = layout.plotBottom - layout.plotTop;
+  const xMin = Math.min(...model.timepoints.map((point) => point.value));
+  const xMax = Math.max(...model.timepoints.map((point) => point.value));
+  const mapX = (value: number) => xMax <= xMin
+    ? layout.plotLeft + plotWidth / 2
+    : layout.plotLeft + ((value - xMin) / (xMax - xMin)) * plotWidth;
+  const mapY = (value: number) => model.yAxis.max <= model.yAxis.min
+    ? layout.plotTop + plotHeight / 2
+    : layout.plotBottom - ((value - model.yAxis.min) / (model.yAxis.max - model.yAxis.min)) * plotHeight;
+  const elements: string[] = [];
+
+  model.yAxis.ticks.forEach((tick) => {
+    const y = mapY(tick);
+    const baseline = tick === 0;
+    elements.push(`<line x1="${fmt(layout.plotLeft)}" y1="${fmt(y)}" x2="${fmt(layout.plotRight)}" y2="${fmt(y)}" stroke="${baseline ? "#94a3b8" : "#e2e8f0"}" stroke-width="${baseline ? "1.5" : "1"}"${baseline ? ' data-baseline-line="true"' : ""}/>`);
+    elements.push(`<text x="${fmt(layout.plotLeft - 8)}" y="${fmt(y + 4)}" font-family="sans-serif" font-size="12" fill="#64748b" text-anchor="end">${escapeXml(`${fmtNum(tick)}%`)}</text>`);
+  });
+
+  const pointXs = model.timepoints.map((timepoint) => mapX(timepoint.value));
+  model.timepoints.forEach((timepoint, index) => {
+    const x = pointXs[index];
+    elements.push(`<line x1="${fmt(x)}" y1="${fmt(layout.plotTop)}" x2="${fmt(x)}" y2="${fmt(layout.plotBottom)}" stroke="#e2e8f0" stroke-width="1"/>`);
+    elements.push(`<text x="${fmt(x)}" y="${fmt(layout.plotBottom + 18)}" font-family="sans-serif" font-size="12" fill="#64748b" text-anchor="middle">${escapeXml(fmtNum(timepoint.value))}</text>`);
+  });
+  elements.push(`<line x1="${fmt(layout.plotLeft)}" y1="${fmt(layout.plotTop)}" x2="${fmt(layout.plotLeft)}" y2="${fmt(layout.plotBottom)}" stroke="#94a3b8" stroke-width="2"/>`);
+  elements.push(`<line x1="${fmt(layout.plotLeft)}" y1="${fmt(layout.plotBottom)}" x2="${fmt(layout.plotRight)}" y2="${fmt(layout.plotBottom)}" stroke="#94a3b8" stroke-width="2"/>`);
+  elements.push(`<text x="18" y="${fmt(layout.plotTop + plotHeight / 2)}" transform="rotate(-90 18 ${fmt(layout.plotTop + plotHeight / 2)})" font-family="sans-serif" font-size="12" font-weight="600" fill="#475569" text-anchor="middle">Change from baseline</text>`);
+  elements.push(`<text x="${fmt(layout.plotLeft + plotWidth / 2)}" y="${fmt(layout.height - 12)}" font-family="sans-serif" font-size="14" font-weight="500" fill="#334155" text-anchor="middle">${timeAxisLabel(model.timeUnit)}</text>`);
+
+  model.series.forEach((series) => {
+    const color = colorForLabStyleRole(series.colorRole);
+    const dash = series.dashed ? ' stroke-dasharray="7 5"' : "";
+    const points = series.points.map((point) => `${fmt(pointXs[point.timeIndex])},${fmt(mapY(point.normalizedChangePct))}`).join(" ");
+    const marks = series.points.map((point) => {
+      const x = pointXs[point.timeIndex];
+      const y = mapY(point.normalizedChangePct);
+      return series.dashed
+        ? `<rect x="${fmt(x - 4)}" y="${fmt(y - 4)}" width="8" height="8" transform="rotate(45 ${fmt(x)} ${fmt(y)})" fill="#ffffff" stroke="${color}" stroke-width="2"/>`
+        : `<circle cx="${fmt(x)}" cy="${fmt(y)}" r="4" fill="#ffffff" stroke="${color}" stroke-width="2"/>`;
+    }).join("\n");
+    elements.push(`<g class="lab-trend-epic-series" data-analyte="${series.analyte}">\n<polyline points="${points}" fill="none" stroke="${color}" stroke-width="2.75"${dash} stroke-linecap="round" stroke-linejoin="round"/>\n${marks}\n</g>`);
+  });
+
+  model.legend.forEach((entry, index) => {
+    const x = layout.legendLeft + index * layout.legendCellWidth;
+    const y = layout.legendTop + 12;
+    const color = colorForLabStyleRole(entry.colorRole);
+    const dash = entry.dashed ? ' stroke-dasharray="7 5"' : "";
+    elements.push([
+      `<g class="lab-trend-epic-legend-entry" data-legend="${entry.key}">`,
+      `<line x1="${fmt(x)}" y1="${fmt(y)}" x2="${fmt(x + 20)}" y2="${fmt(y)}" stroke="${color}" stroke-width="2.75"${dash}/>` ,
+      entry.dashed
+        ? `<rect x="${fmt(x + 7)}" y="${fmt(y - 3)}" width="6" height="6" transform="rotate(45 ${fmt(x + 10)} ${fmt(y)})" fill="#ffffff" stroke="${color}" stroke-width="1.5"/>`
+        : `<circle cx="${fmt(x + 10)}" cy="${fmt(y)}" r="3" fill="#ffffff" stroke="${color}" stroke-width="1.5"/>`,
+      `<text x="${fmt(x + 28)}" y="${fmt(y + 4)}" font-family="sans-serif" font-size="12" fill="#334155" text-anchor="start">${escapeXml(formatLabTrendLabelWithUnit(entry.label, entry.unit))}</text>`,
+      `</g>`,
+    ].join("\n"));
+  });
+
+  model.timepoints.forEach((timepoint, index) => {
+    const x = pointXs[index];
+    const left = index === 0 ? layout.plotLeft : (pointXs[index - 1] + x) / 2;
+    const right = index === model.timepoints.length - 1 ? layout.plotRight : (x + pointXs[index + 1]) / 2;
+    elements.push(`<rect x="${fmt(left)}" y="${fmt(layout.plotTop)}" width="${fmt(Math.max(0, right - left))}" height="${fmt(plotHeight)}" fill="transparent" data-timepoint-index="${timepoint.index}" data-timepoint-x="${fmt(x)}"/>`);
+  });
+  elements.push(`<line class="lab-trend-epic-guide" data-guide-line="true" x1="${fmt(layout.plotLeft)}" y1="${fmt(layout.plotTop)}" x2="${fmt(layout.plotLeft)}" y2="${fmt(layout.plotBottom)}" stroke="#0f172a" stroke-width="1.5" stroke-dasharray="3 3" opacity="0"/>`);
+
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${layout.width} ${layout.height}" role="img" aria-label="Lab trend. Vertical position represents percentage change from each analyte's baseline; exact measurements are listed in the table below." data-kind="lab_trend" data-variant="normalized">\n${elements.join("\n")}\n</svg>`;
+};
+
+export const renderLabTrendPresentationSvg = (
+  spec: LabTrendSpec,
+  model: LabTrendPresentationModel = buildLabTrendPresentationModel(spec),
+): string => model.mode === "normalized" ? renderNormalizedLabTrendSvg(model) : renderLabTrendSvg(spec);
 
 // ---------- fixtures ----------
 
