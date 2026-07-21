@@ -12,6 +12,7 @@ import type { LanguageMode } from "../types";
 import { getVisual } from "./registry";
 import type { QuestionVisual } from "./types";
 import { VitalsTrendInteractiveStimulus } from "./kinds/vitals_trend/VitalsTrendInteractive";
+import { LabTrendInteractiveStimulus } from "./kinds/lab_trend/LabTrendInteractive";
 
 type RenderedVisual = {
   visual: QuestionVisual;
@@ -76,6 +77,10 @@ export function VisualStimulus({
 
   if (visual.kind === "vitals_trend") {
     return <VitalsTrendInteractiveStimulus visual={visual} caption={caption} />;
+  }
+
+  if (visual.kind === "lab_trend" && visual.series.length === 2) {
+    return <LabTrendInteractiveStimulus visual={visual} caption={caption} />;
   }
 
   const svg = mod.renderSvg(visual); // our own deterministic SVG, not user HTML

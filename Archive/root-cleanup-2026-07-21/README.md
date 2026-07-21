@@ -1,6 +1,6 @@
 # Root Cleanup — 2026-07-21
 
-This directory preserves three completed or superseded root-level work orders. They remain available
+This directory preserves four completed or superseded root-level work orders. They remain available
 as execution provenance but are no longer active instructions.
 
 - `GPT-SCORED-FORMAT-CONSTRUCT-AUDIT-SPEC-2026-07-21.md` — completed audit commission. Its findings,
@@ -14,9 +14,11 @@ as execution provenance but are no longer active instructions.
 - `GEMINI-3.6-FLASH-TERMINAL-SENTENCE-PILOT-SPEC-2026-07-21.md` — completed bounded pilot. Its
   reconciled output and execution receipt remain under
   `audit/terminal-sentence-gemini-3-6-flash-pilot-2026-07-21/`.
+- `LAB-TREND-EPIC-STYLE-DUAL-SERIES-MIGRATION-CODEX-SPEC-2026-07-21.md` — completed renderer/UI
+  migration. The implementation status, browser proof, and verification receipt are recorded in
+  `PROJECT-HISTORY.md`.
 
 The following July 21 work orders remain at repository root because they are still open:
 
-- `LAB-TREND-EPIC-STYLE-DUAL-SERIES-MIGRATION-CODEX-SPEC-2026-07-21.md`;
 - `SONNET-TERMINAL-SENTENCE-SEMANTIC-CENSUS-SPEC-2026-07-21.md`; and
 - `TERMINAL-SENTENCE-POST-REVIEW-ADJUDICATION-SPEC-2026-07-21.md`.

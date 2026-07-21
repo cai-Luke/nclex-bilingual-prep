@@ -52,6 +52,40 @@ The committed NGN item-type set is complete. Rationale/dyad scoring and an expli
 
 > Milestones dated **2026-06-23 and earlier** are archived in [`Archive/PROJECT-HISTORY-ARCHIVE.md`](Archive/PROJECT-HISTORY-ARCHIVE.md). Only the current arc (2026-06-24 onward) is kept here.
 
+### Lab-Trend Epic-Style Dual-Series Migration (Jul 21)
+
+Migrated all nine promoted two-series `lab_trend` records to a learner-facing normalized presentation
+without changing schema, bank content, grading, validation, `selfCheck`, clinical ranges, or the
+registered deterministic renderer. Each series is plotted as percent change from its own first value
+on one fitted percentage scale, with an explicit zero baseline, separate solid/circle and
+dashed/diamond identities, timepoint hover/focus/tap readouts, legend-driven series and table-row
+emphasis, and a visible semantic exact-value table. The 11 one-series records retain their prior
+fitted numeric chart. A schema-valid two-series record with either baseline equal to zero now takes a
+discriminated `legacy_fallback` path that preserves the legacy graph and still supplies the exact
+table; all nine promoted records take the normalized path.
+
+The table and readout remain values-only under active Decision 30: no H/L badges, normal indicators,
+reference-range columns, or alternate-unit range interpretation were added. The registered
+`renderLabTrendSvg` parity owner remains byte-identical. A dedicated complete-corpus snapshot, sorted
+by question ID and visual object path, records separate SHA-256 hashes for stable presentation-model
+JSON and the new presentation SVG. Focused coverage also pins percent math, fitted mixed-direction
+scales, zero-baseline fallback, authored/canonical unit display, pediatric trajectory-only behavior,
+identical normalized trajectories, interaction state, print CSS, and exact pre/post validation,
+`selfCheck`, authored-spec, and registered-SVG equality.
+
+Browser proof covered Developer Review and Preview Lab at 1280×800 and 390×844, the renal,
+INR/platelets, and correlated Hgb/Hct records, first/middle/final exact readouts, legend and row
+identity, Enter/Space pinning without accidental enlargement, zero page overflow in Preview Lab,
+mobile shrinking, focused 600 px internal graph scrolling, one-SVG mounting, table reachability,
+pinned-readout preservation, focus return, body-scroll restoration, and Summary/review. The only
+console entries during the live-edit session were Vite HMR duplicate-registration reload messages;
+fresh reloads and production verification introduced no application warning or error. Print rules
+hide transient controls/readouts and expose the complete graph and semantic table.
+
+Verification: `test:lab-trend`, `test-visuals`, all 13 promoted-bank validations, `test:exam-layout`,
+TypeScript, production build plus build-identity validation, and `git diff --check` passed. No bank,
+ledger, census, schema-version, or promoted-parity snapshot changed.
+
 ### Root Work-Order Cleanup (Jul 21)
 
 Moved three closed or superseded July 21 work orders out of the repository root and into
@@ -60,9 +94,10 @@ rejected Gemini terminal-sentence census commission, and the completed Gemini 3.
 pilot. Their audit evidence remains in the corresponding `audit/` directories, and the July 16
 outer-ring work order now points to the archived construct-audit vocabulary source.
 
-The lab-trend Epic-style dual-series migration, Sonnet terminal-sentence semantic census, and
-post-review terminal-sentence adjudication work orders remain at root because they are still open.
-No runtime or bank behavior changed in this cleanup.
+The lab-trend Epic-style dual-series work order was subsequently completed and joined this archive;
+the Sonnet terminal-sentence semantic census and post-review terminal-sentence adjudication work
+orders remain at root because they are still open. No runtime or bank behavior changed in the
+original cleanup pass.
 
 ### GPT July 15–16 Construct-Disposition Audit Implemented (Jul 21)
 
