@@ -3,10 +3,22 @@ import type { Question } from "../../src/types";
 import {
   PRODUCER_VOCABULARY_LEXICON,
   scanBundledBanks,
+  scanSelectedBanks,
   scanQuestionForProducerVocabulary,
 } from "../../lib/producer-vocabulary-leakage";
-import { PRODUCER_VOCABULARY_LEXICON as AUDIT_LEXICON } from "../audit/audit-producer-vocabulary";
+import {
+  PRODUCER_VOCABULARY_LEXICON as AUDIT_LEXICON,
+  runAuditProducerVocabulary,
+} from "../audit/audit-producer-vocabulary";
 import { PRODUCER_VOCABULARY_LEXICON as MANIFEST_LEXICON } from "../producer-vocabulary-leakage-manifest";
+import { writeFile } from "node:fs/promises";
+import { join } from "node:path";
+import {
+  createAuditScopeFixtures,
+  makeBank,
+  makeQuestion,
+  withUnreadableFile,
+} from "../test-utils/audit-scope-fixtures";
 
 const baseQuestion = (overrides: Record<string, unknown> = {}): Question => ({
   id: "test_item",
@@ -108,5 +120,44 @@ assert.equal(MANIFEST_LEXICON, PRODUCER_VOCABULARY_LEXICON);
 const live = await scanBundledBanks();
 const liveHigh = live.occurrences.filter((entry) => entry.confidence === "HIGH");
 assert.equal(liveHigh.length, 0, `post-remediation live banks must have zero HIGH hits; found ${liveHigh.length}`);
+
+const fixture = await createAuditScopeFixtures();
+try {
+  let result = await runAuditProducerVocabulary({ files: [fixture.validA] });
+  assert.equal(result.status, "PASS");
+  assert.match(result.detail, /across 1 learner-facing items in the explicitly selected files/);
+
+  result = await runAuditProducerVocabulary({ files: [fixture.validA, fixture.validB] });
+  assert.equal(result.status, "PASS");
+  assert.match(result.detail, /across 2 learner-facing items/);
+
+  for (const path of [fixture.missing, fixture.malformed, fixture.schemaInvalid]) {
+    result = await runAuditProducerVocabulary({ files: [path] });
+    assert.equal(result.status, "FAIL");
+    assert.match(result.detail, new RegExp(path.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
+  }
+
+  const deduped = await scanSelectedBanks([fixture.validA, fixture.aliasForValidA]);
+  assert.equal(deduped.banksScanned, 1);
+  assert.equal(deduped.canonicalItemsScanned, 1);
+  assert.equal((await runAuditProducerVocabulary({ files: [] })).status, "FAIL");
+
+  const findingPath = join(fixture.directory, "producer-finding.json");
+  await writeFile(
+    findingPath,
+    JSON.stringify(makeBank(makeQuestion("producer_finding", { stem: "Use this closed-world rule." }))),
+  );
+  result = await runAuditProducerVocabulary({ files: [findingPath] });
+  assert.equal(result.status, "FAIL");
+  assert.match(result.detail, new RegExp(findingPath.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
+
+  const unreadable = await withUnreadableFile(
+    fixture.unreadable,
+    () => runAuditProducerVocabulary({ files: [fixture.unreadable] }),
+  );
+  if (unreadable.unreadableWasEnforced) assert.equal(unreadable.value.status, "FAIL");
+} finally {
+  await fixture.cleanup();
+}
 
 console.log("producer-vocabulary-leakage: all focused assertions passed");

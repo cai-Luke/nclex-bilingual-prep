@@ -1,5 +1,6 @@
 import { readFile, readdir } from "node:fs/promises";
 import { basename, join } from "node:path";
+import { dedupeSelectedFilePaths } from "./selected-file-paths";
 import { collectLearnerFacingFields, type LearnerFacingField } from "./producer-vocabulary-leakage";
 import { parseBankText } from "../src/bankImport";
 import { validateBankObject } from "../src/schema";
@@ -358,4 +359,31 @@ export async function scanBundledAuthorialConstraints(directory = "banks"): Prom
     }
   }
   return { banksScanned: files.length, topLevelQuestionsScanned, scoredLeavesScanned, candidates: sortAuthorialConstraintCandidates(candidates) };
+}
+
+export async function scanSelectedAuthorialConstraints(files: string[]): Promise<AuthorialConstraintBankScan> {
+  const selected = dedupeSelectedFilePaths(files);
+  const candidates: AuthorialConstraintCandidate[] = [];
+  let topLevelQuestionsScanned = 0;
+  let scoredLeavesScanned = 0;
+  for (const { resolvedPath, displayPath } of selected) {
+    try {
+      const raw = parseBankText(await readFile(resolvedPath, "utf8"));
+      const validated = validateBankObject(raw, { rejectUnknownKeys: true, requireMeta: true });
+      if (!validated.ok) throw new Error(validated.reasons.join("; "));
+      topLevelQuestionsScanned += validated.value.questions.length;
+      for (const question of validated.value.questions) {
+        scoredLeavesScanned += question.itemType === "case_study" ? question.caseStudy.questions.length : 1;
+        candidates.push(...scanQuestionForAuthorialConstraints(question, displayPath));
+      }
+    } catch (error) {
+      throw new Error(`${displayPath}: ${error instanceof Error ? error.message : String(error)}`);
+    }
+  }
+  return {
+    banksScanned: selected.length,
+    topLevelQuestionsScanned,
+    scoredLeavesScanned,
+    candidates: sortAuthorialConstraintCandidates(candidates),
+  };
 }

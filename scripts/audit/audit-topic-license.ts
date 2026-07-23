@@ -12,6 +12,7 @@ import { mkdir, readFile, readdir, writeFile } from "node:fs/promises";
 import { basename, dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { CANONICAL_DIR } from "../../lib/pipeline-paths";
+import { dedupeSelectedFilePaths } from "../../lib/selected-file-paths";
 import {
   collectQuestionPopulation,
   type QuestionPopulationKind,
@@ -152,14 +153,50 @@ const loadCanonicalBanks = async (): Promise<{
   return { files, banks };
 };
 
+const loadSelectedBanks = async (files: string[]): Promise<{
+  files: string[];
+  banks: Array<{ bank: BankEnvelope; file: string }>;
+  error?: string;
+}> => {
+  const selected = dedupeSelectedFilePaths(files);
+  const banks: Array<{ bank: BankEnvelope; file: string }> = [];
+  for (const { resolvedPath, displayPath } of selected) {
+    try {
+      const result = validateBankObject(parseBankText(await readFile(resolvedPath, "utf8")), {
+        rejectUnknownKeys: true,
+      });
+      if (!result.ok) {
+        return {
+          files: selected.map(({ displayPath: path }) => path),
+          banks: [],
+          error: `${displayPath}: structural validation failed before topic-license audit:\n${result.reasons.join("\n")}`,
+        };
+      }
+      banks.push({ bank: result.value, file: displayPath });
+    } catch (error) {
+      return {
+        files: selected.map(({ displayPath: path }) => path),
+        banks: [],
+        error: `${displayPath}: ${error instanceof Error ? error.message : String(error)}`,
+      };
+    }
+  }
+  return { files: selected.map(({ displayPath }) => displayPath), banks };
+};
+
 const limitation = "Vocabulary membership only: this gate cannot enforce the clinical boundary among categories licensed for a SHARED topic; that remains semantic-review work.";
 
-export async function runAuditTopicLicense(): Promise<AuditResult> {
-  const loaded = await loadCanonicalBanks();
-  if (loaded.error) {
-    return { name: "audit:topic-license", status: "INSUFFICIENT", failures: [], detail: loaded.error };
-  }
-  const analysis = analyzeTopicLicenses(loaded.banks);
+export type RunAuditTopicLicenseOptions = {
+  /** Audit exactly these file paths instead of sweeping the default directory.
+   *  Fails loud: a missing, unreadable, unparseable, or schema-invalid selected
+   *  file is never silently skipped. */
+  files?: string[];
+};
+
+const buildTopicLicenseResult = (
+  analysis: TopicLicenseAnalysis,
+  explicit: boolean,
+): AuditResult => {
   const { metrics, findings } = analysis;
   const summary = `Inspected ${metrics.topLevelRecords} top-level records (${metrics.caseContainers} case containers + ${metrics.standaloneTopLevel} standalone) and ${metrics.embeddedParts} embedded parts; scored leaves: ${metrics.scoredLeaves}.`;
   if (findings.length === 0) {
@@ -174,8 +211,34 @@ export async function runAuditTopicLicense(): Promise<AuditResult> {
     name: "audit:topic-license",
     status: "WARN",
     failures: [],
-    detail: `${summary} Findings: ${metrics.topLevelFindings} top-level (${metrics.caseContainerFindings} case containers + ${metrics.standaloneTopLevelFindings} standalone) and ${metrics.scoredLeafFindings} scored leaves (${metrics.standaloneTopLevelFindings} standalone + ${metrics.embeddedPartFindings} embedded). Generate the row-level report with npm run audit:topic-license -- --output=audit/topic-license.current-head.report.md. ${limitation}`,
+    detail: explicit
+      ? `${summary} Findings: ${metrics.topLevelFindings} top-level (${metrics.caseContainerFindings} case containers + ${metrics.standaloneTopLevelFindings} standalone) and ${metrics.scoredLeafFindings} scored leaves (${metrics.standaloneTopLevelFindings} standalone + ${metrics.embeddedPartFindings} embedded). Generate the row-level report with --output=<path> and the same --file selections. ${limitation}`
+      : `${summary} Findings: ${metrics.topLevelFindings} top-level (${metrics.caseContainerFindings} case containers + ${metrics.standaloneTopLevelFindings} standalone) and ${metrics.scoredLeafFindings} scored leaves (${metrics.standaloneTopLevelFindings} standalone + ${metrics.embeddedPartFindings} embedded). Generate the row-level report with npm run audit:topic-license -- --output=audit/topic-license.current-head.report.md. ${limitation}`,
   };
+};
+
+export async function runAuditTopicLicense(
+  options: RunAuditTopicLicenseOptions = {},
+): Promise<AuditResult> {
+  if (options.files !== undefined && options.files.length === 0) {
+    return {
+      name: "audit:topic-license",
+      status: "FAIL",
+      failures: [],
+      detail: "Explicit file selection is empty.",
+    };
+  }
+  const explicit = options.files !== undefined;
+  const loaded = explicit ? await loadSelectedBanks(options.files!) : await loadCanonicalBanks();
+  if (loaded.error) {
+    return {
+      name: "audit:topic-license",
+      status: explicit ? "FAIL" : "INSUFFICIENT",
+      failures: explicit ? loaded.files : [],
+      detail: loaded.error,
+    };
+  }
+  return buildTopicLicenseResult(analyzeTopicLicenses(loaded.banks), explicit);
 }
 
 const escapeCell = (value: string | null): string => (value ?? "—").replace(/\|/g, "\\|").replace(/\n/g, "<br>");
@@ -190,13 +253,13 @@ const getGitSha = (): string => {
 
 export const renderTopicLicenseReport = (
   analysis: TopicLicenseAnalysis,
-  options: { inputGitSha?: string } = {},
+  options: { inputGitSha?: string; scopeDescription?: string } = {},
 ): string => {
   const { metrics, findings } = analysis;
   const lines = [
     "# Topic-License Hygiene Report",
     "",
-    "Status: report-only advisory generated from the current canonical banks.",
+    `Status: ${options.scopeDescription ?? "report-only advisory generated from the current canonical banks."}`,
     `Input Git SHA: ${options.inputGitSha ?? "not-recorded"}`,
     "",
     "This gate validates exact canonical topic vocabulary membership and declared topic/category licenses. It cannot enforce the clinical boundary among categories licensed for a SHARED topic; that remains semantic-review work.",
@@ -235,21 +298,68 @@ export const renderTopicLicenseReport = (
   return lines.join("\n");
 };
 
-const runCli = async (): Promise<void> => {
-  const loaded = await loadCanonicalBanks();
-  if (loaded.error) throw new Error(loaded.error);
-  const analysis = analyzeTopicLicenses(loaded.banks);
-  const outputArg = process.argv.slice(2).find((arg) => arg.startsWith("--output="));
-  if (outputArg) {
-    const outputPath = outputArg.slice("--output=".length);
-    await mkdir(dirname(outputPath), { recursive: true });
-    await writeFile(outputPath, renderTopicLicenseReport(analysis, { inputGitSha: getGitSha() }), "utf8");
-    console.log(`Topic-license report written: ${outputPath}`);
+type TopicLicenseCliOptions = RunAuditTopicLicenseOptions & { outputPath?: string };
+
+const parseCliArgs = (argv: string[]): TopicLicenseCliOptions => {
+  const files: string[] = [];
+  let outputPath: string | undefined;
+  for (let index = 0; index < argv.length; index += 1) {
+    const arg = argv[index];
+    if (arg.startsWith("--output=")) {
+      const value = arg.slice("--output=".length);
+      if (value.trim() === "") throw new Error("--output= requires a non-empty path argument");
+      outputPath = value;
+      continue;
+    }
+    if (arg === "--file") {
+      const value = argv[index + 1];
+      if (value === undefined) throw new Error("--file requires a path argument");
+      if (value.trim() === "") throw new Error("--file requires a non-empty path argument");
+      files.push(value);
+      index += 1;
+      continue;
+    }
+    throw new Error(`Unknown argument: ${arg}`);
   }
-  const result = await runAuditTopicLicense();
+  return { files: files.length > 0 ? files : undefined, outputPath };
+};
+
+const runCli = async (): Promise<void> => {
+  let options: TopicLicenseCliOptions;
+  try {
+    options = parseCliArgs(process.argv.slice(2));
+  } catch (error) {
+    console.error(error instanceof Error ? error.message : String(error));
+    process.exit(1);
+  }
+
+  if (options.outputPath !== undefined) {
+    const loaded = options.files === undefined
+      ? await loadCanonicalBanks()
+      : await loadSelectedBanks(options.files);
+    if (loaded.error) {
+      if (options.files === undefined) throw new Error(loaded.error);
+    } else {
+      const analysis = analyzeTopicLicenses(loaded.banks);
+      await mkdir(dirname(options.outputPath), { recursive: true });
+      await writeFile(
+        options.outputPath,
+        renderTopicLicenseReport(analysis, {
+          inputGitSha: getGitSha(),
+          ...(options.files === undefined
+            ? {}
+            : { scopeDescription: `report-only advisory generated from explicitly selected files: ${loaded.files.join(", ")}.` }),
+        }),
+        "utf8",
+      );
+      console.log(`Topic-license report written: ${options.outputPath}`);
+    }
+  }
+  const result = await runAuditTopicLicense({ files: options.files });
   console.log(`[${result.status}] ${result.name}`);
   console.log(result.detail);
   if (result.failures.length > 0) console.log(`Related IDs: ${result.failures.join(", ")}`);
+  process.exit(result.status === "FAIL" ? 1 : 0);
 };
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) await runCli();

@@ -4,10 +4,20 @@ import {
   AUTHORIAL_CONSTRAINT_PROVENANCE,
   isBlockingCandidate,
   scanBundledAuthorialConstraints,
+  scanSelectedAuthorialConstraints,
   scanQuestionForAuthorialConstraints,
   sortAuthorialConstraintCandidates,
 } from "../../lib/authorial-constraint-leakage";
+import { runAuditAuthorialConstraintLeakage } from "../audit/audit-authorial-constraint-leakage";
 import { serializeSurvey } from "../authorial-constraint-leakage-survey";
+import { writeFile } from "node:fs/promises";
+import { join } from "node:path";
+import {
+  createAuditScopeFixtures,
+  makeBank,
+  makeQuestion,
+  withUnreadableFile,
+} from "../test-utils/audit-scope-fixtures";
 
 const baseQuestion = (overrides: Record<string, unknown> = {}): Question => ({
   id: "test_item",
@@ -98,5 +108,47 @@ assert.equal(serializeSurvey(sortAuthorialConstraintCandidates(unsorted)), seria
 const live = await scanBundledAuthorialConstraints();
 const liveBlocking = live.candidates.filter((row) => row.blockingEligible);
 assert.equal(liveBlocking.length, 0, `post-remediation live banks must have zero blocking hits; found ${liveBlocking.length}`);
+
+const fixture = await createAuditScopeFixtures();
+try {
+  let result = await runAuditAuthorialConstraintLeakage({ files: [fixture.validA] });
+  assert.equal(result.status, "PASS");
+  assert.match(result.detail, /1 top-level questions \/ 1 scored leaves in the explicitly selected files/);
+
+  result = await runAuditAuthorialConstraintLeakage({ files: [fixture.validA, fixture.validB] });
+  assert.equal(result.status, "PASS");
+  assert.match(result.detail, /2 top-level questions \/ 2 scored leaves/);
+
+  for (const path of [fixture.missing, fixture.malformed, fixture.schemaInvalid]) {
+    result = await runAuditAuthorialConstraintLeakage({ files: [path] });
+    assert.equal(result.status, "FAIL");
+    assert.match(result.detail, new RegExp(path.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
+  }
+
+  const deduped = await scanSelectedAuthorialConstraints([fixture.validA, fixture.aliasForValidA]);
+  assert.equal(deduped.banksScanned, 1);
+  assert.equal(deduped.topLevelQuestionsScanned, 1);
+  assert.equal(deduped.scoredLeavesScanned, 1);
+  assert.equal((await runAuditAuthorialConstraintLeakage({ files: [] })).status, "FAIL");
+
+  const findingPath = join(fixture.directory, "authorial-finding.json");
+  await writeFile(
+    findingPath,
+    JSON.stringify(makeBank(makeQuestion("authorial_finding", {
+      stem: "Do not independently prescribe treatment.",
+    }))),
+  );
+  result = await runAuditAuthorialConstraintLeakage({ files: [findingPath] });
+  assert.equal(result.status, "FAIL");
+  assert.match(result.detail, new RegExp(findingPath.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
+
+  const unreadable = await withUnreadableFile(
+    fixture.unreadable,
+    () => runAuditAuthorialConstraintLeakage({ files: [fixture.unreadable] }),
+  );
+  if (unreadable.unreadableWasEnforced) assert.equal(unreadable.value.status, "FAIL");
+} finally {
+  await fixture.cleanup();
+}
 
 console.log("authorial-constraint-leakage: all focused assertions passed");

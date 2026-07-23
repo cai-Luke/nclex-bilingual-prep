@@ -1,5 +1,6 @@
 import { readFile, readdir } from "node:fs/promises";
 import { basename, join } from "node:path";
+import { dedupeSelectedFilePaths } from "./selected-file-paths";
 import { parseBankText } from "../src/bankImport";
 import { validateBankObject } from "../src/schema";
 import type { BankEnvelope, Question } from "../src/types";
@@ -192,6 +193,27 @@ export async function scanBundledBanks(directory = "banks"): Promise<BundledLeak
     for (const question of validated.value.questions) occurrences.push(...scanQuestionForProducerVocabulary(question, basename(file)));
   }
   return { canonicalItemsScanned, banksScanned: files.length, occurrences };
+}
+
+export async function scanSelectedBanks(files: string[]): Promise<BundledLeakageScan> {
+  const selected = dedupeSelectedFilePaths(files);
+  const occurrences: LeakageOccurrence[] = [];
+  let canonicalItemsScanned = 0;
+
+  for (const { resolvedPath, displayPath } of selected) {
+    try {
+      const raw = parseBankText(await readFile(resolvedPath, "utf8"));
+      const validated = validateBankObject(raw, { rejectUnknownKeys: true, requireMeta: true });
+      if (!validated.ok) throw new Error(validated.reasons.join("; "));
+      canonicalItemsScanned += validated.value.questions.length;
+      for (const question of validated.value.questions) {
+        occurrences.push(...scanQuestionForProducerVocabulary(question, displayPath));
+      }
+    } catch (error) {
+      throw new Error(`${displayPath}: ${error instanceof Error ? error.message : String(error)}`);
+    }
+  }
+  return { canonicalItemsScanned, banksScanned: selected.length, occurrences };
 }
 
 export function distinctItemKey(entry: Pick<LeakageOccurrence, "bank" | "topLevelId" | "embeddedQuestionId">): string {

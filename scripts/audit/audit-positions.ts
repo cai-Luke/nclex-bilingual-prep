@@ -15,7 +15,9 @@
  */
 
 import { readFile, readdir } from "node:fs/promises";
-import { join } from "node:path";
+import { join, resolve } from "node:path";
+import { pathToFileURL } from "node:url";
+import { dedupeSelectedFilePaths } from "../../lib/selected-file-paths";
 import { parseBankText } from "../../src/bankImport";
 import { validateBankObject } from "../../src/schema";
 import type { AuditResult, CheckStatus } from "./types";
@@ -78,7 +80,62 @@ function analyzeGroup(numOptions: number, positions: number[]): GroupResult {
   return { numOptions, counts, total, chiSq, maxDeviation, status, note };
 }
 
-export async function runAuditPositions(): Promise<AuditResult> {
+export type RunAuditPositionsOptions = {
+  /** Audit exactly these file paths instead of sweeping the default directory.
+   *  Fails loud: a missing, unreadable, unparseable, or schema-invalid selected
+   *  file is never silently skipped. */
+  files?: string[];
+};
+
+function buildResult(
+  positionsByOptionCount: Map<number, number[]>,
+  explicit: boolean,
+): AuditResult {
+  if (positionsByOptionCount.size === 0) {
+    return {
+      name: "audit:positions",
+      status: "INSUFFICIENT",
+      failures: [],
+      detail: explicit
+        ? "No multiple_choice items found in the explicitly selected files."
+        : "No multiple_choice items found in the promoted bank.",
+    };
+  }
+
+  const groups: GroupResult[] = [];
+  for (const [numOptions, positions] of [...positionsByOptionCount.entries()].sort()) {
+    groups.push(analyzeGroup(numOptions, positions));
+  }
+
+  const overallFail = groups.some((group) => group.status === "FAIL");
+  const overallInsufficient = !overallFail && groups.every((group) => group.status === "INSUFFICIENT");
+  const status: CheckStatus = overallFail ? "FAIL" : overallInsufficient ? "INSUFFICIENT" : "PASS";
+
+  const lines: string[] = [];
+  for (const group of groups) {
+    const histogram = group.counts.map((count, index) => `slot${index}=${count}`).join(", ");
+    lines.push(`  ${group.numOptions}-option MC (n=${group.total}): [${histogram}] ${group.note} → ${group.status}`);
+  }
+
+  const detail = [`Distribution check (${groups.map((group) => `${group.numOptions}-opt`).join(", ")}):`, ...lines].join("\n");
+  return { name: "audit:positions", status, failures: [], detail };
+}
+
+function collectPositions(
+  questions: readonly MultipleChoiceQuestion[],
+  positionsByOptionCount: Map<number, number[]>,
+): void {
+  for (const question of questions) {
+    const correctId = question.correct[0];
+    const position = question.options.findIndex((option) => option.id === correctId);
+    if (position === -1) continue;
+    const optionCount = question.options.length;
+    if (!positionsByOptionCount.has(optionCount)) positionsByOptionCount.set(optionCount, []);
+    positionsByOptionCount.get(optionCount)!.push(position);
+  }
+}
+
+async function runDefaultSweep(): Promise<AuditResult> {
   const files = (await readdir(PROMOTED_DIR)).filter((f) => f.endsWith(".json")).sort();
 
   // positions[numOptions] = array of 0-based correct-answer position indices
@@ -91,55 +148,96 @@ export async function runAuditPositions(): Promise<AuditResult> {
       const result = validateBankObject(raw, { rejectUnknownKeys: true });
       if (!result.ok) continue;
 
-      for (const q of result.value.questions) {
-        if (q.itemType !== "multiple_choice") continue;
-        const mc = q as MultipleChoiceQuestion;
-        const correctId = mc.correct[0];
-        const pos = mc.options.findIndex((opt) => opt.id === correctId);
-        if (pos === -1) continue;
-
-        const n = mc.options.length;
-        if (!positionsByOptionCount.has(n)) positionsByOptionCount.set(n, []);
-        positionsByOptionCount.get(n)!.push(pos);
-      }
+      collectPositions(
+        result.value.questions.filter(
+          (question): question is MultipleChoiceQuestion => question.itemType === "multiple_choice",
+        ),
+        positionsByOptionCount,
+      );
     } catch {
       // skip; Tier 0 owns structural failures
     }
   }
 
-  if (positionsByOptionCount.size === 0) {
+  return buildResult(positionsByOptionCount, false);
+}
+
+async function runSelectedFiles(files: string[]): Promise<AuditResult> {
+  const selected = dedupeSelectedFilePaths(files);
+  const positionsByOptionCount = new Map<number, number[]>();
+  const loadFailures: string[] = [];
+
+  for (const { resolvedPath, displayPath } of selected) {
+    try {
+      const raw = parseBankText(await readFile(resolvedPath, "utf8"));
+      const result = validateBankObject(raw, { rejectUnknownKeys: true });
+      if (!result.ok) {
+        loadFailures.push(`${displayPath}: schema validation failed — ${result.reasons.join("; ")}`);
+        continue;
+      }
+      collectPositions(
+        result.value.questions.filter(
+          (question): question is MultipleChoiceQuestion => question.itemType === "multiple_choice",
+        ),
+        positionsByOptionCount,
+      );
+    } catch (error) {
+      loadFailures.push(`${displayPath}: ${error instanceof Error ? error.message : String(error)}`);
+    }
+  }
+
+  if (loadFailures.length > 0) {
     return {
       name: "audit:positions",
-      status: "INSUFFICIENT",
+      status: "FAIL",
       failures: [],
-      detail: "No multiple_choice items found in the promoted bank.",
+      detail: [
+        `${loadFailures.length} explicitly selected file(s) could not be loaded or failed schema validation.`,
+        ...loadFailures,
+      ].join("\n"),
     };
   }
-
-  const groups: GroupResult[] = [];
-  for (const [numOptions, positions] of [...positionsByOptionCount.entries()].sort()) {
-    groups.push(analyzeGroup(numOptions, positions));
-  }
-
-  const overallFail = groups.some((g) => g.status === "FAIL");
-  const overallInsufficient = !overallFail && groups.every((g) => g.status === "INSUFFICIENT");
-  const status: CheckStatus = overallFail ? "FAIL" : overallInsufficient ? "INSUFFICIENT" : "PASS";
-
-  const lines: string[] = [];
-  for (const g of groups) {
-    const histogram = g.counts.map((c, i) => `slot${i}=${c}`).join(", ");
-    lines.push(`  ${g.numOptions}-option MC (n=${g.total}): [${histogram}] ${g.note} → ${g.status}`);
-  }
-
-  const detail = [`Distribution check (${groups.map((g) => `${g.numOptions}-opt`).join(", ")}):`, ...lines].join("\n");
-
-  return { name: "audit:positions", status, failures: [], detail };
+  return buildResult(positionsByOptionCount, true);
 }
 
-// Standalone entry point
-if (process.argv[1]?.includes("audit-positions")) {
-  const result = await runAuditPositions();
+export async function runAuditPositions(options: RunAuditPositionsOptions = {}): Promise<AuditResult> {
+  if (options.files === undefined) return runDefaultSweep();
+  if (options.files.length === 0) {
+    return {
+      name: "audit:positions",
+      status: "FAIL",
+      failures: [],
+      detail: "Explicit file selection is empty.",
+    };
+  }
+  return runSelectedFiles(options.files);
+}
+
+function parseCliArgs(argv: string[]): RunAuditPositionsOptions {
+  const files: string[] = [];
+  for (let index = 0; index < argv.length; index += 1) {
+    if (argv[index] !== "--file") throw new Error(`Unknown argument: ${argv[index]}`);
+    const value = argv[index + 1];
+    if (value === undefined) throw new Error("--file requires a path argument");
+    if (value.trim() === "") throw new Error("--file requires a non-empty path argument");
+    files.push(value);
+    index += 1;
+  }
+  return { files: files.length > 0 ? files : undefined };
+}
+
+async function runCli(): Promise<void> {
+  let options: RunAuditPositionsOptions;
+  try {
+    options = parseCliArgs(process.argv.slice(2));
+  } catch (error) {
+    console.error(error instanceof Error ? error.message : String(error));
+    process.exit(1);
+  }
+  const result = await runAuditPositions(options);
   console.log(`[${result.status}] ${result.name}`);
   console.log(result.detail);
-  if (result.status === "FAIL") process.exit(1);
+  process.exit(result.status === "FAIL" ? 1 : 0);
 }
+
+if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) await runCli();

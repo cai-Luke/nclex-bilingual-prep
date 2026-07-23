@@ -1,12 +1,46 @@
-import { PRODUCER_VOCABULARY_LEXICON, distinctItemKey, scanBundledBanks } from "../../lib/producer-vocabulary-leakage";
+import {
+  PRODUCER_VOCABULARY_LEXICON,
+  distinctItemKey,
+  scanBundledBanks,
+  scanSelectedBanks,
+} from "../../lib/producer-vocabulary-leakage";
 import type { AuditResult } from "./types";
 import { resolve } from "node:path";
 import { pathToFileURL } from "node:url";
 
 export { PRODUCER_VOCABULARY_LEXICON };
 
-export async function runAuditProducerVocabulary(): Promise<AuditResult> {
-  const scan = await scanBundledBanks();
+export type RunAuditProducerVocabularyOptions = {
+  /** Audit exactly these file paths instead of sweeping the default directory.
+   *  Fails loud: a missing, unreadable, unparseable, or schema-invalid selected
+   *  file is never silently skipped. */
+  files?: string[];
+};
+
+export async function runAuditProducerVocabulary(
+  options: RunAuditProducerVocabularyOptions = {},
+): Promise<AuditResult> {
+  if (options.files !== undefined && options.files.length === 0) {
+    return {
+      name: "audit:producer-vocabulary",
+      status: "FAIL",
+      failures: [],
+      detail: "Explicit file selection is empty.",
+    };
+  }
+  const explicit = options.files !== undefined;
+  let scan;
+  try {
+    scan = explicit ? await scanSelectedBanks(options.files!) : await scanBundledBanks();
+  } catch (error) {
+    if (!explicit) throw error;
+    return {
+      name: "audit:producer-vocabulary",
+      status: "FAIL",
+      failures: options.files!,
+      detail: `Explicitly selected file load failed: ${error instanceof Error ? error.message : String(error)}`,
+    };
+  }
   const high = scan.occurrences.filter((entry) => entry.confidence === "HIGH");
   const failures = [...new Set(high.map((entry) => entry.embeddedQuestionId ?? entry.topLevelId))].sort();
   if (high.length === 0) {
@@ -14,7 +48,9 @@ export async function runAuditProducerVocabulary(): Promise<AuditResult> {
       name: "audit:producer-vocabulary",
       status: "PASS",
       failures: [],
-      detail: `No HIGH-confidence producer vocabulary found across ${scan.canonicalItemsScanned} learner-facing canonical items.`,
+      detail: explicit
+        ? `No HIGH-confidence producer vocabulary found across ${scan.canonicalItemsScanned} learner-facing items in the explicitly selected files.`
+        : `No HIGH-confidence producer vocabulary found across ${scan.canonicalItemsScanned} learner-facing canonical items.`,
     };
   }
   const evidence = high.map((entry) =>
@@ -28,9 +64,33 @@ export async function runAuditProducerVocabulary(): Promise<AuditResult> {
   };
 }
 
-if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) {
-  const result = await runAuditProducerVocabulary();
+function parseCliArgs(argv: string[]): RunAuditProducerVocabularyOptions {
+  const files: string[] = [];
+  for (let index = 0; index < argv.length; index += 1) {
+    if (argv[index] !== "--file") throw new Error(`Unknown argument: ${argv[index]}`);
+    const value = argv[index + 1];
+    if (value === undefined) throw new Error("--file requires a path argument");
+    if (value.trim() === "") throw new Error("--file requires a non-empty path argument");
+    files.push(value);
+    index += 1;
+  }
+  return { files: files.length > 0 ? files : undefined };
+}
+
+async function runCli(): Promise<void> {
+  let options: RunAuditProducerVocabularyOptions;
+  try {
+    options = parseCliArgs(process.argv.slice(2));
+  } catch (error) {
+    console.error(error instanceof Error ? error.message : String(error));
+    process.exit(1);
+  }
+  const result = await runAuditProducerVocabulary(options);
   console.log(`[${result.status}] ${result.name}`);
   console.log(result.detail);
   process.exit(result.status === "FAIL" ? 1 : 0);
+}
+
+if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) {
+  await runCli();
 }

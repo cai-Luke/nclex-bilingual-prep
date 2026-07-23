@@ -17,7 +17,9 @@
  */
 
 import { readFile, readdir } from "node:fs/promises";
-import { join } from "node:path";
+import { join, resolve } from "node:path";
+import { pathToFileURL } from "node:url";
+import { dedupeSelectedFilePaths } from "../../lib/selected-file-paths";
 import { parseBankText } from "../../src/bankImport";
 import { validateBankObject } from "../../src/schema";
 import type { AuditResult } from "./types";
@@ -166,6 +168,8 @@ export type ItemFailure = {
   hazards: string[];     // "field (en|zh)"
 };
 
+type ScopedItemFailure = ItemFailure & { file?: string };
+
 export function checkQuestionReferences(q: Question): ItemFailure | null {
   const live = correctSet(q);
   const staleKeys: string[] = [];
@@ -210,36 +214,23 @@ export function checkQuestionReferences(q: Question): ItemFailure | null {
 // Public runner
 // ---------------------------------------------------------------------------
 
-export async function runAuditReferences(): Promise<AuditResult> {
-  const files = (await readdir(PROMOTED_DIR)).filter((f) => f.endsWith(".json")).sort();
+export type RunAuditReferencesOptions = {
+  /** Audit exactly these file paths instead of sweeping the default directory.
+   *  Fails loud: a missing, unreadable, unparseable, or schema-invalid selected
+   *  file is never silently skipped. */
+  files?: string[];
+};
 
-  const itemFailures: ItemFailure[] = [];
-
-  for (const filename of files) {
-    try {
-      const text = await readFile(join(PROMOTED_DIR, filename), "utf8");
-      const raw = parseBankText(text);
-      const result = validateBankObject(raw, { rejectUnknownKeys: true });
-      if (!result.ok) continue; // structural failures handled by Tier 0
-
-      for (const q of result.value.questions) {
-        const f = checkQuestionReferences(q);
-        if (f) itemFailures.push(f);
-      }
-    } catch {
-      // Unreadable files are caught by Tier 0; skip here
-    }
-  }
-
-  const staleCount = itemFailures.filter((f) => f.staleKeys.length > 0).length;
-  const hazardCount = itemFailures.filter((f) => f.hazards.length > 0).length;
-  const failures = itemFailures.map((f) => f.id);
+function buildResult(itemFailures: ScopedItemFailure[], explicit: boolean): AuditResult {
+  const staleCount = itemFailures.filter((failure) => failure.staleKeys.length > 0).length;
+  const hazardCount = itemFailures.filter((failure) => failure.hazards.length > 0).length;
+  const failures = itemFailures.map((failure) => failure.id);
 
   const lines: string[] = [];
-  for (const f of itemFailures) {
-    lines.push(`${f.id}:`);
-    for (const s of f.staleKeys) lines.push(`  [stale-key] ${s}`);
-    for (const h of f.hazards) lines.push(`  [hazard]    ${h}`);
+  for (const failure of itemFailures) {
+    lines.push(explicit ? `${failure.file}: ${failure.id}:` : `${failure.id}:`);
+    for (const stale of failure.staleKeys) lines.push(`  [stale-key] ${stale}`);
+    for (const hazard of failure.hazards) lines.push(`  [hazard]    ${hazard}`);
   }
 
   const detail =
@@ -258,10 +249,104 @@ export async function runAuditReferences(): Promise<AuditResult> {
   };
 }
 
-// Standalone entry point
-if (process.argv[1]?.includes("audit-references")) {
-  const result = await runAuditReferences();
+async function runDefaultSweep(): Promise<AuditResult> {
+  const files = (await readdir(PROMOTED_DIR)).filter((f) => f.endsWith(".json")).sort();
+
+  const itemFailures: ScopedItemFailure[] = [];
+
+  for (const filename of files) {
+    try {
+      const text = await readFile(join(PROMOTED_DIR, filename), "utf8");
+      const raw = parseBankText(text);
+      const result = validateBankObject(raw, { rejectUnknownKeys: true });
+      if (!result.ok) continue; // structural failures handled by Tier 0
+
+      for (const q of result.value.questions) {
+        const f = checkQuestionReferences(q);
+        if (f) itemFailures.push(f);
+      }
+    } catch {
+      // Unreadable files are caught by Tier 0; skip here
+    }
+  }
+
+  return buildResult(itemFailures, false);
+}
+
+async function runSelectedFiles(files: string[]): Promise<AuditResult> {
+  const selected = dedupeSelectedFilePaths(files);
+  const itemFailures: ScopedItemFailure[] = [];
+  const loadFailures: string[] = [];
+
+  for (const { resolvedPath, displayPath } of selected) {
+    try {
+      const raw = parseBankText(await readFile(resolvedPath, "utf8"));
+      const result = validateBankObject(raw, { rejectUnknownKeys: true });
+      if (!result.ok) {
+        loadFailures.push(`${displayPath}: schema validation failed — ${result.reasons.join("; ")}`);
+        continue;
+      }
+      for (const question of result.value.questions) {
+        const failure = checkQuestionReferences(question);
+        if (failure) itemFailures.push({ ...failure, file: displayPath });
+      }
+    } catch (error) {
+      loadFailures.push(`${displayPath}: ${error instanceof Error ? error.message : String(error)}`);
+    }
+  }
+
+  if (loadFailures.length > 0) {
+    return {
+      name: "audit:references",
+      status: "FAIL",
+      failures: selected.map(({ displayPath }) => displayPath),
+      detail: [
+        `${loadFailures.length} explicitly selected file(s) could not be loaded or failed schema validation.`,
+        ...loadFailures,
+      ].join("\n"),
+    };
+  }
+  return buildResult(itemFailures, true);
+}
+
+export async function runAuditReferences(options: RunAuditReferencesOptions = {}): Promise<AuditResult> {
+  if (options.files === undefined) return runDefaultSweep();
+  if (options.files.length === 0) {
+    return {
+      name: "audit:references",
+      status: "FAIL",
+      failures: [],
+      detail: "Explicit file selection is empty.",
+    };
+  }
+  return runSelectedFiles(options.files);
+}
+
+function parseCliArgs(argv: string[]): RunAuditReferencesOptions {
+  const files: string[] = [];
+  for (let index = 0; index < argv.length; index += 1) {
+    if (argv[index] !== "--file") throw new Error(`Unknown argument: ${argv[index]}`);
+    const value = argv[index + 1];
+    if (value === undefined) throw new Error("--file requires a path argument");
+    if (value.trim() === "") throw new Error("--file requires a non-empty path argument");
+    files.push(value);
+    index += 1;
+  }
+  return { files: files.length > 0 ? files : undefined };
+}
+
+async function runCli(): Promise<void> {
+  let options: RunAuditReferencesOptions;
+  try {
+    options = parseCliArgs(process.argv.slice(2));
+  } catch (error) {
+    console.error(error instanceof Error ? error.message : String(error));
+    process.exit(1);
+  }
+  const result = await runAuditReferences(options);
   console.log(`[${result.status}] ${result.name}`);
   console.log(result.detail);
-  if (result.status === "FAIL") process.exit(1);
+  process.exit(result.status === "FAIL" ? 1 : 0);
 }
+
+if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) await runCli();
