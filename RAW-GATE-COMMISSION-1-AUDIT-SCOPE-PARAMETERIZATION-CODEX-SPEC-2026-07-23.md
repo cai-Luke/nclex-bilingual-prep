@@ -479,6 +479,12 @@ Add, for every standalone CLI in this commission:
 > A returned `AuditResult` with `status: "FAIL"` exits 1. `PASS`, `WARN`, and
 > `INSUFFICIENT` exit 0.
 
+Wrappers implement failure status by assigning `process.exitCode = 1` and then returning
+from a parse-error branch or falling through naturally after result output. They must not
+call `process.exit()` after writing output, because forced termination can truncate
+asynchronous stdout or stderr. Successful execution must not explicitly assign exit code
+0; it falls through naturally.
+
 This does not alter any existing no-argument exit behavior; it defines the new
 explicit-file failure path. It matters most for `audit-topic-license.ts`, whose advisory
 CLI never encounters `FAIL` today and currently sets no failure exit code at all — without

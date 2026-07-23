@@ -122,7 +122,8 @@ async function runCli(): Promise<void> {
     options = parseCliArgs(process.argv.slice(2));
   } catch (error) {
     console.error(error instanceof Error ? error.message : String(error));
-    process.exit(1);
+    process.exitCode = 1;
+    return;
   }
   const result = await runValidateBank(options);
   console.log(`[${result.status}] ${result.name}`);
@@ -131,7 +132,7 @@ async function runCli(): Promise<void> {
   } else {
     console.log(result.detail);
   }
-  process.exit(result.status === "FAIL" ? 1 : 0);
+  if (result.status === "FAIL") process.exitCode = 1;
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) await runCli();

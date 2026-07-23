@@ -28,6 +28,13 @@ const wrappers = [
 
 try {
   for (const wrapper of wrappers) {
+    const source = await readFile(wrapper.script, "utf8");
+    assert.doesNotMatch(
+      source,
+      /\bprocess\.exit\s*\(/,
+      `${wrapper.name}: wrapper must terminate naturally without process.exit()`,
+    );
+
     let child = run(wrapper.script, [wrapper.flag, fixture.malformed]);
     assert.equal(child.status, 1, `${wrapper.name}: malformed selected file must exit 1\n${child.stdout}\n${child.stderr}`);
 

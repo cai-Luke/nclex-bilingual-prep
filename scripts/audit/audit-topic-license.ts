@@ -330,7 +330,8 @@ const runCli = async (): Promise<void> => {
     options = parseCliArgs(process.argv.slice(2));
   } catch (error) {
     console.error(error instanceof Error ? error.message : String(error));
-    process.exit(1);
+    process.exitCode = 1;
+    return;
   }
 
   if (options.outputPath !== undefined) {
@@ -359,7 +360,7 @@ const runCli = async (): Promise<void> => {
   console.log(`[${result.status}] ${result.name}`);
   console.log(result.detail);
   if (result.failures.length > 0) console.log(`Related IDs: ${result.failures.join(", ")}`);
-  process.exit(result.status === "FAIL" ? 1 : 0);
+  if (result.status === "FAIL") process.exitCode = 1;
 };
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) await runCli();
