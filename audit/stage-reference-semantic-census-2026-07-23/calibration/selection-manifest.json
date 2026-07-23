@@ -1,0 +1,263 @@
+{
+  "selectionVersion": "1.1",
+  "selectionOwner": "architect/checker",
+  "bankSnapshotSha256": "0a3483f65f8672d85212c91e91bbdf5672731d832e19964d19e316d253a6c307",
+  "selectedTargets": [
+    {
+      "queueIndex": 6,
+      "packetId": "packet-002",
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus_vanco_case_01",
+      "partId": "opus_vanco_case_01_q1_infusion_reaction",
+      "selectionReason": "Early infusion-reaction action item paired with subsequent treatment, restart, and renal-toxicity stages; tests whether retrospective management details materially affect the initial bedside decision."
+    },
+    {
+      "queueIndex": 7,
+      "packetId": "packet-002",
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus_vanco_case_01",
+      "partId": "opus_vanco_case_01_q2_documentation_cloze",
+      "selectionReason": "Documentation cloze compared with the authored infusion-reaction note and notification record; samples direct overlap between a keyed charting response and staged documentation."
+    },
+    {
+      "queueIndex": 10,
+      "packetId": "packet-002",
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus_vanco_case_01",
+      "partId": "opus_vanco_case_01_q5_aki_cue_matrix",
+      "selectionReason": "Late AKI cue matrix using creatinine, urine output, and auditory findings; samples structured renal-toxicity evidence introduced after the infusion event."
+    },
+    {
+      "queueIndex": 11,
+      "packetId": "packet-002",
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus_vanco_case_01",
+      "partId": "opus_vanco_case_01_q6_lisinopril_aki",
+      "selectionReason": "Closing lisinopril decision during evolving AKI; tests whether serial renal findings are required evidence rather than merely adjacent chart data."
+    },
+    {
+      "queueIndex": 41,
+      "packetId": "packet-008",
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus26_case_refeeding_syndrome_01",
+      "partId": "opus26_case_refeeding_syndrome_01_q1",
+      "selectionReason": "Opening refeeding-risk cue selection contrasted with later electrolyte collapse, intervention, and recovery; tests an early inference against a complete serial record."
+    },
+    {
+      "queueIndex": 43,
+      "packetId": "packet-008",
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus26_case_refeeding_syndrome_01",
+      "partId": "opus26_case_refeeding_syndrome_01_q3",
+      "selectionReason": "Priority-response item at the severe hypophosphatemia stage, followed by documented protocol changes and response; samples action disclosure across adjacent stages."
+    },
+    {
+      "queueIndex": 46,
+      "packetId": "packet-008",
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus26_case_refeeding_syndrome_01",
+      "partId": "opus26_case_refeeding_syndrome_01_q6",
+      "selectionReason": "Closing integration item spanning electrolyte trends, clinical response, and feeding progression; tests complete-record reasoning over multiple authored stages."
+    },
+    {
+      "queueIndex": 47,
+      "packetId": "packet-009",
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus27_case_ipv_prenatal_care_01",
+      "partId": "opus27_case_ipv_prenatal_care_01_q1",
+      "selectionReason": "Initial prenatal privacy and screening response paired with later disclosure and safety planning; tests whether subsequent social-history facts alter the first interaction decision."
+    },
+    {
+      "queueIndex": 48,
+      "packetId": "packet-009",
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus27_case_ipv_prenatal_care_01",
+      "partId": "opus27_case_ipv_prenatal_care_01_q2",
+      "selectionReason": "Therapeutic-communication cloze compared with the client's later disclosures and safety discussion; samples strong cueing without relying on repeated answer wording."
+    },
+    {
+      "queueIndex": 51,
+      "packetId": "packet-009",
+      "bankPath": "banks/claude-canonical.json",
+      "parentCaseId": "opus27_case_ipv_prenatal_care_01",
+      "partId": "opus27_case_ipv_prenatal_care_01_q5",
+      "selectionReason": "Safety-plan action item using the disclosed exit risk and planning stage; tests a late case decision that may legitimately depend on accumulated context."
+    },
+    {
+      "queueIndex": 59,
+      "packetId": "packet-011",
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "opus_agvd_case_agvhd_01",
+      "partId": "opus_agvd_case_agvhd_01_q1",
+      "selectionReason": "Opening symptom-pattern item in a serial graft-versus-host case, paired with later diagnostic and treatment information; tests early diagnostic inference under full-stage visibility."
+    },
+    {
+      "queueIndex": 62,
+      "packetId": "packet-011",
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "opus_agvd_case_agvhd_01",
+      "partId": "opus_agvd_case_agvhd_01_q4",
+      "selectionReason": "Middle priority item during clinical evolution, with later therapy and outcome evidence visible; samples whether post-decision information collapses prioritization."
+    },
+    {
+      "queueIndex": 64,
+      "packetId": "packet-011",
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "opus_agvd_case_agvhd_01",
+      "partId": "opus_agvd_case_agvhd_01_q6",
+      "selectionReason": "Closing classification item integrating rash, gastrointestinal, hepatic, and response findings; tests intended full-progression use in a multi-system case."
+    },
+    {
+      "queueIndex": 81,
+      "packetId": "packet-014",
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "gemini_gap_case_disaster_triage_05",
+      "partId": "gemini_gap_case_disaster_triage_05_q1",
+      "selectionReason": "Initial START-algorithm decision in a one-stage case whose update only announces responder arrival and applied tags; tests exposed but potentially nonanswering future context."
+    },
+    {
+      "queueIndex": 84,
+      "packetId": "packet-014",
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "gemini_gap_case_disaster_triage_05",
+      "partId": "gemini_gap_case_disaster_triage_05_q4",
+      "selectionReason": "General disaster-triage principles item paired with the responder-arrival update; samples complete-record versus topic-adjacent stage information in a one-stage case."
+    },
+    {
+      "queueIndex": 85,
+      "packetId": "packet-014",
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "gemini_gap_case_pyloric_stenosis_01",
+      "partId": "gemini_gap_case_pyloric_stenosis_01_q1",
+      "selectionReason": "Opening pyloric-stenosis and dehydration cue selection contrasted with later electrolyte and postoperative stages; tests whether confirmatory progression affects initial recognition."
+    },
+    {
+      "queueIndex": 86,
+      "packetId": "packet-014",
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "gemini_gap_case_pyloric_stenosis_01",
+      "partId": "gemini_gap_case_pyloric_stenosis_01_q2",
+      "selectionReason": "Acid-base and electrolyte matrix aligned to the structured laboratory stage, with postoperative information also visible; samples necessary versus unrelated staged data."
+    },
+    {
+      "queueIndex": 88,
+      "packetId": "packet-014",
+      "bankPath": "banks/gemini-canonical.json",
+      "parentCaseId": "gemini_gap_case_pyloric_stenosis_01",
+      "partId": "gemini_gap_case_pyloric_stenosis_01_q4",
+      "selectionReason": "Postoperative feeding decision explicitly situated after pyloromyotomy and feeding orders; tests a response demand tied to the final authored stage."
+    },
+    {
+      "queueIndex": 105,
+      "packetId": "packet-017",
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_premium_2026_06_10_case01_preventive_screening",
+      "partId": "gpt_case_premium_2026_06_10_case01_matrix_screening_01",
+      "selectionReason": "Initial preventive-screening matrix based on age and overdue history, contrasted with a later positive FIT and access barriers; tests nonanswering future-result exposure."
+    },
+    {
+      "queueIndex": 107,
+      "packetId": "packet-017",
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_premium_2026_06_10_case01_preventive_screening",
+      "partId": "gpt_case_premium_2026_06_10_case01_mc_positive_fit_03",
+      "selectionReason": "Instruction item explicitly triggered by the positive FIT in the sole follow-up stage; tests a stage-dependent diagnostic-follow-up decision."
+    },
+    {
+      "queueIndex": 109,
+      "packetId": "packet-017",
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_premium_2026_06_10_case01_preventive_screening",
+      "partId": "gpt_case_premium_2026_06_10_case01_or_screening_plan_05",
+      "selectionReason": "Closing ordered counseling workflow combining barrier assessment, teaching, verification, scheduling, and documentation; samples complete-plan reasoning across initial and follow-up context."
+    },
+    {
+      "queueIndex": 258,
+      "packetId": "packet-046",
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_taco_vs_trali_01",
+      "partId": "gpt_case_taco_vs_trali_01_q1",
+      "selectionReason": "Early transfusion-reaction cue-highlighting item contrasted with later differentiating hemodynamic, treatment, and response evidence; tests initial syndrome recognition."
+    },
+    {
+      "queueIndex": 259,
+      "packetId": "packet-046",
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_taco_vs_trali_01",
+      "partId": "gpt_case_taco_vs_trali_01_q2",
+      "selectionReason": "TACO-versus-TRALI classification item with later comparator and intervention-response data visible; samples diagnosis disclosure through serial clinical evidence."
+    },
+    {
+      "queueIndex": 263,
+      "packetId": "packet-046",
+      "bankPath": "banks/gpt-canonical.json",
+      "parentCaseId": "gpt_case_taco_vs_trali_01",
+      "partId": "gpt_case_taco_vs_trali_01_q6",
+      "selectionReason": "Closing management and evaluation item using the complete transfusion-reaction course; tests whether accumulated response evidence is intentionally required."
+    },
+    {
+      "queueIndex": 369,
+      "packetId": "packet-063",
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "cs_thyroid_storm_main",
+      "partId": "cs_thyroid_storm_q1",
+      "selectionReason": "Opening thyroid-storm cue matrix contrasted with later treatment and adverse-effect information, including the case's visual or trend surface; tests early pattern recognition."
+    },
+    {
+      "queueIndex": 372,
+      "packetId": "packet-063",
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "cs_thyroid_storm_main",
+      "partId": "cs_thyroid_storm_q4",
+      "selectionReason": "Later PTU-safety decision explicitly scoped to the 1200 record; samples a response demand that should be evaluated against its named stage."
+    },
+    {
+      "queueIndex": 413,
+      "packetId": "packet-070",
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus2_case_postop_opioid_respiratory_depression_01",
+      "partId": "opus2_case_postop_opioid_respiratory_depression_01_q3",
+      "selectionReason": "Middle postoperative opioid-depression action item followed by documented reversal and subsequent status; tests whether outcome evidence confirms the immediate intervention."
+    },
+    {
+      "queueIndex": 416,
+      "packetId": "packet-070",
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus2_case_postop_opioid_respiratory_depression_01",
+      "partId": "opus2_case_postop_opioid_respiratory_depression_01_q6",
+      "selectionReason": "Closing monitoring item after naloxone response and ongoing risk; tests complete-course evaluation of recurrence and observation needs."
+    },
+    {
+      "queueIndex": 429,
+      "packetId": "packet-073",
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus5_case_consent_interpreter_01",
+      "partId": "opus5_case_consent_interpreter_01_q1",
+      "selectionReason": "Opening consent-validity decision before qualified interpretation, contrasted with later procedure hold and renewed consent; tests retrospective confirmation of an ethical action."
+    },
+    {
+      "queueIndex": 433,
+      "packetId": "packet-073",
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "opus5_case_consent_interpreter_01",
+      "partId": "opus5_case_consent_interpreter_01_q5",
+      "selectionReason": "Final consent documentation item after interpreter-supported re-consent; samples a response demand tied to the completed legal and communication sequence."
+    },
+    {
+      "queueIndex": 446,
+      "packetId": "packet-076",
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "gpt_case_aki_2026_06_16_case_prerenal_aki_hyperkalemia_01",
+      "partId": "gpt_case_aki_2026_06_16_case_prerenal_aki_hyperkalemia_01_q1",
+      "selectionReason": "Opening prerenal-AKI and hyperkalemia cue classification contrasted with later treatment and serial laboratory trends; tests early inference under full progression."
+    },
+    {
+      "queueIndex": 451,
+      "packetId": "packet-076",
+      "bankPath": "banks/hard-cases-canonical.json",
+      "parentCaseId": "gpt_case_aki_2026_06_16_case_prerenal_aki_hyperkalemia_01",
+      "partId": "gpt_case_aki_2026_06_16_case_prerenal_aki_hyperkalemia_01_q6",
+      "selectionReason": "Closing response-and-risk matrix integrating renal function, potassium, urine output, and treatment course; tests intended use of the complete staged record."
+    }
+  ]
+}

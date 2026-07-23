@@ -52,6 +52,20 @@ The committed NGN item-type set is complete. Rationale/dyad scoring and an expli
 
 > Milestones dated **2026-06-23 and earlier** are archived in [`Archive/PROJECT-HISTORY-ARCHIVE.md`](Archive/PROJECT-HISTORY-ARCHIVE.md). Only the current arc (2026-06-24 onward) is kept here.
 
+### Stage-Reference Semantic Census Preparation (Jul 23)
+
+Prepared the deterministic Stage A population and blind-calibration dispatch surface for the
+stage-reference semantic census. The current live corpus rederived 451 `revealsAllStages` targets
+across 93 parent cases and packed them, without splitting cases, into 76 full-run packets. The
+architect-selected 32-target calibration set spans 12 parent cases and materializes into nine
+Gemini-facing shards; selection reasons and the checker-owned hidden verdict key remain outside
+those shards.
+
+Task-local builders, validators, manifests, packets, calibration shards, hash attestations, and the
+delivery record live under `audit/stage-reference-semantic-census-2026-07-23/`. The hidden
+calibration key remains local and ignored because the repository is public. No runtime, bank,
+schema, grading, ledger, census, or learner-facing behavior changed.
+
 ### Terminal-Sentence Remediation (Jul 22)
 
 Completed the owner-authorized 35-row remediation across the Claude, Gemini, GPT, and hard-case
