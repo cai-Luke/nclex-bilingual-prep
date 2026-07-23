@@ -1,0 +1,1275 @@
+{
+  "generatedAt": "2026-07-23T21:54:58.372Z",
+  "inputGitSha": "1dbd3779bc42417ce9a6c48433c4c8625201dd9d",
+  "measurementRootKind": "throwaway_git_worktree",
+  "generatorGitSha": "d6e6e97a2ce30e472685baec17e875508a1a9977",
+  "generatorSha256": "4dc5798941efeeae3646246baf948fde3f9e19e469bdaf21d23027d840e26498",
+  "inputs": [
+    {
+      "path": "package.json",
+      "sha256": "17fa8d0fa3659129ee9c149d1247ce7d7c1396c7e8c797662392479992a16a66"
+    },
+    {
+      "path": ".github/workflows/promotion-gate.yml",
+      "sha256": "65a5b63f9e95f34eb9834739f39c1b9b6c246f9661bca6dc95fe339b45ef77dc"
+    },
+    {
+      "path": ".github/workflows/pages.yml",
+      "sha256": "cf4013d675814c4e03963be854f30f49e2cfd6c2a53f2efa491f1b330c965364"
+    }
+  ],
+  "npmScripts": [
+    {
+      "name": "dev",
+      "body": "vite --host 0.0.0.0",
+      "childScripts": [],
+      "entrypoints": [],
+      "rawCommands": [
+        "vite --host 0.0.0.0"
+      ]
+    },
+    {
+      "name": "build",
+      "body": "tsc -b && vite build && tsx scripts/make-file-build.ts && npm run validate:build-info",
+      "childScripts": [
+        "validate:build-info"
+      ],
+      "entrypoints": [
+        "scripts/make-file-build.ts"
+      ],
+      "rawCommands": [
+        "tsc -b",
+        "vite build"
+      ]
+    },
+    {
+      "name": "preview",
+      "body": "vite preview --host 0.0.0.0",
+      "childScripts": [],
+      "entrypoints": [],
+      "rawCommands": [
+        "vite preview --host 0.0.0.0"
+      ]
+    },
+    {
+      "name": "coverage-report",
+      "body": "tsx scripts/coverage-report.ts",
+      "childScripts": [],
+      "entrypoints": [
+        "scripts/coverage-report.ts"
+      ],
+      "rawCommands": []
+    },
+    {
+      "name": "flowsheet-gate",
+      "body": "tsx scripts/exhibit-flowsheet-gate.ts",
+      "childScripts": [],
+      "entrypoints": [
+        "scripts/exhibit-flowsheet-gate.ts"
+      ],
+      "rawCommands": []
+    },
+    {
+      "name": "structured-measurements:apply",
+      "body": "tsx scripts/apply-structured-measurements.ts",
+      "childScripts": [],
+      "entrypoints": [
+        "scripts/apply-structured-measurements.ts"
+      ],
+      "rawCommands": []
+    },
+    {
+      "name": "flowsheet-blind-score",
+      "body": "tsx scripts/exhibit-flowsheet-blind-score.ts",
+      "childScripts": [],
+      "entrypoints": [
+        "scripts/exhibit-flowsheet-blind-score.ts"
+      ],
+      "rawCommands": []
+    },
+    {
+      "name": "flowsheet-manifest",
+      "body": "tsx scripts/exhibit-flowsheet-manifest.ts",
+      "childScripts": [],
+      "entrypoints": [
+        "scripts/exhibit-flowsheet-manifest.ts"
+      ],
+      "rawCommands": []
+    },
+    {
+      "name": "test:coverage-report",
+      "body": "tsx scripts/tests/coverage-report.ts",
+      "childScripts": [],
+      "entrypoints": [
+        "scripts/tests/coverage-report.ts"
+      ],
+      "rawCommands": []
+    },
+    {
+      "name": "test:exam-layout",
+      "body": "tsx scripts/tests/exam-layout.ts",
+      "childScripts": [],
+      "entrypoints": [
+        "scripts/tests/exam-layout.ts"
+      ],
+      "rawCommands": []
+    },
+    {
+      "name": "test:flowsheet-gate",
+      "body": "tsx scripts/tests/exhibit-flowsheet-gate.ts",
+      "childScripts": [],
+      "entrypoints": [
+        "scripts/tests/exhibit-flowsheet-gate.ts"
+      ],
+      "rawCommands": []
+    },
+    {
+      "name": "test:measurement-allowlist",
+      "body": "tsx scripts/tests/measurement-allowlist.ts",
+      "childScripts": [],
+      "entrypoints": [
+        "scripts/tests/measurement-allowlist.ts"
+      ],
+      "rawCommands": []
+    },
+    {
+      "name": "test:lab-reference-ranges",
+      "body": "tsx scripts/tests/lab-trend-reference-bands.ts",
+      "childScripts": [],
+      "entrypoints": [
+        "scripts/tests/lab-trend-reference-bands.ts"
+      ],
+      "rawCommands": []
+    },
+    {
+      "name": "test:lab-trend",
+      "body": "tsx scripts/tests/lab-trend.ts",
+      "childScripts": [],
+      "entrypoints": [
+        "scripts/tests/lab-trend.ts"
+      ],
+      "rawCommands": []
+    },
+    {
+      "name": "test:structured-measurements",
+      "body": "tsx scripts/tests/structured-measurements.ts",
+      "childScripts": [],
+      "entrypoints": [
+        "scripts/tests/structured-measurements.ts"
+      ],
+      "rawCommands": []
+    },
+    {
+      "name": "test:structured-measurements-applicator",
+      "body": "tsx scripts/tests/structured-measurements-applicator.ts",
+      "childScripts": [],
+      "entrypoints": [
+        "scripts/tests/structured-measurements-applicator.ts"
+      ],
+      "rawCommands": []
+    },
+    {
+      "name": "test:session-navigation",
+      "body": "tsx scripts/tests/session-navigation.ts",
+      "childScripts": [],
+      "entrypoints": [
+        "scripts/tests/session-navigation.ts"
+      ],
+      "rawCommands": []
+    },
+    {
+      "name": "test:app-update",
+      "body": "tsx scripts/tests/app-update.ts",
+      "childScripts": [],
+      "entrypoints": [
+        "scripts/tests/app-update.ts"
+      ],
+      "rawCommands": []
+    },
+    {
+      "name": "test:grading",
+      "body": "tsx scripts/tests/grading.ts",
+      "childScripts": [],
+      "entrypoints": [
+        "scripts/tests/grading.ts"
+      ],
+      "rawCommands": []
+    },
+    {
+      "name": "test:review-prompt",
+      "body": "tsx scripts/tests/review-prompt.ts",
+      "childScripts": [],
+      "entrypoints": [
+        "scripts/tests/review-prompt.ts"
+      ],
+      "rawCommands": []
+    },
+    {
+      "name": "test:translation-telemetry",
+      "body": "tsx scripts/tests/translation-telemetry.ts",
+      "childScripts": [],
+      "entrypoints": [
+        "scripts/tests/translation-telemetry.ts"
+      ],
+      "rawCommands": []
+    },
+    {
+      "name": "test:storage-category-migration",
+      "body": "tsx scripts/tests/storage-category-migration.ts",
+      "childScripts": [],
+      "entrypoints": [
+        "scripts/tests/storage-category-migration.ts"
+      ],
+      "rawCommands": []
+    },
+    {
+      "name": "test:highlight",
+      "body": "tsx scripts/tests/highlight.ts",
+      "childScripts": [],
+      "entrypoints": [
+        "scripts/tests/highlight.ts"
+      ],
+      "rawCommands": []
+    },
+    {
+      "name": "test:bowtie",
+      "body": "tsx scripts/tests/bowtie.ts",
+      "childScripts": [],
+      "entrypoints": [
+        "scripts/tests/bowtie.ts"
+      ],
+      "rawCommands": []
+    },
+    {
+      "name": "test:shuffle",
+      "body": "tsx scripts/tests/shuffle.ts",
+      "childScripts": [],
+      "entrypoints": [
+        "scripts/tests/shuffle.ts"
+      ],
+      "rawCommands": []
+    },
+    {
+      "name": "test:case-completeness",
+      "body": "tsx scripts/tests/case-completeness.ts",
+      "childScripts": [],
+      "entrypoints": [
+        "scripts/tests/case-completeness.ts"
+      ],
+      "rawCommands": []
+    },
+    {
+      "name": "test:audit-integrity",
+      "body": "tsx scripts/tests/audit-integrity.ts",
+      "childScripts": [],
+      "entrypoints": [
+        "scripts/tests/audit-integrity.ts"
+      ],
+      "rawCommands": []
+    },
+    {
+      "name": "test:consolidate",
+      "body": "tsx scripts/tests/consolidate.ts",
+      "childScripts": [],
+      "entrypoints": [
+        "scripts/tests/consolidate.ts"
+      ],
+      "rawCommands": []
+    },
+    {
+      "name": "test:promote",
+      "body": "tsx scripts/tests/promote.ts",
+      "childScripts": [],
+      "entrypoints": [
+        "scripts/tests/promote.ts"
+      ],
+      "rawCommands": []
+    },
+    {
+      "name": "test:raw-gate",
+      "body": "tsx scripts/tests/raw-gate.ts",
+      "childScripts": [],
+      "entrypoints": [
+        "scripts/tests/raw-gate.ts"
+      ],
+      "rawCommands": []
+    },
+    {
+      "name": "test:audit-validate-bank",
+      "body": "tsx scripts/tests/audit-validate-bank.ts",
+      "childScripts": [],
+      "entrypoints": [
+        "scripts/tests/audit-validate-bank.ts"
+      ],
+      "rawCommands": []
+    },
+    {
+      "name": "test:audit-references",
+      "body": "tsx scripts/tests/audit-references.ts",
+      "childScripts": [],
+      "entrypoints": [
+        "scripts/tests/audit-references.ts"
+      ],
+      "rawCommands": []
+    },
+    {
+      "name": "test:audit-positions",
+      "body": "tsx scripts/tests/audit-positions.ts",
+      "childScripts": [],
+      "entrypoints": [
+        "scripts/tests/audit-positions.ts"
+      ],
+      "rawCommands": []
+    },
+    {
+      "name": "test:audit-ids",
+      "body": "tsx scripts/tests/audit-ids.ts",
+      "childScripts": [],
+      "entrypoints": [
+        "scripts/tests/audit-ids.ts"
+      ],
+      "rawCommands": []
+    },
+    {
+      "name": "test:audit-stage-refs",
+      "body": "tsx scripts/tests/audit-stage-refs.ts",
+      "childScripts": [],
+      "entrypoints": [
+        "scripts/tests/audit-stage-refs.ts"
+      ],
+      "rawCommands": []
+    },
+    {
+      "name": "test:audit-scope-cli",
+      "body": "tsx scripts/tests/audit-scope-cli.ts",
+      "childScripts": [],
+      "entrypoints": [
+        "scripts/tests/audit-scope-cli.ts"
+      ],
+      "rawCommands": []
+    },
+    {
+      "name": "audit:topic-license",
+      "body": "tsx scripts/audit/audit-topic-license.ts",
+      "childScripts": [],
+      "entrypoints": [
+        "scripts/audit/audit-topic-license.ts"
+      ],
+      "rawCommands": []
+    },
+    {
+      "name": "test:topic-license",
+      "body": "tsx scripts/tests/audit-topic-license.ts",
+      "childScripts": [],
+      "entrypoints": [
+        "scripts/tests/audit-topic-license.ts"
+      ],
+      "rawCommands": []
+    },
+    {
+      "name": "test:producer-vocabulary-leakage",
+      "body": "tsx scripts/tests/producer-vocabulary-leakage.ts",
+      "childScripts": [],
+      "entrypoints": [
+        "scripts/tests/producer-vocabulary-leakage.ts"
+      ],
+      "rawCommands": []
+    },
+    {
+      "name": "test:authorial-constraint-leakage",
+      "body": "tsx scripts/tests/authorial-constraint-leakage.ts",
+      "childScripts": [],
+      "entrypoints": [
+        "scripts/tests/authorial-constraint-leakage.ts"
+      ],
+      "rawCommands": []
+    },
+    {
+      "name": "test:iv-fluid-taxonomy",
+      "body": "tsx scripts/tests/iv-fluid-taxonomy.ts",
+      "childScripts": [],
+      "entrypoints": [
+        "scripts/tests/iv-fluid-taxonomy.ts"
+      ],
+      "rawCommands": []
+    },
+    {
+      "name": "test:topic-vocabulary",
+      "body": "tsx scripts/tests/topic-vocabulary.ts",
+      "childScripts": [],
+      "entrypoints": [
+        "scripts/tests/topic-vocabulary.ts"
+      ],
+      "rawCommands": []
+    },
+    {
+      "name": "test:topic-migration-guards",
+      "body": "tsx scripts/tests/topic-migration-guards.ts",
+      "childScripts": [],
+      "entrypoints": [
+        "scripts/tests/topic-migration-guards.ts"
+      ],
+      "rawCommands": []
+    },
+    {
+      "name": "test:topic-residual-proposals",
+      "body": "tsx scripts/tests/topic-residual-proposals.ts",
+      "childScripts": [],
+      "entrypoints": [
+        "scripts/tests/topic-residual-proposals.ts"
+      ],
+      "rawCommands": []
+    },
+    {
+      "name": "audit:topic-population",
+      "body": "tsx scripts/audit-topic-population.ts",
+      "childScripts": [],
+      "entrypoints": [
+        "scripts/audit-topic-population.ts"
+      ],
+      "rawCommands": []
+    },
+    {
+      "name": "test:topic-population",
+      "body": "tsx scripts/tests/audit-topic-population.ts",
+      "childScripts": [],
+      "entrypoints": [
+        "scripts/tests/audit-topic-population.ts"
+      ],
+      "rawCommands": []
+    },
+    {
+      "name": "test:residual-rerun",
+      "body": "tsx scripts/tests/residual-rerun.ts",
+      "childScripts": [],
+      "entrypoints": [
+        "scripts/tests/residual-rerun.ts"
+      ],
+      "rawCommands": []
+    },
+    {
+      "name": "export-topic-vocab",
+      "body": "tsx scripts/export-topic-vocab.ts",
+      "childScripts": [],
+      "entrypoints": [
+        "scripts/export-topic-vocab.ts"
+      ],
+      "rawCommands": []
+    },
+    {
+      "name": "topic-vocabulary:dry-run",
+      "body": "tsx scripts/cleanup-topic-metadata.ts --dry-run",
+      "childScripts": [],
+      "entrypoints": [
+        "scripts/cleanup-topic-metadata.ts"
+      ],
+      "rawCommands": []
+    },
+    {
+      "name": "gemini-52:dry-run",
+      "body": "tsx scripts/gemini-52-write.ts",
+      "childScripts": [],
+      "entrypoints": [
+        "scripts/gemini-52-write.ts"
+      ],
+      "rawCommands": []
+    },
+    {
+      "name": "case-completion:layer-a",
+      "body": "tsx scripts/case-completion-reconciliation.ts",
+      "childScripts": [],
+      "entrypoints": [
+        "scripts/case-completion-reconciliation.ts"
+      ],
+      "rawCommands": []
+    },
+    {
+      "name": "test-visuals",
+      "body": "tsx scripts/tests/rhythm-strip.ts && tsx scripts/tests/capnography.ts && tsx scripts/tests/vitals-trend.ts && tsx scripts/tests/lab-trend-reference-bands.ts && tsx scripts/tests/lab-trend.ts && tsx scripts/tests/io-record.ts && tsx scripts/tests/diverging-bars.ts && tsx scripts/tests/io-trend.ts && tsx scripts/tests/medication-label.ts && tsx scripts/tests/device-screen.ts && tsx scripts/tests/burn-map.ts && tsx scripts/tests/fetal-monitoring.ts && tsx scripts/tests/injection-site.ts && tsx scripts/tests/mar.ts && tsx scripts/tests/visuals-conformance.ts && tsx scripts/tests/registry-mechanics.ts && tsx scripts/tests/visual-parity.ts && tsx scripts/tests/visual-parity-promoted.ts && tsx scripts/tests/promoted-visual-parity-survey.ts && tsx scripts/tests/session-sampler.ts && tsx scripts/tests/rationale-visual-schema-floor.ts",
+      "childScripts": [],
+      "entrypoints": [
+        "scripts/tests/burn-map.ts",
+        "scripts/tests/capnography.ts",
+        "scripts/tests/device-screen.ts",
+        "scripts/tests/diverging-bars.ts",
+        "scripts/tests/fetal-monitoring.ts",
+        "scripts/tests/injection-site.ts",
+        "scripts/tests/io-record.ts",
+        "scripts/tests/io-trend.ts",
+        "scripts/tests/lab-trend-reference-bands.ts",
+        "scripts/tests/lab-trend.ts",
+        "scripts/tests/mar.ts",
+        "scripts/tests/medication-label.ts",
+        "scripts/tests/promoted-visual-parity-survey.ts",
+        "scripts/tests/rationale-visual-schema-floor.ts",
+        "scripts/tests/registry-mechanics.ts",
+        "scripts/tests/rhythm-strip.ts",
+        "scripts/tests/session-sampler.ts",
+        "scripts/tests/visual-parity-promoted.ts",
+        "scripts/tests/visual-parity.ts",
+        "scripts/tests/visuals-conformance.ts",
+        "scripts/tests/vitals-trend.ts"
+      ],
+      "rawCommands": []
+    },
+    {
+      "name": "test:visual-parity-promoted",
+      "body": "tsx scripts/tests/visual-parity-promoted.ts",
+      "childScripts": [],
+      "entrypoints": [
+        "scripts/tests/visual-parity-promoted.ts"
+      ],
+      "rawCommands": []
+    },
+    {
+      "name": "parity:rebaseline",
+      "body": "tsx scripts/visual-parity-baseline.ts",
+      "childScripts": [],
+      "entrypoints": [
+        "scripts/visual-parity-baseline.ts"
+      ],
+      "rawCommands": []
+    },
+    {
+      "name": "validate-sweep",
+      "body": "tsx scripts/validate-sweep.ts",
+      "childScripts": [],
+      "entrypoints": [
+        "scripts/validate-sweep.ts"
+      ],
+      "rawCommands": []
+    },
+    {
+      "name": "validate:build-info",
+      "body": "tsx scripts/validate-build-info.ts",
+      "childScripts": [],
+      "entrypoints": [
+        "scripts/validate-build-info.ts"
+      ],
+      "rawCommands": []
+    },
+    {
+      "name": "test:validate-sweep",
+      "body": "tsx scripts/tests/validate-sweep.ts",
+      "childScripts": [],
+      "entrypoints": [
+        "scripts/tests/validate-sweep.ts"
+      ],
+      "rawCommands": []
+    },
+    {
+      "name": "validate-bank",
+      "body": "tsx scripts/validate-bank.ts",
+      "childScripts": [],
+      "entrypoints": [
+        "scripts/validate-bank.ts"
+      ],
+      "rawCommands": []
+    },
+    {
+      "name": "raw-bank-mcp",
+      "body": "tsx scripts/raw-bank-mcp.ts",
+      "childScripts": [],
+      "entrypoints": [
+        "scripts/raw-bank-mcp.ts"
+      ],
+      "rawCommands": []
+    },
+    {
+      "name": "scan-unknown-keys",
+      "body": "tsx scripts/scan-unknown-keys.ts",
+      "childScripts": [],
+      "entrypoints": [
+        "scripts/scan-unknown-keys.ts"
+      ],
+      "rawCommands": []
+    },
+    {
+      "name": "cleanup-unknown-keys",
+      "body": "tsx scripts/cleanup-unknown-key-residuals.ts",
+      "childScripts": [],
+      "entrypoints": [
+        "scripts/cleanup-unknown-key-residuals.ts"
+      ],
+      "rawCommands": []
+    },
+    {
+      "name": "test:schema-bank",
+      "body": "tsx scripts/tests/schema-bank.ts",
+      "childScripts": [],
+      "entrypoints": [
+        "scripts/tests/schema-bank.ts"
+      ],
+      "rawCommands": []
+    },
+    {
+      "name": "test:rationale-visual-schema-floor",
+      "body": "tsx scripts/tests/rationale-visual-schema-floor.ts",
+      "childScripts": [],
+      "entrypoints": [
+        "scripts/tests/rationale-visual-schema-floor.ts"
+      ],
+      "rawCommands": []
+    },
+    {
+      "name": "fix-bank-quotes",
+      "body": "tsx scripts/fix-bank-quotes.ts",
+      "childScripts": [],
+      "entrypoints": [
+        "scripts/fix-bank-quotes.ts"
+      ],
+      "rawCommands": []
+    },
+    {
+      "name": "promote",
+      "body": "tsx scripts/promote.ts",
+      "childScripts": [],
+      "entrypoints": [
+        "scripts/promote.ts"
+      ],
+      "rawCommands": []
+    },
+    {
+      "name": "gate:raw",
+      "body": "tsx scripts/raw-gate.ts",
+      "childScripts": [],
+      "entrypoints": [
+        "scripts/raw-gate.ts"
+      ],
+      "rawCommands": []
+    },
+    {
+      "name": "consolidate",
+      "body": "tsx scripts/consolidate.ts",
+      "childScripts": [],
+      "entrypoints": [
+        "scripts/consolidate.ts"
+      ],
+      "rawCommands": []
+    },
+    {
+      "name": "normalize-presentations",
+      "body": "tsx scripts/normalize-presentations.ts",
+      "childScripts": [],
+      "entrypoints": [
+        "scripts/normalize-presentations.ts"
+      ],
+      "rawCommands": []
+    },
+    {
+      "name": "test:presentation-normalization",
+      "body": "tsx scripts/tests/presentation-normalization.ts",
+      "childScripts": [],
+      "entrypoints": [
+        "scripts/tests/presentation-normalization.ts"
+      ],
+      "rawCommands": []
+    },
+    {
+      "name": "normalize-raw-bank",
+      "body": "tsx scripts/normalize-raw-bank.ts",
+      "childScripts": [],
+      "entrypoints": [
+        "scripts/normalize-raw-bank.ts"
+      ],
+      "rawCommands": []
+    },
+    {
+      "name": "test:raw-bank-normalization",
+      "body": "tsx scripts/tests/raw-bank-normalization.ts",
+      "childScripts": [],
+      "entrypoints": [
+        "scripts/tests/raw-bank-normalization.ts"
+      ],
+      "rawCommands": []
+    },
+    {
+      "name": "validate:bank",
+      "body": "tsx scripts/audit/validate-bank.ts",
+      "childScripts": [],
+      "entrypoints": [
+        "scripts/audit/validate-bank.ts"
+      ],
+      "rawCommands": []
+    },
+    {
+      "name": "audit:references",
+      "body": "tsx scripts/audit/audit-references.ts",
+      "childScripts": [],
+      "entrypoints": [
+        "scripts/audit/audit-references.ts"
+      ],
+      "rawCommands": []
+    },
+    {
+      "name": "audit:positions",
+      "body": "tsx scripts/audit/audit-positions.ts",
+      "childScripts": [],
+      "entrypoints": [
+        "scripts/audit/audit-positions.ts"
+      ],
+      "rawCommands": []
+    },
+    {
+      "name": "audit:integrity",
+      "body": "tsx scripts/audit/audit-integrity.ts",
+      "childScripts": [],
+      "entrypoints": [
+        "scripts/audit/audit-integrity.ts"
+      ],
+      "rawCommands": []
+    },
+    {
+      "name": "audit:ids",
+      "body": "tsx scripts/audit/audit-ids.ts",
+      "childScripts": [],
+      "entrypoints": [
+        "scripts/audit/audit-ids.ts"
+      ],
+      "rawCommands": []
+    },
+    {
+      "name": "audit:stage-refs",
+      "body": "tsx scripts/audit/audit-stage-refs.ts",
+      "childScripts": [],
+      "entrypoints": [
+        "scripts/audit/audit-stage-refs.ts"
+      ],
+      "rawCommands": []
+    },
+    {
+      "name": "audit:rhythm-strip",
+      "body": "tsx scripts/audit/rhythm-strip-layer-a.ts && tsx scripts/audit/rhythm-strip-proposal.ts",
+      "childScripts": [],
+      "entrypoints": [
+        "scripts/audit/rhythm-strip-layer-a.ts",
+        "scripts/audit/rhythm-strip-proposal.ts"
+      ],
+      "rawCommands": []
+    },
+    {
+      "name": "audit:early-bank-semantic",
+      "body": "tsx scripts/audit/early-bank-semantic-layer-a.ts",
+      "childScripts": [],
+      "entrypoints": [
+        "scripts/audit/early-bank-semantic-layer-a.ts"
+      ],
+      "rawCommands": []
+    },
+    {
+      "name": "audit:build-batch",
+      "body": "tsx scripts/audit/build-audit-batch.ts",
+      "childScripts": [],
+      "entrypoints": [
+        "scripts/audit/build-audit-batch.ts"
+      ],
+      "rawCommands": []
+    },
+    {
+      "name": "audit:non-mcq-bias",
+      "body": "tsx scripts/audit-non-mcq-bias.ts",
+      "childScripts": [],
+      "entrypoints": [
+        "scripts/audit-non-mcq-bias.ts"
+      ],
+      "rawCommands": []
+    },
+    {
+      "name": "audit:non-mcq-bias:merge",
+      "body": "tsx scripts/audit-non-mcq-bias-merge.ts",
+      "childScripts": [],
+      "entrypoints": [
+        "scripts/audit-non-mcq-bias-merge.ts"
+      ],
+      "rawCommands": []
+    },
+    {
+      "name": "test:non-mcq-bias",
+      "body": "tsx scripts/tests/non-mcq-bias.ts",
+      "childScripts": [],
+      "entrypoints": [
+        "scripts/tests/non-mcq-bias.ts"
+      ],
+      "rawCommands": []
+    },
+    {
+      "name": "test:rhythm-strip-audit",
+      "body": "tsx scripts/tests/rhythm-strip-audit.ts",
+      "childScripts": [],
+      "entrypoints": [
+        "scripts/tests/rhythm-strip-audit.ts"
+      ],
+      "rawCommands": []
+    },
+    {
+      "name": "test:early-bank-semantic",
+      "body": "tsx scripts/tests/early-bank-semantic-layer-a.ts",
+      "childScripts": [],
+      "entrypoints": [
+        "scripts/tests/early-bank-semantic-layer-a.ts"
+      ],
+      "rawCommands": []
+    },
+    {
+      "name": "test:build-batch",
+      "body": "tsx scripts/tests/build-audit-batch.ts",
+      "childScripts": [],
+      "entrypoints": [
+        "scripts/tests/build-audit-batch.ts"
+      ],
+      "rawCommands": []
+    },
+    {
+      "name": "audit",
+      "body": "tsx scripts/audit.ts",
+      "childScripts": [],
+      "entrypoints": [
+        "scripts/audit.ts"
+      ],
+      "rawCommands": []
+    },
+    {
+      "name": "census",
+      "body": "tsx scripts/census.ts",
+      "childScripts": [],
+      "entrypoints": [
+        "scripts/census.ts"
+      ],
+      "rawCommands": []
+    },
+    {
+      "name": "census:check",
+      "body": "tsx scripts/census.ts --check",
+      "childScripts": [],
+      "entrypoints": [
+        "scripts/census.ts"
+      ],
+      "rawCommands": []
+    },
+    {
+      "name": "survey:vital-sanity-bounds",
+      "body": "tsx scripts/vital-sanity-bounds-survey.ts",
+      "childScripts": [],
+      "entrypoints": [
+        "scripts/vital-sanity-bounds-survey.ts"
+      ],
+      "rawCommands": []
+    },
+    {
+      "name": "test:vital-sanity-bounds",
+      "body": "tsx scripts/tests/vital-sanity-bounds.ts",
+      "childScripts": [],
+      "entrypoints": [
+        "scripts/tests/vital-sanity-bounds.ts"
+      ],
+      "rawCommands": []
+    },
+    {
+      "name": "survey:single-row-lab-panels",
+      "body": "tsx scripts/single-row-lab-panels-survey.ts",
+      "childScripts": [],
+      "entrypoints": [
+        "scripts/single-row-lab-panels-survey.ts"
+      ],
+      "rawCommands": []
+    },
+    {
+      "name": "test:single-row-lab-panels",
+      "body": "tsx scripts/tests/single-row-lab-panels.ts",
+      "childScripts": [],
+      "entrypoints": [
+        "scripts/tests/single-row-lab-panels.ts"
+      ],
+      "rawCommands": []
+    },
+    {
+      "name": "survey:promoted-visual-parity",
+      "body": "tsx scripts/promoted-visual-parity-survey.ts",
+      "childScripts": [],
+      "entrypoints": [
+        "scripts/promoted-visual-parity-survey.ts"
+      ],
+      "rawCommands": []
+    },
+    {
+      "name": "test:promoted-visual-parity-survey",
+      "body": "tsx scripts/tests/promoted-visual-parity-survey.ts",
+      "childScripts": [],
+      "entrypoints": [
+        "scripts/tests/promoted-visual-parity-survey.ts"
+      ],
+      "rawCommands": []
+    },
+    {
+      "name": "closeout:receipt",
+      "body": "tsx scripts/generate-closeout-receipt.ts",
+      "childScripts": [],
+      "entrypoints": [
+        "scripts/generate-closeout-receipt.ts"
+      ],
+      "rawCommands": []
+    },
+    {
+      "name": "tts-queue",
+      "body": "tsx scripts/audio/build-tts-queue.ts",
+      "childScripts": [],
+      "entrypoints": [
+        "scripts/audio/build-tts-queue.ts"
+      ],
+      "rawCommands": []
+    }
+  ],
+  "workflows": [
+    {
+      "path": ".github/workflows/promotion-gate.yml",
+      "jobs": [
+        {
+          "id": "gate",
+          "lineNumber": 8,
+          "steps": [
+            {
+              "name": null,
+              "lineNumber": 12,
+              "runLines": []
+            },
+            {
+              "name": null,
+              "lineNumber": 14,
+              "runLines": []
+            },
+            {
+              "name": "Install dependencies",
+              "lineNumber": 19,
+              "runLines": [
+                {
+                  "line": "npm ci",
+                  "npmScripts": []
+                }
+              ]
+            },
+            {
+              "name": "Test visuals",
+              "lineNumber": 22,
+              "runLines": [
+                {
+                  "line": "npm run test-visuals",
+                  "npmScripts": [
+                    "test-visuals"
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Run promotion gate",
+              "lineNumber": 25,
+              "runLines": [
+                {
+                  "line": "npm run audit",
+                  "npmScripts": [
+                    "audit"
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Test sweep validator",
+              "lineNumber": 28,
+              "runLines": [
+                {
+                  "line": "npm run test:validate-sweep",
+                  "npmScripts": [
+                    "test:validate-sweep"
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Test non-MCQ bias audit and Layer B handoff",
+              "lineNumber": 31,
+              "runLines": [
+                {
+                  "line": "npm run test:non-mcq-bias",
+                  "npmScripts": [
+                    "test:non-mcq-bias"
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Test bank schema invariants",
+              "lineNumber": 34,
+              "runLines": [
+                {
+                  "line": "npm run test:schema-bank",
+                  "npmScripts": [
+                    "test:schema-bank"
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Test structured-measurement staging and application",
+              "lineNumber": 37,
+              "runLines": [
+                {
+                  "line": "npm run test:flowsheet-gate",
+                  "npmScripts": [
+                    "test:flowsheet-gate"
+                  ]
+                },
+                {
+                  "line": "npm run test:structured-measurements",
+                  "npmScripts": [
+                    "test:structured-measurements"
+                  ]
+                },
+                {
+                  "line": "npm run test:structured-measurements-applicator",
+                  "npmScripts": [
+                    "test:structured-measurements-applicator"
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Test coverage targeting",
+              "lineNumber": 43,
+              "runLines": [
+                {
+                  "line": "npm run test:coverage-report",
+                  "npmScripts": [
+                    "test:coverage-report"
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Check census drift",
+              "lineNumber": 46,
+              "runLines": [
+                {
+                  "line": "npm run census:check",
+                  "npmScripts": [
+                    "census:check"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "directlyInvokedScripts": [
+        "audit",
+        "census:check",
+        "test-visuals",
+        "test:coverage-report",
+        "test:flowsheet-gate",
+        "test:non-mcq-bias",
+        "test:schema-bank",
+        "test:structured-measurements",
+        "test:structured-measurements-applicator",
+        "test:validate-sweep"
+      ]
+    },
+    {
+      "path": ".github/workflows/pages.yml",
+      "jobs": [
+        {
+          "id": "build",
+          "lineNumber": 18,
+          "steps": [
+            {
+              "name": "Checkout",
+              "lineNumber": 21,
+              "runLines": []
+            },
+            {
+              "name": "Setup Node",
+              "lineNumber": 24,
+              "runLines": []
+            },
+            {
+              "name": "Install dependencies",
+              "lineNumber": 30,
+              "runLines": [
+                {
+                  "line": "npm ci",
+                  "npmScripts": []
+                }
+              ]
+            },
+            {
+              "name": "Typecheck",
+              "lineNumber": 33,
+              "runLines": [
+                {
+                  "line": "npx tsc -b --pretty false",
+                  "npmScripts": []
+                }
+              ]
+            },
+            {
+              "name": "Validate banks",
+              "lineNumber": 36,
+              "runLines": [
+                {
+                  "line": "npm run validate-bank -- banks/*.json",
+                  "npmScripts": [
+                    "validate-bank"
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Build",
+              "lineNumber": 39,
+              "runLines": [
+                {
+                  "line": "npm run build",
+                  "npmScripts": [
+                    "build"
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Setup Pages",
+              "lineNumber": 42,
+              "runLines": []
+            },
+            {
+              "name": "Upload artifact",
+              "lineNumber": 45,
+              "runLines": []
+            }
+          ]
+        },
+        {
+          "id": "deploy",
+          "lineNumber": 50,
+          "steps": [
+            {
+              "name": "Deploy to GitHub Pages",
+              "lineNumber": 57,
+              "runLines": []
+            }
+          ]
+        }
+      ],
+      "directlyInvokedScripts": [
+        "build",
+        "validate-bank"
+      ]
+    }
+  ],
+  "reachability": {
+    "reachableFromPullRequest": [
+      "audit",
+      "census:check",
+      "test-visuals",
+      "test:coverage-report",
+      "test:flowsheet-gate",
+      "test:non-mcq-bias",
+      "test:schema-bank",
+      "test:structured-measurements",
+      "test:structured-measurements-applicator",
+      "test:validate-sweep"
+    ],
+    "reachableFromMainPush": [
+      "build",
+      "validate-bank",
+      "validate:build-info"
+    ],
+    "reachableFromMainPushOnly": [
+      "build",
+      "validate-bank",
+      "validate:build-info"
+    ],
+    "unreachableFromAnyWorkflow": [
+      "audit:build-batch",
+      "audit:early-bank-semantic",
+      "audit:ids",
+      "audit:integrity",
+      "audit:non-mcq-bias",
+      "audit:non-mcq-bias:merge",
+      "audit:positions",
+      "audit:references",
+      "audit:rhythm-strip",
+      "audit:stage-refs",
+      "audit:topic-license",
+      "audit:topic-population",
+      "case-completion:layer-a",
+      "census",
+      "cleanup-unknown-keys",
+      "closeout:receipt",
+      "consolidate",
+      "coverage-report",
+      "dev",
+      "export-topic-vocab",
+      "fix-bank-quotes",
+      "flowsheet-blind-score",
+      "flowsheet-gate",
+      "flowsheet-manifest",
+      "gate:raw",
+      "gemini-52:dry-run",
+      "normalize-presentations",
+      "normalize-raw-bank",
+      "parity:rebaseline",
+      "preview",
+      "promote",
+      "raw-bank-mcp",
+      "scan-unknown-keys",
+      "structured-measurements:apply",
+      "survey:promoted-visual-parity",
+      "survey:single-row-lab-panels",
+      "survey:vital-sanity-bounds",
+      "test:app-update",
+      "test:audit-ids",
+      "test:audit-integrity",
+      "test:audit-positions",
+      "test:audit-references",
+      "test:audit-scope-cli",
+      "test:audit-stage-refs",
+      "test:audit-validate-bank",
+      "test:authorial-constraint-leakage",
+      "test:bowtie",
+      "test:build-batch",
+      "test:case-completeness",
+      "test:consolidate",
+      "test:early-bank-semantic",
+      "test:exam-layout",
+      "test:grading",
+      "test:highlight",
+      "test:iv-fluid-taxonomy",
+      "test:lab-reference-ranges",
+      "test:lab-trend",
+      "test:measurement-allowlist",
+      "test:presentation-normalization",
+      "test:producer-vocabulary-leakage",
+      "test:promote",
+      "test:promoted-visual-parity-survey",
+      "test:rationale-visual-schema-floor",
+      "test:raw-bank-normalization",
+      "test:raw-gate",
+      "test:residual-rerun",
+      "test:review-prompt",
+      "test:rhythm-strip-audit",
+      "test:session-navigation",
+      "test:shuffle",
+      "test:single-row-lab-panels",
+      "test:storage-category-migration",
+      "test:topic-license",
+      "test:topic-migration-guards",
+      "test:topic-population",
+      "test:topic-residual-proposals",
+      "test:topic-vocabulary",
+      "test:translation-telemetry",
+      "test:visual-parity-promoted",
+      "test:vital-sanity-bounds",
+      "topic-vocabulary:dry-run",
+      "tts-queue",
+      "validate-sweep",
+      "validate:bank"
+    ]
+  }
+}
