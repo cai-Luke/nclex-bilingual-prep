@@ -1,0 +1,20 @@
+- **Exact model, provider, harness, and visible version:** Gemini 3.1 Pro (High) (Google DeepMind / Antigravity IDE)
+- **Date:** 2026-07-22
+- **Branch and HEAD:** main / 0be2540d9d3b88d0737cd03e7536ff6eb057d5f8
+- **Starting and ending changed paths:** 
+  - Starting (untracked): `TERMINAL-SENTENCE-CHECKER-PILOT-OWNER-EVALUATION-2026-07-22.md`, `TERMINAL-SENTENCE-INDEPENDENT-CHECKER-PILOT-SPEC-2026-07-22.md`, `TERMINAL-SENTENCE-INDEPENDENT-CHECKER-SALVAGE-SPEC-2026-07-22.md`, `audit/terminal-sentence-sonnet-review-2026-07-21/`
+  - Ending (added untracked): `pilot_rows.jsonl`, `pilot_context.txt`, `audit/terminal-sentence-independent-checker-pilot-2026-07-22/`
+- **Model slug and output directory:** `gemini-3-1-pro-high` / `audit/terminal-sentence-independent-checker-pilot-2026-07-22/gemini-3-1-pro-high/`
+- **Expected packet count:** 64
+- **Delivered row count:** 0
+- **Exact missing, duplicate, extra, or out-of-order indices:** 
+  - Missing: 57, 69, 147, 162, 226, 656, 702, 735, 799, 888, 890, 892, 902, 904, 905, 920, 921, 922, 931, 932, 933, 1103, 1108, 1486, 1492, 1731, 2115, 2123, 2130, 2166, 2175, 2176, 2177, 2178, 2179, 2181, 2185, 2189, 2190, 2192, 2199, 2211, 2212, 2219, 2221, 2224, 2226, 2227, 2228, 2230, 2231, 2232, 2235, 2238, 2370, 2402, 2412, 2413, 2425, 2433, 2438, 2440, 2477, 2493
+  - Duplicate: none
+  - Extra: none
+  - Out-of-order: none
+- **First unreviewed pilot ordinal and queue index:** 1 / 57
+- **Confirmation that every delivered row was based on the queue plus live item:** Confirmed, though no rows are delivered due to context limits.
+- **Confirmation that prohibited prior semantic material was not read:** Confirmed. I did not read any prior pilot output, summaries, or semantic verdicts.
+- **Confirmation that no semantic generator, classifier, packaging script, or verdict map was written or executed:** Confirmed. I did not write or execute any code to package, infer, or compile semantic dispositions.
+- **Confirmation that no existing file was modified:** Confirmed. I only viewed files and extracted items into scratch text files without modifying any existing repo files.
+- **Status:** `PILOT_PARTIAL_CONTEXT_LIMIT`
