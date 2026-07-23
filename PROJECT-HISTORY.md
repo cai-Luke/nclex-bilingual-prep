@@ -52,6 +52,28 @@ The committed NGN item-type set is complete. Rationale/dyad scoring and an expli
 
 > Milestones dated **2026-06-23 and earlier** are archived in [`Archive/PROJECT-HISTORY-ARCHIVE.md`](Archive/PROJECT-HISTORY-ARCHIVE.md). Only the current arc (2026-06-24 onward) is kept here.
 
+### Audit Scope Parameterization — Raw-Gate Commission 1 (Jul 23)
+
+Merged the audit-scope substrate required by the forthcoming raw gate. Six runners now accept an optional explicit file population through `{ files? }`: `runValidateBank`, `runAuditReferences`, `runAuditPositions`, `runAuditTopicLicense`, `runAuditProducerVocabulary`, and `runAuditAuthorialConstraintLeakage`. `runAuditIds` instead accepts `{ candidates?, comparison? }`, because a candidate-only scope would miss IDs that collide with canonical banks. `runAuditStageRefs` and `runAuditNonMcqBias` were already scoped.
+
+`scripts/audit/audit-integrity.ts` remains deliberately unscoped. It is a post-staging equality proof, and its pure `integrityForFile(draftText, promotedText)` core already accepts text rather than paths.
+
+The established contracts are:
+
+- No-argument runner behavior is unchanged. `scripts/audit.ts` was not edited, and the aggregate audit output and verdict remain unchanged.
+- Explicitly selected files fail loud: a missing, unreadable, malformed, or schema-invalid requested file returns `FAIL` rather than inheriting a default sweep's skip behavior.
+- Candidate-scoped ID auditing reports only collisions involving at least one candidate location. Comparison-only collisions cannot be attributed to candidates or poison subsequent candidate runs.
+- Resolved paths are the deduplication and population-membership identity; the first caller-supplied spelling remains the display label. Candidate membership wins when the same resolved path appears in both populations.
+- Standalone wrappers reject unknown, missing, and whitespace-only arguments, and exit 1 on `FAIL`. `audit-topic-license` retains `--output=<path>` and composes it with repeated `--file` selections.
+
+Shared implementation support lives in `lib/selected-file-paths.ts`; focused temporary-bank fixtures in `scripts/test-utils/audit-scope-fixtures.ts`; and `scripts/tests/audit-scope-cli.ts` exercises all seven wrappers as real subprocesses. The work order of record is `RAW-GATE-COMMISSION-1-AUDIT-SCOPE-PARAMETERIZATION-CODEX-SPEC-2026-07-23.md`.
+
+This pass adds no new audit check and no new verdict policy. Commission 2 remains responsible for the candidate-local read-only `gate:raw` orchestrator, stage-anchor fatality policy, candidate-versus-candidate-set verdict lanes, raw-format handling where required, and promotion-time consumption.
+
+Two preserved behaviors are intentional rather than defects: `runAuditPositions` still examines only top-level `multiple_choice` items and does not recurse into embedded case-study parts, and the explicit loaders retain each runner's existing validator profile rather than preprocessing raw-only formats.
+
+The seven commissioned wrappers set `process.exitCode = 1` on failure and terminate naturally, allowing asynchronous stdout and stderr to drain completely. A static regression prohibits `process.exit()` in these wrappers, and the subprocess matrix preserves the expected exit statuses.
+
 ### Stage-Reference Semantic Census Preparation (Jul 23)
 
 Prepared the deterministic Stage A population and blind-calibration dispatch surface for the
