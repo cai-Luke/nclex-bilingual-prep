@@ -1,6 +1,6 @@
 # Project History
 
-This is the living status record for Project Shrimp / NCLEX Bilingual Prep. Update it whenever a meaningful implementation pass lands, verification changes, or the active scope moves.
+This is the living status record for Project Shrimp / NCLEX Bilingual Prep. It records accepted, merged current state: update it when a meaningful implementation pass is accepted and merged, verification status changes, or the active scope moves. An implementation branch may defer publication; the post-review publishing or merge seat writes the status entry.
 
 ## Coding-agent orientation
 
