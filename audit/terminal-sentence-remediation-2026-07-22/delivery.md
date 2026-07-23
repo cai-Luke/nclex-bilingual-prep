@@ -12,7 +12,9 @@ Status: **COMPLETE**
 - Banks changed: `claude-canonical.json`, `gemini-canonical.json`, `gpt-canonical.json`, `hard-cases-canonical.json`
 - Queue 2235: present, retained, untouched
 - `DECISIONS.md`: untouched
-- Merge, commit, and push: not performed
+- Implementation commit: `700a94c`
+- Draft PR: https://github.com/cai-Luke/nclex-bilingual-prep/pull/78
+- Merge: not performed and not authorized
 
 Queue 162 retired because the pre-authoring source test found no single explicit policy that
 uniquely supports all six keyed UAP/LPN/RN assignments without inventing a uniform “common U.S.”

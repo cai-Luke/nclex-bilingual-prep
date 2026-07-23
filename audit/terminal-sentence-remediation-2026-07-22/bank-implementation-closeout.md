@@ -6,7 +6,11 @@ Branch: `codex/terminal-sentence-remediation-2026-07-22`
 
 Starting commit: `0be2540d9d3b88d0737cd03e7536ff6eb057d5f8`
 
-Status: **COMPLETE — NOT COMMITTED, NOT PUSHED, NOT MERGED**
+Status: **COMPLETE — COMMITTED AND PUSHED TO DRAFT PR; NOT MERGED**
+
+Implementation commit: `700a94c`
+
+Draft PR: https://github.com/cai-Luke/nclex-bilingual-prep/pull/78
 
 ## Scope reconciliation
 
