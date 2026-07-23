@@ -2,11 +2,11 @@
 
 Date: 2026-07-23
 
-Revision: **3 — pre-launch amendment.** Revision 1 was never launched. This revision
-Revision 3 additionally defines standalone CLI exit behavior for explicit-file failures,
-forbids canonical/promoted/bundled prose from leaking into explicit-mode output, and adds
-worktree and branch protection. Revision 1 and 2 are superseded in full; do not implement
-from them.
+Revision: **4 — pre-launch amendment.** Revision 4 refreshes the worktree/branch requirement, corrects the
+`audit-ids` default-error row, strengthens CLI test obligations, makes the scope-prose
+check contextual, broadens the baseline capture, and rules on the `PROJECT-HISTORY.md`
+conflict. Revisions 1 through 3 were never launched and are superseded in full; do not
+implement from them.
 
 Note for reviewers: the three path spellings in section 8 are correct as written. A prior
 review reported the third as `./Project Shrimp/banks/foo.json`; the file does not contain
@@ -35,13 +35,37 @@ this spec, any file under `banks/`, or any prompt/contract markdown. This commis
 changes TypeScript under `scripts/` and `lib/`, adds test files under `scripts/tests/`,
 and adds `package.json` script entries. Nothing else.
 
+### Governance: `PROJECT-HISTORY.md` is deliberately deferred
+
+`AGENTS.md` says to update `PROJECT-HISTORY.md` when a meaningful implementation pass
+lands. This commission still forbids writing it, and that is a deliberate ruling, not an
+oversight or a constitutional violation.
+
+Reason: a pass has not *landed* until it clears independent review and Luke merges it.
+Writing the history entry at implementation time would record as landed something that has
+not cleared the gate, and would have the producer author its own status record — the same
+weak evidence as a self-issued receipt. The history entry is therefore deferred to the
+publishing pass after merge, and is Luke's to author or delegate. Note the deferral in the
+receipt; do not write the file.
+
 ### Worktree and branch protection
 
-The worktree is currently dirty with substantial unrelated in-flight work, including this
-spec file itself (untracked) and an `audit/stage-reference-semantic-census-2026-07-23/`
-tree containing packets, shards, and a hidden calibration key for a blind-scoring exercise
-in progress. Destroying or exposing any of that would invalidate a separate commission,
-and a `git clean` would delete this work order mid-execution.
+**Required starting state.** This work order deliberately pins **no commit hash.** A spec
+cannot name the hash of the commit that contains it: committing this file changes `HEAD`,
+and editing the file to name the new hash changes it again. Verify state instead.
+
+Before any edit, confirm all three:
+
+- the worktree is clean;
+- the current branch is `main`;
+- the checked-out copy of this work order is **Revision 4**.
+
+If any of the three is false, **stop and report** rather than proceeding. Record the
+current `HEAD` in the receipt, then create the implementation branch from that HEAD.
+
+The `audit/stage-reference-semantic-census-2026-07-23/` tree supports a separate
+blind-scoring commission in progress; its hidden calibration key remains ignored by git.
+Destroying, exposing, or committing changes to any of it would invalidate that commission.
 
 Therefore:
 
@@ -55,10 +79,10 @@ Therefore:
   `audit/stage-reference-semantic-census-2026-07-23/`.
 - The receipt must distinguish this commission's changes from pre-existing worktree entries.
 
-**Branch:** the checkout is currently on a branch belonging to an earlier, unrelated Codex
-commission. Do not create, switch, rebase, or merge branches. Report the current branch
-name and stop for instruction before doing any branch operation, so this commission's
-changes are not mixed into unrelated in-flight work.
+**Branch: authorized.** Create one dedicated branch from the current checked-out `main`
+HEAD, before the baseline capture in §11, and do all work on it. Do not rebase, merge, or
+switch to any other branch, and do not merge to `main` — Luke holds merge authority.
+Report the branch name and the HEAD it was created from in the receipt.
 
 ---
 
@@ -145,7 +169,7 @@ into explicit mode:
 | `validate-bank.ts` | records it as a `failures` entry (already fail-loud; keep in both modes) |
 | `audit-references.ts` | `if (!result.ok) continue;` plus bare `catch {}` — silent skip |
 | `audit-positions.ts` | `if (!result.ok) continue;` plus bare `catch {}` — silent skip |
-| `audit-ids.ts` | early `FAIL` return naming the file (already fail-loud; keep in both modes) |
+| `audit-ids.ts` | `readdir` failure → `INSUFFICIENT`; per-file `readFile` / `parseBankText` failure → **throws** (the read sits outside any `try`); schema-invalid file → early `FAIL` return naming the file. See §7. |
 | `audit-topic-license.ts` | early `{ error }` return → `INSUFFICIENT` (fail-loud; keep) |
 | `scanBundledBanks` | **throws** |
 | `scanBundledAuthorialConstraints` | **throws** |
@@ -369,9 +393,15 @@ the candidate verdict and must not poison every subsequent candidate run.
 
 ### Required behavior
 
-- **No options** → preserve the current canonical sweep of `CANONICAL_DIR` exactly,
-  including its `INSUFFICIENT` return when the directory is unreadable and its early `FAIL`
-  return when a canonical file fails structural validation.
+- **No options** → preserve the current canonical sweep of `CANONICAL_DIR` exactly. Its
+  four default error behaviors are **frozen as found**; do not normalize them:
+  - unreadable canonical directory → `INSUFFICIENT` (the `readdir` is inside a `try`);
+  - malformed or unreadable canonical **file** → the promise **rejects/throws**, because
+    `readFile` and `parseBankText` sit outside any `try` block. Do not wrap them to make
+    this a returned `FAIL`; that would be a silent semantic change to default behavior.
+  - schema-invalid canonical file → early returned `FAIL` naming the file;
+  - any explicit candidate/comparison load problem → returned `FAIL` (new behavior, this
+    commission).
 - **Argument validation, at the runner:**
   - `candidates: []` → `FAIL`.
   - `comparison` supplied without `candidates` → `FAIL`.
@@ -506,6 +536,9 @@ For **each** of the seven modules:
 3. a selected path that does not exist → loud failure, not a skip;
 4. a selected file containing malformed JSON → loud failure;
 5. a selected file that is schema-invalid → loud failure;
+5b. a selected file that exists but is **unreadable** → loud failure. If the environment
+    cannot produce an unreadable file (for example, tests running as root), report that in
+    the receipt rather than silently omitting the case;
 6. two spellings of the same path (`banks/x.json` and `./banks/x.json`) resolve to one
    load;
 7. `{ files: [] }` (or `{ candidates: [] }`) returns `status: "FAIL"` from the **runner**;
@@ -537,20 +570,39 @@ For `audit-ids.ts` additionally:
 15. embedded case-study leaf IDs participate in collision detection (`collectQuestionIds`
     already recurses; prove it still does through the candidate path).
 
+### CLI-level subprocess tests — all seven wrappers
+
+§9 imposes a uniform CLI contract, so the proof must be uniform too. Add a table-driven
+subprocess test covering **every one of the seven wrappers**, not just topic-license:
+
+- malformed selected file → exit 1;
+- unknown flag → exit 1;
+- flag with a missing value → exit 1;
+- flag with a whitespace-only value → exit 1;
+- a run yielding `PASS`, `WARN`, or `INSUFFICIENT` → exit 0.
+
+Drive these as real child processes so the exit code is observed, not inferred from a
+runner return value.
+
 For `audit-topic-license.ts` additionally:
 
 16. `--output=<path>` alone still produces the canonical report, byte-for-byte;
-17. `--output=<path>` together with `--file` produces a report from the selected files,
-    and that report does not contain the string `current canonical banks`;
+17. `--output=<path>` together with `--file` produces a report from the selected files;
 18. an unknown argument throws;
-19. **a malformed selected file makes the standalone CLI exit nonzero** — prove this at the
-    CLI level, not merely that the programmatic runner returns `FAIL`.
+19. a malformed selected file makes the standalone CLI exit nonzero.
 
-Scope-prose coverage, for the four modules listed in §5 under *Scope-descriptive prose*:
+### Scope-prose coverage — contextual, not a word ban
 
-20. explicit-file mode output does not contain `canonical`, `promoted`, or `bundled` as a
-    description of the scanned population;
+For the four modules listed in §5 under *Scope-descriptive prose*:
+
+20. explicit-file mode does not describe the **scanned population** as canonical, promoted,
+    or bundled;
 21. default no-argument output still contains its original wording unchanged.
+
+These words are not banned outright. `audit-topic-license.ts` legitimately uses "canonical"
+to describe the **topic vocabulary** ("exact canonical topic vocabulary membership"), which
+remains true regardless of which files were scanned. Assert on population-describing
+phrases, not on bare word occurrence.
 
 Use temporary fixture files under a test-local temp directory; do not add fixtures to
 `banks/` or `banks/banks-raw/`. Clean up after the run.
@@ -566,13 +618,19 @@ remove or rename existing entries.
 "Byte-identical output" is **not** the standard, because internal path labeling may
 legitimately change. The standard is:
 
-1. **Live baseline capture.** Before making any edit, run all seven runners with no
-   arguments and serialize the seven `AuditResult` objects to a temporary file **outside
-   the repository** (e.g. under the system temp directory — never inside the working tree,
-   which §0 forbids). After implementation, re-run and prove deep equality against the
-   capture. Delete the temporary capture afterward and state in the receipt that you did.
-   This one-time live comparison is separate from, and additional to, the permanent
-   fixture tests in §10.
+1. **Live baseline capture.** Before making any edit, and on the new branch, capture all of
+   the following to a temporary location **outside the repository** (e.g. the system temp
+   directory — never inside the working tree, which §0 forbids):
+   - the seven no-argument `AuditResult` objects, serialized;
+   - the seven standalone CLI invocations: stdout, stderr, and exit code;
+   - `npm run audit` output and exit code;
+   - the canonical topic-license report generated with a **fixed** `inputGitSha` so the
+     volatile field does not defeat comparison.
+
+   After implementation, re-run all four and prove equality against the capture. Compare
+   **before any commit changes `HEAD`**, since the report embeds a git SHA. Delete the
+   temporary capture afterward and state in the receipt that you did. This one-time live
+   comparison is separate from, and additional to, the permanent fixture tests in §10.
 2. Each standalone default CLI invocation produces unchanged status, unchanged finding
    order, unchanged exit code, and unchanged substantive `detail` text.
 3. `npm run audit` produces unchanged output and an unchanged final verdict.
@@ -634,10 +692,15 @@ Return a compact receipt, not diffs:
 - full output status of every command in §12;
 - confirmation that `audit-positions` remains top-level-only and that no raw preprocessing
   or validation-profile change was introduced;
-- `git status --short` and the branch name as recorded before editing, with this
-  commission's changes clearly separated from pre-existing worktree entries;
-- confirmation that no branch operation was performed and nothing under
-  `audit/stage-reference-semantic-census-2026-07-23/` was touched;
+- the recorded starting `HEAD`, `git status --short`, and the name of the branch you
+  created from it, with this commission's changes clearly separated from anything
+  pre-existing;
+- confirmation that nothing under `audit/stage-reference-semantic-census-2026-07-23/` was
+  touched, and that no merge to `main` was attempted;
+- confirmation that the `PROJECT-HISTORY.md` entry was deliberately deferred to the
+  post-merge publishing pass and not written;
+- the CLI subprocess matrix result for all seven wrappers, and whether an unreadable-file
+  fixture was producible in this environment;
 - confirmation that explicit-file output describes the selected scope and does not call it
   canonical, promoted, or bundled, while default-mode prose is unchanged;
 - any place where live code contradicted this spec, quoted exactly;
@@ -679,5 +742,13 @@ Return a compact receipt, not diffs:
       `bundled` population wording in explicit mode; default prose unchanged
 - [ ] Pre-existing worktree entries preserved; no `git clean` / `reset` / `stash` / broad
       `checkout`; nothing under `audit/stage-reference-semantic-census-2026-07-23/` touched
-- [ ] No branch created, switched, rebased, or merged; current branch reported
+- [ ] `audit-ids` default error behaviors frozen: `readdir` → `INSUFFICIENT`, file read /
+      parse → still throws, schema-invalid → returned `FAIL`
+- [ ] CLI subprocess matrix passes for all seven wrappers
+- [ ] Scope-prose assertions target population descriptions, not bare word occurrence
+- [ ] Baseline capture covers runners, CLI outputs and exit codes, `npm run audit`, and the
+      fixed-SHA topic-license report; compared before any commit moved `HEAD`
+- [ ] Starting state verified (clean, on `main`, Revision 4 checked out); work done on a
+      dedicated branch from that HEAD; no merge to `main`
+- [ ] `PROJECT-HISTORY.md` deferred, not written
 - [ ] Independent review still pending
