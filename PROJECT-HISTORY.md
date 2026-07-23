@@ -52,6 +52,34 @@ The committed NGN item-type set is complete. Rationale/dyad scoring and an expli
 
 > Milestones dated **2026-06-23 and earlier** are archived in [`Archive/PROJECT-HISTORY-ARCHIVE.md`](Archive/PROJECT-HISTORY-ARCHIVE.md). Only the current arc (2026-06-24 onward) is kept here.
 
+### Candidate Orchestrator and Promotion Enforcement — Raw-Gate Commission 2 (Jul 23)
+
+Merged the prospective raw-candidate gate in PR #83. `npm run gate:raw -- --file <path>`
+now evaluates exact deterministic promotion previews without writing to the repository, separates
+candidate-local findings from candidate-set findings, and returns the prepared serialized outputs
+that `npm run promote` stages after a complete-set pass. Promotion no longer creates or changes
+staging when any selected candidate fails.
+
+The candidate-local lane blocks preparation, routing/schema-version incompatibility, strict
+validation, reference hazards, producer/checker leakage, every strict stage-reference finding, and
+exact topic-vocabulary/license defects. The candidate-set lane blocks candidate-attributable ID
+collisions, scored-leaf MC position failures, and enforced mechanical non-MCQ bias; distributional
+and manual non-MCQ findings remain advisory. Explicit comparison populations are authoritative and
+do not fall back to repository canonicals.
+
+`prepareRawPromotionPreview` is the single transformation owner: parse, detect normalization debt,
+check and strip valid compile manifests, validate strictly, shuffle deterministically, normalize
+presentation order, revalidate strictly, and serialize canonically. Focused integration coverage
+pins read-only behavior, external temporary cleanup, raw-format handling, stage/topic policy,
+candidate/canonical/comparison/embedded collisions, post-shuffle position inspection, mechanical
+enforcement and its diagnostic override, advisory distribution findings, deterministic reports,
+and all-or-nothing promotion writes.
+
+The full tooling verification floor passed, including all bank validations, aggregate audit,
+focused regressions, TypeScript, census drift check, and production build. No canonical bank,
+ledger, census artifact, schema, grading path, or learner-facing behavior changed. Canonical
+stage-reference findings remain advisory and are not evaluated under the prospective raw policy.
+
 ### Audit Scope Parameterization — Raw-Gate Commission 1 (Jul 23)
 
 Merged the audit-scope substrate required by the forthcoming raw gate. Six runners now accept an optional explicit file population through `{ files? }`: `runValidateBank`, `runAuditReferences`, `runAuditPositions`, `runAuditTopicLicense`, `runAuditProducerVocabulary`, and `runAuditAuthorialConstraintLeakage`. `runAuditIds` instead accepts `{ candidates?, comparison? }`, because a candidate-only scope would miss IDs that collide with canonical banks. `runAuditStageRefs` and `runAuditNonMcqBias` were already scoped.
