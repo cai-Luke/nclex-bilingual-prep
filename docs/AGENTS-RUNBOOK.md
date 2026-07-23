@@ -10,7 +10,7 @@ Companion to [`AGENTS.md`](../AGENTS.md), which is constitutional: principles, r
 npm run fix-bank-quotes -- banks/banks-raw/<file>.json    # repair curly-quote corruption; writes <file>.fixed.json unless --in-place
 npm run normalize-raw-bank -- banks/banks-raw/<file>.json # dry-run schema-shape cleanup; add --write after review
 npm run promote                                           # deterministic shuffle → banks/_promoted/<same-filename>
-npm run audit                                             # Tier 0 validation + Tier 1 references/positions/integrity/ids
+npm run audit                                             # aggregate audit; executable inventory lives in scripts/audit.ts
 npm run consolidate -- --dry-run                          # preview route, collision gate, and merged count
 npm run consolidate                                       # merge into canonical and remove staged promoted file
 ```
@@ -34,11 +34,24 @@ Run before calling a code or content pass complete when relevant:
 ```sh
 npm run validate-bank -- banks/*.json
 npm run coverage-report
-npm run census
+npm run census:check
 npm run build
 ```
 
-After regenerating the census, commit both `census.json` and `BANK-CENSUS.md` with the bank change. `npm run census:check` fails CI when either is stale.
+Do not regenerate the census as a default verification step. Use the sequence that matches the expected result:
+
+```sh
+# No census movement expected
+npm run census:check
+
+# Census movement expected
+npm run census:check  # establish that committed artifacts are stale
+npm run census
+git diff -- census.json BANK-CENSUS.md
+npm run census:check
+```
+
+The regenerating seat must inspect and report the two-file diff. For bank-content changes, the producer-independent checker confirms that the movement matches the reviewed promotion before acceptance. Commit both `census.json` and `BANK-CENSUS.md` with the change; `npm run census:check` fails CI when either is stale.
 
 Development:
 

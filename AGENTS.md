@@ -11,7 +11,7 @@ Guidance for coding and content agents working on Project Shrimp / NCLEX Bilingu
 
 ## Read First
 
-- `PROJECT-HISTORY.md` is the current status map. Update it when a meaningful implementation pass lands, verification changes, or active scope moves.
+- `PROJECT-HISTORY.md` is the current status map. Update it when a meaningful implementation pass is accepted and merged, verification status changes, or active scope moves. An implementation branch may note that history publication is deferred; the post-review publishing or merge seat writes the status entry.
 - `NCLEX-Question-Schema.md` is the schema source of truth.
 - `BANK-REVIEW-LEDGER.md` tracks content-review status and should be updated before generated questions are treated as reviewed study material.
 - `Archive/root-specs-2026-06-18/NCLEX-Prep-SPEC.md` is useful product context, but it started as a build spec and may describe historical plans.
@@ -25,6 +25,14 @@ The repo is the source of truth. ChatGPT Project files, uploaded markdowns, mode
 For substantive coding, schema, bank-promotion, audit, or content-review work, start from this `AGENTS.md`, then inspect the relevant current repo files before making firm claims or edits. Pay special attention to `PROJECT-HISTORY.md`, `NCLEX-Question-Schema.md`, `BANK-REVIEW-LEDGER.md`, `BANK-CENSUS.md`, and any active prompt or spec named by the user.
 
 If repo files conflict with project memory, uploaded files, or reports from Claude, Gemini, Opus, Codex, or prior ChatGPT sessions, prefer the repo unless Luke explicitly says a pasted or uploaded document supersedes it for the current task.
+
+## Repository State by Access Mechanism
+
+Before repo-reading work, identify how the agent sees the repository:
+
+- A GitHub-reading agent can see only committed and pushed inputs. All intended source files, specs, and prerequisites must therefore be committed and pushed before that seat begins.
+- A disk-reading agent works from an explicit local branch/worktree snapshot. It must report that snapshot, preserve unrelated changes, and never treat uncommitted files as visible to a remote-reading seat.
+- No agent may assume local and remote repository state are identical.
 
 ## Product Constraints
 
@@ -51,9 +59,15 @@ Ratified by `DECISIONS.md` principle 27(a). These are floors, not ceilings. Anyt
 |---|---|---|
 | **Docs** | `*.md` prose only; no code, schema, or bank file changed | (1) Check whether the file restates a fact another file owns; if so, link instead of restating. (2) Check every version token, field shape, or validation claim directly against `src/types.ts` / `src/schema.ts`, never another document's restatement. |
 | **UI / CSS** | Styling or layout; no schema, grading, or data path touched | `npx tsc -b --pretty false`; `npm run build`; visual smoke check of the affected surface. |
-| **Schema / grading / import / loading** | `src/schema.ts`, `src/types.ts`, `src/grading.ts`, `src/bankImport.ts`, `src/banks.ts` | Full path: `npm run validate-bank -- banks/*.json`; `npm run audit`; relevant `npm run test:*` regressions; `npx tsc -b --pretty false`; `npm run census && npm run census:check`; `npm run build`; bank-impact survey before any floor tightens. |
+| **Audit / maintenance tooling** | `scripts/audit/**`, audit libraries, maintenance scripts, generated-artifact tooling | Focused tests for the changed tool; `npx tsc -b --pretty false`; every affected aggregate command; explicit proof that existing no-argument/default behavior and output are unchanged when modifying an established gate. Run `npm run census:check` only when the tool can affect census inputs or generated artifacts. Run `npm run build` only when application-imported code or the normal build path is affected. A change to candidate population, pass/fail or fatality policy, promotion eligibility, or data-contract interpretation escalates to the full schema/data-contract path and any required bank-impact survey. |
+| **Schema / grading / import / loading** | `src/schema.ts`, `src/types.ts`, `src/grading.ts`, `src/bankImport.ts`, `src/banks.ts` | Full path: `npm run validate-bank -- banks/*.json`; `npm run audit`; relevant `npm run test:*` regressions; `npx tsc -b --pretty false`; apply the census-drift procedure below; `npm run build`; bank-impact survey before any floor tightens. |
 | **Bank content** | `banks/*.json`, `banks/banks-raw/*` | Full promotion pipeline (principle 5): normalize → promote → audit → producer≠checker review → consolidate → ledger entry → census. No reduced tier exists. |
 | **Renderers** | `src/visuals/**` | `npm run test-visuals`; kind-specific test; `selfCheck` regressions; visual smoke/parity check; `npm run validate-bank -- banks/*.json`; `npm run build`. A load-bearing arithmetic or hybrid kind (`io_record`, `io_trend`, `medication_label`, `device_screen`, `burn_map`) also needs explicit before/after `selfCheck` proof; compare numeric values whenever `derived_values_keyed` is present, while a keyed-settings-only `device_screen` or pattern-only `io_trend` uses its checked semantic proof surface instead. Calibrated tracing geometry (`rhythm_strip`, `capnography`, `fetal_monitoring`) always needs a visual smoke. |
+
+**Census drift procedure:**
+
+- If no census movement is expected, run `npm run census:check` only. A failure is blocking evidence to investigate, not permission to regenerate.
+- If census movement is expected, run `npm run census:check` first to establish the drift, run `npm run census`, have the regenerating seat inspect and report the `census.json` and `BANK-CENSUS.md` diff, then run `npm run census:check` again and commit both generated artifacts. For bank-content changes, the producer-independent checker must confirm that the movement matches the reviewed promotion before acceptance.
 
 **Escalation triggers apply across every class:**
 
