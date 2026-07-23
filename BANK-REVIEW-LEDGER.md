@@ -68,6 +68,35 @@ Canonical source banks (see [BANK-CENSUS.md](BANK-CENSUS.md) for current counts;
 - `banks/visual-canonical.json` (rhythm_strip visual items; formerly `banks/rhythm-canonical`)
 - `banks/vitals-canonical.json` (vitals_trend visual items)
 
+### 2026-07-22 — Terminal-sentence remediation implementation
+
+Status: `REVIEWED` and `fixed-and-validated`.
+
+Implemented the owner-authorized 35-row terminal-sentence remediation commission across
+`claude-canonical.json`, `gemini-canonical.json`, `gpt-canonical.json`, and
+`hard-cases-canonical.json`: 34 rows received bounded, replacement, naturalization, or full-review
+repairs and queue 162 (`claude_moc_deleg_matrix_08`) was retired after the required pre-authoring
+source test found no single explicit policy supporting its complete six-row delegation matrix
+without inventing a uniform “common U.S.” scope. The retired payload is preserved at
+`Archive/terminal-sentence-remediation-2026-07-22/queue-162-retired-item.json`; post-removal evidence
+proves the exact ID removal, unchanged hashes for every retained payload, and retained order.
+
+Chain: Codex (`gpt-5.6-sol`) produced and mechanically proved the changes; Claude Opus 4.7 served as
+the independent content checker and returned `APPROVE_FOR_APPLY` for all 17 content-gated rows;
+Codex applied only those signed rows and ran the promotion gates. Queue 1731 preserved all six live
+case parts (the controlling documents' “five-part” wording was adjudicated as a count error),
+incorporated neutropenic precautions into the Stage-2 state, and rewrote `_q5` in place with its
+ordered-response options and key unchanged. Queues 2123 and 2228 passed rewrite-first review and
+remained in the bank. No D5 naturalization retirement fired. Queue 2235 remained present and
+untouched; `DECISIONS.md` remained untouched.
+
+Verification passed: all-bank validation, unknown-key scan, full audit (only the existing 451
+stage-reference advisories), TypeScript, grading, case-completeness, audit-stage-ref and audit-ID
+tests, highlight tests, quote checks on temporary copies of every Chinese-edited bank, census
+regeneration/check, production build, sweep-validator clean fixture plus its regression suite, and
+bank-schema tests. Coverage changed by exactly one top-level/scored-leaf Management of Care /
+Prioritization & Delegation matrix item; no category delivery shortfall was created.
+
 ### 2026-07-21 — Exercise-hypoglycemia authorial-constraint naturalization
 
 Status: `REVIEWED` and `fixed-and-validated`. Independent non-GPT review completed 2026-07-21 and

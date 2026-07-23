@@ -2,18 +2,18 @@
 
 # NCLEX Bank Census
 
-Generated: 2026-07-21T19:54:22.416Z
-Input Git SHA: c0101f55f972863bd38ef0851440f84c055e1b0b
+Generated: 2026-07-23T03:10:16.932Z
+Input Git SHA: 0be2540d9d3b88d0737cd03e7536ff6eb057d5f8
 
 ## Session-Unit Inventory and Delivery Capacity
 
 Population basis: top-level delivery units. Category, topic, item-type, and difficulty distributions in this section are inventory comparisons, not content-planning targets.
 
-- Total session units: 1892
-- Standalone top-level supply: 1747
+- Total session units: 1891
+- Standalone top-level supply: 1746
 - Case-container supply: 145
 - Embedded-part inventory (not session units): 731
-- Question-shaped inventory records: 2623
+- Question-shaped inventory records: 2622
 
 ### Per-File Session-Unit Inventory
 
@@ -21,7 +21,7 @@ Population basis: top-level delivery units. Category, topic, item-type, and diff
 |------|--------|-----------|---------------|----------|
 | burn-canonical.json | 1.2 | 8 | 8 | — |
 | capnography-canonical.json | 1.2 | 7 | 7 | — |
-| claude-canonical.json | 2.0 | 97 | 97 | — |
+| claude-canonical.json | 2.0 | 96 | 96 | — |
 | device-canonical.json | 1.2 | 8 | 8 | — |
 | gemini-canonical.json | 2.0 | 874 | 874 | — |
 | gpt-canonical.json | 2.0 | 721 | 721 | — |
@@ -40,13 +40,13 @@ Population basis: top-level delivery units. Category, topic, item-type, and diff
 - Psychosocial Integrity: 180
 - Reduction of Risk Potential: 205
 - Safety and Infection Prevention and Control: 231
-- Management of Care: 284
+- Management of Care: 283
 - Pharmacological and Parenteral Therapies: 317
 - Physiological Adaptation: 318
 
 ### Session-Unit Topic Concentration
 
-- Management of Care: Prioritization & Delegation (82), Legal & Ethical Principles (74), Discharge Planning & Handoff (47), Confidentiality & HIPAA (30), Client Advocacy (29), Conflict Resolution (19), Caregiver Role Strain & Family Coping (3)
+- Management of Care: Prioritization & Delegation (81), Legal & Ethical Principles (74), Discharge Planning & Handoff (47), Confidentiality & HIPAA (30), Client Advocacy (29), Conflict Resolution (19), Caregiver Role Strain & Family Coping (3)
 - Safety and Infection Prevention and Control: Patient & Environment Safety (75), Transmission-Based Precautions (54), Standard Precautions & Hygiene (36), PPE & Sterile Technique (31), Disaster & Emergency Preparedness (21), Transfusion & Blood Products (7), Medication Safety & Admin (4), Skin & Wound Care (3)
 - Health Promotion and Maintenance: Adult Health & Wellness (46), Maternal-Newborn Care & Teaching (35), Pediatric & Adolescent Health (34), Chronic Disease Management & Lifestyle (28), Pediatric & Toddler Safety (19), Reproductive & Endocrine Health (16)
 - Psychosocial Integrity: Mental Health Disorders (66), Suicide & Crisis Intervention (34), Therapeutic Communication (31), Substance Use & Withdrawal (24), Electroconvulsive Therapy (ECT) (13), Caregiver Role Strain & Family Coping (12)
@@ -63,7 +63,7 @@ Population basis: top-level delivery units. Category, topic, item-type, and diff
 - dropdown_cloze: 182
 - ordered_response: 187
 - fill_in_blank: 188
-- matrix: 199
+- matrix: 198
 - select_all: 221
 - multiple_choice: 455
 
@@ -73,16 +73,16 @@ Population basis: top-level delivery units. Category, topic, item-type, and diff
 
 - easy: 268
 - hard: 640
-- medium: 984
+- medium: 983
 
 ### Standalone Draw Capacity (requested session size 50)
 
-- Total standalone draw-eligible supply: 1747
+- Total standalone draw-eligible supply: 1746
 - Full requested session constructible: yes
 
 | Category | Standalone Supply | Requested Seats | Gap |
 |----------|------------------:|----------------:|----:|
-| Management of Care | 269 | 9.0 | 260.0 |
+| Management of Care | 268 | 9.0 | 259.0 |
 | Safety and Infection Prevention and Control | 217 | 6.5 | 210.5 |
 | Health Promotion and Maintenance | 160 | 4.5 | 155.5 |
 | Psychosocial Integrity | 158 | 4.5 | 153.5 |
@@ -97,11 +97,11 @@ Operational shortfalls:
 ### Session-Unit Schema and Source Inventory
 
 - Schema v1.2: 77 session units (burn-canonical.json, capnography-canonical.json, device-canonical.json, io-canonical.json, lab-canonical.json, mar-canonical.json, medlabel-canonical.json, vitals-canonical.json)
-- Schema v2.0: 1749 session units (claude-canonical.json, gemini-canonical.json, gpt-canonical.json, visual-canonical.json)
+- Schema v2.0: 1748 session units (claude-canonical.json, gemini-canonical.json, gpt-canonical.json, visual-canonical.json)
 - Schema v1.8: 66 session units (hard-cases-canonical.json)
 - burn-canonical.json: 8
 - capnography-canonical.json: 7
-- claude-canonical.json: 97
+- claude-canonical.json: 96
 - device-canonical.json: 8
 - gemini-canonical.json: 874
 - gpt-canonical.json: 721
@@ -267,8 +267,8 @@ Operational shortfalls:
 
 Population basis: standalone top-level questions plus embedded case-study questions, excluding case containers. Each leaf contributes its own category, topic, item type, and difficulty. This is the authoritative planning lane.
 
-- Total scored leaves: 2478
-- Standalone scored leaves: 1747
+- Total scored leaves: 2477
+- Standalone scored leaves: 1746
 - Embedded scored leaves: 731
 
 ### Scored-Leaf Category Distribution
@@ -278,13 +278,13 @@ Population basis: standalone top-level questions plus embedded case-study questi
 - Psychosocial Integrity: 257
 - Reduction of Risk Potential: 266
 - Safety and Infection Prevention and Control: 279
-- Management of Care: 375
+- Management of Care: 374
 - Pharmacological and Parenteral Therapies: 402
 - Physiological Adaptation: 428
 
 ### Scored-Leaf Topic Concentration
 
-- Management of Care: Prioritization & Delegation (107), Legal & Ethical Principles (89), Discharge Planning & Handoff (76), Confidentiality & HIPAA (35), Client Advocacy (34), Conflict Resolution (29), Caregiver Role Strain & Family Coping (5)
+- Management of Care: Prioritization & Delegation (106), Legal & Ethical Principles (89), Discharge Planning & Handoff (76), Confidentiality & HIPAA (35), Client Advocacy (34), Conflict Resolution (29), Caregiver Role Strain & Family Coping (5)
 - Safety and Infection Prevention and Control: Patient & Environment Safety (82), Transmission-Based Precautions (64), Standard Precautions & Hygiene (38), PPE & Sterile Technique (32), Disaster & Emergency Preparedness (31), Transfusion & Blood Products (19), Skin & Wound Care (7), Medication Safety & Admin (6)
 - Health Promotion and Maintenance: Adult Health & Wellness (77), Chronic Disease Management & Lifestyle (51), Maternal-Newborn Care & Teaching (37), Pediatric & Adolescent Health (36), Pediatric & Toddler Safety (26), Reproductive & Endocrine Health (16)
 - Psychosocial Integrity: Mental Health Disorders (78), Suicide & Crisis Intervention (60), Therapeutic Communication (44), Caregiver Role Strain & Family Coping (33), Substance Use & Withdrawal (29), Electroconvulsive Therapy (ECT) (13)
@@ -300,7 +300,7 @@ Population basis: standalone top-level questions plus embedded case-study questi
 - fill_in_blank: 214
 - ordered_response: 243
 - dropdown_cloze: 274
-- matrix: 341
+- matrix: 340
 - select_all: 379
 - multiple_choice: 690
 
@@ -308,21 +308,21 @@ Population basis: standalone top-level questions plus embedded case-study questi
 
 - easy: 271
 - hard: 979
-- medium: 1228
+- medium: 1227
 
 ### Targets
 
 Category targets (scored-leaf denominator):
-- Management of Care: 446.0
-- Safety and Infection Prevention and Control: 322.1
-- Health Promotion and Maintenance: 223.0
-- Psychosocial Integrity: 223.0
-- Basic Care and Comfort: 223.0
-- Pharmacological and Parenteral Therapies: 396.5
-- Reduction of Risk Potential: 297.4
-- Physiological Adaptation: 346.9
+- Management of Care: 445.9
+- Safety and Infection Prevention and Control: 322.0
+- Health Promotion and Maintenance: 222.9
+- Psychosocial Integrity: 222.9
+- Basic Care and Comfort: 222.9
+- Pharmacological and Parenteral Therapies: 396.3
+- Reduction of Risk Potential: 297.2
+- Physiological Adaptation: 346.8
 
-Equal-average scored item-type target: 309.8
+Equal-average scored item-type target: 309.6
 
 Under-served categories:
 - none
@@ -345,11 +345,11 @@ PRIORITIZE_TOPICS:
 - PPE & Sterile Technique — add: fill_in_blank
 - ABG & Acid-Base Interpretation — add: select_all, highlight
 - Reproductive & Endocrine Health — add: fill_in_blank
-- bowtie (146 vs target 309.8)
-- highlight (191 vs target 309.8)
-- fill_in_blank (214 vs target 309.8)
-- ordered_response (243 vs target 309.8)
-- dropdown_cloze (274 vs target 309.8)
+- bowtie (146 vs target 309.6)
+- highlight (191 vs target 309.6)
+- fill_in_blank (214 vs target 309.6)
+- ordered_response (243 vs target 309.6)
+- dropdown_cloze (274 vs target 309.6)
 - IV Fluid Calculations
 - Electroconvulsive Therapy (ECT)
 - ABG & Acid-Base Interpretation
@@ -365,8 +365,8 @@ PRIORITIZE_TOPICS:
 
 AVOID_TOPICS:
 - Medication Safety & Admin (125)
-- Prioritization & Delegation (107)
 - Cardiovascular Disorders (107)
+- Prioritization & Delegation (106)
 - Legal & Ethical Principles (89)
 - Patient & Environment Safety (82)
 - Laboratory & Diagnostic Tests (82)

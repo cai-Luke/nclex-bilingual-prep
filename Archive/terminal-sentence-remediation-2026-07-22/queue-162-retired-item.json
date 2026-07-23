@@ -1,0 +1,157 @@
+{
+  "archivedAt": "2026-07-22",
+  "sourceBank": "banks/claude-canonical.json",
+  "sourceBankSha256": "23667b2fefaafe4cb3c95111cf7e781f1ec9a58855b831a51a9b41fd15166cbf",
+  "sourceTest": "audit/terminal-sentence-remediation-2026-07-22/queue-162-source-test.md",
+  "status": "owner-authorized retirement",
+  "count": 1,
+  "items": [
+    {
+      "id": "claude_moc_deleg_matrix_08",
+      "kind": "RETIRE",
+      "reason": "The pre-authoring source test found no single explicit policy supporting the complete, genuinely unique six-row matrix without inventing a common U.S. scope.",
+      "payloadSha256": "a116e7e7954ec53c381f5e4c6ccfcf5a495c6c990f24c1cfa194c7f85220d7e3",
+      "question": {
+        "id": "claude_moc_deleg_matrix_08",
+        "itemType": "matrix",
+        "category": "Management of Care",
+        "topic": "Prioritization & Delegation",
+        "difficulty": "medium",
+        "ngnSkill": "generate_solutions",
+        "stem": {
+          "en": "For each task, select the lowest-level team member to whom the registered nurse can appropriately assign it on a medical-surgical unit. Assume a common U.S. med-surg scope where the state Nurse Practice Act and facility policy permit.",
+          "zh": "对于每项任务，请选择在内外科病区护士可恰当委派的最低层级团队成员。假设是在相关州《护理执业法》和机构政策允许的常见美国内外科执业范围内。"
+        },
+        "matrix": {
+          "rows": [
+            {
+              "id": "r1",
+              "en": "Bathing and feeding a stable client",
+              "zh": "为病情稳定的患者洗澡和喂食"
+            },
+            {
+              "id": "r2",
+              "en": "Administering a scheduled oral medication to a stable client",
+              "zh": "为病情稳定的患者给予一次定时口服药"
+            },
+            {
+              "id": "r3",
+              "en": "Reinforcing previously taught discharge instructions",
+              "zh": "强化先前已教过的出院指导"
+            },
+            {
+              "id": "r4",
+              "en": "Performing the initial assessment of a newly admitted client",
+              "zh": "为新入院患者进行首次评估"
+            },
+            {
+              "id": "r5",
+              "en": "Developing and revising the nursing care plan",
+              "zh": "制定和修订护理计划"
+            },
+            {
+              "id": "r6",
+              "en": "Administering IV push medication and titrating a vasoactive drip",
+              "zh": "静脉推注药物并滴定血管活性药物"
+            }
+          ],
+          "columns": [
+            {
+              "id": "c_rn",
+              "en": "RN only",
+              "zh": "仅注册护士"
+            },
+            {
+              "id": "c_uap",
+              "en": "UAP",
+              "zh": "UAP（无执照辅助人员）"
+            },
+            {
+              "id": "c_lpn",
+              "en": "LPN/LVN",
+              "zh": "LPN/LVN（实用/职业护士）"
+            }
+          ],
+          "selectionMode": "single_per_row"
+        },
+        "correct": [
+          {
+            "rowId": "r1",
+            "columnIds": [
+              "c_uap"
+            ]
+          },
+          {
+            "rowId": "r2",
+            "columnIds": [
+              "c_lpn"
+            ]
+          },
+          {
+            "rowId": "r3",
+            "columnIds": [
+              "c_lpn"
+            ]
+          },
+          {
+            "rowId": "r4",
+            "columnIds": [
+              "c_rn"
+            ]
+          },
+          {
+            "rowId": "r5",
+            "columnIds": [
+              "c_rn"
+            ]
+          },
+          {
+            "rowId": "r6",
+            "columnIds": [
+              "c_rn"
+            ]
+          }
+        ],
+        "rationale": {
+          "correct": {
+            "en": "Assign at the lowest level whose scope safely covers the task. UAP perform standardized ADL care for stable clients (bathing/feeding). LPN/LVN may administer most routine oral/IM/SubQ medications and reinforce teaching the RN already provided. The RN retains the activities requiring independent nursing judgment: the initial/admission assessment, creating and revising the care plan, and high-risk medication administration such as IV push drugs and titration of vasoactive infusions. (Scope varies by state Nurse Practice Act and facility policy; this reflects common U.S. acute-care delegation rules and the NCSBN/ANA delegation guidelines.)",
+            "zh": "在能安全覆盖任务的最低层级进行委派。UAP 为病情稳定的患者提供标准化的日常生活照护（洗澡/喂食）。LPN/LVN 可给予多数常规口服/肌注/皮下药物，并强化护士已提供的教学。护士保留需要独立护理判断的活动：首次/入院评估、制定和修订护理计划，以及高风险给药如静脉推注和血管活性药物滴定。（执业范围因各州《护理执业法》和机构政策而异；此处反映美国急症护理常见的委派规则及 NCSBN/ANA 委派指南。）"
+          },
+          "byChoice": [
+            {
+              "refId": "r3",
+              "en": "An LPN/LVN may reinforce teaching the RN initiated, but the RN performs the initial teaching.",
+              "zh": "LPN/LVN 可强化护士发起的教学，但首次教学由护士进行。"
+            },
+            {
+              "refId": "r4",
+              "en": "The initial assessment requires RN judgment and is not delegated.",
+              "zh": "首次评估需要护士判断，不予委派。"
+            },
+            {
+              "refId": "r6",
+              "en": "IV push and vasoactive titration are RN-only because of the judgment and risk involved.",
+              "zh": "因涉及判断和风险，静脉推注和血管活性药物滴定仅限护士。"
+            }
+          ]
+        },
+        "testTakingStrategy": {
+          "en": "Match the task to the lowest safe scope: UAP = stable ADLs; LPN = routine meds + reinforcing teaching; RN = assessment, care planning, teaching, high-risk meds.",
+          "zh": "将任务匹配到最低的安全执业范围：UAP＝稳定患者的日常照护；LPN＝常规给药＋强化教学；RN＝评估、护理计划、教学、高风险给药。"
+        },
+        "glossary": [
+          {
+            "termEn": "Scope of practice",
+            "termZh": "执业范围",
+            "defZh": "由各州护理执业法和机构政策界定的某一岗位可合法执行的活动。"
+          },
+          {
+            "termEn": "LPN/LVN",
+            "termZh": "实用/职业护士",
+            "defZh": "在 RN 或医生指导下提供护理的执照护士；执业范围比 RN 窄。"
+          }
+        ]
+      }
+    }
+  ]
+}
