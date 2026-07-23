@@ -18,6 +18,7 @@ import { readFile, readdir } from "node:fs/promises";
 import { join, resolve } from "node:path";
 import { pathToFileURL } from "node:url";
 import { dedupeSelectedFilePaths } from "../../lib/selected-file-paths";
+import { collectScoredLeaves } from "../../lib/question-population";
 import { parseBankText } from "../../src/bankImport";
 import { validateBankObject } from "../../src/schema";
 import type { AuditResult, CheckStatus } from "./types";
@@ -85,6 +86,9 @@ export type RunAuditPositionsOptions = {
    *  Fails loud: a missing, unreadable, unparseable, or schema-invalid selected
    *  file is never silently skipped. */
   files?: string[];
+  /** Include embedded case-study multiple-choice leaves. Explicit raw-gate use only;
+   *  the established canonical sweep remains top-level-only. */
+  includeEmbeddedScoredLeaves?: boolean;
 };
 
 function buildResult(
@@ -162,7 +166,10 @@ async function runDefaultSweep(): Promise<AuditResult> {
   return buildResult(positionsByOptionCount, false);
 }
 
-async function runSelectedFiles(files: string[]): Promise<AuditResult> {
+async function runSelectedFiles(
+  files: string[],
+  includeEmbeddedScoredLeaves: boolean,
+): Promise<AuditResult> {
   const selected = dedupeSelectedFilePaths(files);
   const positionsByOptionCount = new Map<number, number[]>();
   const loadFailures: string[] = [];
@@ -175,8 +182,11 @@ async function runSelectedFiles(files: string[]): Promise<AuditResult> {
         loadFailures.push(`${displayPath}: schema validation failed — ${result.reasons.join("; ")}`);
         continue;
       }
+      const population = includeEmbeddedScoredLeaves
+        ? collectScoredLeaves(result.value.questions)
+        : result.value.questions;
       collectPositions(
-        result.value.questions.filter(
+        population.filter(
           (question): question is MultipleChoiceQuestion => question.itemType === "multiple_choice",
         ),
         positionsByOptionCount,
@@ -210,7 +220,7 @@ export async function runAuditPositions(options: RunAuditPositionsOptions = {}):
       detail: "Explicit file selection is empty.",
     };
   }
-  return runSelectedFiles(options.files);
+  return runSelectedFiles(options.files, options.includeEmbeddedScoredLeaves ?? false);
 }
 
 function parseCliArgs(argv: string[]): RunAuditPositionsOptions {

@@ -9,13 +9,14 @@ Companion to [`AGENTS.md`](../AGENTS.md), which is constitutional: principles, r
 ```sh
 npm run fix-bank-quotes -- banks/banks-raw/<file>.json    # repair curly-quote corruption; writes <file>.fixed.json unless --in-place
 npm run normalize-raw-bank -- banks/banks-raw/<file>.json # dry-run schema-shape cleanup; add --write after review
+npm run gate:raw -- --file banks/banks-raw/<file>.json     # read-only exact promotion-preview gate
 npm run promote                                           # deterministic shuffle → banks/_promoted/<same-filename>
 npm run audit                                             # aggregate audit; executable inventory lives in scripts/audit.ts
 npm run consolidate -- --dry-run                          # preview route, collision gate, and merged count
 npm run consolidate                                       # merge into canonical and remove staged promoted file
 ```
 
-The shuffled output in `banks/_promoted/<same-filename>` merges into the canonical bank selected by filename prefix. Resolve the destination by reading `CANONICAL_PREFIXES` in `lib/canonical-routing.ts` — that array is the executable source of truth for prefix-to-canonical routing; `DECISIONS.md` records why the routing, and the frozen-set/live-target split, exist. Do not hand-maintain a prose copy of the table here.
+`npm run promote` discovers the complete sorted raw JSON population, runs `gate:raw` over that exact set before creating or changing staging, and writes only the exact serialized promotion previews returned by a passing gate. One failing candidate prevents every staged write. The shuffled output in `banks/_promoted/<same-filename>` merges into the canonical bank selected by filename prefix. Resolve the destination by reading `CANONICAL_PREFIXES` in `lib/canonical-routing.ts` — that array is the executable source of truth for prefix-to-canonical routing; `DECISIONS.md` records why the routing, and the frozen-set/live-target split, exist. Do not hand-maintain a prose copy of the table here.
 
 `npm run consolidate` is the canonical merge path: route, validate, schema-version guard, global top-level/embedded ID collision gate, append, recount `meta.count`, deterministic serialize, and remove the consumed staged file. Do not hand-merge canonicals.
 

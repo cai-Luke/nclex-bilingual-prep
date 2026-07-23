@@ -14,7 +14,7 @@ const question = (id: string) => ({
   id,
   itemType: "fill_in_blank",
   category: "Management of Care",
-  topic: "fixture",
+  topic: "Prioritization & Delegation",
   difficulty: "medium",
   stem: text,
   blanks: [{ id: "b1", prompt: text, acceptable: ["1"] }],
@@ -72,7 +72,7 @@ await withRoot(async (root) => {
   );
   const result = runPromote(root);
   assert.notEqual(result.status, 0, "canonical without metadata must fail promotion");
-  assert.match(`${result.stdout}\n${result.stderr}`, /meta\.schemaVersion must be one of/);
+  assert.match(`${result.stdout}\n${result.stderr}`, /meta with schemaVersion is required/);
 });
 
 await withRoot(async (root) => {
