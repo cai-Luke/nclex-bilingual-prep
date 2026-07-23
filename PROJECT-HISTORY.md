@@ -52,6 +52,24 @@ The committed NGN item-type set is complete. Rationale/dyad scoring and an expli
 
 > Milestones dated **2026-06-23 and earlier** are archived in [`Archive/PROJECT-HISTORY-ARCHIVE.md`](Archive/PROJECT-HISTORY-ARCHIVE.md). Only the current arc (2026-06-24 onward) is kept here.
 
+### Terminal-Sentence Remediation (Jul 22)
+
+Completed the owner-authorized 35-row remediation across the Claude, Gemini, GPT, and hard-case
+canonical banks: 34 rows were repaired and queue 162 was retired after its pre-authoring source test
+found no explicit policy capable of supporting the full delegation matrix without an invented
+nationwide scope. The exact retired payload and retained-payload/order proof are archived under
+`Archive/terminal-sentence-remediation-2026-07-22/` and
+`audit/terminal-sentence-remediation-2026-07-22/`.
+
+Codex produced the content-gated replacements and Claude Opus 4.7 independently approved all 17
+before application. Queue 1731 retained all six live clozapine case parts and rewrote `_q5` in
+place after folding already-initiated neutropenic precautions into the Stage-2 state. Queues 2123
+and 2228 survived rewrite-first review; no disclaimer-dependent D5 retirement fired. Queue 2235
+remained present and untouched, and `DECISIONS.md` was not changed.
+
+The resulting corpus has 1,891 session units and 2,477 scored leaves. The full bank-content
+verification floor passes; the audit retains only its 451 pre-existing stage-reference advisories.
+
 ### Lab-Trend Epic-Style Dual-Series Migration (Jul 21)
 
 Migrated all nine promoted two-series `lab_trend` records to a learner-facing normalized presentation
