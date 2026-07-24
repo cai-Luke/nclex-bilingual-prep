@@ -136,17 +136,32 @@ function buildPrincipleIndex(decisionsText: string): ReadonlyMap<number, "LIVE" 
   const index = new Map<number, "LIVE" | "LAPSED">();
   const lines = decisionsText.split(/\r?\n/);
   let currentSectionHeading = "";
-  const headerRe = /^\*\*(\d+)\.\s(.*)\*\*\s*$/;
-  for (const line of lines) {
+  // A principle header opens `**N. <text>` and closes with a trailing `**` —
+  // usually on the same line, but principle 30's header wraps across three
+  // lines in the source. Accumulate forward (bounded, stopping at a blank
+  // line or the next header) until the closing `**` is found, rather than
+  // requiring it on the opening line.
+  const openRe = /^\*\*(\d+)\.\s(.*)$/;
+  const MAX_LOOKAHEAD = 6;
+  for (let i = 0; i < lines.length; i += 1) {
+    const line = lines[i];
     const sectionMatch = line.match(/^##\s+(.*)$/);
     if (sectionMatch) {
       currentSectionHeading = sectionMatch[1];
       continue;
     }
-    const m = line.match(headerRe);
+    const m = line.match(openRe);
     if (!m) continue;
     const num = Number(m[1]);
-    const body = m[2];
+    let body = m[2];
+    let j = i;
+    while (!/\*\*\s*$/.test(body) && j - i < MAX_LOOKAHEAD && j + 1 < lines.length) {
+      const next = lines[j + 1];
+      if (next.trim() === "" || openRe.test(next)) break;
+      j += 1;
+      body += ` ${next}`;
+    }
+    body = body.replace(/\*\*\s*$/, "").trim();
     let status: string | null = null;
     const statusMatch = body.match(/Status:\s*([A-Z]+)/);
     if (statusMatch) status = statusMatch[1];
