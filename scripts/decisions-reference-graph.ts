@@ -159,6 +159,39 @@ const PATH_TOKEN = new RegExp(
   String.raw`(?:${PATH_SEGMENT}/)*${PATH_SEGMENT}\.${PATH_EXT}`,
 );
 
+/**
+ * A second, minimal structural gate on top of PATH_TOKEN, applied only to
+ * bare-token candidates (never to explicit Markdown link syntax, where the
+ * author's own `[text](target)` is already the signal). Measured on the real
+ * corpus, the raw PATH_TOKEN shape alone — any "segment.segment" — matched
+ * thousands of decimal numbers ("100.9", "2.1") and short prose abbreviations
+ * ("e.g") as pseudo-paths, none of which is a repository path under any
+ * reading, which would have made the `unqualified-basename` MISSING class
+ * (item 9) uninterpretable noise rather than the reconciliation it exists to
+ * be. Two structural facts distinguish an implausible token, both about
+ * *shape*, not content:
+ *   - a file's final extension is conventionally 2+ characters — this repo's
+ *     own tracked extensions are all 2+ chars (`md`, `ts`, `tsx`, `json`,
+ *     `css`, `py`, ...); "e.g" (ext "g") and "i.e" (ext "e") fail this;
+ *   - a file's stem is not a bare integer — "100.9", "2.1", "38.3" all fail
+ *     this, since their final segment before the dot is digits-only.
+ * This is not a reintroduced extension allowlist: it accepts any extension of
+ * plausible length, not a specific enumerated set, and a decimal number or a
+ * bare abbreviation is excluded from being *treated as a path candidate at
+ * all* rather than being silently resolved differently. Residual noise from
+ * code-identifier chains ("question.id", "series.length") is not excluded —
+ * no purely structural rule distinguishes those from a real relative path —
+ * and is reported honestly in findings.md rather than filtered further.
+ */
+function isPlausiblePathToken(token: string): boolean {
+  const lastDot = token.lastIndexOf(".");
+  if (lastDot < 0) return false;
+  const ext = token.slice(lastDot + 1);
+  if (ext.length < 2) return false;
+  const stem = token.slice(0, lastDot).split("/").pop() ?? "";
+  return /[A-Za-z]/.test(stem);
+}
+
 type Span = { start: number; end: number };
 
 function overlaps(spans: Span[], start: number, end: number): boolean {
@@ -319,6 +352,7 @@ function extractFromLine(from: string, line: string): RawRef[] {
     const start = m.index;
     const end = start + m[0].length;
     if (overlaps(consumed, start, end)) continue;
+    if (!isPlausiblePathToken(m[1])) continue; // e.g. a decimal number is not a path-section
     push({
       col: start,
       end,
@@ -375,6 +409,7 @@ function extractFromLine(from: string, line: string): RawRef[] {
     const start = m.index + (m[0].startsWith("`") ? 1 : 0);
     const end = start + path.length;
     if (overlaps(consumed, start, end)) continue;
+    if (!isPlausiblePathToken(path)) continue;
     push({ col: start, end, rawText: path, kind: "path", path });
   }
 
