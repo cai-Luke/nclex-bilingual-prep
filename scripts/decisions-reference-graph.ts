@@ -1,5 +1,5 @@
 /**
- * DECISIONS.md cleanup — Phase 1 reference-graph generator (pass 2).
+ * DECISIONS.md cleanup — Phase 1 reference-graph generator (correction pass).
  *
  * Deterministic citation-graph extractor over the governance Markdown corpus.
  * This is the mechanical null the phase-3 checker re-derives against; it carries
@@ -7,7 +7,7 @@
  * DECISIONS-CLEANUP-PHASE-1-SURVEY-CODEX-SPEC-2026-07-24.md §6 exactly and
  * extends none of them, except the principle-list grammar Amendment 3 promotes
  * into the contract (comma/and/&//-joined integer lists after the literal word
- * "principle"/"principles").
+ * "principle"/"principles", including the Oxford-comma form "a, b, and c").
  *
  * Targeting (what a reference points at) and resolution (whether that target
  * exists, and — for principles only — whether it is live) are kept as separate
@@ -17,6 +17,24 @@
  *   2. numbered sections (`## N. ...`-style headings) present per source file
  *   3. Markdown heading anchors (GitHub-slug) present per source file
  *   4. tracked repository paths
+ *
+ * A bare repository path is recognized structurally (path-shaped segments
+ * joined by "/", the final one carrying a dot-extension) and resolved only
+ * against index 4. There is no hand-maintained extension allowlist — per
+ * correction-pass work order §3.2/3.3, that list was a second, silently
+ * diverging authority on what counts as a path, and it truncated `.tsx` to
+ * `.ts` (leftmost-first alternation) and dropped `.css` entirely. The tracked
+ * index is the only authority; overbroad structural matches (decimal numbers,
+ * abbreviations) simply fail resolution and are labelled by class (below)
+ * rather than silently suppressed.
+ *
+ * Every unresolved (`MISSING`) record is additionally assigned exactly one
+ * deterministic class (correction-pass work order, spec §10 item 9):
+ * `absent-tracked-path`, `unqualified-basename`, `glob-or-pattern`,
+ * `external-law-section`, `decimal-subsection`, `line-wrap-grammar`, or
+ * `other`. This sub-classifies the MISSING population without touching
+ * targeting or resolution semantics — see `classifyMissing` below for the
+ * exact, documented triggers.
  *
  * Run only against a frozen worktree:
  *   tsx scripts/decisions-reference-graph.ts --root <frozen worktree path>
@@ -44,6 +62,15 @@ type ReferenceKind =
 
 type TargetState = "LIVE" | "LAPSED" | "MISSING" | "NOT_APPLICABLE";
 
+type MissingClass =
+  | "absent-tracked-path"
+  | "unqualified-basename"
+  | "glob-or-pattern"
+  | "external-law-section"
+  | "decimal-subsection"
+  | "line-wrap-grammar"
+  | "other";
+
 type ReferenceRecord = {
   from: string;
   fromLine: number;
@@ -52,6 +79,7 @@ type ReferenceRecord = {
   target: string | null;
   resolves: boolean;
   targetState: TargetState;
+  class: MissingClass | null;
   // sort key only — not emitted
   _col: number;
 };
@@ -107,9 +135,28 @@ function normalizeRepoPath(fromFile: string, rawTarget: string): { path: string;
   return { path: joined, anchor };
 }
 
-const KNOWN_EXT = "md|ts|tsx|json|ya?ml";
+// ---------------------------------------------------------------------------
+// Structural path token (correction-pass §3.2/3.3 — no extension allowlist).
+//
+// A path segment is alnum/underscore/dot/dash/asterisk (the asterisk admits
+// globs, e.g. `banks/*-canonical.json`, as one token rather than the bug-3.4
+// fragment `-canonical.json`). A token is zero-or-more `segment/` directory
+// parts followed by a final `segment.ext` — the dot-extension shape is what
+// makes something look like a *file*, structurally, with no fixed list of
+// which extensions count. Resolution (tracked-index membership) is the only
+// authority on whether the token is a real repository path; overbroad matches
+// (a decimal number, an abbreviation) simply fail resolution and are labelled
+// by class rather than excluded at the token level.
+// ---------------------------------------------------------------------------
+const PATH_SEGMENT = String.raw`[A-Za-z0-9_.*-]+`;
+// The extension must start with an alphanumeric character — `**` (Markdown's
+// bold-close delimiter) would otherwise itself qualify as a glob-shaped
+// "extension" once `*` is admitted for `banks/*-canonical.json`, and every
+// `**Status: TAG.**`-style bold sentence in DECISIONS.md would spuriously
+// extract as a bare path.
+const PATH_EXT = String.raw`[A-Za-z0-9][A-Za-z0-9*]*`;
 const PATH_TOKEN = new RegExp(
-  String.raw`(?:[A-Za-z0-9_.-]+/)*[A-Za-z0-9_.-]+\.(?:${KNOWN_EXT})`,
+  String.raw`(?:${PATH_SEGMENT}/)*${PATH_SEGMENT}\.${PATH_EXT}`,
 );
 
 type Span = { start: number; end: number };
@@ -124,7 +171,7 @@ function overlaps(spans: Span[], start: number, end: number): boolean {
 
 /**
  * A principle header is a bold line `**N. <body>**`. Two written forms exist
- * at SURVEY_HEAD: `**N. <text>. Status: TAG(...).**` (§4 principles) and
+ * at the frozen root: `**N. <text>. Status: TAG(...).**` (§4 principles) and
  * `**N. CONDITIONAL — <text>.**` (§5 conditional-lane principles, which carry
  * no separate "Status:" token — the leading word after the number *is* the
  * status). Liveness for a CONDITIONAL principle is read from whether its
@@ -303,8 +350,15 @@ function extractFromLine(from: string, line: string): RawRef[] {
     push({ col: start, end, rawText: m[0], kind: "section", sectionFile: from, sectionNum: Number(m[1]) });
   }
 
-  // `principle n` (and comma/and/&//-joined lists), any casing — Amendment 3 grammar.
-  const prinRe = /\bprinciples?\s+(\d+(?:\s*(?:,|and|&|\/)\s*\d+)*)/gi;
+  // `principle n` (and comma/and/&//-joined lists, incl. Oxford comma), any
+  // casing — Amendment 3 grammar, corrected per correction-pass §3.1.
+  //
+  // The separator between successive numbers is one-OR-MORE of `,`, `and`,
+  // `&`, `/` in sequence (not exactly one) — an Oxford-comma list like
+  // "8, 9, 12, 18, and 22" writes its last separator as *two* tokens, a comma
+  // followed by "and", and a separator alternation that permits only one
+  // token per gap cannot match that gap at all, silently truncating the list.
+  const prinRe = /\bprinciples?\s+(\d+(?:\s*(?:,(?:\s*(?:and|&|\/))?|and|&|\/)\s*\d+)*)/gi;
   for (let m = prinRe.exec(line); m; m = prinRe.exec(line)) {
     const start = m.index;
     const end = start + m[0].length;
@@ -314,7 +368,7 @@ function extractFromLine(from: string, line: string): RawRef[] {
     }
   }
 
-  // Bare repository path (known extension), not already consumed above.
+  // Bare repository path (structural — no extension allowlist), not already consumed above.
   const pathRe = new RegExp(String.raw`\`?(${PATH_TOKEN.source})\`?`, "g");
   for (let m = pathRe.exec(line); m; m = pathRe.exec(line)) {
     const path = m[1];
@@ -328,6 +382,68 @@ function extractFromLine(from: string, line: string): RawRef[] {
 }
 
 // ---------------------------------------------------------------------------
+// MISSING classification (correction-pass work order §3, spec §10 item 9).
+//
+// Deterministic, one class per unresolved record. This sub-classifies the
+// MISSING population — it changes no targeting rule and no resolution
+// semantic, and it never reclassifies a LIVE, LAPSED, or NOT_APPLICABLE
+// record. Every trigger below is checked against literal, local text
+// (the matched span, its own line, and — for the CFR lookback only, because
+// the one real corpus occurrence splits "45 CFR" and "§ 46.116(b)(8)" across
+// a hard paragraph wrap — the immediately preceding line). None of it guesses
+// at a reference's target; it only labels *why* an already-failed resolution
+// failed.
+// ---------------------------------------------------------------------------
+
+function classifyPathLike(rawPathText: string): MissingClass {
+  if (rawPathText.includes("*")) return "glob-or-pattern";
+  if (!rawPathText.includes("/")) return "unqualified-basename";
+  return "absent-tracked-path";
+}
+
+/**
+ * A dangling `§n` inside a tracked file. Three real, corpus-observed causes,
+ * checked in order:
+ *  1. `external-law-section` — the citation names an external statute
+ *     section (e.g. "45 CFR § 46.116(b)(8)"), not a DECISIONS.md-style
+ *     numbered heading. Detected by an `\bCFR\b` marker in the matched
+ *     line up to the match, OR — because the one real occurrence in this
+ *     corpus hard-wraps "45 CFR" onto the line before "§ 46.116(b)(8)," —
+ *     in the tail of the immediately preceding line.
+ *  2. `decimal-subsection` — the digits the bare-`§n` rule captured are
+ *     immediately followed by `.` + a digit in the source (e.g. "§6.1"),
+ *     meaning the true citation is a decimal subsection the integer-only
+ *     section index (`## N. Title`) cannot represent, not a broken citation.
+ *  3. `line-wrap-grammar` — the match sits at the very start of its
+ *     (trimmed) line while the previous line does not end in terminal
+ *     punctuation: the reference is a hard-wrap continuation of the prior
+ *     line's sentence, so its disambiguating context (case 1's kind of
+ *     marker, or otherwise) may be split across the wrap in a way this
+ *     generator's per-line extraction cannot see. Flagged rather than
+ *     guessed at.
+ *  4. `other` — a plain dangling section number with none of the above
+ *     shape: a genuine candidate for human review, not an extraction
+ *     artifact.
+ */
+function classifyDanglingSection(
+  matchStart: number,
+  matchEnd: number,
+  lineText: string,
+  prevLineText: string | undefined,
+): MissingClass {
+  const after = lineText.slice(matchEnd);
+  const decimalContinuation = /^\.\d/.test(after);
+  const lookback = `${prevLineText ? prevLineText.slice(-60) : ""} ${lineText.slice(0, matchEnd)}`;
+  if (/\bCFR\b/i.test(lookback)) return "external-law-section";
+  if (decimalContinuation) return "decimal-subsection";
+  const leadingWhitespace = lineText.match(/^\s*/)![0].length;
+  const matchStartsLine = matchStart <= leadingWhitespace + 2;
+  const prevEndsSentence = prevLineText === undefined || /[.?!:]\s*$/.test(prevLineText);
+  if (matchStartsLine && !prevEndsSentence) return "line-wrap-grammar";
+  return "other";
+}
+
+// ---------------------------------------------------------------------------
 // Resolution — whether the target exists, and (principles only) its liveness.
 // ---------------------------------------------------------------------------
 
@@ -338,49 +454,62 @@ function resolve_(
   principles: ReadonlyMap<number, "LIVE" | "LAPSED">,
   sections: ReadonlyMap<string, ReadonlySet<number>>,
   anchors: ReadonlyMap<string, ReadonlySet<string>>,
-): { target: string | null; resolves: boolean; targetState: TargetState } {
+  lineText: string,
+  prevLineText: string | undefined,
+): { target: string | null; resolves: boolean; targetState: TargetState; klass: MissingClass | null } {
   switch (raw.kind) {
     case "principle": {
       const n = raw.principleNum!;
       const state = principles.get(n);
       const target = `${PRINCIPLE_HOME}#principle-${n}`;
-      if (state === undefined) return { target, resolves: false, targetState: "MISSING" };
-      return { target, resolves: true, targetState: state };
+      if (state === undefined) return { target, resolves: false, targetState: "MISSING", klass: "other" };
+      return { target, resolves: true, targetState: state, klass: null };
     }
     case "section": {
       const file = raw.sectionFile!;
       const n = raw.sectionNum!;
       const target = `${file}#section-${n}`;
       const exists = sections.get(file)?.has(n) ?? false;
-      return { target, resolves: exists, targetState: exists ? "LIVE" : "MISSING" };
+      if (exists) return { target, resolves: true, targetState: "LIVE", klass: null };
+      const klass = classifyDanglingSection(raw.col, raw.end, lineText, prevLineText);
+      return { target, resolves: false, targetState: "MISSING", klass };
     }
     case "path-section": {
       const file = raw.sectionFile!;
       const n = raw.sectionNum!;
       const target = `${file}#section-${n}`;
       const pathTracked = tracked.has(file);
-      const exists = pathTracked && (sections.get(file)?.has(n) ?? false);
-      return { target, resolves: exists, targetState: exists ? "LIVE" : "MISSING" };
+      if (!pathTracked) {
+        return { target, resolves: false, targetState: "MISSING", klass: classifyPathLike(file) };
+      }
+      const exists = sections.get(file)?.has(n) ?? false;
+      if (exists) return { target, resolves: true, targetState: "LIVE", klass: null };
+      const klass = classifyDanglingSection(raw.col, raw.end, lineText, prevLineText);
+      return { target, resolves: false, targetState: "MISSING", klass };
     }
     case "link": {
       const { linkPath, linkAnchor, linkIsSelf } = raw;
       const file = linkIsSelf ? from : linkPath!;
       const target = `${linkPath}${linkAnchor}`;
       const pathTracked = tracked.has(file);
-      if (!pathTracked) return { target, resolves: false, targetState: "MISSING" };
-      if (!linkAnchor) return { target, resolves: true, targetState: "LIVE" };
+      if (!pathTracked) {
+        return { target, resolves: false, targetState: "MISSING", klass: classifyPathLike(linkPath!) };
+      }
+      if (!linkAnchor) return { target, resolves: true, targetState: "LIVE", klass: null };
       const slug = linkAnchor.startsWith("#") ? linkAnchor.slice(1) : linkAnchor;
       const anchorExists = anchors.get(file)?.has(slug) ?? false;
-      return { target, resolves: anchorExists, targetState: anchorExists ? "LIVE" : "MISSING" };
+      if (anchorExists) return { target, resolves: true, targetState: "LIVE", klass: null };
+      return { target, resolves: false, targetState: "MISSING", klass: "other" };
     }
     case "path": {
       const exists = tracked.has(raw.path!);
-      return { target: raw.path!, resolves: exists, targetState: exists ? "LIVE" : "MISSING" };
+      if (exists) return { target: raw.path!, resolves: true, targetState: "LIVE", klass: null };
+      return { target: raw.path!, resolves: false, targetState: "MISSING", klass: classifyPathLike(raw.path!) };
     }
     case "link-external":
-      return { target: null, resolves: false, targetState: "NOT_APPLICABLE" };
+      return { target: null, resolves: false, targetState: "NOT_APPLICABLE", klass: null };
     case "ambiguous":
-      return { target: null, resolves: false, targetState: "NOT_APPLICABLE" };
+      return { target: null, resolves: false, targetState: "NOT_APPLICABLE", klass: null };
   }
 }
 
@@ -415,8 +544,8 @@ function main(): void {
     const lines = sourceTexts.get(source)!.split(/\r?\n/);
     for (let i = 0; i < lines.length; i += 1) {
       for (const raw of extractFromLine(source, lines[i])) {
-        const { target, resolves, targetState } = resolve_(
-          raw, source, tracked, principles, sections, anchors,
+        const { target, resolves, targetState, klass } = resolve_(
+          raw, source, tracked, principles, sections, anchors, lines[i], i > 0 ? lines[i - 1] : undefined,
         );
         references.push({
           from: source,
@@ -426,6 +555,7 @@ function main(): void {
           target,
           resolves,
           targetState,
+          class: klass,
           _col: raw.col,
         });
       }
@@ -445,6 +575,20 @@ function main(): void {
   const ambiguous = emitted.filter((r) => r.kind === "ambiguous");
   const externalLinks = emitted.filter((r) => r.kind === "link-external");
   const lapsed = emitted.filter((r) => r.targetState === "LAPSED");
+
+  const missingByClass: Record<string, number> = {
+    "absent-tracked-path": 0,
+    "unqualified-basename": 0,
+    "glob-or-pattern": 0,
+    "external-law-section": 0,
+    "decimal-subsection": 0,
+    "line-wrap-grammar": 0,
+    other: 0,
+  };
+  for (const r of unresolved) {
+    const key = r.class ?? "other";
+    missingByClass[key] = (missingByClass[key] ?? 0) + 1;
+  }
 
   const manifest = {
     generatedAt: new Date().toISOString(),
@@ -470,6 +614,7 @@ function main(): void {
         acc[r.kind] = (acc[r.kind] ?? 0) + 1;
         return acc;
       }, {}),
+      missingByClass,
     },
     references: emitted,
     unresolved,
