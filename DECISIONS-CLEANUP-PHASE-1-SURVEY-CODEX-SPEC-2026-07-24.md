@@ -4,9 +4,11 @@
 **Seat:** Codex. Producer seat.
 **Authority:** Architect commission. Classification and architecture only.
 **Status:** Open work order. Immutable during execution.
-**Amended:** 2026-07-24 — Amendments 1 through 4, recorded in section 12. Pass 1 returned 2026-07-24
-and these amendments reopen the commission for a second pass. Read the amended body; do not reconcile
-against any wording recalled from the first pass.
+**Amended:** 2026-07-24 — Amendments 1 through 5, recorded in section 12. Pass 1 returned 2026-07-24.
+Pass 2 returned 2026-07-24 and was refused at architect review. Amendment 5 reopens the commission
+for a **correction pass**, sequenced by `DECISIONS-CLEANUP-PHASE-1-CORRECTION-WORK-ORDER-2026-07-24.md`
+at the repository root. Read the amended body; do not reconcile against any wording recalled from
+either earlier pass.
 
 ---
 
@@ -74,6 +76,59 @@ carries both as uncommitted modifications, so this ordering is not optional:
 This yields the dual provenance section 6 requires: `inputGitSha` is the clean governance commit,
 `generatorGitSha` is the later generator commit.
 
+### 3a. Correction-pass baseline: `CORRECTION_HEAD` (Amendment 5)
+
+The nine-step ordering above was written for pass 2 and is spent. Amendment 5 changed this spec, and
+this spec is a root-level `*.md` file and therefore **inside** the corpus below. A third pass
+measured at pass 2's `SURVEY_HEAD` (`f68210c`) would measure a spec that no longer exists — the
+exact defect Amendment 3 corrected once already.
+
+**The correction pass therefore has its own baseline, under its own name.** `SURVEY_HEAD` is not
+recaptured, redefined, or reused. It remains bound to `f68210c` permanently, because the committed
+pass-2 artifacts cite it and a token that silently changes referent between passes is a provenance
+trap of exactly the kind this document keeps finding.
+
+1. Branch `survey/decisions-cleanup-phase-1`, carrying the pass-2 commits.
+2. Commit the Amendment-5 spec and
+   `DECISIONS-CLEANUP-PHASE-1-CORRECTION-WORK-ORDER-2026-07-24.md`, **and nothing else**. Confirm
+   `git status --porcelain` is empty. Capture that commit as
+   `CORRECTION_HEAD=$(git rev-parse HEAD)` and report it.
+3. Correct the generator. Run the section 10 verification, including items 6, 8, and 9, before
+   generating any graph. Commit the corrected generator.
+4. Create a detached read-only worktree at `CORRECTION_HEAD` outside the live repository directory.
+   Run the committed generator from the live branch checkout with `--root` pointed at that
+   worktree. Generate twice, show the two-run diff, remove the worktree, and confirm the live
+   worktree is unchanged apart from the section 4 deliverables.
+5. Regenerate `reference-graph.json` first, then recompute every count, queue, and delta in the
+   other four deliverables from the regenerated artifact. Commit the five deliverables.
+
+**Token mapping, exhaustive.** For the correction pass:
+
+- **Sections 5, 6, 7, and 11** — `SURVEY_HEAD` reads `CORRECTION_HEAD`. These are the places the
+  token denotes the frozen measurement root: entry line numbers, the resolution baseline, and the
+  phase-3 re-derivation input.
+- **Section 10** — items 3, 4, and 7 are already written as `CORRECTION_HEAD`. No mapping needed.
+- **The nine-step ordering earlier in this section, and its `SURVEY_HEAD` captures** — **superseded
+  by section 3a for this pass.** It is retained as the record of how pass 2 was cut, not as an
+  instruction. Do not execute it, and do not apply the mapping to it.
+- **Section 12** — historical. Those occurrences record what passes 1 and 2 did and continue to
+  refer to `f68210c`.
+
+`inputGitSha` in the regenerated graph is `CORRECTION_HEAD`; `generatorGitSha` remains the later
+generator commit.
+
+**`DECISIONS.md` is byte-identical at `35b968e`, `f68210c`, and `CORRECTION_HEAD`** — it was last
+modified at `35b968e`, which precedes all of them. Every entry boundary, line number, and byte
+length established in pass 2 therefore survives the rebaseline exactly. Confirm this with
+`git diff --stat 35b968e..HEAD -- DECISIONS.md` and report the empty result rather than taking it on
+trust.
+
+**The two governance files added at `CORRECTION_HEAD` are inside the corpus by design, not by
+accident.** Both are tracked root-level `*.md`, both are therefore reference-graph sources, and
+their citations are measured like any others — the same treatment pass 2 correctly gave this spec's
+own text. Their expected contribution is stated in section 6 so that a count delta against pass 2 is
+attributed in advance rather than discovered and mistaken for a regression.
+
 Primary subject: `DECISIONS.md`.
 
 Reference-graph sources: `DECISIONS.md`, `CLAUDE.md`, `AGENTS.md`, `PROJECT-HISTORY.md`,
@@ -122,6 +177,16 @@ Per entry, record:
 - **evidence pointers** and **executable owners** it already carries
 - whether any factual claim in it is **contradicted by the executable owner it names** — flag only,
   do not correct
+
+**Amendment 5 — these fields are re-derived, not carried forward.** Amendment 1 recorded the pass-1
+byte lengths, evidence-fraction estimates, forcing incidents, evidence pointers, executable owners,
+and contradiction flags as surviving material that must not be re-derived from scratch. Section 3
+step 2 then ordered the only artifact holding them deleted. That prohibition is withdrawn: re-derive
+every field in the list above, in full, for every entry, into `inventory.md` itself. "Preserved from
+an earlier pass" is not an acceptable value for any field here, because the earlier pass's
+deliverables exist in no tree and no commit. `DECISIONS.md` is byte-identical at `35b968e`,
+`f68210c`, and this pass's `CORRECTION_HEAD`, so every boundary, line number, and byte length is
+re-derivable exactly, and the pass-2 classification table anchors the work.
 
 Classify what is written, not what you believe was intended. Where the current wording supports two
 readings, record both and route the row to the owner rather than choosing the tidier one.
@@ -221,6 +286,24 @@ same frozen root; demonstrate that with the exact diff command you used.
 Report unresolved and ambiguous references separately. An unresolved reference at `SURVEY_HEAD` is a
 pre-existing defect, not something this commission introduced, and must be labelled as such.
 
+**Expected contribution of the two governance files added at `CORRECTION_HEAD` (Amendment 5).**
+These figures were measured under the corrected principle grammar *before* section 3a was written,
+so the spec's own row will have risen. Re-measure at `CORRECTION_HEAD` and report the actual
+figures; these exist to be reconciled against, never adopted.
+
+| source | principle records | distinct principles targeted | bare `§n` |
+|---|---|---|---|
+| `DECISIONS-CLEANUP-PHASE-1-SURVEY-CODEX-SPEC-2026-07-24.md` | ≥ 45 | 2, 3, 5, 8, 9, 12, 18, 20, 22, 27 | ≥ 1 |
+| `DECISIONS-CLEANUP-PHASE-1-CORRECTION-WORK-ORDER-2026-07-24.md` | 22 | 2, 5, 6, 8, 9, 12, 18, 22, 25 | 1 |
+
+Of these, at least 36 and 18 respectively target principles 8, 9, 12, 18, and 22 — all `LAPSED` at
+`CORRECTION_HEAD`. The `LAPSED` review queue will therefore grow by **at least 54 records that are
+governance text about the lapse**, not citations whose authority lapsed underneath them. They are
+structurally category 1: self-aware, correct, requiring no action. **Segregate them in the queue.** A
+review queue whose majority is this commission discussing itself has stopped surfacing the thing it
+was built to surface, and the growth is an artifact of measuring the instrument alongside the
+object — not a finding.
+
 ---
 
 ## 7. Before/after outline
@@ -237,13 +320,30 @@ One row per entry ID. Columns:
 
 | id | heading | kind | status | force before | force after | destination | permanent ID proposed | evidence pointer | notes |
 
-**Destination** is exactly one of: `STAY` or `ARCHIVE`. There is no third option.
+**Destination** is exactly one of: `STAY`, `ARCHIVE`, or `MERGE_INTO <target ids>`. There is no
+fourth option, and `MERGE_INTO` is bounded by the four conditions below.
 
-`STAY` means the body remains live and may be compressed in phase 2. `ARCHIVE` means the displaced
-body is preserved verbatim in the archive. An evidence document is a **pointer**, never a
-destination: phase 2 may replace reproduced evidence inside a live entry with a link to it, but the
-displaced governance wording still goes to the archive. Nothing is discharged by asserting that
-another document already covers it.
+`STAY` means the body remains live **as its own entry** and may be compressed in phase 2. `ARCHIVE`
+means the displaced body is preserved verbatim in the archive. An evidence document is a
+**pointer**, never a destination: phase 2 may replace reproduced evidence inside a live entry with a
+link to it, but the displaced governance wording still goes to the archive. Nothing is discharged by
+asserting that another document already covers it.
+
+`MERGE_INTO <target ids>` means the entry's content stays live but the entry loses independent
+standing: its rules are absorbed into the named target entries and it has no post-compression body
+of its own. It is not a softer `ARCHIVE` — nothing is displaced — and it is not `STAY` with
+explanatory notes, because a phase-2 seat executing `STAY` preserves a standing entry and would mint
+the identifier the merge exists to refuse. Four conditions, all required:
+
+1. An **owner ruling on the record** removes the entry's independent standing. `MERGE_INTO` is never
+   a classifier's tidying judgment and is never proposed on the classifier's own initiative.
+2. Every target id is named explicitly and appears as its own row in this table with destination
+   `STAY`. A merge into an `ARCHIVE` row, or into a row that does not exist, is a defect.
+3. No permanent ID is proposed. The `permanent ID proposed` cell reads `*(none — merged)*` and names
+   the ruling that refuses the number.
+4. Force before and force after are still stated, and **every rule the entry carries is accounted for
+   in exactly one target.** A rule that lands in no target has been deleted, not merged, and that is
+   the failure this destination is most likely to hide.
 
 `PROJECT-HISTORY.md` is not an available destination. Do not propose it for any row.
 
@@ -317,11 +417,12 @@ Report the result of each:
 1. `npx tsc -b --pretty false` — exit code.
 2. `npm run survey:decisions-refs -- --root <frozen worktree path>` twice; show the two-run diff
    command and its empty output.
-3. `git diff --stat "$SURVEY_HEAD"..HEAD -- DECISIONS.md CLAUDE.md AGENTS.md PROJECT-HISTORY.md
+3. `git diff --stat "$CORRECTION_HEAD"..HEAD -- DECISIONS.md CLAUDE.md AGENTS.md PROJECT-HISTORY.md
    NCLEX-Question-Schema.md` — must be empty. A working-tree diff will not do: this pass lands three
    commits, and a clean working tree proves only that the last one was clean.
-4. `git diff --numstat "$SURVEY_HEAD"..HEAD -- package.json` — must report exactly
-   `1\t0\tpackage.json`.
+4. `git diff --numstat "$CORRECTION_HEAD"..HEAD -- package.json` — must report **no change**. The
+   `survey:decisions-refs` line landed in pass 2 and sits below `CORRECTION_HEAD`; this pass adds no
+   `package.json` line. A `1\t0\tpackage.json` result here means the line was added a second time.
 5. The full current pull-request gate step list, unmodified and complete — every command exits 0.
    Run it in the live branch checkout, never in the detached measurement worktree, which is
    read-only and carries no installed dependencies. `npm ci` is part of that list. Pass 1 skipped it
@@ -335,10 +436,26 @@ Report the result of each:
    Build this on a throwaway fixture outside the corpus — section 9 forbids editing `DECISIONS.md`,
    and a clean corpus is not evidence that a tripwire fires. Report the fixture, the records it
    produced, and its deletion.
-7. `git diff --name-only "$SURVEY_HEAD"..HEAD` — must list exactly seven paths and no others: the
-   five section 4 deliverables, `scripts/decisions-reference-graph.ts`, and `package.json`. This is
-   the check that actually enforces section 9, because an allowlist cannot be satisfied by a file a
-   denylist forgot to name. Then `git status --porcelain` — must be empty after the final commit.
+7. `git diff --name-only "$CORRECTION_HEAD"..HEAD` — must list exactly six paths and no others: the
+   five section 4 deliverables and `scripts/decisions-reference-graph.ts`. `package.json` is **not**
+   in this range — its single line landed in pass 2, below `CORRECTION_HEAD`. The Amendment-5 spec
+   and the correction work order are also below `CORRECTION_HEAD` by the section 3a ordering and
+   must not appear. This is the check that actually enforces section 9, because an allowlist cannot
+   be satisfied by a file a denylist forgot to name. Then `git status --porcelain` — must be empty
+   after the final commit.
+8. **Extended negative control (Amendment 5).** Beyond item 6, the throwaway fixture must demonstrate
+   correct handling of each of: an Oxford-comma principle list (`principles 8, 9, 12, 18, and 22` —
+   all five integers emitted); a `.tsx` path; a tracked `.css` path; a same-stem `.ts`/`.tsx` pair,
+   proving the `.tsx` reference resolves to the `.tsx` file and not the `.ts` one; an unqualified
+   basename whose file exists under a directory; a glob (`banks/*-canonical.json`); a relative path;
+   and a `<path> §n` reference. Report the fixture, the records it produced, and its deletion.
+9. **`MISSING`-class reconciliation (Amendment 5).** Every `MISSING` record is assigned **by the
+   generator, deterministically, not by hand** to exactly one class: `absent-tracked-path`,
+   `unqualified-basename`, `glob-or-pattern`, `external-law-section`, `decimal-subsection`,
+   `line-wrap-grammar`, or `other`. Emit the class on the record and per-class totals under `counts`,
+   and report those totals. `other` is a finding, not a remainder: name every record in it. This
+   exists because a `MISSING` total that falls from 3,023 to some smaller uninterpreted number is not
+   evidence of a corrected resolver.
 
 ---
 
@@ -434,3 +551,73 @@ Both defects are the same one this cleanup keeps turning up: two things that mus
 got collapsed. Kind and work state. Placement and status. Existence and liveness. Now ruling and
 measurement. The generator measures what is, section 8 decides what should be, and neither may be
 written in terms of the other.
+
+**Amendment 5 — 2026-07-24, architect seat. Pass 2 refused at review: a destroyed input, a missing
+destination state, and an unmeasured resolver.**
+
+Pass 2 executed the amended commission, verified cleanly against section 10, and returned. Architect
+review refused it on six defects. Three are this spec's own, and the correction pass must not be
+sent out carrying them as producer findings.
+
+1. **Section 5 required fields whose only source this spec destroyed.** Amendment 1 listed the
+   pass-1 byte lengths, evidence-fraction estimates, forcing incidents, evidence pointers,
+   executable owners, and contradiction flags as material that survives and "must not be re-derived
+   from scratch." Section 3 step 2 then ordered the five pass-1 deliverables removed from the tree
+   before `SURVEY_HEAD` was cut, preserving only the generator outside the repository. The two
+   instructions cannot both be satisfied. Pass 2 complied with each as far as either could be
+   complied with, carried the classification fields, and recorded the rest as preserved-but-not-
+   reproduced — pointing at an artifact that exists in no tree and no commit. The loss is real and
+   the cause is here. Section 5 now requires full re-derivation and withdraws the prohibition.
+2. **Section 8's destination enum had no state for the outcome its own owner ruling requires.**
+   Ruling 2 dissolves E037: its first rule returns to principle 8's core, its second attaches to
+   principles 2 and 5, and no `P31` is minted. `STAY` cannot express that — a phase-2 seat executing
+   `STAY` preserves E037 as a standing entry and mints exactly the number the ruling refuses — and
+   `ARCHIVE` cannot either, because the content stays live. Pass 2 introduced `MERGE`, stated in the
+   open that it was not one of the two permitted values, and gave the correct reason. The diagnosis
+   was right; the unilateral enum extension was not. The defect is that section 8 left no third
+   state and no escape hatch on the destination axis while section 2 provides exactly such an
+   escape, `UNCLEAR_REQUIRES_OWNER`, on the classification axis. Section 8 now defines
+   `MERGE_INTO <target ids>` and bounds it with four conditions.
+3. **Section 6 was read as authorizing an extension taxonomy, and nothing measured the result.** The
+   bare-path rule says a bare repository path targets that path, resolved against the tracked-path
+   index. The pass-2 generator instead recognized path-like tokens by a closed extension list
+   (`md|ts|tsx|json|ya?ml`), which is not in this spec and which fails in two directions at once.
+   Regex alternation is leftmost-first, so `ts` matches before `tsx` is tried and every `.tsx` path
+   in the corpus truncates: `src/App.tsx` became `src/App.ts`, a file that does not exist, 82 times.
+   Tokens outside the list — `src/styles.css`, live in the in-scope root `AGENTS.md` — were not
+   extracted at all. Unqualified basenames and glob fragments were extracted as though they were
+   repository paths. The result: 3,023 of 8,326 records `MISSING`, of which roughly 2,492 of the
+   2,841 missing path records are extraction artifacts, every one of them labelled a pre-existing
+   defect under this section's closing instruction. Section 10 now requires an extended negative
+   control and a deterministic per-class reconciliation of the entire `MISSING` population, because
+   this spec asked for a null and accepted an unaudited aggregate as evidence that it had one.
+
+Separately and not a spec defect: the principle-list grammar Amendment 3 promoted into the contract
+was implemented as `,`-or-`and`, not `,`-then-`and`, so every Oxford-comma list drops its final
+integer — ten occurrences in scope, five of them dropping principle 22, which understates the
+`LAPSED` review queue. Two classifications also breach the ratified taxonomy: `E047c` carries
+`X | REVISIT` where section 4 makes `REVISIT` compatible with `T` alone, and `E029` is an unnumbered
+`R`, which taxonomy section 7 permits only when the row is routed to `UNCLEAR_REQUIRES_OWNER`.
+
+What survives pass 2: the 78-entry boundary set including the E039a/E039b split, the frozen-input
+ordering and dual provenance, the mis-file corrections on E047a and E049, the retention of principle
+20, and the substantive reading of the principle-8 carve-out. The classification table is the anchor
+for the correction pass, not scrap.
+
+4. **Amendment 5 changed this spec, and this spec is inside the corpus it defines.** The correction
+   pass cannot measure at pass 2's `SURVEY_HEAD`. Section 3a defines `CORRECTION_HEAD` as its own
+   baseline under its own name, leaving `SURVEY_HEAD` permanently bound to `f68210c` because the
+   committed pass-2 artifacts cite it and a token that changes referent between passes is a
+   provenance trap. Section 10 items 3, 4, and 7 now range over `$CORRECTION_HEAD..HEAD`, and item
+   7's allowlist drops from seven paths to six — the `package.json` line landed in pass 2 and sits
+   below the new baseline. Section 6 states the two new governance files' expected contribution to
+   the graph in advance, including the roughly 54 additional `LAPSED` records they introduce by
+   discussing the lapse, so that growth is attributed rather than mistaken for a regression. This is
+   the third time the ordering has needed correcting for one reason: the governance text is both the
+   instrument and the measured object. Section 3a states the token mapping exhaustively so a fourth
+   pass does not rediscover it.
+
+The pattern holds for a fifth time. Preservation and deletion. Ruling and enum. Extraction and
+resolution. Each pass has found a place where this spec asked one seat to hold two incompatible
+things, and each time the producer complied with both as far as it could and the seam showed up in
+the artifact rather than in the instruction.
