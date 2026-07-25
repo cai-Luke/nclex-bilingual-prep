@@ -1,8 +1,10 @@
-# DECISIONS.md Cleanup — Phase 1 (Pass 2) — Before/After Outline
+# DECISIONS.md Cleanup — Phase 1 (Correction Pass) — Before/After Outline
 
-Placement only, against taxonomy §8 (ratified). Entries are `E`-IDs from `inventory.md`.
+Placement only, against taxonomy §8 (ratified). Entries are `E`-IDs from `inventory.md`. Updated this
+pass only where `E029`'s kind repair (`R`→`P`, `inventory.md` §4.2) moves its section; everything else
+is unchanged from pass 2.
 
-## Current structure (at `SURVEY_HEAD`)
+## Current structure (at `CORRECTION_HEAD`)
 
 | # | Current section | Entry rows |
 |---|---|---|
@@ -23,7 +25,7 @@ Placement only, against taxonomy §8 (ratified). Entries are `E`-IDs from `inven
 2. Status vocabulary               ← today's §2 (unchanged)                  [structural]
 3. Entry index                     ← today's §3, regenerated                 [structural]
 4. Governing principles (P)        ← 35 entry rows / 24 permanent numbers
-5. Concrete rulings (R)            ← 6 entry rows (R1–R5 numbered + E029 unnumbered-attached)
+5. Concrete rulings (R)            ← 5 entry rows (R1–R5 numbered; E029 moved to §4 — see below)
 6. Standing invariants (I)         ← 19 entries
 7. Open threads (T)                ← 3 entries (unsettled questions only)
 8. Archive index (X)               ← 14 entries
@@ -66,7 +68,7 @@ rather than silently numbered).
 | P21 | E019, E020, E021 |
 | P23 | E022, E023, E024 |
 | P24 | E025 |
-| P25 | E026, E027, E028 |
+| P25 | E026, E027, E028, **E029 (application, repaired from `R` — inventory.md §4.2)** |
 | P26 | E030 |
 | P27 | E031 |
 | P28 | E033 |
@@ -74,8 +76,8 @@ rather than silently numbered).
 | P30 | E035 |
 
 Count of distinct numbered principles: **24** (P8 and P20 restored/retained beyond pass 1's 22).
-Count of `P`-kind entry rows across those 24 numbers (core bodies + attached application blocks;
-E029 is now `R`-kind and counted under §5, not here): **35.**
+Count of `P`-kind entry rows across those 24 numbers (core bodies + attached application blocks,
+including `E029`, repaired this pass from `R` to `P` — `inventory.md` §4.2): **36.**
 
 ## Section 5 — Concrete rulings (R) — 5 entries, confirmed R1–R5
 
@@ -87,10 +89,11 @@ E029 is now `R`-kind and counted under §5, not here): **35.**
 | R4 | E047a SBP `400` / RR `150` / `spo2` `0%` ratifications | 2026-07-24 (line 339) | PENDING |
 | R5 | E073 PR vs post-merge CI-coverage ratified gate list | 2026-07-24 (line 385) | PENDING |
 
-**Plus E029** (flowsheet-reinstatement directive, reclassified from `T` in pass 1) — a sixth `R`-kind
-row that does **not** join this permanent series: it is a single implementation action attached to
-principle 25's body, not a standalone ruling with its own citable identity. It stays `STAY` under P25
-carrying `EXECUTION:PENDING`, not a numbered `R`.
+`E029` (flowsheet-reinstatement directive) is **no longer counted here** — repaired this pass
+(`inventory.md` §4.2) from an unnumbered `R` to a `P`-kind application sharing `P25`'s permanent ID,
+the same pattern as `E013`/`E015`. It moved to §4 above. An alternative reading (R-numbered, dated
+2026-07-19, which would insert between R3 and R4 and renumber the confirmed series) is recorded but
+not adopted — `findings.md` §F.5.
 
 R-series origin: **confirmed at R1** by architect ruling (spec §8) — the `R1..R17` inside
 `Archive/root-specs-2026-07-18/structured-measurements-schema-2-0-codex-spec.md` is document-local
@@ -131,8 +134,8 @@ that answer (taxonomy §7). Only 13, 14 (already intentionally unused) stay off 
 
 | target section | count |
 |---|---|
-| §4 Governing principles (P) | 35 |
-| §5 Concrete rulings (R) | 6 (5 numbered R1–R5 + E029 attached, unnumbered) |
+| §4 Governing principles (P) | 36 (includes E029, repaired this pass — see above) |
+| §5 Concrete rulings (R) | 5 (R1–R5 numbered) |
 | §6 Standing invariants (I) | 19 |
 | §7 Open threads (T) | 3 |
 | §8 Archive index (X) | 14 |
