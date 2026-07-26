@@ -182,6 +182,14 @@ const PATH_TOKEN = new RegExp(
  * code-identifier chains ("question.id", "series.length") is not excluded —
  * no purely structural rule distinguishes those from a real relative path —
  * and is reported honestly in findings.md rather than filtered further.
+ *
+ * This heuristic is advisory, never authoritative: at both call sites, a
+ * token that fails it is still accepted if it is a literal member of the
+ * tracked-path index. A genuinely tracked but oddly-shaped file (a
+ * single-character extension, a numeric-only stem) must never become
+ * invisible to the one index the generator is supposed to defer to —
+ * otherwise the index would no longer be the sole authority the module
+ * comment above claims it is.
  */
 function isPlausiblePathToken(token: string): boolean {
   const lastDot = token.lastIndexOf(".");
@@ -316,7 +324,7 @@ type RawRef = {
   path?: string;
 };
 
-function extractFromLine(from: string, line: string): RawRef[] {
+function extractFromLine(from: string, line: string, tracked: ReadonlySet<string>): RawRef[] {
   const refs: RawRef[] = [];
   const consumed: Span[] = [];
   const push = (r: RawRef): void => {
@@ -352,7 +360,10 @@ function extractFromLine(from: string, line: string): RawRef[] {
     const start = m.index;
     const end = start + m[0].length;
     if (overlaps(consumed, start, end)) continue;
-    if (!isPlausiblePathToken(m[1])) continue; // e.g. a decimal number is not a path-section
+    // The tracked index is the sole authority on what is a repository path: a token that is
+    // literally tracked always qualifies, regardless of the plausibility heuristic below, so a
+    // genuinely tracked oddly-named file (e.g. a single-letter extension) is never invisible to it.
+    if (!isPlausiblePathToken(m[1]) && !tracked.has(m[1])) continue;
     push({
       col: start,
       end,
@@ -409,7 +420,7 @@ function extractFromLine(from: string, line: string): RawRef[] {
     const start = m.index + (m[0].startsWith("`") ? 1 : 0);
     const end = start + path.length;
     if (overlaps(consumed, start, end)) continue;
-    if (!isPlausiblePathToken(path)) continue;
+    if (!isPlausiblePathToken(path) && !tracked.has(path)) continue;
     push({ col: start, end, rawText: path, kind: "path", path });
   }
 
@@ -578,7 +589,7 @@ function main(): void {
   for (const source of sources) {
     const lines = sourceTexts.get(source)!.split(/\r?\n/);
     for (let i = 0; i < lines.length; i += 1) {
-      for (const raw of extractFromLine(source, lines[i])) {
+      for (const raw of extractFromLine(source, lines[i], tracked)) {
         const { target, resolves, targetState, klass } = resolve_(
           raw, source, tracked, principles, sections, anchors, lines[i], i > 0 ? lines[i - 1] : undefined,
         );
