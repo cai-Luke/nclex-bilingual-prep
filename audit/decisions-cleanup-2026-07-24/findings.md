@@ -450,15 +450,38 @@ was wrongly excluding; the fix closes a real authority gap without changing any 
 
 | source | principle records (expected / actual) | distinct principles (expected / actual) | bare `§n` (expected / actual) | LAPSED records (expected / actual) |
 |---|---|---|---|---|
-| Survey spec | ≥45 / **49** | 2,3,5,8,9,12,18,20,**22**,27 / **2,3,5,8,9,12,18,22,27** (no "20" found — grepped, absent) | ≥1 / **1** | ≥36 / **41** |
+| Survey spec | 50 / **49** | 2,3,5,8,9,12,18,20,22,27 / **2,3,5,8,9,12,18,22,27** (principle 20 missed — see below) | ≥1 / **1** | ≥36 / **41** |
 | Correction work order | 22 / **22** | 2,5,6,8,9,12,18,22,25 / **2,5,6,8,9,12,18,22,25** (exact) | 1 / **1** | 18 / **18** |
 | **Combined LAPSED contribution** | ≥54 / **59** | | | |
 
-The work order's self-prediction is exact on every figure. The survey spec's is close but not exact:
-"20" appears in its expected distinct-principle list but the file never actually cites principle 20 (I
-grepped for it directly — absent). This is not a resolver defect; it is the spec's own advance estimate
-being imprecise on one entry, exactly as its own text anticipates ("these figures... exist to be
-reconciled against, never adopted").
+**Correcting an earlier misreading of this discrepancy:** an earlier draft of this file said the survey
+spec "never actually cites principle 20," based on a single-line grep (`principle 20\|principle20\|
+principles.*20\b`) that came back empty. That grep was the wrong test. The spec's own text (lines
+603–604) reads *"...the retention of principle\n20, and the substantive reading..."* — a genuine
+citation of principle 20, hard-wrapped across a line break, with "principle" ending one physical line
+and "20" beginning the next. The generator's targeting rule (spec §6) operates line-by-line: it matches
+`\bprinciples?\s+(\d+...)` against a single line's text, and a citation whose number sits on the
+*following* line is invisible to it — not merely unresolved, but never extracted as a reference at all,
+which is exactly why the expected/actual gap here is one *fewer* extracted record (50 expected, 49
+actual) rather than a `MISSING` record with a class. This reconciles the count precisely: the survey
+spec genuinely cites 50 principle instances across 10 distinct numbers, and the corrected generator
+recovers 49 of them, missing only the one split by this hard wrap.
+
+This is a real, verified gap in the targeting grammar — a citation spanning a physical line break is
+invisible to a per-line extractor — but it is **not corrected in this pass**. Per correction work order
+§3.5 ("do not fix anything else in extraction without an amendment... targeting changes come from the
+architect seat"), extending the principle-citation grammar to look across line boundaries is a targeting
+rule change, not a classification refinement, and is out of scope here. **Recorded as a proposed
+follow-up for a future, architect-authorized commission:** multiline principle-reference extraction
+(joining a `principle`/`principles` token with a wrapped number on the next physical line, bounded so it
+does not risk false-positive merges across unrelated adjacent sentences — the same risk this file
+already flagged for the `§n of <path>` reversed form in an earlier pass). Not implemented, not
+authorized here, and not a defect this correction pass silently worked around.
+
+Aside from this one hard-wrapped miss, the work order's self-prediction is exact on every figure, and
+the survey spec's is otherwise exact once the true expected principle-record count (50, not the
+originally-stated "≥45" floor) is reconciled against what the corrected generator can actually see
+across a line break.
 
 ---
 
@@ -522,7 +545,7 @@ commits above.** Every step in `.github/workflows/promotion-gate.yml` (the workf
 |---|---|
 | `npm ci` | pass |
 | `npx tsc -b --pretty false` | pass (exit 0) |
-| `npm run test-visuals` | **transient failure on first run** — `scripts/tests/visual-parity-promoted.ts` snapshots `git worktree list` before/after its own temporary-worktree cycle and asserts they're identical; two unrelated, already-`prunable` worktrees left behind by *other* sessions on this machine (present before this pass began — see the preflight `git worktree list` output at the start of this task) were swept by git's own prune housekeeping during the test's worktree operations, changing the ambient list out from under the assertion. Not caused by this pass — no file under `src/visuals` or `scripts/tests/` was touched, and the assertion depends on machine-local worktree registry state, not repo content. **Passed clean on immediate retry** (199 snapshots, all kind suites, session sampler, rationale-visual-schema-floor). |
+| `npm run test-visuals` | **transient failure on first run** — `scripts/tests/visual-parity-promoted.ts` snapshots `git worktree list` before/after its own temporary-worktree cycle and asserts they're identical. Two unrelated, already-`prunable` worktrees left behind by *other* sessions on this machine were present in this repo's worktree registry **before this pass began** (visible in the preflight `git worktree list` output at the start of this task) — that precondition predates this pass and is not something it created. More precisely than "not caused by this pass": this pass's own worktree operations (the detached `CORRECTION_HEAD` measurement worktrees, created and removed several times over the course of the correction and its review fixes) plausibly triggered git's own prune housekeeping, which swept those two already-stale entries during one of those cycles — so the *removal* of the contaminating entries is plausibly attributable to this pass's activity, even though the contamination itself was pre-existing and not introduced by it. Either way, the assertion depends on machine-global worktree-registry state the test does not own or control, not on repo content — no file under `src/visuals` or `scripts/tests/` was touched by this pass. **Passed clean on immediate retry** (199 snapshots, all kind suites, session sampler, rationale-visual-schema-floor). **Flagged as a separate hardening item, not fixed here:** `scripts/tests/visual-parity-promoted.ts` should not assert byte-identical `git worktree list` output across a test run if it does not itself own every entry in that list — a later CI-tooling task should scope the assertion to only the worktree(s) the test itself creates, so ambient state on a shared machine can't fail it. |
 | `npm run audit` | **GATE PASSED** (one pre-existing advisory-only distributional warning, `visual-canonical`/`select_all`/`correct_count_distribution` n=11 — the same one `PROJECT-HISTORY.md` already records, unrelated to this work) |
 | `npm run test:validate-sweep` | pass |
 | `npm run test:non-mcq-bias` | pass |
