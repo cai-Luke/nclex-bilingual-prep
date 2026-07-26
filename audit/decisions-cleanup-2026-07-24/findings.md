@@ -514,9 +514,26 @@ confirmed twice (once before, once after the third generator commit).
 
 **Item 1 — `npx tsc -b --pretty false`:** exit 0, run after every generator change (four times total).
 
-**Item 5 — full PR gate, including `npm ci`: not run this pass.** Reported as skipped, not claimed
-complete, per the spec's own instruction ("Run it, or report it as skipped and do not claim a complete
-gate run either way round"). This is the one open item before owner ratification.
+**Item 5 — full PR gate, including `npm ci`: run, in the live branch checkout, after the review-fix
+commits above.** Every step in `.github/workflows/promotion-gate.yml` (the workflow that runs
+`on: pull_request`) plus `npx tsc -b`:
+
+| step | result |
+|---|---|
+| `npm ci` | pass |
+| `npx tsc -b --pretty false` | pass (exit 0) |
+| `npm run test-visuals` | **transient failure on first run** — `scripts/tests/visual-parity-promoted.ts` snapshots `git worktree list` before/after its own temporary-worktree cycle and asserts they're identical; two unrelated, already-`prunable` worktrees left behind by *other* sessions on this machine (present before this pass began — see the preflight `git worktree list` output at the start of this task) were swept by git's own prune housekeeping during the test's worktree operations, changing the ambient list out from under the assertion. Not caused by this pass — no file under `src/visuals` or `scripts/tests/` was touched, and the assertion depends on machine-local worktree registry state, not repo content. **Passed clean on immediate retry** (199 snapshots, all kind suites, session sampler, rationale-visual-schema-floor). |
+| `npm run audit` | **GATE PASSED** (one pre-existing advisory-only distributional warning, `visual-canonical`/`select_all`/`correct_count_distribution` n=11 — the same one `PROJECT-HISTORY.md` already records, unrelated to this work) |
+| `npm run test:validate-sweep` | pass |
+| `npm run test:non-mcq-bias` | pass |
+| `npm run test:schema-bank` | pass |
+| `npm run test:flowsheet-gate` | pass |
+| `npm run test:structured-measurements` | pass |
+| `npm run test:structured-measurements-applicator` | pass |
+| `npm run test:coverage-report` | pass |
+| `npm run census:check` | up to date |
+
+`git status --porcelain` was empty before and after the full run — no file was modified by any test.
 
 ---
 
