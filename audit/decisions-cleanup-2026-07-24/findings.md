@@ -5,7 +5,9 @@ the `MISSING`-class reconciliation, and the verification record. **Nothing here 
 
 `CORRECTION_HEAD = 547fdea695ed55df5afbf2260bb6a4502258ccba` (the commit carrying only the amended
 survey spec and the correction work order).
-`generatorGitSha = 04800f4dadd95ce0f16008111eb50141f56df55f` (the corrected-generator commit).
+`generatorGitSha = 5c77b153855b308761d2b5da1e99d33ad6da99a9` (the final corrected-generator commit —
+`69a8034` and `04800f4` were superseded by the tracked-index-precedence fix, §H above, before this
+graph's final regeneration; confirmed to match `reference-graph.json`'s own `generatorGitSha` field).
 `SURVEY_HEAD = f68210ceb62e42d7f028157629a770faf02eab42` (pass 2's baseline — historical, not reused;
 retained below only to attribute count deltas).
 
@@ -84,7 +86,7 @@ claiming otherwise). The separate concern — that `E074`'s *own prose* leans on
 to justify a still-`ACTIVE` rule — is a defect in `E074`'s wording, not in how its citations classify on
 this axis, and is flagged as its own item (§F.3), not double-counted here.
 
-**"Valid historical / correct citation" (143 of 151):**
+**"Valid historical / correct citation" (150 of 151):**
 
 - **67 `Archive/`-sourced.** Every one sits in a spec that either predates the 2026-07-18 lapse
   (describing the then-active pipeline) or **is** the retirement spec itself
@@ -101,8 +103,10 @@ this axis, and is flagged as its own item (§F.3), not double-counted here.
   otherwise obscure the 25 records that are actually worth individual attention.
 - **16 within `DECISIONS.md` itself** (lines 300, 302, 387 — the §5 lapse note, the E037 dedup
   paragraph, and the E074 Gemini cross-reference). The first two are the lapse announcement and its
-  own explanation; correct by definition. Line 387 (E074) is **not** filed here — see "restoration-
-  dependent" below and the flag in §F.
+  own explanation; correct by definition. Line 387 (E074) contributes **5 of these 16** and **is**
+  filed here — its citations of principle 8/18 are accurate (both genuinely `LAPSED`), even though
+  `E074`'s own wording is separately flagged in §F.3 for leaning on the retired lane's framing to
+  justify a still-`ACTIVE` rule. That is a defect in `E074`'s prose, not in this classification.
 - **3 in `PRODUCER-VOCABULARY-LEAKAGE-REMEDIATION-CODEX-SPEC-2026-07-21.md`** (principle 12, ×3) — a
   model of correct handling, not a defect: *"principle 12 is lapsed with the retired skeleton-generation
   lane and is not the authority for this repair"* and *"without reintroducing lapsed principle 12."* It

@@ -23,7 +23,7 @@ field Amendment 5 specifically requires **not** be carried forward as "preserved
 | Field | Value |
 |---|---|
 | `CORRECTION_HEAD` | `547fdea695ed55df5afbf2260bb6a4502258ccba` — the commit carrying only the amended survey spec (Amendment 5) and the correction work order |
-| `generatorGitSha` (final) | `04800f4dadd95ce0f16008111eb50141f56df55f` — the corrected-generator commit used for the deliverables below |
+| `generatorGitSha` (final) | `5c77b153855b308761d2b5da1e99d33ad6da99a9` — the final corrected-generator commit used for the deliverables below (`69a8034` and `04800f4` were superseded by the tracked-index-precedence fix before this graph's final regeneration) |
 | `SURVEY_HEAD` (historical, unchanged) | `f68210ceb62e42d7f028157629a770faf02eab42` — pass 2's baseline; not reused here (spec §3a) |
 | Branch | `survey/decisions-cleanup-phase-1` |
 | Push target | this branch, draft PR #88 — **nothing goes to `main`** |
