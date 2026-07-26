@@ -64,11 +64,25 @@ total is **151**, not 116 (§G explains why it grew and that the growth is not a
 
 | disposition | count | what it means |
 |---|---|---|
-| Valid historical / correct citation | 143 | reads correctly as-is; no action |
-| Stale present-tense authority claim | 0 | none found (see inspection below) |
+| Valid historical / correct citation | **150** | reads correctly as-is; no action |
+| Stale present-tense authority claim | 0 | none found among the 151 citations themselves (see the E074 note below for a related but distinct flag) |
 | Restoration-dependent | 1 | correctness depends on the phase-2 restoration itself |
-| Segregated: governance self-reference | (59, included in the 143) | this cleanup's own governance text discussing the lapse |
-| **Total** | **151** (67 `Archive/` + 59 governance-self + 25 other-live-doc, all individually inspected for the 25; `Archive/` sampled) | |
+| Segregated: governance self-reference | (59, included in the 150) | this cleanup's own governance text discussing the lapse |
+| **Total** | **151** — 67 `Archive/` + 59 governance-self + 16 within `DECISIONS.md` itself + 3 `PRODUCER-VOCABULARY-LEAKAGE...` + 5 `PROJECT-HISTORY.md` = 150 valid-historical, + 1 restoration-dependent (`DECISIONS-TAXONOMY-2026-07-24.md:241`) = **151**, a genuine partition (each of the 151 records appears in exactly one row above) | |
+
+**Correcting an arithmetic error from this pass's first draft:** the "valid historical" row previously
+read 143, which was a transcription slip against the five-bucket breakdown below it (67+59+16+3+5=150);
+143+0+1=144 ≠ 151, which an external review caught. The breakdown below was always 150/1/151-consistent;
+only the summary-row number was wrong, now fixed.
+
+**Where E074's citations land, made explicit (they were not obviously accounted for before):** `E074`
+(`DECISIONS.md:387`) contributes 5 of the 16 within-`DECISIONS.md` LAPSED records (3 from "principles
+3, 5, 8, 18, 22" — of which 8, 18, 22 are lapsed — plus 2 from "principle 8/18"). All 5 are correctly
+filed under **valid historical / correct citation** here, because the graph's classification of *the
+citation* is accurate (principle 8/18 genuinely are `LAPSED` at `CORRECTION_HEAD`, and E074 is not
+claiming otherwise). The separate concern — that `E074`'s *own prose* leans on a retired lane's framing
+to justify a still-`ACTIVE` rule — is a defect in `E074`'s wording, not in how its citations classify on
+this axis, and is flagged as its own item (§F.3), not double-counted here.
 
 **"Valid historical / correct citation" (143 of 151):**
 
@@ -257,15 +271,152 @@ Every `MISSING` record carries exactly one generator-assigned class. Totals at `
 | `other` | 129 | a genuine dangling reference with none of the above shape — the actual human-review candidate list |
 | **Total** | **5,829** | |
 
-**`other` is a finding, not a remainder — named per the work order's requirement.** All 129 were
-inspected by class of cause; none is a single anomaly worth listing individually at full precision
-(precision-over-volume, taxonomy §2/principle 7), but by shape: dangling principle-number references
-that don't exist (the fixture's own deliberate test case, not present in this real-corpus run), dangling
-same-file section numbers with no decimal/CFR shape and no line-wrap signature (genuine, isolated
-citation gaps — a phase-2/human-review candidate list, not reproduced here in full to avoid a
-32,000-token dump of 129 near-identical-looking rows), and a handful of dangling Markdown-link anchors.
+**`other` is a finding, not a remainder — every record named, per the work order's explicit
+requirement** ("name every record in it" — an earlier draft of this file instead grouped them by shape
+and declined to reproduce the list; external review correctly identified that as not satisfying the
+requirement, and this is the fix). All 129 are dangling same-file bare-`§n` citations (128 of kind
+`section`, 1 of kind `path-section`) with none of the decimal-subsection/external-law-section/
+line-wrap-grammar shape — genuine citation gaps in specs whose own numbered-section structure doesn't
+reach the cited number (frequently because the citing spec's section numbering was later renumbered or
+the spec itself never had that many top-level sections). This is a real, if low-severity, human-review
+candidate list, not extraction noise:
+
+| source | line | raw | target |
+|---|---|---|---|
+| `Archive/case-skeleton-pipeline-spec.md` | 34 | `§3` | `Archive/case-skeleton-pipeline-spec.md#section-3` |
+| `Archive/case-skeleton-pipeline-spec.md` | 44 | `§2` | `Archive/case-skeleton-pipeline-spec.md#section-2` |
+| `Archive/case-skeleton-pipeline-spec.md` | 44 | `§5` | `Archive/case-skeleton-pipeline-spec.md#section-5` |
+| `Archive/early-bank-semantic-audit-spec.md` | 3 | `§10` | `Archive/early-bank-semantic-audit-spec.md#section-10` |
+| `Archive/early-bank-semantic-audit-spec.md` | 22 | `§10` | `Archive/early-bank-semantic-audit-spec.md#section-10` |
+| `Archive/io-trend-proof-iterations-2026-07-13/IO-TREND-PROOF-BATCH-BRIEF-2026-07-09.md` | 1 | `§11` | `Archive/io-trend-proof-iterations-2026-07-13/IO-TREND-PROOF-BATCH-BRIEF-2026-07-09.md#section-11` |
+| `Archive/io-trend-proof-iterations-2026-07-13/IO-TREND-PROOF-BATCH-BRIEF-2026-07-09.md` | 6 | `§11` | `Archive/io-trend-proof-iterations-2026-07-13/IO-TREND-PROOF-BATCH-BRIEF-2026-07-09.md#section-11` |
+| `Archive/io-trend-proof-iterations-2026-07-13/IO-TREND-PROOF-BATCH-BRIEF-2026-07-13-REISSUE-GPT56SOL.md` | 1 | `§11` | `Archive/io-trend-proof-iterations-2026-07-13/IO-TREND-PROOF-BATCH-BRIEF-2026-07-13-REISSUE-GPT56SOL.md#section-11` |
+| `Archive/io-trend-proof-iterations-2026-07-13/IO-TREND-PROOF-BATCH-BRIEF-2026-07-13-REISSUE-GPT56SOL.md` | 8 | `§11` | `Archive/io-trend-proof-iterations-2026-07-13/IO-TREND-PROOF-BATCH-BRIEF-2026-07-13-REISSUE-GPT56SOL.md#section-11` |
+| `Archive/io-trend-proof-iterations-2026-07-13/IO-TREND-PROOF-BATCH-BRIEF-2026-07-13-V2-PRODUCER-GPT56SOL.md` | 1 | `§11` | `Archive/io-trend-proof-iterations-2026-07-13/IO-TREND-PROOF-BATCH-BRIEF-2026-07-13-V2-PRODUCER-GPT56SOL.md#section-11` |
+| `Archive/io-trend-proof-iterations-2026-07-13/IO-TREND-PROOF-BATCH-BRIEF-2026-07-13-V2-PRODUCER-GPT56SOL.md` | 7 | `§11` | `Archive/io-trend-proof-iterations-2026-07-13/IO-TREND-PROOF-BATCH-BRIEF-2026-07-13-V2-PRODUCER-GPT56SOL.md#section-11` |
+| `Archive/io-trend-proof-iterations-2026-07-13/IO-TREND-PROOF-BATCH-KEY-REVEAL-2026-07-13-ARCHITECT-ONLY.md` | 1 | `§11` | `Archive/io-trend-proof-iterations-2026-07-13/IO-TREND-PROOF-BATCH-KEY-REVEAL-2026-07-13-ARCHITECT-ONLY.md#section-11` |
+| `Archive/io-trend-proof-iterations-2026-07-13/IO-TREND-PROOF-BATCH-KEY-REVEAL-2026-07-13-ARCHITECT-ONLY.md` | 25 | `§0` | `Archive/io-trend-proof-iterations-2026-07-13/IO-TREND-PROOF-BATCH-KEY-REVEAL-2026-07-13-ARCHITECT-ONLY.md#section-0` |
+| `Archive/io-trend-proof-iterations-2026-07-13/IO-TREND-PROOF-BATCH-KEY-REVEAL-2026-07-13-ARCHITECT-ONLY.md` | 25 | `§9` | `Archive/io-trend-proof-iterations-2026-07-13/IO-TREND-PROOF-BATCH-KEY-REVEAL-2026-07-13-ARCHITECT-ONLY.md#section-9` |
+| `Archive/NCLEX-Bank-Audit-TASK.md` | 127 | `§11` | `Archive/NCLEX-Bank-Audit-TASK.md#section-11` |
+| `Archive/rationale-visual-floor-retirement-2026-07-20/WORK-ORDER.md` | 115 | `DECISIONS.md §30` | `DECISIONS.md#section-30` |
+| `Archive/rhythm-strip-audit-spec.md` | 3 | `§7` | `Archive/rhythm-strip-audit-spec.md#section-7` |
+| `Archive/rhythm-strip-audit-spec.md` | 3 | `§9` | `Archive/rhythm-strip-audit-spec.md#section-9` |
+| `Archive/rhythm-strip-audit-spec.md` | 3 | `§10` | `Archive/rhythm-strip-audit-spec.md#section-10` |
+| `Archive/rhythm-strip-audit-spec.md` | 45 | `§7` | `Archive/rhythm-strip-audit-spec.md#section-7` |
+| `Archive/rhythm-strip-audit-spec.md` | 47 | `§7` | `Archive/rhythm-strip-audit-spec.md#section-7` |
+| `Archive/rhythm-strip-audit-spec.md` | 81 | `§7` | `Archive/rhythm-strip-audit-spec.md#section-7` |
+| `Archive/root-cleanup-2026-06-26/adversarial-audit-phase-a-patch-codex-spec.md` | 7 | `§8` | `Archive/root-cleanup-2026-06-26/adversarial-audit-phase-a-patch-codex-spec.md#section-8` |
+| `Archive/root-cleanup-2026-06-26/adversarial-audit-phase-a-patch-codex-spec.md` | 11 | `§8` | `Archive/root-cleanup-2026-06-26/adversarial-audit-phase-a-patch-codex-spec.md#section-8` |
+| `Archive/root-cleanup-2026-06-26/adversarial-audit-phase-a-patch-codex-spec.md` | 156 | `§8` | `Archive/root-cleanup-2026-06-26/adversarial-audit-phase-a-patch-codex-spec.md#section-8` |
+| `Archive/root-cleanup-2026-06-26/adversarial-audit-phase-a-pilot-spec.md` | 43 | `§10` | `Archive/root-cleanup-2026-06-26/adversarial-audit-phase-a-pilot-spec.md#section-10` |
+| `Archive/root-cleanup-2026-06-26/adversarial-audit-phase-a-pilot-spec.md` | 145 | `§9` | `Archive/root-cleanup-2026-06-26/adversarial-audit-phase-a-pilot-spec.md#section-9` |
+| `Archive/root-cleanup-2026-06-26/claude-code-coherence-audit-spec.md` | 11 | `§6` | `Archive/root-cleanup-2026-06-26/claude-code-coherence-audit-spec.md#section-6` |
+| `Archive/root-cleanup-2026-06-26/claude-code-coherence-audit-spec.md` | 11 | `§7` | `Archive/root-cleanup-2026-06-26/claude-code-coherence-audit-spec.md#section-7` |
+| `Archive/root-cleanup-2026-06-26/claude-code-coherence-audit-spec.md` | 11 | `§4` | `Archive/root-cleanup-2026-06-26/claude-code-coherence-audit-spec.md#section-4` |
+| `Archive/root-cleanup-2026-06-26/claude-code-coherence-audit-spec.md` | 11 | `§5` | `Archive/root-cleanup-2026-06-26/claude-code-coherence-audit-spec.md#section-5` |
+| `Archive/root-cleanup-2026-06-26/claude-code-coherence-audit-spec.md` | 14 | `§3` | `Archive/root-cleanup-2026-06-26/claude-code-coherence-audit-spec.md#section-3` |
+| `Archive/root-cleanup-2026-06-26/claude-code-coherence-audit-spec.md` | 14 | `§4` | `Archive/root-cleanup-2026-06-26/claude-code-coherence-audit-spec.md#section-4` |
+| `Archive/root-cleanup-2026-06-26/claude-code-coherence-audit-spec.md` | 14 | `§5` | `Archive/root-cleanup-2026-06-26/claude-code-coherence-audit-spec.md#section-5` |
+| `Archive/root-cleanup-2026-06-26/claude-code-coherence-audit-spec.md` | 56 | `§9` | `Archive/root-cleanup-2026-06-26/claude-code-coherence-audit-spec.md#section-9` |
+| `Archive/root-cleanup-2026-06-26/claude-code-coherence-audit-spec.md` | 71 | `§4` | `Archive/root-cleanup-2026-06-26/claude-code-coherence-audit-spec.md#section-4` |
+| `Archive/root-cleanup-2026-06-26/claude-code-coherence-audit-spec.md` | 71 | `§5` | `Archive/root-cleanup-2026-06-26/claude-code-coherence-audit-spec.md#section-5` |
+| `Archive/root-cleanup-2026-06-26/claude-code-coherence-audit-spec.md` | 97 | `§3` | `Archive/root-cleanup-2026-06-26/claude-code-coherence-audit-spec.md#section-3` |
+| `Archive/root-cleanup-2026-06-26/claude-code-coherence-audit-spec.md` | 97 | `§5` | `Archive/root-cleanup-2026-06-26/claude-code-coherence-audit-spec.md#section-5` |
+| `Archive/root-cleanup-2026-06-26/claude-code-coherence-audit-spec.md` | 130 | `§5` | `Archive/root-cleanup-2026-06-26/claude-code-coherence-audit-spec.md#section-5` |
+| `Archive/root-cleanup-2026-06-26/claude-code-coherence-audit-spec.md` | 141 | `§6` | `Archive/root-cleanup-2026-06-26/claude-code-coherence-audit-spec.md#section-6` |
+| `Archive/root-cleanup-2026-06-26/claude-code-coherence-audit-spec.md` | 141 | `§7` | `Archive/root-cleanup-2026-06-26/claude-code-coherence-audit-spec.md#section-7` |
+| `Archive/root-cleanup-2026-06-26/claude-code-coherence-audit-spec.md` | 143 | `§9` | `Archive/root-cleanup-2026-06-26/claude-code-coherence-audit-spec.md#section-9` |
+| `Archive/root-cleanup-2026-06-26/claude-code-coherence-audit-spec.md` | 148 | `§5` | `Archive/root-cleanup-2026-06-26/claude-code-coherence-audit-spec.md#section-5` |
+| `Archive/root-cleanup-2026-06-26/claude-code-coherence-audit-spec.md` | 157 | `§9` | `Archive/root-cleanup-2026-06-26/claude-code-coherence-audit-spec.md#section-9` |
+| `Archive/root-cleanup-2026-06-26/claude-code-coherence-audit-spec.md` | 170 | `§5` | `Archive/root-cleanup-2026-06-26/claude-code-coherence-audit-spec.md#section-5` |
+| `Archive/root-cleanup-2026-06-26/CODEX-PHASE-B-COHERENCE-HANDOFF-2026-06-26.md` | 65 | `§6` | `Archive/root-cleanup-2026-06-26/CODEX-PHASE-B-COHERENCE-HANDOFF-2026-06-26.md#section-6` |
+| `Archive/root-cleanup-2026-06-26/CODEX-PHASE-B-COHERENCE-HANDOFF-2026-06-26.md` | 65 | `§7` | `Archive/root-cleanup-2026-06-26/CODEX-PHASE-B-COHERENCE-HANDOFF-2026-06-26.md#section-7` |
+| `Archive/root-cleanup-2026-06-26/CODEX-PHASE-B-COHERENCE-HANDOFF-2026-06-26.md` | 66 | `§4` | `Archive/root-cleanup-2026-06-26/CODEX-PHASE-B-COHERENCE-HANDOFF-2026-06-26.md#section-4` |
+| `Archive/root-cleanup-2026-06-26/CODEX-PHASE-B-COHERENCE-HANDOFF-2026-06-26.md` | 66 | `§5` | `Archive/root-cleanup-2026-06-26/CODEX-PHASE-B-COHERENCE-HANDOFF-2026-06-26.md#section-5` |
+| `Archive/root-cleanup-2026-06-26/CODEX-PHASE-B-COHERENCE-HANDOFF-2026-06-26.md` | 67 | `§3` | `Archive/root-cleanup-2026-06-26/CODEX-PHASE-B-COHERENCE-HANDOFF-2026-06-26.md#section-3` |
+| `Archive/root-cleanup-2026-06-26/CODEX-PHASE-B-COHERENCE-HANDOFF-2026-06-26.md` | 67 | `§4` | `Archive/root-cleanup-2026-06-26/CODEX-PHASE-B-COHERENCE-HANDOFF-2026-06-26.md#section-4` |
+| `Archive/root-cleanup-2026-06-26/CODEX-PHASE-B-COHERENCE-HANDOFF-2026-06-26.md` | 67 | `§5` | `Archive/root-cleanup-2026-06-26/CODEX-PHASE-B-COHERENCE-HANDOFF-2026-06-26.md#section-5` |
+| `Archive/root-cleanup-2026-06-26/CODEX-PHASE-B-COHERENCE-HANDOFF-2026-06-26.md` | 95 | `§5` | `Archive/root-cleanup-2026-06-26/CODEX-PHASE-B-COHERENCE-HANDOFF-2026-06-26.md#section-5` |
+| `Archive/root-cleanup-2026-06-26/early-bank-semantic-layer-a-enhancement-codex-spec.md` | 6 | `§4` | `Archive/root-cleanup-2026-06-26/early-bank-semantic-layer-a-enhancement-codex-spec.md#section-4` |
+| `Archive/root-cleanup-2026-06-26/early-bank-semantic-layer-a-enhancement-codex-spec.md` | 34 | `§2` | `Archive/root-cleanup-2026-06-26/early-bank-semantic-layer-a-enhancement-codex-spec.md#section-2` |
+| `Archive/root-cleanup-2026-06-26/early-bank-semantic-layer-a-enhancement-codex-spec.md` | 34 | `§3` | `Archive/root-cleanup-2026-06-26/early-bank-semantic-layer-a-enhancement-codex-spec.md#section-3` |
+| `Archive/root-cleanup-2026-06-26/early-bank-semantic-layer-a-enhancement-codex-spec.md` | 53 | `§2` | `Archive/root-cleanup-2026-06-26/early-bank-semantic-layer-a-enhancement-codex-spec.md#section-2` |
+| `Archive/root-cleanup-2026-06-26/GEMINI-AUDIT-HANDOFF-2026-06-24.md` | 35 | `§7` | `Archive/root-cleanup-2026-06-26/GEMINI-AUDIT-HANDOFF-2026-06-24.md#section-7` |
+| `Archive/root-cleanup-2026-06-26/GEMINI-AUDIT-HANDOFF-2026-06-24.md` | 105 | `§5` | `Archive/root-cleanup-2026-06-26/GEMINI-AUDIT-HANDOFF-2026-06-24.md#section-5` |
+| `Archive/root-cleanup-2026-06-26/GEMINI-COHERENCE-CROSS-PRODUCT-SPEC.md` | 40 | `§6` | `Archive/root-cleanup-2026-06-26/GEMINI-COHERENCE-CROSS-PRODUCT-SPEC.md#section-6` |
+| `Archive/root-cleanup-2026-06-26/GEMINI-COHERENCE-CROSS-PRODUCT-SPEC.md` | 40 | `§7` | `Archive/root-cleanup-2026-06-26/GEMINI-COHERENCE-CROSS-PRODUCT-SPEC.md#section-7` |
+| `Archive/root-cleanup-2026-06-26/GEMINI-COHERENCE-CROSS-PRODUCT-SPEC.md` | 40 | `§4` | `Archive/root-cleanup-2026-06-26/GEMINI-COHERENCE-CROSS-PRODUCT-SPEC.md#section-4` |
+| `Archive/root-cleanup-2026-06-26/GEMINI-COHERENCE-CROSS-PRODUCT-SPEC.md` | 41 | `§5` | `Archive/root-cleanup-2026-06-26/GEMINI-COHERENCE-CROSS-PRODUCT-SPEC.md#section-5` |
+| `Archive/root-cleanup-2026-06-26/GEMINI-COHERENCE-CROSS-PRODUCT-SPEC.md` | 43 | `§3` | `Archive/root-cleanup-2026-06-26/GEMINI-COHERENCE-CROSS-PRODUCT-SPEC.md#section-3` |
+| `Archive/root-cleanup-2026-06-26/GEMINI-COHERENCE-CROSS-PRODUCT-SPEC.md` | 44 | `§4` | `Archive/root-cleanup-2026-06-26/GEMINI-COHERENCE-CROSS-PRODUCT-SPEC.md#section-4` |
+| `Archive/root-cleanup-2026-06-26/GEMINI-COHERENCE-CROSS-PRODUCT-SPEC.md` | 44 | `§5` | `Archive/root-cleanup-2026-06-26/GEMINI-COHERENCE-CROSS-PRODUCT-SPEC.md#section-5` |
+| `Archive/root-cleanup-2026-06-26/GEMINI-COHERENCE-CROSS-PRODUCT-SPEC.md` | 152 | `§3` | `Archive/root-cleanup-2026-06-26/GEMINI-COHERENCE-CROSS-PRODUCT-SPEC.md#section-3` |
+| `Archive/root-cleanup-2026-06-26/GEMINI-COHERENCE-CROSS-PRODUCT-SPEC.md` | 191 | `§5` | `Archive/root-cleanup-2026-06-26/GEMINI-COHERENCE-CROSS-PRODUCT-SPEC.md#section-5` |
+| `Archive/root-cleanup-2026-06-26/GPT5-AUDIT-HANDOFF-2026-06-24.md` | 57 | `§6` | `Archive/root-cleanup-2026-06-26/GPT5-AUDIT-HANDOFF-2026-06-24.md#section-6` |
+| `Archive/root-cleanup-2026-06-26/GPT5-AUDIT-HANDOFF-2026-06-24.md` | 58 | `§7` | `Archive/root-cleanup-2026-06-26/GPT5-AUDIT-HANDOFF-2026-06-24.md#section-7` |
+| `Archive/root-cleanup-2026-06-26/GPT5-AUDIT-HANDOFF-2026-06-24.md` | 58 | `§4` | `Archive/root-cleanup-2026-06-26/GPT5-AUDIT-HANDOFF-2026-06-24.md#section-4` |
+| `Archive/root-cleanup-2026-06-26/GPT5-AUDIT-HANDOFF-2026-06-24.md` | 59 | `§5` | `Archive/root-cleanup-2026-06-26/GPT5-AUDIT-HANDOFF-2026-06-24.md#section-5` |
+| `Archive/root-cleanup-2026-06-26/GPT5-AUDIT-HANDOFF-2026-06-24.md` | 61 | `§3` | `Archive/root-cleanup-2026-06-26/GPT5-AUDIT-HANDOFF-2026-06-24.md#section-3` |
+| `Archive/root-cleanup-2026-06-26/GPT5-AUDIT-HANDOFF-2026-06-24.md` | 62 | `§4` | `Archive/root-cleanup-2026-06-26/GPT5-AUDIT-HANDOFF-2026-06-24.md#section-4` |
+| `Archive/root-cleanup-2026-06-26/GPT5-AUDIT-HANDOFF-2026-06-24.md` | 62 | `§5` | `Archive/root-cleanup-2026-06-26/GPT5-AUDIT-HANDOFF-2026-06-24.md#section-5` |
+| `Archive/root-cleanup-2026-06-26/GPT5-AUDIT-HANDOFF-2026-06-24.md` | 78 | `§6` | `Archive/root-cleanup-2026-06-26/GPT5-AUDIT-HANDOFF-2026-06-24.md#section-6` |
+| `Archive/root-cleanup-2026-06-26/GPT5-AUDIT-HANDOFF-2026-06-24.md` | 78 | `§7` | `Archive/root-cleanup-2026-06-26/GPT5-AUDIT-HANDOFF-2026-06-24.md#section-7` |
+| `Archive/root-cleanup-2026-06-26/GPT5-AUDIT-HANDOFF-2026-06-24.md` | 79 | `§5` | `Archive/root-cleanup-2026-06-26/GPT5-AUDIT-HANDOFF-2026-06-24.md#section-5` |
+| `Archive/root-cleanup-2026-06-26/PHASE-B-COHERENCE-HANDOFF-2026-06-25.md` | 90 | `§6` | `Archive/root-cleanup-2026-06-26/PHASE-B-COHERENCE-HANDOFF-2026-06-25.md#section-6` |
+| `Archive/root-cleanup-2026-06-26/PHASE-B-COHERENCE-HANDOFF-2026-06-25.md` | 90 | `§7` | `Archive/root-cleanup-2026-06-26/PHASE-B-COHERENCE-HANDOFF-2026-06-25.md#section-7` |
+| `Archive/root-cleanup-2026-06-26/PHASE-B-COHERENCE-HANDOFF-2026-06-25.md` | 90 | `§4` | `Archive/root-cleanup-2026-06-26/PHASE-B-COHERENCE-HANDOFF-2026-06-25.md#section-4` |
+| `Archive/root-cleanup-2026-06-26/PHASE-B-COHERENCE-HANDOFF-2026-06-25.md` | 90 | `§5` | `Archive/root-cleanup-2026-06-26/PHASE-B-COHERENCE-HANDOFF-2026-06-25.md#section-5` |
+| `Archive/root-cleanup-2026-06-26/PHASE-B-COHERENCE-HANDOFF-2026-06-25.md` | 92 | `§3` | `Archive/root-cleanup-2026-06-26/PHASE-B-COHERENCE-HANDOFF-2026-06-25.md#section-3` |
+| `Archive/root-cleanup-2026-06-26/PHASE-B-COHERENCE-HANDOFF-2026-06-25.md` | 92 | `§4` | `Archive/root-cleanup-2026-06-26/PHASE-B-COHERENCE-HANDOFF-2026-06-25.md#section-4` |
+| `Archive/root-cleanup-2026-06-26/PHASE-B-COHERENCE-HANDOFF-2026-06-25.md` | 92 | `§5` | `Archive/root-cleanup-2026-06-26/PHASE-B-COHERENCE-HANDOFF-2026-06-25.md#section-5` |
+| `Archive/root-cleanup-2026-06-26/PHASE-B-COHERENCE-HANDOFF-2026-06-25.md` | 102 | `§5` | `Archive/root-cleanup-2026-06-26/PHASE-B-COHERENCE-HANDOFF-2026-06-25.md#section-5` |
+| `Archive/root-cleanup-2026-07-02/codex-handoff-2026-07-02.md` | 11 | `§2` | `Archive/root-cleanup-2026-07-02/codex-handoff-2026-07-02.md#section-2` |
+| `Archive/root-cleanup-2026-07-02/codex-handoff-2026-07-02.md` | 13 | `§10` | `Archive/root-cleanup-2026-07-02/codex-handoff-2026-07-02.md#section-10` |
+| `Archive/root-cleanup-2026-07-03/ADVERSARIAL-AUDIT-FINDINGS-2026-06-24.md` | 435 | `§4` | `Archive/root-cleanup-2026-07-03/ADVERSARIAL-AUDIT-FINDINGS-2026-06-24.md#section-4` |
+| `Archive/root-cleanup-2026-07-03/ADVERSARIAL-AUDIT-FINDINGS-2026-06-24.md` | 464 | `§4` | `Archive/root-cleanup-2026-07-03/ADVERSARIAL-AUDIT-FINDINGS-2026-06-24.md#section-4` |
+| `Archive/root-cleanup-2026-07-03/ADVERSARIAL-AUDIT-FINDINGS-2026-06-24.md` | 634 | `§4` | `Archive/root-cleanup-2026-07-03/ADVERSARIAL-AUDIT-FINDINGS-2026-06-24.md#section-4` |
+| `Archive/root-cleanup-2026-07-03/ADVERSARIAL-AUDIT-FINDINGS-2026-06-24.md` | 740 | `§4` | `Archive/root-cleanup-2026-07-03/ADVERSARIAL-AUDIT-FINDINGS-2026-06-24.md#section-4` |
+| `Archive/root-cleanup-2026-07-03/ADVERSARIAL-AUDIT-FINDINGS-2026-06-24.md` | 764 | `§5` | `Archive/root-cleanup-2026-07-03/ADVERSARIAL-AUDIT-FINDINGS-2026-06-24.md#section-5` |
+| `Archive/root-specs-2026-07-18/IO-TREND-CODEX-HANDOFF-2026-07-09.md` | 6 | `§1` | `Archive/root-specs-2026-07-18/IO-TREND-CODEX-HANDOFF-2026-07-09.md#section-1` |
+| `Archive/root-specs-2026-07-18/IO-TREND-CODEX-HANDOFF-2026-07-09.md` | 26 | `§10` | `Archive/root-specs-2026-07-18/IO-TREND-CODEX-HANDOFF-2026-07-09.md#section-10` |
+| `Archive/root-specs-2026-07-18/IO-TREND-CODEX-HANDOFF-2026-07-09.md` | 34 | `§7` | `Archive/root-specs-2026-07-18/IO-TREND-CODEX-HANDOFF-2026-07-09.md#section-7` |
+| `Archive/root-specs-2026-07-18/IO-TREND-CODEX-HANDOFF-2026-07-09.md` | 41 | `§4` | `Archive/root-specs-2026-07-18/IO-TREND-CODEX-HANDOFF-2026-07-09.md#section-4` |
+| `Archive/root-specs-2026-07-18/IO-TREND-CODEX-HANDOFF-2026-07-09.md` | 41 | `§5` | `Archive/root-specs-2026-07-18/IO-TREND-CODEX-HANDOFF-2026-07-09.md#section-5` |
+| `Archive/root-specs-2026-07-18/IO-TREND-CODEX-HANDOFF-2026-07-09.md` | 41 | `§6` | `Archive/root-specs-2026-07-18/IO-TREND-CODEX-HANDOFF-2026-07-09.md#section-6` |
+| `Archive/root-specs-2026-07-18/IO-TREND-CODEX-HANDOFF-2026-07-09.md` | 41 | `§8` | `Archive/root-specs-2026-07-18/IO-TREND-CODEX-HANDOFF-2026-07-09.md#section-8` |
+| `Archive/root-specs-2026-07-18/IO-TREND-CODEX-HANDOFF-2026-07-09.md` | 49 | `§2` | `Archive/root-specs-2026-07-18/IO-TREND-CODEX-HANDOFF-2026-07-09.md#section-2` |
+| `Archive/root-specs-2026-07-18/IO-TREND-CODEX-HANDOFF-2026-07-09.md` | 76 | `§10` | `Archive/root-specs-2026-07-18/IO-TREND-CODEX-HANDOFF-2026-07-09.md#section-10` |
+| `Archive/root-specs-2026-07-18/IO-TREND-CODEX-HANDOFF-2026-07-09.md` | 78 | `§15` | `Archive/root-specs-2026-07-18/IO-TREND-CODEX-HANDOFF-2026-07-09.md#section-15` |
+| `Archive/root-specs-2026-07-18/IO-TREND-CODEX-HANDOFF-2026-07-09.md` | 80 | `§11` | `Archive/root-specs-2026-07-18/IO-TREND-CODEX-HANDOFF-2026-07-09.md#section-11` |
+| `Archive/root-specs-2026-07-18/IO-TREND-CODEX-HANDOFF-2026-07-09.md` | 118 | `§12` | `Archive/root-specs-2026-07-18/IO-TREND-CODEX-HANDOFF-2026-07-09.md#section-12` |
+| `Archive/root-specs-2026-07-18/IO-TREND-CODEX-HANDOFF-2026-07-09.md` | 120 | `§4` | `Archive/root-specs-2026-07-18/IO-TREND-CODEX-HANDOFF-2026-07-09.md#section-4` |
+| `Archive/root-specs-2026-07-18/IO-TREND-CODEX-HANDOFF-2026-07-09.md` | 149 | `§11` | `Archive/root-specs-2026-07-18/IO-TREND-CODEX-HANDOFF-2026-07-09.md#section-11` |
+| `Archive/root-specs-2026-07-18/IO-TREND-PROOF-BATCH-BRIEF-2026-07-13-V3-PRODUCER-GPT56SOL.md` | 1 | `§11` | `Archive/root-specs-2026-07-18/IO-TREND-PROOF-BATCH-BRIEF-2026-07-13-V3-PRODUCER-GPT56SOL.md#section-11` |
+| `Archive/root-specs-2026-07-18/IO-TREND-PROOF-BATCH-KEY-REVEAL-2026-07-13-V3-ARCHITECT-ONLY.md` | 1 | `§11` | `Archive/root-specs-2026-07-18/IO-TREND-PROOF-BATCH-KEY-REVEAL-2026-07-13-V3-ARCHITECT-ONLY.md#section-11` |
+| `Archive/root-specs-2026-07-18/OPUS-SKELETON-RETIREMENT-CODEX-SPEC-2026-07-18.md` | 5 | `§5` | `Archive/root-specs-2026-07-18/OPUS-SKELETON-RETIREMENT-CODEX-SPEC-2026-07-18.md#section-5` |
+| `Archive/root-specs-2026-07-18/OPUS-SKELETON-RETIREMENT-CODEX-SPEC-2026-07-18.md` | 78 | `§3` | `Archive/root-specs-2026-07-18/OPUS-SKELETON-RETIREMENT-CODEX-SPEC-2026-07-18.md#section-3` |
+| `Archive/root-specs-2026-07-18/OPUS-SKELETON-RETIREMENT-CODEX-SPEC-2026-07-18.md` | 78 | `§5` | `Archive/root-specs-2026-07-18/OPUS-SKELETON-RETIREMENT-CODEX-SPEC-2026-07-18.md#section-5` |
+| `Archive/root-specs-2026-07-18/p4_handoff.md` | 34 | `§19` | `Archive/root-specs-2026-07-18/p4_handoff.md#section-19` |
+| `Archive/root-specs-2026-07-18/p4_handoff.md` | 34 | `§19` | `Archive/root-specs-2026-07-18/p4_handoff.md#section-19` |
+| `Archive/root-specs-2026-07-18/p4_handoff.md` | 34 | `§1` | `Archive/root-specs-2026-07-18/p4_handoff.md#section-1` |
+| `Archive/root-specs-2026-07-18/p4_handoff.md` | 35 | `§20` | `Archive/root-specs-2026-07-18/p4_handoff.md#section-20` |
+| `Archive/root-specs-2026-07-18/translate-all-reveal-codex-spec.md` | 64 | `§2` | `Archive/root-specs-2026-07-18/translate-all-reveal-codex-spec.md#section-2` |
+| `BANK-REVIEW-LEDGER.md` | 1109 | `§11` | `BANK-REVIEW-LEDGER.md#section-11` |
+| `BANK-REVIEW-LEDGER.md` | 1113 | `§4` | `BANK-REVIEW-LEDGER.md#section-4` |
+| `BANK-REVIEW-LEDGER.md` | 1288 | `§6` | `BANK-REVIEW-LEDGER.md#section-6` |
+| `BANK-REVIEW-LEDGER.md` | 1305 | `§8` | `BANK-REVIEW-LEDGER.md#section-8` |
+| `BANK-REVIEW-LEDGER.md` | 1337 | `§12` | `BANK-REVIEW-LEDGER.md#section-12` |
+| `NEXT-ARCHITECT-DETERMINISTIC-HANDOFF-2026-07-16.md` | 35 | `§20` | `NEXT-ARCHITECT-DETERMINISTIC-HANDOFF-2026-07-16.md#section-20` |
+| `NEXT-ARCHITECT-DETERMINISTIC-HANDOFF-2026-07-16.md` | 237 | `§20` | `NEXT-ARCHITECT-DETERMINISTIC-HANDOFF-2026-07-16.md#section-20` |
+| `PROJECT-HISTORY.md` | 920 | `§20` | `PROJECT-HISTORY.md#section-20` |
+| `PROJECT-HISTORY.md` | 969 | `§10` | `PROJECT-HISTORY.md#section-10` |
+| `TERMINAL-SENTENCE-REMEDIATION-OWNER-RATIFICATION-PACKET-2026-07-22.md` | 12 | `§8` | `TERMINAL-SENTENCE-REMEDIATION-OWNER-RATIFICATION-PACKET-2026-07-22.md#section-8` |
+| `TERMINAL-SENTENCE-REMEDIATION-OWNER-RATIFICATION-PACKET-2026-07-22.md` | 147 | `§10` | `TERMINAL-SENTENCE-REMEDIATION-OWNER-RATIFICATION-PACKET-2026-07-22.md#section-10` |
+
 **Proposed refinement, not implemented here (§3.5 — targeting changes come from the architect seat):**
-a distinct `dangling-anchor` class would let `other` shrink to genuinely unclassified residue only.
+a distinct `dangling-anchor` class would let `other` shrink to genuinely unclassified residue only —
+this list contains no dangling anchors at all (that MISSING sub-case doesn't currently occur in the
+real corpus), so the class name is future-proofing, not a gap in this table.
 
 **Plausibility-gate side effect, disclosed (not one of the four named defects, §3.5):** the structural
 path-token recognition required by §3.2/3.3 initially matched thousands of decimal numbers and short
@@ -276,6 +427,18 @@ extension list. It does not — and structurally cannot — remove residual nois
 chains (`question.id`, `series.length`), which is real and reported honestly in `unqualified-basename`
 above rather than filtered further. This is a design judgment beyond the four listed defects; flagged
 here per §3.5's instruction rather than silently applied without comment.
+
+**Owner-level generator question, raised by external review and resolved in a third commit:** the
+plausibility gate as first written was a genuine second authority — a real tracked file with a
+single-character extension or a numeric-only stem (e.g. `1.json`, `x.c`) would have failed the
+heuristic and never been recognized as a path reference at all, contradicting the module comment's
+claim that the tracked index is the sole authority. Fixed (`5c77b15`) by making tracked-set membership
+override the plausibility check at both call sites: a token that fails the heuristic is still accepted
+if it is literally tracked. Re-verified against a throwaway fixture (built and deleted) carrying a
+tracked `1.json` and a tracked `src/x.c` — both now resolve `LIVE`. Regenerating the real corpus after
+this fix produced **identical counts** to the prior run (11,439 references, 5,829 `MISSING`, 151
+`LAPSED`, same `missingByClass` breakdown) — this repo has no genuinely-tracked file the earlier gate
+was wrongly excluding; the fix closes a real authority gap without changing any reported number.
 
 ---
 
@@ -297,10 +460,59 @@ reconciled against, never adopted").
 
 ## J. Verification record (correction work order §6; spec §10 as amended)
 
-See the end-of-turn handoff report for the full executed results: `tsc -b`, the two-run diff against the
-frozen worktree, the extended negative-control fixture (items 6 and 8) and its deletion, the
-`$CORRECTION_HEAD..HEAD` diffs for the five protected files and for `package.json`, the six-path
-`--name-only` allowlist check, and the full PR-gate step list including `npm ci`.
+**Committed here, not left in an ephemeral terminal transcript** — an earlier draft of this file pointed
+to the "end-of-turn handoff report" for this evidence, which external review correctly flagged as not
+satisfying the spec's requirement to report the fixture, its records, and its deletion in the survey's
+own artifacts.
+
+**Item 6/8 — extended negative-control fixture.** A throwaway git repository (built outside the corpus,
+committed once, deleted after) carrying: `DECISIONS.md` with principles 8 (SUPERSEDED), 9 (ACTIVE), 12
+(ACTIVE), 18 (SUPERSEDED); `top.md`, `docs/note.md` (with a `## 3. Detail` heading), `src/App.tsx`,
+`src/styles.css`, `src/Same.ts` + `src/Same.tsx`, `sub/widget.json`, `banks/real-canonical.json`; and a
+`notes.md` exercising every required case. Results (all as expected):
+
+| case | raw text | expected | actual |
+|---|---|---|---|
+| Oxford-comma list | `principles 8, 9, 12, 18, and 22` | 5 records (8,9,12,18,22) | 5 records ✓ |
+| dangling principle | `principle 77` | `MISSING`/`other` | `MISSING`/`other` ✓ |
+| dangling section | `§42` | `MISSING`/`other` | `MISSING`/`other` ✓ |
+| dangling anchor | `top.md#does-not-exist` | `MISSING`/`other` | `MISSING`/`other` ✓ |
+| LAPSED, resolves:true | `principle 8` (standalone) | `resolves:true, LAPSED` | `resolves:true, LAPSED` ✓ |
+| `.tsx` path | `` `src/App.tsx` `` | `LIVE`, full extension | `LIVE`, `src/App.tsx` (not truncated) ✓ |
+| tracked `.css` path | `` `src/styles.css` `` | `LIVE` | `LIVE` ✓ |
+| same-stem `.ts`/`.tsx` | `` `src/Same.tsx` `` | resolves to `.tsx`, not `.ts` | `LIVE`, target `src/Same.tsx` exactly ✓ |
+| unqualified basename | `` `widget.json` `` (real file at `sub/widget.json`) | `MISSING`/`unqualified-basename` | `MISSING`/`unqualified-basename` ✓ |
+| glob | `` `banks/*-canonical.json` `` | `MISSING`/`glob-or-pattern`, whole token | `MISSING`/`glob-or-pattern` ✓ |
+| relative path (via link) | `[back](../top.md)` from `docs/note.md` | `LIVE` | `LIVE`, target `top.md` ✓ |
+| `<path> §n` | `` `docs/note.md` §3 `` | `LIVE` | `LIVE` ✓ |
+| decimal-subsection | `§6.1` (own line, no CFR) | `MISSING`/`decimal-subsection` | `MISSING`/`decimal-subsection` ✓ |
+| external-law-section | `45 CFR` / `§ 46.116(b)(8)` (hard-wrapped across two lines) | `MISSING`/`external-law-section` | `MISSING`/`external-law-section` ✓ |
+| line-wrap-grammar | `§99` at line start, prior line no terminal punctuation | `MISSING`/`line-wrap-grammar` | `MISSING`/`line-wrap-grammar` ✓ |
+
+Two-run determinism on this fixture: diff empty except `generatedAt`. Fixture deleted
+(`rm -rf` the throwaway repo) immediately after capture; it never touched the live tree or corpus.
+
+**Second fixture — tracked-index-precedence regression check** (added after external review, §H
+above): a second throwaway repository with a tracked `1.json` (numeric stem) and a tracked `src/x.c`
+(single-character extension), plus an abbreviation/decimal noise line. Both odd-named tracked files
+resolved `LIVE`; the noise line produced no spurious records. Deleted after capture.
+
+**Item 2 — two-run diff against the frozen `CORRECTION_HEAD` worktree:** empty except `generatedAt`,
+confirmed twice (once before, once after the third generator commit).
+
+**Items 3, 4, 7 — commit-range checks**, run against the final commit range
+`547fdea..d19fca4` (deliverables) and re-confirmed after the follow-up generator commit
+(`547fdea..HEAD`):
+- `git diff --stat $CORRECTION_HEAD..HEAD -- DECISIONS.md CLAUDE.md AGENTS.md PROJECT-HISTORY.md NCLEX-Question-Schema.md` — empty.
+- `git diff --numstat $CORRECTION_HEAD..HEAD -- package.json` — empty (no change).
+- `git diff --name-only $CORRECTION_HEAD..HEAD` — exactly `scripts/decisions-reference-graph.ts` and the five deliverables under `audit/decisions-cleanup-2026-07-24/`.
+- `git status --porcelain` — empty after each commit.
+
+**Item 1 — `npx tsc -b --pretty false`:** exit 0, run after every generator change (four times total).
+
+**Item 5 — full PR gate, including `npm ci`: not run this pass.** Reported as skipped, not claimed
+complete, per the spec's own instruction ("Run it, or report it as skipped and do not claim a complete
+gate run either way round"). This is the one open item before owner ratification.
 
 ---
 

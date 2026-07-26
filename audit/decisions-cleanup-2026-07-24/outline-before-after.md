@@ -24,7 +24,7 @@ is unchanged from pass 2.
 1. How to read this document      ← today's §1 (+ compression rule)         [structural]
 2. Status vocabulary               ← today's §2 (unchanged)                  [structural]
 3. Entry index                     ← today's §3, regenerated                 [structural]
-4. Governing principles (P)        ← 35 entry rows / 24 permanent numbers
+4. Governing principles (P)        ← 36 entry rows / 24 permanent numbers
 5. Concrete rulings (R)            ← 5 entry rows (R1–R5 numbered; E029 moved to §4 — see below)
 6. Standing invariants (I)         ← 19 entries
 7. Open threads (T)                ← 3 entries (unsettled questions only)
@@ -38,7 +38,7 @@ behind a resumption trigger) become §7 threads. A lapsed lane contract becomes 
 *unless* a universal core is ratified to remain — principle 8 is the one entry in §5 for which that
 happened.
 
-## Section 4 — Governing principles (P) — 35 entry rows, 24 permanent numbers
+## Section 4 — Governing principles (P) — 36 entry rows, 24 permanent numbers
 
 Principle numbers retained, **all 24**: 1, 2, 3, 4, 5, 6, 7, **8**, 10, 11, 15, 16, 17, 19, **20**,
 21, 23, 24, 25, 26, 27, 28, 29, 30 — pass 1's 22 live numbers plus **8** (restored) and **20**
@@ -106,8 +106,9 @@ hazard), E054–E062, E064–E069, E071 (19 total, unchanged from pass 1's set).
 
 ## Section 7 — Open threads (T) — 3 entries (down from pass 1's 5)
 
-Amendment 1/2 remove two entries from this section: E029 (now `R`, settled-but-unbuilt) and E044
-(now `P`, settled-but-parked). Only genuinely unsettled questions remain:
+Amendment 1/2 remove two entries from this section: E029 (settled-but-unbuilt; reclassified `R` in
+pass 2, repaired this pass to `P` sharing `P25`'s ID — `inventory.md` §4.2) and E044 (now `P`,
+settled-but-parked). Only genuinely unsettled questions remain:
 
 | entry | thread | named next action |
 |---|---|---|
