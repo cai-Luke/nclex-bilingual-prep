@@ -99,6 +99,7 @@ import {
   summarizeTranslationRevealEvents,
 } from "./translationTelemetry";
 import { StructuredMeasurementsStimulus } from "./StructuredMeasurementsStimulus";
+import { ExamCalculator } from "./ExamCalculatorPanel";
 import { VisualStimulus } from "./visuals";
 import { mulberry32 } from "./visuals/primitives/prng";
 import { STANDALONE_SPLIT_VISUAL_KINDS, getVisibleCaseStages, usesStandaloneVisualSplit } from "./examLayout";
@@ -2088,6 +2089,7 @@ function PreviewLab({
   const [submittedIds, setSubmittedIds] = useState<Set<string>>(() => new Set());
   const [casePartIds, setCasePartIds] = useState<Record<string, string>>({});
   const [showAllStages, setShowAllStages] = useState(false);
+  const [showCalculator, setShowCalculator] = useState(false);
 
   const bucket = previewBuckets.find((candidate) => candidate.id === bucketId) ?? previewBuckets[0];
   const groupedBuckets = useMemo(() => {
@@ -2220,6 +2222,14 @@ function PreviewLab({
               ))}
             </div>
           </label>
+          <label className="toggle-row preview-calculator-toggle">
+            <input
+              type="checkbox"
+              checked={showCalculator}
+              onChange={(event) => setShowCalculator(event.target.checked)}
+            />
+            <span>Show calculator</span>
+          </label>
         </div>
 
         {selectedQuestion?.itemType === "case_study" && currentCasePart && (
@@ -2302,6 +2312,7 @@ function PreviewLab({
                 </button>
               </div>
             )}
+            {showCalculator && <ExamCalculator key={`preview:${selectedQuestion.id}`} />}
           </>
         ) : (
           <div className="session-empty-state">
@@ -3085,6 +3096,7 @@ function SessionView({
           <span />
         )}
       </div>
+      <ExamCalculator key={`${session.id}:${question.id}`} />
     </section>
   );
 }

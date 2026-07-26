@@ -52,6 +52,23 @@ The committed NGN item-type set is complete. Rationale/dyad scoring and an expli
 
 > Milestones dated **2026-06-23 and earlier** are archived in [`Archive/PROJECT-HISTORY-ARCHIVE.md`](Archive/PROJECT-HISTORY-ARCHIVE.md). Only the current arc (2026-06-24 onward) is kept here.
 
+### Exam-Condition Calculator (Jul 26)
+
+Added an ordinary-arithmetic calculator to active study, test, and adaptive
+questions. The production component uses an immediate-execution pure TypeScript
+model, stays temporary to the current session/question, preserves work across
+case-study parts, and resets/minimizes at each new top-level question or session.
+Desktop presentation is an 18 rem lower-right panel with pointer/mouse dragging,
+8 px viewport clamping, resize re-clamping, and temporary question-card clearance
+that keeps the stem and left clinical visual readable. Mobile presentation is a
+safe-area-aware bottom sheet with its launcher above the sticky action bar.
+
+Preview Lab exposes the same production component. Focused calculator regressions,
+TypeScript, the production/file build, and browser smoke inspection at 1280 × 800,
+1440 × 900, and 390 × 844 passed across the dopamine, heparin-label, Parkland,
+I&O, device-screen, and multi-part case-study layouts. No schema, grading, bank,
+storage, telemetry, or clinical-content contract changed.
+
 ### Candidate Orchestrator and Promotion Enforcement — Raw-Gate Commission 2 (Jul 23)
 
 Merged the prospective raw-candidate gate in PR #83. `npm run gate:raw -- --file <path>`
