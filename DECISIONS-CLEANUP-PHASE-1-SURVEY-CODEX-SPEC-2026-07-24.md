@@ -3,12 +3,20 @@
 **Date:** 2026-07-24
 **Seat:** Codex. Producer seat.
 **Authority:** Architect commission. Classification and architecture only.
-**Status:** Open work order. Immutable during execution.
-**Amended:** 2026-07-24 — Amendments 1 through 5, recorded in section 12. Pass 1 returned 2026-07-24.
-Pass 2 returned 2026-07-24 and was refused at architect review. Amendment 5 reopens the commission
-for a **correction pass**, sequenced by `DECISIONS-CLEANUP-PHASE-1-CORRECTION-WORK-ORDER-2026-07-24.md`
-at the repository root. Read the amended body; do not reconcile against any wording recalled from
-either earlier pass.
+**Status:** **Execution complete.** Pass 1, pass 2 (refused at architect review), and the correction
+pass are finished; the correction pass merged as PR #88 on 2026-07-28. This document remains the
+governing **contract** for classification semantics, destination semantics, the section 8 owner
+rulings, and Amendment 6's pinned reconciliation constants. Its **execution** instructions —
+sections 3, 3a, 4, 10, and 11 — are spent historical procedure and govern no later pass. The phase-1
+closure pass is scoped, sequenced, and verified by
+`DECISIONS-CLEANUP-PHASE-1-CLOSURE-CODEX-WORK-ORDER-2026-07-28.md` at the repository root.
+**Amended:** 2026-07-24 — Amendments 1 through 5. 2026-07-28 — Amendment 6 (owner ratification: the
+inventory is 80 rows not 78, four questions ruled, reconciliation constants pinned). All recorded in
+section 12. Pass 1 returned 2026-07-24. Pass 2 returned 2026-07-24 and was refused at architect
+review. Amendment 5 reopened the commission for a **correction pass**, sequenced by
+`DECISIONS-CLEANUP-PHASE-1-CORRECTION-WORK-ORDER-2026-07-24.md` at the repository root — that work
+order is likewise complete and is historical record, not live instruction. Read the amended body; do
+not reconcile against any wording recalled from an earlier pass.
 
 ---
 
