@@ -11,9 +11,21 @@ correction of invalidated claims. Nothing else.
 **Status:** Open work order. **Immutable during execution.** If you believe it is wrong, stop and
 report; do not edit it and do not route around it.
 
-**Governing contract:** `DECISIONS-CLEANUP-PHASE-1-SURVEY-CODEX-SPEC-2026-07-24.md` at the repository
-root, **Amendments 1–6**. Read section 8 and Amendment 6 in full. Where this file and that spec
-disagree, the spec governs and you report the conflict rather than choosing.
+**Governing contract, and the boundary between it and this file.**
+`DECISIONS-CLEANUP-PHASE-1-SURVEY-CODEX-SPEC-2026-07-24.md` at the repository root, **Amendments
+1–6**. Read section 8 and Amendment 6 in full.
+
+That spec governs **semantics**: kinds, statuses, forces, destination states, the section 8 owner
+rulings, and Amendment 6's pinned reconciliation constants. On any of those it governs, and you
+report a conflict rather than choosing.
+
+**This work order exclusively governs scope, sequencing, writable paths, and verification for the
+closure pass.** The survey spec's own *execution* instructions — its deliverable list, its section 10
+verification items, and its section 11 handoff — are spent procedure from completed passes. They
+require producing `reference-graph.json` as a deliverable, rerunning the reference-graph generator,
+and routing the migration map to the owner for a ratification Amendment 6 already records as given.
+None of that applies here. Do not execute them, and do not treat the conflict as a stop condition —
+it is resolved by this paragraph.
 
 **Classification contract:** `DECISIONS-TAXONOMY-2026-07-24.md` at the repository root, RATIFIED
 2026-07-24 including Amendments 1–2, **Amendment 3 ratified 2026-07-28**.
@@ -52,19 +64,26 @@ verified.
    It is **not** `SURVEY_HEAD` (`f68210c`) and **not** `CORRECTION_HEAD` (`547fdea`); those are
    permanently bound to earlier passes and a token that changes referent between passes is a
    provenance trap.
-4. `git log --oneline -1` and `git show --stat HEAD` — the commit at `CLOSURE_HEAD` must be
-   **governance-only**, touching exactly and only:
-   - `DECISIONS-TAXONOMY-2026-07-24.md`
-   - `DECISIONS-CLEANUP-PHASE-1-SURVEY-CODEX-SPEC-2026-07-24.md`
-   - `DECISIONS-CLEANUP-PHASE-1-CLOSURE-CODEX-WORK-ORDER-2026-07-28.md` (this file)
+4. **Governance contract integrity — verified by state, not by commit hash.** This work order is
+   itself part of the governance commit, so it cannot name that commit's SHA without being
+   self-referential, and the SHA moves every time the contract is corrected. Verify by content. All
+   of the following must hold at `HEAD`:
+   - `DECISIONS-TAXONOMY-2026-07-24.md` contains `**Allocation (Amendment 3).**` in section 7, and
+     its status line names `Amendment 3 ratified 2026-07-28`.
+   - `DECISIONS-CLEANUP-PHASE-1-SURVEY-CODEX-SPEC-2026-07-24.md` has a status line beginning
+     `**Status:** **Execution complete.**`; contains `**Amendment 6 — 2026-07-28`; and its section 8
+     reads `No \`P31\` is minted for \`E037\`.` and `Principles 9, 12, 18, and 22 retire`.
+   - This file's section 5 carries checker assertions numbered **11** and **12**.
 
-   A fourth path means the baseline is contaminated. Stop.
+   Combined with item 2's empty `git status --porcelain`, this establishes that the ratified
+   contract is committed and is what you are reading. If any check fails, the contract on disk is
+   not the contract that was ratified — stop and report which one, quoting what you found instead.
 
 Report all four results before starting section 3.
 
 ---
 
-## 3. The four owner rulings you are implementing
+## 3. The owner rulings you are implementing — five dispositions resolving four questions
 
 Restated here in full so you never need chat context. Amendment 6 of the survey spec is the
 authority; this is a faithful restatement, and if you find any divergence between them, **the spec
@@ -196,6 +215,22 @@ the process must exit non-zero if any fails.
    section 3 ruling 3.
 10. Totals are never accepted as a substitute for set equality. If an implementation choice would let
     assertion 3 or 4 pass while 5 fails, that implementation is wrong.
+11. **Declared totals.** Verify every total the artifacts state *about themselves*, not only the
+    populations derived from their tables:
+    - `inventory.md`'s row-total statement beneath the classification table;
+    - `migration-table.md`'s opening population statement and its summary table;
+    - `outline-before-after.md`'s proposed-structure section counts and its reconciliation table.
+
+    Each declared total must equal both the derived value and the pinned value in section 4.
+    **This assertion is what makes the section 5 negative control possible.** The unrepaired row
+    tables already contain 80 IDs, so assertions 1–10 pass against them unchanged — the `78` defect
+    lives only in declared prose. A checker that reads tables and ignores what the document claims
+    about them cannot fail in the way this pass requires it to fail.
+12. **Bounded parsing.** Membership is read only from the authoritative tables defined in section 6,
+    never by scraping `E`-tokens from prose. An ID appearing in an explanatory paragraph, in a
+    current-structure range, or as attached content on another row is not a membership claim. A
+    scraping checker will misread this document; a checker that hand-codes exceptions is tailored to
+    it rather than validating it, and will pass the next document that is wrong.
 
 **Negative control — required, and the point of the exercise.** Run the finished checker against the
 **unrepaired** artifacts at `CLOSURE_HEAD`, before any repair. It **must fail**, and it must name at
@@ -227,10 +262,28 @@ Repair `inventory.md`, `migration-table.md`, `outline-before-after.md`, and `fin
 - **`E047c`, `E072`, `E047a`, `E073`, `E074`** carry their new classifications and IDs in every file.
 - **`findings.md` §C axis 2** replaces `OPEN OWNER QUESTION` for principles 9/12/18/22 with the
   retirement ruling, attributed to the owner and dated 2026-07-28.
-- **`findings.md` §F** closes questions 1, 2, 4, and 5 with the rulings. Questions 3 (`E074`'s
-  wording) and 6 (the `unqualified-basename` class) remain open and route to phase 2b.
+- **`findings.md` §F** closes questions 1, 2, 4, and 5 with the rulings. Question 3 (`E074`) is
+  **partly settled** and must be recorded that way rather than as wholly open: the disposition is
+  ratified — the wording is to be rewritten away from the retired forward-case-lane topology and
+  grounded in its evidence and in P3/P5 — while the final architect-authored wording remains pending.
+  Question 6 (the `unqualified-basename` class) remains open. Both route to phase 2b.
 - **`findings.md` §E** currently lists nine entries at evidence-fraction ≥55% plus `E073` at ~45% as
   a borderline candidate. If it is described anywhere as "ten at ≥55%," correct it.
+
+**Authoritative machine-readable regions — required, and new.** The checker cannot validate the
+outline as it stands. That file mixes current-structure ranges (`E001–E035`), proposed-section
+tables, prose mentions of `E037` as attached content, a reconciliation exception row, and incidental
+IDs inside explanation. Add to `outline-before-after.md` two clearly delimited authoritative tables,
+and state in the file that they — and only they — define membership:
+
+1. **Destination table**, one row per independent destination row, exactly **79**, with columns
+   `entry ID | target section | permanent ID`.
+2. **Merge table**, containing `E037` alone with its targets `E039a`, `E002`, `E006`.
+
+Everything else in the file remains prose for human readers and is ignored by the checker for
+membership purposes. The existing narrative sections are not deleted — they are demoted from
+load-bearing to explanatory, which is what they should have been from the start. An enumeration that
+is both prose and contract is how `E063` went missing.
 
 This list is a floor, not a ceiling. The checker defines done. If the checker passes and some other
 statement in these four files still contradicts section 3 or section 4, the statement is wrong and
@@ -335,10 +388,11 @@ Report the result of each. A self-report that a step passed is not the step.
    complete gate run.
 9. `git status --porcelain` — empty after the final commit.
 
-**Staging discipline.** The working tree carries unrelated untracked content (an exam-calculator
-spec, GPT-scored format batch 12/13 artifacts). Stage by explicit path, never `git add -A` or a
-glob. A broad add puts an unrelated content workstream into this pass's commits and breaks the
-section 10 item 6 allowlist you are about to certify against.
+**Staging discipline.** Stage by explicit path, never `git add -A` and never a glob. Unrelated
+workstreams land on `main` alongside this one — the exam-calculator spec and the GPT-scored format
+batch 12/13 artifacts were committed in `6b1898a`, and more may follow while you work. A broad add
+sweeps whatever is in flight into this pass's commits and breaks the section 10 item 6 allowlist you
+are about to certify against.
 
 ---
 
