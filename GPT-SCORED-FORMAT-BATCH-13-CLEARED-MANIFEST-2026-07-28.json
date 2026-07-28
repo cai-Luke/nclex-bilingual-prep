@@ -1,0 +1,1751 @@
+{
+  "manifestVersion": 1,
+  "batchId": "gpt-scored-format-batch-13",
+  "status": "CLEARED_FOR_SEPARATE_GPT_AUTHORING_SESSION",
+  "reviewer": "Codex",
+  "snapshot": {
+    "branch": "main",
+    "commit": "b335e28609a9adb85d02d4393e58d9d088a1b138",
+    "relevantDirtyState": [
+      "untracked: Archive/gpt-scored-format-batch-12-failed-2026-07-28/",
+      "untracked: GPT-SCORED-FORMAT-BATCH-13-CODEX-PREFLIGHT-2026-07-28.md",
+      "untracked: NCLEX-EXAM-CALCULATOR-CODEX-SPEC-2026-07-26.md"
+    ]
+  },
+  "authoringContract": {
+    "plannedRawFilename": "gpt-format13-scored-recovery-2026-07-28.json",
+    "producerMayAddRows": false,
+    "producerMaySubstituteRows": false,
+    "producerMayMateriallyReviseRows": false,
+    "producerMayOmitUnsafeRow": true,
+    "omittedRowDisposition": "RETURN_TO_PREFLIGHT"
+  },
+  "constraints": {
+    "standaloneOnly": true,
+    "noVisuals": true,
+    "allowedItemTypes": [
+      "bowtie",
+      "highlight",
+      "fill_in_blank",
+      "dropdown_cloze"
+    ]
+  },
+  "rows": [
+    {
+      "row": 1,
+      "questionId": "gpt_format13_last_bowtie",
+      "itemType": "bowtie",
+      "difficulty": "hard",
+      "difficultyRationale": "The learner must integrate a time-linked neurologic prodrome with cardiovascular deterioration, then distinguish source control and antidotal rescue from monitoring.",
+      "category": "Reduction of Risk Potential",
+      "topic": "Perioperative Care",
+      "ngnSkill": "take_action",
+      "coverageRationale": "Adds a sourced perioperative emergency action-and-evaluation map not represented by a current scored LAST construct.",
+      "exactDecision": "Recognize local anesthetic systemic toxicity after a peripheral regional block and select two complementary responses plus two monitoring dimensions.",
+      "scenarioContract": {
+        "population": "Awake or minimally sedated adult receiving a peripheral regional block.",
+        "setting": "Monitored perioperative procedural area with resuscitation support available.",
+        "requiredFacts": [
+          "Symptoms begin within minutes of local anesthetic administration.",
+          "Perioral numbness, metallic taste, or tinnitus precedes a seizure.",
+          "Ventricular ectopy or dysrhythmia and hypotension follow the neurologic findings."
+        ],
+        "prohibitedAddedFacts": [
+          "Rash, bronchospasm, or another independent anaphylaxis pattern.",
+          "Unilateral neurologic deficit, pneumothorax findings, prior seizure disorder, or an unrelated later medication exposure.",
+          "Cardiac arrest, because it would change the response map."
+        ],
+        "prohibitedLeakage": [
+          "Do not name local anesthetic systemic toxicity or LAST in the scenario.",
+          "Do not state that lipid emulsion is the antidotal treatment."
+        ],
+        "scopeBoundaries": [
+          "Use the ASRA LAST checklist emergency framework.",
+          "Do not invent a local medication dose, sequence, or standing-order authority."
+        ]
+      },
+      "interactionContract": {
+        "kind": "bowtie",
+        "condition": {
+          "label": "Local anesthetic systemic toxicity",
+          "distinguishingEvidenceClasses": [
+            "Immediate temporal relationship to local anesthetic administration",
+            "Characteristic early central nervous system symptoms progressing to seizure",
+            "Cardiovascular dysrhythmia and hypotension"
+          ]
+        },
+        "actions": [
+          {
+            "label": "Stop local anesthetic delivery and activate the LAST emergency response with the rescue kit",
+            "distinctFunction": "Removes the precipitating exposure and mobilizes the specialized response pathway.",
+            "sourceIds": [
+              "S1"
+            ]
+          },
+          {
+            "label": "Initiate protocol-directed 20% lipid emulsion early",
+            "distinctFunction": "Provides the syndrome-specific rescue intervention.",
+            "sourceIds": [
+              "S1"
+            ]
+          }
+        ],
+        "parameters": [
+          {
+            "label": "Neurologic status and seizure recurrence",
+            "evaluatedDimension": "Central nervous system toxicity and stabilization.",
+            "sourceIds": [
+              "S1",
+              "S2"
+            ]
+          },
+          {
+            "label": "Cardiac rhythm, blood pressure, and hemodynamic stability",
+            "evaluatedDimension": "Cardiovascular toxicity and recovery.",
+            "sourceIds": [
+              "S1",
+              "S2"
+            ]
+          }
+        ],
+        "nonDuplicationProof": "The actions serve source-control/team-activation and syndrome-specific rescue functions; the parameters separately evaluate neurologic and cardiovascular toxicity.",
+        "cardinalityNotForced": true
+      },
+      "collisionSearch": {
+        "searchTerms": [
+          "local anesthetic systemic toxicity",
+          "LAST",
+          "lipid emulsion",
+          "perioral numbness",
+          "metallic taste",
+          "tinnitus",
+          "ventricular arrhythmia"
+        ],
+        "corpusSurfaces": [
+          "All top-level bundled bank JSON",
+          "Embedded scored case-study leaves",
+          "All live banks/banks-raw JSON drafts",
+          "Condition/action/parameter cue clusters"
+        ],
+        "closestComparators": [],
+        "noComparatorSummary": "The searches found only incidental local-anesthesia references and no scored construct that recognizes LAST and maps both emergency actions and both evaluation dimensions."
+      },
+      "sources": [
+        {
+          "id": "S1",
+          "organization": "American Society of Regional Anesthesia and Pain Medicine",
+          "document": "Checklist for Treatment of Local Anesthetic Systemic Toxicity",
+          "publicationOrVersionDate": "2020-11-01; version 1.1",
+          "accessedDate": "2026-07-28",
+          "section": "Entire one-page checklist: call for help/get LAST rescue kit; consider lipid emulsion early; seizure and arrhythmia/hypotension branches; observation",
+          "url": "https://asra.com/docs/default-source/guidelines-articles/local-anesthetic-systemic-toxicity-rgb.pdf?sfvrsn=33b348e_2",
+          "supportedClaim": "Suspected LAST warrants emergency activation, early 20% lipid emulsion, seizure management, modified cardiovascular support, and continued observation after stabilization.",
+          "populationScope": "Patients with suspected systemic toxicity from local anesthetic.",
+          "settingScope": "Procedural or perioperative settings able to deliver resuscitation.",
+          "scopeLimitations": "The later item must not invent a local standing order or alter the checklist dosing and resuscitation qualifications."
+        },
+        {
+          "id": "S2",
+          "organization": "American Society of Regional Anesthesia and Pain Medicine",
+          "document": "POCUS Spotlight: Point-of-Care Ultrasound in Cardiopulmonary Resuscitation",
+          "publicationOrVersionDate": "2022-05-01",
+          "accessedDate": "2026-07-28",
+          "section": "Local Anesthetic Systemic Toxicity",
+          "url": "https://asra.com/news-publications/asra-newsletter/newsletter-item/asra-news/2022/05/01/pocus-spotlight-point-of-care-ultrasound-in-cardiopulmonary-resuscitation",
+          "supportedClaim": "Early LAST manifestations include perioral symptoms, metallic taste, and tinnitus; progression can include seizure, hemodynamic instability, and arrhythmias.",
+          "populationScope": "Patients exposed to local anesthetic.",
+          "settingScope": "Regional-anesthesia and resuscitation practice.",
+          "scopeLimitations": "Supports recognition and monitoring dimensions, not a substitute for the treatment checklist."
+        }
+      ],
+      "sourceCoverage": [
+        {
+          "contractElement": "Condition evidence classes",
+          "sourceIds": [
+            "S1",
+            "S2"
+          ],
+          "supportedClaim": "The time-linked central nervous system and cardiovascular findings are a coherent LAST pattern."
+        },
+        {
+          "contractElement": "Action 1",
+          "sourceIds": [
+            "S1"
+          ],
+          "supportedClaim": "Activate help and obtain the LAST rescue kit while ending further exposure."
+        },
+        {
+          "contractElement": "Action 2",
+          "sourceIds": [
+            "S1"
+          ],
+          "supportedClaim": "Consider 20% lipid emulsion early in suspected LAST."
+        },
+        {
+          "contractElement": "Neurologic and cardiovascular parameters",
+          "sourceIds": [
+            "S1",
+            "S2"
+          ],
+          "supportedClaim": "Seizure/neurologic and rhythm/hemodynamic status are distinct toxicity and recovery dimensions."
+        }
+      ],
+      "dropdownCorrectPositionPlan": null
+    },
+    {
+      "row": 2,
+      "questionId": "gpt_format13_mh_bowtie",
+      "itemType": "bowtie",
+      "difficulty": "medium",
+      "difficultyRationale": "The classic trigger-linked hypermetabolic cue cluster is recognizable, while the learner must still separate trigger removal and oxygenation from dantrolene rescue and two response trends.",
+      "category": "Reduction of Risk Potential",
+      "topic": "Perioperative Care",
+      "ngnSkill": "take_action",
+      "coverageRationale": "Extends an existing diagnosis-only visual comparator into a nonvisual emergency management and evaluation construct.",
+      "exactDecision": "Recognize acute malignant hyperthermia and select two complementary response functions and two distinct response parameters.",
+      "scenarioContract": {
+        "population": "Adult undergoing general anesthesia.",
+        "setting": "Operating room during exposure to a volatile anesthetic or succinylcholine.",
+        "requiredFacts": [
+          "Rapid unexplained rise in end-tidal carbon dioxide despite adequate ventilation.",
+          "Tachycardia and generalized or masseter muscle rigidity.",
+          "Rapidly rising core temperature."
+        ],
+        "prohibitedAddedFacts": [
+          "Rash or bronchospasm suggesting anaphylaxis.",
+          "Major hemorrhage, infection, or local-anesthetic exposure.",
+          "Established cardiac arrest."
+        ],
+        "prohibitedLeakage": [
+          "Do not name malignant hyperthermia.",
+          "Do not state that dantrolene is the specific treatment."
+        ],
+        "scopeBoundaries": [
+          "Use MHAUS emergency-treatment guidance.",
+          "Keep drug administration protocol-directed; do not improvise dosing details."
+        ]
+      },
+      "interactionContract": {
+        "kind": "bowtie",
+        "condition": {
+          "label": "Acute malignant hyperthermia",
+          "distinguishingEvidenceClasses": [
+            "Exposure to a known anesthetic trigger",
+            "Unexplained end-tidal carbon dioxide rise and tachycardia",
+            "Muscle rigidity and rapidly increasing core temperature"
+          ]
+        },
+        "actions": [
+          {
+            "label": "Discontinue triggering agents and hyperventilate with 100% oxygen",
+            "distinctFunction": "Removes the trigger and increases oxygen delivery and carbon dioxide elimination.",
+            "sourceIds": [
+              "S1"
+            ]
+          },
+          {
+            "label": "Administer protocol-directed IV dantrolene rapidly",
+            "distinctFunction": "Delivers the syndrome-specific medication treatment.",
+            "sourceIds": [
+              "S1"
+            ]
+          }
+        ],
+        "parameters": [
+          {
+            "label": "End-tidal carbon dioxide trend",
+            "evaluatedDimension": "Hypermetabolism and ventilatory response.",
+            "sourceIds": [
+              "S1"
+            ]
+          },
+          {
+            "label": "Core temperature trend",
+            "evaluatedDimension": "Thermal progression and cooling response.",
+            "sourceIds": [
+              "S1",
+              "S2"
+            ]
+          }
+        ],
+        "nonDuplicationProof": "One action removes triggers and supports gas exchange while the other treats the pathophysiology; end-tidal carbon dioxide and core temperature track different consequences.",
+        "cardinalityNotForced": true
+      },
+      "collisionSearch": {
+        "searchTerms": [
+          "malignant hyperthermia",
+          "dantrolene",
+          "volatile anesthetic",
+          "succinylcholine",
+          "end-tidal CO2",
+          "ETCO2",
+          "rigidity"
+        ],
+        "corpusSurfaces": [
+          "All top-level bundled bank JSON",
+          "Embedded scored case-study leaves",
+          "All live banks/banks-raw JSON drafts",
+          "Diagnosis cues and emergency action/outcome maps"
+        ],
+        "closestComparators": [
+          {
+            "id": "vit_10",
+            "relationship": "Visual multiple-choice recognition of malignant hyperthermia from a temperature and heart-rate pattern after volatile anesthesia.",
+            "materialDivergence": "This bowtie scores the emergency management and evaluation map, including unexplained end-tidal carbon dioxide elevation and rigidity, rather than visual diagnosis alone."
+          }
+        ],
+        "noComparatorSummary": null
+      },
+      "sources": [
+        {
+          "id": "S1",
+          "organization": "Malignant Hyperthermia Association of the United States",
+          "document": "Managing a Crisis",
+          "publicationOrVersionDate": "Current webpage; date not stated",
+          "accessedDate": "2026-07-28",
+          "section": "Emergency Treatment for An Acute MH Event",
+          "url": "https://www.mhaus.org/healthcare-professionals/managing-a-crisis/",
+          "supportedClaim": "Stop volatile agents and succinylcholine, hyperventilate with 100% oxygen, administer dantrolene rapidly, assess response through end-tidal carbon dioxide and other signs, and cool while temperature is elevated.",
+          "populationScope": "Patients experiencing an acute malignant-hyperthermia event.",
+          "settingScope": "Anesthetizing locations and other facilities managing an acute event.",
+          "scopeLimitations": "The exact treatment sequence and dosing remain tied to the current MHAUS crisis protocol."
+        },
+        {
+          "id": "S2",
+          "organization": "Malignant Hyperthermia Association of the United States",
+          "document": "What Is Malignant Hyperthermia?",
+          "publicationOrVersionDate": "Current webpage; date not stated",
+          "accessedDate": "2026-07-28",
+          "section": "Signs of an MH crisis",
+          "url": "https://www.mhaus.org/about/what-is-mh-mhaus/",
+          "supportedClaim": "Muscle rigidity, rapid heart rate, increased temperature, and metabolic derangement are features of an MH crisis.",
+          "populationScope": "Susceptible patients exposed to triggering anesthetics.",
+          "settingScope": "Clinical education on malignant hyperthermia.",
+          "scopeLimitations": "Supports recognition only; emergency actions are pinned to S1."
+        }
+      ],
+      "sourceCoverage": [
+        {
+          "contractElement": "Condition and evidence classes",
+          "sourceIds": [
+            "S1",
+            "S2"
+          ],
+          "supportedClaim": "Trigger exposure with rising end-tidal carbon dioxide, tachycardia, rigidity, and temperature is the intended MH pattern."
+        },
+        {
+          "contractElement": "Both actions and end-tidal carbon dioxide parameter",
+          "sourceIds": [
+            "S1"
+          ],
+          "supportedClaim": "MHAUS directly supports trigger discontinuation/100% oxygen, rapid dantrolene, and end-tidal carbon dioxide response assessment."
+        },
+        {
+          "contractElement": "Core temperature parameter",
+          "sourceIds": [
+            "S1",
+            "S2"
+          ],
+          "supportedClaim": "Temperature is a crisis feature and a treatment-response dimension."
+        }
+      ],
+      "dropdownCorrectPositionPlan": null
+    },
+    {
+      "row": 3,
+      "questionId": "gpt_format13_pd_peritonitis_bowtie",
+      "itemType": "bowtie",
+      "difficulty": "medium",
+      "difficultyRationale": "The learner must link two characteristic local findings to the syndrome and preserve the specimen-before-treatment boundary while selecting separate local and systemic follow-up dimensions.",
+      "category": "Reduction of Risk Potential",
+      "topic": "Procedural Complications & Dialysis",
+      "ngnSkill": "take_action",
+      "coverageRationale": "Adds a sourced peritoneal-dialysis complication response map where the current corpus has no scored PD-peritonitis construct.",
+      "exactDecision": "Recognize suspected peritoneal-dialysis-related peritonitis and choose the diagnostic-before-treatment sequence plus local and systemic response monitoring.",
+      "scenarioContract": {
+        "population": "Hemodynamically stable adult receiving maintenance peritoneal dialysis.",
+        "setting": "Urgent dialysis-unit or emergency evaluation before antimicrobial treatment.",
+        "requiredFacts": [
+          "New cloudy peritoneal-dialysis effluent.",
+          "New generalized abdominal pain.",
+          "No effluent cell count, differential, Gram stain, or culture has yet been collected."
+        ],
+        "prohibitedAddedFacts": [
+          "Systemic sepsis or hemodynamic instability.",
+          "Constipation or an isolated inflow/outflow problem without inflammatory findings.",
+          "Localized rebound or a surgical-abdomen pattern.",
+          "An isolated exit-site or tunnel infection and prior antibiotic administration."
+        ],
+        "prohibitedLeakage": [
+          "Do not name peritonitis.",
+          "Do not provide an interpreted effluent leukocyte result."
+        ],
+        "scopeBoundaries": [
+          "Use ISPD guidance for PD-related peritonitis.",
+          "Empiric coverage must remain center-specific; do not invent agents or doses.",
+          "Intraperitoneal treatment preference applies because systemic sepsis is excluded."
+        ]
+      },
+      "interactionContract": {
+        "kind": "bowtie",
+        "condition": {
+          "label": "Suspected peritoneal-dialysis-related peritonitis",
+          "distinguishingEvidenceClasses": [
+            "Cloudy peritoneal-dialysis effluent",
+            "New abdominal pain in a peritoneal-dialysis patient"
+          ]
+        },
+        "actions": [
+          {
+            "label": "Collect peritoneal-dialysis effluent for cell count, differential, Gram stain, and culture before antibiotics",
+            "distinctFunction": "Establishes the diagnostic specimen before antimicrobial exposure.",
+            "sourceIds": [
+              "S1"
+            ]
+          },
+          {
+            "label": "Initiate center-specific empiric antibiotics promptly after specimen collection under the authorized protocol",
+            "distinctFunction": "Begins time-sensitive empiric treatment covering gram-positive and gram-negative organisms.",
+            "sourceIds": [
+              "S1"
+            ]
+          }
+        ],
+        "parameters": [
+          {
+            "label": "Effluent appearance and effluent white-cell-count trend",
+            "evaluatedDimension": "Local peritoneal inflammatory response.",
+            "sourceIds": [
+              "S1"
+            ]
+          },
+          {
+            "label": "Abdominal pain and systemic clinical status",
+            "evaluatedDimension": "Clinical symptom response and systemic deterioration.",
+            "sourceIds": [
+              "S1"
+            ]
+          }
+        ],
+        "nonDuplicationProof": "The actions preserve diagnostic yield and then start empiric therapy; the parameters separately follow local effluent inflammation and patient-level clinical status.",
+        "cardinalityNotForced": true
+      },
+      "collisionSearch": {
+        "searchTerms": [
+          "peritoneal dialysis",
+          "PD peritonitis",
+          "cloudy effluent",
+          "dialysis outflow",
+          "effluent culture",
+          "effluent white blood cell"
+        ],
+        "corpusSurfaces": [
+          "All top-level bundled bank JSON",
+          "Embedded scored case-study leaves",
+          "All live banks/banks-raw JSON drafts",
+          "Dialysis complication cue/action/outcome maps"
+        ],
+        "closestComparators": [],
+        "noComparatorSummary": "No live scored item tested cloudy PD effluent plus abdominal pain, pre-antibiotic effluent testing, prompt empiric treatment, and dual local/systemic response monitoring."
+      },
+      "sources": [
+        {
+          "id": "S1",
+          "organization": "International Society for Peritoneal Dialysis",
+          "document": "ISPD peritonitis guideline recommendations: 2022 update on prevention and treatment",
+          "publicationOrVersionDate": "2022; corrected 2023-03 and 2024-04",
+          "accessedDate": "2026-07-28",
+          "section": "Diagnosis, pp. 119-120; empirical antibiotic selection, p. 122; route of administration, p. 123; subsequent management and response, p. 128",
+          "url": "https://ispd.org/wp-content/uploads/2025/09/LI-ET-1.pdf",
+          "supportedClaim": "Cloudy effluent should be presumed and treated as peritonitis until excluded; effluent testing precedes treatment; empiric therapy should start promptly with center-specific gram-positive and gram-negative coverage; intraperitoneal delivery is preferred absent systemic sepsis; response includes clinical and effluent white-cell reassessment.",
+          "populationScope": "Adults and children receiving peritoneal dialysis.",
+          "settingScope": "Peritoneal-dialysis peritonitis diagnosis and treatment.",
+          "scopeLimitations": "Antibiotic selection follows local susceptibility patterns and protocol; the item may not invent a regimen."
+        }
+      ],
+      "sourceCoverage": [
+        {
+          "contractElement": "Condition evidence classes",
+          "sourceIds": [
+            "S1"
+          ],
+          "supportedClaim": "Cloudy effluent and abdominal pain support suspected PD-related peritonitis."
+        },
+        {
+          "contractElement": "Both actions",
+          "sourceIds": [
+            "S1"
+          ],
+          "supportedClaim": "Obtain effluent studies before treatment and begin center-specific empiric therapy promptly."
+        },
+        {
+          "contractElement": "Both parameters",
+          "sourceIds": [
+            "S1"
+          ],
+          "supportedClaim": "Clinical status, effluent appearance, and effluent white-cell response are necessary follow-up dimensions."
+        }
+      ],
+      "dropdownCorrectPositionPlan": null
+    },
+    {
+      "row": 4,
+      "questionId": "gpt_format13_metabolic_syndrome_highlight",
+      "itemType": "highlight",
+      "difficulty": "medium",
+      "difficultyRationale": "The learner must apply five adjacent prevention thresholds and identify the three qualifying raw measurements without relying on a stated interpretation.",
+      "category": "Health Promotion and Maintenance",
+      "topic": "Adult Health & Wellness",
+      "ngnSkill": "analyze_cues",
+      "coverageRationale": "Adds a threshold-bound preventive-risk evidence-selection construct not present in the scored corpus.",
+      "exactDecision": "Select exactly the three raw measurements that meet the cited general adult metabolic-syndrome criteria.",
+      "scenarioContract": {
+        "population": "Adult woman at a preventive outpatient visit.",
+        "setting": "Primary-care risk-factor review using the cited NHLBI general adult thresholds.",
+        "requiredFacts": [
+          "Waist circumference 36.5 inches.",
+          "Repeated blood pressure 132/86 mm Hg.",
+          "Fasting glucose 104 mg/dL.",
+          "Triglycerides 148 mg/dL.",
+          "HDL cholesterol 52 mg/dL."
+        ],
+        "prohibitedAddedFacts": [
+          "A diagnosis of diabetes, hypertension, dyslipidemia, pregnancy, or an ethnicity-specific waist threshold.",
+          "Medication treatment that independently satisfies a criterion."
+        ],
+        "prohibitedLeakage": [
+          "Do not state that the patient has metabolic syndrome.",
+          "Do not label any measurement as high, low, abnormal, or qualifying."
+        ],
+        "scopeBoundaries": [
+          "Use the general adult NHLBI thresholds specified by the item.",
+          "Do not generalize the waist threshold to populations for whom race- or ethnicity-specific thresholds may apply."
+        ]
+      },
+      "interactionContract": {
+        "kind": "highlight",
+        "selectionRule": "Select only the three raw measurements that meet NHLBI general adult metabolic-syndrome criteria and together reach the three-of-five boundary.",
+        "keyedEvidenceClasses": [
+          {
+            "evidenceClass": "Waist circumference 36.5 inches",
+            "distinctContribution": "Meets the cited abdominal-obesity criterion for women.",
+            "removalEffect": "Only two criteria would remain, so the three-of-five boundary would no longer be established.",
+            "sourceIds": [
+              "S1",
+              "S2"
+            ]
+          },
+          {
+            "evidenceClass": "Repeated blood pressure 132/86 mm Hg",
+            "distinctContribution": "Meets the cited blood-pressure criterion.",
+            "removalEffect": "Only two criteria would remain, so the three-of-five boundary would no longer be established.",
+            "sourceIds": [
+              "S1",
+              "S2"
+            ]
+          },
+          {
+            "evidenceClass": "Fasting glucose 104 mg/dL",
+            "distinctContribution": "Meets the cited fasting-glucose criterion.",
+            "removalEffect": "Only two criteria would remain, so the three-of-five boundary would no longer be established.",
+            "sourceIds": [
+              "S1",
+              "S2"
+            ]
+          }
+        ],
+        "nearMissEvidenceClasses": [
+          "Triglycerides 148 mg/dL, just below the 150 mg/dL criterion",
+          "HDL cholesterol 52 mg/dL, not below the less-than-50 mg/dL criterion for women"
+        ],
+        "directConclusionExcluded": true,
+        "preinterpretedResultExcluded": true
+      },
+      "collisionSearch": {
+        "searchTerms": [
+          "metabolic syndrome",
+          "waist circumference",
+          "triglycerides 150",
+          "HDL 50",
+          "fasting glucose 100",
+          "three of five"
+        ],
+        "corpusSurfaces": [
+          "All top-level bundled bank JSON",
+          "Embedded scored case-study leaves",
+          "All live banks/banks-raw JSON drafts",
+          "Threshold and cue-cluster searches"
+        ],
+        "closestComparators": [],
+        "noComparatorSummary": "Only incidental waist-measurement language was found; no scored item applies all five metabolic-syndrome boundaries or highlights the three independent qualifying measurements."
+      },
+      "sources": [
+        {
+          "id": "S1",
+          "organization": "National Heart, Lung, and Blood Institute",
+          "document": "What Is Metabolic Syndrome?",
+          "publicationOrVersionDate": "2022-05-18",
+          "accessedDate": "2026-07-28",
+          "section": "Overview and five-condition list",
+          "url": "https://www.nhlbi.nih.gov/health/metabolic-syndrome",
+          "supportedClaim": "Metabolic syndrome is defined by having at least three of five specified risk conditions.",
+          "populationScope": "Adults.",
+          "settingScope": "General patient and clinician education.",
+          "scopeLimitations": "Does not replace individualized clinical assessment."
+        },
+        {
+          "id": "S2",
+          "organization": "National Heart, Lung, and Blood Institute",
+          "document": "Metabolic Syndrome Diagnosis",
+          "publicationOrVersionDate": "2022-05-18",
+          "accessedDate": "2026-07-28",
+          "section": "Diagnosis criteria",
+          "url": "https://www.nhlbi.nih.gov/health/metabolic-syndrome/diagnosis",
+          "supportedClaim": "Provides the general adult waist, blood-pressure, fasting-glucose, triglyceride, and HDL thresholds used by the evidence boundary.",
+          "populationScope": "Adults.",
+          "settingScope": "Clinical diagnosis of metabolic syndrome.",
+          "scopeLimitations": "Waist cutoffs can vary by race and ethnicity; the item must explicitly invoke the cited general adult thresholds."
+        }
+      ],
+      "sourceCoverage": [
+        {
+          "contractElement": "Three-of-five selection boundary",
+          "sourceIds": [
+            "S1"
+          ],
+          "supportedClaim": "Three qualifying conditions establish the intended boundary."
+        },
+        {
+          "contractElement": "All keyed and near-miss measurement thresholds",
+          "sourceIds": [
+            "S2"
+          ],
+          "supportedClaim": "Each raw value is above, at, or below an exact NHLBI criterion as specified."
+        }
+      ],
+      "dropdownCorrectPositionPlan": null
+    },
+    {
+      "row": 5,
+      "questionId": "gpt_format13_kawasaki_highlight",
+      "itemType": "highlight",
+      "difficulty": "medium",
+      "difficultyRationale": "The learner must distinguish four principal diagnostic features from plausible associated symptoms and a near-threshold lymph-node finding.",
+      "category": "Physiological Adaptation",
+      "topic": "Cardiovascular Disorders",
+      "ngnSkill": "recognize_cues",
+      "coverageRationale": "Adds a pediatric vasculitis feature-boundary highlight with no current scored Kawasaki construct.",
+      "exactDecision": "Select exactly four principal Kawasaki disease features that, with the supplied prolonged fever, meet the classic feature threshold.",
+      "scenarioContract": {
+        "population": "Three-year-old child.",
+        "setting": "Pediatric acute-care assessment.",
+        "requiredFacts": [
+          "Fever at or above 101.3 °F (38.5 °C) for 6 days is supplied as fixed, nonselectable context.",
+          "Bilateral bloodshot nonexudative conjunctiva.",
+          "Polymorphous rash.",
+          "Red and swollen palms and soles.",
+          "Red cracked lips and strawberry tongue.",
+          "A unilateral cervical lymph node measuring only 1.0 cm.",
+          "A nonspecific associated symptom such as vomiting or diarrhea."
+        ],
+        "prohibitedAddedFacts": [
+          "Coronary imaging results, shock, myocarditis, or another independent emergency.",
+          "A fifth qualifying lymph node larger than 1.5 cm.",
+          "An alternative diagnosis already established."
+        ],
+        "prohibitedLeakage": [
+          "Do not name Kawasaki disease.",
+          "Do not call the four key findings principal, classic, or diagnostic."
+        ],
+        "scopeBoundaries": [
+          "Score only the AHA classic fever-plus-principal-features boundary.",
+          "Do not imply that the item replaces clinician evaluation, exclusion of mimics, or incomplete-Kawasaki assessment."
+        ]
+      },
+      "interactionContract": {
+        "kind": "highlight",
+        "selectionRule": "With the six-day fever supplied as fixed context, select only the four findings that are AHA principal features of classic Kawasaki disease.",
+        "keyedEvidenceClasses": [
+          {
+            "evidenceClass": "Bilateral nonexudative conjunctival change",
+            "distinctContribution": "Supplies the ocular principal feature.",
+            "removalEffect": "Only three principal features would remain, below the classic four-feature threshold.",
+            "sourceIds": [
+              "S1"
+            ]
+          },
+          {
+            "evidenceClass": "Polymorphous rash",
+            "distinctContribution": "Supplies the rash principal feature.",
+            "removalEffect": "Only three principal features would remain, below the classic four-feature threshold.",
+            "sourceIds": [
+              "S1"
+            ]
+          },
+          {
+            "evidenceClass": "Red and swollen palms and soles",
+            "distinctContribution": "Supplies the extremity-change principal feature.",
+            "removalEffect": "Only three principal features would remain, below the classic four-feature threshold.",
+            "sourceIds": [
+              "S1"
+            ]
+          },
+          {
+            "evidenceClass": "Red cracked lips and strawberry tongue",
+            "distinctContribution": "Supplies the oral-mucosal principal feature.",
+            "removalEffect": "Only three principal features would remain, below the classic four-feature threshold.",
+            "sourceIds": [
+              "S1"
+            ]
+          }
+        ],
+        "nearMissEvidenceClasses": [
+          "Unilateral cervical lymph node measuring 1.0 cm, below the cited greater-than-1.5-cm feature",
+          "Vomiting or diarrhea, which may occur but is not one of the five principal features"
+        ],
+        "directConclusionExcluded": true,
+        "preinterpretedResultExcluded": true
+      },
+      "collisionSearch": {
+        "searchTerms": [
+          "Kawasaki",
+          "five-day fever",
+          "strawberry tongue",
+          "conjunctival",
+          "swollen palms",
+          "swollen soles",
+          "cervical lymph node 1.5"
+        ],
+        "corpusSurfaces": [
+          "All top-level bundled bank JSON",
+          "Embedded scored case-study leaves",
+          "All live banks/banks-raw JSON drafts",
+          "Pediatric fever and feature-cluster searches"
+        ],
+        "closestComparators": [],
+        "noComparatorSummary": "No Kawasaki disease item or equivalent fever-plus-four-principal-feature selection construct was found in any live scored surface."
+      },
+      "sources": [
+        {
+          "id": "S1",
+          "organization": "American Heart Association",
+          "document": "Kawasaki Disease",
+          "publicationOrVersionDate": "Last reviewed 2025-09-03",
+          "accessedDate": "2026-07-28",
+          "section": "Symptoms and Diagnosis",
+          "url": "https://www.heart.org/en/health-topics/kawasaki-disease",
+          "supportedClaim": "Classic Kawasaki disease assessment uses prolonged fever plus at least four of five principal features, including conjunctival change, oral change, rash, extremity change, and cervical lymph-node enlargement greater than 1.5 cm.",
+          "populationScope": "Children, primarily those younger than five years.",
+          "settingScope": "Clinical recognition and diagnosis education.",
+          "scopeLimitations": "No single test confirms Kawasaki disease; incomplete presentations and alternative diagnoses require clinician assessment."
+        }
+      ],
+      "sourceCoverage": [
+        {
+          "contractElement": "Fever duration and four-feature selection boundary",
+          "sourceIds": [
+            "S1"
+          ],
+          "supportedClaim": "The supplied fever duration plus four principal features forms the intended classic threshold."
+        },
+        {
+          "contractElement": "All keyed and near-miss evidence classes",
+          "sourceIds": [
+            "S1"
+          ],
+          "supportedClaim": "The four keys are distinct principal features, while the 1.0-cm node does not meet the cited size boundary and the nonspecific symptom is not a principal feature."
+        }
+      ],
+      "dropdownCorrectPositionPlan": null
+    },
+    {
+      "row": 6,
+      "questionId": "gpt_format13_kdigo_aki_stage2_highlight",
+      "itemType": "highlight",
+      "difficulty": "medium",
+      "difficultyRationale": "The learner must identify the exact baseline/current creatinine pair and acute time window, mentally verify a ratio boundary, and ignore plausible renal data that do not establish stage 2.",
+      "category": "Reduction of Risk Potential",
+      "topic": "Laboratory & Diagnostic Tests",
+      "ngnSkill": "analyze_cues",
+      "coverageRationale": "Adds a raw-data creatinine staging highlight that differs mathematically and semantically from the existing urine-output calculation comparator.",
+      "exactDecision": "Select only the raw chart facts necessary to establish KDIGO stage 2 acute kidney injury by the serum-creatinine criterion.",
+      "scenarioContract": {
+        "population": "Adult inpatient with a previously stable kidney-function baseline.",
+        "setting": "Hospital chart review.",
+        "requiredFacts": [
+          "Stable baseline serum creatinine 0.8 mg/dL documented 3 days earlier.",
+          "Current serum creatinine 1.7 mg/dL.",
+          "Blood urea nitrogen 28 mg/dL.",
+          "Urine output 0.7 mL/kg/h over 12 hours.",
+          "Potassium 4.6 mEq/L and chronic hypertension history."
+        ],
+        "prohibitedAddedFacts": [
+          "Another creatinine value that independently changes the stage.",
+          "Urine output below a KDIGO stage 2 boundary.",
+          "Dialysis, anuria, or another stage 3 criterion."
+        ],
+        "prohibitedLeakage": [
+          "Do not calculate or state the creatinine ratio.",
+          "Do not label the injury or stage in the passage."
+        ],
+        "scopeBoundaries": [
+          "Use the final KDIGO 2012 AKI definition and staging table.",
+          "Do not substitute the March 2026 public-review draft for the final guideline."
+        ]
+      },
+      "interactionContract": {
+        "kind": "highlight",
+        "selectionRule": "Select only the prior and current serum-creatinine facts whose timing and ratio establish KDIGO stage 2 AKI by the creatinine criterion.",
+        "keyedEvidenceClasses": [
+          {
+            "evidenceClass": "Stable baseline serum creatinine 0.8 mg/dL documented 3 days earlier",
+            "distinctContribution": "Provides both the baseline denominator and evidence that the increase occurred within the acute seven-day window.",
+            "removalEffect": "The current value cannot be staged by a baseline multiple or shown to be acute.",
+            "sourceIds": [
+              "S1"
+            ]
+          },
+          {
+            "evidenceClass": "Current serum creatinine 1.7 mg/dL",
+            "distinctContribution": "Provides the current numerator; 1.7 divided by 0.8 is 2.125 times baseline.",
+            "removalEffect": "There is no current value with which to establish the 2.0-to-2.9-times-baseline stage 2 boundary.",
+            "sourceIds": [
+              "S1"
+            ]
+          }
+        ],
+        "nearMissEvidenceClasses": [
+          "Blood urea nitrogen 28 mg/dL, which is not a KDIGO staging criterion",
+          "Urine output 0.7 mL/kg/h for 12 hours, which does not meet a separate KDIGO oliguria criterion",
+          "Normal potassium and chronic hypertension, which do not establish the acute stage"
+        ],
+        "directConclusionExcluded": true,
+        "preinterpretedResultExcluded": true
+      },
+      "collisionSearch": {
+        "searchTerms": [
+          "KDIGO",
+          "AKI stage 2",
+          "2.0-2.9 times baseline",
+          "serum creatinine baseline",
+          "urine output criteria",
+          "acute kidney injury staging"
+        ],
+        "corpusSurfaces": [
+          "All top-level bundled bank JSON",
+          "Embedded scored case-study leaves",
+          "All live banks/banks-raw JSON drafts",
+          "Renal formulas, threshold sets, and cue clusters"
+        ],
+        "closestComparators": [
+          {
+            "id": "gpt_case_gap_2026_06_11_aki_fib_04",
+            "relationship": "Calculates weight-normalized hourly urine output and interprets oliguria.",
+            "materialDivergence": "This item selects the baseline/current creatinine pair and applies the 2.0-to-2.9-times-baseline stage boundary; it neither calculates urine output nor scores oliguria interpretation."
+          }
+        ],
+        "noComparatorSummary": null
+      },
+      "sources": [
+        {
+          "id": "S1",
+          "organization": "Kidney Disease: Improving Global Outcomes",
+          "document": "KDIGO Clinical Practice Guideline for Acute Kidney Injury",
+          "publicationOrVersionDate": "2012 final guideline",
+          "accessedDate": "2026-07-28",
+          "section": "Recommendations 2.1.1 and 2.1.2; Table 2, Staging of AKI",
+          "url": "https://kdigo.org/wp-content/uploads/2016/10/KDIGO-2012-AKI-Guideline-English.pdf",
+          "supportedClaim": "AKI can be defined by a serum-creatinine increase within seven days, and stage 2 is a serum creatinine 2.0 to 2.9 times baseline; urine-output criteria are separate.",
+          "populationScope": "Adults and children at risk for or with acute kidney injury.",
+          "settingScope": "Clinical AKI definition and staging.",
+          "scopeLimitations": "Use the final 2012 criteria for this item; newer draft guidance is not treated as final."
+        }
+      ],
+      "sourceCoverage": [
+        {
+          "contractElement": "Acute timing and serum-creatinine stage 2 selection rule",
+          "sourceIds": [
+            "S1"
+          ],
+          "supportedClaim": "The 3-day interval is acute and the 2.125-times-baseline result falls within the stage 2 creatinine range."
+        },
+        {
+          "contractElement": "Near-miss exclusion",
+          "sourceIds": [
+            "S1"
+          ],
+          "supportedClaim": "BUN, potassium, and hypertension are not staging criteria, and the supplied urine output does not meet the separate oliguria boundary."
+        }
+      ],
+      "dropdownCorrectPositionPlan": null
+    },
+    {
+      "row": 7,
+      "questionId": "gpt_format13_uacr_fib",
+      "itemType": "fill_in_blank",
+      "difficulty": "medium",
+      "difficultyRationale": "The learner must preserve unlike denominator units in a short renal laboratory ratio rather than apply an interpretation threshold.",
+      "category": "Reduction of Risk Potential",
+      "topic": "Laboratory & Diagnostic Tests",
+      "ngnSkill": "analyze_cues",
+      "coverageRationale": "Adds a complete urine albumin-to-creatinine ratio equation absent from the scored formula corpus.",
+      "exactDecision": "Calculate the urine albumin-to-creatinine ratio from urine albumin in mg/dL and urine creatinine in g/dL.",
+      "scenarioContract": {
+        "population": "Adult outpatient providing a spot urine specimen.",
+        "setting": "Laboratory-result calculation.",
+        "requiredFacts": [
+          "Urine albumin 3.6 mg/dL.",
+          "Urine creatinine 0.09 g/dL.",
+          "Supply the urine albumin-to-creatinine ratio formula."
+        ],
+        "prohibitedAddedFacts": [
+          "A reference threshold, kidney-disease stage, treatment decision, pregnancy, or dialysis status.",
+          "A second urine collection or a value that requires an unstated unit conversion."
+        ],
+        "prohibitedLeakage": [
+          "Do not show the division or result.",
+          "Do not classify the result."
+        ],
+        "scopeBoundaries": [
+          "Score only the numerical UACR.",
+          "Use the NIDDK spot-urine formula and the displayed units exactly."
+        ]
+      },
+      "interactionContract": {
+        "kind": "fill_in_blank",
+        "equationSignature": {
+          "inputs": [
+            "Urine albumin = 3.6 mg/dL",
+            "Urine creatinine = 0.09 g/dL"
+          ],
+          "formula": "UACR (mg/g) = urine albumin (mg/dL) / urine creatinine (g/dL)",
+          "requestedResult": "Urine albumin-to-creatinine ratio",
+          "conversions": [
+            "No conversion is required because the cited formula uses mg/dL divided by g/dL to yield mg/g."
+          ],
+          "rounding": "Nearest whole number",
+          "displayedUnit": "mg/g",
+          "equivalentFormsSearched": [
+            "UACR and ACR abbreviations",
+            "albumin-to-creatinine ratio wording",
+            "Albumin mg/dL divided by creatinine g/dL",
+            "Equivalent mg/L and g/L forms",
+            "Rearranged ratio forms"
+          ]
+        },
+        "workedCheck": {
+          "unroundedResult": 40,
+          "finalResult": 40
+        },
+        "scoredInterpretation": null,
+        "sourceIds": [
+          "S1"
+        ]
+      },
+      "collisionSearch": {
+        "searchTerms": [
+          "UACR",
+          "ACR",
+          "albumin-to-creatinine",
+          "albumin creatinine ratio",
+          "urine albumin mg/dL",
+          "urine creatinine g/dL",
+          "mg/g"
+        ],
+        "corpusSurfaces": [
+          "All top-level bundled bank JSON",
+          "Embedded scored case-study leaves",
+          "All live banks/banks-raw JSON drafts",
+          "Complete formula signatures and equivalent unit forms"
+        ],
+        "closestComparators": [
+          {
+            "id": "gpt_format11b_cockcroft_gault_crcl",
+            "relationship": "A renal laboratory fill-in-blank calculation.",
+            "materialDivergence": "Cockcroft-Gault uses age, weight, sex factor, and serum creatinine to estimate creatinine clearance; UACR divides two spot-urine analytes and produces mg/g."
+          }
+        ],
+        "noComparatorSummary": null
+      },
+      "sources": [
+        {
+          "id": "S1",
+          "organization": "National Institute of Diabetes and Digestive and Kidney Diseases",
+          "document": "Assess Urine Albumin",
+          "publicationOrVersionDate": "Last reviewed 2012-03",
+          "accessedDate": "2026-07-28",
+          "section": "Urine Albumin-to-Creatinine Ratio (UACR)",
+          "url": "https://www.niddk.nih.gov/health-information/professionals/clinical-tools-patient-management/kidney-disease/identify-manage-patients/evaluate-ckd/assess-urine-albumin",
+          "supportedClaim": "UACR in mg/g is calculated as urine albumin in mg/dL divided by urine creatinine in g/dL.",
+          "populationScope": "Patients evaluated for kidney disease.",
+          "settingScope": "Spot urine laboratory assessment.",
+          "scopeLimitations": "The item scores the calculation only and does not add a disease threshold or interpretation."
+        }
+      ],
+      "sourceCoverage": [
+        {
+          "contractElement": "Complete equation signature and units",
+          "sourceIds": [
+            "S1"
+          ],
+          "supportedClaim": "The source directly provides the requested formula and displayed unit."
+        }
+      ],
+      "dropdownCorrectPositionPlan": null
+    },
+    {
+      "row": 8,
+      "questionId": "gpt_format13_mosteller_bsa_fib",
+      "itemType": "fill_in_blank",
+      "difficulty": "medium",
+      "difficultyRationale": "The learner must substitute two measurements into a supplied square-root formula and round the independent result correctly.",
+      "category": "Pharmacological and Parenteral Therapies",
+      "topic": "Dosage Calculations",
+      "ngnSkill": "analyze_cues",
+      "coverageRationale": "Adds computation of body surface area itself, distinct from the existing item that uses an already supplied BSA to evaluate a medication dose.",
+      "exactDecision": "Calculate body surface area with the supplied Mosteller formula.",
+      "scenarioContract": {
+        "population": "Adult undergoing oncology medication verification.",
+        "setting": "Pre-administration calculation step.",
+        "requiredFacts": [
+          "Height 165 cm.",
+          "Weight 64 kg.",
+          "Supply and name the Mosteller formula."
+        ],
+        "prohibitedAddedFacts": [
+          "A chemotherapy dose, maximum dose, organ-function adjustment, or treatment interpretation.",
+          "A second BSA formula."
+        ],
+        "prohibitedLeakage": [
+          "Do not show an intermediate product, radicand, or result.",
+          "Do not supply a precomputed BSA."
+        ],
+        "scopeBoundaries": [
+          "Score only BSA calculated with the named Mosteller formula.",
+          "Do not imply that this calculation alone authorizes medication administration."
+        ]
+      },
+      "interactionContract": {
+        "kind": "fill_in_blank",
+        "equationSignature": {
+          "inputs": [
+            "Height = 165 cm",
+            "Weight = 64 kg"
+          ],
+          "formula": "BSA (m²) = square root of ([height in cm × weight in kg] / 3600)",
+          "requestedResult": "Body surface area",
+          "conversions": [
+            "No unit conversion is required."
+          ],
+          "rounding": "Nearest hundredth",
+          "displayedUnit": "m²",
+          "equivalentFormsSearched": [
+            "Mosteller formula",
+            "Body surface area and BSA",
+            "Square root of height times weight divided by 3600",
+            "Supplied-BSA dosage items",
+            "Rearranged or wrapped BSA calculations"
+          ]
+        },
+        "workedCheck": {
+          "unroundedResult": 1.7126976771553506,
+          "finalResult": 1.71
+        },
+        "scoredInterpretation": null,
+        "sourceIds": [
+          "S1"
+        ]
+      },
+      "collisionSearch": {
+        "searchTerms": [
+          "Mosteller",
+          "body surface area",
+          "BSA",
+          "square root height weight 3600",
+          "m2 dosage",
+          "mg/m2"
+        ],
+        "corpusSurfaces": [
+          "All top-level bundled bank JSON",
+          "Embedded scored case-study leaves",
+          "All live banks/banks-raw JSON drafts",
+          "Complete equation signatures, supplied-BSA items, and inverse forms"
+        ],
+        "closestComparators": [
+          {
+            "id": "gpt_balance3_2026_07_16_bt_dosage_calculations_09",
+            "relationship": "Uses an already supplied body surface area to check a doxorubicin mg/m² dose.",
+            "materialDivergence": "This fill-in-blank computes BSA from height and weight with the Mosteller square-root formula and contains no medication dose or safety decision."
+          }
+        ],
+        "noComparatorSummary": null
+      },
+      "sources": [
+        {
+          "id": "S1",
+          "organization": "National Cancer Institute, Cancer Therapy Evaluation Program, Pharmaceutical Management Branch",
+          "document": "Inside PMB: BSA in Four-Part Harmony",
+          "publicationOrVersionDate": "2011-11",
+          "accessedDate": "2026-07-28",
+          "section": "Mosteller formula",
+          "url": "https://ctep.cancer.gov/branches/pmb/inside_pmb/nov2011.pdf",
+          "supportedClaim": "The Mosteller BSA equation is the square root of height in centimeters times weight in kilograms divided by 3600.",
+          "populationScope": "Patients whose treatment calculations use body surface area.",
+          "settingScope": "Oncology pharmaceutical management education.",
+          "scopeLimitations": "Multiple BSA equations exist; the item must explicitly name and supply the Mosteller formula."
+        }
+      ],
+      "sourceCoverage": [
+        {
+          "contractElement": "Complete equation signature",
+          "sourceIds": [
+            "S1"
+          ],
+          "supportedClaim": "The source owns the named formula, input units, divisor, square root, and m² result."
+        }
+      ],
+      "dropdownCorrectPositionPlan": null
+    },
+    {
+      "row": 9,
+      "questionId": "gpt_format13_c_to_f_fib",
+      "itemType": "fill_in_blank",
+      "difficulty": "easy",
+      "difficultyRationale": "The task is a single supplied linear conversion with one multiplication, one addition, and direct rounding.",
+      "category": "Reduction of Risk Potential",
+      "topic": "Laboratory & Diagnostic Tests",
+      "ngnSkill": "analyze_cues",
+      "coverageRationale": "Adds a stable measurement conversion not otherwise scored as a formula, while preserving the project's Fahrenheit-first learner display convention.",
+      "exactDecision": "Convert a temperature measured only in degrees Celsius to degrees Fahrenheit.",
+      "scenarioContract": {
+        "population": "Adult with a device or laboratory temperature measurement.",
+        "setting": "Clinical measurement reconciliation.",
+        "requiredFacts": [
+          "Temperature is supplied only as 38.3 °C.",
+          "Supply the exact formula °F = (°C × 1.8) + 32."
+        ],
+        "prohibitedAddedFacts": [
+          "A fever threshold, diagnosis, treatment decision, or second temperature.",
+          "A preconverted Fahrenheit display pair."
+        ],
+        "prohibitedLeakage": [
+          "Do not show the substitution or converted result.",
+          "Do not label the value as febrile."
+        ],
+        "scopeBoundaries": [
+          "Score only the numerical conversion.",
+          "Display the requested result in degrees Fahrenheit to one decimal place."
+        ]
+      },
+      "interactionContract": {
+        "kind": "fill_in_blank",
+        "equationSignature": {
+          "inputs": [
+            "Temperature = 38.3 °C"
+          ],
+          "formula": "°F = (°C × 1.8) + 32",
+          "requestedResult": "Temperature in degrees Fahrenheit",
+          "conversions": [
+            "Multiply degrees Celsius by 1.8, then add 32."
+          ],
+          "rounding": "Nearest tenth",
+          "displayedUnit": "°F",
+          "equivalentFormsSearched": [
+            "Celsius to Fahrenheit",
+            "Temperature conversion",
+            "C × 9/5 + 32",
+            "Fahrenheit-to-Celsius inverse",
+            "Prepaired Fahrenheit/Celsius displays"
+          ]
+        },
+        "workedCheck": {
+          "unroundedResult": 100.94,
+          "finalResult": 100.9
+        },
+        "scoredInterpretation": null,
+        "sourceIds": [
+          "S1"
+        ]
+      },
+      "collisionSearch": {
+        "searchTerms": [
+          "Celsius",
+          "Fahrenheit",
+          "temperature conversion",
+          "9/5",
+          "1.8 + 32",
+          "degrees F",
+          "degrees C"
+        ],
+        "corpusSurfaces": [
+          "All top-level bundled bank JSON",
+          "Embedded scored case-study leaves",
+          "All live banks/banks-raw JSON drafts",
+          "Formula text, inverse forms, and bilingual temperature display pairs"
+        ],
+        "closestComparators": [],
+        "noComparatorSummary": "The corpus contains Fahrenheit-first display pairs but no scored Celsius-to-Fahrenheit or inverse temperature-conversion equation; display convention alone does not duplicate the mathematical task."
+      },
+      "sources": [
+        {
+          "id": "S1",
+          "organization": "National Institute of Standards and Technology",
+          "document": "SI Units – Temperature",
+          "publicationOrVersionDate": "Current webpage; updated 2026",
+          "accessedDate": "2026-07-28",
+          "section": "Temperature Conversion (Exact)",
+          "url": "https://www.nist.gov/pml/owm/si-units-temperature",
+          "supportedClaim": "The exact Celsius-to-Fahrenheit conversion is °F = (°C × 1.8) + 32.",
+          "populationScope": "General measurement conversion.",
+          "settingScope": "SI and U.S. customary temperature conversion.",
+          "scopeLimitations": "Supports the conversion only; no clinical fever interpretation is scored."
+        }
+      ],
+      "sourceCoverage": [
+        {
+          "contractElement": "Complete equation signature",
+          "sourceIds": [
+            "S1"
+          ],
+          "supportedClaim": "NIST provides the exact linear conversion used for the requested Fahrenheit result."
+        }
+      ],
+      "dropdownCorrectPositionPlan": null
+    },
+    {
+      "row": 10,
+      "questionId": "gpt_format13_hbv_pep_dropdown",
+      "itemType": "dropdown_cloze",
+      "difficulty": "medium",
+      "difficultyRationale": "The learner must apply three distinct immune-response branches from one occupational-exposure table without importing facts across records.",
+      "category": "Safety and Infection Prevention and Control",
+      "topic": "Standard Precautions & Hygiene",
+      "ngnSkill": "take_action",
+      "coverageRationale": "Adds exact hepatitis B postexposure-prophylaxis branches rather than repeating the current generic needlestick first-aid construct.",
+      "exactDecision": "Choose the indicated hepatitis B postexposure management for three independent exposed-healthcare-personnel profiles.",
+      "scenarioContract": {
+        "population": "Three independent healthcare personnel with percutaneous or mucosal occupational exposure to blood.",
+        "setting": "Employee-health postexposure evaluation.",
+        "requiredFacts": [
+          "Record 1: documented vaccine responder after a complete series; source HBsAg-positive.",
+          "Record 2: documented nonresponder after two complete series; source HBsAg-positive or unknown.",
+          "Record 3: response unknown after a complete series; source HBsAg-positive or unknown; prompt anti-HBs is less than 10 mIU/mL."
+        ],
+        "prohibitedAddedFacts": [
+          "HIV exposure management, hepatitis C treatment, active hepatitis symptoms, or an injury requiring separate emergency treatment.",
+          "Unstated vaccine-series history or source status."
+        ],
+        "prohibitedLeakage": [
+          "Do not describe a record as immune, susceptible, or needing prophylaxis.",
+          "Do not let one record refer to another record's results."
+        ],
+        "scopeBoundaries": [
+          "Use CDC Table 1 occupational HBV-exposure branches exactly.",
+          "Do not add local follow-up testing beyond the scored prophylaxis decision."
+        ]
+      },
+      "interactionContract": {
+        "kind": "dropdown_cloze",
+        "narrowSubtopic": "Occupational hepatitis B postexposure prophylaxis by documented vaccine-response status",
+        "records": [
+          {
+            "record": 1,
+            "testedDecision": "Management of a documented vaccine responder exposed to an HBsAg-positive source",
+            "requiredEvidence": [
+              "Completed hepatitis B vaccine series",
+              "Documented anti-HBs response at or above 10 mIU/mL after vaccination",
+              "HBsAg-positive source"
+            ],
+            "plausibleDistractorClasses": [
+              "No postexposure prophylaxis",
+              "Hepatitis B vaccine dose only",
+              "HBIG once plus revaccination",
+              "HBIG twice one month apart"
+            ],
+            "correctPosition": 2,
+            "sourceIds": [
+              "S1"
+            ]
+          },
+          {
+            "record": 2,
+            "testedDecision": "Management of a documented nonresponder after two complete vaccine series exposed to a positive or unknown source",
+            "requiredEvidence": [
+              "Two complete hepatitis B vaccine series",
+              "Documented anti-HBs below 10 mIU/mL after both series",
+              "HBsAg-positive or unknown source"
+            ],
+            "plausibleDistractorClasses": [
+              "No postexposure prophylaxis",
+              "Hepatitis B vaccine dose only",
+              "HBIG once plus revaccination",
+              "HBIG twice one month apart"
+            ],
+            "correctPosition": 3,
+            "sourceIds": [
+              "S1"
+            ]
+          },
+          {
+            "record": 3,
+            "testedDecision": "Management when vaccine response is unknown and prompt anti-HBs is below 10 mIU/mL after exposure to a positive or unknown source",
+            "requiredEvidence": [
+              "Completed hepatitis B vaccine series",
+              "No prior documented postvaccination response",
+              "Prompt anti-HBs below 10 mIU/mL",
+              "HBsAg-positive or unknown source"
+            ],
+            "plausibleDistractorClasses": [
+              "No postexposure prophylaxis",
+              "Hepatitis B vaccine dose only",
+              "HBIG once plus revaccination",
+              "HBIG twice one month apart"
+            ],
+            "correctPosition": 1,
+            "sourceIds": [
+              "S1"
+            ]
+          }
+        ],
+        "independenceProof": "Each record supplies its own series completion, response status or prompt titer, and source status; each invokes a different CDC table branch.",
+        "crossRecordLeakageCheck": "No record uses another record's titer, vaccination history, or source result, and no answer label states the rule for a different record.",
+        "correctPositionPlan": [
+          2,
+          3,
+          1
+        ]
+      },
+      "collisionSearch": {
+        "searchTerms": [
+          "hepatitis B occupational exposure",
+          "HBV postexposure prophylaxis",
+          "HBIG",
+          "anti-HBs 10",
+          "vaccine responder",
+          "vaccine nonresponder",
+          "needlestick"
+        ],
+        "corpusSurfaces": [
+          "All top-level bundled bank JSON",
+          "Embedded scored case-study leaves",
+          "All live banks/banks-raw JSON drafts",
+          "Postexposure action tables and multi-record decision sets"
+        ],
+        "closestComparators": [
+          {
+            "id": "gemini_sic_ngn_2026_06_21_q4",
+            "relationship": "Tests immediate washing and reporting after a generic needlestick.",
+            "materialDivergence": "This dropdown begins after immediate first aid and scores three exact HBV immune-status prophylaxis branches, including HBIG and revaccination decisions."
+          }
+        ],
+        "noComparatorSummary": null
+      },
+      "sources": [
+        {
+          "id": "S1",
+          "organization": "Centers for Disease Control and Prevention",
+          "document": "Table 1: Treatment for HBV Exposures in Health Care Settings",
+          "publicationOrVersionDate": "2024-05-13",
+          "accessedDate": "2026-07-28",
+          "section": "Entire decision table",
+          "url": "https://www.cdc.gov/hepatitis-b/hcp/infection-control/table-1.html",
+          "supportedClaim": "The table directly specifies no action for documented responders, two HBIG doses for documented nonresponders after two series exposed to a positive or unknown source, and HBIG plus revaccination when response is unknown and prompt anti-HBs is below 10 mIU/mL after such exposure.",
+          "populationScope": "Healthcare personnel with occupational exposure to blood or body fluids.",
+          "settingScope": "Healthcare occupational postexposure management.",
+          "scopeLimitations": "The records must preserve the exact vaccine-response and source-status branches; other bloodborne-pathogen management is outside scope."
+        }
+      ],
+      "sourceCoverage": [
+        {
+          "contractElement": "Record 1 prophylaxis decision",
+          "sourceIds": [
+            "S1"
+          ],
+          "supportedClaim": "A documented responder needs no HBV postexposure prophylaxis regardless of source HBsAg status."
+        },
+        {
+          "contractElement": "Record 2 prophylaxis decision",
+          "sourceIds": [
+            "S1"
+          ],
+          "supportedClaim": "A documented nonresponder after two complete series exposed to a positive or unknown source receives HBIG twice, one month apart."
+        },
+        {
+          "contractElement": "Record 3 prophylaxis decision",
+          "sourceIds": [
+            "S1"
+          ],
+          "supportedClaim": "When response is unknown and prompt anti-HBs is below 10 mIU/mL after a positive or unknown source exposure, give HBIG once and initiate revaccination."
+        }
+      ],
+      "dropdownCorrectPositionPlan": [
+        2,
+        3,
+        1
+      ]
+    },
+    {
+      "row": 11,
+      "questionId": "gpt_format13_tetanus_wound_dropdown",
+      "itemType": "dropdown_cloze",
+      "difficulty": "medium",
+      "difficultyRationale": "The learner must combine wound class, primary-series status, and elapsed time to distinguish three prophylaxis branches.",
+      "category": "Safety and Infection Prevention and Control",
+      "topic": "Patient & Environment Safety",
+      "ngnSkill": "take_action",
+      "coverageRationale": "Adds the CDC wound-specific tetanus vaccine/TIG decision set, which is not represented by current scored wound management.",
+      "exactDecision": "Choose tetanus vaccine and tetanus immune globulin management for three independent wound and immunization profiles.",
+      "scenarioContract": {
+        "population": "Three independent adults presenting promptly after wounds.",
+        "setting": "Urgent outpatient wound assessment.",
+        "requiredFacts": [
+          "Record 1: clean minor wound; complete primary series; last tetanus-containing dose 8 years ago.",
+          "Record 2: dirty puncture wound; complete primary series; last dose 7 years ago; no HIV or severe immunodeficiency.",
+          "Record 3: dirty major wound; vaccination history unknown."
+        ],
+        "prohibitedAddedFacts": [
+          "Clinical tetanus, wound infection, delayed presentation, major hemorrhage, or antibiotic-allergy decisions.",
+          "HIV or severe immunodeficiency in records where it is not specified."
+        ],
+        "prohibitedLeakage": [
+          "Do not label a wound as requiring a booster or TIG.",
+          "Do not share vaccination history between records."
+        ],
+        "scopeBoundaries": [
+          "Use CDC wound-classification, vaccination, and TIG guidance.",
+          "Score prophylaxis only; routine wound cleaning may be fixed context rather than an option."
+        ]
+      },
+      "interactionContract": {
+        "kind": "dropdown_cloze",
+        "narrowSubtopic": "Tetanus prophylaxis after clean-minor versus dirty-major wounds",
+        "records": [
+          {
+            "record": 1,
+            "testedDecision": "Prophylaxis for a clean minor wound after a complete primary series and a dose 8 years earlier",
+            "requiredEvidence": [
+              "Clean minor wound",
+              "Complete primary tetanus series",
+              "Last tetanus-containing dose 8 years ago"
+            ],
+            "plausibleDistractorClasses": [
+              "No tetanus vaccine and no TIG",
+              "Tetanus vaccine only",
+              "TIG only",
+              "Tetanus vaccine plus TIG"
+            ],
+            "correctPosition": 3,
+            "sourceIds": [
+              "S1"
+            ]
+          },
+          {
+            "record": 2,
+            "testedDecision": "Prophylaxis for a dirty puncture wound after a complete series and a dose 7 years earlier",
+            "requiredEvidence": [
+              "Dirty puncture wound",
+              "Complete primary tetanus series",
+              "Last tetanus-containing dose 7 years ago",
+              "No HIV or severe immunodeficiency"
+            ],
+            "plausibleDistractorClasses": [
+              "No tetanus vaccine and no TIG",
+              "Tetanus vaccine only",
+              "TIG only",
+              "Tetanus vaccine plus TIG"
+            ],
+            "correctPosition": 1,
+            "sourceIds": [
+              "S1"
+            ]
+          },
+          {
+            "record": 3,
+            "testedDecision": "Prophylaxis for a dirty major wound with unknown vaccination history",
+            "requiredEvidence": [
+              "Dirty major wound",
+              "Unknown tetanus vaccination history"
+            ],
+            "plausibleDistractorClasses": [
+              "No tetanus vaccine and no TIG",
+              "Tetanus vaccine only",
+              "TIG only",
+              "Tetanus vaccine plus TIG"
+            ],
+            "correctPosition": 2,
+            "sourceIds": [
+              "S1"
+            ]
+          }
+        ],
+        "independenceProof": "Each record contains its own wound classification, series status, elapsed time, and relevant immune-status boundary; each reaches a different CDC prophylaxis result.",
+        "crossRecordLeakageCheck": "No record depends on a shared vaccination record or implies the answer to another, and all distractors operate at the same vaccine/TIG decision level.",
+        "correctPositionPlan": [
+          3,
+          1,
+          2
+        ]
+      },
+      "collisionSearch": {
+        "searchTerms": [
+          "tetanus",
+          "TIG",
+          "tetanus immune globulin",
+          "dirty wound",
+          "puncture wound",
+          "5 years",
+          "10 years",
+          "wound vaccination"
+        ],
+        "corpusSurfaces": [
+          "All top-level bundled bank JSON",
+          "Embedded scored case-study leaves",
+          "All live banks/banks-raw JSON drafts",
+          "Wound algorithms and multi-record prophylaxis sets"
+        ],
+        "closestComparators": [],
+        "noComparatorSummary": "The searches found routine Tdap immunization content but no scored wound-classification algorithm combining the five-year/ten-year vaccine boundaries with TIG eligibility."
+      },
+      "sources": [
+        {
+          "id": "S1",
+          "organization": "Centers for Disease Control and Prevention",
+          "document": "Clinical Guidance for Wound Management to Prevent Tetanus",
+          "publicationOrVersionDate": "2025-06-10",
+          "accessedDate": "2026-07-28",
+          "section": "Key points; Assessing risk; Vaccination recommended; TIG prophylaxis indications",
+          "url": "https://www.cdc.gov/tetanus/hcp/clinical-guidance/index.html",
+          "supportedClaim": "Clean minor wounds use a ten-year booster boundary after a complete series, dirty or major wounds use a five-year boundary, and dirty/major wounds with unknown or incomplete vaccination history require vaccine and TIG.",
+          "populationScope": "People presenting for wound management.",
+          "settingScope": "Clinical wound assessment and tetanus prevention.",
+          "scopeLimitations": "TIG has additional indications for dirty/major wounds in people with HIV or severe immunodeficiency; those conditions are excluded where they would change the record."
+        }
+      ],
+      "sourceCoverage": [
+        {
+          "contractElement": "Record 1 prophylaxis decision",
+          "sourceIds": [
+            "S1"
+          ],
+          "supportedClaim": "A clean minor wound with complete series and last dose less than 10 years ago needs neither vaccine nor TIG."
+        },
+        {
+          "contractElement": "Record 2 prophylaxis decision",
+          "sourceIds": [
+            "S1"
+          ],
+          "supportedClaim": "A dirty puncture wound with complete series and last dose at least 5 years ago needs vaccine, while TIG is not indicated absent another qualifying condition."
+        },
+        {
+          "contractElement": "Record 3 prophylaxis decision",
+          "sourceIds": [
+            "S1"
+          ],
+          "supportedClaim": "A dirty major wound with unknown vaccination history needs tetanus vaccine and TIG."
+        }
+      ],
+      "dropdownCorrectPositionPlan": [
+        3,
+        1,
+        2
+      ]
+    },
+    {
+      "row": 12,
+      "questionId": "gpt_format13_varicella_hcp_dropdown",
+      "itemType": "dropdown_cloze",
+      "difficulty": "hard",
+      "difficultyRationale": "The learner must integrate evidence of immunity, vaccine eligibility, postexposure timing, pregnancy, immune globulin, and two different surveillance/exclusion windows.",
+      "category": "Safety and Infection Prevention and Control",
+      "topic": "Transmission-Based Precautions",
+      "ngnSkill": "take_action",
+      "coverageRationale": "Adds exposed-healthcare-personnel work-restriction and postexposure decisions rather than duplicating the current patient-isolation item.",
+      "exactDecision": "Choose postexposure prophylaxis, symptom monitoring, and work-restriction management for three independent asymptomatic healthcare personnel exposed to varicella.",
+      "scenarioContract": {
+        "population": "Three independent asymptomatic healthcare personnel after a defined workplace exposure to varicella.",
+        "setting": "Occupational-health infection-control evaluation.",
+        "requiredFacts": [
+          "Record 1: documented evidence of immunity.",
+          "Record 2: no other evidence of immunity, one prior varicella vaccine dose, eligible for vaccination, second dose received within 5 days of exposure.",
+          "Record 3: susceptible pregnant healthcare worker for whom VariZIG is indicated and administered."
+        ],
+        "prohibitedAddedFacts": [
+          "Current fever, rash, disseminated disease, immunocompromise beyond the stated pregnancy record, or a second exposure date.",
+          "Evidence of immunity in the susceptible records."
+        ],
+        "prohibitedLeakage": [
+          "Do not label a worker immune or susceptible.",
+          "Do not state the monitoring or exclusion window outside the answer choices."
+        ],
+        "scopeBoundaries": [
+          "Use CDC healthcare-personnel varicella recommendations.",
+          "The producer must preserve the exact postexposure day ranges and the distinction between vaccination-eligible and VariZIG pathways."
+        ]
+      },
+      "interactionContract": {
+        "kind": "dropdown_cloze",
+        "narrowSubtopic": "Varicella postexposure management and work restrictions for asymptomatic healthcare personnel",
+        "records": [
+          {
+            "record": 1,
+            "testedDecision": "Management after exposure when the healthcare worker has evidence of immunity",
+            "requiredEvidence": [
+              "Defined varicella exposure",
+              "Documented evidence of immunity",
+              "No symptoms"
+            ],
+            "plausibleDistractorClasses": [
+              "No prophylaxis or restriction; monitor daily on days 8 through 21",
+              "Routine work exclusion on days 8 through 21",
+              "Second vaccine dose within 5 days with monitoring",
+              "VariZIG with work exclusion through day 28"
+            ],
+            "correctPosition": 1,
+            "sourceIds": [
+              "S1"
+            ]
+          },
+          {
+            "record": 2,
+            "testedDecision": "Management of a vaccine-eligible worker with one prior dose who receives the second dose within 5 days",
+            "requiredEvidence": [
+              "Defined varicella exposure",
+              "No evidence of immunity other than one prior vaccine dose",
+              "Eligible for live varicella vaccine",
+              "Second dose received within 5 days",
+              "No symptoms"
+            ],
+            "plausibleDistractorClasses": [
+              "No prophylaxis or restriction; monitor daily on days 8 through 21",
+              "Routine work exclusion on days 8 through 21",
+              "Second vaccine dose within 5 days with no routine restriction and monitoring on days 8 through 21",
+              "VariZIG with work exclusion through day 28"
+            ],
+            "correctPosition": 3,
+            "sourceIds": [
+              "S1"
+            ]
+          },
+          {
+            "record": 3,
+            "testedDecision": "Work restriction after VariZIG for a susceptible pregnant healthcare worker",
+            "requiredEvidence": [
+              "Defined varicella exposure",
+              "No evidence of immunity",
+              "Pregnancy and ineligibility for live vaccine",
+              "VariZIG indicated and administered",
+              "No symptoms"
+            ],
+            "plausibleDistractorClasses": [
+              "No prophylaxis or restriction; monitor daily on days 8 through 21",
+              "VariZIG with exclusion from days 8 through 28 after the last exposure",
+              "Routine exclusion only on days 8 through 21",
+              "Live vaccine within 5 days with no routine restriction"
+            ],
+            "correctPosition": 2,
+            "sourceIds": [
+              "S1"
+            ]
+          }
+        ],
+        "independenceProof": "Each record supplies its own immunity evidence, vaccine eligibility or VariZIG status, and symptom state; the three decisions are immunity surveillance, postexposure vaccination, and immune-globulin-linked exclusion.",
+        "crossRecordLeakageCheck": "No record borrows another worker's immunity or prophylaxis status, and the day-28 extension appears only where VariZIG is independently specified.",
+        "correctPositionPlan": [
+          1,
+          3,
+          2
+        ]
+      },
+      "collisionSearch": {
+        "searchTerms": [
+          "varicella healthcare personnel",
+          "varicella postexposure",
+          "evidence of immunity",
+          "VariZIG",
+          "exclude from work day 8",
+          "day 21",
+          "day 28",
+          "second vaccine dose"
+        ],
+        "corpusSurfaces": [
+          "All top-level bundled bank JSON",
+          "Embedded scored case-study leaves",
+          "All live banks/banks-raw JSON drafts",
+          "Isolation actions, occupational restrictions, and postexposure decision sets"
+        ],
+        "closestComparators": [
+          {
+            "id": "gpt_gap_jun11_sata_varicella_precautions_02",
+            "relationship": "Tests isolation actions for a patient with suspected varicella.",
+            "materialDivergence": "This item scores postexposure prophylaxis, monitoring, and work restriction for asymptomatic healthcare personnel across three immunity states, not isolation of an infected patient."
+          }
+        ],
+        "noComparatorSummary": null
+      },
+      "sources": [
+        {
+          "id": "S1",
+          "organization": "Centers for Disease Control and Prevention",
+          "document": "Varicella-Zoster Virus: Infection Control in Healthcare Personnel",
+          "publicationOrVersionDate": "Guideline current 2025; page dated 2026-03-23",
+          "accessedDate": "2026-07-28",
+          "section": "Recommendations 1 and 2; Postexposure prophylaxis",
+          "url": "https://www.cdc.gov/infection-control/hcp/healthcare-personnel-epidemiology-control/varicella.html",
+          "supportedClaim": "Exposed healthcare personnel with evidence of immunity need no prophylaxis or work restriction but require monitoring on days 8 through 21; eligible personnel without immunity should receive vaccine within 3 to 5 days and generally need no restriction if vaccinated; susceptible personnel receiving varicella-zoster immune globulin are excluded on days 8 through 28.",
+          "populationScope": "Healthcare personnel exposed to varicella or disseminated herpes zoster.",
+          "settingScope": "Healthcare occupational infection prevention and control.",
+          "scopeLimitations": "The records must preserve asymptomatic status, evidence-of-immunity rules, vaccine eligibility, and whether immune globulin was administered."
+        }
+      ],
+      "sourceCoverage": [
+        {
+          "contractElement": "Record 1 postexposure decision",
+          "sourceIds": [
+            "S1"
+          ],
+          "supportedClaim": "Evidence of immunity supports no prophylaxis or restriction with daily monitoring on days 8 through 21."
+        },
+        {
+          "contractElement": "Record 2 postexposure decision",
+          "sourceIds": [
+            "S1"
+          ],
+          "supportedClaim": "A second vaccine dose within 3 to 5 days is the indicated postexposure pathway, with no routine restriction if the worker remains asymptomatic and monitoring on days 8 through 21."
+        },
+        {
+          "contractElement": "Record 3 postexposure decision",
+          "sourceIds": [
+            "S1"
+          ],
+          "supportedClaim": "After immune globulin, the work-exclusion interval extends from day 8 through day 28 after the last exposure."
+        }
+      ],
+      "dropdownCorrectPositionPlan": [
+        1,
+        3,
+        2
+      ]
+    }
+  ],
+  "totals": {
+    "questions": 12,
+    "byItemType": {
+      "bowtie": 3,
+      "highlight": 3,
+      "fill_in_blank": 3,
+      "dropdown_cloze": 3
+    },
+    "byDifficulty": {
+      "easy": 1,
+      "medium": 9,
+      "hard": 2
+    },
+    "byCategory": {
+      "Reduction of Risk Potential": 6,
+      "Health Promotion and Maintenance": 1,
+      "Physiological Adaptation": 1,
+      "Pharmacological and Parenteral Therapies": 1,
+      "Safety and Infection Prevention and Control": 3
+    }
+  }
+}
