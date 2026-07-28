@@ -1,14 +1,16 @@
-# DECISIONS.md Cleanup — Phase 1 (Correction Pass) — Migration Table
+# DECISIONS.md Cleanup — Phase 1 (Closure Repair) — Migration Table
 
-78 rows (unchanged from pass 2: 76 pass-1 entries + the E039a/E039b split). **Destination is exactly
+80 rows: E001–E035 (35), E036–E038 (3), E039a/E039b (2), E040–E042 (3), E043b/E043a
+(2), E044–E046 (3), E047a/E047b/E047c (3), E048–E053 (6), and E054–E076 (23).
+**Destination is exactly
 `STAY`, `ARCHIVE`, or `MERGE_INTO <target ids>`** (Amendment 5, spec §8) — there is no fourth option and
 no bare `MERGE`. Pass 2 wrote `MERGE` for `E037` and stated in the open that it was not one of the two
 values the spec then permitted; Amendment 5 defines `MERGE_INTO` for exactly this outcome and bounds it
 with four conditions, verified below for `E037`.
 
 **Force before / force after are stated for every row.** Two rows are flagged `⚠ MIS-FILE, NOT A
-FORCE CHANGE` (unchanged from pass 2 — the spec names both by name, §8). No row in this pass carries a
-genuine force-before/force-after delta requiring owner ratification.
+FORCE CHANGE` (unchanged from pass 2 — the spec names both by name, §8). Exactly one genuine force
+change exists: `E047c`, `HISTORICAL` → `BINDING`, owner-ratified 2026-07-28 after the survey.
 
 **Repaired this pass (see `inventory.md` §4.1–§4.3 for full reasoning):** `E029` (kind `R`→`P`, no `R`
 number minted — was an unnumbered-`R` taxonomy breach), `E047c` (status `REVISIT`→`ACTIVE` — was a
@@ -58,17 +60,17 @@ asserted only in a note on `E037`'s row).
 | E038 | §5 Current producer assignment callout | I | ACTIVE | ADVISORY | ADVISORY | STAY | *(invariant, by name)* | — | `PROJECT-HISTORY.md` | near-`UNCLEAR` — natural owner forbidden as destination |
 | **E039a** | P8 universal core | P | ACTIVE | BINDING | BINDING | STAY | P8 (restored) | — | — | MERGE_INTO target for E037 rule 1 |
 | **E039b** | P8 lane-specific detail | X | CONDITIONAL (LAPSED) | HISTORICAL | HISTORICAL | ARCHIVE | *(archive line)* | — | archive | |
-| E040 | P9 CONDITIONAL skeleton English-only | X | CONDITIONAL (LAPSED) | HISTORICAL | HISTORICAL | ARCHIVE | *(retire #9 — provisional)* | — | archive | **not ruled on — open owner question** |
-| E041 | P12 CONDITIONAL author-side currency | X | CONDITIONAL (LAPSED) | HISTORICAL | HISTORICAL | ARCHIVE | *(retire #12 — provisional)* | — | archive | **not ruled on — open owner question** |
-| E042 | P18 CONDITIONAL fact-check/flag-review chain | X | CONDITIONAL (LAPSED) | HISTORICAL | HISTORICAL | ARCHIVE | *(retire #18 — provisional)* | — | archive | **not ruled on — open owner question** |
-| E043b | P22 CONDITIONAL conditional-principle prose | X | CONDITIONAL (LAPSED) | HISTORICAL | HISTORICAL | ARCHIVE | *(retire #22 — provisional)* | — | archive | **not ruled on — open owner question**; prose only, routing split to E043a |
+| E040 | P9 CONDITIONAL skeleton English-only | X | CONDITIONAL (LAPSED) | HISTORICAL | HISTORICAL | ARCHIVE | *(retire #9)* | — | archive | owner-ratified retirement 2026-07-28 |
+| E041 | P12 CONDITIONAL author-side currency | X | CONDITIONAL (LAPSED) | HISTORICAL | HISTORICAL | ARCHIVE | *(retire #12)* | — | archive | owner-ratified retirement 2026-07-28 |
+| E042 | P18 CONDITIONAL fact-check/flag-review chain | X | CONDITIONAL (LAPSED) | HISTORICAL | HISTORICAL | ARCHIVE | *(retire #18)* | — | archive | owner-ratified retirement 2026-07-28 |
+| E043b | P22 CONDITIONAL conditional-principle prose | X | CONDITIONAL (LAPSED) | HISTORICAL | HISTORICAL | ARCHIVE | *(retire #22)* | — | archive | owner-ratified retirement 2026-07-28; prose only, routing split to live E043a |
 | E043a | P22 `opus*` routing rule (still in force) | I | ACTIVE | BINDING | BINDING | STAY | *(invariant, by name)* | EXECUTED | `scripts/audit/early-bank-semantic-layer-a.ts` | ⚠ force-preservation hazard — must not archive with E043b |
 | **E044** | P20 Pronunciation/audio (PARKED) | P | PARKED | ADVISORY | ADVISORY | STAY | P20 (retained) | INACTIVE | `src/audio/normalizeForTts.ts`, `scripts/audio/build-tts-queue.ts` | number 20 retained |
 | E045 | Translation-friction scoring (PARKED) | T | PARKED | ADVISORY | ADVISORY | STAY | *(thread, by name)* | — | — | unsettled question |
 | E046 | test/adaptive exam-condition modes (PARKED) | T | PARKED | ADVISORY | ADVISORY | STAY | *(thread, by name)* | — | — | unsettled question |
-| E047a | Vital-`sanity` SBP/RR/`spo2` ratifications | R | ACTIVE | BINDING | BINDING | STAY | **R4** | PENDING | `audit/vital-sanity-bounds-p3-stage-3-source-packet-2026-07-23.md`, `…-independent-checker-2026-07-23.md` | ⚠ **MIS-FILE, NOT A FORCE CHANGE** — status REVISIT→ACTIVE per Amendment 2; force was always BINDING |
+| E047a | Vital-`sanity` SBP/RR/`spo2` ratifications | R | ACTIVE | BINDING | BINDING | STAY | **R5** | PENDING | `audit/vital-sanity-bounds-p3-stage-3-source-packet-2026-07-23.md`, `…-independent-checker-2026-07-23.md` | ⚠ **MIS-FILE, NOT A FORCE CHANGE** — status REVISIT→ACTIVE per Amendment 2; force was always BINDING |
 | E047b | Vital-`sanity` DBP/MAP/temp-floor/`sao2` open | T | REVISIT | ADVISORY | ADVISORY | STAY | *(thread, by name)* | — | same packet | legitimately T under Amendment 2 |
-| **E047c** | Vital-`sanity` found/temp-closed chronology | X | **ACTIVE** (was REVISIT) | HISTORICAL | HISTORICAL | ARCHIVE | *(archive line)* | **EXECUTED** | `Archive/root-cleanup-2026-07-19/r9-temperature-sanity-decoupling-codex-spec.md` | **repaired**: status `REVISIT`→`ACTIVE` — was a taxonomy breach (REVISIT compatible with T only); see `inventory.md` §4.1 for the alternative (R-numbered) reading, routed to owner. Exec `EXECUTED` — the ratified value (`46.5°C`) is already implemented in `src/measurementAllowlist.ts`'s `VITAL_SANITY_MAX_OVERRIDES.temp` (confirmed by grep); this cell previously read `—` in error and disagreed with `inventory.md`'s (correct) `EXECUTED` |
+| **E047c** | Vital-`sanity` found/temp-closed ruling | **R** | **ACTIVE** | **HISTORICAL** | **BINDING** | **STAY** | **R3** | **EXECUTED** | `Archive/root-cleanup-2026-07-19/r9-temperature-sanity-decoupling-codex-spec.md` | owner ratification 2026-07-28, post-survey; the correction pass correctly routed this classification rather than changing it without authority |
 | E048 | CBC American-conventional (superseded original) | X | SUPERSEDED | HISTORICAL | HISTORICAL | ARCHIVE | *(archive line)* | — | archive | superseded by E049 |
 | E049 | CBC conventional-first + SI-paren, analyte-aware | R | ACTIVE | BINDING | BINDING | STAY | R2 | EXECUTED | `src/measurementUnitPolicy.ts`; extraction-contract Rule C | ⚠ **MIS-FILE, NOT A FORCE CHANGE** — filed under SUPERSEDED heading but self-declares governing |
 | E050 | Fishbone workflow-familiarity waiver (superseded) | X | SUPERSEDED | HISTORICAL | HISTORICAL | ARCHIVE | *(archive line)* | — | E026 (P25) | |
@@ -93,9 +95,9 @@ asserted only in a note on `E037`'s row).
 | E069 | INV Some topics shared across categories | I | ACTIVE | BINDING | BINDING | STAY | *(invariant, by name)* | EXECUTED | `src/topics.ts` | |
 | E070 | Standalone bowtie direct generation | R | ACTIVE | AUTHORIZING | AUTHORIZING | STAY | R1 | EXECUTED | — | |
 | E071 | INV Highlight structural bias gate schema-level | I | ACTIVE | BINDING | BINDING | STAY | *(invariant, by name)* | EXECUTED | Tier 0 validation | |
-| E072 | Promoted visual parity per-kind baseline | R | ACTIVE | BINDING | BINDING | STAY | R3 | EXECUTED | `Archive/root-cleanup-2026-07-19/PROMOTED-VISUAL-PARITY-EXPANSION-ARCHITECT-SPEC-2026-07-16.md` | |
-| E073 | PR vs post-merge CI coverage distinct | R | ACTIVE | AUTHORIZING | AUTHORIZING | STAY | R5 | PENDING | `audit/ci-coverage-survey-2026-07-23.report.md`, `…independent-checker.md` | |
-| E074 | Gemini's standing restrictions | P | ACTIVE | BINDING | BINDING | STAY | *(no number proposed — see findings)* | — | cross-refs P3/P5/P8/P18/P22 | ⚠ flagged in `findings.md` — cites lapsed principles 8/18 in present tense |
+| E072 | Promoted visual parity per-kind baseline | R | ACTIVE | BINDING | BINDING | STAY | R4 | EXECUTED | `Archive/root-cleanup-2026-07-19/PROMOTED-VISUAL-PARITY-EXPANSION-ARCHITECT-SPEC-2026-07-16.md` | |
+| E073 | PR vs post-merge CI coverage distinct | R | ACTIVE | AUTHORIZING | AUTHORIZING | STAY | R6 | PENDING | `audit/ci-coverage-survey-2026-07-23.report.md`, `…independent-checker.md` | |
+| E074 | Gemini's standing restrictions | P | ACTIVE | BINDING | BINDING | STAY | P31 | — | cross-refs P3/P5/P8/P18/P22 | owner-ratified ID 2026-07-28; final phase-2b wording pending |
 | E075 | Study-session distribution pointer | X | ACTIVE | HISTORICAL | HISTORICAL | ARCHIVE | *(archive line)* | — | `src/schema.ts`, `src/sessionSampler.ts` | |
 | E076 | Session artifacts (implemented spec pointers) | X | ACTIVE | HISTORICAL | HISTORICAL | ARCHIVE | *(archive line)* | — | multiple `Archive/…` specs | |
 
@@ -103,35 +105,28 @@ asserted only in a note on `E037`'s row).
 
 | destination | rows |
 |---|---|
-| STAY | 63 (35 §4 + 6 §5 + 19 §6 + 3 §7) |
+| STAY | 65 (37 §4 + 6 §5 + 19 §6 + 3 §7) |
 | ARCHIVE | 14 |
 | MERGE_INTO | 1 (E037 → E039a, E002, E006) |
-| **Total** | **78** |
+| **Total** | **80** |
 
-Destination counts are unchanged from pass 2 — the two repaired rows (`E029`, `E047c`) both keep their
-pass-2 destination (`STAY`, `ARCHIVE` respectively); only kind (`E029`) and status (`E047c`) changed.
-`E037`'s row count is unchanged; only its destination's *label* and explicit target list changed
-(`MERGE` → `MERGE_INTO E039a, E002, E006`), per Amendment 5.
+The owner-ratified 2026-07-28 classification moves `E047c` from `ARCHIVE` to `STAY`; `E037` remains
+the sole `MERGE_INTO` row with the same explicit target list.
 
 **Repaired this pass (see `inventory.md` §4.1–§4.3):**
 - `E029`: kind `R`→`P`, no `R` number minted — was an unnumbered-`R` taxonomy breach.
-- `E047c`: status `REVISIT`→`ACTIVE` — was a `REVISIT`-on-non-`T` taxonomy breach.
+- `E047c`: correction-pass status `REVISIT`→`ACTIVE`, followed by the 2026-07-28 owner ratification
+  `X | HISTORICAL | ARCHIVE` → `R | BINDING | STAY`, permanent ID `R3`.
 - `E037`: destination `MERGE`→`MERGE_INTO E039a, E002, E006`, both targets of rule 2 now shown
   explicitly on `E002` and `E006`'s own rows.
 
-**Genuine force-change escalations this pass: none.** Every row's force-after equals its force-before
-once force is read as-written rather than as-placed — unchanged from pass 2.
+**Genuine force changes: exactly one.** `E047c` changes `HISTORICAL` → `BINDING` by owner
+ratification dated 2026-07-28, after the survey. The survey did not discover or certify this change;
+it correctly declined the `R` reading and routed it to the owner.
 
-**Confirmed R-series (unchanged):** R1=E070 (2026-07-02), R2=E049 (2026-07-05), R3=E072 (2026-07-17),
-R4=E047a (2026-07-24), R5=E073 (2026-07-24). Two open questions about this series are routed to the
-owner, not decided here (see `inventory.md` §4.1/§4.2 and `findings.md`): whether `E029` (dated
-2026-07-19) or `E047c` (Luke's ratification dated 2026-07-15) should instead take an `R` number, which
-would insert ahead of `E072` and/or between `E072` and `E047a`/`E073`, renumbering the confirmed series
-a second time.
+**Owner-ratified R-series (2026-07-28):** R1=E070 (2026-07-02), R2=E049 (2026-07-05),
+R3=E047c (2026-07-15), R4=E072 (2026-07-17), R5=E047a (2026-07-24), and R6=E073
+(2026-07-24, later document order).
 
-**Open owner questions (not decided by any ruling to date):** principles 9, 12, 18, 22 — do any of them
-carry a surviving universal core like principle 8's? (E040/E041/E042/E043b, `findings.md`.) Whether
-E074 (Gemini restrictions) should mint a new principle number, and whether its text needs updating in
-phase 2 to stop justifying a still-ACTIVE rule by reference to two now-lapsed principle numbers
-(`findings.md`). Whether E038 (producer callout) can legally live anywhere other than
-`PROJECT-HISTORY.md`. Whether `E029` or `E047c` should instead be R-numbered (above).
+**Remaining phase-2b questions:** `E074`'s disposition and `P31` are settled, but its final
+architect-authored wording remains pending; the `unqualified-basename` class remains open.

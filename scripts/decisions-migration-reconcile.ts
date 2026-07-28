@@ -128,7 +128,12 @@ function parseInventory(text: string): string[] {
 }
 
 function parseMigration(text: string): MigrationRow[] {
-  const table = tableAfterHeading(text, "# DECISIONS.md Cleanup — Phase 1 (Correction Pass) — Migration Table");
+  const migrationHeadings = [
+    "# DECISIONS.md Cleanup — Phase 1 (Closure Repair) — Migration Table",
+    "# DECISIONS.md Cleanup — Phase 1 (Correction Pass) — Migration Table",
+  ];
+  const heading = migrationHeadings.find((candidate) => text.includes(candidate));
+  const table = heading ? tableAfterHeading(text, heading) : null;
   if (!table) {
     fail(`${MIGRATION_FILE} is missing its migration row table`);
     return [];

@@ -1,4 +1,4 @@
-# DECISIONS.md Cleanup — Phase 1 (Correction Pass) — Findings
+# DECISIONS.md Cleanup — Phase 1 (Closure Repair) — Findings
 
 Conflicts, duplications, the LAPSED review queue, the count delta against pass 2 (causes attributed),
 the `MISSING`-class reconciliation, and the verification record. **Nothing here edits `DECISIONS.md`.**
@@ -10,6 +10,14 @@ survey spec and the correction work order).
 graph's final regeneration; confirmed to match `reference-graph.json`'s own `generatorGitSha` field).
 `SURVEY_HEAD = f68210ceb62e42d7f028157629a770faf02eab42` (pass 2's baseline — historical, not reused;
 retained below only to attribute count deltas).
+
+**Inherited `78` provenance (closure pass, bounded investigation):** `git log -S'78 rows'` and
+`git log -S'78-entry'` first locate the assertion in commit `83f8dc6` (`DECISIONS.md cleanup Phase 1,
+pass 2: reclassify 78 entries under ratified taxonomy`), which created all four survey artifacts.
+The immediately preceding survey spec at `83f8dc6^` instead referred to a carried-forward
+**76-entry inventory**; the new artifacts converted that premise to 78 while introducing the split
+rows. The repository therefore readily determines where `78` entered the committed artifact chain
+(pass 2, `83f8dc6`), but not a sound arithmetic derivation for it.
 
 ---
 
@@ -30,15 +38,18 @@ authorization gap). Three were producer defects, corrected this pass:
    excludes decimal numbers and short abbreviations from being treated as path candidates at all (§3.2–
    3.4; the plausibility gate is a refinement beyond the four named defects, flagged as a proposed
    amendment in §H below since it wasn't itself one of the four).
-3. **`E047c` breached the ratified taxonomy** (`X | REVISIT`, and `REVISIT` is `T`-only). Repaired:
-   status `REVISIT`→`ACTIVE`. Full reasoning: `inventory.md` §4.1.
+3. **`E047c` breached the ratified taxonomy** (`X | REVISIT`, and `REVISIT` is `T`-only). The
+   correction pass repaired status `REVISIT`→`ACTIVE` and correctly routed, rather than deciding,
+   the alternative `R` reading. The owner then ratified that reading on 2026-07-28, post-survey:
+   `R | ACTIVE | BINDING | STAY | EXECUTED`, permanent ID `R3`. Full record: `inventory.md` §4.1.
 4. **`E029` was an unnumbered `R`** (taxonomy §7 permits this only when routed to
    `UNCLEAR_REQUIRES_OWNER`). Repaired: reclassified kind `P`, sharing permanent ID `P25` as an
    application (precedented by `E013`/`E015`), no `R` number minted. Full reasoning, and the recorded
    alternative reading, both R-numbered: `inventory.md` §4.2.
 
-**Net result: zero force-change escalations survive into this pass's migration table** (unchanged from
-pass 2) — every force-before equals its force-after once force is read from the entry's own wording.
+**Closure result: exactly one force change exists.** `E047c` changes `HISTORICAL` → `BINDING` by
+owner ratification dated 2026-07-28, after the survey. This was not a survey finding: the survey
+correctly declined to make the change without owner authority and routed it out.
 
 ---
 
@@ -137,22 +148,15 @@ the reference graph's classification of the citation.
 | principle | disposition | records citing it |
 |---|---|---|
 | 8 | **RESTORE** — surviving universal core ratified (owner ruling, spec §8) | 47 |
-| 9 | **OPEN OWNER QUESTION** — not ruled on | 23 |
-| 12 | **OPEN OWNER QUESTION** — not ruled on | 24 |
-| 18 | **OPEN OWNER QUESTION** — not ruled on | 23 |
-| 22 | **OPEN OWNER QUESTION** — not ruled on | 34 |
+| 9 | **RETIRE** — no surviving universal core (owner ratification 2026-07-28) | 23 |
+| 12 | **RETIRE** — no surviving universal core (owner ratification 2026-07-28) | 24 |
+| 18 | **RETIRE** — no surviving universal core (owner ratification 2026-07-28) | 23 |
+| 22 | **RETIRE** — no surviving universal core; E043a unaffected (owner ratification 2026-07-28) | 34 |
 
-**Deviation from the work order's stated binary, recorded rather than silently resolved:** §5.2 asks for
-axis 2 to read "restore a surviving universal core, or archive completely." Only principle 8 has either
-outcome actually decided (restore). Principles 9, 12, 18, 22 have **neither** outcome ratified — the
-spec is explicit that they are "not ruled on" and forbids deciding by analogy to principle 8. Forcing
-them into "archive completely" would assert a decision nobody has made. I report a third, honest value
-(`OPEN OWNER QUESTION`) for those four rather than picking the tidier binary. A quick read of each
-suggests candidates worth asking about specifically: principle 9's CJK-presence gate and principle 18's
-"fact-check/currency and flag-review are chain steps, not optional asides" both read as generalizable
-beyond the retired lane; principle 12's closed-world-construction mechanism and principle 22's `opus*`-
-routing rule are more lane-specific — and 22's routing fragment is *already* independently preserved
-live as `E043a` regardless of what happens to principle 22 itself (§D below).
+The correction-pass artifact correctly recorded principles 9, 12, 18, and 22 as open at that time.
+The owner resolved all four on **2026-07-28**: each retires completely, with its number permanently
+unavailable. This is a later owner ratification, not a survey conclusion. `E043a` remains live
+independently of principle 22's archived prose (§D).
 
 **Two axes partition the same 151 differently and independently** (axis 1 asks "is this citation worded
 correctly," axis 2 asks "does this citation's target have a settled fate") — this is the genuine
@@ -165,8 +169,8 @@ partition the work order requires, replacing pass 2's overlapping single sort.
 `E043b` (principle 22's CONDITIONAL body) is bound for the archive as lapsed conditional material, but
 `E036` (the §5 lapse note) states the `opus*` case-ID routing in `scripts/audit/early-bank-semantic-
 layer-a.ts` *"is unaffected and stays in force."* The split holds: **E043a** (routing, `I`/`ACTIVE`/
-`BINDING`, `EXECUTED`) stays independently of whatever the open owner question above decides about
-principle 22 itself. If phase 2 archives P22 as a single unit without preserving E043a as its own live
+`BINDING`, `EXECUTED`) stays independently of the 2026-07-28 ruling that retires principle 22.
+If phase 2 archives P22 as a single unit without preserving E043a as its own live
 invariant, a binding rule is silently downgraded.
 
 ---
@@ -186,24 +190,22 @@ invariant, a binding rule is silently downgraded.
 
 ---
 
-## F. Open owner questions (complete list)
+## F. Owner-question dispositions and remaining phase-2b work
 
-1. **Do principles 9, 12, 18, or 22 have a surviving universal core?** (§C above.) Not decided; not
-   analogized from principle 8's restoration.
-2. **Should E074 mint a new principle number?** No bootstrap mechanism exists for minting a *new*
-   principle number during this migration (taxonomy §7's bootstrap is explicitly for existing rulings).
-3. **E074's own wording** justifies a still-`ACTIVE`/`BINDING` rule partly by citing lapsed principles
-   8/18 in present tense ("flag-only review in the forward case lane..."). Flagged, not corrected
-   (non-goal §J) — a phase-2 wording question for the owner: should E074 be reworded to cite `E039a`
-   (the restored core) instead of the retired lane framing?
-4. **E038 (current-producer callout)** — near-`UNCLEAR_REQUIRES_OWNER`: its natural owner is
-   `PROJECT-HISTORY.md`, which taxonomy §9 forbids as a destination for this work. `STAY`-as-pointer is
-   the least-wrong legal option, not a clean answer.
-5. **Should `E029` or `E047c` instead take an `R` number?** Both repairs (`inventory.md` §4.1, §4.2)
-   record the alternative R-numbered reading and the exact R-series renumbering it would cause
-   (`E029` at 2026-07-19 would insert after `E072`/before `E047a`; `E047c` at 2026-07-15 would insert
-   before `E072`). Neither is decided here; both are owner calls.
-6. **The `unqualified-basename` MISSING class carries real signal, not just noise** (§H): it contains
+1. **Principles 9, 12, 18, and 22 — CLOSED.** The owner ruled on 2026-07-28 that all four retire;
+   none retains a universal core and none of their numbers may be reused. `E043a` remains live.
+2. **E074 permanent ID — CLOSED.** The owner allocated `P31` on 2026-07-28 under taxonomy §7
+   Amendment 3.
+3. **E074 wording — PARTLY SETTLED; phase 2b.** Its `P | ACTIVE | BINDING | STAY | P31`
+   disposition is ratified. Its wording must move away from the retired forward-case-lane topology
+   and be grounded in its evidence and in P3/P5; final architect-authored wording remains pending.
+4. **E038 disposition — CLOSED.** The owner ruled on 2026-07-28 that it remains one live
+   `I | ACTIVE | ADVISORY | STAY` entry. Its phase-2 compression points to current operational state
+   in `PROJECT-HISTORY.md` and creates no archive-index row.
+5. **E029/E047c classification — CLOSED.** `E029` remains a `P25` application. `E047c` becomes
+   `R3`; the final series is R1=E070, R2=E049, R3=E047c, R4=E072, R5=E047a, R6=E073.
+6. **The `unqualified-basename` MISSING class — OPEN; phase 2b.** It carries real signal, not just
+   noise (§H): it contains
    genuine bare-basename citations (`gpt-canonical.json` ×224, `App.tsx` ×61, `schema.ts` ×35, etc.)
    mixed with unavoidable code-identifier-chain noise (`question.id`, `series.length`) that no purely
    structural rule can separate from a real relative path. Not this pass's to fix (§3.5 forbids
