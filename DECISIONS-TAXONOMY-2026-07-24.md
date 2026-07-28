@@ -1,7 +1,7 @@
 # DECISIONS.md Taxonomy — Ratifiable Classification Contract
 
-**Date:** 2026-07-24 · amended 2026-07-24 (Amendments 1 and 2 — section 10)
-**Status:** **RATIFIED 2026-07-24 by Luke (owner)**, including Amendments 1 and 2. In force.
+**Date:** 2026-07-24 · amended 2026-07-24 (Amendments 1 and 2) · amended 2026-07-28 (Amendment 3) — section 10
+**Status:** **RATIFIED 2026-07-24 by Luke (owner)**, including Amendments 1 and 2; **Amendment 3 ratified 2026-07-28 by Luke (owner)**. In force.
 **Purpose:** Fix the target contract *before* any classification begins, so the surveying seat
 classifies against a contract it did not author.
 
@@ -143,6 +143,10 @@ Live entries carry these and nothing else. Absent fields are omitted, not filled
 already intentionally unused; that precedent governs. An entry that stops being a principle retires
 its number, and everything below it keeps its own.
 
+**Allocation (Amendment 3).** A newly ratified governing principle takes the next integer above the
+highest principle number ever assigned. Retired numbers, intentionally unused numbers, and gaps are
+never filled or reused.
+
 **A number does not retire for being asleep.** Only a change of kind retires a principle number —
 never `PARKED`, never `EXECUTION: INACTIVE`, and never a lane lapse that leaves a ratified universal
 core standing. An inactive principle is still a principle.
@@ -228,6 +232,22 @@ The through-line of both amendments: **layout is not semantics.** Where a docume
 arrangement disagrees with an entry's own wording, the wording governs on every axis — kind, status,
 and force — and the disagreement is a mis-file to repair, never a property to preserve.
 
+**Amendment 3 — 2026-07-28, owner ratification. Principle-number allocation.**
+
+Section 7 fixed permanence and retirement but never said how a *new* principle number is allocated.
+The only bootstrap it defines is for the `R` series. The phase-1 survey then surfaced a live,
+`ACTIVE`/`BINDING` `P` entry — `E074`, Gemini's standing restrictions — carrying no permanent ID and
+no mechanism to give it one, and proposed attaching it by name at appendix level, which section 6
+does not permit for a `P`. A `P` with no number is not a filing inconvenience; it is an entry the
+identifier contract cannot address.
+
+Amendment 3 adds the allocation rule to section 7. The rule is arithmetic rather than discretionary
+by design: any rule that lets a seat choose a number invites gap-filling, and gap-filling is
+renumbering by another route.
+
+Applied in this closure pass: `E074` takes **`P31`**. Principles 9, 12, 18, and 22 retire under the
+owner ruling of 2026-07-28 and their numbers remain permanently unavailable, as do 13 and 14.
+
 ---
 
 ## 11. Ratification
@@ -240,7 +260,9 @@ Consequent owner rulings, recorded operatively in
 
 - Principle 8 is de-conditionalized and retained under its own number; its lane-specific detail
   archives. This is the section 4 `CONDITIONAL` carve-out and its first application.
-- No `P31` is minted.
+- No `P31` is minted **for `E037`** — narrowed 2026-07-28 by Amendment 3. `E037` mints no number
+  because it dissolves into `P8`, `P2`, and `P5`. That ruling was never a bar on the number itself:
+  `P31` is allocated to `E074` under section 7's allocation rule.
 
 The pass-1 classifications rendered against the unratified draft are discarded. The mechanical
 inventory facts listed in the survey spec's section 12 are reused.

@@ -377,9 +377,12 @@ propose alternatives:
    of the forward case-generation lane. Its lane-specific detail (Opus skeleton shape, compiler
    topology, optional synthesis zones) archives. This is the first application of the taxonomy's
    section 4 `CONDITIONAL` carve-out.
-2. **No `P31` is minted.** E037's first rule is principle 8's core and returns to it. E037's second
-   rule — every active lane declares producer provenance and independent-review routing — is an
-   application of principles 2 and 5 and attaches there. Neither mints a number.
+2. **No `P31` is minted for `E037`.** E037's first rule is principle 8's core and returns to it.
+   E037's second rule — every active lane declares producer provenance and independent-review
+   routing — is an application of principles 2 and 5 and attaches there. Neither mints a number.
+   **Narrowed 2026-07-28 (Amendment 6):** this ruling is about `E037` alone and was never a bar on
+   the number itself. `P31` is allocated to `E074` under taxonomy section 7's allocation rule
+   (taxonomy Amendment 3, 2026-07-28).
 
 **Architect ruling, same date.** The permanent `R` series begins at `R1`. The `R1..R17` in
 `Archive/root-specs-2026-07-18/structured-measurements-schema-2-0-codex-spec.md` are document-local
@@ -388,9 +391,15 @@ per the taxonomy section 7 bootstrap and drop the *(R-origin pending)* marks. Th
 "Amendment 3A/R17" should eventually be expanded to that exact document pointer, but not by this
 commission.
 
-**Principles 9, 12, 18, and 22 are not ruled on.** Each may or may not have a surviving universal
-core. Classify them as written and route the question to the owner. Do not extend ruling 1 to them by
-analogy — that the carve-out exists is not evidence that it applies.
+**Principles 9, 12, 18, and 22 retire — ruled 2026-07-28 (Amendment 6).** None retains a surviving
+universal core under its old number. The four numbers remain permanently unavailable under taxonomy
+section 7. `E043a` is unaffected and stays live: principle 22's `opus*` routing invariant is
+preserved independently of the prose that archives with it.
+
+Ruling 1's carve-out is still not extended by analogy — these four are ruled on their own text, not
+because principle 8's outcome suggests anything about them. This question was genuinely open through
+the correction pass, and every artifact produced before 2026-07-28 correctly records it as unruled.
+That is provenance, not staleness: it is not to be rewritten as though the survey decided it.
 
 ---
 
@@ -621,3 +630,100 @@ The pattern holds for a fifth time. Preservation and deletion. Ruling and enum. 
 resolution. Each pass has found a place where this spec asked one seat to hold two incompatible
 things, and each time the producer complied with both as far as it could and the seam showed up in
 the artifact rather than in the instruction.
+
+**Amendment 6 — 2026-07-28, owner ratification. The inventory is 80 rows, not 78; four rulings; the
+reconciliation constants are pinned.**
+
+PR #88 merged. Post-merge review found that the deliverables' population is misstated at their own
+foundation. `inventory.md`'s classification table and `migration-table.md` each contain **80 rows**
+— E001–E035 (35), E036–E038 (3), E039a/E039b (2), E040–E042 (3), E043b/E043a (2), E044–E046 (3),
+E047a/E047b/E047c (3), E048–E053 (6), E054–E076 (23) — under a hand-entered total of 78. The
+derivation `inventory.md` states for that total, "76 pass-1 entries + the E039a/E039b split," cannot
+be reconciled with a table carrying four net split rows. The figure is inherited: it precedes the
+correction pass and was carried forward unchecked by every pass that touched it.
+
+Three enumerations lost rows while their hand-entered totals stayed internally plausible:
+`outline-before-after.md` §4 omits `E003` and `E074` while claiming 36 (its list sums to 35); §6
+omits `E063` while claiming 19 (its list sums to 18); §8 omits `E047c` while claiming 14.
+`migration-table.md`'s summary further reports the pre-repair split `35 §4 + 6 §5`, contradicting the
+`E029` repair announced three lines below it in the same file.
+
+This is the survey's own recurring failure shape arriving in the accounting layer: a count-based
+check passes while the enumeration a phase-2 executor would actually build from is short. `E063` — a
+live standing invariant — would have been silently dropped from the migrated document.
+
+**Owner rulings, 2026-07-28.** These are ratifications, not survey findings, and are not to be
+presented as anything the survey discovered or was previously certified to support.
+
+1. **Principles 9, 12, 18, and 22 retire. None retains a surviving universal core under its old
+   number.** P9's CJK-presence mechanism does not generalize beyond the retired lane and bilingual
+   parity already has an independent standing invariant with an executable owner; P12's frozen,
+   tool-less author arrangement is specific to that authoring topology; P18's fact-check →
+   compilation → flag-only → Claude chain is the retired pipeline, and the universal review
+   obligations survive under P2 and P5; P22's prose is pipeline-specific, and `E043a` independently
+   preserves the still-operative `opus*` routing invariant, which stays live. The four numbers
+   remain permanently unavailable (taxonomy §7).
+2. **`E074` takes `P31`,** under taxonomy Amendment 3's allocation rule (2026-07-28). The earlier
+   "no `P31`" ruling is narrowed to its actual subject: `E037` mints no number because it dissolves
+   into `P8`, `P2`, and `P5`. It was never a bar on the number itself. `E074`'s wording is to be
+   compressed in phase 2b so the surviving named-model restriction is grounded in its evidence and
+   in P3/P5 rather than in the retired forward-case-lane topology it presently invokes.
+3. **`E047c` is reclassified `X | ACTIVE | HISTORICAL | ARCHIVE` → `R | ACTIVE | BINDING | STAY |
+   EXECUTED`, permanent ID `R3`.** Its own span carries the closed, owner-ratified, implemented
+   `46.5°C` ceiling; that is a concrete ruling on the same footing as `E047a`'s treatment of the
+   sibling vital-sanity values. `inventory.md` §4.1 declined this reading only because adopting it
+   would renumber the R-series without owner authority. That authority is supplied here.
+   **This is the cleanup's first genuine force change** (`HISTORICAL` → `BINDING`). It is
+   owner-originated and post-survey. Every merged statement certifying that zero force changes
+   survive — in `findings.md`, `migration-table.md`, and the PR #88 description — is now false as
+   written and must be corrected to record this change and its provenance.
+   The resulting permanent series: **R1** `E070` · **R2** `E049` · **R3** `E047c` · **R4** `E072` ·
+   **R5** `E047a` · **R6** `E073`.
+4. **`E029` remains a `P25` application.** The §4.2 reasoning stands: it directs implementation to
+   catch up to an already-ratified model and settles nothing new. `P25 | ACTIVE | BINDING |
+   EXECUTION: PENDING`, no `R` number.
+5. **`E038` stays one live `I | ACTIVE | ADVISORY | STAY` entry**, rewritten to the durable rule:
+   *"Current producer assignments are operational state and must be verified against
+   `PROJECT-HISTORY.md`; changing the named producer does not alter permanent IDs, provenance
+   classification, or independent-review obligations."* The displaced dated assignment prose is
+   preserved verbatim in the archive and pointed at from `E038`'s evidence pointer. **This creates
+   no archive-index row.** It is compression inside a surviving entry — not an additional `X`
+   disposition, not a deletion.
+
+**Pinned reconciliation constants.** These are owner-ratified expectations, fixed here before any
+checker is written or run. A checker that derives its own expected values and compares them only
+against itself certifies internal consistency, not correctness — which is precisely how `78`
+survived three passes. The derived populations must equal these:
+
+| quantity | pinned value |
+|---|---|
+| inventory rows | **80** |
+| independent destination rows | **79** |
+| `STAY` | **65** |
+| `ARCHIVE` | **14** |
+| `MERGE_INTO` | **1** |
+| §4 `P` | **37** entry rows / **25** live permanent principle numbers |
+| §5 `R` | **6** |
+| §6 `I` | **19** |
+| §7 `T` | **3** |
+| §8 `X` | **14** |
+
+Totals are insufficient on their own; exact ID sets must agree across `inventory.md`,
+`migration-table.md`, and `outline-before-after.md`. The following identities are pinned explicitly,
+because each is a row that a total-only check has already failed to protect:
+
+- `E003` and `E074` appear in §4. `E074`'s permanent ID is `P31`.
+- `E063` appears in §6.
+- `E047c` appears in §5 as `R3` and **nowhere** in §8.
+- `E043a` remains live in §6 and may **never** share `E043b`'s archive destination.
+- `E037` is the sole `MERGE_INTO` row and has no independent destination.
+
+**Supersession.** Where section 8's pre-existing text states that principles 9, 12, 18, and 22 are
+not ruled on, or states "no `P31` is minted" without qualification, Amendment 6 governs. Section 8's
+rulings on principle 8's retention, on `E037`'s dissolution, and on the `R`-series origin at `R1` are
+unchanged.
+
+The sixth instance of the same pattern, one layer up: every prior amendment separated two things a
+single field had collapsed — kind and work state, placement and status, existence and liveness,
+ruling and measurement. This one separates **consistency and correctness**. A reconciliation that
+checks only whether a document agrees with itself will ratify a coherent, wrong number indefinitely.
