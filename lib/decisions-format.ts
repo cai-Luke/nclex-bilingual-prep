@@ -161,6 +161,57 @@ export interface ConformanceResult {
   archive?: ParsedArchiveDocument;
 }
 
+/**
+ * Legacy-only adapter for the pre-migration bold-numbered principle format.
+ * Target conformance never calls this function.
+ */
+export function parseLegacyDecisionDefinitions(
+  text: string,
+): ReadonlyMap<number, "LIVE" | "LAPSED"> {
+  const definitions = new Map<number, "LIVE" | "LAPSED">();
+  const lines = text.split(/\r?\n/);
+  let currentSectionHeading = "";
+  const open = /^\*\*(\d+)\.\s(.*)$/;
+  const maximumLookahead = 6;
+
+  for (let index = 0; index < lines.length; index += 1) {
+    const line = lines[index];
+    const section = /^##\s+(.*)$/.exec(line);
+    if (section) {
+      currentSectionHeading = section[1];
+      continue;
+    }
+    const match = open.exec(line);
+    if (!match) continue;
+
+    const number = Number(match[1]);
+    let body = match[2];
+    let cursor = index;
+    while (
+      !/\*\*\s*$/.test(body) &&
+      cursor - index < maximumLookahead &&
+      cursor + 1 < lines.length
+    ) {
+      const next = lines[cursor + 1];
+      if (next.trim() === "" || open.test(next)) break;
+      cursor += 1;
+      body += ` ${next}`;
+    }
+    body = body.replace(/\*\*\s*$/, "").trim();
+
+    const status = /Status:\s*([A-Z]+)/.exec(body)?.[1]
+      ?? (/^CONDITIONAL\b/.test(body) ? "CONDITIONAL" : undefined);
+    if (status === undefined) continue;
+    const state = status === "SUPERSEDED" ||
+        (status === "CONDITIONAL" && /LAPSED/i.test(currentSectionHeading))
+      ? "LAPSED"
+      : "LIVE";
+    definitions.set(number, state);
+  }
+
+  return definitions;
+}
+
 const LIVE_FIELD_ORDER = [
   "Kind",
   "Status",
@@ -447,6 +498,44 @@ function markdownHeadingAnchor(heading: string): string {
     .toLowerCase()
     .replace(/[^\p{L}\p{N}]+/gu, "-")
     .replace(/^-+|-+$/g, "");
+}
+
+export function decisionsIdentitySurfaces(parsed: ParsedDecisionsDocument): {
+  canonicalDeclarationLines: readonly number[];
+  entryHeadingAnchors: readonly string[];
+} {
+  const canonicalDeclarationLines = new Set<number>();
+  const entryHeadingAnchors = new Set<string>();
+  for (const entry of parsed.entries) {
+    const heading = entry.id === undefined ? entry.title : `${entry.id} — ${entry.title}`;
+    entryHeadingAnchors.add(markdownHeadingAnchor(heading));
+    if (entry.id !== undefined) {
+      canonicalDeclarationLines.add(entry.line);
+      entryHeadingAnchors.add(entry.id.toLowerCase());
+    }
+  }
+  for (const row of parsed.index.rows) {
+    if (row.id !== undefined) canonicalDeclarationLines.add(row.line);
+  }
+  for (const row of parsed.retiredIdentifiers) canonicalDeclarationLines.add(row.line);
+  for (const row of parsed.archiveIndex) {
+    if (row.id !== undefined) canonicalDeclarationLines.add(row.line);
+  }
+  return {
+    canonicalDeclarationLines: [...canonicalDeclarationLines].sort((left, right) => left - right),
+    entryHeadingAnchors: [...entryHeadingAnchors].sort(),
+  };
+}
+
+export function archiveIdentitySurfaces(parsed: ParsedArchiveDocument): {
+  canonicalDeclarationLines: readonly number[];
+} {
+  return {
+    canonicalDeclarationLines: parsed.wrappers
+      .filter((wrapper) => wrapper.id !== undefined)
+      .map((wrapper) => wrapper.line)
+      .sort((left, right) => left - right),
+  };
 }
 
 function normalizedDocumentPath(path: string): string {
@@ -1173,7 +1262,7 @@ export function checkDecisionsFormat(input: ConformanceInput): ConformanceResult
   }
 
   const declaredTotalMalformed = decisions.issues.some((finding) => finding.code === "DECLARED_TOTAL_SHAPE");
-  if (decisions.index.present && decisions.index.declaredTotal === undefined && !declaredTotalMalformed) {
+  if ((!decisions.index.present || decisions.index.declaredTotal === undefined) && !declaredTotalMalformed) {
     issues.push(issue("MISSING_DECLARED_TOTAL", "Entry index has no valid declared-total line", {
       source: decisionsSource,
       assertion: 13,

@@ -1,13 +1,12 @@
 /**
- * DECISIONS.md cleanup — Phase 1 reference-graph generator (correction pass).
+ * DECISIONS.md format-aware reference-graph generator.
  *
  * Deterministic citation-graph extractor over the governance Markdown corpus.
- * This is the mechanical null the phase-3 checker re-derives against; it carries
- * NO classification judgment. It applies the targeting rules in
- * DECISIONS-CLEANUP-PHASE-1-SURVEY-CODEX-SPEC-2026-07-24.md §6 exactly and
- * extends none of them, except the principle-list grammar Amendment 3 promotes
- * into the contract (comma/and/&//-joined integer lists after the literal word
- * "principle"/"principles", including the Oxford-comma form "a, b, and c").
+ * It recognizes both the frozen pre-migration DECISIONS.md grammar and the
+ * ratified target grammar through the shared parser layer. The legacy targeting
+ * rules and missing-reference classifications remain intact while canonical
+ * P/R IDs, name-addressed I/T citations, retired states, and invalid identity
+ * surfaces are added by the hardening commission.
  *
  * Targeting (what a reference points at) and resolution (whether that target
  * exists, and — for principles only — whether it is live) are kept as separate
@@ -37,7 +36,7 @@
  * exact, documented triggers.
  *
  * Run only against a frozen worktree:
- *   tsx scripts/decisions-reference-graph.ts --root <frozen worktree path>
+ *   tsx scripts/decisions-reference-graph.ts --root <frozen worktree path> --out <artifact path>
  *
  * The only field that may vary between two runs against the same frozen root is
  * `generatedAt`.
@@ -47,12 +46,26 @@ import { execFileSync } from "node:child_process";
 import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
 import { dirname, isAbsolute, relative, resolve, sep, posix } from "node:path";
 import { fileURLToPath } from "node:url";
+import {
+  archiveIdentitySurfaces,
+  checkDecisionsFormat,
+  decisionsIdentitySurfaces,
+  parseArchiveDocument,
+  parseDecisionsDocument,
+  parseLegacyDecisionDefinitions,
+  type ParsedArchiveDocument,
+  type ParsedDecisionsDocument,
+} from "../lib/decisions-format";
 
-const OUTPUT_PATH = "audit/decisions-cleanup-2026-07-24/reference-graph.json";
 const PRINCIPLE_HOME = "DECISIONS.md";
+const FROZEN_PHASE_1_OUTPUT = "audit/decisions-cleanup-2026-07-24/reference-graph.json";
 
 type ReferenceKind =
   | "principle" // `principle n` (incl. list grammar) -> DECISIONS.md principle n
+  | "identifier" // canonical P/R identifier
+  | "named-entry" // exact I/T name-addressed citation
+  | "derived-identifier"
+  | "invalid-anchor-citation"
   | "path-section" // `<repository path> §n` -> named file section n
   | "section" // bare `§n` -> section n of the source file
   | "link" // Markdown link, resolved relative to source file
@@ -60,7 +73,7 @@ type ReferenceKind =
   | "path" // bare repository path
   | "ambiguous"; // anything requiring semantic inference — never guessed
 
-type TargetState = "LIVE" | "LAPSED" | "MISSING" | "NOT_APPLICABLE";
+type TargetState = "LIVE" | "LAPSED" | "RETIRED" | "MISSING" | "NOT_APPLICABLE";
 
 type MissingClass =
   | "absent-tracked-path"
@@ -100,9 +113,30 @@ function generatorGitSha(generatorPath: string): string {
   return status === "" ? git(generatorRoot, "rev-parse", "HEAD") : "uncommitted-implementation-tree";
 }
 
-function parseRootArg(args: string[]): string {
-  if (args.length === 2 && args[0] === "--root" && args[1]) return args[1];
-  throw new Error("Usage: tsx scripts/decisions-reference-graph.ts --root <path>");
+function parseArgs(args: string[]): { root: string; out: string } {
+  let root: string | undefined;
+  let out: string | undefined;
+  if (args.length % 2 !== 0) {
+    throw new Error("Usage: tsx scripts/decisions-reference-graph.ts --root <path> --out <path>");
+  }
+  for (let index = 0; index < args.length; index += 2) {
+    const flag = args[index];
+    const value = args[index + 1];
+    if (!value || (flag !== "--root" && flag !== "--out")) {
+      throw new Error("Usage: tsx scripts/decisions-reference-graph.ts --root <path> --out <path>");
+    }
+    if (flag === "--root") {
+      if (root !== undefined) throw new Error("DUPLICATE_ROOT_ARGUMENT");
+      root = value;
+    } else {
+      if (out !== undefined) throw new Error("DUPLICATE_OUT_ARGUMENT");
+      out = value;
+    }
+  }
+  if (root === undefined || out === undefined) {
+    throw new Error("Usage: tsx scripts/decisions-reference-graph.ts --root <path> --out <path>");
+  }
+  return { root, out };
 }
 
 /** All tracked *.md sources in scope (spec §3): root-level, docs/, Archive/. */
@@ -206,62 +240,98 @@ function overlaps(spans: Span[], start: number, end: number): boolean {
   return spans.some((s) => start < s.end && end > s.start);
 }
 
-// ---------------------------------------------------------------------------
-// Index 1 — principle liveness, parsed from DECISIONS.md at the frozen root.
-// ---------------------------------------------------------------------------
+type FormatMode = "legacy" | "target";
 
-/**
- * A principle header is a bold line `**N. <body>**`. Two written forms exist
- * at the frozen root: `**N. <text>. Status: TAG(...).**` (§4 principles) and
- * `**N. CONDITIONAL — <text>.**` (§5 conditional-lane principles, which carry
- * no separate "Status:" token — the leading word after the number *is* the
- * status). Liveness for a CONDITIONAL principle is read from whether its
- * nearest enclosing `## N. Title` section heading contains the word "LAPSED" —
- * measured from the heading text itself, never asserted from outside it, so a
- * future non-lapsed conditional lane is not mis-tagged by this rule.
- */
-function buildPrincipleIndex(decisionsText: string): ReadonlyMap<number, "LIVE" | "LAPSED"> {
-  const index = new Map<number, "LIVE" | "LAPSED">();
-  const lines = decisionsText.split(/\r?\n/);
-  let currentSectionHeading = "";
-  // A principle header opens `**N. <text>` and closes with a trailing `**` —
-  // usually on the same line, but principle 30's header wraps across three
-  // lines in the source. Accumulate forward (bounded, stopping at a blank
-  // line or the next header) until the closing `**` is found, rather than
-  // requiring it on the opening line.
-  const openRe = /^\*\*(\d+)\.\s(.*)$/;
-  const MAX_LOOKAHEAD = 6;
-  for (let i = 0; i < lines.length; i += 1) {
-    const line = lines[i];
-    const sectionMatch = line.match(/^##\s+(.*)$/);
-    if (sectionMatch) {
-      currentSectionHeading = sectionMatch[1];
+type DefinitionIndex = {
+  mode: FormatMode;
+  identifiers: ReadonlyMap<string, TargetState>;
+  names: ReadonlyMap<"I" | "T", ReadonlyMap<string, number>>;
+  parsedDecisions?: ParsedDecisionsDocument;
+  parsedArchive?: ParsedArchiveDocument;
+  archiveSource?: string;
+};
+
+function formatIssueSummary(issues: readonly { code: string; message: string }[]): string {
+  return issues.map((issue) => `${issue.code}: ${issue.message}`).join(" | ");
+}
+
+function selectDefinitionIndex(
+  decisionsText: string,
+  sourceTexts: ReadonlyMap<string, string>,
+  tracked: ReadonlySet<string>,
+): DefinitionIndex {
+  const parsed = parseDecisionsDocument(decisionsText, PRINCIPLE_HOME);
+  const targetSurface = parsed.index.present ||
+    parsed.entries.length > 0 ||
+    parsed.archiveIndex.length > 0 ||
+    parsed.retiredIdentifiers.length > 0 ||
+    parsed.issues.length > 0;
+
+  if (!targetSurface) {
+    const legacy = parseLegacyDecisionDefinitions(decisionsText);
+    if (legacy.size === 0) throw new Error("UNRECOGNIZED_DECISIONS_DOCUMENT: empty legacy definition index");
+    return {
+      mode: "legacy",
+      identifiers: new Map(
+        [...legacy.entries()].map(([number, state]) => [`P${number}`, state]),
+      ),
+      names: new Map([
+        ["I", new Map()],
+        ["T", new Map()],
+      ]),
+    };
+  }
+
+  const archiveSources = [...new Set(parsed.archiveIndex.map((row) => row.pointer.file))];
+  if (archiveSources.length > 1) {
+    throw new Error(`TARGET_ARCHIVE_SOURCE_COUNT: ${archiveSources.join(", ")}`);
+  }
+  const archiveSource = archiveSources[0];
+  const archiveText = archiveSource === undefined ? undefined : sourceTexts.get(archiveSource);
+  if (archiveSource !== undefined && archiveText === undefined) {
+    throw new Error(`TARGET_ARCHIVE_NOT_FOUND: ${archiveSource}`);
+  }
+  const conformance = checkDecisionsFormat({
+    decisionsText,
+    decisionsSource: PRINCIPLE_HOME,
+    archiveText,
+    archiveSource,
+    trackedPaths: tracked,
+  });
+  if (!conformance.ok) {
+    throw new Error(`MALFORMED_TARGET_FORMAT: ${formatIssueSummary(conformance.issues)}`);
+  }
+
+  const identifiers = new Map<string, TargetState>();
+  const names = new Map<"I" | "T", Map<string, number>>([
+    ["I", new Map()],
+    ["T", new Map()],
+  ]);
+  for (const entry of parsed.entries) {
+    if (entry.headingLevel !== 3) continue;
+    if (entry.id !== undefined) {
+      identifiers.set(entry.id, "LIVE");
       continue;
     }
-    const m = line.match(openRe);
-    if (!m) continue;
-    const num = Number(m[1]);
-    let body = m[2];
-    let j = i;
-    while (!/\*\*\s*$/.test(body) && j - i < MAX_LOOKAHEAD && j + 1 < lines.length) {
-      const next = lines[j + 1];
-      if (next.trim() === "" || openRe.test(next)) break;
-      j += 1;
-      body += ` ${next}`;
-    }
-    body = body.replace(/\*\*\s*$/, "").trim();
-    let status: string | null = null;
-    const statusMatch = body.match(/Status:\s*([A-Z]+)/);
-    if (statusMatch) status = statusMatch[1];
-    else if (/^CONDITIONAL\b/.test(body)) status = "CONDITIONAL";
-    if (!status) continue;
-    let state: "LIVE" | "LAPSED";
-    if (status === "SUPERSEDED") state = "LAPSED";
-    else if (status === "CONDITIONAL") state = /LAPSED/i.test(currentSectionHeading) ? "LAPSED" : "LIVE";
-    else state = "LIVE"; // ACTIVE, PARKED, REVISIT
-    index.set(num, state);
+    if (entry.kind !== "I" && entry.kind !== "T") continue;
+    const byTitle = names.get(entry.kind)!;
+    byTitle.set(entry.title, (byTitle.get(entry.title) ?? 0) + 1);
   }
-  return index;
+  for (const row of parsed.retiredIdentifiers) identifiers.set(row.id, row.graphState);
+  if (identifiers.size + names.get("I")!.size + names.get("T")!.size === 0) {
+    throw new Error("EMPTY_TARGET_DEFINITION_INDEX");
+  }
+  if ([...identifiers.values()].includes("LAPSED")) {
+    throw new Error("TARGET_MODE_LAPSED_STATE");
+  }
+  return {
+    mode: "target",
+    identifiers,
+    names,
+    parsedDecisions: parsed,
+    parsedArchive: archiveText === undefined ? undefined : parseArchiveDocument(archiveText, archiveSource),
+    archiveSource,
+  };
 }
 
 // ---------------------------------------------------------------------------
@@ -316,6 +386,9 @@ type RawRef = {
   kind: ReferenceKind;
   // fields needed for resolution, kind-dependent
   principleNum?: number;
+  identifier?: string;
+  nameKind?: "I" | "T";
+  nameTitle?: string;
   sectionFile?: string;
   sectionNum?: number;
   linkPath?: string;
@@ -324,7 +397,14 @@ type RawRef = {
   path?: string;
 };
 
-function extractFromLine(from: string, line: string, tracked: ReadonlySet<string>): RawRef[] {
+function extractFromLine(
+  from: string,
+  line: string,
+  tracked: ReadonlySet<string>,
+  mode: FormatMode,
+  suppressCanonicalIdentifiers: boolean,
+  decisionsEntryAnchors: ReadonlySet<string>,
+): RawRef[] {
   const refs: RawRef[] = [];
   const consumed: Span[] = [];
   const push = (r: RawRef): void => {
@@ -343,15 +423,62 @@ function extractFromLine(from: string, line: string, tracked: ReadonlySet<string
       continue;
     }
     const { path, anchor } = normalizeRepoPath(from, rawTarget);
+    const invalidDecisionsAnchor = path === PRINCIPLE_HOME &&
+      anchor !== "" &&
+      decisionsEntryAnchors.has(anchor.slice(1).toLowerCase());
     push({
       col: start,
       end,
       rawText: m[0],
-      kind: "link",
+      kind: invalidDecisionsAnchor ? "invalid-anchor-citation" : "link",
       linkPath: path,
       linkAnchor: anchor,
       linkIsSelf: rawTarget.startsWith("#"),
     });
+  }
+
+  // Derived identifiers must consume their entire span before canonical IDs.
+  const derivedRe = /\b(?:P|R)\d+(?:\.\d+|[A-Za-z]+)\b/g;
+  for (let match = derivedRe.exec(line); match; match = derivedRe.exec(line)) {
+    const start = match.index;
+    const end = start + match[0].length;
+    if (overlaps(consumed, start, end)) continue;
+    push({ col: start, end, rawText: match[0], kind: "derived-identifier" });
+  }
+
+  if (!suppressCanonicalIdentifiers) {
+    const identifierRe = /\b(?:P|R)\d+\b/g;
+    for (let match = identifierRe.exec(line); match; match = identifierRe.exec(line)) {
+      const start = match.index;
+      const end = start + match[0].length;
+      if (overlaps(consumed, start, end)) continue;
+      push({
+        col: start,
+        end,
+        rawText: match[0],
+        kind: match[0].startsWith("P") ? "principle" : "identifier",
+        principleNum: match[0].startsWith("P") ? Number(match[0].slice(1)) : undefined,
+        identifier: match[0].startsWith("R") ? match[0] : undefined,
+      });
+    }
+  }
+
+  if (mode === "target") {
+    const namedRe = /(^|[ \t\v\f(\[{])([IT]): (`+)(.+?)\3(?=$|[ \t\v\f.,;:!?)\]}])/g;
+    for (let match = namedRe.exec(line); match; match = namedRe.exec(line)) {
+      const start = match.index + match[1].length;
+      const rawText = match[0].slice(match[1].length);
+      const end = start + rawText.length;
+      if (overlaps(consumed, start, end)) continue;
+      push({
+        col: start,
+        end,
+        rawText,
+        kind: "named-entry",
+        nameKind: match[2] as "I" | "T",
+        nameTitle: match[4],
+      });
+    }
   }
 
   // `<repository path> §n` (path may be backtick-wrapped).
@@ -497,7 +624,7 @@ function resolve_(
   raw: RawRef,
   from: string,
   tracked: ReadonlySet<string>,
-  principles: ReadonlyMap<number, "LIVE" | "LAPSED">,
+  definitions: DefinitionIndex,
   sections: ReadonlyMap<string, ReadonlySet<number>>,
   anchors: ReadonlyMap<string, ReadonlySet<string>>,
   lineText: string,
@@ -506,10 +633,34 @@ function resolve_(
   switch (raw.kind) {
     case "principle": {
       const n = raw.principleNum!;
-      const state = principles.get(n);
-      const target = `${PRINCIPLE_HOME}#principle-${n}`;
+      const state = definitions.identifiers.get(`P${n}`);
+      const target = `${PRINCIPLE_HOME}#P${n}`;
       if (state === undefined) return { target, resolves: false, targetState: "MISSING", klass: "other" };
+      if (state === "MISSING") return { target, resolves: false, targetState: state, klass: "other" };
       return { target, resolves: true, targetState: state, klass: null };
+    }
+    case "identifier": {
+      const identifier = raw.identifier!;
+      const state = definitions.identifiers.get(identifier);
+      const target = `${PRINCIPLE_HOME}#${identifier}`;
+      if (state === undefined) return { target, resolves: false, targetState: "MISSING", klass: "other" };
+      if (state === "MISSING") return { target, resolves: false, targetState: state, klass: "other" };
+      return { target, resolves: true, targetState: state, klass: null };
+    }
+    case "named-entry": {
+      const kind = raw.nameKind!;
+      const title = raw.nameTitle!;
+      const matches = definitions.names.get(kind)?.get(title) ?? 0;
+      if (matches > 1) throw new Error(`NAME_TITLE_COLLISION: ${kind}: ${title}`);
+      const target = `${PRINCIPLE_HOME}#${kind}:${title}`;
+      if (matches === 0) return { target, resolves: false, targetState: "MISSING", klass: "other" };
+      return { target, resolves: true, targetState: "LIVE", klass: null };
+    }
+    case "derived-identifier":
+      return { target: null, resolves: false, targetState: "NOT_APPLICABLE", klass: null };
+    case "invalid-anchor-citation": {
+      const target = `${raw.linkPath}${raw.linkAnchor}`;
+      return { target, resolves: false, targetState: "NOT_APPLICABLE", klass: null };
     }
     case "section": {
       const file = raw.sectionFile!;
@@ -559,9 +710,30 @@ function resolve_(
   }
 }
 
+function pathIsInside(parent: string, candidate: string): boolean {
+  const rel = relative(parent, candidate);
+  return rel === "" || (!rel.startsWith(`..${sep}`) && rel !== ".." && !isAbsolute(rel));
+}
+
+function resolveOutputPath(generatorRoot: string, measurementRoot: string, rawOut: string): string {
+  const output = isAbsolute(rawOut) ? resolve(rawOut) : resolve(generatorRoot, rawOut);
+  const frozen = resolve(generatorRoot, FROZEN_PHASE_1_OUTPUT);
+  if (output === frozen) throw new Error(`FROZEN_PHASE_1_OUTPUT: ${output}`);
+  if (pathIsInside(measurementRoot, output)) {
+    throw new Error(`OUTPUT_INSIDE_MEASUREMENT_ROOT: ${output}`);
+  }
+  if (!pathIsInside(generatorRoot, output)) {
+    throw new Error(`OUTPUT_OUTSIDE_GENERATOR_CHECKOUT: ${output}`);
+  }
+  return output;
+}
+
 function main(): void {
-  const root = resolve(parseRootArg(process.argv.slice(2)));
+  const parsedArgs = parseArgs(process.argv.slice(2));
+  const root = resolve(parsedArgs.root);
   const generatorPath = fileURLToPath(import.meta.url);
+  const generatorRoot = git(dirname(generatorPath), "rev-parse", "--show-toplevel");
+  const outputPath = resolveOutputPath(generatorRoot, root, parsedArgs.out);
   const tracked = trackedSet(root);
   const sources = markdownSources(root);
 
@@ -582,16 +754,46 @@ function main(): void {
   if (!sourceTexts.has(PRINCIPLE_HOME)) {
     throw new Error(`${PRINCIPLE_HOME} not found under --root; cannot build principle index`);
   }
-  const principles = buildPrincipleIndex(sourceTexts.get(PRINCIPLE_HOME)!);
+  const definitions = selectDefinitionIndex(sourceTexts.get(PRINCIPLE_HOME)!, sourceTexts, tracked);
   const { sections, anchors } = buildSectionAndAnchorIndexes(sourceTexts);
+  const canonicalDeclarationLines = new Map<string, Set<number>>();
+  const decisionsEntryAnchors = new Set<string>();
+  if (definitions.parsedDecisions !== undefined) {
+    const surfaces = decisionsIdentitySurfaces(definitions.parsedDecisions);
+    canonicalDeclarationLines.set(PRINCIPLE_HOME, new Set(surfaces.canonicalDeclarationLines));
+    for (const anchor of surfaces.entryHeadingAnchors) decisionsEntryAnchors.add(anchor);
+  }
+  if (definitions.parsedArchive !== undefined && definitions.archiveSource !== undefined) {
+    canonicalDeclarationLines.set(
+      definitions.archiveSource,
+      new Set(archiveIdentitySurfaces(definitions.parsedArchive).canonicalDeclarationLines),
+    );
+  }
 
   const references: ReferenceRecord[] = [];
   for (const source of sources) {
     const lines = sourceTexts.get(source)!.split(/\r?\n/);
     for (let i = 0; i < lines.length; i += 1) {
-      for (const raw of extractFromLine(source, lines[i], tracked)) {
+      const suppressCanonical = canonicalDeclarationLines.get(source)?.has(i + 1) ?? false;
+      for (
+        const raw of extractFromLine(
+          source,
+          lines[i],
+          tracked,
+          definitions.mode,
+          suppressCanonical,
+          decisionsEntryAnchors,
+        )
+      ) {
         const { target, resolves, targetState, klass } = resolve_(
-          raw, source, tracked, principles, sections, anchors, lines[i], i > 0 ? lines[i - 1] : undefined,
+          raw,
+          source,
+          tracked,
+          definitions,
+          sections,
+          anchors,
+          lines[i],
+          i > 0 ? lines[i - 1] : undefined,
         );
         references.push({
           from: source,
@@ -621,6 +823,9 @@ function main(): void {
   const ambiguous = emitted.filter((r) => r.kind === "ambiguous");
   const externalLinks = emitted.filter((r) => r.kind === "link-external");
   const lapsed = emitted.filter((r) => r.targetState === "LAPSED");
+  if (definitions.mode === "target" && lapsed.length > 0) {
+    throw new Error("TARGET_MODE_LAPSED_REFERENCE");
+  }
 
   const missingByClass: Record<string, number> = {
     "absent-tracked-path": 0,
@@ -636,30 +841,39 @@ function main(): void {
     missingByClass[key] = (missingByClass[key] ?? 0) + 1;
   }
 
+  const byKind = emitted.reduce<Record<string, number>>((acc, r) => {
+    acc[r.kind] = (acc[r.kind] ?? 0) + 1;
+    return acc;
+  }, {});
+  byKind["derived-identifier"] ??= 0;
+  byKind["invalid-anchor-citation"] ??= 0;
+
   const manifest = {
     generatedAt: new Date().toISOString(),
+    formatMode: definitions.mode,
     inputGitSha: git(root, "rev-parse", "HEAD"),
     measurementRootKind: "throwaway_git_worktree",
     generatorGitSha: generatorGitSha(generatorPath),
     generatorSha256: sha256(readFileSync(generatorPath, "utf8")),
     inputs,
-    principleIndex: [...principles.entries()]
-      .sort((a, b) => a[0] - b[0])
-      .map(([num, state]) => ({ principle: num, state })),
+    principleIndex: [...definitions.identifiers.entries()]
+      .filter(([identifier]) => /^P\d+$/.test(identifier))
+      .sort((left, right) => Number(left[0].slice(1)) - Number(right[0].slice(1)))
+      .map(([identifier, state]) => ({ principle: Number(identifier.slice(1)), state })),
     counts: {
       sources: sources.length,
       references: emitted.length,
       resolved: emitted.filter((r) => r.resolves).length,
       live: emitted.filter((r) => r.targetState === "LIVE").length,
       lapsed: lapsed.length,
+      retired: emitted.filter((r) => r.targetState === "RETIRED").length,
       missing: unresolved.length,
       notApplicable: emitted.filter((r) => r.targetState === "NOT_APPLICABLE").length,
       external: externalLinks.length,
       ambiguous: ambiguous.length,
-      byKind: emitted.reduce<Record<string, number>>((acc, r) => {
-        acc[r.kind] = (acc[r.kind] ?? 0) + 1;
-        return acc;
-      }, {}),
+      derivedIdentifier: byKind["derived-identifier"],
+      invalidAnchorCitation: byKind["invalid-anchor-citation"],
+      byKind,
       missingByClass,
     },
     references: emitted,
@@ -668,13 +882,14 @@ function main(): void {
     lapsed,
   };
 
-  mkdirSync(dirname(resolve(OUTPUT_PATH)), { recursive: true });
-  writeFileSync(resolve(OUTPUT_PATH), `${JSON.stringify(manifest, null, 2)}\n`, "utf8");
+  mkdirSync(dirname(outputPath), { recursive: true });
+  writeFileSync(outputPath, `${JSON.stringify(manifest, null, 2)}\n`, "utf8");
   console.log(
-    `Wrote ${OUTPUT_PATH} — ${emitted.length} references from ${sources.length} sources `
+    `Wrote ${outputPath} — ${emitted.length} references from ${sources.length} sources `
       + `(${manifest.counts.live} live, ${lapsed.length} lapsed [review queue], `
       + `${unresolved.length} missing, ${manifest.counts.notApplicable} not-applicable)`,
   );
 }
 
-main();
+const invokedPath = process.argv[1] === undefined ? undefined : resolve(process.argv[1]);
+if (invokedPath === fileURLToPath(import.meta.url)) main();
