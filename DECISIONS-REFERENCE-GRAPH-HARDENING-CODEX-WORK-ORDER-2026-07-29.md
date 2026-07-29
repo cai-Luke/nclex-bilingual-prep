@@ -7,8 +7,9 @@ this commission and performs the independent post-production check.
 **Authority:** Architect commission under owner ratification 2026-07-29. Named as the required
 successor pass by `DECISIONS-CLEANUP-PHASE-1-CLOSURE-CODEX-WORK-ORDER-2026-07-28.md` §9 non-goal 7
 and §11, and by `DECISIONS-FORMAT-ARCHITECT-SPEC-2026-07-28.md` §8 assertion 9 and §9 non-goal 3.
-**Status:** Open work order. **Immutable during execution.** If you believe it is wrong, stop and
-report; do not edit it and do not route around it.
+**Status:** Open work order. Clarified 2026-07-29 after producer preflight; the clarification does
+not rebind `MIGRATION_BASELINE`. **Immutable during execution.** If you believe it is wrong, stop
+and report; do not edit it and do not route around it.
 
 **Governing contracts.** All at the repository root.
 
@@ -76,15 +77,18 @@ The order is fixed:
 1. The architect seat commits this work order to `main`. Nothing else lands in that commit.
 2. **That commit's SHA is `MIGRATION_BASELINE`.** The architect seat records it. You read it; you do
    not assign it.
-3. You implement on a branch cut from `MIGRATION_BASELINE`, named
+3. The architect seat may land bounded governance clarifications under the §2 freeze before
+   implementation begins. The last such clarification commit is `HARDENING_COMMISSION_HEAD`.
+   It does not alter, replace, or rebind `MIGRATION_BASELINE`.
+4. You implement on a branch cut from `HARDENING_COMMISSION_HEAD`, named
    `codex/decisions-reference-graph-hardening`.
-4. You commit the implementation. The tree must be clean and the generator file must be tracked and
+5. You commit the implementation. The tree must be clean and the generator file must be tracked and
    unmodified before any measurement run (§8 ruling 5).
-5. You run the hardened generator against a **detached worktree checked out at
+6. You run the hardened generator against a **detached worktree checked out at
    `MIGRATION_BASELINE`**, writing to the new output path in §6.
-6. You commit the produced artifact.
+7. You commit the produced artifact.
 
-Steps 4 and 5 are in that order and not the reverse. `generatorGitSha` in the manifest is computed by
+Steps 5 and 6 are in that order and not the reverse. `generatorGitSha` in the manifest is computed by
 `generatorGitSha()` in the existing script, which returns the literal string
 `uncommitted-implementation-tree` whenever `git status --porcelain=v1` on the generator path is
 non-empty. That sentinel is unacceptable provenance for the authoritative artifact.
@@ -97,9 +101,13 @@ All five must hold. If any fails, **stop and report it**.
 
 1. `git rev-parse --abbrev-ref HEAD` — record it.
 2. `git status --porcelain` — must be **empty**.
-3. `git rev-parse HEAD` — must equal the `MIGRATION_BASELINE` value the architect seat gives you.
-   Record it. It is **not** `SURVEY_HEAD` (`f68210c`), **not** `CORRECTION_HEAD` (`547fdea`), and
-   **not** `CLOSURE_HEAD`. A token that changes referent between passes is a provenance trap.
+3. Record both values the architect seat gives you. `git rev-parse HEAD` must equal
+   `HARDENING_COMMISSION_HEAD`, and
+   `git merge-base --is-ancestor "$MIGRATION_BASELINE" HEAD` must exit 0. Prove
+   `DECISIONS.md` is byte-identical between `MIGRATION_BASELINE` and `HEAD`. `MIGRATION_BASELINE`
+   remains the input token and is **not** `SURVEY_HEAD` (`f68210c`), **not** `CORRECTION_HEAD`
+   (`547fdea`), and **not** `CLOSURE_HEAD`. A token that changes referent between passes is a
+   provenance trap.
 4. **Governing-contract integrity, verified by content and not by SHA.** All must hold at `HEAD`:
    - `DECISIONS-FORMAT-ARCHITECT-SPEC-2026-07-28.md` status line contains `**RATIFIED 2026-07-28 by
      Luke (owner)`, and its §4.2 contains the sentence beginning `` `Origin` names a token, never a
@@ -142,6 +150,24 @@ Therefore:
 - The generator selects mode by inspecting the document it was handed, not by a flag the caller
   guesses at, and records the selected mode in the manifest. If a document satisfies neither
   grammar, that is a hard error, not an empty index.
+
+The selection rule is closed:
+
+1. Call `parseDecisionsDocument` first. A **target-format surface is observed** when any one of the
+   following is nonempty or true: `index.present`, `entries`, `archiveIndex`, `retiredIdentifiers`,
+   or `issues`.
+2. When a target-format surface is observed, the document is target-intent. Run
+   `checkDecisionsFormat`; it must return `ok: true`, and the parsed live-definition set must be
+   nonempty. Otherwise fail closed as malformed target format. **Never fall back to legacy mode
+   after observing a target-format surface.**
+3. When no target-format surface is observed, call the distinct legacy adapter. A nonempty legacy
+   definition set selects legacy mode. An empty set is an unrecognized-document hard error.
+
+This commission intentionally tightens the conformance checker: `checkDecisionsFormat` must emit the
+existing `MISSING_DECLARED_TOTAL` finding when the required target entry index is absent, as well as
+when the index is present but has no valid declared-total line. Do not add a new reason code. This
+ensures the legacy `DECISIONS.md` cannot return `ok: true` from the target-format checker merely
+because both its target index and target entry population are empty.
 
 An empty definition index must always be a hard error. The specific failure this pass exists to
 prevent is a silently empty index producing a plausible-looking graph in which every principle
@@ -220,6 +246,26 @@ Ratified §8 rulings 2 and 3:
 - I/T title-reference extraction and resolution are **inactive at `MIGRATION_BASELINE`**. Those
   titles do not exist as headings in the pre-migration document, so activating the lane there would
   report every I/T citation as `MISSING` for a reason that is not a defect.
+- In target mode, the only I/T citation grammar is:
+
+  ```text
+  I: `<exact invariant title>`
+  T: `<exact thread title>`
+  ```
+
+  The kind letter is uppercase and case-sensitive, followed by a literal colon, exactly one ASCII
+  space, and a backtick fence of one or more backticks on the same line. The closing fence is the
+  identical run; authors choose a fence longer than every backtick run inside the title. The
+  candidate title is the nonempty byte sequence between the fences. The prefix must begin at line
+  start or immediately after ASCII whitespace or `(`, `[`, or `{`. The closing fence must be
+  followed by line end, ASCII whitespace, or one of `. , ; : ! ? ) ] }` (spaces in this list are
+  explanatory, not additional accepted bytes). Extraction does not first consult the known-title
+  index, so a syntactically valid unknown title reaches the zero-match lane. Bare prose, a bare
+  backticked title, lowercase `i:`/`t:`, alternate spacing, quotation marks, and Markdown anchors are
+  not I/T citations. No trimming, case folding, Unicode normalization, punctuation normalization,
+  or whitespace normalization is permitted.
+- Kind is part of the lookup. An `I:` candidate searches only invariant definitions and a `T:`
+  candidate searches only thread definitions.
 - In target mode, resolution is **exact, bounded, deterministic title matching only**. Never fuzzy
   matching, never partial titles, never semantic similarity, never inference from nearby prose.
 - Exactly one exact match resolves.
@@ -230,9 +276,12 @@ Ratified §8 rulings 2 and 3:
   document; if it occurs, the document is wrong.
 - Markdown anchors are never permitted to become I/T identity by side effect. Exact title remains
   their identity.
+- The synthetic target preserves that identity without using a Markdown slug:
+  `DECISIONS.md#I:<exact title>` or `DECISIONS.md#T:<exact title>`.
 
 The title fragility of name-addressed entries is a standing accepted risk under format spec §1. This
-pass does not solve it and proposes no taxonomy amendment.
+pass does not solve it and proposes no taxonomy or target-entry-format amendment. The syntax above
+is reference-graph citation grammar only.
 
 ---
 
@@ -285,8 +334,15 @@ The manifest keeps its existing shape and adds:
 - `generatorGitSha` — must be a real SHA. The `uncommitted-implementation-tree` sentinel fails
   acceptance.
 - `measurementRootKind` — retained; the run is against a detached worktree.
-- Counts by target state including `RETIRED`, and counts for the derived-identifier and
-  invalid-anchor-citation classes.
+- Counts by target state including `RETIRED`.
+- `ReferenceKind` gains the exact literals `"derived-identifier"` and
+  `"invalid-anchor-citation"`. These are kinds, not `MissingClass` values. Their records carry
+  `class: null`, `resolves: false`, and `targetState: "NOT_APPLICABLE"`. A derived-identifier record
+  carries `target: null`; an invalid-anchor-citation record retains the normalized literal link
+  target in `target` for diagnosis.
+- `counts.derivedIdentifier` and `counts.invalidAnchorCitation` are required integer fields and equal
+  the corresponding `counts.byKind` values. The two `counts.byKind` keys are present even when their
+  value is zero. No new top-level record arrays are required; the records remain in `references`.
 
 `generatedAt` remains the only field permitted to vary between two runs against the same frozen root.
 
@@ -328,13 +384,16 @@ unreachable from it. Cover at minimum:
    `Status: TAG` form and the `CONDITIONAL` lane form.
 2. Target parser returns the correct definition set for a target-format fixture.
 3. Legacy adapter is unreachable from the conformance entry point.
-4. Empty definition index is a hard error in both modes.
+4. Missing target index yields `MISSING_DECLARED_TOTAL`; the closed mode-selection rule in §5.1
+   chooses target intent without legacy fallback, and an empty definition index is a hard error in
+   both modes.
 5. `principle 25` and `P25` resolve identically.
 6. `RETIRED` and `NEVER ASSIGNED` map to `RETIRED` and `MISSING` respectively, read from
    `graphState`.
 7. `LAPSED` is unreachable in target mode.
-8. I/T resolution is inactive in legacy mode; exact-one resolves in target mode; zero is `MISSING`;
-   two is a fail-closed defect with non-zero exit.
+8. I/T extraction is inactive in legacy mode. In target mode, pin every delimiter, boundary,
+   case-sensitivity, and no-normalization rule in §5.6; exact-one resolves, zero is `MISSING`, and
+   two is a fail-closed defect with non-zero exit. Bare title prose does not extract.
 9. Derived identifier tokens are detected corpus-wide, consume their full span, and do not also emit
    a canonical citation for the prefix.
 10. Canonical identifiers on parser-identified declaration surfaces are not emitted as citations;
@@ -343,6 +402,8 @@ unreachable from it. Cover at minimum:
 12. The two anchor algorithms diverge on a heading containing an apostrophe (§5.5).
 13. The generator refuses to write to the frozen phase-1 path (§6 item 2), rejects output inside the
     detached measurement root, and resolves a relative `--out` against the generator checkout.
+14. Derived identifiers and invalid `DECISIONS.md` entry anchors use the exact `ReferenceKind`,
+    `class`, `targetState`, `target`, and count fields pinned in §7.
 
 **Negative control — required.** Construct a corpus fixture in which the hardened generator, run in
 the wrong mode, would return an empty definition index. It must fail loudly and name the condition.
@@ -351,7 +412,7 @@ it fires.
 
 **Two-run determinism — required.** Run the generator twice against the same detached worktree at
 `MIGRATION_BASELINE` and diff the two artifacts with `generatedAt` stripped. The diff must be empty.
-Capture both the command and its output. Note that this check is only meaningful after §3 step 4,
+Capture both the command and its output. Note that this check is only meaningful after §3 step 5,
 because a dirty generator file changes `generatorGitSha` independently of the corpus.
 
 ---
@@ -402,8 +463,8 @@ Report the result of each. A self-report that a step passed is not the step.
    DECISIONS-CLEANUP-PHASE-1-CLOSURE-CODEX-WORK-ORDER-2026-07-28.md
    audit/decisions-cleanup-2026-07-24/` — must be **empty**. A working-tree diff will not do; this
    pass lands more than one commit.
-8. `git diff --name-only "$MIGRATION_BASELINE"..HEAD` — must list **exactly** these paths and no
-   others:
+8. `git diff --name-only "$HARDENING_COMMISSION_HEAD"..HEAD` — must list **exactly** these paths and
+   no others:
    - `scripts/decisions-reference-graph.ts`
    - `lib/decisions-format.ts`
    - `scripts/tests/decisions-reference-graph.ts`
@@ -412,8 +473,8 @@ Report the result of each. A self-report that a step passed is not the step.
 
    An allowlist is the check that actually enforces §10, because a denylist cannot forbid a file
    nobody thought to name.
-9. `git diff --numstat "$MIGRATION_BASELINE"..HEAD -- package.json` — must report exactly `1` added
-   line and `0` removed.
+9. `git diff --numstat "$HARDENING_COMMISSION_HEAD"..HEAD -- package.json` — must report exactly `1`
+   added line and `0` removed.
 10. The full current pull-request gate step list from `.github/workflows/promotion-gate.yml`,
     unmodified and complete, every command exiting 0, run in the live branch checkout. `npm ci` is
     part of that list. Run it, or report it as skipped — do not run a subset and describe it as a
@@ -428,7 +489,8 @@ Report the result of each. A self-report that a step passed is not the step.
 
 Report to the architect seat:
 
-- All five preflight results and the `MIGRATION_BASELINE` value you read.
+- All five preflight results and both the `MIGRATION_BASELINE` and
+  `HARDENING_COMMISSION_HEAD` values you read.
 - Every §11 item, with actual output rather than a claim about it.
 - The mode-selection rule you implemented in §5.1, stated precisely enough to be reviewed without
   reading the diff.
