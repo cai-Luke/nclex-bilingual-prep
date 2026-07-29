@@ -444,9 +444,23 @@ function sectionByLine(lines: SourceLine[]): number[] {
 
 function markdownHeadingSlug(heading: string): string {
   return heading
-    .toLocaleLowerCase()
+    .toLowerCase()
     .replace(/[^\p{L}\p{N}\s_-]/gu, "")
     .replace(/\s/gu, "-");
+}
+
+function archiveHeadingAnchor(wrapper: ArchiveWrapper): string {
+  const heading = wrapper.id === undefined
+    ? wrapper.title
+    : `${wrapper.id} — ${wrapper.title}`;
+  return heading
+    .toLowerCase()
+    .replace(/[^\p{L}\p{N}]+/gu, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
+function normalizedDocumentPath(path: string): string {
+  return path.replaceAll("\\", "/").replace(/^\.\//, "");
 }
 
 function nextHeadingIndex(lines: SourceLine[], start: number, maximumLevel = 4): number {
@@ -715,10 +729,10 @@ export function parseDecisionsDocument(text: string, source = "DECISIONS.md"): P
     if (!match) continue;
     entryAnchorTargets.add(markdownHeadingSlug(match[1]));
     const id = /^((?:P|R)\d+) — /.exec(match[1])?.[1];
-    if (id) entryAnchorTargets.add(id.toLocaleLowerCase());
+    if (id) entryAnchorTargets.add(id.toLowerCase());
   }
   for (const match of text.matchAll(/\]\(#([^)]+)\)/g)) {
-    if (!entryAnchorTargets.has(match[1].toLocaleLowerCase())) continue;
+    if (!entryAnchorTargets.has(match[1].toLowerCase())) continue;
     const before = text.slice(0, match.index);
     issues.push(issue("ANCHOR_CITATION", "Markdown anchor citation into DECISIONS.md is forbidden", {
       source,
@@ -1202,14 +1216,10 @@ export function checkDecisionsFormat(input: ConformanceInput): ConformanceResult
 
   issues.push(...allocationIssues(decisions.entries, decisions.retiredIdentifiers, decisionsSource));
 
-  const retiredIds = new Set(
-    decisions.retiredIdentifiers
-      .filter((row) => row.disposition === "RETIRED")
-      .map((row) => row.id),
-  );
+  const registeredIds = new Set(decisions.retiredIdentifiers.map((row) => row.id));
   for (const entry of decisions.entries) {
-    if (entry.headingLevel === 3 && entry.id && retiredIds.has(entry.id)) {
-      issues.push(issue("RETIRED_ID_CONFLICT", `Live entry reuses retired identifier ${entry.id}`, {
+    if (entry.headingLevel === 3 && entry.id && registeredIds.has(entry.id)) {
+      issues.push(issue("RETIRED_ID_CONFLICT", `Live entry reuses registered identifier ${entry.id}`, {
         source: decisionsSource,
         line: entry.line,
         blockKey: entry.blockKey,
@@ -1237,6 +1247,22 @@ export function checkDecisionsFormat(input: ConformanceInput): ConformanceResult
         ? wrapper.title
         : `${wrapper.id} ${wrapper.title}`;
     if (expectedLabel !== undefined && line.label !== expectedLabel) archiveMismatch.push(line.blockKey);
+    if (wrapper === undefined || archive === undefined) continue;
+    if (normalizedDocumentPath(line.pointer.file) !== normalizedDocumentPath(archiveSource)) {
+      issues.push(issue(
+        "ARCHIVE_INDEX_MISMATCH",
+        `Archive pointer file ${line.pointer.file} does not identify ${archiveSource}`,
+        { source: decisionsSource, line: line.line, assertion: 14 },
+      ));
+    }
+    const expectedAnchor = archiveHeadingAnchor(wrapper);
+    if (line.pointer.anchor !== expectedAnchor) {
+      issues.push(issue(
+        "ARCHIVE_INDEX_MISMATCH",
+        `Archive pointer anchor ${line.pointer.anchor} does not match ${expectedAnchor}`,
+        { source: decisionsSource, line: line.line, assertion: 14 },
+      ));
+    }
   }
   if (archiveMismatch.length > 0) {
     issues.push(issue(

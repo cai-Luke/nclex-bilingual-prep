@@ -800,6 +800,53 @@ const p4 = liveBlock({ kind: "P", number: 4 });
   fixturePassed("C8", "FINDING RETIRED_ID_CONFLICT");
 }
 
+// Assertion 10 covers both append-only register dispositions.
+{
+  const result = conformance({
+    rows: [{ id: "P1", kind: "P", summary: "P entry 1" }],
+    p: [p1],
+    section8: `| ID | disposition | date | pointer |
+|---|---|---|---|
+| P1 | NEVER ASSIGNED | — | — |`,
+  });
+  expectConformanceCode("never-assigned-live-reuse", result, "RETIRED_ID_CONFLICT");
+}
+
+// Archive pointer file and anchor resolution fail independently.
+{
+  const correctArchive = archiveWrapper({
+    id: "P22",
+    title: "Correct title",
+    originalKind: "P",
+  });
+  const archiveLine = (file: string, anchor: string) => `- **P22 Correct title** — retired 2026-07-28.
+  \`${file}#${anchor}\``;
+  const archiveCandidate = (file: string, anchor: string) => checkDecisionsFormat({
+    decisionsText: buildDecisions({
+      rows: [{ id: "P1", kind: "P", summary: "P entry 1" }],
+      p: [p1],
+      section8: archiveLine(file, anchor),
+    }),
+    decisionsSource: "candidate-DECISIONS.md",
+    archiveText: correctArchive,
+    archiveSource: "candidate-archive.md",
+    trackedPaths: trackedFixturePaths,
+  });
+
+  const correct = archiveCandidate("candidate-archive.md", "p22-correct-title");
+  assert.equal(correct.ok, true, renderDecisionsFormatResult(correct));
+
+  const wrongFile = archiveCandidate("completely-wrong-file.md", "p22-correct-title");
+  expectConformanceCode("wrong-archive-pointer-file", wrongFile, "ARCHIVE_INDEX_MISMATCH");
+  assert.match(renderDecisionsFormatResult(wrongFile), /pointer file/);
+  assert.doesNotMatch(renderDecisionsFormatResult(wrongFile), /pointer anchor/);
+
+  const wrongAnchor = archiveCandidate("candidate-archive.md", "nonexistent-anchor");
+  expectConformanceCode("wrong-archive-pointer-anchor", wrongAnchor, "ARCHIVE_INDEX_MISMATCH");
+  assert.match(renderDecisionsFormatResult(wrongAnchor), /pointer anchor/);
+  assert.doesNotMatch(renderDecisionsFormatResult(wrongAnchor), /pointer file/);
+}
+
 // Live and archive field vocabularies remain separate.
 expectParserCode(
   "live/archive vocabulary separation",
@@ -859,6 +906,7 @@ ${archiveWrapper({
   const result = checkDecisionsFormat({
     decisionsText,
     archiveText,
+    archiveSource: "candidate-archive.md",
     trackedPaths: trackedFixturePaths,
   });
   // P2-P21 are intentionally absent here, so ignore the allocation finding for this join-focused assertion.
