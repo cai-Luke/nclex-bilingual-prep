@@ -402,7 +402,7 @@ function extractFromLine(
   line: string,
   tracked: ReadonlySet<string>,
   mode: FormatMode,
-  suppressCanonicalIdentifiers: boolean,
+  canonicalDeclarationSpans: readonly Span[],
   decisionsEntryAnchors: ReadonlySet<string>,
 ): RawRef[] {
   const refs: RawRef[] = [];
@@ -437,32 +437,7 @@ function extractFromLine(
     });
   }
 
-  // Derived identifiers must consume their entire span before canonical IDs.
-  const derivedRe = /\b(?:P|R)\d+(?:\.\d+|[A-Za-z]+)\b/g;
-  for (let match = derivedRe.exec(line); match; match = derivedRe.exec(line)) {
-    const start = match.index;
-    const end = start + match[0].length;
-    if (overlaps(consumed, start, end)) continue;
-    push({ col: start, end, rawText: match[0], kind: "derived-identifier" });
-  }
-
-  if (!suppressCanonicalIdentifiers) {
-    const identifierRe = /\b(?:P|R)\d+\b/g;
-    for (let match = identifierRe.exec(line); match; match = identifierRe.exec(line)) {
-      const start = match.index;
-      const end = start + match[0].length;
-      if (overlaps(consumed, start, end)) continue;
-      push({
-        col: start,
-        end,
-        rawText: match[0],
-        kind: match[0].startsWith("P") ? "principle" : "identifier",
-        principleNum: match[0].startsWith("P") ? Number(match[0].slice(1)) : undefined,
-        identifier: match[0].startsWith("R") ? match[0] : undefined,
-      });
-    }
-  }
-
+  // Target-mode name citations precede every inner token class.
   if (mode === "target") {
     const namedRe = /(^|[ \t\v\f(\[{])([IT]): (`+)(.+?)\3(?=$|[ \t\v\f.,;:!?)\]}])/g;
     for (let match = namedRe.exec(line); match; match = namedRe.exec(line)) {
@@ -513,6 +488,48 @@ function extractFromLine(
     push({ col: start, end, rawText: m[0], kind: "ambiguous" });
   }
 
+  // Bare repository paths precede identifiers so P3 inside a filename remains
+  // part of the complete path token.
+  const pathRe = new RegExp(String.raw`\`?(${PATH_TOKEN.source})\`?`, "g");
+  for (let m = pathRe.exec(line); m; m = pathRe.exec(line)) {
+    const path = m[1];
+    const start = m.index + (m[0].startsWith("`") ? 1 : 0);
+    const end = start + path.length;
+    if (overlaps(consumed, start, end)) continue;
+    if (!isPlausiblePathToken(path) && !tracked.has(path)) continue;
+    push({ col: start, end, rawText: path, kind: "path", path });
+  }
+
+  // Derived identifiers consume their entire span before canonical IDs, after
+  // every larger structural form above has had the opportunity to claim it.
+  const derivedRe = /\b(?:P|R)\d+(?:\.\d+|[A-Za-z]+)\b/g;
+  for (let match = derivedRe.exec(line); match; match = derivedRe.exec(line)) {
+    const start = match.index;
+    const end = start + match[0].length;
+    if (overlaps(consumed, start, end)) continue;
+    push({ col: start, end, rawText: match[0], kind: "derived-identifier" });
+  }
+
+  const identifierRe = /\b(?:P|R)\d+\b/g;
+  for (let match = identifierRe.exec(line); match; match = identifierRe.exec(line)) {
+    const start = match.index;
+    const end = start + match[0].length;
+    if (
+      overlaps(consumed, start, end) ||
+      overlaps([...canonicalDeclarationSpans], start, end)
+    ) {
+      continue;
+    }
+    push({
+      col: start,
+      end,
+      rawText: match[0],
+      kind: match[0].startsWith("P") ? "principle" : "identifier",
+      principleNum: match[0].startsWith("P") ? Number(match[0].slice(1)) : undefined,
+      identifier: match[0].startsWith("R") ? match[0] : undefined,
+    });
+  }
+
   // Bare `§n` — section n of the source file itself.
   const secRe = /§\s*(\d+)/g;
   for (let m = secRe.exec(line); m; m = secRe.exec(line)) {
@@ -538,17 +555,6 @@ function extractFromLine(
     for (const n of numbers) {
       push({ col: start, end, rawText: m[0], kind: "principle", principleNum: Number(n) });
     }
-  }
-
-  // Bare repository path (structural — no extension allowlist), not already consumed above.
-  const pathRe = new RegExp(String.raw`\`?(${PATH_TOKEN.source})\`?`, "g");
-  for (let m = pathRe.exec(line); m; m = pathRe.exec(line)) {
-    const path = m[1];
-    const start = m.index + (m[0].startsWith("`") ? 1 : 0);
-    const end = start + path.length;
-    if (overlaps(consumed, start, end)) continue;
-    if (!isPlausiblePathToken(path) && !tracked.has(path)) continue;
-    push({ col: start, end, rawText: path, kind: "path", path });
   }
 
   return refs;
@@ -756,17 +762,38 @@ function main(): void {
   }
   const definitions = selectDefinitionIndex(sourceTexts.get(PRINCIPLE_HOME)!, sourceTexts, tracked);
   const { sections, anchors } = buildSectionAndAnchorIndexes(sourceTexts);
-  const canonicalDeclarationLines = new Map<string, Set<number>>();
+  const canonicalDeclarationSpans = new Map<string, Map<number, Span[]>>();
   const decisionsEntryAnchors = new Set<string>();
   if (definitions.parsedDecisions !== undefined) {
-    const surfaces = decisionsIdentitySurfaces(definitions.parsedDecisions);
-    canonicalDeclarationLines.set(PRINCIPLE_HOME, new Set(surfaces.canonicalDeclarationLines));
+    const surfaces = decisionsIdentitySurfaces(
+      definitions.parsedDecisions,
+      sourceTexts.get(PRINCIPLE_HOME)!,
+    );
+    const byLine = new Map<number, Span[]>();
+    for (const surface of surfaces.canonicalDeclarationSpans) {
+      const spans = byLine.get(surface.line) ?? [];
+      spans.push({ start: surface.start, end: surface.end });
+      byLine.set(surface.line, spans);
+    }
+    canonicalDeclarationSpans.set(PRINCIPLE_HOME, byLine);
     for (const anchor of surfaces.entryHeadingAnchors) decisionsEntryAnchors.add(anchor);
+    for (const entry of definitions.parsedDecisions.entries) {
+      const heading = entry.id === undefined ? entry.title : `${entry.id} — ${entry.title}`;
+      decisionsEntryAnchors.add(slugify(heading));
+    }
   }
   if (definitions.parsedArchive !== undefined && definitions.archiveSource !== undefined) {
-    canonicalDeclarationLines.set(
+    const archiveText = sourceTexts.get(definitions.archiveSource)!;
+    const surfaces = archiveIdentitySurfaces(definitions.parsedArchive, archiveText);
+    const byLine = new Map<number, Span[]>();
+    for (const surface of surfaces.canonicalDeclarationSpans) {
+      const spans = byLine.get(surface.line) ?? [];
+      spans.push({ start: surface.start, end: surface.end });
+      byLine.set(surface.line, spans);
+    }
+    canonicalDeclarationSpans.set(
       definitions.archiveSource,
-      new Set(archiveIdentitySurfaces(definitions.parsedArchive).canonicalDeclarationLines),
+      byLine,
     );
   }
 
@@ -774,14 +801,14 @@ function main(): void {
   for (const source of sources) {
     const lines = sourceTexts.get(source)!.split(/\r?\n/);
     for (let i = 0; i < lines.length; i += 1) {
-      const suppressCanonical = canonicalDeclarationLines.get(source)?.has(i + 1) ?? false;
+      const declarationSpans = canonicalDeclarationSpans.get(source)?.get(i + 1) ?? [];
       for (
         const raw of extractFromLine(
           source,
           lines[i],
           tracked,
           definitions.mode,
-          suppressCanonical,
+          declarationSpans,
           decisionsEntryAnchors,
         )
       ) {

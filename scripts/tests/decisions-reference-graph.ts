@@ -113,7 +113,7 @@ const targetDecisions = `# Target decisions
 
 | ID | kind | status | force | summary |
 |---|---|---|---|---|
-| P1 | P | ACTIVE | BINDING | Nurse's first rule |
+| P1 | P | ACTIVE | BINDING | Nurse's P2 first rule |
 | — | I | ACTIVE | BINDING | Runtime audio carries no client-embedded secret |
 | — | T | REVISIT | ADVISORY | Decide the future update lane |
 
@@ -121,7 +121,7 @@ const targetDecisions = `# Target decisions
 
 ## 4. Governing principles
 
-### P1 — Nurse's first rule
+### P1 — Nurse's P2 first rule
 
 This is the first governed statement.
 
@@ -171,6 +171,7 @@ Legacy principle 1 and canonical P1.
 Retired P2 and never-assigned P3 and absent R1.
 I: \`Runtime audio carries no client-embedded secret\`.
 T: \`Unknown thread title\`.
+I: \`Invariant governing P1 compatibility\`.
 (I: \`\`Unknown title with \` inner tick\`\`),
 I: \`runtime audio carries no client-embedded secret\`.
 I: \`Runtime  audio carries no client-embedded secret\`.
@@ -182,8 +183,11 @@ I: \`Bad suffix\`x
 "Runtime audio carries no client-embedded secret".
 Runtime audio carries no client-embedded secret.
 Derived P1.1 and P1a must each be one record.
-[Invalid target](../DECISIONS.md#p1-nurse-s-first-rule)
-[GitHub-style target](../DECISIONS.md#p1-nurses-first-rule)
+[Ratified anchor target](../DECISIONS.md#p1-nurse-s-p2-first-rule)
+[GitHub anchor target](../DECISIONS.md#p1-nurses-p2-first-rule)
+SOMETHING-P3-SURVEY.md
+\`SOMETHING-P3-SURVEY.md\` §20
+§20 of SOMETHING-P3-SURVEY.md
 `;
 
 const fixtureRows: string[] = [];
@@ -224,6 +228,7 @@ const targetRoot = await initCorpus({
   "DECISIONS.md": targetDecisions,
   "Archive/DECISIONS-ARCHIVE-2026-07-29.md": archiveText,
   "docs/references.md": targetReferences,
+  "docs/SOMETHING-P3-SURVEY.md": "# Survey\n\n## 20. Target\n",
 });
 const legacyRoot = await initCorpus({
   "DECISIONS.md": legacyDecisions,
@@ -308,6 +313,7 @@ try {
     [
       "I: `Runtime audio carries no client-embedded secret`",
       "T: `Unknown thread title`",
+      "I: `Invariant governing P1 compatibility`",
       "I: ``Unknown title with ` inner tick``",
       "I: `runtime audio carries no client-embedded secret`",
       "I: `Runtime  audio carries no client-embedded secret`",
@@ -316,7 +322,7 @@ try {
   );
   assert.deepEqual(
     namedRefs.map((record) => record.targetState),
-    ["LIVE", "MISSING", "MISSING", "MISSING", "MISSING"],
+    ["LIVE", "MISSING", "MISSING", "MISSING", "MISSING", "MISSING"],
   );
   assert.equal(
     refs.some((record) => record.rawText === "Runtime audio carries no client-embedded secret"),
@@ -338,17 +344,50 @@ try {
     "derived prefixes and declaration surfaces must not emit P1 citations",
   );
 
-  const invalid = refs.find((record) => record.kind === "invalid-anchor-citation");
-  assert.ok(invalid);
-  assert.equal(invalid.target, "DECISIONS.md#p1-nurse-s-first-rule");
-  assert.equal(invalid.class, null);
-  assert.equal(invalid.resolves, false);
-  assert.equal(invalid.targetState, "NOT_APPLICABLE");
-  assert.equal(
-    refs.find((record) => record.rawText.includes("GitHub-style target"))?.targetState,
-    "LIVE",
-    "GitHub slug and DECISIONS identity anchor must remain distinct for apostrophes",
+  const invalid = refs.filter((record) => record.kind === "invalid-anchor-citation");
+  assert.deepEqual(
+    invalid.map((record) => record.target),
+    [
+      "DECISIONS.md#p1-nurse-s-p2-first-rule",
+      "DECISIONS.md#p1-nurses-p2-first-rule",
+    ],
+    "ratified and GitHub heading-anchor algorithms must diverge while both remain invalid citations",
   );
+  assert.ok(invalid.every((record) =>
+    record.class === null &&
+    record.resolves === false &&
+    record.targetState === "NOT_APPLICABLE"
+  ));
+
+  const plainPath = refs.find((record) => record.rawText === "SOMETHING-P3-SURVEY.md");
+  assert.equal(plainPath?.kind, "path");
+  const pathSection = refs.find((record) => record.rawText === "`SOMETHING-P3-SURVEY.md` §20");
+  assert.equal(pathSection?.kind, "path-section");
+  const reversed = refs.find((record) => record.rawText === "§20 of SOMETHING-P3-SURVEY.md");
+  assert.equal(reversed?.kind, "ambiguous");
+  const compoundLines = new Set(
+    [plainPath, pathSection, reversed].map((record) => record?.fromLine),
+  );
+  assert.equal(
+    refs.some((record) => record.rawText === "P3" && compoundLines.has(record.fromLine)),
+    false,
+    "compound path references must not emit embedded P3 identifiers",
+  );
+  const embeddedNamed = namedRefs.find((record) =>
+    record.rawText === "I: `Invariant governing P1 compatibility`"
+  );
+  assert.ok(embeddedNamed);
+  assert.equal(
+    refs.some((record) => record.rawText === "P1" && record.fromLine === embeddedNamed.fromLine),
+    false,
+    "a complete I/T citation must consume embedded canonical IDs",
+  );
+
+  const decisionsP2 = targetManifest.references.filter((record) =>
+    record.from === "DECISIONS.md" && record.rawText === "P2"
+  );
+  assert.equal(decisionsP2.length, 1);
+  assert.equal(decisionsP2[0].targetState, "RETIRED");
   assert.equal(targetManifest.counts.derivedIdentifier, targetManifest.counts.byKind["derived-identifier"]);
   assert.equal(
     targetManifest.counts.invalidAnchorCitation,

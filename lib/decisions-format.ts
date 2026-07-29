@@ -500,41 +500,93 @@ function markdownHeadingAnchor(heading: string): string {
     .replace(/^-+|-+$/g, "");
 }
 
-export function decisionsIdentitySurfaces(parsed: ParsedDecisionsDocument): {
-  canonicalDeclarationLines: readonly number[];
+export interface IdentitySurfaceSpan {
+  line: number;
+  start: number;
+  end: number;
+}
+
+function tokenSpanOnLine(
+  lines: readonly SourceLine[],
+  lineNumber: number,
+  token: string,
+  startAt = 0,
+  endAt?: number,
+): IdentitySurfaceSpan | undefined {
+  const line = lines[lineNumber - 1];
+  if (line === undefined) return undefined;
+  const start = line.text.indexOf(token, startAt);
+  const limit = endAt ?? line.text.length;
+  if (start < 0 || start + token.length > limit) return undefined;
+  return { line: lineNumber, start, end: start + token.length };
+}
+
+export function decisionsIdentitySurfaces(
+  parsed: ParsedDecisionsDocument,
+  text: string,
+): {
+  canonicalDeclarationSpans: readonly IdentitySurfaceSpan[];
   entryHeadingAnchors: readonly string[];
 } {
-  const canonicalDeclarationLines = new Set<number>();
+  const lines = sourceLines(text);
+  const canonicalDeclarationSpans: IdentitySurfaceSpan[] = [];
   const entryHeadingAnchors = new Set<string>();
   for (const entry of parsed.entries) {
     const heading = entry.id === undefined ? entry.title : `${entry.id} — ${entry.title}`;
     entryHeadingAnchors.add(markdownHeadingAnchor(heading));
+    const sourceLine = lines[entry.line - 1];
+    if (sourceLine !== undefined) {
+      canonicalDeclarationSpans.push({
+        line: entry.line,
+        start: 0,
+        end: sourceLine.text.length,
+      });
+    }
     if (entry.id !== undefined) {
-      canonicalDeclarationLines.add(entry.line);
       entryHeadingAnchors.add(entry.id.toLowerCase());
     }
   }
   for (const row of parsed.index.rows) {
-    if (row.id !== undefined) canonicalDeclarationLines.add(row.line);
+    if (row.id === undefined) continue;
+    const sourceLine = lines[row.line - 1]?.text;
+    const idCellEnd = sourceLine?.indexOf("|", 1);
+    const span = tokenSpanOnLine(lines, row.line, row.id, 1, idCellEnd);
+    if (span !== undefined) canonicalDeclarationSpans.push(span);
   }
-  for (const row of parsed.retiredIdentifiers) canonicalDeclarationLines.add(row.line);
+  for (const row of parsed.retiredIdentifiers) {
+    const sourceLine = lines[row.line - 1]?.text;
+    const idCellEnd = sourceLine?.indexOf("|", 1);
+    const span = tokenSpanOnLine(lines, row.line, row.id, 1, idCellEnd);
+    if (span !== undefined) canonicalDeclarationSpans.push(span);
+  }
   for (const row of parsed.archiveIndex) {
-    if (row.id !== undefined) canonicalDeclarationLines.add(row.line);
+    const span = tokenSpanOnLine(lines, row.line, row.label);
+    if (span !== undefined) canonicalDeclarationSpans.push(span);
   }
   return {
-    canonicalDeclarationLines: [...canonicalDeclarationLines].sort((left, right) => left - right),
+    canonicalDeclarationSpans: canonicalDeclarationSpans.sort(
+      (left, right) => left.line - right.line || left.start - right.start,
+    ),
     entryHeadingAnchors: [...entryHeadingAnchors].sort(),
   };
 }
 
-export function archiveIdentitySurfaces(parsed: ParsedArchiveDocument): {
-  canonicalDeclarationLines: readonly number[];
+export function archiveIdentitySurfaces(
+  parsed: ParsedArchiveDocument,
+  text: string,
+): {
+  canonicalDeclarationSpans: readonly IdentitySurfaceSpan[];
 } {
+  const lines = sourceLines(text);
   return {
-    canonicalDeclarationLines: parsed.wrappers
-      .filter((wrapper) => wrapper.id !== undefined)
-      .map((wrapper) => wrapper.line)
-      .sort((left, right) => left - right),
+    canonicalDeclarationSpans: parsed.wrappers
+      .flatMap((wrapper) => {
+        const line = lines[wrapper.line - 1];
+        return line === undefined
+          ? []
+          : [{ line: wrapper.line, start: 0, end: line.text.length }];
+      })
+      .sort((left, right) => left.line - right.line),
   };
 }
 
