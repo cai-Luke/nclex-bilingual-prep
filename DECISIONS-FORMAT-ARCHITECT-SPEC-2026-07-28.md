@@ -23,6 +23,10 @@ this ratified commission. Neither file may be amended independently of the other
 - The graph resolves an identifier citation to a synthetic target such as `DECISIONS.md#P25`, not
   against the Markdown-anchor index.
 - A Markdown anchor link into a `DECISIONS.md` entry heading is not a valid permanent citation.
+- For anchor detection and archive-pointer resolution, derive the expected Markdown anchor by
+  lowercasing the heading, replacing each maximal run of non-Unicode-letter/digit characters with
+  one hyphen, and trimming leading or trailing hyphens. The obsolete double-hyphen lookalike created
+  by replacing spaces independently is not the heading anchor.
 - **Legacy form is permanent.** `principle 25` appears throughout `Archive/`, which is never
   rewritten (taxonomy §9). `P25` is canonical for new writing; `principle 25` must remain resolvable
   indefinitely.

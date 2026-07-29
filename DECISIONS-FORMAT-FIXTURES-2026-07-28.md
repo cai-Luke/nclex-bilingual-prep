@@ -350,7 +350,7 @@ A bullet inside the statement block → `REJECT: STATEMENT_SHAPE`
 
 ### M11 — anchor citation inside `DECISIONS.md`
 
-`see [P25](#p25--necessity-is-a-property-of-the-artifact)` → `REJECT: ANCHOR_CITATION`
+`see [P25](#p25-necessity-is-a-property-of-the-artifact)` → `REJECT: ANCHOR_CITATION`
 
 ### M12 — identifier on name-addressed entry
 

@@ -591,7 +591,7 @@ One sentence. Two sentence. Three sentence. Four sentence.
     id: "M11",
     code: "ANCHOR_CITATION",
     issues: () => parseDecisionsDocument(
-      `${inSection(4, liveBlock({ kind: "P", number: 1 }))}\nsee [P1](#p1--p-entry-1)\n`,
+      `${inSection(4, liveBlock({ kind: "P", number: 1 }))}\nsee [P1](#p1-p-entry-1)\n`,
     ).issues,
   },
   {
@@ -676,6 +676,31 @@ This is a governed statement.
 for (const malformed of malformedCases) {
   expectParserCode(malformed.id, malformed.issues(), malformed.code);
   fixturePassed(malformed.id, `REJECT ${malformed.code}`);
+}
+
+{
+  const obsoleteLookalike = parseDecisionsDocument(
+    `${inSection(4, liveBlock({ kind: "P", number: 1 }))}\nsee [lookalike](#p1--p-entry-1)\n`,
+  );
+  assert.equal(
+    obsoleteLookalike.issues.some((finding) => finding.code === "ANCHOR_CITATION"),
+    false,
+    "obsolete double-hyphen lookalike must not resolve to the real heading anchor",
+  );
+}
+
+{
+  const malformedTotal = buildDecisions({
+    rows: [{ id: "P1", kind: "P", summary: "P entry 1" }],
+    p: [liveBlock({ kind: "P", number: 1 })],
+  }).replace("**Declared total:** 1 entry blocks.", "**Declared total:** one entry blocks.");
+  const result = checkDecisionsFormat({ decisionsText: malformedTotal });
+  assert.equal(result.issues.some((finding) => finding.code === "DECLARED_TOTAL_SHAPE"), true);
+  assert.equal(
+    result.issues.some((finding) => finding.code === "MISSING_DECLARED_TOTAL"),
+    false,
+    "malformed declared-total syntax must not also report the line as missing",
+  );
 }
 
 expectParserCode(

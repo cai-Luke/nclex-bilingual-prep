@@ -442,17 +442,7 @@ function sectionByLine(lines: SourceLine[]): number[] {
   return sections;
 }
 
-function markdownHeadingSlug(heading: string): string {
-  return heading
-    .toLowerCase()
-    .replace(/[^\p{L}\p{N}\s_-]/gu, "")
-    .replace(/\s/gu, "-");
-}
-
-function archiveHeadingAnchor(wrapper: ArchiveWrapper): string {
-  const heading = wrapper.id === undefined
-    ? wrapper.title
-    : `${wrapper.id} — ${wrapper.title}`;
+function markdownHeadingAnchor(heading: string): string {
   return heading
     .toLowerCase()
     .replace(/[^\p{L}\p{N}]+/gu, "-")
@@ -727,7 +717,7 @@ export function parseDecisionsDocument(text: string, source = "DECISIONS.md"): P
     if (sections[index] < 4 || sections[index] > 7) continue;
     const match = /^### (.+)$/.exec(lines[index].text);
     if (!match) continue;
-    entryAnchorTargets.add(markdownHeadingSlug(match[1]));
+    entryAnchorTargets.add(markdownHeadingAnchor(match[1]));
     const id = /^((?:P|R)\d+) — /.exec(match[1])?.[1];
     if (id) entryAnchorTargets.add(id.toLowerCase());
   }
@@ -1182,7 +1172,8 @@ export function checkDecisionsFormat(input: ConformanceInput): ConformanceResult
     ));
   }
 
-  if (decisions.index.present && decisions.index.declaredTotal === undefined) {
+  const declaredTotalMalformed = decisions.issues.some((finding) => finding.code === "DECLARED_TOTAL_SHAPE");
+  if (decisions.index.present && decisions.index.declaredTotal === undefined && !declaredTotalMalformed) {
     issues.push(issue("MISSING_DECLARED_TOTAL", "Entry index has no valid declared-total line", {
       source: decisionsSource,
       assertion: 13,
@@ -1255,7 +1246,9 @@ export function checkDecisionsFormat(input: ConformanceInput): ConformanceResult
         { source: decisionsSource, line: line.line, assertion: 14 },
       ));
     }
-    const expectedAnchor = archiveHeadingAnchor(wrapper);
+    const expectedAnchor = markdownHeadingAnchor(
+      wrapper.id === undefined ? wrapper.title : `${wrapper.id} — ${wrapper.title}`,
+    );
     if (line.pointer.anchor !== expectedAnchor) {
       issues.push(issue(
         "ARCHIVE_INDEX_MISMATCH",
