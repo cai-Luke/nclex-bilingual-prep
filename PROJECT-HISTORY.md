@@ -52,6 +52,29 @@ The committed NGN item-type set is complete. Rationale/dyad scoring and an expli
 
 > Milestones dated **2026-06-23 and earlier** are archived in [`Archive/PROJECT-HISTORY-ARCHIVE.md`](Archive/PROJECT-HISTORY-ARCHIVE.md). Only the current arc (2026-06-24 onward) is kept here.
 
+### DECISIONS Format Parser and Conformance Checker (Jul 28)
+
+Merged the ratified `DECISIONS.md` target-format instrument. `lib/decisions-format.ts` is the shared
+filesystem-independent parser for live entries, attachments, the derived index and declared total,
+both archive addressing modes, archive-index pointers, the retired-identifier register, sentence
+boundaries, and the closed parser/conformance reason-code sets. The explicit
+`scripts/decisions-format-conform.ts` CLI owns repository and Git-index access; the legacy live
+`DECISIONS.md` remains intentionally unwired until migration.
+
+The checker enforces field grammar and ordering, kind/status and section compatibility, permanent-ID
+allocation across live and registered identifiers, bidirectional index/body equality and order,
+declared-total consistency, tracked `Evidence`/`Owner` paths, live reuse of either `RETIRED` or
+`NEVER ASSIGNED` identifiers, and archive pointer file/anchor resolution. Entry-heading and archive
+anchors use the same run-collapsing Markdown-anchor algorithm; malformed declared-total syntax does
+not also emit a missing-total finding.
+
+`npm run test:decisions-format` passes F1–F13, M1–M19, C1–C8, the full kind/status matrix, archive
+file/anchor and `NEVER ASSIGNED` regressions, the obsolete double-hyphen anchor control, and the
+independent four-defect CLI negative control. The repaired direct CLI control exits 0, the negative
+control exits nonzero with all four injected findings, and `npx tsc -b --pretty false` passes.
+Reference-graph hardening, document migration, production gate wiring, and archive creation remain
+separate later commissions.
+
 ### Exam-Condition Calculator (Jul 26)
 
 Added an ordinary-arithmetic calculator to active study, test, and adaptive
