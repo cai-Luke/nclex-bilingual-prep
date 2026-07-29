@@ -1,7 +1,7 @@
 # DECISIONS.md Taxonomy — Ratifiable Classification Contract
 
-**Date:** 2026-07-24 · amended 2026-07-24 (Amendments 1 and 2) · amended 2026-07-28 (Amendment 3) — section 10
-**Status:** **RATIFIED 2026-07-24 by Luke (owner)**, including Amendments 1 and 2; **Amendment 3 ratified 2026-07-28 by Luke (owner)**. In force.
+**Date:** 2026-07-24 · amended 2026-07-24 (Amendments 1 and 2) · amended 2026-07-28 (Amendment 3) · amended 2026-07-29 (Amendment 4) — section 10
+**Status:** **RATIFIED 2026-07-24 by Luke (owner)**, including Amendments 1 and 2; **Amendment 3 ratified 2026-07-28 by Luke (owner)**; **Amendment 4 ratified 2026-07-29 by Luke (owner)**. In force.
 **Purpose:** Fix the target contract *before* any classification begins, so the surveying seat
 classifies against a contract it did not author.
 
@@ -187,6 +187,8 @@ lane contract becomes an archive index line unless a universal core is ratified 
 
 **Everything leaving `DECISIONS.md` goes to the archive.** One destination, one file in flight.
 
+**Snapshot exception (Amendment 4, 2026-07-29).** The one-file rule governs *normalized* archives: files carrying `X` wrappers and reachable from the target §8 archive index. It does not reach a byte-identical preservation snapshot. Exactly one such snapshot is authorized, once, for the cleanup migration — `Archive/DECISIONS-PRE-MIGRATION-2026-07-29.md`, byte-identical to `DECISIONS.md` at `MIGRATION_BASELINE`. It carries no wrapper, is reachable from no archive-index line, is never parsed by the conformance checker, and is never current authority. It exists because the archive grammar admits no wrapper for material condensed out of an entry that remains live under the same permanent identifier, and because a Git object is not discoverable by a reader who does not already know the material existed.
+
 `PROJECT-HISTORY.md` is not a destination for this work. Promoting archived material into the
 chronology is a separate later decision, taken on its own merits, and is out of scope for the
 cleanup entirely.
@@ -248,12 +250,20 @@ renumbering by another route.
 Applied in this closure pass: `E074` takes **`P31`**. Principles 9, 12, 18, and 22 retire under the
 owner ruling of 2026-07-28 and their numbers remain permanently unavailable, as do 13 and 14.
 
+**Amendment 4 — 2026-07-29, owner ratification. Preservation snapshot and wrapper addressing.**
+
+§9 required displaced material to reach the archive and fixed one destination. The format commission then specified an archive grammar in which every wrapper retires an identifier: `Retired ID` was required whenever `Original Kind` was `P` or `R`, and a name-addressed wrapper could not carry those kinds. Neither rule was wrong alone, but together they left no legal shape for prose condensed out of an entry that keeps its number, for an application of a still-live principle, or for a superseded ruling that never held a number — which is most of what the cleanup migration displaces. The 2026-07-14 archive cannot absorb it either; that file is scoped by its own header to the 2026-07-14 pass and predates `P29`, `P30`, the vital-sanity ratifications, and `E074`.
+
+Amendment 4 adds a one-time, preservation-only snapshot, states that the one-file rule governs normalized archives rather than byte-identical copies, and rules that archive-wrapper addressing is determined by identifier disposition rather than by `Original Kind`. It changes no live-entry identity, no identifier-retirement rule, and no reason code, and sets no precedent.
+
 ---
 
 ## 11. Ratification
 
-**Ratified 2026-07-24 by Luke (owner)**, including Amendments 1 and 2. This contract is in force and
-is the classification contract for the phase-1 survey's second pass.
+**Ratified 2026-07-24 by Luke (owner)**, including Amendments 1 and 2; **Amendment 3 ratified
+2026-07-28 by Luke (owner)**; **Amendment 4 ratified 2026-07-29 by Luke (owner)**. This contract is
+in force and remains the classification contract for the cleanup migration, subject to its recorded
+amendments.
 
 Consequent owner rulings, recorded operatively in
 `DECISIONS-CLEANUP-PHASE-1-SURVEY-CODEX-SPEC-2026-07-24.md` section 8:

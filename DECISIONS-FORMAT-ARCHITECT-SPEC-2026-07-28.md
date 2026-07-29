@@ -2,9 +2,9 @@
 
 **Date:** 2026-07-28 · **Seat:** Architect · **Status:** **RATIFIED 2026-07-28 by Luke (owner),
 together with `DECISIONS-FORMAT-FIXTURES-2026-07-28.md`; final pre-commit clarifications adopted
-2026-07-28.**
+2026-07-28; Amendment 4 adopted 2026-07-29 by Luke (owner).**
 **Authority:** `DECISIONS-CLEANUP-PHASE-1-CLOSURE-CODEX-WORK-ORDER-2026-07-28.md` §9 non-goal 8.
-**Governing contract:** `DECISIONS-TAXONOMY-2026-07-24.md` (Amendments 1–3). This file renders that
+**Governing contract:** `DECISIONS-TAXONOMY-2026-07-24.md` (Amendments 1–4). This file renders that
 contract into a grammar and adds no kind, status, force, field, or identifier rule. On any
 disagreement the taxonomy governs and this file is the defect.
 
@@ -207,13 +207,14 @@ One destination, one file in flight (taxonomy §9):
 
 `Archive/DECISIONS-ARCHIVE-2026-07-14.md` is a prior archive and is never edited by this arc.
 
+**Preservation snapshot (amended 2026-07-29).** `Archive/DECISIONS-PRE-MIGRATION-2026-07-29.md` is a byte-identical copy of `DECISIONS.md` at `MIGRATION_BASELINE`, authorized once by taxonomy §9 Amendment 4. It is not an archive destination in the sense of this section: it holds no `X` wrapper, receives no §8 archive-index line, and is never an input to the conformance checker. Every §8 archive-index line points to the normalized migration archive and to no other file.
+
 ### 4.2 Archive entry — metadata wrapper over a verbatim body
 
 An archive wrapper has its own closed field set and no statement paragraph. The verbatim body is the
-content; a migration-authored summary would be a re-characterization. The wrapper preserves the
-original entry's addressing mode.
+content; a migration-authored summary would be a re-characterization. The wrapper's addressing mode is determined by identifier disposition (§4.2, amended 2026-07-29), not inherited from the source entry.
 
-**Originally ID-addressed (`P` or `R`):**
+**ID-addressed — the archived unit retires its identifier:**
 
 ```markdown
 ### P22 — CONDITIONAL conditional-principle prose
@@ -233,7 +234,7 @@ original entry's addressing mode.
 The heading is `### ` + retired identifier + ` — ` + title. The checker-internal key is `<ID>#0`.
 `Retired ID` is required and equals the heading identifier.
 
-**Originally name-addressed (`I` or `T`):**
+**Name-addressed — no identifier retires:**
 
 ```markdown
 ### Runtime audio carries no client-embedded secret
@@ -250,7 +251,7 @@ The heading is `### ` + retired identifier + ` — ` + title. The checker-intern
 ```
 
 The heading is `### ` + exact former title, with no identifier and no em dash. The checker-internal
-key is that exact title. `Retired ID` is forbidden because no permanent identifier existed.
+key is that exact title. `Retired ID` is forbidden on a name-addressed wrapper. **Addressing is determined by identifier disposition, not by `Original Kind` (amended 2026-07-29).** An ID-addressed wrapper is used iff the archived unit retires the identifier in its heading; otherwise the wrapper is name-addressed and may carry `Original Kind` `P`, `R`, `I`, or `T`. Name-addressed archival material produces no retired-register row and does not engage assertion 10. Its label is an architect-authored unique label and must not begin with `P<n> ` or `R<n> `, a shape reserved for ID-addressed archive-index entries.
 
 Archive field order and vocabulary are fixed:
 
@@ -262,7 +263,7 @@ Archive field order and vocabulary are fixed:
 | `- **Date:**` | always | `YYYY-MM-DD` |
 | `- **Original Kind:**` | always | `P` `R` `I` `T` |
 | `- **Original Status:**` | always | `ACTIVE` `CONDITIONAL` `PARKED` `REVISIT` `SUPERSEDED` |
-| `- **Retired ID:**` | iff Original Kind is `P` or `R` | `P` or `R` followed by digits, matching heading |
+| `- **Retired ID:**` | iff the heading is ID-addressed | `P` or `R` followed by digits, matching heading |
 | `- **Origin:**` | always | source section + ` at ` + `MIGRATION_BASELINE` |
 
 The wrapper's `Status: SUPERSEDED` describes its current archival state. `Original Status` preserves
