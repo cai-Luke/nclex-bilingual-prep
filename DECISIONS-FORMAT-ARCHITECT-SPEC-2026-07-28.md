@@ -66,6 +66,12 @@ case-insensitive abbreviation list is not a boundary: `e.g.`, `i.e.`, `etc.`, `M
 `Ms.`, `Dr.`, `No.`, `vs.`. Consecutive punctuation such as `?!` counts as one boundary. No other
 abbreviation is inferred.
 
+**Known conservative limitation.** A new sentence beginning with a lowercase or backticked
+lowercase token after terminal punctuation is not counted as a boundary because it does not satisfy
+the uppercase-start rule. Authors must avoid that construction in governed statement paragraphs;
+semantic compression review remains responsible for catching it. This limitation is accepted in
+this commission rather than expanding the sentence grammar again.
+
 Field list: next non-blank block. Every line is `- **<Field>:** <value>`. Order is fixed as §2.4.
 
 ### 2.2 Name-addressed entries (`I`, `T`)
@@ -125,10 +131,10 @@ Kind/status compatibility is closed, directly from taxonomy §4:
 | `R` | `ACTIVE` `PARKED` |
 | `I` | `ACTIVE` |
 | `T` | `ACTIVE` `PARKED` `REVISIT` |
-| `X` | `SUPERSEDED` — archive wrappers only |
 
-`CONDITIONAL` is `P` only; `REVISIT` is `T` only; `SUPERSEDED` is `X` only. A vocabulary-valid
-status paired with an incompatible kind is a checker failure.
+This table governs live entries only. `CONDITIONAL` is `P` only and `REVISIT` is `T` only. Live
+entries never carry `SUPERSEDED`; archived wrappers use their separate grammar in §4.2. A
+vocabulary-valid status paired with an incompatible live kind is a checker failure.
 
 Optional fields are omitted, not emptied. A present line with an empty value is a failure. Whether
 an optional field ought to exist is architect review, never a checker assertion; the checker
@@ -213,6 +219,7 @@ original entry's addressing mode.
 - **Force:** HISTORICAL
 - **Date:** 2026-07-28
 - **Original Kind:** P
+- **Original Status:** CONDITIONAL
 - **Retired ID:** P22
 - **Origin:** `DECISIONS.md` §5 at `MIGRATION_BASELINE`
 
@@ -232,6 +239,7 @@ The heading is `### ` + retired identifier + ` — ` + title. The checker-intern
 - **Force:** HISTORICAL
 - **Date:** 2026-07-28
 - **Original Kind:** I
+- **Original Status:** ACTIVE
 - **Origin:** `DECISIONS.md` §6 at `MIGRATION_BASELINE`
 
 <verbatim historical body — everything to the next `###`>
@@ -249,8 +257,15 @@ Archive field order and vocabulary are fixed:
 | `- **Force:**` | always | `HISTORICAL` |
 | `- **Date:**` | always | `YYYY-MM-DD` |
 | `- **Original Kind:**` | always | `P` `R` `I` `T` |
+| `- **Original Status:**` | always | `ACTIVE` `CONDITIONAL` `PARKED` `REVISIT` `SUPERSEDED` |
 | `- **Retired ID:**` | iff Original Kind is `P` or `R` | `P` or `R` followed by digits, matching heading |
 | `- **Origin:**` | always | source section + ` at ` + `MIGRATION_BASELINE` |
+
+The wrapper's `Status: SUPERSEDED` describes its current archival state. `Original Status` preserves
+the pre-archive status exactly as resolved by the migration contract. The format checker validates
+its five-tag vocabulary but does not infer, normalize, or reclassify the historical pairing with
+`Original Kind`. Archival relocation therefore does not silently rewrite `ACTIVE`, `CONDITIONAL`,
+`PARKED`, `REVISIT`, or `SUPERSEDED` into a different historical claim.
 
 `Origin` names a token, never a SHA. `MIGRATION_BASELINE` is the pre-migration measurement baseline,
 bound by the hardening commission and permanently thereafter.
@@ -333,8 +348,9 @@ fixture file.
 3. Live field names are drawn from §2.4; archive field names are drawn from §4.2. No unknown line,
    empty value, or out-of-order field is accepted.
 4. Always-required live and archive fields are present.
-5. Present values belong to their closed vocabularies; `Date` is `YYYY-MM-DD`; every kind/status
-   pair is permitted by §2.4.
+5. Present values belong to their closed vocabularies; `Date` is `YYYY-MM-DD`; every live
+   kind/status pair is permitted by §2.4. Archive `Original Kind` and `Original Status` are
+   vocabulary-checked historical metadata and are not reclassified by the format checker.
 6. Kind/section agreement holds: `P`→§4, `R`→§5, `I`→§6, `T`→§7. `X` blocks appear only in the
    archive file.
 7. `P`/`R` headings carry identifiers; `I`/`T` headings carry none.

@@ -182,6 +182,7 @@ statement.sentences=1
 - **Force:** HISTORICAL
 - **Date:** 2026-07-28
 - **Original Kind:** P
+- **Original Status:** CONDITIONAL
 - **Retired ID:** P22
 - **Origin:** `DECISIONS.md` §5 at `MIGRATION_BASELINE`
 
@@ -192,7 +193,7 @@ The producer principle 2 protects against self-review is the compiler, not the p
 ```text
 addressing=id  id=P22  blockKey=P22#0  file=archive
 kind=X  status=SUPERSEDED  force=HISTORICAL  date=2026-07-28
-originalKind=P  retiredId=P22
+originalKind=P  originalStatus=CONDITIONAL  retiredId=P22
 origin.section=DECISIONS.md §5  origin.token=MIGRATION_BASELINE
 statement=absent  body=opaque  bodyBytesPreserved=true
 ```
@@ -273,6 +274,7 @@ declaredTotal=3
 - **Force:** HISTORICAL
 - **Date:** 2026-07-28
 - **Original Kind:** I
+- **Original Status:** ACTIVE
 - **Origin:** `DECISIONS.md` §6 at `MIGRATION_BASELINE`
 
 **Runtime audio must not require a client-embedded secret.**
@@ -283,7 +285,7 @@ The original invariant body remains byte-for-byte unchanged.
 addressing=name  id=absent
 blockKey=Runtime audio carries no client-embedded secret  file=archive
 kind=X  status=SUPERSEDED  force=HISTORICAL  date=2026-07-28
-originalKind=I  retiredId=absent
+originalKind=I  originalStatus=ACTIVE  retiredId=absent
 origin.section=DECISIONS.md §6  origin.token=MIGRATION_BASELINE
 statement=absent  body=opaque  bodyBytesPreserved=true
 ```
@@ -379,6 +381,11 @@ A live `P` entry carrying `Status: REVISIT` → `REJECT: STATUS_KIND`
 
 `**Declared total:** three entry blocks.` → `REJECT: DECLARED_TOTAL_SHAPE`
 
+### M19 — archive wrapper missing original status
+
+An otherwise valid archive wrapper that omits `Original Status`
+→ `REJECT: MISSING_FIELD`
+
 ---
 
 ## Conformance — parseable inputs that must fail cross-checking
@@ -433,5 +440,6 @@ A valid archive-index line points to a wrapper that does not exist
 
 ## Coverage note
 
-F1–F13 define successful parsing. M1–M18 exercise every parser rejection code. C1–C8 exercise every
-conformance finding code. F7/F8 and F12/F13 pin both archive addressing modes.
+F1–F13 define successful parsing. M1–M19 exercise every parser rejection code and pin the archive
+requirement to preserve original status. C1–C8 exercise every conformance finding code. F7/F8 and
+F12/F13 pin both archive addressing modes.

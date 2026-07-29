@@ -78,7 +78,8 @@ At minimum, expose typed operations sufficient for the checker to parse:
 - live `P`/`R` cores and attachments;
 - name-addressed `I`/`T` entries;
 - entry-index rows, the exact declared-total line, and deterministic block keys;
-- both ID-addressed and name-addressed archive wrappers with opaque verbatim bodies;
+- both ID-addressed and name-addressed archive wrappers with opaque verbatim bodies, preserving
+  `Original Kind` and `Original Status`;
 - archive-index lines for both addressing modes;
 - retired-identifier register rows;
 - statement sentence counts under the ratified boundary algorithm;
@@ -86,7 +87,7 @@ At minimum, expose typed operations sufficient for the checker to parse:
 - structured issues carrying the ratified parser and conformance reason codes.
 
 The public return shape is an implementation decision, but it must preserve every value asserted by
-F1–F13, distinguish every M1–M18 parser reason, and support every C1–C8 conformance finding. Do not
+F1–F13, distinguish every M1–M19 parser reason, and support every C1–C8 conformance finding. Do not
 collapse different reason codes into one syntax error.
 
 ### Sentence boundaries
@@ -157,7 +158,7 @@ migration grace mode to the checker.
 `npm run test:decisions-format` must cover all of the following:
 
 1. F1–F13 parse with every asserted value.
-2. M1–M18 reject for the stated parser reason, not merely any reason.
+2. M1–M19 reject for the stated parser reason, not merely any reason.
 3. C1–C8 produce the stated conformance finding code.
 4. Live and archive field vocabularies remain separate.
 5. Kind/status compatibility rejects `P + REVISIT`, `R + CONDITIONAL`, `I + PARKED`, and every other
@@ -166,7 +167,8 @@ migration grace mode to the checker.
 7. Index/body equality catches equal-count, different-member defects.
 8. Reordering distinct block keys between index and body produces `INDEX_ORDER_MISMATCH`.
 9. Name-addressed title collisions fail.
-10. Both archive addressing modes parse, join to their index lines, and preserve opaque body bytes.
+10. Both archive addressing modes parse, join to their index lines, preserve `Original Kind` and
+    `Original Status`, and preserve opaque body bytes.
 11. Allocation is checked over live + retired + never-assigned IDs, while the live set may be gappy.
 12. `Evidence`/`Owner` accept a tracked path and reject an untracked pseudo-path.
 13. The CLI reports multiple independent defects in one run and exits non-zero.
@@ -225,7 +227,7 @@ imported by the application build path.
 Return:
 
 - preflight results and `FORMAT_HEAD`;
-- a fixture matrix F1–F13, M1–M18, and C1–C8 with pass/rejection/finding code;
+- a fixture matrix F1–F13, M1–M19, and C1–C8 with pass/rejection/finding code;
 - negative-control and repaired-control outputs;
 - all §8 verification outputs;
 - the exact exported parser API;
