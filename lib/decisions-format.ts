@@ -1184,9 +1184,6 @@ export function parseArchiveDocument(text: string, source = "archive.md"): Parse
       if (originalKind && originalKind !== id?.[0]) invalid(`Original Kind ${originalKind} disagrees with ${id}`);
     } else {
       if (fieldResult.values.has("Retired ID")) invalid("Name-addressed archive wrapper forbids Retired ID");
-      if (originalKind && originalKind !== "I" && originalKind !== "T") {
-        invalid(`Name-addressed archive wrapper cannot have Original Kind ${originalKind}`);
-      }
     }
 
     const rawOrigin = fieldResult.values.get("Origin");
