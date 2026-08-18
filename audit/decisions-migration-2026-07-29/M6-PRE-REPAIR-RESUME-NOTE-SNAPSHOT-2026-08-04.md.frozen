@@ -1,0 +1,803 @@
+# Stage 2a Claude resume note
+
+**Updated:** 2026-08-01 · **Seat:** Architect
+
+## Next session — start here
+
+**Task: author M5.** Do not re-derive queue state and do not re-litigate routing; both were settled
+2026-08-01 and the outcome is recorded below.
+
+**No part of M5's content is specified in this section,** because the seat that wrote it had not read the
+governing sources. Read them before authoring:
+
+1. `DECISIONS-MIGRATION-COMMISSION-2026-07-29.md` — the M5 requirement itself: 13 archive-wrapper
+   records, archive-index lines, and the retired-ID register.
+2. `DECISIONS-MIGRATION-COMMISSION-AMENDMENT-1-2026-07-29.md`.
+3. `DECISIONS-MIGRATION-STAGE-2A-ARCHIVE-SPAN-HASHES-2026-07-29.md` — wrapper offsets, hashes, lengths.
+4. `DECISIONS-MIGRATION-STAGE-2A-PART-D-ARCHITECT-DRAFT-2026-07-29.md` — preparatory only, ruling 12.
+5. The manifest's own format specification and target §1 bytes.
+6. Standing rulings 1–32 in this note. Rulings 5, 12, 13, 18, 26, 27, 30, and 31 have each fired on a
+   prior authoring pass.
+
+M5 and M6 are authored in place above M7. The terminal `@@ASSEMBLY_CURSOR@@` is reserved for the derived
+date-occurrence report and is never the insertion point.
+
+**Routing settled 2026-08-01.**
+
+- **Architect seat:** M5, M6, adjudication of review returns, new standing rulings, and the Stage 2b
+  `DECISIONS.md` writes.
+- **The commission-required full 65-record and 13-wrapper constitutional review is barred to the Claude
+  seat** and routes to a GPT or Codex seat. Claude authored the M4 records, and producer≠checker attaches
+  to the seat that produced. This is a rule consequence, not a scheduling choice; it does not change if
+  Claude usage becomes available.
+- **Codex:** the Task 2 rerun over the 43 records at M4.2–M4.44; the Task 3 rerun or explicit
+  supersession; generation, mapping, validation, embedding, and re-derivation of the date-occurrence
+  report; post-assembly deterministic verification.
+- **Owner:** exact-byte ratification of the complete sentinel-free manifest.
+
+**Schedule constraint.** `MIGRATION_DATE` `2026-08-11` is a verification predicate on the Stage 2b content
+commit's author timestamp in `America/New_York`. As of 2026-08-01, M5, M6, the derived report, both Codex
+reruns, the post-assembly verification, the full non-author review, and owner ratification are all owed
+against ten days. Any further change to the bound value is an owner act. Once the first exact-byte
+ratification lands, a further change stops being a pre-ratification candidate supersession and becomes the
+full Amendment 1 Clause B procedure — manifest-only rebinding commit landed before the Stage 2b content
+commit, owner-ratified diff limited to the §3 date-dependent bytes, replacement manifest SHA-256
+superseding the earlier ratified authority, and the four-proof derived report across the rebinding.
+
+**Delegation clauses, drafted 2026-08-01, not owner-ratified.** Carry into any work order handed to a
+non-architect seat. They are drafting guidance until Luke approves exact wording, and none of them relaxes
+an existing floor.
+
+1. A spec that asserts what a command, script, or generator will produce must have that assertion verified
+   against the script's source by the checking seat, and the check reported as a named line item. Justified
+   by the Task 2 defect below: the producer satisfied a defective measurement contract perfectly.
+2. A floor may require a mechanism extension rather than another number. `VITAL_SANITY_MAX_OVERRIDES` is
+   ceiling-only.
+3. A null or zero result discharges feasibility only, never correctness.
+
+**Process note, not a standing ruling.** On 2026-08-01 the Claude seat's carried memory and a GPT review
+each reconstructed the remaining queue from context and each got roughly half of it wrong, in different
+places, while this note — already accurate, already on disk, and already stamped that day — went unread
+until late in the session. Read this note and the manifest before reasoning about state.
+
+## Cursor
+
+M4 records authored — **all 65 live blocks**, inserted at M4.2–M4.66 in
+`audit/decisions-migration-2026-07-29/target-text-manifest.md`. **All 65 live M4 records at M4.2–M4.66
+are authored and provisionally cleared.** M4.33–M4.38, M4.39–M4.44, M4.45–M4.50, M4.51–M4.56,
+M4.57–M4.63, and M4.64–M4.66 were each cleared on a confirming read after a `REVISE, narrowly`
+disposition and bounded repairs. **Codex returned `PASS — M4.64–M4.66 DETERMINISTIC CHECKS`, and no
+batch-local deterministic run remains owed.**
+
+**Target §§4–7 are structurally complete, and M4 is complete.** Target §4 carries 37 `P` blocks across
+25 distinct permanent identifiers, target §5 carries 6 `R` blocks, target §6 carries all 19 `I`
+entries, and target §7 carries all 3 `T` entries; all match the frozen nulls at M0.3. **No live block
+remains unauthored.** M5, M6, and the derived date-occurrence report are still owed.
+
+**Part A — 18 blocks at M4.2–M4.19:**
+
+`P1#0`, `P2#0`, `P2#1`, `P3#0`, `P4#0`, `P5#0`, `P5#1`, `P6#0`, `P7#0`, `P8#0`, `P10#0`, `P11#0`,
+`P15#0`, `P15#1`, `P16#0`, `P16#1`, `P16#2`, `P17#0`
+
+**Part B, provisionally reviewed — 13 blocks at M4.20–M4.32:**
+
+`P19#0`, `P20#0`, `P21#0`, `P21#1`, `P21#2`, `P23#0`, `P23#1`, `P23#2`, `P24#0`, `P25#0`, `P25#1`,
+`P25#2`, `P25#3`
+
+**Part B, provisionally reviewed after bounded repair — 6 blocks at M4.33–M4.38:**
+
+`P26#0`, `P27#0`, `P28#0`, `P29#0`, `P30#0`, `P31#0`
+
+**Part C, provisionally reviewed after bounded repair — 6 blocks at M4.39–M4.44:**
+
+`R1#0`, `R2#0`, `R3#0`, `R4#0`, `R5#0`, `R6#0`
+
+**Part C, provisionally cleared 2026-07-31 after bounded repair — 6 blocks at M4.45–M4.50:**
+
+`Producer assignments are operational state, not constitutional text` (`E038`),
+`Deterministic review routing for promoted opus-prefixed case IDs` (`E043a`),
+`Runtime audio carries no client-embedded secret` (`E054`),
+`Bilingual English and Simplified Chinese parity on all displayed text` (`E055`),
+`Topic labels are English-only` (`E056`),
+`JSON quote hygiene is a parse-time gate` (`E057`)
+
+These are the manifest's first name-addressed entries. They carry no permanent identifier, no
+attachment, and an index `ID` column of `—`.
+
+**Disposition: `CLEAR PROVISIONALLY`, returned by Codex 2026-07-31.** The batch first drew a
+`REVISE, narrowly` non-author review the same day, which verified branch, untracked population, the
+three `2026-08-11` occurrences, absence of any `MIGRATION_DATE` placeholder, the single sentinel,
+`D6`'s span exclusions, and the structural integrity of M4.2–M4.44, and which concurred with the
+`E043a` `Owner` omission and found the `E056` `Owner` retention defensible. Three required repairs
+landed, and the confirming non-author read cleared all three: the M4.45 span repair, the M4.47 repair,
+and the migration-date supersession header.
+
+1. **M4.45 item 14** — the one-byte span difference had been recorded as an unresolved discrepancy.
+   Part D §8.3 already resolves it: `[53203,53204)` is line 308, the following blank line, which the
+   preservation slice deliberately excludes because the archive supplies its own framing. Rewritten as
+   **Span distinction, resolved**; no preservation-boundary finding remains.
+2. **M4.47 item 12** — the `P20` "Deprioritized 2026-06-22" coincidence had been offered as a candidate
+   anchor. It dates `P20`, not this separate invariant. Removed as an anchor; the routed open action it
+   was replaced with is now itself discharged, see below.
+3. **Supersession record header** — "retained unaltered" contradicted its own §7. Now "retained
+   **otherwise** unaltered", naming the single inserted notice.
+
+**Deterministic results returned with the clearance, all conformant:**
+
+- **`E054` provenance established.** Class `GIT_INTRODUCTION`, from commit
+  `f7043be599b5665925b67b9e9c3a972e0eac1b6f`, authored `2026-06-22T18:14:46-04:00`, which introduces the
+  runtime-audio invariant itself — the no-live-key and no-client-embedded-secret rule, the Vite
+  plaintext and world-readable consequence, and the asset-presence `speechSynthesis` fallback. Its
+  parent carries none of those limbs; later commits reworked and relocated an already-existing rule.
+  `Date: 2026-06-22` is confirmed correct and unchanged, and it is now independently established rather
+  than retained under the `P7` correction's non-reopening scope. This supersedes the provenance report's
+  row 46 `RATIFIED_RECORD` / fixture `F05` label. **The Git-history action is closed.**
+- **Official sentence counts for M4.45–M4.50: 2 / 3 / 2 / 1 / 2 / 2.** All within the one-to-three
+  grammar; zero backtick sentence openers. **The owed rerun is discharged for this batch** — it does not
+  discharge the invalid Task 2 run over the other 43.
+- **Batch-local field-path population: two `TRACKED`, one `EXEMPT`** under Amendment 1 Clause A. Both
+  M4.46 supporting-rationale paths are tracked.
+
+**M4.45–M4.50 are provisionally cleared. The instruction not to continue to `E058` is discharged.**
+Provisional clearance authorizes manifest insertion only; it is not formal ratification, and it does not
+reduce the commission-required full 65-record and 13-wrapper review still owed before ratification.
+
+**Part C, provisionally cleared 2026-08-01 after bounded repair — 6 blocks at M4.51–M4.56:**
+
+`Question IDs are globally unique across bundled banks` (`E058`),
+`Raw-draft filename prefix routes to its canonical bank` (`E059`),
+`Canonical merges are deterministic and gated` (`E060`),
+`Runtime stays static, offline, and file-protocol compatible` (`E061`),
+`Schema versions are an ordered token, not semver` (`E062`),
+`Schema changes are rare and deliberate` (`E063`)
+
+**Disposition: cleared provisionally on constitutional content, 2026-08-01.** The batch first drew a
+`REVISE, narrowly` non-author GPT content review, which required one bounded repair — a grammatical
+repair to `E061`, whose statement now carries `Neither a server call nor a live model call occurs after
+build.` as its second sentence. The repair landed and a confirming GPT read cleared the repaired batch.
+
+**The three flagged restorations and the two `Owner` calls were all cleared as authored:**
+
+- `E058` correctly restores the gate-enforcement limb and retains `Owner: scripts/audit/audit-ids.ts`.
+- `E059` correctly restores `visual-canonical.json` as the only live visual generation target and
+  retains `Owner: lib/canonical-routing.ts` under ruling 28.
+- `E060` correctly retains `Owner: scripts/consolidate.ts`.
+- `E061`'s descriptive title and literal `file://` statement diverge by design, and the divergence is
+  valid.
+- `E062` correctly names `schemaVersionAtLeast` and the `SchemaVersion` union, and correctly omits
+  `Owner`, because the two executable limbs live in separate files.
+- `E063` is unchanged and correctly remains `ADVISORY`.
+
+**Codex's batch-local deterministic results, returned `PASS` on 2026-08-01:**
+
+- **Official sentence counts for M4.51–M4.56: 2 / 3 / 1 / 2 / 3 / 1.** All six satisfy the
+  one-to-three-sentence grammar; all six carry zero backtick sentence openers.
+- **Batch-local field-path population: three paths, all `TRACKED`** —
+  `scripts/audit/audit-ids.ts`, `lib/canonical-routing.ts`, and `scripts/consolidate.ts`.
+- **Repository shape at verification:** branch `codex/decisions-migration`; no staged changes; no
+  tracked worktree modifications; 30 untracked Stage 2a files; `DECISIONS.md` unchanged from both HEAD
+  and `MIGRATION_BASELINE`; exactly one append-point sentinel.
+- **The owed rerun is discharged for this batch only.** It does not discharge the invalid complete
+  Task 2 run, whose outstanding population remains the other 43 records at M4.2–M4.44.
+
+**This clearance authorizes continued manifest authoring only.** It does not ratify Stage 2a, does not
+authorize Stage 2b, does not authorize any edit to `DECISIONS.md`, and does not reduce the
+commission-required full 65-record and 13-wrapper review still owed before ratification.
+
+**Part C, provisionally cleared 2026-08-01 after bounded repair — 7 blocks at M4.57–M4.63:**
+
+`Shared visual numeric helpers have a single definition` (`E064`),
+`Case-study exhibit IDs share one namespace` (`E065`),
+`Category targets are the current test-plan weights` (`E066`),
+`Bank composition is a floor problem, not a balance problem` (`E067`),
+`Repository-state hygiene is mechanism-specific` (`E068`),
+`Some topics are deliberately shared across categories` (`E069`),
+`Highlight's structural bias gate is schema-level` (`E071`)
+
+**This batch completes target §6.**
+
+**Disposition: cleared provisionally on constitutional content, 2026-08-01.** The review sequence ran:
+(1) GPT returned `REVISE, narrowly`; (2) `E066` at M4.59 and `E071` at M4.63 had their `Owner` fields
+removed; (3) `E069` item 12 and standing ruling 32 were narrowed without changing any governed target
+byte; (4) a confirming GPT read cleared the repaired constitutional content; (5) Codex returned the
+batch-local deterministic `PASS`.
+
+**Five of the seven diverge from the draft by restoring a named identity the draft had described
+instead:** `fmt`/`fmtNum`/`roundTo` at `E064`, `caseStudy.exhibits` at `E065`,
+`NCLEX_CATEGORY_WEIGHTS` at `E066`, `floorThreshold` at `E067`, and `SHARED_TOPIC_CATEGORY` at `E069`.
+That the same defect recurred five times in one batch is itself the finding. It is `E062`'s defect, and
+the reviewer should test it as a class rather than five separate calls: in each case the draft's
+description was accurate and unenforceable, which is why it survived the draft's own review.
+
+**The three flagged calls were adjudicated.** `E068`'s repair of a widening stands — the draft's "agents
+reading through the forge" is restored to the source's `GitHub-reading` — and `E068` keeps
+`Owner: AGENTS.md`, the manifest's first markdown `Owner`. `E071`'s restoration of the positional-audit
+reason stands. `E066`'s `Owner` was removed; see the bounded repair below.
+
+**Bounded repair applied 2026-08-01, before any target §7 authoring.** Two `Owner` fields this batch
+first retained were removed on owner direction, and both removals rest on live reads made during the
+repair. `E066` at M4.59 loses `Owner: src/schema.ts`: the map is defined there, but
+`src/sessionSampler.ts` executes the weighted study draw and `scripts/coverage-report.ts` executes the
+generation coverage backlog, so no one path owns the complete statement. `E071` at M4.63 loses
+`Owner: src/schema.ts`: `scripts/audit/non-mcq-bias-lib.ts` defines the audited population as an
+`AuditedItemType` union that excludes `highlight` by omission, while
+`scripts/audit/non-mcq-bias-layer-b.ts` carries `highlight` for semantic review. Both are ruling 11
+dispositions, not ruling 28. **The authoring seat's original characterization of the `E071` audit limb
+as an unenforced fact was wrong and is withdrawn in place** — the exclusion is a line of code. No
+statement, title, index row, date, `Execution` field, or source span changed in either record. Standing
+ruling 32 was narrowed in the same pass.
+
+`E069` is the batch's substantive finding and is recorded at standing ruling 32.
+
+**Codex's batch-local deterministic results, returned `PASS` on 2026-08-01:**
+
+- **Official statement sentence counts for M4.57–M4.63: 1 / 2 / 2 / 2 / 2 / 2 / 2.** All seven satisfy
+  the one-to-three-sentence grammar; all seven carry zero backtick sentence openers.
+- **Governed field population: exactly five distinct `Owner` paths, all `TRACKED`** —
+  `src/visuals/primitives/graphPaper.ts`, `src/schema.ts`, `src/sessionSampler.ts`, `AGENTS.md`, and
+  `src/topics.ts`. `E066` at M4.59 and `E071` at M4.63 carry no `Owner`, and no record in M4.57–M4.63
+  carries an `Evidence` field. Rationale-only paths were correctly excluded from the governed
+  field-path population.
+- **Repository shape at verification:** branch `codex/decisions-migration`, no upstream configured;
+  zero staged changes; zero tracked worktree modifications; 30 untracked files, which under Codex's
+  narrower accounting is 29 Stage 2a working-set files — 28 `STAGE-2A-*` files plus the target
+  manifest — and one separate commission-amendment file; `DECISIONS.md` byte-identical to HEAD and to
+  baseline `d499cc1d0916e03830489ec9cd0324cd1a203a73`, size 76,314 bytes, SHA-256
+  `b22b3fffc058a5e84931ca1b14b08a1b7f1206d1ccd5154a7a7f1de8ad0f0d6e`; exactly one terminal
+  `@@ASSEMBLY_CURSOR@@`.
+
+**Scope of this clearance.** The batch-local deterministic obligation for M4.57–M4.63 is **discharged**.
+The earlier complete Task 2 run **remains invalid**, and the population still lacking a valid rerun
+returns from 50 to the other 43 records at M4.2–M4.44. The later commission-required complete 65-record
+verification remains fully required. This clearance does not ratify Stage 2a, does not authorize Stage
+2b, does not authorize M5 or M6 prematurely, and does not authorize any edit to `DECISIONS.md`.
+
+**Part C, provisionally cleared 2026-08-01 after bounded repair — 3 blocks at M4.64–M4.66,
+completing target §7:**
+
+`Translation-friction scoring` (`E045`),
+`Exam-condition test and adaptive modes` (`E046`),
+`Unresolved vital sanity bounds` (`E047b`)
+
+**Disposition: the non-author confirming review cleared the constitutional content and required one
+bounded repair, which has been applied.** The review clears `E045` and `E046` as authored, clears the
+`E047b` partition as authored, and accepts `Unresolved vital sanity bounds` as the correct
+name-addressed title, consistent with the existing Part C GPT review. The single required repair was to
+`E047b`'s date-provenance rationale; no target byte changed.
+
+**Codex's batch-local deterministic results, returned `PASS — M4.64–M4.66 DETERMINISTIC CHECKS` on
+2026-08-01:**
+
+- **Official statement sentence counts for M4.64–M4.66: 2 / 3 / 3**, all within the one-to-three
+  grammar, with zero backtick sentence openers.
+- **Field lines: exactly `Kind`, `Status`, `Force`, and `Date` on each record**, with zero governed
+  optional-field instances and zero governed paths.
+- **Structure:** `E045`, `E046`, and `E047b` in the correct order; 65 contiguous live M4 records; M5
+  and M6 unauthored; exactly one terminal manifest sentinel.
+- **Repository shape at verification:** branch `codex/decisions-migration`, no upstream configured;
+  zero staged and zero unstaged tracked changes; 30 preserved untracked files; `DECISIONS.md`
+  unchanged from HEAD and from baseline.
+
+**The batch-local deterministic obligation for M4.64–M4.66 is discharged.** Outstanding rows for the
+complete Task 2 rerun are **43**, the records at M4.2–M4.44.
+
+**Limitations preserved.** The earlier complete Task 2 run remains invalid, and a valid rerun over
+M4.2–M4.44 remains owed. The later commission-required complete 65-record verification remains owed, as
+does the complete constitutional-content review of all 65 live records and 13 wrappers. M5, M6, and the
+derived date-occurrence report remain unauthored; formal ratification and Stage 2b remain unauthorized.
+
+These are the manifest's only `T` entries. All three omit `Evidence`, `Owner`, and `Execution`, so the
+batch contributes **zero paths** to the governed field-path population.
+
+**Review dispositions and standing calls:**
+
+- **`E047b`'s partition is cleared as authored and remains the batch's main risk surface.** Nothing
+  ratified appears in the entry. The `temp` **floor** is here while the `temp` **ceiling** is at
+  `R3#0`, which is the boundary a later seat is most likely to collapse; and `sao2` is carried while
+  `spo2` is not, because they are different keys and only one was ratified.
+- **`E047b`'s title is accepted.** It diverges from fixture `F6`'s illustrative
+  `DBP and MAP ceiling sourcing`, which names a proper subset of the thread's scope.
+  `Unresolved vital sanity bounds` is confirmed as the correct name-addressed title.
+- **`E047b`'s date is independently established, and the earlier "only fixture-derived Part C date"
+  characterization was wrong and is withdrawn.** `2026-07-24`, provenance class `EXPLICIT_SOURCE`,
+  supporting source `S29`, confidence `HIGH`, with `C24` — commit
+  `35b968e9dab9fb071ccffc5497283f9cb138df1b`, `2026-07-24` — as corroborating Git history. `S29` is the
+  baseline at line 339 recording the Stage 3 closure on that date together with the DBP and MAP bounded
+  sourcing authorization this thread carries. **The manifest supersedes provenance-report row 65's**
+  `RATIFIED_RECORD` / `F06` / `FIXED` **classification**, which is non-authoritative; fixture `F06`
+  remains illustrative grammar evidence and is not the effective-date authority. Two inconsistencies
+  internal to that report support the supersession: row 42 classifies `E047a` from the same `S29` line
+  and the same date as `EXPLICIT_SOURCE` / `HIGH`, and the report's own `C24` note marks `E047b`
+  substantive while row 65's corroboration column omits `C24`. The `Date` field is unchanged.
+- **`E045` splits `topic/category-specific` into two axes** under ruling 17, and carries the revisit
+  condition's two conjuncts rather than merging them. Cleared as authored.
+- **`E046` restores the mode names `test` and `adaptive` into the statement** under ruling 27, together
+  with the forced `languageMode: "off"` and the three revealed surfaces the draft had dropped. Cleared
+  as authored.
+- **Ruling 32 was considered at `E045` and does not apply** — the instrument's three parts have no live
+  owner to compare against, so ruling 18 governs unmodified. Recorded because the two rulings will keep
+  meeting.
+
+Provisional clearance authorizes manifest insertion only. Nothing here is formally ratified. The
+M4.33–M4.38 batch received a `REVISE, narrowly` disposition; both required repairs landed, and a
+confirming non-author read cleared the repaired bytes on 2026-07-31. It carries three divergences from
+the reviewed drafts, recorded at rulings 23–25.
+
+The M4.39–M4.44 batch received `REVISE, narrowly`, limited to one provenance phrase in `R3#0` item 12:
+Pass 2, not the final frozen classification, recorded `E047c` as `X` / `REVISIT`. All six target
+statements and field dispositions cleared source comparison; the phrase was repaired and the confirming
+read cleared the batch. No new standing ruling was required.
+
+**Part A is provisionally closed.** Its assigned range was `P1#0` through `P17#0`, 13 cores and 5
+attachments.
+
+`P17#0`'s provisional clearance rests on the reviewing seat's conditional disposition of 2026-07-30,
+discharged by byte-exact application of the two corrections that seat supplied: the restored
+`rationale/dyad scoring` category in the statement, and this note's Task 3 repair. The reviewing seat
+has since checked the applied bytes on live disk.
+
+Next: **the valid Task 2 rerun over M4.2–M4.44**, and the commission-required complete review of the 65
+live records and 13 wrappers. M5, M6, and the derived date-occurrence report remain owed and are not
+authorized by any batch clearance. Prior context,
+under
+`DECISIONS-MIGRATION-STAGE-2A-PART-C-AUTHORING-WORK-ORDER-2026-07-31.md`, which is closed-world and
+supersedes this section's summary where the two differ — **except at its §7.1, whose
+`Archive/DECISIONS-ARCHIVE-2026-07-31.md` literal is stale;** see the `MIGRATION_DATE` section below.
+Target §7 is complete. Its three `T` entries are `E045`, `E046`, and `E047b` at M4.64–M4.66 in that
+order.
+
+The manifest now supersedes the Part C draft for all 28 Part C records; the draft and its GPT review
+remain historical inputs rather than construction authority. That review's Part C boundary reminders
+are inputs, not clearance: `E043a` carries only the live
+`opus*` routing rule and the `claude_*` exclusion; `R3`/`E047c` carries the copied-envelope finding,
+the 46.5 °C ceiling, and `EXECUTED`, excluding the temperature floor; `R5`/`E047a` carries the SBP
+400 mmHg and RR 150/min ceilings, the SpO₂ 0% floor, the bedside-and-charted population, and the
+fresh-survey prerequisite at `Execution: PENDING`, excluding DBP, MAP, temperature floor, and
+laboratory SaO₂; `E047b` carries only the unratified sides. `E038` is name-addressed, dated
+2026-07-28 per the owner override, and is the one entry whose `Evidence` may pin a Stage 2b output
+under Amendment 1 Clause A.
+
+Do not treat the Part B draft's body as current or post-repair — it is stale in all nineteen records it
+carries, every one of which the manifest now supersedes. The live-source packet is ordered by source entry ID, so `E044` sits at
+packet entry 36 rather than beside `E018`, and `E032` and `E036` are archive wrappers rather than live
+blocks.
+
+**Operative review method, retained for the complete 65-record review.** No further M4 authoring batch
+exists. When reviewing any compressed source, enumerate every operative source limb and account for
+each one explicitly as retained in the target statement, carried by another identified target entry, or
+superseded by a named later source. A limb absent from both the target statement and every other
+target entry is deleted, not compressed.
+
+**Standing citation dependency.** `P20#0` carries the manifest's first name-addressed citation, `I:`
+plus the backtick-delimited runtime-audio invariant title. If that title changes during Part C review,
+this citation changes with it.
+
+**Open flag carried into the next review — `P23#0`. Closed.** The record dropped four live limbs: the
+per-part-submit and true-unfolding deferral with its named revisit condition; `flags` and `adaptive`
+from the top-level-identity list; and always-visible global exhibits from stage visibility. All four
+passed the Part B draft's own independent review. The producer seat flagged the first; the reviewing
+seat found the other three on a final read and restored all four on 2026-07-30. The lesson generalizes
+and is recorded at standing ruling 18.
+
+**Open flag carried into the 2026-07-31 review — `P25#2`'s `Evidence`. Closed.** M4.31 removed
+`Archive/root-cleanup-2026-07-19/VITALS-TREND-EPIC-STYLE-UNIFIED-CHART-CODEX-SPEC-2026-07-19.md` from
+`Evidence`, against the Part B draft, the Part D omission table, and the 2026-07-29 review that
+accepted both. The reviewing seat cleared the removal on 2026-07-31 on the live file: that spec
+authorizes an A/B experiment and is "not a reversal of any principle," records that the composite-trend
+clause stays as written, and pins Route C with no visible flowsheet in ordinary use — so it is not
+merely incomplete support for the migrated statement but the wrong authority for it, `E028` being the
+later amendment that ratifies the visible flowsheet. Because `Evidence` is optional, omission beats a
+materially misleading pointer. The lesson generalizes and is recorded at standing ruling 19.
+
+`H8` returned `PASS` on 2026-07-30. The M4–M6 assembly pause is discharged and its stale pause language
+has been removed. M0.4 is filled and contains no surviving measurement sentinel. The manifest contains
+exactly one surviving sentinel: the terminal append-point sentinel reserved for the derived
+date-occurrence report.
+
+## Formal ratification gate
+
+Formal Stage 2a ratification occurs only on the complete, sentinel-free manifest bytes and only after
+all of the following:
+
+1. M4, M5, and M6 are complete.
+2. The derived date-occurrence report is generated, mapped, validated, embedded, and re-derived.
+3. Codex completes the post-assembly deterministic verification.
+4. A non-author seat performs the full constitutional-content review of all 65 live records and all 13
+   archive wrappers.
+5. Luke ratifies the complete exact manifest bytes.
+
+Provisional batch review is not formal ratification. No count of cleared batches advances the gate, and
+no batch clearance authorizes Stage 2b or any edit to `DECISIONS.md`.
+
+## In-place assembly rule
+
+M4, M5, and M6 are authored in place above M7 in
+`audit/decisions-migration-2026-07-29/target-text-manifest.md`.
+
+The terminal append-point sentinel is reserved for the derived date-occurrence report. It is never the
+insertion point for M4, M5, or M6.
+
+## Open deterministic defect — Codex Task 2 is invalid
+
+The deterministic-prerequisites results of 2026-07-30 report `P16#0` at two statement sentences. The
+real exported `countStatementSentences` returns three against the unchanged Part A source: `…permutation.`
+followed by a space and an uppercase `D`; `…canonical items.` followed by a space and an uppercase `I`;
+and a terminal `…remediation.`
+
+Three sentences is grammar-conformant, so no record is blocked. What is blocked is the run's
+`Blocks outside {1,2,3}: none` claim, because the same extraction could undercount a four-sentence
+statement to three, which is the direction that fails.
+
+**Task 2 is therefore treated as invalid rather than as one wrong row.** Codex must rerun the complete
+65-row command and retain raw stdout before any `PASS` or `GREEN` disposition is restored. The current statement bytes at M4.28–M4.43 differ from the Part B or Part C draft text that run
+measured and carry no measured count tied to those bytes. `M4.44` keeps the Part C draft's wording but
+rewraps one line, so it is not byte-identical either; its measured count is nonetheless unaffected,
+because `countStatementSentences` tests `/\s/u` at a candidate boundary and therefore admits a newline
+exactly as it admits a space. It remains in the complete rerun population because the run itself is
+invalid. The corrected
+distribution is provisionally 1 = 5 / 2 = 24 / 3 = 36, and that holds only if no other row is wrong.
+Task 1 is unaffected by this defect. Task 3's per-path verdicts survive it too, but Task 3 is
+separately stale for an unrelated reason recorded at standing ruling 11.
+
+## Standing rulings from the Batch 1–4 sessions
+
+1. **Order adopted at M4.0.** The block-grouping worksheet §5 candidate order was explicitly adopted by
+   the architect seat rather than inherited from the scaffold.
+
+2. **Item 13 uses the two-part form.** Every `E037` merge record shows the source rule and the exact
+   carrying clause in the target statement, byte-exact through terminal punctuation. Applies to `P2#0`,
+   `P5#0`, and `P8#0`.
+
+3. **Item 14 carries every contributing source span**, not only the primary source entry.
+
+4. Use “legacy anchor line”, not “legacy line,” because a cited range may extend beyond the named
+   physical line.
+
+5. Every `Authorized`, `Not authorized`, `Evidence`, `Owner`, and `Execution` field occupies exactly one
+   physical line. Statement paragraphs may wrap; field lines may not.
+
+6. **Item 12 rationale normally runs two to three sentences.** It is manifest review evidence, not
+   governed target text.
+
+7. **Migration may not silently widen scope.** `P7#0`'s proposed “audit or review” wording was rejected.
+   Expanding a governed population requires affirmative owner ratification.
+
+8. **`E037` rule 2 carries the same scope and obligation in `P2#0` and `P5#0`:**
+
+   `every active generation lane declares its producer provenance and its independent-review routing.`
+
+   Preserve sentence-position capitalization in the exact target clause: uppercase at the beginning of
+   the `P2#0` sentence and lowercase inside the `P5#0` sentence. The two clauses are therefore not
+   byte-identical, and item 12 on `P5#0` says so.
+
+9. **`P6#0` omits `Evidence`** because no single eligible tracked repository path supports the complete
+   statement. Partial support from `AGENTS.md` does not satisfy the complete-statement policy.
+
+10. **`P5#1` may generalize the constitutional floor to named-model policy** because `P31` separately
+    carries the current model-specific restrictions.
+
+11. **A tracked path that owns the mechanism does not earn `Owner` if it does not own the whole
+    statement.** `P15#1`'s `Owner` was removed even though `scripts/patch-raw.ts` is tracked and owns
+    the field-path mutation mechanism, because the third sentence carries the `P26` preserved-surface
+    proof, which is enforced independently of the operation's own declaration and whose surface is named
+    per work unit. This is the same complete-statement standard applied to `P6#0`'s `Evidence`. `P15#0`
+    keeps its `Owner`. Consequence: the deterministic-prerequisites Task 3 artifact is now stale. It
+    still records 25 path rows and 24 `TRACKED`, and it still carries `P15#1` and `P25#2` rows; after
+    both removals the current population is provisionally 23 rows and 22 `TRACKED`. Task 3 must be rerun or explicitly superseded
+    before its artifact is treated as current. The surviving per-path verdicts for the remaining paths
+    are unaffected.
+
+12. **The Part A–D drafts are preparatory, not authorities.** Where the manifest diverges from a draft's
+    field list or omission register, the manifest governs and the record states the supersession
+    explicitly.
+
+13. **An omission the drafts never considered is still an architect decision that must be reasoned in
+    place.** `P15#0` and `P15#1` had no rows in Part A's omission register; their `Evidence` omissions
+    are decided in the manifest and say so.
+
+14. **A retained advisory consequence is not compressible.** `P16#1` restored “per-file distributional
+    verdicts remain authoring-hygiene advisories only,” because the disposition of per-file verdicts is
+    a live rule and is not derivable from the non-inheritance clause alone.
+
+15. **A name-addressed citation is delimited by backticks, not quotation marks.** The target-mode
+    matcher in `scripts/decisions-reference-graph.ts` is:
+
+    ```
+    /(^|[ \t\v\f(\[{])([IT]): (`+)(.+?)\3(?=$|[ \t\v\f.,;:!?)\]}])/g
+    ```
+
+    The title must sit inside a backtick run; the citation must be preceded by start-of-line or one of a
+    small whitespace/bracket set, and followed by end-of-line or one of a small punctuation set. A
+    quoted title produces no citation edge while looking like one, which is worse than a plainly
+    descriptive reference. The citation must also not be split across a physical line, because the
+    matcher runs per line.
+
+16. **A statement that asserts two things differ must say in what respect.** `P19#0`'s third sentence
+    was replaced because stating only that the two traversals are separate left no checkable rule; the
+    membership fact — rationale figures inside the shared projection, outside the census population —
+    is what the separation means.
+
+17. **A slash-joined source pair is two limbs until proven otherwise.** `P21#0` restored “clinical scope
+    and monitorability” after a draft merged them into “clinically monitorable stems.” Compare
+    `P17#0`'s `rationale/dyad scoring`, where the slash pair is a single named family and must not be
+    split. Neither shape is decidable from the punctuation; both require reading the source.
+
+18. **A deferral with a named revisit condition is a live scope boundary, not chronology; and an
+    enumerated source list is carried complete or not at all.** Both are the same defect class — the
+    dropped live limb — which is the dominant defect of this session. Confirmed instances: `P16#1`'s
+    advisory-only disposition of per-file verdicts; `P17#0`'s `rationale/dyad` category; `P19#0`'s
+    membership fact; `P21#0`'s clinical-scope limb; and, in `P23#0` alone, four — the per-part-submit
+    deferral, `flags` and `adaptive` dropped from the top-level-identity list, and always-visible global
+    exhibits dropped from stage visibility.
+
+    `P23#0` is the cautionary case. All four of its omissions passed the Part B draft's own independent
+    review, and each was found only by reading the source against the target limb by limb. Fluent,
+    plausible compression is exactly what this defect looks like from the outside.
+
+    **Method.** Enumerate the source's operative limbs before compressing, and account for each one as
+    retained, carried by another identified target entry, or superseded by a named later source. A limb
+    absent from both the target statement and every other target entry has been deleted, not compressed.
+
+19. **A clause-scoped source citation is not whole-entry `Evidence`.** Where the legacy text attaches a
+    path to one clause with `per <path>`, promoting it to the entry's `Evidence` asserts support the
+    source never gave. `P25#2`'s `Evidence` was removed on that ground and on the stronger one that the
+    cited document ratifies the opposite of a limb the statement carries. Test a candidate against the
+    whole statement and against the document's own scope statement, never against its title.
+
+20. **A superseding amendment must say what it does not supersede.** `P25#2` restores two bounding
+    limbs the draft dropped: the superseded panel geometry is retained as the fallback arm, which is
+    what makes the supersession one of the default only, and every fence of the core carries over
+    unchanged. Without them the amendment reads as unbounded, and the bound is the part a later reader
+    needs.
+
+21. **A term of art carries its definition or it carries no rule.** `P25#0` restored the definition of
+    a value-complete artifact as one already carrying every exact value the item turns on, the
+    single-timepoint-tally discriminator that makes the artifact-level gate checkable, and the
+    pattern-only rule for item briefs on a waived kind. A statement that uses a defined term while
+    dropping its definition is fluent and unenforceable, which is ruling 18's defect in a different
+    coat.
+
+22. **Where a source expressly scopes a neighbouring principle away from a limb, that limb is carried
+    here or it is deleted.** `E027` says sparse cardinality is not a validity floor for composite trend
+    artifacts, and says in the same breath that this does not run under `P29`, which stays scoped to
+    `lab_trend` and `structured_labs_panel`. The draft dropped the limb entirely and nothing else
+    carries it, because the source itself forecloses the obvious carrier. A source that pre-empts a
+    cross-reference is signalling that the limb is load-bearing, not redundant.
+
+23. **`Owner` and `Evidence` have different tests, and target §1 now says so.** This ruling refines the
+    complete-statement language **for `Evidence` only**; `Owner`'s whole-statement test at ruling 11 is
+    untouched and still governs. `Owner` names the one tracked path that owns the whole live statement.
+    `Evidence` names the one tracked source carrying the evidence, measurements, provenance, or method
+    the statement is forbidden to restate, and it may not contradict or materially misrepresent any
+    limb the statement keeps. M2's target §1 bytes previously imposed one whole-statement test on both
+    fields, which their different jobs cannot both satisfy; that contradiction was repaired on
+    2026-07-31 and is now M2's third recorded legacy-prose defect. `P29#0` and `P30#0` retain
+    `Evidence` under the corrected text, each verified by reading the cited file on live disk. `P6#0`,
+    `P26#0`, `P27#0`, and `P28#0` still omit it, because no tracked file carries their compressed-out
+    substance. **This does not reopen `P25#2`,** whose removal rests on contradiction and
+    clause-promotion and fails under either reading — ruling 19 survives intact as the
+    anti-contradiction rule. Where the evidence document does not record a limb the statement keeps —
+    `P30#0`'s anticoagulation disposition — that limb is stated in the entry rather than delegated,
+    and the record says so.
+
+24. **A ruling's closing non-authorization goes in `Not authorized`, not into compression.** Format
+    specification §2's field table makes `Not authorized` optional free text with no force
+    restriction, so a `BINDING` `P` may carry it; fixture `F1` already demonstrates one on a `P25`
+    block. `P29#0`'s "authorizes no schema, bank-content, renderer, or runtime change" and `P30#0`'s
+    unauthorized learner-visible flag were dropped by the reviewed draft and are restored into that
+    field. This keeps the statement inside the one-to-three-sentence grammar without deleting a live
+    boundary, and it is why `Evidence` can qualify on both entries under ruling 23.
+
+25. **A conjunction is scope, and so is a predicate — repairing one is not licence to restate the
+    other.** `E074` rejects a row whose reconciliation "is not pair-specific **and** does not quote the
+    keyed rule." The Part B draft rendered the connective as "or," which widens the auto-reject
+    population. This seat repaired the connective and, in the same sentence, restated the second test
+    as "a quotation of" the rule — which narrows it, because a reconciliation may quote the rule
+    without being a quotation. The reviewing seat caught the second drift on 2026-07-31; `P31#0` now
+    carries both operative tests and their conjunction in the source's own words. This is ruling 7
+    operating at the level of single words, which is where it is hardest to see, and the near-miss is
+    the lesson: **a seat rewriting a clause to fix one drift is at its most likely to introduce
+    another,** because it is already touching bytes it had decided were load-bearing.
+
+26. **Do not begin a statement sentence with a backtick.** The exported `countStatementSentences`
+    splits on a terminal period followed by whitespace and an uppercase letter, so a sentence opening with
+    a backticked identifier is not counted and a three-sentence statement measures as two.
+    Undercounting is the direction that fails. **Precision added 2026-07-31 from a live read of
+    `lib/decisions-format.ts`:** the boundary test is `/\s/u`, not a literal space, so a sentence
+    boundary that falls at a line wrap still counts and no statement needs rewrapping to measure
+    correctly. The backtick hazard is unchanged, because the character examined after the whitespace
+    run must be uppercase and a backtick is not. `P28#0` was reworded to open "A `case_study` is a
+    delivery container" for this reason. Found 2026-07-31 while authoring M4.35; it is an authoring
+    hazard rather than a governance rule, and it is recorded here because this list is what a seat
+    actually reads.
+
+27. **A limb that survives only in the title has left the governed text.** A name-addressed title is a
+    citation identity and an index summary; it is not the statement, and the format checker never reads
+    it as one. The Part C draft for `E057` moved the parse-time-gate limb into the title and dropped it
+    from the statement, which reads as complete because the reader has just seen the heading. Restored
+    at M4.50 as the statement's first clause. **Test:** cover the heading and reread the statement; if a
+    rule disappears, it was never in the entry. Found 2026-07-31 while authoring the first
+    name-addressed batch, and it is a hazard specific to `I` and `T`, where title and statement say
+    similar things.
+
+28. **Ruling 11 turns on independent enforcement, not on coverage.** `Owner` is defeated by an outside
+    limb that has **its own enforcement surface in another tracked path** — which is what `P15#1`'s `P26`
+    preserved-surface proof had. It is not defeated by a clause that has no enforcement surface anywhere,
+    such as a classification or a stated reason. `E056` keeps `Owner: src/schema.ts` on that ground at
+    M4.49, even though the file cannot enforce "a navigational label rather than study content"; if
+    rationale defeated `Owner`, no entry carrying its own reason could ever hold the field. `E043a` loses
+    `Owner` at M4.46 on the opposite ground: its `claude_*` reviewer-routing limb is enforced by
+    `reviewerFor` in `scripts/audit/build-audit-batch.ts`, a different tracked path. Both calls are
+    flagged in place for the non-author reviewer rather than presented as settled.
+
+29. **Narrowing a term is the same defect as widening a population.** The Part C draft rendered the
+    source's `CJK` as "Chinese" for `E056`. `src/schema.ts` rejects on "no CJK characters", which is
+    broader than Chinese, so the draft's wording would have shrunk a governed population by a word.
+    Ruling 7 forbids widening without owner ratification; the mirror case needs saying out loud, because
+    narrowing looks like precision. **A migration may not resize a governed population in either
+    direction.** Related to ruling 25's near-miss, and found the same way: by reading the code the
+    statement describes rather than the draft that describes the code.
+
+30. **Manifest prose must not gratuitously restate the migration date.** Manifest M7.5 already forbids
+    the derived report from carrying literal dates, so the report cannot become its own occurrence
+    population. The same logic binds record rationales: a date literal typed into item 12 creates a
+    date-dependent span that some `D` family must then claim and some future re-render must then find.
+    This seat introduced one while authoring M4.45 and removed it in the same session. **Refer to the
+    field line; do not repeat its value.** The corollary is `D6` itself: a date-dependent surface can
+    live in the manifest's own governance prose, not only in target output, and a family set derived
+    from target-document surfaces alone will under-cover the census.
+
+31. **Search the governing draft for the question before recording it as open.** M4.45 recorded a
+    one-byte span difference as an unresolved preservation risk. Part D §8.3 had already resolved it in
+    terms — the extra byte is the following blank line, which the preservation slice excludes because
+    the archive supplies its own framing. The authoring seat had Part D open and read §1.2 for the
+    statement and §8.1 for the date surfaces, but never searched it for the span question the record
+    itself was raising. **Reading a draft for what your record needs is not the same as searching it for
+    what your record doubts.** A finding recorded as open when the governing draft has closed it is not
+    a harmless excess of caution: it spends a reviewer's attention, and it invites a later seat to
+    "resolve" a settled boundary. Found by the 2026-07-31 non-author review of M4.45–M4.50.
+
+32. **A source-listed set is compared with its live owner before it is migrated.** `E069`'s source
+    names `Skin & Wound Care` and `Transfusion & Blood Products` as the shared topics. A live
+    read of `src/topics.ts` found `SHARED_TOPIC_CATEGORY` holding **eight**, so migrating the source's
+    pair into the target statement would have frozen a stale subset and narrowed the governed population
+    by six. That is ruling 29's defect reached through **fidelity to the source** rather than through
+    paraphrase, which is why the usual defence — that the target says what the source says — does not
+    answer it. **Rule:** where a source list corresponds to live data owned by a tracked path, compare
+    the list with the live owner; if the populations differ and the target entry states a current
+    invariant, name the owned container and let `Owner` locate it rather than freeze the stale source
+    subset. **This licenses no inference that a list capable of later growth was illustrative when
+    written.** The source's pair may have been the entire population on the day it was authored, and the
+    entry is repaired because the population moved, not because the source was loose. Ruling 18 still
+    governs a list with no live owner to compare against, so the comparison is the step that decides
+    which ruling applies, and it cannot be replaced by reading the punctuation. Found 2026-08-01 while
+    authoring M4.62.
+
+## MIGRATION_DATE — RESOLVED by owner act, 2026-07-31
+
+**`MIGRATION_DATE` is `2026-08-11`.** Bound by Luke (owner) on 2026-07-31, superseding the `2026-07-31`
+candidate bound on 2026-07-30. Record:
+`DECISIONS-MIGRATION-STAGE-2A-MIGRATION-DATE-SUPERSESSION-2026-07-31.md`. The 2026-07-30 binding record
+is retained unaltered apart from a superseded-by notice; the prior owner act is not rewritten.
+
+**Act class: pre-ratification candidate supersession, not a Clause B rebinding.** The owner ratified a
+clarification to Amendment 1 Clause B on 2026-07-31 confirming that the rebinding procedure — the
+manifest-only rebinding commit, the replacement manifest SHA-256 superseding an earlier ratified
+authority, both ratification records, and the four-proof derived report across the rebinding — attaches
+only on and after the first owner ratification of exact manifest bytes, and does not apply before an
+initial ratified manifest authority exists. Exact clarification text: supersession record §3.1.
+
+**Surfaces re-rendered: exactly two,** both in the manifest header region — the `MIGRATION_DATE` binding
+declaration and the M0.1 normalized-archive filename, now `Archive/DECISIONS-ARCHIVE-2026-08-11.md`.
+**No completed M4 record changed,** because none of M4.2–M4.44 contained a migration-date occurrence, so
+no provisionally cleared batch is reopened. `E038`'s `Evidence` at M4.45 was authored directly against
+the new candidate rather than re-rendered, and is byte-identical to the M0.1 pin.
+
+**Census repair.** Family **`D6` — manifest header `MIGRATION_DATE` binding declaration** was added at
+manifest M7.2a by owner direction. `D1` covers archive-filename occurrences other than `D5`'s and did
+not claim the header's bare token; no other family did either. `D6` claims the bound-value span only,
+not the owner-act date on the same line, which is fixed. `D6` is a family definition; the
+completed-manifest census expands it into concrete rows and no count is hand-authored.
+
+**Downstream staleness.** `DECISIONS-MIGRATION-STAGE-2A-PART-C-AUTHORING-WORK-ORDER-2026-07-31.md` §7.1
+pins `Archive/DECISIONS-ARCHIVE-2026-07-31.md`. That work order is **immutable during execution** and is
+not edited; its July 31 literal is stale and superseded by this owner act. The supersession is recorded
+here because this note is the work order's own designated mutable status log.
+
+**The predicate is still a predicate.** `2026-08-11` is a candidate, checked against the Stage 2b content
+commit's author timestamp in `America/New_York` and re-checked at the final pre-merge state. It is never
+reconciled by editing the filename alone. No seat may select, infer, or default a further replacement;
+any further change is again an owner act.
+
+### The finding that forced the supersession, retained
+
+Under `DECISIONS-MIGRATION-STAGE-2A-MIGRATION-DATE-BINDING-2026-07-30.md` §2 the binding is
+a **verification predicate on the Stage 2b content commit's author timestamp** in `America/New_York`,
+not a derivation. As of this record, 22 live blocks remain unauthored, and M5, M6, the derived
+date-occurrence report, Codex's post-assembly deterministic verification, the full 65-record and
+13-wrapper non-author review, and the owner's exact-byte ratification are all still owed. The predicate
+will therefore not hold for a `2026-07-31` author date.
+
+Why this needs an owner decision rather than drift:
+
+- §2: the predicate “is never reconciled by editing the filename alone.”
+- §5: a rebinding requires a manifest-only rebinding commit landed **before** the Stage 2b content
+  commit, an owner-ratified diff limited to the §3 date-dependent bytes, a replacement manifest SHA-256
+  superseding the earlier one, and all of it recorded in the migration receipt.
+- §5: rebinding is permitted only until repository conformance is accepted. After that it requires a new
+  commission.
+- The cost grows with every date-dependent record authored. `E038`'s `Evidence` is date-dependent
+  surface D5, so the `M4.45` record is re-rendered on any rebind.
+
+## Repository-state warning
+
+Every Stage 2a artifact — this note, the manifest, the Part A–D architect drafts, the live-source
+packet, the commission amendment, the GPT review files, and the deterministic-prerequisites results —
+is **untracked** in the local `codex/decisions-migration` worktree. None of it is recoverable from the
+recorded branch HEAD `05f9bcdddf9ce92f80bcd05fb5c4c5399fd466d5`, and none of it exists on any remote.
+
+The next session must not run any cleanup, reset, checkout, stash, or `git clean` operation, must
+preserve every untracked migration file, and must not assume this work is recoverable from git. Losing
+the worktree loses the whole of Stage 2a.
+
+## Inputs already on disk
+
+No further Codex measurement is owed for authoring the M4 live-block records. Codex's post-assembly
+deterministic verification remains owed, and the Task 2 rerun above is now owed as well.
+
+Available inputs include:
+
+- Header pins `H1`–`H9`, inserted at M0.4.
+- Archive-wrapper offsets, hashes, and lengths in
+  `DECISIONS-MIGRATION-STAGE-2A-ARCHIVE-SPAN-HASHES-2026-07-29.md`.
+- `Evidence`/`Owner` existence and trackedness results in the deterministic-prerequisites output, whose
+  population, totals, and `P15#1` row are stale after the `Owner` removal recorded at ruling 11.
+  Sentence counts in that same output are under the Task 2 defect above and must not be relied on.
+- Statements, fields, index rows, block keys, and omission candidates in the Part A–D architect drafts.
+- Legacy byte spans and verbatim source in `DECISIONS-MIGRATION-STAGE-2A-LIVE-SOURCE-PACKET-2026-07-29.md`.
+- `E037` rule spans and text in the candidate-regions file.
+
+## Review status
+
+All sixty-five M4 records at M4.2–M4.66 carry provisional non-author clearance. M4.33–M4.38, M4.39–M4.44,
+and M4.45–M4.50 were each cleared on 2026-07-31, and M4.51–M4.56, M4.57–M4.63, and M4.64–M4.66 on
+2026-08-01, in
+every case after a `REVISE, narrowly` disposition and a confirming read of the repaired bytes;
+M4.45–M4.50, M4.51–M4.56, M4.57–M4.63, and M4.64–M4.66 each carry Codex's batch-local deterministic
+results.
+Producer≠checker attaches to whichever
+seat produced, never to a model name, so the seat that authors a batch never clears it and a later
+Claude instance reviewing its predecessor's output does not satisfy the rule.
+
+The commission-required full constitutional-content review of the complete 65-record, 13-wrapper
+manifest has not occurred and remains owed before ratification. Batch review does not certify the
+complete manifest or eliminate that final review.
+
+Every remaining target statement is architect-authored compression and must receive non-author review
+before formal ratification.
+
+## Resuming efficiently
+
+A fresh session does not need to reload the entire workstream.
+
+For a review or verification pass, after reading this note and the current manifest, read only:
+
+- the relevant block range in the Part draft covering those blocks; and
+- the corresponding source entries in
+  `DECISIONS-MIGRATION-STAGE-2A-LIVE-SOURCE-PACKET-2026-07-29.md`.
+
+Read forward into the packet for the range under review rather than loading it whole. Read additional
+provenance, omission, or path material only when a record requires it.
+
+## Read order before resuming
+
+1. `AGENTS.md`
+2. `PROJECT-HISTORY.md`
+3. `DECISIONS.md`
+4. `NCLEX-Question-Schema.md`
+5. `CLAUDE.md`
+6. `DECISIONS-MIGRATION-COMMISSION-2026-07-29.md`
+7. `DECISIONS-MIGRATION-COMMISSION-AMENDMENT-1-2026-07-29.md`
+8. This resume note
+9. `audit/decisions-migration-2026-07-29/target-text-manifest.md`
+10. The Part draft and live-source-packet entries relevant to the records under review
