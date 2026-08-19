@@ -13,7 +13,8 @@
 - Commit 1: `5b4d2fd8c76d1af94400322882d7a7c709704ed6` — ratified manifest and initial migration governance/evidence population.
 - Commit 2: `4511821448d7f0d643164be83009fc8013ed8977` — decisions-format parser/fixture regression.
 - Commit 3: `345d0d9b72cd97b5f72bde29cd7822e96c94e8b7` — migrated `DECISIONS.md` and archive content.
-- Commit 4: the single authorized closeout commit containing the owner-ratified supplementary census and the remainder of Instrument C; its final identity is returned in the post-commit execution record.
+- Commit 4: the single authorized closeout commit containing the owner-ratified supplementary census and the remainder of Instrument C; its identity is `32388990417222891730cd24113df12fdc779b15`.
+- Commit 5, the closeout-evidence repair commit authorized by Amendment 6 Clause A, carries this repair. Per Clause A, its own identity is not recorded inside itself and is durably held by Git.
 - The frozen Instrument C Revision 2 identity was verified before execution: 25,076 bytes / SHA-256 `6b4d2d7783a9f53478e1775812d0570f0439ab54f4524c7eaddb28b22fa52791` for `DECISIONS-MIGRATION-STAGE-2B-CLOSEOUT-AND-COMMIT-4-WORK-ORDER-2026-08-18.md`.
 
 Instrument A Revision 2 returned and was adjudicated `ACCEPT` by the Claude architect seat. Instrument B entered after that A `ACCEPT`, returned `ACCEPT`, and was adjudicated `ACCEPT` by the Claude architect seat. The architect's separate commission §8.1 disposition is recorded below as `ACCEPT — commission §8.1 only`. These are prerequisite dispositions, not Amendment 5 Clause C acceptance.
@@ -76,7 +77,7 @@ Expected-delta comparison: P8 `LAPSED → LIVE`; P9/P12/P18/P22 `LAPSED → RETI
 
 ## Determinism and focused gates
 
-Instrument A Revision 2 returned a successful two-run determinism result: both runs used the same throwaway Commit-3 measurement root, differed only in `generatedAt`, and the normalized outputs were byte-identical. The exact Run-1 and Run-2 raw and normalized digests are part of the Instrument A execution return supplied to the owner; the retained Run-2 identity is recorded above. No new graph generation is performed by Instrument C because the commissioned retained artifact already exists and is not overwritten by this order.
+Instrument A Revision 2 returned a successful two-run determinism result: both runs used the same throwaway Commit-3 measurement root, differed only in `generatedAt`, and the normalized outputs were byte-identical. The exact Run-1 and Run-2 raw and normalized digests are: Run 1 raw SHA-256 `2d65ec79cacf35f960488e4e8c72829bf93e692f2833197214d39925f62053b7`; external Run-1 copy `/tmp/shrimp-postmig-run1-20260818191919.json`; `cmp` fidelity proof exit `0`; copy removed: yes; Run 2 raw SHA-256 `83d2af3b508eb6b83252f695e0df3295e55ab7388f0e5ad44534fa3972c46b1d`, identical to the retained-artifact identity already recorded in this receipt; Normalized Run 1 SHA-256 `9adc5aaf073dcee0350675fa07e9b07c54949ff2b506969170e47430cc4d5c57`; Normalized Run 2 SHA-256 `9adc5aaf073dcee0350675fa07e9b07c54949ff2b506969170e47430cc4d5c57`; non-`generatedAt` differences: `0`. No new graph generation is performed by Instrument C because the commissioned retained artifact already exists and is not overwritten by this order.
 
 Focused checks carried into this receipt:
 
@@ -95,9 +96,31 @@ Focused checks carried into this receipt:
 
 ## Full repository gate
 
-The live `.github/workflows/promotion-gate.yml` was read. Its steps are: `npm ci`; `npm run test-visuals`; `npm run audit`; `npm run test:validate-sweep`; `npm run test:non-mcq-bias`; `npm run test:schema-bank`; the grouped `npm run test:flowsheet-gate`, `npm run test:structured-measurements`, and `npm run test:structured-measurements-applicator`; `npm run test:coverage-report`; `npm run census:check`; and the final `npm run test:decisions-format` plus `npm run conform:decisions` step.
+The live `.github/workflows/promotion-gate.yml` was read and reconfirmed against the workflow. It defines twelve steps: two CI-only action steps and ten `run` steps carrying thirteen commands. The action steps were read and not locally invoked: `actions/checkout@v4` and `actions/setup-node@v4`.
 
-The full gate returned successfully in Instrument A's execution, and the live `npm run audit` was also observed as passing in this checkout. Advisory evidence that did not affect acceptance: `audit:stage-refs` reports 451 `revealsAllStages` findings across 13 bank files; the audit output reports the draft-integrity lane as having no draft files to verify and one not-yet-promoted item. These are pre-existing advisory/insufficient-coverage conditions, not migration findings. The gate did not alter any tracked path outside the authorized Commit-4 population.
+| # | step name | command(s) | result |
+|---:|---|---|---|
+| 1 | Install dependencies | `npm ci` | exit 0 |
+| 2 | Test visuals | `npm run test-visuals` | exit 0 |
+| 3 | Run promotion gate | `npm run audit` | exit 0 |
+| 4 | Test sweep validator | `npm run test:validate-sweep` | exit 0 |
+| 5 | Test non-MCQ bias audit and Layer B handoff | `npm run test:non-mcq-bias` | exit 0 |
+| 6 | Test bank schema invariants | `npm run test:schema-bank` | exit 0 |
+| 7 | Test structured-measurement staging and application | `npm run test:flowsheet-gate`; `npm run test:structured-measurements`; `npm run test:structured-measurements-applicator` | each exit 0 |
+| 8 | Test coverage targeting | `npm run test:coverage-report` | exit 0 |
+| 9 | Check census drift | `npm run census:check` | exit 0 |
+| 10 | Test DECISIONS format and repository conformance | `npm run test:decisions-format`; `npm run conform:decisions` | each exit 0 |
+
+The full gate returned successfully in Instrument A's execution, and the live `npm run audit` was separately observed as passing during Instrument C's own checkout. The following Instrument A Revision 2 advisories did not affect acceptance:
+
+1. `npm ci` — 7 npm audit vulnerabilities: 1 low, 2 moderate, 4 high.
+2. `npm run audit` — 451 existing `revealsAllStages` advisory findings across 13 bank files; the gate still exited `0`.
+3. Target reconciliation emitted its documented Amendment 3 `[SCOPE]` notice.
+4. An initial non-authoritative snapshot probe used the invalid symbolic ref `MIGRATION_BASELINE` and failed; the formal check was rerun against the pinned full SHA and passed.
+
+Instrument C observation, recorded as such: the audit output reported the draft-integrity lane as having no draft files to verify and one not-yet-promoted item.
+
+Advisory 4 is recorded because a check that failed for a methodological reason and was correctly redone is part of the execution record. It is not restated as a defect and does not alter any disposition. The gate did not alter any tracked path outside the authorized Commit-4 population.
 
 ## Changed-path allowlist and diff statistics
 
@@ -107,7 +130,7 @@ Pre-commit staged verification: the staged path set is exactly 15/15 authorized 
 
 ## Independent review dispositions
 
-- Instrument B report: `audit/decisions-migration-2026-07-29/INDEPENDENT-CONTENT-REVIEW-2026-08-18.md`, `ACCEPT — Instrument B §8.2 independent constitutional content review only`; coverage was 65 live statements, 13 wrapper boundaries, E053, and all three E037 placements, with zero omission, added-meaning, altered-force, or unreviewable findings.
+- Instrument B report: `audit/decisions-migration-2026-07-29/INDEPENDENT-CONTENT-REVIEW-2026-08-18.md`, `ACCEPT — Instrument B §8.2 independent constitutional content review only`; coverage was 65 live statements, 13 wrapper boundaries, E053, and all three E037 placements, with zero omission, added-meaning, altered-force, or unreviewable findings. Instrument B's entry was conditioned on, and taken after, the Instrument A §7.1 item 11 manifest/output exact-equality **PASS** already recorded in this receipt — the ratified manifest verified at 332,579 bytes / SHA-256 `818be99ae9574cb3cf76015516561db601ab5e471daeb36ce81be93c09160fe2`, with both directions passing for all 65 live blocks.
 - Architect commission §8.1 disposition, copied from Instrument C §3 Block 5: `ACCEPT — commission §8.1 only`.
 - Neither disposition is repository-conformance acceptance; merge remains the owner acceptance act.
 
@@ -397,3 +420,14 @@ audit/decisions-migration-2026-07-29/post-migration-reference-graph.json
 This ratification is limited to that exact enumeration for the purpose required by §8. It does not independently ratify the substantive contents, findings, or conclusions of any enumerated artifact, and it does not enlarge or otherwise modify Instrument C Revision 2.
 
 **OWNER RATIFICATION: RATIFIED.**
+
+Owner ratification, 2026-08-18.
+
+I explicitly ratify the following exact supplementary census for Instrument D:
+
+1. `DECISIONS-MIGRATION-COMMISSION-AMENDMENT-6-CLOSEOUT-EVIDENCE-REPAIR-2026-08-18.md`
+2. `DECISIONS-MIGRATION-COMMISSION-AMENDMENT-6-RATIFICATION-2026-08-18.md`
+3. `DECISIONS-MIGRATION-STAGE-2B-CLOSEOUT-EVIDENCE-REPAIR-CODEX-HANDOFF-2026-08-18.md`
+4. `DECISIONS-MIGRATION-STAGE-2B-CLOSEOUT-EVIDENCE-REPAIR-WORK-ORDER-2026-08-18.md`
+
+This ratification is limited to that exact enumeration and authorizes continuation from the §7 stop boundary in accordance with the controlling Instrument D work order. No additional path is ratified by implication.
