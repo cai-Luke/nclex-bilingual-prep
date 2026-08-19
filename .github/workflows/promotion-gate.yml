@@ -45,3 +45,8 @@ jobs:
 
       - name: Check census drift
         run: npm run census:check
+
+      - name: Test DECISIONS format and repository conformance
+        run: |
+          npm run test:decisions-format
+          npm run conform:decisions

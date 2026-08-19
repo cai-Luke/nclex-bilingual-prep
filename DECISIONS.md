@@ -1,391 +1,1122 @@
-# DECISIONS.md
-
-The reasoning-and-state layer for Project Shrimp. `AGENTS.md` says *how* to work; `PROJECT-HISTORY.md` records *what happened*; this file holds *why the architecture is the way it is* and *what is still open* — the things that are expensive to lose because a fresh agent (or future Luke) will otherwise re-litigate them from scratch.
-
 ## 1. Purpose and authority boundaries
 
-This file is the project's architectural constitution, not a chronological notebook. It is authoritative for *why* a rule exists and *what status it currently holds*. It is never authoritative for a current field shape, enum, version token, validator behavior, or renderer contract — those are owned by the executable source named in each entry, and a claim here that disagrees with that source is stale, not binding. When a principle's full forcing-incident narrative, exact historical metrics, or superseded chronology has been condensed out of the active entry below, it is preserved verbatim in [`Archive/DECISIONS-ARCHIVE-2026-07-14.md`](Archive/DECISIONS-ARCHIVE-2026-07-14.md) rather than deleted.
+This file is the project's architectural constitution, not a chronological notebook. It is authoritative
+for why a rule exists and what status that rule currently holds. It is never authoritative for a current
+field shape, enum, version token, validator behavior, renderer contract, measurement, count, or citation:
+those are owned by executable source or by a linked evidence document. `Owner` names the one tracked
+path that owns the whole live statement. `Evidence` names the one tracked source that carries the
+evidence, measurements, provenance, or method the statement is forbidden to restate, and it may not
+contradict or materially misrepresent any limb the statement keeps. Where no single path meets its own
+test the field is omitted rather than approximated, and a claim here that disagrees with its owner is
+stale rather than binding, whether or not this file names that owner.
 
-Read order and authority relative to sibling docs is set by `CLAUDE.md`: `AGENTS.md` (operational constitution) → `DECISIONS.md` (this file) → `PROJECT-HISTORY.md` (current status; overrides this file's older prose on live implementation facts) → `NCLEX-Question-Schema.md` (schema source of truth).
+`AGENTS.md` is the operational constitution and governs how work is done. `PROJECT-HISTORY.md` is the
+current implementation-status map and overrides older implementation prose here. This file owns
+architectural rationale and decision status. `NCLEX-Question-Schema.md`, `src/types.ts`, and
+`src/schema.ts` own the schema and validator contracts.
+
+A permanent identifier is the reference identity. Principles and rulings are cited as `P<n>` and `R<n>`;
+standing invariants and open threads are cited by exact title, so a title is a citation identity and is
+not edited for style. A Markdown slug is never a citation identity, and no Markdown anchor link into an
+entry heading of this file is written inside this file. The legacy `principle N` form remains permanently
+resolvable because `Archive/` is never rewritten.
+
+Every entry states only what binds, authorizes, advises, or remains open, in one paragraph of one to
+three sentences. Forcing-incident narrative, measurements, citation detail, chronology, method, and
+litigation history are not restated here; they live in the source named by `Evidence` or in the files
+named in §8. Compression is not deletion — material condensed out of an entry remains preserved and
+discoverable through §8.
 
 ## 2. Status vocabulary
 
-Every numbered principle below carries exactly one of these five statuses, stated immediately after its heading. There is no untagged default.
-
-- **ACTIVE** — universally binding under current project architecture, regardless of which content lane or feature is in use.
-- **CONDITIONAL** — binding only while the named lane, feature, or workflow it governs is active. If that lane is retired, the rule lapses with it rather than needing a separate repeal.
-- **PARKED** — settled architecture that is currently inactive and carries a named resumption trigger. Not abandoned; do not re-derive it from scratch on revival, and do not treat it as currently binding either.
-- **REVISIT** — unresolved; further evidence, a source-check, a bank-impact survey, or an explicit ratification is pending. Do not treat the described behavior as settled.
-- **SUPERSEDED** — replaced by a later, cited ruling. Retained verbatim for history; do not follow its claims.
-
-## 3. Decision index (2026-07-18)
-
-Navigation aid only — restates no ruling and settles nothing new. Read the target entry for the actual reasoning. Every numbered principle (1–30, excluding the intentionally unused 13–14) appears in exactly one bucket below, matching its heading's tag.
-
-### ACTIVE (22)
-
-| # | One-line rule |
-|---|---|
-| 1 | Answer/option placement is owned by deterministic code, never the model. |
-| 2 | Independent review is required for judgment-dependent work; purely mechanical work may self-certify against a deterministic null. |
-| 3 | Deterministic core; LLM judgment only for the capped, irreducible semantic residual. |
-| 4 | Rationales are position-agnostic, in both languages. |
-| 5 | No model-generated learner-facing content becomes canonical without independent review and the promotion pipeline. |
-| 6 | Visuals are deterministic and data-derived by default; curated licensed imagery has its own separate lane; AI-generated medical imagery is prohibited. |
-| 7 | Precision over volume in any audit or review. |
-| 10 | Study sampling mirrors the exam's content distribution; strict exam simulation is a separate mode. |
-| 11 | Visual arithmetic is a machine-checked gate, not a trusted assertion; no general conversion engine. |
-| 15 | Bank patches are raw-scoped and declarative. |
-| 16 | Positional answer-pattern bias is repaired mechanically; distributional bias only through deliberate authoring/regeneration. |
-| 17 | Scoring is exam-style polytomous; SRS retention requires full marks. |
-| 19 | Rationale visuals are explanation figures, not answer-coupled stimuli. |
-| 21 | Repo-reading generation prompts carry the semantic floor, not the schema shape. |
-| 23 | Exam-like split presentation is a renderer concern; case identity and grading are not. |
-| 24 | Structured measurements are values-only exhibit presentation; identity and display resolve at the rendering edge. |
-| 25 | Necessity is a property of the artifact, not of every element inside it. |
-| 26 | A disposition that removes material from a checked surface needs its own independently enforced precondition. |
-| 27 | An invariant softens only by naming its forcing incident and showing the condition is gone. |
-| 28 | Scored leaves govern content planning; session units govern delivery capacity and inventory. |
-| 29 | Sparse laboratory-presentation cardinality is not a validity floor. |
-| 30 | Lab reference bands are source-verified adult-only; pediatric bands fail closed; the learner-visible H/L-flag feature remains unauthorized. |
-
-### CONDITIONAL — forward case-generation lane (5) — LAPSED 2026-07-18
-
-Bound only while the Opus-skeleton → GPT compile/fact-check → Gemini flag-review → Claude gate pipeline was the active forward-case lane. Luke retired that lane on 2026-07-18 in favor of wholesale case_study production in the current GPT model; per §2's CONDITIONAL definition these five principles lapse with it and need no separate repeal. Retained below for historical reference — see §5 for the lapse note and current state.
-
-Case studies may now be commissioned directly and episodically through the current GPT producer contract when a topic or load-bearing visual warrants case form. This is a viable high-quality raw-case pathway subject to bounded checker repair and the normal independent promotion gate; no standing multi-model or bulk forward-case pipeline replaces the retired lane.
-
-| # | One-line rule |
-|---|---|
-| 8 | Clinical truth is authored once, upstream, and read-only downstream. |
-| 9 | The case skeleton is English-only; bilingual generation concentrates in the compiler. |
-| 12 | Author-side currency via closed-world construction + routed flags, never a changelog. |
-| 18 | Fact-check/currency and flag-only review are chain steps, not optional asides. |
-| 22 | Opus skeleton cases are GPT-provenance for review-conflict purposes. |
-
-### PARKED (1)
-
-| # | One-line rule | Trigger |
-|---|---|---|
-| 20 | Pronunciation/audio is pre-generated, local-first, resolved by asset presence. | Workaround stops sufficing, integrated bilingual audio becomes wanted, or Flushing scale (see §6). |
-
-Also parked (open threads, not numbered principles — see §6): translation-friction scoring; `test`/`adaptive` exam-condition modes.
-
-### REVISIT (open threads, not numbered principles — see §7)
-
-- Vital-sign `sanity` bounds are copied renderer validation envelopes, not authored plausibility bounds; the `temp` ceiling (2026-07-15) and the SBP ceiling, RR ceiling, and `spo2` floor (2026-07-24) are sourced and ratified (see §7). Remaining sides stay under REVISIT; DBP and MAP ceilings are authorized for a bounded sourcing pass.
-
-### SUPERSEDED (§8)
-
-- CBC lab units are American-conventional-only (2026-07-04) — reversed by the 2026-07-05 amendment (conventional-first + SI-in-parentheses, analyte-aware).
-- The ad hoc fishbone "workflow-familiarity" waiver (2026-07-06) — superseded by principle 25's artifact-level necessity rule.
-- "Vitals `sanity` passes every real transcribed value" — withdrawn as unprovable of a copied renderer envelope (folded into the principle 27/REVISIT vitals-sanity thread).
-- Governance markdown needs an encoding gate (2026-07-09) — withdrawn 2026-07-16: every alarm to date has been a connector-read artifact, not disk corruption.
-
-## 4. Active constitutional principles
-
-**1. Answer placement is owned by code, not the model. Status: ACTIVE.**
-A deterministic, item-ID-seeded shuffle applied at the promotion step owns option/answer placement; the model never places or orders an answer. Forcing incident (the regression case any future positional-integrity tooling should still detect): an audit found the correct MCQ option landed in position D only ~3% of the time against a uniform 25% — LLMs are biased samplers that write the correct answer first and confabulate distractors around it, clustering correct answers into early positions. The same clustering affects select-all correct-option ordering, so this governs positional bias across every item type, not just MCQ. Owner: `lib/shuffle.ts` (FNV-1a seed + Fisher-Yates), applied by `scripts/promote.ts`.
-
-**2. Independent review is scoped to judgment, mechanical work may self-certify. Status: ACTIVE (narrowed 2026-07-14).**
-Independent review is required when correctness depends on semantic judgment, clinical interpretation, provenance, or contract interpretation. Purely mechanical work may be certified by deterministic checks and targeted smoke tests in the same implementation session, when those checks have an independent null and do not merely confirm the author's intent.
-
-Strict independent review stays required for: clinical judgments and answer keys; canonical generated content; migrations and dispositions; schema/data-contract interpretations; source-dependent claims. Not required for: exact file moves; generated censuses; deterministic formatting; one-line render ordering; and similarly mechanical, fully testable changes.
-
-Kept — the spec-conformance/content-review split (2026-07-09 extension): when Claude authors a remediation spec and Codex implements it, Claude cannot certify the implementation (matching the spec is not evidence of being correct), but a seat blind to the spec cannot certify it either (it has no null to fail against). The two checks stay split — content review goes to the gate seat, which re-derives each disposition from source and standing rules; spec-conformance verification stays with the architect who wrote the spec. Forcing incident (kept, compact): a `>150 seconds` aPTT in a staged candidate passed schema validation, the flowsheet gate, the applicator dry-run, and a 100% checker-seat content adjudication, because the defect lived in `parseMeasurementValue`'s comparator-strip *code* — the artifact-checking seat had no reason to read code. Full narrowing rationale and the original absolute wording: archive.
-
-**3. Deterministic core; LLM only for the capped semantic residual. Status: ACTIVE.**
-Counting, distributions, permutation integrity, and template repetition all have known nulls and belong in scripts that return identical verdicts every run. Reserve model judgment for what genuinely needs semantics (clinical inferability, distractor plausibility), run it only on items the deterministic layer flags, and cap the batch — this keeps verdicts reproducible and token spend bounded. Applied: the non-MCQ bias audit is an offline handoff, not a live integration — the repo emits a deterministic queue/prompt, validates returned JSONL, and merges semantic findings without letting them modify Layer A; no API key or live model call belongs in the repository. A completed one-time proposal-only in-harness adjudication exception and the topic-licensing rulings it produced are archived.
-
-**4. Rationales are position-agnostic — bilingual. Status: ACTIVE.**
-A rationale references option *content* ("furosemide is contraindicated because…"), never a letter or ordinal/spatial position ("Option D", "the first choice"). A rationale that never names a position cannot carry a stale answer-key reference after a shuffle, in either English or Simplified Chinese (选项A, 第一个, 以上 …).
-
-**5. Generated ≠ reviewed. Status: ACTIVE (narrowed 2026-07-14).**
-No model-generated learner-facing clinical content becomes canonical without independent content review and the promotion pipeline. Raw model output stages in `banks/banks-raw/`, passes validation + audit + source-check, then promotes to a canonical `banks/*.json` with a `BANK-REVIEW-LEDGER.md` entry; the generating model never reviews its own batch.
-
-Narrowing note: named-model restrictions (Gemini is raw-volume only, small batches, never direct canonical edits, and is demoted from any audit/judgment role — see §8) are current lane policy, not the universal definition of generated-vs-reviewed. They remain active as lane policy; this principle states the constitutional floor beneath them.
-
-**6. Visuals are deterministic and data-derived; curated licensed imagery has a separate lane. Status: ACTIVE (narrowed 2026-07-14 — resolves a direct conflict with `AGENTS.md`).**
-Deterministic, data-derived visuals are the default for diagrammatic and numeric clinical cues. AI-generated medical imagery is prohibited. Curated licensed clinical imagery may enter only through a separate provenance, licensing, accessibility, and clinical-review lane. Every question-level stimulus remains load-bearing: a visual whose removal leaves the answer unchanged is decorative and therefore invalid. Each renderer ships `selfCheck` cross-consistency assertions and registry conformance tests.
-
-The prior wording ("no raster assets, no external images... ever") directly conflicted with `AGENTS.md`'s existing "a visual must be deterministic data-derived **or a curated licensed image**" allowance. No curated-image lane exists in code today — the `QuestionVisual` kind union is entirely deterministic renderers — so this principle states the permitted policy, not a claim that the lane is implemented.
-
-**7. Precision over volume. Status: ACTIVE.**
-In any audit, five fully-evidenced findings beat thirty probable ones. Verbatim evidence, an honest reconciliation attempt, and explicit confidence/dismiss discipline are the standard.
-
-**10. Study sessions mirror the exam's content distribution; difficulty is exam-sim-only. Status: ACTIVE (narrowed 2026-07-14).**
-Default Study sampling follows NCLEX category weighting and guards against narrow-topic clustering. Strict exam simulation is a separate product mode. Case studies are excluded from the weighted draw, mirroring the real exam's fixed, separately-counted case-study allotment. Difficulty adaptivity is deliberately a separate, deferred axis — see the parked `test`/`adaptive` modes in §6.
-
-Moved to code — verify there, not here: the category weight table is `NCLEX_CATEGORY_WEIGHTS` in `src/schema.ts`; the exact session count, floor threshold, priority visual allowlist, and diversity-penalty constants are `src/sessionSampler.ts`'s `DEFAULT_FLOOR_KIND_PRIORITY` / `floorThreshold` / `alpha` / `beta`. Full prior narrative (weight table restated in prose, sampler-rule paragraph, calibration history) archived — restating it here would be exactly the duplicated-definition risk principle 27(d) warns about.
-
-**11. Visual arithmetic is a machine-checked gate, not a trusted assertion — and it carries no engine. Status: ACTIVE.**
-For every visual kind whose answer turns on a computed value (`io_record` totals/balance, `medication_label` dose/volume/rate, `device_screen` pump math, `burn_map` %TBSA/Parkland), the load-bearing numbers are typed on the visual spec, the question's inputs and keyed answer live in audit-only `meta`, and `selfCheck` recomputes the answer from spec + meta and asserts exact equality (after a declared rounding wherever division is involved). A mismatch is a *build failure*, not a content note. The recompute is deliberately small — each kind exposes an *enumerated* set of one-line, same-unit derivations. We do not parse free-text doses or build a unit-conversion/dosage engine; a derivation needing cross-unit conversion (mg↔mcg, mg/kg, mcg/kg/min, body-weight dosing) is out of scope for that kind, not a reason to grow the engine. This is principle 3 (deterministic core) and principle 6 (visuals necessary) made concrete for the chart/label/screen tier; human review still owns clinical validity.
-
-**15. Bank patches are raw-scoped and declarative. Status: ACTIVE.**
-`scripts/patch-raw.ts` writes only under `banks/banks-raw/`. Canonical files are read-only except via the explicit `--allow-canonical --reason` in-place mode, which forces a ledger entry. Patch ops are declarative (`before`→`after`, precondition-checked) — there is deliberately no arbitrary-mutate primitive, because mechanical fixes belong in patches and semantic fixes belong in review.
-
-**Application — a declarative op names a field path, not a record (2026-07-22).** "Declarative" means the op identifies the exact field path it mutates together with the `before`→`after` values *for that path*. A record-scoped string replacement is not a declarative op even when it declares a before and an after: it rewrites every occurrence in the record, including fields the op never named.
-
-*Forcing evidence.* Across the terminal-sentence remediation manifest, seven `dropdown_cloze` items carry the flagged stem text a second time inside `clozeStem` — the functional response surface. On one of them the collision is language-asymmetric: the English anchor is unique in the record because `clozeStem.en` differs by a single article, while the Chinese anchor collides because `clozeStem.zh` is identical to the stem terminal. No uniform record-level rule is safe, and a serialize-and-replace implementation would have destroyed the response surface on those rows while reporting success.
-
-Under principle 26 the preserved-surface proof is the independently enforced precondition: a patch must independently prove every learner-facing and scoring field outside its authorized mutation surface unchanged, enforced by something other than the op's own declaration. For the terminal-sentence dropdown repairs that preserved surface was `clozeStem`, dropdown bindings, options, and keys; the surface is named per work unit, since a different authorized repair may legitimately mutate a stem together with a related field, and most item types do not carry those particular surfaces at all. Moved to code — verify there, not here: the field-path mechanism is the `path` segment array in `scripts/patch-raw.ts`, including its `{ id }` / `{ refId }` selectors, which are the only means of addressing an embedded record since op identity resolves against top-level questions alone.
-
-**16. Answer-pattern bias is presentation-layer first, content-layer only where shuffling can't reach. Status: ACTIVE (narrowed 2026-07-14 — corrects a prior self-contradiction; amended 2026-07-15 — see the population amendment below).**
-*Positional* tells (option order, dropdown index, matrix column, ordered-response scramble depth) carry no clinical meaning and are repaired mechanically by a deterministic, ID-seeded permutation. *Distributional* tells (SATA correct-count concentration, ordered-response template repetition) are properties of the item content itself and cannot be shuffled away — they are repaired only through future authoring or a deliberate targeted replacement/regeneration pass, never by hand-editing answer logic in reviewed canonical items. Incidental dilution from ordinary new content is acceptable but is **not** considered remediation: genuine distributional debt is frozen, not self-healing, and clears only through a deliberate targeted regeneration decision. (This sentence formerly cited "the standing global distributional FAILs" as that debt. They were not — see the 2026-07-15 amendment below.)
-
-The audit's `fix_class` encodes exactly this fork: `SHUFFLE_AT_PROMOTION` is mechanical and automatable; `REGENERATE` is a non-blocking content-design backlog item. Live constants are named once, in the amendment below; verify them against `scripts/audit/non-mcq-bias-lib.ts`, never against this file.
-
-**Amendment to 16 (2026-07-15) — a canonical file is not a learner-visible population.**
-Distributional checks measure concentration in the population the learner actually draws from: the bundled bank. A canonical `banks/*.json` is an authoring-provenance boundary, not a population — no learner draws from `lab-canonical`. Two consequences, ratified against the PR #48 evidence base. First, a global distributional verdict stands on its own statistic and does not inherit a per-file failure; per-file distributional verdicts are retained as authoring-hygiene advisories only. Positional and mechanical checks continue to inherit, because a positional tell in any file is a real tell in the bundled corpus regardless of which file carries it. Second, a distributional verdict requires enough observations to mean anything: `sata_count_min_n` and a minimum n derived from `template_repeat_max_share` gate both checks to `INSUFFICIENT` below the floor. The prior `sata_missing_count_fails` rule is removed outright — it conflated bin *coverage* with *bias*, and failed every non-empty SATA bank in the live corpus because every bank lacked at least one demanded bin, including banks with no meaningful concentration. Bin coverage remains reported as a diagnostic and is not audit debt.
-
-This is a correction, not a softening under principle 27: no forcing incident is recorded in the active governance or archived audit-design materials reviewed. The missing-bin failure rule and absent minimum-n gates entered audit v2.0 as design-time defaults rather than recorded responses to an observed failure. The evidence that retired them is that they produced no true positives — every FAIL they generated was an arithmetic floor, a file boundary, or a missing bin, and the one surviving real signal (`visual-canonical` SATA, n=11 at 0.909) is found by the concentration threshold alone. Principle 16's core is unchanged and unrelaxed: distributional tells are still content properties, still unshufflable, still clear only through deliberate authoring or targeted regeneration, and incidental dilution is still not remediation.
-
-Live constants (verify against `scripts/audit/non-mcq-bias-lib.ts`, not here): `audit_version 2.1.0`, `max_cell_deviation_pp: 8`, `sata_count_degeneracy: 0.70`, `sata_count_min_n: 8`, `scramble_min_n: 8`, `template_repeat_max_share: 0.15`. The ordered-response template minimum is derived from the share limit, not stored. `scramble_min_n` and `sata_count_min_n` are independent knobs that currently coincide at 8; they are not interchangeable, and collapsing them would couple two rules that must move separately.
-
-**Standing authoring note (non-blocking):** `visual-canonical` SATA is the sole surviving distributional signal. Vary correct counts where clinical truth naturally permits. This is not retire-and-replace — retiring necessity-gated visual items to move a histogram would violate principles 6 and 25.
-
-**17. Scoring is exam-style polytomous; retention is full-marks. Status: ACTIVE.**
-Grading returns `ItemScore { earned, possible }` per the NGN families. Partial credit feeds the session score and per-item feedback only; spaced repetition resurfaces any item below full marks (`earned === possible`). Explicitly out of scope: threshold-based retention, graded-SRS ease from partial scores, rationale/dyad scoring, and `ordered_response` partial credit.
-
-**19. Rationale visuals are explanation figures, not stimuli. Status: ACTIVE.**
-`rationale.visuals` is an answer-revealed teaching slot reusing existing deterministic visual kinds, rendered after the correct rationale and before per-choice rationales. Structural kind validation runs on them, but item-type placement and `selfCheck` answer-coupling do not — an explanation figure may intentionally reveal a threshold, abnormality, or relationship the stem didn't require. The load-bearing-stimulus rules still apply in full to `question.visual`.
-
-Schema-floor detection and export-envelope inference traverse all six supported visual locations,
-including top-level and embedded rationale figures, through `src/schema.ts`'s shared full-schema
-projection. Renderer parity consumes that same projection. The census artifact population remains a
-separate, deliberately narrower four-location traversal under principle 28 and excludes rationale
-figures by ratification; the two populations must not be unified.
-
-**21. Generation prompts for repo-reading instances carry the semantic floor, not the schema. Status: ACTIVE (narrowed 2026-07-14).**
-When the generating model can read the repo, the prompt defers all per-format *shape* to `AGENTS.md`/`NCLEX-Question-Schema.md` and restates none of it. It inlines only the semantic-quality floor the schema cannot infer: no-filler distractors; per-choice rationale for keyed answers *and* distractors; closed-world stems; no lazy "notify provider" key; unique ordered-response sequences; bounded highlight selection; gradeable closed-vocabulary blanks; clinical scope/monitorability; bilingual parity — plus the one mechanical caveat that is not auto-recoverable, a `correct` reference to a nonexistent id, which fails the whole item where normalization silently repairs enum casing. Reintroduce narrow per-format shape reminders only after a measured recurring failure — the default for repo-reading instances stays minimal. Historical validation metrics and the June experiment narrative: archived.
-
-**Application — construction language stays off the learner surface (2026-07-21).** `Closed-world` describes an authoring construction, not wording to show a learner: the governing order, protocol, threshold, or criteria must instead be stated naturally in the question. Author/checker scaffolding such as `source-pinned`, `source-supported`, and metaphorical `lane` language is naturalized before promotion without removing the embedded rule or changing the tested construct. Project-internal constraints also stay off learner surfaces: a producer rule such as “do not independently prescribe” must be embodied through clinical facts, choices, and rationale rather than appended to the stem as a disclaimer. The finite HIGH-confidence label lexicon remains enforced by [`lib/producer-vocabulary-leakage.ts`](lib/producer-vocabulary-leakage.ts); the separate constraint-shaped survey and narrow blocker are owned by [`lib/authorial-constraint-leakage.ts`](lib/authorial-constraint-leakage.ts). Broader directive shapes remain review-only because legitimate clinical scope teaching uses the same vocabulary.
-
-**Application — construction language is functional, not positional (2026-07-22).** Construction language under this principle is any learner-facing prose whose *function* is to explain, justify, or defend how the item was built — a scope caveat, a sourcing note, a construct defense, an apology for an omission. It is identified by function, never by phrase and never by position. Terminal position is a **review heuristic only**: producers tend to append constraints, defenses, sourcing notes, and apologies after an otherwise complete item, which makes the final sentence the highest-yield place to look first. It does not define the defect, and a mid-stem construct defense is the same defect in a less convenient place.
-
-*Forcing incident (compact).* Luke identified a PEP `ordered_response` stem whose closing sentence correctly distinguished source-patient testing, exposed-worker testing, and non-delay of PEP — clinically accurate, but reading as an adjudication note defending the authored sequence rather than as clinical instruction. A later RSBI item stated "This item asks only for documentation of the index; RSBI alone is not required to determine spontaneous-breathing-trial readiness," showing post-hoc construct defense as a general producer pattern rather than a single lapse. `gap_50_mc_03` then proved the family was not confined to prose: its stem rendered raw `{{1}}` / `{{2}}` placeholders to the learner (`The nurse should first {{1}} and then {{2}}.`) and duplicated the response demand already carried by `clozeStem`, so the same behavior also produced response-surface placement defects. Adjacent construct audits found the identical behavior expressed structurally — ordered responses forcing concurrent actions into a total order, fill-ins reducing interpretation to labels or arithmetic, dependent dropdown blanks, and decorative bowtie expansion. The common cause is a producer completing an item and then defending it; the defense surfaces as prose, as a placeholder, or as a distorted construct.
-
-*Consequence for review design.* A positional filter is a sampling strategy, never a definition, and a clean terminal-sentence sweep is therefore not evidence that a corpus is free of construct defense. Remediation lane and evidence: `audit/terminal-sentence-remediation-2026-07-22/`.
-
-**23. Exam-like presentation is a renderer concern; case identity and grading are not. Status: ACTIVE.**
-The split layout (client chart left, active item right) is presentation only. A `case_study` stays one top-level session question — one `AnswerState.caseStudy`, one aggregate submit, one aggregate score; grading, storage, SRS, progress, flags, adaptive, and summary all key on the top-level `question.id`. Per-part submit / true unfolding reveal is deferred: it needs a storage-and-grading redesign (per-part result/completeness state, synthetic ids) and is revisited only if real-session observation shows aggregate submit is the fidelity bottleneck.
-
-Stage visibility is cumulative and fail-open: both `stageId` and `answerableAfterStageId` show global exhibits plus all stages through the active part's stage; an absent or unresolved reference shows **all** stages, never fewer. Split eligibility is determined by measured visual geometry, not nominal item type — calibrated wide tracings stay full-width; squarish/vertical/compacted-table kinds join the standalone split allowlist only after a measured proof render, never a predicted one.
-
-Moved to code/status — verify there, not here: the exact split allowlist is `STANDALONE_SPLIT_VISUAL_KINDS` in `src/examLayout.ts`; exact pixel/viewBox dimensions, proof-render sizes, and the current case-mapping coverage percentage belong to code and `PROJECT-HISTORY.md`'s current-status section, not this principle.
-
-**Application — sparse shape-aware allocation (2026-07-19).** A kind-level split allowlist may be
-refined by payload geometry after the same measured proof this principle requires. The measured
-one-series `lab_trend` shape now takes the full-width route while the two-series shape remains in the
-split. Structured measurements use an independent whole-payload density predicate: only a sole
-one-panel × one-row × one-column payload receives a natural compact figure, while mixed-panel and
-denser payloads retain the established full-width behavior. These are presentation allocations, not
-new content-validity floors; principle 29's sparse-cardinality ruling and principle 24's prose-
-supplement contract remain unchanged.
-
-**Application — an embedded leaf is a planning unit, not a retirement unit (2026-07-22).** Principle 28 makes each embedded case leaf an individual *content-planning* unit carrying its own category, topic, item type, and difficulty. That does not make it an ordinary unit of removal. This principle keeps the `case_study` one top-level session question — one aggregate submit, one aggregate score, one keyed identity — so a case is authored, navigated, submitted, and graded as a single unit, and deleting one leaf is a case-level structural revision rather than a content edit.
-
-Schema legality is not the test. `caseStudy.questions` requiring only two members means a five-part case still validates after losing one; validation says nothing about whether the surviving narrative, stage references, part cadence, and aggregate scoring still cohere. **Default to rewriting or replacing the leaf in place.** Where a leaf's construct is unsalvageable — for example an `ordered_response` whose corrected content would force genuinely concurrent actions into a total order — replace it with an appropriate non-serial format after source-backed construct and key re-derivation, subject to whole-case producer≠checker review of progression, stages, exhibits, leakage, part cadence, aggregate scoring, and narrative closure. Retire the **whole case** when no coherent replacement is feasible. No embedded-leaf retirement mechanism is authorized; schema legality is never the argument for minting one.
-
-*Forcing incident.* The terminal-sentence remediation initially authorized retiring a single embedded `ordered_response` leaf on schema-legality grounds. Luke withdrew that authorization on 2026-07-22 as too harsh and structurally unprecedented, routing the row to whole-case rewrite instead.
-
-**24. Structured measurements are values-only exhibit presentation; identity/display resolve at the edges. Status: ACTIVE (narrowed 2026-07-14).**
-Structured measurements supplement source prose — they never replace it except for pure key-value exhibits reduced to a pointer. Clinical identity (which analyte, which population) is resolved before display, never inferred from magnitude alone: total and ionized calcium are distinct registry keys (not unit variants of one value) routed by explicit source label, because a bare "calcium 1.2 mmol/L" is a normal *ionized* value but a critically-low *total* one — identity must resolve before the unit conversion, since the same source unit converts differently per key. Source values and typed bounds (`bound: ">" | "<"`) are stored; canonical and display forms are derived at the rendering edge rather than redundantly persisted, so there is one place — not several — that can drift. Censored values remain typed, never coerced into a bare number. Non-rendering migration dispositions (`skip_serial`, empty extracts, `excludedValues`, `unitAliases`) are ledger/staging-only and never enter canonical banks.
-
-Rule F (the `post_intervention` operative test) is owned by `EXHIBIT-FLOWSHEET-EXTRACTION-PROPOSAL-2026-07-03.md` — do not restate its test here.
-
-Moved to code/schema — verify there, not here: exact fields, enums, columns, validation behavior, and allowlist contents live in `src/types.ts`, `src/schema.ts`, `src/measurementAllowlist.ts`, and `src/measurementUnitPolicy.ts`. Proof-batch composition, Batch 19/20 handling, fast-follow fishbone sequencing, and applicator procedure narrative are migration detail, now redundant with the closed migration's archive and the extraction contract's authority map — archived, not restated here.
-
-**25. Necessity is a property of the artifact, not of every element in it. Status: ACTIVE.**
-A redundant element is permissible inside a necessary, value-complete artifact — one that already carries every exact value the item turns on — when it adds a meaningful reading affordance such as pattern, direction, crossover, or divergence, rather than mere ornament. It never licenses an ornament that carries information absent elsewhere in the artifact, and it never licenses an artifact whose values the stem already states.
-
-Two fences travel with this waiver and are load-bearing: the necessity gate stays unchanged and strict at the artifact level (if any single-timepoint tally resolves the item, it is the non-trend kind's item, not the waived kind's); and no exact-value item is authored on a waived-element kind (the table makes such an item *renderable*, but authoring it would prove the kind redundant — item briefs on a waived kind are pattern-only). Vendor ubiquity (a chart because a vendor's EHR draws one) is explicitly not a qualifying criterion. Reversal is cheap and specific: if review repeatedly catches an item answerable from one timepoint, the waiver is not the problem — the collapse gate is being ignored, and the kind closes to new content until it holds. Full `io_trend`/fishbone litigation chronology: archived.
-
-**Application — composite trend artifacts.** A deterministic trend artifact may present the same typed source data through both charts and a renderer-derived table when the views provide distinct reading affordances: charts expose direction, divergence, crossover, and trajectory; the table exposes exact values in a familiar flowsheet form. The artifact-level necessity gate remains unchanged — removing the complete chart-plus-table artifact must materially change answerability, and the item must still turn on multi-timepoint or cross-series reasoning, never one isolated cell. The table is never an independently authored second source of truth. Sparse cardinality is not a validity floor here by the same reasoning principle 29 applies to laboratory presentations — principle 7 plus principle 25's anti-ornament fence — not under principle 29 itself, which remains scoped to `lab_trend` and `structured_labs_panel`. First applied to `vitals_trend` by the 2026-07-18 composite readability repair: unit-pure scale-family panels, panel-exclusive reference bands, and a renderer-derived vital-sign flowsheet, with no schema or bank-content change.
-
-**Amendment (2026-07-19) — unified single-axis presentation supersedes the multi-panel geometry for `vitals_trend`; the flowsheet is retained.** The 2026-07-18 unit-pure multi-panel geometry above is superseded as the default `vitals_trend` presentation by an Epic-style single unified chart (one time axis, one 0-based numeric axis, no unit family, interactive per-timepoint readout, legend-driven emphasis), with the renderer-derived flowsheet retained and visible beneath the chart. Forcing evidence per principle 27: a concluded A/B experiment in which the real user preferred the unified chart in ordinary study flow — not vendor familiarity, which principle 25 excludes as a qualifying criterion. Both arms shipped behind the persisted `vitalsChartStyle` setting (`epic` default; `panels` the preserved byte-identical composite, retained as the fallback) per `Archive/root-cleanup-2026-07-19/VITALS-TREND-EPIC-STYLE-UNIFIED-CHART-CODEX-SPEC-2026-07-19.md`, the experiment's adjudicator being the user's experience as set at commission. What the unit-pure panels bought geometrically — per-vital resolution for low-magnitude vitals such as RR and temperature — the unified chart recovers instead through the retained flowsheet (exact values) plus the interactive readout, keeping principle 25's chart-carries-pattern / table-carries-exact-values division intact; the user's own request to keep the visible table is the signal that its exact-value affordance is load-bearing, not ornamental — exactly the redundancy principle 25 blesses. All principle-25 fences carry over unchanged: the artifact-level necessity gate, no exact-value item authored on the waived kind, and the table never an independently authored second source of truth. Reference bands, having no panels to be exclusive to, are single-series-only under the unified model; the multi-series unified chart shows none. No schema, bank-content, or clinical-range change.
-
-**Implementer note (not architect-gated).** The visible flowsheet beneath the Epic chart is a low-cost re-add of the existing, known flowsheet renderer code; the tested `epic` build used the hidden-table (Route C) disposition, so reinstate the visible flowsheet so shipped code matches this ratified model. No further architect input is required.
-
-**26. A disposition that suppresses a check must itself be checked. Status: ACTIVE (narrowed 2026-07-14).**
-A disposition that removes material from a checked surface must have an independently enforced precondition; a producer may not silence its checker merely by declaring that nothing requires review. Generalized past its origin: every disposition that *removes* a value from the checked surface — an exclusion, a skip, an empty extract, an off-allowlist drop — purchases its silence by moving the value out of the checker's view, so each needs its own precondition enforced by something other than the disposition itself. Corollary: exclusion count is a **positive** signal for checker-seat sampling, not a negative one.
-
-Forcing incident (kept, compact): a staged flowsheet record's sixteen `reason: "prior"` exclusions silently deleted an entire baseline electrolyte panel and still gated clean, because excluding a value moves it out of the checker's view by construction, and the clinical judgment the record was meant to support was graded on exactly the value that had been deleted. The gate was silent exactly where it needed to speak. The full six-ruling extraction-semantics amendment this incident produced (post-intervention tagging, `prior_no_current`, censored-value typing, per-analyte unit inference, population-precedes-rendering) is flowsheet-extraction detail now owned by `EXHIBIT-FLOWSHEET-EXTRACTION-PROPOSAL-2026-07-03.md` and the migration archive — archived here, not restated.
-
-**27. An invariant softens only by naming the incident it was minted from and showing the generating condition is gone. Status: ACTIVE.**
-Every rule in this repo was minted by a failure — positional integrity from the D-correct-at-3% finding, quote hygiene from two independent corruption incidents, the single-definition `roundTo` from two kinds resolving the same dose math differently, producer≠checker from a field reaching four files without a version boundary. The endgame is exactly when ceremony feels most expensive and the memory of *why* is thinnest, so the ratchet needs a procedure, not a mood: **to relax an invariant, name the incident it was minted from and argue that the condition which produced it no longer holds.** "This feels heavy now" is not that argument. A rule that no longer earns its keep is retired on the record, with its incident cited, and marked `SUPERSEDED` rather than deleted.
-
-Most recent application (2026-07-12 pass, kept as the standing precedent this current pass follows): risk-tiered verification replaced an undifferentiated ritual (`AGENTS.md`'s change-class matrix — docs-only is *not* the safe tier, since stale version prose has repeatedly misrouted reasoning about schema floors); `AGENTS.md` became constitutional with a runbook carrying the operational load; this file's entries gained the explicit status tag now formalized further in §2 above; and single-definition discipline was applied to prose the same way it applies to code (a duplicated routing table was cut in favor of one owner plus a link). The alternatives that pass rejected — fresh-context review counting as independence, shortening the read order, demoting `PROJECT-HISTORY.md`'s override authority, compressing the quote-safety two-mode summary to one line — still stand; full reasoning for each rejection is archived.
-
-**28. Scored leaves govern content planning; session units govern delivery capacity and inventory. Status: ACTIVE (ratified 2026-07-16).**
-Content-planning reports measure what is scored: standalone top-level questions plus embedded case-study questions, excluding case-study containers. Each embedded leaf contributes its own category, topic, item type, and difficulty; parent-case metadata is not evidence about the leaf. Category and topic distributions, difficulty and item-type distributions, target gaps, and generation prompt parameters therefore use only this scored-leaf population. `case_study` is a delivery container and cannot enter equal-average scored-item-type targets absent a separately ratified case-cadence target.
-
-Delivery and inventory reports measure what can be served: top-level session units, separated into standalone questions and case containers, with case lengths and embedded-part totals reported alongside them. Standalone draw capacity and weighted-session constructibility stay on that operational population and may emit clearly labelled capacity warnings; those warnings never change the content-planning denominator. Visual inventory is a third, recursive artifact population rather than an alias for either question denominator.
-
-Reason: the dual traversal introduced in PR #51 made both populations visible but did not establish which one governed planning, leaving competing target and prompt blocks that could direct generation from incompatible denominators. PR #52 makes the authority singular while retaining both legitimate analytical views. Executable owners: `lib/question-population.ts` (shared population and visual-artifact traversal), `scripts/census.ts` (canonical census shape and reconciliation), and `scripts/coverage-report.ts` (explicit call-site coverage views and the single scored-leaf planning output).
-
-**29. Sparse laboratory-presentation cardinality is not a validity floor. Status: ACTIVE (ratified 2026-07-18).**
-A one-series `lab_trend` and a one-row `structured_labs_panel` are valid when that is the clinically appropriate amount of information. Series count and row count are not validity axes layered on top of principles 24 and 25: a single-analyte trajectory still carries the pattern/direction affordance principle 25 waives redundancy for, and a single-row labs panel still supplements source prose exactly as principle 24 requires. A universal second-series/second-row floor would force clinically-unnecessary filler — forbidden by principle 7 (precision over volume) and the anti-ornament fence of 25 — so no cardinality floor is adopted.
-
-Adjudicated from the P4 single-row lab presentation survey (`Archive/root-cleanup-2026-07-19/SINGLE-ROW-LAB-PANELS-P4-SURVEY-SPEC-2026-07-18.md`; manifest `audit/single-row-lab-panels-survey-2026-07-18/survey-manifest.json`), mechanically complete and independently re-derived from the raw banks (24 object paths, population totals 20/11/9 `lab_trend` and 126/13/113 `structured_labs_panel`, and the answer-reference split all reproduced):
-
-- **L1 and S1 ratified** — preserve the current one-or-two-series and nonempty-row contracts.
-- **L2 and S2 rejected** — the survey supplied no evidence of a renderer, comprehension, or safety failure caused by sparse cardinality, and a universal floor incentivizes filler.
-- **L3 rejected as machinery that changes nothing** — on this corpus it is behaviorally identical to L1 (0/11 fail either).
-- **S3 rejected as a mismatched predicate** — its "not exactly duplicated by prose" clause imports a `question.visual` rule into a surface principle 24 designs to coexist with intact prose, so a conforming supplement can never satisfy it.
-- **S4 closed without naming a class** — the only structural shape the evidence offers ("single-value stage-update panel duplicated in prose") also covers the answer-referenced panels, and the discriminating property is a read-the-answer-key judgment, not a deterministic validator predicate.
-
-Framing on the record: the per-datum finding is **answer-referenced vs non-answer-referenced** (whether the value appears in a keyed response), not artifact-level load-bearing. Under the principle-25 collapse test all 13 panels are removable without changing answerability, because prose retains the value by design (principle 24); "non-answer-referenced" is therefore a legitimate, expected category on an additive surface (background, stability, anti-beacon context), not a defect. The nine non-answer-referenced structured rows open no remediation lane.
-
-Any presentation change would require its own measured proof-render commission under principle 23; none is authorized here.
-
-P4 is closed. This ruling authorizes no schema, bank-content, renderer, or runtime change.
-
-**30. Lab reference bands are source-verified adult-only; pediatric bands fail
-closed; the learner-visible H/L-flag feature remains unauthorized.
-Status: ACTIVE (ratified 2026-07-19).**
-
-The 29-analyte × 3-population request is not safely expressible in the current
-peds_infant/peds_child vocabulary — published pediatric intervals split by
-age-in-days/weeks, by sex, and by assay, so a coarse two-bucket band would ship
-silent H/L errors. Resolved to source-verified adult teaching bands only, with
-pediatric reference bands intentionally absent. `ANALYTE_DEFS`
-(`src/visuals/kinds/lab_trend/defs.ts`) carries sourced adult bands plus
-warning-only sanity envelopes; per-analyte provenance ([S1]–[S20]) lives in
-`audit/lab-reference-range-verification-2026-07-19.md`.
-
-Pediatric fail-closed contract (validator, `src/visuals/kinds/lab_trend/index.ts`):
-`reference_band_unavailable` when a peds series leaves the band enabled;
-`self_check_flag_requires_reference_band` for peds H/L; `self_check_stable_requires_reference_band`
-for peds stable (its tolerance needs a band width). Peds up/down trajectory stays
-valid with `showReferenceBand:false`.
-
-Clinical ratifications (Luke, lab professional, final call): magnesium tightened
-to 1.7–2.3 mg/dL, a deliberate override of the sourced UIowa 1.5–2.9 as
-implausibly broad for serum Mg; glucose left at 65–139 mg/dL (random/general
-interval, facility-consistent — the Mayo 70–140 action-threshold framing is
-noted for the future flag feature but not adopted now); sex-inclusive envelopes
-accepted (creatinine, hemoglobin, hematocrit, AST/ALT, ammonia) under the
-standing rule that no answer is keyed to a borderline envelope value; anion gap
-7–15 and BNP 0–100 accepted though their citations ([S5] Mayo, [S15] Labcorp)
-were unverifiable by automated fetch.
-
-Therapeutic-anticoagulation flagging is intended, not a defect: warfarin INR
-(2.0–3.0) and therapeutic aPTT/heparin sit above the healthy-population bands and
-correctly compute "H". Recorded so it is not later "repaired."
-
-Scope boundary: this closes range VERIFICATION, the documented prerequisite. It
-does NOT authorize the learner-visible H/L-flag / reference-range-column feature,
-which remains a separate, unauthorized decision.
-
-Renderer geometry moved (INR band 0.8–1.1 → 0.8–1.2, magnesium 1.5–2.9 → 1.7–2.3,
-and other analyte corrections), so the governed `lab_trend` promoted-visual
-parity baseline was rebaselined via `parity:rebaseline --scope lab_trend`
-(Luke-authorized 2026-07-19/20). Regression: `scripts/tests/lab-trend-reference-bands.ts`,
-wired into `test-visuals`.
-
-Producer≠checker: produced by GPT (connector, no shell), independently checked by
-the shell seat (receipt: `test:lab-reference-ranges`, `test:measurement-allowlist`,
-`validate-bank` ×13, `tsc`, `test-visuals` [green through every lab_trend-relevant
-step and the rebaselined parity survey; one unrelated pre-existing `rationale-visual-floor`
-survey-drift failure, confirmed present on committed `main` before this work, is
-out of this scope], `build`; flowsheet-gate cross-consumer at
-`exhibit-flowsheet-gate.ts:400` confirmed). Architect conformance + citation
-spot-check (INR 0.8–1.2 confirmed verbatim at the UIowa 2023 source) 2026-07-19,
-magnesium override re-verified empty-diff against all 20 promoted `lab-canonical.json`
-items 2026-07-20.
-
-## 5. Conditional lane contracts — forward case-generation pipeline (LAPSED 2026-07-18)
-
-**Lapse note (2026-07-18; pathway disposition 2026-07-19):** Luke retired the Opus-skeleton → GPT compile/fact-check → Gemini flag-review → Claude gate pipeline in favor of wholesale case_study production in the current GPT model. Per §2, CONDITIONAL principles lapse with their governing lane and need no separate repeal, so principles 8, 9, 12, 18, and 22 below no longer bind. They are retained verbatim for historical reference — do not apply them to any new lane without re-ratifying. The `opus*` case-ID routing in `scripts/audit/early-bank-semantic-layer-a.ts` (principle 22) is unaffected and stays in force, since it routes already-promoted cases already carrying that ID prefix, not new production. The replacement episodic direct-GPT pathway is specified by `GPT-DIRECT-CASE-PRODUCER-CONTRACT-2026-07-19.md` and topic-specific commissions. The C/D rerun established that it can produce gate-worthy cases with bounded checker repair; use it when a topic or load-bearing visual calls for case form. It is not a standing bulk-generation lane, and every output remains subject to principle 5 and independent promotion review.
-
-Principles 8, 9, 12, 18, and 22 collectively described **one** forward case-skeleton pipeline. They are conditional on that lane remaining the active forward-generation path, not five separate universal project principles. Two rules from this group are universal regardless of which lane is active, and are stated once here rather than five times:
-
-1. Clinical truth and answer logic have an explicit upstream owner; every downstream transformation (translation, schema compilation, formatting) may read but never silently invent or change them.
-2. Every active generation lane declares producer provenance and independent-review routing (principle 2).
-
-**Current producer assignment (verify against `PROJECT-HISTORY.md`, not assumed timeless from this file):** as of 2026-07-18, GPT-5.6 Sol is the current producer for every `gpt_`-prefixed lane (evergreen standalone items, episodic direct case-study commissions, and new visual-kind content), replacing the prior GPT producer outright. The retired case-skeleton compiler is not an active lane. GPT-5.6 Sol remains "GPT" for review-routing purposes. A future producer substitution updates only this callout, never the principle numbers or their obligations below.
-
-**8. CONDITIONAL — clinical truth is authored once, upstream, and read-only downstream.**
-The author model (currently Opus) owns the fact pattern, the correct actions, and the rationale; the compiler (currently GPT) translates and shapes into schema but never decides or alters which action is correct and never introduces clinical claims absent from the skeleton. A decision point too underspecified to yield an unambiguous item is dropped, not guessed. Extensions (condensed; full narrative archived): an optional author-supplied bowtie-synthesis zone lets the compiler assemble a standalone `bowtie` alongside the case without inventing the differential or irrelevant-parameter pools itself; case completion is accounted via a `_compileManifest`, never assumed — a genuinely underspecified decision point may be omitted only with a specific manifest entry, and promotion fails if authored points disappear unaccounted; Gemini is a flag-only review layer over the compiler's output, never a compiler itself, and never mutates JSON, prose, ids, answer keys, or Chinese translation.
-
-**9. CONDITIONAL — the case skeleton is English-only; bilingual generation concentrates in the compiler.**
-The authoring harness drifts to Spanish and mangles schema under bilingual load, so the authored skeleton is English prose only; all `zh` is generated downstream by the compiler, making compiler zh-fidelity the single point of failure. Gated by a deterministic CJK-presence check on every must-be-bilingual field: a missing `zh`, or English left in a `zh` field, fails loud before review.
-
-**12. CONDITIONAL — author-side currency via closed-world construction + routed flags, never a changelog.**
-The author model is frozen at its training cutoff and has no tools, so currency belongs to the downstream fact-checker and Claude's final review, never the author. Two mechanisms, neither of which tries to update the author: closed-world construction states the governing protocol/threshold *inside* the case as an order or clinic rule, so the keyed answer survives external guideline drift; and an optional sentinel-delimited currency-flag block lets the author name only the specific claims it doubts, stripped before compile. Deliberately not fed: a "what changed since cutoff" changelog — always partial, costly to maintain, and redundant with the independent currency pass.
-
-**18. CONDITIONAL — fact-check/currency and flag-only review are chain steps, not optional asides.**
-Every forward skeleton-derived case passes through clinical fact-check/currency plus compilation, then flag-only review, then Claude's final clinical and promotion gate. Record this topology explicitly in every `Chain:` line; an annotation that omits fact-check or the flag-review step understates the independent checks, and one implying the flag-review layer edited content reopens the corruption vector this split exists to close.
-
-**22. CONDITIONAL — Opus skeleton cases are GPT-provenance for review-conflict purposes.**
-The producer principle 2 protects against self-review is the compiler (currently GPT), not the prose author (currently Opus) — an `opus*` case is checker-conflicted for the compiler and for the flag-review layer, but **not** for Claude, since the clinical substance an audit evaluates is the compiler's, not the prose author's. Deterministic routing: `opus*` ids (matcher `/^opus\d*_/`) tag producer `gpt`, tier `low` (`scripts/audit/early-bank-semantic-layer-a.ts`) — identical to `gpt_case_` items, which is what they effectively are. This does **not** extend to `claude_*` items Claude authored directly, which remain Claude-produced and route to a non-Claude reviewer.
-
-## 6. Parked architecture
-
-**20. Pronunciation/audio is pre-generated, local-first, resolved by asset presence. Status: PARKED.**
-The pre-generated-audio architecture itself — local-first bilingual TTS distribution, field-level content-hashed clips, asset-presence resolution — is inactive and not currently binding; it is subject to the universal runtime-audio invariant below, which stays active regardless of this principle's status.
-
-Deprioritized 2026-06-22 on real user feedback (a GPT-conversation workaround currently suffices for the acute trigger), not killed — the queue/cost/per-field-clip machinery is fully built (`src/audio/normalizeForTts.ts`, `scripts/audio/build-tts-queue.ts`), so a restart is a lane decision, not a re-derivation. **Resumption triggers:** the workaround stops sufficing, integrated bilingual audio becomes wanted, or the project reaches a scale where a workaround-per-user no longer fits. Clip counts, minute/storage estimates, price-per-tier projections, provider/model/codec choices, Pages limits, R2 scaling plans, and queue implementation detail: archived — none of it is active constitutional content while parked.
-
-**Translation-friction scoring. Status: PARKED.** Folding reveal-tap friction into the targeted-review sampler stays open until real dogfooding sessions show reveal concentration that is genuinely topic/category-specific and miss-predictive beyond the existing missed-topic signal. The instrument (telemetry, export, dev panel) already ships; only the scoring decision is parked.
-
-**`test` and `adaptive` exam-condition modes. Status: PARKED.** Both are non-default half-exam placeholders — they force `languageMode: "off"` at session creation and still reveal the answer, rationale, and per-choice breakdown immediately after each submit — pending a decision to spec each as a real exam simulator (deferred feedback, no translate-all, strict language mode) or remove them. Deferred sub-question: whether a strict exam environment should ever permit a post-submit full translation reveal.
-
-## 7. Revisit queue
-
-Each entry names its next step; none of these describes settled behavior.
-
-- **Vital-sign `sanity` bounds are copied renderer validation envelopes, not authored plausibility bounds (Amendment 3A/R17, found 2026-07-10; `temp` closed 2026-07-15).** `MeasurementDef.sanity` is derived straight from `VITAL_DEFS[key].range` for six of seven vitals, a renderer validation envelope, not an authored physiologic-plausibility tripwire. For `temp` this is now repaired: the flowsheet gate's GATE 4 sanity ceiling is decoupled from the renderer's legacy `110` range and independently authored at `46.5 °C`, sourced to Slovis CM, Anderson GF, Casolaro A, "Survival in a heat stroke victim with a core temperature in excess of 46.5 C," *Annals of Emergency Medicine* (1982) — the highest of three documented full-recovery hyperthermia cases considered, chosen as the most conservative point within the engineering interval that both preserves the renderer's full `86–109 °F` authoring envelope and catches the full Fahrenheit-mis-staged-as-Celsius defect class. Luke's sign-off and architect ratification: 2026-07-15. Full reasoning, citations, and the engineering-interval derivation: `Archive/root-cleanup-2026-07-19/r9-temperature-sanity-decoupling-codex-spec.md`. Moved to code — verify there, not here: the ratified value is `VITAL_SANITY_MAX_OVERRIDES.temp` in `src/measurementAllowlist.ts`; the floor remains inherited from `VITAL_DEFS.temp.range.min` and is explicitly not ratified by this closure. The remaining six vitals (`hr`, `sbp`, `dbp`, `map`, `rr`, `spo2`) stay open under REVISIT, and `temp`'s own floor remains inherited and unratified: survey and pre-move sweep are complete (2026-07-11: zero flips in the promoted corpus under either tested probe), but no bound beyond the `temp` ceiling is ratified. The deterministic inventory across all seven vitals is now **complete and merged** (P3 survey, `audit/vital-sanity-bounds-survey-2026-07-17/survey-manifest.json`; independent classification review closed, provenance repair `9bf33b2`), and its stage-2 architect adjudication is ratified as §20 of `VITAL-SANITY-BOUNDS-P3-SURVEY-ARCHITECT-SPEC-2026-07-17.md`. Stage 3 closed 2026-07-24 with three per-side ratifications: SBP ceiling `400 mmHg`, RR ceiling `150/min`, and `spo2` floor `0%`. The governed population is bedside and charted flowsheet values, which is what selects `400` over the higher instrumented-measurement candidate. The separate `sao2` laboratory key stays provisionally at a floor of `50%`; pulse-oximeter evidence does not govern it, and the divergence is deliberate. A later implementation commission may add the ratified SBP and RR ceiling overrides and a per-side mechanism for the `spo2` floor; renderer envelopes must remain unchanged, `sanity.min` may not be removed or made optional, and a fresh corpus-impact survey is required. DBP and MAP ceilings are authorized for a separate bounded sourcing pass, with no number selected here. All other unratified sides, including the `temp` floor, remain provisional. No bound is authored from model memory at any stage. Evidence: `audit/vital-sanity-bounds-p3-stage-3-source-packet-2026-07-23.md`, `audit/vital-sanity-bounds-p3-stage-3-independent-checker-2026-07-23.md`.
-
-## 8. Superseded rulings and compact forcing-incident history
-
-**CBC lab units are American conventional, not SI (2026-07-04). Status: SUPERSEDED** by the Amendment (2026-07-05) below. Do not follow this entry's "never SI" / "`×10⁹/L` dropped" claims.
-
-*Original ruling.* For WBC/platelet counts the app used conventional US units only, grounded in Luke's bench experience as a laboratory technologist — US labs report these conventionally (`×10³/µL`/`K/µL`/raw `/µL`), not SI `×10⁹/L`. `lab_trend`'s canonical unit for `wbc`/`platelets` moved to the conventional form (numerically identical, only the label changes), dropping `×10⁹/L` as an accepted unit.
-
-*Amendment (2026-07-05) — refined to conventional-first + SI-in-parentheses, analyte-aware.* Dogfooding showed "never SI" was too rigid in two ways: conventional reporting is itself multi-form (magnesium/calcium legitimately carry `mEq/L`, not just `mg/dL`, as a real US form — not SI), and some SI-looking units (lactate `mmol/L`, ammonia `µmol/L`, ionized calcium `mmol/L`, troponin-T `ng/mL`) are the normal US reporting form and must not be mechanically inverted. The governing rule is **analyte-aware**: each analyte has its own conventional form(s), keyed by (analyte, sourceUnit) in one sourced conversion table, never by unit token alone. Consequences: accepted *source* units became permissive again (extraction preserves byte-exact `sourceUnit`, including SI `×10⁹/L` where source states it, per Rule C in the extraction contract); display became a separate policy layer (conventional-primary, optional SI-paren) consumed by both `lab_trend` and `structuredMeasurements`; and one sourced conversion table serves GATE 4 sanity, display-paren generation, and prose normalization.
-
-**The fishbone "workflow-familiarity" waiver (2026-07-06). Status: SUPERSEDED** by principle 25 (§4), on stronger grounds: the fishbone qualifies because it *preserves exact values* (a partial H/H fishbone is value-complete), not because clinicians are used to seeing one. Vendor ubiquity is explicitly not a qualifying criterion under principle 25.
-
-**"Vitals `sanity` passes every real transcribed value." Status: SUPERSEDED / withdrawn.** An earlier characterization that the six non-`temp` vital `sanity` bounds were clinically ratified and admit every real reading is withdrawn as unprovable of a copied renderer envelope, and contradicted by evidence (documented SBP to ~370, RR at the `80` ceiling with no margin, displayable SpO₂ below 50). They are retained provisionally, not ratified — see the REVISIT entry in §7.
-
-**Governance markdown needs an encoding gate (2026-07-09). Status: SUPERSEDED / withdrawn 2026-07-16.** Luke's ruling, after three independent clean scans (2026-07-09; 2026-07-16 × 2 — the latter covering untracked files and confirming all repository Markdown is valid UTF-8, with no U+FFFD and no mojibake signatures). Every mojibake alarm this project has raised has been a **connector-read artifact**: the corruption is in the path Claude reads through, never on disk. A repo-side CI gate is the wrong instrument — it would scan clean files indefinitely, never fire, and falsely imply the read path had been validated.
-
-*The reasoning error, named so it is not repeated.* The original entry correctly identified the 2026-07-09 alarm as a connector artifact and then concluded that "the underlying gap stands" by analogy to `banks/*.json`. **The analogy does not transfer.** `scanForReplacementChar` guards bank JSON because bank JSON is *machine-consumed* — a U+FFFD there ships silently to a learner. Governance markdown is *read by humans and models*, so a corrupted glyph is visible at the point of use, and has in fact been caught by the reader every time. Different consequence class, different control. **Do not re-open this by citing "banks are gated but markdown isn't."**
-
-*Replacement control*, aimed at the actual failure surface: `CLAUDE.md` (§ *You have filesystem access*) now directs the reading seat to suspect its own connector before the repo and to confirm with a second method before raising an alarm. The residual write-path risk — Claude authoring governance text *through* the suspect connector — is covered by a one-time plain `grep` of the final tree at commit time by a non-connector tool, not by a standing gate.
-
-Full forcing-incident narratives, exact historical metrics, superseded prior wordings, and closed-out chronology for every principle narrowed in this pass live in [`Archive/DECISIONS-ARCHIVE-2026-07-14.md`](Archive/DECISIONS-ARCHIVE-2026-07-14.md).
-
-## Reference appendices
-
-Supporting material for the active principles above — not itself a status bucket, and not restated in the principle bodies to avoid the duplicated-definition risk principle 27(d) warns about.
-
-**Other standing invariants (all ACTIVE unless noted):**
-- **Runtime audio must not require a client-embedded secret or a live API call; an absent pre-generated asset must fail safely to the supported fallback (`speechSynthesis`).** This binds regardless of principle 20's parked status below — it is categorical under GitHub Pages, not prudential: Vite inlines `VITE_`-prefixed vars as plaintext into the published bundle, so any client-embedded key would be world-readable on the deploy.
-- Bilingual EN / zh-CN parity on all displayed text.
-- `question.topic` is English-only — a navigational label, not study content. Enforced in `validateBankObject` (Tier 0): CJK in `topic` fails loudly and is never silently stripped.
-- **JSON quote hygiene is a parse-time gate, and JSON shape is edited programmatically, never retyped.** Structural tokens are ASCII `"` only; Chinese quotation marks are valid only inside `zh` values. The dominant corruption source is editing, not generation. Full quote-safety mechanics: `docs/AGENTS-RUNBOOK.md`.
-- Question IDs are globally unique across bundled banks, including embedded case-study leaves — gate-enforced by `audit:ids`.
-- **Raw-draft filename prefix routes to its canonical bank by a fixed table**, `CANONICAL_PREFIXES` in `lib/canonical-routing.ts` — the executable source of truth; do not hand-maintain a prose copy of the table. The eight original per-kind canonicals are complete, frozen content sets, not active generation targets; `visual-canonical.json` is the only live visual generation target, and a visual kind added after the original roadmap does not mint a new per-kind canonical.
-- Canonical merges are deterministic and gated via `npm run consolidate`; canonicals are never hand-merged.
-- Runtime stays static, offline, and `file://`-compatible. No server or live model call after build.
-- **Schema versions are an ordered token, not semver — the minor component never exceeds 9.** Every version string must sort correctly under naive numeric, lexicographic, and index comparison; `schemaVersionAtLeast` (over a private index) is the single legal comparison primitive. Current supported set: verify against the `SchemaVersion` union in `src/types.ts`, not against any version list restated in prose (including `NCLEX-Question-Schema.md`'s own restatement, which must itself be checked against code).
-- Schema changes are rare and deliberate.
-- Shared visual numeric helpers have a single definition: `fmt`, `fmtNum`, `roundTo` live in `src/visuals/primitives/graphPaper.ts`; no kind redefines them.
-- Case-study exhibit ids share one namespace across the whole case (top-level `exhibits` plus every stage); `caseStudy.exhibits` may be empty if the case's opening content is meant to be entirely stage-gated.
-- Category targets are the current test-plan weights project-wide, not uniform, for both the weighted study draw and the generation coverage backlog (`NCLEX_CATEGORY_WEIGHTS`, single map). Item-type balance stays uniform by design — the test plan weights Client Needs categories, not item formats.
-- **Bank composition is a floor problem, not a balance problem.** No release gate enforces balance; the rule is that no format may fall below the depth its sampling path requires (the `floorThreshold` viability gate), and above that floor, topic fit and item quality override census arithmetic — no weak item is authored merely to close a census gap.
-- **Repository-state hygiene is mechanism-specific.** GitHub-reading agents can see only committed and pushed inputs; disk-reading agents operate against an explicit local branch/worktree snapshot and must preserve unrelated changes. No agent may assume local and remote state are identical. The binding operational requirements live in `AGENTS.md`.
-- **Some topics are deliberately shared across NCLEX categories, not misclassified.** `Skin & Wound Care` spans Basic Care and Comfort, Reduction of Risk Potential, and Safety and Infection Prevention and Control; `Transfusion & Blood Products` spans Safety and Infection Prevention and Control, Pharmacological and Parenteral Therapies, Reduction of Risk Potential, and Physiological Adaptation (`src/topics.ts`). Do not "fix" an item's category to make it match a topic's single most-obvious category — the topic is intentionally cross-category.
-- **Standalone bowtie may be generated directly, not only harvested from a case skeleton (2026-07-02).** The case-origination requirement was mis-scoped: it protected the compiler from inventing the differential/irrelevant-parameter pools, but bowtie is standalone-only by construction regardless of origin. A direct standalone-bowtie generation lane runs through the normal raw→cross-model review→promote→ledger pipeline on equal footing with every other item type, under the same semantic floor as the case-embedded synthesis zones. This does not relax producer≠checker or the case-embedded compiler's discipline for bowties that do arise inside a skeleton.
-- **Highlight's structural bias gate is schema-level, not audit-level.** Every `highlight` item must include at least one selectable distractor segment (Tier 0 validation) — "highlight everything" cannot enter a bank. Segment order is clinically meaningful passage order and is never shuffled; the non-MCQ positional audit has no applicable position null for highlight, so semantic cue quality stays content-review work.
-- **Promoted visual parity is a committed per-kind baseline over every full-schema visual location (closed 2026-07-17, PR #55).** `scripts/tests/__snapshots__/visual-parity-promoted/<kind>.json` pins all 199 promoted identities across the 12 registered kinds and all six locations; `visual-parity.json` owns only its 11 validation-reason cases after the lossless U0 migration, and no permanent cross-file equality assertion survives it. An intentional renderer change rebaselines only through `npm run parity:rebaseline` with a declared `--scope` covering `changed`/`added`/`removed`, a Git-derived per-delta cause, and a committed receipt; added or removed identities with no corresponding `banks/**` change fail as identity drift. The one-time bootstrap is permanently unavailable. Review tiers, proof surfaces, and rebaseline procedure: `Archive/root-cleanup-2026-07-19/PROMOTED-VISUAL-PARITY-EXPANSION-ARCHITECT-SPEC-2026-07-16.md` — do not restate them here.
-- **Pull-request and post-merge CI coverage are distinct; a gate addition requires measured evidence of incremental pre-merge value (ratified 2026-07-24).** A check running only after merge may protect the deploy but does not prevent the bad merge; equally, "already covered post-merge" is not by itself a finding of redundancy. Ratified for a later implementation commission and authorizing nothing else: `npm run build`; `test:topic-population`; `test:topic-license` as detector-regression coverage only; `test:topic-vocabulary`; and an exact-byte drift check for `docs/topic-vocabulary.md`. Rejected or deferred: a separate `tsc -b` step (`npm run build` already runs it); fatal live topic-license enforcement; a duplicate promoted-bank validator; and generalized regeneration or drift-checking of historical audit artifacts. Any further PR-gate expansion needs its own measured evidence and owner ratification. Evidence: `audit/ci-coverage-survey-2026-07-23.report.md`, `audit/ci-coverage-survey-2026-07-23.independent-checker.md`.
-
-**Gemini's standing restrictions (cross-references principles 3, 5, 8, 18, 22 above):** raw-volume generation only, never direct canonical edits (principle 5); flag-only review in the forward case lane, never compiler, never mutation (principle 8/18); demoted from every content-judgment audit lane (Jun 26 — templated, non-pair-specific reconciliations required Luke's independent re-research to trust, versus self-verifying verbatim-evidenced Claude/Codex lanes). If an irreducible producer-clean residual ever forces a Gemini audit lane, any row whose reconciliation is not pair-specific and does not quote the keyed rule (EN+ZH) is auto-rejected to re-review, never accepted as a dismissal.
-
-**Study-session distribution:** the category weight table and sampler-rule detail this section used to restate in prose now live only in code (`NCLEX_CATEGORY_WEIGHTS` in `src/schema.ts`; `src/sessionSampler.ts`) per principle 10 above. Full original table and calibration narrative: archived.
-
-**Session artifacts (implemented spec pointers, not open work):** `Archive/Fixtures/promotion-gate-spec.md` (principles 1–4, operationalized); presentation normalization (implemented 2026-06-12, the rebaseline vehicle for principle 16 — no standalone spec file survives; see `lib/presentation-normalization.ts` and `scripts/tests/presentation-normalization.ts`); `Archive/root-specs-2026-06-18/census-spec.md`; `Archive/study-session-weighting-spec.md`; `Archive/root-cleanup-2026-06-24/tts-queue-builder-codex-spec.md` and `Archive/root-cleanup-2026-06-24/tts-cost-report-codex-spec.md` (principle 20, parked); `Archive/root-cleanup-2026-06-30/exam-layout-extraction-and-tests-codex-spec.md`; `Archive/root-cleanup-2026-06-30/standalone-visual-review-layout-codex-spec.md`; `Archive/Fixtures/shrimp-visual-sweep-spec-v3.md`.
+Every entry carries exactly one kind, one status, and one force, plus an execution state where
+implementation is a meaningful axis. There is no untagged default.
+
+The four axes are independent. Kind says what an entry is; status says whether it binds now; force says
+what it does when it applies; execution state says whether the thing it decided has been built. No
+amount of outstanding work changes an entry's kind, and no status value overrides the force stated on the
+entry. A settled decision whose implementation is pending is not an open question.
+
+The closed vocabularies and the kind-to-status compatibility table are owned by
+`DECISIONS-TAXONOMY-2026-07-24.md` and rendered into grammar by
+`DECISIONS-FORMAT-ARCHITECT-SPEC-2026-07-28.md`; the summaries here orient a reader and settle nothing.
+
+Kinds: `P` a governing principle that decides cases not yet seen, cited by identifier and able to carry
+attached blocks; `R` a concrete ruling that settles specified items and generalizes no further, cited by
+identifier and able to carry attached blocks; `I` a standing invariant whose violation is a defect rather
+than a judgment call, cited by exact title and carrying no attachments; `T` an unsettled question with a
+named next action, cited by exact title and carrying no attachments; `X` an archived metadata wrapper,
+which appears only in the archive file named in §8 and never here.
+
+- **ACTIVE** — in force under the current project architecture.
+- **CONDITIONAL** — a principle scoped to a named lane, feature, or workflow. When that lane retires the
+  principle archives, unless a surviving universal core is ratified to remain, in which case the
+  principle is de-conditionalized, keeps its number, and returns to `ACTIVE`. Lane retirement is not
+  automatic archival of everything that lane's principles said. `P` only, and no live entry currently
+  carries it.
+- **PARKED** — inactive behind a named resumption trigger; compatible with `P`, `R`, and `T`. The
+  discriminator is whether revival needs a fresh decision or only a lane call. For a `P` or `R` the
+  decision is settled and revival is a lane call rather than a re-derivation. For a `T` the question is
+  still unresolved and only work on it is paused, so revival resumes the decision process rather than
+  activating a settled rule; what unblocks a parked thread is its named trigger, where a `REVISIT` thread
+  waits on evidence or ratification instead. Force is stated on the entry and is not weakened by this
+  status.
+- **REVISIT** — an unresolved question awaiting evidence, a source check, a survey, or an explicit
+  ratification. `T` only. A settled rule under renewed examination stays `ACTIVE` while a separate thread
+  carries the reconsideration, and ratified-but-unbuilt work is `ACTIVE` with `Execution: PENDING`, never
+  `REVISIT`.
+- **SUPERSEDED** — replaced by a later cited ruling. No live entry carries it; it appears only on archive
+  wrappers.
+
+Force: `BINDING` means violating it fails a gate or is a defect; `AUTHORIZING` grants or withholds
+permission for future work; `ADVISORY` records a preference or heuristic with no gate and no permission;
+`HISTORICAL` records what happened and binds nothing. Force never changes as a side effect of
+relocation — any entry whose force differs before and after a move is an owner ratification, not a
+cleanup outcome.
+
+`Execution` is `EXECUTED` where the decision is live in its named owner, `PENDING` where it is ratified
+and not yet implemented, or `INACTIVE` where it is specified and deliberately not running. It is omitted
+where the entry decides nothing implementable. A `PENDING` rule binds fully; nobody may choose a
+different value on the grounds that the ratified one is not in code yet.
+
+## 3. Entry index
+
+One row per entry block, in document order. Derived and never the authority: where index and body
+disagree, the body governs. The ID column is an em dash for name-addressed entries, whose summary equals
+the entry title byte-for-byte.
+
+| ID | kind | status | force | summary |
+|---|---|---|---|---|
+| P1 | P | ACTIVE | BINDING | Answer placement is owned by code |
+| P2 | P | ACTIVE | BINDING | Independent review is scoped to judgment |
+| P2 | P | ACTIVE | BINDING | Application: spec conformance and content review stay split |
+| P3 | P | ACTIVE | BINDING | Deterministic core, capped semantic residual |
+| P4 | P | ACTIVE | BINDING | Rationales are position-agnostic and bilingual |
+| P5 | P | ACTIVE | BINDING | Generated is not reviewed |
+| P5 | P | ACTIVE | AUTHORIZING | Narrowing: named-model restrictions are lane policy |
+| P6 | P | ACTIVE | BINDING | Visuals are deterministic, curated imagery has a separate lane |
+| P7 | P | ACTIVE | ADVISORY | Precision over volume |
+| P8 | P | ACTIVE | BINDING | Clinical truth is authored upstream and read-only downstream |
+| P10 | P | ACTIVE | BINDING | Study sessions mirror the exam distribution |
+| P11 | P | ACTIVE | BINDING | Visual arithmetic is a machine-checked gate carrying no engine |
+| P15 | P | ACTIVE | BINDING | Bank patches are raw-scoped and declarative |
+| P15 | P | ACTIVE | BINDING | Application: a declarative op names a field path, not a record |
+| P16 | P | ACTIVE | BINDING | Answer-pattern bias is presentation-first |
+| P16 | P | ACTIVE | BINDING | Amendment: a canonical file is not a learner-visible population |
+| P16 | P | ACTIVE | ADVISORY | Standing authoring note on surviving distributional signal |
+| P17 | P | ACTIVE | BINDING | Scoring is polytomous, retention is full-marks |
+| P19 | P | ACTIVE | BINDING | Rationale visuals are explanation figures, not stimuli |
+| P20 | P | PARKED | ADVISORY | Pronunciation audio is pre-generated and local-first |
+| P21 | P | ACTIVE | BINDING | Repo-reading generation prompts carry the semantic floor |
+| P21 | P | ACTIVE | BINDING | Application: construction language stays off the learner surface |
+| P21 | P | ACTIVE | BINDING | Application: construction language is functional, not positional |
+| P23 | P | ACTIVE | BINDING | Exam-like presentation is a renderer concern |
+| P23 | P | ACTIVE | BINDING | Application: sparse shape-aware allocation |
+| P23 | P | ACTIVE | BINDING | Application: an embedded leaf is a planning unit, not a retirement unit |
+| P24 | P | ACTIVE | BINDING | Structured measurements are values-only exhibit presentation |
+| P25 | P | ACTIVE | BINDING | Necessity is a property of the artifact |
+| P25 | P | ACTIVE | BINDING | Application: composite trend artifacts |
+| P25 | P | ACTIVE | BINDING | Amendment: unified single-axis vitals trend with retained flowsheet |
+| P25 | P | ACTIVE | BINDING | Application: reinstate the visible flowsheet beneath the unified chart |
+| P26 | P | ACTIVE | BINDING | A disposition that suppresses a check must itself be checked |
+| P27 | P | ACTIVE | BINDING | An invariant softens only by naming its forcing incident |
+| P28 | P | ACTIVE | BINDING | Scored leaves govern planning, session units govern delivery |
+| P29 | P | ACTIVE | BINDING | Sparse laboratory-presentation cardinality is not a validity floor |
+| P30 | P | ACTIVE | BINDING | Lab reference bands are adult-only and pediatric bands fail closed |
+| P31 | P | ACTIVE | BINDING | Gemini's standing restrictions |
+| R1 | R | ACTIVE | AUTHORIZING | Standalone bowtie may be generated directly |
+| R2 | R | ACTIVE | BINDING | CBC units are conventional-first with SI in parentheses |
+| R3 | R | ACTIVE | BINDING | Temperature sanity ceiling 46.5 °C |
+| R4 | R | ACTIVE | BINDING | Promoted visual parity is a committed per-kind baseline |
+| R5 | R | ACTIVE | BINDING | Vital sanity ratifications for SBP, RR, and SpO2 |
+| R6 | R | ACTIVE | AUTHORIZING | Pull-request and post-merge CI coverage are distinct |
+| — | I | ACTIVE | ADVISORY | Producer assignments are operational state, not constitutional text |
+| — | I | ACTIVE | BINDING | Deterministic review routing for promoted opus-prefixed case IDs |
+| — | I | ACTIVE | BINDING | Runtime audio carries no client-embedded secret |
+| — | I | ACTIVE | BINDING | Bilingual English and Simplified Chinese parity on all displayed text |
+| — | I | ACTIVE | BINDING | Topic labels are English-only |
+| — | I | ACTIVE | BINDING | JSON quote hygiene is a parse-time gate |
+| — | I | ACTIVE | BINDING | Question IDs are globally unique across bundled banks |
+| — | I | ACTIVE | BINDING | Raw-draft filename prefix routes to its canonical bank |
+| — | I | ACTIVE | BINDING | Canonical merges are deterministic and gated |
+| — | I | ACTIVE | BINDING | Runtime stays static, offline, and file-protocol compatible |
+| — | I | ACTIVE | BINDING | Schema versions are an ordered token, not semver |
+| — | I | ACTIVE | ADVISORY | Schema changes are rare and deliberate |
+| — | I | ACTIVE | BINDING | Shared visual numeric helpers have a single definition |
+| — | I | ACTIVE | BINDING | Case-study exhibit IDs share one namespace |
+| — | I | ACTIVE | BINDING | Category targets are the current test-plan weights |
+| — | I | ACTIVE | BINDING | Bank composition is a floor problem, not a balance problem |
+| — | I | ACTIVE | BINDING | Repository-state hygiene is mechanism-specific |
+| — | I | ACTIVE | BINDING | Some topics are deliberately shared across categories |
+| — | I | ACTIVE | BINDING | Highlight's structural bias gate is schema-level |
+| — | T | PARKED | ADVISORY | Translation-friction scoring |
+| — | T | PARKED | ADVISORY | Exam-condition test and adaptive modes |
+| — | T | REVISIT | ADVISORY | Unresolved vital sanity bounds |
+
+**Declared total:** 65 entry blocks.
+
+## 4. Governing principles
+
+Cited by permanent identifier. A `####` block is attached to the `###` core carrying the same identifier
+and holds its own status, force, date, and execution state. Current attached blocks are applications,
+amendments, narrowings, or standing notes. Identifiers `P9`, `P12`, `P18`, and `P22` are retired and `P13`
+and `P14` were never assigned; see §8.
+
+### P1 — Answer placement is owned by code
+
+A deterministic, item-ID-seeded shuffle applied at promotion owns option and answer placement; the
+model never places or orders an answer. This governs positional bias across every item type, not only
+multiple choice.
+
+- **Kind:** P
+- **Status:** ACTIVE
+- **Force:** BINDING
+- **Date:** 2026-06-09
+- **Owner:** `lib/shuffle.ts`
+- **Execution:** EXECUTED
+
+### P2 — Independent review is scoped to judgment
+
+Independent review is required wherever correctness depends on semantic judgment, clinical
+interpretation, provenance, or contract interpretation; purely mechanical work may self-certify against
+deterministic checks that have an independent null and do not merely confirm the author's intent. Every
+active generation lane declares its producer provenance and its independent-review routing.
+
+- **Kind:** P
+- **Status:** ACTIVE
+- **Force:** BINDING
+- **Date:** 2026-07-18
+
+#### P2 — Application: spec conformance and content review stay split
+
+When one seat authors a remediation spec and another implements it, the authoring seat cannot certify
+the implementation and a seat blind to the spec cannot certify it either. Content review therefore goes
+to the gate seat, which re-derives each disposition from source and standing rules, while
+spec-conformance verification stays with the architect who wrote the spec.
+
+- **Kind:** P
+- **Status:** ACTIVE
+- **Force:** BINDING
+- **Date:** 2026-07-09
+
+### P3 — Deterministic core, capped semantic residual
+
+Counting, distributions, permutation integrity, and template repetition have known nulls and belong in
+scripts that return identical verdicts every run. Model judgment is reserved for the irreducible
+semantic residual, run only on items the deterministic layer flags and capped per batch. No API key or
+live model call belongs in the repository; semantic findings enter through an offline validated
+handoff that merges them without modifying Layer A.
+
+- **Kind:** P
+- **Status:** ACTIVE
+- **Force:** BINDING
+- **Date:** 2026-06-12
+
+### P4 — Rationales are position-agnostic and bilingual
+
+A rationale references option content, never a letter or an ordinal or spatial position. A rationale
+that names no position cannot carry a stale answer-key reference after a shuffle, in either English or
+Simplified Chinese.
+
+- **Kind:** P
+- **Status:** ACTIVE
+- **Force:** BINDING
+- **Date:** 2026-06-09
+
+### P5 — Generated is not reviewed
+
+No model-generated learner-facing clinical content becomes canonical without independent content review
+and the promotion pipeline. The generating lane never reviews its own batch and cannot certify its own
+output for canonical promotion; every active generation lane declares its producer provenance and its
+independent-review routing.
+
+- **Kind:** P
+- **Status:** ACTIVE
+- **Force:** BINDING
+- **Date:** 2026-07-18
+
+#### P5 — Narrowing: named-model restrictions are lane policy
+
+Named-model restrictions are current lane policy, not the universal definition of
+generated-versus-reviewed content. This attachment states the constitutional floor beneath them; the
+standing named-model restrictions themselves are carried by P31.
+
+- **Kind:** P
+- **Status:** ACTIVE
+- **Force:** AUTHORIZING
+- **Date:** 2026-06-26
+- **Not authorized:** Treating named-model lane policy as the universal definition of generated versus reviewed content.
+
+### P6 — Visuals are deterministic, curated imagery has a separate lane
+
+Deterministic, data-derived visuals are the default for diagrammatic and numeric clinical cues;
+AI-generated medical imagery is prohibited, and each renderer ships `selfCheck` cross-consistency
+assertions and registry conformance tests. Curated licensed clinical imagery may enter only through a
+separate provenance, licensing, accessibility, and clinical-review lane. Every question-level stimulus
+remains load-bearing: a visual whose removal leaves the answer unchanged is decorative and invalid.
+
+- **Kind:** P
+- **Status:** ACTIVE
+- **Force:** BINDING
+- **Date:** 2026-07-14
+
+### P7 — Precision over volume
+
+In any audit, five fully-evidenced findings beat thirty probable ones. Verbatim evidence, an honest
+reconciliation attempt, and explicit confidence and dismissal discipline are the standard.
+
+- **Kind:** P
+- **Status:** ACTIVE
+- **Force:** ADVISORY
+- **Date:** 2026-06-09
+
+### P8 — Clinical truth is authored upstream and read-only downstream
+
+Clinical truth and answer logic have an explicit upstream owner, and every downstream transformation
+may read them but never silently invent or alter them. A downstream stage translates and shapes content
+into schema without deciding which action is correct and without introducing clinical claims absent
+from the authored source. A decision point too underspecified to yield an unambiguous item is dropped,
+not guessed.
+
+- **Kind:** P
+- **Status:** ACTIVE
+- **Force:** BINDING
+- **Date:** 2026-07-24
+
+### P10 — Study sessions mirror the exam distribution
+
+Default Study sampling follows NCLEX category weighting and guards against narrow-topic clustering,
+while strict exam simulation is a separate product mode. Case studies are excluded from the weighted
+draw, mirroring the exam's fixed, separately counted case-study allotment. Difficulty adaptivity is a
+deliberately separate, deferred axis.
+
+- **Kind:** P
+- **Status:** ACTIVE
+- **Force:** BINDING
+- **Date:** 2026-07-14
+- **Execution:** EXECUTED
+
+### P11 — Visual arithmetic is a machine-checked gate carrying no engine
+
+For every visual kind whose answer turns on a computed value, the load-bearing numbers are typed on the
+visual spec and `selfCheck` recomputes the answer from spec and audit metadata, asserting exact
+equality after any declared rounding. A mismatch is a build failure, not a content note. Each kind
+exposes an enumerated set of one-line, same-unit derivations, and no unit-conversion or dosage engine is
+authorized.
+
+- **Kind:** P
+- **Status:** ACTIVE
+- **Force:** BINDING
+- **Date:** 2026-06-12
+- **Execution:** EXECUTED
+
+### P15 — Bank patches are raw-scoped and declarative
+
+Bank patches write only under the raw bank directory, and canonical files are read-only except through
+an explicit in-place mode that forces a ledger entry. Patch operations are declarative and
+precondition-checked, and no arbitrary-mutate primitive exists, because mechanical fixes belong in
+patches and semantic fixes belong in review.
+
+- **Kind:** P
+- **Status:** ACTIVE
+- **Force:** BINDING
+- **Date:** 2026-06-10
+- **Owner:** `scripts/patch-raw.ts`
+- **Execution:** EXECUTED
+
+#### P15 — Application: a declarative op names a field path, not a record
+
+A declarative operation identifies the exact field path it mutates together with the before and after
+values for that path. A record-scoped string replacement is not declarative even when it declares a
+before and an after, because it rewrites every occurrence in the record, including fields the operation
+never named. Under P26 a patch must independently prove every learner-facing and scoring field outside
+its authorized mutation surface unchanged.
+
+- **Kind:** P
+- **Status:** ACTIVE
+- **Force:** BINDING
+- **Date:** 2026-07-22
+- **Execution:** EXECUTED
+
+### P16 — Answer-pattern bias is presentation-first
+
+Positional tells carry no clinical meaning and are repaired mechanically by a deterministic, ID-seeded
+permutation. Distributional tells are properties of item content, cannot be shuffled away, and clear
+only through deliberate authoring or a targeted regeneration pass, never by hand-editing answer logic in
+reviewed canonical items. Incidental dilution from ordinary new content is acceptable but is not
+remediation.
+
+- **Kind:** P
+- **Status:** ACTIVE
+- **Force:** BINDING
+- **Date:** 2026-07-14
+- **Execution:** EXECUTED
+
+#### P16 — Amendment: a canonical file is not a learner-visible population
+
+Distributional checks measure concentration in the population a learner actually draws from, so a
+canonical bank file is an authoring-provenance boundary rather than a population. A global
+distributional verdict stands on its own statistic and does not inherit a per-file failure; per-file
+distributional verdicts remain authoring-hygiene advisories only, while positional and mechanical
+checks continue to inherit. A distributional verdict below its
+minimum-observation floor reports as insufficient rather than as a failure.
+
+- **Kind:** P
+- **Status:** ACTIVE
+- **Force:** BINDING
+- **Date:** 2026-07-15
+- **Owner:** `scripts/audit/non-mcq-bias-lib.ts`
+- **Execution:** EXECUTED
+
+#### P16 — Standing authoring note on surviving distributional signal
+
+The surviving `visual-canonical` SATA distributional signal is addressed by varying correct counts
+where clinical truth naturally permits. This is not retire-and-replace: necessity-gated visual items
+are not retired merely to move a histogram.
+
+- **Kind:** P
+- **Status:** ACTIVE
+- **Force:** ADVISORY
+- **Date:** 2026-07-15
+
+### P17 — Scoring is polytomous, retention is full-marks
+
+Grading returns an earned-and-possible score per NGN family. Partial credit feeds the session score and
+per-item feedback only, and spaced repetition resurfaces any item scored below full marks.
+Threshold-based retention, graded ease from partial scores, rationale/dyad scoring, and
+ordered-response partial credit are out of scope.
+
+- **Kind:** P
+- **Status:** ACTIVE
+- **Force:** BINDING
+- **Date:** 2026-06-14
+- **Execution:** EXECUTED
+
+### P19 — Rationale visuals are explanation figures, not stimuli
+
+Rationale visuals are an answer-revealed teaching slot reusing existing deterministic visual kinds;
+structural kind validation applies to them, but item-type placement and `selfCheck` answer-coupling do
+not. The load-bearing-stimulus rules continue to apply in full to the question's own visual. Rationale
+figures participate in the shared full-schema projection for schema-floor detection, export-envelope
+inference, and renderer parity, but are excluded from the deliberately narrower census artifact
+population by ratification; the two traversals must not be unified.
+
+- **Kind:** P
+- **Status:** ACTIVE
+- **Force:** BINDING
+- **Date:** 2026-07-16
+- **Execution:** EXECUTED
+
+### P20 — Pronunciation audio is pre-generated and local-first
+
+The pre-generated audio architecture — local-first bilingual distribution, field-level content-hashed
+clips, and asset-presence resolution — is settled but inactive and not currently binding. It remains
+subject to I: `Runtime audio carries no client-embedded secret`, which binds regardless of this
+principle's status. Resumption is a lane decision rather than a re-derivation, triggered when the
+current workaround stops sufficing, integrated bilingual audio becomes wanted, or scale makes a
+per-user workaround unfit.
+
+- **Kind:** P
+- **Status:** PARKED
+- **Force:** ADVISORY
+- **Date:** 2026-06-22
+- **Execution:** INACTIVE
+
+### P21 — Repo-reading generation prompts carry the semantic floor
+
+When the generating model can read the repository, the prompt defers all per-format shape to the
+operational and schema documents and restates none of it. It inlines only the semantic floor the schema
+cannot infer: no-filler distractors; rationales for keyed answers and distractors; closed-world stems;
+clinical scope and monitorability; no lazy provider-notification key; unique ordered-response sequences;
+bounded highlight selection; gradeable closed-vocabulary blanks; bilingual parity; and failure of the
+whole item when a keyed ID does not exist. Narrow per-format shape reminders return only after a
+measured recurring failure.
+
+- **Kind:** P
+- **Status:** ACTIVE
+- **Force:** BINDING
+- **Date:** 2026-07-14
+
+#### P21 — Application: construction language stays off the learner surface
+
+Closed-world construction describes an authoring method, not wording to show a learner: the governing
+order, protocol, threshold, or criteria must instead be stated naturally in the question. Author and
+checker scaffolding is naturalized before promotion without removing the embedded rule or changing the
+tested construct. A project-internal producer constraint is embodied through clinical facts, choices,
+and rationale rather than appended to the stem as a disclaimer.
+
+- **Kind:** P
+- **Status:** ACTIVE
+- **Force:** BINDING
+- **Date:** 2026-07-21
+- **Execution:** EXECUTED
+
+#### P21 — Application: construction language is functional, not positional
+
+Construction language is any learner-facing prose whose function is to explain, justify, or defend how
+the item was built, and it is identified by function, never by phrase and never by position. Terminal
+position is a review heuristic only, because producers tend to append constraints, defenses, and
+apologies after an otherwise complete item. A clean terminal-sentence sweep is therefore not evidence
+that a corpus is free of construct defense.
+
+- **Kind:** P
+- **Status:** ACTIVE
+- **Force:** BINDING
+- **Date:** 2026-07-22
+
+### P23 — Exam-like presentation is a renderer concern
+
+Split layout is presentation only: a case study stays one top-level session question with one
+aggregate submit and one aggregate score, and grading, storage, spaced repetition, progress, flags,
+adaptive, and summary all key on the top-level question id; per-part submit and true unfolding reveal
+remain deferred because they require a storage-and-grading redesign, and are revisited only if
+real-session observation shows aggregate submit is the fidelity bottleneck. Stage visibility always
+includes global exhibits and all stages through the active part and is fail-open, so an absent or
+unresolved stage reference shows all stages, never fewer. Split eligibility is determined by measured
+visual geometry rather than nominal item type, and a kind joins the standalone split allowlist only
+after a measured proof render.
+
+- **Kind:** P
+- **Status:** ACTIVE
+- **Force:** BINDING
+- **Date:** 2026-07-14
+- **Execution:** EXECUTED
+
+#### P23 — Application: sparse shape-aware allocation
+
+A kind-level split allowlist may be refined by payload geometry after the same measured proof this
+principle requires. The measured one-series `lab_trend` takes the full-width route while the two-series
+shape remains split; structured measurements independently use a whole-payload density predicate, so
+only a sole one-panel, one-row, one-column payload receives a compact figure while mixed-panel and
+denser payloads remain full-width. These are presentation allocations, not new content-validity floors.
+
+- **Kind:** P
+- **Status:** ACTIVE
+- **Force:** BINDING
+- **Date:** 2026-07-19
+- **Owner:** `src/examLayout.ts`
+- **Execution:** EXECUTED
+
+#### P23 — Application: an embedded leaf is a planning unit, not a retirement unit
+
+An embedded case leaf is an individual content-planning unit but not an ordinary unit of removal,
+because the case is authored, navigated, submitted, and graded as one keyed identity. Schema legality
+is never the test: default to rewriting or replacing a leaf in place, and retire the whole case only
+when no coherent replacement is feasible. No embedded-leaf retirement mechanism is authorized.
+
+- **Kind:** P
+- **Status:** ACTIVE
+- **Force:** BINDING
+- **Date:** 2026-07-22
+
+### P24 — Structured measurements are values-only exhibit presentation
+
+Structured measurements supplement source prose and never replace it, except for a pure key-value
+exhibit reduced to a pointer. Clinical identity — which analyte and which population — resolves
+before display and before unit conversion and is never inferred from magnitude alone, because the
+same source unit converts differently per registry key. Source values and typed bounds are stored
+with canonical and display forms derived at the rendering edge rather than redundantly persisted,
+censored values remain typed rather than coerced into a bare number, and non-rendering migration
+dispositions — serial skips, empty extracts, excluded values, and unit aliases — stay ledger and
+staging only, never entering canonical banks.
+
+- **Kind:** P
+- **Status:** ACTIVE
+- **Force:** BINDING
+- **Date:** 2026-07-14
+- **Execution:** EXECUTED
+
+### P25 — Necessity is a property of the artifact
+
+A redundant element is permissible inside a necessary, value-complete artifact — one that already
+carries every exact value the item turns on — when it adds a meaningful reading affordance such as
+pattern, direction, crossover, or divergence rather than ornament, and it never licenses information
+absent elsewhere in the artifact, an artifact whose values the stem already states, or inclusion
+justified only by vendor ubiquity. Two fences travel with the waiver: the artifact-level necessity
+gate stays strict, so an item that any single-timepoint tally resolves belongs to the non-trend kind
+rather than the waived one, and no exact-value item is authored on a waived-element kind, whose item
+briefs stay pattern-only. Reversal is specific rather than a reopening of the waiver: where review
+repeatedly catches an item answerable from one timepoint the collapse gate is being ignored, and
+that kind closes to new content until the gate holds.
+
+- **Kind:** P
+- **Status:** ACTIVE
+- **Force:** BINDING
+- **Date:** 2026-07-03
+
+#### P25 — Application: composite trend artifacts
+
+A deterministic trend artifact may present the same typed source data through both charts and a
+renderer-derived table when the views carry distinct reading affordances: charts expose direction,
+divergence, crossover, and trajectory, while the table exposes exact values in a familiar flowsheet
+form. The artifact-level necessity gate is unchanged, so removing the complete chart-plus-table
+artifact must materially change answerability, the item must still turn on multi-timepoint or
+cross-series reasoning rather than one isolated cell, and the table is never an independently
+authored second source of truth. Sparse cardinality is not a validity floor for these artifacts
+either, resting on `P7` and this principle's own anti-ornament fence rather than on `P29`, whose
+scope stays `lab_trend` and `structured_labs_panel`.
+
+- **Kind:** P
+- **Status:** ACTIVE
+- **Force:** BINDING
+- **Date:** 2026-07-18
+- **Execution:** EXECUTED
+
+#### P25 — Amendment: unified single-axis vitals trend with retained flowsheet
+
+The unit-pure multi-panel geometry is superseded as the default `vitals_trend` presentation by a
+single unified chart carrying one time axis, one zero-based numeric axis, and no unit family, with
+the renderer-derived flowsheet retained and visible beneath it and the superseded panel geometry
+retained as the fallback arm. Per-vital resolution for low-magnitude vitals is recovered through
+that retained flowsheet and the interactive per-timepoint readout rather than through separate
+panels, and every fence this principle sets carries over unchanged. Reference bands are
+single-series only under the unified model and a multi-series unified chart shows none, and no
+schema, bank-content, or clinical-range change follows.
+
+- **Kind:** P
+- **Status:** ACTIVE
+- **Force:** BINDING
+- **Date:** 2026-07-19
+- **Execution:** EXECUTED
+
+#### P25 — Application: reinstate the visible flowsheet beneath the unified chart
+
+The visible flowsheet beneath the unified chart is a re-add of the existing flowsheet renderer,
+because the tested build shipped the hidden-table disposition instead. Shipped code is brought into
+agreement with the ratified model. No further architect input is required.
+
+- **Kind:** P
+- **Status:** ACTIVE
+- **Force:** BINDING
+- **Date:** 2026-07-19
+- **Execution:** PENDING
+
+### P26 — A disposition that suppresses a check must itself be checked
+
+A disposition that removes material from a checked surface must have an independently enforced
+precondition, and a producer may not silence its checker merely by declaring that nothing requires
+review. Every disposition that removes a value from the checked surface — an exclusion, a skip, an
+empty extract, an off-allowlist drop — purchases its silence by moving that value out of the
+checker's view, so each needs its own precondition enforced by something other than the disposition
+itself. Exclusion count is a positive signal for checker-seat sampling, not a negative one.
+
+- **Kind:** P
+- **Status:** ACTIVE
+- **Force:** BINDING
+- **Date:** 2026-07-14
+- **Execution:** EXECUTED
+
+### P27 — An invariant softens only by naming its forcing incident
+
+To relax an invariant, name the incident it was minted from and argue that the condition which
+produced it no longer holds; that the rule now feels heavy is not that argument. Every rule in this
+repository was minted by a failure, and the endgame is exactly when ceremony feels most expensive
+and the memory of why is thinnest, so the ratchet needs a procedure rather than a mood. A rule that
+no longer earns its keep is retired on the record with its incident cited and marked `SUPERSEDED`
+rather than deleted.
+
+- **Kind:** P
+- **Status:** ACTIVE
+- **Force:** BINDING
+- **Date:** 2026-07-10
+
+### P28 — Scored leaves govern planning, session units govern delivery
+
+Content-planning reports measure what is scored: standalone top-level questions plus embedded
+case-study questions, excluding case-study containers, with each embedded leaf contributing its own
+category, topic, item type, and difficulty, and parent-case metadata never standing as evidence
+about a leaf; generation prompt parameters draw only from this same scored-leaf population. Delivery and
+inventory reports measure what can be served, on the top-level session-unit population, and their capacity warnings never change the content-planning denominator,
+while visual inventory is a third, recursive artifact population rather than an alias for either
+question denominator. A `case_study` is a delivery container and may not enter equal-average
+scored-item-type targets unless a case-cadence target is separately ratified.
+
+- **Kind:** P
+- **Status:** ACTIVE
+- **Force:** BINDING
+- **Date:** 2026-07-16
+- **Execution:** EXECUTED
+
+### P29 — Sparse laboratory-presentation cardinality is not a validity floor
+
+A one-series `lab_trend` and a one-row `structured_labs_panel` are valid when that is the clinically
+appropriate amount of information. Series count and row count are not validity axes layered on top
+of `P24` and `P25`, and no cardinality floor is adopted, because a universal second-series or
+second-row floor would force clinically unnecessary filler. Any presentation change on this surface
+requires its own measured proof-render commission under `P23`.
+
+- **Kind:** P
+- **Status:** ACTIVE
+- **Force:** BINDING
+- **Date:** 2026-07-18
+- **Not authorized:** Any schema, bank-content, renderer, or runtime change on the laboratory-presentation surface.
+- **Evidence:** `audit/single-row-lab-panels-survey-2026-07-18/survey-manifest.json`
+- **Execution:** EXECUTED
+
+### P30 — Lab reference bands are adult-only and pediatric bands fail closed
+
+Laboratory reference bands are source-verified adult-only, and pediatric reference bands are
+intentionally absent because published pediatric intervals split by age, sex, and assay in ways the
+current two-bucket population vocabulary cannot express safely. A pediatric series fails closed
+rather than displaying a band, while a pediatric trajectory item stays valid with the band
+disabled. Therapeutic-anticoagulation values that compute high against a healthy-population band
+are intended behaviour rather than a defect to repair, and this entry closes range verification
+only.
+
+- **Kind:** P
+- **Status:** ACTIVE
+- **Force:** BINDING
+- **Date:** 2026-07-19
+- **Not authorized:** The learner-visible high-low flag and the reference-range column.
+- **Evidence:** `audit/lab-reference-range-verification-2026-07-19.md`
+- **Execution:** EXECUTED
+
+### P31 — Gemini's standing restrictions
+
+Gemini is restricted to raw-volume generation and never makes direct canonical edits, which is
+`P5`'s constitutional floor applied as named-model lane policy. It is demoted from every
+content-judgment audit lane, because templated, non-pair-specific reconciliations required
+independent re-research to trust where verbatim-evidenced lanes were self-verifying. If an
+irreducible producer-clean residual ever forces a Gemini audit lane, any row whose reconciliation is
+not pair-specific and does not quote the keyed English and Chinese rule routes to re-review rather
+than being accepted as a dismissal.
+
+- **Kind:** P
+- **Status:** ACTIVE
+- **Force:** BINDING
+- **Date:** 2026-06-26
+
+## 5. Concrete rulings
+
+Cited by permanent identifier. A ruling settles specified items and generalizes no further. Rulings may
+carry attached blocks under the same grammar as §4; none currently does.
+
+### R1 — Standalone bowtie may be generated directly
+
+A standalone bowtie may be generated directly rather than only harvested from a case skeleton, because
+bowtie is standalone-only by construction regardless of origin. A direct generation lane runs through
+the normal raw, cross-model review, promote, and ledger pipeline on equal footing with every other item
+type, under the same semantic floor as the case-embedded synthesis zones. This relaxes neither
+producer-versus-checker discipline nor the case-embedded compiler's obligations for bowties that do
+arise inside a skeleton.
+
+- **Kind:** R
+- **Status:** ACTIVE
+- **Force:** AUTHORIZING
+- **Date:** 2026-07-02
+- **Authorized:** Direct standalone-bowtie generation through the normal promotion pipeline.
+- **Execution:** EXECUTED
+
+### R2 — CBC units are conventional-first with SI in parentheses
+
+Laboratory unit policy is analyte-aware: each analyte carries its own conventional forms, keyed by
+analyte and source unit in one sourced conversion table, never by unit token alone. Accepted source
+units stay permissive and extraction preserves the source unit byte-exactly, while display is a
+separate policy layer offering a conventional primary with an optional SI parenthetical, consumed by
+both the laboratory-trend and structured-measurement surfaces. One sourced conversion table serves the
+sanity gate, parenthetical generation, and prose normalization.
+
+- **Kind:** R
+- **Status:** ACTIVE
+- **Force:** BINDING
+- **Date:** 2026-07-05
+- **Execution:** EXECUTED
+
+### R3 — Temperature sanity ceiling 46.5 °C
+
+Vital `sanity` bounds are inherited renderer validation envelopes, not authored
+physiologic-plausibility tripwires. For `temp` that inheritance is repaired: the flowsheet gate's
+canonical-unit sanity ceiling is decoupled from the renderer's legacy registry range and independently
+sourced and ratified at 46.5 °C. The ratified ceiling executes through a dedicated canonical-unit
+override rather than through the inherited range.
+
+- **Kind:** R
+- **Status:** ACTIVE
+- **Force:** BINDING
+- **Date:** 2026-07-15
+- **Evidence:** `Archive/root-cleanup-2026-07-19/r9-temperature-sanity-decoupling-codex-spec.md`
+- **Owner:** `src/measurementAllowlist.ts`
+- **Execution:** EXECUTED
+
+### R4 — Promoted visual parity is a committed per-kind baseline
+
+Promoted visual parity is a committed per-kind baseline pinning every promoted visual identity across
+every full-schema visual location, and no permanent cross-file equality assertion between the parity
+artifacts remains. An intentional renderer change rebaselines only through the rebaseline command with
+a declared scope covering changed, added, and removed identities, a Git-derived per-delta cause, and a
+committed receipt. Added or removed identities with no corresponding bank change fail as identity
+drift, and the one-time bootstrap is permanently unavailable.
+
+- **Kind:** R
+- **Status:** ACTIVE
+- **Force:** BINDING
+- **Date:** 2026-07-17
+- **Evidence:** `Archive/root-cleanup-2026-07-19/PROMOTED-VISUAL-PARITY-EXPANSION-ARCHITECT-SPEC-2026-07-16.md`
+- **Execution:** EXECUTED
+
+### R5 — Vital sanity ratifications for SBP, RR, and SpO2
+
+Three per-side vital `sanity` bounds are ratified: an SBP ceiling of 400 mmHg, an RR ceiling of 150 per
+minute, and an `spo2` floor of 0%. The governed population is bedside and charted flowsheet values,
+which is what selects 400 over the higher instrumented-measurement candidate. Implementation is
+pending: a later commission may add the two ceiling overrides and a per-side mechanism for the floor,
+must leave renderer envelopes unchanged, may not remove or make the sanity minimum optional, and
+requires a fresh corpus-impact survey.
+
+- **Kind:** R
+- **Status:** ACTIVE
+- **Force:** BINDING
+- **Date:** 2026-07-24
+- **Execution:** PENDING
+
+### R6 — Pull-request and post-merge CI coverage are distinct
+
+Pull-request and post-merge coverage are distinct: a check running only after merge may protect the
+deploy but does not prevent the bad merge, and existing post-merge coverage is not by itself a finding
+of redundancy. A gate addition therefore requires measured evidence of incremental pre-merge value.
+Any further pull-request gate expansion needs its own measured evidence and owner ratification.
+
+- **Kind:** R
+- **Status:** ACTIVE
+- **Force:** AUTHORIZING
+- **Date:** 2026-07-24
+- **Authorized:** The build check, topic-population, topic-license as detector-regression coverage only, topic-vocabulary, and an exact-byte drift check for the topic-vocabulary document.
+- **Not authorized:** A separate standalone type-check step, fatal live topic-license enforcement, a duplicate promoted-bank validator, and generalized regeneration or drift-checking of historical audit artifacts.
+- **Execution:** PENDING
+
+## 6. Standing invariants
+
+Cited by exact title. An invariant carries no attached blocks — an application of an invariant is its own
+entry.
+
+### Producer assignments are operational state, not constitutional text
+
+Current producer assignments are operational state and must be verified against `PROJECT-HISTORY.md`
+rather than assumed timeless from this document. Changing the named producer does not alter permanent
+identifiers, provenance classification, or independent-review obligations.
+
+- **Kind:** I
+- **Status:** ACTIVE
+- **Force:** ADVISORY
+- **Date:** 2026-07-28
+- **Evidence:** `Archive/DECISIONS-ARCHIVE-2026-08-18.md`
+
+### Deterministic review routing for promoted opus-prefixed case IDs
+
+An already-promoted case identifier carrying the `opus*` prefix routes as producer `gpt` at low tier,
+identically to a `gpt_case_` item, which is effectively what it is. This does not extend to `claude_*`
+items Claude authored directly, which remain Claude-produced and route to a non-Claude reviewer. The
+rule survives the retirement of the forward skeleton lane because it routes already-promoted items
+rather than new production.
+
+- **Kind:** I
+- **Status:** ACTIVE
+- **Force:** BINDING
+- **Date:** 2026-07-18
+- **Execution:** EXECUTED
+
+### Runtime audio carries no client-embedded secret
+
+Runtime audio must not require a client-embedded secret or a live API call, and an absent pre-generated
+asset must fail safely to the supported `speechSynthesis` fallback. This binds regardless of the parked
+status of `P20`, because the bundler inlines `VITE_`-prefixed variables as plaintext into the published
+bundle and any client-embedded key would therefore be world-readable on the deploy.
+
+- **Kind:** I
+- **Status:** ACTIVE
+- **Force:** BINDING
+- **Date:** 2026-06-22
+- **Execution:** EXECUTED
+
+### Bilingual English and Simplified Chinese parity on all displayed text
+
+All displayed text carries bilingual English and Simplified Chinese parity.
+
+- **Kind:** I
+- **Status:** ACTIVE
+- **Force:** BINDING
+- **Date:** 2026-06-09
+- **Execution:** EXECUTED
+
+### Topic labels are English-only
+
+A question's topic is English-only, a navigational label rather than study content. CJK characters in a
+topic fail loudly at validation and are never silently stripped.
+
+- **Kind:** I
+- **Status:** ACTIVE
+- **Force:** BINDING
+- **Date:** 2026-06-10
+- **Owner:** `src/schema.ts`
+- **Execution:** EXECUTED
+
+### JSON quote hygiene is a parse-time gate
+
+JSON quote hygiene is enforced at parse time: structural tokens are ASCII double quotes only, and
+Chinese quotation marks are valid only inside `zh` values. JSON shape is edited programmatically and
+never retyped, because the dominant corruption source is editing rather than generation.
+
+- **Kind:** I
+- **Status:** ACTIVE
+- **Force:** BINDING
+- **Date:** 2026-06-13
+- **Evidence:** `docs/AGENTS-RUNBOOK.md`
+- **Execution:** EXECUTED
+
+### Question IDs are globally unique across bundled banks
+
+Question identifiers are globally unique across bundled banks, including embedded case-study leaf
+questions. Uniqueness is gate-enforced rather than conventional.
+
+- **Kind:** I
+- **Status:** ACTIVE
+- **Force:** BINDING
+- **Date:** 2026-07-14
+- **Owner:** `scripts/audit/audit-ids.ts`
+- **Execution:** EXECUTED
+
+### Raw-draft filename prefix routes to its canonical bank
+
+A raw-draft filename prefix routes to its canonical bank through a fixed table that is the executable
+source of truth, and no prose copy of that table is hand-maintained. The original per-kind canonicals
+are complete frozen content sets rather than active generation targets; `visual-canonical.json` is the
+only live visual generation target. A visual kind added after the original roadmap does not mint a new
+per-kind canonical.
+
+- **Kind:** I
+- **Status:** ACTIVE
+- **Force:** BINDING
+- **Date:** 2026-07-09
+- **Owner:** `lib/canonical-routing.ts`
+- **Execution:** EXECUTED
+
+### Canonical merges are deterministic and gated
+
+Canonical merges are deterministic and gated through the consolidation script, and canonicals are never
+hand-merged.
+
+- **Kind:** I
+- **Status:** ACTIVE
+- **Force:** BINDING
+- **Date:** 2026-06-19
+- **Owner:** `scripts/consolidate.ts`
+- **Execution:** EXECUTED
+
+### Runtime stays static, offline, and file-protocol compatible
+
+The runtime stays static, offline, and compatible with direct `file://` loading. Neither a server call
+nor a live model call occurs after build.
+
+- **Kind:** I
+- **Status:** ACTIVE
+- **Force:** BINDING
+- **Date:** 2026-06-09
+
+### Schema versions are an ordered token, not semver
+
+Schema versions are an ordered token rather than semantic versions, and the minor component never
+exceeds nine, so every version string sorts correctly under naive numeric, lexicographic, and index
+comparison. The exported `schemaVersionAtLeast`, operating over a private index, is the single legal
+comparison primitive. The supported version set is verified against the `SchemaVersion` union in code,
+never against any prose restatement of it, including the schema document's own.
+
+- **Kind:** I
+- **Status:** ACTIVE
+- **Force:** BINDING
+- **Date:** 2026-07-09
+- **Execution:** EXECUTED
+
+### Schema changes are rare and deliberate
+
+Schema changes are rare and deliberate.
+
+- **Kind:** I
+- **Status:** ACTIVE
+- **Force:** ADVISORY
+- **Date:** 2026-06-09
+
+### Shared visual numeric helpers have a single definition
+
+The shared visual numeric helpers `fmt`, `fmtNum`, and `roundTo` have a single definition, and no visual
+kind redefines them.
+
+- **Kind:** I
+- **Status:** ACTIVE
+- **Force:** BINDING
+- **Date:** 2026-06-12
+- **Owner:** `src/visuals/primitives/graphPaper.ts`
+- **Execution:** EXECUTED
+
+### Case-study exhibit IDs share one namespace
+
+Case-study exhibit identifiers share one namespace across the whole case, spanning the top-level
+`caseStudy.exhibits` array and every stage. That array may be empty when the case's opening content is
+meant to be entirely stage-gated.
+
+- **Kind:** I
+- **Status:** ACTIVE
+- **Force:** BINDING
+- **Date:** 2026-07-13
+- **Owner:** `src/schema.ts`
+- **Execution:** EXECUTED
+
+### Category targets are the current test-plan weights
+
+Category targets are the current test-plan weights project-wide rather than uniform, and they are held
+in the single `NCLEX_CATEGORY_WEIGHTS` map that both the weighted study draw and the generation coverage
+backlog read. Item-type balance stays uniform by design, because the test plan weights Client Needs
+categories rather than item formats.
+
+- **Kind:** I
+- **Status:** ACTIVE
+- **Force:** BINDING
+- **Date:** 2026-06-12
+- **Execution:** EXECUTED
+
+### Bank composition is a floor problem, not a balance problem
+
+Bank composition is a floor problem rather than a balance problem: no release gate enforces balance, and
+the rule is that no format falls below the depth its sampling path requires, which is the
+`floorThreshold` viability gate. Above that floor, topic fit and item quality override census
+arithmetic, and no weak item is authored merely to close a census gap.
+
+- **Kind:** I
+- **Status:** ACTIVE
+- **Force:** BINDING
+- **Date:** 2026-07-10
+- **Owner:** `src/sessionSampler.ts`
+- **Execution:** EXECUTED
+
+### Repository-state hygiene is mechanism-specific
+
+Repository-state hygiene is mechanism-specific: a GitHub-reading agent sees only committed and pushed
+inputs, while a disk-reading agent works from an explicit local branch or worktree snapshot and must
+preserve unrelated changes. No agent may assume local and remote state are identical.
+
+- **Kind:** I
+- **Status:** ACTIVE
+- **Force:** BINDING
+- **Date:** 2026-07-23
+- **Owner:** `AGENTS.md`
+
+### Some topics are deliberately shared across categories
+
+Some topics are deliberately shared across NCLEX categories rather than misclassified, and the shared
+set with each topic's categories is held in the `SHARED_TOPIC_CATEGORY` map. An item's category is never
+corrected to match a topic's single most obvious category, because the topic is intentionally
+cross-category.
+
+- **Kind:** I
+- **Status:** ACTIVE
+- **Force:** BINDING
+- **Date:** 2026-06-18
+- **Owner:** `src/topics.ts`
+- **Execution:** EXECUTED
+
+### Highlight's structural bias gate is schema-level
+
+Every `highlight` item must include at least one selectable distractor segment, enforced at schema
+validation rather than at audit, so an all-selectable item cannot enter a bank. Segment order is
+clinically meaningful passage order and is never shuffled, so the non-MCQ positional audit has no
+applicable position null for highlight and semantic cue quality stays content-review work.
+
+- **Kind:** I
+- **Status:** ACTIVE
+- **Force:** BINDING
+- **Date:** 2026-06-14
+- **Execution:** EXECUTED
+
+## 7. Open threads
+
+Cited by exact title. Each entry carries an unsettled governing question; current or already-settled
+behavior may appear only as context for that question. A ratified decision awaiting implementation does
+not belong here — it stays in §§4–6 carrying `Execution: PENDING`.
+
+### Translation-friction scoring
+
+Whether reveal-tap friction folds into the targeted-review sampler is unresolved, and it stays open
+until real dogfooding sessions show reveal concentration that is genuinely topic-specific or
+category-specific and miss-predictive beyond the existing missed-topic signal. The instrument,
+comprising telemetry, export, and the dev panel, already ships; only the scoring decision is parked.
+
+- **Kind:** T
+- **Status:** PARKED
+- **Force:** ADVISORY
+- **Date:** 2026-07-01
+
+### Exam-condition test and adaptive modes
+
+Whether the non-default `test` and `adaptive` half-exam placeholder modes are specified as real exam
+simulators, with deferred feedback, no translate-all, and strict language mode, or are removed instead,
+is unresolved. Both force `languageMode: "off"` at session creation and still reveal the answer, the
+rationale, and the per-choice breakdown immediately after each submit. A deferred sub-question is
+whether a strict exam environment should ever permit a post-submit full translation reveal.
+
+- **Kind:** T
+- **Status:** PARKED
+- **Force:** ADVISORY
+- **Date:** 2026-07-09
+
+### Unresolved vital sanity bounds
+
+DBP and MAP ceilings are authorized for a separate bounded sourcing pass, with no number selected here.
+The `temp` floor remains inherited and unratified, and the laboratory `sao2` key stays provisionally at
+a floor of 50%, a deliberate divergence because pulse-oximeter evidence does not govern it. All other
+unratified sides remain provisional, and no bound is authored from model memory at any stage.
+
+- **Kind:** T
+- **Status:** REVISIT
+- **Force:** ADVISORY
+- **Date:** 2026-07-24
+
+## 8. Archive and retired identifiers
+
+This section carries pointers only: no entry bodies and no archive wrappers. Condensed forcing-incident
+narrative, superseded rulings, and lapsed lane contracts are preserved rather than deleted, across three
+files. `Archive/DECISIONS-ARCHIVE-2026-07-14.md` remains the record of the 2026-07-14
+architectural-constitution pass and is not edited by this migration. `Archive/DECISIONS-ARCHIVE-2026-08-18.md`
+is the normalized archive for this migration and is the sole file every archive-index line below points
+at. `Archive/DECISIONS-PRE-MIGRATION-2026-07-29.md` is a one-time byte-identical snapshot of this file at
+`MIGRATION_BASELINE`, authorized once under taxonomy §9 Amendment 4; it is never current authority,
+carries no wrapper, receives no index line, and is never parsed by the conformance checker.
+
+Archive index — thirteen wrappers, one line each, in ascending source-byte order.
+
+- **Most recent application of P27 and its rejected alternatives (2026-07-12 pass)** — condensed application and its standing rejection history, archived 2026-08-18.
+  `Archive/DECISIONS-ARCHIVE-2026-08-18.md#most-recent-application-of-p27-and-its-rejected-alternatives-2026-07-12-pass`
+- **Forward case-generation lane lapse note (2026-07-18)** — section-level lapse disposition, archived 2026-08-18.
+  `Archive/DECISIONS-ARCHIVE-2026-08-18.md#forward-case-generation-lane-lapse-note-2026-07-18`
+- **Lane-specific detail of P8 (forward case-generation pipeline)** — lapsed lane detail of a live principle, archived 2026-08-18.
+  `Archive/DECISIONS-ARCHIVE-2026-08-18.md#lane-specific-detail-of-p8-forward-case-generation-pipeline`
+- **P9 The case skeleton is English-only** — lapsed conditional lane contract, retired 2026-07-28.
+  `Archive/DECISIONS-ARCHIVE-2026-08-18.md#p9-the-case-skeleton-is-english-only`
+- **P12 Author-side currency via closed-world construction and routed flags** — lapsed conditional lane contract, retired 2026-07-28.
+  `Archive/DECISIONS-ARCHIVE-2026-08-18.md#p12-author-side-currency-via-closed-world-construction-and-routed-flags`
+- **P18 Fact-check and flag-only review are chain steps** — lapsed conditional lane contract, retired 2026-07-28.
+  `Archive/DECISIONS-ARCHIVE-2026-08-18.md#p18-fact-check-and-flag-only-review-are-chain-steps`
+- **P22 Opus skeleton cases are GPT-provenance for review-conflict purposes** — lapsed conditional lane contract, retired 2026-07-28.
+  `Archive/DECISIONS-ARCHIVE-2026-08-18.md#p22-opus-skeleton-cases-are-gpt-provenance-for-review-conflict-purposes`
+- **CBC American-conventional unit ruling (superseded 2026-07-05)** — superseded original ruling, archived 2026-08-18.
+  `Archive/DECISIONS-ARCHIVE-2026-08-18.md#cbc-american-conventional-unit-ruling-superseded-2026-07-05`
+- **Fishbone workflow-familiarity waiver (2026-07-06, superseded)** — superseded ad hoc waiver, archived 2026-08-18.
+  `Archive/DECISIONS-ARCHIVE-2026-08-18.md#fishbone-workflow-familiarity-waiver-2026-07-06-superseded`
+- **Withdrawn claim that vital sanity bounds pass every real value** — withdrawn characterization, archived 2026-08-18.
+  `Archive/DECISIONS-ARCHIVE-2026-08-18.md#withdrawn-claim-that-vital-sanity-bounds-pass-every-real-value`
+- **Withdrawn governance-markdown encoding gate (2026-07-09)** — withdrawn ruling with its named reasoning error, archived 2026-08-18.
+  `Archive/DECISIONS-ARCHIVE-2026-08-18.md#withdrawn-governance-markdown-encoding-gate-2026-07-09`
+- **Study-session distribution pointer to code** — appendix pointer condensed out of a live principle, archived 2026-08-18.
+  `Archive/DECISIONS-ARCHIVE-2026-08-18.md#study-session-distribution-pointer-to-code`
+- **Session artifacts implemented-spec pointer list** — appendix pointer list, archived 2026-08-18.
+  `Archive/DECISIONS-ARCHIVE-2026-08-18.md#session-artifacts-implemented-spec-pointer-list`
+
+Retired and never-assigned identifiers are permanently unavailable. This register is append-only; an
+entry never leaves it, and no live entry may carry a listed identifier.
+
+| ID | disposition | date | pointer |
+|---|---|---|---|
+| P9 | RETIRED | 2026-07-28 | `Archive/DECISIONS-ARCHIVE-2026-08-18.md#p9-the-case-skeleton-is-english-only` |
+| P12 | RETIRED | 2026-07-28 | `Archive/DECISIONS-ARCHIVE-2026-08-18.md#p12-author-side-currency-via-closed-world-construction-and-routed-flags` |
+| P13 | NEVER ASSIGNED | — | — |
+| P14 | NEVER ASSIGNED | — | — |
+| P18 | RETIRED | 2026-07-28 | `Archive/DECISIONS-ARCHIVE-2026-08-18.md#p18-fact-check-and-flag-only-review-are-chain-steps` |
+| P22 | RETIRED | 2026-07-28 | `Archive/DECISIONS-ARCHIVE-2026-08-18.md#p22-opus-skeleton-cases-are-gpt-provenance-for-review-conflict-purposes` |

@@ -159,6 +159,33 @@ The original invariant body remains byte-for-byte unchanged.`;
 const f13 = `- **Runtime audio carries no client-embedded secret** — archived invariant, retired 2026-07-28.
   \`Archive/DECISIONS-ARCHIVE-<date>.md#runtime-audio-carries-no-client-embedded-secret\``;
 
+const f14 = `### Most recent application of P27 (2026-07-12 pass)
+
+- **Kind:** X
+- **Status:** SUPERSEDED
+- **Force:** HISTORICAL
+- **Date:** 2026-07-29
+- **Original Kind:** P
+- **Original Status:** ACTIVE
+- **Origin:** \`DECISIONS.md\` §4 at \`MIGRATION_BASELINE\`
+
+**Applied 2026-07-12.** The historical application body remains byte-for-byte unchanged.`;
+
+const f15 = `### CBC American-conventional units (superseded original ruling)
+
+- **Kind:** X
+- **Status:** SUPERSEDED
+- **Force:** HISTORICAL
+- **Date:** 2026-07-29
+- **Original Kind:** R
+- **Original Status:** SUPERSEDED
+- **Origin:** \`DECISIONS.md\` §8 at \`MIGRATION_BASELINE\`
+
+The original 2026-07-04 ruling body remains byte-for-byte unchanged.`;
+
+const f16 = `- **Most recent application of P27 (2026-07-12 pass)** — condensed application, archived 2026-07-29.
+  \`Archive/DECISIONS-ARCHIVE-<date>.md#most-recent-application-of-p27-2026-07-12-pass\``;
+
 function inSection(section: number, body: string): string {
   return `# Candidate decisions
 
@@ -300,6 +327,30 @@ ${options.body ?? "Opaque historical body."}`;
 const fixtureMatrix: string[] = [];
 function fixturePassed(id: string, result: string): void {
   fixtureMatrix.push(`${id}: ${result}`);
+}
+
+interface IsolatedFixtureOutcome {
+  id: string;
+  status: "PASS" | "FAIL";
+  reason?: string;
+}
+
+const isolatedFixtureOutcomes: IsolatedFixtureOutcome[] = [];
+
+function isolatedFailureReason(thrown: unknown): string {
+  return thrown instanceof Error ? `${thrown.name}: ${thrown.message}` : String(thrown);
+}
+
+function runIsolatedFixture(id: string, execute: () => void): void {
+  try {
+    execute();
+    isolatedFixtureOutcomes.push({ id, status: "PASS" });
+    fixturePassed(id, "PASS");
+  } catch (thrown) {
+    const reason = isolatedFailureReason(thrown);
+    isolatedFixtureOutcomes.push({ id, status: "FAIL", reason });
+    fixturePassed(id, `FAIL ${reason}`);
+  }
 }
 
 // F1 and F3 share a core/attachment context.
@@ -483,6 +534,78 @@ assert.equal(countStatementSentences("The first ends here. `lowercase` is conser
   assert.equal(parsed.lines[0].blockKey, "Runtime audio carries no client-embedded secret");
   fixturePassed("F13", "PASS");
 }
+
+runIsolatedFixture("F14", () => {
+  const parsed = parseArchiveDocument(f14);
+  assert.deepEqual(
+    parsed.issues,
+    [],
+    `F14: expected no issues, got ${parsed.issues.map((finding) => `${finding.code}: ${finding.message}`).join("; ")}`,
+  );
+  const wrapper = parsed.wrappers[0];
+  assert.equal(wrapper.addressing, "name");
+  assert.equal(wrapper.id, undefined);
+  assert.equal(wrapper.blockKey, "Most recent application of P27 (2026-07-12 pass)");
+  assert.equal(wrapper.title, "Most recent application of P27 (2026-07-12 pass)");
+  assert.equal(wrapper.kind, "X");
+  assert.equal(wrapper.status, "SUPERSEDED");
+  assert.equal(wrapper.force, "HISTORICAL");
+  assert.equal(wrapper.date, "2026-07-29");
+  assert.equal(wrapper.originalKind, "P");
+  assert.equal(wrapper.originalStatus, "ACTIVE");
+  assert.equal(wrapper.retiredId, undefined);
+  assert.deepEqual(wrapper.origin, { section: "DECISIONS.md §4", token: "MIGRATION_BASELINE" });
+  assert.equal(
+    wrapper.body,
+    "**Applied 2026-07-12.** The historical application body remains byte-for-byte unchanged.",
+  );
+});
+
+runIsolatedFixture("F15", () => {
+  const parsed = parseArchiveDocument(f15);
+  assert.deepEqual(
+    parsed.issues,
+    [],
+    `F15: expected no issues, got ${parsed.issues.map((finding) => `${finding.code}: ${finding.message}`).join("; ")}`,
+  );
+  const wrapper = parsed.wrappers[0];
+  assert.equal(wrapper.addressing, "name");
+  assert.equal(wrapper.id, undefined);
+  assert.equal(wrapper.blockKey, "CBC American-conventional units (superseded original ruling)");
+  assert.equal(wrapper.title, "CBC American-conventional units (superseded original ruling)");
+  assert.equal(wrapper.kind, "X");
+  assert.equal(wrapper.status, "SUPERSEDED");
+  assert.equal(wrapper.force, "HISTORICAL");
+  assert.equal(wrapper.date, "2026-07-29");
+  assert.equal(wrapper.originalKind, "R");
+  assert.equal(wrapper.originalStatus, "SUPERSEDED");
+  assert.equal(wrapper.retiredId, undefined);
+  assert.deepEqual(wrapper.origin, { section: "DECISIONS.md §8", token: "MIGRATION_BASELINE" });
+  assert.equal(wrapper.body, "The original 2026-07-04 ruling body remains byte-for-byte unchanged.");
+});
+
+runIsolatedFixture("F16", () => {
+  const result = checkDecisionsFormat({
+    decisionsText: buildDecisions({
+      rows: [{ kind: "I", summary: "Runtime audio carries no client-embedded secret" }],
+      i: [f5],
+      section8: f16,
+    }),
+    archiveText: f14,
+    archiveSource: "Archive/DECISIONS-ARCHIVE-<date>.md",
+  });
+  assert.equal(result.ok, true, renderDecisionsFormatResult(result));
+  assert.equal(result.decisions.archiveIndex[0].addressing, "name");
+  assert.equal(result.decisions.archiveIndex[0].label, "Most recent application of P27 (2026-07-12 pass)");
+  assert.equal(result.decisions.archiveIndex[0].blockKey, result.archive?.wrappers[0].blockKey);
+  assert.equal(result.decisions.archiveIndex[0].label, result.archive?.wrappers[0].title);
+  assert.equal(result.decisions.archiveIndex[0].pointer.file, "Archive/DECISIONS-ARCHIVE-<date>.md");
+  assert.equal(
+    result.decisions.archiveIndex[0].pointer.anchor,
+    "most-recent-application-of-p27-2026-07-12-pass",
+  );
+  assert.deepEqual(result.decisions.retiredIdentifiers, []);
+});
 
 function validMalformedBase(heading: string, overrides: string[] = []): string {
   const fields = [
@@ -677,6 +800,40 @@ for (const malformed of malformedCases) {
   expectParserCode(malformed.id, malformed.issues(), malformed.code);
   fixturePassed(malformed.id, `REJECT ${malformed.code}`);
 }
+
+runIsolatedFixture("M20", () => {
+  const candidate = archiveWrapper({
+    title: "CBC American-conventional units (superseded original ruling)",
+    originalKind: "R",
+  }).replace("- **Origin:**", "- **Retired ID:** R2\n- **Origin:**");
+  expectParserCode("M20", parseArchiveDocument(candidate).issues, "INVALID_FIELD_VALUE");
+});
+
+runIsolatedFixture("M21", () => {
+  const candidate = archiveWrapper({
+    id: "P22",
+    title: "CONDITIONAL conditional-principle prose",
+    originalKind: "P",
+  }).replace("\n- **Retired ID:** P22", "");
+  expectParserCode("M21", parseArchiveDocument(candidate).issues, "MISSING_FIELD");
+});
+
+runIsolatedFixture("M22", () => {
+  const candidate = archiveWrapper({
+    id: "P22",
+    title: "CONDITIONAL conditional-principle prose",
+    originalKind: "P",
+  }).replace("- **Retired ID:** P22", "- **Retired ID:** P18");
+  expectParserCode("M22", parseArchiveDocument(candidate).issues, "INVALID_FIELD_VALUE");
+});
+
+runIsolatedFixture("M23", () => {
+  const candidate = archiveWrapper({
+    title: "P27 Most recent application (2026-07-12 pass)",
+    originalKind: "P",
+  });
+  expectParserCode("M23", parseArchiveDocument(candidate).issues, "HEADING_SHAPE");
+});
 
 {
   const obsoleteLookalike = parseDecisionsDocument(
@@ -1084,6 +1241,12 @@ try {
   };
   for (const row of [...fixtureMatrix].sort((left, right) => fixtureOrder(left) - fixtureOrder(right))) {
     console.log(row);
+  }
+  const isolatedFailures = isolatedFixtureOutcomes.filter((outcome) => outcome.status === "FAIL");
+  if (isolatedFailures.length > 0) {
+    throw new Error(`Isolated fixture failures: ${isolatedFailures.map(
+      (outcome) => `${outcome.id}: ${outcome.reason}`,
+    ).join(" | ")}`);
   }
   console.log("Negative control output");
   console.log(negative.output);

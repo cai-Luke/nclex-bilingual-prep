@@ -2,7 +2,7 @@
 
 **Date:** 2026-07-28 · **Seat:** Architect · **Status:** **RATIFIED 2026-07-28 by Luke (owner),
 together with `DECISIONS-FORMAT-ARCHITECT-SPEC-2026-07-28.md`; final pre-commit clarifications
-adopted 2026-07-28.**
+adopted 2026-07-28; Amendment 4 adopted 2026-07-29 by Luke (owner).**
 
 Hand-authored. A fixture whose expected result was produced by running the parser is not a fixture.
 Where parser and fixture disagree, the fixture is presumed correct until the architect seat rules
@@ -304,6 +304,77 @@ pointer.file=Archive/DECISIONS-ARCHIVE-<date>.md
 pointer.anchor=runtime-audio-carries-no-client-embedded-secret
 ```
 
+### F14 — name-addressed archive wrapper, `Original Kind: P`
+
+```markdown
+### Most recent application of P27 (2026-07-12 pass)
+
+- **Kind:** X
+- **Status:** SUPERSEDED
+- **Force:** HISTORICAL
+- **Date:** 2026-07-29
+- **Original Kind:** P
+- **Original Status:** ACTIVE
+- **Origin:** `DECISIONS.md` §4 at `MIGRATION_BASELINE`
+
+**Applied 2026-07-12.** The historical application body remains byte-for-byte unchanged.
+```
+
+```text
+addressing=name  id=absent
+blockKey=Most recent application of P27 (2026-07-12 pass)  file=archive
+kind=X  status=SUPERSEDED  force=HISTORICAL  date=2026-07-29
+originalKind=P  originalStatus=ACTIVE  retiredId=absent
+origin.section=DECISIONS.md §4  origin.token=MIGRATION_BASELINE
+statement=absent  body=opaque  bodyBytesPreserved=true
+```
+
+`P27` remains live. No retired-register row is produced and assertion 10 is unaffected.
+
+### F15 — name-addressed archive wrapper, `Original Kind: R`
+
+```markdown
+### CBC American-conventional units (superseded original ruling)
+
+- **Kind:** X
+- **Status:** SUPERSEDED
+- **Force:** HISTORICAL
+- **Date:** 2026-07-29
+- **Original Kind:** R
+- **Original Status:** SUPERSEDED
+- **Origin:** `DECISIONS.md` §8 at `MIGRATION_BASELINE`
+
+The original 2026-07-04 ruling body remains byte-for-byte unchanged.
+```
+
+```text
+addressing=name  id=absent
+blockKey=CBC American-conventional units (superseded original ruling)  file=archive
+kind=X  status=SUPERSEDED  force=HISTORICAL  date=2026-07-29
+originalKind=R  originalStatus=SUPERSEDED  retiredId=absent
+origin.section=DECISIONS.md §8  origin.token=MIGRATION_BASELINE
+statement=absent  body=opaque  bodyBytesPreserved=true
+```
+
+The ruling never held an `R` number, so no number retires and none is invented.
+
+### F16 — archive-index line for a name-addressed `P`/`R` historical unit
+
+```markdown
+- **Most recent application of P27 (2026-07-12 pass)** — condensed application, archived 2026-07-29.
+  `Archive/DECISIONS-ARCHIVE-<date>.md#most-recent-application-of-p27-2026-07-12-pass`
+```
+
+```text
+kind=archiveIndexLine  addressing=name
+label=Most recent application of P27 (2026-07-12 pass)
+pointer.file=Archive/DECISIONS-ARCHIVE-<date>.md
+pointer.anchor=most-recent-application-of-p27-2026-07-12-pass
+matches=F14  expectedLabel=wrapper.title  registerRow=absent
+```
+
+The label mentions `P27` without beginning `P27 `, so it parses name-addressed and matches F14.
+
 ---
 
 ## Malformed — must reject for the stated parser reason
@@ -386,6 +457,24 @@ A live `P` entry carrying `Status: REVISIT` → `REJECT: STATUS_KIND`
 An otherwise valid archive wrapper that omits `Original Status`
 → `REJECT: MISSING_FIELD`
 
+### M20 — name-addressed wrapper carrying `Retired ID`
+
+A wrapper headed `### CBC American-conventional units (superseded original ruling)` whose field list includes `- **Retired ID:** R2` → `REJECT: INVALID_FIELD_VALUE`.
+
+### M21 — ID-addressed wrapper missing `Retired ID`
+
+`### P22 — CONDITIONAL conditional-principle prose` with `Original Kind: P` and no `Retired ID` line → `REJECT: MISSING_FIELD`.
+
+### M22 — ID-addressed wrapper with mismatching `Retired ID`
+
+`### P22 — CONDITIONAL conditional-principle prose` carrying `- **Retired ID:** P18` → `REJECT: INVALID_FIELD_VALUE`.
+
+### M23 — name-addressed label in reserved ID shape
+
+A name-addressed wrapper headed `### P27 Most recent application (2026-07-12 pass)` → `REJECT: HEADING_SHAPE`.
+
+The unit must be renamed so its label does not begin `P<n> ` or `R<n> ` (Clause B item 3). This pins the renaming requirement rather than introducing a new reason code.
+
 ---
 
 ## Conformance — parseable inputs that must fail cross-checking
@@ -440,6 +529,4 @@ A valid archive-index line points to a wrapper that does not exist
 
 ## Coverage note
 
-F1–F13 define successful parsing. M1–M19 exercise every parser rejection code and pin the archive
-requirement to preserve original status. C1–C8 exercise every conformance finding code. F7/F8 and
-F12/F13 pin both archive addressing modes.
+F1–F16 define successful parsing. M1–M23 exercise every parser rejection code and pin the archive requirements to preserve original status and to key wrapper addressing to identifier disposition. C1–C8 exercise every conformance finding code. F7/F8 pin ID-addressed archive addressing; F12/F13, F14/F16, and F15 pin name-addressed addressing across `I`, `P`, and `R` original kinds.
