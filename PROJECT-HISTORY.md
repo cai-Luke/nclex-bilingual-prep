@@ -75,6 +75,26 @@ control exits nonzero with all four injected findings, and `npx tsc -b --pretty 
 Reference-graph hardening, document migration, production gate wiring, and archive creation remain
 separate later commissions.
 
+### Stage 2b DECISIONS Migration Closeout (Aug 18)
+
+The Stage 2b migration is complete on `codex/decisions-migration` through Commit 3, with the final
+receipt, governance evidence, conformance wiring, and `PROJECT-HISTORY.md` closeout carried by the
+separately verified Commit 4 sequence. The target `DECISIONS.md` is 56,964 bytes and the normalized
+migration archive is 13,997 bytes; the preservation snapshot remains byte-identical to the resolved
+`MIGRATION_BASELINE` object. The target reconciliation remains green at 65 live rows / 13 wrappers / 1
+structural E053 / 1 E037 merge, with P=37, R=6, I=19, and T=3.
+
+The post-migration reference graph is retained under `audit/decisions-migration-2026-07-29/` and was
+generated in target mode from the Commit 3 tree. Instrument A Revision 2's deterministic final
+verification and Instrument B's independent constitutional content review both returned `ACCEPT` and
+were adjudicated cold by the architect seat; the separate §8.1 manifest-conformance disposition is
+`ACCEPT — commission §8.1 only`. These are prerequisite review dispositions, not repository-conformance
+acceptance: Amendment 5 Clause C fixes that acceptance act at merge.
+
+Permanent DECISIONS conformance wiring now runs `test:decisions-format` and `conform:decisions` in the
+promotion workflow. The repository remains a static offline app; no bank, schema, renderer, runtime, or
+learner-facing product surface changed in this migration.
+
 ### Exam-Condition Calculator (Jul 26)
 
 Added an ordinary-arithmetic calculator to active study, test, and adaptive
