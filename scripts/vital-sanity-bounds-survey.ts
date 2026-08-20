@@ -21,8 +21,6 @@ import type { VitalKey, VitalsTrendSpec } from "../src/visuals/kinds/vitals_tren
 
 const SURVEY_DATE = "2026-08-19";
 const BANK_DIR = "banks";
-const RAW_DIR = "banks/banks-raw";
-const PROMOTED_DIR = "banks/_promoted";
 export const OUTPUT_PATH = "audit/vital-sanity-bounds-survey-2026-08-19/survey-manifest.json";
 
 const byteCompare = (left: string, right: string): number =>
@@ -373,8 +371,8 @@ const listJsonNames = async (directory: string, optional: boolean): Promise<stri
 
 export const discoverVitalSurveyBankPaths = async ({
   bankDir = BANK_DIR,
-  rawDir = RAW_DIR,
-  promotedDir = PROMOTED_DIR,
+  rawDir,
+  promotedDir,
 }: {
   bankDir?: string;
   rawDir?: string;
@@ -382,13 +380,13 @@ export const discoverVitalSurveyBankPaths = async ({
 } = {}) => {
   const [canonicalNames, rawNames, promotedNames] = await Promise.all([
     listJsonNames(bankDir, false),
-    listJsonNames(rawDir, true),
-    listJsonNames(promotedDir, true),
+    rawDir === undefined ? Promise.resolve([]) : listJsonNames(rawDir, true),
+    promotedDir === undefined ? Promise.resolve([]) : listJsonNames(promotedDir, true),
   ]);
   return {
     canonical: canonicalNames.map((name) => join(bankDir, name)),
-    raw: rawNames.map((name) => join(rawDir, name)),
-    promoted: promotedNames.map((name) => join(promotedDir, name)),
+    raw: rawDir === undefined ? [] : rawNames.map((name) => join(rawDir, name)),
+    promoted: promotedDir === undefined ? [] : promotedNames.map((name) => join(promotedDir, name)),
   };
 };
 
@@ -567,8 +565,8 @@ export const calculateCandidateIntervalImpact = (
 
 export const buildVitalSanityBoundsSurvey = async ({
   bankDir = BANK_DIR,
-  rawDir = RAW_DIR,
-  promotedDir = PROMOTED_DIR,
+  rawDir,
+  promotedDir,
   candidates = R5_CANDIDATE_INTERVALS,
 }: {
   bankDir?: string;
@@ -641,13 +639,19 @@ export const buildVitalSanityBoundsSurvey = async ({
       },
     },
     population: {
+      provenance: {
+        committedDefaultPopulation: "TRACKED_TOP_LEVEL_CANONICAL_BANKS_ONLY",
+        rawDrafts: rawDir === undefined ? "EXCLUDED" : "EXPLICITLY_INCLUDED",
+        promotedStaging: promotedDir === undefined ? "EXCLUDED" : "EXPLICITLY_INCLUDED",
+        stagingCountInterpretation: "rawDraftCount and promotedStagingCount report files included in this survey, not whether ignored staging files exist in the ambient checkout.",
+      },
       canonicalBankFiles: paths.canonical,
       canonicalBankCount: paths.canonical.length,
       rawDraftFiles: paths.raw,
       rawDraftCount: paths.raw.length,
       promotedStagingFiles: paths.promoted,
       promotedStagingCount: paths.promoted.length,
-      absentOptionalStagingDirectoriesAreEmptyPopulation: true,
+      missingExplicitStagingDirectoriesAreEmptyPopulation: true,
       totalRecords: records.length,
     },
     counts: {
