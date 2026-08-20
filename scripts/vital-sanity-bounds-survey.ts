@@ -19,11 +19,11 @@ import {
 } from "../src/visuals/kinds/vitals_trend";
 import type { VitalKey, VitalsTrendSpec } from "../src/visuals/kinds/vitals_trend/types";
 
-const SURVEY_DATE = "2026-07-17";
+const SURVEY_DATE = "2026-08-19";
 const BANK_DIR = "banks";
 const RAW_DIR = "banks/banks-raw";
 const PROMOTED_DIR = "banks/_promoted";
-export const OUTPUT_PATH = "audit/vital-sanity-bounds-survey-2026-07-17/survey-manifest.json";
+export const OUTPUT_PATH = "audit/vital-sanity-bounds-survey-2026-08-19/survey-manifest.json";
 
 const byteCompare = (left: string, right: string): number =>
   Buffer.compare(Buffer.from(left), Buffer.from(right));
@@ -60,6 +60,12 @@ type GoverningContract =
 
 export type CandidateInterval = Readonly<{ min: number; max: number }>;
 export type CandidateIntervals = Readonly<Partial<Record<VitalKey, CandidateInterval>>>;
+
+export const R5_CANDIDATE_INTERVALS: CandidateIntervals = Object.freeze({
+  sbp: Object.freeze({ min: 40, max: 400 }),
+  rr: Object.freeze({ min: 2, max: 150 }),
+  spo2: Object.freeze({ min: 0, max: 100 }),
+});
 
 export type VitalSurveyRecord = {
   bank: string;
@@ -446,7 +452,7 @@ const contractForVital = (vital: VitalKey, records: readonly VitalSurveyRecord[]
   const maxAuthorship = vital === "temp"
     ? {
         status: "independently_authored",
-        citation: "DECISIONS.md §7; r9-temperature-sanity-decoupling-codex-spec.md; VITAL_SANITY_MAX_OVERRIDES.temp",
+        citation: "DECISIONS.md R3 — Temperature sanity ceiling 46.5 °C; r9-temperature-sanity-decoupling-codex-spec.md; VITAL_SANITY_MAX_OVERRIDES.temp",
       }
     : {
         status: "inherited",
@@ -563,7 +569,7 @@ export const buildVitalSanityBoundsSurvey = async ({
   bankDir = BANK_DIR,
   rawDir = RAW_DIR,
   promotedDir = PROMOTED_DIR,
-  candidates = {},
+  candidates = R5_CANDIDATE_INTERVALS,
 }: {
   bankDir?: string;
   rawDir?: string;
@@ -601,28 +607,28 @@ export const buildVitalSanityBoundsSurvey = async ({
     record.governingContract.currentClassification === "WARN_OUT_OF_BAND"
   );
   return {
-    survey: "vital-sanity-bounds-p3-deterministic-inventory",
+    survey: "vital-sanity-bounds-r5-fresh-corpus-impact",
     date: SURVEY_DATE,
-    status: "IMPLEMENTED_PENDING_INDEPENDENT_MANIFEST_CLASSIFICATION_REVIEW",
+    status: "PRE_IMPLEMENTATION_CANDIDATE_IMPACT_EVIDENCE",
     ratification: {
-      surveyImplementation: "RATIFIED by Luke on 2026-07-17",
-      bounds: "NONE. This manifest selects, ratifies, or authorizes no vital-sign bound change.",
+      surveyImplementation: "R5 requires this fresh corpus-impact survey before production implementation.",
+      bounds: "R5 ratifies SBP max 400 mmHg, RR max 150/min, and spo2 min 0%; this manifest evaluates the full candidate intervals only and does not implement production sanity bounds.",
     },
     standingProhibition: "Do not derive a global typo/unit-error tripwire from an adult normal range, and do not create pediatric normal ranges as a P3 ride-along.",
     statedLimitation: "This deterministic inventory covers machine-readable vitals_trend values and structured-measurement vitals-panel values only. It does not parse free prose, answer choices, stems, rationales, or narrative text, and makes no completeness claim about values outside those governed surfaces.",
     priorFindings: {
       withdrawnClaim: {
-        source: "DECISIONS.md §8",
+        source: "DECISIONS.md retired register — Withdrawn claim that vital sanity bounds pass every real value",
         finding: "The claim that vitals sanity passes every real transcribed value is withdrawn; documented SBP to approximately 370, RR at 80 with no margin, and displayable SpO2 below 50 contradict it.",
       },
       sweep20260711: {
         located: true,
         sources: [
           "DECISIONS.md at commit a67476cee75e365dd72c22a589d8e76c6e3ddc6d (2026-07-11 historical survey and pre-move sweep record)",
-          "DECISIONS.md §7 (current constitutional summary)",
+          "DECISIONS.md R3 — Temperature sanity ceiling 46.5 °C (current constitutional summary)",
           "r9-temperature-sanity-decoupling-codex-spec.md §6.1 (separate 2026-07-15 independent re-derivation)",
         ],
-        priorResult: "Git history at a67476cee75e365dd72c22a589d8e76c6e3ddc6d records the 2026-07-11 report-only survey and pre-move sweep: zero flips under the 30-43 C validator and exploratory 10-50 C probes, promoted canonical temperature 36.7-40.11 C, and refreshed extraction artifacts 35.8-40.11 C. The July 11 spans cover the promoted canonical corpus and refreshed extraction artifacts and are not directly comparable to this survey's pooled per-vital liveRange, which spans both governed surfaces. Current DECISIONS.md §7 preserves the compact zero-flip summary. Separately, the 2026-07-15 r9 §6.1 survey found 104 temperature values spanning 35.8-40.111111111111114 C and zero flips at the ratified T = 46.5 C.",
+        priorResult: "Git history at a67476cee75e365dd72c22a589d8e76c6e3ddc6d records the 2026-07-11 report-only survey and pre-move sweep: zero flips under the 30-43 C validator and exploratory 10-50 C probes, promoted canonical temperature 36.7-40.11 C, and refreshed extraction artifacts 35.8-40.11 C. The July 11 spans cover the promoted canonical corpus and refreshed extraction artifacts and are not directly comparable to this survey's pooled per-vital liveRange, which spans both governed surfaces. Current DECISIONS.md R3 — Temperature sanity ceiling 46.5 °C preserves the compact zero-flip summary. Separately, the 2026-07-15 r9 §6.1 survey found 104 temperature values spanning 35.8-40.111111111111114 C and zero flips at the ratified T = 46.5 C.",
         reconciliation: "EXTENDS",
         adds: [
           "all seven vital keys, deterministically enumerated",
@@ -688,7 +694,7 @@ export const assertVitalSanityManifestMatches = (generated: string, committed: s
 };
 
 const parseCandidateArgs = async (args: string[]): Promise<CandidateIntervals> => {
-  if (args.length === 0) return {};
+  if (args.length === 0) return R5_CANDIDATE_INTERVALS;
   if (args.length !== 2 || args[0] !== "--candidates") {
     throw new Error("usage: npm run survey:vital-sanity-bounds -- [--candidates path/to/candidates.json]");
   }

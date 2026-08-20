@@ -12,6 +12,7 @@ import {
   discoverVitalSurveyBankPaths,
   isRecordOutOfRange,
   OUTPUT_PATH,
+  R5_CANDIDATE_INTERVALS,
   serializeVitalSanityBoundsSurvey,
   VITAL_BOUNDARY_EPSILON,
   VITAL_KEYS,
@@ -112,6 +113,12 @@ assert.throws(
   /not a vital key/,
 );
 
+assert.deepEqual(R5_CANDIDATE_INTERVALS, {
+  sbp: { min: 40, max: 400 },
+  rr: { min: 2, max: 150 },
+  spo2: { min: 0, max: 100 },
+});
+
 // Optional raw/promoted staging lanes follow P0: absence means an empty population only for those lanes.
 const fixtureRoot = await mkdtemp(join(tmpdir(), "vital-sanity-bounds-"));
 try {
@@ -141,7 +148,7 @@ assert.deepEqual(survey.population.canonicalBankFiles, [...survey.population.can
 assert.equal(survey.population.canonicalBankCount, survey.population.canonicalBankFiles.length);
 assert.equal(survey.conceptsByVital.length, 7);
 assert.deepEqual(survey.conceptsByVital.map(({ vital }) => vital), VITAL_KEYS);
-assert.equal(survey.ratification.bounds.startsWith("NONE"), true);
+assert.equal(survey.ratification.bounds.startsWith("R5 ratifies"), true);
 const priorSweep = survey.priorFindings.sweep20260711;
 assert.equal(priorSweep.located, true);
 assert.equal(priorSweep.reconciliation, "EXTENDS");
@@ -163,6 +170,44 @@ assert.equal(survey.findings.rendererEnvelopeValidation.recordCount, 551);
 assert.equal(survey.findings.rendererEnvelopeValidation.validationFailures.length, 0);
 assert.equal(survey.findings.rendererEnvelopeValidation.mapBoundsViolations.length, 0);
 assert.equal(survey.findings.rendererEnvelopeValidation.mapSelfCheckViolations.length, 0);
+assert.deepEqual(survey.candidateIntervalImpact, [
+  {
+    vital: "rr",
+    current: { min: 2, max: 80 },
+    candidate: { min: 2, max: 150 },
+    comparable: 125,
+    newlyWarned: 0,
+    newlyAdmitted: 0,
+    unchangedInBand: 125,
+    unchangedWarn: 0,
+    excludedUnconvertible: 0,
+    excludedRendererEnvelopeRecords: 76,
+  },
+  {
+    vital: "sbp",
+    current: { min: 40, max: 300 },
+    candidate: { min: 40, max: 400 },
+    comparable: 138,
+    newlyWarned: 0,
+    newlyAdmitted: 0,
+    unchangedInBand: 138,
+    unchangedWarn: 0,
+    excludedUnconvertible: 0,
+    excludedRendererEnvelopeRecords: 77,
+  },
+  {
+    vital: "spo2",
+    current: { min: 50, max: 100 },
+    candidate: { min: 0, max: 100 },
+    comparable: 127,
+    newlyWarned: 0,
+    newlyAdmitted: 0,
+    unchangedInBand: 127,
+    unchangedWarn: 0,
+    excludedUnconvertible: 0,
+    excludedRendererEnvelopeRecords: 56,
+  },
+]);
 assert.equal(survey.records.every((record) => record.populationDeclared !== undefined), true);
 assert.equal(survey.records.every((record) => record.populationEffective !== undefined), true);
 assert.equal(
@@ -178,7 +223,7 @@ assert.equal(
   true,
 );
 
-// Exercise the build parameter on the live corpus without changing the committed P3 manifest.
+// Explicit input remains available for a bounded, non-default candidate survey.
 const candidateSurvey = await buildVitalSanityBoundsSurvey({ candidates: { spo2: { min: 51, max: 100 } } });
 assert.equal(candidateSurvey.candidateIntervalImpact.length, 1);
 assert.deepEqual(candidateSurvey.candidateIntervalImpact[0]?.candidate, { min: 51, max: 100 });
