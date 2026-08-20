@@ -21,7 +21,7 @@ import type { VitalKey, VitalsTrendSpec } from "../src/visuals/kinds/vitals_tren
 
 const SURVEY_DATE = "2026-08-19";
 const BANK_DIR = "banks";
-export const OUTPUT_PATH = "audit/vital-sanity-bounds-survey-2026-08-19/survey-manifest.json";
+export const OUTPUT_PATH = "audit/vital-sanity-bounds-survey-2026-08-19-post-r5/survey-manifest.json";
 
 const byteCompare = (left: string, right: string): number =>
   Buffer.compare(Buffer.from(left), Buffer.from(right));
@@ -424,14 +424,16 @@ const boundaryRecords = (records: readonly VitalSurveyRecord[], boundary: number
 
 const mechanismCostFor = (vital: VitalKey) => ({
   min: {
-    mechanism: "missing",
-    consequence: "Any independently authored floor requires extending the current ceiling-only override mechanism and its drift guard.",
+    mechanism: "available",
+    consequence: vital === "spo2"
+      ? "The independently authored SpO2 floor uses VITAL_SANITY_MIN_OVERRIDES."
+      : "The VITAL_SANITY_MIN_OVERRIDES mechanism can carry a later separately ratified floor; doing so remains a data-contract change.",
   },
   max: {
     mechanism: "available",
-    consequence: vital === "temp"
-      ? "The independently authored temperature ceiling already uses VITAL_SANITY_MAX_OVERRIDES."
-      : "The existing VITAL_SANITY_MAX_OVERRIDES mechanism can carry a later ratified ceiling; doing so remains a data-contract change.",
+    consequence: vital === "temp" || vital === "sbp" || vital === "rr"
+      ? `The independently authored ${vital} ceiling uses VITAL_SANITY_MAX_OVERRIDES.`
+      : "The VITAL_SANITY_MAX_OVERRIDES mechanism can carry a later separately ratified ceiling; doing so remains a data-contract change.",
   },
 });
 
@@ -443,15 +445,25 @@ const contractForVital = (vital: VitalKey, records: readonly VitalSurveyRecord[]
   const numericValues = exactNumeric.map((record) => record.canonicalValue as number);
   const normal = def.normal("C");
   const tempNormalF = vital === "temp" ? def.normal("F") : null;
-  const minAuthorship = {
-    status: "inherited",
-    citation: `src/measurementAllowlist.ts vitalEntries <- VITAL_DEFS.${vital}.range.min`,
-  };
+  const minAuthorship = vital === "spo2"
+    ? {
+        status: "independently_authored",
+        citation: "DECISIONS.md R5 — Vital sanity ratifications for SBP, RR, and SpO2; VITAL_SANITY_MIN_OVERRIDES.spo2",
+      }
+    : {
+        status: "inherited",
+        citation: `src/measurementAllowlist.ts vitalEntries <- VITAL_DEFS.${vital}.range.min`,
+      };
   const maxAuthorship = vital === "temp"
     ? {
         status: "independently_authored",
         citation: "DECISIONS.md R3 — Temperature sanity ceiling 46.5 °C; r9-temperature-sanity-decoupling-codex-spec.md; VITAL_SANITY_MAX_OVERRIDES.temp",
       }
+    : vital === "sbp" || vital === "rr"
+      ? {
+          status: "independently_authored",
+          citation: `DECISIONS.md R5 — Vital sanity ratifications for SBP, RR, and SpO2; VITAL_SANITY_MAX_OVERRIDES.${vital}`,
+        }
     : {
         status: "inherited",
         citation: `src/measurementAllowlist.ts vitalEntries <- VITAL_DEFS.${vital}.range.max`,
@@ -605,12 +617,12 @@ export const buildVitalSanityBoundsSurvey = async ({
     record.governingContract.currentClassification === "WARN_OUT_OF_BAND"
   );
   return {
-    survey: "vital-sanity-bounds-r5-fresh-corpus-impact",
+    survey: "vital-sanity-bounds-r5-post-implementation-conformance",
     date: SURVEY_DATE,
-    status: "PRE_IMPLEMENTATION_CANDIDATE_IMPACT_EVIDENCE",
+    status: "POST_IMPLEMENTATION_CONFORMANCE_EVIDENCE",
     ratification: {
-      surveyImplementation: "R5 requires this fresh corpus-impact survey before production implementation.",
-      bounds: "R5 ratifies SBP max 400 mmHg, RR max 150/min, and spo2 min 0%; this manifest evaluates the full candidate intervals only and does not implement production sanity bounds.",
+      surveyImplementation: "R5 executes through per-side canonical-unit sanity overrides while renderer envelopes remain unchanged.",
+      bounds: "R5 ratifies and production implements SBP max 400 mmHg, RR max 150/min, and spo2 min 0%; this manifest compares the live production intervals with those ratified reference intervals.",
     },
     standingProhibition: "Do not derive a global typo/unit-error tripwire from an adult normal range, and do not create pediatric normal ranges as a P3 ride-along.",
     statedLimitation: "This deterministic inventory covers machine-readable vitals_trend values and structured-measurement vitals-panel values only. It does not parse free prose, answer choices, stems, rationales, or narrative text, and makes no completeness claim about values outside those governed surfaces.",

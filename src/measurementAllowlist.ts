@@ -29,42 +29,46 @@ const INFERRED_UNITS: Readonly<Record<string, string>> = Object.freeze({
 });
 
 /**
- * Authored canonical-unit sanity ceilings that intentionally diverge from the
- * vital registry ranges.
+ * Authored per-side canonical-unit sanity bounds that intentionally diverge
+ * from the vital registry ranges.
  *
  * VITAL_DEFS[key].range supplies the renderer validation envelope for most
  * vitals. Temperature is different: its active validator bypasses the legacy
  * registry range and uses separate source-unit-specific bounds.
  *
  * MeasurementDef.sanity is a warning-only unit/value-mismatch tripwire used by
- * the flowsheet gate after conversion to the canonical unit. Temperature's
- * sourced and ratified ceiling is recorded in DECISIONS.md §7; its floor
- * continues to inherit VITAL_DEFS.temp.range.min pending separate review.
- *
- * The remaining six vitals currently inherit their full registry ranges
- * pending the separate REVISIT inventory. That inheritance is provisional,
- * not a suitability finding.
+ * the flowsheet gate after conversion to the canonical unit. R3 authors the
+ * temperature ceiling; R5 authors the SBP and RR ceilings and the SpO2 floor.
+ * All other sides continue to inherit their matching registry range side.
  *
  * Adding another key is a data-contract change requiring a consumer trace,
  * bank-impact survey, sourcing where clinically applicable, and the full
- * schema verification path. Do not quietly retune ceilings here.
+ * schema verification path. Do not quietly retune bounds here.
  */
+const VITAL_SANITY_MIN_OVERRIDES: Readonly<Partial<Record<VitalKey, number>>> =
+  Object.freeze({
+    spo2: 0, // Ratified by R5.
+  });
+
 const VITAL_SANITY_MAX_OVERRIDES: Readonly<Partial<Record<VitalKey, number>>> =
   Object.freeze({
-    temp: 46.5, // Ratified 2026-07-15; sourced to Slovis CM et al. 1982 (DECISIONS.md §7).
+    sbp: 400, // Ratified by R5.
+    rr: 150, // Ratified by R5.
+    temp: 46.5, // Ratified by R3.
   });
 
 const vitalEntries = Object.entries(VITAL_DEFS).map(([key, def]) => {
-  const maxOverride = VITAL_SANITY_MAX_OVERRIDES[key as VitalKey];
+  const vitalKey = key as VitalKey;
   return [
     key,
     freezeDef({
       key,
       canonicalUnit: def.unit,
       acceptedSourceUnits: key === "temp" ? [def.unit, "°F", "F", "C"] : [def.unit],
-      sanity: maxOverride === undefined
-        ? def.range
-        : { min: def.range.min, max: maxOverride },
+      sanity: {
+        min: VITAL_SANITY_MIN_OVERRIDES[vitalKey] ?? def.range.min,
+        max: VITAL_SANITY_MAX_OVERRIDES[vitalKey] ?? def.range.max,
+      },
       kind: "vital",
     }),
   ] as const;
