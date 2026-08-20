@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import { createHash } from "node:crypto";
 import { copyFile, mkdir, mkdtemp, readFile, rm } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
@@ -118,6 +119,18 @@ assert.deepEqual(R5_CANDIDATE_INTERVALS, {
   rr: { min: 2, max: 150 },
   spo2: { min: 0, max: 100 },
 });
+assert.deepEqual(MEASUREMENT_ALLOWLIST.sbp.sanity, R5_CANDIDATE_INTERVALS.sbp);
+assert.deepEqual(MEASUREMENT_ALLOWLIST.rr.sanity, R5_CANDIDATE_INTERVALS.rr);
+assert.deepEqual(MEASUREMENT_ALLOWLIST.spo2.sanity, R5_CANDIDATE_INTERVALS.spo2);
+
+const preImplementationManifest = await readFile(
+  "audit/vital-sanity-bounds-survey-2026-08-19/survey-manifest.json",
+);
+assert.equal(
+  createHash("sha256").update(preImplementationManifest).digest("hex"),
+  "55f25e0ba4954b5ed9d080f880cfbf467b70d8ab4584e9a1c25c37108227ed2c",
+  "accepted August 19 pre-implementation evidence must remain byte-identical",
+);
 
 // The committed/default population is canonical-only even when ignored staging exists nearby.
 // Explicit staging paths retain a bounded opt-in inspection mode.
@@ -197,12 +210,22 @@ assert.equal(survey.population.rawDraftCount, 0);
 assert.deepEqual(survey.population.promotedStagingFiles, []);
 assert.equal(survey.population.promotedStagingCount, 0);
 assert.equal(survey.population.totalRecords, 1317);
+assert.equal(survey.status, "POST_IMPLEMENTATION_CONFORMANCE_EVIDENCE");
+assert.equal(survey.survey, "vital-sanity-bounds-r5-post-implementation-conformance");
 assert.equal(survey.conceptsByVital.length, 7);
 assert.deepEqual(survey.conceptsByVital.map(({ vital }) => vital), VITAL_KEYS);
 const conceptsByVital = new Map(survey.conceptsByVital.map((concept) => [concept.vital, concept]));
 assert.deepEqual(conceptsByVital.get("sbp")?.liveRange, { min: 78, max: 210, unit: "mmHg" });
 assert.deepEqual(conceptsByVital.get("rr")?.liveRange, { min: 6, max: 34, unit: "/min" });
 assert.deepEqual(conceptsByVital.get("spo2")?.liveRange, { min: 84, max: 99, unit: "%" });
+assert.equal(conceptsByVital.get("sbp")?.sanity.maxAuthorship.status, "independently_authored");
+assert.equal(conceptsByVital.get("rr")?.sanity.maxAuthorship.status, "independently_authored");
+assert.equal(conceptsByVital.get("spo2")?.sanity.minAuthorship.status, "independently_authored");
+assert.equal(conceptsByVital.get("temp")?.sanity.maxAuthorship.status, "independently_authored");
+assert.equal(conceptsByVital.get("dbp")?.sanity.maxAuthorship.status, "inherited");
+assert.equal(conceptsByVital.get("map")?.sanity.maxAuthorship.status, "inherited");
+assert.equal(conceptsByVital.get("temp")?.sanity.minAuthorship.status, "inherited");
+assert.equal(conceptsByVital.get("spo2")?.mechanismCostByCandidateSide.min.mechanism, "available");
 assert.equal(survey.ratification.bounds.startsWith("R5 ratifies"), true);
 const priorSweep = survey.priorFindings.sweep20260711;
 assert.equal(priorSweep.located, true);
@@ -228,7 +251,7 @@ assert.equal(survey.findings.rendererEnvelopeValidation.mapSelfCheckViolations.l
 assert.deepEqual(survey.candidateIntervalImpact, [
   {
     vital: "rr",
-    current: { min: 2, max: 80 },
+    current: { min: 2, max: 150 },
     candidate: { min: 2, max: 150 },
     comparable: 125,
     newlyWarned: 0,
@@ -240,7 +263,7 @@ assert.deepEqual(survey.candidateIntervalImpact, [
   },
   {
     vital: "sbp",
-    current: { min: 40, max: 300 },
+    current: { min: 40, max: 400 },
     candidate: { min: 40, max: 400 },
     comparable: 138,
     newlyWarned: 0,
@@ -252,7 +275,7 @@ assert.deepEqual(survey.candidateIntervalImpact, [
   },
   {
     vital: "spo2",
-    current: { min: 50, max: 100 },
+    current: { min: 0, max: 100 },
     candidate: { min: 0, max: 100 },
     comparable: 127,
     newlyWarned: 0,

@@ -13,28 +13,42 @@ const inferredUnits: Record<string, string> = {
   total_bilirubin: "mg/dL",
 };
 
+const expectedVitalSanityMinOverrides: Readonly<Record<string, number>> = {
+  spo2: 0,
+};
+
+const expectedVitalSanityMaxOverrides: Readonly<Record<string, number>> = {
+  sbp: 400,
+  rr: 150,
+  temp: 46.5,
+};
+
 for (const [key, def] of Object.entries(VITAL_DEFS)) {
   const got = MEASUREMENT_ALLOWLIST[key];
   assert.ok(got, `${key} missing from measurement allowlist`);
   assert.equal(got.kind, "vital", `${key} should be vital`);
   assert.equal(got.canonicalUnit, def.unit, `${key} canonicalUnit drift`);
-  if (key === "temp") {
-    assert.equal(
-      got.sanity.min,
-      def.range.min,
-      "temp sanity floor must remain inherited from VITAL_DEFS pending separate review",
-    );
-    assert.equal(
-      got.sanity.max,
-      46.5,
-      "temp sanity ceiling must equal the sourced and ratified canonical-Celsius tripwire",
-    );
-  } else {
-    assert.deepEqual(got.sanity, def.range, `${key} sanity drift`);
-  }
+  assert.equal(
+    got.sanity.min,
+    expectedVitalSanityMinOverrides[key] ?? def.range.min,
+    `${key} sanity minimum must match its authored override or inherit the renderer minimum`,
+  );
+  assert.equal(
+    got.sanity.max,
+    expectedVitalSanityMaxOverrides[key] ?? def.range.max,
+    `${key} sanity maximum must match its authored override or inherit the renderer maximum`,
+  );
   const expectedSourceUnits = key === "temp" ? [def.unit, "°F", "F", "C"] : [def.unit];
   assert.deepEqual(got.acceptedSourceUnits, expectedSourceUnits, `${key} acceptedSourceUnits drift`);
 }
+
+assert.deepEqual(MEASUREMENT_ALLOWLIST.sbp.sanity, { min: 40, max: 400 }, "R5 SBP sanity contract drift");
+assert.deepEqual(MEASUREMENT_ALLOWLIST.rr.sanity, { min: 2, max: 150 }, "R5 RR sanity contract drift");
+assert.deepEqual(MEASUREMENT_ALLOWLIST.spo2.sanity, { min: 0, max: 100 }, "R5 SpO2 sanity contract drift");
+assert.deepEqual(MEASUREMENT_ALLOWLIST.temp.sanity, { min: 30, max: 46.5 }, "R3 temperature sanity contract drift");
+assert.deepEqual(VITAL_DEFS.sbp.range, { min: 40, max: 300 }, "SBP renderer range must remain unchanged");
+assert.deepEqual(VITAL_DEFS.rr.range, { min: 2, max: 80 }, "RR renderer range must remain unchanged");
+assert.deepEqual(VITAL_DEFS.spo2.range, { min: 50, max: 100 }, "SpO2 renderer range must remain unchanged");
 
 for (const [key, def] of Object.entries(ANALYTE_DEFS)) {
   const got = MEASUREMENT_ALLOWLIST[key];
@@ -80,6 +94,7 @@ assert.equal(MEASUREMENT_ALLOWLIST.troponin_i.canonicalUnit, "ng/mL", "troponin_
 assert.deepEqual(MEASUREMENT_ALLOWLIST.troponin_i.acceptedSourceUnits, ["ng/mL", "µg/L"], "troponin_i accepted units should be pinned");
 assert.equal(MEASUREMENT_ALLOWLIST.sao2.kind, "lab", "sao2 should be structured-only lab/ABG measurement");
 assert.deepEqual(MEASUREMENT_ALLOWLIST.sao2.acceptedSourceUnits, ["%"], "sao2 accepted units should be pinned");
+assert.deepEqual(MEASUREMENT_ALLOWLIST.sao2.sanity, { min: 50, max: 100 }, "lab sao2 sanity must remain separate and unchanged");
 assert.equal(MEASUREMENT_ALLOWLIST.uric_acid.kind, "lab", "uric_acid should be structured-only lab measurement");
 assert.equal(MEASUREMENT_ALLOWLIST.uric_acid.canonicalUnit, "mg/dL", "uric_acid canonical unit should be mg/dL");
 assert.deepEqual(MEASUREMENT_ALLOWLIST.uric_acid.acceptedSourceUnits, ["mg/dL"], "uric_acid accepted units should be pinned");
