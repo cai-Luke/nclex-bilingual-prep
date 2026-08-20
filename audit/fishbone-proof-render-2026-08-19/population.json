@@ -1,0 +1,3274 @@
+{
+  "proofDate": "2026-08-19",
+  "frozenBaseCommit": "011a340bad2643dcee954ae3c3f2566c12524870",
+  "scanScope": {
+    "rule": "Every structuredMeasurements panel with kind === 'labs' in global and stage exhibits of every case-study question in top-level banks/*.json only.",
+    "topLevelBankFileCount": 13,
+    "bankFiles": [
+      "banks/burn-canonical.json",
+      "banks/capnography-canonical.json",
+      "banks/claude-canonical.json",
+      "banks/device-canonical.json",
+      "banks/gemini-canonical.json",
+      "banks/gpt-canonical.json",
+      "banks/hard-cases-canonical.json",
+      "banks/io-canonical.json",
+      "banks/lab-canonical.json",
+      "banks/mar-canonical.json",
+      "banks/medlabel-canonical.json",
+      "banks/visual-canonical.json",
+      "banks/vitals-canonical.json"
+    ],
+    "excluded": [
+      "nested bank files",
+      "raw banks",
+      "promoted staging",
+      "vitals panels",
+      "non-structured visuals"
+    ]
+  },
+  "ordering": "Byte order by (bankPath, questionId, exhibitPath), then numeric panelIndex.",
+  "frozenTemplates": {
+    "CBC": [
+      "wbc",
+      "hemoglobin",
+      "hematocrit",
+      "platelets"
+    ],
+    "BMP": [
+      "sodium",
+      "potassium",
+      "chloride",
+      "bicarbonate",
+      "bun",
+      "creatinine",
+      "glucose",
+      "calcium"
+    ],
+    "expanded chemistry": [
+      "sodium",
+      "potassium",
+      "chloride",
+      "bicarbonate",
+      "bun",
+      "creatinine",
+      "glucose",
+      "calcium",
+      "ast",
+      "alt",
+      "total_bilirubin"
+    ]
+  },
+  "matchingRule": "Whole-panel match only. Every row key must be in one frozen template; strict subsets are eligible; smallest template wins, then byte-first template name. Any outside key yields NO_TEMPLATE_MATCH and intact current-flat fallback.",
+  "summary": {
+    "labPanelCount": 126,
+    "oneColumnPanelCount": 125,
+    "twoOrMoreColumnPanelCount": 1,
+    "analyteCountDistribution": {
+      "1": 13,
+      "2": 11,
+      "3": 15,
+      "4": 12,
+      "5": 23,
+      "6": 11,
+      "7": 6,
+      "8": 6,
+      "9": 3,
+      "10": 5,
+      "11": 6,
+      "12": 4,
+      "14": 3,
+      "15": 4,
+      "16": 3,
+      "17": 1
+    },
+    "templateCounts": {
+      "CBC": 5,
+      "BMP": 14,
+      "expanded chemistry": 5,
+      "NO_TEMPLATE_MATCH": 102
+    },
+    "templateRowCountRanges": {
+      "CBC": {
+        "min": 1,
+        "max": 3
+      },
+      "BMP": {
+        "min": 1,
+        "max": 5
+      },
+      "expanded chemistry": {
+        "min": 2,
+        "max": 5
+      },
+      "NO_TEMPLATE_MATCH": {
+        "min": 1,
+        "max": 17
+      }
+    },
+    "selectionCategoryQualifyingCounts": {
+      "full_or_near_full_cbc": 1,
+      "sparse_cbc_subset": 4,
+      "bmp_or_near_full": 0,
+      "expanded_chemistry_well_populated": 0,
+      "no_template_flat_fallback": 102
+    },
+    "noTemplateMatchCount": 102,
+    "allEnglishLabelsNonEmpty": true,
+    "allChineseLabelsNonEmpty": true
+  },
+  "records": [
+    {
+      "bankPath": "banks/claude-canonical.json",
+      "questionId": "opus1_case_tha_discharge_lep_01",
+      "exhibitPath": "questions[59].caseStudy.exhibits[0]",
+      "panelPath": "questions[59].caseStudy.exhibits[0].structuredMeasurements.panels[1]",
+      "panelIndex": 1,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "labs_current"
+      ],
+      "analyteSet": [
+        "bun",
+        "creatinine",
+        "glucose",
+        "hematocrit",
+        "hemoglobin",
+        "inr",
+        "platelets",
+        "potassium",
+        "ptt",
+        "sodium",
+        "wbc"
+      ],
+      "rowCount": 11,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "NO_TEMPLATE_MATCH"
+    },
+    {
+      "bankPath": "banks/claude-canonical.json",
+      "questionId": "opus1_case_tha_discharge_lep_01",
+      "exhibitPath": "questions[59].caseStudy.stages[0].exhibits[0]",
+      "panelPath": "questions[59].caseStudy.stages[0].exhibits[0].structuredMeasurements.panels[1]",
+      "panelIndex": 1,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "labs_18h_postop"
+      ],
+      "analyteSet": [
+        "creatinine",
+        "glucose",
+        "hemoglobin"
+      ],
+      "rowCount": 3,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "NO_TEMPLATE_MATCH"
+    },
+    {
+      "bankPath": "banks/claude-canonical.json",
+      "questionId": "opus1_case_tha_discharge_lep_01",
+      "exhibitPath": "questions[59].caseStudy.stages[1].exhibits[0]",
+      "panelPath": "questions[59].caseStudy.stages[1].exhibits[0].structuredMeasurements.panels[1]",
+      "panelIndex": 1,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "labs_42h_postop"
+      ],
+      "analyteSet": [
+        "creatinine",
+        "hemoglobin"
+      ],
+      "rowCount": 2,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "NO_TEMPLATE_MATCH"
+    },
+    {
+      "bankPath": "banks/claude-canonical.json",
+      "questionId": "opus1_case_tha_discharge_lep_01",
+      "exhibitPath": "questions[59].caseStudy.stages[2].exhibits[0]",
+      "panelPath": "questions[59].caseStudy.stages[2].exhibits[0].structuredMeasurements.panels[1]",
+      "panelIndex": 1,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "labs_66h_postop"
+      ],
+      "analyteSet": [
+        "creatinine",
+        "glucose",
+        "hemoglobin"
+      ],
+      "rowCount": 3,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "NO_TEMPLATE_MATCH"
+    },
+    {
+      "bankPath": "banks/claude-canonical.json",
+      "questionId": "opus20_case_cdiff_01",
+      "exhibitPath": "questions[60].caseStudy.exhibits[0]",
+      "panelPath": "questions[60].caseStudy.exhibits[0].structuredMeasurements.panels[1]",
+      "panelIndex": 1,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "current"
+      ],
+      "analyteSet": [
+        "bicarbonate",
+        "bun",
+        "chloride",
+        "creatinine",
+        "glucose",
+        "hemoglobin",
+        "lactate",
+        "platelets",
+        "potassium",
+        "sodium",
+        "wbc"
+      ],
+      "rowCount": 11,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "NO_TEMPLATE_MATCH"
+    },
+    {
+      "bankPath": "banks/claude-canonical.json",
+      "questionId": "opus20_case_cdiff_01",
+      "exhibitPath": "questions[60].caseStudy.stages[0].exhibits[0]",
+      "panelPath": "questions[60].caseStudy.stages[0].exhibits[0].structuredMeasurements.panels[1]",
+      "panelIndex": 1,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "current"
+      ],
+      "analyteSet": [
+        "potassium"
+      ],
+      "rowCount": 1,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "BMP"
+    },
+    {
+      "bankPath": "banks/claude-canonical.json",
+      "questionId": "opus20_case_cdiff_01",
+      "exhibitPath": "questions[60].caseStudy.stages[1].exhibits[0]",
+      "panelPath": "questions[60].caseStudy.stages[1].exhibits[0].structuredMeasurements.panels[1]",
+      "panelIndex": 1,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "current"
+      ],
+      "analyteSet": [
+        "bun",
+        "creatinine",
+        "lactate",
+        "potassium"
+      ],
+      "rowCount": 4,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "NO_TEMPLATE_MATCH"
+    },
+    {
+      "bankPath": "banks/claude-canonical.json",
+      "questionId": "opus20_case_cdiff_01",
+      "exhibitPath": "questions[60].caseStudy.stages[2].exhibits[0]",
+      "panelPath": "questions[60].caseStudy.stages[2].exhibits[0].structuredMeasurements.panels[1]",
+      "panelIndex": 1,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "current"
+      ],
+      "analyteSet": [
+        "bun",
+        "creatinine",
+        "lactate",
+        "potassium",
+        "wbc"
+      ],
+      "rowCount": 5,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "NO_TEMPLATE_MATCH"
+    },
+    {
+      "bankPath": "banks/claude-canonical.json",
+      "questionId": "opus22_case_postpartum_intrusive_thoughts_01",
+      "exhibitPath": "questions[62].caseStudy.exhibits[2]",
+      "panelPath": "questions[62].caseStudy.exhibits[2].structuredMeasurements.panels[1]",
+      "panelIndex": 1,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "current"
+      ],
+      "analyteSet": [
+        "hemoglobin"
+      ],
+      "rowCount": 1,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "CBC"
+    },
+    {
+      "bankPath": "banks/claude-canonical.json",
+      "questionId": "opus24_case_elder_neglect_med_mismanagement_01",
+      "exhibitPath": "questions[63].caseStudy.exhibits[2]",
+      "panelPath": "questions[63].caseStudy.exhibits[2].structuredMeasurements.panels[0]",
+      "panelIndex": 0,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "current"
+      ],
+      "analyteSet": [
+        "bicarbonate",
+        "bun",
+        "chloride",
+        "creatinine",
+        "glucose",
+        "magnesium",
+        "potassium",
+        "sodium"
+      ],
+      "rowCount": 8,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "NO_TEMPLATE_MATCH"
+    },
+    {
+      "bankPath": "banks/claude-canonical.json",
+      "questionId": "opus24_case_elder_neglect_med_mismanagement_01",
+      "exhibitPath": "questions[63].caseStudy.stages[2].exhibits[0]",
+      "panelPath": "questions[63].caseStudy.stages[2].exhibits[0].structuredMeasurements.panels[1]",
+      "panelIndex": 1,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "current"
+      ],
+      "analyteSet": [
+        "creatinine",
+        "glucose",
+        "magnesium",
+        "potassium",
+        "sodium"
+      ],
+      "rowCount": 5,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "NO_TEMPLATE_MATCH"
+    },
+    {
+      "bankPath": "banks/claude-canonical.json",
+      "questionId": "opus25_case_tb_airborne_treatment_monitoring_01",
+      "exhibitPath": "questions[64].caseStudy.exhibits[2]",
+      "panelPath": "questions[64].caseStudy.exhibits[2].structuredMeasurements.panels[0]",
+      "panelIndex": 0,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "current"
+      ],
+      "analyteSet": [
+        "alt",
+        "ast",
+        "bun",
+        "creatinine",
+        "hematocrit",
+        "hemoglobin",
+        "platelets",
+        "potassium",
+        "sodium",
+        "wbc"
+      ],
+      "rowCount": 10,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "NO_TEMPLATE_MATCH"
+    },
+    {
+      "bankPath": "banks/claude-canonical.json",
+      "questionId": "opus25_case_tb_airborne_treatment_monitoring_01",
+      "exhibitPath": "questions[64].caseStudy.stages[2].exhibits[0]",
+      "panelPath": "questions[64].caseStudy.stages[2].exhibits[0].structuredMeasurements.panels[1]",
+      "panelIndex": 1,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "current"
+      ],
+      "analyteSet": [
+        "alt",
+        "ast"
+      ],
+      "rowCount": 2,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "expanded chemistry"
+    },
+    {
+      "bankPath": "banks/claude-canonical.json",
+      "questionId": "opus25_case_tb_airborne_treatment_monitoring_01",
+      "exhibitPath": "questions[64].caseStudy.stages[3].exhibits[0]",
+      "panelPath": "questions[64].caseStudy.stages[3].exhibits[0].structuredMeasurements.panels[0]",
+      "panelIndex": 0,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "current"
+      ],
+      "analyteSet": [
+        "alt",
+        "ast",
+        "total_bilirubin"
+      ],
+      "rowCount": 3,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "expanded chemistry"
+    },
+    {
+      "bankPath": "banks/claude-canonical.json",
+      "questionId": "opus26_case_refeeding_syndrome_01",
+      "exhibitPath": "questions[65].caseStudy.exhibits[1]",
+      "panelPath": "questions[65].caseStudy.exhibits[1].structuredMeasurements.panels[1]",
+      "panelIndex": 1,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "current"
+      ],
+      "analyteSet": [
+        "alt",
+        "ast",
+        "bicarbonate",
+        "bun",
+        "calcium",
+        "chloride",
+        "creatinine",
+        "glucose",
+        "hematocrit",
+        "hemoglobin",
+        "magnesium",
+        "phosphate",
+        "platelets",
+        "potassium",
+        "sodium",
+        "wbc"
+      ],
+      "rowCount": 16,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "NO_TEMPLATE_MATCH"
+    },
+    {
+      "bankPath": "banks/claude-canonical.json",
+      "questionId": "opus26_case_refeeding_syndrome_01",
+      "exhibitPath": "questions[65].caseStudy.stages[0].exhibits[0]",
+      "panelPath": "questions[65].caseStudy.stages[0].exhibits[0].structuredMeasurements.panels[1]",
+      "panelIndex": 1,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "labs_12h"
+      ],
+      "analyteSet": [
+        "calcium",
+        "glucose",
+        "magnesium",
+        "phosphate",
+        "potassium"
+      ],
+      "rowCount": 5,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "NO_TEMPLATE_MATCH"
+    },
+    {
+      "bankPath": "banks/claude-canonical.json",
+      "questionId": "opus26_case_refeeding_syndrome_01",
+      "exhibitPath": "questions[65].caseStudy.stages[1].exhibits[0]",
+      "panelPath": "questions[65].caseStudy.stages[1].exhibits[0].structuredMeasurements.panels[1]",
+      "panelIndex": 1,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "labs_36h"
+      ],
+      "analyteSet": [
+        "calcium",
+        "glucose",
+        "magnesium",
+        "phosphate",
+        "potassium"
+      ],
+      "rowCount": 5,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "NO_TEMPLATE_MATCH"
+    },
+    {
+      "bankPath": "banks/claude-canonical.json",
+      "questionId": "opus26_case_refeeding_syndrome_01",
+      "exhibitPath": "questions[65].caseStudy.stages[2].exhibits[0]",
+      "panelPath": "questions[65].caseStudy.stages[2].exhibits[0].structuredMeasurements.panels[1]",
+      "panelIndex": 1,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "labs_60h"
+      ],
+      "analyteSet": [
+        "calcium",
+        "glucose",
+        "magnesium",
+        "phosphate",
+        "potassium"
+      ],
+      "rowCount": 5,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "NO_TEMPLATE_MATCH"
+    },
+    {
+      "bankPath": "banks/claude-canonical.json",
+      "questionId": "opus27_case_ipv_prenatal_care_01",
+      "exhibitPath": "questions[66].caseStudy.exhibits[1]",
+      "panelPath": "questions[66].caseStudy.exhibits[1].structuredMeasurements.panels[1]",
+      "panelIndex": 1,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "current"
+      ],
+      "analyteSet": [
+        "hematocrit",
+        "hemoglobin",
+        "platelets"
+      ],
+      "rowCount": 3,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "CBC"
+    },
+    {
+      "bankPath": "banks/claude-canonical.json",
+      "questionId": "opus2_case_code_status_01",
+      "exhibitPath": "questions[57].caseStudy.exhibits[0]",
+      "panelPath": "questions[57].caseStudy.exhibits[0].structuredMeasurements.panels[1]",
+      "panelIndex": 1,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "labs_0530"
+      ],
+      "analyteSet": [
+        "bun",
+        "creatinine",
+        "hemoglobin",
+        "platelets",
+        "wbc"
+      ],
+      "rowCount": 5,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "NO_TEMPLATE_MATCH"
+    },
+    {
+      "bankPath": "banks/claude-canonical.json",
+      "questionId": "opus_case_lithium_toxicity_01",
+      "exhibitPath": "questions[67].caseStudy.exhibits[0]",
+      "panelPath": "questions[67].caseStudy.exhibits[0].structuredMeasurements.panels[1]",
+      "panelIndex": 1,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "current"
+      ],
+      "analyteSet": [
+        "bicarbonate",
+        "bun",
+        "calcium",
+        "chloride",
+        "creatinine",
+        "glucose",
+        "magnesium",
+        "phosphate",
+        "potassium",
+        "sodium"
+      ],
+      "rowCount": 10,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "NO_TEMPLATE_MATCH"
+    },
+    {
+      "bankPath": "banks/claude-canonical.json",
+      "questionId": "opus_case_lithium_toxicity_01",
+      "exhibitPath": "questions[67].caseStudy.stages[1].exhibits[0]",
+      "panelPath": "questions[67].caseStudy.stages[1].exhibits[0].structuredMeasurements.panels[0]",
+      "panelIndex": 0,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "current"
+      ],
+      "analyteSet": [
+        "bun",
+        "creatinine",
+        "potassium",
+        "sodium"
+      ],
+      "rowCount": 4,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "BMP"
+    },
+    {
+      "bankPath": "banks/claude-canonical.json",
+      "questionId": "opus_vanco_case_01",
+      "exhibitPath": "questions[58].caseStudy.exhibits[1]",
+      "panelPath": "questions[58].caseStudy.exhibits[1].structuredMeasurements.panels[1]",
+      "panelIndex": 1,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "labs_1200"
+      ],
+      "analyteSet": [
+        "bicarbonate",
+        "bun",
+        "creatinine",
+        "glucose",
+        "hemoglobin",
+        "lactate",
+        "platelets",
+        "potassium",
+        "sodium",
+        "wbc"
+      ],
+      "rowCount": 10,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "NO_TEMPLATE_MATCH"
+    },
+    {
+      "bankPath": "banks/claude-canonical.json",
+      "questionId": "opus_vanco_case_01",
+      "exhibitPath": "questions[58].caseStudy.stages[1].exhibits[0]",
+      "panelPath": "questions[58].caseStudy.stages[1].exhibits[0].structuredMeasurements.panels[0]",
+      "panelIndex": 0,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "current"
+      ],
+      "analyteSet": [
+        "bun",
+        "creatinine",
+        "glucose",
+        "lactate",
+        "potassium",
+        "wbc"
+      ],
+      "rowCount": 6,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "NO_TEMPLATE_MATCH"
+    },
+    {
+      "bankPath": "banks/gemini-canonical.json",
+      "questionId": "gemini_gap_case_pyloric_stenosis_01",
+      "exhibitPath": "questions[814].caseStudy.stages[0].exhibits[0]",
+      "panelPath": "questions[814].caseStudy.stages[0].exhibits[0].structuredMeasurements.panels[0]",
+      "panelIndex": 0,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "current"
+      ],
+      "analyteSet": [
+        "bicarbonate",
+        "chloride",
+        "ph",
+        "potassium",
+        "sodium"
+      ],
+      "rowCount": 5,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "NO_TEMPLATE_MATCH"
+    },
+    {
+      "bankPath": "banks/gemini-canonical.json",
+      "questionId": "gemini_gapfill_case_2026_06_10_case_wellness_03",
+      "exhibitPath": "questions[760].caseStudy.exhibits[1]",
+      "panelPath": "questions[760].caseStudy.exhibits[1].structuredMeasurements.panels[0]",
+      "panelIndex": 0,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "current"
+      ],
+      "analyteSet": [
+        "glucose"
+      ],
+      "rowCount": 1,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "BMP"
+    },
+    {
+      "bankPath": "banks/gemini-canonical.json",
+      "questionId": "opus_agvd_case_agvhd_01",
+      "exhibitPath": "questions[768].caseStudy.exhibits[1]",
+      "panelPath": "questions[768].caseStudy.exhibits[1].structuredMeasurements.panels[0]",
+      "panelIndex": 0,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "current"
+      ],
+      "analyteSet": [
+        "alt",
+        "ast",
+        "bicarbonate",
+        "bun",
+        "chloride",
+        "creatinine",
+        "glucose",
+        "hemoglobin",
+        "magnesium",
+        "phosphate",
+        "platelets",
+        "potassium",
+        "sodium",
+        "total_bilirubin",
+        "wbc"
+      ],
+      "rowCount": 15,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "NO_TEMPLATE_MATCH"
+    },
+    {
+      "bankPath": "banks/gemini-canonical.json",
+      "questionId": "opus_agvd_case_agvhd_01",
+      "exhibitPath": "questions[768].caseStudy.stages[0].exhibits[0]",
+      "panelPath": "questions[768].caseStudy.stages[0].exhibits[0].structuredMeasurements.panels[1]",
+      "panelIndex": 1,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "current"
+      ],
+      "analyteSet": [
+        "magnesium",
+        "potassium"
+      ],
+      "rowCount": 2,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "NO_TEMPLATE_MATCH"
+    },
+    {
+      "bankPath": "banks/gemini-canonical.json",
+      "questionId": "opus_agvd_case_agvhd_01",
+      "exhibitPath": "questions[768].caseStudy.stages[1].exhibits[0]",
+      "panelPath": "questions[768].caseStudy.stages[1].exhibits[0].structuredMeasurements.panels[1]",
+      "panelIndex": 1,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "current"
+      ],
+      "analyteSet": [
+        "alt",
+        "ast",
+        "bun",
+        "creatinine",
+        "glucose",
+        "hemoglobin",
+        "magnesium",
+        "potassium",
+        "sodium",
+        "total_bilirubin"
+      ],
+      "rowCount": 10,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "NO_TEMPLATE_MATCH"
+    },
+    {
+      "bankPath": "banks/gemini-canonical.json",
+      "questionId": "opus_agvd_case_agvhd_01",
+      "exhibitPath": "questions[768].caseStudy.stages[2].exhibits[0]",
+      "panelPath": "questions[768].caseStudy.stages[2].exhibits[0].structuredMeasurements.panels[1]",
+      "panelIndex": 1,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "current"
+      ],
+      "analyteSet": [
+        "alt",
+        "bun",
+        "creatinine",
+        "glucose",
+        "hemoglobin",
+        "magnesium",
+        "potassium",
+        "total_bilirubin"
+      ],
+      "rowCount": 8,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "NO_TEMPLATE_MATCH"
+    },
+    {
+      "bankPath": "banks/gpt-canonical.json",
+      "questionId": "gpt_2026_06_13_case_delirium_uti_01",
+      "exhibitPath": "questions[265].caseStudy.exhibits[1]",
+      "panelPath": "questions[265].caseStudy.exhibits[1].structuredMeasurements.panels[1]",
+      "panelIndex": 1,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "current"
+      ],
+      "analyteSet": [
+        "bicarbonate",
+        "bun",
+        "chloride",
+        "creatinine",
+        "glucose",
+        "hemoglobin",
+        "lactate",
+        "platelets",
+        "potassium",
+        "sodium",
+        "wbc"
+      ],
+      "rowCount": 11,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "NO_TEMPLATE_MATCH"
+    },
+    {
+      "bankPath": "banks/gpt-canonical.json",
+      "questionId": "gpt_2026_06_13_case_delirium_uti_01",
+      "exhibitPath": "questions[265].caseStudy.stages[1].exhibits[0]",
+      "panelPath": "questions[265].caseStudy.stages[1].exhibits[0].structuredMeasurements.panels[1]",
+      "panelIndex": 1,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "current"
+      ],
+      "analyteSet": [
+        "bun",
+        "creatinine",
+        "glucose",
+        "sodium",
+        "wbc"
+      ],
+      "rowCount": 5,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "NO_TEMPLATE_MATCH"
+    },
+    {
+      "bankPath": "banks/gpt-canonical.json",
+      "questionId": "gpt_2026_06_13_case_delirium_uti_01",
+      "exhibitPath": "questions[265].caseStudy.stages[2].exhibits[0]",
+      "panelPath": "questions[265].caseStudy.stages[2].exhibits[0].structuredMeasurements.panels[1]",
+      "panelIndex": 1,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "current"
+      ],
+      "analyteSet": [
+        "bun",
+        "creatinine",
+        "glucose",
+        "sodium",
+        "wbc"
+      ],
+      "rowCount": 5,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "NO_TEMPLATE_MATCH"
+    },
+    {
+      "bankPath": "banks/gpt-canonical.json",
+      "questionId": "gpt_2026_06_16_case_postpartum_preeclampsia_severe_01",
+      "exhibitPath": "questions[278].caseStudy.exhibits[1]",
+      "panelPath": "questions[278].caseStudy.exhibits[1].structuredMeasurements.panels[0]",
+      "panelIndex": 0,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "current"
+      ],
+      "analyteSet": [
+        "alt",
+        "ast",
+        "creatinine",
+        "hematocrit",
+        "hemoglobin",
+        "platelets"
+      ],
+      "rowCount": 6,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "NO_TEMPLATE_MATCH"
+    },
+    {
+      "bankPath": "banks/gpt-canonical.json",
+      "questionId": "gpt_2026_06_16_case_postpartum_preeclampsia_severe_01",
+      "exhibitPath": "questions[278].caseStudy.stages[1].exhibits[1]",
+      "panelPath": "questions[278].caseStudy.stages[1].exhibits[1].structuredMeasurements.panels[0]",
+      "panelIndex": 0,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "current"
+      ],
+      "analyteSet": [
+        "alt",
+        "ast",
+        "creatinine",
+        "hematocrit",
+        "hemoglobin",
+        "inr",
+        "platelets"
+      ],
+      "rowCount": 7,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "NO_TEMPLATE_MATCH"
+    },
+    {
+      "bankPath": "banks/gpt-canonical.json",
+      "questionId": "gpt_2026_06_19_case_ici_pneumonitis_01",
+      "exhibitPath": "questions[284].caseStudy.stages[1].exhibits[0]",
+      "panelPath": "questions[284].caseStudy.stages[1].exhibits[0].structuredMeasurements.panels[1]",
+      "panelIndex": 1,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "current"
+      ],
+      "analyteSet": [
+        "paco2",
+        "pao2",
+        "ph"
+      ],
+      "rowCount": 3,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "NO_TEMPLATE_MATCH"
+    },
+    {
+      "bankPath": "banks/gpt-canonical.json",
+      "questionId": "gpt_2026_06_19_case_ici_pneumonitis_01",
+      "exhibitPath": "questions[284].caseStudy.stages[2].exhibits[0]",
+      "panelPath": "questions[284].caseStudy.stages[2].exhibits[0].structuredMeasurements.panels[1]",
+      "panelIndex": 1,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "current"
+      ],
+      "analyteSet": [
+        "paco2",
+        "pao2",
+        "ph"
+      ],
+      "rowCount": 3,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "NO_TEMPLATE_MATCH"
+    },
+    {
+      "bankPath": "banks/gpt-canonical.json",
+      "questionId": "gpt_case_caregiver_role_strain_dementia_01",
+      "exhibitPath": "questions[344].caseStudy.exhibits[1]",
+      "panelPath": "questions[344].caseStudy.exhibits[1].structuredMeasurements.panels[1]",
+      "panelIndex": 1,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "current"
+      ],
+      "analyteSet": [
+        "bun",
+        "creatinine",
+        "glucose",
+        "hematocrit",
+        "hemoglobin",
+        "platelets",
+        "potassium",
+        "sodium",
+        "wbc"
+      ],
+      "rowCount": 9,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "NO_TEMPLATE_MATCH"
+    },
+    {
+      "bankPath": "banks/gpt-canonical.json",
+      "questionId": "gpt_case_client_advocacy_refusal_01",
+      "exhibitPath": "questions[300].caseStudy.exhibits[0]",
+      "panelPath": "questions[300].caseStudy.exhibits[0].structuredMeasurements.panels[1]",
+      "panelIndex": 1,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "current"
+      ],
+      "analyteSet": [
+        "bnp",
+        "bun",
+        "creatinine",
+        "glucose",
+        "hemoglobin",
+        "inr",
+        "platelets",
+        "potassium",
+        "sodium",
+        "wbc"
+      ],
+      "rowCount": 10,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "NO_TEMPLATE_MATCH"
+    },
+    {
+      "bankPath": "banks/gpt-canonical.json",
+      "questionId": "gpt_case_client_advocacy_refusal_01",
+      "exhibitPath": "questions[300].caseStudy.stages[1].exhibits[0]",
+      "panelPath": "questions[300].caseStudy.stages[1].exhibits[0].structuredMeasurements.panels[1]",
+      "panelIndex": 1,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "current"
+      ],
+      "analyteSet": [
+        "bnp",
+        "creatinine",
+        "potassium",
+        "sodium"
+      ],
+      "rowCount": 4,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "NO_TEMPLATE_MATCH"
+    },
+    {
+      "bankPath": "banks/gpt-canonical.json",
+      "questionId": "gpt_case_gap_2026_06_11_case_adhf_01",
+      "exhibitPath": "questions[184].caseStudy.exhibits[1]",
+      "panelPath": "questions[184].caseStudy.exhibits[1].structuredMeasurements.panels[0]",
+      "panelIndex": 0,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "current"
+      ],
+      "analyteSet": [
+        "bnp",
+        "creatinine",
+        "potassium",
+        "sodium"
+      ],
+      "rowCount": 4,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "NO_TEMPLATE_MATCH"
+    },
+    {
+      "bankPath": "banks/gpt-canonical.json",
+      "questionId": "gpt_case_gap_2026_06_11_case_adrenal_crisis_04",
+      "exhibitPath": "questions[187].caseStudy.exhibits[1]",
+      "panelPath": "questions[187].caseStudy.exhibits[1].structuredMeasurements.panels[0]",
+      "panelIndex": 0,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "current"
+      ],
+      "analyteSet": [
+        "bun",
+        "creatinine",
+        "glucose",
+        "potassium",
+        "sodium"
+      ],
+      "rowCount": 5,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "BMP"
+    },
+    {
+      "bankPath": "banks/gpt-canonical.json",
+      "questionId": "gpt_case_gap_2026_06_11_case_adrenal_crisis_04",
+      "exhibitPath": "questions[187].caseStudy.stages[0].exhibits[0]",
+      "panelPath": "questions[187].caseStudy.stages[0].exhibits[0].structuredMeasurements.panels[1]",
+      "panelIndex": 1,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "current"
+      ],
+      "analyteSet": [
+        "glucose"
+      ],
+      "rowCount": 1,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "BMP"
+    },
+    {
+      "bankPath": "banks/gpt-canonical.json",
+      "questionId": "gpt_case_gap_2026_06_11_case_adrenal_crisis_04",
+      "exhibitPath": "questions[187].caseStudy.stages[1].exhibits[0]",
+      "panelPath": "questions[187].caseStudy.stages[1].exhibits[0].structuredMeasurements.panels[1]",
+      "panelIndex": 1,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "current"
+      ],
+      "analyteSet": [
+        "glucose",
+        "potassium",
+        "sodium"
+      ],
+      "rowCount": 3,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "BMP"
+    },
+    {
+      "bankPath": "banks/gpt-canonical.json",
+      "questionId": "gpt_case_gap_2026_06_11_case_aki_02",
+      "exhibitPath": "questions[185].caseStudy.exhibits[1]",
+      "panelPath": "questions[185].caseStudy.exhibits[1].structuredMeasurements.panels[0]",
+      "panelIndex": 0,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "current"
+      ],
+      "analyteSet": [
+        "bicarbonate",
+        "bun",
+        "creatinine",
+        "potassium"
+      ],
+      "rowCount": 4,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "BMP"
+    },
+    {
+      "bankPath": "banks/gpt-canonical.json",
+      "questionId": "gpt_case_gap_2026_06_11_case_aki_02",
+      "exhibitPath": "questions[185].caseStudy.stages[1].exhibits[0]",
+      "panelPath": "questions[185].caseStudy.stages[1].exhibits[0].structuredMeasurements.panels[1]",
+      "panelIndex": 1,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "current"
+      ],
+      "analyteSet": [
+        "potassium"
+      ],
+      "rowCount": 1,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "BMP"
+    },
+    {
+      "bankPath": "banks/gpt-canonical.json",
+      "questionId": "gpt_case_gap_2026_06_11_case_anticoag_bleeding_06",
+      "exhibitPath": "questions[189].caseStudy.exhibits[1]",
+      "panelPath": "questions[189].caseStudy.exhibits[1].structuredMeasurements.panels[0]",
+      "panelIndex": 0,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "current"
+      ],
+      "analyteSet": [
+        "hemoglobin",
+        "platelets",
+        "ptt"
+      ],
+      "rowCount": 3,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "NO_TEMPLATE_MATCH"
+    },
+    {
+      "bankPath": "banks/gpt-canonical.json",
+      "questionId": "gpt_case_gap_2026_06_11_case_anticoag_bleeding_06",
+      "exhibitPath": "questions[189].caseStudy.stages[0].exhibits[0]",
+      "panelPath": "questions[189].caseStudy.stages[0].exhibits[0].structuredMeasurements.panels[1]",
+      "panelIndex": 1,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "current"
+      ],
+      "analyteSet": [
+        "hemoglobin",
+        "platelets",
+        "ptt"
+      ],
+      "rowCount": 3,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "NO_TEMPLATE_MATCH"
+    },
+    {
+      "bankPath": "banks/gpt-canonical.json",
+      "questionId": "gpt_case_gap_2026_06_11_case_pancreatitis_03",
+      "exhibitPath": "questions[186].caseStudy.exhibits[1]",
+      "panelPath": "questions[186].caseStudy.exhibits[1].structuredMeasurements.panels[0]",
+      "panelIndex": 0,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "current"
+      ],
+      "analyteSet": [
+        "bun",
+        "calcium",
+        "glucose",
+        "hematocrit",
+        "wbc"
+      ],
+      "rowCount": 5,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "NO_TEMPLATE_MATCH"
+    },
+    {
+      "bankPath": "banks/gpt-canonical.json",
+      "questionId": "gpt_case_gap_2026_06_11_case_pancreatitis_03",
+      "exhibitPath": "questions[186].caseStudy.stages[0].exhibits[0]",
+      "panelPath": "questions[186].caseStudy.stages[0].exhibits[0].structuredMeasurements.panels[1]",
+      "panelIndex": 1,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "current"
+      ],
+      "analyteSet": [
+        "bun",
+        "calcium",
+        "hematocrit"
+      ],
+      "rowCount": 3,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "NO_TEMPLATE_MATCH"
+    },
+    {
+      "bankPath": "banks/gpt-canonical.json",
+      "questionId": "gpt_case_gap_2026_06_11_case_tls_01",
+      "exhibitPath": "questions[183].caseStudy.exhibits[0]",
+      "panelPath": "questions[183].caseStudy.exhibits[0].structuredMeasurements.panels[1]",
+      "panelIndex": 1,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "current"
+      ],
+      "analyteSet": [
+        "bun",
+        "calcium",
+        "creatinine",
+        "hemoglobin",
+        "phosphate",
+        "platelets",
+        "potassium",
+        "uric_acid",
+        "wbc"
+      ],
+      "rowCount": 9,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "NO_TEMPLATE_MATCH"
+    },
+    {
+      "bankPath": "banks/gpt-canonical.json",
+      "questionId": "gpt_case_gap_2026_06_11_case_tls_01",
+      "exhibitPath": "questions[183].caseStudy.stages[0].exhibits[0]",
+      "panelPath": "questions[183].caseStudy.stages[0].exhibits[0].structuredMeasurements.panels[1]",
+      "panelIndex": 1,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "current"
+      ],
+      "analyteSet": [
+        "calcium",
+        "creatinine",
+        "phosphate",
+        "potassium",
+        "uric_acid"
+      ],
+      "rowCount": 5,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "NO_TEMPLATE_MATCH"
+    },
+    {
+      "bankPath": "banks/gpt-canonical.json",
+      "questionId": "gpt_case_gap_2026_06_11_case_urosepsis_05",
+      "exhibitPath": "questions[188].caseStudy.exhibits[1]",
+      "panelPath": "questions[188].caseStudy.exhibits[1].structuredMeasurements.panels[0]",
+      "panelIndex": 0,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "current"
+      ],
+      "analyteSet": [
+        "creatinine",
+        "lactate",
+        "wbc"
+      ],
+      "rowCount": 3,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "NO_TEMPLATE_MATCH"
+    },
+    {
+      "bankPath": "banks/gpt-canonical.json",
+      "questionId": "gpt_case_infection_control_clustered_care_01",
+      "exhibitPath": "questions[346].caseStudy.stages[1].exhibits[1]",
+      "panelPath": "questions[346].caseStudy.stages[1].exhibits[1].structuredMeasurements.panels[1]",
+      "panelIndex": 1,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "current"
+      ],
+      "analyteSet": [
+        "creatinine",
+        "potassium"
+      ],
+      "rowCount": 2,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "BMP"
+    },
+    {
+      "bankPath": "banks/gpt-canonical.json",
+      "questionId": "gpt_case_nine_month_well_child_safety_01",
+      "exhibitPath": "questions[348].caseStudy.exhibits[0]",
+      "panelPath": "questions[348].caseStudy.exhibits[0].structuredMeasurements.panels[1]",
+      "panelIndex": 1,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "current"
+      ],
+      "analyteSet": [
+        "hematocrit",
+        "hemoglobin"
+      ],
+      "rowCount": 2,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "CBC"
+    },
+    {
+      "bankPath": "banks/gpt-canonical.json",
+      "questionId": "gpt_case_nurse_provider_conflict_01",
+      "exhibitPath": "questions[298].caseStudy.exhibits[0]",
+      "panelPath": "questions[298].caseStudy.exhibits[0].structuredMeasurements.panels[1]",
+      "panelIndex": 1,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "labs_1600"
+      ],
+      "analyteSet": [
+        "bicarbonate",
+        "bun",
+        "chloride",
+        "creatinine",
+        "glucose",
+        "hemoglobin",
+        "magnesium",
+        "phosphate",
+        "platelets",
+        "potassium",
+        "sodium",
+        "wbc"
+      ],
+      "rowCount": 12,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "NO_TEMPLATE_MATCH"
+    },
+    {
+      "bankPath": "banks/gpt-canonical.json",
+      "questionId": "gpt_case_nurse_provider_conflict_01",
+      "exhibitPath": "questions[298].caseStudy.stages[2].exhibits[0]",
+      "panelPath": "questions[298].caseStudy.stages[2].exhibits[0].structuredMeasurements.panels[0]",
+      "panelIndex": 0,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "labs_2245"
+      ],
+      "analyteSet": [
+        "potassium"
+      ],
+      "rowCount": 1,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "BMP"
+    },
+    {
+      "bankPath": "banks/gpt-canonical.json",
+      "questionId": "gpt_case_opus23_nat_toddler_01",
+      "exhibitPath": "questions[266].caseStudy.exhibits[1]",
+      "panelPath": "questions[266].caseStudy.exhibits[1].structuredMeasurements.panels[1]",
+      "panelIndex": 1,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "current"
+      ],
+      "analyteSet": [
+        "alt",
+        "ast",
+        "calcium",
+        "creatinine",
+        "glucose",
+        "hemoglobin",
+        "inr",
+        "platelets",
+        "potassium",
+        "ptt",
+        "sodium",
+        "wbc"
+      ],
+      "rowCount": 12,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "NO_TEMPLATE_MATCH"
+    },
+    {
+      "bankPath": "banks/gpt-canonical.json",
+      "questionId": "gpt_case_opus5_cdi_immunocompromised_01",
+      "exhibitPath": "questions[220].caseStudy.stages[0].exhibits[2]",
+      "panelPath": "questions[220].caseStudy.stages[0].exhibits[2].structuredMeasurements.panels[0]",
+      "panelIndex": 0,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "current"
+      ],
+      "analyteSet": [
+        "bicarbonate",
+        "bun",
+        "chloride",
+        "creatinine",
+        "glucose",
+        "hemoglobin",
+        "lactate",
+        "platelets",
+        "potassium",
+        "sodium",
+        "wbc"
+      ],
+      "rowCount": 11,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "NO_TEMPLATE_MATCH"
+    },
+    {
+      "bankPath": "banks/gpt-canonical.json",
+      "questionId": "gpt_case_opus5_cdi_immunocompromised_01",
+      "exhibitPath": "questions[220].caseStudy.stages[1].exhibits[0]",
+      "panelPath": "questions[220].caseStudy.stages[1].exhibits[0].structuredMeasurements.panels[1]",
+      "panelIndex": 1,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "current"
+      ],
+      "analyteSet": [
+        "bicarbonate",
+        "bun",
+        "creatinine",
+        "lactate",
+        "potassium",
+        "wbc"
+      ],
+      "rowCount": 6,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "NO_TEMPLATE_MATCH"
+    },
+    {
+      "bankPath": "banks/gpt-canonical.json",
+      "questionId": "gpt_case_opus5_cdi_immunocompromised_01",
+      "exhibitPath": "questions[220].caseStudy.stages[2].exhibits[0]",
+      "panelPath": "questions[220].caseStudy.stages[2].exhibits[0].structuredMeasurements.panels[1]",
+      "panelIndex": 1,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "current"
+      ],
+      "analyteSet": [
+        "bicarbonate",
+        "bun",
+        "creatinine",
+        "lactate",
+        "potassium",
+        "wbc"
+      ],
+      "rowCount": 6,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "NO_TEMPLATE_MATCH"
+    },
+    {
+      "bankPath": "banks/gpt-canonical.json",
+      "questionId": "gpt_case_refeeding_syndrome_tpn_01",
+      "exhibitPath": "questions[306].caseStudy.exhibits[0]",
+      "panelPath": "questions[306].caseStudy.exhibits[0].structuredMeasurements.panels[1]",
+      "panelIndex": 1,
+      "columnCount": 2,
+      "columnIdsInSourceOrder": [
+        "pacu_6h_prior",
+        "current"
+      ],
+      "analyteSet": [
+        "alt",
+        "ast",
+        "bicarbonate",
+        "bun",
+        "calcium",
+        "chloride",
+        "creatinine",
+        "glucose",
+        "hemoglobin",
+        "magnesium",
+        "phosphate",
+        "platelets",
+        "potassium",
+        "sodium",
+        "total_bilirubin",
+        "wbc"
+      ],
+      "rowCount": 16,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "NO_TEMPLATE_MATCH"
+    },
+    {
+      "bankPath": "banks/gpt-canonical.json",
+      "questionId": "gpt_case_refeeding_syndrome_tpn_01",
+      "exhibitPath": "questions[306].caseStudy.stages[1].exhibits[0]",
+      "panelPath": "questions[306].caseStudy.stages[1].exhibits[0].structuredMeasurements.panels[1]",
+      "panelIndex": 1,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "current"
+      ],
+      "analyteSet": [
+        "creatinine",
+        "glucose",
+        "magnesium",
+        "phosphate",
+        "potassium"
+      ],
+      "rowCount": 5,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "NO_TEMPLATE_MATCH"
+    },
+    {
+      "bankPath": "banks/gpt-canonical.json",
+      "questionId": "gpt_case_refeeding_syndrome_tpn_01",
+      "exhibitPath": "questions[306].caseStudy.stages[2].exhibits[0]",
+      "panelPath": "questions[306].caseStudy.stages[2].exhibits[0].structuredMeasurements.panels[1]",
+      "panelIndex": 1,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "current"
+      ],
+      "analyteSet": [
+        "creatinine",
+        "glucose",
+        "magnesium",
+        "phosphate",
+        "potassium"
+      ],
+      "rowCount": 5,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "NO_TEMPLATE_MATCH"
+    },
+    {
+      "bankPath": "banks/gpt-canonical.json",
+      "questionId": "gpt_case_svc_syndrome_01",
+      "exhibitPath": "questions[282].caseStudy.exhibits[0]",
+      "panelPath": "questions[282].caseStudy.exhibits[0].structuredMeasurements.panels[1]",
+      "panelIndex": 1,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "current"
+      ],
+      "analyteSet": [
+        "bun",
+        "creatinine",
+        "hco3_abg",
+        "hemoglobin",
+        "inr",
+        "paco2",
+        "pao2",
+        "ph",
+        "platelets",
+        "potassium",
+        "ptt",
+        "sao2",
+        "sodium",
+        "wbc"
+      ],
+      "rowCount": 14,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "NO_TEMPLATE_MATCH"
+    },
+    {
+      "bankPath": "banks/gpt-canonical.json",
+      "questionId": "gpt_case_svc_syndrome_01",
+      "exhibitPath": "questions[282].caseStudy.stages[1].exhibits[0]",
+      "panelPath": "questions[282].caseStudy.stages[1].exhibits[0].structuredMeasurements.panels[1]",
+      "panelIndex": 1,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "current"
+      ],
+      "analyteSet": [
+        "hco3_abg",
+        "paco2",
+        "pao2",
+        "ph",
+        "sao2"
+      ],
+      "rowCount": 5,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "NO_TEMPLATE_MATCH"
+    },
+    {
+      "bankPath": "banks/gpt-canonical.json",
+      "questionId": "gpt_case_taco_vs_trali_01",
+      "exhibitPath": "questions[288].caseStudy.exhibits[0]",
+      "panelPath": "questions[288].caseStudy.exhibits[0].structuredMeasurements.panels[0]",
+      "panelIndex": 0,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "current"
+      ],
+      "analyteSet": [
+        "hemoglobin"
+      ],
+      "rowCount": 1,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "CBC"
+    },
+    {
+      "bankPath": "banks/gpt-canonical.json",
+      "questionId": "gpt_case_taco_vs_trali_01",
+      "exhibitPath": "questions[288].caseStudy.exhibits[1]",
+      "panelPath": "questions[288].caseStudy.exhibits[1].structuredMeasurements.panels[1]",
+      "panelIndex": 1,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "current"
+      ],
+      "analyteSet": [
+        "bicarbonate",
+        "bnp",
+        "bun",
+        "chloride",
+        "creatinine",
+        "hematocrit",
+        "hemoglobin",
+        "platelets",
+        "potassium",
+        "sodium",
+        "wbc"
+      ],
+      "rowCount": 11,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "NO_TEMPLATE_MATCH"
+    },
+    {
+      "bankPath": "banks/gpt-canonical.json",
+      "questionId": "gpt_case_taco_vs_trali_01",
+      "exhibitPath": "questions[288].caseStudy.stages[2].exhibits[1]",
+      "panelPath": "questions[288].caseStudy.stages[2].exhibits[1].structuredMeasurements.panels[0]",
+      "panelIndex": 0,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "current"
+      ],
+      "analyteSet": [
+        "bnp",
+        "hemoglobin"
+      ],
+      "rowCount": 2,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "NO_TEMPLATE_MATCH"
+    },
+    {
+      "bankPath": "banks/gpt-canonical.json",
+      "questionId": "gpt_case_taco_vs_trali_01",
+      "exhibitPath": "questions[288].caseStudy.stages[3].exhibits[0]",
+      "panelPath": "questions[288].caseStudy.stages[3].exhibits[0].structuredMeasurements.panels[1]",
+      "panelIndex": 1,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "current"
+      ],
+      "analyteSet": [
+        "bnp"
+      ],
+      "rowCount": 1,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "NO_TEMPLATE_MATCH"
+    },
+    {
+      "bankPath": "banks/gpt-canonical.json",
+      "questionId": "gpt_case_unsafe_premature_discharge_01",
+      "exhibitPath": "questions[296].caseStudy.exhibits[1]",
+      "panelPath": "questions[296].caseStudy.exhibits[1].structuredMeasurements.panels[1]",
+      "panelIndex": 1,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "current"
+      ],
+      "analyteSet": [
+        "bnp",
+        "bun",
+        "creatinine",
+        "glucose",
+        "inr"
+      ],
+      "rowCount": 5,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "NO_TEMPLATE_MATCH"
+    },
+    {
+      "bankPath": "banks/gpt-canonical.json",
+      "questionId": "gpt_case_warfarin_mvr_2026_06_11_01",
+      "exhibitPath": "questions[221].caseStudy.exhibits[1]",
+      "panelPath": "questions[221].caseStudy.exhibits[1].structuredMeasurements.panels[1]",
+      "panelIndex": 1,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "current"
+      ],
+      "analyteSet": [
+        "bun",
+        "creatinine",
+        "hematocrit",
+        "hemoglobin",
+        "inr",
+        "platelets",
+        "ptt"
+      ],
+      "rowCount": 7,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "NO_TEMPLATE_MATCH"
+    },
+    {
+      "bankPath": "banks/gpt-canonical.json",
+      "questionId": "gpt_case_warfarin_mvr_2026_06_11_01",
+      "exhibitPath": "questions[221].caseStudy.stages[2].exhibits[0]",
+      "panelPath": "questions[221].caseStudy.stages[2].exhibits[0].structuredMeasurements.panels[1]",
+      "panelIndex": 1,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "labs_0645"
+      ],
+      "analyteSet": [
+        "bun",
+        "creatinine",
+        "hematocrit",
+        "hemoglobin",
+        "inr",
+        "lactate",
+        "platelets"
+      ],
+      "rowCount": 7,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "NO_TEMPLATE_MATCH"
+    },
+    {
+      "bankPath": "banks/gpt-canonical.json",
+      "questionId": "gpt_case_warfarin_mvr_2026_06_11_01",
+      "exhibitPath": "questions[221].caseStudy.stages[3].exhibits[0]",
+      "panelPath": "questions[221].caseStudy.stages[3].exhibits[0].structuredMeasurements.panels[1]",
+      "panelIndex": 1,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "labs_1100_1200"
+      ],
+      "analyteSet": [
+        "hemoglobin",
+        "inr"
+      ],
+      "rowCount": 2,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "NO_TEMPLATE_MATCH"
+    },
+    {
+      "bankPath": "banks/gpt-canonical.json",
+      "questionId": "gpt_opus21_case_colostomy_lep_discharge_01",
+      "exhibitPath": "questions[267].caseStudy.exhibits[0]",
+      "panelPath": "questions[267].caseStudy.exhibits[0].structuredMeasurements.panels[1]",
+      "panelIndex": 1,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "current"
+      ],
+      "analyteSet": [
+        "bun",
+        "creatinine",
+        "glucose",
+        "hemoglobin",
+        "platelets",
+        "potassium",
+        "sodium",
+        "wbc"
+      ],
+      "rowCount": 8,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "NO_TEMPLATE_MATCH"
+    },
+    {
+      "bankPath": "banks/hard-cases-canonical.json",
+      "questionId": "case_dka_01",
+      "exhibitPath": "questions[7].caseStudy.exhibits[1]",
+      "panelPath": "questions[7].caseStudy.exhibits[1].structuredMeasurements.panels[0]",
+      "panelIndex": 0,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "current"
+      ],
+      "analyteSet": [
+        "anion_gap",
+        "bicarbonate",
+        "glucose",
+        "ph",
+        "potassium",
+        "sodium"
+      ],
+      "rowCount": 6,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "NO_TEMPLATE_MATCH"
+    },
+    {
+      "bankPath": "banks/hard-cases-canonical.json",
+      "questionId": "case_preeclampsia_magnesium_01",
+      "exhibitPath": "questions[1].caseStudy.exhibits[1]",
+      "panelPath": "questions[1].caseStudy.exhibits[1].structuredMeasurements.panels[0]",
+      "panelIndex": 0,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "current"
+      ],
+      "analyteSet": [
+        "alt",
+        "ast",
+        "creatinine",
+        "platelets"
+      ],
+      "rowCount": 4,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "NO_TEMPLATE_MATCH"
+    },
+    {
+      "bankPath": "banks/hard-cases-canonical.json",
+      "questionId": "case_sepsis_pneumonia_01",
+      "exhibitPath": "questions[0].caseStudy.exhibits[1]",
+      "panelPath": "questions[0].caseStudy.exhibits[1].structuredMeasurements.panels[0]",
+      "panelIndex": 0,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "current"
+      ],
+      "analyteSet": [
+        "creatinine",
+        "lactate",
+        "wbc"
+      ],
+      "rowCount": 3,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "NO_TEMPLATE_MATCH"
+    },
+    {
+      "bankPath": "banks/hard-cases-canonical.json",
+      "questionId": "claude_cs_jun06_cdiff_sic_01",
+      "exhibitPath": "questions[30].caseStudy.exhibits[0]",
+      "panelPath": "questions[30].caseStudy.exhibits[0].structuredMeasurements.panels[1]",
+      "panelIndex": 1,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "current"
+      ],
+      "analyteSet": [
+        "wbc"
+      ],
+      "rowCount": 1,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "CBC"
+    },
+    {
+      "bankPath": "banks/hard-cases-canonical.json",
+      "questionId": "cs_ckd_01",
+      "exhibitPath": "questions[3].caseStudy.exhibits[0]",
+      "panelPath": "questions[3].caseStudy.exhibits[0].structuredMeasurements.panels[0]",
+      "panelIndex": 0,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "current"
+      ],
+      "analyteSet": [
+        "bun",
+        "calcium",
+        "creatinine",
+        "hemoglobin",
+        "phosphate",
+        "potassium"
+      ],
+      "rowCount": 6,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "NO_TEMPLATE_MATCH"
+    },
+    {
+      "bankPath": "banks/hard-cases-canonical.json",
+      "questionId": "cs_copd_01",
+      "exhibitPath": "questions[2].caseStudy.exhibits[2]",
+      "panelPath": "questions[2].caseStudy.exhibits[2].structuredMeasurements.panels[0]",
+      "panelIndex": 0,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "current"
+      ],
+      "analyteSet": [
+        "hco3_abg",
+        "paco2",
+        "pao2",
+        "ph",
+        "sao2"
+      ],
+      "rowCount": 5,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "NO_TEMPLATE_MATCH"
+    },
+    {
+      "bankPath": "banks/hard-cases-canonical.json",
+      "questionId": "cs_ngn_001_anorexia",
+      "exhibitPath": "questions[18].caseStudy.exhibits[0]",
+      "panelPath": "questions[18].caseStudy.exhibits[0].structuredMeasurements.panels[0]",
+      "panelIndex": 0,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "current"
+      ],
+      "analyteSet": [
+        "glucose",
+        "magnesium",
+        "phosphate",
+        "potassium",
+        "sodium"
+      ],
+      "rowCount": 5,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "NO_TEMPLATE_MATCH"
+    },
+    {
+      "bankPath": "banks/hard-cases-canonical.json",
+      "questionId": "cs_ngn_007_dic",
+      "exhibitPath": "questions[24].caseStudy.exhibits[0]",
+      "panelPath": "questions[24].caseStudy.exhibits[0].structuredMeasurements.panels[0]",
+      "panelIndex": 0,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "current"
+      ],
+      "analyteSet": [
+        "platelets",
+        "ptt"
+      ],
+      "rowCount": 2,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "NO_TEMPLATE_MATCH"
+    },
+    {
+      "bankPath": "banks/hard-cases-canonical.json",
+      "questionId": "cs_sepsis_shock_01",
+      "exhibitPath": "questions[36].caseStudy.stages[0].exhibits[0]",
+      "panelPath": "questions[36].caseStudy.stages[0].exhibits[0].structuredMeasurements.panels[0]",
+      "panelIndex": 0,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "current"
+      ],
+      "analyteSet": [
+        "creatinine",
+        "glucose",
+        "lactate",
+        "wbc"
+      ],
+      "rowCount": 4,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "NO_TEMPLATE_MATCH"
+    },
+    {
+      "bankPath": "banks/hard-cases-canonical.json",
+      "questionId": "gpt_case_aki_2026_06_16_case_prerenal_aki_hyperkalemia_01",
+      "exhibitPath": "questions[64].caseStudy.exhibits[2]",
+      "panelPath": "questions[64].caseStudy.exhibits[2].structuredMeasurements.panels[0]",
+      "panelIndex": 0,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "current"
+      ],
+      "analyteSet": [
+        "bicarbonate",
+        "bun",
+        "calcium",
+        "chloride",
+        "creatinine",
+        "glucose",
+        "hemoglobin",
+        "lactate",
+        "magnesium",
+        "ph",
+        "phosphate",
+        "platelets",
+        "potassium",
+        "sodium",
+        "wbc"
+      ],
+      "rowCount": 15,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "NO_TEMPLATE_MATCH"
+    },
+    {
+      "bankPath": "banks/hard-cases-canonical.json",
+      "questionId": "gpt_case_gallstone_pancreatitis_01",
+      "exhibitPath": "questions[50].caseStudy.stages[1].exhibits[0]",
+      "panelPath": "questions[50].caseStudy.stages[1].exhibits[0].structuredMeasurements.panels[1]",
+      "panelIndex": 1,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "current"
+      ],
+      "analyteSet": [
+        "bun",
+        "creatinine",
+        "glucose",
+        "hematocrit",
+        "lactate",
+        "wbc"
+      ],
+      "rowCount": 6,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "NO_TEMPLATE_MATCH"
+    },
+    {
+      "bankPath": "banks/hard-cases-canonical.json",
+      "questionId": "gpt_case_gallstone_pancreatitis_01",
+      "exhibitPath": "questions[50].caseStudy.stages[2].exhibits[0]",
+      "panelPath": "questions[50].caseStudy.stages[2].exhibits[0].structuredMeasurements.panels[1]",
+      "panelIndex": 1,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "current"
+      ],
+      "analyteSet": [
+        "alt",
+        "ast",
+        "glucose",
+        "hematocrit",
+        "lactate",
+        "total_bilirubin",
+        "wbc"
+      ],
+      "rowCount": 7,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "NO_TEMPLATE_MATCH"
+    },
+    {
+      "bankPath": "banks/hard-cases-canonical.json",
+      "questionId": "gpt_case_major_burn_inhalation_fluid_creep_01",
+      "exhibitPath": "questions[48].caseStudy.exhibits[2]",
+      "panelPath": "questions[48].caseStudy.exhibits[2].structuredMeasurements.panels[0]",
+      "panelIndex": 0,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "current"
+      ],
+      "analyteSet": [
+        "bicarbonate",
+        "bun",
+        "chloride",
+        "creatinine",
+        "glucose",
+        "hco3_abg",
+        "hematocrit",
+        "hemoglobin",
+        "lactate",
+        "paco2",
+        "pao2",
+        "ph",
+        "platelets",
+        "potassium",
+        "sodium",
+        "wbc"
+      ],
+      "rowCount": 16,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "NO_TEMPLATE_MATCH"
+    },
+    {
+      "bankPath": "banks/hard-cases-canonical.json",
+      "questionId": "gpt_case_major_burn_inhalation_fluid_creep_01",
+      "exhibitPath": "questions[48].caseStudy.stages[2].exhibits[0]",
+      "panelPath": "questions[48].caseStudy.stages[2].exhibits[0].structuredMeasurements.panels[1]",
+      "panelIndex": 1,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "current_labs"
+      ],
+      "analyteSet": [
+        "creatinine",
+        "hematocrit",
+        "potassium",
+        "sodium"
+      ],
+      "rowCount": 4,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "NO_TEMPLATE_MATCH"
+    },
+    {
+      "bankPath": "banks/hard-cases-canonical.json",
+      "questionId": "gpt_case_pe_2026_06_16_case_pulmonary_embolism_01",
+      "exhibitPath": "questions[54].caseStudy.exhibits[1]",
+      "panelPath": "questions[54].caseStudy.exhibits[1].structuredMeasurements.panels[0]",
+      "panelIndex": 0,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "current"
+      ],
+      "analyteSet": [
+        "bun",
+        "creatinine",
+        "glucose",
+        "hematocrit",
+        "hemoglobin",
+        "inr",
+        "platelets",
+        "potassium",
+        "ptt",
+        "sodium",
+        "wbc"
+      ],
+      "rowCount": 11,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "NO_TEMPLATE_MATCH"
+    },
+    {
+      "bankPath": "banks/hard-cases-canonical.json",
+      "questionId": "gpt_case_pe_2026_06_16_case_pulmonary_embolism_01",
+      "exhibitPath": "questions[54].caseStudy.stages[1].exhibits[0]",
+      "panelPath": "questions[54].caseStudy.stages[1].exhibits[0].structuredMeasurements.panels[1]",
+      "panelIndex": 1,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "labs_stat"
+      ],
+      "analyteSet": [
+        "bnp",
+        "creatinine",
+        "hco3_abg",
+        "hemoglobin",
+        "inr",
+        "lactate",
+        "paco2",
+        "pao2",
+        "ph",
+        "platelets",
+        "potassium",
+        "ptt",
+        "sao2",
+        "troponin_i"
+      ],
+      "rowCount": 14,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "NO_TEMPLATE_MATCH"
+    },
+    {
+      "bankPath": "banks/hard-cases-canonical.json",
+      "questionId": "gpt_case_variceal_hemorrhage_cirrhosis_2026_06_16_01",
+      "exhibitPath": "questions[56].caseStudy.stages[0].exhibits[0]",
+      "panelPath": "questions[56].caseStudy.stages[0].exhibits[0].structuredMeasurements.panels[1]",
+      "panelIndex": 1,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "current"
+      ],
+      "analyteSet": [
+        "hemoglobin",
+        "lactate"
+      ],
+      "rowCount": 2,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "NO_TEMPLATE_MATCH"
+    },
+    {
+      "bankPath": "banks/hard-cases-canonical.json",
+      "questionId": "gpt_case_variceal_hemorrhage_cirrhosis_2026_06_16_01",
+      "exhibitPath": "questions[56].caseStudy.stages[1].exhibits[0]",
+      "panelPath": "questions[56].caseStudy.stages[1].exhibits[0].structuredMeasurements.panels[1]",
+      "panelIndex": 1,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "current"
+      ],
+      "analyteSet": [
+        "ammonia",
+        "creatinine",
+        "hemoglobin",
+        "inr",
+        "lactate",
+        "platelets"
+      ],
+      "rowCount": 6,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "NO_TEMPLATE_MATCH"
+    },
+    {
+      "bankPath": "banks/hard-cases-canonical.json",
+      "questionId": "gpt_case_variceal_hemorrhage_cirrhosis_2026_06_16_01",
+      "exhibitPath": "questions[56].caseStudy.stages[2].exhibits[0]",
+      "panelPath": "questions[56].caseStudy.stages[2].exhibits[0].structuredMeasurements.panels[1]",
+      "panelIndex": 1,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "current"
+      ],
+      "analyteSet": [
+        "ammonia",
+        "creatinine",
+        "hemoglobin",
+        "lactate"
+      ],
+      "rowCount": 4,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "NO_TEMPLATE_MATCH"
+    },
+    {
+      "bankPath": "banks/hard-cases-canonical.json",
+      "questionId": "gpt_pph_2026_06_16_case_01",
+      "exhibitPath": "questions[58].caseStudy.exhibits[2]",
+      "panelPath": "questions[58].caseStudy.exhibits[2].structuredMeasurements.panels[0]",
+      "panelIndex": 0,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "current"
+      ],
+      "analyteSet": [
+        "creatinine",
+        "glucose",
+        "hematocrit",
+        "hemoglobin",
+        "inr",
+        "platelets",
+        "potassium",
+        "ptt",
+        "sodium"
+      ],
+      "rowCount": 9,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "NO_TEMPLATE_MATCH"
+    },
+    {
+      "bankPath": "banks/hard-cases-canonical.json",
+      "questionId": "gpt_pph_2026_06_16_case_01",
+      "exhibitPath": "questions[58].caseStudy.stages[1].exhibits[0]",
+      "panelPath": "questions[58].caseStudy.stages[1].exhibits[0].structuredMeasurements.panels[1]",
+      "panelIndex": 1,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "current"
+      ],
+      "analyteSet": [
+        "hematocrit",
+        "hemoglobin",
+        "inr",
+        "platelets",
+        "ptt"
+      ],
+      "rowCount": 5,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "NO_TEMPLATE_MATCH"
+    },
+    {
+      "bankPath": "banks/hard-cases-canonical.json",
+      "questionId": "gpt_pph_2026_06_16_case_01",
+      "exhibitPath": "questions[58].caseStudy.stages[2].exhibits[0]",
+      "panelPath": "questions[58].caseStudy.stages[2].exhibits[0].structuredMeasurements.panels[1]",
+      "panelIndex": 1,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "current"
+      ],
+      "analyteSet": [
+        "hematocrit",
+        "hemoglobin",
+        "inr",
+        "platelets",
+        "ptt"
+      ],
+      "rowCount": 5,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "NO_TEMPLATE_MATCH"
+    },
+    {
+      "bankPath": "banks/hard-cases-canonical.json",
+      "questionId": "gpt_r1_regen_case_celiac_01",
+      "exhibitPath": "questions[60].caseStudy.stages[0].exhibits[1]",
+      "panelPath": "questions[60].caseStudy.stages[0].exhibits[1].structuredMeasurements.panels[0]",
+      "panelIndex": 0,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "current"
+      ],
+      "analyteSet": [
+        "calcium",
+        "creatinine",
+        "hemoglobin",
+        "platelets",
+        "wbc"
+      ],
+      "rowCount": 5,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "NO_TEMPLATE_MATCH"
+    },
+    {
+      "bankPath": "banks/hard-cases-canonical.json",
+      "questionId": "gpt_r1_regen_case_celiac_01",
+      "exhibitPath": "questions[60].caseStudy.stages[3].exhibits[0]",
+      "panelPath": "questions[60].caseStudy.stages[3].exhibits[0].structuredMeasurements.panels[0]",
+      "panelIndex": 0,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "current"
+      ],
+      "analyteSet": [
+        "calcium",
+        "hemoglobin"
+      ],
+      "rowCount": 2,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "NO_TEMPLATE_MATCH"
+    },
+    {
+      "bankPath": "banks/hard-cases-canonical.json",
+      "questionId": "gpt_stroke_2026_06_16_case_acute_ischemic_stroke_warfarin_01",
+      "exhibitPath": "questions[62].caseStudy.stages[0].exhibits[0]",
+      "panelPath": "questions[62].caseStudy.stages[0].exhibits[0].structuredMeasurements.panels[1]",
+      "panelIndex": 1,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "current"
+      ],
+      "analyteSet": [
+        "inr"
+      ],
+      "rowCount": 1,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "NO_TEMPLATE_MATCH"
+    },
+    {
+      "bankPath": "banks/hard-cases-canonical.json",
+      "questionId": "gpt_stroke_2026_06_16_case_acute_ischemic_stroke_warfarin_01",
+      "exhibitPath": "questions[62].caseStudy.stages[3].exhibits[0]",
+      "panelPath": "questions[62].caseStudy.stages[3].exhibits[0].structuredMeasurements.panels[0]",
+      "panelIndex": 0,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "current"
+      ],
+      "analyteSet": [
+        "hemoglobin",
+        "inr",
+        "platelets"
+      ],
+      "rowCount": 3,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "NO_TEMPLATE_MATCH"
+    },
+    {
+      "bankPath": "banks/hard-cases-canonical.json",
+      "questionId": "opus12_case_inpatient_suicide_risk_01",
+      "exhibitPath": "questions[47].caseStudy.exhibits[2]",
+      "panelPath": "questions[47].caseStudy.exhibits[2].structuredMeasurements.panels[0]",
+      "panelIndex": 0,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "current"
+      ],
+      "analyteSet": [
+        "bun",
+        "creatinine",
+        "glucose",
+        "hemoglobin",
+        "platelets",
+        "potassium",
+        "sodium",
+        "wbc"
+      ],
+      "rowCount": 8,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "NO_TEMPLATE_MATCH"
+    },
+    {
+      "bankPath": "banks/hard-cases-canonical.json",
+      "questionId": "opus1_case_discharge_med_rec_anticoag_01",
+      "exhibitPath": "questions[42].caseStudy.exhibits[0]",
+      "panelPath": "questions[42].caseStudy.exhibits[0].structuredMeasurements.panels[1]",
+      "panelIndex": 1,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "labs_current"
+      ],
+      "analyteSet": [
+        "bun",
+        "creatinine",
+        "glucose",
+        "hemoglobin",
+        "inr",
+        "platelets",
+        "potassium",
+        "ptt"
+      ],
+      "rowCount": 8,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "NO_TEMPLATE_MATCH"
+    },
+    {
+      "bankPath": "banks/hard-cases-canonical.json",
+      "questionId": "opus2_case_postop_opioid_respiratory_depression_01",
+      "exhibitPath": "questions[43].caseStudy.exhibits[1]",
+      "panelPath": "questions[43].caseStudy.exhibits[1].structuredMeasurements.panels[1]",
+      "panelIndex": 1,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "labs_0600"
+      ],
+      "analyteSet": [
+        "bicarbonate",
+        "bun",
+        "calcium",
+        "chloride",
+        "creatinine",
+        "glucose",
+        "hematocrit",
+        "hemoglobin",
+        "platelets",
+        "potassium",
+        "sodium",
+        "wbc"
+      ],
+      "rowCount": 12,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "NO_TEMPLATE_MATCH"
+    },
+    {
+      "bankPath": "banks/hard-cases-canonical.json",
+      "questionId": "opus3_iv_potassium_safety_case_01",
+      "exhibitPath": "questions[44].caseStudy.stages[0].exhibits[1]",
+      "panelPath": "questions[44].caseStudy.stages[0].exhibits[1].structuredMeasurements.panels[0]",
+      "panelIndex": 0,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "current"
+      ],
+      "analyteSet": [
+        "bun",
+        "creatinine",
+        "glucose",
+        "magnesium",
+        "potassium",
+        "sodium"
+      ],
+      "rowCount": 6,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "NO_TEMPLATE_MATCH"
+    },
+    {
+      "bankPath": "banks/hard-cases-canonical.json",
+      "questionId": "opus3_iv_potassium_safety_case_01",
+      "exhibitPath": "questions[44].caseStudy.stages[2].exhibits[0]",
+      "panelPath": "questions[44].caseStudy.stages[2].exhibits[0].structuredMeasurements.panels[0]",
+      "panelIndex": 0,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "current"
+      ],
+      "analyteSet": [
+        "potassium"
+      ],
+      "rowCount": 1,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "BMP"
+    },
+    {
+      "bankPath": "banks/hard-cases-canonical.json",
+      "questionId": "opus4_case_postop_sbar_01",
+      "exhibitPath": "questions[45].caseStudy.exhibits[1]",
+      "panelPath": "questions[45].caseStudy.exhibits[1].structuredMeasurements.panels[0]",
+      "panelIndex": 0,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "current"
+      ],
+      "analyteSet": [
+        "bicarbonate",
+        "bun",
+        "chloride",
+        "creatinine",
+        "glucose",
+        "hemoglobin",
+        "inr",
+        "lactate",
+        "platelets",
+        "potassium",
+        "sodium",
+        "wbc"
+      ],
+      "rowCount": 12,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "NO_TEMPLATE_MATCH"
+    },
+    {
+      "bankPath": "banks/hard-cases-canonical.json",
+      "questionId": "opus4_case_postop_sbar_01",
+      "exhibitPath": "questions[45].caseStudy.stages[1].exhibits[0]",
+      "panelPath": "questions[45].caseStudy.stages[1].exhibits[0].structuredMeasurements.panels[1]",
+      "panelIndex": 1,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "labs_1200"
+      ],
+      "analyteSet": [
+        "hemoglobin",
+        "lactate",
+        "wbc"
+      ],
+      "rowCount": 3,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "NO_TEMPLATE_MATCH"
+    },
+    {
+      "bankPath": "banks/hard-cases-canonical.json",
+      "questionId": "opus5_case_consent_interpreter_01",
+      "exhibitPath": "questions[46].caseStudy.exhibits[1]",
+      "panelPath": "questions[46].caseStudy.exhibits[1].structuredMeasurements.panels[1]",
+      "panelIndex": 1,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "current"
+      ],
+      "analyteSet": [
+        "glucose"
+      ],
+      "rowCount": 1,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "BMP"
+    },
+    {
+      "bankPath": "banks/hard-cases-canonical.json",
+      "questionId": "opus5_case_consent_interpreter_01",
+      "exhibitPath": "questions[46].caseStudy.exhibits[2]",
+      "panelPath": "questions[46].caseStudy.exhibits[2].structuredMeasurements.panels[0]",
+      "panelIndex": 0,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "current"
+      ],
+      "analyteSet": [
+        "bun",
+        "creatinine",
+        "glucose",
+        "hemoglobin",
+        "inr",
+        "platelets",
+        "potassium",
+        "wbc"
+      ],
+      "rowCount": 8,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "NO_TEMPLATE_MATCH"
+    },
+    {
+      "bankPath": "banks/hard-cases-canonical.json",
+      "questionId": "opus_car_t_crs_2026_06_11_case_01",
+      "exhibitPath": "questions[38].caseStudy.exhibits[2]",
+      "panelPath": "questions[38].caseStudy.exhibits[2].structuredMeasurements.panels[0]",
+      "panelIndex": 0,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "current"
+      ],
+      "analyteSet": [
+        "alt",
+        "ast",
+        "bicarbonate",
+        "bun",
+        "chloride",
+        "creatinine",
+        "glucose",
+        "hemoglobin",
+        "inr",
+        "platelets",
+        "potassium",
+        "sodium",
+        "total_bilirubin",
+        "wbc"
+      ],
+      "rowCount": 14,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "NO_TEMPLATE_MATCH"
+    },
+    {
+      "bankPath": "banks/hard-cases-canonical.json",
+      "questionId": "opus_car_t_crs_2026_06_11_case_01",
+      "exhibitPath": "questions[38].caseStudy.exhibits[3]",
+      "panelPath": "questions[38].caseStudy.exhibits[3].structuredMeasurements.panels[1]",
+      "panelIndex": 1,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "labs_current"
+      ],
+      "analyteSet": [
+        "alt",
+        "ast",
+        "creatinine"
+      ],
+      "rowCount": 3,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "expanded chemistry"
+    },
+    {
+      "bankPath": "banks/hard-cases-canonical.json",
+      "questionId": "opus_car_t_crs_2026_06_11_case_01",
+      "exhibitPath": "questions[38].caseStudy.exhibits[4]",
+      "panelPath": "questions[38].caseStudy.exhibits[4].structuredMeasurements.panels[1]",
+      "panelIndex": 1,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "current"
+      ],
+      "analyteSet": [
+        "alt",
+        "ast",
+        "creatinine",
+        "potassium",
+        "total_bilirubin"
+      ],
+      "rowCount": 5,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "expanded chemistry"
+    },
+    {
+      "bankPath": "banks/hard-cases-canonical.json",
+      "questionId": "opus_car_t_crs_2026_06_11_case_01",
+      "exhibitPath": "questions[38].caseStudy.exhibits[5]",
+      "panelPath": "questions[38].caseStudy.exhibits[5].structuredMeasurements.panels[1]",
+      "panelIndex": 1,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "current"
+      ],
+      "analyteSet": [
+        "alt",
+        "ast",
+        "creatinine",
+        "potassium"
+      ],
+      "rowCount": 4,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "expanded chemistry"
+    },
+    {
+      "bankPath": "banks/hard-cases-canonical.json",
+      "questionId": "opus_case_se_01",
+      "exhibitPath": "questions[41].caseStudy.stages[1].exhibits[0]",
+      "panelPath": "questions[41].caseStudy.stages[1].exhibits[0].structuredMeasurements.panels[1]",
+      "panelIndex": 1,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "current"
+      ],
+      "analyteSet": [
+        "hco3_abg",
+        "lactate",
+        "paco2",
+        "pao2",
+        "ph",
+        "potassium"
+      ],
+      "rowCount": 6,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "NO_TEMPLATE_MATCH"
+    },
+    {
+      "bankPath": "banks/hard-cases-canonical.json",
+      "questionId": "opus_case_se_01",
+      "exhibitPath": "questions[41].caseStudy.stages[2].exhibits[0]",
+      "panelPath": "questions[41].caseStudy.stages[2].exhibits[0].structuredMeasurements.panels[1]",
+      "panelIndex": 1,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "current"
+      ],
+      "analyteSet": [
+        "creatinine",
+        "hco3_abg",
+        "lactate",
+        "paco2",
+        "pao2",
+        "ph",
+        "potassium"
+      ],
+      "rowCount": 7,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "NO_TEMPLATE_MATCH"
+    },
+    {
+      "bankPath": "banks/hard-cases-canonical.json",
+      "questionId": "opus_icit_case_01",
+      "exhibitPath": "questions[39].caseStudy.exhibits[0]",
+      "panelPath": "questions[39].caseStudy.exhibits[0].structuredMeasurements.panels[1]",
+      "panelIndex": 1,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "current"
+      ],
+      "analyteSet": [
+        "alt",
+        "ast",
+        "bicarbonate",
+        "bnp",
+        "bun",
+        "chloride",
+        "creatinine",
+        "glucose",
+        "hemoglobin",
+        "platelets",
+        "potassium",
+        "sodium",
+        "total_bilirubin",
+        "troponin_i",
+        "wbc"
+      ],
+      "rowCount": 15,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "NO_TEMPLATE_MATCH"
+    },
+    {
+      "bankPath": "banks/hard-cases-canonical.json",
+      "questionId": "opus_icit_case_01",
+      "exhibitPath": "questions[39].caseStudy.stages[1].exhibits[0]",
+      "panelPath": "questions[39].caseStudy.stages[1].exhibits[0].structuredMeasurements.panels[1]",
+      "panelIndex": 1,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "current"
+      ],
+      "analyteSet": [
+        "alt",
+        "ast",
+        "bnp",
+        "creatinine",
+        "total_bilirubin",
+        "troponin_i"
+      ],
+      "rowCount": 6,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "NO_TEMPLATE_MATCH"
+    },
+    {
+      "bankPath": "banks/hard-cases-canonical.json",
+      "questionId": "opus_icit_case_01",
+      "exhibitPath": "questions[39].caseStudy.stages[2].exhibits[0]",
+      "panelPath": "questions[39].caseStudy.stages[2].exhibits[0].structuredMeasurements.panels[1]",
+      "panelIndex": 1,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "current"
+      ],
+      "analyteSet": [
+        "alt",
+        "ast",
+        "bnp",
+        "creatinine",
+        "glucose",
+        "total_bilirubin",
+        "troponin_i"
+      ],
+      "rowCount": 7,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "NO_TEMPLATE_MATCH"
+    },
+    {
+      "bankPath": "banks/hard-cases-canonical.json",
+      "questionId": "opus_scc_case_01",
+      "exhibitPath": "questions[37].caseStudy.exhibits[0]",
+      "panelPath": "questions[37].caseStudy.exhibits[0].structuredMeasurements.panels[1]",
+      "panelIndex": 1,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "current"
+      ],
+      "analyteSet": [
+        "alt",
+        "ast",
+        "bicarbonate",
+        "bun",
+        "calcium",
+        "chloride",
+        "creatinine",
+        "glucose",
+        "hemoglobin",
+        "inr",
+        "platelets",
+        "potassium",
+        "ptt",
+        "sodium",
+        "wbc"
+      ],
+      "rowCount": 15,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "NO_TEMPLATE_MATCH"
+    },
+    {
+      "bankPath": "banks/hard-cases-canonical.json",
+      "questionId": "opus_scc_case_01",
+      "exhibitPath": "questions[37].caseStudy.stages[1].exhibits[0]",
+      "panelPath": "questions[37].caseStudy.stages[1].exhibits[0].structuredMeasurements.panels[1]",
+      "panelIndex": 1,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "current"
+      ],
+      "analyteSet": [
+        "calcium",
+        "glucose"
+      ],
+      "rowCount": 2,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "BMP"
+    },
+    {
+      "bankPath": "banks/hard-cases-canonical.json",
+      "questionId": "opus_scc_case_01",
+      "exhibitPath": "questions[37].caseStudy.stages[2].exhibits[0]",
+      "panelPath": "questions[37].caseStudy.stages[2].exhibits[0].structuredMeasurements.panels[1]",
+      "panelIndex": 1,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "current"
+      ],
+      "analyteSet": [
+        "calcium",
+        "creatinine",
+        "glucose",
+        "hemoglobin"
+      ],
+      "rowCount": 4,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "NO_TEMPLATE_MATCH"
+    },
+    {
+      "bankPath": "banks/hard-cases-canonical.json",
+      "questionId": "opus_tpn_case_mucositis_01",
+      "exhibitPath": "questions[40].caseStudy.exhibits[0]",
+      "panelPath": "questions[40].caseStudy.exhibits[0].structuredMeasurements.panels[1]",
+      "panelIndex": 1,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "labs_6h_prior"
+      ],
+      "analyteSet": [
+        "alt",
+        "ast",
+        "bicarbonate",
+        "bun",
+        "calcium",
+        "chloride",
+        "creatinine",
+        "glucose",
+        "hemoglobin",
+        "lactate",
+        "magnesium",
+        "phosphate",
+        "platelets",
+        "potassium",
+        "sodium",
+        "total_bilirubin",
+        "wbc"
+      ],
+      "rowCount": 17,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "NO_TEMPLATE_MATCH"
+    },
+    {
+      "bankPath": "banks/hard-cases-canonical.json",
+      "questionId": "opus_tpn_case_mucositis_01",
+      "exhibitPath": "questions[40].caseStudy.stages[0].exhibits[0]",
+      "panelPath": "questions[40].caseStudy.stages[0].exhibits[0].structuredMeasurements.panels[1]",
+      "panelIndex": 1,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "current"
+      ],
+      "analyteSet": [
+        "creatinine",
+        "glucose",
+        "lactate",
+        "magnesium",
+        "potassium"
+      ],
+      "rowCount": 5,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "NO_TEMPLATE_MATCH"
+    },
+    {
+      "bankPath": "banks/hard-cases-canonical.json",
+      "questionId": "opus_tpn_case_mucositis_01",
+      "exhibitPath": "questions[40].caseStudy.stages[1].exhibits[0]",
+      "panelPath": "questions[40].caseStudy.stages[1].exhibits[0].structuredMeasurements.panels[1]",
+      "panelIndex": 1,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "current"
+      ],
+      "analyteSet": [
+        "glucose"
+      ],
+      "rowCount": 1,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "BMP"
+    },
+    {
+      "bankPath": "banks/hard-cases-canonical.json",
+      "questionId": "opus_tpn_case_mucositis_01",
+      "exhibitPath": "questions[40].caseStudy.stages[2].exhibits[0]",
+      "panelPath": "questions[40].caseStudy.stages[2].exhibits[0].structuredMeasurements.panels[1]",
+      "panelIndex": 1,
+      "columnCount": 1,
+      "columnIdsInSourceOrder": [
+        "current"
+      ],
+      "analyteSet": [
+        "creatinine",
+        "lactate",
+        "magnesium",
+        "potassium"
+      ],
+      "rowCount": 4,
+      "nonEmptyLabels": {
+        "en": true,
+        "zh": true
+      },
+      "templateMatch": "NO_TEMPLATE_MATCH"
+    }
+  ]
+}
