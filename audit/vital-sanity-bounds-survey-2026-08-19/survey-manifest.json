@@ -33,6 +33,12 @@
     }
   },
   "population": {
+    "provenance": {
+      "committedDefaultPopulation": "TRACKED_TOP_LEVEL_CANONICAL_BANKS_ONLY",
+      "rawDrafts": "EXCLUDED",
+      "promotedStaging": "EXCLUDED",
+      "stagingCountInterpretation": "rawDraftCount and promotedStagingCount report files included in this survey, not whether ignored staging files exist in the ambient checkout."
+    },
     "canonicalBankFiles": [
       "banks/burn-canonical.json",
       "banks/capnography-canonical.json",
@@ -49,16 +55,11 @@
       "banks/vitals-canonical.json"
     ],
     "canonicalBankCount": 13,
-    "rawDraftFiles": [
-      "banks/banks-raw/CONTENT-GENERATION-CAMPAIGN-15-PACKET-A-PRODUCER-CANDIDATES-REPAIR-1-2026-08-19.json",
-      "banks/banks-raw/CONTENT-GENERATION-CAMPAIGN-15-PACKET-B-PRODUCER-CANDIDATES-REPAIR-1-2026-08-19.json",
-      "banks/banks-raw/CONTENT-GENERATION-CAMPAIGN-15-PACKET-C-PRODUCER-CANDIDATES-REPAIR-1-2026-08-19.json",
-      "banks/banks-raw/CONTENT-GENERATION-CAMPAIGN-15-PACKET-D-PRODUCER-CANDIDATES-REPAIR-1-2026-08-19.json"
-    ],
-    "rawDraftCount": 4,
+    "rawDraftFiles": [],
+    "rawDraftCount": 0,
     "promotedStagingFiles": [],
     "promotedStagingCount": 0,
-    "absentOptionalStagingDirectoriesAreEmptyPopulation": true,
+    "missingExplicitStagingDirectoriesAreEmptyPopulation": true,
     "totalRecords": 1317
   },
   "counts": {

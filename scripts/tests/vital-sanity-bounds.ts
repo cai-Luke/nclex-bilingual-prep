@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { mkdir, mkdtemp, readFile, rm } from "node:fs/promises";
+import { copyFile, mkdir, mkdtemp, readFile, rm } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { MEASUREMENT_ALLOWLIST } from "../../src/measurementAllowlist";
@@ -119,16 +119,55 @@ assert.deepEqual(R5_CANDIDATE_INTERVALS, {
   spo2: { min: 0, max: 100 },
 });
 
-// Optional raw/promoted staging lanes follow P0: absence means an empty population only for those lanes.
+// The committed/default population is canonical-only even when ignored staging exists nearby.
+// Explicit staging paths retain a bounded opt-in inspection mode.
 const fixtureRoot = await mkdtemp(join(tmpdir(), "vital-sanity-bounds-"));
 try {
   const bankDir = join(fixtureRoot, "banks");
   await mkdir(bankDir);
-  assert.deepEqual(await discoverVitalSurveyBankPaths({
-    bankDir,
-    rawDir: join(fixtureRoot, "missing-raw"),
-    promotedDir: join(fixtureRoot, "missing-promoted"),
-  }), { canonical: [], raw: [], promoted: [] });
+  const canonicalPath = join(bankDir, "fixture-canonical.json");
+  await copyFile("banks/vitals-canonical.json", canonicalPath);
+  const beforeAmbientStaging = await buildVitalSanityBoundsSurvey({ bankDir });
+
+  const rawDir = join(bankDir, "banks-raw");
+  const promotedDir = join(bankDir, "_promoted");
+  await mkdir(rawDir);
+  await mkdir(promotedDir);
+  const rawPath = join(rawDir, "fixture-raw.json");
+  const promotedPath = join(promotedDir, "fixture-promoted.json");
+  await copyFile("banks/vitals-canonical.json", rawPath);
+  await copyFile("banks/vitals-canonical.json", promotedPath);
+
+  assert.deepEqual(await discoverVitalSurveyBankPaths({ bankDir }), {
+    canonical: [canonicalPath],
+    raw: [],
+    promoted: [],
+  });
+  const afterAmbientStaging = await buildVitalSanityBoundsSurvey({ bankDir });
+  assert.equal(
+    serializeVitalSanityBoundsSurvey(afterAmbientStaging),
+    serializeVitalSanityBoundsSurvey(beforeAmbientStaging),
+    "ambient raw/promoted staging must not perturb the default survey",
+  );
+
+  assert.deepEqual(await discoverVitalSurveyBankPaths({ bankDir, rawDir, promotedDir }), {
+    canonical: [canonicalPath],
+    raw: [rawPath],
+    promoted: [promotedPath],
+  });
+  const withExplicitStaging = await buildVitalSanityBoundsSurvey({ bankDir, rawDir, promotedDir });
+  assert.equal(withExplicitStaging.population.rawDraftCount, 1);
+  assert.equal(withExplicitStaging.population.promotedStagingCount, 1);
+  assert.equal(
+    withExplicitStaging.population.totalRecords,
+    beforeAmbientStaging.population.totalRecords * 3,
+  );
+  assert.deepEqual(withExplicitStaging.population.provenance, {
+    committedDefaultPopulation: "TRACKED_TOP_LEVEL_CANONICAL_BANKS_ONLY",
+    rawDrafts: "EXPLICITLY_INCLUDED",
+    promotedStaging: "EXPLICITLY_INCLUDED",
+    stagingCountInterpretation: "rawDraftCount and promotedStagingCount report files included in this survey, not whether ignored staging files exist in the ambient checkout.",
+  });
 } finally {
   await rm(fixtureRoot, { recursive: true, force: true });
 }
@@ -146,8 +185,24 @@ assert.throws(
 
 assert.deepEqual(survey.population.canonicalBankFiles, [...survey.population.canonicalBankFiles].sort());
 assert.equal(survey.population.canonicalBankCount, survey.population.canonicalBankFiles.length);
+assert.deepEqual(survey.population.provenance, {
+  committedDefaultPopulation: "TRACKED_TOP_LEVEL_CANONICAL_BANKS_ONLY",
+  rawDrafts: "EXCLUDED",
+  promotedStaging: "EXCLUDED",
+  stagingCountInterpretation: "rawDraftCount and promotedStagingCount report files included in this survey, not whether ignored staging files exist in the ambient checkout.",
+});
+assert.equal(survey.population.canonicalBankCount, 13);
+assert.deepEqual(survey.population.rawDraftFiles, []);
+assert.equal(survey.population.rawDraftCount, 0);
+assert.deepEqual(survey.population.promotedStagingFiles, []);
+assert.equal(survey.population.promotedStagingCount, 0);
+assert.equal(survey.population.totalRecords, 1317);
 assert.equal(survey.conceptsByVital.length, 7);
 assert.deepEqual(survey.conceptsByVital.map(({ vital }) => vital), VITAL_KEYS);
+const conceptsByVital = new Map(survey.conceptsByVital.map((concept) => [concept.vital, concept]));
+assert.deepEqual(conceptsByVital.get("sbp")?.liveRange, { min: 78, max: 210, unit: "mmHg" });
+assert.deepEqual(conceptsByVital.get("rr")?.liveRange, { min: 6, max: 34, unit: "/min" });
+assert.deepEqual(conceptsByVital.get("spo2")?.liveRange, { min: 84, max: 99, unit: "%" });
 assert.equal(survey.ratification.bounds.startsWith("R5 ratifies"), true);
 const priorSweep = survey.priorFindings.sweep20260711;
 assert.equal(priorSweep.located, true);
