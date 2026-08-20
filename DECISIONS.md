@@ -781,7 +781,7 @@ Any further pull-request gate expansion needs its own measured evidence and owne
 - **Date:** 2026-07-24
 - **Authorized:** The build check, topic-population, topic-license as detector-regression coverage only, topic-vocabulary, and an exact-byte drift check for the topic-vocabulary document.
 - **Not authorized:** A separate standalone type-check step, fatal live topic-license enforcement, a duplicate promoted-bank validator, and generalized regeneration or drift-checking of historical audit artifacts.
-- **Execution:** PENDING
+- **Execution:** EXECUTED
 
 ## 6. Standing invariants
 
