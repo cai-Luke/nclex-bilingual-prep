@@ -589,7 +589,7 @@ agreement with the ratified model. No further architect input is required.
 - **Status:** ACTIVE
 - **Force:** BINDING
 - **Date:** 2026-07-19
-- **Execution:** PENDING
+- **Execution:** EXECUTED
 
 ### P26 — A disposition that suppresses a check must itself be checked
 
