@@ -42,6 +42,7 @@ import {
   XCircle,
 } from "lucide-react";
 import { loadBundledRecords } from "./banks";
+import { bankProvenance, type BankProvenanceEntry } from "./bankProvenance";
 import { importQuestionsFromText, toExportEnvelope } from "./bankImport";
 import {
   type AnswerState,
@@ -2068,9 +2069,13 @@ const previewModes: Array<{ value: PreviewMode; label: string }> = [
 
 function previewQuestionLabel(record: QuestionRecord) {
   const question = record.question;
+  return `${question.id} - ${previewQuestionTitle(record)} (${record.sourceLabel})`;
+}
+
+function previewQuestionTitle(record: QuestionRecord) {
+  const question = record.question;
   const title = question.itemType === "case_study" ? question.caseStudy.title.en : question.stem.en;
-  const shortTitle = title.length > 84 ? `${title.slice(0, 81)}...` : title;
-  return `${question.id} - ${shortTitle} (${record.sourceLabel})`;
+  return title.length > 84 ? `${title.slice(0, 81)}...` : title;
 }
 
 function PreviewLab({
@@ -2082,8 +2087,10 @@ function PreviewLab({
   settings: Settings;
   onBack: () => void;
 }) {
+  const newestSelectionKey = "__newest__";
   const [bucketId, setBucketId] = useState(previewBuckets[0].id);
   const [selectedIdsByBucket, setSelectedIdsByBucket] = useState<Record<string, string>>({});
+  const [browseMode, setBrowseMode] = useState<"buckets" | "newest">("buckets");
   const [mode, setMode] = useState<PreviewMode>("live");
   const [answers, setAnswers] = useState<Record<string, AnswerState>>({});
   const [submittedIds, setSubmittedIds] = useState<Set<string>>(() => new Set());
@@ -2101,12 +2108,50 @@ function PreviewLab({
     });
     return Array.from(groups.entries());
   }, []);
-  const matches = useMemo(
+  const bucketMatches = useMemo(
     () => records.filter((record) => bucket.matches(record.question)),
     [bucket, records],
   );
-  const selectedId = selectedIdsByBucket[bucket.id] ?? matches[0]?.question.id ?? "";
-  const selectedRecord = matches.find((record) => record.question.id === selectedId) ?? matches[0];
+  const recordsById = useMemo(() => new Map(records.map((record) => [record.question.id, record])), [records]);
+  const newestDatedRecords = useMemo(
+    () => {
+      const seen = new Set<string>();
+      const ordered: Array<{ record: QuestionRecord; entry: BankProvenanceEntry }> = [];
+      for (const entry of bankProvenance.entries) {
+        const record = recordsById.get(entry.id);
+        if (!record || seen.has(entry.id)) continue;
+        seen.add(entry.id);
+        ordered.push({ record, entry });
+      }
+      return ordered;
+    },
+    [recordsById],
+  );
+  const newestUndatedRecords = useMemo(
+    () => {
+      const seen = new Set(newestDatedRecords.map(({ record }) => record.question.id));
+      const ordered: QuestionRecord[] = [];
+      for (const id of bankProvenance.undated) {
+        const record = recordsById.get(id);
+        if (!record || seen.has(id)) continue;
+        seen.add(id);
+        ordered.push(record);
+      }
+      for (const record of records) {
+        if (seen.has(record.question.id)) continue;
+        seen.add(record.question.id);
+        ordered.push(record);
+      }
+      return ordered;
+    },
+    [newestDatedRecords, records, recordsById],
+  );
+  const visibleRecords = browseMode === "newest"
+    ? [...newestDatedRecords.map(({ record }) => record), ...newestUndatedRecords]
+    : bucketMatches;
+  const selectedKey = browseMode === "newest" ? newestSelectionKey : bucket.id;
+  const selectedId = selectedIdsByBucket[selectedKey] ?? visibleRecords[0]?.question.id ?? "";
+  const selectedRecord = visibleRecords.find((record) => record.question.id === selectedId) ?? visibleRecords[0];
   const selectedQuestion = selectedRecord?.question;
   const selectedSubmitted = Boolean(selectedQuestion && (mode === "review" || submittedIds.has(selectedQuestion.id)));
   const selectedAnswer = selectedQuestion
@@ -2134,7 +2179,7 @@ function PreviewLab({
       : productionVisibleStages.length;
 
   const selectQuestion = (questionId: string) => {
-    setSelectedIdsByBucket((current) => ({ ...current, [bucket.id]: questionId }));
+    setSelectedIdsByBucket((current) => ({ ...current, [selectedKey]: questionId }));
     setShowAllStages(false);
   };
   const updateAnswer = (answer: AnswerState) => {
@@ -2177,33 +2222,72 @@ function PreviewLab({
       </div>
       <div className="preview-lab-body">
         <div className="preview-note">Preview only - answers are not saved.</div>
+        <div className="segmented preview-browse-toggle" role="group" aria-label="Preview browse mode">
+          <button
+            className={browseMode === "buckets" ? "active" : ""}
+            type="button"
+            aria-pressed={browseMode === "buckets"}
+            onClick={() => setBrowseMode("buckets")}
+          >
+            Buckets
+          </button>
+          <button
+            className={browseMode === "newest" ? "active" : ""}
+            type="button"
+            aria-pressed={browseMode === "newest"}
+            onClick={() => setBrowseMode("newest")}
+          >
+            Newest
+          </button>
+        </div>
         <div className="preview-controls">
-          <label>
-            <span>Preview bucket</span>
-            <select value={bucket.id} onChange={(event) => setBucketId(event.target.value)}>
-              {groupedBuckets.map(([group, items]) => (
-                <optgroup label={group} key={group}>
-                  {items.map((item) => (
-                    <option value={item.id} key={item.id}>
-                      {item.label}
-                    </option>
-                  ))}
-                </optgroup>
-              ))}
-            </select>
-          </label>
+          {browseMode === "buckets" && (
+            <label>
+              <span>Preview bucket</span>
+              <select value={bucket.id} onChange={(event) => setBucketId(event.target.value)}>
+                {groupedBuckets.map(([group, items]) => (
+                  <optgroup label={group} key={group}>
+                    {items.map((item) => (
+                      <option value={item.id} key={item.id}>
+                        {item.label}
+                      </option>
+                    ))}
+                  </optgroup>
+                ))}
+              </select>
+            </label>
+          )}
           <label>
             <span>Question</span>
             <select
               value={selectedRecord?.question.id ?? ""}
               onChange={(event) => selectQuestion(event.target.value)}
-              disabled={matches.length === 0}
+              disabled={visibleRecords.length === 0}
             >
-              {matches.map((record) => (
-                <option value={record.question.id} key={record.question.id}>
-                  {previewQuestionLabel(record)}
-                </option>
-              ))}
+              {browseMode === "newest" ? (
+                <>
+                  {newestDatedRecords.map(({ record, entry }) => (
+                    <option value={record.question.id} key={record.question.id}>
+                      {newestQuestionLabel(record, entry)}
+                    </option>
+                  ))}
+                  {newestUndatedRecords.length > 0 && (
+                    <optgroup label="Undated / unresolved history">
+                      {newestUndatedRecords.map((record) => (
+                        <option value={record.question.id} key={record.question.id}>
+                          {previewQuestionLabel(record)}
+                        </option>
+                      ))}
+                    </optgroup>
+                  )}
+                </>
+              ) : (
+                bucketMatches.map((record) => (
+                  <option value={record.question.id} key={record.question.id}>
+                    {previewQuestionLabel(record)}
+                  </option>
+                ))
+              )}
             </select>
           </label>
           <label>
@@ -2322,6 +2406,10 @@ function PreviewLab({
       </div>
     </section>
   );
+}
+
+function newestQuestionLabel(record: QuestionRecord, entry: BankProvenanceEntry) {
+  return `${entry.firstSeenDate.slice(0, 10)} · ${formatItemType(record.question.itemType)} · ${record.question.id} — ${previewQuestionTitle(record)}`;
 }
 
 type DevReviewStatus =
