@@ -589,7 +589,7 @@ agreement with the ratified model. No further architect input is required.
 - **Status:** ACTIVE
 - **Force:** BINDING
 - **Date:** 2026-07-19
-- **Execution:** PENDING
+- **Execution:** EXECUTED
 
 ### P26 — A disposition that suppresses a check must itself be checked
 
@@ -758,16 +758,15 @@ drift, and the one-time bootstrap is permanently unavailable.
 
 Three per-side vital `sanity` bounds are ratified: an SBP ceiling of 400 mmHg, an RR ceiling of 150 per
 minute, and an `spo2` floor of 0%. The governed population is bedside and charted flowsheet values,
-which is what selects 400 over the higher instrumented-measurement candidate. Implementation is
-pending: a later commission may add the two ceiling overrides and a per-side mechanism for the floor,
-must leave renderer envelopes unchanged, may not remove or make the sanity minimum optional, and
-requires a fresh corpus-impact survey.
+which is what selects 400 over the higher instrumented-measurement candidate. The three ratified sides
+execute through per-side canonical-unit sanity overrides while renderer envelopes remain unchanged and
+the required sanity minimum remains present.
 
 - **Kind:** R
 - **Status:** ACTIVE
 - **Force:** BINDING
 - **Date:** 2026-07-24
-- **Execution:** PENDING
+- **Execution:** EXECUTED
 
 ### R6 — Pull-request and post-merge CI coverage are distinct
 
@@ -782,7 +781,7 @@ Any further pull-request gate expansion needs its own measured evidence and owne
 - **Date:** 2026-07-24
 - **Authorized:** The build check, topic-population, topic-license as detector-regression coverage only, topic-vocabulary, and an exact-byte drift check for the topic-vocabulary document.
 - **Not authorized:** A separate standalone type-check step, fatal live topic-license enforcement, a duplicate promoted-bank validator, and generalized regeneration or drift-checking of historical audit artifacts.
-- **Execution:** PENDING
+- **Execution:** EXECUTED
 
 ## 6. Standing invariants
 

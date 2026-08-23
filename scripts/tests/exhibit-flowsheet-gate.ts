@@ -58,6 +58,19 @@ const runTemperature = (value: string, sourceUnit: string): Finding[] => {
   }, sourceSpan);
 };
 
+const runVitalSanityProbe = (
+  label: "sbp" | "rr" | "spo2",
+  value: string,
+  sourceUnit: string,
+  sourceSpan: string,
+): Finding[] => run({
+  exhibitRef: `test/${label}_${value}`,
+  lane: "extract",
+  panel: [{ label, value, sourceUnit, sourceSpan }],
+  excludedValues: [],
+  unitAliases: [],
+}, sourceSpan);
+
 {
   const findings = run(baseRecord());
   assert(noFinding(findings, "value not a verbatim substring"), "present values should not trip GATE 1");
@@ -130,6 +143,41 @@ const runTemperature = (value: string, sourceUnit: string): Finding[] => {
       assert(
         noFinding(findings, "GATE 4 out of band"),
         `${testCase.reason} should not produce a GATE 4 finding`,
+      );
+    }
+  }
+}
+
+{
+  const cases = [
+    { label: "sbp", value: "400", sourceUnit: "mmHg", sourceSpan: "SBP 400 mmHg.", shouldWarn: false },
+    { label: "sbp", value: "401", sourceUnit: "mmHg", sourceSpan: "SBP 401 mmHg.", shouldWarn: true },
+    { label: "rr", value: "150", sourceUnit: "/min", sourceSpan: "RR 150 /min.", shouldWarn: false },
+    { label: "rr", value: "151", sourceUnit: "/min", sourceSpan: "RR 151 /min.", shouldWarn: true },
+    { label: "spo2", value: "0", sourceUnit: "%", sourceSpan: "SpO2 0%.", shouldWarn: false },
+    { label: "spo2", value: "-1", sourceUnit: "%", sourceSpan: "SpO2 -1%.", shouldWarn: true },
+  ] as const;
+
+  for (const testCase of cases) {
+    const findings = runVitalSanityProbe(
+      testCase.label,
+      testCase.value,
+      testCase.sourceUnit,
+      testCase.sourceSpan,
+    );
+    assert(
+      !findings.some((finding) => finding.level === "FAIL"),
+      `${testCase.label} ${testCase.value} probe should satisfy the gates before GATE 4`,
+    );
+    if (testCase.shouldWarn) {
+      assert(
+        hasFinding(findings, "WARN", "GATE 4 out of band"),
+        `${testCase.label} ${testCase.value} should produce a GATE 4 WARN`,
+      );
+    } else {
+      assert(
+        noFinding(findings, "GATE 4 out of band"),
+        `${testCase.label} ${testCase.value} should be included at the R5 boundary`,
       );
     }
   }
