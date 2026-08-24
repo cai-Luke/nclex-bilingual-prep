@@ -68,6 +68,48 @@ Canonical source banks (see [BANK-CENSUS.md](BANK-CENSUS.md) for current counts;
 - `banks/visual-canonical.json` (rhythm_strip visual items; formerly `banks/rhythm-canonical`)
 - `banks/vitals-canonical.json` (vitals_trend visual items)
 
+### 2026-08-23 — Nine-month well-child standalone bow-tie answerability correction
+
+Status: `REVIEWED` and `fixed-and-validated`. The required independent non-GPT content review is complete.
+
+The first independent Claude content review returned `NEEDS_FIX` for exactly one inherited distractor
+presupposition: `bowtie.actions.tokens[id=act_defer_teaching].en` and `.zh` referred to “the one-month
+follow-up” / “1 个月随访,” although that follow-up was not established by the standalone stem. The
+incremental declarative correction changes only those two token-text leaves to “a follow-up visit in one
+month” / “1 个月后的随访就诊.” The same Claude reviewer then re-ran the complete eight-point checklist
+and returned `APPROVE_FOR_APPLY`; the five keyed targets remained independently derivable without the
+companion case and the prior `act_defer_teaching` finding was closed. This finding and correction do not
+change the key, token ID, rationale, cardinalities, companion case, 5 mL issue, or any other question.
+
+A learner report identified that `gpt_case_nine_month_well_child_safety_01_bowtie` imported dietary,
+hemoglobin, developmental-screen, broad teaching, and relationship facts from its companion case that
+were absent from the standalone stem. Codex, acting as the repair/producer seat, narrowed the item to
+the presented acetaminophen dosing and storage event: the nurse now closes the immediate reach hazard;
+the keyed actions separately assess total exposure with case-specific escalation and teach the
+documented 5 mL dose by oral syringe with return demonstration; the keyed evaluation parameters directly
+check dose measurement and safe storage. Caregiver role strain replaces the unsupported IPV distractor.
+The 3/4/4 token cardinality, five scored targets, top-level question ID, item type, category, topic,
+difficulty, NGN skill, companion case, bank count, and every unrelated question remain unchanged.
+
+The correction was applied declaratively through
+`scripts/patches/2026-08-23-nine-month-well-child-bowtie-answerability.ts` and
+`scripts/patch-raw.ts --allow-canonical --reason` with reason “repair standalone answerability of
+nine-month well-child acetaminophen bowtie.” No raw/staging file was promoted or deleted. Clinical
+checks used the American Academy of Pediatrics' 2026 acetaminophen dosing table and liquid-medicine
+measurement guidance, FDA acetaminophen guidance for infants and children, Poison Control's
+case-specific exposure inputs and immediate-consultation guidance, and CDC's Up and Away storage
+guidance; URLs and claim mapping are in
+`audit/standalone-bowtie-answerability-2026-08-23/independent-review-handoff.md`.
+
+Verification passed: canonical dry-run and strict-parity application; all 13 bundled banks validated;
+aggregate audit exited 0 (the existing 451 stage-reference advisories and no-raw-draft integrity notice
+remain unrelated); `test:bowtie`, grading, schema-bank, audit-validate-bank, audit-references, and
+audit-IDs regressions; coverage report; TypeScript; production/file build and build-identity check;
+`census:check`; and `git diff --check`. Census regeneration reproduced the same 1,930 session units,
+2,516 scored leaves, and 199 visual artifacts and changed metadata only, so those generated artifacts
+were restored to their pre-run bytes under the no-movement procedure. Chain: original GPT item producer
+→ Codex same-ID repair and mechanical/source verification → Claude independent non-GPT content checker (`NEEDS_FIX` on one distractor presupposition → corrected → `APPROVE_FOR_APPLY`).
+
 ### 2026-07-22 — Terminal-sentence remediation implementation
 
 Status: `REVIEWED` and `fixed-and-validated`.
