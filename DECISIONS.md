@@ -120,10 +120,12 @@ the entry title byte-for-byte.
 | P25 | P | ACTIVE | BINDING | Application: reinstate the visible flowsheet beneath the unified chart |
 | P26 | P | ACTIVE | BINDING | A disposition that suppresses a check must itself be checked |
 | P27 | P | ACTIVE | BINDING | An invariant softens only by naming its forcing incident |
+| P27 | P | ACTIVE | AUTHORIZING | Application: named-model restrictions are generation-scoped and requalified against their forcing incident |
 | P28 | P | ACTIVE | BINDING | Scored leaves govern planning, session units govern delivery |
 | P29 | P | ACTIVE | BINDING | Sparse laboratory-presentation cardinality is not a validity floor |
 | P30 | P | ACTIVE | BINDING | Lab reference bands are adult-only and pediatric bands fail closed |
 | P31 | P | ACTIVE | BINDING | Gemini's standing restrictions |
+| P31 | P | ACTIVE | BINDING | Amendment: the Gemini restriction is generation-scoped and requalifiable |
 | R1 | R | ACTIVE | AUTHORIZING | Standalone bowtie may be generated directly |
 | R2 | R | ACTIVE | BINDING | CBC units are conventional-first with SI in parentheses |
 | R3 | R | ACTIVE | BINDING | Temperature sanity ceiling 46.5 °C |
@@ -153,7 +155,7 @@ the entry title byte-for-byte.
 | — | T | PARKED | ADVISORY | Exam-condition test and adaptive modes |
 | — | T | REVISIT | ADVISORY | Unresolved vital sanity bounds |
 
-**Declared total:** 65 entry blocks.
+**Declared total:** 67 entry blocks.
 
 ## 4. Governing principles
 
@@ -620,6 +622,25 @@ rather than deleted.
 - **Force:** BINDING
 - **Date:** 2026-07-10
 
+#### P27 — Application: named-model restrictions are generation-scoped and requalified against their forcing incident
+
+A named-model capability restriction is scoped to the model generation whose failure produced it
+rather than to its vendor, and any separately identifiable successor release or capability tier may
+be commissioned for requalification, while an alias, rename, or unchanged deployment label may not.
+Eligibility to be tested confers nothing: the successor inherits the restricted routing until a
+requalification reconstructing the forcing incident's own failure mode on a bounded known corpus,
+scored against an independently held key, is checked under `P2` and `P5`. A pass relaxes only the
+lanes that calibration actually exercised and never reaches a restriction the record grounds in
+something other than a capability finding, while a failure renews the restriction against the tested
+generation on fresh recorded evidence.
+
+- **Kind:** P
+- **Status:** ACTIVE
+- **Force:** AUTHORIZING
+- **Date:** 2026-08-23
+- **Authorized:** A bounded requalification commission that first establishes the restricted generation's identity from the record, then reconstructs the forcing incident's failure mode against an independently held key under producer-independent check.
+- **Not authorized:** Relaxing a restricted lane on a version number, vendor identity, leaderboard result, or unrelated capability test; relaxing any lane the requalification did not exercise; and treating any prior evaluation not commissioned under this application as a requalification.
+
 ### P28 — Scored leaves govern planning, session units govern delivery
 
 Content-planning reports measure what is scored: standalone top-level questions plus embedded
@@ -685,6 +706,24 @@ than being accepted as a dismissal.
 - **Status:** ACTIVE
 - **Force:** BINDING
 - **Date:** 2026-06-26
+
+#### P31 — Amendment: the Gemini restriction is generation-scoped and requalifiable
+
+This restriction is scoped to the Gemini generation that produced the 2026-06-26 audit-quality
+finding, whose reconciliations were templated rather than pair-specific and required independent
+re-research before they could be trusted. The closed content-judgment audit lane and the
+pair-specific quoting gate on any irreducible residual lane rest on that capability finding and are
+requalifiable under the attached `P27` application, while the bar on direct canonical edits rests on
+`P5` and no benchmark result reaches it. A separately identifiable successor Gemini release or
+capability tier may be commissioned for requalification and inherits this same restricted routing
+until one succeeds.
+
+- **Kind:** P
+- **Status:** ACTIVE
+- **Force:** BINDING
+- **Date:** 2026-08-23
+- **Not authorized:** Relaxing any currently restricted Gemini lane before a `P27` requalification succeeds, including on the ground that a newer Gemini release exists.
+- **Evidence:** `Archive/root-cleanup-2026-06-26/CLAUDE-ARCHITECT-GEMINI-AUDIT-QUALITY-HANDOFF-2026-06-26.md`
 
 ## 5. Concrete rulings
 
