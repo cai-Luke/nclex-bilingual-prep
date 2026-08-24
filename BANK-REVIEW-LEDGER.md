@@ -68,6 +68,39 @@ Canonical source banks (see [BANK-CENSUS.md](BANK-CENSUS.md) for current counts;
 - `banks/visual-canonical.json` (rhythm_strip visual items; formerly `banks/rhythm-canonical`)
 - `banks/vitals-canonical.json` (vitals_trend visual items)
 
+### 2026-08-23 — Nine-month companion acetaminophen dose correction (pre-audit freeze)
+
+Status: `REVIEWED` and `fixed-and-validated`. The required independent non-GPT clinical/bilingual review is complete.
+
+Independent Claude review of the separate standalone bow-tie identified that its companion case,
+`gpt_case_nine_month_well_child_safety_01`, documents Liam at 8.9 kg (about 19.6 lb) while teaching
+5 mL of 160 mg/5 mL acetaminophen as the clinic/package weight-band dose. The American Academy of
+Pediatrics' table updated 2026-01-30 maps 18–23 lb (8–10 kg) to 3.75 mL of the 160 mg/5 mL infant
+liquid. The anthropometrics therefore remain unchanged, while eight exact English/Chinese leaves in
+the Stage 2 exhibit, Stage 3 teach-back exhibit, embedded q5 stem, and embedded q6 answer-bearing row
+now teach 3.75 mL. The product concentration and Danielle's reported 15 mL administration remain
+unchanged. No item ID, case structure, answer key, scoring field, rationale, strategy, or unrelated
+safety teaching changed.
+
+The correction was applied through
+`scripts/patches/2026-08-23-nine-month-companion-acetaminophen-dose.ts` and
+`scripts/patch-raw.ts --allow-canonical --reason` with reason “correct nine-month companion case
+acetaminophen weight-band dose teaching.” The committed standalone
+`gpt_case_nine_month_well_child_safety_01_bowtie` is outside the authorized mutation surface and is
+byte-equivalent to `ca7f5e0`. Source mapping, exact-path inventory, unchanged-key adjudication, and the
+required checker questions are in
+`audit/nine-month-companion-dose-repair-2026-08-23/independent-review-handoff.md`; mechanical results
+and SHA-256 diff proof are in the sibling `verification.md`. Independent Claude review returned
+`APPROVE_FOR_APPLY` after reopening the current AAP page and linked chart, independently confirming
+8.9 kg/about 19.6 lb → 18–23 lb (8–10 kg) → 3.75 mL, re-deriving the complete q5 five-action key and
+all seven q6 row classifications, confirming EN/ZH parity, and reproducing the frozen-bow-tie and 759-unrelated-payload hash proofs.
+
+The q6 internal identifier `acetaminophen_5ml` is intentionally retained as a historical non-learner-facing
+row/reference ID. Its learner-facing row now correctly says 3.75 mL and its three internal references remain
+consistent. A future ID-cleanup commission may rename it, but this dose repair deliberately avoids unnecessary
+structural churn. Chain: original GPT item producer → Codex same-ID clinical correction and mechanical/source
+verification → Claude independent non-GPT clinical/bilingual checker `APPROVE_FOR_APPLY`.
+
 ### 2026-08-23 — Nine-month well-child standalone bow-tie answerability correction
 
 Status: `REVIEWED` and `fixed-and-validated`. The required independent non-GPT content review is complete.
