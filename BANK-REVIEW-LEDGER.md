@@ -68,6 +68,36 @@ Canonical source banks (see [BANK-CENSUS.md](BANK-CENSUS.md) for current counts;
 - `banks/visual-canonical.json` (rhythm_strip visual items; formerly `banks/rhythm-canonical`)
 - `banks/vitals-canonical.json` (vitals_trend visual items)
 
+### 2026-08-24 — Nine-month standalone bow-tie dose harmonization (pre-audit freeze)
+
+Status: `REVIEWED` and `fixed-and-validated`. The required independent non-GPT content review is complete.
+
+After the independently reviewed companion case established 3.75 mL as Liam's current AAP
+weight-band amount, the standalone `gpt_case_nine_month_well_child_safety_01_bowtie` still carried the
+former stipulated 5 mL amount. A new follow-on declarative patch changed only the documented reference
+dose from 5 mL to 3.75 mL in exactly eight learner-facing English/Chinese leaves: the stem, keyed
+measurement action, overall rationale, and that action's by-choice rationale. The `160 mg/5 mL`
+product concentration, reported 15 mL administration, every token ID, all five keyed targets, 3/4/4
+cardinality, rationale references, scoring, metadata, strategy, glossary, companion case, and all
+unrelated questions remain unchanged.
+
+The correction was applied through
+`scripts/patches/2026-08-24-nine-month-bowtie-dose-harmonization.ts` and
+`scripts/patch-raw.ts --allow-canonical --reason` with reason “harmonize nine-month standalone bowtie
+acetaminophen reference dose with independently source-corrected companion case.” The historical
+`scripts/patches/2026-08-23-nine-month-well-child-bowtie-answerability.ts` remains byte-identical to
+`a237d18` and continues to record its actually accepted earlier output. Exact inventory, source and
+answerability questions are in
+`audit/nine-month-bowtie-dose-harmonization-2026-08-24/independent-review-handoff.md`; mechanical and
+SHA-256 proof is in the sibling `verification.md`. The same independent non-GPT Claude checker returned
+`APPROVE_FOR_APPLY` after independently diffing against `a237d18`, re-deriving the five keyed targets
+without trusting the stored key, confirming the 3/4/4 pools and five-point construct remain valid,
+verifying EN/ZH parity, and confirming that the companion case plus all 759 non-target GPT payloads and
+the historical answerability patch remain unchanged. Family dose consistency is now achieved: both
+siblings use 3.75 mL as Liam's documented reference dose. Chain: original GPT item producer → Codex
+numeric/source harmonization and mechanical verification → Claude independent non-GPT checker
+`APPROVE_FOR_APPLY`.
+
 ### 2026-08-23 — Nine-month companion acetaminophen dose correction (pre-audit freeze)
 
 Status: `REVIEWED` and `fixed-and-validated`. The required independent non-GPT clinical/bilingual review is complete.
