@@ -52,6 +52,22 @@ The committed NGN item-type set is complete. Rationale/dyad scoring and an expli
 
 > Milestones dated **2026-06-23 and earlier** are archived in [`Archive/PROJECT-HISTORY-ARCHIVE.md`](Archive/PROJECT-HISTORY-ARCHIVE.md). Only the current arc (2026-06-24 onward) is kept here.
 
+### June 13 Matrix Swap Regression Repair Accepted (Aug 25)
+
+A false June 13 `c1`/`c2` inversion diagnosis broke eight already-correct GPT matrix leaves. Accepted
+repair `e23962e7d81540421ab178e3e90d4dce77d21804` restores exactly 40 scalar `columnIds` across those
+eight leaves to the pre-swap oracle and the current English/Chinese rationale direction. Independent
+acceptance re-derived all eight as `RESTORE_CORRECT`, found no ambiguity, confirmed the exact mutation
+scope, and passed the complete command battery. The same historical script's FHR and I/O no-op targets
+were independently rechecked and remain correct.
+
+The accepted repair and review evidence are published under
+[`audit/june13-matrix-swap-regression-2026-08-25/`](audit/june13-matrix-swap-regression-2026-08-25/).
+The durable correction to the June coherence-audit record is a separate preserved-record addendum at
+[`Archive/root-cleanup-2026-07-03/ADVERSARIAL-AUDIT-FINDINGS-2026-06-25-ADDENDUM-2026-08-25.md`](Archive/root-cleanup-2026-07-03/ADVERSARIAL-AUDIT-FINDINGS-2026-06-25-ADDENDUM-2026-08-25.md).
+No question population or census count moved. Process-gap and tooling remediation is intentionally
+deferred to a separate commission.
+
 ### DECISIONS Format Parser and Conformance Checker (Jul 28)
 
 Merged the ratified `DECISIONS.md` target-format instrument. `lib/decisions-format.ts` is the shared

@@ -68,6 +68,38 @@ Canonical source banks (see [BANK-CENSUS.md](BANK-CENSUS.md) for current counts;
 - `banks/visual-canonical.json` (rhythm_strip visual items; formerly `banks/rhythm-canonical`)
 - `banks/vitals-canonical.json` (vitals_trend visual items)
 
+### 2026-08-25 — June 13 matrix answer-mapping regression repair
+
+Status: `REVIEWED` and `fixed-and-validated`.
+
+This was a targeted canonical repair, not a newly generated raw promotion; no raw or staging source
+file exists for this historical restoration. Commit `91ab9606269d4e5a82b4bf613234c06db5830276`
+falsely diagnosed and swapped `c1`/`c2` mappings for eight already-correct GPT matrix leaves. The
+pre-swap restoration oracle is `b3a68e890988ca7155dcc8113881b3a36ddf6826`, and the accepted repair
+commit is `e23962e7d81540421ab178e3e90d4dce77d21804`. Exactly eight scored leaves and 40 scalar
+`correct[].columnIds` values changed; no other learner-facing content changed:
+
+1. `gpt_gap_2026_06_12_nonmcq_balanced_case_post_fall_ltc_02_q2`
+2. `gpt_gap_2026_06_12_nonmcq_balanced_case_pressure_injury_nutrition_03_q1`
+3. `gpt_gap_2026_06_12_nonmcq_balanced_case_delirium_family_04_q1`
+4. `gpt_gap_2026_06_12_nonmcq_balanced_b_case_interpreter_consent_02_q2`
+5. `gpt_gap_2026_06_12_nonmcq_balanced_b_matrix_contact_diarrhea_09`
+6. `gpt_gap_2026_06_12_nonmcq_balanced_b_matrix_stroke_rehab_10`
+7. `gpt_2026_06_13_case_delirium_uti_01_q1`
+8. `gpt_2026_06_13_case_delirium_uti_01_q4`
+
+Independent Claude acceptance re-derived every row from the live English/Chinese rationale before
+reveal and returned 8/8 `RESTORE_CORRECT`, with no `AMBIGUOUS` cases. It separately rechecked the two
+same-script historical no-op targets, `fhr_gemini_smoke_2026_06_13_06` and
+`io_matrix_prerenal_aki_recheck_04`, and classified both `NO_OP_TARGET_CORRECT`; neither was modified by
+this repair. The full validation, regression, audit, census-freshness, TypeScript, and production-build
+floor passed with only pre-existing unrelated notices. The repository evidence is the
+[`repair audit`](audit/june13-matrix-swap-regression-2026-08-25/) and its published
+[`independent acceptance package`](audit/june13-matrix-swap-regression-2026-08-25/independent-acceptance/).
+Chain: original GPT item production/review history → erroneous same-day June 13 swap event → Codex
+bounded restoration and mechanical proof → Claude independent content/bilingual acceptance → Codex
+publication and fast-forward merge.
+
 ### 2026-08-24 — Nine-month standalone bow-tie dose harmonization (pre-audit freeze)
 
 Status: `REVIEWED` and `fixed-and-validated`. The required independent non-GPT content review is complete.

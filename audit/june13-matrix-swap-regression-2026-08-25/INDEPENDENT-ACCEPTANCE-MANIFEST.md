@@ -1,0 +1,20 @@
+# June 13 Matrix Swap Regression — Independent Acceptance Publication Manifest
+
+Published 2026-08-25 from the sealed external Claude acceptance package at
+`/Users/holemini/Desktop/june13-matrix-swap-regression-claude-acceptance-2026-08-25/`.
+Every repository copy was compared byte-for-byte with its source after copying; all nine comparisons
+passed. The external originals were not edited.
+
+| File | Source absolute path | Repository destination | Bytes | SHA-256 | Hash provenance | Byte comparison |
+|---|---|---|---:|---|---|---|
+| `00-opening-receipt.md` | `/Users/holemini/Desktop/june13-matrix-swap-regression-claude-acceptance-2026-08-25/00-opening-receipt.md` | `audit/june13-matrix-swap-regression-2026-08-25/independent-acceptance/00-opening-receipt.md` | 3,693 | `6bd80f18454add4914e8981bf0a7827f0e1e59e4f3d7bc5471ce73ea279b1991` | Directly pinned in Claude `receipt.md` and `SEAL.md` | PASS |
+| `01-independent-eight-target-review.jsonl` | `/Users/holemini/Desktop/june13-matrix-swap-regression-claude-acceptance-2026-08-25/01-independent-eight-target-review.jsonl` | `audit/june13-matrix-swap-regression-2026-08-25/independent-acceptance/01-independent-eight-target-review.jsonl` | 10,211 | `9df56397e4daa6e0bbc349a0dbfac9fc46421d0bd88654a99bb338f7c5c39a7a` | Directly pinned in Claude `receipt.md` and `SEAL.md` | PASS |
+| `02-independent-scope-diff.md` | `/Users/holemini/Desktop/june13-matrix-swap-regression-claude-acceptance-2026-08-25/02-independent-scope-diff.md` | `audit/june13-matrix-swap-regression-2026-08-25/independent-acceptance/02-independent-scope-diff.md` | 8,257 | `f508b8d65663b8f3416fa318aa46337dc97519586551a3bc3a973e5d0affe8c7` | Directly pinned in Claude `receipt.md` and `SEAL.md` | PASS |
+| `03-independent-no-op-review.md` | `/Users/holemini/Desktop/june13-matrix-swap-regression-claude-acceptance-2026-08-25/03-independent-no-op-review.md` | `audit/june13-matrix-swap-regression-2026-08-25/independent-acceptance/03-independent-no-op-review.md` | 4,188 | `33d17b6b1e63e1b4de116101ee969ce359d055051650ce5326bd0c86bf08210f` | Directly pinned in Claude `receipt.md` and `SEAL.md` | PASS |
+| `04-candidate-evidence-audit.md` | `/Users/holemini/Desktop/june13-matrix-swap-regression-claude-acceptance-2026-08-25/04-candidate-evidence-audit.md` | `audit/june13-matrix-swap-regression-2026-08-25/independent-acceptance/04-candidate-evidence-audit.md` | 5,613 | `9bffb5d98bb9dd56038bac69f8e8e7915c5635866b767942bb65a65545fbbbcb` | Directly pinned in Claude `receipt.md` | PASS |
+| `05-command-verification.md` | `/Users/holemini/Desktop/june13-matrix-swap-regression-claude-acceptance-2026-08-25/05-command-verification.md` | `audit/june13-matrix-swap-regression-2026-08-25/independent-acceptance/05-command-verification.md` | 4,623 | `47af43b8c9d6c91d247c05b09fca1baed0b69d97f50fba765e0403e2795fd1b7` | Directly pinned in Claude `receipt.md` | PASS |
+| `06-final-acceptance-report.md` | `/Users/holemini/Desktop/june13-matrix-swap-regression-claude-acceptance-2026-08-25/06-final-acceptance-report.md` | `audit/june13-matrix-swap-regression-2026-08-25/independent-acceptance/06-final-acceptance-report.md` | 7,157 | `f5f7d223ae964a2e1b436b02ef3df2706c535747ef27e2156a8940fa39d53c80` | Directly pinned in Claude `receipt.md` | PASS |
+| `SEAL.md` | `/Users/holemini/Desktop/june13-matrix-swap-regression-claude-acceptance-2026-08-25/SEAL.md` | `audit/june13-matrix-swap-regression-2026-08-25/independent-acceptance/SEAL.md` | 1,892 | `b611afac2fdcf774ab4fcd089206f7017c3985ebf308ddda1d6aad7868875217` | Independently computed during publication; cannot be self-pinned | PASS |
+| `receipt.md` | `/Users/holemini/Desktop/june13-matrix-swap-regression-claude-acceptance-2026-08-25/receipt.md` | `audit/june13-matrix-swap-regression-2026-08-25/independent-acceptance/receipt.md` | 4,963 | `7aacded23a5e7698dd285b39e6ab2d45cbb90a0c03678e1d856b6543e6c44e8a` | Independently computed during publication; cannot be self-pinned | PASS |
+
+Publication disposition: `JUNE13_MATRIX_SWAP_REGRESSION_REPAIR_ACCEPTED`.
