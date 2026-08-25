@@ -1,0 +1,14 @@
+# External P27 Evidence Manifest
+
+All external evidence listed below remains at its original path. Housekeeping copied only the compact files named in the work order where an archive copy was required; it did not modify, move, normalize, regenerate, or delete any external evidence. No directory root hash is claimed below because no pre-existing directory-root receipt was supplied.
+
+| Preserved external path | Purpose | Strongest available receipt / anchor hashes |
+|---|---|---|
+| `/Users/holemini/Desktop/gemini-p27-calibration-input-2026-08-25/` | V1 calibration package and packaging history | `PACKAGE-RECEIPT.md`: `d42489021d93ae9ed164dbf3f5733543a9ea798bdefc8e0a320b9e6515a50060` (50,709 bytes) |
+| `/Users/holemini/Desktop/gemini-p27-calibration-input-2026-08-25-v2/` | V2 authoritative corrected Module A frozen package; Module B missing-supplement state | `PACKAGE-RECEIPT.md`: `198cd4abbe80c8227ee742288b2f701e1e42fe5b77328f98beb2cd7b942dd829` (50,789 bytes) |
+| `/Users/holemini/Desktop/gemini-p27-preflight-requalification-run2-2026-08-25/` | Run 2 provisional/non-blind candidate run | `final-receipt.md`: `c79cac9edcac9c3bc879e3acc6f8278fef69bfff50162bee2d84c177f2d91160`; `identity-receipt.md`: `d77fb60eae17713959280f6c17216b027f8d9dddad6f1ce3fa0d61639fea3fb0`; `module-a/verification.md`: `c262d7760a9d2e7f2acff46f44119920b131afe1004236bc0a72f473c2a3d894` |
+| `/Users/holemini/Desktop/gemini-p27-preflight-requalification-run3-2026-08-25/` | Run 3 definitive fresh-session candidate run | `module-a/pair-review.jsonl`: `766241510748475fc8e9c1bbbd525767bb3c291e5e33674f6225f4caabcc0cce`; `module-a/report.md`: `ea990d702e15c0b3a060e5e18b009a574c079a56e3b494a291147328f9efa6f0`; `module-a/verification.md`: `75cd17dd9f7d5ad521c83990609f74d9cc81e8439848366a75b71a4f8721eba9`; `identity-receipt.md`: `6eb5840d83c8bfdee6b6c5aa3192840b441a62db3fce3f699fd2c46163c28d8e`; `final-receipt.md`: `a6d32b312c099627367220d729a9379f2bcfab61aac8fbf139dbb58faa157236` |
+| `/Users/holemini/Desktop/gemini-p27-run3-codex-module-a-check-2026-08-25/` | Definitive independent Codex Module A checker; the external directory remains the complete execution evidence, including `_tools/` | `final-report.md`: `f21c557cf60b51b1ef5212a445524899406631a5f9862cd79f1891a0445ce800`; `receipt.md`: `8a8432c149ca0cfca5577adcaa0d707094b3b41959745ac9e40d76a45ca1963d`; copied checker inputs retain their source hashes recorded in `HOUSEKEEPING-RECEIPT.md` |
+| `/Users/holemini/Desktop/GEMINI-P27-RUN3-FRESH-SESSION-LAUNCH-2026-08-25.md` | Run 3 fresh-session launch note | SHA-256: `4c49cd0c09e169bce15db51c2c3d64bc7629bfd31c99e7831ed541d4ba256dfc` (4,790 bytes) |
+
+The external V1/V2 package trees, Run 2 and Run 3 directories, checker directory, and launch note were preserved in place and were byte-unchanged by this housekeeping task.
