@@ -22,8 +22,9 @@ This was archival housekeeping only. External P27 evidence was preserved byte-un
 ## Commit state
 
 - Required commit subject: `docs(audit): close failed Gemini 3.7 P27 requalification`
-- Exact commit SHA created by this task: **to be recorded immediately after the required commit**
-- Final branch/HEAD/status: **to be recorded immediately after the required commit**
+- Exact archive commit SHA created by this task: `59ffb125e3e9d0c9219f4b9d6078945b2a34c930`
+- Archive-commit branch/HEAD/status: `main` / `59ffb125e3e9d0c9219f4b9d6078945b2a34c930`; `main...origin/main [ahead 6]`; no staged or unstaged changes; the same pre-existing bow-tie audit remains the only untracked path.
+- This receipt was finalized in a second task-owned commit after the archive commit so the exact archive SHA is recorded here. The final post-finalization HEAD is returned in the handoff.
 
 ## Archived source-to-destination ledger
 
