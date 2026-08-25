@@ -1,3 +1,4 @@
+import { createHash } from "node:crypto";
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -49,10 +50,31 @@ type SlicePair = {
   b_path: string;
 };
 
+export type ExclusionReason =
+  | "no_shared_selected_pilot_cluster"
+  | "peer_coherence_row_absent"
+  | "peer_has_no_selected_pilot_cluster";
+
+export type ExcludedPair = {
+  a: string;
+  b: string;
+  reasons: ExclusionReason[];
+  a_pilot_clusters: ConceptCluster[];
+  b_pilot_clusters: ConceptCluster[];
+};
+
 export type AuditBatchArtifact = {
   generated: string;
   source_queue: string;
+  source_queue_sha256: string;
   clusters: ConceptCluster[];
+  max: number | null;
+  coherence_row_count: number;
+  selected_seed_count: number;
+  kept_seed_count: number;
+  considered_pair_count: number;
+  excluded_pair_count: number;
+  zero_survivor_seed_count: number;
   unique_item_count: number;
   candidate_pair_count: number;
   reviewer_split: {
@@ -63,6 +85,8 @@ export type AuditBatchArtifact = {
   };
   gpt5_carveout_ids: string[];
   needs_provenance_pairs: SlicePair[];
+  excluded_pairs: ExcludedPair[];
+  zero_survivor_seed_ids: string[];
   items: SliceItem[];
   pairs: SlicePair[];
 };
@@ -101,12 +125,17 @@ const parseArgs = (argv: string[]): BuildAuditBatchOptions => {
   return options;
 };
 
-const readQueue = async (queuePath: string): Promise<SemanticQueueRow[]> => {
-  const text = await readFile(queuePath, "utf8");
-  return text
+const readQueue = async (queuePath: string) => {
+  const bytes = await readFile(queuePath);
+  const rows = bytes
+    .toString("utf8")
     .split(/\n/)
     .filter((line) => line.trim().length > 0)
     .map((line) => JSON.parse(line) as SemanticQueueRow);
+  return {
+    rows,
+    sha256: createHash("sha256").update(bytes).digest("hex"),
+  };
 };
 
 const pilotClustersFor = (
@@ -141,15 +170,19 @@ export const buildAuditBatch = async (
   const queuePath = options.queuePath ?? DEFAULT_QUEUE;
   const selectedClusters = [...(options.clusters ?? DEFAULT_CLUSTERS)].sort();
   const selectedClusterSet = new Set(selectedClusters);
-  const rows = (await readQueue(queuePath)).filter(
+  const queue = await readQueue(queuePath);
+  const rows = queue.rows.filter(
     (row) => row.track === "coherence",
   );
 
-  const seedEntries = rows
-    .map((row) => ({
-      row,
-      pilotClusters: pilotClustersFor(row, selectedClusterSet),
-    }))
+  const coherenceEntries = rows.map((row) => ({
+    row,
+    pilotClusters: pilotClustersFor(row, selectedClusterSet),
+  }));
+  const coherenceEntriesById = new Map(
+    coherenceEntries.map((entry) => [entry.row.id, entry]),
+  );
+  const seedEntries = coherenceEntries
     .filter((entry) => entry.pilotClusters.length > 0);
   const seeds = new Map(seedEntries.map((entry) => [entry.row.id, entry]));
   const keptIds = new Set(
@@ -164,6 +197,38 @@ export const buildAuditBatch = async (
           .map((entry) => entry.row.id)
       : seedEntries.map((entry) => entry.row.id),
   );
+
+  const consideredPairKeys = new Set<string>();
+  const exclusionReasonsByPair = new Map<string, Set<ExclusionReason>>();
+  const markExcluded = (key: string, reason: ExclusionReason) => {
+    exclusionReasonsByPair.set(
+      key,
+      new Set([...(exclusionReasonsByPair.get(key) ?? []), reason]),
+    );
+  };
+  seedEntries.forEach(({ row, pilotClusters }) => {
+    if (!keptIds.has(row.id)) return;
+    row.pair_with.forEach((peerId) => {
+      const peer = coherenceEntriesById.get(peerId);
+      const key = pairKey(row.id, peerId);
+      if (!peer) {
+        consideredPairKeys.add(key);
+        markExcluded(key, "peer_coherence_row_absent");
+        return;
+      }
+      if (peer.pilotClusters.length > 0 && !keptIds.has(peerId)) {
+        return;
+      }
+      consideredPairKeys.add(key);
+      if (peer.pilotClusters.length === 0) {
+        markExcluded(key, "peer_has_no_selected_pilot_cluster");
+      } else if (
+        !pilotClusters.some((cluster) => peer.pilotClusters.includes(cluster))
+      ) {
+        markExcluded(key, "no_shared_selected_pilot_cluster");
+      }
+    });
+  });
 
   const pairClusters = new Map<string, Set<ConceptCluster>>();
   seedEntries.forEach(({ row, pilotClusters }) => {
@@ -207,11 +272,44 @@ export const buildAuditBatch = async (
       left.b.localeCompare(right.b),
   );
 
+  const emittedPairKeys = new Set(pairs.map((pair) => pairKey(pair.a, pair.b)));
+  const excludedPairs = [...consideredPairKeys]
+    .filter((key) => !emittedPairKeys.has(key))
+    .map((key): ExcludedPair => {
+      const [a, b] = key.split("\0");
+      const reasons = [...(exclusionReasonsByPair.get(key) ?? [])].sort();
+      if (reasons.length === 0) {
+        throw new Error(`Internal error: excluded pair ${a}/${b} is unclassified`);
+      }
+      return {
+        a,
+        b,
+        reasons,
+        a_pilot_clusters: [
+          ...new Set(coherenceEntriesById.get(a)?.pilotClusters ?? []),
+        ].sort(),
+        b_pilot_clusters: [
+          ...new Set(coherenceEntriesById.get(b)?.pilotClusters ?? []),
+        ].sort(),
+      };
+    })
+    .sort((left, right) =>
+      left.a.localeCompare(right.a) || left.b.localeCompare(right.b),
+    );
+  if (consideredPairKeys.size !== pairs.length + excludedPairs.length) {
+    throw new Error(
+      "Internal error: considered pairs do not partition into emitted and excluded pairs",
+    );
+  }
+
   const itemPeers = new Map<string, Set<string>>();
   pairs.forEach((pair) => {
     itemPeers.set(pair.a, new Set([...(itemPeers.get(pair.a) ?? []), pair.b]));
     itemPeers.set(pair.b, new Set([...(itemPeers.get(pair.b) ?? []), pair.a]));
   });
+  const zeroSurvivorSeedIds = [...keptIds]
+    .filter((id) => !itemPeers.has(id))
+    .sort();
   const itemIds = [...itemPeers.keys()].sort();
   const items = itemIds.map((id): SliceItem => {
     const seed = seeds.get(id);
@@ -247,7 +345,15 @@ export const buildAuditBatch = async (
   return {
     generated: label,
     source_queue: queuePath,
+    source_queue_sha256: queue.sha256,
     clusters: selectedClusters,
+    max: options.max ?? null,
+    coherence_row_count: rows.length,
+    selected_seed_count: seedEntries.length,
+    kept_seed_count: keptIds.size,
+    considered_pair_count: consideredPairKeys.size,
+    excluded_pair_count: excludedPairs.length,
+    zero_survivor_seed_count: zeroSurvivorSeedIds.length,
     unique_item_count: items.length,
     candidate_pair_count: pairs.length,
     reviewer_split: {
@@ -262,6 +368,8 @@ export const buildAuditBatch = async (
     needs_provenance_pairs: pairs.filter(
       (pair) => pair.reviewer === "needs-provenance",
     ),
+    excluded_pairs: excludedPairs,
+    zero_survivor_seed_ids: zeroSurvivorSeedIds,
     items,
     pairs,
   };
