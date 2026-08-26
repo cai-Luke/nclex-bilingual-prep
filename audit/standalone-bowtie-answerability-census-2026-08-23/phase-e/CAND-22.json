@@ -1,0 +1,145 @@
+{
+  "anyCanonicalTargetDependsOnAbsentFact": false,
+  "blindExactMatch": true,
+  "canonicalSelection": {
+    "actionLabels": [
+      "A2",
+      "A1"
+    ],
+    "conditionLabel": "C2",
+    "parameterLabels": [
+      "P4",
+      "P2"
+    ]
+  },
+  "canonicalSetExplanation": "C2 uniquely explains the timing after PN and the complete dangerous cluster. A2 and A1 address the nutritional trigger and depleted electrolytes, while P4 and P2 directly measure biochemical correction and immediate arrhythmia risk. Each distractor either addresses a concurrent secondary issue, lacks a required client premise, or conflicts with the dominant crisis.",
+  "canonicalSetUniquelyDefensible": true,
+  "canonicalTargetSupport": [
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "C2",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "After about five weeks of negligible intake, the severely malnourished client developed rapid progressive hypophosphatemia, hypokalemia, and hypomagnesemia within 30 hours of PN initiation, accompanied by weakness, shallow respirations, PVCs, prolonged QT interval, and hyperglycemia."
+    },
+    {
+      "missingClientFact": "The actual PN order, current caloric or dextrose delivery, and ordered 50% rate reduction are not provided.",
+      "opaqueTokenLabel": "A2",
+      "supportClassification": "GENERAL_KNOWLEDGE_LINK",
+      "supportingStandaloneEvidence": "The electrolyte crisis and clinical manifestations began shortly after PN initiation in a severely malnourished client, supporting reduction of nutritional delivery; the exact 50% adjustment is not stated in the stem and is explicitly conditioned on an order."
+    },
+    {
+      "missingClientFact": "Specific electrolyte-replacement orders, doses, routes, and administration rates are not provided.",
+      "opaqueTokenLabel": "A1",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "Phosphorus is 1.3 mg/dL, potassium is 2.9 mEq/L, and magnesium is 1.3 mg/dL, with frequent PVCs, prolonged QT interval, proximal weakness, and shallow respirations."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "P4",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "Phosphorus fell from 2.8 to 1.8 to 1.3 mg/dL, potassium from 3.5 to 3.1 to 2.9 mEq/L, and magnesium from 1.8 to 1.4 to 1.3 mg/dL within 30 hours."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "P2",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "The client has palpitations, frequent PVCs, and a prolonged QT interval."
+    }
+  ],
+  "distractorPremiseFindings": [
+    {
+      "explanation": "Glucose 226 mg/dL after PN supports concurrent PN-associated hyperglycemia, but hyperglycemia does not explain the progressive three-electrolyte decline, respiratory weakness, PVCs, and QT prolongation.",
+      "opaqueTokenLabel": "C1",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "LOW"
+    },
+    {
+      "explanation": "PICC-site erythema, tenderness, and purulent drainage support a local infection concern, but bloodstream infection requires absent systemic or microbiologic evidence and does not explain the dominant post-PN electrolyte pattern.",
+      "opaqueTokenLabel": "C3",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "LOW"
+    },
+    {
+      "explanation": "No client-specific authorization, emergency circumstance, glucose-monitoring plan, or dextrose backup supports independently and abruptly discontinuing TPN.",
+      "opaqueTokenLabel": "A3",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "MATERIAL"
+    },
+    {
+      "explanation": "Potassium is already 2.9 mEq/L with concurrent phosphorus and magnesium depletion and electrical instability; prioritizing aggressive insulin conflicts with the immediate electrolyte and arrhythmia hazards.",
+      "opaqueTokenLabel": "A4",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "MATERIAL"
+    },
+    {
+      "explanation": "Although glucose is elevated, glucose alone cannot evaluate resolution of the explicitly documented electrolyte, cardiac, respiratory, and neuromuscular crisis.",
+      "opaqueTokenLabel": "P1",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "MATERIAL"
+    },
+    {
+      "explanation": "No WBC result is supplied, and WBC count would address the concurrent infection concern rather than serve as the main marker of the refeeding electrolyte emergency.",
+      "opaqueTokenLabel": "P3",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "MATERIAL"
+    }
+  ],
+  "missingClientFacts": [
+    {
+      "keyed": true,
+      "missingFact": "Current PN infusion rate, caloric load, carbohydrate or dextrose delivery, and the client-specific order authorizing a 50% reduction.",
+      "opaqueTokenLabel": "A2",
+      "rankabilityImpact": "LOW"
+    },
+    {
+      "keyed": true,
+      "missingFact": "Prescribed potassium, phosphate, and magnesium doses, routes, infusion rates, and replacement protocol.",
+      "opaqueTokenLabel": "A1",
+      "rankabilityImpact": "LOW"
+    },
+    {
+      "keyed": true,
+      "missingFact": "Timing of repeat electrolyte measurements after replacement.",
+      "opaqueTokenLabel": "A1",
+      "rankabilityImpact": "LOW"
+    },
+    {
+      "keyed": true,
+      "missingFact": "Current vital signs, oxygen saturation, detailed respiratory effort, and fluid balance.",
+      "opaqueTokenLabel": "C2",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "keyed": false,
+      "missingFact": "Baseline glucose, glucose trend, diabetes history, and prior insulin use.",
+      "opaqueTokenLabel": "C1",
+      "rankabilityImpact": "LOW"
+    },
+    {
+      "keyed": false,
+      "missingFact": "Temperature, hemodynamic findings, blood-culture results, and other systemic infection findings needed to establish catheter-related bloodstream infection.",
+      "opaqueTokenLabel": "C3",
+      "rankabilityImpact": "LOW"
+    },
+    {
+      "keyed": false,
+      "missingFact": "A client-specific emergency circumstance, authorized discontinuation plan, glucose-monitoring plan, and dextrose backup if needed.",
+      "opaqueTokenLabel": "A3",
+      "rankabilityImpact": "MATERIAL"
+    },
+    {
+      "keyed": false,
+      "missingFact": "White blood cell count and trend.",
+      "opaqueTokenLabel": "P3",
+      "rankabilityImpact": "LOW"
+    }
+  ],
+  "notes": [
+    "Blind exact match is based on the selected label sets; the blind action and parameter arrays listed the same labels in a different order from the canonical packet.",
+    "The absent implementation details affect bedside specificity but do not alter selection rankability because A2 is conditional on an order and the stem directly establishes the need addressed by A1.",
+    "The PICC-site findings remain a separate clinically important infection concern without displacing the uniquely supported bow-tie set."
+  ],
+  "stage1Alignment": "FULL",
+  "stage1AlignmentExplanation": "Stage 1 independently identified refeeding syndrome, reduction or interruption of PN with provider notification, electrolyte replacement, cardiac rhythm/QT monitoring, and serial phosphorus-potassium-magnesium monitoring. These semantically align with all five canonical targets. The Stage 1 wording did not specify the canonical 50% reduction, but it identified the same action concept.",
+  "unstatedClientFactMateriallyChangesRankability": false
+}

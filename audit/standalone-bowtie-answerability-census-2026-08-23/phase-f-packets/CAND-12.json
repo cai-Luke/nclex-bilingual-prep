@@ -1,0 +1,1165 @@
+{
+  "instruction": "The Stage-1, Stage-2, and Phase-E records are immutable. Inspect the paired case only now. Classify provenance for every Phase-E missing client fact, distinguish sibling necessity from corroboration, apply the fixed verdict precedence, and record narrow bilingual/clinical/scope collateral observations. Do not revise Phase E and do not propose content edits beyond an advisory P0-P3 priority.",
+  "phaseESha256": "33ab94cc26f389df7563eec85df4d556cfc129efab7afdb7d7b13dd3b31b2b7b",
+  "siblingCase": {
+    "caseStudy": {
+      "exhibits": [
+        {
+          "content": {
+            "en": "Admitted 2 days ago for hypertensive urgency; arrival BP 218/114. History: CKD stage 3b, baseline creatinine 1.5 mg/dL/eGFR 37 mL/min; HFpEF; type 2 diabetes. Orders updated at 1400: amlodipine 10 mg PO daily, increased from 5 mg after BP trend 168-174/92-96; lisinopril 20 mg PO daily; metformin 500 mg PO twice daily held per pharmacy renal-dose flag pending repeat labs; sliding-scale insulin per protocol. Telemetry in place. Plan: observe BP response to amlodipine increase over the next 24 hours before discharge consideration.",
+            "zh": "入院 2 天，原因是高血压急症；到达急诊时 BP 218/114。病史：CKD 3b 期，基线肌酐 1.5 mg/dL/eGFR 37 mL/min；射血分数保留型心力衰竭；2 型糖尿病。1400 更新医嘱：氨氯地平 10 mg PO 每日一次，因 BP 趋势 168-174/92-96 由 5 mg 增量；赖诺普利 20 mg PO 每日一次；二甲双胍 500 mg PO 每日两次，因药房肾功能剂量提醒暂停，等待复查实验室结果；按流程使用滑动比例胰岛素。已使用遥测监护。计划：观察氨氯地平增量后 24 小时内 BP 反应，再考虑出院。"
+          },
+          "id": "baseline_client_record",
+          "title": {
+            "en": "Client background and active orders",
+            "zh": "患者背景和当前医嘱"
+          }
+        },
+        {
+          "content": {
+            "en": "1930 assessment: T 36.8 C, HR 78 regular, BP 152/88 left arm sitting, RR 16, SpO2 96% room air. Alert and oriented x4. Heart regular S1/S2, no S3 or murmur. Lungs clear. Trace bilateral pedal edema unchanged. Pain 0/10. Telemetry: normal sinus rhythm without ectopy. MAR: amlodipine 10 mg given at 1700; next amlodipine 0900 tomorrow. Lisinopril 20 mg given at 0900; next dose 0900 tomorrow. No PRN antihypertensive ordered. 0600 labs: Na 139, K 4.4, Cl 102, CO2 22, BUN 34, creatinine 1.6, eGFR 34, glucose 148, calcium 8.8, magnesium 1.9, phosphorus 4.2. CBC: WBC 7,200, Hgb 11.4, platelets 198,000. BNP 320, stable from 340. UA: no protein, no blood, specific gravity 1.018.",
+            "zh": "1930 评估：T 36.8 C，HR 78 次/分且规则，左臂坐位 BP 152/88，RR 16，室内空气 SpO2 96%。清醒，定向力 x4。心律规则，S1/S2，可未闻及 S3 或杂音。双肺清。双足轻度水肿，较入院无变化。疼痛 0/10。遥测：正常窦性心律，无异位搏动。MAR：1700 已给氨氯地平 10 mg；下一次为明日 0900。0900 已给赖诺普利 20 mg；下一次为明日 0900。未开立 PRN 降压药。0600 实验室：Na 139，K 4.4，Cl 102，CO2 22，BUN 34，肌酐 1.6，eGFR 34，葡萄糖 148，钙 8.8，镁 1.9，磷 4.2。CBC：WBC 7,200，Hgb 11.4，血小板 198,000。BNP 320，较 340 稳定。尿检：无蛋白、无血，尿比重 1.018。"
+          },
+          "id": "baseline_assessment_labs",
+          "title": {
+            "en": "1930 baseline assessment and 0600 labs",
+            "zh": "1930 基线评估和 0600 实验室结果"
+          }
+        }
+      ],
+      "questions": [
+        {
+          "category": "Management of Care",
+          "difficulty": "hard",
+          "glossary": [
+            {
+              "defZh": "同事之间贬低、排斥、羞辱或破坏专业沟通的行为。",
+              "termEn": "Lateral incivility",
+              "termZh": "横向不文明行为"
+            },
+            {
+              "defZh": "护士在交接护理责任时传递患者关键资料、近期变化和后续计划的过程。",
+              "termEn": "Handoff",
+              "termZh": "交接班"
+            },
+            {
+              "defZh": "描述可观察行为及其影响，而不是评价对方人格或动机的沟通方式。",
+              "termEn": "Behavior-focused feedback",
+              "termZh": "聚焦行为的反馈"
+            }
+          ],
+          "highlight": {
+            "correct": [
+              "s3",
+              "s4",
+              "s5",
+              "s6",
+              "s7",
+              "s8",
+              "s9",
+              "s10"
+            ],
+            "segments": [
+              {
+                "en": "Renee speaks rapidly during the bedside handoff.",
+                "id": "s1",
+                "selectable": true,
+                "zh": "Renee 在床旁交接时语速很快。"
+              },
+              {
+                "en": "Renee stands with crossed arms and does not make eye contact.",
+                "id": "s2",
+                "selectable": true,
+                "zh": "Renee 双臂交叉站着，并且没有眼神交流。"
+              },
+              {
+                "en": "Renee says, \"Meds are on the MAR — you can read.\"",
+                "id": "s3",
+                "selectable": true,
+                "zh": "Renee 说：“药物在 MAR 上——你自己会看。”"
+              },
+              {
+                "en": "Renee visibly rolls her eyes when Priya asks whether any medications changed, and Mrs. Vega sees it.",
+                "id": "s4",
+                "selectable": true,
+                "zh": "Priya 询问药物是否有变更时，Renee 明显翻白眼，而且 Vega 太太看见了。"
+              },
+              {
+                "en": "Renee says, \"I'm not going to spoon-feed you.\"",
+                "id": "s5",
+                "selectable": true,
+                "zh": "Renee 说：“我不会手把手喂给你。”"
+              },
+              {
+                "en": "Renee leaves the room without allowing time for questions.",
+                "id": "s6",
+                "selectable": true,
+                "zh": "Renee 没有留下提问时间就离开病房。"
+              },
+              {
+                "en": "Renee does not verbally communicate that amlodipine was increased from 5 mg to 10 mg and given at 1700.",
+                "id": "s7",
+                "selectable": true,
+                "zh": "Renee 没有口头交代氨氯地平已从 5 mg 增至 10 mg，并已在 1700 给药。"
+              },
+              {
+                "en": "Renee does not verbally communicate the hospitalist's instruction to monitor BP q4h for 24 hours.",
+                "id": "s8",
+                "selectable": true,
+                "zh": "Renee 没有口头交代住院医嘱要求 24 小时内每 4 小时监测 BP。"
+              },
+              {
+                "en": "In the hallway Renee says, \"She'll be calling you every five minutes to hold her hand.\"",
+                "id": "s9",
+                "selectable": true,
+                "zh": "Renee 在走廊说：“她每五分钟都会叫你去哄她。”"
+              },
+              {
+                "en": "Priya accepts the incomplete report and moves on without clarifying or escalating.",
+                "id": "s10",
+                "selectable": true,
+                "zh": "Priya 接受了不完整的交接，没有进一步澄清或升级处理就继续工作。"
+              }
+            ]
+          },
+          "id": "gpt_case_lateral_incivility_01_q1",
+          "itemType": "highlight",
+          "ngnSkill": "recognize_cues",
+          "rationale": {
+            "byChoice": [
+              {
+                "en": "Rapid speech can make handoff less effective, but by itself it may reflect time pressure and is not the strongest cue of incivility or a safety omission.",
+                "refId": "s1",
+                "zh": "语速快可能影响交接效果，但单独来看也可能只是时间压力；它不是最明确的不文明行为或安全遗漏线索。"
+              },
+              {
+                "en": "Closed body language contributes to the tone, but the charge nurse should anchor on the concrete dismissive statements and omitted safety information.",
+                "refId": "s2",
+                "zh": "封闭的肢体语言会影响氛围，但护士长应重点关注具体的贬低性语言和遗漏的安全信息。"
+              },
+              {
+                "en": "This dismisses a reasonable clarification question and undermines professional handoff communication.",
+                "refId": "s3",
+                "zh": "这句话否定了合理的澄清问题，破坏了专业交接沟通。"
+              },
+              {
+                "en": "The eye-roll is disrespectful, occurs in front of the patient, and visibly undermines the oncoming nurse.",
+                "refId": "s4",
+                "zh": "翻白眼是不尊重的行为，发生在患者面前，并明显削弱接班护士的专业形象。"
+              },
+              {
+                "en": "This is demeaning language directed at a colleague and is a direct cue of lateral incivility.",
+                "refId": "s5",
+                "zh": "这是针对同事的贬低性语言，是横向不文明行为的直接线索。"
+              },
+              {
+                "en": "Leaving without opportunity for questions prevents a safe closed-loop handoff.",
+                "refId": "s6",
+                "zh": "不给提问机会就离开，会阻断安全的闭环交接。"
+              },
+              {
+                "en": "The same-day dose increase is clinically important and should be verbally communicated during handoff.",
+                "refId": "s7",
+                "zh": "当天剂量增加是重要临床变化，应在交接时口头说明。"
+              },
+              {
+                "en": "The q4h BP monitoring instruction is an answer-bearing safety order; omitting it creates a foreseeable care gap.",
+                "refId": "s8",
+                "zh": "每 4 小时监测 BP 是安全相关医嘱；遗漏会造成可预见的护理缺口。"
+              },
+              {
+                "en": "The hallway comment publicly belittles Priya and normalizes ridicule of a newer nurse.",
+                "refId": "s9",
+                "zh": "走廊里的评价公开贬低 Priya，并把嘲笑新护士正常化。"
+              },
+              {
+                "en": "Priya is not the source of the incivility, but accepting an incomplete handoff without clarification is a safety-relevant cue for coaching.",
+                "refId": "s10",
+                "zh": "Priya 不是不文明行为的来源，但不澄清就接受不完整交接，是需要指导的安全相关线索。"
+              }
+            ],
+            "correct": {
+              "en": "The key cues are the dismissive statements, the eye-roll in front of the patient, the failure to allow questions, the omitted medication-change and monitoring-order information, the public belittling comment, and Priya's failure to advocate for a complete report. Rapid speech and crossed arms contribute to tone but are less specific as isolated cues.",
+              "zh": "关键线索包括贬低性话语、在患者面前翻白眼、不给提问机会、遗漏药物变更和监测医嘱、公开贬低同事，以及 Priya 未能要求完整交接。语速快和双臂交叉会影响氛围，但单独来看不如这些线索具体。"
+            }
+          },
+          "stem": {
+            "en": "Stage 1: Highlight the specific cues Marcus should identify as requiring charge-nurse intervention because they show lateral incivility, a safety-relevant handoff omission, or a receiving-nurse response that needs coaching.",
+            "zh": "第 1 阶段：请标出 Marcus 应识别为需要护士长介入的具体线索，因为它们显示横向不文明行为、与安全相关的交接遗漏，或接班护士需要指导的反应。"
+          },
+          "testTakingStrategy": {
+            "en": "For cue-recognition items, separate vague tone cues from concrete behaviors and omissions that can affect client safety.",
+            "zh": "做识别线索题时，要把笼统的语气/态度线索与会影响患者安全的具体行为和遗漏区分开。"
+          },
+          "topic": "Conflict Resolution"
+        },
+        {
+          "category": "Management of Care",
+          "correct": [
+            {
+              "columnIds": [
+                "c_incivility"
+              ],
+              "rowId": "r1"
+            },
+            {
+              "columnIds": [
+                "c_incivility"
+              ],
+              "rowId": "r2"
+            },
+            {
+              "columnIds": [
+                "c_incivility"
+              ],
+              "rowId": "r3"
+            },
+            {
+              "columnIds": [
+                "c_safety"
+              ],
+              "rowId": "r4"
+            },
+            {
+              "columnIds": [
+                "c_assertive"
+              ],
+              "rowId": "r5"
+            },
+            {
+              "columnIds": [
+                "c_assertive"
+              ],
+              "rowId": "r6"
+            }
+          ],
+          "difficulty": "medium",
+          "glossary": [
+            {
+              "defZh": "同事之间贬低、排斥、羞辱或破坏专业沟通的行为。",
+              "termEn": "Lateral incivility",
+              "termZh": "横向不文明行为"
+            },
+            {
+              "defZh": "护士在交接护理责任时传递患者关键资料、近期变化和后续计划的过程。",
+              "termEn": "Handoff",
+              "termZh": "交接班"
+            },
+            {
+              "defZh": "描述可观察行为及其影响，而不是评价对方人格或动机的沟通方式。",
+              "termEn": "Behavior-focused feedback",
+              "termZh": "聚焦行为的反馈"
+            }
+          ],
+          "id": "gpt_case_lateral_incivility_01_q2",
+          "itemType": "matrix",
+          "matrix": {
+            "columns": [
+              {
+                "en": "Patient-safety communication failure/professional lapse",
+                "id": "c_safety",
+                "zh": "患者安全沟通失败/专业失误"
+              },
+              {
+                "en": "Lateral incivility",
+                "id": "c_incivility",
+                "zh": "横向不文明行为"
+              },
+              {
+                "en": "Assertive/acceptable communication or not incivility by itself",
+                "id": "c_assertive",
+                "zh": "坚定且可接受的沟通，或单独来看不是不文明行为"
+              }
+            ],
+            "rows": [
+              {
+                "en": "\"Meds are on the MAR — you can read.\"",
+                "id": "r1",
+                "zh": "“药物在 MAR 上——你自己会看。”"
+              },
+              {
+                "en": "Visible eye-roll in front of the patient when Priya asks about medication changes",
+                "id": "r2",
+                "zh": "Priya 询问药物变更时，在患者面前明显翻白眼"
+              },
+              {
+                "en": "Hallway comment that Priya will call every five minutes to \"hold her hand\"",
+                "id": "r3",
+                "zh": "在走廊说 Priya 会每五分钟叫人去“哄她”"
+              },
+              {
+                "en": "Failure to verbally communicate the amlodipine dose change and q4h BP monitoring order",
+                "id": "r4",
+                "zh": "未口头交代氨氯地平剂量变更和每 4 小时 BP 监测医嘱"
+              },
+              {
+                "en": "Speaking rapidly during a busy change-of-shift handoff",
+                "id": "r5",
+                "zh": "在繁忙交接班时语速较快"
+              },
+              {
+                "en": "Privately telling a newer nurse, \"Check the MAR before handoff so we can focus on changes — let's make that our routine.\"",
+                "id": "r6",
+                "zh": "私下对新护士说：“交接前先查看 MAR，这样我们可以重点讨论变化——以后就按这个流程来。”"
+              }
+            ],
+            "selectionMode": "single_per_row"
+          },
+          "ngnSkill": "analyze_cues",
+          "rationale": {
+            "byChoice": [
+              {
+                "en": "This statement belittles Priya rather than answering a reasonable handoff question.",
+                "refId": "r1",
+                "zh": "这句话贬低 Priya，而不是回答合理的交接问题。"
+              },
+              {
+                "en": "The eye-roll humiliates the nurse in front of the patient and undermines the handoff.",
+                "refId": "r2",
+                "zh": "翻白眼让护士在患者面前难堪，并破坏交接。"
+              },
+              {
+                "en": "The public hallway comment ridicules a colleague and is not harmless venting.",
+                "refId": "r3",
+                "zh": "公开在走廊嘲笑同事，不是无害的抱怨。"
+              },
+              {
+                "en": "The omission directly removes clinically necessary information from handoff and contributes to a missed monitoring plan.",
+                "refId": "r4",
+                "zh": "该遗漏直接使临床必要信息没有进入交接，并导致监测计划漏执行。"
+              },
+              {
+                "en": "Rapid speech can be problematic for clarity, but without demeaning content it is not incivility by itself.",
+                "refId": "r5",
+                "zh": "语速快可能影响清晰度，但没有贬低内容时，单独来看不是不文明行为。"
+              },
+              {
+                "en": "This statement sets a clear expectation privately and respectfully, which is assertive rather than uncivil.",
+                "refId": "r6",
+                "zh": "这句话私下且尊重地设定明确期望，是坚定沟通而不是不文明行为。"
+              }
+            ],
+            "correct": {
+              "en": "Incivility is defined by demeaning or disrespectful behavior toward a colleague. The omitted medication and monitoring information is a patient-safety communication failure. Rapid speech alone may reflect workload, and a private, respectful redirect is assertive professional communication.",
+              "zh": "不文明行为的核心是贬低或不尊重同事。遗漏药物和监测信息属于患者安全沟通失败。单独的语速快可能反映工作负荷；私下、尊重地纠正属于坚定的专业沟通。"
+            }
+          },
+          "stem": {
+            "en": "Stage 1: Classify each communication behavior.",
+            "zh": "第 1 阶段：请将每一种沟通行为分类。"
+          },
+          "testTakingStrategy": {
+            "en": "Ask whether the behavior corrects practice respectfully or humiliates the person. Firm is not the same as uncivil.",
+            "zh": "判断行为是在尊重地纠正实践，还是在羞辱个人。坚定不等于不文明。"
+          },
+          "topic": "Conflict Resolution"
+        },
+        {
+          "category": "Management of Care",
+          "correct": [
+            "B"
+          ],
+          "difficulty": "hard",
+          "glossary": [
+            {
+              "defZh": "医嘱或流程中规定需要通知医护人员的具体阈值或症状。",
+              "termEn": "Call parameter",
+              "termZh": "通知医嘱参数"
+            },
+            {
+              "defZh": "关键信息未被传递，导致护理计划或监测未按要求执行。",
+              "termEn": "Client-safety communication breakdown",
+              "termZh": "患者安全沟通中断"
+            },
+            {
+              "defZh": "心脏收缩时动脉内的压力。",
+              "termEn": "SBP",
+              "termZh": "收缩压"
+            }
+          ],
+          "id": "gpt_case_lateral_incivility_01_q3",
+          "itemType": "multiple_choice",
+          "ngnSkill": "prioritize_hypotheses",
+          "options": [
+            {
+              "en": "A documentation problem that can be resolved after the shift because the client is alert and oriented",
+              "id": "D",
+              "zh": "这是记录问题；患者清醒定向良好，可等班后再处理"
+            },
+            {
+              "en": "A client-safety communication breakdown with missed monitoring and a current BP above the provider call threshold",
+              "id": "B",
+              "zh": "患者安全沟通中断，导致漏监测，且当前 BP 超过通知医护人员的阈值"
+            },
+            {
+              "en": "Priya's inexperience and failure to independently identify the amlodipine dose increase",
+              "id": "C",
+              "zh": "Priya 经验不足，未能独立发现氨氯地平剂量增加"
+            },
+            {
+              "en": "The interpersonal conflict between Renee and Priya, which should be mediated before contacting the provider",
+              "id": "A",
+              "zh": "Renee 和 Priya 之间的人际冲突，应先调解后再联系医护人员"
+            }
+          ],
+          "rationale": {
+            "byChoice": [
+              {
+                "en": "Priya needs coaching, but focusing primarily on her inexperience shifts attention away from the active clinical risk and the failed handoff.",
+                "refId": "C",
+                "zh": "Priya 需要指导，但把重点放在她经验不足，会偏离当前临床风险和交接失败。"
+              },
+              {
+                "en": "The conflict is an upstream cause, but delaying provider notification leaves the client above the call threshold with symptoms.",
+                "refId": "A",
+                "zh": "冲突是上游原因，但延迟通知医护人员会让患者在有症状且超过通知阈值的状态下等待。"
+              },
+              {
+                "en": "This identifies the active safety problem: missed q4h monitoring and a symptomatic BP elevation above the stated call parameter.",
+                "refId": "B",
+                "zh": "这指出了当前安全问题：漏做每 4 小时监测，且有症状的血压升高已超过明确通知参数。"
+              },
+              {
+                "en": "This minimizes the event. A symptomatic BP above the call threshold is not merely a documentation issue.",
+                "refId": "D",
+                "zh": "这低估了事件严重性。有症状且超过通知阈值的 BP 不是单纯记录问题。"
+              }
+            ],
+            "correct": {
+              "en": "Client safety is the immediate priority. Mrs. Vega is symptomatic and her SBP of 186 exceeds the hospitalist's call parameter of SBP > 180. The incivility and Priya's learning needs matter, but the active care gap must be closed first.",
+              "zh": "患者安全是立即优先事项。Vega 太太有症状，SBP 186 已超过住院医规定的 SBP > 180 通知阈值。不文明行为和 Priya 的学习需要都重要，但必须先关闭当前护理缺口。"
+            }
+          },
+          "stem": {
+            "en": "Stage 2: Priya reports that Mrs. Vega's BP is 186/102 with a headache, the amlodipine dose change was not communicated, and the 1800 q4h BP check was missed. What is the priority problem for Marcus to address?",
+            "zh": "第 2 阶段：Priya 报告 Vega 太太 BP 为 186/102，并有头痛；氨氯地平剂量变更未被交代，1800 的每 4 小时 BP 检查也漏做。Marcus 优先要处理的问题是什么？"
+          },
+          "testTakingStrategy": {
+            "en": "When a conduct issue and a client-safety issue coexist, handle the active physiologic/safety risk first, then address the conduct process.",
+            "zh": "当职业行为问题和患者安全问题同时存在时，先处理当前生理/安全风险，再处理行为和流程问题。"
+          },
+          "topic": "Conflict Resolution"
+        },
+        {
+          "category": "Management of Care",
+          "correct": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "difficulty": "hard",
+          "glossary": [
+            {
+              "defZh": "同事之间贬低、排斥、羞辱或破坏专业沟通的行为。",
+              "termEn": "Lateral incivility",
+              "termZh": "横向不文明行为"
+            },
+            {
+              "defZh": "用于记录安全事件、近失误或流程缺陷的机构内部报告。",
+              "termEn": "Incident report",
+              "termZh": "事件报告"
+            },
+            {
+              "defZh": "描述可观察行为及其影响，而不是评价对方人格或动机的沟通方式。",
+              "termEn": "Behavior-focused feedback",
+              "termZh": "聚焦行为的反馈"
+            }
+          ],
+          "id": "gpt_case_lateral_incivility_01_q4",
+          "itemType": "select_all",
+          "ngnSkill": "generate_solutions",
+          "options": [
+            {
+              "en": "Speak privately with Priya to acknowledge the inadequate handoff and coach her to ask clarifying questions or escalate incomplete reports.",
+              "id": "C",
+              "zh": "私下与 Priya 交谈，承认交接不足，并指导她对不完整交接提出澄清问题或升级处理。"
+            },
+            {
+              "en": "Publicly reprimand Renee at the next staff meeting to set an example.",
+              "id": "E",
+              "zh": "在下一次员工会议上公开训斥 Renee，以儆效尤。"
+            },
+            {
+              "en": "Instruct Priya to notify the hospitalist now and report the BP, headache, and missed monitoring.",
+              "id": "A",
+              "zh": "指导 Priya 立即通知住院医，并报告 BP、头痛和漏监测情况。"
+            },
+            {
+              "en": "Do not document the incident because the BP spike was caught before serious harm occurred.",
+              "id": "F",
+              "zh": "不要记录此事件，因为血压升高在造成严重伤害前已被发现。"
+            },
+            {
+              "en": "Speak privately with Renee, focusing on observed behaviors and the impact on patient care rather than personality.",
+              "id": "B",
+              "zh": "私下与 Renee 交谈，聚焦观察到的行为及其对患者护理的影响，而不是评价人格。"
+            },
+            {
+              "en": "Complete the appropriate safety/professional-conduct reporting and notify the nurse manager for follow-up.",
+              "id": "D",
+              "zh": "完成相应的安全/专业行为报告，并通知护士经理跟进。"
+            }
+          ],
+          "rationale": {
+            "byChoice": [
+              {
+                "en": "The event involved missed monitoring and a BP above call parameters; lack of severe harm does not remove the need to document.",
+                "refId": "F",
+                "zh": "事件包括漏监测和 BP 超过通知参数；没有严重伤害并不代表无需记录。"
+              },
+              {
+                "en": "Reporting and manager notification create organizational follow-through for both the safety event and the conduct pattern.",
+                "refId": "D",
+                "zh": "报告和通知护士经理可为安全事件和行为模式建立组织层面的后续处理。"
+              },
+              {
+                "en": "Public shaming is itself unprofessional and can worsen the unit culture.",
+                "refId": "E",
+                "zh": "公开羞辱本身就是不专业行为，可能进一步恶化科室文化。"
+              },
+              {
+                "en": "Priya was placed in a difficult situation but still needs coaching on how to obtain a complete handoff and verify recent orders.",
+                "refId": "C",
+                "zh": "Priya 处境困难，但仍需要学习如何获得完整交接并核对近期医嘱。"
+              },
+              {
+                "en": "Private, behavior-focused feedback addresses the professional-conduct problem without attacking character.",
+                "refId": "B",
+                "zh": "私下、聚焦行为的反馈可处理职业行为问题，同时避免人格攻击。"
+              },
+              {
+                "en": "This closes the active care gap because the BP exceeds the provider's stated call threshold and the client is symptomatic.",
+                "refId": "A",
+                "zh": "这能关闭当前护理缺口，因为 BP 超过医护人员通知阈值且患者有症状。"
+              }
+            ],
+            "correct": {
+              "en": "Marcus must address the immediate care gap, then use private behavior-focused conversations, coaching, documentation, and manager notification to address the incivility and system failure. Public reprimand escalates incivility, and not documenting removes accountability.",
+              "zh": "Marcus 必须先处理当前护理缺口，然后通过私下、聚焦行为的谈话、指导、记录和通知护士经理来处理不文明行为和系统失效。公开训斥会升级不文明行为；不记录会移除问责。"
+            }
+          },
+          "stem": {
+            "en": "Stage 2: Which actions should Marcus include in the charge-nurse response? Select all that apply.",
+            "zh": "第 2 阶段：Marcus 作为护士长应采取哪些措施？请选择所有适用项。"
+          },
+          "testTakingStrategy": {
+            "en": "For management-of-care SATA items, choose actions that protect the client now and create accountable follow-up later.",
+            "zh": "做护理管理类多选题时，选择既能立即保护患者、又能建立后续问责的措施。"
+          },
+          "topic": "Conflict Resolution"
+        },
+        {
+          "category": "Management of Care",
+          "correct": [
+            "A"
+          ],
+          "difficulty": "medium",
+          "glossary": [
+            {
+              "defZh": "医嘱或流程中规定需要通知医护人员的具体阈值或症状。",
+              "termEn": "Call parameter",
+              "termZh": "通知医嘱参数"
+            },
+            {
+              "defZh": "对某位患者当班护理评估、执行医嘱和沟通负主要责任的护士。",
+              "termEn": "Primary nurse",
+              "termZh": "责任护士"
+            },
+            {
+              "defZh": "按照医嘱参数、病情变化或机构流程联系医师/高级执业人员。",
+              "termEn": "Provider notification",
+              "termZh": "通知医护人员"
+            }
+          ],
+          "id": "gpt_case_lateral_incivility_01_q5",
+          "itemType": "multiple_choice",
+          "ngnSkill": "take_action",
+          "options": [
+            {
+              "en": "Take over the primary nurse's role and call the hospitalist himself without involving Priya.",
+              "id": "E",
+              "zh": "Marcus 自己接管责任护士角色，直接联系住院医，不让 Priya 参与。"
+            },
+            {
+              "en": "Tell Priya to notify the hospitalist now using the stated call parameter and report the current BP, headache, and missed monitoring.",
+              "id": "A",
+              "zh": "告诉 Priya 依据明确通知参数立即联系住院医，并报告当前 BP、头痛和漏监测。"
+            },
+            {
+              "en": "Complete the incident report before contacting the hospitalist so the event is documented accurately.",
+              "id": "C",
+              "zh": "先完成事件报告，确保记录准确后再联系住院医。"
+            },
+            {
+              "en": "Call Renee first to hear her perspective on the handoff before taking further action.",
+              "id": "B",
+              "zh": "先打电话给 Renee，听取她对交接的看法，再采取进一步措施。"
+            },
+            {
+              "en": "Have Priya recheck the BP at the next q4h interval because the headache is mild.",
+              "id": "D",
+              "zh": "因为头痛较轻，让 Priya 到下一次每 4 小时间隔时再复测 BP。"
+            }
+          ],
+          "rationale": {
+            "byChoice": [
+              {
+                "en": "Waiting for the next interval ignores the explicit call parameter and the current symptom.",
+                "refId": "D",
+                "zh": "等到下一次监测忽视了明确通知参数和当前症状。"
+              },
+              {
+                "en": "Documentation is necessary, but it must not come before provider notification for a symptomatic BP above parameters.",
+                "refId": "C",
+                "zh": "记录是必要的，但不能优先于对有症状且超过参数 BP 的医护人员通知。"
+              },
+              {
+                "en": "The charge nurse should ensure the call happens and support Priya; completely taking over misses a coaching opportunity unless the situation exceeds Priya's ability despite support.",
+                "refId": "E",
+                "zh": "护士长应确保通话完成并支持 Priya；除非在支持下仍超出 Priya 能力，否则完全接管会错过教学机会。"
+              },
+              {
+                "en": "Renee's perspective can be addressed later; this delays care while the client is above the call threshold.",
+                "refId": "B",
+                "zh": "Renee 的看法可以稍后处理；此时这样做会在患者超过通知阈值时延误护理。"
+              },
+              {
+                "en": "This immediately addresses the active safety issue while keeping the primary nurse engaged in her role.",
+                "refId": "A",
+                "zh": "这能立即处理当前安全问题，同时让责任护士继续履行职责。"
+              }
+            ],
+            "correct": {
+              "en": "The first action is to ensure the hospitalist is notified now because the stated SBP > 180 parameter has been crossed and the client has a headache. Supporting Priya through the call preserves patient safety and builds her competence.",
+              "zh": "首要措施是确保立即通知住院医，因为明确的 SBP > 180 参数已被触发，且患者有头痛。护士长支持 Priya 完成通话，既保护患者安全，也培养她的能力。"
+            }
+          },
+          "stem": {
+            "en": "Stage 2: What should Marcus do first?",
+            "zh": "第 2 阶段：Marcus 首先应该做什么？"
+          },
+          "testTakingStrategy": {
+            "en": "For first-action questions, identify the intervention that reduces the current risk without unnecessary delay.",
+            "zh": "做首要措施题时，找出能立即降低当前风险且不造成不必要延误的措施。"
+          },
+          "topic": "Conflict Resolution"
+        },
+        {
+          "category": "Management of Care",
+          "correct": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "difficulty": "hard",
+          "glossary": [
+            {
+              "defZh": "护士在交接护理责任时传递患者关键资料、近期变化和后续计划的过程。",
+              "termEn": "Handoff",
+              "termZh": "交接班"
+            },
+            {
+              "defZh": "用于记录安全事件、近失误或流程缺陷的机构内部报告。",
+              "termEn": "Incident report",
+              "termZh": "事件报告"
+            },
+            {
+              "defZh": "判断干预是否达到预期临床和流程目标的护理判断步骤。",
+              "termEn": "Outcome evaluation",
+              "termZh": "结果评价"
+            }
+          ],
+          "id": "gpt_case_lateral_incivility_01_q6",
+          "itemType": "select_all",
+          "ngnSkill": "evaluate_outcomes",
+          "options": [
+            {
+              "en": "Renee and Priya become personally friendly and socialize together during breaks.",
+              "id": "E",
+              "zh": "Renee 和 Priya 私下变得亲近，并在休息时一起社交。"
+            },
+            {
+              "en": "Subsequent handoffs include verbal medication changes, monitoring orders, and time for clarifying questions.",
+              "id": "C",
+              "zh": "后续交接包括口头说明药物变更、监测医嘱，并留出澄清问题时间。"
+            },
+            {
+              "en": "Mrs. Vega's BP decreases from 186/102 to 162/90 and then 154/86, and her headache resolves.",
+              "id": "A",
+              "zh": "Vega 太太 BP 从 186/102 降至 162/90，再到 154/86，头痛消失。"
+            },
+            {
+              "en": "No further care omissions related to handoff occur, and nurse-manager follow-up is documented.",
+              "id": "D",
+              "zh": "未再发生与交接相关的护理遗漏，并且护士经理的跟进已记录。"
+            },
+            {
+              "en": "Priya documents the q4h BP checks and updates the care plan with the current amlodipine dose and monitoring schedule.",
+              "id": "B",
+              "zh": "Priya 记录每 4 小时 BP 检查，并在护理计划中更新当前氨氯地平剂量和监测安排。"
+            },
+            {
+              "en": "Mrs. Vega's serum creatinine trend improves during the admission.",
+              "id": "F",
+              "zh": "Vega 太太住院期间血清肌酐趋势改善。"
+            }
+          ],
+          "rationale": {
+            "byChoice": [
+              {
+                "en": "This shows the immediate clinical intervention was effective.",
+                "refId": "A",
+                "zh": "这说明即时临床干预有效。"
+              },
+              {
+                "en": "Creatinine is relevant to CKD management, but it does not measure whether the handoff failure was resolved.",
+                "refId": "F",
+                "zh": "肌酐与 CKD 管理相关，但不能衡量交接失败是否已解决。"
+              },
+              {
+                "en": "This shows the missed monitoring plan has been corrected in actual care and documentation.",
+                "refId": "B",
+                "zh": "这说明漏执行的监测计划已在实际护理和记录中得到纠正。"
+              },
+              {
+                "en": "Absence of repeat omissions and manager follow-up indicate the system response did not stop at a single conversation.",
+                "refId": "D",
+                "zh": "没有重复遗漏且有护士经理跟进，说明系统反应没有停留在一次谈话。"
+              },
+              {
+                "en": "This directly evaluates whether the handoff communication pattern changed.",
+                "refId": "C",
+                "zh": "这直接评估交接沟通模式是否改变。"
+              },
+              {
+                "en": "Personal friendship is not required for safe professional communication.",
+                "refId": "E",
+                "zh": "安全的专业沟通不要求双方成为私人朋友。"
+              }
+            ],
+            "correct": {
+              "en": "Resolution requires clinical and process evidence: BP improves and symptoms resolve, monitoring is performed and documented, the care plan reflects the order, handoffs become complete and professional, and manager follow-up occurs. Friendship and creatinine trends do not evaluate the communication breakdown.",
+              "zh": "解决情况需要临床和流程两方面证据：BP 改善且症状消失，监测已执行并记录，护理计划反映医嘱，交接变得完整且专业，并有护士经理跟进。个人友谊和肌酐趋势不能评价沟通中断是否解决。"
+            }
+          },
+          "stem": {
+            "en": "Stage 3: Which findings best show that Marcus's interventions addressed both the care gap and the communication breakdown? Select all that apply.",
+            "zh": "第 3 阶段：哪些发现最能说明 Marcus 的干预同时处理了护理缺口和沟通中断？请选择所有适用项。"
+          },
+          "testTakingStrategy": {
+            "en": "Outcome evaluation should match the original problem: check both the client response and the process that caused the risk.",
+            "zh": "评价结果时要对应原问题：既看患者反应，也看造成风险的流程是否改善。"
+          },
+          "topic": "Conflict Resolution"
+        }
+      ],
+      "stages": [
+        {
+          "exhibits": [
+            {
+              "content": {
+                "en": "Marcus hears Renee rapidly state: 'Vega, room 312, hypertension, CKD, the usual. Vitals have been fine. Meds are on the MAR — you can read.' When Priya asks about medication changes, Renee visibly rolls her eyes in front of Mrs. Vega and says, 'I just told you, it's on the MAR. I'm not going to spoon-feed you.' Renee leaves without allowing questions and does not mention the amlodipine dose increase or q4h BP monitoring instruction. In the hallway, Renee says loudly enough for staff to hear: 'Good luck tonight — she'll be calling you every five minutes to hold her hand.' Priya looks shaken and does not pursue clarification.",
+                "zh": "Marcus 听到 Renee 快速说：“Vega，312 房，高血压、CKD，老样子。生命体征都还好。药物在 MAR 上——你自己会看。” Priya 询问药物是否有变更时，Renee 在 Vega 太太面前明显翻白眼，并说：“我刚说了，在 MAR 上。我不会手把手喂给你。” Renee 未留下提问时间就离开，也没有说明氨氯地平加量或每 4 小时 BP 监测医嘱。走廊里，Renee 用附近员工能听见的音量说：“祝你今晚好运——她每五分钟都会叫你去哄她。” Priya 看起来受到影响，没有继续澄清。"
+              },
+              "id": "stage_1_handoff",
+              "title": {
+                "en": "Observed handoff",
+                "zh": "观察到的交接"
+              }
+            }
+          ],
+          "id": "stage_1",
+          "title": {
+            "en": "Stage 1: 1915-2000, bedside handoff and immediate aftermath",
+            "zh": "第 1 阶段：1915-2000，床旁交接及其直接后果"
+          }
+        },
+        {
+          "exhibits": [
+            {
+              "content": {
+                "en": "Priya has been taking vitals on the routine q8h schedule. At 2200: T 36.9 C, HR 92, BP 186/102, RR 18, SpO2 96%. Mrs. Vega reports a mild headache 3/10. She is alert and oriented x4, with no visual changes, chest pain, or shortness of breath. Telemetry shows sinus tachycardia at 92, no ST changes. Priya finds the 1400 hospitalist note: 'Monitor BP q4h x 24 hours to assess response to dose increase; call if SBP > 180 or < 110, or if symptomatic hypotension.' The 1800 q4h check was missed. No PRN antihypertensive is ordered. Marcus verifies that SBP > 180 crosses the call threshold.",
+                "zh": "Priya 一直按常规每 8 小时测生命体征。2200：T 36.9 C，HR 92，BP 186/102，RR 18，SpO2 96%。Vega 太太报告轻度头痛 3/10。她清醒定向 x4，无视物改变、胸痛或气短。遥测显示窦性心动过速 92 次/分，无 ST 改变。Priya 找到 1400 住院医记录：“为评估剂量增加后的反应，24 小时内每 4 小时监测 BP；若 SBP > 180 或 < 110，或出现症状性低血压则通知。” 1800 的每 4 小时检查已漏做。未开立 PRN 降压药。Marcus 确认 SBP > 180 已达到通知阈值。"
+              },
+              "id": "stage_2_bp_spike",
+              "structuredMeasurements": {
+                "panels": [
+                  {
+                    "columns": [
+                      {
+                        "id": "current",
+                        "label": {
+                          "en": "2200",
+                          "zh": "2200"
+                        }
+                      }
+                    ],
+                    "kind": "vitals",
+                    "rows": [
+                      {
+                        "key": "temp",
+                        "label": {
+                          "en": "Temperature",
+                          "zh": "体温"
+                        },
+                        "values": [
+                          {
+                            "columnId": "current",
+                            "unit": "°C",
+                            "value": "36.9"
+                          }
+                        ]
+                      },
+                      {
+                        "key": "hr",
+                        "label": {
+                          "en": "Heart rate",
+                          "zh": "心率"
+                        },
+                        "values": [
+                          {
+                            "columnId": "current",
+                            "unit": "bpm",
+                            "value": "92"
+                          }
+                        ]
+                      },
+                      {
+                        "key": "sbp",
+                        "label": {
+                          "en": "Systolic BP",
+                          "zh": "收缩压"
+                        },
+                        "values": [
+                          {
+                            "columnId": "current",
+                            "unit": "mmHg",
+                            "value": "186"
+                          }
+                        ]
+                      },
+                      {
+                        "key": "dbp",
+                        "label": {
+                          "en": "Diastolic BP",
+                          "zh": "舒张压"
+                        },
+                        "values": [
+                          {
+                            "columnId": "current",
+                            "unit": "mmHg",
+                            "value": "102"
+                          }
+                        ]
+                      },
+                      {
+                        "key": "rr",
+                        "label": {
+                          "en": "Respiratory rate",
+                          "zh": "呼吸频率"
+                        },
+                        "values": [
+                          {
+                            "columnId": "current",
+                            "unit": "/min",
+                            "value": "18"
+                          }
+                        ]
+                      },
+                      {
+                        "key": "spo2",
+                        "label": {
+                          "en": "SpO2",
+                          "zh": "脉搏血氧饱和度"
+                        },
+                        "values": [
+                          {
+                            "columnId": "current",
+                            "unit": "%",
+                            "value": "96"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              "title": {
+                "en": "2200 assessment and chart review",
+                "zh": "2200 评估和病历复核"
+              }
+            }
+          ],
+          "id": "stage_2",
+          "title": {
+            "en": "Stage 2: 2200, the care gap reaches the client",
+            "zh": "第 2 阶段：2200，护理缺口影响到患者"
+          }
+        },
+        {
+          "exhibits": [
+            {
+              "content": {
+                "en": "Marcus instructs Priya to notify the hospitalist now. Priya reports the current BP, headache, and missed monitoring. The hospitalist orders hydralazine 10 mg IV x 1 now, repeat BP in 30 minutes, and q4h BP monitoring, with callback if SBP remains above 170. Hydralazine is given at 2230. At 2300: HR 80, BP 162/90, RR 16, SpO2 97%, headache resolved. At 0200: BP 154/86, HR 76, no symptoms. Priya documents q4h checks and updates the care plan.",
+                "zh": "Marcus 指导 Priya 立即通知住院医。Priya 报告当前 BP、头痛和漏监测情况。住院医开立：立即给予肼屈嗪 10 mg IV x 1，30 分钟后复测 BP，并继续每 4 小时监测 BP；若 SBP 仍高于 170 则回电。2230 给肼屈嗪。2300：HR 80，BP 162/90，RR 16，SpO2 97%，头痛消失。0200：BP 154/86，HR 76，无症状。Priya 记录每 4 小时检查并更新护理计划。"
+              },
+              "id": "stage_3_intervention",
+              "title": {
+                "en": "Provider notification and clinical response",
+                "zh": "通知医护人员和临床反应"
+              }
+            },
+            {
+              "content": {
+                "en": "After the patient is stabilized, Marcus speaks privately with Renee by phone, names the observed behaviors and their impact, and states that the event will be documented through the civility/professional-conduct pathway. Marcus also speaks privately with Priya, acknowledges the inadequate handoff, and coaches her to ask direct questions, request structured SBAR, or escalate incomplete reports to the charge nurse. Priya documents objective clinical facts in the patient chart. Marcus completes a safety report for the communication failure and missed monitoring, separately documents the incivility details through the professional-conduct pathway, and notifies the nurse manager.",
+                "zh": "患者稳定后，Marcus 私下打电话给 Renee，说明观察到的行为及其影响，并说明将通过文明/专业行为流程记录此事件。Marcus 也私下与 Priya 交谈，承认交接不足，并指导她提出直接问题、要求结构化 SBAR，或将不完整交接升级给护士长。Priya 在患者病历中记录客观临床事实。Marcus 为沟通失败和漏监测完成安全报告，另行通过专业行为流程记录不文明细节，并通知护士经理。"
+              },
+              "id": "stage_3_conduct_followup",
+              "title": {
+                "en": "Conduct and systems follow-up",
+                "zh": "行为和系统跟进"
+              }
+            }
+          ],
+          "id": "stage_3",
+          "title": {
+            "en": "Stage 3: 2215-0200, intervention and resolution",
+            "zh": "第 3 阶段：2215-0200，干预和解决"
+          }
+        }
+      ],
+      "summary": {
+        "en": "Mrs. Dolores Vega, age 71, is hospitalized after hypertensive urgency with CKD stage 3b, HFpEF, and type 2 diabetes. The charge nurse, Marcus Chen, observes a dismissive bedside handoff from senior nurse Renee Talbot to newly licensed nurse Priya Anand. A same-day amlodipine dose increase and q4h blood-pressure monitoring instruction are not verbally communicated.",
+        "zh": "71 岁的 Dolores Vega 太太因高血压急症后住院，既往有 CKD 3b 期、射血分数保留型心力衰竭和 2 型糖尿病。护士长 Marcus Chen 观察到资深护士 Renee Talbot 向新近取得执照的护士 Priya Anand 进行床旁交接时态度轻慢。当天氨氯地平加量以及每 4 小时监测血压的医嘱未被口头交代。"
+      },
+      "title": {
+        "en": "Lateral incivility causing a client-safety communication breakdown on a medical-surgical unit",
+        "zh": "内外科病房中横向不文明行为导致患者安全沟通中断"
+      }
+    },
+    "category": "Management of Care",
+    "difficulty": "hard",
+    "glossary": [
+      {
+        "defZh": "同事之间贬低、排斥、羞辱或破坏专业沟通的行为。",
+        "termEn": "Lateral incivility",
+        "termZh": "横向不文明行为"
+      },
+      {
+        "defZh": "护士在交接护理责任时传递患者关键资料、近期变化和后续计划的过程。",
+        "termEn": "Handoff",
+        "termZh": "交接班"
+      },
+      {
+        "defZh": "医嘱或流程中规定需要通知医护人员的具体阈值或症状。",
+        "termEn": "Call parameter",
+        "termZh": "通知医嘱参数"
+      },
+      {
+        "defZh": "用于记录安全事件、近失误或流程缺陷的机构内部报告。",
+        "termEn": "Incident report",
+        "termZh": "事件报告"
+      },
+      {
+        "defZh": "描述可观察行为及其影响，而不是评价对方人格或动机的沟通方式。",
+        "termEn": "Behavior-focused feedback",
+        "termZh": "聚焦行为的反馈"
+      }
+    ],
+    "id": "gpt_case_lateral_incivility_01",
+    "itemType": "case_study",
+    "rationale": {
+      "correct": {
+        "en": "This case links lateral incivility to a concrete safety failure. Renee's dismissive handoff and omission of a same-day amlodipine increase and q4h monitoring order contributed to missed monitoring. When Mrs. Vega became symptomatic with SBP 186, Marcus appropriately prioritized provider notification and clinical intervention before conduct management. After the BP improved and the headache resolved, Marcus addressed the professional-conduct pattern through private, behavior-focused conversations, coaching, safety reporting, and nurse-manager follow-up. Effective evaluation requires both clinical improvement and evidence that the handoff process changed.",
+        "zh": "本病例将横向不文明行为与具体安全失败联系起来。Renee 的轻慢交接以及遗漏当天氨氯地平加量和每 4 小时监测医嘱，导致监测漏执行。当 Vega 太太出现症状且 SBP 为 186 时，Marcus 正确地先优先通知住院医并进行临床干预，再处理职业行为问题。BP 改善、头痛消失后，Marcus 通过私下聚焦行为的谈话、指导、安全报告和护士经理跟进来处理专业行为模式。有效评价需要同时看到临床改善和交接流程改变的证据。"
+      }
+    },
+    "stem": {
+      "en": "Review the client record and answer the case-study items.",
+      "zh": "请查看患者病历，并回答本病例题组。"
+    },
+    "testTakingStrategy": {
+      "en": "In unfolding management-of-care cases, follow the safety chain: recognize unprofessional communication, identify how it affects care, close the active client-risk gap, then create accountable follow-up.",
+      "zh": "在展开式护理管理病例中，按安全链思考：识别不专业沟通，判断其如何影响护理，先关闭当前患者风险缺口，再建立可问责的后续处理。"
+    },
+    "topic": "Conflict Resolution"
+  },
+  "standaloneItem": {
+    "bowtie": {
+      "actions": {
+        "prompt": {
+          "en": "Priority actions",
+          "zh": "优先措施"
+        },
+        "tokens": [
+          {
+            "en": "Have Priya notify the hospitalist immediately with the BP, headache, and missed monitoring intervals",
+            "opaqueTokenLabel": "A1",
+            "zh": "让 Priya 立即向住院医报告 BP、头痛和漏监测时间段"
+          },
+          {
+            "en": "Speak privately with Renee about specific observed behaviors, patient-care impact, and policy-based documentation",
+            "opaqueTokenLabel": "A2",
+            "zh": "私下与 Renee 讨论具体观察到的行为、对患者护理的影响，以及按政策记录"
+          },
+          {
+            "en": "Address the interpersonal conflict with Renee before contacting the hospitalist",
+            "opaqueTokenLabel": "A3",
+            "zh": "先处理与 Renee 的人际冲突，再联系住院医"
+          },
+          {
+            "en": "Do not document or notify the manager because serious harm was avoided",
+            "opaqueTokenLabel": "A4",
+            "zh": "因为避免了严重伤害，所以不记录也不通知护士经理"
+          }
+        ]
+      },
+      "condition": {
+        "prompt": {
+          "en": "Most likely condition",
+          "zh": "最可能的问题"
+        },
+        "tokens": [
+          {
+            "en": "Client-safety communication breakdown resulting from unresolved lateral incivility",
+            "opaqueTokenLabel": "C1",
+            "zh": "未解决的横向不文明行为导致患者安全沟通中断"
+          },
+          {
+            "en": "Routine interpersonal friction requiring no formal intervention",
+            "opaqueTokenLabel": "C2",
+            "zh": "无需正式介入的普通人际摩擦"
+          },
+          {
+            "en": "Isolated knowledge deficit in the new nurse",
+            "opaqueTokenLabel": "C3",
+            "zh": "新护士单纯知识不足"
+          }
+        ]
+      },
+      "parameters": {
+        "prompt": {
+          "en": "Parameters to monitor",
+          "zh": "应监测的指标"
+        },
+        "tokens": [
+          {
+            "en": "Mrs. Vega's serum creatinine trend",
+            "opaqueTokenLabel": "P1",
+            "zh": "Vega 太太的血清肌酐趋势"
+          },
+          {
+            "en": "Completeness and professionalism of subsequent handoffs, including medication changes and time for questions",
+            "opaqueTokenLabel": "P2",
+            "zh": "后续交接的完整性和专业性，包括药物变更和提问时间"
+          },
+          {
+            "en": "Adherence to the q4h BP monitoring schedule and absence of further care omissions",
+            "opaqueTokenLabel": "P3",
+            "zh": "是否遵守每 4 小时 BP 监测安排，并且无进一步护理遗漏"
+          },
+          {
+            "en": "Whether Renee and Priya become personal friends during breaks",
+            "opaqueTokenLabel": "P4",
+            "zh": "Renee 和 Priya 是否在休息时成为私人朋友"
+          }
+        ]
+      }
+    },
+    "glossary": [
+      {
+        "defZh": "同事之间贬低、排斥、羞辱或破坏专业沟通的行为。",
+        "termEn": "Lateral incivility",
+        "termZh": "横向不文明行为"
+      },
+      {
+        "defZh": "护士在交接护理责任时传递患者关键资料、近期变化和后续计划的过程。",
+        "termEn": "Handoff",
+        "termZh": "交接班"
+      },
+      {
+        "defZh": "医嘱或流程中规定需要通知医护人员的具体阈值或症状。",
+        "termEn": "Call parameter",
+        "termZh": "通知医嘱参数"
+      },
+      {
+        "defZh": "用于记录安全事件、近失误或流程缺陷的机构内部报告。",
+        "termEn": "Incident report",
+        "termZh": "事件报告"
+      }
+    ],
+    "rationale": {
+      "byChoice": [
+        {
+          "en": "This matches the complete pattern: demeaning handoff behavior caused critical information to be omitted and a monitoring order to be missed.",
+          "opaqueTokenLabel": "C1",
+          "zh": "这符合完整模式：贬低性交接行为导致关键信息遗漏和监测医嘱漏执行。"
+        },
+        {
+          "en": "Priya needs coaching, but the event is not explained by her knowledge deficit alone; the handoff itself failed.",
+          "opaqueTokenLabel": "C3",
+          "zh": "Priya 需要指导，但该事件不能仅用她知识不足解释；交接本身失败了。"
+        },
+        {
+          "en": "The behavior reached the patient-care process and therefore is not routine friction.",
+          "opaqueTokenLabel": "C2",
+          "zh": "该行为已经影响患者护理流程，因此不是普通摩擦。"
+        },
+        {
+          "en": "This closes the active care gap and follows the provider's SBP > 180 call parameter.",
+          "opaqueTokenLabel": "A1",
+          "zh": "这能关闭当前护理缺口，并符合 SBP > 180 的医嘱通知参数。"
+        },
+        {
+          "en": "This addresses the incivility without public shaming and creates accountability through policy-based documentation.",
+          "opaqueTokenLabel": "A2",
+          "zh": "这能在不公开羞辱的情况下处理不文明行为，并通过按政策记录建立问责。"
+        },
+        {
+          "en": "This delays action while the client remains symptomatic and above the call threshold.",
+          "opaqueTokenLabel": "A3",
+          "zh": "这会在患者仍有症状且超过通知阈值时延误处理。"
+        },
+        {
+          "en": "Avoiding severe harm does not erase a missed-monitoring safety event or the need for manager follow-up.",
+          "opaqueTokenLabel": "A4",
+          "zh": "避免严重伤害并不会抹去漏监测安全事件，也不取消护士经理跟进的需要。"
+        },
+        {
+          "en": "This directly measures whether the handoff communication pattern is safer after intervention.",
+          "opaqueTokenLabel": "P2",
+          "zh": "这直接衡量干预后交接沟通模式是否更安全。"
+        },
+        {
+          "en": "This confirms that the specific missed-monitoring problem has been corrected.",
+          "opaqueTokenLabel": "P3",
+          "zh": "这确认具体的漏监测问题已被纠正。"
+        },
+        {
+          "en": "Friendship is not required; professional communication is the safety target.",
+          "opaqueTokenLabel": "P4",
+          "zh": "不要求成为朋友；安全目标是专业沟通。"
+        },
+        {
+          "en": "Creatinine may matter medically, but it does not evaluate the handoff communication breakdown.",
+          "opaqueTokenLabel": "P1",
+          "zh": "肌酐在医学上可能重要，但不能评价交接沟通中断。"
+        }
+      ],
+      "correct": {
+        "en": "The bow-tie centers on a client-safety communication breakdown caused by lateral incivility. The immediate action is provider notification because the SBP exceeds the ordered threshold and the client is symptomatic. The second priority is structured, private conduct follow-up with policy-based documentation. Monitoring must evaluate both the corrected BP-monitoring process and the professionalism/completeness of later handoffs.",
+        "zh": "本蝴蝶结题的核心是横向不文明行为导致患者安全沟通中断。立即措施是通知住院医，因为 SBP 超过医嘱阈值且患者有症状。第二个优先事项是进行结构化、私下的行为跟进，并按政策记录。监测必须同时评价 BP 监测流程是否纠正，以及后续交接是否专业且完整。"
+      }
+    },
+    "stem": {
+      "en": "At 2200, Priya reports Mrs. Vega's BP is 186/102 with a headache. She has just discovered that the amlodipine dose was increased today, the hospitalist ordered BP monitoring q4h x 24 hours with a call if SBP > 180, and the 1800 monitoring check was missed after an incomplete, dismissive handoff. Complete the bow-tie diagram.",
+      "zh": "2200，Priya 报告 Vega 太太 BP 为 186/102，并有头痛。她刚发现今天氨氯地平已加量，住院医要求 24 小时内每 4 小时监测 BP，若 SBP > 180 则通知；而由于一次不完整且轻慢的交接，1800 的监测已漏做。请完成蝴蝶结图。"
+    },
+    "testTakingStrategy": {
+      "en": "In bow-tie items, choose the condition that explains the whole chain, then pair one immediate safety action with one process action and monitor outcomes that match both.",
+      "zh": "做蝴蝶结题时，选择能解释整条事件链的问题，再搭配一个立即安全措施和一个流程措施，并监测与二者相符的结果。"
+    }
+  }
+}

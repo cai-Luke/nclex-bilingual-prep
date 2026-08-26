@@ -1,0 +1,130 @@
+{
+  "actionLabels": [
+    "A1",
+    "A4"
+  ],
+  "ambiguousAlternatives": [],
+  "conditionLabel": "C1",
+  "missingInformation": [
+    "Airway protective reflexes, respiratory status, vital signs, ECG findings, electrolytes, creatinine trend, urine output, timing and formulation of the last lithium dose, and whether an acute overdose occurred are not provided, but they are not required to rank the pooled options."
+  ],
+  "parameterLabels": [
+    "P2",
+    "P3"
+  ],
+  "poolAnswerability": "ANSWERABLE",
+  "reasoning": "The toxic lithium concentration, severe neurologic manifestations, impaired renal clearance, thiazide exposure, and poor response to hydration identify severe lithium toxicity. Emergent hemodialysis and aspiration precautions are the two supported pooled actions; neurologic status and serial lithium levels directly evaluate response.",
+  "selectionEvidence": [
+    {
+      "opaqueTokenLabel": "C1",
+      "supportingStemText": "Serum lithium is 2.6 mEq/L with obtundation, new myoclonic jerks, facial fasciculations, and impaired eGFR."
+    },
+    {
+      "opaqueTokenLabel": "A1",
+      "supportingStemText": "Despite aggressive IV hydration, her symptoms and lithium level show minimal improvement."
+    },
+    {
+      "opaqueTokenLabel": "A4",
+      "supportingStemText": "The patient presents with obtundation."
+    },
+    {
+      "opaqueTokenLabel": "P2",
+      "supportingStemText": "Obtundation, new myoclonic jerks, and facial fasciculations."
+    },
+    {
+      "opaqueTokenLabel": "P3",
+      "supportingStemText": "Her serum lithium is 2.6 mEq/L and shows minimal improvement despite aggressive IV hydration."
+    }
+  ],
+  "stage2Confidence": "high",
+  "tokenPremiseTable": [
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "C1",
+      "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "These explicit findings support severe lithium toxicity using standard nursing knowledge.",
+      "supportingStemText": "Serum lithium is 2.6 mEq/L with obtundation, myoclonic jerks, facial fasciculations, impaired eGFR, and minimal improvement with hydration."
+    },
+    {
+      "missingPremise": "Gastrointestinal symptoms or other evidence of acute gastroenteritis.",
+      "opaqueTokenLabel": "C2",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "MATERIAL",
+      "rankabilityJustification": "No client-specific gastrointestinal syndrome is described.",
+      "supportingStemText": ""
+    },
+    {
+      "missingPremise": "Mood, behavioral, sleep, or thought symptoms indicating an acute bipolar episode.",
+      "opaqueTokenLabel": "C3",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "MATERIAL",
+      "rankabilityJustification": "The stem provides neurologic toxicity findings rather than evidence of a mood exacerbation.",
+      "supportingStemText": "Bipolar I disorder is identified only as medical history."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A1",
+      "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Severe neurologic toxicity with impaired clearance and failed hydration supports emergent hemodialysis.",
+      "supportingStemText": "Lithium 2.6 mEq/L, obtundation and abnormal movements, impaired eGFR, and minimal improvement despite aggressive IV hydration."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A2",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "MATERIAL",
+      "rankabilityJustification": "The stem directly shows that IV fluids alone are inadequate.",
+      "supportingStemText": "Despite aggressive IV hydration, her symptoms and lithium level show minimal improvement."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A3",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "MATERIAL",
+      "rankabilityJustification": "Administering more lithium conflicts with the explicit toxic concentration and manifestations.",
+      "supportingStemText": "Her serum lithium is 2.6 mEq/L with obtundation, myoclonic jerks, and facial fasciculations."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A4",
+      "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Obtundation supports aspiration precautions because protective airway reflexes may be impaired.",
+      "supportingStemText": "The patient presents with obtundation."
+    },
+    {
+      "missingPremise": "A calcium abnormality, parathyroid concern, or intervention requiring priority calcium monitoring.",
+      "opaqueTokenLabel": "P1",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "MATERIAL",
+      "rankabilityJustification": "The stem gives no calcium-related finding that would outrank direct toxicity monitoring.",
+      "supportingStemText": ""
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "P2",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The principal clinical manifestations are neurologic and can be followed serially.",
+      "supportingStemText": "Obtundation, new myoclonic jerks, and facial fasciculations."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "P3",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Serial lithium measurements directly track toxin clearance and treatment response.",
+      "supportingStemText": "Her serum lithium is 2.6 mEq/L and the lithium level shows minimal improvement despite aggressive IV hydration."
+    },
+    {
+      "missingPremise": "Hypoglycemia, hyperglycemia, diabetes, or an intervention requiring priority glucose monitoring.",
+      "opaqueTokenLabel": "P4",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "MATERIAL",
+      "rankabilityJustification": "No glucose-related client fact makes serum glucose a priority evaluation parameter.",
+      "supportingStemText": ""
+    }
+  ]
+}

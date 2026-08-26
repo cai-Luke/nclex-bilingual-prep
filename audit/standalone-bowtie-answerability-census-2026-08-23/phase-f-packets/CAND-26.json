@@ -1,0 +1,1333 @@
+{
+  "instruction": "The Stage-1, Stage-2, and Phase-E records are immutable. Inspect the paired case only now. Classify provenance for every Phase-E missing client fact, distinguish sibling necessity from corroboration, apply the fixed verdict precedence, and record narrow bilingual/clinical/scope collateral observations. Do not revise Phase E and do not propose content edits beyond an advisory P0-P3 priority.",
+  "phaseESha256": "2a1368b175eeb04689b719b145ee2ea58e6d1cdf33f3430151ddacae8cfa8c8c",
+  "siblingCase": {
+    "caseStudy": {
+      "exhibits": [
+        {
+          "content": {
+            "en": "A 71-year-old woman with HFrEF (EF 30%), type 2 diabetes, hypertension, and mild CKD was admitted 4 days ago for acute decompensated heart failure after running out of furosemide because she could not afford the refill. She was treated with IV furosemide, transitioned to new oral torsemide 40 mg daily, had lisinopril increased to 20 mg daily, and received a new carvedilol prescription. She lives alone in a second-floor walk-up apartment with no elevator and has no home scale. Her daughter lives 90 minutes away and works full-time. The attending entered a discharge order this morning with a target discharge time of 11:00 AM during bed-throughput pressure.",
+            "zh": "一名 71 岁女性，有射血分数降低型心衰（EF 30%）、2 型糖尿病、高血压和轻度慢性肾病。4 天前因买不起 furosemide 续药而停药，发生急性失代偿性心衰入院。住院期间接受 IV furosemide，改为新的口服 torsemide 40 mg 每日一次，lisinopril 增至每日 20 mg，并新增 carvedilol。她独居在无电梯的二楼公寓，家中没有体重秤；女儿住在 90 分钟路程外且全职工作。由于床位周转压力，医生今晨开立出院医嘱，目标上午 11:00 出院。"
+          },
+          "id": "baseline_summary",
+          "title": {
+            "en": "Admission background and discharge context",
+            "zh": "入院背景与出院情境"
+          }
+        },
+        {
+          "content": {
+            "en": "The client is fatigued and slightly short of breath while talking. Vital signs: T 36.8 C, HR 92 regular, BP 108/68, RR 22, SpO2 93% on room air. Weight today 78.2 kg; admission weight 84.6 kg; yesterday 79.0 kg. Fine crackles remain at the lung bases, trace bilateral pedal edema, no visible JVD at 45 degrees, warm/dry skin, capillary refill 2 seconds. She reports mild dizziness after sitting up to use the commode. No chest pain; alert and oriented. Labs: Na 138, K 3.4, Cl 96, CO2 30, BUN 38, creatinine 1.8 mg/dL (baseline outpatient 1.4; admission 1.6), glucose 142, BNP 680 pg/mL (admission 2,400; yesterday 820), Hgb 11.4, WBC 7.2, platelets 210, Mg 1.7, INR 1.0, albumin 3.0.",
+            "zh": "患者疲惫，讲话时略感气短。生命体征：T 36.8 C，HR 92 次/分且规则，BP 108/68，RR 22 次/分，室内空气 SpO2 93%。今日体重 78.2 kg；入院 84.6 kg；昨日 79.0 kg。双肺底仍有细湿啰音，双足轻微水肿，45 度时无可见颈静脉怒张，皮肤温暖干燥，毛细血管再充盈 2 秒。她报告坐起使用便盆后有轻度头晕。无胸痛；意识清楚，定向力正常。实验室：Na 138，K 3.4，Cl 96，CO2 30，BUN 38，肌酐 1.8 mg/dL（门诊基线 1.4；入院 1.6），葡萄糖 142，BNP 680 pg/mL（入院 2,400；昨日 820），Hgb 11.4，WBC 7.2，血小板 210，Mg 1.7，INR 1.0，白蛋白 3.0。"
+          },
+          "id": "baseline_assessment_labs",
+          "structuredMeasurements": {
+            "panels": [
+              {
+                "columns": [
+                  {
+                    "id": "current",
+                    "label": {
+                      "en": "07:15",
+                      "zh": "07:15"
+                    }
+                  }
+                ],
+                "kind": "vitals",
+                "rows": [
+                  {
+                    "key": "temp",
+                    "label": {
+                      "en": "Temperature",
+                      "zh": "体温"
+                    },
+                    "values": [
+                      {
+                        "columnId": "current",
+                        "unit": "°C",
+                        "value": "36.8"
+                      }
+                    ]
+                  },
+                  {
+                    "key": "hr",
+                    "label": {
+                      "en": "Heart rate",
+                      "zh": "心率"
+                    },
+                    "values": [
+                      {
+                        "columnId": "current",
+                        "context": "post_intervention",
+                        "unit": "bpm",
+                        "value": "92"
+                      }
+                    ]
+                  },
+                  {
+                    "key": "sbp",
+                    "label": {
+                      "en": "Systolic BP",
+                      "zh": "收缩压"
+                    },
+                    "values": [
+                      {
+                        "columnId": "current",
+                        "context": "post_intervention",
+                        "unit": "mmHg",
+                        "value": "108"
+                      }
+                    ]
+                  },
+                  {
+                    "key": "dbp",
+                    "label": {
+                      "en": "Diastolic BP",
+                      "zh": "舒张压"
+                    },
+                    "values": [
+                      {
+                        "columnId": "current",
+                        "context": "post_intervention",
+                        "unit": "mmHg",
+                        "value": "68"
+                      }
+                    ]
+                  },
+                  {
+                    "key": "rr",
+                    "label": {
+                      "en": "Respiratory rate",
+                      "zh": "呼吸频率"
+                    },
+                    "values": [
+                      {
+                        "columnId": "current",
+                        "context": "post_intervention",
+                        "unit": "/min",
+                        "value": "22"
+                      }
+                    ]
+                  },
+                  {
+                    "key": "spo2",
+                    "label": {
+                      "en": "SpO2",
+                      "zh": "脉搏血氧饱和度"
+                    },
+                    "values": [
+                      {
+                        "columnId": "current",
+                        "context": "post_intervention",
+                        "unit": "%",
+                        "value": "93"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "columns": [
+                  {
+                    "id": "current",
+                    "label": {
+                      "en": "07:15",
+                      "zh": "07:15"
+                    }
+                  }
+                ],
+                "kind": "labs",
+                "rows": [
+                  {
+                    "key": "bun",
+                    "label": {
+                      "en": "BUN",
+                      "zh": "尿素氮"
+                    },
+                    "values": [
+                      {
+                        "columnId": "current",
+                        "context": "post_intervention",
+                        "unit": "mg/dL",
+                        "value": "38"
+                      }
+                    ]
+                  },
+                  {
+                    "key": "creatinine",
+                    "label": {
+                      "en": "Creatinine",
+                      "zh": "肌酐"
+                    },
+                    "values": [
+                      {
+                        "columnId": "current",
+                        "context": "post_intervention",
+                        "unit": "mg/dL",
+                        "value": "1.8"
+                      }
+                    ]
+                  },
+                  {
+                    "key": "glucose",
+                    "label": {
+                      "en": "Glucose",
+                      "zh": "血糖"
+                    },
+                    "values": [
+                      {
+                        "columnId": "current",
+                        "unit": "mg/dL",
+                        "value": "142"
+                      }
+                    ]
+                  },
+                  {
+                    "key": "bnp",
+                    "label": {
+                      "en": "BNP",
+                      "zh": "脑钠肽"
+                    },
+                    "values": [
+                      {
+                        "columnId": "current",
+                        "context": "post_intervention",
+                        "unit": "pg/mL",
+                        "value": "680"
+                      }
+                    ]
+                  },
+                  {
+                    "key": "inr",
+                    "label": {
+                      "en": "INR",
+                      "zh": "国际标准化比值"
+                    },
+                    "values": [
+                      {
+                        "columnId": "current",
+                        "unit": "(ratio)",
+                        "value": "1.0"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          "title": {
+            "en": "Morning assessment and laboratory data at 07:15",
+            "zh": "07:15 早晨评估与实验室资料"
+          }
+        }
+      ],
+      "questions": [
+        {
+          "category": "Management of Care",
+          "difficulty": "hard",
+          "glossary": [
+            {
+              "defZh": "患者是否能在生理、功能、理解、用药取得和居家支持方面安全出院。",
+              "termEn": "Discharge readiness",
+              "termZh": "出院准备度"
+            },
+            {
+              "defZh": "让患者用自己的话复述教育重点，以确认理解。",
+              "termEn": "Teach-back",
+              "termZh": "回授法"
+            },
+            {
+              "defZh": "心衰评估中常用的血液指标；下降可提示治疗反应，但不能单独决定出院安全。",
+              "termEn": "BNP",
+              "termZh": "B 型利钠肽"
+            }
+          ],
+          "highlight": {
+            "correct": [
+              "q1_s2",
+              "q1_s6",
+              "q1_s7",
+              "q1_s8",
+              "q1_s9",
+              "q1_s11"
+            ],
+            "segments": [
+              {
+                "en": "The client is alert and oriented to person, place, time, and situation.",
+                "id": "q1_s1",
+                "selectable": true,
+                "zh": "患者对人、地点、时间和情况均定向力正常。"
+              },
+              {
+                "en": "Resting RR is 22/min with SpO2 93% on room air.",
+                "id": "q1_s2",
+                "selectable": true,
+                "zh": "静息时呼吸频率 22 次/分，室内空气 SpO2 为 93%。"
+              },
+              {
+                "en": "Weight decreased from 84.6 kg on admission to 78.2 kg today.",
+                "id": "q1_s3",
+                "selectable": true,
+                "zh": "体重从入院时 84.6 kg 降至今天 78.2 kg。"
+              },
+              {
+                "en": "Jugular venous distension is no longer visible at 45 degrees.",
+                "id": "q1_s4",
+                "selectable": true,
+                "zh": "床头抬高 45 度时已看不到颈静脉怒张。"
+              },
+              {
+                "en": "Bilateral pedal edema improved from 2+ on admission to trace today.",
+                "id": "q1_s5",
+                "selectable": true,
+                "zh": "双侧足部水肿从入院时 2+ 改善为轻微。"
+              },
+              {
+                "en": "During hallway ambulation of about 40 feet, SpO2 decreased to 89% on room air and oxygen was needed for recovery.",
+                "id": "q1_s6",
+                "selectable": true,
+                "zh": "在走廊步行约 40 英尺时，室内空气 SpO2 降至 89%，需要吸氧后才恢复。"
+              },
+              {
+                "en": "The client cannot explain the purpose of torsemide, what to do for sudden weight gain, or which symptoms require calling the provider.",
+                "id": "q1_s7",
+                "selectable": true,
+                "zh": "患者无法说明 torsemide 的用途、体重突然增加时该怎么做，或哪些症状需要联系医护人员。"
+              },
+              {
+                "en": "The new diuretic has a $95/month copay, and medication cost was the reason she stopped her prior furosemide.",
+                "id": "q1_s8",
+                "selectable": true,
+                "zh": "新的利尿剂每月自付 95 美元，而药费负担正是她之前停用 furosemide 的原因。"
+              },
+              {
+                "en": "She lives alone in a second-floor walk-up apartment and has no home scale.",
+                "id": "q1_s9",
+                "selectable": true,
+                "zh": "她独居在没有电梯的二楼公寓，家中没有体重秤。"
+              },
+              {
+                "en": "BNP decreased from 2,400 pg/mL on admission to 680 pg/mL today.",
+                "id": "q1_s10",
+                "selectable": true,
+                "zh": "BNP 从入院时 2,400 pg/mL 降至今天 680 pg/mL。"
+              },
+              {
+                "en": "Creatinine is 1.8 mg/dL, above her outpatient baseline of 1.4 mg/dL.",
+                "id": "q1_s11",
+                "selectable": true,
+                "zh": "肌酐为 1.8 mg/dL，高于门诊基线 1.4 mg/dL。"
+              }
+            ]
+          },
+          "id": "gpt_case_unsafe_premature_discharge_01_q1",
+          "itemType": "highlight",
+          "ngnSkill": "recognize_cues",
+          "rationale": {
+            "byChoice": [
+              {
+                "en": "Normal orientation is reassuring and does not by itself make the discharge unsafe.",
+                "refId": "q1_s1",
+                "zh": "定向力正常是令人放心的资料，本身不是出院不安全的原因。"
+              },
+              {
+                "en": "Borderline resting oxygenation with tachypnea shows residual respiratory compromise before the exertion required at home.",
+                "refId": "q1_s2",
+                "zh": "静息氧合临界且呼吸偏快，提示在回家所需活动前仍有呼吸储备不足。"
+              },
+              {
+                "en": "The weight loss shows response to diuresis, but it does not prove that the client can manage safely at home.",
+                "refId": "q1_s3",
+                "zh": "体重下降说明利尿治疗有效，但不能证明患者能在家安全管理。"
+              },
+              {
+                "en": "Resolved JVD supports improvement in congestion; it is not a discharge barrier.",
+                "refId": "q1_s4",
+                "zh": "颈静脉怒张消退支持淤血改善，不是出院障碍。"
+              },
+              {
+                "en": "Improved edema is a positive treatment response, not an active barrier.",
+                "refId": "q1_s5",
+                "zh": "水肿改善是治疗有效的表现，不是当前障碍。"
+              },
+              {
+                "en": "Desaturation with only minimal ambulation and need for oxygen recovery directly conflict with the stairs and exertion required at home.",
+                "refId": "q1_s6",
+                "zh": "仅少量步行即低氧并需吸氧恢复，直接不符合其回家后需要爬楼和活动的要求。"
+              },
+              {
+                "en": "Failed teach-back means the client cannot yet carry out the medication, weight-monitoring, and symptom-response plan independently.",
+                "refId": "q1_s7",
+                "zh": "回授失败说明患者尚不能独立执行用药、体重监测和症状处理计划。"
+              },
+              {
+                "en": "Unaffordable diuretic therapy recreates the same adherence barrier that precipitated the admission.",
+                "refId": "q1_s8",
+                "zh": "利尿剂负担不起会重现导致本次入院的同一服药障碍。"
+              },
+              {
+                "en": "Living alone, stairs, and no scale create environmental and monitoring barriers for heart-failure self-management.",
+                "refId": "q1_s9",
+                "zh": "独居、楼梯和没有体重秤构成心衰自我管理的环境与监测障碍。"
+              },
+              {
+                "en": "A falling BNP supports improvement, but biomarkers do not override functional, comprehension, and access barriers.",
+                "refId": "q1_s10",
+                "zh": "BNP 下降支持病情改善，但生物标志物不能抵消功能、理解和用药取得方面的障碍。"
+              },
+              {
+                "en": "Creatinine above baseline during ongoing diuresis signals unresolved renal-risk monitoring before discharge.",
+                "refId": "q1_s11",
+                "zh": "在继续利尿时肌酐高于基线，提示出院前仍需关注肾功能风险。"
+              }
+            ],
+            "correct": {
+              "en": "The unsafe-discharge cues are residual respiratory compromise, exertional desaturation requiring oxygen recovery, failed teach-back, unaffordable diuretic therapy, unsafe home environment/no scale, and creatinine above baseline. Improving weight, edema, JVD, and BNP show treatment response but do not prove discharge readiness.",
+              "zh": "出院不安全的线索包括仍有呼吸受限、活动后低氧且需吸氧恢复、回授失败、利尿剂负担不起、居家环境/无体重秤不安全，以及肌酐高于基线。体重、水肿、颈静脉怒张和 BNP 改善说明治疗有效，但不能证明已具备出院准备。"
+            }
+          },
+          "stem": {
+            "en": "Using the Stage 1 information, highlight the findings that are red flags for unsafe discharge today.",
+            "zh": "根据第 1 阶段资料，标出提示今天出院不安全的危险信号。"
+          },
+          "testTakingStrategy": {
+            "en": "For discharge-readiness questions, separate evidence of treatment response from evidence that the client can safely carry out the plan at home.",
+            "zh": "做出院准备度题时，要把“治疗有反应”和“患者能否在家安全执行计划”分开判断。"
+          },
+          "topic": "Discharge Planning & Handoff"
+        },
+        {
+          "category": "Management of Care",
+          "correct": [
+            {
+              "columnIds": [
+                "active_barrier"
+              ],
+              "rowId": "q2_r1"
+            },
+            {
+              "columnIds": [
+                "not_barrier"
+              ],
+              "rowId": "q2_r2"
+            },
+            {
+              "columnIds": [
+                "active_barrier"
+              ],
+              "rowId": "q2_r3"
+            },
+            {
+              "columnIds": [
+                "active_barrier"
+              ],
+              "rowId": "q2_r4"
+            },
+            {
+              "columnIds": [
+                "not_barrier"
+              ],
+              "rowId": "q2_r5"
+            },
+            {
+              "columnIds": [
+                "active_barrier"
+              ],
+              "rowId": "q2_r6"
+            },
+            {
+              "columnIds": [
+                "active_barrier"
+              ],
+              "rowId": "q2_r7"
+            },
+            {
+              "columnIds": [
+                "not_barrier"
+              ],
+              "rowId": "q2_r8"
+            },
+            {
+              "columnIds": [
+                "active_barrier"
+              ],
+              "rowId": "q2_r9"
+            },
+            {
+              "columnIds": [
+                "not_barrier"
+              ],
+              "rowId": "q2_r10"
+            }
+          ],
+          "difficulty": "hard",
+          "glossary": [
+            {
+              "defZh": "若未解决会直接影响出院安全的生理、功能、认知、经济或环境问题。",
+              "termEn": "Active barrier",
+              "termZh": "当前障碍"
+            },
+            {
+              "defZh": "用于排出多余液体的药物，可能影响钾、镁和肾功能。",
+              "termEn": "Loop diuretic",
+              "termZh": "袢利尿剂"
+            },
+            {
+              "defZh": "经济能力、住房、交通、社会支持等会影响健康结局的非医学因素。",
+              "termEn": "Social determinants of health",
+              "termZh": "健康社会决定因素"
+            }
+          ],
+          "id": "gpt_case_unsafe_premature_discharge_01_q2",
+          "itemType": "matrix",
+          "matrix": {
+            "columns": [
+              {
+                "en": "Resolved/improving or not a discharge barrier",
+                "id": "not_barrier",
+                "zh": "已改善/非出院障碍"
+              },
+              {
+                "en": "Active barrier to safe discharge",
+                "id": "active_barrier",
+                "zh": "安全出院的当前障碍"
+              }
+            ],
+            "rows": [
+              {
+                "en": "SpO2 decreases to 89% after 40 feet of ambulation.",
+                "id": "q2_r1",
+                "zh": "步行 40 英尺后 SpO2 降至 89%。"
+              },
+              {
+                "en": "JVD is no longer visible at 45 degrees.",
+                "id": "q2_r2",
+                "zh": "床头抬高 45 度时已看不到颈静脉怒张。"
+              },
+              {
+                "en": "The client cannot identify when to call the provider for weight gain or symptoms.",
+                "id": "q2_r3",
+                "zh": "患者无法说明体重增加或症状出现时何时联系医护人员。"
+              },
+              {
+                "en": "The new diuretic costs $95/month and is not affordable.",
+                "id": "q2_r4",
+                "zh": "新的利尿剂每月 95 美元，患者负担不起。"
+              },
+              {
+                "en": "Weight is down 6.4 kg since admission and 0.8 kg since yesterday.",
+                "id": "q2_r5",
+                "zh": "体重较入院下降 6.4 kg，较昨天下降 0.8 kg。"
+              },
+              {
+                "en": "The client lives alone in a second-floor walk-up apartment.",
+                "id": "q2_r6",
+                "zh": "患者独居在没有电梯的二楼公寓。"
+              },
+              {
+                "en": "Creatinine is 1.8 mg/dL, above a baseline of 1.4 mg/dL.",
+                "id": "q2_r7",
+                "zh": "肌酐 1.8 mg/dL，高于基线 1.4 mg/dL。"
+              },
+              {
+                "en": "The client is afebrile and has no chest pain.",
+                "id": "q2_r8",
+                "zh": "患者无发热且无胸痛。"
+              },
+              {
+                "en": "Potassium is 3.4 mEq/L while loop diuretic therapy is continuing.",
+                "id": "q2_r9",
+                "zh": "继续使用袢利尿剂时钾为 3.4 mEq/L。"
+              },
+              {
+                "en": "BNP is trending down from 2,400 to 680 pg/mL.",
+                "id": "q2_r10",
+                "zh": "BNP 从 2,400 pg/mL 降至 680 pg/mL。"
+              }
+            ],
+            "selectionMode": "single_per_row"
+          },
+          "ngnSkill": "analyze_cues",
+          "rationale": {
+            "byChoice": [
+              {
+                "en": "Exertional desaturation is a functional and physiologic barrier, especially with stairs at home.",
+                "refId": "q2_r1",
+                "zh": "活动后低氧是功能和生理障碍，尤其患者家中需要爬楼。"
+              },
+              {
+                "en": "Resolved JVD is an improvement in congestion, not a current barrier.",
+                "refId": "q2_r2",
+                "zh": "颈静脉怒张消退是淤血改善，不是当前障碍。"
+              },
+              {
+                "en": "Inability to state weight and symptom actions is a comprehension barrier to self-management.",
+                "refId": "q2_r3",
+                "zh": "无法说明体重和症状处理措施，是自我管理的理解障碍。"
+              },
+              {
+                "en": "Medication non-affordability is a direct clinical barrier because it caused the current decompensation.",
+                "refId": "q2_r4",
+                "zh": "药物负担不起是直接临床障碍，因为它导致了本次失代偿。"
+              },
+              {
+                "en": "Weight loss shows response to therapy; it does not remove the discharge barriers.",
+                "refId": "q2_r5",
+                "zh": "体重下降说明治疗有反应，但不能消除出院障碍。"
+              },
+              {
+                "en": "Stairs and living alone are environmental/social barriers when the client cannot tolerate minimal ambulation.",
+                "refId": "q2_r6",
+                "zh": "当患者不能耐受少量步行时，楼梯和独居就是环境/社会障碍。"
+              },
+              {
+                "en": "Creatinine above baseline is an unresolved clinical monitoring concern during diuresis.",
+                "refId": "q2_r7",
+                "zh": "利尿期间肌酐高于基线，是未解决的临床监测问题。"
+              },
+              {
+                "en": "Afebrile status and no chest pain are reassuring findings, not active discharge barriers.",
+                "refId": "q2_r8",
+                "zh": "无发热、无胸痛是令人放心的资料，不是当前出院障碍。"
+              },
+              {
+                "en": "Low-normal potassium during loop-diuretic therapy can worsen with continued diuresis and needs correction/monitoring.",
+                "refId": "q2_r9",
+                "zh": "使用袢利尿剂时钾偏低正常，继续利尿可能进一步下降，需要补充或监测。"
+              },
+              {
+                "en": "Downtrending BNP supports improved heart-failure status but does not prove safe transition home.",
+                "refId": "q2_r10",
+                "zh": "BNP 下降支持心衰改善，但不能证明能安全过渡回家。"
+              }
+            ],
+            "correct": {
+              "en": "Active barriers include exertional hypoxemia, failed self-management understanding, medication unaffordability, unsafe home environment/lack of support, creatinine above baseline, and low-normal potassium during diuresis. Improving congestion markers and reassuring negatives do not make discharge safe by themselves.",
+              "zh": "当前障碍包括活动后低氧、自我管理理解失败、药物负担不起、居家环境/支持不足、肌酐高于基线，以及利尿期间钾偏低正常。淤血指标改善和阴性体征本身不能说明出院安全。"
+            }
+          },
+          "stem": {
+            "en": "For each Stage 1 finding, classify whether it is an active barrier to safe discharge or a resolved/improving finding that does not remove the other barriers.",
+            "zh": "对每个第 1 阶段发现进行分类：它是安全出院的当前障碍，还是已改善/非障碍且不能抵消其他风险的发现。"
+          },
+          "testTakingStrategy": {
+            "en": "When a question asks you to classify cues, do not let a single improving trend erase barriers in other domains.",
+            "zh": "当题目要求分类线索时，不要让单一改善趋势掩盖其他领域的障碍。"
+          },
+          "topic": "Discharge Planning & Handoff"
+        },
+        {
+          "category": "Management of Care",
+          "correct": [
+            "q3_a"
+          ],
+          "difficulty": "hard",
+          "glossary": [
+            {
+              "defZh": "护士代表患者安全和权益发声，并推动解决风险。",
+              "termEn": "Client advocacy",
+              "termZh": "患者倡导"
+            },
+            {
+              "defZh": "因床位或流程需求而推动快速出院或转运的运营压力。",
+              "termEn": "Throughput pressure",
+              "termZh": "周转压力"
+            }
+          ],
+          "id": "gpt_case_unsafe_premature_discharge_01_q3",
+          "itemType": "multiple_choice",
+          "ngnSkill": "prioritize_hypotheses",
+          "options": [
+            {
+              "en": "Give extra written instructions and avoid challenging the provider because the discharge order is active.",
+              "id": "q3_c",
+              "zh": "提供更多书面说明，不质疑医嘱，因为出院医嘱已经生效。"
+            },
+            {
+              "en": "Advocate to hold or modify the discharge because the plan is unsafe despite improving biomarkers.",
+              "id": "q3_a",
+              "zh": "主张暂缓或修改出院计划，因为尽管指标改善，目前计划仍不安全。"
+            },
+            {
+              "en": "Proceed with discharge because the BNP is lower and the client has completed four hospital days.",
+              "id": "q3_b",
+              "zh": "因 BNP 降低且已住院四天，所以按计划出院。"
+            },
+            {
+              "en": "Delay advocacy until bed management confirms whether an emergency department patient still needs the bed.",
+              "id": "q3_d",
+              "zh": "等床位管理确认急诊患者是否仍需要床位后再进行倡导。"
+            }
+          ],
+          "rationale": {
+            "byChoice": [
+              {
+                "en": "Throughput pressure is not the priority. Advocacy should not wait for operational confirmation when patient safety barriers are present.",
+                "refId": "q3_d",
+                "zh": "床位周转压力不是优先事项；出现患者安全障碍时，倡导不应等待运营确认。"
+              },
+              {
+                "en": "Length of stay and a lower BNP do not override failed ambulation, failed teach-back, unaffordable medication, and unsafe home conditions.",
+                "refId": "q3_b",
+                "zh": "住院天数和 BNP 降低不能抵消步行失败、回授失败、药物负担不起和居家不安全。"
+              },
+              {
+                "en": "This focuses on the nurse's duty to protect client safety and uses objective barriers to request a discharge hold or modification.",
+                "refId": "q3_a",
+                "zh": "这体现护士保护患者安全的职责，并用客观障碍请求暂缓或修改出院。"
+              },
+              {
+                "en": "Written materials alone do not fix demonstrated misunderstanding, and the nurse should speak up when an active order threatens safety.",
+                "refId": "q3_c",
+                "zh": "单靠书面资料不能解决已证实的理解不足；当有效医嘱威胁安全时护士应发声。"
+              }
+            ],
+            "correct": {
+              "en": "The priority concern is patient safety. The nurse should communicate the specific barriers and request that discharge be held or modified pending interdisciplinary evaluation. Bed pressure and improving biomarkers do not override unsafe functional, comprehension, medication-access, and home-environment findings.",
+              "zh": "优先问题是患者安全。护士应沟通具体障碍，并请求暂缓或修改出院，等待跨专业评估。床位压力和指标改善不能超过功能、理解、用药取得和居家环境方面的不安全发现。"
+            }
+          },
+          "stem": {
+            "en": "The attending cites the downtrending BNP and the need for the bed as reasons to proceed. What is the nurse's priority advocacy stance?",
+            "zh": "医生以 BNP 下降和需要床位为理由要求继续出院。护士优先的倡导立场是什么？"
+          },
+          "testTakingStrategy": {
+            "en": "When the stem includes operational pressure, ask whether it conflicts with client safety. Safety wins.",
+            "zh": "题干出现运营压力时，先判断它是否与患者安全冲突。患者安全优先。"
+          },
+          "topic": "Discharge Planning & Handoff"
+        },
+        {
+          "category": "Management of Care",
+          "correct": [
+            "q4_a",
+            "q4_b",
+            "q4_c",
+            "q4_d",
+            "q4_e"
+          ],
+          "difficulty": "hard",
+          "glossary": [
+            {
+              "defZh": "协调保险、资源、转诊和过渡护理计划的成员。",
+              "termEn": "Case manager",
+              "termZh": "个案管理师"
+            },
+            {
+              "defZh": "帮助优化用药、评估相互作用、剂量和可负担性的药学人员。",
+              "termEn": "Clinical pharmacist",
+              "termZh": "临床药师"
+            },
+            {
+              "defZh": "评估住所是否适合患者当前功能能力和护理需求的检查。",
+              "termEn": "Home-safety evaluation",
+              "termZh": "居家安全评估"
+            }
+          ],
+          "id": "gpt_case_unsafe_premature_discharge_01_q4",
+          "itemType": "select_all",
+          "ngnSkill": "generate_solutions",
+          "options": [
+            {
+              "en": "Arrange home health nursing and coordinate immediate family support.",
+              "id": "q4_e",
+              "zh": "安排居家护理，并协调近期家属支持。"
+            },
+            {
+              "en": "Contact the case manager about transition needs, insurance coverage, and discharge resources.",
+              "id": "q4_b",
+              "zh": "联系个案管理师评估过渡需求、保险覆盖和出院资源。"
+            },
+            {
+              "en": "Discharge the client as ordered to free the telemetry bed and rely on written instructions.",
+              "id": "q4_f",
+              "zh": "按医嘱让患者出院以腾出监护床位，并依赖书面说明。"
+            },
+            {
+              "en": "Ask the clinical pharmacist to identify an affordable formulary alternative or assistance program.",
+              "id": "q4_d",
+              "zh": "请临床药师寻找可负担的目录内替代药或援助项目。"
+            },
+            {
+              "en": "Request social work support for home resources, a scale, and home-safety evaluation.",
+              "id": "q4_c",
+              "zh": "请求社工协助居家资源、体重秤和居家安全评估。"
+            },
+            {
+              "en": "Document the ambulation result, failed teach-back, medication-cost barrier, and home-safety concerns.",
+              "id": "q4_a",
+              "zh": "记录步行结果、回授失败、药费障碍和居家安全担忧。"
+            }
+          ],
+          "rationale": {
+            "byChoice": [
+              {
+                "en": "Pharmacy involvement targets the exact medication-access problem that caused the admission.",
+                "refId": "q4_d",
+                "zh": "药师介入针对导致入院的核心用药取得问题。"
+              },
+              {
+                "en": "Proceeding to free a bed ignores unresolved safety barriers and repeats the conditions that led to decompensation.",
+                "refId": "q4_f",
+                "zh": "为腾床出院会忽视未解决的安全障碍，并重现导致失代偿的条件。"
+              },
+              {
+                "en": "Social work addresses the community and home-environment barriers that make the current plan unsafe.",
+                "refId": "q4_c",
+                "zh": "社工可处理使当前计划不安全的社区与居家环境障碍。"
+              },
+              {
+                "en": "Documentation preserves the objective safety record and supports provider communication and escalation if needed.",
+                "refId": "q4_a",
+                "zh": "记录可保留客观安全资料，并支持与医生沟通及必要时上报。"
+              },
+              {
+                "en": "Case management can address insurance, resources, and transition-of-care planning.",
+                "refId": "q4_b",
+                "zh": "个案管理可处理保险、资源和过渡护理计划。"
+              },
+              {
+                "en": "Home health and family support provide monitoring and immediate assistance after discharge.",
+                "refId": "q4_e",
+                "zh": "居家护理和家属支持可在出院后提供监测和即时帮助。"
+              }
+            ],
+            "correct": {
+              "en": "The nurse should document, involve case management, social work, pharmacy, home health, and family support. These actions target the functional, comprehension, financial, and environmental barriers. Discharging to meet a bed target is unsafe.",
+              "zh": "护士应记录情况，并联络个案管理、社工、药师、居家护理和家属支持。这些措施分别处理功能、理解、经济和环境障碍。为了床位目标出院是不安全的。"
+            }
+          },
+          "stem": {
+            "en": "Which nursing actions address the identified Stage 1 discharge barriers? Select all that apply.",
+            "zh": "哪些护理措施可以处理第 1 阶段识别出的出院障碍？选择所有适用项。"
+          },
+          "testTakingStrategy": {
+            "en": "For multi-domain discharge barriers, choose the actions that match each barrier; avoid one-resource answers for a multi-resource problem.",
+            "zh": "面对多领域出院障碍时，选择能对应每个障碍的措施；多资源问题不要只选单一资源。"
+          },
+          "topic": "Discharge Planning & Handoff"
+        },
+        {
+          "category": "Management of Care",
+          "correct": [
+            "q5_a"
+          ],
+          "difficulty": "hard",
+          "glossary": [
+            {
+              "defZh": "已经由医生开立、可能被执行的医嘱。",
+              "termEn": "Active order",
+              "termZh": "有效医嘱"
+            },
+            {
+              "defZh": "初步沟通未解决安全问题时，按政策寻求更高层级协助。",
+              "termEn": "Escalation",
+              "termZh": "上报"
+            }
+          ],
+          "id": "gpt_case_unsafe_premature_discharge_01_q5",
+          "itemType": "multiple_choice",
+          "ngnSkill": "take_action",
+          "options": [
+            {
+              "en": "Escalate directly to the nursing supervisor before speaking with the attending physician.",
+              "id": "q5_d",
+              "zh": "在联系主治医生前直接上报护理主管。"
+            },
+            {
+              "en": "Call the daughter first to see if she can solve the transportation and stair problem.",
+              "id": "q5_c",
+              "zh": "先致电女儿，看她是否能解决交通和爬楼问题。"
+            },
+            {
+              "en": "Call the attending physician with the objective safety concerns and request that the discharge order be held.",
+              "id": "q5_a",
+              "zh": "致电主治医生说明客观安全担忧，并请求暂缓出院医嘱。"
+            },
+            {
+              "en": "Page the social worker first because financial and home barriers are the root causes.",
+              "id": "q5_b",
+              "zh": "先呼叫社工，因为经济和居家障碍是根本原因。"
+            }
+          ],
+          "rationale": {
+            "byChoice": [
+              {
+                "en": "The active discharge order must be paused first so there is time to mobilize the interdisciplinary resources safely.",
+                "refId": "q5_a",
+                "zh": "必须先暂停已经生效的出院医嘱，才能安全争取时间调动跨专业资源。"
+              },
+              {
+                "en": "Chain-of-command escalation is appropriate if the provider will not address the concern; the first step is direct provider communication.",
+                "refId": "q5_d",
+                "zh": "若医生不处理担忧，逐级上报是合适的；第一步应先直接与医生沟通。"
+              },
+              {
+                "en": "Family support is important, but it cannot replace provider modification of the unsafe discharge order.",
+                "refId": "q5_c",
+                "zh": "家属支持很重要，但不能替代医生修改不安全的出院医嘱。"
+              },
+              {
+                "en": "Social work is needed, but calling social work first does not stop the active 11:00 discharge process.",
+                "refId": "q5_b",
+                "zh": "社工确实需要介入，但先找社工不能阻止 11:00 的有效出院流程。"
+              }
+            ],
+            "correct": {
+              "en": "The first action is direct communication with the ordering provider to request a discharge hold. This stops the unsafe process and creates time for case management, social work, pharmacy, home health, and family coordination. Escalation follows if the provider refuses to address the safety concern.",
+              "zh": "首要措施是直接联系开立医嘱的医生，请求暂缓出院。这样才能停止不安全流程，并争取时间协调个案管理、社工、药师、居家护理和家属。若医生拒绝处理安全问题，再逐级上报。"
+            }
+          },
+          "stem": {
+            "en": "The discharge order is active with a target discharge time of 11:00 AM. After identifying the unsafe discharge picture, what should the nurse do first?",
+            "zh": "出院医嘱已生效，目标出院时间为上午 11:00。识别出出院不安全后，护士首先应怎么做？"
+          },
+          "testTakingStrategy": {
+            "en": "When an unsafe process is already moving, choose the action that pauses the unsafe process before arranging secondary supports.",
+            "zh": "当不安全流程已经启动时，应先选择能暂停该流程的措施，再安排后续支持。"
+          },
+          "topic": "Discharge Planning & Handoff"
+        },
+        {
+          "category": "Management of Care",
+          "correct": [
+            {
+              "columnIds": [
+                "resolved_barrier"
+              ],
+              "rowId": "q6_r1"
+            },
+            {
+              "columnIds": [
+                "resolved_barrier"
+              ],
+              "rowId": "q6_r2"
+            },
+            {
+              "columnIds": [
+                "resolved_barrier"
+              ],
+              "rowId": "q6_r3"
+            },
+            {
+              "columnIds": [
+                "resolved_barrier"
+              ],
+              "rowId": "q6_r4"
+            },
+            {
+              "columnIds": [
+                "resolved_barrier"
+              ],
+              "rowId": "q6_r5"
+            },
+            {
+              "columnIds": [
+                "supportive_only"
+              ],
+              "rowId": "q6_r6"
+            }
+          ],
+          "difficulty": "hard",
+          "glossary": [
+            {
+              "defZh": "判断干预后目标是否达到，并确认原先的问题是否已解决。",
+              "termEn": "Evaluate outcomes",
+              "termZh": "评价结果"
+            },
+            {
+              "defZh": "出院后已预约的复诊或联系，用于监测病情和调整治疗。",
+              "termEn": "Follow-up",
+              "termZh": "随访"
+            },
+            {
+              "defZh": "患者完成日常活动所需体力活动而不出现危险症状的能力。",
+              "termEn": "Functional tolerance",
+              "termZh": "功能耐受力"
+            }
+          ],
+          "id": "gpt_case_unsafe_premature_discharge_01_q6",
+          "itemType": "matrix",
+          "matrix": {
+            "columns": [
+              {
+                "en": "Evidence a specific discharge barrier is resolved or controlled",
+                "id": "resolved_barrier",
+                "zh": "证明某个出院障碍已解决或受控"
+              },
+              {
+                "en": "Helpful treatment-response data but not sufficient alone",
+                "id": "supportive_only",
+                "zh": "有帮助的治疗反应资料，但单独不足"
+              }
+            ],
+            "rows": [
+              {
+                "en": "Ambulates 150 feet and completes simulated stairs with SpO2 92% on room air, recovering within 1 minute.",
+                "id": "q6_r1",
+                "zh": "步行 150 英尺并完成模拟楼梯，室内空气 SpO2 为 92%，1 分钟内恢复。"
+              },
+              {
+                "en": "Correctly explains the diuretic purpose, daily weight plan, call parameters, and warning signs.",
+                "id": "q6_r2",
+                "zh": "正确说明利尿剂用途、每日称重计划、联系医护的参数和警示症状。"
+              },
+              {
+                "en": "The prescription is revised and a 30-day diuretic supply is provided before discharge.",
+                "id": "q6_r3",
+                "zh": "处方已修改，且出院前已提供 30 天利尿剂供应。"
+              },
+              {
+                "en": "Daughter will stay for two days, home health visit is scheduled, scale delivery is arranged, and cardiology follow-up is confirmed.",
+                "id": "q6_r4",
+                "zh": "女儿将陪伴两天，已安排居家护理、体重秤配送，并确认心脏科随访。"
+              },
+              {
+                "en": "Creatinine improves from 1.8 to 1.6 mg/dL, potassium is 4.1 mEq/L, and resting SpO2 is 95%.",
+                "id": "q6_r5",
+                "zh": "肌酐从 1.8 改善至 1.6 mg/dL，钾为 4.1 mEq/L，静息 SpO2 为 95%。"
+              },
+              {
+                "en": "BNP has decreased to 520 pg/mL.",
+                "id": "q6_r6",
+                "zh": "BNP 已降至 520 pg/mL。"
+              }
+            ],
+            "selectionMode": "single_per_row"
+          },
+          "ngnSkill": "evaluate_outcomes",
+          "rationale": {
+            "byChoice": [
+              {
+                "en": "This directly verifies functional tolerance for walking and stairs without clinically significant desaturation.",
+                "refId": "q6_r1",
+                "zh": "这直接验证患者能耐受步行和楼梯，且无临床上显著的低氧。"
+              },
+              {
+                "en": "Successful teach-back resolves the comprehension barrier to self-management.",
+                "refId": "q6_r2",
+                "zh": "回授成功解决了自我管理理解障碍。"
+              },
+              {
+                "en": "Medication access is now secured, addressing the nonadherence trigger for the admission.",
+                "refId": "q6_r3",
+                "zh": "用药取得已经落实，解决了导致本次入院的服药中断诱因。"
+              },
+              {
+                "en": "Immediate support, home monitoring equipment, home nursing, and follow-up address the social and environmental barriers.",
+                "refId": "q6_r4",
+                "zh": "近期支持、居家监测设备、居家护理和随访解决社会与环境障碍。"
+              },
+              {
+                "en": "Improved renal function, electrolytes, and resting oxygenation show clinical stability for the modified discharge plan.",
+                "refId": "q6_r5",
+                "zh": "肾功能、电解质和静息氧合改善，说明修改后的出院计划下临床状态较稳定。"
+              },
+              {
+                "en": "BNP improvement is supportive, but BNP alone does not prove the client can manage medications, stairs, monitoring, or follow-up at home.",
+                "refId": "q6_r6",
+                "zh": "BNP 改善有支持意义，但 BNP 单独不能证明患者能在家管理用药、爬楼、监测或随访。"
+              }
+            ],
+            "correct": {
+              "en": "By Stage 3, the functional, comprehension, medication-access, support/equipment, and clinical-stability barriers have concrete resolutions. BNP is still helpful as treatment-response information, but it remains insufficient by itself to establish discharge readiness.",
+              "zh": "到第 3 阶段，功能、理解、用药取得、支持/设备和临床稳定性障碍都有具体解决结果。BNP 仍是有帮助的治疗反应资料，但单独仍不足以证明出院准备充分。"
+            }
+          },
+          "stem": {
+            "en": "Using the Stage 3 re-evaluation, classify each finding as evidence that a specific discharge barrier has been resolved/controlled or as supportive treatment-response data that is not sufficient alone.",
+            "zh": "根据第 3 阶段重新评估，将每项发现分类为“证明某个出院障碍已解决/受控”，或“有帮助但单独不足的治疗反应资料”。"
+          },
+          "testTakingStrategy": {
+            "en": "Evaluate outcomes by matching each original problem to a verifiable resolution; do not clear discharge on a lab trend alone.",
+            "zh": "评价结果时，要把每个原始问题对应到可验证的解决结果；不要仅凭一个实验室趋势就认为可以出院。"
+          },
+          "topic": "Discharge Planning & Handoff"
+        }
+      ],
+      "stages": [
+        {
+          "exhibits": [
+            {
+              "content": {
+                "en": "During teach-back, the client says torsemide may be for blood pressure, is unsure what to do for weight gain over 2 lb overnight, and cannot name warning signs that should prompt calling the provider. She asks whether torsemide is the same as furosemide and whether insurance will cover it. Pharmacy test claim shows a $95/month copay for the new diuretic. She says she lives on about $1,400/month and could not afford furosemide last month, which is why she stopped taking it. Ambulation trial: after about 40 feet, she stops, grips the handrail, and says she is very winded. HR 110, RR 28, SpO2 89% on room air. She requires 2 minutes of rest and oxygen 2 L/min by nasal cannula to recover to SpO2 93%. She states her apartment is up one flight of stairs and she does not know how she would make it. Five minutes after returning to bed: HR 96, RR 24, SpO2 92% on room air. At 08:45, bed management asks whether the bed will be available by 11:00 because 3 emergency department patients are boarding for telemetry beds.",
+                "zh": "回授时，患者说 torsemide 可能是降血压药，不确定如果一夜体重增加超过 2 lb 该怎么做，也说不出哪些警示症状需要联系医护人员。她询问 torsemide 是否和 furosemide 一样，以及保险是否会支付。药房试算显示新的利尿剂每月自付 95 美元。她表示每月社会保障收入约 1,400 美元，上月因买不起 furosemide 才停药。步行试验：约 40 英尺后，她停下抓住扶手，说非常喘。HR 110，RR 28，室内空气 SpO2 89%。她需要休息 2 分钟并经鼻导管吸氧 2 L/min，才恢复至 SpO2 93%。她说自己的公寓要上一层楼，不知道自己能否做到。回床休息 5 分钟后：HR 96，RR 24，室内空气 SpO2 92%。08:45，床位管理询问该床是否能在 11:00 空出，因为急诊有 3 名患者在等待监护床位。"
+              },
+              "id": "stage_1_teaching_ambulation",
+              "title": {
+                "en": "Teach-back, medication access, and functional tolerance",
+                "zh": "回授、用药取得与功能耐受"
+              }
+            }
+          ],
+          "id": "stage_1",
+          "title": {
+            "en": "Stage 1: 07:30-09:00, discharge teaching and ambulation trial",
+            "zh": "第 1 阶段：07:30-09:00，出院教育与步行试验"
+          }
+        },
+        {
+          "exhibits": [
+            {
+              "content": {
+                "en": "The nurse documents ambulation findings, failed teach-back, medication affordability barrier, and home environment concerns. At 09:15, the nurse calls the attending and reports that the client desaturates to 89% with minimal exertion, cannot demonstrate understanding of the new regimen, cannot afford the diuretic, lives alone, lacks a scale, and must climb stairs. The attending initially cites length of stay, downtrending BNP, and bed need. The nurse respectfully reiterates patient-safety concerns and states she will escalate through chain of command if the discharge order is not modified. The attending agrees to hold discharge for interdisciplinary evaluation. The nurse pages the case manager, requests social work, contacts the clinical pharmacist for formulary or assistance options, places a home health referral, and contacts the daughter. By 10:30, pharmacy identifies a covered generic loop-diuretic alternative; social work identifies a scale program and home-safety evaluation; home health accepts the referral for the day after discharge; the daughter arranges to stay for 2 days.",
+                "zh": "护士记录步行发现、回授失败、用药负担障碍和居家环境担忧。09:15，护士致电主治医生，报告患者少量活动即 SpO2 降至 89%，不能说明新用药方案，负担不起利尿剂，独居、没有体重秤且需要爬楼。医生最初以住院天数、BNP 下降和床位需求为理由。护士尊重地重申患者安全担忧，并说明若出院医嘱不修改，将按逐级上报流程处理。医生同意暂缓出院，等待跨专业评估。护士呼叫个案管理师，请求社工会诊，联系临床药师寻找目录内或援助方案，申请居家护理，并联系女儿。10:30 前，药师找到保险覆盖的通用袢利尿剂替代方案；社工找到体重秤项目并安排居家安全评估；居家护理接受转诊并安排出院次日上门；女儿安排陪伴 2 天。"
+              },
+              "id": "stage_2_advocacy_resources",
+              "title": {
+                "en": "Discharge held and resources mobilized",
+                "zh": "暂缓出院并启动资源"
+              }
+            }
+          ],
+          "id": "stage_2",
+          "title": {
+            "en": "Stage 2: 09:00-11:30, advocacy and interdisciplinary engagement",
+            "zh": "第 2 阶段：09:00-11:30，倡导与跨专业介入"
+          }
+        },
+        {
+          "exhibits": [
+            {
+              "content": {
+                "en": "The provider orders potassium and magnesium repletion, repeat labs, and an additional loop-diuretic dose. Next morning resting vitals: HR 82, BP 112/70, RR 18, SpO2 95% on room air. Weight 77.4 kg. At 09:00, the client walks 150 feet and completes simulated stair climbing with HR 98, RR 22, SpO2 92% on room air; she recovers to baseline within 1 minute without oxygen. On repeat teach-back, she correctly states that the diuretic is her water pill, that she should weigh herself every morning, and that she should call for weight gain over 2 lb in 1 day or 3 lb in 1 week. She names increased leg swelling, waking up short of breath, and needing more pillows to sleep as warning signs. She states the medication names, doses, and timing, and confirms her daughter will stay for 2 days, home health will visit the day after discharge, a scale is being delivered, her prescription was revised, a 30-day diuretic supply is in hand, and cardiology follow-up is in 5 days. Labs: K 4.1, Mg 2.0, creatinine 1.6 mg/dL, BNP 520 pg/mL.",
+                "zh": "医生医嘱补充钾和镁、复查实验室，并再给一次袢利尿剂。次日早晨静息生命体征：HR 82，BP 112/70，RR 18，室内空气 SpO2 95%。体重 77.4 kg。09:00，患者步行 150 英尺并完成模拟爬楼，HR 98，RR 22，室内空气 SpO2 92%；无需吸氧，1 分钟内恢复基线。再次回授时，她正确说明利尿剂是“排水药”，应每天早晨称体重；若 1 天增加超过 2 lb 或 1 周增加 3 lb 应联系医护人员。她能说出警示症状：腿部肿胀增加、夜间气短醒来、需要更多枕头睡觉。她能说出药名、剂量和时间，并确认女儿将陪伴 2 天、居家护理出院次日上门、体重秤将送达、处方已修改、手中有 30 天利尿剂供应，且 5 天后心脏科随访。实验室：K 4.1，Mg 2.0，肌酐 1.6 mg/dL，BNP 520 pg/mL。"
+              },
+              "id": "stage_3_discharge_readiness",
+              "title": {
+                "en": "Re-evaluation after interventions",
+                "zh": "干预后的重新评估"
+              }
+            }
+          ],
+          "id": "stage_3",
+          "title": {
+            "en": "Stage 3: Next morning 08:00-11:00, re-evaluation and modified discharge",
+            "zh": "第 3 阶段：次日 08:00-11:00，重新评估与修改后出院"
+          }
+        }
+      ],
+      "summary": {
+        "en": "A 71-year-old client recovering from acute decompensated heart failure has an active discharge order despite unresolved functional, comprehension, medication-access, social, environmental, and clinical monitoring concerns.",
+        "zh": "一名 71 岁急性失代偿性心衰恢复期患者已有有效出院医嘱，但仍存在功能、理解、用药取得、社会、环境和临床监测方面未解决的担忧。"
+      },
+      "title": {
+        "en": "Advocating Against Unsafe Premature Discharge in Acute Decompensated Heart Failure",
+        "zh": "急性失代偿性心衰中反对不安全过早出院的患者倡导"
+      }
+    },
+    "category": "Management of Care",
+    "difficulty": "hard",
+    "glossary": [
+      {
+        "defZh": "患者在生理状态、功能能力、理解能力、用药取得、居家支持和随访安排方面均能安全离院的程度。",
+        "termEn": "Discharge readiness",
+        "termZh": "出院准备度"
+      },
+      {
+        "defZh": "请患者用自己的话复述重点内容，以确认其是否真正理解教育内容。",
+        "termEn": "Teach-back",
+        "termZh": "回授法"
+      },
+      {
+        "defZh": "当医嘱或计划可能危及患者安全且初次沟通未解决时，护士按机构政策逐级上报的流程。",
+        "termEn": "Chain of command",
+        "termZh": "逐级上报流程"
+      },
+      {
+        "defZh": "护士在患者出院后到家中进行评估、用药指导、病情监测和护理支持的服务。",
+        "termEn": "Home health nursing",
+        "termZh": "居家护理"
+      }
+    ],
+    "id": "gpt_case_unsafe_premature_discharge_01",
+    "itemType": "case_study",
+    "ngnSkill": "analyze_cues",
+    "rationale": {
+      "correct": {
+        "en": "This case tests the difference between clinical improvement and discharge readiness. The patient is responding to diuresis, with improved weight, edema, JVD, and BNP, but Stage 1 shows unresolved discharge barriers: borderline resting respiratory status, exertional desaturation requiring oxygen recovery, failed teach-back, an unaffordable new diuretic that repeats the admission trigger, stairs/living alone/no scale, creatinine above baseline, and low-normal potassium during diuresis. The nurse should advocate to hold or modify the discharge order, document objective concerns, and mobilize case management, social work, pharmacy, home health, and family support. By Stage 3, discharge becomes appropriate only because each barrier has a concrete resolution and the client demonstrates functional tolerance, understanding, medication access, home support, follow-up, and stable clinical trajectory.",
+        "zh": "本病例考查“临床改善”和“出院准备度”的区别。患者对利尿治疗有反应，体重、水肿、颈静脉怒张和 BNP 改善，但第 1 阶段仍显示未解决的出院障碍：静息呼吸状态临界、活动后低氧且需吸氧恢复、回授失败、新利尿剂负担不起并重现入院诱因、楼梯/独居/无体重秤、肌酐高于基线，以及利尿期间钾偏低正常。护士应倡导暂缓或修改出院医嘱，记录客观担忧，并启动个案管理、社工、药师、居家护理和家属支持。到第 3 阶段，只有在每个障碍都有具体解决结果，且患者证明有功能耐受、理解能力、用药取得、居家支持、随访和稳定临床趋势后，出院才合适。"
+      }
+    },
+    "stem": {
+      "en": "Review the client record and answer the case-study items.",
+      "zh": "请查看患者病历，并回答本病例题组。"
+    },
+    "testTakingStrategy": {
+      "en": "Do not equate improving heart-failure markers with safe discharge. Ask: Can the client breathe and function in the home environment, understand the plan, obtain the medication, monitor symptoms/weight, and access support and follow-up?",
+      "zh": "不要把心衰指标改善等同于安全出院。要问：患者能否在居家环境中呼吸和活动、理解计划、取得药物、监测症状/体重，并获得支持和随访？"
+    },
+    "topic": "Discharge Planning & Handoff"
+  },
+  "standaloneItem": {
+    "bowtie": {
+      "actions": {
+        "prompt": {
+          "en": "Priority actions",
+          "zh": "优先措施"
+        },
+        "tokens": [
+          {
+            "en": "Mobilize case management, social work, clinical pharmacy, home health, and family support",
+            "opaqueTokenLabel": "A1",
+            "zh": "启动个案管理、社工、临床药师、居家护理和家属支持"
+          },
+          {
+            "en": "Proceed with discharge as ordered to free the telemetry bed",
+            "opaqueTokenLabel": "A2",
+            "zh": "按医嘱出院以腾出监护床位"
+          },
+          {
+            "en": "Advocate to hold the discharge by communicating objective safety concerns and escalating if needed",
+            "opaqueTokenLabel": "A3",
+            "zh": "沟通客观安全担忧，倡导暂缓出院，必要时逐级上报"
+          },
+          {
+            "en": "Provide additional written instructions and a follow-up appointment only",
+            "opaqueTokenLabel": "A4",
+            "zh": "仅提供更多书面说明和随访预约"
+          }
+        ]
+      },
+      "condition": {
+        "prompt": {
+          "en": "Most likely condition",
+          "zh": "最可能的问题"
+        },
+        "tokens": [
+          {
+            "en": "Routine discharge with standard written instructions",
+            "opaqueTokenLabel": "C1",
+            "zh": "常规出院并提供标准书面说明"
+          },
+          {
+            "en": "Unsafe premature discharge",
+            "opaqueTokenLabel": "C2",
+            "zh": "不安全的过早出院"
+          },
+          {
+            "en": "Continued acute decompensation requiring indefinite inpatient treatment",
+            "opaqueTokenLabel": "C3",
+            "zh": "持续急性失代偿，需要无限期住院治疗"
+          }
+        ]
+      },
+      "parameters": {
+        "prompt": {
+          "en": "Parameters to monitor",
+          "zh": "需要监测的参数"
+        },
+        "tokens": [
+          {
+            "en": "Repeat teach-back on medication purpose, daily weights, call parameters, and warning signs",
+            "opaqueTokenLabel": "P1",
+            "zh": "再次回授药物用途、每日称重、联系医护的参数和警示症状"
+          },
+          {
+            "en": "Repeat ambulation including stair simulation with oxygen saturation and recovery time",
+            "opaqueTokenLabel": "P2",
+            "zh": "重复步行并模拟爬楼，同时监测氧饱和度和恢复时间"
+          },
+          {
+            "en": "BNP level alone",
+            "opaqueTokenLabel": "P3",
+            "zh": "单独 BNP 水平"
+          },
+          {
+            "en": "Inpatient daily weight trend alone",
+            "opaqueTokenLabel": "P4",
+            "zh": "单独住院每日体重趋势"
+          }
+        ]
+      }
+    },
+    "glossary": [
+      {
+        "defZh": "要求识别中间问题、两侧干预和监测项目的 NGN 题型。",
+        "termEn": "Bow-tie item",
+        "termZh": "蝴蝶结题"
+      },
+      {
+        "defZh": "患者能否实际获得并持续使用所需药物，包括费用和供应。",
+        "termEn": "Medication access",
+        "termZh": "用药取得"
+      },
+      {
+        "defZh": "患者完成回家所需活动而不出现危险低氧、明显气促或不稳定生命体征的能力。",
+        "termEn": "Functional tolerance",
+        "termZh": "功能耐受力"
+      }
+    ],
+    "rationale": {
+      "byChoice": [
+        {
+          "en": "This integrates the functional, comprehension, financial, and home-environment barriers despite improving biomarkers.",
+          "opaqueTokenLabel": "C2",
+          "zh": "这整合了功能、理解、经济和居家环境障碍，即使生物指标正在改善。"
+        },
+        {
+          "en": "Routine written instructions are not enough because the client has already failed teach-back and lacks medication access and functional readiness.",
+          "opaqueTokenLabel": "C1",
+          "zh": "常规书面说明不够，因为患者已回授失败，且缺乏用药取得和功能准备。"
+        },
+        {
+          "en": "The client is clinically improving, so the central problem is not indefinite acute treatment but an unsafe transition plan.",
+          "opaqueTokenLabel": "C3",
+          "zh": "患者临床上正在改善，因此核心问题不是无限期急性治疗，而是不安全的过渡计划。"
+        },
+        {
+          "en": "Holding the discharge stops the unsafe process and allows time to address barriers.",
+          "opaqueTokenLabel": "A3",
+          "zh": "暂缓出院能停止不安全流程，并争取时间处理障碍。"
+        },
+        {
+          "en": "Interdisciplinary resources target affordability, home environment, monitoring, support, and transition planning.",
+          "opaqueTokenLabel": "A1",
+          "zh": "跨专业资源针对可负担性、居家环境、监测、支持和过渡计划。"
+        },
+        {
+          "en": "Proceeding for bed availability ignores patient safety and repeats the conditions that caused decompensation.",
+          "opaqueTokenLabel": "A2",
+          "zh": "为了床位出院会忽视患者安全，并重现导致失代偿的条件。"
+        },
+        {
+          "en": "Written instructions alone do not fix failed understanding, unaffordable medication, exertional desaturation, or stairs at home.",
+          "opaqueTokenLabel": "A4",
+          "zh": "单靠书面说明不能解决理解失败、药物负担不起、活动后低氧或家中楼梯问题。"
+        },
+        {
+          "en": "Teach-back verifies that the comprehension barrier has been resolved.",
+          "opaqueTokenLabel": "P1",
+          "zh": "回授可验证理解障碍是否已解决。"
+        },
+        {
+          "en": "Ambulation and stair tolerance verify the client can navigate the home environment safely.",
+          "opaqueTokenLabel": "P2",
+          "zh": "步行和爬楼耐受可验证患者能否安全应对居家环境。"
+        },
+        {
+          "en": "BNP helps evaluate heart-failure response but not medication access, stairs, teach-back, or home monitoring.",
+          "opaqueTokenLabel": "P3",
+          "zh": "BNP 有助于评估心衰治疗反应，但不能评估用药取得、楼梯、回授或居家监测。"
+        },
+        {
+          "en": "Inpatient weight loss shows diuresis, but the client also needs a home scale and understanding of weight-gain actions.",
+          "opaqueTokenLabel": "P4",
+          "zh": "住院体重下降说明利尿有效，但患者还需要家中体重秤并理解体重增加时该怎么做。"
+        }
+      ],
+      "correct": {
+        "en": "The priority condition is unsafe premature discharge: the client is improving medically but cannot yet safely transition home. The two priority actions are to pause the unsafe discharge through provider communication/escalation and to mobilize interdisciplinary resources that resolve the identified barriers. The key monitoring parameters are repeat teach-back and functional tolerance including stair simulation; BNP and inpatient weight are useful treatment-response data but do not answer whether the discharge barriers have been resolved.",
+        "zh": "优先问题是不安全的过早出院：患者医学上正在改善，但尚不能安全过渡回家。两个优先措施是通过与医生沟通/必要时上报来暂停不安全出院，并调动跨专业资源解决已识别障碍。关键监测参数是再次回授和包括模拟爬楼在内的功能耐受；BNP 和住院体重是有用的治疗反应资料，但不能回答出院障碍是否已解决。"
+      }
+    },
+    "stem": {
+      "en": "At 09:15, a 71-year-old client recovering from acute decompensated heart failure has an active 11:00 discharge order. She desaturates to 89% after walking 40 feet, requires oxygen to recover, fails teach-back about her new medications and warning signs, cannot afford the prescribed diuretic, lives alone in a second-floor walk-up apartment, and has no home scale. BNP and weight are improving. Complete the bow-tie to identify the priority condition, actions, and monitoring parameters.",
+      "zh": "09:15，一名 71 岁急性失代偿性心衰恢复期患者有上午 11:00 的有效出院医嘱。她步行 40 英尺后 SpO2 降至 89%，需要吸氧恢复；对新药和警示症状回授失败；负担不起处方利尿剂；独居在无电梯二楼公寓；家中没有体重秤。BNP 和体重正在改善。完成蝴蝶结题，识别优先问题、措施和监测参数。"
+    },
+    "testTakingStrategy": {
+      "en": "In bow-tie items, choose the condition that best explains the whole pattern, then pick actions and monitoring that directly address the condition rather than attractive but incomplete trends.",
+      "zh": "做蝴蝶结题时，先选择最能解释整体模式的问题，再选择直接处理该问题的措施和监测，而不是被看似正向但不完整的趋势吸引。"
+    }
+  }
+}

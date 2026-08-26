@@ -1,0 +1,132 @@
+{
+  "anyCanonicalTargetDependsOnAbsentFact": false,
+  "blindExactMatch": true,
+  "canonicalSelection": {
+    "actionLabels": [
+      "A4",
+      "A1"
+    ],
+    "conditionLabel": "C2",
+    "parameterLabels": [
+      "P4",
+      "P3"
+    ]
+  },
+  "canonicalSetExplanation": "C2 is uniquely established by CT-confirmed PE, RV dysfunction, positive biomarkers, and preserved systolic pressure. A4 and A1 directly address anticoagulation and the risk of deterioration, while P4 and P3 track the immediate hemodynamic and respiratory threats. Every alternative is contradicted, lacks a required client premise, or is clinically nonresponsive to the acute problem.",
+  "canonicalSetUniquelyDefensible": true,
+  "canonicalTargetSupport": [
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "C2",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "CT-PA confirms a saddle pulmonary embolus with RV/LV ratio 1.4 and septal bowing; troponin and BNP are elevated while systolic BP remains above 90 mmHg."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "A4",
+      "supportClassification": "GENERAL_KNOWLEDGE_LINK",
+      "supportingStandaloneEvidence": "A facility UFH protocol has already been initiated, and HR, BP, SpO2, urine output, lactate, and pain improve over 4 hours. Continuing effective anticoagulation is directly supported; aPTT monitoring is the general-knowledge link for protocol-managed UFH."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "A1",
+      "supportClassification": "GENERAL_KNOWLEDGE_LINK",
+      "supportingStandaloneEvidence": "The confirmed saddle PE has RV strain, positive cardiac biomarkers, hypoxemia, and potential for deterioration despite preserved and improving blood pressure, supporting ICU-level surveillance and an escalation plan."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "P4",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "The stem explicitly reports tachycardia, preserved systolic BP, and improving HR and BP during treatment."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "P3",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "The stem explicitly reports severe dyspnea, hypoxemia, and improving SpO2 during treatment."
+    }
+  ],
+  "distractorPremiseFindings": [
+    {
+      "explanation": "The standalone stem explicitly confirms a saddle pulmonary embolus with venous thromboembolism and RV-strain findings. The revealed rationale additionally cites negative chest imaging and clear bilateral lung sounds, but those negative findings are not stated in the standalone stem and are unnecessary to rank C1 below C2.",
+      "opaqueTokenLabel": "C1",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "No ECG or coronary-territory ST-elevation finding is supplied. Elevated troponin is explained by the explicitly demonstrated RV strain, so the absent ECG fact does not prevent C2 from clearly outranking C3.",
+      "opaqueTokenLabel": "C3",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "LOW"
+    },
+    {
+      "explanation": "The client is not described as hypotensive: systolic BP remains above 90 mmHg, while BP, urine output, and lactate improve. Trendelenburg is also inconsistent with the RV-strain physiology described.",
+      "opaqueTokenLabel": "A2",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "Only troponin rises slightly; the postoperative client otherwise improves across respiratory, hemodynamic, perfusion, and pain measures without sustained hypotension or shock.",
+      "opaqueTokenLabel": "A3",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "The standalone stem provides no temperature. Even if 99 °F (37.2 °C) were supplied, it would not directly track acute PE oxygenation or hemodynamic response.",
+      "opaqueTokenLabel": "P1",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "No D-dimer value or D-dimer-directed endpoint is supplied. The client is postoperative and already has CT-confirmed PE, so serial D-dimer does not compete with real-time respiratory and hemodynamic trends.",
+      "opaqueTokenLabel": "P2",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "NONE"
+    }
+  ],
+  "missingClientFacts": [
+    {
+      "keyed": true,
+      "missingFact": "The revealed rationale mentions ECG signs or an ECG pattern of RV strain, but no ECG findings are present in the standalone stem.",
+      "opaqueTokenLabel": "C2",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "keyed": false,
+      "missingFact": "The revealed rationale states that a chest x-ray shows no pneumothorax, but no chest-x-ray result is supplied.",
+      "opaqueTokenLabel": "C1",
+      "rankabilityImpact": "LOW"
+    },
+    {
+      "keyed": false,
+      "missingFact": "The revealed rationale treats CT as explicitly showing no pneumothorax, but the standalone CT-PA description reports only the pulmonary embolus and RV-strain findings.",
+      "opaqueTokenLabel": "C1",
+      "rankabilityImpact": "LOW"
+    },
+    {
+      "keyed": false,
+      "missingFact": "The revealed rationale states that lung sounds are clear bilaterally, but no lung-sound assessment is supplied.",
+      "opaqueTokenLabel": "C1",
+      "rankabilityImpact": "LOW"
+    },
+    {
+      "keyed": false,
+      "missingFact": "The revealed rationale cites an ECG pattern supporting PE rather than coronary-territory ST elevation, but no ECG findings are supplied.",
+      "opaqueTokenLabel": "C3",
+      "rankabilityImpact": "LOW"
+    },
+    {
+      "keyed": false,
+      "missingFact": "A measured temperature of 99 °F (37.2 °C) is not supplied in the standalone stem.",
+      "opaqueTokenLabel": "P1",
+      "rankabilityImpact": "NONE"
+    }
+  ],
+  "notes": [
+    "Stage 2 selected the same five labels as the canonical key. Its two action labels and two parameter labels appeared in reverse order relative to the canonical packet, but bow-tie selections within each role are unordered, so the blind selection is an exact label-set match.",
+    "The canonical rationale contains several standalone-absent findings—ECG findings, negative pneumothorax imaging details, and clear bilateral lung sounds—but none is needed to support a keyed target or materially affects rankability."
+  ],
+  "stage1Alignment": "FULL",
+  "stage1AlignmentExplanation": "Stage 1 identified intermediate-high-risk/submassive pulmonary embolism, continuation of UFH, close cardiorespiratory/hemodynamic monitoring with escalation for deterioration, and oxygenation plus hemodynamic trends. These semantically align with all five canonical targets, although the monitoring action also mentioned supplemental oxygen.",
+  "unstatedClientFactMateriallyChangesRankability": false
+}

@@ -1,0 +1,56 @@
+{
+  "instruction": "Using only the standalone learner-facing English stem, prompts, and opaque token pools, select exactly one condition, two actions, and two parameters. Return the required structured JSON, including exactly one premise row for every opaque token. Do not infer absent client-specific facts.",
+  "stem": "A 32-year-old client with confirmed Guillain-Barre syndrome after recent Campylobacter enteritis has progressive quadriparesis, labile blood pressure, tachycardia, ineffective cough, unilateral absent gag reflex, FVC 1.6 L (19 mL/kg), and MIP -26 cmH2O. He speaks only a few words at a time and is diaphoretic while receiving IVIG in the ICU. Complete the bow-tie by selecting the most likely condition, two priority actions, and two parameters to monitor.",
+  "tokens": {
+    "actions": [
+      {
+        "label": "A1",
+        "text": "Administer high-dose IV corticosteroids to halt GBS progression"
+      },
+      {
+        "label": "A2",
+        "text": "Prepare for and assist with emergent endotracheal intubation"
+      },
+      {
+        "label": "A3",
+        "text": "Start BiPAP instead of intubation"
+      },
+      {
+        "label": "A4",
+        "text": "Continue IVIG on schedule through airway stabilization"
+      }
+    ],
+    "condition": [
+      {
+        "label": "C1",
+        "text": "GBS/AIDP with impending respiratory failure"
+      },
+      {
+        "label": "C2",
+        "text": "Acute transverse myelitis"
+      },
+      {
+        "label": "C3",
+        "text": "Myasthenia gravis crisis"
+      }
+    ],
+    "parameters": [
+      {
+        "label": "P1",
+        "text": "Repeat CSF protein level to guide acute airway decisions"
+      },
+      {
+        "label": "P2",
+        "text": "Serial FVC and MIP trends"
+      },
+      {
+        "label": "P3",
+        "text": "Heart-rate and blood-pressure variability"
+      },
+      {
+        "label": "P4",
+        "text": "SpO2 alone as the primary respiratory marker"
+      }
+    ]
+  }
+}

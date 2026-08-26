@@ -1,0 +1,61 @@
+{
+  "instruction": "Using only the standalone learner-facing English stem, prompts, and opaque token pools, select exactly one condition, two actions, and two parameters. Return the required structured JSON, including exactly one premise row for every opaque token. Do not infer absent client-specific facts.",
+  "prompts": {
+    "actions": "Priority nursing actions",
+    "condition": "Most likely priority problem",
+    "parameters": "Parameters to monitor"
+  },
+  "stem": "Stage 2 synthesis: The contaminated stethoscope from Client C's MRSA contact-precautions room has been found in the clean utility room near the clean supply cart. The student also contaminated the Room 12 door handle after CDI care, Client A's soiled linens were placed in a standard linen bag, and Client D's mother has asked to remove a smear-positive TB patient from the AIIR. Complete the bow-tie diagram for the priority cross-contamination problem.",
+  "tokens": {
+    "actions": [
+      {
+        "label": "A1",
+        "text": "Disinfect only the stethoscope and return it to Room 16 without cleaning the counter or assessing nearby supplies."
+      },
+      {
+        "label": "A2",
+        "text": "Wait until the end of the shift to address the stethoscope because the wound dressing change is due."
+      },
+      {
+        "label": "A3",
+        "text": "Provide immediate corrective education to the staff member involved and notify the charge nurse so the breach is documented for infection-control follow-up."
+      },
+      {
+        "label": "A4",
+        "text": "Remove the stethoscope, disinfect contacted clean-utility surfaces, assess or remove nearby supplies per policy, disinfect the stethoscope with full wet-contact time, and return it to Room 16."
+      }
+    ],
+    "condition": [
+      {
+        "label": "C1",
+        "text": "Active cross-contamination risk from a contaminated MRSA dedicated device in the clean utility room"
+      },
+      {
+        "label": "C2",
+        "text": "CDI soiled-linen bagging error in Room 12"
+      },
+      {
+        "label": "C3",
+        "text": "CDI door-handle contamination from the student's bare-hand contact"
+      }
+    ],
+    "parameters": [
+      {
+        "label": "P1",
+        "text": "Client C's vancomycin monitoring results"
+      },
+      {
+        "label": "P2",
+        "text": "Visitor and staff PPE compliance on subsequent room entries"
+      },
+      {
+        "label": "P3",
+        "text": "Equipment location and cleanliness at each room entry"
+      },
+      {
+        "label": "P4",
+        "text": "Client B's Streptococcus pneumoniae sputum culture result"
+      }
+    ]
+  }
+}

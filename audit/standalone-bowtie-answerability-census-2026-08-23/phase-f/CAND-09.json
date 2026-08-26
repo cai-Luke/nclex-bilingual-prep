@@ -1,0 +1,76 @@
+{
+  "advisoryPriority": "P1",
+  "bilingualCollateral": [
+    {
+      "concern": "The same clinically material omission appears in both languages: A4 is unconditional in the selectable token even though continuation depends on the absence of an infusion reaction or other safety issue.",
+      "evidence": "English: \"Continue IVIG on schedule through airway stabilization.\" Chinese: \"在气道稳定过程中按计划继续IVIG.\" Both standalone stems describe diaphoresis during IVIG, while only the rationale and sibling action state the safety exception.",
+      "priority": "P1"
+    }
+  ],
+  "canonicalTargetSiblingOverlap": [
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling supplies ascending areflexia, albuminocytologic dissociation, demyelinating nerve-conduction findings, serial decline, and explicit AIDP confirmation. These corroborate C1 but are unnecessary because the standalone stem already confirms GBS and directly shows impending respiratory failure.",
+      "opaqueTokenLabel": "C1",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling adds labored tachypnea, oxygen requirement, a provider intubation order, and successful intubation. The standalone cough, gag, speech, FVC, and MIP findings already support emergent intubation.",
+      "opaqueTokenLabel": "A2",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CASE_IMPORTED",
+      "description": "Only the sibling establishes the case-specific decision and outcome that IVIG continued through airway stabilization and was completed, while explicitly conditioning continuation on no infusion reaction or separate safety issue.",
+      "opaqueTokenLabel": "A4",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling provides serial FVC and MIP trajectories before and after intubation, but the standalone stem already supplies critically abnormal current values that make serial monitoring rankable.",
+      "opaqueTokenLabel": "P2",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling labels the hemodynamic pattern as autonomic instability and supplies telemetry findings and later improvement. The standalone labile blood pressure and tachycardia already directly support this parameter.",
+      "opaqueTokenLabel": "P3",
+      "overlap": true
+    }
+  ],
+  "clinicalCollateral": [
+    {
+      "concern": "The keyed IVIG action can be unsafe if the contemporaneous diaphoresis and hemodynamic instability represent an infusion reaction rather than GBS dysautonomia.",
+      "evidence": "The standalone stem gives diaphoresis, tachycardia, and labile blood pressure while IVIG is being administered. The sibling later resolves the case by documenting continued IVIG and explicitly adding the exception for an infusion reaction or separate safety issue.",
+      "priority": "P1"
+    }
+  ],
+  "defectSummary": "The standalone canonical set depends on hidden sibling information for A4. The standalone stem reports diaphoresis, tachycardia, and labile blood pressure while IVIG is infusing but does not establish whether these findings are GBS dysautonomia or an infusion-related safety issue. The sibling alone confirms continued and completed IVIG and supplies the missing safety qualification. Without that information, the required second action is not uniquely defensible, and the remaining action distractors do not provide a valid replacement.",
+  "missingFactProvenance": [
+    {
+      "missingFact": "Whether the diaphoresis, tachycardia, and labile blood pressure represent GBS dysautonomia or a clinically significant IVIG infusion reaction, and whether IVIG is otherwise tolerated.",
+      "necessaryForRankability": true,
+      "opaqueTokenLabel": "A4",
+      "provenance": "SIBLING_CASE_IMPORTED",
+      "sourceEvidence": "The sibling stage-2 record states that the provider ordered emergent intubation, the client was intubated without complication, and \"IVIG continues on schedule\"; the later record states that IVIG was completed through day 5. Its keyed action also explicitly qualifies continuation with \"unless a separate infusion reaction or safety issue occurs.\""
+    }
+  ],
+  "primaryVerdict": "FAIL_HIDDEN_CASE_DEPENDENCY",
+  "reasoning": "Four canonical targets are independently supported by the standalone item: C1 by confirmed GBS plus severe respiratory and bulbar findings, A2 by threatened ventilation and airway protection, P2 by the supplied FVC/MIP values, and P3 by labile blood pressure and tachycardia. The sibling evidence for those targets merely corroborates the standalone answer. A4 is different: its case-specific safety premise is absent from the standalone stem and supplied only by the sibling's documented continuation and explicit infusion-reaction exception. Because that hidden fact is necessary to rank A4 safely and no alternative second action is defensible, hidden-case dependency takes precedence and standalone underdetermination is recorded secondarily.",
+  "scopeCollateral": [
+    {
+      "concern": "The standalone rationale imports sibling diagnostic and exclusion findings that are not present in the standalone stem, although these facts are corroborative rather than necessary for selecting C1.",
+      "evidence": "The rationale references ascending areflexic weakness, albuminocytologic dissociation, demyelinating nerve-conduction studies, sensory-level absence, cord MRI findings, bowel/bladder findings, and prior diagnostic CSF use. Those details appear in the paired case but not in the standalone stem.",
+      "priority": "P2"
+    },
+    {
+      "concern": "The AIDP subtype is established only in the sibling record, not the standalone stem, but this does not materially affect condition ranking because C1 also expressly includes confirmed GBS.",
+      "evidence": "The sibling states \"Neurology confirms Guillain-Barre syndrome, AIDP variant\" and provides demyelinating nerve-conduction findings; the standalone stem states only confirmed Guillain-Barre syndrome.",
+      "priority": "P3"
+    }
+  ],
+  "secondaryFlags": [
+    "ALSO_SATISFIES_FAIL_UNDERDETERMINED"
+  ]
+}

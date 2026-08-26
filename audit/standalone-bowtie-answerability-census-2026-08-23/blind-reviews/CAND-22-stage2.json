@@ -1,0 +1,138 @@
+{
+  "actionLabels": [
+    "A1",
+    "A2"
+  ],
+  "ambiguousAlternatives": [
+    {
+      "explanation": "The PICC findings support a concurrent catheter-site infection concern, but bloodstream infection is not established and would not account for the post-PN electrolyte-shift pattern.",
+      "opaqueTokenLabel": "C3"
+    }
+  ],
+  "conditionLabel": "C2",
+  "missingInformation": [
+    "PN caloric and dextrose delivery rate and the specific ordered adjustment",
+    "Electrolyte-replacement orders and follow-up laboratory timing",
+    "Baseline glucose history and diabetes status",
+    "Vital signs, oxygen saturation, fluid balance, blood cultures, and systemic infection findings"
+  ],
+  "parameterLabels": [
+    "P2",
+    "P4"
+  ],
+  "poolAnswerability": "ANSWERABLE",
+  "reasoning": "C2 uniquely integrates the malnutrition, recent PN initiation, rapid phosphorus-potassium-magnesium depletion, weakness, shallow respirations, dysrhythmia, QT prolongation, and hyperglycemia. A1 and A2 address the dangerous abnormalities and their nutritional trigger, while P2 and P4 directly monitor the active cardiac and biochemical hazards. The PICC findings require separate infection evaluation but do not displace the dominant syndrome.",
+  "selectionEvidence": [
+    {
+      "evidence": "Severe malnutrition followed by PN and rapid, concurrent declines in phosphorus, potassium, and magnesium with neuromuscular, respiratory, cardiac, and glycemic manifestations.",
+      "opaqueTokenLabel": "C2"
+    },
+    {
+      "evidence": "Phosphorus 1.3 mg/dL, potassium 2.9 mEq/L, magnesium 1.3 mg/dL, frequent PVCs, and prolonged QT interval support urgent electrolyte replacement with telemetry.",
+      "opaqueTokenLabel": "A1"
+    },
+    {
+      "evidence": "The manifestations began after PN initiation, supporting ordered reduction of the nutritional infusion while the electrolyte crisis is corrected.",
+      "opaqueTokenLabel": "A2"
+    },
+    {
+      "evidence": "Palpitations, frequent PVCs, and prolonged QT interval are explicitly present.",
+      "opaqueTokenLabel": "P2"
+    },
+    {
+      "evidence": "Phosphorus, potassium, and magnesium are rapidly declining and substantially abnormal.",
+      "opaqueTokenLabel": "P4"
+    }
+  ],
+  "stage2Confidence": "high",
+  "tokenPremiseTable": [
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "C1",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "LOW",
+      "rankabilityJustification": "Hyperglycemia is present after PN, but it does not explain the simultaneous severe electrolyte declines and associated neuromuscular, respiratory, and cardiac findings.",
+      "supportingStemText": "PN was started and glucose is 226 mg/dL."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "C2",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The explicit temporal pattern and manifestations directly distinguish this condition from the other condition tokens.",
+      "supportingStemText": "The client had about five weeks of negligible intake, then developed rapidly falling phosphorus, potassium, and magnesium within 30 hours of PN initiation, with weakness, shallow respirations, PVCs, prolonged QT interval, and hyperglycemia."
+    },
+    {
+      "missingPremise": "Evidence that infection has entered the bloodstream, such as positive blood cultures or compatible systemic findings.",
+      "opaqueTokenLabel": "C3",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "LOW",
+      "rankabilityJustification": "The local PICC findings create a concurrent infection concern, but they do not establish bloodstream infection or explain the characteristic post-PN electrolyte crisis.",
+      "supportingStemText": "The PICC site has erythema, tenderness, and small purulent drainage."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A1",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The severe concurrent deficiencies and electrical instability directly support replacement and telemetry.",
+      "supportingStemText": "Phosphorus is 1.3 mg/dL, potassium is 2.9 mEq/L, magnesium is 1.3 mg/dL, with frequent PVCs and prolonged QT interval."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A2",
+      "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+      "rankabilityImpact": "LOW",
+      "rankabilityJustification": "Reducing nutritional delivery while severe refeeding abnormalities are corrected is consistent with the identified crisis; the token appropriately conditions the exact 50% reduction on an order.",
+      "supportingStemText": "The electrolyte declines and clinical manifestations developed within 30 hours after PN was started in a severely malnourished client."
+    },
+    {
+      "missingPremise": "A client-specific order or emergency circumstance authorizing abrupt PN discontinuation and a plan to prevent consequences of abruptly stopping the dextrose infusion.",
+      "opaqueTokenLabel": "A3",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "MATERIAL",
+      "rankabilityJustification": "The stem supplies no basis for independently and abruptly discontinuing PN without backup.",
+      "supportingStemText": ""
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A4",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "MATERIAL",
+      "rankabilityJustification": "Making aggressive insulin the first action conflicts with the immediately dangerous electrolyte depletion and cardiac instability.",
+      "supportingStemText": "Potassium has fallen to 2.9 mEq/L while phosphorus and magnesium are also severely reduced, with PVCs and prolonged QT interval."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "P1",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "MATERIAL",
+      "rankabilityJustification": "Glucose alone cannot evaluate the dominant multi-electrolyte and cardiac crisis.",
+      "supportingStemText": "Glucose is 226 mg/dL, but phosphorus, potassium, and magnesium are rapidly declining and the client has respiratory, neuromuscular, and cardiac manifestations."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "P2",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The parameter directly tracks the explicitly documented cardiac instability.",
+      "supportingStemText": "The client has palpitations, frequent PVCs, and a prolonged QT interval."
+    },
+    {
+      "missingPremise": "A white blood cell count or systemic findings establishing WBC count as the main marker of the acute syndrome.",
+      "opaqueTokenLabel": "P3",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "MATERIAL",
+      "rankabilityJustification": "Local catheter-site findings warrant infection assessment, but the stem provides no WBC result and the dominant crisis is characterized by electrolyte and cardiac abnormalities.",
+      "supportingStemText": "The PICC site has local erythema, tenderness, and purulent drainage."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "P4",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Serial trends in all three electrolytes directly measure progression or correction of the identified crisis.",
+      "supportingStemText": "Phosphorus fell from 2.8 to 1.3 mg/dL, potassium from 3.5 to 2.9 mEq/L, and magnesium from 1.8 to 1.3 mg/dL within 30 hours."
+    }
+  ]
+}

@@ -1,0 +1,135 @@
+{
+  "actionLabels": [
+    "A4",
+    "A3"
+  ],
+  "ambiguousAlternatives": [
+    {
+      "opaqueTokenLabel": "C3",
+      "reason": "Persistent severe oliguria after initial fluid administration could indicate evolving ischemic tubular injury, but the stem lacks post-resuscitation urine sediment or updated urine-index evidence needed to establish acute tubular necrosis."
+    }
+  ],
+  "conditionLabel": "C1",
+  "missingInformation": [
+    "Post-resuscitation hemodynamics, urine sediment, repeat urine indices, acid-base status, serum glucose, and subsequent response to fluids or hyperkalemia treatment are not provided."
+  ],
+  "parameterLabels": [
+    "P3",
+    "P1"
+  ],
+  "poolAnswerability": "ANSWERABLE",
+  "reasoning": "The gastrointestinal losses, concentrated low-sodium urine, low FENa, low bladder volume, and rising creatinine best support prerenal AKI. Hyperkalemia with conduction changes requires calcium first for cardiac stabilization followed by insulin-dextrose, with ECG morphology and urine output as the two best available monitoring choices.",
+  "selectionEvidence": [
+    {
+      "opaqueTokenLabel": "C1",
+      "supportingStemText": "Seventy-two hours of vomiting and profuse watery diarrhea, concentrated urine, urine sodium 8 mEq/L, FENa 0.4%, creatinine rise from 1.4 to 4.5 mg/dL, and potassium 6.4 mEq/L with ECG changes."
+    },
+    {
+      "opaqueTokenLabel": "A4",
+      "supportingStemText": "Potassium is 6.4 mEq/L with persistent peaked T waves, PR prolongation, and QRS widening."
+    },
+    {
+      "opaqueTokenLabel": "A3",
+      "supportingStemText": "Potassium is 6.4 mEq/L with persistent hyperkalemic ECG abnormalities."
+    },
+    {
+      "opaqueTokenLabel": "P3",
+      "supportingStemText": "Persistent peaked T waves, PR prolongation to 0.24 seconds, and QRS widening to 0.12 seconds."
+    },
+    {
+      "opaqueTokenLabel": "P1",
+      "supportingStemText": "After 1,500 mL IV fluid, urine output remains about 0.14 mL/kg/hr."
+    }
+  ],
+  "stage2Confidence": "high",
+  "tokenPremiseTable": [
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A1",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "MATERIAL",
+      "rankabilityJustification": "General emergency management prioritizes IV calcium before potassium-shifting therapy when hyperkalemia has significant ECG manifestations.",
+      "supportingStemText": "Potassium 6.4 mEq/L with persistent peaked T waves, PR prolongation, and QRS widening."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A2",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "MATERIAL",
+      "rankabilityJustification": "An oral resin is poorly suited to active vomiting and does not provide the immediate cardiac stabilization required.",
+      "supportingStemText": "The client has active vomiting and life-threatening hyperkalemia with persistent ECG changes."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A3",
+      "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "IV insulin with dextrose is a standard rapid temporizing treatment for severe hyperkalemia after immediate cardiac stabilization.",
+      "supportingStemText": "Potassium is 6.4 mEq/L with persistent hyperkalemic ECG changes."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A4",
+      "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "These ECG manifestations support immediate IV calcium for cardiac membrane stabilization.",
+      "supportingStemText": "Persistent peaked T waves, PR prolongation to 0.24 seconds, and QRS widening to 0.12 seconds."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "C1",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The stem directly supplies volume-loss, prerenal-index, kidney-injury, and life-threatening hyperkalemia evidence.",
+      "supportingStemText": "Vomiting and profuse watery diarrhea for 72 hours; concentrated urine, urine sodium 8 mEq/L, FENa 0.4%, creatinine 4.5 mg/dL, and potassium 6.4 mEq/L with ECG changes."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "C2",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "MATERIAL",
+      "rankabilityJustification": "The low bladder volume argues against urinary retention as the cause, and no obstructive finding is provided.",
+      "supportingStemText": "Bladder scan was 40 mL despite severe oliguria."
+    },
+    {
+      "missingPremise": "Post-resuscitation urine sediment or other evidence of tubular injury, such as granular casts or updated urine indices.",
+      "opaqueTokenLabel": "C3",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "LOW",
+      "rankabilityJustification": "Persistent oliguria raises the possibility of evolving tubular injury but does not outweigh the explicit prerenal findings.",
+      "supportingStemText": "Urine output remains about 0.14 mL/kg/hr after 1,500 mL IV fluid."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "P1",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Severe ongoing oliguria makes hourly urine output a direct measure of renal perfusion and response.",
+      "supportingStemText": "Urine output remains about 0.14 mL/kg/hr after 1,500 mL IV fluid."
+    },
+    {
+      "missingPremise": "Evidence of bleeding, anemia, hemolysis, or another reason to prioritize hemoglobin surveillance.",
+      "opaqueTokenLabel": "P2",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "MATERIAL",
+      "rankabilityJustification": "Nothing in the stem makes hemoglobin trend a priority parameter for this emergency.",
+      "supportingStemText": ""
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "P3",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The explicitly abnormal ECG morphology is the immediate toxicity marker and treatment-response target.",
+      "supportingStemText": "Persistent peaked T waves, PR prolongation to 0.24 seconds, and QRS widening to 0.12 seconds."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "P4",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "LOW",
+      "rankabilityJustification": "Urine concentration could help assess response, but it is less urgent and less direct than ECG morphology or hourly urine output.",
+      "supportingStemText": "Admission urine was concentrated, and the client received 1,500 mL IV fluid."
+    }
+  ]
+}

@@ -1,0 +1,98 @@
+{
+  "advisoryPriority": "P3",
+  "bilingualCollateral": [
+    {
+      "concern": "The Chinese C2 token states a stronger causal relationship than the English wording.",
+      "evidence": "English says “Limited health literacy with delayed preventive-care engagement,” while Chinese says “健康素养受限导致预防保健延迟,” using 导致 to mean “causes.”",
+      "priority": "P3"
+    },
+    {
+      "concern": "The C1 rationale does not preserve the English assertion that lifestyle counseling is already planned.",
+      "evidence": "English says “lifestyle counseling is planned,” whereas Chinese says “可进行生活方式指导,” which means counseling may or can be provided.",
+      "priority": "P3"
+    }
+  ],
+  "canonicalTargetSiblingOverlap": [
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling documents a Newest Vital Sign score of 1/6, prior misunderstanding of medical language, delayed preventive care, and financial, scheduling, and caregiver barriers.",
+      "opaqueTokenLabel": "C2",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling specifies the symptom-reporting error and records targeted reteaching followed by repeat teach-back.",
+      "opaqueTokenLabel": "A3",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling confirms the colonoscopy and Pap/HPV arrangements and explicitly schedules the second zoster dose 2–6 months later.",
+      "opaqueTokenLabel": "A2",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling establishes the scheduled colonoscopy and Pap/HPV appointments and the barrier-reduction plan supporting attendance.",
+      "opaqueTokenLabel": "P1",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling repeatedly uses teach-back and identifies accuracy and completeness as ongoing evaluation needs.",
+      "opaqueTokenLabel": "P2",
+      "overlap": true
+    }
+  ],
+  "clinicalCollateral": [
+    {
+      "concern": "The standalone symptom-reporting instruction lacks examples or urgency thresholds, reducing clinical specificity without changing the keyed ranking.",
+      "evidence": "The standalone stem refers only to “new symptoms”; the sibling supplies blood in stool, bowel-habit changes, and unexplained weight loss.",
+      "priority": "P3"
+    },
+    {
+      "concern": "The C1 rationale inconsistently shifts between chronic disease and acute disease terminology.",
+      "evidence": "C1 specifies an “undiagnosed chronic disease,” while its rationale says “acute condition,” and the overall rationale uses “acute chronic-disease medication problem.”",
+      "priority": "P3"
+    },
+    {
+      "concern": "No material preventive-care currency conflict is apparent in the standalone item.",
+      "evidence": "Pap/HPV co-testing, colonoscopy follow-through, influenza vaccination, and completion planning after a first recombinant zoster dose are clinically coherent at the stated level of detail.",
+      "priority": null
+    }
+  ],
+  "defectSummary": "The canonical set is uniquely defensible from the standalone stem; sibling-only details appear in explanatory rationale but are unnecessary for selecting or ranking the keyed tokens.",
+  "missingFactProvenance": [
+    {
+      "missingFact": "Maria's actual vital-sign and laboratory findings; the rationale asserts reassuring findings that the standalone stem never provides",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "C1",
+      "provenance": "SIBLING_CASE_IMPORTED",
+      "sourceEvidence": "The sibling Stage 3 exhibit provides vital signs of T 98.1 °F (36.7 °C), HR 72, BP 122/76, RR 14, and SpO2 99%, fasting glucose 104 mg/dL, and a provider plan for no medication that day."
+    },
+    {
+      "missingFact": "A planned lifestyle-counseling intervention; this is asserted in the rationale but absent from the stem",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "C1",
+      "provenance": "SIBLING_CASE_IMPORTED",
+      "sourceEvidence": "The sibling Stage 3 exhibit explicitly states, “Provider plans lifestyle counseling and no medication today.”"
+    },
+    {
+      "missingFact": "Any fasting-glucose value, diabetes-related diagnosis, or glucose-focused care plan",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "P3",
+      "provenance": "SIBLING_CASE_IMPORTED",
+      "sourceEvidence": "The sibling reports non-fasting glucose 118 mg/dL, an order for fasting glucose, and a subsequent fasting glucose of 104 mg/dL; it does not provide a diabetes diagnosis."
+    }
+  ],
+  "primaryVerdict": "PASS_STANDALONE",
+  "reasoning": "Under the fixed precedence, hidden-case dependency does not apply because every sibling overlap with a keyed token is corroborative rather than necessary. The unsupported standalone rationale details concern distractor explanations and do not create an unsupported keyed premise, underdetermination, or key error. The item therefore passes standalone, with P3 advisory observations for rationale independence, bilingual precision, and clinical wording.",
+  "scopeCollateral": [
+    {
+      "concern": "No nursing-scope violation is apparent in the keyed actions or monitoring parameters.",
+      "evidence": "Corrective teaching with teach-back, confirming documented appointments and support plans, and monitoring follow-through are appropriate nursing functions; medication initiation is not assigned to the nurse.",
+      "priority": null
+    }
+  ],
+  "secondaryFlags": []
+}

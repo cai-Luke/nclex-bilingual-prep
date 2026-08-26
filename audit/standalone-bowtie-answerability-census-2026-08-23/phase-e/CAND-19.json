@@ -1,0 +1,115 @@
+{
+  "anyCanonicalTargetDependsOnAbsentFact": false,
+  "blindExactMatch": true,
+  "canonicalSelection": {
+    "actionLabels": [
+      "A3",
+      "A2"
+    ],
+    "conditionLabel": "C2",
+    "parameterLabels": [
+      "P1",
+      "P2"
+    ]
+  },
+  "canonicalSetExplanation": "The stem directly establishes prior modifiable barriers, renewed preventive-care engagement, and a remaining symptom-reporting misunderstanding. The keyed actions address those specific needs, and the keyed parameters measure their outcomes. Every alternative is contradicted or lacks a relevant client premise.",
+  "canonicalSetUniquelyDefensible": true,
+  "canonicalTargetSupport": [
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "C2",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "Fear, cost, scheduling, and caregiver barriers required intervention, while teach-back showed that Maria would delay reporting new symptoms."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "A3",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "“Teach-back has revealed that Maria would wait to report new symptoms before the colonoscopy.”"
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "A2",
+      "supportClassification": "GENERAL_KNOWLEDGE_LINK",
+      "supportingStandaloneEvidence": "Colonoscopy and Pap/HPV co-testing are scheduled, and the first recombinant zoster vaccine dose has been given."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "P1",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "“Colonoscopy is scheduled” and “Pap/HPV co-testing is scheduled.”"
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "P2",
+      "supportClassification": "GENERAL_KNOWLEDGE_LINK",
+      "supportingStandaloneEvidence": "Teach-back identified a specific misunderstanding about when to report new symptoms."
+    }
+  ],
+  "distractorPremiseFindings": [
+    {
+      "explanation": "The stem provides no symptoms, examination findings, diagnostic results, or treatment indication supporting a chronic disease requiring immediate medication management.",
+      "opaqueTokenLabel": "C1",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "LOW"
+    },
+    {
+      "explanation": "Completed vaccinations, scheduled screenings, and engagement after barriers were addressed oppose deliberate disengagement or willful noncompliance.",
+      "opaqueTokenLabel": "C3",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "The stem identifies one unresolved safety-teaching gap but provides no need to add several unrelated topics at the visit's end.",
+      "opaqueTokenLabel": "A1",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "LOW"
+    },
+    {
+      "explanation": "Teach-back cannot reasonably be accepted as complete when it reveals that Maria would delay reporting new symptoms.",
+      "opaqueTokenLabel": "A4",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "No glucose result, diabetes-related condition, intervention, or monitoring objective is provided.",
+      "opaqueTokenLabel": "P3",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "LOW"
+    },
+    {
+      "explanation": "Professional terminology is neither identified as a goal nor a valid measure of Maria's understanding and follow-through.",
+      "opaqueTokenLabel": "P4",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "NONE"
+    }
+  ],
+  "missingClientFacts": [
+    {
+      "keyed": false,
+      "missingFact": "Maria's actual vital-sign and laboratory findings; the rationale asserts reassuring findings that the standalone stem never provides",
+      "opaqueTokenLabel": "C1",
+      "rankabilityImpact": "LOW"
+    },
+    {
+      "keyed": false,
+      "missingFact": "A planned lifestyle-counseling intervention; this is asserted in the rationale but absent from the stem",
+      "opaqueTokenLabel": "C1",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "keyed": false,
+      "missingFact": "Any fasting-glucose value, diabetes-related diagnosis, or glucose-focused care plan",
+      "opaqueTokenLabel": "P3",
+      "rankabilityImpact": "LOW"
+    }
+  ],
+  "notes": [
+    "The Stage-2 action labels appeared in the reverse order from the revealed array, but the selected 1/2/2 label sets match exactly; the two action positions are not semantically ordered.",
+    "The rationale's claims about Maria's vital signs, laboratory findings, and planned lifestyle counseling are unsupported by the standalone stem and should not be used to justify the key.",
+    "The correct rationale's phrase “ongoing barriers” overstates the stem, which says the identified fear, cost, scheduling, and caregiver barriers have been addressed; this wording does not change the uniquely best selection."
+  ],
+  "stage1Alignment": "FULL",
+  "stage1AlignmentExplanation": "Stage 1 identified ineffective health maintenance with a symptom-reporting knowledge gap, prioritized corrective teach-back and supported preventive-care follow-through, and selected appointment completion and teach-back accuracy as evaluation outcomes. These align with C2, A3, A2, P1, and P2.",
+  "unstatedClientFactMateriallyChangesRankability": false
+}

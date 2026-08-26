@@ -1,0 +1,56 @@
+{
+  "instruction": "Using only the standalone learner-facing English stem, prompts, and opaque token pools, select exactly one condition, two actions, and two parameters. Return the required structured JSON, including exactly one premise row for every opaque token. Do not infer absent client-specific facts.",
+  "stem": "A 68-year-old man on postoperative day 2 after total knee arthroplasty has sudden pleuritic chest pain, severe dyspnea, tachycardia, hypoxemia, JVD, and a swollen tender right calf. CT-PA shows a saddle pulmonary embolus with RV/LV ratio 1.4 and septal bowing. Troponin and BNP are elevated. His systolic BP has remained above 90 mmHg after initiation of a facility UFH protocol, and over 4 hours his HR, BP, SpO2, urine output, lactate, and pain improve, although troponin rises slightly. Complete the bow-tie by selecting the most likely condition, two priority actions, and two parameters to monitor.",
+  "tokens": {
+    "actions": [
+      {
+        "label": "A1",
+        "text": "Maintain ICU hemodynamic monitoring with a clear escalation plan"
+      },
+      {
+        "label": "A2",
+        "text": "Place the client supine or in Trendelenburg to raise blood pressure"
+      },
+      {
+        "label": "A3",
+        "text": "Request systemic thrombolysis because troponin rose slightly"
+      },
+      {
+        "label": "A4",
+        "text": "Continue the UFH infusion and monitor aPTT per protocol"
+      }
+    ],
+    "condition": [
+      {
+        "label": "C1",
+        "text": "Tension pneumothorax"
+      },
+      {
+        "label": "C2",
+        "text": "Intermediate-risk/submassive pulmonary embolism"
+      },
+      {
+        "label": "C3",
+        "text": "ST-elevation myocardial infarction"
+      }
+    ],
+    "parameters": [
+      {
+        "label": "P1",
+        "text": "Temperature 99 °F (37.2 °C)"
+      },
+      {
+        "label": "P2",
+        "text": "Serial D-dimer level"
+      },
+      {
+        "label": "P3",
+        "text": "SpO2 and respiratory rate trend"
+      },
+      {
+        "label": "P4",
+        "text": "Heart rate and blood pressure trend"
+      }
+    ]
+  }
+}

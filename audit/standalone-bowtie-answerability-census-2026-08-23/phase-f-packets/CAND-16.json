@@ -1,0 +1,1189 @@
+{
+  "instruction": "The Stage-1, Stage-2, and Phase-E records are immutable. Inspect the paired case only now. Classify provenance for every Phase-E missing client fact, distinguish sibling necessity from corroboration, apply the fixed verdict precedence, and record narrow bilingual/clinical/scope collateral observations. Do not revise Phase E and do not propose content edits beyond an advisory P0-P3 priority.",
+  "phaseESha256": "9536f23d1df5e8f71aae9052b899ab56d9cafc1bcc2f97cfc825673a37f1b21d",
+  "siblingCase": {
+    "caseStudy": {
+      "exhibits": [
+        {
+          "content": {
+            "en": "Age: 9 months. Weight: 8.9 kg (about 19.6 lb). Length: 72 cm. Head circumference: 45 cm. Temperature 98.8 °F (37.1 °C) tympanic, HR 128/min, RR 30/min, SpO2 99% on room air. Skin intact without bruises, burns, or unusual marks. Anterior fontanelle open and flat. Lungs clear; heart regular without murmur; abdomen soft and non-tender. Liam sits independently, pulls to stand, transfers objects hand to hand, babbles consonant sounds, and shows stranger anxiety. ASQ-3 is within normal limits. Hemoglobin 10.8 g/dL; hematocrit 33%; lead level 2 mcg/dL.",
+            "zh": "年龄：9 个月。体重：8.9 kg（约 19.6 lb）。身长：72 cm。头围：45 cm。鼓膜温 37.1 C，HR 128 次/分，RR 30 次/分，室内空气 SpO2 99%。皮肤完整，无瘀伤、烧伤或异常痕迹。前囟开放且平坦。双肺清；心律齐，无杂音；腹部柔软、无压痛。Liam 可独坐、扶站、两手传物、发出辅音音节，并表现出陌生人焦虑。ASQ-3 在正常范围内。血红蛋白 10.8 g/dL；红细胞压积 33%；血铅 2 mcg/dL。"
+          },
+          "id": "baseline_record",
+          "structuredMeasurements": {
+            "panels": [
+              {
+                "columns": [
+                  {
+                    "id": "current",
+                    "label": {
+                      "en": "Current",
+                      "zh": "当前"
+                    }
+                  }
+                ],
+                "kind": "vitals",
+                "rows": [
+                  {
+                    "key": "temp",
+                    "label": {
+                      "en": "Temperature",
+                      "zh": "体温"
+                    },
+                    "values": [
+                      {
+                        "columnId": "current",
+                        "unit": "°C",
+                        "value": "37.1"
+                      }
+                    ]
+                  },
+                  {
+                    "key": "hr",
+                    "label": {
+                      "en": "Heart rate",
+                      "zh": "心率"
+                    },
+                    "values": [
+                      {
+                        "columnId": "current",
+                        "unit": "bpm",
+                        "value": "128"
+                      }
+                    ]
+                  },
+                  {
+                    "key": "rr",
+                    "label": {
+                      "en": "Respiratory rate",
+                      "zh": "呼吸频率"
+                    },
+                    "values": [
+                      {
+                        "columnId": "current",
+                        "unit": "/min",
+                        "value": "30"
+                      }
+                    ]
+                  },
+                  {
+                    "key": "spo2",
+                    "label": {
+                      "en": "SpO2",
+                      "zh": "脉搏血氧饱和度"
+                    },
+                    "values": [
+                      {
+                        "columnId": "current",
+                        "unit": "%",
+                        "value": "99"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "columns": [
+                  {
+                    "id": "current",
+                    "label": {
+                      "en": "Current",
+                      "zh": "当前"
+                    }
+                  }
+                ],
+                "kind": "labs",
+                "rows": [
+                  {
+                    "key": "hemoglobin",
+                    "label": {
+                      "en": "Hemoglobin",
+                      "zh": "血红蛋白"
+                    },
+                    "values": [
+                      {
+                        "columnId": "current",
+                        "unit": "g/dL",
+                        "value": "10.8"
+                      }
+                    ]
+                  },
+                  {
+                    "key": "hematocrit",
+                    "label": {
+                      "en": "Hematocrit",
+                      "zh": "血细胞比容"
+                    },
+                    "values": [
+                      {
+                        "columnId": "current",
+                        "unit": "%",
+                        "value": "33"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "population": "peds_infant"
+          },
+          "title": {
+            "en": "Baseline client record",
+            "zh": "基线病历资料"
+          }
+        }
+      ],
+      "questions": [
+        {
+          "category": "Health Promotion and Maintenance",
+          "difficulty": "medium",
+          "glossary": [
+            {
+              "defZh": "根据儿童年龄和即将出现的发育风险进行的预防性健康教育。",
+              "termEn": "Anticipatory guidance",
+              "termZh": "预期性指导"
+            },
+            {
+              "defZh": "可能阻塞气道的物品或食物。",
+              "termEn": "Choking hazard",
+              "termZh": "窒息风险物"
+            },
+            {
+              "defZh": "婴儿后期常见的、对陌生人产生不安的正常反应。",
+              "termEn": "Stranger anxiety",
+              "termZh": "陌生人焦虑"
+            }
+          ],
+          "highlight": {
+            "correct": [
+              "h_carkeys",
+              "h_milk_cereal",
+              "h_popcorn",
+              "h_cosmetics",
+              "h_forward_car_seat",
+              "h_bedshare",
+              "h_stairs",
+              "h_cleaners",
+              "h_hotdogs_grapes",
+              "h_diphenhydramine"
+            ],
+            "segments": [
+              {
+                "en": "Liam is chewing on car keys with a small decorative charm about 1.5 cm in diameter.",
+                "id": "h_carkeys",
+                "selectable": true,
+                "zh": "Liam 正在咬一串钥匙，钥匙环上有一个约 1.5 cm 的小装饰物。"
+              },
+              {
+                "en": "The diaper bag contains a propped bottle of whole cow's milk mixed with cereal.",
+                "id": "h_milk_cereal",
+                "selectable": true,
+                "zh": "尿布包里有一瓶支起来喂的全脂牛奶，并混有婴儿米粉。"
+              },
+              {
+                "en": "An open ziplock bag of popcorn is visible in the diaper bag.",
+                "id": "h_popcorn",
+                "selectable": true,
+                "zh": "尿布包里可以看到一袋已经打开的爆米花。"
+              },
+              {
+                "en": "A small unlocked cosmetics pouch is accessible at the top of the diaper bag.",
+                "id": "h_cosmetics",
+                "selectable": true,
+                "zh": "尿布包最上面有一个未上锁的小化妆包，婴儿可以够到。"
+              },
+              {
+                "en": "Danielle recently turned Liam's rear-facing infant car seat forward-facing because he screams when he cannot see her.",
+                "id": "h_forward_car_seat",
+                "selectable": true,
+                "zh": "Danielle 因为 Liam 看不到她时会哭闹，最近把本应后向安装的婴儿安全座椅改成了前向。"
+              },
+              {
+                "en": "Danielle says Liam sleeps in her bed because he will not stay in the crib.",
+                "id": "h_bedshare",
+                "selectable": true,
+                "zh": "Danielle 说 Liam 睡在她的床上，因为他不愿意待在婴儿床里。"
+              },
+              {
+                "en": "The apartment has an open staircase and no baby gate because Danielle thinks Liam has not figured out the stairs yet.",
+                "id": "h_stairs",
+                "selectable": true,
+                "zh": "公寓里有开放式楼梯，但没有安装婴儿安全门，因为 Danielle 认为 Liam 还不会爬楼梯。"
+              },
+              {
+                "en": "Cleaning supplies are kept under the kitchen sink without a cabinet lock.",
+                "id": "h_cleaners",
+                "selectable": true,
+                "zh": "清洁用品放在厨房水槽下方，柜门没有安全锁。"
+              },
+              {
+                "en": "Danielle offers Liam small pieces of hot dog and grapes as finger foods.",
+                "id": "h_hotdogs_grapes",
+                "selectable": true,
+                "zh": "Danielle 会给 Liam 吃小块热狗和葡萄作为手抓食物。"
+              },
+              {
+                "en": "Danielle asks whether she can give diphenhydramine at night so Liam will sleep through.",
+                "id": "h_diphenhydramine",
+                "selectable": true,
+                "zh": "Danielle 询问是否可以晚上给 Liam 服用苯海拉明，让他一觉睡到天亮。"
+              },
+              {
+                "en": "Danielle makes eye contact, responds to Liam's vocalizations, and repositions him when he squirms.",
+                "id": "h_warmth",
+                "selectable": true,
+                "zh": "Danielle 与 Liam 有眼神交流，会回应他的发声，并在他扭动时调整他的姿势。"
+              },
+              {
+                "en": "Danielle asks several questions and appears genuinely interested in doing the right thing.",
+                "id": "h_questions",
+                "selectable": true,
+                "zh": "Danielle 问了几个问题，并且看起来真心想把事情做对。"
+              },
+              {
+                "en": "Liam turns toward Danielle and fusses when the nurse reaches for him.",
+                "id": "h_stranger_anxiety",
+                "selectable": true,
+                "zh": "护士伸手接近 Liam 时，他转向 Danielle 并开始烦躁。"
+              }
+            ]
+          },
+          "id": "gpt_case_nine_month_well_child_safety_01_q1",
+          "itemType": "highlight",
+          "ngnSkill": "recognize_cues",
+          "rationale": {
+            "byChoice": [
+              {
+                "en": "A small charm on keys is an aspiration/choking hazard for a mouthing nine-month-old.",
+                "refId": "h_carkeys",
+                "zh": "钥匙上的小装饰物对爱把物品放入口中的 9 个月婴儿有误吸和窒息风险。"
+              },
+              {
+                "en": "Whole cow's milk before 12 months and cereal in the bottle are nutrition and feeding-safety concerns.",
+                "refId": "h_milk_cereal",
+                "zh": "12 个月前使用全脂牛奶以及在奶瓶中加入米粉，属于营养和喂养安全问题。"
+              },
+              {
+                "en": "Popcorn is a hard, irregular choking hazard and should not be offered to an infant.",
+                "refId": "h_popcorn",
+                "zh": "爆米花质地硬且形状不规则，对婴儿有窒息风险，不应提供。"
+              },
+              {
+                "en": "An unlocked pouch may contain cosmetics or medications and is a poisoning risk when accessible to an infant.",
+                "refId": "h_cosmetics",
+                "zh": "未上锁且可触及的化妆包可能含化妆品或药物，对婴儿构成中毒风险。"
+              },
+              {
+                "en": "A nine-month-old should remain rear-facing and not be turned forward because of crying or size perception.",
+                "refId": "h_forward_car_seat",
+                "zh": "9 个月婴儿应继续后向乘坐安全座椅，不能因为哭闹或看起来长大而改成前向。"
+              },
+              {
+                "en": "Bed-sharing conflicts with safe-sleep teaching for an infant and increases sleep-related injury risk.",
+                "refId": "h_bedshare",
+                "zh": "同床睡眠不符合婴儿安全睡眠指导，会增加睡眠相关伤害风险。"
+              },
+              {
+                "en": "A pulling-to-stand and cruising infant is at risk for falls near an ungated staircase.",
+                "refId": "h_stairs",
+                "zh": "会扶站和沿家具移动的婴儿靠近无安全门楼梯时有跌落风险。"
+              },
+              {
+                "en": "Unlocked cleaning supplies are a poisoning hazard as mobility and exploration increase.",
+                "refId": "h_cleaners",
+                "zh": "未上锁的清洁用品在婴儿活动和探索能力增强时会造成中毒风险。"
+              },
+              {
+                "en": "Hot dogs and grapes have shape and texture characteristics associated with airway obstruction in young children.",
+                "refId": "h_hotdogs_grapes",
+                "zh": "热狗和葡萄的形状与质地容易造成幼儿气道梗阻。"
+              },
+              {
+                "en": "Sedating an infant with diphenhydramine for caregiver convenience is unsafe and not indicated.",
+                "refId": "h_diphenhydramine",
+                "zh": "为方便照护者而用苯海拉明镇静婴儿是不安全且无适应证的。"
+              },
+              {
+                "en": "Warm, responsive interaction is reassuring caregiver behavior, not a safety cue requiring correction.",
+                "refId": "h_warmth",
+                "zh": "温暖、及时回应的互动是令人放心的照护行为，不是需要纠正的安全风险线索。"
+              },
+              {
+                "en": "Asking questions and showing interest supports a teaching need rather than a concerning finding by itself.",
+                "refId": "h_questions",
+                "zh": "主动提问并表现出学习意愿本身支持需要健康教育，而不是令人担忧的发现。"
+              },
+              {
+                "en": "Stranger anxiety is developmentally expected at about nine months and is not a safety concern.",
+                "refId": "h_stranger_anxiety",
+                "zh": "约 9 个月出现陌生人焦虑符合发育特点，不属于安全问题。"
+              }
+            ],
+            "correct": {
+              "en": "The safety-relevant cues are the mouthing hazard, unsafe feeding practices, choking hazards, forward-facing car seat, bed-sharing, fall risk, poisoning risks, and proposed diphenhydramine use. Danielle's warmth, questions, and Liam's stranger anxiety are reassuring or developmentally expected and should not be treated as red flags.",
+              "zh": "与安全相关的线索包括可被放入口中的小物件、不安全喂养、窒息风险、过早前向安全座椅、同床睡眠、跌落风险、中毒风险以及拟使用苯海拉明助眠。Danielle 的温暖互动、主动提问以及 Liam 的陌生人焦虑属于令人放心或符合发育预期的表现，不应被当作危险信号。"
+            }
+          },
+          "stem": {
+            "en": "Highlight the Stage 1 findings that require nursing safety follow-up. Do not highlight normal caregiver or developmental findings.",
+            "zh": "请标出第 1 阶段中需要护士进行安全随访/干预的发现。不要标出正常的照护者行为或发育表现。"
+          },
+          "testTakingStrategy": {
+            "en": "In pediatric safety questions, pair the child's developmental ability with the object or practice. A mobile, mouthing infant turns small objects, unlocked products, stairs, and unsafe foods into high-priority safety cues.",
+            "zh": "做儿科安全题时，把儿童的发育能力与物品或照护做法配对思考。会移动、爱把东西放入口中的婴儿，会让小物件、未上锁物品、楼梯和不安全食物变成高优先级安全线索。"
+          },
+          "topic": "Pediatric & Toddler Safety"
+        },
+        {
+          "category": "Health Promotion and Maintenance",
+          "correct": [
+            "knowledge_deficit"
+          ],
+          "difficulty": "medium",
+          "glossary": [
+            {
+              "defZh": "导致不安全或无效健康行为的学习需求。",
+              "termEn": "Knowledge deficit",
+              "termZh": "知识缺乏"
+            },
+            {
+              "defZh": "未能提供必要照护或保护；需依据客观证据和安全状况评估。",
+              "termEn": "Neglect",
+              "termZh": "忽视"
+            },
+            {
+              "defZh": "持续、协调的基层医疗照护来源。",
+              "termEn": "Medical home",
+              "termZh": "医疗之家"
+            }
+          ],
+          "id": "gpt_case_nine_month_well_child_safety_01_q2",
+          "itemType": "multiple_choice",
+          "ngnSkill": "analyze_cues",
+          "options": [
+            {
+              "en": "Caregiver knowledge deficit with reliance on informal advice",
+              "id": "knowledge_deficit",
+              "zh": "照护者知识缺乏，并依赖非正式建议"
+            },
+            {
+              "en": "Intentional neglect requiring an immediate protective-services report based only on these facts",
+              "id": "intentional_neglect",
+              "zh": "仅凭目前事实即可认定为故意忽视并需立即报告儿童保护机构"
+            },
+            {
+              "en": "Infant developmental delay causing caregiver stress",
+              "id": "developmental_delay",
+              "zh": "婴儿发育迟缓导致照护者压力"
+            },
+            {
+              "en": "Willful disregard because Danielle already knows the practices are dangerous",
+              "id": "willful_disregard",
+              "zh": "明知危险仍故意无视，因为 Danielle 已经知道这些做法有害"
+            }
+          ],
+          "rationale": {
+            "byChoice": [
+              {
+                "en": "The case shows misinformation and lack of guidance, not proof that Danielle understands the dangers and chooses to ignore them.",
+                "refId": "willful_disregard",
+                "zh": "病例显示的是错误信息和缺乏指导，而不是 Danielle 已了解危险却选择无视。"
+              },
+              {
+                "en": "This matches the case facts: inaccurate informal sources, limited prior teaching, openness to help, and warm caregiving.",
+                "refId": "knowledge_deficit",
+                "zh": "这与病例事实一致：信息来源不准确、既往教育不足、愿意接受帮助且照护态度温暖。"
+              },
+              {
+                "en": "Unsafe practices alone do not establish neglect when the caregiver is engaged, affectionate, voluntarily seeking care, and no injury or refusal is present.",
+                "refId": "intentional_neglect",
+                "zh": "在照护者积极、有爱、主动就医且没有伤害或拒绝配合的情况下，仅有不安全做法不能直接证明忽视。"
+              },
+              {
+                "en": "Liam's assessment and ASQ-3 screening are within normal limits; developmental delay is not the driver of the safety pattern.",
+                "refId": "developmental_delay",
+                "zh": "Liam 的评估和 ASQ-3 筛查均在正常范围内；发育迟缓不是这些安全问题的原因。"
+              }
+            ],
+            "correct": {
+              "en": "The pattern is most consistent with a knowledge deficit. Danielle relies on a neighbor, partner, and online videos, has no consistent pediatric medical home, openly discloses practices, asks questions, and shows affectionate engagement with Liam. The risks still require documentation, teaching, and follow-up, but the evidence does not support labeling the situation as intentional neglect based on the current facts alone.",
+              "zh": "这一模式最符合知识缺乏。Danielle 依赖邻居、伴侣和网络视频，没有稳定的儿科医疗之家，能坦诚说出做法，主动提问，并与 Liam 有亲密、积极的互动。风险仍需要记录、教育和随访，但仅凭当前事实不能认定为故意忽视。"
+            }
+          },
+          "stem": {
+            "en": "Which interpretation best explains the Stage 1 pattern of unsafe infant-care practices?",
+            "zh": "哪一种判断最能解释第 1 阶段出现的一系列不安全婴儿照护做法？"
+          },
+          "testTakingStrategy": {
+            "en": "Distinguish risk from intent. A child can be in danger because of a knowledge gap, but the nursing response differs from a situation with concealment, refusal, injury, or malicious intent.",
+            "zh": "区分“存在风险”和“有意伤害”。儿童可能因照护者知识缺乏而处于危险中，但这与隐瞒、拒绝、伤害或恶意情境下的护理应对不同。"
+          },
+          "topic": "Pediatric & Toddler Safety"
+        },
+        {
+          "category": "Health Promotion and Maintenance",
+          "correct": [
+            "acetaminophen_reach"
+          ],
+          "difficulty": "medium",
+          "glossary": [
+            {
+              "defZh": "若不采取行动，伤害可能发生得有多快。",
+              "termEn": "Immediacy",
+              "termZh": "即时性"
+            },
+            {
+              "defZh": "接触可能造成伤害的药物、化学品或物质的可能性。",
+              "termEn": "Poisoning risk",
+              "termZh": "中毒风险"
+            },
+            {
+              "defZh": "一种非处方退热止痛药，过量可导致肝损伤。",
+              "termEn": "Acetaminophen",
+              "termZh": "对乙酰氨基酚"
+            }
+          ],
+          "id": "gpt_case_nine_month_well_child_safety_01_q3",
+          "itemType": "multiple_choice",
+          "ngnSkill": "prioritize_hypotheses",
+          "options": [
+            {
+              "en": "Remove the accessible pouch containing uncapped acetaminophen from Liam's reach.",
+              "id": "acetaminophen_reach",
+              "zh": "立即把 Liam 能够到、内有未盖好对乙酰氨基酚的化妆包移开。"
+            },
+            {
+              "en": "Call protective services immediately because the partner suggested diphenhydramine.",
+              "id": "partner_first",
+              "zh": "因伴侣建议使用苯海拉明，立即联系儿童保护机构。"
+            },
+            {
+              "en": "Focus first on stopping bed-sharing because safe sleep is a well-child priority.",
+              "id": "sleep_first",
+              "zh": "先重点纠正同床睡眠，因为安全睡眠是儿童保健重点。"
+            },
+            {
+              "en": "Address whole cow's milk before 12 months before moving objects in the room.",
+              "id": "milk_first",
+              "zh": "先处理 12 个月前使用全脂牛奶的问题，再移动房间内物品。"
+            },
+            {
+              "en": "Teach rear-facing car seat use first because vehicle crashes are a major cause of injury.",
+              "id": "carseat_first",
+              "zh": "先教后向安全座椅使用，因为车祸是重要伤害原因。"
+            }
+          ],
+          "rationale": {
+            "byChoice": [
+              {
+                "en": "Rear-facing teaching is important before discharge, but the car seat is not causing immediate harm in the exam room.",
+                "refId": "carseat_first",
+                "zh": "后向安全座椅教学在离开前很重要，但安全座椅此刻不在诊室内造成即时伤害。"
+              },
+              {
+                "en": "Safe sleep must be taught, but bed-sharing is a home risk rather than the immediate danger occurring in front of the nurse.",
+                "refId": "sleep_first",
+                "zh": "安全睡眠必须教育，但同床睡眠是居家风险，不是护士眼前正在发生的即时危险。"
+              },
+              {
+                "en": "Premature cow's milk use needs correction, but it is a nutrition risk rather than an immediate ingestion hazard in the room.",
+                "refId": "milk_first",
+                "zh": "过早使用牛奶需要纠正，但它是营养风险，而不是诊室内眼前的误服危险。"
+              },
+              {
+                "en": "The partner's suggestion is concerning and should be explored, but the current facts do not justify delaying immediate medication safety to make an automatic report.",
+                "refId": "partner_first",
+                "zh": "伴侣的建议令人担忧，应进一步评估，但目前事实不支持为自动报告而延误眼前的药物安全处理。"
+              },
+              {
+                "en": "This action removes the active, immediate poisoning hazard before Liam can ingest the medication.",
+                "refId": "acetaminophen_reach",
+                "zh": "这一做法先消除正在发生的、立即的中毒风险，防止 Liam 误服药物。"
+              }
+            ],
+            "correct": {
+              "en": "The accessible, uncapped medication is the immediate danger in the room. The nurse should remove it from reach before teaching, then assess and address the reported dosing error. Car seat, sleep, nutrition, home safety, and partner-related concerns matter, but they are not as immediate as a medication Liam could ingest within seconds.",
+              "zh": "房间内最立即的危险是婴儿能够到且未盖好瓶盖的药物。护士应在教学前先将其移到婴儿够不到的地方，然后评估并处理已报告的给药剂量错误。安全座椅、睡眠、营养、居家安全和伴侣相关担忧都重要，但没有眼前可能数秒内发生的药物误服紧急。"
+            }
+          },
+          "stem": {
+            "en": "At Stage 2, Liam is actively pulling out the cosmetics pouch that contains an uncapped bottle of infant acetaminophen. Which risk requires the nurse's immediate intervention right now?",
+            "zh": "第 2 阶段，Liam 正在把化妆包拉出来，里面有一瓶未盖好瓶盖的婴儿对乙酰氨基酚。此刻哪一项风险需要护士立即干预？"
+          },
+          "testTakingStrategy": {
+            "en": "When several safety problems exist, first remove the hazard that can injure the child immediately and is already within reach.",
+            "zh": "当存在多个安全问题时，先处理已经在儿童够得到范围内、可立即造成伤害的危险。"
+          },
+          "topic": "Pediatric & Toddler Safety"
+        },
+        {
+          "category": "Health Promotion and Maintenance",
+          "correct": [
+            "validate_strengths",
+            "prioritize_risks",
+            "teachback",
+            "resources_followup"
+          ],
+          "difficulty": "medium",
+          "glossary": [
+            {
+              "defZh": "请学习者复述或示范教学内容，以确认理解。",
+              "termEn": "Teach-back",
+              "termZh": "回授法"
+            },
+            {
+              "defZh": "在纠正风险的同时肯定照护者已经做得好的方面。",
+              "termEn": "Strengths-based teaching",
+              "termZh": "基于优势的教学"
+            },
+            {
+              "defZh": "在家庭环境中提供育儿、安全和健康支持的社区服务。",
+              "termEn": "Home-visiting program",
+              "termZh": "家庭访视项目"
+            }
+          ],
+          "id": "gpt_case_nine_month_well_child_safety_01_q4",
+          "itemType": "select_all",
+          "ngnSkill": "generate_solutions",
+          "options": [
+            {
+              "en": "Connect the family with parenting support, safety-equipment resources, a medical home, and follow-up.",
+              "id": "resources_followup",
+              "zh": "为家庭连接育儿支持、安全设备资源、稳定医疗之家和随访。"
+            },
+            {
+              "en": "Acknowledge Danielle's distress and name her strengths before giving corrections.",
+              "id": "validate_strengths",
+              "zh": "在纠正问题前，先回应 Danielle 的难过情绪，并指出她的照护优势。"
+            },
+            {
+              "en": "Use demonstration, return demonstration, written instructions, and teach-back.",
+              "id": "teachback",
+              "zh": "使用示范、回示范、书面说明和回授法。"
+            },
+            {
+              "en": "Avoid discussing safety risks today because Danielle is tearful.",
+              "id": "avoid_topics",
+              "zh": "因为 Danielle 正在哭泣，今天避免讨论安全风险。"
+            },
+            {
+              "en": "Prioritize teaching by severity, starting with medication safety and choking hazards.",
+              "id": "prioritize_risks",
+              "zh": "按风险严重程度安排教学，从用药安全和窒息风险开始。"
+            },
+            {
+              "en": "Correct every unsafe practice rapidly in one directive lecture so no topic is missed.",
+              "id": "rapid_lecture",
+              "zh": "用一次快速、命令式讲解纠正所有不安全做法，确保不遗漏任何主题。"
+            }
+          ],
+          "rationale": {
+            "byChoice": [
+              {
+                "en": "Emotional support is needed, but urgent safety risks cannot be deferred entirely.",
+                "refId": "avoid_topics",
+                "zh": "需要提供情绪支持，但紧急安全风险不能完全推迟。"
+              },
+              {
+                "en": "Medication dosing and choking hazards are high-risk topics that must be addressed before lower-immediacy items.",
+                "refId": "prioritize_risks",
+                "zh": "药物剂量和窒息风险是高风险主题，应先于紧急性较低的内容处理。"
+              },
+              {
+                "en": "A rapid corrective lecture is likely to overwhelm a tearful caregiver and reduce learning.",
+                "refId": "rapid_lecture",
+                "zh": "快速纠错式讲解容易让正在哭泣的照护者不堪负荷，降低学习效果。"
+              },
+              {
+                "en": "Demonstration and teach-back verify Danielle can perform the skill, not just repeat words.",
+                "refId": "teachback",
+                "zh": "示范和回授法能确认 Danielle 真会操作，而不只是会复述。"
+              },
+              {
+                "en": "Validation lowers shame and preserves engagement while still allowing safety teaching.",
+                "refId": "validate_strengths",
+                "zh": "先认可情绪和优势可减少羞耻感、维持参与度，同时仍能进行安全教育。"
+              },
+              {
+                "en": "Resources and follow-up address isolation, limited support, and barriers to obtaining safety equipment.",
+                "refId": "resources_followup",
+                "zh": "资源连接和随访能处理孤立、支持不足以及获取安全设备的障碍。"
+              }
+            ],
+            "correct": {
+              "en": "Danielle is emotionally overwhelmed but engaged. The nurse should use strengths-based, nonjudgmental teaching; prioritize the highest-severity risks; use demonstration and teach-back; and connect her with ongoing supports. A rapid lecture can overwhelm her, while avoiding safety teaching leaves Liam at risk.",
+              "zh": "Danielle 情绪上被压垮，但仍积极参与。护士应采用基于优势、非评判的教学；按严重程度优先处理高风险问题；使用示范和回授法；并为她连接持续支持。快速灌输式讲解可能让她更难吸收，而回避安全教学会让 Liam 继续处于风险中。"
+            }
+          },
+          "stem": {
+            "en": "Which teaching approaches are appropriate for the nurse to use with Danielle at Stage 2? Select all that apply.",
+            "zh": "第 2 阶段，护士对 Danielle 采用哪些教学方式是合适的？请选择所有适用项。"
+          },
+          "testTakingStrategy": {
+            "en": "Health teaching is both relational and prioritized. The safest answer usually supports the learner emotionally while still addressing the highest-risk behavior today.",
+            "zh": "健康教育既要建立关系，也要分清优先级。最安全的答案通常会在情绪上支持学习者，同时当天处理最高风险行为。"
+          },
+          "topic": "Pediatric & Toddler Safety"
+        },
+        {
+          "category": "Pharmacological and Parenteral Therapies",
+          "correct": [
+            "ask_frequency_recency",
+            "notify_if_exposure",
+            "serum_labs_by_provider",
+            "syringe_demo",
+            "storage_cap"
+          ],
+          "difficulty": "medium",
+          "glossary": [
+            {
+              "defZh": "照护者向护士反向示范技能，以确认操作安全。",
+              "termEn": "Return demonstration",
+              "termZh": "回示范"
+            },
+            {
+              "defZh": "用于评估肝损伤或肝功能的血液检查。",
+              "termEn": "Hepatic function labs",
+              "termZh": "肝功能检查"
+            },
+            {
+              "defZh": "用于延缓或防止幼儿打开药瓶的安全瓶盖。",
+              "termEn": "Child-resistant cap",
+              "termZh": "儿童安全瓶盖"
+            }
+          ],
+          "id": "gpt_case_nine_month_well_child_safety_01_q5",
+          "itemType": "select_all",
+          "ngnSkill": "take_action",
+          "options": [
+            {
+              "en": "Teach Danielle to replace the child-resistant cap and store the medication out of sight and reach.",
+              "id": "storage_cap",
+              "zh": "教 Danielle 盖回儿童安全瓶盖，并把药物放在看不见、够不到的位置。"
+            },
+            {
+              "en": "Notify the provider and contact Poison Control as directed if recent or repeated overdosing is reported.",
+              "id": "notify_if_exposure",
+              "zh": "若报告近期或反复过量给药，应通知医护提供者并按指示联系 Poison Control。"
+            },
+            {
+              "en": "Ask how often the tablespoon dose has been given and when the last dose occurred.",
+              "id": "ask_frequency_recency",
+              "zh": "询问这次“汤匙剂量”给过多少次/多久一次，以及最后一次给药时间。"
+            },
+            {
+              "en": "Reassure Danielle that no follow-up is needed because Liam looks well today.",
+              "id": "appearance_reassurance",
+              "zh": "安慰 Danielle 说 Liam 今天看起来很好，因此不需要任何后续处理。"
+            },
+            {
+              "en": "Demonstrate the ordered/package dose using the medication syringe and have Danielle return-demonstrate.",
+              "id": "syringe_demo",
+              "zh": "用配套给药注射器示范医嘱/包装标示剂量，并请 Danielle 回示范。"
+            },
+            {
+              "en": "Prepare for a serum acetaminophen level and hepatic function labs if the provider or Poison Control indicates they are needed.",
+              "id": "serum_labs_by_provider",
+              "zh": "若医护提供者或 Poison Control 认为需要，应准备采集血清对乙酰氨基酚水平和肝功能检查。"
+            }
+          ],
+          "rationale": {
+            "byChoice": [
+              {
+                "en": "Possible recent or repeated overdose exceeds routine teaching and requires provider/Poison Control guidance.",
+                "refId": "notify_if_exposure",
+                "zh": "可能的近期或反复过量超出常规教学范围，需要医护提供者和 Poison Control 指导。"
+              },
+              {
+                "en": "Frequency and timing determine whether acute or cumulative toxicity evaluation is needed.",
+                "refId": "ask_frequency_recency",
+                "zh": "给药频率和时间决定是否需要评估急性或累积性中毒。"
+              },
+              {
+                "en": "Using the provided syringe corrects the tablespoon-measurement error and verifies Danielle can measure the dose.",
+                "refId": "syringe_demo",
+                "zh": "使用配套注射器可纠正汤匙量取错误，并确认 Danielle 会量取剂量。"
+              },
+              {
+                "en": "Replacing the safety cap and storing the medication away addresses the active poisoning hazard.",
+                "refId": "storage_cap",
+                "zh": "盖回安全瓶盖并妥善存放药物，可处理当前中毒风险。"
+              },
+              {
+                "en": "The absence of symptoms does not rule out early acetaminophen toxicity or ongoing unsafe dosing.",
+                "refId": "appearance_reassurance",
+                "zh": "没有症状不能排除早期对乙酰氨基酚中毒或持续错误给药风险。"
+              },
+              {
+                "en": "Serum level and hepatic labs are not automatically nurse-ordered, but the nurse should be ready to carry them out if indicated.",
+                "refId": "serum_labs_by_provider",
+                "zh": "血药浓度和肝功能检查不是护士自动下医嘱，但若被指示，护士应准备执行。"
+              }
+            ],
+            "correct": {
+              "en": "The nurse must assess the exposure history, escalate if the dose was recent or repeated, prepare for labs if directed, correct measurement using the syringe and return demonstration, and ensure safe storage. A well-appearing infant can still require evaluation because acetaminophen toxicity may not be clinically obvious early.",
+              "zh": "护士必须评估暴露史；若近期或反复过量，应升级处理；若被指示则准备相关化验；用注射器和回示范纠正剂量测量；并确保安全存放。即使婴儿外观看起来良好，也可能需要评估，因为对乙酰氨基酚中毒早期可能没有明显临床表现。"
+            }
+          },
+          "stem": {
+            "en": "Danielle reports giving Liam about 1 tablespoon (15 mL) of 160 mg/5 mL acetaminophen when he has a fever. The clinic/package table in the record lists 3.75 mL for Liam's weight band. Which actions should the nurse take before the family leaves? Select all that apply.",
+            "zh": "Danielle 报告 Liam 发热时会给约 1 汤匙（15 mL）的 160 mg/5 mL 对乙酰氨基酚。病历中的诊所/包装剂量表列明 Liam 体重范围的剂量为 3.75 mL。家属离开前，护士应采取哪些措施？请选择所有适用项。"
+          },
+          "testTakingStrategy": {
+            "en": "For pediatric medication errors, do not stop at education. First quantify exposure, then escalate when toxicity is possible, then correct the caregiver's measurement technique.",
+            "zh": "遇到儿科用药错误时，不要只做教育。先量化暴露情况；若可能中毒则升级处理；之后再纠正照护者的量药方法。"
+          },
+          "topic": "Medication Safety & Admin"
+        },
+        {
+          "category": "Health Promotion and Maintenance",
+          "correct": [
+            {
+              "columnIds": [
+                "adequate"
+              ],
+              "rowId": "rear_facing"
+            },
+            {
+              "columnIds": [
+                "adequate"
+              ],
+              "rowId": "safe_sleep"
+            },
+            {
+              "columnIds": [
+                "adequate"
+              ],
+              "rowId": "no_diphenhydramine"
+            },
+            {
+              "columnIds": [
+                "adequate"
+              ],
+              "rowId": "acetaminophen_5ml"
+            },
+            {
+              "columnIds": [
+                "reteach"
+              ],
+              "rowId": "hotdog_circles"
+            },
+            {
+              "columnIds": [
+                "reteach"
+              ],
+              "rowId": "poison_911"
+            },
+            {
+              "columnIds": [
+                "barrier"
+              ],
+              "rowId": "try_gates"
+            }
+          ],
+          "difficulty": "medium",
+          "glossary": [
+            {
+              "defZh": "用于确认教学是否被理解的评价步骤。",
+              "termEn": "Teach-back",
+              "termZh": "回授法"
+            },
+            {
+              "defZh": "通过电话或网络提供中毒暴露专家指导的资源。",
+              "termEn": "Poison Control",
+              "termZh": "中毒控制中心"
+            },
+            {
+              "defZh": "妨碍执行计划的费用、获取途径、交通或支持问题。",
+              "termEn": "Resource barrier",
+              "termZh": "资源障碍"
+            }
+          ],
+          "id": "gpt_case_nine_month_well_child_safety_01_q6",
+          "itemType": "matrix",
+          "matrix": {
+            "columns": [
+              {
+                "en": "Adequate understanding",
+                "id": "adequate",
+                "zh": "理解充分"
+              },
+              {
+                "en": "Knowledge present; problem-solve resource barrier",
+                "id": "barrier",
+                "zh": "已理解；需解决资源障碍"
+              },
+              {
+                "en": "Needs immediate re-teaching",
+                "id": "reteach",
+                "zh": "需要立即再教育"
+              }
+            ],
+            "rows": [
+              {
+                "en": "States Liam should remain rear-facing until he reaches the rear-facing height or weight limit of the specific seat.",
+                "id": "rear_facing",
+                "zh": "说出 Liam 应继续后向乘坐，直到达到该安全座椅后向模式的身高或体重上限。"
+              },
+              {
+                "en": "States Liam should sleep alone on his back in a crib without loose bedding.",
+                "id": "safe_sleep",
+                "zh": "说出 Liam 应独自仰卧睡在婴儿床中，且无松散床上用品。"
+              },
+              {
+                "en": "States she should not give diphenhydramine to make Liam sleep.",
+                "id": "no_diphenhydramine",
+                "zh": "说出不应给 Liam 使用苯海拉明来帮助睡眠。"
+              },
+              {
+                "en": "States she will use the syringe and give the clinic/package dose of 3.75 mL.",
+                "id": "acetaminophen_5ml",
+                "zh": "说出会使用注射器，并给诊所/包装标示的 3.75 mL 剂量。"
+              },
+              {
+                "en": "Says she will cut hot dogs into small circles and does not mention grapes.",
+                "id": "hotdog_circles",
+                "zh": "说会把热狗切成小圆片，且没有提到葡萄。"
+              },
+              {
+                "en": "Says she will call 911 for any ingestion but does not mention Poison Control.",
+                "id": "poison_911",
+                "zh": "说任何误服都会拨打 911，但没有提到 Poison Control。"
+              },
+              {
+                "en": "Says she will try to get gates and cabinet locks this weekend.",
+                "id": "try_gates",
+                "zh": "说会尽量在周末买到安全门和柜锁。"
+              }
+            ],
+            "selectionMode": "single_per_row"
+          },
+          "ngnSkill": "evaluate_outcomes",
+          "rationale": {
+            "byChoice": [
+              {
+                "en": "This is an accurate teach-back of the car-seat teaching.",
+                "refId": "rear_facing",
+                "zh": "这是对安全座椅教学的准确回授。"
+              },
+              {
+                "en": "This correctly reflects the safe-sleep teaching provided in the visit.",
+                "refId": "safe_sleep",
+                "zh": "这正确反映了本次就诊中的安全睡眠教学。"
+              },
+              {
+                "en": "This correctly rejects sedating Liam for sleep.",
+                "refId": "no_diphenhydramine",
+                "zh": "这正确表达了不应为助眠而镇静 Liam。"
+              },
+              {
+                "en": "Using the syringe and the stated clinic/package dose demonstrates the targeted medication teaching.",
+                "refId": "acetaminophen_5ml",
+                "zh": "使用注射器并按病例所列诊所/包装剂量给药，说明用药教学达成目标。"
+              },
+              {
+                "en": "Small circles preserve the airway-obstructing shape; hot dogs should be cut lengthwise first, and grapes should be quartered lengthwise or avoided based on age and ability.",
+                "refId": "hotdog_circles",
+                "zh": "小圆片仍保留可堵塞气道的形状；热狗应先纵向切开，葡萄应纵向切成四份或根据年龄和能力避免。"
+              },
+              {
+                "en": "This response omits Poison Control; 911 is reserved for severe symptoms such as trouble breathing, seizure, collapse, or inability to awaken.",
+                "refId": "poison_911",
+                "zh": "这一回答遗漏 Poison Control；911 主要用于呼吸困难、抽搐、昏倒或无法唤醒等严重情况。"
+              },
+              {
+                "en": "She appears to know gates and locks are needed, so the nurse should address cost, transportation, and available safety-equipment resources.",
+                "refId": "try_gates",
+                "zh": "她似乎知道需要安全门和柜锁，因此护士应处理费用、交通和可获得安全设备资源等问题。"
+              }
+            ],
+            "correct": {
+              "en": "Danielle accurately restates rear-facing car seat use, safe sleep, avoiding diphenhydramine for sleep, and the stated acetaminophen dose. Hot dogs cut into circles and unmentioned grapes require immediate re-teaching because the round/cylindrical shape remains dangerous. Calling 911 for every ingestion is incomplete; Poison Control should be used for a conscious, breathing child, while 911 is for severe symptoms such as unresponsiveness, breathing trouble, or seizure. Her wording about gates and locks suggests a resource/access barrier, not failure to understand the need.",
+              "zh": "Danielle 能准确复述后向安全座椅、安全睡眠、不用苯海拉明助眠，以及病例所列对乙酰氨基酚剂量。把热狗切成圆片且未提葡萄需要立即再教育，因为圆形/圆柱形仍有危险。任何误服都打 911 的说法不完整；对清醒、能呼吸的儿童应联系 Poison Control，911 用于无反应、呼吸困难或抽搐等严重情况。她关于安全门和柜锁的表述提示资源/获得途径障碍，而不是不知道需要这些设备。"
+            }
+          },
+          "stem": {
+            "en": "Classify each Stage 3 teach-back response.",
+            "zh": "请对第 3 阶段每项回授回答进行分类。"
+          },
+          "testTakingStrategy": {
+            "en": "In evaluation questions, separate wrong understanding from implementation barriers. Re-teach incorrect content; problem-solve when the caregiver knows what to do but may lack access.",
+            "zh": "做评价类题时，要区分“理解错误”和“执行障碍”。内容错误要再教育；照护者知道该做什么但可能缺资源时，要协助解决障碍。"
+          },
+          "topic": "Pediatric & Toddler Safety"
+        }
+      ],
+      "stages": [
+        {
+          "exhibits": [
+            {
+              "content": {
+                "en": "Danielle holds Liam on her lap. He is alert, active, and chewing on car keys with a small 1.5 cm decorative charm. The diaper bag contains a propped bottle of whole cow's milk mixed with cereal, popcorn, and an unlocked cosmetics pouch. Danielle says Liam pulls to stand and cruises, sleeps in her bed, recently changed from formula to whole cow's milk because it is cheaper, and asks whether diphenhydramine can help him sleep. She turned the car seat forward-facing because he cries when rear-facing. She also reports an ungated staircase, unlocked cleaning supplies under the sink, and offering hot dogs and grapes. She is warm, attentive, responsive to Liam, and interested in learning.",
+                "zh": "Danielle 抱着 Liam 坐在腿上。Liam 清醒、活跃，正在咬一串钥匙，钥匙环上有一个约 1.5 cm 的小装饰物。尿布包里有一瓶支起来喂的、混有米粉的全脂牛奶，还有爆米花和一个未上锁的化妆包。Danielle 说 Liam 会扶站和沿家具移动，睡在她床上；最近因配方奶较贵而改喝全脂牛奶；并询问苯海拉明是否能帮助他睡觉。她因为 Liam 后向坐时哭闹而把安全座椅改为前向。她还报告家中楼梯没有安全门，水槽下清洁用品未上锁，并给 Liam 吃热狗和葡萄。她表现温暖、细心，会回应 Liam，并愿意学习。"
+              },
+              "id": "stage_1_update",
+              "title": {
+                "en": "First 15 minutes of the visit",
+                "zh": "就诊最初 15 分钟"
+              }
+            }
+          ],
+          "id": "stage_1",
+          "title": {
+            "en": "Stage 1 - Initial history and observation",
+            "zh": "第 1 阶段——初始病史与观察"
+          }
+        },
+        {
+          "exhibits": [
+            {
+              "content": {
+                "en": "As the nurse begins teaching, Danielle becomes tearful and says nobody taught her how to do these things. She aged out of foster care at 18 and has little family support. She reports that her partner becomes frustrated when Liam cries at night and suggested diphenhydramine, but she says he has not harmed Liam and usually leaves the room. Liam pulls the cosmetics pouch partly out of the diaper bag and tries to unzip it. Inside are lipstick, a compact mirror, and infant acetaminophen liquid 160 mg/5 mL without a child-resistant cap. Danielle says she removed the cap because it was hard to open quickly and gives about 1 tablespoon, or 15 mL, when Liam has a fever. The clinic/package table in the record lists 3.75 mL for Liam's weight band.",
+                "zh": "护士开始教学时，Danielle 哭了起来，说没人教过她这些事。她 18 岁离开寄养系统，几乎没有家庭支持。她说伴侣在 Liam 夜间哭闹时会烦躁，并建议用苯海拉明，但她表示伴侣没有伤害过 Liam，通常只是离开房间。Liam 把化妆包部分拉出尿布包，并试图拉开拉链。里面有口红、粉盒镜和 160 mg/5 mL 的婴儿对乙酰氨基酚口服液，且没有儿童安全瓶盖。Danielle 说因为瓶盖难以及时打开，她把瓶盖拿掉了；Liam 发热时她会给约 1 汤匙，即 15 mL。病历中的诊所/包装剂量表列明 Liam 体重范围的剂量为 3.75 mL。"
+              },
+              "id": "stage_2_update",
+              "title": {
+                "en": "Approximately 20 minutes into the visit",
+                "zh": "就诊约 20 分钟"
+              }
+            }
+          ],
+          "id": "stage_2",
+          "title": {
+            "en": "Stage 2 - Teaching begins and medication hazard emerges",
+            "zh": "第 2 阶段——开始教学并出现药物危险"
+          }
+        },
+        {
+          "exhibits": [
+            {
+              "content": {
+                "en": "After structured teaching, Danielle correctly states that Liam should remain rear-facing until he reaches the rear-facing height or weight limit for his specific seat, should sleep alone on his back in a crib with no loose bedding, and should not receive diphenhydramine for sleep. For acetaminophen, she says she will use the syringe that came with the medicine and give 3.75 mL. When asked about foods, she says she will cut hot dogs into small circles and does not mention grapes. For possible ingestion, she says she will call 911 but does not mention Poison Control. She says she will try to get gates and cabinet locks this weekend. The nurse provides written teaching, a Poison Control magnet, community resources, and a follow-up appointment in one month.",
+                "zh": "经过结构化教学后，Danielle 正确说出 Liam 应继续后向乘坐，直到达到其具体安全座椅后向模式的身高或体重上限；应独自仰卧睡在无松散床品的婴儿床中；且不应使用苯海拉明助眠。关于对乙酰氨基酚，她说会使用药物配套注射器并给 3.75 mL。询问食物时，她说会把热狗切成小圆片，但没有提到葡萄。若可能误服，她说会拨打 911，但没有提到 Poison Control。她说会尽量在周末买到安全门和柜锁。护士提供书面教育材料、Poison Control 磁贴、社区资源，并安排 1 个月后随访。"
+              },
+              "id": "stage_3_update",
+              "title": {
+                "en": "Approximately 40 minutes into the visit",
+                "zh": "就诊约 40 分钟"
+              }
+            }
+          ],
+          "id": "stage_3",
+          "title": {
+            "en": "Stage 3 - Teach-back and care planning",
+            "zh": "第 3 阶段——回授与照护计划"
+          }
+        }
+      ],
+      "summary": {
+        "en": "Liam is a nine-month-old infant at a first visit with this pediatric practice. He is growing and developing appropriately, but the nurse identifies multiple home-safety and medication-safety teaching needs during history, direct observation, and teach-back.",
+        "zh": "Liam 是一名 9 个月婴儿，这是他第一次到该儿科诊所就诊。他生长发育适当，但护士在询问病史、直接观察和回授过程中发现多项居家安全与用药安全教育需求。"
+      },
+      "title": {
+        "en": "Home safety risks and anticipatory guidance at a nine-month-old well-child visit",
+        "zh": "9 个月婴儿保健访视中的居家安全风险与预期性指导"
+      }
+    },
+    "category": "Health Promotion and Maintenance",
+    "difficulty": "medium",
+    "glossary": [
+      {
+        "defZh": "基于年龄和发育风险进行的预防性咨询。",
+        "termEn": "Anticipatory guidance",
+        "termZh": "预期性指导"
+      },
+      {
+        "defZh": "预防剂量错误、误服和药物相关伤害的做法。",
+        "termEn": "Medication safety",
+        "termZh": "用药安全"
+      },
+      {
+        "defZh": "美国可通过电话或网络 24/7 获得中毒暴露指导的资源。",
+        "termEn": "Poison Control",
+        "termZh": "中毒控制中心"
+      },
+      {
+        "defZh": "旨在减少睡眠相关伤害和死亡的婴儿睡眠做法。",
+        "termEn": "Safe sleep",
+        "termZh": "安全睡眠"
+      }
+    ],
+    "id": "gpt_case_nine_month_well_child_safety_01",
+    "itemType": "case_study",
+    "rationale": {
+      "byChoice": [],
+      "correct": {
+        "en": "This case centers on recognizing a cluster of infant home-safety risks, interpreting them as a caregiver knowledge deficit rather than automatic neglect, prioritizing the immediate medication hazard, teaching in a strengths-based and staged way, correcting a potentially dangerous acetaminophen dosing practice, and evaluating teach-back for both retained knowledge and remaining gaps. The nurse must protect Liam immediately while preserving Danielle's engagement and linking the family to ongoing supports.",
+        "zh": "本病例重点是识别一组婴儿居家安全风险；将其判断为照护者知识缺乏，而非自动认定为忽视；优先处理眼前药物危险；以基于优势、分层次的方式教学；纠正可能危险的对乙酰氨基酚给药做法；并通过回授评价哪些知识已掌握、哪些仍有缺口。护士必须立即保护 Liam，同时维持 Danielle 的参与度，并把家庭连接到持续支持资源。"
+      }
+    },
+    "stem": {
+      "en": "Review the client record and answer the case-study items.",
+      "zh": "请查看患者病历，并回答本病例题组。"
+    },
+    "testTakingStrategy": {
+      "en": "For unfolding pediatric safety cases, follow the nursing-process arc: recognize the hazards, analyze whether the pattern is knowledge deficit or maltreatment, remove immediate danger, teach by priority, and evaluate teach-back for specific gaps.",
+      "zh": "处理展开式儿科安全病例时，按护理程序思考：识别危险，分析模式是知识缺乏还是虐待/忽视，移除即时危险，按优先级教学，并通过回授评价具体缺口。"
+    },
+    "topic": "Pediatric & Toddler Safety"
+  },
+  "standaloneItem": {
+    "bowtie": {
+      "actions": {
+        "tokens": [
+          {
+            "en": "Teach the documented 3.75 mL dose using an appropriate oral dosing syringe and have Danielle demonstrate the measurement",
+            "opaqueTokenLabel": "A1",
+            "zh": "使用合适的口服给药注射器教学病历所列 3.75 mL 剂量，并让 Danielle 回示如何量取"
+          },
+          {
+            "en": "Defer acetaminophen correction to a follow-up visit in one month to avoid overwhelming Danielle",
+            "opaqueTokenLabel": "A2",
+            "zh": "为避免 Danielle 负担过重，将对乙酰氨基酚纠正推迟到 1 个月后的随访就诊"
+          },
+          {
+            "en": "File a protective-services report based on the unsafe practices alone",
+            "opaqueTokenLabel": "A3",
+            "zh": "仅根据不安全做法就提交儿童保护报告"
+          },
+          {
+            "en": "Promptly determine the product, timing, frequency, and total acetaminophen exposure and obtain case-specific guidance from the pediatric clinician and Poison Control based on the available assessment",
+            "opaqueTokenLabel": "A4",
+            "zh": "立即查明具体产品、给药时间、频率和对乙酰氨基酚总暴露量，并根据当前掌握的评估信息向儿科临床医生和毒物控制中心获取个案化指导"
+          }
+        ]
+      },
+      "condition": {
+        "tokens": [
+          {
+            "en": "Caregiver role strain as the primary explanation for the medication errors",
+            "opaqueTokenLabel": "C1",
+            "zh": "照护者角色紧张是用药错误的主要原因"
+          },
+          {
+            "en": "Caregiver medication-safety knowledge deficit causing dosing and storage errors",
+            "opaqueTokenLabel": "C2",
+            "zh": "照护者用药安全知识缺乏，导致给药和储存错误"
+          },
+          {
+            "en": "Child neglect as the primary explanation",
+            "opaqueTokenLabel": "C3",
+            "zh": "儿童忽视是主要解释"
+          }
+        ]
+      },
+      "parameters": {
+        "tokens": [
+          {
+            "en": "Danielle's demonstrated or confirmed storage of medicines out of Liam's reach and sight after each use",
+            "opaqueTokenLabel": "P1",
+            "zh": "确认或展示 Danielle 每次使用后都将药物储存在 Liam 看不见、够不到之处"
+          },
+          {
+            "en": "Danielle's accurate follow-up return demonstration of measuring the documented acetaminophen dose",
+            "opaqueTokenLabel": "P2",
+            "zh": "Danielle 随访时准确回示如何量取病历所列的对乙酰氨基酚剂量"
+          },
+          {
+            "en": "Danielle's stated confidence alone, without observing dose measurement or medication storage",
+            "opaqueTokenLabel": "P3",
+            "zh": "只听 Danielle 表示有信心，而不观察其量取剂量或储存药物"
+          },
+          {
+            "en": "Liam's routine developmental-screen score as the main measure of medication-safety teaching",
+            "opaqueTokenLabel": "P4",
+            "zh": "将 Liam 的常规发育筛查评分作为用药安全教学的主要评价指标"
+          }
+        ]
+      }
+    },
+    "glossary": [
+      {
+        "defZh": "将状况、措施和监测参数相连接的 NGN 题型。",
+        "termEn": "Bow-tie item",
+        "termZh": "弓形题"
+      },
+      {
+        "defZh": "最能处理最即时或最严重风险的护理行动。",
+        "termEn": "Priority action",
+        "termZh": "优先措施"
+      },
+      {
+        "defZh": "之后用于评价计划是否有效的指标。",
+        "termEn": "Follow-up parameter",
+        "termZh": "随访参数"
+      }
+    ],
+    "rationale": {
+      "byChoice": [
+        {
+          "en": "The specific dose discrepancy, accessible uncapped medicine, reliance on informal advice, and willingness to learn directly support a medication-safety knowledge deficit.",
+          "opaqueTokenLabel": "C2",
+          "zh": "具体的剂量差异、可触及且未盖好瓶盖的药物、依赖非正式建议以及愿意学习，都直接支持用药安全知识缺乏。"
+        },
+        {
+          "en": "The medication errors require exposure assessment and correction, but Danielle's attentiveness and voluntary disclosure do not establish neglect as the primary explanation.",
+          "opaqueTokenLabel": "C3",
+          "zh": "这些用药错误需要评估暴露并予以纠正，但 Danielle 的细心照护和主动披露不足以确定儿童忽视是主要解释。"
+        },
+        {
+          "en": "Tearfulness and limited support make caregiver role strain plausible, but knowledge deficit more directly explains the stated dosing and storage errors.",
+          "opaqueTokenLabel": "C1",
+          "zh": "流泪和支持不足使照护者角色紧张成为合理的备选解释，但知识缺乏更直接地解释了题干中的给药和储存错误。"
+        },
+        {
+          "en": "Case-specific poison guidance depends on the product, amount, timing, age or weight, symptoms, and repeated or overlapping doses. The nurse should gather the available details promptly; missing information should not delay consultation.",
+          "opaqueTokenLabel": "A4",
+          "zh": "个案化毒物处理建议取决于具体产品、用量、时间、年龄或体重、症状以及是否反复给药或与其他产品重叠。护士应立即收集当前可获得的信息；不应因信息尚不完整而延迟咨询。"
+        },
+        {
+          "en": "Using an appropriate oral dosing syringe and observing Danielle measure the documented 3.75 mL dose corrects the specific administration skill gap.",
+          "opaqueTokenLabel": "A1",
+          "zh": "使用合适的口服给药注射器，并观察 Danielle 量取病历所列 3.75 mL 剂量，可纠正具体的给药技能缺口。"
+        },
+        {
+          "en": "The disclosed dosing and storage errors alone do not establish neglect; the immediate priorities are exposure assessment and correction of the demonstrated medication-safety gaps.",
+          "opaqueTokenLabel": "A3",
+          "zh": "仅凭主动披露的给药和储存错误不能确定儿童忽视；当前优先事项是评估暴露并纠正已表现出的用药安全缺口。"
+        },
+        {
+          "en": "Deferring teaching leaves the documented dosing and measurement error uncorrected.",
+          "opaqueTokenLabel": "A2",
+          "zh": "推迟教学会让病历中已明确的给药和量取错误得不到纠正。"
+        },
+        {
+          "en": "Accurately measuring the documented dose at follow-up directly demonstrates whether Danielle retained and can apply the taught skill.",
+          "opaqueTokenLabel": "P2",
+          "zh": "随访时准确量取病历所列剂量，可直接展示 Danielle 是否记住并能应用所学技能。"
+        },
+        {
+          "en": "Demonstrated or confirmed storage out of Liam's reach and sight directly evaluates correction of the access hazard shown in the stem.",
+          "opaqueTokenLabel": "P1",
+          "zh": "展示或确认药物储存在 Liam 看不见、够不到之处，可直接评价题干所示可触及危险是否已得到纠正。"
+        },
+        {
+          "en": "Reported confidence is subjective and, by itself, does not show that Danielle can accurately measure the dose or store medicines safely.",
+          "opaqueTokenLabel": "P3",
+          "zh": "自述有信心属于主观信息，单凭这一点不能证明 Danielle 能准确量取剂量或安全储存药物。"
+        },
+        {
+          "en": "A routine developmental-screen score does not directly evaluate medication measurement or storage behavior.",
+          "opaqueTokenLabel": "P4",
+          "zh": "常规发育筛查评分不能直接评价药物量取或储存行为。"
+        }
+      ],
+      "correct": {
+        "en": "The findings most strongly support a caregiver medication-safety knowledge deficit: Danielle followed informal advice, reports 15 mL when the documented weight-band dose is 3.75 mL, left an uncapped medicine bottle within reach, and remains attentive and forthcoming. Limited support and tearfulness may indicate caregiver role strain, but they do not explain the specific dosing and storage errors as directly; the disclosed errors alone do not establish neglect. Because the complete product history, timing, frequency, and total exposure are unknown, the nurse should promptly gather the available exposure details and obtain case-specific guidance from the pediatric clinician and Poison Control. The nurse should then teach the documented 3.75 mL dose with an oral dosing syringe and return demonstration. Follow-up should directly verify accurate measurement and storage out of Liam's reach and sight.",
+        "zh": "现有发现最支持照护者用药安全知识缺乏：Danielle 听从了非正式建议，在病历所列体重分档剂量为 3.75 mL 时报告给了 15 mL，将未盖好瓶盖的药物留在婴儿可触及之处，同时仍然细心照护并主动坦诚说明情况。支持不足和流泪可能提示照护者角色紧张，但不像知识缺乏那样直接解释具体的给药与储存错误；仅凭这些主动披露的错误不能确定儿童忽视。由于全部产品、给药时间、频率和总暴露量信息不完整，护士应立即收集当前可获得的暴露信息，并向儿科临床医生和毒物控制中心获取针对个案的指导。随后，护士应使用口服给药注射器教学病历所列 3.75 mL 剂量，并让 Danielle 回示。随访应直接核实其能准确量取药物，并将药物储存在 Liam 看不见、够不到之处。"
+      }
+    },
+    "stem": {
+      "en": "During Liam's nine-month well-child visit, he reaches for a cosmetics pouch containing an uncapped bottle of liquid acetaminophen. The nurse immediately moves the pouch and medication out of Liam's reach. His caregiver, Danielle, is warm and attentive and willingly describes how she gives medicines. She becomes tearful and says she has little reliable support or guidance and followed informal advice. Danielle reports giving Liam 15 mL of acetaminophen labeled 160 mg/5 mL; the clinic's weight-band dosing table in the record lists 3.75 mL for Liam. The record does not yet document when the 15 mL dose was last given, how often it was given, or whether Liam received another acetaminophen-containing product. Complete the bow-tie by selecting the most likely condition, two priority nursing actions, and two parameters to evaluate.",
+      "zh": "Liam 进行 9 个月婴儿保健访视期间，他伸手去够一个化妆包，包内有一瓶未盖好瓶盖的液体对乙酰氨基酚。护士立即将化妆包和药物移到 Liam 无法触及之处。他的照护者 Danielle 对 Liam 温暖且细心，并主动说明自己如何给药。她说着说着流下眼泪，表示自己缺少可靠的支持或指导，之前听从了非正式建议。Danielle 报告曾给 Liam 服用 15 mL、浓度为 160 mg/5 mL 的对乙酰氨基酚；诊所病历中的体重分档剂量表为 Liam 列出的剂量是 3.75 mL。目前病历尚未记录最近一次 15 mL 给药的时间、这种剂量给了几次，也未记录 Liam 是否还服用了其他含对乙酰氨基酚的产品。请完成弓形题：选择最可能的状况、两项优先护理措施和两项用于评价的参数。"
+    },
+    "testTakingStrategy": {
+      "en": "Use the findings presented to identify the explanation that best fits both the dosing and storage errors. Treat the moved medication as a hazard already controlled; choose next actions and follow-up measures that directly assess exposure and demonstrate safer behavior.",
+      "zh": "根据题干中的发现，选择最能同时解释给药和储存错误的状况。药物已经被移走，因此该即时危险已得到控制；接下来应选择能直接评估暴露并展示更安全行为的措施和随访指标。"
+    }
+  }
+}

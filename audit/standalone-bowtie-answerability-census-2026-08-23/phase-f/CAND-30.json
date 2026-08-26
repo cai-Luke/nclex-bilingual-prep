@@ -1,0 +1,130 @@
+{
+  "advisoryPriority": "P3",
+  "bilingualCollateral": [
+    {
+      "concern": "No material English-Chinese selection divergence is evident; both languages carry the same rationale-level scope overstatement.",
+      "evidence": "Both rationale versions describe pupil dilation and pre-decline alertness, while both standalone stem versions state only initial improvement and a new sluggish left pupil.",
+      "priority": "P3"
+    }
+  ],
+  "canonicalTargetSiblingOverlap": [
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling confirms the same post-thrombectomy hemorrhage, edema, midline shift, and neurologic decline, but the standalone CT and clinical course already establish C2.",
+      "opaqueTokenLabel": "C2",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling includes an explicit every-15-minute neurologic-check order and emphasizes serial assessment, but the standalone acute ICH with deterioration independently supports frequent neurologic surveillance.",
+      "opaqueTokenLabel": "A1",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling supplies the numeric systolic target below 140 mmHg, but the standalone already states that nicardipine is being titrated to the provider's stat target.",
+      "opaqueTokenLabel": "A2",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling provides detailed GCS, pupil, and neurologic findings, but the standalone's somnolence, absent verbal output, sluggish pupil, edema, and shift independently make these the priority neurologic parameters.",
+      "opaqueTokenLabel": "P2",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling provides actual BP values and the numeric target, but the standalone active nicardipine titration independently makes systolic BP trend a priority parameter.",
+      "opaqueTokenLabel": "P1",
+      "overlap": true
+    }
+  ],
+  "clinicalCollateral": [
+    {
+      "concern": "The exact 15-minute neurologic-assessment interval is protocol-specific rather than explicitly ordered in the standalone.",
+      "evidence": "The standalone establishes an unstable ICH requiring frequent assessment, while the sibling alone contains the explicit every-15-minute order. This added specificity is not needed to rank A1 over A3 and A4.",
+      "priority": "P3"
+    },
+    {
+      "concern": "The standalone rationale overstates the pupil finding as dilation or asymmetry.",
+      "evidence": "The standalone reports a new sluggish left pupil without pupil sizes; the sibling supplies left 5 mm versus right 3 mm. The overstatement does not affect recognition of hemorrhage with mass effect because CT is definitive.",
+      "priority": "P3"
+    }
+  ],
+  "defectSummary": "The canonical 1/2/2 set is independently answerable and uniquely defensible from the standalone stem and token pool. The sibling adds specificity but no fact necessary for ranking. Minor scope leakage exists because the standalone rationale describes pre-decline alertness and pupil dilation or asymmetry that appear only in the sibling record.",
+  "missingFactProvenance": [
+    {
+      "missingFact": "Vascular imaging or another explicit finding demonstrating recurrent left MCA occlusion is absent.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "C1",
+      "provenance": "UNSUPPORTED_ANYWHERE_CHECKED",
+      "sourceEvidence": "The sibling documents the original M1 occlusion and successful restoration of flow but provides no post-deterioration vascular imaging showing re-occlusion."
+    },
+    {
+      "missingFact": "Specific post-procedural sedative or medication exposure, dose, timing, and observed response are absent.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "C3",
+      "provenance": "UNSUPPORTED_ANYWHERE_CHECKED",
+      "sourceEvidence": "Neither the standalone item nor the sibling identifies a sedative regimen or medication-response pattern explaining the deterioration."
+    },
+    {
+      "missingFact": "The numeric systolic BP target and current BP trend are not provided.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "A2",
+      "provenance": "SIBLING_CASE_IMPORTED",
+      "sourceEvidence": "The sibling reports BP 174/96 mmHg during deterioration and a Stage 4 order to titrate nicardipine to systolic BP below 140 mmHg. The standalone states only that a stat target exists."
+    },
+    {
+      "missingFact": "Current INR, the ordered warfarin-reversal agents, administration status, and repeat coagulation results are not provided.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "C2",
+      "provenance": "OTHER_PROVENANCE",
+      "sourceEvidence": "The sibling supplies INR 1.6 and orders for IV vitamin K 10 mg plus four-factor PCC, but it does not confirm administration completion or provide subsequent coagulation results."
+    },
+    {
+      "missingFact": "Serial post-decline GCS, pupil, and motor findings are not yet provided.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "P2",
+      "provenance": "OTHER_PROVENANCE",
+      "sourceEvidence": "The sibling adds GCS 7, prior equal reactive pupils, later left pupil 5 mm and sluggish versus right pupil 3 mm and brisk, and loss of command following; it does not provide a complete subsequent serial trend across all three domains."
+    },
+    {
+      "missingFact": "The timing and results of repeat neuroimaging are not provided.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "C2",
+      "provenance": "UNSUPPORTED_ANYWHERE_CHECKED",
+      "sourceEvidence": "The sibling repeats the emergent CT result already present in the standalone but supplies no later follow-up CT or other repeat neuroimaging result."
+    },
+    {
+      "missingFact": "Neurosurgical assessment and any plan for intracranial-pressure monitoring or decompression are not provided.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "C2",
+      "provenance": "SIBLING_CASE_IMPORTED",
+      "sourceEvidence": "The sibling states that neurosurgery was consulted and continuous ICP monitoring was being arranged; it does not document decompression."
+    },
+    {
+      "missingFact": "The stem does not explicitly state that the client was alert before deterioration; it states only that the client initially improved.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "C3",
+      "provenance": "SIBLING_CASE_IMPORTED",
+      "sourceEvidence": "The sibling describes the client as awake and attentive initially and documents neurologic improvement after thrombectomy before the abrupt decline."
+    },
+    {
+      "missingFact": "The stem describes a new sluggish left pupil but does not state that the pupil was dilated or provide bilateral pupil sizes.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "C3",
+      "provenance": "SIBLING_CASE_IMPORTED",
+      "sourceEvidence": "The sibling supplies a left pupil of 5 mm and sluggish reactivity versus a right pupil of 3 mm and brisk reactivity, establishing dilation and asymmetry not stated in the standalone."
+    }
+  ],
+  "primaryVerdict": "PASS_STANDALONE",
+  "reasoning": "The standalone directly establishes symptomatic post-reperfusion intracerebral hemorrhage through abrupt neurologic decline and CT-confirmed bleeding with edema and midline shift. It also explicitly establishes active nicardipine titration to a prescribed systolic target. Frequent neurologic assessment, neurologic trends, and systolic BP trends remain clearly superior to the contradictory or unrelated alternatives without using sibling facts. The sibling's numeric BP target, pupil sizes, prior alertness, coagulation data, neurosurgical consultation, and ICP plan corroborate or contextualize the key but do not determine it. Therefore no hidden-case dependency, unsupported keyed premise, underdetermination, key defect, or reviewer disagreement is present.",
+  "scopeCollateral": [
+    {
+      "concern": "Two rationale details derive from the sibling rather than the standalone learner-facing stem.",
+      "evidence": "The sibling documents that the client was awake before deterioration and that the left pupil became 5 mm versus 3 mm on the right. The standalone says only that the client initially improved and developed a new sluggish left pupil.",
+      "priority": "P3"
+    }
+  ],
+  "secondaryFlags": []
+}

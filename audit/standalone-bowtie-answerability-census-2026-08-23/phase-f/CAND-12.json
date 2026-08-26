@@ -1,0 +1,89 @@
+{
+  "advisoryPriority": "P1",
+  "bilingualCollateral": [
+    {
+      "concern": "The hidden actor dependency is mirrored in both languages rather than created by translation.",
+      "evidence": "Both A2 versions name Renee, while neither the English nor Chinese standalone stem introduces her or identifies the handoff nurse.",
+      "priority": "P1"
+    },
+    {
+      "concern": "The exact 'unresolved lateral incivility' characterization is stronger than the standalone facts in both languages.",
+      "evidence": "C1 uses 'unresolved lateral incivility' and '未解决的横向不文明行为,' whereas the standalone stem states only one incomplete, dismissive or lightly contemptuous handoff.",
+      "priority": "P2"
+    }
+  ],
+  "canonicalTargetSiblingOverlap": [
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling supplies detailed lateral-incivility behaviors and the nurses' relationship, but the standalone stem's incomplete, dismissive handoff causing a missed check already makes C1 rank above C2 and C3.",
+      "opaqueTokenLabel": "C1",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling repeats the BP, headache, missed check, and SBP call threshold, but all facts needed for A1 are already explicit in the standalone stem.",
+      "opaqueTokenLabel": "A1",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CASE_IMPORTED",
+      "description": "Only the sibling identifies Renee as the person whose observed conduct caused the handoff failure, making that hidden attribution necessary for the exact named action.",
+      "opaqueTokenLabel": "A2",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling details later complete handoffs and conduct follow-up, but the standalone handoff omission itself supports monitoring subsequent handoff completeness and professionalism.",
+      "opaqueTokenLabel": "P2",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling shows resumed q4h checks and no further omission, but the standalone stem already states the q4h order and missed 1800 check.",
+      "opaqueTokenLabel": "P3",
+      "overlap": true
+    }
+  ],
+  "clinicalCollateral": [
+    {
+      "concern": "The parameter set emphasizes process outcomes while omitting a direct physiologic-response parameter despite symptomatic BP above the call threshold.",
+      "evidence": "The standalone client has BP 186/102 with headache; the sibling outcome item separately treats declining BP and headache resolution as evidence of effective intervention, but neither is available as a keyed standalone parameter.",
+      "priority": "P2"
+    },
+    {
+      "concern": "The immediate clinical action itself is supported and appropriately prioritized.",
+      "evidence": "The standalone stem explicitly states SBP 186, headache, and a provider instruction to call when SBP exceeds 180.",
+      "priority": null
+    }
+  ],
+  "defectSummary": "The keyed A2 action names Renee even though the standalone stem never introduces Renee or attributes the dismissive handoff to her. That necessary attribution exists only in the paired sibling case. C1 also gains fuller corroboration from the sibling, but that added detail is not required to rank C1 above its distractors.",
+  "missingFactProvenance": [
+    {
+      "missingFact": "The handoff participant's peer relationship and the fuller pattern supporting unresolved lateral incivility are absent from the standalone stem.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "C1",
+      "provenance": "SIBLING_CASE_IMPORTED",
+      "sourceEvidence": "The sibling summary identifies senior nurse Renee Talbot handing off to newly licensed nurse Priya Anand, while the observed-handoff exhibit attributes multiple dismissive statements, an eye-roll, public belittling, refusal of questions, and omitted safety information to Renee."
+    },
+    {
+      "missingFact": "Renee's identity as the nurse responsible for the dismissive handoff is absent from the standalone stem.",
+      "necessaryForRankability": true,
+      "opaqueTokenLabel": "A2",
+      "provenance": "SIBLING_CASE_IMPORTED",
+      "sourceEvidence": "The sibling observed-handoff exhibit explicitly identifies Renee as the nurse who dismisses Priya and omits the medication and monitoring information; the later conduct exhibit states that Marcus speaks privately with Renee about those observed behaviors."
+    }
+  ],
+  "primaryVerdict": "FAIL_HIDDEN_CASE_DEPENDENCY",
+  "reasoning": "Under the required precedence, the verdict is FAIL_HIDDEN_CASE_DEPENDENCY because A2 requires knowing that Renee performed the dismissive handoff, and that fact appears only in the sibling case. The same gap is an unsupported standalone token premise and leaves the demanded second action underdetermined, so both lower-precedence failures are recorded. C1's sibling details are corroborative rather than necessary: the standalone causal link between a dismissive, incomplete handoff and missed monitoring is sufficient to rank the communication-breakdown option above routine friction and an isolated knowledge deficit. A1, P2, and P3 are independently supported by the standalone stem.",
+  "scopeCollateral": [
+    {
+      "concern": "Collapsing the unfolding case into a standalone bow-tie removed actor and observer context still assumed by the action pool.",
+      "evidence": "The sibling identifies Marcus, Renee, and Priya and describes Marcus observing Renee's conduct; the standalone retains Priya and Mrs. Vega but A2 still refers to Renee.",
+      "priority": "P1"
+    }
+  ],
+  "secondaryFlags": [
+    "ALSO_SATISFIES_FAIL_UNSUPPORTED_TOKEN_PREMISE",
+    "ALSO_SATISFIES_FAIL_UNDERDETERMINED"
+  ]
+}

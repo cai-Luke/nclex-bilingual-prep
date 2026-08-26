@@ -1,0 +1,163 @@
+{
+  "anyCanonicalTargetDependsOnAbsentFact": false,
+  "blindExactMatch": true,
+  "canonicalSelection": {
+    "actionLabels": [
+      "A2",
+      "A3"
+    ],
+    "conditionLabel": "C2",
+    "parameterLabels": [
+      "P2",
+      "P1"
+    ]
+  },
+  "canonicalSetExplanation": "C2 is the only condition that coherently explains the explicit neurologic syndrome and the three documented precipitants. A2 directly addresses hepatic encephalopathy, while A3 addresses SBP and associated renal deterioration. P2 and P1 directly track the two active deteriorations. Each distractor is either contradicted by the standalone facts or lacks a client-specific premise; none is comparably defensible.",
+  "canonicalSetUniquelyDefensible": true,
+  "canonicalTargetSupport": [
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "C2",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "Decompensated cirrhosis followed by confusion, somnolence, asterixis, and ammonia 124 µmol/L directly supports hepatic encephalopathy. Recent variceal hemorrhage, ascitic neutrophils 484 cells/µL, creatinine 1.8 mg/dL, and urine output 15 mL/hr support the stated GI blood load, SBP, and AKI precipitants."
+    },
+    {
+      "missingClientFact": "The standalone stem does not state whether lactulose or rifaximin has been ordered, administered, withheld, or contraindicated.",
+      "opaqueTokenLabel": "A2",
+      "supportClassification": "GENERAL_KNOWLEDGE_LINK",
+      "supportingStandaloneEvidence": "The standalone findings strongly support hepatic encephalopathy, for which lactulose and rifaximin are condition-directed therapies."
+    },
+    {
+      "missingClientFact": "The standalone stem does not provide current antibiotic or albumin orders, prior doses, culture results, allergies, hemodynamics, or treatment response.",
+      "opaqueTokenLabel": "A3",
+      "supportClassification": "GENERAL_KNOWLEDGE_LINK",
+      "supportingStandaloneEvidence": "Ascitic neutrophils 484 cells/µL support SBP under the established diagnostic threshold, while rising creatinine and oliguria make prompt provider notification and reassessment of infection and renal-protective treatment priorities appropriate."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "P2",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "Confusion, somnolence, and asterixis are explicit neurologic abnormalities whose serial assessment directly tracks improvement or progression."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "P1",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "Creatinine has risen to 1.8 mg/dL and urine output is 15 mL/hr, directly supporting continued monitoring of both measures."
+    }
+  ],
+  "distractorPremiseFindings": [
+    {
+      "explanation": "Achieved hemostasis, stable hemoglobin, and no further hematemesis argue against recurrent hemorrhagic hypovolemia. The standalone stem provides no hypotension, tachycardia, elevated lactate, recurrent bleeding, or other shock evidence. The rationale's normalized lactate, improved heart rate, and normalized blood pressure are absent from the standalone stem but are unnecessary to reject C1.",
+      "opaqueTokenLabel": "C1",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "The stem confirms a prior endoscopic procedure but gives no sedative agent, dose, timing, reversal status, recovery course, or post-procedure orientation. The rationale's claim that the patient was oriented after the procedure is absent from the standalone stem. Nevertheless, delayed neurologic decline with asterixis, hyperammonemia, SBP evidence, and renal deterioration strongly favors C2.",
+      "opaqueTokenLabel": "C3",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "LOW"
+    },
+    {
+      "explanation": "Hemoglobin is stable at 7.6 g/dL after hemostasis, with no further hematemesis, and the mental-status change is better explained by hepatic encephalopathy. No transfusion order, symptomatic anemia, recurrent hemorrhage, instability, or client-specific target above 8 g/dL is supplied. The rationale's stated restrictive target range is also absent from the standalone stem.",
+      "opaqueTokenLabel": "A1",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "Deferring encephalopathy treatment conflicts with the explicit confusion, somnolence, asterixis, hyperammonemia, SBP-range neutrophilia, AKI, and oliguria. No client-specific evidence establishes residual sedation as the likely cause.",
+      "opaqueTokenLabel": "A4",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "The standalone stem contains no alcohol exposure, intoxication history, withdrawal concern, or blood alcohol result. The rationale's claim that the admission blood alcohol level was undetectable is an absent client fact and is unnecessary for ranking P3 below the keyed parameters.",
+      "opaqueTokenLabel": "P3",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "No lactate result or lactate trend is supplied, and lactate would not primarily track the explicit encephalopathy or renal deterioration. The rationale's claim that lactate normalized after hemorrhage control is absent from the standalone stem and is unnecessary for rejecting P4 as the primary monitor.",
+      "opaqueTokenLabel": "P4",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "NONE"
+    }
+  ],
+  "missingClientFacts": [
+    {
+      "keyed": true,
+      "missingFact": "Baseline neurologic status, baseline creatinine, blood glucose, electrolytes, oxygenation, and other possible contributors to altered consciousness are not provided.",
+      "opaqueTokenLabel": "C2",
+      "rankabilityImpact": "LOW"
+    },
+    {
+      "keyed": true,
+      "missingFact": "Current lactulose and rifaximin orders, administration history, response, and contraindications are not provided.",
+      "opaqueTokenLabel": "A2",
+      "rankabilityImpact": "LOW"
+    },
+    {
+      "keyed": true,
+      "missingFact": "Current antibiotics, albumin orders, prior doses, cultures, allergies, hemodynamics, and treatment response are not provided.",
+      "opaqueTokenLabel": "A3",
+      "rankabilityImpact": "LOW"
+    },
+    {
+      "keyed": true,
+      "missingFact": "Airway-protection ability, orientation, command-following ability, and detailed baseline neurologic examination are not provided.",
+      "opaqueTokenLabel": "P2",
+      "rankabilityImpact": "LOW"
+    },
+    {
+      "keyed": true,
+      "missingFact": "Exact baseline creatinine, prior urine-output trend, fluid balance, and recent nephrotoxic exposures are not provided.",
+      "opaqueTokenLabel": "P1",
+      "rankabilityImpact": "LOW"
+    },
+    {
+      "keyed": false,
+      "missingFact": "Blood pressure, heart rate, lactate, perfusion examination, and other hemodynamic measurements are not provided.",
+      "opaqueTokenLabel": "C1",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "keyed": false,
+      "missingFact": "Sedative agents, doses, administration times, expected duration, reversal status, immediate recovery findings, and whether the patient was oriented after the procedure are not provided.",
+      "opaqueTokenLabel": "C3",
+      "rankabilityImpact": "LOW"
+    },
+    {
+      "keyed": false,
+      "missingFact": "A transfusion order, symptomatic anemia findings, ongoing hemorrhage, hemodynamic instability, and a client-specific hemoglobin target above 8 g/dL are not provided.",
+      "opaqueTokenLabel": "A1",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "keyed": false,
+      "missingFact": "No evidence that residual sedation is the likely cause of the deterioration is provided.",
+      "opaqueTokenLabel": "A4",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "keyed": false,
+      "missingFact": "Alcohol exposure history, intoxication or withdrawal findings, and an admission blood alcohol result are not provided.",
+      "opaqueTokenLabel": "P3",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "keyed": false,
+      "missingFact": "A lactate value, serial lactate trend, or current tissue-hypoperfusion findings are not provided.",
+      "opaqueTokenLabel": "P4",
+      "rankabilityImpact": "NONE"
+    }
+  ],
+  "notes": [
+    "The Stage 2 condition and action labels exactly matched the canonical labels. Its parameter labels were returned as P1 then P2, whereas the canonical packet lists P2 then P1; because bow-tie parameter selections are unordered, the selected set is an exact match.",
+    "Several rationale details are not present in the standalone stem: post-procedure orientation, normalized lactate, improved heart rate, normalized blood pressure, an undetectable admission blood alcohol level, an explicit restrictive hemoglobin target, and confirmed medication orders. None is required to make the canonical set uniquely defensible.",
+    "Stage 1 and Stage 2 remain unchanged."
+  ],
+  "stage1Alignment": "FULL",
+  "stage1AlignmentExplanation": "Stage 1 independently identified acute hepatic encephalopathy precipitated by SBP, recent variceal hemorrhage, and AKI; selected lactulose-directed therapy and prompt SBP antibiotic management; and selected neurologic status and renal perfusion monitoring. These semantically align with all five canonical targets. Stage 1 described direct antibiotic administration rather than A3's notification and anticipated albumin/antibiotic reassessment, but both prioritize prompt management of SBP as an encephalopathy and renal-injury precipitant.",
+  "unstatedClientFactMateriallyChangesRankability": false
+}

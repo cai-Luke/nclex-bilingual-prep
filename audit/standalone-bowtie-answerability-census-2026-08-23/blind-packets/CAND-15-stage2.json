@@ -1,0 +1,56 @@
+{
+  "instruction": "Using only the standalone learner-facing English stem, prompts, and opaque token pools, select exactly one condition, two actions, and two parameters. Return the required structured JSON, including exactly one premise row for every opaque token. Do not infer absent client-specific facts.",
+  "stem": "At 1745, the client with confirmed severe neutropenia has persistent fever, HR 118, BP 92/58, RR 24, SpO₂ 94% on room air, capillary refill 4 seconds, urine output 60 mL over 4 hours, and lactate 3.2 mmol/L after initial empiric antibiotics. Complete the bow-tie by selecting the most likely condition, two priority actions, and two parameters to monitor.",
+  "tokens": {
+    "actions": [
+      {
+        "label": "A1",
+        "text": "Continue current vital-sign frequency and wait for the next scheduled reassessment"
+      },
+      {
+        "label": "A2",
+        "text": "Start isotonic crystalloid bolus per sepsis/oncology protocol and position supine"
+      },
+      {
+        "label": "A3",
+        "text": "Delay fluid resuscitation until repeat cultures are drawn and broadened antibiotics are ordered"
+      },
+      {
+        "label": "A4",
+        "text": "Activate rapid response and notify oncology with structured deterioration cues"
+      }
+    ],
+    "condition": [
+      {
+        "label": "C1",
+        "text": "Immediate transfusion or antibiotic allergic reaction"
+      },
+      {
+        "label": "C2",
+        "text": "Simple dehydration from poor oral intake"
+      },
+      {
+        "label": "C3",
+        "text": "Neutropenic fever progressing toward sepsis"
+      }
+    ],
+    "parameters": [
+      {
+        "label": "P1",
+        "text": "Serum lactate trend"
+      },
+      {
+        "label": "P2",
+        "text": "Repeat chest X-ray findings as the immediate response marker"
+      },
+      {
+        "label": "P3",
+        "text": "Mean arterial pressure and urine output"
+      },
+      {
+        "label": "P4",
+        "text": "Repeat WBC/ANC during the acute crisis"
+      }
+    ]
+  }
+}

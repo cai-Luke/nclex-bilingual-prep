@@ -1,0 +1,127 @@
+{
+  "anyCanonicalTargetDependsOnAbsentFact": false,
+  "blindExactMatch": true,
+  "canonicalSelection": {
+    "actionLabels": [
+      "A3",
+      "A1"
+    ],
+    "conditionLabel": "C1",
+    "parameterLabels": [
+      "P4",
+      "P3"
+    ]
+  },
+  "canonicalSetExplanation": "C1 uniquely integrates the two pressure-related skin findings. A3 directly removes the demonstrated device-pressure mechanism, while A1 addresses the explicit persistent intake problem. P4 and P3 directly evaluate those two intervention domains. No competing token has comparable standalone support.",
+  "canonicalSetUniquelyDefensible": true,
+  "canonicalTargetSupport": [
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "C1",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "The stem identifies an improving coccygeal Stage 1 pressure injury plus a new intact non-blanchable heel area exactly at shifted-device contact."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "A3",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "The heel-suspension boot strap shifted and contacted the posterior calcaneus exactly where the new non-blanchable area appeared."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "A1",
+      "supportClassification": "GENERAL_KNOWLEDGE_LINK",
+      "supportingStandaloneEvidence": "The client has persistent limited intake while healing from surgery and pressure injuries."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "P4",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "The stem identifies active coccygeal and right-heel skin findings whose progression or improvement can be evaluated serially."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "P3",
+      "supportClassification": "GENERAL_KNOWLEDGE_LINK",
+      "supportingStandaloneEvidence": "Persistent limited intake supports monitoring whether the selected nutritional intervention achieves intake goals."
+    }
+  ],
+  "distractorPremiseFindings": [
+    {
+      "explanation": "The standalone stem provides no incision findings, fever, leukocytosis, drainage, or other evidence of surgical-site infection, while the heel finding has an explicit device-pressure mechanism.",
+      "opaqueTokenLabel": "C2",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "The stem provides no calf tenderness, diffuse unilateral swelling, venous imaging, or other DVT evidence, and the focal heel lesion corresponds exactly to strap contact.",
+      "opaqueTokenLabel": "C3",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "Improved mobility is stated, but active pressure injuries and a newly failed offloading plan contradict stopping scheduled pressure redistribution solely because the client gets out of bed several times daily; exact time spent in bed is absent.",
+      "opaqueTokenLabel": "A2",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "LOW"
+    },
+    {
+      "explanation": "A new lesion at the shifted strap site makes reuse without inspection or verification of effective offloading unsafe and nonresponsive to the identified mechanism.",
+      "opaqueTokenLabel": "A4",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "Incentive-spirometry volumes do not directly measure skin healing or nutritional response.",
+      "opaqueTokenLabel": "P1",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "No anemia findings are supplied, and hemoglobin is not a direct measure of pressure-injury or nutrition-plan response.",
+      "opaqueTokenLabel": "P2",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "NONE"
+    }
+  ],
+  "missingClientFacts": [
+    {
+      "keyed": true,
+      "missingFact": "Immobility and moisture exposure asserted in the rationale are not stated in the standalone stem.",
+      "opaqueTokenLabel": "C1",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "keyed": false,
+      "missingFact": "The rationale's claims that the incision lacks erythema or warmth, the client is afebrile, and the WBC is normal are absent.",
+      "opaqueTokenLabel": "C2",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "keyed": false,
+      "missingFact": "The rationale's claims of no calf tenderness and no diffuse unilateral swelling are absent.",
+      "opaqueTokenLabel": "C3",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "keyed": false,
+      "missingFact": "The rationale's claim that the client still spends much of the day in bed is absent.",
+      "opaqueTokenLabel": "A2",
+      "rankabilityImpact": "LOW"
+    },
+    {
+      "keyed": true,
+      "missingFact": "Moisture management is referenced in the rationale but no moisture problem or management intervention is stated.",
+      "opaqueTokenLabel": "P4",
+      "rankabilityImpact": "NONE"
+    }
+  ],
+  "notes": [
+    "The Stage-2 blind selection matched all five canonical labels; differing array order does not alter a multi-select set.",
+    "The complete rationale introduces several client-specific negatives and risk factors not present in the standalone stem; they should not be used as support.",
+    "The correct rationale says the sacral site is smaller, whereas the standalone stem states only that a coccygeal Stage 1 injury is improving. This does not affect the canonical ranking."
+  ],
+  "stage1Alignment": "PARTIAL",
+  "stage1AlignmentExplanation": "Stage 1 independently identified the device-related heel pressure injury, generated the A3 offloading concept, and proposed serial heel assessment consistent with part of P4. It did not generate the canonical nutrition action A1 or intake parameter P3, and instead used its second action and parameter for additional offloading/device-position monitoring.",
+  "unstatedClientFactMateriallyChangesRankability": false
+}

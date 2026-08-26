@@ -1,0 +1,38 @@
+{
+  "condition": "Severe lithium toxicity with neurologic manifestations and impaired renal clearance",
+  "evaluationParameters": [
+    "Serial serum lithium concentration until a sustained safe decline is achieved, including assessment for rebound after dialysis.",
+    "Serial neurologic status, including level of consciousness, myoclonus, and facial fasciculations."
+  ],
+  "missingInformation": [
+    "Current airway protection, respiratory status, vital signs, ECG findings, electrolytes, creatinine trend, urine output, timing of the last lithium dose, lithium formulation, and whether any acute overdose occurred."
+  ],
+  "priorityActions": [
+    "Immediately discontinue lithium and hydrochlorothiazide.",
+    "Arrange urgent hemodialysis for lithium removal."
+  ],
+  "reasoning": "The thiazide exposure, toxic lithium concentration, severe neurologic findings, impaired renal function, and failure to improve with hydration strongly support severe lithium toxicity requiring removal of causative drugs and urgent extracorporeal clearance.",
+  "stage1Confidence": "high",
+  "stemEvidence": [
+    {
+      "stemFact": "Obtundation, new myoclonic jerks, facial fasciculations, serum lithium 2.6 mEq/L, and impaired eGFR.",
+      "target": "condition"
+    },
+    {
+      "stemFact": "Ten days ago, she was started on hydrochlorothiazide while receiving stable lithium therapy.",
+      "target": "priorityAction1"
+    },
+    {
+      "stemFact": "Despite aggressive IV hydration, her symptoms and lithium level show minimal improvement.",
+      "target": "priorityAction2"
+    },
+    {
+      "stemFact": "Her serum lithium is 2.6 mEq/L and shows minimal improvement with hydration.",
+      "target": "evaluationParameter1"
+    },
+    {
+      "stemFact": "She presents with obtundation, new myoclonic jerks, and facial fasciculations.",
+      "target": "evaluationParameter2"
+    }
+  ]
+}

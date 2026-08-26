@@ -1,0 +1,56 @@
+{
+  "instruction": "Using only the standalone learner-facing English stem, prompts, and opaque token pools, select exactly one condition, two actions, and two parameters. Return the required structured JSON, including exactly one premise row for every opaque token. Do not infer absent client-specific facts.",
+  "stem": "A 32-year-old G5P5 client is 90 minutes postpartum after vaginal birth of a 4.2 kg infant. She has pregnancy-induced hypertension treated with labetalol and mild intermittent asthma. She has persistent heavy bleeding despite oxytocin and fundal massage. QBL is 1,200 mL, HR 132, BP 80/52, and she is confused and pale. The uterus is intermittently boggy and relaxes within seconds after massage. Bedside exploration shows no retained placental fragments and no cervical or vaginal lacerations beyond the repaired second-degree perineal tear. Select the most likely condition, two priority actions, and two parameters to monitor.",
+  "tokens": {
+    "actions": [
+      {
+        "label": "A1",
+        "text": "Administer methylergonovine 0.2 mg IM"
+      },
+      {
+        "label": "A2",
+        "text": "Maintain continuous uterine massage/compression"
+      },
+      {
+        "label": "A3",
+        "text": "Stop fundal massage to draw labs and document"
+      },
+      {
+        "label": "A4",
+        "text": "Administer misoprostol 800 mcg rectally"
+      }
+    ],
+    "condition": [
+      {
+        "label": "C1",
+        "text": "Primary obstetric coagulopathy"
+      },
+      {
+        "label": "C2",
+        "text": "Postpartum hemorrhage due to uterine atony"
+      },
+      {
+        "label": "C3",
+        "text": "Cervical or vaginal laceration"
+      }
+    ],
+    "parameters": [
+      {
+        "label": "P1",
+        "text": "Quantitative blood loss trend"
+      },
+      {
+        "label": "P2",
+        "text": "Neonatal Apgar scores"
+      },
+      {
+        "label": "P3",
+        "text": "Uterine tone and fundal firmness"
+      },
+      {
+        "label": "P4",
+        "text": "Serum creatinine as the immediate trajectory marker"
+      }
+    ]
+  }
+}

@@ -1,0 +1,145 @@
+{
+  "anyCanonicalTargetDependsOnAbsentFact": false,
+  "blindExactMatch": true,
+  "canonicalSelection": {
+    "actionLabels": [
+      "A1",
+      "A2"
+    ],
+    "conditionLabel": "C1",
+    "parameterLabels": [
+      "P4",
+      "P3"
+    ]
+  },
+  "canonicalSetExplanation": "C1 is uniquely supported by the explicit protocol violation and unresolved provider disagreement. A1 and A2 form the supported sequence of direct safety communication followed by withholding and escalation. P4 verifies successful correction before harm, while P3 evaluates effectiveness and tolerance of replacement. Every alternative is either contradicted by the stem or unrelated to the client-safety outcome.",
+  "canonicalSetUniquelyDefensible": true,
+  "canonicalTargetSupport": [
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "C1",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "The original peripheral potassium order exceeded the explicit concentration and hourly-rate limits; the resident insisted on proceeding after the nurse questioned it, creating an objective interprofessional medication-safety conflict."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "A1",
+      "supportClassification": "GENERAL_KNOWLEDGE_LINK",
+      "supportingStandaloneEvidence": "The nurse directly questioned the ordering resident about the unsafe order. Structured assertive communication is an appropriate nursing safety response when communicating an identified medication hazard."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "A2",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "The stem explicitly states that the nurse used the chain of command and that the unsafe order was not administered."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "P4",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "The original unsafe order was not administered, and the revised order of 10 mEq in 100 mL over 1 hour matches the stated peripheral concentration and rate limits."
+    },
+    {
+      "missingClientFact": "The actual repeat potassium value, cardiac-rhythm findings, and IV-site assessment are not provided.",
+      "opaqueTokenLabel": "P3",
+      "supportClassification": "GENERAL_KNOWLEDGE_LINK",
+      "supportingStandaloneEvidence": "The client had potassium 3.1 mEq/L, CKD with eGFR 34 mL/min, a peripheral IV, and an active potassium-replacement plan. Potassium trend, cardiac rhythm, and IV-site tolerance are clinically linked measures of replacement effectiveness and tolerance."
+    }
+  ],
+  "distractorPremiseFindings": [
+    {
+      "explanation": "The conflict is grounded in an objectively protocol-violating medication order and unresolved renal-safety concern, not merely personality or bedside manner.",
+      "opaqueTokenLabel": "C2",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "The stated protocol establishes mandatory concentration, rate, and renal-verification boundaries, so the options are not equivalent clinical preferences.",
+      "opaqueTokenLabel": "C3",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "The nurse escalated and obtained a safe replacement order rather than stopping after refusal and documentation.",
+      "opaqueTokenLabel": "A3",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "The stem explicitly states that the original unsafe order was not administered.",
+      "opaqueTokenLabel": "A4",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "No discharge-timing question is described, and discharge timing does not evaluate resolution of the medication-safety event.",
+      "opaqueTokenLabel": "P1",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "The resident's page burden is not provided and would not be an objective client-safety outcome.",
+      "opaqueTokenLabel": "P2",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "NONE"
+    }
+  ],
+  "missingClientFacts": [
+    {
+      "keyed": true,
+      "missingFact": "Current cardiac rhythm or ECG findings are not provided.",
+      "opaqueTokenLabel": "P3",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "keyed": true,
+      "missingFact": "A repeat potassium value after replacement is not provided.",
+      "opaqueTokenLabel": "P3",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "keyed": true,
+      "missingFact": "Peripheral IV-site tolerance findings are not provided.",
+      "opaqueTokenLabel": "P3",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "keyed": true,
+      "missingFact": "The timing of the planned repeat potassium measurement is not stated.",
+      "opaqueTokenLabel": "P3",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "keyed": true,
+      "missingFact": "Urine output and postoperative fluid-loss information are not provided.",
+      "opaqueTokenLabel": "P3",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "keyed": true,
+      "missingFact": "The presence and severity of hypokalemia symptoms are not provided.",
+      "opaqueTokenLabel": "C1",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "keyed": true,
+      "missingFact": "No prior renal-function value is provided to establish that renal function is worsening rather than chronically impaired.",
+      "opaqueTokenLabel": "C1",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "keyed": false,
+      "missingFact": "The stem does not state that the client asked about discharge timing.",
+      "opaqueTokenLabel": "P1",
+      "rankabilityImpact": "NONE"
+    }
+  ],
+  "notes": [
+    "Stage 2 selected all five canonical labels; its parameter labels appeared as P3 then P4, whereas the canonical packet lists P4 then P3. Because the two parameter positions are unordered selections within one zone, this is an exact selection match.",
+    "The stem supports direct provider questioning but does not identify a named structured communication framework.",
+    "The rationale's references to worsening renal function and an irritated provider tone exceed the standalone English stem: only CKD with eGFR 34 mL/min and provider insistence are stated. Neither addition is needed to defend the canonical key."
+  ],
+  "stage1Alignment": "PARTIAL",
+  "stage1AlignmentExplanation": "Stage 1 identified the underlying hypokalemia and selected withholding/escalation, cautious protocol-compliant replacement, potassium reassessment, and renal-function monitoring. This overlaps the canonical safety logic and physiologic monitoring, but its condition focused on hypokalemia rather than the medication-order conflict; it did not distinctly select structured assertive communication or verification that the unsafe order was replaced and not administered.",
+  "unstatedClientFactMateriallyChangesRankability": false
+}

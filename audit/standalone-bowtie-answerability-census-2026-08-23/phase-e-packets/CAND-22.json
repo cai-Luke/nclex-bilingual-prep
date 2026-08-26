@@ -1,0 +1,185 @@
+{
+  "canonicalSelection": {
+    "actionLabels": [
+      "A2",
+      "A1"
+    ],
+    "conditionLabel": "C2",
+    "parameterLabels": [
+      "P4",
+      "P2"
+    ]
+  },
+  "instruction": "The two blind-stage records are immutable. Compare them with the now-revealed canonical 1/2/2 selection and complete standalone item. Do not inspect or infer sibling-case material. Return the required Phase-E structured JSON without revising either blind record.",
+  "standaloneItem": {
+    "bowtie": {
+      "actions": {
+        "prompt": {
+          "en": "Priority actions",
+          "zh": "优先措施"
+        },
+        "tokens": [
+          {
+            "en": "Administer aggressive potassium, phosphate, and magnesium replacement with telemetry",
+            "opaqueTokenLabel": "A1",
+            "zh": "在遥测监护下强化补充钾、磷、镁"
+          },
+          {
+            "en": "Reduce the TPN infusion rate by 50% as ordered",
+            "opaqueTokenLabel": "A2",
+            "zh": "按医嘱将 TPN 输注速率降低 50%"
+          },
+          {
+            "en": "Independently discontinue TPN abruptly without dextrose backup",
+            "opaqueTokenLabel": "A3",
+            "zh": "无葡萄糖备用方案而自行突然停用 TPN"
+          },
+          {
+            "en": "Give aggressive insulin first for glucose 226 mg/dL",
+            "opaqueTokenLabel": "A4",
+            "zh": "因血糖 226 mg/dL 先积极给予胰岛素"
+          }
+        ]
+      },
+      "condition": {
+        "prompt": {
+          "en": "Most likely condition",
+          "zh": "最可能的病情"
+        },
+        "tokens": [
+          {
+            "en": "Parenteral-nutrition hyperglycemia",
+            "opaqueTokenLabel": "C1",
+            "zh": "肠外营养相关高血糖"
+          },
+          {
+            "en": "Refeeding syndrome",
+            "opaqueTokenLabel": "C2",
+            "zh": "再喂养综合征"
+          },
+          {
+            "en": "Catheter-related bloodstream infection",
+            "opaqueTokenLabel": "C3",
+            "zh": "导管相关血流感染"
+          }
+        ]
+      },
+      "parameters": {
+        "prompt": {
+          "en": "Parameters to monitor",
+          "zh": "应监测的指标"
+        },
+        "tokens": [
+          {
+            "en": "Serum glucose alone as the primary outcome",
+            "opaqueTokenLabel": "P1",
+            "zh": "仅以血糖作为主要疗效指标"
+          },
+          {
+            "en": "Cardiac rhythm, PVCs, and QT interval on telemetry",
+            "opaqueTokenLabel": "P2",
+            "zh": "遥测心律、PVC 和 QT 间期"
+          },
+          {
+            "en": "White blood cell count as the main marker of this crisis",
+            "opaqueTokenLabel": "P3",
+            "zh": "将白细胞计数作为此次危机的主要指标"
+          },
+          {
+            "en": "Serum phosphorus, potassium, and magnesium trends",
+            "opaqueTokenLabel": "P4",
+            "zh": "血清磷、钾、镁变化趋势"
+          }
+        ]
+      }
+    },
+    "glossary": [
+      {
+        "defZh": "一种 NGN 题型，要求把最可能病情、优先措施和监测指标配对。",
+        "termEn": "bow-tie",
+        "termZh": "Bow-tie 题型"
+      },
+      {
+        "defZh": "心电图上代表心室去极化和复极过程的时间间隔。",
+        "termEn": "QT interval",
+        "termZh": "QT 间期"
+      },
+      {
+        "defZh": "电解质数值随时间变化的方向和幅度。",
+        "termEn": "electrolyte trend",
+        "termZh": "电解质趋势"
+      }
+    ],
+    "rationale": {
+      "byChoice": [
+        {
+          "en": "Correct. This condition explains the electrolyte triad, timing after PN, weakness, respiratory compromise, and rhythm changes.",
+          "opaqueTokenLabel": "C2",
+          "zh": "正确。该病情解释了电解质三联下降、PN 后出现的时间关系、无力、呼吸受损和心律改变。"
+        },
+        {
+          "en": "The PICC site is concerning, but infection does not explain the progressive phosphate-potassium-magnesium triad or QT/PVC pattern.",
+          "opaqueTokenLabel": "C3",
+          "zh": "PICC 处令人担忧，但感染不能解释进行性磷-钾-镁三联下降或 QT/PVC 模式。"
+        },
+        {
+          "en": "Hyperglycemia is present, but it is a concurrent PN complication rather than the condition driving the dysrhythmia and respiratory weakness.",
+          "opaqueTokenLabel": "C1",
+          "zh": "存在高血糖，但它是并发的 PN 问题，而不是导致心律失常和呼吸肌无力的主导病情。"
+        },
+        {
+          "en": "Correct. Lowering carbohydrate delivery reduces the insulin stimulus driving intracellular electrolyte shift.",
+          "opaqueTokenLabel": "A2",
+          "zh": "正确。降低碳水供给可减少推动电解质进入细胞的胰岛素刺激。"
+        },
+        {
+          "en": "Correct. Replacement treats the low electrolytes causing PVCs, prolonged QT, muscle weakness, and shallow respirations.",
+          "opaqueTokenLabel": "A1",
+          "zh": "正确。补充可处理导致 PVC、QT 延长、肌无力和浅呼吸的低电解质。"
+        },
+        {
+          "en": "Abrupt independent discontinuation is unsafe without a provider order, glucose monitoring, and dextrose backup if needed.",
+          "opaqueTokenLabel": "A3",
+          "zh": "在无医嘱、无血糖监测且必要时无葡萄糖备用的情况下，自行突然停用不安全。"
+        },
+        {
+          "en": "Insulin may worsen hypokalemia by shifting potassium intracellularly, so it should not precede urgent electrolyte correction as the first priority.",
+          "opaqueTokenLabel": "A4",
+          "zh": "胰岛素可能使钾进入细胞而加重低钾，因此不应作为第一优先而先于紧急电解质纠正。"
+        },
+        {
+          "en": "Correct. These are the depleted electrolytes that define the crisis and show whether repletion is overcoming the shift.",
+          "opaqueTokenLabel": "P4",
+          "zh": "正确。这些是定义此次危机的耗竭电解质，也显示补充是否正在克服转移。"
+        },
+        {
+          "en": "Correct. PVC resolution and QT shortening indicate decreasing immediate arrhythmia risk.",
+          "opaqueTokenLabel": "P2",
+          "zh": "正确。PVC 消失和 QT 缩短提示直接心律失常风险下降。"
+        },
+        {
+          "en": "Glucose monitoring is necessary in PN care, but glucose alone does not track resolution of the electrolyte crisis.",
+          "opaqueTokenLabel": "P1",
+          "zh": "PN 护理需要监测血糖，但仅看血糖不能追踪电解质危机是否解除。"
+        },
+        {
+          "en": "WBC may help the infection workup but does not evaluate the refeeding electrolyte emergency.",
+          "opaqueTokenLabel": "P3",
+          "zh": "WBC 可帮助感染评估，但不能评价再喂养电解质急症。"
+        }
+      ],
+      "correct": {
+        "en": "The most likely condition is refeeding syndrome because the dominant pattern is rapid progressive hypophosphatemia, hypokalemia, and hypomagnesemia after PN in a severely malnourished client, with cardiac and respiratory manifestations. Priority actions are to reduce the TPN rate as ordered and aggressively replace the depleted electrolytes with telemetry. The best monitoring parameters are the electrolyte trend and cardiac rhythm/QT response.",
+        "zh": "最可能的病情是再喂养综合征，因为主导模式是在严重营养不良患者开始 PN 后，血磷、血钾、血镁迅速进行性下降，并出现心脏和呼吸表现。优先措施是按医嘱降低 TPN 速率，并在遥测监护下强化补充耗竭的电解质。最佳监测指标是电解质趋势以及心律/QT 的反应。"
+      }
+    },
+    "stem": {
+      "en": "Stage 2 synthesis: A severely malnourished post-operative client has had PN started after about five weeks of negligible intake. Within 30 hours, phosphorus has fallen from 2.8 to 1.8 to 1.3 mg/dL, potassium from 3.5 to 3.1 to 2.9 mEq/L, and magnesium from 1.8 to 1.4 to 1.3 mg/dL. The client is lethargic with proximal weakness, shallow respirations, palpitations, frequent PVCs, prolonged QT interval, and glucose 226 mg/dL. The PICC site has erythema, tenderness, and small purulent drainage. Complete the bow-tie diagram.",
+      "zh": "阶段 2 综合判断：一名严重营养不良的术后患者，约 5 周几乎无摄入后开始 PN。30 小时内，血磷从 2.8 降至 1.8 再降至 1.3 mg/dL，血钾从 3.5 降至 3.1 再降至 2.9 mEq/L，血镁从 1.8 降至 1.4 再降至 1.3 mg/dL。患者嗜睡、近端肌无力、浅呼吸、心悸、频发 PVC、QT 间期延长，血糖 226 mg/dL。PICC 处有红斑、压痛和少量脓性引流。完成 bow-tie 图。"
+    },
+    "testTakingStrategy": {
+      "en": "For bow-tie items, choose the condition that explains the most dangerous cluster, then match actions and monitoring to that condition rather than to a distracting concurrent problem.",
+      "zh": "做 bow-tie 题时，先选择能解释最危险线索组合的病情，再把措施和监测指标与该病情对应，而不是被并发但次要的问题分散。"
+    }
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "advisoryPriority": "P2",
+  "bilingualCollateral": [
+    {
+      "concern": "The unsupported family-support premise is preserved in both language versions rather than introduced by translation.",
+      "evidence": "A1 includes “family support” in English and “家属支持” in Chinese, while the standalone stem in both languages states only that the client lives alone.",
+      "priority": "P2"
+    }
+  ],
+  "canonicalTargetSiblingOverlap": [
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling adds respiratory, renal, electrolyte, and transition-context details that reinforce unsafe discharge, but the standalone exertional hypoxemia, failed teach-back, unaffordable diuretic, living situation, stairs, and absent scale already support C2.",
+      "opaqueTokenLabel": "C2",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling confirms provider resistance, bed-throughput pressure, communication, and escalation language, but the active discharge order and objective standalone safety concerns already make A3 rankable.",
+      "opaqueTokenLabel": "A3",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CASE_IMPORTED",
+      "description": "The sibling uniquely establishes a daughter and later confirms the availability of specific interdisciplinary resources. The family-support component therefore imports a sibling-only client fact, although the standalone barriers independently support the remaining interdisciplinary components and preserve A1's rank.",
+      "opaqueTokenLabel": "A1",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling specifies the medication, weight thresholds, and warning signs missed during teach-back, but the standalone explicitly states failed teach-back about new medications and warning signs and no home scale.",
+      "opaqueTokenLabel": "P1",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling adds resting status, exertional vital signs, oxygen flow, recovery duration, and a later stair result. The standalone already states desaturation after 40 feet, oxygen-assisted recovery, and a second-floor walk-up, which is sufficient to select P2.",
+      "opaqueTokenLabel": "P2",
+      "overlap": true
+    }
+  ],
+  "clinicalCollateral": [],
+  "defectSummary": "The canonical set remains uniquely rankable from the standalone stem, but A1 is a conjunctive token that requires mobilizing family support even though the standalone never establishes that any family or support person exists or is available. The sibling supplies a daughter, but that fact is not necessary to distinguish A1 from the distractors; therefore this is an unsupported token premise rather than hidden-case dependency or underdetermination.",
+  "missingFactProvenance": [
+    {
+      "missingFact": "Availability and willingness of family or another support person to participate.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "A1",
+      "provenance": "SIBLING_CASE_IMPORTED",
+      "sourceEvidence": "The sibling identifies a daughter who lives 90 minutes away and works full-time; later stages state that she is contacted and arranges to stay for two days. The standalone stem identifies no family or other support person."
+    },
+    {
+      "missingFact": "Resting and baseline oxygen saturation, respiratory symptoms, prior home-oxygen use, and the oxygen flow required for recovery.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "P2",
+      "provenance": "OTHER_PROVENANCE",
+      "sourceEvidence": "The sibling supplies resting SpO2 93% on room air, slight dyspnea, exertional HR/RR, and recovery with oxygen at 2 L/min, but prior home-oxygen use remains unstated anywhere checked. The standalone exertional desaturation and oxygen-assisted recovery are sufficient to rank P2."
+    },
+    {
+      "missingFact": "Current hemodynamic status and lung examination findings.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "A3",
+      "provenance": "SIBLING_CASE_IMPORTED",
+      "sourceEvidence": "The sibling reports BP 108/68, HR 92, RR 22, fine basilar crackles, trace pedal edema, and no visible JVD. These details are absent from the standalone stem."
+    },
+    {
+      "missingFact": "The specific medication regimen, renal function, electrolyte values, and available affordable diuretic alternatives.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "A1",
+      "provenance": "SIBLING_CASE_IMPORTED",
+      "sourceEvidence": "The sibling identifies torsemide, lisinopril, carvedilol, creatinine, potassium, magnesium, and a subsequently identified covered generic loop-diuretic alternative. The standalone states only that the prescribed diuretic is unaffordable."
+    },
+    {
+      "missingFact": "The client's current ability to climb the stairs required to enter the second-floor residence.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "P2",
+      "provenance": "UNSUPPORTED_ANYWHERE_CHECKED",
+      "sourceEvidence": "Before the standalone decision point, the sibling reports that the client does not know how she would manage the stairs, but it provides no pre-intervention stair trial. A successful simulated stair assessment appears only after interventions on the next morning."
+    },
+    {
+      "missingFact": "Availability and feasibility of home health, community support, medication assistance, a home scale, and timely follow-up.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "A1",
+      "provenance": "SIBLING_CASE_IMPORTED",
+      "sourceEvidence": "Later sibling stages confirm home-health acceptance, a scale program, medication assistance, daughter support, and cardiology follow-up. The standalone identifies the underlying barriers but not whether these resources are available."
+    }
+  ],
+  "primaryVerdict": "FAIL_UNSUPPORTED_TOKEN_PREMISE",
+  "reasoning": "The blind Stage 2 selection exactly matched the canonical 1/2/2 set by labels, and Phase E found the set uniquely defensible. Sibling review confirms that no resting oxygen value, laboratory result, exact medication, stair-test result, bed-pressure fact, or completed resource arrangement is needed to select C2, A3, A1, P1, and P2. Thus there is no hidden-case dependency and no underdetermination. However, A1 unconditionally bundles family support with otherwise supported interdisciplinary actions, and family availability is absent from the standalone while present in the sibling. Under the required precedence, this yields FAIL_UNSUPPORTED_TOKEN_PREMISE. No lower-precedence failure condition is also satisfied.",
+  "scopeCollateral": [
+    {
+      "concern": "Several clinically useful sibling details are absent from the standalone and must remain corroborative rather than standalone premises.",
+      "evidence": "Resting respiratory status, oxygen flow, renal and electrolyte results, exact medications, bed pressure, the daughter, resource acceptance, and later outcomes appear only in the sibling case. Except for A1's family-support component, none is required to rank the canonical set.",
+      "priority": "P2"
+    }
+  ],
+  "secondaryFlags": []
+}

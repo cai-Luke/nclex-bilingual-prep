@@ -1,0 +1,109 @@
+{
+  "anyCanonicalTargetDependsOnAbsentFact": true,
+  "blindExactMatch": true,
+  "canonicalSelection": {
+    "actionLabels": [
+      "A1",
+      "A2"
+    ],
+    "conditionLabel": "C1",
+    "parameterLabels": [
+      "P2",
+      "P3"
+    ]
+  },
+  "canonicalSetExplanation": "A1, P2, and P3 are directly and uniquely supported, and C1 is clearly the closest condition option because the handoff failure reached patient care. However, the exact C1 wording adds an unresolved lateral-incivility pattern not established by the stem, and A2 specifically attributes the behavior to Renee even though Renee is absent from the stem. The forced-choice intent is apparent, but the complete canonical set is not independently defensible without those unstated facts.",
+  "canonicalSetUniquelyDefensible": false,
+  "canonicalTargetSupport": [
+    {
+      "missingClientFact": "The stem does not identify the dismissive participant, establish a peer relationship, or describe a prior or continuing pattern showing that the incivility was unresolved.",
+      "opaqueTokenLabel": "C1",
+      "supportClassification": "MISSING_CLIENT_FACT",
+      "supportingStandaloneEvidence": "The stem directly links an incomplete, dismissive handoff to omitted critical information and a missed ordered BP check, supporting a client-safety communication breakdown."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "A1",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "Mrs. Vega has BP 186/102 and a headache, while the hospitalist ordered a call for SBP > 180; the missed 1800 check is also explicit."
+    },
+    {
+      "missingClientFact": "Renee is never identified in the stem, so the stem does not establish that she performed the handoff or engaged in the behavior.",
+      "opaqueTokenLabel": "A2",
+      "supportClassification": "MISSING_CLIENT_FACT",
+      "supportingStandaloneEvidence": "Private, behavior-specific follow-up logically addresses the incomplete, dismissive handoff and resulting care omission."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "P2",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "The incomplete handoff failed to communicate the amlodipine increase, monitoring schedule, and call parameter, directly supporting evaluation of later handoff completeness and professionalism."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "P3",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "The hospitalist ordered q4h BP monitoring for 24 hours, and the 1800 check was missed."
+    }
+  ],
+  "distractorPremiseFindings": [
+    {
+      "explanation": "The conduct affected the patient-care process and contributed to a missed ordered assessment, so it is not merely routine friction requiring no intervention.",
+      "opaqueTokenLabel": "C2",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "The stem explicitly identifies an incomplete handoff as part of the causal chain, contradicting an explanation based solely on the new nurse's knowledge.",
+      "opaqueTokenLabel": "C3",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "Resolving interpersonal conflict first would delay provider notification while the symptomatic client remains above the explicit SBP call threshold.",
+      "opaqueTokenLabel": "A3",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "A monitoring omission occurred, and the client is symptomatic above the notification threshold; the stem also never establishes that serious harm was avoided.",
+      "opaqueTokenLabel": "A4",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "Creatinine may be medically relevant in severe hypertension, but the stem supplies no renal findings, creatinine result, urine-output concern, or laboratory-monitoring plan, and it does not evaluate the identified handoff failure.",
+      "opaqueTokenLabel": "P1",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "LOW"
+    },
+    {
+      "explanation": "Nothing in the stem makes personal friendship a clinical or professional safety outcome; effective professional communication does not require friendship.",
+      "opaqueTokenLabel": "P4",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "NONE"
+    }
+  ],
+  "missingClientFacts": [
+    {
+      "keyed": true,
+      "missingFact": "The handoff participant's peer relationship and a prior or continuing pattern establishing unresolved lateral incivility are not stated.",
+      "opaqueTokenLabel": "C1",
+      "rankabilityImpact": "LOW"
+    },
+    {
+      "keyed": true,
+      "missingFact": "The stem does not identify Renee or establish that she performed the dismissive handoff.",
+      "opaqueTokenLabel": "A2",
+      "rankabilityImpact": "MATERIAL"
+    }
+  ],
+  "notes": [
+    "The Stage-2 blind selection exactly matched the canonical 1/2/2 labels while independently flagging the unsupported Renee attribution.",
+    "The Stage-1 medical framing was reasonable from the standalone stem because severe hypertension with headache and an explicit provider-call threshold are prominent, but it did not match the canonical communication-process target.",
+    "The rationale introduces details not established in the stem, including demeaning behavior, Renee's involvement, Priya needing coaching, and an unresolved pattern."
+  ],
+  "stage1Alignment": "PARTIAL",
+  "stage1AlignmentExplanation": "Stage 1 independently identified immediate hospitalist notification, aligning with A1, and recognized the missed-monitoring safety issue. It instead framed the condition as a hypertensive crisis, chose acute target-organ assessment rather than A2, and proposed physiologic monitoring rather than the communication-process parameters P2 and P3.",
+  "unstatedClientFactMateriallyChangesRankability": true
+}

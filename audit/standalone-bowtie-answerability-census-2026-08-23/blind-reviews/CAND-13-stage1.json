@@ -1,0 +1,38 @@
+{
+  "condition": "Acute fluid volume overload from burn over-resuscitation (fluid creep), with evolving pulmonary edema",
+  "evaluationParameters": [
+    "Hourly urine output and cumulative fluid balance",
+    "Oxygenation and pulmonary status, including SpO2, breath sounds, and peak airway pressures"
+  ],
+  "missingInformation": [
+    "Current SpO2, ABG results, chest imaging, ventilator settings, total intake and fluid rate, renal function, and extremity or intra-abdominal pressures are unavailable; these would clarify pulmonary edema severity and whether abdominal or extremity compartment syndromes require additional urgent intervention."
+  ],
+  "priorityActions": [
+    "Reduce/titrate the lactated Ringer's infusion according to the prescribed urine-output goal and burn-resuscitation protocol, with immediate burn-team coordination.",
+    "Elevate the head of the bed and collaborate with respiratory therapy and the burn team to optimize ventilation and oxygenation."
+  ],
+  "reasoning": "The combination of excess crystalloid delivery, urine output above goal, hemodilution, edema extending into previously unburned tissue, crackles, and rising airway pressures most strongly supports burn-resuscitation fluid overload rather than persistent hypovolemia. Immediate priorities are to correct ongoing excess administration and protect gas exchange while tracking renal output, fluid balance, and respiratory response.",
+  "stage1Confidence": "high",
+  "stemEvidence": [
+    {
+      "stemFact": "Delivered volume exceeded the time-phased expected Parkland trajectory by about 20%, with new crackles, rising airway pressures, generalized edema, and hematocrit falling from 52% to 38%.",
+      "target": "condition"
+    },
+    {
+      "stemFact": "Urine output is 120 mL/hr for two consecutive hours, above the ordered target of 40 to 80 mL/hr.",
+      "target": "priorityAction1"
+    },
+    {
+      "stemFact": "New bilateral basilar crackles are present and peak airway pressures are rising in an intubated client.",
+      "target": "priorityAction2"
+    },
+    {
+      "stemFact": "Urine output is now 120 mL/hr for two consecutive hours, and delivered resuscitation volume is about 20% above trajectory.",
+      "target": "evaluationParameter1"
+    },
+    {
+      "stemFact": "New bilateral basilar crackles are present and peak airway pressures are rising.",
+      "target": "evaluationParameter2"
+    }
+  ]
+}

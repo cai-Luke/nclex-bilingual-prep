@@ -1,0 +1,150 @@
+{
+  "anyCanonicalTargetDependsOnAbsentFact": false,
+  "blindExactMatch": true,
+  "canonicalSelection": {
+    "actionLabels": [
+      "A1",
+      "A2"
+    ],
+    "conditionLabel": "C2",
+    "parameterLabels": [
+      "P3",
+      "P2"
+    ]
+  },
+  "canonicalSetExplanation": "C2 is uniquely supported by the malignant mediastinal process and the symmetric congestion above the diaphragm, while stridor, short-phrase speech, and persistent hypoxemia establish the immediate airway threat. A1 and A2 address that threat without delay. P3 directly tracks airway patency, and P2 directly tracks the obstructive congestion. Each alternative is anatomically mismatched, unsupported by a client-specific premise, or improperly sequenced.",
+  "canonicalSetUniquelyDefensible": true,
+  "canonicalTargetSupport": [
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "C2",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "Untreated non-small cell lung cancer and a known right mediastinal mass accompany worsening facial/periorbital edema, increased neck circumference, prominent chest-wall venous collaterals, bilateral arm edema, persistent hypoxemia, short-phrase speech, and new tracheal inspiratory stridor."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "A1",
+      "supportClassification": "GENERAL_KNOWLEDGE_LINK",
+      "supportingStandaloneEvidence": "SpO2 is 90% despite 2 L nasal-cannula oxygen, while the client has short-phrase speech and extensive congestion above the diaphragm. Oxygen escalation and upright positioning are linked by general clinical knowledge to oxygenation support and reduced upper-body venous congestion."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "A2",
+      "supportClassification": "GENERAL_KNOWLEDGE_LINK",
+      "supportingStandaloneEvidence": "New inspiratory stridor over the trachea, short-phrase speech, and hypoxemia on supplemental oxygen are explicit warning findings that generally require immediate emergency escalation for possible airway deterioration."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "P3",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "The stem directly reports new tracheal inspiratory stridor and short-phrase speech, providing bedside airway and speech findings suitable for serial monitoring."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "P2",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "The stem directly reports worsening facial/periorbital edema and a serial neck-circumference increase from 44 cm to 47 cm."
+    }
+  ],
+  "distractorPremiseFindings": [
+    {
+      "explanation": "The stem does not report cardiac dysfunction, pulmonary crackles, lower-extremity edema, or generalized fluid overload. Importantly, the rationale's statements that crackles and lower-extremity edema are absent are not explicit client facts in the standalone stem. Even without those negatives, the central upper-body distribution, mediastinal mass, and chest-wall collaterals strongly favor C2.",
+      "opaqueTokenLabel": "C1",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "An isolated upper-extremity DVT does not fit the bilateral arm involvement combined with facial/periorbital and neck edema, chest-wall venous collaterals, and a mediastinal mass.",
+      "opaqueTokenLabel": "C3",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "Lowering the head of bed conflicts with the immediate need to support breathing and reduce congestion above the obstruction. The rationale's additional claims of positional worsening and prior position-related desaturation are not stated in the standalone stem and are unnecessary to reject A3.",
+      "opaqueTokenLabel": "A3",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "Prioritizing an opposite-arm IV before airway management and escalation conflicts with the explicit hypoxemia, short-phrase speech, and new stridor. No client-specific need for new vascular access is supplied.",
+      "opaqueTokenLabel": "A4",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "No lower-extremity finding is reported, and lower-extremity edema would not directly track the explicitly described upper-body obstruction or immediate airway threat.",
+      "opaqueTokenLabel": "P1",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "The stem provides no D-dimer result, serial D-dimer plan, or thromboembolic workup. Serial D-dimer values would not directly evaluate the mechanical upper-body obstruction or airway deterioration described.",
+      "opaqueTokenLabel": "P4",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "NONE"
+    }
+  ],
+  "missingClientFacts": [
+    {
+      "keyed": false,
+      "missingFact": "The standalone stem does not state whether pulmonary crackles are present or absent.",
+      "opaqueTokenLabel": "C1",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "keyed": false,
+      "missingFact": "The standalone stem does not state whether lower-extremity edema is present or absent.",
+      "opaqueTokenLabel": "C1",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "keyed": true,
+      "missingFact": "Respiratory rate, detailed work of breathing, mental status, and complete vital signs are not provided.",
+      "opaqueTokenLabel": "C2",
+      "rankabilityImpact": "LOW"
+    },
+    {
+      "keyed": true,
+      "missingFact": "Confirmatory imaging or vascular-study findings defining the location and severity of SVC obstruction are not provided.",
+      "opaqueTokenLabel": "C2",
+      "rankabilityImpact": "LOW"
+    },
+    {
+      "keyed": true,
+      "missingFact": "The standalone stem does not state that symptoms worsen with position.",
+      "opaqueTokenLabel": "C2",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "keyed": true,
+      "missingFact": "Baseline voice quality and a more detailed rate-of-progression assessment are not provided.",
+      "opaqueTokenLabel": "P3",
+      "rankabilityImpact": "LOW"
+    },
+    {
+      "keyed": false,
+      "missingFact": "The standalone stem does not report prior desaturation caused by lowering the head of bed.",
+      "opaqueTokenLabel": "A3",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "keyed": false,
+      "missingFact": "The current vascular-access status and any client-specific indication for a new opposite-arm IV are not provided.",
+      "opaqueTokenLabel": "A4",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "keyed": false,
+      "missingFact": "No baseline D-dimer, serial D-dimer order, or client-specific indication for serial D-dimer testing is provided.",
+      "opaqueTokenLabel": "P4",
+      "rankabilityImpact": "NONE"
+    }
+  ],
+  "notes": [
+    "Stage 2 selected all five canonical labels. The reversed order of P2 and P3 in the blind response does not alter exact match because the two monitoring selections are an unordered category; the canonical selection array here preserves the packet order.",
+    "The revealed rationale contains two client-specific assertions absent from the standalone stem: positional worsening and prior desaturation when the head of bed was lowered. Neither assertion is needed to defend the canonical set."
+  ],
+  "stage1Alignment": "PARTIAL",
+  "stage1AlignmentExplanation": "Stage 1 independently identified malignant SVC syndrome with evolving airway compromise and generated actions semantically aligned with A1 and A2. Its airway-patency parameter aligns with P3, but its other parameter emphasized oxygenation and general respiratory status rather than the canonical upper-body edema trend in P2.",
+  "unstatedClientFactMateriallyChangesRankability": false
+}

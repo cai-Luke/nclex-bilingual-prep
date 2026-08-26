@@ -1,0 +1,150 @@
+{
+  "anyCanonicalTargetDependsOnAbsentFact": false,
+  "blindExactMatch": true,
+  "canonicalSelection": {
+    "actionLabels": [
+      "A1",
+      "A2"
+    ],
+    "conditionLabel": "C2",
+    "parameterLabels": [
+      "P2",
+      "P1"
+    ]
+  },
+  "canonicalSetExplanation": "C2 uniquely integrates the abrupt post-thrombectomy decline with CT-confirmed intraparenchymal hemorrhage, edema, and midline shift. A1 and A2 address immediate detection of neurologic worsening and the explicitly prescribed BP intervention. P2 and P1 directly mirror those priorities. Every competing token is contradicted, lacks a client premise, or requires an absent fact that does not rival the explicit hemorrhage evidence.",
+  "canonicalSetUniquelyDefensible": true,
+  "canonicalTargetSupport": [
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "C2",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "After initial improvement following thrombectomy, the client abruptly became somnolent, lost verbal output, developed a new sluggish pupil, and had CT-confirmed intraparenchymal hemorrhage with edema and midline shift."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "A1",
+      "supportClassification": "GENERAL_KNOWLEDGE_LINK",
+      "supportingStandaloneEvidence": "The acute deterioration, pupillary change, edema, and midline shift establish a high-risk evolving neurologic emergency; frequent GCS, pupil, and motor assessments are clinically linked to detecting progression. The exact 15-minute interval is not stated in the stem."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "A2",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "The stem explicitly states that nicardipine is being titrated to the provider's stat systolic BP target."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "P2",
+      "supportClassification": "GENERAL_KNOWLEDGE_LINK",
+      "supportingStandaloneEvidence": "The stem supplies changes in consciousness, verbal output, and pupillary response, directly establishing neurologic examination domains whose trends are clinically relevant to hemorrhage and mass effect."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "P1",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "Nicardipine is actively being titrated to a prescribed systolic BP target, making the systolic BP trend the direct measure of treatment response."
+    }
+  ],
+  "distractorPremiseFindings": [
+    {
+      "explanation": "Re-occlusion would require vascular imaging or another explicit finding demonstrating recurrent left MCA occlusion. Its absence does not impair ranking because CT-confirmed hemorrhage with edema and mass effect directly explains the deterioration.",
+      "opaqueTokenLabel": "C1",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "A medication effect does not adequately explain the focal pupillary change and CT-confirmed hemorrhage with edema and midline shift. No sedative exposure or temporal medication relationship is supplied.",
+      "opaqueTokenLabel": "C3",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "Acute neurologic decline with hemorrhage and mass effect requires close surveillance; intubation does not prevent pupil or motor assessment and does not support reducing checks to hourly.",
+      "opaqueTokenLabel": "A3",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "Immediate aspirin or clopidogrel conflicts with the active intracerebral hemorrhage and the stated warfarin-reversal strategy.",
+      "opaqueTokenLabel": "A4",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "Intubation and absent verbal output limit NIHSS components, while GCS, pupils, and motor response are more actionable for monitoring this hemorrhage and mass effect.",
+      "opaqueTokenLabel": "P3",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "The stem supplies no cardiac symptom, ECG concern, hemodynamic event, or other client-specific reason to prioritize serial troponin measurements.",
+      "opaqueTokenLabel": "P4",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "NONE"
+    }
+  ],
+  "missingClientFacts": [
+    {
+      "keyed": false,
+      "missingFact": "Vascular imaging or another explicit finding demonstrating recurrent left MCA occlusion is absent.",
+      "opaqueTokenLabel": "C1",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "keyed": false,
+      "missingFact": "Specific post-procedural sedative or medication exposure, dose, timing, and observed response are absent.",
+      "opaqueTokenLabel": "C3",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "keyed": true,
+      "missingFact": "The numeric systolic BP target and current BP trend are not provided.",
+      "opaqueTokenLabel": "A2",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "keyed": true,
+      "missingFact": "Current INR, the ordered warfarin-reversal agents, administration status, and repeat coagulation results are not provided.",
+      "opaqueTokenLabel": "C2",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "keyed": true,
+      "missingFact": "Serial post-decline GCS, pupil, and motor findings are not yet provided.",
+      "opaqueTokenLabel": "P2",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "keyed": true,
+      "missingFact": "The timing and results of repeat neuroimaging are not provided.",
+      "opaqueTokenLabel": "C2",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "keyed": true,
+      "missingFact": "Neurosurgical assessment and any plan for intracranial-pressure monitoring or decompression are not provided.",
+      "opaqueTokenLabel": "C2",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "keyed": false,
+      "missingFact": "The stem does not explicitly state that the client was alert before deterioration; it states only that the client initially improved.",
+      "opaqueTokenLabel": "C3",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "keyed": false,
+      "missingFact": "The stem describes a new sluggish left pupil but does not state that the pupil was dilated or provide bilateral pupil sizes.",
+      "opaqueTokenLabel": "C3",
+      "rankabilityImpact": "NONE"
+    }
+  ],
+  "notes": [
+    "Blind exact match is true because Stage 2 selected the same condition, action set, and parameter set; order within the two parameter selections is treated as non-semantic.",
+    "The canonical rationale overstates two standalone facts: it refers to pupil dilation or asymmetry when the stem states only a new sluggish left pupil, and it says the client had been alert when the stem states only that the client initially improved. These do not alter the uniquely defensible canonical selection."
+  ],
+  "stage1Alignment": "PARTIAL",
+  "stage1AlignmentExplanation": "Stage 1 identified the canonical condition and independently generated nicardipine titration plus neurologic monitoring, aligning with A2 and P2. Its other action was ordered warfarin reversal rather than A1, and its other evaluation parameter was repeat CT rather than P1. Thus the free-generated 1/2/2 response was clinically compatible but did not fully reproduce the canonical set.",
+  "unstatedClientFactMateriallyChangesRankability": false
+}

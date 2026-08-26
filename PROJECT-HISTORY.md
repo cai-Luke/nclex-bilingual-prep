@@ -65,8 +65,51 @@ The accepted repair and review evidence are published under
 [`audit/june13-matrix-swap-regression-2026-08-25/`](audit/june13-matrix-swap-regression-2026-08-25/).
 The durable correction to the June coherence-audit record is a separate preserved-record addendum at
 [`Archive/root-cleanup-2026-07-03/ADVERSARIAL-AUDIT-FINDINGS-2026-06-25-ADDENDUM-2026-08-25.md`](Archive/root-cleanup-2026-07-03/ADVERSARIAL-AUDIT-FINDINGS-2026-06-25-ADDENDUM-2026-08-25.md).
-No question population or census count moved. Process-gap and tooling remediation is intentionally
-deferred to a separate commission.
+No question population or census count moved. The subsequently accepted process-gap/tooling closeout
+is recorded immediately below.
+
+### June 13 Process-Gap Tooling Closeout (Aug 25)
+
+Closed the follow-on tooling work exposed by the June 13 matrix incident. Commit
+`71cb976` retired the stale matrix mutator so the historical bad repair path is no longer an active
+maintenance surface; `600bf697ae021e01c32e113c2ddf495f7e8d23d3` exposed P26 batch exclusions so
+survey and reconciliation receipts can account for excluded pairs directly; and accepted candidate
+`55d71e7b84193126b2dd503625ac2fd03abf4fed` implemented the narrow Layer-A concept-boundary repair.
+
+Layer-A concept matching now treats every occurrence of the accepted closed eleven-character dash set
+as a single-space word separator only at the concept-matcher boundary. Raw search text, currency
+matching, similarity and answer tokens, topic normalization, sharding logic, and the concept/currency
+rule vocabulary remain unchanged. The permanent Layer-A test was also repaired to write deterministic
+runs only to explicit temporary paths instead of overwriting committed historical queue evidence.
+
+The accepted whole-corpus oracle reproduces exactly six gained concept assignments and zero losses.
+The Phase-B eight-cluster arm moves from 87 to 94 selected seeds and gains exactly five emitted pairs,
+including the historical Pair-40 pressure-injury witness; the default-four arm remains unchanged at
+132 selected seeds and `+0/-0` emitted pairs. Candidate queue/summary bytes match the accepted V1
+survey oracle, all full-path verification gates pass, and the historical Layer-A queue/summary and
+June coherence slices remain byte-unchanged. Matrix-row indexing and V4 similarity-token expansion
+remain deliberately unimplemented.
+
+### Standalone Bowtie Answerability Census Closeout (Aug 24)
+
+Completed the frozen standalone-answerability census specified by
+`STANDALONE-BOWTIE-ANSWERABILITY-AUDIT-SPEC-2026-08-23.md` against the accepted `c2ff546` bank
+baseline and audit-start commit `3199bb0e4293f5ee0296d612ff9fdaf644c26c0b`. The live denominator is
+31 paired case-derived standalone bowties (30 `EXACT`, one `ORDINAL_SUFFIX`), with 19 additional
+unpaired `_bowtie` items explicitly excluded from that denominator.
+
+Final adjudication is 20 `PASS_STANDALONE`, 7 `FAIL_HIDDEN_CASE_DEPENDENCY`, and 4
+`FAIL_UNSUPPORTED_TOKEN_PREMISE`, with zero primary `FAIL_UNDERDETERMINED`,
+`FAIL_CANONICAL_KEY_OR_LOGIC`, or reviewer-disagreement holds. The audit also records bilingual,
+clinical, rationale-scope, and nursing-scope collateral observations plus a P1-P3 advisory repair
+queue; those recommendations are backlog only and did not authorize or perform bank repairs.
+
+The complete reproducible evidence package is preserved under
+[`audit/standalone-bowtie-answerability-census-2026-08-23/`](audit/standalone-bowtie-answerability-census-2026-08-23/),
+including population/exclusion records, blind packets and reviews, lock/hash chains, premise/provenance
+adjudication, calibration controls, deterministic tooling, final report, and verification receipt.
+All bundled bank hashes matched the frozen snapshot throughout execution; no bank, schema, grading,
+ledger, census, runtime, `DECISIONS.md`, or learner-facing surface changed.
 
 ### DECISIONS Format Parser and Conformance Checker (Jul 28)
 

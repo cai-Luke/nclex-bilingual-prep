@@ -1,0 +1,105 @@
+{
+  "advisoryPriority": "P1",
+  "bilingualCollateral": [
+    {
+      "concern": "The EN and ZH surfaces consistently encode the same hidden-surrogate premise, so there is no material translation divergence on the central defect.",
+      "evidence": "C2 says “dormant surrogate authority,” and the Chinese likewise says “尚未生效的代理权,” although neither standalone stem supplies that authority.",
+      "priority": null
+    },
+    {
+      "concern": "DPOAHC is retained as an unexplained acronym in both Chinese and English standalone choices.",
+      "evidence": "C1 and A4 use “DPOAHC,” while the standalone glossary defines dormant authority but not DPOAHC; the definition appears only in the sibling case.",
+      "priority": "P3"
+    }
+  ],
+  "canonicalTargetSiblingOverlap": [
+    {
+      "classification": "SIBLING_CASE_IMPORTED",
+      "description": "The sibling supplies the otherwise absent son, DPOAHC document, activation clause, and current dormant authority required by the complete wording of C2.",
+      "opaqueTokenLabel": "C2",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling explicitly depicts the physician's proposed consult and identifies immediate direct physician communication as the nursing response; the standalone already contains the core physician-versus-refusal conflict.",
+      "opaqueTokenLabel": "A3",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling confirms a meeting involving palliative care, social work, and family, but interdisciplinary meeting support was already rankable from the standalone autonomy scenario.",
+      "opaqueTokenLabel": "A2",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling provides explicit examples of documentation, comfort-focused planning, and orders remaining aligned with the patient's goals; these corroborate the standalone-derived evaluation target.",
+      "opaqueTokenLabel": "P3",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling states that Mrs. Ellison feels listened to and describes family pressure, directly illustrating this parameter without being necessary to identify it as an autonomy outcome.",
+      "opaqueTokenLabel": "P2",
+      "overlap": true
+    }
+  ],
+  "clinicalCollateral": [
+    {
+      "concern": "Describing albumin and prealbumin as straightforward “nutrition trends” is clinically imprecise, especially in severe acute and chronic illness where inflammation, organ dysfunction, and fluid status affect these values.",
+      "evidence": "P1 and its rationale characterize albumin and prealbumin as nutritional trends affecting prognosis. They remain appropriately rejected as measures of advocacy effectiveness, but the nutritional characterization should be qualified.",
+      "priority": "P3"
+    }
+  ],
+  "defectSummary": "The standalone bow-tie omits the son, DPOAHC document, and capacity-based activation clause required by keyed condition C2. Those facts exist in the sibling case, demonstrating sibling-case leakage rather than repairing standalone answerability.",
+  "missingFactProvenance": [
+    {
+      "missingFact": "Existence of a surrogate or DPOAHC holder whose authority is dormant while Mrs. Ellison retains capacity.",
+      "necessaryForRankability": true,
+      "opaqueTokenLabel": "C2",
+      "provenance": "SIBLING_CASE_IMPORTED",
+      "sourceEvidence": "The sibling baseline and Stage 1 identify son David as DPOAHC and state that his authority activates only if Mrs. Ellison loses decisional capacity."
+    },
+    {
+      "missingFact": "The stem does not state that social work is involved or available for the family meeting.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "A2",
+      "provenance": "SIBLING_CASE_IMPORTED",
+      "sourceEvidence": "The sibling Stage 3 update states that the arranged meeting includes a social worker."
+    },
+    {
+      "missingFact": "The stem does not identify a DPOAHC holder whose authority could be active.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "C1",
+      "provenance": "SIBLING_CASE_IMPORTED",
+      "sourceEvidence": "The sibling identifies David as the DPOAHC holder but expressly confirms that his authority is not currently active."
+    },
+    {
+      "missingFact": "The stem does not identify a son or state that he holds a DPOAHC document.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "A4",
+      "provenance": "SIBLING_CASE_IMPORTED",
+      "sourceEvidence": "The sibling identifies son David and states that he is named DPOAHC under the advance directive."
+    },
+    {
+      "missingFact": "The stem does not state that family conflict is present or that reducing it motivated the proposed consult.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "A1",
+      "provenance": "SIBLING_CASE_IMPORTED",
+      "sourceEvidence": "The sibling Stage 2 update says the family is upset and the physician proposes the consult to calm things down; another sibling item explicitly calls this family conflict."
+    }
+  ],
+  "primaryVerdict": "FAIL_HIDDEN_CASE_DEPENDENCY",
+  "reasoning": "Under the required precedence, hidden case dependency controls because the sibling supplies a client-specific DPOAHC premise necessary for the exact keyed condition C2. The sibling also explains the otherwise unexplained social-work, son, and family-conflict details, but those are not necessary to reject their associated distractors or rank A2. Sibling evidence cannot retroactively make the standalone stem answerable, so unsupported-token-premise and underdetermination remain secondary failures rather than replacing the primary verdict.",
+  "scopeCollateral": [
+    {
+      "concern": "The keyed actions are within nursing advocacy scope, but the correct rationale occasionally implies unilateral nursing authority to stop a consult rather than communication and escalation through the care team.",
+      "evidence": "A3 appropriately says to communicate directly with the physician, whereas the correct rationale says the nurse should “ensure the refused PEG consult does not proceed.”",
+      "priority": "P3"
+    }
+  ],
+  "secondaryFlags": [
+    "ALSO_SATISFIES_FAIL_UNSUPPORTED_TOKEN_PREMISE",
+    "ALSO_SATISFIES_FAIL_UNDERDETERMINED"
+  ]
+}

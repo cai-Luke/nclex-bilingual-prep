@@ -1,0 +1,133 @@
+{
+  "actionLabels": [
+    "A1",
+    "A3"
+  ],
+  "ambiguousAlternatives": [],
+  "conditionLabel": "C2",
+  "missingInformation": [
+    "Resting oxygen saturation, respiratory symptoms, baseline oxygen use, and oxygen flow required for recovery.",
+    "Hemodynamic status, lung findings, renal function, electrolytes, and the prescribed medication regimen.",
+    "Availability and willingness of family or other support persons.",
+    "Current stair-climbing ability and the feasibility of home health, medication assistance, a home scale, and timely follow-up."
+  ],
+  "parameterLabels": [
+    "P1",
+    "P2"
+  ],
+  "poolAnswerability": "ANSWERABLE",
+  "reasoning": "C2 best integrates the unresolved physiologic and discharge-readiness risks despite improving congestion markers. A3 addresses immediate discharge safety, while A1 addresses the explicit interdisciplinary barriers, subject to confirming whether family support exists. P1 and P2 directly reassess the two central domains preventing safe discharge: self-management competence and exertional oxygenation/function.",
+  "selectionEvidence": [
+    {
+      "evidence": "The client has unresolved exertional desaturation, requires oxygen to recover, fails teach-back, cannot afford the prescribed diuretic, lacks a home scale, and faces substantial home-access and support barriers before an active discharge.",
+      "opaqueTokenLabel": "C2"
+    },
+    {
+      "evidence": "Medication affordability, education failure, living alone, lack of a scale, and second-floor access require coordinated discharge planning across disciplines; family support can be included only if available.",
+      "opaqueTokenLabel": "A1"
+    },
+    {
+      "evidence": "Objective unresolved safety concerns are present despite the scheduled discharge and improving BNP and weight.",
+      "opaqueTokenLabel": "A3"
+    },
+    {
+      "evidence": "The client failed teach-back about new medications and warning signs and lacks equipment needed for daily weight monitoring.",
+      "opaqueTokenLabel": "P1"
+    },
+    {
+      "evidence": "The client desaturates to 89% after walking 40 feet, requires oxygen to recover, and must navigate a second-floor walk-up.",
+      "opaqueTokenLabel": "P2"
+    }
+  ],
+  "stage2Confidence": "high",
+  "tokenPremiseTable": [
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "C1",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "These unresolved risks contradict classification as a routine discharge suitable for standard written instructions.",
+      "supportingStemText": "She desaturates to 89% after walking 40 feet, requires oxygen to recover, fails teach-back, cannot afford the prescribed diuretic, lives alone, and has no home scale."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "C2",
+      "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Applying general discharge-safety principles to the explicit findings supports unsafe premature discharge as the best condition.",
+      "supportingStemText": "An active 11:00 discharge order remains despite exertional desaturation, oxygen-assisted recovery, failed teach-back, medication unaffordability, living alone, second-floor access, and no home scale."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "C3",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Improvement contradicts continued acute decompensation as stated, while nothing supports the absolute claim that inpatient treatment must be indefinite.",
+      "supportingStemText": "BNP and weight are improving."
+    },
+    {
+      "missingPremise": "The stem does not establish that family support exists or is available and willing to participate.",
+      "opaqueTokenLabel": "A1",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "LOW",
+      "rankabilityJustification": "The missing family detail limits that component of the token, but case management, social work, pharmacy, and home health directly address multiple explicit barriers, making this the strongest available coordinated action.",
+      "supportingStemText": "She cannot afford the prescribed diuretic, lives alone in a second-floor walk-up apartment, has no home scale, and fails teach-back."
+    },
+    {
+      "missingPremise": "A telemetry-bed capacity need and clinical readiness to proceed with discharge are absent.",
+      "opaqueTokenLabel": "A2",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The stated operational motive has no client-specific premise and does not outweigh the explicit safety concerns.",
+      "supportingStemText": "The stem mentions an active discharge order but does not identify bed scarcity or a need to free a telemetry bed."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A3",
+      "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "General nursing safety and advocacy principles support communicating these objective concerns and seeking reassessment before discharge.",
+      "supportingStemText": "She desaturates to 89% with ambulation, requires oxygen to recover, fails teach-back, cannot afford the diuretic, lives alone, and has no home scale before the scheduled discharge."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A4",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Written instructions and an appointment alone do not resolve the explicit physiologic, comprehension, affordability, equipment, and home-access barriers.",
+      "supportingStemText": "The client already fails teach-back, cannot afford the prescribed diuretic, requires oxygen after ambulation, lives alone, and has no home scale."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "P1",
+      "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Repeating teach-back directly evaluates whether essential heart-failure self-management information can be understood and performed.",
+      "supportingStemText": "She fails teach-back about her new medications and warning signs and has no home scale."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "P2",
+      "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Repeat exertional assessment with oxygen saturation and recovery time directly evaluates the documented limitation under conditions relevant to the home environment.",
+      "supportingStemText": "She desaturates to 89% after walking 40 feet, requires oxygen to recover, and lives in a second-floor walk-up apartment."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "P3",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The stem demonstrates that BNP alone does not capture current oxygenation, functional, educational, or discharge-safety status.",
+      "supportingStemText": "BNP is improving while exertional desaturation and multiple discharge barriers remain."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "P4",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Inpatient weight trend alone cannot evaluate the unresolved exertional and self-management risks.",
+      "supportingStemText": "Weight is improving while the client still desaturates, requires oxygen to recover, fails teach-back, cannot afford the diuretic, and has no home scale."
+    }
+  ]
+}

@@ -1,0 +1,142 @@
+{
+  "actionLabels": [
+    "A2",
+    "A3"
+  ],
+  "ambiguousAlternatives": [
+    {
+      "opaqueTokenLabel": "C1",
+      "reason": "Diane has severe caregiver-burden manifestations, but the stem does not establish an immediate need to remove her from the home."
+    },
+    {
+      "opaqueTokenLabel": "A1",
+      "reason": "Community-resource referral is relevant to caregiver strain, but the quoted statement is absent and proceeding without first validating distress is not the best therapeutic response."
+    }
+  ],
+  "conditionLabel": "C2",
+  "missingInformation": [
+    "Whether a bedroom-door barricade exists",
+    "Whether throw rugs or accessible cleaning supplies are present hazards",
+    "Whether adult-day enrollment and Diane's primary-care follow-up have been proposed or initiated",
+    "Whether there is immediate danger or caregiving incapacity requiring removal from the home"
+  ],
+  "parameterLabels": [
+    "P1",
+    "P2"
+  ],
+  "poolAnswerability": "UNDERDETERMINED",
+  "reasoning": "C2 is directly supported, and A2, A3, P1, and P2 are the best-ranked choices. However, several selected tokens bundle unsupported client-specific details, including a door barricade, throw rugs, cleaning-supply access, adult-day enrollment, and caregiver primary-care follow-up, preventing full endorsement of the exact token wording.",
+  "selectionEvidence": [
+    {
+      "opaqueTokenLabel": "C2",
+      "supportingStemText": "Diane is the sole caregiver and reports severe sleep deprivation, weight loss, missed work, guilt, and fear of being judged."
+    },
+    {
+      "opaqueTokenLabel": "A2",
+      "supportingStemText": "Margaret has moderate dementia with worsening wandering and stove-use risk."
+    },
+    {
+      "opaqueTokenLabel": "A3",
+      "supportingStemText": "Margaret has moderate dementia and bedtime diphenhydramine use."
+    },
+    {
+      "opaqueTokenLabel": "P1",
+      "supportingStemText": "Worsening wandering, stove-use risk, and a recent unreported fall identify home-safety outcomes requiring evaluation."
+    },
+    {
+      "opaqueTokenLabel": "P2",
+      "supportingStemText": "Diane reports severe sleep deprivation, weight loss, missed work, guilt, and fear of being judged."
+    }
+  ],
+  "stage2Confidence": "medium",
+  "tokenPremiseTable": [
+    {
+      "missingPremise": "Evidence of immediate danger, inability to provide care safely, or another basis for immediate removal from the home",
+      "opaqueTokenLabel": "C1",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "MATERIAL",
+      "rankabilityJustification": "Severe burden may resemble burnout, but the required immediate-removal conclusion is unsupported.",
+      "supportingStemText": ""
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "C2",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The stem directly describes substantial adverse effects from the caregiving role.",
+      "supportingStemText": "Diane is the sole caregiver and reports severe sleep deprivation, weight loss, missed work, guilt, and fear of being judged."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "C3",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The disclosed behavior does not support intentional abuse or willful neglect as the primary explanation.",
+      "supportingStemText": "She raised her voice but did not strike, shove, threaten, or physically restrain Margaret, and she voluntarily requested home-health help."
+    },
+    {
+      "missingPremise": "Diane's alleged statement \"I'm failing her\" and evidence that immediate resource listing without emotional validation is appropriate in that interaction",
+      "opaqueTokenLabel": "A1",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "MATERIAL",
+      "rankabilityJustification": "Resource support is relevant, but the token imports an absent quotation and specifies a poor therapeutic sequence.",
+      "supportingStemText": ""
+    },
+    {
+      "missingPremise": "The presence of a bedroom-door barricade that needs replacement",
+      "opaqueTokenLabel": "A2",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "MATERIAL",
+      "rankabilityJustification": "Wandering and stove hazards support immediate mitigation, but the exact action assumes an unstated barricade.",
+      "supportingStemText": ""
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A3",
+      "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The explicit medication use supports provider review because diphenhydramine can worsen anticholinergic and safety risks in an older adult with dementia.",
+      "supportingStemText": "Margaret has moderate dementia and bedtime diphenhydramine use."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A4",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The stem does not justify accusing Diane of intentional abuse and does not mention a chair barricade.",
+      "supportingStemText": "She raised her voice but did not strike, shove, threaten, or physically restrain Margaret, and she voluntarily requested home-health help."
+    },
+    {
+      "missingPremise": "Presence of throw rugs, accessible cleaning supplies, and a bedroom-door hazard requiring a door alarm",
+      "opaqueTokenLabel": "P1",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "MATERIAL",
+      "rankabilityJustification": "Home-safety completion is relevant, but several listed modifications address hazards not established by the stem.",
+      "supportingStemText": ""
+    },
+    {
+      "missingPremise": "An adult-day enrollment plan, support-resource referrals, and a plan for Diane's own primary-care follow-up",
+      "opaqueTokenLabel": "P2",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "MATERIAL",
+      "rankabilityJustification": "Sleep, appetite, and caregiver support are appropriate outcomes, but the token assumes specific follow-up plans not stated.",
+      "supportingStemText": ""
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "P3",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The stem supplies no respiratory concern making isolated oxygen saturation a relevant priority outcome.",
+      "supportingStemText": ""
+    },
+    {
+      "missingPremise": "Evidence of an acute cognitive change or a diagnostic objective making short-interval cognitive screening the main outcome",
+      "opaqueTokenLabel": "P4",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "LOW",
+      "rankabilityJustification": "Moderate dementia is stated, but a screening score would not directly evaluate the identified caregiver-strain and immediate-safety priorities.",
+      "supportingStemText": ""
+    }
+  ]
+}

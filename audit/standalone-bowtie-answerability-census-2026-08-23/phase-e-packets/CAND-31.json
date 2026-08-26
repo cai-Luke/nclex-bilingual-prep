@@ -1,0 +1,157 @@
+{
+  "canonicalSelection": {
+    "actionLabels": [
+      "A1",
+      "A4"
+    ],
+    "conditionLabel": "C1",
+    "parameterLabels": [
+      "P3",
+      "P2"
+    ]
+  },
+  "instruction": "The two blind-stage records are immutable. Compare them with the now-revealed canonical 1/2/2 selection and complete standalone item. Do not inspect or infer sibling-case material. Return the required Phase-E structured JSON without revising either blind record.",
+  "standaloneItem": {
+    "bowtie": {
+      "actions": {
+        "tokens": [
+          {
+            "en": "Prepare the patient for emergent hemodialysis",
+            "opaqueTokenLabel": "A1",
+            "zh": "为患者进行紧急血液透析做准备"
+          },
+          {
+            "en": "Continue IV fluid resuscitation as the sole treatment",
+            "opaqueTokenLabel": "A2",
+            "zh": "继续静脉补液作为唯一的治疗"
+          },
+          {
+            "en": "Administer next scheduled dose of lithium",
+            "opaqueTokenLabel": "A3",
+            "zh": "给予下一次预定的锂剂量"
+          },
+          {
+            "en": "Maintain aspiration precautions",
+            "opaqueTokenLabel": "A4",
+            "zh": "维持防误吸预防措施"
+          }
+        ]
+      },
+      "condition": {
+        "tokens": [
+          {
+            "en": "Severe lithium toxicity",
+            "opaqueTokenLabel": "C1",
+            "zh": "严重的锂中毒"
+          },
+          {
+            "en": "Acute gastroenteritis",
+            "opaqueTokenLabel": "C2",
+            "zh": "急性胃肠炎"
+          },
+          {
+            "en": "Bipolar disorder exacerbation",
+            "opaqueTokenLabel": "C3",
+            "zh": "双相情感障碍恶化"
+          }
+        ]
+      },
+      "parameters": {
+        "tokens": [
+          {
+            "en": "Serum calcium",
+            "opaqueTokenLabel": "P1",
+            "zh": "血清钙"
+          },
+          {
+            "en": "Neurological status",
+            "opaqueTokenLabel": "P2",
+            "zh": "神经系统状态"
+          },
+          {
+            "en": "Serial serum lithium levels",
+            "opaqueTokenLabel": "P3",
+            "zh": "连续血清锂浓度"
+          },
+          {
+            "en": "Serum glucose",
+            "opaqueTokenLabel": "P4",
+            "zh": "血清葡萄糖"
+          }
+        ]
+      }
+    },
+    "glossary": [],
+    "rationale": {
+      "byChoice": [
+        {
+          "en": "Correct. The supratherapeutic lithium level, progressive neurotoxicity, acute kidney injury, and clear temporal relationship to HCTZ initiation confirm this diagnosis.",
+          "opaqueTokenLabel": "C1",
+          "zh": "正确。超治疗水平的锂浓度、进行性神经毒性、急性肾损伤，以及与开始使用HCTZ明确的时间关系证实了这一诊断。"
+        },
+        {
+          "en": "Incorrect. Neurological findings like myoclonus, hyperreflexia, and clonus are not features of mania.",
+          "opaqueTokenLabel": "C3",
+          "zh": "错误。肌阵挛、反射亢进和阵挛等神经系统发现不是躁狂的特征。"
+        },
+        {
+          "en": "Incorrect. While vomiting and diarrhea contributed to volume depletion, simple dehydration does not produce a lithium level of 2.6 mEq/L or profound neurotoxic signs.",
+          "opaqueTokenLabel": "C2",
+          "zh": "错误。虽然呕吐和腹泻导致了容量消耗，但单纯脱水不会产生2.6 mEq/L的锂浓度或严重的神经毒性体征。"
+        },
+        {
+          "en": "Correct. Dialysis is the definitive treatment for severe lithium neurotoxicity unresponsive to IV hydration with impaired renal function.",
+          "opaqueTokenLabel": "A1",
+          "zh": "正确。透析是治疗对静脉补液无反应且肾功能受损的严重锂神经毒性的最终疗法。"
+        },
+        {
+          "en": "Correct. The patient is obtunded with active vomiting; protecting the airway is a continuous priority.",
+          "opaqueTokenLabel": "A4",
+          "zh": "正确。患者迟钝并伴有活动性呕吐；保护气道是持续的首要任务。"
+        },
+        {
+          "en": "Incorrect. Four hours of vigorous hydration dropped the lithium minimally; the kidneys cannot clear it fast enough, and delaying dialysis risks irreversible injury.",
+          "opaqueTokenLabel": "A2",
+          "zh": "错误。四个小时的积极补液仅使锂浓度微降；肾脏无法足够快地清除它，延迟透析有不可逆损伤的风险。"
+        },
+        {
+          "en": "Incorrect. Lithium is the cause of the toxicity and giving another dose would worsen neurotoxicity.",
+          "opaqueTokenLabel": "A3",
+          "zh": "错误。锂是导致中毒的原因，再次给药会加重神经毒性。"
+        },
+        {
+          "en": "Correct. Tracking lithium concentration before and after dialysis is essential to confirm clearance and detect rebound.",
+          "opaqueTokenLabel": "P3",
+          "zh": "正确。在透析前后追踪锂浓度对于确认清除率和发现反弹至关重要。"
+        },
+        {
+          "en": "Correct. Improvement in neurological findings correlates with falling lithium levels and confirms toxicity is resolving.",
+          "opaqueTokenLabel": "P2",
+          "zh": "正确。神经系统表现的改善与锂浓度的下降相关，证实了毒性正在消退。"
+        },
+        {
+          "en": "Incorrect. Serum glucose is not a priority evaluation metric for lithium toxicity resolution or dialysis effectiveness.",
+          "opaqueTokenLabel": "P4",
+          "zh": "错误。血清葡萄糖不是评估锂中毒消退或透析有效性的优先指标。"
+        },
+        {
+          "en": "Incorrect. Serum calcium is normal here and is not a priority marker for acute lithium clearance or post-dialysis rebound.",
+          "opaqueTokenLabel": "P1",
+          "zh": "错误。此处血清钙正常，不是急性锂清除或透析后反弹的优先标志物。"
+        }
+      ],
+      "correct": {
+        "en": "The most likely condition is severe lithium toxicity precipitated by thiazide diuretic–lithium interaction and volume depletion. Emergent hemodialysis is required due to minimal clearance with IV fluids and progressive neurotoxicity. Protecting the airway remains a priority. Serial lithium levels and neurological status must be monitored to evaluate the effectiveness of dialysis and detect potential rebound.",
+        "zh": "最可能的病况是由噻嗪类利尿剂-锂的相互作用和容量消耗诱发的严重锂中毒。由于静脉补液清除极小以及进行性神经毒性，需要进行紧急血液透析。保护气道仍然是优先事项。必须连续监测锂浓度和神经系统状态，以评估透析的有效性并发现潜在的反弹。"
+      }
+    },
+    "stem": {
+      "en": "A 52-year-old woman with bipolar I disorder on stable lithium therapy presents with obtundation, new myoclonic jerks, and facial fasciculations. Ten days ago, she was started on hydrochlorothiazide. Her serum lithium is 2.6 mEq/L and eGFR is impaired. Despite aggressive IV hydration, her symptoms and lithium level show minimal improvement.",
+      "zh": "一名患有双相I型情感障碍的52岁女性，接受稳定的锂治疗，表现出迟钝、新发肌阵挛抽搐和面部肌束颤动。10天前，她开始服用氢氯噻嗪。她的血清锂浓度为2.6 mEq/L，eGFR受损。尽管进行了积极的静脉补液，她的症状和锂浓度改善极小。"
+    },
+    "testTakingStrategy": {
+      "en": "In severe lithium toxicity, the presence of progressive neurotoxicity demands extracorporeal removal, as the kidneys alone cannot compensate fast enough.",
+      "zh": "在严重的锂中毒中，进行性神经毒性的出现需要体外清除，因为单靠肾脏无法足够快地代偿。"
+    }
+  }
+}

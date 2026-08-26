@@ -1,0 +1,41 @@
+{
+  "condition": "Risk for MRSA cross-contamination of the clean utility area and clean supplies",
+  "evaluationParameters": [
+    "Verify documented completion of equipment and environmental decontamination before reopening the area or releasing quarantined supplies.",
+    "Monitor potentially exposed clients and units for evidence of healthcare-associated MRSA transmission."
+  ],
+  "missingInformation": [
+    "Whether the stethoscope directly contacted the supply cart or individual supplies",
+    "Whether any potentially exposed supplies were subsequently used for client care",
+    "Which surfaces the stethoscope contacted and how long it remained in the clean utility room",
+    "The facility's approved disinfectant, contact time, exposure-response protocol, and MRSA surveillance criteria"
+  ],
+  "priorityActions": [
+    "Immediately restrict access to the affected area and quarantine potentially exposed supplies until contamination boundaries are determined.",
+    "Using appropriate PPE, remove the contaminated stethoscope and disinfect it and potentially contacted environmental surfaces with a facility-approved MRSA-effective disinfectant."
+  ],
+  "reasoning": "The MRSA-contaminated stethoscope in a clean utility area creates the most immediate cross-contamination threat because it may contaminate shared supplies and spread MRSA to multiple clients; containment and decontamination therefore take priority.",
+  "stage1Confidence": "high",
+  "stemEvidence": [
+    {
+      "stemFact": "The contaminated stethoscope from Client C's MRSA contact-precautions room has been found in the clean utility room near the clean supply cart.",
+      "target": "condition"
+    },
+    {
+      "stemFact": "The stethoscope was found in the clean utility room near the clean supply cart.",
+      "target": "priorityAction1"
+    },
+    {
+      "stemFact": "The stethoscope is identified as contaminated following use in Client C's MRSA contact-precautions room.",
+      "target": "priorityAction2"
+    },
+    {
+      "stemFact": "Contaminated equipment entered a designated clean area, requiring confirmation that the equipment and potentially contacted surfaces are decontaminated.",
+      "target": "evaluationParameter1"
+    },
+    {
+      "stemFact": "The stem identifies a priority cross-contamination problem involving MRSA-contaminated equipment near clean supplies.",
+      "target": "evaluationParameter2"
+    }
+  ]
+}

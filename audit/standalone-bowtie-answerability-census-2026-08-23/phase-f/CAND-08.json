@@ -1,0 +1,116 @@
+{
+  "advisoryPriority": "P2",
+  "bilingualCollateral": [
+    {
+      "concern": "The Chinese action wording “通知医嘱者” is understandable but an awkward rendering of notifying the provider; it does not change the clinical selection.",
+      "evidence": "A3 English says “Notify the provider,” while Chinese says “通知医嘱者.”",
+      "priority": "P3"
+    }
+  ],
+  "canonicalTargetSiblingOverlap": [
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling explicitly identifies evolving cholangitis from an obstructing CBD stone and supplies additional cholestatic findings, but the standalone fever, leukocytosis, bilirubin elevation, and obstructing stone already support C3.",
+      "opaqueTokenLabel": "C3",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling records blood-culture collection and discusses antimicrobial therapy, but standalone deterioration with suspected biliary infection already supports escalation, cultures, and ordered empiric antibiotics.",
+      "opaqueTokenLabel": "A3",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling records urgent GI consultation and subsequent ERCP stone extraction, but the standalone ultrasound-confirmed distal CBD obstruction already supports urgent decompression.",
+      "opaqueTokenLabel": "A2",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling supplies earlier and later urine-output values demonstrating a meaningful trend, but the standalone 30 mL/hr value already makes urine-output monitoring appropriate.",
+      "opaqueTokenLabel": "P3",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling demonstrates falling temperature and WBC after ERCP, but the standalone fever and leukocytosis already provide valid baselines for monitoring response.",
+      "opaqueTokenLabel": "P1",
+      "overlap": true
+    }
+  ],
+  "clinicalCollateral": [
+    {
+      "concern": "The standalone rationale overstates the available biliary evidence as clinical jaundice and a complete obstructive laboratory pattern.",
+      "evidence": "The standalone stem provides bilirubin 3.2 mg/dL from admission and imaging-confirmed CBD obstruction, whereas scleral icterus, direct bilirubin, alkaline phosphatase, AST, and ALT appear only in the sibling.",
+      "priority": "P2"
+    },
+    {
+      "concern": "The A4 rationale describes directional deterioration that is not established by the standalone snapshot.",
+      "evidence": "The standalone gives urine output 30 mL/hr and lactate 2.6 mmol/L without prior values; the declining/rising trends appear only in the sibling.",
+      "priority": "P2"
+    }
+  ],
+  "defectSummary": "The canonical set is uniquely defensible from the standalone stem and does not depend on the sibling case. The rationale nevertheless includes nonessential sibling-only details—left-basilar findings, actual urine-output/lactate trends, clinical icterus, and a fuller cholestatic laboratory pattern—which create scope leakage without changing rankability.",
+  "missingFactProvenance": [
+    {
+      "missingFact": "The rationale mentions left basilar findings and a reactive pleural effusion, but the standalone stem contains no basilar examination or imaging finding.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "C1",
+      "provenance": "SIBLING_CASE_IMPORTED",
+      "sourceEvidence": "The sibling Stage 2 exhibit states that the left base was diminished with dullness, and its C1 rationale interprets this as a reactive pleural effusion."
+    },
+    {
+      "missingFact": "No aspiration event or evidence establishing pneumonia as the primary source is provided.",
+      "necessaryForRankability": true,
+      "opaqueTokenLabel": "C1",
+      "provenance": "UNSUPPORTED_ANYWHERE_CHECKED",
+      "sourceEvidence": "The sibling reports vomiting but no aspiration event, productive cough, or infiltrate pattern; admission lungs were clear except for slight left-base diminution, and the sibling rationale favors reactive pleural effusion."
+    },
+    {
+      "missingFact": "No imaging or microbiologic evidence of pancreatic necrosis or infection is provided.",
+      "necessaryForRankability": true,
+      "opaqueTokenLabel": "C2",
+      "provenance": "UNSUPPORTED_ANYWHERE_CHECKED",
+      "sourceEvidence": "The sibling contains no necrosis imaging or microbiologic evidence and states that CT was deferred, with later CT reserved for failure to improve or deterioration."
+    },
+    {
+      "missingFact": "No client-specific indication that contrast-enhanced CT must occur before ERCP is provided.",
+      "necessaryForRankability": true,
+      "opaqueTokenLabel": "A1",
+      "provenance": "UNSUPPORTED_ANYWHERE_CHECKED",
+      "sourceEvidence": "The sibling prioritizes urgent ERCP and states that contrast CT was deferred and would be considered later for failure to improve or deterioration, ideally 72-96 hours after symptom onset."
+    },
+    {
+      "missingFact": "The rationale calls urine output declining and lactate rising, but the standalone stem supplies only single values without trends.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "A4",
+      "provenance": "SIBLING_CASE_IMPORTED",
+      "sourceEvidence": "The sibling shows urine output changing from 55 mL/hr after initial resuscitation to 30 mL/hr at Stage 2 and lactate increasing from 1.8 to 2.6 mmol/L."
+    },
+    {
+      "missingFact": "Clinical jaundice and a complete obstructive liver-test pattern are not stated; only bilirubin 3.2 mg/dL and imaging-confirmed obstruction are provided.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "C3",
+      "provenance": "SIBLING_CASE_IMPORTED",
+      "sourceEvidence": "The sibling admission assessment documents mild scleral icterus, and admission laboratories include direct bilirubin 2.4 mg/dL, alkaline phosphatase 310 U/L, AST 210 U/L, and ALT 280 U/L."
+    },
+    {
+      "missingFact": "Body weight is not provided to classify 30 mL/hr against a weight-based oliguria threshold, but this is unnecessary for selecting urine-output trend as a monitoring parameter.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "P3",
+      "provenance": "UNSUPPORTED_ANYWHERE_CHECKED",
+      "sourceEvidence": "The sibling provides BMI 34 but no height or body weight permitting calculation of a weight-based urine-output threshold."
+    }
+  ],
+  "primaryVerdict": "PASS_STANDALONE",
+  "reasoning": "The standalone independently establishes acute gallstone pancreatitis, systemic inflammatory deterioration, bilirubin elevation, and a dilated CBD containing a distal stone. Those facts uniquely support C3, urgent infection escalation with cultures and ordered empiric antibiotics, and urgent ERCP preparation. The provided urine output, temperature, and WBC also independently support P3 and P1 as monitoring parameters. Sibling details strengthen and explain the same selections but are not required. Missing pulmonary, necrosis, and pre-ERCP CT premises appropriately weaken distractors rather than making the item underdetermined. Because no canonical target relies on an imported fact and the blind records agree with the canonical set, no higher-precedence failure or reviewer-disagreement condition is satisfied.",
+  "scopeCollateral": [
+    {
+      "concern": "Several rationale statements cross the standalone boundary by incorporating sibling-case observations.",
+      "evidence": "The C1 rationale invokes left-basilar findings, the A4 rationale invokes declining urine output and rising lactate, and the correct rationale invokes jaundice/obstructive laboratory patterns beyond the standalone data.",
+      "priority": "P2"
+    }
+  ],
+  "secondaryFlags": []
+}

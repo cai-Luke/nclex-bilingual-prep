@@ -1,0 +1,132 @@
+{
+  "actionLabels": [
+    "A1",
+    "A4"
+  ],
+  "ambiguousAlternatives": [],
+  "conditionLabel": "C2",
+  "missingInformation": [
+    "Exact post-intervention SpO2 and supplemental oxygen requirement.",
+    "Urine output and net fluid balance after furosemide.",
+    "Current blood pressure and cardiopulmonary examination after treatment."
+  ],
+  "parameterLabels": [
+    "P1",
+    "P3"
+  ],
+  "poolAnswerability": "ANSWERABLE",
+  "reasoning": "C2 uniquely integrates the transfusion timing with hypertension, elevated filling-pressure signs, hydrostatic radiographic findings, BNP elevation, and improvement after diuresis. A1 and A4 directly continue the effective supportive and volume-removal measures described in the stem. P1 and P3 most directly evaluate diuresis and recovery from hypoxemia.",
+  "selectionEvidence": [
+    {
+      "evidence": "The transfusion-associated onset of hypertension, JVD, new S3, edema, oliguria, bilateral crackles, pulmonary vascular congestion, pleural effusions, cardiomegaly, widened vascular pedicle, and increased BNP supports circulatory overload.",
+      "opaqueTokenLabel": "C2"
+    },
+    {
+      "evidence": "The client had SpO2 89% and dyspnea that improved after oxygen and upright positioning.",
+      "opaqueTokenLabel": "A1"
+    },
+    {
+      "evidence": "The stem explicitly reports ordered IV furosemide, oliguria, and subsequent improvement in dyspnea.",
+      "opaqueTokenLabel": "A4"
+    },
+    {
+      "evidence": "Oliguria and administration of IV furosemide make urine output a direct measure of therapeutic response and fluid removal.",
+      "opaqueTokenLabel": "P1"
+    },
+    {
+      "evidence": "The client developed SpO2 89% on room air and required supplemental oxygen, making the SpO2 trend and oxygen requirement direct measures of respiratory improvement.",
+      "opaqueTokenLabel": "P3"
+    }
+  ],
+  "stage2Confidence": "high",
+  "tokenPremiseTable": [
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "C1",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The explicit hydrostatic volume-overload findings strongly oppose anaphylaxis as the most likely condition.",
+      "supportingStemText": "BP 168/96, JVD, new S3, worsening 2+ edema, pulmonary vascular congestion, cardiomegaly, widened vascular pedicle, and BNP rise from 280 to 890 pg/mL."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "C2",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The stem provides a coherent and specific circulatory-overload presentation temporally associated with transfusion.",
+      "supportingStemText": "During the second unit she developed hypertension, JVD, new S3, worsening edema, oliguria, bilateral crackles, pulmonary vascular congestion, pleural effusions, cardiomegaly, a widened vascular pedicle, and a substantial BNP rise."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "C3",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "These findings indicate elevated hydrostatic pressure and fluid overload rather than the noncardiogenic pattern expected for transfusion-related acute lung injury.",
+      "supportingStemText": "JVD, new S3, worsening edema, BP 168/96, cardiomegaly, widened vascular pedicle, BNP rise, and improvement after IV furosemide."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A1",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The stem directly supports continuing oxygenation support, upright positioning, and respiratory reassessment.",
+      "supportingStemText": "SpO2 89% on room air with dyspnea and bilateral crackles; dyspnea improved after oxygen and upright positioning."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A2",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The client is hypertensive and fluid overloaded, so an IV fluid bolus would oppose the indicated management.",
+      "supportingStemText": "BP 168/96 with JVD, new S3, worsening edema, pulmonary vascular congestion, pleural effusions, and cardiomegaly."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A3",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Improved SpO2 does not remove the documented transfusion-associated overload or support restarting the implicated unit.",
+      "supportingStemText": "After the transfusion is stopped; the client developed acute hypoxemia and multiple signs of circulatory overload during the second unit."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A4",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Diuretic therapy and urine-output monitoring directly address the documented fluid overload and assess response.",
+      "supportingStemText": "The client had oliguria and improving dyspnea after ordered IV furosemide."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "P1",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Urine output directly evaluates diuretic response and removal of excess intravascular volume.",
+      "supportingStemText": "Oliguria was present and ordered IV furosemide was administered."
+    },
+    {
+      "missingPremise": "No temperature, fever, chills, or temperature trend is provided.",
+      "opaqueTokenLabel": "P2",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "LOW",
+      "rankabilityJustification": "The missing temperature data weakens this token, but the explicit cardiopulmonary overload findings independently establish more relevant resolution parameters.",
+      "supportingStemText": ""
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "P3",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "SpO2 and supplemental-oxygen requirements directly track resolution of the documented respiratory compromise.",
+      "supportingStemText": "SpO2 was 89% on room air, oxygen was administered, and dyspnea was improving."
+    },
+    {
+      "missingPremise": "No post-transfusion hemoglobin value or trend is provided.",
+      "opaqueTokenLabel": "P4",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "LOW",
+      "rankabilityJustification": "The absent hemoglobin result does not impair selection because hemoglobin would not directly measure resolution of the explicit fluid-overload physiology.",
+      "supportingStemText": ""
+    }
+  ]
+}

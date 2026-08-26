@@ -1,0 +1,126 @@
+{
+  "anyCanonicalTargetDependsOnAbsentFact": true,
+  "blindExactMatch": true,
+  "canonicalSelection": {
+    "actionLabels": [
+      "A3",
+      "A2"
+    ],
+    "conditionLabel": "C2",
+    "parameterLabels": [
+      "P3",
+      "P2"
+    ]
+  },
+  "canonicalSetExplanation": "The actions and parameters are uniquely favored by the autonomy frame, but the condition pool has no fully stem-supported answer. C2 is the least-inconsistent option because its capable-refusal component is explicit, yet its dormant-surrogate component depends on an absent fact.",
+  "canonicalSetUniquelyDefensible": false,
+  "canonicalTargetSupport": [
+    {
+      "missingClientFact": "The stem does not identify a surrogate, DPOAHC holder, or dormant surrogate authority.",
+      "opaqueTokenLabel": "C2",
+      "supportClassification": "MISSING_CLIENT_FACT",
+      "supportingStandaloneEvidence": "The stem directly establishes repeated refusal with intact capacity and a proposal to proceed despite that refusal."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "A3",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "The stem identifies the physician's suggestion to schedule the consult despite documented refusal and states that the issue has been addressed."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "A2",
+      "supportClassification": "GENERAL_KNOWLEDGE_LINK",
+      "supportingStandaloneEvidence": "Palliative care confirms her capacity and wishes, and a family meeting is arranged."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "P3",
+      "supportClassification": "GENERAL_KNOWLEDGE_LINK",
+      "supportingStandaloneEvidence": "Her wishes are confirmed, and the proposal to proceed despite refusal has been addressed; sustained alignment of orders with those wishes evaluates advocacy."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "P2",
+      "supportClassification": "GENERAL_KNOWLEDGE_LINK",
+      "supportingStandaloneEvidence": "Repeated capable refusal and the arranged family meeting support evaluating whether she remains heard and free from coercion."
+    }
+  ],
+  "distractorPremiseFindings": [
+    {
+      "explanation": "Active surrogate decision-making is incompatible with the stem's explicit confirmation of Mrs. Ellison's intact capacity; no DPOAHC holder is identified.",
+      "opaqueTokenLabel": "C1",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "The stem explicitly states that decisional capacity is intact and confirmed by palliative care.",
+      "opaqueTokenLabel": "C3",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "Scheduling the consult without consent conflicts with the documented capable refusal; family conflict is also not stated.",
+      "opaqueTokenLabel": "A1",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "Deferring to a surrogate contradicts the client's intact capacity, and the stem never identifies a son or DPOAHC document.",
+      "opaqueTokenLabel": "A4",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "Nutrition-related laboratory trends can be associated with feeding concerns, but they do not evaluate whether this autonomy and advocacy intervention succeeds.",
+      "opaqueTokenLabel": "P1",
+      "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "Family involvement is explicit through the arranged meeting, but family satisfaction is subordinate to protecting the capable patient's decision.",
+      "opaqueTokenLabel": "P4",
+      "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+      "rankabilityImpact": "NONE"
+    }
+  ],
+  "missingClientFacts": [
+    {
+      "keyed": true,
+      "missingFact": "Existence of a surrogate or DPOAHC holder whose authority is dormant while Mrs. Ellison retains capacity.",
+      "opaqueTokenLabel": "C2",
+      "rankabilityImpact": "MATERIAL"
+    },
+    {
+      "keyed": true,
+      "missingFact": "The stem does not state that social work is involved or available for the family meeting.",
+      "opaqueTokenLabel": "A2",
+      "rankabilityImpact": "LOW"
+    },
+    {
+      "keyed": false,
+      "missingFact": "The stem does not identify a DPOAHC holder whose authority could be active.",
+      "opaqueTokenLabel": "C1",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "keyed": false,
+      "missingFact": "The stem does not identify a son or state that he holds a DPOAHC document.",
+      "opaqueTokenLabel": "A4",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "keyed": false,
+      "missingFact": "The stem does not state that family conflict is present or that reducing it motivated the proposed consult.",
+      "opaqueTokenLabel": "A1",
+      "rankabilityImpact": "NONE"
+    }
+  ],
+  "notes": [
+    "The canonical rationale supplies a son, a DPOAHC document, dormant authority, family distress, and physician documentation details that are absent from the standalone stem and therefore cannot support standalone selection.",
+    "The blind Stage-2 label set matches the canonical set despite correctly flagging the condition pool as underdetermined."
+  ],
+  "stage1Alignment": "PARTIAL",
+  "stage1AlignmentExplanation": "Stage 1 identified the capable patient's autonomous PEG refusal, preventing the consult, supporting the family meeting, and monitoring care-plan alignment. It did not generate the unstated dormant-surrogate component of C2, and its other parameter emphasized continued capacity and consistency of wishes rather than specifically feeling heard and free from coercion.",
+  "unstatedClientFactMateriallyChangesRankability": true
+}

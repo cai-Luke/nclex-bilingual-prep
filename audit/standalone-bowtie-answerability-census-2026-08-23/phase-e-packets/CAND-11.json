@@ -1,0 +1,185 @@
+{
+  "canonicalSelection": {
+    "actionLabels": [
+      "A4",
+      "A3"
+    ],
+    "conditionLabel": "C1",
+    "parameterLabels": [
+      "P2",
+      "P3"
+    ]
+  },
+  "instruction": "The two blind-stage records are immutable. Compare them with the now-revealed canonical 1/2/2 selection and complete standalone item. Do not inspect or infer sibling-case material. Return the required Phase-E structured JSON without revising either blind record.",
+  "standaloneItem": {
+    "bowtie": {
+      "actions": {
+        "prompt": {
+          "en": "Priority nursing actions",
+          "zh": "优先护理措施"
+        },
+        "tokens": [
+          {
+            "en": "Disinfect only the stethoscope and return it to Room 16 without cleaning the counter or assessing nearby supplies.",
+            "opaqueTokenLabel": "A1",
+            "zh": "只消毒听诊器并送回16房，不清洁柜台，也不评估附近物品。"
+          },
+          {
+            "en": "Wait until the end of the shift to address the stethoscope because the wound dressing change is due.",
+            "opaqueTokenLabel": "A2",
+            "zh": "因伤口敷料到更换时间，等到班末再处理听诊器。"
+          },
+          {
+            "en": "Provide immediate corrective education to the staff member involved and notify the charge nurse so the breach is documented for infection-control follow-up.",
+            "opaqueTokenLabel": "A3",
+            "zh": "立即教育相关工作人员，并通知责任护士记录该漏洞以便感染控制后续追踪。"
+          },
+          {
+            "en": "Remove the stethoscope, disinfect contacted clean-utility surfaces, assess or remove nearby supplies per policy, disinfect the stethoscope with full wet-contact time, and return it to Room 16.",
+            "opaqueTokenLabel": "A4",
+            "zh": "取走听诊器，消毒其接触过的清洁用物间表面，按制度评估或移除附近物品，完成听诊器全程湿接触消毒后送回16房。"
+          }
+        ]
+      },
+      "condition": {
+        "prompt": {
+          "en": "Most likely priority problem",
+          "zh": "最可能的优先问题"
+        },
+        "tokens": [
+          {
+            "en": "Active cross-contamination risk from a contaminated MRSA dedicated device in the clean utility room",
+            "opaqueTokenLabel": "C1",
+            "zh": "污染的 MRSA 专用设备进入清洁用物间造成的主动交叉污染风险"
+          },
+          {
+            "en": "CDI soiled-linen bagging error in Room 12",
+            "opaqueTokenLabel": "C2",
+            "zh": "12房 CDI 污染布草装袋错误"
+          },
+          {
+            "en": "CDI door-handle contamination from the student's bare-hand contact",
+            "opaqueTokenLabel": "C3",
+            "zh": "护生裸手接触造成的 CDI 门把手污染"
+          }
+        ]
+      },
+      "parameters": {
+        "prompt": {
+          "en": "Parameters to monitor",
+          "zh": "应监测的指标"
+        },
+        "tokens": [
+          {
+            "en": "Client C's vancomycin monitoring results",
+            "opaqueTokenLabel": "P1",
+            "zh": "C 患者万古霉素监测结果"
+          },
+          {
+            "en": "Visitor and staff PPE compliance on subsequent room entries",
+            "opaqueTokenLabel": "P2",
+            "zh": "后续进入病房时探视者和工作人员 PPE 依从性"
+          },
+          {
+            "en": "Equipment location and cleanliness at each room entry",
+            "opaqueTokenLabel": "P3",
+            "zh": "每次进入病房时设备位置和清洁状态"
+          },
+          {
+            "en": "Client B's Streptococcus pneumoniae sputum culture result",
+            "opaqueTokenLabel": "P4",
+            "zh": "B 患者肺炎链球菌痰培养结果"
+          }
+        ]
+      }
+    },
+    "glossary": [
+      {
+        "defZh": "把最可能问题、优先措施和监测指标连接起来的临床判断方式。",
+        "termEn": "Bow-tie reasoning",
+        "termZh": "蝴蝶结推理"
+      },
+      {
+        "defZh": "通过移除污染源、清洁消毒和限制传播范围来控制环境污染。",
+        "termEn": "Environmental containment",
+        "termZh": "环境控制"
+      },
+      {
+        "defZh": "限定给同一患者或隔离区域使用的设备。",
+        "termEn": "Dedicated device",
+        "termZh": "专用设备"
+      }
+    ],
+    "rationale": {
+      "byChoice": [
+        {
+          "en": "Correct: it has the broadest direct pathway to multiple clients through a shared clean-supply area.",
+          "opaqueTokenLabel": "C1",
+          "zh": "正确：它通过共享清洁供应区域，对多名患者形成最广且最直接的传播路径。"
+        },
+        {
+          "en": "Plausible but not the priority: CDI spores are hardy, but this is one door-handle surface that can be targeted for disinfection.",
+          "opaqueTokenLabel": "C3",
+          "zh": "有可能但不是优先：CDI 孢子顽强，但这是一个门把手表面，可进行定点消毒。"
+        },
+        {
+          "en": "Plausible but less immediate to other clients: the error primarily affects downstream linen handling rather than the clean supply pathway.",
+          "opaqueTokenLabel": "C2",
+          "zh": "有可能但对其他患者的即时风险较低：该错误主要影响后续布草处理，而非清洁供应路径。"
+        },
+        {
+          "en": "Correct: this addresses the device, contacted surfaces, nearby supplies, and full disinfection before return.",
+          "opaqueTokenLabel": "A4",
+          "zh": "正确：这同时处理设备、接触表面、附近物品，并在送回前完成完整消毒。"
+        },
+        {
+          "en": "Correct: staff education and event logging reduce recurrence and support surveillance follow-up.",
+          "opaqueTokenLabel": "A3",
+          "zh": "正确：工作人员教育和事件记录可减少复发，并支持监测追踪。"
+        },
+        {
+          "en": "Incorrect: cleaning only the device leaves the clean-utility environment and supplies potentially contaminated.",
+          "opaqueTokenLabel": "A1",
+          "zh": "错误：只清洁设备会留下可能已污染的清洁用物间环境和物品。"
+        },
+        {
+          "en": "Incorrect: the exposure can expand each minute the device remains in the clean utility room.",
+          "opaqueTokenLabel": "A2",
+          "zh": "错误：设备留在清洁用物间的每一分钟都可能扩大暴露范围。"
+        },
+        {
+          "en": "Correct: direct observation of PPE use shows whether teaching and correction are sustained.",
+          "opaqueTokenLabel": "P2",
+          "zh": "正确：直接观察 PPE 使用可显示教学和纠正是否持续有效。"
+        },
+        {
+          "en": "Correct: checking dedicated and shared equipment confirms that the system breach is not recurring.",
+          "opaqueTokenLabel": "P3",
+          "zh": "正确：检查专用和共用设备可确认系统性漏洞没有复发。"
+        },
+        {
+          "en": "Irrelevant to this breach: it guides pneumonia care but does not evaluate MRSA cross-contamination control.",
+          "opaqueTokenLabel": "P4",
+          "zh": "与该漏洞无关：它指导肺炎治疗，但不能评价 MRSA 交叉污染控制。"
+        },
+        {
+          "en": "Irrelevant to this breach: drug monitoring guides therapy and is not a measure of environmental containment.",
+          "opaqueTokenLabel": "P1",
+          "zh": "与该漏洞无关：药物监测指导治疗，并非环境控制效果指标。"
+        }
+      ],
+      "correct": {
+        "en": "The priority problem is the contaminated MRSA stethoscope in the clean utility room because it creates a direct fomite pathway from an isolation room into a shared supply area. The nurse must contain the environmental exposure immediately, correct the staff practice, and monitor for sustained compliance and equipment control. Client B's culture and Client C's vancomycin monitoring matter clinically, but they do not measure containment of this cross-contamination breach.",
+        "zh": "优先问题是污染的 MRSA 听诊器进入清洁用物间，因为它把隔离病房污染物直接带入共享清洁供应区域，形成污染媒介传播路径。护士必须立即控制环境暴露，纠正工作人员做法，并监测持续依从性和设备管理。B 患者培养和 C 患者万古霉素监测虽有临床意义，但不能衡量该交叉污染漏洞是否被控制。"
+      }
+    },
+    "stem": {
+      "en": "Stage 2 synthesis: The contaminated stethoscope from Client C's MRSA contact-precautions room has been found in the clean utility room near the clean supply cart. The student also contaminated the Room 12 door handle after CDI care, Client A's soiled linens were placed in a standard linen bag, and Client D's mother has asked to remove a smear-positive TB patient from the AIIR. Complete the bow-tie diagram for the priority cross-contamination problem.",
+      "zh": "阶段2综合：来自 C 患者 MRSA 接触隔离病房的污染听诊器被发现放在清洁用物间、靠近清洁物品车。护生在 CDI 照护后也污染了12房门把手，A 患者污染布草被放入普通布草袋，D 患者母亲请求让痰涂片阳性肺结核患者离开 AIIR。请完成针对优先交叉污染问题的蝴蝶结图。"
+    },
+    "testTakingStrategy": {
+      "en": "For bow-tie items, match the priority condition to the actions and monitoring. The correct chain should address the same hazard from recognition through containment and follow-up.",
+      "zh": "做蝴蝶结题时，把优先问题与措施和监测配对。正确链条应从识别、控制到后续追踪都针对同一危险。"
+    }
+  }
+}

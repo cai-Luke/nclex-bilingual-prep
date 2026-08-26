@@ -1,0 +1,217 @@
+{
+  "advisoryPriority": "P2",
+  "bilingualCollateral": [
+    {
+      "concern": "The A3 Chinese token broadens the named recipient from the provider to the healthcare team.",
+      "evidence": "English says \"Notify the provider,\" while Chinese says \"通知医护团队,\" meaning notify the healthcare team.",
+      "priority": "P3"
+    },
+    {
+      "concern": "The Chinese blood-alcohol rationale is less precise than the English assertion.",
+      "evidence": "English says the level was \"undetectable,\" while Chinese uses \"不可测,\" which can imply unmeasurable rather than not detected; the underlying result is also absent from both cases.",
+      "priority": "P3"
+    }
+  ],
+  "canonicalTargetSiblingOverlap": [
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling supplies baseline neurologic status, the full trend, and the same Stage 3 findings, but the standalone stem independently establishes hepatic encephalopathy with GI blood load, SBP, and AKI.",
+      "opaqueTokenLabel": "C2",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling confirms explicit lactulose and rifaximin orders and prior intermittent encephalopathy, but the standalone syndrome and general treatment relationship already make A2 the uniquely appropriate action token.",
+      "opaqueTokenLabel": "A2",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling confirms ceftriaxone context and urgent SBP reassessment, but the standalone ascitic neutrophil count, AKI, and oliguria already support notification and treatment reassessment.",
+      "opaqueTokenLabel": "A3",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling adds orientation and command-following details plus a normal earlier neurologic baseline, but the standalone confusion, somnolence, and asterixis independently support serial neurologic assessment.",
+      "opaqueTokenLabel": "P2",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling adds baseline creatinine and prior urine-output trends, but the standalone explicitly states rising creatinine and severe oliguria.",
+      "opaqueTokenLabel": "P1",
+      "overlap": true
+    }
+  ],
+  "clinicalCollateral": [
+    {
+      "concern": "A2 contains client-specific medication scheduling that is confirmed only in the sibling case, although the action remains rankable from general treatment knowledge and its conditional wording.",
+      "evidence": "The standalone stem does not list medication orders; the sibling explicitly orders lactulose and rifaximin every 12 hours.",
+      "priority": "P3"
+    },
+    {
+      "concern": "Hyperammonemia should remain supportive rather than independently diagnostic of hepatic encephalopathy.",
+      "evidence": "The item also provides the clinically stronger syndrome findings of confusion, somnolence, and asterixis, so this does not affect the canonical condition.",
+      "priority": "P3"
+    }
+  ],
+  "defectSummary": "The canonical 1/2/2 set is uniquely answerable from the standalone English stem and tokens; no sibling fact is necessary for rankability. Collateral review nevertheless identifies rationale leakage from the sibling timeline and one unsupported assertion that the admission blood alcohol level was undetectable.",
+  "missingFactProvenance": [
+    {
+      "missingFact": "Baseline neurologic status, baseline creatinine, blood glucose, electrolytes, and oxygenation.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "C2",
+      "provenance": "SIBLING_CASE_IMPORTED",
+      "sourceEvidence": "The sibling reports initial alert orientation without asterixis, baseline creatinine 1.0 mg/dL, glucose 102 mg/dL, sodium 131 mEq/L, potassium 3.6 mEq/L, and serial oxygen saturation values."
+    },
+    {
+      "missingFact": "Other possible contributors to altered consciousness.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "C2",
+      "provenance": "UNSUPPORTED_ANYWHERE_CHECKED",
+      "sourceEvidence": "No comprehensive exclusion of all metabolic, toxic, neurologic, or respiratory alternatives appears in the standalone item, rationale, or sibling case."
+    },
+    {
+      "missingFact": "Current lactulose and rifaximin orders.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "A2",
+      "provenance": "SIBLING_CASE_IMPORTED",
+      "sourceEvidence": "The sibling Stage 3 update explicitly orders lactulose every 2 hours titrated to 3-4 bowel movements daily and rifaximin every 12 hours."
+    },
+    {
+      "missingFact": "Current administration history, treatment response, and contraindications.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "A2",
+      "provenance": "UNSUPPORTED_ANYWHERE_CHECKED",
+      "sourceEvidence": "The sibling supplies the orders and a history of intermittent lactulose use but does not confirm administration after the deterioration, subsequent response, or a complete contraindication assessment."
+    },
+    {
+      "missingFact": "Current antibiotic therapy, prior treatment context, and hemodynamics.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "A3",
+      "provenance": "SIBLING_CASE_IMPORTED",
+      "sourceEvidence": "The sibling includes ceftriaxone 1 g IV daily from the hemorrhage phase, urgent SBP treatment reassessment, and Stage 3 vital signs of HR 82 and BP 108/66 mmHg."
+    },
+    {
+      "missingFact": "Current albumin order, culture results, allergies, and response after SBP-directed reassessment.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "A3",
+      "provenance": "UNSUPPORTED_ANYWHERE_CHECKED",
+      "sourceEvidence": "No albumin administration order, culture result, allergy record, or post-reassessment response is supplied in the standalone item, rationale, or sibling case."
+    },
+    {
+      "missingFact": "Airway-protection ability, orientation, command-following ability, and detailed baseline neurologic examination.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "P2",
+      "provenance": "SIBLING_CASE_IMPORTED",
+      "sourceEvidence": "The sibling reports that the patient opens his eyes to voice, follows simple commands, believes he is at home, and has asterixis; earlier he was oriented without asterixis and was drowsy but arousable after banding."
+    },
+    {
+      "missingFact": "Exact baseline creatinine and prior urine-output trend.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "P1",
+      "provenance": "SIBLING_CASE_IMPORTED",
+      "sourceEvidence": "The sibling gives baseline creatinine 1.0 mg/dL, subsequent values of 1.3 and 1.5 mg/dL, and urine-output values of 25 mL in the first hour and 40 mL/hr before decline to 15 mL/hr."
+    },
+    {
+      "missingFact": "Complete fluid balance.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "P1",
+      "provenance": "UNSUPPORTED_ANYWHERE_CHECKED",
+      "sourceEvidence": "The sibling documents selected fluid administration and urine-output values but not a complete intake-and-output balance."
+    },
+    {
+      "missingFact": "Recent nephrotoxic exposures.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "P1",
+      "provenance": "SIBLING_CASE_IMPORTED",
+      "sourceEvidence": "The sibling states no NSAID use and identifies chronic diuretics that are held at Stage 3, although it does not provide an exhaustive exposure inventory."
+    },
+    {
+      "missingFact": "Current blood pressure, heart rate, lactate, perfusion findings, and other hemodynamic measurements.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "C1",
+      "provenance": "SIBLING_CASE_IMPORTED",
+      "sourceEvidence": "The sibling Stage 3 update gives HR 82, BP 108/66 mmHg, lactate 1.8 mmol/L, stable hemoglobin, and no further hematemesis; earlier perfusion abnormalities improved after hemorrhage control."
+    },
+    {
+      "missingFact": "Sedative agents, doses, administration times, expected duration, and reversal status.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "C3",
+      "provenance": "UNSUPPORTED_ANYWHERE_CHECKED",
+      "sourceEvidence": "The sibling confirms endoscopy under airway protection but does not identify procedural sedatives, doses, administration times, duration, or reversal."
+    },
+    {
+      "missingFact": "Immediate recovery findings and whether the patient was oriented after the procedure.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "C3",
+      "provenance": "SIBLING_CASE_IMPORTED",
+      "sourceEvidence": "The sibling post-banding update states that the patient was drowsy but arousable and oriented before the later decline."
+    },
+    {
+      "missingFact": "Transfusion order and client-specific hemoglobin target.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "A1",
+      "provenance": "SIBLING_CASE_IMPORTED",
+      "sourceEvidence": "The sibling specifies one unit of PRBCs with a target hemoglobin of 7-8 g/dL, which contradicts a target above 8 g/dL."
+    },
+    {
+      "missingFact": "Current symptomatic anemia, ongoing hemorrhage, or hemodynamic instability.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "A1",
+      "provenance": "SIBLING_CASE_IMPORTED",
+      "sourceEvidence": "The sibling Stage 3 record shows stable hemoglobin 7.6 g/dL, no further hematemesis, HR 82, and BP 108/66 mmHg rather than ongoing hemorrhagic instability."
+    },
+    {
+      "missingFact": "Evidence that residual procedural sedation is the likely cause of deterioration.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "A4",
+      "provenance": "UNSUPPORTED_ANYWHERE_CHECKED",
+      "sourceEvidence": "No record positively identifies residual sedation; the sibling instead shows prior post-procedure orientation followed by delayed confusion, asterixis, and hyperammonemia."
+    },
+    {
+      "missingFact": "Alcohol exposure history.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "P3",
+      "provenance": "SIBLING_CASE_IMPORTED",
+      "sourceEvidence": "The sibling identifies alcohol-related cirrhosis but provides no evidence that current intoxication explains the neurologic decline."
+    },
+    {
+      "missingFact": "Current intoxication or withdrawal findings.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "P3",
+      "provenance": "UNSUPPORTED_ANYWHERE_CHECKED",
+      "sourceEvidence": "Neither the standalone item nor the sibling case documents an intoxication or withdrawal syndrome."
+    },
+    {
+      "missingFact": "An undetectable admission blood alcohol result.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "P3",
+      "provenance": "RATIONALE_ONLY",
+      "sourceEvidence": "The standalone rationale claims the admission blood alcohol level was undetectable, but no blood alcohol result appears in the standalone stem or sibling case."
+    },
+    {
+      "missingFact": "Lactate value, serial lactate trend, and current tissue-hypoperfusion findings.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "P4",
+      "provenance": "SIBLING_CASE_IMPORTED",
+      "sourceEvidence": "The sibling gives lactate values of 3.4, 4.1, 2.6, and 1.8 mmol/L together with improving hemodynamics after hemorrhage control."
+    }
+  ],
+  "primaryVerdict": "PASS_STANDALONE",
+  "reasoning": "The blind reviewer selected the complete canonical set without access to the sibling case, and Phase E found the standalone set uniquely defensible with no canonical target materially dependent on an absent fact. Phase F confirms that sibling data strengthen the timeline, medication-order context, hemodynamic recovery, and baseline trends, but none is required to distinguish the keyed condition, actions, or parameters. Therefore hidden-case dependency, unsupported canonical token premise, underdetermination, key or logic failure, and reviewer disagreement are not satisfied. The appropriate primary verdict is PASS_STANDALONE, with P2 collateral attention limited to rationale provenance and the unsupported blood-alcohol assertion.",
+  "scopeCollateral": [
+    {
+      "concern": "Several standalone rationale statements import corroborating facts from the sibling case.",
+      "evidence": "Post-procedure orientation, normalized lactate, improved heart rate, normalized blood pressure, and the restrictive transfusion target appear in the sibling record but not in the standalone stem.",
+      "priority": "P2"
+    },
+    {
+      "concern": "The blood-alcohol rationale assertion is unsupported anywhere checked.",
+      "evidence": "The standalone rationale says the admission blood alcohol level was undetectable, but neither the standalone stem nor the complete sibling case reports a blood alcohol test.",
+      "priority": "P2"
+    }
+  ],
+  "secondaryFlags": []
+}

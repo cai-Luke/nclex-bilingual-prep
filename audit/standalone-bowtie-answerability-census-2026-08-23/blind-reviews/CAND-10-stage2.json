@@ -1,0 +1,138 @@
+{
+  "actionLabels": [
+    "A2",
+    "A4"
+  ],
+  "ambiguousAlternatives": [
+    {
+      "opaqueTokenLabel": "A3",
+      "reason": "Documentation may appear responsive, but an incident report is generally managed through the facility reporting system rather than referenced in the client’s medical record."
+    }
+  ],
+  "conditionLabel": "C3",
+  "missingInformation": [
+    "The extent and duration of the access and which PHI was viewed",
+    "Whether the coworker acquired, used, copied, or disclosed any information",
+    "The Privacy Officer’s breach determination and the facility-specific corrective-action requirements",
+    "Whether the specific safeguards listed in P2 correspond to findings from this incident"
+  ],
+  "parameterLabels": [
+    "P2",
+    "P4"
+  ],
+  "poolAnswerability": "ANSWERABLE",
+  "reasoning": "C3 directly matches deliberate record access without a care role. A4 contains immediate containment and escalation, while A2 completes formal reporting with relevant details. P4 directly evaluates investigation initiation and evidence preservation. P2 is the only remaining parameter directed at evaluating privacy-system remediation; P1 and P3 concern unsupported or clinically irrelevant facts.",
+  "selectionEvidence": [
+    {
+      "opaqueTokenLabel": "C3",
+      "supportingStemText": "The coworker opened Mrs. Torrance's electronic record \"without a care role.\""
+    },
+    {
+      "opaqueTokenLabel": "A2",
+      "supportingStemText": "RN Jordan \"started the facility reporting process.\""
+    },
+    {
+      "opaqueTokenLabel": "A4",
+      "supportingStemText": "RN Jordan \"stopped further access\" after witnessing the coworker open the record."
+    },
+    {
+      "opaqueTokenLabel": "P2",
+      "supportingStemText": "The stem identifies unauthorized electronic-record access and an initiated facility response, supporting evaluation of corrective privacy safeguards."
+    },
+    {
+      "opaqueTokenLabel": "P4",
+      "supportingStemText": "RN Jordan witnessed electronic-record access and \"started the facility reporting process,\" supporting investigation and audit-trail preservation."
+    }
+  ],
+  "stage2Confidence": "high",
+  "tokenPremiseTable": [
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A1",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The stem explicitly supports reporting rather than accepting an unsupported assurance and withholding the report.",
+      "supportingStemText": "RN Jordan \"started the facility reporting process.\""
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A2",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Completing the electronic incident report is the direct continuation of the reporting process described.",
+      "supportingStemText": "RN Jordan \"started the facility reporting process.\""
+    },
+    {
+      "missingPremise": "No stem fact indicates that filing the incident report should be documented in Mrs. Torrance's medical record.",
+      "opaqueTokenLabel": "A3",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "LOW",
+      "rankabilityJustification": "General incident-reporting practice distinguishes the facility report from clinical-record documentation.",
+      "supportingStemText": ""
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A4",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The option closely matches immediate containment and escalation already described in the stem.",
+      "supportingStemText": "RN Jordan witnessed the access, \"stopped further access,\" and initiated reporting."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "C1",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Deliberate record access without a care role is not an incidental disclosure occurring despite safeguards.",
+      "supportingStemText": "The coworker intentionally opened the electronic record \"without a care role.\""
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "C2",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The explicit absence of a care role contradicts permissible healthcare-operations access.",
+      "supportingStemText": "The coworker opened the record \"without a care role.\""
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "C3",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The stated access directly establishes suspected unauthorized PHI access requiring investigation.",
+      "supportingStemText": "A coworker opened Mrs. Torrance's electronic record \"without a care role.\""
+    },
+    {
+      "missingPremise": "The stem does not identify Robert Torrance, anticipate a call, or connect any callback to the privacy response.",
+      "opaqueTokenLabel": "P1",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "A callback from an unidentified person does not evaluate containment or breach response.",
+      "supportingStemText": ""
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "P2",
+      "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+      "rankabilityImpact": "LOW",
+      "rankabilityJustification": "Implementation of corrective safeguards can evaluate organizational response, although the specific examples listed are not tied to incident findings in the stem.",
+      "supportingStemText": "The stem describes unauthorized electronic-record access and initiation of the facility reporting process."
+    },
+    {
+      "missingPremise": "The stem provides no postoperative status, vital signs, wound findings, pain report, or clinical complication.",
+      "opaqueTokenLabel": "P3",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Clinical postoperative measurements do not evaluate the described privacy response.",
+      "supportingStemText": ""
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "P4",
+      "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Privacy review initiation and preservation of the EHR audit trail directly evaluate investigation and evidence retention.",
+      "supportingStemText": "The incident involves electronic-record access, and RN Jordan \"started the facility reporting process.\""
+    }
+  ]
+}

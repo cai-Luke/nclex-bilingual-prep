@@ -1,0 +1,178 @@
+{
+  "canonicalSelection": {
+    "actionLabels": [
+      "A3",
+      "A4"
+    ],
+    "conditionLabel": "C1",
+    "parameterLabels": [
+      "P2",
+      "P4"
+    ]
+  },
+  "instruction": "The two blind-stage records are immutable. Compare them with the now-revealed canonical 1/2/2 selection and complete standalone item. Do not inspect or infer sibling-case material. Return the required Phase-E structured JSON without revising either blind record.",
+  "standaloneItem": {
+    "bowtie": {
+      "actions": {
+        "tokens": [
+          {
+            "en": "Increase ventilator support without changing the fluid rate",
+            "opaqueTokenLabel": "A1",
+            "zh": "不改变输液速度，仅增加呼吸机支持"
+          },
+          {
+            "en": "Maintain or increase the infusion because resuscitation continues for 24 hours",
+            "opaqueTokenLabel": "A2",
+            "zh": "因复苏需持续24小时而维持或增加输液"
+          },
+          {
+            "en": "Reduce the lactated Ringer's infusion rate",
+            "opaqueTokenLabel": "A3",
+            "zh": "降低乳酸林格液输注速度"
+          },
+          {
+            "en": "Notify the burn team and begin serial bladder-pressure and extremity-perfusion monitoring",
+            "opaqueTokenLabel": "A4",
+            "zh": "通知烧伤团队，并开始连续监测膀胱压和肢体灌注"
+          }
+        ]
+      },
+      "condition": {
+        "tokens": [
+          {
+            "en": "Fluid creep from over-resuscitation",
+            "opaqueTokenLabel": "C1",
+            "zh": "过度复苏导致的液体蠕变"
+          },
+          {
+            "en": "Worsening inhalation injury as the primary problem",
+            "opaqueTokenLabel": "C2",
+            "zh": "吸入性损伤恶化是主要问题"
+          },
+          {
+            "en": "Early burn wound sepsis",
+            "opaqueTokenLabel": "C3",
+            "zh": "早期烧伤创面败血症"
+          }
+        ]
+      },
+      "parameters": {
+        "tokens": [
+          {
+            "en": "Serum potassium",
+            "opaqueTokenLabel": "P1",
+            "zh": "血清钾"
+          },
+          {
+            "en": "Hourly urine output",
+            "opaqueTokenLabel": "P2",
+            "zh": "每小时尿量"
+          },
+          {
+            "en": "Carboxyhemoglobin level",
+            "opaqueTokenLabel": "P3",
+            "zh": "一氧化碳血红蛋白水平"
+          },
+          {
+            "en": "Bladder pressure",
+            "opaqueTokenLabel": "P4",
+            "zh": "膀胱压"
+          }
+        ]
+      }
+    },
+    "glossary": [
+      {
+        "defZh": "烧伤复苏中实际输液超过需要量，导致液体过负荷并发症。",
+        "termEn": "Fluid creep",
+        "termZh": "液体蠕变"
+      },
+      {
+        "defZh": "呼吸机送气时达到的最高气道压力；升高可提示阻力增加或肺顺应性下降。",
+        "termEn": "Peak airway pressure",
+        "termZh": "气道峰压"
+      },
+      {
+        "defZh": "大量液体进入血管内后使血细胞比容等浓度下降。",
+        "termEn": "Hemodilution",
+        "termZh": "血液稀释"
+      },
+      {
+        "defZh": "腹内压升高并伴新发器官功能障碍的危急状态。",
+        "termEn": "Abdominal compartment syndrome",
+        "termZh": "腹腔间隔综合征"
+      }
+    ],
+    "rationale": {
+      "byChoice": [
+        {
+          "en": "This condition explains the excessive urine output, crackles, rising airway pressures, increased girth, edema, and hemodilution after aggressive crystalloid resuscitation.",
+          "opaqueTokenLabel": "C1",
+          "zh": "该情况能解释积极晶体液复苏后出现的尿量过高、湿啰音、气道压力升高、腹围增加、水肿和血液稀释。"
+        },
+        {
+          "en": "Inhalation injury is present, but the timing and concurrent systemic edema and high urine output point to volume overload as the active problem.",
+          "opaqueTokenLabel": "C2",
+          "zh": "患者确有吸入性损伤，但当前时间点、全身水肿和尿量过高共同指向容量过负荷是活动性问题。"
+        },
+        {
+          "en": "Twelve hours after injury is too early for burn wound sepsis to explain this pattern, and the vital-sign trajectory is improving rather than deteriorating.",
+          "opaqueTokenLabel": "C3",
+          "zh": "受伤后12小时过早，不足以用烧伤创面败血症解释此模式，而且生命体征趋势是在改善而不是恶化。"
+        },
+        {
+          "en": "The infusion rate should be reduced because urine output is above the ordered target and overload signs are present.",
+          "opaqueTokenLabel": "A3",
+          "zh": "尿量高于医嘱目标且出现过负荷表现，应降低输液速度。"
+        },
+        {
+          "en": "The burn team needs the change in status, and serial bladder-pressure and extremity checks monitor progression toward compartment complications.",
+          "opaqueTokenLabel": "A4",
+          "zh": "烧伤团队需要获知病情变化；连续膀胱压和肢体评估可监测是否进展为间隔室相关并发症。"
+        },
+        {
+          "en": "Continuing or increasing fluid ignores the endpoint overshoot and would worsen fluid creep.",
+          "opaqueTokenLabel": "A2",
+          "zh": "继续或增加输液忽视了治疗终点已超过目标，会加重液体蠕变。"
+        },
+        {
+          "en": "Ventilator support may be adjusted as needed, but it does not correct the cause when fluid overload is driving crackles and rising pressures.",
+          "opaqueTokenLabel": "A1",
+          "zh": "可根据需要调整呼吸机支持，但当液体过负荷导致湿啰音和压力升高时，这不能纠正病因。"
+        },
+        {
+          "en": "Urine output is the primary titration endpoint and should return to the ordered 40 to 80 mL/hr range.",
+          "opaqueTokenLabel": "P2",
+          "zh": "尿量是主要滴定终点，应回到医嘱40至80 mL/hr范围。"
+        },
+        {
+          "en": "Bladder pressure tracks intra-abdominal hypertension and risk of abdominal compartment syndrome.",
+          "opaqueTokenLabel": "P4",
+          "zh": "膀胱压可追踪腹内高压以及腹腔间隔综合征风险。"
+        },
+        {
+          "en": "Carbon monoxide toxicity was an earlier concern, but the current synthesis problem is fluid overload.",
+          "opaqueTokenLabel": "P3",
+          "zh": "一氧化碳中毒是早期关注点，但当前综合判断的问题是液体过负荷。"
+        },
+        {
+          "en": "Potassium is part of routine monitoring, but it does not track the fluid-creep complication in this moment.",
+          "opaqueTokenLabel": "P1",
+          "zh": "钾属于常规监测内容，但不能追踪当前的液体蠕变并发症。"
+        }
+      ],
+      "correct": {
+        "en": "The pattern is fluid creep: urine output is above target and the client has signs of pulmonary edema, rising airway pressures, increasing abdominal girth, extremity edema, and hemodilution after receiving more than the time-phased expected fluid trajectory. The priority is to reduce the infusion rate, notify the burn team, and monitor urine output and bladder pressure so renal perfusion is preserved while over-resuscitation complications are tracked.",
+        "zh": "这一模式为液体蠕变：尿量高于目标，且在输液量超过分时预期轨迹后出现肺水肿表现、气道压力升高、腹围增加、肢体水肿和血液稀释。优先事项是降低输液速度、通知烧伤团队，并监测尿量和膀胱压，以在保持肾灌注的同时追踪过度复苏并发症。"
+      }
+    },
+    "stem": {
+      "en": "At 1800, 12 hours after a major thermal burn, an intubated 80-kg client with 31.5% TBSA burns has achieved improved blood pressure and heart rate after lactated Ringer's resuscitation. Urine output is now 120 mL/hr for two consecutive hours, above the ordered target of 40 to 80 mL/hr. New bilateral basilar crackles are present, peak airway pressures are rising, abdominal girth is increasing, the hematocrit has fallen from 52% to 38%, and previously unburned hands are tense and edematous. The burn team notes that delivered volume has exceeded the time-phased expected Parkland trajectory by about 20%. Complete the bowtie by selecting the most likely condition, two priority actions, and two parameters to monitor.",
+      "zh": "1800时，即重度热烧伤后12小时，一名80 kg、31.5% TBSA烧伤且已插管的患者在乳酸林格液复苏后血压和心率改善。尿量已连续两小时为120 mL/hr，高于医嘱40至80 mL/hr的目标。出现新的双侧肺底湿啰音，气道峰压升高，腹围增加，血细胞比容从52%降至38%，原本未烧伤的双手紧绷水肿。烧伤团队指出，已输注量比Parkland分时预期轨迹约高20%。请完成弓形题：选择最可能的情况、两个优先措施和两个需要监测的参数。"
+    },
+    "testTakingStrategy": {
+      "en": "In bowtie items, match the middle condition to the whole pattern, not a single cue. Then choose actions and monitoring parameters that directly reverse or track that condition.",
+      "zh": "做弓形题时，要把中间的情况与整个模式匹配，而不是只看单一线索。随后选择能直接纠正或追踪该情况的措施和监测参数。"
+    }
+  }
+}

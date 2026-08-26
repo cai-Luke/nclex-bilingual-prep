@@ -1,0 +1,135 @@
+{
+  "actionLabels": [
+    "A2",
+    "A4"
+  ],
+  "ambiguousAlternatives": [
+    {
+      "opaqueTokenLabel": "A3",
+      "reason": "BiPAP could support selected cooperative clients with neuromuscular weakness, but this client's ineffective cough and absent gag reflex indicate poor airway protection and favor intubation."
+    }
+  ],
+  "conditionLabel": "C1",
+  "missingInformation": [
+    "The stem does not provide SpO2, respiratory rate, blood-gas or end-tidal CO2 results, serial FVC/MIP trends, secretion burden, or findings that distinguish GBS dysautonomia from an IVIG infusion reaction; therefore, continuing IVIG through airway stabilization is contingent on the absence of a clinically significant infusion reaction."
+  ],
+  "parameterLabels": [
+    "P2",
+    "P3"
+  ],
+  "poolAnswerability": "ANSWERABLE",
+  "reasoning": "C1, A2, P2, and P3 are strongly supported. The client has confirmed GBS with advanced respiratory-muscle weakness, bulbar dysfunction, and autonomic instability. A1 is not an effective GBS treatment, and A3 is inappropriate when airway protection is impaired. A4 is the remaining disease-directed action and is reasonable if IVIG is tolerated, although the stem does not fully establish that its continuation during airway stabilization is safe; this limitation lowers confidence without preventing ranking of the supplied choices.",
+  "selectionEvidence": [
+    {
+      "opaqueTokenLabel": "C1",
+      "supportingStemText": "Confirmed Guillain-Barre syndrome with progressive quadriparesis, ineffective cough, absent gag reflex, FVC 19 mL/kg, MIP -26 cmH2O, few-word speech, and diaphoresis."
+    },
+    {
+      "opaqueTokenLabel": "A2",
+      "supportingStemText": "Ineffective cough, unilateral absent gag reflex, FVC 19 mL/kg, MIP -26 cmH2O, and speaking only a few words at a time indicate threatened ventilation and airway protection."
+    },
+    {
+      "opaqueTokenLabel": "A4",
+      "supportingStemText": "The client is currently receiving IVIG for confirmed Guillain-Barre syndrome in the ICU."
+    },
+    {
+      "opaqueTokenLabel": "P2",
+      "supportingStemText": "FVC 1.6 L (19 mL/kg) and MIP -26 cmH2O are provided as current respiratory-muscle measurements."
+    },
+    {
+      "opaqueTokenLabel": "P3",
+      "supportingStemText": "The client has labile blood pressure and tachycardia."
+    }
+  ],
+  "stage2Confidence": "medium",
+  "tokenPremiseTable": [
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "C1",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The diagnosis and evidence of impending respiratory failure are directly stated or measured.",
+      "supportingStemText": "Confirmed Guillain-Barre syndrome with progressive weakness, ineffective cough, absent gag reflex, FVC 19 mL/kg, MIP -26 cmH2O, and few-word speech."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "C2",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The explicit diagnosis and classic antecedent illness strongly disfavor acute transverse myelitis.",
+      "supportingStemText": "The stem identifies the neurologic disorder as confirmed Guillain-Barre syndrome after Campylobacter enteritis."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "C3",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "No client-specific evidence supports replacing the confirmed diagnosis with myasthenic crisis.",
+      "supportingStemText": "The stem identifies confirmed Guillain-Barre syndrome with progressive quadriparesis after Campylobacter enteritis."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A1",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "General nursing knowledge establishes that corticosteroids do not halt GBS progression.",
+      "supportingStemText": "The client has confirmed Guillain-Barre syndrome and is receiving IVIG."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A2",
+      "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "These findings indicate failing respiratory muscles and impaired airway protection requiring definitive airway preparation.",
+      "supportingStemText": "Ineffective cough, absent gag reflex, FVC 19 mL/kg, MIP -26 cmH2O, few-word speech, and diaphoresis."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A3",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Noninvasive ventilation does not provide definitive airway protection in a client with bulbar dysfunction and ineffective secretion clearance.",
+      "supportingStemText": "The client has an ineffective cough and unilateral absent gag reflex."
+    },
+    {
+      "missingPremise": "Evidence that IVIG is being tolerated and that the hemodynamic findings are not a clinically significant infusion reaction.",
+      "opaqueTokenLabel": "A4",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "MATERIAL",
+      "rankabilityJustification": "IVIG is appropriate GBS therapy, but uninterrupted continuation during airway stabilization cannot be judged uniquely without infusion-reaction assessment.",
+      "supportingStemText": "The client is receiving IVIG and is diaphoretic with tachycardia and labile blood pressure."
+    },
+    {
+      "missingPremise": "No CSF result, pending lumbar puncture, or clinical reason to use serial CSF protein for airway management is supplied.",
+      "opaqueTokenLabel": "P1",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "CSF protein does not track acute ventilatory deterioration or guide immediate airway decisions.",
+      "supportingStemText": ""
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "P2",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The stem supplies both measurements as relevant indicators of respiratory-muscle weakness.",
+      "supportingStemText": "FVC 1.6 L (19 mL/kg) and MIP -26 cmH2O."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "P3",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "These findings directly support monitoring for GBS-associated autonomic instability.",
+      "supportingStemText": "Labile blood pressure and tachycardia."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "P4",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "SpO2 alone can remain preserved until late in neuromuscular ventilatory failure and cannot replace serial strength and ventilation assessment.",
+      "supportingStemText": "The client already has severe neuromuscular and bulbar findings despite no stated SpO2 abnormality."
+    }
+  ]
+}

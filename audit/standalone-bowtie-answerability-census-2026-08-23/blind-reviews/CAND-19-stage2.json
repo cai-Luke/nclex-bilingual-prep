@@ -1,0 +1,128 @@
+{
+  "actionLabels": [
+    "A2",
+    "A3"
+  ],
+  "ambiguousAlternatives": [],
+  "conditionLabel": "C2",
+  "missingInformation": [],
+  "parameterLabels": [
+    "P1",
+    "P2"
+  ],
+  "poolAnswerability": "ANSWERABLE",
+  "reasoning": "C2 is the only condition consistent with the resolved access barriers and remaining comprehension gap. A2 and A3 address follow-through and corrective teaching, while P1 and P2 directly evaluate those interventions.",
+  "selectionEvidence": [
+    {
+      "opaqueTokenLabel": "C2",
+      "supportingStemText": "Fear, cost, scheduling, and caregiver barriers required intervention, and teach-back revealed that Maria would wait to report new symptoms."
+    },
+    {
+      "opaqueTokenLabel": "A2",
+      "supportingStemText": "Influenza vaccine and the first recombinant zoster vaccine dose have been given; colonoscopy and Pap/HPV co-testing are scheduled."
+    },
+    {
+      "opaqueTokenLabel": "A3",
+      "supportingStemText": "“Teach-back has revealed that Maria would wait to report new symptoms before the colonoscopy.”"
+    },
+    {
+      "opaqueTokenLabel": "P1",
+      "supportingStemText": "“Colonoscopy is scheduled” and “Pap/HPV co-testing is scheduled.”"
+    },
+    {
+      "opaqueTokenLabel": "P2",
+      "supportingStemText": "Teach-back revealed an incorrect plan to delay reporting new symptoms until the colonoscopy."
+    }
+  ],
+  "stage2Confidence": "high",
+  "tokenPremiseTable": [
+    {
+      "missingPremise": "Symptoms, examination findings, diagnostic results, and a treatment order establishing a chronic disease that requires immediate medication management",
+      "opaqueTokenLabel": "C1",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "MATERIAL",
+      "rankabilityJustification": "The stem contains no clinical findings or diagnosis supporting immediate medication management.",
+      "supportingStemText": ""
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "C2",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The documented barriers and demonstrated misunderstanding directly support delayed preventive-care engagement with a health-literacy gap.",
+      "supportingStemText": "Fear, cost, scheduling, and caregiver barriers have been addressed, and teach-back revealed that Maria would wait to report new symptoms."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "C3",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Active participation after identifiable barriers were addressed is inconsistent with deliberate disengagement.",
+      "supportingStemText": "Vaccinations have been given, screening appointments are scheduled, and identified barriers have been addressed."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A1",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "LOW",
+      "rankabilityJustification": "Nothing in the stem indicates that adding several unrelated topics is a priority at this visit.",
+      "supportingStemText": ""
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A2",
+      "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Confirming dates and support plans is appropriate follow-through for scheduled preventive services and an initiated multidose vaccine series.",
+      "supportingStemText": "The first recombinant zoster vaccine dose has been given, and colonoscopy and Pap/HPV co-testing are scheduled."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A3",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The identified misunderstanding directly requires correction and repeat teach-back.",
+      "supportingStemText": "“Teach-back has revealed that Maria would wait to report new symptoms before the colonoscopy.”"
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A4",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Teach-back is not complete when it exposes a clinically relevant reporting misunderstanding.",
+      "supportingStemText": "Teach-back revealed that Maria would wait to report new symptoms before the colonoscopy."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "P1",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Attendance and completion directly measure preventive-care follow-through.",
+      "supportingStemText": "Colonoscopy and Pap/HPV co-testing are scheduled."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "P2",
+      "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Reassessing teach-back accuracy evaluates whether corrective education was understood and retained.",
+      "supportingStemText": "Teach-back revealed an incorrect plan to delay symptom reporting."
+    },
+    {
+      "missingPremise": "A diabetes diagnosis, abnormal glucose finding, glucose-related intervention, or order making fasting glucose a case outcome",
+      "opaqueTokenLabel": "P3",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "MATERIAL",
+      "rankabilityJustification": "No glucose-related problem or management goal appears in the stem.",
+      "supportingStemText": ""
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "P4",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "LOW",
+      "rankabilityJustification": "Use of professional terminology does not measure comprehension, symptom-reporting behavior, or preventive-care follow-through.",
+      "supportingStemText": ""
+    }
+  ]
+}

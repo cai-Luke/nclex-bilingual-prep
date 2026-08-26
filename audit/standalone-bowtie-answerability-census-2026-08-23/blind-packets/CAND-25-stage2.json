@@ -1,0 +1,56 @@
+{
+  "instruction": "Using only the standalone learner-facing English stem, prompts, and opaque token pools, select exactly one condition, two actions, and two parameters. Return the required structured JSON, including exactly one premise row for every opaque token. Do not infer absent client-specific facts.",
+  "stem": "A medical-surgical float nurse receives an assignment on a step-down unit that includes patients requiring vasoactive drip titration and advanced neurological assessments, which are not within her documented competencies. The charge nurse refuses to change the assignment, telling her to simply call him if she needs to adjust a drip. What should the nurse prioritize?",
+  "tokens": {
+    "actions": [
+      {
+        "label": "A1",
+        "text": "Refuse all patient care and leave the unit"
+      },
+      {
+        "label": "A2",
+        "text": "Accept the full assignment without escalation"
+      },
+      {
+        "label": "A3",
+        "text": "Continue providing care for patients whose needs are within her validated competencies"
+      },
+      {
+        "label": "A4",
+        "text": "Escalate through the chain of command to the nursing supervisor"
+      }
+    ],
+    "condition": [
+      {
+        "label": "C1",
+        "text": "Inadequate staffing requiring the nurse to manage with available resources"
+      },
+      {
+        "label": "C2",
+        "text": "Unsafe assignment outside the nurse's validated competency"
+      },
+      {
+        "label": "C3",
+        "text": "Nurse unwillingness to accept a float assignment"
+      }
+    ],
+    "parameters": [
+      {
+        "label": "P1",
+        "text": "Whether the high-acuity patients are reassigned to a validated nurse"
+      },
+      {
+        "label": "P2",
+        "text": "Whether the charge nurse expresses agreement with the reassignment"
+      },
+      {
+        "label": "P3",
+        "text": "Whether the nurse's remaining assignment consists entirely of patients within her documented competencies"
+      },
+      {
+        "label": "P4",
+        "text": "Whether the patient's MAP remains stable after the norepinephrine increase"
+      }
+    ]
+  }
+}

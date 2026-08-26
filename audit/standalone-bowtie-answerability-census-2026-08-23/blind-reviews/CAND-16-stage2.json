@@ -1,0 +1,138 @@
+{
+  "actionLabels": [
+    "A4",
+    "A1"
+  ],
+  "ambiguousAlternatives": [
+    {
+      "opaqueTokenLabel": "C1",
+      "reason": "Danielle's tearfulness and limited reliable support make caregiver role strain plausible, but the stem more directly demonstrates medication-knowledge and safety-performance deficits."
+    }
+  ],
+  "conditionLabel": "C2",
+  "missingInformation": [
+    "Whether caregiving demands or insufficient support independently impaired Danielle's ability to perform her caregiver role",
+    "Danielle's baseline understanding of acetaminophen concentration, dosing tools, and safe storage before teaching",
+    "The timing, frequency, and total amount of acetaminophen administered and any exposure to other acetaminophen-containing products",
+    "Any additional evidence of persistent danger, intentional disregard, or other circumstances relevant to a protective-services determination"
+  ],
+  "parameterLabels": [
+    "P1",
+    "P2"
+  ],
+  "poolAnswerability": "ANSWERABLE",
+  "reasoning": "The stem directly demonstrates both a fourfold volume error and unsafe medication access, making a medication-safety knowledge deficit the best condition. Immediate exposure clarification and case-specific guidance take priority, followed by dose teaching; observed storage and measurement behaviors are the strongest evaluation measures.",
+  "selectionEvidence": [
+    {
+      "opaqueTokenLabel": "C2",
+      "supportingStemText": "Danielle reports giving 15 mL when the clinic's weight-band dosing table lists 3.75 mL, and Liam reaches a pouch containing an uncapped medication bottle."
+    },
+    {
+      "opaqueTokenLabel": "A4",
+      "supportingStemText": "The record does not yet document when the 15 mL dose was last given, how often it was given, or whether Liam received another acetaminophen-containing product."
+    },
+    {
+      "opaqueTokenLabel": "A1",
+      "supportingStemText": "Danielle followed informal advice and administered 15 mL instead of the documented 3.75 mL dose."
+    },
+    {
+      "opaqueTokenLabel": "P1",
+      "supportingStemText": "Liam reaches for a cosmetics pouch containing an uncapped bottle of liquid acetaminophen."
+    },
+    {
+      "opaqueTokenLabel": "P2",
+      "supportingStemText": "The reported administered volume is 15 mL, while Liam's documented weight-band dose is 3.75 mL."
+    }
+  ],
+  "stage2Confidence": "high",
+  "tokenPremiseTable": [
+    {
+      "missingPremise": "Evidence that caregiving demands or insufficient support, rather than medication misunderstanding, primarily caused the dosing and storage errors",
+      "opaqueTokenLabel": "C1",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "MATERIAL",
+      "rankabilityJustification": "Limited support and tearfulness make role strain plausible, but primary causation is not established.",
+      "supportingStemText": ""
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "C2",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The stem directly supplies both dosing and storage manifestations of deficient medication-safety knowledge.",
+      "supportingStemText": "Danielle followed informal advice, gave 15 mL instead of the documented 3.75 mL, and left an uncapped medication bottle within Liam's reach."
+    },
+    {
+      "missingPremise": "Evidence that neglect, rather than an attentive caregiver's inadequate guidance and medication knowledge, is the primary explanation",
+      "opaqueTokenLabel": "C3",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "LOW",
+      "rankabilityJustification": "Unsafe practices require intervention but do not by themselves establish neglect as the primary explanation.",
+      "supportingStemText": ""
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A1",
+      "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Teaching followed by return demonstration appropriately addresses the explicitly demonstrated measurement error.",
+      "supportingStemText": "The documented dose is 3.75 mL, but Danielle reports administering 15 mL after following informal advice."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A2",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "A current substantial dosing discrepancy and unsafe access require prompt assessment and correction rather than one-month deferral.",
+      "supportingStemText": ""
+    },
+    {
+      "missingPremise": "Additional facts establishing a protective-services reporting basis beyond the unsafe practices alone",
+      "opaqueTokenLabel": "A3",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "LOW",
+      "rankabilityJustification": "The available facts support immediate safety intervention and education but do not uniquely support this action.",
+      "supportingStemText": ""
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A4",
+      "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Those missing exposure details are essential for case-specific assessment after a substantially excessive reported dose.",
+      "supportingStemText": "Timing, frequency, and possible exposure to another acetaminophen-containing product are undocumented."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "P1",
+      "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Confirmed safe storage directly evaluates correction of the observed access hazard.",
+      "supportingStemText": "Liam reaches for a pouch containing an uncapped bottle of liquid acetaminophen."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "P2",
+      "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Observed accurate measurement directly evaluates whether the dosing error has been corrected.",
+      "supportingStemText": "Danielle reports measuring 15 mL when the documented dose is 3.75 mL."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "P3",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Confidence alone cannot verify correction of either the measurement error or unsafe storage behavior.",
+      "supportingStemText": ""
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "P4",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "A developmental-screen score does not evaluate caregiver medication-safety teaching or performance.",
+      "supportingStemText": ""
+    }
+  ]
+}

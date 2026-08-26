@@ -1,0 +1,57 @@
+{
+  "advisoryPriority": "P3",
+  "bilingualCollateral": [],
+  "canonicalTargetSiblingOverlap": [
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling independently uses the same diagnosis and the same postpartum severe-BP, CNS-symptom, clonus, and proteinuria cluster.",
+      "opaqueTokenLabel": "C1",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling contains an order for magnesium sulfate 4 g IV by pump for seizure prophylaxis, but the standalone presentation and general nursing knowledge already support this action.",
+      "opaqueTokenLabel": "A2",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling contains an immediate-release nifedipine 10 mg PO order, but repeated severe-range BP independently supports the standalone selection.",
+      "opaqueTokenLabel": "A3",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling provides serial post-nifedipine BP values, corroborating BP trend as the response parameter without supplying a premise necessary to rank it.",
+      "opaqueTokenLabel": "P3",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling tracks respirations, consciousness, reflexes and clonus, urine output, headache, and visual symptoms during magnesium therapy, corroborating the independently defensible monitoring target.",
+      "opaqueTokenLabel": "P1",
+      "overlap": true
+    }
+  ],
+  "clinicalCollateral": [
+    {
+      "concern": "The correct rationale groups facial edema with the findings establishing postpartum preeclampsia with severe features without explicitly identifying edema as nonspecific.",
+      "evidence": "The rationale says severe-range BP is paired with “CNS symptoms, clonus, edema, and proteinuria.” Severe BP and neurologic symptoms establish the severe-feature classification; edema is supportive context but not a defining criterion.",
+      "priority": "P3"
+    }
+  ],
+  "defectSummary": "No standalone answerability, hidden-dependency, key, or nursing-scope defect is present. A1 echoes treatment chronology found in the rationale and sibling, but that absent stem fact is unnecessary because A1 remains clinically incorrect whether or not magnesium is running. As minor wording polish, facial edema should be described as a nonspecific supportive finding rather than appearing to be a defining severe feature.",
+  "missingFactProvenance": [
+    {
+      "missingFact": "The stem does not state that magnesium sulfate is already infusing.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "A1",
+      "provenance": "RATIONALE_ONLY",
+      "sourceEvidence": "The standalone A1 rationale says magnesium is running, and the sibling later corroborates this chronology with “Magnesium starts by pump at 11:40 AM; nifedipine 10 mg PO is given at 11:45 AM.” Neither fact appears in the standalone stem."
+    }
+  ],
+  "primaryVerdict": "PASS_STANDALONE",
+  "reasoning": "Applying the fixed precedence, there is no hidden-case dependency because every canonical target is independently supported by the standalone stem plus general nursing knowledge. No canonical premise is unsupported, and the action and monitoring pools are not underdetermined. The canonical key and its clinical logic are sound. The sibling supplies exact orders, timing, and reassessment findings, but these only corroborate the five keyed selections and cannot retroactively become standalone premises. A1’s unstated infusion status is nonmaterial to rankability, so it does not trigger an unsupported-premise failure. The remaining concern is advisory wording only; therefore PASS_STANDALONE controls.",
+  "scopeCollateral": [],
+  "secondaryFlags": []
+}

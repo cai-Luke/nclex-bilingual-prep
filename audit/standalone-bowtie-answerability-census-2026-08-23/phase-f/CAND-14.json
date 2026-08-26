@@ -1,0 +1,102 @@
+{
+  "advisoryPriority": "P1",
+  "bilingualCollateral": [
+    {
+      "concern": "The hidden casualty-letter dependency is reproduced in both languages rather than arising from translation drift.",
+      "evidence": "English A3/A4 refer to A, G, and D; the corresponding Chinese tokens use the same undefined identifiers. Both rationale languages then assume their sibling-case classifications and findings.",
+      "priority": "P1"
+    },
+    {
+      "concern": "The Chinese stem leaves the role name “charge nurse” untranslated.",
+      "evidence": "The Chinese stem states “charge nurse必须综合判断,” creating minor terminology inconsistency within an otherwise Chinese scaffold.",
+      "priority": "P3"
+    }
+  ],
+  "canonicalTargetSiblingOverlap": [
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling supplies detailed facility thresholds, staffing, spaces, and casualty volume, but the standalone stem already explicitly establishes activated MCI mode, START triage, chemical contamination, and scarce-resource allocation.",
+      "opaqueTokenLabel": "C3",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling demonstrates START-based sequencing across casualties, while the standalone stem independently states that START is complete and scarce resources are being allocated.",
+      "opaqueTokenLabel": "A2",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling protocol and D's course confirm decontamination before ED entry, but the standalone ammonia-contamination context plus general hazmat knowledge independently supports the action.",
+      "opaqueTokenLabel": "A1",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling supplies actual red/yellow casualty trajectories, but those named outcomes are not required to recognize category-level clinical trajectory and survival as an appropriate MCI evaluation parameter.",
+      "opaqueTokenLabel": "P2",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling explicitly treats absence of secondary contamination as a successful outcome, but the standalone hazmat and decontamination facts independently support this monitoring parameter through general nursing knowledge.",
+      "opaqueTokenLabel": "P1",
+      "overlap": true
+    }
+  ],
+  "clinicalCollateral": [
+    {
+      "concern": "The no-resuscitation judgment in A3 is clinically contingent on expectant triage status and the activated resource-limited protocol, not merely on casualty letters or MCI activation.",
+      "evidence": "The sibling establishes that A and G remain apneic after airway repositioning and are black/expectant; the standalone stem supplies none of these casualty-specific findings.",
+      "priority": "P1"
+    }
+  ],
+  "defectSummary": "The standalone action pool refers to casualties A, G, and D without defining them. Most materially, rejecting A3 on the canonical rationale requires the sibling-only fact that A and G are black/expectant after remaining apneic following airway repositioning. Without that imported mapping, A3 cannot be ranked reliably against the keyed actions, leaving the standalone action set underdetermined.",
+  "missingFactProvenance": [
+    {
+      "missingFact": "The identities, START categories, arrest findings, and resuscitation eligibility of A and G",
+      "necessaryForRankability": true,
+      "opaqueTokenLabel": "A3",
+      "provenance": "SIBLING_CASE_IMPORTED",
+      "sourceEvidence": "The sibling triage findings identify A and G as apneic after airway repositioning; its matrix categorizes both as black/expectant, and Question 2 states that they do not receive CPR or advanced resuscitation during the initial MCI response."
+    },
+    {
+      "missingFact": "D's identity, contamination status, location, and documented stridor",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "A4",
+      "provenance": "SIBLING_CASE_IMPORTED",
+      "sourceEvidence": "The sibling identifies D as a chemically contaminated red-category casualty with severe respiratory distress and inspiratory stridor who must complete outdoor decontamination before ED entry."
+    },
+    {
+      "missingFact": "The rationale asserts blast trauma, hemorrhage, and burns, but the standalone stem does not assign those injuries to any casualty.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "C1",
+      "provenance": "SIBLING_CASE_IMPORTED",
+      "sourceEvidence": "The sibling describes C's open femur fracture and hemorrhagic shock, E's 18% TBSA burns, and other explosion-associated injuries."
+    },
+    {
+      "missingFact": "The rationale asserts improvement of casualties C, D, and E, but the standalone stem neither identifies them nor reports their trajectories.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "P2",
+      "provenance": "SIBLING_CASE_IMPORTED",
+      "sourceEvidence": "The sibling Stage 3 update reports improved hemorrhage and perfusion for C, improved respiratory status for D, and stable transfer status for E."
+    }
+  ],
+  "primaryVerdict": "FAIL_HIDDEN_CASE_DEPENDENCY",
+  "reasoning": "The paired case confirms that all four Phase-E missing facts originated in the sibling rather than being unsupported everywhere. Three imports—D's details, the injury mix used against C1, and the named C/D/E outcomes—only corroborate conclusions independently supportable from the standalone MCI and hazmat pattern. In contrast, A3's rejection specifically depends on knowing that A and G are black/expectant casualties for whom full resuscitation is withheld under the resource-constrained protocol. That material sibling dependency makes FAIL_HIDDEN_CASE_DEPENDENCY the controlling verdict under the required precedence. The same missing mapping also makes the standalone action pool underdetermined, so FAIL_UNDERDETERMINED is recorded as a lower-precedence secondary condition. No second-reviewer disagreement is inferred, and the five canonical targets themselves use the sibling only as corroboration.",
+  "scopeCollateral": [
+    {
+      "concern": "The purported standalone item retains unresolved references to the paired unfolding case.",
+      "evidence": "The stem begins “At Stage 2”; action tokens name A, G, and D; and the P2 rationale cites improvement of C, D, and E without introducing any of those labels.",
+      "priority": "P1"
+    },
+    {
+      "concern": "Several rationale details are sibling-derived embellishments rather than standalone premises, although they are not necessary for the canonical targets.",
+      "evidence": "The C1 rationale invokes hemorrhage and burns, the C3 rationale invokes staffing exceedance, and the P2 rationale invokes named casualty improvement; these details appear in the sibling but not the standalone stem.",
+      "priority": "P3"
+    }
+  ],
+  "secondaryFlags": [
+    "ALSO_SATISFIES_FAIL_UNDERDETERMINED"
+  ]
+}

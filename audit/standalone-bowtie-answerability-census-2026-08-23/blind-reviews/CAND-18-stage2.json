@@ -1,0 +1,134 @@
+{
+  "actionLabels": [
+    "A1",
+    "A3"
+  ],
+  "ambiguousAlternatives": [],
+  "conditionLabel": "C1",
+  "missingInformation": [
+    "Withdrawal symptoms and an objective withdrawal assessment",
+    "Any suicidal ideation, intent, plan, psychosis, or immediate danger to self or others",
+    "Current vital signs and evidence of hemodynamic instability",
+    "Recent opioid use, toxicology results, and overdose history",
+    "The prescribed discharge analgesic regimen and exact timing of MAT follow-up"
+  ],
+  "parameterLabels": [
+    "P2",
+    "P3"
+  ],
+  "poolAnswerability": "ANSWERABLE",
+  "reasoning": "The stem directly establishes converging pain, craving, and recovery-access risks. Addressing recovery logistics and safe pain/overdose planning is therefore prioritized, with support engagement and pain trajectory as the most responsive outcomes.",
+  "selectionEvidence": [
+    {
+      "opaqueTokenLabel": "C1",
+      "supportingStemText": "The nerve block is wearing off, pain is rising to 5/10, Marcus acknowledges craving, and multiple recovery supports remain unconfirmed."
+    },
+    {
+      "opaqueTokenLabel": "A1",
+      "supportingStemText": "He \"has not contacted his sponsor, has not confirmed MAT follow-up, [and] is unsure how he will attend NA.\""
+    },
+    {
+      "opaqueTokenLabel": "A3",
+      "supportingStemText": "He \"asks about pain escalation and Tanya’s naloxone kit.\""
+    },
+    {
+      "opaqueTokenLabel": "P2",
+      "supportingStemText": "Sponsor contact, MAT follow-up, and access to NA are all unresolved at discharge."
+    },
+    {
+      "opaqueTokenLabel": "P3",
+      "supportingStemText": "His \"nerve block is wearing off\" and \"pain is rising to 5/10.\""
+    }
+  ],
+  "stage2Confidence": "high",
+  "tokenPremiseTable": [
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "C1",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The condition is directly supported by several concurrent physical and psychosocial stressors.",
+      "supportingStemText": "Rising pain, acknowledged craving, absent sponsor contact, unconfirmed MAT follow-up, and uncertain NA access converge at discharge."
+    },
+    {
+      "missingPremise": "Characteristic opioid-withdrawal findings or an objective withdrawal assessment",
+      "opaqueTokenLabel": "C2",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "LOW",
+      "rankabilityJustification": "Pain and craving are nonspecific, while the stem provides no withdrawal syndrome and states that buprenorphine/naloxone has resumed.",
+      "supportingStemText": ""
+    },
+    {
+      "missingPremise": "Suicidal ideation, intent, plan, or other evidence of immediate danger requiring involuntary intervention",
+      "opaqueTokenLabel": "C3",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Craving alone does not supply the absent premises for an acute suicidal crisis.",
+      "supportingStemText": ""
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A1",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The action directly addresses three unresolved discharge barriers named in the stem.",
+      "supportingStemText": "He has not contacted his sponsor, has not confirmed MAT follow-up, and is unsure how he will attend NA."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A2",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Completing paperwork while leaving explicit safety and access barriers unresolved is not a priority response.",
+      "supportingStemText": "The stem identifies unresolved sponsor, NA-access, MAT-follow-up, pain-escalation, and naloxone questions."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A3",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The action responds directly to the stated pain-management and overdose-response education needs.",
+      "supportingStemText": "Marcus asks about pain escalation and Tanya’s naloxone kit as his nerve block wears off."
+    },
+    {
+      "missingPremise": "Evidence that Marcus poses an immediate danger to himself or others or otherwise meets criteria for involuntary psychiatric detention",
+      "opaqueTokenLabel": "A4",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Disclosure of craving without an expressed intention to use does not establish a premise for a psychiatric hold.",
+      "supportingStemText": ""
+    },
+    {
+      "missingPremise": "A prior toxicology result, suspected recent opioid use, and a clinical reason to make repeat testing the primary safety outcome",
+      "opaqueTokenLabel": "P1",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "LOW",
+      "rankabilityJustification": "The stem supports monitoring recovery engagement more directly than treating a future urine screen as the primary discharge marker.",
+      "supportingStemText": ""
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "P2",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "This parameter measures whether the principal psychosocial discharge gaps are actually resolved.",
+      "supportingStemText": "Sponsor contact, MAT follow-up, and NA attendance logistics are unresolved."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "P3",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The expected near-term pain trajectory is a direct and clinically relevant evaluation target.",
+      "supportingStemText": "The nerve block is wearing off and pain is rising to 5/10."
+    },
+    {
+      "missingPremise": "Abnormal or unstable heart rate and blood pressure requiring serial monitoring",
+      "opaqueTokenLabel": "P4",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "LOW",
+      "rankabilityJustification": "No hemodynamic abnormality is provided, so serial vital signs are not supported as the primary discharge outcome.",
+      "supportingStemText": ""
+    }
+  ]
+}

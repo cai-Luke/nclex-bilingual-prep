@@ -1,0 +1,122 @@
+{
+  "advisoryPriority": "P2",
+  "bilingualCollateral": [],
+  "canonicalTargetSiblingOverlap": [
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling supplies the same malnutrition, PN timing, progressive electrolyte triad, and organ manifestations, but the standalone stem already contains enough evidence to identify refeeding syndrome.",
+      "opaqueTokenLabel": "C2",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling explicitly contains the 50% TPN-reduction order, but the standalone token is already conditional on an order and is rankable from the refeeding pattern and safer action alternatives.",
+      "opaqueTokenLabel": "A2",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling supplies exact replacement orders and documents response, but the standalone severe electrolyte deficits, dysrhythmia, weakness, and shallow respirations independently support replacement with telemetry.",
+      "opaqueTokenLabel": "A1",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling contains serial electrolyte values and post-treatment improvement, while the standalone itself explicitly provides the diagnostic phosphorus, potassium, and magnesium trends.",
+      "opaqueTokenLabel": "P4",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling confirms telemetry findings and later resolution, but the standalone explicitly states frequent PVCs and prolonged QT interval.",
+      "opaqueTokenLabel": "P2",
+      "overlap": true
+    }
+  ],
+  "clinicalCollateral": [
+    {
+      "concern": "The keyed A1 wording calls for aggressive IV electrolyte replacement without explicitly conditioning administration on an order or protocol.",
+      "evidence": "The standalone supplies severe deficiencies and telemetry indications but no replacement prescription; the sibling supplies the actual protocol and higher-tier orders.",
+      "priority": "P2"
+    },
+    {
+      "concern": "The purulent PICC-site finding represents a clinically important concurrent infection concern even though it does not establish C3 or change the dominant bow-tie answer.",
+      "evidence": "The standalone states erythema, tenderness, and purulent drainage but provides no temperature, hemodynamic context, cultures, or bloodstream-infection confirmation.",
+      "priority": "P2"
+    }
+  ],
+  "defectSummary": "The canonical set is independently answerable from the standalone stem and token pool; no keyed target requires a sibling-only fact. Minor clinical and scope precision concerns remain around unspecified electrolyte-replacement authorization and the shift from generic PN terminology in the stem to TPN-specific action wording.",
+  "missingFactProvenance": [
+    {
+      "missingFact": "Current PN infusion rate, caloric load, carbohydrate or dextrose delivery, and the client-specific order authorizing a 50% reduction.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "A2",
+      "provenance": "SIBLING_CASE_IMPORTED",
+      "sourceEvidence": "The sibling states that central TPN began at 10 kcal/kg/day and later records an order to reduce the TPN rate by 50% without abrupt discontinuation. It does not provide a dextrose concentration."
+    },
+    {
+      "missingFact": "Prescribed potassium, phosphate, and magnesium doses, routes, infusion rates, and replacement protocol.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "A1",
+      "provenance": "SIBLING_CASE_IMPORTED",
+      "sourceEvidence": "The sibling provides the unit replacement protocol and the Stage 2 higher-tier orders: KCl 40 mEq IV over 2 hours, sodium phosphate 30 mmol IV over 4 hours, and magnesium sulfate 2 g IV over 2 hours."
+    },
+    {
+      "missingFact": "Timing of repeat electrolyte measurements after replacement.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "A1",
+      "provenance": "SIBLING_CASE_IMPORTED",
+      "sourceEvidence": "The sibling specifies electrolyte monitoring every 12 hours and a repeat magnesium level in 4 hours if magnesium remains below 1.5 mg/dL."
+    },
+    {
+      "missingFact": "Current vital signs, oxygen saturation, detailed respiratory effort, and fluid balance.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "C2",
+      "provenance": "SIBLING_CASE_IMPORTED",
+      "sourceEvidence": "The sibling Stage 2 update supplies temperature 38.2 °C, HR 118, BP 98/58, RR 22, SpO2 95% on room air, shallow respirations with decreased basilar breath sounds, and preceding urine-output data."
+    },
+    {
+      "missingFact": "Baseline glucose, glucose trend, diabetes history, and prior insulin use.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "C1",
+      "provenance": "SIBLING_CASE_IMPORTED",
+      "sourceEvidence": "The sibling identifies type 2 diabetes with metformin held perioperatively and provides glucose values of 156, 142, 198, 204, and 226 mg/dL plus subsequent sliding-scale insulin coverage."
+    },
+    {
+      "missingFact": "Temperature, hemodynamic findings, blood-culture results, and other systemic infection findings needed to establish catheter-related bloodstream infection.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "C3",
+      "provenance": "OTHER_PROVENANCE",
+      "sourceEvidence": "The sibling supplies fever, tachycardia, lower blood pressure, PICC-site findings, and an order for paired cultures, but the cultures remain pending and no positive blood-culture result establishes bloodstream infection."
+    },
+    {
+      "missingFact": "A client-specific emergency circumstance, authorized discontinuation plan, glucose-monitoring plan, and dextrose backup if needed.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "A3",
+      "provenance": "UNSUPPORTED_ANYWHERE_CHECKED",
+      "sourceEvidence": "No emergency circumstance supports abrupt independent discontinuation. The sibling instead records an order to reduce TPN by 50% without abrupt discontinuation and to increase glucose monitoring."
+    },
+    {
+      "missingFact": "White blood cell count and trend.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "P3",
+      "provenance": "OTHER_PROVENANCE",
+      "sourceEvidence": "The sibling provides one baseline WBC value of 9.2 ×10³/µL but no subsequent WBC trend."
+    }
+  ],
+  "primaryVerdict": "PASS_STANDALONE",
+  "reasoning": "The blind reviewer independently matched all five canonical targets using only the standalone English stem and tokens. The sibling adds exact orders, replacement doses, fuller vital signs, glucose history, and subsequent outcomes, but none is necessary to distinguish C2, A2, A1, P4, and P2 from their distractors. A2 remains rankable because it is explicitly conditional on an order and contrasts with unsafe abrupt independent discontinuation; A1 is supported by severe three-electrolyte depletion with active cardiac, respiratory, and neuromuscular effects. The sibling therefore corroborates the keyed reasoning rather than supplying a hidden premise. No higher-precedence failure condition or reviewer-disagreement condition is satisfied.",
+  "scopeCollateral": [
+    {
+      "concern": "The standalone stem uses the broader term PN while keyed action A2 specifically refers to TPN.",
+      "evidence": "The sibling clarifies the sequence from PPN to central TPN, whereas the standalone only states that PN was started; the PICC context and response pool make the intended meaning inferable without sibling dependence.",
+      "priority": "P3"
+    },
+    {
+      "concern": "The phrase “Stage 2 synthesis” signals derivation from a longitudinal case despite presentation as a standalone item.",
+      "evidence": "All facts needed for the canonical 1/2/2 selection are restated in the standalone stem, so the stage marker creates contextual residue rather than hidden case dependence.",
+      "priority": "P3"
+    }
+  ],
+  "secondaryFlags": []
+}

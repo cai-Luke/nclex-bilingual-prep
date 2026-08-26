@@ -1,0 +1,38 @@
+{
+  "condition": "Hypertensive crisis with possible acute target-organ involvement",
+  "evaluationParameters": [
+    "BP trend following notification and subsequent treatment, including whether SBP decreases below 180 mm Hg.",
+    "Headache severity and neurological status, including level of consciousness, vision, speech, strength, and any new deficits."
+  ],
+  "missingInformation": [
+    "Repeat BP and measurement technique; baseline BP and usual hypertension control; headache onset, severity, and associated neurological or visual symptoms; presence of chest pain, dyspnea, renal changes, or other target-organ findings; amlodipine dose, administration time, and other antihypertensive orders."
+  ],
+  "priorityActions": [
+    "Notify the hospitalist immediately that the systolic BP exceeds the ordered call threshold and report the headache and missed check.",
+    "Promptly repeat the BP using correct technique and assess for acute target-organ symptoms, especially neurological changes, chest pain, dyspnea, and visual disturbance."
+  ],
+  "reasoning": "The SBP exceeds the explicit notification threshold and is accompanied by headache, supporting hypertensive crisis and urgent evaluation. The stem does not establish acute target-organ injury, so hypertensive emergency versus severe asymptomatic hypertension cannot be uniquely determined.",
+  "stage1Confidence": "medium",
+  "stemEvidence": [
+    {
+      "stemFact": "BP is 186/102 with a headache.",
+      "target": "condition"
+    },
+    {
+      "stemFact": "The hospitalist ordered a call if SBP > 180; the reported SBP is 186.",
+      "target": "priorityAction1"
+    },
+    {
+      "stemFact": "The BP is 186/102 with a headache, requiring confirmation and assessment for acute target-organ involvement.",
+      "target": "priorityAction2"
+    },
+    {
+      "stemFact": "BP monitoring was ordered q4h for 24 hours, and the 1800 monitoring check was missed.",
+      "target": "evaluationParameter1"
+    },
+    {
+      "stemFact": "Mrs. Vega reports a headache with severe hypertension.",
+      "target": "evaluationParameter2"
+    }
+  ]
+}

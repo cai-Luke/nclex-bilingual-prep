@@ -1,0 +1,106 @@
+{
+  "advisoryPriority": "P1",
+  "bilingualCollateral": [
+    {
+      "concern": "The Chinese surface leaves \"charge nurse\" untranslated within otherwise Chinese text.",
+      "evidence": "A4 and the correct Chinese rationale use the English phrase \"charge nurse\" directly.",
+      "priority": "P2"
+    },
+    {
+      "concern": "The compressed Chinese wording for P2 is less precise than the sibling source.",
+      "evidence": "The standalone says \"HIM传真标识,\" while the sibling clarifies that signage is placed near the fax machine to redirect record requests to HIM.",
+      "priority": "P2"
+    }
+  ],
+  "canonicalTargetSiblingOverlap": [
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling supplies curiosity and record-detail facts, but the standalone statement that a coworker opened the record without a care role already supports unauthorized PHI access.",
+      "opaqueTokenLabel": "C3",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling policy expressly requires immediate mitigation and charge-nurse notification, but the standalone stem already describes stopping access and starting facility reporting.",
+      "opaqueTokenLabel": "A4",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling confirms that an electronic incident report is required and completed, while the standalone stem independently establishes that the facility reporting process has begun.",
+      "opaqueTokenLabel": "A2",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling confirms Privacy Officer review and audit-trail use. These details strengthen, but are not necessary for, selecting the only parameter that directly evaluates formal investigation and preservation of electronic-access evidence.",
+      "opaqueTokenLabel": "P4",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CASE_IMPORTED",
+      "description": "Its exact safeguard examples map to separate sibling events: minimum-necessary education for EHR access, HIM fax signage for the employer request, and private-space reporting for the hallway disclosure.",
+      "opaqueTokenLabel": "P2",
+      "overlap": true
+    }
+  ],
+  "clinicalCollateral": [],
+  "defectSummary": "The canonical set remains uniquely rankable from the standalone privacy facts, so it does not require the sibling case and is not underdetermined. However, the standalone pool and rationale import unsupported sibling-specific premises: P2 bundles safeguards for unrelated fax and hallway events, P1 presupposes Robert's prior call and restriction, P3 presupposes postoperative status, and the rationale adds curiosity and orthopedic-note details.",
+  "missingFactProvenance": [
+    {
+      "missingFact": "No standalone investigation finding connects RN Casey's EHR access specifically to HIM fax signage or private-space reporting.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "P2",
+      "provenance": "SIBLING_CASE_IMPORTED",
+      "sourceEvidence": "Sibling Stage 3 lists fax-machine signage, minimum-necessary education, and review of private reporting spaces in response to multiple distinct privacy events."
+    },
+    {
+      "missingFact": "The standalone stem does not state that the coworker's motive was curiosity.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "C3",
+      "provenance": "SIBLING_CASE_IMPORTED",
+      "sourceEvidence": "Sibling Stage 1 states that RN Casey browsed the operative report and MAR because of personal interest in orthopedic notes."
+    },
+    {
+      "missingFact": "The standalone stem does not mention personal interest in orthopedic notes.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "C2",
+      "provenance": "SIBLING_CASE_IMPORTED",
+      "sourceEvidence": "Sibling Stage 1 expressly describes personal interest in orthopedic notes and no care role."
+    },
+    {
+      "missingFact": "The standalone material does not explain Robert Torrance's identity, prior call, authorization status, or Mrs. Torrance's restriction.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "P1",
+      "provenance": "SIBLING_CASE_IMPORTED",
+      "sourceEvidence": "Sibling exhibits identify Robert as a caller claiming to be the husband, state that he is not authorized, and later record that Mrs. Torrance does not want him to receive information."
+    },
+    {
+      "missingFact": "The standalone stem does not establish that Mrs. Torrance is postoperative or provide postoperative findings.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "P3",
+      "provenance": "SIBLING_CASE_IMPORTED",
+      "sourceEvidence": "The sibling baseline identifies postoperative day 1 after ORIF and supplies vital signs, wound status, and pain score."
+    }
+  ],
+  "primaryVerdict": "FAIL_UNSUPPORTED_TOKEN_PREMISE",
+  "reasoning": "No Phase-E missing fact is necessary to rank the canonical answer: unauthorized access, immediate containment, reporting, formal investigation, and system-level prevention remain the uniquely best privacy-focused set. The sibling therefore corroborates C3, A4, A2, and P4 rather than supplying facts required for them. P2 is still distinguishable from P1 and P3 by general privacy relevance, but its specific examples are visibly imported from other sibling events. Because unsupported premises occur in both a keyed token and distractors while the answer remains determinate and canonically coherent, FAIL_UNSUPPORTED_TOKEN_PREMISE is the highest applicable verdict under the required precedence.",
+  "scopeCollateral": [
+    {
+      "concern": "The keyed P2 parameter exceeds the standalone incident's scope.",
+      "evidence": "HIM fax signage and private-space reporting address the sibling employer-fax and hallway-report events, neither of which appears in the standalone stem.",
+      "priority": "P1"
+    },
+    {
+      "concern": "Two distractors presuppose sibling-case context absent from the standalone item.",
+      "evidence": "P1 refers to Robert calling back, and P3 refers to postoperative findings; the standalone stem introduces neither a prior caller nor postoperative status.",
+      "priority": "P1"
+    },
+    {
+      "concern": "The learner-facing rationale imports sibling details not established by the standalone stem.",
+      "evidence": "It characterizes the access as curiosity-based and involving personal interest in orthopedic notes, and states that the patient's restriction was already documented.",
+      "priority": "P1"
+    }
+  ],
+  "secondaryFlags": []
+}

@@ -1,0 +1,128 @@
+{
+  "anyCanonicalTargetDependsOnAbsentFact": false,
+  "blindExactMatch": true,
+  "canonicalSelection": {
+    "actionLabels": [
+      "A4",
+      "A2"
+    ],
+    "conditionLabel": "C3",
+    "parameterLabels": [
+      "P4",
+      "P2"
+    ]
+  },
+  "canonicalSetExplanation": "C3, A4, A2, and P4 closely track the unauthorized access, containment, and reporting facts. P2 is less incident-specific, but it remains the only additional parameter addressing privacy-response effectiveness; P1 and P3 do not evaluate that response. Thus the canonical set remains uniquely best despite P2's unsupported examples.",
+  "canonicalSetUniquelyDefensible": true,
+  "canonicalTargetSupport": [
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "C3",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "The coworker opened Mrs. Torrance's electronic record \"without a care role.\""
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "A4",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "RN Jordan witnessed the access, \"stopped further access,\" and started the reporting process."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "A2",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "RN Jordan \"started the facility reporting process,\" directly supporting completion of the incident report."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "P4",
+      "supportClassification": "GENERAL_KNOWLEDGE_LINK",
+      "supportingStandaloneEvidence": "The event involved electronic-record access and initiation of facility reporting; investigation confirmation and preservation of the EHR audit trail evaluate that response."
+    },
+    {
+      "missingClientFact": "The stem does not identify findings that specifically warrant HIM fax signage or private-space reporting.",
+      "opaqueTokenLabel": "P2",
+      "supportClassification": "GENERAL_KNOWLEDGE_LINK",
+      "supportingStandaloneEvidence": "Corrective privacy safeguards can evaluate whether the facility response addresses recurrence beyond containing the individual event."
+    }
+  ],
+  "distractorPremiseFindings": [
+    {
+      "explanation": "The stem says facility reporting was started. Even if no onward disclosure occurred, unauthorized viewing still warrants reporting.",
+      "opaqueTokenLabel": "A1",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "Nothing in the stem supports placing an incident-report reference in the clinical record, and general incident-reporting practice keeps that process separate.",
+      "opaqueTokenLabel": "A3",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "Opening a record without a care role describes unauthorized access, not an unavoidable incidental disclosure despite reasonable safeguards.",
+      "opaqueTokenLabel": "C1",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "The explicit absence of a care role contradicts permissible operations or education access for this client.",
+      "opaqueTokenLabel": "C2",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "The standalone material does not identify Robert Torrance's role, establish an expected callback, or connect a call with evaluating the privacy response.",
+      "opaqueTokenLabel": "P1",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "No postoperative condition, vital signs, wound findings, or pain findings are provided; regardless, these measures would not evaluate privacy containment or reporting.",
+      "opaqueTokenLabel": "P3",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "NONE"
+    }
+  ],
+  "missingClientFacts": [
+    {
+      "keyed": true,
+      "missingFact": "No investigation finding connects this EHR-access event specifically to HIM fax signage or private-space reporting.",
+      "opaqueTokenLabel": "P2",
+      "rankabilityImpact": "LOW"
+    },
+    {
+      "keyed": true,
+      "missingFact": "The standalone stem does not state that the coworker's motive was curiosity.",
+      "opaqueTokenLabel": "C3",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "keyed": false,
+      "missingFact": "The standalone stem does not mention personal interest in orthopedic notes.",
+      "opaqueTokenLabel": "C2",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "keyed": false,
+      "missingFact": "The standalone material does not explain Robert Torrance's identity, a documented patient restriction, or why he might call back.",
+      "opaqueTokenLabel": "P1",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "keyed": false,
+      "missingFact": "The standalone stem does not establish that Mrs. Torrance is postoperative.",
+      "opaqueTokenLabel": "P3",
+      "rankabilityImpact": "NONE"
+    }
+  ],
+  "notes": [
+    "Both blind records align with the canonical 1/2/2 selection; Stage 2 selected the same sets in reversed display order.",
+    "The rationale introduces curiosity, orthopedic notes, and an already documented patient restriction, none of which appears in the standalone stem or prompts.",
+    "Those rationale-only details should be removed or generalized because they are unnecessary to justify the canonical answer.",
+    "P2 is rankable as the second-best evaluation parameter by privacy relevance, but its fax-signage and private-space examples are not specifically grounded in this standalone incident."
+  ],
+  "stage1Alignment": "FULL",
+  "stage1AlignmentExplanation": "Stage 1 independently identified unauthorized PHI access, immediate termination of access, facility reporting, audit-log and privacy-investigation review, and corrective safeguards. These semantically align with all five canonical targets.",
+  "unstatedClientFactMateriallyChangesRankability": false
+}

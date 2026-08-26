@@ -1,0 +1,42 @@
+{
+  "condition": "Ineffective health maintenance with a residual knowledge gap about timely symptom reporting",
+  "evaluationParameters": [
+    "Maria accurately explains through teach-back which new or worsening symptoms require prompt reporting before the colonoscopy.",
+    "Completion and follow-up of the scheduled colonoscopy, Pap/HPV co-testing, and remaining recombinant zoster vaccine dose are documented."
+  ],
+  "missingInformation": [
+    "Maria’s age and relevant medical, family, and screening history",
+    "Whether Maria currently has any symptoms or abnormal findings requiring diagnostic rather than routine screening follow-up",
+    "The specific symptoms and reporting thresholds included in her teaching plan",
+    "Appointment dates, prior screening results, contraindications, and the due date for the second recombinant zoster vaccine dose",
+    "The definition of “Stage 3” and the answer choices or framework intended by the bow-tie item"
+  ],
+  "priorityActions": [
+    "Correct Maria’s misunderstanding by teaching her to report new or worsening symptoms promptly rather than waiting for the colonoscopy, then repeat teach-back.",
+    "Coordinate completion of the scheduled colonoscopy and Pap/HPV co-testing, ensure results are followed up, and support completion of the recombinant zoster vaccine series when due."
+  ],
+  "reasoning": "The stem supports a preventive-care follow-up problem with resolved access barriers but a persistent knowledge gap. It does not provide findings that uniquely identify an acute medical condition, so a health-maintenance diagnosis best fits the available facts.",
+  "stage1Confidence": "medium",
+  "stemEvidence": [
+    {
+      "stemFact": "Fear, cost, scheduling, and caregiver barriers required intervention, and teach-back still showed that Maria would delay reporting new symptoms.",
+      "target": "condition"
+    },
+    {
+      "stemFact": "“Teach-back has revealed that Maria would wait to report new symptoms before the colonoscopy.”",
+      "target": "priorityAction1"
+    },
+    {
+      "stemFact": "“Colonoscopy is scheduled,” “Pap/HPV co-testing is scheduled,” and “the first recombinant zoster vaccine dose” has been given.",
+      "target": "priorityAction2"
+    },
+    {
+      "stemFact": "Teach-back identified an incorrect plan to wait before reporting new symptoms.",
+      "target": "evaluationParameter1"
+    },
+    {
+      "stemFact": "The stem identifies scheduled colorectal and cervical screening and only the first recombinant zoster vaccine dose as completed.",
+      "target": "evaluationParameter2"
+    }
+  ]
+}

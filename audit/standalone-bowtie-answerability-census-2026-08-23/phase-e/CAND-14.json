@@ -1,0 +1,121 @@
+{
+  "anyCanonicalTargetDependsOnAbsentFact": false,
+  "blindExactMatch": true,
+  "canonicalSelection": {
+    "actionLabels": [
+      "A2",
+      "A1"
+    ],
+    "conditionLabel": "C3",
+    "parameterLabels": [
+      "P2",
+      "P1"
+    ]
+  },
+  "canonicalSetExplanation": "The five keyed targets form a coherent and well-supported MCI answer, and the blind Stage-2 selection matches them. However, the complete option set is not uniquely defensible from the standalone material because A3 refers to unidentified casualties A and G; whether full resuscitation is inappropriate depends materially on their unprovided triage and arrest status. The canonical rationale resolves that ambiguity by importing the absent fact that A or G is black/expectant.",
+  "canonicalSetUniquelyDefensible": false,
+  "canonicalTargetSupport": [
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "C3",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "The stem explicitly states “activated MCI mode,” seven casualties, completed START triage, chemical contamination, and allocation of scarce blood and treatment spaces."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "A2",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "“START triage is complete” and scarce treatment resources “are being allocated,” directly supporting continued START-based treatment sequencing."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "A1",
+      "supportClassification": "GENERAL_KNOWLEDGE_LINK",
+      "supportingStandaloneEvidence": "The ammonia release and the contaminated casualty who completed decontamination establish the hazmat context; standard contamination control links this context to decontamination before ED entry."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "P2",
+      "supportClassification": "GENERAL_KNOWLEDGE_LINK",
+      "supportingStandaloneEvidence": "The stem identifies a red-category casualty and allocation of scarce resources; the trajectories of salvageable red/yellow casualties evaluate whether triage-based allocation benefits those most likely to survive."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "P1",
+      "supportClassification": "GENERAL_KNOWLEDGE_LINK",
+      "supportingStandaloneEvidence": "The explicit ammonia contamination and decontamination process make absence of secondary contamination the corresponding safety outcome."
+    }
+  ],
+  "distractorPremiseFindings": [
+    {
+      "explanation": "Activated MCI mode, seven casualties, START triage, and scarce-resource allocation directly contradict a single-problem event without allocation triage.",
+      "opaqueTokenLabel": "C1",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "The explicit ammonia-release, contamination, decontamination, MCI, and scarcity features exceed a conventional ED trauma surge.",
+      "opaqueTokenLabel": "C2",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "The standalone material never identifies A or G, their START categories, or whether either is in cardiac arrest. The rationale's claim that they are black/expectant casualties imports an absent client-specific mapping needed to reject this action on that stated basis.",
+      "opaqueTokenLabel": "A3",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "MATERIAL"
+    },
+    {
+      "explanation": "Although D is unidentified and the stem does not document D's stridor, bypassing indicated decontamination during an ammonia incident conflicts with contamination-control safety and risks secondary exposure.",
+      "opaqueTokenLabel": "A4",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "LOW"
+    },
+    {
+      "explanation": "Nothing in the stem makes completion time for routine full documentation an acute MCI effectiveness outcome; general MCI practice supports abbreviated documentation during the response.",
+      "opaqueTokenLabel": "P3",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "Total mortality is generally relevant to disaster outcomes, but an isolated count cannot specifically assess triage allocation or secondary-contamination control and is therefore inferior to P2 and P1.",
+      "opaqueTokenLabel": "P4",
+      "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+      "rankabilityImpact": "LOW"
+    }
+  ],
+  "missingClientFacts": [
+    {
+      "keyed": false,
+      "missingFact": "The identities, START categories, arrest findings, and resuscitation eligibility of A and G",
+      "opaqueTokenLabel": "A3",
+      "rankabilityImpact": "MATERIAL"
+    },
+    {
+      "keyed": false,
+      "missingFact": "D's identity, contamination status, location, and documented stridor",
+      "opaqueTokenLabel": "A4",
+      "rankabilityImpact": "LOW"
+    },
+    {
+      "keyed": false,
+      "missingFact": "The rationale asserts blast trauma, hemorrhage, and burns, but the standalone stem does not assign those injuries to any casualty.",
+      "opaqueTokenLabel": "C1",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "keyed": true,
+      "missingFact": "The rationale asserts improvement of casualties C, D, and E, but the standalone stem neither identifies them nor reports their trajectories.",
+      "opaqueTokenLabel": "P2",
+      "rankabilityImpact": "NONE"
+    }
+  ],
+  "notes": [
+    "Blind Stage 2 selected the same condition and the same unordered action and parameter sets as the canonical key; only array order differed.",
+    "The canonical targets do not require the hidden casualty-letter mappings, but portions of the by-choice rationale do.",
+    "For standalone integrity, the A3 rationale would need to avoid assuming A/G are black or expectant unless that mapping is added to the learner-facing material."
+  ],
+  "stage1Alignment": "PARTIAL",
+  "stage1AlignmentExplanation": "Stage 1 recognized ammonia exposure, completed decontamination, red-category prioritization, and scarce-resource allocation, but it framed the condition as an individual ammonia inhalation injury and selected respiratory interventions and monitoring rather than the canonical MCI-level condition, actions, and outcomes.",
+  "unstatedClientFactMateriallyChangesRankability": true
+}

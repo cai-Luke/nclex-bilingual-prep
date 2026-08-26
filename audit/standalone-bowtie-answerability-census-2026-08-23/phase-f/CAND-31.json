@@ -1,0 +1,119 @@
+{
+  "advisoryPriority": "P3",
+  "bilingualCollateral": [
+    {
+      "concern": "The Chinese rendering of “obtundation” as “迟钝” is understandable but less clinically specific than the English concept of markedly reduced consciousness.",
+      "evidence": "English stem: “presents with obtundation”; Chinese stem: “表现出迟钝”.",
+      "priority": "P3"
+    },
+    {
+      "concern": "The Chinese action phrase for aspiration precautions is redundant but remains intelligible.",
+      "evidence": "“Maintain aspiration precautions” is rendered as “维持防误吸预防措施,” combining two overlapping precaution terms.",
+      "priority": "P3"
+    }
+  ],
+  "canonicalTargetSiblingOverlap": [
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling provides a fuller chronology of toxic lithium concentrations, neurologic toxicity, thiazide exposure, dehydration, and acute renal impairment, but the standalone stem already supports severe lithium toxicity.",
+      "opaqueTokenLabel": "C1",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling explicitly records nephrology recommending emergent hemodialysis for persistent lithium elevation, worsening neurotoxicity, and impaired clearance; the standalone findings independently support A1.",
+      "opaqueTokenLabel": "A1",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling adds active vomiting and documents lateral positioning, suctioning, and head elevation, but standalone obtundation already supports aspiration precautions.",
+      "opaqueTokenLabel": "A4",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling supplies serial pre-dialysis, post-dialysis, and rebound lithium levels, corroborating the importance of serial monitoring without making it necessary for standalone ranking.",
+      "opaqueTokenLabel": "P3",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling supplies serial neurological examinations before and after dialysis, but the standalone neurologic manifestations already make neurological status a direct evaluation parameter.",
+      "opaqueTokenLabel": "P2",
+      "overlap": true
+    }
+  ],
+  "clinicalCollateral": [
+    {
+      "concern": "No material clinical-currency defect is apparent in the canonical condition, dialysis escalation, aspiration precautions, or monitoring targets.",
+      "evidence": "Severe neurologic toxicity, lithium 2.6 mEq/L, impaired renal function, and minimal response to hydration support urgent extracorporeal removal and serial neurologic/lithium monitoring.",
+      "priority": null
+    },
+    {
+      "concern": "The rationale overstates standalone clinical specificity by naming acute kidney injury, volume depletion, active vomiting, and progressive deterioration that are established only partly or entirely in the sibling.",
+      "evidence": "The standalone supplies impaired eGFR, obtundation, new abnormal movements, and minimal improvement, but not renal baseline, vomiting, hydration duration, or serial neurologic decline.",
+      "priority": "P3"
+    }
+  ],
+  "defectSummary": "The canonical set remains uniquely defensible from the standalone stem, and no sibling fact is necessary for rankability. Several rationale details were imported from the sibling, while diarrhea remains unsupported in either case surface; these are non-key-changing rationale-specificity defects.",
+  "missingFactProvenance": [
+    {
+      "missingFact": "Active vomiting is asserted in the rationale but absent from the standalone stem.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "A4",
+      "provenance": "SIBLING_CASE_IMPORTED",
+      "sourceEvidence": "The sibling Stage 1 exhibit states that the patient vomits 150 mL of bilious fluid while becoming more lethargic."
+    },
+    {
+      "missingFact": "Vomiting, diarrhea, and consequent volume depletion are asserted in the rationale but absent from the standalone stem.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "C1",
+      "provenance": "OTHER_PROVENANCE",
+      "sourceEvidence": "The sibling documents vomiting and multiple findings of volume depletion, including weight loss, dry mucous membranes, decreased skin turgor, hypotension, and low urine output; diarrhea is not stated anywhere in the supplied sibling material."
+    },
+    {
+      "missingFact": "An acute kidney injury is asserted, but the stem states only that eGFR is impaired and does not establish acuity.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "C1",
+      "provenance": "SIBLING_CASE_IMPORTED",
+      "sourceEvidence": "The sibling gives creatinine 1.9 mg/dL with a baseline of 0.9 mg/dL and eGFR 28 mL/min/1.73 m², establishing acute renal deterioration."
+    },
+    {
+      "missingFact": "A four-hour duration of vigorous hydration is asserted in the rationale but absent from the standalone stem.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "A2",
+      "provenance": "SIBLING_CASE_IMPORTED",
+      "sourceEvidence": "The sibling identifies Stage 1 as the first four hours and reports at 1200 that lithium decreased only 0.2 mEq/L despite aggressive IV hydration."
+    },
+    {
+      "missingFact": "Hyperreflexia and clonus are referenced in the rationale but are not reported in the standalone stem.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "C3",
+      "provenance": "SIBLING_CASE_IMPORTED",
+      "sourceEvidence": "The sibling admission assessment reports 3+ patellar and Achilles reflexes with three beats of ankle clonus, and its C3-related rationale explicitly names hyperreflexia and clonus."
+    },
+    {
+      "missingFact": "A normal serum calcium value is asserted in the rationale but absent from the standalone stem.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "P1",
+      "provenance": "SIBLING_CASE_IMPORTED",
+      "sourceEvidence": "The sibling laboratory panel supplies a serum calcium of 9.4 mg/dL, which is within the usual adult reference range."
+    }
+  ],
+  "primaryVerdict": "PASS_STANDALONE",
+  "reasoning": "Under the fixed precedence, hidden dependency does not apply because every canonical target remains supported by the standalone stem without sibling rescue. The item is not underdetermined, the canonical key and logic are sound, and both blind records substantially align, with Stage 2 matching exactly. Sibling inspection identifies provenance leakage in the rationale rather than a standalone answerability failure, so the primary verdict remains PASS_STANDALONE with P3 collateral concerns.",
+  "scopeCollateral": [
+    {
+      "concern": "No material nursing-scope defect is apparent.",
+      "evidence": "Preparing for ordered emergent hemodialysis, maintaining aspiration precautions, and monitoring serial lithium levels and neurological status are appropriate nursing responsibilities; the action does not direct the nurse to independently prescribe dialysis.",
+      "priority": null
+    }
+  ],
+  "secondaryFlags": [
+    "SIBLING_CASE_DETAIL_LEAKAGE_IN_RATIONALE",
+    "RATIONALE_ASSERTS_UNSTATED_CLIENT_FACTS",
+    "DIARRHEA_UNSUPPORTED_ANYWHERE_CHECKED",
+    "MINOR_ZH_TERMINOLOGY_CONCERNS"
+  ]
+}

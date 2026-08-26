@@ -1,0 +1,185 @@
+{
+  "canonicalSelection": {
+    "actionLabels": [
+      "A1",
+      "A2"
+    ],
+    "conditionLabel": "C1",
+    "parameterLabels": [
+      "P4",
+      "P3"
+    ]
+  },
+  "instruction": "The two blind-stage records are immutable. Compare them with the now-revealed canonical 1/2/2 selection and complete standalone item. Do not inspect or infer sibling-case material. Return the required Phase-E structured JSON without revising either blind record.",
+  "standaloneItem": {
+    "bowtie": {
+      "actions": {
+        "prompt": {
+          "en": "Priority nursing actions",
+          "zh": "优先护理措施"
+        },
+        "tokens": [
+          {
+            "en": "Use structured assertive safety communication with the ordering provider",
+            "opaqueTokenLabel": "A1",
+            "zh": "与开嘱医生使用结构化、坚定的安全沟通"
+          },
+          {
+            "en": "Withhold the unsafe order and escalate through the chain of command",
+            "opaqueTokenLabel": "A2",
+            "zh": "暂缓不安全医嘱并按指挥链升级处理"
+          },
+          {
+            "en": "Refuse the order and document, but do not pursue a safe replacement order",
+            "opaqueTokenLabel": "A3",
+            "zh": "拒绝医嘱并记录，但不继续争取安全补钾医嘱"
+          },
+          {
+            "en": "Administer the potassium as originally ordered",
+            "opaqueTokenLabel": "A4",
+            "zh": "按原始医嘱给予氯化钾"
+          }
+        ]
+      },
+      "condition": {
+        "prompt": {
+          "en": "Most likely condition",
+          "zh": "最可能的情况"
+        },
+        "tokens": [
+          {
+            "en": "Unsafe medication order causing an interprofessional safety conflict",
+            "opaqueTokenLabel": "C1",
+            "zh": "不安全用药医嘱导致的跨专业安全冲突"
+          },
+          {
+            "en": "Personality clash or poor bedside manner only",
+            "opaqueTokenLabel": "C2",
+            "zh": "仅仅是性格冲突或态度不好"
+          },
+          {
+            "en": "Equivalent clinical-preference difference about potassium replacement",
+            "opaqueTokenLabel": "C3",
+            "zh": "关于补钾方式的同等临床偏好差异"
+          }
+        ]
+      },
+      "parameters": {
+        "prompt": {
+          "en": "Parameters to monitor",
+          "zh": "应监测的指标"
+        },
+        "tokens": [
+          {
+            "en": "Client's question about discharge timing",
+            "opaqueTokenLabel": "P1",
+            "zh": "患者询问出院时间"
+          },
+          {
+            "en": "Number of pages the resident is managing",
+            "opaqueTokenLabel": "P2",
+            "zh": "住院医正在处理的传呼数量"
+          },
+          {
+            "en": "Potassium trend, cardiac rhythm, and IV-site tolerance during replacement",
+            "opaqueTokenLabel": "P3",
+            "zh": "补钾期间的血钾趋势、心律和 IV 部位耐受性"
+          },
+          {
+            "en": "Revised order is protocol-compliant and original unsafe order is not administered",
+            "opaqueTokenLabel": "P4",
+            "zh": "修正医嘱符合流程，且原始不安全医嘱未被执行"
+          }
+        ]
+      }
+    },
+    "glossary": [
+      {
+        "defZh": "通过核对医嘱、患者资料、给药参数和机构流程来预防用药伤害。",
+        "termEn": "Medication safety",
+        "termZh": "用药安全"
+      },
+      {
+        "defZh": "可能对患者造成伤害、需要立即明确沟通和处理的情况。",
+        "termEn": "Safety issue",
+        "termZh": "安全问题"
+      },
+      {
+        "defZh": "观察心电节律以发现低钾或高钾相关心律异常。",
+        "termEn": "Cardiac rhythm monitoring",
+        "termZh": "心律监测"
+      }
+    ],
+    "rationale": {
+      "byChoice": [
+        {
+          "en": "This is the correct condition because the order conflicts with explicit potassium protocol limits and the client has worsening renal function.",
+          "opaqueTokenLabel": "C1",
+          "zh": "这是正确情况，因为医嘱与明确的补钾流程限制冲突，且患者肾功能恶化。"
+        },
+        {
+          "en": "The resident's irritated tone is a communication barrier, but the conflict is grounded in objective safety data.",
+          "opaqueTokenLabel": "C2",
+          "zh": "住院医语气不耐烦是沟通障碍，但冲突根源是客观安全资料。"
+        },
+        {
+          "en": "The case gives explicit protocol boundaries, so this is not a gray-zone preference difference.",
+          "opaqueTokenLabel": "C3",
+          "zh": "题干给出了明确流程界限，因此不是灰色地带的偏好差异。"
+        },
+        {
+          "en": "Structured assertive communication gives the provider a direct opportunity to address the safety concern.",
+          "opaqueTokenLabel": "A1",
+          "zh": "结构化坚定沟通给开嘱医生直接回应安全问题的机会。"
+        },
+        {
+          "en": "When direct communication fails, withholding the unsafe order and escalating protects the client while pursuing needed treatment.",
+          "opaqueTokenLabel": "A2",
+          "zh": "直接沟通无效时，暂缓不安全医嘱并升级处理既保护患者，也继续争取所需治疗。"
+        },
+        {
+          "en": "Giving the original order would expose the client to the rate, concentration, access, and renal-clearance risks identified by the nurse.",
+          "opaqueTokenLabel": "A4",
+          "zh": "执行原医嘱会让患者暴露于护士已识别的速度、浓度、通路和肾脏清除风险。"
+        },
+        {
+          "en": "Refusal without escalation fails to secure safe potassium replacement for a client who still needs treatment.",
+          "opaqueTokenLabel": "A3",
+          "zh": "只拒绝而不升级，无法为仍需治疗的患者取得安全补钾方案。"
+        },
+        {
+          "en": "This directly evaluates whether the safety process corrected the unsafe order before harm occurred.",
+          "opaqueTokenLabel": "P4",
+          "zh": "这直接评价安全流程是否在伤害发生前纠正了不安全医嘱。"
+        },
+        {
+          "en": "These parameters evaluate effectiveness and tolerance of the safer replacement plan.",
+          "opaqueTokenLabel": "P3",
+          "zh": "这些指标用于评价更安全补钾方案的有效性和耐受性。"
+        },
+        {
+          "en": "The discharge question is unrelated to whether the medication-order conflict was safely resolved.",
+          "opaqueTokenLabel": "P1",
+          "zh": "出院问题与用药医嘱冲突是否安全解决无关。"
+        },
+        {
+          "en": "The resident's workload may explain irritation, but it is not an objective safety outcome for this client.",
+          "opaqueTokenLabel": "P2",
+          "zh": "住院医工作量可能解释其不耐烦，但不是该患者的客观安全结果。"
+        }
+      ],
+      "correct": {
+        "en": "The condition is an unsafe medication-order conflict, not a personality issue. The priority nursing actions are to use structured assertive communication and, when the concern is not resolved, to withhold the unsafe order while escalating through the chain of command. Monitoring should confirm that the unsafe order was replaced by a protocol-compliant order and that the potassium replacement is effective and tolerated.",
+        "zh": "本题的情况是不安全用药医嘱引发的安全冲突，不是单纯人际问题。优先护理措施是使用结构化坚定沟通；若担忧未解决，则暂缓不安全医嘱并按指挥链升级处理。监测应确认不安全医嘱已被符合流程的医嘱取代，并确认补钾有效且患者可耐受。"
+      }
+    },
+    "stem": {
+      "en": "Stage 3 synthesis: A post-operative client with CKD had a potassium of 3.1 mEq/L. A covering resident ordered potassium chloride 40 mEq in 100 mL normal saline to infuse through a peripheral IV over 1 hour, despite a unit protocol limiting peripheral potassium to 10 mEq/100 mL and 10 mEq/hr and requiring renal-function verification. The nurse questioned the order; the resident insisted it be run without addressing the protocol or eGFR 34 mL/min. The nurse used the chain of command, the unsafe order was not administered, and a revised order of 10 mEq in 100 mL over 1 hour was obtained. Complete the bow-tie diagram.",
+      "zh": "第 3 阶段综合：一名合并 CKD 的术后患者血钾 3.1 mEq/L。值班住院医开出氯化钾 40 mEq 加入 100 mL 生理盐水、经外周 IV 1 小时输完的医嘱；但病区流程规定外周补钾限于 10 mEq/100 mL 和 10 mEq/hr，并要求核对肾功能。护士质疑该医嘱；住院医坚持执行，却未回应流程或 eGFR 34 mL/min 的问题。护士按指挥链处理，未执行不安全医嘱，并取得 10 mEq/100 mL、1 小时输完的修正医嘱。请完成 bow-tie 图。"
+    },
+    "testTakingStrategy": {
+      "en": "In bow-tie items, keep each zone separate: identify the safety problem, then select nursing actions within scope, then choose monitoring data that proves the plan worked.",
+      "zh": "做 bow-tie 题时要分清每个区域：先识别安全问题，再选择护士职责范围内的措施，最后选择能证明方案有效的监测资料。"
+    }
+  }
+}

@@ -1,0 +1,108 @@
+{
+  "advisoryPriority": "P1",
+  "bilingualCollateral": [
+    {
+      "concern": "The Chinese rendering of “sense of impending doom” as “濒危感” is understandable but less idiomatic and less precise than “濒死感” or “大难临头感.”",
+      "evidence": "The standalone stem pairs “a sense of impending doom” with “濒危感.”",
+      "priority": "P3"
+    },
+    {
+      "concern": "The C2 Chinese label slightly narrows the English diagnosis by explicitly framing it as a shock-type reaction.",
+      "evidence": "“Anaphylactic transfusion reaction” is rendered as “过敏性休克型输血反应”; “过敏性输血反应” or “输血相关过敏性休克反应” would align more directly depending on intended severity.",
+      "priority": "P3"
+    }
+  ],
+  "canonicalTargetSiblingOverlap": [
+    {
+      "classification": "SIBLING_CASE_IMPORTED",
+      "description": "The sibling uniquely supplies the A-positive client/B-positive unit mismatch required to establish the token's specified ABO cause.",
+      "opaqueTokenLabel": "C1",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "Sibling Stage 2 explicitly records the blood bank request for the discontinued unit, attached tubing, and post-reaction sample, but the action remains supportable from standard transfusion-reaction practice without that sibling order.",
+      "opaqueTokenLabel": "A2",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "Sibling Stages 2 and 3 corroborate escalation to ICU-level care, while the standalone hypotension, oliguria, bleeding, and coagulation results already support escalation.",
+      "opaqueTokenLabel": "A4",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CASE_IMPORTED",
+      "description": "Sibling Stage 2 supplies the Foley catheter assumed by the exact parameter wording; the standalone stem supports monitoring urine output and color but not the specified device.",
+      "opaqueTokenLabel": "P3",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling repeats and trends the platelet, fibrinogen, INR, and aPTT abnormalities, but the standalone stem already directly supports coagulation monitoring.",
+      "opaqueTokenLabel": "P4",
+      "overlap": true
+    }
+  ],
+  "clinicalCollateral": [
+    {
+      "concern": "The ABO etiology is clinically plausible but cannot be assigned from the hemolysis pattern alone.",
+      "evidence": "Acute intravascular hemolysis is strongly established, but ABO typing, compatibility testing, clerical findings, or an equivalent confirmation are absent from the standalone surface.",
+      "priority": "P0"
+    },
+    {
+      "concern": "The C3 rationale is too absolute in saying bacterial contamination does not explain the pattern.",
+      "evidence": "Septic transfusion reactions can produce fever, rigors, hypotension, and DIC; prominent hemolysis favors AHTR, but cultures or contamination testing are needed before categorical exclusion.",
+      "priority": "P3"
+    },
+    {
+      "concern": "A2 should remain tied to transfusion-service or facility protocol.",
+      "evidence": "Preserving and submitting the unit, tubing, and post-reaction specimens is standard, but exact specimen and transport requirements can vary by protocol.",
+      "priority": "P3"
+    }
+  ],
+  "defectSummary": "The standalone item appears extracted from the sibling's Stage 2 data while retaining facts available only elsewhere in that case. Most materially, C1 specifies ABO incompatibility even though the standalone stem contains no compatibility result; the sibling confirms the mismatch only at Stage 3. P3 likewise assumes a Foley supplied only by the sibling. The sibling cannot retroactively make those premises standalone-answerable.",
+  "missingFactProvenance": [
+    {
+      "missingFact": "Reaction-workup evidence establishing ABO incompatibility, such as a clerical mismatch or incompatible repeat ABO typing or crossmatch.",
+      "necessaryForRankability": true,
+      "opaqueTokenLabel": "C1",
+      "provenance": "SIBLING_CASE_IMPORTED",
+      "sourceEvidence": "Sibling Stage 3 states that the client is A-positive and the transfused unit was B-positive; the sibling summary also identifies a mislabeled pretransfusion specimen."
+    },
+    {
+      "missingFact": "Presence or placement of a Foley catheter.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "P3",
+      "provenance": "SIBLING_CASE_IMPORTED",
+      "sourceEvidence": "Sibling Stage 2 explicitly reports Foley catheter drainage, but the standalone stem mentions only oliguria and port-wine urine."
+    },
+    {
+      "missingFact": "Patient or blood-unit culture evidence confirming or excluding bacterial contamination.",
+      "necessaryForRankability": true,
+      "opaqueTokenLabel": "C3",
+      "provenance": "UNSUPPORTED_ANYWHERE_CHECKED",
+      "sourceEvidence": "Neither the standalone item nor the inspected sibling provides patient or blood-unit cultures or another direct contamination result."
+    },
+    {
+      "missingFact": "The rationale-asserted normal appearance of the peripheral IV site.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "P2",
+      "provenance": "SIBLING_CASE_IMPORTED",
+      "sourceEvidence": "The sibling baseline and Stage 1 records explicitly state that the IV site lacks redness, swelling, tenderness, or streaking; the standalone stem does not provide this finding."
+    }
+  ],
+  "primaryVerdict": "FAIL_HIDDEN_CASE_DEPENDENCY",
+  "reasoning": "Under the fixed precedence, hidden-case dependency controls because the sibling supplies facts necessary to the exact keyed ABO diagnosis and Foley-specific parameter wording that are absent from the standalone learner surface. This also satisfies the lower unsupported-token-premise and underdetermination verdicts: the hemolytic syndrome is clear, but its ABO cause is unproven and bacterial contamination lacks confirmatory or exclusionary evidence. Sibling corroboration of otherwise supported actions and coagulation monitoring does not cure standalone defects. No competing P0 nursing-scope hazard displaces the provenance verdict.",
+  "scopeCollateral": [
+    {
+      "concern": "No material nursing-scope violation was identified.",
+      "evidence": "A2 concerns specimen/unit handling and blood-bank coordination, while A4 directs escalation; vasopressors, dialysis evaluation, and component therapy are described as higher-level-care needs rather than independent nursing prescriptions.",
+      "priority": null
+    }
+  ],
+  "secondaryFlags": [
+    "ALSO_SATISFIES_FAIL_UNSUPPORTED_TOKEN_PREMISE",
+    "ALSO_SATISFIES_FAIL_UNDERDETERMINED"
+  ]
+}

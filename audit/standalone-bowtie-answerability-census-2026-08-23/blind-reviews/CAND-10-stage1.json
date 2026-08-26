@@ -1,0 +1,40 @@
+{
+  "condition": "Unauthorized access to protected health information constituting a suspected privacy breach",
+  "evaluationParameters": [
+    "Electronic audit logs confirm that the coworker’s unauthorized access ended and identify the records or information accessed",
+    "The privacy investigation and required follow-up are completed according to facility policy, including any indicated notifications or corrective measures"
+  ],
+  "missingInformation": [
+    "What information the coworker viewed, how long access lasted, and whether information was copied, disclosed, or otherwise used",
+    "The facility’s specific privacy-response policy and the applicable jurisdictional notification requirements",
+    "Whether the coworker had any legitimate role-based authorization not described in the stem"
+  ],
+  "priorityActions": [
+    "Immediately stop and prevent further unauthorized access to the electronic record",
+    "Report the incident through the facility’s privacy and incident-response process"
+  ],
+  "reasoning": "Opening a client’s electronic record without a care-related role is unauthorized access and a suspected privacy breach. The stem directly supports stopping access and initiating formal reporting; audit-log findings and completion of the privacy response best determine whether the event was contained and appropriately addressed.",
+  "stage1Confidence": "high",
+  "stemEvidence": [
+    {
+      "stemFact": "The coworker opened Mrs. Torrance's electronic record \"without a care role.\"",
+      "target": "condition"
+    },
+    {
+      "stemFact": "RN Jordan \"stopped further access.\"",
+      "target": "priorityAction1"
+    },
+    {
+      "stemFact": "RN Jordan \"started the facility reporting process.\"",
+      "target": "priorityAction2"
+    },
+    {
+      "stemFact": "The stem identifies electronic-record access and states that further access was stopped, making audit-log confirmation of cessation and scope the relevant evaluation measure.",
+      "target": "evaluationParameter1"
+    },
+    {
+      "stemFact": "The stem states that the facility reporting process was started, so completion of the resulting privacy investigation and follow-up evaluates the response.",
+      "target": "evaluationParameter2"
+    }
+  ]
+}

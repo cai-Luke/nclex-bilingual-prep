@@ -1,0 +1,43 @@
+{
+  "condition": "Suspected acetaminophen overdose with risk for acute hepatotoxicity",
+  "evaluationParameters": [
+    "Serum acetaminophen concentration interpreted according to the confirmed ingestion time.",
+    "Evidence of hepatic injury or dysfunction, including AST/ALT and PT/INR trends."
+  ],
+  "missingInformation": [
+    "Liam's current weight",
+    "Exact time of the last dose",
+    "Number and frequency of 15 mL doses",
+    "Total exposure during the preceding 24 hours and earlier repeated dosing",
+    "Any additional acetaminophen-containing products or other co-ingestants",
+    "Current symptoms and baseline liver or nutritional risk factors"
+  ],
+  "priorityActions": [
+    "Immediately clarify the time and frequency of dosing and whether Liam received any other acetaminophen-containing products.",
+    "Urgently notify the provider and Poison Control and arrange immediate evaluation under the acetaminophen-overdose protocol."
+  ],
+  "reasoning": "The documented dose is four times the listed weight-band volume, supporting suspected overdose, but the absence of timing, frequency, total exposure, weight, and co-exposure data prevents determining severity, acute versus repeated ingestion, or established toxicity.",
+  "stage1Confidence": "medium",
+  "stemEvidence": [
+    {
+      "stemFact": "Danielle reports giving Liam 15 mL of acetaminophen labeled 160 mg/5 mL, while the recorded weight-band dose is 3.75 mL.",
+      "target": "condition"
+    },
+    {
+      "stemFact": "The record does not yet document when the 15 mL dose was last given, how often it was given, or whether Liam received another acetaminophen-containing product.",
+      "target": "priorityAction1"
+    },
+    {
+      "stemFact": "The reported 15 mL dose equals 480 mg and is four times the clinic table's 3.75 mL dose.",
+      "target": "priorityAction2"
+    },
+    {
+      "stemFact": "Danielle reports administration of liquid acetaminophen, but the time of the last dose is undocumented.",
+      "target": "evaluationParameter1"
+    },
+    {
+      "stemFact": "The reported acetaminophen dose substantially exceeds the weight-band dose, creating a risk of hepatic injury.",
+      "target": "evaluationParameter2"
+    }
+  ]
+}

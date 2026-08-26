@@ -1,0 +1,38 @@
+{
+  "condition": "Postpartum preeclampsia with severe features",
+  "evaluationParameters": [
+    "Monitor blood pressure closely for reduction below the severe range without hypotension.",
+    "Monitor respiratory rate, deep-tendon reflexes, and urine output for magnesium sulfate toxicity and therapeutic safety."
+  ],
+  "missingInformation": [
+    "The stem does not provide pulse, respiratory rate, oxygen saturation, urine output, medication allergies or contraindications, timing between blood-pressure measurements, or treatment-response data needed to select a specific antihypertensive and define individualized safety thresholds."
+  ],
+  "priorityActions": [
+    "Initiate magnesium sulfate for seizure prophylaxis.",
+    "Administer an urgent rapid-acting antihypertensive per protocol to treat sustained severe hypertension."
+  ],
+  "reasoning": "New-onset postpartum severe hypertension with cerebral and visual symptoms, hyperreflexia with clonus, and proteinuria is most consistent with postpartum preeclampsia with severe features; normal platelets, liver enzymes, LDH, and creatinine argue against HELLP syndrome or current major end-organ laboratory dysfunction.",
+  "stage1Confidence": "high",
+  "stemEvidence": [
+    {
+      "stemFact": "Postpartum day 4 with BP 168/112 and 164/110, severe headache, scotomata, new facial edema, DTRs 3+ with ankle clonus, and urine protein-to-creatinine ratio 0.42.",
+      "target": "condition"
+    },
+    {
+      "stemFact": "Severe headache, scotomata, DTRs 3+, and ankle clonus indicate substantial neurologic irritability and seizure risk.",
+      "target": "priorityAction1"
+    },
+    {
+      "stemFact": "Two severe-range blood pressures are documented: 168/112 and 164/110.",
+      "target": "priorityAction2"
+    },
+    {
+      "stemFact": "Presenting blood pressures are 168/112 and 164/110.",
+      "target": "evaluationParameter1"
+    },
+    {
+      "stemFact": "DTRs are 3+ with ankle clonus; creatinine is 0.9 mg/dL.",
+      "target": "evaluationParameter2"
+    }
+  ]
+}

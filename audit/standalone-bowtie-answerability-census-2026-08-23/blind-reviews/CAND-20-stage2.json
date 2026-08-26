@@ -1,0 +1,128 @@
+{
+  "actionLabels": [
+    "A1",
+    "A4"
+  ],
+  "ambiguousAlternatives": [],
+  "conditionLabel": "C2",
+  "missingInformation": [],
+  "parameterLabels": [
+    "P3",
+    "P4"
+  ],
+  "poolAnswerability": "ANSWERABLE",
+  "reasoning": "The pool has one explicitly confirmed condition: a normotensive pulmonary embolism with right-ventricular strain and elevated biomarkers. Continuing UFH and maintaining ICU hemodynamic surveillance match the improving but potentially unstable presentation. SpO2/respiratory rate and heart rate/blood pressure are the two parameters most directly tied to the client's current abnormalities, response, and risk of deterioration.",
+  "selectionEvidence": [
+    {
+      "evidence": "CT-PA confirms a saddle pulmonary embolus with RV strain and elevated cardiac biomarkers, while systolic blood pressure remains above 90 mmHg.",
+      "opaqueTokenLabel": "C2"
+    },
+    {
+      "evidence": "RV strain, elevated biomarkers, hypoxemia, and potential for hemodynamic deterioration support ICU-level monitoring and an escalation plan.",
+      "opaqueTokenLabel": "A1"
+    },
+    {
+      "evidence": "The client is improving after initiation of the facility UFH protocol, supporting continuation with protocol-directed aPTT monitoring.",
+      "opaqueTokenLabel": "A4"
+    },
+    {
+      "evidence": "Severe dyspnea and hypoxemia are present, and SpO2 has changed during treatment.",
+      "opaqueTokenLabel": "P3"
+    },
+    {
+      "evidence": "Tachycardia and hemodynamic risk are present, and heart rate and blood pressure have changed during treatment.",
+      "opaqueTokenLabel": "P4"
+    }
+  ],
+  "stage2Confidence": "high",
+  "tokenPremiseTable": [
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "C1",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The confirmed pulmonary embolus and associated venous thromboembolism findings make tension pneumothorax clearly inferior within this pool.",
+      "supportingStemText": "CT-PA shows a saddle pulmonary embolus with RV/LV ratio 1.4 and septal bowing; the stem provides no pneumothorax finding."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "C2",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The diagnosis and defining normotensive right-ventricular-strain features are directly supplied.",
+      "supportingStemText": "CT-PA shows a saddle pulmonary embolus, RV/LV ratio 1.4, septal bowing, elevated troponin and BNP, and systolic BP remaining above 90 mmHg."
+    },
+    {
+      "missingPremise": "No ECG evidence of ST-segment elevation or other client-specific evidence of acute coronary occlusion is provided.",
+      "opaqueTokenLabel": "C3",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "LOW",
+      "rankabilityJustification": "Although the defining STEMI premise is absent, the confirmed pulmonary embolus adequately explains the biomarker elevation and presentation.",
+      "supportingStemText": "Troponin is elevated and rises slightly, but the stem identifies a pulmonary embolus with RV strain."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A1",
+      "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "These explicit severity findings support close hemodynamic monitoring and readiness to escalate if deterioration occurs.",
+      "supportingStemText": "The client has a saddle pulmonary embolus with RV strain, elevated troponin and BNP, hypoxemia, and systolic BP above 90 mmHg."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A2",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The proposed positioning is premised on hypotension, whereas the client is normotensive with improving perfusion.",
+      "supportingStemText": "Systolic BP has remained above 90 mmHg, and BP, urine output, and lactate improve over 4 hours."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A3",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "An isolated slight troponin rise during overall improvement does not support systemic thrombolysis, and recent major surgery adds an explicit bleeding-risk concern.",
+      "supportingStemText": "Troponin rises slightly, but HR, BP, SpO2, urine output, lactate, and pain improve while systolic BP remains above 90 mmHg; the client is postoperative day 2."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A4",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Continuation of the effective initiated anticoagulation protocol and its specified laboratory monitoring is directly supported.",
+      "supportingStemText": "A facility UFH protocol has been initiated, and multiple clinical measures improve over 4 hours."
+    },
+    {
+      "missingPremise": "A client temperature of 99 °F (37.2 °C) is not provided.",
+      "opaqueTokenLabel": "P1",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The absent temperature does not impair selection because oxygenation and hemodynamic trends directly evaluate the acute pulmonary embolism.",
+      "supportingStemText": "The stem reports no temperature measurement or fever-related finding."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "P2",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Serial D-dimer monitoring has no supplied client-specific role in evaluating the immediate respiratory or hemodynamic response.",
+      "supportingStemText": "Pulmonary embolism is already confirmed by CT-PA, and no D-dimer value or D-dimer-directed treatment endpoint is described."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "P3",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Respiratory status is an explicitly affected and treatment-responsive domain.",
+      "supportingStemText": "The client has severe dyspnea and hypoxemia, and SpO2 improves over 4 hours."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "P4",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Heart rate and blood pressure directly track stability and possible progression to hemodynamic compromise.",
+      "supportingStemText": "The client has tachycardia, systolic BP remains above 90 mmHg, and HR and BP improve over 4 hours."
+    }
+  ]
+}

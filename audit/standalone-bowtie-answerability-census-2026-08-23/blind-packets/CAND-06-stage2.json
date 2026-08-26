@@ -1,0 +1,61 @@
+{
+  "instruction": "Using only the standalone learner-facing English stem, prompts, and opaque token pools, select exactly one condition, two actions, and two parameters. Return the required structured JSON, including exactly one premise row for every opaque token. Do not infer absent client-specific facts.",
+  "prompts": {
+    "actions": "Priority actions",
+    "condition": "Most likely condition",
+    "parameters": "Parameters to monitor"
+  },
+  "stem": "Stage 3 synthesis: Mrs. Ellison has repeatedly refused PEG placement with documented intact decisional capacity. The physician's suggestion to schedule the consult anyway has been addressed. Palliative care confirms her capacity and wishes, and a family meeting is arranged. Complete the bow-tie diagram.",
+  "tokens": {
+    "actions": [
+      {
+        "label": "A1",
+        "text": "Schedule the PEG consult without patient consent to reduce family conflict"
+      },
+      {
+        "label": "A2",
+        "text": "Facilitate the interdisciplinary family meeting with palliative care and social work support"
+      },
+      {
+        "label": "A3",
+        "text": "Communicate directly with the physician that PEG consult should not proceed over the documented refusal"
+      },
+      {
+        "label": "A4",
+        "text": "Defer to the son's demand because he holds the DPOAHC document"
+      }
+    ],
+    "condition": [
+      {
+        "label": "C1",
+        "text": "Active surrogate decision-making by the DPOAHC holder"
+      },
+      {
+        "label": "C2",
+        "text": "Capacitated client's autonomous refusal challenged by dormant surrogate authority"
+      },
+      {
+        "label": "C3",
+        "text": "Impaired capacity causing an uninformed refusal"
+      }
+    ],
+    "parameters": [
+      {
+        "label": "P1",
+        "text": "Albumin and prealbumin trends"
+      },
+      {
+        "label": "P2",
+        "text": "Mrs. Ellison's statements show she feels heard and free from coercion"
+      },
+      {
+        "label": "P3",
+        "text": "Care plan and orders remain aligned with Mrs. Ellison's stated wishes"
+      },
+      {
+        "label": "P4",
+        "text": "Family satisfaction with the decision"
+      }
+    ]
+  }
+}

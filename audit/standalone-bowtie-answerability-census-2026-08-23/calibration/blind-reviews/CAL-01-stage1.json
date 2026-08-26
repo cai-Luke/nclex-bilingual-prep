@@ -1,0 +1,38 @@
+{
+  "condition": "Suspected acetaminophen overdose with risk for acute hepatotoxicity",
+  "evaluationParameters": [
+    "Time-adjusted serum acetaminophen concentration.",
+    "Hepatic injury and synthetic-function markers, including AST/ALT and INR."
+  ],
+  "missingInformation": [
+    "Liam's exact weight, the exact time and number of 15 mL doses, whether any additional acetaminophen was accessible or ingested, formulation confirmation, current symptoms, co-ingestants, and baseline laboratory results are needed to determine toxicity severity and treatment specificity."
+  ],
+  "priorityActions": [
+    "Stop further acetaminophen administration and secure the uncapped medication away from Liam.",
+    "Immediately contact Poison Control and the prescribing/emergency clinician for urgent toxicity evaluation and protocol-directed treatment."
+  ],
+  "reasoning": "The documented dose is threefold higher than the weight-band dose, making acetaminophen overdose the clearest condition; immediate exposure control, toxicology escalation, drug-level assessment, and hepatic monitoring are priorities.",
+  "stage1Confidence": "high",
+  "stemEvidence": [
+    {
+      "stemFact": "Danielle reports giving 15 mL of 160 mg/5 mL acetaminophen when the listed dose is 5 mL for Liam's weight band.",
+      "target": "condition"
+    },
+    {
+      "stemFact": "Liam is reaching for a cosmetics pouch containing uncapped acetaminophen.",
+      "target": "priorityAction1"
+    },
+    {
+      "stemFact": "The reported 15 mL dose is three times the clinic/package-table dose of 5 mL.",
+      "target": "priorityAction2"
+    },
+    {
+      "stemFact": "A potentially toxic acetaminophen dose was given, but the ingestion time is not stated.",
+      "target": "evaluationParameter1"
+    },
+    {
+      "stemFact": "Acetaminophen overdose creates a risk of hepatic injury.",
+      "target": "evaluationParameter2"
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "instruction": "Using only the standalone learner-facing English stem, prompts, and opaque token pools, select exactly one condition, two actions, and two parameters. Return the required structured JSON, including exactly one premise row for every opaque token. Do not infer absent client-specific facts.",
+  "prompts": {
+    "actions": "Priority actions",
+    "condition": "Most likely condition",
+    "parameters": "Parameters to monitor"
+  },
+  "stem": "At 09:15, a 71-year-old client recovering from acute decompensated heart failure has an active 11:00 discharge order. She desaturates to 89% after walking 40 feet, requires oxygen to recover, fails teach-back about her new medications and warning signs, cannot afford the prescribed diuretic, lives alone in a second-floor walk-up apartment, and has no home scale. BNP and weight are improving. Complete the bow-tie to identify the priority condition, actions, and monitoring parameters.",
+  "tokens": {
+    "actions": [
+      {
+        "label": "A1",
+        "text": "Mobilize case management, social work, clinical pharmacy, home health, and family support"
+      },
+      {
+        "label": "A2",
+        "text": "Proceed with discharge as ordered to free the telemetry bed"
+      },
+      {
+        "label": "A3",
+        "text": "Advocate to hold the discharge by communicating objective safety concerns and escalating if needed"
+      },
+      {
+        "label": "A4",
+        "text": "Provide additional written instructions and a follow-up appointment only"
+      }
+    ],
+    "condition": [
+      {
+        "label": "C1",
+        "text": "Routine discharge with standard written instructions"
+      },
+      {
+        "label": "C2",
+        "text": "Unsafe premature discharge"
+      },
+      {
+        "label": "C3",
+        "text": "Continued acute decompensation requiring indefinite inpatient treatment"
+      }
+    ],
+    "parameters": [
+      {
+        "label": "P1",
+        "text": "Repeat teach-back on medication purpose, daily weights, call parameters, and warning signs"
+      },
+      {
+        "label": "P2",
+        "text": "Repeat ambulation including stair simulation with oxygen saturation and recovery time"
+      },
+      {
+        "label": "P3",
+        "text": "BNP level alone"
+      },
+      {
+        "label": "P4",
+        "text": "Inpatient daily weight trend alone"
+      }
+    ]
+  }
+}

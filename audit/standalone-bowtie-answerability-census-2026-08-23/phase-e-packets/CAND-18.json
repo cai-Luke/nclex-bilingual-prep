@@ -1,0 +1,173 @@
+{
+  "canonicalSelection": {
+    "actionLabels": [
+      "A1",
+      "A3"
+    ],
+    "conditionLabel": "C1",
+    "parameterLabels": [
+      "P2",
+      "P3"
+    ]
+  },
+  "instruction": "The two blind-stage records are immutable. Compare them with the now-revealed canonical 1/2/2 selection and complete standalone item. Do not inspect or infer sibling-case material. Return the required Phase-E structured JSON without revising either blind record.",
+  "standaloneItem": {
+    "bowtie": {
+      "actions": {
+        "tokens": [
+          {
+            "en": "Activate the recovery-support plan before discharge: sponsor/NA logistics/MAT follow-up",
+            "opaqueTokenLabel": "A1",
+            "zh": "出院前启动恢复支持计划：赞助人、NA 后勤和 MAT 随访"
+          },
+          {
+            "en": "Complete paperwork and written instructions without addressing barriers",
+            "opaqueTokenLabel": "A2",
+            "zh": "只完成文书和书面说明，不处理障碍"
+          },
+          {
+            "en": "Teach the supervised pain plan and naloxone/overdose response with Marcus and Tanya",
+            "opaqueTokenLabel": "A3",
+            "zh": "与 Marcus 和 Tanya 宣教受监督疼痛方案及纳洛酮/过量应对"
+          },
+          {
+            "en": "Request a psychiatric hold solely because he disclosed craving",
+            "opaqueTokenLabel": "A4",
+            "zh": "仅因他透露渴求而申请精神科留观"
+          }
+        ]
+      },
+      "condition": {
+        "tokens": [
+          {
+            "en": "Acute relapse risk from converging physical and psychosocial stressors",
+            "opaqueTokenLabel": "C1",
+            "zh": "身体和心理社会压力共同导致的急性复发风险"
+          },
+          {
+            "en": "Active opioid withdrawal",
+            "opaqueTokenLabel": "C2",
+            "zh": "活动性阿片戒断"
+          },
+          {
+            "en": "Acute suicidal crisis requiring involuntary psychiatric hold",
+            "opaqueTokenLabel": "C3",
+            "zh": "需要非自愿精神科留观的急性自杀危机"
+          }
+        ]
+      },
+      "parameters": {
+        "tokens": [
+          {
+            "en": "Repeat urine drug screen at MAT follow-up as the primary ED safety marker",
+            "opaqueTokenLabel": "P1",
+            "zh": "以 MAT 随访时重复尿筛作为主要急诊安全指标"
+          },
+          {
+            "en": "Engagement with recovery supports and confirmed follow-up",
+            "opaqueTokenLabel": "P2",
+            "zh": "恢复支持参与情况及确认的随访"
+          },
+          {
+            "en": "Pain trajectory over the next 24–48 hours",
+            "opaqueTokenLabel": "P3",
+            "zh": "未来 24–48 小时的疼痛变化"
+          },
+          {
+            "en": "Serial HR and BP monitoring as the primary discharge outcome",
+            "opaqueTokenLabel": "P4",
+            "zh": "以连续 HR 和 BP 监测作为主要出院结果"
+          }
+        ]
+      }
+    },
+    "glossary": [
+      {
+        "defZh": "要求连接最可能状况、优先措施和监测参数的 NGN 题型。",
+        "termEn": "bow-tie item",
+        "termZh": "蝴蝶结题"
+      },
+      {
+        "defZh": "通过支持、治疗连接、应对计划和风险降低措施减少再次使用的策略。",
+        "termEn": "relapse prevention",
+        "termZh": "复发预防"
+      },
+      {
+        "defZh": "疼痛在一段时间内的变化方向和控制情况。",
+        "termEn": "pain trajectory",
+        "termZh": "疼痛变化轨迹"
+      }
+    ],
+    "rationale": {
+      "byChoice": [
+        {
+          "en": "Correct. He has pain, functional stress, shame, isolation, and craving with insight, making relapse prevention the central risk.",
+          "opaqueTokenLabel": "C1",
+          "zh": "正确。他有疼痛、功能压力、羞耻、孤立和有自知力的渴求，因此复发预防是核心风险。"
+        },
+        {
+          "en": "Incorrect. He took buprenorphine/naloxone, has no objective withdrawal signs, and his distress is pain- and psychosocially driven.",
+          "opaqueTokenLabel": "C2",
+          "zh": "不正确。他已服用丁丙诺啡/纳洛酮，无客观戒断体征，其痛苦主要由疼痛和心理社会因素驱动。"
+        },
+        {
+          "en": "Incorrect. He requires reassessment and planning, but repeated denial of suicidal intent and preserved engagement do not by themselves justify an involuntary psychiatric hold.",
+          "opaqueTokenLabel": "C3",
+          "zh": "不正确。他需要重新评估和计划，但反复否认自杀意图且仍能参与，本身不足以支持非自愿精神科留观。"
+        },
+        {
+          "en": "Correct. He is leaving a high-risk transition and has not yet activated sponsor, NA, or MAT follow-up supports.",
+          "opaqueTokenLabel": "A1",
+          "zh": "正确。他正处于高风险过渡期，尚未启动赞助人、NA 或 MAT 随访支持。"
+        },
+        {
+          "en": "Correct. Uncontrolled pain can drive relapse, and naloxone readiness lowers overdose mortality risk if relapse occurs.",
+          "opaqueTokenLabel": "A3",
+          "zh": "正确。无法控制的疼痛可推动复发；若发生复发，纳洛酮准备可降低过量死亡风险。"
+        },
+        {
+          "en": "Incorrect. Craving with insight and stated intent not to use should be met with planning and support, not automatic loss of autonomy.",
+          "opaqueTokenLabel": "A4",
+          "zh": "不正确。伴有自知力且表明不打算使用的渴求，应通过计划和支持处理，而不是自动剥夺自主权。"
+        },
+        {
+          "en": "Incorrect. Written instructions without solving transport, follow-up, pain escalation, and support contact barriers leave the safety plan inactive.",
+          "opaqueTokenLabel": "A2",
+          "zh": "不正确。若不解决交通、随访、疼痛升级和联系支持者的障碍，只有书面说明会让安全计划无法启动。"
+        },
+        {
+          "en": "Correct. Support engagement is a modifiable marker of whether the relapse-prevention plan is active.",
+          "opaqueTokenLabel": "P2",
+          "zh": "正确。支持参与情况是复发预防计划是否启动的可改变指标。"
+        },
+        {
+          "en": "Correct. Pain control over the next 24–48 hours directly affects suffering and relapse risk.",
+          "opaqueTokenLabel": "P3",
+          "zh": "正确。未来 24–48 小时的疼痛控制直接影响痛苦和复发风险。"
+        },
+        {
+          "en": "Incorrect. UDS can be part of MAT care, but it detects relapse after the fact and does not measure whether the ED safety plan is active.",
+          "opaqueTokenLabel": "P1",
+          "zh": "不正确。尿筛可作为 MAT 照护的一部分，但它是在事后发现复发，不能衡量急诊安全计划是否启动。"
+        },
+        {
+          "en": "Incorrect. His vital signs normalized with pain control; serial HR/BP does not evaluate the psychosocial discharge safety plan.",
+          "opaqueTokenLabel": "P4",
+          "zh": "不正确。他的生命体征随疼痛控制而正常化；连续 HR/BP 不能评估心理社会出院安全计划。"
+        }
+      ],
+      "correct": {
+        "en": "The bow-tie centers on acute relapse risk, not current withdrawal or an involuntary-hold-level suicidal crisis. The nurse’s two priority actions are to activate the recovery support network and provide integrated pain-management and naloxone teaching. The most useful parameters are whether support/follow-up are actually engaged and whether pain remains controlled over the next 24–48 hours.",
+        "zh": "蝴蝶结题聚焦急性复发风险，而不是当前戒断或达到非自愿留观级别的自杀危机。护士的两个优先措施是启动恢复支持网络，并提供整合的疼痛管理和纳洛酮宣教。最有用的监测参数是支持/随访是否真正启动，以及未来 24–48 小时疼痛是否得到控制。"
+      }
+    },
+    "stem": {
+      "en": "At discharge, Marcus’s nerve block is wearing off, pain is rising to 5/10, he has resumed buprenorphine/naloxone, and he openly acknowledges craving while stating he does not intend to use. He has not contacted his sponsor, has not confirmed MAT follow-up, is unsure how he will attend NA, and asks about pain escalation and Tanya’s naloxone kit. Complete the bow-tie by selecting the most likely condition, two priority actions, and two parameters to monitor.",
+      "zh": "出院时，Marcus 的神经阻滞正在减退，疼痛升至 5/10，他已恢复丁丙诺啡/纳洛酮，并坦诚承认有渴求但表示不打算使用。他尚未联系赞助人、尚未确认 MAT 随访、不确定如何参加 NA，并询问疼痛加重和 Tanya 的纳洛酮套装。请完成蝴蝶结题：选择最可能的状况、两个优先措施和两个需要监测的参数。"
+    },
+    "testTakingStrategy": {
+      "en": "For bow-tie questions, anchor the condition first, then choose actions and monitoring parameters that directly test whether that condition is improving.",
+      "zh": "做蝴蝶结题时，先锚定状况，再选择能直接检验该状况是否改善的措施和监测参数。"
+    }
+  }
+}

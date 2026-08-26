@@ -1,0 +1,56 @@
+{
+  "instruction": "Using only the standalone learner-facing English stem, prompts, and opaque token pools, select exactly one condition, two actions, and two parameters. Return the required structured JSON, including exactly one premise row for every opaque token. Do not infer absent client-specific facts.",
+  "stem": "A 58-year-old client with untreated non-small cell lung cancer and a known right mediastinal mass has worsening facial and periorbital edema, neck circumference increased from 44 cm to 47 cm, more prominent chest-wall venous collaterals, bilateral upper-extremity pitting edema, SpO2 90% on 2 L nasal cannula, short-phrase speech, and new faint inspiratory stridor over the trachea. Complete the bow-tie by selecting the most likely condition, two priority actions, and two parameters to monitor.",
+  "tokens": {
+    "actions": [
+      {
+        "label": "A1",
+        "text": "Increase oxygen delivery and keep the head of bed at 45 degrees or higher"
+      },
+      {
+        "label": "A2",
+        "text": "Activate emergency escalation and report new stridor with concern for airway compromise"
+      },
+      {
+        "label": "A3",
+        "text": "Lower the head of bed to facilitate a procedure or assessment"
+      },
+      {
+        "label": "A4",
+        "text": "Attempt a new opposite-arm IV before addressing airway and escalation"
+      }
+    ],
+    "condition": [
+      {
+        "label": "C1",
+        "text": "Acute decompensated heart failure with fluid overload"
+      },
+      {
+        "label": "C2",
+        "text": "SVC syndrome with impending airway compromise from mediastinal malignancy"
+      },
+      {
+        "label": "C3",
+        "text": "Isolated upper-extremity deep vein thrombosis"
+      }
+    ],
+    "parameters": [
+      {
+        "label": "P1",
+        "text": "Lower-extremity edema assessment"
+      },
+      {
+        "label": "P2",
+        "text": "Upper-body edema trend: serial neck circumference and facial/periorbital edema"
+      },
+      {
+        "label": "P3",
+        "text": "Airway patency: tracheal stridor, voice quality, and speech pattern"
+      },
+      {
+        "label": "P4",
+        "text": "Serial D-dimer values"
+      }
+    ]
+  }
+}

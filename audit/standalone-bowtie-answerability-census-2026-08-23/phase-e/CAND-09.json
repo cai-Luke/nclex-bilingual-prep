@@ -1,0 +1,103 @@
+{
+  "anyCanonicalTargetDependsOnAbsentFact": true,
+  "blindExactMatch": true,
+  "canonicalSelection": {
+    "actionLabels": [
+      "A2",
+      "A4"
+    ],
+    "conditionLabel": "C1",
+    "parameterLabels": [
+      "P2",
+      "P3"
+    ]
+  },
+  "canonicalSetExplanation": "C1, A2, P2, and P3 are uniquely supported, and the non-keyed alternatives are inferior. A4, however, is only conditionally appropriate: uninterrupted IVIG requires evidence that the client is tolerating the infusion. Because diaphoresis and hemodynamic instability occur while IVIG is being administered, an infusion reaction cannot be excluded from the standalone stem. If such a reaction is present, A4 could be unsafe, and the pool offers no clearly correct replacement second action.",
+  "canonicalSetUniquelyDefensible": false,
+  "canonicalTargetSupport": [
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "C1",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "The stem explicitly confirms Guillain-Barre syndrome and supplies progressive quadriparesis, ineffective cough, absent gag reflex, FVC 19 mL/kg, MIP -26 cmH2O, few-word speech, and diaphoresis."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "A2",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "Ineffective cough, absent gag reflex, reduced FVC, weak MIP, few-word speech, and diaphoresis directly indicate threatened ventilation and airway protection."
+    },
+    {
+      "missingClientFact": "Confirmation that IVIG is being tolerated and that the diaphoresis and hemodynamic instability do not represent a clinically significant infusion reaction requiring interruption or rate adjustment.",
+      "opaqueTokenLabel": "A4",
+      "supportClassification": "MISSING_CLIENT_FACT",
+      "supportingStandaloneEvidence": "The stem states that the client is receiving IVIG, but diaphoresis, tachycardia, and labile blood pressure are present during treatment."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "P2",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "The stem provides FVC 1.6 L (19 mL/kg) and MIP -26 cmH2O as current respiratory-mechanics measurements."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "P3",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "Labile blood pressure and tachycardia directly support monitoring heart-rate and blood-pressure variability."
+    }
+  ],
+  "distractorPremiseFindings": [
+    {
+      "explanation": "The stem supplies no sensory level, spinal-cord findings, or bowel/bladder dysfunction supporting transverse myelitis, while explicitly confirming GBS.",
+      "opaqueTokenLabel": "C2",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "No fatigable, ocular, or established myasthenic findings are supplied, while the client has confirmed post-Campylobacter GBS.",
+      "opaqueTokenLabel": "C3",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "General nursing knowledge contradicts corticosteroids as effective disease-modifying treatment for GBS.",
+      "opaqueTokenLabel": "A1",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "The ineffective cough and absent gag reflex indicate impaired airway protection, which BiPAP cannot secure and which favors definitive intubation.",
+      "opaqueTokenLabel": "A3",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "Repeat CSF protein does not measure acute respiratory mechanics or guide immediate airway stabilization, and the standalone stem supplies no CSF result to trend.",
+      "opaqueTokenLabel": "P1",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "SpO2 alone is insufficient to evaluate neuromuscular ventilatory failure and may remain preserved despite worsening respiratory-muscle weakness.",
+      "opaqueTokenLabel": "P4",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    }
+  ],
+  "missingClientFacts": [
+    {
+      "keyed": true,
+      "missingFact": "Whether the diaphoresis, tachycardia, and labile blood pressure represent GBS dysautonomia or a clinically significant IVIG infusion reaction, and whether the infusion is otherwise tolerated.",
+      "opaqueTokenLabel": "A4",
+      "rankabilityImpact": "MATERIAL"
+    }
+  ],
+  "notes": [
+    "The Stage-2 blind selection exactly matched the canonical 1/2/2 set.",
+    "The rationale imports several facts absent from the standalone stem, including ascending areflexic weakness, albuminocytologic dissociation, demyelinating nerve-conduction findings, preserved reflexes in an alternative diagnosis, prior CSF diagnostic use, sensory-level findings, spinal MRI findings, and bowel/bladder findings. These claims should be removed or explicitly added to the stem.",
+    "The A4 rationale's qualification, \"unless a separate safety issue occurs,\" acknowledges the missing safety premise but does not resolve it in the learner-facing stem."
+  ],
+  "stage1Alignment": "PARTIAL",
+  "stage1AlignmentExplanation": "Stage 1 independently identified impending neuromuscular respiratory failure, intubation, and serial FVC/MIP monitoring, aligning with C1, A2, and P2. Its second action addressed aspiration precautions rather than continued IVIG, and its second parameter addressed oxygenation/ventilation rather than autonomic variability, so alignment is three of five targets.",
+  "unstatedClientFactMateriallyChangesRankability": true
+}

@@ -1,0 +1,173 @@
+{
+  "canonicalSelection": {
+    "actionLabels": [
+      "A1",
+      "A2"
+    ],
+    "conditionLabel": "C2",
+    "parameterLabels": [
+      "P3",
+      "P2"
+    ]
+  },
+  "instruction": "The two blind-stage records are immutable. Compare them with the now-revealed canonical 1/2/2 selection and complete standalone item. Do not inspect or infer sibling-case material. Return the required Phase-E structured JSON without revising either blind record.",
+  "standaloneItem": {
+    "bowtie": {
+      "actions": {
+        "tokens": [
+          {
+            "en": "Increase oxygen delivery and keep the head of bed at 45 degrees or higher",
+            "opaqueTokenLabel": "A1",
+            "zh": "提高氧气输送并保持床头45度或更高"
+          },
+          {
+            "en": "Activate emergency escalation and report new stridor with concern for airway compromise",
+            "opaqueTokenLabel": "A2",
+            "zh": "启动紧急升级并报告新发喘鸣及气道受威胁风险"
+          },
+          {
+            "en": "Lower the head of bed to facilitate a procedure or assessment",
+            "opaqueTokenLabel": "A3",
+            "zh": "降低床头以便进行操作或评估"
+          },
+          {
+            "en": "Attempt a new opposite-arm IV before addressing airway and escalation",
+            "opaqueTokenLabel": "A4",
+            "zh": "在处理气道和升级求援前先尝试对侧手臂IV"
+          }
+        ]
+      },
+      "condition": {
+        "tokens": [
+          {
+            "en": "Acute decompensated heart failure with fluid overload",
+            "opaqueTokenLabel": "C1",
+            "zh": "容量负荷过重导致的急性失代偿性心力衰竭"
+          },
+          {
+            "en": "SVC syndrome with impending airway compromise from mediastinal malignancy",
+            "opaqueTokenLabel": "C2",
+            "zh": "纵隔恶性肿瘤导致的上腔静脉综合征并有即将发生气道受威胁"
+          },
+          {
+            "en": "Isolated upper-extremity deep vein thrombosis",
+            "opaqueTokenLabel": "C3",
+            "zh": "孤立性上肢深静脉血栓"
+          }
+        ]
+      },
+      "parameters": {
+        "tokens": [
+          {
+            "en": "Lower-extremity edema assessment",
+            "opaqueTokenLabel": "P1",
+            "zh": "下肢水肿评估"
+          },
+          {
+            "en": "Upper-body edema trend: serial neck circumference and facial/periorbital edema",
+            "opaqueTokenLabel": "P2",
+            "zh": "上半身水肿趋势：连续颈围及面部/眶周水肿"
+          },
+          {
+            "en": "Airway patency: tracheal stridor, voice quality, and speech pattern",
+            "opaqueTokenLabel": "P3",
+            "zh": "气道通畅性：气管喘鸣、声音质量和说话模式"
+          },
+          {
+            "en": "Serial D-dimer values",
+            "opaqueTokenLabel": "P4",
+            "zh": "连续D-二聚体数值"
+          }
+        ]
+      }
+    },
+    "glossary": [
+      {
+        "defZh": "要求连接最可能情况、优先措施和监测参数的NGN题型。",
+        "termEn": "Bow-tie item",
+        "termZh": "弓形题"
+      },
+      {
+        "defZh": "目前尚未完全阻塞，但有进展为严重气道阻塞风险的状态。",
+        "termEn": "Impending airway compromise",
+        "termZh": "即将发生气道受威胁"
+      },
+      {
+        "defZh": "通过介入方式撑开受阻上腔静脉以缓解静脉回流障碍的治疗。",
+        "termEn": "SVC stenting",
+        "termZh": "上腔静脉支架置入"
+      }
+    ],
+    "rationale": {
+      "byChoice": [
+        {
+          "en": "This condition explains the bilateral upper-body venous congestion, chest-wall collaterals, known mediastinal mass, positional worsening, hypoxemia, and new stridor.",
+          "opaqueTokenLabel": "C2",
+          "zh": "该情况能解释双侧上半身静脉淤血、胸壁侧支静脉、已知纵隔肿块、体位相关加重、低氧以及新发喘鸣。"
+        },
+        {
+          "en": "Heart failure does not fit the anatomy: there are no crackles or lower-extremity edema, and the congestion is concentrated above the diaphragm.",
+          "opaqueTokenLabel": "C1",
+          "zh": "心力衰竭不符合解剖分布：无湿啰音或下肢水肿，淤血集中在横膈以上。"
+        },
+        {
+          "en": "An isolated upper-extremity DVT would not cause symmetric facial, neck, and bilateral arm findings with chest-wall collaterals.",
+          "opaqueTokenLabel": "C3",
+          "zh": "孤立性上肢DVT不能导致面部、颈部和双臂对称受累并出现胸壁侧支静脉。"
+        },
+        {
+          "en": "Oxygen escalation and upright positioning directly support breathing and reduce venous congestion above the obstruction.",
+          "opaqueTokenLabel": "A1",
+          "zh": "升级氧疗和保持坐高位可直接支持呼吸并减少阻塞上方的静脉淤血。"
+        },
+        {
+          "en": "New stridor is a time-critical airway warning that requires emergency escalation and provider-level intervention readiness.",
+          "opaqueTokenLabel": "A2",
+          "zh": "新发喘鸣是需限时处理的气道警讯，需要紧急升级并准备医护层级干预。"
+        },
+        {
+          "en": "Lowering the head of bed would worsen venous pressure above the obstruction and previously caused desaturation in this client.",
+          "opaqueTokenLabel": "A3",
+          "zh": "降低床头会加重阻塞上方静脉压力，而且该患者先前已因此出现氧饱和度下降。"
+        },
+        {
+          "en": "Opposite-arm access is still upper-extremity venous access and should not delay airway management or escalation.",
+          "opaqueTokenLabel": "A4",
+          "zh": "对侧手臂通路仍属于上肢静脉通路，不应延误气道处理或升级求援。"
+        },
+        {
+          "en": "Stridor, voice change, and speech pattern are direct bedside markers of airway narrowing or improvement.",
+          "opaqueTokenLabel": "P3",
+          "zh": "喘鸣、声音变化和说话模式是床旁判断气道狭窄或改善的直接指标。"
+        },
+        {
+          "en": "Neck circumference and facial/periorbital edema track the venous congestion above the SVC obstruction.",
+          "opaqueTokenLabel": "P2",
+          "zh": "颈围和面部/眶周水肿可追踪上腔静脉阻塞上方的静脉淤血程度。"
+        },
+        {
+          "en": "Leg edema is the wrong anatomic territory for isolated SVC obstruction and does not track the immediate airway threat.",
+          "opaqueTokenLabel": "P1",
+          "zh": "下肢水肿属于与孤立SVC受阻不相符的解剖区域，不能追踪眼前的气道威胁。"
+        },
+        {
+          "en": "D-dimer is nonspecific in malignancy and does not measure mechanical SVC obstruction or airway edema.",
+          "opaqueTokenLabel": "P4",
+          "zh": "恶性肿瘤患者D-二聚体不特异，不能衡量机械性SVC受阻或气道水肿。"
+        }
+      ],
+      "correct": {
+        "en": "The bow-tie centers on malignant SVC syndrome that has progressed to impending airway compromise. The nurse’s priority is to support oxygenation and upright positioning while activating emergency escalation for possible advanced-airway and definitive obstruction-directed interventions. Monitoring should focus on airway patency and upper-body edema trends.",
+        "zh": "本弓形题的核心是恶性肿瘤相关上腔静脉综合征已进展为即将发生气道受威胁。护士的优先事项是在维持氧合和坐高位的同时启动紧急升级，以便准备高级气道和针对阻塞的根本性干预。监测重点应放在气道通畅性和上半身水肿趋势。"
+      }
+    },
+    "stem": {
+      "en": "A 58-year-old client with untreated non-small cell lung cancer and a known right mediastinal mass has worsening facial and periorbital edema, neck circumference increased from 44 cm to 47 cm, more prominent chest-wall venous collaterals, bilateral upper-extremity pitting edema, SpO2 90% on 2 L nasal cannula, short-phrase speech, and new faint inspiratory stridor over the trachea. Complete the bow-tie by selecting the most likely condition, two priority actions, and two parameters to monitor.",
+      "zh": "一名58岁患者患尚未治疗的非小细胞肺癌，并已知存在右纵隔肿块。现在面部和眶周水肿加重，颈围从44 cm增至47 cm，胸壁侧支静脉更加明显，双上肢出现凹陷性水肿，鼻导管2 L时SpO2为90%，只能短语交流，并且气管上方新出现轻微吸气性喘鸣。请选择最可能的情况、两个优先措施和两个需要监测的参数，完成弓形题。"
+    },
+    "testTakingStrategy": {
+      "en": "For bow-tie items, first name the problem using the whole cue cluster, then choose actions and monitoring parameters that match the immediate threat.",
+      "zh": "做弓形题时，先根据完整线索群命名问题，再选择与立即威胁相匹配的措施和监测参数。"
+    }
+  }
+}

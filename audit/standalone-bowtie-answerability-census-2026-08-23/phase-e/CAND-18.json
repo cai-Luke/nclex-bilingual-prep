@@ -1,0 +1,139 @@
+{
+  "anyCanonicalTargetDependsOnAbsentFact": false,
+  "blindExactMatch": true,
+  "canonicalSelection": {
+    "actionLabels": [
+      "A1",
+      "A3"
+    ],
+    "conditionLabel": "C1",
+    "parameterLabels": [
+      "P2",
+      "P3"
+    ]
+  },
+  "canonicalSetExplanation": "The canonical set is the only 1/2/2 combination directly responsive to the stated problem: converging pain, craving, and inactive recovery supports. The distractors require withdrawal, suicidality, toxicology, or hemodynamic premises absent from the standalone stem, or deliberately fail to address explicit barriers.",
+  "canonicalSetUniquelyDefensible": true,
+  "canonicalTargetSupport": [
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "C1",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "Pain is rising as the nerve block wears off, Marcus acknowledges craving, and sponsor, NA, and MAT follow-up supports remain unresolved at discharge."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "A1",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "He has not contacted his sponsor, has not confirmed MAT follow-up, and is unsure how he will attend NA."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "A3",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "He asks about pain escalation and Tanya’s naloxone kit while his pain is rising."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "P2",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "Sponsor contact, MAT follow-up, and NA attendance logistics are explicitly unconfirmed."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "P3",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "His nerve block is wearing off and pain is rising to 5/10."
+    }
+  ],
+  "distractorPremiseFindings": [
+    {
+      "explanation": "Pain and craving are nonspecific; the stem supplies no objective withdrawal findings or withdrawal assessment establishing active opioid withdrawal.",
+      "opaqueTokenLabel": "C2",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "LOW"
+    },
+    {
+      "explanation": "The statement that Marcus does not intend to use refers to opioid use, not suicide, and the stem supplies no suicidal ideation, intent, plan, or immediate-danger finding.",
+      "opaqueTokenLabel": "C3",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "The stem explicitly presents unresolved transport, follow-up, support-contact, pain-escalation, and naloxone barriers that paperwork alone would leave unaddressed.",
+      "opaqueTokenLabel": "A2",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "Craving disclosure alone does not provide evidence of immediate danger or another stated basis for involuntary psychiatric detention.",
+      "opaqueTokenLabel": "A4",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "No prior toxicology result, suspected recent use, or client-specific reason makes a repeat urine screen the primary safety marker; the stem also does not identify the setting as an ED.",
+      "opaqueTokenLabel": "P1",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "LOW"
+    },
+    {
+      "explanation": "No abnormal heart rate, blood pressure, or hemodynamic instability is supplied to support serial vital signs as the primary discharge outcome.",
+      "opaqueTokenLabel": "P4",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "LOW"
+    }
+  ],
+  "missingClientFacts": [
+    {
+      "keyed": true,
+      "missingFact": "Functional stress, shame, and isolation asserted in the revealed rationale",
+      "opaqueTokenLabel": "C1",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "keyed": true,
+      "missingFact": "The contents of an established supervised pain plan and Tanya’s availability for teaching",
+      "opaqueTokenLabel": "A3",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "keyed": false,
+      "missingFact": "Objective opioid-withdrawal findings or an objective withdrawal score",
+      "opaqueTokenLabel": "C2",
+      "rankabilityImpact": "LOW"
+    },
+    {
+      "keyed": false,
+      "missingFact": "Any suicidal ideation, intent, plan, or repeated denial of suicidal intent",
+      "opaqueTokenLabel": "C3",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "keyed": false,
+      "missingFact": "Evidence of immediate danger or another criterion supporting involuntary psychiatric detention",
+      "opaqueTokenLabel": "A4",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "keyed": false,
+      "missingFact": "A prior urine drug screen, suspected recent opioid use, and confirmation that this is an ED discharge",
+      "opaqueTokenLabel": "P1",
+      "rankabilityImpact": "LOW"
+    },
+    {
+      "keyed": false,
+      "missingFact": "Vital-sign measurements showing prior abnormality and normalization after pain control",
+      "opaqueTokenLabel": "P4",
+      "rankabilityImpact": "LOW"
+    }
+  ],
+  "notes": [
+    "The revealed rationale introduces functional stress, shame, isolation, repeated denial of suicidal intent, and normalized vital signs, none of which appear in the standalone stem.",
+    "The assertion that Marcus has no objective withdrawal signs is not an explicitly documented assessment in the stem; the defensible standalone conclusion is only that no such signs are provided.",
+    "These rationale embellishments are unnecessary to rank the options because all five canonical targets have direct standalone support."
+  ],
+  "stage1Alignment": "FULL",
+  "stage1AlignmentExplanation": "Stage 1 independently identified acute opioid-relapse risk, activation of MAT and recovery supports, coordinated pain and naloxone teaching, recovery-support engagement, and pain trajectory. These semantically match C1, A1, A3, P2, and P3.",
+  "unstatedClientFactMateriallyChangesRankability": false
+}

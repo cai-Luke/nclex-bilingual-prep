@@ -1,0 +1,56 @@
+{
+  "instruction": "Using only the standalone learner-facing English stem, prompts, and opaque token pools, select exactly one condition, two actions, and two parameters. Return the required structured JSON, including exactly one premise row for every opaque token. Do not infer absent client-specific facts.",
+  "stem": "A 55-year-old man with decompensated cirrhosis was admitted for acute esophageal variceal hemorrhage. Endoscopic band ligation achieved hemostasis, and his hemoglobin is stable at 7.6 g/dL with no further hematemesis. Twelve to 24 hours later, he is confused and somnolent, has asterixis, ammonia has risen to 124 µmol/L, creatinine has risen to 1.8 mg/dL with urine output 15 mL/hr, and diagnostic paracentesis shows ascitic neutrophils 484 cells/µL. Complete the bow-tie by selecting the most likely condition, two priority nursing actions, and two parameters to monitor.",
+  "tokens": {
+    "actions": [
+      {
+        "label": "A1",
+        "text": "Transfuse additional PRBCs to raise hemoglobin above 8 g/dL because mental status worsened."
+      },
+      {
+        "label": "A2",
+        "text": "Administer lactulose as ordered and rifaximin every 12 hours."
+      },
+      {
+        "label": "A3",
+        "text": "Notify the provider of SBP-confirming paracentesis results and anticipate albumin/antibiotic reassessment."
+      },
+      {
+        "label": "A4",
+        "text": "Document likely residual sedation and defer encephalopathy treatment until the next routine assessment."
+      }
+    ],
+    "condition": [
+      {
+        "label": "C1",
+        "text": "Recurrent hypovolemic shock with cerebral hypoperfusion"
+      },
+      {
+        "label": "C2",
+        "text": "Hepatic encephalopathy precipitated by GI blood load, SBP, and AKI"
+      },
+      {
+        "label": "C3",
+        "text": "Residual procedural sedation after endoscopy"
+      }
+    ],
+    "parameters": [
+      {
+        "label": "P1",
+        "text": "Urine output and serum creatinine trend"
+      },
+      {
+        "label": "P2",
+        "text": "Serial neurological assessments: level of consciousness, orientation, asterixis, ability to follow commands"
+      },
+      {
+        "label": "P3",
+        "text": "Blood alcohol level"
+      },
+      {
+        "label": "P4",
+        "text": "Lactate level as the primary marker of the current problem"
+      }
+    ]
+  }
+}

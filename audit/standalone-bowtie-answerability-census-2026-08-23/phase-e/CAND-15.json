@@ -1,0 +1,160 @@
+{
+  "anyCanonicalTargetDependsOnAbsentFact": false,
+  "blindExactMatch": true,
+  "canonicalSelection": {
+    "actionLabels": [
+      "A2",
+      "A4"
+    ],
+    "conditionLabel": "C3",
+    "parameterLabels": [
+      "P3",
+      "P1"
+    ]
+  },
+  "canonicalSetExplanation": "C3 uniquely integrates the infection-risk and hypoperfusion cue cluster. A2 and A4 are the only actions that promptly treat and escalate the deterioration without delay. P3 and P1 are the only parameters that directly track immediate perfusion response. The canonical set remains uniquely defensible from the standalone stem even though parts of the supplied rationale introduce facts not stated there.",
+  "canonicalSetUniquelyDefensible": true,
+  "canonicalTargetSupport": [
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "C3",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "Confirmed severe neutropenia with persistent fever, HR 118, BP 92/58, RR 24, capillary refill 4 seconds, urine output 60 mL over 4 hours, and lactate 3.2 mmol/L directly supports neutropenic fever progressing toward sepsis."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "A2",
+      "supportClassification": "GENERAL_KNOWLEDGE_LINK",
+      "supportingStandaloneEvidence": "Hypotension, delayed capillary refill, oliguria, and elevated lactate indicate hypoperfusion; protocol-directed isotonic crystalloid resuscitation addresses that immediate threat."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "A4",
+      "supportClassification": "GENERAL_KNOWLEDGE_LINK",
+      "supportingStandaloneEvidence": "Persistent fever in severe neutropenia plus tachycardia, hypotension, oliguria, delayed refill, and elevated lactate constitutes acute deterioration requiring rapid escalation."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "P3",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "BP 92/58 and urine output of 60 mL over 4 hours are explicitly abnormal perfusion measures suitable for immediate reassessment."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "P1",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "The stem explicitly provides an elevated lactate of 3.2 mmol/L, making subsequent lactate values a direct treatment-response measure."
+    }
+  ],
+  "distractorPremiseFindings": [
+    {
+      "explanation": "Antibiotic exposure is stated, but the stem does not provide an immediate temporal reaction pattern, urticaria, wheezing, angioedema, or other allergic manifestations. It also does not state whether a blood product was administered.",
+      "opaqueTokenLabel": "C1",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "MATERIAL"
+    },
+    {
+      "explanation": "The stem provides no poor oral intake, gastrointestinal loss, or other source of uncomplicated dehydration. The fever and severe neutropenia also make simple dehydration less integrative than C3.",
+      "opaqueTokenLabel": "C2",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "MATERIAL"
+    },
+    {
+      "explanation": "Hypotension, tachycardia, delayed refill, oliguria, and elevated lactate demonstrate current deterioration and contradict waiting for a scheduled reassessment.",
+      "opaqueTokenLabel": "A1",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "MATERIAL"
+    },
+    {
+      "explanation": "The client has current hypoperfusion, so cultures or additional antibiotic orders must not delay perfusion-restoring intervention.",
+      "opaqueTokenLabel": "A3",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "MATERIAL"
+    },
+    {
+      "explanation": "No respiratory symptoms, abnormal pulmonary findings, or baseline chest-imaging abnormality makes repeat chest X-ray the immediate response marker.",
+      "opaqueTokenLabel": "P2",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "MATERIAL"
+    },
+    {
+      "explanation": "Confirmed severe neutropenia supports the clinical relevance of WBC/ANC, but short-interval WBC/ANC testing is less responsive to immediate resuscitation than MAP, urine output, and lactate.",
+      "opaqueTokenLabel": "P4",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "MATERIAL"
+    }
+  ],
+  "missingClientFacts": [
+    {
+      "keyed": false,
+      "missingFact": "Whether the client recently received a blood product",
+      "opaqueTokenLabel": "C1",
+      "rankabilityImpact": "MATERIAL"
+    },
+    {
+      "keyed": false,
+      "missingFact": "The timing of deterioration relative to the antibiotic infusion and whether urticaria, wheezing, angioedema, or another immediate allergic manifestation occurred",
+      "opaqueTokenLabel": "C1",
+      "rankabilityImpact": "MATERIAL"
+    },
+    {
+      "keyed": false,
+      "missingFact": "Whether poor oral intake, gastrointestinal losses, or another uncomplicated dehydration source is present",
+      "opaqueTokenLabel": "C2",
+      "rankabilityImpact": "MATERIAL"
+    },
+    {
+      "keyed": false,
+      "missingFact": "Whether IV fluids were already administered and how the client responded",
+      "opaqueTokenLabel": "C2",
+      "rankabilityImpact": "MATERIAL"
+    },
+    {
+      "keyed": true,
+      "missingFact": "Any prior crystalloid volume, response to fluids, or client-specific contraindication affecting further bolus administration",
+      "opaqueTokenLabel": "A2",
+      "rankabilityImpact": "MATERIAL"
+    },
+    {
+      "keyed": true,
+      "missingFact": "A prior lactate value establishing that the lactate is rising rather than providing only a single elevated measurement",
+      "opaqueTokenLabel": "P1",
+      "rankabilityImpact": "LOW"
+    },
+    {
+      "keyed": true,
+      "missingFact": "Any altered or slowed responsiveness",
+      "opaqueTokenLabel": "C3",
+      "rankabilityImpact": "LOW"
+    },
+    {
+      "keyed": true,
+      "missingFact": "The suspected infection source and culture results",
+      "opaqueTokenLabel": "C3",
+      "rankabilityImpact": "LOW"
+    },
+    {
+      "keyed": true,
+      "missingFact": "Whether hypotension persists after adequate fluid resuscitation and whether vasopressors are required",
+      "opaqueTokenLabel": "C3",
+      "rankabilityImpact": "LOW"
+    },
+    {
+      "keyed": false,
+      "missingFact": "Respiratory symptoms, abnormal lung findings, or a baseline chest X-ray abnormality requiring immediate imaging follow-up",
+      "opaqueTokenLabel": "P2",
+      "rankabilityImpact": "MATERIAL"
+    }
+  ],
+  "notes": [
+    "The canonical rationale calls the lactate rising, but the standalone stem supplies only one lactate value.",
+    "The rationale states or implies prior IV fluids, although the stem mentions only initial empiric antibiotics.",
+    "The rationale treats poor intake as background context, but poor intake is not stated in the standalone stem.",
+    "The rationale mentions slower responses, but no mental-status or response-speed finding appears in the stem.",
+    "The rationale states that there was no blood-product exposure and no allergic manifestations; the stem does not affirm those absences, so the defensible conclusion is only that such evidence was not supplied.",
+    "These unsupported rationale details are not necessary to support any canonical target, but some would materially affect distractor rankability if established."
+  ],
+  "stage1Alignment": "FULL",
+  "stage1AlignmentExplanation": "Stage 1 independently identified neutropenic sepsis with hypoperfusion, immediate isotonic crystalloid resuscitation, urgent sepsis escalation, mean arterial pressure/perfusion monitoring, and serial lactate monitoring. These semantically align with all five canonical targets; Stage 1 described systemic perfusion rather than explicitly naming urine output alongside mean arterial pressure.",
+  "unstatedClientFactMateriallyChangesRankability": true
+}

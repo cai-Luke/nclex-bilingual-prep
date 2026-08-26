@@ -1,0 +1,135 @@
+{
+  "actionLabels": [
+    "A1",
+    "A3"
+  ],
+  "ambiguousAlternatives": [
+    {
+      "opaqueTokenLabel": "C3",
+      "reason": "Cough, elevated CRP, and ground-glass opacities can occur with infection, but the stem provides no fever, microbiologic result, or other evidence establishing community-acquired pneumonia."
+    }
+  ],
+  "conditionLabel": "C2",
+  "missingInformation": [
+    "Temperature, infectious testing results, respiratory rate, work of breathing, and current oxygen requirement are not provided; these would refine differential diagnosis and severity assessment but do not prevent selection from this pool."
+  ],
+  "parameterLabels": [
+    "P1",
+    "P4"
+  ],
+  "poolAnswerability": "ANSWERABLE",
+  "reasoning": "The treatment context, imaging pattern, hypoxemia, exclusion of listed competing diagnoses, pembrolizumab hold, and irAE-directed corticosteroid order identify checkpoint-inhibitor pneumonitis. Oxygen and methylprednisolone are the two ordered priority treatments, while oxygen-saturation trend and respiratory effort directly evaluate deterioration or response.",
+  "selectionEvidence": [
+    {
+      "opaqueTokenLabel": "C2",
+      "supportingStemText": "New dry cough, bilateral basilar crackles, hypoxemia, and new bilateral ground-glass opacities developed after pembrolizumab cycle 4; pembrolizumab was held and an irAE pneumonitis protocol was ordered."
+    },
+    {
+      "opaqueTokenLabel": "A1",
+      "supportingStemText": "The oncologist orders methylprednisolone per facility irAE pneumonitis protocol."
+    },
+    {
+      "opaqueTokenLabel": "A3",
+      "supportingStemText": "The oncologist orders oxygen to maintain SpO2 >=94%."
+    },
+    {
+      "opaqueTokenLabel": "P1",
+      "supportingStemText": "The client has new cough, bilateral crackles, progressive oxygen desaturation, and PaO2 68 mmHg."
+    },
+    {
+      "opaqueTokenLabel": "P4",
+      "supportingStemText": "SpO2 declined from 96% baseline to 91% on room air, and every-2-hour pulse oximetry is ordered."
+    }
+  ],
+  "stage2Confidence": "high",
+  "tokenPremiseTable": [
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A1",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The stem explicitly authorizes this priority treatment.",
+      "supportingStemText": "Methylprednisolone per facility irAE pneumonitis protocol is ordered."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A2",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Administering the next infusion directly conflicts with the hold order.",
+      "supportingStemText": "The oncologist orders pembrolizumab held."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A3",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The stem explicitly authorizes oxygen and supplies its target.",
+      "supportingStemText": "Oxygen is ordered to maintain SpO2 >=94%."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A4",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Nothing in the stem conditions oxygen or corticosteroid initiation on a pulmonology callback.",
+      "supportingStemText": "Admission, oxygen, methylprednisolone, and pulmonology consultation are ordered concurrently."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "C1",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The defining proposed progression pattern is explicitly absent on CT.",
+      "supportingStemText": "CT shows no lymphangitic carcinomatosis."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "C2",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The temporal, clinical, imaging, and treatment evidence directly supports this condition.",
+      "supportingStemText": "Respiratory findings began after pembrolizumab cycle 4, and the oncologist held pembrolizumab and ordered an irAE pneumonitis protocol."
+    },
+    {
+      "missingPremise": "Client-specific evidence of pulmonary infection, such as fever, a positive microbiologic test, or another documented infectious finding.",
+      "opaqueTokenLabel": "C3",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "LOW",
+      "rankabilityJustification": "Pneumonia remains a general differential consideration, but the supplied pembrolizumab and irAE evidence makes it less likely than C2.",
+      "supportingStemText": "The client has dry cough, elevated CRP, and bilateral ground-glass opacities."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "P1",
+      "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Respiratory rate and work of breathing are directly relevant measures of respiratory deterioration in a hypoxemic client.",
+      "supportingStemText": "The client has progressive hypoxemia, dry cough, and bilateral basilar crackles."
+    },
+    {
+      "missingPremise": "A client-specific thyroid concern or clinical reason to prioritize TSH over respiratory monitoring at this moment.",
+      "opaqueTokenLabel": "P2",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The stem presents an acute pulmonary problem without thyroid findings.",
+      "supportingStemText": ""
+    },
+    {
+      "missingPremise": "A client-specific platelet abnormality, bleeding concern, or treatment decision requiring immediate platelet monitoring.",
+      "opaqueTokenLabel": "P3",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The stem supplies no hematologic concern that would outrank respiratory monitoring.",
+      "supportingStemText": ""
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "P4",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The parameter directly tracks the documented problem and response to the ordered oxygen target.",
+      "supportingStemText": "SpO2 declined to 91% on room air, and every-2-hour pulse oximetry is ordered."
+    }
+  ]
+}

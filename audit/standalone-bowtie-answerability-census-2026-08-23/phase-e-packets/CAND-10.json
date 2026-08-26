@@ -1,0 +1,185 @@
+{
+  "canonicalSelection": {
+    "actionLabels": [
+      "A4",
+      "A2"
+    ],
+    "conditionLabel": "C3",
+    "parameterLabels": [
+      "P4",
+      "P2"
+    ]
+  },
+  "instruction": "The two blind-stage records are immutable. Compare them with the now-revealed canonical 1/2/2 selection and complete standalone item. Do not inspect or infer sibling-case material. Return the required Phase-E structured JSON without revising either blind record.",
+  "standaloneItem": {
+    "bowtie": {
+      "actions": {
+        "prompt": {
+          "en": "Priority nursing actions",
+          "zh": "优先护理行动"
+        },
+        "tokens": [
+          {
+            "en": "Accept RN Casey's statement that no disclosure occurred and do not report the access",
+            "opaqueTokenLabel": "A1",
+            "zh": "接受Casey护士称未披露信息的说法，不上报此次访问"
+          },
+          {
+            "en": "Complete the facility electronic incident report with access details and mitigation steps",
+            "opaqueTokenLabel": "A2",
+            "zh": "在机构电子事件报告中记录访问细节和控制措施"
+          },
+          {
+            "en": "Document in the medical record that an incident report was filed",
+            "opaqueTokenLabel": "A3",
+            "zh": "在病历中记录已提交事件报告"
+          },
+          {
+            "en": "Ask RN Casey to exit the record immediately and notify the charge nurse",
+            "opaqueTokenLabel": "A4",
+            "zh": "立即要求Casey护士退出病历并通知 charge nurse"
+          }
+        ]
+      },
+      "condition": {
+        "prompt": {
+          "en": "Most likely privacy condition",
+          "zh": "最可能的隐私问题"
+        },
+        "tokens": [
+          {
+            "en": "Incidental disclosure that occurred despite reasonable safeguards",
+            "opaqueTokenLabel": "C1",
+            "zh": "已采取合理保护措施但仍发生的偶然披露"
+          },
+          {
+            "en": "Permissible healthcare-operations access for education",
+            "opaqueTokenLabel": "C2",
+            "zh": "为教育目的允许的医疗运营访问"
+          },
+          {
+            "en": "Unauthorized access of PHI requiring breach-response investigation",
+            "opaqueTokenLabel": "C3",
+            "zh": "未经授权访问PHI，需要隐私事件调查"
+          }
+        ]
+      },
+      "parameters": {
+        "prompt": {
+          "en": "Parameters to evaluate response",
+          "zh": "用于评价处理效果的参数"
+        },
+        "tokens": [
+          {
+            "en": "Whether Robert Torrance calls back before the end of the shift",
+            "opaqueTokenLabel": "P1",
+            "zh": "Robert Torrance是否在本班结束前再次来电"
+          },
+          {
+            "en": "Implementation of system safeguards such as minimum-necessary education, HIM fax signage, and private-space reporting",
+            "opaqueTokenLabel": "P2",
+            "zh": "落实系统防护措施，例如最低必要原则教育、HIM传真标识和私密空间交班"
+          },
+          {
+            "en": "Mrs. Torrance's postoperative vital signs, wound appearance, and pain score",
+            "opaqueTokenLabel": "P3",
+            "zh": "Torrance女士术后生命体征、伤口外观和疼痛评分"
+          },
+          {
+            "en": "Privacy Officer confirmation that breach determination has started and the EHR audit trail is preserved",
+            "opaqueTokenLabel": "P4",
+            "zh": "隐私官确认已启动隐私事件判定并保留电子病历审计追踪"
+          }
+        ]
+      }
+    },
+    "glossary": [
+      {
+        "defZh": "要求把最可能问题、关键行动和需要监测/评价的参数连接起来的NGN题型。",
+        "termEn": "Bow-tie item",
+        "termZh": "弓形题"
+      },
+      {
+        "defZh": "用于证明访问发生时间、访问者和查看内容的系统记录。",
+        "termEn": "Audit evidence",
+        "termZh": "审计证据"
+      },
+      {
+        "defZh": "通过流程、教育、提示或技术控制减少同类事件再次发生的措施。",
+        "termEn": "System safeguard",
+        "termZh": "系统防护措施"
+      }
+    ],
+    "rationale": {
+      "byChoice": [
+        {
+          "en": "This matches a workforce member intentionally viewing PHI without a permitted purpose.",
+          "opaqueTokenLabel": "C3",
+          "zh": "这符合工作人员在无允许目的的情况下故意查看PHI。"
+        },
+        {
+          "en": "The access was purposeful, not a limited incidental exposure after safeguards were used.",
+          "opaqueTokenLabel": "C1",
+          "zh": "该访问是有意行为，并非采取保护措施后仍发生的有限偶然暴露。"
+        },
+        {
+          "en": "Personal interest in orthopedic notes is not an assigned healthcare-operations or education role for this client.",
+          "opaqueTokenLabel": "C2",
+          "zh": "个人对骨科记录感兴趣，并不是针对该患者被分派的医疗运营或教育职责。"
+        },
+        {
+          "en": "This immediately mitigates the active exposure and starts the reporting chain.",
+          "opaqueTokenLabel": "A4",
+          "zh": "这可立即控制正在发生的暴露，并启动上报链。"
+        },
+        {
+          "en": "The incident report gives the Privacy Officer the factual record needed for investigation and risk assessment.",
+          "opaqueTokenLabel": "A2",
+          "zh": "事件报告为隐私官调查和风险评估提供所需事实记录。"
+        },
+        {
+          "en": "Incident reports are not documented in the patient's medical record.",
+          "opaqueTokenLabel": "A3",
+          "zh": "事件报告不得记录在患者病历中。"
+        },
+        {
+          "en": "Lack of onward disclosure does not make unauthorized viewing permissible; the event still requires reporting.",
+          "opaqueTokenLabel": "A1",
+          "zh": "没有继续传播并不代表未经授权查看是允许的；该事件仍需上报。"
+        },
+        {
+          "en": "This verifies institutional investigation and preserves evidence of what was accessed.",
+          "opaqueTokenLabel": "P4",
+          "zh": "这可确认机构已开展调查，并保留访问内容证据。"
+        },
+        {
+          "en": "Safeguards show the response addresses system vulnerabilities, not only the individual incident.",
+          "opaqueTokenLabel": "P2",
+          "zh": "防护措施说明处理不仅针对个别事件，也针对系统漏洞。"
+        },
+        {
+          "en": "The postoperative assessment is clinically relevant but does not evaluate privacy containment or reporting.",
+          "opaqueTokenLabel": "P3",
+          "zh": "术后评估有临床意义，但不能评价隐私事件控制或上报。"
+        },
+        {
+          "en": "The patient's restriction is already documented; a repeat call is not the measure of whether RN Casey's access was handled.",
+          "opaqueTokenLabel": "P1",
+          "zh": "患者的限制已记录；是否再次来电不能衡量Casey护士访问事件是否处理妥当。"
+        }
+      ],
+      "correct": {
+        "en": "RN Casey's curiosity-based EHR access is unauthorized PHI access, not incidental disclosure or approved operations access. The immediate nursing actions are to stop further access, notify the charge nurse, and complete the facility incident report with the relevant access and mitigation details. Evaluation focuses on Privacy Officer investigation, audit-trail preservation, and system safeguards; postoperative clinical stability and whether Robert calls back do not measure breach containment.",
+        "zh": "Casey护士因好奇访问电子病历属于未经授权访问PHI，不是偶然披露，也不是被批准的运营/教育访问。护士的即时行动是阻止进一步访问、通知 charge nurse，并在机构事件报告中记录相关访问和控制细节。评价重点是隐私官调查、审计追踪保存和系统防护措施；术后临床稳定以及Robert是否再次来电，不能衡量隐私事件是否被控制。"
+      }
+    },
+    "stem": {
+      "en": "By the end of the shift, RN Jordan has witnessed a coworker open Mrs. Torrance's electronic record without a care role, stopped further access, and started the facility reporting process. Complete the bow-tie by selecting the most likely privacy condition, two priority actions, and two parameters that best evaluate the response.",
+      "zh": "到本班结束时，Jordan护士已目击一名同事在无照护职责的情况下打开Torrance女士电子病历，已阻止进一步访问，并启动机构上报流程。请完成弓形题：选择最可能的隐私问题、两个优先行动，以及两个最能评价处理效果的监测/确认参数。"
+    },
+    "testTakingStrategy": {
+      "en": "For a bow-tie, anchor on the central condition first. Then choose actions that treat that condition and parameters that prove the response worked.",
+      "zh": "做弓形题时，先锁定中心问题。然后选择能处理该问题的行动，以及能证明处理有效的参数。"
+    }
+  }
+}

@@ -1,0 +1,118 @@
+{
+  "advisoryPriority": "P2",
+  "bilingualCollateral": [
+    {
+      "concern": "Both language versions of the rationale carry the same sibling-only claims about worsening renal function and an irritated provider tone.",
+      "evidence": "The English rationale says \"worsening renal function\" and \"irritated tone,\" while the Chinese rationale uses corresponding claims. The standalone bilingual stem provides eGFR 34 mL/min and provider insistence but no renal baseline or tone characterization.",
+      "priority": "P2"
+    }
+  ],
+  "canonicalTargetSiblingOverlap": [
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling confirms the protocol violation, provider conflict, peripheral-access limitations, and renal decline. The standalone stem already directly establishes the unsafe medication-order conflict without those additional details.",
+      "opaqueTokenLabel": "C1",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling explicitly names CUS, graded assertiveness, and the two-challenge approach. The standalone stem and token pool remain sufficient to rank direct structured safety communication as a priority action.",
+      "opaqueTokenLabel": "A1",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling narrates withholding the potassium and escalating through the charge nurse and chief resident. The standalone stem already states that the unsafe order was withheld and the chain of command was used.",
+      "opaqueTokenLabel": "A2",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling supplies the detailed revised order and confirms nonadministration of the original order. Both outcomes are already explicit in the standalone stem.",
+      "opaqueTokenLabel": "P4",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling supplies actual post-replacement potassium, rhythm, and IV-tolerance findings. Those results corroborate P3 but are not required to identify the appropriate monitoring domains from the standalone scenario.",
+      "opaqueTokenLabel": "P3",
+      "overlap": true
+    }
+  ],
+  "clinicalCollateral": [
+    {
+      "concern": "The standalone record supports impaired renal function but not a worsening renal trend.",
+      "evidence": "CKD and eGFR 34 mL/min are explicit, but only the sibling supplies baseline creatinine 1.3 mg/dL and baseline eGFR 42-44 mL/min. The trend is unnecessary because the explicit protocol violation independently establishes the unsafe order.",
+      "priority": "P2"
+    }
+  ],
+  "defectSummary": "No verdict-level defect is present: the canonical set is uniquely defensible from the standalone stem and English token pool, and no keyed target requires a sibling-only client fact. P2 collateral remains because portions of the rationale describe renal function as worsening and the resident's tone as irritated, details established only by the sibling case rather than the standalone stem.",
+  "missingFactProvenance": [
+    {
+      "missingFact": "Current cardiac rhythm or ECG findings are not provided.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "P3",
+      "provenance": "SIBLING_CASE_IMPORTED",
+      "sourceEvidence": "The sibling baseline record reports normal sinus rhythm without ectopy, and later stages report that the rhythm remained normal sinus without ectopy."
+    },
+    {
+      "missingFact": "A repeat potassium value after replacement is not provided.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "P3",
+      "provenance": "SIBLING_CASE_IMPORTED",
+      "sourceEvidence": "The sibling Stage 3 exhibit reports potassium 3.4 mEq/L after the second replacement dose."
+    },
+    {
+      "missingFact": "Peripheral IV-site tolerance findings are not provided.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "P3",
+      "provenance": "SIBLING_CASE_IMPORTED",
+      "sourceEvidence": "The sibling baseline describes an intact left-forearm IV site, and Stage 3 states that the client denied IV-site discomfort."
+    },
+    {
+      "missingFact": "The timing of the planned repeat potassium measurement is not stated.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "P3",
+      "provenance": "SIBLING_CASE_IMPORTED",
+      "sourceEvidence": "The sibling revised order specifies a serum potassium recheck after the second dose; the result was obtained at 2245."
+    },
+    {
+      "missingFact": "Urine output and postoperative fluid-loss information are not provided.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "P3",
+      "provenance": "OTHER_PROVENANCE",
+      "sourceEvidence": "The sibling supplies postoperative bile-drain output of about 200 mL over 12 hours and ongoing IV fluids, but it does not provide urine output."
+    },
+    {
+      "missingFact": "The presence and severity of hypokalemia symptoms are not provided.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "C1",
+      "provenance": "SIBLING_CASE_IMPORTED",
+      "sourceEvidence": "The sibling baseline states that the client denied palpitations, muscle cramps, or weakness; later stages report no new symptoms."
+    },
+    {
+      "missingFact": "No prior renal-function value is provided to establish that renal function is worsening rather than chronically impaired.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "C1",
+      "provenance": "SIBLING_CASE_IMPORTED",
+      "sourceEvidence": "The sibling gives creatinine 1.6 mg/dL versus baseline 1.3 mg/dL and eGFR 34 mL/min versus baseline 42-44 mL/min."
+    },
+    {
+      "missingFact": "The stem does not state that the client asked about discharge timing.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "P1",
+      "provenance": "SIBLING_CASE_IMPORTED",
+      "sourceEvidence": "The sibling questions identify that the client had asked when she could go home, while also classifying that fact as unrelated to resolution of the safety conflict."
+    }
+  ],
+  "primaryVerdict": "PASS_STANDALONE",
+  "reasoning": "The blind Stage 2 selection exactly matched the canonical label sets, and Phase E found the standalone item answerable and uniquely defensible. Sibling inspection confirms that several omitted clinical details and distractor facts originated in the paired case, but none is necessary for ranking the canonical targets. The explicit protocol limits, unsafe original order, provider refusal to address the concern, chain-of-command escalation, nonadministration of the original order, and protocol-compliant replacement establish C1, A2, and P4 directly. A1 and P3 follow from standard safety communication and potassium-replacement monitoring without requiring absent client-specific facts. Therefore no hidden-case dependency, unsupported rank-bearing premise, underdetermination, key defect, or reviewer disagreement applies.",
+  "scopeCollateral": [
+    {
+      "concern": "The standalone rationale incorporates sibling-case characterization beyond the standalone learner-facing stem.",
+      "evidence": "The irritated tone and renal baseline appear in the sibling record. Neither fact is required to rank C1, A1, A2, P4, or P3, so this is rationale-level scope leakage rather than hidden answer dependency.",
+      "priority": "P2"
+    }
+  ],
+  "secondaryFlags": []
+}

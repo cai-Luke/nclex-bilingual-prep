@@ -1,0 +1,123 @@
+{
+  "advisoryPriority": "P1",
+  "bilingualCollateral": [
+    {
+      "concern": "C1's Chinese phrase \"主动交叉污染风险\" reads as intentional or proactive cross-contamination rather than a currently active risk.",
+      "evidence": "English: \"Active cross-contamination risk\"; Chinese: \"主动交叉污染风险.\"",
+      "priority": "P3"
+    },
+    {
+      "concern": "The Chinese rendering of \"charge nurse\" may blur the escalation role by using a term commonly understood as the assigned or primary nurse.",
+      "evidence": "A3 translates \"notify the charge nurse\" as \"通知责任护士.\"",
+      "priority": "P3"
+    }
+  ],
+  "canonicalTargetSiblingOverlap": [
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling confirms that Client C's dedicated MRSA stethoscope was carried from Room 16 to the clean-utility counter near the clean supply cart, but the standalone stem already establishes the priority pathway.",
+      "opaqueTokenLabel": "C1",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CASE_IMPORTED",
+      "description": "The sibling supplies the otherwise absent Room 16 assignment and explicitly reports the complete environmental containment sequence and return of the stethoscope to Room 16.",
+      "opaqueTokenLabel": "A4",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling describes debriefing, follow-up education, and supervised return demonstration after the student's breaches; these corroborate the generally supported education-and-escalation action.",
+      "opaqueTokenLabel": "A3",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling includes staff and visitor PPE policy, visitor teaching, and observed return demonstration, corroborating PPE-compliance monitoring already linked to the standalone contact-precautions premise.",
+      "opaqueTokenLabel": "P2",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling repeatedly addresses dedicated-equipment location, cleanliness, disinfection, and return, corroborating the standalone equipment-control parameter.",
+      "opaqueTokenLabel": "P3",
+      "overlap": true
+    }
+  ],
+  "clinicalCollateral": [
+    {
+      "concern": "Calling the standard linen bag a CDI bagging error depends on the sibling's facility-specific double-bagging policy and is not established as a universal standalone rule.",
+      "evidence": "Standalone C2 labels standard-bag use an error, while only the sibling unit policy specifies a water-soluble inner bag plus labeled outer bag.",
+      "priority": "P3"
+    },
+    {
+      "concern": "No P0 clinical-currency problem was identified in the keyed MRSA containment chain.",
+      "evidence": "Immediate source containment, environmental disinfection, policy-based handling of nearby supplies, full disinfectant contact time, education, and process monitoring are clinically coherent.",
+      "priority": null
+    }
+  ],
+  "defectSummary": "Keyed action A4 imports Client C's Room 16 assignment from the sibling case, leaving an unsupported client-specific clause on the standalone surface even though it does not change the option's ranking.",
+  "missingFactProvenance": [
+    {
+      "missingFact": "Client C is assigned to Room 16 and the dedicated stethoscope should be returned there.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "A4",
+      "provenance": "SIBLING_CASE_IMPORTED",
+      "sourceEvidence": "The sibling baseline states \"Client C, Room 16\" with a dedicated stethoscope; the Stage-3 resolution states that the disinfected stethoscope was \"returned to Room 16.\""
+    },
+    {
+      "missingFact": "Client A is the CDI client in Room 12 and standard-bag placement was erroneous under the applicable policy.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "C2",
+      "provenance": "SIBLING_CASE_IMPORTED",
+      "sourceEvidence": "The sibling identifies \"Client A, Room 12\" with positive Clostridioides difficile PCR, and its unit policy requires isolation-room linen to use a water-soluble inner bag and labeled outer bag."
+    },
+    {
+      "missingFact": "The student contaminated the Room 12 door handle through bare-hand contact.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "C3",
+      "provenance": "SIBLING_CASE_IMPORTED",
+      "sourceEvidence": "The sibling Stage-1 observation states that the student removed her gloves and \"touches the door handle with bare, unwashed hands.\""
+    },
+    {
+      "missingFact": "Client C is assigned to Room 16 and the stethoscope belongs there.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "A1",
+      "provenance": "SIBLING_CASE_IMPORTED",
+      "sourceEvidence": "The sibling baseline identifies Client C as occupying Room 16 and identifies a dedicated stethoscope in that room."
+    },
+    {
+      "missingFact": "A wound dressing change is due.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "A2",
+      "provenance": "SIBLING_CASE_IMPORTED",
+      "sourceEvidence": "The sibling Stage-1 exhibit states, \"Client C's dressing is saturated and due for change.\""
+    },
+    {
+      "missingFact": "Client C is receiving vancomycin and has relevant monitoring results.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "P1",
+      "provenance": "SIBLING_CASE_IMPORTED",
+      "sourceEvidence": "The sibling 1130 status states, \"Client C: dressing changed; wound appearance unchanged; vancomycin monitoring managed by pharmacy.\""
+    },
+    {
+      "missingFact": "Client B exists in this standalone case and has a Streptococcus pneumoniae sputum-culture result.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "P4",
+      "provenance": "SIBLING_CASE_IMPORTED",
+      "sourceEvidence": "The sibling identifies Client B in Room 14 and reports a preliminary sputum culture of Streptococcus pneumoniae susceptible to ceftriaxone."
+    }
+  ],
+  "primaryVerdict": "FAIL_HIDDEN_CASE_DEPENDENCY",
+  "reasoning": "The sibling supplies every Phase-E missing fact, but only A4 uses a sibling fact to complete the justification of a canonical token. That keyed hidden-case dependency triggers the highest-precedence verdict; the same unsupported standalone clause also satisfies the lower-precedence unsupported-token-premise verdict. Because the absent Room 16 fact does not alter A4's superiority over A1 and A2, the record does not additionally establish underdetermination or a canonical-key logic failure.",
+  "scopeCollateral": [
+    {
+      "concern": "No material nursing-scope concern was identified.",
+      "evidence": "Containing contaminated equipment, initiating policy-based decontamination, educating involved personnel, notifying the charge nurse, and monitoring compliance are appropriate nursing safety and escalation functions.",
+      "priority": null
+    }
+  ],
+  "secondaryFlags": [
+    "ALSO_SATISFIES_FAIL_UNSUPPORTED_TOKEN_PREMISE"
+  ]
+}

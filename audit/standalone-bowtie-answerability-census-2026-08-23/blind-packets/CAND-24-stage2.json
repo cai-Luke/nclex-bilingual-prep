@@ -1,0 +1,56 @@
+{
+  "instruction": "Using only the standalone learner-facing English stem, prompts, and opaque token pools, select exactly one condition, two actions, and two parameters. Return the required structured JSON, including exactly one premise row for every opaque token. Do not infer absent client-specific facts.",
+  "stem": "After the transfusion is stopped, a 74-year-old client with CKD and compensated heart failure has improving dyspnea after oxygen, upright positioning, and ordered IV furosemide. During the second unit she developed SpO2 89% on room air, BP 168/96, JVD, new S3, worsening 2+ edema, oliguria, and bilateral crackles. Chest X-ray shows pulmonary vascular congestion, small pleural effusions, cardiomegaly, and a widened vascular pedicle. BNP rose from 280 to 890 pg/mL. Complete the bow-tie by selecting the most likely condition, two priority actions, and two parameters to monitor.",
+  "tokens": {
+    "actions": [
+      {
+        "label": "A1",
+        "text": "Maintain high Fowler's position with supplemental oxygen and close respiratory monitoring"
+      },
+      {
+        "label": "A2",
+        "text": "Administer IV fluid bolus to support blood pressure"
+      },
+      {
+        "label": "A3",
+        "text": "Resume the transfusion at a slower rate once SpO2 improves"
+      },
+      {
+        "label": "A4",
+        "text": "Administer ordered IV furosemide and monitor urine output"
+      }
+    ],
+    "condition": [
+      {
+        "label": "C1",
+        "text": "Anaphylactic transfusion reaction"
+      },
+      {
+        "label": "C2",
+        "text": "Transfusion-associated circulatory overload"
+      },
+      {
+        "label": "C3",
+        "text": "Transfusion-related acute lung injury"
+      }
+    ],
+    "parameters": [
+      {
+        "label": "P1",
+        "text": "Urine output after diuretic therapy"
+      },
+      {
+        "label": "P2",
+        "text": "Temperature trend as the main marker of resolution"
+      },
+      {
+        "label": "P3",
+        "text": "SpO2 trend and ability to wean supplemental oxygen"
+      },
+      {
+        "label": "P4",
+        "text": "Post-transfusion hemoglobin as the main marker of reaction resolution"
+      }
+    ]
+  }
+}

@@ -1,0 +1,138 @@
+{
+  "anyCanonicalTargetDependsOnAbsentFact": false,
+  "blindExactMatch": true,
+  "canonicalSelection": {
+    "actionLabels": [
+      "A3",
+      "A4"
+    ],
+    "conditionLabel": "C1",
+    "parameterLabels": [
+      "P2",
+      "P4"
+    ]
+  },
+  "canonicalSetExplanation": "The whole pattern directly identifies over-resuscitation: fluid delivery and urine output exceed their targets while pulmonary, abdominal, peripheral-edema, and hemodilution findings emerge. A3 reverses the ongoing cause, A4 tracks the specifically threatened compartment complications, P2 is the stated titration endpoint, and P4 directly evaluates the increasing abdominal girth. No competing set is comparably supported by the standalone facts.",
+  "canonicalSetUniquelyDefensible": true,
+  "canonicalTargetSupport": [
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "C1",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "Delivered volume exceeded the time-phased Parkland trajectory by about 20%, while urine output exceeded target and crackles, rising airway pressures, increasing girth, edema of unburned tissue, and a hematocrit decline developed."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "A3",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "Urine output was 120 mL/hr versus the ordered 40 to 80 mL/hr target, and delivered fluid was about 20% above the expected trajectory."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "A4",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "Increasing abdominal girth and tense, edematous hands support serial bladder-pressure and extremity-perfusion surveillance for compartment complications."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "P2",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "Hourly urine output is explicitly identified as 120 mL/hr for two consecutive hours and compared with an ordered target of 40 to 80 mL/hr."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "P4",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "Increasing abdominal girth after fluid delivery exceeded the expected trajectory directly supports monitoring bladder pressure for intra-abdominal hypertension."
+    }
+  ],
+  "distractorPremiseFindings": [
+    {
+      "explanation": "Rising airway pressures justify respiratory reassessment, but leaving the fluid rate unchanged contradicts the explicit evidence of endpoint overshoot and systemic fluid accumulation.",
+      "opaqueTokenLabel": "A1",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "MATERIAL"
+    },
+    {
+      "explanation": "The ongoing resuscitation window does not justify maintaining or increasing fluid when urine output exceeds its ordered target and delivered volume already exceeds trajectory.",
+      "opaqueTokenLabel": "A2",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "MATERIAL"
+    },
+    {
+      "explanation": "Intubation and rising airway pressures do not establish inhalation injury as the primary problem; the standalone stem provides no exposure history, airway findings, bronchoscopy findings, or oxygenation data specific to worsening inhalation injury.",
+      "opaqueTokenLabel": "C2",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "MATERIAL"
+    },
+    {
+      "explanation": "No fever, wound change, culture result, infection-associated organ dysfunction, or other client-specific evidence supports burn wound sepsis, while blood pressure and heart rate have improved.",
+      "opaqueTokenLabel": "C3",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "MATERIAL"
+    },
+    {
+      "explanation": "Serum potassium is generally relevant in major-burn monitoring, but no potassium-specific abnormality is stated and it does not directly track the presented fluid-creep complications.",
+      "opaqueTokenLabel": "P1",
+      "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+      "rankabilityImpact": "LOW"
+    },
+    {
+      "explanation": "The standalone stem provides no smoke or enclosed-space exposure, suspected carbon monoxide toxicity, or earlier carboxyhemoglobin concern.",
+      "opaqueTokenLabel": "P3",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "MATERIAL"
+    }
+  ],
+  "missingClientFacts": [
+    {
+      "keyed": false,
+      "missingFact": "Confirmation of inhalation injury or evidence that it is worsening is absent; intubation alone does not establish either fact.",
+      "opaqueTokenLabel": "C2",
+      "rankabilityImpact": "MATERIAL"
+    },
+    {
+      "keyed": false,
+      "missingFact": "Client-specific findings of burn wound infection or sepsis are absent.",
+      "opaqueTokenLabel": "C3",
+      "rankabilityImpact": "MATERIAL"
+    },
+    {
+      "keyed": false,
+      "missingFact": "Smoke exposure, carbon monoxide toxicity, or an earlier carboxyhemoglobin concern is absent.",
+      "opaqueTokenLabel": "P3",
+      "rankabilityImpact": "MATERIAL"
+    },
+    {
+      "keyed": false,
+      "missingFact": "Hypoxemia, ABG deterioration, or inadequate current ventilator support is not reported.",
+      "opaqueTokenLabel": "A1",
+      "rankabilityImpact": "LOW"
+    },
+    {
+      "keyed": false,
+      "missingFact": "No potassium result or potassium-specific clinical concern is reported.",
+      "opaqueTokenLabel": "P1",
+      "rankabilityImpact": "LOW"
+    },
+    {
+      "keyed": true,
+      "missingFact": "Baseline bladder pressure and detailed distal-extremity perfusion findings are not provided, but their absence does not undermine the need to begin serial monitoring.",
+      "opaqueTokenLabel": "A4",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "keyed": true,
+      "missingFact": "An initial bladder-pressure value is absent, but increasing abdominal girth and excess fluid delivery are sufficient premises for selecting it as a monitoring parameter.",
+      "opaqueTokenLabel": "P4",
+      "rankabilityImpact": "NONE"
+    }
+  ],
+  "notes": [
+    "Stage 2 exactly matched the canonical C1/A3/A4/P2/P4 selection.",
+    "The rationale statements that inhalation injury is present and carbon monoxide toxicity was an earlier concern are not established by the standalone stem; neither assertion is necessary to defend the canonical set."
+  ],
+  "stage1Alignment": "PARTIAL",
+  "stage1AlignmentExplanation": "Stage 1 independently identified fluid overload from burn over-resuscitation, reduction of lactated Ringer's, and hourly urine-output monitoring. Its second action emphasized respiratory support rather than serial bladder-pressure and extremity-perfusion monitoring, and its second evaluation parameter emphasized pulmonary status rather than bladder pressure.",
+  "unstatedClientFactMateriallyChangesRankability": false
+}

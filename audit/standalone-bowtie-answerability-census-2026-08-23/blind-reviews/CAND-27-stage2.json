@@ -1,0 +1,131 @@
+{
+  "actionLabels": [
+    "A2",
+    "A3"
+  ],
+  "ambiguousAlternatives": [],
+  "conditionLabel": "C2",
+  "missingInformation": [
+    "Vital signs, oxygenation, blood glucose, electrolytes, airway-protection ability, and baseline neurologic and renal status",
+    "Sedation details and current lactulose, rifaximin, antibiotic, albumin, and transfusion orders or administration history"
+  ],
+  "parameterLabels": [
+    "P1",
+    "P2"
+  ],
+  "poolAnswerability": "ANSWERABLE",
+  "reasoning": "C2 uniquely integrates the explicit neurologic syndrome with the recent GI blood load, SBP-range ascitic neutrophil count, and acute renal deterioration. A2 addresses hepatic encephalopathy, and A3 escalates treatment of a major precipitant with renal implications. P1 and P2 directly track the two active deteriorations documented in the stem. The alternatives either conflict with explicit stability after hemostasis or lack a client-specific premise.",
+  "selectionEvidence": [
+    {
+      "evidence": "Confusion, somnolence, asterixis, and ammonia 124 µmol/L support hepatic encephalopathy; the recent GI hemorrhage, ascitic neutrophils 484 cells/µL, rising creatinine, and oliguria identify plausible precipitants.",
+      "opaqueTokenLabel": "C2"
+    },
+    {
+      "evidence": "Lactulose and rifaximin are directed at the syndrome represented by the new neurologic findings in decompensated cirrhosis.",
+      "opaqueTokenLabel": "A2"
+    },
+    {
+      "evidence": "Ascitic neutrophils 484 cells/µL support SBP, while creatinine 1.8 mg/dL and urine output 15 mL/hr make prompt escalation and treatment reassessment a priority.",
+      "opaqueTokenLabel": "A3"
+    },
+    {
+      "evidence": "The stem explicitly reports rising creatinine and severe oliguria.",
+      "opaqueTokenLabel": "P1"
+    },
+    {
+      "evidence": "The current problem is manifested by confusion, somnolence, and asterixis, making serial neurologic assessment directly relevant.",
+      "opaqueTokenLabel": "P2"
+    }
+  ],
+  "stage2Confidence": "high",
+  "tokenPremiseTable": [
+    {
+      "missingPremise": "No hypotension, tachycardia, recurrent bleeding, or other evidence of ongoing hypovolemic shock is provided.",
+      "opaqueTokenLabel": "C1",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The token is disfavored by explicit hemostasis and hemoglobin stability, whereas the neurologic and hepatic findings support C2.",
+      "supportingStemText": "Hemostasis was achieved; hemoglobin is stable at 7.6 g/dL; there is no further hematemesis."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "C2",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The stem supplies the syndrome-defining findings and all three stated precipitants.",
+      "supportingStemText": "Decompensated cirrhosis with new confusion, somnolence, asterixis, ammonia 124 µmol/L, recent variceal hemorrhage, ascitic neutrophils 484 cells/µL, creatinine 1.8 mg/dL, and urine output 15 mL/hr."
+    },
+    {
+      "missingPremise": "Sedative agents, doses, administration time, expected duration, reversal status, and immediate post-procedure neurologic course are not provided.",
+      "opaqueTokenLabel": "C3",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "LOW",
+      "rankabilityJustification": "Sedation cannot be fully excluded, but asterixis, elevated ammonia, infection evidence, and renal deterioration make C2 substantially better supported.",
+      "supportingStemText": "The patient previously underwent endoscopic band ligation."
+    },
+    {
+      "missingPremise": "No transfusion order, hemodynamic instability, recurrent hemorrhage, symptomatic anemia evidence, or client-specific target above 8 g/dL is provided.",
+      "opaqueTokenLabel": "A1",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The token incorrectly attributes worsening mental status to a transfusion-correctable hemoglobin target despite stronger evidence of hepatic encephalopathy.",
+      "supportingStemText": "Hemoglobin is stable at 7.6 g/dL after achieved hemostasis, with no further hematemesis."
+    },
+    {
+      "missingPremise": "The stem does not state whether lactulose and rifaximin have been ordered, administered, or contraindicated.",
+      "opaqueTokenLabel": "A2",
+      "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+      "rankabilityImpact": "LOW",
+      "rankabilityJustification": "The phrase 'as ordered' preserves the need for an order, and the treatment is directly aligned with the strongly supported condition.",
+      "supportingStemText": "The patient with decompensated cirrhosis has new confusion, somnolence, asterixis, and elevated ammonia."
+    },
+    {
+      "missingPremise": "Current antibiotic and albumin orders, prior doses, cultures, allergies, hemodynamics, and treatment response are not provided.",
+      "opaqueTokenLabel": "A3",
+      "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+      "rankabilityImpact": "LOW",
+      "rankabilityJustification": "The ascitic neutrophil result supports SBP by established clinical criteria, and notifying the provider while anticipating treatment reassessment is appropriate without assuming a specific unprovided order.",
+      "supportingStemText": "Diagnostic paracentesis shows ascitic neutrophils 484 cells/µL; creatinine has risen to 1.8 mg/dL and urine output is 15 mL/hr."
+    },
+    {
+      "missingPremise": "No evidence identifies residual sedation as the likely cause.",
+      "opaqueTokenLabel": "A4",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Deferring treatment conflicts with the urgent, explicitly supported encephalopathy and precipitant findings.",
+      "supportingStemText": "The patient has asterixis, ammonia 124 µmol/L, SBP-range ascitic neutrophilia, acute creatinine elevation, and oliguria."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "P1",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Both measures are already abnormal and directly track the concurrent renal deterioration.",
+      "supportingStemText": "Creatinine has risen to 1.8 mg/dL with urine output 15 mL/hr."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "P2",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Serial neurologic findings directly measure worsening or improvement of the current syndrome and airway-protection risk.",
+      "supportingStemText": "The patient is confused and somnolent and has asterixis."
+    },
+    {
+      "missingPremise": "No alcohol exposure, intoxication history, withdrawal concern, or blood alcohol result is provided.",
+      "opaqueTokenLabel": "P3",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The token has no client-specific premise and is unrelated to the best-supported condition.",
+      "supportingStemText": ""
+    },
+    {
+      "missingPremise": "No lactate value, shock findings, tissue-hypoperfusion findings, or reason to make lactate the primary marker is provided.",
+      "opaqueTokenLabel": "P4",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Lactate could provide ancillary information in selected contexts, but it is not the primary evaluation parameter for the explicitly manifested neurologic and renal problems.",
+      "supportingStemText": ""
+    }
+  ]
+}

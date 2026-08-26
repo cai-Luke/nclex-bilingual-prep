@@ -1,0 +1,83 @@
+{
+  "advisoryPriority": "P3",
+  "bilingualCollateral": [
+    {
+      "concern": "No material EN/ZH semantic mismatch was identified in the keyed condition, actions, parameters, or rationales.",
+      "evidence": "The Chinese surface preserves pembrolizumab exposure, immune-related pneumonitis, oxygen support, protocol-based methylprednisolone, SpO2 trending, and respiratory-rate/work-of-breathing monitoring.",
+      "priority": null
+    }
+  ],
+  "canonicalTargetSiblingOverlap": [
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling explicitly identifies the findings as immune-related pneumonitis after pembrolizumab, but the standalone timing, pulmonary findings, CT pattern, and irAE orders already support C2.",
+      "opaqueTokenLabel": "C2",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling repeats the oxygen order and immediate ABC priority, while the standalone already gives hypoxemia and the ordered SpO2 target.",
+      "opaqueTokenLabel": "A3",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling repeats the ordered protocol-based methylprednisolone treatment, which is already explicit in the standalone stem.",
+      "opaqueTokenLabel": "A1",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling repeats every-2-hour pulse oximetry and later oxygenation trends, but the standalone directly orders pulse oximetry and documents declining SpO2.",
+      "opaqueTokenLabel": "P4",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling supplies RR 22, phrase-related breathing pauses, and a later RR trend; these strengthen P1 but are unnecessary because respiratory rate and work of breathing are generally appropriate monitoring for the standalone acute hypoxemic pulmonary presentation.",
+      "opaqueTokenLabel": "P1",
+      "overlap": true
+    }
+  ],
+  "clinicalCollateral": [
+    {
+      "concern": "CRP and ground-glass opacities are nonspecific, so the rationale should not imply that they independently establish immune-mediated pneumonitis or exclude infection.",
+      "evidence": "The item appropriately states that infection remains in the differential, and the pembrolizumab timing, bilateral respiratory pattern, explicit irAE assessment, and treatment orders make the keyed selection defensible without importing the sibling's afebrile status or normal WBC.",
+      "priority": "P3"
+    }
+  ],
+  "defectSummary": "The standalone canonical set remains independently answerable and has no necessary hidden sibling dependency. Minor rationale cleanup is warranted because it imports a normal platelet value and asserts absence of a new mass pattern that the standalone stem does not provide; neither assertion affects rankability.",
+  "missingFactProvenance": [
+    {
+      "missingFact": "Temperature, sputum characteristics, microbiologic testing, and other infection-evaluation results are absent.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "C3",
+      "provenance": "OTHER_PROVENANCE",
+      "sourceEvidence": "The sibling supplies temperatures of 37.1-37.2 °C, denial of fever, a dry cough, WBC 6.8 ×10³/µL, and bilateral ground-glass opacities, but no microbiologic testing. These findings only corroborate the standalone ranking and are not necessary to select C2."
+    },
+    {
+      "missingFact": "The client's platelet count is not provided; the rationale's statement that it is normal is unsupported by the standalone stem.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "P3",
+      "provenance": "OTHER_PROVENANCE",
+      "sourceEvidence": "The sibling baseline laboratory exhibit reports platelets 188 ×10³/µL, revealing a likely source for the rationale's normal-platelet assertion. That value is absent from the standalone stem and unnecessary for rejecting P3."
+    },
+    {
+      "missingFact": "The stem does not state whether a new mass pattern is present, although it explicitly excludes the lymphangitic carcinomatosis named by C1.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "C1",
+      "provenance": "RATIONALE_ONLY",
+      "sourceEvidence": "The no-new-mass-pattern assertion appears in the standalone rationale; the sibling CT also lists ground-glass opacities and absence of effusion, pulmonary embolism, and lymphangitic carcinomatosis without stating that no new mass pattern exists."
+    }
+  ],
+  "primaryVerdict": "PASS_STANDALONE",
+  "reasoning": "Under the fixed precedence, FAIL_HIDDEN_CASE_DEPENDENCY does not apply because no sibling-only fact is necessary for the canonical ranking. FAIL_UNSUPPORTED_TOKEN_PREMISE does not apply because P2 and P3 can be rejected for lack of relevance to the acute pulmonary response without assuming normal results, and C1 is rejected by the explicit absence of lymphangitic carcinomatosis. The item is not underdetermined, its canonical key and logic are sound, and there is no unresolved reviewer disagreement. Therefore PASS_STANDALONE controls, with only P3 collateral corrections to nonessential rationale assertions.",
+  "scopeCollateral": [
+    {
+      "concern": "No material nursing-scope violation was identified in the canonical actions.",
+      "evidence": "Supplemental oxygen and methylprednisolone are explicit provider orders, while holding pembrolizumab and consulting pulmonology are also presented as ordered elements rather than independent nursing prescribing decisions.",
+      "priority": null
+    }
+  ],
+  "secondaryFlags": []
+}

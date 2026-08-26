@@ -1,0 +1,120 @@
+{
+  "anyCanonicalTargetDependsOnAbsentFact": false,
+  "blindExactMatch": true,
+  "canonicalSelection": {
+    "actionLabels": [
+      "A4",
+      "A1"
+    ],
+    "conditionLabel": "C2",
+    "parameterLabels": [
+      "P2",
+      "P1"
+    ]
+  },
+  "canonicalSetExplanation": "C2 uniquely links both demonstrated errors. A4 addresses the unresolved exposure risk before A1 corrects the measurement skill gap. P2 and P1 then directly evaluate the two behaviors identified in the stem. Every alternative is either less directly explanatory, requires an absent premise, delays correction, or fails to measure medication-safety performance.",
+  "canonicalSetUniquelyDefensible": true,
+  "canonicalTargetSupport": [
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "C2",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "Danielle followed informal advice, gave 15 mL when the documented weight-band dose was 3.75 mL, and allowed an uncapped acetaminophen bottle to remain within Liam's reach."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "A4",
+      "supportClassification": "GENERAL_KNOWLEDGE_LINK",
+      "supportingStandaloneEvidence": "The administered product and concentration are identified, but the stem explicitly states that timing, frequency, and possible exposure to another acetaminophen-containing product are undocumented."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "A1",
+      "supportClassification": "GENERAL_KNOWLEDGE_LINK",
+      "supportingStandaloneEvidence": "Danielle reports measuring 15 mL after following informal advice, while Liam's documented dose is 3.75 mL."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "P2",
+      "supportClassification": "GENERAL_KNOWLEDGE_LINK",
+      "supportingStandaloneEvidence": "The explicit 15 mL versus 3.75 mL discrepancy identifies dose measurement as a behavior that requires direct follow-up verification."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "P1",
+      "supportClassification": "GENERAL_KNOWLEDGE_LINK",
+      "supportingStandaloneEvidence": "Liam reaches for a cosmetics pouch containing an uncapped bottle of liquid acetaminophen, directly establishing an access hazard requiring follow-up verification."
+    }
+  ],
+  "distractorPremiseFindings": [
+    {
+      "explanation": "Tearfulness and little reliable support make role strain plausible, but they explain the specific dosing and storage errors less directly than the documented reliance on informal medication advice.",
+      "opaqueTokenLabel": "C1",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "LOW"
+    },
+    {
+      "explanation": "The unsafe practices require correction, but the stem provides no additional facts establishing neglect as the primary explanation and instead describes Danielle as attentive and forthcoming.",
+      "opaqueTokenLabel": "C3",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "LOW"
+    },
+    {
+      "explanation": "Deferral would leave a current fourfold volume discrepancy and demonstrated storage hazard uncorrected.",
+      "opaqueTokenLabel": "A2",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "Unsafe practices alone do not supply the additional context needed to make a protective-services report the priority action.",
+      "opaqueTokenLabel": "A3",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "LOW"
+    },
+    {
+      "explanation": "Subjective confidence alone cannot verify accurate measurement or safe storage.",
+      "opaqueTokenLabel": "P3",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "Developmental-screen performance does not evaluate caregiver medication measurement or storage behavior.",
+      "opaqueTokenLabel": "P4",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "NONE"
+    }
+  ],
+  "missingClientFacts": [
+    {
+      "keyed": true,
+      "missingFact": "The last-dose time, dosing frequency, total acetaminophen exposure, and any overlapping acetaminophen-containing product",
+      "opaqueTokenLabel": "A4",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "keyed": false,
+      "missingFact": "Evidence that caregiver-role demands or inadequate support primarily caused the medication errors rather than medication misunderstanding",
+      "opaqueTokenLabel": "C1",
+      "rankabilityImpact": "LOW"
+    },
+    {
+      "keyed": false,
+      "missingFact": "Additional evidence establishing neglect as the primary explanation",
+      "opaqueTokenLabel": "C3",
+      "rankabilityImpact": "LOW"
+    },
+    {
+      "keyed": false,
+      "missingFact": "Additional circumstances establishing a protective-services reporting basis beyond the disclosed unsafe practices alone",
+      "opaqueTokenLabel": "A3",
+      "rankabilityImpact": "LOW"
+    }
+  ],
+  "notes": [
+    "The Stage-2 blind selection contains exactly the five canonical labels; the reversed order of P1 and P2 is not substantive because the two parameter selections are unordered.",
+    "The missing exposure details reinforce the need for A4 and do not make the canonical pool selection underdetermined."
+  ],
+  "stage1Alignment": "PARTIAL",
+  "stage1AlignmentExplanation": "Stage 1 independently identified the excessive acetaminophen exposure and generated exposure-history clarification plus pediatric clinician or Poison Control consultation, which aligns with A4. It instead framed the condition as suspected acetaminophen overdose, did not generate A1, and proposed laboratory toxicity monitoring rather than the canonical behavioral evaluation parameters P2 and P1.",
+  "unstatedClientFactMateriallyChangesRankability": false
+}

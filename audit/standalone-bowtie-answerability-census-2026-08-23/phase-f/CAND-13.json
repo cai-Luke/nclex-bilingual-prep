@@ -1,0 +1,116 @@
+{
+  "advisoryPriority": "P2",
+  "bilingualCollateral": [
+    {
+      "concern": "The sibling's Chinese anatomy wording is narrower than the English wording in parts of the burn-area material.",
+      "evidence": "English describes both anterior arms from shoulders to wrists, while some Chinese text uses “双侧前臂,” which ordinarily means both forearms; this does not affect the standalone bow-tie because its TBSA is supplied directly.",
+      "priority": "P2"
+    }
+  ],
+  "canonicalTargetSiblingOverlap": [
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling repeats the high urine output, excess delivered fluid, crackles, rising airway pressures, increasing girth, edema, and hemodilution, but all facts required to identify fluid creep are already explicit in the standalone stem.",
+      "opaqueTokenLabel": "C1",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling explicitly endorses reducing lactated Ringer's and documents subsequent improvement, but the standalone endpoint overshoot and overload findings already support A3.",
+      "opaqueTokenLabel": "A3",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling adds delayed capillary refill, weaker pulses, and later bladder-pressure data; the standalone increasing girth and tense edematous hands are independently sufficient to justify serial monitoring.",
+      "opaqueTokenLabel": "A4",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling confirms urine-output-guided titration and later return toward target, while the standalone directly states both the measured output and ordered target.",
+      "opaqueTokenLabel": "P2",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling supplies a later bladder-pressure result, but increasing abdominal girth during documented over-resuscitation already makes bladder pressure the directly relevant standalone parameter.",
+      "opaqueTokenLabel": "P4",
+      "overlap": true
+    }
+  ],
+  "clinicalCollateral": [
+    {
+      "concern": "A4 bundles notification with monitoring even though the standalone already states that the burn team has noted the excess delivered volume.",
+      "evidence": "The notification component is partly redundant, but serial bladder-pressure and extremity-perfusion monitoring remains clinically responsive to increasing girth and tense edematous hands.",
+      "priority": "P3"
+    }
+  ],
+  "defectSummary": "No primary standalone answerability or key defect is present. The canonical set is independently supported, although the learner-facing rationale contains sibling-derived assertions about established inhalation injury and an earlier carbon monoxide concern that are not disclosed in the standalone stem.",
+  "missingFactProvenance": [
+    {
+      "missingFact": "Confirmation of inhalation injury or evidence that it is worsening is absent from the standalone stem.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "C2",
+      "provenance": "SIBLING_CASE_IMPORTED",
+      "sourceEvidence": "The sibling documents smoke-filled-room exposure, carbonaceous sputum, pharyngeal soot and edema, progressive hoarseness, stridor, and emergent intubation; it does not show that inhalation injury is the active worsening problem at 1800."
+    },
+    {
+      "missingFact": "Client-specific findings of burn wound infection or sepsis are absent.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "C3",
+      "provenance": "UNSUPPORTED_ANYWHERE_CHECKED",
+      "sourceEvidence": "Neither the standalone item nor the sibling supplies wound infection, fever, culture evidence, or infection-attributable deterioration at the relevant time."
+    },
+    {
+      "missingFact": "Smoke exposure, carbon monoxide toxicity, or an earlier carboxyhemoglobin concern is absent from the standalone stem.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "P3",
+      "provenance": "SIBLING_CASE_IMPORTED",
+      "sourceEvidence": "The sibling reports rescue from a smoke-filled bedroom, initial carboxyhemoglobin of 18%, and a decline to 8% after treatment."
+    },
+    {
+      "missingFact": "Current hypoxemia, ABG deterioration, or inadequate ventilator support is not reported.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "A1",
+      "provenance": "UNSUPPORTED_ANYWHERE_CHECKED",
+      "sourceEvidence": "The sibling supplies earlier respiratory data but no current oxygenation failure or ABG deterioration accompanying the 1800 over-resuscitation pattern."
+    },
+    {
+      "missingFact": "No potassium result or potassium-specific concern is reported in the standalone stem.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "P1",
+      "provenance": "SIBLING_CASE_IMPORTED",
+      "sourceEvidence": "The sibling reports potassium values of 5.1 mEq/L initially, 4.6 mEq/L at 1200, and 4.2 mEq/L during the later over-resuscitation stage."
+    },
+    {
+      "missingFact": "Baseline bladder pressure and detailed distal-extremity perfusion findings are not provided in the standalone stem.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "A4",
+      "provenance": "OTHER_PROVENANCE",
+      "sourceEvidence": "The sibling supplies delayed capillary refill and weaker radial pulses at 2000 and a bladder pressure of 18 mmHg at 2200, but it does not provide a pre-intervention baseline bladder pressure at the standalone decision time."
+    },
+    {
+      "missingFact": "An initial bladder-pressure value is absent.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "P4",
+      "provenance": "UNSUPPORTED_ANYWHERE_CHECKED",
+      "sourceEvidence": "The sibling provides only a later bladder pressure of 18 mmHg at 2200 after the infusion rate was reduced, not an initial value at selection time."
+    }
+  ],
+  "primaryVerdict": "PASS_STANDALONE",
+  "reasoning": "Under the required precedence, FAIL_HIDDEN_CASE_DEPENDENCY is not satisfied because every keyed target is supported by the standalone facts and sibling overlap is corroborative only. FAIL_UNSUPPORTED_TOKEN_PREMISE is not satisfied as a primary item defect because the canonical tokens require no absent fact; the sibling-derived rationale assertions concern non-keyed alternatives and do not determine rankability. The item is not underdetermined: C1 uniquely synthesizes the endpoint overshoot and multisystem edema pattern, A3 addresses the cause, A4 monitors threatened compartment complications, P2 tracks titration, and P4 tracks intra-abdominal pressure risk. The canonical key and logic are coherent, and no second reviewer exists from which to establish reviewer disagreement. PASS_STANDALONE therefore applies, with collateral scope and bilingual observations recorded separately.",
+  "scopeCollateral": [
+    {
+      "concern": "Two rationale statements rely on paired-case history not available to the standalone learner.",
+      "evidence": "The C2 rationale says inhalation injury is present, and the P3 rationale says carbon monoxide toxicity was an earlier concern; both are established only in the sibling case and are unnecessary for selecting the canonical set.",
+      "priority": "P2"
+    },
+    {
+      "concern": "The standalone compresses later sibling findings into the 1800 presentation.",
+      "evidence": "The sibling places rising peak airway pressure, a quantified girth increase, delayed hand refill, and weaker pulses at 2000, whereas the standalone presents rising pressures, increasing girth, and tense hands at 1800. Because those findings are explicit in the standalone, the timing difference does not create hidden dependency.",
+      "priority": "P3"
+    }
+  ],
+  "secondaryFlags": []
+}

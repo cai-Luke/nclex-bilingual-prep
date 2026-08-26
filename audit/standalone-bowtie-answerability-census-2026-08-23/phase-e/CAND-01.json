@@ -1,0 +1,103 @@
+{
+  "anyCanonicalTargetDependsOnAbsentFact": false,
+  "blindExactMatch": true,
+  "canonicalSelection": {
+    "actionLabels": [
+      "A2",
+      "A3"
+    ],
+    "conditionLabel": "C1",
+    "parameterLabels": [
+      "P3",
+      "P1"
+    ]
+  },
+  "canonicalSetExplanation": "C1 is distinguished by postpartum severe-range hypertension, neurologic severe features, clonus, and proteinuria, while the laboratory results exclude the supplied HELLP alternative. A2 and A3 address separate immediate risks—seizure and severe hypertension—and P3 and P1 directly monitor treatment response and safety. Every alternative is either clinically inappropriate or relies on an absent premise.",
+  "canonicalSetUniquelyDefensible": true,
+  "canonicalTargetSupport": [
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "C1",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "Postpartum day 4 with BP 168/112 and 164/110, severe headache, scotomata, DTRs 3+ with ankle clonus, and urine protein-to-creatinine ratio 0.42."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "A2",
+      "supportClassification": "GENERAL_KNOWLEDGE_LINK",
+      "supportingStandaloneEvidence": "Severe headache, scotomata, hyperreflexia, and ankle clonus establish severe neurologic involvement and seizure risk."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "A3",
+      "supportClassification": "GENERAL_KNOWLEDGE_LINK",
+      "supportingStandaloneEvidence": "Two severe-range BP measurements are documented: 168/112 and 164/110."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "P3",
+      "supportClassification": "GENERAL_KNOWLEDGE_LINK",
+      "supportingStandaloneEvidence": "BP 168/112 and 164/110 provides the pretreatment baseline for evaluating response to acute antihypertensive therapy."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "P1",
+      "supportClassification": "GENERAL_KNOWLEDGE_LINK",
+      "supportingStandaloneEvidence": "Severe headache, scotomata, DTRs 3+ with ankle clonus, and creatinine 0.9 mg/dL provide neurologic and renal safety baselines."
+    }
+  ],
+  "distractorPremiseFindings": [
+    {
+      "explanation": "The stem never states that magnesium is already infusing; moreover, concurrent magnesium would not by itself justify withholding the antihypertensive needed for severe BP.",
+      "opaqueTokenLabel": "A1",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "The repeated severe-range BP requires acute reduction, whereas extended-release nifedipine is not a substitute for the rapid-onset acute dose.",
+      "opaqueTokenLabel": "A4",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "MATERIAL"
+    },
+    {
+      "explanation": "Platelets 195 ×10³/µL, AST 34 U/L, ALT 28 U/L, and LDH 198 U/L do not demonstrate the defining HELLP laboratory pattern.",
+      "opaqueTokenLabel": "C2",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "MATERIAL"
+    },
+    {
+      "explanation": "BP 168/112 and 164/110 plus severe headache, scotomata, hyperreflexia, and clonus establish severe features.",
+      "opaqueTokenLabel": "C3",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "MATERIAL"
+    },
+    {
+      "explanation": "Lochia assessment may be appropriate postpartum but does not evaluate resolution of the hypertensive and seizure-risk emergency.",
+      "opaqueTokenLabel": "P2",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "MATERIAL"
+    },
+    {
+      "explanation": "Facial edema is present but is not a sufficiently immediate or objective measure of acute antihypertensive response.",
+      "opaqueTokenLabel": "P4",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "MATERIAL"
+    }
+  ],
+  "missingClientFacts": [
+    {
+      "keyed": false,
+      "missingFact": "The stem does not state that magnesium sulfate is already infusing.",
+      "opaqueTokenLabel": "A1",
+      "rankabilityImpact": "NONE"
+    }
+  ],
+  "notes": [
+    "The reversed ordering of P1 and P3 in the blind label selection does not change the selected two-parameter set.",
+    "Baseline respiratory rate, level of consciousness, and urine output are not supplied, but they are values to obtain during P1 monitoring rather than premises required to select P1.",
+    "The wording “as ordered” makes A2 and A3 conditional nursing actions and does not require inferring an undocumented medication order."
+  ],
+  "stage1Alignment": "FULL",
+  "stage1AlignmentExplanation": "Stage 1 independently generated postpartum preeclampsia with severe features, magnesium sulfate seizure prophylaxis, rapid-acting antihypertensive treatment, BP-response monitoring, and magnesium-safety monitoring. These match all five canonical targets semantically.",
+  "unstatedClientFactMateriallyChangesRankability": false
+}

@@ -1,0 +1,64 @@
+{
+  "advisoryPriority": "P2",
+  "bilingualCollateral": [],
+  "canonicalTargetSiblingOverlap": [
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling repeatedly identifies uterine atony through heavy bleeding and a boggy uterus that cannot sustain tone, but the standalone stem already supplies the same decisive findings and exclusions.",
+      "opaqueTokenLabel": "C2",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling directs and documents continuous fundal massage or bimanual compression, but recurrent relaxation in the standalone stem independently supports this action.",
+      "opaqueTokenLabel": "A2",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling selects and later documents misoprostol 800 mcg rectally, but the standalone hypertension, asthma, persistent atony, and token pool independently make A4 the defensible medication choice.",
+      "opaqueTokenLabel": "A4",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling tracks restoration of a firm uterus as source control, but the standalone stem independently establishes uterine tone as the immediate response parameter.",
+      "opaqueTokenLabel": "P3",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling follows QBL from continued increase to a plateau, but the standalone QBL of 1,200 mL with persistent bleeding independently supports monitoring its trend.",
+      "opaqueTokenLabel": "P1",
+      "overlap": true
+    }
+  ],
+  "clinicalCollateral": [],
+  "defectSummary": "The canonical 1/2/2 selection is uniquely answerable from the standalone stem, so there is no hidden-case dependency or underdetermination. However, the C1 distractor rationale asserts an exact coagulation profile that the learner never receives in the standalone item. The sibling case confirms that those values were imported from its Stage 2 update, making this a nonessential but unsupported standalone token premise.",
+  "missingFactProvenance": [
+    {
+      "missingFact": "The fibrinogen 280 mg/dL, INR 1.1, and aPTT 30 seconds cited in the standalone rationale are absent from the standalone stem.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "C1",
+      "provenance": "SIBLING_CASE_IMPORTED",
+      "sourceEvidence": "The sibling Stage 2 update reports fibrinogen 280 mg/dL, INR 1.1, and aPTT 30 seconds exactly."
+    },
+    {
+      "missingFact": "The standalone stem provides no baseline or serial creatinine values and no urine-output data.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "P4",
+      "provenance": "OTHER_PROVENANCE",
+      "sourceEvidence": "The sibling baseline laboratory exhibit supplies creatinine 0.7 mg/dL and its Stage 3 update supplies urine output of 25 mL/hr; no serial creatinine value appears anywhere checked. This is mixed sibling provenance plus a component unsupported anywhere checked."
+    }
+  ],
+  "primaryVerdict": "FAIL_UNSUPPORTED_TOKEN_PREMISE",
+  "reasoning": "Under the required precedence, FAIL_HIDDEN_CASE_DEPENDENCY does not apply because none of the five canonical targets requires sibling information for rankability. The standalone boggy uterus, failure to sustain tone, ongoing hemorrhage, explicit exclusion of retained tissue and major lacerations, hypertension, asthma, and bounded token pool independently establish C2, A2, A4, P3, and P1. FAIL_UNSUPPORTED_TOKEN_PREMISE is nevertheless satisfied because the learner-facing C1 rationale relies on exact sibling-only coagulation values absent from the standalone stem. The missing renal data associated with P4 are not required to reject that token because serum creatinine's lag in acute hypoperfusion is a general-knowledge distinction. No lower-precedence failure, key defect, underdetermination, or reviewer disagreement is present.",
+  "scopeCollateral": [
+    {
+      "concern": "The standalone C1 rationale crosses the standalone-case boundary by presenting sibling-only coagulation measurements as though they were available client facts.",
+      "evidence": "The standalone stem contains no coagulation results, while its C1 rationale cites fibrinogen 280 mg/dL, INR 1.1, and aPTT 30 seconds; those exact values occur in the sibling Stage 2 update.",
+      "priority": "P2"
+    }
+  ],
+  "secondaryFlags": []
+}

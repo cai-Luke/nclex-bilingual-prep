@@ -1,0 +1,93 @@
+{
+  "advisoryPriority": null,
+  "bilingualCollateral": [],
+  "canonicalTargetSiblingOverlap": [
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling confirms TACO through baseline comparison, hydrostatic congestion, BNP change, provider diagnosis, and response to diuresis, but the standalone stem already contains sufficient discriminating evidence.",
+      "opaqueTokenLabel": "C2",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling confirms high Fowler positioning, supplemental oxygen, and respiratory monitoring as immediate interventions; the standalone hypoxemia and stated improvement already support this action.",
+      "opaqueTokenLabel": "A1",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling specifies IV furosemide dosing and subsequent diuresis, but the standalone already states ordered IV furosemide, oliguria, overload, and clinical improvement.",
+      "opaqueTokenLabel": "A4",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling demonstrates improving SpO2 during oxygen weaning, but the standalone SpO2 of 89%, oxygen use, and improving dyspnea already make this parameter rankable.",
+      "opaqueTokenLabel": "P3",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling provides measured post-diuretic urine output, but the standalone oliguria and furosemide treatment already establish urine output as a priority evaluation parameter.",
+      "opaqueTokenLabel": "P1",
+      "overlap": true
+    }
+  ],
+  "clinicalCollateral": [],
+  "defectSummary": "No standalone semantic defect was identified. All five canonical targets are supported and uniquely rankable from the standalone stem; sibling details corroborate the answer but are not required to derive it.",
+  "missingFactProvenance": [
+    {
+      "missingFact": "No hypotension, bronchospasm, angioedema, urticaria, throat tightness, or other allergic manifestation is reported in the standalone stem.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "C1",
+      "provenance": "SIBLING_CASE_IMPORTED",
+      "sourceEvidence": "The sibling reports BP 168/96 and explicitly states no urticaria, hives, angioedema, wheezing, itching, or throat tightness."
+    },
+    {
+      "missingFact": "No temperature value, fever, chills, or temperature trend is reported in the standalone stem.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "P2",
+      "provenance": "SIBLING_CASE_IMPORTED",
+      "sourceEvidence": "The sibling provides temperatures of 36.8 °C before transfusion, 37.2 °C during the reaction, 37.1 °C after initial treatment, and 36.9 °C later, without a meaningful febrile pattern."
+    },
+    {
+      "missingFact": "No post-transfusion hemoglobin value or trend is reported in the standalone stem.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "P4",
+      "provenance": "SIBLING_CASE_IMPORTED",
+      "sourceEvidence": "The sibling reports post-transfusion hemoglobin of 8.1 g/dL."
+    },
+    {
+      "missingFact": "The exact onset time, total transfused volume, and infusion rate are not reported in the standalone stem.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "C2",
+      "provenance": "OTHER_PROVENANCE",
+      "sourceEvidence": "The sibling partially supplies timing and protocol context: onset occurred 45 minutes into the second unit, and each unit was ordered over 2 hours. Exact transfused volume in mL and actual mL/hour infusion rate remain unsupported."
+    },
+    {
+      "missingFact": "The post-intervention SpO2 and current supplemental-oxygen requirement are not reported in the standalone stem.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "P3",
+      "provenance": "SIBLING_CASE_IMPORTED",
+      "sourceEvidence": "The sibling reports SpO2 94% on a 15 L/min non-rebreather after 30 minutes and later 96% on 4 L/min nasal cannula after weaning."
+    },
+    {
+      "missingFact": "The urine output and net fluid balance after furosemide are not reported in the standalone stem.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "P1",
+      "provenance": "OTHER_PROVENANCE",
+      "sourceEvidence": "The sibling supplies urine output of 180 mL after initial furosemide and 1,400 mL over 4 hours, but it does not provide a complete net fluid balance."
+    },
+    {
+      "missingFact": "The post-treatment blood pressure and current JVD, S3, edema, and crackle findings are not reported in the standalone stem.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "C2",
+      "provenance": "SIBLING_CASE_IMPORTED",
+      "sourceEvidence": "The sibling reports improving blood pressure, receding crackles and JVD, a softer then absent S3, and edema returning from 2+ to trace."
+    }
+  ],
+  "primaryVerdict": "PASS_STANDALONE",
+  "reasoning": "The blinded reviewer independently generated the canonical clinical set at Stage 1 and selected the exact canonical token set at Stage 2 without sibling access. The standalone cue cluster distinguishes TACO from anaphylaxis and TRALI, directly supports oxygenation and upright positioning plus ordered diuresis, and makes SpO2 weaning and urine output the two most relevant evaluation parameters. Facts later supplied by the sibling add baseline comparisons, numerical treatment responses, and explicit negative findings, but none materially changes rankability or supplies a premise required by a keyed target. Therefore no hidden-case dependency, unsupported keyed premise, underdetermination, canonical-key defect, or reviewer disagreement is present.",
+  "scopeCollateral": [],
+  "secondaryFlags": []
+}

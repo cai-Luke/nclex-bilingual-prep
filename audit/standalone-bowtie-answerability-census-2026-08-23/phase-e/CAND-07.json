@@ -1,0 +1,121 @@
+{
+  "anyCanonicalTargetDependsOnAbsentFact": false,
+  "blindExactMatch": true,
+  "canonicalSelection": {
+    "actionLabels": [
+      "A4",
+      "A3"
+    ],
+    "conditionLabel": "C1",
+    "parameterLabels": [
+      "P2",
+      "P1"
+    ]
+  },
+  "canonicalSetExplanation": "C1 best integrates the entire cue cluster rather than forcing the hematologic and cardiac findings into one unsupported alternative process. A4 and A3 stop further exposure and escalate two potentially life-threatening reactions, while P2 and P1 directly measure recovery of the two keyed toxicities. The remaining actions and parameters are unsupported, unsafe, or lower-priority.",
+  "canonicalSetUniquelyDefensible": true,
+  "canonicalTargetSupport": [
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "C1",
+      "supportClassification": "GENERAL_KNOWLEDGE_LINK",
+      "supportingStandaloneEvidence": "Day 18–18.5 of clozapine therapy; fever, sore throat, ANC 980/µL, rising troponin and CRP, S3, crackles, edema, LVEF 45% with global hypokinesis, and pericardial effusion support concurrent hematologic and myocardial toxicity."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "A4",
+      "supportClassification": "GENERAL_KNOWLEDGE_LINK",
+      "supportingStandaloneEvidence": "The client has two serious suspected clozapine toxicities during active exposure: febrile moderate neutropenia and myocarditis with ventricular dysfunction."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "A3",
+      "supportClassification": "GENERAL_KNOWLEDGE_LINK",
+      "supportingStandaloneEvidence": "ANC 980/µL with fever and sore throat plus chest pressure, dyspnea, congestion, biomarker elevation, and echocardiographic dysfunction require immediate escalation."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "P2",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "ANC is explicitly 980/µL during clozapine therapy with fever and sore throat."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "P1",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "Troponin I is explicitly rising from 0.48 ng/mL to 0.52 ng/mL."
+    }
+  ],
+  "distractorPremiseFindings": [
+    {
+      "explanation": "The stem reports neither drooling nor orthostatic symptoms; even if present, they would not outrank the acute hematologic and cardiac threats.",
+      "opaqueTokenLabel": "A1",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "Improving hallucinations are not stated, and psychiatric benefit would not make continued exposure appropriate during these serious suspected toxicities.",
+      "opaqueTokenLabel": "A2",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "Fever and cardiac dysfunction make sepsis relevant, but no infectious source, cultures, hypotension, perfusion findings, or other evidence establishes sepsis with septic cardiomyopathy as the single primary process.",
+      "opaqueTokenLabel": "C2",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "MATERIAL"
+    },
+    {
+      "explanation": "Objective fever, neutropenia, rising troponin, heart-failure findings, reduced LVEF, global hypokinesis, and pericardial effusion contradict a benign anxiety explanation.",
+      "opaqueTokenLabel": "C3",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "Metabolic monitoring is generally relevant during clozapine therapy, but it does not directly evaluate resolution of the acute neutropenia or myocardial injury.",
+      "opaqueTokenLabel": "P3",
+      "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "No abnormal involuntary movements are described, and AIMS does not track either acute process identified in this item.",
+      "opaqueTokenLabel": "P4",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "NONE"
+    }
+  ],
+  "missingClientFacts": [
+    {
+      "keyed": true,
+      "missingFact": "No pre-clozapine or earlier ANC is supplied to demonstrate the ANC decline referenced by the complete rationale.",
+      "opaqueTokenLabel": "C1",
+      "rankabilityImpact": "LOW"
+    },
+    {
+      "keyed": false,
+      "missingFact": "The client is not stated to have drooling or orthostatic symptoms.",
+      "opaqueTokenLabel": "A1",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "keyed": false,
+      "missingFact": "The client is not stated to have improving hallucinations.",
+      "opaqueTokenLabel": "A2",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "keyed": false,
+      "missingFact": "No infectious source, culture result, sepsis-related hypotension, or perfusion abnormality is provided.",
+      "opaqueTokenLabel": "C2",
+      "rankabilityImpact": "MATERIAL"
+    }
+  ],
+  "notes": [
+    "The Stage-2 blind selection matches all five canonical labels; action and parameter array order is not clinically meaningful.",
+    "The canonical answer remains uniquely defensible from the supplied stem, although definitive causal attribution would be strengthened by baseline ANC, infectious studies, and confirmatory cardiac evaluation.",
+    "The complete rationale's reference to an ANC decline exceeds the standalone stem, which supplies only the current ANC value."
+  ],
+  "stage1Alignment": "PARTIAL",
+  "stage1AlignmentExplanation": "Stage 1 identified clozapine-associated myocarditis and generated actions corresponding to A4 and A3. It also selected troponin monitoring, but it omitted concurrent moderate neutropenia from the condition and did not select ANC trend as the second canonical parameter.",
+  "unstatedClientFactMateriallyChangesRankability": true
+}

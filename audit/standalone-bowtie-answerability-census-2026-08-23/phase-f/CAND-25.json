@@ -1,0 +1,116 @@
+{
+  "advisoryPriority": "P2",
+  "bilingualCollateral": [
+    {
+      "concern": "The repeated Chinese rendering of “step-down unit” as “降级病房” may be nonstandard or ambiguous for learners because it can read literally as a downgraded ward rather than an intermediate-acuity unit.",
+      "evidence": "The standalone stem, sibling title, and exhibits consistently use “降级病房” for “step-down unit”; one glossary passage additionally uses “特级护理（降级）病房.”",
+      "priority": "P2"
+    },
+    {
+      "concern": "The P1 translation weakens the specific validated-competency requirement by rendering “validated nurse” as the broader “具备资格的护士.”",
+      "evidence": "English P1 requires reassignment to a “validated nurse,” while Chinese P1 says “具备资格的护士,” despite the glossary distinguishing validated competency as “已验证的胜任力.”",
+      "priority": "P2"
+    }
+  ],
+  "canonicalTargetSiblingOverlap": [
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling repeatedly confirms the competency mismatch, but the standalone stem already states that the required interventions are outside the nurse's documented competencies.",
+      "opaqueTokenLabel": "C2",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling shows escalation to the nursing supervisor, but the standalone charge nurse's refusal already supports chain-of-command escalation through general nursing knowledge.",
+      "opaqueTokenLabel": "A4",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling supplies Client C as a concrete within-competency patient. The standalone action remains rankable because it is conditionally limited to patients whose needs are within competency, and the competing actions require abandonment or unsafe acceptance.",
+      "opaqueTokenLabel": "A3",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling demonstrates actual reassignment of Clients A and B, but reassignment to a validated nurse is independently supported as the direct resolution of the standalone competency mismatch.",
+      "opaqueTokenLabel": "P1",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling confirms a competency-aligned remaining assignment, but the standalone problem itself supports evaluating whether all retained responsibilities are within documented competencies.",
+      "opaqueTokenLabel": "P3",
+      "overlap": true
+    }
+  ],
+  "clinicalCollateral": [
+    {
+      "concern": "The sibling's MAP threshold language is internally imprecise.",
+      "evidence": "Client A's order is described as maintaining MAP above 64 mmHg, but a MAP of 64 is later described as “right at the threshold”; 64 does not satisfy an above-64 target.",
+      "priority": "P2"
+    }
+  ],
+  "defectSummary": "No standalone semantic defect or hidden case dependency was identified. The blind Stage-2 label set exactly matched the canonical set before sibling exposure. P2 advisory observations are limited to bilingual terminology and a sibling-case threshold description.",
+  "missingFactProvenance": [
+    {
+      "missingFact": "Whether inadequate staffing caused the assignment or limited available qualified resources.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "C1",
+      "provenance": "SIBLING_CASE_IMPORTED",
+      "sourceEvidence": "The sibling states that a respiratory illness outbreak caused hospital-wide staffing scarcity, and the charge nurse says the unit is short."
+    },
+    {
+      "missingFact": "Which assigned patients, if any, have already been accepted and have needs entirely within the float nurse's validated competencies.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "A3",
+      "provenance": "SIBLING_CASE_IMPORTED",
+      "sourceEvidence": "The sibling identifies Client C as stable, medical-surgical acuity, and within Nurse Okonkwo's competencies; she continues caring for Client C."
+    },
+    {
+      "missingFact": "The facility-specific escalation procedure after the charge nurse refuses to resolve the concern.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "A4",
+      "provenance": "RATIONALE_ONLY",
+      "sourceEvidence": "The sibling's question-four rationale states that the chain of command exists for safety concerns unresolved by the charge nurse, but the quoted facility float policy does not itself specify the next escalation step."
+    },
+    {
+      "missingFact": "Whether a validated step-down nurse is immediately available to receive the high-acuity patients.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "P1",
+      "provenance": "SIBLING_CASE_IMPORTED",
+      "sourceEvidence": "At 2115, step-down-validated Keisha Williams assumes primary responsibility for Clients A and B."
+    },
+    {
+      "missingFact": "The complete care needs of every patient who would remain assigned to the float nurse.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "P3",
+      "provenance": "SIBLING_CASE_IMPORTED",
+      "sourceEvidence": "The sibling's resolution leaves Nurse Okonkwo with Client C and a stable postoperative cholecystectomy patient, both described as within her validated competencies."
+    },
+    {
+      "missingFact": "Whether any patient is receiving norepinephrine, whether its dose was increased, and the associated MAP response.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "P4",
+      "provenance": "OTHER_PROVENANCE",
+      "sourceEvidence": "The sibling supplies norepinephrine administration and an increase from 4 to 6 mcg/min, but no subsequent MAP for Client A is provided anywhere checked."
+    },
+    {
+      "missingFact": "Whether any assigned patient currently requires an urgent intervention during escalation.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "A4",
+      "provenance": "SIBLING_CASE_IMPORTED",
+      "sourceEvidence": "The sibling describes Client A reaching MAP 64 with changing chest-tube output and Client B developing possible slurred speech before the nursing-supervisor call."
+    }
+  ],
+  "primaryVerdict": "PASS_STANDALONE",
+  "reasoning": "The standalone stem directly establishes an unsafe competency mismatch and the charge nurse's refusal to correct it. General nursing principles support continuing only within competency, escalating the unresolved concern, reassigning high-acuity responsibilities, and verifying a competency-aligned remaining assignment. The sibling gives concrete examples of each canonical target but is corroborative rather than necessary. None of the Phase-E missing facts materially changes ranking among the supplied tokens, no canonical premise is unsupported, and no competing set is equally defensible; therefore PASS_STANDALONE controls under the required precedence.",
+  "scopeCollateral": [
+    {
+      "concern": "No hidden-dependency concern was found despite substantial sibling elaboration.",
+      "evidence": "The sibling adds staffing cause, specific patients, facility policy, deterioration, and resolution outcomes, but the blind Stage-2 reviewer selected C2, A3, A4, P1, and P3 from the standalone packet alone.",
+      "priority": null
+    }
+  ],
+  "secondaryFlags": []
+}

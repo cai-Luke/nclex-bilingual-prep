@@ -1,0 +1,38 @@
+{
+  "condition": "Acute ascending cholangitis from obstructing choledocholithiasis with evolving sepsis",
+  "evaluationParameters": [
+    "Hemodynamic and tissue-perfusion response: BP/MAP, urine output, and serial lactate.",
+    "Resolution of infection and biliary obstruction: temperature, WBC count, bilirubin, and abdominal symptoms."
+  ],
+  "missingInformation": [
+    "Mental status and trends in BP/MAP, urine output, lactate, bilirubin, and oxygen requirement; blood-culture results; liver-enzyme pattern; renal function; medication allergies; coagulation status; and ERCP availability are not provided."
+  ],
+  "priorityActions": [
+    "Administer prescribed IV broad-spectrum antibiotics promptly and obtain ordered blood cultures without delaying therapy.",
+    "Urgently notify the provider and prepare the client for emergency ERCP with biliary decompression and stone extraction."
+  ],
+  "reasoning": "The stem supplies systemic inflammation, cholestasis, and imaging-confirmed common-bile-duct obstruction, supporting acute ascending cholangitis rather than uncomplicated pancreatitis alone. Prompt antibiotics and urgent biliary decompression address infection and source control; perfusion and infection/obstruction trends evaluate deterioration or response.",
+  "stage1Confidence": "high",
+  "stemEvidence": [
+    {
+      "stemFact": "T 38.4 C, HR 118, RR 26, WBC 19.2 ×10³/µL, bilirubin 3.2 mg/dL, and ultrasound showing an 11-mm common bile duct with a shadowing distal stone.",
+      "target": "condition"
+    },
+    {
+      "stemFact": "Fever, leukocytosis, tachycardia, tachypnea, and lactate 2.6 mmol/L indicate systemic infection with impaired perfusion risk.",
+      "target": "priorityAction1"
+    },
+    {
+      "stemFact": "Ultrasound shows an 11-mm common bile duct with a shadowing distal stone, indicating persistent mechanical biliary obstruction requiring source control.",
+      "target": "priorityAction2"
+    },
+    {
+      "stemFact": "BP 108/62, urine output 30 mL/hr, and lactate 2.6 mmol/L provide baseline perfusion indicators.",
+      "target": "evaluationParameter1"
+    },
+    {
+      "stemFact": "T 38.4 C, WBC 19.2 ×10³/µL, bilirubin 3.2 mg/dL, and worsening abdominal distention and pain provide baseline infection and obstruction indicators.",
+      "target": "evaluationParameter2"
+    }
+  ]
+}

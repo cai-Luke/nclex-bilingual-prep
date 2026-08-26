@@ -1,0 +1,56 @@
+{
+  "instruction": "Using only the standalone learner-facing English stem, prompts, and opaque token pools, select exactly one condition, two actions, and two parameters. Return the required structured JSON, including exactly one premise row for every opaque token. Do not infer absent client-specific facts.",
+  "stem": "A 52-year-old woman with bipolar I disorder on stable lithium therapy presents with obtundation, new myoclonic jerks, and facial fasciculations. Ten days ago, she was started on hydrochlorothiazide. Her serum lithium is 2.6 mEq/L and eGFR is impaired. Despite aggressive IV hydration, her symptoms and lithium level show minimal improvement.",
+  "tokens": {
+    "actions": [
+      {
+        "label": "A1",
+        "text": "Prepare the patient for emergent hemodialysis"
+      },
+      {
+        "label": "A2",
+        "text": "Continue IV fluid resuscitation as the sole treatment"
+      },
+      {
+        "label": "A3",
+        "text": "Administer next scheduled dose of lithium"
+      },
+      {
+        "label": "A4",
+        "text": "Maintain aspiration precautions"
+      }
+    ],
+    "condition": [
+      {
+        "label": "C1",
+        "text": "Severe lithium toxicity"
+      },
+      {
+        "label": "C2",
+        "text": "Acute gastroenteritis"
+      },
+      {
+        "label": "C3",
+        "text": "Bipolar disorder exacerbation"
+      }
+    ],
+    "parameters": [
+      {
+        "label": "P1",
+        "text": "Serum calcium"
+      },
+      {
+        "label": "P2",
+        "text": "Neurological status"
+      },
+      {
+        "label": "P3",
+        "text": "Serial serum lithium levels"
+      },
+      {
+        "label": "P4",
+        "text": "Serum glucose"
+      }
+    ]
+  }
+}

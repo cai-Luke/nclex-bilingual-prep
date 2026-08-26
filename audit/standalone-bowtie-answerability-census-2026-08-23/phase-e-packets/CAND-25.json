@@ -1,0 +1,178 @@
+{
+  "canonicalSelection": {
+    "actionLabels": [
+      "A4",
+      "A3"
+    ],
+    "conditionLabel": "C2",
+    "parameterLabels": [
+      "P1",
+      "P3"
+    ]
+  },
+  "instruction": "The two blind-stage records are immutable. Compare them with the now-revealed canonical 1/2/2 selection and complete standalone item. Do not inspect or infer sibling-case material. Return the required Phase-E structured JSON without revising either blind record.",
+  "standaloneItem": {
+    "bowtie": {
+      "actions": {
+        "tokens": [
+          {
+            "en": "Refuse all patient care and leave the unit",
+            "opaqueTokenLabel": "A1",
+            "zh": "拒绝所有的患者护理并离开病房"
+          },
+          {
+            "en": "Accept the full assignment without escalation",
+            "opaqueTokenLabel": "A2",
+            "zh": "在不上报的情况下接受完整的排班任务"
+          },
+          {
+            "en": "Continue providing care for patients whose needs are within her validated competencies",
+            "opaqueTokenLabel": "A3",
+            "zh": "继续为护理需求在其已验证胜任力范围内的患者提供护理"
+          },
+          {
+            "en": "Escalate through the chain of command to the nursing supervisor",
+            "opaqueTokenLabel": "A4",
+            "zh": "通过指挥链上报至护理主管"
+          }
+        ]
+      },
+      "condition": {
+        "tokens": [
+          {
+            "en": "Inadequate staffing requiring the nurse to manage with available resources",
+            "opaqueTokenLabel": "C1",
+            "zh": "人手不足，要求护士利用现有资源进行管理"
+          },
+          {
+            "en": "Unsafe assignment outside the nurse's validated competency",
+            "opaqueTokenLabel": "C2",
+            "zh": "超出护士已验证胜任力的不安全排班"
+          },
+          {
+            "en": "Nurse unwillingness to accept a float assignment",
+            "opaqueTokenLabel": "C3",
+            "zh": "护士不愿意接受调配排班"
+          }
+        ]
+      },
+      "parameters": {
+        "tokens": [
+          {
+            "en": "Whether the high-acuity patients are reassigned to a validated nurse",
+            "opaqueTokenLabel": "P1",
+            "zh": "高危患者是否被重新分配给具备资格的护士"
+          },
+          {
+            "en": "Whether the charge nurse expresses agreement with the reassignment",
+            "opaqueTokenLabel": "P2",
+            "zh": "值班主管护士是否表示同意重新排班"
+          },
+          {
+            "en": "Whether the nurse's remaining assignment consists entirely of patients within her documented competencies",
+            "opaqueTokenLabel": "P3",
+            "zh": "护士剩余的排班任务是否完全由其胜任力范围内的患者组成"
+          },
+          {
+            "en": "Whether the patient's MAP remains stable after the norepinephrine increase",
+            "opaqueTokenLabel": "P4",
+            "zh": "去甲肾上腺素增加后，患者的平均动脉压 (MAP) 是否保持稳定"
+          }
+        ]
+      }
+    },
+    "glossary": [
+      {
+        "defZh": "通过机构培训和评估确认的、护士安全执行特定技能或干预措施的能力",
+        "termEn": "Validated competency",
+        "termZh": "已验证的胜任力"
+      },
+      {
+        "defZh": "一种正式的层级沟通路径，用于在直接主管无法解决问题时，将安全隐患或未解决的问题向上级（如护理主管）报告",
+        "termEn": "Chain of command",
+        "termZh": "指挥链 (上报机制)"
+      },
+      {
+        "defZh": "持续静脉输注的药物（如去甲肾上腺素），用于改变血管张力并严格控制血压，通常需要根据参数频繁滴定",
+        "termEn": "Vasoactive drip",
+        "termZh": "血管活性滴注"
+      },
+      {
+        "defZh": "一种内部机构表格，用于记录意外事件、错误或系统性故障，用于质量改进而非记录在患者病历中",
+        "termEn": "Incident/variance report",
+        "termZh": "事件/差异报告"
+      }
+    ],
+    "rationale": {
+      "byChoice": [
+        {
+          "en": "The core issue is a structural mismatch between the nurse's competencies and patient care needs.",
+          "opaqueTokenLabel": "C2",
+          "zh": "核心问题在于护士的胜任力与患者护理需求之间存在结构性不匹配。"
+        },
+        {
+          "en": "The concern is factual and patient-centered based on competencies, not preference-based.",
+          "opaqueTokenLabel": "C3",
+          "zh": "这种担忧是基于胜任力的、以患者为中心的客观事实，而非基于个人偏好。"
+        },
+        {
+          "en": "Staffing shortages do not justify accepting assignments outside of one's documented competencies.",
+          "opaqueTokenLabel": "C1",
+          "zh": "人员短缺不能成为接受超出其记录的胜任力的排班任务的理由。"
+        },
+        {
+          "en": "The chain of command must be utilized when unit-level concerns remain unresolved.",
+          "opaqueTokenLabel": "A4",
+          "zh": "当病房层面的隐患未能解决时，必须使用指挥链进行上报。"
+        },
+        {
+          "en": "The nurse must continue care for accepted patients within her competency to avoid abandonment.",
+          "opaqueTokenLabel": "A3",
+          "zh": "护士必须在其能力范围内继续护理已接收的患者，以避免遗弃患者。"
+        },
+        {
+          "en": "Refusing all care, even for appropriate patients, constitutes patient abandonment.",
+          "opaqueTokenLabel": "A1",
+          "zh": "即使是对合适的患者也拒绝所有的护理，这构成了遗弃患者。"
+        },
+        {
+          "en": "Accepting the assignment places the nurse outside her validated competencies and risks patient safety.",
+          "opaqueTokenLabel": "A2",
+          "zh": "接受该排班会使护士超出其已验证的胜任力，并对患者安全造成风险。"
+        },
+        {
+          "en": "Ensuring reassignment confirms the structural issue is resolved safely.",
+          "opaqueTokenLabel": "P1",
+          "zh": "确保重新排班可以证实结构性问题得到了安全解决。"
+        },
+        {
+          "en": "The remaining assignment must strictly align with the nurse's documented skills.",
+          "opaqueTokenLabel": "P3",
+          "zh": "剩余的排班任务必须严格符合该护士已记录的技能。"
+        },
+        {
+          "en": "A temporarily stable MAP does not fix the unsafe assignment, as future titrations will still require missing competencies.",
+          "opaqueTokenLabel": "P4",
+          "zh": "短暂稳定的MAP并不能解决不安全排班的问题，因为未来的滴定仍需要护士所缺乏的胜任力。"
+        },
+        {
+          "en": "The charge nurse's emotional response is irrelevant to evaluating whether the patient safety concern is resolved.",
+          "opaqueTokenLabel": "P2",
+          "zh": "值班主管护士的情绪反应对于评估患者安全隐患是否得到解决并不相关。"
+        }
+      ],
+      "correct": {
+        "en": "The root cause of the safety concern is the structural mismatch between the nurse's documented competencies and the clinical interventions required by the assigned patients. Continuing care within competency prevents patient abandonment, while escalating the structural issue through the chain of command ensures patient safety.",
+        "zh": "安全隐患的根本原因是护士已记录的胜任力与所分配患者所需的临床干预措施之间存在结构性不匹配。在其能力范围内继续护理可防止遗弃患者，同时通过指挥链（上报机制）上报该结构性问题以确保患者安全。"
+      }
+    },
+    "stem": {
+      "en": "A medical-surgical float nurse receives an assignment on a step-down unit that includes patients requiring vasoactive drip titration and advanced neurological assessments, which are not within her documented competencies. The charge nurse refuses to change the assignment, telling her to simply call him if she needs to adjust a drip. What should the nurse prioritize?",
+      "zh": "一名内外科调配护士在降级病房收到了一份排班任务，其中包括需要滴定血管活性滴注药物和进行高级神经评估的患者，而这些并不在她的记录胜任力范围内。值班主管护士拒绝更改排班，告诉她如果需要调整滴注，直接呼叫他就行。护士应优先考虑什么？"
+    },
+    "testTakingStrategy": {
+      "en": "Identify the unsafe situation, advocate through proper channels, and do not abandon care that is within your validated competency.",
+      "zh": "识别不安全的情况，通过适当的渠道进行倡导，并且不要放弃在您已验证的胜任力范围内的护理。"
+    }
+  }
+}

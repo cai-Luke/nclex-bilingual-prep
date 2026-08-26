@@ -1,0 +1,109 @@
+{
+  "anyCanonicalTargetDependsOnAbsentFact": false,
+  "blindExactMatch": true,
+  "canonicalSelection": {
+    "actionLabels": [
+      "A4",
+      "A3"
+    ],
+    "conditionLabel": "C1",
+    "parameterLabels": [
+      "P3",
+      "P1"
+    ]
+  },
+  "canonicalSetExplanation": "Within the supplied pools, C1 best integrates the gastrointestinal volume losses, concentrated low-sodium urine, low FENa, low bladder volume, acute creatinine rise, and dangerous hyperkalemia. A4 followed by A3 uniquely addresses immediate cardiac stabilization and rapid potassium redistribution, while P3 and P1 directly track conduction toxicity and renal perfusion response.",
+  "canonicalSetUniquelyDefensible": true,
+  "canonicalTargetSupport": [
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "C1",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "Seventy-two hours of vomiting and profuse watery diarrhea, concentrated urine, urine sodium 8 mEq/L, FENa 0.4%, bladder scan 40 mL, creatinine rising from 1.4 to 4.5 mg/dL, and potassium 6.4 mEq/L with ECG changes."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "A4",
+      "supportClassification": "GENERAL_KNOWLEDGE_LINK",
+      "supportingStandaloneEvidence": "Potassium is 6.4 mEq/L with persistent peaked T waves, PR prolongation to 0.24 seconds, and QRS widening to 0.12 seconds."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "A3",
+      "supportClassification": "GENERAL_KNOWLEDGE_LINK",
+      "supportingStandaloneEvidence": "Potassium is 6.4 mEq/L with persistent hyperkalemia-associated conduction abnormalities."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "P3",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "The stem explicitly reports persistent peaked T waves, PR prolongation to 0.24 seconds, and QRS widening to 0.12 seconds."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "P1",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "After 1,500 mL IV fluid, urine output remains about 0.14 mL/kg/hr."
+    }
+  ],
+  "distractorPremiseFindings": [
+    {
+      "explanation": "With persistent hyperkalemic ECG conduction changes, calcium is time-critical; giving insulin-dextrose first leaves the myocardium unstabilized while potassium shifting begins.",
+      "opaqueTokenLabel": "A1",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "MATERIAL"
+    },
+    {
+      "explanation": "The stem explicitly describes active vomiting, making an oral agent unlikely to be retained, and this option does not address the immediate conduction threat.",
+      "opaqueTokenLabel": "A2",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "MATERIAL"
+    },
+    {
+      "explanation": "A bladder scan of only 40 mL argues against retention, while the gastrointestinal losses and urine indices provide a stronger prerenal explanation.",
+      "opaqueTokenLabel": "C2",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "MATERIAL"
+    },
+    {
+      "explanation": "Persistent oliguria could raise concern for evolving tubular injury, but no urine sediment evidence or post-resuscitation indices establish ATN, and the available admission indices favor prerenal physiology.",
+      "opaqueTokenLabel": "C3",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "LOW"
+    },
+    {
+      "explanation": "The stem supplies no bleeding, anemia, or hemolysis premise making hemoglobin a priority marker of immediate hyperkalemia toxicity or renal recovery.",
+      "opaqueTokenLabel": "P2",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "MATERIAL"
+    },
+    {
+      "explanation": "Concentrated admission urine and IV fluid administration make a specific-gravity trend relevant, but it is less direct and less urgent than ECG morphology and hourly urine output.",
+      "opaqueTokenLabel": "P4",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "LOW"
+    }
+  ],
+  "missingClientFacts": [
+    {
+      "keyed": true,
+      "missingFact": "No blood pressure or explicit hypotension finding is provided despite the complete rationale referring to a hypotension picture.",
+      "opaqueTokenLabel": "C1",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "keyed": false,
+      "missingFact": "No urine sediment findings, such as muddy brown granular casts, or post-resuscitation urine indices are provided.",
+      "opaqueTokenLabel": "C3",
+      "rankabilityImpact": "LOW"
+    }
+  ],
+  "notes": [
+    "The blind Stage-2 token selection exactly matches the canonical selection.",
+    "The complete rationale introduces hypotension, which is not stated in the standalone stem; the canonical condition remains directly supported without it.",
+    "Stage 1's serial potassium and glucose monitoring choice is clinically coherent but does not align with canonical parameter P1."
+  ],
+  "stage1Alignment": "PARTIAL",
+  "stage1AlignmentExplanation": "Stage 1 independently generated the canonical condition, calcium-first stabilization, insulin-dextrose therapy, and ECG monitoring. Its second evaluation parameter was serial potassium and glucose rather than the canonical hourly urine output.",
+  "unstatedClientFactMateriallyChangesRankability": false
+}

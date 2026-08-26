@@ -1,0 +1,115 @@
+{
+  "anyCanonicalTargetDependsOnAbsentFact": false,
+  "blindExactMatch": true,
+  "canonicalSelection": {
+    "actionLabels": [
+      "A3",
+      "A1"
+    ],
+    "conditionLabel": "C2",
+    "parameterLabels": [
+      "P4",
+      "P1"
+    ]
+  },
+  "canonicalSetExplanation": "The condition and both actions are directly established by the pembrolizumab timing, pulmonary cue cluster, CT findings, explicit hold order, oxygen order, and irAE corticosteroid order. P4 is explicitly ordered, and P1 is the only remaining parameter that directly evaluates acute respiratory deterioration. The alternative condition remains a differential consideration but lacks enough client-specific support to displace C2.",
+  "canonicalSetUniquelyDefensible": true,
+  "canonicalTargetSupport": [
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "C2",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "Respiratory symptoms, hypoxemia, and bilateral ground-glass opacities developed after pembrolizumab cycle 4; pembrolizumab was held and methylprednisolone was ordered under the facility irAE pneumonitis protocol."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "A3",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "SpO2 declined to 91% on room air, PaO2 was 68 mmHg, and oxygen was ordered to maintain SpO2 >=94%."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "A1",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "The oncologist explicitly ordered methylprednisolone per the facility irAE pneumonitis protocol."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "P4",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "The stem documents progressive SpO2 decline and orders every-2-hour pulse oximetry."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "P1",
+      "supportClassification": "GENERAL_KNOWLEDGE_LINK",
+      "supportingStandaloneEvidence": "Progressive hypoxemia, dry cough, and bilateral basilar crackles establish an acute respiratory problem for which respiratory rate and work of breathing measure deterioration or improvement."
+    }
+  ],
+  "distractorPremiseFindings": [
+    {
+      "explanation": "Administering pembrolizumab contradicts the explicit order to hold it.",
+      "opaqueTokenLabel": "A2",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "The stem already orders oxygen and methylprednisolone; delaying them for the consultation conflicts with those active orders during worsening hypoxemia.",
+      "opaqueTokenLabel": "A4",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "CT explicitly reports no lymphangitic carcinomatosis.",
+      "opaqueTokenLabel": "C1",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "Cough, CRP elevation, and opacities permit infection in the differential, but no fever, purulent sputum, microbiologic result, or other client-specific evidence establishes community-acquired pneumonia.",
+      "opaqueTokenLabel": "C3",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "LOW"
+    },
+    {
+      "explanation": "No thyroid symptom, TSH result, or acute thyroid concern is supplied, while the immediate problem is respiratory compromise.",
+      "opaqueTokenLabel": "P2",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "The standalone stem provides no platelet result or bleeding concern, and platelet count does not directly evaluate the described pulmonary response.",
+      "opaqueTokenLabel": "P3",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "NONE"
+    }
+  ],
+  "missingClientFacts": [
+    {
+      "keyed": false,
+      "missingFact": "Temperature, sputum characteristics, microbiologic testing, and other infection-evaluation results are absent.",
+      "opaqueTokenLabel": "C3",
+      "rankabilityImpact": "LOW"
+    },
+    {
+      "keyed": false,
+      "missingFact": "The client's platelet count is not provided; the rationale's statement that it is normal is unsupported by the standalone stem.",
+      "opaqueTokenLabel": "P3",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "keyed": false,
+      "missingFact": "The stem does not state whether a new mass pattern is present, although it explicitly excludes the lymphangitic carcinomatosis named by C1.",
+      "opaqueTokenLabel": "C1",
+      "rankabilityImpact": "NONE"
+    }
+  ],
+  "notes": [
+    "The Stage-2 blind selection contains exactly the canonical token sets; reversed array ordering does not change the unordered two-action and two-parameter selections.",
+    "The rationale should not assert that the platelet count is normal because no platelet value appears in the standalone stem.",
+    "The rationale's infection comparison should be read as a differential-ranking statement, not as proof that fever or purulent sputum is absent."
+  ],
+  "stage1Alignment": "PARTIAL",
+  "stage1AlignmentExplanation": "Stage 1 matched the canonical condition, both actions, and SpO2 monitoring. Its second parameter was broader respiratory-status monitoring and did not specifically name respiratory rate and work of breathing, so alignment is not fully exact.",
+  "unstatedClientFactMateriallyChangesRankability": false
+}

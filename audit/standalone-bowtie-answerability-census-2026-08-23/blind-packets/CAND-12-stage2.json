@@ -1,0 +1,61 @@
+{
+  "instruction": "Using only the standalone learner-facing English stem, prompts, and opaque token pools, select exactly one condition, two actions, and two parameters. Return the required structured JSON, including exactly one premise row for every opaque token. Do not infer absent client-specific facts.",
+  "prompts": {
+    "actions": "Priority actions",
+    "condition": "Most likely condition",
+    "parameters": "Parameters to monitor"
+  },
+  "stem": "At 2200, Priya reports Mrs. Vega's BP is 186/102 with a headache. She has just discovered that the amlodipine dose was increased today, the hospitalist ordered BP monitoring q4h x 24 hours with a call if SBP > 180, and the 1800 monitoring check was missed after an incomplete, dismissive handoff. Complete the bow-tie diagram.",
+  "tokens": {
+    "actions": [
+      {
+        "label": "A1",
+        "text": "Have Priya notify the hospitalist immediately with the BP, headache, and missed monitoring intervals"
+      },
+      {
+        "label": "A2",
+        "text": "Speak privately with Renee about specific observed behaviors, patient-care impact, and policy-based documentation"
+      },
+      {
+        "label": "A3",
+        "text": "Address the interpersonal conflict with Renee before contacting the hospitalist"
+      },
+      {
+        "label": "A4",
+        "text": "Do not document or notify the manager because serious harm was avoided"
+      }
+    ],
+    "condition": [
+      {
+        "label": "C1",
+        "text": "Client-safety communication breakdown resulting from unresolved lateral incivility"
+      },
+      {
+        "label": "C2",
+        "text": "Routine interpersonal friction requiring no formal intervention"
+      },
+      {
+        "label": "C3",
+        "text": "Isolated knowledge deficit in the new nurse"
+      }
+    ],
+    "parameters": [
+      {
+        "label": "P1",
+        "text": "Mrs. Vega's serum creatinine trend"
+      },
+      {
+        "label": "P2",
+        "text": "Completeness and professionalism of subsequent handoffs, including medication changes and time for questions"
+      },
+      {
+        "label": "P3",
+        "text": "Adherence to the q4h BP monitoring schedule and absence of further care omissions"
+      },
+      {
+        "label": "P4",
+        "text": "Whether Renee and Priya become personal friends during breaks"
+      }
+    ]
+  }
+}

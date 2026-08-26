@@ -1,0 +1,132 @@
+{
+  "actionLabels": [
+    "A2",
+    "A4"
+  ],
+  "ambiguousAlternatives": [],
+  "conditionLabel": "C3",
+  "missingInformation": [
+    "Whether an adequate fluid bolus has already been administered and the client's response",
+    "Whether vasopressor support is required after fluid resuscitation",
+    "Suspected infection source and culture results"
+  ],
+  "parameterLabels": [
+    "P1",
+    "P3"
+  ],
+  "poolAnswerability": "ANSWERABLE",
+  "reasoning": "C3 is the only condition integrating persistent fever in severe neutropenia with systemic hypoperfusion. A2 directly addresses impaired perfusion, while A4 provides the urgent escalation warranted by the deterioration. P1 and P3 are the most immediate treatment-response measures because they track lactate clearance, hemodynamic perfusion, and renal perfusion.",
+  "selectionEvidence": [
+    {
+      "evidence": "Confirmed severe neutropenia, persistent fever, tachycardia, hypotension, delayed capillary refill, oliguria, and elevated lactate support neutropenic fever progressing toward sepsis.",
+      "opaqueTokenLabel": "C3"
+    },
+    {
+      "evidence": "BP 92/58, capillary refill 4 seconds, low urine output, and lactate 3.2 mmol/L indicate hypoperfusion requiring prompt isotonic fluid resuscitation.",
+      "opaqueTokenLabel": "A2"
+    },
+    {
+      "evidence": "The combination of persistent fever and multiple deterioration cues requires immediate escalation rather than scheduled reassessment.",
+      "opaqueTokenLabel": "A4"
+    },
+    {
+      "evidence": "The initial lactate is elevated at 3.2 mmol/L, so its trend can evaluate the response of tissue perfusion to treatment.",
+      "opaqueTokenLabel": "P1"
+    },
+    {
+      "evidence": "Current hypotension and oliguria make mean arterial pressure and urine output direct indicators of perfusion response.",
+      "opaqueTokenLabel": "P3"
+    }
+  ],
+  "stage2Confidence": "high",
+  "tokenPremiseTable": [
+    {
+      "missingPremise": "Recent transfusion, temporally related medication exposure, or allergic manifestations such as urticaria, wheezing, or angioedema",
+      "opaqueTokenLabel": "C1",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "MATERIAL",
+      "rankabilityJustification": "Without an exposure or characteristic reaction findings, this condition is substantially less supported than neutropenic sepsis.",
+      "supportingStemText": ""
+    },
+    {
+      "missingPremise": "Poor oral intake, gastrointestinal fluid loss, or another documented source of uncomplicated volume depletion",
+      "opaqueTokenLabel": "C2",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "MATERIAL",
+      "rankabilityJustification": "Dehydration could contribute to hypoperfusion, but the stem does not supply its defining cause and does supply fever in severe neutropenia.",
+      "supportingStemText": ""
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "C3",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The explicit infection-risk and hypoperfusion findings directly support this condition.",
+      "supportingStemText": "confirmed severe neutropenia has persistent fever, HR 118, BP 92/58, RR 24, capillary refill 4 seconds, urine output 60 mL over 4 hours, and lactate 3.2 mmol/L"
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A1",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "MATERIAL",
+      "rankabilityJustification": "Active deterioration and hypoperfusion contradict waiting for a routine scheduled reassessment.",
+      "supportingStemText": "persistent fever, HR 118, BP 92/58, capillary refill 4 seconds, urine output 60 mL over 4 hours, and lactate 3.2 mmol/L"
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A2",
+      "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "These findings support immediate protocol-directed crystalloid resuscitation and supine positioning to address hypoperfusion.",
+      "supportingStemText": "BP 92/58, capillary refill 4 seconds, urine output 60 mL over 4 hours, and lactate 3.2 mmol/L"
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A3",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "MATERIAL",
+      "rankabilityJustification": "The client has current hypoperfusion, so delaying fluid resuscitation for additional cultures or antibiotic orders is unsafe.",
+      "supportingStemText": "BP 92/58, capillary refill 4 seconds, urine output 60 mL over 4 hours, and lactate 3.2 mmol/L after initial empiric antibiotics"
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A4",
+      "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Multiple deterioration cues support rapid-response activation and urgent oncology notification.",
+      "supportingStemText": "persistent fever, HR 118, BP 92/58, RR 24, capillary refill 4 seconds, urine output 60 mL over 4 hours, and lactate 3.2 mmol/L"
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "P1",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Because lactate is elevated, serial values directly evaluate whether tissue hypoperfusion is improving.",
+      "supportingStemText": "lactate 3.2 mmol/L"
+    },
+    {
+      "missingPremise": "Respiratory symptoms, abnormal lung findings, or a baseline chest X-ray abnormality requiring immediate radiographic follow-up",
+      "opaqueTokenLabel": "P2",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "MATERIAL",
+      "rankabilityJustification": "The stem provides no pulmonary or imaging premise making repeat chest X-ray the immediate response marker.",
+      "supportingStemText": ""
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "P3",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Both measures are already abnormal and directly track the response of systemic and renal perfusion.",
+      "supportingStemText": "BP 92/58 and urine output 60 mL over 4 hours"
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "P4",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "MATERIAL",
+      "rankabilityJustification": "The neutropenia makes WBC and ANC clinically relevant, but short-interval changes are less useful for evaluating immediate resuscitation than lactate, mean arterial pressure, and urine output.",
+      "supportingStemText": "confirmed severe neutropenia"
+    }
+  ]
+}

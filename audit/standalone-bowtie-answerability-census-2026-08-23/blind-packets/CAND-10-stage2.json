@@ -1,0 +1,61 @@
+{
+  "instruction": "Using only the standalone learner-facing English stem, prompts, and opaque token pools, select exactly one condition, two actions, and two parameters. Return the required structured JSON, including exactly one premise row for every opaque token. Do not infer absent client-specific facts.",
+  "prompts": {
+    "actions": "Priority nursing actions",
+    "condition": "Most likely privacy condition",
+    "parameters": "Parameters to evaluate response"
+  },
+  "stem": "By the end of the shift, RN Jordan has witnessed a coworker open Mrs. Torrance's electronic record without a care role, stopped further access, and started the facility reporting process. Complete the bow-tie by selecting the most likely privacy condition, two priority actions, and two parameters that best evaluate the response.",
+  "tokens": {
+    "actions": [
+      {
+        "label": "A1",
+        "text": "Accept RN Casey's statement that no disclosure occurred and do not report the access"
+      },
+      {
+        "label": "A2",
+        "text": "Complete the facility electronic incident report with access details and mitigation steps"
+      },
+      {
+        "label": "A3",
+        "text": "Document in the medical record that an incident report was filed"
+      },
+      {
+        "label": "A4",
+        "text": "Ask RN Casey to exit the record immediately and notify the charge nurse"
+      }
+    ],
+    "condition": [
+      {
+        "label": "C1",
+        "text": "Incidental disclosure that occurred despite reasonable safeguards"
+      },
+      {
+        "label": "C2",
+        "text": "Permissible healthcare-operations access for education"
+      },
+      {
+        "label": "C3",
+        "text": "Unauthorized access of PHI requiring breach-response investigation"
+      }
+    ],
+    "parameters": [
+      {
+        "label": "P1",
+        "text": "Whether Robert Torrance calls back before the end of the shift"
+      },
+      {
+        "label": "P2",
+        "text": "Implementation of system safeguards such as minimum-necessary education, HIM fax signage, and private-space reporting"
+      },
+      {
+        "label": "P3",
+        "text": "Mrs. Torrance's postoperative vital signs, wound appearance, and pain score"
+      },
+      {
+        "label": "P4",
+        "text": "Privacy Officer confirmation that breach determination has started and the EHR audit trail is preserved"
+      }
+    ]
+  }
+}

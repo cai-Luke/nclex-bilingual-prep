@@ -1,0 +1,131 @@
+{
+  "actionLabels": [
+    "A1",
+    "A2"
+  ],
+  "ambiguousAlternatives": [],
+  "conditionLabel": "C1",
+  "missingInformation": [
+    "The specific structured communication framework used with the resident is not identified.",
+    "No repeat potassium value, cardiac-rhythm finding, or peripheral IV-site assessment is provided."
+  ],
+  "parameterLabels": [
+    "P3",
+    "P4"
+  ],
+  "poolAnswerability": "ANSWERABLE",
+  "reasoning": "C1 is directly supported by the protocol-violating potassium order and resulting safety conflict. A1 and A2 match the nurse's direct challenge and escalation. P3 captures the clinically relevant physiologic and infusion monitoring, while P4 captures whether the corrective safety process succeeded. The remaining tokens are contradicted by or unrelated to the stem.",
+  "selectionEvidence": [
+    {
+      "evidence": "The original potassium order exceeded the stated peripheral concentration and hourly-rate limits, and the resident insisted on proceeding despite the nurse's safety concern.",
+      "opaqueTokenLabel": "C1"
+    },
+    {
+      "evidence": "The nurse questioned the order directly with the ordering resident.",
+      "opaqueTokenLabel": "A1"
+    },
+    {
+      "evidence": "The nurse withheld the unsafe order and used the chain of command.",
+      "opaqueTokenLabel": "A2"
+    },
+    {
+      "evidence": "The client has hypokalemia requiring replacement, CKD with eGFR 34 mL/min, and a peripheral IV.",
+      "opaqueTokenLabel": "P3"
+    },
+    {
+      "evidence": "The original unsafe order was not administered, and a revised order meeting the stated concentration and rate limits was obtained.",
+      "opaqueTokenLabel": "P4"
+    }
+  ],
+  "stage2Confidence": "high",
+  "tokenPremiseTable": [
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "C1",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The stem directly describes both the medication-safety problem and the interprofessional conflict.",
+      "supportingStemText": "The order exceeded the unit's peripheral potassium limits, the nurse questioned it, and the resident insisted it be administered without addressing the protocol or renal function."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "C2",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The conflict is substantively about client safety rather than bedside manner alone.",
+      "supportingStemText": "The disagreement concerned a potassium order that violated explicit concentration, infusion-rate, and renal-verification requirements."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "C3",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "An order that violates explicit safety limits is not an equivalent clinical-preference option.",
+      "supportingStemText": "The original order exceeded the stated unit protocol and was replaced with a protocol-compliant order."
+    },
+    {
+      "missingPremise": "The stem does not name a specific structured communication framework.",
+      "opaqueTokenLabel": "A1",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "LOW",
+      "rankabilityJustification": "Direct safety communication with the provider is explicit, although the precise communication structure is unspecified.",
+      "supportingStemText": "The nurse questioned the order after identifying the protocol conflict and impaired renal function."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A2",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The stem directly states both withholding and escalation.",
+      "supportingStemText": "The nurse used the chain of command, and the unsafe order was not administered."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A3",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The nurse did pursue a safe replacement order, directly contradicting this option.",
+      "supportingStemText": "Escalation produced a revised order of potassium chloride 10 mEq in 100 mL over 1 hour."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A4",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The stem explicitly rules out administering the potassium as originally ordered.",
+      "supportingStemText": "The unsafe original order was not administered."
+    },
+    {
+      "missingPremise": "No discharge question or discharge-timing issue is described.",
+      "opaqueTokenLabel": "P1",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Discharge timing does not evaluate the identified medication-safety event or potassium replacement.",
+      "supportingStemText": ""
+    },
+    {
+      "missingPremise": "The resident's workload or number of pages is not provided.",
+      "opaqueTokenLabel": "P2",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Provider workload is neither a stated client parameter nor an outcome of the safety intervention.",
+      "supportingStemText": ""
+    },
+    {
+      "missingPremise": "Current cardiac-rhythm findings, repeat potassium values, and IV-site findings are not supplied.",
+      "opaqueTokenLabel": "P3",
+      "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "These are directly relevant monitoring domains during potassium replacement, and no competing parameter token offers comparable physiologic monitoring.",
+      "supportingStemText": "The client has potassium 3.1 mEq/L, CKD with eGFR 34 mL/min, and potassium replacement through a peripheral IV."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "P4",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The stem explicitly supplies both safety-process outcomes named by the token.",
+      "supportingStemText": "The original order was not administered, and the revised order was 10 mEq in 100 mL over 1 hour, matching the stated peripheral limits."
+    }
+  ]
+}

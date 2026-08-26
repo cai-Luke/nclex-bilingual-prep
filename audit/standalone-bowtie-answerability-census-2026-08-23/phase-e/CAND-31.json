@@ -1,0 +1,131 @@
+{
+  "anyCanonicalTargetDependsOnAbsentFact": false,
+  "blindExactMatch": true,
+  "canonicalSelection": {
+    "actionLabels": [
+      "A1",
+      "A4"
+    ],
+    "conditionLabel": "C1",
+    "parameterLabels": [
+      "P3",
+      "P2"
+    ]
+  },
+  "canonicalSetExplanation": "The standalone stem uniquely supports severe lithium toxicity requiring emergent extracorporeal clearance, with serial lithium levels and neurological status as direct response measures. Among the remaining actions, obtundation independently supports aspiration precautions; active vomiting is unnecessary to rank A4 above the contradicted A2 and A3.",
+  "canonicalSetUniquelyDefensible": true,
+  "canonicalTargetSupport": [
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "C1",
+      "supportClassification": "GENERAL_KNOWLEDGE_LINK",
+      "supportingStandaloneEvidence": "Lithium 2.6 mEq/L with obtundation, new myoclonic jerks, facial fasciculations, impaired eGFR, recent hydrochlorothiazide initiation, and minimal improvement with hydration."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "A1",
+      "supportClassification": "GENERAL_KNOWLEDGE_LINK",
+      "supportingStandaloneEvidence": "Severe neurological manifestations and impaired renal clearance persist despite aggressive IV hydration."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "A4",
+      "supportClassification": "GENERAL_KNOWLEDGE_LINK",
+      "supportingStandaloneEvidence": "The patient is obtunded, which supports precautions against aspiration from impaired airway protection."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "P3",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "Her serum lithium is 2.6 mEq/L and shows minimal improvement despite aggressive IV hydration."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "P2",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "The stem explicitly identifies obtundation, new myoclonic jerks, and facial fasciculations."
+    }
+  ],
+  "distractorPremiseFindings": [
+    {
+      "explanation": "The stem states that aggressive IV hydration produced minimal symptomatic and laboratory improvement, contradicting its continued use as the sole treatment.",
+      "opaqueTokenLabel": "A2",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "MATERIAL"
+    },
+    {
+      "explanation": "A toxic lithium concentration with neurological manifestations makes another lithium dose unsafe.",
+      "opaqueTokenLabel": "A3",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "MATERIAL"
+    },
+    {
+      "explanation": "The standalone stem provides no vomiting, diarrhea, infectious symptoms, or other evidence of acute gastroenteritis.",
+      "opaqueTokenLabel": "C2",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "MATERIAL"
+    },
+    {
+      "explanation": "Bipolar I disorder is historical; no acute mood, sleep, behavioral, or thought disturbance supports an exacerbation.",
+      "opaqueTokenLabel": "C3",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "MATERIAL"
+    },
+    {
+      "explanation": "No calcium result or calcium-related complication is supplied, so calcium does not outrank direct monitoring of lithium clearance and neurotoxicity.",
+      "opaqueTokenLabel": "P1",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "MATERIAL"
+    },
+    {
+      "explanation": "No glucose abnormality or glucose-related intervention is described.",
+      "opaqueTokenLabel": "P4",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "MATERIAL"
+    }
+  ],
+  "missingClientFacts": [
+    {
+      "keyed": true,
+      "missingFact": "Active vomiting is asserted in the rationale but absent from the standalone stem.",
+      "opaqueTokenLabel": "A4",
+      "rankabilityImpact": "LOW"
+    },
+    {
+      "keyed": true,
+      "missingFact": "Vomiting, diarrhea, and consequent volume depletion are asserted in the rationale but absent from the standalone stem.",
+      "opaqueTokenLabel": "C1",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "keyed": true,
+      "missingFact": "An acute kidney injury is asserted, but the stem states only that eGFR is impaired and does not establish acuity.",
+      "opaqueTokenLabel": "C1",
+      "rankabilityImpact": "LOW"
+    },
+    {
+      "keyed": false,
+      "missingFact": "A four-hour duration of vigorous hydration is asserted in the rationale but absent from the standalone stem.",
+      "opaqueTokenLabel": "A2",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "keyed": false,
+      "missingFact": "Hyperreflexia and clonus are referenced in the rationale but are not reported in the standalone stem.",
+      "opaqueTokenLabel": "C3",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "keyed": false,
+      "missingFact": "A normal serum calcium value is asserted in the rationale but absent from the standalone stem.",
+      "opaqueTokenLabel": "P1",
+      "rankabilityImpact": "LOW"
+    }
+  ],
+  "notes": [
+    "The complete rationale contains several client-specific facts not present in the standalone stem. None is necessary to defend the canonical 1/2/2 set, but those assertions should be removed or added to the learner-facing stem if retained."
+  ],
+  "stage1Alignment": "PARTIAL",
+  "stage1AlignmentExplanation": "Stage 1 independently identified severe lithium toxicity, emergent hemodialysis, serial lithium levels, and neurological monitoring. Its other action was discontinuing lithium and hydrochlorothiazide rather than the canonical aspiration precautions.",
+  "unstatedClientFactMateriallyChangesRankability": false
+}

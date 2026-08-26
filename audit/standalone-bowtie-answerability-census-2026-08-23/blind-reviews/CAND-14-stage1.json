@@ -1,0 +1,41 @@
+{
+  "condition": "Suspected acute ammonia inhalation injury with risk of airway edema and chemical pneumonitis",
+  "evaluationParameters": [
+    "Continuous oxygen saturation and oxygen requirement",
+    "Serial respiratory status, including work of breathing, breath sounds, and signs of progressive airway edema or pulmonary edema"
+  ],
+  "missingInformation": [
+    "Exposure route, concentration, and duration",
+    "Current airway findings, respiratory rate, oxygen saturation, breath sounds, and mental status",
+    "Presence or absence of burns, blast trauma, hemorrhage, hypotension, or other injuries that could change priorities",
+    "Available airway equipment, oxygen resources, treatment spaces, and facility MCI protocols"
+  ],
+  "priorityActions": [
+    "Immediately assess and support airway and breathing, administer high-concentration humidified oxygen, and prepare for early advanced-airway intervention if deterioration appears",
+    "Move the casualty to the red-category treatment space after completed decontamination and prioritize respiratory stabilization rather than scarce blood unless hemorrhage is confirmed"
+  ],
+  "reasoning": "Ammonia exposure makes acute inhalation injury the most plausible condition, and red-category status supports immediate airway and breathing priorities. However, the stem provides no casualty-specific symptoms, vital signs, examination findings, or injury pattern, so neither this condition nor the selected actions and monitoring parameters can be uniquely established.",
+  "stage1Confidence": "low",
+  "stemEvidence": [
+    {
+      "stemFact": "“industrial explosion with ammonia release” and “one contaminated red-category casualty”",
+      "target": "condition"
+    },
+    {
+      "stemFact": "The casualty is designated “red-category,” indicating an immediate life-threatening problem, in the context of ammonia exposure",
+      "target": "priorityAction1"
+    },
+    {
+      "stemFact": "“has completed decontamination” and “scarce blood and treatment spaces are being allocated”",
+      "target": "priorityAction2"
+    },
+    {
+      "stemFact": "Ammonia release plus red-category status makes oxygenation the most directly relevant measurable respiratory endpoint",
+      "target": "evaluationParameter1"
+    },
+    {
+      "stemFact": "The stem identifies ammonia exposure but provides no respiratory examination, requiring serial assessment for evolving inhalation effects",
+      "target": "evaluationParameter2"
+    }
+  ]
+}

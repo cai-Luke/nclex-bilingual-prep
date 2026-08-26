@@ -1,0 +1,61 @@
+{
+  "instruction": "Using only the standalone learner-facing English stem, prompts, and opaque token pools, select exactly one condition, two actions, and two parameters. Return the required structured JSON, including exactly one premise row for every opaque token. Do not infer absent client-specific facts.",
+  "prompts": {
+    "actions": "Priority actions",
+    "condition": "Most likely condition",
+    "parameters": "Parameters to monitor"
+  },
+  "stem": "Complete the bow-tie for this Stage 4 situation: after successful left MCA thrombectomy, the client initially improved, then became somnolent with loss of verbal output and a new sluggish left pupil. Emergent CT shows a 3 cm left frontoparietal intraparenchymal hemorrhage with edema and 4 mm left-to-right midline shift. The client is intubated, warfarin reversal has been ordered, and nicardipine is being titrated to the provider's stat systolic BP target.",
+  "tokens": {
+    "actions": [
+      {
+        "label": "A1",
+        "text": "Maintain serial neurologic assessments every 15 minutes, tracking GCS, pupils, and motor response"
+      },
+      {
+        "label": "A2",
+        "text": "Titrate nicardipine per order to maintain the prescribed systolic BP target"
+      },
+      {
+        "label": "A3",
+        "text": "Reduce neurologic checks to hourly because the client is intubated"
+      },
+      {
+        "label": "A4",
+        "text": "Administer aspirin or clopidogrel now for ischemic stroke secondary prevention"
+      }
+    ],
+    "condition": [
+      {
+        "label": "C1",
+        "text": "Re-occlusion of the left MCA after thrombectomy"
+      },
+      {
+        "label": "C2",
+        "text": "Post-reperfusion symptomatic intracerebral hemorrhage"
+      },
+      {
+        "label": "C3",
+        "text": "Post-procedural sedation or medication effect"
+      }
+    ],
+    "parameters": [
+      {
+        "label": "P1",
+        "text": "Systolic BP trend on the nicardipine infusion"
+      },
+      {
+        "label": "P2",
+        "text": "Neurologic examination: GCS, pupil size/reactivity, and motor response"
+      },
+      {
+        "label": "P3",
+        "text": "NIHSS score as the main measure during intubated ICH management"
+      },
+      {
+        "label": "P4",
+        "text": "Serial troponin level"
+      }
+    ]
+  }
+}

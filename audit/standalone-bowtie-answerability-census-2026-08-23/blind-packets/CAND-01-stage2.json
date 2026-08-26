@@ -1,0 +1,56 @@
+{
+  "instruction": "Using only the standalone learner-facing English stem, prompts, and opaque token pools, select exactly one condition, two actions, and two parameters. Return the required structured JSON, including exactly one premise row for every opaque token. Do not infer absent client-specific facts.",
+  "stem": "Postpartum day 4: A previously normotensive primipara presents after discharge with BP 168/112 and 164/110, severe headache, scotomata, new facial edema, DTRs 3+ with ankle clonus, and urine protein-to-creatinine ratio 0.42. Labs show platelets 195 ×10³/µL, AST 34 U/L, ALT 28 U/L, LDH 198 U/L, and creatinine 0.9 mg/dL. Select the most likely condition, two priority actions, and two parameters to monitor.",
+  "tokens": {
+    "actions": [
+      {
+        "label": "A1",
+        "text": "Withhold nifedipine because magnesium is already infusing"
+      },
+      {
+        "label": "A2",
+        "text": "Administer magnesium sulfate 4 g IV loading dose by pump as ordered"
+      },
+      {
+        "label": "A3",
+        "text": "Administer immediate-release nifedipine 10 mg PO as ordered"
+      },
+      {
+        "label": "A4",
+        "text": "Substitute extended-release nifedipine for the acute dose"
+      }
+    ],
+    "condition": [
+      {
+        "label": "C1",
+        "text": "Postpartum preeclampsia with severe features"
+      },
+      {
+        "label": "C2",
+        "text": "HELLP syndrome"
+      },
+      {
+        "label": "C3",
+        "text": "Postpartum hypertension without severe features"
+      }
+    ],
+    "parameters": [
+      {
+        "label": "P1",
+        "text": "Magnesium safety and seizure-risk markers: RR, LOC, DTR/clonus, urine output, headache/visual symptoms"
+      },
+      {
+        "label": "P2",
+        "text": "Lochia color and amount as the main marker of preeclampsia response"
+      },
+      {
+        "label": "P3",
+        "text": "BP trend after acute antihypertensive therapy"
+      },
+      {
+        "label": "P4",
+        "text": "Facial edema as the marker of acute treatment response"
+      }
+    ]
+  }
+}

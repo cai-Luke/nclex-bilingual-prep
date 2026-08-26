@@ -1,0 +1,38 @@
+{
+  "condition": "Clozapine-induced myocarditis with acute left ventricular dysfunction",
+  "evaluationParameters": [
+    "Trend troponin I and CRP for improvement or continued elevation.",
+    "Monitor cardiac and respiratory status, including heart rate/rhythm, oxygenation, dyspnea, crackles, edema, and LVEF."
+  ],
+  "missingInformation": [
+    "Blood pressure, oxygen saturation, ECG and telemetry findings, baseline cardiac studies, cardiac MRI or other confirmatory testing, infectious evaluation, and provider orders; ANC 980/µL with fever and sore throat also requires urgent evaluation for concurrent clozapine-associated neutropenia and infection."
+  ],
+  "priorityActions": [
+    "Hold clozapine immediately.",
+    "Urgently notify the prescribing provider and initiate emergency cardiac evaluation and supportive management."
+  ],
+  "reasoning": "The timing after clozapine initiation plus systemic inflammation, myocardial injury, global ventricular dysfunction, pericardial effusion, and heart-failure findings strongly supports clozapine-induced myocarditis; the neutropenia may be concurrent but does not explain the cardiac findings.",
+  "stage1Confidence": "high",
+  "stemEvidence": [
+    {
+      "stemFact": "Day 18–18.5 of clozapine therapy with rising troponin I and CRP, LVEF 45%, global hypokinesis, and a small pericardial effusion.",
+      "target": "condition"
+    },
+    {
+      "stemFact": "New chest pressure, resting HR 118, dyspnea, and objective myocardial injury during early clozapine therapy.",
+      "target": "priorityAction1"
+    },
+    {
+      "stemFact": "New S3 gallop, bibasilar crackles, ankle edema, BNP 420 pg/mL, and LVEF 45% indicate acute cardiac dysfunction requiring urgent escalation.",
+      "target": "priorityAction2"
+    },
+    {
+      "stemFact": "Troponin I 0.48 ng/mL rising to 0.52 ng/mL and CRP 68 mg/L rising to 72 mg/L.",
+      "target": "evaluationParameter1"
+    },
+    {
+      "stemFact": "Resting HR 118, dyspnea, S3 gallop, bibasilar crackles, ankle edema, LVEF 45% with global hypokinesis, and small pericardial effusion.",
+      "target": "evaluationParameter2"
+    }
+  ]
+}

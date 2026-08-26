@@ -1,0 +1,133 @@
+{
+  "anyCanonicalTargetDependsOnAbsentFact": true,
+  "blindExactMatch": true,
+  "canonicalSelection": {
+    "actionLabels": [
+      "A3",
+      "A1"
+    ],
+    "conditionLabel": "C2",
+    "parameterLabels": [
+      "P1",
+      "P2"
+    ]
+  },
+  "canonicalSetExplanation": "C2 uniquely integrates the physiologic, educational, financial, social, equipment, and environmental findings while acknowledging the improving heart-failure markers. A3 immediately interrupts the unsafe transition, and A1 addresses the identified barriers. P1 and P2 directly test whether comprehension and functional tolerance have improved. Every distractor is contradicted, unsupported, or materially incomplete. The unknown availability of family support limits one component of A1 but does not make another action token competitive because the remaining interdisciplinary services are independently supported.",
+  "canonicalSetUniquelyDefensible": true,
+  "canonicalTargetSupport": [
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "C2",
+      "supportClassification": "GENERAL_KNOWLEDGE_LINK",
+      "supportingStandaloneEvidence": "The client has an active discharge order despite desaturation to 89% after walking, oxygen-assisted recovery, failed teach-back, unaffordable medication, living alone with stairs, and no home scale; applying discharge-safety principles supports an unsafe premature transition."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "A3",
+      "supportClassification": "GENERAL_KNOWLEDGE_LINK",
+      "supportingStandaloneEvidence": "Multiple objective safety concerns remain less than two hours before discharge, supporting nursing advocacy, communication, reassessment, and escalation before the transition proceeds."
+    },
+    {
+      "missingClientFact": "The standalone stem does not establish that family support exists or is available and willing to participate.",
+      "opaqueTokenLabel": "A1",
+      "supportClassification": "MISSING_CLIENT_FACT",
+      "supportingStandaloneEvidence": "Medication unaffordability, failed teaching, lack of a scale, living alone, stairs, and exertional hypoxemia directly support coordinated case-management, pharmacy, social-work, and home-health involvement."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "P1",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "The client fails teach-back about new medications and warning signs and has no home scale, directly supporting repeat teach-back of medication and heart-failure self-management information."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "P2",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "The client desaturates to 89% after walking 40 feet, needs oxygen to recover, and lives in a second-floor walk-up, directly supporting repeat ambulation and stair simulation with oxygen saturation and recovery monitoring."
+    }
+  ],
+  "distractorPremiseFindings": [
+    {
+      "explanation": "Routine discharge with standard written instructions is contradicted by exertional hypoxemia, oxygen-assisted recovery, failed teach-back, medication unaffordability, lack of a scale, living alone, and stair-access demands.",
+      "opaqueTokenLabel": "C1",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "Improving BNP and weight contradict continued acute decompensation as the central problem, and the stem provides no basis for indefinite inpatient treatment.",
+      "opaqueTokenLabel": "C3",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "The stem provides no client-specific premise concerning telemetry-bed scarcity, and proceeding for bed availability would disregard the explicit unresolved safety concerns.",
+      "opaqueTokenLabel": "A2",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "Written instructions and an appointment alone cannot resolve failed understanding, medication unaffordability, exertional desaturation, oxygen needs, absent monitoring equipment, or stair-related functional demands.",
+      "opaqueTokenLabel": "A4",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "BNP is already improving while major transition barriers remain, demonstrating that BNP alone cannot evaluate discharge safety, functional tolerance, comprehension, or medication access.",
+      "opaqueTokenLabel": "P3",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "Improving inpatient weight does not evaluate exertional oxygenation, stair tolerance, teaching effectiveness, medication access, or the ability to monitor weight after discharge.",
+      "opaqueTokenLabel": "P4",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    }
+  ],
+  "missingClientFacts": [
+    {
+      "keyed": true,
+      "missingFact": "Availability and willingness of family or another support person to participate.",
+      "opaqueTokenLabel": "A1",
+      "rankabilityImpact": "LOW"
+    },
+    {
+      "keyed": true,
+      "missingFact": "Resting and baseline oxygen saturation, respiratory symptoms, prior home-oxygen use, and the oxygen flow required for recovery.",
+      "opaqueTokenLabel": "P2",
+      "rankabilityImpact": "LOW"
+    },
+    {
+      "keyed": true,
+      "missingFact": "Current hemodynamic status and lung examination findings.",
+      "opaqueTokenLabel": "A3",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "keyed": true,
+      "missingFact": "The specific medication regimen, renal function, electrolyte values, and available affordable diuretic alternatives.",
+      "opaqueTokenLabel": "A1",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "keyed": true,
+      "missingFact": "The client's current ability to climb the stairs required to enter the second-floor residence.",
+      "opaqueTokenLabel": "P2",
+      "rankabilityImpact": "LOW"
+    },
+    {
+      "keyed": true,
+      "missingFact": "Availability and feasibility of home health, community support, medication assistance, a home scale, and timely follow-up.",
+      "opaqueTokenLabel": "A1",
+      "rankabilityImpact": "LOW"
+    }
+  ],
+  "notes": [
+    "The Stage 2 blind selection contains exactly the same condition, action set, and parameter set as the canonical key. Its action labels appeared in the reverse order, which does not change the selected bow-tie set.",
+    "Stage 2 explicitly identified the absent family-support fact within A1 and rated its rankability effect as low.",
+    "No absent client fact makes a distractor equally or more defensible than the canonical target set."
+  ],
+  "stage1Alignment": "FULL",
+  "stage1AlignmentExplanation": "Stage 1 identified unsafe discharge, recommended holding and escalating the discharge while mobilizing interdisciplinary support, and selected repeat exertional oxygenation assessment and teach-back/self-management verification. These semantically match C2, A3, A1, P2, and P1. The Stage 1 parameters additionally addressed medication, scale, and follow-up access without conflicting with the canonical targets.",
+  "unstatedClientFactMateriallyChangesRankability": false
+}

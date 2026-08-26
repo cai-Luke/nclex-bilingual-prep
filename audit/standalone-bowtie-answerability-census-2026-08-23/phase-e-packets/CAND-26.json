@@ -1,0 +1,185 @@
+{
+  "canonicalSelection": {
+    "actionLabels": [
+      "A3",
+      "A1"
+    ],
+    "conditionLabel": "C2",
+    "parameterLabels": [
+      "P1",
+      "P2"
+    ]
+  },
+  "instruction": "The two blind-stage records are immutable. Compare them with the now-revealed canonical 1/2/2 selection and complete standalone item. Do not inspect or infer sibling-case material. Return the required Phase-E structured JSON without revising either blind record.",
+  "standaloneItem": {
+    "bowtie": {
+      "actions": {
+        "prompt": {
+          "en": "Priority actions",
+          "zh": "优先措施"
+        },
+        "tokens": [
+          {
+            "en": "Mobilize case management, social work, clinical pharmacy, home health, and family support",
+            "opaqueTokenLabel": "A1",
+            "zh": "启动个案管理、社工、临床药师、居家护理和家属支持"
+          },
+          {
+            "en": "Proceed with discharge as ordered to free the telemetry bed",
+            "opaqueTokenLabel": "A2",
+            "zh": "按医嘱出院以腾出监护床位"
+          },
+          {
+            "en": "Advocate to hold the discharge by communicating objective safety concerns and escalating if needed",
+            "opaqueTokenLabel": "A3",
+            "zh": "沟通客观安全担忧，倡导暂缓出院，必要时逐级上报"
+          },
+          {
+            "en": "Provide additional written instructions and a follow-up appointment only",
+            "opaqueTokenLabel": "A4",
+            "zh": "仅提供更多书面说明和随访预约"
+          }
+        ]
+      },
+      "condition": {
+        "prompt": {
+          "en": "Most likely condition",
+          "zh": "最可能的问题"
+        },
+        "tokens": [
+          {
+            "en": "Routine discharge with standard written instructions",
+            "opaqueTokenLabel": "C1",
+            "zh": "常规出院并提供标准书面说明"
+          },
+          {
+            "en": "Unsafe premature discharge",
+            "opaqueTokenLabel": "C2",
+            "zh": "不安全的过早出院"
+          },
+          {
+            "en": "Continued acute decompensation requiring indefinite inpatient treatment",
+            "opaqueTokenLabel": "C3",
+            "zh": "持续急性失代偿，需要无限期住院治疗"
+          }
+        ]
+      },
+      "parameters": {
+        "prompt": {
+          "en": "Parameters to monitor",
+          "zh": "需要监测的参数"
+        },
+        "tokens": [
+          {
+            "en": "Repeat teach-back on medication purpose, daily weights, call parameters, and warning signs",
+            "opaqueTokenLabel": "P1",
+            "zh": "再次回授药物用途、每日称重、联系医护的参数和警示症状"
+          },
+          {
+            "en": "Repeat ambulation including stair simulation with oxygen saturation and recovery time",
+            "opaqueTokenLabel": "P2",
+            "zh": "重复步行并模拟爬楼，同时监测氧饱和度和恢复时间"
+          },
+          {
+            "en": "BNP level alone",
+            "opaqueTokenLabel": "P3",
+            "zh": "单独 BNP 水平"
+          },
+          {
+            "en": "Inpatient daily weight trend alone",
+            "opaqueTokenLabel": "P4",
+            "zh": "单独住院每日体重趋势"
+          }
+        ]
+      }
+    },
+    "glossary": [
+      {
+        "defZh": "要求识别中间问题、两侧干预和监测项目的 NGN 题型。",
+        "termEn": "Bow-tie item",
+        "termZh": "蝴蝶结题"
+      },
+      {
+        "defZh": "患者能否实际获得并持续使用所需药物，包括费用和供应。",
+        "termEn": "Medication access",
+        "termZh": "用药取得"
+      },
+      {
+        "defZh": "患者完成回家所需活动而不出现危险低氧、明显气促或不稳定生命体征的能力。",
+        "termEn": "Functional tolerance",
+        "termZh": "功能耐受力"
+      }
+    ],
+    "rationale": {
+      "byChoice": [
+        {
+          "en": "This integrates the functional, comprehension, financial, and home-environment barriers despite improving biomarkers.",
+          "opaqueTokenLabel": "C2",
+          "zh": "这整合了功能、理解、经济和居家环境障碍，即使生物指标正在改善。"
+        },
+        {
+          "en": "Routine written instructions are not enough because the client has already failed teach-back and lacks medication access and functional readiness.",
+          "opaqueTokenLabel": "C1",
+          "zh": "常规书面说明不够，因为患者已回授失败，且缺乏用药取得和功能准备。"
+        },
+        {
+          "en": "The client is clinically improving, so the central problem is not indefinite acute treatment but an unsafe transition plan.",
+          "opaqueTokenLabel": "C3",
+          "zh": "患者临床上正在改善，因此核心问题不是无限期急性治疗，而是不安全的过渡计划。"
+        },
+        {
+          "en": "Holding the discharge stops the unsafe process and allows time to address barriers.",
+          "opaqueTokenLabel": "A3",
+          "zh": "暂缓出院能停止不安全流程，并争取时间处理障碍。"
+        },
+        {
+          "en": "Interdisciplinary resources target affordability, home environment, monitoring, support, and transition planning.",
+          "opaqueTokenLabel": "A1",
+          "zh": "跨专业资源针对可负担性、居家环境、监测、支持和过渡计划。"
+        },
+        {
+          "en": "Proceeding for bed availability ignores patient safety and repeats the conditions that caused decompensation.",
+          "opaqueTokenLabel": "A2",
+          "zh": "为了床位出院会忽视患者安全，并重现导致失代偿的条件。"
+        },
+        {
+          "en": "Written instructions alone do not fix failed understanding, unaffordable medication, exertional desaturation, or stairs at home.",
+          "opaqueTokenLabel": "A4",
+          "zh": "单靠书面说明不能解决理解失败、药物负担不起、活动后低氧或家中楼梯问题。"
+        },
+        {
+          "en": "Teach-back verifies that the comprehension barrier has been resolved.",
+          "opaqueTokenLabel": "P1",
+          "zh": "回授可验证理解障碍是否已解决。"
+        },
+        {
+          "en": "Ambulation and stair tolerance verify the client can navigate the home environment safely.",
+          "opaqueTokenLabel": "P2",
+          "zh": "步行和爬楼耐受可验证患者能否安全应对居家环境。"
+        },
+        {
+          "en": "BNP helps evaluate heart-failure response but not medication access, stairs, teach-back, or home monitoring.",
+          "opaqueTokenLabel": "P3",
+          "zh": "BNP 有助于评估心衰治疗反应，但不能评估用药取得、楼梯、回授或居家监测。"
+        },
+        {
+          "en": "Inpatient weight loss shows diuresis, but the client also needs a home scale and understanding of weight-gain actions.",
+          "opaqueTokenLabel": "P4",
+          "zh": "住院体重下降说明利尿有效，但患者还需要家中体重秤并理解体重增加时该怎么做。"
+        }
+      ],
+      "correct": {
+        "en": "The priority condition is unsafe premature discharge: the client is improving medically but cannot yet safely transition home. The two priority actions are to pause the unsafe discharge through provider communication/escalation and to mobilize interdisciplinary resources that resolve the identified barriers. The key monitoring parameters are repeat teach-back and functional tolerance including stair simulation; BNP and inpatient weight are useful treatment-response data but do not answer whether the discharge barriers have been resolved.",
+        "zh": "优先问题是不安全的过早出院：患者医学上正在改善，但尚不能安全过渡回家。两个优先措施是通过与医生沟通/必要时上报来暂停不安全出院，并调动跨专业资源解决已识别障碍。关键监测参数是再次回授和包括模拟爬楼在内的功能耐受；BNP 和住院体重是有用的治疗反应资料，但不能回答出院障碍是否已解决。"
+      }
+    },
+    "stem": {
+      "en": "At 09:15, a 71-year-old client recovering from acute decompensated heart failure has an active 11:00 discharge order. She desaturates to 89% after walking 40 feet, requires oxygen to recover, fails teach-back about her new medications and warning signs, cannot afford the prescribed diuretic, lives alone in a second-floor walk-up apartment, and has no home scale. BNP and weight are improving. Complete the bow-tie to identify the priority condition, actions, and monitoring parameters.",
+      "zh": "09:15，一名 71 岁急性失代偿性心衰恢复期患者有上午 11:00 的有效出院医嘱。她步行 40 英尺后 SpO2 降至 89%，需要吸氧恢复；对新药和警示症状回授失败；负担不起处方利尿剂；独居在无电梯二楼公寓；家中没有体重秤。BNP 和体重正在改善。完成蝴蝶结题，识别优先问题、措施和监测参数。"
+    },
+    "testTakingStrategy": {
+      "en": "In bow-tie items, choose the condition that best explains the whole pattern, then pick actions and monitoring that directly address the condition rather than attractive but incomplete trends.",
+      "zh": "做蝴蝶结题时，先选择最能解释整体模式的问题，再选择直接处理该问题的措施和监测，而不是被看似正向但不完整的趋势吸引。"
+    }
+  }
+}

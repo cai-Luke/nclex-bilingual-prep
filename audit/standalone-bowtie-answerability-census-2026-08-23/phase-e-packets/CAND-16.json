@@ -1,0 +1,173 @@
+{
+  "canonicalSelection": {
+    "actionLabels": [
+      "A4",
+      "A1"
+    ],
+    "conditionLabel": "C2",
+    "parameterLabels": [
+      "P2",
+      "P1"
+    ]
+  },
+  "instruction": "The two blind-stage records are immutable. Compare them with the now-revealed canonical 1/2/2 selection and complete standalone item. Do not inspect or infer sibling-case material. Return the required Phase-E structured JSON without revising either blind record.",
+  "standaloneItem": {
+    "bowtie": {
+      "actions": {
+        "tokens": [
+          {
+            "en": "Teach the documented 3.75 mL dose using an appropriate oral dosing syringe and have Danielle demonstrate the measurement",
+            "opaqueTokenLabel": "A1",
+            "zh": "使用合适的口服给药注射器教学病历所列 3.75 mL 剂量，并让 Danielle 回示如何量取"
+          },
+          {
+            "en": "Defer acetaminophen correction to a follow-up visit in one month to avoid overwhelming Danielle",
+            "opaqueTokenLabel": "A2",
+            "zh": "为避免 Danielle 负担过重，将对乙酰氨基酚纠正推迟到 1 个月后的随访就诊"
+          },
+          {
+            "en": "File a protective-services report based on the unsafe practices alone",
+            "opaqueTokenLabel": "A3",
+            "zh": "仅根据不安全做法就提交儿童保护报告"
+          },
+          {
+            "en": "Promptly determine the product, timing, frequency, and total acetaminophen exposure and obtain case-specific guidance from the pediatric clinician and Poison Control based on the available assessment",
+            "opaqueTokenLabel": "A4",
+            "zh": "立即查明具体产品、给药时间、频率和对乙酰氨基酚总暴露量，并根据当前掌握的评估信息向儿科临床医生和毒物控制中心获取个案化指导"
+          }
+        ]
+      },
+      "condition": {
+        "tokens": [
+          {
+            "en": "Caregiver role strain as the primary explanation for the medication errors",
+            "opaqueTokenLabel": "C1",
+            "zh": "照护者角色紧张是用药错误的主要原因"
+          },
+          {
+            "en": "Caregiver medication-safety knowledge deficit causing dosing and storage errors",
+            "opaqueTokenLabel": "C2",
+            "zh": "照护者用药安全知识缺乏，导致给药和储存错误"
+          },
+          {
+            "en": "Child neglect as the primary explanation",
+            "opaqueTokenLabel": "C3",
+            "zh": "儿童忽视是主要解释"
+          }
+        ]
+      },
+      "parameters": {
+        "tokens": [
+          {
+            "en": "Danielle's demonstrated or confirmed storage of medicines out of Liam's reach and sight after each use",
+            "opaqueTokenLabel": "P1",
+            "zh": "确认或展示 Danielle 每次使用后都将药物储存在 Liam 看不见、够不到之处"
+          },
+          {
+            "en": "Danielle's accurate follow-up return demonstration of measuring the documented acetaminophen dose",
+            "opaqueTokenLabel": "P2",
+            "zh": "Danielle 随访时准确回示如何量取病历所列的对乙酰氨基酚剂量"
+          },
+          {
+            "en": "Danielle's stated confidence alone, without observing dose measurement or medication storage",
+            "opaqueTokenLabel": "P3",
+            "zh": "只听 Danielle 表示有信心，而不观察其量取剂量或储存药物"
+          },
+          {
+            "en": "Liam's routine developmental-screen score as the main measure of medication-safety teaching",
+            "opaqueTokenLabel": "P4",
+            "zh": "将 Liam 的常规发育筛查评分作为用药安全教学的主要评价指标"
+          }
+        ]
+      }
+    },
+    "glossary": [
+      {
+        "defZh": "将状况、措施和监测参数相连接的 NGN 题型。",
+        "termEn": "Bow-tie item",
+        "termZh": "弓形题"
+      },
+      {
+        "defZh": "最能处理最即时或最严重风险的护理行动。",
+        "termEn": "Priority action",
+        "termZh": "优先措施"
+      },
+      {
+        "defZh": "之后用于评价计划是否有效的指标。",
+        "termEn": "Follow-up parameter",
+        "termZh": "随访参数"
+      }
+    ],
+    "rationale": {
+      "byChoice": [
+        {
+          "en": "The specific dose discrepancy, accessible uncapped medicine, reliance on informal advice, and willingness to learn directly support a medication-safety knowledge deficit.",
+          "opaqueTokenLabel": "C2",
+          "zh": "具体的剂量差异、可触及且未盖好瓶盖的药物、依赖非正式建议以及愿意学习，都直接支持用药安全知识缺乏。"
+        },
+        {
+          "en": "The medication errors require exposure assessment and correction, but Danielle's attentiveness and voluntary disclosure do not establish neglect as the primary explanation.",
+          "opaqueTokenLabel": "C3",
+          "zh": "这些用药错误需要评估暴露并予以纠正，但 Danielle 的细心照护和主动披露不足以确定儿童忽视是主要解释。"
+        },
+        {
+          "en": "Tearfulness and limited support make caregiver role strain plausible, but knowledge deficit more directly explains the stated dosing and storage errors.",
+          "opaqueTokenLabel": "C1",
+          "zh": "流泪和支持不足使照护者角色紧张成为合理的备选解释，但知识缺乏更直接地解释了题干中的给药和储存错误。"
+        },
+        {
+          "en": "Case-specific poison guidance depends on the product, amount, timing, age or weight, symptoms, and repeated or overlapping doses. The nurse should gather the available details promptly; missing information should not delay consultation.",
+          "opaqueTokenLabel": "A4",
+          "zh": "个案化毒物处理建议取决于具体产品、用量、时间、年龄或体重、症状以及是否反复给药或与其他产品重叠。护士应立即收集当前可获得的信息；不应因信息尚不完整而延迟咨询。"
+        },
+        {
+          "en": "Using an appropriate oral dosing syringe and observing Danielle measure the documented 3.75 mL dose corrects the specific administration skill gap.",
+          "opaqueTokenLabel": "A1",
+          "zh": "使用合适的口服给药注射器，并观察 Danielle 量取病历所列 3.75 mL 剂量，可纠正具体的给药技能缺口。"
+        },
+        {
+          "en": "The disclosed dosing and storage errors alone do not establish neglect; the immediate priorities are exposure assessment and correction of the demonstrated medication-safety gaps.",
+          "opaqueTokenLabel": "A3",
+          "zh": "仅凭主动披露的给药和储存错误不能确定儿童忽视；当前优先事项是评估暴露并纠正已表现出的用药安全缺口。"
+        },
+        {
+          "en": "Deferring teaching leaves the documented dosing and measurement error uncorrected.",
+          "opaqueTokenLabel": "A2",
+          "zh": "推迟教学会让病历中已明确的给药和量取错误得不到纠正。"
+        },
+        {
+          "en": "Accurately measuring the documented dose at follow-up directly demonstrates whether Danielle retained and can apply the taught skill.",
+          "opaqueTokenLabel": "P2",
+          "zh": "随访时准确量取病历所列剂量，可直接展示 Danielle 是否记住并能应用所学技能。"
+        },
+        {
+          "en": "Demonstrated or confirmed storage out of Liam's reach and sight directly evaluates correction of the access hazard shown in the stem.",
+          "opaqueTokenLabel": "P1",
+          "zh": "展示或确认药物储存在 Liam 看不见、够不到之处，可直接评价题干所示可触及危险是否已得到纠正。"
+        },
+        {
+          "en": "Reported confidence is subjective and, by itself, does not show that Danielle can accurately measure the dose or store medicines safely.",
+          "opaqueTokenLabel": "P3",
+          "zh": "自述有信心属于主观信息，单凭这一点不能证明 Danielle 能准确量取剂量或安全储存药物。"
+        },
+        {
+          "en": "A routine developmental-screen score does not directly evaluate medication measurement or storage behavior.",
+          "opaqueTokenLabel": "P4",
+          "zh": "常规发育筛查评分不能直接评价药物量取或储存行为。"
+        }
+      ],
+      "correct": {
+        "en": "The findings most strongly support a caregiver medication-safety knowledge deficit: Danielle followed informal advice, reports 15 mL when the documented weight-band dose is 3.75 mL, left an uncapped medicine bottle within reach, and remains attentive and forthcoming. Limited support and tearfulness may indicate caregiver role strain, but they do not explain the specific dosing and storage errors as directly; the disclosed errors alone do not establish neglect. Because the complete product history, timing, frequency, and total exposure are unknown, the nurse should promptly gather the available exposure details and obtain case-specific guidance from the pediatric clinician and Poison Control. The nurse should then teach the documented 3.75 mL dose with an oral dosing syringe and return demonstration. Follow-up should directly verify accurate measurement and storage out of Liam's reach and sight.",
+        "zh": "现有发现最支持照护者用药安全知识缺乏：Danielle 听从了非正式建议，在病历所列体重分档剂量为 3.75 mL 时报告给了 15 mL，将未盖好瓶盖的药物留在婴儿可触及之处，同时仍然细心照护并主动坦诚说明情况。支持不足和流泪可能提示照护者角色紧张，但不像知识缺乏那样直接解释具体的给药与储存错误；仅凭这些主动披露的错误不能确定儿童忽视。由于全部产品、给药时间、频率和总暴露量信息不完整，护士应立即收集当前可获得的暴露信息，并向儿科临床医生和毒物控制中心获取针对个案的指导。随后，护士应使用口服给药注射器教学病历所列 3.75 mL 剂量，并让 Danielle 回示。随访应直接核实其能准确量取药物，并将药物储存在 Liam 看不见、够不到之处。"
+      }
+    },
+    "stem": {
+      "en": "During Liam's nine-month well-child visit, he reaches for a cosmetics pouch containing an uncapped bottle of liquid acetaminophen. The nurse immediately moves the pouch and medication out of Liam's reach. His caregiver, Danielle, is warm and attentive and willingly describes how she gives medicines. She becomes tearful and says she has little reliable support or guidance and followed informal advice. Danielle reports giving Liam 15 mL of acetaminophen labeled 160 mg/5 mL; the clinic's weight-band dosing table in the record lists 3.75 mL for Liam. The record does not yet document when the 15 mL dose was last given, how often it was given, or whether Liam received another acetaminophen-containing product. Complete the bow-tie by selecting the most likely condition, two priority nursing actions, and two parameters to evaluate.",
+      "zh": "Liam 进行 9 个月婴儿保健访视期间，他伸手去够一个化妆包，包内有一瓶未盖好瓶盖的液体对乙酰氨基酚。护士立即将化妆包和药物移到 Liam 无法触及之处。他的照护者 Danielle 对 Liam 温暖且细心，并主动说明自己如何给药。她说着说着流下眼泪，表示自己缺少可靠的支持或指导，之前听从了非正式建议。Danielle 报告曾给 Liam 服用 15 mL、浓度为 160 mg/5 mL 的对乙酰氨基酚；诊所病历中的体重分档剂量表为 Liam 列出的剂量是 3.75 mL。目前病历尚未记录最近一次 15 mL 给药的时间、这种剂量给了几次，也未记录 Liam 是否还服用了其他含对乙酰氨基酚的产品。请完成弓形题：选择最可能的状况、两项优先护理措施和两项用于评价的参数。"
+    },
+    "testTakingStrategy": {
+      "en": "Use the findings presented to identify the explanation that best fits both the dosing and storage errors. Treat the moved medication as a hazard already controlled; choose next actions and follow-up measures that directly assess exposure and demonstrate safer behavior.",
+      "zh": "根据题干中的发现，选择最能同时解释给药和储存错误的状况。药物已经被移走，因此该即时危险已得到控制；接下来应选择能直接评估暴露并展示更安全行为的措施和随访指标。"
+    }
+  }
+}

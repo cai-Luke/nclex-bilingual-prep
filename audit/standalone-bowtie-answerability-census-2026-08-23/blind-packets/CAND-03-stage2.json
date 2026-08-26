@@ -1,0 +1,56 @@
+{
+  "instruction": "Using only the standalone learner-facing English stem, prompts, and opaque token pools, select exactly one condition, two actions, and two parameters. Return the required structured JSON, including exactly one premise row for every opaque token. Do not infer absent client-specific facts.",
+  "stem": "A client develops fever, rigors, bilateral flank pain, hypotension, hemoglobinuria, and a sense of impending doom within 12 minutes of starting a red blood cell transfusion. Thirty minutes after the transfusion is stopped, the client has worsening hypotension, oliguria with port-wine urine, oozing from puncture sites, platelets 104 ×10³/µL, fibrinogen 140 mg/dL, INR 1.8, aPTT 52 seconds, LDH 1,840 U/L, bilirubin 4.2 mg/dL, and haptoglobin <10 mg/dL. Complete the bow-tie by selecting the most likely condition, two priority actions, and two parameters to monitor.",
+  "tokens": {
+    "actions": [
+      {
+        "label": "A1",
+        "text": "Remove the peripheral IV and plan to obtain new access later."
+      },
+      {
+        "label": "A2",
+        "text": "Ensure the blood bank receives the stopped unit with attached tubing and a post-reaction patient sample."
+      },
+      {
+        "label": "A3",
+        "text": "Give acetaminophen and slow the transfusion rate."
+      },
+      {
+        "label": "A4",
+        "text": "Escalate immediately for higher-level care because shock, DIC, and oliguric acute kidney injury are progressing."
+      }
+    ],
+    "condition": [
+      {
+        "label": "C1",
+        "text": "Acute hemolytic transfusion reaction due to ABO incompatibility"
+      },
+      {
+        "label": "C2",
+        "text": "Anaphylactic transfusion reaction"
+      },
+      {
+        "label": "C3",
+        "text": "Septic transfusion reaction from bacterial contamination"
+      }
+    ],
+    "parameters": [
+      {
+        "label": "P1",
+        "text": "Temperature trend alone"
+      },
+      {
+        "label": "P2",
+        "text": "Peripheral IV insertion-site appearance"
+      },
+      {
+        "label": "P3",
+        "text": "Urine output and urine color via the Foley catheter"
+      },
+      {
+        "label": "P4",
+        "text": "Coagulation studies, especially fibrinogen and platelet count"
+      }
+    ]
+  }
+}

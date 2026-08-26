@@ -1,0 +1,128 @@
+{
+  "actionLabels": [
+    "A2",
+    "A4"
+  ],
+  "ambiguousAlternatives": [],
+  "conditionLabel": "C2",
+  "missingInformation": [],
+  "parameterLabels": [
+    "P1",
+    "P3"
+  ],
+  "poolAnswerability": "ANSWERABLE",
+  "reasoning": "C2 is uniquely supported by persistent postpartum hemorrhage with recurrent uterine bogginess after retained tissue and major lacerations are excluded. A2 directly addresses the repeatedly lost uterine tone, while A4 is the compatible additional uterotonic in the supplied action pool given hypertension and asthma. P1 and P3 most directly measure hemorrhage progression and restoration of uterine tone.",
+  "selectionEvidence": [
+    {
+      "evidence": "Persistent postpartum bleeding occurs with an intermittently boggy uterus that relaxes rapidly after massage, while retained placental tissue and major genital-tract lacerations are excluded.",
+      "opaqueTokenLabel": "C2"
+    },
+    {
+      "evidence": "The uterus repeatedly becomes boggy within seconds after massage, supporting continuous uterine massage or compression to maintain tone.",
+      "opaqueTokenLabel": "A2"
+    },
+    {
+      "evidence": "Persistent atony despite oxytocin requires another uterotonic; pregnancy-induced hypertension and asthma make the alternative uterotonic constraints clinically relevant.",
+      "opaqueTokenLabel": "A4"
+    },
+    {
+      "evidence": "QBL is already 1,200 mL with persistent heavy bleeding, so its trajectory directly measures ongoing hemorrhage.",
+      "opaqueTokenLabel": "P1"
+    },
+    {
+      "evidence": "The defining abnormality is transient uterine firmness followed by rapid relaxation, making serial uterine-tone assessment directly responsive to treatment.",
+      "opaqueTokenLabel": "P3"
+    }
+  ],
+  "stage2Confidence": "high",
+  "tokenPremiseTable": [
+    {
+      "missingPremise": "Abnormal coagulation studies, diffuse oozing, or another client-specific indication of obstetric coagulopathy",
+      "opaqueTokenLabel": "C1",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "LOW",
+      "rankabilityJustification": "Coagulopathy cannot be fully excluded, but the explicit recurrent uterine bogginess and rapid relaxation provide a substantially stronger primary explanation.",
+      "supportingStemText": "Persistent heavy bleeding is present, but no coagulation findings are provided."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "C2",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The stem directly supplies the hemorrhage and abnormal uterine-tone findings needed to rank uterine atony first.",
+      "supportingStemText": "The client has persistent heavy postpartum bleeding, and the uterus is intermittently boggy and relaxes within seconds after massage."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "C3",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The proposed bleeding source is expressly excluded by bedside exploration.",
+      "supportingStemText": "Bedside exploration shows no cervical or vaginal lacerations beyond the repaired second-degree perineal tear."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A1",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The hypertensive condition conflicts with selecting methylergonovine when a suitable alternative is available.",
+      "supportingStemText": "She has pregnancy-induced hypertension treated with labetalol."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A2",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The immediate loss of uterine tone directly supports maintaining continuous massage or compression.",
+      "supportingStemText": "The uterus is intermittently boggy and relaxes within seconds after massage."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A3",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Stopping hemorrhage-control measures for documentation or laboratory collection conflicts with the client's active bleeding and severe instability.",
+      "supportingStemText": "Heavy bleeding is persistent, QBL is 1,200 mL, HR is 132, BP is 80/52, and the client is confused and pale."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A4",
+      "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Misoprostol is an additional uterotonic option for persistent uterine atony and does not rely on absent client-specific findings.",
+      "supportingStemText": "Bleeding persists despite oxytocin and fundal massage; the client also has pregnancy-induced hypertension and mild intermittent asthma."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "P1",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Trending quantitative blood loss directly evaluates whether the hemorrhage is continuing or improving.",
+      "supportingStemText": "The client has persistent heavy bleeding with a QBL of 1,200 mL."
+    },
+    {
+      "missingPremise": "A neonatal assessment question or a client-specific neonatal concern",
+      "opaqueTokenLabel": "P2",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Neonatal Apgar scores do not evaluate the mother's uterine atony or hemorrhage response.",
+      "supportingStemText": "The stem identifies a postpartum maternal hemorrhage but provides no neonatal instability or Apgar concern."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "P3",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Uterine tone and fundal firmness directly track the abnormality being treated.",
+      "supportingStemText": "The uterus is intermittently boggy and relaxes within seconds after massage."
+    },
+    {
+      "missingPremise": "Baseline and serial creatinine values or other client-specific evidence making renal function the immediate trajectory measure",
+      "opaqueTokenLabel": "P4",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "LOW",
+      "rankabilityJustification": "Creatinine may reflect organ injury later, but absent renal data do not make it preferable to immediate bleeding and uterine-tone trends.",
+      "supportingStemText": "The client is hypotensive and tachycardic, but no renal measurements or creatinine trend are supplied."
+    }
+  ]
+}

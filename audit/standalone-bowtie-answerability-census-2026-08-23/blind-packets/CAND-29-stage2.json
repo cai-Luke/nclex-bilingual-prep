@@ -1,0 +1,56 @@
+{
+  "instruction": "Using only the standalone learner-facing English stem, prompts, and opaque token pools, select exactly one condition, two actions, and two parameters. Return the required structured JSON, including exactly one premise row for every opaque token. Do not infer absent client-specific facts.",
+  "stem": "Stage 3 summary: A 28-year-old woman with prior steatorrhea, weight loss, iron/folate/vitamin D/calcium deficiencies, positive tTG-IgA with normal total IgA, Marsh 3a duodenal biopsy, and skin biopsy-confirmed dermatitis herpetiformis has completed three months of strict gluten-free diet after eliminating hidden gluten. Her GI symptoms and rash have resolved, nutritional labs have improved, and tTG-IgA has fallen from 128 to 38 U/mL. Select the most likely condition, two priority nursing actions, and two parameters to monitor.",
+  "tokens": {
+    "actions": [
+      {
+        "label": "A1",
+        "text": "Reinforce strict lifelong gluten-free adherence, including hidden sources and cross-contamination prevention"
+      },
+      {
+        "label": "A2",
+        "text": "Coordinate the DEXA scan and explain the bone-health rationale"
+      },
+      {
+        "label": "A3",
+        "text": "Label the falling but elevated tTG-IgA as treatment failure and recommend immediate repeat duodenal biopsy"
+      },
+      {
+        "label": "A4",
+        "text": "Stop nutritional supplements because the latest values improved into or near the reference range"
+      }
+    ],
+    "condition": [
+      {
+        "label": "C1",
+        "text": "Celiac disease with dermatitis herpetiformis"
+      },
+      {
+        "label": "C2",
+        "text": "Crohn disease"
+      },
+      {
+        "label": "C3",
+        "text": "Irritable bowel syndrome"
+      }
+    ],
+    "parameters": [
+      {
+        "label": "P1",
+        "text": "ESR and CRP"
+      },
+      {
+        "label": "P2",
+        "text": "Vitamin B12 level"
+      },
+      {
+        "label": "P3",
+        "text": "Hemoglobin and ferritin"
+      },
+      {
+        "label": "P4",
+        "text": "Serial tTG-IgA levels"
+      }
+    ]
+  }
+}

@@ -1,0 +1,173 @@
+{
+  "canonicalSelection": {
+    "actionLabels": [
+      "A2",
+      "A4"
+    ],
+    "conditionLabel": "C1",
+    "parameterLabels": [
+      "P2",
+      "P3"
+    ]
+  },
+  "instruction": "The two blind-stage records are immutable. Compare them with the now-revealed canonical 1/2/2 selection and complete standalone item. Do not inspect or infer sibling-case material. Return the required Phase-E structured JSON without revising either blind record.",
+  "standaloneItem": {
+    "bowtie": {
+      "actions": {
+        "tokens": [
+          {
+            "en": "Administer high-dose IV corticosteroids to halt GBS progression",
+            "opaqueTokenLabel": "A1",
+            "zh": "给予大剂量IV糖皮质激素以阻止GBS进展"
+          },
+          {
+            "en": "Prepare for and assist with emergent endotracheal intubation",
+            "opaqueTokenLabel": "A2",
+            "zh": "准备并协助紧急气管插管"
+          },
+          {
+            "en": "Start BiPAP instead of intubation",
+            "opaqueTokenLabel": "A3",
+            "zh": "使用BiPAP替代插管"
+          },
+          {
+            "en": "Continue IVIG on schedule through airway stabilization",
+            "opaqueTokenLabel": "A4",
+            "zh": "在气道稳定过程中按计划继续IVIG"
+          }
+        ]
+      },
+      "condition": {
+        "tokens": [
+          {
+            "en": "GBS/AIDP with impending respiratory failure",
+            "opaqueTokenLabel": "C1",
+            "zh": "GBS/AIDP伴即将发生的呼吸衰竭"
+          },
+          {
+            "en": "Acute transverse myelitis",
+            "opaqueTokenLabel": "C2",
+            "zh": "急性横贯性脊髓炎"
+          },
+          {
+            "en": "Myasthenia gravis crisis",
+            "opaqueTokenLabel": "C3",
+            "zh": "重症肌无力危象"
+          }
+        ]
+      },
+      "parameters": {
+        "tokens": [
+          {
+            "en": "Repeat CSF protein level to guide acute airway decisions",
+            "opaqueTokenLabel": "P1",
+            "zh": "重复CSF蛋白水平以指导急性气道决策"
+          },
+          {
+            "en": "Serial FVC and MIP trends",
+            "opaqueTokenLabel": "P2",
+            "zh": "连续FVC和MIP趋势"
+          },
+          {
+            "en": "Heart-rate and blood-pressure variability",
+            "opaqueTokenLabel": "P3",
+            "zh": "心率和血压变异范围"
+          },
+          {
+            "en": "SpO2 alone as the primary respiratory marker",
+            "opaqueTokenLabel": "P4",
+            "zh": "仅以SpO2作为主要呼吸指标"
+          }
+        ]
+      }
+    },
+    "glossary": [
+      {
+        "defZh": "要求同时选择中心状况、优先行动和监测参数的NGN临床判断题。",
+        "termEn": "Bow-tie item",
+        "termZh": "弓形题型"
+      },
+      {
+        "defZh": "尚未完全衰竭但客观参数和临床表现显示即将无法维持有效通气。",
+        "termEn": "Impending respiratory failure",
+        "termZh": "即将发生的呼吸衰竭"
+      },
+      {
+        "defZh": "通过咳嗽、吞咽、咽反射和意识状态防止误吸并维持通畅气道的能力。",
+        "termEn": "Airway protection",
+        "termZh": "气道保护"
+      }
+    ],
+    "rationale": {
+      "byChoice": [
+        {
+          "en": "Correct. The postinfectious ascending areflexic weakness with diagnostic support has now crossed the case respiratory thresholds.",
+          "opaqueTokenLabel": "C1",
+          "zh": "正确。感染后上行性无反射无力伴诊断支持，现在已越过本病例呼吸阈值。"
+        },
+        {
+          "en": "Incorrect. Myasthenic crisis causes fatigable weakness with preserved reflexes, not ascending areflexic neuropathy with albuminocytologic dissociation and demyelinating NCS.",
+          "opaqueTokenLabel": "C3",
+          "zh": "错误。重症肌无力危象表现为易疲劳性无力且反射保留，而不是上行性无反射周围神经病伴蛋白细胞分离和脱髓鞘神经传导结果。"
+        },
+        {
+          "en": "Incorrect. Transverse myelitis would be expected to show a sensory level, cord MRI abnormality, and often early bowel/bladder dysfunction as a cord syndrome.",
+          "opaqueTokenLabel": "C2",
+          "zh": "错误。横贯性脊髓炎作为脊髓综合征，通常会有感觉平面、脊髓MRI异常，并常有早期大小便功能障碍。"
+        },
+        {
+          "en": "Correct. FVC 19 mL/kg, MIP -26 cmH2O, ineffective cough, and absent gag indicate unsafe airway and ventilatory reserve.",
+          "opaqueTokenLabel": "A2",
+          "zh": "正确。FVC 19 mL/kg、MIP -26 cmH2O、咳嗽无效和咽反射消失提示气道和通气储备不安全。"
+        },
+        {
+          "en": "Correct. Intubation supports breathing but does not treat the immune attack; IVIG should continue unless a separate safety issue occurs.",
+          "opaqueTokenLabel": "A4",
+          "zh": "正确。插管支持呼吸，但不治疗免疫攻击；除非发生单独安全问题，应继续IVIG。"
+        },
+        {
+          "en": "Incorrect. BiPAP does not secure the airway and can delay definitive management in a client with poor cough and impaired gag reflex.",
+          "opaqueTokenLabel": "A3",
+          "zh": "错误。BiPAP不能保护气道；在咳嗽差和咽反射受损的患者中可能延误明确的气道处理。"
+        },
+        {
+          "en": "Incorrect. Corticosteroids are not recommended as GBS disease-modifying therapy and should not replace IVIG or plasma exchange.",
+          "opaqueTokenLabel": "A1",
+          "zh": "错误。糖皮质激素不推荐作为GBS疾病修饰治疗，不能替代IVIG或血浆置换。"
+        },
+        {
+          "en": "Correct. These values directly measure respiratory muscle mechanics and guide ventilator readiness and escalation decisions.",
+          "opaqueTokenLabel": "P2",
+          "zh": "正确。这些数值直接测量呼吸肌力学，并指导呼吸机准备和升级决策。"
+        },
+        {
+          "en": "Correct. Dysautonomia in GBS can cause dangerous BP and rhythm instability; narrowing variability signals improvement.",
+          "opaqueTokenLabel": "P3",
+          "zh": "正确。GBS自主神经功能障碍可导致危险的血压和心律不稳定；波动缩小提示改善。"
+        },
+        {
+          "en": "Incorrect. SpO2 is a lagging marker in neuromuscular respiratory failure and should not be used alone to judge ventilatory strength.",
+          "opaqueTokenLabel": "P4",
+          "zh": "错误。SpO2在神经肌肉性呼吸衰竭中是滞后指标，不能单独用来判断通气肌力。"
+        },
+        {
+          "en": "Incorrect. CSF protein helped establish the diagnosis, but repeating it does not guide acute airway stabilization or ventilator weaning.",
+          "opaqueTokenLabel": "P1",
+          "zh": "错误。CSF蛋白帮助建立诊断，但重复检测不能指导急性气道稳定或呼吸机脱机。"
+        }
+      ],
+      "correct": {
+        "en": "The bow-tie center is GBS/AIDP with impending respiratory failure. The priority actions are airway stabilization by endotracheal intubation and uninterrupted disease-modifying IVIG. Ongoing monitoring should focus on respiratory mechanics and autonomic stability, not SpO2 alone or repeat CSF protein.",
+        "zh": "弓形题中心是GBS/AIDP伴即将发生的呼吸衰竭。优先行动是通过气管插管稳定气道，并不中断疾病修饰性IVIG。持续监测应聚焦呼吸力学和自主神经稳定性，而不是单独看SpO2或重复CSF蛋白。"
+      }
+    },
+    "stem": {
+      "en": "A 32-year-old client with confirmed Guillain-Barre syndrome after recent Campylobacter enteritis has progressive quadriparesis, labile blood pressure, tachycardia, ineffective cough, unilateral absent gag reflex, FVC 1.6 L (19 mL/kg), and MIP -26 cmH2O. He speaks only a few words at a time and is diaphoretic while receiving IVIG in the ICU. Complete the bow-tie by selecting the most likely condition, two priority actions, and two parameters to monitor.",
+      "zh": "一名32岁患者近期空肠弯曲杆菌肠炎后确诊格林-巴利综合征，出现进行性四肢轻瘫、血压波动、心动过速、咳嗽无效、单侧咽反射消失、FVC 1.6 L（19 mL/kg）和MIP -26 cmH2O。他在ICU接受IVIG时一次只能说几个词并出汗。请完成弓形题，选择最可能的状况、两个优先行动和两个需要监测的参数。"
+    },
+    "testTakingStrategy": {
+      "en": "For bow-ties, identify the central threat first. Then pick actions that immediately reduce that threat and monitoring that tracks whether the threat is improving or worsening.",
+      "zh": "做弓形题时，先确定中心威胁。再选择能立即降低该威胁的行动，以及能追踪威胁改善或恶化的监测指标。"
+    }
+  }
+}

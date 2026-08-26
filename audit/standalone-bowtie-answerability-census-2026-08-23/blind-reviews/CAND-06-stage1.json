@@ -1,0 +1,38 @@
+{
+  "condition": "Capable patient's informed refusal of PEG placement",
+  "evaluationParameters": [
+    "Continued decisional capacity and consistency of the patient's expressed wishes",
+    "Adherence of the care plan and healthcare team to the patient's refusal"
+  ],
+  "missingInformation": [
+    "The underlying diagnosis, indication for PEG placement, current nutrition and hydration status, specific goals of care, available alternatives to PEG, and the content of the agreed care plan are not provided."
+  ],
+  "priorityActions": [
+    "Honor the refusal and do not proceed with or schedule PEG placement without the patient's consent",
+    "Document and communicate the patient's decision while facilitating the planned palliative-care-supported family meeting"
+  ],
+  "reasoning": "The stem directly establishes intact capacity and repeated refusal, making respect for informed refusal the clear priority; clinical monitoring cannot be specified further without the underlying diagnosis and care goals.",
+  "stage1Confidence": "high",
+  "stemEvidence": [
+    {
+      "stemFact": "Mrs. Ellison has repeatedly refused PEG placement with documented intact decisional capacity.",
+      "target": "condition"
+    },
+    {
+      "stemFact": "The physician's suggestion to schedule the consult anyway has been addressed.",
+      "target": "priorityAction1"
+    },
+    {
+      "stemFact": "Palliative care confirms her capacity and wishes, and a family meeting is arranged.",
+      "target": "priorityAction2"
+    },
+    {
+      "stemFact": "Palliative care confirms her capacity and wishes.",
+      "target": "evaluationParameter1"
+    },
+    {
+      "stemFact": "The physician's suggestion to schedule the consult anyway has been addressed.",
+      "target": "evaluationParameter2"
+    }
+  ]
+}

@@ -1,0 +1,130 @@
+{
+  "actionLabels": [
+    "A2",
+    "A3"
+  ],
+  "ambiguousAlternatives": [],
+  "conditionLabel": "C1",
+  "missingInformation": [
+    "The stem does not provide the interval between blood-pressure readings, current respiratory rate, level of consciousness, urine output, pulse, medication contraindications, or post-treatment findings; these affect implementation and safety assessment but do not prevent ranking the supplied options."
+  ],
+  "parameterLabels": [
+    "P1",
+    "P3"
+  ],
+  "poolAnswerability": "ANSWERABLE",
+  "reasoning": "Postpartum severe hypertension with cerebral and visual symptoms, hyperreflexia, clonus, and proteinuria supports postpartum preeclampsia with severe features. Magnesium sulfate addresses seizure risk, immediate-release nifedipine addresses acute severe hypertension, and the priority monitoring domains are magnesium safety/seizure markers and blood-pressure response.",
+  "selectionEvidence": [
+    {
+      "opaqueTokenLabel": "C1",
+      "supportingStemText": "Postpartum day 4 with BP 168/112 and 164/110, severe headache, scotomata, protein-to-creatinine ratio 0.42, and DTRs 3+ with ankle clonus."
+    },
+    {
+      "opaqueTokenLabel": "A2",
+      "supportingStemText": "Severe headache, scotomata, hyperreflexia, and ankle clonus indicate high seizure risk."
+    },
+    {
+      "opaqueTokenLabel": "A3",
+      "supportingStemText": "Two severe-range blood pressures are documented: 168/112 and 164/110."
+    },
+    {
+      "opaqueTokenLabel": "P1",
+      "supportingStemText": "DTRs 3+ with ankle clonus, severe headache, scotomata, and creatinine 0.9 mg/dL provide neurologic and renal baselines for magnesium safety and seizure-risk monitoring."
+    },
+    {
+      "opaqueTokenLabel": "P3",
+      "supportingStemText": "Presenting BP measurements are 168/112 and 164/110, requiring assessment of the trend after acute treatment."
+    }
+  ],
+  "stage2Confidence": "high",
+  "tokenPremiseTable": [
+    {
+      "missingPremise": "The stem does not state that magnesium sulfate is already infusing.",
+      "opaqueTokenLabel": "A1",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "MATERIAL",
+      "rankabilityJustification": "The token depends on an absent treatment-state premise, and magnesium administration alone is not a general reason to withhold nifedipine.",
+      "supportingStemText": ""
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A2",
+      "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "These severe neurologic features support magnesium sulfate seizure prophylaxis, and a 4 g IV loading dose is a standard ordered regimen.",
+      "supportingStemText": "Severe headache, scotomata, DTRs 3+, and ankle clonus."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A3",
+      "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Immediate-release oral nifedipine is an accepted rapid-acting treatment for acute severe postpartum hypertension.",
+      "supportingStemText": "BP 168/112 and 164/110."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A4",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "MATERIAL",
+      "rankabilityJustification": "Extended-release nifedipine is not an appropriate substitute for the immediate-release preparation when rapid acute blood-pressure treatment is required.",
+      "supportingStemText": "BP 168/112 and 164/110 indicates an acute severe-range episode."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "C1",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The stem explicitly supplies postpartum onset, severe hypertension, severe neurologic features, and proteinuria.",
+      "supportingStemText": "Postpartum day 4; previously normotensive; BP 168/112 and 164/110; severe headache; scotomata; DTRs 3+ with ankle clonus; urine protein-to-creatinine ratio 0.42."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "C2",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "MATERIAL",
+      "rankabilityJustification": "The provided laboratory profile does not show thrombocytopenia, elevated liver enzymes, or evidence supporting hemolysis.",
+      "supportingStemText": "Platelets 195 ×10³/µL, AST 34 U/L, ALT 28 U/L, and LDH 198 U/L."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "C3",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "MATERIAL",
+      "rankabilityJustification": "Severe-range pressures and severe neurologic findings contradict classification as hypertension without severe features.",
+      "supportingStemText": "BP 168/112 and 164/110 with severe headache, scotomata, and ankle clonus."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "P1",
+      "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Neurologic symptoms and reflex findings establish seizure-risk baselines, while respiratory status, consciousness, reflexes, and urine output are standard magnesium safety parameters.",
+      "supportingStemText": "Severe headache, scotomata, DTRs 3+ with ankle clonus, and creatinine 0.9 mg/dL."
+    },
+    {
+      "missingPremise": "The stem supplies no lochia findings or evidence connecting lochia to the hypertensive disorder's response.",
+      "opaqueTokenLabel": "P2",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "MATERIAL",
+      "rankabilityJustification": "Lochia primarily assesses postpartum bleeding and uterine recovery, not the main response to preeclampsia treatment.",
+      "supportingStemText": ""
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "P3",
+      "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Serial blood pressure is the direct parameter for evaluating response to acute antihypertensive therapy.",
+      "supportingStemText": "BP 168/112 and 164/110."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "P4",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "MATERIAL",
+      "rankabilityJustification": "Facial edema is neither sufficiently specific nor sufficiently rapid and objective to replace blood-pressure trend as the acute response marker.",
+      "supportingStemText": "New facial edema is present, but no edema trend or treatment response is provided."
+    }
+  ]
+}

@@ -1,0 +1,142 @@
+{
+  "actionLabels": [
+    "A1",
+    "A2"
+  ],
+  "ambiguousAlternatives": [
+    {
+      "opaqueTokenLabel": "A3",
+      "reason": "CPR could be appropriate for a selected casualty under some protocols, but A and G are unidentified and the stem supplies no cardiac-arrest findings or individual triage details."
+    },
+    {
+      "opaqueTokenLabel": "P4",
+      "reason": "Mortality is an incident outcome, but an isolated total cannot evaluate decontamination safety or the triage-based treatment of salvageable casualties as specifically as P1 and P2."
+    }
+  ],
+  "conditionLabel": "C3",
+  "missingInformation": [
+    "Individual casualty findings, vital signs, injuries, and clinical trajectories",
+    "The identities and conditions represented by A and G",
+    "Whether additional casualties remain contaminated or are awaiting decontamination",
+    "The exact resource inventory and local MCI resuscitation protocol"
+  ],
+  "parameterLabels": [
+    "P1",
+    "P2"
+  ],
+  "poolAnswerability": "ANSWERABLE",
+  "reasoning": "C3 directly matches the explicit MCI activation, resource scarcity, START triage, and chemical-decontamination context. A1 and A2 are the only actions consistent with hazardous-material containment and triage-based allocation; A4 violates contamination control, while A3 depends on absent casualty-specific facts. P1 and P2 directly evaluate the safety and effectiveness of those selected actions.",
+  "selectionEvidence": [
+    {
+      "opaqueTokenLabel": "C3",
+      "supportingStemText": "“activated MCI mode” with “scarce blood and treatment spaces”"
+    },
+    {
+      "opaqueTokenLabel": "A1",
+      "supportingStemText": "“industrial explosion with ammonia release” and “one contaminated red-category casualty has completed decontamination”"
+    },
+    {
+      "opaqueTokenLabel": "A2",
+      "supportingStemText": "“START triage is complete” and scarce resources “are being allocated”"
+    },
+    {
+      "opaqueTokenLabel": "P1",
+      "supportingStemText": "Chemical-release context and completed decontamination of a contaminated casualty"
+    },
+    {
+      "opaqueTokenLabel": "P2",
+      "supportingStemText": "“red-category casualty” with scarce treatment spaces being allocated"
+    }
+  ],
+  "stage2Confidence": "high",
+  "tokenPremiseTable": [
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "C1",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Explicit MCI and allocation facts rule out a single-problem exposure without resource-allocation triage.",
+      "supportingStemText": "The stem explicitly states “activated MCI mode,” seven casualties, START triage, and scarce-resource allocation."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "C2",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The explicit chemical-contamination and MCI features exceed a conventional trauma surge.",
+      "supportingStemText": "The event includes “ammonia release,” contamination, decontamination, activated MCI mode, and scarce resources."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "C3",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Every defining component of C3 appears directly in the stem.",
+      "supportingStemText": "“activated MCI mode,” “START triage,” completed decontamination, and “scarce blood and treatment spaces”"
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A1",
+      "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+      "rankabilityImpact": "LOW",
+      "rankabilityJustification": "The stem establishes a hazardous-material contamination context; general disaster-nursing knowledge supports decontamination before entry, although the stem does not state whether others remain contaminated.",
+      "supportingStemText": "“industrial explosion with ammonia release” and a “contaminated” casualty who “has completed decontamination”"
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A2",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The explicit triage and allocation context supports using START categories to sequence treatment.",
+      "supportingStemText": "“START triage is complete” and scarce blood and treatment spaces “are being allocated”"
+    },
+    {
+      "missingPremise": "The identities, START categories, arrest status, and resuscitation indications for A and G",
+      "opaqueTokenLabel": "A3",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "MATERIAL",
+      "rankabilityJustification": "Full CPR cannot be selected safely without knowing who A and G are and whether either has an indicated, protocol-consistent resuscitation status.",
+      "supportingStemText": ""
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A4",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Taking the casualty into the ED before decontamination conflicts with the stated completed-decontamination sequence and contamination-control principles.",
+      "supportingStemText": "The contaminated red-category casualty “has completed decontamination.”"
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "P1",
+      "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+      "rankabilityImpact": "LOW",
+      "rankabilityJustification": "Absence of secondary contamination is the direct safety outcome of hazardous-material decontamination.",
+      "supportingStemText": "Ammonia release, contamination, and completed decontamination are explicit."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "P2",
+      "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+      "rankabilityImpact": "LOW",
+      "rankabilityJustification": "Tracking salvageable casualties’ trajectories evaluates whether START-based prioritization and resource allocation are effective.",
+      "supportingStemText": "The stem identifies a red-category casualty and allocation of scarce treatment spaces."
+    },
+    {
+      "missingPremise": "No stem fact makes routine full-documentation completion time a priority outcome during the active MCI.",
+      "opaqueTokenLabel": "P3",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Documentation timing is less directly related to immediate contamination safety and salvageable-casualty outcomes.",
+      "supportingStemText": ""
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "P4",
+      "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+      "rankabilityImpact": "LOW",
+      "rankabilityJustification": "Mortality is generally relevant to MCI evaluation, but an isolated total is insufficiently specific and does not displace P1 or P2.",
+      "supportingStemText": "The stem describes an activated MCI involving seven casualties."
+    }
+  ]
+}

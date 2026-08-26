@@ -1,0 +1,137 @@
+{
+  "actionLabels": [
+    "A1",
+    "A2"
+  ],
+  "ambiguousAlternatives": [
+    {
+      "opaqueTokenLabel": "P1",
+      "reason": "Creatinine can help evaluate renal involvement in severe hypertension, but the stem provides no renal findings, creatinine result, or order making it one of the two best parameters for this communication-focused item."
+    }
+  ],
+  "conditionLabel": "C1",
+  "missingInformation": [
+    "The stem does not identify Renee or establish that Renee performed the dismissive handoff, so A2 contains an unsupported person-specific premise.",
+    "The stem does not establish prior or ongoing incidents needed to determine whether the incivility was already unresolved before this event.",
+    "No renal assessment or laboratory information is provided to support prioritizing serum creatinine."
+  ],
+  "parameterLabels": [
+    "P2",
+    "P3"
+  ],
+  "poolAnswerability": "UNDERDETERMINED",
+  "reasoning": "C1, A1, P2, and P3 are directly supported and clearly outrank their alternatives. A2 is the substantively appropriate second action because observed dismissive handoff behavior caused a care omission, but its attribution to Renee is not established anywhere in the stem. Therefore the intended 1/2/2 pattern is identifiable, while the exact second action is not fully supported without importing a client-specific personnel fact.",
+  "selectionEvidence": [
+    {
+      "opaqueTokenLabel": "C1",
+      "supportingStemText": "The missed 1800 monitoring check occurred after an \"incomplete, dismissive handoff,\" creating a client-safety communication failure."
+    },
+    {
+      "opaqueTokenLabel": "A1",
+      "supportingStemText": "BP is 186/102 with a headache, and the hospitalist ordered a call if SBP > 180."
+    },
+    {
+      "opaqueTokenLabel": "A2",
+      "supportingStemText": "The stem identifies an \"incomplete, dismissive handoff\" with a patient-care impact: the 1800 monitoring check was missed."
+    },
+    {
+      "opaqueTokenLabel": "P2",
+      "supportingStemText": "The medication dose change and monitoring orders were discovered only after an incomplete handoff."
+    },
+    {
+      "opaqueTokenLabel": "P3",
+      "supportingStemText": "BP monitoring was ordered q4h for 24 hours, and the 1800 check was missed."
+    }
+  ],
+  "stage2Confidence": "medium",
+  "tokenPremiseTable": [
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A1",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The notification threshold is explicitly met, making immediate hospitalist notification the highest-priority action.",
+      "supportingStemText": "BP 186/102 with headache; call ordered if SBP > 180; monitoring interval missed."
+    },
+    {
+      "missingPremise": "The stem does not identify Renee as the person who performed the handoff or displayed the observed behavior.",
+      "opaqueTokenLabel": "A2",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "MATERIAL",
+      "rankabilityJustification": "Private behavior-focused follow-up is appropriate in general, but the named recipient cannot be selected without assuming her involvement.",
+      "supportingStemText": "The handoff was incomplete and dismissive and contributed to a missed monitoring check."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A3",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Addressing interpersonal conflict first would improperly delay the explicitly indicated safety escalation.",
+      "supportingStemText": "The hospitalist ordered a call if SBP > 180, and the reported SBP is 186."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A4",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "A documented care omission occurred, and the stem does not establish that serious harm was avoided.",
+      "supportingStemText": "The 1800 monitoring check was missed after an incomplete, dismissive handoff."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "C1",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "LOW",
+      "rankabilityJustification": "The communication breakdown and safety consequence are explicit, although the duration implied by \"unresolved\" is not established.",
+      "supportingStemText": "An incomplete, dismissive handoff preceded a missed ordered BP check and delayed discovery of a medication change and notification threshold."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "C2",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "A patient-care omission makes the event more than routine friction requiring no formal intervention.",
+      "supportingStemText": "The handoff failure contributed to omission of ordered monitoring while the client's SBP exceeded the call threshold."
+    },
+    {
+      "missingPremise": "No fact shows that Priya lacked the relevant knowledge; she discovered the omitted information and reported the abnormal BP.",
+      "opaqueTokenLabel": "C3",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The stem attributes the safety problem to handoff quality, not an established knowledge deficit.",
+      "supportingStemText": ""
+    },
+    {
+      "missingPremise": "No creatinine value, renal symptom, urine-output concern, laboratory order, or renal history is provided.",
+      "opaqueTokenLabel": "P1",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "LOW",
+      "rankabilityJustification": "Renal monitoring can be clinically relevant in hypertensive emergencies, but it is less directly supported than monitoring handoff quality and schedule adherence.",
+      "supportingStemText": "The client has severe hypertension with headache."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "P2",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Subsequent handoff completeness directly evaluates whether the identified communication failure has been corrected.",
+      "supportingStemText": "The incomplete, dismissive handoff failed to convey the amlodipine increase, q4h monitoring order, and call threshold."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "P3",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Schedule adherence and absence of further omissions directly evaluate restoration of safe care.",
+      "supportingStemText": "The hospitalist ordered BP monitoring q4h for 24 hours, and the 1800 check was missed."
+    },
+    {
+      "missingPremise": "No clinical or safety objective requires Renee and Priya to become personal friends.",
+      "opaqueTokenLabel": "P4",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Personal friendship is unrelated to professional communication, monitoring adherence, or client outcomes.",
+      "supportingStemText": ""
+    }
+  ]
+}

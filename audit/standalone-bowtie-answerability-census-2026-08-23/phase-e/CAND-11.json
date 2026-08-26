@@ -1,0 +1,139 @@
+{
+  "anyCanonicalTargetDependsOnAbsentFact": true,
+  "blindExactMatch": true,
+  "canonicalSelection": {
+    "actionLabels": [
+      "A4",
+      "A3"
+    ],
+    "conditionLabel": "C1",
+    "parameterLabels": [
+      "P2",
+      "P3"
+    ]
+  },
+  "canonicalSetExplanation": "C1 uniquely captures the broad shared-supply contamination pathway. A3 and the containment and decontamination components of A4 are superior to delay or device-only cleaning, while P2 and P3 directly evaluate sustained precautions and equipment control. A4's unsupported Room 16 destination is a token-level defect, but it does not change A4's ranking because its remaining measures are the only comprehensive containment response.",
+  "canonicalSetUniquelyDefensible": true,
+  "canonicalTargetSupport": [
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "C1",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "The contaminated stethoscope came from Client C's MRSA contact-precautions room and was found in the clean utility room near the clean supply cart."
+    },
+    {
+      "missingClientFact": "The stem does not state that Client C is assigned to Room 16 or that the stethoscope should be returned there.",
+      "opaqueTokenLabel": "A4",
+      "supportClassification": "MISSING_CLIENT_FACT",
+      "supportingStandaloneEvidence": ""
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "A3",
+      "supportClassification": "GENERAL_KNOWLEDGE_LINK",
+      "supportingStandaloneEvidence": "The stem describes a student-associated infection-control breach involving contaminated equipment in a clean utility area."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "P2",
+      "supportClassification": "GENERAL_KNOWLEDGE_LINK",
+      "supportingStandaloneEvidence": "The stem explicitly identifies Client C's room as an MRSA contact-precautions room."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "P3",
+      "supportClassification": "GENERAL_KNOWLEDGE_LINK",
+      "supportingStandaloneEvidence": "A contaminated dedicated stethoscope was found outside the isolation room in a clean utility area near clean supplies."
+    }
+  ],
+  "distractorPremiseFindings": [
+    {
+      "explanation": "The stem does not establish that Client A was the CDI client in Room 12 or that use of the standard linen bag violated the applicable policy; even if established, the linen pathway would remain less immediate than contamination of shared clean supplies.",
+      "opaqueTokenLabel": "C2",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "LOW"
+    },
+    {
+      "explanation": "Door-handle contamination after CDI care is explicit, but the stem never states that it resulted from bare-hand contact; the missing mechanism does not make it broader than the clean-supply pathway.",
+      "opaqueTokenLabel": "C3",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "LOW"
+    },
+    {
+      "explanation": "Room 16 is not linked to Client C, and the action remains inferior regardless because it leaves potentially contacted surfaces and supplies unaddressed.",
+      "opaqueTokenLabel": "A1",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "No due wound dressing change is stated, and even a due dressing change would not justify delaying containment of contamination in a clean utility area.",
+      "opaqueTokenLabel": "A2",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "The stem does not state that Client C receives vancomycin or has associated monitoring results; such results would evaluate therapy rather than environmental containment.",
+      "opaqueTokenLabel": "P1",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "The stem provides no Client B or pneumococcal sputum-culture premise, and that result would not evaluate control of the MRSA equipment breach.",
+      "opaqueTokenLabel": "P4",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "NONE"
+    }
+  ],
+  "missingClientFacts": [
+    {
+      "keyed": true,
+      "missingFact": "Client C is assigned to Room 16 and the dedicated stethoscope should be returned there.",
+      "opaqueTokenLabel": "A4",
+      "rankabilityImpact": "LOW"
+    },
+    {
+      "keyed": false,
+      "missingFact": "Client A is the CDI client in Room 12 and standard-bag placement was erroneous under the applicable policy.",
+      "opaqueTokenLabel": "C2",
+      "rankabilityImpact": "LOW"
+    },
+    {
+      "keyed": false,
+      "missingFact": "The student contaminated the Room 12 door handle through bare-hand contact.",
+      "opaqueTokenLabel": "C3",
+      "rankabilityImpact": "LOW"
+    },
+    {
+      "keyed": false,
+      "missingFact": "Client C is assigned to Room 16 and the stethoscope belongs there.",
+      "opaqueTokenLabel": "A1",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "keyed": false,
+      "missingFact": "A wound dressing change is due.",
+      "opaqueTokenLabel": "A2",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "keyed": false,
+      "missingFact": "Client C is receiving vancomycin and has relevant monitoring results.",
+      "opaqueTokenLabel": "P1",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "keyed": false,
+      "missingFact": "Client B exists in this standalone case and has a Streptococcus pneumoniae sputum-culture result.",
+      "opaqueTokenLabel": "P4",
+      "rankabilityImpact": "NONE"
+    }
+  ],
+  "notes": [
+    "The Stage-2 blind selection contained exactly the canonical label sets; the reversed A3/A4 array order is non-semantic for a two-action selection.",
+    "Exact agreement with the key does not cure A4's unsupported Room 16 clause.",
+    "The rationale also treats the CDI linen error, bare-hand mechanism, vancomycin monitoring, and Client B culture as established despite those client-specific premises not appearing in the standalone stem."
+  ],
+  "stage1Alignment": "PARTIAL",
+  "stage1AlignmentExplanation": "Stage 1 identified the same MRSA clean-utility cross-contamination problem and generated containment, supply quarantine, equipment disinfection, and environmental decontamination that substantially align with A4. Its decontamination verification partly aligns with P3, but it did not generate A3's education and reporting action or P2's PPE-compliance monitoring.",
+  "unstatedClientFactMateriallyChangesRankability": false
+}

@@ -1,0 +1,131 @@
+{
+  "actionLabels": [
+    "A1",
+    "A2"
+  ],
+  "ambiguousAlternatives": [],
+  "conditionLabel": "C2",
+  "missingInformation": [
+    "The exact prescribed systolic BP target is not provided, but its absence does not prevent selecting the BP-trend token.",
+    "The stem does not provide vascular imaging showing recurrent MCA occlusion, but CT-confirmed hemorrhage makes the condition selection unique."
+  ],
+  "parameterLabels": [
+    "P1",
+    "P2"
+  ],
+  "poolAnswerability": "ANSWERABLE",
+  "reasoning": "C2 is directly established by the acute post-thrombectomy neurologic decline and CT-confirmed intraparenchymal hemorrhage with edema and midline shift. A1 and A2 address immediate neurologic surveillance and the explicitly ordered BP-control strategy. P1 and P2 directly evaluate those interventions and detect worsening hemorrhage or mass effect. The remaining tokens are unsupported or conflict with the active intracerebral bleeding scenario.",
+  "selectionEvidence": [
+    {
+      "evidence": "The client developed acute neurologic deterioration after thrombectomy, and emergent CT explicitly shows a left intraparenchymal hemorrhage with edema and midline shift.",
+      "opaqueTokenLabel": "C2"
+    },
+    {
+      "evidence": "Somnolence, loss of verbal output, and a new sluggish pupil indicate an unstable neurologic condition requiring frequent serial assessment.",
+      "opaqueTokenLabel": "A1"
+    },
+    {
+      "evidence": "The stem explicitly states that nicardipine is being titrated to the provider's stat systolic BP target.",
+      "opaqueTokenLabel": "A2"
+    },
+    {
+      "evidence": "Systolic BP is the ordered treatment target for the active nicardipine infusion.",
+      "opaqueTokenLabel": "P1"
+    },
+    {
+      "evidence": "The client's acute changes in consciousness, language, and pupillary response make serial neurologic examination necessary to detect progression.",
+      "opaqueTokenLabel": "P2"
+    }
+  ],
+  "stage2Confidence": "high",
+  "tokenPremiseTable": [
+    {
+      "missingPremise": "Evidence of recurrent left MCA occlusion on vascular imaging or another explicit finding demonstrating re-occlusion.",
+      "opaqueTokenLabel": "C1",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The absent re-occlusion evidence does not prevent ranking because CT identifies an acute hemorrhage with edema and mass effect that directly explains the deterioration.",
+      "supportingStemText": "The client initially improved and then developed new neurologic deterioration after thrombectomy."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "C2",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The condition is directly established by the clinical course and imaging.",
+      "supportingStemText": "Emergent CT shows a 3 cm left frontoparietal intraparenchymal hemorrhage with edema and 4 mm left-to-right midline shift after acute neurologic decline."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "C3",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The focal deterioration and causative imaging findings oppose medication effect as the most likely explanation.",
+      "supportingStemText": "The decline includes loss of verbal output and a new sluggish left pupil, while CT demonstrates an acute hemorrhage with edema and midline shift."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A1",
+      "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Frequent serial GCS, pupil, and motor assessments are appropriate for detecting rapid neurologic progression in an unstable acute intracranial hemorrhage.",
+      "supportingStemText": "The client became somnolent with loss of verbal output and a new sluggish left pupil and has an intracerebral hemorrhage with mass effect."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A2",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The action directly continues the ordered blood-pressure intervention described in the stem.",
+      "supportingStemText": "Nicardipine is being titrated to the provider's stat systolic BP target."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A3",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Intubation does not justify reducing surveillance during an unstable neurologic emergency; hourly checks would conflict with the need to detect rapid change.",
+      "supportingStemText": "The client has acute neurologic deterioration, a new pupillary abnormality, hemorrhage, edema, and midline shift."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A4",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Immediate antiplatelet administration conflicts with the active bleeding state and current anticoagulation-reversal strategy.",
+      "supportingStemText": "CT shows an active intraparenchymal hemorrhage, and warfarin reversal has been ordered."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "P1",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The systolic BP trend directly measures achievement and maintenance of the prescribed infusion target.",
+      "supportingStemText": "Nicardipine is being titrated to the provider's stat systolic BP target."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "P2",
+      "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Serial GCS, pupillary, and motor findings evaluate progression of hemorrhage-related neurologic dysfunction and mass effect.",
+      "supportingStemText": "The client became somnolent, lost verbal output, and developed a new sluggish left pupil after initially improving."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "P3",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Intubation limits NIHSS components, and NIHSS alone is not the main monitoring measure for consciousness, pupils, and mass-effect progression in this situation.",
+      "supportingStemText": "The client is intubated and is being managed for a CT-confirmed intracerebral hemorrhage with declining consciousness and an abnormal pupil."
+    },
+    {
+      "missingPremise": "A cardiac symptom, electrocardiographic concern, hemodynamic event, or other client-specific indication for serial troponin testing.",
+      "opaqueTokenLabel": "P4",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Nothing in the stem makes troponin a priority parameter relative to blood pressure and serial neurologic status.",
+      "supportingStemText": ""
+    }
+  ]
+}

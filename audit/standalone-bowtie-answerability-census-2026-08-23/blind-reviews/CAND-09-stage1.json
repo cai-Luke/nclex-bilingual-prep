@@ -1,0 +1,38 @@
+{
+  "condition": "Impending acute neuromuscular respiratory failure with bulbar dysfunction",
+  "evaluationParameters": [
+    "Trend forced vital capacity and maximal inspiratory pressure frequently.",
+    "Continuously monitor oxygenation and ventilation, including SpO2 and end-tidal CO2 or arterial blood gases."
+  ],
+  "missingInformation": [
+    "SpO2, respiratory rate and pattern, end-tidal CO2 or arterial blood gas results, secretion burden, serial FVC/MIP trends, and whether diaphoresis and hemodynamic changes temporally coincide with IVIG infusion are not provided."
+  ],
+  "priorityActions": [
+    "Activate the airway team and prepare for prompt endotracheal intubation with mechanical ventilation.",
+    "Keep the client NPO, elevate the head of the bed, and have suction immediately available to reduce aspiration risk."
+  ],
+  "reasoning": "The combination of Guillain-Barre syndrome, rapidly progressive weakness, bulbar impairment, ineffective cough, reduced FVC, weak inspiratory pressure, limited speech, and diaphoresis strongly indicates impending ventilatory failure and loss of airway protection. The stem lacks gas-exchange measurements and trends, but intubation decisions in neuromuscular failure should not wait for hypoxemia or hypercapnia when clinical deterioration and poor airway protection are already present.",
+  "stage1Confidence": "high",
+  "stemEvidence": [
+    {
+      "stemFact": "Progressive quadriparesis with FVC 1.6 L (19 mL/kg), MIP -26 cmH2O, ineffective cough, few-word speech, and diaphoresis.",
+      "target": "condition"
+    },
+    {
+      "stemFact": "The client speaks only a few words at a time and has FVC 19 mL/kg and MIP -26 cmH2O.",
+      "target": "priorityAction1"
+    },
+    {
+      "stemFact": "Ineffective cough and unilateral absent gag reflex indicate impaired airway protection.",
+      "target": "priorityAction2"
+    },
+    {
+      "stemFact": "FVC 1.6 L (19 mL/kg) and MIP -26 cmH2O provide measurable indicators of respiratory-muscle weakness.",
+      "target": "evaluationParameter1"
+    },
+    {
+      "stemFact": "Few-word speech and diaphoresis indicate increased respiratory effort and possible progression toward ventilatory failure.",
+      "target": "evaluationParameter2"
+    }
+  ]
+}

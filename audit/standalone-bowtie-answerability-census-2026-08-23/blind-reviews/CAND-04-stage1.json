@@ -1,0 +1,38 @@
+{
+  "condition": "Severe oliguric acute kidney injury from prolonged gastrointestinal volume depletion, complicated by life-threatening hyperkalemia with ECG changes",
+  "evaluationParameters": [
+    "Continuous ECG monitoring for resolution or progression of peaked T waves, PR prolongation, and QRS widening",
+    "Serial serum potassium and blood glucose measurements after insulin-dextrose therapy"
+  ],
+  "missingInformation": [
+    "Post-resuscitation hemodynamics, repeat urine indices and sediment findings, acid-base status, serum glucose, medication history, and response to additional volume assessment are unavailable; these are needed to distinguish persistent prerenal injury from ischemic acute tubular injury and to determine dialysis urgency."
+  ],
+  "priorityActions": [
+    "Administer IV calcium gluconate immediately for cardiac membrane stabilization",
+    "Administer IV regular insulin with dextrose to shift potassium intracellularly"
+  ],
+  "reasoning": "The stem directly establishes severe oliguric AKI after major gastrointestinal losses and immediately dangerous hyperkalemia with conduction changes. IV calcium and insulin-dextrose are the two most urgent stabilizing interventions, while ECG, potassium, and glucose trends assess response and complications.",
+  "stage1Confidence": "high",
+  "stemEvidence": [
+    {
+      "stemFact": "Creatinine rose from 1.4 to 4.5 mg/dL, with urine output about 0.14 mL/kg/hr after 72 hours of vomiting and profuse watery diarrhea.",
+      "target": "condition"
+    },
+    {
+      "stemFact": "Potassium is 6.4 mEq/L with persistent peaked T waves, PR prolongation to 0.24 seconds, and QRS widening to 0.12 seconds.",
+      "target": "priorityAction1"
+    },
+    {
+      "stemFact": "Potassium is now 6.4 mEq/L with persistent ECG conduction abnormalities.",
+      "target": "priorityAction2"
+    },
+    {
+      "stemFact": "Persistent peaked T waves, PR prolongation to 0.24 seconds, and QRS widening to 0.12 seconds.",
+      "target": "evaluationParameter1"
+    },
+    {
+      "stemFact": "Potassium is 6.4 mEq/L; insulin-dextrose therapy requires reassessment of potassium and surveillance for hypoglycemia.",
+      "target": "evaluationParameter2"
+    }
+  ]
+}

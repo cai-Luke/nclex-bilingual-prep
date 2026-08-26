@@ -1,0 +1,139 @@
+{
+  "anyCanonicalTargetDependsOnAbsentFact": false,
+  "blindExactMatch": true,
+  "canonicalSelection": {
+    "actionLabels": [
+      "A3",
+      "A2"
+    ],
+    "conditionLabel": "C3",
+    "parameterLabels": [
+      "P3",
+      "P1"
+    ]
+  },
+  "canonicalSetExplanation": "C3 uniquely integrates the established gallstone pancreatitis, systemic inflammation, bilirubin elevation, and imaging-confirmed CBD obstruction. A3 and A2 address infection management and source control. P3 and P1 are the only offered parameters that appropriately track perfusion and infectious response; P2 and P4 are explicitly framed as inappropriate decision or response markers.",
+  "canonicalSetUniquelyDefensible": true,
+  "canonicalTargetSupport": [
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "C3",
+      "supportClassification": "GENERAL_KNOWLEDGE_LINK",
+      "supportingStandaloneEvidence": "Acute gallstone pancreatitis plus T 38.4 C, WBC 19.2 ×10³/µL, bilirubin 3.2 mg/dL, and an ultrasound-confirmed 11-mm CBD with a distal shadowing stone support evolving cholangitis from persistent obstruction."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "A3",
+      "supportClassification": "GENERAL_KNOWLEDGE_LINK",
+      "supportingStandaloneEvidence": "Fever, tachycardia, tachypnea, leukocytosis, lactate 2.6 mmol/L, and clinical worsening support escalation, cultures, and anticipated empiric IV antibiotics for suspected biliary infection."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "A2",
+      "supportClassification": "GENERAL_KNOWLEDGE_LINK",
+      "supportingStandaloneEvidence": "The ultrasound-confirmed distal CBD stone and duct dilation establish persistent obstruction for which urgent biliary decompression is appropriate."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "P3",
+      "supportClassification": "GENERAL_KNOWLEDGE_LINK",
+      "supportingStandaloneEvidence": "Urine output is explicitly 30 mL/hr, providing a baseline perfusion measure whose trend should be monitored during resuscitation."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "P1",
+      "supportClassification": "GENERAL_KNOWLEDGE_LINK",
+      "supportingStandaloneEvidence": "Temperature is 38.4 C and WBC is 19.2 ×10³/µL, providing explicit baseline infection indicators for evaluating response."
+    }
+  ],
+  "distractorPremiseFindings": [
+    {
+      "explanation": "The standalone stem provides no aspiration event, pulmonary infiltrate, purulent respiratory findings, or other evidence that pneumonia is the primary infectious source; it instead demonstrates a biliary obstruction.",
+      "opaqueTokenLabel": "C1",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "MATERIAL"
+    },
+    {
+      "explanation": "No imaging evidence of pancreatic necrosis, infected collection, gas, or microbiologic confirmation is provided, while distal CBD obstruction is directly demonstrated.",
+      "opaqueTokenLabel": "C2",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "MATERIAL"
+    },
+    {
+      "explanation": "The stem provides no evidence of pancreatic necrosis or another indication that contrast-enhanced CT must precede urgent biliary decompression; even demonstrated necrosis would not automatically justify delaying ERCP for suspected cholangitis.",
+      "opaqueTokenLabel": "A1",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "LOW"
+    },
+    {
+      "explanation": "Urine output 30 mL/hr and lactate 2.6 mmol/L warrant reassessment of perfusion and resuscitation rather than continuation without reassessment.",
+      "opaqueTokenLabel": "A4",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "Serial amylase does not guide the immediate decompression decision when systemic inflammation and imaging-confirmed CBD obstruction already support urgent source control.",
+      "opaqueTokenLabel": "P2",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "Lipase reflects pancreatic inflammation and is not the main measure of cholangitis response after antibiotics and biliary decompression.",
+      "opaqueTokenLabel": "P4",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    }
+  ],
+  "missingClientFacts": [
+    {
+      "keyed": false,
+      "missingFact": "The rationale mentions left basilar findings and a reactive pleural effusion, but the standalone stem contains no basilar examination or imaging finding.",
+      "opaqueTokenLabel": "C1",
+      "rankabilityImpact": "LOW"
+    },
+    {
+      "keyed": false,
+      "missingFact": "No aspiration event or evidence establishing pneumonia as the primary source is provided.",
+      "opaqueTokenLabel": "C1",
+      "rankabilityImpact": "MATERIAL"
+    },
+    {
+      "keyed": false,
+      "missingFact": "No imaging or microbiologic evidence of pancreatic necrosis or infection is provided.",
+      "opaqueTokenLabel": "C2",
+      "rankabilityImpact": "MATERIAL"
+    },
+    {
+      "keyed": false,
+      "missingFact": "No client-specific indication that contrast-enhanced CT must occur before ERCP is provided.",
+      "opaqueTokenLabel": "A1",
+      "rankabilityImpact": "LOW"
+    },
+    {
+      "keyed": false,
+      "missingFact": "The rationale calls urine output declining and lactate rising, but the standalone stem supplies only single values without trends.",
+      "opaqueTokenLabel": "A4",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "keyed": true,
+      "missingFact": "Clinical jaundice and a complete obstructive liver-test pattern are not stated; only bilirubin 3.2 mg/dL and imaging-confirmed obstruction are provided.",
+      "opaqueTokenLabel": "C3",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "keyed": true,
+      "missingFact": "Body weight is not provided to classify 30 mL/hr against a weight-based oliguria threshold, but this is unnecessary for selecting urine-output trend as a monitoring parameter.",
+      "opaqueTokenLabel": "P3",
+      "rankabilityImpact": "NONE"
+    }
+  ],
+  "notes": [
+    "The blind Stage-2 selections match the canonical condition, action set, and parameter set; reversed array ordering is non-semantic.",
+    "The rationale introduces left basilar findings, declining urine output, rising lactate, and clinical jaundice that are not explicitly present in the standalone stem.",
+    "None of those rationale-only details is necessary to defend the canonical set from the standalone item."
+  ],
+  "stage1Alignment": "FULL",
+  "stage1AlignmentExplanation": "Stage 1 identified obstructive ascending cholangitis complicating gallstone pancreatitis, prioritized cultures/empiric IV antibiotics and urgent ERCP, and selected urine-output/perfusion plus temperature/WBC response monitoring. These semantically align with all five canonical targets.",
+  "unstatedClientFactMateriallyChangesRankability": false
+}

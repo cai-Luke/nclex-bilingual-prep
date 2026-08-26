@@ -1,0 +1,56 @@
+{
+  "instruction": "Using only the standalone learner-facing English stem, prompts, and opaque token pools, select exactly one condition, two actions, and two parameters. Return the required structured JSON, including exactly one premise row for every opaque token. Do not infer absent client-specific facts.",
+  "stem": "Stage 2 synthesis: A 65-year-old man with baseline stage 3a CKD has had 72 hours of vomiting and profuse watery diarrhea during a norovirus outbreak. After 1,500 mL IV fluid, urine output remains about 0.14 mL/kg/hr. Creatinine has risen from a baseline of 1.4 to 4.5 mg/dL. Admission urine was concentrated with urine sodium 8 mEq/L and FENa 0.4%, and bladder scan was 40 mL. Potassium is now 6.4 mEq/L with persistent peaked T waves, PR prolongation to 0.24 seconds, and QRS widening to 0.12 seconds. Select the most likely condition, two priority actions, and two parameters to monitor.",
+  "tokens": {
+    "actions": [
+      {
+        "label": "A1",
+        "text": "Give insulin and dextrose before calcium gluconate"
+      },
+      {
+        "label": "A2",
+        "text": "Administer oral sodium polystyrene sulfonate despite active vomiting"
+      },
+      {
+        "label": "A3",
+        "text": "Administer regular insulin 10 units IV with 25 g dextrose per protocol"
+      },
+      {
+        "label": "A4",
+        "text": "Administer calcium gluconate 1 g IV at the ordered/protocol rate"
+      }
+    ],
+    "condition": [
+      {
+        "label": "C1",
+        "text": "Prerenal acute kidney injury with life-threatening hyperkalemia"
+      },
+      {
+        "label": "C2",
+        "text": "Obstructive post-renal acute kidney injury"
+      },
+      {
+        "label": "C3",
+        "text": "Acute tubular necrosis"
+      }
+    ],
+    "parameters": [
+      {
+        "label": "P1",
+        "text": "Hourly urine output"
+      },
+      {
+        "label": "P2",
+        "text": "Hemoglobin trend"
+      },
+      {
+        "label": "P3",
+        "text": "ECG morphology: PR interval, QRS duration, and T-wave changes"
+      },
+      {
+        "label": "P4",
+        "text": "Urine specific gravity trend after IV fluids"
+      }
+    ]
+  }
+}

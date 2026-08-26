@@ -1,0 +1,845 @@
+# Verification Evidence
+
+## Opening snapshot
+
+- Branch: `main`
+- HEAD: `3199bb0e4293f5ee0296d612ff9fdaf644c26c0b`
+- Upstream: `origin/main`
+- Upstream relation (behind ahead): `0	5`
+- Repair-resolution baseline: `c2ff546`
+- Accepted-spec SHA-256: `e5180edf002287ca5ba440be97a6d0d2ec3eb461b0ce77f04d283d2ade5e7b9f`
+- Accepted-spec Git blob: `75e42d63497bbc458d46c7d648f294ace52991cc`
+- Starting dirty paths: none
+
+## Frozen-bank final proof
+
+- `banks/burn-canonical.json` — opening `5244b8d37daa49adbd1fbed7991f4ede52ded8ce710e26821841ef5e2ce3719f`; final `5244b8d37daa49adbd1fbed7991f4ede52ded8ce710e26821841ef5e2ce3719f`; **MATCH**
+- `banks/capnography-canonical.json` — opening `36d72a89405fe4400f27b3b8969cdbe1c51f3217151f8b2592b7f877d636f20c`; final `36d72a89405fe4400f27b3b8969cdbe1c51f3217151f8b2592b7f877d636f20c`; **MATCH**
+- `banks/claude-canonical.json` — opening `25f53ded1ac21da4ca9d211040c3f6110ebee38d72ba41d0fc64fe358ba73b71`; final `25f53ded1ac21da4ca9d211040c3f6110ebee38d72ba41d0fc64fe358ba73b71`; **MATCH**
+- `banks/device-canonical.json` — opening `83d5a6ac7219524f4c528265291cbee2ed5b2f17c13fbeb3649342bae2e4aac5`; final `83d5a6ac7219524f4c528265291cbee2ed5b2f17c13fbeb3649342bae2e4aac5`; **MATCH**
+- `banks/gemini-canonical.json` — opening `3dc416a4652f5f5712219dde7de87b92f0697fac953750b8abb8fc0dbb976bb6`; final `3dc416a4652f5f5712219dde7de87b92f0697fac953750b8abb8fc0dbb976bb6`; **MATCH**
+- `banks/gpt-canonical.json` — opening `fe7fdc516f922a4acb6fe589311e8c852dc4ab3fe5dba7e5a780fa1aba32cb0b`; final `fe7fdc516f922a4acb6fe589311e8c852dc4ab3fe5dba7e5a780fa1aba32cb0b`; **MATCH**
+- `banks/hard-cases-canonical.json` — opening `8068c6917e53257a31c7299454c213f61bea62e61d7cf185cb1a09386f4e4862`; final `8068c6917e53257a31c7299454c213f61bea62e61d7cf185cb1a09386f4e4862`; **MATCH**
+- `banks/io-canonical.json` — opening `2ce6488e65049ba00cd9dccf889a042e0a624f224387382d564d282e147b2645`; final `2ce6488e65049ba00cd9dccf889a042e0a624f224387382d564d282e147b2645`; **MATCH**
+- `banks/lab-canonical.json` — opening `1038cb68f6b91f6a2c981562d97ad9e16179db9b1332c75725fd538595c44b05`; final `1038cb68f6b91f6a2c981562d97ad9e16179db9b1332c75725fd538595c44b05`; **MATCH**
+- `banks/mar-canonical.json` — opening `f12c03a28ff5b52411843f84bc942b4ca5667e989194357ed2d60a394f17641e`; final `f12c03a28ff5b52411843f84bc942b4ca5667e989194357ed2d60a394f17641e`; **MATCH**
+- `banks/medlabel-canonical.json` — opening `cc3bd0053516fc7ea4b23e814e46f186e6d2dbf40888fa713a862c07ea2b3993`; final `cc3bd0053516fc7ea4b23e814e46f186e6d2dbf40888fa713a862c07ea2b3993`; **MATCH**
+- `banks/visual-canonical.json` — opening `e42e2a3fa6aa349a61279e6988e250e65c2b752a6f36d33806a2671e0af0f9e4`; final `e42e2a3fa6aa349a61279e6988e250e65c2b752a6f36d33806a2671e0af0f9e4`; **MATCH**
+- `banks/vitals-canonical.json` — opening `5154e25492bced8e4a49d763f04e25e154389c31e085bf37669651e13d411b9d`; final `5154e25492bced8e4a49d763f04e25e154389c31e085bf37669651e13d411b9d`; **MATCH**
+
+The complete bank SHA set matched at opening, immediately before scale-up, and at closeout. `git diff --quiet c2ff546 -- banks/*.json` also passed.
+
+## Deterministic and semantic-protocol checks
+
+- Focused test suite: **PASS** — PASS: population EXACT/ORDINAL_SUFFIX, ambiguity, non-case, duplicate-ID, canonical serialization, and deterministic generation tests.
+- Direct audit-generator execution against frozen corpus: **PASS**
+- Population: **PASS** — 31 paired, 30 EXACT, 1 ORDINAL_SUFFIX, 19 exclusions, no duplicate/ambiguous/non-case/shape failures
+- Surrogate/token-map determinism and blind projections: **PASS**
+- Forbidden identity/token/metadata leakage checks: **PASS**
+- Stage-1-before-Stage-2 lock/hash chain: **PASS**
+- Phase-E-before-Phase-F lock/hash chain: **PASS**
+- Mandatory 11-row premise cardinality: **PASS**
+- Phase-F provenance coverage and five-keyed-target overlap cardinality: **PASS**
+- Calibration fixed-family registration and three-family sensitivity: **PASS**
+- Isolated semantic contexts: **PASS** — 32 unique contexts, all `gpt-5.6-sol` / `high`, no context reuse, no repository access
+- Exact-byte repeat of 71 generated controls/packets; final verification parsed separately: **PASS**
+- Deterministic repeat of `adjudication.jsonl` and `report.md`: **PASS**
+- `npx tsc -b --pretty false`: **PASS**
+- `git diff --check`: **PASS**
+- Census generation, production build, and bank-content promotion pipeline: **not run, per R2.3 scope**
+
+## Final dirty paths
+
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/adjudication.jsonl`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-01-stage1.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-01-stage2.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-02-stage1.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-02-stage2.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-03-stage1.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-03-stage2.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-04-stage1.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-04-stage2.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-05-stage1.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-05-stage2.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-06-stage1.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-06-stage2.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-07-stage1.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-07-stage2.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-08-stage1.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-08-stage2.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-09-stage1.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-09-stage2.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-10-stage1.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-10-stage2.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-11-stage1.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-11-stage2.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-12-stage1.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-12-stage2.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-13-stage1.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-13-stage2.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-14-stage1.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-14-stage2.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-15-stage1.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-15-stage2.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-16-stage1.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-16-stage2.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-17-stage1.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-17-stage2.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-18-stage1.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-18-stage2.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-19-stage1.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-19-stage2.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-20-stage1.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-20-stage2.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-21-stage1.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-21-stage2.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-22-stage1.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-22-stage2.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-23-stage1.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-23-stage2.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-24-stage1.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-24-stage2.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-25-stage1.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-25-stage2.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-26-stage1.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-26-stage2.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-27-stage1.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-27-stage2.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-28-stage1.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-28-stage2.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-29-stage1.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-29-stage2.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-30-stage1.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-30-stage2.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-31-stage1.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-31-stage2.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-01-stage1.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-01-stage2.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-02-stage1.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-02-stage2.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-03-stage1.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-03-stage2.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-04-stage1.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-04-stage2.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-05-stage1.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-05-stage2.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-06-stage1.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-06-stage2.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-07-stage1.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-07-stage2.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-08-stage1.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-08-stage2.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-09-stage1.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-09-stage2.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-10-stage1.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-10-stage2.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-11-stage1.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-11-stage2.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-12-stage1.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-12-stage2.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-13-stage1.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-13-stage2.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-14-stage1.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-14-stage2.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-15-stage1.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-15-stage2.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-16-stage1.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-16-stage2.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-17-stage1.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-17-stage2.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-18-stage1.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-18-stage2.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-19-stage1.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-19-stage2.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-20-stage1.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-20-stage2.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-21-stage1.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-21-stage2.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-22-stage1.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-22-stage2.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-23-stage1.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-23-stage2.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-24-stage1.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-24-stage2.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-25-stage1.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-25-stage2.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-26-stage1.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-26-stage2.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-27-stage1.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-27-stage2.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-28-stage1.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-28-stage2.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-29-stage1.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-29-stage2.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-30-stage1.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-30-stage2.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-31-stage1.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-31-stage2.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/calibration/blind-packets/CAL-01-stage1.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/calibration/blind-packets/CAL-01-stage2.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/calibration/blind-reviews/CAL-01-stage1.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/calibration/blind-reviews/CAL-01-stage2.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/calibration/control-manifest.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/calibration/locks/CAL-01-stage1.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/calibration/locks/CAL-01-stage2.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/calibration/sensitivity-checklist.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/calibration/sensitivity-score.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/control-manifest.jsonl`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/exclusions.jsonl`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/generated-files.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-01-phase-e.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-01-phase-f.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-01-stage1.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-01-stage2.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-02-phase-e.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-02-phase-f.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-02-stage1.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-02-stage2.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-03-phase-e.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-03-phase-f.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-03-stage1.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-03-stage2.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-04-phase-e.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-04-phase-f.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-04-stage1.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-04-stage2.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-05-phase-e.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-05-phase-f.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-05-stage1.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-05-stage2.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-06-phase-e.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-06-phase-f.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-06-stage1.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-06-stage2.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-07-phase-e.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-07-phase-f.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-07-stage1.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-07-stage2.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-08-phase-e.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-08-phase-f.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-08-stage1.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-08-stage2.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-09-phase-e.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-09-phase-f.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-09-stage1.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-09-stage2.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-10-phase-e.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-10-phase-f.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-10-stage1.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-10-stage2.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-11-phase-e.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-11-phase-f.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-11-stage1.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-11-stage2.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-12-phase-e.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-12-phase-f.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-12-stage1.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-12-stage2.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-13-phase-e.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-13-phase-f.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-13-stage1.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-13-stage2.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-14-phase-e.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-14-phase-f.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-14-stage1.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-14-stage2.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-15-phase-e.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-15-phase-f.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-15-stage1.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-15-stage2.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-16-phase-e.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-16-phase-f.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-16-stage1.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-16-stage2.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-17-phase-e.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-17-phase-f.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-17-stage1.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-17-stage2.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-18-phase-e.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-18-phase-f.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-18-stage1.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-18-stage2.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-19-phase-e.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-19-phase-f.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-19-stage1.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-19-stage2.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-20-phase-e.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-20-phase-f.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-20-stage1.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-20-stage2.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-21-phase-e.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-21-phase-f.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-21-stage1.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-21-stage2.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-22-phase-e.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-22-phase-f.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-22-stage1.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-22-stage2.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-23-phase-e.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-23-phase-f.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-23-stage1.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-23-stage2.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-24-phase-e.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-24-phase-f.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-24-stage1.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-24-stage2.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-25-phase-e.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-25-phase-f.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-25-stage1.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-25-stage2.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-26-phase-e.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-26-phase-f.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-26-stage1.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-26-stage2.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-27-phase-e.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-27-phase-f.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-27-stage1.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-27-stage2.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-28-phase-e.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-28-phase-f.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-28-stage1.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-28-stage2.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-29-phase-e.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-29-phase-f.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-29-stage1.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-29-stage2.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-30-phase-e.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-30-phase-f.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-30-stage1.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-30-stage2.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-31-phase-e.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-31-phase-f.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-31-stage1.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-31-stage2.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/opening-identity.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-e-packets/CAND-01.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-e-packets/CAND-02.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-e-packets/CAND-03.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-e-packets/CAND-04.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-e-packets/CAND-05.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-e-packets/CAND-06.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-e-packets/CAND-07.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-e-packets/CAND-08.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-e-packets/CAND-09.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-e-packets/CAND-10.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-e-packets/CAND-11.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-e-packets/CAND-12.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-e-packets/CAND-13.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-e-packets/CAND-14.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-e-packets/CAND-15.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-e-packets/CAND-16.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-e-packets/CAND-17.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-e-packets/CAND-18.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-e-packets/CAND-19.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-e-packets/CAND-20.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-e-packets/CAND-21.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-e-packets/CAND-22.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-e-packets/CAND-23.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-e-packets/CAND-24.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-e-packets/CAND-25.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-e-packets/CAND-26.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-e-packets/CAND-27.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-e-packets/CAND-28.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-e-packets/CAND-29.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-e-packets/CAND-30.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-e-packets/CAND-31.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-e/CAND-01.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-e/CAND-02.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-e/CAND-03.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-e/CAND-04.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-e/CAND-05.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-e/CAND-06.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-e/CAND-07.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-e/CAND-08.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-e/CAND-09.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-e/CAND-10.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-e/CAND-11.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-e/CAND-12.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-e/CAND-13.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-e/CAND-14.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-e/CAND-15.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-e/CAND-16.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-e/CAND-17.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-e/CAND-18.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-e/CAND-19.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-e/CAND-20.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-e/CAND-21.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-e/CAND-22.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-e/CAND-23.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-e/CAND-24.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-e/CAND-25.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-e/CAND-26.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-e/CAND-27.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-e/CAND-28.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-e/CAND-29.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-e/CAND-30.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-e/CAND-31.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-f-packets/CAND-01.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-f-packets/CAND-02.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-f-packets/CAND-03.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-f-packets/CAND-04.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-f-packets/CAND-05.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-f-packets/CAND-06.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-f-packets/CAND-07.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-f-packets/CAND-08.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-f-packets/CAND-09.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-f-packets/CAND-10.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-f-packets/CAND-11.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-f-packets/CAND-12.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-f-packets/CAND-13.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-f-packets/CAND-14.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-f-packets/CAND-15.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-f-packets/CAND-16.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-f-packets/CAND-17.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-f-packets/CAND-18.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-f-packets/CAND-19.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-f-packets/CAND-20.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-f-packets/CAND-21.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-f-packets/CAND-22.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-f-packets/CAND-23.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-f-packets/CAND-24.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-f-packets/CAND-25.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-f-packets/CAND-26.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-f-packets/CAND-27.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-f-packets/CAND-28.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-f-packets/CAND-29.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-f-packets/CAND-30.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-f-packets/CAND-31.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-f/CAND-01.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-f/CAND-02.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-f/CAND-03.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-f/CAND-04.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-f/CAND-05.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-f/CAND-06.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-f/CAND-07.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-f/CAND-08.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-f/CAND-09.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-f/CAND-10.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-f/CAND-11.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-f/CAND-12.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-f/CAND-13.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-f/CAND-14.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-f/CAND-15.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-f/CAND-16.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-f/CAND-17.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-f/CAND-18.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-f/CAND-19.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-f/CAND-20.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-f/CAND-21.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-f/CAND-22.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-f/CAND-23.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-f/CAND-24.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-f/CAND-25.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-f/CAND-26.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-f/CAND-27.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-f/CAND-28.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-f/CAND-29.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-f/CAND-30.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/phase-f/CAND-31.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/population-summary.md`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/population.jsonl`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/report.md`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/run.ts`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/scale-up-bank-recheck.json`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/semantic-contexts.jsonl`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/test.ts`
+- `?? audit/standalone-bowtie-answerability-census-2026-08-23/verification.md`
+
+All final dirty paths are audit-created paths under the authorized artifact root. There were no pre-existing dirty paths to preserve. `DECISIONS.md`, `PROJECT-HISTORY.md`, `BANK-REVIEW-LEDGER.md`, canonical banks, application code, schema, runtime, and census artifacts remain untouched.
+
+## Audit-created paths
+
+- `audit/standalone-bowtie-answerability-census-2026-08-23/adjudication.jsonl`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-01-stage1.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-01-stage2.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-02-stage1.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-02-stage2.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-03-stage1.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-03-stage2.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-04-stage1.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-04-stage2.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-05-stage1.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-05-stage2.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-06-stage1.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-06-stage2.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-07-stage1.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-07-stage2.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-08-stage1.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-08-stage2.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-09-stage1.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-09-stage2.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-10-stage1.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-10-stage2.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-11-stage1.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-11-stage2.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-12-stage1.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-12-stage2.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-13-stage1.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-13-stage2.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-14-stage1.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-14-stage2.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-15-stage1.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-15-stage2.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-16-stage1.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-16-stage2.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-17-stage1.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-17-stage2.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-18-stage1.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-18-stage2.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-19-stage1.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-19-stage2.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-20-stage1.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-20-stage2.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-21-stage1.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-21-stage2.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-22-stage1.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-22-stage2.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-23-stage1.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-23-stage2.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-24-stage1.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-24-stage2.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-25-stage1.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-25-stage2.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-26-stage1.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-26-stage2.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-27-stage1.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-27-stage2.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-28-stage1.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-28-stage2.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-29-stage1.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-29-stage2.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-30-stage1.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-30-stage2.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-31-stage1.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-packets/CAND-31-stage2.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-01-stage1.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-01-stage2.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-02-stage1.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-02-stage2.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-03-stage1.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-03-stage2.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-04-stage1.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-04-stage2.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-05-stage1.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-05-stage2.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-06-stage1.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-06-stage2.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-07-stage1.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-07-stage2.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-08-stage1.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-08-stage2.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-09-stage1.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-09-stage2.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-10-stage1.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-10-stage2.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-11-stage1.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-11-stage2.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-12-stage1.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-12-stage2.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-13-stage1.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-13-stage2.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-14-stage1.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-14-stage2.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-15-stage1.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-15-stage2.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-16-stage1.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-16-stage2.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-17-stage1.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-17-stage2.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-18-stage1.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-18-stage2.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-19-stage1.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-19-stage2.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-20-stage1.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-20-stage2.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-21-stage1.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-21-stage2.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-22-stage1.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-22-stage2.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-23-stage1.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-23-stage2.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-24-stage1.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-24-stage2.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-25-stage1.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-25-stage2.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-26-stage1.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-26-stage2.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-27-stage1.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-27-stage2.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-28-stage1.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-28-stage2.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-29-stage1.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-29-stage2.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-30-stage1.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-30-stage2.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-31-stage1.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/blind-reviews/CAND-31-stage2.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/calibration/blind-packets/CAL-01-stage1.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/calibration/blind-packets/CAL-01-stage2.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/calibration/blind-reviews/CAL-01-stage1.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/calibration/blind-reviews/CAL-01-stage2.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/calibration/control-manifest.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/calibration/locks/CAL-01-stage1.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/calibration/locks/CAL-01-stage2.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/calibration/sensitivity-checklist.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/calibration/sensitivity-score.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/control-manifest.jsonl`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/exclusions.jsonl`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/generated-files.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-01-phase-e.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-01-phase-f.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-01-stage1.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-01-stage2.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-02-phase-e.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-02-phase-f.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-02-stage1.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-02-stage2.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-03-phase-e.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-03-phase-f.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-03-stage1.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-03-stage2.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-04-phase-e.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-04-phase-f.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-04-stage1.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-04-stage2.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-05-phase-e.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-05-phase-f.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-05-stage1.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-05-stage2.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-06-phase-e.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-06-phase-f.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-06-stage1.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-06-stage2.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-07-phase-e.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-07-phase-f.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-07-stage1.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-07-stage2.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-08-phase-e.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-08-phase-f.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-08-stage1.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-08-stage2.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-09-phase-e.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-09-phase-f.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-09-stage1.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-09-stage2.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-10-phase-e.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-10-phase-f.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-10-stage1.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-10-stage2.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-11-phase-e.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-11-phase-f.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-11-stage1.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-11-stage2.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-12-phase-e.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-12-phase-f.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-12-stage1.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-12-stage2.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-13-phase-e.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-13-phase-f.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-13-stage1.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-13-stage2.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-14-phase-e.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-14-phase-f.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-14-stage1.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-14-stage2.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-15-phase-e.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-15-phase-f.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-15-stage1.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-15-stage2.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-16-phase-e.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-16-phase-f.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-16-stage1.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-16-stage2.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-17-phase-e.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-17-phase-f.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-17-stage1.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-17-stage2.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-18-phase-e.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-18-phase-f.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-18-stage1.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-18-stage2.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-19-phase-e.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-19-phase-f.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-19-stage1.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-19-stage2.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-20-phase-e.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-20-phase-f.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-20-stage1.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-20-stage2.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-21-phase-e.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-21-phase-f.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-21-stage1.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-21-stage2.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-22-phase-e.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-22-phase-f.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-22-stage1.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-22-stage2.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-23-phase-e.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-23-phase-f.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-23-stage1.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-23-stage2.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-24-phase-e.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-24-phase-f.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-24-stage1.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-24-stage2.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-25-phase-e.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-25-phase-f.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-25-stage1.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-25-stage2.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-26-phase-e.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-26-phase-f.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-26-stage1.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-26-stage2.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-27-phase-e.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-27-phase-f.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-27-stage1.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-27-stage2.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-28-phase-e.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-28-phase-f.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-28-stage1.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-28-stage2.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-29-phase-e.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-29-phase-f.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-29-stage1.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-29-stage2.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-30-phase-e.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-30-phase-f.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-30-stage1.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-30-stage2.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-31-phase-e.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-31-phase-f.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-31-stage1.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/locks/CAND-31-stage2.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/opening-identity.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-e-packets/CAND-01.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-e-packets/CAND-02.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-e-packets/CAND-03.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-e-packets/CAND-04.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-e-packets/CAND-05.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-e-packets/CAND-06.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-e-packets/CAND-07.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-e-packets/CAND-08.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-e-packets/CAND-09.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-e-packets/CAND-10.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-e-packets/CAND-11.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-e-packets/CAND-12.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-e-packets/CAND-13.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-e-packets/CAND-14.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-e-packets/CAND-15.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-e-packets/CAND-16.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-e-packets/CAND-17.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-e-packets/CAND-18.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-e-packets/CAND-19.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-e-packets/CAND-20.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-e-packets/CAND-21.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-e-packets/CAND-22.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-e-packets/CAND-23.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-e-packets/CAND-24.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-e-packets/CAND-25.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-e-packets/CAND-26.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-e-packets/CAND-27.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-e-packets/CAND-28.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-e-packets/CAND-29.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-e-packets/CAND-30.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-e-packets/CAND-31.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-e/CAND-01.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-e/CAND-02.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-e/CAND-03.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-e/CAND-04.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-e/CAND-05.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-e/CAND-06.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-e/CAND-07.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-e/CAND-08.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-e/CAND-09.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-e/CAND-10.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-e/CAND-11.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-e/CAND-12.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-e/CAND-13.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-e/CAND-14.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-e/CAND-15.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-e/CAND-16.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-e/CAND-17.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-e/CAND-18.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-e/CAND-19.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-e/CAND-20.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-e/CAND-21.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-e/CAND-22.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-e/CAND-23.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-e/CAND-24.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-e/CAND-25.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-e/CAND-26.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-e/CAND-27.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-e/CAND-28.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-e/CAND-29.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-e/CAND-30.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-e/CAND-31.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-f-packets/CAND-01.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-f-packets/CAND-02.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-f-packets/CAND-03.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-f-packets/CAND-04.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-f-packets/CAND-05.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-f-packets/CAND-06.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-f-packets/CAND-07.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-f-packets/CAND-08.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-f-packets/CAND-09.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-f-packets/CAND-10.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-f-packets/CAND-11.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-f-packets/CAND-12.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-f-packets/CAND-13.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-f-packets/CAND-14.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-f-packets/CAND-15.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-f-packets/CAND-16.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-f-packets/CAND-17.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-f-packets/CAND-18.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-f-packets/CAND-19.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-f-packets/CAND-20.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-f-packets/CAND-21.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-f-packets/CAND-22.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-f-packets/CAND-23.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-f-packets/CAND-24.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-f-packets/CAND-25.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-f-packets/CAND-26.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-f-packets/CAND-27.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-f-packets/CAND-28.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-f-packets/CAND-29.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-f-packets/CAND-30.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-f-packets/CAND-31.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-f/CAND-01.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-f/CAND-02.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-f/CAND-03.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-f/CAND-04.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-f/CAND-05.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-f/CAND-06.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-f/CAND-07.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-f/CAND-08.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-f/CAND-09.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-f/CAND-10.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-f/CAND-11.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-f/CAND-12.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-f/CAND-13.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-f/CAND-14.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-f/CAND-15.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-f/CAND-16.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-f/CAND-17.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-f/CAND-18.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-f/CAND-19.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-f/CAND-20.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-f/CAND-21.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-f/CAND-22.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-f/CAND-23.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-f/CAND-24.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-f/CAND-25.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-f/CAND-26.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-f/CAND-27.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-f/CAND-28.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-f/CAND-29.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-f/CAND-30.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/phase-f/CAND-31.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/population-summary.md`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/population.jsonl`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/report.md`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/run.ts`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/scale-up-bank-recheck.json`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/semantic-contexts.jsonl`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/test.ts`
+- `audit/standalone-bowtie-answerability-census-2026-08-23/verification.md`

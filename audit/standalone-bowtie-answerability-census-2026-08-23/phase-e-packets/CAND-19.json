@@ -1,0 +1,185 @@
+{
+  "canonicalSelection": {
+    "actionLabels": [
+      "A3",
+      "A2"
+    ],
+    "conditionLabel": "C2",
+    "parameterLabels": [
+      "P1",
+      "P2"
+    ]
+  },
+  "instruction": "The two blind-stage records are immutable. Compare them with the now-revealed canonical 1/2/2 selection and complete standalone item. Do not inspect or infer sibling-case material. Return the required Phase-E structured JSON without revising either blind record.",
+  "standaloneItem": {
+    "bowtie": {
+      "actions": {
+        "prompt": {
+          "en": "Priority nursing actions",
+          "zh": "优先护理措施"
+        },
+        "tokens": [
+          {
+            "en": "Add several new screening and teaching topics at the end of the visit",
+            "opaqueTokenLabel": "A1",
+            "zh": "在就诊结束时再增加多项新的筛查和宣教主题"
+          },
+          {
+            "en": "Confirm documented dates and support plans for colonoscopy, Pap/HPV testing, and the second zoster vaccine dose",
+            "opaqueTokenLabel": "A2",
+            "zh": "确认结肠镜、Pap/HPV 检测和第二剂带状疱疹疫苗的日期及支持计划已记录"
+          },
+          {
+            "en": "Correct the symptom-reporting gap and confirm with repeat teach-back",
+            "opaqueTokenLabel": "A3",
+            "zh": "纠正新症状报告的理解缺口，并再次回授确认"
+          },
+          {
+            "en": "Accept the Stage 3 teach-back as complete because the colonoscopy purpose was explained correctly",
+            "opaqueTokenLabel": "A4",
+            "zh": "因其能正确说明结肠镜目的，就认为阶段 3 回授已完整"
+          }
+        ]
+      },
+      "condition": {
+        "prompt": {
+          "en": "Most likely condition",
+          "zh": "最可能的情况"
+        },
+        "tokens": [
+          {
+            "en": "Undiagnosed chronic disease requiring immediate medication management",
+            "opaqueTokenLabel": "C1",
+            "zh": "未诊断慢性病，需要立即药物治疗"
+          },
+          {
+            "en": "Limited health literacy with delayed preventive-care engagement and barriers to screening follow-through",
+            "opaqueTokenLabel": "C2",
+            "zh": "健康素养受限导致预防保健延迟，并存在筛查落实障碍"
+          },
+          {
+            "en": "Noncompliance or deliberate disengagement from care",
+            "opaqueTokenLabel": "C3",
+            "zh": "不依从或有意脱离医疗护理"
+          }
+        ]
+      },
+      "parameters": {
+        "prompt": {
+          "en": "Parameters to monitor",
+          "zh": "需要监测的指标"
+        },
+        "tokens": [
+          {
+            "en": "Follow-through with scheduled colonoscopy and Pap/HPV appointments",
+            "opaqueTokenLabel": "P1",
+            "zh": "是否落实已预约的结肠镜和 Pap/HPV 检测"
+          },
+          {
+            "en": "Accuracy and completeness of teach-back at subsequent visits",
+            "opaqueTokenLabel": "P2",
+            "zh": "后续就诊回授的准确性和完整性"
+          },
+          {
+            "en": "Fasting glucose as the primary outcome for this case",
+            "opaqueTokenLabel": "P3",
+            "zh": "将空腹血糖作为本病例首要结果指标"
+          },
+          {
+            "en": "Maria's use of professional medical terminology",
+            "opaqueTokenLabel": "P4",
+            "zh": "Maria 是否使用专业医学术语"
+          }
+        ]
+      }
+    },
+    "glossary": [
+      {
+        "defZh": "患者按计划完成预约、检查和后续行动。",
+        "termEn": "follow-through",
+        "termZh": "落实随访"
+      },
+      {
+        "defZh": "在疾病或并发症出现前进行的筛查、疫苗和健康促进措施。",
+        "termEn": "preventive care",
+        "termZh": "预防保健"
+      },
+      {
+        "defZh": "信息过多导致患者难以理解、记住或应用关键内容。",
+        "termEn": "cognitive overload",
+        "termZh": "认知负荷过重"
+      }
+    ],
+    "rationale": {
+      "byChoice": [
+        {
+          "en": "This matches the full pattern: limited health literacy, fear, cost and schedule barriers, and improved engagement after tailored nursing support.",
+          "opaqueTokenLabel": "C2",
+          "zh": "这符合完整表现：健康素养受限、恐惧、费用和排班障碍，以及在针对性护理支持后参与度改善。"
+        },
+        {
+          "en": "Labeling Maria as noncompliant misses the identifiable and modifiable barriers that explain her delayed care.",
+          "opaqueTokenLabel": "C3",
+          "zh": "把 Maria 标记为不依从会忽视导致延迟就医的可识别、可干预障碍。"
+        },
+        {
+          "en": "Her vital signs and labs do not show an acute condition requiring immediate medication; lifestyle counseling is planned, but it is not the central problem.",
+          "opaqueTokenLabel": "C1",
+          "zh": "她的生命体征和化验不显示需要立即用药的急性状况；可进行生活方式指导，但这不是核心问题。"
+        },
+        {
+          "en": "This action directly addresses the remaining safety gap: she would wait to report symptoms that require prompt contact.",
+          "opaqueTokenLabel": "A3",
+          "zh": "该措施直接处理剩余安全缺口：她会等待报告需要及时联系诊所的新症状。"
+        },
+        {
+          "en": "A documented, supported plan converts education into feasible follow-through and reduces barriers.",
+          "opaqueTokenLabel": "A2",
+          "zh": "有记录且有支持的计划能把宣教转化为可执行的随访，并减少障碍。"
+        },
+        {
+          "en": "This leaves an unsafe omission uncorrected because understanding the purpose is not the same as knowing when to seek help.",
+          "opaqueTokenLabel": "A4",
+          "zh": "这会留下未纠正的不安全遗漏，因为理解目的不等于知道何时求助。"
+        },
+        {
+          "en": "Adding new topics risks cognitive overload at the moment when the critical safety instruction must be retained.",
+          "opaqueTokenLabel": "A1",
+          "zh": "此时增加新主题可能造成认知负荷，影响她记住关键安全指导。"
+        },
+        {
+          "en": "Attendance at scheduled screenings is the clearest measure of whether the barrier-reduction plan worked.",
+          "opaqueTokenLabel": "P1",
+          "zh": "是否参加已预约筛查，是判断减少障碍计划是否有效的最直接指标。"
+        },
+        {
+          "en": "Ongoing teach-back checks whether health-literacy accommodations are effective and retained over time.",
+          "opaqueTokenLabel": "P2",
+          "zh": "持续回授能评估健康素养相关沟通调整是否有效并能否被保持。"
+        },
+        {
+          "en": "Medical vocabulary is not the goal; accurate plain-language understanding is the goal.",
+          "opaqueTokenLabel": "P4",
+          "zh": "目标不是会使用医学术语，而是能用通俗语言准确理解。"
+        },
+        {
+          "en": "Glucose is part of routine health maintenance, but it does not measure the success of the screening and health-literacy interventions.",
+          "opaqueTokenLabel": "P3",
+          "zh": "血糖属于常规健康维护的一部分，但不能衡量筛查和健康素养干预是否成功。"
+        }
+      ],
+      "correct": {
+        "en": "The resolved problem is limited health literacy and delayed preventive-care engagement with ongoing barriers, not willful noncompliance or an acute chronic-disease medication problem. The priority actions are to close the critical teach-back gap about reporting new symptoms and to confirm that the concrete follow-up plan is documented and supported. The most relevant outcomes are whether Maria attends the planned screenings and whether teach-back remains accurate and complete.",
+        "zh": "已明确的问题是健康素养受限和预防保健延迟，并伴随持续障碍；不是故意不依从，也不是需要立即药物处理的急性慢病问题。优先措施是弥补关于新症状报告的关键回授缺口，并确认具体随访计划已记录且有支持。最相关的结果是 Maria 是否完成已安排筛查，以及后续回授是否准确完整。"
+      }
+    },
+    "stem": {
+      "en": "Maria is at the Stage 3 follow-up visit after fear, cost, scheduling, and caregiver barriers have been addressed. Influenza vaccine and the first recombinant zoster vaccine dose have been given. Colonoscopy is scheduled with plan-specific coverage reviewed by the financial counselor, Pap/HPV co-testing is scheduled with the colonoscopy-prep teaching visit, and teach-back has revealed that Maria would wait to report new symptoms before the colonoscopy. Complete the bow-tie diagram.",
+      "zh": "Maria 已到阶段 3 随访；她的恐惧、费用、排班和照护障碍已被处理。流感疫苗和第一剂重组带状疱疹疫苗已接种。结肠镜已安排，财务顾问已核对其具体保险覆盖；Pap/HPV 联合检测安排在结肠镜准备宣教同一天；回授显示 Maria 若在结肠镜前出现新症状会等待再报告。请完成弓形题图示。"
+    },
+    "testTakingStrategy": {
+      "en": "For bow-tie items, anchor the condition in the whole case pattern, then choose actions and monitoring parameters that close the highest-risk remaining gaps.",
+      "zh": "弓形题要先用整个病例模式确定核心情况，再选择能弥补剩余最高风险缺口的措施和监测指标。"
+    }
+  }
+}

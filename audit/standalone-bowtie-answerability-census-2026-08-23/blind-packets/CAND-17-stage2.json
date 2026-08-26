@@ -1,0 +1,61 @@
+{
+  "instruction": "Using only the standalone learner-facing English stem, prompts, and opaque token pools, select exactly one condition, two actions, and two parameters. Return the required structured JSON, including exactly one premise row for every opaque token. Do not infer absent client-specific facts.",
+  "prompts": {
+    "actions": "Priority nursing actions",
+    "condition": "Most likely condition",
+    "parameters": "Parameters to monitor"
+  },
+  "stem": "Stage 3 synthesis: A post-operative client with CKD had a potassium of 3.1 mEq/L. A covering resident ordered potassium chloride 40 mEq in 100 mL normal saline to infuse through a peripheral IV over 1 hour, despite a unit protocol limiting peripheral potassium to 10 mEq/100 mL and 10 mEq/hr and requiring renal-function verification. The nurse questioned the order; the resident insisted it be run without addressing the protocol or eGFR 34 mL/min. The nurse used the chain of command, the unsafe order was not administered, and a revised order of 10 mEq in 100 mL over 1 hour was obtained. Complete the bow-tie diagram.",
+  "tokens": {
+    "actions": [
+      {
+        "label": "A1",
+        "text": "Use structured assertive safety communication with the ordering provider"
+      },
+      {
+        "label": "A2",
+        "text": "Withhold the unsafe order and escalate through the chain of command"
+      },
+      {
+        "label": "A3",
+        "text": "Refuse the order and document, but do not pursue a safe replacement order"
+      },
+      {
+        "label": "A4",
+        "text": "Administer the potassium as originally ordered"
+      }
+    ],
+    "condition": [
+      {
+        "label": "C1",
+        "text": "Unsafe medication order causing an interprofessional safety conflict"
+      },
+      {
+        "label": "C2",
+        "text": "Personality clash or poor bedside manner only"
+      },
+      {
+        "label": "C3",
+        "text": "Equivalent clinical-preference difference about potassium replacement"
+      }
+    ],
+    "parameters": [
+      {
+        "label": "P1",
+        "text": "Client's question about discharge timing"
+      },
+      {
+        "label": "P2",
+        "text": "Number of pages the resident is managing"
+      },
+      {
+        "label": "P3",
+        "text": "Potassium trend, cardiac rhythm, and IV-site tolerance during replacement"
+      },
+      {
+        "label": "P4",
+        "text": "Revised order is protocol-compliant and original unsafe order is not administered"
+      }
+    ]
+  }
+}

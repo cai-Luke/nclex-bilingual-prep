@@ -1,0 +1,135 @@
+{
+  "actionLabels": [
+    "A3",
+    "A4"
+  ],
+  "ambiguousAlternatives": [
+    {
+      "opaqueTokenLabel": "C2",
+      "reason": "Fever and global cardiac dysfunction can occur with sepsis, but the stem supplies no infectious source, cultures, hemodynamic evidence, or other facts establishing sepsis as the single primary process."
+    }
+  ],
+  "conditionLabel": "C1",
+  "missingInformation": [
+    "Blood pressure, oxygen saturation, ECG or telemetry findings, baseline ANC and cardiac studies, infectious-source assessment and cultures, cardiac MRI or other confirmatory testing, and the specific facility clozapine hold-and-escalation protocol."
+  ],
+  "parameterLabels": [
+    "P1",
+    "P2"
+  ],
+  "poolAnswerability": "ANSWERABLE",
+  "reasoning": "The early clozapine timing, ANC 980/µL with fever and sore throat, and simultaneous inflammatory myocardial injury with global ventricular dysfunction support C1. Immediate holding and provider notification address both hazards, while troponin and ANC directly track the two identified processes.",
+  "selectionEvidence": [
+    {
+      "opaqueTokenLabel": "C1",
+      "supportingStemText": "Day 18–18.5 of clozapine therapy; fever 101.7 °F (38.7 °C), sore throat, ANC 980/µL, rising troponin I and CRP, LVEF 45% with global hypokinesis, and a small pericardial effusion."
+    },
+    {
+      "opaqueTokenLabel": "A3",
+      "supportingStemText": "ANC 980/µL, fever 101.7 °F (38.7 °C), new chest pressure, dyspnea, S3 gallop, crackles, edema, and rising troponin I and CRP."
+    },
+    {
+      "opaqueTokenLabel": "A4",
+      "supportingStemText": "Early clozapine therapy with fever, ANC 980/µL, myocardial injury, and new ventricular dysfunction."
+    },
+    {
+      "opaqueTokenLabel": "P1",
+      "supportingStemText": "Troponin I 0.48 ng/mL rising to 0.52 ng/mL."
+    },
+    {
+      "opaqueTokenLabel": "P2",
+      "supportingStemText": "ANC 980/µL with fever and sore throat during clozapine therapy."
+    }
+  ],
+  "stage2Confidence": "high",
+  "tokenPremiseTable": [
+    {
+      "missingPremise": "Drooling or orthostatic symptoms are not reported.",
+      "opaqueTokenLabel": "A1",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Even if present, these symptoms would not outrank the acute neutropenic fever and cardiac injury findings.",
+      "supportingStemText": ""
+    },
+    {
+      "missingPremise": "Improving hallucinations are not reported.",
+      "opaqueTokenLabel": "A2",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "LOW",
+      "rankabilityJustification": "Symptomatic psychiatric improvement would not justify continuing clozapine amid the stated serious adverse findings.",
+      "supportingStemText": ""
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A3",
+      "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "These explicit urgent abnormalities support prompt provider notification using ordinary nursing escalation principles.",
+      "supportingStemText": "Fever, ANC 980/µL, cardiac symptoms, rising troponin I and CRP, and abnormal echocardiography are explicitly provided."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A4",
+      "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Holding the suspected causative medication pending urgent evaluation is supported by the complete client-specific risk pattern.",
+      "supportingStemText": "The client is receiving clozapine and has fever with ANC 980/µL plus findings strongly concerning for myocarditis."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "C1",
+      "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "General clinical classification connects the explicit ANC and cardiac findings to the two concurrent clozapine-associated complications.",
+      "supportingStemText": "ANC 980/µL with fever and sore throat, together with early clozapine exposure, rising troponin I and CRP, global hypokinesis, reduced LVEF, and pericardial effusion."
+    },
+    {
+      "missingPremise": "Evidence establishing infection and sepsis as the primary cause, such as an infectious source, cultures, or sepsis-related hemodynamic abnormalities, is absent.",
+      "opaqueTokenLabel": "C2",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "MATERIAL",
+      "rankabilityJustification": "Confirmed systemic infection with compatible hemodynamics could materially strengthen septic cardiomyopathy as an alternative explanation.",
+      "supportingStemText": "Fever and global hypokinesis are present."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "C3",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The objective myocardial injury and heart-failure findings make benign anxiety-related tachycardia noncompetitive.",
+      "supportingStemText": "Rising troponin I, BNP 420 pg/mL, LVEF 45% with global hypokinesis, pericardial effusion, S3 gallop, crackles, and edema demonstrate objective cardiac pathology."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "P1",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The stem already establishes an abnormal direction of change, making continued trending directly relevant.",
+      "supportingStemText": "Troponin I rises from 0.48 ng/mL to 0.52 ng/mL."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "P2",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The explicitly low ANC is part of the selected condition and requires reassessment for worsening or recovery.",
+      "supportingStemText": "ANC is 980/µL in a client with fever and sore throat during clozapine therapy."
+    },
+    {
+      "missingPremise": "No glucose, triglyceride, or acute metabolic abnormality is provided.",
+      "opaqueTokenLabel": "P3",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Routine metabolic surveillance does not outrank monitoring the acute myocardial injury and neutropenia shown in the stem.",
+      "supportingStemText": ""
+    },
+    {
+      "missingPremise": "No abnormal involuntary movements or other movement-disorder findings are provided.",
+      "opaqueTokenLabel": "P4",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "An AIMS score does not evaluate either acute process identified by the stem.",
+      "supportingStemText": ""
+    }
+  ]
+}

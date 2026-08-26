@@ -1,0 +1,173 @@
+{
+  "canonicalSelection": {
+    "actionLabels": [
+      "A3",
+      "A1"
+    ],
+    "conditionLabel": "C2",
+    "parameterLabels": [
+      "P4",
+      "P1"
+    ]
+  },
+  "instruction": "The two blind-stage records are immutable. Compare them with the now-revealed canonical 1/2/2 selection and complete standalone item. Do not inspect or infer sibling-case material. Return the required Phase-E structured JSON without revising either blind record.",
+  "standaloneItem": {
+    "bowtie": {
+      "actions": {
+        "tokens": [
+          {
+            "en": "Initiate methylprednisolone per the facility irAE pneumonitis protocol order.",
+            "opaqueTokenLabel": "A1",
+            "zh": "按院内irAE肺炎方案医嘱开始methylprednisolone。"
+          },
+          {
+            "en": "Administer the next pembrolizumab infusion so cancer treatment is not interrupted.",
+            "opaqueTokenLabel": "A2",
+            "zh": "给予下一次pembrolizumab输注，以免中断癌症治疗。"
+          },
+          {
+            "en": "Apply supplemental oxygen to achieve the ordered SpO2 target.",
+            "opaqueTokenLabel": "A3",
+            "zh": "给予补充氧气以达到医嘱SpO2目标。"
+          },
+          {
+            "en": "Delay oxygen and corticosteroids until pulmonology calls back.",
+            "opaqueTokenLabel": "A4",
+            "zh": "等肺科回电后再吸氧和给予corticosteroid。"
+          }
+        ]
+      },
+      "condition": {
+        "tokens": [
+          {
+            "en": "Progression of NSCLC with lymphangitic carcinomatosis",
+            "opaqueTokenLabel": "C1",
+            "zh": "NSCLC进展伴淋巴管性癌病"
+          },
+          {
+            "en": "Immune checkpoint inhibitor-related pneumonitis",
+            "opaqueTokenLabel": "C2",
+            "zh": "免疫检查点抑制剂相关性肺炎"
+          },
+          {
+            "en": "Community-acquired pneumonia",
+            "opaqueTokenLabel": "C3",
+            "zh": "社区获得性肺炎"
+          }
+        ]
+      },
+      "parameters": {
+        "tokens": [
+          {
+            "en": "Respiratory rate and work of breathing",
+            "opaqueTokenLabel": "P1",
+            "zh": "呼吸频率和呼吸做功"
+          },
+          {
+            "en": "TSH level at this synthesis moment",
+            "opaqueTokenLabel": "P2",
+            "zh": "此综合判断时刻的TSH水平"
+          },
+          {
+            "en": "Platelet count at this synthesis moment",
+            "opaqueTokenLabel": "P3",
+            "zh": "此综合判断时刻的血小板计数"
+          },
+          {
+            "en": "Oxygen saturation trend on ordered pulse oximetry",
+            "opaqueTokenLabel": "P4",
+            "zh": "按医嘱脉搏血氧监测的SpO2趋势"
+          }
+        ]
+      }
+    },
+    "glossary": [
+      {
+        "defZh": "将病情、优先措施和监测参数连接起来的临床判断题型。",
+        "termEn": "Bow-tie",
+        "termZh": "Bow-tie题型"
+      },
+      {
+        "defZh": "呼吸时需要付出的努力，可通过呼吸频率、辅助肌使用和说话能力观察。",
+        "termEn": "Work of breathing",
+        "termZh": "呼吸做功"
+      },
+      {
+        "defZh": "肿瘤沿肺淋巴管扩散造成的影像和呼吸表现。",
+        "termEn": "Lymphangitic carcinomatosis",
+        "termZh": "淋巴管性癌病"
+      }
+    ],
+    "rationale": {
+      "byChoice": [
+        {
+          "en": "Correct. The timing after pembrolizumab plus bilateral ground-glass opacities, desaturation, crackles, and elevated CRP form the expected pattern.",
+          "opaqueTokenLabel": "C2",
+          "zh": "正确。pembrolizumab后的时间关系，加上双侧磨玻璃影、血氧下降、爆裂音和CRP升高，构成预期模式。"
+        },
+        {
+          "en": "Incorrect. Infection must remain in the differential, but the case pattern is not primarily focal lobar consolidation or a febrile purulent-sputum syndrome.",
+          "opaqueTokenLabel": "C3",
+          "zh": "不正确。感染仍需作为鉴别诊断，但本病例模式并非以局灶性肺叶实变或发热脓痰综合征为主。"
+        },
+        {
+          "en": "Incorrect. The CT specifically reports no lymphangitic carcinomatosis, effusion, or new mass pattern to support this explanation.",
+          "opaqueTokenLabel": "C1",
+          "zh": "不正确。CT明确报告无淋巴管性癌病、胸腔积液或新肿块模式，不支持该解释。"
+        },
+        {
+          "en": "Correct. SpO2 91% and PaO2 68 mmHg make oxygenation the immediate physiologic priority.",
+          "opaqueTokenLabel": "A3",
+          "zh": "正确。SpO2 91%和PaO2 68 mmHg使氧合成为最直接的生理优先事项。"
+        },
+        {
+          "en": "Correct. The ordered corticosteroid treats the immune-mediated inflammatory process and should follow promptly after oxygen support is started.",
+          "opaqueTokenLabel": "A1",
+          "zh": "正确。医嘱corticosteroid用于治疗免疫介导炎症过程，应在开始氧合支持后迅速执行。"
+        },
+        {
+          "en": "Incorrect. Continuing the checkpoint inhibitor during active pneumonitis can worsen the immune-mediated injury and contradicts the hold order.",
+          "opaqueTokenLabel": "A2",
+          "zh": "不正确。在活动性肺炎期间继续检查点抑制剂可能加重免疫介导损伤，也违背暂停医嘱。"
+        },
+        {
+          "en": "Incorrect. Pulmonology co-management is important, but waiting would delay already ordered oxygen and corticosteroids during active deterioration.",
+          "opaqueTokenLabel": "A4",
+          "zh": "不正确。肺科共同管理很重要，但等待会在病情恶化时延误已开立的吸氧和corticosteroid。"
+        },
+        {
+          "en": "Correct. Serial SpO2 shows whether gas exchange is responding to oxygen and treatment.",
+          "opaqueTokenLabel": "P4",
+          "zh": "正确。连续SpO2能显示气体交换是否对吸氧和治疗有反应。"
+        },
+        {
+          "en": "Correct. Respiratory rate and work of breathing track ventilatory demand and clinical distress.",
+          "opaqueTokenLabel": "P1",
+          "zh": "正确。呼吸频率和呼吸做功反映通气需求和临床呼吸困难程度。"
+        },
+        {
+          "en": "Incorrect. Checkpoint inhibitors can affect thyroid function, but the current problem is acute pulmonary inflammation and oxygenation.",
+          "opaqueTokenLabel": "P2",
+          "zh": "不正确。检查点抑制剂可影响甲状腺功能，但当前问题是急性肺部炎症和氧合。"
+        },
+        {
+          "en": "Incorrect. The platelet count is normal and does not track pneumonitis response to oxygen and corticosteroids.",
+          "opaqueTokenLabel": "P3",
+          "zh": "不正确。血小板计数正常，不能反映肺炎对吸氧和corticosteroid的反应。"
+        }
+      ],
+      "correct": {
+        "en": "The condition is immune checkpoint inhibitor-related pneumonitis because the respiratory cue cluster, CT pattern, oxygenation decline, inflammatory marker, and pembrolizumab timing fit immune-mediated lung inflammation. Priority actions are immediate oxygenation support and ordered corticosteroid therapy. Monitoring SpO2 trend plus respiratory rate/work of breathing evaluates whether gas exchange and ventilatory demand are improving.",
+        "zh": "该病情为免疫检查点抑制剂相关性肺炎，因为呼吸线索组合、CT模式、氧合下降、炎症指标和pembrolizumab时间关系符合免疫介导的肺部炎症。优先措施是立即支持氧合并执行医嘱corticosteroid治疗。监测SpO2趋势以及呼吸频率/呼吸做功，可评估气体交换和通气需求是否改善。"
+      }
+    },
+    "stem": {
+      "en": "After pembrolizumab cycle 4, a client develops new dry cough, bilateral basilar crackles, progressive SpO2 decline from 96% baseline to 91% on room air, PaO2 68 mmHg, elevated CRP, and CT showing new bilateral lower-lobe ground-glass opacities without pleural effusion, pulmonary embolism, or lymphangitic carcinomatosis. The oncologist orders pembrolizumab held, admission, oxygen to maintain SpO2 >=94%, methylprednisolone per facility irAE pneumonitis protocol, every-2-hour pulse oximetry, and pulmonology consult. Complete the bow-tie by choosing the condition, two priority actions, and two parameters to monitor.",
+      "zh": "第4周期pembrolizumab后，患者出现新发干咳、双侧肺底爆裂音，SpO2从基线96%逐步降至室内空气91%，PaO2 68 mmHg，CRP升高，CT显示新发双侧下肺叶磨玻璃影，无胸腔积液、肺栓塞或淋巴管性癌病。肿瘤科医师开立医嘱：暂停pembrolizumab，收入院，吸氧以维持SpO2 >=94%，按院内irAE肺炎方案给予methylprednisolone，每2小时脉搏血氧监测，并请肺科会诊。请完成bow-tie，选择病情、两个优先措施和两个需监测参数。"
+    },
+    "testTakingStrategy": {
+      "en": "For bow-tie items, lock the center diagnosis from the strongest cue cluster, then choose actions that address the immediate threat and the pathophysiology, followed by monitoring parameters that measure response.",
+      "zh": "做bow-tie题时，先用最强线索组合锁定中心诊断，再选择同时处理直接威胁和病理生理机制的措施，最后选择能衡量反应的监测参数。"
+    }
+  }
+}

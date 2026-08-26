@@ -1,0 +1,61 @@
+{
+  "instruction": "Using only the standalone learner-facing English stem, prompts, and opaque token pools, select exactly one condition, two actions, and two parameters. Return the required structured JSON, including exactly one premise row for every opaque token. Do not infer absent client-specific facts.",
+  "prompts": {
+    "actions": "Priority nursing actions",
+    "condition": "Most likely condition",
+    "parameters": "Parameters to monitor"
+  },
+  "stem": "Maria is at the Stage 3 follow-up visit after fear, cost, scheduling, and caregiver barriers have been addressed. Influenza vaccine and the first recombinant zoster vaccine dose have been given. Colonoscopy is scheduled with plan-specific coverage reviewed by the financial counselor, Pap/HPV co-testing is scheduled with the colonoscopy-prep teaching visit, and teach-back has revealed that Maria would wait to report new symptoms before the colonoscopy. Complete the bow-tie diagram.",
+  "tokens": {
+    "actions": [
+      {
+        "label": "A1",
+        "text": "Add several new screening and teaching topics at the end of the visit"
+      },
+      {
+        "label": "A2",
+        "text": "Confirm documented dates and support plans for colonoscopy, Pap/HPV testing, and the second zoster vaccine dose"
+      },
+      {
+        "label": "A3",
+        "text": "Correct the symptom-reporting gap and confirm with repeat teach-back"
+      },
+      {
+        "label": "A4",
+        "text": "Accept the Stage 3 teach-back as complete because the colonoscopy purpose was explained correctly"
+      }
+    ],
+    "condition": [
+      {
+        "label": "C1",
+        "text": "Undiagnosed chronic disease requiring immediate medication management"
+      },
+      {
+        "label": "C2",
+        "text": "Limited health literacy with delayed preventive-care engagement and barriers to screening follow-through"
+      },
+      {
+        "label": "C3",
+        "text": "Noncompliance or deliberate disengagement from care"
+      }
+    ],
+    "parameters": [
+      {
+        "label": "P1",
+        "text": "Follow-through with scheduled colonoscopy and Pap/HPV appointments"
+      },
+      {
+        "label": "P2",
+        "text": "Accuracy and completeness of teach-back at subsequent visits"
+      },
+      {
+        "label": "P3",
+        "text": "Fasting glucose as the primary outcome for this case"
+      },
+      {
+        "label": "P4",
+        "text": "Maria's use of professional medical terminology"
+      }
+    ]
+  }
+}

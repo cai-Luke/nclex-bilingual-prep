@@ -1,0 +1,173 @@
+{
+  "canonicalSelection": {
+    "actionLabels": [
+      "A2",
+      "A4"
+    ],
+    "conditionLabel": "C1",
+    "parameterLabels": [
+      "P3",
+      "P4"
+    ]
+  },
+  "instruction": "The two blind-stage records are immutable. Compare them with the now-revealed canonical 1/2/2 selection and complete standalone item. Do not inspect or infer sibling-case material. Return the required Phase-E structured JSON without revising either blind record.",
+  "standaloneItem": {
+    "bowtie": {
+      "actions": {
+        "tokens": [
+          {
+            "en": "Remove the peripheral IV and plan to obtain new access later.",
+            "opaqueTokenLabel": "A1",
+            "zh": "拔除外周 IV，并计划稍后重新建立通路。"
+          },
+          {
+            "en": "Ensure the blood bank receives the stopped unit with attached tubing and a post-reaction patient sample.",
+            "opaqueTokenLabel": "A2",
+            "zh": "确保血库收到已停止输注的血袋及连接管路，并收到输血反应后的患者血样。"
+          },
+          {
+            "en": "Give acetaminophen and slow the transfusion rate.",
+            "opaqueTokenLabel": "A3",
+            "zh": "给予对乙酰氨基酚并减慢输血速率。"
+          },
+          {
+            "en": "Escalate immediately for higher-level care because shock, DIC, and oliguric acute kidney injury are progressing.",
+            "opaqueTokenLabel": "A4",
+            "zh": "因休克、DIC 和少尿性急性肾损伤正在进展，立即升级至更高级别护理。"
+          }
+        ]
+      },
+      "condition": {
+        "tokens": [
+          {
+            "en": "Acute hemolytic transfusion reaction due to ABO incompatibility",
+            "opaqueTokenLabel": "C1",
+            "zh": "ABO 不相容导致的急性溶血性输血反应"
+          },
+          {
+            "en": "Anaphylactic transfusion reaction",
+            "opaqueTokenLabel": "C2",
+            "zh": "过敏性休克型输血反应"
+          },
+          {
+            "en": "Septic transfusion reaction from bacterial contamination",
+            "opaqueTokenLabel": "C3",
+            "zh": "血液制品细菌污染导致的脓毒性输血反应"
+          }
+        ]
+      },
+      "parameters": {
+        "tokens": [
+          {
+            "en": "Temperature trend alone",
+            "opaqueTokenLabel": "P1",
+            "zh": "单独看体温趋势"
+          },
+          {
+            "en": "Peripheral IV insertion-site appearance",
+            "opaqueTokenLabel": "P2",
+            "zh": "外周 IV 穿刺部位外观"
+          },
+          {
+            "en": "Urine output and urine color via the Foley catheter",
+            "opaqueTokenLabel": "P3",
+            "zh": "通过 Foley 导尿管监测尿量和尿液颜色"
+          },
+          {
+            "en": "Coagulation studies, especially fibrinogen and platelet count",
+            "opaqueTokenLabel": "P4",
+            "zh": "凝血指标，尤其是纤维蛋白原和血小板计数"
+          }
+        ]
+      }
+    },
+    "glossary": [
+      {
+        "defZh": "把最可能病情、优先措施和监测参数连接起来的 NGN 临床判断题型。",
+        "termEn": "Bow-tie",
+        "termZh": "Bow-tie 题型"
+      },
+      {
+        "defZh": "供受者 ABO 血型不匹配，可导致严重溶血。",
+        "termEn": "ABO incompatibility",
+        "termZh": "ABO 不相容"
+      },
+      {
+        "defZh": "根据需要输注红细胞、血浆、冷沉淀或血小板等成分。",
+        "termEn": "Component therapy",
+        "termZh": "血液成分治疗"
+      }
+    ],
+    "rationale": {
+      "byChoice": [
+        {
+          "en": "This is correct because rapid onset during transfusion with hemoglobinuria, flank pain, hemolysis labs, shock, and DIC is the classic severe AHTR pattern.",
+          "opaqueTokenLabel": "C1",
+          "zh": "正确。输血期间快速发作并伴血红蛋白尿、腰痛、溶血实验室证据、休克和 DIC，是严重 AHTR 的典型模式。"
+        },
+        {
+          "en": "Anaphylaxis would emphasize airway compromise, wheezing, angioedema, urticaria, or IgA-mediated allergy rather than hemoglobinuria and hemolysis labs.",
+          "opaqueTokenLabel": "C2",
+          "zh": "过敏性休克更强调气道受累、喘鸣、血管性水肿、荨麻疹或 IgA 相关过敏，而不是血红蛋白尿和溶血实验室表现。"
+        },
+        {
+          "en": "Bacterial contamination can cause fever and hypotension, but it does not explain the prominent hemoglobinuria, flank pain, and intravascular hemolysis pattern.",
+          "opaqueTokenLabel": "C3",
+          "zh": "细菌污染可导致发热和低血压，但不能解释明显血红蛋白尿、腰痛和血管内溶血模式。"
+        },
+        {
+          "en": "The blood bank must investigate the actual unit, tubing, labels, and post-reaction sample before safe compatible products can be issued.",
+          "opaqueTokenLabel": "A2",
+          "zh": "血库必须调查实际血袋、管路、标签和输血反应后样本，才能安全发出相容血液成分。"
+        },
+        {
+          "en": "This is correct because the client is moving into multiorgan dysfunction requiring ICU-level monitoring, vasopressors, dialysis evaluation, and component therapy.",
+          "opaqueTokenLabel": "A4",
+          "zh": "正确。患者正在进入多器官功能障碍，需要 ICU 级监护、升压药、透析评估和血液成分治疗。"
+        },
+        {
+          "en": "This is unsafe because the transfusion must be stopped, not slowed; antipyretics do not address hemolysis or shock.",
+          "opaqueTokenLabel": "A3",
+          "zh": "不安全。输血必须停止，而不是减慢；退热药不能处理溶血或休克。"
+        },
+        {
+          "en": "This is unsafe because the unstable client needs vascular access for fluids, vasopressors, and blood components.",
+          "opaqueTokenLabel": "A1",
+          "zh": "不安全。不稳定患者需要血管通路以补液、用升压药和输注血液成分。"
+        },
+        {
+          "en": "Urine output and color show renal perfusion and ongoing hemoglobin burden.",
+          "opaqueTokenLabel": "P3",
+          "zh": "尿量和尿色反映肾灌注和持续血红蛋白负荷。"
+        },
+        {
+          "en": "Fibrinogen and platelet count help determine whether DIC is worsening or stabilizing.",
+          "opaqueTokenLabel": "P4",
+          "zh": "纤维蛋白原和血小板计数有助于判断 DIC 是恶化还是稳定。"
+        },
+        {
+          "en": "Temperature helped identify the reaction, but temperature alone cannot show stabilization when renal and coagulation data are worsening.",
+          "opaqueTokenLabel": "P1",
+          "zh": "体温有助于识别反应，但当肾脏和凝血数据恶化时，单看体温不能说明稳定。"
+        },
+        {
+          "en": "Routine IV-site assessment is appropriate, but this normal site does not track the systemic hemolytic crisis.",
+          "opaqueTokenLabel": "P2",
+          "zh": "常规评估 IV 部位是合适的，但该部位正常不能反映全身溶血危机的进展。"
+        }
+      ],
+      "correct": {
+        "en": "The condition is acute hemolytic transfusion reaction due to ABO incompatibility. The priority actions are to ensure the blood bank investigation has the unit/tubing and patient sample, and to escalate to higher-level care for shock, DIC, and oliguric acute kidney injury. The best monitoring parameters are renal output/color and coagulation trends because these track the major organ-system threats.",
+        "zh": "该病情是 ABO 不相容导致的急性溶血性输血反应。优先措施是确保血库调查取得血袋/管路和患者样本，并因休克、DIC 和少尿性急性肾损伤升级至更高级别护理。最佳监测参数是尿量/尿色和凝血趋势，因为它们反映主要受威胁的器官系统。"
+      }
+    },
+    "stem": {
+      "en": "A client develops fever, rigors, bilateral flank pain, hypotension, hemoglobinuria, and a sense of impending doom within 12 minutes of starting a red blood cell transfusion. Thirty minutes after the transfusion is stopped, the client has worsening hypotension, oliguria with port-wine urine, oozing from puncture sites, platelets 104 ×10³/µL, fibrinogen 140 mg/dL, INR 1.8, aPTT 52 seconds, LDH 1,840 U/L, bilirubin 4.2 mg/dL, and haptoglobin <10 mg/dL. Complete the bow-tie by selecting the most likely condition, two priority actions, and two parameters to monitor.",
+      "zh": "一名患者开始输注红细胞后 12 分钟内出现发热、寒战、双侧腰痛、低血压、血红蛋白尿和濒危感。停止输血 30 分钟后，患者低血压加重，少尿且尿呈葡萄酒色，穿刺部位渗血，血小板 104 ×10³/µL，纤维蛋白原 140 mg/dL，INR 1.8，aPTT 52 秒，LDH 1,840 U/L，胆红素 4.2 mg/dL，结合珠蛋白 <10 mg/dL。请选择最可能的病情、两个优先措施和两个需要监测的参数来完成 bow-tie。"
+    },
+    "testTakingStrategy": {
+      "en": "For bow-tie items, match the center condition first, then select actions and monitoring parameters that address that specific pathophysiology.",
+      "zh": "做 bow-tie 题时先锁定中心病情，再选择针对该病理生理过程的措施和监测参数。"
+    }
+  }
+}

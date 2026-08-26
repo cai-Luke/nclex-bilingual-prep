@@ -1,0 +1,174 @@
+{
+  "anyCanonicalTargetDependsOnAbsentFact": false,
+  "blindExactMatch": true,
+  "canonicalSelection": {
+    "actionLabels": [
+      "A1",
+      "A2"
+    ],
+    "conditionLabel": "C1",
+    "parameterLabels": [
+      "P4",
+      "P3"
+    ]
+  },
+  "canonicalSetExplanation": "C1 is uniquely established by disease-specific objective findings. A1 directly maintains the effective definitive therapy, while A2 addresses the remaining bone-health risk created by prior vitamin D and calcium deficiencies. P4 tracks the explicitly demonstrated serologic response, and P3 tracks recovery from the documented iron deficiency. None of the six distractors has comparable standalone support.",
+  "canonicalSetUniquelyDefensible": true,
+  "canonicalTargetSupport": [
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "C1",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "Positive tTG-IgA with normal total IgA, Marsh 3a duodenal biopsy, biopsy-confirmed dermatitis herpetiformis, malabsorptive deficiencies, and improvement after strict gluten avoidance directly support celiac disease with dermatitis herpetiformis."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "A1",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "The patient improved clinically, nutritionally, and serologically after hidden gluten was eliminated and a strict gluten-free diet was maintained."
+    },
+    {
+      "missingClientFact": "The stem does not provide a PTH level, prior DEXA result, fracture history, or current bone mineral density.",
+      "opaqueTokenLabel": "A2",
+      "supportClassification": "GENERAL_KNOWLEDGE_LINK",
+      "supportingStandaloneEvidence": "Prior weight loss plus vitamin D and calcium deficiencies establishes malabsorption-related bone-health risk; standard clinical knowledge links that risk to bone-density assessment."
+    },
+    {
+      "missingClientFact": "The assay-specific reference range is not provided.",
+      "opaqueTokenLabel": "P4",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "The stem explicitly reports a serial tTG-IgA decline from 128 to 38 U/mL after strict gluten avoidance."
+    },
+    {
+      "missingClientFact": "The stem does not provide an explicit anemia diagnosis or baseline and current hemoglobin and ferritin values.",
+      "opaqueTokenLabel": "P3",
+      "supportClassification": "GENERAL_KNOWLEDGE_LINK",
+      "supportingStandaloneEvidence": "Prior iron deficiency and improving nutritional laboratory results support monitoring hemoglobin and ferritin to assess hematologic recovery and iron stores."
+    }
+  ],
+  "distractorPremiseFindings": [
+    {
+      "explanation": "Crohn disease does not account for the celiac-specific serology, Marsh 3a histology, biopsy-confirmed dermatitis herpetiformis, and response to gluten elimination.",
+      "opaqueTokenLabel": "C2",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "Irritable bowel syndrome cannot unify the objective malabsorptive deficiencies, positive celiac serology, abnormal duodenal histology, and dermatitis herpetiformis.",
+      "opaqueTokenLabel": "C3",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "Resolved symptoms and rash, improved nutritional results, and falling tTG-IgA demonstrate response rather than treatment failure; no client-specific indication for immediate repeat biopsy is supplied.",
+      "opaqueTokenLabel": "A3",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "The stem says nutritional results improved but does not establish complete repletion, exact current values, or a clinician-directed basis for stopping supplements. Improvement alone does not support discontinuation.",
+      "opaqueTokenLabel": "A4",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "No ESR or CRP values or active inflammatory bowel disease concern appears in the standalone stem. These tests are less direct measures of the documented celiac response than P4 and P3.",
+      "opaqueTokenLabel": "P1",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "LOW"
+    },
+    {
+      "explanation": "The standalone stem provides no vitamin B12 value, B12 deficiency, macrocytosis, or neurologic manifestation. The documented iron deficiency makes P3 more directly relevant.",
+      "opaqueTokenLabel": "P2",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "LOW"
+    }
+  ],
+  "missingClientFacts": [
+    {
+      "keyed": true,
+      "missingFact": "A formal dietitian assessment of adherence, hidden-gluten exposure, and cross-contamination risk is not reported.",
+      "opaqueTokenLabel": "A1",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "keyed": true,
+      "missingFact": "The stem does not state whether a DEXA scan has already been performed or provide a prior bone mineral density result.",
+      "opaqueTokenLabel": "A2",
+      "rankabilityImpact": "LOW"
+    },
+    {
+      "keyed": true,
+      "missingFact": "The secondary hyperparathyroidism cited in the rationale is not stated in the standalone stem; no PTH value is supplied.",
+      "opaqueTokenLabel": "A2",
+      "rankabilityImpact": "LOW"
+    },
+    {
+      "keyed": true,
+      "missingFact": "The stem describes calcium deficiency but does not provide an exact serum calcium value, fracture history, or other direct evidence of reduced bone density.",
+      "opaqueTokenLabel": "A2",
+      "rankabilityImpact": "LOW"
+    },
+    {
+      "keyed": true,
+      "missingFact": "An explicit diagnosis of iron-deficiency anemia is not stated; only iron deficiency is stated.",
+      "opaqueTokenLabel": "P3",
+      "rankabilityImpact": "LOW"
+    },
+    {
+      "keyed": true,
+      "missingFact": "Baseline and current hemoglobin and ferritin values are not supplied.",
+      "opaqueTokenLabel": "P3",
+      "rankabilityImpact": "LOW"
+    },
+    {
+      "keyed": true,
+      "missingFact": "The current weight trend and exact follow-up iron, folate, vitamin D, and calcium values are not supplied.",
+      "opaqueTokenLabel": "P3",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "keyed": true,
+      "missingFact": "The tTG-IgA assay reference range or upper limit of normal is not supplied, so the degree to which 38 U/mL remains elevated cannot be independently established.",
+      "opaqueTokenLabel": "P4",
+      "rankabilityImpact": "LOW"
+    },
+    {
+      "keyed": false,
+      "missingFact": "No persistent symptoms, plateauing or rising tTG-IgA, ongoing gluten exposure, or other client-specific indication for immediate repeat duodenal biopsy is reported.",
+      "opaqueTokenLabel": "A3",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "keyed": false,
+      "missingFact": "Exact current nutrient values, evidence of fully repleted stores, supplement prescriptions, and a clinician-directed discontinuation plan are not supplied.",
+      "opaqueTokenLabel": "A4",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "keyed": false,
+      "missingFact": "The ESR and CRP results characterized in the rationale as counter-cues against inflammatory bowel disease are absent from the standalone stem.",
+      "opaqueTokenLabel": "P1",
+      "rankabilityImpact": "LOW"
+    },
+    {
+      "keyed": false,
+      "missingFact": "The rationale states that vitamin B12 was normal, but no vitamin B12 result appears in the standalone stem.",
+      "opaqueTokenLabel": "P2",
+      "rankabilityImpact": "LOW"
+    },
+    {
+      "keyed": false,
+      "missingFact": "The rationale invokes anemia and hypoalbuminemia, but the standalone stem does not explicitly state anemia, hemoglobin, albumin, or total protein results.",
+      "opaqueTokenLabel": "C3",
+      "rankabilityImpact": "NONE"
+    }
+  ],
+  "notes": [
+    "Blind Stage 2 selected the same five opaque labels as the canonical key. Its parameter array listed P3 before P4, but selections within the parameter zone are unordered; the canonical array here preserves the packet order P4 then P3.",
+    "Absent PTH, ESR/CRP, vitamin B12, anemia, hypoalbuminemia, and exact laboratory values should not be imported into the standalone case. The explicit stem evidence remains sufficient to rank the canonical set uniquely."
+  ],
+  "stage1Alignment": "PARTIAL",
+  "stage1AlignmentExplanation": "Stage 1 independently identified C1, semantically matched A1, directly matched P4, and included iron-related nutritional monitoring that substantially overlaps P3. Its second action emphasized dietitian-guided nutritional rehabilitation and supplementation rather than the keyed DEXA coordination in A2, so alignment is partial rather than full.",
+  "unstatedClientFactMateriallyChangesRankability": false
+}

@@ -1,0 +1,131 @@
+{
+  "actionLabels": [
+    "A3",
+    "A4"
+  ],
+  "ambiguousAlternatives": [],
+  "conditionLabel": "C2",
+  "missingInformation": [
+    "The stem does not specify whether qualified step-down nurses are immediately available.",
+    "The stem does not describe the needs of every patient in the nurse's remaining assignment."
+  ],
+  "parameterLabels": [
+    "P1",
+    "P3"
+  ],
+  "poolAnswerability": "ANSWERABLE",
+  "reasoning": "C2 directly identifies the explicit competency-based safety problem. A3 preserves appropriate care within validated competencies, while A4 addresses the charge nurse's refusal through escalation. P1 and P3 evaluate whether competent coverage and a safe remaining assignment have actually been established.",
+  "selectionEvidence": [
+    {
+      "evidence": "The stem explicitly states that required high-acuity activities are outside the nurse's documented competencies.",
+      "opaqueTokenLabel": "C2"
+    },
+    {
+      "evidence": "The competency limitation concerns specified advanced responsibilities, supporting continued care within validated competencies rather than abandonment of all care.",
+      "opaqueTokenLabel": "A3"
+    },
+    {
+      "evidence": "The charge nurse has refused to correct the identified safety concern, requiring escalation to the next level in the chain of command.",
+      "opaqueTokenLabel": "A4"
+    },
+    {
+      "evidence": "Reassignment of high-acuity patients to a validated nurse directly evaluates whether the competency mismatch has been corrected.",
+      "opaqueTokenLabel": "P1"
+    },
+    {
+      "evidence": "An assignment limited to documented competencies directly evaluates whether the nurse's remaining responsibilities are safe.",
+      "opaqueTokenLabel": "P3"
+    }
+  ],
+  "stage2Confidence": "high",
+  "tokenPremiseTable": [
+    {
+      "missingPremise": "Evidence that inadequate staffing is the cause and that the nurse must manage using only available resources.",
+      "opaqueTokenLabel": "C1",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The explicitly stated competency mismatch supports C2 without requiring a staffing explanation.",
+      "supportingStemText": "The charge nurse refuses to change the assignment."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "C2",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The condition is directly stated and uniquely matches the central safety problem.",
+      "supportingStemText": "Patients requiring vasoactive drip titration and advanced neurological assessments, which are not within her documented competencies."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "C3",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The stem identifies a specific competency concern rather than unwillingness to float.",
+      "supportingStemText": "The objection concerns vasoactive drip titration and advanced neurological assessments that are not within her documented competencies."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A1",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "A limited competency mismatch does not support refusing all care or leaving the unit.",
+      "supportingStemText": "Only specified advanced responsibilities are identified as outside her documented competencies."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A2",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Accepting the full assignment without escalation would leave the explicit safety concern unresolved.",
+      "supportingStemText": "The assignment includes responsibilities that are not within her documented competencies."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A3",
+      "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+      "rankabilityImpact": "LOW",
+      "rankabilityJustification": "The stem does not enumerate every patient's needs, but maintaining care within validated competency is the appropriate bounded response.",
+      "supportingStemText": "The assignment includes patients requiring specified activities that are not within her documented competencies."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A4",
+      "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Escalation through the chain of command is supported when the immediate supervisor does not resolve an identified patient-safety concern.",
+      "supportingStemText": "The charge nurse refuses to change the assignment."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "P1",
+      "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Qualified reassignment directly measures resolution of the unsafe competency mismatch.",
+      "supportingStemText": "The high-acuity responsibilities are not within the float nurse's documented competencies."
+    },
+    {
+      "missingPremise": "A basis for treating the charge nurse's agreement, rather than actual safe assignment coverage, as the relevant outcome.",
+      "opaqueTokenLabel": "P2",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Supervisor agreement is not necessary to determine whether competent coverage has been achieved.",
+      "supportingStemText": "The charge nurse refuses to change the assignment."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "P3",
+      "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+      "rankabilityImpact": "LOW",
+      "rankabilityJustification": "The stem does not describe each remaining patient, but verifying that all retained care is within competency directly evaluates assignment safety.",
+      "supportingStemText": "The advanced responsibilities are not within her documented competencies."
+    },
+    {
+      "missingPremise": "A specific patient receiving norepinephrine, a dose increase, and MAP data.",
+      "opaqueTokenLabel": "P4",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The absent patient-specific treatment facts make P4 inapplicable and do not prevent selection of the assignment-safety parameters.",
+      "supportingStemText": "The stem refers generally to vasoactive drip titration."
+    }
+  ]
+}

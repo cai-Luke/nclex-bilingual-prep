@@ -1,0 +1,130 @@
+{
+  "actionLabels": [
+    "A1",
+    "A2"
+  ],
+  "ambiguousAlternatives": [],
+  "conditionLabel": "C2",
+  "missingInformation": [
+    "Respiratory rate, work of breathing, mental status, voice quality, and complete vital signs would refine the severity assessment but are not needed to rank the supplied tokens."
+  ],
+  "parameterLabels": [
+    "P2",
+    "P3"
+  ],
+  "poolAnswerability": "ANSWERABLE",
+  "reasoning": "C2 uniquely integrates the malignant mediastinal process, central upper-body venous congestion, and emerging airway compromise. A1 and A2 directly address current hypoxemia and airway risk. P2 tracks the obstructive congestion described in the stem, while P3 tracks the most immediate threat. The remaining tokens either lack client-specific premises, conflict with the observed distribution, or improperly defer airway priorities.",
+  "selectionEvidence": [
+    {
+      "evidence": "The mediastinal mass with worsening facial, periorbital, neck, chest-wall venous, and bilateral upper-extremity findings supports SVC obstruction; hypoxemia, short-phrase speech, and stridor indicate impending airway compromise.",
+      "opaqueTokenLabel": "C2"
+    },
+    {
+      "evidence": "SpO2 is 90% despite 2 L nasal cannula, and upright positioning can reduce upper-body venous congestion while supporting ventilation.",
+      "opaqueTokenLabel": "A1"
+    },
+    {
+      "evidence": "New tracheal inspiratory stridor and short-phrase speech are acute airway-warning findings requiring emergency escalation.",
+      "opaqueTokenLabel": "A2"
+    },
+    {
+      "evidence": "The stem provides worsening facial/periorbital edema and a measurable neck-circumference increase from 44 cm to 47 cm.",
+      "opaqueTokenLabel": "P2"
+    },
+    {
+      "evidence": "The stem identifies new tracheal stridor and short-phrase speech, making serial airway assessment essential.",
+      "opaqueTokenLabel": "P3"
+    }
+  ],
+  "stage2Confidence": "high",
+  "tokenPremiseTable": [
+    {
+      "missingPremise": "Client-specific evidence of cardiac dysfunction or generalized fluid overload, such as pulmonary crackles, lower-extremity edema, jugular venous findings attributable to heart failure, or cardiac history.",
+      "opaqueTokenLabel": "C1",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The explicit mediastinal mass and localized upper-body venous-obstruction pattern make C2 substantially more likely despite the absent heart-failure facts.",
+      "supportingStemText": "Bilateral upper-extremity pitting edema is present, but no lower-extremity or pulmonary-congestion findings are provided."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "C2",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The stem directly supplies both the malignant SVC-obstruction pattern and evidence of evolving airway compromise.",
+      "supportingStemText": "Untreated non-small cell lung cancer, known right mediastinal mass, worsening facial and periorbital edema, increased neck circumference, prominent chest-wall venous collaterals, bilateral upper-extremity edema, hypoxemia, short-phrase speech, and new tracheal stridor."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "C3",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The distribution extends beyond an isolated upper-extremity venous thrombosis and instead localizes to central venous obstruction.",
+      "supportingStemText": "Edema is bilateral and accompanied by facial/periorbital edema, increasing neck circumference, chest-wall venous collaterals, and a mediastinal mass."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A1",
+      "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Increasing oxygen support addresses hypoxemia, and maintaining an elevated head position supports breathing and reduces upper-body venous congestion.",
+      "supportingStemText": "SpO2 90% on 2 L nasal cannula, short-phrase speech, upper-body edema, and new inspiratory stridor."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A2",
+      "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "New stridor with impaired speech and persistent hypoxemia signals possible airway deterioration requiring immediate escalation.",
+      "supportingStemText": "New faint inspiratory stridor over the trachea with short-phrase speech and SpO2 90% on supplemental oxygen."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A3",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Lowering the head of bed conflicts with the immediate need to support ventilation and limit worsening upper-body congestion.",
+      "supportingStemText": "The client has worsening upper-body venous congestion, hypoxemia, short-phrase speech, and new inspiratory stridor."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A4",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Attempting nonurgent vascular access before addressing airway compromise and emergency escalation reverses the required priority sequence.",
+      "supportingStemText": "The stem identifies active airway-warning findings: SpO2 90% on oxygen, short-phrase speech, and new tracheal stridor."
+    },
+    {
+      "missingPremise": "A lower-extremity finding or suspected generalized fluid-overload process that would make serial lower-extremity assessment a priority.",
+      "opaqueTokenLabel": "P1",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The explicitly abnormal upper-body and airway findings provide more direct and urgent monitoring targets.",
+      "supportingStemText": "The stem reports bilateral upper-extremity edema but provides no lower-extremity edema finding."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "P2",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The stem supplies both observable and serially measurable indicators of upper-body venous congestion.",
+      "supportingStemText": "Facial and periorbital edema is worsening, and neck circumference increased from 44 cm to 47 cm."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "P3",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "These are direct airway-patency findings whose progression could signal impending obstruction.",
+      "supportingStemText": "The client has short-phrase speech and new faint inspiratory stridor over the trachea."
+    },
+    {
+      "missingPremise": "A client-specific indication that serial D-dimer measurements would guide immediate evaluation or response to treatment.",
+      "opaqueTokenLabel": "P4",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Serial D-dimer values do not directly track the urgent airway compromise or the clearly described upper-body congestion.",
+      "supportingStemText": "No D-dimer result, thromboembolic workup, or isolated thrombotic presentation is described."
+    }
+  ]
+}

@@ -1,0 +1,100 @@
+{
+  "advisoryPriority": "P3",
+  "bilingualCollateral": [
+    {
+      "concern": "The sibling uses inconsistent Chinese rendering of Poison Control.",
+      "evidence": "The glossary uses “中毒控制中心,” while several sibling Chinese choices and rationales retain the English name “Poison Control.”",
+      "priority": "P3"
+    },
+    {
+      "concern": "The sibling baseline temperature lacks full EN/ZH parity.",
+      "evidence": "English gives “98.8 °F (37.1 °C) tympanic,” while Chinese gives only “鼓膜温 37.1 C” and omits both Fahrenheit and the degree symbol.",
+      "priority": "P3"
+    }
+  ],
+  "canonicalTargetSiblingOverlap": [
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "Sibling Q2 independently identifies caregiver knowledge deficit, misinformation, limited teaching, openness to help, and warm caregiving.",
+      "opaqueTokenLabel": "C2",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "Sibling Q5 calls for determining frequency and recency and escalating possible recent or repeated overdose to the provider and Poison Control.",
+      "opaqueTokenLabel": "A4",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "Sibling Q5 endorses syringe demonstration and caregiver return demonstration of the stated dose.",
+      "opaqueTokenLabel": "A1",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "Sibling Stage 3 and Q6 use Danielle's accurate syringe-and-dose teach-back as the medication-teaching outcome.",
+      "opaqueTokenLabel": "P2",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "Sibling Q5 identifies replacement of the safety cap and storage out of sight and reach as correction of the access hazard.",
+      "opaqueTokenLabel": "P1",
+      "overlap": true
+    }
+  ],
+  "clinicalCollateral": [
+    {
+      "concern": "No material clinical-currency concern identified in the standalone medication logic.",
+      "evidence": "At the sibling weight of 8.9 kg, the documented 3.75 mL of 160 mg/5 mL equals 120 mg, about 13.5 mg/kg; the item appropriately makes further toxicology assessment depend on timing, repetition, total exposure, and case-specific guidance rather than declaring established toxicity.",
+      "priority": null
+    }
+  ],
+  "defectSummary": "The item passes because every canonical target is independently rankable from the standalone surface, while sibling content only corroborates rather than supplies necessary premises.",
+  "missingFactProvenance": [
+    {
+      "missingFact": "The last-dose time, dosing frequency, total acetaminophen exposure, and any overlapping acetaminophen-containing product",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "A4",
+      "provenance": "UNSUPPORTED_ANYWHERE_CHECKED",
+      "sourceEvidence": "The sibling says only that Danielle gives 15 mL when Liam has a fever; its Q5 asks about frequency and recency, but no sibling exhibit supplies the last-dose time, frequency, total exposure, or overlapping-product history."
+    },
+    {
+      "missingFact": "Evidence that caregiver-role demands or inadequate support primarily caused the medication errors rather than medication misunderstanding",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "C1",
+      "provenance": "UNSUPPORTED_ANYWHERE_CHECKED",
+      "sourceEvidence": "The sibling supplies limited family support and foster-care history, but its Q2 explicitly attributes the unsafe pattern to misinformation and inadequate guidance rather than establishing role strain as the primary cause."
+    },
+    {
+      "missingFact": "Additional evidence establishing neglect as the primary explanation",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "C3",
+      "provenance": "UNSUPPORTED_ANYWHERE_CHECKED",
+      "sourceEvidence": "The sibling instead documents warm engagement, voluntary disclosure, no observed injury, and no reported harm; Q2 states that the available facts do not establish intentional neglect."
+    },
+    {
+      "missingFact": "Additional circumstances establishing a protective-services reporting basis beyond the disclosed unsafe practices alone",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "A3",
+      "provenance": "UNSUPPORTED_ANYWHERE_CHECKED",
+      "sourceEvidence": "No sibling exhibit adds concealment, refusal, injury, reported harm, or another circumstance establishing the posited reporting basis; sibling rationales reject an automatic report on the supplied facts."
+    }
+  ],
+  "primaryVerdict": "PASS_STANDALONE",
+  "reasoning": "No Phase-E missing fact was imported from the sibling, and none was necessary for canonical rankability. Because there is no hidden dependency, unsupported keyed premise, underdetermination, key defect, or second-reviewer disagreement, fixed precedence reaches PASS_STANDALONE; only minor P3 bilingual and reporting-threshold collateral remains.",
+  "scopeCollateral": [
+    {
+      "concern": "Protective-services language uses establishment of neglect as part of its rationale even though reporting duties generally depend on reasonable suspicion and applicable jurisdiction or policy, not proof.",
+      "evidence": "A3 is correctly non-priority on these facts, but the rationale repeatedly says the errors do not “establish neglect”; this nuance does not change the canonical ranking.",
+      "priority": "P3"
+    },
+    {
+      "concern": "No material nursing-scope concern identified for toxicology escalation or laboratory preparation.",
+      "evidence": "The item directs the nurse to gather exposure details, obtain clinician and Poison Control guidance, and prepare for laboratory testing only if indicated, without assigning independent diagnostic or prescribing authority.",
+      "priority": null
+    }
+  ],
+  "secondaryFlags": []
+}

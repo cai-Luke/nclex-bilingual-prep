@@ -1,0 +1,147 @@
+{
+  "advisoryPriority": "P1",
+  "bilingualCollateral": [
+    {
+      "concern": "No material English-Chinese divergence changes the standalone selection or the unsupported-premise diagnosis.",
+      "evidence": "The English and Chinese standalone stem, token pools, and keyed rationale preserve the same clinical claims and sibling-derived premises.",
+      "priority": null
+    }
+  ],
+  "canonicalTargetSiblingOverlap": [
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling supplies the earlier fever, ANC, lactate, perfusion trajectory, and slowed responses, but the standalone cluster of severe neutropenia, persistent fever, hypotension, oliguria, delayed refill, and elevated lactate already supports C3.",
+      "opaqueTokenLabel": "C3",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling confirms that a protocol-directed bolus and supine positioning were used, but the standalone hypoperfusion findings independently support A2.",
+      "opaqueTokenLabel": "A2",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling explicitly documents rapid-response activation and oncology notification, but the standalone deterioration cues independently justify urgent escalation.",
+      "opaqueTokenLabel": "A4",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling supplies baseline and post-treatment blood-pressure and urine-output trends, but both parameters are already abnormal and directly monitorable in the standalone stem.",
+      "opaqueTokenLabel": "P3",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling establishes the prior and subsequent lactate trajectory, but a standalone lactate of 3.2 mmol/L is sufficient to select serial lactate monitoring.",
+      "opaqueTokenLabel": "P1",
+      "overlap": true
+    }
+  ],
+  "clinicalCollateral": [
+    {
+      "concern": "The standalone evidence supports sepsis-associated hypoperfusion but does not independently establish a lactate rise, post-fluid refractory hypotension, vasopressor requirement, or septic shock.",
+      "evidence": "The standalone stem gives one lactate value of 3.2 mmol/L and does not document an adequate bolus or vasopressor use; those trajectory details appear only in the sibling case or rationale.",
+      "priority": "P2"
+    },
+    {
+      "concern": "Fluid tolerance and response are not fully specified in the standalone item, although A2 remains the strongest protocol-qualified action from the available hypoperfusion cues.",
+      "evidence": "The standalone stem documents BP 92/58, delayed refill, oliguria, and elevated lactate but no prior crystalloid amount, lung assessment, or response.",
+      "priority": "P2"
+    }
+  ],
+  "defectSummary": "The canonical 1/2/2 answer is uniquely defensible from the standalone stem and has no hidden sibling dependency. However, several learner-facing distractors embed client-specific premises not supplied by that stem: C2 asserts poor oral intake, P2 presupposes an earlier chest X-ray, and A3 presupposes earlier cultures. Those premises are supplied by the sibling case, while the standalone rationale additionally imports prior IV fluids, a rising lactate, slower responses, and asserted absence of transfusion or allergic findings.",
+  "missingFactProvenance": [
+    {
+      "missingFact": "Whether the client recently received a blood product",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "C1",
+      "provenance": "RATIONALE_ONLY",
+      "sourceEvidence": "The standalone rationale states that there is no blood product exposure, but neither the standalone stem nor the sibling case explicitly documents transfusion status."
+    },
+    {
+      "missingFact": "The timing of deterioration relative to the antibiotic infusion and whether urticaria, wheezing, angioedema, or another immediate allergic manifestation occurred",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "C1",
+      "provenance": "OTHER_PROVENANCE",
+      "sourceEvidence": "The sibling case places antibiotic initiation at 1445 and deterioration near 1745, lists no known allergies, and reports clear lungs; only the standalone rationale expressly asserts no urticaria, wheezing, angioedema, or immediate reaction pattern."
+    },
+    {
+      "missingFact": "Whether poor oral intake, gastrointestinal losses, or another uncomplicated dehydration source is present",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "C2",
+      "provenance": "SIBLING_CASE_IMPORTED",
+      "sourceEvidence": "The sibling baseline and summary state that the client was admitted for poor oral intake and dehydration; this history is absent from the standalone stem."
+    },
+    {
+      "missingFact": "Whether IV fluids were already administered and how the client responded",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "C2",
+      "provenance": "SIBLING_CASE_IMPORTED",
+      "sourceEvidence": "The sibling Stage 1 course documents normal saline at 125 mL/hr before the later hemodynamic deterioration; the standalone stem mentions only initial empiric antibiotics."
+    },
+    {
+      "missingFact": "Any prior crystalloid volume, response to fluids, or client-specific contraindication affecting further bolus administration",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "A2",
+      "provenance": "OTHER_PROVENANCE",
+      "sourceEvidence": "The sibling case documents maintenance normal saline, clear lungs, subsequent protocol-directed bolus administration, and later improvement, but it does not comprehensively document all potential fluid contraindications."
+    },
+    {
+      "missingFact": "A prior lactate value establishing that the lactate is rising rather than providing only a single elevated measurement",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "P1",
+      "provenance": "SIBLING_CASE_IMPORTED",
+      "sourceEvidence": "The sibling case supplies lactate 1.4 mmol/L at 1420 followed by 3.2 mmol/L at 1800; the standalone stem supplies only 3.2 mmol/L."
+    },
+    {
+      "missingFact": "Any altered or slowed responsiveness",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "C3",
+      "provenance": "SIBLING_CASE_IMPORTED",
+      "sourceEvidence": "The sibling Stage 2 course states that the client was restless and alert but slower to respond; the standalone stem contains no mental-status finding."
+    },
+    {
+      "missingFact": "The suspected infection source and culture results",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "C3",
+      "provenance": "SIBLING_CASE_IMPORTED",
+      "sourceEvidence": "The sibling case documents peripheral and PICC cultures, initially pending results, and a later preliminary Gram-positive organism in the PICC-lumen bottle."
+    },
+    {
+      "missingFact": "Whether hypotension persists after adequate fluid resuscitation and whether vasopressors are required",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "C3",
+      "provenance": "OTHER_PROVENANCE",
+      "sourceEvidence": "The sibling Stage 3 course documents improving blood pressure, urine output, lactate, and alertness after the bolus and broadened antibiotics, but it does not explicitly state a vasopressor decision or complete adequacy assessment."
+    },
+    {
+      "missingFact": "Respiratory symptoms, abnormal lung findings, or a baseline chest X-ray abnormality requiring immediate imaging follow-up",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "P2",
+      "provenance": "SIBLING_CASE_IMPORTED",
+      "sourceEvidence": "The sibling case documents clear lungs and a 1455 chest X-ray without infiltrate or effusion; none of that imaging context appears in the standalone stem."
+    }
+  ],
+  "primaryVerdict": "FAIL_UNSUPPORTED_TOKEN_PREMISE",
+  "reasoning": "The blind reviewer selected the complete canonical set without sibling access, and Phase E found every keyed target independently supported, so hidden-case dependency, underdetermination, and canonical-key failure are not present. The sibling case merely corroborates the five keyed targets. Nevertheless, the token pool itself contains client-specific antecedents absent from the standalone stem and later revealed in the sibling, satisfying FAIL_UNSUPPORTED_TOKEN_PREMISE. The unsupported details do not alter the canonical ranking, but they violate standalone premise containment and therefore prevent PASS_STANDALONE.",
+  "scopeCollateral": [
+    {
+      "concern": "Sibling-specific context is embedded in non-keyed learner-facing tokens.",
+      "evidence": "C2 names poor oral intake, P2 requests a repeat chest X-ray, and A3 requests repeat cultures, while the standalone stem states none of those antecedents; the sibling case supplies all three.",
+      "priority": "P1"
+    },
+    {
+      "concern": "The standalone rationale exceeds the standalone evidence boundary.",
+      "evidence": "It refers to poor intake, prior IV fluids, rising lactate, slower responses, no blood-product exposure, and absent allergic manifestations, although those facts are absent from the standalone stem and are partly or wholly supplied elsewhere.",
+      "priority": "P1"
+    },
+    {
+      "concern": "The sibling materials use two Fahrenheit renderings for the same 38.3 °C fever threshold.",
+      "evidence": "One sibling exhibit states 101 °F (38.3 °C), while the sibling summary states 100.9 °F (38.3 °C).",
+      "priority": "P3"
+    }
+  ],
+  "secondaryFlags": []
+}

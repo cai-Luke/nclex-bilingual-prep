@@ -1,0 +1,173 @@
+{
+  "canonicalSelection": {
+    "actionLabels": [
+      "A3",
+      "A1"
+    ],
+    "conditionLabel": "C1",
+    "parameterLabels": [
+      "P4",
+      "P3"
+    ]
+  },
+  "instruction": "The two blind-stage records are immutable. Compare them with the now-revealed canonical 1/2/2 selection and complete standalone item. Do not inspect or infer sibling-case material. Return the required Phase-E structured JSON without revising either blind record.",
+  "standaloneItem": {
+    "bowtie": {
+      "actions": {
+        "tokens": [
+          {
+            "en": "Intensify nutritional support with dietitian follow-up, high-protein supplements, and intake goals",
+            "opaqueTokenLabel": "A1",
+            "zh": "通过营养师跟进、高蛋白补充和摄入目标来加强营养支持"
+          },
+          {
+            "en": "Discontinue q2h repositioning because she is now getting out of bed several times daily",
+            "opaqueTokenLabel": "A2",
+            "zh": "因患者现在每天能多次下床，停止每2小时翻身"
+          },
+          {
+            "en": "Correct right heel offloading immediately and verify the heel is fully floated at every repositioning",
+            "opaqueTokenLabel": "A3",
+            "zh": "立即纠正右足跟减压，并每次翻身确认足跟完全悬空"
+          },
+          {
+            "en": "Simply reposition the same heel boot without inspecting the heel or changing the offloading method",
+            "opaqueTokenLabel": "A4",
+            "zh": "只重新摆放同一只足跟保护靴，不检查足跟，也不改变减压方式"
+          }
+        ]
+      },
+      "condition": {
+        "tokens": [
+          {
+            "en": "Impaired skin integrity with evolving pressure-injury risk, including device-related heel injury",
+            "opaqueTokenLabel": "C1",
+            "zh": "皮肤完整性受损并存在进展性压力性损伤风险，包括器械相关足跟损伤"
+          },
+          {
+            "en": "Surgical-site infection causing the skin changes",
+            "opaqueTokenLabel": "C2",
+            "zh": "手术切口感染导致皮肤改变"
+          },
+          {
+            "en": "Deep vein thrombosis presenting as lower-extremity skin changes",
+            "opaqueTokenLabel": "C3",
+            "zh": "深静脉血栓表现为下肢皮肤改变"
+          }
+        ]
+      },
+      "parameters": {
+        "tokens": [
+          {
+            "en": "Incentive spirometry volumes as the main indicator of pressure-injury healing",
+            "opaqueTokenLabel": "P1",
+            "zh": "将激励式肺量计容量作为压力性损伤愈合的主要指标"
+          },
+          {
+            "en": "Hemoglobin trend as the main indicator of skin-plan effectiveness",
+            "opaqueTokenLabel": "P2",
+            "zh": "将血红蛋白趋势作为皮肤护理计划效果的主要指标"
+          },
+          {
+            "en": "Meal and supplement intake compared with dietitian calorie/protein goals",
+            "opaqueTokenLabel": "P3",
+            "zh": "餐食和补充品摄入量与营养师热量/蛋白目标的比较"
+          },
+          {
+            "en": "Serial skin assessments of coccyx and right heel: size, color, blanchability, warmth, and integrity",
+            "opaqueTokenLabel": "P4",
+            "zh": "连续评估尾骨和右足跟皮肤：大小、颜色、可褪色情况、温度和完整性"
+          }
+        ]
+      }
+    },
+    "glossary": [
+      {
+        "defZh": "一种NGN题型，将情况识别与措施及监测参数联系起来。",
+        "termEn": "Bow-tie item",
+        "termZh": "蝴蝶结题"
+      },
+      {
+        "defZh": "移除易受损部位所承受的压力。",
+        "termEn": "Offloading",
+        "termZh": "减压"
+      },
+      {
+        "defZh": "红斑按压后是否变白，并在松开后恢复的特性。",
+        "termEn": "Blanchability",
+        "termZh": "可褪色性"
+      }
+    ],
+    "rationale": {
+      "byChoice": [
+        {
+          "en": "This condition integrates the improving sacral Stage 1 injury, the new heel Stage 1 injury, immobility, moisture, nutrition risk, and device pressure.",
+          "opaqueTokenLabel": "C1",
+          "zh": "该诊断整合了正在改善的骶尾部1期损伤、新的足跟1期损伤、不活动、潮湿、营养风险和器械受压。"
+        },
+        {
+          "en": "The pressure findings are remote from the incision; the incision has no erythema or warmth, the client is afebrile, and WBC is normal.",
+          "opaqueTokenLabel": "C2",
+          "zh": "压力相关发现远离切口；切口无红肿发热，患者无发热，白细胞正常。"
+        },
+        {
+          "en": "The heel lesion is localized exactly to device contact, with no calf tenderness or diffuse unilateral swelling suggesting DVT.",
+          "opaqueTokenLabel": "C3",
+          "zh": "足跟病灶正好局限于器械接触处，没有提示DVT的小腿压痛或弥漫性单侧肿胀。"
+        },
+        {
+          "en": "Immediate correction of offloading removes the mechanism causing the new device-related injury.",
+          "opaqueTokenLabel": "A3",
+          "zh": "立即纠正减压方式可移除造成新的器械相关损伤的机制。"
+        },
+        {
+          "en": "Nutrition support targets persistent poor intake and tissue-tolerance risk that can delay healing.",
+          "opaqueTokenLabel": "A1",
+          "zh": "营养支持针对持续摄入不足和组织耐受性风险，有助于愈合。"
+        },
+        {
+          "en": "Simply repositioning the same boot treats the device as inherently safe and may allow the strap injury to recur.",
+          "opaqueTokenLabel": "A4",
+          "zh": "只是重新摆放同一只保护靴，把器械视为天然安全，可能让绑带损伤复发。"
+        },
+        {
+          "en": "Mobility is improving but she still spends much of the day in bed and remains at risk; stopping scheduled turns would expose the sacrum to renewed pressure.",
+          "opaqueTokenLabel": "A2",
+          "zh": "活动虽改善，但患者大部分时间仍在床上且仍有风险；停止定时翻身会让骶尾部再次承受持续压力。"
+        },
+        {
+          "en": "Serial skin measurements directly show whether pressure offloading and moisture management are working.",
+          "opaqueTokenLabel": "P4",
+          "zh": "连续皮肤测量能直接显示减压和潮湿管理是否有效。"
+        },
+        {
+          "en": "Intake versus dietitian goals evaluates whether nutrition support is meeting healing demands.",
+          "opaqueTokenLabel": "P3",
+          "zh": "摄入量与营养师目标对比，可评价营养支持是否满足愈合需求。"
+        },
+        {
+          "en": "Hemoglobin is a postoperative anemia concern but does not evaluate pressure-injury resolution or nutrition-plan effectiveness.",
+          "opaqueTokenLabel": "P2",
+          "zh": "血红蛋白是术后贫血相关问题，但不能评价压力性损伤是否改善或营养计划是否有效。"
+        },
+        {
+          "en": "Spirometry is important pulmonary care but does not measure skin-integrity or nutrition outcomes.",
+          "opaqueTokenLabel": "P1",
+          "zh": "肺量计使用是重要肺部护理，但不能衡量皮肤完整性或营养结局。"
+        }
+      ],
+      "correct": {
+        "en": "The resolved picture is pressure-injury risk with both improvement and failure: the sacral Stage 1 site is smaller, but a new device-related heel Stage 1 injury proves the offloading plan needs modification. Nutrition remains a healing-risk domain. Monitoring should track the actual skin sites and whether nutritional intake meets goals.",
+        "zh": "最终图像是压力性损伤风险中既有改善也有失败：骶尾部1期区域缩小，但新的器械相关足跟1期损伤证明减压计划需要调整。营养仍是愈合风险领域。监测应跟踪实际皮肤部位，以及营养摄入是否达到目标。"
+      }
+    },
+    "stem": {
+      "en": "On postoperative day 2 after hip hemiarthroplasty, an 82-year-old client has an improving coccygeal Stage 1 pressure injury, improved mobility and voiding, persistent limited intake, and a new intact non-blanchable right heel area exactly where a shifted heel-suspension boot strap contacted the posterior calcaneus. Complete the bow-tie by choosing the most likely condition, two priority actions, and two parameters to monitor.",
+      "zh": "髋关节半置换术后第2天，一名82岁患者尾骨1期压力性损伤正在改善，活动和排尿改善，但摄入仍有限，并在右足跟出现新的完整皮肤不可褪色区域，位置正好是移位足跟悬吊靴绑带接触后跟骨处。请完成蝴蝶结题：选择最可能情况、两个优先措施和两个监测参数。"
+    },
+    "testTakingStrategy": {
+      "en": "For bow-tie items, match the condition to the finding that explains the whole pattern, then choose actions and parameters that directly change or measure that condition.",
+      "zh": "做蝴蝶结题时，要让“最可能情况”解释整个模式，然后选择能直接改变或衡量该情况的措施和参数。"
+    }
+  }
+}

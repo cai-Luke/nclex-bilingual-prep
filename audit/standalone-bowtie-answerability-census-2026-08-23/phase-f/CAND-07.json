@@ -1,0 +1,100 @@
+{
+  "advisoryPriority": "P3",
+  "bilingualCollateral": [
+    {
+      "concern": "The Chinese rendering of “provider” as “医嘱开立者” is scope-conscious but stiff and less natural than standard clinical phrasing.",
+      "evidence": "A3 translates “Notify the provider” as “通知医嘱开立者”; terminology should remain consistent with the project's preferred nursing Chinese.",
+      "priority": "P3"
+    },
+    {
+      "concern": "“体位性症状” is less specific than the English “orthostatic symptoms.”",
+      "evidence": "A1 could more clearly use “体位性低血压相关症状” or equivalent wording if orthostatic hypotension is intended.",
+      "priority": "P3"
+    }
+  ],
+  "canonicalTargetSiblingOverlap": [
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling provides the earlier ANC values, subsequent ANC decline, early clozapine timing, cardiac biomarker abnormalities, heart-failure findings, and echocardiographic interpretation supporting concurrent toxicities.",
+      "opaqueTokenLabel": "C1",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling explicitly states a facility policy to hold clozapine for fever at or above 101.3 °F (38.5 °C), moderate or severe neutropenia, or suspected myocarditis.",
+      "opaqueTokenLabel": "A4",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling policy and management sequence explicitly require provider notification and escalation for the hematologic and cardiac findings.",
+      "opaqueTokenLabel": "A3",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling supplies serial ANC values of 4,100, 3,600, 980, and 940/µL, directly illustrating the monitoring trajectory.",
+      "opaqueTokenLabel": "P2",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling supplies baseline troponin below 0.01 ng/mL followed by 0.48 and 0.52 ng/mL, corroborating serial myocardial-injury monitoring.",
+      "opaqueTokenLabel": "P1",
+      "overlap": true
+    }
+  ],
+  "clinicalCollateral": [
+    {
+      "concern": "The sibling's categorical febrile-neutropenia and antipseudomonal-treatment language is protocol-sensitive at ANC 980/µL.",
+      "evidence": "The standalone appropriately says moderate neutropenia with fever and infection-risk management. The sibling more broadly states that febrile neutropenia requires prompt empiric antipseudomonal antibiotics; that intensity should remain tied to clinical assessment, expected ANC trajectory, orders, and facility protocol.",
+      "priority": "P3"
+    },
+    {
+      "concern": "Some sibling neutropenic-precaution details are institution-dependent rather than universal current practice.",
+      "evidence": "The sibling specifies a private room, no fresh flowers, and no raw fruits or vegetables. These restrictions should be presented as facility-specific and should not be generalized from ANC 980/µL alone.",
+      "priority": "P3"
+    }
+  ],
+  "defectSummary": "No hidden-case dependency, unsupported canonical premise, key defect, or standalone-answerability failure is present. Sibling details explain several distractors and strengthen the longitudinal narrative but are not necessary to select the canonical set. Minor bilingual wording and protocol-dependent clinical statements merit P3 review.",
+  "missingFactProvenance": [
+    {
+      "missingFact": "No pre-clozapine or earlier ANC is supplied to demonstrate the ANC decline referenced by the complete rationale.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "C1",
+      "provenance": "RATIONALE_ONLY",
+      "sourceEvidence": "The standalone rationale refers to a clozapine-timed ANC decline without supplying an earlier value. The sibling baseline ANC 4,100/µL and Day-10 ANC 3,600/µL corroborate a later decline to 980/µL, but that history is not imported into the standalone item."
+    },
+    {
+      "missingFact": "The client is not stated to have drooling or orthostatic symptoms.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "A1",
+      "provenance": "OTHER_PROVENANCE",
+      "sourceEvidence": "The sibling Day-10 assessment reports nighttime drooling and orthostatic lightheadedness. This is collateral provenance only because those symptoms are unnecessary for recognizing A1 as a lower-priority action in the standalone emergency."
+    },
+    {
+      "missingFact": "The client is not stated to have improving hallucinations.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "A2",
+      "provenance": "OTHER_PROVENANCE",
+      "sourceEvidence": "The sibling Day-10 and Day-18 records report improved hallucinations. This corroborates the distractor's origin but is unnecessary because psychiatric improvement would not justify continued clozapine in the standalone presentation."
+    },
+    {
+      "missingFact": "No infectious source, culture result, sepsis-related hypotension, or perfusion abnormality is provided.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "C2",
+      "provenance": "UNSUPPORTED_ANYWHERE_CHECKED",
+      "sourceEvidence": "The sibling shows cultures obtained and empiric antibiotics started, but provides no positive culture, identified infectious source, sepsis-related hypotension, or perfusion abnormality establishing sepsis with septic cardiomyopathy as the single primary process."
+    }
+  ],
+  "primaryVerdict": "PASS_STANDALONE",
+  "reasoning": "Applying the fixed precedence, FAIL_HIDDEN_CASE_DEPENDENCY does not apply because none of the sibling-only longitudinal facts is necessary to rank the canonical choices. FAIL_UNSUPPORTED_TOKEN_PREMISE does not apply to the canonical set; absent premises occur only in non-keyed distractors and do not impair ranking. The standalone cue cluster supports C1, A4, A3, P2, and P1 without sibling rescue, so neither underdetermination nor canonical-key failure applies. The sibling therefore functions as corroboration only. P3 bilingual and protocol-currency collateral does not displace PASS_STANDALONE.",
+  "scopeCollateral": [
+    {
+      "concern": "No material nursing-scope breach identified.",
+      "evidence": "The keyed actions limit the nurse to holding clozapine per facility policy and notifying the provider; cultures, antibiotics, diagnostics, and consultation are described as ordered, anticipated, or coordinated interventions.",
+      "priority": null
+    }
+  ],
+  "secondaryFlags": []
+}

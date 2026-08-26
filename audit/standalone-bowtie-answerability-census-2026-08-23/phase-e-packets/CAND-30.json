@@ -1,0 +1,185 @@
+{
+  "canonicalSelection": {
+    "actionLabels": [
+      "A1",
+      "A2"
+    ],
+    "conditionLabel": "C2",
+    "parameterLabels": [
+      "P2",
+      "P1"
+    ]
+  },
+  "instruction": "The two blind-stage records are immutable. Compare them with the now-revealed canonical 1/2/2 selection and complete standalone item. Do not inspect or infer sibling-case material. Return the required Phase-E structured JSON without revising either blind record.",
+  "standaloneItem": {
+    "bowtie": {
+      "actions": {
+        "prompt": {
+          "en": "Priority actions",
+          "zh": "优先措施"
+        },
+        "tokens": [
+          {
+            "en": "Maintain serial neurologic assessments every 15 minutes, tracking GCS, pupils, and motor response",
+            "opaqueTokenLabel": "A1",
+            "zh": "每 15 分钟持续神经评估，追踪 GCS、瞳孔和运动反应"
+          },
+          {
+            "en": "Titrate nicardipine per order to maintain the prescribed systolic BP target",
+            "opaqueTokenLabel": "A2",
+            "zh": "按医嘱滴定 nicardipine，以维持规定的收缩压目标"
+          },
+          {
+            "en": "Reduce neurologic checks to hourly because the client is intubated",
+            "opaqueTokenLabel": "A3",
+            "zh": "因患者已插管，将神经检查减少为每小时一次"
+          },
+          {
+            "en": "Administer aspirin or clopidogrel now for ischemic stroke secondary prevention",
+            "opaqueTokenLabel": "A4",
+            "zh": "现在给予 aspirin 或 clopidogrel 进行缺血性卒中二级预防"
+          }
+        ]
+      },
+      "condition": {
+        "prompt": {
+          "en": "Most likely condition",
+          "zh": "最可能的病情"
+        },
+        "tokens": [
+          {
+            "en": "Re-occlusion of the left MCA after thrombectomy",
+            "opaqueTokenLabel": "C1",
+            "zh": "取栓后左侧 MCA 再闭塞"
+          },
+          {
+            "en": "Post-reperfusion symptomatic intracerebral hemorrhage",
+            "opaqueTokenLabel": "C2",
+            "zh": "再灌注后有症状性脑实质内出血"
+          },
+          {
+            "en": "Post-procedural sedation or medication effect",
+            "opaqueTokenLabel": "C3",
+            "zh": "术后镇静或药物作用"
+          }
+        ]
+      },
+      "parameters": {
+        "prompt": {
+          "en": "Parameters to monitor",
+          "zh": "应监测的指标"
+        },
+        "tokens": [
+          {
+            "en": "Systolic BP trend on the nicardipine infusion",
+            "opaqueTokenLabel": "P1",
+            "zh": "nicardipine 输注期间的收缩压趋势"
+          },
+          {
+            "en": "Neurologic examination: GCS, pupil size/reactivity, and motor response",
+            "opaqueTokenLabel": "P2",
+            "zh": "神经检查：GCS、瞳孔大小/反应和运动反应"
+          },
+          {
+            "en": "NIHSS score as the main measure during intubated ICH management",
+            "opaqueTokenLabel": "P3",
+            "zh": "插管后 ICH 处理中以 NIHSS 作为主要衡量指标"
+          },
+          {
+            "en": "Serial troponin level",
+            "opaqueTokenLabel": "P4",
+            "zh": "连续肌钙蛋白水平"
+          }
+        ]
+      }
+    },
+    "glossary": [
+      {
+        "defZh": "闭塞血管恢复血流后发生的颅内出血，可能导致神经状态突然恶化。",
+        "termEn": "Post-reperfusion hemorrhage",
+        "termZh": "再灌注后出血"
+      },
+      {
+        "defZh": "颞叶内侧结构受压移位，可压迫动眼神经并导致同侧瞳孔扩大。",
+        "termEn": "Uncal herniation",
+        "termZh": "钩回疝"
+      },
+      {
+        "defZh": "含凝血因子 II、VII、IX、X 的制剂，常用于紧急逆转 warfarin 相关凝血障碍。",
+        "termEn": "Four-factor PCC",
+        "termZh": "四因子凝血酶原复合物"
+      }
+    ],
+    "rationale": {
+      "byChoice": [
+        {
+          "en": "This token matches the abrupt post-reperfusion decline and CT-confirmed hemorrhage with mass effect.",
+          "opaqueTokenLabel": "C2",
+          "zh": "该选项符合再灌注后突然恶化，以及 CT 确认出血并有占位效应。"
+        },
+        {
+          "en": "Re-occlusion would worsen ischemic deficits, but it does not explain the new pupil asymmetry and CT-confirmed intraparenchymal hemorrhage.",
+          "opaqueTokenLabel": "C1",
+          "zh": "再闭塞会加重缺血性缺损，但不能解释新的瞳孔不对称和 CT 确认的脑实质内出血。"
+        },
+        {
+          "en": "Sedation does not cause unilateral pupil dilation with midline shift on CT, and the client had been alert and improving before the abrupt decline.",
+          "opaqueTokenLabel": "C3",
+          "zh": "镇静不会导致单侧瞳孔扩大并在 CT 上出现中线移位，且患者恶化前曾清醒并在改善。"
+        },
+        {
+          "en": "Frequent serial neurologic checks detect hematoma expansion or rising ICP while the risk is highest.",
+          "opaqueTokenLabel": "A1",
+          "zh": "频繁连续神经检查能在风险最高时发现血肿扩大或 ICP 升高。"
+        },
+        {
+          "en": "BP control is a prescribed modifiable intervention to reduce risk of hematoma expansion and requires active nursing titration/monitoring.",
+          "opaqueTokenLabel": "A2",
+          "zh": "控压是医嘱的可干预措施，用于降低血肿扩大风险，需要护士主动滴定和监测。"
+        },
+        {
+          "en": "Antiplatelet therapy is unsafe during active intracranial bleeding; secondary prevention is deferred until the hemorrhage is stable and neurology reassesses.",
+          "opaqueTokenLabel": "A4",
+          "zh": "活动性颅内出血时抗血小板治疗不安全；二级预防需等出血稳定并由神经科重新评估。"
+        },
+        {
+          "en": "Intubation does not prevent assessment of pupils or motor response; reducing check frequency could miss early expansion.",
+          "opaqueTokenLabel": "A3",
+          "zh": "插管并不妨碍评估瞳孔或运动反应；减少检查频率可能漏掉早期扩大。"
+        },
+        {
+          "en": "GCS, pupils, and motor response are the most actionable bedside signs of worsening mass effect or stabilization.",
+          "opaqueTokenLabel": "P2",
+          "zh": "GCS、瞳孔和运动反应是床旁判断占位效应恶化或稳定最有行动价值的指标。"
+        },
+        {
+          "en": "The systolic BP trend shows whether the ordered nicardipine strategy is achieving the target or needs escalation.",
+          "opaqueTokenLabel": "P1",
+          "zh": "收缩压趋势显示医嘱的 nicardipine 策略是否达到目标或需要升级处理。"
+        },
+        {
+          "en": "NIHSS is less useful once the client is intubated and nonverbal; GCS, pupils, and motor response are more appropriate for this ICH phase.",
+          "opaqueTokenLabel": "P3",
+          "zh": "患者插管且不能说话后，NIHSS 用处较小；此 ICH 阶段更适合用 GCS、瞳孔和运动反应。"
+        },
+        {
+          "en": "Troponin does not evaluate hematoma expansion or ICP in this neurologic deterioration scenario.",
+          "opaqueTokenLabel": "P4",
+          "zh": "肌钙蛋白不能评估此神经恶化情境中的血肿扩大或 ICP。"
+        }
+      ],
+      "correct": {
+        "en": "The best synthesis is post-reperfusion symptomatic intracerebral hemorrhage because the client had initial improvement after successful thrombectomy, then abruptly developed decreased consciousness, loss of speech, and ipsilateral pupil dilation, and CT confirms hemorrhage with midline shift. The nurse's priority actions are frequent neurologic assessment and prescribed BP control because worsening examination or uncontrolled systolic BP can signal or worsen hematoma expansion. The priority parameters mirror those actions: GCS/pupils/motor response and systolic BP trend.",
+        "zh": "最佳综合判断是再灌注后有症状性脑实质内出血，因为患者成功取栓后最初改善，随后突然出现意识下降、语言丧失和同侧瞳孔扩大，且 CT 确认出血并有中线移位。护士优先措施是频繁神经评估和按医嘱控压，因为神经检查恶化或收缩压控制不佳可能提示或加重血肿扩大。优先监测参数与这些措施对应：GCS/瞳孔/运动反应，以及收缩压趋势。"
+      }
+    },
+    "stem": {
+      "en": "Complete the bow-tie for this Stage 4 situation: after successful left MCA thrombectomy, the client initially improved, then became somnolent with loss of verbal output and a new sluggish left pupil. Emergent CT shows a 3 cm left frontoparietal intraparenchymal hemorrhage with edema and 4 mm left-to-right midline shift. The client is intubated, warfarin reversal has been ordered, and nicardipine is being titrated to the provider's stat systolic BP target.",
+      "zh": "完成此阶段 4 情境的 bow-tie：左侧 MCA 取栓成功后，患者最初改善，随后出现嗜睡、无语言输出，并出现新的左瞳孔对光反应迟钝。急诊 CT 显示左额顶叶脑实质内出血 3 cm，伴水肿和 4 mm 左向右中线移位。患者已插管，已医嘱逆转 warfarin，nicardipine 正在滴定至医师紧急收缩压目标。"
+    },
+    "testTakingStrategy": {
+      "en": "For bow-tie items, first name the condition that explains all cues, then choose nursing actions and monitoring parameters that directly reduce or detect the highest-risk complication.",
+      "zh": "做 bow-tie 题时，先确定能解释所有线索的病情，再选择能直接降低或发现最高风险并发症的护理措施和监测指标。"
+    }
+  }
+}

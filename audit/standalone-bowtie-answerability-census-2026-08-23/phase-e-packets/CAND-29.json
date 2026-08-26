@@ -1,0 +1,173 @@
+{
+  "canonicalSelection": {
+    "actionLabels": [
+      "A1",
+      "A2"
+    ],
+    "conditionLabel": "C1",
+    "parameterLabels": [
+      "P4",
+      "P3"
+    ]
+  },
+  "instruction": "The two blind-stage records are immutable. Compare them with the now-revealed canonical 1/2/2 selection and complete standalone item. Do not inspect or infer sibling-case material. Return the required Phase-E structured JSON without revising either blind record.",
+  "standaloneItem": {
+    "bowtie": {
+      "actions": {
+        "tokens": [
+          {
+            "en": "Reinforce strict lifelong gluten-free adherence, including hidden sources and cross-contamination prevention",
+            "opaqueTokenLabel": "A1",
+            "zh": "强化终身严格无麸质依从性，包括隐匿来源和防止交叉污染"
+          },
+          {
+            "en": "Coordinate the DEXA scan and explain the bone-health rationale",
+            "opaqueTokenLabel": "A2",
+            "zh": "协调DEXA检查并解释骨健康原因"
+          },
+          {
+            "en": "Label the falling but elevated tTG-IgA as treatment failure and recommend immediate repeat duodenal biopsy",
+            "opaqueTokenLabel": "A3",
+            "zh": "将下降但仍升高的tTG-IgA判定为治疗失败，并建议立即重复十二指肠活检"
+          },
+          {
+            "en": "Stop nutritional supplements because the latest values improved into or near the reference range",
+            "opaqueTokenLabel": "A4",
+            "zh": "因最新指标已改善至正常或接近正常而停止营养补充剂"
+          }
+        ]
+      },
+      "condition": {
+        "tokens": [
+          {
+            "en": "Celiac disease with dermatitis herpetiformis",
+            "opaqueTokenLabel": "C1",
+            "zh": "乳糜泻合并疱疹样皮炎"
+          },
+          {
+            "en": "Crohn disease",
+            "opaqueTokenLabel": "C2",
+            "zh": "克罗恩病"
+          },
+          {
+            "en": "Irritable bowel syndrome",
+            "opaqueTokenLabel": "C3",
+            "zh": "肠易激综合征"
+          }
+        ]
+      },
+      "parameters": {
+        "tokens": [
+          {
+            "en": "ESR and CRP",
+            "opaqueTokenLabel": "P1",
+            "zh": "ESR和CRP"
+          },
+          {
+            "en": "Vitamin B12 level",
+            "opaqueTokenLabel": "P2",
+            "zh": "维生素B12水平"
+          },
+          {
+            "en": "Hemoglobin and ferritin",
+            "opaqueTokenLabel": "P3",
+            "zh": "血红蛋白和铁蛋白"
+          },
+          {
+            "en": "Serial tTG-IgA levels",
+            "opaqueTokenLabel": "P4",
+            "zh": "连续tTG-IgA水平"
+          }
+        ]
+      }
+    },
+    "glossary": [
+      {
+        "defZh": "要求同时选择最可能疾病、优先措施和监测参数的NGN题型。",
+        "termEn": "Bowtie item",
+        "termZh": "Bowtie题型"
+      },
+      {
+        "defZh": "反映骨强度和骨量的指标，可受维生素D和钙代谢影响。",
+        "termEn": "Bone mineral density",
+        "termZh": "骨密度"
+      },
+      {
+        "defZh": "摄入或接触小麦、大麦、黑麦等含麸质来源。",
+        "termEn": "Gluten exposure",
+        "termZh": "麸质暴露"
+      }
+    ],
+    "rationale": {
+      "byChoice": [
+        {
+          "en": "This diagnosis integrates the intestinal, skin, nutritional, serologic, histologic, and response data.",
+          "opaqueTokenLabel": "C1",
+          "zh": "该诊断整合了肠道、皮肤、营养、血清学、组织学和治疗反应数据。"
+        },
+        {
+          "en": "Crohn disease does not explain the celiac-specific serology, villous atrophy pattern, skin biopsy finding, and response to gluten avoidance.",
+          "opaqueTokenLabel": "C2",
+          "zh": "克罗恩病不能解释乳糜泻特异血清学、绒毛萎缩模式、皮肤活检结果和避免麸质后的反应。"
+        },
+        {
+          "en": "IBS does not cause objective malabsorption deficiencies, anemia, hypoalbuminemia, elevated tTG-IgA, or villous atrophy.",
+          "opaqueTokenLabel": "C3",
+          "zh": "IBS不会导致客观吸收不良缺乏、贫血、低白蛋白、tTG-IgA升高或绒毛萎缩。"
+        },
+        {
+          "en": "Strict gluten avoidance is the definitive treatment for both intestinal celiac disease and dermatitis herpetiformis.",
+          "opaqueTokenLabel": "A1",
+          "zh": "严格避免麸质是肠道乳糜泻和疱疹样皮炎的根本治疗。"
+        },
+        {
+          "en": "Prior low vitamin D, hypocalcemia, and secondary hyperparathyroidism create risk for reduced bone mineral density.",
+          "opaqueTokenLabel": "A2",
+          "zh": "既往低维生素D、低钙和继发性甲旁亢增加骨密度降低风险。"
+        },
+        {
+          "en": "A falling tTG-IgA with clinical and nutritional improvement supports response; immediate repeat biopsy is not the priority in this stable improving scenario.",
+          "opaqueTokenLabel": "A3",
+          "zh": "tTG-IgA下降且临床和营养指标改善支持治疗反应；在稳定改善情境下，立即重复活检不是优先事项。"
+        },
+        {
+          "en": "Improvement does not prove stores are fully repleted; premature discontinuation can allow deficiencies to recur.",
+          "opaqueTokenLabel": "A4",
+          "zh": "改善并不证明储备已完全补足；过早停止可能导致缺乏复发。"
+        },
+        {
+          "en": "Serial tTG-IgA helps track response and may prompt assessment for inadvertent gluten exposure if it rises or plateaus.",
+          "opaqueTokenLabel": "P4",
+          "zh": "连续tTG-IgA有助于追踪反应；若升高或停滞，可提示评估无意麸质暴露。"
+        },
+        {
+          "en": "Hemoglobin and ferritin show whether iron-deficiency anemia and iron stores continue to recover.",
+          "opaqueTokenLabel": "P3",
+          "zh": "血红蛋白和铁蛋白显示缺铁性贫血和铁储备是否持续恢复。"
+        },
+        {
+          "en": "ESR and CRP were counter-cues against IBD; they are not the best markers of celiac response in this case.",
+          "opaqueTokenLabel": "P1",
+          "zh": "ESR和CRP曾是反向线索，不支持IBD；它们不是本病例追踪乳糜泻反应的最佳指标。"
+        },
+        {
+          "en": "B12 was normal and is not the key proximal-malabsorption marker driving this patient's follow-up.",
+          "opaqueTokenLabel": "P2",
+          "zh": "B12原本正常，并非驱动该患者随访的关键近端吸收不良指标。"
+        }
+      ],
+      "correct": {
+        "en": "The condition is celiac disease with dermatitis herpetiformis because the serology is interpretable and markedly positive, the duodenal biopsy shows characteristic celiac histology, the skin biopsy confirms DH, and the patient improves after strict gluten avoidance. Priority nursing actions are long-term diet adherence support and DEXA coordination because gluten avoidance is definitive therapy and prior calcium/vitamin D/PTH abnormalities create bone-health risk. Monitoring tTG-IgA plus hemoglobin/ferritin tracks serologic response and recovery of iron-deficiency anemia/iron stores.",
+        "zh": "最可能疾病是乳糜泻合并疱疹样皮炎，因为血清学可解释且显著阳性，十二指肠活检显示乳糜泻特征性组织学，皮肤活检确认疱疹样皮炎，并且严格避免麸质后患者改善。优先护理措施是支持长期饮食依从性和协调DEXA，因为避免麸质是根本治疗，且既往钙/维生素D/PTH异常造成骨健康风险。监测tTG-IgA以及血红蛋白/铁蛋白可追踪血清学反应和缺铁性贫血/铁储备恢复。"
+      }
+    },
+    "stem": {
+      "en": "Stage 3 summary: A 28-year-old woman with prior steatorrhea, weight loss, iron/folate/vitamin D/calcium deficiencies, positive tTG-IgA with normal total IgA, Marsh 3a duodenal biopsy, and skin biopsy-confirmed dermatitis herpetiformis has completed three months of strict gluten-free diet after eliminating hidden gluten. Her GI symptoms and rash have resolved, nutritional labs have improved, and tTG-IgA has fallen from 128 to 38 U/mL. Select the most likely condition, two priority nursing actions, and two parameters to monitor.",
+      "zh": "第3阶段摘要：一名28岁女性曾有脂肪泻、体重下降、铁/叶酸/维生素D/钙缺乏，tTG-IgA阳性且总IgA正常，十二指肠活检Marsh 3a，皮肤活检确认疱疹样皮炎。消除隐匿麸质后，她已严格无麸质饮食3个月。胃肠症状和皮疹已缓解，营养实验室指标改善，tTG-IgA从128降至38 U/mL。请选择最可能的疾病、两项优先护理措施和两个需要监测的参数。"
+    },
+    "testTakingStrategy": {
+      "en": "In a bowtie item, link the center diagnosis to the strongest objective cues, then choose actions and monitoring parameters that directly manage the remaining risks.",
+      "zh": "做bowtie题时，将中心诊断与最强客观线索相连，再选择直接处理剩余风险的措施和监测参数。"
+    }
+  }
+}

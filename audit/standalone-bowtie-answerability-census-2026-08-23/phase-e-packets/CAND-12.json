@@ -1,0 +1,190 @@
+{
+  "canonicalSelection": {
+    "actionLabels": [
+      "A1",
+      "A2"
+    ],
+    "conditionLabel": "C1",
+    "parameterLabels": [
+      "P2",
+      "P3"
+    ]
+  },
+  "instruction": "The two blind-stage records are immutable. Compare them with the now-revealed canonical 1/2/2 selection and complete standalone item. Do not inspect or infer sibling-case material. Return the required Phase-E structured JSON without revising either blind record.",
+  "standaloneItem": {
+    "bowtie": {
+      "actions": {
+        "prompt": {
+          "en": "Priority actions",
+          "zh": "优先措施"
+        },
+        "tokens": [
+          {
+            "en": "Have Priya notify the hospitalist immediately with the BP, headache, and missed monitoring intervals",
+            "opaqueTokenLabel": "A1",
+            "zh": "让 Priya 立即向住院医报告 BP、头痛和漏监测时间段"
+          },
+          {
+            "en": "Speak privately with Renee about specific observed behaviors, patient-care impact, and policy-based documentation",
+            "opaqueTokenLabel": "A2",
+            "zh": "私下与 Renee 讨论具体观察到的行为、对患者护理的影响，以及按政策记录"
+          },
+          {
+            "en": "Address the interpersonal conflict with Renee before contacting the hospitalist",
+            "opaqueTokenLabel": "A3",
+            "zh": "先处理与 Renee 的人际冲突，再联系住院医"
+          },
+          {
+            "en": "Do not document or notify the manager because serious harm was avoided",
+            "opaqueTokenLabel": "A4",
+            "zh": "因为避免了严重伤害，所以不记录也不通知护士经理"
+          }
+        ]
+      },
+      "condition": {
+        "prompt": {
+          "en": "Most likely condition",
+          "zh": "最可能的问题"
+        },
+        "tokens": [
+          {
+            "en": "Client-safety communication breakdown resulting from unresolved lateral incivility",
+            "opaqueTokenLabel": "C1",
+            "zh": "未解决的横向不文明行为导致患者安全沟通中断"
+          },
+          {
+            "en": "Routine interpersonal friction requiring no formal intervention",
+            "opaqueTokenLabel": "C2",
+            "zh": "无需正式介入的普通人际摩擦"
+          },
+          {
+            "en": "Isolated knowledge deficit in the new nurse",
+            "opaqueTokenLabel": "C3",
+            "zh": "新护士单纯知识不足"
+          }
+        ]
+      },
+      "parameters": {
+        "prompt": {
+          "en": "Parameters to monitor",
+          "zh": "应监测的指标"
+        },
+        "tokens": [
+          {
+            "en": "Mrs. Vega's serum creatinine trend",
+            "opaqueTokenLabel": "P1",
+            "zh": "Vega 太太的血清肌酐趋势"
+          },
+          {
+            "en": "Completeness and professionalism of subsequent handoffs, including medication changes and time for questions",
+            "opaqueTokenLabel": "P2",
+            "zh": "后续交接的完整性和专业性，包括药物变更和提问时间"
+          },
+          {
+            "en": "Adherence to the q4h BP monitoring schedule and absence of further care omissions",
+            "opaqueTokenLabel": "P3",
+            "zh": "是否遵守每 4 小时 BP 监测安排，并且无进一步护理遗漏"
+          },
+          {
+            "en": "Whether Renee and Priya become personal friends during breaks",
+            "opaqueTokenLabel": "P4",
+            "zh": "Renee 和 Priya 是否在休息时成为私人朋友"
+          }
+        ]
+      }
+    },
+    "glossary": [
+      {
+        "defZh": "同事之间贬低、排斥、羞辱或破坏专业沟通的行为。",
+        "termEn": "Lateral incivility",
+        "termZh": "横向不文明行为"
+      },
+      {
+        "defZh": "护士在交接护理责任时传递患者关键资料、近期变化和后续计划的过程。",
+        "termEn": "Handoff",
+        "termZh": "交接班"
+      },
+      {
+        "defZh": "医嘱或流程中规定需要通知医护人员的具体阈值或症状。",
+        "termEn": "Call parameter",
+        "termZh": "通知医嘱参数"
+      },
+      {
+        "defZh": "用于记录安全事件、近失误或流程缺陷的机构内部报告。",
+        "termEn": "Incident report",
+        "termZh": "事件报告"
+      }
+    ],
+    "rationale": {
+      "byChoice": [
+        {
+          "en": "This matches the complete pattern: demeaning handoff behavior caused critical information to be omitted and a monitoring order to be missed.",
+          "opaqueTokenLabel": "C1",
+          "zh": "这符合完整模式：贬低性交接行为导致关键信息遗漏和监测医嘱漏执行。"
+        },
+        {
+          "en": "Priya needs coaching, but the event is not explained by her knowledge deficit alone; the handoff itself failed.",
+          "opaqueTokenLabel": "C3",
+          "zh": "Priya 需要指导，但该事件不能仅用她知识不足解释；交接本身失败了。"
+        },
+        {
+          "en": "The behavior reached the patient-care process and therefore is not routine friction.",
+          "opaqueTokenLabel": "C2",
+          "zh": "该行为已经影响患者护理流程，因此不是普通摩擦。"
+        },
+        {
+          "en": "This closes the active care gap and follows the provider's SBP > 180 call parameter.",
+          "opaqueTokenLabel": "A1",
+          "zh": "这能关闭当前护理缺口，并符合 SBP > 180 的医嘱通知参数。"
+        },
+        {
+          "en": "This addresses the incivility without public shaming and creates accountability through policy-based documentation.",
+          "opaqueTokenLabel": "A2",
+          "zh": "这能在不公开羞辱的情况下处理不文明行为，并通过按政策记录建立问责。"
+        },
+        {
+          "en": "This delays action while the client remains symptomatic and above the call threshold.",
+          "opaqueTokenLabel": "A3",
+          "zh": "这会在患者仍有症状且超过通知阈值时延误处理。"
+        },
+        {
+          "en": "Avoiding severe harm does not erase a missed-monitoring safety event or the need for manager follow-up.",
+          "opaqueTokenLabel": "A4",
+          "zh": "避免严重伤害并不会抹去漏监测安全事件，也不取消护士经理跟进的需要。"
+        },
+        {
+          "en": "This directly measures whether the handoff communication pattern is safer after intervention.",
+          "opaqueTokenLabel": "P2",
+          "zh": "这直接衡量干预后交接沟通模式是否更安全。"
+        },
+        {
+          "en": "This confirms that the specific missed-monitoring problem has been corrected.",
+          "opaqueTokenLabel": "P3",
+          "zh": "这确认具体的漏监测问题已被纠正。"
+        },
+        {
+          "en": "Friendship is not required; professional communication is the safety target.",
+          "opaqueTokenLabel": "P4",
+          "zh": "不要求成为朋友；安全目标是专业沟通。"
+        },
+        {
+          "en": "Creatinine may matter medically, but it does not evaluate the handoff communication breakdown.",
+          "opaqueTokenLabel": "P1",
+          "zh": "肌酐在医学上可能重要，但不能评价交接沟通中断。"
+        }
+      ],
+      "correct": {
+        "en": "The bow-tie centers on a client-safety communication breakdown caused by lateral incivility. The immediate action is provider notification because the SBP exceeds the ordered threshold and the client is symptomatic. The second priority is structured, private conduct follow-up with policy-based documentation. Monitoring must evaluate both the corrected BP-monitoring process and the professionalism/completeness of later handoffs.",
+        "zh": "本蝴蝶结题的核心是横向不文明行为导致患者安全沟通中断。立即措施是通知住院医，因为 SBP 超过医嘱阈值且患者有症状。第二个优先事项是进行结构化、私下的行为跟进，并按政策记录。监测必须同时评价 BP 监测流程是否纠正，以及后续交接是否专业且完整。"
+      }
+    },
+    "stem": {
+      "en": "At 2200, Priya reports Mrs. Vega's BP is 186/102 with a headache. She has just discovered that the amlodipine dose was increased today, the hospitalist ordered BP monitoring q4h x 24 hours with a call if SBP > 180, and the 1800 monitoring check was missed after an incomplete, dismissive handoff. Complete the bow-tie diagram.",
+      "zh": "2200，Priya 报告 Vega 太太 BP 为 186/102，并有头痛。她刚发现今天氨氯地平已加量，住院医要求 24 小时内每 4 小时监测 BP，若 SBP > 180 则通知；而由于一次不完整且轻慢的交接，1800 的监测已漏做。请完成蝴蝶结图。"
+    },
+    "testTakingStrategy": {
+      "en": "In bow-tie items, choose the condition that explains the whole chain, then pair one immediate safety action with one process action and monitor outcomes that match both.",
+      "zh": "做蝴蝶结题时，选择能解释整条事件链的问题，再搭配一个立即安全措施和一个流程措施，并监测与二者相符的结果。"
+    }
+  }
+}

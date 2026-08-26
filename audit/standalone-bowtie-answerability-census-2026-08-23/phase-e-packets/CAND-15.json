@@ -1,0 +1,173 @@
+{
+  "canonicalSelection": {
+    "actionLabels": [
+      "A2",
+      "A4"
+    ],
+    "conditionLabel": "C3",
+    "parameterLabels": [
+      "P3",
+      "P1"
+    ]
+  },
+  "instruction": "The two blind-stage records are immutable. Compare them with the now-revealed canonical 1/2/2 selection and complete standalone item. Do not inspect or infer sibling-case material. Return the required Phase-E structured JSON without revising either blind record.",
+  "standaloneItem": {
+    "bowtie": {
+      "actions": {
+        "tokens": [
+          {
+            "en": "Continue current vital-sign frequency and wait for the next scheduled reassessment",
+            "opaqueTokenLabel": "A1",
+            "zh": "继续按当前频率测生命体征，等下一次计划复评"
+          },
+          {
+            "en": "Start isotonic crystalloid bolus per sepsis/oncology protocol and position supine",
+            "opaqueTokenLabel": "A2",
+            "zh": "按脓毒症/肿瘤科方案开始等渗晶体液快速补液并协助平卧"
+          },
+          {
+            "en": "Delay fluid resuscitation until repeat cultures are drawn and broadened antibiotics are ordered",
+            "opaqueTokenLabel": "A3",
+            "zh": "延迟补液复苏，直到重复培养采集并获得扩大抗生素医嘱"
+          },
+          {
+            "en": "Activate rapid response and notify oncology with structured deterioration cues",
+            "opaqueTokenLabel": "A4",
+            "zh": "启动快速反应团队，并用结构化方式向肿瘤科报告恶化线索"
+          }
+        ]
+      },
+      "condition": {
+        "tokens": [
+          {
+            "en": "Immediate transfusion or antibiotic allergic reaction",
+            "opaqueTokenLabel": "C1",
+            "zh": "急性输血反应或抗生素过敏反应"
+          },
+          {
+            "en": "Simple dehydration from poor oral intake",
+            "opaqueTokenLabel": "C2",
+            "zh": "单纯进食差导致的脱水"
+          },
+          {
+            "en": "Neutropenic fever progressing toward sepsis",
+            "opaqueTokenLabel": "C3",
+            "zh": "中性粒细胞减少性发热向脓毒症进展"
+          }
+        ]
+      },
+      "parameters": {
+        "tokens": [
+          {
+            "en": "Serum lactate trend",
+            "opaqueTokenLabel": "P1",
+            "zh": "血清乳酸趋势"
+          },
+          {
+            "en": "Repeat chest X-ray findings as the immediate response marker",
+            "opaqueTokenLabel": "P2",
+            "zh": "将重复胸片结果作为即时反应指标"
+          },
+          {
+            "en": "Mean arterial pressure and urine output",
+            "opaqueTokenLabel": "P3",
+            "zh": "平均动脉压和尿量"
+          },
+          {
+            "en": "Repeat WBC/ANC during the acute crisis",
+            "opaqueTokenLabel": "P4",
+            "zh": "急性危机期间重复 WBC/ANC"
+          }
+        ]
+      }
+    },
+    "glossary": [
+      {
+        "defZh": "反映器官灌注压力的血压指标。",
+        "termEn": "Mean arterial pressure",
+        "termZh": "平均动脉压"
+      },
+      {
+        "defZh": "感染导致循环和细胞代谢异常，可出现低血压、乳酸升高和器官灌注不足。",
+        "termEn": "Septic shock",
+        "termZh": "脓毒性休克"
+      },
+      {
+        "defZh": "用于严重低血压时收缩血管、支持血压和灌注的药物。",
+        "termEn": "Vasopressor",
+        "termZh": "升压药"
+      }
+    ],
+    "rationale": {
+      "byChoice": [
+        {
+          "en": "This condition best integrates severe neutropenia, persistent fever, hypotension, rising lactate, oliguria, and delayed refill.",
+          "opaqueTokenLabel": "C3",
+          "zh": "该状况最能整合严重中性粒细胞减少、持续发热、低血压、乳酸升高、少尿和再充盈延迟。"
+        },
+        {
+          "en": "Poor intake is background context, but the acute decline with fever and lactate rise despite IV fluids points beyond simple dehydration.",
+          "opaqueTokenLabel": "C2",
+          "zh": "进食差是背景信息；但在已输液情况下伴发热和乳酸升高的急性下降，超出了单纯脱水。"
+        },
+        {
+          "en": "There is no blood product exposure and no urticaria, wheezing, angioedema, or immediate infusion reaction pattern.",
+          "opaqueTokenLabel": "C1",
+          "zh": "没有输血暴露，也没有荨麻疹、喘鸣、血管性水肿或即刻输注反应模式。"
+        },
+        {
+          "en": "Fluid resuscitation addresses the immediate perfusion threat shown by hypotension, oliguria, and rising lactate.",
+          "opaqueTokenLabel": "A2",
+          "zh": "补液复苏针对低血压、少尿和乳酸升高所显示的即时灌注威胁。"
+        },
+        {
+          "en": "Rapid response and oncology escalation prevent delay in broadened antibiotics, vasopressor consideration, and higher-level care.",
+          "opaqueTokenLabel": "A4",
+          "zh": "快速反应和肿瘤科升级可避免延误扩大抗生素、考虑升压药和更高级别护理。"
+        },
+        {
+          "en": "Waiting is unsafe because the client is showing hemodynamic decompensation rather than an expected treatment course.",
+          "opaqueTokenLabel": "A1",
+          "zh": "等待不安全，因为患者表现为血流动力学失代偿，而不是预期治疗过程。"
+        },
+        {
+          "en": "Repeat cultures and antibiotic changes matter, but they must not delay initial perfusion-restoring interventions.",
+          "opaqueTokenLabel": "A3",
+          "zh": "重复培养和调整抗生素很重要，但不能延误最初恢复灌注的措施。"
+        },
+        {
+          "en": "MAP and urine output directly reflect organ perfusion and response to the bolus.",
+          "opaqueTokenLabel": "P3",
+          "zh": "平均动脉压和尿量直接反映器官灌注以及对快速补液的反应。"
+        },
+        {
+          "en": "A falling lactate suggests improving tissue perfusion; a rising or plateauing lactate would signal refractory shock risk.",
+          "opaqueTokenLabel": "P1",
+          "zh": "乳酸下降提示组织灌注改善；乳酸继续上升或不降提示难治性休克风险。"
+        },
+        {
+          "en": "ANC defines vulnerability but will not change meaningfully over hours and does not guide immediate resuscitation choices.",
+          "opaqueTokenLabel": "P4",
+          "zh": "ANC 定义易感性，但数小时内不会有意义改变，也不能指导即时复苏选择。"
+        },
+        {
+          "en": "Chest imaging may help source evaluation, but it is not the immediate marker of response to the hemodynamic crisis.",
+          "opaqueTokenLabel": "P2",
+          "zh": "胸部影像可帮助寻找感染来源，但不是血流动力学危机即时反应的指标。"
+        }
+      ],
+      "correct": {
+        "en": "The Stage 2 picture is neutropenic fever progressing toward sepsis: persistent fever with hypotension, tachycardia, rising lactate, oliguria, delayed refill, and slower responses. The first priorities are perfusion support and rapid escalation; MAP/urine output and lactate trend show whether resuscitation is working.",
+        "zh": "第 2 阶段图像符合中性粒细胞减少性发热向脓毒症进展：持续发热伴低血压、心动过速、乳酸升高、少尿、再充盈延迟和反应变慢。首要任务是支持灌注和快速升级处理；平均动脉压/尿量及乳酸趋势可显示复苏是否有效。"
+      }
+    },
+    "stem": {
+      "en": "At 1745, the client with confirmed severe neutropenia has persistent fever, HR 118, BP 92/58, RR 24, SpO₂ 94% on room air, capillary refill 4 seconds, urine output 60 mL over 4 hours, and lactate 3.2 mmol/L after initial empiric antibiotics. Complete the bow-tie by selecting the most likely condition, two priority actions, and two parameters to monitor.",
+      "zh": "1745，这名已确认严重中性粒细胞减少的患者在初始经验性抗生素后仍持续发热，HR 118，BP 92/58，RR 24，室内空气 SpO₂ 94%，毛细血管再充盈 4 秒，4 小时尿量 60 mL，乳酸 3.2 mmol/L。请完成蝴蝶结题，选择最可能的状况、两个优先措施和两个需监测参数。"
+    },
+    "testTakingStrategy": {
+      "en": "In bow-tie items, link the center condition to the strongest cue cluster, then choose actions and monitoring that directly treat and measure that condition.",
+      "zh": "做蝴蝶结题时，将中心状况与最强线索群相连，再选择能直接治疗并衡量该状况的措施和监测。"
+    }
+  }
+}

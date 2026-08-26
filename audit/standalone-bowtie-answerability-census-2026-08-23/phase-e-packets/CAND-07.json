@@ -1,0 +1,185 @@
+{
+  "canonicalSelection": {
+    "actionLabels": [
+      "A4",
+      "A3"
+    ],
+    "conditionLabel": "C1",
+    "parameterLabels": [
+      "P2",
+      "P1"
+    ]
+  },
+  "instruction": "The two blind-stage records are immutable. Compare them with the now-revealed canonical 1/2/2 selection and complete standalone item. Do not inspect or infer sibling-case material. Return the required Phase-E structured JSON without revising either blind record.",
+  "standaloneItem": {
+    "bowtie": {
+      "actions": {
+        "prompt": {
+          "en": "Priority actions",
+          "zh": "优先措施"
+        },
+        "tokens": [
+          {
+            "en": "Focus first on drooling and orthostatic symptoms",
+            "opaqueTokenLabel": "A1",
+            "zh": "先重点处理流涎和体位性症状"
+          },
+          {
+            "en": "Continue clozapine because hallucinations are improving",
+            "opaqueTokenLabel": "A2",
+            "zh": "因幻听改善而继续氯氮平"
+          },
+          {
+            "en": "Notify the provider with ANC, fever, cardiac findings, and biomarker changes",
+            "opaqueTokenLabel": "A3",
+            "zh": "将 ANC、发热、心脏发现和生物标志物变化通知医嘱开立者"
+          },
+          {
+            "en": "Hold clozapine immediately per facility policy",
+            "opaqueTokenLabel": "A4",
+            "zh": "按机构政策立即暂停氯氮平"
+          }
+        ]
+      },
+      "condition": {
+        "prompt": {
+          "en": "Most likely condition",
+          "zh": "最可能的病情"
+        },
+        "tokens": [
+          {
+            "en": "Concurrent clozapine-induced moderate neutropenia with fever and clozapine-associated myocarditis",
+            "opaqueTokenLabel": "C1",
+            "zh": "氯氮平导致的发热性中度中性粒细胞减少合并氯氮平相关心肌炎"
+          },
+          {
+            "en": "Sepsis with septic cardiomyopathy as the single primary process",
+            "opaqueTokenLabel": "C2",
+            "zh": "脓毒症伴脓毒性心肌病作为唯一主要过程"
+          },
+          {
+            "en": "Anxiety-related tachycardia with benign clozapine side effects",
+            "opaqueTokenLabel": "C3",
+            "zh": "焦虑相关心动过速伴良性氯氮平不良反应"
+          }
+        ]
+      },
+      "parameters": {
+        "prompt": {
+          "en": "Parameters to monitor",
+          "zh": "应监测的指标"
+        },
+        "tokens": [
+          {
+            "en": "Troponin trend",
+            "opaqueTokenLabel": "P1",
+            "zh": "肌钙蛋白趋势"
+          },
+          {
+            "en": "ANC trend",
+            "opaqueTokenLabel": "P2",
+            "zh": "ANC 趋势"
+          },
+          {
+            "en": "Fasting glucose and triglycerides",
+            "opaqueTokenLabel": "P3",
+            "zh": "空腹血糖和甘油三酯"
+          },
+          {
+            "en": "AIMS score",
+            "opaqueTokenLabel": "P4",
+            "zh": "AIMS 评分"
+          }
+        ]
+      }
+    },
+    "glossary": [
+      {
+        "defZh": "NGN 题型，用一个病情、两个措施和两个监测指标连接临床判断。",
+        "termEn": "Bow-tie",
+        "termZh": "蝴蝶结题型"
+      },
+      {
+        "defZh": "反映心肌损伤或心脏负荷的实验室指标，如肌钙蛋白或 BNP。",
+        "termEn": "Cardiac biomarker",
+        "termZh": "心脏生物标志物"
+      },
+      {
+        "defZh": "心包腔内液体增多，可见于心肌炎等情况。",
+        "termEn": "Pericardial effusion",
+        "termZh": "心包积液"
+      }
+    ],
+    "rationale": {
+      "byChoice": [
+        {
+          "en": "Correct. The case has independent hematologic and cardiac clozapine toxicities occurring together.",
+          "opaqueTokenLabel": "C1",
+          "zh": "正确。本病例同时出现独立的氯氮平血液学毒性和心脏毒性。"
+        },
+        {
+          "en": "Sepsis must be considered and treated empirically because the client is febrile and neutropenic, but it does not fully explain the clozapine-timed ANC decline plus myocarditis findings.",
+          "opaqueTokenLabel": "C2",
+          "zh": "因患者发热且中性粒细胞减少，必须考虑并经验性处理脓毒症风险，但它不能完全解释与氯氮平时序一致的 ANC 下降和心肌炎发现。"
+        },
+        {
+          "en": "Anxiety does not explain fever, ANC 980/µL, troponin elevation, S3, crackles, edema, or reduced LVEF.",
+          "opaqueTokenLabel": "C3",
+          "zh": "焦虑不能解释发热、ANC 980/µL、肌钙蛋白升高、S3、湿啰音、水肿或 LVEF 降低。"
+        },
+        {
+          "en": "Correct. Holding the causative drug stops further exposure during two life-threatening adverse reactions.",
+          "opaqueTokenLabel": "A4",
+          "zh": "正确。暂停致病药物可在两种危及生命的不良反应期间停止继续暴露。"
+        },
+        {
+          "en": "Correct. The nurse must escalate immediately for cultures, antibiotics, cardiac diagnostics, consultation, and possible transfer.",
+          "opaqueTokenLabel": "A3",
+          "zh": "正确。护士必须立即升级处理，以取得培养、抗生素、心脏诊断、会诊和可能转运所需医嘱。"
+        },
+        {
+          "en": "Unsafe. Psychiatric benefit does not override acute neutropenia with fever or suspected myocarditis.",
+          "opaqueTokenLabel": "A2",
+          "zh": "不安全。精神症状获益不能压过发热性中性粒细胞减少或疑似心肌炎。"
+        },
+        {
+          "en": "Wrong priority. Drooling and orthostasis are real clozapine effects, but they are not the current life-threatening problems.",
+          "opaqueTokenLabel": "A1",
+          "zh": "优先级错误。流涎和体位性低血压确实是氯氮平反应，但不是当前危及生命的问题。"
+        },
+        {
+          "en": "Correct. ANC trend shows whether hematologic recovery is occurring after clozapine interruption.",
+          "opaqueTokenLabel": "P2",
+          "zh": "正确。ANC 趋势显示暂停氯氮平后血液学是否正在恢复。"
+        },
+        {
+          "en": "Correct. Troponin trend tracks ongoing versus resolving myocardial injury.",
+          "opaqueTokenLabel": "P1",
+          "zh": "正确。肌钙蛋白趋势可追踪心肌损伤是持续还是缓解。"
+        },
+        {
+          "en": "Metabolic labs remain important during clozapine therapy, but they do not track resolution of the acute neutropenia or myocarditis.",
+          "opaqueTokenLabel": "P3",
+          "zh": "代谢实验室在氯氮平治疗期间仍重要，但不能追踪当前急性中性粒细胞减少或心肌炎的缓解。"
+        },
+        {
+          "en": "AIMS is useful for abnormal involuntary movements, but it is not relevant to evaluating this acute hematologic/cardiac crisis.",
+          "opaqueTokenLabel": "P4",
+          "zh": "AIMS 用于评估异常不自主运动，但与评估当前急性血液学/心脏危机无关。"
+        }
+      ],
+      "correct": {
+        "en": "The bow-tie keys the dual toxicity. Fever and ANC 980/µL require interruption of clozapine and infection-risk management, while troponin/CRP elevation, heart-failure findings, and echocardiographic dysfunction support clozapine-associated myocarditis. Holding clozapine and notifying the provider are the priority nursing actions. ANC and troponin trends directly track hematologic and myocardial recovery.",
+        "zh": "本蝴蝶结题的关键是双重毒性。发热和 ANC 980/µL 要求暂停氯氮平并管理感染风险；肌钙蛋白/CRP 升高、心衰体征和超声心动图功能异常支持氯氮平相关心肌炎。暂停氯氮平并通知医嘱开立者是优先护理措施。ANC 和肌钙蛋白趋势直接追踪血液学和心肌恢复。"
+      }
+    },
+    "stem": {
+      "en": "Day 18–18.5 of clozapine therapy: The client has fever 101.7 °F (38.7 °C), sore throat, ANC 980/µL, new chest pressure, resting HR 118, dyspnea, new S3 gallop, bibasilar crackles, ankle edema, troponin I 0.48 ng/mL rising to 0.52 ng/mL, CRP 68 mg/L rising to 72 mg/L, BNP 420 pg/mL, and echocardiogram showing LVEF 45% with global hypokinesis and a small pericardial effusion. Complete the bow-tie diagram.",
+      "zh": "氯氮平治疗第18至18.5天：患者体温101.7 °F (38.7 °C)、咽痛、ANC 980/µL、新发胸部压迫感、静息 HR 118、气短、新发 S3 奔马律、双肺底湿啰音、踝部水肿，肌钙蛋白 I 0.48 ng/mL并升至0.52 ng/mL，CRP 68 mg/L并升至72 mg/L，BNP 420 pg/mL，超声心动图显示 LVEF 45%、弥漫性室壁运动减弱和小量心包积液。请完成蝴蝶结图。"
+    },
+    "testTakingStrategy": {
+      "en": "For bow-tie items, match the condition to the entire cue cluster, then choose actions that stop harm and escalate care, and parameters that directly track the selected condition.",
+      "zh": "做蝴蝶结题时，先用全部线索群匹配最可能病情，再选择能停止伤害并升级处理的措施，以及能直接追踪该病情的监测指标。"
+    }
+  }
+}

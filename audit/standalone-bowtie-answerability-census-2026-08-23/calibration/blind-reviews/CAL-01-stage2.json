@@ -1,0 +1,139 @@
+{
+  "actionLabels": [
+    "A1",
+    "A4"
+  ],
+  "ambiguousAlternatives": [
+    {
+      "opaqueTokenLabel": "P1",
+      "reason": "No dietary problem, dietary correction, growth concern, or hemoglobin issue is provided."
+    },
+    {
+      "opaqueTokenLabel": "P3",
+      "reason": "No lead exposure, elevated lead level, or lead-abatement plan is provided."
+    }
+  ],
+  "conditionLabel": "C2",
+  "missingInformation": [
+    "The pool lacks a second parameter directly tied to the stated hazards; it also provides no client-specific facts about diet, hemoglobin, lead exposure, developmental findings, safe food preparation, safe sleep, or car-seat use."
+  ],
+  "parameterLabels": [
+    "P2",
+    "P4"
+  ],
+  "poolAnswerability": "NOT_ANSWERABLE",
+  "reasoning": "C2, A1, and A4 are directly supported, and P2 is the closest evaluation choice because it includes dosing teach-back. No second parameter validly evaluates the stated acetaminophen and access hazards, so P4 is selected only as the least-disconnected forced choice based on the nine-month visit context.",
+  "selectionEvidence": [
+    {
+      "opaqueTokenLabel": "C2",
+      "supportingStemText": "Danielle \"relies on informal advice\" and gave 15 mL when the listed weight-band dose is 5 mL; Liam is also reaching for uncapped acetaminophen."
+    },
+    {
+      "opaqueTokenLabel": "A1",
+      "supportingStemText": "The record lists 5 mL for Liam's weight band, and Liam is reaching for a cosmetics pouch containing uncapped acetaminophen."
+    },
+    {
+      "opaqueTokenLabel": "A4",
+      "supportingStemText": "Danielle reports giving 15 mL of 160 mg/5 mL acetaminophen when the clinic/package table lists 5 mL."
+    },
+    {
+      "opaqueTokenLabel": "P2",
+      "supportingStemText": "Danielle \"relies on informal advice\" and reports a threefold acetaminophen dosing error; this supports dosing teach-back, but the other listed safety domains are absent."
+    },
+    {
+      "opaqueTokenLabel": "P4",
+      "supportingStemText": "The encounter is identified as a \"nine-month well-child visit\"; however, the stem does not establish developmental screening as an evaluation of hazard correction."
+    }
+  ],
+  "stage2Confidence": "high",
+  "tokenPremiseTable": [
+    {
+      "missingPremise": "Evidence that intimate partner violence or coercive control is present and drives the safety problems.",
+      "opaqueTokenLabel": "C1",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Its absent premise permits C1 to rank below the explicitly supported dosing-knowledge explanation.",
+      "supportingStemText": ""
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "C2",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The stem directly supports both the dosing error and accessible home hazard.",
+      "supportingStemText": "Danielle relies on informal advice, reports giving 15 mL instead of the listed 5 mL, and Liam can reach uncapped acetaminophen."
+    },
+    {
+      "missingPremise": "Evidence establishing failure to provide necessary care consistent with neglect rather than a correctable knowledge and support deficit.",
+      "opaqueTokenLabel": "C3",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Unsafe practices alone do not establish neglect, while C2 has direct support.",
+      "supportingStemText": ""
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A1",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Both dose education and immediate poison-hazard removal respond directly to stated facts.",
+      "supportingStemText": "The table lists 5 mL for Liam's weight band, and he is reaching for a pouch containing uncapped acetaminophen."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A2",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The immediate access hazard and substantial dosing discrepancy make one-month deferral inappropriate.",
+      "supportingStemText": "Danielle reports giving 15 mL when the listed dose is 5 mL, and Liam is currently reaching for uncapped acetaminophen."
+    },
+    {
+      "missingPremise": "Facts meeting protective-services reporting criteria beyond the described unsafe practices and caregiver knowledge/support deficits.",
+      "opaqueTokenLabel": "A3",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The stem does not establish maltreatment or another reportable circumstance.",
+      "supportingStemText": ""
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A4",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The discrepancy directly warrants clarifying timing, frequency, and cumulative exposure with conditional toxicology escalation.",
+      "supportingStemText": "Danielle reports a 15 mL dose of 160 mg/5 mL acetaminophen compared with the listed 5 mL dose."
+    },
+    {
+      "missingPremise": "A dietary problem requiring correction and a related growth or hemoglobin concern.",
+      "opaqueTokenLabel": "P1",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "MATERIAL",
+      "rankabilityJustification": "Without a dietary premise, this parameter cannot evaluate the stated safety intervention.",
+      "supportingStemText": ""
+    },
+    {
+      "missingPremise": "Client-specific unsafe food-preparation, sleep, and car-seat practices requiring follow-up teach-back.",
+      "opaqueTokenLabel": "P2",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "MATERIAL",
+      "rankabilityJustification": "Only the dosing component is supported, so the full bundled parameter exceeds the standalone stem.",
+      "supportingStemText": "The dosing error supports acetaminophen teach-back."
+    },
+    {
+      "missingPremise": "Known or suspected lead exposure, an abnormal lead level, or a lead-focused safety intervention.",
+      "opaqueTokenLabel": "P3",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "MATERIAL",
+      "rankabilityJustification": "Without lead-related facts, a lead trend cannot be the main evaluation of this plan.",
+      "supportingStemText": ""
+    },
+    {
+      "missingPremise": "Developmental findings or an intervention connecting ASQ-3 results to correction of the identified hazards.",
+      "opaqueTokenLabel": "P4",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "MATERIAL",
+      "rankabilityJustification": "Age supports routine developmental screening generally but does not make ASQ-3 the main hazard-correction measure.",
+      "supportingStemText": "The encounter is a nine-month well-child visit."
+    }
+  ]
+}

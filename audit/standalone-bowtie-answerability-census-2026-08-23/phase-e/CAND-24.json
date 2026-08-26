@@ -1,0 +1,139 @@
+{
+  "anyCanonicalTargetDependsOnAbsentFact": false,
+  "blindExactMatch": true,
+  "canonicalSelection": {
+    "actionLabels": [
+      "A1",
+      "A4"
+    ],
+    "conditionLabel": "C2",
+    "parameterLabels": [
+      "P3",
+      "P1"
+    ]
+  },
+  "canonicalSetExplanation": "C2 uniquely accounts for the entire temporally linked cue cluster. A1 and A4 directly treat the documented hypoxemia and hydrostatic overload, while P3 and P1 directly measure recovery in gas exchange and fluid removal. Each alternative either conflicts with explicit findings or lacks a relevant client premise.",
+  "canonicalSetUniquelyDefensible": true,
+  "canonicalTargetSupport": [
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "C2",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "Symptoms began during the second transfused unit and included BP 168/96, JVD, a new S3, worsening edema, oliguria, crackles, pulmonary vascular congestion, pleural effusions, cardiomegaly, widened vascular pedicle, BNP increase from 280 to 890 pg/mL, and improvement after furosemide."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "A1",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "The client had dyspnea and SpO2 89% on room air, with improvement after oxygen and upright positioning."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "A4",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "The client had oliguria and hydrostatic volume-overload findings, and dyspnea improved after ordered IV furosemide."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "P3",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "SpO2 fell to 89% on room air, supplemental oxygen was given, and dyspnea subsequently improved."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "P1",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "Oliguria was present and IV furosemide was administered, making subsequent urine output a direct measure of volume removal."
+    }
+  ],
+  "distractorPremiseFindings": [
+    {
+      "explanation": "Hypertension, JVD, a new S3, edema, hydrostatic radiographic findings, BNP elevation, and diuretic response support circulatory overload and oppose anaphylaxis; no allergic or airway manifestations are stated.",
+      "opaqueTokenLabel": "C1",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "Although acute hypoxemia during transfusion is compatible with TRALI in isolation, the elevated filling-pressure signs, cardiomegaly, widened vascular pedicle, BNP rise, hypertension, edema, and response to diuresis establish hydrostatic overload instead.",
+      "opaqueTokenLabel": "C3",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "The client is hypertensive and has explicit intravascular and pulmonary volume-overload findings; an IV fluid bolus would worsen congestion rather than support a low blood pressure.",
+      "opaqueTokenLabel": "A2",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "The transfusion was stopped after an acute transfusion-associated complication. Improvement in SpO2 alone does not support resuming the implicated unit while the reaction is still resolving.",
+      "opaqueTokenLabel": "A3",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "No temperature, fever, chills, or temperature trend is supplied. Even if available, temperature would not be the main resolution marker for the explicit TACO physiology.",
+      "opaqueTokenLabel": "P2",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "LOW"
+    },
+    {
+      "explanation": "No post-transfusion hemoglobin value or trend is supplied. Hemoglobin would assess transfusion efficacy rather than resolution of pulmonary congestion and excess volume.",
+      "opaqueTokenLabel": "P4",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "LOW"
+    }
+  ],
+  "missingClientFacts": [
+    {
+      "keyed": false,
+      "missingFact": "No hypotension, bronchospasm, angioedema, urticaria, throat tightness, or other allergic manifestation is reported.",
+      "opaqueTokenLabel": "C1",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "keyed": false,
+      "missingFact": "No temperature value, fever, chills, or temperature trend is reported.",
+      "opaqueTokenLabel": "P2",
+      "rankabilityImpact": "LOW"
+    },
+    {
+      "keyed": false,
+      "missingFact": "No post-transfusion hemoglobin value or trend is reported.",
+      "opaqueTokenLabel": "P4",
+      "rankabilityImpact": "LOW"
+    },
+    {
+      "keyed": true,
+      "missingFact": "The exact onset time, total transfused volume, and infusion rate are not reported.",
+      "opaqueTokenLabel": "C2",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "keyed": true,
+      "missingFact": "The post-intervention SpO2 and current supplemental-oxygen requirement are not reported.",
+      "opaqueTokenLabel": "P3",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "keyed": true,
+      "missingFact": "The urine output and net fluid balance after furosemide are not reported.",
+      "opaqueTokenLabel": "P1",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "keyed": true,
+      "missingFact": "The post-treatment blood pressure and current JVD, S3, edema, and crackle findings are not reported.",
+      "opaqueTokenLabel": "C2",
+      "rankabilityImpact": "NONE"
+    }
+  ],
+  "notes": [
+    "Blind selections were not revised.",
+    "Exact match is evaluated as an unordered selection within the two-action and two-parameter categories; Stage 2 selected P1 and P3 in the reverse of canonical display order.",
+    "No sibling-case information was used."
+  ],
+  "stage1Alignment": "FULL",
+  "stage1AlignmentExplanation": "Stage 1 independently identified TACO, upright positioning with supplemental oxygen, ordered IV furosemide, respiratory/oxygenation monitoring, and urine-output/fluid-removal monitoring. These semantically match all five canonical targets. Stage 2 selected the exact canonical labels; its reversed parameter order does not change the selected 1/2/2 set.",
+  "unstatedClientFactMateriallyChangesRankability": false
+}

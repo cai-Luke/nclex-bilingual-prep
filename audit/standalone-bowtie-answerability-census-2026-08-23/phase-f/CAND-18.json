@@ -1,0 +1,121 @@
+{
+  "advisoryPriority": "P3",
+  "bilingualCollateral": [
+    {
+      "concern": "The Chinese translation \"赞助人\" is a literal commercial sense of \"sponsor\" and may obscure the NA recovery-support role.",
+      "evidence": "A1 and the stem use \"赞助人\" for an NA sponsor; a recovery-mentor or mutual-aid-support expression would be clearer.",
+      "priority": "P3"
+    },
+    {
+      "concern": "Several Chinese phrases are overly literal or underspecified for learner scaffolding.",
+      "evidence": "\"NA 后勤\" is awkward for attendance or transportation arrangements, while \"询问疼痛加重\" does not clearly convey asking for a supervised escalation pathway; MAT and NA also remain unexplained acronyms in the standalone glossary.",
+      "priority": "P3"
+    }
+  ],
+  "canonicalTargetSiblingOverlap": [
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling adds prior relapse and overdose history, fracture-related functional stress, emotional distress, shame-related language, and isolation, but the standalone pain, craving, and disconnected supports already establish C1.",
+      "opaqueTokenLabel": "C1",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling confirms the sponsor, NA transportation barrier, and unconfirmed MAT appointment, all of which are already explicit in the standalone stem.",
+      "opaqueTokenLabel": "A1",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling supplies the detailed ordered pain regimen, escalation pathway, Tanya’s presence and training, and naloxone-kit history; the standalone questions about pain escalation and Tanya’s kit already make A3 rankable.",
+      "opaqueTokenLabel": "A3",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling repeats the inactive sponsor, NA, and MAT connections and explains why their activation indicates discharge readiness.",
+      "opaqueTokenLabel": "P2",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling provides the full pain course and ordered regimen, while the standalone already identifies a wearing-off block and pain rising to 5/10.",
+      "opaqueTokenLabel": "P3",
+      "overlap": true
+    }
+  ],
+  "clinicalCollateral": [
+    {
+      "concern": "The urine-screen rationale overstates what toxicology establishes.",
+      "evidence": "\"It detects relapse after the fact\" treats a urine drug screen as proof of relapse; clinically it detects selected recent exposures and must be interpreted with timing, assay limits, prescriptions, and the clinical assessment.",
+      "priority": "P3"
+    },
+    {
+      "concern": "The terminology \"medication-assisted treatment\" is increasingly superseded by medication for opioid use disorder terminology.",
+      "evidence": "The item consistently uses MAT; this remains understandable, but MOUD more clearly presents medication as treatment rather than an adjunct.",
+      "priority": "P3"
+    }
+  ],
+  "defectSummary": "The item passes because the standalone stem uniquely supports C1, A1, A3, P2, and P3 without needing sibling facts, although its rationale contains nonessential sibling-derived details.",
+  "missingFactProvenance": [
+    {
+      "missingFact": "Functional stress, shame, and isolation asserted in the revealed rationale",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "C1",
+      "provenance": "SIBLING_CASE_IMPORTED",
+      "sourceEvidence": "The sibling says Marcus cannot work, does not want to \"bother\" supports, asks \"What’s the point of staying clean if everyone still treats you like a junkie?\", and states, \"I just feel really alone right now.\""
+    },
+    {
+      "missingFact": "The contents of an established supervised pain plan and Tanya’s availability for teaching",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "A3",
+      "provenance": "SIBLING_CASE_IMPORTED",
+      "sourceEvidence": "The sibling provides scheduled acetaminophen and ibuprofen, ice, elevation, an escalation pathway, and resumed buprenorphine/naloxone; it also states \"Tanya is present\" and that she was previously trained and keeps naloxone at home."
+    },
+    {
+      "missingFact": "Objective opioid-withdrawal findings or an objective withdrawal score",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "C2",
+      "provenance": "SIBLING_CASE_IMPORTED",
+      "sourceEvidence": "The sibling supplies the negative objective assessment used to reject withdrawal: \"No diaphoresis, tremor, piloerection, rhinorrhea, yawning, vomiting, or GI distress\" with warm, dry skin and reactive pupils; no formal withdrawal score is provided."
+    },
+    {
+      "missingFact": "Any suicidal ideation, intent, plan, or repeated denial of suicidal intent",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "C3",
+      "provenance": "SIBLING_CASE_IMPORTED",
+      "sourceEvidence": "The sibling includes the ambiguous statement \"Sometimes I think it would be easier if I just didn’t have to deal with any of this anymore,\" followed by \"I’m not going to hurt myself,\" and later states that he denies suicidal ideation when asked directly."
+    },
+    {
+      "missingFact": "Evidence of immediate danger or another criterion supporting involuntary psychiatric detention",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "A4",
+      "provenance": "UNSUPPORTED_ANYWHERE_CHECKED",
+      "sourceEvidence": "No immediate-danger finding or detention criterion is established in either the standalone item or sibling; the sibling instead documents denial of self-harm and suicidal ideation while recommending reassessment."
+    },
+    {
+      "missingFact": "A prior urine drug screen, suspected recent opioid use, and confirmation that this is an ED discharge",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "P1",
+      "provenance": "SIBLING_CASE_IMPORTED",
+      "sourceEvidence": "The sibling identifies an ED encounter, provides a urine screen positive only for prescribed buprenorphine, and records Tanya asking, \"Is he using again?\" while reporting concerning recent behavior; actual recent illicit use is not established."
+    },
+    {
+      "missingFact": "Vital-sign measurements showing prior abnormality and normalization after pain control",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "P4",
+      "provenance": "SIBLING_CASE_IMPORTED",
+      "sourceEvidence": "The sibling shows HR 102 and BP 148/92 initially, HR 94 and BP 138/86 after analgesia, and HR 82 and BP 126/78 post-procedure."
+    }
+  ],
+  "primaryVerdict": "PASS_STANDALONE",
+  "reasoning": "No sibling fact is necessary to rank a canonical token, so the highest-precedence hidden-dependency failure does not apply. All keyed premises are supported by the standalone stem, the 1/2/2 set is determinate and clinically coherent, the blind records agree with the key, and no second-reviewer disagreement exists. Sibling-only rationale details and the collateral wording issues are nonmaterial P3 observations rather than lower-precedence failures.",
+  "scopeCollateral": [
+    {
+      "concern": "Teaching Tanya should be explicitly consent-based and tied to the ordered pain plan.",
+      "evidence": "A3 says to teach \"with Marcus and Tanya\" without stating Marcus’s consent, whereas the sibling correctly specifies Tanya’s inclusion with Marcus’s permission; nursing teaching should reinforce the prescribed escalation plan rather than independently alter analgesic therapy.",
+      "priority": "P3"
+    }
+  ],
+  "secondaryFlags": []
+}

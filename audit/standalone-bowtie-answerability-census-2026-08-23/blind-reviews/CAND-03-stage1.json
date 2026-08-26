@@ -1,0 +1,38 @@
+{
+  "condition": "Acute hemolytic transfusion reaction complicated by disseminated intravascular coagulation",
+  "evaluationParameters": [
+    "Urine output and urine color",
+    "Hemodynamic status and progression of bleeding/coagulation abnormalities"
+  ],
+  "missingInformation": [
+    "Pretransfusion and postreaction clerical compatibility checks, direct antiglobulin test result, repeat blood typing/crossmatch, baseline vital signs and laboratory values, current urine output rate, and response to fluid resuscitation"
+  ],
+  "priorityActions": [
+    "Maintain IV access with new tubing and administer isotonic normal saline to support blood pressure and renal perfusion",
+    "Notify the provider and blood bank immediately and initiate the transfusion-reaction workup, including returning the blood bag and tubing and obtaining required blood and urine specimens"
+  ],
+  "reasoning": "The abrupt transfusion-associated systemic symptoms and intravascular hemolysis strongly indicate an acute hemolytic transfusion reaction; simultaneous bleeding, thrombocytopenia, hypofibrinogenemia, and prolonged coagulation times indicate secondary DIC.",
+  "stage1Confidence": "high",
+  "stemEvidence": [
+    {
+      "stemFact": "Fever, rigors, bilateral flank pain, hypotension, hemoglobinuria, and a sense of impending doom within 12 minutes of starting a red blood cell transfusion, followed by port-wine urine, elevated LDH and bilirubin, and haptoglobin <10 mg/dL",
+      "target": "condition"
+    },
+    {
+      "stemFact": "Worsening hypotension and oliguria with port-wine urine after the transfusion was stopped",
+      "target": "priorityAction1"
+    },
+    {
+      "stemFact": "Symptoms began within 12 minutes of starting the red blood cell transfusion",
+      "target": "priorityAction2"
+    },
+    {
+      "stemFact": "Oliguria with port-wine urine",
+      "target": "evaluationParameter1"
+    },
+    {
+      "stemFact": "Worsening hypotension, oozing from puncture sites, platelets 104 ×10³/µL, fibrinogen 140 mg/dL, INR 1.8, and aPTT 52 seconds",
+      "target": "evaluationParameter2"
+    }
+  ]
+}

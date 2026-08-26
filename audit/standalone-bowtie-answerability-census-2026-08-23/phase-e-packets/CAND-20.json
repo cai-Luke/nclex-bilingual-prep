@@ -1,0 +1,173 @@
+{
+  "canonicalSelection": {
+    "actionLabels": [
+      "A4",
+      "A1"
+    ],
+    "conditionLabel": "C2",
+    "parameterLabels": [
+      "P4",
+      "P3"
+    ]
+  },
+  "instruction": "The two blind-stage records are immutable. Compare them with the now-revealed canonical 1/2/2 selection and complete standalone item. Do not inspect or infer sibling-case material. Return the required Phase-E structured JSON without revising either blind record.",
+  "standaloneItem": {
+    "bowtie": {
+      "actions": {
+        "tokens": [
+          {
+            "en": "Maintain ICU hemodynamic monitoring with a clear escalation plan",
+            "opaqueTokenLabel": "A1",
+            "zh": "维持ICU血流动力学监测，并明确升级处理计划"
+          },
+          {
+            "en": "Place the client supine or in Trendelenburg to raise blood pressure",
+            "opaqueTokenLabel": "A2",
+            "zh": "将患者置于平卧位或Trendelenburg位以升高血压"
+          },
+          {
+            "en": "Request systemic thrombolysis because troponin rose slightly",
+            "opaqueTokenLabel": "A3",
+            "zh": "因肌钙蛋白小幅升高而要求全身溶栓"
+          },
+          {
+            "en": "Continue the UFH infusion and monitor aPTT per protocol",
+            "opaqueTokenLabel": "A4",
+            "zh": "继续UFH泵入，并按方案监测aPTT"
+          }
+        ]
+      },
+      "condition": {
+        "tokens": [
+          {
+            "en": "Tension pneumothorax",
+            "opaqueTokenLabel": "C1",
+            "zh": "张力性气胸"
+          },
+          {
+            "en": "Intermediate-risk/submassive pulmonary embolism",
+            "opaqueTokenLabel": "C2",
+            "zh": "中危/次大面积肺栓塞"
+          },
+          {
+            "en": "ST-elevation myocardial infarction",
+            "opaqueTokenLabel": "C3",
+            "zh": "ST段抬高型心肌梗死"
+          }
+        ]
+      },
+      "parameters": {
+        "tokens": [
+          {
+            "en": "Temperature 99 °F (37.2 °C)",
+            "opaqueTokenLabel": "P1",
+            "zh": "体温99 °F (37.2 °C)"
+          },
+          {
+            "en": "Serial D-dimer level",
+            "opaqueTokenLabel": "P2",
+            "zh": "连续D-二聚体水平"
+          },
+          {
+            "en": "SpO2 and respiratory rate trend",
+            "opaqueTokenLabel": "P3",
+            "zh": "SpO2和呼吸频率趋势"
+          },
+          {
+            "en": "Heart rate and blood pressure trend",
+            "opaqueTokenLabel": "P4",
+            "zh": "心率和血压趋势"
+          }
+        ]
+      }
+    },
+    "glossary": [
+      {
+        "defZh": "有右心功能受累或心肌标志物阳性，但没有持续性低血压或休克的PE。",
+        "termEn": "Intermediate-risk PE",
+        "termZh": "中危肺栓塞"
+      },
+      {
+        "defZh": "常用于监测普通肝素抗凝强度的凝血实验室指标。",
+        "termEn": "aPTT",
+        "termZh": "活化部分凝血活酶时间"
+      },
+      {
+        "defZh": "因血流机械性阻塞导致心输出量下降和组织灌注不足的休克。",
+        "termEn": "Obstructive shock",
+        "termZh": "梗阻性休克"
+      }
+    ],
+    "rationale": {
+      "byChoice": [
+        {
+          "en": "This condition fits confirmed PE with RV dysfunction and positive biomarkers without sustained hypotension.",
+          "opaqueTokenLabel": "C2",
+          "zh": "该病情符合已确认PE伴右心功能受累和标志物阳性，但无持续低血压。"
+        },
+        {
+          "en": "The troponin is explained by RV strain, and the ECG/CT pattern supports PE rather than coronary-territory ST elevation.",
+          "opaqueTokenLabel": "C3",
+          "zh": "肌钙蛋白升高可由右心受压解释，心电图和CT表现支持PE而非冠脉供血区域ST段抬高。"
+        },
+        {
+          "en": "Chest x-ray and CT show no pneumothorax, and lung sounds are clear bilaterally.",
+          "opaqueTokenLabel": "C1",
+          "zh": "胸片和CT未见气胸，且双肺呼吸音清。"
+        },
+        {
+          "en": "Therapeutic anticoagulation prevents clot propagation while endogenous fibrinolysis stabilizes the clot burden.",
+          "opaqueTokenLabel": "A4",
+          "zh": "治疗性抗凝可防止血栓扩展，同时让机体内源性纤溶逐步稳定血栓负荷。"
+        },
+        {
+          "en": "Intermediate-risk PE can deteriorate; ICU monitoring allows rapid recognition of hypotension, shock, hypoxemia, or bleeding.",
+          "opaqueTokenLabel": "A1",
+          "zh": "中危PE可能恶化；ICU监测有助于快速识别低血压、休克、低氧或出血。"
+        },
+        {
+          "en": "A slight troponin rise alone does not justify systemic thrombolysis in an improving postoperative client.",
+          "opaqueTokenLabel": "A3",
+          "zh": "在正在改善的术后患者中，单独肌钙蛋白小幅升高不足以支持全身溶栓。"
+        },
+        {
+          "en": "Trendelenburg can worsen RV distension and reduce LV filling in obstructive PE physiology.",
+          "opaqueTokenLabel": "A2",
+          "zh": "Trendelenburg位可能加重右心室扩张，并在梗阻性PE生理状态下降低左心室充盈。"
+        },
+        {
+          "en": "HR and BP trends show whether RV function and cardiac output are stabilizing or deteriorating.",
+          "opaqueTokenLabel": "P4",
+          "zh": "HR和BP趋势可显示右心功能和心输出量是在稳定还是恶化。"
+        },
+        {
+          "en": "SpO2 and RR show whether oxygenation and work of breathing are improving or worsening.",
+          "opaqueTokenLabel": "P3",
+          "zh": "SpO2和RR可显示氧合和呼吸做功是改善还是恶化。"
+        },
+        {
+          "en": "D-dimer is already nonspecific after surgery and confirmed PE; serial levels do not guide acute response monitoring.",
+          "opaqueTokenLabel": "P2",
+          "zh": "术后且PE已确认时，D-二聚体已缺乏特异性；连续水平不能指导急性反应监测。"
+        },
+        {
+          "en": "A normal temperature does not track RV recovery or acute PE treatment response.",
+          "opaqueTokenLabel": "P1",
+          "zh": "正常体温不能反映右心恢复或急性PE治疗反应。"
+        }
+      ],
+      "correct": {
+        "en": "The most likely condition is intermediate-risk/submassive PE because the client has CT-confirmed saddle PE, RV dilation, septal bowing, elevated troponin and BNP, and ECG/clinical signs of RV strain while maintaining SBP above 90 mmHg. Priority actions are to continue therapeutic UFH and provide ICU-level monitoring with escalation if sustained hypotension or shock occurs. The best monitoring parameters are HR/BP and SpO2/RR because they reflect real-time hemodynamics and oxygenation.",
+        "zh": "最可能的病情是中危/次大面积PE，因为患者CT确认骑跨型PE，有右心室扩大、室间隔移位、肌钙蛋白和BNP升高，以及心电图/临床右心负荷增加表现，但收缩压维持在90 mmHg以上。优先措施是继续治疗性UFH，并进行ICU级监测；若出现持续低血压或休克则升级。最佳监测参数是HR/BP和SpO2/RR，因为它们反映实时血流动力学和氧合状态。"
+      }
+    },
+    "stem": {
+      "en": "A 68-year-old man on postoperative day 2 after total knee arthroplasty has sudden pleuritic chest pain, severe dyspnea, tachycardia, hypoxemia, JVD, and a swollen tender right calf. CT-PA shows a saddle pulmonary embolus with RV/LV ratio 1.4 and septal bowing. Troponin and BNP are elevated. His systolic BP has remained above 90 mmHg after initiation of a facility UFH protocol, and over 4 hours his HR, BP, SpO2, urine output, lactate, and pain improve, although troponin rises slightly. Complete the bow-tie by selecting the most likely condition, two priority actions, and two parameters to monitor.",
+      "zh": "一名68岁男性在全膝关节置换术后第2天突然出现吸气性胸痛、严重呼吸困难、心动过速、低氧、颈静脉怒张，以及右小腿肿胀压痛。CT肺动脉造影显示骑跨型肺栓塞，RV/LV比值1.4并有室间隔移位。肌钙蛋白和BNP升高。按本机构UFH方案开始治疗后，收缩压一直高于90 mmHg；4小时内HR、BP、SpO2、尿量、乳酸和疼痛均改善，但肌钙蛋白小幅升高。请完成弓形题：选择最可能的病情、两项优先措施和两个需要监测的参数。"
+    },
+    "testTakingStrategy": {
+      "en": "For bow-tie items, first lock the condition using the decisive diagnostic and hemodynamic data, then choose actions and parameters that directly match the immediate threats.",
+      "zh": "做弓形题时，先用决定性诊断和血流动力学资料锁定病情，再选择直接对应立即威胁的措施和监测参数。"
+    }
+  }
+}

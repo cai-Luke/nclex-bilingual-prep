@@ -1,0 +1,1083 @@
+{
+  "instruction": "The Stage-1, Stage-2, and Phase-E records are immutable. Inspect the paired case only now. Classify provenance for every Phase-E missing client fact, distinguish sibling necessity from corroboration, apply the fixed verdict precedence, and record narrow bilingual/clinical/scope collateral observations. Do not revise Phase E and do not propose content edits beyond an advisory P0-P3 priority.",
+  "phaseESha256": "cfed43df7b8ebd572f9bd60b7e5c15cdf6b921bca91eb1983e244d195db78ded",
+  "siblingCase": {
+    "caseStudy": {
+      "exhibits": [
+        {
+          "content": {
+            "en": "Standing rules at each doorway and reviewed at shift huddle:\n1. Alcohol-based hand rub (ABHR) is the default hand-hygiene method except when hands are visibly soiled or the client has a known or suspected spore-forming organism; then soap and water is required.\n2. Dedicated or single-use equipment is required for clients on contact precautions. If a device must be shared, clean visible soil, disinfect with an appropriate agent, and allow the manufacturer-specified wet-contact time before the device enters the next room.\n3. PPE is donned outside the room and doffed inside the room, gloves first and then gown, before exiting; perform hand hygiene immediately after removal.\n4. Visitors are offered a precautions orientation at the first visit of each shift, including hand hygiene and required PPE.\n5. Soiled linen from any isolation room is placed in a water-soluble inner bag and then into a labeled outer bag at the point of use.",
+            "zh": "各病房门口张贴并在交班小会上复习的常规制度：\n1. 酒精类手消毒剂（ABHR）为默认手卫生方式；但手部明显污染或患者有已知/疑似产孢子病原体时，必须使用肥皂和清水洗手。\n2. 接触隔离患者需使用专用或一次性设备。如设备必须共用，应先清除可见污物，再用合适消毒剂消毒，并达到厂家规定的湿接触时间后，才能进入下一间病房。\n3. PPE 在病房外穿戴；离开前在病房内脱除，先脱手套再脱隔离衣；脱除后立即进行手卫生。\n4. 探视者在每个班次首次探视时接受隔离预防指导，包括手卫生和所需 PPE。\n5. 任何隔离病房的污染布草应在使用地点先放入水溶性内袋，再放入有标识的外袋。"
+          },
+          "id": "baseline_unit_policy",
+          "title": {
+            "en": "Unit infection-prevention policy",
+            "zh": "病区感染预防制度"
+          }
+        },
+        {
+          "content": {
+            "en": "Client A, Room 12: 71-year-old post-op day 2 after right hemicolectomy. Six watery stools overnight; stool PCR positive for Clostridioides difficile at 0545. Contact precautions. Dedicated thermometer and blood-pressure cuff are in the room. Last void 7 hours ago; bladder scan ordered.\nClient B, Room 14: 58-year-old with community-acquired pneumonia on standard precautions only. Oxygen by nasal cannula at 3 L/min; SpO2 93-94%. Suprapubic fullness; bladder scan ordered after Client A.\nClient C, Room 16: 44-year-old with a large stage 3 sacral pressure injury, culture-positive for MRSA, open and draining through the dressing. Contact precautions. Dedicated stethoscope and blood-pressure cuff are in the room. Daughter has been helping reposition him.\nClient D, Room 18: 29-year-old with confirmed pulmonary TB, sputum AFB smear positive, in a negative-pressure AIIR with green indicator light. Airborne plus standard precautions. Mother is at bedside.",
+            "zh": "A 患者，12房：71岁，右半结肠切除术后第2天。夜间水样便6次；0545 粪便 PCR 艰难梭菌阳性。执行接触隔离。房内有专用体温计和血压袖带。7小时未排尿，已医嘱膀胱扫描。\nB 患者，14房：58岁，社区获得性肺炎，仅执行标准预防。鼻导管吸氧 3 L/min，SpO2 93–94%。诉耻骨上胀满；计划在 A 患者之后进行膀胱扫描。\nC 患者，16房：44岁，骶尾部大型 3期压力性损伤，培养 MRSA 阳性，伤口开放且敷料有引流渗出。执行接触隔离。房内有专用听诊器和血压袖带。女儿一直协助翻身。\nD 患者，18房：29岁，确诊肺结核，痰 AFB 涂片阳性，住在负压 AIIR，指示灯为绿色。执行空气传播隔离加标准预防。母亲在床旁。"
+          },
+          "id": "baseline_client_snapshot",
+          "title": {
+            "en": "0700 assignment and client snapshot",
+            "zh": "0700 分配患者及初始概况"
+          }
+        }
+      ],
+      "questions": [
+        {
+          "category": "Safety and Infection Prevention and Control",
+          "correct": [
+            {
+              "columnIds": [
+                "breach"
+              ],
+              "rowId": "q1_r1"
+            },
+            {
+              "columnIds": [
+                "not_breach"
+              ],
+              "rowId": "q1_r2"
+            },
+            {
+              "columnIds": [
+                "breach"
+              ],
+              "rowId": "q1_r3"
+            },
+            {
+              "columnIds": [
+                "breach"
+              ],
+              "rowId": "q1_r4"
+            }
+          ],
+          "difficulty": "medium",
+          "glossary": [
+            {
+              "defZh": "用于可通过直接或间接接触传播的病原体的隔离措施，通常包括隔离衣和手套。",
+              "termEn": "Contact precautions",
+              "termZh": "接触隔离"
+            },
+            {
+              "defZh": "只用于同一名患者或同一隔离房间的设备，不在患者之间交叉使用。",
+              "termEn": "Dedicated equipment",
+              "termZh": "专用设备"
+            },
+            {
+              "defZh": "被病原体污染、可间接传播感染的物体表面。",
+              "termEn": "Fomite",
+              "termZh": "污染媒介物"
+            }
+          ],
+          "id": "gpt_case_infection_control_clustered_care_01_q1",
+          "itemType": "matrix",
+          "matrix": {
+            "columns": [
+              {
+                "en": "Breach",
+                "id": "breach",
+                "zh": "违规/漏洞"
+              },
+              {
+                "en": "Not a breach",
+                "id": "not_breach",
+                "zh": "不是违规"
+              }
+            ],
+            "rows": [
+              {
+                "en": "Entering the contact-precautions room wearing gloves but no gown",
+                "id": "q1_r1",
+                "zh": "进入接触隔离病房时只戴手套、未穿隔离衣"
+              },
+              {
+                "en": "Using the blood-pressure cuff dedicated to Room 12",
+                "id": "q1_r2",
+                "zh": "使用12房专用的血压袖带"
+              },
+              {
+                "en": "Removing gloves and failing to perform hand hygiene immediately afterward",
+                "id": "q1_r3",
+                "zh": "脱下手套后未立即进行手卫生"
+              },
+              {
+                "en": "Touching the door handle with bare, unwashed hands after client contact",
+                "id": "q1_r4",
+                "zh": "接触患者后用未清洁的裸手触碰门把手"
+              }
+            ],
+            "selectionMode": "single_per_row"
+          },
+          "ngnSkill": "recognize_cues",
+          "rationale": {
+            "byChoice": [
+              {
+                "en": "This is a breach because clothing can be contaminated during contact-precautions care; gloves alone are not enough.",
+                "refId": "q1_r1",
+                "zh": "这是违规，因为接触隔离照护中衣物可能被污染；仅戴手套不够。"
+              },
+              {
+                "en": "This is not a breach because the cuff is dedicated to Client A's room and is not being moved to another client.",
+                "refId": "q1_r2",
+                "zh": "这不是违规，因为该袖带专用于 A 患者房间，并未拿给其他患者使用。"
+              },
+              {
+                "en": "This is a breach because organisms can be transferred during glove removal; hand hygiene must immediately follow doffing.",
+                "refId": "q1_r3",
+                "zh": "这是违规，因为脱手套时病原体可能转移到手上；脱除后必须立即手卫生。"
+              },
+              {
+                "en": "This is a breach because the door handle becomes a fomite that others may touch after care of a CDI client.",
+                "refId": "q1_r4",
+                "zh": "这是违规，因为在照护 CDI 患者后，门把手会成为其他人可能接触的污染媒介。"
+              }
+            ],
+            "correct": {
+              "en": "Contact precautions require gown and gloves before room entry. The dedicated cuff belongs in Room 12 and is appropriate to use. The major failures are missing the gown, missing immediate hand hygiene after glove removal, and touching a shared surface with contaminated bare hands; in a C. difficile room, the required hand-hygiene method is soap and water.",
+              "zh": "接触隔离要求进入病房前穿隔离衣并戴手套。12房专用血压袖带可在该房内使用。主要问题是未穿隔离衣、脱手套后未立即手卫生，以及用污染的裸手触碰共用表面；在艰难梭菌病房，所需手卫生方式为肥皂和清水洗手。"
+            }
+          },
+          "stem": {
+            "en": "Stage 1: Classify each nursing-student behavior in Client A's Clostridioides difficile room.",
+            "zh": "阶段1：请判断护生在 A 患者艰难梭菌病房中的每项行为。"
+          },
+          "testTakingStrategy": {
+            "en": "Separate true breaches from correct dedicated-equipment use. For contact precautions, ask: Was full PPE used, was hand hygiene done after doffing, and were shared surfaces protected?",
+            "zh": "把真正的违规与正确使用专用设备区分开。遇到接触隔离题，追问：是否使用了完整 PPE、脱除后是否手卫生、是否保护了共用表面。"
+          },
+          "topic": "Transmission-Based Precautions"
+        },
+        {
+          "category": "Safety and Infection Prevention and Control",
+          "correct": [
+            "q2_a",
+            "q2_b",
+            "q2_c",
+            "q2_d",
+            "q2_e"
+          ],
+          "difficulty": "hard",
+          "glossary": [
+            {
+              "defZh": "消毒剂按标签要求保持表面湿润并持续接触的时间。",
+              "termEn": "Wet-contact time",
+              "termZh": "湿接触时间"
+            },
+            {
+              "defZh": "可灭活或杀灭细菌孢子的消毒产品。",
+              "termEn": "Sporicidal disinfectant",
+              "termZh": "杀孢子消毒剂"
+            },
+            {
+              "defZh": "以酒精为主要成分的免洗手卫生产品。",
+              "termEn": "ABHR",
+              "termZh": "酒精类手消毒剂"
+            }
+          ],
+          "id": "gpt_case_infection_control_clustered_care_01_q2",
+          "itemType": "ordered_response",
+          "ngnSkill": "generate_solutions",
+          "options": [
+            {
+              "en": "Perform hand hygiene with soap and water immediately after doffing.",
+              "id": "q2_d",
+              "zh": "脱除 PPE 后立即用肥皂和清水进行手卫生。"
+            },
+            {
+              "en": "Doff gloves first and then gown inside Room 12 before exiting.",
+              "id": "q2_c",
+              "zh": "离开前在12房内先脱手套，再脱隔离衣。"
+            },
+            {
+              "en": "Clean any visible soil from the scanner surfaces while still in Room 12 and wearing PPE.",
+              "id": "q2_a",
+              "zh": "仍在12房且穿戴 PPE 时，先清除扫描仪表面的可见污物。"
+            },
+            {
+              "en": "Disinfect the probe, cord, screen or controls, handle, and touched surfaces with an EPA-registered sporicidal disinfectant effective against C. difficile, keeping surfaces wet for the label contact time.",
+              "id": "q2_b",
+              "zh": "使用对艰难梭菌有效的 EPA 注册杀孢子消毒剂，消毒探头、导线、屏幕或控制面板、把手及所有接触表面，并保持标签规定的湿接触时间。"
+            },
+            {
+              "en": "Transport the disinfected scanner to Client B's room with clean hands.",
+              "id": "q2_e",
+              "zh": "用清洁的手将已消毒的扫描仪带到 B 患者房间。"
+            }
+          ],
+          "rationale": {
+            "byChoice": [
+              {
+                "en": "Soap and water are required after CDI care because the case policy treats spore-forming organisms differently from routine hand hygiene.",
+                "refId": "q2_d",
+                "zh": "CDI 照护后必须用肥皂和清水洗手，因为本病例制度对产孢子病原体不同于常规手卫生。"
+              },
+              {
+                "en": "PPE is removed inside the room so contaminated gown and gloves are not carried into the hallway.",
+                "refId": "q2_c",
+                "zh": "PPE 应在房内脱除，避免把污染的隔离衣和手套带到走廊。"
+              },
+              {
+                "en": "Only after cleaning, disinfection, doffing, and hand hygiene should the clean scanner enter Client B's room.",
+                "refId": "q2_e",
+                "zh": "只有完成清洁、消毒、脱除 PPE 和手卫生后，清洁的扫描仪才能进入 B 患者房间。"
+              },
+              {
+                "en": "Visible soil must be removed first; disinfectants may not work reliably on uncleaned organic material.",
+                "refId": "q2_a",
+                "zh": "必须先清除可见污物；消毒剂在未清洁的有机物表面可能无法可靠发挥作用。"
+              },
+              {
+                "en": "CDI requires a sporicidal disinfectant and full contact time; a quick alcohol wipe or ABHR is not sufficient for spores.",
+                "refId": "q2_b",
+                "zh": "CDI 需要杀孢子消毒剂和完整接触时间；快速酒精擦拭或 ABHR 不能充分处理孢子。"
+              }
+            ],
+            "correct": {
+              "en": "Because the scanner was used in a CDI contact-precautions room and must be shared with a standard-precautions client, it must be cleaned, disinfected with a sporicidal product, and allowed full wet-contact time before moving to the next room. Doffing and soap-and-water hand hygiene after the device is disinfected prevent the nurse from recontaminating it during transport.",
+              "zh": "由于扫描仪先在 CDI 接触隔离病房使用，之后要给仅标准预防的患者使用，因此必须先清洁、使用杀孢子产品消毒，并达到完整湿接触时间后才能进入下一病房。设备消毒后再脱除 PPE，并用肥皂和清水洗手，可避免转运时再次污染设备。"
+            }
+          },
+          "stem": {
+            "en": "Stage 1: Put the steps in the correct order for handling the portable bladder scanner after use on Client A before taking it to Client B.",
+            "zh": "阶段1：将为 A 患者使用便携式膀胱扫描仪后、带去 B 患者房间前的处理步骤按正确顺序排列。"
+          },
+          "testTakingStrategy": {
+            "en": "For shared equipment, think from dirty to clean: remove soil, disinfect with the organism-specific product and contact time, remove contaminated PPE, clean hands, then move the equipment.",
+            "zh": "处理共用设备时按“由脏到净”思考：清除污物，使用针对病原体的消毒剂并达到接触时间，脱除污染 PPE，清洁双手，然后再移动设备。"
+          },
+          "topic": "Transmission-Based Precautions"
+        },
+        {
+          "category": "Safety and Infection Prevention and Control",
+          "correct": [
+            "q3_a",
+            "q3_b",
+            "q3_c",
+            "q3_e"
+          ],
+          "difficulty": "medium",
+          "glossary": [
+            {
+              "defZh": "对甲氧西林等多种抗菌药物耐药的金黄色葡萄球菌。",
+              "termEn": "MRSA",
+              "termZh": "耐甲氧西林金黄色葡萄球菌"
+            },
+            {
+              "defZh": "由学习者实际演示所学技能，以确认理解和操作正确。",
+              "termEn": "Return demonstration",
+              "termZh": "回示"
+            },
+            {
+              "defZh": "按安全顺序穿上和脱下 PPE 的过程。",
+              "termEn": "Donning and doffing",
+              "termZh": "穿戴与脱除"
+            }
+          ],
+          "id": "gpt_case_infection_control_clustered_care_01_q3",
+          "itemType": "select_all",
+          "ngnSkill": "take_action",
+          "options": [
+            {
+              "en": "Show her where PPE is located and ask for a return demonstration of donning, doffing, and hand hygiene.",
+              "id": "q3_e",
+              "zh": "告诉她 PPE 放置位置，并请她回示穿戴、脱除和手卫生。"
+            },
+            {
+              "en": "Tell her not to touch or reposition her father until the wound has healed.",
+              "id": "q3_d",
+              "zh": "告诉她在伤口愈合前不要触碰或协助父亲翻身。"
+            },
+            {
+              "en": "Explain that the draining MRSA wound can spread organisms by direct contact with hands, clothing, or linens.",
+              "id": "q3_b",
+              "zh": "解释有引流的 MRSA 伤口可通过手、衣物或床单等直接接触传播病原体。"
+            },
+            {
+              "en": "Acknowledge that she was not previously oriented and thank her for helping with care.",
+              "id": "q3_a",
+              "zh": "承认她先前未被指导，并感谢她协助照护。"
+            },
+            {
+              "en": "Give her a surgical mask as the main protection for MRSA contact precautions.",
+              "id": "q3_f",
+              "zh": "给她外科口罩作为 MRSA 接触隔离的主要防护。"
+            },
+            {
+              "en": "Teach that gown and gloves are required for room entry and direct contact with the client or bed linens.",
+              "id": "q3_c",
+              "zh": "告知进入病房以及直接接触患者或床单时需要穿隔离衣并戴手套。"
+            }
+          ],
+          "rationale": {
+            "byChoice": [
+              {
+                "en": "This gives the reason for precautions and links the open draining wound to contact transmission.",
+                "refId": "q3_b",
+                "zh": "这说明采取隔离措施的原因，并将开放引流伤口与接触传播联系起来。"
+              },
+              {
+                "en": "This matches contact-precautions PPE for direct contact with the client and contaminated linens.",
+                "refId": "q3_c",
+                "zh": "这符合直接接触患者和污染床单时的接触隔离 PPE 要求。"
+              },
+              {
+                "en": "A surgical mask is not the main intervention for MRSA contact precautions; gown, gloves, and hand hygiene are.",
+                "refId": "q3_f",
+                "zh": "外科口罩不是 MRSA 接触隔离的主要措施；主要措施是隔离衣、手套和手卫生。"
+              },
+              {
+                "en": "This is unnecessarily restrictive; the safer plan is to teach her how to help while wearing PPE.",
+                "refId": "q3_d",
+                "zh": "这过度限制；更安全的做法是教她在穿戴 PPE 的情况下继续协助。"
+              },
+              {
+                "en": "Return demonstration verifies that teaching changed the visitor's behavior, not just her verbal understanding.",
+                "refId": "q3_e",
+                "zh": "回示可确认教学转化为行为改变，而不仅是口头理解。"
+              },
+              {
+                "en": "This supports adherence by correcting a system gap without blaming the visitor.",
+                "refId": "q3_a",
+                "zh": "这样可在不责备探视者的情况下纠正系统性遗漏，促进依从性。"
+              }
+            ],
+            "correct": {
+              "en": "The daughter can remain involved in care, but she needs nonjudgmental teaching, clear explanation of contact spread, gown and glove use, and return demonstration. MRSA is spread mainly by contact in this scenario, so gown, gloves, and hand hygiene are the priority, not a surgical mask.",
+              "zh": "女儿可以继续参与照护，但需要非评判式指导、清楚解释接触传播、使用隔离衣和手套，并进行回示。本情境中 MRSA 主要通过接触传播，因此重点是隔离衣、手套和手卫生，而不是外科口罩。"
+            }
+          },
+          "stem": {
+            "en": "Stage 1: Which nursing actions are appropriate when teaching Client C's daughter about MRSA contact precautions? Select all that apply.",
+            "zh": "阶段1：护士教育 C 患者女儿有关 MRSA 接触隔离时，哪些措施合适？选择所有适用项。"
+          },
+          "testTakingStrategy": {
+            "en": "When a visitor makes an isolation error, choose teaching that preserves safe family involvement and verifies the behavior with return demonstration.",
+            "zh": "探视者出现隔离错误时，选择既能保留安全家庭参与、又能通过回示确认行为的教学措施。"
+          },
+          "topic": "Transmission-Based Precautions"
+        },
+        {
+          "category": "Safety and Infection Prevention and Control",
+          "correct": [
+            "q4_c"
+          ],
+          "difficulty": "hard",
+          "glossary": [
+            {
+              "defZh": "存放或准备清洁医疗用品的区域，应避免被污染设备进入。",
+              "termEn": "Clean utility room",
+              "termZh": "清洁用物间"
+            },
+            {
+              "defZh": "病原体从一个患者、物品或环境转移到另一个患者或区域。",
+              "termEn": "Cross-contamination",
+              "termZh": "交叉污染"
+            },
+            {
+              "defZh": "病原体从来源到易感者的传播路线。",
+              "termEn": "Transmission pathway",
+              "termZh": "传播路径"
+            }
+          ],
+          "id": "gpt_case_infection_control_clustered_care_01_q4",
+          "itemType": "multiple_choice",
+          "ngnSkill": "prioritize_hypotheses",
+          "options": [
+            {
+              "en": "The nursing student's contaminated bare-hand contact with the Room 12 door handle",
+              "id": "q4_a",
+              "zh": "护生用污染裸手触碰12房门把手"
+            },
+            {
+              "en": "The standard linen bag used for Client A's soiled linens",
+              "id": "q4_b",
+              "zh": "A 患者污染布草被放入普通布草袋"
+            },
+            {
+              "en": "Client B's wife stopping at the open doorway of Room 12 to ask a question",
+              "id": "q4_d",
+              "zh": "B 患者妻子停在12房开着的门口询问问题"
+            },
+            {
+              "en": "Client C's dedicated stethoscope placed on the clean-utility-room counter near the clean supply cart",
+              "id": "q4_c",
+              "zh": "C 患者专用听诊器被放在清洁用物间柜台上，靠近清洁物品车"
+            }
+          ],
+          "rationale": {
+            "byChoice": [
+              {
+                "en": "The wife needs reassurance and hand-hygiene teaching, but merely stopping at the doorway is not the highest-risk breach described.",
+                "refId": "q4_d",
+                "zh": "妻子需要安抚和手卫生教育，但仅停在门口不是本题描述的最高风险漏洞。"
+              },
+              {
+                "en": "The contaminated door handle is serious but is one high-touch surface at one doorway and can be addressed with targeted disinfection.",
+                "refId": "q4_a",
+                "zh": "污染门把手很严重，但它是单一门口的一个高频接触表面，可通过定点消毒处理。"
+              },
+              {
+                "en": "The linen-bagging error matters, especially for CDI, but it primarily creates downstream laundry-handling risk rather than immediate lateral spread to multiple clients.",
+                "refId": "q4_b",
+                "zh": "布草装袋错误很重要，尤其涉及 CDI，但主要增加下游洗涤处理风险，而非立即向多名患者横向传播。"
+              },
+              {
+                "en": "This is the priority because a contaminated dedicated device entered a clean supply area, creating an expanding fomite pathway to many clients.",
+                "refId": "q4_c",
+                "zh": "这是优先事项，因为污染的专用设备进入清洁物品区域，形成可扩大的污染媒介路径，影响多名患者。"
+              }
+            ],
+            "correct": {
+              "en": "The stethoscope breach has the widest and most direct cross-contamination pathway: a device from a draining MRSA contact-precautions room was placed in a clean supply area used for multiple clients. It could contaminate surfaces, supplies, and staff hands. The door handle and linen bagging errors are serious, but their exposure radius is more contained.",
+              "zh": "听诊器漏洞具有最广且最直接的交叉污染路径：来自 MRSA 引流伤口接触隔离病房的设备被放到供多名患者使用的清洁物品区域，可能污染表面、物品和工作人员双手。门把手和布草装袋错误也严重，但暴露范围较有限。"
+            }
+          },
+          "stem": {
+            "en": "Stage 3: The charge nurse asks which identified breach posed the greatest cross-contamination risk to other clients on the unit. Which breach should the nurse identify as the priority?",
+            "zh": "阶段3：责任护士询问已发现的哪个漏洞对病区其他患者造成最大的交叉污染风险。护士应优先指出哪一项？"
+          },
+          "testTakingStrategy": {
+            "en": "Prioritization in infection control is about scope and pathway: choose the breach that can spread organisms to the most clients through the most direct route.",
+            "zh": "感染控制优先级要看范围和传播路径：选择能通过最直接路径把病原体传播给最多患者的漏洞。"
+          },
+          "topic": "Transmission-Based Precautions"
+        },
+        {
+          "category": "Safety and Infection Prevention and Control",
+          "correct": [
+            "q5_a"
+          ],
+          "difficulty": "hard",
+          "glossary": [
+            {
+              "defZh": "用于控制空气传播病原体的负压隔离房间。",
+              "termEn": "AIIR",
+              "termZh": "空气传播感染隔离病房"
+            },
+            {
+              "defZh": "检测痰液中抗酸杆菌的显微镜检查，常用于评估结核传染性。",
+              "termEn": "AFB smear",
+              "termZh": "抗酸杆菌涂片"
+            },
+            {
+              "defZh": "按规定佩戴时可过滤空气中微粒的呼吸防护用品。",
+              "termEn": "N95 respirator",
+              "termZh": "N95 呼吸防护口罩"
+            }
+          ],
+          "id": "gpt_case_infection_control_clustered_care_01_q5",
+          "itemType": "multiple_choice",
+          "ngnSkill": "analyze_cues",
+          "options": [
+            {
+              "en": "Tell the mother she does not need respiratory protection inside the AIIR because negative pressure protects everyone in the room.",
+              "id": "q5_c",
+              "zh": "告诉母亲在 AIIR 内不需要呼吸防护，因为负压会保护房内所有人。"
+            },
+            {
+              "en": "Explain that a non-essential trip outside the AIIR is not permitted while AFB smears remain positive; offer in-room comfort alternatives and teach the mother to follow the facility airborne-precautions visitor policy, including instruction and offering of an N95 respirator.",
+              "id": "q5_a",
+              "zh": "解释 AFB 涂片仍阳性期间不得因非必要原因离开 AIIR；提供病房内舒适替代措施，并指导母亲遵循机构空气传播隔离探视政策，包括说明并提供 N95 呼吸防护口罩。"
+            },
+            {
+              "en": "Delay answering until the provider makes rounds because nurses do not teach airborne-precautions restrictions.",
+              "id": "q5_e",
+              "zh": "等医务人员查房后再回答，因为护士不负责空气传播隔离限制的教育。"
+            },
+            {
+              "en": "Allow a brief outdoor trip if the patient wears a surgical mask the entire time.",
+              "id": "q5_b",
+              "zh": "如果患者全程戴外科口罩，就允许短暂到室外。"
+            },
+            {
+              "en": "Give the mother a surgical mask and explain that this reliably protects visitors from airborne TB while inside the room.",
+              "id": "q5_d",
+              "zh": "给母亲外科口罩，并解释这能在房内可靠保护探视者免受空气传播结核感染。"
+            }
+          ],
+          "rationale": {
+            "byChoice": [
+              {
+                "en": "A patient surgical mask is for medically necessary transport; it does not make a non-essential trip acceptable while the client remains smear-positive.",
+                "refId": "q5_b",
+                "zh": "患者外科口罩用于医学必要转运；涂片阳性期间不能因此允许非必要外出。"
+              },
+              {
+                "en": "Negative pressure helps keep room air from escaping to adjacent areas; it does not protect a visitor who is inside the room from inhaling droplet nuclei.",
+                "refId": "q5_c",
+                "zh": "负压有助于防止室内空气逸散到邻近区域；但不能保护房内探视者不吸入飞沫核。"
+              },
+              {
+                "en": "A surgical mask is not reliable respiratory protection for a visitor against airborne TB in the room; the case's visitor policy includes N95 instruction and offering.",
+                "refId": "q5_d",
+                "zh": "外科口罩不是探视者在房内防护空气传播结核的可靠呼吸防护；病例中的探视政策包括 N95 指导和提供。"
+              },
+              {
+                "en": "Nurses are responsible for reinforcing isolation precautions and visitor teaching; delaying leaves an active safety question unresolved.",
+                "refId": "q5_e",
+                "zh": "护士有责任强化隔离预防和探视者教育；拖延会让正在发生的安全问题得不到处理。"
+              },
+              {
+                "en": "This protects others from airborne TB, uses the case's current smear-positive status, and addresses the mother's concern without dismissing her.",
+                "refId": "q5_a",
+                "zh": "这能保护他人免受空气传播结核，依据病例中涂片阳性的当前状态，并在不忽视母亲担忧的情况下回应。"
+              }
+            ],
+            "correct": {
+              "en": "The patient is still AFB smear-positive, and the case states the AIIR is functioning and precautions must continue. A non-essential outdoor trip would bypass the engineering control. A surgical mask on the patient is used only when medically necessary transport cannot be avoided; it is not a substitute for the AIIR. The nurse should respond compassionately, offer alternatives, and teach visitor respiratory-protection expectations under facility policy.",
+              "zh": "患者 AFB 涂片仍阳性，且病例说明 AIIR 功能正常、隔离需继续。非必要外出会绕过负压工程控制。患者外科口罩仅用于不可避免的医学必要转运，不能替代 AIIR。护士应以同理方式回应，提供替代措施，并按机构政策教育探视者呼吸防护要求。"
+            }
+          },
+          "stem": {
+            "en": "Stage 2: Client D has smear-positive pulmonary TB in a functioning AIIR. Her mother asks to take her outside in a wheelchair for fresh air. Which response is best?",
+            "zh": "阶段2：D 患者为痰涂片阳性肺结核，住在功能正常的 AIIR。母亲请求用轮椅带她到室外呼吸新鲜空气。哪项回应最合适？"
+          },
+          "testTakingStrategy": {
+            "en": "Do not let a compassionate request override the isolation category. For airborne TB, ask whether the trip is medically necessary and whether the AIIR can be replaced by a mask; here, it cannot.",
+            "zh": "不要让合情合理的请求凌驾于隔离类别之上。遇到空气传播结核，先问外出是否医学必要，以及口罩能否替代 AIIR；本题不能。"
+          },
+          "topic": "Transmission-Based Precautions"
+        },
+        {
+          "category": "Safety and Infection Prevention and Control",
+          "correct": [
+            "q6_a",
+            "q6_c",
+            "q6_e",
+            "q6_f"
+          ],
+          "difficulty": "hard",
+          "glossary": [
+            {
+              "defZh": "用于评价护理措施是否按预期执行的可观察行为或步骤。",
+              "termEn": "Process indicator",
+              "termZh": "过程指标"
+            },
+            {
+              "defZh": "持续收集和分析感染或风险数据以发现趋势。",
+              "termEn": "Surveillance",
+              "termZh": "监测"
+            },
+            {
+              "defZh": "学习者实际演示技能，以确认能正确执行。",
+              "termEn": "Return demonstration",
+              "termZh": "回示"
+            }
+          ],
+          "id": "gpt_case_infection_control_clustered_care_01_q6",
+          "itemType": "select_all",
+          "ngnSkill": "evaluate_outcomes",
+          "options": [
+            {
+              "en": "Client C's daughter demonstrating correct gown and glove donning and doffing supports that visitor teaching changed behavior.",
+              "id": "q6_a",
+              "zh": "C 患者女儿能正确回示隔离衣和手套的穿脱，支持探视者教学已改变行为。"
+            },
+            {
+              "en": "The student's isolation-room errors require follow-up education and supervised return demonstration before independent isolation-room contact.",
+              "id": "q6_f",
+              "zh": "护生在隔离病房的错误需要后续教育，并在独立接触隔离患者前接受监督下回示。"
+            },
+            {
+              "en": "Client D's continued AFB smear positivity means airborne precautions and AIIR confinement remain necessary; the outdoor trip remains inappropriate.",
+              "id": "q6_e",
+              "zh": "D 患者 AFB 涂片仍阳性，表示仍需空气传播隔离和 AIIR，室外活动仍不合适。"
+            },
+            {
+              "en": "Client A's potassium correction to 3.6 mEq/L means CDI contact precautions can be discontinued.",
+              "id": "q6_d",
+              "zh": "A 患者血钾纠正到 3.6 mEq/L 表示可以停止 CDI 接触隔离。"
+            },
+            {
+              "en": "Retrieving the stethoscope, disinfecting contacted clean-utility surfaces, handling nearby supplies per policy, and completing wet-contact disinfection before return supports containment of the environmental breach.",
+              "id": "q6_c",
+              "zh": "取回听诊器、消毒其接触过的清洁用物间表面、按制度处理附近物品，并完成湿接触消毒后再送回，支持环境污染漏洞已被控制。"
+            },
+            {
+              "en": "Because no new infections were diagnosed by the end of the shift, all interventions can be declared fully effective.",
+              "id": "q6_b",
+              "zh": "因为班末没有诊断出新感染，所以可宣布所有干预完全有效。"
+            }
+          ],
+          "rationale": {
+            "byChoice": [
+              {
+                "en": "The student had multiple isolation-practice breaches, so supervised return demonstration is needed before independent care.",
+                "refId": "q6_f",
+                "zh": "护生出现多项隔离操作漏洞，因此独立照护前需要在监督下回示。"
+              },
+              {
+                "en": "New infections or colonization may not appear during one shift; this is premature outcome-based reassurance.",
+                "refId": "q6_b",
+                "zh": "新感染或定植可能不会在一个班次内显现；这是过早依赖结局指标的安心判断。"
+              },
+              {
+                "en": "Potassium correction treats a complication risk; it does not change the organism or transmission-based precautions for CDI.",
+                "refId": "q6_d",
+                "zh": "纠正血钾是处理并发症风险；并不改变 CDI 病原体或传播隔离要求。"
+              },
+              {
+                "en": "Observed correct performance is a meaningful process outcome after visitor teaching.",
+                "refId": "q6_a",
+                "zh": "教学后观察到正确操作，是有意义的过程性结果。"
+              },
+              {
+                "en": "This addresses the device, the surfaces, and supplies in the contamination radius before returning the device to the room.",
+                "refId": "q6_c",
+                "zh": "这在设备返回病房前处理了设备、表面以及污染范围内的物品。"
+              },
+              {
+                "en": "Ongoing smear positivity means the airborne transmission risk remains active in this case.",
+                "refId": "q6_e",
+                "zh": "涂片持续阳性表示本病例中空气传播风险仍存在。"
+              }
+            ],
+            "correct": {
+              "en": "Effective infection-control evaluation during the same shift relies on process indicators: observed PPE compliance, return demonstration, correction of environmental contamination, and recognition of ongoing isolation needs. A same-day absence of new infections is not proof of effectiveness, and lab correction does not end CDI precautions.",
+              "zh": "同一班次内评价感染控制效果主要依赖过程指标：观察到的 PPE 依从性、回示、环境污染纠正，以及识别仍需隔离的风险。当天没有新感染并不能证明完全有效，电解质纠正也不代表可停止 CDI 隔离。"
+            }
+          },
+          "stem": {
+            "en": "Stage 3: Which statements show an accurate evaluation of whether the infection-control interventions were effective? Select all that apply.",
+            "zh": "阶段3：哪些陈述能准确评价感染控制干预是否有效？选择所有适用项。"
+          },
+          "testTakingStrategy": {
+            "en": "Evaluation questions often mix outcomes and process measures. In short time frames, prioritize observable compliance and corrected hazards over infection rates that require longer surveillance.",
+            "zh": "评价类题常混合结局指标和过程指标。在短时间内，优先看可观察到的依从性和已纠正的危险，而不是需要更长监测期的感染率。"
+          },
+          "topic": "Transmission-Based Precautions"
+        }
+      ],
+      "stages": [
+        {
+          "exhibits": [
+            {
+              "content": {
+                "en": "While the nurse is assessing Client A while wearing gown and gloves after soap-and-water hand hygiene, a nursing student steps into Room 12 wearing gloves but no gown. The student uses Client A's dedicated blood-pressure cuff, removes her gloves inside the room, and then touches the door handle with bare, unwashed hands. The nurse stops the student before she exits, directs soap-and-water hand hygiene, and arranges door-handle disinfection.",
+                "zh": "护士在完成肥皂和清水洗手并穿戴隔离衣和手套后，正在评估 A 患者。此时护生进入12房，只戴手套、未穿隔离衣。护生使用 A 患者的专用血压袖带，在房内脱下手套，然后用未清洁的裸手触碰门把手。护士在护生离开前立即制止，指导其用肥皂和清水洗手，并安排对门把手消毒。"
+              },
+              "id": "stage_1_room12_student",
+              "title": {
+                "en": "0730 Room 12 observation",
+                "zh": "0730 12房观察"
+              }
+            },
+            {
+              "content": {
+                "en": "At 0745, the nurse uses the portable bladder scanner on Client A; post-void residual is 410 mL, and the provider is notified. The scanner is also needed for Client B, who is on standard precautions. At 0800, Client C's daughter is in Room 16 in street clothes with no gown or gloves. She has been repositioning her father and says, \"I've been coming every day — nobody told me I needed to put anything on.\" Client C's dressing is saturated and due for change.",
+                "zh": "0745，护士为 A 患者使用便携式膀胱扫描仪；残余尿量为 410 mL，已通知医务人员。该扫描仪随后还需用于仅执行标准预防的 B 患者。0800，C 患者女儿在16房，穿普通衣服，未穿隔离衣、未戴手套。她一直协助父亲翻身，并说：“我每天都来——没人告诉我需要穿戴什么。” C 患者敷料已被渗液浸透，需更换。"
+              },
+              "id": "stage_1_shared_equipment_and_visitor",
+              "title": {
+                "en": "0745-0800 equipment and visitor issues",
+                "zh": "0745–0800 设备与探视者问题"
+              }
+            }
+          ],
+          "id": "stage_1",
+          "title": {
+            "en": "Stage 1 — 0700 to 0900: shift organization and first rounds",
+            "zh": "阶段1 — 0700至0900：安排班次并首次查房"
+          }
+        },
+        {
+          "exhibits": [
+            {
+              "content": {
+                "en": "0915: Client D's mother asks at the nurses' station whether she can take her daughter outside in a wheelchair for ten minutes of fresh air. The mother is not wearing a mask.\n0945: During Client C's wound dressing change, the nurse notices Client C's dedicated stethoscope sitting on the clean-utility-room counter next to the clean supply cart. A housekeeper reports another staff member carried it out of Room 16 about 20 minutes earlier.\n1030: Client A has another large watery stool. While the nurse is gowned and gloved in Room 12, soiled linens are bundled into a standard linen bag instead of a water-soluble inner bag and labeled outer bag. The student asks whether this matters.\n1100: Client B's wife arrives, stops at Room 12's open doorway, sees the contact-precautions sign, and asks if she should worry because her husband is next door.",
+                "zh": "0915：D 患者母亲在护士站询问，能否用轮椅带女儿到室外呼吸10分钟新鲜空气。母亲未戴口罩。\n0945：护士为 C 患者更换伤口敷料时，发现 C 患者的专用听诊器放在清洁用物间柜台上，靠近清洁物品车。保洁人员说约20分钟前有另一名工作人员把它从16房拿出并放在那里。\n1030：A 患者再次大量水样便。护士在12房内穿戴隔离衣和手套协助清洁时，污染布草被装入普通布草袋，而不是先放入水溶性内袋再放入有标识外袋。护生询问这是否重要。\n1100：B 患者妻子到达，停在12房开着的门口，看到接触隔离标识，询问丈夫就在隔壁是否需要担心。"
+              },
+              "id": "stage_2_breaches_and_requests",
+              "title": {
+                "en": "0915-1100 requests and breaches",
+                "zh": "0915–1100 请求与感染控制漏洞"
+              }
+            },
+            {
+              "content": {
+                "en": "Client A: T 38.4 C, HR 110, BP 100/58; two additional large watery stools since 0900, intake 750 mL IV, output about 1,100 mL; potassium 3.1 mEq/L, creatinine 1.5 mg/dL.\nClient B: stable; post-void residual 45 mL; preliminary sputum culture Streptococcus pneumoniae susceptible to ceftriaxone.\nClient C: dressing changed; wound appearance unchanged; vancomycin monitoring managed by pharmacy.\nClient D: remains in AIIR; morning sputum AFB smear still positive (2+); mother remains at bedside and the outdoor-trip request has not yet been addressed.",
+                "zh": "A 患者：T 101.1 °F (38.4 °C)，HR 110，BP 100/58；0900后又有2次大量水样便，IV 入量 750 mL，尿液和粪便总出量约 1,100 mL；血钾 3.1 mEq/L，肌酐 1.5 mg/dL。\nB 患者：情况稳定；残余尿量 45 mL；痰培养初步为肺炎链球菌，对头孢曲松敏感。\nC 患者：敷料已更换；伤口外观无变化；万古霉素监测由药房按制度管理。\nD 患者：仍在 AIIR；晨痰 AFB 涂片仍阳性（2+）；母亲仍在床旁，外出请求尚未处理。"
+              },
+              "id": "stage_2_1130_status",
+              "structuredMeasurements": {
+                "panels": [
+                  {
+                    "columns": [
+                      {
+                        "id": "current",
+                        "label": {
+                          "en": "1130",
+                          "zh": "1130"
+                        }
+                      }
+                    ],
+                    "kind": "vitals",
+                    "rows": [
+                      {
+                        "key": "temp",
+                        "label": {
+                          "en": "Temperature",
+                          "zh": "体温"
+                        },
+                        "values": [
+                          {
+                            "columnId": "current",
+                            "unit": "°C",
+                            "value": "38.4"
+                          }
+                        ]
+                      },
+                      {
+                        "key": "hr",
+                        "label": {
+                          "en": "Heart rate",
+                          "zh": "心率"
+                        },
+                        "values": [
+                          {
+                            "columnId": "current",
+                            "unit": "bpm",
+                            "value": "110"
+                          }
+                        ]
+                      },
+                      {
+                        "key": "sbp",
+                        "label": {
+                          "en": "Systolic BP",
+                          "zh": "收缩压"
+                        },
+                        "values": [
+                          {
+                            "columnId": "current",
+                            "unit": "mmHg",
+                            "value": "100"
+                          }
+                        ]
+                      },
+                      {
+                        "key": "dbp",
+                        "label": {
+                          "en": "Diastolic BP",
+                          "zh": "舒张压"
+                        },
+                        "values": [
+                          {
+                            "columnId": "current",
+                            "unit": "mmHg",
+                            "value": "58"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "columns": [
+                      {
+                        "id": "current",
+                        "label": {
+                          "en": "1130",
+                          "zh": "1130"
+                        }
+                      }
+                    ],
+                    "kind": "labs",
+                    "rows": [
+                      {
+                        "key": "potassium",
+                        "label": {
+                          "en": "Potassium",
+                          "zh": "血钾"
+                        },
+                        "values": [
+                          {
+                            "columnId": "current",
+                            "unit": "mEq/L",
+                            "value": "3.1"
+                          }
+                        ]
+                      },
+                      {
+                        "key": "creatinine",
+                        "label": {
+                          "en": "Creatinine",
+                          "zh": "肌酐"
+                        },
+                        "values": [
+                          {
+                            "columnId": "current",
+                            "unit": "mg/dL",
+                            "value": "1.5"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              "title": {
+                "en": "1130 repeat status",
+                "zh": "1130 复查情况"
+              }
+            }
+          ],
+          "id": "stage_2",
+          "title": {
+            "en": "Stage 2 — 0900 to 1200: escalating complexity",
+            "zh": "阶段2 — 0900至1200：复杂情况增加"
+          }
+        },
+        {
+          "exhibits": [
+            {
+              "content": {
+                "en": "1215: The nurse debriefs the student about the Room 12 entry without a gown, missed hand hygiene after glove removal, door-handle contact, the linen-bagging error, and the stethoscope found in the clean utility room.\n1230: The charge nurse asks which identified breach posed the greatest cross-contamination risk to other clients and why.\n1300: Client D's repeat sputum AFB smear remains positive (2+); the provider confirms airborne precautions and AIIR must continue. The nurse teaches the patient and mother that non-essential trips outside the AIIR are not permitted while smear-positive; a surgical mask is used on the patient only for medically necessary transport, and visitors follow the facility airborne-precautions policy with instruction and offering of an N95 respirator.\nEnd of shift: Client C's daughter correctly demonstrates gown and glove donning and doffing. The contaminated stethoscope is retrieved; clean-utility surfaces it may have touched are disinfected; potentially contaminated nearby supplies are removed or handled per policy; the stethoscope is disinfected with full wet-contact time and returned to Room 16. Client A's CDI diarrhea continues; contact precautions remain. Client D remains smear-positive in AIIR. The student requires follow-up education and supervised return demonstration.",
+                "zh": "1215：护士与护生重点复盘12房未穿隔离衣进入、脱手套后未手卫生、触碰门把手、布草装袋错误，以及在清洁用物间发现听诊器的问题。\n1230：责任护士询问已发现的哪些漏洞对其他患者造成最大的交叉污染风险，以及原因。\n1300：D 患者复查痰 AFB 涂片仍阳性（2+）；医务人员确认必须继续空气传播隔离和 AIIR。护士向患者和母亲解释：涂片阳性期间不得因非必要原因离开 AIIR；只有医学必要转运时才给患者戴外科口罩；探视者需遵循机构空气传播隔离探视政策，包括指导并提供 N95 呼吸防护口罩。\n班末：C 患者女儿能正确回示隔离衣和手套的穿脱。污染听诊器已取回；其可能接触的清洁用物间表面已消毒；附近可能污染的物品已按制度移除或处理；听诊器完成全程湿接触时间消毒后送回16房。A 患者 CDI 腹泻仍持续，继续接触隔离。D 患者仍为涂片阳性并留在 AIIR。护生需要后续教育和受监督回示。"
+              },
+              "id": "stage_3_resolution",
+              "title": {
+                "en": "Focused debrief and end-of-shift status",
+                "zh": "重点复盘与班末情况"
+              }
+            }
+          ],
+          "id": "stage_3",
+          "title": {
+            "en": "Stage 3 — 1200 to 1500: resolution, teaching, and evaluation",
+            "zh": "阶段3 — 1200至1500：处理、教学与评价"
+          }
+        }
+      ],
+      "summary": {
+        "en": "A day-shift nurse on a medical-surgical unit is caring for four adjacent clients: Client A with Clostridioides difficile infection on contact precautions, Client B with community-acquired pneumonia on standard precautions, Client C with a draining MRSA pressure injury on contact precautions, and Client D with smear-positive pulmonary TB in a functioning airborne infection isolation room. The nurse must model safe practice for a nursing student, teach visitors, and contain several infection-control breaches during the shift.",
+        "zh": "一名日班护士在内外科病区照护四名相邻病房的患者：A 患者为艰难梭菌感染并执行接触隔离，B 患者为社区获得性肺炎并执行标准预防，C 患者有引流性 MRSA 3期压力性损伤并执行接触隔离，D 患者为痰涂片阳性肺结核并住在功能正常的空气传播感染隔离病房。护士需要为护生示范正确做法，教育探视者，并在班次中控制多项感染控制漏洞。"
+      },
+      "title": {
+        "en": "Cross-contamination prevention during clustered care",
+        "zh": "集中照护期间预防交叉污染"
+      }
+    },
+    "category": "Safety and Infection Prevention and Control",
+    "difficulty": "hard",
+    "glossary": [
+      {
+        "defZh": "在标准预防基础上，根据接触、飞沫或空气传播风险增加的隔离措施。",
+        "termEn": "Transmission-based precautions",
+        "termZh": "基于传播途径的隔离预防"
+      },
+      {
+        "defZh": "用于可经直接或间接接触传播病原体的预防措施，常需隔离衣和手套。",
+        "termEn": "Contact precautions",
+        "termZh": "接触隔离"
+      },
+      {
+        "defZh": "用于可经空气中微粒传播的病原体，通常需要 AIIR 和呼吸防护。",
+        "termEn": "Airborne precautions",
+        "termZh": "空气传播隔离"
+      },
+      {
+        "defZh": "消毒剂需在表面保持湿润并接触的规定时间。",
+        "termEn": "Wet-contact time",
+        "termZh": "湿接触时间"
+      },
+      {
+        "defZh": "可被病原体污染并间接传播感染的物体或表面。",
+        "termEn": "Fomite",
+        "termZh": "污染媒介物"
+      }
+    ],
+    "id": "gpt_case_infection_control_clustered_care_01",
+    "itemType": "case_study",
+    "rationale": {
+      "correct": {
+        "en": "This case centers on preventing cross-contamination while moving between clients with different precautions. Key judgments include recognizing true PPE and hand-hygiene breaches in a CDI room, using organism-specific disinfection and wet-contact time for shared equipment, teaching MRSA contact precautions without blaming family, prioritizing the contaminated stethoscope in the clean utility room because it creates the broadest direct fomite pathway, maintaining AIIR restrictions for smear-positive TB, and evaluating effectiveness through observed behavior and corrected environmental hazards rather than same-shift infection rates.",
+        "zh": "本病例核心是护士在不同隔离预防患者之间移动照护时预防交叉污染。关键判断包括识别 CDI 病房中的真实 PPE 和手卫生漏洞；对共用设备使用针对病原体的消毒和湿接触时间；在不责备家属的情况下教育 MRSA 接触隔离；因清洁用物间污染听诊器形成最广、最直接的污染媒介路径而将其列为优先；对涂片阳性肺结核继续维持 AIIR 限制；并通过可观察行为和已纠正的环境危险评价效果，而不是依赖同一班次内的感染发生率。"
+      }
+    },
+    "stem": {
+      "en": "Review the client record and answer the case-study items.",
+      "zh": "请查看患者病历，并回答本病例题组。"
+    },
+    "testTakingStrategy": {
+      "en": "Track the organism, route of transmission, and radius of exposure. The safest answer usually interrupts the most direct route of spread while preserving appropriate family involvement and using the facility policy stated in the chart.",
+      "zh": "追踪病原体、传播途径和暴露范围。最安全的答案通常是切断最直接的传播路径，同时保留适当的家庭参与，并使用病历中给出的机构制度。"
+    },
+    "topic": "Transmission-Based Precautions"
+  },
+  "standaloneItem": {
+    "bowtie": {
+      "actions": {
+        "prompt": {
+          "en": "Priority nursing actions",
+          "zh": "优先护理措施"
+        },
+        "tokens": [
+          {
+            "en": "Disinfect only the stethoscope and return it to Room 16 without cleaning the counter or assessing nearby supplies.",
+            "opaqueTokenLabel": "A1",
+            "zh": "只消毒听诊器并送回16房，不清洁柜台，也不评估附近物品。"
+          },
+          {
+            "en": "Wait until the end of the shift to address the stethoscope because the wound dressing change is due.",
+            "opaqueTokenLabel": "A2",
+            "zh": "因伤口敷料到更换时间，等到班末再处理听诊器。"
+          },
+          {
+            "en": "Provide immediate corrective education to the staff member involved and notify the charge nurse so the breach is documented for infection-control follow-up.",
+            "opaqueTokenLabel": "A3",
+            "zh": "立即教育相关工作人员，并通知责任护士记录该漏洞以便感染控制后续追踪。"
+          },
+          {
+            "en": "Remove the stethoscope, disinfect contacted clean-utility surfaces, assess or remove nearby supplies per policy, disinfect the stethoscope with full wet-contact time, and return it to Room 16.",
+            "opaqueTokenLabel": "A4",
+            "zh": "取走听诊器，消毒其接触过的清洁用物间表面，按制度评估或移除附近物品，完成听诊器全程湿接触消毒后送回16房。"
+          }
+        ]
+      },
+      "condition": {
+        "prompt": {
+          "en": "Most likely priority problem",
+          "zh": "最可能的优先问题"
+        },
+        "tokens": [
+          {
+            "en": "Active cross-contamination risk from a contaminated MRSA dedicated device in the clean utility room",
+            "opaqueTokenLabel": "C1",
+            "zh": "污染的 MRSA 专用设备进入清洁用物间造成的主动交叉污染风险"
+          },
+          {
+            "en": "CDI soiled-linen bagging error in Room 12",
+            "opaqueTokenLabel": "C2",
+            "zh": "12房 CDI 污染布草装袋错误"
+          },
+          {
+            "en": "CDI door-handle contamination from the student's bare-hand contact",
+            "opaqueTokenLabel": "C3",
+            "zh": "护生裸手接触造成的 CDI 门把手污染"
+          }
+        ]
+      },
+      "parameters": {
+        "prompt": {
+          "en": "Parameters to monitor",
+          "zh": "应监测的指标"
+        },
+        "tokens": [
+          {
+            "en": "Client C's vancomycin monitoring results",
+            "opaqueTokenLabel": "P1",
+            "zh": "C 患者万古霉素监测结果"
+          },
+          {
+            "en": "Visitor and staff PPE compliance on subsequent room entries",
+            "opaqueTokenLabel": "P2",
+            "zh": "后续进入病房时探视者和工作人员 PPE 依从性"
+          },
+          {
+            "en": "Equipment location and cleanliness at each room entry",
+            "opaqueTokenLabel": "P3",
+            "zh": "每次进入病房时设备位置和清洁状态"
+          },
+          {
+            "en": "Client B's Streptococcus pneumoniae sputum culture result",
+            "opaqueTokenLabel": "P4",
+            "zh": "B 患者肺炎链球菌痰培养结果"
+          }
+        ]
+      }
+    },
+    "glossary": [
+      {
+        "defZh": "把最可能问题、优先措施和监测指标连接起来的临床判断方式。",
+        "termEn": "Bow-tie reasoning",
+        "termZh": "蝴蝶结推理"
+      },
+      {
+        "defZh": "通过移除污染源、清洁消毒和限制传播范围来控制环境污染。",
+        "termEn": "Environmental containment",
+        "termZh": "环境控制"
+      },
+      {
+        "defZh": "限定给同一患者或隔离区域使用的设备。",
+        "termEn": "Dedicated device",
+        "termZh": "专用设备"
+      }
+    ],
+    "rationale": {
+      "byChoice": [
+        {
+          "en": "Correct: it has the broadest direct pathway to multiple clients through a shared clean-supply area.",
+          "opaqueTokenLabel": "C1",
+          "zh": "正确：它通过共享清洁供应区域，对多名患者形成最广且最直接的传播路径。"
+        },
+        {
+          "en": "Plausible but not the priority: CDI spores are hardy, but this is one door-handle surface that can be targeted for disinfection.",
+          "opaqueTokenLabel": "C3",
+          "zh": "有可能但不是优先：CDI 孢子顽强，但这是一个门把手表面，可进行定点消毒。"
+        },
+        {
+          "en": "Plausible but less immediate to other clients: the error primarily affects downstream linen handling rather than the clean supply pathway.",
+          "opaqueTokenLabel": "C2",
+          "zh": "有可能但对其他患者的即时风险较低：该错误主要影响后续布草处理，而非清洁供应路径。"
+        },
+        {
+          "en": "Correct: this addresses the device, contacted surfaces, nearby supplies, and full disinfection before return.",
+          "opaqueTokenLabel": "A4",
+          "zh": "正确：这同时处理设备、接触表面、附近物品，并在送回前完成完整消毒。"
+        },
+        {
+          "en": "Correct: staff education and event logging reduce recurrence and support surveillance follow-up.",
+          "opaqueTokenLabel": "A3",
+          "zh": "正确：工作人员教育和事件记录可减少复发，并支持监测追踪。"
+        },
+        {
+          "en": "Incorrect: cleaning only the device leaves the clean-utility environment and supplies potentially contaminated.",
+          "opaqueTokenLabel": "A1",
+          "zh": "错误：只清洁设备会留下可能已污染的清洁用物间环境和物品。"
+        },
+        {
+          "en": "Incorrect: the exposure can expand each minute the device remains in the clean utility room.",
+          "opaqueTokenLabel": "A2",
+          "zh": "错误：设备留在清洁用物间的每一分钟都可能扩大暴露范围。"
+        },
+        {
+          "en": "Correct: direct observation of PPE use shows whether teaching and correction are sustained.",
+          "opaqueTokenLabel": "P2",
+          "zh": "正确：直接观察 PPE 使用可显示教学和纠正是否持续有效。"
+        },
+        {
+          "en": "Correct: checking dedicated and shared equipment confirms that the system breach is not recurring.",
+          "opaqueTokenLabel": "P3",
+          "zh": "正确：检查专用和共用设备可确认系统性漏洞没有复发。"
+        },
+        {
+          "en": "Irrelevant to this breach: it guides pneumonia care but does not evaluate MRSA cross-contamination control.",
+          "opaqueTokenLabel": "P4",
+          "zh": "与该漏洞无关：它指导肺炎治疗，但不能评价 MRSA 交叉污染控制。"
+        },
+        {
+          "en": "Irrelevant to this breach: drug monitoring guides therapy and is not a measure of environmental containment.",
+          "opaqueTokenLabel": "P1",
+          "zh": "与该漏洞无关：药物监测指导治疗，并非环境控制效果指标。"
+        }
+      ],
+      "correct": {
+        "en": "The priority problem is the contaminated MRSA stethoscope in the clean utility room because it creates a direct fomite pathway from an isolation room into a shared supply area. The nurse must contain the environmental exposure immediately, correct the staff practice, and monitor for sustained compliance and equipment control. Client B's culture and Client C's vancomycin monitoring matter clinically, but they do not measure containment of this cross-contamination breach.",
+        "zh": "优先问题是污染的 MRSA 听诊器进入清洁用物间，因为它把隔离病房污染物直接带入共享清洁供应区域，形成污染媒介传播路径。护士必须立即控制环境暴露，纠正工作人员做法，并监测持续依从性和设备管理。B 患者培养和 C 患者万古霉素监测虽有临床意义，但不能衡量该交叉污染漏洞是否被控制。"
+      }
+    },
+    "stem": {
+      "en": "Stage 2 synthesis: The contaminated stethoscope from Client C's MRSA contact-precautions room has been found in the clean utility room near the clean supply cart. The student also contaminated the Room 12 door handle after CDI care, Client A's soiled linens were placed in a standard linen bag, and Client D's mother has asked to remove a smear-positive TB patient from the AIIR. Complete the bow-tie diagram for the priority cross-contamination problem.",
+      "zh": "阶段2综合：来自 C 患者 MRSA 接触隔离病房的污染听诊器被发现放在清洁用物间、靠近清洁物品车。护生在 CDI 照护后也污染了12房门把手，A 患者污染布草被放入普通布草袋，D 患者母亲请求让痰涂片阳性肺结核患者离开 AIIR。请完成针对优先交叉污染问题的蝴蝶结图。"
+    },
+    "testTakingStrategy": {
+      "en": "For bow-tie items, match the priority condition to the actions and monitoring. The correct chain should address the same hazard from recognition through containment and follow-up.",
+      "zh": "做蝴蝶结题时，把优先问题与措施和监测配对。正确链条应从识别、控制到后续追踪都针对同一危险。"
+    }
+  }
+}

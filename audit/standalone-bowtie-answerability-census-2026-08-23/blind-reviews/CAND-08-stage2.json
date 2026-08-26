@@ -1,0 +1,135 @@
+{
+  "actionLabels": [
+    "A2",
+    "A3"
+  ],
+  "ambiguousAlternatives": [
+    {
+      "opaqueTokenLabel": "C2",
+      "reason": "Infected pancreatic necrosis can cause systemic inflammation in pancreatitis, but the stem provides no necrosis imaging or other evidence of infected necrosis and instead identifies persistent distal CBD obstruction."
+    }
+  ],
+  "conditionLabel": "C3",
+  "missingInformation": [
+    "Trends in BP/MAP, urine output, lactate, bilirubin, oxygen requirement, and mental status; blood-culture results; liver-enzyme pattern; renal function; medication allergies; and imaging evidence for pancreatic necrosis are not provided."
+  ],
+  "parameterLabels": [
+    "P1",
+    "P3"
+  ],
+  "poolAnswerability": "ANSWERABLE",
+  "reasoning": "The combination of gallstone pancreatitis, fever, leukocytosis, hyperbilirubinemia, and imaging-confirmed distal CBD obstruction best supports evolving cholangitis. Urgent biliary decompression and prompt escalation for cultures and empiric antibiotics address source control and infection. Temperature/WBC and urine-output trends assess infectious response and perfusion.",
+  "selectionEvidence": [
+    {
+      "opaqueTokenLabel": "C3",
+      "supportingStemText": "Acute gallstone pancreatitis with T 38.4 C, WBC 19.2 ×10³/µL, bilirubin 3.2 mg/dL, and an 11-mm common bile duct containing a distal stone."
+    },
+    {
+      "opaqueTokenLabel": "A2",
+      "supportingStemText": "Ultrasound shows an 11-mm common bile duct with a shadowing distal stone."
+    },
+    {
+      "opaqueTokenLabel": "A3",
+      "supportingStemText": "T 38.4 C, HR 118, RR 26, lactate 2.6 mmol/L, WBC 19.2 ×10³/µL, and worsening symptoms indicate deterioration with suspected infection."
+    },
+    {
+      "opaqueTokenLabel": "P1",
+      "supportingStemText": "Temperature is 38.4 C and WBC is 19.2 ×10³/µL."
+    },
+    {
+      "opaqueTokenLabel": "P3",
+      "supportingStemText": "Urine output is 30 mL/hr."
+    }
+  ],
+  "stage2Confidence": "high",
+  "tokenPremiseTable": [
+    {
+      "missingPremise": "No aspiration event, pulmonary infiltrate, respiratory secretion findings, or other evidence identifying pneumonia as the primary source is provided.",
+      "opaqueTokenLabel": "C1",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "MATERIAL",
+      "rankabilityJustification": "Without evidence of aspiration pneumonia, this condition cannot outrank the explicitly demonstrated biliary source.",
+      "supportingStemText": ""
+    },
+    {
+      "missingPremise": "No imaging evidence of pancreatic necrosis, gas in a collection, culture result, or other evidence of infected necrosis is provided.",
+      "opaqueTokenLabel": "C2",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "MATERIAL",
+      "rankabilityJustification": "Systemic inflammation alone does not specifically establish infected pancreatic necrosis.",
+      "supportingStemText": ""
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "C3",
+      "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The explicit inflammatory, cholestatic, and obstructive findings collectively make this the best-supported condition.",
+      "supportingStemText": "Acute gallstone pancreatitis; T 38.4 C; WBC 19.2 ×10³/µL; bilirubin 3.2 mg/dL; 11-mm CBD with a shadowing distal stone."
+    },
+    {
+      "missingPremise": "No finding indicating pancreatic necrosis or establishing a need to delay biliary decompression for contrast-enhanced CT is provided.",
+      "opaqueTokenLabel": "A1",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "MATERIAL",
+      "rankabilityJustification": "Absent evidence of necrosis, CT before ERCP does not outrank urgent source control for the demonstrated obstruction.",
+      "supportingStemText": ""
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A2",
+      "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Persistent biliary obstruction with suspected cholangitis supports urgent ERCP consultation and preparation.",
+      "supportingStemText": "Ultrasound shows an 11-mm common bile duct with a shadowing distal stone amid fever and leukocytosis."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A3",
+      "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "These deterioration and infection indicators support prompt notification, cultures, and anticipated empiric antibiotics.",
+      "supportingStemText": "T 38.4 C, HR 118, RR 26, lactate 2.6 mmol/L, WBC 19.2 ×10³/µL, and worsening abdominal findings."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A4",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Abnormal perfusion indicators require reassessment rather than maintaining therapy without reassessment.",
+      "supportingStemText": "Urine output 30 mL/hr and lactate 2.6 mmol/L."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "P1",
+      "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Both are explicit baseline indicators suitable for evaluating the infectious response.",
+      "supportingStemText": "T 38.4 C and WBC 19.2 ×10³/µL."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "P2",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Serial amylase does not determine the immediate need for decompression when obstruction and suspected cholangitis are already demonstrated.",
+      "supportingStemText": "The stem directly demonstrates an 11-mm CBD with a distal stone and systemic inflammatory findings."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "P3",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The stem supplies a borderline-low baseline whose trend directly evaluates renal perfusion and deterioration.",
+      "supportingStemText": "Urine output 30 mL/hr."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "P4",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Serial lipase is not the main marker of cholangitis response and is less informative than infection, obstruction, and perfusion trends.",
+      "supportingStemText": "The stem provides fever, leukocytosis, bilirubin elevation, and persistent CBD obstruction as the relevant cholangitis findings."
+    }
+  ]
+}

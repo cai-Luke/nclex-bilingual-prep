@@ -1,0 +1,173 @@
+{
+  "canonicalSelection": {
+    "actionLabels": [
+      "A3",
+      "A2"
+    ],
+    "conditionLabel": "C3",
+    "parameterLabels": [
+      "P3",
+      "P1"
+    ]
+  },
+  "instruction": "The two blind-stage records are immutable. Compare them with the now-revealed canonical 1/2/2 selection and complete standalone item. Do not inspect or infer sibling-case material. Return the required Phase-E structured JSON without revising either blind record.",
+  "standaloneItem": {
+    "bowtie": {
+      "actions": {
+        "tokens": [
+          {
+            "en": "Request immediate contrast-enhanced CT for pancreatic necrosis before ERCP",
+            "opaqueTokenLabel": "A1",
+            "zh": "在 ERCP 前立即要求增强 CT 评估胰腺坏死"
+          },
+          {
+            "en": "Facilitate urgent ERCP consultation and preparation for biliary decompression",
+            "opaqueTokenLabel": "A2",
+            "zh": "协助紧急 ERCP 会诊和准备，以进行胆道减压"
+          },
+          {
+            "en": "Notify the provider of deterioration, ensure blood cultures are obtained, and anticipate empiric IV antibiotics as ordered",
+            "opaqueTokenLabel": "A3",
+            "zh": "通知医嘱者病情恶化，确认采集血培养，并预期按医嘱给予经验性 IV 抗生素"
+          },
+          {
+            "en": "Maintain the current fluid rate without reassessment despite urine output 30 mL/hr and lactate 2.6 mmol/L",
+            "opaqueTokenLabel": "A4",
+            "zh": "尽管尿量 30 mL/hr、乳酸 2.6 mmol/L，仍不重新评估而维持当前补液速度"
+          }
+        ]
+      },
+      "condition": {
+        "tokens": [
+          {
+            "en": "Sepsis from aspiration pneumonia as the primary source",
+            "opaqueTokenLabel": "C1",
+            "zh": "吸入性肺炎作为主要来源导致的败血症"
+          },
+          {
+            "en": "Infected pancreatic necrosis",
+            "opaqueTokenLabel": "C2",
+            "zh": "感染性胰腺坏死"
+          },
+          {
+            "en": "Acute gallstone pancreatitis complicated by evolving cholangitis from persistent CBD obstruction",
+            "opaqueTokenLabel": "C3",
+            "zh": "急性胆石性胰腺炎合并持续 CBD 梗阻导致的进展性胆管炎"
+          }
+        ]
+      },
+      "parameters": {
+        "tokens": [
+          {
+            "en": "Temperature and WBC trend after antibiotics and ERCP",
+            "opaqueTokenLabel": "P1",
+            "zh": "抗生素和 ERCP 后的体温与 WBC 趋势"
+          },
+          {
+            "en": "Serial amylase level to guide immediate biliary decompression decisions",
+            "opaqueTokenLabel": "P2",
+            "zh": "用连续淀粉酶指导即时胆道减压决策"
+          },
+          {
+            "en": "Urine output trend",
+            "opaqueTokenLabel": "P3",
+            "zh": "尿量趋势"
+          },
+          {
+            "en": "Serial lipase level as the main marker of cholangitis response",
+            "opaqueTokenLabel": "P4",
+            "zh": "将连续脂肪酶作为胆管炎反应的主要指标"
+          }
+        ]
+      }
+    },
+    "glossary": [
+      {
+        "defZh": "common bile duct 的缩写，即胆总管。",
+        "termEn": "CBD",
+        "termZh": "胆总管"
+      },
+      {
+        "defZh": "解除胆管梗阻以改善感染和胆汁淤积。",
+        "termEn": "Biliary decompression",
+        "termZh": "胆道减压"
+      },
+      {
+        "defZh": "在培养结果出来前，根据疑似感染来源先行使用的抗菌治疗。",
+        "termEn": "Empiric antibiotics",
+        "termZh": "经验性抗生素"
+      }
+    ],
+    "rationale": {
+      "byChoice": [
+        {
+          "en": "This condition accounts for the fever, SIRS, jaundice, and obstructing distal CBD stone.",
+          "opaqueTokenLabel": "C3",
+          "zh": "该情况能解释发热、SIRS、黄疸和远端 CBD 梗阻结石。"
+        },
+        {
+          "en": "The timing is too early for infected necrosis to be the best explanation; biliary obstruction is already confirmed.",
+          "opaqueTokenLabel": "C2",
+          "zh": "此时机过早，不最支持感染性坏死；胆道梗阻已被确认。"
+        },
+        {
+          "en": "Left basilar findings are consistent with reactive pleural effusion, and the case lacks a pulmonary infectious source stronger than the biliary obstruction.",
+          "opaqueTokenLabel": "C1",
+          "zh": "左肺底发现符合反应性胸腔积液，病例没有比胆道梗阻更强的肺部感染来源线索。"
+        },
+        {
+          "en": "Cultures and empiric antibiotics as ordered address suspected biliary infection while source control is arranged.",
+          "opaqueTokenLabel": "A3",
+          "zh": "采培养和按医嘱经验性抗生素可在安排源控制时处理疑似胆道感染。"
+        },
+        {
+          "en": "ERCP is the definitive intervention for the obstructing CBD stone and biliary decompression.",
+          "opaqueTokenLabel": "A2",
+          "zh": "ERCP 是处理 CBD 梗阻结石和胆道减压的关键干预。"
+        },
+        {
+          "en": "Immediate CT for necrosis is not the priority at hour 18 and may delay ERCP.",
+          "opaqueTokenLabel": "A1",
+          "zh": "第 18 小时立即为坏死做 CT 不是优先事项，可能延误 ERCP。"
+        },
+        {
+          "en": "Declining urine output and rising lactate require reassessment; maintaining the rate without reassessment risks ongoing hypoperfusion.",
+          "opaqueTokenLabel": "A4",
+          "zh": "尿量下降和乳酸升高需要重新评估；不评估而维持速度会造成持续低灌注风险。"
+        },
+        {
+          "en": "Urine output is a real-time marker of renal perfusion and adequacy of resuscitation.",
+          "opaqueTokenLabel": "P3",
+          "zh": "尿量是肾灌注和复苏充分性的实时指标。"
+        },
+        {
+          "en": "Temperature and WBC trends help determine whether cholangitis responds after antibiotics and biliary decompression.",
+          "opaqueTokenLabel": "P1",
+          "zh": "体温和 WBC 趋势有助于判断抗生素和胆道减压后胆管炎是否好转。"
+        },
+        {
+          "en": "Lipase reflects pancreatic inflammation but does not guide the acute cholangitis response or source-control decisions.",
+          "opaqueTokenLabel": "P4",
+          "zh": "脂肪酶反映胰腺炎症，但不能指导急性胆管炎反应或源控制决策。"
+        },
+        {
+          "en": "Amylase is not a decision parameter for urgent biliary decompression at this synthesis point.",
+          "opaqueTokenLabel": "P2",
+          "zh": "在此综合判断点，淀粉酶不是决定紧急胆道减压的参数。"
+        }
+      ],
+      "correct": {
+        "en": "The unifying problem is gallstone pancreatitis complicated by evolving cholangitis: the patient has fever, SIRS, jaundice/obstructive biliary labs, and an ultrasound-confirmed obstructing distal CBD stone. Priority nursing actions support source control and sepsis management: notify/escalate, ensure cultures and antibiotics as ordered, and facilitate urgent ERCP. Urine output tracks perfusion during resuscitation, and temperature/WBC trends after antibiotics and ERCP help evaluate response to biliary decompression.",
+        "zh": "统一问题是胆石性胰腺炎合并进展性胆管炎：患者有发热、SIRS、黄疸/胆道梗阻化验模式，以及超声确认远端 CBD 梗阻结石。优先护理措施是支持源控制和败血症处理：通知/升级、确保按医嘱采培养和用抗生素，并协助紧急 ERCP。尿量反映复苏期间灌注情况，抗生素和 ERCP 后的体温/WBC 趋势可评估胆道减压反应。"
+      }
+    },
+    "stem": {
+      "en": "At hour 18, a 45-year-old woman admitted with acute gallstone pancreatitis has T 38.4 C, HR 118, BP 108/62, RR 26, SpO2 94% on 2 L nasal cannula, urine output 30 mL/hr, lactate 2.6 mmol/L, WBC 19.2 ×10³/µL, bilirubin 3.2 mg/dL from admission, and worsening abdominal distention and pain. Ultrasound shows an 11-mm common bile duct with a shadowing distal stone. Select the most likely condition, the two priority actions, and the two parameters to monitor.",
+      "zh": "第 18 小时，一名因急性胆石性胰腺炎入院的 45 岁女性出现 T 38.4 C、HR 118、BP 108/62、RR 26、鼻导管 2 L 下 SpO2 94%、尿量 30 mL/hr、乳酸 2.6 mmol/L、WBC 19.2 ×10³/µL、入院胆红素 3.2 mg/dL，并且腹胀和疼痛加重。超声显示胆总管 11 mm，远端有声影结石。请选择最可能的情况、两个优先措施和两个需要监测的参数。"
+    },
+    "testTakingStrategy": {
+      "en": "For bowtie items, choose the condition that explains all zones, then select actions that treat the cause and parameters that show response.",
+      "zh": "做 bowtie 题时，先选能解释所有区域的情况，再选处理病因的措施和能显示反应的监测参数。"
+    }
+  }
+}

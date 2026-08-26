@@ -1,0 +1,178 @@
+{
+  "canonicalSelection": {
+    "actionLabels": [
+      "A4",
+      "A3"
+    ],
+    "conditionLabel": "C1",
+    "parameterLabels": [
+      "P3",
+      "P1"
+    ]
+  },
+  "instruction": "The two blind-stage records are immutable. Compare them with the now-revealed canonical 1/2/2 selection and complete standalone item. Do not inspect or infer sibling-case material. Return the required Phase-E structured JSON without revising either blind record.",
+  "standaloneItem": {
+    "bowtie": {
+      "actions": {
+        "tokens": [
+          {
+            "en": "Give insulin and dextrose before calcium gluconate",
+            "opaqueTokenLabel": "A1",
+            "zh": "先给予胰岛素和葡萄糖，再给予葡萄糖酸钙"
+          },
+          {
+            "en": "Administer oral sodium polystyrene sulfonate despite active vomiting",
+            "opaqueTokenLabel": "A2",
+            "zh": "即使正在呕吐，也给予口服聚苯乙烯磺酸钠"
+          },
+          {
+            "en": "Administer regular insulin 10 units IV with 25 g dextrose per protocol",
+            "opaqueTokenLabel": "A3",
+            "zh": "按方案给予普通胰岛素 10 units IV 合并葡萄糖 25 g"
+          },
+          {
+            "en": "Administer calcium gluconate 1 g IV at the ordered/protocol rate",
+            "opaqueTokenLabel": "A4",
+            "zh": "按医嘱/方案速度给予葡萄糖酸钙 1 g IV"
+          }
+        ]
+      },
+      "condition": {
+        "tokens": [
+          {
+            "en": "Prerenal acute kidney injury with life-threatening hyperkalemia",
+            "opaqueTokenLabel": "C1",
+            "zh": "肾前性急性肾损伤并危及生命的高钾血症"
+          },
+          {
+            "en": "Obstructive post-renal acute kidney injury",
+            "opaqueTokenLabel": "C2",
+            "zh": "梗阻性肾后性急性肾损伤"
+          },
+          {
+            "en": "Acute tubular necrosis",
+            "opaqueTokenLabel": "C3",
+            "zh": "急性肾小管坏死"
+          }
+        ]
+      },
+      "parameters": {
+        "tokens": [
+          {
+            "en": "Hourly urine output",
+            "opaqueTokenLabel": "P1",
+            "zh": "每小时尿量"
+          },
+          {
+            "en": "Hemoglobin trend",
+            "opaqueTokenLabel": "P2",
+            "zh": "血红蛋白趋势"
+          },
+          {
+            "en": "ECG morphology: PR interval, QRS duration, and T-wave changes",
+            "opaqueTokenLabel": "P3",
+            "zh": "ECG 形态：PR 间期、QRS 时限和 T 波变化"
+          },
+          {
+            "en": "Urine specific gravity trend after IV fluids",
+            "opaqueTokenLabel": "P4",
+            "zh": "IV 补液后的尿比重趋势"
+          }
+        ]
+      }
+    },
+    "glossary": [
+      {
+        "defZh": "要求同时选择最可能病情、优先措施和监测参数的 NGN 临床判断题。",
+        "termEn": "Bow-tie item",
+        "termZh": "Bow-tie 题型"
+      },
+      {
+        "defZh": "肾小管损伤导致的肾内性 AKI，常与尿钠升高、FENa 升高和管型相关。",
+        "termEn": "Acute tubular necrosis",
+        "termZh": "急性肾小管坏死"
+      },
+      {
+        "defZh": "尿路梗阻导致的急性肾损伤。",
+        "termEn": "Post-renal AKI",
+        "termZh": "肾后性 AKI"
+      },
+      {
+        "defZh": "心电图波形和间期变化，可反映传导和心肌电活动异常。",
+        "termEn": "ECG morphology",
+        "termZh": "ECG 形态"
+      }
+    ],
+    "rationale": {
+      "byChoice": [
+        {
+          "en": "This matches the volume-loss story, low urine sodium, low FENa, concentrated urine, low bladder scan volume, acute creatinine rise, and dangerous hyperkalemia with ECG changes.",
+          "opaqueTokenLabel": "C1",
+          "zh": "这与容量丢失病史、尿钠低、FENa 低、尿液浓缩、膀胱扫描容量低、肌酐急升以及伴 ECG 改变的危险高钾血症相符。"
+        },
+        {
+          "en": "ATN is less supported at this moment because the urine sodium and FENa are low and no muddy brown casts are described, suggesting tubular conservation remains intact.",
+          "opaqueTokenLabel": "C3",
+          "zh": "此时不太支持 ATN，因为尿钠和 FENa 低，且未描述泥棕色颗粒管型，提示肾小管保钠功能仍存在。"
+        },
+        {
+          "en": "Post-renal obstruction is less supported because bladder scan shows only 40 mL and the clinical context fully explains volume-depletion AKI.",
+          "opaqueTokenLabel": "C2",
+          "zh": "不太支持肾后性梗阻，因为膀胱扫描仅 40 mL，且临床背景足以解释容量不足性 AKI。"
+        },
+        {
+          "en": "Calcium stabilizes the cardiac membrane quickly and is time-critical when PR prolongation and QRS widening are present.",
+          "opaqueTokenLabel": "A4",
+          "zh": "钙剂可迅速稳定心肌膜；出现 PR 延长和 QRS 增宽时具有时间紧迫性。"
+        },
+        {
+          "en": "Insulin with dextrose rapidly shifts potassium into cells after calcium buys cardiac safety time.",
+          "opaqueTokenLabel": "A3",
+          "zh": "钙剂争取心脏安全时间后，胰岛素合并葡萄糖可快速使钾转入细胞。"
+        },
+        {
+          "en": "This sequence leaves the myocardium unprotected while waiting for insulin's potassium-shifting effect.",
+          "opaqueTokenLabel": "A1",
+          "zh": "这种顺序会在等待胰岛素转钾起效期间让心肌处于未保护状态。"
+        },
+        {
+          "en": "Giving an oral binder to an actively vomiting client is unsafe and unlikely to be retained; the order should be clarified.",
+          "opaqueTokenLabel": "A2",
+          "zh": "给正在呕吐的患者口服钾结合剂不安全且很可能无法保留；应澄清医嘱。"
+        },
+        {
+          "en": "PR interval, QRS duration, and T-wave changes directly track hyperkalemia-related conduction toxicity.",
+          "opaqueTokenLabel": "P3",
+          "zh": "PR 间期、QRS 时限和 T 波变化可直接追踪高钾相关传导毒性。"
+        },
+        {
+          "en": "Hourly output shows whether renal perfusion is recovering and whether the kidneys may resume potassium clearance.",
+          "opaqueTokenLabel": "P1",
+          "zh": "每小时尿量显示肾灌注是否恢复，以及肾脏是否可能恢复清除钾的能力。"
+        },
+        {
+          "en": "Hemoglobin may reflect hemoconcentration, but it is not the primary resolution marker for hyperkalemia or AKI recovery.",
+          "opaqueTokenLabel": "P2",
+          "zh": "血红蛋白可反映血液浓缩，但不是高钾或 AKI 恢复的主要指标。"
+        },
+        {
+          "en": "Specific gravity helped establish the prerenal pattern initially, but after IV fluids it becomes less reliable than urine volume and creatinine trend for recovery.",
+          "opaqueTokenLabel": "P4",
+          "zh": "尿比重有助于初始判断肾前性模式，但 IV 补液后，它不如尿量和肌酐趋势能可靠反映恢复。"
+        }
+      ],
+      "correct": {
+        "en": "The condition is prerenal AKI with immediately life-threatening hyperkalemia. The 72-hour GI fluid losses, hypotension/dehydration picture, concentrated urine, urine sodium 8 mEq/L, FENa 0.4%, low bladder volume, and acute creatinine rise support prerenal AKI rather than ATN or obstruction. The ECG progression with potassium 6.4 mEq/L makes calcium gluconate the first priority to stabilize the myocardium, followed promptly by insulin with dextrose to shift potassium intracellularly. ECG morphology and hourly urine output are the two most useful monitoring parameters for immediate cardiac toxicity and renal perfusion recovery.",
+        "zh": "最可能病情是肾前性 AKI 并立即危及生命的高钾血症。72 小时胃肠道液体丢失、低血压/脱水表现、尿液浓缩、尿钠 8 mEq/L、FENa 0.4%、膀胱容量低以及肌酐急升，支持肾前性 AKI，而不是 ATN 或梗阻。钾 6.4 mEq/L 合并 ECG 进展，使葡萄糖酸钙成为首先要做的措施，用于稳定心肌；随后立即给予胰岛素合并葡萄糖，使钾转入细胞。ECG 形态和每小时尿量分别是监测立即心脏毒性和肾灌注恢复最有用的两个参数。"
+      }
+    },
+    "stem": {
+      "en": "Stage 2 synthesis: A 65-year-old man with baseline stage 3a CKD has had 72 hours of vomiting and profuse watery diarrhea during a norovirus outbreak. After 1,500 mL IV fluid, urine output remains about 0.14 mL/kg/hr. Creatinine has risen from a baseline of 1.4 to 4.5 mg/dL. Admission urine was concentrated with urine sodium 8 mEq/L and FENa 0.4%, and bladder scan was 40 mL. Potassium is now 6.4 mEq/L with persistent peaked T waves, PR prolongation to 0.24 seconds, and QRS widening to 0.12 seconds. Select the most likely condition, two priority actions, and two parameters to monitor.",
+      "zh": "第 2 阶段综合判断：65 岁男性，基线为 3a 期 CKD，在诺如病毒暴发期间出现 72 小时呕吐和大量水样腹泻。接受 1,500 mL IV 液体后，尿量仍约 0.14 mL/kg/hr。肌酐从基线 1.4 升至 4.5 mg/dL。入院尿液浓缩，尿钠 8 mEq/L，FENa 0.4%，膀胱扫描 40 mL。当前血钾 6.4 mEq/L，仍有高尖 T 波，PR 延长至 0.24 秒，QRS 增宽至 0.12 秒。请选择最可能的病情、两个优先措施以及两个需要监测的参数。"
+    },
+    "testTakingStrategy": {
+      "en": "In bow-tie items, pick the condition that explains the whole cluster, then choose actions that address the threat that can kill first and monitoring that proves the threat is resolving.",
+      "zh": "做 bow-tie 题时，先选能解释整个线索群的病情，再选处理最先致命威胁的措施，以及能证明威胁正在缓解的监测指标。"
+    }
+  }
+}

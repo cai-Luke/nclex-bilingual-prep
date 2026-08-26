@@ -1,0 +1,56 @@
+{
+  "instruction": "Using only the standalone learner-facing English stem, prompts, and opaque token pools, select exactly one condition, two actions, and two parameters. Return the required structured JSON, including exactly one premise row for every opaque token. Do not infer absent client-specific facts.",
+  "stem": "During Liam's nine-month well-child visit, he reaches for a cosmetics pouch containing an uncapped bottle of liquid acetaminophen. The nurse immediately moves the pouch and medication out of Liam's reach. His caregiver, Danielle, is warm and attentive and willingly describes how she gives medicines. She becomes tearful and says she has little reliable support or guidance and followed informal advice. Danielle reports giving Liam 15 mL of acetaminophen labeled 160 mg/5 mL; the clinic's weight-band dosing table in the record lists 3.75 mL for Liam. The record does not yet document when the 15 mL dose was last given, how often it was given, or whether Liam received another acetaminophen-containing product. Complete the bow-tie by selecting the most likely condition, two priority nursing actions, and two parameters to evaluate.",
+  "tokens": {
+    "actions": [
+      {
+        "label": "A1",
+        "text": "Teach the documented 3.75 mL dose using an appropriate oral dosing syringe and have Danielle demonstrate the measurement"
+      },
+      {
+        "label": "A2",
+        "text": "Defer acetaminophen correction to a follow-up visit in one month to avoid overwhelming Danielle"
+      },
+      {
+        "label": "A3",
+        "text": "File a protective-services report based on the unsafe practices alone"
+      },
+      {
+        "label": "A4",
+        "text": "Promptly determine the product, timing, frequency, and total acetaminophen exposure and obtain case-specific guidance from the pediatric clinician and Poison Control based on the available assessment"
+      }
+    ],
+    "condition": [
+      {
+        "label": "C1",
+        "text": "Caregiver role strain as the primary explanation for the medication errors"
+      },
+      {
+        "label": "C2",
+        "text": "Caregiver medication-safety knowledge deficit causing dosing and storage errors"
+      },
+      {
+        "label": "C3",
+        "text": "Child neglect as the primary explanation"
+      }
+    ],
+    "parameters": [
+      {
+        "label": "P1",
+        "text": "Danielle's demonstrated or confirmed storage of medicines out of Liam's reach and sight after each use"
+      },
+      {
+        "label": "P2",
+        "text": "Danielle's accurate follow-up return demonstration of measuring the documented acetaminophen dose"
+      },
+      {
+        "label": "P3",
+        "text": "Danielle's stated confidence alone, without observing dose measurement or medication storage"
+      },
+      {
+        "label": "P4",
+        "text": "Liam's routine developmental-screen score as the main measure of medication-safety teaching"
+      }
+    ]
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "advisoryPriority": "P3",
+  "bilingualCollateral": [
+    {
+      "concern": "The Chinese A3 token retains the English fragments “units IV,” producing avoidable mixed-language wording.",
+      "evidence": "English: “regular insulin 10 units IV”; Chinese: “普通胰岛素 10 units IV.” A fully localized form such as “普通胰岛素 10 单位静脉注射” would be clearer while preserving the protocol qualifier.",
+      "priority": "P3"
+    },
+    {
+      "concern": "The unsupported hypotension reference is mirrored consistently across languages rather than being an EN/ZH mismatch.",
+      "evidence": "The correct rationale uses “hypotension/dehydration picture” and “低血压/脱水表现,” while neither standalone stem states a blood pressure or hypotension finding.",
+      "priority": "P3"
+    }
+  ],
+  "canonicalTargetSiblingOverlap": [
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling explicitly identifies severe gastrointestinal volume depletion, concentrated urine, urine sodium 8 mEq/L, FENa 0.4%, low bladder volume, AKI, and dangerous hyperkalemia; the standalone stem already contains the facts needed to select C1.",
+      "opaqueTokenLabel": "C1",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling orders and administers calcium gluconate first for hyperkalemia with PR prolongation and QRS widening, corroborating the independently supported standalone choice.",
+      "opaqueTokenLabel": "A4",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling gives regular insulin with dextrose after calcium, matching the standalone sequence without supplying a necessary missing premise.",
+      "opaqueTokenLabel": "A3",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling repeatedly monitors PR interval, QRS duration, and T-wave morphology and documents improvement after treatment; the standalone stem already makes ECG monitoring directly rankable.",
+      "opaqueTokenLabel": "P3",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling orders strict hourly urine measurement and uses its trend to assess renal recovery; the standalone stem already reports severe oliguria sufficient to prioritize P1.",
+      "opaqueTokenLabel": "P1",
+      "overlap": true
+    }
+  ],
+  "clinicalCollateral": [
+    {
+      "concern": "The rationale states the prerenal-versus-ATN distinction somewhat more definitively than the standalone evidence warrants.",
+      "evidence": "Low urine sodium, FENa 0.4%, and concentrated admission urine favor prerenal physiology, but baseline CKD and persistent oliguria after fluids reduce the specificity of these indices; absence of described muddy brown casts does not exclude evolving tubular injury. C1 remains the uniquely best pooled answer.",
+      "priority": "P3"
+    },
+    {
+      "concern": "The oral sodium polystyrene sulfonate discussion focuses mainly on active vomiting and retention.",
+      "evidence": "Rejecting A2 is clinically sound, but the rationale could also clarify that oral SPS has delayed and variable potassium-removal effects and is not a substitute for immediate membrane stabilization and rapid shifting therapy in ECG-toxic hyperkalemia.",
+      "priority": "P3"
+    }
+  ],
+  "defectSummary": "No verdict-level defect is present. The standalone surface independently supports all five canonical targets, but the correct rationale imports an explicit hypotension reference found only in the sibling case; that reference should be removed or added to the standalone stem even though it does not affect rankability.",
+  "missingFactProvenance": [
+    {
+      "missingFact": "No blood pressure or explicit hypotension finding is provided despite the complete rationale referring to a hypotension picture.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "C1",
+      "provenance": "OTHER_PROVENANCE",
+      "sourceEvidence": "The sibling admission assessment supplies BP 88/54 and other explicit hypovolemia findings. Because Phase E found hypotension unnecessary for rankability, this is sibling corroboration and nonmaterial rationale leakage, not a hidden dependency."
+    },
+    {
+      "missingFact": "No urine sediment findings, such as muddy brown granular casts, or post-resuscitation urine indices are provided.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "C3",
+      "provenance": "OTHER_PROVENANCE",
+      "sourceEvidence": "The sibling admission urinalysis states “no casts,” but no post-resuscitation urine sodium or FENa is supplied. This partially addresses the missing-information category without providing positive ATN evidence."
+    }
+  ],
+  "primaryVerdict": "PASS_STANDALONE",
+  "reasoning": "Applying the fixed precedence, hidden-case dependency does not apply because no keyed target requires sibling-only information; the sibling merely corroborates the standalone selections. Unsupported-token-premise and underdetermination failures also do not apply: C1, A4, A3, P3, and P1 are independently rankable from the standalone stem, and the distractors remain inferior without sibling rescue. The canonical key and clinical sequence are coherent. The only provenance leak is the rationale’s nonessential hypotension reference, so the result is PASS_STANDALONE with P3 collateral advisories.",
+  "scopeCollateral": [],
+  "secondaryFlags": []
+}

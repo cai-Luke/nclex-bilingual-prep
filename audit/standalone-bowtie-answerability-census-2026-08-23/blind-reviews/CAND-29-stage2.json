@@ -1,0 +1,132 @@
+{
+  "actionLabels": [
+    "A1",
+    "A2"
+  ],
+  "ambiguousAlternatives": [],
+  "conditionLabel": "C1",
+  "missingInformation": [
+    "Exact current iron, folate, vitamin D, and calcium values are not provided.",
+    "Prior DEXA results or bone-density history are not provided.",
+    "The laboratory reference range and assay-specific upper limit for tTG-IgA are not provided."
+  ],
+  "parameterLabels": [
+    "P3",
+    "P4"
+  ],
+  "poolAnswerability": "ANSWERABLE",
+  "reasoning": "C1 is uniquely supported by the disease-specific serology, histology, dermatitis herpetiformis, malabsorption, and gluten-responsive course. A1 addresses the essential continuing therapy, and A2 addresses bone risk from documented vitamin D and calcium deficiencies. P3 monitors recovery from documented iron deficiency, while P4 directly tracks celiac response and dietary adherence.",
+  "selectionEvidence": [
+    {
+      "evidence": "Positive tTG-IgA with normal total IgA, Marsh 3a duodenal histology, biopsy-confirmed dermatitis herpetiformis, malabsorption, and response to gluten elimination support celiac disease with dermatitis herpetiformis.",
+      "opaqueTokenLabel": "C1"
+    },
+    {
+      "evidence": "Symptoms, rash, nutritional laboratory results, and tTG-IgA improved after hidden gluten was eliminated and a strict gluten-free diet was maintained.",
+      "opaqueTokenLabel": "A1"
+    },
+    {
+      "evidence": "Prior weight loss and vitamin D and calcium deficiencies from malabsorption create a clinically relevant bone-health concern.",
+      "opaqueTokenLabel": "A2"
+    },
+    {
+      "evidence": "The stem identifies iron deficiency and subsequent improvement in nutritional laboratory results, making hemoglobin and ferritin appropriate recovery measures.",
+      "opaqueTokenLabel": "P3"
+    },
+    {
+      "evidence": "The stem provides a treatment-associated tTG-IgA decline from 128 to 38 U/mL, supporting continued serial measurement.",
+      "opaqueTokenLabel": "P4"
+    }
+  ],
+  "stage2Confidence": "high",
+  "tokenPremiseTable": [
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "C1",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The stem supplies concordant disease-specific serologic, intestinal histologic, and dermatologic evidence.",
+      "supportingStemText": "positive tTG-IgA with normal total IgA, Marsh 3a duodenal biopsy, and skin biopsy-confirmed dermatitis herpetiformis"
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "C2",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The disease-specific findings and gluten-responsive course support celiac disease rather than Crohn disease.",
+      "supportingStemText": "positive tTG-IgA with normal total IgA, Marsh 3a duodenal biopsy, skin biopsy-confirmed dermatitis herpetiformis, and improvement after strict gluten elimination"
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "C3",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Objective malabsorption, abnormal serology, and biopsy findings are incompatible with irritable bowel syndrome as the unifying diagnosis.",
+      "supportingStemText": "iron/folate/vitamin D/calcium deficiencies, positive tTG-IgA, Marsh 3a duodenal biopsy, and biopsy-confirmed dermatitis herpetiformis"
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A1",
+      "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The observed response supports continued adherence, while lifelong gluten avoidance and cross-contamination prevention are standard management for celiac disease.",
+      "supportingStemText": "completed three months of strict gluten-free diet after eliminating hidden gluten; GI symptoms and rash have resolved, nutritional labs have improved, and tTG-IgA has fallen"
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A2",
+      "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Malabsorption with vitamin D and calcium deficiencies supports bone-density assessment and bone-health education.",
+      "supportingStemText": "weight loss and vitamin D/calcium deficiencies"
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A3",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The clinical, nutritional, and serologic trends indicate treatment response rather than treatment failure; the stem provides no reason for an immediate repeat biopsy.",
+      "supportingStemText": "GI symptoms and rash have resolved, nutritional labs have improved, and tTG-IgA has fallen from 128 to 38 U/mL"
+    },
+    {
+      "missingPremise": "Exact current nutrient values, prescribed supplement duration, and a clinician-directed discontinuation plan are not provided.",
+      "opaqueTokenLabel": "A4",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Improvement alone does not establish that deficiencies are fully corrected or that supplementation should stop.",
+      "supportingStemText": "nutritional labs have improved"
+    },
+    {
+      "missingPremise": "No active inflammatory disorder or ESR/CRP abnormality is described.",
+      "opaqueTokenLabel": "P1",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "ESR and CRP are not the most direct measures of the documented nutritional and celiac-serology response.",
+      "supportingStemText": ""
+    },
+    {
+      "missingPremise": "No vitamin B12 deficiency, macrocytosis, neurologic finding, or baseline vitamin B12 value is described.",
+      "opaqueTokenLabel": "P2",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The stem identifies other specific deficiencies, so vitamin B12 is less directly supported than hemoglobin and ferritin.",
+      "supportingStemText": ""
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "P3",
+      "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Hemoglobin and ferritin directly evaluate recovery from the documented iron deficiency.",
+      "supportingStemText": "iron deficiency and improved nutritional labs"
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "P4",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The explicit serial decline makes tTG-IgA a direct parameter for continued evaluation of response and adherence.",
+      "supportingStemText": "tTG-IgA has fallen from 128 to 38 U/mL"
+    }
+  ]
+}

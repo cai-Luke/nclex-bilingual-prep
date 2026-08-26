@@ -1,0 +1,56 @@
+{
+  "instruction": "Using only the standalone learner-facing English stem, prompts, and opaque token pools, select exactly one condition, two actions, and two parameters. Return the required structured JSON, including exactly one premise row for every opaque token. Do not infer absent client-specific facts.",
+  "stem": "At discharge, Marcus’s nerve block is wearing off, pain is rising to 5/10, he has resumed buprenorphine/naloxone, and he openly acknowledges craving while stating he does not intend to use. He has not contacted his sponsor, has not confirmed MAT follow-up, is unsure how he will attend NA, and asks about pain escalation and Tanya’s naloxone kit. Complete the bow-tie by selecting the most likely condition, two priority actions, and two parameters to monitor.",
+  "tokens": {
+    "actions": [
+      {
+        "label": "A1",
+        "text": "Activate the recovery-support plan before discharge: sponsor/NA logistics/MAT follow-up"
+      },
+      {
+        "label": "A2",
+        "text": "Complete paperwork and written instructions without addressing barriers"
+      },
+      {
+        "label": "A3",
+        "text": "Teach the supervised pain plan and naloxone/overdose response with Marcus and Tanya"
+      },
+      {
+        "label": "A4",
+        "text": "Request a psychiatric hold solely because he disclosed craving"
+      }
+    ],
+    "condition": [
+      {
+        "label": "C1",
+        "text": "Acute relapse risk from converging physical and psychosocial stressors"
+      },
+      {
+        "label": "C2",
+        "text": "Active opioid withdrawal"
+      },
+      {
+        "label": "C3",
+        "text": "Acute suicidal crisis requiring involuntary psychiatric hold"
+      }
+    ],
+    "parameters": [
+      {
+        "label": "P1",
+        "text": "Repeat urine drug screen at MAT follow-up as the primary ED safety marker"
+      },
+      {
+        "label": "P2",
+        "text": "Engagement with recovery supports and confirmed follow-up"
+      },
+      {
+        "label": "P3",
+        "text": "Pain trajectory over the next 24–48 hours"
+      },
+      {
+        "label": "P4",
+        "text": "Serial HR and BP monitoring as the primary discharge outcome"
+      }
+    ]
+  }
+}

@@ -1,0 +1,185 @@
+{
+  "canonicalSelection": {
+    "actionLabels": [
+      "A3",
+      "A2"
+    ],
+    "conditionLabel": "C2",
+    "parameterLabels": [
+      "P3",
+      "P2"
+    ]
+  },
+  "instruction": "The two blind-stage records are immutable. Compare them with the now-revealed canonical 1/2/2 selection and complete standalone item. Do not inspect or infer sibling-case material. Return the required Phase-E structured JSON without revising either blind record.",
+  "standaloneItem": {
+    "bowtie": {
+      "actions": {
+        "prompt": {
+          "en": "Priority actions",
+          "zh": "优先措施"
+        },
+        "tokens": [
+          {
+            "en": "Schedule the PEG consult without patient consent to reduce family conflict",
+            "opaqueTokenLabel": "A1",
+            "zh": "未经患者同意安排 PEG 会诊，以减少家属冲突"
+          },
+          {
+            "en": "Facilitate the interdisciplinary family meeting with palliative care and social work support",
+            "opaqueTokenLabel": "A2",
+            "zh": "在姑息治疗和社工支持下促成跨专业家庭会议"
+          },
+          {
+            "en": "Communicate directly with the physician that PEG consult should not proceed over the documented refusal",
+            "opaqueTokenLabel": "A3",
+            "zh": "直接告知医师，不应在已有拒绝记录的情况下继续安排 PEG 会诊"
+          },
+          {
+            "en": "Defer to the son's demand because he holds the DPOAHC document",
+            "opaqueTokenLabel": "A4",
+            "zh": "因儿子持有 DPOAHC 文件而听从其要求"
+          }
+        ]
+      },
+      "condition": {
+        "prompt": {
+          "en": "Most likely condition",
+          "zh": "最可能的情况"
+        },
+        "tokens": [
+          {
+            "en": "Active surrogate decision-making by the DPOAHC holder",
+            "opaqueTokenLabel": "C1",
+            "zh": "DPOAHC 持有人已进入有效代理决策状态"
+          },
+          {
+            "en": "Capacitated client's autonomous refusal challenged by dormant surrogate authority",
+            "opaqueTokenLabel": "C2",
+            "zh": "有决策能力患者的自主拒绝受到尚未生效的代理权挑战"
+          },
+          {
+            "en": "Impaired capacity causing an uninformed refusal",
+            "opaqueTokenLabel": "C3",
+            "zh": "决策能力受损导致的非知情拒绝"
+          }
+        ]
+      },
+      "parameters": {
+        "prompt": {
+          "en": "Parameters to monitor",
+          "zh": "应监测的指标"
+        },
+        "tokens": [
+          {
+            "en": "Albumin and prealbumin trends",
+            "opaqueTokenLabel": "P1",
+            "zh": "白蛋白和前白蛋白趋势"
+          },
+          {
+            "en": "Mrs. Ellison's statements show she feels heard and free from coercion",
+            "opaqueTokenLabel": "P2",
+            "zh": "Ellison 太太的表述显示她感到被倾听且未受胁迫"
+          },
+          {
+            "en": "Care plan and orders remain aligned with Mrs. Ellison's stated wishes",
+            "opaqueTokenLabel": "P3",
+            "zh": "照护计划和医嘱持续符合 Ellison 太太表达的意愿"
+          },
+          {
+            "en": "Family satisfaction with the decision",
+            "opaqueTokenLabel": "P4",
+            "zh": "家属对决定的满意度"
+          }
+        ]
+      }
+    },
+    "glossary": [
+      {
+        "defZh": "要求同时选择最可能情况、优先措施和监测指标的 NGN 题型。",
+        "termEn": "bow-tie",
+        "termZh": "弓形图题"
+      },
+      {
+        "defZh": "文件存在但触发条件尚未满足，因此暂时不能用于决策的代理权。",
+        "termEn": "dormant authority",
+        "termZh": "尚未生效的权力"
+      },
+      {
+        "defZh": "根据患者价值观、预后和偏好确定的治疗方向。",
+        "termEn": "goals of care",
+        "termZh": "照护目标"
+      }
+    ],
+    "rationale": {
+      "byChoice": [
+        {
+          "en": "This is the correct condition because capacity is intact and the surrogate authority is not activated.",
+          "opaqueTokenLabel": "C2",
+          "zh": "这是正确情况，因为患者能力完整，代理权尚未生效。"
+        },
+        {
+          "en": "This would apply only if Mrs. Ellison lacked decisional capacity, which is not the case.",
+          "opaqueTokenLabel": "C1",
+          "zh": "只有在 Ellison 太太丧失决策能力时才适用；本病例并非如此。"
+        },
+        {
+          "en": "Her capacity and informed reasoning have been documented by both the physician and palliative-care clinician.",
+          "opaqueTokenLabel": "C3",
+          "zh": "医师和姑息治疗临床人员均已记录她有能力并能进行知情推理。"
+        },
+        {
+          "en": "This protects the patient from the immediate risk of a consult being placed over refusal.",
+          "opaqueTokenLabel": "A3",
+          "zh": "这可保护患者，避免在拒绝后仍被安排会诊这一即时风险。"
+        },
+        {
+          "en": "This addresses family distress through appropriate team support without moving decision authority away from the patient.",
+          "opaqueTokenLabel": "A2",
+          "zh": "这通过合适的团队支持处理家属痛苦，同时不把决定权从患者身上移开。"
+        },
+        {
+          "en": "A consult used to calm the family after refusal can become coercive and violates autonomy.",
+          "opaqueTokenLabel": "A1",
+          "zh": "患者拒绝后为安抚家属而安排会诊可能形成胁迫，并侵犯自主权。"
+        },
+        {
+          "en": "The son holds a document, but his authority is dormant while the patient has capacity.",
+          "opaqueTokenLabel": "A4",
+          "zh": "儿子虽持有文件，但在患者有能力时其权力尚未生效。"
+        },
+        {
+          "en": "Alignment of the care plan and orders with her wishes shows advocacy is sustained over time.",
+          "opaqueTokenLabel": "P3",
+          "zh": "照护计划和医嘱持续符合她的意愿，说明倡导得以维持。"
+        },
+        {
+          "en": "The patient's perception of being heard and not coerced is a direct measure of whether autonomy is being protected.",
+          "opaqueTokenLabel": "P2",
+          "zh": "患者是否感到被倾听且未受胁迫，是自主权是否受到保护的直接指标。"
+        },
+        {
+          "en": "Nutrition trends affect prognosis but do not determine whether the advocacy intervention succeeded.",
+          "opaqueTokenLabel": "P1",
+          "zh": "营养指标趋势影响预后，但不能决定倡导干预是否成功。"
+        },
+        {
+          "en": "Family satisfaction may remain low even when the patient's rights are properly protected.",
+          "opaqueTokenLabel": "P4",
+          "zh": "即使患者权利得到正确保护，家属满意度仍可能较低。"
+        }
+      ],
+      "correct": {
+        "en": "The synthesis is an autonomy and advocacy problem, not an active surrogate-decision case. The priority nursing actions are to ensure the refused PEG consult does not proceed and to support a structured family meeting. Monitoring should focus on whether orders and the care plan continue to match the patient's goals and whether she feels respected and not coerced.",
+        "zh": "本题综合的是自主权和护理倡导问题，而不是有效代理决策情境。优先护理措施是确保患者拒绝后 PEG 会诊不继续进行，并支持结构化家庭会议。监测重点应放在医嘱和照护计划是否持续符合患者目标，以及患者是否感到受尊重且未被胁迫。"
+      }
+    },
+    "stem": {
+      "en": "Stage 3 synthesis: Mrs. Ellison has repeatedly refused PEG placement with documented intact decisional capacity. The physician's suggestion to schedule the consult anyway has been addressed. Palliative care confirms her capacity and wishes, and a family meeting is arranged. Complete the bow-tie diagram.",
+      "zh": "阶段 3 综合题：Ellison 太太已多次拒绝 PEG 置管，并有完整决策能力的记录。医师曾建议仍安排会诊的问题已被处理。姑息治疗团队确认她有能力且意愿一致，并已安排家庭会议。请完成弓形图。"
+    },
+    "testTakingStrategy": {
+      "en": "In bow-tie items, make the center condition match the ethical frame first. Then choose actions and monitoring parameters that follow from that frame, not from the family's preferred outcome.",
+      "zh": "做弓形图题时，先让中间病情/情况符合伦理框架，再选择由该框架推出的措施和监测指标，而不是依据家属想要的结果。"
+    }
+  }
+}

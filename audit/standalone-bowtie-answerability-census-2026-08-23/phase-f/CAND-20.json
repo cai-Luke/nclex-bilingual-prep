@@ -1,0 +1,103 @@
+{
+  "advisoryPriority": "P2",
+  "bilingualCollateral": [],
+  "canonicalTargetSiblingOverlap": [
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling adds an explicit intermediate-risk classification and right-heart-strain ECG findings, but the standalone CT-PA, RV/LV ratio, septal bowing, biomarkers, and preserved systolic pressure independently establish C2.",
+      "opaqueTokenLabel": "C2",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling supplies the UFH dosing and aPTT schedule, but the standalone stem already states that a facility UFH protocol was initiated with subsequent improvement, and the token itself specifies protocol-based aPTT monitoring.",
+      "opaqueTokenLabel": "A4",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling explicitly orders ICU transfer, close monitoring, and escalation for sustained hypotension or obstructive shock. The standalone severity findings independently support this action.",
+      "opaqueTokenLabel": "A1",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling provides numerical HR and BP trajectories, while the standalone stem already states that HR and BP improve and identifies hemodynamic deterioration as the central risk.",
+      "opaqueTokenLabel": "P4",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling provides numerical SpO2 and respiratory-rate trajectories. The standalone stem independently supplies severe dyspnea, hypoxemia, and an improving SpO2 trend, making respiratory monitoring directly rankable.",
+      "opaqueTokenLabel": "P3",
+      "overlap": true
+    }
+  ],
+  "clinicalCollateral": [
+    {
+      "concern": "The A2 token groups supine positioning with Trendelenburg, but its rationale specifically explains the risk of Trendelenburg without separately establishing that ordinary supine positioning has the same effect.",
+      "evidence": "A2 reads 'Place the client supine or in Trendelenburg to raise blood pressure,' while the standalone rationale discusses only Trendelenburg worsening RV distension and LV filling. The client's preserved and improving BP still makes A2 nonpriority.",
+      "priority": "P2"
+    }
+  ],
+  "defectSummary": "No standalone answerability or canonical-key defect is present. The item independently supports the canonical 1/2/2 set. The rationale nevertheless imports nonessential sibling facts and makes one CT-specific negative-pneumothorax assertion that is not supported by the checked CT report.",
+  "missingFactProvenance": [
+    {
+      "missingFact": "The standalone rationale mentions ECG signs or an ECG pattern of RV strain, but no ECG findings appear in the standalone stem.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "C2",
+      "provenance": "SIBLING_CASE_IMPORTED",
+      "sourceEvidence": "The sibling case reports sinus tachycardia, right-axis deviation, S1Q3T3, and T-wave inversions in V1-V3."
+    },
+    {
+      "missingFact": "The standalone rationale states that a chest x-ray shows no pneumothorax, but the standalone stem supplies no chest-x-ray result.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "C1",
+      "provenance": "SIBLING_CASE_IMPORTED",
+      "sourceEvidence": "The sibling Stage 2 exhibit states that the chest x-ray shows no infiltrate, pneumothorax, or pleural effusion."
+    },
+    {
+      "missingFact": "The standalone rationale treats CT as explicitly showing no pneumothorax, but the standalone CT-PA description reports only PE and RV-strain findings.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "C1",
+      "provenance": "RATIONALE_ONLY",
+      "sourceEvidence": "The standalone rationale says chest x-ray and CT show no pneumothorax, but the sibling CT-PA report does not state that CT excluded pneumothorax; only the sibling chest x-ray does so."
+    },
+    {
+      "missingFact": "The standalone rationale states that lung sounds are clear bilaterally, but the standalone stem supplies no lung-sound assessment.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "C1",
+      "provenance": "SIBLING_CASE_IMPORTED",
+      "sourceEvidence": "The sibling initial assessment explicitly reports clear bilateral lung sounds."
+    },
+    {
+      "missingFact": "The standalone rationale cites an ECG pattern supporting PE rather than coronary-territory ST elevation, but the standalone stem supplies no ECG findings.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "C3",
+      "provenance": "SIBLING_CASE_IMPORTED",
+      "sourceEvidence": "The sibling ECG shows right-axis deviation, S1Q3T3, and V1-V3 T-wave inversions and does not report coronary-territory ST elevation."
+    },
+    {
+      "missingFact": "A measured temperature of 99 °F (37.2 °C) is absent from the standalone stem.",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "P1",
+      "provenance": "SIBLING_CASE_IMPORTED",
+      "sourceEvidence": "The sibling initial assessment explicitly reports temperature 99 °F (37.2 °C)."
+    }
+  ],
+  "primaryVerdict": "PASS_STANDALONE",
+  "reasoning": "The standalone stem directly confirms intermediate-risk PE and provides enough treatment-response, oxygenation, and hemodynamic information to select C2, A4, A1, P4, and P3 uniquely. Sibling details strengthen those choices but are not necessary for them. No canonical target depends on an absent client fact, and no absent fact materially changes distractor rankability. Therefore hidden-case dependency, unsupported-token-premise, underdetermination, key-or-logic failure, and reviewer-disagreement conditions are not satisfied; the fixed precedence yields PASS_STANDALONE.",
+  "scopeCollateral": [
+    {
+      "concern": "The standalone rationale incorporates sibling-only assessment and diagnostic findings.",
+      "evidence": "ECG findings, a negative chest x-ray, clear bilateral lung sounds, and the measured temperature appear in the sibling case but not in the standalone stem. None is required to select or rank the canonical set.",
+      "priority": "P2"
+    },
+    {
+      "concern": "The rationale attributes a negative pneumothorax finding to CT without support from either the standalone CT description or the sibling CT report.",
+      "evidence": "The sibling chest x-ray explicitly excludes pneumothorax, whereas the sibling CT-PA report describes the saddle embolus, RV strain, and absence of an aortic dissection flap but does not state that CT excluded pneumothorax.",
+      "priority": "P2"
+    }
+  ],
+  "secondaryFlags": []
+}

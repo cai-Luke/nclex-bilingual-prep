@@ -1,0 +1,971 @@
+{
+  "instruction": "The Stage-1, Stage-2, and Phase-E records are immutable. Inspect the paired case only now. Classify provenance for every Phase-E missing client fact, distinguish sibling necessity from corroboration, apply the fixed verdict precedence, and record narrow bilingual/clinical/scope collateral observations. Do not revise Phase E and do not propose content edits beyond an advisory P0-P3 priority.",
+  "phaseESha256": "d1ceda8cf1cb37610a0e6069620296faf80085807412014d50dea7adaafccc68",
+  "siblingCase": {
+    "caseStudy": {
+      "exhibits": [
+        {
+          "content": {
+            "en": "Reason for admission: symptomatic anemia with fatigue, exertional dyspnea, and pallor for 2 weeks.\nOrdered therapy: two units packed red blood cells; initial transfusion rate 2 mL/min for the first 15 minutes per facility protocol.\nBaseline vital signs: T 98.2 °F (36.8 °C), HR 92/min, BP 108/68 mmHg, RR 18/min, SpO2 96% on room air.\nAssessment: alert and oriented, lungs clear, skin pale/warm/dry, abdomen soft and non-tender, no edema, IV site without redness/swelling/tenderness.\nUrine output: about 40 mL/hr, straw-colored urine.\nAdmission labs: Hgb 6.4 g/dL, Hct 19.2%, WBC 7.8 ×10³/µL, platelets 218 ×10³/µL, BUN 32 mg/dL, creatinine 1.8 mg/dL, K 4.6 mEq/L, total bilirubin 0.9 mg/dL, LDH 190 U/L, INR 1.0, aPTT 28 sec, fibrinogen 310 mg/dL, haptoglobin 95 mg/dL. Urinalysis yellow/clear, no blood.",
+            "zh": "入院原因：症状性贫血，2 周来乏力、活动后气促、面色苍白。\n医嘱治疗：输注 2 单位浓缩红细胞；按机构流程，前 15 分钟初始速率为 2 mL/min。\n基线生命体征：T 98.2 °F (36.8 °C)，HR 92 次/分，BP 108/68 mmHg，RR 18 次/分，室内空气 SpO2 96%。\n评估：清醒定向，双肺清，皮肤苍白但温暖干燥，腹部软且无压痛，无水肿，IV 部位无发红/肿胀/压痛。\n尿量：约 40 mL/hr，尿液稻草色。\n入院实验室：Hgb 6.4 g/dL，Hct 19.2%，WBC 7.8 ×10³/µL，血小板 218 ×10³/µL，BUN 32 mg/dL，肌酐 1.8 mg/dL，K 4.6 mEq/L，总胆红素 0.9 mg/dL，LDH 190 U/L，INR 1.0，aPTT 28 秒，纤维蛋白原 310 mg/dL，结合珠蛋白 95 mg/dL。尿检黄色清亮，无血。"
+          },
+          "id": "baseline_record",
+          "title": {
+            "en": "Baseline record before transfusion",
+            "zh": "输血前基线记录"
+          }
+        }
+      ],
+      "questions": [
+        {
+          "category": "Safety and Infection Prevention and Control",
+          "difficulty": "hard",
+          "glossary": [
+            {
+              "defZh": "强烈、不可控制的发抖，常提示急性发热或感染/输血反应。",
+              "termEn": "Rigors",
+              "termZh": "寒战"
+            },
+            {
+              "defZh": "游离血红蛋白经肾脏排出，使尿液呈红褐色。",
+              "termEn": "Hemoglobinuria",
+              "termZh": "血红蛋白尿"
+            },
+            {
+              "defZh": "患者突然强烈感觉将发生严重危险，可见于严重急性反应。",
+              "termEn": "Impending doom",
+              "termZh": "濒危感"
+            }
+          ],
+          "highlight": {
+            "correct": [
+              "s1",
+              "s2",
+              "s3",
+              "s4",
+              "s5",
+              "s6"
+            ],
+            "segments": [
+              {
+                "en": "Sudden deep bilateral flank and low back pain during the transfusion.",
+                "id": "s1",
+                "selectable": true,
+                "zh": "输血过程中突然出现双侧腰背部深部疼痛。"
+              },
+              {
+                "en": "The client states, \"something is wrong — I feel like something terrible is about to happen.\"",
+                "id": "s2",
+                "selectable": true,
+                "zh": "患者说：“不对劲——我觉得要出大事了。”"
+              },
+              {
+                "en": "Visible rigors with temperature rising from 98.2 °F (36.8 °C) to 101.5 °F (38.6 °C).",
+                "id": "s3",
+                "selectable": true,
+                "zh": "明显寒战，体温从 98.2 °F (36.8 °C) 升至 101.5 °F (38.6 °C)。"
+              },
+              {
+                "en": "Heart rate increases from 92/min to 118/min.",
+                "id": "s4",
+                "selectable": true,
+                "zh": "心率从 92 次/分升至 118 次/分。"
+              },
+              {
+                "en": "Blood pressure decreases from 108/68 mmHg to 96/58 mmHg.",
+                "id": "s5",
+                "selectable": true,
+                "zh": "血压从 108/68 mmHg 降至 96/58 mmHg。"
+              },
+              {
+                "en": "The most recent urine appears dark reddish-brown.",
+                "id": "s6",
+                "selectable": true,
+                "zh": "最近一次尿液呈深红褐色。"
+              },
+              {
+                "en": "The peripheral IV site has no redness, swelling, or streaking.",
+                "id": "s7",
+                "selectable": true,
+                "zh": "外周 IV 部位无发红、肿胀或条索状红线。"
+              }
+            ]
+          },
+          "id": "gpt_case_acute_hemolytic_transfusion_reaction_01_q1",
+          "itemType": "highlight",
+          "ngnSkill": "recognize_cues",
+          "rationale": {
+            "byChoice": [
+              {
+                "en": "Acute flank or low back pain during a transfusion is a high-risk cue for intravascular hemolysis and renal involvement.",
+                "refId": "s1",
+                "zh": "输血时急性腰部或下背痛是血管内溶血和肾脏受累的高危线索。"
+              },
+              {
+                "en": "A sudden sense of impending doom during a transfusion is a classic subjective warning sign of a severe acute reaction.",
+                "refId": "s2",
+                "zh": "输血过程中突然出现濒危感，是严重急性反应的典型主观警讯。"
+              },
+              {
+                "en": "A rapid temperature rise with rigors during blood administration indicates an acute transfusion reaction until proven otherwise.",
+                "refId": "s3",
+                "zh": "输血期间体温快速升高并伴寒战，应首先视为急性输血反应。"
+              },
+              {
+                "en": "The new tachycardia is part of the systemic reaction and may reflect early shock.",
+                "refId": "s4",
+                "zh": "新发心动过速属于全身反应的一部分，可能提示早期休克。"
+              },
+              {
+                "en": "A falling blood pressure during the reaction signals loss of perfusion and a potentially life-threatening trajectory.",
+                "refId": "s5",
+                "zh": "反应过程中血压下降提示灌注不足，病情可能危及生命。"
+              },
+              {
+                "en": "Dark reddish-brown urine suggests hemoglobinuria, which strongly supports intravascular hemolysis.",
+                "refId": "s6",
+                "zh": "深红褐色尿提示血红蛋白尿，强烈支持血管内溶血。"
+              },
+              {
+                "en": "A normal IV site does not explain the systemic symptoms; it is not a cue that requires emergency action by itself.",
+                "refId": "s7",
+                "zh": "IV 部位正常不能解释全身症状；它本身不是需要紧急处理的线索。"
+              }
+            ],
+            "correct": {
+              "en": "The cue cluster is abrupt flank/back pain, a sense of impending doom, fever with rigors, tachycardia, falling blood pressure, and dark reddish-brown urine within minutes of starting blood. This pattern requires the nurse to treat the event as an acute transfusion reaction and stop the transfusion immediately. The normal IV site is useful because it makes infiltration or phlebitis less likely, but it is not itself a danger cue.",
+              "zh": "关键线索组合是在输血开始后数分钟内突然出现腰背痛、濒危感、发热寒战、心动过速、血压下降和深红褐色尿液。护士应按急性输血反应处理，立即停止输血。IV 部位正常有助于排除渗漏或静脉炎，但它本身不是危险线索。"
+            }
+          },
+          "stem": {
+            "en": "Using the Stage 1 update, highlight the findings that are significant cues requiring immediate nursing action.",
+            "zh": "根据第1阶段更新，标出需要护士立即处理的重要线索。"
+          },
+          "testTakingStrategy": {
+            "en": "During a transfusion, sudden systemic changes are more important than a normal IV site. Link timing plus cue cluster before deciding the priority.",
+            "zh": "输血过程中，突然出现的全身变化比 IV 部位正常更重要。先把发生时间和线索组合联系起来，再判断优先级。"
+          },
+          "topic": "Transfusion & Blood Products"
+        },
+        {
+          "category": "Safety and Infection Prevention and Control",
+          "correct": [
+            "A"
+          ],
+          "difficulty": "hard",
+          "glossary": [
+            {
+              "defZh": "输注不相容血液后红细胞被迅速破坏的严重反应。",
+              "termEn": "Acute hemolytic transfusion reaction",
+              "termZh": "急性溶血性输血反应"
+            },
+            {
+              "defZh": "供受者 ABO 血型不匹配，可引起严重溶血。",
+              "termEn": "ABO incompatibility",
+              "termZh": "ABO 不相容"
+            },
+            {
+              "defZh": "肾区疼痛；在溶血时可与肾脏受累有关。",
+              "termEn": "Flank pain",
+              "termZh": "腰痛/肋脊角疼痛"
+            }
+          ],
+          "id": "gpt_case_acute_hemolytic_transfusion_reaction_01_q2",
+          "itemType": "multiple_choice",
+          "ngnSkill": "analyze_cues",
+          "options": [
+            {
+              "en": "Febrile non-hemolytic transfusion reaction",
+              "id": "B",
+              "zh": "非溶血性发热性输血反应"
+            },
+            {
+              "en": "Mild allergic transfusion reaction",
+              "id": "C",
+              "zh": "轻度过敏性输血反应"
+            },
+            {
+              "en": "Delayed hemolytic transfusion reaction",
+              "id": "E",
+              "zh": "迟发性溶血性输血反应"
+            },
+            {
+              "en": "Transfusion-associated circulatory overload",
+              "id": "D",
+              "zh": "输血相关循环超负荷"
+            },
+            {
+              "en": "Acute hemolytic transfusion reaction",
+              "id": "A",
+              "zh": "急性溶血性输血反应"
+            }
+          ],
+          "rationale": {
+            "byChoice": [
+              {
+                "en": "A febrile non-hemolytic reaction can cause fever and chills, but it does not explain hemoglobinuria, flank pain, or shock.",
+                "refId": "B",
+                "zh": "非溶血性发热反应可有发热寒战，但不能解释血红蛋白尿、腰痛或休克。"
+              },
+              {
+                "en": "A delayed hemolytic reaction occurs days to weeks later, not within 12 minutes of beginning the transfusion.",
+                "refId": "E",
+                "zh": "迟发性溶血反应发生在数天到数周后，而不是输血开始 12 分钟内。"
+              },
+              {
+                "en": "TACO is suggested by dyspnea, crackles, jugular venous distension, fluid overload, and often hypertension rather than hemoglobinuria and flank pain.",
+                "refId": "D",
+                "zh": "TACO 通常由呼吸困难、湿啰音、颈静脉怒张、容量超负荷及常见高血压提示，而不是血红蛋白尿和腰痛。"
+              },
+              {
+                "en": "A mild allergic reaction usually causes urticaria, itching, and flushing; it does not cause hemoglobinuria or bilateral flank pain.",
+                "refId": "C",
+                "zh": "轻度过敏反应通常表现为荨麻疹、瘙痒和潮红；不会导致血红蛋白尿或双侧腰痛。"
+              },
+              {
+                "en": "This is correct because hemoglobinuria plus flank pain and hemodynamic instability during the first minutes of transfusion strongly indicates acute intravascular hemolysis.",
+                "refId": "A",
+                "zh": "正确。输血最初数分钟内出现血红蛋白尿、腰痛和血流动力学不稳定，强烈提示急性血管内溶血。"
+              }
+            ],
+            "correct": {
+              "en": "The most consistent diagnosis is an acute hemolytic transfusion reaction. The decisive features are very rapid onset during transfusion, flank/back pain, hypotension, hemoglobinuria, fever with rigors, and a sense of impending doom. These findings fit acute intravascular hemolysis from incompatible red cells.",
+              "zh": "最符合的是急性溶血性输血反应。关键特征是输血过程中快速发作、腰背痛、低血压、血红蛋白尿、发热寒战和濒危感。这些符合不相容红细胞导致的急性血管内溶血。"
+            }
+          },
+          "stem": {
+            "en": "At Stage 1, which transfusion reaction is most consistent with fever and rigors, bilateral flank pain, hypotension, a sense of impending doom, and dark reddish-brown urine 12 minutes after the transfusion begins?",
+            "zh": "第1阶段，输血开始 12 分钟后出现发热寒战、双侧腰痛、低血压、濒危感和深红褐色尿液，最符合哪一种输血反应？"
+          },
+          "testTakingStrategy": {
+            "en": "Do not stop at the word fever. Hemoglobinuria and flank pain shift the diagnosis from a simple febrile reaction to hemolysis.",
+            "zh": "不要只看到“发热”。血红蛋白尿和腰痛会把判断从单纯发热反应转向溶血反应。"
+          },
+          "topic": "Transfusion & Blood Products"
+        },
+        {
+          "category": "Safety and Infection Prevention and Control",
+          "correct": [
+            "C"
+          ],
+          "difficulty": "hard",
+          "glossary": [
+            {
+              "defZh": "循环系统不能维持足够组织灌注的危急状态。",
+              "termEn": "Cardiovascular collapse",
+              "termZh": "循环崩溃"
+            },
+            {
+              "defZh": "血液向组织输送氧气和营养的过程。",
+              "termEn": "Perfusion",
+              "termZh": "灌注"
+            },
+            {
+              "defZh": "组织灌注不足导致细胞缺氧和器官功能障碍的状态。",
+              "termEn": "Shock",
+              "termZh": "休克"
+            }
+          ],
+          "id": "gpt_case_acute_hemolytic_transfusion_reaction_01_q3",
+          "itemType": "multiple_choice",
+          "ngnSkill": "prioritize_hypotheses",
+          "options": [
+            {
+              "en": "The dark reddish-brown urine",
+              "id": "B",
+              "zh": "深红褐色尿液"
+            },
+            {
+              "en": "The normal-appearing IV site",
+              "id": "E",
+              "zh": "IV 部位外观正常"
+            },
+            {
+              "en": "The fever and rigors",
+              "id": "A",
+              "zh": "发热和寒战"
+            },
+            {
+              "en": "The client's nausea",
+              "id": "D",
+              "zh": "患者恶心"
+            },
+            {
+              "en": "The acute hypotension with tachycardia",
+              "id": "C",
+              "zh": "急性低血压伴心动过速"
+            }
+          ],
+          "rationale": {
+            "byChoice": [
+              {
+                "en": "Nausea is uncomfortable but is not the immediate threat compared with shock and ongoing hemolysis.",
+                "refId": "D",
+                "zh": "恶心会造成不适，但与休克和持续溶血相比，不是最直接威胁。"
+              },
+              {
+                "en": "Hemoglobinuria indicates hemolysis and renal risk, but circulation must be supported first so the kidneys can be perfused.",
+                "refId": "B",
+                "zh": "血红蛋白尿提示溶血和肾损伤风险，但必须先维持循环灌注，肾脏才有灌注。"
+              },
+              {
+                "en": "The normal IV site rules against a local IV complication; it is not the life-threatening problem.",
+                "refId": "E",
+                "zh": "IV 部位正常有助于排除局部 IV 并发症；它不是危及生命的问题。"
+              },
+              {
+                "en": "This is correct because hypotension with tachycardia signals shock physiology and loss of adequate tissue perfusion.",
+                "refId": "C",
+                "zh": "正确。低血压伴心动过速提示休克生理和组织灌注不足。"
+              },
+              {
+                "en": "Fever and rigors help identify the reaction, but temperature control is not the first survival priority.",
+                "refId": "A",
+                "zh": "发热寒战有助于识别反应，但退热不是最优先生命支持问题。"
+              }
+            ],
+            "correct": {
+              "en": "The immediate threat is cardiovascular collapse: the blood pressure is falling while the heart rate is rising. Fever and hemoglobinuria are important, but inadequate perfusion can become fatal within minutes and must drive the response to stop the antigen exposure and support circulation.",
+              "zh": "最直接的威胁是循环崩溃：血压下降同时心率升高。发热和血红蛋白尿很重要，但灌注不足可在数分钟内危及生命，因此处理重点是停止继续接触抗原并支持循环。"
+            }
+          },
+          "stem": {
+            "en": "At Stage 1, which problem is the most immediately life-threatening and should drive the nurse's priority response?",
+            "zh": "第1阶段，哪一个问题最直接危及生命，应该决定护士的优先处理？"
+          },
+          "testTakingStrategy": {
+            "en": "When several abnormal findings are present, ask which one can kill the client first. Shock physiology outranks fever control.",
+            "zh": "多个异常同时存在时，先问哪一个会最快危及生命。休克生理优先于退热处理。"
+          },
+          "topic": "Transfusion & Blood Products"
+        },
+        {
+          "category": "Safety and Infection Prevention and Control",
+          "correct": [
+            "A",
+            "B",
+            "D",
+            "E"
+          ],
+          "difficulty": "hard",
+          "glossary": [
+            {
+              "defZh": "常用于输血相关 IV 管路管理的等渗晶体液。",
+              "termEn": "0.9% normal saline",
+              "termZh": "0.9% 生理盐水"
+            },
+            {
+              "defZh": "对血袋、管路、标签和患者样本进行核查，以确认反应原因。",
+              "termEn": "Blood bank investigation",
+              "termZh": "血库调查"
+            },
+            {
+              "defZh": "用于输液、给药或输血的静脉管路。",
+              "termEn": "Venous access",
+              "termZh": "静脉通路"
+            }
+          ],
+          "id": "gpt_case_acute_hemolytic_transfusion_reaction_01_q4",
+          "itemType": "select_all",
+          "ngnSkill": "generate_solutions",
+          "options": [
+            {
+              "en": "Remove the peripheral IV catheter because the line has been exposed to incompatible blood.",
+              "id": "F",
+              "zh": "因为该管路接触过不相容血液，所以拔除外周 IV 导管。"
+            },
+            {
+              "en": "Disconnect the blood tubing and keep the IV open with 0.9% normal saline through new tubing per protocol.",
+              "id": "B",
+              "zh": "断开输血管路，并按流程用新的管路接 0.9% 生理盐水维持 IV 通路。"
+            },
+            {
+              "en": "Clamp the blood tubing and stop the transfusion.",
+              "id": "A",
+              "zh": "夹闭输血管路并停止输血。"
+            },
+            {
+              "en": "Save the blood unit with attached tubing and labels for the blood bank investigation.",
+              "id": "E",
+              "zh": "保留血袋、连接管路和标签，供血库调查。"
+            },
+            {
+              "en": "Flush the blood remaining in the original tubing before switching to saline.",
+              "id": "C",
+              "zh": "在换接生理盐水前，先把原管路中剩余的血液冲入体内。"
+            },
+            {
+              "en": "Stay with the client and have another staff member notify the provider and blood bank.",
+              "id": "D",
+              "zh": "留在患者身边，并请另一名工作人员通知医护提供者和血库。"
+            }
+          ],
+          "rationale": {
+            "byChoice": [
+              {
+                "en": "Removing the IV loses needed venous access in a hypotensive client who may require fluids, medications, and blood components.",
+                "refId": "F",
+                "zh": "拔除 IV 会失去必要静脉通路；低血压患者可能需要补液、用药和血液成分治疗。"
+              },
+              {
+                "en": "New tubing with 0.9% normal saline maintains access and avoids flushing residual blood from the transfusion tubing.",
+                "refId": "B",
+                "zh": "使用新管路接 0.9% 生理盐水可维持通路，并避免冲入输血管路中的残余血液。"
+              },
+              {
+                "en": "The client is unstable; the nurse should remain with the client and delegate notification when possible.",
+                "refId": "D",
+                "zh": "患者不稳定；护士应留在患者身边，并在可能时委派他人通知。"
+              },
+              {
+                "en": "The blood bank needs the unit, tubing, and labels intact to investigate the incompatibility and reaction.",
+                "refId": "E",
+                "zh": "血库需要完整的血袋、管路和标签来调查不相容和输血反应。"
+              },
+              {
+                "en": "This is unsafe because any additional incompatible blood can worsen the hemolytic reaction.",
+                "refId": "C",
+                "zh": "不安全。任何额外的不相容血液都可能加重溶血反应。"
+              },
+              {
+                "en": "Stopping the transfusion immediately stops additional incompatible red cells from entering the client.",
+                "refId": "A",
+                "zh": "立即停止输血可阻止更多不相容红细胞进入患者体内。"
+              }
+            ],
+            "correct": {
+              "en": "The nurse should stop the transfusion, maintain venous access with 0.9% normal saline using new tubing according to protocol, notify the provider and blood bank while staying with the client, and preserve the unit/tubing/labels. The nurse should not flush the original tubing because that would infuse more incompatible blood, and should not remove the IV because the client is hypotensive and needs access.",
+              "zh": "护士应停止输血，按流程使用新管路和 0.9% 生理盐水维持静脉通路，留在患者身边并通知医护提供者和血库，同时保留血袋、管路和标签。不能冲洗原输血管路，因为会把更多不相容血液输入体内；也不应拔除 IV，因为患者低血压，需要静脉通路。"
+            }
+          },
+          "stem": {
+            "en": "At Stage 1, which actions should the nurse take immediately? Select all that apply.",
+            "zh": "第1阶段，护士应立即采取哪些措施？请选择所有适用项。"
+          },
+          "testTakingStrategy": {
+            "en": "For a suspected severe transfusion reaction, do four things together: stop blood, keep access safely, call for help, and preserve evidence.",
+            "zh": "疑似严重输血反应时同时抓住四点：停血、以安全方式保留通路、呼叫支援、保留证据。"
+          },
+          "topic": "Transfusion & Blood Products"
+        },
+        {
+          "category": "Safety and Infection Prevention and Control",
+          "correct": [
+            "B"
+          ],
+          "difficulty": "hard",
+          "glossary": [
+            {
+              "defZh": "凝血系统广泛激活导致血栓形成和凝血因子消耗，可出现出血。",
+              "termEn": "Disseminated intravascular coagulation",
+              "termZh": "弥散性血管内凝血"
+            },
+            {
+              "defZh": "尿量明显减少，成人常以每小时尿量过低作为警讯。",
+              "termEn": "Oliguria",
+              "termZh": "少尿"
+            },
+            {
+              "defZh": "针对病情突然恶化患者启动的院内紧急评估和支援流程。",
+              "termEn": "Rapid response",
+              "termZh": "快速反应"
+            }
+          ],
+          "id": "gpt_case_acute_hemolytic_transfusion_reaction_01_q5",
+          "itemType": "multiple_choice",
+          "ngnSkill": "take_action",
+          "options": [
+            {
+              "en": "Hold further interventions until the blood bank confirms the exact incompatibility.",
+              "id": "D",
+              "zh": "等待血库确认具体不相容类型后再进行进一步干预。"
+            },
+            {
+              "en": "Escalate immediately for rapid response or ICU-level care while continuing perfusion support and strict output monitoring.",
+              "id": "B",
+              "zh": "立即升级处理，启动快速反应或转入 ICU 级别护理，同时继续支持灌注并严格监测尿量。"
+            },
+            {
+              "en": "Administer acetaminophen and reassess the temperature in 30 minutes.",
+              "id": "C",
+              "zh": "给予对乙酰氨基酚，并在 30 分钟后复测体温。"
+            },
+            {
+              "en": "Slow the saline infusion because chronic kidney disease makes fluid overload the main priority.",
+              "id": "E",
+              "zh": "因患者有慢性肾病，应减慢生理盐水输注，因为容量超负荷是主要优先问题。"
+            },
+            {
+              "en": "Complete the transfusion reaction documentation before further escalation.",
+              "id": "A",
+              "zh": "先完成输血反应记录表，再进一步升级处理。"
+            }
+          ],
+          "rationale": {
+            "byChoice": [
+              {
+                "en": "This is correct because worsening hypotension, oliguria, and coagulopathy require higher-acuity monitoring and interventions.",
+                "refId": "B",
+                "zh": "正确。低血压、少尿和凝血障碍恶化，需要更高级别监护和干预。"
+              },
+              {
+                "en": "The client has renal disease, but the immediate problem is poor perfusion and shock; fluids are guided by orders/protocol and ongoing assessment.",
+                "refId": "E",
+                "zh": "患者有肾病，但当前直接问题是灌注不足和休克；补液应按医嘱/流程并结合持续评估。"
+              },
+              {
+                "en": "Treating fever alone misses the life-threatening shock, renal injury, and DIC.",
+                "refId": "C",
+                "zh": "单纯退热会漏掉危及生命的休克、肾损伤和 DIC。"
+              },
+              {
+                "en": "The nurse should not wait for final confirmation when the client is actively deteriorating.",
+                "refId": "D",
+                "zh": "患者正在恶化时，护士不应等待最终确认才处理。"
+              },
+              {
+                "en": "Documentation is required, but it must not delay escalation for an unstable client.",
+                "refId": "A",
+                "zh": "记录是必要的，但不能延误对不稳定患者的升级处理。"
+              }
+            ],
+            "correct": {
+              "en": "The client is deteriorating with shock, oliguric acute kidney injury, and DIC despite the initial correct response. The nurse should escalate immediately to rapid response or ICU-level care, continue ordered perfusion support, measure urine output closely, and ensure the blood bank workup and compatible components are moving. Documentation and antipyretics must not delay escalation.",
+              "zh": "患者在初步正确处理后仍出现休克、少尿性急性肾损伤和 DIC，说明病情恶化。护士应立即启动快速反应或 ICU 级别护理，继续按医嘱支持灌注，严密测量尿量，并确保血库调查和相容血液成分准备正在进行。记录和退热不能延误升级处理。"
+            }
+          },
+          "stem": {
+            "en": "At Stage 2, the client remains hypotensive despite initial saline, has worsening oliguria with port-wine urine, oozing from puncture sites, petechiae, and labs consistent with hemolysis and evolving DIC. What is the nurse's priority action?",
+            "zh": "第2阶段，患者经初始生理盐水处理后仍低血压，少尿加重且尿呈葡萄酒色，穿刺部位渗血、出现瘀点，实验室结果符合溶血和进展性 DIC。护士的优先措施是什么？"
+          },
+          "testTakingStrategy": {
+            "en": "When initial measures fail and multiple organ systems are worsening, choose escalation rather than task completion or symptom-only care.",
+            "zh": "初步处理无效且多个器官系统恶化时，应选择升级处理，而不是先完成文书或只处理单一症状。"
+          },
+          "topic": "Transfusion & Blood Products"
+        },
+        {
+          "category": "Safety and Infection Prevention and Control",
+          "correct": [
+            {
+              "columnIds": [
+                "c2"
+              ],
+              "rowId": "r1"
+            },
+            {
+              "columnIds": [
+                "c1"
+              ],
+              "rowId": "r2"
+            },
+            {
+              "columnIds": [
+                "c1"
+              ],
+              "rowId": "r3"
+            },
+            {
+              "columnIds": [
+                "c2"
+              ],
+              "rowId": "r4"
+            },
+            {
+              "columnIds": [
+                "c3"
+              ],
+              "rowId": "r5"
+            }
+          ],
+          "difficulty": "hard",
+          "glossary": [
+            {
+              "defZh": "凝血所需蛋白；DIC 中可被消耗而下降。",
+              "termEn": "Fibrinogen",
+              "termZh": "纤维蛋白原"
+            },
+            {
+              "defZh": "反映凝血途径功能的实验室指标，升高表示凝血时间延长。",
+              "termEn": "INR",
+              "termZh": "国际标准化比值"
+            },
+            {
+              "defZh": "用于收缩血管、提高血压和改善灌注的药物。",
+              "termEn": "Vasopressor",
+              "termZh": "升压药"
+            }
+          ],
+          "id": "gpt_case_acute_hemolytic_transfusion_reaction_01_q6",
+          "itemType": "matrix",
+          "matrix": {
+            "columns": [
+              {
+                "en": "Insufficient by itself",
+                "id": "c3",
+                "zh": "单独看不足以判断稳定"
+              },
+              {
+                "en": "Stabilization",
+                "id": "c1",
+                "zh": "病情稳定"
+              },
+              {
+                "en": "Continued deterioration",
+                "id": "c2",
+                "zh": "继续恶化"
+              }
+            ],
+            "rows": [
+              {
+                "en": "Urine output is 8 mL in the past hour with persistent hemoglobin-positive dark urine.",
+                "id": "r1",
+                "zh": "过去 1 小时尿量 8 mL，尿液仍深色且血红蛋白阳性。"
+              },
+              {
+                "en": "Blood pressure is maintained while norepinephrine requirements are decreasing.",
+                "id": "r2",
+                "zh": "血压可维持，同时去甲肾上腺素需求量正在下降。"
+              },
+              {
+                "en": "Fibrinogen is rising while INR and aPTT are falling toward baseline.",
+                "id": "r3",
+                "zh": "纤维蛋白原上升，同时 INR 和 aPTT 正向基线下降。"
+              },
+              {
+                "en": "Potassium has increased to 5.9 mEq/L with worsening creatinine.",
+                "id": "r4",
+                "zh": "钾升至 5.9 mEq/L，肌酐继续恶化。"
+              },
+              {
+                "en": "Temperature has decreased from 102.4 °F (39.1 °C) to 101.1 °F (38.4 °C).",
+                "id": "r5",
+                "zh": "体温从 102.4 °F (39.1 °C) 降至 101.1 °F (38.4 °C)。"
+              }
+            ],
+            "selectionMode": "single_per_row"
+          },
+          "ngnSkill": "evaluate_outcomes",
+          "rationale": {
+            "byChoice": [
+              {
+                "en": "Persistent oliguria with hemoglobin-positive dark urine indicates ongoing renal hypoperfusion and hemoglobin-mediated injury.",
+                "refId": "r1",
+                "zh": "持续少尿且尿血红蛋白阳性，提示肾灌注不足和血红蛋白介导损伤仍在进行。"
+              },
+              {
+                "en": "Maintaining pressure with less vasopressor support would indicate improving cardiovascular stability.",
+                "refId": "r2",
+                "zh": "在升压药需求减少的情况下维持血压，提示循环稳定性改善。"
+              },
+              {
+                "en": "Rising fibrinogen with improving clotting times suggests the consumptive coagulopathy is stabilizing.",
+                "refId": "r3",
+                "zh": "纤维蛋白原上升且凝血时间改善，提示消耗性凝血障碍趋于稳定。"
+              },
+              {
+                "en": "Rising potassium with worsening creatinine indicates worsening renal failure and dyskalemia risk.",
+                "refId": "r4",
+                "zh": "钾升高并伴肌酐恶化，提示肾衰竭加重和电解质危险。"
+              },
+              {
+                "en": "A lower temperature may be reassuring, but by itself it does not outweigh worsening renal, coagulation, and perfusion data.",
+                "refId": "r5",
+                "zh": "体温下降可能令人稍安心，但单独看不能抵消肾脏、凝血和灌注数据恶化。"
+              }
+            ],
+            "correct": {
+              "en": "Stabilization would be shown by improving perfusion with lower vasopressor needs, improving urine output, and improving coagulation and electrolyte trends. At Stage 3, persistent oliguria with hemoglobinuria, rising creatinine, rising potassium, and worsening coagulation show deterioration. A modest temperature decrease alone does not prove recovery.",
+              "zh": "病情稳定应表现为灌注改善且升压药需求下降、尿量改善、凝血和电解质趋势改善。第3阶段持续少尿伴血红蛋白尿、肌酐升高、钾升高和凝血恶化提示继续恶化。体温略降本身不能证明恢复。"
+            }
+          },
+          "stem": {
+            "en": "At Stage 3, classify each finding as evidence of stabilization, evidence of continued deterioration, or insufficient by itself to show stabilization.",
+            "zh": "第3阶段，请判断每项发现是提示病情稳定、继续恶化，还是单独看不足以说明病情稳定。"
+          },
+          "testTakingStrategy": {
+            "en": "Evaluate outcomes by trends in threatened organ systems, not by one improving vital sign.",
+            "zh": "评价结果时看受威胁器官系统的趋势，不要只看一个好转的生命体征。"
+          },
+          "topic": "Transfusion & Blood Products"
+        }
+      ],
+      "stages": [
+        {
+          "exhibits": [
+            {
+              "content": {
+                "en": "The client presses the call light and reports sudden deep low back pain across both flanks. She says, \"something is wrong — I feel like something terrible is about to happen.\" She is visibly shivering and reports feeling cold despite warm blankets. Face and chest are flushed; early diaphoresis and mild nausea are present. Vital signs: T 101.5 °F (38.6 °C), HR 118/min, BP 96/58 mmHg, RR 24/min, SpO2 95% on room air. IV site remains unchanged with no redness, swelling, or streaking. About 25 mL of the unit has infused. The urine in the bedside commode from the most recent void is dark reddish-brown.",
+                "zh": "患者按铃，诉双侧腰部突然出现深部下背痛。她说：“不对劲——我觉得要出大事了。”患者明显发抖，即使盖着暖毯仍觉得冷。面部和胸部潮红，早期出汗，轻度恶心。生命体征：T 101.5 °F (38.6 °C)，HR 118 次/分，BP 96/58 mmHg，RR 24 次/分，室内空气 SpO2 95%。IV 部位无变化，无发红、肿胀或条索状红线。约 25 mL 血液已输入。床旁便盆中最近一次尿液呈深红褐色。"
+              },
+              "id": "stage_1_update",
+              "title": {
+                "en": "Acute change during transfusion",
+                "zh": "输血期间急性变化"
+              }
+            }
+          ],
+          "id": "stage_1",
+          "title": {
+            "en": "Stage 1: 12 minutes after transfusion initiation (1432)",
+            "zh": "第1阶段：输血开始后 12 分钟（1432）"
+          }
+        },
+        {
+          "exhibits": [
+            {
+              "content": {
+                "en": "The provider is at the bedside. The client is increasingly restless, reports worsening flank pain and chest tightness, and speaks in fragmented phrases. Vital signs: T 102.4 °F (39.1 °C), HR 132/min, BP 82/50 mmHg, RR 28/min, SpO2 93% on 4 L nasal cannula. Extremities are mottled with cool fingers and toes despite truncal flushing. Foley catheter drainage: initial 20 mL dark port-wine urine, then only 10 mL over the next 30 minutes. New oozing is present from the peripheral IV insertion site and a venipuncture site; petechiae are appearing across the anterior chest.\nStat labs: Hgb 5.8 g/dL, platelets 104 ×10³/µL, K 5.4 mEq/L, creatinine 2.6 mg/dL, total bilirubin 4.2 mg/dL, LDH 1,840 U/L, INR 1.8, aPTT 52 sec, fibrinogen 140 mg/dL, haptoglobin <10 mg/dL, free plasma hemoglobin elevated. Blood bank requests the discontinued unit with attached tubing, a post-reaction blood sample from the opposite arm, and the original pretransfusion specimen.",
+                "zh": "医护提供者已在床旁。患者越来越烦躁，诉腰痛加重并有胸闷，说话断续。生命体征：T 102.4 °F (39.1 °C)，HR 132 次/分，BP 82/50 mmHg，RR 28 次/分，鼻导管 4 L/min 下 SpO2 93%。四肢呈花斑，手指和脚趾冰凉，但躯干仍潮红。Foley 导尿：初始引流 20 mL 深葡萄酒色尿，随后 30 分钟仅 10 mL。外周 IV 穿刺处和抽血穿刺处新出现渗血；前胸出现瘀点。\n急查实验室：Hgb 5.8 g/dL，血小板 104 ×10³/µL，K 5.4 mEq/L，肌酐 2.6 mg/dL，总胆红素 4.2 mg/dL，LDH 1,840 U/L，INR 1.8，aPTT 52 秒，纤维蛋白原 140 mg/dL，结合珠蛋白 <10 mg/dL，游离血浆血红蛋白升高。血库要求送回已停止输注的血袋及连接管路、从对侧手臂采集输血反应后血样，以及原输血前标本。"
+              },
+              "id": "stage_2_update",
+              "title": {
+                "en": "Worsening shock, renal findings, and coagulopathy",
+                "zh": "休克、肾脏表现和凝血障碍恶化"
+              }
+            }
+          ],
+          "id": "stage_2",
+          "title": {
+            "en": "Stage 2: 30 minutes after transfusion stopped and saline bolus started (about 1505)",
+            "zh": "第2阶段：停止输血并开始生理盐水快速输注后 30 分钟（约 1505）"
+          }
+        },
+        {
+          "exhibits": [
+            {
+              "content": {
+                "en": "The client has been transferred to the ICU after receiving 1,500 mL normal saline. A central venous catheter has been placed, and norepinephrine is infusing at 0.08 mcg/kg/min to maintain MAP above 65 mmHg per ICU protocol. The blood bank confirms the client is A-positive and the transfused unit was B-positive. Current vital signs: T 101.1 °F (38.4 °C), HR 120/min, BP 88/56 mmHg on norepinephrine, RR 24/min on 6 L nasal cannula, SpO2 94%. Urine output over the past hour is 8 mL, dark amber and hemoglobin-positive by dipstick. Repeat labs: Hgb 5.2 g/dL, platelets 78 ×10³/µL, K 5.9 mEq/L, creatinine 3.4 mg/dL, total bilirubin 6.1 mg/dL, LDH 2,600 U/L, INR 2.2, aPTT 68 sec, fibrinogen 88 mg/dL. The client is drowsy but arousable, oriented to person only. Peripheral pulses are thready; mottling extends to knees and elbows; oozing continues from catheter sites. ICU team is evaluating for emergent dialysis and blood component therapy.",
+                "zh": "患者已转入 ICU，已接受 1,500 mL 生理盐水。已置入中心静脉导管，并按 ICU 流程使用去甲肾上腺素 0.08 mcg/kg/min 以维持 MAP >65 mmHg。血库确认患者为 A 阳性，输注血袋为 B 阳性。当前生命体征：T 101.1 °F (38.4 °C)，HR 120 次/分，使用去甲肾上腺素时 BP 88/56 mmHg，鼻导管 6 L/min 下 RR 24 次/分、SpO2 94%。过去 1 小时尿量 8 mL，深琥珀色，尿试纸血红蛋白阳性。复查实验室：Hgb 5.2 g/dL，血小板 78 ×10³/µL，K 5.9 mEq/L，肌酐 3.4 mg/dL，总胆红素 6.1 mg/dL，LDH 2,600 U/L，INR 2.2，aPTT 68 秒，纤维蛋白原 88 mg/dL。患者嗜睡但可唤醒，仅能说出自己是谁。外周脉搏细弱；花斑延伸至膝部和肘部；导管部位仍渗血。ICU 团队正在评估是否需紧急透析和血液成分治疗。"
+              },
+              "id": "stage_3_update",
+              "title": {
+                "en": "ICU course and confirmed ABO incompatibility",
+                "zh": "ICU 经过和 ABO 不相容确认"
+              }
+            }
+          ],
+          "id": "stage_3",
+          "title": {
+            "en": "Stage 3: 2 hours after transfusion stopped (about 1620)",
+            "zh": "第3阶段：停止输血后 2 小时（约 1620）"
+          }
+        }
+      ],
+      "summary": {
+        "en": "A 58-year-old woman with CKD stage 3b, hypertension, and type 2 diabetes is admitted for symptomatic anemia. Her true blood type is A-positive, but a mislabeled pretransfusion specimen leads to issue of an ABO-incompatible packed red blood cell unit. The transfusion begins at 1420 through a 20-gauge peripheral IV.",
+        "zh": "一名 58 岁女性，有 3b 期慢性肾病、高血压和 2 型糖尿病，因症状性贫血入院。患者真实血型为 A 阳性，但输血前标本采集时贴错标签，导致发出 ABO 不相容的浓缩红细胞。输血于 1420 经 20G 外周 IV 开始。"
+      },
+      "title": {
+        "en": "Acute hemolytic transfusion reaction following ABO-incompatible red blood cell transfusion",
+        "zh": "ABO 不相容红细胞输注后的急性溶血性输血反应"
+      }
+    },
+    "category": "Safety and Infection Prevention and Control",
+    "difficulty": "hard",
+    "glossary": [
+      {
+        "defZh": "输注不相容血液后红细胞迅速破坏，可能导致休克、肾损伤和 DIC。",
+        "termEn": "Acute hemolytic transfusion reaction",
+        "termZh": "急性溶血性输血反应"
+      },
+      {
+        "defZh": "游离血红蛋白进入尿液，常呈红褐色。",
+        "termEn": "Hemoglobinuria",
+        "termZh": "血红蛋白尿"
+      },
+      {
+        "defZh": "与游离血红蛋白结合的血浆蛋白；血管内溶血时常降低。",
+        "termEn": "Haptoglobin",
+        "termZh": "结合珠蛋白"
+      },
+      {
+        "defZh": "凝血系统广泛激活并消耗血小板和凝血因子，可同时血栓和出血。",
+        "termEn": "DIC",
+        "termZh": "DIC/弥散性血管内凝血"
+      },
+      {
+        "defZh": "形成纤维蛋白凝块所需蛋白；在 DIC 中下降提示消耗。",
+        "termEn": "Fibrinogen",
+        "termZh": "纤维蛋白原"
+      }
+    ],
+    "id": "gpt_case_acute_hemolytic_transfusion_reaction_01",
+    "itemType": "case_study",
+    "rationale": {
+      "byChoice": [],
+      "correct": {
+        "en": "This unfolding case teaches recognition and management of acute hemolytic transfusion reaction from ABO-incompatible red cells. The Stage 1 cue cluster—rapid fever/rigors, flank pain, hypotension, tachycardia, sense of impending doom, and hemoglobinuria—requires immediate transfusion cessation, safe maintenance of IV access with 0.9% normal saline through new tubing per protocol, notification of the provider and blood bank, and preservation of the unit/tubing/labels. Later stages show progression to shock, oliguric acute kidney injury, hyperkalemia, and DIC; outcomes must be evaluated by perfusion, urine output, potassium/creatinine, coagulation studies, and vasopressor needs rather than temperature alone.",
+        "zh": "本病例训练识别和处理 ABO 不相容红细胞导致的急性溶血性输血反应。第1阶段的线索组合——快速发热寒战、腰痛、低血压、心动过速、濒危感和血红蛋白尿——要求立即停止输血，按流程用新管路和 0.9% 生理盐水安全维持 IV 通路，通知医护提供者和血库，并保留血袋/管路/标签。后续阶段进展为休克、少尿性急性肾损伤、高钾血症和 DIC；评价结果应看灌注、尿量、钾/肌酐、凝血指标和升压药需求，而不是单看体温。"
+      }
+    },
+    "stem": {
+      "en": "Review the client record and answer the case-study items.",
+      "zh": "请查看患者病历，并回答本病例题组。"
+    },
+    "testTakingStrategy": {
+      "en": "In transfusion questions, connect timing, symptom cluster, and first nursing action. Severe systemic findings mean stop the transfusion and escalate; do not slow the rate or treat only fever.",
+      "zh": "输血题要把发生时间、症状组合和首要护理措施联系起来。严重全身表现意味着停止输血并升级处理；不要只是减慢速率或只退热。"
+    },
+    "topic": "Transfusion & Blood Products"
+  },
+  "standaloneItem": {
+    "bowtie": {
+      "actions": {
+        "tokens": [
+          {
+            "en": "Remove the peripheral IV and plan to obtain new access later.",
+            "opaqueTokenLabel": "A1",
+            "zh": "拔除外周 IV，并计划稍后重新建立通路。"
+          },
+          {
+            "en": "Ensure the blood bank receives the stopped unit with attached tubing and a post-reaction patient sample.",
+            "opaqueTokenLabel": "A2",
+            "zh": "确保血库收到已停止输注的血袋及连接管路，并收到输血反应后的患者血样。"
+          },
+          {
+            "en": "Give acetaminophen and slow the transfusion rate.",
+            "opaqueTokenLabel": "A3",
+            "zh": "给予对乙酰氨基酚并减慢输血速率。"
+          },
+          {
+            "en": "Escalate immediately for higher-level care because shock, DIC, and oliguric acute kidney injury are progressing.",
+            "opaqueTokenLabel": "A4",
+            "zh": "因休克、DIC 和少尿性急性肾损伤正在进展，立即升级至更高级别护理。"
+          }
+        ]
+      },
+      "condition": {
+        "tokens": [
+          {
+            "en": "Acute hemolytic transfusion reaction due to ABO incompatibility",
+            "opaqueTokenLabel": "C1",
+            "zh": "ABO 不相容导致的急性溶血性输血反应"
+          },
+          {
+            "en": "Anaphylactic transfusion reaction",
+            "opaqueTokenLabel": "C2",
+            "zh": "过敏性休克型输血反应"
+          },
+          {
+            "en": "Septic transfusion reaction from bacterial contamination",
+            "opaqueTokenLabel": "C3",
+            "zh": "血液制品细菌污染导致的脓毒性输血反应"
+          }
+        ]
+      },
+      "parameters": {
+        "tokens": [
+          {
+            "en": "Temperature trend alone",
+            "opaqueTokenLabel": "P1",
+            "zh": "单独看体温趋势"
+          },
+          {
+            "en": "Peripheral IV insertion-site appearance",
+            "opaqueTokenLabel": "P2",
+            "zh": "外周 IV 穿刺部位外观"
+          },
+          {
+            "en": "Urine output and urine color via the Foley catheter",
+            "opaqueTokenLabel": "P3",
+            "zh": "通过 Foley 导尿管监测尿量和尿液颜色"
+          },
+          {
+            "en": "Coagulation studies, especially fibrinogen and platelet count",
+            "opaqueTokenLabel": "P4",
+            "zh": "凝血指标，尤其是纤维蛋白原和血小板计数"
+          }
+        ]
+      }
+    },
+    "glossary": [
+      {
+        "defZh": "把最可能病情、优先措施和监测参数连接起来的 NGN 临床判断题型。",
+        "termEn": "Bow-tie",
+        "termZh": "Bow-tie 题型"
+      },
+      {
+        "defZh": "供受者 ABO 血型不匹配，可导致严重溶血。",
+        "termEn": "ABO incompatibility",
+        "termZh": "ABO 不相容"
+      },
+      {
+        "defZh": "根据需要输注红细胞、血浆、冷沉淀或血小板等成分。",
+        "termEn": "Component therapy",
+        "termZh": "血液成分治疗"
+      }
+    ],
+    "rationale": {
+      "byChoice": [
+        {
+          "en": "This is correct because rapid onset during transfusion with hemoglobinuria, flank pain, hemolysis labs, shock, and DIC is the classic severe AHTR pattern.",
+          "opaqueTokenLabel": "C1",
+          "zh": "正确。输血期间快速发作并伴血红蛋白尿、腰痛、溶血实验室证据、休克和 DIC，是严重 AHTR 的典型模式。"
+        },
+        {
+          "en": "Anaphylaxis would emphasize airway compromise, wheezing, angioedema, urticaria, or IgA-mediated allergy rather than hemoglobinuria and hemolysis labs.",
+          "opaqueTokenLabel": "C2",
+          "zh": "过敏性休克更强调气道受累、喘鸣、血管性水肿、荨麻疹或 IgA 相关过敏，而不是血红蛋白尿和溶血实验室表现。"
+        },
+        {
+          "en": "Bacterial contamination can cause fever and hypotension, but it does not explain the prominent hemoglobinuria, flank pain, and intravascular hemolysis pattern.",
+          "opaqueTokenLabel": "C3",
+          "zh": "细菌污染可导致发热和低血压，但不能解释明显血红蛋白尿、腰痛和血管内溶血模式。"
+        },
+        {
+          "en": "The blood bank must investigate the actual unit, tubing, labels, and post-reaction sample before safe compatible products can be issued.",
+          "opaqueTokenLabel": "A2",
+          "zh": "血库必须调查实际血袋、管路、标签和输血反应后样本，才能安全发出相容血液成分。"
+        },
+        {
+          "en": "This is correct because the client is moving into multiorgan dysfunction requiring ICU-level monitoring, vasopressors, dialysis evaluation, and component therapy.",
+          "opaqueTokenLabel": "A4",
+          "zh": "正确。患者正在进入多器官功能障碍，需要 ICU 级监护、升压药、透析评估和血液成分治疗。"
+        },
+        {
+          "en": "This is unsafe because the transfusion must be stopped, not slowed; antipyretics do not address hemolysis or shock.",
+          "opaqueTokenLabel": "A3",
+          "zh": "不安全。输血必须停止，而不是减慢；退热药不能处理溶血或休克。"
+        },
+        {
+          "en": "This is unsafe because the unstable client needs vascular access for fluids, vasopressors, and blood components.",
+          "opaqueTokenLabel": "A1",
+          "zh": "不安全。不稳定患者需要血管通路以补液、用升压药和输注血液成分。"
+        },
+        {
+          "en": "Urine output and color show renal perfusion and ongoing hemoglobin burden.",
+          "opaqueTokenLabel": "P3",
+          "zh": "尿量和尿色反映肾灌注和持续血红蛋白负荷。"
+        },
+        {
+          "en": "Fibrinogen and platelet count help determine whether DIC is worsening or stabilizing.",
+          "opaqueTokenLabel": "P4",
+          "zh": "纤维蛋白原和血小板计数有助于判断 DIC 是恶化还是稳定。"
+        },
+        {
+          "en": "Temperature helped identify the reaction, but temperature alone cannot show stabilization when renal and coagulation data are worsening.",
+          "opaqueTokenLabel": "P1",
+          "zh": "体温有助于识别反应，但当肾脏和凝血数据恶化时，单看体温不能说明稳定。"
+        },
+        {
+          "en": "Routine IV-site assessment is appropriate, but this normal site does not track the systemic hemolytic crisis.",
+          "opaqueTokenLabel": "P2",
+          "zh": "常规评估 IV 部位是合适的，但该部位正常不能反映全身溶血危机的进展。"
+        }
+      ],
+      "correct": {
+        "en": "The condition is acute hemolytic transfusion reaction due to ABO incompatibility. The priority actions are to ensure the blood bank investigation has the unit/tubing and patient sample, and to escalate to higher-level care for shock, DIC, and oliguric acute kidney injury. The best monitoring parameters are renal output/color and coagulation trends because these track the major organ-system threats.",
+        "zh": "该病情是 ABO 不相容导致的急性溶血性输血反应。优先措施是确保血库调查取得血袋/管路和患者样本，并因休克、DIC 和少尿性急性肾损伤升级至更高级别护理。最佳监测参数是尿量/尿色和凝血趋势，因为它们反映主要受威胁的器官系统。"
+      }
+    },
+    "stem": {
+      "en": "A client develops fever, rigors, bilateral flank pain, hypotension, hemoglobinuria, and a sense of impending doom within 12 minutes of starting a red blood cell transfusion. Thirty minutes after the transfusion is stopped, the client has worsening hypotension, oliguria with port-wine urine, oozing from puncture sites, platelets 104 ×10³/µL, fibrinogen 140 mg/dL, INR 1.8, aPTT 52 seconds, LDH 1,840 U/L, bilirubin 4.2 mg/dL, and haptoglobin <10 mg/dL. Complete the bow-tie by selecting the most likely condition, two priority actions, and two parameters to monitor.",
+      "zh": "一名患者开始输注红细胞后 12 分钟内出现发热、寒战、双侧腰痛、低血压、血红蛋白尿和濒危感。停止输血 30 分钟后，患者低血压加重，少尿且尿呈葡萄酒色，穿刺部位渗血，血小板 104 ×10³/µL，纤维蛋白原 140 mg/dL，INR 1.8，aPTT 52 秒，LDH 1,840 U/L，胆红素 4.2 mg/dL，结合珠蛋白 <10 mg/dL。请选择最可能的病情、两个优先措施和两个需要监测的参数来完成 bow-tie。"
+    },
+    "testTakingStrategy": {
+      "en": "For bow-tie items, match the center condition first, then select actions and monitoring parameters that address that specific pathophysiology.",
+      "zh": "做 bow-tie 题时先锁定中心病情，再选择针对该病理生理过程的措施和监测参数。"
+    }
+  }
+}

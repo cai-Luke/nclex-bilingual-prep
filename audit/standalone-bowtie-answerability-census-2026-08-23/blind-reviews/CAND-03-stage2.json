@@ -1,0 +1,136 @@
+{
+  "actionLabels": [
+    "A2",
+    "A4"
+  ],
+  "ambiguousAlternatives": [
+    {
+      "opaqueTokenLabel": "C3",
+      "reason": "Fever, rigors, hypotension, and DIC can occur with bacterial contamination, but the marked intravascular hemolysis pattern favors an acute hemolytic reaction; cultures are not provided."
+    }
+  ],
+  "conditionLabel": "C1",
+  "missingInformation": [
+    "ABO retyping, crossmatch or clerical-check findings, and direct antiglobulin test results needed to establish ABO incompatibility specifically",
+    "Patient and blood-unit culture results needed to exclude bacterial contamination"
+  ],
+  "parameterLabels": [
+    "P3",
+    "P4"
+  ],
+  "poolAnswerability": "UNDERDETERMINED",
+  "reasoning": "C1 is the best available condition because the rapid onset, flank pain, hemoglobinuria, and hemolysis laboratory pattern indicate an acute hemolytic transfusion reaction with shock, DIC, and renal injury. However, the stem does not establish that ABO incompatibility caused it, so the condition token is more specific than the available evidence.",
+  "selectionEvidence": [
+    {
+      "opaqueTokenLabel": "C1",
+      "supportingStemText": "Symptoms began within 12 minutes of starting red blood cells, with bilateral flank pain, hemoglobinuria, port-wine urine, LDH 1,840 U/L, bilirubin 4.2 mg/dL, and haptoglobin <10 mg/dL."
+    },
+    {
+      "opaqueTokenLabel": "A2",
+      "supportingStemText": "The severe reaction occurred immediately after a red blood cell transfusion was started and persisted after the transfusion was stopped."
+    },
+    {
+      "opaqueTokenLabel": "A4",
+      "supportingStemText": "Worsening hypotension, oliguria, port-wine urine, puncture-site oozing, thrombocytopenia, low fibrinogen, and prolonged INR and aPTT."
+    },
+    {
+      "opaqueTokenLabel": "P3",
+      "supportingStemText": "Oliguria with port-wine urine."
+    },
+    {
+      "opaqueTokenLabel": "P4",
+      "supportingStemText": "Platelets 104 ×10³/µL, fibrinogen 140 mg/dL, INR 1.8, aPTT 52 seconds, and oozing from puncture sites."
+    }
+  ],
+  "stage2Confidence": "medium",
+  "tokenPremiseTable": [
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A1",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Removing access and deferring replacement conflicts with the need for immediate resuscitation.",
+      "supportingStemText": "The client has worsening hypotension and oliguria requiring immediate treatment and reliable vascular access."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A2",
+      "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Returning the stopped unit and tubing with a post-reaction sample is part of the standard transfusion-reaction investigation.",
+      "supportingStemText": "A severe reaction began within minutes of starting a red blood cell transfusion, which was then stopped."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A3",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Slowing or restarting transfusion is incompatible with this severe reaction.",
+      "supportingStemText": "The transfusion is already stopped, and the client has worsening hypotension, oliguria, bleeding, and laboratory evidence of hemolysis and DIC."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A4",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The stem directly demonstrates progressing shock, renal injury, and consumptive coagulopathy.",
+      "supportingStemText": "Worsening hypotension, oliguria with port-wine urine, puncture-site oozing, platelets 104 ×10³/µL, fibrinogen 140 mg/dL, INR 1.8, and aPTT 52 seconds."
+    },
+    {
+      "missingPremise": "Evidence that ABO incompatibility caused the reaction, such as a clerical mismatch, incompatible repeat typing or crossmatch, or confirmatory reaction workup.",
+      "opaqueTokenLabel": "C1",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "MATERIAL",
+      "rankabilityJustification": "The syndrome is strongly supported, but the token's specified ABO cause cannot be established from the stem.",
+      "supportingStemText": "Rapid fever, rigors, flank pain, hypotension, hemoglobinuria, elevated LDH and bilirubin, and haptoglobin <10 mg/dL support acute intravascular hemolysis."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "C2",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The explicit intravascular hemolysis pattern does not fit an isolated anaphylactic transfusion reaction.",
+      "supportingStemText": "The dominant findings are flank pain, hemoglobinuria, port-wine urine, elevated LDH and bilirubin, and very low haptoglobin."
+    },
+    {
+      "missingPremise": "Evidence of bacterial contamination, such as positive patient or unit cultures.",
+      "opaqueTokenLabel": "C3",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "LOW",
+      "rankabilityJustification": "Sepsis remains a possible alternative, but it explains the marked hemolysis pattern less directly than an acute hemolytic reaction.",
+      "supportingStemText": "Fever, rigors, hypotension, and DIC-compatible findings could occur in a septic transfusion reaction."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "P1",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Temperature alone cannot evaluate the explicitly described shock, renal injury, hemolysis, and DIC.",
+      "supportingStemText": "The client has worsening hypotension, oliguria, hemolysis, puncture-site bleeding, and abnormal coagulation studies in addition to fever."
+    },
+    {
+      "missingPremise": "Any abnormality, infiltration, phlebitis, bleeding, or other concern at the peripheral IV insertion site.",
+      "opaqueTokenLabel": "P2",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The stem provides no insertion-site problem that would make this a priority evaluation parameter.",
+      "supportingStemText": ""
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "P3",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Urine output and color directly track the stated renal hypoperfusion and hemoglobinuria.",
+      "supportingStemText": "Oliguria with port-wine urine."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "P4",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Serial coagulation values directly evaluate the explicitly progressing consumptive coagulopathy.",
+      "supportingStemText": "Oozing from puncture sites, platelets 104 ×10³/µL, fibrinogen 140 mg/dL, INR 1.8, and aPTT 52 seconds."
+    }
+  ]
+}

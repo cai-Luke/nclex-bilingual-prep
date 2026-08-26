@@ -1,0 +1,173 @@
+{
+  "canonicalSelection": {
+    "actionLabels": [
+      "A1",
+      "A4"
+    ],
+    "conditionLabel": "C2",
+    "parameterLabels": [
+      "P3",
+      "P1"
+    ]
+  },
+  "instruction": "The two blind-stage records are immutable. Compare them with the now-revealed canonical 1/2/2 selection and complete standalone item. Do not inspect or infer sibling-case material. Return the required Phase-E structured JSON without revising either blind record.",
+  "standaloneItem": {
+    "bowtie": {
+      "actions": {
+        "tokens": [
+          {
+            "en": "Maintain high Fowler's position with supplemental oxygen and close respiratory monitoring",
+            "opaqueTokenLabel": "A1",
+            "zh": "维持高Fowler体位、补充氧并密切监测呼吸状态"
+          },
+          {
+            "en": "Administer IV fluid bolus to support blood pressure",
+            "opaqueTokenLabel": "A2",
+            "zh": "给予IV快速补液 以支持血压"
+          },
+          {
+            "en": "Resume the transfusion at a slower rate once SpO2 improves",
+            "opaqueTokenLabel": "A3",
+            "zh": "SpO2改善后以较慢速度恢复输血"
+          },
+          {
+            "en": "Administer ordered IV furosemide and monitor urine output",
+            "opaqueTokenLabel": "A4",
+            "zh": "按医嘱给予IV呋塞米并监测尿量"
+          }
+        ]
+      },
+      "condition": {
+        "tokens": [
+          {
+            "en": "Anaphylactic transfusion reaction",
+            "opaqueTokenLabel": "C1",
+            "zh": "过敏性休克型输血反应"
+          },
+          {
+            "en": "Transfusion-associated circulatory overload",
+            "opaqueTokenLabel": "C2",
+            "zh": "输血相关循环超负荷"
+          },
+          {
+            "en": "Transfusion-related acute lung injury",
+            "opaqueTokenLabel": "C3",
+            "zh": "输血相关急性肺损伤"
+          }
+        ]
+      },
+      "parameters": {
+        "tokens": [
+          {
+            "en": "Urine output after diuretic therapy",
+            "opaqueTokenLabel": "P1",
+            "zh": "利尿治疗后的尿量"
+          },
+          {
+            "en": "Temperature trend as the main marker of resolution",
+            "opaqueTokenLabel": "P2",
+            "zh": "将体温趋势作为缓解的主要指标"
+          },
+          {
+            "en": "SpO2 trend and ability to wean supplemental oxygen",
+            "opaqueTokenLabel": "P3",
+            "zh": "SpO2趋势和能否降低氧疗强度"
+          },
+          {
+            "en": "Post-transfusion hemoglobin as the main marker of reaction resolution",
+            "opaqueTokenLabel": "P4",
+            "zh": "将输血后血红蛋白作为反应缓解的主要指标"
+          }
+        ]
+      }
+    },
+    "glossary": [
+      {
+        "defZh": "要求把最可能状况、优先措施和监测参数连接起来的NGN题型。",
+        "termEn": "Bow-tie item",
+        "termZh": "弓形题"
+      },
+      {
+        "defZh": "胸片上反映纵隔血管影宽度的结构，增宽可支持血管容量增多。",
+        "termEn": "Vascular pedicle",
+        "termZh": "血管蒂"
+      },
+      {
+        "defZh": "胸膜腔内液体积聚，可伴随容量超负荷或其他疾病。",
+        "termEn": "Pleural effusion",
+        "termZh": "胸腔积液"
+      }
+    ],
+    "rationale": {
+      "byChoice": [
+        {
+          "en": "Correct. This token matches the full overload pattern: hypertension, JVD, S3, edema, vascular congestion, BNP rise, and diuretic response.",
+          "opaqueTokenLabel": "C2",
+          "zh": "正确。此项符合完整超负荷模式：高血压、颈静脉怒张、S3、水肿、血管淤血、BNP升高和利尿反应。"
+        },
+        {
+          "en": "Incorrect. TRALI causes acute hypoxemia during or after transfusion, but this client has multiple signs of circulatory overload and hydrostatic edema.",
+          "opaqueTokenLabel": "C3",
+          "zh": "错误。TRALI可在输血期间或之后导致急性低氧，但本患者有多项循环超负荷和静水压性水肿表现。"
+        },
+        {
+          "en": "Incorrect. Anaphylaxis would be expected to include airway/allergic features such as hypotension, bronchospasm, angioedema, urticaria, or throat tightness, which are absent here.",
+          "opaqueTokenLabel": "C1",
+          "zh": "错误。过敏性休克通常会有低血压、支气管痉挛、血管性水肿、荨麻疹或喉咙发紧等气道/过敏表现，本例没有。"
+        },
+        {
+          "en": "Correct. Upright positioning and supplemental oxygen directly address hypoxemia and respiratory distress.",
+          "opaqueTokenLabel": "A1",
+          "zh": "正确。坐位和补充氧可直接处理低氧和呼吸窘迫。"
+        },
+        {
+          "en": "Correct. Ordered furosemide treats hydrostatic volume overload, and urine output shows whether excess volume is being removed.",
+          "opaqueTokenLabel": "A4",
+          "zh": "正确。按医嘱呋塞米处理静水压性容量超负荷，尿量显示多余容量是否排出。"
+        },
+        {
+          "en": "Incorrect. IV fluids would worsen pulmonary congestion in a hypertensive, volume-overloaded client.",
+          "opaqueTokenLabel": "A2",
+          "zh": "错误。对于高血压且容量超负荷的患者，IV补液会加重肺淤血。"
+        },
+        {
+          "en": "Incorrect. Improvement in SpO2 does not make it safe to resume the implicated unit during an unresolved reaction.",
+          "opaqueTokenLabel": "A3",
+          "zh": "错误。SpO2改善并不表示在反应未完全解决时可以恢复输注相关血液单位。"
+        },
+        {
+          "en": "Correct. Oxygenation and ability to reduce oxygen support track whether gas exchange is genuinely improving.",
+          "opaqueTokenLabel": "P3",
+          "zh": "正确。氧合和能否降低氧支持可追踪气体交换是否真正改善。"
+        },
+        {
+          "en": "Correct. Urine output after diuretic therapy tracks the mechanism of TACO resolution: removal of excess fluid.",
+          "opaqueTokenLabel": "P1",
+          "zh": "正确。利尿后的尿量追踪TACO缓解机制：排出多余液体。"
+        },
+        {
+          "en": "Incorrect. Temperature is relevant to general reaction surveillance, but this client's temperature has not been the driver of the TACO episode.",
+          "opaqueTokenLabel": "P2",
+          "zh": "错误。体温对一般输血反应监测有意义，但本患者的TACO并不是由发热表现驱动。"
+        },
+        {
+          "en": "Incorrect. Hemoglobin evaluates transfusion efficacy, not resolution of acute pulmonary congestion.",
+          "opaqueTokenLabel": "P4",
+          "zh": "错误。血红蛋白评估输血效果，而不是急性肺淤血是否缓解。"
+        }
+      ],
+      "correct": {
+        "en": "The condition is TACO because the respiratory compromise occurs with hypertension, elevated filling-pressure findings, peripheral edema, pulmonary vascular congestion, cardiomegaly, BNP rise, and response to diuresis. Priorities are oxygenation/positioning and ordered diuresis with urine-output monitoring. The most useful monitoring parameters are oxygenation with weaning ability and urine output, because they track pulmonary improvement and volume removal.",
+        "zh": "最可能状况是TACO，因为呼吸受损同时伴高血压、充盈压升高表现、外周水肿、肺血管淤血、心影增大、BNP升高以及利尿后改善。优先措施是改善氧合/体位和按医嘱利尿并监测尿量。最有用的监测参数是氧合及能否降阶氧疗、尿量，因为它们反映肺部改善和容量排出。"
+      }
+    },
+    "stem": {
+      "en": "After the transfusion is stopped, a 74-year-old client with CKD and compensated heart failure has improving dyspnea after oxygen, upright positioning, and ordered IV furosemide. During the second unit she developed SpO2 89% on room air, BP 168/96, JVD, new S3, worsening 2+ edema, oliguria, and bilateral crackles. Chest X-ray shows pulmonary vascular congestion, small pleural effusions, cardiomegaly, and a widened vascular pedicle. BNP rose from 280 to 890 pg/mL. Complete the bow-tie by selecting the most likely condition, two priority actions, and two parameters to monitor.",
+      "zh": "停止输血后，一名74岁慢性肾病并代偿期心衰患者在吸氧、坐位和按医嘱IV呋塞米后气短有所改善。第二单位输注期间，她出现室内空气SpO2 89%、BP 168/96、颈静脉怒张、新S3、2+水肿加重、少尿和双侧湿啰音。胸片显示肺血管淤血、少量胸腔积液、心影增大和血管蒂增宽。BNP从280升至890 pg/mL。请完成弓形题：选择最可能状况、两个优先措施和两个需要监测的参数。"
+    },
+    "testTakingStrategy": {
+      "en": "For bow-tie items, lock the condition to the strongest cue cluster first, then choose actions and monitoring that match that condition's physiology.",
+      "zh": "做弓形题时，先用最强线索组合锁定状况，再选择符合该状况生理机制的措施和监测指标。"
+    }
+  }
+}

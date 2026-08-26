@@ -1,0 +1,173 @@
+{
+  "canonicalSelection": {
+    "actionLabels": [
+      "A2",
+      "A4"
+    ],
+    "conditionLabel": "C2",
+    "parameterLabels": [
+      "P3",
+      "P1"
+    ]
+  },
+  "instruction": "The two blind-stage records are immutable. Compare them with the now-revealed canonical 1/2/2 selection and complete standalone item. Do not inspect or infer sibling-case material. Return the required Phase-E structured JSON without revising either blind record.",
+  "standaloneItem": {
+    "bowtie": {
+      "actions": {
+        "tokens": [
+          {
+            "en": "Administer methylergonovine 0.2 mg IM",
+            "opaqueTokenLabel": "A1",
+            "zh": "给予甲基麦角新碱 0.2 mg IM"
+          },
+          {
+            "en": "Maintain continuous uterine massage/compression",
+            "opaqueTokenLabel": "A2",
+            "zh": "持续进行子宫按摩/压迫"
+          },
+          {
+            "en": "Stop fundal massage to draw labs and document",
+            "opaqueTokenLabel": "A3",
+            "zh": "停止子宫底按摩以抽血并记录"
+          },
+          {
+            "en": "Administer misoprostol 800 mcg rectally",
+            "opaqueTokenLabel": "A4",
+            "zh": "给予米索前列醇 800 mcg 经直肠给药"
+          }
+        ]
+      },
+      "condition": {
+        "tokens": [
+          {
+            "en": "Primary obstetric coagulopathy",
+            "opaqueTokenLabel": "C1",
+            "zh": "原发性产科凝血障碍"
+          },
+          {
+            "en": "Postpartum hemorrhage due to uterine atony",
+            "opaqueTokenLabel": "C2",
+            "zh": "子宫收缩乏力导致的产后出血"
+          },
+          {
+            "en": "Cervical or vaginal laceration",
+            "opaqueTokenLabel": "C3",
+            "zh": "宫颈或阴道裂伤"
+          }
+        ]
+      },
+      "parameters": {
+        "tokens": [
+          {
+            "en": "Quantitative blood loss trend",
+            "opaqueTokenLabel": "P1",
+            "zh": "定量失血趋势"
+          },
+          {
+            "en": "Neonatal Apgar scores",
+            "opaqueTokenLabel": "P2",
+            "zh": "新生儿 Apgar 评分"
+          },
+          {
+            "en": "Uterine tone and fundal firmness",
+            "opaqueTokenLabel": "P3",
+            "zh": "子宫张力和子宫底坚硬度"
+          },
+          {
+            "en": "Serum creatinine as the immediate trajectory marker",
+            "opaqueTokenLabel": "P4",
+            "zh": "将血清肌酐作为即时病情趋势指标"
+          }
+        ]
+      }
+    },
+    "glossary": [
+      {
+        "defZh": "通过触诊子宫底评估产后子宫的坚硬程度。",
+        "termEn": "Uterine tone",
+        "termZh": "子宫张力"
+      },
+      {
+        "defZh": "正常肌肉张力或收缩能力下降。",
+        "termEn": "Atony",
+        "termZh": "收缩乏力"
+      },
+      {
+        "defZh": "对累计失血量进行客观测量。",
+        "termEn": "Quantitative blood loss",
+        "termZh": "定量失血评估"
+      }
+    ],
+    "rationale": {
+      "byChoice": [
+        {
+          "en": "Correct: the boggy uterus, failure to sustain tone, escalating QBL, and risk factors identify atony.",
+          "opaqueTokenLabel": "C2",
+          "zh": "正确：子宫松软、不能维持张力、定量失血增加以及风险因素均指向子宫收缩乏力。"
+        },
+        {
+          "en": "Wrong: bedside exploration found no cervical or vaginal lacerations beyond the repaired tear, and the uterus is boggy.",
+          "opaqueTokenLabel": "C3",
+          "zh": "错误：床旁探查未发现除已修补裂伤外的宫颈或阴道裂伤，且子宫松软。"
+        },
+        {
+          "en": "Wrong as the primary diagnosis now: fibrinogen 280 mg/dL, INR 1.1, and aPTT 30 sec do not make coagulopathy the main cause at this moment.",
+          "opaqueTokenLabel": "C1",
+          "zh": "作为当前主要诊断错误：纤维蛋白原 280 mg/dL、INR 1.1、aPTT 30 秒，不支持凝血障碍是此刻主要原因。"
+        },
+        {
+          "en": "Correct: continuous compression maintains source control while medications and resuscitation take effect.",
+          "opaqueTokenLabel": "A2",
+          "zh": "正确：持续压迫可在药物和复苏发挥作用期间维持止血源控制。"
+        },
+        {
+          "en": "Correct: misoprostol is the safe uterotonic among the listed options for a client with hypertension and asthma.",
+          "opaqueTokenLabel": "A4",
+          "zh": "正确：在列出的药物中，米索前列醇对同时有高血压和哮喘的患者最安全。"
+        },
+        {
+          "en": "Wrong: methylergonovine is contraindicated with pregnancy-induced hypertension despite current hemorrhagic hypotension.",
+          "opaqueTokenLabel": "A1",
+          "zh": "错误：即使当前因失血而低血压，妊娠期高血压仍禁用甲基麦角新碱。"
+        },
+        {
+          "en": "Wrong: stopping compression for labs or documentation can allow renewed bleeding from the atonic uterus.",
+          "opaqueTokenLabel": "A3",
+          "zh": "错误：为了抽血或记录而停止压迫，可能使松软子宫再次出血。"
+        },
+        {
+          "en": "Correct: fundal tone is the immediate bedside indicator of whether atony is controlled.",
+          "opaqueTokenLabel": "P3",
+          "zh": "正确：子宫底张力是床旁判断子宫收缩乏力是否受控的即时指标。"
+        },
+        {
+          "en": "Correct: QBL trend shows whether hemorrhage is plateauing or escalating.",
+          "opaqueTokenLabel": "P1",
+          "zh": "正确：定量失血趋势显示出血是在停止上升还是继续加重。"
+        },
+        {
+          "en": "Wrong: the newborn's status does not guide immediate management of the maternal hemorrhage.",
+          "opaqueTokenLabel": "P2",
+          "zh": "错误：新生儿状态不能指导此刻母体出血的即时处理。"
+        },
+        {
+          "en": "Wrong for immediate trajectory: creatinine can lag behind acute hypoperfusion; urine output is the real-time renal perfusion cue.",
+          "opaqueTokenLabel": "P4",
+          "zh": "作为即时趋势指标错误：肌酐对急性低灌注反应滞后；尿量才是实时肾灌注线索。"
+        }
+      ],
+      "correct": {
+        "en": "Persistent bleeding with a boggy uterus that will not sustain tone after massage identifies uterine atony. Exploration has ruled out retained fragments and unrepaired lacerations, and the coagulation profile has not made coagulopathy the primary driver. Priority actions are continuous uterine compression and a safe uterotonic; misoprostol avoids the client's hypertension and asthma contraindications. The most immediate response parameters are uterine tone and measured blood-loss trend.",
+        "zh": "持续出血并伴有按摩后不能维持张力的松软子宫，指向子宫收缩乏力。探查已排除胎盘碎片残留和未修补裂伤，凝血资料也不支持凝血障碍为主要驱动因素。优先措施是持续子宫压迫和安全宫缩药；米索前列醇可避开该患者高血压和哮喘相关禁忌。最直接的反应监测参数是子宫张力和定量失血趋势。"
+      }
+    },
+    "stem": {
+      "en": "A 32-year-old G5P5 client is 90 minutes postpartum after vaginal birth of a 4.2 kg infant. She has pregnancy-induced hypertension treated with labetalol and mild intermittent asthma. She has persistent heavy bleeding despite oxytocin and fundal massage. QBL is 1,200 mL, HR 132, BP 80/52, and she is confused and pale. The uterus is intermittently boggy and relaxes within seconds after massage. Bedside exploration shows no retained placental fragments and no cervical or vaginal lacerations beyond the repaired second-degree perineal tear. Select the most likely condition, two priority actions, and two parameters to monitor.",
+      "zh": "一名 32 岁 G5P5 产妇阴道分娩 4.2 kg 新生儿后 90 分钟。她有妊娠期高血压，使用拉贝洛尔治疗，并有轻度间歇性哮喘。尽管已使用催产素和子宫底按摩，她仍持续大量出血。定量失血 1,200 mL，HR 132，BP 80/52，患者意识混乱、面色苍白。子宫间歇性松软，按摩后数秒内又松弛。床旁探查未见胎盘碎片残留，也无宫颈或阴道裂伤，只有已修补的二度会阴裂伤。请选择最可能的情况、两个优先措施和两个需要监测的参数。"
+    },
+    "testTakingStrategy": {
+      "en": "In bowtie items, lock the condition to the most decisive cue first. Here the decisive cue is uterine tone; then choose actions and monitoring that directly control and track that condition.",
+      "zh": "做 bowtie 题时，先用最决定性的线索锁定病情。本题决定性线索是子宫张力；随后选择能直接控制并追踪该病情的措施和监测项目。"
+    }
+  }
+}

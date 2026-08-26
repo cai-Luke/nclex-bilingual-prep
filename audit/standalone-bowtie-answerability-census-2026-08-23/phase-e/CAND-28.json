@@ -1,0 +1,108 @@
+{
+  "anyCanonicalTargetDependsOnAbsentFact": false,
+  "blindExactMatch": true,
+  "canonicalSelection": {
+    "actionLabels": [
+      "A2",
+      "A4"
+    ],
+    "conditionLabel": "C2",
+    "parameterLabels": [
+      "P3",
+      "P1"
+    ]
+  },
+  "canonicalSetExplanation": "The recurrent boggy uterus uniquely supports C2 after retained tissue and major lacerations are excluded. A2 directly maintains uterine source control, and A4 is the compatible additional uterotonic among the listed choices given hypertension and asthma. P3 and P1 directly and immediately track restoration of uterine tone and progression of hemorrhage. None of the distractors has comparable standalone support.",
+  "canonicalSetUniquelyDefensible": true,
+  "canonicalTargetSupport": [
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "C2",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "Persistent postpartum bleeding occurs with an intermittently boggy uterus that relaxes within seconds after massage; retained placental tissue and major genital-tract lacerations are excluded."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "A2",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "The uterus repeatedly relaxes within seconds after massage, directly supporting continuous massage or compression to maintain tone."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "A4",
+      "supportClassification": "GENERAL_KNOWLEDGE_LINK",
+      "supportingStandaloneEvidence": "Persistent atony continues despite oxytocin, while pregnancy-induced hypertension and asthma constrain selection among additional uterotonics; general nursing pharmacology supports misoprostol from the listed options."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "P3",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "The defining bedside abnormality is an intermittently boggy uterus that rapidly loses firmness after massage."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "P1",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "The stem reports persistent heavy bleeding and a QBL of 1,200 mL, making the subsequent QBL trend an immediate measure of hemorrhage progression."
+    }
+  ],
+  "distractorPremiseFindings": [
+    {
+      "explanation": "The standalone stem provides no coagulation results, diffuse oozing, or other client-specific evidence of primary obstetric coagulopathy. The exact fibrinogen, INR, and aPTT values cited by the rationale are absent from the stem. This omission weakens that rationale sentence but does not overcome the direct evidence for atony.",
+      "opaqueTokenLabel": "C1",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "LOW"
+    },
+    {
+      "explanation": "Bedside exploration explicitly found no cervical or vaginal lacerations beyond the repaired second-degree perineal tear, while the boggy uterus identifies another bleeding source.",
+      "opaqueTokenLabel": "C3",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "The stem explicitly identifies pregnancy-induced hypertension; general medication knowledge makes methylergonovine inappropriate despite the current hemorrhagic hypotension.",
+      "opaqueTokenLabel": "A1",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "Stopping compression for laboratory collection and documentation conflicts with persistent hemorrhage, recurrent uterine relaxation, hypotension, tachycardia, confusion, and pallor.",
+      "opaqueTokenLabel": "A3",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "No neonatal concern is presented, and neonatal Apgar scores do not monitor the maternal hemorrhage or uterine response.",
+      "opaqueTokenLabel": "P2",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "General clinical knowledge contradicts treating serum creatinine as an immediate trajectory marker in acute hemorrhagic hypoperfusion because creatinine can lag; it is less immediate than uterine tone and measured blood loss.",
+      "opaqueTokenLabel": "P4",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    }
+  ],
+  "missingClientFacts": [
+    {
+      "keyed": false,
+      "missingFact": "The standalone stem does not provide the fibrinogen 280 mg/dL, INR 1.1, and aPTT 30 seconds cited in the canonical rationale, nor any other coagulation profile or diffuse-oozing finding.",
+      "opaqueTokenLabel": "C1",
+      "rankabilityImpact": "LOW"
+    },
+    {
+      "keyed": false,
+      "missingFact": "No baseline or serial serum creatinine values and no urine-output data are provided.",
+      "opaqueTokenLabel": "P4",
+      "rankabilityImpact": "LOW"
+    }
+  ],
+  "notes": [
+    "Blind exact match is based on the selected label sets; the Stage 2 parameter labels were listed as P1 then P3, whereas the canonical packet orders them P3 then P1.",
+    "The canonical selection remains independently defensible without the unstated coagulation values, but the rationale's exact laboratory values are unsupported by the standalone stem and should not be presented as case facts unless added to the learner-facing stem."
+  ],
+  "stage1Alignment": "PARTIAL",
+  "stage1AlignmentExplanation": "Stage 1 matched the canonical condition and semantically matched continuous uterine compression plus quantitative blood-loss monitoring. Its second action prioritized hemorrhage-protocol blood-product resuscitation rather than misoprostol, and its second parameter assessed hemodynamic/perfusion response rather than uterine tone.",
+  "unstatedClientFactMateriallyChangesRankability": false
+}

@@ -1,0 +1,56 @@
+{
+  "instruction": "Using only the standalone learner-facing English stem, prompts, and opaque token pools, select exactly one condition, two actions, and two parameters. Return the required structured JSON, including exactly one premise row for every opaque token. Do not infer absent client-specific facts.",
+  "stem": "On postoperative day 2 after hip hemiarthroplasty, an 82-year-old client has an improving coccygeal Stage 1 pressure injury, improved mobility and voiding, persistent limited intake, and a new intact non-blanchable right heel area exactly where a shifted heel-suspension boot strap contacted the posterior calcaneus. Complete the bow-tie by choosing the most likely condition, two priority actions, and two parameters to monitor.",
+  "tokens": {
+    "actions": [
+      {
+        "label": "A1",
+        "text": "Intensify nutritional support with dietitian follow-up, high-protein supplements, and intake goals"
+      },
+      {
+        "label": "A2",
+        "text": "Discontinue q2h repositioning because she is now getting out of bed several times daily"
+      },
+      {
+        "label": "A3",
+        "text": "Correct right heel offloading immediately and verify the heel is fully floated at every repositioning"
+      },
+      {
+        "label": "A4",
+        "text": "Simply reposition the same heel boot without inspecting the heel or changing the offloading method"
+      }
+    ],
+    "condition": [
+      {
+        "label": "C1",
+        "text": "Impaired skin integrity with evolving pressure-injury risk, including device-related heel injury"
+      },
+      {
+        "label": "C2",
+        "text": "Surgical-site infection causing the skin changes"
+      },
+      {
+        "label": "C3",
+        "text": "Deep vein thrombosis presenting as lower-extremity skin changes"
+      }
+    ],
+    "parameters": [
+      {
+        "label": "P1",
+        "text": "Incentive spirometry volumes as the main indicator of pressure-injury healing"
+      },
+      {
+        "label": "P2",
+        "text": "Hemoglobin trend as the main indicator of skin-plan effectiveness"
+      },
+      {
+        "label": "P3",
+        "text": "Meal and supplement intake compared with dietitian calorie/protein goals"
+      },
+      {
+        "label": "P4",
+        "text": "Serial skin assessments of coccyx and right heel: size, color, blanchability, warmth, and integrity"
+      }
+    ]
+  }
+}

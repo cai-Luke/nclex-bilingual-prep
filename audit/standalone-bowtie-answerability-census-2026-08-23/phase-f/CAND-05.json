@@ -1,0 +1,113 @@
+{
+  "advisoryPriority": "P1",
+  "bilingualCollateral": [
+    {
+      "concern": "The Chinese stem contains an untranslated English word.",
+      "evidence": "The phrase \"激动 episode 中\" mixes English into the Chinese learner-facing sentence.",
+      "priority": "P3"
+    }
+  ],
+  "canonicalTargetSiblingOverlap": [
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling extensively documents caregiver exhaustion, weight loss, work impairment, guilt, and unsafe coping, but the standalone stem already directly supports caregiver role strain.",
+      "opaqueTokenLabel": "C2",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CASE_IMPORTED",
+      "description": "The sibling supplies the otherwise absent bedroom-door barricade required by the replacement action.",
+      "opaqueTokenLabel": "A2",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CORROBORATION_ONLY",
+      "description": "The sibling adds the diphenhydramine dose, duration, and reported morning confusion, but the standalone bedtime use plus general nursing knowledge already supports provider review.",
+      "opaqueTokenLabel": "A3",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CASE_IMPORTED",
+      "description": "The sibling supplies the throw rugs, unlocked cleaning supplies, door barricade, unsecured stove, and corresponding safety plan omitted from the standalone stem.",
+      "opaqueTokenLabel": "P1",
+      "overlap": true
+    },
+    {
+      "classification": "SIBLING_CASE_IMPORTED",
+      "description": "The sibling supplies the support contacts, adult-day consideration, and caregiver primary-care follow-up assumed by the progress parameter.",
+      "opaqueTokenLabel": "P2",
+      "overlap": true
+    }
+  ],
+  "clinicalCollateral": [
+    {
+      "concern": "The diphenhydramine rationale overstates client-specific causation.",
+      "evidence": "Saying diphenhydramine \"is contributing\" or definitively \"worsens\" Margaret's confusion exceeds the standalone evidence; its anticholinergic effects make it a plausible contributor requiring provider review.",
+      "priority": "P3"
+    },
+    {
+      "concern": "The standalone rationale asserts a normal oxygen saturation absent from its stem.",
+      "evidence": "The P3 rationale says \"Oxygen saturation is normal,\" while the value appears only in the sibling case.",
+      "priority": "P3"
+    }
+  ],
+  "defectSummary": "Three canonical tokens rely on environmental hazards or follow-up plans found only in the sibling case, so sibling provenance cannot rescue the standalone item.",
+  "missingFactProvenance": [
+    {
+      "missingFact": "Existence of a bedroom-door barricade",
+      "necessaryForRankability": true,
+      "opaqueTokenLabel": "A2",
+      "provenance": "SIBLING_CASE_IMPORTED",
+      "sourceEvidence": "The sibling states, \"Diane has been placing a chair against Margaret's bedroom door at night\" and describes \"A wooden chair ... propped under the bedroom doorknob.\""
+    },
+    {
+      "missingFact": "Presence of throw rugs and accessible cleaning supplies, plus a defined door-alarm and stove-securing plan",
+      "necessaryForRankability": true,
+      "opaqueTokenLabel": "P1",
+      "provenance": "SIBLING_CASE_IMPORTED",
+      "sourceEvidence": "The sibling identifies kitchen and hallway throw rugs, unlocked cleaning supplies, an unprotected stove, and interventions using door alarms, stove controls, rug removal, and locked supplies."
+    },
+    {
+      "missingFact": "Active support-resource referrals, adult-day enrollment, and caregiver primary-care follow-up plans",
+      "necessaryForRankability": true,
+      "opaqueTokenLabel": "P2",
+      "provenance": "SIBLING_CASE_IMPORTED",
+      "sourceEvidence": "At follow-up, the sibling states that Diane contacted the Area Agency on Aging, learned about an adult-day program, attended a support group, and scheduled her own primary-care appointment."
+    },
+    {
+      "missingFact": "Imminent danger or caregiving incapacity requiring immediate removal",
+      "necessaryForRankability": true,
+      "opaqueTokenLabel": "C1",
+      "provenance": "UNSUPPORTED_ANYWHERE_CHECKED",
+      "sourceEvidence": "No such fact appears; the sibling instead says Diane denies thoughts of harm, seeks help, remains engaged, and has modifiable hazards."
+    },
+    {
+      "missingFact": "Diane's exact statement \"I'm failing her\"",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "A1",
+      "provenance": "SIBLING_CASE_IMPORTED",
+      "sourceEvidence": "The sibling agitation exhibit quotes Diane saying, \"I can't do this anymore. I'm failing her.\""
+    },
+    {
+      "missingFact": "Existence of a chair barricade",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "A4",
+      "provenance": "SIBLING_CASE_IMPORTED",
+      "sourceEvidence": "The sibling states that a wooden chair is propped under the bedroom doorknob."
+    },
+    {
+      "missingFact": "Any oxygen-saturation value or respiratory concern",
+      "necessaryForRankability": false,
+      "opaqueTokenLabel": "P3",
+      "provenance": "SIBLING_CASE_IMPORTED",
+      "sourceEvidence": "The sibling reports SpO₂ 97% on room air initially and 98% at follow-up, without a respiratory concern."
+    }
+  ],
+  "primaryVerdict": "FAIL_HIDDEN_CASE_DEPENDENCY",
+  "reasoning": "Under the fixed precedence, hidden-case dependency controls because A2, P1, and P2 require facts supplied by the sibling but omitted from the standalone stem. Unsupported-premise and underdetermination findings also hold at lower precedence. The canonical ranking may reflect the sibling case's intended logic, but that context cannot retroactively establish standalone answerability.",
+  "scopeCollateral": [],
+  "secondaryFlags": [
+    "ALSO_SATISFIES_FAIL_UNSUPPORTED_TOKEN_PREMISE",
+    "ALSO_SATISFIES_FAIL_UNDERDETERMINED"
+  ]
+}

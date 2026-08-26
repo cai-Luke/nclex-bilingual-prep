@@ -1,0 +1,38 @@
+{
+  "condition": "Pembrolizumab-induced immune-related pneumonitis",
+  "evaluationParameters": [
+    "SpO2 trend with every-2-hour pulse oximetry",
+    "Respiratory status, including cough, crackles, and oxygen requirement"
+  ],
+  "missingInformation": [
+    "Infectious evaluation results, respiratory rate and work of breathing, oxygen-flow requirement, and the facility protocol's pneumonitis grade and steroid dose are not provided, limiting severity grading and treatment specificity."
+  ],
+  "priorityActions": [
+    "Administer supplemental oxygen to maintain SpO2 at or above 94%",
+    "Administer methylprednisolone per the facility immune-related adverse event pneumonitis protocol"
+  ],
+  "reasoning": "The timing after pembrolizumab, new respiratory findings, hypoxemia, characteristic ground-glass opacities, exclusion of major competing CT diagnoses, and prescribed irAE-directed treatment strongly support checkpoint-inhibitor pneumonitis.",
+  "stage1Confidence": "high",
+  "stemEvidence": [
+    {
+      "stemFact": "After pembrolizumab cycle 4, the client has a new dry cough, hypoxemia, and new bilateral lower-lobe ground-glass opacities; CT excludes pulmonary embolism and lymphangitic carcinomatosis.",
+      "target": "condition"
+    },
+    {
+      "stemFact": "The oncologist orders oxygen to maintain SpO2 >=94%.",
+      "target": "priorityAction1"
+    },
+    {
+      "stemFact": "The oncologist orders methylprednisolone per facility irAE pneumonitis protocol.",
+      "target": "priorityAction2"
+    },
+    {
+      "stemFact": "SpO2 progressively declined from 96% baseline to 91% on room air, and every-2-hour pulse oximetry is ordered.",
+      "target": "evaluationParameter1"
+    },
+    {
+      "stemFact": "The client has a new dry cough, bilateral basilar crackles, progressive hypoxemia, and requires assessment of response to oxygen and corticosteroid therapy.",
+      "target": "evaluationParameter2"
+    }
+  ]
+}

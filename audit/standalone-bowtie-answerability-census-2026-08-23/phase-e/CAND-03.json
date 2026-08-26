@@ -1,0 +1,122 @@
+{
+  "anyCanonicalTargetDependsOnAbsentFact": true,
+  "blindExactMatch": true,
+  "canonicalSelection": {
+    "actionLabels": [
+      "A2",
+      "A4"
+    ],
+    "conditionLabel": "C1",
+    "parameterLabels": [
+      "P3",
+      "P4"
+    ]
+  },
+  "canonicalSetExplanation": "The core syndrome, actions, and organ-threat monitoring choices are clinically coherent and clearly rank above the distractors. However, the exact canonical set is not fully premise-complete: the stem establishes acute intravascular hemolysis but not ABO incompatibility, and it does not establish that a Foley catheter is present. Thus C1 is the best available condition token rather than a completely supported diagnosis as worded.",
+  "canonicalSetUniquelyDefensible": false,
+  "canonicalTargetSupport": [
+    {
+      "missingClientFact": "A clerical mismatch, incompatible repeat ABO typing or crossmatch, or other reaction-workup result establishing ABO incompatibility.",
+      "opaqueTokenLabel": "C1",
+      "supportClassification": "MISSING_CLIENT_FACT",
+      "supportingStandaloneEvidence": "The rapid onset during red blood cell transfusion, flank pain, hemoglobinuria, port-wine urine, elevated LDH and bilirubin, very low haptoglobin, shock, and DIC strongly support an acute hemolytic transfusion reaction."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "A2",
+      "supportClassification": "GENERAL_KNOWLEDGE_LINK",
+      "supportingStandaloneEvidence": "A severe reaction began within 12 minutes of starting a red blood cell transfusion, and the transfusion was stopped."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "A4",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "Worsening hypotension, oliguria with port-wine urine, puncture-site oozing, thrombocytopenia, low fibrinogen, and prolonged INR and aPTT directly show progressing shock, acute kidney injury, and DIC."
+    },
+    {
+      "missingClientFact": "Presence or placement of a Foley catheter.",
+      "opaqueTokenLabel": "P3",
+      "supportClassification": "MISSING_CLIENT_FACT",
+      "supportingStandaloneEvidence": "The stem directly identifies oliguria with port-wine urine, supporting monitoring of urine output and color."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "P4",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "The stem provides puncture-site oozing, platelets 104 ×10³/µL, fibrinogen 140 mg/dL, INR 1.8, and aPTT 52 seconds."
+    }
+  ],
+  "distractorPremiseFindings": [
+    {
+      "explanation": "Removing vascular access and postponing replacement conflicts with the immediate resuscitation needs created by worsening shock and oliguria.",
+      "opaqueTokenLabel": "A1",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "The transfusion has already been stopped, and slowing it would be unsafe in a severe hemolytic reaction with shock and DIC.",
+      "opaqueTokenLabel": "A3",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "The prominent intravascular hemolysis findings are inconsistent with an isolated anaphylactic transfusion reaction, and no airway, angioedema, urticaria, or wheezing findings are supplied.",
+      "opaqueTokenLabel": "C2",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "Fever, rigors, hypotension, and DIC can occur with bacterial contamination, but cultures or other contamination evidence are absent and the explicit hemolysis pattern favors an acute hemolytic reaction.",
+      "opaqueTokenLabel": "C3",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "MATERIAL"
+    },
+    {
+      "explanation": "Although fever is explicit, temperature alone cannot evaluate the stated shock, renal injury, hemolysis, and coagulopathy.",
+      "opaqueTokenLabel": "P1",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "The stem reports no peripheral-IV insertion-site finding; the rationale's assertion that the site is normal is also unstated.",
+      "opaqueTokenLabel": "P2",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "NONE"
+    }
+  ],
+  "missingClientFacts": [
+    {
+      "keyed": true,
+      "missingFact": "Reaction-workup evidence establishing ABO incompatibility, such as a clerical mismatch or incompatible repeat ABO typing or crossmatch.",
+      "opaqueTokenLabel": "C1",
+      "rankabilityImpact": "MATERIAL"
+    },
+    {
+      "keyed": true,
+      "missingFact": "Presence or placement of a Foley catheter.",
+      "opaqueTokenLabel": "P3",
+      "rankabilityImpact": "LOW"
+    },
+    {
+      "keyed": false,
+      "missingFact": "Patient or blood-unit culture evidence confirming or excluding bacterial contamination.",
+      "opaqueTokenLabel": "C3",
+      "rankabilityImpact": "MATERIAL"
+    },
+    {
+      "keyed": false,
+      "missingFact": "The rationale-asserted normal appearance of the peripheral IV site.",
+      "opaqueTokenLabel": "P2",
+      "rankabilityImpact": "LOW"
+    }
+  ],
+  "notes": [
+    "The Stage-2 selection exactly matched the canonical labels, but exact match is not evidence that every word of the keyed tokens is supported.",
+    "The stem strongly supports acute hemolytic transfusion reaction with secondary DIC, shock, and oliguric kidney injury; the unsupported element is the specified ABO cause.",
+    "The Foley wording could be repaired by stating that a Foley catheter is present or by removing the device-specific phrase from P3.",
+    "The P2 rationale should not call the IV site normal unless that finding is added to the stem."
+  ],
+  "stage1Alignment": "PARTIAL",
+  "stage1AlignmentExplanation": "Stage 1 identified the acute hemolytic transfusion-reaction syndrome with DIC but did not attribute it specifically to ABO incompatibility. It independently generated an action substantially aligned with A2 and both monitoring targets aligned with P3 and P4, but its other priority action was isotonic-fluid support rather than the A4 escalation target.",
+  "unstatedClientFactMateriallyChangesRankability": true
+}

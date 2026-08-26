@@ -1,0 +1,138 @@
+{
+  "anyCanonicalTargetDependsOnAbsentFact": false,
+  "blindExactMatch": true,
+  "canonicalSelection": {
+    "actionLabels": [
+      "A4",
+      "A3"
+    ],
+    "conditionLabel": "C2",
+    "parameterLabels": [
+      "P1",
+      "P3"
+    ]
+  },
+  "canonicalSetExplanation": "C2 is directly stated. A4 addresses the unresolved concern through the appropriate supervisory pathway, while A3 preserves care within competency and avoids abandonment. P1 and P3 measure actual correction of both sides of the assignment mismatch. Each alternative is contradicted, irrelevant, or dependent on facts absent from the standalone stem.",
+  "canonicalSetUniquelyDefensible": true,
+  "canonicalTargetSupport": [
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "C2",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "The stem explicitly states that vasoactive drip titration and advanced neurological assessments are not within the nurse's documented competencies."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "A4",
+      "supportClassification": "GENERAL_KNOWLEDGE_LINK",
+      "supportingStandaloneEvidence": "The charge nurse refuses to change the assignment after the competency-based safety concern is identified, supporting escalation to the nursing supervisor."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "A3",
+      "supportClassification": "GENERAL_KNOWLEDGE_LINK",
+      "supportingStandaloneEvidence": "The stem limits the identified competency problem to specified advanced responsibilities; nursing obligations support continuing any care that remains within validated competency rather than abandoning all care."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "P1",
+      "supportClassification": "GENERAL_KNOWLEDGE_LINK",
+      "supportingStandaloneEvidence": "Because the high-acuity responsibilities exceed the float nurse's competencies, reassignment to a validated nurse directly evaluates whether the safety mismatch has been corrected."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "P3",
+      "supportClassification": "GENERAL_KNOWLEDGE_LINK",
+      "supportingStandaloneEvidence": "The identified problem is the mismatch between assigned needs and documented competencies, so verifying that the remaining assignment is entirely within competency evaluates resolution of that problem."
+    }
+  ],
+  "distractorPremiseFindings": [
+    {
+      "explanation": "The stem does not establish inadequate staffing or identify staffing scarcity as the cause. Even if staffing were inadequate, it would not supersede the explicit competency mismatch.",
+      "opaqueTokenLabel": "C1",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "The nurse's concern is tied to specified duties outside documented competencies, not a preference-based unwillingness to float.",
+      "opaqueTokenLabel": "C3",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "The stem identifies a bounded competency problem and does not support refusing all care or leaving the unit; that response would fail to preserve appropriate patient care.",
+      "opaqueTokenLabel": "A1",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "Accepting the full assignment without escalation would leave the explicitly stated competency and patient-safety problem unresolved.",
+      "opaqueTokenLabel": "A2",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "The charge nurse's agreement is not a patient-safety outcome and is unnecessary for determining whether competent coverage has been established.",
+      "opaqueTokenLabel": "P2",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "The stem provides no specific norepinephrine administration, dose increase, or MAP result. A single hemodynamic value would also not resolve the structural competency mismatch.",
+      "opaqueTokenLabel": "P4",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "NONE"
+    }
+  ],
+  "missingClientFacts": [
+    {
+      "keyed": false,
+      "missingFact": "Whether inadequate staffing caused the assignment or limited available qualified resources.",
+      "opaqueTokenLabel": "C1",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "keyed": true,
+      "missingFact": "Which assigned patients, if any, have already been accepted and have needs entirely within the float nurse's validated competencies.",
+      "opaqueTokenLabel": "A3",
+      "rankabilityImpact": "LOW"
+    },
+    {
+      "keyed": true,
+      "missingFact": "The facility-specific escalation procedure after the charge nurse refuses to resolve the concern.",
+      "opaqueTokenLabel": "A4",
+      "rankabilityImpact": "LOW"
+    },
+    {
+      "keyed": true,
+      "missingFact": "Whether a validated step-down nurse is immediately available to receive the high-acuity patients.",
+      "opaqueTokenLabel": "P1",
+      "rankabilityImpact": "LOW"
+    },
+    {
+      "keyed": true,
+      "missingFact": "The complete care needs of every patient who would remain assigned to the float nurse.",
+      "opaqueTokenLabel": "P3",
+      "rankabilityImpact": "LOW"
+    },
+    {
+      "keyed": false,
+      "missingFact": "Whether any patient is receiving norepinephrine, whether its dose was increased, and the associated MAP response.",
+      "opaqueTokenLabel": "P4",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "keyed": true,
+      "missingFact": "Whether any assigned patient currently requires an urgent intervention during escalation.",
+      "opaqueTokenLabel": "A4",
+      "rankabilityImpact": "LOW"
+    }
+  ],
+  "notes": [
+    "Stage 2 selected the exact canonical label sets. Its action labels were serialized as A3, A4 rather than the canonical packet order A4, A3; action-slot order does not change the selected set.",
+    "The absent keyed contextual details may affect implementation logistics but do not supply premises required to choose the canonical tokens from this pool."
+  ],
+  "stage1Alignment": "PARTIAL",
+  "stage1AlignmentExplanation": "Stage 1 identified the competency-based unsafe assignment, escalation through the chain of command, avoidance of abandonment, and reassignment to qualified staff. It did not explicitly generate verification that the nurse's entire remaining assignment was within her documented competencies, so alignment is strong but incomplete.",
+  "unstatedClientFactMateriallyChangesRankability": false
+}

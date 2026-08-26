@@ -1,0 +1,173 @@
+{
+  "canonicalSelection": {
+    "actionLabels": [
+      "A2",
+      "A1"
+    ],
+    "conditionLabel": "C3",
+    "parameterLabels": [
+      "P2",
+      "P1"
+    ]
+  },
+  "instruction": "The two blind-stage records are immutable. Compare them with the now-revealed canonical 1/2/2 selection and complete standalone item. Do not inspect or infer sibling-case material. Return the required Phase-E structured JSON without revising either blind record.",
+  "standaloneItem": {
+    "bowtie": {
+      "actions": {
+        "tokens": [
+          {
+            "en": "Complete decontamination of contaminated casualties before ED entry",
+            "opaqueTokenLabel": "A1",
+            "zh": "污染伤员进入急诊前完成去污"
+          },
+          {
+            "en": "Apply START categories and use them to sequence treatment of salvageable casualties",
+            "opaqueTokenLabel": "A2",
+            "zh": "应用START类别并据此安排可挽救伤员的治疗顺序"
+          },
+          {
+            "en": "Begin full CPR and advanced resuscitation for A or G",
+            "opaqueTokenLabel": "A3",
+            "zh": "为A或G开始完整CPR和高级复苏"
+          },
+          {
+            "en": "Bring D directly into the ED before decontamination to treat stridor faster",
+            "opaqueTokenLabel": "A4",
+            "zh": "为更快处理喘鸣，在去污前直接将D带入急诊"
+          }
+        ]
+      },
+      "condition": {
+        "tokens": [
+          {
+            "en": "Single-problem hazardous-materials exposure without resource-allocation triage",
+            "opaqueTokenLabel": "C1",
+            "zh": "单一危险化学品暴露事件，不需要资源分配分诊"
+          },
+          {
+            "en": "Conventional ED surge with several trauma patients",
+            "opaqueTokenLabel": "C2",
+            "zh": "常规急诊高峰并有多名创伤患者"
+          },
+          {
+            "en": "Mass-casualty incident exceeding ED resources with required START triage and chemical decontamination",
+            "opaqueTokenLabel": "C3",
+            "zh": "超过急诊资源能力、需要START分诊和化学去污的大规模伤亡事件"
+          }
+        ]
+      },
+      "parameters": {
+        "tokens": [
+          {
+            "en": "Absence of secondary contamination among staff, other casualties, and treatment areas",
+            "opaqueTokenLabel": "P1",
+            "zh": "工作人员、其他伤员和治疗区无二次污染"
+          },
+          {
+            "en": "Clinical trajectory and survival of red/yellow salvageable casualties",
+            "opaqueTokenLabel": "P2",
+            "zh": "红色/黄色可挽救伤员的临床趋势和存活情况"
+          },
+          {
+            "en": "Time to complete routine full nursing documentation for every casualty",
+            "opaqueTokenLabel": "P3",
+            "zh": "每名伤员完成常规完整护理记录所需时间"
+          },
+          {
+            "en": "Total mortality count as an isolated number",
+            "opaqueTokenLabel": "P4",
+            "zh": "单独看总死亡人数"
+          }
+        ]
+      }
+    },
+    "glossary": [
+      {
+        "defZh": "要求连接最可能状况、优先行动和监测参数的NGN题型。",
+        "termEn": "Bow-tie item",
+        "termZh": "弓形题"
+      },
+      {
+        "defZh": "在资源有限时决定人员、设备和治疗优先级的过程。",
+        "termEn": "Resource allocation",
+        "termZh": "资源分配"
+      },
+      {
+        "defZh": "涉及危险物质暴露，需要防护和去污的事件。",
+        "termEn": "Hazmat",
+        "termZh": "危险化学品事件"
+      }
+    ],
+    "rationale": {
+      "byChoice": [
+        {
+          "en": "Correct: seven simultaneous casualties exceed the ED's spaces and staffing, and chemical contamination creates a decontamination barrier.",
+          "opaqueTokenLabel": "C3",
+          "zh": "正确：7名伤员同时到达超过急诊空间和人力能力，且化学污染形成去污屏障。"
+        },
+        {
+          "en": "Incorrect: routine surge care does not use START black/expectant triage or mandatory hazmat decontamination before treatment-area entry.",
+          "opaqueTokenLabel": "C2",
+          "zh": "错误：常规高峰护理不会使用START黑色/预期死亡分诊，也不会要求进入治疗区前强制危险化学品去污。"
+        },
+        {
+          "en": "Incorrect: the event includes blast trauma, hemorrhage, burns, and multiple simultaneous casualties, not only one chemical-exposure problem.",
+          "opaqueTokenLabel": "C1",
+          "zh": "错误：该事件包括爆炸创伤、出血、烧伤和多名同时伤员，不只是一个化学暴露问题。"
+        },
+        {
+          "en": "Correct: START categories determine which salvageable casualties receive scarce staff, spaces, blood products, and transfer resources first.",
+          "opaqueTokenLabel": "A2",
+          "zh": "正确：START类别决定哪些可挽救伤员优先获得有限人力、空间、血制品和转运资源。"
+        },
+        {
+          "en": "Correct: decontamination before ED entry protects staff, other casualties, and the treatment environment from secondary ammonia exposure.",
+          "opaqueTokenLabel": "A1",
+          "zh": "正确：进入急诊前去污可保护工作人员、其他伤员和治疗环境免受二次氨暴露。"
+        },
+        {
+          "en": "Incorrect: full resuscitation for black/expectant casualties would consume scarce resources needed by salvageable casualties.",
+          "opaqueTokenLabel": "A3",
+          "zh": "错误：为黑色/预期死亡伤员完整复苏会消耗可挽救伤员所需的稀缺资源。"
+        },
+        {
+          "en": "Incorrect: bypassing decontamination risks contaminating the ED and creating additional casualties among staff or patients.",
+          "opaqueTokenLabel": "A4",
+          "zh": "错误：绕过去污会污染急诊，并可能让员工或患者成为新增伤员。"
+        },
+        {
+          "en": "Correct: improvement of C, D, and E shows that resources reached the casualties most likely to benefit.",
+          "opaqueTokenLabel": "P2",
+          "zh": "正确：C、D、E改善说明资源到达了最可能获益的伤员。"
+        },
+        {
+          "en": "Correct: no secondary contamination confirms that the hazmat component was controlled safely.",
+          "opaqueTokenLabel": "P1",
+          "zh": "正确：无二次污染说明危险化学品环节得到安全控制。"
+        },
+        {
+          "en": "Incorrect: raw deaths alone misjudge disaster triage because expectant deaths may occur despite correct allocation.",
+          "opaqueTokenLabel": "P4",
+          "zh": "错误：单看死亡人数会误判灾难分诊，因为即使资源分配正确，预期死亡仍可能发生。"
+        },
+        {
+          "en": "Incorrect: full routine charting is not the acute-phase effectiveness metric; abbreviated MCI documentation is appropriate during response.",
+          "opaqueTokenLabel": "P3",
+          "zh": "错误：完整常规记录不是急性期有效性指标；应对期间使用简化MCI记录是合适的。"
+        }
+      ],
+      "correct": {
+        "en": "The resolved picture is an MCI with a hazardous-materials component, not a routine surge or a single-patient hazmat event. The priority actions are START-based resource allocation and completion of decontamination before ED entry. Outcomes should be monitored by the trajectory of salvageable red/yellow casualties and by the absence of secondary contamination.",
+        "zh": "综合判断是伴危险化学品因素的MCI，而不是常规高峰或单个化学暴露事件。优先行动是基于START进行资源分配，并在进入急诊前完成去污。应通过可挽救红/黄伤员的趋势以及是否无二次污染来监测结果。"
+      }
+    },
+    "stem": {
+      "en": "At Stage 2, the ED is in activated MCI mode after seven casualties arrive from an industrial explosion with ammonia release. START triage is complete, one contaminated red-category casualty has completed decontamination, scarce blood and treatment spaces are being allocated, and the charge nurse must synthesize the safest condition, actions, and monitoring parameters.",
+      "zh": "第2阶段，7名来自工业爆炸并伴氨释放事件的伤员到达后，急诊已启动MCI模式。START分诊已完成，一名被污染的红色伤员已完成去污，有限血制品和治疗空间正在分配，charge nurse必须综合判断最安全的情境、行动和监测参数。"
+    },
+    "testTakingStrategy": {
+      "en": "For bowtie items, match the condition to the whole pattern, then choose actions and monitoring that directly follow from that condition while rejecting routine-care reflexes.",
+      "zh": "做bowtie题时，先把病情/情境与整体模式匹配，再选择由该情境直接推出的行动和监测，排除常规护理反射。"
+    }
+  }
+}

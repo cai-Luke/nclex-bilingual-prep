@@ -1,0 +1,141 @@
+{
+  "actionLabels": [
+    "A3",
+    "A4"
+  ],
+  "ambiguousAlternatives": [
+    {
+      "opaqueTokenLabel": "A1",
+      "reason": "Rising peak airway pressures may require ventilatory reassessment, but increasing support without correcting the excessive fluid rate does not address the stem's primary process."
+    },
+    {
+      "opaqueTokenLabel": "P1",
+      "reason": "Electrolyte monitoring is generally relevant after a major burn, but the stem provides no potassium-specific abnormality and gives stronger evidence for urine-output and bladder-pressure monitoring."
+    }
+  ],
+  "conditionLabel": "C1",
+  "missingInformation": [
+    "Current SpO2, ABG results, and ventilator settings are absent, limiting assessment of whether additional ventilator support is required.",
+    "Actual bladder pressure and distal hand perfusion findings such as pulses, Doppler signals, capillary refill, temperature, sensation, and motor function are not provided.",
+    "No smoke-exposure history, bronchoscopy findings, carboxyhemoglobin result, potassium result, or infection findings are provided."
+  ],
+  "parameterLabels": [
+    "P2",
+    "P4"
+  ],
+  "poolAnswerability": "ANSWERABLE",
+  "reasoning": "The excess time-phased resuscitation volume, urine output above target, falling hematocrit, pulmonary findings, abdominal expansion, and edema of unburned tissue form a coherent pattern of fluid creep. Reducing lactated Ringer's addresses the cause, while serial bladder-pressure and extremity-perfusion monitoring evaluates emerging compartment complications. Hourly urine output guides fluid titration, and bladder pressure tracks the abdominal complication directly suggested by increasing girth.",
+  "selectionEvidence": [
+    {
+      "opaqueTokenLabel": "C1",
+      "supportingStemText": "Delivered volume has exceeded the time-phased expected Parkland trajectory by about 20%, with crackles, rising airway pressures, hemodilution, and edema of previously unburned hands."
+    },
+    {
+      "opaqueTokenLabel": "A3",
+      "supportingStemText": "Urine output is 120 mL/hr, above the ordered target of 40 to 80 mL/hr, and delivered volume is about 20% above trajectory."
+    },
+    {
+      "opaqueTokenLabel": "A4",
+      "supportingStemText": "Abdominal girth is increasing and previously unburned hands are tense and edematous."
+    },
+    {
+      "opaqueTokenLabel": "P2",
+      "supportingStemText": "Urine output is now 120 mL/hr for two consecutive hours, above the ordered target of 40 to 80 mL/hr."
+    },
+    {
+      "opaqueTokenLabel": "P4",
+      "supportingStemText": "Abdominal girth is increasing after excess burn-resuscitation volume."
+    }
+  ],
+  "stage2Confidence": "high",
+  "tokenPremiseTable": [
+    {
+      "missingPremise": "Evidence of inadequate oxygenation or ventilation despite current support is absent.",
+      "opaqueTokenLabel": "A1",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "MATERIAL",
+      "rankabilityJustification": "Leaving the excessive fluid rate unchanged fails to address the strongly supported cause of the respiratory deterioration.",
+      "supportingStemText": "Delivered volume is about 20% above trajectory, urine output exceeds target, and new crackles and generalized edema are present."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A2",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "MATERIAL",
+      "rankabilityJustification": "The ongoing 24-hour resuscitation period does not justify maintaining or increasing fluid when the stated titration indicators show over-resuscitation.",
+      "supportingStemText": "Urine output is 120 mL/hr versus the ordered 40 to 80 mL/hr target, and delivered volume is about 20% above trajectory."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A3",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The stem directly supports downward fluid titration as the intervention addressing the primary condition.",
+      "supportingStemText": "Urine output exceeds its ordered target, delivered volume exceeds the expected trajectory, and findings of fluid accumulation are present."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A4",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "These findings directly warrant surveillance for intra-abdominal hypertension and impaired extremity perfusion.",
+      "supportingStemText": "Abdominal girth is increasing, and previously unburned hands are tense and edematous."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "C1",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Multiple independent stem findings converge on over-resuscitation and fluid accumulation.",
+      "supportingStemText": "Delivered volume is about 20% above the Parkland trajectory, urine output is above target, hematocrit fell from 52% to 38%, and pulmonary and peripheral edema findings developed."
+    },
+    {
+      "missingPremise": "Smoke or enclosed-space exposure, airway soot or edema, bronchoscopy findings, impaired oxygenation, or another inhalation-injury-specific finding is absent.",
+      "opaqueTokenLabel": "C2",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "MATERIAL",
+      "rankabilityJustification": "Rising airway pressure alone cannot establish worsening inhalation injury as the primary problem, especially with explicit evidence of excess fluid administration.",
+      "supportingStemText": "The client is intubated and peak airway pressures are rising."
+    },
+    {
+      "missingPremise": "Fever, wound changes, cultures, leukocyte trend, organ dysfunction attributable to infection, or other evidence of sepsis is absent.",
+      "opaqueTokenLabel": "C3",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "MATERIAL",
+      "rankabilityJustification": "The stem supplies no client-specific infectious premise supporting early burn wound sepsis.",
+      "supportingStemText": ""
+    },
+    {
+      "missingPremise": "No potassium value, rhythm change, renal impairment, or other potassium-specific concern is stated.",
+      "opaqueTokenLabel": "P1",
+      "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+      "rankabilityImpact": "LOW",
+      "rankabilityJustification": "Potassium may be monitored in major burn care, but it is less directly linked to the immediate stem findings than urine output and bladder pressure.",
+      "supportingStemText": "The client has a major thermal burn and is receiving crystalloid resuscitation."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "P2",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Urine output is the stated fluid-titration endpoint and must be followed after reducing the infusion.",
+      "supportingStemText": "Hourly urine output is explicitly reported as 120 mL/hr against an ordered target of 40 to 80 mL/hr."
+    },
+    {
+      "missingPremise": "Smoke exposure, enclosed-space exposure, or suspected carbon monoxide poisoning is not stated.",
+      "opaqueTokenLabel": "P3",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "MATERIAL",
+      "rankabilityJustification": "Without an exposure premise, carboxyhemoglobin is not one of the two parameters most directly responsive to the presented condition.",
+      "supportingStemText": ""
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "P4",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Serial bladder pressure directly evaluates possible intra-abdominal hypertension from over-resuscitation.",
+      "supportingStemText": "Abdominal girth is increasing in the setting of approximately 20% excess resuscitation volume."
+    }
+  ]
+}

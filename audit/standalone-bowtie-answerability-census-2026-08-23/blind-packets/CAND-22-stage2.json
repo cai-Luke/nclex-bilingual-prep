@@ -1,0 +1,61 @@
+{
+  "instruction": "Using only the standalone learner-facing English stem, prompts, and opaque token pools, select exactly one condition, two actions, and two parameters. Return the required structured JSON, including exactly one premise row for every opaque token. Do not infer absent client-specific facts.",
+  "prompts": {
+    "actions": "Priority actions",
+    "condition": "Most likely condition",
+    "parameters": "Parameters to monitor"
+  },
+  "stem": "Stage 2 synthesis: A severely malnourished post-operative client has had PN started after about five weeks of negligible intake. Within 30 hours, phosphorus has fallen from 2.8 to 1.8 to 1.3 mg/dL, potassium from 3.5 to 3.1 to 2.9 mEq/L, and magnesium from 1.8 to 1.4 to 1.3 mg/dL. The client is lethargic with proximal weakness, shallow respirations, palpitations, frequent PVCs, prolonged QT interval, and glucose 226 mg/dL. The PICC site has erythema, tenderness, and small purulent drainage. Complete the bow-tie diagram.",
+  "tokens": {
+    "actions": [
+      {
+        "label": "A1",
+        "text": "Administer aggressive potassium, phosphate, and magnesium replacement with telemetry"
+      },
+      {
+        "label": "A2",
+        "text": "Reduce the TPN infusion rate by 50% as ordered"
+      },
+      {
+        "label": "A3",
+        "text": "Independently discontinue TPN abruptly without dextrose backup"
+      },
+      {
+        "label": "A4",
+        "text": "Give aggressive insulin first for glucose 226 mg/dL"
+      }
+    ],
+    "condition": [
+      {
+        "label": "C1",
+        "text": "Parenteral-nutrition hyperglycemia"
+      },
+      {
+        "label": "C2",
+        "text": "Refeeding syndrome"
+      },
+      {
+        "label": "C3",
+        "text": "Catheter-related bloodstream infection"
+      }
+    ],
+    "parameters": [
+      {
+        "label": "P1",
+        "text": "Serum glucose alone as the primary outcome"
+      },
+      {
+        "label": "P2",
+        "text": "Cardiac rhythm, PVCs, and QT interval on telemetry"
+      },
+      {
+        "label": "P3",
+        "text": "White blood cell count as the main marker of this crisis"
+      },
+      {
+        "label": "P4",
+        "text": "Serum phosphorus, potassium, and magnesium trends"
+      }
+    ]
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "instruction": "Using only the standalone learner-facing English stem, prompts, and opaque token pools, select exactly one condition, two actions, and two parameters. Return the required structured JSON, including exactly one premise row for every opaque token. Do not infer absent client-specific facts.",
+  "stem": "At Stage 2 of a nine-month well-child visit, the nurse has identified multiple infant safety hazards. Liam is reaching for a cosmetics pouch containing uncapped acetaminophen. Danielle is warm and engaged but tearful, lacks support, relies on informal advice, and reports giving 15 mL of 160 mg/5 mL acetaminophen when the clinic/package table in the record lists 5 mL for Liam's weight band. Complete the bow-tie by selecting the most likely condition, two priority nursing actions, and two parameters to monitor.",
+  "tokens": {
+    "actions": [
+      {
+        "label": "A1",
+        "text": "Teach the stated syringe dose with return demonstration and remove immediate choking/poisoning hazards from Liam's reach"
+      },
+      {
+        "label": "A2",
+        "text": "Defer acetaminophen correction to the one-month follow-up to avoid overwhelming Danielle"
+      },
+      {
+        "label": "A3",
+        "text": "File a protective-services report based on the unsafe practices alone"
+      },
+      {
+        "label": "A4",
+        "text": "Assess acetaminophen frequency, recency, and total exposure; escalate to provider/Poison Control if recent or repeated overdosing is reported"
+      }
+    ],
+    "condition": [
+      {
+        "label": "C1",
+        "text": "Intimate partner violence or coercive control as the proven driver"
+      },
+      {
+        "label": "C2",
+        "text": "Caregiver knowledge deficit with multiple home hazards and acetaminophen dosing error"
+      },
+      {
+        "label": "C3",
+        "text": "Child neglect as the primary explanation"
+      }
+    ],
+    "parameters": [
+      {
+        "label": "P1",
+        "text": "Liam's growth trajectory and hemoglobin after dietary correction"
+      },
+      {
+        "label": "P2",
+        "text": "Danielle's follow-up teach-back of dosing, safe food preparation, safe sleep, and car-seat use"
+      },
+      {
+        "label": "P3",
+        "text": "Lead level trend as the main evaluation of this safety plan"
+      },
+      {
+        "label": "P4",
+        "text": "ASQ-3 developmental score as the main evaluation of hazard correction"
+      }
+    ]
+  }
+}

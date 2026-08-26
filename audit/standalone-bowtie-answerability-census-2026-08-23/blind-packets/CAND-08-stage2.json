@@ -1,0 +1,56 @@
+{
+  "instruction": "Using only the standalone learner-facing English stem, prompts, and opaque token pools, select exactly one condition, two actions, and two parameters. Return the required structured JSON, including exactly one premise row for every opaque token. Do not infer absent client-specific facts.",
+  "stem": "At hour 18, a 45-year-old woman admitted with acute gallstone pancreatitis has T 38.4 C, HR 118, BP 108/62, RR 26, SpO2 94% on 2 L nasal cannula, urine output 30 mL/hr, lactate 2.6 mmol/L, WBC 19.2 ×10³/µL, bilirubin 3.2 mg/dL from admission, and worsening abdominal distention and pain. Ultrasound shows an 11-mm common bile duct with a shadowing distal stone. Select the most likely condition, the two priority actions, and the two parameters to monitor.",
+  "tokens": {
+    "actions": [
+      {
+        "label": "A1",
+        "text": "Request immediate contrast-enhanced CT for pancreatic necrosis before ERCP"
+      },
+      {
+        "label": "A2",
+        "text": "Facilitate urgent ERCP consultation and preparation for biliary decompression"
+      },
+      {
+        "label": "A3",
+        "text": "Notify the provider of deterioration, ensure blood cultures are obtained, and anticipate empiric IV antibiotics as ordered"
+      },
+      {
+        "label": "A4",
+        "text": "Maintain the current fluid rate without reassessment despite urine output 30 mL/hr and lactate 2.6 mmol/L"
+      }
+    ],
+    "condition": [
+      {
+        "label": "C1",
+        "text": "Sepsis from aspiration pneumonia as the primary source"
+      },
+      {
+        "label": "C2",
+        "text": "Infected pancreatic necrosis"
+      },
+      {
+        "label": "C3",
+        "text": "Acute gallstone pancreatitis complicated by evolving cholangitis from persistent CBD obstruction"
+      }
+    ],
+    "parameters": [
+      {
+        "label": "P1",
+        "text": "Temperature and WBC trend after antibiotics and ERCP"
+      },
+      {
+        "label": "P2",
+        "text": "Serial amylase level to guide immediate biliary decompression decisions"
+      },
+      {
+        "label": "P3",
+        "text": "Urine output trend"
+      },
+      {
+        "label": "P4",
+        "text": "Serial lipase level as the main marker of cholangitis response"
+      }
+    ]
+  }
+}

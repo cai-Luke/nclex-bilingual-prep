@@ -1,0 +1,140 @@
+{
+  "anyCanonicalTargetDependsOnAbsentFact": true,
+  "blindExactMatch": true,
+  "canonicalSelection": {
+    "actionLabels": [
+      "A2",
+      "A3"
+    ],
+    "conditionLabel": "C2",
+    "parameterLabels": [
+      "P1",
+      "P2"
+    ]
+  },
+  "canonicalSetExplanation": "The canonical labels are the best relative choices and exactly match the Stage-2 selection, but the exact keyed wording is not fully defensible from the standalone stem. A2, P1, and P2 import unintroduced hazards, modifications, referrals, and enrollment plans.",
+  "canonicalSetUniquelyDefensible": false,
+  "canonicalTargetSupport": [
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "C2",
+      "supportClassification": "DIRECT",
+      "supportingStandaloneEvidence": "Diane is the sole caregiver and reports severe sleep deprivation, weight loss, missed work, guilt, and fear of being judged."
+    },
+    {
+      "missingClientFact": "The stem never states that a bedroom-door barricade exists or requires replacement.",
+      "opaqueTokenLabel": "A2",
+      "supportClassification": "MISSING_CLIENT_FACT",
+      "supportingStandaloneEvidence": "Margaret has worsening wandering and stove-use risk."
+    },
+    {
+      "missingClientFact": "",
+      "opaqueTokenLabel": "A3",
+      "supportClassification": "GENERAL_KNOWLEDGE_LINK",
+      "supportingStandaloneEvidence": "Margaret has moderate dementia, a recent fall, worsening wandering, and bedtime diphenhydramine use."
+    },
+    {
+      "missingClientFact": "The stem does not establish a door-alarm plan, throw rugs, accessible cleaning supplies, or an ordered set of modifications whose completion can be monitored.",
+      "opaqueTokenLabel": "P1",
+      "supportClassification": "MISSING_CLIENT_FACT",
+      "supportingStandaloneEvidence": "The stem identifies wandering, stove-use risk, and a recent fall."
+    },
+    {
+      "missingClientFact": "The stem does not establish support-resource engagement, adult-day enrollment, or Diane's primary-care follow-up as active plans.",
+      "opaqueTokenLabel": "P2",
+      "supportClassification": "MISSING_CLIENT_FACT",
+      "supportingStandaloneEvidence": "Diane reports severe sleep deprivation, weight loss, missed work, guilt, and fear of being judged."
+    }
+  ],
+  "distractorPremiseFindings": [
+    {
+      "explanation": "Severe caregiver burden is explicit, but immediate removal would require evidence of imminent danger, inability to provide safe care, or another urgent basis not supplied.",
+      "opaqueTokenLabel": "C1",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "MATERIAL"
+    },
+    {
+      "explanation": "The stem denies striking, shoving, threats, and physical restraint and states that Diane voluntarily sought help, making intentional abuse a poor primary explanation.",
+      "opaqueTokenLabel": "C3",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "Diane's quoted statement is absent, and bypassing validation of her documented distress is not supported as the priority therapeutic response.",
+      "opaqueTokenLabel": "A1",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "LOW"
+    },
+    {
+      "explanation": "No chair barricade is described, and the disclosed raised voice without violence, threats, or restraint does not justify an accusation of intentional abuse.",
+      "opaqueTokenLabel": "A4",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "No respiratory problem or oxygen-saturation result appears in the stem.",
+      "opaqueTokenLabel": "P3",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "NONE"
+    },
+    {
+      "explanation": "Moderate dementia is known, but no acute cognitive change or diagnostic objective makes short-interval formal screening the main outcome.",
+      "opaqueTokenLabel": "P4",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "LOW"
+    }
+  ],
+  "missingClientFacts": [
+    {
+      "keyed": true,
+      "missingFact": "Existence of a bedroom-door barricade",
+      "opaqueTokenLabel": "A2",
+      "rankabilityImpact": "MATERIAL"
+    },
+    {
+      "keyed": true,
+      "missingFact": "Presence of throw rugs and accessible cleaning supplies, plus a defined door-alarm and stove-securing plan",
+      "opaqueTokenLabel": "P1",
+      "rankabilityImpact": "MATERIAL"
+    },
+    {
+      "keyed": true,
+      "missingFact": "Active support-resource referrals, adult-day enrollment, and caregiver primary-care follow-up plans",
+      "opaqueTokenLabel": "P2",
+      "rankabilityImpact": "MATERIAL"
+    },
+    {
+      "keyed": false,
+      "missingFact": "Imminent danger or caregiving incapacity requiring immediate removal",
+      "opaqueTokenLabel": "C1",
+      "rankabilityImpact": "MATERIAL"
+    },
+    {
+      "keyed": false,
+      "missingFact": "Diane's exact statement \"I'm failing her\"",
+      "opaqueTokenLabel": "A1",
+      "rankabilityImpact": "LOW"
+    },
+    {
+      "keyed": false,
+      "missingFact": "Existence of a chair barricade",
+      "opaqueTokenLabel": "A4",
+      "rankabilityImpact": "LOW"
+    },
+    {
+      "keyed": false,
+      "missingFact": "Any oxygen-saturation value or respiratory concern",
+      "opaqueTokenLabel": "P3",
+      "rankabilityImpact": "NONE"
+    }
+  ],
+  "notes": [
+    "The rationale states that oxygen saturation is normal, but the stem provides no oxygen-saturation value.",
+    "The rationale says diphenhydramine is contributing to confusion and risk; the standalone facts support that it may contribute, not client-specific causation.",
+    "The choices inconsistently reference a bedroom-door barricade and a chair barricade, neither of which appears in the stem.",
+    "Claims of no injury patterns and self-directed frustration are not fully established by the standalone stem."
+  ],
+  "stage1Alignment": "PARTIAL",
+  "stage1AlignmentExplanation": "Stage 1 matched C2, the immediate home-safety concept underlying A2, and caregiver-status monitoring underlying P2. It proposed respite and social-work support instead of A3, and monitored safety incidents rather than completion of the specific modifications in P1.",
+  "unstatedClientFactMateriallyChangesRankability": true
+}

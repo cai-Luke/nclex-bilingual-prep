@@ -1,0 +1,143 @@
+{
+  "actionLabels": [
+    "A3",
+    "A4"
+  ],
+  "ambiguousAlternatives": [
+    {
+      "opaqueTokenLabel": "C3",
+      "reason": "The stem explicitly identifies a contaminated door handle after CDI care, which is also an active cross-contamination problem, although it does not establish the bare-hand mechanism stated in C3."
+    },
+    {
+      "opaqueTokenLabel": "A1",
+      "reason": "It addresses the contaminated stethoscope, but its limited decontamination scope is inadequate and its Room 16 destination is unsupported."
+    }
+  ],
+  "conditionLabel": "C1",
+  "missingInformation": [
+    "Whether Client C is assigned to Room 16 and the dedicated stethoscope should be returned there",
+    "Whether the stethoscope contacted the counter, supply cart, or individual supplies",
+    "Whether the student touched the Room 12 door handle with a bare hand",
+    "Whether Client A was the CDI client in Room 12 and whether the standard linen bag violated facility policy",
+    "Whether any wound dressing change was due"
+  ],
+  "parameterLabels": [
+    "P2",
+    "P3"
+  ],
+  "poolAnswerability": "UNDERDETERMINED",
+  "reasoning": "C1 best matches the priority contamination pathway into a clean supply area. A3 and the containment portions of A4 are the strongest actions, while P2 and P3 monitor precaution adherence and equipment control. However, A4 includes an unsupported Room 16 assignment, so the exact action selection is not fully determined by the stem.",
+  "selectionEvidence": [
+    {
+      "opaqueTokenLabel": "C1",
+      "supportingStemText": "\"The contaminated stethoscope from Client C's MRSA contact-precautions room has been found in the clean utility room near the clean supply cart.\""
+    },
+    {
+      "opaqueTokenLabel": "A3",
+      "supportingStemText": "The stem identifies a student-associated infection-control breach and asks for priority management of the cross-contamination problem."
+    },
+    {
+      "opaqueTokenLabel": "A4",
+      "supportingStemText": "\"The contaminated stethoscope...has been found in the clean utility room near the clean supply cart.\""
+    },
+    {
+      "opaqueTokenLabel": "P2",
+      "supportingStemText": "\"Client C's MRSA contact-precautions room\""
+    },
+    {
+      "opaqueTokenLabel": "P3",
+      "supportingStemText": "The stethoscope was contaminated and found outside its contact-precautions room in a clean utility area."
+    }
+  ],
+  "stage2Confidence": "medium",
+  "tokenPremiseTable": [
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "C1",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The stem directly establishes every material element of this priority problem.",
+      "supportingStemText": "\"The contaminated stethoscope from Client C's MRSA contact-precautions room has been found in the clean utility room near the clean supply cart.\""
+    },
+    {
+      "missingPremise": "Client A must be identified as the CDI client in Room 12, and the standard linen bag must be established as contrary to applicable policy.",
+      "opaqueTokenLabel": "C2",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "MATERIAL",
+      "rankabilityJustification": "The stem does not connect Client A's linens to CDI or Room 12 and does not establish that standard bagging was erroneous.",
+      "supportingStemText": ""
+    },
+    {
+      "missingPremise": "The student must be established as having contaminated the door handle through bare-hand contact.",
+      "opaqueTokenLabel": "C3",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "LOW",
+      "rankabilityJustification": "Door-handle contamination after CDI care is explicit, but the token adds an unsupported mechanism.",
+      "supportingStemText": ""
+    },
+    {
+      "missingPremise": "Client C must be assigned to Room 16 and the stethoscope must be intended for return there.",
+      "opaqueTokenLabel": "A1",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "LOW",
+      "rankabilityJustification": "The unsupported destination matters, although the action remains inferior because it leaves potentially contaminated surfaces and supplies unaddressed.",
+      "supportingStemText": ""
+    },
+    {
+      "missingPremise": "A wound dressing change must be established as due and as a valid reason to delay containment of the contamination breach.",
+      "opaqueTokenLabel": "A2",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "LOW",
+      "rankabilityJustification": "Even if a dressing change were due, general infection-control principles make delaying containment inappropriate.",
+      "supportingStemText": ""
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A3",
+      "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Corrective education, escalation, documentation, and infection-control follow-up are standard responses to a recognized breach.",
+      "supportingStemText": "The stem describes a student-associated infection-control breach involving contaminated equipment in a clean utility area."
+    },
+    {
+      "missingPremise": "Client C must be assigned to Room 16 and the dedicated stethoscope must be intended for return there after decontamination.",
+      "opaqueTokenLabel": "A4",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "MATERIAL",
+      "rankabilityJustification": "Its containment and decontamination steps are best supported, but the exact destination cannot be validated from the stem.",
+      "supportingStemText": ""
+    },
+    {
+      "missingPremise": "Client C must be receiving vancomycin and have monitoring results relevant to the stated problem.",
+      "opaqueTokenLabel": "P1",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "LOW",
+      "rankabilityJustification": "Vancomycin monitoring would assess therapy rather than the cross-contamination pathway even if treatment were present.",
+      "supportingStemText": ""
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "P2",
+      "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Monitoring PPE compliance is a standard evaluation of adherence to stated contact precautions.",
+      "supportingStemText": "\"Client C's MRSA contact-precautions room\""
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "P3",
+      "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Checking equipment location and cleanliness directly evaluates recurrence of the identified breach.",
+      "supportingStemText": "A contaminated stethoscope from a contact-precautions room was found in the clean utility room near clean supplies."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "P4",
+      "premiseStatus": "NO_CLIENT_PREMISE",
+      "rankabilityImpact": "MATERIAL",
+      "rankabilityJustification": "The stem contains no Client B or pneumococcal sputum-culture information and provides no connection to the priority problem.",
+      "supportingStemText": ""
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "instruction": "Using only the standalone learner-facing English stem, prompts, and opaque token pools, select exactly one condition, two actions, and two parameters. Return the required structured JSON, including exactly one premise row for every opaque token. Do not infer absent client-specific facts.",
+  "stem": "At Stage 2, the ED is in activated MCI mode after seven casualties arrive from an industrial explosion with ammonia release. START triage is complete, one contaminated red-category casualty has completed decontamination, scarce blood and treatment spaces are being allocated, and the charge nurse must synthesize the safest condition, actions, and monitoring parameters.",
+  "tokens": {
+    "actions": [
+      {
+        "label": "A1",
+        "text": "Complete decontamination of contaminated casualties before ED entry"
+      },
+      {
+        "label": "A2",
+        "text": "Apply START categories and use them to sequence treatment of salvageable casualties"
+      },
+      {
+        "label": "A3",
+        "text": "Begin full CPR and advanced resuscitation for A or G"
+      },
+      {
+        "label": "A4",
+        "text": "Bring D directly into the ED before decontamination to treat stridor faster"
+      }
+    ],
+    "condition": [
+      {
+        "label": "C1",
+        "text": "Single-problem hazardous-materials exposure without resource-allocation triage"
+      },
+      {
+        "label": "C2",
+        "text": "Conventional ED surge with several trauma patients"
+      },
+      {
+        "label": "C3",
+        "text": "Mass-casualty incident exceeding ED resources with required START triage and chemical decontamination"
+      }
+    ],
+    "parameters": [
+      {
+        "label": "P1",
+        "text": "Absence of secondary contamination among staff, other casualties, and treatment areas"
+      },
+      {
+        "label": "P2",
+        "text": "Clinical trajectory and survival of red/yellow salvageable casualties"
+      },
+      {
+        "label": "P3",
+        "text": "Time to complete routine full nursing documentation for every casualty"
+      },
+      {
+        "label": "P4",
+        "text": "Total mortality count as an isolated number"
+      }
+    ]
+  }
+}

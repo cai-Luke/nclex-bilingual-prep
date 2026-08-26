@@ -1,0 +1,972 @@
+{
+  "instruction": "The Stage-1, Stage-2, and Phase-E records are immutable. Inspect the paired case only now. Classify provenance for every Phase-E missing client fact, distinguish sibling necessity from corroboration, apply the fixed verdict precedence, and record narrow bilingual/clinical/scope collateral observations. Do not revise Phase E and do not propose content edits beyond an advisory P0-P3 priority.",
+  "phaseESha256": "df2d15e53b03afe0336e746f00292ba8f897d5448764d888c8943e426918f250",
+  "siblingCase": {
+    "caseStudy": {
+      "exhibits": [
+        {
+          "content": {
+            "en": "Mrs. Torrance is postoperative day 1 after ORIF of a left tibial plateau fracture. She is alert, oriented, and participates in care. Emergency contact/authorized contact listed in the chart: adult daughter Megan Torrance only. The facility policy requires the nurse who discovers or witnesses a potential privacy breach to immediately mitigate exposure, notify the charge nurse, complete an electronic incident report, and ensure same-shift notification to the unit manager and Privacy Officer. Incident reports are quality-improvement documents and must not be referenced in the medical record.",
+            "zh": "Torrance女士左胫骨平台骨折ORIF术后第1天。她清醒、定向力正常，并参与自己的照护。病历中列出的紧急/授权联系人仅为成年女儿Megan Torrance。机构政策要求发现或目击潜在隐私泄露的护士立即控制暴露、通知 charge nurse、完成电子事件报告，并确保同班次通知单元经理和隐私官。事件报告属于质量改进文件，不得在病历中提及。"
+          },
+          "id": "baseline_profile_policy",
+          "title": {
+            "en": "Baseline client profile and facility policy",
+            "zh": "基线患者资料与机构政策"
+          }
+        },
+        {
+          "content": {
+            "en": "0715 vital signs: T 99 °F (37.2 °C), HR 78/min, BP 134/82 mm Hg, RR 14/min, SpO2 97% on room air. Dressing is clean, dry, and intact; distal neurovascular status is intact. Pain is 4/10. 0600 labs: Hgb 11.4 g/dL, creatinine 1.3 mg/dL, eGFR 52 mL/min, glucose 168 mg/dL. Mrs. Torrance says she is worried about how long she will be off work and whether her employer will learn details of her medical condition.",
+            "zh": "0715生命体征：T 99 °F (37.2 °C)，HR 78次/分，BP 134/82 mm Hg，RR 14次/分，室内空气SpO2 97%。敷料清洁、干燥、完整；远端神经血管状态完整。疼痛4/10。0600化验：Hgb 11.4 g/dL，肌酐1.3 mg/dL，eGFR 52 mL/min，血糖168 mg/dL。Torrance女士表示担心自己要停工多久，以及雇主是否会知道她病情细节。"
+          },
+          "id": "baseline_assessment_labs",
+          "title": {
+            "en": "0715 assessment and 0600 laboratory data",
+            "zh": "0715评估与0600实验室资料"
+          }
+        }
+      ],
+      "questions": [
+        {
+          "category": "Management of Care",
+          "correct": [
+            "q1_a",
+            "q1_b",
+            "q1_c",
+            "q1_d",
+            "q1_e"
+          ],
+          "difficulty": "hard",
+          "glossary": [
+            {
+              "defZh": "患者未指定可接收其健康信息的人。",
+              "termEn": "Unauthorized contact",
+              "termZh": "未授权联系人"
+            },
+            {
+              "defZh": "包含姓名、出生日期、病历号、腕带或其他足以识别患者资料的照片或视频。",
+              "termEn": "Identifiable image",
+              "termZh": "可识别身份的影像"
+            },
+            {
+              "defZh": "关闭门、降低音量、使用私密区域等减少无意披露的措施。",
+              "termEn": "Reasonable safeguards",
+              "termZh": "合理保护措施"
+            }
+          ],
+          "id": "gpt_case_hipaa_disclosure_breach_01_q1",
+          "itemType": "select_all",
+          "ngnSkill": "recognize_cues",
+          "options": [
+            {
+              "en": "Mrs. Torrance reports pain of 4 out of 10 while the nurse performs the routine morning assessment.",
+              "id": "q1_f",
+              "zh": "护士进行常规晨间评估时，Torrance女士报告疼痛4/10。"
+            },
+            {
+              "en": "RN Casey opens Mrs. Torrance's operative report and medication record out of curiosity without a care role.",
+              "id": "q1_b",
+              "zh": "Casey护士没有照护职责，却因好奇打开Torrance女士的手术记录和用药记录。"
+            },
+            {
+              "en": "A caller who is not listed as an authorized contact asks for Mrs. Torrance's laboratory results and discharge timing.",
+              "id": "q1_a",
+              "zh": "未列为授权联系人的来电者要求得知Torrance女士的化验结果和出院时间。"
+            },
+            {
+              "en": "A nursing student photographs the wound on a personal phone with the hospital identification band visible.",
+              "id": "q1_d",
+              "zh": "护生用个人手机拍摄伤口照片，且照片中能看到医院身份腕带。"
+            },
+            {
+              "en": "The employer faxes the nursing unit requesting admission records and operative reports without a signed authorization.",
+              "id": "q1_c",
+              "zh": "雇主将索取入院记录和手术报告的传真发到护理单元，但未附患者签署的授权书。"
+            },
+            {
+              "en": "Two nurses discuss another client's HIV status by name in the hallway where a visitor can hear.",
+              "id": "q1_e",
+              "zh": "两名护士在走廊按姓名讨论另一名患者的HIV状态，旁边访客能够听见。"
+            }
+          ],
+          "rationale": {
+            "byChoice": [
+              {
+                "en": "Do not disclose information to a caller who is not verified and not authorized by the patient.",
+                "refId": "q1_a",
+                "zh": "来电者未核实且未获患者授权时，不能披露患者信息。"
+              },
+              {
+                "en": "An employer's request routed to the unit without patient authorization or confirmed legal basis must not be released by nursing staff.",
+                "refId": "q1_c",
+                "zh": "雇主请求发到护理单元且无患者授权或已确认法律依据时，护理人员不能释放资料。"
+              },
+              {
+                "en": "Pain assessment by the assigned nurse is part of routine care and is not a disclosure to an unauthorized person.",
+                "refId": "q1_f",
+                "zh": "负责护士进行疼痛评估属于常规照护，并不是向未授权人员披露。"
+              },
+              {
+                "en": "A visitor hearing another patient's name, HIV status, and medications means reasonable safeguards were not used during verbal communication.",
+                "refId": "q1_e",
+                "zh": "访客能听到另一名患者的姓名、HIV状态和用药，说明口头沟通未采取合理保护措施。"
+              },
+              {
+                "en": "Viewing PHI without a treatment, payment, or operations purpose is an unauthorized access even if the information is not repeated to anyone.",
+                "refId": "q1_b",
+                "zh": "没有治疗、付款或运营需要而查看PHI，即使没有转述给他人，也属于未经授权访问。"
+              },
+              {
+                "en": "The photo contains identifiers and was taken on a personal phone without written consent, so it requires immediate containment and reporting.",
+                "refId": "q1_d",
+                "zh": "照片包含身份识别信息，且未经书面同意用个人手机拍摄，因此需要立即控制并上报。"
+              }
+            ],
+            "correct": {
+              "en": "The unverified caller, curiosity-driven chart access, unauthorised employer request, identifiable photo on a personal device, and hallway report all create actual or potential privacy violations. The pain report during routine assessment is ordinary patient-care information used by the assigned nurse and is not itself a privacy event.",
+              "zh": "未核实且未授权的来电、因好奇查看病历、雇主未授权索取病历、在个人设备上形成可识别患者身份的照片，以及在走廊可被旁人听到的交班，均属于实际或潜在隐私问题。常规评估中的疼痛报告是负责护士用于照护的信息，本身不是隐私事件。"
+            }
+          },
+          "stem": {
+            "en": "Which events from the morning require privacy follow-up by RN Jordan? Select all that apply.",
+            "zh": "上午发生的哪些事件需要Jordan护士进行隐私相关跟进？选择所有适用项。"
+          },
+          "testTakingStrategy": {
+            "en": "Separate routine care from disclosure risk. Ask whether an unauthorized person accessed, received, or could hear identifiable health information.",
+            "zh": "把常规照护与披露风险分开判断。重点看是否有未授权人员访问、接收或可能听到可识别的健康信息。"
+          },
+          "topic": "Confidentiality & HIPAA"
+        },
+        {
+          "category": "Management of Care",
+          "correct": [
+            {
+              "columnIds": [
+                "q2_c1"
+              ],
+              "rowId": "q2_r1"
+            },
+            {
+              "columnIds": [
+                "q2_c1"
+              ],
+              "rowId": "q2_r2"
+            },
+            {
+              "columnIds": [
+                "q2_c2"
+              ],
+              "rowId": "q2_r3"
+            },
+            {
+              "columnIds": [
+                "q2_c2"
+              ],
+              "rowId": "q2_r4"
+            },
+            {
+              "columnIds": [
+                "q2_c3"
+              ],
+              "rowId": "q2_r5"
+            }
+          ],
+          "difficulty": "hard",
+          "glossary": [
+            {
+              "defZh": "HIPAA允许使用或披露PHI的常见机构目的，但必须与工作职责相关。",
+              "termEn": "Treatment/payment/operations",
+              "termZh": "治疗/付款/运营"
+            },
+            {
+              "defZh": "在采取合理保护措施的情况下仍可能附带发生的有限披露。",
+              "termEn": "Incidental disclosure",
+              "termZh": "偶然披露"
+            },
+            {
+              "defZh": "患者允许特定个人或机构接收其健康信息的有效许可。",
+              "termEn": "Authorization",
+              "termZh": "授权"
+            }
+          ],
+          "id": "gpt_case_hipaa_disclosure_breach_01_q2",
+          "itemType": "matrix",
+          "matrix": {
+            "columns": [
+              {
+                "en": "Completed impermissible access or identifiable record as it occurred",
+                "id": "q2_c1",
+                "zh": "已经发生的未经允许访问或形成可识别记录"
+              },
+              {
+                "en": "Conditionally permissible only after authorization or legal basis is verified through the proper process",
+                "id": "q2_c2",
+                "zh": "只有通过正确流程核实授权或法律依据后才可能允许"
+              },
+              {
+                "en": "Verbal incidental disclosure risk because reasonable safeguards were not used",
+                "id": "q2_c3",
+                "zh": "因未采取合理保护措施造成的口头偶然披露风险"
+              }
+            ],
+            "rows": [
+              {
+                "en": "RN Casey's curiosity-based EHR access",
+                "id": "q2_r1",
+                "zh": "Casey护士因好奇访问电子病历"
+              },
+              {
+                "en": "Student's identifiable wound photograph on a personal phone",
+                "id": "q2_r2",
+                "zh": "护生用个人手机拍摄可识别身份的伤口照片"
+              },
+              {
+                "en": "Employer fax asking for records without authorization",
+                "id": "q2_r3",
+                "zh": "雇主无授权传真索取病历"
+              },
+              {
+                "en": "Caller claiming to be the patient's husband asks for results",
+                "id": "q2_r4",
+                "zh": "自称患者丈夫的来电者索要结果"
+              },
+              {
+                "en": "Hallway report about another patient's HIV status",
+                "id": "q2_r5",
+                "zh": "走廊交班谈及另一名患者HIV状态"
+              }
+            ],
+            "selectionMode": "single_per_row"
+          },
+          "ngnSkill": "analyze_cues",
+          "rationale": {
+            "byChoice": [
+              {
+                "en": "Curiosity is not a permitted treatment, payment, or healthcare-operations purpose for EHR access.",
+                "refId": "q2_r1",
+                "zh": "好奇心不是治疗、付款或医疗运营所允许的电子病历访问目的。"
+              },
+              {
+                "en": "The photograph created an identifiable record on a personal device without consent.",
+                "refId": "q2_r2",
+                "zh": "该照片在未经同意的情况下，在个人设备上形成了可识别患者身份的记录。"
+              },
+              {
+                "en": "Workers' compensation wording does not let a unit nurse release records; HIM must verify authorization or legal authority and minimum-necessary scope.",
+                "refId": "q2_r3",
+                "zh": "写有工伤赔偿并不代表单元护士可以释放病历；HIM必须核实授权或法律依据以及最低必要范围。"
+              },
+              {
+                "en": "Being a spouse does not automatically authorize disclosure; the nurse must verify identity and the patient's permission.",
+                "refId": "q2_r4",
+                "zh": "配偶身份并不会自动授权披露；护士必须核实身份并确认患者许可。"
+              },
+              {
+                "en": "Incidental disclosures are tolerated only when reasonable safeguards are used; naming a patient and HIV status within visitor earshot fails that standard.",
+                "refId": "q2_r5",
+                "zh": "只有在采取合理保护措施时，偶然披露才可能被接受；在访客能听到的地方说出患者姓名和HIV状态不符合这一标准。"
+              }
+            ],
+            "correct": {
+              "en": "RN Casey's access and the student's identifiable photo are completed impermissible events as they occurred. The employer and phone requests might be handled only through proper authorization or legal authority, but they are not disclosures the unit nurse can make as presented. The hallway report is a verbal disclosure risk because staff failed to use reasonable safeguards in a public area.",
+              "zh": "Casey护士访问病历和护生拍摄可识别照片，是已经发生的不当事件。雇主和电话请求只有在通过正确流程确认授权或法律依据后才可能处理，但按目前情形护理单元不能披露。走廊交班属于口头披露风险，因为工作人员在公共区域未采取合理保护措施。"
+            }
+          },
+          "stem": {
+            "en": "Classify each privacy event using the best description.",
+            "zh": "用最恰当的描述对每个隐私事件进行分类。"
+          },
+          "testTakingStrategy": {
+            "en": "Classify the event by the pathway: internal access, external request, or verbal communication. Then ask whether the proper authorization, role, or safeguard exists.",
+            "zh": "先按路径分类：内部访问、外部请求或口头沟通。再判断是否存在适当授权、工作角色或保护措施。"
+          },
+          "topic": "Confidentiality & HIPAA"
+        },
+        {
+          "category": "Management of Care",
+          "correct": [
+            "q3_a"
+          ],
+          "difficulty": "hard",
+          "glossary": [
+            {
+              "defZh": "记录谁在何时查看了哪些电子病历内容的系统日志。",
+              "termEn": "EHR audit trail",
+              "termZh": "电子病历审计追踪"
+            },
+            {
+              "defZh": "在机构内工作或受机构管理、可能接触PHI的人。",
+              "termEn": "Workforce member",
+              "termZh": "工作人员"
+            },
+            {
+              "defZh": "有意打开或查看信息，而不是采取保护措施后仍无法避免的有限暴露。",
+              "termEn": "Non-incidental access",
+              "termZh": "非偶然访问"
+            }
+          ],
+          "id": "gpt_case_hipaa_disclosure_breach_01_q3",
+          "itemType": "multiple_choice",
+          "ngnSkill": "prioritize_hypotheses",
+          "options": [
+            {
+              "en": "The student's photograph that is still on one device and has not yet been transmitted",
+              "id": "q3_e",
+              "zh": "护生照片仍在一台设备上且尚未传送"
+            },
+            {
+              "en": "RN Casey's unauthorized access to Mrs. Torrance's EHR",
+              "id": "q3_a",
+              "zh": "Casey护士未经授权访问Torrance女士的电子病历"
+            },
+            {
+              "en": "The unverified caller's request for results before any information is released",
+              "id": "q3_b",
+              "zh": "未核实来电者在信息尚未披露前索要结果"
+            },
+            {
+              "en": "Mrs. Torrance's concern that her employer may learn details of her condition",
+              "id": "q3_d",
+              "zh": "Torrance女士担心雇主会得知她病情细节"
+            },
+            {
+              "en": "The employer's fax request before any records are released",
+              "id": "q3_c",
+              "zh": "雇主在尚未释放病历前发来的传真请求"
+            }
+          ],
+          "rationale": {
+            "byChoice": [
+              {
+                "en": "The fax request is inappropriate as submitted, but no records have been released and the request can be redirected to HIM.",
+                "refId": "q3_c",
+                "zh": "传真请求按目前情况不恰当，但病历尚未释放，可转给HIM处理。"
+              },
+              {
+                "en": "The photograph requires urgent containment and reporting, but in this case it is still limited to one device and has not been transmitted; RN Casey's EHR access is the broadest completed access exposure.",
+                "refId": "q3_e",
+                "zh": "照片需要紧急控制和上报，但在本病例中仍限于一台设备且未传送；Casey护士访问电子病历是范围最广的已发生访问暴露。"
+              },
+              {
+                "en": "The caller created a disclosure risk, but the nurse had not released information and can prevent disclosure by verifying authorization with the patient.",
+                "refId": "q3_b",
+                "zh": "来电造成披露风险，但护士尚未透露信息，可通过向患者核实授权来防止披露。"
+              },
+              {
+                "en": "The patient's concern is important context, not a completed unauthorized access event.",
+                "refId": "q3_d",
+                "zh": "患者的担心是重要背景，但不是已发生的未经授权访问事件。"
+              },
+              {
+                "en": "This is the priority because the information was actually viewed by a workforce member without a permitted purpose.",
+                "refId": "q3_a",
+                "zh": "这是优先项，因为工作人员已经在没有允许目的的情况下实际查看了资料。"
+              }
+            ],
+            "correct": {
+              "en": "RN Casey intentionally opened Mrs. Torrance's operative report and MAR without any care, consultation, payment, or operations role. That is a completed exposure of PHI by a workforce member and requires immediate containment and formal reporting. The photo is also serious, but the skeleton frames RN Casey's EHR access as the broader, logged access with ongoing system-risk implications.",
+              "zh": "Casey护士在没有照护、会诊、付款或运营职责的情况下，故意打开Torrance女士的手术记录和MAR。这是工作人员已完成的PHI暴露，需要立即控制并正式上报。照片同样严重，但本病例将Casey护士的电子病历访问设定为范围更广、可由审计追踪且有持续系统风险的优先事件。"
+            }
+          },
+          "stem": {
+            "en": "Which event is the clearest completed, non-incidental unauthorized access that requires formal breach-response investigation?",
+            "zh": "哪一项是最明确、已经发生且非偶然的未经授权访问，需要启动正式隐私事件调查？"
+          },
+          "testTakingStrategy": {
+            "en": "When several privacy problems occur, prioritize the completed exposure with the broadest scope and ongoing system access risk.",
+            "zh": "多个隐私问题同时发生时，优先处理已经发生、范围较广且有持续系统访问风险的暴露。"
+          },
+          "topic": "Confidentiality & HIPAA"
+        },
+        {
+          "category": "Management of Care",
+          "correct": [
+            "q4_a",
+            "q4_b",
+            "q4_c",
+            "q4_d",
+            "q4_e"
+          ],
+          "difficulty": "hard",
+          "glossary": [
+            {
+              "defZh": "用于机构质量改进和风险管理的内部报告，不属于患者临床病历。",
+              "termEn": "Incident report",
+              "termZh": "事件报告"
+            },
+            {
+              "defZh": "发送到错误部门或位置的文件请求或资料，需要保护并转给正确流程处理。",
+              "termEn": "Misdirected fax",
+              "termZh": "误投传真"
+            },
+            {
+              "defZh": "手机照片可能自动上传到云端账号或其他设备的功能。",
+              "termEn": "Cloud syncing",
+              "termZh": "云端同步"
+            }
+          ],
+          "id": "gpt_case_hipaa_disclosure_breach_01_q4",
+          "itemType": "select_all",
+          "ngnSkill": "generate_solutions",
+          "options": [
+            {
+              "en": "Secure the employer fax and redirect the request to HIM rather than releasing records from the nursing unit.",
+              "id": "q4_c",
+              "zh": "妥善保管雇主传真并将请求转给HIM，不从护理单元释放病历。"
+            },
+            {
+              "en": "Have the student delete the identifiable photo, including recently deleted storage, in the presence of RN Jordan and the instructor; report for Privacy Officer follow-up.",
+              "id": "q4_d",
+              "zh": "让护生在Jordan护士和指导老师在场时删除可识别照片，包括最近删除文件夹；并上报由隐私官跟进。"
+            },
+            {
+              "en": "Document in Mrs. Torrance's medical record that incident reports were filed for the privacy breaches.",
+              "id": "q4_f",
+              "zh": "在Torrance女士病历中记录已为隐私泄露提交事件报告。"
+            },
+            {
+              "en": "Interrupt the hallway report and move the nurses to a private space to finish patient-specific communication.",
+              "id": "q4_e",
+              "zh": "打断走廊交班，让护士转到私密空间完成涉及患者的信息沟通。"
+            },
+            {
+              "en": "Release no information to Robert; ask Mrs. Torrance whether she authorizes him and document her restriction if she declines.",
+              "id": "q4_a",
+              "zh": "不向Robert透露信息；询问Torrance女士是否授权他接收信息，如拒绝则记录她的限制。"
+            },
+            {
+              "en": "Ask RN Casey to exit the chart, notify the charge nurse, complete the incident report, and keep the report out of the medical record.",
+              "id": "q4_b",
+              "zh": "要求Casey护士退出病历，通知 charge nurse，完成事件报告，并且不要把事件报告写入病历。"
+            }
+          ],
+          "rationale": {
+            "byChoice": [
+              {
+                "en": "Immediate deletion limits exposure, but reporting is still needed because cloud syncing or other retention must be investigated.",
+                "refId": "q4_d",
+                "zh": "立即删除可限制暴露，但仍需上报，因为是否云端同步或保留还需调查。"
+              },
+              {
+                "en": "The patient controls who receives information; she later states Robert should not receive information.",
+                "refId": "q4_a",
+                "zh": "患者有权决定谁可接收信息；她之后明确表示Robert不能接收信息。"
+              },
+              {
+                "en": "Records requests belong with HIM, which can verify authorization or legal authority and apply minimum-necessary limits.",
+                "refId": "q4_c",
+                "zh": "病历请求应由HIM处理，由其核实授权或法律依据并执行最低必要范围。"
+              },
+              {
+                "en": "This follows the facility sequence: mitigate active access, notify the charge nurse, then complete formal reporting outside the clinical chart.",
+                "refId": "q4_b",
+                "zh": "这符合机构流程：先控制正在发生的访问，通知 charge nurse，再在临床病历之外完成正式报告。"
+              },
+              {
+                "en": "Moving the report to a private area stops an ongoing verbal disclosure risk.",
+                "refId": "q4_e",
+                "zh": "将交班移至私密区域可以停止正在发生的口头披露风险。"
+              },
+              {
+                "en": "The medical record should contain clinical care documentation, not references to incident reports or risk-management documents.",
+                "refId": "q4_f",
+                "zh": "病历应记录临床照护内容，而不是事件报告或风险管理文件。"
+              }
+            ],
+            "correct": {
+              "en": "The correct response combines immediate mitigation, proper reporting, and prevention of further disclosure for each event. The nurse should not reference the incident report in the patient's medical record because the incident report is a quality-improvement/risk-management document kept separate from clinical documentation.",
+              "zh": "正确处理包括对每个事件立即控制暴露、按正确链条上报，并防止进一步披露。护士不能在患者病历中提及事件报告，因为事件报告属于质量改进/风险管理文件，应与临床病历分开保存。"
+            }
+          },
+          "stem": {
+            "en": "Which actions should RN Jordan include in the response to the morning privacy events? Select all that apply.",
+            "zh": "Jordan护士应将哪些措施纳入上午隐私事件的处理？选择所有适用项。"
+          },
+          "testTakingStrategy": {
+            "en": "For privacy events, choose actions that contain the exposure and route the issue to the correct reporting channel. Reject actions that put risk-management documents in the chart.",
+            "zh": "处理隐私事件时，选择能控制暴露并把问题送入正确上报渠道的措施。排除把风险管理文件写入病历的做法。"
+          },
+          "topic": "Confidentiality & HIPAA"
+        },
+        {
+          "category": "Management of Care",
+          "correct": [
+            "q5_a"
+          ],
+          "difficulty": "hard",
+          "glossary": [
+            {
+              "defZh": "立即采取措施减少已发生或正在发生的隐私风险。",
+              "termEn": "Mitigation",
+              "termZh": "减轻/控制暴露"
+            },
+            {
+              "defZh": "机构规定的逐级通知路径，例如 charge nurse、unit manager、Privacy Officer。",
+              "termEn": "Reporting chain",
+              "termZh": "上报链"
+            },
+            {
+              "defZh": "负责调查隐私事件并决定是否需要进一步通知或纠正措施的机构人员。",
+              "termEn": "Privacy Officer",
+              "termZh": "隐私官"
+            }
+          ],
+          "id": "gpt_case_hipaa_disclosure_breach_01_q5",
+          "itemType": "multiple_choice",
+          "ngnSkill": "take_action",
+          "options": [
+            {
+              "en": "Ask RN Casey to close the record or log out immediately, then notify the charge nurse and follow the breach-reporting chain.",
+              "id": "q5_a",
+              "zh": "立即要求Casey护士关闭病历或退出登录，然后通知 charge nurse 并按隐私事件上报链处理。"
+            },
+            {
+              "en": "Tell RN Casey that discipline will be imposed and require her to write an apology to the patient.",
+              "id": "q5_c",
+              "zh": "告诉Casey护士将受到纪律处分，并要求她给患者写道歉信。"
+            },
+            {
+              "en": "Complete the electronic incident report first, then tell the charge nurse after the report is submitted.",
+              "id": "q5_b",
+              "zh": "先完成电子事件报告，提交后再告知 charge nurse。"
+            },
+            {
+              "en": "Wait until the end of the shift so all privacy events can be reported together.",
+              "id": "q5_d",
+              "zh": "等到本班结束后，将所有隐私事件一起上报。"
+            }
+          ],
+          "rationale": {
+            "byChoice": [
+              {
+                "en": "This stops the active exposure and starts the required reporting chain.",
+                "refId": "q5_a",
+                "zh": "此举可停止正在发生的暴露，并启动必要的上报链。"
+              },
+              {
+                "en": "Discipline is a management function; the nurse's immediate role is containment and reporting.",
+                "refId": "q5_c",
+                "zh": "纪律处分属于管理职责；护士的即时角色是控制和上报。"
+              },
+              {
+                "en": "Filing is required, but the policy sequence starts with mitigation and charge nurse notification.",
+                "refId": "q5_b",
+                "zh": "提交报告是必要的，但流程顺序是先控制暴露并通知 charge nurse。"
+              },
+              {
+                "en": "Delaying allows unauthorized access risk to continue and violates the immediate-mitigation expectation.",
+                "refId": "q5_d",
+                "zh": "延迟会让未经授权访问风险持续，也违反立即控制暴露的要求。"
+              }
+            ],
+            "correct": {
+              "en": "The first step is immediate mitigation: stop the active unauthorized access by having RN Casey leave the record. The nurse then notifies the charge nurse and follows the facility's reporting chain. Discipline and patient notification are handled through management and the Privacy Officer's process, not by the discovering nurse acting independently.",
+              "zh": "第一步是立即减轻/控制暴露：让Casey护士离开病历，停止正在发生的未经授权访问。随后通知 charge nurse，并按机构上报链处理。纪律处分和正式通知患者应由管理层和隐私官流程处理，而不是发现事件的护士自行处理。"
+            }
+          },
+          "stem": {
+            "en": "RN Jordan sees RN Casey actively viewing Mrs. Torrance's record without a care role. What is the nurse's first action?",
+            "zh": "Jordan护士看到Casey护士正在无照护职责地查看Torrance女士病历。护士的第一步行动是什么？"
+          },
+          "testTakingStrategy": {
+            "en": "The first action for an active breach is containment, not paperwork or discipline. Stop the exposure before moving through the reporting chain.",
+            "zh": "正在发生的隐私事件，第一步是控制暴露，不是先做文书或处分。先停止暴露，再进入上报流程。"
+          },
+          "topic": "Confidentiality & HIPAA"
+        },
+        {
+          "category": "Management of Care",
+          "correct": [
+            "q6_a",
+            "q6_b",
+            "q6_c",
+            "q6_d"
+          ],
+          "difficulty": "hard",
+          "glossary": [
+            {
+              "defZh": "由机构评估未经允许的访问或披露是否达到需要正式通知的程度。",
+              "termEn": "Breach determination",
+              "termZh": "隐私事件判定"
+            },
+            {
+              "defZh": "电子系统记录访问时间、访问者和查看内容的日志。",
+              "termEn": "Audit trail",
+              "termZh": "审计追踪"
+            },
+            {
+              "defZh": "阻止进一步访问、传播或披露的措施。",
+              "termEn": "Containment",
+              "termZh": "控制"
+            }
+          ],
+          "id": "gpt_case_hipaa_disclosure_breach_01_q6",
+          "itemType": "select_all",
+          "ngnSkill": "evaluate_outcomes",
+          "options": [
+            {
+              "en": "Mrs. Torrance's postoperative vital signs remain stable and the wound dressing is clean and dry.",
+              "id": "q6_e",
+              "zh": "Torrance女士术后生命体征稳定，伤口敷料清洁干燥。"
+            },
+            {
+              "en": "The Privacy Officer has started the breach-determination process and preserved the EHR audit trail.",
+              "id": "q6_b",
+              "zh": "隐私官已启动隐私事件判定流程，并保留电子病历审计追踪。"
+            },
+            {
+              "en": "Robert has not called back by the end of the shift, so the breach response is complete.",
+              "id": "q6_f",
+              "zh": "Robert在本班结束前没有再来电，因此隐私事件处理已完成。"
+            },
+            {
+              "en": "No PHI was released to Robert or to the employer from the nursing unit.",
+              "id": "q6_c",
+              "zh": "护理单元未向Robert或雇主释放PHI。"
+            },
+            {
+              "en": "The student's photo was deleted and reported for investigation of possible cloud syncing, and the nursing program was notified.",
+              "id": "q6_d",
+              "zh": "护生照片已删除，并已上报调查可能的云端同步；护理项目也已获通知。"
+            },
+            {
+              "en": "Incident reports are complete and are not referenced in Mrs. Torrance's medical record.",
+              "id": "q6_a",
+              "zh": "事件报告已完成，且未在Torrance女士病历中提及。"
+            }
+          ],
+          "rationale": {
+            "byChoice": [
+              {
+                "en": "Deletion plus reporting addresses both immediate containment and the unresolved risk of transmission or cloud storage.",
+                "refId": "q6_d",
+                "zh": "删除并上报同时处理了即时控制和可能传输/云端储存的未决风险。"
+              },
+              {
+                "en": "The patient's restriction remains in force regardless of whether Robert calls again; the response is not complete solely because he stopped calling.",
+                "refId": "q6_f",
+                "zh": "无论Robert是否再次来电，患者的限制都仍然有效；不能仅因他未再来电就认为处理完成。"
+              },
+              {
+                "en": "Clinical stability does not show that a privacy breach was contained, reported, or investigated.",
+                "refId": "q6_e",
+                "zh": "临床稳定不能证明隐私事件已被控制、上报或调查。"
+              },
+              {
+                "en": "Preventing release to unauthorized external parties confirms containment of the phone and fax risks.",
+                "refId": "q6_c",
+                "zh": "防止向未授权外部人员释放资料，说明电话和传真风险已被控制。"
+              },
+              {
+                "en": "Audit-trail preservation and Privacy Officer review are essential for determining whether patient notification is required.",
+                "refId": "q6_b",
+                "zh": "保留审计追踪并由隐私官审查，是判断是否需要通知患者的关键。"
+              },
+              {
+                "en": "This confirms formal reporting occurred while protecting the separation between incident reporting and clinical documentation.",
+                "refId": "q6_a",
+                "zh": "这确认已完成正式上报，同时保持事件报告与临床病历分离。"
+              }
+            ],
+            "correct": {
+              "en": "Appropriate outcomes focus on containment, reporting, Privacy Officer investigation, audit-trail preservation, and prevention of unauthorized release. Stable postoperative findings are clinically good but do not evaluate the privacy response. Whether Robert calls again does not determine whether the required breach-response steps were completed.",
+              "zh": "适当结局应关注暴露是否被控制、是否完成上报、隐私官是否调查、审计追踪是否保存，以及是否防止未经授权披露。术后稳定是好的临床情况，但不能评价隐私事件处理。Robert是否再次来电，也不能决定必需的隐私事件处理步骤是否完成。"
+            }
+          },
+          "stem": {
+            "en": "Which findings best show that the privacy events have been contained and appropriately reported? Select all that apply.",
+            "zh": "哪些发现最能说明这些隐私事件已被控制并得到适当上报？选择所有适用项。"
+          },
+          "testTakingStrategy": {
+            "en": "Evaluate privacy outcomes with privacy-process evidence, not physiologic stability. Look for containment, reporting, investigation, and prevention.",
+            "zh": "评价隐私事件结局要看隐私流程证据，而不是生理稳定。寻找控制、上报、调查和预防措施。"
+          },
+          "topic": "Confidentiality & HIPAA"
+        }
+      ],
+      "stages": [
+        {
+          "exhibits": [
+            {
+              "content": {
+                "en": "0745: A caller says he is Robert Torrance, the client's husband, and asks for lab results and discharge timing. Robert is not listed as an authorized contact. 0830: RN Casey, assigned to another pod and with no care role, is seen scrolling through Mrs. Torrance's operative report and MAR because of personal interest in orthopedic notes. 0945: The employer faxes the unit requesting admission records, operative report, and anticipated return-to-work date for workers' compensation processing; no signed patient authorization is attached. 1015: A nursing student uses a personal smartphone to photograph the wound for a class presentation; the hospital ID wristband is visible, and there is no written consent. 1025: Two nurses give report in the hallway and discuss another patient's HIV status and medication regimen by name while a visitor can hear. Mrs. Torrance remains clinically stable at 1030.",
+                "zh": "0745：一名来电者自称是患者丈夫Robert Torrance，要求得知化验结果和出院时间；Robert未列为授权联系人。0830：Casey护士被分配在另一护理区且无照护职责，却因个人对骨科记录感兴趣而浏览Torrance女士的手术记录和MAR。0945：雇主将传真发到护理单元，要求入院记录、手术报告和预计返工日期以处理工伤赔偿；未附患者签署的授权书。1015：一名护生用个人智能手机拍摄伤口，准备课堂汇报；医院身份腕带可见，且无书面同意。1025：两名护士在走廊交班，按姓名讨论另一名患者的HIV状态和用药，旁边访客能够听到。1030时Torrance女士临床状况仍稳定。"
+              },
+              "id": "stage_1_privacy_events",
+              "title": {
+                "en": "Morning privacy cues",
+                "zh": "上午隐私线索"
+              }
+            }
+          ],
+          "id": "stage_1",
+          "title": {
+            "en": "Stage 1: 0730-1030, disclosure events unfold",
+            "zh": "阶段1：0730-1030，披露事件陆续发生"
+          }
+        },
+        {
+          "exhibits": [
+            {
+              "content": {
+                "en": "RN Jordan mitigates each exposure in real time while formal follow-up continues. Mrs. Torrance states she and Robert are legally separated and she does not want him to receive any information; only Megan remains authorized. RN Casey is dismissive and says she did not share the information. The charge nurse confirms the access is unauthorized and directs incident reporting and Privacy Officer notification. RN Jordan does not release employer records, secures the fax, and contacts HIM, which states that release requires a signed authorization or valid legal basis and must be processed through HIM. The student confirms the photo was not shared; RN Jordan has the student delete it immediately, including recently deleted storage, with the instructor present, and reports the event for Privacy Officer review of possible cloud syncing. RN Jordan moves the hallway report to a private area. By 1200, incident reporting is complete and is not documented in the medical record.",
+                "zh": "Jordan护士对每次暴露实时采取控制措施，同时正式跟进持续进行。Torrance女士表示她与Robert已合法分居，不希望他获得任何信息；仍只授权Megan。Casey护士不以为然，称自己没有分享信息。charge nurse确认该访问未经授权，并要求完成事件报告和通知隐私官。Jordan护士未向雇主释放资料，妥善保管传真并联系HIM；HIM说明释放资料需要患者签署授权或有效法律依据，且必须由HIM处理。护生确认照片未分享；Jordan护士在指导老师在场时让护生立即删除照片，包括最近删除存储，并上报由隐私官评估可能的云端同步。Jordan护士将走廊交班移至私密区域。到1200，事件报告已完成，且未记录在病历中。"
+              },
+              "id": "stage_2_actions",
+              "title": {
+                "en": "Mitigation and reporting actions",
+                "zh": "控制与上报措施"
+              }
+            }
+          ],
+          "id": "stage_2",
+          "title": {
+            "en": "Stage 2: 1030-1400, mitigation and reporting",
+            "zh": "阶段2：1030-1400，控制暴露与上报"
+          }
+        },
+        {
+          "exhibits": [
+            {
+              "content": {
+                "en": "At 1430, the Privacy Officer states RN Casey's access will be investigated through the formal breach-determination process using the EHR audit trail. The student's photo is also reviewed as a potential breach. At 1500, HIM confirms no employer records will be released without a signed authorization or valid legal basis. At 1530, Mrs. Torrance asks about a concern with her chart; RN Jordan acknowledges the facility is aware of a concern and the Privacy Officer is handling it, without naming staff or disclosing investigation details. At 1700, safeguards under review include fax-machine signage to redirect records requests to HIM, instructor reinforcement of the no-identifiable-photo policy, an in-service on minimum-necessary access and audit trails, and staff review of private spaces for report. By 1900, the client remains clinically stable.",
+                "zh": "1430，隐私官表示将使用电子病历审计追踪，通过正式隐私事件判定流程调查Casey护士的访问。护生照片也作为潜在隐私事件审查。1500，HIM确认没有患者签署授权或有效法律依据，不会向雇主释放资料。1530，Torrance女士询问自己的病历是否出了问题；Jordan护士承认机构已知晓相关关注点并由隐私官处理，但不透露工作人员姓名或调查细节。1700，正在审查的防护措施包括在传真机旁张贴标识，提醒将病历请求转至HIM；指导老师强化禁止可识别患者照片的政策；开展最低必要访问和审计追踪的短讲；并复习在私密空间交班。到1900，患者临床状况仍稳定。"
+              },
+              "id": "stage_3_evaluation",
+              "title": {
+                "en": "Privacy Officer review and safeguards",
+                "zh": "隐私官审查与防护措施"
+              }
+            }
+          ],
+          "id": "stage_3",
+          "title": {
+            "en": "Stage 3: 1400-1900, follow-through and safeguards",
+            "zh": "阶段3：1400-1900，后续跟进与系统防护"
+          }
+        }
+      ],
+      "summary": {
+        "en": "Mrs. Elaine Torrance, a 58-year-old postoperative orthopedic client, is stable after open reduction and internal fixation of a left tibial plateau fracture. During the day shift, RN Jordan must recognize, contain, report, and evaluate several privacy risks and unauthorized PHI exposures.",
+        "zh": "Elaine Torrance女士，58岁，因左胫骨平台骨折行切开复位内固定术后，目前病情稳定。白班期间，Jordan护士必须识别、控制、上报并评价多起隐私风险和未经授权的PHI暴露。"
+      },
+      "title": {
+        "en": "Multiple HIPAA disclosure events during one shift",
+        "zh": "同一班次内发生多起HIPAA披露事件"
+      }
+    },
+    "category": "Management of Care",
+    "difficulty": "hard",
+    "glossary": [
+      {
+        "defZh": "可识别患者身份的健康资料，例如姓名、出生日期、病历号、诊断、治疗记录或检查结果。",
+        "termEn": "Protected health information (PHI)",
+        "termZh": "受保护健康信息（PHI）"
+      },
+      {
+        "defZh": "使用或披露健康信息时，只限于达到合法目的所需的最少资料。",
+        "termEn": "Minimum necessary",
+        "termZh": "最低必要原则"
+      },
+      {
+        "defZh": "发现可能的隐私泄露后，立即控制暴露、按机构流程上报、由隐私官调查并评估是否需要通知患者。",
+        "termEn": "Breach response",
+        "termZh": "隐私事件应对"
+      },
+      {
+        "defZh": "负责病历资料调阅、授权核查和合法披露流程的部门。",
+        "termEn": "Health Information Management (HIM)",
+        "termZh": "健康信息管理部门（HIM）"
+      }
+    ],
+    "id": "gpt_case_hipaa_disclosure_breach_01",
+    "itemType": "case_study",
+    "rationale": {
+      "correct": {
+        "en": "This case tests real-time recognition and response to multiple privacy problems. The nurse must identify unauthorized access, unverified external requests, identifiable images on personal devices, and verbal disclosures without reasonable safeguards. The priority completed exposure is RN Casey's curiosity-based EHR access, which requires immediate containment and formal breach-response reporting. Appropriate management includes refusing unauthorized disclosure, redirecting records requests to HIM, deleting and reporting the student photo, moving report to a private area, notifying the charge nurse and Privacy Officer, preserving audit evidence, and keeping incident reports out of the medical record.",
+        "zh": "本病例考查护士对多起隐私问题的实时识别和处理。护士必须识别未经授权访问、未核实的外部请求、个人设备上的可识别照片，以及未采取合理保护措施的口头披露。最优先且已发生的暴露是Casey护士因好奇访问电子病历，需要立即控制并正式上报。适当处理包括拒绝未授权披露、将病历请求转给HIM、删除并上报护生照片、将交班移到私密区域、通知 charge nurse 和隐私官、保留审计证据，并且不要把事件报告写入病历。"
+      }
+    },
+    "stem": {
+      "en": "Review the client record and answer the case-study items.",
+      "zh": "请查看患者病历，并回答本病例题组。"
+    },
+    "testTakingStrategy": {
+      "en": "In HIPAA items, do not assume disclosure is harmless because the person seems involved. Verify authorization, limit access to job-related need, contain active exposure first, and use the facility reporting chain.",
+      "zh": "做HIPAA题时，不要因为对方看似相关就认为披露无害。要核实授权，将访问限制在工作需要内，先控制正在发生的暴露，并使用机构上报链。"
+    },
+    "topic": "Confidentiality & HIPAA"
+  },
+  "standaloneItem": {
+    "bowtie": {
+      "actions": {
+        "prompt": {
+          "en": "Priority nursing actions",
+          "zh": "优先护理行动"
+        },
+        "tokens": [
+          {
+            "en": "Accept RN Casey's statement that no disclosure occurred and do not report the access",
+            "opaqueTokenLabel": "A1",
+            "zh": "接受Casey护士称未披露信息的说法，不上报此次访问"
+          },
+          {
+            "en": "Complete the facility electronic incident report with access details and mitigation steps",
+            "opaqueTokenLabel": "A2",
+            "zh": "在机构电子事件报告中记录访问细节和控制措施"
+          },
+          {
+            "en": "Document in the medical record that an incident report was filed",
+            "opaqueTokenLabel": "A3",
+            "zh": "在病历中记录已提交事件报告"
+          },
+          {
+            "en": "Ask RN Casey to exit the record immediately and notify the charge nurse",
+            "opaqueTokenLabel": "A4",
+            "zh": "立即要求Casey护士退出病历并通知 charge nurse"
+          }
+        ]
+      },
+      "condition": {
+        "prompt": {
+          "en": "Most likely privacy condition",
+          "zh": "最可能的隐私问题"
+        },
+        "tokens": [
+          {
+            "en": "Incidental disclosure that occurred despite reasonable safeguards",
+            "opaqueTokenLabel": "C1",
+            "zh": "已采取合理保护措施但仍发生的偶然披露"
+          },
+          {
+            "en": "Permissible healthcare-operations access for education",
+            "opaqueTokenLabel": "C2",
+            "zh": "为教育目的允许的医疗运营访问"
+          },
+          {
+            "en": "Unauthorized access of PHI requiring breach-response investigation",
+            "opaqueTokenLabel": "C3",
+            "zh": "未经授权访问PHI，需要隐私事件调查"
+          }
+        ]
+      },
+      "parameters": {
+        "prompt": {
+          "en": "Parameters to evaluate response",
+          "zh": "用于评价处理效果的参数"
+        },
+        "tokens": [
+          {
+            "en": "Whether Robert Torrance calls back before the end of the shift",
+            "opaqueTokenLabel": "P1",
+            "zh": "Robert Torrance是否在本班结束前再次来电"
+          },
+          {
+            "en": "Implementation of system safeguards such as minimum-necessary education, HIM fax signage, and private-space reporting",
+            "opaqueTokenLabel": "P2",
+            "zh": "落实系统防护措施，例如最低必要原则教育、HIM传真标识和私密空间交班"
+          },
+          {
+            "en": "Mrs. Torrance's postoperative vital signs, wound appearance, and pain score",
+            "opaqueTokenLabel": "P3",
+            "zh": "Torrance女士术后生命体征、伤口外观和疼痛评分"
+          },
+          {
+            "en": "Privacy Officer confirmation that breach determination has started and the EHR audit trail is preserved",
+            "opaqueTokenLabel": "P4",
+            "zh": "隐私官确认已启动隐私事件判定并保留电子病历审计追踪"
+          }
+        ]
+      }
+    },
+    "glossary": [
+      {
+        "defZh": "要求把最可能问题、关键行动和需要监测/评价的参数连接起来的NGN题型。",
+        "termEn": "Bow-tie item",
+        "termZh": "弓形题"
+      },
+      {
+        "defZh": "用于证明访问发生时间、访问者和查看内容的系统记录。",
+        "termEn": "Audit evidence",
+        "termZh": "审计证据"
+      },
+      {
+        "defZh": "通过流程、教育、提示或技术控制减少同类事件再次发生的措施。",
+        "termEn": "System safeguard",
+        "termZh": "系统防护措施"
+      }
+    ],
+    "rationale": {
+      "byChoice": [
+        {
+          "en": "This matches a workforce member intentionally viewing PHI without a permitted purpose.",
+          "opaqueTokenLabel": "C3",
+          "zh": "这符合工作人员在无允许目的的情况下故意查看PHI。"
+        },
+        {
+          "en": "The access was purposeful, not a limited incidental exposure after safeguards were used.",
+          "opaqueTokenLabel": "C1",
+          "zh": "该访问是有意行为，并非采取保护措施后仍发生的有限偶然暴露。"
+        },
+        {
+          "en": "Personal interest in orthopedic notes is not an assigned healthcare-operations or education role for this client.",
+          "opaqueTokenLabel": "C2",
+          "zh": "个人对骨科记录感兴趣，并不是针对该患者被分派的医疗运营或教育职责。"
+        },
+        {
+          "en": "This immediately mitigates the active exposure and starts the reporting chain.",
+          "opaqueTokenLabel": "A4",
+          "zh": "这可立即控制正在发生的暴露，并启动上报链。"
+        },
+        {
+          "en": "The incident report gives the Privacy Officer the factual record needed for investigation and risk assessment.",
+          "opaqueTokenLabel": "A2",
+          "zh": "事件报告为隐私官调查和风险评估提供所需事实记录。"
+        },
+        {
+          "en": "Incident reports are not documented in the patient's medical record.",
+          "opaqueTokenLabel": "A3",
+          "zh": "事件报告不得记录在患者病历中。"
+        },
+        {
+          "en": "Lack of onward disclosure does not make unauthorized viewing permissible; the event still requires reporting.",
+          "opaqueTokenLabel": "A1",
+          "zh": "没有继续传播并不代表未经授权查看是允许的；该事件仍需上报。"
+        },
+        {
+          "en": "This verifies institutional investigation and preserves evidence of what was accessed.",
+          "opaqueTokenLabel": "P4",
+          "zh": "这可确认机构已开展调查，并保留访问内容证据。"
+        },
+        {
+          "en": "Safeguards show the response addresses system vulnerabilities, not only the individual incident.",
+          "opaqueTokenLabel": "P2",
+          "zh": "防护措施说明处理不仅针对个别事件，也针对系统漏洞。"
+        },
+        {
+          "en": "The postoperative assessment is clinically relevant but does not evaluate privacy containment or reporting.",
+          "opaqueTokenLabel": "P3",
+          "zh": "术后评估有临床意义，但不能评价隐私事件控制或上报。"
+        },
+        {
+          "en": "The patient's restriction is already documented; a repeat call is not the measure of whether RN Casey's access was handled.",
+          "opaqueTokenLabel": "P1",
+          "zh": "患者的限制已记录；是否再次来电不能衡量Casey护士访问事件是否处理妥当。"
+        }
+      ],
+      "correct": {
+        "en": "RN Casey's curiosity-based EHR access is unauthorized PHI access, not incidental disclosure or approved operations access. The immediate nursing actions are to stop further access, notify the charge nurse, and complete the facility incident report with the relevant access and mitigation details. Evaluation focuses on Privacy Officer investigation, audit-trail preservation, and system safeguards; postoperative clinical stability and whether Robert calls back do not measure breach containment.",
+        "zh": "Casey护士因好奇访问电子病历属于未经授权访问PHI，不是偶然披露，也不是被批准的运营/教育访问。护士的即时行动是阻止进一步访问、通知 charge nurse，并在机构事件报告中记录相关访问和控制细节。评价重点是隐私官调查、审计追踪保存和系统防护措施；术后临床稳定以及Robert是否再次来电，不能衡量隐私事件是否被控制。"
+      }
+    },
+    "stem": {
+      "en": "By the end of the shift, RN Jordan has witnessed a coworker open Mrs. Torrance's electronic record without a care role, stopped further access, and started the facility reporting process. Complete the bow-tie by selecting the most likely privacy condition, two priority actions, and two parameters that best evaluate the response.",
+      "zh": "到本班结束时，Jordan护士已目击一名同事在无照护职责的情况下打开Torrance女士电子病历，已阻止进一步访问，并启动机构上报流程。请完成弓形题：选择最可能的隐私问题、两个优先行动，以及两个最能评价处理效果的监测/确认参数。"
+    },
+    "testTakingStrategy": {
+      "en": "For a bow-tie, anchor on the central condition first. Then choose actions that treat that condition and parameters that prove the response worked.",
+      "zh": "做弓形题时，先锁定中心问题。然后选择能处理该问题的行动，以及能证明处理有效的参数。"
+    }
+  }
+}

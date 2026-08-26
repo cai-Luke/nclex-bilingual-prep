@@ -1,0 +1,130 @@
+{
+  "actionLabels": [
+    "A2",
+    "A3"
+  ],
+  "ambiguousAlternatives": [],
+  "conditionLabel": "C2",
+  "missingInformation": [
+    "The stem does not state that Mrs. Ellison has a DPOAHC document or designated surrogate, so C2's reference to dormant surrogate authority cannot be established."
+  ],
+  "parameterLabels": [
+    "P2",
+    "P3"
+  ],
+  "poolAnswerability": "UNDERDETERMINED",
+  "reasoning": "C2 is the least-inconsistent condition because autonomous refusal with intact capacity is explicit, but it adds an unstated surrogate premise. A2, A3, P2, and P3 best protect and evaluate autonomy without relying on hidden clinical facts.",
+  "selectionEvidence": [
+    {
+      "opaqueTokenLabel": "C2",
+      "supportingStemText": "“Mrs. Ellison has repeatedly refused PEG placement with documented intact decisional capacity,” and the physician suggested scheduling the consult anyway."
+    },
+    {
+      "opaqueTokenLabel": "A2",
+      "supportingStemText": "“Palliative care confirms her capacity and wishes, and a family meeting is arranged.”"
+    },
+    {
+      "opaqueTokenLabel": "A3",
+      "supportingStemText": "“The physician's suggestion to schedule the consult anyway has been addressed.”"
+    },
+    {
+      "opaqueTokenLabel": "P2",
+      "supportingStemText": "Palliative care confirms Mrs. Ellison's capacity and wishes; the arranged family meeting provides an opportunity to evaluate freedom from coercion."
+    },
+    {
+      "opaqueTokenLabel": "P3",
+      "supportingStemText": "The proposed consult has been addressed after repeated refusal, making continued alignment of the care plan with her wishes the relevant outcome."
+    }
+  ],
+  "stage2Confidence": "medium",
+  "tokenPremiseTable": [
+    {
+      "missingPremise": "Family conflict requiring reduction is not stated.",
+      "opaqueTokenLabel": "A1",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "The explicit capable refusal excludes scheduling the consult without consent.",
+      "supportingStemText": "Mrs. Ellison repeatedly refused PEG placement with documented intact decisional capacity."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A2",
+      "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Interdisciplinary support is appropriate for an already arranged goals-focused family meeting.",
+      "supportingStemText": "Palliative care confirms her capacity and wishes, and a family meeting is arranged."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "A3",
+      "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Direct communication against proceeding over a capable refusal follows from the explicit autonomy conflict.",
+      "supportingStemText": "The physician suggested scheduling the consult despite the documented refusal, and that suggestion has been addressed."
+    },
+    {
+      "missingPremise": "No son or DPOAHC document is identified in the stem.",
+      "opaqueTokenLabel": "A4",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "A surrogate cannot displace the current decision of a client with intact capacity.",
+      "supportingStemText": "Mrs. Ellison has documented intact decisional capacity."
+    },
+    {
+      "missingPremise": "No activated DPOAHC holder is identified.",
+      "opaqueTokenLabel": "C1",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Active surrogate decision-making conflicts with the explicit finding of intact capacity.",
+      "supportingStemText": "Mrs. Ellison has documented intact decisional capacity and personally states her wishes."
+    },
+    {
+      "missingPremise": "Existence of a DPOAHC holder or other surrogate authority that is dormant while Mrs. Ellison retains capacity.",
+      "opaqueTokenLabel": "C2",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "MATERIAL",
+      "rankabilityJustification": "The option best matches the autonomy issue but contains a surrogate premise absent from the stem.",
+      "supportingStemText": "Repeated autonomous refusal with intact decisional capacity is explicit, and the physician proposed proceeding anyway."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "C3",
+      "premiseStatus": "CONTRADICTED",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Explicit confirmation of capacity rules out impaired capacity as the cause of refusal.",
+      "supportingStemText": "The stem twice indicates capacity: it is documented as intact and confirmed by palliative care."
+    },
+    {
+      "missingPremise": "A clinical indication for trending albumin or prealbumin and evidence that these tests are pertinent to the current decision are not provided.",
+      "opaqueTokenLabel": "P1",
+      "premiseStatus": "MISSING_CLIENT_FACT",
+      "rankabilityImpact": "MATERIAL",
+      "rankabilityJustification": "The stem supplies an autonomy problem, not enough nutritional or laboratory context to prioritize these trends.",
+      "supportingStemText": ""
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "P2",
+      "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Feeling heard and free from coercion is an appropriate evaluation target when protecting autonomous refusal.",
+      "supportingStemText": "Her repeated refusal and confirmed capacity are explicit, and a family meeting is arranged."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "P3",
+      "premiseStatus": "SUPPORTED_GENERAL_KNOWLEDGE",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Checking that orders and the care plan remain consistent with her wishes directly evaluates whether the autonomy intervention is effective.",
+      "supportingStemText": "Her wishes are confirmed, and the proposal to schedule the consult despite refusal has been addressed."
+    },
+    {
+      "missingPremise": "",
+      "opaqueTokenLabel": "P4",
+      "premiseStatus": "SUPPORTED_EXPLICIT",
+      "rankabilityImpact": "NONE",
+      "rankabilityJustification": "Family involvement is explicit, but family satisfaction is subordinate to honoring the capable client's decision.",
+      "supportingStemText": "A family meeting is arranged."
+    }
+  ]
+}
