@@ -238,13 +238,20 @@ const CONCEPT_RULES: Array<{
 ];
 
 const MAX_PAIR_GROUP = 60;
+const CLOSED_DASH_REGEX =
+  /[\u002D\u2010\u2011\u2012\u2013\u2014\u2015\u2212\uFE58\uFE63\uFF0D]/g;
+
+const normalizeConceptSearchText = (text: string) =>
+  text.replace(CLOSED_DASH_REGEX, " ");
 
 export const matchConceptClusters = (
   searchText: string,
-): ConceptCluster[] =>
-  CONCEPT_RULES.filter(({ pattern }) => pattern.test(searchText)).map(
-    ({ cluster }) => cluster,
-  );
+): ConceptCluster[] => {
+  const conceptSearchText = normalizeConceptSearchText(searchText);
+  return CONCEPT_RULES.filter(({ pattern }) =>
+    pattern.test(conceptSearchText),
+  ).map(({ cluster }) => cluster);
+};
 
 const STOP_WORDS = new Set([
   "a",
