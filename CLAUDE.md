@@ -9,6 +9,18 @@ Orientation for Claude working on **Project Shrimp / NCLEX Bilingual Prep**. Thi
 3. **`DECISIONS.md`** — the *why* behind the architecture and the open threads. Read before proposing changes to generation, promotion, or auditing.
 4. **`NCLEX-Question-Schema.md`** — schema source of truth (mirrored by `src/types.ts`, validated by `src/schema.ts`).
 
+## Re-anchoring after lossy context
+
+`AGENTS.md` → *Context Compaction Recovery* binds this seat as well as Codex's; it is not restated here. What follows is only the part that differs for Claude.
+
+**Your lossy channel is not only in-conversation compaction.** Cross-session memory arrives at the start of a session as an already-compressed summary of past conversations, with no compaction event to notice. The `AGENTS.md` trigger keys on context being compacted *during* an active task; a fresh session that opens already "knowing" about an in-flight work order has skipped that trigger while inheriting the identical defect. So: **any belief about Project Shrimp state that did not come from a read in this session is a claim to verify, not a fact** — which branch is current, whether a spec is executed, what phase a multi-stage job is in, what a bank contains, what a principle now says.
+
+**Durable state here is not only git.** `scratch/` is gitignored, so active work orders and specs living there appear in no `git status` or diff and are invisible to a GitHub-reading seat — absence from a diff is not evidence a work order does not exist; `list_directory` it. `banks/banks-raw/` is the mirror hazard: it is ephemeral, so presence there proves nothing durable either. The reconstruction surface for this seat is `current_branch`, `repository_status`, `recent_commits`, `ahead_behind`, `untracked_files`; the anchor document's own status/receipt/walkthrough files; dated artifacts under `audit/`; the newest resumption note for multi-phase governance work; and `PROJECT-HISTORY.md` / `DECISIONS.md` status only where the anchor cites them.
+
+**Codex's headline risk is redoing work; yours is ruling on it.** This seat adjudicates findings, gates diffs, and drafts governance wording. An adjudication issued from recall is worse than a redone implementation, because it hardens into the record. No acceptance, no rejection, no completion claim, and no `DECISIONS.md` wording from memory — read the live artifact first. The converse holds equally: do not reopen a closed principle, an executed work order, or an adjudicated departure because a summary rendered it as unfinished.
+
+**Narrow recovery governs resuming a task, not starting one.** It is not licence to skip the read order above when opening new work.
+
 ## You have filesystem access — use it
 
 You can reach the repo working tree directly through the configured filesystem MCP (`fsmcp.lukecai.com`). The MCP root is the home dir, so the tree is a few levels down at `/Users/holemini/Desktop/Project Shrimp/`, not at the root — `list_directory` the Desktop if a recursive name search misses it.

@@ -26,6 +26,15 @@ For substantive coding, schema, bank-promotion, audit, or content-review work, s
 
 If repo files conflict with project memory, uploaded files, or reports from Claude, Gemini, Opus, Codex, or prior ChatGPT sessions, prefer the repo unless Luke explicitly says a pasted or uploaded document supersedes it for the current task.
 
+### Context Compaction Recovery
+
+If the conversation/context has been compacted or summarized during an active task, or task-goal drift is suspected, **do not continue from the compacted summary alone**.
+
+- If the task was launched from a named work order, spec, or handoff on disk, reopen and reread that active document before further implementation or any acceptance/completion claim. Treat it as authoritative for scope, prohibitions, acceptance criteria, and stopping conditions unless Luke explicitly superseded it later.
+- Reconstruct actual progress from repository state: inspect the current branch/worktree, `git status`, the relevant diff, and already-produced artifacts or verification results. Do not redo or undo work merely because the compacted summary omitted it.
+- Reconcile the active document against the on-disk state, then continue from the remaining requirements.
+- Keep recovery narrow: do not reread broad governance or historical documents unless the active spec cites them or a concrete conflict requires them.
+
 ## Repository State by Access Mechanism
 
 Before repo-reading work, identify how the agent sees the repository:
