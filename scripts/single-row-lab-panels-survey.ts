@@ -1,3 +1,4 @@
+import type { CaseSubQuestion } from "../src/types";
 import { mkdir, readFile, readdir, writeFile } from "node:fs/promises";
 import { basename, dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -56,7 +57,7 @@ type DecisionEvidence = {
   questionId: string;
   itemType: StandaloneQuestion["itemType"];
   stageId: string | null;
-  answerableAfterStageId: string | null;
+  answerableAfterStageId: CaseSubQuestion["answerableAfterStageId"] | null;
   stem: TextPair;
   taskMaterial: unknown;
   answerKey: unknown;
@@ -176,7 +177,7 @@ const taskMaterialFor = (question: StandaloneQuestion): unknown => {
 };
 
 const decisionEvidenceFor = (question: StandaloneQuestion): DecisionEvidence => {
-  const staged = question as StandaloneQuestion & { stageId?: string; answerableAfterStageId?: string };
+  const staged = question as CaseSubQuestion;
   return {
     questionId: question.id,
     itemType: question.itemType,

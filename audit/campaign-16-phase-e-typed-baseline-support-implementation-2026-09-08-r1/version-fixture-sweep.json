@@ -1,0 +1,41 @@
+{
+  "fixtures": [
+    {
+      "file": "scripts/tests/schema-bank.ts",
+      "line": 36,
+      "before": "assert.throws(() => schemaVersionAtLeast(\"2.1\" as SchemaVersion, \"1.9\"), /Unsupported schema version: 2\\.1/);",
+      "after": "assert.throws(() => schemaVersionAtLeast(\"2.2\" as SchemaVersion, \"1.9\"), /Unsupported schema version: 2\\.2/);"
+    },
+    {
+      "file": "scripts/tests/schema-bank.ts",
+      "line": 38,
+      "before": "assert.throws(() => schemaVersionAtLeast(\"1.9\", \"2.1\" as SchemaVersion), /Unsupported schema version: 2\\.1/);",
+      "after": "assert.throws(() => schemaVersionAtLeast(\"1.9\", \"2.2\" as SchemaVersion), /Unsupported schema version: 2\\.2/);"
+    },
+    {
+      "file": "scripts/tests/consolidate.ts",
+      "line": 90,
+      "before": "    JSON.stringify({ meta: { schemaVersion: \"2.1\", count: 1 }, questions: [question(\"existing\")] }),",
+      "after": "    JSON.stringify({ meta: { schemaVersion: \"2.2\", count: 1 }, questions: [question(\"existing\")] }),"
+    },
+    {
+      "file": "scripts/tests/promote.ts",
+      "line": 82,
+      "before": "      meta: { schemaVersion: \"2.1\", count: 1 },",
+      "after": "      meta: { schemaVersion: \"2.2\", count: 1 },"
+    },
+    {
+      "file": "scripts/tests/registry-mechanics.ts",
+      "line": 81,
+      "before": "      { itemType: \"multiple_choice\", schemaVersion: \"2.1\" as SchemaVersion },",
+      "after": "      { itemType: \"multiple_choice\", schemaVersion: \"2.2\" as SchemaVersion },"
+    },
+    {
+      "file": "scripts/tests/registry-mechanics.ts",
+      "line": 84,
+      "before": "    schemaThrew = error instanceof Error && error.message.includes(\"Unsupported schema version: 2.1\");",
+      "after": "    schemaThrew = error instanceof Error && error.message.includes(\"Unsupported schema version: 2.2\");"
+    }
+  ],
+  "nonVersionContentRewritten": false
+}

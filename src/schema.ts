@@ -1,3 +1,4 @@
+import { hasTypedCaseBaseline, isCaseBaselineBoundary } from "./caseVisibilityBoundary";
 import type {
   BankEnvelope,
   BowtieQuestion,
@@ -27,7 +28,7 @@ export { rhythmClasses } from "./visuals/kinds/rhythmStrip";
 
 export const SCHEMA_VERSION = "2.0";
 
-export const supportedSchemaVersions = ["1.0", "1.1", "1.2", "1.3", "1.4", "1.5", "1.6", "1.7", "1.8", "1.9", "2.0"] as const satisfies readonly SchemaVersion[];
+export const supportedSchemaVersions = ["1.0", "1.1", "1.2", "1.3", "1.4", "1.5", "1.6", "1.7", "1.8", "1.9", "2.0", "2.1"] as const satisfies readonly SchemaVersion[];
 
 export const categories = [
   "Management of Care",
@@ -1194,8 +1195,12 @@ const validateCaseStudy = (question: CaseStudyQuestion, reasons: string[]) => {
     if (caseQuestion.stageId !== undefined && !nonEmptyString(caseQuestion.stageId)) {
       reasons.push(`caseStudy.questions[${index}].stageId must be non-empty when present`);
     }
-    if (caseQuestion.answerableAfterStageId !== undefined && !nonEmptyString(caseQuestion.answerableAfterStageId)) {
-      reasons.push(`caseStudy.questions[${index}].answerableAfterStageId must be non-empty when present`);
+    if (
+      caseQuestion.answerableAfterStageId !== undefined &&
+      !nonEmptyString(caseQuestion.answerableAfterStageId) &&
+      !isCaseBaselineBoundary(caseQuestion.answerableAfterStageId)
+    ) {
+      reasons.push(`caseStudy.questions[${index}].answerableAfterStageId must be a non-empty string or exact {kind:"baseline"} object when present`);
     }
     const result = validateQuestion(caseQuestion, { allowCaseStudy: false });
     if (!result.ok) {
@@ -1411,6 +1416,10 @@ export const validateBankObject = (raw: unknown, options: ValidateBankOptions = 
     const result = validateQuestion(question);
     if (!result.ok) {
       reasons.push(`questions[${index}]: ${result.reasons.join("; ")}`);
+      return;
+    }
+    if (schemaVersion !== undefined && hasTypedCaseBaseline(result.value) && !schemaVersionAtLeast(schemaVersion, "2.1")) {
+      reasons.push(`questions[${index}]: typed baseline boundary requires meta.schemaVersion 2.1`);
       return;
     }
     if (

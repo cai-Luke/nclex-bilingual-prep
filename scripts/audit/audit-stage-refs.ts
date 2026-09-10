@@ -2,9 +2,9 @@
  * Advisory — case-study stage reference integrity and anchor-omission leakage.
  *
  * The live renderer (`src/examLayout.ts` `getVisibleCaseStages`) is cumulative and
- * fail-open: for a staged case, if a part's `answerableAfterStageId` resolves, it
- * reveals stages 0..that index; else if `stageId` resolves, same; else it reveals
- * ALL stages. This audit flags two distinct problems:
+ * fail-open: exact typed baseline reveals zero stages; a resolving primary string
+ * reveals stages 0..that index; else a resolving legacy `stageId` does the same;
+ * otherwise ALL stages are revealed. This audit flags three distinct problems:
  *
  *   - `unresolved`: a `stageId` or `answerableAfterStageId` value is present but
  *     does not match any declared `caseStudy.stages[].id` (a likely typo).
@@ -23,6 +23,7 @@
 import { readFile, readdir } from "node:fs/promises";
 import { basename, join } from "node:path";
 import { fileURLToPath } from "node:url";
+import { classifyCaseBoundary } from "../../src/caseVisibilityBoundary";
 import { parseBankText } from "../../src/bankImport";
 import { validateBankObject } from "../../src/schema";
 import type { AuditResult, CheckStatus } from "./types";
@@ -71,15 +72,18 @@ function collectPartFindings(
   parentId: string,
   part: CaseSubQuestion,
   validStageIds: string[],
-  validStageIdSet: Set<string>,
   strict: boolean,
 ): StageReferenceFinding[] {
   const findings: StageReferenceFinding[] = [];
 
   const aDefined = part.answerableAfterStageId !== undefined;
-  const aResolves = aDefined && validStageIdSet.has(part.answerableAfterStageId!);
+  const primary = classifyCaseBoundary(part.answerableAfterStageId, validStageIds);
+  const aResolves = primary.kind === "baseline" || primary.kind === "resolving-string";
+  // Schema rejects malformed values before collection; keep the existing string DTO.
+  const primaryValue = typeof part.answerableAfterStageId === "string"
+    ? part.answerableAfterStageId : JSON.stringify(part.answerableAfterStageId);
   const sDefined = part.stageId !== undefined;
-  const sResolves = sDefined && validStageIdSet.has(part.stageId!);
+  const sResolves = classifyCaseBoundary(part.stageId, validStageIds, false).kind === "resolving-string";
 
   if (aDefined && !aResolves) {
     findings.push({
@@ -88,7 +92,7 @@ function collectPartFindings(
       parentId,
       partId: part.id,
       field: "answerableAfterStageId",
-      value: part.answerableAfterStageId!,
+      value: primaryValue,
       validStageIds,
     });
   }
@@ -116,7 +120,7 @@ function collectPartFindings(
       partId: part.id,
       anchorState: {
         answerableAfterStageId: aDefined
-          ? { status: "unresolved", value: part.answerableAfterStageId! }
+          ? { status: "unresolved", value: primaryValue }
           : { status: "absent" },
         stageId: sDefined ? { status: "unresolved", value: part.stageId! } : { status: "absent" },
       },
@@ -142,12 +146,11 @@ function collectCaseStudyStageReferenceFindings(
   strict: boolean,
 ): StageReferenceFinding[] {
   const validStageIds = (question.caseStudy.stages ?? []).map((stage) => stage.id);
-  const validStageIdSet = new Set(validStageIds);
   const findings: StageReferenceFinding[] = [];
 
   for (const part of question.caseStudy.questions) {
     findings.push(
-      ...collectPartFindings(file, question.id, part, validStageIds, validStageIdSet, strict),
+      ...collectPartFindings(file, question.id, part, validStageIds, strict),
     );
   }
 

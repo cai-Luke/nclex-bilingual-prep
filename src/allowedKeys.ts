@@ -29,6 +29,7 @@ export const allowedKeySets = {
     case_study: ["caseStudy"],
   } satisfies Record<ItemType, readonly string[]>,
   caseSubQuestion: ["stageId", "answerableAfterStageId"],
+  caseBaselineBoundary: ["kind"],
   textPair: ["en", "zh"],
   rationale: ["correct", "byChoice", "visuals"],
   rationaleChoice: ["refId", "en", "zh"],

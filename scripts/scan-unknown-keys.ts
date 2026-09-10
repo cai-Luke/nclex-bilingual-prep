@@ -337,6 +337,11 @@ const scanQuestion = (ctx: ScanContext, value: unknown, path: string, fallbackId
   const allowed = keySet([...allowedKeySets.questionCommon, ...itemTypeKeys, ...caseSubQuestionKeys], `question:${itemType}:${options.caseSubQuestion ? "case" : "standalone"}`);
   recordUnknowns(ctx.findings, ctx.bank, objectId, path, `question:${itemType}`, value, allowed);
 
+  if (options.caseSubQuestion && isRecord(value.answerableAfterStageId)) {
+    recordUnknowns(ctx.findings, ctx.bank, objectId, `${path}.answerableAfterStageId`,
+      "caseBaselineBoundary", value.answerableAfterStageId, standardKeySet("caseBaselineBoundary"));
+  }
+
   scanTextPair(ctx, value.stem, `${path}.stem`, objectId);
   scanTextPair(ctx, value.testTakingStrategy, `${path}.testTakingStrategy`, objectId);
   if (value.rationale !== undefined) scanRationale(ctx, value.rationale, `${path}.rationale`, objectId);
@@ -561,7 +566,7 @@ const formatMarkdown = (findings: UnknownKeyFinding[], scannedBanks: string[]) =
     "## Classification",
     "",
     "**Bucket 1 — unfolding-case structure (cleared by Schema 1.6).**",
-    "`stageId`, `answerableAfterStageId`, `trigger`, `narrative`, `timeOffset`, and exhibit `type` are now typed and whitelisted as additive Schema 1.6 metadata.",
+    "`stageId`, `answerableAfterStageId`, `trigger`, `narrative`, `timeOffset`, and exhibit `type` are typed and whitelisted as additive Schema 1.6 metadata. The exact typed baseline boundary is a Schema 2.1 feature; core validation owns its shape.",
     "",
     "**Bucket 2 — whitelist omission (cleared 2026-06-21).**",
     "`pattern_keyed` on capnography `meta` was added to `allowedKeySets.questionMeta`; the scan dropped from 134 to 127 findings and `capnography-canonical.json` now reports 0.",

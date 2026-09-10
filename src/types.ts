@@ -3,7 +3,7 @@ export type TextPair = {
   zh: string;
 };
 
-export type SchemaVersion = "1.0" | "1.1" | "1.2" | "1.3" | "1.4" | "1.5" | "1.6" | "1.7" | "1.8" | "1.9" | "2.0";
+export type SchemaVersion = "1.0" | "1.1" | "1.2" | "1.3" | "1.4" | "1.5" | "1.6" | "1.7" | "1.8" | "1.9" | "2.0" | "2.1";
 
 export type StandaloneItemType =
   | "multiple_choice"
@@ -237,7 +237,7 @@ export type CaseStudyStage = {
 
 export type CaseSubQuestion = StandaloneQuestion & {
   stageId?: string;
-  answerableAfterStageId?: string;
+  answerableAfterStageId?: string | { kind: "baseline" };
 };
 
 export type CaseStudyQuestion = CommonQuestion & {

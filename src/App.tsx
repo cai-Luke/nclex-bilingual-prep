@@ -1,3 +1,4 @@
+import { formatCaseVisibilityBoundary } from "./caseVisibilityBoundary";
 import {
   createContext,
   useCallback,
@@ -2335,7 +2336,7 @@ function PreviewLab({
             </label>
             <div className="preview-stage-readout">
               <span>stageId: {currentCasePart.stageId ?? "none"}</span>
-              <span>answerableAfterStageId: {currentCasePart.answerableAfterStageId ?? "none"}</span>
+              <span>answerableAfterStageId: {formatCaseVisibilityBoundary(currentCasePart.answerableAfterStageId)}</span>
               <span>visible stages: {displayedVisibleStageCount}</span>
             </div>
             <label className="toggle-row">

@@ -1,3 +1,4 @@
+import { resolveCaseVisibilityBoundary } from "./caseVisibilityBoundary";
 import type {
   CaseStudyQuestion,
   CaseStudyStage,
@@ -43,18 +44,7 @@ export const getVisibleCaseStages = (
   activeQuestion?: CaseSubQuestion,
 ): CaseStudyStage[] => {
   const stages = question.caseStudy.stages ?? [];
-  if (!activeQuestion || stages.length === 0) return [];
-  const stageIndexById = new Map(stages.map((stage, index) => [stage.id, index] as const));
-  const answerableAfterStageIndex =
-    activeQuestion.answerableAfterStageId !== undefined
-      ? stageIndexById.get(activeQuestion.answerableAfterStageId)
-      : undefined;
-  if (answerableAfterStageIndex !== undefined) {
-    return stages.slice(0, answerableAfterStageIndex + 1);
-  }
-  const stageIndex = activeQuestion.stageId !== undefined ? stageIndexById.get(activeQuestion.stageId) : undefined;
-  if (stageIndex !== undefined) {
-    return stages.slice(0, stageIndex + 1);
-  }
-  return stages;
+  const resolution = resolveCaseVisibilityBoundary(activeQuestion, stages.map(stage => stage.id));
+  if (resolution.kind === "prefix") return stages.slice(0, resolution.index + 1);
+  return resolution.kind === "fail-open" ? stages : [];
 };

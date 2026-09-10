@@ -33,9 +33,16 @@ assert.equal(schemaVersionAtLeast("1.9", "1.2"), true);
 assert.equal(schemaVersionAtLeast("1.2", "1.7"), false);
 assert.equal(schemaVersionAtLeast("2.0", "1.9"), true);
 assert.equal(schemaVersionAtLeast("2.0", "1.2"), true);
-assert.throws(() => schemaVersionAtLeast("2.1" as SchemaVersion, "1.9"), /Unsupported schema version: 2\.1/);
+assert.throws(() => schemaVersionAtLeast("2.2" as SchemaVersion, "1.9"), /Unsupported schema version: 2\.2/);
 assert.throws(() => schemaVersionAtLeast(undefined as unknown as SchemaVersion, "1.9"), /Unsupported schema version/);
-assert.throws(() => schemaVersionAtLeast("1.9", "2.1" as SchemaVersion), /Unsupported schema version: 2\.1/);
+assert.throws(() => schemaVersionAtLeast("1.9", "2.2" as SchemaVersion), /Unsupported schema version: 2\.2/);
+
+assert(supportedSchemaVersions.includes("2.1"));
+assert.equal(schemaVersionAtLeast("2.1", "2.0"), true);
+assert.equal(schemaVersionAtLeast("2.0", "2.1"), false);
+assert.equal(schemaModule.SCHEMA_VERSION, "2.0");
+// Campaign 16 support-only: supported feature version intentionally differs from authoring default.
+assert.notEqual(schemaModule.SCHEMA_VERSION, supportedSchemaVersions.at(-1));
 
 for (const version of supportedSchemaVersions) {
   const [, minor] = version.split(".");

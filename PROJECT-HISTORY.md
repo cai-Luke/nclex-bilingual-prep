@@ -52,6 +52,46 @@ The committed NGN item-type set is complete. Rationale/dyad scoring and an expli
 
 > Milestones dated **2026-06-23 and earlier** are archived in [`Archive/PROJECT-HISTORY-ARCHIVE.md`](Archive/PROJECT-HISTORY-ARCHIVE.md). Only the current arc (2026-06-24 onward) is kept here.
 
+### Campaign 16 Typed-Baseline Reader Support Accepted (Sep 9)
+
+Completed and accepted support-only reader implementation for an explicit baseline visibility
+boundary on embedded case-study parts (`"answerableAfterStageId": { "kind": "baseline" }`) under
+frozen work order `scratch/CAMPAIGN-16-PHASE-E-TYPED-BASELINE-SUPPORT-IMPLEMENTATION-WORK-ORDER-2026-09-08-R2.md`
+and continuation dispositions. Governing terminals: producer readiness
+`CAMPAIGN16_TYPED_BASELINE_SUPPORT_READY_FOR_INDEPENDENT_CHECK` and independent review acceptance
+`CAMPAIGN16_TYPED_BASELINE_SUPPORT_INDEPENDENT_ACCEPT`. Genuinely independent Claude/Opus P2
+conformance review accepted the implementation packet with no blockers or majors, with three nonblocking observations.
+
+Schema 2.1 support is established for the exact `{ "kind": "baseline" }` object payload across
+core validation (`src/schema.ts`), types (`src/types.ts`), shared boundary resolution
+(`src/caseVisibilityBoundary.ts`), exam layout (`src/examLayout.ts`), and export inference
+(`src/bankImport.ts`). The ordinary and default authoring version remains 2.0 (`SCHEMA_VERSION = "2.0"`
+in `src/schema.ts` and `NCLEX-Question-Schema.md`); banks require `meta.schemaVersion: "2.1"` only
+when explicit typed baseline is authored.
+
+P23 runtime visibility and defensive fail-open remain strictly preserved: an active typed-baseline
+part renders case title, summary, and global exhibits with zero staged Updates, while absent, stale,
+unresolved, or malformed boundary values continue through fallback and fail-open to all stages
+without throwing. Raw-gate stage-reference fatality is preserved. No live bank, canonical schema
+floor, or frozen Campaign 16 Phase E 451-row boundary was modified; zero semantic assignments were made.
+
+Luke performed the bound external production-file smoke test directly under `file://` in Chrome 152
+against frozen build digest `0b2e2bce6a5cd964d23749a74512e429da8418cfc124272dfa9fb9ee62d5b925`
+(`dist/index.html` SHA-256 `92025bdb98ee2ce4019fa08f7bcd7c041b75780e992f1b22d4df08b3b3b87135`),
+confirming normal application rendering, bundled question loading, and navigation without path,
+module, or asset errors. Post-witness recheck confirmed exact production-tree identity.
+
+The stale July single-row-lab-panels saved survey manifest remains a separately admitted pre-existing
+defect (`PREEXISTING_BASELINE_FAILURE_ADMITTED`, exit 1 under continuation order 2), verified as
+predating this commission by read-only reconstruction (`6e4a5cc9...` vs saved `f042bd39...`), with
+the typed-baseline survey object contract proven independently by `scripts/tests/typed-baseline-survey.ts`.
+The `lib/shuffle.ts` static type erasure (`shuffle(nested) as StandaloneQuestion`) was proven by
+focused round-trip regression to mechanically preserve typed baseline objects; its static typing
+refinement is optional future maintenance, not a blocker.
+
+Evidence, manifests, truth tables, and receipts are preserved under
+[`audit/campaign-16-phase-e-typed-baseline-support-implementation-2026-09-08-r1/`](audit/campaign-16-phase-e-typed-baseline-support-implementation-2026-09-08-r1/).
+
 ### Campaign 16 Phase B Quarantined FIX Recovery Published (Aug 27)
 
 Stage 3 mechanically published the 13-row final roster from the immutable publication freeze. All 13

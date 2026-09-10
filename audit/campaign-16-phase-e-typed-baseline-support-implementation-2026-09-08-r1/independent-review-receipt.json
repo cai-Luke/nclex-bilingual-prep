@@ -1,0 +1,51 @@
+{
+  "artifact": "owner-recorded independent conformance review receipt",
+  "commission": "Campaign 16 Phase E typed-baseline support-only implementation",
+  "workOrder": "scratch/CAMPAIGN-16-PHASE-E-TYPED-BASELINE-SUPPORT-IMPLEMENTATION-WORK-ORDER-2026-09-08-R2.md",
+  "continuationOrders": [
+    "audit/campaign-16-phase-e-typed-baseline-support-implementation-2026-09-08-r1/verification-continuation-order.md",
+    "audit/campaign-16-phase-e-typed-baseline-support-implementation-2026-09-08-r1/verification-continuation-order-2.md"
+  ],
+  "producerSeat": "Codex primary implementation seat",
+  "producerTerminal": "CAMPAIGN16_TYPED_BASELINE_SUPPORT_READY_FOR_INDEPENDENT_CHECK",
+  "independentChecker": "Claude / Opus (external independent P2 conformance reviewer)",
+  "recordedBy": "Owner transcription into repository audit record (not performed by Gemini)",
+  "governingTerminal": "CAMPAIGN16_TYPED_BASELINE_SUPPORT_INDEPENDENT_ACCEPT",
+  "reviewStatus": "ACCEPT",
+  "findingsSummary": {
+    "blockers": 0,
+    "majors": 0,
+    "nonblockingObservations": 3
+  },
+  "nonblockingObservations": [
+    {
+      "id": "OBS-01",
+      "topic": "Authorized schema-document example cleanup beyond the minimum typed-baseline edit",
+      "severity": "NONBLOCKING",
+      "detail": "NCLEX-Question-Schema.md changes an ordinary example stageId from the opaque string 'baseline' to 'stage_0815'. The independent checker found the change authorized and harmless, but noted it as slightly beyond the minimum documentation edit required for typed-baseline support."
+    },
+    {
+      "id": "OBS-02",
+      "topic": "Static type hole in lib/shuffle.ts",
+      "severity": "NONBLOCKING",
+      "detail": "The cast `shuffle(nested) as StandaloneQuestion` in lib/shuffle.ts erases CaseSubQuestion-specific anchor fields from static typing. Runtime object spread mechanically preserves the fields as verified by the mandatory round-trip test. Correcting this static type hole without the blind cast is recognized as desirable future maintenance, not an implementation blocker."
+    },
+    {
+      "id": "OBS-03",
+      "topic": "Pre-existing single-row lab-panels survey manifest drift",
+      "severity": "NONBLOCKING",
+      "detail": "npm run test:single-row-lab-panels fails (exit 1) on saved manifest comparison. Admitted as PREEXISTING_BASELINE_FAILURE_ADMITTED under continuation order 2. The independent checker performed a read-only reconstruction confirming the generated SHA-256 (6e4a5cc9...) is identical between opening and current tree. Standalone proof scripts/tests/typed-baseline-survey.ts independently passes and proves typed-baseline preservation."
+    }
+  ],
+  "conformanceAttestation": {
+    "exactSerializedContract": "PASS - { \"kind\": \"baseline\" } validated strictly; malformed objects fail core validation even without strict mode; opaque strings have no special control meaning.",
+    "runtimeVisibility": "PASS - P23 fail-open strictly preserved; baseline parts receive title, summary, and global exhibits with zero staged Updates; defensive fallback on malformed/unresolved values.",
+    "sharedBoundaryModule": "PASS - src/caseVisibilityBoundary.ts implemented as React-free leaf without importing schema.ts; src/examLayout.ts adapted cleanly.",
+    "schemaVersionFloors": "PASS - 2.1 supported and ordered above 2.0; 2.2 unsupported; SCHEMA_VERSION remains 2.0; export envelope infers 2.1 for baseline items.",
+    "futureFixtureSweep": "PASS - unsupported-version test fixtures correctly moved from 2.1 to 2.2 without collateral changes; version-fixture-sweep.json verified.",
+    "stageRefAuditAndRawGate": "PASS - baseline recognized as resolving boundary; no false revealsAllStages findings; legacy stageId audited independently; raw gate fatality untouched.",
+    "productionFileSmoke": "PASS - external manual smoke witnessed by Luke in Chrome 152 at build identity 0b2e2bce6a5cd964d23749a74512e429da8418cfc124272dfa9fb9ee62d5b925; all 12 dist files match.",
+    "bankAndStatePreservation": "PASS - all 16 bank files byte-identical to opening; census.json and BANK-CENSUS.md untouched; no frozen-451 row assigned a boundary."
+  },
+  "disposition": "Accepted for publishing preparation (support-only). Phase E and Campaign 16 remain open pending successor repair work order."
+}

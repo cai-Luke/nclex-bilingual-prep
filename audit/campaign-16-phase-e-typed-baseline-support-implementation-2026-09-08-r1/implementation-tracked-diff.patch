@@ -1,0 +1,421 @@
+diff --git a/NCLEX-Question-Schema.md b/NCLEX-Question-Schema.md
+index 263fc9d..6768b2e 100644
+--- a/NCLEX-Question-Schema.md
++++ b/NCLEX-Question-Schema.md
+@@ -1,6 +1,6 @@
+ # NCLEX Bank — Canonical Question Schema
+ 
+-**schemaVersion: `2.0` — current.** This document is the canonical authoring and review contract; runtime behavior is implemented by `src/types.ts`, `src/schema.ts`, and the registered modules under `src/visuals/`. `1.0` standalone-question banks, `1.1` case-study banks, `1.2` visual banks, `1.3` highlight banks, `1.4` bowtie banks, `1.5` rationale-visual banks, `1.6` unfolding case-study metadata banks, `1.7` pacer-bearing rhythm-strip banks, `1.8` structured-measurement banks, `1.9` `io_trend` banks, and `2.0` censored-value (`bound`) and structured-measurement `population` banks remain supported. The `SchemaVersion` union in `src/types.ts` is the single source of truth for supported versions. Do not change shapes without bumping `schemaVersion` and writing a migration.
++**schemaVersion: `2.0` — current/default authoring version.** This document is the canonical authoring and review contract; runtime behavior is implemented by `src/types.ts`, `src/schema.ts`, and the registered modules under `src/visuals/`. `1.0` standalone-question banks, `1.1` case-study banks, `1.2` visual banks, `1.3` highlight banks, `1.4` bowtie banks, `1.5` rationale-visual banks, `1.6` unfolding case-study metadata banks, `1.7` pacer-bearing rhythm-strip banks, `1.8` structured-measurement banks, `1.9` `io_trend` banks, `2.0` censored-value (`bound`) and structured-measurement `population` banks, and `2.1` explicit typed-baseline boundary banks remain supported. Support for 2.1 does not change the ordinary authoring default from 2.0. The `SchemaVersion` union in `src/types.ts` is the single source of truth for supported versions. Do not change shapes without bumping `schemaVersion` and writing a migration.
+ 
+ ---
+ 
+@@ -36,7 +36,7 @@ A generated bank is one JSON object:
+ }
+ ```
+ 
+-The importer also accepts a bare `[ ... ]` array of Question objects (no envelope). When present, `meta.schemaVersion` must be `"1.0"`, `"1.1"`, `"1.2"`, `"1.3"`, `"1.4"`, `"1.5"`, `"1.6"`, `"1.7"`, `"1.8"`, `"1.9"`, or `"2.0"`. `case_study` requires `"1.1"` or later. `visual` requires `"1.2"` or later. `highlight`, including a highlight embedded in a case study, requires `"1.3"`. Standalone `bowtie` requires `"1.4"`. `rationale.visuals` (explanation visuals) requires `"1.5"`. Case-study unfolding metadata fields (`stageId`, `answerableAfterStageId`, stage `trigger`/`narrative`/`timeOffset`, and exhibit `type`) require `"1.6"`. Pacer-bearing `rhythm_strip` visuals require `"1.7"`. Case-study exhibit `structuredMeasurements` requires `"1.8"`. `io_trend` visuals require `"1.9"`. A censored panel value's `bound` and structured-measurement `population` require `"2.0"`.
++The importer also accepts a bare `[ ... ]` array of Question objects (no envelope). When present, `meta.schemaVersion` must be `"1.0"`, `"1.1"`, `"1.2"`, `"1.3"`, `"1.4"`, `"1.5"`, `"1.6"`, `"1.7"`, `"1.8"`, `"1.9"`, `"2.0"`, or `"2.1"`. Bare learner imports remain version-agnostic; supported tokens and feature floors apply to versioned envelopes. `case_study` requires `"1.1"` or later. `visual` requires `"1.2"` or later. `highlight`, including a highlight embedded in a case study, requires `"1.3"`. Standalone `bowtie` requires `"1.4"`. `rationale.visuals` (explanation visuals) requires `"1.5"`. Case-study unfolding metadata fields (`stageId`, `answerableAfterStageId`, stage `trigger`/`narrative`/`timeOffset`, and exhibit `type`) require `"1.6"`. Pacer-bearing `rhythm_strip` visuals require `"1.7"`. Case-study exhibit `structuredMeasurements` requires `"1.8"`. `io_trend` visuals require `"1.9"`. A censored panel value's `bound` and structured-measurement `population` require `"2.0"`. Exact typed baseline `answerableAfterStageId: {"kind":"baseline"}` requires `"2.1"`.
+ 
+ ---
+ 
+@@ -1042,7 +1042,7 @@ Rows are statements/findings; columns are categories. Each row gets a selection.
+       }
+     ],
+     "questions": [
+-      { "id": "case_sepsis_01_part_1", "itemType": "matrix", "stageId": "baseline", "...": "full standalone question shape" },
++      { "id": "case_sepsis_01_part_1", "itemType": "matrix", "stageId": "stage_0815", "...": "full standalone question shape" },
+       { "id": "case_sepsis_01_part_2", "itemType": "ordered_response", "answerableAfterStageId": "stage_0815", "...": "full standalone question shape" }
+     ]
+   },
+@@ -1063,7 +1063,11 @@ Rows are statements/findings; columns are categories. Each row gets a selection.
+ - `structuredMeasurements.panels[].rows[]`: each row has an allowlist `key`, bilingual `label`, and non-empty `values`. Lab keys must appear in `labs` panels; vital keys must appear in `vitals` panels. The allowlist lives in `src/measurementAllowlist.ts` and includes structured-only non-trend keys such as `sao2`, `troponin_i`, and `uric_acid`.
+ - `structuredMeasurements.panels[].rows[].values[]`: each value has `columnId`, byte-exact source scalar `value`, accepted input `unit`, optional `bound: ">" | "<"` (schema `2.0`), and optional `context: "post_intervention"`. `columnId` must resolve within the same panel. `value` itself must never carry a comparator token (`<`, `>`, `≤`, `≥`); that is a hard validation failure at every schema version, never a silent strip. Represent a censored source reading such as `aPTT >200 seconds` as the numeric `value` plus the sibling `bound`, transcribed exactly as reported. The extractor never adjusts a bound toward a facility reporting ceiling. `≤` and `≥` have no `bound` representation in this version and remain prose-only exclusions. Flags and reference ranges remain out of scope for structured measurements v1 and must not be stored.
+ - `caseStudy.stages`: optional unfolding updates, each with at least one exhibit. Schema `1.6` adds optional `trigger` and `narrative` (`{ en, zh }`) plus optional plain string `timeOffset`; these are metadata today and are not rendered as separate controls.
+-- `caseStudy.questions`: 2–6 embedded questions using any current standalone item type except `bowtie`. Each must include its own full common fields, rationale, strategy, and glossary. An embedded `highlight` requires the enclosing bank to declare schema `1.3`. Schema `1.6` adds optional opaque string `stageId` and `answerableAfterStageId`; validators do not enforce that these match `caseStudy.stages[].id` because current canonical also uses baseline/admission labels.
++- `caseStudy.questions`: 2–6 embedded questions using any current standalone item type except `bowtie`. Each must include its own full common fields, rationale, strategy, and glossary. An embedded `highlight` requires the enclosing bank to declare schema `1.3`. Schema `1.6` adds optional opaque string `stageId` and `answerableAfterStageId`. Schema `2.1` additionally permits `answerableAfterStageId` to be the exact object `{"kind":"baseline"}` (one own enumerable JSON key; no extra keys); `stageId` remains string-only. Malformed baseline objects fail core validation even without strict unknown-key checking.
++
++`stageId` and ordinary-string `answerableAfterStageId` values are validated here for shape, but parent-stage membership is not a core question-shape rule. The stage-reference audit reports non-resolving references, and raw promotion blocks on every stage-reference finding. Runtime remains fail-open for absent, stale, malformed, or historical/local values that can reach rendering outside strict repository validation. Ordinary strings such as `"baseline"`, `"@@case-baseline"`, or `"admission"` have no special control meaning unless they match an actual declared stage ID.
++
++For an active part, exact typed baseline shows the case title, summary, and global exhibits with zero staged Updates. Otherwise a resolving primary string selects the inclusive stage prefix, then a resolving legacy `stageId` is tried; unresolved or malformed values fall back to all declared stages. No active part or no declared stages yields zero stages. A bad legacy reference remains independently audited even with a baseline primary. Developer Preview's Show all stages and unscoped stacked/review overview retain their show-all behavior.
+ - Embedded question ids must be unique within the case and differ from the parent case id.
+ - Case-level `rationale.correct` summarizes the whole case. Each embedded question carries the detailed graded rationale.
+ 
+@@ -1178,7 +1182,7 @@ An item is **invalid → skipped and reported** (never partially rendered) if an
+ - **dropdown_cloze:** a `{{id}}` in `clozeStem` with no matching dropdown (or vice versa); a dropdown `correct` not among its options; placeholders missing from `zh`.
+ - **highlight:** missing `segments`/`correct`; duplicate segment ids; no selectable segment; a keyed id that is absent or non-selectable; duplicate keyed ids; every selectable segment is keyed; empty segment `en`/`zh`; or a `rationale.byChoice.refId` that is duplicated or does not resolve to a selectable segment.
+ - **bowtie:** missing zones/tokens; wrong fixed correct counts; a key outside its zone; duplicate key ids; token ids duplicated across zones; duplicate `en` or `zh` display text within a zone; empty token text; no distractor in a zone; an unresolved or duplicate `rationale.byChoice.refId`; embedding in a case study; or use below schema `1.4`.
+-- **case_study:** `meta.schemaVersion` is `"1.0"`; missing `caseStudy.exhibits`; fewer than 2 or more than 6 embedded questions; an embedded question is another `case_study` or a `bowtie`; embedded ids are duplicated; `structuredMeasurements` present below schema `"1.8"`; invalid structured measurement population; malformed structured panels/columns/rows/values; value `columnId` not resolving to the same panel; row key not in the measurement allowlist; unit not accepted for the row key; lab/vital key in the wrong panel kind; a panel value's `value` carrying a raw comparator token (`<`, `>`, `≤`, `≥`); a panel value's `bound` or a structured-measurement `population` present below schema `"2.0"`; or any authored flag/reference-range field in structured measurements. Separately, the flowsheet promotion gate rejects subject-scoped pediatric records whose structured measurements omit a pediatric `population`.
++- **case_study:** typed baseline present below schema `"2.1"` or malformed typed baseline; `meta.schemaVersion` is `"1.0"`; missing `caseStudy.exhibits`; fewer than 2 or more than 6 embedded questions; an embedded question is another `case_study` or a `bowtie`; embedded ids are duplicated; `structuredMeasurements` present below schema `"1.8"`; invalid structured measurement population; malformed structured panels/columns/rows/values; value `columnId` not resolving to the same panel; row key not in the measurement allowlist; unit not accepted for the row key; lab/vital key in the wrong panel kind; a panel value's `value` carrying a raw comparator token (`<`, `>`, `≤`, `≥`); a panel value's `bound` or a structured-measurement `population` present below schema `"2.0"`; or any authored flag/reference-range field in structured measurements. Separately, the flowsheet promotion gate rejects subject-scoped pediatric records whose structured measurements omit a pediatric `population`.
+ - **visual:** present in a versioned bank below schema `"1.2"`; pacer-bearing `rhythm_strip` present below schema `"1.7"`; `io_trend` present below schema `"1.9"`; placed on an unsupported item type; unknown visual `kind`; invalid rhythm class; out-of-range rate, duration, interval, seed, atrial rate, or conduction ratio.
+ 
+ Report format: `"imported N of M; skipped K (reasons...)"`.
+@@ -1204,9 +1208,10 @@ Scoring is polytomous (partial credit), matching the NGN. Each item yields `{ ea
+ 
+ ## Notes
+ 
+-- `highlight` text items are supported in schema `1.3`; standalone bowtie items are supported in schema `1.4`; rationale explanation visuals are supported in schema `1.5`; additive unfolding case-study metadata is supported in schema `1.6`; pacer-bearing `rhythm_strip` visuals are supported in schema `1.7`; case-study exhibit `structuredMeasurements` are supported in schema `1.8`; `io_trend` visuals are supported in schema `1.9`; censored panel values using `bound` and structured-measurement `population` are supported in schema `2.0`. The current NGN item-type set is complete. Highlight: Table remains deferred.
++- `highlight` text items are supported in schema `1.3`; standalone bowtie items are supported in schema `1.4`; rationale explanation visuals are supported in schema `1.5`; additive unfolding case-study metadata is supported in schema `1.6`; pacer-bearing `rhythm_strip` visuals are supported in schema `1.7`; case-study exhibit `structuredMeasurements` are supported in schema `1.8`; `io_trend` visuals are supported in schema `1.9`; censored panel values using `bound` and structured-measurement `population` are supported in schema `2.0`; explicit typed-baseline boundaries are supported in schema `2.1`. The current NGN item-type set is complete. Highlight: Table remains deferred.
+ - Migration from `1.8` to `1.9` requires no content changes. Only banks containing `io_trend` visuals need to declare `meta.schemaVersion: "1.9"`.
+ - Migration from `1.9` to `2.0` requires no changes to existing records. A bank needs `meta.schemaVersion: "2.0"` when it authors a `bound` or `population` field. Pediatric structured measurements must declare `peds_child` or `peds_infant` before promotion; adult records need not be mass-migrated to declare `adult`.
++- Migration from `2.0` to `2.1` requires no changes to existing records. A bank needs `meta.schemaVersion: "2.1"` only when it authors an explicit typed baseline boundary. Existing banks are not mass-migrated merely because 2.1 is supported.
+ - Rationale/dyad scoring and any explicit linked “X as evidenced by Y” item type remain out of scope; no current item type requires them.
+ - `case_study` is the v1.1 hard-mode container for multi-part unfolding practice. It deliberately reuses v1.0 embedded item types instead of introducing new grading rules.
+ - IDs: any unique string is fine. A readable convention like `<type>_<topicslug>_<n>` helps debugging but isn't required.
+diff --git a/scripts/audit/audit-stage-refs.ts b/scripts/audit/audit-stage-refs.ts
+index f5d361d..97a4d79 100644
+--- a/scripts/audit/audit-stage-refs.ts
++++ b/scripts/audit/audit-stage-refs.ts
+@@ -2,9 +2,9 @@
+  * Advisory — case-study stage reference integrity and anchor-omission leakage.
+  *
+  * The live renderer (`src/examLayout.ts` `getVisibleCaseStages`) is cumulative and
+- * fail-open: for a staged case, if a part's `answerableAfterStageId` resolves, it
+- * reveals stages 0..that index; else if `stageId` resolves, same; else it reveals
+- * ALL stages. This audit flags two distinct problems:
++ * fail-open: exact typed baseline reveals zero stages; a resolving primary string
++ * reveals stages 0..that index; else a resolving legacy `stageId` does the same;
++ * otherwise ALL stages are revealed. This audit flags three distinct problems:
+  *
+  *   - `unresolved`: a `stageId` or `answerableAfterStageId` value is present but
+  *     does not match any declared `caseStudy.stages[].id` (a likely typo).
+@@ -23,6 +23,7 @@
+ import { readFile, readdir } from "node:fs/promises";
+ import { basename, join } from "node:path";
+ import { fileURLToPath } from "node:url";
++import { classifyCaseBoundary } from "../../src/caseVisibilityBoundary";
+ import { parseBankText } from "../../src/bankImport";
+ import { validateBankObject } from "../../src/schema";
+ import type { AuditResult, CheckStatus } from "./types";
+@@ -71,15 +72,18 @@ function collectPartFindings(
+   parentId: string,
+   part: CaseSubQuestion,
+   validStageIds: string[],
+-  validStageIdSet: Set<string>,
+   strict: boolean,
+ ): StageReferenceFinding[] {
+   const findings: StageReferenceFinding[] = [];
+ 
+   const aDefined = part.answerableAfterStageId !== undefined;
+-  const aResolves = aDefined && validStageIdSet.has(part.answerableAfterStageId!);
++  const primary = classifyCaseBoundary(part.answerableAfterStageId, validStageIds);
++  const aResolves = primary.kind === "baseline" || primary.kind === "resolving-string";
++  // Schema rejects malformed values before collection; keep the existing string DTO.
++  const primaryValue = typeof part.answerableAfterStageId === "string"
++    ? part.answerableAfterStageId : JSON.stringify(part.answerableAfterStageId);
+   const sDefined = part.stageId !== undefined;
+-  const sResolves = sDefined && validStageIdSet.has(part.stageId!);
++  const sResolves = classifyCaseBoundary(part.stageId, validStageIds, false).kind === "resolving-string";
+ 
+   if (aDefined && !aResolves) {
+     findings.push({
+@@ -88,7 +92,7 @@ function collectPartFindings(
+       parentId,
+       partId: part.id,
+       field: "answerableAfterStageId",
+-      value: part.answerableAfterStageId!,
++      value: primaryValue,
+       validStageIds,
+     });
+   }
+@@ -116,7 +120,7 @@ function collectPartFindings(
+       partId: part.id,
+       anchorState: {
+         answerableAfterStageId: aDefined
+-          ? { status: "unresolved", value: part.answerableAfterStageId! }
++          ? { status: "unresolved", value: primaryValue }
+           : { status: "absent" },
+         stageId: sDefined ? { status: "unresolved", value: part.stageId! } : { status: "absent" },
+       },
+@@ -142,12 +146,11 @@ function collectCaseStudyStageReferenceFindings(
+   strict: boolean,
+ ): StageReferenceFinding[] {
+   const validStageIds = (question.caseStudy.stages ?? []).map((stage) => stage.id);
+-  const validStageIdSet = new Set(validStageIds);
+   const findings: StageReferenceFinding[] = [];
+ 
+   for (const part of question.caseStudy.questions) {
+     findings.push(
+-      ...collectPartFindings(file, question.id, part, validStageIds, validStageIdSet, strict),
++      ...collectPartFindings(file, question.id, part, validStageIds, strict),
+     );
+   }
+ 
+diff --git a/scripts/raw-gate.ts b/scripts/raw-gate.ts
+index 944a94c..bab78a9 100644
+--- a/scripts/raw-gate.ts
++++ b/scripts/raw-gate.ts
+@@ -95,7 +95,7 @@ const rawStageResult = (prepared: PreparedPromotionPreview): AuditResult => {
+     { strict: true },
+   );
+   return findings.length === 0
+-    ? pass("audit:stage-refs:raw-policy", "All staged case parts carry resolving primary stage anchors.")
++    ? pass("audit:stage-refs:raw-policy", "All staged case parts carry resolving primary visibility boundaries.")
+     : failure(
+         "audit:stage-refs:raw-policy",
+         `${findings.length} raw stage-reference finding(s); every finding kind is blocking:\n${findings.map(renderStageFinding).join("\n")}`,
+diff --git a/scripts/scan-unknown-keys.ts b/scripts/scan-unknown-keys.ts
+index 541f647..11fa29b 100644
+--- a/scripts/scan-unknown-keys.ts
++++ b/scripts/scan-unknown-keys.ts
+@@ -337,6 +337,11 @@ const scanQuestion = (ctx: ScanContext, value: unknown, path: string, fallbackId
+   const allowed = keySet([...allowedKeySets.questionCommon, ...itemTypeKeys, ...caseSubQuestionKeys], `question:${itemType}:${options.caseSubQuestion ? "case" : "standalone"}`);
+   recordUnknowns(ctx.findings, ctx.bank, objectId, path, `question:${itemType}`, value, allowed);
+ 
++  if (options.caseSubQuestion && isRecord(value.answerableAfterStageId)) {
++    recordUnknowns(ctx.findings, ctx.bank, objectId, `${path}.answerableAfterStageId`,
++      "caseBaselineBoundary", value.answerableAfterStageId, standardKeySet("caseBaselineBoundary"));
++  }
++
+   scanTextPair(ctx, value.stem, `${path}.stem`, objectId);
+   scanTextPair(ctx, value.testTakingStrategy, `${path}.testTakingStrategy`, objectId);
+   if (value.rationale !== undefined) scanRationale(ctx, value.rationale, `${path}.rationale`, objectId);
+@@ -561,7 +566,7 @@ const formatMarkdown = (findings: UnknownKeyFinding[], scannedBanks: string[]) =
+     "## Classification",
+     "",
+     "**Bucket 1 — unfolding-case structure (cleared by Schema 1.6).**",
+-    "`stageId`, `answerableAfterStageId`, `trigger`, `narrative`, `timeOffset`, and exhibit `type` are now typed and whitelisted as additive Schema 1.6 metadata.",
++    "`stageId`, `answerableAfterStageId`, `trigger`, `narrative`, `timeOffset`, and exhibit `type` are typed and whitelisted as additive Schema 1.6 metadata. The exact typed baseline boundary is a Schema 2.1 feature; core validation owns its shape.",
+     "",
+     "**Bucket 2 — whitelist omission (cleared 2026-06-21).**",
+     "`pattern_keyed` on capnography `meta` was added to `allowedKeySets.questionMeta`; the scan dropped from 134 to 127 findings and `capnography-canonical.json` now reports 0.",
+diff --git a/scripts/single-row-lab-panels-survey.ts b/scripts/single-row-lab-panels-survey.ts
+index 599a947..cb44e30 100644
+--- a/scripts/single-row-lab-panels-survey.ts
++++ b/scripts/single-row-lab-panels-survey.ts
+@@ -1,3 +1,4 @@
++import type { CaseSubQuestion } from "../src/types";
+ import { mkdir, readFile, readdir, writeFile } from "node:fs/promises";
+ import { basename, dirname, join, resolve } from "node:path";
+ import { fileURLToPath } from "node:url";
+@@ -56,7 +57,7 @@ type DecisionEvidence = {
+   questionId: string;
+   itemType: StandaloneQuestion["itemType"];
+   stageId: string | null;
+-  answerableAfterStageId: string | null;
++  answerableAfterStageId: CaseSubQuestion["answerableAfterStageId"] | null;
+   stem: TextPair;
+   taskMaterial: unknown;
+   answerKey: unknown;
+@@ -176,7 +177,7 @@ const taskMaterialFor = (question: StandaloneQuestion): unknown => {
+ };
+ 
+ const decisionEvidenceFor = (question: StandaloneQuestion): DecisionEvidence => {
+-  const staged = question as StandaloneQuestion & { stageId?: string; answerableAfterStageId?: string };
++  const staged = question as CaseSubQuestion;
+   return {
+     questionId: question.id,
+     itemType: question.itemType,
+diff --git a/scripts/tests/consolidate.ts b/scripts/tests/consolidate.ts
+index e607796..8ddd052 100644
+--- a/scripts/tests/consolidate.ts
++++ b/scripts/tests/consolidate.ts
+@@ -87,7 +87,7 @@ await withDirs(async (dirs) => {
+   await writeBank(join(dirs.stagingDir, "gemini-new.json"), bank([question("added")]));
+   await writeFile(
+     join(dirs.canonicalDir, "gemini-canonical.json"),
+-    JSON.stringify({ meta: { schemaVersion: "2.1", count: 1 }, questions: [question("existing")] }),
++    JSON.stringify({ meta: { schemaVersion: "2.2", count: 1 }, questions: [question("existing")] }),
+     "utf8",
+   );
+   const result = await consolidateInto(dirs, "gemini-new.json");
+diff --git a/scripts/tests/promote.ts b/scripts/tests/promote.ts
+index 2eda265..499c7d5 100644
+--- a/scripts/tests/promote.ts
++++ b/scripts/tests/promote.ts
+@@ -79,7 +79,7 @@ await withRoot(async (root) => {
+   await writeFile(
+     join(root, "banks/gemini-canonical.json"),
+     JSON.stringify({
+-      meta: { schemaVersion: "2.1", count: 1 },
++      meta: { schemaVersion: "2.2", count: 1 },
+       questions: [question("canonical_question")],
+     }),
+     "utf8",
+diff --git a/scripts/tests/registry-mechanics.ts b/scripts/tests/registry-mechanics.ts
+index 7ede025..4578b5b 100644
+--- a/scripts/tests/registry-mechanics.ts
++++ b/scripts/tests/registry-mechanics.ts
+@@ -78,10 +78,10 @@ assert(threw, "duplicate registration must throw");
+   try {
+     reasonsFor(
+       { kind: "__test_only" },
+-      { itemType: "multiple_choice", schemaVersion: "2.1" as SchemaVersion },
++      { itemType: "multiple_choice", schemaVersion: "2.2" as SchemaVersion },
+     );
+   } catch (error) {
+-    schemaThrew = error instanceof Error && error.message.includes("Unsupported schema version: 2.1");
++    schemaThrew = error instanceof Error && error.message.includes("Unsupported schema version: 2.2");
+   }
+   assert(schemaThrew, "registry schema comparison must throw on an unknown version");
+ }
+diff --git a/scripts/tests/schema-bank.ts b/scripts/tests/schema-bank.ts
+index bec7c8c..baec3f6 100644
+--- a/scripts/tests/schema-bank.ts
++++ b/scripts/tests/schema-bank.ts
+@@ -33,9 +33,16 @@ assert.equal(schemaVersionAtLeast("1.9", "1.2"), true);
+ assert.equal(schemaVersionAtLeast("1.2", "1.7"), false);
+ assert.equal(schemaVersionAtLeast("2.0", "1.9"), true);
+ assert.equal(schemaVersionAtLeast("2.0", "1.2"), true);
+-assert.throws(() => schemaVersionAtLeast("2.1" as SchemaVersion, "1.9"), /Unsupported schema version: 2\.1/);
++assert.throws(() => schemaVersionAtLeast("2.2" as SchemaVersion, "1.9"), /Unsupported schema version: 2\.2/);
+ assert.throws(() => schemaVersionAtLeast(undefined as unknown as SchemaVersion, "1.9"), /Unsupported schema version/);
+-assert.throws(() => schemaVersionAtLeast("1.9", "2.1" as SchemaVersion), /Unsupported schema version: 2\.1/);
++assert.throws(() => schemaVersionAtLeast("1.9", "2.2" as SchemaVersion), /Unsupported schema version: 2\.2/);
++
++assert(supportedSchemaVersions.includes("2.1"));
++assert.equal(schemaVersionAtLeast("2.1", "2.0"), true);
++assert.equal(schemaVersionAtLeast("2.0", "2.1"), false);
++assert.equal(schemaModule.SCHEMA_VERSION, "2.0");
++// Campaign 16 support-only: supported feature version intentionally differs from authoring default.
++assert.notEqual(schemaModule.SCHEMA_VERSION, supportedSchemaVersions.at(-1));
+ 
+ for (const version of supportedSchemaVersions) {
+   const [, minor] = version.split(".");
+diff --git a/src/App.tsx b/src/App.tsx
+index 4c991e9..452db57 100644
+--- a/src/App.tsx
++++ b/src/App.tsx
+@@ -1,3 +1,4 @@
++import { formatCaseVisibilityBoundary } from "./caseVisibilityBoundary";
+ import {
+   createContext,
+   useCallback,
+@@ -2335,7 +2336,7 @@ function PreviewLab({
+             </label>
+             <div className="preview-stage-readout">
+               <span>stageId: {currentCasePart.stageId ?? "none"}</span>
+-              <span>answerableAfterStageId: {currentCasePart.answerableAfterStageId ?? "none"}</span>
++              <span>answerableAfterStageId: {formatCaseVisibilityBoundary(currentCasePart.answerableAfterStageId)}</span>
+               <span>visible stages: {displayedVisibleStageCount}</span>
+             </div>
+             <label className="toggle-row">
+diff --git a/src/allowedKeys.ts b/src/allowedKeys.ts
+index d5bd0d4..63a3108 100644
+--- a/src/allowedKeys.ts
++++ b/src/allowedKeys.ts
+@@ -29,6 +29,7 @@ export const allowedKeySets = {
+     case_study: ["caseStudy"],
+   } satisfies Record<ItemType, readonly string[]>,
+   caseSubQuestion: ["stageId", "answerableAfterStageId"],
++  caseBaselineBoundary: ["kind"],
+   textPair: ["en", "zh"],
+   rationale: ["correct", "byChoice", "visuals"],
+   rationaleChoice: ["refId", "en", "zh"],
+diff --git a/src/bankImport.ts b/src/bankImport.ts
+index ba55d74..b7ff03b 100644
+--- a/src/bankImport.ts
++++ b/src/bankImport.ts
+@@ -1,3 +1,4 @@
++import { hasTypedCaseBaseline } from "./caseVisibilityBoundary";
+ import { collectAllVisuals, validateQuestion } from "./schema";
+ import type { BankEnvelope, ImportSummary, Question, QuestionRecord } from "./types";
+ 
+@@ -210,7 +211,9 @@ const hasIoTrend = (question: Question) =>
+ 
+ export const toExportEnvelope = (questions: Question[]): BankEnvelope => ({
+   meta: {
+-    schemaVersion: questions.some(hasStructuredMeasurementV2Feature)
++    schemaVersion: questions.some(hasTypedCaseBaseline)
++      ? "2.1"
++      : questions.some(hasStructuredMeasurementV2Feature)
+       ? "2.0"
+       : questions.some(hasIoTrend)
+       ? "1.9"
+diff --git a/src/examLayout.ts b/src/examLayout.ts
+index dbcb9e8..666bee8 100644
+--- a/src/examLayout.ts
++++ b/src/examLayout.ts
+@@ -1,3 +1,4 @@
++import { resolveCaseVisibilityBoundary } from "./caseVisibilityBoundary";
+ import type {
+   CaseStudyQuestion,
+   CaseStudyStage,
+@@ -43,18 +44,7 @@ export const getVisibleCaseStages = (
+   activeQuestion?: CaseSubQuestion,
+ ): CaseStudyStage[] => {
+   const stages = question.caseStudy.stages ?? [];
+-  if (!activeQuestion || stages.length === 0) return [];
+-  const stageIndexById = new Map(stages.map((stage, index) => [stage.id, index] as const));
+-  const answerableAfterStageIndex =
+-    activeQuestion.answerableAfterStageId !== undefined
+-      ? stageIndexById.get(activeQuestion.answerableAfterStageId)
+-      : undefined;
+-  if (answerableAfterStageIndex !== undefined) {
+-    return stages.slice(0, answerableAfterStageIndex + 1);
+-  }
+-  const stageIndex = activeQuestion.stageId !== undefined ? stageIndexById.get(activeQuestion.stageId) : undefined;
+-  if (stageIndex !== undefined) {
+-    return stages.slice(0, stageIndex + 1);
+-  }
+-  return stages;
++  const resolution = resolveCaseVisibilityBoundary(activeQuestion, stages.map(stage => stage.id));
++  if (resolution.kind === "prefix") return stages.slice(0, resolution.index + 1);
++  return resolution.kind === "fail-open" ? stages : [];
+ };
+diff --git a/src/schema.ts b/src/schema.ts
+index fe9c6de..8295463 100644
+--- a/src/schema.ts
++++ b/src/schema.ts
+@@ -1,3 +1,4 @@
++import { hasTypedCaseBaseline, isCaseBaselineBoundary } from "./caseVisibilityBoundary";
+ import type {
+   BankEnvelope,
+   BowtieQuestion,
+@@ -27,7 +28,7 @@ export { rhythmClasses } from "./visuals/kinds/rhythmStrip";
+ 
+ export const SCHEMA_VERSION = "2.0";
+ 
+-export const supportedSchemaVersions = ["1.0", "1.1", "1.2", "1.3", "1.4", "1.5", "1.6", "1.7", "1.8", "1.9", "2.0"] as const satisfies readonly SchemaVersion[];
++export const supportedSchemaVersions = ["1.0", "1.1", "1.2", "1.3", "1.4", "1.5", "1.6", "1.7", "1.8", "1.9", "2.0", "2.1"] as const satisfies readonly SchemaVersion[];
+ 
+ export const categories = [
+   "Management of Care",
+@@ -1194,8 +1195,12 @@ const validateCaseStudy = (question: CaseStudyQuestion, reasons: string[]) => {
+     if (caseQuestion.stageId !== undefined && !nonEmptyString(caseQuestion.stageId)) {
+       reasons.push(`caseStudy.questions[${index}].stageId must be non-empty when present`);
+     }
+-    if (caseQuestion.answerableAfterStageId !== undefined && !nonEmptyString(caseQuestion.answerableAfterStageId)) {
+-      reasons.push(`caseStudy.questions[${index}].answerableAfterStageId must be non-empty when present`);
++    if (
++      caseQuestion.answerableAfterStageId !== undefined &&
++      !nonEmptyString(caseQuestion.answerableAfterStageId) &&
++      !isCaseBaselineBoundary(caseQuestion.answerableAfterStageId)
++    ) {
++      reasons.push(`caseStudy.questions[${index}].answerableAfterStageId must be a non-empty string or exact {kind:"baseline"} object when present`);
+     }
+     const result = validateQuestion(caseQuestion, { allowCaseStudy: false });
+     if (!result.ok) {
+@@ -1413,6 +1418,10 @@ export const validateBankObject = (raw: unknown, options: ValidateBankOptions =
+       reasons.push(`questions[${index}]: ${result.reasons.join("; ")}`);
+       return;
+     }
++    if (schemaVersion !== undefined && hasTypedCaseBaseline(result.value) && !schemaVersionAtLeast(schemaVersion, "2.1")) {
++      reasons.push(`questions[${index}]: typed baseline boundary requires meta.schemaVersion 2.1`);
++      return;
++    }
+     if (
+       schemaVersion !== undefined &&
+       !schemaVersionAtLeast(schemaVersion, "1.1") &&
+diff --git a/src/types.ts b/src/types.ts
+index b416afc..00d8bda 100644
+--- a/src/types.ts
++++ b/src/types.ts
+@@ -3,7 +3,7 @@ export type TextPair = {
+   zh: string;
+ };
+ 
+-export type SchemaVersion = "1.0" | "1.1" | "1.2" | "1.3" | "1.4" | "1.5" | "1.6" | "1.7" | "1.8" | "1.9" | "2.0";
++export type SchemaVersion = "1.0" | "1.1" | "1.2" | "1.3" | "1.4" | "1.5" | "1.6" | "1.7" | "1.8" | "1.9" | "2.0" | "2.1";
+ 
+ export type StandaloneItemType =
+   | "multiple_choice"
+@@ -237,7 +237,7 @@ export type CaseStudyStage = {
+ 
+ export type CaseSubQuestion = StandaloneQuestion & {
+   stageId?: string;
+-  answerableAfterStageId?: string;
++  answerableAfterStageId?: string | { kind: "baseline" };
+ };
+ 
+ export type CaseStudyQuestion = CommonQuestion & {

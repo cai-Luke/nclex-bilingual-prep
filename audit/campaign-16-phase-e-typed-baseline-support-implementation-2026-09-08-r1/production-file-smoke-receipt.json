@@ -1,0 +1,51 @@
+{
+  "status": "PASS",
+  "witness": "Luke",
+  "witnessRole": "External manual production-file smoke witness; not the P2 implementation-conformance checker",
+  "observedAt": "2026-09-09T21:00:00-04:00",
+  "observedTimeApproximate": true,
+  "witnessTimeVerbatim": "2026-09-09, ~9:00 PM ET",
+  "recordedAt": "2026-09-10T01:05:47.893512+00:00",
+  "absolutePath": "/Users/holemini/Desktop/Project Shrimp/dist/index.html",
+  "witnessArtifactPathVerbatim": "./Project Shrimp/dist/index.html",
+  "protocol": "file://",
+  "resolvedFileUrl": "file:///Users/holemini/Desktop/Project%20Shrimp/dist/index.html",
+  "urlProvenance": "Resolved from the agreed absolute local path and witness-confirmed file protocol; witness did not paste the full address string.",
+  "browser": {
+    "name": "Chrome",
+    "version": "152"
+  },
+  "aggregateBuildIdentitySha256": "0b2e2bce6a5cd964d23749a74512e429da8418cfc124272dfa9fb9ee62d5b925",
+  "indexSha256": "92025bdb98ee2ce4019fa08f7bcd7c041b75780e992f1b22d4df08b3b3b87135",
+  "observations": [
+    {
+      "criterion": "actual production file opened locally",
+      "status": "PASS",
+      "observation": "Luke confirmed the current frozen dist/index.html was opened directly under file:// without rebuilding or changing it."
+    },
+    {
+      "criterion": "application shell renders",
+      "status": "PASS",
+      "observation": "The app rendered normally."
+    },
+    {
+      "criterion": "bundled data loads",
+      "status": "PASS",
+      "observation": "Bundled question content loaded."
+    },
+    {
+      "criterion": "ordinary interaction works",
+      "status": "PASS",
+      "observation": "Luke navigated into the ordinary question flow and normal use worked."
+    },
+    {
+      "criterion": "no blocking path/module/asset failure",
+      "status": "PASS",
+      "observation": "No path, module, asset, or question-loading failure prevented normal use."
+    }
+  ],
+  "artifactIdentityConfirmedByWitness": true,
+  "artifactIdentityStatement": "Luke explicitly identified this aggregate build digest and confirmed opening the current frozen production file without rebuilding or changing it. Producer post-witness full-tree/source recheck matches that identity.",
+  "postWitnessIdentityReceipt": "post-witness-identity-recheck.json",
+  "evidenceSource": "Luke’s explicit external smoke report in this task on 2026-09-09; self-reported manual observation, not producer browser observation."
+}

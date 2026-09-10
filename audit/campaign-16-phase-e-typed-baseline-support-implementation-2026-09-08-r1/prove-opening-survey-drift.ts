@@ -1,0 +1,27 @@
+import { build } from 'esbuild';
+import { execFileSync } from 'node:child_process';
+import { createHash } from 'node:crypto';
+import { readFile, writeFile } from 'node:fs/promises';
+import { relative, resolve } from 'node:path';
+const root=process.cwd();
+const out=import.meta.dirname;
+const opening=JSON.parse(await readFile(resolve(out,'opening-state.json'),'utf8'));
+const manifest=JSON.parse(await readFile(resolve(out,'historical-stopped-implementation-manifest.json'),'utf8'));
+const sourcePaths=new Set<string>(manifest.changedFiles.map((r:any)=>r.path));
+const reconstructed:Record<string,string>={};
+await build({stdin:{contents:'export {buildSingleRowLabPanelsSurvey,serializeSingleRowLabPanelsSurvey} from "./scripts/single-row-lab-panels-survey";',resolveDir:root,loader:'ts'},outfile:resolve(out,'opening-survey-module.mjs'),bundle:true,platform:'node',format:'esm',packages:'external',logLevel:'silent',plugins:[{name:'verified-opening-source',setup(b){b.onLoad({filter:/\.[cm]?[jt]sx?$/},async(args)=>{
+ const path=relative(root,args.path);if(!sourcePaths.has(path))return;
+ const bytes=execFileSync('git',['show',`${opening.head}:${path}`]);
+ const sha=createHash('sha256').update(bytes).digest('hex');
+ if(sha!==opening.hashes[path])throw new Error('HEAD bytes do not equal opening source: '+path);
+ reconstructed[path]=sha;return {contents:bytes.toString('utf8'),loader:path.endsWith('tsx')?'tsx':'ts',resolveDir:resolve(root,path,'..')};
+});}}]});
+const original=await import('./opening-survey-module.mjs');
+const openingGenerated=original.serializeSingleRowLabPanelsSurvey(await original.buildSingleRowLabPanelsSurvey());
+const current=await readFile(resolve(out,'survey-current-diagnostic.json'),'utf8');
+const saved=await readFile('audit/single-row-lab-panels-survey-2026-07-18/survey-manifest.json','utf8');
+const sha=(s:string)=>createHash('sha256').update(s).digest('hex');
+const receipt={reconstruction:'Read-only original source bytes verified against opening-state hashes; live bank bytes previously verified unchanged from opening. No checkout, reset, or source replacement.',reconstructedSources:reconstructed,openingGeneratedSha256:sha(openingGenerated),currentGeneratedSha256:sha(current),savedManifestSha256:sha(saved),openingEqualsCurrent:openingGenerated===current,openingEqualsSaved:openingGenerated===saved};
+await writeFile(resolve(out,'opening-survey-drift-proof.json'),JSON.stringify(receipt,null,2)+'\n');
+console.log(JSON.stringify(receipt,null,2));
+if(!receipt.openingEqualsCurrent||receipt.openingEqualsSaved)process.exitCode=1;

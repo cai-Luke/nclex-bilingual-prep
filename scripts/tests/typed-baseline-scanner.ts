@@ -1,0 +1,38 @@
+import assert from "node:assert/strict";
+import { spawnSync } from "node:child_process";
+import { mkdir, mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
+import { tmpdir } from "node:os";
+import { join, resolve } from "node:path";
+import { typedBaselineBank } from "./typed-baseline-fixture";
+import { validateBankObject } from "../../src/schema";
+import type { CaseStudyQuestion } from "../../src/types";
+const repo = resolve(import.meta.dirname, "../..");
+const root = await mkdtemp(join(tmpdir(), "shrimp-baseline-scanner-"));
+try {
+  await mkdir(join(root, "banks"));
+  const path = join(root, "banks/gemini-canonical.json");
+  const run = () => spawnSync(join(repo, "node_modules/.bin/tsx"), [join(repo, "scripts/scan-unknown-keys.ts")], { cwd: root, encoding: "utf8" });
+  const fixture = typedBaselineBank();
+  await writeFile(path, JSON.stringify(fixture));
+  let result = run();
+  assert.equal(result.status, 0, result.stdout + result.stderr);
+  assert.match(result.stdout, /off-schema key occurrences: 0/);
+  const part = (fixture.questions[0] as CaseStudyQuestion).caseStudy.questions[0];
+  Object.assign(part.answerableAfterStageId!, { extra: true });
+  await writeFile(path, JSON.stringify(fixture));
+  result = run();
+  assert.equal(result.status, 1, result.stdout + result.stderr);
+  assert.match(await readFile(join(root, "unknown-key-gate-report.md"), "utf8"), /caseBaselineBoundary.*extra/);
+  part.answerableAfterStageId = { kind: "baseline" };
+  Object.assign(part, { kind: "baseline" });
+  await writeFile(path, JSON.stringify(fixture));
+  result = run();
+  assert.equal(result.status, 1, "kind must not be whitelisted on the question");
+  assert.match(result.stdout, /distinct keys: kind/);
+  delete (part as unknown as Record<string, unknown>).kind;
+  Object.assign(part, { answerableAfterStageId: { kind: "wrong" } });
+  await writeFile(path, JSON.stringify(fixture));
+  assert.equal(run().status, 0, "scanner only checks keys, not validity of their values");
+  assert.equal(validateBankObject(fixture).ok, false, "core validator remains authoritative");
+} finally { await rm(root, { recursive: true, force: true }); }
+console.log("isolated scan-unknown-keys CLI fixture passed: nested kind accepted, extra/global kind rejected, core validity authoritative");

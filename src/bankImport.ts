@@ -1,3 +1,4 @@
+import { hasTypedCaseBaseline } from "./caseVisibilityBoundary";
 import { collectAllVisuals, validateQuestion } from "./schema";
 import type { BankEnvelope, ImportSummary, Question, QuestionRecord } from "./types";
 
@@ -210,7 +211,9 @@ const hasIoTrend = (question: Question) =>
 
 export const toExportEnvelope = (questions: Question[]): BankEnvelope => ({
   meta: {
-    schemaVersion: questions.some(hasStructuredMeasurementV2Feature)
+    schemaVersion: questions.some(hasTypedCaseBaseline)
+      ? "2.1"
+      : questions.some(hasStructuredMeasurementV2Feature)
       ? "2.0"
       : questions.some(hasIoTrend)
       ? "1.9"

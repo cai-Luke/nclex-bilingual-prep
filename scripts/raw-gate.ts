@@ -95,7 +95,7 @@ const rawStageResult = (prepared: PreparedPromotionPreview): AuditResult => {
     { strict: true },
   );
   return findings.length === 0
-    ? pass("audit:stage-refs:raw-policy", "All staged case parts carry resolving primary stage anchors.")
+    ? pass("audit:stage-refs:raw-policy", "All staged case parts carry resolving primary visibility boundaries.")
     : failure(
         "audit:stage-refs:raw-policy",
         `${findings.length} raw stage-reference finding(s); every finding kind is blocking:\n${findings.map(renderStageFinding).join("\n")}`,

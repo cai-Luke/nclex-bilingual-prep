@@ -1,0 +1,243 @@
+[
+  {
+    "name": "no active part",
+    "stages": [
+      "s1",
+      "s2",
+      "s3"
+    ],
+    "kind": "no-part",
+    "visible": []
+  },
+  {
+    "name": "no declared stages",
+    "part": {
+      "answerableAfterStageId": {
+        "kind": "baseline"
+      }
+    },
+    "stages": [],
+    "kind": "no-stages",
+    "visible": []
+  },
+  {
+    "name": "typed baseline wins over legacy",
+    "part": {
+      "answerableAfterStageId": {
+        "kind": "baseline"
+      },
+      "stageId": "s3"
+    },
+    "stages": [
+      "s1",
+      "s2",
+      "s3"
+    ],
+    "kind": "baseline",
+    "visible": []
+  },
+  {
+    "name": "resolving primary",
+    "part": {
+      "answerableAfterStageId": "s2",
+      "stageId": "s3"
+    },
+    "stages": [
+      "s1",
+      "s2",
+      "s3"
+    ],
+    "kind": "prefix",
+    "visible": [
+      "s1",
+      "s2"
+    ]
+  },
+  {
+    "name": "unresolved primary legacy fallback",
+    "part": {
+      "answerableAfterStageId": "stale",
+      "stageId": "s2"
+    },
+    "stages": [
+      "s1",
+      "s2",
+      "s3"
+    ],
+    "kind": "prefix",
+    "visible": [
+      "s1",
+      "s2"
+    ]
+  },
+  {
+    "name": "absent primary legacy fallback",
+    "part": {
+      "stageId": "s1"
+    },
+    "stages": [
+      "s1",
+      "s2",
+      "s3"
+    ],
+    "kind": "prefix",
+    "visible": [
+      "s1"
+    ]
+  },
+  {
+    "name": "both unresolved",
+    "part": {
+      "answerableAfterStageId": "stale",
+      "stageId": "bad"
+    },
+    "stages": [
+      "s1",
+      "s2",
+      "s3"
+    ],
+    "kind": "fail-open",
+    "visible": [
+      "s1",
+      "s2",
+      "s3"
+    ]
+  },
+  {
+    "name": "both absent",
+    "part": {},
+    "stages": [
+      "s1",
+      "s2",
+      "s3"
+    ],
+    "kind": "fail-open",
+    "visible": [
+      "s1",
+      "s2",
+      "s3"
+    ]
+  },
+  {
+    "name": "malformed primary legacy fallback",
+    "part": {
+      "answerableAfterStageId": {
+        "kind": "baseline",
+        "extra": true
+      },
+      "stageId": "s2"
+    },
+    "stages": [
+      "s1",
+      "s2",
+      "s3"
+    ],
+    "kind": "prefix",
+    "visible": [
+      "s1",
+      "s2"
+    ]
+  },
+  {
+    "name": "malformed primary bad legacy",
+    "part": {
+      "answerableAfterStageId": {},
+      "stageId": "bad"
+    },
+    "stages": [
+      "s1",
+      "s2",
+      "s3"
+    ],
+    "kind": "fail-open",
+    "visible": [
+      "s1",
+      "s2",
+      "s3"
+    ]
+  },
+  {
+    "name": "malformed primary absent legacy",
+    "part": {
+      "answerableAfterStageId": {}
+    },
+    "stages": [
+      "s1",
+      "s2",
+      "s3"
+    ],
+    "kind": "fail-open",
+    "visible": [
+      "s1",
+      "s2",
+      "s3"
+    ]
+  },
+  {
+    "name": "opaque baseline",
+    "part": {
+      "answerableAfterStageId": "baseline"
+    },
+    "stages": [
+      "s1",
+      "s2",
+      "s3"
+    ],
+    "kind": "fail-open",
+    "visible": [
+      "s1",
+      "s2",
+      "s3"
+    ]
+  },
+  {
+    "name": "opaque @@case-baseline",
+    "part": {
+      "answerableAfterStageId": "@@case-baseline"
+    },
+    "stages": [
+      "s1",
+      "s2",
+      "s3"
+    ],
+    "kind": "fail-open",
+    "visible": [
+      "s1",
+      "s2",
+      "s3"
+    ]
+  },
+  {
+    "name": "opaque admission",
+    "part": {
+      "answerableAfterStageId": "admission"
+    },
+    "stages": [
+      "s1",
+      "s2",
+      "s3"
+    ],
+    "kind": "fail-open",
+    "visible": [
+      "s1",
+      "s2",
+      "s3"
+    ]
+  },
+  {
+    "name": "declared baseline string",
+    "part": {
+      "answerableAfterStageId": "baseline"
+    },
+    "stages": [
+      "s1",
+      "baseline",
+      "s3"
+    ],
+    "kind": "prefix",
+    "visible": [
+      "s1",
+      "baseline"
+    ]
+  }
+]

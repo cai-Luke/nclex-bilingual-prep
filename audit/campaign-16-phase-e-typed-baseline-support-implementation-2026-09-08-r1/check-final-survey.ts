@@ -1,0 +1,11 @@
+import assert from 'node:assert/strict';
+import { createHash } from 'node:crypto';
+import { readFile, writeFile } from 'node:fs/promises';
+import { buildSingleRowLabPanelsSurvey, serializeSingleRowLabPanelsSurvey, OUTPUT_PATH } from '../../scripts/single-row-lab-panels-survey';
+const sha=(s:string)=>createHash('sha256').update(s).digest('hex');
+const generatedSha256=sha(serializeSingleRowLabPanelsSurvey(await buildSingleRowLabPanelsSurvey()));
+const savedSha256=sha(await readFile(OUTPUT_PATH,'utf8'));
+assert.equal(generatedSha256,'6e4a5cc93a4f943f75d91fc1707bad44abf5ebd376e843ee5dc21d9072f398dc');
+assert.equal(savedSha256,'f042bd39094e543ab30d6a6dd87081b1ebdead6d7182fa07711ebb53d0552942');
+await writeFile(new URL('./final-survey-baseline-recheck.json',import.meta.url),JSON.stringify({timestamp:new Date().toISOString(),generatedSha256,savedSha256,status:'PASS',baselineExceptionStillValid:true},null,2)+'\n');
+console.log('PASS: final generated and protected saved survey hashes match admitted baseline');
