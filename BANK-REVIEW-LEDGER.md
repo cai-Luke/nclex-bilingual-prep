@@ -24,7 +24,7 @@ This ledger tracks which generated question banks are safe to treat as reviewed 
    - dosage-calculation errors
    - bilingual mismatches or confusing Chinese translations
    - overly absolute wording where modern protocol is conditional
-4. Treat raw model output in `banks-raw/` as temporary staging. Apply fixes only to the reviewed/promoted copy or during canonical-bank consolidation, not to the raw file.
+4. Treat raw model output in `banks-raw/` as temporary staging. When a raw candidate needs repair, use the controlled raw-edit procedure in `docs/AGENTS-RUNBOOK.md` and `DECISIONS.md` P15 (serializer-backed/declarative patching with validation), rather than hand-editing structure or redirecting fixes to promoted content. If a work order requires an immutable source, preserve that source and patch a designated working copy.
 5. Re-run validation after edits.
 6. Run `npm run promote` to write the shuffled reviewed copy into `banks/_promoted/`, then `npm run audit` before consolidation. `banks/_promoted/` is non-bundled staging; top-level `banks/*.json` files are the only bundled app sources.
 7. Merge only reviewed, valid questions with `npm run consolidate` after a dry run confirms the route, ID-collision gate, and resulting `meta.count`.
@@ -1566,3 +1566,46 @@ expected no-raw-draft integrity notice and pre-existing stage-reference advisory
 bowtie, schema-bank, topic-vocabulary, and topic-license regressions passed; TypeScript passed; census
 and coverage artifacts regenerated at 1,892 session units / 2,478 scored leaves / 199 visual
 artifacts; `census:check`, production build, and `git diff --check` passed.
+
+### 2026-08-29 — Campaign 16 Phase D combined failing bow-tie repair
+
+Status: `reviewed-canonical-correction`. The Phase D paired/unpaired roster was repaired in place after
+the exact future payloads cleared the owner-authorized independent checker at
+`audit/campaign-16-phase-d-check-2026-08-29-r2-retry-1/` with
+`CAMPAIGN16_PHASE_D_CONTENT_READY` and 12/12 `PASS_STANDALONE` dispositions. Paired provenance is the
+frozen 2026-08-23 standalone bow-tie answerability census (`report.md` and `adjudication.jsonl`); the
+unpaired exercise-associated hypoglycemia provenance is the Phase C r5 adjudication plus the owner
+disposition preserved in `audit/campaign-16-phase-c-closeout-2026-08-28-r6/owner-adjudication.md`.
+
+Reviewed target IDs (12):
+
+- `gpt_case_caregiver_role_strain_dementia_01_bowtie`
+- `gpt_case_infection_control_clustered_care_01_bowtie`
+- `gpt_case_acute_hemolytic_transfusion_reaction_01_bowtie`
+- `gpt_case_client_advocacy_refusal_01_bowtie`
+- `gpt_case_lateral_incivility_01_bowtie`
+- `gpt_case_mass_casualty_start_triage_01_bowtie`
+- `gpt_case_gbs_respiratory_compromise_01_bowtie`
+- `gpt_case_hipaa_disclosure_breach_01_bowtie`
+- `gpt_case_neutropenic_fever_nadir_01_bowtie`
+- `gpt_case_unsafe_premature_discharge_01_bowtie`
+- `gpt_pph_2026_06_16_case_01_bowtie`
+- `gpt_format7c_exercise_hypoglycemia_bowtie`
+
+Applied `scripts/patches/2026-08-29-campaign16-phase-d-bowtie-repair.ts` for the recorded reason
+“Campaign 16 Phase D: independently reviewed construct-preserving repair of 12 standalone bow-tie
+premise defects”: 225 exact declarative field operations (201 in `banks/gpt-canonical.json`, 24 in
+`banks/hard-cases-canonical.json`). The patch preserved all IDs, categories, topics, difficulties,
+item types, NGN skills, token IDs/order, keyed selections, 3/4/4 response shape, 1/2/2 scoring
+cardinality, and the tested constructs; P26 non-authorized-field preservation passed 12/12. Direct
+English/Simplified-Chinese inspection passed for every changed learner-facing field. All repairs were
+premise-neutral except the GBS IVIG safety qualifier, which the independent checker accepted against
+the FDA-approved GAMMAGARD LIQUID prescribing information recorded in the repair manifest.
+
+Verification: the live candidate hashes matched the checker-frozen after-payload hashes 12/12;
+38/38 prior-`PASS_STANDALONE` controls, 11/11 companions, and all non-target record payloads/order were
+unchanged. The pre-write dry run and post-write zero-write idempotency check passed. Explicit
+`validate-bank -- banks/*.json`, unknown-key scan, aggregate audit, bow-tie, grading, schema-bank,
+authorial-constraint and producer-vocabulary regressions, TypeScript, `census:check`, production build,
+and `git diff --check` all exited 0; census artifacts were not regenerated. Full receipts are under
+`audit/campaign-16-phase-d-bowtie-repair-2026-08-29-r2/`.

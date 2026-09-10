@@ -1,8 +1,12 @@
 # Stage-Reference Semantic Census — Deterministic Packet Build and Gemini Calibration
 
+> **SUPERSEDED / NON-GOVERNING / DO NOT EXECUTE**
+>
+> This specification is preserved as a historical record of the July 2026 experiment and its deterministic preparation machinery. The Gemini semantic-classifier arm is retired from the live stage-reference census by owner decision on 2026-08-26. No Stage B–E dispatch, scoring, calibration completion, or full-census authorization may proceed from this document. Any future semantic census must be separately recommissioned under the Campaign 16 quality-closeout authority using an authorized non-Gemini producer/checker lane. Existing deterministic builders, manifests, attestations, and validators may be reused only when the new commission explicitly authorizes them.
+
 Date: 2026-07-23
 Architect seat: GPT-5.6 Thinking
-Status: **Stage A materialized; Gemini dispatch held for the frozen hidden-key attestation**
+Historical status: **Stage A materialized; Gemini calibration artifacts produced; remaining Gemini-governed stages superseded on 2026-08-26**
 Purpose: classify the existing `revealsAllStages` advisory population without treating every fail-open case as an actual learner-answer leak
 
 ---

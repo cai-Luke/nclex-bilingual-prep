@@ -57,6 +57,63 @@ A `validate-bank` JSON parse error on a `banks/banks-raw/*.json` file is almost 
 
 Work spec-first: plan and specify here, hand implementation to Codex or Claude Code, PR to GitHub. Prefer small, well-scoped changes that match existing patterns; do not rewrite app architecture during feature work.
 
+## Handoff: naming the seat
+
+Every work order names exactly who executes it. A header that says only "Codex" is incomplete — Codex is a harness, not a model, and both the model and the reasoning effort change what comes back.
+
+Required header, before section 0:
+
+```
+**Implementation seat:** <Codex | Claude Code> / <role>
+**Model:** <exact current model>
+**Reasoning effort:** <level>   [Codex required; Claude Code when non-default]
+**Independent review:** <seat / rule, when required>
+**Date:** <YYYY-MM-DD>
+**Mode:** <...>
+```
+
+Close the work order with a one-line trailer so the launch is unambiguous:
+
+```
+SEND TO: Codex — GPT-5.6 Sol — high
+```
+
+Applies to work orders authored from 2026-08-27 forward; earlier ones are not retrofitted. The launch block stays inline in conversation — do not write a separate `scratch/*-LAUNCH-PROMPT.txt`, since the work order on disk is the artifact.
+
+### Independent review
+
+`Independent review:` names a seat or a rule, never a blanket disqualification. Per `DECISIONS.md` P2 — Application: the seat that produced the artifact under review is not its sole substantive checker, while spec-conformance verification stays with the architect who wrote the spec. Claude Code implementing a Claude-authored work order is therefore ordinary and needs no separate ratification.
+
+The one carve-out is content, not code. Learner-facing clinical material keeps its existing provenance routing under P5 and the standing invariant on promoted `opus*`-prefixed case IDs, under which Claude-authored items route to a non-Claude reviewer. That governs the content surface only and says nothing about who may implement a spec.
+
+### Current routing — reviewed 2026-09-05
+
+Operational state, not a project invariant. Update it when the roster changes or when observed model behavior changes. This table is expected to go stale and is maintained rather than abstracted.
+
+| Seat / model | Route here when |
+|---|---|
+| Codex / GPT-5.6 Luna | Tightly bounded mechanical implementation: enumerated edits with quoted anchors, mechanical refactors, scaffolding against a fixed matrix. |
+| Codex / GPT-5.6 Sol | Residual judgment: an anchor that may have drifted, a decision the spec deliberately leaves open, multi-file coherence, or a step whose correct action depends on what the implementer finds in source. |
+| Codex / GPT-6 Astra | **Provisional high-judgment/orchestration lane.** Use for explicit trials where difficult multi-file reasoning, long-horizon recovery, or bounded delegation may help. Do not displace the established Luna/Sol/Claude Code routes by default until reviewed Project Shrimp implementation evidence supports permanent rerouting. Delegation remains governed by `AGENTS.md`; selecting Astra or a high-effort mode does not create checker independence or expand task authority. |
+| Claude Code / Claude Sonnet 5 | Default Claude Code lane. Looser spec, implementer expected to fill gaps sensibly; work where reading the surrounding code matters more than recognizing the problem shape. |
+| Claude Code / Claude Opus 5 | Judgment-heavy or coherence-critical work where a passing build does not guarantee correct logic — schema, grading, promotion routing, anything touching a data contract. |
+
+Deliberately unrouted, so a future reader knows the gaps are choices:
+
+- **GPT-5.6 Terra** — bounded work goes to Luna and judgment work to Sol; nothing currently sits between them. A routing call, not an assessment of the model.
+- **Claude Haiku 4.5** — not routed to at any tier. Version bumps do not reopen this lane.
+- **Claude Fable 5** — closed by access rather than by judgment. Safeguards routing intercepts biology-adjacent requests, which covers effectively this whole project's content surface, so the lane has never been usable here in practice. Revisit if that changes.
+
+If a work order **intended to be mechanical** cannot be assigned to Luna without adding judgment calls, that is a signal it is under-specified — tighten it, or route to Sol deliberately rather than by default. A work order that was never meant to be bounded simply goes to Sol.
+
+### Reasoning effort
+
+A separate dial from model choice; set both deliberately. Name effort using the selected model's current runtime vocabulary rather than assuming one fixed label set. Current local Codex metadata (reviewed 2026-09-05) exposes `ultra` as an effort choice associated with automatic delegation for both Sol and Astra, while public API documentation uses different effort names. That setting does not expand task authorization. Do not infer API equivalence or capability differences from UI/runtime labels alone.
+
+Set effort by the task's dominant failure mode. **high** is the default for anything carrying a source-verification gate or reconstructing behavior from source. Drop to **medium** when the work order is fully enumerated and the dominant risk is doing more than asked. Reserve the selected runtime's highest effort levels for exceptionally difficult reasoning that is nonetheless fully in scope; difficulty is the trigger, not ambiguity. Where a work order does not confer authority to decide, the correct behavior is stop-and-report at any effort level, and raising effort never substitutes for the missing authorization.
+
+More effort is not free of behavioral risk — on a tightly fenced task it raises the chance of scope drift, not the chance of a correct edit. For Claude Code, use the model's default and name a level in the header only when departing from it.
+
 ## House style for your work
 
 - **Deterministic core, LLM only for the irreducible semantic residual — and cap it.** Counting, distributions, and permutation checks are scripts, never model calls. See `DECISIONS.md` for why.
@@ -84,5 +141,5 @@ Review the report, then add `--write` if the changes are the expected enum/gloss
 If a new kind is ever proposed (the renderer surface is complete, so this is now the exception, not the workflow) — or when opening a content lane:
 
 - Consult the "add a kind" checklist in `NCLEX-Question-Schema.md` and the per-kind visual specs in `Archive/` (`U*-*-SPEC.md`).
-- Honor the five-stage visual promotion gate in `AGENTS.md` and the non-negotiables: deterministic, locally rendered, inspectable from structured data, and **educationally necessary** — a visual whose removal leaves the answer unchanged is decorative and therefore invalid — and never an AI-generated medical image.
+- Honor the five-stage visual promotion gate in `AGENTS.md` and the non-negotiables for question-level visual stimuli: deterministic, locally rendered, inspectable from structured data, and **educationally necessary** — a stimulus whose removal leaves the answer unchanged is decorative and therefore invalid — and never an AI-generated medical image. Rationale explanation figures are governed separately by `DECISIONS.md` P19 and the schema's rationale-visual contract.
 - Every kind ships with `selfCheck` assertions and passes registry conformance + determinism + parity tests (`npm run test-visuals`).

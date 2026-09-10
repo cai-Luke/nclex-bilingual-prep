@@ -26,12 +26,17 @@ For substantive coding, schema, bank-promotion, audit, or content-review work, s
 
 If repo files conflict with project memory, uploaded files, or reports from Claude, Gemini, Opus, Codex, or prior ChatGPT sessions, prefer the repo unless Luke explicitly says a pasted or uploaded document supersedes it for the current task.
 
-### Context Compaction Recovery
+### Instruction Authority
 
-If the conversation/context has been compacted or summarized during an active task, or task-goal drift is suspected, **do not continue from the compacted summary alone**.
+Model-specific files apply only to their named seat or invoked workflow and remain subordinate to general project governance. Luke may explicitly supersede routine defaults and work-order scope. Amending or suspending a binding invariant requires an explicit owner decision identifying the rule and scope; relaxation follows `DECISIONS.md` P27 and is recorded. An incidental conflict is not an amendment. Report unresolved conflicts that affect an action, but continue separable authorized work. Platform and tool restrictions remain applicable.
 
-- If the task was launched from a named work order, spec, or handoff on disk, reopen and reread that active document before further implementation or any acceptance/completion claim. Treat it as authoritative for scope, prohibitions, acceptance criteria, and stopping conditions unless Luke explicitly superseded it later.
-- Reconstruct actual progress from repository state: inspect the current branch/worktree, `git status`, the relevant diff, and already-produced artifacts or verification results. Do not redo or undo work merely because the compacted summary omitted it.
+### Context Recovery Across Sessions and Compaction
+
+Apply recovery when resuming from summaries, saved notes, retrieved earlier context, cross-session memory, or when task-goal drift is suspected. Historical or recovered context may establish prior instructions and authorizations, rationale, rejected approaches, attempts, and previously observed results; it does **not** establish current repository or verification state.
+
+- If the task was launched from a named work order, spec, or handoff on disk, reopen and reread that active document before further implementation or any acceptance/completion/adjudication claim. Treat it as authoritative for scope, prohibitions, acceptance criteria, and stopping conditions unless Luke explicitly superseded it later.
+- Reconstruct actual progress from repository state: inspect the current branch/worktree, `git status`, the relevant diff, and already-produced artifacts or verification results. Do not redo or undo work merely because recovered context omitted or distorted it.
+- Reuse prior verification only after confirming that its inputs and relevant conditions still match the live state.
 - Reconcile the active document against the on-disk state, then continue from the remaining requirements.
 - Keep recovery narrow: do not reread broad governance or historical documents unless the active spec cites them or a concrete conflict requires them.
 
@@ -73,6 +78,8 @@ Ratified by `DECISIONS.md` principle 27(a). These are floors, not ceilings. Anyt
 | **Bank content** | `banks/*.json`, `banks/banks-raw/*` | Full promotion pipeline (principle 5): normalize → promote → audit → producer≠checker review → consolidate → ledger entry → census. No reduced tier exists. |
 | **Renderers** | `src/visuals/**` | `npm run test-visuals`; kind-specific test; `selfCheck` regressions; visual smoke/parity check; `npm run validate-bank -- banks/*.json`; `npm run build`. A load-bearing arithmetic or hybrid kind (`io_record`, `io_trend`, `medication_label`, `device_screen`, `burn_map`) also needs explicit before/after `selfCheck` proof; compare numeric values whenever `derived_values_keyed` is present, while a keyed-settings-only `device_screen` or pattern-only `io_trend` uses its checked semantic proof surface instead. Calibrated tracing geometry (`rhythm_strip`, `capnography`, `fetal_monitoring`) always needs a visual smoke. |
 
+Verification is complete when all checks and reviews applicable to the final change and work order have passed and identified concerns are resolved. Broaden or repeat verification only for changed inputs, failed or inconclusive checks, a new concrete concern, or an explicit acceptance requirement; otherwise proceed to the next authorized handoff. This does not discharge pending independent review or confer promotion authority.
+
 **Census drift procedure:**
 
 - If no census movement is expected, run `npm run census:check` only. A failure is blocking evidence to investigate, not permission to regenerate.
@@ -93,7 +100,7 @@ Ratified by `DECISIONS.md` principle 27(a). These are floors, not ceilings. Anyt
 - For clinical claims, prefer authoritative sources such as professional guidelines, government health agencies, drug labels, and established clinical references. Be especially strict with medication, lab, dosage, prioritization, and delegation items.
 - In learner-facing prose, present temperatures in US-conventional Fahrenheit first with Celsius in parentheses, preserving source precision (for example, `100.9 °F (38.3 °C)`). Typed visual and structured-measurement payloads continue to follow their renderer/unit contracts.
 - Authoring and checker constraints must not appear as learner-facing disclaimers. Encode scope, protocol, and role boundaries in the clinical context and response choices, and explain them in the rationale; do not append instructions such as “Do not independently prescribe or change a dose” to a stem.
-- Do not AI-generate medical images. A visual must be deterministic data-derived or a curated licensed image, and it must be load-bearing: if removing it leaves the answer unchanged, it is decorative and the item is invalid.
+- Do not AI-generate medical images. A question-level visual stimulus must be deterministic data-derived or a curated licensed image and must be load-bearing: if removing it leaves the answer unchanged, it is decorative and the item is invalid. Rationale explanation figures follow `DECISIONS.md` P19 and the schema's *Rationale explanation visuals* contract rather than the question-stimulus necessity rule.
 - Edit raw bank JSON programmatically; never retype its structure. See the runbook's *Editing raw bank JSON* section for the corruption modes this prevents and the exact commands.
 
 ## Visual Question Workflow
@@ -111,6 +118,12 @@ The project is in late-stage maintenance and expansion:
 - Keep schema changes rare and deliberate.
 - Add focused regression tests or browser automation if tooling becomes available.
 - Consider optional remote bank updates only if manual bundled-bank updates become annoying.
+
+## Delegation and Review Independence
+
+Within authorized work, the primary seat may delegate bounded tasks when doing so improves quality or efficiency and the work order and lane permit it. Every descendant inherits scope, prohibitions, lane restrictions, and verification obligations. Recursive delegation requires stated permission and boundaries. The primary seat remains accountable for integration and accepted claims. A cheaper or narrower model may handle a suitable bounded assignment without bypassing named routing restrictions.
+
+Disclose material delegated contributions by task and model/seat, classifying their actual substance as implementation, evidence, or review. A producer/orchestrator's delegation tree cannot supply its own producer-independent checker under `DECISIONS.md` P2/P5; another model, a fresh context, or a separately spawned nominal reviewer does not establish independence. Delegated substantive judgment may contribute within the producing team without satisfying an external independence gate.
 
 ## Working Style
 
